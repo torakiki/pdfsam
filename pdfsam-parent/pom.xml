@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.pdfsam</groupId>
+	<artifactId>pdfsam-parent</artifactId>
+	<packaging>pom</packaging>
+	<name>pdfsam</name>
+	<version>3.0.0-SNAPSHOT</version>
+	<url>http://www.pdfsam.org</url>
+	<description>A free open source desktop tool to split and merge pdf documents</description>
+
+	<modules>
+		<module>../pdfsam-gui</module>
+	</modules>
+
+	<developers>
+		<developer>
+			<id>torakiki</id>
+			<name>Andrea Vacondio</name>
+			<email>andrea.vacondio@gmail.com</email>
+		</developer>
+	</developers>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>2.3.2</version>
+					<configuration>
+						<source>1.6</source>
+						<target>1.6</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<properties>
+		<junit.version>4.10</junit.version>
+		<slf4j.version>1.6.4</slf4j.version>
+		<commons.lang.version>3.1</commons.lang.version>
+		<commons.io.version>2.1</commons.io.version>
+		<mockito.version>1.9.0-rc1</mockito.version>
+		<logback.version>0.9.29</logback.version>
+		<jdepend.version>2.9.1</jdepend.version>
+		<hibernate-validator.version>4.2.0.Final</hibernate-validator.version>
+		<sejda.version>1.0.0-RC1</sejda.version>
+		<dockingframes.version>1.1.0</dockingframes.version>
+		<eventbus.version>1.4</eventbus.version>
+	</properties>
+	
+	<repositories>
+		<repository>
+			<id>jboss</id>
+			<url>https://repository.jboss.org/nexus/content/repositories/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.dockingframes</groupId>
+				<artifactId>docking-frames-common</artifactId>
+				<version>${dockingframes.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.bushe</groupId>
+				<artifactId>eventbus</artifactId>
+				<version>${eventbus.version}</version>
+			</dependency>			
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>${commons.io.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons.lang.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-collections</groupId>
+				<artifactId>commons-collections</artifactId>
+				<version>${commons.collections.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>jdepend</groupId>
+				<artifactId>jdepend</artifactId>
+				<version>${jdepend.version}</version>
+				<scope>test</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>[${logback.version},]</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>${mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>
