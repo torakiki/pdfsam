@@ -15,12 +15,12 @@
 package org.pdfsam.context;
 
 /**
- * Context holding application related settings.
+ * Context holding user related application settings.
  * 
  * @author Andrea Vacondio
  * 
  */
-public interface ApplicationContext {
+public interface UserContext {
 
     /**
      * @return the default workspace path if set, an empty string if not set.

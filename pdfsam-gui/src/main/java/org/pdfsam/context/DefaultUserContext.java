@@ -19,24 +19,24 @@ import java.util.prefs.Preferences;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * {@link Preferences} implementation for the {@link ApplicationContext}.
+ * {@link Preferences} implementation for the {@link UserContext}.
  * 
  * @author Andrea Vacondio
  * 
  */
-public final class DefaultApplicationContext implements ApplicationContext {
+public final class DefaultUserContext implements UserContext {
 
     private Preferences prefs;
 
-    private DefaultApplicationContext() {
-        this.prefs = Preferences.userNodeForPackage(DefaultApplicationContext.class);
+    private DefaultUserContext() {
+        this.prefs = Preferences.userNodeForPackage(DefaultUserContext.class);
     }
 
     /**
      * @return the default application context instance
      */
-    public static ApplicationContext getInstance() {
-        return DefaultApplicationContextHolder.CONTEXT;
+    public static UserContext getInstance() {
+        return DefaultUserContextHolder.CONTEXT;
     }
 
     @Override
@@ -101,13 +101,13 @@ public final class DefaultApplicationContext implements ApplicationContext {
      * @author Andrea Vacondio
      * 
      */
-    private static final class DefaultApplicationContextHolder {
+    private static final class DefaultUserContextHolder {
 
-        private DefaultApplicationContextHolder() {
+        private DefaultUserContextHolder() {
             // hide constructor
         }
 
-        static final DefaultApplicationContext CONTEXT = new DefaultApplicationContext();
+        static final DefaultUserContext CONTEXT = new DefaultUserContext();
     }
 
 }

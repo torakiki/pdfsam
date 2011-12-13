@@ -35,7 +35,7 @@ public final class DefaultI18nContext implements I18nContext {
     }
 
     private Locale getLocale() {
-        String localeString = DefaultApplicationContext.getInstance().getLocale();
+        String localeString = DefaultUserContext.getInstance().getLocale();
         if (StringUtils.isNotBlank(localeString)) {
             String[] i18nInfos = localeString.split("_");
             if (i18nInfos.length > 1) {
