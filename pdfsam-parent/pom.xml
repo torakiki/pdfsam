@@ -13,6 +13,7 @@
 
 	<modules>
 		<module>../pdfsam-gui</module>
+		<module>../pdfsam-i18n</module>
 	</modules>
 
 	<developers>

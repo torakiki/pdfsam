@@ -1,0 +1,1463 @@
+# Hungarian translation for pdfsam
+# Copyright (c) 2007 Rosetta Contributors and Canonical Ltd 2007
+# This file is distributed under the same license as the pdfsam package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pdfsam\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-10-24 17:57+0200\n"
+"PO-Revision-Date: 2010-03-09 00:45+0000\n"
+"Last-Translator: Gonosz Mikulás <Unknown>\n"
+"Language-Team: Hungarian <hu@li.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2010-03-27 08:49+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+msgid "Merge options"
+msgstr "Összefésülés beállításai"
+
+msgid "PDF documents contain forms"
+msgstr "A PDF dokumentumok, tartalmaznak űrlapot"
+
+msgid "Merge type"
+msgstr "Egyesítés típusa"
+
+msgid "Unchecked"
+msgstr "Kijelöletlen"
+
+msgid "Use this merge type for standard pdf documents"
+msgstr "Használja ezt az egyesítési típust a hagyományos pdf dokumentumokhoz"
+
+msgid "Checked"
+msgstr "Kijelölve"
+
+msgid "Use this merge type for pdf documents containing forms"
+msgstr ""
+"Használd ezt az egyesítési típust az űrlapokat tartalmazó pdf dokumentumokhoz"
+
+msgid "Note"
+msgstr "Megjegyzés"
+
+msgid "Setting this option the documents will be completely loaded in memory"
+msgstr ""
+"Ezt a lehetőséget kiválasztva, a teljes dokumentum a memóriába fog töltődni"
+
+msgid "Destination output file"
+msgstr "Kimeneti fájl helye:"
+
+msgid "Browse or enter the full path to the destination output file."
+msgstr "Tallózzon, vagy írja be a kimeneti fájl elérésének a helyét"
+
+msgid ""
+"Check the box if you want to overwrite the output file if it already exists."
+msgstr ""
+"Jelölje ki ezt a négyzetet, amennyiben felül akarja írni a már létező fájlt"
+
+msgid "Check the box if you want compressed output files."
+msgstr ""
+"Jelölje ki ezt a négyzetet, ha azt szeretné, hogy a kimeneti fájl tömörített "
+"legyen."
+
+msgid "PDF version 1.5 or above."
+msgstr "1.5-ös, vagy afölötti verziójú PDF"
+
+msgid "Set the pdf version of the ouput document."
+msgstr "A kimeneti dokumentum PDF-verziójának beállítása."
+
+msgid "Execute pdf merge"
+msgstr "A pdf egyesítése"
+
+msgid "Merge/Extract"
+msgstr "Összefésülés/Szétbontás"
+
+msgid "Merge section loaded."
+msgstr "Összefésülő rész betöltve"
+
+msgid "Error: "
+msgstr "Hiba: "
+
+msgid "Found a password for input file."
+msgstr "A bemeneti fájl jelszóval védett."
+
+msgid "Export as xml"
+msgstr "Exportálás XML-be"
+
+msgid "Export the selection list in xml format"
+msgstr ""
+
+msgid "Unable to save xml file."
+msgstr "Az xml fájl mentése meghiúsult"
+
+msgid "File xml saved."
+msgstr "Az xml fájl mentése sikeres volt"
+
+msgid "Error saving xml file, output file is null."
+msgstr "Hiba az xml fájl mentése közben, nincs kimeneti fájl"
+
+msgid "Split options"
+msgstr "Szétválasztás lehetőségei"
+
+msgid "Burst (split into single pages)"
+msgstr "Szétszakítás (szétválasztás oldalanként)"
+
+msgid "Split every \"n\" pages"
+msgstr "Szétválasztás minden \"n\"-dik oldalnál"
+
+msgid "Split even pages"
+msgstr "Szétválasztás minden páros oldal után"
+
+msgid "Split odd pages"
+msgstr "Szétválasztás minden páratlan oldal után"
+
+msgid "Split after these pages"
+msgstr "Szétválasztás ezek az oldalak után"
+
+msgid "Split at this size"
+msgstr "Ekkora méretnél daraboljon"
+
+msgid "Split by bookmarks level"
+msgstr "Könyvjelzők alapján daraboljon"
+
+msgid "Burst"
+msgstr "Szétválasztás"
+
+msgid "Explode the pdf document into single pages"
+msgstr "A pdf dokumentum szétválasztása oldalanként"
+
+msgid "Split the document every \"n\" pages"
+msgstr "A dokumentum szétválasztása minden \"n\"-dik oldalnál"
+
+msgid "Split the document every even page"
+msgstr "A dokumentum szétválasztása a páros oldalaknál"
+
+msgid "Split the document every odd page"
+msgstr "A dokumentum szétválasztása a páratlan oldalaknál"
+
+msgid "Split the document after page numbers (num1-num2-num3..)"
+msgstr "A dokumentum szétválasztása a következő oldalszámoknál (1; 2; 3;...)"
+
+msgid "Split the document in files of the given size (roughly)"
+msgstr "Dokumentum feldarabolása az adott méretűre (durván)"
+
+msgid "Split the document at pages referred by bookmarks of the given level"
+msgstr "Dokumentum szétválasztása a könyvjelzők szerint"
+
+msgid "Destination folder"
+msgstr "Célkönyvtár"
+
+msgid "Same as source"
+msgstr "Ugyanaz, mint a forrás"
+
+msgid "Choose a folder"
+msgstr "Könyvtár választása"
+
+msgid "Destination output directory"
+msgstr "Kimeneti könyvtár"
+
+msgid "Use the same output folder as the input file or choose a folder."
+msgstr ""
+"Használja a kimeneti könyvtárként  ugyanazt, mint amiben a bemeneti fájl "
+"van, vagy válasszon könyvtárat"
+
+msgid ""
+"To choose a folder browse or enter the full path to the destination output "
+"directory."
+msgstr ""
+"A mappa kiválasztásához tallózzon, vagy írja be a teljes elérési útvonalat, "
+"ahová a kimeneti fájlokat menteni szeretné"
+
+msgid ""
+"Check the box if you want to overwrite the output files if they already "
+"exist."
+msgstr ""
+"Jelölje be a négyzetet, amennyiben felül akarja írni a már létező fájlokat"
+
+msgid "Output options"
+msgstr "Kimenet beállításai"
+
+msgid "Output file names prefix:"
+msgstr "Kimeneti file nevek előtagja"
+
+msgid "Output files prefix"
+msgstr "Kimeneti file-ok előtagja"
+
+msgid ""
+"If it contains \"[CURRENTPAGE]\", \"[TIMESTAMP]\", \"[FILENUMBER]\" or "
+"\"[BOOKMARK_NAME]\" it performs variable substitution."
+msgstr ""
+"Ha tartalmazza a \"[CURRENTPAGE]\", \"[TIMESTAMP]\", \"[FILENUMBER]\" vagy "
+"\"[BOOKMARK_NAME]\" elemek valamelyikét, vátozó-helyettesítést végez."
+
+msgid "Ex. prefix_[BASENAME]_[CURRENTPAGE] generates prefix_FileName_005.pdf."
+msgstr ""
+"Például: Előtag_alapnév_jelenlegi oldal a következőt hozza létre: "
+"előtag_fájl neve_005.pdf"
+
+msgid ""
+"If it doesn't contain \"[CURRENTPAGE]\", \"[TIMESTAMP]\" or \"[FILENUMBER]\" "
+"it generates oldstyle output file names."
+msgstr ""
+"Ha nem tartalmazza a \"[CURRENTPAGE]\", \"[TIMESTAMP]\", \"[FILENUMBER]\" "
+"vagy \"[BOOKMARK_NAME]\" elemek közül egyiket sem, régi stílusú kimeneti "
+"állomány-neveket generál."
+
+msgid "Available variables"
+msgstr "Rendelkezésreálló változók"
+
+msgid "Split selected file"
+msgstr "A kijelölt fájl szétválasztása"
+
+msgid "Split"
+msgstr "Felosztás"
+
+msgid "Split section loaded."
+msgstr "A szétválasztptt rász megnyitva"
+
+msgid "Invalid split size"
+msgstr "Érvénytelen darabolási méret"
+
+msgid "Invalid unit: "
+msgstr "Érvénytelen egység: "
+
+msgid "Fill from document"
+msgstr "Dokumentum kitöltése"
+
+msgid "Please select a pdf document."
+msgstr "Kérem válasszon ki egy pdf dokumentumot"
+
+msgid "Warning"
+msgstr "Figyelem"
+
+msgid "Getting bookmarks max depth"
+msgstr "Könyvjelzők max. mélysége"
+
+msgid "Unable to retrieve bookmarks maximum depth."
+msgstr ""
+
+msgid "Frontpage pdf file"
+msgstr "Előlap pdf állománya"
+
+msgid "Addendum pdf file"
+msgstr "Függelék pdf fájl"
+
+msgid "Frontpage and Addendum"
+msgstr "Előlap és Függelék"
+
+msgid "Cover And Footer section loaded."
+msgstr "Fej- és lábrészek betöltve."
+
+msgid "Select at least one cover or one footer"
+msgstr "Válasszon ki legalább egy fedlapot vagy hátlapot"
+
+msgid "Encrypt options"
+msgstr "Titkosítási beállítások"
+
+msgid "Owner password:"
+msgstr "Tulajdonon Jelszava"
+
+msgid "Owner password (Max 32 chars long)"
+msgstr "Tulajdonos jelszava (Maximum 22 karakter hosszú)"
+
+msgid "User password:"
+msgstr "A felhasználó jelszava"
+
+msgid "User password (Max 32 chars long)"
+msgstr ""
+
+msgid "Encryption algorithm:"
+msgstr "Titkosítási algoritmus:"
+
+msgid "Allow all"
+msgstr "Minden engedélyezése"
+
+msgid "Print"
+msgstr "Nyomtatás"
+
+msgid "Low quality print"
+msgstr "Alacsony minőségű nyomtatás"
+
+msgid "Copy or extract"
+msgstr "Másolás, vagy kiemelés"
+
+msgid "Modify"
+msgstr "Módosít"
+
+msgid "Add or modify text annotations"
+msgstr "Magyarázó szöveg hozzáadása, vagy módosítása"
+
+msgid "Fill form fields"
+msgstr "Formanyomtatvány mezőinek kitöltése"
+
+msgid "Extract for use by accessibility dev."
+msgstr "Kinyerés a hozzáférhetőség javításáért"
+
+msgid "Manipulate pages and add bookmarks"
+msgstr "Oldalak módosítása és könyvjelzők hozzáadása"
+
+msgid ""
+"Check the box if you want compressed output files (Pdf version 1.5 or "
+"higher)."
+msgstr ""
+"Jelölje be a négyzetet, ha azt szeretné, hogy a kimeneti fájlok tömörítve "
+"legyenek (PDF Version 1.5 vagy magasabb)."
+
+msgid "If it contains \"[TIMESTAMP]\" it performs variable substitution."
+msgstr "Ha van benne időbélyeg, használjon a változó helyettesítést"
+
+msgid ""
+"Ex. [BASENAME]_prefix_[TIMESTAMP] generates "
+"FileName_prefix_20070517_113423471.pdf."
+msgstr ""
+"Például: Alapnév_Előtag_Időbélyeg a következőt hozza létre: "
+"Fájlnév_előtag_20070517_113423471.pdf"
+
+msgid ""
+"If it doesn't contain \"[TIMESTAMP]\" it generates oldstyle output file "
+"names."
+msgstr ""
+"Amennyiben nem tartalmaz időbélyeget, akkor hagyományos fájlneveket hoz létre"
+
+msgid "Available variables: [TIMESTAMP], [BASENAME]."
+msgstr "Elérhető változók: Időbélyeg, Alapnév"
+
+msgid "Encrypt selected files"
+msgstr "Kijelölt fájlok titkosítása"
+
+msgid "Encrypt"
+msgstr "Titkosítás"
+
+msgid "Encrypt section loaded."
+msgstr "A titkosítási rész betöltve"
+
+msgid "Decrypt selected files"
+msgstr "Kijelölt fájlok titkosításának feloldása"
+
+msgid "Decrypt"
+msgstr "Titkosítás feloldása"
+
+msgid "Decrypt section loaded."
+msgstr "Titkosítást feloldó rész betöltve"
+
+msgid "Document metadata"
+msgstr "Dokumentum metaadatai"
+
+msgid "Title"
+msgstr "Cím"
+
+msgid "Author"
+msgstr "Szerző"
+
+msgid "Subject"
+msgstr "Tárgy"
+
+msgid "Keywords"
+msgstr "Kulcsszavak"
+
+msgid "Set the document title."
+msgstr "A Dokumentum címének megadása."
+
+msgid "Set the document author."
+msgstr "A Dokumentum szerzőjének megadása."
+
+msgid "Set the document subject."
+msgstr "Dokumentum témájának beállítása."
+
+msgid "Set the document keywords."
+msgstr "Dokumentum kulcsszavainak beállítása."
+
+msgid "Choose a file"
+msgstr "Válasszon egy fájlt"
+
+msgid "Set metadata on the selected file"
+msgstr "Metaadatok beállítása a kiválasztott fájlban"
+
+msgid "Document Info"
+msgstr "Dokumentumjellemzők"
+
+msgid "Rotate section loaded."
+msgstr "A forgató rész betöltve"
+
+msgid "Mix options"
+msgstr "Vegyes lehetőségek"
+
+msgid "Reverse first document"
+msgstr "Lefordított első dokumentum"
+
+msgid "Reverse second document"
+msgstr "Lefordított második dokumentum"
+
+msgid "Number of pages to switch from the first document to the other"
+msgstr "Hány oldal szerepeljen az első dokumentumban"
+
+msgid "Number of pages to switch from the second document to the other"
+msgstr "Hány oldal szerepeljen a második dokumentumban"
+
+msgid ""
+"Tick the boxes if you want to reverse the first or the second document (or "
+"both)."
+msgstr ""
+"Jelölje be azt a dokumentum előtti négyzetet, amelyet le akar fordítani "
+"(első, második, vagy mindkettő)"
+
+msgid ""
+"Set the number of pages to switch from the first document to the other one "
+"(default is 1)."
+msgstr ""
+"Állítsa be, hogy hány oldal legyen az első dokumentumban (az alapértelmezés "
+"1.)"
+
+msgid ""
+"Set the number of pages to switch from the second document to the other one "
+"(default is 1)."
+msgstr ""
+"Állítsa be, hogy hány oldal legyen az második dokumentumban (az "
+"alapértelmezés 1.)"
+
+msgid "Execute pdf alternate mix"
+msgstr "Végrehajtja a pdf választott módosításait"
+
+msgid "Alternate Mix"
+msgstr "Választott modosítások"
+
+msgid "AlternateMix section loaded."
+msgstr "Választott modosítások rész betöltve"
+
+msgid "Found a password for first file."
+msgstr "Az első file-ban jelszó van"
+
+msgid "Found a password for second file."
+msgstr "A második file-ban jelszó van"
+
+msgid "Unpack selected files"
+msgstr "Kiválasztott állományok kibontása"
+
+msgid "Unpack"
+msgstr "Kibontás"
+
+msgid "Unpack section loaded."
+msgstr "Kibontó rész betöltve"
+
+msgid "Set viewer options"
+msgstr "A megjelenítő lehetőségeinek beállítása"
+
+msgid "Hide the menubar"
+msgstr "Menüsor elrejtése"
+
+msgid "Hide the toolbar"
+msgstr "Eszköztár elrejtése"
+
+msgid "Hide user interface elements"
+msgstr "Felhasználói felület elemeinek elrejtése"
+
+msgid "Rezise the window to fit the page size"
+msgstr "Ablak átméretezése az oldal mérethez"
+
+msgid "Center of the screen"
+msgstr "A képernyő közepén"
+
+msgid "Display document title as window title"
+msgstr "A dokumentum címe legyen az ablak címe"
+
+msgid "Pdf version required:"
+msgstr "Szükséges pdf verzió:"
+
+msgid "No page scaling in print dialog"
+msgstr "Nyomtatásnál nem méretezhető"
+
+msgid "Viewer open mode:"
+msgstr "Megjelenítő megnyitási módja:"
+
+msgid "Viewer layout:"
+msgstr "Megjelenítő elrendezése:"
+
+msgid "Non fullscreen mode:"
+msgstr "Nem teljes képernyős mód:"
+
+msgid "Direction:"
+msgstr "Utasítás"
+
+msgid "Set options"
+msgstr "Lehetőségek beállítása"
+
+msgid "Set viewer options for selected files"
+msgstr "A megjelenítő beállításai a ktjelölt file-ra"
+
+msgid "Left to right"
+msgstr "Balról jobbra"
+
+msgid "Right to left"
+msgstr "Jobbról balra"
+
+msgid "None"
+msgstr "Egyik sem"
+
+msgid "Fullscreen"
+msgstr "Teljes képernyő"
+
+msgid "Attachments"
+msgstr "Mellékletként"
+
+msgid "Optional content group panel"
+msgstr "Választható tartalmak csoport panel"
+
+msgid "Document outline"
+msgstr "A dokumentum vázlata"
+
+msgid "Thumbnail images"
+msgstr "Kisméretű képek"
+
+msgid "One page at a time"
+msgstr "Oldalanként"
+
+msgid "Pages in one column"
+msgstr "Oldalak egy oszlopban"
+
+msgid "Pages in two columns (odd on the left)"
+msgstr "Oldalak két oszlopban (páratlanok baloldalt)"
+
+msgid "Pages in two columns (odd on the right)"
+msgstr "Oldalak két oszlopban (páratlanok jobboldalt)"
+
+msgid "Two pages at a time (odd on the left)"
+msgstr "Kétoldalanként (páratlanok baloldalt)"
+
+msgid "Two pages at a time (odd on the right)"
+msgstr "Kétoldalanként (páratlanok jobboldalt)"
+
+msgid "Viewer options"
+msgstr "Megjelenítő beállításai"
+
+msgid "Viewer options section loaded."
+msgstr "Megjelenítő beállításai rész betöltve"
+
+msgid "Move on top"
+msgstr "Felülre"
+
+msgid "Move to bottom"
+msgstr "Alulra"
+
+msgid ""
+"To choose a file browse or enter the full path to the destination output "
+"file."
+msgstr ""
+"Egy file kiválasztásához keresse meg, vagy adja meg annak teljes elérési "
+"útvonalát."
+
+msgid "Execute pages reorder"
+msgstr "Oldalak újrarendezése"
+
+msgid "Visual document composer"
+msgstr "Vizuális dokumentum alkotó"
+
+msgid "Visual Composer section loaded."
+msgstr "Vizuális alkotó rész betöltve"
+
+msgid "Please select a pdf document or undelete some pages"
+msgstr ""
+"Kérem, válassza ki a pdf dokumentumot, vagy néhány visszaállított oldalt"
+
+msgid "Rotation"
+msgstr "Elforgatás"
+
+msgid "All"
+msgstr "Összes"
+
+msgid "Even"
+msgstr "Páros"
+
+msgid "Odd"
+msgstr "Páratlan"
+
+msgid "Clockwise rotation (degrees):"
+msgstr "Óramutató járásával egyező forgatás (fok):"
+
+msgid "Pages:"
+msgstr "Oldalak:"
+
+msgid "Set the rotation degrees (clockwise)."
+msgstr "Állítsuk be a forgatás fokát (óramutató járásával megegyező irányban)"
+
+msgid "Set the pages that will be rotated."
+msgstr "Állítsa be az oldalakat, merre kell forgatni"
+
+msgid "Rotate selected files"
+msgstr "Kijelölt file-ok forgatása"
+
+msgid "Rotate"
+msgstr "Elforgatás"
+
+msgid "Use the same output file name as the input file or choose a file."
+msgstr ""
+"Használja a kimeneti file neveként a bemeneti file nevét, vagy válasszon "
+"újat."
+
+msgid "Visual reorder"
+msgstr "Vizuális újrarendezés"
+
+msgid "Visual Reorder section loaded."
+msgstr "Vizuális újrarendezés rész betöltve"
+
+msgid "Please select a pdf document or undelete some page"
+msgstr "Kérem válasszon pdf file-t, vagy néhány visszanyert oldalt"
+
+msgid "New version available."
+msgstr "Új verzió elérhető."
+
+msgid "No new version available."
+msgstr "Nem érhető el új verzió."
+
+msgid "Unknown action."
+msgstr "Ismeretlen művelet"
+
+msgid "Log saved."
+msgstr "Napló mentve"
+
+msgid "Save as"
+msgstr "Mentés másként"
+
+msgid "Save the image"
+msgstr "Kép mentése"
+
+msgid "Unable to save image"
+msgstr "A kép mentése nem sikerült"
+
+msgid "Close"
+msgstr "Bezárás"
+
+msgid "Close panel"
+msgstr "Panel bezárása"
+
+msgid "Rotate anticlockwise"
+msgstr "Elfordítás az óramutató járásával ellentétes irányba"
+
+msgid "Rotate clockwise"
+msgstr "Elfordítás az óramutató járásával azonos irányba"
+
+msgid "Zoom in"
+msgstr "Nagyítás"
+
+msgid "Zoom out"
+msgstr "Kicsinyítés"
+
+msgid "No zoom"
+msgstr "Nincs nagyítás / kicsinyítés"
+
+msgid "No zoom applied"
+msgstr "Nem alkalmazható nagyítás / kicsinyítés"
+
+msgid "Save environment"
+msgstr "Környezet elmentése"
+
+msgid ""
+"Save passwords informations (they will be readable opening the output file)?"
+msgstr ""
+"Jelszavak, információk mentése (megnyitható, ill. olvasható lesz a kimeneti "
+"file?)"
+
+msgid "Confirm password saving"
+msgstr "Jelszó megerősítésének mentése"
+
+msgid "Load environment"
+msgstr "Környezet betöltése"
+
+msgid "Unable to create image for a null input document"
+msgstr "Nem lehet létrehozni a képet, bemeneti file nélkül"
+
+msgid "Unable to create thumbnails for a null input document"
+msgstr "Nem lehet létrehozni a miniatűröket, bemeneti file nélkül"
+
+msgid "Unable to open the input document"
+msgstr "A bemeneti file nem nyitható meg"
+
+msgid "Input file doesn't exists or is a directory"
+msgstr "A bemeneti file, vagy könyvtár nem létezik"
+
+msgid "Error opening pdf document"
+msgstr "Hiba a pdf file megnyitásakor"
+
+msgid "Password not provided."
+msgstr "A jelszó nincs beintegrálva."
+
+msgid "Unable to open the document."
+msgstr "Nem sikerült megnyitni a dokumentumot."
+
+msgid "Not enough memory to create thumbnails"
+msgstr "Nincs elég memória a miniatűr kép létrehozásához."
+
+msgid "Thumbnails generated in "
+msgstr "Miniatűr képek létrehozása "
+
+msgid "Unable to generate thumbnail"
+msgstr "Nem sikerült a miniatűr képek létrehozása."
+
+msgid " node environment loaded."
+msgstr " csomópont környezet betöltve."
+
+msgid "Environment saved."
+msgstr "Környezet mentve."
+
+msgid "Error saving environment, output file is null."
+msgstr "Hiba a környezet mentésekor, a kimeneti file nem jött létre."
+
+msgid "Error saving environment."
+msgstr "Hiba a környezet mentésekor."
+
+msgid "Environment loaded."
+msgstr "Környezet betöltve."
+
+msgid "Error loading environment."
+msgstr "Hiba a környezet betöltésekor."
+
+msgid "Error loading environment from input file. "
+msgstr "Hiba, amit a bemeneti állományból töltött be a környezetet "
+
+msgid "Image viewer"
+msgstr "Képmegjelenítő"
+
+msgid "Unable to initialize the thumbnails creation library."
+msgstr "Nem sikerült elkezdeni a miniatűrök könyvtár létrehozását"
+
+msgid "Unable to open image preview"
+msgstr "Nem sikerült megnyitni a kép előnézetét"
+
+msgid "Unknown Action"
+msgstr "Ismeretlen esemény"
+
+msgid "Error playing sound"
+msgstr "Hibahang lejátszva"
+
+msgid "Generating thumbnails using the following library:"
+msgstr "Miniatűrök létrehozása a a következő könyvtárban:"
+
+msgid "Selection table is full, please remove some pdf document."
+msgstr ""
+"Felvételi tábla tele van, kérjük, távolítson el néhány pdf dokumentumot."
+
+msgid "Table full"
+msgstr "A tábla tele van"
+
+msgid "Please wait while all files are processed.."
+msgstr "Kérem várjon, amíg minden fájl feldolgozásra kerül"
+
+msgid "Command validation returned an empty value."
+msgstr "A parancsvégrehajtás üres értékkel tért vissza."
+
+msgid "Command executed."
+msgstr "A parancs végrehajtva."
+
+msgid "Add"
+msgstr "Hozzáadás"
+
+msgid "Add a pdf to the list"
+msgstr "PDF hozzáadása a listához"
+
+msgid "Clear"
+msgstr "Törlés"
+
+msgid "Remove every pdf file from the selection list"
+msgstr ""
+
+msgid "Document properties"
+msgstr "Dokumentum tulajdonságai"
+
+msgid "Show document properties"
+msgstr ""
+
+msgid "Move down"
+msgstr ""
+
+msgid "Move down selected pdf file"
+msgstr "A kiválasztott PDF fájl lefelé mozgatása"
+
+msgid "Move Up"
+msgstr "Mozgatás felfelé"
+
+msgid "Move up selected pdf file"
+msgstr "A kiválasztott PDF fájl felfelé mozgatása"
+
+msgid "Reload"
+msgstr "Újra betölti"
+
+msgid "Reload the selected document"
+msgstr ""
+
+msgid "Remove"
+msgstr "Eltávolít"
+
+msgid "Remove a pdf from the list"
+msgstr "PDF eltávolítása a listából"
+
+msgid "Set destination"
+msgstr ""
+
+msgid "Set the destination path"
+msgstr ""
+
+msgid "Unable to clean pdf loader"
+msgstr "Nem sikerült a pdf  hibátlan betöltése"
+
+msgid "Run"
+msgstr "Futtatás"
+
+msgid "Browse"
+msgstr "Tallóz"
+
+msgid "Compress output file/files"
+msgstr "A kimenő file(-ok) tömörítése"
+
+msgid "Overwrite if already exists"
+msgstr "Felülír, ha már létezik"
+
+msgid "Don't preserve file order (fast load)"
+msgstr "Ne őrizze meg a file rendjét (gyors betöltés)"
+
+msgid "Output document pdf version:"
+msgstr "Kimeneti dokumentum pdf verziója:"
+
+msgid "Same as input document"
+msgstr "Ugyanaz, mint a bemeneti dokumentum"
+
+msgid "Copy"
+msgstr "Másol"
+
+msgid "Cut"
+msgstr "Kivág"
+
+msgid "Paste"
+msgstr "Beilleszt"
+
+msgid "Add prefix"
+msgstr "Előtag hozzáadása"
+
+msgid "The cross reference table cantained some error and has been rebuilt"
+msgstr ""
+"A kereszt referencia táblázat tartalmazott néhány hibát, és az lett "
+"helyreállítva"
+
+msgid ""
+"The document has not been opened with the owner password. You must provide "
+"the owner password in order to manipulate the document"
+msgstr ""
+"A dokumentumot nem nyitható meg as jelszónélkül. Kérem adja meg, hogy "
+"szerkeszthető legyen a dokumentum."
+
+msgid "An error occured while loading the document"
+msgstr "Hiba történt a dokumentum betöltése során."
+
+msgid "File name"
+msgstr "File neve"
+
+msgid "Path"
+msgstr "Elérési Útvonal"
+
+msgid "Pages"
+msgstr "Oldalak"
+
+msgid "Password"
+msgstr "Jelszó"
+
+msgid "Version"
+msgstr "Verzió"
+
+msgid "Page Selection"
+msgstr "Oldalkijelölés"
+
+msgid "Total pages of the document"
+msgstr "Összes oldal a dokumentumban"
+
+msgid "Password to open the document (if needed)"
+msgstr "Jelszó a dokumentum megnyitásához (ha szükséges)"
+
+msgid "Pdf version of the document"
+msgstr "A dokumentum pdf verziója"
+
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Dupla kattintással beállítani a kívánt oldalak egyesítését (pl.: 2 vagy 5-23 "
+"vagy 2,5-7,12 -)"
+
+msgid "Unable to remove JList text "
+msgstr "Nem lehet eltávolítani JList szöveget "
+
+msgid "File selected: "
+msgstr "Kiválasztott fájl: "
+
+msgid "File reloaded: "
+msgstr "File újra betöltve: "
+
+msgid "Open"
+msgstr "Megnyitás"
+
+msgid "Load a pdf document"
+msgstr "Pdf dokumentum betöltése"
+
+msgid "Error setting zoom level."
+msgstr "Nagyítási szint beállítási hibája"
+
+msgid "Preview"
+msgstr "Előnézet"
+
+msgid "Move Down"
+msgstr "Mozgatás lefelé"
+
+msgid "Delete"
+msgstr "Törlés"
+
+msgid "Undelete"
+msgstr "A törlés visszavonása"
+
+msgid "Reverse"
+msgstr "Kijelölés megfordítása"
+
+msgid "Move up selected pages"
+msgstr "A kijelölt oldal(ak) felfelé mozgatása"
+
+msgid "(Alt+ArrowUp)"
+msgstr "Alt+Fel(nyíl)"
+
+msgid "Move down selected pages"
+msgstr "A kijelölt oldal(ak) lefelé mozgatása"
+
+msgid "(Alt+ArrowDown)"
+msgstr "Alt+Le(nyíl)"
+
+msgid "Delete selected pages"
+msgstr "Kijelölt oldal(ak) törlése"
+
+msgid "(Canc)"
+msgstr "(Mégse)"
+
+msgid "Undelete selected pages"
+msgstr "Kijelölt oldal(ak) törlésének visszavonása"
+
+msgid "(Ctrl+Z)"
+msgstr "(Ctrl+Z)"
+
+msgid "Rotate right"
+msgstr "Forgatás jobbra"
+
+msgid "Rotate clockwise selected pages"
+msgstr "Kiválasztott oldal(ak) forgatása az óramutatóval megegyezően"
+
+msgid "(Alt+ArrowRight)"
+msgstr "(Alt+Jobbra(nyíl))"
+
+msgid "Rotate left"
+msgstr "Forgatás balra"
+
+msgid "Rotate anticlockwise selected pages"
+msgstr "Kiválasztott oldal(ak) forgatása az óramutatóval ellenkezően"
+
+msgid "(Alt+ArrowLeft)"
+msgstr "(Alt+Balra(nyíl))"
+
+msgid "Reverse pages order"
+msgstr "Oldal(ak) ellentétes elrendezése"
+
+msgid "Yes"
+msgstr "Igen"
+
+msgid "No"
+msgstr "Nem"
+
+msgid "File: "
+msgstr "File: "
+
+msgid "Pages: "
+msgstr "Oldalak: "
+
+msgid "Pdf version: "
+msgstr "Pdf verzió: "
+
+msgid "Title: "
+msgstr "Cím: "
+
+msgid "Author: "
+msgstr "Szerző: "
+
+msgid "Creator: "
+msgstr "Létrehozta: "
+
+msgid "Producer: "
+msgstr "Készítette: "
+
+msgid "Encrypted: "
+msgstr "Titkosított: "
+
+msgid "Set output file"
+msgstr "Kimeneti fájl beállítása"
+
+msgid "Error: Unable to get the file path."
+msgstr "Hiba: A fájl helye (útvonala) nem meghatározható"
+
+msgid "File"
+msgstr "File"
+
+msgid "Image"
+msgstr "Kép"
+
+msgid "Error creating preview panel."
+msgstr "Nem sikerült létrehozni az előnézeti panelt."
+
+msgid "Number of pages"
+msgstr "Oldalak száma"
+
+msgid "File size"
+msgstr "File mérete"
+
+msgid "Pdf version"
+msgstr "Pdf verzió"
+
+msgid "Encryption"
+msgstr "Titkosítás"
+
+msgid "Not encrypted"
+msgstr "Nem titkosított"
+
+msgid "Permissions"
+msgstr "Jogosultságok"
+
+msgid "Producer"
+msgstr "Készítő"
+
+msgid "Creator"
+msgstr "Létrehozta"
+
+msgid "Creation date"
+msgstr "Létrehozás dátuma"
+
+msgid "Modification date"
+msgstr "Módosítás dátuma"
+
+msgid "Error creating properties panel."
+msgstr "Nem sikerült létrehozni a tulajdonságpanelt."
+
+msgid "Please select a single pdf document."
+msgstr "Kérem válasszon egy pdf dpkumentumot."
+
+msgid "File type not supported."
+msgstr "E  file típusa nem támogatott."
+
+msgid "Error during drag and drop."
+msgstr "Hiba a \"fogd és dobd\" folyamán."
+
+msgid "Logging level set to "
+msgstr "Naplózási szint beállítása "
+
+msgid "Unable to set logging level."
+msgstr "Naplózási szint beállítása sikertelen."
+
+msgid "Error getting plugins directory."
+msgstr "Hiba, a beépülő modulok könyvtárának olvasásakor"
+
+msgid "Cannot read plugins directory "
+msgstr "A beépülő modulok könyvtára nem olvasható "
+
+msgid "Plugins directory is null."
+msgstr "A beépülő modulok könyvtára üres"
+
+msgid "Found many plugins in "
+msgstr "Túl sok beépülőt találtam itt "
+
+msgid "selected as the most recent plugin"
+msgstr "Válasszon új beépülőt"
+
+msgid "No plugin found in "
+msgstr "Nem találtam beépülőt itt "
+
+msgid "Exception loading plugins."
+msgstr "Kifogás a beépülők betöltésekor"
+
+msgid "Cannot read plugin directory "
+msgstr "Nem olvasható a beépülők könyvtára "
+
+msgid " plugin loaded."
+msgstr " beépülő betöltve."
+
+msgid "Unable to load a plugin that is not JPanel subclass."
+msgstr "Nem sikerült betölteni egy beépülőt, ami nem a JPanel alosztálya."
+
+msgid "Error loading class "
+msgstr "Betöltési hibaosztály "
+
+msgid "Unable to get latest available version"
+msgstr "Nem sikerült beolvasni a legfrissebb verziót"
+
+msgid "Checking for a new version available."
+msgstr "Csatlakozás az elérhető legújabb verzióhoz."
+
+msgid "Error checking for a new version available."
+msgstr "Hiba a legújabb verzió elérésekor."
+
+msgid "Select all"
+msgstr "Mindet kijelöl"
+
+msgid "Save log"
+msgstr "Napló mentése"
+
+msgid "Exit"
+msgstr "Kilép"
+
+msgid "started in "
+msgstr "elindult "
+
+msgid "Loading plugins.."
+msgstr "Beépülők betöltése"
+
+msgid "Building status bar.."
+msgstr "A státuszléc felépítése.."
+
+msgid "Building tree.."
+msgstr "A fastruktúra kiépítése"
+
+msgid "Building menus.."
+msgstr "Menü kialakítása.."
+
+msgid "Building buttons bar.."
+msgstr "Nyomógombok kialakítása.."
+
+msgid "Loading default environment."
+msgstr "Alapértelmezett környezet betöltése"
+
+msgid "Error starting pdfsam."
+msgstr "Hiba a program (pdfsam) indulásakor."
+
+msgid "Clear log"
+msgstr "Napló törlése"
+
+msgid "Unable to initialize button bar."
+msgstr "Nyomógombok kialakítása nem sikerült."
+
+msgid "Version: "
+msgstr "Verzió: "
+
+msgid "Console version: "
+msgstr "Vezérlő verziója: "
+
+msgid "Developed by: "
+msgstr "Fejlesztette: "
+
+msgid "Build date: "
+msgstr "Létrehozás időpontja: "
+
+msgid "Java home: "
+msgstr "Java honlapja: "
+
+msgid "Java version: "
+msgstr "Java verziójan: "
+
+msgid "Max memory: "
+msgstr "Max. memoria: "
+
+msgid "Configuration file: "
+msgstr "Konfigurációs file: "
+
+msgid "Website: "
+msgstr "Weboldal: "
+
+msgid "Name"
+msgstr "Név"
+
+msgid "About"
+msgstr "A programról"
+
+msgid "Unimplemented method for JInfoPanel"
+msgstr "Az eljárás nem valósult meg a JInfoPanelen"
+
+msgid "Contributes: "
+msgstr "Közreműködött: "
+
+msgid "Log level:"
+msgstr "Naplózási szint:"
+
+msgid "Settings"
+msgstr "Beállítások"
+
+msgid "Look and feel:"
+msgstr "Megjelenés:"
+
+msgid "Theme:"
+msgstr "Téma:"
+
+msgid "Language:"
+msgstr "Nyelv:"
+
+msgid "Thumbnails creator"
+msgstr "Miniatűr készítő"
+
+msgid "Load default environment at startup:"
+msgstr "Az alap környezet betöltése a induláskor"
+
+msgid "Default working directory:"
+msgstr "Alapértelmezett munkakönyvtár:"
+
+msgid "Check for updates at startup"
+msgstr "Frissítés keresése induláskor"
+
+msgid "Check now"
+msgstr "Frissítés keresése most"
+
+msgid "Play alert sounds"
+msgstr "Figyelmeztető hangok lejátszása"
+
+msgid "Ask for confirmation when overwrite checkbox is selected"
+msgstr "Megerősítést kér a felülírásra, amikor a négyzet be van jelölve"
+
+msgid "Settings "
+msgstr "Beállítások: "
+
+msgid "Language"
+msgstr "Nyelv"
+
+msgid "Set your preferred language (restart needed)"
+msgstr "Válassza ki a kívánt nyelvet (újraindítás szükséges)"
+
+msgid "Look and feel"
+msgstr "Megjelenés"
+
+msgid ""
+"Set your preferred look and feel and your preferred theme (restart needed)"
+msgstr ""
+"Válassza ki a megfelelő megjelenési beállításokat és a kívánt témát "
+"(újraindítás szükséges)"
+
+msgid "Log level"
+msgstr "Naplózási szint:"
+
+msgid "Set a log detail level (restart needed)"
+msgstr "A naplózási szint részleteinek beállítása (úraindítás szükséges)"
+
+msgid "Set the thumbnails creation library"
+msgstr "Beállítja a miniatűrök létrehozásának könyvtárát"
+
+msgid "Check for updates"
+msgstr "Frissítések keresése"
+
+msgid "Set when new version availability should be checked (restart needed)"
+msgstr ""
+"Megadja, hogy mikor kell  új verzió elérhetőségét keresni (újraindítás "
+"szükséges)"
+
+msgid "Turn on or off alert sounds"
+msgstr "Figyelmeztető hangok be-vagy kikapcsolása"
+
+msgid "Ask overwrite confirmation"
+msgstr "Megerősítést kér felülírás előtt"
+
+msgid ""
+"Show a dialog box asking the user for confirmation when the \"overwrite\" is "
+"selected"
+msgstr ""
+"Jelenítsen meg egy párbeszédablakot, melyben kér a felhasználótól "
+"megerősítést, amikor a \"felüírásl\" van kiválasztva"
+
+msgid "Default env."
+msgstr "Alapértelmezett környezet"
+
+msgid ""
+"Select a previously saved env. file that will be automatically loaded at "
+"startup"
+msgstr ""
+"Korábban mentett környezet kiválasztása, amely a program indításakor "
+"automatikusan betöltődik"
+
+msgid "Default working directory"
+msgstr "Alapértelmezett munkakönyvtár"
+
+msgid "Select a directory where documents will be saved and loaded by default"
+msgstr "Válasszuk ki az alapértelmezett munka könyvtárat"
+
+msgid "Save"
+msgstr "Ment"
+
+msgid "Configuration saved."
+msgstr "Beállítások mentve"
+
+msgid "Error saving configuration"
+msgstr "Hiba a beállítások mentésekor"
+
+msgid ""
+"An error occured saving the configuration, please look at the log panel to "
+"have more informations."
+msgstr ""
+"Hiba történt a konfiguráció mentésekor, a részletekért kérlek nézd meg a "
+"logfile-t."
+
+msgid "Unimplemented method for JSettingsPanel"
+msgstr "A beállítások nincsenek alkalmazva"
+
+msgid "New version available: "
+msgstr "Új verzió elérhető: "
+
+msgid "Unable to play sound."
+msgstr "Hang lejátszása nem sikerült"
+
+msgid "Plugins"
+msgstr "Bővítmények"
+
+msgid "Error getting pdf version description."
+msgstr "Hiba a pdf változat leírásában."
+
+msgid "Version 1.2 (Acrobat 3)"
+msgstr "Verzió 1.2 (Acrobat 3)"
+
+msgid "Version 1.3 (Acrobat 4)"
+msgstr "Verzió 1.3 (Acrobat 4)"
+
+msgid "Version 1.4 (Acrobat 5)"
+msgstr "Verzió 1.4 (Acrobat 5)"
+
+msgid "Version 1.5 (Acrobat 6)"
+msgstr "Verzió 1.5 (Acrobat 6)"
+
+msgid "Version 1.6 (Acrobat 7)"
+msgstr "Verzió 1.6 (Acrobat 7)"
+
+msgid "Version 1.7 (Acrobat 8)"
+msgstr "Verzió 1.7 (Acrobat 8)"
+
+msgid "Output file location is not correct"
+msgstr "Kimeneti fájl helye nem megfelelő"
+
+msgid "Would you like to change it to"
+msgstr "Szeretné megváltoztatni, ezt"
+
+msgid "Output location error"
+msgstr "Hiba a kimeneti helyen"
+
+msgid "Please select at least one pdf document."
+msgstr "Jelöljön ki legalább egy pdf dokumentumot"
+
+msgid "Please select two pdf documents."
+msgstr "Kérem válasszon ki két pdf dokumentumot."
+
+msgid "Please wait while all files are processed."
+msgstr ""
+
+msgid "Still adding files"
+msgstr ""
+
+msgid "Please select a destination file."
+msgstr ""
+
+msgid "Please select a destination directory."
+msgstr ""
+
+msgid "No destination selected"
+msgstr ""
+
+msgid "Selected output file already exists "
+msgstr "A kijelölt kimeneti file már létezik "
+
+msgid "Would you like to overwrite it?"
+msgstr "Biztosan felülírja?"
+
+msgid ""
+"Please note that output files will overwrite existing files of the same name "
+"without warning."
+msgstr ""
+"Kérjük, vegye figyelembe, hogy a kimeneti fájl felülírja az azonos nevű, "
+"meglévő file-okat figyelmeztetés nélkül."
+
+msgid "Do you confirm to overwrite?"
+msgstr "Ön megerősíti, hogy felülírja?"
+
+msgid "Confirm overwrite"
+msgstr "Tényleg felülírja"
+
+msgid "Provided pages selection is not valid"
+msgstr "Bizonyos oldalak kijelölése érvénytelen"
+
+msgid ""
+"Limits must be a comma separated list of \"page_number\" or \"page_number-"
+"page_number\""
+msgstr ""
+"Határértékeket egy vesszővel elválasztott listába kell  megadni  \"Oldal_szám"
+"\" vagy \"oldal_szám-oldal_szám\""
+
+msgid "Limits are not valid"
+msgstr "Határértékek érvénytelenek"
+
+msgid "Please provide the password to open the encrypted document"
+msgstr ""
+"Kérjük, adja meg a jelszót, hogy megnyithassa a titkosított dokumentumot"
+
+msgid "Password request"
+msgstr "Jelszó szükséges"
+
+msgid ""
+"Selection list is full, would you like to empty it and load the new document?"
+msgstr ""
+"Kiválasztott lista betelt, szeretne betölteni egy üres, és új dokumentumot?"
+
+msgid "List full"
+msgstr "Lista megtelt"
+
+msgid "The lowest available pdf version is "
+msgstr "A legalacsonzabb elérhető pdf verzió "
+
+msgid "You selected a lower output pdf version, continue anyway ?"
+msgstr "Alacsonyabb PDF verziójú kimenetet választott, mindenképpen folytatja?"
+
+msgid "Pdf version conflict"
+msgstr "Pdf verzió-konfliktus"
+
+msgid "Error retrieving page saved informations"
+msgstr "Nem sikerült letölteni a mentett oldal információit"
+
+msgid "Unable to initializate drag and drop support."
+msgstr "Nem sikerült elindítani a \"fogd és dobd\" támogatást."
+
+msgid "Setting look and feel..."
+msgstr "Megjelenés beállítása"
+
+msgid "Setting logging level..."
+msgstr "Naplózás szintjének beállítása"
+
+msgid "Unable to find log level, setting to default level (DEBUG)."
+msgstr "Nem találom naplózási szintet, az alapértelmezett szint fog betöltődni"
+
+msgid "Loading user interface configuration"
+msgstr "Felhasználói felület beállításának betöltése"
+
+msgid "Unable to find configuration file for the user interface"
+msgstr "Nem találtam file-t a felhasználói felület beállításának betöltéséhez"
+
+msgid "Error reading the configuration file for the user interface"
+msgstr "Hiba a felhasználói felület konfigurációs file-jának olvasásakor"
+
+msgid "Error initializing the user interface vertical divider location"
+msgstr "Hiba a felhasználói felület függőleges elválasztó helyénél"
+
+msgid "Error initializing the user interface horizontal divider location"
+msgstr "Hiba a felhasználói felület vízszintes elválasztó helyénél"
+
+msgid "Error initializing the user interface extended state"
+msgstr "Hiba a felhasználói felület kiterjesztett részén"
+
+msgid "Error initializing the user interface size"
+msgstr "Hiba a felhasználói felület méretével"
+
+msgid "Error initializing the user interface horizontal divider size"
+msgstr "Hiba a felhasználói felület vízszintes elválasztó méretével"
+
+msgid "Error initializing the user interface vertical divider size"
+msgstr "Hiba a felhasználói felület függőleges elválasztó méretével"
+
+msgid "Error initializing the user interface location"
+msgstr "Hiba a felhasználói felület helyénél"
+
+msgid "Saving GUI configuration"
+msgstr "Grafikus felhaszn. felület beállításának mentése"
+
+msgid "Unable to save user interface status."
+msgstr "Felhaszn. felület beállításának mentése sikertelen"
+
+#~ msgid "Remove every pdf file from the merge list"
+#~ msgstr "Minden PDF fájl törlése az egyesítési listáról"

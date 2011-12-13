@@ -1,0 +1,1421 @@
+# Polish translation for pdfsam
+# Copyright (c) 2007 Rosetta Contributors and Canonical Ltd 2007
+# This file is distributed under the same license as the pdfsam package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pdfsam\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-10-24 17:57+0200\n"
+"PO-Revision-Date: 2010-02-03 00:13+0000\n"
+"Last-Translator: luckynyc <Unknown>\n"
+"Language-Team: Polish <pl@li.org>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2010-03-27 08:49+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+msgid "Merge options"
+msgstr "Opcje łączenia"
+
+msgid "PDF documents contain forms"
+msgstr "Dokumenty PDF zawierają formy"
+
+msgid "Merge type"
+msgstr "Typ łączenia"
+
+msgid "Unchecked"
+msgstr "Odznaczone"
+
+msgid "Use this merge type for standard pdf documents"
+msgstr "Użyj tego typu łączenia dla standardowych dokumentów pdf"
+
+msgid "Checked"
+msgstr "Zaznaczone"
+
+msgid "Use this merge type for pdf documents containing forms"
+msgstr "Użyj tego typu łączenia dla dokumentów pdf zawiarających formy"
+
+msgid "Note"
+msgstr "Notacja"
+
+msgid "Setting this option the documents will be completely loaded in memory"
+msgstr "Po ustawieniu tej opcji dokumenty będą całkowicie ładowane do pamięci"
+
+msgid "Destination output file"
+msgstr "Docelowy plik wyjściowy"
+
+msgid "Browse or enter the full path to the destination output file."
+msgstr "Przeglądaj lub wpisz pełną ścieżkę docelowego pliku wyjściowego."
+
+msgid ""
+"Check the box if you want to overwrite the output file if it already exists."
+msgstr ""
+"Zaznacz to pole jeśli chcesz nadpisać plik docelowy jeśli już istnieje."
+
+msgid "Check the box if you want compressed output files."
+msgstr "Zaznacz to pole jeśli chcesz skompresować plik wyjściowy."
+
+msgid "PDF version 1.5 or above."
+msgstr "Wersja PDF 1.5 lub wyższa"
+
+msgid "Set the pdf version of the ouput document."
+msgstr "Ustal wersję pdf dla dokumentu wyjściowego"
+
+msgid "Execute pdf merge"
+msgstr "Łącz pliki PDF"
+
+msgid "Merge/Extract"
+msgstr "Łącz/Dziel"
+
+msgid "Merge section loaded."
+msgstr "Wyczytano sekcję łączenia.l"
+
+msgid "Error: "
+msgstr "Błąd: "
+
+msgid "Found a password for input file."
+msgstr "Odnaleziono hasło dla pliku wejściowego"
+
+msgid "Export as xml"
+msgstr "Eksportuj jako xml"
+
+msgid "Export the selection list in xml format"
+msgstr ""
+
+msgid "Unable to save xml file."
+msgstr "Zapisanie pliku xml było niemożliwe."
+
+msgid "File xml saved."
+msgstr "Plik xml został zapisany."
+
+msgid "Error saving xml file, output file is null."
+msgstr "Błąd podczas zapisywania pliku xml, nie znaleziono pliku docelowego."
+
+msgid "Split options"
+msgstr "Opcje dzielenia"
+
+msgid "Burst (split into single pages)"
+msgstr "Rozdziel (podziel na pojedyncze strony)"
+
+msgid "Split every \"n\" pages"
+msgstr "Podziel plik co każde \"n\" stron"
+
+msgid "Split even pages"
+msgstr "Podziel strony parzyste"
+
+msgid "Split odd pages"
+msgstr "Podziel strony nieparzyste"
+
+msgid "Split after these pages"
+msgstr "Podziel po tych stronach"
+
+msgid "Split at this size"
+msgstr "Dziel przy rozmiarze"
+
+msgid "Split by bookmarks level"
+msgstr ""
+
+msgid "Burst"
+msgstr "Najlepsza"
+
+msgid "Explode the pdf document into single pages"
+msgstr "Podziel dokument pdf na pojedyncze strony"
+
+msgid "Split the document every \"n\" pages"
+msgstr "Podziel dokument co każde \"n\" stron"
+
+msgid "Split the document every even page"
+msgstr "Podziej dokument co każdą stronę parzystą"
+
+msgid "Split the document every odd page"
+msgstr "Podziej dokument co każdą stronę nieparzystą"
+
+msgid "Split the document after page numbers (num1-num2-num3..)"
+msgstr "Podiel dokument po stronach nr (nr1-nr2-nr3..)"
+
+msgid "Split the document in files of the given size (roughly)"
+msgstr ""
+
+msgid "Split the document at pages referred by bookmarks of the given level"
+msgstr ""
+
+msgid "Destination folder"
+msgstr "Katalog docelowy"
+
+msgid "Same as source"
+msgstr "Identyczny ze źródłowym"
+
+msgid "Choose a folder"
+msgstr "Wybierz katalog"
+
+msgid "Destination output directory"
+msgstr "Docelowy katalog wyjściowy"
+
+msgid "Use the same output folder as the input file or choose a folder."
+msgstr "Użyj tego samego folderu co plik wejściowy lub wybierz folder."
+
+msgid ""
+"To choose a folder browse or enter the full path to the destination output "
+"directory."
+msgstr ""
+"Żeby wybrać katalog przeglądaj albo wchodź pełną ścieżkę do przeznaczenia "
+"katalogu wyjściowego."
+
+msgid ""
+"Check the box if you want to overwrite the output files if they already "
+"exist."
+msgstr ""
+"Sprawdź skrzynke jeżeli chcesz żeby przepisywać fajl wyjściowy jeżeli on już "
+"istnieje."
+
+msgid "Output options"
+msgstr "Opcje wyjściowe"
+
+msgid "Output file names prefix:"
+msgstr "Przedrostek nazw plików wyjściwych:"
+
+msgid "Output files prefix"
+msgstr "Prefiks plików wyjściowych"
+
+msgid ""
+"If it contains \"[CURRENTPAGE]\", \"[TIMESTAMP]\", \"[FILENUMBER]\" or "
+"\"[BOOKMARK_NAME]\" it performs variable substitution."
+msgstr ""
+
+msgid "Ex. prefix_[BASENAME]_[CURRENTPAGE] generates prefix_FileName_005.pdf."
+msgstr ""
+"Np. prefiks_[BASENAME]_[CURRENTPAGE] generuje prefiks_NazwaPliku_005.pdf"
+
+msgid ""
+"If it doesn't contain \"[CURRENTPAGE]\", \"[TIMESTAMP]\" or \"[FILENUMBER]\" "
+"it generates oldstyle output file names."
+msgstr ""
+
+msgid "Available variables"
+msgstr ""
+
+msgid "Split selected file"
+msgstr "Podziel wybrany plik"
+
+msgid "Split"
+msgstr "Dziel"
+
+msgid "Split section loaded."
+msgstr "Wczytano sekcję dzielenia."
+
+msgid "Invalid split size"
+msgstr "Błędny rozmiar dzielenia"
+
+msgid "Invalid unit: "
+msgstr "Nieprawidłowa jednostka: "
+
+msgid "Fill from document"
+msgstr "Wypełnij z dokumentu"
+
+msgid "Please select a pdf document."
+msgstr "Proszę wybrać dokument PDF."
+
+msgid "Warning"
+msgstr "Ostrzeżenie"
+
+msgid "Getting bookmarks max depth"
+msgstr ""
+
+msgid "Unable to retrieve bookmarks maximum depth."
+msgstr ""
+
+msgid "Frontpage pdf file"
+msgstr ""
+
+msgid "Addendum pdf file"
+msgstr ""
+
+msgid "Frontpage and Addendum"
+msgstr ""
+
+msgid "Cover And Footer section loaded."
+msgstr ""
+
+msgid "Select at least one cover or one footer"
+msgstr "Wybierz conajmniej jedną okładkę lub stopkę"
+
+msgid "Encrypt options"
+msgstr "Opcje szyfrowania"
+
+msgid "Owner password:"
+msgstr "Wybierz plik PDF do szyfrowania"
+
+msgid "Owner password (Max 32 chars long)"
+msgstr "Hasło własciciela"
+
+msgid "User password:"
+msgstr "Hasło użytkownika:"
+
+msgid "User password (Max 32 chars long)"
+msgstr "Hasło użytkownika (Maksimalnie 32 charaktery długości)"
+
+msgid "Encryption algorithm:"
+msgstr "Algorytm szyfrowania:"
+
+msgid "Allow all"
+msgstr "Zezwól wszystkim"
+
+msgid "Print"
+msgstr "Drukowanie"
+
+msgid "Low quality print"
+msgstr "Wydruk w niskiej jakości"
+
+msgid "Copy or extract"
+msgstr "Kopiuj lub wyodrębnij"
+
+msgid "Modify"
+msgstr "Modyfikuj"
+
+msgid "Add or modify text annotations"
+msgstr "Dodaj lub modyfikuj adnotacje"
+
+msgid "Fill form fields"
+msgstr "Wypełnij pola formularza"
+
+msgid "Extract for use by accessibility dev."
+msgstr ""
+
+msgid "Manipulate pages and add bookmarks"
+msgstr "Manipulowanie stronami i dodawanie zakładek"
+
+msgid ""
+"Check the box if you want compressed output files (Pdf version 1.5 or "
+"higher)."
+msgstr ""
+"Zaznacz pole jeśli chcesz otrzymać plik skompresowany (wersja Pdf 1.5 lub "
+"wyższa)"
+
+msgid "If it contains \"[TIMESTAMP]\" it performs variable substitution."
+msgstr "Jeżeli zawiera \"[*TIMESTAMP*]\" to wypełnia zmienne zastępowanie."
+
+msgid ""
+"Ex. [BASENAME]_prefix_[TIMESTAMP] generates "
+"FileName_prefix_20070517_113423471.pdf."
+msgstr ""
+"Np. [BASENAME]_prefix_[TIMESTAMP] generuje "
+"FileName_prefix_20070517_113423471.pdf."
+
+msgid ""
+"If it doesn't contain \"[TIMESTAMP]\" it generates oldstyle output file "
+"names."
+msgstr ""
+"Jeżeli nie zawiera \"[*TIMESTAMP*]\" to generuje stary typ nazw plików "
+"wzjściowych."
+
+msgid "Available variables: [TIMESTAMP], [BASENAME]."
+msgstr "Dostępne zmienne: [TIMESTAMP], [BASENAME]."
+
+msgid "Encrypt selected files"
+msgstr "Szyfruj wybrane pliki"
+
+msgid "Encrypt"
+msgstr "Szyfruj"
+
+msgid "Encrypt section loaded."
+msgstr "Rozdział szyfrowany załadowany."
+
+msgid "Decrypt selected files"
+msgstr "Odszyfruj wybrane pliki"
+
+msgid "Decrypt"
+msgstr "Odszyfrowanie"
+
+msgid "Decrypt section loaded."
+msgstr ""
+
+msgid "Document metadata"
+msgstr ""
+
+msgid "Title"
+msgstr "Tytuł"
+
+msgid "Author"
+msgstr "Autor"
+
+msgid "Subject"
+msgstr "Temat"
+
+msgid "Keywords"
+msgstr "Słowa kluczowe"
+
+msgid "Set the document title."
+msgstr "Ustaw nazwę dokumentu"
+
+msgid "Set the document author."
+msgstr "Ustaw autora dokumentu"
+
+msgid "Set the document subject."
+msgstr "Ustaw przedmiot dokumentu"
+
+msgid "Set the document keywords."
+msgstr "Ustaw słowa kluczowe dokumentu"
+
+msgid "Choose a file"
+msgstr "Wybierz plik"
+
+msgid "Set metadata on the selected file"
+msgstr ""
+
+msgid "Document Info"
+msgstr "Informacje o dokumencie"
+
+msgid "Rotate section loaded."
+msgstr "Obróć wczytaną sekcję"
+
+msgid "Mix options"
+msgstr ""
+
+msgid "Reverse first document"
+msgstr ""
+
+msgid "Reverse second document"
+msgstr ""
+
+msgid "Number of pages to switch from the first document to the other"
+msgstr ""
+
+msgid "Number of pages to switch from the second document to the other"
+msgstr ""
+
+msgid ""
+"Tick the boxes if you want to reverse the first or the second document (or "
+"both)."
+msgstr ""
+
+msgid ""
+"Set the number of pages to switch from the first document to the other one "
+"(default is 1)."
+msgstr ""
+
+msgid ""
+"Set the number of pages to switch from the second document to the other one "
+"(default is 1)."
+msgstr ""
+
+msgid "Execute pdf alternate mix"
+msgstr ""
+
+msgid "Alternate Mix"
+msgstr "Mieszanie stron"
+
+msgid "AlternateMix section loaded."
+msgstr ""
+
+msgid "Found a password for first file."
+msgstr "Odnaleziono hasło dla pierwszego pliku"
+
+msgid "Found a password for second file."
+msgstr "Odnaleziono hasło dla drugiego pliku"
+
+msgid "Unpack selected files"
+msgstr "Rozpakuj wybrane pliki"
+
+msgid "Unpack"
+msgstr "Rozpakuj"
+
+msgid "Unpack section loaded."
+msgstr ""
+
+msgid "Set viewer options"
+msgstr ""
+
+msgid "Hide the menubar"
+msgstr "Ukryj pasek menu"
+
+msgid "Hide the toolbar"
+msgstr "Ukryj pasek narzędzi"
+
+msgid "Hide user interface elements"
+msgstr "Ukryj elementy interfejsu użytkownika"
+
+msgid "Rezise the window to fit the page size"
+msgstr ""
+
+msgid "Center of the screen"
+msgstr ""
+
+msgid "Display document title as window title"
+msgstr ""
+
+msgid "Pdf version required:"
+msgstr "Wymagana wersja PDF:"
+
+msgid "No page scaling in print dialog"
+msgstr ""
+
+msgid "Viewer open mode:"
+msgstr ""
+
+msgid "Viewer layout:"
+msgstr ""
+
+msgid "Non fullscreen mode:"
+msgstr ""
+
+msgid "Direction:"
+msgstr "Kierunek:"
+
+msgid "Set options"
+msgstr ""
+
+msgid "Set viewer options for selected files"
+msgstr ""
+
+msgid "Left to right"
+msgstr "Od lewej do prawej"
+
+msgid "Right to left"
+msgstr "Od prawej do lewej"
+
+msgid "None"
+msgstr "Żaden"
+
+msgid "Fullscreen"
+msgstr "Pełny ekran"
+
+msgid "Attachments"
+msgstr "Załączniki"
+
+msgid "Optional content group panel"
+msgstr ""
+
+msgid "Document outline"
+msgstr ""
+
+msgid "Thumbnail images"
+msgstr "Miniaturki"
+
+msgid "One page at a time"
+msgstr ""
+
+msgid "Pages in one column"
+msgstr "Strony w jednej kolumnie"
+
+msgid "Pages in two columns (odd on the left)"
+msgstr "Strony w dwóch kolumnach (nieparzyste po lewej)"
+
+msgid "Pages in two columns (odd on the right)"
+msgstr "Strony w dwóch kolumnach (nieparzyste po prawej)"
+
+msgid "Two pages at a time (odd on the left)"
+msgstr "Dwie strony naraz (nieparzyste po lewej)"
+
+msgid "Two pages at a time (odd on the right)"
+msgstr "Dwie strony naraz (nieparzyste po prawej)"
+
+msgid "Viewer options"
+msgstr ""
+
+msgid "Viewer options section loaded."
+msgstr ""
+
+msgid "Move on top"
+msgstr ""
+
+msgid "Move to bottom"
+msgstr ""
+
+msgid ""
+"To choose a file browse or enter the full path to the destination output "
+"file."
+msgstr ""
+
+msgid "Execute pages reorder"
+msgstr ""
+
+msgid "Visual document composer"
+msgstr ""
+
+msgid "Visual Composer section loaded."
+msgstr ""
+
+msgid "Please select a pdf document or undelete some pages"
+msgstr ""
+
+msgid "Rotation"
+msgstr ""
+
+msgid "All"
+msgstr ""
+
+msgid "Even"
+msgstr ""
+
+msgid "Odd"
+msgstr ""
+
+msgid "Clockwise rotation (degrees):"
+msgstr ""
+
+msgid "Pages:"
+msgstr ""
+
+msgid "Set the rotation degrees (clockwise)."
+msgstr ""
+
+msgid "Set the pages that will be rotated."
+msgstr ""
+
+msgid "Rotate selected files"
+msgstr "Obróć wybrane pliki"
+
+msgid "Rotate"
+msgstr ""
+
+msgid "Use the same output file name as the input file or choose a file."
+msgstr ""
+
+msgid "Visual reorder"
+msgstr ""
+
+msgid "Visual Reorder section loaded."
+msgstr ""
+
+msgid "Please select a pdf document or undelete some page"
+msgstr ""
+
+msgid "New version available."
+msgstr "Dostępna nowa wersja."
+
+msgid "No new version available."
+msgstr "Brak nowej wersji."
+
+msgid "Unknown action."
+msgstr "Nieznana akcja."
+
+msgid "Log saved."
+msgstr "Log zapisany."
+
+msgid "Save as"
+msgstr "Zapisz jako"
+
+msgid "Save the image"
+msgstr ""
+
+msgid "Unable to save image"
+msgstr "Nie można zapisać obrazu"
+
+msgid "Close"
+msgstr "Blisko"
+
+msgid "Close panel"
+msgstr ""
+
+msgid "Rotate anticlockwise"
+msgstr "Obróć przeciwnie do ruchu wskazówek zegara"
+
+msgid "Rotate clockwise"
+msgstr "Obróć zgodnie z ruchem wskazówek zegara"
+
+msgid "Zoom in"
+msgstr ""
+
+msgid "Zoom out"
+msgstr ""
+
+msgid "No zoom"
+msgstr ""
+
+msgid "No zoom applied"
+msgstr ""
+
+msgid "Save environment"
+msgstr "Zapisz środowisko"
+
+msgid ""
+"Save passwords informations (they will be readable opening the output file)?"
+msgstr ""
+
+msgid "Confirm password saving"
+msgstr "Potwierdź zapisanie hasła"
+
+msgid "Load environment"
+msgstr "Wczytaj środowisko"
+
+msgid "Unable to create image for a null input document"
+msgstr ""
+
+msgid "Unable to create thumbnails for a null input document"
+msgstr ""
+
+msgid "Unable to open the input document"
+msgstr ""
+
+msgid "Input file doesn't exists or is a directory"
+msgstr ""
+
+msgid "Error opening pdf document"
+msgstr ""
+
+msgid "Password not provided."
+msgstr ""
+
+msgid "Unable to open the document."
+msgstr ""
+
+msgid "Not enough memory to create thumbnails"
+msgstr ""
+
+msgid "Thumbnails generated in "
+msgstr ""
+
+msgid "Unable to generate thumbnail"
+msgstr "Nie można utworzyć miniaturek"
+
+msgid " node environment loaded."
+msgstr ""
+
+msgid "Environment saved."
+msgstr "Zapisano środowisko."
+
+msgid "Error saving environment, output file is null."
+msgstr ""
+
+msgid "Error saving environment."
+msgstr "Błąd zapisu środowiska."
+
+msgid "Environment loaded."
+msgstr "Środowisko załadowane."
+
+msgid "Error loading environment."
+msgstr "Błąd ładowania środowiska."
+
+msgid "Error loading environment from input file. "
+msgstr ""
+
+msgid "Image viewer"
+msgstr ""
+
+msgid "Unable to initialize the thumbnails creation library."
+msgstr ""
+
+msgid "Unable to open image preview"
+msgstr ""
+
+msgid "Unknown Action"
+msgstr "Nieznana akcja"
+
+msgid "Error playing sound"
+msgstr "Błąd odtwarzania dźwięku"
+
+msgid "Generating thumbnails using the following library:"
+msgstr ""
+
+msgid "Selection table is full, please remove some pdf document."
+msgstr ""
+
+msgid "Table full"
+msgstr "Tabela pełna"
+
+msgid "Please wait while all files are processed.."
+msgstr "Czekaj, przetwarzanie wszystkich plików w toku"
+
+msgid "Command validation returned an empty value."
+msgstr ""
+
+msgid "Command executed."
+msgstr "Polecenie wykonane."
+
+msgid "Add"
+msgstr "Dodanie"
+
+msgid "Add a pdf to the list"
+msgstr "Dodaj plik PDF do listy"
+
+msgid "Clear"
+msgstr "Wyszyść"
+
+msgid "Remove every pdf file from the selection list"
+msgstr ""
+
+msgid "Document properties"
+msgstr "Właściwości dokumentu"
+
+msgid "Show document properties"
+msgstr ""
+
+msgid "Move down"
+msgstr ""
+
+msgid "Move down selected pdf file"
+msgstr "Przesuń wybrany plik PDF w dół"
+
+msgid "Move Up"
+msgstr "Przenieś do góry"
+
+msgid "Move up selected pdf file"
+msgstr "Przesuń wybrany plik PDF do góry"
+
+msgid "Reload"
+msgstr "Załaduj ponownie"
+
+msgid "Reload the selected document"
+msgstr ""
+
+msgid "Remove"
+msgstr "Usuń"
+
+msgid "Remove a pdf from the list"
+msgstr "Usuń plik PDF z listy"
+
+msgid "Set destination"
+msgstr ""
+
+msgid "Set the destination path"
+msgstr ""
+
+msgid "Unable to clean pdf loader"
+msgstr ""
+
+msgid "Run"
+msgstr "Wykonaj"
+
+msgid "Browse"
+msgstr "Przeglądaj"
+
+msgid "Compress output file/files"
+msgstr "Kompresuj plik/pliki wyjściowe"
+
+msgid "Overwrite if already exists"
+msgstr "Nadpisz jeśli istnieje"
+
+msgid "Don't preserve file order (fast load)"
+msgstr ""
+
+msgid "Output document pdf version:"
+msgstr "Wersja PDF dokumentu wyjściowego:"
+
+msgid "Same as input document"
+msgstr ""
+
+msgid "Copy"
+msgstr "Kopiuj"
+
+msgid "Cut"
+msgstr "Wytnij"
+
+msgid "Paste"
+msgstr "Wstaw"
+
+msgid "Add prefix"
+msgstr ""
+
+msgid "The cross reference table cantained some error and has been rebuilt"
+msgstr ""
+
+msgid ""
+"The document has not been opened with the owner password. You must provide "
+"the owner password in order to manipulate the document"
+msgstr ""
+
+msgid "An error occured while loading the document"
+msgstr ""
+
+msgid "File name"
+msgstr "Nazwa pliku"
+
+msgid "Path"
+msgstr "Ścieżka"
+
+msgid "Pages"
+msgstr "Strony"
+
+msgid "Password"
+msgstr "Hasło"
+
+msgid "Version"
+msgstr "Wersja"
+
+msgid "Page Selection"
+msgstr "Wybór strony"
+
+msgid "Total pages of the document"
+msgstr "Łączna liczba stron dokumentu"
+
+msgid "Password to open the document (if needed)"
+msgstr "Hasło do otwarcia dokumentu (jeśli potrzebne)"
+
+msgid "Pdf version of the document"
+msgstr "Wersja PDF dokumentu"
+
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid "Unable to remove JList text "
+msgstr ""
+
+msgid "File selected: "
+msgstr "Wybrano plik: "
+
+msgid "File reloaded: "
+msgstr ""
+
+msgid "Open"
+msgstr "Otwórz"
+
+msgid "Load a pdf document"
+msgstr "Załaduj dokument PDF"
+
+msgid "Error setting zoom level."
+msgstr ""
+
+msgid "Preview"
+msgstr "Podgląd"
+
+msgid "Move Down"
+msgstr "Przesuń niżej"
+
+msgid "Delete"
+msgstr "Skasuj"
+
+msgid "Undelete"
+msgstr ""
+
+msgid "Reverse"
+msgstr ""
+
+msgid "Move up selected pages"
+msgstr ""
+
+msgid "(Alt+ArrowUp)"
+msgstr "Alt+Strzałka w górę"
+
+msgid "Move down selected pages"
+msgstr ""
+
+msgid "(Alt+ArrowDown)"
+msgstr "Alt+Strzałka w dół"
+
+msgid "Delete selected pages"
+msgstr "Skasuj zaznaczone strony"
+
+msgid "(Canc)"
+msgstr ""
+
+msgid "Undelete selected pages"
+msgstr ""
+
+msgid "(Ctrl+Z)"
+msgstr ""
+
+msgid "Rotate right"
+msgstr "Obróć w prawo"
+
+msgid "Rotate clockwise selected pages"
+msgstr "Obróć zanaczone strony zgodnie z ruchem wskazówek zegara"
+
+msgid "(Alt+ArrowRight)"
+msgstr ""
+
+msgid "Rotate left"
+msgstr "Obróć w lewo"
+
+msgid "Rotate anticlockwise selected pages"
+msgstr "Obróć zaznaczone strony przeciwnie do ruchu wskazówek zegara"
+
+msgid "(Alt+ArrowLeft)"
+msgstr ""
+
+msgid "Reverse pages order"
+msgstr ""
+
+msgid "Yes"
+msgstr "Tak"
+
+msgid "No"
+msgstr "Nie"
+
+msgid "File: "
+msgstr "Plik: "
+
+msgid "Pages: "
+msgstr "Strony: "
+
+msgid "Pdf version: "
+msgstr "Wersja PDF: "
+
+msgid "Title: "
+msgstr "Tytuł: "
+
+msgid "Author: "
+msgstr "Autor: "
+
+msgid "Creator: "
+msgstr "Twórca: "
+
+msgid "Producer: "
+msgstr "Producent: "
+
+msgid "Encrypted: "
+msgstr "Zaszyfrowany: "
+
+msgid "Set output file"
+msgstr "Ustaw plik wyjściowy"
+
+msgid "Error: Unable to get the file path."
+msgstr "Błąd: Nie można odczytać ścieżki pliku"
+
+msgid "File"
+msgstr "Plik"
+
+msgid "Image"
+msgstr ""
+
+msgid "Error creating preview panel."
+msgstr ""
+
+msgid "Number of pages"
+msgstr "Ilość stron"
+
+msgid "File size"
+msgstr "Rozmiar pliku"
+
+msgid "Pdf version"
+msgstr "Wersja PDF"
+
+msgid "Encryption"
+msgstr "Szyfrowanie"
+
+msgid "Not encrypted"
+msgstr "Nie zaszyfrowany"
+
+msgid "Permissions"
+msgstr "Uprawnienia"
+
+msgid "Producer"
+msgstr "Producent"
+
+msgid "Creator"
+msgstr "Twórca"
+
+msgid "Creation date"
+msgstr "Data utworzenia"
+
+msgid "Modification date"
+msgstr "Data modyfikacji"
+
+msgid "Error creating properties panel."
+msgstr ""
+
+msgid "Please select a single pdf document."
+msgstr "Proszę wybrać pojedynczy dokument PDF."
+
+msgid "File type not supported."
+msgstr "Nie obsługiwany typu pliku."
+
+msgid "Error during drag and drop."
+msgstr ""
+
+msgid "Logging level set to "
+msgstr ""
+
+msgid "Unable to set logging level."
+msgstr ""
+
+msgid "Error getting plugins directory."
+msgstr ""
+
+msgid "Cannot read plugins directory "
+msgstr ""
+
+msgid "Plugins directory is null."
+msgstr "Katalog wtyczek jest pusty."
+
+msgid "Found many plugins in "
+msgstr ""
+
+msgid "selected as the most recent plugin"
+msgstr ""
+
+msgid "No plugin found in "
+msgstr ""
+
+msgid "Exception loading plugins."
+msgstr ""
+
+msgid "Cannot read plugin directory "
+msgstr "Nie można odczytać katalogu wtyczek "
+
+msgid " plugin loaded."
+msgstr " wtyczka załadowana."
+
+msgid "Unable to load a plugin that is not JPanel subclass."
+msgstr ""
+
+msgid "Error loading class "
+msgstr "Błąd ładowania klasy "
+
+msgid "Unable to get latest available version"
+msgstr "Nie można pobrać najnowszej wersji"
+
+msgid "Checking for a new version available."
+msgstr "Sprawdzanie dostępności nowej wersji."
+
+msgid "Error checking for a new version available."
+msgstr "Błąd sprawdzania dostępności nowej wersji."
+
+msgid "Select all"
+msgstr "Wybierz wszystkie"
+
+msgid "Save log"
+msgstr "Zapisz log"
+
+msgid "Exit"
+msgstr "Wyjscie"
+
+msgid "started in "
+msgstr ""
+
+msgid "Loading plugins.."
+msgstr "Wczytywanie wtyczek.."
+
+msgid "Building status bar.."
+msgstr "Tworzenie paska stanu.."
+
+msgid "Building tree.."
+msgstr "Tworzenie drzewa..."
+
+msgid "Building menus.."
+msgstr "Tworzenie menu..."
+
+msgid "Building buttons bar.."
+msgstr "Tworzenie paska przycisków.."
+
+msgid "Loading default environment."
+msgstr "Ładowanie środowiska domyślnego."
+
+msgid "Error starting pdfsam."
+msgstr ""
+
+msgid "Clear log"
+msgstr "Wyczyść rejestr"
+
+msgid "Unable to initialize button bar."
+msgstr ""
+
+msgid "Version: "
+msgstr "Wersja: "
+
+msgid "Console version: "
+msgstr ""
+
+msgid "Developed by: "
+msgstr ""
+
+msgid "Build date: "
+msgstr "Data kompilacji "
+
+msgid "Java home: "
+msgstr ""
+
+msgid "Java version: "
+msgstr "Wersja JAVA: "
+
+msgid "Max memory: "
+msgstr ""
+
+msgid "Configuration file: "
+msgstr "Plik konfiguracyjny: "
+
+msgid "Website: "
+msgstr "Strona WWW: "
+
+msgid "Name"
+msgstr "Naywa"
+
+msgid "About"
+msgstr "O nas"
+
+msgid "Unimplemented method for JInfoPanel"
+msgstr ""
+
+msgid "Contributes: "
+msgstr ""
+
+msgid "Log level:"
+msgstr "Poziom pliku log:"
+
+msgid "Settings"
+msgstr "Ustawienia"
+
+msgid "Look and feel:"
+msgstr "Wygląd i uczucia:"
+
+msgid "Theme:"
+msgstr "Wystrój:"
+
+msgid "Language:"
+msgstr "Język:"
+
+msgid "Thumbnails creator"
+msgstr ""
+
+msgid "Load default environment at startup:"
+msgstr "Wczytaj domyślne środowisko przy stracie:"
+
+msgid "Default working directory:"
+msgstr "Domyślny katalog roboczy:"
+
+msgid "Check for updates at startup"
+msgstr ""
+
+msgid "Check now"
+msgstr "Sprawdź teraz"
+
+msgid "Play alert sounds"
+msgstr ""
+
+msgid "Ask for confirmation when overwrite checkbox is selected"
+msgstr ""
+
+msgid "Settings "
+msgstr "Ustawienia "
+
+msgid "Language"
+msgstr "Język"
+
+msgid "Set your preferred language (restart needed)"
+msgstr "Ustaw preferowany język (wymagany restart)"
+
+msgid "Look and feel"
+msgstr "Wygląd i uczucia"
+
+msgid ""
+"Set your preferred look and feel and your preferred theme (restart needed)"
+msgstr ""
+"Ustaw preferowany wygląd i uczucia oraz preferowany motyw (wymagany restart)"
+
+msgid "Log level"
+msgstr "Poziom logu"
+
+msgid "Set a log detail level (restart needed)"
+msgstr "Ustaw poziom szczegółowości logu (wymagany restart)"
+
+msgid "Set the thumbnails creation library"
+msgstr ""
+
+msgid "Check for updates"
+msgstr "Sprawdź aktualizacje"
+
+msgid "Set when new version availability should be checked (restart needed)"
+msgstr ""
+
+msgid "Turn on or off alert sounds"
+msgstr ""
+
+msgid "Ask overwrite confirmation"
+msgstr ""
+
+msgid ""
+"Show a dialog box asking the user for confirmation when the \"overwrite\" is "
+"selected"
+msgstr ""
+
+msgid "Default env."
+msgstr "Domyślne środ."
+
+msgid ""
+"Select a previously saved env. file that will be automatically loaded at "
+"startup"
+msgstr ""
+
+msgid "Default working directory"
+msgstr "Domyślny katalog roboczy"
+
+msgid "Select a directory where documents will be saved and loaded by default"
+msgstr ""
+
+msgid "Save"
+msgstr "Zapisz dokument"
+
+msgid "Configuration saved."
+msgstr "Zapisano konfigurację."
+
+msgid "Error saving configuration"
+msgstr ""
+
+msgid ""
+"An error occured saving the configuration, please look at the log panel to "
+"have more informations."
+msgstr ""
+
+msgid "Unimplemented method for JSettingsPanel"
+msgstr ""
+
+msgid "New version available: "
+msgstr "Dostępna jest nowa wersja: "
+
+msgid "Unable to play sound."
+msgstr ""
+
+msgid "Plugins"
+msgstr "Wtyczki"
+
+msgid "Error getting pdf version description."
+msgstr ""
+
+msgid "Version 1.2 (Acrobat 3)"
+msgstr "Wersja 1.2 (Acrobat 3)"
+
+msgid "Version 1.3 (Acrobat 4)"
+msgstr "Wersja 1.3 (Acrobat 4)"
+
+msgid "Version 1.4 (Acrobat 5)"
+msgstr "Wersja 1.4 (Acrobat 5)"
+
+msgid "Version 1.5 (Acrobat 6)"
+msgstr "Wersja 1.5 (Acrobat 6)"
+
+msgid "Version 1.6 (Acrobat 7)"
+msgstr "Wersja 1.6 (Acrobat 7)"
+
+msgid "Version 1.7 (Acrobat 8)"
+msgstr "Wersja 1.7 (Acrobat 8)"
+
+msgid "Output file location is not correct"
+msgstr ""
+
+msgid "Would you like to change it to"
+msgstr "Czy chcesz zmienić na"
+
+msgid "Output location error"
+msgstr ""
+
+msgid "Please select at least one pdf document."
+msgstr "Proszę wybrać co najmniej jeden dokument PDF."
+
+msgid "Please select two pdf documents."
+msgstr "Proszę wybrać dwa dokumenty PDF."
+
+msgid "Please wait while all files are processed."
+msgstr ""
+
+msgid "Still adding files"
+msgstr ""
+
+msgid "Please select a destination file."
+msgstr ""
+
+msgid "Please select a destination directory."
+msgstr ""
+
+msgid "No destination selected"
+msgstr ""
+
+msgid "Selected output file already exists "
+msgstr "Wybrany plik wyjściowy już istnieje "
+
+msgid "Would you like to overwrite it?"
+msgstr "Czy chcesz nadpisać to?"
+
+msgid ""
+"Please note that output files will overwrite existing files of the same name "
+"without warning."
+msgstr ""
+
+msgid "Do you confirm to overwrite?"
+msgstr ""
+
+msgid "Confirm overwrite"
+msgstr ""
+
+msgid "Provided pages selection is not valid"
+msgstr ""
+
+msgid ""
+"Limits must be a comma separated list of \"page_number\" or \"page_number-"
+"page_number\""
+msgstr ""
+
+msgid "Limits are not valid"
+msgstr ""
+
+msgid "Please provide the password to open the encrypted document"
+msgstr ""
+
+msgid "Password request"
+msgstr "Wymagane hasło"
+
+msgid ""
+"Selection list is full, would you like to empty it and load the new document?"
+msgstr ""
+
+msgid "List full"
+msgstr ""
+
+msgid "The lowest available pdf version is "
+msgstr "Najmniejsza dostępna wersja pdf to "
+
+msgid "You selected a lower output pdf version, continue anyway ?"
+msgstr ""
+
+msgid "Pdf version conflict"
+msgstr "Konflikt wersji PDF"
+
+msgid "Error retrieving page saved informations"
+msgstr ""
+
+msgid "Unable to initializate drag and drop support."
+msgstr ""
+
+msgid "Setting look and feel..."
+msgstr ""
+
+msgid "Setting logging level..."
+msgstr ""
+
+msgid "Unable to find log level, setting to default level (DEBUG)."
+msgstr ""
+
+msgid "Loading user interface configuration"
+msgstr ""
+
+msgid "Unable to find configuration file for the user interface"
+msgstr ""
+
+msgid "Error reading the configuration file for the user interface"
+msgstr ""
+
+msgid "Error initializing the user interface vertical divider location"
+msgstr ""
+
+msgid "Error initializing the user interface horizontal divider location"
+msgstr ""
+
+msgid "Error initializing the user interface extended state"
+msgstr ""
+
+msgid "Error initializing the user interface size"
+msgstr ""
+
+msgid "Error initializing the user interface horizontal divider size"
+msgstr ""
+
+msgid "Error initializing the user interface vertical divider size"
+msgstr ""
+
+msgid "Error initializing the user interface location"
+msgstr ""
+
+msgid "Saving GUI configuration"
+msgstr ""
+
+msgid "Unable to save user interface status."
+msgstr ""
+
+#~ msgid "Remove every pdf file from the merge list"
+#~ msgstr "Usuń wszystkie pliki PDF z listy"
+
+#~ msgid "Ok"
+#~ msgstr "Ok"

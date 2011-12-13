@@ -1,0 +1,1458 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pdfsam\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-10-24 17:57+0200\n"
+"PO-Revision-Date: 2010-08-27 17:28+0000\n"
+"Last-Translator: Peiqian Li <PeiqianLi@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2010-10-24 15:28+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-Language: Chinese\n"
+
+msgid "Merge options"
+msgstr "合并选项"
+
+msgid "PDF documents contain forms"
+msgstr "PDF 文档包含表单"
+
+msgid "Merge type"
+msgstr "合并类型"
+
+msgid "Unchecked"
+msgstr "未检查"
+
+msgid "Use this merge type for standard pdf documents"
+msgstr "这种合并类型用于标准 PDF 文档"
+
+msgid "Checked"
+msgstr "已检查"
+
+msgid "Use this merge type for pdf documents containing forms"
+msgstr "这种合并类型用于包含表单的 PDF 文档"
+
+msgid "Note"
+msgstr "注"
+
+msgid "Setting this option the documents will be completely loaded in memory"
+msgstr "设置此选项，文档就会被完全载入内存"
+
+msgid "Destination output file"
+msgstr "目标输出文件"
+
+msgid "Browse or enter the full path to the destination output file."
+msgstr "浏览或输入目标输出文件的完整路径。"
+
+msgid ""
+"Check the box if you want to overwrite the output file if it already exists."
+msgstr "如果向覆盖已存在的输出文件，就勾选此框。"
+
+msgid "Check the box if you want compressed output files."
+msgstr "如果您想要压缩输出文件，请勾选此框。"
+
+msgid "PDF version 1.5 or above."
+msgstr "PDF 版本1.5或更高。"
+
+msgid "Set the pdf version of the ouput document."
+msgstr "设置输出文档的 pdf 版本号。"
+
+msgid "Execute pdf merge"
+msgstr "执行 PDF 合并"
+
+msgid "Merge/Extract"
+msgstr "合并/解压"
+
+msgid "Merge section loaded."
+msgstr "合并部分已载入。"
+
+msgid "Error: "
+msgstr "错误： "
+
+msgid "Found a password for input file."
+msgstr "输入文件需要密码。"
+
+msgid "Export as xml"
+msgstr "导出为 xml"
+
+msgid "Export the selection list in xml format"
+msgstr ""
+
+msgid "Unable to save xml file."
+msgstr "无法保存 xml 文件。"
+
+msgid "File xml saved."
+msgstr "xml 文件已保存。"
+
+msgid "Error saving xml file, output file is null."
+msgstr "保存 xml 文件出错，没有输出。"
+
+msgid "Split options"
+msgstr "拆分选项"
+
+msgid "Burst (split into single pages)"
+msgstr "爆裂 (拆分为单页文件)"
+
+msgid "Split every \"n\" pages"
+msgstr "每\"n\"页分割一次"
+
+msgid "Split even pages"
+msgstr "拆分偶数页"
+
+msgid "Split odd pages"
+msgstr "拆分奇数页"
+
+msgid "Split after these pages"
+msgstr "在这些页面后拆分"
+
+msgid "Split at this size"
+msgstr "达到这个大小之后拆分"
+
+msgid "Split by bookmarks level"
+msgstr "根据书签级别分割"
+
+msgid "Burst"
+msgstr "分割"
+
+msgid "Explode the pdf document into single pages"
+msgstr "将 PDF 文档分割为单页文件"
+
+msgid "Split the document every \"n\" pages"
+msgstr "每\"n\" 页就拆分一次文档"
+
+msgid "Split the document every even page"
+msgstr "每遇到偶数页就拆分文档"
+
+msgid "Split the document every odd page"
+msgstr "每遇到奇数页就拆分文档"
+
+msgid "Split the document after page numbers (num1-num2-num3..)"
+msgstr "在页码（num1-num2-num3...）之后拆分文档"
+
+msgid "Split the document in files of the given size (roughly)"
+msgstr "以指定大小分割文档"
+
+msgid "Split the document at pages referred by bookmarks of the given level"
+msgstr "在给定级别的书签指向的页面处分割文档"
+
+msgid "Destination folder"
+msgstr "目标文件夹"
+
+msgid "Same as source"
+msgstr "和源相同"
+
+msgid "Choose a folder"
+msgstr "选择文件夹"
+
+msgid "Destination output directory"
+msgstr "目标输出目录"
+
+msgid "Use the same output folder as the input file or choose a folder."
+msgstr "使用和输入文件相同的输出文件夹，或选择一个文件夹。"
+
+msgid ""
+"To choose a folder browse or enter the full path to the destination output "
+"directory."
+msgstr "要选择文件夹，浏览或输入目标输出目录的完整路径。"
+
+msgid ""
+"Check the box if you want to overwrite the output files if they already "
+"exist."
+msgstr "如果想覆盖已存在的输出文件，就勾选此框。"
+
+msgid "Output options"
+msgstr "输出选项"
+
+msgid "Output file names prefix:"
+msgstr "输出文件名前缀："
+
+msgid "Output files prefix"
+msgstr "输出文件名前缀"
+
+msgid ""
+"If it contains \"[CURRENTPAGE]\", \"[TIMESTAMP]\", \"[FILENUMBER]\" or "
+"\"[BOOKMARK_NAME]\" it performs variable substitution."
+msgstr ""
+"如果它包含有“当前页”、 “时间戳”、“文件数\"或者\"书签名\",则它能够代替完成各种"
+"各样的工作。"
+
+msgid "Ex. prefix_[BASENAME]_[CURRENTPAGE] generates prefix_FileName_005.pdf."
+msgstr "例如，prefix_[BASENAME]_[CURRENTPAGE] 产生 prefix_FileName_005.pdf。"
+
+msgid ""
+"If it doesn't contain \"[CURRENTPAGE]\", \"[TIMESTAMP]\" or \"[FILENUMBER]\" "
+"it generates oldstyle output file names."
+msgstr ""
+
+msgid "Available variables"
+msgstr "可用变量"
+
+msgid "Split selected file"
+msgstr "分割选择的文件"
+
+msgid "Split"
+msgstr "分割"
+
+msgid "Split section loaded."
+msgstr "拆分部分已载入。"
+
+msgid "Invalid split size"
+msgstr "非法的分割大小"
+
+msgid "Invalid unit: "
+msgstr "单位错误： "
+
+msgid "Fill from document"
+msgstr ""
+
+msgid "Please select a pdf document."
+msgstr "请选择一个pdf文档"
+
+msgid "Warning"
+msgstr "警告"
+
+msgid "Getting bookmarks max depth"
+msgstr "获取书签最大深度"
+
+msgid "Unable to retrieve bookmarks maximum depth."
+msgstr ""
+
+msgid "Frontpage pdf file"
+msgstr ""
+
+msgid "Addendum pdf file"
+msgstr "附录pdf文件"
+
+msgid "Frontpage and Addendum"
+msgstr ""
+
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:876
+msgid "Cover And Footer section loaded."
+msgstr "封面和封底部分已载入。"
+
+msgid "Select at least one cover or one footer"
+msgstr "至少选择一个封面或封底"
+
+msgid "Encrypt options"
+msgstr "加密选项"
+
+msgid "Owner password:"
+msgstr "所有者密码："
+
+msgid "Owner password (Max 32 chars long)"
+msgstr "所有者密码（最长 32 字符）"
+
+msgid "User password:"
+msgstr "用户密码："
+
+msgid "User password (Max 32 chars long)"
+msgstr "用户密码（最长 32 字符）"
+
+msgid "Encryption algorithm:"
+msgstr "加密算法"
+
+msgid "Allow all"
+msgstr "全部允许"
+
+msgid "Print"
+msgstr "打印"
+
+msgid "Low quality print"
+msgstr "低质量打印"
+
+msgid "Copy or extract"
+msgstr "复制或提取"
+
+msgid "Modify"
+msgstr "修改"
+
+msgid "Add or modify text annotations"
+msgstr "添加或修改文本注释"
+
+msgid "Fill form fields"
+msgstr "填写表单字段"
+
+msgid "Extract for use by accessibility dev."
+msgstr "提取以用于无障碍设备。"
+
+msgid "Manipulate pages and add bookmarks"
+msgstr "操作页面和添加书签"
+
+msgid ""
+"Check the box if you want compressed output files (Pdf version 1.5 or "
+"higher)."
+msgstr "如果希望覆盖已有文件，则勾选此项（ PDF 1.5 或更高版本)。"
+
+msgid "If it contains \"[TIMESTAMP]\" it performs variable substitution."
+msgstr "如果包含 \"[TIMESTAMP]\"，就会进行变量替换。"
+
+msgid ""
+"Ex. [BASENAME]_prefix_[TIMESTAMP] generates "
+"FileName_prefix_20070517_113423471.pdf."
+msgstr ""
+"例如，[BASENAME]_prefix_[TIMESTAMP] 产生 FileName_prefix_20070517_113423471."
+"pdf。"
+
+msgid ""
+"If it doesn't contain \"[TIMESTAMP]\" it generates oldstyle output file "
+"names."
+msgstr "如果不包含 \"[时间戳]\"，就产生旧格式的输出文件名。"
+
+msgid "Available variables: [TIMESTAMP], [BASENAME]."
+msgstr "可用变量：[TIMESTAMP]、[BASENAME]。"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:463
+msgid "Encrypt selected files"
+msgstr "加密选择的文件"
+
+msgid "Encrypt"
+msgstr "加密"
+
+msgid "Encrypt section loaded."
+msgstr "加密部分已载入。"
+
+msgid "Decrypt selected files"
+msgstr "解密所选文件"
+
+msgid "Decrypt"
+msgstr "解码"
+
+msgid "Decrypt section loaded."
+msgstr "解密部分已经加载"
+
+msgid "Document metadata"
+msgstr ""
+
+msgid "Title"
+msgstr "标题"
+
+msgid "Author"
+msgstr "作者"
+
+msgid "Subject"
+msgstr "主题"
+
+msgid "Keywords"
+msgstr "关键词"
+
+msgid "Set the document title."
+msgstr ""
+
+msgid "Set the document author."
+msgstr ""
+
+msgid "Set the document subject."
+msgstr ""
+
+msgid "Set the document keywords."
+msgstr ""
+
+msgid "Choose a file"
+msgstr "选择一个文件"
+
+msgid "Set metadata on the selected file"
+msgstr ""
+
+msgid "Document Info"
+msgstr ""
+
+msgid "Rotate section loaded."
+msgstr ""
+
+msgid "Mix options"
+msgstr "混合选项"
+
+msgid "Reverse first document"
+msgstr "反转第一个文档"
+
+msgid "Reverse second document"
+msgstr "反转第二个文档"
+
+msgid "Number of pages to switch from the first document to the other"
+msgstr ""
+
+msgid "Number of pages to switch from the second document to the other"
+msgstr ""
+
+msgid ""
+"Tick the boxes if you want to reverse the first or the second document (or "
+"both)."
+msgstr ""
+
+msgid ""
+"Set the number of pages to switch from the first document to the other one "
+"(default is 1)."
+msgstr ""
+
+msgid ""
+"Set the number of pages to switch from the second document to the other one "
+"(default is 1)."
+msgstr ""
+
+msgid "Execute pdf alternate mix"
+msgstr "执行 PDF 交替混合"
+
+msgid "Alternate Mix"
+msgstr "交替混合"
+
+msgid "AlternateMix section loaded."
+msgstr "交替混合部分已载入。"
+
+msgid "Found a password for first file."
+msgstr "第一个文件需要密码。"
+
+msgid "Found a password for second file."
+msgstr "第二个文件需要密码。"
+
+msgid "Unpack selected files"
+msgstr "解包所选文件"
+
+msgid "Unpack"
+msgstr "解包"
+
+msgid "Unpack section loaded."
+msgstr "解包部分已载入。"
+
+msgid "Set viewer options"
+msgstr "设置文档查看器选项"
+
+msgid "Hide the menubar"
+msgstr ""
+
+msgid "Hide the toolbar"
+msgstr "隐藏工具栏"
+
+msgid "Hide user interface elements"
+msgstr ""
+
+msgid "Rezise the window to fit the page size"
+msgstr "根据页面重排窗口"
+
+msgid "Center of the screen"
+msgstr "屏幕中间"
+
+msgid "Display document title as window title"
+msgstr "显示文档标题作为窗口标题"
+
+msgid "Pdf version required:"
+msgstr "Pdf 版本需求"
+
+msgid "No page scaling in print dialog"
+msgstr "在打印对话中不可页面缩放"
+
+msgid "Viewer open mode:"
+msgstr "视图模式"
+
+msgid "Viewer layout:"
+msgstr "视图层"
+
+msgid "Non fullscreen mode:"
+msgstr "非全屏模式"
+
+msgid "Direction:"
+msgstr "方向："
+
+msgid "Set options"
+msgstr "设置选项"
+
+msgid "Set viewer options for selected files"
+msgstr "为选定的文件设置视图选项"
+
+msgid "Left to right"
+msgstr "从左到右"
+
+msgid "Right to left"
+msgstr "从右到左"
+
+msgid "None"
+msgstr "无"
+
+msgid "Fullscreen"
+msgstr "全屏"
+
+msgid "Attachments"
+msgstr "附件"
+
+msgid "Optional content group panel"
+msgstr ""
+
+msgid "Document outline"
+msgstr "文档概要"
+
+msgid "Thumbnail images"
+msgstr ""
+
+msgid "One page at a time"
+msgstr "每次一页"
+
+msgid "Pages in one column"
+msgstr ""
+
+msgid "Pages in two columns (odd on the left)"
+msgstr ""
+
+msgid "Pages in two columns (odd on the right)"
+msgstr ""
+
+msgid "Two pages at a time (odd on the left)"
+msgstr "每次两页（奇数页在左）"
+
+msgid "Two pages at a time (odd on the right)"
+msgstr "每次两页（奇数页在右）"
+
+msgid "Viewer options"
+msgstr ""
+
+msgid "Viewer options section loaded."
+msgstr ""
+
+msgid "Move on top"
+msgstr "移至顶端"
+
+msgid "Move to bottom"
+msgstr "移至底端"
+
+msgid ""
+"To choose a file browse or enter the full path to the destination output "
+"file."
+msgstr ""
+
+msgid "Execute pages reorder"
+msgstr "页面重新排序"
+
+msgid "Visual document composer"
+msgstr "可视化文档设计器"
+
+msgid "Visual Composer section loaded."
+msgstr ""
+
+msgid "Please select a pdf document or undelete some pages"
+msgstr ""
+
+msgid "Rotation"
+msgstr "旋转"
+
+msgid "All"
+msgstr "全部"
+
+msgid "Even"
+msgstr "偶数"
+
+msgid "Odd"
+msgstr "奇数"
+
+msgid "Clockwise rotation (degrees):"
+msgstr ""
+
+msgid "Pages:"
+msgstr ""
+
+msgid "Set the rotation degrees (clockwise)."
+msgstr ""
+
+msgid "Set the pages that will be rotated."
+msgstr ""
+
+msgid "Rotate selected files"
+msgstr "旋转选定的文件"
+
+msgid "Rotate"
+msgstr "旋转"
+
+msgid "Use the same output file name as the input file or choose a file."
+msgstr ""
+
+msgid "Visual reorder"
+msgstr ""
+
+msgid "Visual Reorder section loaded."
+msgstr ""
+
+msgid "Please select a pdf document or undelete some page"
+msgstr ""
+
+msgid "New version available."
+msgstr "检查到新版本。"
+
+msgid "No new version available."
+msgstr "没有检测到新的版本。"
+
+msgid "Unknown action."
+msgstr "未知操作。"
+
+msgid "Log saved."
+msgstr "日志已保存。"
+
+msgid "Save as"
+msgstr "另存为"
+
+msgid "Save the image"
+msgstr ""
+
+msgid "Unable to save image"
+msgstr "无法保存图像"
+
+msgid "Close"
+msgstr "关闭"
+
+msgid "Close panel"
+msgstr ""
+
+msgid "Rotate anticlockwise"
+msgstr "逆时针旋转"
+
+msgid "Rotate clockwise"
+msgstr "顺时针旋转"
+
+msgid "Zoom in"
+msgstr "放大"
+
+msgid "Zoom out"
+msgstr "缩小"
+
+msgid "No zoom"
+msgstr ""
+
+msgid "No zoom applied"
+msgstr ""
+
+msgid "Save environment"
+msgstr "保存环境"
+
+msgid ""
+"Save passwords informations (they will be readable opening the output file)?"
+msgstr "保存密码信息？（这些信息能在输出文件中查看）"
+
+msgid "Confirm password saving"
+msgstr "确认保存密码"
+
+msgid "Load environment"
+msgstr "载入环境"
+
+msgid "Unable to create image for a null input document"
+msgstr ""
+
+msgid "Unable to create thumbnails for a null input document"
+msgstr ""
+
+msgid "Unable to open the input document"
+msgstr "无法打开输入文档"
+
+msgid "Input file doesn't exists or is a directory"
+msgstr "输入文件不存在或者是一个目录"
+
+msgid "Error opening pdf document"
+msgstr "打开pdf文档错误"
+
+msgid "Password not provided."
+msgstr "没有提供密码。"
+
+msgid "Unable to open the document."
+msgstr "无法打开文档。"
+
+msgid "Not enough memory to create thumbnails"
+msgstr ""
+
+msgid "Thumbnails generated in "
+msgstr ""
+
+msgid "Unable to generate thumbnail"
+msgstr ""
+
+msgid " node environment loaded."
+msgstr " 载入结点环境。"
+
+msgid "Environment saved."
+msgstr "环境已保存。"
+
+msgid "Error saving environment, output file is null."
+msgstr "环境保存出错，输出文件为空。"
+
+msgid "Error saving environment."
+msgstr "保存环境出错。"
+
+msgid "Environment loaded."
+msgstr "已经载入环境。"
+
+msgid "Error loading environment."
+msgstr "载入环境出错。"
+
+msgid "Error loading environment from input file. "
+msgstr "从输入文件载入环境时出错。 "
+
+msgid "Image viewer"
+msgstr "图像浏览器"
+
+msgid "Unable to initialize the thumbnails creation library."
+msgstr ""
+
+msgid "Unable to open image preview"
+msgstr "无法打开图像预览"
+
+msgid "Unknown Action"
+msgstr "位置操作"
+
+msgid "Error playing sound"
+msgstr "播放声音时发生错误"
+
+msgid "Generating thumbnails using the following library:"
+msgstr ""
+
+msgid "Selection table is full, please remove some pdf document."
+msgstr "备选表已满，请删除一些 pdf 文档"
+
+msgid "Table full"
+msgstr "备选表已满"
+
+msgid "Please wait while all files are processed.."
+msgstr "请等待所有的文件处理完毕..."
+
+msgid "Command validation returned an empty value."
+msgstr "命令验证返回一个空值。"
+
+msgid "Command executed."
+msgstr "命令已执行。"
+
+msgid "Add"
+msgstr "添加"
+
+msgid "Add a pdf to the list"
+msgstr "向列表添加 PDF 文件"
+
+msgid "Clear"
+msgstr "清空"
+
+msgid "Remove every pdf file from the selection list"
+msgstr ""
+
+msgid "Document properties"
+msgstr "文档属性"
+
+msgid "Show document properties"
+msgstr ""
+
+msgid "Move down"
+msgstr ""
+
+msgid "Move down selected pdf file"
+msgstr "下移选择的 PDF 文件"
+
+msgid "Move Up"
+msgstr "上移"
+
+msgid "Move up selected pdf file"
+msgstr "上移选择的 PDF 文件"
+
+msgid "Reload"
+msgstr "重新载入"
+
+msgid "Reload the selected document"
+msgstr ""
+
+msgid "Remove"
+msgstr "移除"
+
+msgid "Remove a pdf from the list"
+msgstr "从列表中移除 PDF 文件"
+
+msgid "Set destination"
+msgstr ""
+
+msgid "Set the destination path"
+msgstr ""
+
+msgid "Unable to clean pdf loader"
+msgstr ""
+
+msgid "Run"
+msgstr "运行"
+
+msgid "Browse"
+msgstr "浏览"
+
+msgid "Compress output file/files"
+msgstr "压缩输出文件"
+
+msgid "Overwrite if already exists"
+msgstr "覆盖已经存在的文件"
+
+msgid "Don't preserve file order (fast load)"
+msgstr "不保留文件顺序（快速装载）"
+
+msgid "Output document pdf version:"
+msgstr "输出文档的 PDF 版本："
+
+msgid "Same as input document"
+msgstr "和输入文档相同"
+
+msgid "Copy"
+msgstr "复制"
+
+msgid "Cut"
+msgstr "剪切"
+
+msgid "Paste"
+msgstr "粘贴"
+
+msgid "Add prefix"
+msgstr "添加前缀"
+
+msgid "The cross reference table cantained some error and has been rebuilt"
+msgstr ""
+
+msgid ""
+"The document has not been opened with the owner password. You must provide "
+"the owner password in order to manipulate the document"
+msgstr ""
+
+msgid "An error occured while loading the document"
+msgstr "载入文档时有错误发生"
+
+msgid "File name"
+msgstr "文件名"
+
+msgid "Path"
+msgstr "路径"
+
+msgid "Pages"
+msgstr "页数"
+
+msgid "Password"
+msgstr "口令"
+
+msgid "Version"
+msgstr "版本"
+
+msgid "Page Selection"
+msgstr "页面选择"
+
+msgid "Total pages of the document"
+msgstr "文档总页数"
+
+msgid "Password to open the document (if needed)"
+msgstr "文档密码（如果需要）"
+
+msgid "Pdf version of the document"
+msgstr "文档的 PDF 版本号"
+
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "双击设置要合并的页面 （比如：2 或 5-23 或 2,5-7, 12-）"
+
+msgid "Unable to remove JList text "
+msgstr "无法删除 JList 文本 "
+
+msgid "File selected: "
+msgstr "选择的文件： "
+
+msgid "File reloaded: "
+msgstr "重新载入的文件： "
+
+msgid "Open"
+msgstr "打开"
+
+msgid "Load a pdf document"
+msgstr ""
+
+msgid "Error setting zoom level."
+msgstr "设置缩放级别出错。"
+
+msgid "Preview"
+msgstr "预览"
+
+msgid "Move Down"
+msgstr "下移"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Undelete"
+msgstr "恢复"
+
+msgid "Reverse"
+msgstr "反转"
+
+msgid "Move up selected pages"
+msgstr "上移选定页面"
+
+msgid "(Alt+ArrowUp)"
+msgstr "(Alt+向上键)"
+
+msgid "Move down selected pages"
+msgstr "下移选定页面"
+
+msgid "(Alt+ArrowDown)"
+msgstr "(Alt+向下键)"
+
+msgid "Delete selected pages"
+msgstr "删除选中的页面"
+
+msgid "(Canc)"
+msgstr "(取消)"
+
+msgid "Undelete selected pages"
+msgstr ""
+
+msgid "(Ctrl+Z)"
+msgstr ""
+
+msgid "Rotate right"
+msgstr "向右旋转"
+
+msgid "Rotate clockwise selected pages"
+msgstr "顺时针旋转选定的页面"
+
+msgid "(Alt+ArrowRight)"
+msgstr ""
+
+msgid "Rotate left"
+msgstr "向左旋转"
+
+msgid "Rotate anticlockwise selected pages"
+msgstr "逆时针旋转选定的页面"
+
+msgid "(Alt+ArrowLeft)"
+msgstr ""
+
+msgid "Reverse pages order"
+msgstr ""
+
+msgid "Yes"
+msgstr "是"
+
+msgid "No"
+msgstr "否"
+
+msgid "File: "
+msgstr "文件： "
+
+msgid "Pages: "
+msgstr ""
+
+msgid "Pdf version: "
+msgstr "Pdf版本： "
+
+msgid "Title: "
+msgstr "标题： "
+
+msgid "Author: "
+msgstr "作者： "
+
+msgid "Creator: "
+msgstr "创建者： "
+
+msgid "Producer: "
+msgstr ""
+
+msgid "Encrypted: "
+msgstr ""
+
+msgid "Set output file"
+msgstr "设置输出文件"
+
+msgid "Error: Unable to get the file path."
+msgstr "错误：无法获取文件路径。"
+
+msgid "File"
+msgstr "文件"
+
+msgid "Image"
+msgstr ""
+
+msgid "Error creating preview panel."
+msgstr "创建预览面板错误"
+
+msgid "Number of pages"
+msgstr "页数"
+
+msgid "File size"
+msgstr "文件大小"
+
+msgid "Pdf version"
+msgstr "Pdf 版本"
+
+msgid "Encryption"
+msgstr "加密"
+
+msgid "Not encrypted"
+msgstr "未加密"
+
+msgid "Permissions"
+msgstr "权限"
+
+msgid "Producer"
+msgstr "制作人"
+
+msgid "Creator"
+msgstr "创建者"
+
+msgid "Creation date"
+msgstr "创建日期"
+
+msgid "Modification date"
+msgstr "修改日期"
+
+msgid "Error creating properties panel."
+msgstr "创建属性面板错误。"
+
+msgid "Please select a single pdf document."
+msgstr "请选择单个pdf文档"
+
+msgid "File type not supported."
+msgstr "文件类型不支持。"
+
+msgid "Error during drag and drop."
+msgstr "拖放过程中有错误发生。"
+
+msgid "Logging level set to "
+msgstr "日志级别设置为： "
+
+msgid "Unable to set logging level."
+msgstr "无法设置日志级别。"
+
+msgid "Error getting plugins directory."
+msgstr "获取插件目录出错。"
+
+msgid "Cannot read plugins directory "
+msgstr "无法读取插件目录 "
+
+msgid "Plugins directory is null."
+msgstr "插件目录为空。"
+
+msgid "Found many plugins in "
+msgstr ""
+
+msgid "selected as the most recent plugin"
+msgstr ""
+
+msgid "No plugin found in "
+msgstr ""
+
+msgid "Exception loading plugins."
+msgstr "排除插件载入。"
+
+msgid "Cannot read plugin directory "
+msgstr "无法读取插件目录 "
+
+msgid " plugin loaded."
+msgstr " 插件已载入。"
+
+msgid "Unable to load a plugin that is not JPanel subclass."
+msgstr "无法加载非 JPanel 子类别的插件。"
+
+msgid "Error loading class "
+msgstr "加载类失败 "
+
+msgid "Unable to get latest available version"
+msgstr "无法获取最新版本"
+
+msgid "Checking for a new version available."
+msgstr "检查新的版本。"
+
+msgid "Error checking for a new version available."
+msgstr "查找更新出错。"
+
+msgid "Select all"
+msgstr "全选"
+
+msgid "Save log"
+msgstr "保存日志"
+
+msgid "Exit"
+msgstr "退出"
+
+msgid "started in "
+msgstr "开始于 "
+
+msgid "Loading plugins.."
+msgstr "载入插件..."
+
+msgid "Building status bar.."
+msgstr "构建状态栏..."
+
+msgid "Building tree.."
+msgstr "构建树形图..."
+
+msgid "Building menus.."
+msgstr "生成菜单..."
+
+msgid "Building buttons bar.."
+msgstr "构建按钮栏..."
+
+msgid "Loading default environment."
+msgstr "加载默认的环境设置"
+
+msgid "Error starting pdfsam."
+msgstr "启动 pdfsam 出错。"
+
+msgid "Clear log"
+msgstr "清空日志"
+
+msgid "Unable to initialize button bar."
+msgstr "无法初始化按钮栏。"
+
+msgid "Version: "
+msgstr "版本： "
+
+msgid "Console version: "
+msgstr "控制台版本： "
+
+msgid "Developed by: "
+msgstr "开发者： "
+
+msgid "Build date: "
+msgstr "构建日期: "
+
+msgid "Java home: "
+msgstr "Java 根目录： "
+
+msgid "Java version: "
+msgstr "Java 版本： "
+
+msgid "Max memory: "
+msgstr "最大内存： "
+
+msgid "Configuration file: "
+msgstr "配置文件： "
+
+msgid "Website: "
+msgstr "网站： "
+
+msgid "Name"
+msgstr "名称"
+
+msgid "About"
+msgstr "关于"
+
+msgid "Unimplemented method for JInfoPanel"
+msgstr "JInfoPanel 未实现的方法"
+
+msgid "Contributes: "
+msgstr "贡献： "
+
+msgid "Log level:"
+msgstr "日志级别："
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "Look and feel:"
+msgstr "外观感觉："
+
+msgid "Theme:"
+msgstr "主题:"
+
+msgid "Language:"
+msgstr "语言:"
+
+msgid "Thumbnails creator"
+msgstr ""
+
+msgid "Load default environment at startup:"
+msgstr "启动时载入默认环境："
+
+msgid "Default working directory:"
+msgstr "默认工作目录："
+
+msgid "Check for updates at startup"
+msgstr "启动时检查更新"
+
+msgid "Check now"
+msgstr "立即检查"
+
+msgid "Play alert sounds"
+msgstr "播放提示音"
+
+msgid "Ask for confirmation when overwrite checkbox is selected"
+msgstr ""
+
+msgid "Settings "
+msgstr "设置 "
+
+msgid "Language"
+msgstr "语言"
+
+msgid "Set your preferred language (restart needed)"
+msgstr "设置首选语言（需要重新启动）"
+
+msgid "Look and feel"
+msgstr "外观感觉"
+
+msgid ""
+"Set your preferred look and feel and your preferred theme (restart needed)"
+msgstr "设置首选外观感觉和首选主题（需要重新启动）"
+
+msgid "Log level"
+msgstr "日志级别"
+
+msgid "Set a log detail level (restart needed)"
+msgstr "设置日期详细级别（需要重新启动）"
+
+msgid "Set the thumbnails creation library"
+msgstr ""
+
+msgid "Check for updates"
+msgstr "检查更新"
+
+msgid "Set when new version availability should be checked (restart needed)"
+msgstr "设置是否检测更新（需要重启）"
+
+msgid "Turn on or off alert sounds"
+msgstr "开启或关闭提示音"
+
+msgid "Ask overwrite confirmation"
+msgstr ""
+
+msgid ""
+"Show a dialog box asking the user for confirmation when the \"overwrite\" is "
+"selected"
+msgstr ""
+
+msgid "Default env."
+msgstr "默认环境。"
+
+msgid ""
+"Select a previously saved env. file that will be automatically loaded at "
+"startup"
+msgstr "选择先前保存的环境文件，竟会在启动时自动载入。"
+
+msgid "Default working directory"
+msgstr "默认工作目录"
+
+msgid "Select a directory where documents will be saved and loaded by default"
+msgstr "设置默认的文档保存和加载路径"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Configuration saved."
+msgstr "配置已保存。"
+
+msgid "Error saving configuration"
+msgstr "保存配置时发生错误"
+
+msgid ""
+"An error occured saving the configuration, please look at the log panel to "
+"have more informations."
+msgstr "保存配置时有错误发生，详情参见日志面板。"
+
+msgid "Unimplemented method for JSettingsPanel"
+msgstr "JSettingsPanel 未实现的方法"
+
+msgid "New version available: "
+msgstr "新版本可用： "
+
+msgid "Unable to play sound."
+msgstr "无法播放声音。"
+
+msgid "Plugins"
+msgstr "插件"
+
+msgid "Error getting pdf version description."
+msgstr "获取 PDF 版本描述失败。"
+
+msgid "Version 1.2 (Acrobat 3)"
+msgstr "1.2 版 (Acrobat 3)"
+
+msgid "Version 1.3 (Acrobat 4)"
+msgstr "1.3 版 (Acrobat 4)"
+
+msgid "Version 1.4 (Acrobat 5)"
+msgstr "1.4 版 (Acrobat 5)"
+
+msgid "Version 1.5 (Acrobat 6)"
+msgstr "1.5 版 (Acrobat 5)"
+
+msgid "Version 1.6 (Acrobat 7)"
+msgstr "1.6 版 (Acrobat 7)"
+
+msgid "Version 1.7 (Acrobat 8)"
+msgstr "1.7 版 (Acrobat 8)"
+
+msgid "Output file location is not correct"
+msgstr "输出文件位置错误"
+
+msgid "Would you like to change it to"
+msgstr "你是否希望更改为"
+
+msgid "Output location error"
+msgstr "输出位置错误"
+
+msgid "Please select at least one pdf document."
+msgstr "请至少选择一个 pdf 文档。"
+
+msgid "Please select two pdf documents."
+msgstr "请选择两个 PDF 文档。"
+
+msgid "Please wait while all files are processed."
+msgstr ""
+
+msgid "Still adding files"
+msgstr ""
+
+msgid "Please select a destination file."
+msgstr ""
+
+msgid "Please select a destination directory."
+msgstr ""
+
+msgid "No destination selected"
+msgstr ""
+
+msgid "Selected output file already exists "
+msgstr "所选的输出文件已存在 "
+
+msgid "Would you like to overwrite it?"
+msgstr "您想要覆盖此文件吗？"
+
+msgid ""
+"Please note that output files will overwrite existing files of the same name "
+"without warning."
+msgstr ""
+
+msgid "Do you confirm to overwrite?"
+msgstr ""
+
+msgid "Confirm overwrite"
+msgstr ""
+
+msgid "Provided pages selection is not valid"
+msgstr "页面选择无效"
+
+msgid ""
+"Limits must be a comma separated list of \"page_number\" or \"page_number-"
+"page_number\""
+msgstr ""
+
+msgid "Limits are not valid"
+msgstr ""
+
+msgid "Please provide the password to open the encrypted document"
+msgstr "请输入密码以打开此加密文档"
+
+msgid "Password request"
+msgstr ""
+
+msgid ""
+"Selection list is full, would you like to empty it and load the new document?"
+msgstr "选择列表已满，您想清空列表并加载新文档吗？"
+
+msgid "List full"
+msgstr "列表已满"
+
+msgid "The lowest available pdf version is "
+msgstr "最低的可用 pdf 版本号是 "
+
+msgid "You selected a lower output pdf version, continue anyway ?"
+msgstr "你选择的 pdf 版本号过低，仍然继续？"
+
+msgid "Pdf version conflict"
+msgstr "PDF 版本冲突"
+
+msgid "Error retrieving page saved informations"
+msgstr ""
+
+msgid "Unable to initializate drag and drop support."
+msgstr "无法初始化拖放支持。"
+
+msgid "Setting look and feel..."
+msgstr "设置外观和感觉..."
+
+msgid "Setting logging level..."
+msgstr "设置日志级别 ..."
+
+msgid "Unable to find log level, setting to default level (DEBUG)."
+msgstr "无法获取日志级别，设置为默认级别 (DEBUG)。"
+
+msgid "Loading user interface configuration"
+msgstr ""
+
+msgid "Unable to find configuration file for the user interface"
+msgstr ""
+
+msgid "Error reading the configuration file for the user interface"
+msgstr ""
+
+msgid "Error initializing the user interface vertical divider location"
+msgstr ""
+
+msgid "Error initializing the user interface horizontal divider location"
+msgstr ""
+
+msgid "Error initializing the user interface extended state"
+msgstr ""
+
+msgid "Error initializing the user interface size"
+msgstr ""
+
+msgid "Error initializing the user interface horizontal divider size"
+msgstr ""
+
+msgid "Error initializing the user interface vertical divider size"
+msgstr ""
+
+msgid "Error initializing the user interface location"
+msgstr "初始化用户界面位置错误"
+
+msgid "Saving GUI configuration"
+msgstr "保存GUI配置"
+
+msgid "Unable to save user interface status."
+msgstr "无法保存用户界面状态。"
+
+#~ msgid "Remove every pdf file from the merge list"
+#~ msgstr "从合并列表移除全部 PDF 文件"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:252
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:869
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:245
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:851
+# F:\pdfsam\workspace-basic\pdfsam-merge\src\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:248
+#~ msgid "Please wait while reading"
+#~ msgstr "请稍候。正在读取"
+
+#~ msgid "Ok"
+#~ msgstr "确定"
+
+#~ msgid "Unable to get the default environment informations."
+#~ msgstr "无法获取默认环境设置信息。"
+
+#~ msgid "Unable to initialize menu bar."
+#~ msgstr "未能初始化菜单栏。"
+
+#~ msgid "Check for updates:"
+#~ msgstr "检查更新："
+
+#~ msgid "pdfsam start up"
+#~ msgstr "pdfsam 开始运行"
+
+#~ msgid "Never"
+#~ msgstr "从不"
+
+#~ msgid ""
+#~ "Double click to set pages you want to merge (ex: 2 or All or 5-23 or "
+#~ "2,5-7,12-)"
+#~ msgstr "双击以设定你需要合并的页面（如：2、全部、5-23、2,5-7,12-）"
+
+#~ msgid "Error loading "
+#~ msgstr "载入环出错 "
+
+#~ msgid "Selected file is not a pdf document."
+#~ msgstr "选择的文件不是 PDF 文档。"
+
+#~ msgid "Error: Unable to reload the selected file/s."
+#~ msgstr "错误：无法读取选择的文件。"
+
+#~ msgid "Found zero or many jars in plugin directory "
+#~ msgstr "插件目录中的 Jar 不唯一 "
+
+#~ msgid "Error getting default environment."
+#~ msgstr "获取默认环境失败."

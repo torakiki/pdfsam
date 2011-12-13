@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<languages>
+    <language value="ar" description="Arabic" />  
+    <language value="ast" description="Asturian" />  
+    <language value="bs" description="Bosnian" />  
+    <language value="pt_BR" description="Brazilian Portuguese" />    
+    <language value="bg" description="Bulgarian" />  
+    <language value="ca" description="Catalan" />  
+    <language value="hr" description="Croatian" />  
+    <language value="cs" description="Czech" />  
+    <language value="da" description="Danish" />  	
+    <language value="nl" description="Dutch" />  	
+    <language value="en_GB" description="English (UK)" />    
+    <language value="fa" description="Persian" />  
+    <language value="et" description="Estonian" />  
+    <language value="fi" description="Finnish" />  	
+    <language value="fr" description="French" />    
+    <language value="gl" description="Galician" />
+    <language value="de" description="German" />
+    <language value="el" description="Greek" />   
+    <language value="iw_IL" description="Hebrew" />  
+    <language value="hu" description="Hungarian" />
+    <language value="ja" description="Japanese" />
+    <language value="id" description="Indonesian" />
+    <language value="it" description="Italian" />  
+    <language value="ko" description="Korean" />  
+    <language value="nb" description="Norwegian Bokmal" />  
+    <language value="lv" description="Latvian" />  
+    <language value="lt" description="Lithuanian" />  
+    <language value="pl" description="Polish" />
+    <language value="pt" description="Portuguese" />  
+    <language value="ro" description="Romanian" />    
+    <language value="ru" description="Russian" />    
+    <language value="zh_CN" description="Simplified Chinese" />  	
+    <language value="sk" description="Slovak" />  
+    <language value="sl" description="Slovenian" />        
+    <language value="es" description="Spanish" />    
+    <language value="sv" description="Swedish" />   
+    <language value="tr" description="Turkish" />   
+    <language value="th" description="Thai" />   
+    <language value="uk" description="Ukrainian" />   
+    <language value="vi" description="Vietnamese" />   
+    <language value="zh_TW" description="Traditional Chinese" />
+    <language value="zh_HK" description="Chinese (Hong Kong)" />
+</languages>
