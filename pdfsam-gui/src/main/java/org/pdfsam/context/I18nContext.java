@@ -1,5 +1,5 @@
 /*
- * Created on 12/dic/2011
+ * Created on 13/dic/2011
  * Copyright 2010 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the 
@@ -12,17 +12,21 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam.configuration;
+package org.pdfsam.context;
+
+import org.xnap.commons.i18n.I18n;
 
 /**
- * Possible {@link String} preferences.
+ * Context related to the i18n of the application.
  * 
  * @author Andrea Vacondio
  * 
  */
-public enum StringUserPreference {
-    LOCALE,
-    THUMBNAILS_IDENTIFIER,
-    WORKING_PATH,
-    WORKSPACE_PATH;
+public interface I18nContext {
+
+    /**
+     * 
+     * @return the I18n instance used to retrieve internationalized messages.
+     */
+    I18n getI18n();
 }

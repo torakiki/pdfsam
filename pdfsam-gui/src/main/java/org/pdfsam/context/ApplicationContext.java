@@ -12,15 +12,15 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam.configuration;
+package org.pdfsam.context;
 
 /**
- * A configuration related to the current user.
+ * Context holding application related settings.
  * 
  * @author Andrea Vacondio
  * 
  */
-public interface UserConfiguration {
+public interface ApplicationContext {
 
     /**
      * @return the default workspace path if set, an empty string if not set.

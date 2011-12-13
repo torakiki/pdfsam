@@ -12,7 +12,7 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam.configuration;
+package org.pdfsam.context;
 
 /**
  * Possible {@link Integer} preferences.

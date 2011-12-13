@@ -12,16 +12,17 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam.configuration;
+package org.pdfsam.context;
 
 /**
- * Possible {@link Boolean} preferences.
+ * Possible {@link String} preferences.
  * 
  * @author Andrea Vacondio
  * 
  */
-public enum BooleanUserPreference {
-    ASK_OVERWRITE_CONFIRMATION,
-    CHECK_UPDATES,
-    PLAY_SOUNDS,
+public enum StringUserPreference {
+    LOCALE,
+    THUMBNAILS_IDENTIFIER,
+    WORKING_PATH,
+    WORKSPACE_PATH;
 }

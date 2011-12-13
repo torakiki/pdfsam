@@ -12,31 +12,31 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam.configuration;
+package org.pdfsam.context;
 
 import java.util.prefs.Preferences;
 
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * {@link Preferences} implementation for the {@link UserConfiguration}.
+ * {@link Preferences} implementation for the {@link ApplicationContext}.
  * 
  * @author Andrea Vacondio
  * 
  */
-public final class DefaultUserConfiguration implements UserConfiguration {
+public final class DefaultApplicationContext implements ApplicationContext {
 
     private Preferences prefs;
 
-    private DefaultUserConfiguration() {
-        this.prefs = Preferences.userNodeForPackage(DefaultUserConfiguration.class);
+    private DefaultApplicationContext() {
+        this.prefs = Preferences.userNodeForPackage(DefaultApplicationContext.class);
     }
 
     /**
-     * @return the default user configuration instance
+     * @return the default application context instance
      */
-    public static UserConfiguration getInstance() {
-        return GlobalConfigurationHolder.CONFIGURATION;
+    public static ApplicationContext getInstance() {
+        return DefaultApplicationContextHolder.CONTEXT;
     }
 
     @Override
@@ -101,13 +101,13 @@ public final class DefaultUserConfiguration implements UserConfiguration {
      * @author Andrea Vacondio
      * 
      */
-    private static final class GlobalConfigurationHolder {
+    private static final class DefaultApplicationContextHolder {
 
-        private GlobalConfigurationHolder() {
+        private DefaultApplicationContextHolder() {
             // hide constructor
         }
 
-        static final DefaultUserConfiguration CONFIGURATION = new DefaultUserConfiguration();
+        static final DefaultApplicationContext CONTEXT = new DefaultApplicationContext();
     }
 
 }
