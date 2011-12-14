@@ -17,6 +17,8 @@ package org.pdfsam.context;
 import java.util.Locale;
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.xnap.commons.i18n.I18n;
 import org.xnap.commons.i18n.I18nFactory;
 
@@ -28,14 +30,19 @@ import org.xnap.commons.i18n.I18nFactory;
  */
 public final class DefaultI18nContext implements I18nContext {
 
+    private static final Logger LOG = LoggerFactory.getLogger(DefaultI18nContext.class);
+
     private I18n i18n;
 
     private DefaultI18nContext() {
-        this.i18n = I18nFactory.getI18n(DefaultI18nContext.class, getLocale());
+        Locale locale = getLocale();
+        LOG.trace("Loading i18n bundle from %s", locale);
+        this.i18n = I18nFactory.getI18n(DefaultI18nContext.class, locale);
     }
 
     private Locale getLocale() {
         String localeString = DefaultUserContext.getInstance().getLocale();
+        LOG.trace("Found locale string %s", localeString);
         if (StringUtils.isNotBlank(localeString)) {
             String[] i18nInfos = localeString.split("_");
             if (i18nInfos.length > 1) {
