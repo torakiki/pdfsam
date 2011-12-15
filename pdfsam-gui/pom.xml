@@ -25,22 +25,27 @@
 			<artifactId>commons-io</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.dockingframes</groupId>
-			<artifactId>docking-frames-common</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.bushe</groupId>
 			<artifactId>eventbus</artifactId>
-		</dependency>			
+		</dependency>
 		<dependency>
 			<groupId>org.pdfsam</groupId>
 			<artifactId>pdfsam-i18n</artifactId>
 			<version>${project.version}</version>
-		</dependency>			
+		</dependency>
 		<dependency>
 			<groupId>org.pdfsam</groupId>
 			<artifactId>pdfsam-core</artifactId>
 			<version>${project.version}</version>
-		</dependency>			
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>[${logback.version},]</version>
+		</dependency>
+		<dependency>
+			<groupId>org.noos.xing</groupId>
+			<artifactId>mydoggy-plaf</artifactId>
+		</dependency>
 	</dependencies>
 </project>

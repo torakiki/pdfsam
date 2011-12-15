@@ -1,0 +1,23 @@
+<configuration>
+
+	<!-- This is the default pdfsam logging configuration -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="JTEXTPANE" class="org.pdfsam.gui.log.TextPaneAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="org.sejda" level="INFO" />
+	<logger name="org.pdfsam" level="DEBUG" />
+
+	<root level="DEBUG">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="JTEXTPANE" />
+	</root>
+</configuration>
