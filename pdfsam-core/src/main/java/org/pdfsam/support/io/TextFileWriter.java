@@ -28,7 +28,7 @@ import org.slf4j.LoggerFactory;
  * @author Andrea Vacondio
  * 
  */
-public class TextFileWriter implements OngoingFileWrite {
+public final class TextFileWriter implements OngoingFileWrite {
 
     private static final Logger LOG = LoggerFactory.getLogger(TextFileWriter.class);
 

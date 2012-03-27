@@ -16,6 +16,7 @@ package org.pdfsam.gui.log;
 
 import java.io.File;
 
+import javax.swing.BorderFactory;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
@@ -43,6 +44,7 @@ public class JTextLogPane extends JTextPane {
         setDragEnabled(true);
         DefaultCaret caret = (DefaultCaret) getCaret();
         caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+        setBorder(BorderFactory.createEmptyBorder());
         AnnotationProcessor.process(this);
     }
 

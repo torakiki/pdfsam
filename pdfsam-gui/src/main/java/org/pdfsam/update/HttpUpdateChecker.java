@@ -27,6 +27,7 @@ import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultI18nContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,6 +35,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
+import static org.pdfsam.support.RequireUtils.require;
 import static org.pdfsam.support.XmlUtils.nullSafeGetStringAttribute;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
@@ -52,10 +54,11 @@ class HttpUpdateChecker implements UpdateChecker {
     private static final String VERSION_ATTRIBUTE = "value";
     private static final String XPATH_VERSION_NODE = "/pdfsam/latestVersion";
 
-    private String httpUrl = null;
+    private String uri = null;
 
-    public HttpUpdateChecker(String httpUrl) {
-        this.httpUrl = httpUrl;
+    HttpUpdateChecker(String uri) {
+        require(StringUtils.isNotBlank(uri), "URI to check cannot be blank");
+        this.uri = uri;
     }
 
     private String parseXmlStream(InputStream is) throws ParserConfigurationException, SAXException, IOException,
@@ -71,7 +74,7 @@ class HttpUpdateChecker implements UpdateChecker {
         HttpURLConnection urlConn = null;
         InputStream is = null;
         try {
-            URL url = new URL(httpUrl);
+            URL url = new URL(uri);
             urlConn = (HttpURLConnection) url.openConnection();
             urlConn.setRequestProperty("user agent", "Mozilla/5.0 (compatible; MSIE 6.0; Windows NT 5.1");
             is = urlConn.getInputStream();
