@@ -16,10 +16,14 @@ package org.pdfsam;
 
 import java.awt.GridLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
+import org.noos.xing.mydoggy.DockedTypeDescriptor;
+import org.noos.xing.mydoggy.RepresentativeAnchorDescriptor;
 import org.noos.xing.mydoggy.ToolWindow;
 import org.noos.xing.mydoggy.ToolWindowAnchor;
+import org.noos.xing.mydoggy.ToolWindowType;
 import org.noos.xing.mydoggy.plaf.MyDoggyToolWindowManager;
 import org.pdfsam.gui.log.JLogPanel;
 import org.slf4j.Logger;
@@ -40,20 +44,46 @@ public final class App {
     public static void main(String[] args) {
         MAIN_FRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         MAIN_FRAME.setLayout(new GridLayout(1, 1));
-
+        MAIN_FRAME.setTitle(String.format("PDF Split and Merge %s ver. %s", Pdfsam.PACKAGE, Pdfsam.VERSION));
+        MAIN_FRAME.setIconImage(new ImageIcon(App.class.getResource("/images/pdfsam_" + Pdfsam.PACKAGE + ".png"))
+                .getImage());
+        MAIN_FRAME.setSize(640, 480);
         MyDoggyToolWindowManager toolWindowManager = new MyDoggyToolWindowManager();
-        toolWindowManager.registerToolWindow("Debug", // Id
-                "Log", // Title
-                null, // Icon
-                new JLogPanel(), // Component
-                ToolWindowAnchor.BOTTOM); // Anchor
-        for (ToolWindow window : toolWindowManager.getToolWindows())
-            window.setAvailable(true);
+        toolWindowManager.getToolWindowManagerDescriptor().setNumberingEnabled(false);
 
         MAIN_FRAME.getContentPane().add(toolWindowManager);
+        setUpLogPanel(toolWindowManager);
         MAIN_FRAME.setVisible(true);
-        LOG.warn("warn message");
-
     }
 
+    /**
+     * @param toolWindowManager
+     * @return
+     */
+    private static ToolWindow setUpLogPanel(MyDoggyToolWindowManager toolWindowManager) {
+        toolWindowManager.registerToolWindow("Log", // Id
+                "Log", // Title
+                new ImageIcon(App.class.getResource("/images/log.png")), // Icon
+                new JLogPanel(), // Component
+                ToolWindowAnchor.BOTTOM); // Anchor
+        ToolWindow logToolWindow = toolWindowManager.getToolWindow("Log");
+
+        // RepresentativeAnchorDescriptor
+        RepresentativeAnchorDescriptor representativeAnchorDescriptor = logToolWindow
+                .getRepresentativeAnchorDescriptor();
+        representativeAnchorDescriptor.setTitle("Console");
+        representativeAnchorDescriptor.setPreviewEnabled(false);
+
+        // DockedTypeDescriptor
+        DockedTypeDescriptor dockedTypeDescriptor = (DockedTypeDescriptor) logToolWindow
+                .getTypeDescriptor(ToolWindowType.DOCKED);
+        dockedTypeDescriptor.setIdVisibleOnTitleBar(false);
+        dockedTypeDescriptor.setHideRepresentativeButtonOnVisible(false);
+        dockedTypeDescriptor.setDockLength(300);
+        dockedTypeDescriptor.setPopupMenuEnabled(false);
+
+        logToolWindow.setAvailable(true);
+        logToolWindow.setVisible(false);
+        return logToolWindow;
+    }
 }

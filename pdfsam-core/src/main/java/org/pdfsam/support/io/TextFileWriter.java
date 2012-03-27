@@ -28,18 +28,18 @@ import org.slf4j.LoggerFactory;
  * @author Andrea Vacondio
  * 
  */
-public class StringFileWriter implements OngoingFileWrite {
+public class TextFileWriter implements OngoingFileWrite {
 
-    private static final Logger LOG = LoggerFactory.getLogger(StringFileWriter.class);
+    private static final Logger LOG = LoggerFactory.getLogger(TextFileWriter.class);
 
     private String content;
 
-    private StringFileWriter(String content) {
+    private TextFileWriter(String content) {
         this.content = content;
     }
 
     public static OngoingFileWrite writeContent(String content) {
-        return new StringFileWriter(content);
+        return new TextFileWriter(content);
     }
 
     @Override

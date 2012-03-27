@@ -41,7 +41,7 @@ public final class Pdfsam {
     }
 
     /**
-     * Loader for the sejda properties.
+     * Loader for the pdfsam properties.
      * 
      * @author Andrea Vacondio
      * 

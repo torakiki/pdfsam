@@ -28,7 +28,7 @@ import org.pdfsam.support.Dialogs;
 import org.pdfsam.support.SharedJFileChooser;
 import org.pdfsam.support.filter.FileFilterType;
 
-import static org.pdfsam.support.io.StringFileWriter.writeContent;
+import static org.pdfsam.support.io.TextFileWriter.writeContent;
 
 /**
  * {@link JTextPane} with logging purpose methods reacting to log related events.
