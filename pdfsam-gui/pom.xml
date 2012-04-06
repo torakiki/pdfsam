@@ -47,7 +47,7 @@
 			<groupId>org.noos.xing</groupId>
 			<artifactId>mydoggy-plaf</artifactId>
 		</dependency>
-				<dependency>
+		<dependency>
 			<groupId>org.noos.xing</groupId>
 			<artifactId>mydoggy-examples</artifactId>
 			<version>${mydoggy.version}</version>

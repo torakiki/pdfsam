@@ -14,18 +14,14 @@
  */
 package org.pdfsam;
 
-import java.awt.GridLayout;
-
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-
-import org.noos.xing.mydoggy.DockedTypeDescriptor;
-import org.noos.xing.mydoggy.RepresentativeAnchorDescriptor;
-import org.noos.xing.mydoggy.ToolWindow;
-import org.noos.xing.mydoggy.ToolWindowAnchor;
-import org.noos.xing.mydoggy.ToolWindowType;
-import org.noos.xing.mydoggy.plaf.MyDoggyToolWindowManager;
-import org.pdfsam.gui.log.JLogPanel;
+import org.apache.commons.lang3.time.DurationFormatUtils;
+import org.apache.commons.lang3.time.StopWatch;
+import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.gui.AboutPanel;
+import org.pdfsam.gui.MainFrame;
+import org.pdfsam.gui.PreferencesPanel;
+import org.pdfsam.gui.WelcomePanel;
+import org.pdfsam.gui.menu.MenuType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,55 +31,38 @@ import org.slf4j.LoggerFactory;
  */
 public final class App {
     private static final Logger LOG = LoggerFactory.getLogger(App.class);
-    public static final JFrame MAIN_FRAME = new JFrame();
+    private static MainFrame mainFrame = null;
 
     private App() {
         // hide
     }
 
     public static void main(String[] args) {
-        MAIN_FRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        MAIN_FRAME.setLayout(new GridLayout(1, 1));
-        MAIN_FRAME.setTitle(String.format("PDF Split and Merge %s ver. %s", Pdfsam.PACKAGE, Pdfsam.VERSION));
-        MAIN_FRAME.setIconImage(new ImageIcon(App.class.getResource("/images/pdfsam_" + Pdfsam.PACKAGE + ".png"))
-                .getImage());
-        MAIN_FRAME.setSize(640, 480);
-        MyDoggyToolWindowManager toolWindowManager = new MyDoggyToolWindowManager();
-        toolWindowManager.getToolWindowManagerDescriptor().setNumberingEnabled(false);
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
 
-        MAIN_FRAME.getContentPane().add(toolWindowManager);
-        setUpLogPanel(toolWindowManager);
-        MAIN_FRAME.setVisible(true);
+        try {
+            mainFrame = new MainFrame();
+            // TODO add plugins to Modules menu
+            mainFrame.addSystemContentAction(MenuType.EDIT, new PreferencesPanel());
+            mainFrame.addSystemContentAction(MenuType.HELP, new WelcomePanel());
+            mainFrame.addSystemContentAction(MenuType.HELP, new AboutPanel());
+
+            mainFrame.setVisible(true);
+        } catch (RuntimeException e) {
+            LOG.error(DefaultI18nContext.getInstance().getI18n().tr("Error starting pdfsam."), e);
+            throw e;
+        }
+        stopWatch.stop();
+        LOG.info(DefaultI18nContext.getInstance().getI18n()
+                .tr("started in {0}", DurationFormatUtils.formatDurationWords(stopWatch.getTime(), true, true)));
     }
 
     /**
-     * @param toolWindowManager
-     * @return
+     * @return the mainFrame
      */
-    private static ToolWindow setUpLogPanel(MyDoggyToolWindowManager toolWindowManager) {
-        toolWindowManager.registerToolWindow("Log", // Id
-                "Log", // Title
-                new ImageIcon(App.class.getResource("/images/log.png")), // Icon
-                new JLogPanel(), // Component
-                ToolWindowAnchor.BOTTOM); // Anchor
-        ToolWindow logToolWindow = toolWindowManager.getToolWindow("Log");
-
-        // RepresentativeAnchorDescriptor
-        RepresentativeAnchorDescriptor representativeAnchorDescriptor = logToolWindow
-                .getRepresentativeAnchorDescriptor();
-        representativeAnchorDescriptor.setTitle("Console");
-        representativeAnchorDescriptor.setPreviewEnabled(false);
-
-        // DockedTypeDescriptor
-        DockedTypeDescriptor dockedTypeDescriptor = (DockedTypeDescriptor) logToolWindow
-                .getTypeDescriptor(ToolWindowType.DOCKED);
-        dockedTypeDescriptor.setIdVisibleOnTitleBar(false);
-        dockedTypeDescriptor.setHideRepresentativeButtonOnVisible(false);
-        dockedTypeDescriptor.setDockLength(300);
-        dockedTypeDescriptor.setPopupMenuEnabled(false);
-
-        logToolWindow.setAvailable(true);
-        logToolWindow.setVisible(false);
-        return logToolWindow;
+    public static MainFrame getMainFrame() {
+        return mainFrame;
     }
+
 }

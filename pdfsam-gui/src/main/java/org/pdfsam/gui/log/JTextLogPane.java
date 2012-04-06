@@ -62,11 +62,11 @@ public class JTextLogPane extends JTextPane {
     @EventSubscriber(eventClass = SaveLogEvent.class)
     public void saveLog(SaveLogEvent event) {
         JFileChooser fileChooser = SharedJFileChooser.getInstance(FileFilterType.LOG, JFileChooser.FILES_ONLY);
-        if (fileChooser.showSaveDialog(App.MAIN_FRAME) == JFileChooser.APPROVE_OPTION) {
+        if (fileChooser.showSaveDialog(App.getMainFrame()) == JFileChooser.APPROVE_OPTION) {
             File chosenFile = fileChooser.getSelectedFile();
             if (chosenFile != null) {
                 if (chosenFile.exists()) {
-                    if (JOptionPane.OK_OPTION != Dialogs.showOverwriteConfirmationDialog(App.MAIN_FRAME,
+                    if (JOptionPane.OK_OPTION != Dialogs.showOverwriteConfirmationDialog(App.getMainFrame(),
                             chosenFile.getName())) {
                         return;
                     }

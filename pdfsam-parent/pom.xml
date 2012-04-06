@@ -101,7 +101,7 @@
 		<dependencies>
 			<dependency>
 				<groupId>org.noos.xing</groupId>
-			<artifactId>mydoggy-plaf</artifactId>
+				<artifactId>mydoggy-plaf</artifactId>
 				<version>${mydoggy.version}</version>
 			</dependency>
 			<dependency>
