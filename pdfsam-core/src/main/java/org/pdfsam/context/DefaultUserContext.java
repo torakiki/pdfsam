@@ -27,9 +27,11 @@ import org.apache.commons.lang3.StringUtils;
 public final class DefaultUserContext implements UserContext {
 
     private Preferences prefs;
+    private UserWorkspacesContext workspaces;
 
     private DefaultUserContext() {
-        this.prefs = Preferences.userNodeForPackage(DefaultUserContext.class);
+        this.prefs = Preferences.userRoot().node("/pdfsam/user/conf");
+        this.workspaces = new PreferencesUserWorkspacesContext();
     }
 
     /**
@@ -93,6 +95,11 @@ public final class DefaultUserContext implements UserContext {
     @Override
     public void setStringPreference(StringUserPreference pref, String value) {
         prefs.put(pref.toString(), value);
+    }
+
+    @Override
+    public UserWorkspacesContext getUserWorkspacesContext() {
+        return workspaces;
     }
 
     /**

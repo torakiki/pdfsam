@@ -1,5 +1,5 @@
 /*
- * Created on 15/dic/2011
+ * Created on 08/apr/2012
  * Copyright 2010 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the 
@@ -12,7 +12,7 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam.gui.log;
+package org.pdfsam.gui.workspace;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.InputEvent;
@@ -26,22 +26,22 @@ import org.bushe.swing.event.EventBus;
 import org.pdfsam.context.DefaultI18nContext;
 
 /**
- * Select all the text in the log panel
+ * Save the workspace
  * 
  * @author Andrea Vacondio
  * 
  */
-class SelectAllAction extends AbstractAction {
+public class SaveWorkspaceAction extends AbstractAction {
 
-    public SelectAllAction() {
-        super(DefaultI18nContext.getInstance().getI18n().tr("Select all"));
+    public SaveWorkspaceAction() {
+        super(DefaultI18nContext.getInstance().getI18n().tr("Save"));
+        this.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK));
         this.setEnabled(true);
-        this.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_DOWN_MASK));
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        EventBus.publish(new SelectAllEvent());
+        EventBus.publish(new SaveWorkspaceEvent());
     }
 
 }

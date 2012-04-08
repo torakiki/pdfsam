@@ -25,12 +25,12 @@ import org.noos.xing.mydoggy.ToolWindow;
 import org.noos.xing.mydoggy.ToolWindowAnchor;
 import org.noos.xing.mydoggy.ToolWindowType;
 import org.noos.xing.mydoggy.plaf.MyDoggyToolWindowManager;
-import org.pdfsam.App;
 import org.pdfsam.Pdfsam;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.log.JLogPanel;
 import org.pdfsam.gui.menu.MainMenuBar;
 import org.pdfsam.gui.menu.MenuType;
+import org.pdfsam.gui.status.StatusDockableDescriptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,6 +44,7 @@ public class MainFrame extends JFrame {
 
     private static final Logger LOG = LoggerFactory.getLogger(MainFrame.class);
 
+    // TODO locale for tool window manager
     private MyDoggyToolWindowManager toolWindowManager = new MyDoggyToolWindowManager();
     private MainMenuBar menuBar = new MainMenuBar();
 
@@ -68,9 +69,11 @@ public class MainFrame extends JFrame {
     }
 
     private void initLogWindow() {
-        toolWindowManager.registerToolWindow("Log", "Log", new ImageIcon(App.class.getResource("/images/log.png")),
-                new JLogPanel(), ToolWindowAnchor.BOTTOM);
+        toolWindowManager
+                .registerToolWindow("Log", "Log", new ImageIcon(MainFrame.class.getResource("/images/log.png")),
+                        new JLogPanel(), ToolWindowAnchor.BOTTOM);
         ToolWindow logToolWindow = toolWindowManager.getToolWindow("Log");
+        logToolWindow.setLockedOnAnchor(true);
 
         // RepresentativeAnchorDescriptor
         RepresentativeAnchorDescriptor<ToolWindow> representativeAnchorDescriptor = logToolWindow
@@ -88,11 +91,19 @@ public class MainFrame extends JFrame {
 
         logToolWindow.setAvailable(true);
         logToolWindow.setVisible(false);
+
+        initStatusPanel();
+
         LOG.debug(DefaultI18nContext.getInstance().getI18n().tr("Console panel initialized"));
     }
 
+    private void initStatusPanel() {
+        StatusDockableDescriptor statusDescriptor = new StatusDockableDescriptor(toolWindowManager);
+        statusDescriptor.setAvailable(true);
+        statusDescriptor.setAnchor(ToolWindowAnchor.BOTTOM, 0);
+    }
+
     public void addSystemContentAction(MenuType type, AbstractContentPanel panel) {
-        // TODO add Welcome and About to help menu
         menuBar.addSystemContentAction(type, toolWindowManager.getContentManager(), panel);
     }
 }

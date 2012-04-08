@@ -78,6 +78,7 @@
 		<sejda.version>1.0.0-RC1</sejda.version>
 		<mydoggy.version>1.5.0</mydoggy.version>
 		<eventbus.version>1.4</eventbus.version>
+		<sejda.version>1.0.0.BETA2</sejda.version>
 		<maven.build.timestamp.format>dd-MMM-yyyy</maven.build.timestamp.format>
 		<pdfsam.package>BASIC</pdfsam.package>
 		<pdfsam.builddate>${maven.build.timestamp}</pdfsam.builddate>
@@ -123,6 +124,11 @@
 				<groupId>commons-collections</groupId>
 				<artifactId>commons-collections</artifactId>
 				<version>${commons.collections.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.sejda</groupId>
+				<artifactId>sejda-model</artifactId>
+				<version>${sejda.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>jdepend</groupId>

@@ -1,5 +1,5 @@
 /*
- * Created on 12/dic/2011
+ * Created on 06/apr/2012
  * Copyright 2010 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the 
@@ -12,17 +12,29 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam.context;
+package org.pdfsam.update;
+
+import static org.pdfsam.support.RequireUtils.require;
+
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
 /**
- * Possible {@link String} preferences.
+ * Event to notify a new version available.
  * 
  * @author Andrea Vacondio
  * 
  */
-enum StringUserPreference {
-    LOCALE,
-    THUMBNAILS_IDENTIFIER,
-    WORKING_PATH,
-    WORKSPACE_PATH;
+public class UpdateAvailableEvent {
+
+    private String availableVersion;
+
+    public UpdateAvailableEvent(String availableVersion) {
+        require(isNotBlank(availableVersion), "Available version cannot be empty");
+        this.availableVersion = availableVersion;
+    }
+
+    public String getAvailableVersion() {
+        return availableVersion;
+    }
+
 }

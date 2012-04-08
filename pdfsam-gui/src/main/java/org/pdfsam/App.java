@@ -16,6 +16,7 @@ package org.pdfsam;
 
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.apache.commons.lang3.time.StopWatch;
+import org.noos.xing.mydoggy.plaf.ui.util.SwingUtil;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.AboutPanel;
 import org.pdfsam.gui.MainFrame;
@@ -26,6 +27,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * Entry point to start pdfsam
+ * 
  * @author Andrea Vacondio
  * 
  */
@@ -48,6 +51,7 @@ public final class App {
             mainFrame.addSystemContentAction(MenuType.HELP, new WelcomePanel());
             mainFrame.addSystemContentAction(MenuType.HELP, new AboutPanel());
 
+            SwingUtil.centrePositionOnScreen(mainFrame);
             mainFrame.setVisible(true);
         } catch (RuntimeException e) {
             LOG.error(DefaultI18nContext.getInstance().getI18n().tr("Error starting pdfsam."), e);

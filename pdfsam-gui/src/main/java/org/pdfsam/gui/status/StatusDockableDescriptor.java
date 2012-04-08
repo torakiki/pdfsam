@@ -1,5 +1,5 @@
 /*
- * Created on 15/dic/2011
+ * Created on 06/apr/2012
  * Copyright 2010 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the 
@@ -12,36 +12,43 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam.gui.log;
+package org.pdfsam.gui.status;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
+import java.awt.Component;
 
-import javax.swing.AbstractAction;
-import javax.swing.Action;
-import javax.swing.KeyStroke;
+import javax.swing.JComponent;
 
-import org.bushe.swing.event.EventBus;
-import org.pdfsam.context.DefaultI18nContext;
+import org.noos.xing.mydoggy.plaf.MyDoggyToolWindowManager;
+import org.noos.xing.mydoggy.plaf.ui.CustomDockableDescriptor;
 
 /**
- * Select all the text in the log panel
+ * Descriptor for the status panel
  * 
  * @author Andrea Vacondio
  * 
  */
-class SelectAllAction extends AbstractAction {
+public class StatusDockableDescriptor extends CustomDockableDescriptor {
 
-    public SelectAllAction() {
-        super(DefaultI18nContext.getInstance().getI18n().tr("Select all"));
-        this.setEnabled(true);
-        this.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_DOWN_MASK));
+    private StatusPanel statusPanel;
+
+    public StatusDockableDescriptor(MyDoggyToolWindowManager manager) {
+        super(manager);
+        statusPanel = new StatusPanel();
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        EventBus.publish(new SelectAllEvent());
+    public JComponent getRepresentativeAnchor(Component parent) {
+        return statusPanel;
+    }
+
+    @Override
+    public void updateRepresentativeAnchor() {
+        // on purpose
+    }
+
+    @Override
+    public boolean isAvailableCountable() {
+        return false;
     }
 
 }

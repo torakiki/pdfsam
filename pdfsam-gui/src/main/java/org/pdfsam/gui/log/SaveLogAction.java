@@ -15,25 +15,22 @@
 package org.pdfsam.gui.log;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
 
 import javax.swing.AbstractAction;
-import javax.swing.Action;
-import javax.swing.KeyStroke;
 
 import org.bushe.swing.event.EventBus;
 import org.pdfsam.context.DefaultI18nContext;
 
 /**
+ * Action performed when the user requests to save the log.
+ * 
  * @author Andrea Vacondio
  * 
  */
-public class SaveLogAction extends AbstractAction {
+class SaveLogAction extends AbstractAction {
 
     public SaveLogAction() {
         super(DefaultI18nContext.getInstance().getI18n().tr("Save log"));
-        this.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK));
         this.setEnabled(true);
     }
 

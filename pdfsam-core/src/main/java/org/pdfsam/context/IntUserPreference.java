@@ -20,6 +20,6 @@ package org.pdfsam.context;
  * @author Andrea Vacondio
  * 
  */
-public enum IntUserPreference {
+enum IntUserPreference {
     THUMBNAILS_SIZE,
 }

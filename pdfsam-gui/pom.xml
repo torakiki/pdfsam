@@ -25,6 +25,10 @@
 			<artifactId>commons-io</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.sejda</groupId>
+			<artifactId>sejda-model</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.bushe</groupId>
 			<artifactId>eventbus</artifactId>
 		</dependency>

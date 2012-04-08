@@ -27,8 +27,7 @@ public class DefaultUserContextTest {
 
     @Test
     public void isAskConfirmation() {
-        DefaultUserContext.getInstance().setBooleanPreference(BooleanUserPreference.ASK_OVERWRITE_CONFIRMATION,
-                false);
+        DefaultUserContext.getInstance().setBooleanPreference(BooleanUserPreference.ASK_OVERWRITE_CONFIRMATION, false);
         Assert.assertFalse(DefaultUserContext.getInstance().isAskOverwriteConfirmation());
     }
 
@@ -52,8 +51,7 @@ public class DefaultUserContextTest {
 
     @Test
     public void getThumbIdentifier() {
-        DefaultUserContext.getInstance().setStringPreference(StringUserPreference.THUMBNAILS_IDENTIFIER,
-                "ChuckNorris");
+        DefaultUserContext.getInstance().setStringPreference(StringUserPreference.THUMBNAILS_IDENTIFIER, "ChuckNorris");
         Assert.assertEquals("ChuckNorris", DefaultUserContext.getInstance().getThumbnailsCreatorIdentifier());
     }
 
@@ -70,7 +68,7 @@ public class DefaultUserContextTest {
     }
 
     @Test
-    public void getthumbPoolSize() {
+    public void getThumbPoolSize() {
         DefaultUserContext.getInstance().setIntegerPreference(IntUserPreference.THUMBNAILS_SIZE, 2);
         Assert.assertEquals(2, DefaultUserContext.getInstance().getThumbnailsCreatorPoolSize());
     }

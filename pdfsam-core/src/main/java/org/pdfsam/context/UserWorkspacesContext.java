@@ -1,5 +1,5 @@
 /*
- * Created on 12/dic/2011
+ * Created on 08/apr/2012
  * Copyright 2010 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the 
@@ -14,15 +14,25 @@
  */
 package org.pdfsam.context;
 
+import java.util.List;
+
 /**
- * Possible {@link String} preferences.
+ * Provides methods to store and retrieve workspaces recently used by the user.
  * 
  * @author Andrea Vacondio
  * 
  */
-enum StringUserPreference {
-    LOCALE,
-    THUMBNAILS_IDENTIFIER,
-    WORKING_PATH,
-    WORKSPACE_PATH;
+public interface UserWorkspacesContext {
+
+    /**
+     * Adds a workspace to the collection of the recently used ones.
+     * 
+     * @param workspace
+     */
+    void addWorkspace(String workspace);
+
+    /**
+     * @return list of user's workspaces
+     */
+    List<String> getWorkspaces();
 }
