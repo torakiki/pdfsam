@@ -1,5 +1,5 @@
 /*
- * Created on 12/dic/2011
+ * Created on 05/apr/2012
  * Copyright 2010 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the 
@@ -12,17 +12,39 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam.context;
+package org.pdfsam.gui.preference;
+
+import javax.swing.Icon;
+
+import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.gui.AbstractContentPanel;
 
 /**
- * Possible {@link String} preferences.
+ * Panel showing preferences and allowing the user to set them.
  * 
  * @author Andrea Vacondio
  * 
  */
-public enum StringUserPreference {
-    LOCALE,
-    THUMBNAILS_IDENTIFIER,
-    WORKING_PATH,
-    WORKSPACE_PATH;
+public class PreferencesPanel extends AbstractContentPanel {
+
+    public PreferencesPanel() {
+        add(new LocalesComboBox());
+    }
+
+    @Override
+    public String getPanelId() {
+        return "Preferences";
+    }
+
+    @Override
+    public String getPanelName() {
+        return DefaultI18nContext.getInstance().getI18n().tr("Preferences");
+    }
+
+    @Override
+    public Icon getPanelIcon() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
 }

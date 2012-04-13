@@ -24,6 +24,8 @@ import javax.swing.JMenuBar;
 import org.noos.xing.mydoggy.ContentManager;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.AbstractContentPanel;
+import org.pdfsam.gui.workspace.LoadWorkspaceAction;
+import org.pdfsam.gui.workspace.SaveWorkspaceAction;
 
 import static org.pdfsam.support.RequireUtils.require;
 
@@ -49,6 +51,17 @@ public class MainMenuBar extends JMenuBar {
         menuEdit.setMnemonic(KeyEvent.VK_E);
         add(menuEdit);
 
+        JMenu menuWorkspace = new JMenu();
+        menuWorkspace.setText(DefaultI18nContext.getInstance().getI18n().tr("Workspace"));
+        menuWorkspace.setMnemonic(KeyEvent.VK_W);
+        menuWorkspace.add(new LoadWorkspaceAction());
+        menuWorkspace.add(new SaveWorkspaceAction());
+        menuWorkspace.addSeparator();
+        JMenu recentWorkspaces = new JMenu();
+        recentWorkspaces.setText(DefaultI18nContext.getInstance().getI18n().tr("Recent"));
+        menuWorkspace.add(recentWorkspaces);
+        add(menuWorkspace);
+
         JMenu menuModules = new JMenu();
         menuModules.setText(DefaultI18nContext.getInstance().getI18n().tr("Modules"));
         menuModules.setMnemonic(KeyEvent.VK_M);
@@ -61,6 +74,7 @@ public class MainMenuBar extends JMenuBar {
 
         menus.put(MenuType.FILE, menuFile);
         menus.put(MenuType.HELP, menuHelp);
+        menus.put(MenuType.WORKSPACE, menuWorkspace);
         menus.put(MenuType.EDIT, menuEdit);
         menus.put(MenuType.MODULES, menuModules);
     }

@@ -25,8 +25,8 @@ import org.xnap.commons.i18n.I18n;
 public interface I18nContext {
 
     /**
-     * 
      * @return the I18n instance used to retrieve internationalized messages.
      */
     I18n getI18n();
+
 }

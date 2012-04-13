@@ -23,6 +23,7 @@ package org.pdfsam.gui.menu;
 public enum MenuType {
     FILE,
     HELP,
+    WORKSPACE,
     EDIT,
     MODULES;
 }

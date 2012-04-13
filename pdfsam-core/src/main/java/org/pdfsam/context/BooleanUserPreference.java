@@ -20,7 +20,7 @@ package org.pdfsam.context;
  * @author Andrea Vacondio
  * 
  */
-enum BooleanUserPreference {
+public enum BooleanUserPreference {
     ASK_OVERWRITE_CONFIRMATION,
     CHECK_UPDATES,
     PLAY_SOUNDS,

@@ -20,9 +20,9 @@ import org.noos.xing.mydoggy.plaf.ui.util.SwingUtil;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.AboutPanel;
 import org.pdfsam.gui.MainFrame;
-import org.pdfsam.gui.PreferencesPanel;
 import org.pdfsam.gui.WelcomePanel;
 import org.pdfsam.gui.menu.MenuType;
+import org.pdfsam.gui.preference.PreferencesPanel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,6 +41,7 @@ public final class App {
     }
 
     public static void main(String[] args) {
+        LOG.info(DefaultI18nContext.getInstance().getI18n().tr("Starting pdfsam"));
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
 

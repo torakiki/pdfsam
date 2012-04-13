@@ -79,6 +79,7 @@
 		<mydoggy.version>1.5.0</mydoggy.version>
 		<eventbus.version>1.4</eventbus.version>
 		<sejda.version>1.0.0.BETA2</sejda.version>
+		<balloon.version>1.2.1</balloon.version>
 		<maven.build.timestamp.format>dd-MMM-yyyy</maven.build.timestamp.format>
 		<pdfsam.package>BASIC</pdfsam.package>
 		<pdfsam.builddate>${maven.build.timestamp}</pdfsam.builddate>
@@ -129,6 +130,11 @@
 				<groupId>org.sejda</groupId>
 				<artifactId>sejda-model</artifactId>
 				<version>${sejda.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.java.balloontip</groupId>
+				<artifactId>balloontip</artifactId>
+				<version>${balloon.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>jdepend</groupId>

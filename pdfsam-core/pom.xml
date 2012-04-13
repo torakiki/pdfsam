@@ -29,6 +29,10 @@
 			<artifactId>pdfsam-i18n</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>net.java.balloontip</groupId>
+			<artifactId>balloontip</artifactId>
+		</dependency>
 	</dependencies>
 
 </project>
