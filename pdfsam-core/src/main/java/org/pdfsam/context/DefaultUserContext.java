@@ -62,6 +62,12 @@ public final class DefaultUserContext implements UserContext {
     }
 
     @Override
+    public String getLookAndFeelClass() {
+        return prefs
+                .get(StringUserPreference.LOOK_AND_FEEL.toString(), "com.jgoodies.looks.plastic.PlasticLookAndFeel");
+    }
+
+    @Override
     public String getThumbnailsCreatorIdentifier() {
         // TODO identifier
         return prefs.get(StringUserPreference.THUMBNAILS_IDENTIFIER.toString(), StringUtils.EMPTY);

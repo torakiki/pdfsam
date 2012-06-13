@@ -16,7 +16,7 @@
 	<logger name="org.sejda" level="INFO" />
 	<logger name="org.pdfsam" level="DEBUG" />
 
-	<root level="DEBUG">
+	<root level="TRACE">
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="JTEXTPANE" />
 	</root>

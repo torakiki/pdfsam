@@ -39,11 +39,12 @@ public final class DefaultI18nContext implements I18nContext {
         LOG.trace("Loading i18n bundle from %s", locale);
         Locale.setDefault(locale);
         this.i18n = I18nFactory.getI18n(DefaultI18nContext.class, locale);
+        LOG.debug("Locale set to {}", locale.getDisplayLanguage());
     }
 
     private Locale getLocale() {
         String localeString = DefaultUserContext.getInstance().getLocale();
-        LOG.trace("Found locale string %s", localeString);
+        LOG.trace("Found locale string {}", localeString);
         if (StringUtils.isNotBlank(localeString)) {
             String[] i18nInfos = localeString.split("_");
             if (i18nInfos.length > 1) {

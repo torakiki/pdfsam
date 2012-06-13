@@ -31,7 +31,7 @@ import org.pdfsam.support.StringKeyValueItem;
  * @author Andrea Vacondio
  * 
  */
-public class LocalesComboBox extends JComboBox {
+class LocalesComboBox extends JComboBox {
 
     public LocalesComboBox() {
         initItems();

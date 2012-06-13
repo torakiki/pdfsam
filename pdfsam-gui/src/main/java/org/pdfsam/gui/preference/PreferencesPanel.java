@@ -29,6 +29,7 @@ public class PreferencesPanel extends AbstractContentPanel {
 
     public PreferencesPanel() {
         add(new LocalesComboBox());
+        add(new ThemesComboBox());
     }
 
     @Override

@@ -14,10 +14,14 @@
  */
 package org.pdfsam;
 
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.apache.commons.lang3.time.StopWatch;
 import org.noos.xing.mydoggy.plaf.ui.util.SwingUtil;
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.gui.AboutPanel;
 import org.pdfsam.gui.MainFrame;
 import org.pdfsam.gui.WelcomePanel;
@@ -40,12 +44,13 @@ public final class App {
         // hide
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         LOG.info(DefaultI18nContext.getInstance().getI18n().tr("Starting pdfsam"));
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
 
         try {
+            initLookAndFeel();
             mainFrame = new MainFrame();
             // TODO add plugins to Modules menu
             mainFrame.addSystemContentAction(MenuType.EDIT, new PreferencesPanel());
@@ -54,13 +59,23 @@ public final class App {
 
             SwingUtil.centrePositionOnScreen(mainFrame);
             mainFrame.setVisible(true);
-        } catch (RuntimeException e) {
+        } catch (Exception e) {
             LOG.error(DefaultI18nContext.getInstance().getI18n().tr("Error starting pdfsam."), e);
             throw e;
         }
         stopWatch.stop();
         LOG.info(DefaultI18nContext.getInstance().getI18n()
-                .tr("started in {0}", DurationFormatUtils.formatDurationWords(stopWatch.getTime(), true, true)));
+                .tr("Started in {0}", DurationFormatUtils.formatDurationWords(stopWatch.getTime(), true, true)));
+    }
+
+    private static void initLookAndFeel() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+        try {
+            UIManager.setLookAndFeel(DefaultUserContext.getInstance().getLookAndFeelClass());
+        } catch (UnsupportedLookAndFeelException e) {
+            LOG.warn(DefaultI18nContext.getInstance().getI18n()
+                    .tr("Unable to install the selected look and feel because it's unsupported."));
+        }
+
     }
 
     /**

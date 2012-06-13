@@ -62,7 +62,10 @@ public interface UserContext {
      */
     boolean isAskOverwriteConfirmation();
 
-    // TODO theme and LAF
+    /**
+     * @return the configured look and feel
+     */
+    String getLookAndFeelClass();
 
     /**
      * Sets a {@link Boolean} preference.
