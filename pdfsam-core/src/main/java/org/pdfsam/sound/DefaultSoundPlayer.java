@@ -36,7 +36,7 @@ public class DefaultSoundPlayer implements SoundPlayer {
 
     public void play(Sound sound) {
         try {
-            AudioInputStream aundioStream = AudioSystem.getAudioInputStream(this.getClass().getResourceAsStream(
+            AudioInputStream aundioStream = AudioSystem.getAudioInputStream(this.getClass().getResource(
                     sound.getSource()));
             DataLine.Info info = new DataLine.Info(Clip.class, aundioStream.getFormat());
             Clip clip = (Clip) AudioSystem.getLine(info);
