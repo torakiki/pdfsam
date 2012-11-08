@@ -22,7 +22,6 @@ import org.apache.commons.lang3.time.StopWatch;
 import org.noos.xing.mydoggy.plaf.ui.util.SwingUtil;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
-import org.pdfsam.gui.AboutPanel;
 import org.pdfsam.gui.MainFrame;
 import org.pdfsam.gui.WelcomePanel;
 import org.pdfsam.gui.menu.MenuType;
@@ -55,7 +54,6 @@ public final class App {
             // TODO add plugins to Modules menu
             mainFrame.addSystemContentAction(MenuType.EDIT, new PreferencesPanel());
             mainFrame.addSystemContentAction(MenuType.HELP, new WelcomePanel());
-            mainFrame.addSystemContentAction(MenuType.HELP, new AboutPanel());
 
             SwingUtil.centrePositionOnScreen(mainFrame);
             mainFrame.setVisible(true);

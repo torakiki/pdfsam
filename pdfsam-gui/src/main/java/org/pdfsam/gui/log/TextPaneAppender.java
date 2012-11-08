@@ -71,6 +71,7 @@ public class TextPaneAppender extends AppenderBase<ILoggingEvent> {
             encoder.init(new WriterOutputStream(writer));
             encoder.doEncode(event);
         } catch (IOException e) {
+            e.printStackTrace();
         }
         doAppendMessage(writer.toString(), event);
     }

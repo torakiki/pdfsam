@@ -14,16 +14,18 @@
  */
 package org.pdfsam.gui;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import org.pdfsam.Pdfsam;
 import org.pdfsam.context.DefaultI18nContext;
+import org.swingplus.JHyperlink;
 
 /**
  * Panel displaying About information
@@ -31,7 +33,7 @@ import org.pdfsam.context.DefaultI18nContext;
  * @author Andrea Vacondio
  * 
  */
-public class AboutPanel extends AbstractContentPanel {
+public class AboutPanel extends JPanel {
 
     public AboutPanel() {
         init();
@@ -39,8 +41,11 @@ public class AboutPanel extends AbstractContentPanel {
 
     private void init() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        setBackground(Color.WHITE);
         add(Box.createVerticalGlue());
         JLabel appName = new JLabel(String.format("PDF Split and Merge %s", Pdfsam.PACKAGE));
+        Font f = appName.getFont();
+        appName.setFont(f.deriveFont(f.getStyle() | Font.BOLD));
         add(appName);
         add(Box.createRigidArea(new Dimension(0, 10)));
         add(new JLabel(String.format("ver. %s", Pdfsam.VERSION)));
@@ -53,24 +58,8 @@ public class AboutPanel extends AbstractContentPanel {
         add(new JLabel(DefaultI18nContext.getInstance().getI18n()
                 .tr("Max memory {0}Mb", Runtime.getRuntime().maxMemory() / 1048576)));
         add(Box.createRigidArea(labelSpace));
-        add(new JLabel("www.pdfsam.org"));
+        add(new JHyperlink("www.pdfsam.org", "http://www.pdfsam.org"));
         add(Box.createRigidArea(labelSpace));
         add(Box.createVerticalGlue());
     }
-
-    @Override
-    public String getPanelName() {
-        return DefaultI18nContext.getInstance().getI18n().tr("About");
-    }
-
-    @Override
-    public Icon getPanelIcon() {
-        return new ImageIcon(this.getClass().getResource("/images/about.png"));
-    }
-
-    @Override
-    public String getPanelId() {
-        return "About";
-    }
-
 }

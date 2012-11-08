@@ -14,15 +14,19 @@
  */
 package org.pdfsam.gui.menu;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.swing.AbstractAction;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 
 import org.noos.xing.mydoggy.ContentManager;
+import org.noos.xing.mydoggy.plaf.ui.util.SwingUtil;
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.gui.AboutFrame;
 import org.pdfsam.gui.AbstractContentPanel;
 import org.pdfsam.gui.workspace.LoadWorkspaceAction;
 import org.pdfsam.gui.workspace.SaveWorkspaceAction;
@@ -70,6 +74,7 @@ public class MainMenuBar extends JMenuBar {
         JMenu menuHelp = new JMenu();
         menuHelp.setText(DefaultI18nContext.getInstance().getI18n().tr("Help"));
         menuHelp.setMnemonic(KeyEvent.VK_H);
+        menuHelp.add(new AboutAction());
         add(menuHelp);
 
         menus.put(MenuType.FILE, menuFile);
@@ -91,6 +96,28 @@ public class MainMenuBar extends JMenuBar {
         JMenu menu = menus.get(type);
         require(menu != null, "Unable to fine the given menu: " + type);
         menu.add(new SystemContentAction(contentManager, panel));
+    }
+
+    /**
+     * Action used to display About panel
+     * 
+     * @author Andrea Vacondio
+     * 
+     */
+    private class AboutAction extends AbstractAction {
+
+        AboutAction() {
+            super(DefaultI18nContext.getInstance().getI18n().tr("About"));
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            AboutFrame aboutFrame = AboutFrame.getInstance();
+            if (!aboutFrame.isVisible()) {
+                SwingUtil.centrePositionOnScreen(aboutFrame);
+                aboutFrame.setVisible(true);
+            }
+        }
     }
 
 }
