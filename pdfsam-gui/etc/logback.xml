@@ -9,7 +9,7 @@
 
 	<appender name="JTEXTPANE" class="org.pdfsam.gui.log.TextPaneAppender">
 		<encoder>
-			<pattern>%d{HH:mm:ss.SSS} %msg%n</pattern>
+			<pattern>%d{HH:mm:ss} %msg%n</pattern>
 		</encoder>
 	</appender>
 

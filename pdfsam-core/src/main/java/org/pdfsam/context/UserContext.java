@@ -38,16 +38,6 @@ public interface UserContext {
     boolean isPlaySounds();
 
     /**
-     * @return poolsize of the thumbnails creator framework
-     */
-    int getThumbnailsCreatorPoolSize();
-
-    /**
-     * @return the thumbnails creator identifier
-     */
-    String getThumbnailsCreatorIdentifier();
-
-    /**
      * @return if updates check should be performed
      */
     boolean isCheckForUpdates();
@@ -61,6 +51,21 @@ public interface UserContext {
      * @return true if a confirmation should be asked when an output file is going to be overwritten.
      */
     boolean isAskOverwriteConfirmation();
+
+    /**
+     * @return true if the thumbnails should be rendered with high quality
+     */
+    boolean isHighQualityThumbnails();
+
+    /**
+     * @return the thumbnails creator identifier
+     */
+    String getThumbnailsCreatorIdentifier();
+
+    /**
+     * @return the thumbnails default size
+     */
+    int getThumbnailsSize();
 
     /**
      * @return the configured look and feel

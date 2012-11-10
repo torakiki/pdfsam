@@ -14,6 +14,7 @@
  */
 package org.pdfsam.gui.preference;
 
+import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
@@ -36,6 +37,7 @@ class BooleanPreferenceCheckBox extends JCheckBox {
     BooleanPreferenceCheckBox(BooleanUserPreference pref, String label, boolean selected) {
         super(label);
         setSelected(selected);
+        setBackground(Color.WHITE);
         this.preference = pref;
         this.addItemListener(new ItemListener() {
 

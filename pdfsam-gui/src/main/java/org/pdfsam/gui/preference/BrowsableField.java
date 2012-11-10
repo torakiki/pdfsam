@@ -14,13 +14,11 @@
  */
 package org.pdfsam.gui.preference;
 
-import java.awt.Dimension;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.io.File;
 
 import javax.swing.AbstractAction;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -50,29 +48,27 @@ abstract class BrowsableField extends JPanel {
 
     BrowsableField(String labelText, StringUserPreference preference) {
         this.preference = preference;
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        setBackground(Color.WHITE);
+        GroupLayout layout = new GroupLayout(this);
+        setLayout(layout);
 
         JLabel label = new JLabel(labelText);
 
-        JPanel fieldPanel = new JPanel();
-        GroupLayout layout = new GroupLayout(fieldPanel);
-        fieldPanel.setLayout(layout);
         JButton browse = new JButton(new BrowseAction());
-        layout.setHorizontalGroup(layout.createSequentialGroup().addComponent(field).addGap(GAP).addComponent(browse));
-        layout.setVerticalGroup(layout.createSequentialGroup().addGroup(
-                layout.createParallelGroup(TRAILING).addComponent(field).addComponent(browse)));
-
-        add(label);
-        add(Box.createRigidArea(new Dimension(GAP, GAP)));
-        add(fieldPanel);
+        layout.setHorizontalGroup(layout.createParallelGroup()
+                .addGroup(layout.createSequentialGroup().addComponent(label)).addGap(GAP)
+                .addGroup(layout.createSequentialGroup().addComponent(field).addGap(GAP).addComponent(browse)));
+        layout.setVerticalGroup(layout.createSequentialGroup()
+                .addGroup(layout.createSequentialGroup().addComponent(label)).addGap(2)
+                .addGroup(layout.createParallelGroup(TRAILING).addComponent(field).addComponent(browse)));
     }
 
     void setBalloonTooltip(String tooltip) {
         BalloonUtils.createBalloonFor(this, tooltip);
     }
 
-    void setDefaultFieldValue(String workspace) {
-        field.setText(workspace);
+    void setDefaultFieldValue(String defaultValue) {
+        field.setText(defaultValue);
     }
 
     /**

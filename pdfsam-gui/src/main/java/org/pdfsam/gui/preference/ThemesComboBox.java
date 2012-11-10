@@ -14,6 +14,7 @@
  */
 package org.pdfsam.gui.preference;
 
+import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
@@ -36,6 +37,7 @@ class ThemesComboBox extends JComboBox {
 
     public ThemesComboBox() {
         initItems();
+        setBackground(Color.WHITE);
         setSelectedItem(new StringKeyValueItem(DefaultUserContext.getInstance().getLookAndFeelClass(), ""));
         addItemListener(new ItemListener() {
 

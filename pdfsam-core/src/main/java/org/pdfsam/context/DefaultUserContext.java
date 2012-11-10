@@ -57,8 +57,8 @@ public final class DefaultUserContext implements UserContext {
     }
 
     @Override
-    public int getThumbnailsCreatorPoolSize() {
-        return prefs.getInt(IntUserPreference.THUMBNAILS_SIZE.toString(), 3);
+    public int getThumbnailsSize() {
+        return prefs.getInt(IntUserPreference.THUMBNAILS_SIZE.toString(), 190);
     }
 
     @Override
@@ -76,6 +76,11 @@ public final class DefaultUserContext implements UserContext {
     @Override
     public boolean isCheckForUpdates() {
         return prefs.getBoolean(BooleanUserPreference.CHECK_UPDATES.toString(), Boolean.TRUE);
+    }
+
+    @Override
+    public boolean isHighQualityThumbnails() {
+        return prefs.getBoolean(BooleanUserPreference.HIGH_QUALITY_THUMB.toString(), Boolean.FALSE);
     }
 
     @Override

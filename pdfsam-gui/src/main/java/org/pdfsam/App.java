@@ -25,7 +25,6 @@ import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.gui.MainFrame;
 import org.pdfsam.gui.WelcomePanel;
 import org.pdfsam.gui.menu.MenuType;
-import org.pdfsam.gui.preference.PreferencesPanel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -52,7 +51,6 @@ public final class App {
             initLookAndFeel();
             mainFrame = new MainFrame();
             // TODO add plugins to Modules menu
-            mainFrame.addSystemContentAction(MenuType.EDIT, new PreferencesPanel());
             mainFrame.addSystemContentAction(MenuType.HELP, new WelcomePanel());
 
             SwingUtil.centrePositionOnScreen(mainFrame);

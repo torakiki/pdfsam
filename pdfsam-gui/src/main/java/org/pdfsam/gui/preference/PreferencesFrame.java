@@ -1,5 +1,5 @@
 /*
- * Created on 07/nov/2012
+ * Created on 09/nov/2012
  * Copyright 2010 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the 
@@ -12,10 +12,8 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam.gui;
+package org.pdfsam.gui.preference;
 
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -23,29 +21,27 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EtchedBorder;
 
 import org.pdfsam.Pdfsam;
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.gui.about.AboutFrame;
 
 /**
- * Frame to display About informations
+ * Frame showing preferences panel
  * 
  * @author Andrea Vacondio
  * 
  */
-public final class AboutFrame extends JFrame {
+public class PreferencesFrame extends JFrame {
 
-    private AboutFrame() {
-        super(DefaultI18nContext.getInstance().getI18n().tr("About"));
+    private PreferencesFrame() {
+        super(DefaultI18nContext.getInstance().getI18n().tr("Preferences"));
         init();
     }
 
@@ -53,31 +49,22 @@ public final class AboutFrame extends JFrame {
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         setIconImage(new ImageIcon(AboutFrame.class.getResource("/images/pdfsam_" + Pdfsam.PACKAGE + ".png"))
                 .getImage());
-        setSize(460, 210);
+        setSize(540, 580);
         setLayout(new GridBagLayout());
 
         GridBagConstraints c = new GridBagConstraints();
-        c.ipady = 20;
-        c.ipadx = 20;
-        c.gridwidth = 1;
-        c.gridheight = 2;
-        c.gridx = 0;
-        c.gridy = 0;
-        c.weighty = 1;
-        c.fill = GridBagConstraints.VERTICAL;
-        add(imagePanel(), c);
 
         c.ipady = 10;
         c.ipadx = 10;
-        c.gridwidth = 2;
+        c.gridwidth = 3;
         c.gridheight = 2;
-        c.gridx = 1;
+        c.gridx = 0;
         c.gridy = 0;
         c.weightx = 1;
         c.weighty = 1;
         c.fill = GridBagConstraints.BOTH;
         JScrollPane scroll = new JScrollPane();
-        scroll.setViewportView(new AboutPanel());
+        scroll.setViewportView(new PreferencesPanel());
         scroll.setBorder(BorderFactory.createEmptyBorder());
         add(scroll, c);
 
@@ -102,21 +89,6 @@ public final class AboutFrame extends JFrame {
         return buttonPanel;
     }
 
-    private JPanel imagePanel() {
-        JLabel image = new JLabel(new ImageIcon(AboutFrame.class.getResource("/images/pdfsam_" + Pdfsam.PACKAGE
-                + "_128.png")));
-        image.setMinimumSize(new Dimension(128, 128));
-        JPanel imagePanel = new JPanel();
-        imagePanel.setLayout(new BoxLayout(imagePanel, BoxLayout.Y_AXIS));
-        Dimension fillerSize = new Dimension(10, 0);
-        imagePanel.add(new Box.Filler(fillerSize, fillerSize, fillerSize));
-        imagePanel.add(Box.createVerticalGlue());
-        imagePanel.setBackground(Color.WHITE);
-        imagePanel.add(image);
-        imagePanel.add(Box.createVerticalGlue());
-        return imagePanel;
-    }
-
     /**
      * Close action for the frame
      * 
@@ -132,7 +104,6 @@ public final class AboutFrame extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             getInstance().setVisible(false);
-
         }
 
     }
@@ -143,16 +114,16 @@ public final class AboutFrame extends JFrame {
      * @author Andrea Vacondio
      * 
      */
-    private static final class AboutFrameHolder {
+    private static final class PreferencesFrameHolder {
 
-        private AboutFrameHolder() {
+        private PreferencesFrameHolder() {
             // hide constructor
         }
 
-        static final AboutFrame ABOUT_FRAME = new AboutFrame();
+        static final PreferencesFrame PREFS_FRAME = new PreferencesFrame();
     }
 
-    public static AboutFrame getInstance() {
-        return AboutFrameHolder.ABOUT_FRAME;
+    public static PreferencesFrame getInstance() {
+        return PreferencesFrameHolder.PREFS_FRAME;
     }
 }

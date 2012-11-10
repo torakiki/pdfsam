@@ -20,14 +20,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.AbstractAction;
+import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 
 import org.noos.xing.mydoggy.ContentManager;
 import org.noos.xing.mydoggy.plaf.ui.util.SwingUtil;
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.gui.AboutFrame;
 import org.pdfsam.gui.AbstractContentPanel;
+import org.pdfsam.gui.about.AboutFrame;
+import org.pdfsam.gui.preference.PreferencesFrame;
 import org.pdfsam.gui.workspace.LoadWorkspaceAction;
 import org.pdfsam.gui.workspace.SaveWorkspaceAction;
 
@@ -53,6 +55,8 @@ public class MainMenuBar extends JMenuBar {
         JMenu menuEdit = new JMenu();
         menuEdit.setText(DefaultI18nContext.getInstance().getI18n().tr("Edit"));
         menuEdit.setMnemonic(KeyEvent.VK_E);
+        menuEdit.add(new ShowFrameAction(DefaultI18nContext.getInstance().getI18n().tr("Preferences"), PreferencesFrame
+                .getInstance()));
         add(menuEdit);
 
         JMenu menuWorkspace = new JMenu();
@@ -74,7 +78,8 @@ public class MainMenuBar extends JMenuBar {
         JMenu menuHelp = new JMenu();
         menuHelp.setText(DefaultI18nContext.getInstance().getI18n().tr("Help"));
         menuHelp.setMnemonic(KeyEvent.VK_H);
-        menuHelp.add(new AboutAction());
+        menuHelp.add(new ShowFrameAction(DefaultI18nContext.getInstance().getI18n().tr("About"), AboutFrame
+                .getInstance()));
         add(menuHelp);
 
         menus.put(MenuType.FILE, menuFile);
@@ -104,18 +109,21 @@ public class MainMenuBar extends JMenuBar {
      * @author Andrea Vacondio
      * 
      */
-    private class AboutAction extends AbstractAction {
+    private class ShowFrameAction extends AbstractAction {
 
-        AboutAction() {
-            super(DefaultI18nContext.getInstance().getI18n().tr("About"));
+        private JFrame frame = null;
+
+        ShowFrameAction(String menuText, JFrame frame) {
+            super(menuText);
+            require(frame != null, "Input frame cannot be null");
+            this.frame = frame;
         }
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            AboutFrame aboutFrame = AboutFrame.getInstance();
-            if (!aboutFrame.isVisible()) {
-                SwingUtil.centrePositionOnScreen(aboutFrame);
-                aboutFrame.setVisible(true);
+            if (!frame.isVisible()) {
+                SwingUtil.centrePositionOnScreen(frame);
+                frame.setVisible(true);
             }
         }
     }

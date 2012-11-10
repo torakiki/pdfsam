@@ -70,6 +70,6 @@ public class DefaultUserContextTest {
     @Test
     public void getThumbPoolSize() {
         DefaultUserContext.getInstance().setIntegerPreference(IntUserPreference.THUMBNAILS_SIZE, 2);
-        Assert.assertEquals(2, DefaultUserContext.getInstance().getThumbnailsCreatorPoolSize());
+        Assert.assertEquals(2, DefaultUserContext.getInstance().getThumbnailsSize());
     }
 }

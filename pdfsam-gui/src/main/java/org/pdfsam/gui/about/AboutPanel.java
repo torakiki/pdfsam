@@ -12,7 +12,7 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam.gui;
+package org.pdfsam.gui.about;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -33,7 +33,7 @@ import org.swingplus.JHyperlink;
  * @author Andrea Vacondio
  * 
  */
-public class AboutPanel extends JPanel {
+class AboutPanel extends JPanel {
 
     public AboutPanel() {
         init();

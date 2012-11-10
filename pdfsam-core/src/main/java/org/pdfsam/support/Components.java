@@ -14,12 +14,15 @@
  */
 package org.pdfsam.support;
 
-import javax.swing.GroupLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import static javax.swing.GroupLayout.Alignment.TRAILING;
 
 /**
  * Utility class to create components
@@ -36,20 +39,51 @@ public final class Components {
     }
 
     /**
-     * 
      * @param component
      * @param labelText
      * @return a panel horizontally aligned with the label and the component
      */
     public static JPanel newLabeledComponent(JComponent component, String labelText) {
         JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
         JLabel label = new JLabel(labelText);
-        GroupLayout layout = new GroupLayout(panel);
-        panel.setLayout(layout);
-        layout.setHorizontalGroup(layout.createSequentialGroup().addComponent(label).addGap(GAP)
-                .addComponent(component));
-        layout.setVerticalGroup(layout.createSequentialGroup().addGroup(
-                layout.createParallelGroup(TRAILING, false).addComponent(label).addComponent(component)));
+        panel.add(label);
+        panel.add(Box.createRigidArea(new Dimension(GAP, 0)));
+        panel.add(component);
+        panel.add(Box.createHorizontalGlue());
+        return panel;
+    }
+
+    /**
+     * 
+     * @param component
+     * @param labelText
+     * @return a panel horizontally aligned with the label and the component and white background
+     */
+    public static JPanel newLabeledComponentWhiteBackground(JComponent component, String labelText) {
+        JPanel panel = newLabeledComponent(component, labelText);
+        panel.setBackground(Color.WHITE);
+        return panel;
+    }
+
+    /**
+     * @param title
+     * @return a title panel with white background
+     */
+    public static JPanel newTitledWhitePanel(String title) {
+        JPanel panel = newTitledPanel(title);
+        panel.setBackground(Color.WHITE);
+        return panel;
+    }
+
+    /**
+     * @param title
+     * @return a title panel
+     */
+    public static JPanel newTitledPanel(String title) {
+        JPanel panel = new JPanel();
+        panel.setBorder(BorderFactory.createTitledBorder(title));
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         return panel;
     }
 }

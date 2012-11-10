@@ -14,6 +14,7 @@
  */
 package org.pdfsam.gui.preference;
 
+import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
@@ -35,6 +36,7 @@ class LocalesComboBox extends JComboBox {
 
     public LocalesComboBox() {
         initItems();
+        setBackground(Color.WHITE);
         setSelectedItem(new StringKeyValueItem(DefaultUserContext.getInstance().getLocale(), ""));
         addItemListener(new ItemListener() {
 
