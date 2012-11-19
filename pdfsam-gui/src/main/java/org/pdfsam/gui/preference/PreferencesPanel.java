@@ -19,16 +19,17 @@ import java.awt.Color;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
 import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
+import org.pdfsam.context.IntUserPreference;
 import org.pdfsam.context.StringUserPreference;
-import org.pdfsam.support.Components;
-import org.pdfsam.support.SharedJFileChooser;
+import org.pdfsam.gui.Components;
+import org.pdfsam.gui.SharedJFileChooser;
 import org.pdfsam.support.filter.FileFilterType;
+import org.pdfsam.support.validation.Validators;
 
 /**
  * Panel showing preferences and allowing the user to set them.
@@ -81,17 +82,28 @@ public class PreferencesPanel extends JPanel {
                         .tr("High quality thumbnails"), DefaultUserContext.getInstance().isHighQualityThumbnails());
         highQualityThumbnails.setBalloonTooltip(DefaultI18nContext.getInstance().getI18n()
                 .tr("Generate high quality thumbnails (slower)"));
-        // TODO field
-        JPanel thumbSize = Components.newLabeledComponent(new JTextField(), DefaultI18nContext.getInstance().getI18n()
-                .tr("Size:"));
-        thumbSize.setBackground(Color.WHITE);
-        JPanel thumbCreator = Components.newLabeledComponent(new JComboBox(), DefaultI18nContext.getInstance()
-                .getI18n().tr("Thumbnails creator:"));
-        thumbCreator.setBackground(Color.WHITE);
+        AbstractValidableTextField thumbSizeField = new AbstractValidableTextField(Validators.newIntRangeString(190,
+                390)) {
+
+            @Override
+            void onValidInput() {
+                DefaultUserContext.getInstance().setIntegerPreference(IntUserPreference.THUMBNAILS_SIZE,
+                        Integer.parseInt(getText()));
+
+            }
+        };
+        JPanel thumbSize = Components.newLabeledComponentWhiteBackground(thumbSizeField, DefaultI18nContext
+                .getInstance().getI18n().tr("Size in px:"),
+                DefaultI18nContext.getInstance().getI18n().tr("Pixel size of the thumbnails (between 190 and 390px)"));
+        thumbSizeField.setText(Integer.toString(DefaultUserContext.getInstance().getThumbnailsSize()));
+
+        JPanel thumbCreator = Components.newLabeledComponentWhiteBackground(new JComboBox(), DefaultI18nContext
+                .getInstance().getI18n().tr("Thumbnails creator:"),
+                DefaultI18nContext.getInstance().getI18n().tr("Library used to generate thumbnails"));
 
         thumbPanel.addPeferenceComponent(highQualityThumbnails);
-        // thumbPanel.addPeferenceComponent(thumbSize);
-        // thumbPanel.addPeferenceComponent(thumbCreator);
+        thumbPanel.addPeferenceComponent(thumbSize);
+        thumbPanel.addPeferenceComponent(thumbCreator);
         return thumbPanel;
     }
 
@@ -154,12 +166,13 @@ public class PreferencesPanel extends JPanel {
     private JPanel appearancePanel() {
         // appearance
         PreferencePanel appearance = new PreferencePanel(DefaultI18nContext.getInstance().getI18n().tr("Appearance"));
-        JPanel language = Components.newLabeledComponent(new LocalesComboBox(), DefaultI18nContext.getInstance()
-                .getI18n().tr("Language:"));
-        language.setBackground(Color.WHITE);
-        JPanel theme = Components.newLabeledComponent(new ThemesComboBox(), DefaultI18nContext.getInstance().getI18n()
-                .tr("Theme:"));
-        theme.setBackground(Color.WHITE);
+        JPanel language = Components.newLabeledComponentWhiteBackground(new LocalesComboBox(), DefaultI18nContext
+                .getInstance().getI18n().tr("Language:"),
+                DefaultI18nContext.getInstance().getI18n().tr("Set your preferred language (restart needed)"));
+
+        JPanel theme = Components.newLabeledComponentWhiteBackground(new ThemesComboBox(), DefaultI18nContext
+                .getInstance().getI18n().tr("Theme:"),
+                DefaultI18nContext.getInstance().getI18n().tr("Set your preferred look and feel (restart needed)"));
         appearance.addPeferenceComponent(theme);
         appearance.addPeferenceComponent(language);
         return appearance;

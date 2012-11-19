@@ -26,7 +26,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-import static org.pdfsam.support.Components.GAP;
+import static org.pdfsam.gui.Components.GAP;
 
 /**
  * Panel used in the preferences frame with some common layout setting

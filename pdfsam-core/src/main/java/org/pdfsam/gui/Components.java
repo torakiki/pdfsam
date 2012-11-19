@@ -12,7 +12,7 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam.support;
+package org.pdfsam.gui;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -23,6 +23,8 @@ import javax.swing.BoxLayout;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import org.pdfsam.gui.balloon.BalloonUtils;
 
 /**
  * Utility class to create components
@@ -41,12 +43,15 @@ public final class Components {
     /**
      * @param component
      * @param labelText
+     * @param tooltip
      * @return a panel horizontally aligned with the label and the component
      */
-    public static JPanel newLabeledComponent(JComponent component, String labelText) {
+    public static JPanel newLabeledComponent(JComponent component, String labelText, String tooltip) {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
         JLabel label = new JLabel(labelText);
+        BalloonUtils.createBalloonFor(component, tooltip);
+        BalloonUtils.createBalloonFor(label, tooltip);
         panel.add(label);
         panel.add(Box.createRigidArea(new Dimension(GAP, 0)));
         panel.add(component);
@@ -58,10 +63,11 @@ public final class Components {
      * 
      * @param component
      * @param labelText
+     * @param tooltip
      * @return a panel horizontally aligned with the label and the component and white background
      */
-    public static JPanel newLabeledComponentWhiteBackground(JComponent component, String labelText) {
-        JPanel panel = newLabeledComponent(component, labelText);
+    public static JPanel newLabeledComponentWhiteBackground(JComponent component, String labelText, String tooltip) {
+        JPanel panel = newLabeledComponent(component, labelText, tooltip);
         panel.setBackground(Color.WHITE);
         return panel;
     }

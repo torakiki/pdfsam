@@ -20,10 +20,8 @@ import java.awt.event.ItemListener;
 
 import javax.swing.JComboBox;
 
-import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.StringUserPreference;
-import org.pdfsam.gui.balloon.BalloonUtils;
 import org.pdfsam.support.StringKeyValueItem;
 
 /**
@@ -48,8 +46,6 @@ class LocalesComboBox extends JComboBox {
                 }
             }
         });
-        BalloonUtils.createBalloonFor(this,
-                DefaultI18nContext.getInstance().getI18n().tr("Set your preferred language (restart needed)"));
     }
 
     private void initItems() {

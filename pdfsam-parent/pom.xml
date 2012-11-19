@@ -75,7 +75,7 @@
 		<logback.version>0.9.29</logback.version>
 		<jdepend.version>2.9.1</jdepend.version>
 		<hibernate-validator.version>4.2.0.Final</hibernate-validator.version>
-		<sejda.version>1.0.0.M1</sejda.version>
+		<sejda.version>1.0.0.M2</sejda.version>
 		<mydoggy.version>1.5.0</mydoggy.version>
 		<eventbus.version>1.4</eventbus.version>
 		<balloon.version>1.2.1</balloon.version>

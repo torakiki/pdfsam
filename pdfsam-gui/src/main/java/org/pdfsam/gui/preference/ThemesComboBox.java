@@ -21,10 +21,8 @@ import java.awt.event.ItemListener;
 import javax.swing.JComboBox;
 import javax.swing.UIManager;
 
-import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.StringUserPreference;
-import org.pdfsam.gui.balloon.BalloonUtils;
 import org.pdfsam.support.StringKeyValueItem;
 
 /**
@@ -49,8 +47,6 @@ class ThemesComboBox extends JComboBox {
                 }
             }
         });
-        BalloonUtils.createBalloonFor(this,
-                DefaultI18nContext.getInstance().getI18n().tr("Set your preferred look and feel (restart needed)"));
     }
 
     private void initItems() {
