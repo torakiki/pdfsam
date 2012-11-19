@@ -94,7 +94,7 @@ public class MainFrame extends JFrame {
 
         initStatusPanel();
 
-        LOG.debug(DefaultI18nContext.getInstance().getI18n().tr("Console panel initialized"));
+        LOG.debug(DefaultI18nContext.getInstance().i18n("Console panel initialized"));
     }
 
     private void initStatusPanel() {

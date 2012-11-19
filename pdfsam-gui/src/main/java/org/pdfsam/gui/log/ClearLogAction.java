@@ -30,7 +30,7 @@ import org.pdfsam.context.DefaultI18nContext;
 class ClearLogAction extends AbstractAction {
 
     public ClearLogAction() {
-        super(DefaultI18nContext.getInstance().getI18n().tr("Clear"));
+        super(DefaultI18nContext.getInstance().i18n("Clear"));
         this.setEnabled(true);
     }
 

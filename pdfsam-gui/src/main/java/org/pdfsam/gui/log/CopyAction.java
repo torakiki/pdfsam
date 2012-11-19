@@ -32,7 +32,7 @@ class CopyAction extends javax.swing.text.DefaultEditorKit.CopyAction {
 
     public CopyAction() {
         super();
-        this.putValue(Action.NAME, DefaultI18nContext.getInstance().getI18n().tr("Copy"));
+        this.putValue(Action.NAME, DefaultI18nContext.getInstance().i18n("Copy"));
         this.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_DOWN_MASK));
     }
 

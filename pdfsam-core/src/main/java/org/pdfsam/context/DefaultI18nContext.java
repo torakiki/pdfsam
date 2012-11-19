@@ -62,9 +62,8 @@ public final class DefaultI18nContext implements I18nContext {
         return DefaultI18nContextHolder.CONTEXT;
     }
 
-    @Override
-    public I18n getI18n() {
-        return i18n;
+    public String i18n(String input, String... values) {
+        return i18n.tr(input, values);
     }
 
     /**

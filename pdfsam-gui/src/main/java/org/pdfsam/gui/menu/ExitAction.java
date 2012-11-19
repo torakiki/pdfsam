@@ -33,7 +33,7 @@ import org.pdfsam.context.DefaultI18nContext;
 class ExitAction extends AbstractAction {
 
     public ExitAction() {
-        super(DefaultI18nContext.getInstance().getI18n().tr("Exit"));
+        super(DefaultI18nContext.getInstance().i18n("Exit"));
         this.setEnabled(true);
         this.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_F4, InputEvent.ALT_DOWN_MASK));
     }

@@ -31,7 +31,7 @@ public enum FileFilterType {
     LOG("(*.log)", "log"),
     XML("(*.xml)", "xml"),
     HTML("(*.html, *.htm)", "html", "htm"),
-    DIRECTORIES(DefaultI18nContext.getInstance().getI18n().tr("Directories"));
+    DIRECTORIES(DefaultI18nContext.getInstance().i18n("Directories"));
 
     private String description;
     private String[] acceptedExtensions;

@@ -14,8 +14,6 @@
  */
 package org.pdfsam.context;
 
-import org.xnap.commons.i18n.I18n;
-
 /**
  * Context related to the i18n of the application.
  * 
@@ -25,8 +23,13 @@ import org.xnap.commons.i18n.I18n;
 public interface I18nContext {
 
     /**
-     * @return the I18n instance used to retrieve internationalized messages.
+     * 
+     * @param input
+     *            input string
+     * @param values
+     *            values for the string placeholders
+     * @return the internationalized messages.
      */
-    I18n getI18n();
+    String i18n(String input, String... values);
 
 }

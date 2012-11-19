@@ -64,8 +64,8 @@ public class StatusPanel extends JPanel {
 
     @EventSubscriber(eventClass = UpdateAvailableEvent.class)
     public void updateAvailable(UpdateAvailableEvent event) {
-        updateAvailableIcon.setToolTipText(DefaultI18nContext.getInstance().getI18n()
-                .tr("New version {0} available", event.getAvailableVersion()));
+        updateAvailableIcon.setToolTipText(DefaultI18nContext.getInstance().i18n("New version {0} available",
+                event.getAvailableVersion()));
         updateAvailableIcon.setVisible(true);
     }
 

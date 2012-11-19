@@ -30,7 +30,7 @@ import org.pdfsam.context.DefaultI18nContext;
 class SaveLogAction extends AbstractAction {
 
     public SaveLogAction() {
-        super(DefaultI18nContext.getInstance().getI18n().tr("Save log"));
+        super(DefaultI18nContext.getInstance().i18n("Save log"));
         this.setEnabled(true);
     }
 

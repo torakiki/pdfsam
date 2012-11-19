@@ -47,39 +47,38 @@ public class MainMenuBar extends JMenuBar {
 
     public MainMenuBar() {
         JMenu menuFile = new JMenu();
-        menuFile.setText(DefaultI18nContext.getInstance().getI18n().tr("File"));
+        menuFile.setText(DefaultI18nContext.getInstance().i18n("File"));
         menuFile.setMnemonic(KeyEvent.VK_F);
         menuFile.add(new ExitAction());
         add(menuFile);
 
         JMenu menuEdit = new JMenu();
-        menuEdit.setText(DefaultI18nContext.getInstance().getI18n().tr("Edit"));
+        menuEdit.setText(DefaultI18nContext.getInstance().i18n("Edit"));
         menuEdit.setMnemonic(KeyEvent.VK_E);
-        menuEdit.add(new ShowFrameAction(DefaultI18nContext.getInstance().getI18n().tr("Preferences"), PreferencesFrame
+        menuEdit.add(new ShowFrameAction(DefaultI18nContext.getInstance().i18n("Preferences"), PreferencesFrame
                 .getInstance()));
         add(menuEdit);
 
         JMenu menuWorkspace = new JMenu();
-        menuWorkspace.setText(DefaultI18nContext.getInstance().getI18n().tr("Workspace"));
+        menuWorkspace.setText(DefaultI18nContext.getInstance().i18n("Workspace"));
         menuWorkspace.setMnemonic(KeyEvent.VK_W);
         menuWorkspace.add(new LoadWorkspaceAction());
         menuWorkspace.add(new SaveWorkspaceAction());
         menuWorkspace.addSeparator();
         JMenu recentWorkspaces = new JMenu();
-        recentWorkspaces.setText(DefaultI18nContext.getInstance().getI18n().tr("Recent"));
+        recentWorkspaces.setText(DefaultI18nContext.getInstance().i18n("Recent"));
         menuWorkspace.add(recentWorkspaces);
         add(menuWorkspace);
 
         JMenu menuModules = new JMenu();
-        menuModules.setText(DefaultI18nContext.getInstance().getI18n().tr("Modules"));
+        menuModules.setText(DefaultI18nContext.getInstance().i18n("Modules"));
         menuModules.setMnemonic(KeyEvent.VK_M);
         add(menuModules);
 
         JMenu menuHelp = new JMenu();
-        menuHelp.setText(DefaultI18nContext.getInstance().getI18n().tr("Help"));
+        menuHelp.setText(DefaultI18nContext.getInstance().i18n("Help"));
         menuHelp.setMnemonic(KeyEvent.VK_H);
-        menuHelp.add(new ShowFrameAction(DefaultI18nContext.getInstance().getI18n().tr("About"), AboutFrame
-                .getInstance()));
+        menuHelp.add(new ShowFrameAction(DefaultI18nContext.getInstance().i18n("About"), AboutFrame.getInstance()));
         add(menuHelp);
 
         menus.put(MenuType.FILE, menuFile);

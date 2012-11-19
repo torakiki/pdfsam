@@ -43,7 +43,7 @@ public final class App {
     }
 
     public static void main(String[] args) throws Exception {
-        LOG.info(DefaultI18nContext.getInstance().getI18n().tr("Starting pdfsam"));
+        LOG.info(DefaultI18nContext.getInstance().i18n("Starting pdfsam"));
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
 
@@ -56,20 +56,20 @@ public final class App {
             SwingUtil.centrePositionOnScreen(mainFrame);
             mainFrame.setVisible(true);
         } catch (Exception e) {
-            LOG.error(DefaultI18nContext.getInstance().getI18n().tr("Error starting pdfsam."), e);
+            LOG.error(DefaultI18nContext.getInstance().i18n("Error starting pdfsam."), e);
             throw e;
         }
         stopWatch.stop();
-        LOG.info(DefaultI18nContext.getInstance().getI18n()
-                .tr("Started in {0}", DurationFormatUtils.formatDurationWords(stopWatch.getTime(), true, true)));
+        LOG.info(DefaultI18nContext.getInstance().i18n("Started in {0}",
+                DurationFormatUtils.formatDurationWords(stopWatch.getTime(), true, true)));
     }
 
     private static void initLookAndFeel() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
         try {
             UIManager.setLookAndFeel(DefaultUserContext.getInstance().getLookAndFeelClass());
         } catch (UnsupportedLookAndFeelException e) {
-            LOG.warn(DefaultI18nContext.getInstance().getI18n()
-                    .tr("Unable to install the selected look and feel because it's unsupported."));
+            LOG.warn(DefaultI18nContext.getInstance().i18n(
+                    "Unable to install the selected look and feel because it's unsupported."));
         }
 
     }

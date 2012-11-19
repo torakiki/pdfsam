@@ -31,7 +31,7 @@ public class WelcomePanel extends AbstractContentPanel {
 
     @Override
     public String getPanelName() {
-        return DefaultI18nContext.getInstance().getI18n().tr("Welcome");
+        return DefaultI18nContext.getInstance().i18n("Welcome");
     }
 
     @Override

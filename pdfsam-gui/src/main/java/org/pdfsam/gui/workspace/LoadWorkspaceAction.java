@@ -34,7 +34,7 @@ import org.pdfsam.context.DefaultI18nContext;
 public class LoadWorkspaceAction extends AbstractAction {
 
     public LoadWorkspaceAction() {
-        super(DefaultI18nContext.getInstance().getI18n().tr("Load"));
+        super(DefaultI18nContext.getInstance().i18n("Load"));
         this.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_L, InputEvent.CTRL_DOWN_MASK));
         this.setEnabled(true);
     }

@@ -48,9 +48,9 @@ public final class TextFileWriter implements OngoingFileWrite {
         try {
             fileWriter = new FileWriter(file);
             IOUtils.write(content, fileWriter);
-            LOG.info(String.format(DefaultI18nContext.getInstance().getI18n().tr("File %s saved."), file.getName()));
+            LOG.info(DefaultI18nContext.getInstance().i18n("File {0} saved.", file.getName()));
         } catch (Exception e) {
-            LOG.error(DefaultI18nContext.getInstance().getI18n().tr("Error saving log file."), e);
+            LOG.error(DefaultI18nContext.getInstance().i18n("Error saving log file."), e);
         } finally {
             IOUtils.closeQuietly(fileWriter);
         }

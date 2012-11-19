@@ -34,7 +34,7 @@ import org.pdfsam.context.DefaultI18nContext;
 public class SaveWorkspaceAction extends AbstractAction {
 
     public SaveWorkspaceAction() {
-        super(DefaultI18nContext.getInstance().getI18n().tr("Save"));
+        super(DefaultI18nContext.getInstance().i18n("Save"));
         this.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK));
         this.setEnabled(true);
     }

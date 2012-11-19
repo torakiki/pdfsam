@@ -76,12 +76,12 @@ public class PreferencesPanel extends JPanel {
 
     private JPanel thumbnailsPanel() {
         // thumbnails
-        PreferencePanel thumbPanel = new PreferencePanel(DefaultI18nContext.getInstance().getI18n().tr("Thumbnails"));
+        PreferencePanel thumbPanel = new PreferencePanel(DefaultI18nContext.getInstance().i18n("Thumbnails"));
         BooleanPreferenceCheckBox highQualityThumbnails = new BooleanPreferenceCheckBox(
-                BooleanUserPreference.HIGH_QUALITY_THUMB, DefaultI18nContext.getInstance().getI18n()
-                        .tr("High quality thumbnails"), DefaultUserContext.getInstance().isHighQualityThumbnails());
-        highQualityThumbnails.setBalloonTooltip(DefaultI18nContext.getInstance().getI18n()
-                .tr("Generate high quality thumbnails (slower)"));
+                BooleanUserPreference.HIGH_QUALITY_THUMB, DefaultI18nContext.getInstance().i18n(
+                        "High quality thumbnails"), DefaultUserContext.getInstance().isHighQualityThumbnails());
+        highQualityThumbnails.setBalloonTooltip(DefaultI18nContext.getInstance().i18n(
+                "Generate high quality thumbnails (slower)"));
         AbstractValidableTextField thumbSizeField = new AbstractValidableTextField(Validators.newIntRangeString(190,
                 390)) {
 
@@ -93,13 +93,13 @@ public class PreferencesPanel extends JPanel {
             }
         };
         JPanel thumbSize = Components.newLabeledComponentWhiteBackground(thumbSizeField, DefaultI18nContext
-                .getInstance().getI18n().tr("Size in px:"),
-                DefaultI18nContext.getInstance().getI18n().tr("Pixel size of the thumbnails (between 190 and 390px)"));
+                .getInstance().i18n("Size in px:"),
+                DefaultI18nContext.getInstance().i18n("Pixel size of the thumbnails (between 190 and 390px)"));
         thumbSizeField.setText(Integer.toString(DefaultUserContext.getInstance().getThumbnailsSize()));
 
         JPanel thumbCreator = Components.newLabeledComponentWhiteBackground(new JComboBox(), DefaultI18nContext
-                .getInstance().getI18n().tr("Thumbnails creator:"),
-                DefaultI18nContext.getInstance().getI18n().tr("Library used to generate thumbnails"));
+                .getInstance().i18n("Thumbnails creator:"),
+                DefaultI18nContext.getInstance().i18n("Library used to generate thumbnails"));
 
         thumbPanel.addPeferenceComponent(highQualityThumbnails);
         thumbPanel.addPeferenceComponent(thumbSize);
@@ -109,28 +109,28 @@ public class PreferencesPanel extends JPanel {
 
     private JPanel workspacePanel() {
         // workspace
-        PreferencePanel workspace = new PreferencePanel(DefaultI18nContext.getInstance().getI18n().tr("Workspace"));
-        BrowsableField defaultWorkspace = new BrowsableField(DefaultI18nContext.getInstance().getI18n()
-                .tr("Load default workspace at startup:"), StringUserPreference.WORKSPACE_PATH) {
+        PreferencePanel workspace = new PreferencePanel(DefaultI18nContext.getInstance().i18n("Workspace"));
+        BrowsableField defaultWorkspace = new BrowsableField(DefaultI18nContext.getInstance().i18n(
+                "Load default workspace at startup:"), StringUserPreference.WORKSPACE_PATH) {
             @Override
             JFileChooser getChooser() {
                 return SharedJFileChooser.getInstance(FileFilterType.XML, JFileChooser.FILES_AND_DIRECTORIES);
             }
         };
 
-        defaultWorkspace.setBalloonTooltip(DefaultI18nContext.getInstance().getI18n()
-                .tr("Select a previously saved workspace that will be automatically loaded at startup"));
+        defaultWorkspace.setBalloonTooltip(DefaultI18nContext.getInstance().i18n(
+                "Select a previously saved workspace that will be automatically loaded at startup"));
         defaultWorkspace.setDefaultFieldValue(DefaultUserContext.getInstance().getDefaultWorkspacePath());
 
-        BrowsableField defaultWorkingPath = new BrowsableField(DefaultI18nContext.getInstance().getI18n()
-                .tr("Default working directory:"), StringUserPreference.WORKING_PATH) {
+        BrowsableField defaultWorkingPath = new BrowsableField(DefaultI18nContext.getInstance().i18n(
+                "Default working directory:"), StringUserPreference.WORKING_PATH) {
             @Override
             JFileChooser getChooser() {
                 return SharedJFileChooser.getInstance(FileFilterType.DIRECTORIES, JFileChooser.DIRECTORIES_ONLY);
             }
         };
-        defaultWorkingPath.setBalloonTooltip(DefaultI18nContext.getInstance().getI18n()
-                .tr("Select a directory where documents will be saved and loaded by default"));
+        defaultWorkingPath.setBalloonTooltip(DefaultI18nContext.getInstance().i18n(
+                "Select a directory where documents will be saved and loaded by default"));
         defaultWorkingPath.setDefaultFieldValue(DefaultUserContext.getInstance().getDefaultWorkingPath());
         workspace.addPeferenceComponent(defaultWorkspace);
         workspace.addPeferenceComponent(defaultWorkingPath);
@@ -138,25 +138,25 @@ public class PreferencesPanel extends JPanel {
     }
 
     private JPanel behaviorPanel() {
-        PreferencePanel behavoir = new PreferencePanel(DefaultI18nContext.getInstance().getI18n().tr("Behavior"));
+        PreferencePanel behavoir = new PreferencePanel(DefaultI18nContext.getInstance().i18n("Behavior"));
         // behavoir
         BooleanPreferenceCheckBox checkForUpdates = new BooleanPreferenceCheckBox(BooleanUserPreference.CHECK_UPDATES,
-                DefaultI18nContext.getInstance().getI18n().tr("Check for updates at startup"), DefaultUserContext
-                        .getInstance().isCheckForUpdates());
-        checkForUpdates.setBalloonTooltip(DefaultI18nContext.getInstance().getI18n()
-                .tr("Set whether new version availability should be checked on startup (restart needed)"));
+                DefaultI18nContext.getInstance().i18n("Check for updates at startup"), DefaultUserContext.getInstance()
+                        .isCheckForUpdates());
+        checkForUpdates.setBalloonTooltip(DefaultI18nContext.getInstance().i18n(
+                "Set whether new version availability should be checked on startup (restart needed)"));
 
         BooleanPreferenceCheckBox playSounds = new BooleanPreferenceCheckBox(BooleanUserPreference.PLAY_SOUNDS,
-                DefaultI18nContext.getInstance().getI18n().tr("Play alert sounds"), DefaultUserContext.getInstance()
+                DefaultI18nContext.getInstance().i18n("Play alert sounds"), DefaultUserContext.getInstance()
                         .isPlaySounds());
-        playSounds.setBalloonTooltip(DefaultI18nContext.getInstance().getI18n().tr("Turn on or off alert sounds"));
+        playSounds.setBalloonTooltip(DefaultI18nContext.getInstance().i18n("Turn on or off alert sounds"));
 
         BooleanPreferenceCheckBox askConfirmation = new BooleanPreferenceCheckBox(
-                BooleanUserPreference.ASK_OVERWRITE_CONFIRMATION, DefaultI18nContext.getInstance().getI18n()
-                        .tr("Ask for confirmation when overwrite checkbox is selected"), DefaultUserContext
-                        .getInstance().isAskOverwriteConfirmation());
-        askConfirmation.setBalloonTooltip(DefaultI18nContext.getInstance().getI18n()
-                .tr("Show a dialog box asking the user for confirmation when the \"overwrite\" is selected"));
+                BooleanUserPreference.ASK_OVERWRITE_CONFIRMATION, DefaultI18nContext.getInstance().i18n(
+                        "Ask for confirmation when overwrite checkbox is selected"), DefaultUserContext.getInstance()
+                        .isAskOverwriteConfirmation());
+        askConfirmation.setBalloonTooltip(DefaultI18nContext.getInstance().i18n(
+                "Show a dialog box asking the user for confirmation when the \"overwrite\" is selected"));
         behavoir.addPeferenceComponent(checkForUpdates);
         behavoir.addPeferenceComponent(playSounds);
         behavoir.addPeferenceComponent(askConfirmation);
@@ -165,14 +165,14 @@ public class PreferencesPanel extends JPanel {
 
     private JPanel appearancePanel() {
         // appearance
-        PreferencePanel appearance = new PreferencePanel(DefaultI18nContext.getInstance().getI18n().tr("Appearance"));
+        PreferencePanel appearance = new PreferencePanel(DefaultI18nContext.getInstance().i18n("Appearance"));
         JPanel language = Components.newLabeledComponentWhiteBackground(new LocalesComboBox(), DefaultI18nContext
-                .getInstance().getI18n().tr("Language:"),
-                DefaultI18nContext.getInstance().getI18n().tr("Set your preferred language (restart needed)"));
+                .getInstance().i18n("Language:"),
+                DefaultI18nContext.getInstance().i18n("Set your preferred language (restart needed)"));
 
         JPanel theme = Components.newLabeledComponentWhiteBackground(new ThemesComboBox(), DefaultI18nContext
-                .getInstance().getI18n().tr("Theme:"),
-                DefaultI18nContext.getInstance().getI18n().tr("Set your preferred look and feel (restart needed)"));
+                .getInstance().i18n("Theme:"),
+                DefaultI18nContext.getInstance().i18n("Set your preferred look and feel (restart needed)"));
         appearance.addPeferenceComponent(theme);
         appearance.addPeferenceComponent(language);
         return appearance;

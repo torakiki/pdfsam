@@ -34,7 +34,7 @@ import org.pdfsam.context.DefaultI18nContext;
 class SelectAllAction extends AbstractAction {
 
     public SelectAllAction() {
-        super(DefaultI18nContext.getInstance().getI18n().tr("Select all"));
+        super(DefaultI18nContext.getInstance().i18n("Select all"));
         this.setEnabled(true);
         this.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_DOWN_MASK));
     }

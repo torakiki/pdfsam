@@ -19,7 +19,6 @@ import java.awt.Component;
 import javax.swing.JOptionPane;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.xnap.commons.i18n.I18n;
 
 /**
  * Provides static methods to show different kinds of dialogs.
@@ -43,11 +42,9 @@ public final class Dialogs {
      * @return an integer indicating the option chosen by the user
      */
     public static int showOverwriteConfirmationDialog(Component comp, String filename) {
-        I18n i18n = DefaultI18nContext.getInstance().getI18n();
-        return JOptionPane.showOptionDialog(
-                comp,
-                String.format("%s \n%s", i18n.tr("Selected file already exists"),
-                        i18n.tr("Would you like to overwrite it?")), filename, JOptionPane.OK_CANCEL_OPTION,
+        return JOptionPane.showOptionDialog(comp, String.format("%s \n%s",
+                DefaultI18nContext.getInstance().i18n("Selected file already exists"), DefaultI18nContext.getInstance()
+                        .i18n("Would you like to overwrite it?")), filename, JOptionPane.OK_CANCEL_OPTION,
                 JOptionPane.QUESTION_MESSAGE, null, null, null);
     }
 }

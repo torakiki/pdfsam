@@ -45,7 +45,7 @@ import org.pdfsam.context.DefaultI18nContext;
 public final class AboutFrame extends JFrame {
 
     private AboutFrame() {
-        super(DefaultI18nContext.getInstance().getI18n().tr("About"));
+        super(DefaultI18nContext.getInstance().i18n("About"));
         init();
     }
 
@@ -126,7 +126,7 @@ public final class AboutFrame extends JFrame {
     private final class CloseAction extends AbstractAction {
 
         private CloseAction() {
-            super(DefaultI18nContext.getInstance().getI18n().tr("Close"));
+            super(DefaultI18nContext.getInstance().i18n("Close"));
         }
 
         @Override

@@ -55,8 +55,8 @@ class AboutPanel extends JPanel {
         add(Box.createRigidArea(labelSpace));
         add(new JLabel(System.getProperty("java.runtime.name") + " " + System.getProperty("java.runtime.version")));
         add(Box.createRigidArea(labelSpace));
-        add(new JLabel(DefaultI18nContext.getInstance().getI18n()
-                .tr("Max memory {0}Mb", Runtime.getRuntime().maxMemory() / 1048576)));
+        add(new JLabel(DefaultI18nContext.getInstance().i18n("Max memory {0}Mb",
+                Long.toString(Runtime.getRuntime().maxMemory() / 1048576))));
         add(Box.createRigidArea(labelSpace));
         add(new JHyperlink("www.pdfsam.org", "http://www.pdfsam.org"));
         add(Box.createRigidArea(labelSpace));

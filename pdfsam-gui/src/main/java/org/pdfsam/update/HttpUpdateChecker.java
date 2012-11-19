@@ -80,7 +80,7 @@ class HttpUpdateChecker implements UpdateChecker {
             is = urlConn.getInputStream();
             return parseXmlStream(is);
         } catch (Exception e) {
-            LOG.warn(DefaultI18nContext.getInstance().getI18n().tr("Unable to get latest available version"), e);
+            LOG.warn(DefaultI18nContext.getInstance().i18n("Unable to get latest available version"), e);
         } finally {
             if (urlConn != null) {
                 urlConn.disconnect();

@@ -43,7 +43,7 @@ public class DefaultSoundPlayer implements SoundPlayer {
             clip.open(aundioStream);
             doPlayAsync(clip);
         } catch (Exception e) {
-            LOG.warn(DefaultI18nContext.getInstance().getI18n().tr("Error playing sound"), e);
+            LOG.warn(DefaultI18nContext.getInstance().i18n("Error playing sound"), e);
         }
     }
 

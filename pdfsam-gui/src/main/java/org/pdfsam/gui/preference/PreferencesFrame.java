@@ -38,10 +38,10 @@ import org.pdfsam.gui.about.AboutFrame;
  * @author Andrea Vacondio
  * 
  */
-public class PreferencesFrame extends JFrame {
+public final class PreferencesFrame extends JFrame {
 
     private PreferencesFrame() {
-        super(DefaultI18nContext.getInstance().getI18n().tr("Preferences"));
+        super(DefaultI18nContext.getInstance().i18n("Preferences"));
         init();
     }
 
@@ -98,7 +98,7 @@ public class PreferencesFrame extends JFrame {
     private final class CloseAction extends AbstractAction {
 
         private CloseAction() {
-            super(DefaultI18nContext.getInstance().getI18n().tr("Close"));
+            super(DefaultI18nContext.getInstance().i18n("Close"));
         }
 
         @Override
