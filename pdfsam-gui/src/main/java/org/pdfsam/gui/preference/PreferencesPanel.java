@@ -82,7 +82,7 @@ public class PreferencesPanel extends JPanel {
                         "High quality thumbnails"), DefaultUserContext.getInstance().isHighQualityThumbnails());
         highQualityThumbnails.setBalloonTooltip(DefaultI18nContext.getInstance().i18n(
                 "Generate high quality thumbnails (slower)"));
-        AbstractValidableTextField thumbSizeField = new AbstractValidableTextField(Validators.newIntRangeString(190,
+        AbstractValidableTextField thumbSizeField = new AbstractValidableTextField(Validators.newIntRangeString(130,
                 390)) {
 
             @Override
@@ -92,10 +92,12 @@ public class PreferencesPanel extends JPanel {
 
             }
         };
+        thumbSizeField.setText(Integer.toString(DefaultUserContext.getInstance().getThumbnailsSize()));
+        thumbSizeField.setColumns(6);
+        thumbSizeField.setMaximumSize(thumbSizeField.getPreferredSize());
         JPanel thumbSize = Components.newLabeledComponentWhiteBackground(thumbSizeField, DefaultI18nContext
                 .getInstance().i18n("Size in px:"),
-                DefaultI18nContext.getInstance().i18n("Pixel size of the thumbnails (between 190 and 390px)"));
-        thumbSizeField.setText(Integer.toString(DefaultUserContext.getInstance().getThumbnailsSize()));
+                DefaultI18nContext.getInstance().i18n("Pixel size of the thumbnails (between 130 and 390px)"));
 
         JPanel thumbCreator = Components.newLabeledComponentWhiteBackground(new JComboBox(), DefaultI18nContext
                 .getInstance().i18n("Thumbnails creator:"),

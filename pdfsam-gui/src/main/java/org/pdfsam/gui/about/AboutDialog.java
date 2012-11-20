@@ -27,6 +27,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -37,21 +38,21 @@ import org.pdfsam.Pdfsam;
 import org.pdfsam.context.DefaultI18nContext;
 
 /**
- * Frame to display About informations
+ * Dialog to display About informations.
  * 
  * @author Andrea Vacondio
  * 
  */
-public final class AboutFrame extends JFrame {
+public final class AboutDialog extends JDialog {
 
-    private AboutFrame() {
-        super(DefaultI18nContext.getInstance().i18n("About"));
+    private AboutDialog() {
+        setTitle(DefaultI18nContext.getInstance().i18n("About"));
         init();
     }
 
     private void init() {
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        setIconImage(new ImageIcon(AboutFrame.class.getResource("/images/pdfsam_" + Pdfsam.PACKAGE + ".png"))
+        setIconImage(new ImageIcon(AboutDialog.class.getResource("/images/pdfsam_" + Pdfsam.PACKAGE + ".png"))
                 .getImage());
         setSize(460, 210);
         setLayout(new GridBagLayout());
@@ -103,7 +104,7 @@ public final class AboutFrame extends JFrame {
     }
 
     private JPanel imagePanel() {
-        JLabel image = new JLabel(new ImageIcon(AboutFrame.class.getResource("/images/pdfsam_" + Pdfsam.PACKAGE
+        JLabel image = new JLabel(new ImageIcon(AboutDialog.class.getResource("/images/pdfsam_" + Pdfsam.PACKAGE
                 + "_128.png")));
         image.setMinimumSize(new Dimension(128, 128));
         JPanel imagePanel = new JPanel();
@@ -149,10 +150,10 @@ public final class AboutFrame extends JFrame {
             // hide constructor
         }
 
-        static final AboutFrame ABOUT_FRAME = new AboutFrame();
+        static final AboutDialog ABOUT_FRAME = new AboutDialog();
     }
 
-    public static AboutFrame getInstance() {
+    public static AboutDialog getInstance() {
         return AboutFrameHolder.ABOUT_FRAME;
     }
 }

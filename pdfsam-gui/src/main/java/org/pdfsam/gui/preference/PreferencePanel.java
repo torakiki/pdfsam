@@ -24,6 +24,7 @@ import java.awt.Insets;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 import static org.pdfsam.gui.Components.GAP;
@@ -62,7 +63,8 @@ public class PreferencePanel extends JPanel {
      * 
      * @param component
      */
-    void addPeferenceComponent(Component component) {
+    void addPeferenceComponent(JComponent component) {
+        component.setAlignmentX(Component.LEFT_ALIGNMENT);
         innerPanel.add(component);
         innerPanel.add(Box.createRigidArea(new Dimension(0, GAP)));
     }

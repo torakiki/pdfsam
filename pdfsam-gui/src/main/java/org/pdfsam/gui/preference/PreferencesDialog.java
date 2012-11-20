@@ -23,6 +23,7 @@ import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -30,24 +31,24 @@ import javax.swing.border.EtchedBorder;
 
 import org.pdfsam.Pdfsam;
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.gui.about.AboutFrame;
+import org.pdfsam.gui.about.AboutDialog;
 
 /**
- * Frame showing preferences panel
+ * Dialog showing preferences panel.
  * 
  * @author Andrea Vacondio
  * 
  */
-public final class PreferencesFrame extends JFrame {
+public final class PreferencesDialog extends JDialog {
 
-    private PreferencesFrame() {
-        super(DefaultI18nContext.getInstance().i18n("Preferences"));
+    private PreferencesDialog() {
+        setTitle(DefaultI18nContext.getInstance().i18n("Preferences"));
         init();
     }
 
     private void init() {
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        setIconImage(new ImageIcon(AboutFrame.class.getResource("/images/pdfsam_" + Pdfsam.PACKAGE + ".png"))
+        setIconImage(new ImageIcon(AboutDialog.class.getResource("/images/pdfsam_" + Pdfsam.PACKAGE + ".png"))
                 .getImage());
         setSize(540, 580);
         setLayout(new GridBagLayout());
@@ -120,10 +121,10 @@ public final class PreferencesFrame extends JFrame {
             // hide constructor
         }
 
-        static final PreferencesFrame PREFS_FRAME = new PreferencesFrame();
+        static final PreferencesDialog PREFS_FRAME = new PreferencesDialog();
     }
 
-    public static PreferencesFrame getInstance() {
+    public static PreferencesDialog getInstance() {
         return PreferencesFrameHolder.PREFS_FRAME;
     }
 }

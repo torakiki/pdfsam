@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.AbstractAction;
-import javax.swing.JFrame;
+import javax.swing.JDialog;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 
@@ -28,8 +28,8 @@ import org.noos.xing.mydoggy.ContentManager;
 import org.noos.xing.mydoggy.plaf.ui.util.SwingUtil;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.AbstractContentPanel;
-import org.pdfsam.gui.about.AboutFrame;
-import org.pdfsam.gui.preference.PreferencesFrame;
+import org.pdfsam.gui.about.AboutDialog;
+import org.pdfsam.gui.preference.PreferencesDialog;
 import org.pdfsam.gui.workspace.LoadWorkspaceAction;
 import org.pdfsam.gui.workspace.SaveWorkspaceAction;
 
@@ -55,7 +55,7 @@ public class MainMenuBar extends JMenuBar {
         JMenu menuEdit = new JMenu();
         menuEdit.setText(DefaultI18nContext.getInstance().i18n("Edit"));
         menuEdit.setMnemonic(KeyEvent.VK_E);
-        menuEdit.add(new ShowFrameAction(DefaultI18nContext.getInstance().i18n("Preferences"), PreferencesFrame
+        menuEdit.add(new ShowDialogAction(DefaultI18nContext.getInstance().i18n("Preferences"), PreferencesDialog
                 .getInstance()));
         add(menuEdit);
 
@@ -78,7 +78,7 @@ public class MainMenuBar extends JMenuBar {
         JMenu menuHelp = new JMenu();
         menuHelp.setText(DefaultI18nContext.getInstance().i18n("Help"));
         menuHelp.setMnemonic(KeyEvent.VK_H);
-        menuHelp.add(new ShowFrameAction(DefaultI18nContext.getInstance().i18n("About"), AboutFrame.getInstance()));
+        menuHelp.add(new ShowDialogAction(DefaultI18nContext.getInstance().i18n("About"), AboutDialog.getInstance()));
         add(menuHelp);
 
         menus.put(MenuType.FILE, menuFile);
@@ -103,26 +103,26 @@ public class MainMenuBar extends JMenuBar {
     }
 
     /**
-     * Action used to display About panel
+     * Action used to display dialogs
      * 
      * @author Andrea Vacondio
      * 
      */
-    private class ShowFrameAction extends AbstractAction {
+    private class ShowDialogAction extends AbstractAction {
 
-        private JFrame frame = null;
+        private JDialog dialog = null;
 
-        ShowFrameAction(String menuText, JFrame frame) {
+        ShowDialogAction(String menuText, JDialog dialog) {
             super(menuText);
-            require(frame != null, "Input frame cannot be null");
-            this.frame = frame;
+            require(dialog != null, "Input dialog cannot be null");
+            this.dialog = dialog;
         }
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (!frame.isVisible()) {
-                SwingUtil.centrePositionOnScreen(frame);
-                frame.setVisible(true);
+            if (!dialog.isVisible()) {
+                SwingUtil.centrePositionOnScreen(dialog);
+                dialog.setVisible(true);
             }
         }
     }
