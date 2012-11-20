@@ -28,7 +28,6 @@ import javax.swing.JTextField;
 
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.StringUserPreference;
-import org.pdfsam.gui.balloon.BalloonUtils;
 
 import static javax.swing.GroupLayout.Alignment.TRAILING;
 import static org.pdfsam.gui.Components.GAP;
@@ -64,8 +63,8 @@ abstract class BrowsableField extends JPanel {
     }
 
     void setBalloonTooltip(String tooltip) {
-        BalloonUtils.createBalloonFor(this, tooltip);
-        BalloonUtils.createBalloonFor(field, tooltip);
+        this.setToolTipText(tooltip);
+        field.setToolTipText(tooltip);
     }
 
     void setDefaultFieldValue(String defaultValue) {

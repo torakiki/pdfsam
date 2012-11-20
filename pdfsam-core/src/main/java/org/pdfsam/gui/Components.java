@@ -24,8 +24,6 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import org.pdfsam.gui.balloon.BalloonUtils;
-
 /**
  * Utility class to create components
  * 
@@ -50,8 +48,8 @@ public final class Components {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
         JLabel label = new JLabel(labelText);
-        BalloonUtils.createBalloonFor(component, tooltip);
-        BalloonUtils.createBalloonFor(label, tooltip);
+        component.setToolTipText(tooltip);
+        label.setToolTipText(tooltip);
         panel.add(label);
         panel.add(Box.createRigidArea(new Dimension(GAP, 0)));
         panel.add(component);

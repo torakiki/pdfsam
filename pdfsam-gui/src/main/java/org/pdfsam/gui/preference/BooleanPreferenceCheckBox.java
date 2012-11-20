@@ -22,7 +22,6 @@ import javax.swing.JCheckBox;
 
 import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.DefaultUserContext;
-import org.pdfsam.gui.balloon.BalloonUtils;
 
 /**
  * Checkbox updating the relative preference on item selection/deselection
@@ -53,7 +52,4 @@ class BooleanPreferenceCheckBox extends JCheckBox {
         });
     }
 
-    void setBalloonTooltip(String tooltip) {
-        BalloonUtils.createBalloonFor(this, tooltip);
-    }
 }

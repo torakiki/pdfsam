@@ -80,7 +80,7 @@ public class PreferencesPanel extends JPanel {
         BooleanPreferenceCheckBox highQualityThumbnails = new BooleanPreferenceCheckBox(
                 BooleanUserPreference.HIGH_QUALITY_THUMB, DefaultI18nContext.getInstance().i18n(
                         "High quality thumbnails"), DefaultUserContext.getInstance().isHighQualityThumbnails());
-        highQualityThumbnails.setBalloonTooltip(DefaultI18nContext.getInstance().i18n(
+        highQualityThumbnails.setToolTipText(DefaultI18nContext.getInstance().i18n(
                 "Generate high quality thumbnails (slower)"));
         AbstractValidableTextField thumbSizeField = new AbstractValidableTextField(Validators.newIntRangeString(130,
                 390)) {
@@ -97,7 +97,7 @@ public class PreferencesPanel extends JPanel {
         thumbSizeField.setMaximumSize(thumbSizeField.getPreferredSize());
         JPanel thumbSize = Components.newLabeledComponentWhiteBackground(thumbSizeField, DefaultI18nContext
                 .getInstance().i18n("Size in px:"),
-                DefaultI18nContext.getInstance().i18n("Pixel size of the thumbnails (between 130 and 390px)"));
+                DefaultI18nContext.getInstance().i18n("Pixel size of the thumbnails (between 130px and 390px)"));
 
         JPanel thumbCreator = Components.newLabeledComponentWhiteBackground(new JComboBox(), DefaultI18nContext
                 .getInstance().i18n("Thumbnails creator:"),
@@ -145,19 +145,19 @@ public class PreferencesPanel extends JPanel {
         BooleanPreferenceCheckBox checkForUpdates = new BooleanPreferenceCheckBox(BooleanUserPreference.CHECK_UPDATES,
                 DefaultI18nContext.getInstance().i18n("Check for updates at startup"), DefaultUserContext.getInstance()
                         .isCheckForUpdates());
-        checkForUpdates.setBalloonTooltip(DefaultI18nContext.getInstance().i18n(
+        checkForUpdates.setToolTipText(DefaultI18nContext.getInstance().i18n(
                 "Set whether new version availability should be checked on startup (restart needed)"));
 
         BooleanPreferenceCheckBox playSounds = new BooleanPreferenceCheckBox(BooleanUserPreference.PLAY_SOUNDS,
                 DefaultI18nContext.getInstance().i18n("Play alert sounds"), DefaultUserContext.getInstance()
                         .isPlaySounds());
-        playSounds.setBalloonTooltip(DefaultI18nContext.getInstance().i18n("Turn on or off alert sounds"));
+        playSounds.setToolTipText(DefaultI18nContext.getInstance().i18n("Turn on or off alert sounds"));
 
         BooleanPreferenceCheckBox askConfirmation = new BooleanPreferenceCheckBox(
                 BooleanUserPreference.ASK_OVERWRITE_CONFIRMATION, DefaultI18nContext.getInstance().i18n(
                         "Ask for confirmation when overwrite checkbox is selected"), DefaultUserContext.getInstance()
                         .isAskOverwriteConfirmation());
-        askConfirmation.setBalloonTooltip(DefaultI18nContext.getInstance().i18n(
+        askConfirmation.setToolTipText(DefaultI18nContext.getInstance().i18n(
                 "Show a dialog box asking the user for confirmation when the \"overwrite\" is selected"));
         behavoir.addPeferenceComponent(checkForUpdates);
         behavoir.addPeferenceComponent(playSounds);
