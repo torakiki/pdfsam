@@ -14,24 +14,34 @@
  */
 package org.pdfsam.sound;
 
+import org.bushe.swing.event.annotation.EventSubscriber;
 import org.pdfsam.context.DefaultUserContext;
-import org.sejda.model.notification.EventListener;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
+import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 
 /**
- * Listen to the {@link TaskExecutionCompletedEvent} playing an error sound.
+ * Controller responding to sound related events.
  * 
  * @author Andrea Vacondio
  * 
  */
-public class PlayTaskCompletedEventListener implements EventListener<TaskExecutionCompletedEvent> {
+public class PlaySoundController {
 
     private SoundPlayer player = new DefaultSoundPlayer();
 
-    public void onEvent(TaskExecutionCompletedEvent event) {
-        if (DefaultUserContext.getInstance().isPlaySounds()) {
-            player.play(Sound.POSITIVE);
-        }
+    @EventSubscriber
+    public void playFailed(TaskExecutionFailedEvent event) {
+        playSound(Sound.NEGATIVE);
     }
 
+    @EventSubscriber
+    public void playCompleted(TaskExecutionCompletedEvent event) {
+        playSound(Sound.POSITIVE);
+    }
+
+    private void playSound(Sound sound) {
+        if (DefaultUserContext.getInstance().isPlaySounds()) {
+            player.play(sound);
+        }
+    }
 }

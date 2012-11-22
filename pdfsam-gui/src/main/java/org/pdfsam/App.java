@@ -19,16 +19,14 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.apache.commons.lang3.time.StopWatch;
+import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.noos.xing.mydoggy.plaf.ui.util.SwingUtil;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.gui.MainFrame;
 import org.pdfsam.gui.WelcomePanel;
 import org.pdfsam.gui.menu.MenuType;
-import org.pdfsam.sound.PlayTaskCompletedEventListener;
-import org.pdfsam.sound.PlayTaskFailedEventListener;
-import org.sejda.core.notification.context.GlobalNotificationContext;
-import org.sejda.model.exception.NotificationContextException;
+import org.pdfsam.sound.PlaySoundController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -53,7 +51,7 @@ public final class App {
 
         try {
             initLookAndFeel();
-            initPlaySoundTaskListeners();
+            initSoundController();
             mainFrame = new MainFrame();
             // TODO add plugins to Modules menu
             mainFrame.addSystemContentAction(MenuType.HELP, new WelcomePanel());
@@ -79,13 +77,8 @@ public final class App {
 
     }
 
-    private static void initPlaySoundTaskListeners() {
-        try {
-            GlobalNotificationContext.getContext().addListener(new PlayTaskCompletedEventListener());
-            GlobalNotificationContext.getContext().addListener(new PlayTaskFailedEventListener());
-        } catch (NotificationContextException e) {
-            LOG.warn(DefaultI18nContext.getInstance().i18n("Unable to register sounds player, no sound will be played"));
-        }
+    private static void initSoundController() {
+        AnnotationProcessor.process(new PlaySoundController());
     }
 
     /**
