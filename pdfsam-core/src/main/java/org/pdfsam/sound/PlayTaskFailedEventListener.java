@@ -1,5 +1,5 @@
 /*
- * Created on 14/dic/2011
+ * Created on 22/nov/2012
  * Copyright 2010 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the 
@@ -14,22 +14,24 @@
  */
 package org.pdfsam.sound;
 
+import org.pdfsam.context.DefaultUserContext;
+import org.sejda.model.notification.EventListener;
+import org.sejda.model.notification.event.TaskExecutionFailedEvent;
+
 /**
- * Available sounds
+ * Listen to the {@link TaskExecutionFailedEvent} playing an error sound.
  * 
  * @author Andrea Vacondio
+ * 
  */
-enum Sound {
-    POSITIVE("/sounds/ok_sound.wav"),
-    NEGATIVE("/sounds/error_sound.wav");
+public class PlayTaskFailedEventListener implements EventListener<TaskExecutionFailedEvent> {
 
-    private String source;
+    private SoundPlayer player = new DefaultSoundPlayer();
 
-    private Sound(String source) {
-        this.source = source;
+    public void onEvent(TaskExecutionFailedEvent event) {
+        if (DefaultUserContext.getInstance().isPlaySounds()) {
+            player.play(Sound.NEGATIVE);
+        }
     }
 
-    String getSource() {
-        return source;
-    }
 }

@@ -29,6 +29,14 @@
 			<artifactId>sejda-model</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.sejda</groupId>
+			<artifactId>sejda-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.sejda</groupId>
+			<artifactId>sejda-itext</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.bushe</groupId>
 			<artifactId>eventbus</artifactId>
 		</dependency>

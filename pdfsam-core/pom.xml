@@ -29,6 +29,10 @@
 			<artifactId>pdfsam-i18n</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.sejda</groupId>
+			<artifactId>sejda-model</artifactId>
+		</dependency>				
 	</dependencies>
 
 </project>

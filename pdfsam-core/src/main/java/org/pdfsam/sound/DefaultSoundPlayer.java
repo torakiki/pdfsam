@@ -30,7 +30,7 @@ import org.slf4j.LoggerFactory;
  * @author Andrea Vacondio
  * 
  */
-public class DefaultSoundPlayer implements SoundPlayer {
+class DefaultSoundPlayer implements SoundPlayer {
 
     private static final Logger LOG = LoggerFactory.getLogger(DefaultSoundPlayer.class);
 

@@ -125,6 +125,16 @@
 				<version>${sejda.version}</version>
 			</dependency>
 			<dependency>
+				<groupId>org.sejda</groupId>
+				<artifactId>sejda-core</artifactId>
+				<version>${sejda.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.sejda</groupId>
+				<artifactId>sejda-itext</artifactId>
+				<version>${sejda.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>jdepend</groupId>
 				<artifactId>jdepend</artifactId>
 				<version>${jdepend.version}</version>

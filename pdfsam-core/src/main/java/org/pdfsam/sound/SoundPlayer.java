@@ -20,7 +20,7 @@ package org.pdfsam.sound;
  * @author Andrea Vacondio
  * 
  */
-public interface SoundPlayer {
+interface SoundPlayer {
 
     /**
      * Plays the given sound.
