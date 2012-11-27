@@ -29,16 +29,12 @@
 			<artifactId>sejda-model</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.sejda</groupId>
-			<artifactId>sejda-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.sejda</groupId>
-			<artifactId>sejda-itext</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.bushe</groupId>
 			<artifactId>eventbus</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.pdfsam</groupId>
@@ -48,6 +44,11 @@
 		<dependency>
 			<groupId>org.pdfsam</groupId>
 			<artifactId>pdfsam-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.pdfsam</groupId>
+			<artifactId>pdfsam-service</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
@@ -73,6 +74,11 @@
 			<groupId>com.jgoodies</groupId>
 			<artifactId>jgoodies-common</artifactId>
 			<version>1.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2.2</version>
 		</dependency>
 	</dependencies>
 </project>

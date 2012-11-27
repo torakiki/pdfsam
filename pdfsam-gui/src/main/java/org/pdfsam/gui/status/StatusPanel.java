@@ -89,7 +89,8 @@ public class StatusPanel extends JPanel {
             progressBar.setStringPainted(true);
             progressBar.setIndeterminate(false);
             progressBar.setValue(event.getPercentage().multiply(BigDecimal.TEN).intValue());
-            progressBar.setString(new DecimalFormat("0.# %").format(event.getPercentage()));
+            System.out.println(event.getPercentage());
+            progressBar.setString(new DecimalFormat("###.#").format(event.getPercentage()) + " %");
         }
     }
 }

@@ -36,7 +36,7 @@ public final class DefaultI18nContext implements I18nContext {
 
     private DefaultI18nContext() {
         Locale locale = getLocale();
-        LOG.trace("Loading i18n bundle from %s", locale);
+        LOG.trace("Loading i18n bundle for {}", locale);
         Locale.setDefault(locale);
         this.i18n = I18nFactory.getI18n(DefaultI18nContext.class, locale);
         LOG.debug("Locale set to {}", locale.getDisplayLanguage());

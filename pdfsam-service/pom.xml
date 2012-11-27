@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<description>Core pdfsam library</description>
+	<description>Service layer for pdfsam</description>
 	<url>http://www.pdfsam.org</url>
 	<parent>
 		<groupId>org.pdfsam</groupId>
@@ -11,22 +11,14 @@
 		<relativePath>../pdfsam-parent/pom.xml</relativePath>
 	</parent>
 
-	<artifactId>pdfsam-core</artifactId>
+	<artifactId>pdfsam-service</artifactId>
 	<packaging>jar</packaging>
-	<name>pdfsam core</name>
+	<name>pdfsam service</name>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.pdfsam</groupId>
-			<artifactId>pdfsam-i18n</artifactId>
+			<artifactId>pdfsam-core</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
@@ -34,8 +26,24 @@
 			<artifactId>sejda-model</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.sejda</groupId>
+			<artifactId>sejda-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.sejda</groupId>
+			<artifactId>sejda-itext</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.bushe</groupId>
 			<artifactId>eventbus</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
 		</dependency>
 	</dependencies>
 

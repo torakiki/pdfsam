@@ -14,11 +14,14 @@
  */
 package org.pdfsam;
 
+import java.io.File;
+
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.apache.commons.lang3.time.StopWatch;
+import org.bushe.swing.event.EventBus;
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.noos.xing.mydoggy.plaf.ui.util.SwingUtil;
 import org.pdfsam.context.DefaultI18nContext;
@@ -26,9 +29,14 @@ import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.gui.MainFrame;
 import org.pdfsam.gui.WelcomePanel;
 import org.pdfsam.gui.menu.MenuType;
+import org.pdfsam.service.TaskExecutionRequestEvent;
 import org.pdfsam.sound.PlaySoundController;
+import org.sejda.model.input.PdfFileSource;
+import org.sejda.model.output.DirectoryTaskOutput;
+import org.sejda.model.parameter.DecryptParameters;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
  * Entry point to start pdfsam
@@ -39,6 +47,7 @@ import org.slf4j.LoggerFactory;
 public final class App {
     private static final Logger LOG = LoggerFactory.getLogger(App.class);
     private static MainFrame mainFrame = null;
+    private static final PlaySoundController CONTROLLER = new PlaySoundController();
 
     private App() {
         // hide
@@ -52,12 +61,14 @@ public final class App {
         try {
             initLookAndFeel();
             initSoundController();
+            initService();
             mainFrame = new MainFrame();
             // TODO add plugins to Modules menu
             mainFrame.addSystemContentAction(MenuType.HELP, new WelcomePanel());
 
             SwingUtil.centrePositionOnScreen(mainFrame);
             mainFrame.setVisible(true);
+            testSubmit();
         } catch (Exception e) {
             LOG.error(DefaultI18nContext.getInstance().i18n("Error starting pdfsam."), e);
             throw e;
@@ -78,7 +89,22 @@ public final class App {
     }
 
     private static void initSoundController() {
-        AnnotationProcessor.process(new PlaySoundController());
+        AnnotationProcessor.process(CONTROLLER);
+    }
+
+    private static void initService() {
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
+        ctx.scan("org.pdfsam.service");
+        ctx.refresh();
+        ctx.registerShutdownHook();
+    }
+
+    private static void testSubmit() {
+        DecryptParameters params = new DecryptParameters();
+        params.setOutputPrefix("pdfsam_");
+        params.setOutput(new DirectoryTaskOutput(new File("/home/torakiki/tmp")));
+        params.addSource(PdfFileSource.newInstanceNoPassword(new File("/home/torakiki/atene.pdf")));
+        EventBus.publish(new TaskExecutionRequestEvent(params));
     }
 
     /**
