@@ -22,7 +22,7 @@ import javax.swing.JScrollPane;
 import org.noos.xing.mydoggy.Content;
 import org.noos.xing.mydoggy.ContentManager;
 import org.noos.xing.mydoggy.ContentUI;
-import org.pdfsam.gui.AbstractContentPanel;
+import org.pdfsam.gui.Module;
 
 /**
  * Action used to show or hide a system content panel.
@@ -33,20 +33,20 @@ import org.pdfsam.gui.AbstractContentPanel;
 class SystemContentAction extends AbstractAction {
 
     private ContentManager contentManager;
-    private AbstractContentPanel panel;
+    private Module module;
 
-    SystemContentAction(ContentManager contentManager, AbstractContentPanel panel) {
-        super(panel.getPanelName());
+    SystemContentAction(ContentManager contentManager, Module module) {
+        super(module.getDescriptor().getName());
         this.contentManager = contentManager;
-        this.panel = panel;
+        this.module = module;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Content content = contentManager.getContent(panel.getPanelId());
+        Content content = contentManager.getContent(module.getDescriptor().getId());
         if (content == null) {
-            content = contentManager.addContent(panel.getPanelId(), panel.getPanelName(), panel.getPanelIcon(),
-                    new JScrollPane(panel));
+            content = contentManager.addContent(module.getDescriptor().getId(), module.getDescriptor().getName(),
+                    module.getDescriptor().getIcon(), new JScrollPane(module.getModulePanel()));
             ContentUI contentUI = content.getContentUI();
             contentUI.setDetachable(false);
             contentUI.setMinimizable(false);

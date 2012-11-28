@@ -1,5 +1,5 @@
 /*
- * Created on 03/apr/2012
+ * Created on 28/nov/2012
  * Copyright 2010 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the 
@@ -12,18 +12,30 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam.gui;
+package org.pdfsam.module;
 
-import javax.swing.JPanel;
+import org.pdfsam.context.DefaultI18nContext;
 
 /**
- * Abstract implementation of a content panel
+ * The category for a module
  * 
  * @author Andrea Vacondio
  * 
  */
-public abstract class AbstractContentPanel extends JPanel implements ContentPanel {
+public enum ModuleCategory {
+    SPLIT(DefaultI18nContext.getInstance().i18n("Split")),
+    MERGE(DefaultI18nContext.getInstance().i18n("Merge")),
+    SECURITY(DefaultI18nContext.getInstance().i18n("Security")),
+    OTHER(DefaultI18nContext.getInstance().i18n("Other"));
 
-    // to be defined
+    private String description;
+
+    private ModuleCategory(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
 
 }

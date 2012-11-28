@@ -27,7 +27,7 @@ import javax.swing.JMenuBar;
 import org.noos.xing.mydoggy.ContentManager;
 import org.noos.xing.mydoggy.plaf.ui.util.SwingUtil;
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.gui.AbstractContentPanel;
+import org.pdfsam.gui.Module;
 import org.pdfsam.gui.about.AboutDialog;
 import org.pdfsam.gui.preference.PreferencesDialog;
 import org.pdfsam.gui.workspace.LoadWorkspaceAction;
@@ -96,10 +96,10 @@ public class MainMenuBar extends JMenuBar {
      * @param contentManager
      * @param panel
      */
-    public void addSystemContentAction(MenuType type, ContentManager contentManager, AbstractContentPanel panel) {
+    public void addSystemContentAction(MenuType type, ContentManager contentManager, Module module) {
         JMenu menu = menus.get(type);
         require(menu != null, "Unable to fine the given menu: " + type);
-        menu.add(new SystemContentAction(contentManager, panel));
+        menu.add(new SystemContentAction(contentManager, module));
     }
 
     /**

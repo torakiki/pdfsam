@@ -103,7 +103,7 @@ public class MainFrame extends JFrame {
         statusDescriptor.setAnchor(ToolWindowAnchor.BOTTOM, 0);
     }
 
-    public void addSystemContentAction(MenuType type, AbstractContentPanel panel) {
-        menuBar.addSystemContentAction(type, toolWindowManager.getContentManager(), panel);
+    public void addSystemContentAction(MenuType type, Module module) {
+        menuBar.addSystemContentAction(type, toolWindowManager.getContentManager(), module);
     }
 }

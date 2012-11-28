@@ -62,25 +62,25 @@ public class StatusPanel extends JPanel {
         add(progressBar);
     }
 
-    @EventSubscriber(eventClass = UpdateAvailableEvent.class)
+    @EventSubscriber
     public void updateAvailable(UpdateAvailableEvent event) {
         updateAvailableIcon.setToolTipText(DefaultI18nContext.getInstance().i18n("New version {0} available",
                 event.getAvailableVersion()));
         updateAvailableIcon.setVisible(true);
     }
 
-    @EventSubscriber(eventClass = TaskExecutionStartedEvent.class)
+    @EventSubscriber
     public void taskStarted(TaskExecutionStartedEvent event) {
         progressBar.setValue(0);
         progressBar.setStringPainted(false);
     }
 
-    @EventSubscriber(eventClass = TaskExecutionCompletedEvent.class)
+    @EventSubscriber
     public void taskCompleted(TaskExecutionCompletedEvent event) {
         progressBar.setValue(MAX_VALUE);
     }
 
-    @EventSubscriber(eventClass = PercentageOfWorkDoneChangedEvent.class)
+    @EventSubscriber
     public void taskPercentageDone(PercentageOfWorkDoneChangedEvent event) {
         if (event.isUndetermined()) {
             progressBar.setStringPainted(false);
