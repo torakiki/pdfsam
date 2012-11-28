@@ -15,6 +15,7 @@
 package org.pdfsam.sound;
 
 import org.bushe.swing.event.annotation.EventSubscriber;
+import org.bushe.swing.event.annotation.ReferenceStrength;
 import org.pdfsam.context.DefaultUserContext;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
@@ -29,12 +30,12 @@ public class PlaySoundController {
 
     private SoundPlayer player = new DefaultSoundPlayer();
 
-    @EventSubscriber
+    @EventSubscriber(referenceStrength = ReferenceStrength.STRONG)
     public void playFailed(TaskExecutionFailedEvent event) {
         playSound(Sound.NEGATIVE);
     }
 
-    @EventSubscriber
+    @EventSubscriber(referenceStrength = ReferenceStrength.STRONG)
     public void playCompleted(TaskExecutionCompletedEvent event) {
         playSound(Sound.POSITIVE);
     }
