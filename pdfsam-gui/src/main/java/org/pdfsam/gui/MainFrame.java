@@ -46,7 +46,7 @@ public class MainFrame extends JFrame {
 
     // TODO locale for tool window manager
     private MyDoggyToolWindowManager toolWindowManager = new MyDoggyToolWindowManager();
-    private MainMenuBar menuBar = new MainMenuBar();
+    private MainMenuBar menuBar;
 
     public MainFrame() {
         super(String.format("PDF Split and Merge %s ver. %s", Pdfsam.PACKAGE, Pdfsam.VERSION));
@@ -56,6 +56,7 @@ public class MainFrame extends JFrame {
     }
 
     private void initMenu() {
+        menuBar = new MainMenuBar(toolWindowManager.getContentManager());
         getRootPane().setJMenuBar(menuBar);
     }
 
@@ -104,6 +105,6 @@ public class MainFrame extends JFrame {
     }
 
     public void addSystemContentAction(MenuType type, Module module) {
-        menuBar.addSystemContentAction(type, toolWindowManager.getContentManager(), module);
+        menuBar.addSystemContentAction(type, module);
     }
 }

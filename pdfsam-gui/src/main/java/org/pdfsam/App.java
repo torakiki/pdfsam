@@ -14,19 +14,26 @@
  */
 package org.pdfsam;
 
+import java.util.Map;
+
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.apache.commons.lang3.time.StopWatch;
+import org.bushe.swing.event.EventBus;
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.noos.xing.mydoggy.plaf.ui.util.SwingUtil;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.gui.MainFrame;
+import org.pdfsam.gui.OnTaskExecutionModulesLoadedEvent;
+import org.pdfsam.gui.TaskExecutionModule;
 import org.pdfsam.gui.WelcomePanel;
 import org.pdfsam.gui.menu.MenuType;
 import org.pdfsam.sound.PlaySoundController;
+import org.pdfsam.update.UpdateCheckRequest;
+import org.pdfsam.update.UpdateController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -38,8 +45,10 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  * 
  */
 public final class App {
+
     private static final Logger LOG = LoggerFactory.getLogger(App.class);
     private static MainFrame mainFrame = null;
+    private static AnnotationConfigApplicationContext ctx;
 
     private App() {
         // hide
@@ -52,14 +61,14 @@ public final class App {
 
         try {
             initLookAndFeel();
-            initSoundController();
-            initService();
+            registerControllers();
             mainFrame = new MainFrame();
-            // TODO add plugins to Modules menu
             mainFrame.addSystemContentAction(MenuType.HELP, new WelcomePanel());
 
+            initIoC();
             SwingUtil.centrePositionOnScreen(mainFrame);
             mainFrame.setVisible(true);
+            EventBus.publish(new UpdateCheckRequest());
         } catch (Exception e) {
             LOG.error(DefaultI18nContext.getInstance().i18n("Error starting pdfsam."), e);
             throw e;
@@ -79,14 +88,18 @@ public final class App {
 
     }
 
-    private static void initSoundController() {
+    private static void registerControllers() {
         AnnotationProcessor.process(new PlaySoundController());
+        AnnotationProcessor.process(new UpdateController());
     }
 
-    private static void initService() {
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-        ctx.scan("org.pdfsam.service");
-        ctx.refresh();
+    private static void initIoC() {
+        ctx = new AnnotationConfigApplicationContext(AppConfig.class);
+        Map<String, TaskExecutionModule> modules = ctx.getBeansOfType(TaskExecutionModule.class);
+        LOG.debug("Found {} modules", modules.size());
+        OnTaskExecutionModulesLoadedEvent initModulesEvent = new OnTaskExecutionModulesLoadedEvent();
+        initModulesEvent.addAll(modules.values());
+        EventBus.publish(initModulesEvent);
         ctx.registerShutdownHook();
     }
 

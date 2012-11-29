@@ -24,14 +24,19 @@ import javax.swing.JDialog;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 
+import org.bushe.swing.event.annotation.AnnotationProcessor;
+import org.bushe.swing.event.annotation.EventSubscriber;
 import org.noos.xing.mydoggy.ContentManager;
 import org.noos.xing.mydoggy.plaf.ui.util.SwingUtil;
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.gui.OnTaskExecutionModulesLoadedEvent;
 import org.pdfsam.gui.Module;
+import org.pdfsam.gui.TaskExecutionModule;
 import org.pdfsam.gui.about.AboutDialog;
 import org.pdfsam.gui.preference.PreferencesDialog;
 import org.pdfsam.gui.workspace.LoadWorkspaceAction;
 import org.pdfsam.gui.workspace.SaveWorkspaceAction;
+import org.pdfsam.module.ModuleCategory;
 
 import static org.pdfsam.support.RequireUtils.require;
 
@@ -44,8 +49,10 @@ import static org.pdfsam.support.RequireUtils.require;
 public class MainMenuBar extends JMenuBar {
 
     private Map<MenuType, JMenu> menus = new HashMap<MenuType, JMenu>();
+    private ContentManager contentManager;
 
-    public MainMenuBar() {
+    public MainMenuBar(ContentManager contentManager) {
+        this.contentManager = contentManager;
         JMenu menuFile = new JMenu();
         menuFile.setText(DefaultI18nContext.getInstance().i18n("File"));
         menuFile.setMnemonic(KeyEvent.VK_F);
@@ -86,6 +93,7 @@ public class MainMenuBar extends JMenuBar {
         menus.put(MenuType.WORKSPACE, menuWorkspace);
         menus.put(MenuType.EDIT, menuEdit);
         menus.put(MenuType.MODULES, menuModules);
+        AnnotationProcessor.process(this);
     }
 
     /**
@@ -93,13 +101,29 @@ public class MainMenuBar extends JMenuBar {
      * 
      * @param type
      *            the menu type
-     * @param contentManager
      * @param panel
      */
-    public void addSystemContentAction(MenuType type, ContentManager contentManager, Module module) {
+    public void addSystemContentAction(MenuType type, Module module) {
         JMenu menu = menus.get(type);
         require(menu != null, "Unable to fine the given menu: " + type);
         menu.add(new SystemContentAction(contentManager, module));
+    }
+
+    @EventSubscriber
+    public void initModulesMenu(OnTaskExecutionModulesLoadedEvent event) {
+        Map<ModuleCategory, JMenu> moduleSubmenus = new HashMap<ModuleCategory, JMenu>();
+        for (TaskExecutionModule currentModule : event.getModules()) {
+            ModuleCategory category = currentModule.getDescriptor().getCategory();
+            JMenu currentMenu = moduleSubmenus.get(category);
+            if (currentMenu == null) {
+                currentMenu = new JMenu();
+                currentMenu.setText(category.getDescription());
+                moduleSubmenus.put(category, currentMenu);
+                menus.get(MenuType.MODULES).add(currentMenu);
+            }
+            currentMenu.add(new SystemContentAction(contentManager, currentModule));
+        }
+
     }
 
     /**

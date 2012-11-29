@@ -92,12 +92,12 @@ public abstract class TaskExecutionModule implements Module {
     /**
      * @return the inner panel that allows the user to set options and preferences for this panel
      */
-    abstract JPanel getInnerPanel();
+    protected abstract JPanel getInnerPanel();
 
     /**
      * @return parameters to be used to perform a pdf manipulation
      */
-    abstract TaskParameters getParameters();
+    protected abstract TaskParameters getParameters();
 
     public JPanel getModulePanel() {
         return modulePanel;
