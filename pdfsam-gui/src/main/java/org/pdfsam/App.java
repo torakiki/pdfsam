@@ -16,6 +16,7 @@ package org.pdfsam;
 
 import java.util.Map;
 
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -23,11 +24,11 @@ import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.apache.commons.lang3.time.StopWatch;
 import org.bushe.swing.event.EventBus;
 import org.bushe.swing.event.annotation.AnnotationProcessor;
-import org.noos.xing.mydoggy.plaf.ui.util.SwingUtil;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.gui.MainFrame;
 import org.pdfsam.gui.OnTaskExecutionModulesLoadedEvent;
+import org.pdfsam.gui.SwingUtils;
 import org.pdfsam.gui.TaskExecutionModule;
 import org.pdfsam.gui.WelcomePanel;
 import org.pdfsam.gui.menu.MenuType;
@@ -37,6 +38,10 @@ import org.pdfsam.update.UpdateController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import bibliothek.gui.dock.common.CControl;
+import bibliothek.gui.dock.common.theme.ThemeMap;
+import bibliothek.gui.dock.util.IconManager;
 
 /**
  * Entry point to start pdfsam
@@ -63,10 +68,14 @@ public final class App {
             initLookAndFeel();
             registerControllers();
             mainFrame = new MainFrame();
+            CControl control = new CControl(mainFrame);
+            control.setTheme(ThemeMap.KEY_FLAT_THEME);
+            initIcons(control);
+            mainFrame.initControl(control);
             mainFrame.addSystemContentAction(MenuType.HELP, new WelcomePanel());
 
             initIoC();
-            SwingUtil.centrePositionOnScreen(mainFrame);
+            SwingUtils.centrePositionOnScreen(mainFrame);
             mainFrame.setVisible(true);
             EventBus.publish(new UpdateCheckRequest());
         } catch (Exception e) {
@@ -76,6 +85,29 @@ public final class App {
         stopWatch.stop();
         LOG.info(DefaultI18nContext.getInstance().i18n("Started in {0}",
                 DurationFormatUtils.formatDurationWords(stopWatch.getTime(), true, true)));
+    }
+
+    private static void initIcons(CControl control) {
+        IconManager icons = control.getController().getIcons();
+        icons.setIconClient("locationmanager.normalize",
+                new ImageIcon(App.class.getResource("/data/bibliothek/gui/dock/common/icons/eclipse/normalize.png")));
+        icons.setIconClient("locationmanager.maximize",
+                new ImageIcon(App.class.getResource("/data/bibliothek/gui/dock/common/icons/eclipse/maximize.png")));
+        icons.setIconClient("locationmanager.minimize",
+                new ImageIcon(App.class.getResource("/data/bibliothek/gui/dock/common/icons/eclipse/minimize.png")));
+        icons.setIconClient("locationmanager.externalize",
+                new ImageIcon(App.class.getResource("/data/bibliothek/gui/dock/common/icons/eclipse/externalize.png")));
+        icons.setIconClient(
+                "locationmanager.unexternalize",
+                new ImageIcon(App.class.getResource("/data/bibliothek/gui/dock/common/icons/eclipse/unexternalize.png")));
+        icons.setIconClient("locationmanager.unmaximize_externalized",
+                new ImageIcon(App.class.getResource("/data/bibliothek/gui/dock/common/icons/eclipse/normalize.png")));
+        icons.setIconClient("flap.hold",
+                new ImageIcon(App.class.getResource("/data/bibliothek/gui/dock/core/eclipse/holdon.png")));
+        icons.setIconClient("flap.free",
+                new ImageIcon(App.class.getResource("/data/bibliothek/gui/dock/core/eclipse/holdoff.png")));
+        icons.setIconClient("close",
+                new ImageIcon(App.class.getResource("/data/bibliothek/gui/dock/core/eclipse/closex.png")));
     }
 
     private static void initLookAndFeel() throws ClassNotFoundException, InstantiationException, IllegalAccessException {

@@ -14,25 +14,27 @@
  */
 package org.pdfsam.gui;
 
-import java.awt.GridLayout;
+import java.awt.BorderLayout;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
-import org.noos.xing.mydoggy.DockedTypeDescriptor;
-import org.noos.xing.mydoggy.RepresentativeAnchorDescriptor;
-import org.noos.xing.mydoggy.ToolWindow;
-import org.noos.xing.mydoggy.ToolWindowAnchor;
-import org.noos.xing.mydoggy.ToolWindowType;
-import org.noos.xing.mydoggy.plaf.MyDoggyToolWindowManager;
+import org.bushe.swing.event.annotation.AnnotationProcessor;
+import org.bushe.swing.event.annotation.EventSubscriber;
 import org.pdfsam.Pdfsam;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.log.JLogPanel;
 import org.pdfsam.gui.menu.MainMenuBar;
 import org.pdfsam.gui.menu.MenuType;
-import org.pdfsam.gui.status.StatusDockableDescriptor;
+import org.pdfsam.gui.status.StatusPanel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import bibliothek.gui.dock.common.CControl;
+import bibliothek.gui.dock.common.CMinimizeArea;
+import bibliothek.gui.dock.common.CWorkingArea;
+import bibliothek.gui.dock.common.DefaultSingleCDockable;
+import static org.pdfsam.support.RequireUtils.require;
 
 /**
  * Application main frame.
@@ -44,67 +46,56 @@ public class MainFrame extends JFrame {
 
     private static final Logger LOG = LoggerFactory.getLogger(MainFrame.class);
 
-    // TODO locale for tool window manager
-    private MyDoggyToolWindowManager toolWindowManager = new MyDoggyToolWindowManager();
+    private CWorkingArea workingArea;
     private MainMenuBar menuBar;
 
     public MainFrame() {
         super(String.format("PDF Split and Merge %s ver. %s", Pdfsam.PACKAGE, Pdfsam.VERSION));
         init();
-        initLogWindow();
-        initMenu();
-    }
-
-    private void initMenu() {
-        menuBar = new MainMenuBar(toolWindowManager.getContentManager());
-        getRootPane().setJMenuBar(menuBar);
+        AnnotationProcessor.process(this);
     }
 
     private void init() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new GridLayout(1, 1));
         setIconImage(new ImageIcon(MainFrame.class.getResource("/images/pdfsam_" + Pdfsam.PACKAGE + ".png")).getImage());
         setSize(640, 480);
-        toolWindowManager.getToolWindowManagerDescriptor().setNumberingEnabled(false);
-        getContentPane().add(toolWindowManager);
     }
 
-    private void initLogWindow() {
-        toolWindowManager
-                .registerToolWindow("Log", "Log", new ImageIcon(MainFrame.class.getResource("/images/log.png")),
-                        new JLogPanel(), ToolWindowAnchor.BOTTOM);
-        ToolWindow logToolWindow = toolWindowManager.getToolWindow("Log");
-        logToolWindow.setLockedOnAnchor(true);
-
-        // RepresentativeAnchorDescriptor
-        RepresentativeAnchorDescriptor<ToolWindow> representativeAnchorDescriptor = logToolWindow
-                .getRepresentativeAnchorDescriptor();
-        representativeAnchorDescriptor.setTitle("Console");
-        representativeAnchorDescriptor.setPreviewEnabled(false);
-
-        // DockedTypeDescriptor
-        DockedTypeDescriptor dockedTypeDescriptor = (DockedTypeDescriptor) logToolWindow
-                .getTypeDescriptor(ToolWindowType.DOCKED);
-        dockedTypeDescriptor.setIdVisibleOnTitleBar(false);
-        dockedTypeDescriptor.setHideRepresentativeButtonOnVisible(false);
-        dockedTypeDescriptor.setDockLength(300);
-        dockedTypeDescriptor.setPopupMenuEnabled(false);
-
-        logToolWindow.setAvailable(true);
-        logToolWindow.setVisible(false);
-
-        initStatusPanel();
-
-        LOG.debug(DefaultI18nContext.getInstance().i18n("Console panel initialized"));
-    }
-
-    private void initStatusPanel() {
-        StatusDockableDescriptor statusDescriptor = new StatusDockableDescriptor(toolWindowManager);
-        statusDescriptor.setAvailable(true);
-        statusDescriptor.setAnchor(ToolWindowAnchor.BOTTOM, 0);
+    private void initLogWindow(CControl control) {
+        CMinimizeArea minimizedArea = control.createMinimizeArea("StatusBar");
+        minimizedArea.add(new StatusPanel(), BorderLayout.LINE_END);
+        getContentPane().add(minimizedArea, BorderLayout.PAGE_END);
+        DefaultSingleCDockable logDockable = new DefaultSingleCDockable("Log", new ImageIcon(
+                MainFrame.class.getResource("/images/log.png")), "Log Viewer", new JLogPanel());
+        logDockable.setLocation(minimizedArea.getStationLocation());
+        control.addDockable(logDockable);
+        logDockable.setVisible(true);
+        LOG.debug(DefaultI18nContext.getInstance().i18n("Log Viewer panel initialized"));
     }
 
     public void addSystemContentAction(MenuType type, Module module) {
+        workingArea.add(new DefaultSingleCDockable(module.getDescriptor().getId(), module.getDescriptor().getIcon(),
+                module.getDescriptor().getName(), module.getModulePanel()));
         menuBar.addSystemContentAction(type, module);
     }
+
+    @EventSubscriber
+    public void initModules(OnTaskExecutionModulesLoadedEvent event) {
+        for (TaskExecutionModule currentModule : event.getModules()) {
+            DefaultSingleCDockable dockable = new DefaultSingleCDockable(currentModule.getDescriptor().getId(),
+                    currentModule.getDescriptor().getIcon(), currentModule.getDescriptor().getName(),
+                    currentModule.getModulePanel());
+            workingArea.add(dockable);
+        }
+    }
+
+    public void initControl(CControl control) {
+        require(control != null, "Control cannot be null");
+        workingArea = control.createWorkingArea("WorkingArea");
+        getContentPane().add(workingArea.getComponent(), BorderLayout.CENTER);
+        menuBar = new MainMenuBar(control);
+        getRootPane().setJMenuBar(menuBar);
+        initLogWindow(control);
+    }
+
 }

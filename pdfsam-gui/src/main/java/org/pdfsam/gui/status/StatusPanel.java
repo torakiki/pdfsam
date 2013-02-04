@@ -57,9 +57,11 @@ public class StatusPanel extends JPanel {
         progressBar.setOrientation(JProgressBar.HORIZONTAL);
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         add(Box.createHorizontalGlue());
+        add(Box.createRigidArea(new Dimension(5, 0)));
         add(updateAvailableIcon);
         add(Box.createRigidArea(new Dimension(5, 0)));
         add(progressBar);
+        add(Box.createRigidArea(new Dimension(5, 0)));
     }
 
     @EventSubscriber

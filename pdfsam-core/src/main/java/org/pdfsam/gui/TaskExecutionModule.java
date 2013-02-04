@@ -24,7 +24,6 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.border.EtchedBorder;
 
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
@@ -84,7 +83,7 @@ public abstract class TaskExecutionModule implements Module {
     private JPanel buttonPanel() {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT, GAP, GAP));
-        buttonPanel.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
+        buttonPanel.setBorder(BorderFactory.createMatteBorder(1, 0, 0, 0, buttonPanel.getBackground().darker()));
         buttonPanel.add(runButton);
         return buttonPanel;
     }

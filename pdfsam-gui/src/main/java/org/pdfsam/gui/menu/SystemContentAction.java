@@ -17,12 +17,11 @@ package org.pdfsam.gui.menu;
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
-import javax.swing.JScrollPane;
 
-import org.noos.xing.mydoggy.Content;
-import org.noos.xing.mydoggy.ContentManager;
-import org.noos.xing.mydoggy.ContentUI;
 import org.pdfsam.gui.Module;
+
+import bibliothek.gui.dock.common.CControl;
+import bibliothek.gui.dock.common.SingleCDockable;
 
 /**
  * Action used to show or hide a system content panel.
@@ -32,27 +31,21 @@ import org.pdfsam.gui.Module;
  */
 class SystemContentAction extends AbstractAction {
 
-    private ContentManager contentManager;
+    private CControl control;
     private Module module;
 
-    SystemContentAction(ContentManager contentManager, Module module) {
+    SystemContentAction(CControl control, Module module) {
         super(module.getDescriptor().getName());
-        this.contentManager = contentManager;
+        this.control = control;
         this.module = module;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Content content = contentManager.getContent(module.getDescriptor().getId());
-        if (content == null) {
-            content = contentManager.addContent(module.getDescriptor().getId(), module.getDescriptor().getName(),
-                    module.getDescriptor().getIcon(), new JScrollPane(module.getModulePanel()));
-            ContentUI contentUI = content.getContentUI();
-            contentUI.setDetachable(false);
-            contentUI.setMinimizable(false);
-            contentUI.setCloseable(true);
+        SingleCDockable content = control.getSingleDockable(module.getDescriptor().getId());
+        if (content != null && !content.isShowing()) {
+            content.setVisible(true);
         }
-        content.setSelected(true);
     }
 
 }

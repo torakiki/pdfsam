@@ -26,11 +26,10 @@ import javax.swing.JMenuBar;
 
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
-import org.noos.xing.mydoggy.ContentManager;
-import org.noos.xing.mydoggy.plaf.ui.util.SwingUtil;
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.gui.OnTaskExecutionModulesLoadedEvent;
 import org.pdfsam.gui.Module;
+import org.pdfsam.gui.OnTaskExecutionModulesLoadedEvent;
+import org.pdfsam.gui.SwingUtils;
 import org.pdfsam.gui.TaskExecutionModule;
 import org.pdfsam.gui.about.AboutDialog;
 import org.pdfsam.gui.preference.PreferencesDialog;
@@ -38,6 +37,7 @@ import org.pdfsam.gui.workspace.LoadWorkspaceAction;
 import org.pdfsam.gui.workspace.SaveWorkspaceAction;
 import org.pdfsam.module.ModuleCategory;
 
+import bibliothek.gui.dock.common.CControl;
 import static org.pdfsam.support.RequireUtils.require;
 
 /**
@@ -49,10 +49,10 @@ import static org.pdfsam.support.RequireUtils.require;
 public class MainMenuBar extends JMenuBar {
 
     private Map<MenuType, JMenu> menus = new HashMap<MenuType, JMenu>();
-    private ContentManager contentManager;
+    private CControl control;
 
-    public MainMenuBar(ContentManager contentManager) {
-        this.contentManager = contentManager;
+    public MainMenuBar(CControl control) {
+        this.control = control;
         JMenu menuFile = new JMenu();
         menuFile.setText(DefaultI18nContext.getInstance().i18n("File"));
         menuFile.setMnemonic(KeyEvent.VK_F);
@@ -106,7 +106,7 @@ public class MainMenuBar extends JMenuBar {
     public void addSystemContentAction(MenuType type, Module module) {
         JMenu menu = menus.get(type);
         require(menu != null, "Unable to fine the given menu: " + type);
-        menu.add(new SystemContentAction(contentManager, module));
+        menu.add(new SystemContentAction(control, module));
     }
 
     @EventSubscriber
@@ -121,7 +121,7 @@ public class MainMenuBar extends JMenuBar {
                 moduleSubmenus.put(category, currentMenu);
                 menus.get(MenuType.MODULES).add(currentMenu);
             }
-            currentMenu.add(new SystemContentAction(contentManager, currentModule));
+            currentMenu.add(new SystemContentAction(control, currentModule));
         }
 
     }
@@ -145,7 +145,7 @@ public class MainMenuBar extends JMenuBar {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (!dialog.isVisible()) {
-                SwingUtil.centrePositionOnScreen(dialog);
+                SwingUtils.centrePositionOnScreen(dialog);
                 dialog.setVisible(true);
             }
         }

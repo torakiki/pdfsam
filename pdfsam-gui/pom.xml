@@ -57,13 +57,9 @@
 			<version>[${logback.version},]</version>
 		</dependency>
 		<dependency>
-			<groupId>org.noos.xing</groupId>
-			<artifactId>mydoggy-plaf</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.noos.xing</groupId>
-			<artifactId>mydoggy-examples</artifactId>
-			<version>${mydoggy.version}</version>
+			<groupId>org.dockingframes</groupId>
+			<artifactId>docking-frames-common</artifactId>
+			<version>${dockingframes.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.jgoodies</groupId>
