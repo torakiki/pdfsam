@@ -27,13 +27,13 @@ import java.util.List;
  */
 public class OnTaskExecutionModulesLoadedEvent {
 
-    private List<TaskExecutionModule> modules = new ArrayList<TaskExecutionModule>();
+    private List<BaseTaskExecutionModule> modules = new ArrayList<BaseTaskExecutionModule>();
 
-    public void addAll(Collection<TaskExecutionModule> modules) {
+    public void addAll(Collection<BaseTaskExecutionModule> modules) {
         this.modules.addAll(modules);
     }
 
-    public List<TaskExecutionModule> getModules() {
+    public List<BaseTaskExecutionModule> getModules() {
         return Collections.unmodifiableList(modules);
     }
 }

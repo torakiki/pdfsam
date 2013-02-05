@@ -29,7 +29,7 @@ import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.gui.MainFrame;
 import org.pdfsam.gui.OnTaskExecutionModulesLoadedEvent;
 import org.pdfsam.gui.SwingUtils;
-import org.pdfsam.gui.TaskExecutionModule;
+import org.pdfsam.gui.BaseTaskExecutionModule;
 import org.pdfsam.gui.WelcomePanel;
 import org.pdfsam.gui.menu.MenuType;
 import org.pdfsam.sound.PlaySoundController;
@@ -127,7 +127,7 @@ public final class App {
 
     private static void initIoC() {
         ctx = new AnnotationConfigApplicationContext(AppConfig.class);
-        Map<String, TaskExecutionModule> modules = ctx.getBeansOfType(TaskExecutionModule.class);
+        Map<String, BaseTaskExecutionModule> modules = ctx.getBeansOfType(BaseTaskExecutionModule.class);
         LOG.debug("Found {} modules", modules.size());
         OnTaskExecutionModulesLoadedEvent initModulesEvent = new OnTaskExecutionModulesLoadedEvent();
         initModulesEvent.addAll(modules.values());

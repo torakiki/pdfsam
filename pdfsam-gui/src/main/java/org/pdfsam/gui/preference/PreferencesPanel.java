@@ -115,7 +115,7 @@ public class PreferencesPanel extends JPanel {
         BrowsableField defaultWorkspace = new BrowsableField(DefaultI18nContext.getInstance().i18n(
                 "Load default workspace at startup:"), StringUserPreference.WORKSPACE_PATH) {
             @Override
-            JFileChooser getChooser() {
+            protected JFileChooser getChooser() {
                 return SharedJFileChooser.getInstance(FileFilterType.XML, JFileChooser.FILES_AND_DIRECTORIES);
             }
         };
@@ -127,7 +127,7 @@ public class PreferencesPanel extends JPanel {
         BrowsableField defaultWorkingPath = new BrowsableField(DefaultI18nContext.getInstance().i18n(
                 "Default working directory:"), StringUserPreference.WORKING_PATH) {
             @Override
-            JFileChooser getChooser() {
+            protected JFileChooser getChooser() {
                 return SharedJFileChooser.getInstance(FileFilterType.DIRECTORIES, JFileChooser.DIRECTORIES_ONLY);
             }
         };

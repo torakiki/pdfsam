@@ -20,11 +20,14 @@ import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import org.bushe.swing.event.EventBus;
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
 import org.bushe.swing.event.annotation.ReferenceStrength;
@@ -37,17 +40,17 @@ import org.sejda.model.parameter.base.TaskParameters;
 import static org.pdfsam.gui.Components.GAP;
 
 /**
- * Abstract implementation of a pdfsam module providing features common to every module whose purpose is to execute a pdf manipulation task.
+ * Abstract implementation of a pdfsam module providing common features to every module whose purpose is to execute a pdf manipulation task.
  * 
  * @author Andrea Vacondio
  * 
  */
-public abstract class TaskExecutionModule implements Module {
+public abstract class BaseTaskExecutionModule implements Module {
 
     private JButton runButton = new JButton(new RunAction());
     private JPanel modulePanel = new JPanel(new GridBagLayout());
 
-    public TaskExecutionModule() {
+    public BaseTaskExecutionModule() {
         init();
         AnnotationProcessor.process(new RunButtonStatusHandler());
     }
@@ -112,11 +115,12 @@ public abstract class TaskExecutionModule implements Module {
 
         private RunAction() {
             super(DefaultI18nContext.getInstance().i18n("Run"));
+            putValue(Action.SMALL_ICON, new ImageIcon(RunAction.class.getResource("/images/run.png")));
         }
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            // run
+            EventBus.publish(new TaskExecutionRequestEvent(getParameters()));
         }
 
     }
@@ -129,7 +133,9 @@ public abstract class TaskExecutionModule implements Module {
      */
     final class RunButtonStatusHandler {
 
-        @EventSubscriber(referenceStrength = ReferenceStrength.STRONG)
+        // we give a priority higher that 0 to be sure this is executed before the actual task.
+        // we first want to disable the button and then execute the task
+        @EventSubscriber(referenceStrength = ReferenceStrength.STRONG, priority = 1)
         public void disableRunButtonIfTaskRequested(TaskExecutionRequestEvent event) {
             runButton.setEnabled(false);
         }

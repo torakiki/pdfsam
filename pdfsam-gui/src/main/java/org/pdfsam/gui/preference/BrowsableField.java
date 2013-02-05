@@ -15,24 +15,11 @@
 package org.pdfsam.gui.preference;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
 import java.io.File;
-
-import javax.swing.AbstractAction;
-import javax.swing.GroupLayout;
-import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.StringUserPreference;
-
-import static javax.swing.GroupLayout.Alignment.TRAILING;
-import static org.pdfsam.gui.Components.GAP;
-
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import org.pdfsam.gui.view.BaseBrowsableField;
 
 /**
  * Preference field where the value of the field can be browsed.
@@ -40,66 +27,19 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
  * @author Andrea Vacondio
  * 
  */
-abstract class BrowsableField extends JPanel {
+abstract class BrowsableField extends BaseBrowsableField {
 
-    private JTextField field = new JTextField();
     private StringUserPreference preference;
 
     BrowsableField(String labelText, StringUserPreference preference) {
-        this.preference = preference;
+        super(labelText);
         setBackground(Color.WHITE);
-        GroupLayout layout = new GroupLayout(this);
-        setLayout(layout);
-
-        JLabel label = new JLabel(labelText);
-
-        JButton browse = new JButton(new BrowseAction());
-        layout.setHorizontalGroup(layout.createParallelGroup()
-                .addGroup(layout.createSequentialGroup().addComponent(label)).addGap(GAP)
-                .addGroup(layout.createSequentialGroup().addComponent(field).addGap(GAP).addComponent(browse)));
-        layout.setVerticalGroup(layout.createSequentialGroup()
-                .addGroup(layout.createSequentialGroup().addComponent(label)).addGap(2)
-                .addGroup(layout.createParallelGroup(TRAILING).addComponent(field).addComponent(browse)));
+        this.preference = preference;
     }
 
-    void setBalloonTooltip(String tooltip) {
-        this.setToolTipText(tooltip);
-        field.setToolTipText(tooltip);
-    }
-
-    void setDefaultFieldValue(String defaultValue) {
-        field.setText(defaultValue);
-    }
-
-    /**
-     * @return a {@link JFileChooser} initialized for the component.
-     */
-    abstract JFileChooser getChooser();
-
-    /**
-     * Browse action
-     * 
-     * @author Andrea Vacondio
-     * 
-     */
-    private class BrowseAction extends AbstractAction {
-
-        BrowseAction() {
-            super("Browse");
-        }
-
-        public void actionPerformed(ActionEvent e) {
-            JFileChooser chooser = getChooser();
-            if (isNotBlank(field.getText())) {
-                chooser.setCurrentDirectory(new File(field.getText()));
-            }
-            int retVal = chooser.showOpenDialog(BrowsableField.this);
-
-            if (retVal == JFileChooser.APPROVE_OPTION) {
-                BrowsableField.this.field.setText(chooser.getSelectedFile().getAbsolutePath());
-                DefaultUserContext.getInstance().setStringPreference(BrowsableField.this.preference,
-                        BrowsableField.this.field.getText());
-            }
-        }
+    @Override
+    protected void onFileSelected(File selected) {
+        DefaultUserContext.getInstance().setStringPreference(BrowsableField.this.preference,
+                BrowsableField.this.getFieldValue());
     }
 }

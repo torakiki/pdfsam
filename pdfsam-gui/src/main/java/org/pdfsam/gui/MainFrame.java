@@ -61,41 +61,49 @@ public class MainFrame extends JFrame {
         setSize(640, 480);
     }
 
-    private void initLogWindow(CControl control) {
-        CMinimizeArea minimizedArea = control.createMinimizeArea("StatusBar");
+    private void initLogWindow(PdfsamContentArea contentArea) {
+        CMinimizeArea minimizedArea = contentArea.getMinimizeArea();
         minimizedArea.add(new StatusPanel(), BorderLayout.LINE_END);
-        getContentPane().add(minimizedArea, BorderLayout.PAGE_END);
         DefaultSingleCDockable logDockable = new DefaultSingleCDockable("Log", new ImageIcon(
                 MainFrame.class.getResource("/images/log.png")), "Log Viewer", new JLogPanel());
         logDockable.setLocation(minimizedArea.getStationLocation());
-        control.addDockable(logDockable);
+        contentArea.getControl().addDockable(logDockable);
         logDockable.setVisible(true);
         LOG.debug(DefaultI18nContext.getInstance().i18n("Log Viewer panel initialized"));
     }
 
     public void addSystemContentAction(MenuType type, Module module) {
-        workingArea.add(new DefaultSingleCDockable(module.getDescriptor().getId(), module.getDescriptor().getIcon(),
-                module.getDescriptor().getName(), module.getModulePanel()));
+        DefaultSingleCDockable dockable = new DefaultSingleCDockable(module.getDescriptor().getId(), module
+                .getDescriptor().getIcon(), module.getDescriptor().getName(), module.getModulePanel());
+        dockable.setCloseable(true);
+        workingArea.add(dockable);
+        dockable.setMaximizable(false);
         menuBar.addSystemContentAction(type, module);
     }
 
     @EventSubscriber
     public void initModules(OnTaskExecutionModulesLoadedEvent event) {
-        for (TaskExecutionModule currentModule : event.getModules()) {
+        for (BaseTaskExecutionModule currentModule : event.getModules()) {
             DefaultSingleCDockable dockable = new DefaultSingleCDockable(currentModule.getDescriptor().getId(),
                     currentModule.getDescriptor().getIcon(), currentModule.getDescriptor().getName(),
                     currentModule.getModulePanel());
+            dockable.setCloseable(true);
+            dockable.setMaximizable(false);
             workingArea.add(dockable);
         }
     }
 
     public void initControl(CControl control) {
         require(control != null, "Control cannot be null");
-        workingArea = control.createWorkingArea("WorkingArea");
-        getContentPane().add(workingArea.getComponent(), BorderLayout.CENTER);
+        PdfsamContentArea contentArea = new PdfsamContentArea(control, "PdfsamContentArea");
+        control.addStationContainer(contentArea);
+        add(contentArea);
+
+        workingArea = contentArea.getWorkingArea();
         menuBar = new MainMenuBar(control);
         getRootPane().setJMenuBar(menuBar);
-        initLogWindow(control);
+        initLogWindow(contentArea);
+        contentArea.setVisible(true);
     }
 
 }

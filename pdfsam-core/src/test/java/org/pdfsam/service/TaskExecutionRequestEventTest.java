@@ -24,7 +24,7 @@ import org.sejda.model.parameter.base.TaskParameters;
  * @author Andrea Vacondio
  * 
  */
-public class ExecuteParametersEventTest {
+public class TaskExecutionRequestEventTest {
     @Test(expected = IllegalArgumentException.class)
     public void testNull() {
         new TaskExecutionRequestEvent(null);
