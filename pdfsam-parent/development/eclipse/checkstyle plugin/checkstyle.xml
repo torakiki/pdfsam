@@ -32,9 +32,6 @@
     <module name="DefaultComesLast">
       <property name="severity" value="error"/>
     </module>
-    <module name="DoubleCheckedLocking">
-      <property name="severity" value="error"/>
-    </module>
     <module name="EmptyStatement"/>
     <module name="EqualsHashCode">
       <property name="severity" value="error"/>
@@ -122,6 +119,6 @@
   <module name="SuppressionCommentFilter"/>
   <module name="FileLength"/>
   <module name="SuppressionFilter">
-    <property name="file" value="/media/LACIE/pdfsam-repo/pdfsam/pdfsam-parent/development/eclipse/checkstyle plugin/suppression.xml"/>
+    <property name="file" value="/media/torakiki/LACIE/pdfsam-repo/pdfsam/pdfsam-parent/development/eclipse/checkstyle plugin/suppression.xml"/>
   </module>
 </module>
