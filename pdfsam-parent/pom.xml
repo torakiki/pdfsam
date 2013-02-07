@@ -138,6 +138,11 @@
 			</dependency>
 			<dependency>
 				<groupId>org.sejda</groupId>
+				<artifactId>sejda-conversion</artifactId>
+				<version>${sejda.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.sejda</groupId>
 				<artifactId>sejda-core</artifactId>
 				<version>${sejda.version}</version>
 			</dependency>

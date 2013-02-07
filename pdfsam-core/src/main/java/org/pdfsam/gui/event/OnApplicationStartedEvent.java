@@ -1,5 +1,5 @@
 /*
- * Created on 28/nov/2012
+ * Created on 29/nov/2012
  * Copyright 2010 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the 
@@ -12,23 +12,14 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam.module;
-
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+package org.pdfsam.gui.event;
 
 /**
- * Indicates that the annotated type is a pdfsam module. Annotated classes can be picked up by the an IOC container and used at runtime to create a plugin system.
+ * Event published when the application startup is completed.
  * 
  * @author Andrea Vacondio
  * 
  */
-@Target(ElementType.TYPE)
-@Retention(RetentionPolicy.RUNTIME)
-@Documented
-public @interface Module {
-    // nothing
+public class OnApplicationStartedEvent {
+    // nothig
 }

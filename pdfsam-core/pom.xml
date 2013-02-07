@@ -34,6 +34,10 @@
 			<artifactId>sejda-model</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.sejda</groupId>
+			<artifactId>sejda-conversion</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.bushe</groupId>
 			<artifactId>eventbus</artifactId>
 		</dependency>

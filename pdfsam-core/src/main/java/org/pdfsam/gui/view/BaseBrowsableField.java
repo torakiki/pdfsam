@@ -30,7 +30,7 @@ import javax.swing.JTextField;
 import org.apache.commons.lang3.StringUtils;
 
 import static javax.swing.GroupLayout.Alignment.TRAILING;
-import static org.pdfsam.gui.Components.GAP;
+import static org.pdfsam.gui.view.Views.GAP;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 

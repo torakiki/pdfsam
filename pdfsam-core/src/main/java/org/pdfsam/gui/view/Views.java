@@ -12,8 +12,9 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam.gui;
+package org.pdfsam.gui.view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -24,17 +25,26 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.context.I18nContext;
+import org.pdfsam.gui.support.ToolTipBuilder;
+import org.pdfsam.gui.view.GradientPanel.GradientOrientation;
+import org.pdfsam.gui.view.prefix.PrefixField;
+
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+
 /**
  * Utility class to create components
  * 
  * @author Andrea Vacondio
  * 
  */
-public final class Components {
+public final class Views {
 
     public static final int GAP = 5;
+    public static final int SMALL_GAP = 3;
 
-    private Components() {
+    private Views() {
         // hide
     }
 
@@ -48,8 +58,10 @@ public final class Components {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
         JLabel label = new JLabel(labelText);
-        component.setToolTipText(tooltip);
-        label.setToolTipText(tooltip);
+        if (isNotBlank(tooltip)) {
+            component.setToolTipText(tooltip);
+            label.setToolTipText(tooltip);
+        }
         panel.add(label);
         panel.add(Box.createRigidArea(new Dimension(GAP, 0)));
         panel.add(component);
@@ -90,4 +102,24 @@ public final class Components {
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         return panel;
     }
+
+    /**
+     * 
+     * @param completeForSplit
+     *            if true the context menu will let the user select SplitTask related prefixs.
+     * @return a new panel to let the user input a prefix
+     */
+    public static JPanel newPrefixPanel(boolean completeForSplit) {
+        I18nContext ctx = DefaultI18nContext.getInstance();
+        String title = ctx.i18n("Output prefix");
+        ToolTipBuilder tp = new ToolTipBuilder();
+        tp.append(ctx.i18n("Prefix for the output files name."))
+                .append("It can contain special keywords like \"[TIMESTAMP]\" and they will be replaced with runtime value (e.g. the actual timestamp).")
+                .append("See the context menu for the enabled keywords.");
+        GradientTitledPanel titledPanel = new GradientTitledPanel(title, tp, GradientOrientation.VERTICAL);
+        String labelText = ctx.i18n("Output file names prefix:");
+        titledPanel.add(newLabeledComponent(new PrefixField(completeForSplit), labelText, ""), BorderLayout.CENTER);
+        return titledPanel;
+    }
+
 }

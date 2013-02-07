@@ -23,6 +23,7 @@ import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
 import org.pdfsam.Pdfsam;
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.gui.event.OnTaskExecutionModulesLoadedEvent;
 import org.pdfsam.gui.log.JLogPanel;
 import org.pdfsam.gui.menu.MainMenuBar;
 import org.pdfsam.gui.menu.MenuType;

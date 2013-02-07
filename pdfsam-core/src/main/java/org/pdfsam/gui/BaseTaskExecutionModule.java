@@ -37,7 +37,7 @@ import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 import org.sejda.model.parameter.base.TaskParameters;
 
-import static org.pdfsam.gui.Components.GAP;
+import static org.pdfsam.gui.view.Views.GAP;
 
 /**
  * Abstract implementation of a pdfsam module providing common features to every module whose purpose is to execute a pdf manipulation task.
@@ -86,7 +86,6 @@ public abstract class BaseTaskExecutionModule implements Module {
     private JPanel buttonPanel() {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT, GAP, GAP));
-        buttonPanel.setBorder(BorderFactory.createMatteBorder(1, 0, 0, 0, buttonPanel.getBackground().darker()));
         buttonPanel.add(runButton);
         return buttonPanel;
     }

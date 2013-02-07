@@ -14,7 +14,7 @@
  */
 package org.pdfsam;
 
-import org.pdfsam.module.Module;
+import org.pdfsam.module.PdfsamModule;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
@@ -26,7 +26,7 @@ import org.springframework.context.annotation.Configuration;
  * 
  */
 @Configuration
-@ComponentScan(basePackages = { "org.pdfsam.service", "org.pdfsam.module" }, includeFilters = @Filter(value = Module.class))
+@ComponentScan(basePackages = { "org.pdfsam.service", "org.pdfsam.module" }, includeFilters = @Filter(value = PdfsamModule.class))
 public class AppConfig {
     // nothing
 }

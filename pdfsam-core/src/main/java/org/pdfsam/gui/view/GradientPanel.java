@@ -41,6 +41,7 @@ public class GradientPanel extends JPanel {
     public GradientPanel(GradientOrientation orientation) {
         require(orientation != null, "Orientation cannot be null");
         this.orientation = orientation;
+        // setBorder(BorderFactory.createLineBorder(startColor, 1));
     }
 
     public GradientPanel(GradientOrientation orientation, Color startColor, Color endColor) {
@@ -48,7 +49,7 @@ public class GradientPanel extends JPanel {
         require(startColor != null && endColor != null, "Gradient colors cannot be null");
         this.startColor = startColor;
         this.endColor = endColor;
-
+        // setBorder(BorderFactory.createLineBorder(startColor, 1));
     }
 
     @Override

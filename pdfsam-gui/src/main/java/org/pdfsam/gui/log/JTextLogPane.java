@@ -25,8 +25,8 @@ import javax.swing.text.DefaultCaret;
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
 import org.pdfsam.App;
-import org.pdfsam.gui.Dialogs;
 import org.pdfsam.gui.SharedJFileChooser;
+import org.pdfsam.gui.support.Dialogs;
 import org.pdfsam.support.filter.FileFilterType;
 
 import static org.pdfsam.support.io.TextFileWriter.writeContent;

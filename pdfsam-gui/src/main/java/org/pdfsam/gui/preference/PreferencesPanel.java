@@ -26,8 +26,8 @@ import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.IntUserPreference;
 import org.pdfsam.context.StringUserPreference;
-import org.pdfsam.gui.Components;
 import org.pdfsam.gui.SharedJFileChooser;
+import org.pdfsam.gui.view.Views;
 import org.pdfsam.support.filter.FileFilterType;
 import org.pdfsam.support.validation.Validators;
 
@@ -95,11 +95,11 @@ public class PreferencesPanel extends JPanel {
         thumbSizeField.setText(Integer.toString(DefaultUserContext.getInstance().getThumbnailsSize()));
         thumbSizeField.setColumns(6);
         thumbSizeField.setMaximumSize(thumbSizeField.getPreferredSize());
-        JPanel thumbSize = Components.newLabeledComponentWhiteBackground(thumbSizeField, DefaultI18nContext
+        JPanel thumbSize = Views.newLabeledComponentWhiteBackground(thumbSizeField, DefaultI18nContext
                 .getInstance().i18n("Size in px:"),
                 DefaultI18nContext.getInstance().i18n("Pixel size of the thumbnails (between 130px and 390px)"));
 
-        JPanel thumbCreator = Components.newLabeledComponentWhiteBackground(new JComboBox(), DefaultI18nContext
+        JPanel thumbCreator = Views.newLabeledComponentWhiteBackground(new JComboBox(), DefaultI18nContext
                 .getInstance().i18n("Thumbnails creator:"),
                 DefaultI18nContext.getInstance().i18n("Library used to generate thumbnails"));
 
@@ -168,11 +168,11 @@ public class PreferencesPanel extends JPanel {
     private JPanel appearancePanel() {
         // appearance
         PreferencePanel appearance = new PreferencePanel(DefaultI18nContext.getInstance().i18n("Appearance"));
-        JPanel language = Components.newLabeledComponentWhiteBackground(new LocalesComboBox(), DefaultI18nContext
+        JPanel language = Views.newLabeledComponentWhiteBackground(new LocalesComboBox(), DefaultI18nContext
                 .getInstance().i18n("Language:"),
                 DefaultI18nContext.getInstance().i18n("Set your preferred language (restart needed)"));
 
-        JPanel theme = Components.newLabeledComponentWhiteBackground(new ThemesComboBox(), DefaultI18nContext
+        JPanel theme = Views.newLabeledComponentWhiteBackground(new ThemesComboBox(), DefaultI18nContext
                 .getInstance().i18n("Theme:"),
                 DefaultI18nContext.getInstance().i18n("Set your preferred look and feel (restart needed)"));
         appearance.addPeferenceComponent(theme);
