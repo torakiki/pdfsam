@@ -24,10 +24,11 @@ import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.apache.commons.lang3.time.StopWatch;
 import org.bushe.swing.event.EventBus;
 import org.bushe.swing.event.annotation.AnnotationProcessor;
+import org.pdfsam.configuration.PdfsamConfig;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
-import org.pdfsam.gui.MainFrame;
 import org.pdfsam.gui.BaseTaskExecutionModule;
+import org.pdfsam.gui.MainFrame;
 import org.pdfsam.gui.WelcomePanel;
 import org.pdfsam.gui.event.OnTaskExecutionModulesLoadedEvent;
 import org.pdfsam.gui.menu.MenuType;
@@ -126,7 +127,7 @@ public final class App {
     }
 
     private static void initIoC() {
-        ctx = new AnnotationConfigApplicationContext(AppConfig.class);
+        ctx = new AnnotationConfigApplicationContext(PdfsamConfig.class);
         Map<String, BaseTaskExecutionModule> modules = ctx.getBeansOfType(BaseTaskExecutionModule.class);
         LOG.debug("Found {} modules", modules.size());
         OnTaskExecutionModulesLoadedEvent initModulesEvent = new OnTaskExecutionModulesLoadedEvent();

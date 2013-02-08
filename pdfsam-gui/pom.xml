@@ -81,5 +81,9 @@
 			<artifactId>docking-frames-demo-size-and-color</artifactId>
 			<version>1.1.0</version>
 		</dependency>
+		<dependency>
+			<groupId>jdepend</groupId>
+			<artifactId>jdepend</artifactId>
+		</dependency>
 	</dependencies>
 </project>

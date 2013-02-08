@@ -14,8 +14,6 @@
  */
 package org.pdfsam.gui.about;
 
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -23,18 +21,15 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EtchedBorder;
 
-import org.pdfsam.Pdfsam;
+import org.pdfsam.configuration.PdfsamProperties;
 import org.pdfsam.context.DefaultI18nContext;
 
 /**
@@ -52,7 +47,7 @@ public final class AboutDialog extends JDialog {
 
     private void init() {
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        setIconImage(new ImageIcon(AboutDialog.class.getResource("/images/pdfsam_" + Pdfsam.PACKAGE + ".png"))
+        setIconImage(new ImageIcon(AboutDialog.class.getResource("/images/pdfsam_" + PdfsamProperties.PACKAGE + ".png"))
                 .getImage());
         setSize(460, 210);
         setLayout(new GridBagLayout());
@@ -66,7 +61,7 @@ public final class AboutDialog extends JDialog {
         c.gridy = 0;
         c.weighty = 1;
         c.fill = GridBagConstraints.VERTICAL;
-        add(imagePanel(), c);
+        add(new AboutImagePanel(), c);
 
         c.ipady = 10;
         c.ipadx = 10;
@@ -101,21 +96,6 @@ public final class AboutDialog extends JDialog {
         JButton closeButton = new JButton(new CloseAction());
         buttonPanel.add(closeButton);
         return buttonPanel;
-    }
-
-    private JPanel imagePanel() {
-        JLabel image = new JLabel(new ImageIcon(AboutDialog.class.getResource("/images/pdfsam_" + Pdfsam.PACKAGE
-                + "_128.png")));
-        image.setMinimumSize(new Dimension(128, 128));
-        JPanel imagePanel = new JPanel();
-        imagePanel.setLayout(new BoxLayout(imagePanel, BoxLayout.Y_AXIS));
-        Dimension fillerSize = new Dimension(10, 0);
-        imagePanel.add(new Box.Filler(fillerSize, fillerSize, fillerSize));
-        imagePanel.add(Box.createVerticalGlue());
-        imagePanel.setBackground(Color.WHITE);
-        imagePanel.add(image);
-        imagePanel.add(Box.createVerticalGlue());
-        return imagePanel;
     }
 
     /**

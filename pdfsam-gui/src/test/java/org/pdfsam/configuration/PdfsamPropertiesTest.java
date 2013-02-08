@@ -12,23 +12,24 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam;
+package org.pdfsam.configuration;
 
 import junit.framework.Assert;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
+import org.pdfsam.configuration.PdfsamProperties;
 
 /**
  * @author Andrea Vacondio
  * 
  */
-public class PdfsamTest {
+public class PdfsamPropertiesTest {
 
     @Test
     public void testConstants() {
-        Assert.assertTrue(StringUtils.isNotBlank(Pdfsam.BUILD_DATE));
-        Assert.assertTrue(StringUtils.isNotBlank(Pdfsam.PACKAGE));
-        Assert.assertTrue(StringUtils.isNotBlank(Pdfsam.VERSION));
+        Assert.assertTrue(StringUtils.isNotBlank(PdfsamProperties.BUILD_DATE));
+        Assert.assertTrue(StringUtils.isNotBlank(PdfsamProperties.PACKAGE));
+        Assert.assertTrue(StringUtils.isNotBlank(PdfsamProperties.VERSION));
     }
 }

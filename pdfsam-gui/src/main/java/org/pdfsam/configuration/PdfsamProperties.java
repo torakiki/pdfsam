@@ -1,5 +1,5 @@
 /*
- * Created on 13/dic/2011
+ * Created on 08/feb/2013
  * Copyright 2010 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the 
@@ -12,7 +12,7 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam;
+package org.pdfsam.configuration;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -23,20 +23,20 @@ import org.slf4j.LoggerFactory;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 
 /**
- * Global constants.
+ * Various PDFsam properties like versions, ...
  * 
  * @author Andrea Vacondio
  * 
  */
-public final class Pdfsam {
+public final class PdfsamProperties {
 
-    private static final Logger LOG = LoggerFactory.getLogger(Pdfsam.class);
+    private static final Logger LOG = LoggerFactory.getLogger(PdfsamConfig.class);
 
     public static final String VERSION = PdfsamPropertiesLoaderHolder.LOADER.getVersion();
     public static final String PACKAGE = PdfsamPropertiesLoaderHolder.LOADER.getPackageType();
     public static final String BUILD_DATE = PdfsamPropertiesLoaderHolder.LOADER.getBuildDate();
 
-    private Pdfsam() {
+    private PdfsamProperties() {
         // hide
     }
 

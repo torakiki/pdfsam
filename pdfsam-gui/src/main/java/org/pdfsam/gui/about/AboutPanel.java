@@ -23,7 +23,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import org.pdfsam.Pdfsam;
+import org.pdfsam.configuration.PdfsamProperties;
 import org.pdfsam.context.DefaultI18nContext;
 import org.swingplus.JHyperlink;
 
@@ -43,12 +43,12 @@ class AboutPanel extends JPanel {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBackground(Color.WHITE);
         add(Box.createVerticalGlue());
-        JLabel appName = new JLabel(String.format("PDF Split and Merge %s", Pdfsam.PACKAGE));
+        JLabel appName = new JLabel(String.format("PDF Split and Merge %s", PdfsamProperties.PACKAGE));
         Font f = appName.getFont();
         appName.setFont(f.deriveFont(f.getStyle() | Font.BOLD));
         add(appName);
         add(Box.createRigidArea(new Dimension(0, 10)));
-        add(new JLabel(String.format("ver. %s", Pdfsam.VERSION)));
+        add(new JLabel(String.format("ver. %s", PdfsamProperties.VERSION)));
         Dimension labelSpace = new Dimension(0, 5);
         add(Box.createRigidArea(labelSpace));
         add(new JLabel("Copyright 2012 by Andrea Vacondio"));

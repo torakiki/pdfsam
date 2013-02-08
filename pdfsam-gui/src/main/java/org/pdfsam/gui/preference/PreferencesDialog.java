@@ -29,7 +29,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EtchedBorder;
 
-import org.pdfsam.Pdfsam;
+import org.pdfsam.configuration.PdfsamProperties;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.about.AboutDialog;
 
@@ -48,7 +48,7 @@ public final class PreferencesDialog extends JDialog {
 
     private void init() {
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        setIconImage(new ImageIcon(AboutDialog.class.getResource("/images/pdfsam_" + Pdfsam.PACKAGE + ".png"))
+        setIconImage(new ImageIcon(AboutDialog.class.getResource("/images/pdfsam_" + PdfsamProperties.PACKAGE + ".png"))
                 .getImage());
         setSize(540, 580);
         setLayout(new GridBagLayout());

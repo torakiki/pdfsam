@@ -21,7 +21,7 @@ import javax.swing.JFrame;
 
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
-import org.pdfsam.Pdfsam;
+import org.pdfsam.configuration.PdfsamProperties;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.event.OnTaskExecutionModulesLoadedEvent;
 import org.pdfsam.gui.log.JLogPanel;
@@ -35,6 +35,7 @@ import bibliothek.gui.dock.common.CControl;
 import bibliothek.gui.dock.common.CMinimizeArea;
 import bibliothek.gui.dock.common.CWorkingArea;
 import bibliothek.gui.dock.common.DefaultSingleCDockable;
+
 import static org.pdfsam.support.RequireUtils.require;
 
 /**
@@ -51,14 +52,15 @@ public class MainFrame extends JFrame {
     private MainMenuBar menuBar;
 
     public MainFrame() {
-        super(String.format("PDF Split and Merge %s ver. %s", Pdfsam.PACKAGE, Pdfsam.VERSION));
+        super(String.format("PDF Split and Merge %s ver. %s", PdfsamProperties.PACKAGE, PdfsamProperties.VERSION));
         init();
         AnnotationProcessor.process(this);
     }
 
     private void init() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setIconImage(new ImageIcon(MainFrame.class.getResource("/images/pdfsam_" + Pdfsam.PACKAGE + ".png")).getImage());
+        setIconImage(new ImageIcon(MainFrame.class.getResource("/images/pdfsam_" + PdfsamProperties.PACKAGE + ".png"))
+                .getImage());
         setSize(640, 480);
     }
 

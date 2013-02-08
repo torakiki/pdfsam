@@ -20,7 +20,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.bushe.swing.event.EventBus;
 import org.bushe.swing.event.annotation.EventSubscriber;
 import org.bushe.swing.event.annotation.ReferenceStrength;
-import org.pdfsam.Pdfsam;
+import org.pdfsam.configuration.PdfsamProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,7 +33,7 @@ import org.slf4j.LoggerFactory;
 public class UpdateController {
     private static final Logger LOG = LoggerFactory.getLogger(UpdateController.class);
     private static final String URI = "http://www.pdfsam.org/check-version.php?version=basic&remoteversion="
-            + Pdfsam.VERSION + "&branch=2";
+            + PdfsamProperties.VERSION + "&branch=2";
 
     private UpdateChecker checker;
 
@@ -70,7 +70,7 @@ public class UpdateController {
             String latest;
             try {
                 latest = get();
-                if (!Pdfsam.VERSION.equals(latest)) {
+                if (!PdfsamProperties.VERSION.equals(latest)) {
                     EventBus.publish(new UpdateAvailableEvent(latest));
                 } else {
                     LOG.debug("No update available");

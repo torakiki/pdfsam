@@ -1,5 +1,5 @@
 /*
- * Created on 28/nov/2012
+ * Created on 13/dic/2011
  * Copyright 2010 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the 
@@ -12,7 +12,7 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam;
+package org.pdfsam.configuration;
 
 import org.pdfsam.module.PdfsamModule;
 import org.springframework.context.annotation.ComponentScan;
@@ -20,13 +20,13 @@ import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * IoC cofiguration
+ * IoC configuration
  * 
  * @author Andrea Vacondio
  * 
  */
 @Configuration
-@ComponentScan(basePackages = { "org.pdfsam.service", "org.pdfsam.module" }, includeFilters = @Filter(value = PdfsamModule.class))
-public class AppConfig {
+@ComponentScan(basePackages = { "org.pdfsam" }, includeFilters = @Filter(value = PdfsamModule.class))
+public class PdfsamConfig {
     // nothing
 }
