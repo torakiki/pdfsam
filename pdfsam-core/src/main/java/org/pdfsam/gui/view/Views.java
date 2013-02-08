@@ -27,9 +27,11 @@ import javax.swing.JPanel;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.I18nContext;
+import org.pdfsam.gui.event.EventNamespace;
 import org.pdfsam.gui.support.ToolTipBuilder;
 import org.pdfsam.gui.view.GradientPanel.GradientOrientation;
 import org.pdfsam.gui.view.prefix.PrefixField;
+import org.sejda.model.pdf.PdfVersion;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
@@ -120,6 +122,16 @@ public final class Views {
         String labelText = ctx.i18n("Output file names prefix:");
         titledPanel.add(newLabeledComponent(new PrefixField(completeForSplit), labelText, ""), BorderLayout.CENTER);
         return titledPanel;
+    }
+
+    /**
+     * @return a checkbox to let the user select if he wants compressed or uncompressed xref pdf documents
+     */
+    public static PdfVersionConstrainedCheckbox newCompressOutputCheckbox(EventNamespace namespace) {
+        PdfVersionConstrainedCheckbox retVal = new PdfVersionConstrainedCheckbox(PdfVersion.VERSION_1_5);
+        retVal.setText(DefaultI18nContext.getInstance().i18n("Compress output file/files"));
+        retVal.setEventNamespace(namespace);
+        return retVal;
     }
 
 }
