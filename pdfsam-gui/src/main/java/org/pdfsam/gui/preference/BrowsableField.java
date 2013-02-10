@@ -19,7 +19,7 @@ import java.io.File;
 
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.StringUserPreference;
-import org.pdfsam.gui.view.BaseBrowsableField;
+import org.pdfsam.gui.view.base.BaseBrowsableField;
 
 /**
  * Preference field where the value of the field can be browsed.

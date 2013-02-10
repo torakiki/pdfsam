@@ -120,7 +120,7 @@ public class PreferencesPanel extends JPanel {
             }
         };
 
-        defaultWorkspace.setBalloonTooltip(DefaultI18nContext.getInstance().i18n(
+        defaultWorkspace.setTooltip(DefaultI18nContext.getInstance().i18n(
                 "Select a previously saved workspace that will be automatically loaded at startup"));
         defaultWorkspace.setDefaultFieldValue(DefaultUserContext.getInstance().getDefaultWorkspacePath());
 
@@ -131,7 +131,7 @@ public class PreferencesPanel extends JPanel {
                 return SharedJFileChooser.getInstance(FileFilterType.DIRECTORIES, JFileChooser.DIRECTORIES_ONLY);
             }
         };
-        defaultWorkingPath.setBalloonTooltip(DefaultI18nContext.getInstance().i18n(
+        defaultWorkingPath.setTooltip(DefaultI18nContext.getInstance().i18n(
                 "Select a directory where documents will be saved and loaded by default"));
         defaultWorkingPath.setDefaultFieldValue(DefaultUserContext.getInstance().getDefaultWorkingPath());
         workspace.addPeferenceComponent(defaultWorkspace);
