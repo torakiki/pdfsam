@@ -16,6 +16,7 @@ package org.pdfsam.gui.view.output;
 
 import java.awt.BorderLayout;
 
+import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 
 import org.pdfsam.context.DefaultI18nContext;
@@ -23,6 +24,7 @@ import org.pdfsam.context.I18nContext;
 import org.pdfsam.gui.support.ToolTipBuilder;
 import org.pdfsam.gui.view.base.GradientPanel.GradientOrientation;
 import org.pdfsam.gui.view.base.GradientTitledPanel;
+import org.pdfsam.support.filter.FileFilterType;
 
 /**
  * Utility class containing factory methods to create output views
@@ -37,14 +39,46 @@ public final class OutputViews {
     }
 
     /**
-     * @param panel
-     * @return a titled panel for the given {@link PdfFileDestinationPanel}
+     * @return a titled panel for a folder destination
      */
-    public static JPanel newPdfDestinationPanel(PdfFileDestinationPanel panel) {
+    public static JPanel newFolderDestinationPanel() {
+        I18nContext ctx = DefaultI18nContext.getInstance();
+        String title = ctx.i18n("Destination folder");
+        ToolTipBuilder tp = new ToolTipBuilder();
+        tp.appendLine(ctx.i18n("Browse or enter the full path to the destination output folder.")).appendLine(
+                "Tick the box if you want to overwrite the output file if it already exists.");
+        GradientTitledPanel titledPanel = new GradientTitledPanel(title, tp, GradientOrientation.VERTICAL);
+        titledPanel.add(new DestinationPanel(FileFilterType.DIRECTORIES, JFileChooser.DIRECTORIES_ONLY),
+                BorderLayout.CENTER);
+        return titledPanel;
+    }
+
+    /**
+     * @param panel
+     * @return a titled panel for the given {@link FilePdfDestinationPanel}
+     */
+    public static JPanel newFilePdfDestinationPanel(FilePdfDestinationPanel panel) {
         I18nContext ctx = DefaultI18nContext.getInstance();
         String title = ctx.i18n("Destination file");
         ToolTipBuilder tp = new ToolTipBuilder();
         tp.appendLine(ctx.i18n("Browse or enter the full path to the destination output file."))
+                .appendLine("Tick the box if you want to overwrite the output file if it already exists.")
+                .appendLine("Tick the box if you want compressed output files.")
+                .appendLine("Set the pdf version of the ouput document.");
+        GradientTitledPanel titledPanel = new GradientTitledPanel(title, tp, GradientOrientation.VERTICAL);
+        titledPanel.add(panel, BorderLayout.CENTER);
+        return titledPanel;
+    }
+
+    /**
+     * @param panel
+     * @return a titled panel for the given {@link FolderPdfDestinationPanel}
+     */
+    public static JPanel newFolderPdfDestinationPanel(FolderPdfDestinationPanel panel) {
+        I18nContext ctx = DefaultI18nContext.getInstance();
+        String title = ctx.i18n("Destination folder");
+        ToolTipBuilder tp = new ToolTipBuilder();
+        tp.appendLine(ctx.i18n("Browse or enter the full path to the destination output directory."))
                 .appendLine("Tick the box if you want to overwrite the output file if it already exists.")
                 .appendLine("Tick the box if you want compressed output files.")
                 .appendLine("Set the pdf version of the ouput document.");

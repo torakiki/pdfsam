@@ -14,19 +14,12 @@
  */
 package org.pdfsam.gui.view.output;
 
-import java.io.File;
-
-import javax.swing.BoxLayout;
-import javax.swing.JCheckBox;
-import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.gui.SharedJFileChooser;
 import org.pdfsam.gui.event.EventNamespace;
 import org.pdfsam.gui.event.EventNamespaced;
 import org.pdfsam.gui.view.Views;
-import org.pdfsam.gui.view.base.BaseBrowsableField;
 import org.pdfsam.gui.view.base.PdfVersionConstrainedCheckbox;
 import org.pdfsam.support.filter.FileFilterType;
 
@@ -38,34 +31,17 @@ import static org.apache.commons.lang3.StringUtils.EMPTY;
  * @author Andrea Vacondio
  * 
  */
-public class PdfFileDestinationPanel extends JPanel implements EventNamespaced {
+class BasePdfDestinationPanel extends DestinationPanel implements EventNamespaced {
 
     private EventNamespace namespace = EventNamespace.NULL;
     private PdfVersionCombo combo = new PdfVersionCombo();
     private PdfVersionConstrainedCheckbox compress = Views.newCompressOutputCheckbox();
-    private JCheckBox overwrite = Views.newOverwriteOutputCheckbox();
-    private BaseBrowsableField browsableField;
 
-    public PdfFileDestinationPanel() {
+    public BasePdfDestinationPanel(FileFilterType filterType, int chooserMode) {
+        super(filterType, chooserMode);
         JPanel comboPanel = Views.newLabeledComponent(combo,
                 DefaultI18nContext.getInstance().i18n("Output document pdf version:"), EMPTY);
-        browsableField = new BaseBrowsableField() {
 
-            @Override
-            protected void onFileSelected(File selected) {
-                // nothing
-            }
-
-            @Override
-            protected JFileChooser getChooser() {
-                return SharedJFileChooser.getInstance(FileFilterType.PDF, JFileChooser.FILES_AND_DIRECTORIES);
-            }
-        };
-        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-        browsableField.setAlignmentX(LEFT_ALIGNMENT);
-        add(browsableField);
-        overwrite.setAlignmentX(LEFT_ALIGNMENT);
-        add(overwrite);
         compress.setAlignmentX(LEFT_ALIGNMENT);
         add(compress);
         comboPanel.setAlignmentX(LEFT_ALIGNMENT);

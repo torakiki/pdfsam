@@ -22,8 +22,8 @@ import javax.swing.JPanel;
 
 import org.pdfsam.gui.event.EventNamespace;
 import org.pdfsam.gui.view.Views;
+import org.pdfsam.gui.view.output.FilePdfDestinationPanel;
 import org.pdfsam.gui.view.output.OutputViews;
-import org.pdfsam.gui.view.output.PdfFileDestinationPanel;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.PdfsamModule;
@@ -83,9 +83,9 @@ public class TestModule extends BaseTaskExecutionModule {
         c.weighty = 0;
         c.gridy = 1;
         c.gridheight = 1;
-        PdfFileDestinationPanel destination = new PdfFileDestinationPanel();
+        FilePdfDestinationPanel destination = new FilePdfDestinationPanel();
         destination.setEventNamespace(MERGE_NAMESPACE);
-        panel.add(OutputViews.newPdfDestinationPanel(destination), c);
+        panel.add(OutputViews.newFilePdfDestinationPanel(destination), c);
 
         JPanel inner = Views.newPrefixPanel(false);
         c.fill = GridBagConstraints.HORIZONTAL;
