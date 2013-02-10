@@ -12,7 +12,7 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam.gui.view;
+package org.pdfsam.gui.view.output;
 
 import java.util.Collections;
 import java.util.HashSet;

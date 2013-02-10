@@ -12,7 +12,7 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam.gui.view;
+package org.pdfsam.gui.view.base;
 
 import java.awt.event.ActionEvent;
 import java.io.File;
@@ -79,7 +79,7 @@ public abstract class BaseBrowsableField extends JPanel {
                 .addComponent(browse)));
     }
 
-    public void setBalloonTooltip(String tooltip) {
+    public void setTooltip(String tooltip) {
         this.setToolTipText(tooltip);
         field.setToolTipText(tooltip);
     }

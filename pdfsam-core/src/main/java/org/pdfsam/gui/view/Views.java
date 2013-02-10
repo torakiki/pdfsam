@@ -21,15 +21,17 @@ import java.awt.Dimension;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JCheckBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.I18nContext;
-import org.pdfsam.gui.event.EventNamespace;
 import org.pdfsam.gui.support.ToolTipBuilder;
-import org.pdfsam.gui.view.GradientPanel.GradientOrientation;
+import org.pdfsam.gui.view.base.GradientPanel.GradientOrientation;
+import org.pdfsam.gui.view.base.GradientTitledPanel;
+import org.pdfsam.gui.view.base.PdfVersionConstrainedCheckbox;
 import org.pdfsam.gui.view.prefix.PrefixField;
 import org.sejda.model.pdf.PdfVersion;
 
@@ -115,9 +117,9 @@ public final class Views {
         I18nContext ctx = DefaultI18nContext.getInstance();
         String title = ctx.i18n("Output prefix");
         ToolTipBuilder tp = new ToolTipBuilder();
-        tp.append(ctx.i18n("Prefix for the output files name."))
-                .append("It can contain special keywords like \"[TIMESTAMP]\" and they will be replaced with runtime value (e.g. the actual timestamp).")
-                .append("See the context menu for the enabled keywords.");
+        tp.appendLine(ctx.i18n("Prefix for the output files name."))
+                .appendLine("It can contain special keywords like \"[TIMESTAMP]\" and they will be replaced with runtime value (e.g. the actual timestamp).")
+                .appendLine("See the context menu for the enabled keywords.");
         GradientTitledPanel titledPanel = new GradientTitledPanel(title, tp, GradientOrientation.VERTICAL);
         String labelText = ctx.i18n("Output file names prefix:");
         titledPanel.add(newLabeledComponent(new PrefixField(completeForSplit), labelText, ""), BorderLayout.CENTER);
@@ -127,11 +129,19 @@ public final class Views {
     /**
      * @return a checkbox to let the user select if he wants compressed or uncompressed xref pdf documents
      */
-    public static PdfVersionConstrainedCheckbox newCompressOutputCheckbox(EventNamespace namespace) {
+    public static PdfVersionConstrainedCheckbox newCompressOutputCheckbox() {
         PdfVersionConstrainedCheckbox retVal = new PdfVersionConstrainedCheckbox(PdfVersion.VERSION_1_5);
         retVal.setText(DefaultI18nContext.getInstance().i18n("Compress output file/files"));
-        retVal.setEventNamespace(namespace);
         return retVal;
+    }
+
+    /**
+     * @return a checkbox to let the user decide if they want to overwrite an output file if it already exists
+     */
+    public static JCheckBox newOverwriteOutputCheckbox() {
+        JCheckBox checkbox = new JCheckBox(DefaultI18nContext.getInstance().i18n("Overwrite if already exists"));
+        checkbox.setSelected(true);
+        return checkbox;
     }
 
 }

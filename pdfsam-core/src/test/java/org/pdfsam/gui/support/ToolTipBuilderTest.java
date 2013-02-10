@@ -30,21 +30,21 @@ public class ToolTipBuilderTest {
     @Test(expected = IllegalArgumentException.class)
     public void testRequiredLine() {
         ToolTipBuilder builder = new ToolTipBuilder();
-        builder.append("");
+        builder.appendLine("");
     }
 
     @Test
     public void testSingleOutput() {
         ToolTipBuilder builder = new ToolTipBuilder();
-        builder.append("ONE");
+        builder.appendLine("ONE");
         assertEquals("<html><body><div>ONE</div></body></html>", builder.toString());
     }
 
     @Test
     public void testMultipleOutput() {
         ToolTipBuilder builder = new ToolTipBuilder();
-        builder.append("ONE");
-        builder.append("TWO");
+        builder.appendLine("ONE");
+        builder.appendLine("TWO");
         assertEquals("<html><body><div>ONE<br />TWO</div></body></html>", builder.toString());
     }
 

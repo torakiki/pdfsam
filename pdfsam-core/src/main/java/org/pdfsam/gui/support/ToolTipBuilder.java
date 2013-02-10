@@ -38,7 +38,7 @@ public class ToolTipBuilder {
      * @param line
      * @return
      */
-    public ToolTipBuilder append(String line) {
+    public ToolTipBuilder appendLine(String line) {
         require(isNotBlank(line), "ToolTip line cannot be blank");
         lines.add(line);
         return this;

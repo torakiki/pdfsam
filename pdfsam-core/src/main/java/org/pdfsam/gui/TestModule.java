@@ -20,7 +20,10 @@ import java.awt.Insets;
 
 import javax.swing.JPanel;
 
+import org.pdfsam.gui.event.EventNamespace;
 import org.pdfsam.gui.view.Views;
+import org.pdfsam.gui.view.output.OutputViews;
+import org.pdfsam.gui.view.output.PdfFileDestinationPanel;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.PdfsamModule;
@@ -32,6 +35,8 @@ import org.sejda.model.parameter.base.TaskParameters;
  */
 @PdfsamModule
 public class TestModule extends BaseTaskExecutionModule {
+
+    private static final EventNamespace MERGE_NAMESPACE = EventNamespace.newRootInstance("Merge");
 
     /*
      * (non-Javadoc)
@@ -63,6 +68,7 @@ public class TestModule extends BaseTaskExecutionModule {
     protected JPanel getInnerPanel() {
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
+        JPanel top = new JPanel();
         c.fill = GridBagConstraints.BOTH;
         c.weighty = 1.0;
         c.weightx = 1.0;
@@ -70,11 +76,19 @@ public class TestModule extends BaseTaskExecutionModule {
         c.gridx = 0;
         c.gridy = 0;
         c.gridwidth = 3;
-        c.gridheight = 2;
-        panel.add(new JPanel(), c);
-        JPanel inner = Views.newPrefixPanel(false);
+        c.gridheight = 1;
+        panel.add(top, c);
+
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weighty = 0;
+        c.gridy = 1;
+        c.gridheight = 1;
+        PdfFileDestinationPanel destination = new PdfFileDestinationPanel();
+        destination.setEventNamespace(MERGE_NAMESPACE);
+        panel.add(OutputViews.newPdfDestinationPanel(destination), c);
+
+        JPanel inner = Views.newPrefixPanel(false);
+        c.fill = GridBagConstraints.HORIZONTAL;
         c.gridy = 2;
         c.gridheight = 1;
         panel.add(inner, c);
