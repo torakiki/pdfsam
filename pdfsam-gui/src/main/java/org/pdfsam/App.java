@@ -78,7 +78,7 @@ public final class App {
             initIoC();
             SwingUtils.centrePositionOnScreen(mainFrame);
             mainFrame.setVisible(true);
-            EventBus.publish(new UpdateCheckRequest());
+            requestCheckForUpdateIfNecessary();
         } catch (Exception e) {
             LOG.error(DefaultI18nContext.getInstance().i18n("Error starting pdfsam."), e);
             throw e;
@@ -86,6 +86,12 @@ public final class App {
         stopWatch.stop();
         LOG.info(DefaultI18nContext.getInstance().i18n("Started in {0}",
                 DurationFormatUtils.formatDurationWords(stopWatch.getTime(), true, true)));
+    }
+
+    private static void requestCheckForUpdateIfNecessary() {
+        if (DefaultUserContext.getInstance().isCheckForUpdates()) {
+            EventBus.publish(new UpdateCheckRequest());
+        }
     }
 
     private static void initIcons(CControl control) {
