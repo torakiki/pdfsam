@@ -111,6 +111,7 @@
   </module>
   <module name="FileTabCharacter">
     <property name="severity" value="error"/>
+	<property name="fileExtensions" value="java"/>
   </module>
   <module name="StrictDuplicateCode">
     <property name="severity" value="ignore"/>
