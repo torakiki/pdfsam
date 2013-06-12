@@ -28,7 +28,7 @@ import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.event.AddPdfVersionConstraintEvent;
 import org.pdfsam.gui.event.ChangedSelectedPdfVersionEvent;
 import org.pdfsam.gui.event.EventNamespace;
-import org.pdfsam.gui.event.EventNamespaced;
+import org.pdfsam.gui.event.WithEventNamespace;
 import org.pdfsam.gui.event.RemovePdfVersionConstraintEvent;
 import org.pdfsam.support.RequireUtils;
 import org.sejda.model.pdf.PdfVersion;
@@ -39,7 +39,7 @@ import org.sejda.model.pdf.PdfVersion;
  * @author Andrea Vacondio
  * 
  */
-public class PdfVersionCombo extends JComboBox implements EventNamespaced {
+public class PdfVersionCombo extends JComboBox implements WithEventNamespace {
     private EventNamespace eventNamespace = EventNamespace.NULL;
     private Set<Integer> filters = new HashSet<Integer>();
 

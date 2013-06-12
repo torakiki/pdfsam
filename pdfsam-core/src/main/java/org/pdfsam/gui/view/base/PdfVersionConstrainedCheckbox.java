@@ -23,7 +23,7 @@ import org.bushe.swing.event.EventBus;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.event.AddPdfVersionConstraintEvent;
 import org.pdfsam.gui.event.EventNamespace;
-import org.pdfsam.gui.event.EventNamespaced;
+import org.pdfsam.gui.event.WithEventNamespace;
 import org.pdfsam.gui.event.RemovePdfVersionConstraintEvent;
 import org.pdfsam.support.RequireUtils;
 import org.sejda.model.pdf.PdfVersion;
@@ -34,7 +34,7 @@ import org.sejda.model.pdf.PdfVersion;
  * @author Andrea Vacondio
  * 
  */
-public class PdfVersionConstrainedCheckbox extends JCheckBox implements EventNamespaced {
+public class PdfVersionConstrainedCheckbox extends JCheckBox implements WithEventNamespace {
 
     private PdfVersion constraint;
     private EventNamespace namespace = EventNamespace.NULL;

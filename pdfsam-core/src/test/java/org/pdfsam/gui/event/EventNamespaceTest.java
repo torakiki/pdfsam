@@ -18,6 +18,7 @@ import org.junit.Test;
 import org.pdfsam.TestUtils;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -28,39 +29,45 @@ public class EventNamespaceTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testBlank() {
-        EventNamespace.newRootInstance("");
+        EventNamespace.newParentInstance("");
     }
 
     @Test
-    public void testRoot() {
-        EventNamespace victim = EventNamespace.newRootInstance("root");
-        assertEquals("root", victim.getNamespaceId());
+    public void testParent() {
+        EventNamespace victim = EventNamespace.newParentInstance("parent");
+        assertEquals("parent", victim.getNamespaceId());
     }
 
     @Test
     public void testChild() {
-        EventNamespace root = EventNamespace.newRootInstance("root");
+        EventNamespace root = EventNamespace.newParentInstance("root");
         EventNamespace victim = EventNamespace.newChildInstance(root, "child");
         assertEquals("root.child", victim.getNamespaceId());
     }
 
     @Test
     public void testIsParentForNull() {
-        assertTrue(EventNamespace.NULL.isParentOf(EventNamespace.newRootInstance("root")));
+        assertTrue(EventNamespace.NULL.isParentOf(EventNamespace.newParentInstance("root")));
     }
 
     @Test
     public void testIsParentOf() {
-        EventNamespace root = EventNamespace.newRootInstance("root");
+        EventNamespace root = EventNamespace.newParentInstance("root");
         EventNamespace child = EventNamespace.newChildInstance(root, "child");
         assertTrue(root.isParentOf(child));
     }
 
     @Test
+    public void testIsParentOfItself() {
+        EventNamespace root = EventNamespace.newParentInstance("root");
+        assertFalse(root.isParentOf(root));
+    }
+
+    @Test
     public void testEquals() {
-        EventNamespace eq1 = EventNamespace.newRootInstance("root");
-        EventNamespace eq2 = EventNamespace.newRootInstance("root");
-        EventNamespace eq3 = EventNamespace.newRootInstance("root");
+        EventNamespace eq1 = EventNamespace.newParentInstance("root");
+        EventNamespace eq2 = EventNamespace.newParentInstance("root");
+        EventNamespace eq3 = EventNamespace.newParentInstance("root");
         EventNamespace diff = EventNamespace.newChildInstance(eq1, "child");
         TestUtils.testEqualsAndHashCodes(eq1, eq2, eq3, diff);
     }

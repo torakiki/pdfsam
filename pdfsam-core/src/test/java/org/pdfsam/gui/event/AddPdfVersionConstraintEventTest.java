@@ -23,6 +23,6 @@ import org.junit.Test;
 public class AddPdfVersionConstraintEventTest {
     @Test(expected = IllegalArgumentException.class)
     public void testNegative() {
-        new AddPdfVersionConstraintEvent(EventNamespace.newRootInstance("root"), null);
+        new AddPdfVersionConstraintEvent(EventNamespace.newParentInstance("root"), null);
     }
 }

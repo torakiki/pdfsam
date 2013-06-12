@@ -20,6 +20,6 @@ package org.pdfsam.gui.event;
  * @author Andrea Vacondio
  * 
  */
-public class OnApplicationStartedEvent {
+public class ApplicationStartedEvent {
     // nothig
 }

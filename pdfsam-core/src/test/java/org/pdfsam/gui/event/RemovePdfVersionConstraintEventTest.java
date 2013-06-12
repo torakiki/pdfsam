@@ -24,6 +24,6 @@ public class RemovePdfVersionConstraintEventTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testNegative() {
-        new RemovePdfVersionConstraintEvent(EventNamespace.newRootInstance("root"), null);
+        new RemovePdfVersionConstraintEvent(EventNamespace.newParentInstance("root"), null);
     }
 }

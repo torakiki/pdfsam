@@ -23,7 +23,7 @@ import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
 import org.pdfsam.configuration.PdfsamProperties;
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.gui.event.OnTaskExecutionModulesLoadedEvent;
+import org.pdfsam.gui.event.TaskExecutionModulesLoadedEvent;
 import org.pdfsam.gui.log.JLogPanel;
 import org.pdfsam.gui.menu.MainMenuBar;
 import org.pdfsam.gui.menu.MenuType;
@@ -85,7 +85,7 @@ public class MainFrame extends JFrame {
     }
 
     @EventSubscriber
-    public void initModules(OnTaskExecutionModulesLoadedEvent event) {
+    public void initModules(TaskExecutionModulesLoadedEvent event) {
         for (BaseTaskExecutionModule currentModule : event.getModules()) {
             DefaultSingleCDockable dockable = new DefaultSingleCDockable(currentModule.getDescriptor().getId(),
                     currentModule.getDescriptor().getIcon(), currentModule.getDescriptor().getName(),

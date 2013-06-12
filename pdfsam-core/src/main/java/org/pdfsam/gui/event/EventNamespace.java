@@ -42,8 +42,12 @@ public final class EventNamespace {
         return namespaceId;
     }
 
+    /**
+     * @param target
+     * @return true if this is the {@link EventNamespace#NULL} or is a parent of target
+     */
     public boolean isParentOf(EventNamespace target) {
-        return target.getNamespaceId().startsWith(namespaceId);
+        return !equals(target) && target.getNamespaceId().startsWith(namespaceId);
     }
 
     @Override
@@ -71,9 +75,9 @@ public final class EventNamespace {
     /**
      * 
      * @param namespaceId
-     * @return a new root namespace with the given id
+     * @return a new parent namespace with the given id
      */
-    public static EventNamespace newRootInstance(String namespaceId) {
+    public static EventNamespace newParentInstance(String namespaceId) {
         require(isNotBlank(namespaceId), "Namespace identifier cannot be blank");
         return new EventNamespace(namespaceId);
     }

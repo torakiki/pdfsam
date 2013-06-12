@@ -30,7 +30,7 @@ import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.gui.BaseTaskExecutionModule;
 import org.pdfsam.gui.MainFrame;
 import org.pdfsam.gui.WelcomePanel;
-import org.pdfsam.gui.event.OnTaskExecutionModulesLoadedEvent;
+import org.pdfsam.gui.event.TaskExecutionModulesLoadedEvent;
 import org.pdfsam.gui.menu.MenuType;
 import org.pdfsam.gui.support.SwingUtils;
 import org.pdfsam.sound.PlaySoundController;
@@ -136,7 +136,7 @@ public final class App {
         ctx = new AnnotationConfigApplicationContext(PdfsamConfig.class);
         Map<String, BaseTaskExecutionModule> modules = ctx.getBeansOfType(BaseTaskExecutionModule.class);
         LOG.debug("Found {} modules", modules.size());
-        OnTaskExecutionModulesLoadedEvent initModulesEvent = new OnTaskExecutionModulesLoadedEvent();
+        TaskExecutionModulesLoadedEvent initModulesEvent = new TaskExecutionModulesLoadedEvent();
         initModulesEvent.addAll(modules.values());
         EventBus.publish(initModulesEvent);
         ctx.registerShutdownHook();

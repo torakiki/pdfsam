@@ -118,9 +118,10 @@ public final class Views {
         String title = ctx.i18n("Output prefix");
         ToolTipBuilder tp = new ToolTipBuilder();
         tp.appendLine(ctx.i18n("Prefix for the output files name."))
-                .appendLine("It can contain special keywords like \"[TIMESTAMP]\" and they will be replaced with runtime value (e.g. the actual timestamp).")
+                .appendLine(
+                        "It can contain special keywords like \"[TIMESTAMP]\" and they will be replaced with runtime value (e.g. the actual timestamp).")
                 .appendLine("See the context menu for the enabled keywords.");
-        GradientTitledPanel titledPanel = new GradientTitledPanel(title, tp, GradientOrientation.VERTICAL);
+        GradientTitledPanel titledPanel = new GradientTitledPanel(title, tp, GradientOrientation.HORIZONTAL);
         String labelText = ctx.i18n("Output file names prefix:");
         titledPanel.add(newLabeledComponent(new PrefixField(completeForSplit), labelText, ""), BorderLayout.CENTER);
         return titledPanel;

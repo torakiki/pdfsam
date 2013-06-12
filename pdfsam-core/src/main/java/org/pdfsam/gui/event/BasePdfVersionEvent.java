@@ -22,7 +22,7 @@ import org.sejda.model.pdf.PdfVersion;
  * @author Andrea Vacondio
  * 
  */
-class BasePdfVersionEvent extends NamespacedEvent {
+class BasePdfVersionEvent extends BaseEvent {
 
     private PdfVersion pdfVersion;
 

@@ -26,13 +26,13 @@ public class NamespacedEventTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testNegative() {
-        new NamespacedEvent(null);
+        new BaseEvent(null);
     }
 
     @Test
     public void testPositive() {
-        EventNamespace namespace = EventNamespace.newRootInstance("root");
-        NamespacedEvent victim = new NamespacedEvent(namespace);
+        EventNamespace namespace = EventNamespace.newParentInstance("root");
+        BaseEvent victim = new BaseEvent(namespace);
         assertEquals(namespace, victim.getNamespace());
     }
 }

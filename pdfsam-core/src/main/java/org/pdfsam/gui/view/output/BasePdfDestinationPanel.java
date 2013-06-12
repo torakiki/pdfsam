@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.event.EventNamespace;
-import org.pdfsam.gui.event.EventNamespaced;
+import org.pdfsam.gui.event.WithEventNamespace;
 import org.pdfsam.gui.view.Views;
 import org.pdfsam.gui.view.base.PdfVersionConstrainedCheckbox;
 import org.pdfsam.support.filter.FileFilterType;
@@ -31,7 +31,7 @@ import static org.apache.commons.lang3.StringUtils.EMPTY;
  * @author Andrea Vacondio
  * 
  */
-class BasePdfDestinationPanel extends DestinationPanel implements EventNamespaced {
+class BasePdfDestinationPanel extends DestinationPanel implements WithEventNamespace {
 
     private EventNamespace namespace = EventNamespace.NULL;
     private PdfVersionCombo combo = new PdfVersionCombo();

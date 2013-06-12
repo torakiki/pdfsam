@@ -30,7 +30,7 @@ import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.Module;
 import org.pdfsam.gui.BaseTaskExecutionModule;
 import org.pdfsam.gui.about.AboutDialog;
-import org.pdfsam.gui.event.OnTaskExecutionModulesLoadedEvent;
+import org.pdfsam.gui.event.TaskExecutionModulesLoadedEvent;
 import org.pdfsam.gui.preference.PreferencesDialog;
 import org.pdfsam.gui.support.SwingUtils;
 import org.pdfsam.gui.workspace.LoadWorkspaceAction;
@@ -110,7 +110,7 @@ public class MainMenuBar extends JMenuBar {
     }
 
     @EventSubscriber
-    public void initModulesMenu(OnTaskExecutionModulesLoadedEvent event) {
+    public void initModulesMenu(TaskExecutionModulesLoadedEvent event) {
         Map<ModuleCategory, JMenu> moduleSubmenus = new HashMap<ModuleCategory, JMenu>();
         for (BaseTaskExecutionModule currentModule : event.getModules()) {
             ModuleCategory category = currentModule.getDescriptor().getCategory();

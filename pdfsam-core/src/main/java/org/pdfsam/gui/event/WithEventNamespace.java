@@ -1,5 +1,5 @@
 /*
- * Created on 29/nov/2012
+ * Created on 08/feb/2013
  * Copyright 2010 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the 
@@ -14,28 +14,16 @@
  */
 package org.pdfsam.gui.event;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-
-import org.pdfsam.gui.BaseTaskExecutionModule;
-
 /**
- * Event sent to perform once the available modules are found and loaded by the IoC container.
+ * The component will respond to events in its {@link EventNamespace}.
  * 
  * @author Andrea Vacondio
  * 
  */
-public class OnTaskExecutionModulesLoadedEvent {
+public interface WithEventNamespace {
 
-    private List<BaseTaskExecutionModule> modules = new ArrayList<BaseTaskExecutionModule>();
+    void setEventNamespace(EventNamespace namespace);
 
-    public void addAll(Collection<BaseTaskExecutionModule> modules) {
-        this.modules.addAll(modules);
-    }
+    EventNamespace getEventNamespace();
 
-    public List<BaseTaskExecutionModule> getModules() {
-        return Collections.unmodifiableList(modules);
-    }
 }
