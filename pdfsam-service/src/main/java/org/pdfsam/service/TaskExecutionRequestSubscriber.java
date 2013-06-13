@@ -36,7 +36,7 @@ import org.slf4j.LoggerFactory;
  */
 @Named
 @Singleton
-public class TaskExecutionRequestSubscriber {
+class TaskExecutionRequestSubscriber {
     private static final Logger LOG = LoggerFactory.getLogger(TaskExecutionRequestSubscriber.class);
 
     private ExecutionService service;

@@ -14,6 +14,9 @@
  */
 package org.pdfsam.sound;
 
+import javax.inject.Named;
+
+import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
 import org.bushe.swing.event.annotation.ReferenceStrength;
 import org.pdfsam.context.DefaultUserContext;
@@ -26,9 +29,14 @@ import org.sejda.model.notification.event.TaskExecutionFailedEvent;
  * @author Andrea Vacondio
  * 
  */
+@Named
 public class PlaySoundController {
 
     private SoundPlayer player = new DefaultSoundPlayer();
+
+    public PlaySoundController() {
+        AnnotationProcessor.process(this);
+    }
 
     @EventSubscriber(referenceStrength = ReferenceStrength.STRONG)
     public void playFailed(TaskExecutionFailedEvent event) {

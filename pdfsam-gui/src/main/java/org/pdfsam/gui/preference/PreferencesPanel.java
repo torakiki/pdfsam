@@ -26,6 +26,7 @@ import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.IntUserPreference;
 import org.pdfsam.context.StringUserPreference;
+import org.pdfsam.gui.FlatBorder;
 import org.pdfsam.gui.SharedJFileChooser;
 import org.pdfsam.gui.view.Views;
 import org.pdfsam.support.filter.FileFilterType;
@@ -45,6 +46,7 @@ public class PreferencesPanel extends JPanel {
         SpringLayout layout = new SpringLayout();
         this.setLayout(layout);
         setBackground(Color.WHITE);
+        setBorder(new FlatBorder());
 
         JPanel appearance = appearancePanel();
         JPanel behavoir = behaviorPanel();
@@ -95,8 +97,8 @@ public class PreferencesPanel extends JPanel {
         thumbSizeField.setText(Integer.toString(DefaultUserContext.getInstance().getThumbnailsSize()));
         thumbSizeField.setColumns(6);
         thumbSizeField.setMaximumSize(thumbSizeField.getPreferredSize());
-        JPanel thumbSize = Views.newLabeledComponentWhiteBackground(thumbSizeField, DefaultI18nContext
-                .getInstance().i18n("Size in px:"),
+        JPanel thumbSize = Views.newLabeledComponentWhiteBackground(thumbSizeField, DefaultI18nContext.getInstance()
+                .i18n("Size in px:"),
                 DefaultI18nContext.getInstance().i18n("Pixel size of the thumbnails (between 130px and 390px)"));
 
         JPanel thumbCreator = Views.newLabeledComponentWhiteBackground(new JComboBox(), DefaultI18nContext
@@ -172,8 +174,8 @@ public class PreferencesPanel extends JPanel {
                 .getInstance().i18n("Language:"),
                 DefaultI18nContext.getInstance().i18n("Set your preferred language (restart needed)"));
 
-        JPanel theme = Views.newLabeledComponentWhiteBackground(new ThemesComboBox(), DefaultI18nContext
-                .getInstance().i18n("Theme:"),
+        JPanel theme = Views.newLabeledComponentWhiteBackground(new ThemesComboBox(), DefaultI18nContext.getInstance()
+                .i18n("Theme:"),
                 DefaultI18nContext.getInstance().i18n("Set your preferred look and feel (restart needed)"));
         appearance.addPeferenceComponent(theme);
         appearance.addPeferenceComponent(language);

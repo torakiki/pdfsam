@@ -19,8 +19,8 @@ import javax.swing.JPanel;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.event.EventNamespace;
 import org.pdfsam.gui.event.WithEventNamespace;
+import org.pdfsam.gui.view.PdfVersionConstrainedCheckbox;
 import org.pdfsam.gui.view.Views;
-import org.pdfsam.gui.view.base.PdfVersionConstrainedCheckbox;
 import org.pdfsam.support.filter.FileFilterType;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;

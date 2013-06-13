@@ -30,7 +30,7 @@ import bibliothek.gui.dock.common.mode.ExtendedMode;
 import bibliothek.util.Path;
 
 /**
- * Content area to use as container per DockingFrames. It has a central {@link CWorkingArea} and a bottom {@link CMinimizeArea.
+ * Content area to use as container for DockingFrames. It has a central {@link CWorkingArea} and a bottom {@link CMinimizeArea.
  * @author Andrea Vacondio
  *
  */

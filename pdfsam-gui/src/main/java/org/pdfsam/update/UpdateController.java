@@ -14,13 +14,16 @@
  */
 package org.pdfsam.update;
 
+import javax.inject.Named;
 import javax.swing.SwingWorker;
 
 import org.apache.commons.lang3.StringUtils;
 import org.bushe.swing.event.EventBus;
+import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
 import org.bushe.swing.event.annotation.ReferenceStrength;
 import org.pdfsam.configuration.PdfsamProperties;
+import org.pdfsam.context.DefaultI18nContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,6 +33,7 @@ import org.slf4j.LoggerFactory;
  * @author Andrea Vacondio
  * 
  */
+@Named
 public class UpdateController {
     private static final Logger LOG = LoggerFactory.getLogger(UpdateController.class);
     private static final String URI = "http://www.pdfsam.org/check-version.php?version=basic&remoteversion="
@@ -39,16 +43,17 @@ public class UpdateController {
 
     public UpdateController() {
         checker = UpdateCheckers.newHttpUpdateChecker(URI);
+        AnnotationProcessor.process(this);
     }
 
     @EventSubscriber(referenceStrength = ReferenceStrength.STRONG)
     public void checkForUpdates(UpdateCheckRequest event) {
+        LOG.debug(DefaultI18nContext.getInstance().i18n("Checking for updates"));
         doCheckForUpdatesAsync();
     }
 
     private void doCheckForUpdatesAsync() {
         SwingWorker<String, Void> worker = new AsyncUpdateChecker();
-
         worker.execute();
     }
 
@@ -73,7 +78,7 @@ public class UpdateController {
                 if (!PdfsamProperties.VERSION.equals(latest)) {
                     EventBus.publish(new UpdateAvailableEvent(latest));
                 } else {
-                    LOG.debug("No update available");
+                    LOG.debug(DefaultI18nContext.getInstance().i18n("No update available"));
                 }
             } catch (Exception e) {
                 LOG.warn("An error occurred while checking for updates");

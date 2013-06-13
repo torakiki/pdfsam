@@ -14,7 +14,6 @@
  */
 package org.pdfsam.gui;
 
-import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
@@ -32,6 +31,7 @@ import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
 import org.bushe.swing.event.annotation.ReferenceStrength;
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.gui.view.Views;
 import org.pdfsam.service.TaskExecutionRequestEvent;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
@@ -80,14 +80,7 @@ public abstract class BaseTaskExecutionModule implements Module {
         c.weightx = 0;
         c.weighty = 0;
         c.fill = GridBagConstraints.HORIZONTAL;
-        modulePanel.add(buttonPanel(), c);
-    }
-
-    private JPanel buttonPanel() {
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT, GAP, GAP));
-        buttonPanel.add(runButton);
-        return buttonPanel;
+        modulePanel.add(Views.newButtonsPanel(runButton), c);
     }
 
     /**

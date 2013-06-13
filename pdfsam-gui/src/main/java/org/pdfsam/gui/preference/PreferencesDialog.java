@@ -14,7 +14,6 @@
  */
 package org.pdfsam.gui.preference;
 
-import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
@@ -22,16 +21,14 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.border.EtchedBorder;
 
 import org.pdfsam.configuration.PdfsamProperties;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.about.AboutDialog;
+import org.pdfsam.gui.view.Views;
 
 /**
  * Dialog showing preferences panel.
@@ -78,16 +75,7 @@ public final class PreferencesDialog extends JDialog {
         c.weightx = 0;
         c.weighty = 0;
         c.fill = GridBagConstraints.HORIZONTAL;
-        add(buttonPanel(), c);
-    }
-
-    private JPanel buttonPanel() {
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT, 5, 5));
-        buttonPanel.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
-        JButton closeButton = new JButton(new CloseAction());
-        buttonPanel.add(closeButton);
-        return buttonPanel;
+        add(Views.newButtonsPanel(new CloseAction()), c);
     }
 
     /**

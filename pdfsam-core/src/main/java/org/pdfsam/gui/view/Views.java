@@ -17,10 +17,16 @@ package org.pdfsam.gui.view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
+import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -29,9 +35,7 @@ import javax.swing.JPanel;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.I18nContext;
 import org.pdfsam.gui.support.ToolTipBuilder;
-import org.pdfsam.gui.view.base.GradientPanel.GradientOrientation;
-import org.pdfsam.gui.view.base.GradientTitledPanel;
-import org.pdfsam.gui.view.base.PdfVersionConstrainedCheckbox;
+import org.pdfsam.gui.view.GradientPanel.GradientOrientation;
 import org.pdfsam.gui.view.prefix.PrefixField;
 import org.sejda.model.pdf.PdfVersion;
 
@@ -121,7 +125,7 @@ public final class Views {
                 .appendLine(
                         "It can contain special keywords like \"[TIMESTAMP]\" and they will be replaced with runtime value (e.g. the actual timestamp).")
                 .appendLine("See the context menu for the enabled keywords.");
-        GradientTitledPanel titledPanel = new GradientTitledPanel(title, tp, GradientOrientation.HORIZONTAL);
+        GradientTitledPanel titledPanel = new GradientTitledPanel(title, tp, GradientOrientation.VERTICAL);
         String labelText = ctx.i18n("Output file names prefix:");
         titledPanel.add(newLabeledComponent(new PrefixField(completeForSplit), labelText, ""), BorderLayout.CENTER);
         return titledPanel;
@@ -143,6 +147,35 @@ public final class Views {
         JCheckBox checkbox = new JCheckBox(DefaultI18nContext.getInstance().i18n("Overwrite if already exists"));
         checkbox.setSelected(true);
         return checkbox;
+    }
+
+    private static JPanel newButtonsPanel(List<JButton> buttons) {
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT, GAP, GAP));
+        for (JButton current : buttons) {
+            buttonPanel.add(current);
+        }
+        return buttonPanel;
+    }
+
+    /**
+     * @param actions
+     * @return a panel with right aligned buttons for the given actions
+     */
+    public static JPanel newButtonsPanel(AbstractAction... actions) {
+        List<JButton> buttons = new ArrayList<JButton>();
+        for (AbstractAction current : actions) {
+            buttons.add(new JButton(current));
+        }
+        return newButtonsPanel(buttons);
+    }
+
+    /**
+     * @param buttons
+     * @return a panel with right aligned buttons for the given buttons
+     */
+    public static JPanel newButtonsPanel(JButton... buttons) {
+        return newButtonsPanel(Arrays.asList(buttons));
     }
 
 }

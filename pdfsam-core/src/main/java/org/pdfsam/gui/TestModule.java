@@ -71,7 +71,7 @@ public class TestModule extends BaseTaskExecutionModule {
         c.fill = GridBagConstraints.BOTH;
         c.weighty = 1.0;
         c.weightx = 1.0;
-        c.insets = new Insets(5, 5, 5, 5); // top padding
+        c.insets = new Insets(5, 5, 10, 5); // top padding
         c.gridx = 0;
         c.gridy = 0;
         c.gridwidth = 3;
