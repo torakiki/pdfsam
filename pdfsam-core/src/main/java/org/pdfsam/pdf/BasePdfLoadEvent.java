@@ -1,5 +1,5 @@
 /*
- * Created on 16/nov/2012
+ * Created on 13/giu/2013
  * Copyright 2010 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the 
@@ -12,28 +12,39 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam.support.validation;
+package org.pdfsam.pdf;
 
-import org.junit.Assert;
-import org.junit.Test;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.pdfsam.gui.event.BaseEvent;
+import org.pdfsam.gui.event.EventNamespace;
 
 /**
+ * Base class for pdf load related events
+ * 
  * @author Andrea Vacondio
  * 
  */
-public class NonBlankStringValidatorTest {
+class BasePdfLoadEvent extends BaseEvent {
 
-    private Validator<String> victim = Validators.newNonBlankString();
+    private List<PdfDocumentDescriptor> documents = new ArrayList<PdfDocumentDescriptor>();
 
-    @Test
-    public void testNegative() {
-        Assert.assertFalse(victim.isValid(""));
-        Assert.assertFalse(victim.isValid("   "));
-        Assert.assertFalse(victim.isValid(null));
+    public BasePdfLoadEvent(EventNamespace namespace) {
+        super(namespace);
     }
 
-    @Test
-    public void testPositive() {
-        Assert.assertTrue(victim.isValid("Chuck Norris"));
+    public boolean add(PdfDocumentDescriptor e) {
+        return documents.add(e);
     }
+
+    public boolean addAll(List<PdfDocumentDescriptor> c) {
+        return documents.addAll(c);
+    }
+
+    public List<PdfDocumentDescriptor> getDocuments() {
+        return Collections.unmodifiableList(documents);
+    }
+
 }

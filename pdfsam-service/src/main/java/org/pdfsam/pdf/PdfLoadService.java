@@ -1,5 +1,5 @@
 /*
- * Created on 22/nov/2012
+ * Created on 13/giu/2013
  * Copyright 2010 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the 
@@ -12,22 +12,22 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam.service;
+package org.pdfsam.pdf;
 
-import org.bushe.swing.event.EventBus;
-import org.sejda.model.notification.EventListener;
-import org.sejda.model.notification.event.AbstractNotificationEvent;
+import java.util.List;
 
 /**
- * Listen for an {@link AbstractNotificationEvent} and broadcasts it to all the registered subscribers.
+ * Service to load pdf documents
  * 
  * @author Andrea Vacondio
- * @param <T>
- *            type of the event
+ * 
  */
-class TaskEventBroadcaster<T extends AbstractNotificationEvent> implements EventListener<T> {
+public interface PdfLoadService {
 
-    public void onEvent(T event) {
-        EventBus.publish(event);
-    }
+    /**
+     * @param toLoad
+     *            a list of {@link PdfDocumentDescriptor} the service is requested to load
+     * @return a list of {@link PdfDocumentDescriptor} the service has populated
+     */
+    List<PdfDocumentDescriptor> load(List<PdfDocumentDescriptor> toLoad);
 }

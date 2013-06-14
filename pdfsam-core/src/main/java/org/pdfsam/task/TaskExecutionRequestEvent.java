@@ -12,29 +12,29 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam.service;
+package org.pdfsam.task;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.mockito.Mockito;
-import org.pdfsam.service.TaskExecutionRequestEvent;
 import org.sejda.model.parameter.base.TaskParameters;
 
+import static org.pdfsam.support.RequireUtils.require;
+
 /**
+ * Event sent to request a parameters execution.
+ * 
  * @author Andrea Vacondio
  * 
  */
-public class TaskExecutionRequestEventTest {
-    @Test(expected = IllegalArgumentException.class)
-    public void testNull() {
-        new TaskExecutionRequestEvent(null);
+public class TaskExecutionRequestEvent {
+
+    private TaskParameters parameters;
+
+    public TaskExecutionRequestEvent(TaskParameters parameters) {
+        require(parameters != null, "Task parameters cannot be null");
+        this.parameters = parameters;
     }
 
-    @Test
-    public void testNotNull() {
-        TaskParameters mock = Mockito.mock(TaskParameters.class);
-        TaskExecutionRequestEvent victim = new TaskExecutionRequestEvent(mock);
-        Assert.assertEquals(mock, victim.getParameters());
+    public TaskParameters getParameters() {
+        return parameters;
     }
 
 }

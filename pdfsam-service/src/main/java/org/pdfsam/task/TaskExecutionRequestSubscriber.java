@@ -12,7 +12,7 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam.service;
+package org.pdfsam.task;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -39,6 +39,7 @@ import org.slf4j.LoggerFactory;
 class TaskExecutionRequestSubscriber {
     private static final Logger LOG = LoggerFactory.getLogger(TaskExecutionRequestSubscriber.class);
 
+    @Inject
     private ExecutionService service;
 
     public TaskExecutionRequestSubscriber() {
@@ -63,11 +64,6 @@ class TaskExecutionRequestSubscriber {
         LOG.trace("Task execution request received");
         service.submit(event.getParameters());
         LOG.trace("Task execution submitted");
-    }
-
-    @Inject
-    public void setService(ExecutionService service) {
-        this.service = service;
     }
 
 }

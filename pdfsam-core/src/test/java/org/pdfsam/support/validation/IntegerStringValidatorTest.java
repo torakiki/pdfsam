@@ -23,7 +23,7 @@ import org.junit.Test;
  */
 public class IntegerStringValidatorTest {
 
-    private Validator<String> victim = new IntegerStringValidator();
+    private Validator<String> victim = Validators.newIntegerString();
 
     @Test
     public void testNegative() {

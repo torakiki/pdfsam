@@ -1,5 +1,5 @@
 /*
- * Created on 21/nov/2012
+ * Created on 27/nov/2012
  * Copyright 2010 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the 
@@ -12,29 +12,22 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam.service;
+package org.pdfsam.task;
 
 import org.sejda.model.parameter.base.TaskParameters;
 
-import static org.pdfsam.support.RequireUtils.require;
-
 /**
- * Event sent to request a parameters execution.
+ * Services related to the task execution.
  * 
  * @author Andrea Vacondio
  * 
  */
-public class TaskExecutionRequestEvent {
+public interface ExecutionService {
 
-    private TaskParameters parameters;
-
-    public TaskExecutionRequestEvent(TaskParameters parameters) {
-        require(parameters != null, "Task parameters cannot be null");
-        this.parameters = parameters;
-    }
-
-    public TaskParameters getParameters() {
-        return parameters;
-    }
-
+    /**
+     * Submits the input parameters for execution.
+     * 
+     * @param params
+     */
+    void submit(TaskParameters params);
 }

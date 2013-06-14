@@ -1,5 +1,5 @@
 /*
- * Created on 08/feb/2013
+ * Created on 13/giu/2013
  * Copyright 2010 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the 
@@ -12,16 +12,19 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam.gui.event;
+package org.pdfsam.pdf;
+
+import org.pdfsam.gui.event.EventNamespace;
 
 /**
- * The component will respond to events in its {@link EventNamespace}.
+ * Request the app to load one or many pdf documents
  * 
  * @author Andrea Vacondio
  * 
  */
-public interface WithEventNamespace {
+public class PdfLoadRequestEvent extends BasePdfLoadEvent {
 
-    EventNamespace getEventNamespace();
-
+    public PdfLoadRequestEvent(EventNamespace namespace) {
+        super(namespace);
+    }
 }

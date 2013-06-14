@@ -1,5 +1,5 @@
 /*
- * Created on 27/nov/2012
+ * Created on 22/nov/2012
  * Copyright 2010 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the 
@@ -12,22 +12,22 @@
  * if not, write to the Free Software Foundation, Inc., 
  *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.pdfsam.service;
+package org.pdfsam.task;
 
-import org.sejda.model.parameter.base.TaskParameters;
+import org.bushe.swing.event.EventBus;
+import org.sejda.model.notification.EventListener;
+import org.sejda.model.notification.event.AbstractNotificationEvent;
 
 /**
- * Services related to the task execution.
+ * Listen for an {@link AbstractNotificationEvent} and broadcasts it to all the registered subscribers.
  * 
  * @author Andrea Vacondio
- * 
+ * @param <T>
+ *            type of the event
  */
-public interface ExecutionService {
+class TaskEventBroadcaster<T extends AbstractNotificationEvent> implements EventListener<T> {
 
-    /**
-     * Submits the input parameters for execution.
-     * 
-     * @param params
-     */
-    void submit(TaskParameters params);
+    public void onEvent(T event) {
+        EventBus.publish(event);
+    }
 }

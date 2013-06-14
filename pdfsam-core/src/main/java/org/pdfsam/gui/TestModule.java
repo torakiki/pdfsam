@@ -37,11 +37,6 @@ public class TestModule extends BaseTaskExecutionModule {
 
     private static final EventNamespace MERGE_NAMESPACE = EventNamespace.newParentInstance("Merge");
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.pdfsam.gui.Module#getDescriptor()
-     */
     @Override
     public ModuleDescriptor getDescriptor() {
         return new ModuleDescriptor("IdModule", ModuleCategory.MERGE, "Merge", null);
@@ -58,11 +53,6 @@ public class TestModule extends BaseTaskExecutionModule {
         return null;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.pdfsam.gui.TaskExecutionModule#getInnerPanel()
-     */
     @Override
     protected JPanel getInnerPanel() {
         JPanel panel = new JPanel(new GridBagLayout());
@@ -90,5 +80,10 @@ public class TestModule extends BaseTaskExecutionModule {
         c.gridheight = 1;
         panel.add(inner, c);
         return panel;
+    }
+
+    @Override
+    public EventNamespace getEventNamespace() {
+        return MERGE_NAMESPACE;
     }
 }

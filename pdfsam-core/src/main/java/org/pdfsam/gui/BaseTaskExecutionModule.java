@@ -31,8 +31,11 @@ import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
 import org.bushe.swing.event.annotation.ReferenceStrength;
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.gui.event.WithEventNamespace;
 import org.pdfsam.gui.view.Views;
-import org.pdfsam.service.TaskExecutionRequestEvent;
+import org.pdfsam.pdf.PdfLoadCompletedEvent;
+import org.pdfsam.pdf.PdfLoadRequestEvent;
+import org.pdfsam.task.TaskExecutionRequestEvent;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 import org.sejda.model.parameter.base.TaskParameters;
@@ -45,7 +48,7 @@ import static org.pdfsam.gui.view.Views.GAP;
  * @author Andrea Vacondio
  * 
  */
-public abstract class BaseTaskExecutionModule implements Module {
+public abstract class BaseTaskExecutionModule implements Module, WithEventNamespace {
 
     private JButton runButton = new JButton(new RunAction());
     private JPanel modulePanel = new JPanel(new GridBagLayout());
@@ -140,6 +143,22 @@ public abstract class BaseTaskExecutionModule implements Module {
         @EventSubscriber(referenceStrength = ReferenceStrength.STRONG)
         public void enableRunButtonOnTaskFailure(TaskExecutionFailedEvent event) {
             runButton.setEnabled(true);
+        }
+
+        @EventSubscriber(referenceStrength = ReferenceStrength.STRONG)
+        public void disableRunButtonWhileLoadingDocuments(PdfLoadRequestEvent event) {
+            if (event.getNamespace().isParentOf(getEventNamespace())) {
+                // I'm still loading documents
+                runButton.setEnabled(false);
+            }
+        }
+
+        @EventSubscriber(referenceStrength = ReferenceStrength.STRONG)
+        public void enableRunButtonOnLoadDocumentsCompletion(PdfLoadCompletedEvent event) {
+            if (event.getNamespace().isParentOf(getEventNamespace())) {
+                // I'm done loading documents
+                runButton.setEnabled(true);
+            }
         }
 
     }

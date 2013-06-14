@@ -22,7 +22,7 @@ import org.junit.Test;
  * 
  */
 public class IntRangeStringValidatorTest {
-    private Validator<String> victim = new IntRangeStringValidator(0, 5);
+    private Validator<String> victim = Validators.newIntRangeString(0, 5);
 
     @Test
     public void testNegative() {
