@@ -47,7 +47,7 @@ public final class EventNamespace {
      * @return true if this is the {@link EventNamespace#NULL} or is a parent of target
      */
     public boolean isParentOf(EventNamespace target) {
-        return !equals(target) && target.getNamespaceId().startsWith(namespaceId);
+        return target.getNamespaceId().startsWith(namespaceId);
     }
 
     @Override

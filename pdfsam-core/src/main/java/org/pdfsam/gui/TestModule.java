@@ -23,6 +23,7 @@ import javax.swing.JPanel;
 import org.pdfsam.gui.event.EventNamespace;
 import org.pdfsam.gui.view.Views;
 import org.pdfsam.gui.view.output.OutputViews;
+import org.pdfsam.gui.view.selection.SelectionPanel;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.PdfsamModule;
@@ -57,7 +58,7 @@ public class TestModule extends BaseTaskExecutionModule {
     protected JPanel getInnerPanel() {
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
-        JPanel top = new JPanel();
+        SelectionPanel top = new SelectionPanel(MERGE_NAMESPACE);
         c.fill = GridBagConstraints.BOTH;
         c.weighty = 1.0;
         c.weightx = 1.0;

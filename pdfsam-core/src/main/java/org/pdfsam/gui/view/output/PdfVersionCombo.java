@@ -28,8 +28,8 @@ import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.event.AddPdfVersionConstraintEvent;
 import org.pdfsam.gui.event.ChangedSelectedPdfVersionEvent;
 import org.pdfsam.gui.event.EventNamespace;
-import org.pdfsam.gui.event.WithEventNamespace;
 import org.pdfsam.gui.event.RemovePdfVersionConstraintEvent;
+import org.pdfsam.gui.event.WithEventNamespace;
 import org.pdfsam.support.RequireUtils;
 import org.sejda.model.pdf.PdfVersion;
 

@@ -42,6 +42,7 @@ public class PdfDocumentDescriptorTest {
         victim.addMedatada(PdfMetadataKey.AUTHOR, "Chuck Norris");
         victim.addMedatada(PdfMetadataKey.SUBJECT, "test");
         PdfDocumentDescriptor copy = PdfDocumentDescriptor.newCopy(victim);
+        assertEquals(victim.getUuid(), copy.getUuid());
         assertEquals(victim.getFile(), copy.getFile());
         assertEquals(victim.getPages(), copy.getPages());
         assertEquals(victim.getPassword(), copy.getPassword());

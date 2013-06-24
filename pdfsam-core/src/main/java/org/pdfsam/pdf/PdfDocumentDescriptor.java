@@ -15,10 +15,10 @@
 package org.pdfsam.pdf;
 
 import java.io.File;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.UUID;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.support.RequireUtils;
@@ -36,6 +36,7 @@ import static org.pdfsam.support.RequireUtils.require;
  */
 public final class PdfDocumentDescriptor {
 
+    private UUID uuid;
     private int pages;
     private boolean encrypted;
     private String password;
@@ -46,6 +47,11 @@ public final class PdfDocumentDescriptor {
     private PdfDocumentDescriptor(File file, String password) {
         this.file = file;
         this.password = password;
+        this.uuid = UUID.randomUUID();
+    }
+
+    public UUID getUuid() {
+        return uuid;
     }
 
     public void addMedatada(PdfMetadataKey key, String metadata) {
@@ -104,10 +110,6 @@ public final class PdfDocumentDescriptor {
         return PdfFileSource.newInstanceWithPassword(file, password);
     }
 
-    public Date getDocumentLastModificationDate() {
-        return new Date(file.lastModified());
-    }
-
     public static PdfDocumentDescriptor newDescriptor(File file, String password) {
         require(file != null, "Input file is mandatory");
         return new PdfDocumentDescriptor(file, password);
@@ -121,6 +123,7 @@ public final class PdfDocumentDescriptor {
     public static PdfDocumentDescriptor newCopy(PdfDocumentDescriptor toCopy) {
         require(toCopy != null, "Cannot copy a null document descriptor");
         PdfDocumentDescriptor copy = new PdfDocumentDescriptor(toCopy.file, toCopy.password);
+        copy.uuid = toCopy.uuid;
         copy.encrypted = toCopy.isEncrypted();
         copy.pages = toCopy.getPages();
         copy.version = toCopy.getVersion();

@@ -67,6 +67,7 @@ public class ITextPdfLoadService implements PdfLoadService {
                 nullSafeClosePdfReader(reader);
             }
         }
+        LOG.debug(DefaultI18nContext.getInstance().i18n("Documents loaded"));
         return loaded;
     }
 

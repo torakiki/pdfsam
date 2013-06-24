@@ -1,0 +1,74 @@
+/*
+ * Created on 15/giu/2013
+ * Copyright 2010 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ *
+ * This program is free software; you can redistribute it and/or modify it under the terms of the 
+ * GNU General Public License as published by the Free Software Foundation; 
+ * either version 2 of the License.
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License along with this program; 
+ * if not, write to the Free Software Foundation, Inc., 
+ *  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package org.pdfsam.gui.view.selection;
+
+import java.awt.BorderLayout;
+
+import javax.swing.BorderFactory;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JViewport;
+import javax.swing.ListSelectionModel;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.UIManager;
+import javax.swing.table.TableColumn;
+
+import org.pdfsam.gui.event.EventNamespace;
+import org.pdfsam.gui.event.WithEventNamespace;
+
+/**
+ * Panel that lets the user select input documents
+ * 
+ * @author Andrea Vacondio
+ * 
+ */
+public class SelectionPanel extends JPanel implements WithEventNamespace {
+
+    private EventNamespace namespace = EventNamespace.NULL;
+    private SelectionTable selectionTable;
+    private SelectionTableModel tableModel;
+
+    public SelectionPanel(EventNamespace namespace) {
+        super(new BorderLayout());
+        this.namespace = namespace;
+        add(new SelectionTableToolbar(namespace), BorderLayout.PAGE_START);
+
+        tableModel = new SelectionTableModel(namespace, new SelectionTableColumn<?>[] { StringColumn.NAME,
+                IntegerColumn.PAGES, LongColumn.SIZE, StringColumn.PAGE_SELECTION, LongColumn.LAST_MODIFIED });
+        selectionTable = new SelectionTable(tableModel, namespace);
+
+        selectionTable.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        for (int i = 0; i < selectionTable.getColumnCount(); i++) {
+            TableColumn column = selectionTable.getColumnModel().getColumn(i);
+            column.setCellRenderer(tableModel.getColumnRenderer(i));
+        }
+
+        JScrollPane scrollPane = new JScrollPane(selectionTable);
+        scrollPane.setBorder(BorderFactory.createLineBorder(UIManager.getColor("MenuItem.selectionBackground"), 1));
+        JTable header = selectionTable.getRowHeader();
+        JViewport jv = new JViewport();
+        jv.setView(header);
+        jv.setPreferredSize(header.getMaximumSize());
+        scrollPane.setRowHeader(jv);
+        scrollPane.setCorner(ScrollPaneConstants.UPPER_LEFT_CORNER, header.getTableHeader());
+        add(scrollPane, BorderLayout.CENTER);
+    }
+
+    public EventNamespace getEventNamespace() {
+        return namespace;
+    }
+
+}
