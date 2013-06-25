@@ -167,7 +167,7 @@ public final class Views {
      * @return a panel with right aligned buttons for the given actions
      */
     public static JPanel newButtonsPanel(AbstractAction... actions) {
-        List<JButton> buttons = new ArrayList<JButton>();
+        List<JButton> buttons = new ArrayList<>();
         for (AbstractAction current : actions) {
             buttons.add(new JButton(current));
         }

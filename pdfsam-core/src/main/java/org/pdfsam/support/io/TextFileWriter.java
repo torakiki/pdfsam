@@ -48,15 +48,11 @@ public final class TextFileWriter implements OngoingFileWrite {
 
     @Override
     public void to(File file) {
-        FileWriter fileWriter = null;
-        try {
-            fileWriter = new FileWriter(file);
+        try (FileWriter fileWriter = new FileWriter(file)) {
             IOUtils.write(content, fileWriter);
             LOG.info(DefaultI18nContext.getInstance().i18n("File {0} saved.", file.getName()));
         } catch (Exception e) {
             LOG.error(DefaultI18nContext.getInstance().i18n("Error saving log file."), e);
-        } finally {
-            IOUtils.closeQuietly(fileWriter);
         }
 
     }

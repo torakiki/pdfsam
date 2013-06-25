@@ -24,7 +24,7 @@ public class TestCycles {
     private static final Logger LOG = LoggerFactory.getLogger(TestCycles.class);
 
     private JDepend jdepend = new JDepend();
-    private Collection<? extends Object> packages = new ArrayList<Object>();
+    private Collection<? extends Object> packages = new ArrayList<>();
 
     @Before
     public void setUp() throws IOException {

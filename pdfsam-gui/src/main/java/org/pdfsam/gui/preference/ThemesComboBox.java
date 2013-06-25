@@ -35,7 +35,7 @@ import org.pdfsam.support.StringKeyValueItem;
  * @author Andrea Vacondio
  * 
  */
-class ThemesComboBox extends JComboBox {
+class ThemesComboBox extends JComboBox<StringKeyValueItem> {
 
     public ThemesComboBox() {
         initItems();

@@ -39,26 +39,26 @@ class DefaultSoundPlayer implements SoundPlayer {
     private static final Logger LOG = LoggerFactory.getLogger(DefaultSoundPlayer.class);
 
     public void play(Sound sound) {
-        try {
-            AudioInputStream aundioStream = AudioSystem.getAudioInputStream(this.getClass().getResource(
-                    sound.getSource()));
-            DataLine.Info info = new DataLine.Info(Clip.class, aundioStream.getFormat());
-            Clip clip = (Clip) AudioSystem.getLine(info);
-            clip.open(aundioStream);
-            doPlayAsync(clip);
-        } catch (Exception e) {
-            LOG.warn(DefaultI18nContext.getInstance().i18n("Error playing sound"), e);
-        }
+        doPlayAsync(sound);
     }
 
-    private void doPlayAsync(final Clip clip) {
+    private void doPlayAsync(final Sound sound) {
         SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>() {
 
             @Override
             public Void doInBackground() {
-                clip.setFramePosition(0);
-                clip.stop();
-                clip.start();
+                try (AudioInputStream aundioStream = AudioSystem.getAudioInputStream(this.getClass().getResource(
+                        sound.getSource()))) {
+                    DataLine.Info info = new DataLine.Info(Clip.class, aundioStream.getFormat());
+                    try (Clip clip = (Clip) AudioSystem.getLine(info)) {
+                        clip.open(aundioStream);
+                        clip.setFramePosition(0);
+                        clip.stop();
+                        clip.start();
+                    }
+                } catch (Exception e) {
+                    LOG.warn(DefaultI18nContext.getInstance().i18n("Error playing sound"), e);
+                }
                 return null;
             }
 

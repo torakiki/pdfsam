@@ -33,7 +33,7 @@ import org.pdfsam.gui.event.EventNamespace;
  */
 class BasePdfLoadEvent extends BaseEvent {
 
-    private List<PdfDocumentDescriptor> documents = new ArrayList<PdfDocumentDescriptor>();
+    private List<PdfDocumentDescriptor> documents = new ArrayList<>();
 
     public BasePdfLoadEvent(EventNamespace namespace) {
         super(namespace);

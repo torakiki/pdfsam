@@ -48,7 +48,7 @@ import ch.qos.logback.core.AppenderBase;
 public class TextPaneAppender extends AppenderBase<ILoggingEvent> {
     private static final Map<Level, SimpleAttributeSet> ATTRIBUTES;
     static {
-        Map<Level, SimpleAttributeSet> attributesCache = new HashMap<Level, SimpleAttributeSet>();
+        Map<Level, SimpleAttributeSet> attributesCache = new HashMap<>();
         attributesCache.put(Level.ERROR, new SimpleAttributeSet());
         attributesCache.put(Level.WARN, new SimpleAttributeSet());
         ATTRIBUTES = Collections.unmodifiableMap(attributesCache);

@@ -34,7 +34,7 @@ import static org.pdfsam.support.RequireUtils.require;
  */
 public class ToolTipBuilder {
 
-    private List<String> lines = new ArrayList<String>();
+    private List<String> lines = new ArrayList<>();
 
     /**
      * Adds the given line to the builder

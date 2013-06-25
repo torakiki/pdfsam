@@ -46,7 +46,7 @@ public final class PdfDocumentDescriptor {
     private String password;
     private File file;
     private String version;
-    private Map<PdfMetadataKey, String> metadata = new HashMap<PdfMetadataKey, String>();
+    private Map<PdfMetadataKey, String> metadata = new HashMap<>();
 
     private PdfDocumentDescriptor(File file, String password) {
         this.file = file;

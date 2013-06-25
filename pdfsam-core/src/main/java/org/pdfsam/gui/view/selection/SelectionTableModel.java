@@ -41,8 +41,8 @@ import static org.pdfsam.support.RequireUtils.require;
  */
 public class SelectionTableModel extends AbstractTableModel implements WithEventNamespace {
 
-    private List<SelectionTableRowData> data = new ArrayList<SelectionTableRowData>();
-    private List<SelectionTableColumn<?>> columns = new ArrayList<SelectionTableColumn<?>>();
+    private List<SelectionTableRowData> data = new ArrayList<>();
+    private List<SelectionTableColumn<?>> columns = new ArrayList<>();
     private EventNamespace eventNamespace;
 
     public SelectionTableModel(EventNamespace eventNamespace, SelectionTableColumn<?>... columns) {

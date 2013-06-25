@@ -105,7 +105,7 @@ public class PreferencesPanel extends JPanel {
                 .i18n("Size in px:"),
                 DefaultI18nContext.getInstance().i18n("Pixel size of the thumbnails (between 130px and 390px)"));
 
-        JPanel thumbCreator = Views.newLabeledComponentWhiteBackground(new JComboBox(), DefaultI18nContext
+        JPanel thumbCreator = Views.newLabeledComponentWhiteBackground(new JComboBox<String>(), DefaultI18nContext
                 .getInstance().i18n("Thumbnails creator:"),
                 DefaultI18nContext.getInstance().i18n("Library used to generate thumbnails"));
 

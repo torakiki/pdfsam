@@ -22,7 +22,6 @@ import org.junit.Test;
 import org.pdfsam.TestUtils;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -64,7 +63,7 @@ public class EventNamespaceTest {
     @Test
     public void testIsParentOfItself() {
         EventNamespace root = EventNamespace.newParentInstance("root");
-        assertFalse(root.isParentOf(root));
+        assertTrue(root.isParentOf(root));
     }
 
     @Test

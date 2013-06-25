@@ -33,7 +33,7 @@ import org.pdfsam.gui.BaseTaskExecutionModule;
  */
 public class TaskExecutionModulesLoadedEvent {
 
-    private List<BaseTaskExecutionModule> modules = new ArrayList<BaseTaskExecutionModule>();
+    private List<BaseTaskExecutionModule> modules = new ArrayList<>();
 
     public void addAll(Collection<BaseTaskExecutionModule> modules) {
         this.modules.addAll(modules);

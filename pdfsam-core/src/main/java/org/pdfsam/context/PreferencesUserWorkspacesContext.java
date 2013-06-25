@@ -34,10 +34,11 @@ import org.slf4j.LoggerFactory;
 
 import static java.util.Collections.reverse;
 import static java.util.Collections.unmodifiableList;
-import static org.pdfsam.support.RequireUtils.require;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
+
+import static org.pdfsam.support.RequireUtils.require;
 
 /**
  * {@link UserWorkspacesContext} implementation using {@link Preferences}.
@@ -49,7 +50,7 @@ class PreferencesUserWorkspacesContext implements UserWorkspacesContext {
     private static final Logger LOG = LoggerFactory.getLogger(PreferencesUserWorkspacesContext.class);
     static final int MAX_CAPACITY = 4;
 
-    private Map<String, String> cache = new LRUMap<String, String>(MAX_CAPACITY);
+    private Map<String, String> cache = new LRUMap<>(MAX_CAPACITY);
     private Preferences prefs;
 
     public PreferencesUserWorkspacesContext() {
@@ -59,7 +60,7 @@ class PreferencesUserWorkspacesContext implements UserWorkspacesContext {
 
     private void populateCache() {
         try {
-            SortedSet<String> keys = new TreeSet<String>(Arrays.asList(prefs.keys()));
+            SortedSet<String> keys = new TreeSet<>(Arrays.asList(prefs.keys()));
             for (String key : keys) {
                 String currentValue = prefs.get(key, EMPTY);
                 if (isNotBlank(currentValue)) {
@@ -87,7 +88,7 @@ class PreferencesUserWorkspacesContext implements UserWorkspacesContext {
 
     @Override
     public List<String> getWorkspaces() {
-        List<String> values = new ArrayList<String>(cache.values());
+        List<String> values = new ArrayList<>(cache.values());
         reverse(values);
         return unmodifiableList(values);
     }

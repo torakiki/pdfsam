@@ -48,7 +48,7 @@ public class PdfVersionConstrainedCheckbox extends JCheckBox implements WithEven
         this.constraint = constraint;
         addItemListener(new ItemStateChangedNotifier());
         setToolTipText(DefaultI18nContext.getInstance().i18n("Pdf version required: {0}",
-                Double.toString(constraint.getVersionAsDouble())));
+                Double.toString(this.constraint.getVersionAsDouble())));
     }
 
     public void setEventNamespace(EventNamespace namespace) {

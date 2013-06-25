@@ -26,7 +26,6 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
-import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultI18nContext;
 import org.slf4j.Logger;
@@ -35,11 +34,12 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
-import static org.pdfsam.support.RequireUtils.require;
-import static org.pdfsam.support.XmlUtils.nullSafeGetStringAttribute;
-
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
+
+import static org.pdfsam.support.RequireUtils.require;
+
+import static org.pdfsam.support.XmlUtils.nullSafeGetStringAttribute;
 
 /**
  * Checks for update over a http connection
@@ -72,20 +72,19 @@ class HttpUpdateChecker implements UpdateChecker {
 
     public String getLatestVersion() {
         HttpURLConnection urlConn = null;
-        InputStream is = null;
         try {
             URL url = new URL(uri);
             urlConn = (HttpURLConnection) url.openConnection();
             urlConn.setRequestProperty("user agent", "Mozilla/5.0 (compatible; MSIE 6.0; Windows NT 5.1");
-            is = urlConn.getInputStream();
-            return parseXmlStream(is);
+            try (InputStream is = urlConn.getInputStream()) {
+                return parseXmlStream(is);
+            }
         } catch (Exception e) {
             LOG.warn(DefaultI18nContext.getInstance().i18n("Unable to get latest available version"), e);
         } finally {
             if (urlConn != null) {
                 urlConn.disconnect();
             }
-            IOUtils.closeQuietly(is);
         }
         return EMPTY;
     }

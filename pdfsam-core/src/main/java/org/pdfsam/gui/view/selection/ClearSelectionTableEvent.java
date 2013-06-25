@@ -29,6 +29,6 @@ import org.pdfsam.gui.event.EventNamespace;
  */
 public class ClearSelectionTableEvent extends BaseEvent {
     public ClearSelectionTableEvent(EventNamespace namespace) {
-        // just to force constructor
+        super(namespace);
     }
 }

@@ -31,8 +31,8 @@ import javax.swing.JMenuBar;
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.gui.Module;
 import org.pdfsam.gui.BaseTaskExecutionModule;
+import org.pdfsam.gui.Module;
 import org.pdfsam.gui.about.AboutDialog;
 import org.pdfsam.gui.event.TaskExecutionModulesLoadedEvent;
 import org.pdfsam.gui.preference.PreferencesDialog;
@@ -42,6 +42,7 @@ import org.pdfsam.gui.workspace.SaveWorkspaceAction;
 import org.pdfsam.module.ModuleCategory;
 
 import bibliothek.gui.dock.common.CControl;
+
 import static org.pdfsam.support.RequireUtils.require;
 
 /**
@@ -52,7 +53,7 @@ import static org.pdfsam.support.RequireUtils.require;
  */
 public class MainMenuBar extends JMenuBar {
 
-    private Map<MenuType, JMenu> menus = new HashMap<MenuType, JMenu>();
+    private Map<MenuType, JMenu> menus = new HashMap<>();
     private CControl control;
 
     public MainMenuBar(CControl control) {
@@ -115,7 +116,7 @@ public class MainMenuBar extends JMenuBar {
 
     @EventSubscriber
     public void initModulesMenu(TaskExecutionModulesLoadedEvent event) {
-        Map<ModuleCategory, JMenu> moduleSubmenus = new HashMap<ModuleCategory, JMenu>();
+        Map<ModuleCategory, JMenu> moduleSubmenus = new HashMap<>();
         for (BaseTaskExecutionModule currentModule : event.getModules()) {
             ModuleCategory category = currentModule.getDescriptor().getCategory();
             JMenu currentMenu = moduleSubmenus.get(category);

@@ -34,6 +34,7 @@ import org.pdfsam.gui.event.ChangedSelectedPdfVersionEvent;
 import org.pdfsam.gui.event.EventNamespace;
 import org.pdfsam.gui.event.RemovePdfVersionConstraintEvent;
 import org.pdfsam.gui.event.WithEventNamespace;
+import org.pdfsam.gui.view.output.PdfVersionCombo.PdfVersionComboItem;
 import org.pdfsam.support.RequireUtils;
 import org.sejda.model.pdf.PdfVersion;
 
@@ -43,9 +44,9 @@ import org.sejda.model.pdf.PdfVersion;
  * @author Andrea Vacondio
  * 
  */
-public class PdfVersionCombo extends JComboBox implements WithEventNamespace {
+public class PdfVersionCombo extends JComboBox<PdfVersionComboItem> implements WithEventNamespace {
     private EventNamespace eventNamespace = EventNamespace.NULL;
-    private Set<Integer> filters = new HashSet<Integer>();
+    private Set<Integer> filters = new HashSet<>();
 
     public PdfVersionCombo() {
         for (PdfVersion current : PdfVersion.values()) {
@@ -76,7 +77,7 @@ public class PdfVersionCombo extends JComboBox implements WithEventNamespace {
     public void onChangedSelectedPdfVersion(ChangedSelectedPdfVersionEvent event) {
         if (event.getNamespace().isParentOf(eventNamespace)) {
             for (int i = 0; i < getItemCount(); i++) {
-                PdfVersionComboItem item = (PdfVersionComboItem) getModel().getElementAt(i);
+                PdfVersionComboItem item = getModel().getElementAt(i);
                 if (event.hasPdfVersion()) {
                     item.setSourceVersion(event.getPdfVersion() == item.getVersion());
                 } else {

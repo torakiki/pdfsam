@@ -33,7 +33,7 @@ public class LRUMapTest {
 
     @Test
     public void testPut() {
-        Map<String, String> victim = new LRUMap<String, String>(2);
+        Map<String, String> victim = new LRUMap<>(2);
         victim.put("1", "A");
         victim.put("2", "B");
         assertTrue(victim.size() == 2);

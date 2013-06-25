@@ -50,7 +50,7 @@ public class ITextPdfLoadService implements PdfLoadService {
 
     public List<PdfDocumentDescriptor> load(List<PdfDocumentDescriptor> toLoad) {
         LOG.debug(DefaultI18nContext.getInstance().i18n("Loading documents"));
-        List<PdfDocumentDescriptor> loaded = new ArrayList<PdfDocumentDescriptor>(toLoad.size());
+        List<PdfDocumentDescriptor> loaded = new ArrayList<>(toLoad.size());
         for (PdfDocumentDescriptor current : toLoad) {
             PdfReader reader = null;
             try {
