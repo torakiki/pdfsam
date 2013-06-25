@@ -19,21 +19,22 @@
 package org.pdfsam.gui.preference;
 
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
 import javax.swing.JTextField;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.support.validation.Validator;
 
-import static org.pdfsam.support.RequireUtils.require;
-
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
+
+import static org.pdfsam.support.RequireUtils.require;
 
 /**
  * Text field providing visual feedback for invalid input. Input is validated on Enter key pressed or on Focus lost.
@@ -43,16 +44,19 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
  */
 abstract class AbstractValidableTextField extends JTextField {
 
-    private static final Color INVALID_COLOR = new Color(255, 192, 192);
+    private static final int INVALID_SIGN_DIAMETER = 10;
+    private static final int INVALID_SIGN_PADDING_RIGHT = 4;
+
     private Validator<String> validator;
 
     AbstractValidableTextField(Validator<String> validator) {
         require(validator != null, "Validator cannot be null");
         this.validator = validator;
+        setBackground(Color.WHITE);
+        setToolTipText(StringUtils.EMPTY);
         ValidateActionListener listener = new ValidateActionListener();
         addActionListener(listener);
         addFocusListener(listener);
-        getDocument().addDocumentListener(new VisualValidationDocumentListener());
     }
 
     /**
@@ -60,13 +64,24 @@ abstract class AbstractValidableTextField extends JTextField {
      */
     abstract void onValidInput();
 
-    private void doVisuallyInvalid() {
-        setBackground(INVALID_COLOR);
-    }
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+        String input = getText();
+        if (isNotBlank(input) && !validator.isValid(input)) {
+            Graphics2D g2 = (Graphics2D) g.create();
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-    private void doVisuallyValid() {
-        setBackground(Color.WHITE);
-        setToolTipText(StringUtils.EMPTY);
+            int x = getWidth() - INVALID_SIGN_PADDING_RIGHT - INVALID_SIGN_DIAMETER;
+            int y = (getHeight() - INVALID_SIGN_DIAMETER) / 2;
+            g2.setPaint(Color.RED);
+            g2.fillOval(x, y, INVALID_SIGN_DIAMETER + 1, INVALID_SIGN_DIAMETER + 1);
+            g2.setPaint(Color.WHITE);
+            g2.drawLine(x, y, x + INVALID_SIGN_DIAMETER, y + INVALID_SIGN_DIAMETER);
+            g2.drawLine(x, y + INVALID_SIGN_DIAMETER, x + INVALID_SIGN_DIAMETER, y);
+
+            g2.dispose();
+        }
     }
 
     /**
@@ -84,7 +99,6 @@ abstract class AbstractValidableTextField extends JTextField {
         @Override
         public void focusGained(FocusEvent e) {
             // do nothing
-
         }
 
         @Override
@@ -99,36 +113,6 @@ abstract class AbstractValidableTextField extends JTextField {
             }
         }
 
-    }
-
-    /**
-     * Handles the visual aspect of the validation when the document changes.
-     * 
-     * @author Andrea Vacondio
-     * 
-     */
-    class VisualValidationDocumentListener implements DocumentListener {
-
-        public void insertUpdate(DocumentEvent e) {
-            validationVisualElements(e);
-        }
-
-        public void removeUpdate(DocumentEvent e) {
-            validationVisualElements(e);
-        }
-
-        public void changedUpdate(DocumentEvent e) {
-            validationVisualElements(e);
-        }
-
-        private void validationVisualElements(DocumentEvent e) {
-            String input = getText();
-            if (isNotBlank(input) && !validator.isValid(input)) {
-                doVisuallyInvalid();
-            } else {
-                doVisuallyValid();
-            }
-        }
     }
 
 }

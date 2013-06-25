@@ -153,6 +153,7 @@ public class MainMenuBar extends JMenuBar {
                 SwingUtils.centrePositionOnScreen(dialog);
                 dialog.setVisible(true);
             }
+            dialog.toFront();
         }
     }
 
