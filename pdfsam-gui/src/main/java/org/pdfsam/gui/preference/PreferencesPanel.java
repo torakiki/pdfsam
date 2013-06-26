@@ -32,6 +32,7 @@ import org.pdfsam.context.IntUserPreference;
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.gui.FlatBorder;
 import org.pdfsam.gui.SharedJFileChooser;
+import org.pdfsam.gui.view.AbstractValidableTextField;
 import org.pdfsam.gui.view.Views;
 import org.pdfsam.support.filter.FileFilterType;
 import org.pdfsam.support.validation.Validators;
@@ -92,7 +93,7 @@ public class PreferencesPanel extends JPanel {
                 390)) {
 
             @Override
-            void onValidInput() {
+            protected void onValidInput() {
                 DefaultUserContext.getInstance().setIntegerPreference(IntUserPreference.THUMBNAILS_SIZE,
                         Integer.parseInt(getText()));
 
@@ -125,7 +126,7 @@ public class PreferencesPanel extends JPanel {
                 return SharedJFileChooser.getInstance(FileFilterType.XML, JFileChooser.FILES_AND_DIRECTORIES);
             }
         };
-
+        defaultWorkspace.setValidator(Validators.decorateAsValidBlankString(FileFilterType.XML));
         defaultWorkspace.setTooltip(DefaultI18nContext.getInstance().i18n(
                 "Select a previously saved workspace that will be automatically loaded at startup"));
         defaultWorkspace.setDefaultFieldValue(DefaultUserContext.getInstance().getDefaultWorkspacePath());
@@ -137,6 +138,7 @@ public class PreferencesPanel extends JPanel {
                 return SharedJFileChooser.getInstance(FileFilterType.DIRECTORIES, JFileChooser.DIRECTORIES_ONLY);
             }
         };
+        defaultWorkingPath.setValidator(Validators.decorateAsValidBlankString(FileFilterType.DIRECTORIES));
         defaultWorkingPath.setTooltip(DefaultI18nContext.getInstance().i18n(
                 "Select a directory where documents will be saved and loaded by default"));
         defaultWorkingPath.setDefaultFieldValue(DefaultUserContext.getInstance().getDefaultWorkingPath());

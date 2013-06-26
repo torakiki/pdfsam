@@ -29,14 +29,15 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 import org.apache.commons.lang3.StringUtils;
+import org.pdfsam.support.validation.Validator;
 
 import static javax.swing.GroupLayout.Alignment.TRAILING;
-import static org.pdfsam.gui.view.Views.GAP;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
+
+import static org.pdfsam.gui.view.Views.GAP;
 
 /**
  * Abstract implementation of a field where the value can be browsed with a {@link JFileChooser}. Implementors have to specify a {@link JFileChooser}
@@ -45,7 +46,7 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
  * 
  */
 public abstract class BaseBrowsableField extends JPanel {
-    private JTextField field = new JTextField();
+    private MyValidableTextField field = new MyValidableTextField();
     private JLabel label;
 
     /**
@@ -96,17 +97,36 @@ public abstract class BaseBrowsableField extends JPanel {
         return field.getText();
     }
 
+    public void setValidator(Validator<String> validator) {
+        field.setValidator(validator);
+    }
+
     /**
      * @return a {@link JFileChooser} initialized for the component.
      */
     protected abstract JFileChooser getChooser();
 
     /**
-     * Callback executed when a file is selected
+     * If a {@link Validator} is set, this callback is executed when a file is selected and the input is valid
      * 
      * @param selected
      */
-    protected abstract void onFileSelected(File selected);
+    protected abstract void onValidInput();
+
+    /**
+     * Validable text field calling the callback defined in the subclass
+     * 
+     * @author Andrea Vacondio
+     * 
+     */
+    private class MyValidableTextField extends AbstractValidableTextField {
+
+        @Override
+        protected void onValidInput() {
+            BaseBrowsableField.this.onValidInput();
+        }
+
+    }
 
     /**
      * Browse action
@@ -130,7 +150,7 @@ public abstract class BaseBrowsableField extends JPanel {
             if (retVal == JFileChooser.APPROVE_OPTION) {
                 File selectedFile = chooser.getSelectedFile();
                 BaseBrowsableField.this.field.setText(selectedFile.getAbsolutePath());
-                onFileSelected(selectedFile);
+                BaseBrowsableField.this.field.requestFocus();
             }
         }
     }

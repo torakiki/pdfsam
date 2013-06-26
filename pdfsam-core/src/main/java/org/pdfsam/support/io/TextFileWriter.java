@@ -50,7 +50,7 @@ public final class TextFileWriter implements OngoingFileWrite {
     public void to(File file) {
         try (FileWriter fileWriter = new FileWriter(file)) {
             IOUtils.write(content, fileWriter);
-            LOG.info(DefaultI18nContext.getInstance().i18n("File {0} saved.", file.getName()));
+            LOG.info(DefaultI18nContext.getInstance().i18n("File {0} saved.", file.getAbsolutePath()));
         } catch (Exception e) {
             LOG.error(DefaultI18nContext.getInstance().i18n("Error saving log file."), e);
         }

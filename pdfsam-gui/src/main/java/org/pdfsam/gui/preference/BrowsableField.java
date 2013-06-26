@@ -19,11 +19,12 @@
 package org.pdfsam.gui.preference;
 
 import java.awt.Color;
-import java.io.File;
 
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.gui.view.BaseBrowsableField;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Preference field where the value of the field can be browsed.
@@ -32,7 +33,7 @@ import org.pdfsam.gui.view.BaseBrowsableField;
  * 
  */
 abstract class BrowsableField extends BaseBrowsableField {
-
+    private static final Logger LOG = LoggerFactory.getLogger(BrowsableField.class);
     private StringUserPreference preference;
 
     BrowsableField(String labelText, StringUserPreference preference) {
@@ -42,8 +43,9 @@ abstract class BrowsableField extends BaseBrowsableField {
     }
 
     @Override
-    protected void onFileSelected(File selected) {
+    protected void onValidInput() {
         DefaultUserContext.getInstance().setStringPreference(BrowsableField.this.preference,
                 BrowsableField.this.getFieldValue());
+        LOG.trace("Preference set to {}", BrowsableField.this.getFieldValue());
     }
 }

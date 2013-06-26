@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui.preference;
+package org.pdfsam.gui.view;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -32,28 +32,34 @@ import javax.swing.JTextField;
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.support.validation.Validator;
 
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
-
 import static org.pdfsam.support.RequireUtils.require;
 
 /**
- * Text field providing visual feedback for invalid input. Input is validated on Enter key pressed or on Focus lost.
+ * Text field providing visual feedback for invalid input. Input is validated on Enter key pressed or on Focus lost. It also provides a callback on valid input, the callback
+ * defined is executed on Enter key pressed or on Focus lost (same as the validation).
  * 
  * @author Andrea Vacondio
  * 
  */
-abstract class AbstractValidableTextField extends JTextField {
+public abstract class AbstractValidableTextField extends JTextField {
 
     private static final int INVALID_SIGN_DIAMETER = 10;
     private static final int INVALID_SIGN_PADDING_RIGHT = 4;
 
     private Validator<String> validator;
 
-    AbstractValidableTextField(Validator<String> validator) {
-        require(validator != null, "Validator cannot be null");
-        this.validator = validator;
+    public AbstractValidableTextField() {
         setBackground(Color.WHITE);
         setToolTipText(StringUtils.EMPTY);
+    }
+
+    public AbstractValidableTextField(Validator<String> validator) {
+        setValidator(validator);
+    }
+
+    public void setValidator(Validator<String> validator) {
+        require(validator != null, "Validator cannot be null");
+        this.validator = validator;
         ValidateActionListener listener = new ValidateActionListener();
         addActionListener(listener);
         addFocusListener(listener);
@@ -62,13 +68,13 @@ abstract class AbstractValidableTextField extends JTextField {
     /**
      * called when focus is lost or enter key is pressed, after the input is validated and proved valid.
      */
-    abstract void onValidInput();
+    protected abstract void onValidInput();
 
     @Override
     public void paint(Graphics g) {
         super.paint(g);
         String input = getText();
-        if (isNotBlank(input) && !validator.isValid(input)) {
+        if (validator != null && !validator.isValid(input)) {
             Graphics2D g2 = (Graphics2D) g.create();
             g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
@@ -108,7 +114,7 @@ abstract class AbstractValidableTextField extends JTextField {
 
         private void doValidate() {
             String input = getText();
-            if (isNotBlank(input) && validator.isValid(input)) {
+            if (validator.isValid(input)) {
                 onValidInput();
             }
         }

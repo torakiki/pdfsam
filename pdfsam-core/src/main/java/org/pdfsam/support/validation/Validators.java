@@ -18,6 +18,8 @@
  */
 package org.pdfsam.support.validation;
 
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+
 /**
  * Provides Factory methods to create validators
  * 
@@ -51,4 +53,34 @@ public final class Validators {
         return new IntRangeStringValidator(upper, lower);
     }
 
+    /**
+     * @param decorate
+     * @return a new instance of the a validator that considers blank string as valid, it delegates otherwise
+     */
+    public static Validator<String> decorateAsValidBlankString(Validator<String> decorate) {
+        return new ValidBlankStringDecorator(decorate);
+    }
+
+    /**
+     * Decorates the input validator handling blank strings as valid
+     * 
+     * @author Andrea Vacondio
+     * 
+     */
+    public static final class ValidBlankStringDecorator implements Validator<String> {
+        private Validator<String> decorate;
+
+        private ValidBlankStringDecorator(Validator<String> decorate) {
+            this.decorate = decorate;
+        }
+
+        @Override
+        public boolean isValid(String input) {
+            if (isNotBlank(input)) {
+                return decorate.isValid(input);
+            }
+            return true;
+        }
+
+    }
 }

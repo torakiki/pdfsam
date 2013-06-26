@@ -22,29 +22,33 @@ import java.io.File;
 
 import javax.swing.filechooser.FileFilter;
 
+import org.pdfsam.support.RequireUtils;
+
 /**
- * Base implementation for a Filter.
+ * Base implementation for a Filter to be used in the file chooser component.
  * 
  * @author Andrea Vacondio
  * 
  */
-public class BaseFileFilter extends FileFilter implements java.io.FileFilter {
+public class BaseFileChooserFilter extends FileFilter implements java.io.FileFilter {
 
     private FileFilterType type;
 
-    public BaseFileFilter(FileFilterType type) {
-        if (type == null) {
-            throw new IllegalArgumentException("File filter type cannot be null");
-        }
+    public BaseFileChooserFilter(FileFilterType type) {
+        RequireUtils.require(type != null, "File filter type cannot be null");
         this.type = type;
     }
 
     @Override
     public boolean accept(File f) {
-        if (f != null) {
-            return type.accept(f);
+        if (isDirectory(f)) {
+            return true;
         }
-        return false;
+        return type.accept(f);
+    }
+
+    private boolean isDirectory(File f) {
+        return f != null && f.isDirectory();
     }
 
     @Override

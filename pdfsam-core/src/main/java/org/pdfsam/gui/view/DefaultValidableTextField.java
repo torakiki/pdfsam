@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 16/nov/2012
- * Copyright 2012 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 25/giu/2013
+ * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,24 +16,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.support.validation;
+package org.pdfsam.gui.view;
 
 /**
- * Validates that the input string is a valid integer value or empty
+ * Default implementation of an {@link AbstractValidableTextField} where an empty callback is defined.
  * 
  * @author Andrea Vacondio
  * 
  */
-class IntegerStringValidator implements Validator<String> {
+public class DefaultValidableTextField extends AbstractValidableTextField {
 
-    public boolean isValid(String input) {
-        try {
-            Integer.parseInt(input);
-            return true;
-        } catch (NumberFormatException e) {
-            // not a valid integer
-            return false;
-        }
+    @Override
+    protected void onValidInput() {
+        // do nothing
     }
 
 }

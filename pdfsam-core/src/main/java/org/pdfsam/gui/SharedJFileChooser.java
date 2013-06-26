@@ -23,7 +23,7 @@ import java.io.File;
 import javax.swing.JFileChooser;
 
 import org.pdfsam.context.DefaultUserContext;
-import org.pdfsam.support.filter.BaseFileFilter;
+import org.pdfsam.support.filter.BaseFileChooserFilter;
 import org.pdfsam.support.filter.FileFilterType;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
@@ -58,7 +58,7 @@ public final class SharedJFileChooser {
         if (isNotBlank(currentDirectory)) {
             INSTANCE.setCurrentDirectory(new File(currentDirectory));
         }
-        INSTANCE.setFileFilter(new BaseFileFilter(type));
+        INSTANCE.setFileFilter(new BaseFileChooserFilter(type));
         INSTANCE.setFileSelectionMode(mode);
         return INSTANCE;
     }

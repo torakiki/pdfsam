@@ -36,12 +36,16 @@ import static org.junit.Assert.assertTrue;
 public class FileFilterTypeTest {
 
     private File failing;
+    private File directory;
 
     @Before
     public void setUp() {
         failing = mock(File.class);
         when(failing.getAbsolutePath()).thenReturn("/path/chuck.norris");
         when(failing.isDirectory()).thenReturn(Boolean.FALSE);
+        directory = mock(File.class);
+        when(directory.getAbsolutePath()).thenReturn("/path/chuck");
+        when(directory.isDirectory()).thenReturn(Boolean.TRUE);
     }
 
     @Test
@@ -50,6 +54,7 @@ public class FileFilterTypeTest {
         when(file.getAbsolutePath()).thenReturn("/path/chuck.csv");
         assertTrue(FileFilterType.CSV.accept(file));
         assertFalse(FileFilterType.CSV.accept(failing));
+        assertFalse(FileFilterType.CSV.accept(directory));
     }
 
     @Test
@@ -58,6 +63,7 @@ public class FileFilterTypeTest {
         when(file.getAbsolutePath()).thenReturn("/path/chuck.jar");
         assertTrue(FileFilterType.JAR.accept(file));
         assertFalse(FileFilterType.JAR.accept(failing));
+        assertFalse(FileFilterType.JAR.accept(directory));
     }
 
     @Test
@@ -66,6 +72,7 @@ public class FileFilterTypeTest {
         when(file.getAbsolutePath()).thenReturn("/path/chuck.txt");
         assertTrue(FileFilterType.TXT.accept(file));
         assertFalse(FileFilterType.TXT.accept(failing));
+        assertFalse(FileFilterType.TXT.accept(directory));
     }
 
     @Test
@@ -82,6 +89,7 @@ public class FileFilterTypeTest {
         when(file.getAbsolutePath()).thenReturn("/path/chuck.pdf");
         assertTrue(FileFilterType.PDF.accept(file));
         assertFalse(FileFilterType.PDF.accept(failing));
+        assertFalse(FileFilterType.PDF.accept(directory));
     }
 
     @Test
@@ -100,5 +108,6 @@ public class FileFilterTypeTest {
         when(file.isDirectory()).thenReturn(Boolean.TRUE);
         assertTrue(FileFilterType.DIRECTORIES.accept(file));
         assertFalse(FileFilterType.DIRECTORIES.accept(failing));
+        assertTrue(FileFilterType.DIRECTORIES.accept(directory));
     }
 }

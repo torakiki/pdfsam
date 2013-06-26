@@ -18,8 +18,6 @@
  */
 package org.pdfsam.gui.view.output;
 
-import java.io.File;
-
 import javax.swing.BoxLayout;
 import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
@@ -36,7 +34,7 @@ import org.pdfsam.support.filter.FileFilterType;
  * @author Andrea Vacondio
  * 
  */
-public class DestinationPanel extends JPanel {
+class DestinationPanel extends JPanel {
 
     private JCheckBox overwrite = Views.newOverwriteOutputCheckbox();
     private BaseBrowsableField browsableField;
@@ -46,7 +44,7 @@ public class DestinationPanel extends JPanel {
         browsableField = new BaseBrowsableField() {
 
             @Override
-            protected void onFileSelected(File selected) {
+            protected void onValidInput() {
                 // nothing
             }
 
@@ -57,6 +55,7 @@ public class DestinationPanel extends JPanel {
         };
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         browsableField.setAlignmentX(LEFT_ALIGNMENT);
+        browsableField.setValidator(filterType);
         add(browsableField);
         overwrite.setAlignmentX(LEFT_ALIGNMENT);
         add(overwrite);

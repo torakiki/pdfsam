@@ -19,15 +19,23 @@
 package org.pdfsam.support.filter;
 
 import java.io.File;
+import java.nio.file.InvalidPathException;
+import java.nio.file.Paths;
 
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.support.validation.Validator;
+
+import static org.apache.commons.lang3.ArrayUtils.isNotEmpty;
 
 /**
+ * Types of filters that can be used in file chooser
+ * 
  * @author Andrea Vacondio
  * 
  */
-public enum FileFilterType {
+public enum FileFilterType implements Validator<String> {
     CSV("(*.csv)", "csv"),
     JAR("(*.jar)", "jar"),
     PDF("(*.pdf)", "pdf"),
@@ -51,16 +59,30 @@ public enum FileFilterType {
 
     boolean accept(File file) {
         if (file != null) {
-            if (acceptedExtensions != null) {
-                for (String accepted : acceptedExtensions) {
-                    if (accepted.equalsIgnoreCase(FilenameUtils.getExtension(file.getAbsolutePath()))) {
-                        return true;
-                    }
-                }
+            if (isNotEmpty(acceptedExtensions)) {
+                return isAccepted(file);
             }
             return file.isDirectory();
         }
         return false;
+    }
+
+    private boolean isAccepted(File file) {
+        for (String accepted : acceptedExtensions) {
+            if (accepted.equalsIgnoreCase(FilenameUtils.getExtension(file.getAbsolutePath()))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean isValid(String input) {
+        try {
+            return StringUtils.isNotBlank(input) && accept(Paths.get(input).toFile());
+        } catch (InvalidPathException ipe) {
+            return false;
+        }
     }
 
 }

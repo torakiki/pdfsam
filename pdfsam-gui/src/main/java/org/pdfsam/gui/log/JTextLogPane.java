@@ -52,19 +52,19 @@ public class JTextLogPane extends JTextPane {
         AnnotationProcessor.process(this);
     }
 
-    @EventSubscriber(eventClass = ClearLogEvent.class)
-    public void clearTextPane(ClearLogEvent event) {
+    @EventSubscriber
+    public void clearTextPane(@SuppressWarnings("unused") ClearLogEvent event) {
         setText("");
     }
 
-    @EventSubscriber(eventClass = SelectAllEvent.class)
-    public void selectAll(SelectAllEvent event) {
+    @EventSubscriber
+    public void selectAll(@SuppressWarnings("unused") SelectAllEvent event) {
         selectAll();
         requestFocus();
     }
 
-    @EventSubscriber(eventClass = SaveLogEvent.class)
-    public void saveLog(SaveLogEvent event) {
+    @EventSubscriber
+    public void saveLog(@SuppressWarnings("unused") SaveLogEvent event) {
         JFileChooser fileChooser = SharedJFileChooser.getInstance(FileFilterType.LOG, JFileChooser.FILES_ONLY);
         if (fileChooser.showSaveDialog(App.getMainFrame()) == JFileChooser.APPROVE_OPTION) {
             File chosenFile = fileChooser.getSelectedFile();
