@@ -18,8 +18,11 @@
  */
 package org.pdfsam.gui.view.selection;
 
+import java.awt.Component;
+import java.io.File;
 import java.text.DateFormat;
 
+import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
 
 import org.apache.commons.io.FileUtils;
@@ -34,14 +37,10 @@ import static org.apache.commons.lang3.StringUtils.EMPTY;
  * @author Andrea Vacondio
  * 
  */
-enum LongColumn implements SelectionTableColumn<Long> {
+enum FileColumn implements SelectionTableColumn<File> {
     SIZE {
         public String getColumnName() {
             return DefaultI18nContext.getInstance().i18n("Size");
-        }
-
-        public Long getValueFor(SelectionTableRowData rowData, int rowNum) {
-            return rowData.getDocumentDescriptor().getFile().length();
         }
 
         @Override
@@ -51,7 +50,7 @@ enum LongColumn implements SelectionTableColumn<Long> {
                 @Override
                 String getStringValue(Object value) {
                     if (value != null) {
-                        return FileUtils.byteCountToDisplaySize((Long) value);
+                        return FileUtils.byteCountToDisplaySize(((File) value).length());
                     }
                     return EMPTY;
                 }
@@ -65,10 +64,6 @@ enum LongColumn implements SelectionTableColumn<Long> {
             return DefaultI18nContext.getInstance().i18n("Modified");
         }
 
-        public Long getValueFor(SelectionTableRowData rowData, int rowNum) {
-            return rowData.getDocumentDescriptor().getFile().lastModified();
-        }
-
         @Override
         public TableCellRenderer getRenderer() {
             return new BaseSelectionTableCellRenderer() {
@@ -76,7 +71,33 @@ enum LongColumn implements SelectionTableColumn<Long> {
                 @Override
                 String getStringValue(Object value) {
                     if (value != null) {
-                        return formatter.format(((Long) value).longValue());
+                        return formatter.format(((File) value).lastModified());
+                    }
+                    return EMPTY;
+                }
+            };
+        }
+    },
+    NAME {
+        public String getColumnName() {
+            return DefaultI18nContext.getInstance().i18n("Name");
+        }
+
+        @Override
+        public TableCellRenderer getRenderer() {
+            return new BaseSelectionTableCellRenderer() {
+                @Override
+                public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
+                        boolean hasFocus, int row, int column) {
+                    super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                    setToolTipText(((File) value).getAbsolutePath());
+                    return this;
+                }
+
+                @Override
+                String getStringValue(Object value) {
+                    if (value != null) {
+                        return ((File) value).getName();
                     }
                     return EMPTY;
                 }
@@ -84,8 +105,12 @@ enum LongColumn implements SelectionTableColumn<Long> {
         }
     };
 
-    public Class<Long> getColumnClass() {
-        return Long.class;
+    public File getValueFor(SelectionTableRowData rowData, int rowNum) {
+        return rowData.getDocumentDescriptor().getFile();
+    }
+
+    public Class<File> getColumnClass() {
+        return File.class;
     }
 
 }

@@ -33,15 +33,6 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
  */
 enum StringColumn implements SelectionTableColumn<String> {
 
-    NAME {
-        public String getColumnName() {
-            return DefaultI18nContext.getInstance().i18n("Name");
-        }
-
-        public String getValueFor(SelectionTableRowData data, int rowNum) {
-            return data.getDocumentDescriptor().getFileName();
-        }
-    },
     PAGE_SELECTION {
         public String getColumnName() {
             return DefaultI18nContext.getInstance().i18n("Page ranges");

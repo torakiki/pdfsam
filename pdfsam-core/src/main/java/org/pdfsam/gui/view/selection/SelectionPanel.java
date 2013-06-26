@@ -50,8 +50,8 @@ public class SelectionPanel extends JPanel implements WithEventNamespace {
         this.namespace = namespace;
         add(new SelectionTableToolbar(namespace), BorderLayout.PAGE_START);
 
-        tableModel = new SelectionTableModel(namespace, new SelectionTableColumn<?>[] { StringColumn.NAME,
-                IntegerColumn.PAGES, LongColumn.SIZE, StringColumn.PAGE_SELECTION, LongColumn.LAST_MODIFIED });
+        tableModel = new SelectionTableModel(namespace, new SelectionTableColumn<?>[] { FileColumn.NAME,
+                IntegerColumn.PAGES, FileColumn.SIZE, StringColumn.PAGE_SELECTION, FileColumn.LAST_MODIFIED });
         selectionTable = new SelectionTable(tableModel, namespace);
 
         selectionTable.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);

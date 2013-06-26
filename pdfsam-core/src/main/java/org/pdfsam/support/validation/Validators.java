@@ -67,7 +67,7 @@ public final class Validators {
      * @author Andrea Vacondio
      * 
      */
-    public static final class ValidBlankStringDecorator implements Validator<String> {
+    static final class ValidBlankStringDecorator implements Validator<String> {
         private Validator<String> decorate;
 
         private ValidBlankStringDecorator(Validator<String> decorate) {
