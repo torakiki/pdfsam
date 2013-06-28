@@ -21,7 +21,6 @@ package org.pdfsam.task;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
-import org.pdfsam.task.TaskExecutionRequestEvent;
 import org.sejda.model.parameter.base.TaskParameters;
 
 /**

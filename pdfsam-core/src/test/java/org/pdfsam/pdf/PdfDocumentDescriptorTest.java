@@ -40,7 +40,7 @@ public class PdfDocumentDescriptorTest {
     public void copy() {
         File file = mock(File.class);
         PdfDocumentDescriptor victim = PdfDocumentDescriptor.newDescriptor(file, "pwd");
-        victim.setEncrypted(true);
+        victim.setEncryptionStatus(EncryptionStatus.DECRYPTED_WITH_OWNER_PWD);
         victim.setVersion("XX");
         victim.setPages(2);
         victim.addMedatada(PdfMetadataKey.AUTHOR, "Chuck Norris");
@@ -51,7 +51,7 @@ public class PdfDocumentDescriptorTest {
         assertEquals(victim.getPages(), copy.getPages());
         assertEquals(victim.getPassword(), copy.getPassword());
         assertEquals(victim.getVersion(), copy.getVersion());
-        assertEquals(victim.isEncrypted(), copy.isEncrypted());
+        assertEquals(victim.getEncryptionStatus(), copy.getEncryptionStatus());
         for (PdfMetadataKey key : PdfMetadataKey.values()) {
             assertEquals(victim.getMedatada(key), copy.getMedatada(key));
         }

@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 19/giu/2013
+ * Created on 28/giu/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,37 +18,26 @@
  */
 package org.pdfsam.gui.view.selection;
 
-import javax.swing.JToolBar;
-
+import org.pdfsam.gui.event.BaseEvent;
 import org.pdfsam.gui.event.EventNamespace;
-import org.pdfsam.gui.event.WithEventNamespace;
 
 /**
- * Toolbar for the selection table
+ * Notifies that selected elements in the selection table should be moved down
  * 
  * @author Andrea Vacondio
  * 
  */
-public class SelectionTableToolbar extends JToolBar implements WithEventNamespace {
+class MoveSelectedEvent extends BaseEvent {
 
-    private EventNamespace namespace = EventNamespace.NULL;
+    private MoveType type;
 
-    public SelectionTableToolbar(EventNamespace namespace) {
-        this.namespace = namespace;
-        setFloatable(false);
-        setRollover(true);
-        add(SelectionTableToolbarButtons.addButton(namespace));
-        addSeparator();
-        add(SelectionTableToolbarButtons.clearButton(namespace));
-        add(SelectionTableToolbarButtons.removeButton(namespace));
-        addSeparator();
-        add(SelectionTableToolbarButtons.moveUpButton(namespace));
-        add(SelectionTableToolbarButtons.moveDownButton(namespace));
-        setBorderPainted(false);
+    public MoveSelectedEvent(EventNamespace namespace, MoveType type) {
+        super(namespace);
+        this.type = type;
     }
 
-    public EventNamespace getEventNamespace() {
-        return namespace;
+    public MoveType getType() {
+        return type;
     }
 
 }

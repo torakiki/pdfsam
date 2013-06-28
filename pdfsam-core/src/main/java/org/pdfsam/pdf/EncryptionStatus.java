@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 15/giu/2013
+ * Created on 28/giu/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,19 +16,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui.view.selection;
-
-import org.pdfsam.gui.event.BaseEvent;
-import org.pdfsam.gui.event.EventNamespace;
+package org.pdfsam.pdf;
 
 /**
- * Notifies that the selection table should be cleared
+ * Possible encryption status of thed ocument
  * 
  * @author Andrea Vacondio
  * 
  */
-class ClearSelectionTableEvent extends BaseEvent {
-    public ClearSelectionTableEvent(EventNamespace namespace) {
-        super(namespace);
-    }
+public enum EncryptionStatus {
+    NOT_ENCRYPTED,
+    ENCRYPTED,
+    DECRYPTED_WITH_OWNER_PWD;
 }

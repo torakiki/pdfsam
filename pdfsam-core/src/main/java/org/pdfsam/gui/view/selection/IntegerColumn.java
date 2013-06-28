@@ -45,7 +45,11 @@ public enum IntegerColumn implements SelectionTableColumn<Integer> {
         }
 
         public Integer getValueFor(SelectionTableRowData rowData, int rowNum) {
-            return rowData.getDocumentDescriptor().getPages();
+            int pages = rowData.getDocumentDescriptor().getPages();
+            if (pages > 0) {
+                return pages;
+            }
+            return null;
         }
 
     };

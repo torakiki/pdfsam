@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 19/giu/2013
+ * Created on 28/giu/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,37 +18,34 @@
  */
 package org.pdfsam.gui.view.selection;
 
-import javax.swing.JToolBar;
+import java.awt.event.ActionEvent;
 
+import org.bushe.swing.event.EventBus;
 import org.pdfsam.gui.event.EventNamespace;
-import org.pdfsam.gui.event.WithEventNamespace;
+import org.pdfsam.gui.view.AbstractActionWithNamespace;
 
 /**
- * Toolbar for the selection table
+ * Action to move selected items in the selection table.
  * 
  * @author Andrea Vacondio
  * 
  */
-public class SelectionTableToolbar extends JToolBar implements WithEventNamespace {
+class MoveSelectedAction extends AbstractActionWithNamespace {
+    private MoveType type;
 
-    private EventNamespace namespace = EventNamespace.NULL;
-
-    public SelectionTableToolbar(EventNamespace namespace) {
-        this.namespace = namespace;
-        setFloatable(false);
-        setRollover(true);
-        add(SelectionTableToolbarButtons.addButton(namespace));
-        addSeparator();
-        add(SelectionTableToolbarButtons.clearButton(namespace));
-        add(SelectionTableToolbarButtons.removeButton(namespace));
-        addSeparator();
-        add(SelectionTableToolbarButtons.moveUpButton(namespace));
-        add(SelectionTableToolbarButtons.moveDownButton(namespace));
-        setBorderPainted(false);
+    public MoveSelectedAction(EventNamespace namespace, MoveType type) {
+        super(namespace);
+        this.type = type;
+        this.setEnabled(false);
     }
 
-    public EventNamespace getEventNamespace() {
-        return namespace;
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        EventBus.publish(new MoveSelectedEvent(getEventNamespace(), type));
+    }
+
+    public MoveType getType() {
+        return type;
     }
 
 }

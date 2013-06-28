@@ -23,6 +23,9 @@ import java.awt.Component;
 
 import javax.swing.BorderFactory;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
@@ -33,6 +36,11 @@ import org.bushe.swing.event.annotation.EventSubscriber;
 import org.pdfsam.gui.event.EventNamespace;
 import org.pdfsam.gui.event.WithEventNamespace;
 import org.pdfsam.pdf.PdfLoadCompletedEvent;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import static org.bushe.swing.event.EventBus.publish;
+import static org.pdfsam.gui.view.selection.SelectionChangedEvent.selectionChanged;
 
 /**
  * {@link JTable} configured to display pdf selection
@@ -42,13 +50,9 @@ import org.pdfsam.pdf.PdfLoadCompletedEvent;
  */
 public class SelectionTable extends JTable implements WithEventNamespace {
 
-    /**
-     * 
-     */
+    private static final Logger LOG = LoggerFactory.getLogger(SelectionTable.class);
+
     private static final int ROW_HEADER_WIDTH = 30;
-    /**
-     * 
-     */
     private static final int ROW_HEIGHT = 22;
     private EventNamespace namespace = EventNamespace.NULL;
 
@@ -62,6 +66,8 @@ public class SelectionTable extends JTable implements WithEventNamespace {
         setRowHeight(ROW_HEIGHT);
         setBackground(Color.WHITE);
         setBorder(BorderFactory.createEmptyBorder());
+        setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        getSelectionModel().addListSelectionListener(new SelectionListener());
     }
 
     public JTable getRowHeader() {
@@ -150,6 +156,31 @@ public class SelectionTable extends JTable implements WithEventNamespace {
             if (event.getNamespace().isParentOf(getEventNamespace())) {
                 numberOfRows = 0;
                 fireTableDataChanged();
+            }
+        }
+    }
+
+    /**
+     * Selection listeners notifying of changes in the table selection.
+     * 
+     * @author Andrea Vacondio
+     * 
+     */
+    private class SelectionListener implements ListSelectionListener {
+        public void valueChanged(ListSelectionEvent event) {
+            if (!event.getValueIsAdjusting()) {
+                ListSelectionModel lsm = (ListSelectionModel) event.getSource();
+                if (lsm.isSelectionEmpty()) {
+                    publish(selectionChanged(namespace).clearSelection());
+                    LOG.trace("Selection cleared for {}", namespace);
+                } else {
+                    SelectionChangedEvent newSelectionEvent = selectionChanged(namespace)
+                            .startSelectionAt(lsm.getMinSelectionIndex()).endSelectionAt(lsm.getMaxSelectionIndex())
+                            .ofTotalRows(getModel().getRowCount());
+
+                    publish(newSelectionEvent);
+                    LOG.trace("{} for {}", newSelectionEvent, namespace);
+                }
             }
         }
     }

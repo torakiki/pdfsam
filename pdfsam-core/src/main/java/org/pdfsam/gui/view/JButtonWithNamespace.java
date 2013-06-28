@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 19/giu/2013
+ * Created on 28/giu/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,39 +16,32 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui.view.selection;
+package org.pdfsam.gui.view;
 
-import javax.swing.JToolBar;
+import javax.swing.Action;
+import javax.swing.JButton;
 
 import org.pdfsam.gui.event.EventNamespace;
 import org.pdfsam.gui.event.WithEventNamespace;
+import org.pdfsam.support.RequireUtils;
 
 /**
- * Toolbar for the selection table
+ * {@link JButton} {@link WithEventNamespace}
  * 
  * @author Andrea Vacondio
  * 
  */
-public class SelectionTableToolbar extends JToolBar implements WithEventNamespace {
+public class JButtonWithNamespace extends JButton implements WithEventNamespace {
 
     private EventNamespace namespace = EventNamespace.NULL;
 
-    public SelectionTableToolbar(EventNamespace namespace) {
+    public JButtonWithNamespace(Action a, EventNamespace namespace) {
+        super(a);
+        RequireUtils.require(namespace != null, "Namespace cannot be null");
         this.namespace = namespace;
-        setFloatable(false);
-        setRollover(true);
-        add(SelectionTableToolbarButtons.addButton(namespace));
-        addSeparator();
-        add(SelectionTableToolbarButtons.clearButton(namespace));
-        add(SelectionTableToolbarButtons.removeButton(namespace));
-        addSeparator();
-        add(SelectionTableToolbarButtons.moveUpButton(namespace));
-        add(SelectionTableToolbarButtons.moveDownButton(namespace));
-        setBorderPainted(false);
     }
 
     public EventNamespace getEventNamespace() {
         return namespace;
     }
-
 }

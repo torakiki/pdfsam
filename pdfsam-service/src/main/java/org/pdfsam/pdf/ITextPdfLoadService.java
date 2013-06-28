@@ -26,6 +26,7 @@ import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.sejda.impl.itext.component.input.PdfSourceOpeners;
+import org.sejda.model.exception.TaskWrongPasswordException;
 import org.sejda.model.pdf.PdfMetadataKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,11 +53,11 @@ public class ITextPdfLoadService implements PdfLoadService {
         LOG.debug(DefaultI18nContext.getInstance().i18n("Loading documents"));
         List<PdfDocumentDescriptor> loaded = new ArrayList<>(toLoad.size());
         for (PdfDocumentDescriptor current : toLoad) {
+            PdfDocumentDescriptor copy = newCopy(current);
             PdfReader reader = null;
             try {
                 reader = current.toPdfSource().open(PdfSourceOpeners.newPartialReadOpener());
-                PdfDocumentDescriptor copy = newCopy(current);
-                copy.setEncrypted(reader.isEncrypted());
+                copy.setEncryptionStatus(EncryptionStatus.NOT_ENCRYPTED);
                 copy.setPages(reader.getNumberOfPages());
                 copy.setVersion(String.format("1.%c", reader.getPdfVersion()));
                 @SuppressWarnings("unchecked")
@@ -65,6 +66,10 @@ public class ITextPdfLoadService implements PdfLoadService {
                     copy.addMedatada(key, defaultString(meta.get(key.getKey())));
                 }
                 loaded.add(copy);
+            } catch (TaskWrongPasswordException twpe) {
+                copy.setEncryptionStatus(EncryptionStatus.ENCRYPTED);
+                loaded.add(copy);
+                LOG.warn(String.format("Owner password required %s", current.getFileName()), twpe);
             } catch (Exception e) {
                 LOG.error(String.format("An error occured loading the document %s", current.getFileName()), e);
             } finally {

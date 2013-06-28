@@ -19,7 +19,6 @@
 package org.pdfsam.gui.support;
 
 import org.junit.Test;
-import org.pdfsam.gui.support.ToolTipBuilder;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 

@@ -21,9 +21,9 @@ package org.pdfsam.support;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import static org.pdfsam.support.RequireUtils.require;
-
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
+
+import static org.pdfsam.support.RequireUtils.require;
 
 /**
  * Contains a pair of Strings, usually a key and a display value. Two items with the same key are considered equals.

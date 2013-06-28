@@ -42,7 +42,7 @@ public final class PdfDocumentDescriptor {
 
     private UUID uuid;
     private int pages;
-    private boolean encrypted;
+    private EncryptionStatus encryptionStatus;
     private String password;
     private File file;
     private String version;
@@ -82,12 +82,12 @@ public final class PdfDocumentDescriptor {
         this.pages = pages;
     }
 
-    public boolean isEncrypted() {
-        return encrypted;
+    public EncryptionStatus getEncryptionStatus() {
+        return encryptionStatus;
     }
 
-    public void setEncrypted(boolean encrypted) {
-        this.encrypted = encrypted;
+    public void setEncryptionStatus(EncryptionStatus encryptionStatus) {
+        this.encryptionStatus = encryptionStatus;
     }
 
     public String getPassword() {
@@ -128,7 +128,7 @@ public final class PdfDocumentDescriptor {
         require(toCopy != null, "Cannot copy a null document descriptor");
         PdfDocumentDescriptor copy = new PdfDocumentDescriptor(toCopy.file, toCopy.password);
         copy.uuid = toCopy.uuid;
-        copy.encrypted = toCopy.isEncrypted();
+        copy.encryptionStatus = toCopy.getEncryptionStatus();
         copy.pages = toCopy.getPages();
         copy.version = toCopy.getVersion();
         for (Entry<PdfMetadataKey, String> entry : toCopy.metadata.entrySet()) {

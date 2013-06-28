@@ -26,8 +26,8 @@ import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.I18nContext;
 import org.pdfsam.gui.event.EventNamespace;
 import org.pdfsam.gui.support.ToolTipBuilder;
-import org.pdfsam.gui.view.GradientTitledPanel;
 import org.pdfsam.gui.view.GradientPanel.GradientOrientation;
+import org.pdfsam.gui.view.GradientTitledPanel;
 
 /**
  * Utility class containing factory methods to create output views

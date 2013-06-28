@@ -29,7 +29,6 @@ import org.junit.Test;
 import org.sejda.model.pdf.PdfMetadataKey;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
 /**
@@ -57,7 +56,7 @@ public class ITextPdfLoadServiceTest {
         PdfDocumentDescriptor item = result.get(0);
         assertNotNull(item);
         assertEquals(2, item.getPages());
-        assertFalse(item.isEncrypted());
+        assertEquals(EncryptionStatus.NOT_ENCRYPTED, item.getEncryptionStatus());
         assertEquals("Me", item.getMedatada(PdfMetadataKey.AUTHOR));
         assertEquals("test", item.getMedatada(PdfMetadataKey.KEYWORDS));
     }
