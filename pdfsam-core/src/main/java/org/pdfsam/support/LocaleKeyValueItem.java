@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 13/apr/2012
- * Copyright 2012 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 30/giu/2013
+ * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,46 +18,43 @@
  */
 package org.pdfsam.support;
 
+import java.util.Locale;
+
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
-
-import static org.pdfsam.support.RequireUtils.require;
-
 /**
- * Contains a pair of Strings, usually a key and a display value. Two items with the same key are considered equals.
+ * {@link KeyValueItem} wrapped around a {@link Locale} instance holding key (tag) and value (displayName)
  * 
  * @author Andrea Vacondio
  * 
  */
-public class StringKeyValueItem implements KeyValueItem<String, String> {
+public class LocaleKeyValueItem implements KeyValueItem<String, String>, Comparable<LocaleKeyValueItem> {
 
-    private String key;
-    private String value;
+    private Locale locale;
 
-    public StringKeyValueItem(String key, String value) {
-        require(isNotBlank(key), "Key cannot be blank");
-        this.key = key;
-        this.value = value;
+    public LocaleKeyValueItem(Locale locale) {
+        RequireUtils.require(locale != null, "Locale cannot be null");
+        this.locale = locale;
     }
 
     public String getKey() {
-        return key;
+        return locale.toLanguageTag();
     }
 
     public String getValue() {
-        return value;
+        return StringUtils.capitalize(locale.getDisplayName());
     }
 
     @Override
     public String toString() {
-        return value;
+        return getValue();
     }
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder().append(key).toHashCode();
+        return new HashCodeBuilder().append(getKey()).toHashCode();
     }
 
     @Override
@@ -65,11 +62,16 @@ public class StringKeyValueItem implements KeyValueItem<String, String> {
         if (this == other) {
             return true;
         }
-        if (!(other instanceof StringKeyValueItem)) {
+        if (!(other instanceof LocaleKeyValueItem)) {
             return false;
         }
-        StringKeyValueItem item = (StringKeyValueItem) other;
-        return new EqualsBuilder().append(key, item.getKey()).isEquals();
+        LocaleKeyValueItem item = (LocaleKeyValueItem) other;
+        return new EqualsBuilder().append(getKey(), item.getKey()).isEquals();
     }
 
+    @Override
+    public int compareTo(LocaleKeyValueItem o) {
+        RequireUtils.require(o != null, "Could not compare null elements");
+        return getValue().compareTo(o.getValue());
+    }
 }

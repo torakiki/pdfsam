@@ -49,26 +49,30 @@ public class DefaultUserContextTest {
 
     @Test
     public void getLocale() {
-        DefaultUserContext.getInstance().setStringPreference(StringUserPreference.LOCALE, "en");
-        Assert.assertEquals("en", DefaultUserContext.getInstance().getLocale());
+        DefaultUserContext.getInstance().setStringPreference(StringUserPreference.LOCALE, "en-GB");
+        Assert.assertEquals("en-GB", DefaultUserContext.getInstance().getLocale());
+        DefaultUserContext.getInstance().setStringPreference(StringUserPreference.LOCALE, "");
     }
 
     @Test
     public void getThumbIdentifier() {
         DefaultUserContext.getInstance().setStringPreference(StringUserPreference.THUMBNAILS_IDENTIFIER, "ChuckNorris");
         Assert.assertEquals("ChuckNorris", DefaultUserContext.getInstance().getThumbnailsCreatorIdentifier());
+        DefaultUserContext.getInstance().setStringPreference(StringUserPreference.THUMBNAILS_IDENTIFIER, "");
     }
 
     @Test
     public void getDefaultWorkingPath() {
         DefaultUserContext.getInstance().setStringPreference(StringUserPreference.WORKING_PATH, "/path");
         Assert.assertEquals("/path", DefaultUserContext.getInstance().getDefaultWorkingPath());
+        DefaultUserContext.getInstance().setStringPreference(StringUserPreference.WORKING_PATH, "");
     }
 
     @Test
     public void getDefaultWorkspacePath() {
         DefaultUserContext.getInstance().setStringPreference(StringUserPreference.WORKSPACE_PATH, "/wpath");
         Assert.assertEquals("/wpath", DefaultUserContext.getInstance().getDefaultWorkspacePath());
+        DefaultUserContext.getInstance().setStringPreference(StringUserPreference.WORKSPACE_PATH, "");
     }
 
     @Test

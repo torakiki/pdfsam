@@ -21,12 +21,17 @@ package org.pdfsam.gui.preference;
 import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 import javax.swing.JComboBox;
 
+import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.StringUserPreference;
-import org.pdfsam.support.StringKeyValueItem;
+import org.pdfsam.gui.view.SortedComboModel;
+import org.pdfsam.support.LocaleKeyValueItem;
 
 /**
  * Combo box showing locales and setting the user preference about locale.
@@ -34,67 +39,30 @@ import org.pdfsam.support.StringKeyValueItem;
  * @author Andrea Vacondio
  * 
  */
-class LocalesComboBox extends JComboBox<StringKeyValueItem> {
+class LocalesComboBox extends JComboBox<LocaleKeyValueItem> {
 
     public LocalesComboBox() {
-        initItems();
+        initModel();
         setBackground(Color.WHITE);
-        setSelectedItem(new StringKeyValueItem(DefaultUserContext.getInstance().getLocale(), ""));
+        setSelectedItem(new LocaleKeyValueItem(DefaultI18nContext.getInstance().getLocale()));
         addItemListener(new ItemListener() {
 
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
                     DefaultUserContext.getInstance().setStringPreference(StringUserPreference.LOCALE,
-                            ((StringKeyValueItem) e.getItem()).getKey());
+                            ((LocaleKeyValueItem) e.getItem()).getKey());
                 }
             }
         });
     }
 
-    private void initItems() {
-        addItem(new StringKeyValueItem("ar", "Arabic"));
-        addItem(new StringKeyValueItem("ast", "Asturian"));
-        addItem(new StringKeyValueItem("bs", "Bosnian"));
-        addItem(new StringKeyValueItem("pt_BR", "Brazilian Portuguese"));
-        addItem(new StringKeyValueItem("bg", "Bulgarian"));
-        addItem(new StringKeyValueItem("ca", "Catalan"));
-        addItem(new StringKeyValueItem("hr", "Croatian"));
-        addItem(new StringKeyValueItem("cs", "Czech"));
-        addItem(new StringKeyValueItem("da", "Danish"));
-        addItem(new StringKeyValueItem("nl", "Dutch"));
-        addItem(new StringKeyValueItem("en_GB", "English (UK)"));
-        addItem(new StringKeyValueItem("fa", "Persian"));
-        addItem(new StringKeyValueItem("et", "Estonian"));
-        addItem(new StringKeyValueItem("fi", "Finnish"));
-        addItem(new StringKeyValueItem("fr", "French"));
-        addItem(new StringKeyValueItem("gl", "Galician"));
-        addItem(new StringKeyValueItem("de", "German"));
-        addItem(new StringKeyValueItem("el", "Greek"));
-        addItem(new StringKeyValueItem("iw_IL", "Hebrew"));
-        addItem(new StringKeyValueItem("hu", "Hungarian"));
-        addItem(new StringKeyValueItem("ja", "Japanese"));
-        addItem(new StringKeyValueItem("id", "Indonesian"));
-        addItem(new StringKeyValueItem("it", "Italian"));
-        addItem(new StringKeyValueItem("ko", "Korean"));
-        addItem(new StringKeyValueItem("nb", "Norwegian Bokmal"));
-        addItem(new StringKeyValueItem("lv", "Latvian"));
-        addItem(new StringKeyValueItem("lt", "Lithuanian"));
-        addItem(new StringKeyValueItem("pl", "Polish"));
-        addItem(new StringKeyValueItem("pt", "Portuguese"));
-        addItem(new StringKeyValueItem("ro", "Romanian"));
-        addItem(new StringKeyValueItem("ru", "Russian"));
-        addItem(new StringKeyValueItem("zh_CN", "Simplified Chinese"));
-        addItem(new StringKeyValueItem("sk", "Slovak"));
-        addItem(new StringKeyValueItem("sl", "Slovenian"));
-        addItem(new StringKeyValueItem("es", "Spanish"));
-        addItem(new StringKeyValueItem("sv", "Swedish"));
-        addItem(new StringKeyValueItem("tr", "Turkish"));
-        addItem(new StringKeyValueItem("th", "Thai"));
-        addItem(new StringKeyValueItem("uk", "Ukrainian"));
-        addItem(new StringKeyValueItem("vi", "Vietnamese"));
-        addItem(new StringKeyValueItem("zh_TW", "Traditional Chinese"));
-        addItem(new StringKeyValueItem("zh_HK", "Chinese (Hong Kong)"));
+    private void initModel() {
+        List<LocaleKeyValueItem> elements = new ArrayList<>();
+        for (Locale current : DefaultI18nContext.SUPPORTED_LOCALES) {
+            elements.add(new LocaleKeyValueItem(current));
+        }
+        setModel(new SortedComboModel<>(elements));
     }
 
 }

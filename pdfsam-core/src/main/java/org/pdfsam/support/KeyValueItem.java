@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 28/nov/2012
- * Copyright 2012 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 30/giu/2013
+ * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,21 +16,21 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.configuration;
-
-import org.pdfsam.module.PdfsamModule;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScan.Filter;
-import org.springframework.context.annotation.Configuration;
+package org.pdfsam.support;
 
 /**
- * IoC cofiguration
+ * Generic key,value pair holder
  * 
  * @author Andrea Vacondio
- * 
+ * @param <K>
+ *            key type
+ * @param <V>
+ *            value type
  */
-@Configuration
-@ComponentScan(basePackages = { "org.pdfsam.service", "org.pdfsam.module" }, includeFilters = @Filter(value = PdfsamModule.class))
-public class AppConfig {
-    // nothing
+public interface KeyValueItem<K, V> {
+
+    K getKey();
+
+    V getValue();
+
 }

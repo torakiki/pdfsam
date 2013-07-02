@@ -89,7 +89,7 @@ public final class DefaultUserContext implements UserContext {
 
     @Override
     public String getLocale() {
-        return prefs.get(StringUserPreference.LOCALE.toString(), "en_GB");
+        return prefs.get(StringUserPreference.LOCALE.toString(), StringUtils.EMPTY);
     }
 
     @Override

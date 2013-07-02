@@ -18,6 +18,8 @@
  */
 package org.pdfsam.context;
 
+import java.util.Locale;
+
 /**
  * Context related to the i18n of the application.
  * 
@@ -35,5 +37,10 @@ public interface I18nContext {
      * @return the internationalized messages.
      */
     String i18n(String input, String... values);
+
+    /**
+     * @return the configured {@link Locale}
+     */
+    Locale getLocale();
 
 }

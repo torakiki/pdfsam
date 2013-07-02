@@ -34,7 +34,7 @@ import static org.apache.commons.lang3.StringUtils.EMPTY;
  */
 public final class PdfsamProperties {
 
-    private static final Logger LOG = LoggerFactory.getLogger(PdfsamConfig.class);
+    private static final Logger LOG = LoggerFactory.getLogger(PdfsamProperties.class);
 
     public static final String VERSION = PdfsamPropertiesLoaderHolder.LOADER.getVersion();
     public static final String PACKAGE = PdfsamPropertiesLoaderHolder.LOADER.getPackageType();
