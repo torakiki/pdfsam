@@ -59,7 +59,7 @@ public abstract class BaseTaskExecutionModule implements Module, WithEventNamesp
 
     public BaseTaskExecutionModule() {
         init();
-        AnnotationProcessor.process(new RunButtonStatusHandler());
+        AnnotationProcessor.process(new RunButtonStatusController());
     }
 
     private void init() {
@@ -130,11 +130,11 @@ public abstract class BaseTaskExecutionModule implements Module, WithEventNamesp
      * @author Andrea Vacondio
      * 
      */
-    final class RunButtonStatusHandler {
+    final class RunButtonStatusController {
 
-        // we give a priority higher that 0 to be sure this is executed before the actual task.
+        // we give highest priority to be sure this is executed before the actual task.
         // we first want to disable the button and then execute the task
-        @EventSubscriber(referenceStrength = ReferenceStrength.STRONG, priority = 1)
+        @EventSubscriber(referenceStrength = ReferenceStrength.STRONG, priority = Integer.MIN_VALUE)
         public void disableRunButtonIfTaskRequested(TaskExecutionRequestEvent event) {
             runButton.setEnabled(false);
         }

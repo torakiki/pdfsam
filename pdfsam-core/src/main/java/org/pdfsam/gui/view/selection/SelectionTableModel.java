@@ -19,6 +19,7 @@
 package org.pdfsam.gui.view.selection;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
@@ -82,6 +83,21 @@ public class SelectionTableModel extends AbstractTableModel implements WithEvent
 
     public EventNamespace getEventNamespace() {
         return eventNamespace;
+    }
+
+    public void deleteIndexes(int[] toDelete) {
+        Collection<SelectionTableRowData> toRemove = getRows(toDelete);
+        if (data.removeAll(toRemove)) {
+            fireTableDataChanged();
+        }
+    }
+
+    private Collection<SelectionTableRowData> getRows(int[] indexes) {
+        List<SelectionTableRowData> retList = new ArrayList<>();
+        for (int current : indexes) {
+            retList.add(data.get(current));
+        }
+        return retList;
     }
 
     @EventSubscriber

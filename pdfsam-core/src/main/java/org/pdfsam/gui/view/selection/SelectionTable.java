@@ -29,7 +29,6 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
-import javax.swing.table.TableModel;
 
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
@@ -56,7 +55,7 @@ public class SelectionTable extends JTable implements WithEventNamespace {
     private static final int ROW_HEIGHT = 22;
     private EventNamespace namespace = EventNamespace.NULL;
 
-    public SelectionTable(TableModel dm, EventNamespace namespace) {
+    public SelectionTable(SelectionTableModel dm, EventNamespace namespace) {
         super(dm);
         this.namespace = namespace;
         setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
@@ -68,6 +67,7 @@ public class SelectionTable extends JTable implements WithEventNamespace {
         setBorder(BorderFactory.createEmptyBorder());
         setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         getSelectionModel().addListSelectionListener(new SelectionListener());
+        AnnotationProcessor.process(this);
     }
 
     public JTable getRowHeader() {
@@ -103,6 +103,17 @@ public class SelectionTable extends JTable implements WithEventNamespace {
 
     public EventNamespace getEventNamespace() {
         return namespace;
+    }
+
+    @EventSubscriber
+    public void onRemoveSelected(RemoveSelectedEvent event) {
+        if (event.getNamespace().isParentOf(getEventNamespace())) {
+            int[] selected = getSelectedRows();
+            for (int i = 0; i < selected.length; i++) {
+                selected[i] = convertRowIndexToModel(selected[i]);
+            }
+            ((SelectionTableModel) getModel()).deleteIndexes(selected);
+        }
     }
 
     /**
@@ -156,6 +167,15 @@ public class SelectionTable extends JTable implements WithEventNamespace {
             if (event.getNamespace().isParentOf(getEventNamespace())) {
                 numberOfRows = 0;
                 fireTableDataChanged();
+            }
+        }
+
+        @EventSubscriber(priority = Integer.MAX_VALUE)
+        public void onRemoveSelected(RemoveSelectedEvent event) {
+            if (event.getNamespace().isParentOf(getEventNamespace())) {
+                int formerRows = numberOfRows;
+                numberOfRows = SelectionTable.this.getRowCount();
+                fireTableRowsDeleted(numberOfRows, formerRows - 1);
             }
         }
     }
