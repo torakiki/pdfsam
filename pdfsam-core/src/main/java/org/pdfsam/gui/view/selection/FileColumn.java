@@ -20,64 +20,24 @@ package org.pdfsam.gui.view.selection;
 
 import java.awt.Component;
 import java.io.File;
-import java.text.DateFormat;
 
 import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.time.FastDateFormat;
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.gui.view.selection.FileColumn.ComparableFileWrapper;
+import org.pdfsam.support.RequireUtils;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 
 /**
- * Definition of the {@link Long} columns of the selection table
+ * Definition of the {@link File} columns of the selection table
  * 
  * @author Andrea Vacondio
  * 
  */
-enum FileColumn implements SelectionTableColumn<File> {
-    SIZE {
-        public String getColumnName() {
-            return DefaultI18nContext.getInstance().i18n("Size");
-        }
+enum FileColumn implements SelectionTableColumn<ComparableFileWrapper> {
 
-        @Override
-        public TableCellRenderer getRenderer() {
-            return new BaseSelectionTableCellRenderer() {
-
-                @Override
-                String getStringValue(Object value) {
-                    if (value != null) {
-                        return FileUtils.byteCountToDisplaySize(((File) value).length());
-                    }
-                    return EMPTY;
-                }
-            };
-        }
-    },
-    LAST_MODIFIED {
-        private FastDateFormat formatter = FastDateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
-
-        public String getColumnName() {
-            return DefaultI18nContext.getInstance().i18n("Modified");
-        }
-
-        @Override
-        public TableCellRenderer getRenderer() {
-            return new BaseSelectionTableCellRenderer() {
-
-                @Override
-                String getStringValue(Object value) {
-                    if (value != null) {
-                        return formatter.format(((File) value).lastModified());
-                    }
-                    return EMPTY;
-                }
-            };
-        }
-    },
     NAME {
         public String getColumnName() {
             return DefaultI18nContext.getInstance().i18n("Name");
@@ -90,14 +50,14 @@ enum FileColumn implements SelectionTableColumn<File> {
                 public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
                         boolean hasFocus, int row, int column) {
                     super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-                    setToolTipText(((File) value).getAbsolutePath());
+                    setToolTipText(((ComparableFileWrapper) value).getFile().getAbsolutePath());
                     return this;
                 }
 
                 @Override
                 String getStringValue(Object value) {
                     if (value != null) {
-                        return ((File) value).getName();
+                        return ((ComparableFileWrapper) value).getFile().getName();
                     }
                     return EMPTY;
                 }
@@ -105,12 +65,36 @@ enum FileColumn implements SelectionTableColumn<File> {
         }
     };
 
-    public File getValueFor(SelectionTableRowData rowData, int rowNum) {
-        return rowData.getDocumentDescriptor().getFile();
+    public ComparableFileWrapper getValueFor(SelectionTableRowData rowData, int rowNum) {
+        return new ComparableFileWrapper(rowData.getDocumentDescriptor().getFile());
     }
 
-    public Class<File> getColumnClass() {
-        return File.class;
+    public Class<ComparableFileWrapper> getColumnClass() {
+        return ComparableFileWrapper.class;
     }
 
+    /**
+     * Wrapper around a File instance that can nicely used by the table sorter
+     * 
+     * @author Andrea Vacondio
+     * 
+     */
+    public static final class ComparableFileWrapper implements Comparable<ComparableFileWrapper> {
+        private final File wrapped;
+
+        private ComparableFileWrapper(File file) {
+            RequireUtils.require(file != null, "File cannt be null");
+            this.wrapped = file;
+        }
+
+        public File getFile() {
+            return wrapped;
+        }
+
+        @Override
+        public int compareTo(ComparableFileWrapper o) {
+            return this.getFile().getName().toLowerCase().compareTo(o.getFile().getName().toLowerCase());
+        }
+
+    }
 }
