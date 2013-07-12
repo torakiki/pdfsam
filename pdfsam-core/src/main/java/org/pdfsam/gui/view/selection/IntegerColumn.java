@@ -30,26 +30,17 @@ import org.pdfsam.context.DefaultI18nContext;
  * 
  */
 public enum IntegerColumn implements SelectionTableColumn<Integer> {
-    COUNTER {
-        public String getColumnName() {
-            return "#";
-        }
-
-        public Integer getValueFor(SelectionTableRowData rowData, int rowNum) {
-            return rowNum + 1;
-        }
-    },
     PAGES {
         public String getColumnName() {
             return DefaultI18nContext.getInstance().i18n("Pages");
         }
 
-        public Integer getValueFor(SelectionTableRowData rowData, int rowNum) {
+        public Integer getValueFor(SelectionTableRowData rowData) {
             int pages = rowData.getDocumentDescriptor().getPages();
             if (pages > 0) {
                 return pages;
             }
-            return null;
+            return 0;
         }
 
     };

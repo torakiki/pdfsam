@@ -20,11 +20,16 @@ package org.pdfsam.gui.view.selection;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
+import javax.swing.RowSorter.SortKey;
+import javax.swing.SortOrder;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableCellRenderer;
 
+import org.bushe.swing.event.EventBus;
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
 import org.pdfsam.gui.event.EventNamespace;
@@ -40,15 +45,15 @@ import static org.pdfsam.support.RequireUtils.require;
  * @author Andrea Vacondio
  * 
  */
-public class SelectionTableModel extends AbstractTableModel implements WithEventNamespace {
+class SelectionTableModel extends AbstractTableModel implements WithEventNamespace {
 
     private List<SelectionTableRowData> data = new ArrayList<>();
     private List<SelectionTableColumn<?>> columns = new ArrayList<>();
-    private EventNamespace eventNamespace;
+    private EventNamespace namespace;
 
     public SelectionTableModel(EventNamespace eventNamespace, SelectionTableColumn<?>... columns) {
         require(eventNamespace != null, "Event namespace cannot be null");
-        this.eventNamespace = eventNamespace;
+        this.namespace = eventNamespace;
         for (SelectionTableColumn<?> current : columns) {
             this.columns.add(current);
         }
@@ -64,7 +69,7 @@ public class SelectionTableModel extends AbstractTableModel implements WithEvent
     }
 
     public Object getValueAt(int row, int col) {
-        return columns.get(col).getValueFor(data.get(row), row);
+        return columns.get(col).getValueFor(data.get(row));
     }
 
     @Override
@@ -77,12 +82,23 @@ public class SelectionTableModel extends AbstractTableModel implements WithEvent
         return columns.get(col).getColumnName();
     }
 
+    SelectionTableRowData getRow(int row) {
+        if (data.size() > row) {
+            return data.get(row);
+        }
+        return null;
+    }
+
+    int getRowIndex(SelectionTableRowData row) {
+        return data.indexOf(row);
+    }
+
     public TableCellRenderer getColumnRenderer(int col) {
         return columns.get(col).getRenderer();
     }
 
     public EventNamespace getEventNamespace() {
-        return eventNamespace;
+        return namespace;
     }
 
     public void deleteIndexes(int[] toDelete) {
@@ -122,6 +138,21 @@ public class SelectionTableModel extends AbstractTableModel implements WithEvent
         if (rows > 0) {
             fireTableRowsInserted(data.size() - rows, data.size() - 1);
         }
+        EventBus.publish(new SortRequestEvent(namespace));
     }
 
+    public void sort(final SortKey sorting) {
+        if (sorting.getSortOrder() != SortOrder.UNSORTED) {
+            EventBus.publish(new BeforeSortEvent(namespace));
+            Collections.sort(data, new Comparator<SelectionTableRowData>() {
+                @Override
+                public int compare(SelectionTableRowData o1, SelectionTableRowData o2) {
+                    SelectionTableColumn<? extends Comparable> column = columns.get(sorting.getColumn());
+                    int retVal = column.getValueFor(o1).compareTo(column.getValueFor(o2));
+                    return SortOrder.ASCENDING == sorting.getSortOrder() ? retVal : -retVal;
+                }
+            });
+            EventBus.publish(new AfterSortEvent(namespace));
+        }
+    }
 }

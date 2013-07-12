@@ -38,7 +38,7 @@ enum StringColumn implements SelectionTableColumn<String> {
             return DefaultI18nContext.getInstance().i18n("Page ranges");
         }
 
-        public String getValueFor(SelectionTableRowData data, int rowNum) {
+        public String getValueFor(SelectionTableRowData data) {
             return data.getPageSelection();
         }
 

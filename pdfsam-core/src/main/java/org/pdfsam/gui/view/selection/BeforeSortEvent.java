@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 15/giu/2013
+ * Created on 11/lug/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,22 +18,19 @@
  */
 package org.pdfsam.gui.view.selection;
 
-import javax.swing.table.TableCellRenderer;
+import org.pdfsam.gui.event.BaseEvent;
+import org.pdfsam.gui.event.EventNamespace;
 
 /**
- * Definition of a column in the selection table
+ * Event informing we are about the change sorting of the model
  * 
  * @author Andrea Vacondio
- * @param <T>
- *            {@link Comparable} type of the column data
+ * 
  */
-public interface SelectionTableColumn<T extends Comparable<T>> {
+class BeforeSortEvent extends BaseEvent {
 
-    String getColumnName();
+    public BeforeSortEvent(EventNamespace namespace) {
+        super(namespace);
+    }
 
-    Class<T> getColumnClass();
-
-    T getValueFor(SelectionTableRowData data);
-
-    TableCellRenderer getRenderer();
 }

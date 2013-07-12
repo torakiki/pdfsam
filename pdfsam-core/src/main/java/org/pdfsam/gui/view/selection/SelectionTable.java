@@ -26,15 +26,19 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
+import org.bushe.swing.event.annotation.ReferenceStrength;
 import org.pdfsam.gui.event.EventNamespace;
 import org.pdfsam.gui.event.WithEventNamespace;
 import org.pdfsam.pdf.PdfLoadCompletedEvent;
+import org.pdfsam.support.RequireUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -54,12 +58,13 @@ public class SelectionTable extends JTable implements WithEventNamespace {
     private static final int ROW_HEADER_WIDTH = 30;
     private static final int ROW_HEIGHT = 22;
     private EventNamespace namespace = EventNamespace.NULL;
+    private SelectionTableRowSorter sorter;
 
     public SelectionTable(SelectionTableModel dm, EventNamespace namespace) {
         super(dm);
         this.namespace = namespace;
+        sorter = new SelectionTableRowSorter(dm);
         setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        setAutoCreateRowSorter(true);
         setFillsViewportHeight(true);
         putClientProperty("terminateEditOnFocusLost", Boolean.TRUE);
         setRowHeight(ROW_HEIGHT);
@@ -68,6 +73,7 @@ public class SelectionTable extends JTable implements WithEventNamespace {
         setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         getSelectionModel().addListSelectionListener(new SelectionListener());
         AnnotationProcessor.process(this);
+        AnnotationProcessor.process(new TableSelectionController(dm));
     }
 
     public JTable getRowHeader() {
@@ -84,6 +90,11 @@ public class SelectionTable extends JTable implements WithEventNamespace {
         rowHeader.setDefaultRenderer(String.class, getTableHeader().getDefaultRenderer());
         rowHeader.getColumnModel().getColumn(0).setMaxWidth(ROW_HEADER_WIDTH);
         return rowHeader;
+    }
+
+    @Override
+    public SelectionTableRowSorter getRowSorter() {
+        return sorter;
     }
 
     @Override
@@ -113,6 +124,27 @@ public class SelectionTable extends JTable implements WithEventNamespace {
                 selected[i] = convertRowIndexToModel(selected[i]);
             }
             ((SelectionTableModel) getModel()).deleteIndexes(selected);
+        }
+    }
+
+    @EventSubscriber
+    public void onMoveSelected(MoveSelectedEvent event) {
+        if (event.getNamespace().isParentOf(getEventNamespace())) {
+            int[] ordered = new int[getRowCount()];
+            for (int i = 0; i < getRowCount(); i++) {
+                ordered[i] = convertRowIndexToModel(i);
+            }
+            int[] selected = getSelectedRows();
+            // TODO move
+            ((SelectionTableModel) getModel()).deleteIndexes(selected);
+        }
+    }
+
+    @EventSubscriber
+    public void onSort(SortRequestEvent event) {
+        if (event.getNamespace().isParentOf(getEventNamespace())) {
+            sorter.sort();
+            resizeAndRepaint();
         }
     }
 
@@ -202,6 +234,72 @@ public class SelectionTable extends JTable implements WithEventNamespace {
                     LOG.trace("{} for {}", newSelectionEvent, namespace);
                 }
             }
+        }
+    }
+
+    /**
+     * Controller for the table selection. Caches and restores the selection when possible.
+     * 
+     * @author Andrea Vacondio
+     * 
+     */
+    private class TableSelectionController {
+        private SelectionTableRowData selected;
+        private SelectionTableModel model;
+
+        public TableSelectionController(SelectionTableModel model) {
+            RequireUtils.require(model != null, "Model cannot be null");
+            this.model = model;
+        }
+
+        @EventSubscriber(referenceStrength = ReferenceStrength.STRONG)
+        public void onBeforeSort(BeforeSortEvent event) {
+            if (event.getNamespace().isParentOf(getEventNamespace())) {
+                selected = null;
+                ListSelectionModel selectionModel = getSelectionModel();
+                if (!selectionModel.isSelectionEmpty()
+                        && selectionModel.getMinSelectionIndex() == selectionModel.getMaxSelectionIndex()) {
+                    selected = model.getRow(selectionModel.getMinSelectionIndex());
+                }
+                selectionModel.clearSelection();
+            }
+        }
+
+        @EventSubscriber(referenceStrength = ReferenceStrength.STRONG)
+        public void onAfterSort(AfterSortEvent event) {
+            if (event.getNamespace().isParentOf(getEventNamespace()) && selected != null) {
+                ListSelectionModel selectionModel = getSelectionModel();
+                int index = model.getRowIndex(selected);
+                selectionModel.setSelectionInterval(index, index);
+                selected = null;
+            }
+        }
+    }
+
+    /**
+     * Listen for model changes and takes appropriate actions if the table is sorted
+     * 
+     * @author Andrea Vacondio
+     * 
+     */
+    // TODO remove
+    private class ModelChangeListener implements TableModelListener {
+        public void tableChanged(TableModelEvent e) {
+            if (!sorter.isUnsorted() && e.getType() != TableModelEvent.DELETE) {
+                if (isInsert(e) || isUpdateOnSortedColumn(e)) {
+                    sorter.sort();
+                    resizeAndRepaint();
+                }
+            }
+        }
+
+        private boolean isInsert(TableModelEvent e) {
+            return e.getType() == TableModelEvent.INSERT;
+        }
+
+        private boolean isUpdateOnSortedColumn(TableModelEvent e) {
+            return (e.getType() == TableModelEvent.UPDATE && (e.getColumn() == TableModelEvent.ALL_COLUMNS || sorter
+                    .isSortedOnColumn(e.getColumn())));
         }
     }
 

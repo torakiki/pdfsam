@@ -14,7 +14,7 @@
 	</appender>
 
 	<logger name="org.sejda" level="DEBUG" />
-	<logger name="org.pdfsam" level="DEBUG" />
+	<logger name="org.pdfsam" level="TRACE" />
 	<logger name="org.hibernate" level="WARN" />
 
 	<root level="TRACE">

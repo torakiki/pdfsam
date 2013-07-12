@@ -56,7 +56,7 @@ public enum LongColumn implements SelectionTableColumn<Long> {
         }
 
         @Override
-        public Long getValueFor(SelectionTableRowData rowData, int rowNum) {
+        public Long getValueFor(SelectionTableRowData rowData) {
             return rowData.getDocumentDescriptor().getFile().length();
         }
     },
@@ -82,7 +82,7 @@ public enum LongColumn implements SelectionTableColumn<Long> {
         }
 
         @Override
-        public Long getValueFor(SelectionTableRowData rowData, int rowNum) {
+        public Long getValueFor(SelectionTableRowData rowData) {
             return rowData.getDocumentDescriptor().getFile().lastModified();
         }
     };

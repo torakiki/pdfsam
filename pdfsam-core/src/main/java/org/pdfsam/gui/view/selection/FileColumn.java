@@ -65,7 +65,7 @@ enum FileColumn implements SelectionTableColumn<ComparableFileWrapper> {
         }
     };
 
-    public ComparableFileWrapper getValueFor(SelectionTableRowData rowData, int rowNum) {
+    public ComparableFileWrapper getValueFor(SelectionTableRowData rowData) {
         return new ComparableFileWrapper(rowData.getDocumentDescriptor().getFile());
     }
 
