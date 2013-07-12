@@ -64,6 +64,7 @@ public class SelectionTable extends JTable implements WithEventNamespace {
         super(dm);
         this.namespace = namespace;
         sorter = new SelectionTableRowSorter(dm);
+        sorter.addRowSorterListener(this);
         setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         setFillsViewportHeight(true);
         putClientProperty("terminateEditOnFocusLost", Boolean.TRUE);
@@ -119,24 +120,22 @@ public class SelectionTable extends JTable implements WithEventNamespace {
     @EventSubscriber
     public void onRemoveSelected(RemoveSelectedEvent event) {
         if (event.getNamespace().isParentOf(getEventNamespace())) {
-            int[] selected = getSelectedRows();
-            for (int i = 0; i < selected.length; i++) {
-                selected[i] = convertRowIndexToModel(selected[i]);
-            }
-            ((SelectionTableModel) getModel()).deleteIndexes(selected);
+            ((SelectionTableModel) getModel()).deleteIndexes(getSelectedRows());
         }
     }
 
     @EventSubscriber
     public void onMoveSelected(MoveSelectedEvent event) {
         if (event.getNamespace().isParentOf(getEventNamespace())) {
-            int[] ordered = new int[getRowCount()];
-            for (int i = 0; i < getRowCount(); i++) {
-                ordered[i] = convertRowIndexToModel(i);
-            }
+            sorter.unsort();
             int[] selected = getSelectedRows();
-            // TODO move
-            ((SelectionTableModel) getModel()).deleteIndexes(selected);
+            if (event.getType() == MoveType.DOWN) {
+                ((SelectionTableModel) getModel()).moveDownIndexes(selected);
+                setRowSelectionInterval(selected[0] + 1, selected[selected.length - 1] + 1);
+            } else {
+                ((SelectionTableModel) getModel()).moveUpIndexes(selected);
+                setRowSelectionInterval(selected[0] - 1, selected[selected.length - 1] - 1);
+            }
         }
     }
 

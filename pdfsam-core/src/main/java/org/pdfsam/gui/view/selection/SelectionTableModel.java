@@ -37,6 +37,8 @@ import org.pdfsam.gui.event.WithEventNamespace;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadCompletedEvent;
 
+import static org.apache.commons.lang3.ArrayUtils.isNotEmpty;
+
 import static org.pdfsam.support.RequireUtils.require;
 
 /**
@@ -105,6 +107,20 @@ class SelectionTableModel extends AbstractTableModel implements WithEventNamespa
         Collection<SelectionTableRowData> toRemove = getRows(toDelete);
         if (data.removeAll(toRemove)) {
             fireTableDataChanged();
+        }
+    }
+
+    public void moveUpIndexes(int[] toMove) {
+        if (isNotEmpty(toMove) && toMove.length < data.size() && toMove[0] > 0) {
+            Collections.rotate(data.subList(toMove[0] - 1, toMove[toMove.length - 1] + 1), -1);
+            fireTableRowsUpdated(toMove[0] - 1, toMove[toMove.length - 1]);
+        }
+    }
+
+    public void moveDownIndexes(int[] toMove) {
+        if (isNotEmpty(toMove) && toMove.length < data.size() && toMove[toMove.length - 1] < data.size() - 1) {
+            Collections.rotate(data.subList(toMove[0], toMove[toMove.length - 1] + 2), 1);
+            fireTableRowsUpdated(toMove[0], toMove[toMove.length - 1] + 1);
         }
     }
 
