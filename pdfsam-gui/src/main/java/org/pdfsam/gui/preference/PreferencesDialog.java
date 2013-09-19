@@ -20,19 +20,21 @@ package org.pdfsam.gui.preference;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
-import org.pdfsam.configuration.PdfsamProperties;
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.gui.about.AboutDialog;
 import org.pdfsam.gui.view.Views;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * Dialog showing preferences panel.
@@ -40,17 +42,21 @@ import org.pdfsam.gui.view.Views;
  * @author Andrea Vacondio
  * 
  */
+@Named
 public final class PreferencesDialog extends JDialog {
+
+    @Inject
+    @Qualifier("pdfsamLogoImage")
+    private Image image;
 
     private PreferencesDialog() {
         setTitle(DefaultI18nContext.getInstance().i18n("Preferences"));
-        init();
     }
 
-    private void init() {
+    @PostConstruct
+    void init() {
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        setIconImage(new ImageIcon(AboutDialog.class.getResource("/images/pdfsam_" + PdfsamProperties.PACKAGE + ".png"))
-                .getImage());
+        setIconImage(image);
         setSize(540, 580);
         setLayout(new GridBagLayout());
 
@@ -96,27 +102,9 @@ public final class PreferencesDialog extends JDialog {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            getInstance().setVisible(false);
+            PreferencesDialog.this.setVisible(false);
         }
 
     }
 
-    /**
-     * Lazy initialization holder class idiom (Joshua Bloch, Effective Java second edition, item 71).
-     * 
-     * @author Andrea Vacondio
-     * 
-     */
-    private static final class PreferencesFrameHolder {
-
-        private PreferencesFrameHolder() {
-            // hide constructor
-        }
-
-        static final PreferencesDialog PREFS_FRAME = new PreferencesDialog();
-    }
-
-    public static PreferencesDialog getInstance() {
-        return PreferencesFrameHolder.PREFS_FRAME;
-    }
 }

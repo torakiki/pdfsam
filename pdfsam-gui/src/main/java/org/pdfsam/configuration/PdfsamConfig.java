@@ -18,10 +18,21 @@
  */
 package org.pdfsam.configuration;
 
+import java.awt.Image;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.inject.Inject;
+
 import org.pdfsam.module.PdfsamModule;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
 /**
  * IoC configuration
@@ -31,6 +42,16 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ComponentScan(basePackages = { "org.pdfsam" }, includeFilters = @Filter(value = PdfsamModule.class))
+@PropertySource("classpath:pdfsam.properties")
 public class PdfsamConfig {
-    // nothing
+
+    @Inject
+    private Environment env;
+
+    @Bean(name = "pdfsamLogoImage")
+    public Image getAppImage() throws IOException {
+        Resource resource = new ClassPathResource("/images/pdfsam_" + env.getProperty("pdfsam.package", "BASIC")
+                + ".png");
+        return ImageIO.read(resource.getInputStream());
+    }
 }

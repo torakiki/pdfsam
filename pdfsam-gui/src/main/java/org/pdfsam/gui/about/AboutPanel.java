@@ -22,14 +22,17 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import org.apache.commons.io.FileUtils;
-import org.pdfsam.configuration.PdfsamProperties;
 import org.pdfsam.context.DefaultI18nContext;
+import org.springframework.core.env.Environment;
 import org.swingplus.JHyperlink;
 
 /**
@@ -38,22 +41,23 @@ import org.swingplus.JHyperlink;
  * @author Andrea Vacondio
  * 
  */
+@Named
 class AboutPanel extends JPanel {
 
-    public AboutPanel() {
-        init();
-    }
+    @Inject
+    private Environment env;
 
-    private void init() {
+    @PostConstruct
+    void init() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBackground(Color.WHITE);
         add(Box.createVerticalGlue());
-        JLabel appName = new JLabel(String.format("PDF Split and Merge %s", PdfsamProperties.PACKAGE));
+        JLabel appName = new JLabel(String.format("PDF Split and Merge %s", env.getProperty("pdfsam.package")));
         Font f = appName.getFont();
         appName.setFont(f.deriveFont(f.getStyle() | Font.BOLD));
         add(appName);
         add(Box.createRigidArea(new Dimension(0, 10)));
-        add(new JLabel(String.format("ver. %s", PdfsamProperties.VERSION)));
+        add(new JLabel(String.format("ver. %s", env.getProperty("pdfsam.version"))));
         Dimension labelSpace = new Dimension(0, 5);
         add(Box.createRigidArea(labelSpace));
         add(new JLabel("Copyright 2012 by Andrea Vacondio"));

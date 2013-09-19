@@ -18,6 +18,7 @@
  */
 package org.pdfsam;
 
+import java.awt.Image;
 import java.util.Map;
 
 import javax.swing.ImageIcon;
@@ -27,7 +28,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.apache.commons.lang3.time.StopWatch;
 import org.bushe.swing.event.EventBus;
-import org.pdfsam.configuration.PdfsamConfig;
+import org.pdfsam.configuration.ApplicationContextHolder;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.gui.BaseTaskExecutionModule;
@@ -39,7 +40,7 @@ import org.pdfsam.gui.support.SwingUtils;
 import org.pdfsam.update.UpdateCheckRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.core.env.Environment;
 
 import bibliothek.gui.dock.common.CControl;
 import bibliothek.gui.dock.common.theme.ThemeMap;
@@ -55,7 +56,7 @@ public final class App {
 
     private static final Logger LOG = LoggerFactory.getLogger(App.class);
     private static MainFrame mainFrame = null;
-    private static AnnotationConfigApplicationContext ctx;
+    private static final String UNK = "UNKNOWN";
 
     private App() {
         // hide
@@ -68,14 +69,17 @@ public final class App {
 
         try {
             initLookAndFeel();
-            mainFrame = new MainFrame();
+            Environment env = ApplicationContextHolder.getContext().getEnvironment();
+            mainFrame = new MainFrame(String.format("PDF Split and Merge %s ver. %s",
+                    env.getProperty("pdfsam.package", UNK), env.getProperty("pdfsam.version", UNK)));
+            mainFrame.setIconImage(ApplicationContextHolder.getContext().getBean(Image.class));
             CControl control = new CControl(mainFrame);
             control.setTheme(ThemeMap.KEY_FLAT_THEME);
             initIcons(control);
             mainFrame.initControl(control);
             mainFrame.addSystemContentAction(MenuType.HELP, new WelcomePanel());
 
-            initIoC();
+            initModules();
             SwingUtils.centrePositionOnScreen(mainFrame);
             mainFrame.setVisible(true);
             requestCheckForUpdateIfNecessary();
@@ -127,14 +131,14 @@ public final class App {
 
     }
 
-    private static void initIoC() {
-        ctx = new AnnotationConfigApplicationContext(PdfsamConfig.class);
-        Map<String, BaseTaskExecutionModule> modules = ctx.getBeansOfType(BaseTaskExecutionModule.class);
+    private static void initModules() {
+        Map<String, BaseTaskExecutionModule> modules = ApplicationContextHolder.getContext().getBeansOfType(
+                BaseTaskExecutionModule.class);
         LOG.debug("Found {} modules", modules.size());
         TaskExecutionModulesLoadedEvent initModulesEvent = new TaskExecutionModulesLoadedEvent();
         initModulesEvent.addAll(modules.values());
         EventBus.publish(initModulesEvent);
-        ctx.registerShutdownHook();
+
     }
 
     /**

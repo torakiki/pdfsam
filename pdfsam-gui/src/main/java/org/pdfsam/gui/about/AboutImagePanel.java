@@ -20,14 +20,16 @@ package org.pdfsam.gui.about;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Image;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import org.pdfsam.configuration.PdfsamProperties;
 
 /**
  * Panel displaying the PDFsam image in the about panel.
@@ -35,11 +37,15 @@ import org.pdfsam.configuration.PdfsamProperties;
  * @author Andrea Vacondio
  * 
  */
+@Named
 class AboutImagePanel extends JPanel {
 
-    AboutImagePanel() {
-        JLabel image = new JLabel(new ImageIcon(AboutDialog.class.getResource("/images/pdfsam_"
-                + PdfsamProperties.PACKAGE + "_128.png")));
+    @Inject
+    private Image appImage;
+
+    @PostConstruct
+    void init() {
+        JLabel image = new JLabel(new ImageIcon(appImage));
         image.setMinimumSize(new Dimension(128, 128));
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         Dimension fillerSize = new Dimension(10, 0);
@@ -49,5 +55,4 @@ class AboutImagePanel extends JPanel {
         add(image);
         add(Box.createVerticalGlue());
     }
-
 }

@@ -20,18 +20,21 @@ package org.pdfsam.gui.about;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
-import org.pdfsam.configuration.PdfsamProperties;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.view.Views;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * Dialog to display About informations.
@@ -39,17 +42,23 @@ import org.pdfsam.gui.view.Views;
  * @author Andrea Vacondio
  * 
  */
-public final class AboutDialog extends JDialog {
+@Named
+public class AboutDialog extends JDialog {
 
-    private AboutDialog() {
+    @Inject
+    @Qualifier("pdfsamLogoImage")
+    private Image image;
+
+    @Inject
+    private AboutPanel aboutPanel;
+    @Inject
+    private AboutImagePanel aboutImagePanel;
+
+    @PostConstruct
+    void init() {
         setTitle(DefaultI18nContext.getInstance().i18n("About"));
-        init();
-    }
-
-    private void init() {
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        setIconImage(new ImageIcon(AboutDialog.class.getResource("/images/pdfsam_" + PdfsamProperties.PACKAGE + ".png"))
-                .getImage());
+        setIconImage(image);
         setSize(460, 210);
         setLayout(new GridBagLayout());
 
@@ -62,7 +71,7 @@ public final class AboutDialog extends JDialog {
         c.gridy = 0;
         c.weighty = 1;
         c.fill = GridBagConstraints.VERTICAL;
-        add(new AboutImagePanel(), c);
+        add(aboutImagePanel, c);
 
         c.ipady = 10;
         c.ipadx = 10;
@@ -74,7 +83,7 @@ public final class AboutDialog extends JDialog {
         c.weighty = 1;
         c.fill = GridBagConstraints.BOTH;
         JScrollPane scroll = new JScrollPane();
-        scroll.setViewportView(new AboutPanel());
+        scroll.setViewportView(aboutPanel);
         scroll.setBorder(BorderFactory.createEmptyBorder());
         add(scroll, c);
 
@@ -104,28 +113,10 @@ public final class AboutDialog extends JDialog {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            getInstance().setVisible(false);
+            AboutDialog.this.setVisible(false);
 
         }
 
     }
 
-    /**
-     * Lazy initialization holder class idiom (Joshua Bloch, Effective Java second edition, item 71).
-     * 
-     * @author Andrea Vacondio
-     * 
-     */
-    private static final class AboutFrameHolder {
-
-        private AboutFrameHolder() {
-            // hide constructor
-        }
-
-        static final AboutDialog ABOUT_FRAME = new AboutDialog();
-    }
-
-    public static AboutDialog getInstance() {
-        return AboutFrameHolder.ABOUT_FRAME;
-    }
 }

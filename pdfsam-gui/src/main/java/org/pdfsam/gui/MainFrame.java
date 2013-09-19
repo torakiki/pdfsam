@@ -25,7 +25,6 @@ import javax.swing.JFrame;
 
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
-import org.pdfsam.configuration.PdfsamProperties;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.event.TaskExecutionModulesLoadedEvent;
 import org.pdfsam.gui.log.JLogPanel;
@@ -55,16 +54,14 @@ public class MainFrame extends JFrame {
     private CWorkingArea workingArea;
     private MainMenuBar menuBar;
 
-    public MainFrame() {
-        super(String.format("PDF Split and Merge %s ver. %s", PdfsamProperties.PACKAGE, PdfsamProperties.VERSION));
+    public MainFrame(String title) {
+        super(title);
         init();
         AnnotationProcessor.process(this);
     }
 
     private void init() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setIconImage(new ImageIcon(MainFrame.class.getResource("/images/pdfsam_" + PdfsamProperties.PACKAGE + ".png"))
-                .getImage());
         setSize(640, 480);
     }
 

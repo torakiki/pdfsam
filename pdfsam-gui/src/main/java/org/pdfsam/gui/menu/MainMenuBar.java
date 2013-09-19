@@ -30,6 +30,7 @@ import javax.swing.JMenuBar;
 
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
+import org.pdfsam.configuration.ApplicationContextHolder;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.BaseTaskExecutionModule;
 import org.pdfsam.gui.Module;
@@ -67,8 +68,8 @@ public class MainMenuBar extends JMenuBar {
         JMenu menuEdit = new JMenu();
         menuEdit.setText(DefaultI18nContext.getInstance().i18n("Edit"));
         menuEdit.setMnemonic(KeyEvent.VK_E);
-        menuEdit.add(new ShowDialogAction(DefaultI18nContext.getInstance().i18n("Preferences"), PreferencesDialog
-                .getInstance()));
+        menuEdit.add(new ShowDialogAction(DefaultI18nContext.getInstance().i18n("Preferences"),
+                ApplicationContextHolder.getContext().getBean(PreferencesDialog.class)));
         add(menuEdit);
 
         JMenu menuWorkspace = new JMenu();
@@ -90,7 +91,8 @@ public class MainMenuBar extends JMenuBar {
         JMenu menuHelp = new JMenu();
         menuHelp.setText(DefaultI18nContext.getInstance().i18n("Help"));
         menuHelp.setMnemonic(KeyEvent.VK_H);
-        menuHelp.add(new ShowDialogAction(DefaultI18nContext.getInstance().i18n("About"), AboutDialog.getInstance()));
+        menuHelp.add(new ShowDialogAction(DefaultI18nContext.getInstance().i18n("About"), ApplicationContextHolder
+                .getContext().getBean(AboutDialog.class)));
         add(menuHelp);
 
         menus.put(MenuType.FILE, menuFile);

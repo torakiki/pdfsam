@@ -19,14 +19,11 @@
 package org.pdfsam.update;
 
 import javax.inject.Named;
-import javax.swing.SwingWorker;
 
-import org.apache.commons.lang3.StringUtils;
-import org.bushe.swing.event.EventBus;
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
 import org.bushe.swing.event.annotation.ReferenceStrength;
-import org.pdfsam.configuration.PdfsamProperties;
+import org.pdfsam.configuration.ApplicationContextHolder;
 import org.pdfsam.context.DefaultI18nContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,57 +35,18 @@ import org.slf4j.LoggerFactory;
  * 
  */
 @Named
-public class UpdateController {
+class UpdateController {
     private static final Logger LOG = LoggerFactory.getLogger(UpdateController.class);
-    private static final String URI = "http://www.pdfsam.org/check-version.php?version=basic&remoteversion="
-            + PdfsamProperties.VERSION + "&branch=2";
 
-    private UpdateChecker checker;
-
-    public UpdateController() {
-        checker = UpdateCheckers.newHttpUpdateChecker(URI);
+    UpdateController() {
         AnnotationProcessor.process(this);
     }
 
     @EventSubscriber(referenceStrength = ReferenceStrength.STRONG)
     public void checkForUpdates(UpdateCheckRequest event) {
         LOG.debug(DefaultI18nContext.getInstance().i18n("Checking for updates"));
-        doCheckForUpdatesAsync();
-    }
-
-    private void doCheckForUpdatesAsync() {
-        SwingWorker<String, Void> worker = new AsyncUpdateChecker();
+        AsyncUpdateChecker worker = ApplicationContextHolder.getContext().getBean(AsyncUpdateChecker.class);
         worker.execute();
     }
 
-    /**
-     * Check for updates asynchronously
-     * 
-     * @author Andrea Vacondio
-     * 
-     */
-    private class AsyncUpdateChecker extends SwingWorker<String, Void> {
-
-        @Override
-        public String doInBackground() {
-            return StringUtils.defaultString(checker.getLatestVersion());
-        }
-
-        @Override
-        protected void done() {
-            String latest;
-            try {
-                latest = get();
-                if (!PdfsamProperties.VERSION.equals(latest)) {
-                    EventBus.publish(new UpdateAvailableEvent(latest));
-                } else {
-                    LOG.debug(DefaultI18nContext.getInstance().i18n("No update available"));
-                }
-            } catch (Exception e) {
-                LOG.warn("An error occurred while checking for updates");
-            }
-
-        }
-
-    }
 }
