@@ -42,4 +42,14 @@ public final class RequireUtils {
         }
     }
 
+    /**
+     * throws an {@link IllegalArgumentException} if the input argument is null
+     * 
+     * @param arg
+     * @param errorMessage
+     */
+    public static void requireNotNull(Object arg, String errorMessage) {
+        require(arg != null, errorMessage);
+    }
+
 }

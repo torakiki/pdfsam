@@ -26,9 +26,10 @@ import javax.swing.table.TableCellRenderer;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.view.selection.FileColumn.ComparableFileWrapper;
-import org.pdfsam.support.RequireUtils;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
+
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**
  * Definition of the {@link File} columns of the selection table
@@ -74,7 +75,7 @@ enum FileColumn implements SelectionTableColumn<ComparableFileWrapper> {
     }
 
     /**
-     * Wrapper around a File instance that can nicely used by the table sorter
+     * Wrapper around a File instance that can nicely be used by the table sorter
      * 
      * @author Andrea Vacondio
      * 
@@ -83,7 +84,7 @@ enum FileColumn implements SelectionTableColumn<ComparableFileWrapper> {
         private final File wrapped;
 
         private ComparableFileWrapper(File file) {
-            RequireUtils.require(file != null, "File cannt be null");
+            requireNotNull(file, "File cannt be null");
             this.wrapped = file;
         }
 

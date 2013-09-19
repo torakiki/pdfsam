@@ -25,12 +25,11 @@ import java.util.Map.Entry;
 import java.util.UUID;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.support.RequireUtils;
 import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.input.PdfSource;
 import org.sejda.model.pdf.PdfMetadataKey;
 
-import static org.pdfsam.support.RequireUtils.require;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**
  * Lightweight pdf document descriptor holding data necessary to fill the selection table and request a task execution.
@@ -115,17 +114,17 @@ public final class PdfDocumentDescriptor {
     }
 
     public static PdfDocumentDescriptor newDescriptor(File file, String password) {
-        require(file != null, "Input file is mandatory");
+        requireNotNull(file, "Input file is mandatory");
         return new PdfDocumentDescriptor(file, password);
     }
 
     public static PdfDocumentDescriptor newDescriptorNoPassword(File file) {
-        RequireUtils.require(file != null, "Input file is mandatory");
+        requireNotNull(file, "Input file is mandatory");
         return new PdfDocumentDescriptor(file, null);
     }
 
     public static PdfDocumentDescriptor newCopy(PdfDocumentDescriptor toCopy) {
-        require(toCopy != null, "Cannot copy a null document descriptor");
+        requireNotNull(toCopy, "Cannot copy a null document descriptor");
         PdfDocumentDescriptor copy = new PdfDocumentDescriptor(toCopy.file, toCopy.password);
         copy.uuid = toCopy.uuid;
         copy.encryptionStatus = toCopy.getEncryptionStatus();

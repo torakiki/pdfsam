@@ -18,8 +18,9 @@
  */
 package org.pdfsam.gui.event;
 
-import org.pdfsam.support.RequireUtils;
 import org.sejda.model.pdf.PdfVersion;
+
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**
  * Event to notify subscribers that some selected option removes a constraint on the output pdf version.
@@ -31,7 +32,7 @@ public class RemovePdfVersionConstraintEvent extends BasePdfVersionEvent {
 
     public RemovePdfVersionConstraintEvent(EventNamespace namespace, PdfVersion pdfVersion) {
         super(namespace, pdfVersion);
-        RequireUtils.require(pdfVersion != null, "Unable to create a pdf version event on a null pdf version");
+        requireNotNull(pdfVersion, "Unable to create a pdf version event on a null pdf version");
     }
 
 }

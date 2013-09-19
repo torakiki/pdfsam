@@ -18,7 +18,7 @@
  */
 package org.pdfsam.gui.event;
 
-import static org.pdfsam.support.RequireUtils.require;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**
  * Base Event class providing optional {@link EventNamespace} for the event.
@@ -35,7 +35,7 @@ public class BaseEvent {
     }
 
     public BaseEvent(EventNamespace namespace) {
-        require(namespace != null, "Namespace cannot be null");
+        requireNotNull(namespace, "Namespace cannot be null");
         this.namespace = namespace;
     }
 

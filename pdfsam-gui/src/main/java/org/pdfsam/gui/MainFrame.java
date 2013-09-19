@@ -40,7 +40,7 @@ import bibliothek.gui.dock.common.CMinimizeArea;
 import bibliothek.gui.dock.common.CWorkingArea;
 import bibliothek.gui.dock.common.DefaultSingleCDockable;
 
-import static org.pdfsam.support.RequireUtils.require;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**
  * Application main frame.
@@ -101,7 +101,7 @@ public class MainFrame extends JFrame {
     }
 
     public void initControl(CControl control) {
-        require(control != null, "Control cannot be null");
+        requireNotNull(control, "Control cannot be null");
         PdfsamContentArea contentArea = new PdfsamContentArea(control, "PdfsamContentArea");
         control.addStationContainer(contentArea);
         add(contentArea);

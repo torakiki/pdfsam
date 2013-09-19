@@ -35,7 +35,7 @@ public class BaseFileChooserFilter extends FileFilter implements java.io.FileFil
     private FileFilterType type;
 
     public BaseFileChooserFilter(FileFilterType type) {
-        RequireUtils.require(type != null, "File filter type cannot be null");
+        RequireUtils.requireNotNull(type, "File filter type cannot be null");
         this.type = type;
     }
 

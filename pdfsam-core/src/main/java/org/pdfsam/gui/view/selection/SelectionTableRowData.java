@@ -21,7 +21,7 @@ package org.pdfsam.gui.view.selection;
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 
-import static org.pdfsam.support.RequireUtils.require;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**
  * Model for a row of the selection table
@@ -35,7 +35,7 @@ public class SelectionTableRowData {
     private String pageSelection = StringUtils.EMPTY;
 
     public SelectionTableRowData(PdfDocumentDescriptor documentDescriptor) {
-        require(documentDescriptor != null, "Document descriptor cannot be null");
+        requireNotNull(documentDescriptor, "Document descriptor cannot be null");
         this.documentDescriptor = documentDescriptor;
     }
 

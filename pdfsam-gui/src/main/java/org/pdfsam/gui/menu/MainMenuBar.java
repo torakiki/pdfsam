@@ -43,7 +43,7 @@ import org.pdfsam.module.ModuleCategory;
 
 import bibliothek.gui.dock.common.CControl;
 
-import static org.pdfsam.support.RequireUtils.require;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**
  * Menu bar for the main frame
@@ -110,7 +110,7 @@ public class MainMenuBar extends JMenuBar {
      */
     public void addSystemContentAction(MenuType type, Module module) {
         JMenu menu = menus.get(type);
-        require(menu != null, "Unable to fine the given menu: " + type);
+        requireNotNull(menu, "Unable to fine the given menu: " + type);
         menu.add(new SystemContentAction(control, module));
     }
 
@@ -143,7 +143,7 @@ public class MainMenuBar extends JMenuBar {
 
         ShowDialogAction(String menuText, JDialog dialog) {
             super(menuText);
-            require(dialog != null, "Input dialog cannot be null");
+            requireNotNull(dialog, "Input dialog cannot be null");
             this.dialog = dialog;
         }
 

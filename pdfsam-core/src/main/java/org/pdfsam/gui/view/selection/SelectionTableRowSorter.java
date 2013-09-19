@@ -52,7 +52,7 @@ public class SelectionTableRowSorter extends RowSorter<SelectionTableModel> {
      * Creates an empty <code>DefaultRowSorter</code>.
      */
     public SelectionTableRowSorter(SelectionTableModel model) {
-        RequireUtils.require(model != null, "Model cannot be null");
+        RequireUtils.requireNotNull(model, "Model cannot be null");
         this.model = model;
         AnnotationProcessor.process(this);
     }

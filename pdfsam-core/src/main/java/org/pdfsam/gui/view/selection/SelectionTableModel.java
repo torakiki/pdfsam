@@ -39,7 +39,7 @@ import org.pdfsam.pdf.PdfLoadCompletedEvent;
 
 import static org.apache.commons.lang3.ArrayUtils.isNotEmpty;
 
-import static org.pdfsam.support.RequireUtils.require;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**
  * Table model for the selection table
@@ -54,7 +54,7 @@ class SelectionTableModel extends AbstractTableModel implements WithEventNamespa
     private EventNamespace namespace;
 
     public SelectionTableModel(EventNamespace eventNamespace, SelectionTableColumn<?>... columns) {
-        require(eventNamespace != null, "Event namespace cannot be null");
+        requireNotNull(eventNamespace, "Event namespace cannot be null");
         this.namespace = eventNamespace;
         for (SelectionTableColumn<?> current : columns) {
             this.columns.add(current);

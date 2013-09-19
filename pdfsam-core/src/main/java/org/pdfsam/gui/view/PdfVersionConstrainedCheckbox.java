@@ -29,8 +29,9 @@ import org.pdfsam.gui.event.AddPdfVersionConstraintEvent;
 import org.pdfsam.gui.event.EventNamespace;
 import org.pdfsam.gui.event.RemovePdfVersionConstraintEvent;
 import org.pdfsam.gui.event.WithEventNamespace;
-import org.pdfsam.support.RequireUtils;
 import org.sejda.model.pdf.PdfVersion;
+
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**
  * A checkbox that imposes constraints on the pdf version of the output document.
@@ -44,7 +45,7 @@ public class PdfVersionConstrainedCheckbox extends JCheckBox implements WithEven
     private EventNamespace namespace = EventNamespace.NULL;
 
     public PdfVersionConstrainedCheckbox(PdfVersion constraint) {
-        RequireUtils.require(constraint != null, "PdfVersion cannot be null");
+        requireNotNull(constraint, "PdfVersion cannot be null");
         this.constraint = constraint;
         addItemListener(new ItemStateChangedNotifier());
         setToolTipText(DefaultI18nContext.getInstance().i18n("Pdf version required: {0}",

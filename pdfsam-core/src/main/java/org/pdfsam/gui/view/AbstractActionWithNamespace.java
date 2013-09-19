@@ -22,7 +22,8 @@ import javax.swing.AbstractAction;
 
 import org.pdfsam.gui.event.EventNamespace;
 import org.pdfsam.gui.event.WithEventNamespace;
-import org.pdfsam.support.RequireUtils;
+
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**
  * Abstract action {@link WithEventNamespace}
@@ -35,7 +36,7 @@ public abstract class AbstractActionWithNamespace extends AbstractAction impleme
     private EventNamespace namespace = EventNamespace.NULL;
 
     public AbstractActionWithNamespace(EventNamespace namespace) {
-        RequireUtils.require(namespace != null, "Namespace cannot be null");
+        requireNotNull(namespace, "Namespace cannot be null");
         this.namespace = namespace;
     }
 

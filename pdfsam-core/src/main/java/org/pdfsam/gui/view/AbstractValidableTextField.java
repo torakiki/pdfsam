@@ -32,7 +32,7 @@ import javax.swing.JTextField;
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.support.validation.Validator;
 
-import static org.pdfsam.support.RequireUtils.require;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**
  * Text field providing visual feedback for invalid input. Input is validated on Enter key pressed or on Focus lost. It also provides a callback on valid input, the callback
@@ -58,7 +58,7 @@ public abstract class AbstractValidableTextField extends JTextField {
     }
 
     public void setValidator(Validator<String> validator) {
-        require(validator != null, "Validator cannot be null");
+        requireNotNull(validator, "Validator cannot be null");
         this.validator = validator;
         ValidateActionListener listener = new ValidateActionListener();
         addActionListener(listener);

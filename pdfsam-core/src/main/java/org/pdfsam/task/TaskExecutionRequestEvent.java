@@ -20,7 +20,7 @@ package org.pdfsam.task;
 
 import org.sejda.model.parameter.base.TaskParameters;
 
-import static org.pdfsam.support.RequireUtils.require;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**
  * Event sent to request a parameters execution.
@@ -33,7 +33,7 @@ public class TaskExecutionRequestEvent {
     private TaskParameters parameters;
 
     public TaskExecutionRequestEvent(TaskParameters parameters) {
-        require(parameters != null, "Task parameters cannot be null");
+        requireNotNull(parameters, "Task parameters cannot be null");
         this.parameters = parameters;
     }
 

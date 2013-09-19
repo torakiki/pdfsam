@@ -23,7 +23,8 @@ import javax.swing.JButton;
 
 import org.pdfsam.gui.event.EventNamespace;
 import org.pdfsam.gui.event.WithEventNamespace;
-import org.pdfsam.support.RequireUtils;
+
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**
  * {@link JButton} {@link WithEventNamespace}
@@ -37,7 +38,7 @@ public class JButtonWithNamespace extends JButton implements WithEventNamespace 
 
     public JButtonWithNamespace(Action a, EventNamespace namespace) {
         super(a);
-        RequireUtils.require(namespace != null, "Namespace cannot be null");
+        requireNotNull(namespace, "Namespace cannot be null");
         this.namespace = namespace;
     }
 

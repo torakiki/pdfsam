@@ -38,12 +38,13 @@ import org.bushe.swing.event.annotation.ReferenceStrength;
 import org.pdfsam.gui.event.EventNamespace;
 import org.pdfsam.gui.event.WithEventNamespace;
 import org.pdfsam.pdf.PdfLoadCompletedEvent;
-import org.pdfsam.support.RequireUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static org.bushe.swing.event.EventBus.publish;
 import static org.pdfsam.gui.view.selection.SelectionChangedEvent.selectionChanged;
+
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**
  * {@link JTable} configured to display pdf selection
@@ -247,7 +248,7 @@ public class SelectionTable extends JTable implements WithEventNamespace {
         private SelectionTableModel model;
 
         public TableSelectionController(SelectionTableModel model) {
-            RequireUtils.require(model != null, "Model cannot be null");
+            requireNotNull(model, "Model cannot be null");
             this.model = model;
         }
 

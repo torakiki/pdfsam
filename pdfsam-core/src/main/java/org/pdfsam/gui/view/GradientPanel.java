@@ -27,6 +27,7 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 
 import static org.pdfsam.support.RequireUtils.require;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**
  * Panel with a gradient background.
@@ -43,7 +44,7 @@ public class GradientPanel extends JPanel {
      * Constructor using default colors
      */
     public GradientPanel(GradientOrientation orientation) {
-        require(orientation != null, "Orientation cannot be null");
+        requireNotNull(orientation, "Orientation cannot be null");
         this.orientation = orientation;
         // setBorder(BorderFactory.createLineBorder(startColor, 1));
     }

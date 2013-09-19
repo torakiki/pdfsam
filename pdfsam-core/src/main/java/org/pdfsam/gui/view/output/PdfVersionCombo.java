@@ -144,7 +144,7 @@ public class PdfVersionCombo extends JComboBox<PdfVersionComboItem> implements W
         private boolean sourceVersion = false;
 
         public PdfVersionComboItem(PdfVersion version) {
-            RequireUtils.require(version != null, "PDF version cannot be null");
+            RequireUtils.requireNotNull(version, "PDF version cannot be null");
             this.version = version;
         }
 

@@ -35,7 +35,7 @@ public class LocaleKeyValueItem implements KeyValueItem<String, String>, Compara
     private Locale locale;
 
     public LocaleKeyValueItem(Locale locale) {
-        RequireUtils.require(locale != null, "Locale cannot be null");
+        RequireUtils.requireNotNull(locale, "Locale cannot be null");
         this.locale = locale;
     }
 
