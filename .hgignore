@@ -1,0 +1,16 @@
+
+syntax: regexp
+^target$
+syntax: glob
+target/**
+.project
+.classpath
+.checkstyle
+.settings/**
+# Intellij IDEA files
+.idea/*
+*.iml
+.DS_Store
+
+syntax: regexp
+\.cld$

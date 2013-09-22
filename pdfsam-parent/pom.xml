@@ -6,52 +6,11 @@
 	<groupId>org.pdfsam</groupId>
 	<artifactId>pdfsam-parent</artifactId>
 	<packaging>pom</packaging>
-	<name>pdfsam</name>
+	<name>pdfsam parent</name>
 	<version>3.0.0.BETA-SNAPSHOT</version>
 	<url>http://www.pdfsam.org</url>
-	<description>A free open source desktop tool to split and merge pdf documents</description>
-
-	<modules>
-		<module>../pdfsam-gui</module>
-		<module>../pdfsam-i18n</module>
-		<module>../pdfsam-core</module>
-		<module>../pdfsam-service</module>
-	</modules>
-
-	<developers>
-		<developer>
-			<id>torakiki</id>
-			<name>Andrea Vacondio</name>
-			<email>andrea.vacondio@gmail.com</email>
-		</developer>
-	</developers>
-
-	<profiles>
-		<profile>
-			<id>enhanced</id>
-			<properties>
-				<pdfsam.package>ENHANCED</pdfsam.package>
-			</properties>
-		</profile>
-	</profiles>
 
 	<build>
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
-				<includes>
-					<include>**/*.properties</include>
-				</includes>
-			</resource>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>false</filtering>
-				<excludes>
-					<exclude>**/*.properties</exclude>
-				</excludes>
-			</resource>
-		</resources>
 		<pluginManagement>
 			<plugins>
 				<plugin>

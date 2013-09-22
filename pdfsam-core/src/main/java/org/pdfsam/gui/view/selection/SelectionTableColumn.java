@@ -18,6 +18,8 @@
  */
 package org.pdfsam.gui.view.selection;
 
+import java.util.Comparator;
+
 import javax.swing.table.TableCellRenderer;
 
 /**
@@ -27,7 +29,7 @@ import javax.swing.table.TableCellRenderer;
  * @param <T>
  *            {@link Comparable} type of the column data
  */
-public interface SelectionTableColumn<T extends Comparable<T>> {
+public interface SelectionTableColumn<T> extends Comparator<SelectionTableRowData> {
 
     String getColumnName();
 

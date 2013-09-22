@@ -30,6 +30,8 @@ import org.pdfsam.gui.event.TaskExecutionModulesLoadedEvent;
 import org.pdfsam.gui.log.JLogPanel;
 import org.pdfsam.gui.menu.MainMenuBar;
 import org.pdfsam.gui.menu.MenuType;
+import org.pdfsam.gui.module.BaseTaskExecutionModule;
+import org.pdfsam.gui.module.Module;
 import org.pdfsam.gui.status.StatusPanel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

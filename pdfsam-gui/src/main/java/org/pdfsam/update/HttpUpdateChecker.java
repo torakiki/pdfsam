@@ -19,6 +19,9 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -26,18 +29,16 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
-import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultI18nContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.env.Environment;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
-
-import static org.pdfsam.support.RequireUtils.require;
 
 import static org.pdfsam.support.XmlUtils.nullSafeGetStringAttribute;
 
@@ -47,8 +48,10 @@ import static org.pdfsam.support.XmlUtils.nullSafeGetStringAttribute;
  * @author Andrea Vacondio
  * 
  */
+@Named
 class HttpUpdateChecker implements UpdateChecker {
 
+    private static final String URI = "http://www.pdfsam.org/check-version.php?version=basic&remoteversion=%s&branch=2";
     private static final Logger LOG = LoggerFactory.getLogger(HttpUpdateChecker.class);
 
     private static final String VERSION_ATTRIBUTE = "value";
@@ -56,9 +59,12 @@ class HttpUpdateChecker implements UpdateChecker {
 
     private String uri = null;
 
-    HttpUpdateChecker(String uri) {
-        require(StringUtils.isNotBlank(uri), "URI to check cannot be blank");
-        this.uri = uri;
+    @Inject
+    private Environment env;
+
+    @PostConstruct
+    void initUri() {
+        this.uri = String.format(URI, env.getProperty("pdfsam.version"));
     }
 
     private String parseXmlStream(InputStream is) throws ParserConfigurationException, SAXException, IOException,

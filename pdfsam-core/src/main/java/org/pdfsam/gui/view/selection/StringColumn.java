@@ -59,4 +59,8 @@ enum StringColumn implements SelectionTableColumn<String> {
     public TableCellRenderer getRenderer() {
         return stringCellRenderer;
     }
+
+    public int compare(SelectionTableRowData o1, SelectionTableRowData o2) {
+        return getValueFor(o1).compareTo(getValueFor(o2));
+    }
 }

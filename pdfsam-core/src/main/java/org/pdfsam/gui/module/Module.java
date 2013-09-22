@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 19/set/2013
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 03/apr/2012
+ * Copyright 2012 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,30 +16,27 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.update;
+package org.pdfsam.gui.module;
 
-import javax.inject.Inject;
+import javax.swing.JPanel;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
+import org.pdfsam.module.ModuleDescriptor;
 
 /**
- * Configuration for the update checker
+ * pdfsam module.
  * 
  * @author Andrea Vacondio
  * 
  */
-@Configuration
-public class UpdateCheckerConfig {
+public interface Module {
 
-    private static final String URI = "http://www.pdfsam.org/check-version.php?version=basic&remoteversion=%s&branch=2";
+    /**
+     * @return the descriptor for the module
+     */
+    ModuleDescriptor getDescriptor();
 
-    @Inject
-    private Environment env;
-
-    @Bean
-    public UpdateChecker updateChecker() {
-        return new HttpUpdateChecker(String.format(URI, env.getProperty("pdfsam.version")));
-    }
+    /**
+     * @return the module panel.
+     */
+    JPanel getModulePanel();
 }

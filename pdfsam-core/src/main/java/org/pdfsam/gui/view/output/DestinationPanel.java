@@ -23,7 +23,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 
-import org.pdfsam.gui.SharedJFileChooser;
+import org.pdfsam.gui.support.SharedJFileChooser;
 import org.pdfsam.gui.view.BaseBrowsableField;
 import org.pdfsam.gui.view.Views;
 import org.pdfsam.support.filter.FileFilterType;

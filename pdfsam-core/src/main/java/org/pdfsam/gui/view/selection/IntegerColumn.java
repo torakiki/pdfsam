@@ -59,4 +59,7 @@ public enum IntegerColumn implements SelectionTableColumn<Integer> {
         return Integer.class;
     }
 
+    public int compare(SelectionTableRowData o1, SelectionTableRowData o2) {
+        return getValueFor(o1).compareTo(getValueFor(o2));
+    }
 }

@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui;
+package org.pdfsam.gui.module;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;

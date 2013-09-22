@@ -18,7 +18,6 @@
  */
 package org.pdfsam.configuration;
 
-import org.pdfsam.update.UpdateCheckerConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
@@ -32,7 +31,7 @@ public final class ApplicationContextHolder {
     private AnnotationConfigApplicationContext ctx;
 
     private ApplicationContextHolder() {
-        ctx = new AnnotationConfigApplicationContext(PdfsamConfig.class, UpdateCheckerConfig.class);
+        ctx = new AnnotationConfigApplicationContext(PdfsamConfig.class);
         ctx.registerShutdownHook();
     }
 

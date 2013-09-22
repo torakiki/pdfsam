@@ -31,11 +31,11 @@ import org.bushe.swing.event.EventBus;
 import org.pdfsam.configuration.ApplicationContextHolder;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
-import org.pdfsam.gui.BaseTaskExecutionModule;
 import org.pdfsam.gui.MainFrame;
 import org.pdfsam.gui.WelcomePanel;
 import org.pdfsam.gui.event.TaskExecutionModulesLoadedEvent;
 import org.pdfsam.gui.menu.MenuType;
+import org.pdfsam.gui.module.BaseTaskExecutionModule;
 import org.pdfsam.gui.support.SwingUtils;
 import org.pdfsam.update.UpdateCheckRequest;
 import org.slf4j.Logger;
@@ -140,12 +140,4 @@ public final class App {
         EventBus.publish(initModulesEvent);
 
     }
-
-    /**
-     * @return the mainFrame
-     */
-    public static MainFrame getMainFrame() {
-        return mainFrame;
-    }
-
 }

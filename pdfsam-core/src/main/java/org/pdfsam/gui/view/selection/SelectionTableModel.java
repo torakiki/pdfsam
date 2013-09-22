@@ -161,11 +161,12 @@ class SelectionTableModel extends AbstractTableModel implements WithEventNamespa
         if (sorting.getSortOrder() != SortOrder.UNSORTED) {
             EventBus.publish(new BeforeSortEvent(namespace));
             Collections.sort(data, new Comparator<SelectionTableRowData>() {
+                private SelectionTableColumn<?> column = columns.get(sorting.getColumn());
+
                 @Override
                 public int compare(SelectionTableRowData o1, SelectionTableRowData o2) {
-                    SelectionTableColumn<? extends Comparable> column = columns.get(sorting.getColumn());
-                    int retVal = column.getValueFor(o1).compareTo(column.getValueFor(o2));
-                    return SortOrder.ASCENDING == sorting.getSortOrder() ? retVal : -retVal;
+                    return SortOrder.ASCENDING == sorting.getSortOrder() ? column.compare(o1, o2) : column.compare(o2,
+                            o1);
                 }
             });
             EventBus.publish(new AfterSortEvent(namespace));

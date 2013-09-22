@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>pdfsam</artifactId>
+	<packaging>pom</packaging>
+	<name>pdfsam</name>
+	<description>A free open source desktop tool to split and merge pdf documents</description>
+	
+	<scm>
+		<connection>scm:hg:ssh://hg@bitbucket.org/torakiki/pdfsam</connection>
+		<developerConnection>scm:hg:ssh://hg@bitbucket.org/torakiki/pdfsam</developerConnection>
+		<url>https://bitbucket.org/torakiki/pdfsam</url>
+		<tag>HEAD</tag>
+	</scm>
+
+	<parent>
+		<groupId>org.pdfsam</groupId>
+		<artifactId>pdfsam-parent</artifactId>
+		<version>3.0.0.BETA-SNAPSHOT</version>
+		<relativePath>pdfsam-parent/pom.xml</relativePath>
+	</parent>
+
+	<modules>
+		<module>pdfsam-gui</module>
+		<module>pdfsam-i18n</module>
+		<module>pdfsam-core</module>
+		<module>pdfsam-service</module>
+	</modules>
+
+	<developers>
+		<developer>
+			<id>torakiki</id>
+			<name>Andrea Vacondio</name>
+			<email>andrea.vacondio@gmail.com</email>
+		</developer>
+	</developers>
+
+	<profiles>
+		<profile>
+			<id>enhanced</id>
+			<properties>
+				<pdfsam.package>ENHANCED</pdfsam.package>
+			</properties>
+		</profile>
+	</profiles>
+
+	<build>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<configuration>
+					<tagNameFormat>v@{project.version}</tagNameFormat>
+					<localCheckout>true</localCheckout>
+					<pushChanges>false</pushChanges>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

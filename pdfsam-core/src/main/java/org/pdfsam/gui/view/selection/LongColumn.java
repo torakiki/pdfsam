@@ -90,4 +90,8 @@ public enum LongColumn implements SelectionTableColumn<Long> {
     public Class<Long> getColumnClass() {
         return Long.class;
     }
+
+    public int compare(SelectionTableRowData o1, SelectionTableRowData o2) {
+        return getValueFor(o1).compareTo(getValueFor(o2));
+    }
 }

@@ -25,7 +25,6 @@ import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.gui.view.selection.FileColumn.ComparableFileWrapper;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 
@@ -37,7 +36,7 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
  * @author Andrea Vacondio
  * 
  */
-enum FileColumn implements SelectionTableColumn<ComparableFileWrapper> {
+enum FileColumn implements SelectionTableColumn<File> {
 
     NAME {
         public String getColumnName() {
@@ -51,14 +50,14 @@ enum FileColumn implements SelectionTableColumn<ComparableFileWrapper> {
                 public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
                         boolean hasFocus, int row, int column) {
                     super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-                    setToolTipText(((ComparableFileWrapper) value).getFile().getAbsolutePath());
+                    setToolTipText(((File) value).getAbsolutePath());
                     return this;
                 }
 
                 @Override
                 String getStringValue(Object value) {
                     if (value != null) {
-                        return ((ComparableFileWrapper) value).getFile().getName();
+                        return ((File) value).getName();
                     }
                     return EMPTY;
                 }
@@ -66,36 +65,17 @@ enum FileColumn implements SelectionTableColumn<ComparableFileWrapper> {
         }
     };
 
-    public ComparableFileWrapper getValueFor(SelectionTableRowData rowData) {
-        return new ComparableFileWrapper(rowData.getDocumentDescriptor().getFile());
+    public File getValueFor(SelectionTableRowData rowData) {
+        requireNotNull(rowData.getDocumentDescriptor().getFile(), "File cannt be null");
+        return rowData.getDocumentDescriptor().getFile();
     }
 
-    public Class<ComparableFileWrapper> getColumnClass() {
-        return ComparableFileWrapper.class;
+    public Class<File> getColumnClass() {
+        return File.class;
     }
 
-    /**
-     * Wrapper around a File instance that can nicely be used by the table sorter
-     * 
-     * @author Andrea Vacondio
-     * 
-     */
-    public static final class ComparableFileWrapper implements Comparable<ComparableFileWrapper> {
-        private final File wrapped;
-
-        private ComparableFileWrapper(File file) {
-            requireNotNull(file, "File cannt be null");
-            this.wrapped = file;
-        }
-
-        public File getFile() {
-            return wrapped;
-        }
-
-        @Override
-        public int compareTo(ComparableFileWrapper o) {
-            return this.getFile().getName().toLowerCase().compareTo(o.getFile().getName().toLowerCase());
-        }
-
+    public int compare(SelectionTableRowData o1, SelectionTableRowData o2) {
+        return (getValueFor(o1).getName().toLowerCase().compareTo(getValueFor(o2).getName().toLowerCase()));
     }
+
 }

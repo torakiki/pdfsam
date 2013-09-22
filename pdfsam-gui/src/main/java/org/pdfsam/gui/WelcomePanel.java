@@ -21,6 +21,7 @@ package org.pdfsam.gui;
 import javax.swing.JPanel;
 
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.gui.module.Module;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 

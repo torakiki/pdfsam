@@ -18,6 +18,7 @@
  */
 package org.pdfsam.gui.log;
 
+import java.awt.Container;
 import java.io.File;
 
 import javax.swing.BorderFactory;
@@ -28,9 +29,8 @@ import javax.swing.text.DefaultCaret;
 
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
-import org.pdfsam.App;
-import org.pdfsam.gui.SharedJFileChooser;
 import org.pdfsam.gui.support.Dialogs;
+import org.pdfsam.gui.support.SharedJFileChooser;
 import org.pdfsam.support.filter.FileFilterType;
 
 import static org.pdfsam.support.io.TextFileWriter.writeContent;
@@ -66,11 +66,12 @@ public class JTextLogPane extends JTextPane {
     @EventSubscriber
     public void saveLog(@SuppressWarnings("unused") SaveLogEvent event) {
         JFileChooser fileChooser = SharedJFileChooser.getInstance(FileFilterType.LOG, JFileChooser.FILES_ONLY);
-        if (fileChooser.showSaveDialog(App.getMainFrame()) == JFileChooser.APPROVE_OPTION) {
+        Container container = this.getTopLevelAncestor();
+        if (fileChooser.showSaveDialog(container) == JFileChooser.APPROVE_OPTION) {
             File chosenFile = fileChooser.getSelectedFile();
             if (chosenFile != null) {
                 if (chosenFile.exists()) {
-                    if (JOptionPane.OK_OPTION != Dialogs.showOverwriteConfirmationDialog(App.getMainFrame(),
+                    if (JOptionPane.OK_OPTION != Dialogs.showOverwriteConfirmationDialog(container,
                             chosenFile.getName())) {
                         return;
                     }

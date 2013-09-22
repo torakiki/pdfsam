@@ -23,7 +23,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import org.pdfsam.gui.BaseTaskExecutionModule;
+import org.pdfsam.gui.module.BaseTaskExecutionModule;
 
 /**
  * Event sent to notify consumers that the available modules have been found and loaded by the IoC container.
