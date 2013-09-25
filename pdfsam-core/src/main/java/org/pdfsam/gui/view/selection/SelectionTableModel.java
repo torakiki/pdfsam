@@ -32,12 +32,15 @@ import javax.swing.table.TableCellRenderer;
 import org.bushe.swing.event.EventBus;
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
+import org.pdfsam.gui.event.BaseEvent;
 import org.pdfsam.gui.event.EventNamespace;
+import org.pdfsam.gui.event.EventSubscriberCallback;
 import org.pdfsam.gui.event.WithEventNamespace;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadCompletedEvent;
 
 import static org.apache.commons.lang3.ArrayUtils.isNotEmpty;
+import static org.pdfsam.gui.event.EventSubscriberTemplate.ifEvent;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
@@ -133,21 +136,25 @@ class SelectionTableModel extends AbstractTableModel implements WithEventNamespa
     }
 
     @EventSubscriber
-    public void onLoadDocumentsCompletion(PdfLoadCompletedEvent event) {
-        if (event.getNamespace().isParentOf(getEventNamespace())) {
-            for (PdfDocumentDescriptor current : event.getDocuments()) {
-                data.add(new SelectionTableRowData(current));
+    public void onLoadDocumentsCompletion(final PdfLoadCompletedEvent event) {
+        ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
+            public void exec(BaseEvent e) {
+                for (PdfDocumentDescriptor current : event.getDocuments()) {
+                    data.add(new SelectionTableRowData(current));
+                }
+                fireRowsAdded(event.getDocuments().size());
             }
-            fireRowsAdded(event.getDocuments().size());
-        }
+        });
     }
 
     @EventSubscriber
     public void onClear(ClearSelectionTableEvent event) {
-        if (event.getNamespace().isParentOf(getEventNamespace())) {
-            data.clear();
-            fireTableDataChanged();
-        }
+        ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
+            public void exec(BaseEvent e) {
+                data.clear();
+                fireTableDataChanged();
+            }
+        });
     }
 
     private void fireRowsAdded(int rows) {

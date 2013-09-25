@@ -23,6 +23,14 @@ import javax.swing.JToolBar;
 import org.pdfsam.gui.event.EventNamespace;
 import org.pdfsam.gui.event.WithEventNamespace;
 
+import static org.pdfsam.gui.view.selection.SelectionTableToolbarButtons.addButton;
+import static org.pdfsam.gui.view.selection.SelectionTableToolbarButtons.clearButton;
+import static org.pdfsam.gui.view.selection.SelectionTableToolbarButtons.moveDownButton;
+import static org.pdfsam.gui.view.selection.SelectionTableToolbarButtons.moveUpButton;
+import static org.pdfsam.gui.view.selection.SelectionTableToolbarButtons.removeButton;
+
+import static org.pdfsam.support.RequireUtils.requireNotNull;
+
 /**
  * Toolbar for the selection table
  * 
@@ -34,16 +42,17 @@ public class SelectionTableToolbar extends JToolBar implements WithEventNamespac
     private EventNamespace namespace = EventNamespace.NULL;
 
     public SelectionTableToolbar(EventNamespace namespace) {
+        requireNotNull(namespace, "Event namespace cannot be null");
         this.namespace = namespace;
         setFloatable(false);
         setRollover(true);
-        add(SelectionTableToolbarButtons.addButton(namespace));
+        add(addButton(namespace));
         addSeparator();
-        add(SelectionTableToolbarButtons.clearButton(namespace));
-        add(SelectionTableToolbarButtons.removeButton(namespace));
+        add(clearButton(namespace));
+        add(removeButton(namespace));
         addSeparator();
-        add(SelectionTableToolbarButtons.moveUpButton(namespace));
-        add(SelectionTableToolbarButtons.moveDownButton(namespace));
+        add(moveUpButton(namespace));
+        add(moveDownButton(namespace));
         setBorderPainted(false);
     }
 

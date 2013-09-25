@@ -26,7 +26,7 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.support.RequireUtils.require;
 
 /**
- * Namespace for the events. The same component type can be subscribed to the same event on different namespaces.
+ * Namespace for the events. Same component types can be subscribed to the same event on different namespaces.
  * 
  * @author Andrea Vacondio
  * @see EventNamespace#NULL
@@ -77,7 +77,6 @@ public final class EventNamespace {
     }
 
     /**
-     * 
      * @param namespaceId
      * @return a new parent namespace with the given id
      */
@@ -87,7 +86,6 @@ public final class EventNamespace {
     }
 
     /**
-     * 
      * @param parent
      * @param namespaceId
      * @return a new child namespace with the given id
@@ -95,5 +93,13 @@ public final class EventNamespace {
     public static EventNamespace newChildInstance(EventNamespace parent, String namespaceId) {
         require(isNotBlank(namespaceId), "Namespace identifier cannot be blank");
         return new EventNamespace(String.format("%s.%s", parent.namespaceId, namespaceId));
+    }
+
+    /**
+     * @param moduleId
+     * @return a new instance for a module with the given id
+     */
+    public static EventNamespace newModuleInstance(String moduleId) {
+        return newChildInstance(newParentInstance("module"), moduleId);
     }
 }

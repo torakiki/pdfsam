@@ -30,13 +30,17 @@ import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.event.AddPdfVersionConstraintEvent;
+import org.pdfsam.gui.event.BaseEvent;
 import org.pdfsam.gui.event.ChangedSelectedPdfVersionEvent;
 import org.pdfsam.gui.event.EventNamespace;
+import org.pdfsam.gui.event.EventSubscriberCallback;
 import org.pdfsam.gui.event.RemovePdfVersionConstraintEvent;
 import org.pdfsam.gui.event.WithEventNamespace;
 import org.pdfsam.gui.view.output.PdfVersionCombo.PdfVersionComboItem;
 import org.pdfsam.support.RequireUtils;
 import org.sejda.model.pdf.PdfVersion;
+
+import static org.pdfsam.gui.event.EventSubscriberTemplate.ifEvent;
 
 /**
  * Combo box displaying PDF versions.
@@ -60,32 +64,39 @@ public class PdfVersionCombo extends JComboBox<PdfVersionComboItem> implements W
     }
 
     @EventSubscriber
-    public void onAddPdfVersionConstraint(AddPdfVersionConstraintEvent event) {
-        if (event.getNamespace().isParentOf(eventNamespace)) {
-            addFilter(event.getPdfVersion().getVersion());
-        }
-    }
-
-    @EventSubscriber
-    public void onRemovePdfVersionConstraint(RemovePdfVersionConstraintEvent event) {
-        if (event.getNamespace().isParentOf(eventNamespace)) {
-            removeFilter(event.getPdfVersion().getVersion());
-        }
-    }
-
-    @EventSubscriber
-    public void onChangedSelectedPdfVersion(ChangedSelectedPdfVersionEvent event) {
-        if (event.getNamespace().isParentOf(eventNamespace)) {
-            for (int i = 0; i < getItemCount(); i++) {
-                PdfVersionComboItem item = getModel().getElementAt(i);
-                if (event.hasPdfVersion()) {
-                    item.setSourceVersion(event.getPdfVersion() == item.getVersion());
-                } else {
-                    item.setSourceVersion(false);
-                }
+    public void onAddPdfVersionConstraint(final AddPdfVersionConstraintEvent event) {
+        ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
+            public void exec(BaseEvent e) {
+                addFilter(event.getPdfVersion().getVersion());
             }
-            repaint();
-        }
+        });
+
+    }
+
+    @EventSubscriber
+    public void onRemovePdfVersionConstraint(final RemovePdfVersionConstraintEvent event) {
+        ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
+            public void exec(BaseEvent e) {
+                removeFilter(event.getPdfVersion().getVersion());
+            }
+        });
+    }
+
+    @EventSubscriber
+    public void onChangedSelectedPdfVersion(final ChangedSelectedPdfVersionEvent event) {
+        ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
+            public void exec(BaseEvent e) {
+                for (int i = 0; i < getItemCount(); i++) {
+                    PdfVersionComboItem item = getModel().getElementAt(i);
+                    if (event.hasPdfVersion()) {
+                        item.setSourceVersion(event.getPdfVersion() == item.getVersion());
+                    } else {
+                        item.setSourceVersion(false);
+                    }
+                }
+                repaint();
+            }
+        });
     }
 
     public void addFilter(Integer version) {

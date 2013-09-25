@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui.module;
+package org.pdfsam.module;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -28,9 +28,6 @@ import org.pdfsam.gui.event.EventNamespace;
 import org.pdfsam.gui.view.Views;
 import org.pdfsam.gui.view.output.OutputViews;
 import org.pdfsam.gui.view.selection.SelectionPanel;
-import org.pdfsam.module.ModuleCategory;
-import org.pdfsam.module.ModuleDescriptor;
-import org.pdfsam.module.PdfsamModule;
 import org.sejda.model.parameter.base.TaskParameters;
 
 /**
@@ -40,7 +37,7 @@ import org.sejda.model.parameter.base.TaskParameters;
 @PdfsamModule
 public class TestModule extends BaseTaskExecutionModule {
 
-    private static final EventNamespace MERGE_NAMESPACE = EventNamespace.newParentInstance("Merge");
+    private static final EventNamespace MERGE_NAMESPACE = EventNamespace.newModuleInstance("Merge");
 
     @Override
     public ModuleDescriptor getDescriptor() {

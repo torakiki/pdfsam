@@ -54,6 +54,12 @@ public class EventNamespaceTest {
     }
 
     @Test
+    public void testModuleNamespace() {
+        EventNamespace module = EventNamespace.newModuleInstance("mymodule");
+        assertTrue(module.getNamespaceId().startsWith("module."));
+    }
+
+    @Test
     public void testIsParentOf() {
         EventNamespace root = EventNamespace.newParentInstance("root");
         EventNamespace child = EventNamespace.newChildInstance(root, "child");

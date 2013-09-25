@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 03/apr/2012
- * Copyright 2012 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 24/set/2013
+ * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,27 +16,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui.module;
-
-import javax.swing.JPanel;
-
-import org.pdfsam.module.ModuleDescriptor;
+package org.pdfsam.gui.event;
 
 /**
- * pdfsam module.
+ * Callback to perform if the namespace matches
  * 
  * @author Andrea Vacondio
  * 
  */
-public interface Module {
+public interface EventSubscriberCallback {
 
-    /**
-     * @return the descriptor for the module
-     */
-    ModuleDescriptor getDescriptor();
-
-    /**
-     * @return the module panel.
-     */
-    JPanel getModulePanel();
+    void exec(BaseEvent e);
 }

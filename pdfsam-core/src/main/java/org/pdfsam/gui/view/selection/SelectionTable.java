@@ -35,13 +35,16 @@ import javax.swing.table.TableColumn;
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
 import org.bushe.swing.event.annotation.ReferenceStrength;
+import org.pdfsam.gui.event.BaseEvent;
 import org.pdfsam.gui.event.EventNamespace;
+import org.pdfsam.gui.event.EventSubscriberCallback;
 import org.pdfsam.gui.event.WithEventNamespace;
 import org.pdfsam.pdf.PdfLoadCompletedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static org.bushe.swing.event.EventBus.publish;
+import static org.pdfsam.gui.event.EventSubscriberTemplate.ifEvent;
 import static org.pdfsam.gui.view.selection.SelectionChangedEvent.selectionChanged;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
@@ -120,32 +123,38 @@ public class SelectionTable extends JTable implements WithEventNamespace {
 
     @EventSubscriber
     public void onRemoveSelected(RemoveSelectedEvent event) {
-        if (event.getNamespace().isParentOf(getEventNamespace())) {
-            ((SelectionTableModel) getModel()).deleteIndexes(getSelectedRows());
-        }
+        ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
+            public void exec(BaseEvent e) {
+                ((SelectionTableModel) getModel()).deleteIndexes(getSelectedRows());
+            }
+        });
     }
 
     @EventSubscriber
-    public void onMoveSelected(MoveSelectedEvent event) {
-        if (event.getNamespace().isParentOf(getEventNamespace())) {
-            sorter.unsort();
-            int[] selected = getSelectedRows();
-            if (event.getType() == MoveType.DOWN) {
-                ((SelectionTableModel) getModel()).moveDownIndexes(selected);
-                setRowSelectionInterval(selected[0] + 1, selected[selected.length - 1] + 1);
-            } else {
-                ((SelectionTableModel) getModel()).moveUpIndexes(selected);
-                setRowSelectionInterval(selected[0] - 1, selected[selected.length - 1] - 1);
+    public void onMoveSelected(final MoveSelectedEvent event) {
+        ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
+            public void exec(BaseEvent e) {
+                sorter.unsort();
+                int[] selected = getSelectedRows();
+                if (event.getType() == MoveType.DOWN) {
+                    ((SelectionTableModel) getModel()).moveDownIndexes(selected);
+                    setRowSelectionInterval(selected[0] + 1, selected[selected.length - 1] + 1);
+                } else {
+                    ((SelectionTableModel) getModel()).moveUpIndexes(selected);
+                    setRowSelectionInterval(selected[0] - 1, selected[selected.length - 1] - 1);
+                }
             }
-        }
+        });
     }
 
     @EventSubscriber
     public void onSort(SortRequestEvent event) {
-        if (event.getNamespace().isParentOf(getEventNamespace())) {
-            sorter.sort();
-            resizeAndRepaint();
-        }
+        ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
+            public void exec(BaseEvent e) {
+                sorter.sort();
+                resizeAndRepaint();
+            }
+        });
     }
 
     /**
@@ -184,31 +193,37 @@ public class SelectionTable extends JTable implements WithEventNamespace {
         }
 
         @EventSubscriber
-        public void onLoadDocumentsCompletion(PdfLoadCompletedEvent event) {
-            if (event.getNamespace().isParentOf(getEventNamespace())) {
-                int rows = event.getDocuments().size();
-                if (rows > 0) {
-                    numberOfRows += rows;
-                    fireTableRowsInserted(numberOfRows - rows, numberOfRows - 1);
+        public void onLoadDocumentsCompletion(final PdfLoadCompletedEvent event) {
+            ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
+                public void exec(BaseEvent e) {
+                    int rows = event.getDocuments().size();
+                    if (rows > 0) {
+                        numberOfRows += rows;
+                        fireTableRowsInserted(numberOfRows - rows, numberOfRows - 1);
+                    }
                 }
-            }
+            });
         }
 
         @EventSubscriber
         public void onClear(ClearSelectionTableEvent event) {
-            if (event.getNamespace().isParentOf(getEventNamespace())) {
-                numberOfRows = 0;
-                fireTableDataChanged();
-            }
+            ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
+                public void exec(BaseEvent e) {
+                    numberOfRows = 0;
+                    fireTableDataChanged();
+                }
+            });
         }
 
         @EventSubscriber(priority = Integer.MAX_VALUE)
         public void onRemoveSelected(RemoveSelectedEvent event) {
-            if (event.getNamespace().isParentOf(getEventNamespace())) {
-                int formerRows = numberOfRows;
-                numberOfRows = SelectionTable.this.getRowCount();
-                fireTableRowsDeleted(numberOfRows, formerRows - 1);
-            }
+            ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
+                public void exec(BaseEvent e) {
+                    int formerRows = numberOfRows;
+                    numberOfRows = SelectionTable.this.getRowCount();
+                    fireTableRowsDeleted(numberOfRows, formerRows - 1);
+                }
+            });
         }
     }
 
@@ -254,25 +269,32 @@ public class SelectionTable extends JTable implements WithEventNamespace {
 
         @EventSubscriber(referenceStrength = ReferenceStrength.STRONG)
         public void onBeforeSort(BeforeSortEvent event) {
-            if (event.getNamespace().isParentOf(getEventNamespace())) {
-                selected = null;
-                ListSelectionModel selectionModel = getSelectionModel();
-                if (!selectionModel.isSelectionEmpty()
-                        && selectionModel.getMinSelectionIndex() == selectionModel.getMaxSelectionIndex()) {
-                    selected = model.getRow(selectionModel.getMinSelectionIndex());
+            ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
+                public void exec(BaseEvent e) {
+                    selected = null;
+                    ListSelectionModel selectionModel = getSelectionModel();
+                    if (!selectionModel.isSelectionEmpty()
+                            && selectionModel.getMinSelectionIndex() == selectionModel.getMaxSelectionIndex()) {
+                        selected = model.getRow(selectionModel.getMinSelectionIndex());
+                    }
+                    selectionModel.clearSelection();
                 }
-                selectionModel.clearSelection();
-            }
+            });
         }
 
         @EventSubscriber(referenceStrength = ReferenceStrength.STRONG)
         public void onAfterSort(AfterSortEvent event) {
-            if (event.getNamespace().isParentOf(getEventNamespace()) && selected != null) {
-                ListSelectionModel selectionModel = getSelectionModel();
-                int index = model.getRowIndex(selected);
-                selectionModel.setSelectionInterval(index, index);
-                selected = null;
-            }
+            ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
+                public void exec(BaseEvent e) {
+                    if (selected != null) {
+                        ListSelectionModel selectionModel = getSelectionModel();
+                        int index = model.getRowIndex(selected);
+                        selectionModel.setSelectionInterval(index, index);
+                        selected = null;
+                    }
+                }
+            });
+
         }
     }
 

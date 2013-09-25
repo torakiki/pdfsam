@@ -26,13 +26,13 @@ import javax.swing.JFrame;
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.gui.event.TaskExecutionModulesLoadedEvent;
 import org.pdfsam.gui.log.JLogPanel;
 import org.pdfsam.gui.menu.MainMenuBar;
 import org.pdfsam.gui.menu.MenuType;
-import org.pdfsam.gui.module.BaseTaskExecutionModule;
-import org.pdfsam.gui.module.Module;
 import org.pdfsam.gui.status.StatusPanel;
+import org.pdfsam.module.BaseTaskExecutionModule;
+import org.pdfsam.module.Module;
+import org.pdfsam.module.TaskExecutionModulesLoadedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

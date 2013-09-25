@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui.module;
+package org.pdfsam.module;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -44,6 +44,9 @@ import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 import org.sejda.model.parameter.base.TaskParameters;
 
+import static org.pdfsam.gui.event.EnableDisableComponentCallback.disableComponent;
+import static org.pdfsam.gui.event.EnableDisableComponentCallback.enableComponent;
+import static org.pdfsam.gui.event.EventSubscriberTemplate.ifEvent;
 import static org.pdfsam.gui.view.Views.GAP;
 
 /**
@@ -151,18 +154,14 @@ public abstract class BaseTaskExecutionModule implements Module, WithEventNamesp
 
         @EventSubscriber(referenceStrength = ReferenceStrength.STRONG)
         public void disableRunButtonWhileLoadingDocuments(PdfLoadRequestEvent event) {
-            if (event.getNamespace().isParentOf(getEventNamespace())) {
-                // I'm still loading documents
-                runButton.setEnabled(false);
-            }
+            // still loading
+            ifEvent(event).routesTo(getEventNamespace()).execute(disableComponent(runButton));
         }
 
         @EventSubscriber(referenceStrength = ReferenceStrength.STRONG)
         public void enableRunButtonOnLoadDocumentsCompletion(PdfLoadCompletedEvent event) {
-            if (event.getNamespace().isParentOf(getEventNamespace())) {
-                // I'm done loading documents
-                runButton.setEnabled(true);
-            }
+            // I'm done loading documents
+            ifEvent(event).routesTo(getEventNamespace()).execute(enableComponent(runButton));
         }
 
     }

@@ -16,14 +16,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui.event;
+package org.pdfsam.module;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import org.pdfsam.gui.module.BaseTaskExecutionModule;
 
 /**
  * Event sent to notify consumers that the available modules have been found and loaded by the IoC container.

@@ -32,7 +32,9 @@ import org.bushe.swing.event.EventBus;
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.gui.event.BaseEvent;
 import org.pdfsam.gui.event.EventNamespace;
+import org.pdfsam.gui.event.EventSubscriberCallback;
 import org.pdfsam.gui.support.SharedJFileChooser;
 import org.pdfsam.gui.view.AbstractActionWithNamespace;
 import org.pdfsam.gui.view.JButtonWithNamespace;
@@ -40,6 +42,10 @@ import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadCompletedEvent;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.filter.FileFilterType;
+
+import static org.pdfsam.gui.event.EnableDisableComponentCallback.disableComponent;
+import static org.pdfsam.gui.event.EnableDisableComponentCallback.enableComponent;
+import static org.pdfsam.gui.event.EventSubscriberTemplate.ifEvent;
 
 /**
  * Factory methods for the move buttons
@@ -88,10 +94,13 @@ final class SelectionTableToolbarButtons {
         }
 
         @EventSubscriber
-        public void disableIfCannotMoveDown(SelectionChangedEvent event) {
-            if (event.getNamespace().isParentOf(getEventNamespace())) {
-                setEnabled(event.canMove(((MoveSelectedAction) getAction()).getType()));
-            }
+        public void disableIfCannotMoveDown(final SelectionChangedEvent event) {
+            ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
+                public void exec(BaseEvent e) {
+                    setEnabled(event.canMove(((MoveSelectedAction) getAction()).getType()));
+                }
+            });
+
         }
     }
 
@@ -110,10 +119,12 @@ final class SelectionTableToolbarButtons {
         }
 
         @EventSubscriber
-        public void disableIfNoSelection(SelectionChangedEvent event) {
-            if (event.getNamespace().isParentOf(getEventNamespace())) {
-                setEnabled(!event.isClearSelection());
-            }
+        public void disableIfNoSelection(final SelectionChangedEvent event) {
+            ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
+                public void exec(BaseEvent e) {
+                    setEnabled(!event.isClearSelection());
+                }
+            });
         }
     }
 
@@ -132,18 +143,14 @@ final class SelectionTableToolbarButtons {
 
         @EventSubscriber
         public void disableWhileLoadingDocuments(PdfLoadRequestEvent event) {
-            if (event.getNamespace().isParentOf(getEventNamespace())) {
-                // I'm still loading documents
-                setEnabled(false);
-            }
+            // I'm still loading documents
+            ifEvent(event).routesTo(getEventNamespace()).execute(disableComponent(this));
         }
 
         @EventSubscriber
         public void enableOnLoadDocumentsCompletion(PdfLoadCompletedEvent event) {
-            if (event.getNamespace().isParentOf(getEventNamespace())) {
-                // I'm done loading documents
-                setEnabled(true);
-            }
+            // I'm done loading documents
+            ifEvent(event).routesTo(getEventNamespace()).execute(enableComponent(this));
         }
 
     }

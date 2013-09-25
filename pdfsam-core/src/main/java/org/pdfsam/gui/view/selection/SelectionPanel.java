@@ -33,6 +33,8 @@ import javax.swing.table.TableColumn;
 import org.pdfsam.gui.event.EventNamespace;
 import org.pdfsam.gui.event.WithEventNamespace;
 
+import static org.pdfsam.support.RequireUtils.requireNotNull;
+
 /**
  * Panel that lets the user select input documents
  * 
@@ -47,6 +49,7 @@ public class SelectionPanel extends JPanel implements WithEventNamespace {
 
     public SelectionPanel(EventNamespace namespace) {
         super(new BorderLayout());
+        requireNotNull(namespace, "Event namespace cannot be null");
         this.namespace = namespace;
         add(new SelectionTableToolbar(namespace), BorderLayout.PAGE_START);
 

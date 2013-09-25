@@ -33,14 +33,14 @@ import org.bushe.swing.event.annotation.EventSubscriber;
 import org.pdfsam.configuration.ApplicationContextHolder;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.about.AboutDialog;
-import org.pdfsam.gui.event.TaskExecutionModulesLoadedEvent;
-import org.pdfsam.gui.module.BaseTaskExecutionModule;
-import org.pdfsam.gui.module.Module;
 import org.pdfsam.gui.preference.PreferencesDialog;
 import org.pdfsam.gui.support.SwingUtils;
 import org.pdfsam.gui.workspace.LoadWorkspaceAction;
 import org.pdfsam.gui.workspace.SaveWorkspaceAction;
+import org.pdfsam.module.BaseTaskExecutionModule;
+import org.pdfsam.module.Module;
 import org.pdfsam.module.ModuleCategory;
+import org.pdfsam.module.TaskExecutionModulesLoadedEvent;
 
 import bibliothek.gui.dock.common.CControl;
 
