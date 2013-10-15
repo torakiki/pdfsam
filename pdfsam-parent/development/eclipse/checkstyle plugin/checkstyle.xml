@@ -5,7 +5,7 @@
     This configuration file was written by the eclipse-cs plugin configuration editor
 -->
 <!--
-    Checkstyle-Configuration: pdfsam-checkstyle
+    Checkstyle-Configuration: pdfsam
     Description: none
 -->
 <module name="Checker">
@@ -120,6 +120,6 @@
   <module name="SuppressionCommentFilter"/>
   <module name="FileLength"/>
   <module name="SuppressionFilter">
-    <property name="file" value="/media/torakiki/LACIE/git-pdfsam-repo/pdfsam/pdfsam-parent/development/eclipse/checkstyle plugin/suppression.xml"/>
+    <property name="file" value="/media/torakiki/LACIE/pdfsam-repo/pdfsam/pdfsam-parent/development/eclipse/checkstyle plugin/suppression.xml"/>
   </module>
 </module>
