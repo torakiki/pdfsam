@@ -8,12 +8,11 @@
 	<description>A free open source desktop tool to split and merge pdf documents</description>
 	
 	<scm>
-		<connection>scm:hg:ssh://hg@bitbucket.org/torakiki/pdfsam</connection>
-		<developerConnection>scm:hg:ssh://hg@bitbucket.org/torakiki/pdfsam</developerConnection>
-		<url>https://bitbucket.org/torakiki/pdfsam</url>
-		<tag>HEAD</tag>
+		<connection>scm:git:git@github.com:torakiki/pdfsam.git</connection>
+		<developerConnection>scm:git:git@github.com:torakiki/pdfsam.git</developerConnection>
+		<url>scm:git:git@github.com:torakiki/pdfsam.git</url>
 	</scm>
-
+	
 	<parent>
 		<groupId>org.pdfsam</groupId>
 		<artifactId>pdfsam-parent</artifactId>
