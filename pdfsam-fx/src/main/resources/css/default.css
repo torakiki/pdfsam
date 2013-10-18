@@ -1,0 +1,33 @@
+.root { 
+	theme-color: green;
+	-fx-text-box-border: #CCCCCC;
+	-fx-focus-color: rgba(82.0, 168.0, 236.0, 0.8);
+	-fx-control-inner-background: #F9F9F9;
+}
+.borded-pane {
+    -fx-padding: 0.0;
+    -fx-border-width: 1.0;
+    -fx-border-color: theme-color;
+}
+.container {
+	-fx-border-width: 0.0;
+	-fx-padding: 7.0;
+}
+.header {
+	-fx-background-color: theme-color;
+}
+.title {
+	 -fx-text-fill: white;
+}
+.text-area{
+	-fx-background-radius: 0.0, 0.0;
+	-fx-background-color:  -fx-text-box-border, -fx-control-inner-background;
+    -fx-background-insets: 1.0, 2.0;
+    -fx-background-radius:  0.0, 0.0;
+}
+.text-area:focused {
+    -fx-background-color: -fx-focus-color, -fx-control-inner-background;
+    -fx-background-insets: -0.4, 1.0;
+    -fx-background-radius: 0.0, 0.0;
+    -fx-prompt-text-fill: transparent;
+}
