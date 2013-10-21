@@ -25,6 +25,7 @@
 		<module>pdfsam-i18n</module>
 		<module>pdfsam-core</module>
 		<module>pdfsam-service</module>
+		<module>pdfsam-fx</module>
 	</modules>
 
 	<developers>

@@ -18,21 +18,12 @@
  */
 package org.pdfsam.gui.log;
 
-import java.awt.Color;
 import java.io.IOException;
 import java.io.StringWriter;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.swing.JTextPane;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.SimpleAttributeSet;
-import javax.swing.text.StyleConstants;
-import javax.swing.text.StyledDocument;
 
 import org.apache.commons.io.output.WriterOutputStream;
 import org.apache.commons.lang3.StringUtils;
+import org.bushe.swing.event.EventBus;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
@@ -40,23 +31,12 @@ import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.AppenderBase;
 
 /**
- * A Logback appender that logs on a {@link JTextPane}.
+ * A Logback appender that dispatch the log event as a {@link LogMessageEvent} after the message has been formatted.
  * 
  * @author Andrea Vacondio
  * 
  */
-public class TextPaneAppender extends AppenderBase<ILoggingEvent> {
-    private static final Map<Level, SimpleAttributeSet> ATTRIBUTES;
-    static {
-        Map<Level, SimpleAttributeSet> attributesCache = new HashMap<>();
-        attributesCache.put(Level.ERROR, new SimpleAttributeSet());
-        attributesCache.put(Level.WARN, new SimpleAttributeSet());
-        ATTRIBUTES = Collections.unmodifiableMap(attributesCache);
-        StyleConstants.setForeground(ATTRIBUTES.get(Level.ERROR), Color.RED);
-        StyleConstants.setForeground(ATTRIBUTES.get(Level.WARN), Color.BLUE);
-    }
-
-    public static final JTextPane LOG_PANEL = new JTextLogPane();
+public class DispatchAppender extends AppenderBase<ILoggingEvent> {
     private PatternLayoutEncoder encoder;
 
     @Override
@@ -82,19 +62,21 @@ public class TextPaneAppender extends AppenderBase<ILoggingEvent> {
 
     private void doAppendMessage(String message, ILoggingEvent event) {
         if (StringUtils.isNotBlank(message)) {
-            StyledDocument document = LOG_PANEL.getStyledDocument();
-            try {
-                document.insertString(document.getLength(), message, ATTRIBUTES.get(event.getLevel()));
-
-                if (event.hasCallerData()) {
-                    for (StackTraceElement row : event.getCallerData()) {
-                        document.insertString(document.getLength(), row.toString(), ATTRIBUTES.get(event.getLevel()));
-                    }
-                }
-            } catch (BadLocationException e) {
-                LOG_PANEL.setText(LOG_PANEL.getText() + "\n" + message);
-            }
+            EventBus.publish(createLogMessageEvent(message, event));
         }
+    }
+
+    private LogMessageEvent createLogMessageEvent(String message, ILoggingEvent event) {
+        if (event.getLevel().isGreaterOrEqual(Level.ERROR)) {
+            if (event.hasCallerData()) {
+                return LogMessageEvent.newErrorMessage(message, event.getCallerData());
+            }
+            return LogMessageEvent.newErrorMessage(message);
+        }
+        if (event.getLevel().toInt() == Level.WARN_INT) {
+            return LogMessageEvent.newWarningMessage(message);
+        }
+        return LogMessageEvent.newStandardMessage(message);
     }
 
     public PatternLayoutEncoder getEncoder() {

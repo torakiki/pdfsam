@@ -22,8 +22,6 @@ import java.awt.Image;
 import java.util.Map;
 
 import javax.swing.ImageIcon;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.apache.commons.lang3.time.StopWatch;
@@ -122,12 +120,10 @@ public final class App {
     }
 
     private static void initLookAndFeel() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-        try {
-            UIManager.setLookAndFeel(DefaultUserContext.getInstance().getLookAndFeelClass());
-        } catch (UnsupportedLookAndFeelException e) {
-            LOG.warn(DefaultI18nContext.getInstance().i18n(
-                    "Unable to install the selected look and feel because it's unsupported."));
-        }
+        /**
+         * try { UIManager.setLookAndFeel(DefaultUserContext.getInstance().getTheme()); } catch (UnsupportedLookAndFeelException e) {
+         * LOG.warn(DefaultI18nContext.getInstance().i18n( "Unable to install the selected look and feel because it's unsupported.")); }
+         **/
 
     }
 

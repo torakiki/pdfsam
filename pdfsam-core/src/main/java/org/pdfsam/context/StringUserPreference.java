@@ -26,7 +26,7 @@ package org.pdfsam.context;
  */
 public enum StringUserPreference {
     LOCALE,
-    LOOK_AND_FEEL,
+    THEME,
     THUMBNAILS_IDENTIFIER,
     WORKING_PATH,
     WORKSPACE_PATH;

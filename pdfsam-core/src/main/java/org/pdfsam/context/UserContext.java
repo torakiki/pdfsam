@@ -72,9 +72,9 @@ public interface UserContext {
     int getThumbnailsSize();
 
     /**
-     * @return the configured look and feel
+     * @return the name of the configured theme in the form of a css present in the theme directory. Ex. "green.css"
      */
-    String getLookAndFeelClass();
+    String getTheme();
 
     /**
      * Sets a {@link Boolean} preference.

@@ -7,9 +7,9 @@
 		</encoder>
 	</appender>
 
-	<appender name="JTEXTPANE" class="org.pdfsam.gui.log.TextPaneAppender">
+	<appender name="DISPATCHER" class="org.pdfsam.gui.log.DispatchAppender">
 		<encoder>
-			<pattern>%d{HH:mm:ss} %msg%n</pattern>
+			<pattern>[%d{HH:mm:ss}] %msg%n</pattern>
 		</encoder>
 	</appender>
 
@@ -20,6 +20,6 @@
 
 	<root level="TRACE">
 		<appender-ref ref="STDOUT" />
-		<appender-ref ref="JTEXTPANE" />
+		<appender-ref ref="DISPATCHER" />
 	</root>
 </configuration>

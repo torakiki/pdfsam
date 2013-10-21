@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 15/dic/2011
- * Copyright 2011 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 17/ott/2013
+ * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,25 +18,14 @@
  */
 package org.pdfsam.gui.log;
 
-import javax.swing.JPopupMenu;
-
 /**
- * Popup component for the log panel.
+ * Log levels that PDFsam understand
  * 
  * @author Andrea Vacondio
  * 
  */
-class JLogPopupMenu extends JPopupMenu {
-
-    public JLogPopupMenu() {
-        initComponent();
-    }
-
-    private void initComponent() {
-        this.add(new CopyAction());
-        this.add(new ClearLogAction());
-        this.add(new SelectAllAction());
-        this.addSeparator();
-        this.add(new SaveLogAction());
-    }
+public enum LogMessageLevel {
+    STANDARD,
+    WARNING,
+    ERROR;
 }

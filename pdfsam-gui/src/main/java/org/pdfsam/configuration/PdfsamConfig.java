@@ -21,9 +21,13 @@ package org.pdfsam.configuration;
 import java.awt.Image;
 import java.io.IOException;
 
+import javafx.scene.Scene;
+
 import javax.imageio.ImageIO;
 import javax.inject.Inject;
 
+import org.pdfsam.context.DefaultUserContext;
+import org.pdfsam.gui.log.LogPane;
 import org.pdfsam.module.PdfsamModule;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -53,5 +57,19 @@ public class PdfsamConfig {
         Resource resource = new ClassPathResource("/images/pdfsam_" + env.getProperty("pdfsam.package", "BASIC")
                 + ".png");
         return ImageIO.read(resource.getInputStream());
+    }
+
+    @Bean(name = "logScene")
+    public Scene logScene() {
+        Scene scene = new Scene(new LogPane());
+        scene.getStylesheets().addAll(styles());
+        return scene;
+    }
+
+    public String[] styles() {
+        String css1 = this.getClass().getResource("/css/default.css").toExternalForm();
+        String css2 = this.getClass().getResource("/css/" + DefaultUserContext.getInstance().getTheme())
+                .toExternalForm();
+        return new String[] { css1, css2 };
     }
 }

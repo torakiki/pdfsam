@@ -23,7 +23,6 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 import javax.swing.JComboBox;
-import javax.swing.UIManager;
 
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.StringUserPreference;
@@ -40,13 +39,13 @@ class ThemesComboBox extends JComboBox<StringKeyValueItem> {
     public ThemesComboBox() {
         initItems();
         setBackground(Color.WHITE);
-        setSelectedItem(new StringKeyValueItem(DefaultUserContext.getInstance().getLookAndFeelClass(), ""));
+        setSelectedItem(new StringKeyValueItem(DefaultUserContext.getInstance().getTheme(), ""));
         addItemListener(new ItemListener() {
 
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
-                    DefaultUserContext.getInstance().setStringPreference(StringUserPreference.LOOK_AND_FEEL,
+                    DefaultUserContext.getInstance().setStringPreference(StringUserPreference.THEME,
                             ((StringKeyValueItem) e.getItem()).getKey());
                 }
             }
@@ -54,11 +53,12 @@ class ThemesComboBox extends JComboBox<StringKeyValueItem> {
     }
 
     private void initItems() {
-        addItem(new StringKeyValueItem(UIManager.getCrossPlatformLookAndFeelClassName(), "Java"));
-        addItem(new StringKeyValueItem(UIManager.getSystemLookAndFeelClassName(), "System"));
-        addItem(new StringKeyValueItem("com.jgoodies.looks.windows.WindowsLookAndFeel", "Windows"));
-        addItem(new StringKeyValueItem("com.jgoodies.looks.plastic.PlasticLookAndFeel", "Plastic"));
-        addItem(new StringKeyValueItem("com.jgoodies.looks.plastic.Plastic3DLookAndFeel", "Plastic3D"));
-        addItem(new StringKeyValueItem("com.jgoodies.looks.plastic.PlasticXPLookAndFeel", "PlasticXP"));
+        // TODO retrieve these listing all the available themes
+        addItem(new StringKeyValueItem("blue.css", "Blue"));
+        addItem(new StringKeyValueItem("green.css", "Green"));
+        addItem(new StringKeyValueItem("orange.css", "Orange"));
+        addItem(new StringKeyValueItem("purple.css", "Purple"));
+        addItem(new StringKeyValueItem("red.css", "Red"));
+        addItem(new StringKeyValueItem("yellow.css", "Yellow"));
     }
 }

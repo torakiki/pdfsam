@@ -66,9 +66,8 @@ public final class DefaultUserContext implements UserContext {
     }
 
     @Override
-    public String getLookAndFeelClass() {
-        return prefs
-                .get(StringUserPreference.LOOK_AND_FEEL.toString(), "com.jgoodies.looks.plastic.PlasticLookAndFeel");
+    public String getTheme() {
+        return prefs.get(StringUserPreference.THEME.toString(), "green.css");
     }
 
     @Override
