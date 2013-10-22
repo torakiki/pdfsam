@@ -31,8 +31,12 @@ public final class ApplicationContextHolder {
     private AnnotationConfigApplicationContext ctx;
 
     private ApplicationContextHolder() {
-        ctx = new AnnotationConfigApplicationContext(PdfsamConfig.class);
+        ctx = new AnnotationConfigApplicationContext();
+        ctx.register(PdfsamConfig.class);
+        ctx.getEnvironment().setActiveProfiles(ctx.getEnvironment().getProperty("pdfsam.package", "BASIC"));
+        ctx.register(PdfsamBasicConfig.class, PdfsamEnhancedConfig.class);
         ctx.registerShutdownHook();
+        ctx.refresh();
     }
 
     /**

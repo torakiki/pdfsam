@@ -26,6 +26,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -33,7 +34,6 @@ import org.apache.commons.io.FileUtils;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.UrlButton;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.core.env.Environment;
 
 /**
  * Panel displaying PDFsam logo and About panel informations
@@ -47,8 +47,10 @@ public class AboutPane extends BorderPane {
     @Inject
     @Qualifier("logo")
     private Group logo;
-    @Inject
-    private Environment env;
+    @Resource(name = "appName")
+    private String name;
+    @Resource(name = "appVersion")
+    private String version;
 
     public AboutPane() {
         getStyleClass().add("pdfsam-container");
@@ -60,10 +62,10 @@ public class AboutPane extends BorderPane {
         labels.setAlignment(Pos.CENTER);
         labels.getStyleClass().add("pdfsam-container");
         labels.setId("aboutLabelsContainer");
-        Label appName = new Label(String.format("PDF Split and Merge %s", env.getProperty("pdfsam.package")));
+        Label appName = new Label(name);
         appName.setId("aboutLabelAppName");
         labels.getChildren().add(appName);
-        Label versionLabel = new Label(String.format("ver. %s", env.getProperty("pdfsam.version")));
+        Label versionLabel = new Label(String.format("ver. %s", version));
         versionLabel.setId("versionLabel");
         labels.getChildren().add(versionLabel);
 
