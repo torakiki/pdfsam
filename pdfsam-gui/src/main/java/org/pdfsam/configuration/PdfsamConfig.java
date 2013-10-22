@@ -18,15 +18,22 @@
  */
 package org.pdfsam.configuration;
 
+import static org.apache.commons.lang3.text.WordUtils.capitalizeFully;
+
 import java.awt.Image;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
 import javax.inject.Inject;
 
-import org.pdfsam.context.DefaultUserContext;
+import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.log.LogPane;
 import org.pdfsam.module.PdfsamModule;
 import org.springframework.context.annotation.Bean;
@@ -59,17 +66,33 @@ public class PdfsamConfig {
         return ImageIO.read(resource.getInputStream());
     }
 
-    @Bean(name = "logScene")
+    @Bean(name = "logo")
+    public Group logo() throws IOException {
+        Resource resource = new ClassPathResource(String.format("/fxml/Logo%s.fxml",
+                capitalizeFully(env.getProperty("pdfsam.package", "BASIC"))));
+        return FXMLLoader.load(resource.getURL());
+    }
+
+    @Bean(name = "logStage")
+    public Stage logStage() {
+        Stage stage = new Stage();
+        stage.setScene(logScene());
+        stage.setTitle(DefaultI18nContext.getInstance().i18n("Log register"));
+        return stage;
+    }
+
     public Scene logScene() {
         Scene scene = new Scene(new LogPane());
         scene.getStylesheets().addAll(styles());
         return scene;
     }
 
-    public String[] styles() {
-        String css1 = this.getClass().getResource("/css/default.css").toExternalForm();
-        String css2 = this.getClass().getResource("/css/" + DefaultUserContext.getInstance().getTheme())
-                .toExternalForm();
-        return new String[] { css1, css2 };
+    @Bean(name = "styles")
+    public List<String> styles() {
+        List<String> styles = new ArrayList<>();
+        styles.add(this.getClass().getResource("/css/default.css").toExternalForm());
+        // styles.add(this.getClass().getResource("/css/" + DefaultUserContext.getInstance().getTheme()).toExternalForm());
+        return styles;
     }
+
 }

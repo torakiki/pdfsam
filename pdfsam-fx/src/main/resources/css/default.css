@@ -14,15 +14,22 @@
     -fx-border-width: 1.0;
     -fx-border-color: theme-color;
 }
-.container {
+.pdfsam-container {
 	-fx-border-width: 0.0;
 	-fx-padding: 8.0;
+}
+.button-container {
+	-fx-padding: 10.0;
+	-fx-spacing: 0.7em;
 }
 .header {
 	-fx-background-color: theme-color;
 }
 .title {
 	 -fx-text-fill: white;
+}
+.text-input:focused {
+    -fx-highlight-text-fill: #333333;
 }
 /**
  * TextArea
@@ -103,11 +110,11 @@
  */
 #aboutLabelAppName{
 	-fx-font-size: 1.8em;
-	-fx-font-style: bold;
+	-fx-font-weight: bold;
 }
 #versionLabel{
 	-fx-font-size: 0.8em;
-	-fx-font-style: bold;
+	-fx-font-weight: bold;
 	-fx-padding: 0.0 0.0 1.7em 0.0;
 }
 #aboutLabelsContainer{

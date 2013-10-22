@@ -22,7 +22,7 @@
     </HBox>
   </top>
   <center>
-    <HBox alignment="CENTER" prefHeight="37.0" prefWidth="200.0" styleClass="container">
+    <HBox alignment="CENTER" prefHeight="37.0" prefWidth="200.0" styleClass="pdfsam-container">
       <children>
         <org.pdfsam.ui.prefix.PrefixField prefWidth="-1.0" />
       </children>

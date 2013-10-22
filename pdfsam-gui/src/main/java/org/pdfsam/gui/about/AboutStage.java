@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 08/feb/2013
+ * Created on 21/ott/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,41 +18,44 @@
  */
 package org.pdfsam.gui.about;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Image;
+import java.util.List;
+
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+
+import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.ui.ClosePane;
 
 /**
- * Panel displaying the PDFsam image in the about panel.
+ * About {@link Stage} displaying informations about PDFsam
  * 
  * @author Andrea Vacondio
  * 
  */
 @Named
-class AboutImagePanel extends JPanel {
-
+public class AboutStage extends Stage {
     @Inject
-    private Image appImage;
+    private AboutPane aboutPane;
+
+    @Resource(name = "styles")
+    private List<String> styles;
 
     @PostConstruct
     void init() {
-        JLabel image = new JLabel(new ImageIcon(appImage));
-        image.setMinimumSize(new Dimension(128, 128));
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        Dimension fillerSize = new Dimension(10, 0);
-        add(new Box.Filler(fillerSize, fillerSize, fillerSize));
-        add(Box.createVerticalGlue());
-        setBackground(Color.WHITE);
-        add(image);
-        add(Box.createVerticalGlue());
+        BorderPane containerPane = new BorderPane();
+        containerPane.getStyleClass().add("container");
+        containerPane.setCenter(aboutPane);
+        containerPane.setBottom(new ClosePane());
+        Scene scene = new Scene(containerPane);
+        scene.getStylesheets().addAll(styles);
+        setScene(scene);
+        setTitle(DefaultI18nContext.getInstance().i18n("About"));
     }
+
 }

@@ -128,7 +128,8 @@ public class LogPane extends VBox {
                 }).styleClass("ctx-menu-item").build();
         // disable if there's no text
         saveItem.disableProperty().bind(clearItem.disableProperty());
-        logArea.setContextMenu(new ContextMenu(copyItem, clearItem, selectAllItem, new SeparatorMenuItem(), saveItem));
+        SeparatorMenuItem separator = new SeparatorMenuItem();
+        logArea.setContextMenu(new ContextMenu(copyItem, clearItem, selectAllItem, separator, saveItem));
     }
 
     @EventSubscriber

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+
+<fx:root type="javafx.scene.layout.HBox" alignment="CENTER_RIGHT"
+	prefWidth="232.0" styleClass="pdfsam-container" xmlns:fx="http://javafx.com/fxml/1"
+	xmlns="http://javafx.com/javafx/2.2">
+	<Button fx:id="closeButton" alignment="CENTER" 
+		mnemonicParsing="false" onAction="#hideWindow" styleClass="pdfsam-button"
+		text="Close" textAlignment="CENTER" />
+</fx:root>

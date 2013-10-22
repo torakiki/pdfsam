@@ -6,6 +6,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.web.*?>
 
-<fx:root type="javafx.scene.layout.VBox" styleClass="container" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<fx:root type="javafx.scene.layout.VBox" styleClass="pdfsam-container" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
   <TextArea fx:id="logArea" editable="false" prefWidth="200.0" wrapText="true" VBox.vgrow="ALWAYS" />
 </fx:root>
