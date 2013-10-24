@@ -42,8 +42,6 @@ import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.I18nContext;
 import org.pdfsam.gui.support.FileChoosers;
 import org.pdfsam.gui.support.FileExtensionFilter;
-import org.pdfsam.support.validation.Validators;
-import org.pdfsam.ui.ValidableTextField;
 
 /**
  * Panel displaying log messages
@@ -66,9 +64,6 @@ public class LogPane extends VBox {
             throw new RuntimeException(exception);
         }
         initMenu();
-        ValidableTextField e = new ValidableTextField(Validators.newNonBlankString());
-        e.setErrorMessage("Cannot be blank");
-        getChildren().add(e);
         AnnotationProcessor.process(this);
     }
 
