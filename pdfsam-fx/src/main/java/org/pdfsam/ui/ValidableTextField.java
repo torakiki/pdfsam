@@ -24,12 +24,11 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
 import javafx.animation.Animation.Status;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.beans.property.ReadOnlyBooleanProperty;
+import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.NodeOrientation;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
@@ -43,6 +42,7 @@ import javafx.util.Duration;
 
 import org.pdfsam.support.validation.Validator;
 import org.pdfsam.ui.support.FXValidationSupport;
+import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 
 /**
  * {@link TextField} triggering validation when Enter key is pressed or when focus is lost. A boolean property is exposed to bind to the validation state.
@@ -68,16 +68,16 @@ public class ValidableTextField extends TextField {
         focusedProperty().addListener(new OnFocusLost());
         setOnKeyReleased(new OnEnterPressed());
         textProperty().addListener(new ResetStyleOnChangeText());
-        validationSupport.validProperty().addListener(new StyleOnValidationStateChange());
+        validationSupport.validationStateProperty().addListener(new StyleOnValidationStateChange());
         validate();
     }
 
-    public final boolean isValid() {
-        return validationSupport.validProperty().get();
+    public final ValidationState getValidationState() {
+        return validationSupport.validationStateProperty().get();
     }
 
-    public final ReadOnlyBooleanProperty validProperty() {
-        return validationSupport.validProperty();
+    public final ReadOnlyObjectProperty<ValidationState> validProperty() {
+        return validationSupport.validationStateProperty();
     }
 
     public void setErrorMessage(String message) {
@@ -98,16 +98,17 @@ public class ValidableTextField extends TextField {
      * @author Andrea Vacondio
      * 
      */
-    private class StyleOnValidationStateChange implements ChangeListener<Boolean> {
+    private class StyleOnValidationStateChange implements ChangeListener<ValidationState> {
         @Override
-        public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-            if (!newValue && !getStyleClass().contains(ERROR_CLASS)) {
+        public void changed(ObservableValue<? extends ValidationState> observable, ValidationState oldValue,
+                ValidationState newValue) {
+            if ((newValue == ValidationState.INVALID) && !getStyleClass().contains(ERROR_CLASS)) {
                 getStyleClass().add(ERROR_CLASS);
                 if (errorTooltipManager != null) {
                     errorTooltipManager.showTooltip();
                 }
             }
-            if (newValue && getStyleClass().contains(ERROR_CLASS)) {
+            if ((newValue != ValidationState.INVALID) && getStyleClass().contains(ERROR_CLASS)) {
                 getStyleClass().remove(ERROR_CLASS);
             }
         }
@@ -122,9 +123,7 @@ public class ValidableTextField extends TextField {
     private class ResetStyleOnChangeText implements ChangeListener<String> {
 
         public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-            if (!isValid() && getStyleClass().contains(ERROR_CLASS)) {
-                getStyleClass().remove(ERROR_CLASS);
-            }
+            validationSupport.makeNotValidated();
         }
     }
 
@@ -220,10 +219,6 @@ public class ValidableTextField extends TextField {
             Point2D nodeCoord = ValidableTextField.this.localToScene(0.0, ValidableTextField.this.getHeight());
             double anchorX = Math.round(owner.getX() + scene.getX() + nodeCoord.getX() + 2);
             double anchorY = Math.round(owner.getY() + scene.getY() + nodeCoord.getY() - 2);
-
-            if (ValidableTextField.this.getEffectiveNodeOrientation() == NodeOrientation.RIGHT_TO_LEFT) {
-                anchorX = anchorX + ValidableTextField.this.getWidth() - tooltip.getWidth();
-            }
             return new Point2D(anchorX, anchorY);
         }
     }

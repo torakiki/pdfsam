@@ -19,8 +19,8 @@
 package org.pdfsam.ui.support;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
-import javafx.beans.property.ReadOnlyBooleanProperty;
-import javafx.beans.property.ReadOnlyBooleanWrapper;
+import javafx.beans.property.ReadOnlyObjectProperty;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 
 import org.pdfsam.support.validation.Validator;
 
@@ -32,7 +32,8 @@ import org.pdfsam.support.validation.Validator;
  *            the type to validate
  */
 public class FXValidationSupport<T> {
-    private ReadOnlyBooleanWrapper valid = new ReadOnlyBooleanWrapper(true);
+    private ReadOnlyObjectWrapper<ValidationState> validationState = new ReadOnlyObjectWrapper<>(
+            ValidationState.NOT_VALIDATED);
     private Validator<T> validator;
 
     public FXValidationSupport(Validator<T> validator) {
@@ -41,11 +42,19 @@ public class FXValidationSupport<T> {
     }
 
     public void validate(T value) {
-        valid.set(validator.isValid(value));
+        if (validator.isValid(value)) {
+            validationState.set(ValidationState.VALID);
+        } else {
+            validationState.set(ValidationState.INVALID);
+        }
     }
 
-    public final ReadOnlyBooleanProperty validProperty() {
-        return valid.getReadOnlyProperty();
+    public void makeNotValidated() {
+        validationState.set(ValidationState.NOT_VALIDATED);
+    }
+
+    public final ReadOnlyObjectProperty<ValidationState> validationStateProperty() {
+        return validationState.getReadOnlyProperty();
     }
 
     /**
@@ -58,5 +67,17 @@ public class FXValidationSupport<T> {
                 return true;
             }
         });
+    }
+
+    /**
+     * Possible validation states
+     * 
+     * @author Andrea Vacondio
+     * 
+     */
+    public static enum ValidationState {
+        VALID,
+        INVALID,
+        NOT_VALIDATED;
     }
 }
