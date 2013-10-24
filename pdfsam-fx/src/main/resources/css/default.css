@@ -1,5 +1,5 @@
 .root { 
-	theme-color: green;
+	theme-color: #339933;
 	-fx-text-box-border: #CCCCCC;
 	-fx-focus-color: rgba(82.0, 168.0, 236.0, 0.8);
 	-fx-control-inner-background: #F9F9F9;
@@ -8,28 +8,24 @@
 	ctx-menubg-color: #FFFFFF;
 	-fx-accent: #D8D8D8 !important;
 	-fx-disabled-opacity: 0.4;
+	error-color: #B94A48;
 }
-.borded-pane {
-    -fx-padding: 0.0;
-    -fx-border-width: 1.0;
-    -fx-border-color: theme-color;
+/**
+ * TextField
+ */
+.text-field {
+   -fx-background-color:  -fx-text-box-border, -fx-control-inner-background;
+   -fx-background-insets: -0.4, 1.0;
+   -fx-background-radius:  0.0, 0.0;
+   -fx-padding: 0.25em 0.416667em  0.333333em 0.416667em; /* 3 5 4 5 */
 }
-.pdfsam-container {
-	-fx-border-width: 0.0;
-	-fx-padding: 8.0;
-}
-.button-container {
-	-fx-padding: 10.0;
-	-fx-spacing: 0.7em;
-}
-.header {
-	-fx-background-color: theme-color;
-}
-.title {
-	 -fx-text-fill: white;
-}
-.text-input:focused {
-    -fx-highlight-text-fill: #333333;
+
+.text-field:focused {
+    -fx-background-color: -fx-focus-color, -fx-control-inner-background;
+    -fx-background-insets: -0.4, 1.0;
+    -fx-background-radius: 0.0, 0.0;
+    -fx-prompt-text-fill: transparent;
+    -fx-effect: dropshadow( three-pass-box , -fx-text-box-border , 10.0, 0.0 ,1.0 ,1.0 );
 }
 /**
  * TextArea
@@ -122,4 +118,50 @@
 }
 #logoContainer{
 	-fx-padding: 0.0 1.8em 0.0 0.0;
+}
+/**
+ * Error tooltip
+ */
+.error-tooltip {
+   -fx-background-color:  #EED3D7, #F2DEDE;
+   -fx-background-insets: 1.0, 2.0;
+   -fx-background-radius:  0.0, 0.0;
+   -fx-text-fill: #B94A48;
+   -fx-opacity: 0.95;
+   -fx-font-weight: bold;
+   -fx-padding: 0.3em 0.4em 0.3em 0.4em;    
+}
+/**
+ * General
+ */
+.borded-pane {
+    -fx-padding: 0.0;
+    -fx-border-width: 1.0;
+    -fx-border-color: theme-color;
+}
+.pdfsam-container {
+	-fx-border-width: 0.0;
+	-fx-padding: 8.0;
+}
+.button-container {
+	-fx-padding: 10.0;
+	-fx-spacing: 0.7em;
+}
+.header {
+	-fx-background-color: theme-color;
+}
+.title {
+	 -fx-text-fill: white;
+}
+.text-input:focused {
+    -fx-highlight-text-fill: #333333;
+}
+.invalid{
+   -fx-background-color:  error-color, -fx-control-inner-background;
+   -fx-background-insets: -0.4, 1.0;
+}
+.invalid:focused{
+   -fx-background-color:  error-color, -fx-control-inner-background;
+   -fx-background-insets: -0.4, 1.0;
+   -fx-effect: dropshadow( three-pass-box , error-color , 10.0, 0.0 ,1.0 ,1.0 );
 }
