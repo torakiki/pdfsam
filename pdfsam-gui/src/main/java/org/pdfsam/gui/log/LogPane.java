@@ -31,7 +31,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.MenuItemBuilder;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
@@ -43,6 +42,8 @@ import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.I18nContext;
 import org.pdfsam.gui.support.FileChoosers;
 import org.pdfsam.gui.support.FileExtensionFilter;
+import org.pdfsam.support.validation.Validators;
+import org.pdfsam.ui.ValidableTextField;
 
 /**
  * Panel displaying log messages
@@ -65,18 +66,23 @@ public class LogPane extends VBox {
             throw new RuntimeException(exception);
         }
         initMenu();
+        ValidableTextField e = new ValidableTextField(Validators.newNonBlankString());
+        e.setErrorMessage("Cannot be blank");
+        getChildren().add(e);
         AnnotationProcessor.process(this);
     }
 
     private void initMenu() {
         I18nContext i18n = DefaultI18nContext.getInstance();
 
-        MenuItem copyItem = MenuItemBuilder.create().text(i18n.i18n("Copy")).onAction(new EventHandler<ActionEvent>() {
+        MenuItem copyItem = new MenuItem(i18n.i18n("Copy"));
+        copyItem.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent action) {
                 logArea.copy();
             }
-        }).styleClass("ctx-menu-item").build();
+        });
+        copyItem.getStyleClass().add("ctx-menu-item");
 
         // disable if no selection
         copyItem.disableProperty().bind(new BooleanBinding() {
@@ -90,13 +96,14 @@ public class LogPane extends VBox {
             }
         });
 
-        MenuItem clearItem = MenuItemBuilder.create().text(i18n.i18n("Clear"))
-                .onAction(new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent action) {
-                        logArea.clear();
-                    }
-                }).styleClass("ctx-menu-item").build();
+        MenuItem clearItem = new MenuItem(i18n.i18n("Clear"));
+        clearItem.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent action) {
+                logArea.clear();
+            }
+        });
+        clearItem.getStyleClass().add("ctx-menu-item");
         // disable if there's no text
         clearItem.disableProperty().bind(new BooleanBinding() {
             {
@@ -109,23 +116,25 @@ public class LogPane extends VBox {
             }
         });
 
-        MenuItem selectAllItem = MenuItemBuilder.create().text(i18n.i18n("Select all"))
-                .onAction(new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent action) {
-                        logArea.selectAll();
-                    }
-                }).styleClass("ctx-menu-item").build();
+        MenuItem selectAllItem = new MenuItem(i18n.i18n("Select all"));
+        selectAllItem.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent action) {
+                logArea.selectAll();
+            }
+        });
+        selectAllItem.getStyleClass().add("ctx-menu-item");
         // disable if there's no text
         selectAllItem.disableProperty().bind(clearItem.disableProperty());
 
-        MenuItem saveItem = MenuItemBuilder.create().text(i18n.i18n("Save log"))
-                .onAction(new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent action) {
-                        saveLog();
-                    }
-                }).styleClass("ctx-menu-item").build();
+        MenuItem saveItem = new MenuItem(i18n.i18n("Save log"));
+        saveItem.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent action) {
+                saveLog();
+            }
+        });
+        saveItem.getStyleClass().add("ctx-menu-item");
         // disable if there's no text
         saveItem.disableProperty().bind(clearItem.disableProperty());
         SeparatorMenuItem separator = new SeparatorMenuItem();

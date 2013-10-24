@@ -78,7 +78,7 @@ public class PrefixField extends TextField {
      * @author Andrea Vacondio
      * 
      */
-    private class PrefixMenuItem extends MenuItem {
+    private final class PrefixMenuItem extends MenuItem {
 
         private Prefix prefix;
 
