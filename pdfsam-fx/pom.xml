@@ -45,13 +45,12 @@
 			<groupId>org.pdfsam</groupId>
 			<artifactId>pdfsam-core</artifactId>
 			<version>${project.version}</version>
-		</dependency>		
+		</dependency>
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
 			<version>[${logback.version},]</version>
 		</dependency>
-		
 		<dependency>
 			<groupId>jdepend</groupId>
 			<artifactId>jdepend</artifactId>

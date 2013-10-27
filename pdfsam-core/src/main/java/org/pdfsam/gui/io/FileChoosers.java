@@ -16,13 +16,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui.support;
+package org.pdfsam.gui.io;
 
 import java.io.File;
 
 import javafx.stage.FileChooser;
 
 import org.pdfsam.context.DefaultUserContext;
+import org.pdfsam.support.io.FileType;
 
 /**
  * Contains a single instance of {@link FileChooser} and provides static methods to get and configure the instance
@@ -51,7 +52,7 @@ public final class FileChoosers {
      * @param title
      * @return a shared instance of FileChooser with the given title.
      */
-    public static FileChooser getFileChooser(FileExtensionFilter filter, String title) {
+    public static FileChooser getFileChooser(FileType filter, String title) {
         INSTANCE.getExtensionFilters().setAll(filter.getFilter());
         INSTANCE.setInitialFileName("");
         INSTANCE.setTitle(title);

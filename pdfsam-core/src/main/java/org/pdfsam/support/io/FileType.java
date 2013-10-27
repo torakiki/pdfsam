@@ -16,17 +16,25 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui.support;
+package org.pdfsam.support.io;
 
+import static org.apache.commons.io.FilenameUtils.wildcardMatch;
 import javafx.stage.FileChooser.ExtensionFilter;
 
+import org.apache.commons.io.IOCase;
 /**
- * Filters for the file types handled by PDFsam
+ * Types of file handled by PDFsam
  * 
  * @author Andrea Vacondio
  * 
  */
-public enum FileExtensionFilter {
+public enum FileType {
+    ALL {
+        @Override
+        public ExtensionFilter getFilter() {
+            return new ExtensionFilter("(*.*)", "*.*");
+        }
+    },
     CSV {
         @Override
         public ExtensionFilter getFilter() {
@@ -64,4 +72,17 @@ public enum FileExtensionFilter {
         }
     };
     public abstract ExtensionFilter getFilter();
+
+    /**
+     * @param filename
+     * @return true if the input filename is of this {@link FileType}
+     */
+    public boolean matches(String filename) {
+        for (String current : getFilter().getExtensions()) {
+            if (wildcardMatch(filename, current, IOCase.INSENSITIVE)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -25,7 +25,8 @@ import javafx.beans.property.ReadOnlyObjectWrapper;
 import org.pdfsam.support.validation.Validator;
 
 /**
- * Support class allowing validation of a value of the given type and allowing binding to the state of the validation
+ * Support class allowing validation of a value of the given type and allowing binding to the state of the validation. By default it behaves as always valid but a custom
+ * {@link Validator} can be set.
  * 
  * @author Andrea Vacondio
  * @param <T>
@@ -34,12 +35,12 @@ import org.pdfsam.support.validation.Validator;
 public class FXValidationSupport<T> {
     private ReadOnlyObjectWrapper<ValidationState> validationState = new ReadOnlyObjectWrapper<>(
             ValidationState.NOT_VALIDATED);
-    private Validator<T> validator;
+    private Validator<T> validator = new Validator<T>() {
 
-    public FXValidationSupport(Validator<T> validator) {
-        requireNotNull(validator, "Validator cannot be null");
-        this.validator = validator;
-    }
+        public boolean isValid(T input) {
+            return true;
+        }
+    };
 
     public void validate(T value) {
         if (validator.isValid(value)) {
@@ -49,24 +50,18 @@ public class FXValidationSupport<T> {
         }
     }
 
+    public void setValidator(Validator<T> validator) {
+        requireNotNull(validator, "Validator cannot be null");
+        this.validator = validator;
+        makeNotValidated();
+    }
+
     public void makeNotValidated() {
         validationState.set(ValidationState.NOT_VALIDATED);
     }
 
     public final ReadOnlyObjectProperty<ValidationState> validationStateProperty() {
         return validationState.getReadOnlyProperty();
-    }
-
-    /**
-     * @return a {@link FXValidationSupport} that consider valid any value fed to it.
-     */
-    public static <T> FXValidationSupport<T> alwaysValid() {
-        return new FXValidationSupport<>(new Validator<T>() {
-
-            public boolean isValid(T input) {
-                return true;
-            }
-        });
     }
 
     /**

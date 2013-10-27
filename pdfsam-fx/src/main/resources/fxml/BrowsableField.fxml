@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+
+<fx:root type="javafx.scene.layout.BorderPane" xmlns:fx="http://javafx.com/fxml/1"
+	xmlns="http://javafx.com/javafx/2.2">
+	<center>
+		<org.pdfsam.ui.ValidableTextField
+			fx:id="textField" prefWidth="200.0" />
+	</center>
+	<right>
+		<Button fx:id="browseButton" mnemonicParsing="false" maxHeight="-Infinity" minHeight="-Infinity" 
+			prefHeight="${textField.height}" styleClass="pdfsam-button, browse-button" text="Browse" textAlignment="CENTER"
+			onAction="#browse" />
+	</right>
+</fx:root>

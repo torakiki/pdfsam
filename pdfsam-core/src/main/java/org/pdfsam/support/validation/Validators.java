@@ -20,6 +20,8 @@ package org.pdfsam.support.validation;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
+import org.pdfsam.support.io.FileType;
+
 /**
  * Provides Factory methods to create validators
  * 
@@ -51,6 +53,20 @@ public final class Validators {
      */
     public static Validator<String> newIntRangeString(int upper, int lower) {
         return new IntRangeStringValidator(upper, lower);
+    }
+
+    /**
+     * @return a new instance of a validator checking for a input string representing an existing file
+     */
+    public static Validator<String> newExistingFileString() {
+        return new ExistingFileValidator();
+    }
+
+    /**
+     * @return a new instance of a validator checking for a input string representing an existing file of the given type
+     */
+    public static Validator<String> newFileTypeString(FileType type) {
+        return new FileTypeValidator(type);
     }
 
     /**

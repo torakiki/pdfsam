@@ -45,7 +45,8 @@ import org.pdfsam.ui.support.FXValidationSupport;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 
 /**
- * {@link TextField} triggering validation when Enter key is pressed or when focus is lost. A boolean property is exposed to bind to the validation state.
+ * {@link TextField} triggering validation when Enter key is pressed or when focus is lost. A {@link ValidationState} property is exposed to bind to the validation state. Default
+ * implementation behaves as any value in the field is always valid, a different {@link Validator} can be set to achieve custom validation.
  * 
  * @author Andrea Vacondio
  * 
@@ -54,22 +55,19 @@ public class ValidableTextField extends TextField {
 
     private static final String ERROR_CLASS = "invalid";
 
-    private FXValidationSupport<String> validationSupport;
+    private final FXValidationSupport<String> validationSupport = new FXValidationSupport<>();
     private ErrorTooltipManager errorTooltipManager;
 
-    public ValidableTextField(Validator<String> validator) {
-        this(validator, "");
+    public ValidableTextField() {
+        this("");
     }
 
-    public ValidableTextField(Validator<String> validator, String text) {
+    public ValidableTextField(String text) {
         super(text);
-        requireNotNull(validator, "Validator cannot be null for ValidableTextField");
-        this.validationSupport = new FXValidationSupport<>(validator);
         focusedProperty().addListener(new OnFocusLost());
         setOnKeyReleased(new OnEnterPressed());
         textProperty().addListener(new ResetStyleOnChangeText());
         validationSupport.validationStateProperty().addListener(new StyleOnValidationStateChange());
-        validate();
     }
 
     public final ValidationState getValidationState() {
@@ -82,7 +80,18 @@ public class ValidableTextField extends TextField {
 
     public void setErrorMessage(String message) {
         this.errorTooltipManager = new ErrorTooltipManager(message);
+    }
 
+    /**
+     * Sets the validator for this field and updates the validation state
+     * 
+     * @param validator
+     * @see org.pdfsam.ui.support.FXValidationSupport#setValidator(org.pdfsam.support.validation.Validator)
+     */
+    public void setValidator(Validator<String> validator) {
+        requireNotNull(validator, "Validator cannot be null for ValidableTextField");
+        validationSupport.setValidator(validator);
+        validate();
     }
 
     /**

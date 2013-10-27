@@ -15,14 +15,14 @@
  */
 .text-field {
    -fx-background-color:  -fx-text-box-border, -fx-control-inner-background;
-   -fx-background-insets: -0.4, 1.0;
+   -fx-background-insets: 0.0, 1.0;
    -fx-background-radius:  0.0, 0.0;
    -fx-padding: 0.25em 0.416667em  0.333333em 0.416667em; /* 3 5 4 5 */
 }
 
 .text-field:focused {
     -fx-background-color: -fx-focus-color, -fx-control-inner-background;
-    -fx-background-insets: -0.4, 1.0;
+    -fx-background-insets: 0.0, 1.0;
     -fx-background-radius: 0.0, 0.0;
     -fx-prompt-text-fill: transparent;
     -fx-effect: dropshadow( three-pass-box , -fx-text-box-border , 10.0, 0.0 ,1.0 ,1.0 );
@@ -32,12 +32,12 @@
  */
 .text-area{
 	-fx-background-color:  -fx-text-box-border, -fx-control-inner-background;
-    -fx-background-insets: -0.4, 1.0;
+    -fx-background-insets: 0.0, 1.0;
     -fx-background-radius:  0.0, 0.0;
 }
 .text-area:focused {
     -fx-background-color: -fx-focus-color, -fx-control-inner-background;
-    -fx-background-insets: -0.4, 1.0;
+    -fx-background-insets: 0.0, 1.0;
     -fx-background-radius: 0.0, 0.0;
     -fx-prompt-text-fill: transparent;
     -fx-effect: dropshadow( three-pass-box , -fx-text-box-border , 10.0, 0.0 ,1.0 ,1.0 );
@@ -46,16 +46,16 @@
  * Buttons
  */
 .pdfsam-button {
-    -fx-background-color: #E5E5E5;
-    -fx-background-insets: 0.0;
+    -fx-background-color:  #D8D8D8, #E5E5E5;
+    -fx-background-insets:  0.0, 1.0;
     -fx-background-radius: 0.0;
     -fx-padding: 7.0px 14.0px 7.0px 14.0px;
     -fx-text-fill: #333333 !important;
 }
 
 .pdfsam-button:focused, .pdfsam-button:default, .pdfsam-button:armed, .pdfsam-button:hover {
-    -fx-background-color: theme-color, #E5E5E5;
-    -fx-background-insets: 0.0, 0.0 0.0 3.0 0.0;
+    -fx-background-color: theme-color, #D8D8D8, #E5E5E5;
+    -fx-background-insets:  0.0, 0.0 0.0 1.0 0.0, 1.0;
     -fx-background-radius:  0.0;
 }
 
@@ -70,7 +70,14 @@
 .pdfsam-button:disabled {
     -fx-opacity: -fx-disabled-opacity;
 }
-
+.browse-button {
+    -fx-background-insets:  0.0, 1.0 1.0 1.0 0.0;
+	-fx-padding: 2.0px 14.0px 2.0px 14.0px;
+}
+.browse-button:focused, .browse-button:default, .browse-button:armed, .browse-button:hover {
+    -fx-background-insets:  0.0, 0.0 0.0 1.0 0.0, 1.0 1.0 1.0 0.0;
+    -fx-background-radius:  0.0;
+}
 /**
  * Context menu
  */
@@ -158,10 +165,10 @@
 }
 .invalid{
    -fx-background-color:  error-color, -fx-control-inner-background;
-   -fx-background-insets: -0.4, 1.0;
+   -fx-background-insets: 0.0, 1.0;
 }
 .invalid:focused{
    -fx-background-color:  error-color, -fx-control-inner-background;
-   -fx-background-insets: -0.4, 1.0;
+   -fx-background-insets: 0.0, 1.0;
    -fx-effect: dropshadow( three-pass-box , error-color , 10.0, 0.0 ,1.0 ,1.0 );
 }

@@ -40,8 +40,8 @@ import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.I18nContext;
-import org.pdfsam.gui.support.FileChoosers;
-import org.pdfsam.gui.support.FileExtensionFilter;
+import org.pdfsam.gui.io.FileChoosers;
+import org.pdfsam.support.io.FileType;
 
 /**
  * Panel displaying log messages
@@ -147,7 +147,7 @@ public class LogPane extends VBox {
     }
 
     public void saveLog() {
-        FileChooser fileChooser = FileChoosers.getFileChooser(FileExtensionFilter.LOG, DefaultI18nContext.getInstance()
+        FileChooser fileChooser = FileChoosers.getFileChooser(FileType.LOG, DefaultI18nContext.getInstance()
                 .i18n("Select where to save the log file"));
         fileChooser.setInitialFileName("PDFsam.log");
         File chosenFile = fileChooser.showSaveDialog(this.getScene().getWindow());

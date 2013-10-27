@@ -18,14 +18,10 @@
  */
 package org.pdfsam.ui.support;
 
-import static org.hamcrest.core.IsEqual.equalTo;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyBoolean;
-import static org.mockito.Matchers.booleanThat;
+import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import javafx.beans.value.ChangeListener;
@@ -33,6 +29,7 @@ import javafx.beans.value.ObservableValue;
 
 import org.junit.Test;
 import org.pdfsam.support.validation.Validators;
+import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 
 /**
  * @author Andrea Vacondio
@@ -41,40 +38,42 @@ import org.pdfsam.support.validation.Validators;
 @SuppressWarnings("unchecked")
 public class FXValidationSupportTest {
 
-
     @Test
-    public void startingValidState() {
-        FXValidationSupport<String> victim = new FXValidationSupport<>(Validators.newNonBlankString());
-        assertTrue(victim.validProperty().get());
-        ChangeListener<Boolean> listener = mock(ChangeListener.class);
-        victim.validProperty().addListener(listener);
+    public void startingState() {
+        FXValidationSupport<String> victim = new FXValidationSupport<>();
+        victim.setValidator(Validators.newNonBlankString());
+        assertEquals(ValidationState.NOT_VALIDATED, victim.validationStateProperty().get());
+        ChangeListener<ValidationState> listener = mock(ChangeListener.class);
+        victim.validationStateProperty().addListener(listener);
         victim.validate("Chuck");
-        verify(listener, never()).changed(any(ObservableValue.class), anyBoolean(), anyBoolean());
-        assertTrue(victim.validProperty().get());
+        verify(listener, times(1)).changed(any(ObservableValue.class), eq(ValidationState.NOT_VALIDATED),
+                eq(ValidationState.VALID));
+        assertEquals(ValidationState.VALID, victim.validationStateProperty().get());
     }
 
     @Test
-    public void bind() {
-        FXValidationSupport<String> victim = new FXValidationSupport<>(Validators.newNonBlankString());
-        ChangeListener<Boolean> listener = mock(ChangeListener.class);
-        victim.validProperty().addListener(listener);
+    public void behaviour() {
+        FXValidationSupport<String> victim = new FXValidationSupport<>();
+        victim.setValidator(Validators.newNonBlankString());
+        ChangeListener<ValidationState> listener = mock(ChangeListener.class);
+        victim.validationStateProperty().addListener(listener);
         victim.validate("Chuck");
-        verify(listener, never()).changed(any(ObservableValue.class), anyBoolean(), anyBoolean());
-        assertTrue(victim.validProperty().get());
-        victim.validate("");
-        verify(listener, times(1)).changed(any(ObservableValue.class), booleanThat(equalTo(Boolean.TRUE)),
-                booleanThat(equalTo(Boolean.FALSE)));
-        assertFalse(victim.validProperty().get());
+        verify(listener, times(1)).changed(any(ObservableValue.class), eq(ValidationState.NOT_VALIDATED),
+                eq(ValidationState.VALID));
+        assertEquals(ValidationState.VALID, victim.validationStateProperty().get());
+        victim.validate(" ");
+        verify(listener, times(1)).changed(any(ObservableValue.class), eq(ValidationState.VALID),
+                eq(ValidationState.INVALID));
+        assertEquals(ValidationState.INVALID, victim.validationStateProperty().get());
     }
 
     @Test
     public void alwaysValid() {
-        FXValidationSupport<String> victim = FXValidationSupport.alwaysValid();
-        assertTrue(victim.validProperty().get());
+        FXValidationSupport<String> victim = new FXValidationSupport<>();
         victim.validate("Chuck");
-        assertTrue(victim.validProperty().get());
+        assertEquals(ValidationState.VALID, victim.validationStateProperty().get());
         victim.validate("");
-        assertTrue(victim.validProperty().get());
+        assertEquals(ValidationState.VALID, victim.validationStateProperty().get());
     }
 
 }
