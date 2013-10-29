@@ -21,6 +21,7 @@ package org.pdfsam.context;
 import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
@@ -124,6 +125,10 @@ public final class DefaultI18nContext implements I18nContext {
 
     public String i18n(String input, String... values) {
         return i18n.tr(input, values);
+    }
+
+    public ResourceBundle getResources() {
+        return i18n.getResources();
     }
 
     /**

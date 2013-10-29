@@ -25,7 +25,6 @@ import java.awt.event.ActionEvent;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
 import javax.swing.JDialog;
@@ -42,7 +41,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
  * @author Andrea Vacondio
  * 
  */
-@Named
 public final class PreferencesDialog extends JDialog {
 
     @Inject

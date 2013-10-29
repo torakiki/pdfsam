@@ -51,8 +51,8 @@ public final class Validators {
     /**
      * @return a new instance of a validator checking for a input string representing an integer number in the given range
      */
-    public static Validator<String> newIntRangeString(int upper, int lower) {
-        return new IntRangeStringValidator(upper, lower);
+    public static Validator<String> newIntRangeString(int lower, int upper) {
+        return new IntRangeStringValidator(lower, upper);
     }
 
     /**

@@ -21,10 +21,9 @@ package org.pdfsam.ui;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
 import java.io.File;
-import java.io.IOException;
 
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
@@ -41,24 +40,20 @@ import org.pdfsam.support.validation.Validators;
  * 
  */
 public class BrowsableField extends BorderPane {
-    @FXML
     private Button browseButton;
-    @FXML
-    private ValidableTextField textField;
+    private ValidableTextField textField = new ValidableTextField();
     private FileType fileType = FileType.ALL;
     private String browseWindowTitle = DefaultI18nContext.getInstance().i18n("Select a file");
 
     public BrowsableField() {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/BrowsableField.fxml"));
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
-
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
-        browseButton.setText(DefaultI18nContext.getInstance().i18n("Browse"));
+        browseButton = new Button(DefaultI18nContext.getInstance().i18n("Browse"));
+        browseButton.setOnAction(new BrowseEventHandler());
+        browseButton.getStyleClass().addAll("pdfsam-button", "browse-button");
+        browseButton.setMinHeight(USE_PREF_SIZE);
+        browseButton.setMaxHeight(USE_PREF_SIZE);
+        browseButton.prefHeightProperty().bind(textField.heightProperty());
+        setCenter(textField);
+        setRight(browseButton);
     }
 
     public void setFileType(FileType fileType) {
@@ -75,20 +70,31 @@ public class BrowsableField extends BorderPane {
         return textField;
     }
 
-    public void browse() {
-        FileChooser fileChooser = FileChoosers.getFileChooser(fileType, browseWindowTitle);
-        String currentSelection = textField.getText();
-        if (isNotBlank(currentSelection)) {
-            File currentFile = new File(currentSelection);
-            if (currentFile.isFile()) {
-                fileChooser.setInitialDirectory(currentFile.getParentFile());
-                fileChooser.setInitialFileName(currentFile.getName());
+    /**
+     * {@link EventHandler} opening the {@link FileChooser} and letting the user select the input file/directory populating the {@link ValidableTextField}.
+     * 
+     * @author Andrea Vacondio
+     * 
+     */
+    private class BrowseEventHandler implements EventHandler<ActionEvent> {
+
+        public void handle(ActionEvent event) {
+            FileChooser fileChooser = FileChoosers.getFileChooser(fileType, browseWindowTitle);
+            String currentSelection = textField.getText();
+            if (isNotBlank(currentSelection)) {
+                File currentFile = new File(currentSelection);
+                if (currentFile.isFile()) {
+                    fileChooser.setInitialDirectory(currentFile.getParentFile());
+                    fileChooser.setInitialFileName(currentFile.getName());
+                }
+            }
+            File chosenFile = fileChooser.showOpenDialog(BrowsableField.this.getScene().getWindow());
+            if (chosenFile != null) {
+                textField.setText(chosenFile.getAbsolutePath());
+                textField.validate();
             }
         }
-        File chosenFile = fileChooser.showOpenDialog(this.getScene().getWindow());
-        if (chosenFile != null) {
-            textField.setText(chosenFile.getAbsolutePath());
-            textField.validate();
-        }
+
     }
+
 }

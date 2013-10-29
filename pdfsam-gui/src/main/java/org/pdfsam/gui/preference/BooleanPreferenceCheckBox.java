@@ -18,14 +18,14 @@
  */
 package org.pdfsam.gui.preference;
 
-import java.awt.Color;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-
-import javax.swing.JCheckBox;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.scene.control.CheckBox;
 
 import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.DefaultUserContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Checkbox updating the relative preference on item selection/deselection
@@ -33,27 +33,23 @@ import org.pdfsam.context.DefaultUserContext;
  * @author Andrea Vacondio
  * 
  */
-class BooleanPreferenceCheckBox extends JCheckBox {
+class BooleanPreferenceCheckBox extends CheckBox {
 
+    private static final Logger LOG = LoggerFactory.getLogger(BooleanPreferenceCheckBox.class);
     private final BooleanUserPreference preference;
 
-    BooleanPreferenceCheckBox(BooleanUserPreference pref, String label, boolean selected) {
+    BooleanPreferenceCheckBox(BooleanUserPreference preference, String label, boolean selected) {
         super(label);
         setSelected(selected);
-        setBackground(Color.WHITE);
-        this.preference = pref;
-        this.addItemListener(new ItemListener() {
-
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                if (e.getStateChange() == ItemEvent.SELECTED) {
-                    DefaultUserContext.getInstance().setBooleanPreference(preference, true);
-                } else if (e.getStateChange() == ItemEvent.DESELECTED) {
-                    DefaultUserContext.getInstance().setBooleanPreference(preference, false);
-                }
-
+        this.preference = preference;
+        selectedProperty().addListener(new ChangeListener<Boolean>() {
+            public void changed(ObservableValue<? extends Boolean> ov, Boolean oldVal, Boolean newVal) {
+                DefaultUserContext.getInstance()
+                        .setBooleanPreference(BooleanPreferenceCheckBox.this.preference, newVal);
+                LOG.trace("Preference {} set to {}", BooleanPreferenceCheckBox.this.preference, newVal);
             }
         });
+
     }
 
 }

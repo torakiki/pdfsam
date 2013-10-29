@@ -19,6 +19,7 @@
 package org.pdfsam.context;
 
 import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  * Context related to the i18n of the application.
@@ -42,5 +43,10 @@ public interface I18nContext {
      * @return the configured {@link Locale}
      */
     Locale getLocale();
+
+    /**
+     * @return the used {@link ResourceBundle}
+     */
+    ResourceBundle getResources();
 
 }

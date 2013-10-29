@@ -1,6 +1,7 @@
 .root { 
 	theme-color: #339933;
 	-fx-text-box-border: #CCCCCC;
+	-fx-box-border: -fx-text-box-border; 
 	-fx-focus-color: rgba(82.0, 168.0, 236.0, 0.8);
 	-fx-control-inner-background: #F9F9F9;
 	-fx-selection-bar: #F3F3F3;
@@ -139,6 +140,29 @@
    -fx-padding: 0.3em 0.4em 0.3em 0.4em;    
 }
 /**
+ * Preferences panel
+ */
+.preferences-container{
+	-fx-spacing: 5px;
+}
+.preference-pane {
+	-fx-padding: 0.4em 0.1em 0.4em 0.1em;    
+}
+.preference-pane > .title {
+	-fx-background-color: -fx-box-border, -fx-control-inner-background;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 0, 0;
+    -fx-font-weight: bold; 
+}
+.preference-pane > *.content {
+   -fx-background-color: -fx-box-border, white;
+   -fx-background-insets: 0, 0 1 1 1;
+   -fx-background-radius: 0, 0;
+}
+.preference {
+	-fx-padding: 0 0 0.5em 0.0 ;
+}
+/**
  * General
  */
 .borded-pane {
@@ -171,4 +195,25 @@
    -fx-background-color:  error-color, -fx-control-inner-background;
    -fx-background-insets: 0.0, 1.0;
    -fx-effect: dropshadow( three-pass-box , error-color , 10.0, 0.0 ,1.0 ,1.0 );
+}
+.check-box > .box {
+    -fx-background-color: -fx-text-box-border, -fx-control-inner-background;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 0 0;
+    -fx-padding: 0.25em; /* 3 -- padding from the outside edge to the mark */
+}
+.check-box:focused > .box {
+	-fx-background-color: -fx-focus-color, -fx-control-inner-background;
+    -fx-background-insets: 0.0, 1.0;
+    -fx-background-radius: 0.0, 0.0;
+    -fx-effect: dropshadow( three-pass-box , -fx-text-box-border , 10.0, 0.0 ,1.0 ,1.0 );	
+}
+.check-box > .box > .mark {
+    -fx-padding: 0.3em; 
+}
+.combo-box-base  {
+    -fx-background-color: -fx-text-box-border, -fx-control-inner-background;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 0 0;
+    -fx-padding: 0;
 }

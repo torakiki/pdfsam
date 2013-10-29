@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 21/ott/2013
+ * Created on 29/ott/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui.about;
+package org.pdfsam.gui.preference;
 
 import java.util.List;
 
@@ -33,15 +33,13 @@ import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.ClosePane;
 
 /**
- * About {@link Stage} displaying informations about PDFsam
- * 
  * @author Andrea Vacondio
- * 
+ *
  */
 @Named
-public class AboutStage extends Stage {
+public class PreferenceStage extends Stage {
     @Inject
-    private AboutPane aboutPane;
+    private PreferencePane preferencePane;
 
     @Resource(name = "styles")
     private List<String> styles;
@@ -50,11 +48,11 @@ public class AboutStage extends Stage {
     void init() {
         BorderPane containerPane = new BorderPane();
         containerPane.getStyleClass().add("pdfsam-container");
-        containerPane.setCenter(aboutPane);
+        containerPane.setCenter(preferencePane);
         containerPane.setBottom(new ClosePane());
         Scene scene = new Scene(containerPane);
         scene.getStylesheets().addAll(styles);
         setScene(scene);
-        setTitle(DefaultI18nContext.getInstance().i18n("About"));
+        setTitle(DefaultI18nContext.getInstance().i18n("Preferences"));
     }
 }
