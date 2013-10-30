@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 27/ott/2013
+ * Created on 26/ott/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -19,30 +19,23 @@
 package org.pdfsam.support.validation;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.pdfsam.support.RequireUtils.requireNotNull;
 
-import org.pdfsam.support.io.FileType;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 /**
- * Validates that a given file path is existing and of the expected type
+ * Validates that the input String is an existing file or blank.
  * 
  * @author Andrea Vacondio
  * 
  */
-class FileTypeValidator extends FileValidator {
+class FileValidator implements Validator<String> {
 
-    private FileType type;
-
-    public FileTypeValidator(FileType type) {
-        requireNotNull(type, "FileType cannot be null");
-        this.type = type;
-    }
-
-    @Override
     public boolean isValid(String input) {
         if (isNotBlank(input)) {
-            return super.isValid(input) && type.matches(input);
+            return Files.exists(Paths.get(input));
         }
         return true;
     }
+
 }

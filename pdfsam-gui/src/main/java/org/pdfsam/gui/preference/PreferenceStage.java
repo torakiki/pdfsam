@@ -31,10 +31,11 @@ import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.ClosePane;
+import org.pdfsam.ui.support.Style;
 
 /**
  * @author Andrea Vacondio
- *
+ * 
  */
 @Named
 public class PreferenceStage extends Stage {
@@ -47,7 +48,7 @@ public class PreferenceStage extends Stage {
     @PostConstruct
     void init() {
         BorderPane containerPane = new BorderPane();
-        containerPane.getStyleClass().add("pdfsam-container");
+        containerPane.getStyleClass().addAll(Style.CONTAINER.css());
         containerPane.setCenter(preferencePane);
         containerPane.setBottom(new ClosePane());
         Scene scene = new Scene(containerPane);

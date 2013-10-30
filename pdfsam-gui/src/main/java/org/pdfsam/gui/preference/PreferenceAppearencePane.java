@@ -32,9 +32,10 @@ import org.pdfsam.context.I18nContext;
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.support.LocaleKeyValueItem;
 import org.pdfsam.support.StringKeyValueItem;
+import org.pdfsam.ui.support.Style;
 
 /**
- * Preference pane displaying the Appearence section
+ * Preference pane displaying the appearance section
  * 
  * @author Andrea Vacondio
  * 
@@ -52,7 +53,7 @@ class PreferenceAppearencePane extends VBox {
         localeCombo.setValue(new LocaleKeyValueItem(DefaultI18nContext.getInstance().getLocale()));
         HBox first = new HBox(2, new Label(i18n.i18n("Language:")), localeCombo);
         first.setAlignment(Pos.BOTTOM_LEFT);
-        first.getStyleClass().add("preference");
+        first.getStyleClass().addAll(Style.PREFERENCE.css());
 
         PreferenceComboBox<StringKeyValueItem> themeCombo = new PreferenceComboBox<>(StringUserPreference.THEME);
         themeCombo.getItems().add(new StringKeyValueItem("blue.css", "Blue"));
@@ -65,9 +66,9 @@ class PreferenceAppearencePane extends VBox {
         themeCombo.setValue(new StringKeyValueItem(DefaultUserContext.getInstance().getTheme(), ""));
         HBox second = new HBox(2, new Label(i18n.i18n("Theme:")), themeCombo);
         second.setAlignment(Pos.BOTTOM_LEFT);
-        second.getStyleClass().add("preference");
+        second.getStyleClass().addAll(Style.PREFERENCE.css());
         getChildren().addAll(first, second);
-        getStyleClass().add("pdfsam-container");
+        getStyleClass().addAll(Style.CONTAINER.css());
     }
 
 }

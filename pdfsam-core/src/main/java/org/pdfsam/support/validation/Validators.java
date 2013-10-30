@@ -59,7 +59,7 @@ public final class Validators {
      * @return a new instance of a validator checking for a input string representing an existing file
      */
     public static Validator<String> newExistingFileString() {
-        return new ExistingFileValidator();
+        return new FileValidator();
     }
 
     /**
@@ -67,6 +67,13 @@ public final class Validators {
      */
     public static Validator<String> newFileTypeString(FileType type) {
         return new FileTypeValidator(type);
+    }
+
+    /**
+     * @return a new instance of a validator checking for a input string representing an existing directory
+     */
+    public static Validator<String> newExistingDirectoryString() {
+        return new DirectoryValidator();
     }
 
     /**

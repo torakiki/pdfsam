@@ -40,8 +40,8 @@ import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.I18nContext;
-import org.pdfsam.gui.io.FileChoosers;
 import org.pdfsam.support.io.FileType;
+import org.pdfsam.ui.io.FileChoosers;
 
 /**
  * Panel displaying log messages

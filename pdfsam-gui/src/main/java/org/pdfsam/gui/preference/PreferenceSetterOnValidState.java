@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 29/ott/2013
+ * Created on 30/ott/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -24,41 +24,34 @@ import javafx.beans.value.ObservableValue;
 
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.StringUserPreference;
-import org.pdfsam.ui.BrowsableField;
+import org.pdfsam.ui.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * BrowsableField that sets a {@link StringUserPreference} when the input text is valid.
- * 
  * @author Andrea Vacondio
  * 
  */
-class PreferenceBrowsableField extends BrowsableField {
-    private static final Logger LOG = LoggerFactory.getLogger(PreferenceBrowsableField.class);
+class PreferenceSetterOnValidState implements ChangeListener<ValidationState> {
+    private static final Logger LOG = LoggerFactory.getLogger(PreferenceBrowsableFileField.class);
     private StringUserPreference preference;
+    private ValidableTextField textField;
 
-    PreferenceBrowsableField(StringUserPreference preference) {
+    PreferenceSetterOnValidState(StringUserPreference preference, ValidableTextField textField) {
         requireNotNull(preference, "Preference cannot be null");
+        requireNotNull(textField, "TextField cannot be null");
+        this.textField = textField;
         this.preference = preference;
-        getTextField().validProperty().addListener(new PreferenceSetter());
     }
 
-    /**
-     * Listens for a value change in the validation state and when the state is {@link ValidationState#VALID} it sets the corresponding preference
-     * 
-     * @author Andrea Vacondio
-     * 
-     */
-    private class PreferenceSetter implements ChangeListener<ValidationState> {
-        @Override
-        public void changed(ObservableValue<? extends ValidationState> observable, ValidationState oldValue,
-                ValidationState newValue) {
-            if (newValue == ValidationState.VALID) {
-                DefaultUserContext.getInstance().setStringPreference(preference, getTextField().getText());
-                LOG.trace("Preference {} set to {}", preference, getTextField().getText());
-            }
+    @Override
+    public void changed(ObservableValue<? extends ValidationState> observable, ValidationState oldValue,
+            ValidationState newValue) {
+        if (newValue == ValidationState.VALID) {
+            DefaultUserContext.getInstance().setStringPreference(preference, textField.getText());
+            LOG.trace("Preference {} set to {}", preference, textField.getText());
         }
     }
+
 }

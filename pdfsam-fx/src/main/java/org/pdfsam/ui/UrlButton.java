@@ -31,6 +31,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.ui.support.Style;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -61,7 +62,7 @@ public class UrlButton extends Button {
          * 
          * public void handle(KeyEvent t) { if (combo.match(t)) { openUrl(); } } });
          */
-        getStyleClass().add("pdfsam-button");
+        getStyleClass().addAll(Style.BUTTON.css());
     }
 
     private void openUrl() {

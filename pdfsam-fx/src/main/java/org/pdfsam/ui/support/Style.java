@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 27/ott/2013
+ * Created on 30/ott/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,33 +16,32 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.support.validation;
-
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.pdfsam.support.RequireUtils.requireNotNull;
-
-import org.pdfsam.support.io.FileType;
+package org.pdfsam.ui.support;
 
 /**
- * Validates that a given file path is existing and of the expected type
+ * Defines css style classes
  * 
  * @author Andrea Vacondio
  * 
  */
-class FileTypeValidator extends FileValidator {
+public enum Style {
+    BUTTON("pdfsam-button"),
+    BROWSE_BUTTON("pdfsam-button", "browse-button"),
+    PREFERENCE("preference"),
+    PREFERENCE_PANE("preference-pane"),
+    CONTAINER("pdfsam-container"),
+    INVALID("invalid");
 
-    private FileType type;
+    private String[] classes;
 
-    public FileTypeValidator(FileType type) {
-        requireNotNull(type, "FileType cannot be null");
-        this.type = type;
+    private Style(String... classes) {
+        this.classes = classes;
     }
 
-    @Override
-    public boolean isValid(String input) {
-        if (isNotBlank(input)) {
-            return super.isValid(input) && type.matches(input);
-        }
-        return true;
+    /**
+     * @return an array of css classes
+     */
+    public String[] css() {
+        return classes;
     }
 }

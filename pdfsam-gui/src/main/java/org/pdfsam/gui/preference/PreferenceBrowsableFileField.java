@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 27/ott/2013
+ * Created on 29/ott/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,33 +16,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.support.validation;
+package org.pdfsam.gui.preference;
 
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
+import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.support.io.FileType;
+import org.pdfsam.ui.io.BrowsableFileField;
 
 /**
- * Validates that a given file path is existing and of the expected type
+ * {@link BrowsableFileField} that sets a {@link StringUserPreference} when the input text is valid.
  * 
  * @author Andrea Vacondio
  * 
  */
-class FileTypeValidator extends FileValidator {
-
-    private FileType type;
-
-    public FileTypeValidator(FileType type) {
-        requireNotNull(type, "FileType cannot be null");
-        this.type = type;
-    }
-
-    @Override
-    public boolean isValid(String input) {
-        if (isNotBlank(input)) {
-            return super.isValid(input) && type.matches(input);
-        }
-        return true;
+class PreferenceBrowsableFileField extends BrowsableFileField {
+    PreferenceBrowsableFileField(StringUserPreference preference, FileType type) {
+        requireNotNull(preference, "Preference cannot be null");
+        setFileType(type);
+        getTextField().validProperty().addListener(new PreferenceSetterOnValidState(preference, getTextField()));
     }
 }

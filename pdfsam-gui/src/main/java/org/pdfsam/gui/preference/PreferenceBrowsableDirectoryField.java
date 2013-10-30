@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 26/ott/2013
+ * Created on 30/ott/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,25 +16,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.support.validation;
+package org.pdfsam.gui.preference;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
+
+import org.pdfsam.context.StringUserPreference;
+import org.pdfsam.ui.io.BrowsableDirectoryField;
 
 /**
- * Validates that the input String is an existing file.
+ * {@link BrowsableDirectoryField} that sets a {@link StringUserPreference} when the input text is valid.
  * 
  * @author Andrea Vacondio
  * 
  */
-class ExistingFileValidator extends NonBlankStringValidator {
-
-    @Override
-    public boolean isValid(String input) {
-        if (super.isValid(input)) {
-            return Files.exists(Paths.get(input));
-        }
-        return false;
+class PreferenceBrowsableDirectoryField extends BrowsableDirectoryField {
+    PreferenceBrowsableDirectoryField(StringUserPreference preference) {
+        requireNotNull(preference, "Preference cannot be null");
+        getTextField().validProperty().addListener(new PreferenceSetterOnValidState(preference, getTextField()));
     }
-
 }

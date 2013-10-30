@@ -29,13 +29,12 @@ import org.junit.Test;
  * @author Andrea Vacondio
  *
  */
-public class ExistingFileValidatorTest {
+public class FileValidatorTest {
     private Validator<String> victim = Validators.newExistingFileString();
 
     @Test
     public void testNegative() {
         Assert.assertFalse(victim.isValid("/Chuck/Norris"));
-        Assert.assertFalse(victim.isValid(""));
     }
 
     @Test
@@ -44,4 +43,10 @@ public class ExistingFileValidatorTest {
         Assert.assertTrue(victim.isValid(test.toAbsolutePath().toString()));
         Files.delete(test);
     }
+
+    @Test
+    public void testAllowBlank() {
+        Assert.assertTrue(victim.isValid(""));
+    }
+
 }

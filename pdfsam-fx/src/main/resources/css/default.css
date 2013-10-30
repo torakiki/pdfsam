@@ -142,9 +142,6 @@
 /**
  * Preferences panel
  */
-.preferences-container{
-	-fx-spacing: 5px;
-}
 .preference-pane {
 	-fx-padding: 0.4em 0.1em 0.4em 0.1em;    
 }

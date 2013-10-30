@@ -33,23 +33,20 @@ import org.slf4j.LoggerFactory;
  * @author Andrea Vacondio
  * 
  */
-class BooleanPreferenceCheckBox extends CheckBox {
+class PreferenceCheckBox extends CheckBox {
 
-    private static final Logger LOG = LoggerFactory.getLogger(BooleanPreferenceCheckBox.class);
+    private static final Logger LOG = LoggerFactory.getLogger(PreferenceCheckBox.class);
     private final BooleanUserPreference preference;
 
-    BooleanPreferenceCheckBox(BooleanUserPreference preference, String label, boolean selected) {
+    PreferenceCheckBox(BooleanUserPreference preference, String label, boolean selected) {
         super(label);
         setSelected(selected);
         this.preference = preference;
         selectedProperty().addListener(new ChangeListener<Boolean>() {
             public void changed(ObservableValue<? extends Boolean> ov, Boolean oldVal, Boolean newVal) {
-                DefaultUserContext.getInstance()
-                        .setBooleanPreference(BooleanPreferenceCheckBox.this.preference, newVal);
-                LOG.trace("Preference {} set to {}", BooleanPreferenceCheckBox.this.preference, newVal);
+                DefaultUserContext.getInstance().setBooleanPreference(PreferenceCheckBox.this.preference, newVal);
+                LOG.trace("Preference {} set to {}", PreferenceCheckBox.this.preference, newVal);
             }
         });
-
     }
-
 }

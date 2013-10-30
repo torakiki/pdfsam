@@ -21,6 +21,9 @@ package org.pdfsam.ui;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.support.RequireUtils.require;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
+
+import java.util.Arrays;
+
 import javafx.animation.Animation.Status;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -43,6 +46,7 @@ import javafx.util.Duration;
 import org.pdfsam.support.validation.Validator;
 import org.pdfsam.ui.support.FXValidationSupport;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
+import org.pdfsam.ui.support.Style;
 
 /**
  * {@link TextField} triggering validation when Enter key is pressed or when focus is lost. A {@link ValidationState} property is exposed to bind to the validation state. Default
@@ -52,8 +56,6 @@ import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
  * 
  */
 public class ValidableTextField extends TextField {
-
-    private static final String ERROR_CLASS = "invalid";
 
     private final FXValidationSupport<String> validationSupport = new FXValidationSupport<>();
     private ErrorTooltipManager errorTooltipManager;
@@ -111,14 +113,16 @@ public class ValidableTextField extends TextField {
         @Override
         public void changed(ObservableValue<? extends ValidationState> observable, ValidationState oldValue,
                 ValidationState newValue) {
-            if ((newValue == ValidationState.INVALID) && !getStyleClass().contains(ERROR_CLASS)) {
-                getStyleClass().add(ERROR_CLASS);
+            if ((newValue == ValidationState.INVALID)
+                    && !getStyleClass().containsAll(Arrays.asList(Style.INVALID.css()))) {
+                getStyleClass().addAll(Style.INVALID.css());
                 if (errorTooltipManager != null) {
                     errorTooltipManager.showTooltip();
                 }
             }
-            if ((newValue != ValidationState.INVALID) && getStyleClass().contains(ERROR_CLASS)) {
-                getStyleClass().remove(ERROR_CLASS);
+            if ((newValue != ValidationState.INVALID)
+                    && getStyleClass().containsAll(Arrays.asList(Style.INVALID.css()))) {
+                getStyleClass().removeAll(Style.INVALID.css());
             }
         }
     }

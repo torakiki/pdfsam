@@ -36,6 +36,7 @@ import org.pdfsam.support.StringKeyValueItem;
 import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
+import org.pdfsam.ui.support.Style;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -53,19 +54,21 @@ class PreferenceThumbnailsPane extends VBox {
 
     PreferenceThumbnailsPane() {
         I18nContext i18n = DefaultI18nContext.getInstance();
-        BooleanPreferenceCheckBox highQualityThumbnails = new BooleanPreferenceCheckBox(
+        PreferenceCheckBox highQualityThumbnails = new PreferenceCheckBox(
                 BooleanUserPreference.HIGH_QUALITY_THUMB, i18n.i18n("High quality thumbnails"), DefaultUserContext
                         .getInstance().isHighQualityThumbnails());
         highQualityThumbnails.setTooltip(new Tooltip(i18n.i18n("Generate high quality thumbnails (slower)")));
-        highQualityThumbnails.getStyleClass().add("preference");
+        highQualityThumbnails.getStyleClass().addAll(Style.PREFERENCE.css());
 
         final ValidableTextField thumbSize = new ValidableTextField(Integer.toString(DefaultUserContext.getInstance()
                 .getThumbnailsSize()));
         thumbSize.setValidator(Validators.newIntRangeString(LOWER, UPPER));
         thumbSize
                 .setErrorMessage(i18n.i18n("Size must be between {0}px and {1}px", LOWER.toString(), UPPER.toString()));
-        thumbSize.setPromptText(i18n.i18n("Pixel size of the thumbnails (between {1}px and {2}px)", LOWER.toString(),
-                UPPER.toString()));
+        String helpText = i18n.i18n("Pixel size of the thumbnails (between {0}px and {1}px)", LOWER.toString(),
+                UPPER.toString());
+        thumbSize.setPromptText(helpText);
+        thumbSize.setTooltip(new Tooltip(helpText));
         thumbSize.validProperty().addListener(new ChangeListener<ValidationState>() {
             @Override
             public void changed(ObservableValue<? extends ValidationState> observable, ValidationState oldValue,
@@ -79,15 +82,15 @@ class PreferenceThumbnailsPane extends VBox {
         });
         HBox second = new HBox(2, new Label(i18n.i18n("Size in px:")), thumbSize);
         second.setAlignment(Pos.BOTTOM_LEFT);
-        second.getStyleClass().add("preference");
+        second.getStyleClass().addAll(Style.PREFERENCE.css());
 
         PreferenceComboBox<StringKeyValueItem> thumbCreator = new PreferenceComboBox<>(
                 StringUserPreference.THUMBNAILS_IDENTIFIER);
         thumbCreator.setTooltip(new Tooltip(i18n.i18n("Library used to generate thumbnails")));
         HBox third = new HBox(2, new Label(i18n.i18n("Thumbnails creator:")), thumbCreator);
         third.setAlignment(Pos.BOTTOM_LEFT);
-        third.getStyleClass().add("preference");
+        third.getStyleClass().addAll(Style.PREFERENCE.css());
         getChildren().addAll(highQualityThumbnails, second, third);
-        getStyleClass().add("pdfsam-container");
+        getStyleClass().addAll(Style.CONTAINER.css());
     }
 }

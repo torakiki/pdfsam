@@ -19,20 +19,14 @@
 package org.pdfsam.gui.preference;
 
 import javafx.scene.Node;
-import javafx.scene.control.Label;
 import javafx.scene.control.TitledPane;
-import javafx.scene.control.Tooltip;
 import javafx.scene.layout.VBox;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Named;
 
-import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.context.DefaultUserContext;
-import org.pdfsam.context.I18nContext;
-import org.pdfsam.context.StringUserPreference;
-import org.pdfsam.support.io.FileType;
+import org.pdfsam.ui.support.Style;
 
 /**
  * Panel showing preferences/options that the user can set or modify.
@@ -43,9 +37,8 @@ import org.pdfsam.support.io.FileType;
 @Named
 public class PreferencePane extends VBox {
 
-
     public PreferencePane() {
-        getStyleClass().add("pdfsam-container preferences-container");
+        getStyleClass().addAll(Style.CONTAINER.css());
     }
 
     @PostConstruct
@@ -58,54 +51,11 @@ public class PreferencePane extends VBox {
     }
 
     private TitledPane behaviorPane() {
-        VBox vbox = new VBox();
-        I18nContext i18n = DefaultI18nContext.getInstance();
-
-        BooleanPreferenceCheckBox checkForUpdates = new BooleanPreferenceCheckBox(BooleanUserPreference.CHECK_UPDATES,
-                DefaultI18nContext.getInstance().i18n("Check for updates at startup"), DefaultUserContext.getInstance()
-                        .isCheckForUpdates());
-        checkForUpdates.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
-                "Set whether new version availability should be checked on startup (restart needed)")));
-        checkForUpdates.getStyleClass().add("preference");
-
-        BooleanPreferenceCheckBox playSounds = new BooleanPreferenceCheckBox(BooleanUserPreference.PLAY_SOUNDS,
-                DefaultI18nContext.getInstance().i18n("Play alert sounds"), DefaultUserContext.getInstance()
-                        .isPlaySounds());
-        playSounds.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Turn on or off alert sounds")));
-        playSounds.getStyleClass().add("preference");
-
-        BooleanPreferenceCheckBox askConfirmation = new BooleanPreferenceCheckBox(
-                BooleanUserPreference.ASK_OVERWRITE_CONFIRMATION, DefaultI18nContext.getInstance().i18n(
-                        "Ask for confirmation when overwrite checkbox is selected"), DefaultUserContext.getInstance()
-                        .isAskOverwriteConfirmation());
-        askConfirmation.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
-                "Show a dialog box asking the user for confirmation when the \"overwrite\" is selected")));
-        askConfirmation.getStyleClass().add("preference");
-        vbox.getChildren().addAll(checkForUpdates, playSounds, askConfirmation);
-
-        return preferencePane(i18n.i18n("Behavior"), vbox);
+        return preferencePane(DefaultI18nContext.getInstance().i18n("Behavior"), new PreferenceBehaviorPane());
     }
 
     private TitledPane workspacePane() {
-        VBox vbox = new VBox();
-        I18nContext i18n = DefaultI18nContext.getInstance();
-
-        PreferenceBrowsableField workspace = new PreferenceBrowsableField(StringUserPreference.WORKSPACE_PATH);
-        workspace.getTextField().setPromptText(
-                i18n.i18n("Select a previously saved workspace that will be automatically loaded at startup"));
-        workspace.setFileType(FileType.XML);
-        workspace.getStyleClass().add("preference");
-        workspace.getTextField().setText(DefaultUserContext.getInstance().getDefaultWorkspacePath());
-
-        PreferenceBrowsableField workingDirectory = new PreferenceBrowsableField(StringUserPreference.WORKING_PATH);
-        workingDirectory.getTextField().setPromptText(
-                i18n.i18n("Select a directory where documents will be saved and loaded by default"));
-        workingDirectory.getStyleClass().add("preference");
-        workingDirectory.getTextField().setText(DefaultUserContext.getInstance().getDefaultWorkingPath());
-
-        vbox.getChildren().addAll(new Label(i18n.i18n("Load default workspace at startup:")), workspace,
-                new Label(i18n.i18n("Default working directory:")), workingDirectory);
-        return preferencePane(i18n.i18n("Workspace"), vbox);
+        return preferencePane(DefaultI18nContext.getInstance().i18n("Workspace"), new PreferenceWorkspacePane());
     }
 
     private TitledPane thumbnailsPane() {
@@ -114,7 +64,7 @@ public class PreferencePane extends VBox {
 
     private TitledPane preferencePane(String titleString, Node node) {
         TitledPane pane = new TitledPane(titleString, node);
-        pane.getStyleClass().add("preference-pane");
+        pane.getStyleClass().addAll(Style.PREFERENCE_PANE.css());
         return pane;
     }
 }

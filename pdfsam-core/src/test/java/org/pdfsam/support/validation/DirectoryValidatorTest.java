@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 27/ott/2013
+ * Created on 30/ott/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -24,40 +24,28 @@ import java.nio.file.Path;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.pdfsam.support.io.FileType;
 
 /**
  * @author Andrea Vacondio
  *
  */
-public class FileTypeValidatorTest {
-
+public class DirectoryValidatorTest {
+    private Validator<String> victim = Validators.newExistingDirectoryString();
 
     @Test
-    public void notExisting() {
-        Validator<String> victim = Validators.newFileTypeString(FileType.ALL);
-        Assert.assertFalse(victim.isValid("/Chuck/Norris"));
+    public void testNegative() {
+        Assert.assertFalse(victim.isValid("/Chuck/Norris/"));
     }
 
     @Test
-    public void existingAll() throws IOException {
-        Validator<String> victim = Validators.newFileTypeString(FileType.ALL);
-        Path test = Files.createTempFile("tmp", ".norris");
-        Assert.assertTrue(victim.isValid(test.toAbsolutePath().toString()));
-        Files.delete(test);
-    }
-
-    @Test
-    public void existingHtml() throws IOException {
-        Validator<String> victim = Validators.newFileTypeString(FileType.HTML);
-        Path test = Files.createTempFile("tmp", ".htm");
+    public void testPositive() throws IOException {
+        Path test = Files.createTempDirectory("tmp");
         Assert.assertTrue(victim.isValid(test.toAbsolutePath().toString()));
         Files.delete(test);
     }
 
     @Test
     public void testAllowBlank() {
-        Validator<String> victim = Validators.newFileTypeString(FileType.HTML);
         Assert.assertTrue(victim.isValid(""));
     }
 }
