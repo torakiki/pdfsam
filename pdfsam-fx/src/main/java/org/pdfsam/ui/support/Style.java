@@ -30,7 +30,8 @@ public enum Style {
     PREFERENCE("preference"),
     PREFERENCE_PANE("preference-pane"),
     CONTAINER("pdfsam-container"),
-    INVALID("invalid");
+    INVALID("invalid"),
+    MENU_BAR("pdfsam-menubar");
 
     private String[] classes;
 

@@ -83,7 +83,7 @@
  * Context menu
  */
 .context-menu {
-   -fx-background-color:  ctx-menubg-color, -fx-focus-color, ctx-menubg-color;
+   -fx-background-color:  ctx-menubg-color, theme-color, ctx-menubg-color;
    -fx-background-insets: -1.0, 1.0, 2.0;
    -fx-background-radius:  0.0,0.0, 0.0;
    -fx-padding: 0.0;
@@ -95,7 +95,7 @@
     -fx-padding: 3.0px 0.0px 3.0px 0.0px;
 }
 .context-menu .menu-item:focused {
-     -fx-background-color: -fx-selection-bar;
+    -fx-background-color: -fx-selection-bar;
 }
 .context-menu .menu-item:focused .label {
     -fx-text-fill: -fx-selection-bar-text;
@@ -147,17 +147,46 @@
 }
 .preference-pane > .title {
 	-fx-background-color: -fx-box-border, -fx-control-inner-background;
-    -fx-background-insets: 0, 1;
-    -fx-background-radius: 0, 0;
+    -fx-background-insets: 0.0, 1.0;
+    -fx-background-radius: 0.0, 0.0;
     -fx-font-weight: bold; 
 }
 .preference-pane > *.content {
    -fx-background-color: -fx-box-border, white;
-   -fx-background-insets: 0, 0 1 1 1;
-   -fx-background-radius: 0, 0;
+   -fx-background-insets: 0.0, 0.0 1.0 1.0 1.0;
+   -fx-background-radius: 0.0, 0.0;
 }
 .preference {
-	-fx-padding: 0 0 0.5em 0.0 ;
+	-fx-padding: 0.0 0.0 0.5em 0.0 ;
+}
+/**
+ * MenuBar
+ */
+ .pdfsam-menubar {
+ 	-fx-padding: 0.0em 0.1em 0.0em 0.1em; 
+    -fx-background-color: -fx-box-border, -fx-control-inner-background;
+    -fx-background-insets: 0.0, 0 0 1 0;
+    -fx-background-radius: 0, 0 ;
+ }
+.pdfsam-menubar > .container > .menu-button > .label {
+    -fx-padding: 0.2em 0.3em 0.2em 0.3em;
+}
+.pdfsam-menubar .context-menu {
+   -fx-background-color: -fx-box-border, -fx-selection-bar;
+   -fx-background-insets: -1 0 0 0, 0 1 1 1;
+   -fx-background-radius:  0.0, 0.0;
+   -fx-text-fill: -fx-selection-bar-text;
+   -fx-padding: 0.0;
+}
+.pdfsam-menubar > .container > .menu-button:hover, .pdfsam-menubar > .container > .menu-button:focused, .pdfsam-menubar > .container > .menu-button:showing {
+    -fx-background-insets: 0 0 1 0;
+}
+.pdfsam-menubar .context-menu .menu-item:focused {
+     -fx-background-color: transparent, -fx-control-inner-background;
+     -fx-background-insets: 0.0, 2 1 1 1 ;
+}
+.pdfsam-menubar .menu:focused > .right-container > .arrow {
+    -fx-background-color: -fx-selection-bar-text;
 }
 /**
  * General
@@ -195,8 +224,8 @@
 }
 .check-box > .box {
     -fx-background-color: -fx-text-box-border, -fx-control-inner-background;
-    -fx-background-insets: 0, 1;
-    -fx-background-radius: 0 0;
+    -fx-background-insets: 0.0, 1.0;
+    -fx-background-radius: 0.0 0.0;
     -fx-padding: 0.25em; /* 3 -- padding from the outside edge to the mark */
 }
 .check-box:focused > .box {
@@ -210,7 +239,19 @@
 }
 .combo-box-base  {
     -fx-background-color: -fx-text-box-border, -fx-control-inner-background;
-    -fx-background-insets: 0, 1;
-    -fx-background-radius: 0 0;
-    -fx-padding: 0;
+    -fx-background-insets: 0.0, 1.0;
+    -fx-background-radius: 0.0 0.0;
+    -fx-padding: 0.0;
 }
+.menu:show-mnemonics > .mnemonic-underline {
+    -fx-stroke: theme-color;
+}
+.menubar:show-mnemonics > .mnemonic-underline {
+    -fx-stroke: theme-color;
+}
+.menu-item:show-mnemonics > .mnemonic-underline {
+    -fx-stroke: theme-color;
+}
+.context-menu:show-mnemonics > .mnemonic-underline {
+    -fx-stroke: theme-color;
+} 
