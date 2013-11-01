@@ -20,17 +20,16 @@ package org.pdfsam.configuration;
 
 import java.awt.Image;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
 import javax.inject.Inject;
 
-import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.gui.log.LogPane;
+import org.pdfsam.context.DefaultUserContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -47,7 +46,7 @@ import org.springframework.core.io.Resource;
 @Configuration
 @PropertySource("classpath:pdfsam.properties")
 public class PdfsamConfig {
-
+    private static final Logger LOG = LoggerFactory.getLogger(PdfsamConfig.class);
     @Inject
     private Environment env;
 
@@ -56,20 +55,6 @@ public class PdfsamConfig {
         Resource resource = new ClassPathResource("/images/pdfsam_" + env.getProperty("pdfsam.package", "BASIC")
                 + ".png");
         return ImageIO.read(resource.getInputStream());
-    }
-    
-    @Bean(name = "logStage")
-    public Stage logStage() {
-        Stage stage = new Stage();
-        stage.setScene(logScene());
-        stage.setTitle(DefaultI18nContext.getInstance().i18n("Log register"));
-        return stage;
-    }
-
-    public Scene logScene() {
-        Scene scene = new Scene(new LogPane());
-        scene.getStylesheets().addAll(styles());
-        return scene;
     }
 
     @Bean(name = "appVersion")
@@ -81,7 +66,12 @@ public class PdfsamConfig {
     public List<String> styles() {
         List<String> styles = new ArrayList<>();
         styles.add(this.getClass().getResource("/css/default.css").toExternalForm());
-        // styles.add(this.getClass().getResource("/css/" + DefaultUserContext.getInstance().getTheme()).toExternalForm());
+        try {
+            URL themeUrl = new ClassPathResource("/css/themes/" + DefaultUserContext.getInstance().getTheme()).getURL();
+            styles.add(themeUrl.toExternalForm());
+        } catch (IOException ioe) {
+            LOG.warn("Unable to find selected theme.", ioe);
+        }
         return styles;
     }
 

@@ -18,9 +18,11 @@
  */
 package org.pdfsam.gui.about;
 
+import java.util.Collection;
 import java.util.List;
 
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -42,7 +44,8 @@ import org.pdfsam.ui.ClosePane;
 public class AboutStage extends Stage {
     @Inject
     private AboutPane aboutPane;
-
+    @Inject
+    private Collection<Image> logos;
     @Resource(name = "styles")
     private List<String> styles;
 
@@ -56,5 +59,6 @@ public class AboutStage extends Stage {
         scene.getStylesheets().addAll(styles);
         setScene(scene);
         setTitle(DefaultI18nContext.getInstance().i18n("About"));
+        getIcons().addAll(logos);
     }
 }

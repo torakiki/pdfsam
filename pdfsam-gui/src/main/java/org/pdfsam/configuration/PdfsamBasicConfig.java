@@ -22,6 +22,7 @@ import java.io.IOException;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
+import javafx.scene.image.Image;
 
 import org.pdfsam.module.PdfsamModule;
 import org.springframework.context.annotation.Bean;
@@ -47,6 +48,18 @@ public class PdfsamBasicConfig implements UIConfig {
     public Group logo() throws IOException {
         Resource resource = new ClassPathResource("/fxml/LogoBasic.fxml");
         return FXMLLoader.load(resource.getURL());
+    }
+
+    @Bean(name = "logo80")
+    public Image logo80() throws IOException {
+        Resource resource = new ClassPathResource("/images/logo80B.png");
+        return new Image(resource.getInputStream());
+    }
+
+    @Bean(name = "logo50")
+    public Image logo50() throws IOException {
+        Resource resource = new ClassPathResource("/images/logo50B.png");
+        return new Image(resource.getInputStream());
     }
 
     @Bean(name = "appName")

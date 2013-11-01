@@ -36,6 +36,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 
+import javax.inject.Named;
+
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
 import org.pdfsam.context.DefaultI18nContext;
@@ -49,6 +51,7 @@ import org.pdfsam.ui.io.FileChoosers;
  * @author Andrea Vacondio
  * 
  */
+@Named
 public class LogPane extends VBox {
     @FXML
     private TextArea logArea;

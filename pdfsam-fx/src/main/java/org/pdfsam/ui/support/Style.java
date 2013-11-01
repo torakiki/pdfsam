@@ -31,7 +31,8 @@ public enum Style {
     PREFERENCE_PANE("preference-pane"),
     CONTAINER("pdfsam-container"),
     INVALID("invalid"),
-    MENU_BAR("pdfsam-menubar");
+    MENU_BAR("pdfsam-menubar"),
+    BANNER("pdfsam-container", "pdfsam-banner");
 
     private String[] classes;
 

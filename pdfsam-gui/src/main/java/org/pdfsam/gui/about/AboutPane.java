@@ -33,7 +33,6 @@ import javax.inject.Named;
 import org.apache.commons.io.FileUtils;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.UrlButton;
-import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * Panel displaying PDFsam logo and About panel informations
@@ -45,7 +44,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 public class AboutPane extends BorderPane {
 
     @Inject
-    @Qualifier("logo")
+    @Named("logo")
     private Group logo;
     @Resource(name = "appName")
     private String name;
@@ -73,6 +72,8 @@ public class AboutPane extends BorderPane {
         labels.getChildren().add(
                 new Label(String.format("%s %s", System.getProperty("java.runtime.name"),
                         System.getProperty("java.runtime.version"))));
+        labels.getChildren().add(
+                new Label(String.format("JavaFX %s", com.sun.javafx.runtime.VersionInfo.getRuntimeVersion())));
         labels.getChildren().add(
                 new Label(DefaultI18nContext.getInstance().i18n("Max memory {0}",
                         FileUtils.byteCountToDisplaySize(Runtime.getRuntime().maxMemory()))));
