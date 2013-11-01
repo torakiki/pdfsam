@@ -18,8 +18,10 @@
  */
 package org.pdfsam.ui.io;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.ValidableTextField;
@@ -31,19 +33,20 @@ import org.pdfsam.ui.support.Style;
  * @author Andrea Vacondio
  * 
  */
-abstract class BrowsableField extends BorderPane {
+abstract class BrowsableField extends HBox {
     private Button browseButton;
     private ValidableTextField textField = new ValidableTextField();
     private String browseWindowTitle = DefaultI18nContext.getInstance().i18n("Select");
 
     public BrowsableField() {
+        setHgrow(textField, Priority.ALWAYS);
         browseButton = new Button(DefaultI18nContext.getInstance().i18n("Browse"));
         browseButton.getStyleClass().addAll(Style.BROWSE_BUTTON.css());
-        browseButton.setMinHeight(USE_PREF_SIZE);
-        browseButton.setMaxHeight(USE_PREF_SIZE);
         browseButton.prefHeightProperty().bind(textField.heightProperty());
-        setCenter(textField);
-        setRight(browseButton);
+        browseButton.setMaxHeight(USE_PREF_SIZE);
+        browseButton.setMinHeight(USE_PREF_SIZE);
+        browseButton.setAlignment(Pos.CENTER);
+        getChildren().addAll(textField, browseButton);
     }
 
     /**
