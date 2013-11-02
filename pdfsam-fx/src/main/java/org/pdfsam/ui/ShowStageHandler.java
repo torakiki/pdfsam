@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui;
+package org.pdfsam.ui;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 import javafx.event.ActionEvent;
@@ -39,7 +39,7 @@ public class ShowStageHandler implements EventHandler<ActionEvent> {
 
     public void handle(ActionEvent event) {
         if (!stage.isShowing()) {
-            // center?
+            stage.centerOnScreen();
             stage.show();
         }
         stage.requestFocus();

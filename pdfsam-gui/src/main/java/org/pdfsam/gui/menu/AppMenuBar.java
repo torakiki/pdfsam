@@ -36,12 +36,12 @@ import javax.inject.Named;
 
 import org.bushe.swing.event.EventBus;
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.gui.ShowStageHandler;
 import org.pdfsam.gui.about.AboutStage;
 import org.pdfsam.gui.preference.PreferenceStage;
 import org.pdfsam.gui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.gui.workspace.SaveWorkspaceEvent;
 import org.pdfsam.module.BaseTaskExecutionModule;
+import org.pdfsam.ui.ShowStageHandler;
 import org.pdfsam.ui.support.Style;
 
 /**

@@ -33,6 +33,8 @@ import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.ClosePane;
+import org.pdfsam.ui.HideOnEscapeHandler;
+import org.pdfsam.ui.support.Style;
 
 /**
  * About {@link Stage} displaying informations about PDFsam
@@ -52,10 +54,11 @@ public class AboutStage extends Stage {
     @PostConstruct
     void init() {
         BorderPane containerPane = new BorderPane();
-        containerPane.getStyleClass().add("pdfsam-container");
+        containerPane.getStyleClass().addAll(Style.CONTAINER.css());
         containerPane.setCenter(aboutPane);
         containerPane.setBottom(new ClosePane());
-        Scene scene = new Scene(containerPane);
+        final Scene scene = new Scene(containerPane);
+        scene.setOnKeyReleased(new HideOnEscapeHandler(this));
         scene.getStylesheets().addAll(styles);
         setScene(scene);
         setTitle(DefaultI18nContext.getInstance().i18n("About"));

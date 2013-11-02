@@ -31,6 +31,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.ui.HideOnEscapeHandler;
 
 /**
  * Stage for the log panel
@@ -52,6 +53,7 @@ public class LogStage extends Stage {
     void init() {
         Scene scene = new Scene(logPane);
         scene.getStylesheets().addAll(styles);
+        scene.setOnKeyReleased(new HideOnEscapeHandler(this));
         setScene(scene);
         setTitle(DefaultI18nContext.getInstance().i18n("Log register"));
         getIcons().addAll(logos);

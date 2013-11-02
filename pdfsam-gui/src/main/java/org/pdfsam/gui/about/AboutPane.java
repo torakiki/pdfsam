@@ -33,6 +33,7 @@ import javax.inject.Named;
 import org.apache.commons.io.FileUtils;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.UrlButton;
+import org.pdfsam.ui.support.Style;
 
 /**
  * Panel displaying PDFsam logo and About panel informations
@@ -52,7 +53,7 @@ public class AboutPane extends BorderPane {
     private String version;
 
     public AboutPane() {
-        getStyleClass().add("pdfsam-container");
+        getStyleClass().addAll(Style.CONTAINER.css());
     }
 
     @PostConstruct
