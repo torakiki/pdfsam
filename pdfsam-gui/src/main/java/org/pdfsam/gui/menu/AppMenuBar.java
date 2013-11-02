@@ -18,8 +18,6 @@
  */
 package org.pdfsam.gui.menu;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
-
 import java.util.Map;
 
 import javafx.event.ActionEvent;
@@ -31,7 +29,6 @@ import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
-import javafx.stage.Stage;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -39,6 +36,7 @@ import javax.inject.Named;
 
 import org.bushe.swing.event.EventBus;
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.gui.ShowStageHandler;
 import org.pdfsam.gui.about.AboutStage;
 import org.pdfsam.gui.preference.PreferenceStage;
 import org.pdfsam.gui.workspace.LoadWorkspaceEvent;
@@ -113,29 +111,6 @@ public class AppMenuBar extends MenuBar {
         public void handle(ActionEvent event) {
             // TODO maybe send an event and perform needed actions before exiting
             System.exit(0);
-        }
-    }
-
-    /**
-     * Handler for an action showing a {@link Stage}
-     * 
-     * @author Andrea Vacondio
-     */
-    private static final class ShowStageHandler implements EventHandler<ActionEvent> {
-
-        private Stage stage;
-
-        private ShowStageHandler(Stage stage) {
-            requireNotNull(stage, "Stage cannot be null");
-            this.stage = stage;
-        }
-
-        public void handle(ActionEvent event) {
-            if (!stage.isShowing()) {
-                // center?
-                stage.show();
-            }
-            stage.requestFocus();
         }
     }
 }

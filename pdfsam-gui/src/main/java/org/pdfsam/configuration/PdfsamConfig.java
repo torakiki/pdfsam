@@ -24,6 +24,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.scene.image.ImageView;
+
 import javax.imageio.ImageIO;
 import javax.inject.Inject;
 
@@ -55,6 +57,11 @@ public class PdfsamConfig {
         Resource resource = new ClassPathResource("/images/pdfsam_" + env.getProperty("pdfsam.package", "BASIC")
                 + ".png");
         return ImageIO.read(resource.getInputStream());
+    }
+
+    @Bean
+    public ImageView payoff() throws IOException {
+        return new ImageView(new ClassPathResource("/images/payoff.png").getURL().toExternalForm());
     }
 
     @Bean(name = "appVersion")
