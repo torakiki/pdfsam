@@ -90,7 +90,7 @@ public final class DefaultI18nContext implements I18nContext {
     private I18n i18n;
 
     private DefaultI18nContext() {
-        Locale locale = getLocale();
+        Locale locale = getBestLocale();
         LOG.trace("Loading i18n bundle for {}", locale);
         Locale.setDefault(locale);
         this.i18n = I18nFactory.getI18n(DefaultI18nContext.class, locale);
@@ -98,6 +98,10 @@ public final class DefaultI18nContext implements I18nContext {
     }
 
     public Locale getLocale() {
+        return Locale.getDefault();
+    }
+
+    private Locale getBestLocale() {
         String localeString = DefaultUserContext.getInstance().getLocale();
         if (StringUtils.isNotBlank(localeString)) {
             LOG.trace("Found locale string {}", localeString);
