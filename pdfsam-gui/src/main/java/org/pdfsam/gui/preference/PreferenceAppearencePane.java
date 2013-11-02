@@ -56,12 +56,12 @@ class PreferenceAppearencePane extends VBox {
         first.getStyleClass().addAll(Style.PREFERENCE.css());
 
         PreferenceComboBox<StringKeyValueItem> themeCombo = new PreferenceComboBox<>(StringUserPreference.THEME);
-        themeCombo.getItems().add(new StringKeyValueItem("blue.css", "Blue"));
+        themeCombo.getItems().add(new StringKeyValueItem("cornflower.css", "Cornflower"));
+        themeCombo.getItems().add(new StringKeyValueItem("gray.css", "Gray"));
         themeCombo.getItems().add(new StringKeyValueItem("green.css", "Green"));
-        themeCombo.getItems().add(new StringKeyValueItem("orange.css", "Orange"));
-        themeCombo.getItems().add(new StringKeyValueItem("purple.css", "Purple"));
-        themeCombo.getItems().add(new StringKeyValueItem("red.css", "Red"));
-        themeCombo.getItems().add(new StringKeyValueItem("yellow.css", "Yellow"));
+        themeCombo.getItems().add(new StringKeyValueItem("orchid.css", "Orchid"));
+        themeCombo.getItems().add(new StringKeyValueItem("seagreen.css", "Sea Green"));
+        themeCombo.getItems().add(new StringKeyValueItem("sienna.css", "Sienna"));
         themeCombo.setTooltip(new Tooltip(i18n.i18n("Set your preferred theme (restart needed)")));
         themeCombo.setValue(new StringKeyValueItem(DefaultUserContext.getInstance().getTheme(), ""));
         HBox second = new HBox(2, new Label(i18n.i18n("Theme:")), themeCombo);

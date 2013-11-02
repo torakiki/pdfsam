@@ -1,14 +1,54 @@
 .root { 
 	theme-color: #339933;
+	hover-color: #D8D8D8;
+	default-bg:  -fx-background;
 	-fx-text-box-border: #CCCCCC;
 	-fx-box-border: -fx-text-box-border; 
-	-fx-focus-color: rgba(82.0, 168.0, 236.0, 0.8);
+	-fx-focus-color: derive(theme-color, 40.0%);
 	-fx-control-inner-background: #F9F9F9;
 	-fx-selection-bar: #F3F3F3;
 	ctx-menubg-color: #FFFFFF;
 	-fx-accent: #D8D8D8 !important;
 	-fx-disabled-opacity: 0.4;
 	error-color: #B94A48;
+}
+/**
+ * TabPane
+ */
+ .tab-pane > .tab-content-area {
+    -fx-background-color: transparent;
+    -fx-padding: 0.0em; /* 0 */
+    /* -fx-opacity: -fx-disabled-opacity;*/
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 0.0;
+    -fx-border-color: transparent transparent hover-color transparent;
+    -fx-border-width: 0.0 0.0 1.0 0.0;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:bottom {
+    -fx-background-color: transparent;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:hover {
+   -fx-background-color: hover-color;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:selected {
+    -fx-background-color: theme-color, hover-color, default-bg;
+    -fx-background-insets: 0.0, 2.0 0.0 0.0 0.0, 2.0 1.0 0.0 1.0 ;
+    -fx-border-width: 0.0;
+}
+
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-width: 0.0;
+}
+.tab-pane > .tab-header-area > .tab-header-background {
+    -fx-background-color: transparent;
+    -fx-effect: null;
 }
 /**
  * TextField
@@ -24,7 +64,7 @@
     -fx-background-insets: 0.0, 1.0;
     -fx-background-radius: 0.0, 0.0;
     -fx-prompt-text-fill: transparent;
-    -fx-effect: dropshadow( three-pass-box , -fx-text-box-border , 10.0, 0.0 ,1.0 ,1.0 );
+    -fx-effect: dropshadow( three-pass-box , -fx-focus-color , 10.0, 0.0 ,1.0 ,1.0 );
 }
 /**
  * TextArea
@@ -39,13 +79,13 @@
     -fx-background-insets: 0.0, 1.0;
     -fx-background-radius: 0.0, 0.0;
     -fx-prompt-text-fill: transparent;
-    -fx-effect: dropshadow( three-pass-box , -fx-text-box-border , 10.0, 0.0 ,1.0 ,1.0 );
+    -fx-effect: dropshadow( three-pass-box , -fx-focus-color , 10.0, 0.0 ,1.0 ,1.0 );
 }
 /**
  * Buttons
  */
 .pdfsam-button {
-    -fx-background-color:  #D8D8D8, #E5E5E5;
+    -fx-background-color:  hover-color, #E5E5E5;
     -fx-background-insets:  0.0, 1.0;
     -fx-background-radius: 0.0;
     -fx-padding: 7.0px 14.0px 7.0px 14.0px;
@@ -53,13 +93,13 @@
 }
 
 .pdfsam-button:focused, .pdfsam-button:default, .pdfsam-button:armed, .pdfsam-button:hover {
-    -fx-background-color: theme-color, #D8D8D8, #E5E5E5;
+    -fx-background-color: theme-color, hover-color, #E5E5E5;
     -fx-background-insets:  0.0, 0.0 0.0 1.0 0.0, 1.0;
     -fx-background-radius:  0.0;
 }
 
 .pdfsam-button:hover {
-    -fx-background-color: theme-color, #D8D8D8;
+    -fx-background-color: theme-color, hover-color;
 }
 
 .pdfsam-button:armed {
@@ -144,6 +184,8 @@
  	-fx-background-color: -fx-box-border, -fx-control-inner-background;
     -fx-background-insets: 0.0, 1.0;
     -fx-background-radius: 0.0, 0.0;
+    -fx-alignment: center-left;
+    -fx-spacing: 10.0px;
  }
 /**
  * Preferences panel
@@ -171,25 +213,25 @@
  .pdfsam-menubar {
  	-fx-padding: 0.0em 0.1em 0.0em 0.1em; 
     -fx-background-color: -fx-box-border, -fx-control-inner-background;
-    -fx-background-insets: 0.0, 0 0 1 0;
-    -fx-background-radius: 0, 0 ;
+    -fx-background-insets: 0.0, 0.0 0.0 1.0 0.0;
+    -fx-background-radius: 0.0, 0.0 ;
  }
 .pdfsam-menubar > .container > .menu-button > .label {
     -fx-padding: 0.2em 0.3em 0.2em 0.3em;
 }
 .pdfsam-menubar .context-menu {
    -fx-background-color: -fx-box-border, -fx-selection-bar;
-   -fx-background-insets: -1 0 0 0, 0 1 1 1;
+   -fx-background-insets: -1.0 0.0 0.0 0.0, 0.0 1.0 1.0 1.0;
    -fx-background-radius:  0.0, 0.0;
    -fx-text-fill: -fx-selection-bar-text;
    -fx-padding: 0.0;
 }
 .pdfsam-menubar > .container > .menu-button:hover, .pdfsam-menubar > .container > .menu-button:focused, .pdfsam-menubar > .container > .menu-button:showing {
-    -fx-background-insets: 0 0 1 0;
+    -fx-background-insets: 0.0 0.0 1.0 0.0;
 }
 .pdfsam-menubar .context-menu .menu-item:focused {
      -fx-background-color: transparent, -fx-control-inner-background;
-     -fx-background-insets: 0.0, 2 1 1 1 ;
+     -fx-background-insets: 0.0, 2.0 1.0 1.0 1.0 ;
 }
 .pdfsam-menubar .menu:focused > .right-container > .arrow {
     -fx-background-color: -fx-selection-bar-text;
@@ -238,7 +280,7 @@
 	-fx-background-color: -fx-focus-color, -fx-control-inner-background;
     -fx-background-insets: 0.0, 1.0;
     -fx-background-radius: 0.0, 0.0;
-    -fx-effect: dropshadow( three-pass-box , -fx-text-box-border , 10.0, 0.0 ,1.0 ,1.0 );	
+    -fx-effect: dropshadow( three-pass-box , -fx-focus-color , 10.0, 0.0 ,1.0 ,1.0 );	
 }
 .check-box > .box > .mark {
     -fx-padding: 0.3em; 
