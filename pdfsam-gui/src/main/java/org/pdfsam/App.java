@@ -34,7 +34,7 @@ import org.pdfsam.gui.WelcomePanel;
 import org.pdfsam.gui.menu.MenuType;
 import org.pdfsam.gui.support.SwingUtils;
 import org.pdfsam.module.BaseTaskExecutionModule;
-import org.pdfsam.module.TaskExecutionModulesLoadedEvent;
+import org.pdfsam.ui.module.TaskExecutionModulesLoadedEvent;
 import org.pdfsam.update.UpdateCheckRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -32,7 +32,14 @@ public enum Style {
     CONTAINER("pdfsam-container"),
     INVALID("invalid"),
     MENU_BAR("pdfsam-menubar"),
-    BANNER("pdfsam-container", "pdfsam-banner");
+    BANNER("pdfsam-banner"),
+    BANNER_LOGO("pdfsam-logo"),
+    BANNER_SPACER("pdfsam-logo-spacer"),
+    BANNER_BUTTONS("pdfsam-container", "pdfsam-banner-buttons"),
+    TOOLBAR_BUTTON("pdfsam-toolbar-button"),
+    TOOLBAR_NAVIGATION_BUTTON("pdfsam-toolbar-button", "pdfsam-navigation-button"),
+    NAVIGATION_BAR("navigation"),
+    EXPAND_BOX("expand-navigation");
 
     private String[] classes;
 

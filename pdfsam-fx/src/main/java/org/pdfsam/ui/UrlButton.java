@@ -49,6 +49,7 @@ public class UrlButton extends Button {
         super(text);
         require(isNotBlank(url), "URL cannot be blank");
         this.url = url;
+        // TODO lambda
         setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {

@@ -18,7 +18,9 @@
  */
 package org.pdfsam.module;
 
-import javax.swing.Icon;
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.pdfsam.support.RequireUtils.require;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**
  * Metadata to describe a module.
@@ -28,32 +30,41 @@ import javax.swing.Icon;
  */
 public final class ModuleDescriptor {
 
-    private String id;
     private ModuleCategory category;
     private String name;
-    private Icon icon;
+    private int priority = 0;
 
-    public ModuleDescriptor(String id, ModuleCategory category, String name, Icon icon) {
-        this.id = id;
+    public ModuleDescriptor(ModuleCategory category, String name) {
+        requireNotNull(category, "Module category cannot be null");
+        require(isNotBlank(name), "Module name cannot be blank");
         this.category = category;
         this.name = name;
-        this.icon = icon;
+    }
+
+    public ModuleDescriptor(ModuleCategory category, String name, int priority) {
+        this(category, name);
+        this.priority = priority;
     }
 
     public ModuleCategory getCategory() {
         return category;
     }
 
+    /**
+     * @return a human readable, internationalized name for the plugin
+     */
     public String getName() {
         return name;
     }
 
-    public Icon getIcon() {
-        return icon;
-    }
-
-    public String getId() {
-        return id;
+    /**
+     * Module priority is a rough indicator of the popularity of the module. It can be used to present modules to the users in an order that has more chances of being of interest
+     * for them. The idea is to use this value to present most commonly used modules on first.
+     * 
+     * @return
+     */
+    public int getPriority() {
+        return priority;
     }
 
 }

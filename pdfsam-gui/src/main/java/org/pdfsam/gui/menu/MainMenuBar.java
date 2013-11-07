@@ -40,10 +40,9 @@ import org.pdfsam.gui.workspace.SaveWorkspaceAction;
 import org.pdfsam.module.BaseTaskExecutionModule;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.ModuleCategory;
-import org.pdfsam.module.TaskExecutionModulesLoadedEvent;
+import org.pdfsam.ui.module.TaskExecutionModulesLoadedEvent;
 
 import bibliothek.gui.dock.common.CControl;
-
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**

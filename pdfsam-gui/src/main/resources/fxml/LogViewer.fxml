@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.transform.*?>
+<?import javafx.scene.effect.*?>
+
+<Group id='_root' xmlns:fx="http://javafx.com/fxml" xmlns:fxsvg="http://efxclipse.org/fxml-svg">
+	<children>
+		<fx:define>
+		</fx:define>
+		<!-- Unhandled type 'SvgMetadataElement' -->
+		<Group
+			opacity="1.0"
+			id="layer1"
+			>
+			<children>
+				<SVGPath
+					content="m 0,1028.3622 c 0,-12 3.9999958,-16 16.000004,-16 l 7.999992,0 c 12.000008,0 16.000004,4 16.000004,16 0,5.3334 0,2.6666 0,8 0,12 -3.999996,16 -16.000004,16 l -7.999992,0 c -12.0000082,0 -16.000004,-4 -16.000004,-16 z"
+					opacity="1"
+					id="path3755-2"
+					>
+					<fill>
+						<Color>
+							<red>0.2901960784313726</red>
+							<green>0.6509803921568628</green>
+							<blue>0.6980392156862745</blue>
+						</Color>
+					</fill>
+				</SVGPath>
+				<SVGPath
+					content="m 11.143746,1017.3873 c -2.146587,0 -3.1430451,0.9999 -3.1437439,3.0874 l 0,23.8875 c -3.13e-5,1.8924 1.0002019,2.893 2.9750009,2.8938 l 17.850002,0 c 2.171734,-9e-4 3.174993,-1.0001 3.174993,-3.0001 l 0,-23.8937 c 0,-1.9781 -1.000056,-2.9749 -3.000002,-2.9749 z m 1.856256,3.9775 13.999996,0 c 1.999998,0 1.999998,2 0,2 l -13.999996,0 c -1.999998,0 -1.999998,-2 0,-2 z m 0,5 13.999996,0 c 1.999998,0 1.999998,2 0,2 l -13.999996,0 c -1.999998,0 -1.999998,-2 0,-2 z m 0,4.9999 13.999996,0 c 1.999998,0 1.999998,2.0001 0,2.0001 l -13.999996,0 c -1.999998,0 -1.999998,-2.0001 0,-2.0001 z m 0,5.0001 13.999996,0 c 1.999998,0 1.999998,1.9999 0,1.9999 l -13.999996,0 c -1.999998,0 -1.999998,-1.9999 0,-1.9999 z m 0,5 10.999994,0 c 2.000008,0 2.000008,2 0,2 l -10.999994,0 c -1.999998,0 -1.999998,-2 0,-2 z"
+					opacity="1"
+					id="path3761-3"
+					>
+					<fill>
+						<Color>
+							<red>0.996078431372549</red>
+							<green>0.9411764705882353</green>
+							<blue>0.9137254901960784</blue>
+						</Color>
+					</fill>
+				</SVGPath>
+			</children>
+			<transforms>
+				<Translate
+					x="0"
+					y="-1012.3622"
+					>
+				</Translate>
+			</transforms>
+		</Group>
+	</children>
+</Group>

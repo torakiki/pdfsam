@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 21/nov/2012
- * Copyright 2012 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 04/nov/2013
+ * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,28 +16,27 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.task;
+package org.pdfsam.gui;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.mockito.Mockito;
-import org.sejda.model.parameter.base.TaskParameters;
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.pdfsam.support.RequireUtils.require;
 
 /**
+ * Request to set the current module on the main panel
+ * 
  * @author Andrea Vacondio
  * 
  */
-public class TaskExecutionRequestEventTest {
-    @Test(expected = IllegalArgumentException.class)
-    public void testNull() {
-        new TaskExecutionRequestEvent(null);
+public class SetCurrentModuleRequest {
+    private String moduleId;
+
+    public SetCurrentModuleRequest(String moduleId) {
+        require(isNotBlank(moduleId), "Module id cannot be null");
+        this.moduleId = moduleId;
     }
 
-    @Test
-    public void testNotNull() {
-        TaskParameters mock = Mockito.mock(TaskParameters.class);
-        TaskExecutionRequestEvent victim = new TaskExecutionRequestEvent(mock);
-        Assert.assertEquals(mock, victim.getParameters());
+    public String getModuleId() {
+        return moduleId;
     }
 
 }

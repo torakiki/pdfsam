@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 03/apr/2012
+ * Created on 29/nov/2012
  * Copyright 2012 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,36 +16,29 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.module;
+package org.pdfsam.ui.module;
 
-import javafx.scene.Node;
-import javafx.scene.layout.Pane;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 
 /**
- * pdfsam module.
+ * Event sent to notify consumers that the available modules have been found and loaded by the IoC container.
  * 
  * @author Andrea Vacondio
  * 
  */
-public interface Module {
+public class TaskExecutionModulesLoadedEvent {
 
-    /**
-     * @return the unique id for this module
-     */
-    String id();
+    private List<BaseTaskExecutionModule> modules = new ArrayList<>();
 
-    /**
-     * @return the descriptor for the module
-     */
-    ModuleDescriptor descriptor();
+    public void addAll(Collection<BaseTaskExecutionModule> modules) {
+        this.modules.addAll(modules);
+    }
 
-    /**
-     * @return the module panel.
-     */
-    Pane modulePanel();
-
-    /**
-     * @return the graphic node for this {@link Module}.
-     */
-    Node graphic();
+    public List<BaseTaskExecutionModule> getModules() {
+        return Collections.unmodifiableList(modules);
+    }
 }

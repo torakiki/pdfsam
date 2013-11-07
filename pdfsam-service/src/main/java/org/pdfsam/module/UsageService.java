@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 29/nov/2012
- * Copyright 2012 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 02/nov/2013
+ * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,27 +18,30 @@
  */
 package org.pdfsam.module;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
-
 /**
- * Event sent to notify consumers that the available modules have been found and loaded by the IoC container.
+ * Service providing modules usage related functionalities
  * 
  * @author Andrea Vacondio
  * 
  */
-public class TaskExecutionModulesLoadedEvent {
+public interface UsageService {
 
-    private List<BaseTaskExecutionModule> modules = new ArrayList<>();
+    /**
+     * Increments the usage of the given module
+     * 
+     * @param moduleId
+     */
+    void incrementUsageFor(String moduleId);
 
-    public void addAll(Collection<BaseTaskExecutionModule> modules) {
-        this.modules.addAll(modules);
-    }
+    /**
+     * @return a sorted list with the most used modules
+     */
+    List<Module> getMostUsed();
 
-    public List<BaseTaskExecutionModule> getModules() {
-        return Collections.unmodifiableList(modules);
-    }
+    /**
+     * @return a sorted list with the most recently modules
+     */
+    List<Module> getMostRecentlyUsed();
 }

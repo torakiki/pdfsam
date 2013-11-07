@@ -81,5 +81,4 @@ public class PdfsamConfig {
         }
         return styles;
     }
-
 }

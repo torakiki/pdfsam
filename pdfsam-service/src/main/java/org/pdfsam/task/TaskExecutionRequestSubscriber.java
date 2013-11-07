@@ -24,6 +24,8 @@ import javax.inject.Singleton;
 
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
+import org.pdfsam.module.TaskExecutionRequestEvent;
+import org.pdfsam.module.UsageService;
 import org.sejda.core.notification.context.GlobalNotificationContext;
 import org.sejda.model.notification.event.PercentageOfWorkDoneChangedEvent;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
@@ -44,7 +46,9 @@ class TaskExecutionRequestSubscriber {
     private static final Logger LOG = LoggerFactory.getLogger(TaskExecutionRequestSubscriber.class);
 
     @Inject
-    private ExecutionService service;
+    private ExecutionService executionService;
+    @Inject
+    private UsageService usageService;
 
     public TaskExecutionRequestSubscriber() {
         AnnotationProcessor.process(this);
@@ -66,7 +70,8 @@ class TaskExecutionRequestSubscriber {
     @EventSubscriber
     public void request(TaskExecutionRequestEvent event) {
         LOG.trace("Task execution request received");
-        service.submit(event.getParameters());
+        usageService.incrementUsageFor(event.getModuleId());
+        executionService.submit(event.getParameters());
         LOG.trace("Task execution submitted");
     }
 

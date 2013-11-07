@@ -32,7 +32,7 @@ import org.pdfsam.gui.menu.MenuType;
 import org.pdfsam.gui.status.StatusPanel;
 import org.pdfsam.module.BaseTaskExecutionModule;
 import org.pdfsam.module.Module;
-import org.pdfsam.module.TaskExecutionModulesLoadedEvent;
+import org.pdfsam.ui.module.TaskExecutionModulesLoadedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,7 +40,6 @@ import bibliothek.gui.dock.common.CControl;
 import bibliothek.gui.dock.common.CMinimizeArea;
 import bibliothek.gui.dock.common.CWorkingArea;
 import bibliothek.gui.dock.common.DefaultSingleCDockable;
-
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**

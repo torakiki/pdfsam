@@ -18,6 +18,8 @@
  */
 package org.pdfsam.gui.menu;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javafx.event.ActionEvent;
@@ -36,12 +38,14 @@ import javax.inject.Named;
 
 import org.bushe.swing.event.EventBus;
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.gui.SetCurrentModuleRequest;
 import org.pdfsam.gui.about.AboutStage;
 import org.pdfsam.gui.preference.PreferenceStage;
 import org.pdfsam.gui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.gui.workspace.SaveWorkspaceEvent;
-import org.pdfsam.module.BaseTaskExecutionModule;
+import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.ui.ShowStageHandler;
+import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.pdfsam.ui.support.Style;
 
 /**
@@ -54,14 +58,14 @@ import org.pdfsam.ui.support.Style;
 public class AppMenuBar extends MenuBar {
 
     @Inject
-    private Map<String, BaseTaskExecutionModule> modulesMap;
+    private List<BaseTaskExecutionModule> modules;
     @Inject
     private PreferenceStage preferenceStage;
     @Inject
     private AboutStage aboutStage;
 
     @PostConstruct
-    private void initModues() {
+    private void initMenues() {
         getStyleClass().addAll(Style.MENU_BAR.css());
         Menu file = new Menu(DefaultI18nContext.getInstance().i18n("_File"));
         MenuItem exit = new MenuItem(DefaultI18nContext.getInstance().i18n("E_xit"));
@@ -91,14 +95,34 @@ public class AppMenuBar extends MenuBar {
         Menu recent = new Menu(DefaultI18nContext.getInstance().i18n("_Recent"));
         workspace.getItems().addAll(load, save, new SeparatorMenuItem(), recent);
 
-        Menu modules = new Menu(DefaultI18nContext.getInstance().i18n("_Modules"));
+        Menu modulesMenu = new Menu(DefaultI18nContext.getInstance().i18n("_Modules"));
+        initModulesMenu(modulesMenu);
+
         Menu help = new Menu(DefaultI18nContext.getInstance().i18n("_Help"));
         MenuItem about = new MenuItem(DefaultI18nContext.getInstance().i18n("_About"));
         about.setOnAction(new ShowStageHandler(aboutStage));
         help.getItems().add(about);
-        getMenus().addAll(file, edit, workspace, modules, help);
-        // do something to show modules
-        System.out.println(modulesMap);
+        getMenus().addAll(file, edit, workspace, modulesMenu, help);
+    }
+
+    private void initModulesMenu(Menu modulesMenu) {
+        Map<ModuleCategory, Menu> moduleSubmenus = new HashMap<>();
+        for (final BaseTaskExecutionModule currentModule : modules) {
+            ModuleCategory category = currentModule.descriptor().getCategory();
+            Menu currentMenu = moduleSubmenus.get(category);
+            if (currentMenu == null) {
+                currentMenu = new Menu(category.getDescription());
+                moduleSubmenus.put(category, currentMenu);
+            }
+            MenuItem moduleMenu = new MenuItem(currentModule.descriptor().getName());
+            moduleMenu.setOnAction(new EventHandler<ActionEvent>() {
+                public void handle(ActionEvent event) {
+                    EventBus.publish(new SetCurrentModuleRequest(currentModule.id()));
+                }
+            });
+            currentMenu.getItems().add(moduleMenu);
+        }
+        modulesMenu.getItems().addAll(moduleSubmenus.values());
     }
 
     /**

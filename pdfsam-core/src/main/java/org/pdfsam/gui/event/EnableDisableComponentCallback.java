@@ -18,9 +18,8 @@
  */
 package org.pdfsam.gui.event;
 
-import java.awt.Component;
-
 import static org.pdfsam.support.RequireUtils.requireNotNull;
+import javafx.scene.Node;
 
 /**
  * Callback to enable or disable a given component.
@@ -30,33 +29,33 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
  */
 public final class EnableDisableComponentCallback implements EventSubscriberCallback {
 
-    private Component comp;
-    private boolean enabled = true;
+    private Node comp;
+    private boolean disable = false;
 
-    private EnableDisableComponentCallback(Component comp, boolean enabled) {
+    private EnableDisableComponentCallback(Node comp, boolean disable) {
         requireNotNull(comp, "Component cannot be null");
         this.comp = comp;
-        this.enabled = enabled;
+        this.disable = disable;
     }
 
     @Override
     public void exec(BaseEvent e) {
-        comp.setEnabled(enabled);
+        comp.setDisable(disable);
     }
 
     /**
      * @param comp
      * @return a callback that disables the given component
      */
-    public static EventSubscriberCallback disableComponent(Component comp) {
-        return new EnableDisableComponentCallback(comp, false);
+    public static EventSubscriberCallback disableComponent(Node comp) {
+        return new EnableDisableComponentCallback(comp, true);
     }
 
     /**
      * @param comp
      * @return a callback that enables the given component
      */
-    public static EventSubscriberCallback enableComponent(Component comp) {
-        return new EnableDisableComponentCallback(comp, true);
+    public static EventSubscriberCallback enableComponent(Node comp) {
+        return new EnableDisableComponentCallback(comp, false);
     }
 }

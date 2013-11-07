@@ -16,11 +16,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.task;
+package org.pdfsam.module;
+
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.pdfsam.support.RequireUtils.require;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 import org.sejda.model.parameter.base.TaskParameters;
-
-import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**
  * Event sent to request a parameters execution.
@@ -31,14 +33,26 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
 public class TaskExecutionRequestEvent {
 
     private TaskParameters parameters;
+    private String moduleId;
 
-    public TaskExecutionRequestEvent(TaskParameters parameters) {
+    /**
+     * @param moduleId
+     *            the module requiring the task
+     * @param parameters
+     */
+    public TaskExecutionRequestEvent(String moduleId, TaskParameters parameters) {
         requireNotNull(parameters, "Task parameters cannot be null");
+        require(isNotBlank(moduleId), "Module id cannot be blank");
         this.parameters = parameters;
+        this.moduleId = moduleId;
     }
 
     public TaskParameters getParameters() {
         return parameters;
+    }
+
+    public String getModuleId() {
+        return moduleId;
     }
 
 }
