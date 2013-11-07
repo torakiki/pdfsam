@@ -221,6 +221,15 @@
 .pdfsam-toolbar-button:disabled {
     -fx-opacity: -fx-disabled-opacity;
 }
+.logs-notification {
+	-fx-text-fill: text-fill-on-dark;
+	-fx-background-color:  #4aa6b2, #fef0e9, error-color;
+    -fx-background-insets:  0, 2, 2.5;
+    -fx-background-radius: 5px;
+	-fx-font-size: 9px;
+	-fx-padding: 4 6 4 6;
+	-fx-translate-x: -5px;
+}
 /**
  * Navigation
  */

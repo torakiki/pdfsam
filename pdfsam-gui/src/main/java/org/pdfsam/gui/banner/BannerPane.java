@@ -21,6 +21,7 @@ package org.pdfsam.gui.banner;
 import java.io.IOException;
 
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -28,6 +29,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -54,6 +56,8 @@ public class BannerPane extends HBox {
     private Image logo;
     @Inject
     private LogStage logStage;
+    @Inject
+    private ErrorsNotification errorNotification;
 
     public BannerPane() {
         getStyleClass().addAll(Style.BANNER.css());
@@ -81,7 +85,10 @@ public class BannerPane extends HBox {
         logsButton.setGraphic((Group) FXMLLoader.load(new ClassPathResource("/fxml/LogViewer.fxml").getURL()));
         logsButton.setOnAction(new ShowStageHandler(logStage));
         logsButton.getStyleClass().addAll(Style.TOOLBAR_BUTTON.css());
-        buttons.getChildren().add(logsButton);
+        StackPane logs = new StackPane(logsButton, errorNotification);
+        StackPane.setAlignment(errorNotification, Pos.TOP_LEFT);
+        buttons.getChildren().add(logs);
         return buttons;
     }
+
 }

@@ -24,6 +24,8 @@ import static org.pdfsam.support.io.TextFileWriter.writeContent;
 import java.io.File;
 import java.io.IOException;
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -38,6 +40,7 @@ import javafx.stage.FileChooser;
 
 import javax.inject.Named;
 
+import org.bushe.swing.event.EventBus;
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
 import org.pdfsam.context.DefaultI18nContext;
@@ -137,6 +140,11 @@ public class LogPane extends VBox {
         saveItem.disableProperty().bind(clearItem.disableProperty());
         SeparatorMenuItem separator = new SeparatorMenuItem();
         logArea.setContextMenu(new ContextMenu(copyItem, clearItem, selectAllItem, separator, saveItem));
+        logArea.focusedProperty().addListener(new InvalidationListener() {
+            public void invalidated(Observable observable) {
+                EventBus.publish(new ChangedVisiblityLogAreaEvent());
+            }
+        });
     }
 
     @EventSubscriber
@@ -150,8 +158,8 @@ public class LogPane extends VBox {
     }
 
     public void saveLog() {
-        FileChooser fileChooser = FileChoosers.getFileChooser(FileType.LOG, DefaultI18nContext.getInstance()
-                .i18n("Select where to save the log file"));
+        FileChooser fileChooser = FileChoosers.getFileChooser(FileType.LOG,
+                DefaultI18nContext.getInstance().i18n("Select where to save the log file"));
         fileChooser.setInitialFileName("PDFsam.log");
         File chosenFile = fileChooser.showSaveDialog(this.getScene().getWindow());
         if (chosenFile != null) {
