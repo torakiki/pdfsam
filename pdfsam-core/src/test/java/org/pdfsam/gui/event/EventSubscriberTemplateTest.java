@@ -29,21 +29,21 @@ import static org.junit.Assert.assertTrue;
  */
 public class EventSubscriberTemplateTest {
 
-    private EventNamespace parent = EventNamespace.newParentInstance("john.doe");
-    private EventNamespace child = EventNamespace.newChildInstance(parent, "child");
-    private EventNamespace unrelated = EventNamespace.newParentInstance("chuck.norris");
+    private String parent = String.newParentInstance("john.doe");
+    private String child = String.newChildInstance(parent, "child");
+    private String unrelated = String.newParentInstance("chuck.norris");
 
     @Test
     public void executes() {
         HitCallback callback = new HitCallback();
-        EventSubscriberTemplate.ifEvent(new BaseEvent(parent)).routesTo(child).execute(callback);
+        EventSubscriberTemplate.ifEvent(new ModuleEvent(parent)).routesTo(child).execute(callback);
         assertTrue(callback.isHit());
     }
 
     @Test
     public void doesntExecutes() {
         HitCallback callback = new HitCallback();
-        EventSubscriberTemplate.ifEvent(new BaseEvent(parent)).routesTo(unrelated).execute(callback);
+        EventSubscriberTemplate.ifEvent(new ModuleEvent(parent)).routesTo(unrelated).execute(callback);
         assertFalse(callback.isHit());
     }
 
@@ -51,7 +51,7 @@ public class EventSubscriberTemplateTest {
 
         private boolean hit = false;
 
-        public void exec(BaseEvent e) {
+        public void exec(ModuleEvent e) {
             hit = true;
         }
 

@@ -18,8 +18,8 @@
  */
 package org.pdfsam.gui.view.selection;
 
-import org.pdfsam.gui.event.BaseEvent;
-import org.pdfsam.gui.event.EventNamespace;
+import org.pdfsam.gui.event.ModuleEvent;
+import org.pdfsam.gui.event.String;
 
 /**
  * Notifies that selected elements in the selection table should be moved down
@@ -27,11 +27,11 @@ import org.pdfsam.gui.event.EventNamespace;
  * @author Andrea Vacondio
  * 
  */
-class MoveSelectedEvent extends BaseEvent {
+class MoveSelectedEvent extends ModuleEvent {
 
     private MoveType type;
 
-    public MoveSelectedEvent(EventNamespace namespace, MoveType type) {
+    public MoveSelectedEvent(String namespace, MoveType type) {
         super(namespace);
         this.type = type;
     }

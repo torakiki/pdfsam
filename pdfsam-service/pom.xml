@@ -42,8 +42,8 @@
 			<artifactId>hibernate-validator</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.bushe</groupId>
-			<artifactId>eventbus</artifactId>
+			<groupId>org.sejda</groupId>
+			<artifactId>eventstudio</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>javax.inject</groupId>

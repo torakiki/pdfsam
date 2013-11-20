@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 31/ott/2013
+ * Created on 20/nov/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,64 +18,35 @@
  */
 package org.pdfsam.gui;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
-import javafx.util.Duration;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.bushe.swing.event.annotation.AnnotationProcessor;
-import org.bushe.swing.event.annotation.EventSubscriber;
-import org.pdfsam.gui.navigation.NavigationPane;
-import org.pdfsam.ui.module.BaseTaskExecutionModule;
+import org.pdfsam.gui.banner.BannerPane;
+import org.pdfsam.gui.menu.AppMenuBar;
 
 /**
- * Main panel for the application.
+ * Main panel containing menu, banner and the content area
  * 
  * @author Andrea Vacondio
  * 
  */
 @Named
-public class MainPane extends BorderPane {
+public class MainPane extends VBox {
 
     @Inject
-    private NavigationPane navigation;
-    private Map<String, BaseTaskExecutionModule> modules = new HashMap<>();
-    private StackPane center = new StackPane();
-
+    private ContentPane mainPane;
     @Inject
-    public MainPane(List<BaseTaskExecutionModule> modulesMap) {
-        for (BaseTaskExecutionModule module : modulesMap) {
-            modules.put(module.id(), module);
-        }
-    }
+    private AppMenuBar menuBar;
+    @Inject
+    private BannerPane banner;
 
     @PostConstruct
-    private void init() {
-        setLeft(navigation);
-        setCenter(center);
-        AnnotationProcessor.process(this);
-    }
-
-    @EventSubscriber
-    public void onSetCurrentModuleRequest(SetCurrentModuleRequest request) {
-        BaseTaskExecutionModule requested = modules.get(request.getModuleId());
-        if (requested != null) {
-            center.setOpacity(0.0);
-            center.getChildren().clear();
-            center.getChildren().add(requested.modulePanel());
-            Timeline fadeIn = new Timeline(new KeyFrame(Duration.ZERO, new KeyValue(center.opacityProperty(), 0.0)),
-                    new KeyFrame(new Duration(1000), new KeyValue(center.opacityProperty(), 1.0)));
-            fadeIn.play();
-        }
+    public void init() {
+        VBox.setVgrow(mainPane, Priority.ALWAYS);
+        getChildren().addAll(menuBar, banner, mainPane);
     }
 }

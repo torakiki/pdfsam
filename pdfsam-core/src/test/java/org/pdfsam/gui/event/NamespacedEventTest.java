@@ -30,13 +30,13 @@ public class NamespacedEventTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testNegative() {
-        new BaseEvent(null);
+        new ModuleEvent(null);
     }
 
     @Test
     public void testPositive() {
-        EventNamespace namespace = EventNamespace.newParentInstance("root");
-        BaseEvent victim = new BaseEvent(namespace);
+        String namespace = String.newParentInstance("root");
+        ModuleEvent victim = new ModuleEvent(namespace);
         assertEquals(namespace, victim.getNamespace());
     }
 }

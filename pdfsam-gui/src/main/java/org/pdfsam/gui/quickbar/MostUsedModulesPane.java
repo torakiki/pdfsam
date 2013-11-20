@@ -16,9 +16,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui.navigation;
+package org.pdfsam.gui.quickbar;
 
 import static org.pdfsam.support.RequireUtils.require;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +38,6 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.bushe.swing.event.EventBus;
 import org.pdfsam.gui.SetCurrentModuleRequest;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.UsageService;
@@ -121,7 +121,7 @@ public class MostUsedModulesPane extends VBox {
             // TODO lambda
             setOnAction(new EventHandler<ActionEvent>() {
                 public void handle(ActionEvent event) {
-                    EventBus.publish(new SetCurrentModuleRequest(ModuleButton.this.module.id()));
+                    eventStudio().broadcast(new SetCurrentModuleRequest(ModuleButton.this.module.id()));
                 }
             });
             setTooltip(new Tooltip(this.module.descriptor().getName()));

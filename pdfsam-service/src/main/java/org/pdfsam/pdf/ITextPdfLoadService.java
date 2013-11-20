@@ -18,6 +18,10 @@
  */
 package org.pdfsam.pdf;
 
+import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.pdfsam.pdf.PdfDocumentDescriptor.newCopy;
+import static org.sejda.impl.itext.util.ITextUtils.nullSafeClosePdfReader;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -32,11 +36,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.lowagie.text.pdf.PdfReader;
-
-import static org.apache.commons.lang3.StringUtils.defaultString;
-
-import static org.pdfsam.pdf.PdfDocumentDescriptor.newCopy;
-import static org.sejda.impl.itext.util.ITextUtils.nullSafeClosePdfReader;
 
 /**
  * iText implementation of the load service

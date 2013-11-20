@@ -12,7 +12,7 @@
 	</parent>
 
 	<artifactId>pdfsam-core</artifactId>
-	<packaging>jar</packaging>
+	<packaging>maven-plugin</packaging>
 	<name>pdfsam core</name>
 
 	<dependencies>
@@ -38,13 +38,12 @@
 			<artifactId>sejda-conversion</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.bushe</groupId>
-			<artifactId>eventbus</artifactId>
+			<groupId>org.sejda</groupId>
+			<artifactId>eventstudio</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>jdepend</groupId>
 			<artifactId>jdepend</artifactId>
 		</dependency>
 	</dependencies>
-
 </project>

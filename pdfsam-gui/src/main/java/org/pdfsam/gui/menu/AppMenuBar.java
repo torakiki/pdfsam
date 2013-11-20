@@ -18,6 +18,8 @@
  */
 package org.pdfsam.gui.menu;
 
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,7 +38,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.bushe.swing.event.EventBus;
+import org.pdfsam.configuration.ApplicationContextHolder;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.SetCurrentModuleRequest;
 import org.pdfsam.gui.about.AboutStage;
@@ -82,14 +84,14 @@ public class AppMenuBar extends MenuBar {
         load.setAccelerator(new KeyCodeCombination(KeyCode.L, KeyCombination.SHORTCUT_DOWN));
         load.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
-                EventBus.publish(new LoadWorkspaceEvent());
+                eventStudio().broadcast(new LoadWorkspaceEvent());
             }
         });
         MenuItem save = new MenuItem(DefaultI18nContext.getInstance().i18n("_Save"));
         save.setAccelerator(new KeyCodeCombination(KeyCode.S, KeyCombination.SHORTCUT_DOWN));
         save.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
-                EventBus.publish(new SaveWorkspaceEvent());
+                eventStudio().broadcast(new SaveWorkspaceEvent());
             }
         });
         Menu recent = new Menu(DefaultI18nContext.getInstance().i18n("_Recent"));
@@ -117,7 +119,7 @@ public class AppMenuBar extends MenuBar {
             MenuItem moduleMenu = new MenuItem(currentModule.descriptor().getName());
             moduleMenu.setOnAction(new EventHandler<ActionEvent>() {
                 public void handle(ActionEvent event) {
-                    EventBus.publish(new SetCurrentModuleRequest(currentModule.id()));
+                    eventStudio().broadcast(new SetCurrentModuleRequest(currentModule.id()));
                 }
             });
             currentMenu.getItems().add(moduleMenu);
@@ -133,7 +135,7 @@ public class AppMenuBar extends MenuBar {
     private static class ExitActionHandler implements EventHandler<ActionEvent> {
 
         public void handle(ActionEvent event) {
-            // TODO maybe send an event and perform needed actions before exiting
+            ApplicationContextHolder.getContext().close();
             System.exit(0);
         }
     }

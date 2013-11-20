@@ -18,6 +18,7 @@
  */
 package org.pdfsam.gui.banner;
 
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.animation.Animation.Status;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
@@ -28,11 +29,10 @@ import javafx.util.Duration;
 import javax.annotation.PostConstruct;
 import javax.inject.Named;
 
-import org.bushe.swing.event.annotation.AnnotationProcessor;
-import org.bushe.swing.event.annotation.EventSubscriber;
 import org.pdfsam.gui.log.ChangedVisiblityLogAreaEvent;
 import org.pdfsam.gui.log.LogMessageEvent;
 import org.pdfsam.gui.log.LogMessageLevel;
+import org.sejda.eventstudio.annotation.EventListener;
 
 /**
  * Display a little notification with the number of unread error messages
@@ -47,7 +47,8 @@ public class ErrorsNotification extends Label {
 
     public ErrorsNotification() {
         getStyleClass().add("logs-notification");
-        AnnotationProcessor.process(this);
+        setVisible(false);
+        eventStudio().addAnnotatedListeners(this);
     }
 
     @PostConstruct
@@ -56,7 +57,7 @@ public class ErrorsNotification extends Label {
         fade.setAutoReverse(true);
     }
 
-    @EventSubscriber
+    @EventListener
     public void onLogMessage(LogMessageEvent event) {
         if (event.getLevel() == LogMessageLevel.ERROR) {
             unreadMessages++;
@@ -71,7 +72,7 @@ public class ErrorsNotification extends Label {
         }
     }
 
-    @EventSubscriber
+    @EventListener
     public void onViewedLogArea(ChangedVisiblityLogAreaEvent event) {
         if (hasUnreadMessages() && !(fade.getStatus() == Status.RUNNING)) {
             fade.setFromValue(1);

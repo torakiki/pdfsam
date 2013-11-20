@@ -21,28 +21,28 @@ package org.pdfsam.gui.view;
 import javax.swing.Action;
 import javax.swing.JButton;
 
-import org.pdfsam.gui.event.EventNamespace;
-import org.pdfsam.gui.event.WithEventNamespace;
+import org.pdfsam.gui.event.String;
+import org.pdfsam.gui.event.ModuleOwned;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**
- * {@link JButton} {@link WithEventNamespace}
+ * {@link JButton} {@link ModuleOwned}
  * 
  * @author Andrea Vacondio
  * 
  */
-public class JButtonWithNamespace extends JButton implements WithEventNamespace {
+public class JButtonWithNamespace extends JButton implements ModuleOwned {
 
-    private EventNamespace namespace = EventNamespace.NULL;
+    private String namespace = String.NULL;
 
-    public JButtonWithNamespace(Action a, EventNamespace namespace) {
+    public JButtonWithNamespace(Action a, String namespace) {
         super(a);
         requireNotNull(namespace, "Namespace cannot be null");
         this.namespace = namespace;
     }
 
-    public EventNamespace getEventNamespace() {
+    public String getOwnerModule() {
         return namespace;
     }
 }

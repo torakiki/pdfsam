@@ -30,8 +30,8 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.UIManager;
 import javax.swing.table.TableColumn;
 
-import org.pdfsam.gui.event.EventNamespace;
-import org.pdfsam.gui.event.WithEventNamespace;
+import org.pdfsam.gui.event.String;
+import org.pdfsam.gui.event.ModuleOwned;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
@@ -41,13 +41,13 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
  * @author Andrea Vacondio
  * 
  */
-public class SelectionPanel extends JPanel implements WithEventNamespace {
+public class SelectionPanel extends JPanel implements ModuleOwned {
 
-    private EventNamespace namespace = EventNamespace.NULL;
+    private String namespace = String.NULL;
     private SelectionTable selectionTable;
     private SelectionTableModel tableModel;
 
-    public SelectionPanel(EventNamespace namespace) {
+    public SelectionPanel(String namespace) {
         super(new BorderLayout());
         requireNotNull(namespace, "Event namespace cannot be null");
         this.namespace = namespace;
@@ -74,7 +74,7 @@ public class SelectionPanel extends JPanel implements WithEventNamespace {
         add(scrollPane, BorderLayout.CENTER);
     }
 
-    public EventNamespace getEventNamespace() {
+    public String getOwnerModule() {
         return namespace;
     }
 

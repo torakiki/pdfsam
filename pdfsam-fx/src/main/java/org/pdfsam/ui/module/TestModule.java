@@ -27,7 +27,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
-import org.pdfsam.gui.event.EventNamespace;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.PdfsamModule;
@@ -41,7 +40,7 @@ import org.springframework.core.io.ClassPathResource;
 @PdfsamModule
 public class TestModule extends BaseTaskExecutionModule {
 
-    private static final EventNamespace MERGE_NAMESPACE = EventNamespace.newModuleInstance("Merge");
+    private static final String MERGE_MODULE_ID = "merge";
 
     @Override
     public ModuleDescriptor descriptor() {
@@ -62,12 +61,8 @@ public class TestModule extends BaseTaskExecutionModule {
     }
 
     @Override
-    public EventNamespace getEventNamespace() {
-        return MERGE_NAMESPACE;
-    }
-
     public String id() {
-        return "TestModule";
+        return MERGE_MODULE_ID;
     }
 
     public Node graphic() {

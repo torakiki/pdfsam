@@ -21,7 +21,7 @@ package org.pdfsam.gui.view.selection;
 import java.awt.event.ActionEvent;
 
 import org.bushe.swing.event.EventBus;
-import org.pdfsam.gui.event.EventNamespace;
+import org.pdfsam.gui.event.String;
 import org.pdfsam.gui.view.AbstractActionWithNamespace;
 
 /**
@@ -33,7 +33,7 @@ import org.pdfsam.gui.view.AbstractActionWithNamespace;
 class MoveSelectedAction extends AbstractActionWithNamespace {
     private MoveType type;
 
-    public MoveSelectedAction(EventNamespace namespace, MoveType type) {
+    public MoveSelectedAction(String namespace, MoveType type) {
         super(namespace);
         this.type = type;
         this.setEnabled(false);
@@ -41,7 +41,7 @@ class MoveSelectedAction extends AbstractActionWithNamespace {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        EventBus.publish(new MoveSelectedEvent(getEventNamespace(), type));
+        EventBus.publish(new MoveSelectedEvent(getOwnerModule(), type));
     }
 
     public MoveType getType() {

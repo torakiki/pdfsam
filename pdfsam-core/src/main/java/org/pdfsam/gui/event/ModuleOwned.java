@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 05/apr/2012
- * Copyright 2012 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 08/feb/2013
+ * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,18 +16,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui.menu;
+package org.pdfsam.gui.event;
 
 /**
- * Type of menus available.
+ * The component can be owned by a module.
  * 
  * @author Andrea Vacondio
  * 
  */
-public enum MenuType {
-    FILE,
-    HELP,
-    WORKSPACE,
-    EDIT,
-    MODULES;
+public interface ModuleOwned {
+
+    /**
+     * @return a not null identifier for the module owning the component
+     */
+    String getOwnerModule();
+
 }

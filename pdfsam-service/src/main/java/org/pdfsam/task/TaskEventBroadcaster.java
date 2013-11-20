@@ -18,10 +18,10 @@
  */
 package org.pdfsam.task;
 
-import org.bushe.swing.event.EventBus;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
 import org.sejda.model.notification.EventListener;
 import org.sejda.model.notification.event.AbstractNotificationEvent;
-
 /**
  * Listen for an {@link AbstractNotificationEvent} and broadcasts it to all the registered subscribers.
  * 
@@ -32,6 +32,6 @@ import org.sejda.model.notification.event.AbstractNotificationEvent;
 class TaskEventBroadcaster<T extends AbstractNotificationEvent> implements EventListener<T> {
 
     public void onEvent(T event) {
-        EventBus.publish(event);
+        eventStudio().broadcast(event);
     }
 }

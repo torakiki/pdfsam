@@ -18,8 +18,8 @@
  */
 package org.pdfsam.gui.view.selection;
 
-import org.pdfsam.gui.event.BaseEvent;
-import org.pdfsam.gui.event.EventNamespace;
+import org.pdfsam.gui.event.ModuleEvent;
+import org.pdfsam.gui.event.String;
 
 /**
  * Notifies that the selection table should be cleared
@@ -27,8 +27,8 @@ import org.pdfsam.gui.event.EventNamespace;
  * @author Andrea Vacondio
  * 
  */
-class ClearSelectionTableEvent extends BaseEvent {
-    public ClearSelectionTableEvent(EventNamespace namespace) {
+class ClearSelectionTableEvent extends ModuleEvent {
+    public ClearSelectionTableEvent(String namespace) {
         super(namespace);
     }
 }

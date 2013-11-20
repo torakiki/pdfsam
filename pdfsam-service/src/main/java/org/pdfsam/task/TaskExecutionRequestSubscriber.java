@@ -18,15 +18,16 @@
  */
 package org.pdfsam.task;
 
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
-import org.bushe.swing.event.annotation.AnnotationProcessor;
-import org.bushe.swing.event.annotation.EventSubscriber;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.module.UsageService;
 import org.sejda.core.notification.context.GlobalNotificationContext;
+import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.model.notification.event.PercentageOfWorkDoneChangedEvent;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
@@ -51,7 +52,7 @@ class TaskExecutionRequestSubscriber {
     private UsageService usageService;
 
     public TaskExecutionRequestSubscriber() {
-        AnnotationProcessor.process(this);
+        eventStudio().addAnnotatedListeners(this);
         GlobalNotificationContext.getContext().addListener(PercentageOfWorkDoneChangedEvent.class,
                 new TaskEventBroadcaster<PercentageOfWorkDoneChangedEvent>());
         GlobalNotificationContext.getContext().addListener(TaskExecutionFailedEvent.class,
@@ -67,7 +68,7 @@ class TaskExecutionRequestSubscriber {
      * 
      * @param event
      */
-    @EventSubscriber
+    @EventListener
     public void request(TaskExecutionRequestEvent event) {
         LOG.trace("Task execution request received");
         usageService.incrementUsageFor(event.getModuleId());

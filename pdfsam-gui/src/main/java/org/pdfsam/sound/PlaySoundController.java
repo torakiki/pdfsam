@@ -18,12 +18,12 @@
  */
 package org.pdfsam.sound;
 
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
 import javax.inject.Named;
 
-import org.bushe.swing.event.annotation.AnnotationProcessor;
-import org.bushe.swing.event.annotation.EventSubscriber;
-import org.bushe.swing.event.annotation.ReferenceStrength;
 import org.pdfsam.context.DefaultUserContext;
+import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 
@@ -39,15 +39,15 @@ public class PlaySoundController {
     private SoundPlayer player = new DefaultSoundPlayer();
 
     public PlaySoundController() {
-        AnnotationProcessor.process(this);
+        eventStudio().addAnnotatedListeners(this);
     }
 
-    @EventSubscriber(referenceStrength = ReferenceStrength.STRONG)
+    @EventListener
     public void playFailed(TaskExecutionFailedEvent event) {
         playSound(Sound.NEGATIVE);
     }
 
-    @EventSubscriber(referenceStrength = ReferenceStrength.STRONG)
+    @EventListener
     public void playCompleted(TaskExecutionCompletedEvent event) {
         playSound(Sound.POSITIVE);
     }

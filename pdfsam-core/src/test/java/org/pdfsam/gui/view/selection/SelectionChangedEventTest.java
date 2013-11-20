@@ -19,7 +19,7 @@
 package org.pdfsam.gui.view.selection;
 
 import org.junit.Test;
-import org.pdfsam.gui.event.EventNamespace;
+import org.pdfsam.gui.event.String;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -33,7 +33,7 @@ import static org.pdfsam.gui.view.selection.SelectionChangedEvent.selectionChang
  */
 public class SelectionChangedEventTest {
 
-    private EventNamespace namespace = EventNamespace.newParentInstance("/");
+    private String namespace = String.newParentInstance("/");
 
     @Test
     public void clear() {

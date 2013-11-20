@@ -18,13 +18,13 @@
  */
 package org.pdfsam.update;
 
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
 import javax.inject.Named;
 
-import org.bushe.swing.event.annotation.AnnotationProcessor;
-import org.bushe.swing.event.annotation.EventSubscriber;
-import org.bushe.swing.event.annotation.ReferenceStrength;
 import org.pdfsam.configuration.ApplicationContextHolder;
 import org.pdfsam.context.DefaultI18nContext;
+import org.sejda.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,14 +39,16 @@ class UpdateController {
     private static final Logger LOG = LoggerFactory.getLogger(UpdateController.class);
 
     UpdateController() {
-        AnnotationProcessor.process(this);
+        eventStudio().addAnnotatedListeners(this);
     }
 
-    @EventSubscriber(referenceStrength = ReferenceStrength.STRONG)
+    @EventListener
     public void checkForUpdates(UpdateCheckRequest event) {
         LOG.debug(DefaultI18nContext.getInstance().i18n("Checking for updates"));
         AsyncUpdateChecker worker = ApplicationContextHolder.getContext().getBean(AsyncUpdateChecker.class);
-        worker.execute();
+        if (worker != null) {
+            worker.execute();
+        }
     }
 
 }

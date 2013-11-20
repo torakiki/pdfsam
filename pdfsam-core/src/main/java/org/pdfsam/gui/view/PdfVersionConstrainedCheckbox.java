@@ -26,9 +26,9 @@ import javax.swing.JCheckBox;
 import org.bushe.swing.event.EventBus;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.event.AddPdfVersionConstraintEvent;
-import org.pdfsam.gui.event.EventNamespace;
+import org.pdfsam.gui.event.String;
 import org.pdfsam.gui.event.RemovePdfVersionConstraintEvent;
-import org.pdfsam.gui.event.WithEventNamespace;
+import org.pdfsam.gui.event.ModuleOwned;
 import org.sejda.model.pdf.PdfVersion;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
@@ -39,10 +39,10 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
  * @author Andrea Vacondio
  * 
  */
-public class PdfVersionConstrainedCheckbox extends JCheckBox implements WithEventNamespace {
+public class PdfVersionConstrainedCheckbox extends JCheckBox implements ModuleOwned {
 
     private PdfVersion constraint;
-    private EventNamespace namespace = EventNamespace.NULL;
+    private String namespace = String.NULL;
 
     public PdfVersionConstrainedCheckbox(PdfVersion constraint) {
         requireNotNull(constraint, "PdfVersion cannot be null");
@@ -52,12 +52,12 @@ public class PdfVersionConstrainedCheckbox extends JCheckBox implements WithEven
                 Double.toString(this.constraint.getVersionAsDouble())));
     }
 
-    public void setEventNamespace(EventNamespace namespace) {
+    public void setEventNamespace(String namespace) {
         this.namespace = namespace;
     }
 
     @Override
-    public EventNamespace getEventNamespace() {
+    public String getOwnerModule() {
         return namespace;
     }
 

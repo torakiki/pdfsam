@@ -21,8 +21,8 @@ package org.pdfsam.gui.view.output;
 import javax.swing.JPanel;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.gui.event.EventNamespace;
-import org.pdfsam.gui.event.WithEventNamespace;
+import org.pdfsam.gui.event.String;
+import org.pdfsam.gui.event.ModuleOwned;
 import org.pdfsam.gui.view.PdfVersionConstrainedCheckbox;
 import org.pdfsam.gui.view.Views;
 import org.pdfsam.support.filter.FileFilterType;
@@ -35,9 +35,9 @@ import static org.apache.commons.lang3.StringUtils.EMPTY;
  * @author Andrea Vacondio
  * 
  */
-class BasePdfDestinationPanel extends DestinationPanel implements WithEventNamespace {
+class BasePdfDestinationPanel extends DestinationPanel implements ModuleOwned {
 
-    private EventNamespace namespace = EventNamespace.NULL;
+    private String namespace = String.NULL;
     private PdfVersionCombo combo = new PdfVersionCombo();
     private PdfVersionConstrainedCheckbox compress = Views.newCompressOutputCheckbox();
 
@@ -52,13 +52,13 @@ class BasePdfDestinationPanel extends DestinationPanel implements WithEventNames
         add(comboPanel);
     }
 
-    public void setEventNamespace(EventNamespace namespace) {
+    public void setEventNamespace(String namespace) {
         this.namespace = namespace;
         this.combo.setEventNamespace(namespace);
         this.compress.setEventNamespace(namespace);
     }
 
-    public EventNamespace getEventNamespace() {
+    public String getOwnerModule() {
         return namespace;
     }
 

@@ -35,10 +35,10 @@ import javax.swing.table.TableColumn;
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
 import org.bushe.swing.event.annotation.ReferenceStrength;
-import org.pdfsam.gui.event.BaseEvent;
-import org.pdfsam.gui.event.EventNamespace;
+import org.pdfsam.gui.event.ModuleEvent;
+import org.pdfsam.gui.event.String;
 import org.pdfsam.gui.event.EventSubscriberCallback;
-import org.pdfsam.gui.event.WithEventNamespace;
+import org.pdfsam.gui.event.ModuleOwned;
 import org.pdfsam.pdf.PdfLoadCompletedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -55,16 +55,16 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
  * @author Andrea Vacondio
  * 
  */
-public class SelectionTable extends JTable implements WithEventNamespace {
+public class SelectionTable extends JTable implements ModuleOwned {
 
     private static final Logger LOG = LoggerFactory.getLogger(SelectionTable.class);
 
     private static final int ROW_HEADER_WIDTH = 30;
     private static final int ROW_HEIGHT = 22;
-    private EventNamespace namespace = EventNamespace.NULL;
+    private String namespace = String.NULL;
     private SelectionTableRowSorter sorter;
 
-    public SelectionTable(SelectionTableModel dm, EventNamespace namespace) {
+    public SelectionTable(SelectionTableModel dm, String namespace) {
         super(dm);
         this.namespace = namespace;
         sorter = new SelectionTableRowSorter(dm);
@@ -117,14 +117,14 @@ public class SelectionTable extends JTable implements WithEventNamespace {
         return getPreferredSize().width < getParent().getWidth();
     }
 
-    public EventNamespace getEventNamespace() {
+    public String getOwnerModule() {
         return namespace;
     }
 
     @EventSubscriber
     public void onRemoveSelected(RemoveSelectedEvent event) {
-        ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
-            public void exec(BaseEvent e) {
+        ifEvent(event).routesTo(getOwnerModule()).execute(new EventSubscriberCallback() {
+            public void exec(ModuleEvent e) {
                 ((SelectionTableModel) getModel()).deleteIndexes(getSelectedRows());
             }
         });
@@ -132,8 +132,8 @@ public class SelectionTable extends JTable implements WithEventNamespace {
 
     @EventSubscriber
     public void onMoveSelected(final MoveSelectedEvent event) {
-        ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
-            public void exec(BaseEvent e) {
+        ifEvent(event).routesTo(getOwnerModule()).execute(new EventSubscriberCallback() {
+            public void exec(ModuleEvent e) {
                 sorter.unsort();
                 int[] selected = getSelectedRows();
                 if (event.getType() == MoveType.DOWN) {
@@ -149,8 +149,8 @@ public class SelectionTable extends JTable implements WithEventNamespace {
 
     @EventSubscriber
     public void onSort(SortRequestEvent event) {
-        ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
-            public void exec(BaseEvent e) {
+        ifEvent(event).routesTo(getOwnerModule()).execute(new EventSubscriberCallback() {
+            public void exec(ModuleEvent e) {
                 sorter.sort();
                 resizeAndRepaint();
             }
@@ -194,8 +194,8 @@ public class SelectionTable extends JTable implements WithEventNamespace {
 
         @EventSubscriber
         public void onLoadDocumentsCompletion(final PdfLoadCompletedEvent event) {
-            ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
-                public void exec(BaseEvent e) {
+            ifEvent(event).routesTo(getOwnerModule()).execute(new EventSubscriberCallback() {
+                public void exec(ModuleEvent e) {
                     int rows = event.getDocuments().size();
                     if (rows > 0) {
                         numberOfRows += rows;
@@ -207,8 +207,8 @@ public class SelectionTable extends JTable implements WithEventNamespace {
 
         @EventSubscriber
         public void onClear(ClearSelectionTableEvent event) {
-            ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
-                public void exec(BaseEvent e) {
+            ifEvent(event).routesTo(getOwnerModule()).execute(new EventSubscriberCallback() {
+                public void exec(ModuleEvent e) {
                     numberOfRows = 0;
                     fireTableDataChanged();
                 }
@@ -217,8 +217,8 @@ public class SelectionTable extends JTable implements WithEventNamespace {
 
         @EventSubscriber(priority = Integer.MAX_VALUE)
         public void onRemoveSelected(RemoveSelectedEvent event) {
-            ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
-                public void exec(BaseEvent e) {
+            ifEvent(event).routesTo(getOwnerModule()).execute(new EventSubscriberCallback() {
+                public void exec(ModuleEvent e) {
                     int formerRows = numberOfRows;
                     numberOfRows = SelectionTable.this.getRowCount();
                     fireTableRowsDeleted(numberOfRows, formerRows - 1);
@@ -269,8 +269,8 @@ public class SelectionTable extends JTable implements WithEventNamespace {
 
         @EventSubscriber(referenceStrength = ReferenceStrength.STRONG)
         public void onBeforeSort(BeforeSortEvent event) {
-            ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
-                public void exec(BaseEvent e) {
+            ifEvent(event).routesTo(getOwnerModule()).execute(new EventSubscriberCallback() {
+                public void exec(ModuleEvent e) {
                     selected = null;
                     ListSelectionModel selectionModel = getSelectionModel();
                     if (!selectionModel.isSelectionEmpty()
@@ -284,8 +284,8 @@ public class SelectionTable extends JTable implements WithEventNamespace {
 
         @EventSubscriber(referenceStrength = ReferenceStrength.STRONG)
         public void onAfterSort(AfterSortEvent event) {
-            ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
-                public void exec(BaseEvent e) {
+            ifEvent(event).routesTo(getOwnerModule()).execute(new EventSubscriberCallback() {
+                public void exec(ModuleEvent e) {
                     if (selected != null) {
                         ListSelectionModel selectionModel = getSelectionModel();
                         int index = model.getRowIndex(selected);

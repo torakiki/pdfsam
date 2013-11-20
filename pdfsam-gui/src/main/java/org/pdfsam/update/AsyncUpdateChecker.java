@@ -18,12 +18,13 @@
  */
 package org.pdfsam.update;
 
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.swing.SwingWorker;
 
 import org.apache.commons.lang3.StringUtils;
-import org.bushe.swing.event.EventBus;
 import org.pdfsam.context.DefaultI18nContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -58,7 +59,7 @@ class AsyncUpdateChecker extends SwingWorker<String, Void> {
         try {
             latest = get();
             if (!env.getProperty("pdfsam.version").equals(latest)) {
-                EventBus.publish(new UpdateAvailableEvent(latest));
+                eventStudio().broadcast(new UpdateAvailableEvent(latest));
             } else {
                 LOG.debug(DefaultI18nContext.getInstance().i18n("No update available"));
             }

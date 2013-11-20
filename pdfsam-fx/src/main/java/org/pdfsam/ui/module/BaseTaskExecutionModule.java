@@ -18,9 +18,7 @@
  */
 package org.pdfsam.ui.module;
 
-import static org.pdfsam.gui.event.EnableDisableComponentCallback.disableComponent;
-import static org.pdfsam.gui.event.EnableDisableComponentCallback.enableComponent;
-import static org.pdfsam.gui.event.EventSubscriberTemplate.ifEvent;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -30,35 +28,31 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
-import org.bushe.swing.event.EventBus;
-import org.bushe.swing.event.annotation.AnnotationProcessor;
-import org.bushe.swing.event.annotation.EventSubscriber;
-import org.bushe.swing.event.annotation.ReferenceStrength;
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.gui.event.WithEventNamespace;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.pdf.PdfLoadCompletedEvent;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.ui.support.Style;
+import org.sejda.eventstudio.annotation.EventListener;
+import org.sejda.eventstudio.annotation.EventStation;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 import org.sejda.model.parameter.base.TaskParameters;
-
 /**
  * Abstract implementation of a pdfsam module providing common features to every module whose purpose is to execute a pdf manipulation task.
  * 
  * @author Andrea Vacondio
  * 
  */
-public abstract class BaseTaskExecutionModule implements Module, WithEventNamespace {
+public abstract class BaseTaskExecutionModule implements Module {
 
     private Button runButton = new Button();
     private BorderPane modulePanel = new BorderPane();
 
     public BaseTaskExecutionModule() {
         init();
-        AnnotationProcessor.process(new RunButtonStatusController());
+        eventStudio().addAnnotatedListeners(new RunButtonStatusController());
     }
 
     private void init() {
@@ -78,6 +72,21 @@ public abstract class BaseTaskExecutionModule implements Module, WithEventNamesp
         scrollPane.setContent(getInnerPanel());
         modulePanel.setCenter(scrollPane);
     }
+
+    @EventListener
+    public void disableRunButtonWhileLoadingDocuments(PdfLoadRequestEvent event) {
+        // still loading
+        runButton.setDisable(true);
+    }
+
+    @EventListener
+    public void enableRunButtonOnLoadDocumentsCompletion(PdfLoadCompletedEvent event) {
+        // I'm done loading documents
+        runButton.setDisable(false);
+    }
+
+    @EventStation
+    public abstract String id();
 
     /**
      * @return the inner panel that allows the user to set options and preferences for this module
@@ -102,9 +111,10 @@ public abstract class BaseTaskExecutionModule implements Module, WithEventNamesp
     private final class RunAction implements EventHandler<ActionEvent> {
 
         public void handle(ActionEvent arg0) {
-            EventBus.publish(new TaskExecutionRequestEvent(id(), getParameters()));
+            eventStudio().broadcast(new TaskExecutionRequestEvent(id(), getParameters()));
         }
     }
+
 
     /**
      * Handles the run button status by listening to events affecting its status and changing it accordingly.
@@ -116,31 +126,19 @@ public abstract class BaseTaskExecutionModule implements Module, WithEventNamesp
 
         // we give highest priority to be sure this is executed before the actual task.
         // we first want to disable the button and then execute the task
-        @EventSubscriber(referenceStrength = ReferenceStrength.STRONG, priority = Integer.MIN_VALUE)
+        @EventListener(priority = Integer.MIN_VALUE)
         public void disableRunButtonIfTaskRequested(TaskExecutionRequestEvent event) {
             runButton.setDisable(true);
         }
 
-        @EventSubscriber(referenceStrength = ReferenceStrength.STRONG)
+        @EventListener
         public void enableRunButtonOnTaskCompletion(TaskExecutionCompletedEvent event) {
             runButton.setDisable(false);
         }
 
-        @EventSubscriber(referenceStrength = ReferenceStrength.STRONG)
+        @EventListener
         public void enableRunButtonOnTaskFailure(TaskExecutionFailedEvent event) {
             runButton.setDisable(false);
-        }
-
-        @EventSubscriber(referenceStrength = ReferenceStrength.STRONG)
-        public void disableRunButtonWhileLoadingDocuments(PdfLoadRequestEvent event) {
-            // still loading
-            ifEvent(event).routesTo(getEventNamespace()).execute(disableComponent(runButton));
-        }
-
-        @EventSubscriber(referenceStrength = ReferenceStrength.STRONG)
-        public void enableRunButtonOnLoadDocumentsCompletion(PdfLoadCompletedEvent event) {
-            // I'm done loading documents
-            ifEvent(event).routesTo(getEventNamespace()).execute(enableComponent(runButton));
         }
 
     }

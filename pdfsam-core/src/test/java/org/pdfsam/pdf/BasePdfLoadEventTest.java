@@ -21,7 +21,7 @@ package org.pdfsam.pdf;
 import java.io.File;
 
 import org.junit.Test;
-import org.pdfsam.gui.event.EventNamespace;
+import org.pdfsam.gui.event.String;
 
 import static org.mockito.Mockito.mock;
 
@@ -38,7 +38,7 @@ public class BasePdfLoadEventTest {
     public void add() {
         File file = mock(File.class);
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(file);
-        BasePdfLoadEvent victim = new BasePdfLoadEvent(EventNamespace.NULL);
+        BasePdfLoadEvent victim = new BasePdfLoadEvent(String.NULL);
         assertNotNull(victim.getDocuments());
         assertEquals(0, victim.getDocuments().size());
         victim.add(descriptor);

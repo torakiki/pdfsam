@@ -39,7 +39,7 @@ public final class EnableDisableComponentCallback implements EventSubscriberCall
     }
 
     @Override
-    public void exec(BaseEvent e) {
+    public void exec(ModuleEvent e) {
         comp.setDisable(disable);
     }
 

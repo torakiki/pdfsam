@@ -32,52 +32,52 @@ public class EventNamespaceTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testBlank() {
-        EventNamespace.newParentInstance("");
+        String.newParentInstance("");
     }
 
     @Test
     public void testParent() {
-        EventNamespace victim = EventNamespace.newParentInstance("parent");
+        String victim = String.newParentInstance("parent");
         assertEquals("parent", victim.getNamespaceId());
     }
 
     @Test
     public void testChild() {
-        EventNamespace root = EventNamespace.newParentInstance("root");
-        EventNamespace victim = EventNamespace.newChildInstance(root, "child");
+        String root = String.newParentInstance("root");
+        String victim = String.newChildInstance(root, "child");
         assertEquals("root.child", victim.getNamespaceId());
     }
 
     @Test
     public void testIsParentForNull() {
-        assertTrue(EventNamespace.NULL.isParentOf(EventNamespace.newParentInstance("root")));
+        assertTrue(String.NULL.isParentOf(String.newParentInstance("root")));
     }
 
     @Test
     public void testModuleNamespace() {
-        EventNamespace module = EventNamespace.newModuleInstance("mymodule");
+        String module = String.newModuleInstance("mymodule");
         assertTrue(module.getNamespaceId().startsWith("module."));
     }
 
     @Test
     public void testIsParentOf() {
-        EventNamespace root = EventNamespace.newParentInstance("root");
-        EventNamespace child = EventNamespace.newChildInstance(root, "child");
+        String root = String.newParentInstance("root");
+        String child = String.newChildInstance(root, "child");
         assertTrue(root.isParentOf(child));
     }
 
     @Test
     public void testIsParentOfItself() {
-        EventNamespace root = EventNamespace.newParentInstance("root");
+        String root = String.newParentInstance("root");
         assertTrue(root.isParentOf(root));
     }
 
     @Test
     public void testEquals() {
-        EventNamespace eq1 = EventNamespace.newParentInstance("root");
-        EventNamespace eq2 = EventNamespace.newParentInstance("root");
-        EventNamespace eq3 = EventNamespace.newParentInstance("root");
-        EventNamespace diff = EventNamespace.newChildInstance(eq1, "child");
+        String eq1 = String.newParentInstance("root");
+        String eq2 = String.newParentInstance("root");
+        String eq3 = String.newParentInstance("root");
+        String diff = String.newChildInstance(eq1, "child");
         TestUtils.testEqualsAndHashCodes(eq1, eq2, eq3, diff);
     }
 }

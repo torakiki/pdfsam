@@ -32,9 +32,9 @@ public class ChangedSelectedPdfVersionEventTest {
 
     @Test
     public void testNoVersion() {
-        ChangedSelectedPdfVersionEvent victim = new ChangedSelectedPdfVersionEvent(EventNamespace.NULL, null);
+        ChangedSelectedPdfVersionEvent victim = new ChangedSelectedPdfVersionEvent(String.NULL, null);
         assertFalse(victim.hasPdfVersion());
-        ChangedSelectedPdfVersionEvent victim2 = new ChangedSelectedPdfVersionEvent(EventNamespace.NULL,
+        ChangedSelectedPdfVersionEvent victim2 = new ChangedSelectedPdfVersionEvent(String.NULL,
                 PdfVersion.VERSION_1_0);
         assertTrue(victim2.hasPdfVersion());
     }

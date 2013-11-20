@@ -27,7 +27,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
-import org.pdfsam.gui.event.EventNamespace;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.PdfsamModule;
@@ -41,7 +40,7 @@ import org.springframework.core.io.ClassPathResource;
 @PdfsamModule
 public class TestModule2 extends BaseTaskExecutionModule {
 
-    private static final EventNamespace SPLIT_NAMESPACE = EventNamespace.newModuleInstance("SPLIT");
+    private static final String SPLIT_MODULE_ID = "split";
 
     @Override
     public ModuleDescriptor descriptor() {
@@ -61,13 +60,10 @@ public class TestModule2 extends BaseTaskExecutionModule {
         return pane;
     }
 
-    @Override
-    public EventNamespace getEventNamespace() {
-        return SPLIT_NAMESPACE;
-    }
 
+    @Override
     public String id() {
-        return "TestModule2";
+        return SPLIT_MODULE_ID;
     }
 
     public Node graphic() {

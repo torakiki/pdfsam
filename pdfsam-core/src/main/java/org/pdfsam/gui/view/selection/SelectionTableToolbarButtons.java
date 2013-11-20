@@ -32,8 +32,8 @@ import org.bushe.swing.event.EventBus;
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.gui.event.BaseEvent;
-import org.pdfsam.gui.event.EventNamespace;
+import org.pdfsam.gui.event.ModuleEvent;
+import org.pdfsam.gui.event.String;
 import org.pdfsam.gui.event.EventSubscriberCallback;
 import org.pdfsam.gui.support.SharedJFileChooser;
 import org.pdfsam.gui.view.AbstractActionWithNamespace;
@@ -59,23 +59,23 @@ final class SelectionTableToolbarButtons {
         // utility
     }
 
-    public static JButtonWithNamespace moveUpButton(EventNamespace namespace) {
+    public static JButtonWithNamespace moveUpButton(String namespace) {
         return new MoveSelectionButton(new MoveUpSelectedAction(namespace), namespace);
     }
 
-    public static JButtonWithNamespace moveDownButton(EventNamespace namespace) {
+    public static JButtonWithNamespace moveDownButton(String namespace) {
         return new MoveSelectionButton(new MoveDownSelectedAction(namespace), namespace);
     }
 
-    public static JButtonWithNamespace removeButton(EventNamespace namespace) {
+    public static JButtonWithNamespace removeButton(String namespace) {
         return new AnySelectionToolbarButton(new RemoveSelectedAction(namespace), namespace);
     }
 
-    public static JButtonWithNamespace clearButton(EventNamespace namespace) {
+    public static JButtonWithNamespace clearButton(String namespace) {
         return new SelectionToolbarButton(new ClearSelectionTableAction(namespace), namespace);
     }
 
-    public static JButtonWithNamespace addButton(EventNamespace namespace) {
+    public static JButtonWithNamespace addButton(String namespace) {
         return new SelectionToolbarButton(new AddAction(namespace), namespace);
     }
 
@@ -87,7 +87,7 @@ final class SelectionTableToolbarButtons {
      */
     private static class MoveSelectionButton extends JButtonWithNamespace {
 
-        public MoveSelectionButton(MoveSelectedAction a, EventNamespace namespace) {
+        public MoveSelectionButton(MoveSelectedAction a, String namespace) {
             super(a, namespace);
             setEnabled(false);
             AnnotationProcessor.process(this);
@@ -95,8 +95,8 @@ final class SelectionTableToolbarButtons {
 
         @EventSubscriber
         public void disableIfCannotMoveDown(final SelectionChangedEvent event) {
-            ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
-                public void exec(BaseEvent e) {
+            ifEvent(event).routesTo(getOwnerModule()).execute(new EventSubscriberCallback() {
+                public void exec(ModuleEvent e) {
                     setEnabled(event.canMove(((MoveSelectedAction) getAction()).getType()));
                 }
             });
@@ -112,7 +112,7 @@ final class SelectionTableToolbarButtons {
      */
     private static class AnySelectionToolbarButton extends JButtonWithNamespace {
 
-        public AnySelectionToolbarButton(Action a, EventNamespace namespace) {
+        public AnySelectionToolbarButton(Action a, String namespace) {
             super(a, namespace);
             setEnabled(false);
             AnnotationProcessor.process(this);
@@ -120,8 +120,8 @@ final class SelectionTableToolbarButtons {
 
         @EventSubscriber
         public void disableIfNoSelection(final SelectionChangedEvent event) {
-            ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
-                public void exec(BaseEvent e) {
+            ifEvent(event).routesTo(getOwnerModule()).execute(new EventSubscriberCallback() {
+                public void exec(ModuleEvent e) {
                     setEnabled(!event.isClearSelection());
                 }
             });
@@ -136,7 +136,7 @@ final class SelectionTableToolbarButtons {
      */
     private static class SelectionToolbarButton extends JButtonWithNamespace {
 
-        public SelectionToolbarButton(Action a, EventNamespace namespace) {
+        public SelectionToolbarButton(Action a, String namespace) {
             super(a, namespace);
             AnnotationProcessor.process(this);
         }
@@ -144,13 +144,13 @@ final class SelectionTableToolbarButtons {
         @EventSubscriber
         public void disableWhileLoadingDocuments(PdfLoadRequestEvent event) {
             // I'm still loading documents
-            ifEvent(event).routesTo(getEventNamespace()).execute(disableComponent(this));
+            ifEvent(event).routesTo(getOwnerModule()).execute(disableComponent(this));
         }
 
         @EventSubscriber
         public void enableOnLoadDocumentsCompletion(PdfLoadCompletedEvent event) {
             // I'm done loading documents
-            ifEvent(event).routesTo(getEventNamespace()).execute(enableComponent(this));
+            ifEvent(event).routesTo(getOwnerModule()).execute(enableComponent(this));
         }
 
     }
@@ -163,7 +163,7 @@ final class SelectionTableToolbarButtons {
      */
     private static class MoveUpSelectedAction extends MoveSelectedAction {
 
-        public MoveUpSelectedAction(EventNamespace namespace) {
+        public MoveUpSelectedAction(String namespace) {
             super(namespace, MoveType.UP);
             this.putValue(Action.NAME, DefaultI18nContext.getInstance().i18n("Move Up"));
             this.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_UP, InputEvent.ALT_DOWN_MASK));
@@ -181,7 +181,7 @@ final class SelectionTableToolbarButtons {
      */
     private static class MoveDownSelectedAction extends MoveSelectedAction {
 
-        public MoveDownSelectedAction(EventNamespace namespace) {
+        public MoveDownSelectedAction(String namespace) {
             super(namespace, MoveType.DOWN);
             this.putValue(Action.NAME, DefaultI18nContext.getInstance().i18n("Move Down"));
             this.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, InputEvent.ALT_DOWN_MASK));
@@ -199,7 +199,7 @@ final class SelectionTableToolbarButtons {
      */
     private static class RemoveSelectedAction extends AbstractActionWithNamespace {
 
-        public RemoveSelectedAction(EventNamespace namespace) {
+        public RemoveSelectedAction(String namespace) {
             super(namespace);
             this.putValue(Action.NAME, DefaultI18nContext.getInstance().i18n("Remove"));
             this.setEnabled(true);
@@ -210,7 +210,7 @@ final class SelectionTableToolbarButtons {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            EventBus.publish(new RemoveSelectedEvent(getEventNamespace()));
+            EventBus.publish(new RemoveSelectedEvent(getOwnerModule()));
         }
     }
 
@@ -222,7 +222,7 @@ final class SelectionTableToolbarButtons {
      */
     private static class ClearSelectionTableAction extends AbstractActionWithNamespace {
 
-        public ClearSelectionTableAction(EventNamespace namespace) {
+        public ClearSelectionTableAction(String namespace) {
             super(namespace);
             this.putValue(Action.NAME, DefaultI18nContext.getInstance().i18n("Clear"));
             this.setEnabled(true);
@@ -233,7 +233,7 @@ final class SelectionTableToolbarButtons {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            EventBus.publish(new ClearSelectionTableEvent(getEventNamespace()));
+            EventBus.publish(new ClearSelectionTableEvent(getOwnerModule()));
         }
     }
 
@@ -245,7 +245,7 @@ final class SelectionTableToolbarButtons {
      */
     private static class AddAction extends AbstractActionWithNamespace {
 
-        public AddAction(EventNamespace namespace) {
+        public AddAction(String namespace) {
             super(namespace);
             this.putValue(Action.NAME, DefaultI18nContext.getInstance().i18n("Add"));
             this.setEnabled(true);
@@ -262,7 +262,7 @@ final class SelectionTableToolbarButtons {
             int retVal = chooser.showOpenDialog(null);
 
             if (retVal == JFileChooser.APPROVE_OPTION) {
-                PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getEventNamespace());
+                PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
                 for (File current : chooser.getSelectedFiles()) {
                     loadEvent.add(PdfDocumentDescriptor.newDescriptorNoPassword(current));
                 }

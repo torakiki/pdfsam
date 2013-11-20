@@ -18,6 +18,8 @@
  */
 package org.pdfsam.pdf;
 
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
@@ -26,9 +28,7 @@ import java.util.concurrent.Executors;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.bushe.swing.event.EventBus;
-import org.bushe.swing.event.annotation.AnnotationProcessor;
-import org.bushe.swing.event.annotation.EventSubscriber;
+import org.sejda.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -49,7 +49,7 @@ public class PdfLoadRequestSubscriber {
     private PdfLoadService loadService;
 
     public PdfLoadRequestSubscriber() {
-        AnnotationProcessor.process(this);
+        eventStudio().addAnnotatedListeners(this);
     }
 
     /**
@@ -57,7 +57,7 @@ public class PdfLoadRequestSubscriber {
      * 
      * @param event
      */
-    @EventSubscriber
+    @EventListener
     public void request(PdfLoadRequestEvent event) {
         LOG.trace("Pdf load request received");
         executor.submit(new LoadTask(event));
@@ -80,9 +80,9 @@ public class PdfLoadRequestSubscriber {
         @Override
         public Void call() {
             List<PdfDocumentDescriptor> loaded = loadService.load(request.getDocuments());
-            PdfLoadCompletedEvent response = new PdfLoadCompletedEvent(request.getNamespace());
+            PdfLoadCompletedEvent response = new PdfLoadCompletedEvent(request.getOwnerModule());
             response.addAll(loaded);
-            EventBus.publish(response);
+            eventStudio().broadcast(response);
             return null;
         }
 

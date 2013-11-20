@@ -20,8 +20,8 @@ package org.pdfsam.gui.view.selection;
 
 import javax.swing.JToolBar;
 
-import org.pdfsam.gui.event.EventNamespace;
-import org.pdfsam.gui.event.WithEventNamespace;
+import org.pdfsam.gui.event.String;
+import org.pdfsam.gui.event.ModuleOwned;
 
 import static org.pdfsam.gui.view.selection.SelectionTableToolbarButtons.addButton;
 import static org.pdfsam.gui.view.selection.SelectionTableToolbarButtons.clearButton;
@@ -37,11 +37,11 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
  * @author Andrea Vacondio
  * 
  */
-public class SelectionTableToolbar extends JToolBar implements WithEventNamespace {
+public class SelectionTableToolbar extends JToolBar implements ModuleOwned {
 
-    private EventNamespace namespace = EventNamespace.NULL;
+    private String namespace = String.NULL;
 
-    public SelectionTableToolbar(EventNamespace namespace) {
+    public SelectionTableToolbar(String namespace) {
         requireNotNull(namespace, "Event namespace cannot be null");
         this.namespace = namespace;
         setFloatable(false);
@@ -56,7 +56,7 @@ public class SelectionTableToolbar extends JToolBar implements WithEventNamespac
         setBorderPainted(false);
     }
 
-    public EventNamespace getEventNamespace() {
+    public String getOwnerModule() {
         return namespace;
     }
 

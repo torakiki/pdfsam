@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 05/apr/2012
- * Copyright 2012 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 08/feb/2013
+ * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,33 +16,33 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui;
+package org.pdfsam.gui.event;
 
-import javax.swing.JPanel;
+import static org.pdfsam.support.RequireUtils.requireNotBlank;
 
-import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.module.Module;
-import org.pdfsam.module.ModuleCategory;
-import org.pdfsam.module.ModuleDescriptor;
+import org.apache.commons.lang3.StringUtils;
 
 /**
+ * Base Event class providing optional {@link String} for the event.
+ * 
  * @author Andrea Vacondio
  * 
  */
-public class WelcomePanel implements Module {
+public class ModuleEvent implements ModuleOwned {
 
-    private JPanel modulePanel = new JPanel();
-    private ModuleDescriptor descriptor = new ModuleDescriptor(WelcomePanel.class.getCanonicalName(),
-            ModuleCategory.OTHER, DefaultI18nContext.getInstance().i18n("Welcome"), null);
+    private String ownerModule = StringUtils.EMPTY;
 
-    @Override
-    public ModuleDescriptor getDescriptor() {
-        return descriptor;
+    public ModuleEvent() {
+        // nothing
     }
 
-    @Override
-    public JPanel getModulePanel() {
-        return modulePanel;
+    public ModuleEvent(String ownerModule) {
+        requireNotBlank(ownerModule, "Owner module cannot be blank");
+        this.ownerModule = ownerModule;
+    }
+
+    public String getOwnerModule() {
+        return ownerModule;
     }
 
 }

@@ -18,6 +18,8 @@
  */
 package org.pdfsam.gui.status;
 
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
 import java.awt.Dimension;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
@@ -29,10 +31,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
-import org.bushe.swing.event.annotation.AnnotationProcessor;
-import org.bushe.swing.event.annotation.EventSubscriber;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.update.UpdateAvailableEvent;
+import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.model.notification.event.PercentageOfWorkDoneChangedEvent;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionStartedEvent;
@@ -51,7 +52,7 @@ public class StatusPanel extends JPanel {
 
     public StatusPanel() {
         init();
-        AnnotationProcessor.process(this);
+        eventStudio().addAnnotatedListeners(this);
     }
 
     private void init() {
@@ -68,25 +69,25 @@ public class StatusPanel extends JPanel {
         add(Box.createRigidArea(new Dimension(5, 0)));
     }
 
-    @EventSubscriber
+    @EventListener
     public void updateAvailable(UpdateAvailableEvent event) {
         updateAvailableIcon.setToolTipText(DefaultI18nContext.getInstance().i18n("New version {0} available",
                 event.getAvailableVersion()));
         updateAvailableIcon.setVisible(true);
     }
 
-    @EventSubscriber
+    @EventListener
     public void taskStarted(TaskExecutionStartedEvent event) {
         progressBar.setValue(0);
         progressBar.setStringPainted(false);
     }
 
-    @EventSubscriber
+    @EventListener
     public void taskCompleted(TaskExecutionCompletedEvent event) {
         progressBar.setValue(MAX_VALUE);
     }
 
-    @EventSubscriber
+    @EventListener
     public void taskPercentageDone(PercentageOfWorkDoneChangedEvent event) {
         if (event.isUndetermined()) {
             progressBar.setStringPainted(false);

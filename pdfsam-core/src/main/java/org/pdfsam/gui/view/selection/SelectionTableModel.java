@@ -32,10 +32,10 @@ import javax.swing.table.TableCellRenderer;
 import org.bushe.swing.event.EventBus;
 import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
-import org.pdfsam.gui.event.BaseEvent;
-import org.pdfsam.gui.event.EventNamespace;
+import org.pdfsam.gui.event.ModuleEvent;
+import org.pdfsam.gui.event.String;
 import org.pdfsam.gui.event.EventSubscriberCallback;
-import org.pdfsam.gui.event.WithEventNamespace;
+import org.pdfsam.gui.event.ModuleOwned;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadCompletedEvent;
 
@@ -50,13 +50,13 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
  * @author Andrea Vacondio
  * 
  */
-class SelectionTableModel extends AbstractTableModel implements WithEventNamespace {
+class SelectionTableModel extends AbstractTableModel implements ModuleOwned {
 
     private List<SelectionTableRowData> data = new ArrayList<>();
     private List<SelectionTableColumn<?>> columns = new ArrayList<>();
-    private EventNamespace namespace;
+    private String namespace;
 
-    public SelectionTableModel(EventNamespace eventNamespace, SelectionTableColumn<?>... columns) {
+    public SelectionTableModel(String eventNamespace, SelectionTableColumn<?>... columns) {
         requireNotNull(eventNamespace, "Event namespace cannot be null");
         this.namespace = eventNamespace;
         for (SelectionTableColumn<?> current : columns) {
@@ -102,7 +102,7 @@ class SelectionTableModel extends AbstractTableModel implements WithEventNamespa
         return columns.get(col).getRenderer();
     }
 
-    public EventNamespace getEventNamespace() {
+    public String getOwnerModule() {
         return namespace;
     }
 
@@ -137,8 +137,8 @@ class SelectionTableModel extends AbstractTableModel implements WithEventNamespa
 
     @EventSubscriber
     public void onLoadDocumentsCompletion(final PdfLoadCompletedEvent event) {
-        ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
-            public void exec(BaseEvent e) {
+        ifEvent(event).routesTo(getOwnerModule()).execute(new EventSubscriberCallback() {
+            public void exec(ModuleEvent e) {
                 for (PdfDocumentDescriptor current : event.getDocuments()) {
                     data.add(new SelectionTableRowData(current));
                 }
@@ -149,8 +149,8 @@ class SelectionTableModel extends AbstractTableModel implements WithEventNamespa
 
     @EventSubscriber
     public void onClear(ClearSelectionTableEvent event) {
-        ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
-            public void exec(BaseEvent e) {
+        ifEvent(event).routesTo(getOwnerModule()).execute(new EventSubscriberCallback() {
+            public void exec(ModuleEvent e) {
                 data.clear();
                 fireTableDataChanged();
             }

@@ -30,12 +30,12 @@ import org.bushe.swing.event.annotation.AnnotationProcessor;
 import org.bushe.swing.event.annotation.EventSubscriber;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.event.AddPdfVersionConstraintEvent;
-import org.pdfsam.gui.event.BaseEvent;
+import org.pdfsam.gui.event.ModuleEvent;
 import org.pdfsam.gui.event.ChangedSelectedPdfVersionEvent;
-import org.pdfsam.gui.event.EventNamespace;
+import org.pdfsam.gui.event.String;
 import org.pdfsam.gui.event.EventSubscriberCallback;
 import org.pdfsam.gui.event.RemovePdfVersionConstraintEvent;
-import org.pdfsam.gui.event.WithEventNamespace;
+import org.pdfsam.gui.event.ModuleOwned;
 import org.pdfsam.gui.view.output.PdfVersionCombo.PdfVersionComboItem;
 import org.pdfsam.support.RequireUtils;
 import org.sejda.model.pdf.PdfVersion;
@@ -48,8 +48,8 @@ import static org.pdfsam.gui.event.EventSubscriberTemplate.ifEvent;
  * @author Andrea Vacondio
  * 
  */
-public class PdfVersionCombo extends JComboBox<PdfVersionComboItem> implements WithEventNamespace {
-    private EventNamespace eventNamespace = EventNamespace.NULL;
+public class PdfVersionCombo extends JComboBox<PdfVersionComboItem> implements ModuleOwned {
+    private String eventNamespace = String.NULL;
     private Set<Integer> filters = new HashSet<>();
 
     public PdfVersionCombo() {
@@ -65,8 +65,8 @@ public class PdfVersionCombo extends JComboBox<PdfVersionComboItem> implements W
 
     @EventSubscriber
     public void onAddPdfVersionConstraint(final AddPdfVersionConstraintEvent event) {
-        ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
-            public void exec(BaseEvent e) {
+        ifEvent(event).routesTo(getOwnerModule()).execute(new EventSubscriberCallback() {
+            public void exec(ModuleEvent e) {
                 addFilter(event.getPdfVersion().getVersion());
             }
         });
@@ -75,8 +75,8 @@ public class PdfVersionCombo extends JComboBox<PdfVersionComboItem> implements W
 
     @EventSubscriber
     public void onRemovePdfVersionConstraint(final RemovePdfVersionConstraintEvent event) {
-        ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
-            public void exec(BaseEvent e) {
+        ifEvent(event).routesTo(getOwnerModule()).execute(new EventSubscriberCallback() {
+            public void exec(ModuleEvent e) {
                 removeFilter(event.getPdfVersion().getVersion());
             }
         });
@@ -84,8 +84,8 @@ public class PdfVersionCombo extends JComboBox<PdfVersionComboItem> implements W
 
     @EventSubscriber
     public void onChangedSelectedPdfVersion(final ChangedSelectedPdfVersionEvent event) {
-        ifEvent(event).routesTo(getEventNamespace()).execute(new EventSubscriberCallback() {
-            public void exec(BaseEvent e) {
+        ifEvent(event).routesTo(getOwnerModule()).execute(new EventSubscriberCallback() {
+            public void exec(ModuleEvent e) {
                 for (int i = 0; i < getItemCount(); i++) {
                     PdfVersionComboItem item = getModel().getElementAt(i);
                     if (event.hasPdfVersion()) {
@@ -135,11 +135,11 @@ public class PdfVersionCombo extends JComboBox<PdfVersionComboItem> implements W
         setEnabled(getItemCount() > 1);
     }
 
-    public EventNamespace getEventNamespace() {
+    public String getOwnerModule() {
         return eventNamespace;
     }
 
-    public void setEventNamespace(EventNamespace eventNamespace) {
+    public void setEventNamespace(String eventNamespace) {
         this.eventNamespace = eventNamespace;
     }
 

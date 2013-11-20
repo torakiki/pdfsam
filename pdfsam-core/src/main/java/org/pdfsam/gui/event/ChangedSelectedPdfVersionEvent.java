@@ -29,7 +29,7 @@ import org.sejda.model.pdf.PdfVersion;
  */
 public class ChangedSelectedPdfVersionEvent extends BasePdfVersionEvent {
 
-    public ChangedSelectedPdfVersionEvent(EventNamespace namespace, PdfVersion pdfVersion) {
-        super(namespace, pdfVersion);
+    public ChangedSelectedPdfVersionEvent(String ownerModule, PdfVersion pdfVersion) {
+        super(ownerModule, pdfVersion);
     }
 }

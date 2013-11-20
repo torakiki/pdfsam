@@ -19,8 +19,8 @@
 package org.pdfsam.gui.view.selection;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.pdfsam.gui.event.BaseEvent;
-import org.pdfsam.gui.event.EventNamespace;
+import org.pdfsam.gui.event.ModuleEvent;
+import org.pdfsam.gui.event.String;
 
 import static org.pdfsam.support.RequireUtils.require;
 
@@ -30,7 +30,7 @@ import static org.pdfsam.support.RequireUtils.require;
  * @author Andrea Vacondio
  * 
  */
-final class SelectionChangedEvent extends BaseEvent {
+final class SelectionChangedEvent extends ModuleEvent {
 
     private static final int UNSELECTED = -1;
 
@@ -38,7 +38,7 @@ final class SelectionChangedEvent extends BaseEvent {
     private int endIndex = UNSELECTED;
     private int totalRows = 0;
 
-    private SelectionChangedEvent(EventNamespace namespace, int startIndex, int endIndex) {
+    private SelectionChangedEvent(String namespace, int startIndex, int endIndex) {
         super(namespace);
         this.startIndex = startIndex;
         this.endIndex = endIndex;
@@ -134,7 +134,7 @@ final class SelectionChangedEvent extends BaseEvent {
      * @param namespace
      * @return a new instance of an event notifying that the selection has been cleared
      */
-    public static SelectionChangedEvent selectionChanged(EventNamespace namespace) {
+    public static SelectionChangedEvent selectionChanged(String namespace) {
         return new SelectionChangedEvent(namespace, UNSELECTED, UNSELECTED);
     }
 

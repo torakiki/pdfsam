@@ -18,8 +18,8 @@
  */
 package org.pdfsam.gui.view.selection;
 
-import org.pdfsam.gui.event.BaseEvent;
-import org.pdfsam.gui.event.EventNamespace;
+import org.pdfsam.gui.event.ModuleEvent;
+import org.pdfsam.gui.event.String;
 
 /**
  * Event to notify we just changed the sorting of the model
@@ -27,9 +27,9 @@ import org.pdfsam.gui.event.EventNamespace;
  * @author Andrea Vacondio
  * 
  */
-class AfterSortEvent extends BaseEvent {
+class AfterSortEvent extends ModuleEvent {
 
-    public AfterSortEvent(EventNamespace namespace) {
+    public AfterSortEvent(String namespace) {
         super(namespace);
     }
 

@@ -26,12 +26,12 @@ import org.sejda.model.pdf.PdfVersion;
  * @author Andrea Vacondio
  * 
  */
-class BasePdfVersionEvent extends BaseEvent {
+class BasePdfVersionEvent extends ModuleEvent {
 
     private PdfVersion pdfVersion;
 
-    public BasePdfVersionEvent(EventNamespace namespace, PdfVersion pdfVersion) {
-        super(namespace);
+    public BasePdfVersionEvent(String ownerModule, PdfVersion pdfVersion) {
+        super(ownerModule);
         this.pdfVersion = pdfVersion;
     }
 

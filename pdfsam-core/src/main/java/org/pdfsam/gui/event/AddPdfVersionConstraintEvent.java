@@ -30,8 +30,8 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
  */
 public class AddPdfVersionConstraintEvent extends BasePdfVersionEvent {
 
-    public AddPdfVersionConstraintEvent(EventNamespace namespace, PdfVersion pdfVersion) {
-        super(namespace, pdfVersion);
+    public AddPdfVersionConstraintEvent(String ownerModule, PdfVersion pdfVersion) {
+        super(ownerModule, pdfVersion);
         requireNotNull(pdfVersion, "Unable to create a pdf version event on a null pdf version");
     }
 }

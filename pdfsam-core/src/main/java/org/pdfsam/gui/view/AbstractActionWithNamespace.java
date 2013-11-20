@@ -20,27 +20,27 @@ package org.pdfsam.gui.view;
 
 import javax.swing.AbstractAction;
 
-import org.pdfsam.gui.event.EventNamespace;
-import org.pdfsam.gui.event.WithEventNamespace;
+import org.pdfsam.gui.event.String;
+import org.pdfsam.gui.event.ModuleOwned;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**
- * Abstract action {@link WithEventNamespace}
+ * Abstract action {@link ModuleOwned}
  * 
  * @author Andrea Vacondio
  * 
  */
-public abstract class AbstractActionWithNamespace extends AbstractAction implements WithEventNamespace {
+public abstract class AbstractActionWithNamespace extends AbstractAction implements ModuleOwned {
 
-    private EventNamespace namespace = EventNamespace.NULL;
+    private String namespace = String.NULL;
 
-    public AbstractActionWithNamespace(EventNamespace namespace) {
+    public AbstractActionWithNamespace(String namespace) {
         requireNotNull(namespace, "Namespace cannot be null");
         this.namespace = namespace;
     }
 
-    public EventNamespace getEventNamespace() {
+    public String getOwnerModule() {
         return namespace;
     }
 

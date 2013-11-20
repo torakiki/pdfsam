@@ -18,27 +18,26 @@
  */
 package org.pdfsam.gui.event;
 
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.pdfsam.support.RequireUtils.require;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
-
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
-
-import static org.pdfsam.support.RequireUtils.require;
 
 /**
  * Namespace for the events. Same component types can be subscribed to the same event on different namespaces.
  * 
  * @author Andrea Vacondio
- * @see EventNamespace#NULL
+ * @see String#NULL
  * 
  */
-public final class EventNamespace {
+public final class Namespace {
 
-    public static final EventNamespace NULL = new EventNamespace("");
+    public static final String NULL = new String("");
 
     private String namespaceId;
 
-    private EventNamespace(String namespaceId) {
+    private Namespace(String namespaceId) {
         this.namespaceId = namespaceId;
     }
 
@@ -48,9 +47,9 @@ public final class EventNamespace {
 
     /**
      * @param target
-     * @return true if this is the {@link EventNamespace#NULL} or is a parent of target
+     * @return true if this is the {@link String#NULL} or is a parent of target
      */
-    public boolean isParentOf(EventNamespace target) {
+    public boolean isParentOf(String target) {
         return target.getNamespaceId().startsWith(namespaceId);
     }
 
@@ -69,10 +68,10 @@ public final class EventNamespace {
         if (this == other) {
             return true;
         }
-        if (!(other instanceof EventNamespace)) {
+        if (!(other instanceof String)) {
             return false;
         }
-        EventNamespace otherClass = (EventNamespace) other;
+        String otherClass = (String) other;
         return new EqualsBuilder().append(namespaceId, otherClass.namespaceId).isEquals();
     }
 
@@ -80,9 +79,9 @@ public final class EventNamespace {
      * @param namespaceId
      * @return a new parent namespace with the given id
      */
-    public static EventNamespace newParentInstance(String namespaceId) {
+    public static String newParentInstance(String namespaceId) {
         require(isNotBlank(namespaceId), "Namespace identifier cannot be blank");
-        return new EventNamespace(namespaceId);
+        return new String(namespaceId);
     }
 
     /**
@@ -90,16 +89,16 @@ public final class EventNamespace {
      * @param namespaceId
      * @return a new child namespace with the given id
      */
-    public static EventNamespace newChildInstance(EventNamespace parent, String namespaceId) {
+    public static String newChildInstance(String parent, String namespaceId) {
         require(isNotBlank(namespaceId), "Namespace identifier cannot be blank");
-        return new EventNamespace(String.format("%s.%s", parent.namespaceId, namespaceId));
+        return new String(String.format("%s.%s", parent.namespaceId, namespaceId));
     }
 
     /**
      * @param moduleId
      * @return a new instance for a module with the given id
      */
-    public static EventNamespace newModuleInstance(String moduleId) {
+    public static String newModuleInstance(String moduleId) {
         return newChildInstance(newParentInstance("module"), moduleId);
     }
 }

@@ -18,8 +18,8 @@
  */
 package org.pdfsam.gui.view.selection;
 
-import org.pdfsam.gui.event.BaseEvent;
-import org.pdfsam.gui.event.EventNamespace;
+import org.pdfsam.gui.event.ModuleEvent;
+import org.pdfsam.gui.event.String;
 
 /**
  * Request to sort the selection table
@@ -27,9 +27,9 @@ import org.pdfsam.gui.event.EventNamespace;
  * @author Andrea Vacondio
  * 
  */
-public class SortRequestEvent extends BaseEvent {
+public class SortRequestEvent extends ModuleEvent {
 
-    public SortRequestEvent(EventNamespace namespace) {
+    public SortRequestEvent(String namespace) {
         super(namespace);
     }
 

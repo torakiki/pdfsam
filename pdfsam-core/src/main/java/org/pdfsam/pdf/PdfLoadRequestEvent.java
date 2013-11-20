@@ -18,8 +18,6 @@
  */
 package org.pdfsam.pdf;
 
-import org.pdfsam.gui.event.EventNamespace;
-
 /**
  * Request the app to load one or many pdf documents
  * 
@@ -28,7 +26,7 @@ import org.pdfsam.gui.event.EventNamespace;
  */
 public class PdfLoadRequestEvent extends BasePdfLoadEvent {
 
-    public PdfLoadRequestEvent(EventNamespace namespace) {
-        super(namespace);
+    public PdfLoadRequestEvent(String ownerModule) {
+        super(ownerModule);
     }
 }

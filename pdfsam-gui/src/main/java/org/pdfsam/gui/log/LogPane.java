@@ -20,34 +20,32 @@ package org.pdfsam.gui.log;
 
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 import static org.pdfsam.support.io.TextFileWriter.writeContent;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
-import java.io.IOException;
 
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Named;
 
-import org.bushe.swing.event.EventBus;
-import org.bushe.swing.event.annotation.AnnotationProcessor;
-import org.bushe.swing.event.annotation.EventSubscriber;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.I18nContext;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.io.FileChoosers;
-
+import org.pdfsam.ui.support.Style;
+import org.sejda.eventstudio.annotation.EventListener;
 /**
  * Panel displaying log messages
  * 
@@ -56,23 +54,19 @@ import org.pdfsam.ui.io.FileChoosers;
  */
 @Named
 public class LogPane extends VBox {
-    @FXML
     private TextArea logArea;
 
     public LogPane() {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/LogPane.fxml"));
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
-
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
-        initMenu();
-        AnnotationProcessor.process(this);
+        getStyleClass().addAll(Style.CONTAINER.css());
+        logArea = new TextArea();
+        logArea.setEditable(false);
+        logArea.setWrapText(true);
+        VBox.setVgrow(logArea, Priority.ALWAYS);
+        getChildren().add(logArea);
+        eventStudio().addAnnotatedListeners(this);
     }
 
+    @PostConstruct
     private void initMenu() {
         I18nContext i18n = DefaultI18nContext.getInstance();
 
@@ -142,12 +136,12 @@ public class LogPane extends VBox {
         logArea.setContextMenu(new ContextMenu(copyItem, clearItem, selectAllItem, separator, saveItem));
         logArea.focusedProperty().addListener(new InvalidationListener() {
             public void invalidated(Observable observable) {
-                EventBus.publish(new ChangedVisiblityLogAreaEvent());
+                eventStudio().broadcast(new ChangedVisiblityLogAreaEvent());
             }
         });
     }
 
-    @EventSubscriber
+    @EventListener
     public void onLogMessage(LogMessageEvent event) {
         logArea.appendText(String.format("%s %s", event.getLevel(), event.getMessage()));
         if (event.getStack() != null) {

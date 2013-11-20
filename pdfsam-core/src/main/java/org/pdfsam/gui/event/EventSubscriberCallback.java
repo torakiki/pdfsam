@@ -26,5 +26,5 @@ package org.pdfsam.gui.event;
  */
 public interface EventSubscriberCallback {
 
-    void exec(BaseEvent e);
+    void exec(ModuleEvent e);
 }

@@ -18,8 +18,6 @@
  */
 package org.pdfsam.pdf;
 
-import org.pdfsam.gui.event.EventNamespace;
-
 /**
  * Notifies that the document/s have been loaded
  * 
@@ -28,8 +26,8 @@ import org.pdfsam.gui.event.EventNamespace;
  */
 public class PdfLoadCompletedEvent extends BasePdfLoadEvent {
 
-    public PdfLoadCompletedEvent(EventNamespace namespace) {
-        super(namespace);
+    public PdfLoadCompletedEvent(String ownerModule) {
+        super(ownerModule);
     }
 
 }

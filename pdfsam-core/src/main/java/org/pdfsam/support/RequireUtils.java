@@ -18,6 +18,8 @@
  */
 package org.pdfsam.support;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * Utility class to perform assertions
  * 
@@ -52,4 +54,13 @@ public final class RequireUtils {
         require(arg != null, errorMessage);
     }
 
+    /**
+     * throws an {@link IllegalArgumentException} if the input argument is blank
+     * 
+     * @param arg
+     * @param errorMessage
+     */
+    public static void requireNotBlank(String arg, String errorMessage) {
+        require(StringUtils.isNotBlank(arg), errorMessage);
+    }
 }

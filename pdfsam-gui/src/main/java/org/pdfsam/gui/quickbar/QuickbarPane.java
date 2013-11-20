@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui.navigation;
+package org.pdfsam.gui.quickbar;
 
 import javafx.scene.layout.VBox;
 
@@ -34,7 +34,7 @@ import org.pdfsam.ui.support.Style;
  * 
  */
 @Named
-public class NavigationPane extends VBox {
+public class QuickbarPane extends VBox {
 
     @Inject
     private UsageService usage;
@@ -43,7 +43,7 @@ public class NavigationPane extends VBox {
     @Inject
     private MostUsedModulesPane mostUsedModulesPane;
 
-    public NavigationPane() {
+    public QuickbarPane() {
         getStyleClass().addAll(Style.NAVIGATION_BAR.css());
     }
 

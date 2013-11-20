@@ -18,12 +18,13 @@
  */
 package org.pdfsam.gui.log;
 
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
 import java.io.IOException;
 import java.io.StringWriter;
 
 import org.apache.commons.io.output.WriterOutputStream;
 import org.apache.commons.lang3.StringUtils;
-import org.bushe.swing.event.EventBus;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
@@ -62,7 +63,7 @@ public class DispatchAppender extends AppenderBase<ILoggingEvent> {
 
     private void doAppendMessage(String message, ILoggingEvent event) {
         if (StringUtils.isNotBlank(message)) {
-            EventBus.publish(createLogMessageEvent(message, event));
+            eventStudio().broadcast(createLogMessageEvent(message, event));
         }
     }
 

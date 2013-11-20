@@ -48,8 +48,8 @@
 			<artifactId>sejda-model</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.bushe</groupId>
-			<artifactId>eventbus</artifactId>
+			<groupId>org.sejda</groupId>
+			<artifactId>eventstudio</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -79,21 +79,6 @@
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
 			<version>[${logback.version},]</version>
-		</dependency>
-		<dependency>
-			<groupId>org.dockingframes</groupId>
-			<artifactId>docking-frames-common</artifactId>
-			<version>${dockingframes.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.jgoodies</groupId>
-			<artifactId>jgoodies-looks</artifactId>
-			<version>2.5.2</version>
-		</dependency>
-		<dependency>
-			<groupId>cglib</groupId>
-			<artifactId>cglib</artifactId>
-			<version>2.2.2</version>
 		</dependency>
 		<dependency>
 			<groupId>jdepend</groupId>

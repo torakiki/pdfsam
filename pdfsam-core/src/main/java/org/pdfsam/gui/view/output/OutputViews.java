@@ -24,7 +24,7 @@ import javax.swing.JPanel;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.I18nContext;
-import org.pdfsam.gui.event.EventNamespace;
+import org.pdfsam.gui.event.String;
 import org.pdfsam.gui.support.ToolTipBuilder;
 import org.pdfsam.gui.view.GradientPanel.GradientOrientation;
 import org.pdfsam.gui.view.GradientTitledPanel;
@@ -55,7 +55,7 @@ public final class OutputViews {
         return titledPanel;
     }
 
-    public static JPanel newFilePdfDestinationPanel(EventNamespace panelNamespace) {
+    public static JPanel newFilePdfDestinationPanel(String panelNamespace) {
         I18nContext ctx = DefaultI18nContext.getInstance();
         String title = ctx.i18n("Destination file");
         ToolTipBuilder tp = new ToolTipBuilder();

@@ -18,8 +18,8 @@
  */
 package org.pdfsam.gui.view.selection;
 
-import org.pdfsam.gui.event.BaseEvent;
-import org.pdfsam.gui.event.EventNamespace;
+import org.pdfsam.gui.event.ModuleEvent;
+import org.pdfsam.gui.event.String;
 
 /**
  * Notifies that the selected rows should be removed
@@ -27,9 +27,9 @@ import org.pdfsam.gui.event.EventNamespace;
  * @author Andrea Vacondio
  * 
  */
-class RemoveSelectedEvent extends BaseEvent {
+class RemoveSelectedEvent extends ModuleEvent {
 
-    public RemoveSelectedEvent(EventNamespace namespace) {
+    public RemoveSelectedEvent(String namespace) {
         super(namespace);
     }
 
