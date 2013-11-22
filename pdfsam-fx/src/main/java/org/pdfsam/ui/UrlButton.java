@@ -26,8 +26,6 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 
 import org.pdfsam.context.DefaultI18nContext;
@@ -50,13 +48,7 @@ public class UrlButton extends Button {
         require(isNotBlank(url), "URL cannot be blank");
         this.url = url;
         // TODO lambda
-        setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                openUrl();
-            }
-
-        });
+        setOnAction(e -> openUrl());
         // not sure about this. see: https://javafx-jira.kenai.com/browse/RT-28779
         /**
          * setOnKeyReleased(new EventHandler<KeyEvent>() { final KeyCombination combo = new KeyCodeCombination(KeyCode.ENTER);

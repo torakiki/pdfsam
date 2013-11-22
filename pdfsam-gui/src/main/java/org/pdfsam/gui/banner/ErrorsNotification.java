@@ -21,8 +21,6 @@ package org.pdfsam.gui.banner;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.animation.Animation.Status;
 import javafx.animation.FadeTransition;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.util.Duration;
 
@@ -77,12 +75,9 @@ public class ErrorsNotification extends Label {
         if (hasUnreadMessages() && !(fade.getStatus() == Status.RUNNING)) {
             fade.setFromValue(1);
             fade.setToValue(0);
-            // TODO lambda
-            fade.setOnFinished(new EventHandler<ActionEvent>() {
-                public void handle(ActionEvent event) {
-                    setVisible(false);
-                    unreadMessages = 0;
-                }
+            fade.setOnFinished(e -> {
+                setVisible(false);
+                unreadMessages = 0;
             });
             fade.play();
         }

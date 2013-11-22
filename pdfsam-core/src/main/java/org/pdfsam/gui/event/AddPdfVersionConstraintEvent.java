@@ -18,9 +18,9 @@
  */
 package org.pdfsam.gui.event;
 
-import org.sejda.model.pdf.PdfVersion;
-
 import static org.pdfsam.support.RequireUtils.requireNotNull;
+
+import org.sejda.model.pdf.PdfVersion;
 
 /**
  * Event to notify subscribers that some selected option imposes a constraint on the output pdf version.
@@ -30,8 +30,8 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
  */
 public class AddPdfVersionConstraintEvent extends BasePdfVersionEvent {
 
-    public AddPdfVersionConstraintEvent(String ownerModule, PdfVersion pdfVersion) {
-        super(ownerModule, pdfVersion);
+    public AddPdfVersionConstraintEvent(PdfVersion pdfVersion) {
+        super(pdfVersion);
         requireNotNull(pdfVersion, "Unable to create a pdf version event on a null pdf version");
     }
 }

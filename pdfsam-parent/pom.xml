@@ -32,15 +32,15 @@
 		<commons.lang.version>3.1</commons.lang.version>
 		<commons.io.version>2.4</commons.io.version>
 		<mockito.version>1.9.5</mockito.version>
-		<logback.version>1.0.11</logback.version>
+		<logback.version>1.0.13</logback.version>
 		<jdepend.version>2.9.1</jdepend.version>
 		<hibernate-validator.version>4.2.0.Final</hibernate-validator.version>
-		<sejda.version>1.0.0.M8-SNAPSHOT</sejda.version>
+		<sejda.version>1.0.0.M9-SNAPSHOT</sejda.version>
 		<dockingframes.version>1.1.1</dockingframes.version>
-		<eventstudio.version>1.0.0.BETA-SNAPSHOT</eventstudio.version>
+		<eventstudio.version>1.0.1</eventstudio.version>
 		<itext.version>2.1.7</itext.version>
 		<pdfbox.version>1.8.2</pdfbox.version>
-		<org.springframework.version>3.2.5.RELEASE</org.springframework.version>
+		<org.springframework.version>4.0.0.RC1</org.springframework.version>
 		<maven.build.timestamp.format>dd-MMM-yyyy</maven.build.timestamp.format>
 		<pdfsam.package>BASIC</pdfsam.package>
 		<pdfsam.builddate>${maven.build.timestamp}</pdfsam.builddate>
@@ -63,6 +63,14 @@
 			<name>SpringSource Repository</name>
 			<url>http://repo.springsource.org/release</url>
 		</repository>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>http://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
 	</repositories>
 
 	<dependencyManagement>
@@ -80,7 +88,7 @@
 			<dependency>
 				<groupId>org.sejda</groupId>
 				<artifactId>eventstudio</artifactId>
-				<version>1.0.0</version>
+				<version>${eventstudio.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>commons-io</groupId>

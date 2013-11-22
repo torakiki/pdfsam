@@ -26,10 +26,6 @@ import java.util.List;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.BooleanPropertyBase;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.VBox;
@@ -71,14 +67,7 @@ public class MostUsedModulesPane extends VBox {
 
     private BooleanProperty displayText = new BooleanPropertyBase(false) {
         {
-            this.addListener(new ChangeListener<Boolean>() {
-                public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                    // TODO lambda
-                    for (ModuleButton current : MostUsedModulesPane.this.buttons) {
-                        current.displayText(newValue);
-                    }
-                }
-            });
+            this.addListener((o, oldVal, newVal) -> MostUsedModulesPane.this.buttons.forEach(b -> b.displayText(newVal)));
         }
 
         public String getName() {
@@ -118,12 +107,7 @@ public class MostUsedModulesPane extends VBox {
             setGraphic(this.module.graphic());
             getStyleClass().addAll(Style.TOOLBAR_NAVIGATION_BUTTON.css());
             setMaxWidth(Double.MAX_VALUE);
-            // TODO lambda
-            setOnAction(new EventHandler<ActionEvent>() {
-                public void handle(ActionEvent event) {
-                    eventStudio().broadcast(new SetCurrentModuleRequest(ModuleButton.this.module.id()));
-                }
-            });
+            setOnAction(e -> eventStudio().broadcast(new SetCurrentModuleRequest(ModuleButton.this.module.id())));
             setTooltip(new Tooltip(this.module.descriptor().getName()));
         }
 

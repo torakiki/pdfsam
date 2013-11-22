@@ -21,14 +21,13 @@ package org.pdfsam.gui.view.selection;
 import javax.swing.JToolBar;
 
 import org.pdfsam.gui.event.String;
-import org.pdfsam.gui.event.ModuleOwned;
+import org.pdfsam.module.ModuleOwned;
 
 import static org.pdfsam.gui.view.selection.SelectionTableToolbarButtons.addButton;
 import static org.pdfsam.gui.view.selection.SelectionTableToolbarButtons.clearButton;
 import static org.pdfsam.gui.view.selection.SelectionTableToolbarButtons.moveDownButton;
 import static org.pdfsam.gui.view.selection.SelectionTableToolbarButtons.moveUpButton;
 import static org.pdfsam.gui.view.selection.SelectionTableToolbarButtons.removeButton;
-
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**

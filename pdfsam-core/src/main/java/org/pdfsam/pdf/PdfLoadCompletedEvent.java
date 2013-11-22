@@ -25,9 +25,5 @@ package org.pdfsam.pdf;
  * 
  */
 public class PdfLoadCompletedEvent extends BasePdfLoadEvent {
-
-    public PdfLoadCompletedEvent(String ownerModule) {
-        super(ownerModule);
-    }
-
+    // nothing
 }

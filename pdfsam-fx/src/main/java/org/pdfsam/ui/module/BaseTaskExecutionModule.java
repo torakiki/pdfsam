@@ -19,8 +19,6 @@
 package org.pdfsam.ui.module;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -39,6 +37,7 @@ import org.sejda.eventstudio.annotation.EventStation;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 import org.sejda.model.parameter.base.TaskParameters;
+
 /**
  * Abstract implementation of a pdfsam module providing common features to every module whose purpose is to execute a pdf manipulation task.
  * 
@@ -58,8 +57,7 @@ public abstract class BaseTaskExecutionModule implements Module {
     private void init() {
         runButton.getStyleClass().addAll(Style.BUTTON.css());
         runButton.setText(DefaultI18nContext.getInstance().i18n("Run"));
-        // TODO lambda
-        runButton.setOnAction(new RunAction());
+        runButton.setOnAction(event -> eventStudio().broadcast(new TaskExecutionRequestEvent(id(), getParameters())));
         // TODO set the run button graphic
         // runButton.setGraphic(RunAction.class.getResource("/images/run.png"));
         modulePanel.getStyleClass().addAll(Style.CONTAINER.css());
@@ -101,20 +99,6 @@ public abstract class BaseTaskExecutionModule implements Module {
     public Pane modulePanel() {
         return modulePanel;
     }
-
-    /**
-     * Run action for the module
-     * 
-     * @author Andrea Vacondio
-     * 
-     */
-    private final class RunAction implements EventHandler<ActionEvent> {
-
-        public void handle(ActionEvent arg0) {
-            eventStudio().broadcast(new TaskExecutionRequestEvent(id(), getParameters()));
-        }
-    }
-
 
     /**
      * Handles the run button status by listening to events affecting its status and changing it accordingly.

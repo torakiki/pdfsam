@@ -26,21 +26,15 @@ import javax.swing.JComboBox;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
-import org.bushe.swing.event.annotation.AnnotationProcessor;
-import org.bushe.swing.event.annotation.EventSubscriber;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.event.AddPdfVersionConstraintEvent;
-import org.pdfsam.gui.event.ModuleEvent;
 import org.pdfsam.gui.event.ChangedSelectedPdfVersionEvent;
-import org.pdfsam.gui.event.String;
-import org.pdfsam.gui.event.EventSubscriberCallback;
+import org.pdfsam.gui.event.ModuleEvent;
 import org.pdfsam.gui.event.RemovePdfVersionConstraintEvent;
-import org.pdfsam.gui.event.ModuleOwned;
 import org.pdfsam.gui.view.output.PdfVersionCombo.PdfVersionComboItem;
+import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.support.RequireUtils;
 import org.sejda.model.pdf.PdfVersion;
-
-import static org.pdfsam.gui.event.EventSubscriberTemplate.ifEvent;
 
 /**
  * Combo box displaying PDF versions.

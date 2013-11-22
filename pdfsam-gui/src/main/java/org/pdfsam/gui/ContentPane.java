@@ -48,6 +48,10 @@ import org.sejda.eventstudio.annotation.EventListener;
 @Named
 public class ContentPane extends BorderPane {
 
+    /**
+     * 
+     */
+    private static final int MODULE_FADE_MILLIS = 500;
     @Inject
     private QuickbarPane navigation;
     private Map<String, BaseTaskExecutionModule> modules = new HashMap<>();
@@ -75,7 +79,7 @@ public class ContentPane extends BorderPane {
             center.getChildren().clear();
             center.getChildren().add(requested.modulePanel());
             Timeline fadeIn = new Timeline(new KeyFrame(Duration.ZERO, new KeyValue(center.opacityProperty(), 0.0)),
-                    new KeyFrame(new Duration(500), new KeyValue(center.opacityProperty(), 1.0)));
+                    new KeyFrame(new Duration(MODULE_FADE_MILLIS), new KeyValue(center.opacityProperty(), 1.0)));
             fadeIn.play();
         }
     }

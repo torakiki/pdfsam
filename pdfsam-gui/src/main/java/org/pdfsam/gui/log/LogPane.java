@@ -24,11 +24,7 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.beans.binding.BooleanBinding;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
@@ -46,6 +42,7 @@ import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.io.FileChoosers;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
+
 /**
  * Panel displaying log messages
  * 
@@ -69,14 +66,8 @@ public class LogPane extends VBox {
     @PostConstruct
     private void initMenu() {
         I18nContext i18n = DefaultI18nContext.getInstance();
-
         MenuItem copyItem = new MenuItem(i18n.i18n("Copy"));
-        copyItem.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent action) {
-                logArea.copy();
-            }
-        });
+        copyItem.setOnAction(e -> logArea.copy());
         copyItem.getStyleClass().add("ctx-menu-item");
 
         // disable if no selection
@@ -92,12 +83,7 @@ public class LogPane extends VBox {
         });
 
         MenuItem clearItem = new MenuItem(i18n.i18n("Clear"));
-        clearItem.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent action) {
-                logArea.clear();
-            }
-        });
+        clearItem.setOnAction(e -> logArea.clear());
         clearItem.getStyleClass().add("ctx-menu-item");
         // disable if there's no text
         clearItem.disableProperty().bind(new BooleanBinding() {
@@ -112,33 +98,19 @@ public class LogPane extends VBox {
         });
 
         MenuItem selectAllItem = new MenuItem(i18n.i18n("Select all"));
-        selectAllItem.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent action) {
-                logArea.selectAll();
-            }
-        });
+        selectAllItem.setOnAction(e -> logArea.selectAll());
         selectAllItem.getStyleClass().add("ctx-menu-item");
         // disable if there's no text
         selectAllItem.disableProperty().bind(clearItem.disableProperty());
 
         MenuItem saveItem = new MenuItem(i18n.i18n("Save log"));
-        saveItem.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent action) {
-                saveLog();
-            }
-        });
+        saveItem.setOnAction(e -> saveLog());
         saveItem.getStyleClass().add("ctx-menu-item");
         // disable if there's no text
         saveItem.disableProperty().bind(clearItem.disableProperty());
         SeparatorMenuItem separator = new SeparatorMenuItem();
         logArea.setContextMenu(new ContextMenu(copyItem, clearItem, selectAllItem, separator, saveItem));
-        logArea.focusedProperty().addListener(new InvalidationListener() {
-            public void invalidated(Observable observable) {
-                eventStudio().broadcast(new ChangedVisiblityLogAreaEvent());
-            }
-        });
+        logArea.focusedProperty().addListener(o -> eventStudio().broadcast(new ChangedVisiblityLogAreaEvent()));
     }
 
     @EventListener

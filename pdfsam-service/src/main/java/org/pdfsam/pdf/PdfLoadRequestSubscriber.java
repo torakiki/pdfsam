@@ -80,9 +80,9 @@ public class PdfLoadRequestSubscriber {
         @Override
         public Void call() {
             List<PdfDocumentDescriptor> loaded = loadService.load(request.getDocuments());
-            PdfLoadCompletedEvent response = new PdfLoadCompletedEvent(request.getOwnerModule());
+            PdfLoadCompletedEvent response = new PdfLoadCompletedEvent();
             response.addAll(loaded);
-            eventStudio().broadcast(response);
+            eventStudio().broadcast(response, request.getOwnerModule());
             return null;
         }
 

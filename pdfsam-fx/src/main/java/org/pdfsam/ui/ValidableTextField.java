@@ -30,7 +30,6 @@ import javafx.animation.Timeline;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
@@ -68,7 +67,7 @@ public class ValidableTextField extends TextField {
         super(text);
         focusedProperty().addListener(new OnFocusLost());
         setOnKeyReleased(new OnEnterPressed());
-        textProperty().addListener(new ResetStyleOnChangeText());
+        textProperty().addListener(e -> validationSupport.makeNotValidated());
         validationSupport.validationStateProperty().addListener(new StyleOnValidationStateChange());
     }
 
@@ -128,19 +127,6 @@ public class ValidableTextField extends TextField {
     }
 
     /**
-     * Remove the Error style when the user starts typing again
-     * 
-     * @author Andrea Vacondio
-     * 
-     */
-    private class ResetStyleOnChangeText implements ChangeListener<String> {
-
-        public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-            validationSupport.makeNotValidated();
-        }
-    }
-
-    /**
      * Trigger validation on focus lost
      * 
      * @author Andrea Vacondio
@@ -192,29 +178,23 @@ public class ValidableTextField extends TextField {
             this.tooltip = new Tooltip(message);
             this.tooltip.getStyleClass().add(ERROR_TOOLTIP_CLASS);
             hideTimer.getKeyFrames().add(new KeyFrame(new Duration(5000)));
-            hideTimer.setOnFinished(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    tooltip.hide();
-                    ErrorTooltipManager.this.active = false;
-                }
+            hideTimer.setOnFinished(e -> {
+                tooltip.hide();
+                ErrorTooltipManager.this.active = false;
             });
             activationTimer.getKeyFrames().add(new KeyFrame(new Duration(250)));
-            activationTimer.setOnFinished(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    if (!ErrorTooltipManager.this.active) {
-                        Scene scene = getScene();
-                        if (scene != null) {
-                            Window owner = scene.getWindow();
-                            if (owner != null && owner.isShowing() && ValidableTextField.this.isVisible()) {
+            activationTimer.setOnFinished(e -> {
+                if (!ErrorTooltipManager.this.active) {
+                    Scene scene = getScene();
+                    if (scene != null) {
+                        Window owner = scene.getWindow();
+                        if (owner != null && owner.isShowing() && ValidableTextField.this.isVisible()) {
 
-                                Point2D where = getDisplayCoordiantes(owner, scene);
+                            Point2D where = getDisplayCoordiantes(owner, scene);
 
-                                tooltip.show(ValidableTextField.this, where.getX(), where.getY());
-                                ErrorTooltipManager.this.active = true;
-                                hideTimer.playFromStart();
-                            }
+                            tooltip.show(ValidableTextField.this, where.getX(), where.getY());
+                            ErrorTooltipManager.this.active = true;
+                            hideTimer.playFromStart();
                         }
                     }
                 }

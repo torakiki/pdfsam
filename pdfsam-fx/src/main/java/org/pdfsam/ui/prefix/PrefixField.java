@@ -19,8 +19,6 @@
 package org.pdfsam.ui.prefix;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
@@ -86,13 +84,7 @@ public class PrefixField extends TextField {
             requireNotNull(prefix, "Prefix cannot be null");
             this.prefix = prefix;
             setText(prefix.getFriendlyName());
-            setOnAction(new EventHandler<ActionEvent>() {
-
-                @Override
-                public void handle(ActionEvent action) {
-                    replaceSelection(PrefixMenuItem.this.prefix.getFriendlyName());
-                }
-            });
+            setOnAction(e -> replaceSelection(PrefixMenuItem.this.prefix.getFriendlyName()));
         }
 
     }

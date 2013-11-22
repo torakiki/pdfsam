@@ -19,8 +19,6 @@
 package org.pdfsam.gui.preference;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.control.ComboBox;
 
 import org.pdfsam.context.DefaultUserContext;
@@ -43,13 +41,12 @@ class PreferenceComboBox<T extends KeyValueItem<String, String>> extends ComboBo
     PreferenceComboBox(StringUserPreference preference) {
         requireNotNull(preference, "Preference cannot be null");
         this.preference = preference;
-        valueProperty().addListener(new ChangeListener<T>() {
-            public void changed(ObservableValue<? extends T> observable, T oldValue, T newValue) {
-                DefaultUserContext.getInstance().setStringPreference(PreferenceComboBox.this.preference,
-                        newValue.getKey());
-                LOG.trace("Preference {} set to {}", PreferenceComboBox.this.preference, newValue.getKey());
-            }
-        });
+        valueProperty().addListener(
+                (observable, oldValue, newValue) -> {
+                    DefaultUserContext.getInstance().setStringPreference(PreferenceComboBox.this.preference,
+                            newValue.getKey());
+                    LOG.trace("Preference {} set to {}", PreferenceComboBox.this.preference, newValue.getKey());
+                });
     }
 
 }

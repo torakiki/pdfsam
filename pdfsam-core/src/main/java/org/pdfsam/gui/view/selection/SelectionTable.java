@@ -38,7 +38,7 @@ import org.bushe.swing.event.annotation.ReferenceStrength;
 import org.pdfsam.gui.event.ModuleEvent;
 import org.pdfsam.gui.event.String;
 import org.pdfsam.gui.event.EventSubscriberCallback;
-import org.pdfsam.gui.event.ModuleOwned;
+import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfLoadCompletedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,7 +46,6 @@ import org.slf4j.LoggerFactory;
 import static org.bushe.swing.event.EventBus.publish;
 import static org.pdfsam.gui.event.EventSubscriberTemplate.ifEvent;
 import static org.pdfsam.gui.view.selection.SelectionChangedEvent.selectionChanged;
-
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**

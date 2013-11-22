@@ -22,9 +22,9 @@ import javax.swing.JPanel;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.event.String;
-import org.pdfsam.gui.event.ModuleOwned;
 import org.pdfsam.gui.view.PdfVersionConstrainedCheckbox;
 import org.pdfsam.gui.view.Views;
+import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.support.filter.FileFilterType;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;

@@ -35,13 +35,12 @@ import org.bushe.swing.event.annotation.EventSubscriber;
 import org.pdfsam.gui.event.ModuleEvent;
 import org.pdfsam.gui.event.String;
 import org.pdfsam.gui.event.EventSubscriberCallback;
-import org.pdfsam.gui.event.ModuleOwned;
+import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadCompletedEvent;
 
 import static org.apache.commons.lang3.ArrayUtils.isNotEmpty;
 import static org.pdfsam.gui.event.EventSubscriberTemplate.ifEvent;
-
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**

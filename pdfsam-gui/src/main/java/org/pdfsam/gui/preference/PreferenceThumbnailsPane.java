@@ -54,9 +54,8 @@ class PreferenceThumbnailsPane extends VBox {
 
     PreferenceThumbnailsPane() {
         I18nContext i18n = DefaultI18nContext.getInstance();
-        PreferenceCheckBox highQualityThumbnails = new PreferenceCheckBox(
-                BooleanUserPreference.HIGH_QUALITY_THUMB, i18n.i18n("High quality thumbnails"), DefaultUserContext
-                        .getInstance().isHighQualityThumbnails());
+        PreferenceCheckBox highQualityThumbnails = new PreferenceCheckBox(BooleanUserPreference.HIGH_QUALITY_THUMB,
+                i18n.i18n("High quality thumbnails"), DefaultUserContext.getInstance().isHighQualityThumbnails());
         highQualityThumbnails.setTooltip(new Tooltip(i18n.i18n("Generate high quality thumbnails (slower)")));
         highQualityThumbnails.getStyleClass().addAll(Style.PREFERENCE.css());
 
@@ -69,6 +68,7 @@ class PreferenceThumbnailsPane extends VBox {
                 UPPER.toString());
         thumbSize.setPromptText(helpText);
         thumbSize.setTooltip(new Tooltip(helpText));
+        // TODO lambda
         thumbSize.validProperty().addListener(new ChangeListener<ValidationState>() {
             @Override
             public void changed(ObservableValue<? extends ValidationState> observable, ValidationState oldValue,

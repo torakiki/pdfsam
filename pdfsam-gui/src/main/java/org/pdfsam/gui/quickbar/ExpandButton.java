@@ -21,8 +21,6 @@ package org.pdfsam.gui.quickbar;
 import java.io.IOException;
 
 import javafx.beans.property.BooleanProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.control.ToggleButton;
@@ -44,20 +42,17 @@ class ExpandButton extends HBox {
     private static final String LISTING_TOGGLE_SELECTED = "listing-toggle-selected";
 
     private ToggleButton toggle;
+
     ExpandButton() throws IOException {
         getStyleClass().addAll(Style.EXPAND_BOX.css());
         toggle = new ToggleButton();
         toggle.setGraphic((Group) FXMLLoader.load(new ClassPathResource("/fxml/Listing.fxml").getURL()));
         toggle.getStyleClass().add(LISTING_TOGGLE);
-        toggle.selectedProperty().addListener(new ChangeListener<Boolean>() {
-
-            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                if (newValue) {
-                    toggle.getStyleClass().add(LISTING_TOGGLE_SELECTED);
-                } else {
-                    toggle.getStyleClass().remove(LISTING_TOGGLE_SELECTED);
-                }
-
+        toggle.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                toggle.getStyleClass().add(LISTING_TOGGLE_SELECTED);
+            } else {
+                toggle.getStyleClass().remove(LISTING_TOGGLE_SELECTED);
             }
         });
     }

@@ -36,7 +36,6 @@ public class FXValidationSupport<T> {
     private ReadOnlyObjectWrapper<ValidationState> validationState = new ReadOnlyObjectWrapper<>(
             ValidationState.NOT_VALIDATED);
     private Validator<T> validator = new Validator<T>() {
-
         public boolean isValid(T input) {
             return true;
         }

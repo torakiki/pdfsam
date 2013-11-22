@@ -18,8 +18,6 @@
  */
 package org.pdfsam.gui.preference;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.control.CheckBox;
 
 import org.pdfsam.context.BooleanUserPreference;
@@ -42,11 +40,9 @@ class PreferenceCheckBox extends CheckBox {
         super(label);
         setSelected(selected);
         this.preference = preference;
-        selectedProperty().addListener(new ChangeListener<Boolean>() {
-            public void changed(ObservableValue<? extends Boolean> ov, Boolean oldVal, Boolean newVal) {
-                DefaultUserContext.getInstance().setBooleanPreference(PreferenceCheckBox.this.preference, newVal);
-                LOG.trace("Preference {} set to {}", PreferenceCheckBox.this.preference, newVal);
-            }
+        selectedProperty().addListener((ov, oldVal, newVal) -> {
+            DefaultUserContext.getInstance().setBooleanPreference(PreferenceCheckBox.this.preference, newVal);
+            LOG.trace("Preference {} set to {}", PreferenceCheckBox.this.preference, newVal);
         });
     }
 }

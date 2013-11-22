@@ -21,7 +21,7 @@ package org.pdfsam.gui.view;
 import javax.swing.AbstractAction;
 
 import org.pdfsam.gui.event.String;
-import org.pdfsam.gui.event.ModuleOwned;
+import org.pdfsam.module.ModuleOwned;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 

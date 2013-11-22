@@ -22,21 +22,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.pdfsam.gui.event.ModuleEvent;
-
 /**
  * Base class for pdf load related events
  * 
  * @author Andrea Vacondio
  * 
  */
-class BasePdfLoadEvent extends ModuleEvent {
+class BasePdfLoadEvent {
 
     private List<PdfDocumentDescriptor> documents = new ArrayList<>();
-
-    public BasePdfLoadEvent(String ownerModule) {
-        super(ownerModule);
-    }
 
     public boolean add(PdfDocumentDescriptor e) {
         return documents.add(e);

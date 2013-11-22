@@ -18,15 +18,26 @@
  */
 package org.pdfsam.pdf;
 
+import static org.pdfsam.support.RequireUtils.requireNotBlank;
+
+import org.apache.commons.lang3.StringUtils;
+import org.pdfsam.module.ModuleOwned;
+
 /**
  * Request the app to load one or many pdf documents
  * 
  * @author Andrea Vacondio
  * 
  */
-public class PdfLoadRequestEvent extends BasePdfLoadEvent {
+public class PdfLoadRequestEvent extends BasePdfLoadEvent implements ModuleOwned {
+    private String ownerModule = StringUtils.EMPTY;
 
     public PdfLoadRequestEvent(String ownerModule) {
-        super(ownerModule);
+        requireNotBlank(ownerModule, "Owner module cannot be blank");
+        this.ownerModule = ownerModule;
+    }
+
+    public String getOwnerModule() {
+        return ownerModule;
     }
 }

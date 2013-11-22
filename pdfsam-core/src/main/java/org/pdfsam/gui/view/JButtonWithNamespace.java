@@ -22,7 +22,7 @@ import javax.swing.Action;
 import javax.swing.JButton;
 
 import org.pdfsam.gui.event.String;
-import org.pdfsam.gui.event.ModuleOwned;
+import org.pdfsam.module.ModuleOwned;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
