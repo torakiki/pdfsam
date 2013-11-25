@@ -18,7 +18,7 @@
  */
 package org.pdfsam.gui.preference;
 
-import javafx.scene.Node;
+import static org.pdfsam.ui.support.Views.titledPane;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.VBox;
 
@@ -47,24 +47,18 @@ public class PreferencePane extends VBox {
     }
 
     private TitledPane appearencePane() {
-        return preferencePane(DefaultI18nContext.getInstance().i18n("Appearance"), new PreferenceAppearencePane());
+        return titledPane(DefaultI18nContext.getInstance().i18n("Appearance"), new PreferenceAppearencePane());
     }
 
     private TitledPane behaviorPane() {
-        return preferencePane(DefaultI18nContext.getInstance().i18n("Behavior"), new PreferenceBehaviorPane());
+        return titledPane(DefaultI18nContext.getInstance().i18n("Behavior"), new PreferenceBehaviorPane());
     }
 
     private TitledPane workspacePane() {
-        return preferencePane(DefaultI18nContext.getInstance().i18n("Workspace"), new PreferenceWorkspacePane());
+        return titledPane(DefaultI18nContext.getInstance().i18n("Workspace"), new PreferenceWorkspacePane());
     }
 
     private TitledPane thumbnailsPane() {
-        return preferencePane(DefaultI18nContext.getInstance().i18n("Thumbnails"), new PreferenceThumbnailsPane());
-    }
-
-    private TitledPane preferencePane(String titleString, Node node) {
-        TitledPane pane = new TitledPane(titleString, node);
-        pane.getStyleClass().addAll(Style.PREFERENCE_PANE.css());
-        return pane;
+        return titledPane(DefaultI18nContext.getInstance().i18n("Thumbnails"), new PreferenceThumbnailsPane());
     }
 }

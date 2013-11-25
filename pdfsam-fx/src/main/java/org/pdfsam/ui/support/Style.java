@@ -27,8 +27,8 @@ package org.pdfsam.ui.support;
 public enum Style {
     BUTTON("pdfsam-button"),
     BROWSE_BUTTON("pdfsam-button", "browse-button"),
-    PREFERENCE("preference"),
-    PREFERENCE_PANE("preference-pane"),
+    PREFERENCE("spaced-vitem"),
+    TITLED_PANE("titled-pane"),
     CONTAINER("pdfsam-container"),
     INVALID("invalid"),
     MENU_BAR("pdfsam-menubar"),
@@ -39,7 +39,9 @@ public enum Style {
     TOOLBAR_BUTTON("pdfsam-toolbar-button"),
     TOOLBAR_NAVIGATION_BUTTON("pdfsam-toolbar-button", "pdfsam-navigation-button"),
     NAVIGATION_BAR("navigation"),
-    EXPAND_BOX("expand-navigation");
+    EXPAND_BOX("expand-navigation"),
+    VITEM("spaced-vitem"),
+    MAIN_PANEL("main-scroll-panel");
 
     private String[] classes;
 

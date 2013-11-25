@@ -178,27 +178,27 @@
  * Banner
  */
  .pdfsam-banner{
- 	-fx-padding: 0;
+ 	-fx-padding: 0.0;
  	-fx-background-color: #333333,  #2E2F31;
-    -fx-background-insets: 0.0, 0 0 1 0;
+    -fx-background-insets: 0.0, 0.0 0.0 1.0 0.0;
     -fx-background-radius: 0.0, 0.0;
     -fx-alignment: center-left;    
  }
 .pdfsam-logo{
-	-fx-padding: 8 4 8 12;
+	-fx-padding: 8.0 4.0 8.0 12.0;
  	-fx-background-color: #3E4649;
  	-fx-spacing: 15.0px;
  	-fx-alignment: center-left;    
 }
 .pdfsam-logo-spacer{
-	-fx-padding: 0 3em 0 0;
+	-fx-padding: 0.0 3.0em 0.0 0.0;
 	-fx-background-color: #3E4649;
 	-fx-position-shape: false;
 	-fx-scale-shape: true;
 	-fx-shape: "M0,20L0,0L20,0L0,20Z";
 }
 .pdfsam-banner-buttons{
-	-fx-padding: 0 3em 0 0;
+	-fx-padding: 0.0 3.0em 0.0 0.0;
  	-fx-spacing: 5.0px;
  	-fx-alignment: center-right;
  }
@@ -209,7 +209,7 @@
     -fx-background-color:  #2E2F31;
     -fx-background-insets:  0.0;
     -fx-background-radius: 0.0;
-    -fx-padding: 0;
+    -fx-padding: 0.0;
 }
 .pdfsam-toolbar-button:hover {
 	-fx-opacity: 0.95;
@@ -224,38 +224,38 @@
 .logs-notification {
 	-fx-text-fill: text-fill-on-dark;
 	-fx-background-color:  #4aa6b2, #fef0e9, error-color;
-    -fx-background-insets:  0, 2, 2.5;
-    -fx-background-radius: 5px;
-	-fx-font-size: 9px;
-	-fx-padding: 4 6 4 6;
-	-fx-translate-x: -5px;
+    -fx-background-insets:  0.0, 2.0, 2.5;
+    -fx-background-radius: 5.0px;
+	-fx-font-size: 9.0px;
+	-fx-padding: 4.0 6.0 4.0 6.0;
+	-fx-translate-x: -5.0px;
 }
 /**
  * Navigation
  */
  .navigation {
  	-fx-background-color: #333333, #3E4649;
-    -fx-background-insets: -1.0 0 0 0, 0 1 0 0;
+    -fx-background-insets: -1.0 0.0 0.0 0.0, 0.0 1.0 0.0 0.0;
     -fx-padding: 0.3em;
  }
 .expand-navigation{
  	-fx-alignment: center-left;
- 	-fx-padding: 0.1em 0.1em 1.6em 0;
+ 	-fx-padding: 0.1em 0.1em 1.6em 0.0;
 }
 .listing-toggle {
     -fx-background-color: #3E4649, theme-color;
-    -fx-background-insets: 0, 4;
-    -fx-background-radius: 0;
-    -fx-padding: 0;
-    -fx-translate-x: -10px;
+    -fx-background-insets: 0.0, 4.0;
+    -fx-background-radius: 0.0;
+    -fx-padding: 0.0;
+    -fx-translate-x: -10.0px;
 }
 .listing-toggle-selected {
-	-fx-translate-x: -13px;
+	-fx-translate-x: -13.0px;
 }
 .listing-toggle:focused {
     -fx-background-color: theme-color, #3E4649, theme-color;
-    -fx-background-insets: -0.1, 0, 4;
-    -fx-background-radius: 0;
+    -fx-background-insets: -0.1, 0.0, 4.0;
+    -fx-background-radius: 0.0;
 }
 .listing-toggle:hover {
     -fx-opacity: 0.95;
@@ -268,36 +268,15 @@
  */
 .pdfsam-navigation-button {
     -fx-background-color:  #2E2F31, #3E4649;
-    -fx-background-insets:  0.0, 0.0 0 1 0;
+    -fx-background-insets:  0.0, 0.0 0.0 1.0 0.0;
     -fx-background-radius: 0.0;
     -fx-padding: 0.5em 0.6em 0.5em 0.6em;
     -fx-text-fill: text-fill-on-dark;
     -fx-alignment: center-left;
 }
 .pdfsam-navigation-button:hover {
-	-fx-background-color:  #2E2F31, theme-color, rgba(62,70,73,0.85);        
-    -fx-background-insets:  0, 0.0 0 1 0, 0.0 0 1 0;
-}
-
-/**
- * Preferences panel
- */
-.preference-pane {
-	-fx-padding: 0.4em 0.1em 0.4em 0.1em;    
-}
-.preference-pane > .title {
-	-fx-background-color: -fx-box-border, -fx-control-inner-background;
-    -fx-background-insets: 0.0, 1.0;
-    -fx-background-radius: 0.0, 0.0;
-    -fx-font-weight: bold; 
-}
-.preference-pane > *.content {
-   -fx-background-color: -fx-box-border, white;
-   -fx-background-insets: 0.0, 0.0 1.0 1.0 1.0;
-   -fx-background-radius: 0.0, 0.0;
-}
-.preference {
-	-fx-padding: 0.0 0.0 0.5em 0.0 ;
+	-fx-background-color:  #2E2F31, theme-color, rgba(62.0,70.0,73.0,0.85);        
+    -fx-background-insets:  0.0, 0.0 0.0 1.0 0.0, 0.0 0.0 1.0 0.0;
 }
 /**
  * MenuBar
@@ -329,6 +308,33 @@
     -fx-background-color: -fx-selection-bar-text;
 }
 /**
+ * Titled panel
+ */
+ .titled-pane {
+	-fx-padding: 0.4em 0.1em 0.4em 0.1em;    
+}
+.titled-pane > .title {
+	-fx-background-color: -fx-box-border, -fx-control-inner-background;
+    -fx-background-insets: 0.0, 1.0;
+    -fx-background-radius: 0.0, 0.0;
+    -fx-font-weight: bold; 
+}
+.titled-pane > *.content {
+   -fx-background-color: -fx-box-border, white;
+   -fx-background-insets: 0.0, 0.0 1.0 1.0 1.0;
+   -fx-background-radius: 0.0, 0.0;
+}
+.main-scroll-panel {
+    -fx-background-color: -fx-background;
+    -fx-background-insets: 0.0;
+    -fx-padding: 0.0;
+}
+
+.main-scroll-panel:focused {
+    -fx-background-color: -fx-background;
+    -fx-background-insets: 1.0;
+}
+/**
  * General
  */
 .borded-pane {
@@ -343,6 +349,9 @@
 .button-container {
 	-fx-padding: 10.0;
 	-fx-spacing: 0.7em;
+}
+.spaced-vitem {
+	-fx-padding: 0.0 0.0 0.5em 0.0 ;
 }
 .header {
 	-fx-background-color: theme-color;

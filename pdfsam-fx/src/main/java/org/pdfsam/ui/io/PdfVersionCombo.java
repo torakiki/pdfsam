@@ -41,13 +41,14 @@ import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
 import org.sejda.model.pdf.PdfVersion;
 
+
 /**
  * Combo box let the user select the pdf version of the generated output documents
  * 
  * @author Andrea Vacondio
  * 
  */
-public class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwned {
+class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwned {
 
     private String ownerModule = StringUtils.EMPTY;
     private ObservableList<PdfVersionComboItem> unfilteredItems = FXCollections.observableArrayList();
@@ -82,10 +83,18 @@ public class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements Mo
                 return cell;
             }
         });
-        versionsFilter.requiredProperty().addListener(
-                (observable, oldVal, newVal) -> setItems(unfilteredItems.filtered(t -> t.isHigher(newVal.intValue()))));
+        versionsFilter.requiredProperty().addListener((observable, oldVal, newVal) -> {
+            PdfVersionComboItem selected = getSelectionModel().getSelectedItem();
+            setItems(unfilteredItems.filtered(t -> t.isHigher(newVal.intValue())));
+            int selecedIndex = getItems().indexOf(selected);
+            if (selecedIndex != -1) {
+                getSelectionModel().select(selecedIndex);
+            } else {
+                getSelectionModel().selectLast();
+            }
+        });
         versionsFilter.addFilter(-1);
-        getSelectionModel().select(getItems().size() - 1);
+        getSelectionModel().selectLast();
         eventStudio().addAnnotatedListeners(this);
     }
 

@@ -18,28 +18,23 @@
  */
 package org.pdfsam.ui.module;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
-
 import java.io.IOException;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
-import org.pdfsam.gui.event.AddPdfVersionConstraintEvent;
-import org.pdfsam.gui.event.ChangedSelectedPdfVersionEvent;
-import org.pdfsam.gui.event.RemovePdfVersionConstraintEvent;
+import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.PdfsamModule;
-import org.pdfsam.ui.io.PdfVersionCombo;
+import org.pdfsam.ui.io.BrowsableDirectoryField;
+import org.pdfsam.ui.io.PdfDestinationPane;
+import org.pdfsam.ui.support.Style;
+import org.pdfsam.ui.support.Views;
 import org.sejda.model.parameter.base.TaskParameters;
-import org.sejda.model.pdf.PdfVersion;
 import org.springframework.core.io.ClassPathResource;
 
 /**
@@ -64,27 +59,12 @@ public class TestModule extends BaseTaskExecutionModule {
 
     @Override
     protected Pane getInnerPanel() {
-        HBox pane = new HBox();
-        Button button = new Button("ADD");
-        button.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent event) {
-                eventStudio().broadcast(new AddPdfVersionConstraintEvent(PdfVersion.VERSION_1_4), id());
-            }
-        });
-        Button remove = new Button("REMOVE");
-        remove.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent event) {
-                eventStudio().broadcast(new RemovePdfVersionConstraintEvent(PdfVersion.VERSION_1_4), id());
-            }
-        });
-        Button selected = new Button("SELECTED");
-        selected.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent event) {
-                eventStudio().broadcast(new ChangedSelectedPdfVersionEvent(PdfVersion.VERSION_1_4), id());
-            }
-        });
-        PdfVersionCombo combo = new PdfVersionCombo(id());
-        pane.getChildren().addAll(button, remove, selected, combo);
+        VBox pane = new VBox();
+        pane.getStyleClass().addAll(Style.CONTAINER.css());
+        BrowsableDirectoryField destination = new BrowsableDirectoryField();
+        PdfDestinationPane destinationPane = new PdfDestinationPane(destination, id());
+        pane.getChildren().add(
+                Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination folder"), destinationPane));
         return pane;
     }
 
