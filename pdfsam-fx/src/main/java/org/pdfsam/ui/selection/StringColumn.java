@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 15/giu/2013
+ * Created on 27/nov/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,14 +16,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui.view.selection;
-
-import javax.swing.table.TableCellRenderer;
-
-import org.pdfsam.context.DefaultI18nContext;
+package org.pdfsam.ui.selection;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.defaultString;
+
+import java.util.Comparator;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+
+import org.pdfsam.context.DefaultI18nContext;
 
 /**
  * Definition of the {@link String} columns of the selection table
@@ -31,36 +34,28 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
  * @author Andrea Vacondio
  * 
  */
-enum StringColumn implements SelectionTableColumn<String> {
-
+public enum StringColumn implements SelectionTableColumn<String> {
     PAGE_SELECTION {
-        public String getColumnName() {
+        public String getColumnTitle() {
             return DefaultI18nContext.getInstance().i18n("Page ranges");
         }
 
-        public String getValueFor(SelectionTableRowData data) {
-            return data.getPageSelection();
+        @Override
+        public ObservableValue<String> getObservableValue(SelectionTableRowData data) {
+            return new SimpleStringProperty(data.getPageSelection());
         }
-
-    };
-
-    private TableCellRenderer stringCellRenderer = new BaseSelectionTableCellRenderer() {
 
         @Override
-        String getStringValue(Object value) {
-            return defaultString((String) value, EMPTY);
+        public String getTextValue(String item) {
+            return defaultString(item, EMPTY);
         }
-    };
 
-    public Class<String> getColumnClass() {
-        return String.class;
-    }
-
-    public TableCellRenderer getRenderer() {
-        return stringCellRenderer;
-    }
-
-    public int compare(SelectionTableRowData o1, SelectionTableRowData o2) {
-        return getValueFor(o1).compareTo(getValueFor(o2));
+        public Comparator<String> comparator() {
+            return new Comparator<String>() {
+                public int compare(String o1, String o2) {
+                    return o1.compareTo(o2);
+                }
+            };
+        }
     }
 }

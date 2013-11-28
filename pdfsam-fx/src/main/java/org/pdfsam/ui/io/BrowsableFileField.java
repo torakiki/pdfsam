@@ -45,6 +45,7 @@ public class BrowsableFileField extends BrowsableField {
 
     public BrowsableFileField() {
         setBrowseWindowTitle(DefaultI18nContext.getInstance().i18n("Select a file"));
+        getTextField().setPromptText(DefaultI18nContext.getInstance().i18n("Select a file"));
         getBrowseButton().setOnAction(new BrowseEventHandler());
     }
 

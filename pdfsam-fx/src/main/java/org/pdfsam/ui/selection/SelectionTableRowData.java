@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui.view.selection;
+package org.pdfsam.ui.selection;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.pdf.PdfDocumentDescriptor;

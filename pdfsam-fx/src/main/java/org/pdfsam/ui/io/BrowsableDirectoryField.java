@@ -44,6 +44,7 @@ public class BrowsableDirectoryField extends BrowsableField {
         setBrowseWindowTitle(DefaultI18nContext.getInstance().i18n("Select a directory"));
         getTextField().setValidator(Validators.newExistingDirectoryString());
         getTextField().setErrorMessage(DefaultI18nContext.getInstance().i18n("Select an existing directory"));
+        getTextField().setPromptText(DefaultI18nContext.getInstance().i18n("Select a directory"));
         getBrowseButton().setOnAction(new BrowseEventHandler());
     }
 
