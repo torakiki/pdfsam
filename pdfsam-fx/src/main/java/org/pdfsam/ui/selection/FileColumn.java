@@ -62,9 +62,11 @@ enum FileColumn implements SelectionTableColumn<File> {
                         @Override
                         public void updateItem(final File item, boolean empty) {
                             super.updateItem(item, empty);
+                            setText(getTextValue(item));
                             if (item != null) {
-                                setText(getTextValue(item));
                                 setTooltip(new Tooltip(item.getAbsolutePath()));
+                            } else {
+                                setTooltip(null);
                             }
                         }
                     };

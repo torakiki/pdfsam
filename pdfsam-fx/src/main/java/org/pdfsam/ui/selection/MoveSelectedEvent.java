@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 26/giu/2013
+ * Created on 28/giu/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,21 +16,27 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui.view.selection;
+package org.pdfsam.ui.selection;
 
-import org.pdfsam.gui.event.ModuleEvent;
-import org.pdfsam.gui.event.String;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**
- * Notifies that the selected rows should be removed
+ * Notifies that selected elements in the selection table should be moved down
  * 
  * @author Andrea Vacondio
  * 
  */
-class RemoveSelectedEvent extends ModuleEvent {
+class MoveSelectedEvent {
 
-    public RemoveSelectedEvent(String namespace) {
-        super(namespace);
+    private MoveType type;
+
+    public MoveSelectedEvent(MoveType type) {
+        requireNotNull(type, "Type cannot be null");
+        this.type = type;
+    }
+
+    public MoveType getType() {
+        return type;
     }
 
 }

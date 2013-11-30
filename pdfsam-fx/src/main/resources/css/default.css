@@ -308,6 +308,26 @@
     -fx-background-color: -fx-selection-bar-text;
 }
 /**
+ * Table view
+ */
+ .table-view .column-header{
+ 	-fx-background-color: -fx-box-border, -fx-control-inner-background;
+    -fx-background-insets: 0.0, 0 1 1 0;
+    -fx-background-radius: 0.0, 0.0;
+    -fx-font-weight: bold; 
+ }
+.table-view:focused{
+ 	-fx-background-radius: 0;
+ }
+.table-row-cell:focused {
+    -fx-background-color: -fx-focus-color, -fx-cell-focus-inner-border, -fx-control-inner-background;
+    -fx-background-insets: 0, 1, 2;
+}
+.table-row-cell:focused:odd {
+    -fx-background-color: -fx-focus-color, -fx-cell-focus-inner-border, derive(-fx-control-inner-background,-5%);
+    -fx-background-insets: 0, 1, 2;
+}
+/**
  * Titled panel
  */
  .titled-pane {

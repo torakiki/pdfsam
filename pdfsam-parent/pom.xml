@@ -37,7 +37,7 @@
 		<hibernate-validator.version>4.2.0.Final</hibernate-validator.version>
 		<sejda.version>1.0.0.M9-SNAPSHOT</sejda.version>
 		<dockingframes.version>1.1.1</dockingframes.version>
-		<eventstudio.version>1.0.1</eventstudio.version>
+		<eventstudio.version>1.0.3-SNAPSHOT</eventstudio.version>
 		<itext.version>2.1.7</itext.version>
 		<pdfbox.version>1.8.2</pdfbox.version>
 		<org.springframework.version>4.0.0.RC1</org.springframework.version>

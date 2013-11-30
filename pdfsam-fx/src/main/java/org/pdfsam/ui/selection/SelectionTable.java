@@ -19,12 +19,17 @@
 package org.pdfsam.ui.selection;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
+import java.util.Arrays;
+import java.util.Collections;
+
+import javafx.collections.ObservableList;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableView;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.module.ModuleOwned;
-import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadCompletedEvent;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
@@ -41,13 +46,14 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     public SelectionTable(String ownerModule, SelectionTableColumn<?>... columns) {
         this.ownerModule = defaultString(ownerModule);
-        for (SelectionTableColumn<?> column : columns) {
-            getColumns().add(column.getTableColumn());
-        }
+        // TODO single interval
         getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        /*
-         * Arrays.stream(columns).forEachOrdered(column ->{ TableColumn tableColumn = new TableColumn(column.getColumnTitle()); });
-         */
+        Arrays.stream(columns).forEach(c -> getColumns().add(c.getTableColumn()));
+        setColumnResizePolicy(CONSTRAINED_RESIZE_POLICY);
+        setTableMenuButtonVisible(true);
+        // TODO
+        // setPlaceholder(dropImage);
+        eventStudio().addAnnotatedListeners(this);
     }
 
     @EventStation
@@ -57,9 +63,42 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     @EventListener
     public void onLoadDocumentsCompletion(final PdfLoadCompletedEvent event) {
-        for (PdfDocumentDescriptor document : event.getDocuments()) {
-            getItems().add(new SelectionTableRowData(document));
+        event.getDocuments().forEach(d -> getItems().add(new SelectionTableRowData(d)));
+    }
+
+    @EventListener
+    public void onClear(final ClearSelectionTableEvent event) {
+        getItems().clear();
+    }
+
+    @EventListener
+    public void onRemoveSelected(RemoveSelectedEvent event) {
+        getItems().removeAll(getSelectionModel().getSelectedItems());
+    }
+
+    @EventListener
+    public void onMoveSelected(final MoveSelectedEvent event) {
+        getSortOrder().clear();
+        ObservableList<Integer> selected = getSelectionModel().getSelectedIndices();
+        if (event.getType() == MoveType.DOWN) {
+            moveDownIndexes(selected);
+            // setRowSelectionInterval(selected[0] + 1, selected[selected.length - 1] + 1);
+        } else {
+            moveUpIndexes(selected);
+            // setRowSelectionInterval(selected[0] - 1, selected[selected.length - 1] - 1);
         }
-        // getItems().addAll(event.getDocuments().parallelStream().map(SelectionTableRowData::new).collect(Collectors.toList()));
+    }
+
+    public void moveUpIndexes(ObservableList<Integer> toMove) {
+        if (!toMove.isEmpty() && toMove.size() < getItems().size() && toMove.get(0) > 0) {
+            Collections.rotate(getItems().subList(toMove.get(0) - 1, toMove.get(toMove.size() - 1) + 1), -1);
+        }
+    }
+
+    public void moveDownIndexes(ObservableList<Integer> toMove) {
+        if (!toMove.isEmpty() && toMove.size() < getItems().size()
+                && toMove.get(toMove.size() - 1) < getItems().size() - 1) {
+            Collections.rotate(getItems().subList(toMove.get(0), toMove.get(toMove.size() - 1) + 2), 1);
+        }
     }
 }

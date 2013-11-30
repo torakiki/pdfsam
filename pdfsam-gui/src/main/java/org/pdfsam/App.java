@@ -48,7 +48,6 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger());
         AnnotationConfigApplicationContext ctx = ApplicationContextHolder.getContext();
         List<String> styles = (List<String>) ApplicationContextHolder.getContext().getBean("styles");
         Map<String, Image> logos = ApplicationContextHolder.getContext().getBeansOfType(Image.class);

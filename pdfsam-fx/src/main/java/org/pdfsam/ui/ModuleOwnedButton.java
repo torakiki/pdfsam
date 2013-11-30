@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 28/giu/2013
+ * Created on 28/nov/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,15 +16,30 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui.view.selection;
+package org.pdfsam.ui;
+
+import static org.apache.commons.lang3.StringUtils.defaultString;
+import javafx.scene.control.Button;
+
+import org.apache.commons.lang3.StringUtils;
+import org.pdfsam.module.ModuleOwned;
+import org.sejda.eventstudio.annotation.EventStation;
 
 /**
- * Types of moves for the selected items in the selection table
+ * {@link Button} owned by a {@link org.pdfsam.module.Module}
  * 
  * @author Andrea Vacondio
  * 
  */
-public enum MoveType {
-    UP,
-    DOWN;
+public class ModuleOwnedButton extends Button implements ModuleOwned {
+    private String ownerModule = StringUtils.EMPTY;
+
+    public ModuleOwnedButton(String ownerModule) {
+        this.ownerModule = defaultString(ownerModule);
+    }
+
+    @EventStation
+    public String getOwnerModule() {
+        return ownerModule;
+    }
 }

@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 28/giu/2013
+ * Created on 28/nov/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,28 +16,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui.view.selection;
-
-import org.pdfsam.gui.event.ModuleEvent;
-import org.pdfsam.gui.event.String;
+package org.pdfsam.ui.selection;
 
 /**
- * Notifies that selected elements in the selection table should be moved down
+ * request the selection table to be cleared
  * 
  * @author Andrea Vacondio
  * 
  */
-class MoveSelectedEvent extends ModuleEvent {
-
-    private MoveType type;
-
-    public MoveSelectedEvent(String namespace, MoveType type) {
-        super(namespace);
-        this.type = type;
-    }
-
-    public MoveType getType() {
-        return type;
-    }
-
+class ClearSelectionTableEvent {
+    // nothing
 }

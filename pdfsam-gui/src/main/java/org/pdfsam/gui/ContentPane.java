@@ -48,9 +48,6 @@ import org.sejda.eventstudio.annotation.EventListener;
 @Named
 public class ContentPane extends BorderPane {
 
-    /**
-     * 
-     */
     private static final int MODULE_FADE_MILLIS = 500;
     @Inject
     private QuickbarPane navigation;

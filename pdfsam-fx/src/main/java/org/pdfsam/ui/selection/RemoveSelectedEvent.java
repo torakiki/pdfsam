@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 07/nov/2013
+ * Created on 26/giu/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,26 +16,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam;
+package org.pdfsam.ui.selection;
 
-import java.lang.Thread.UncaughtExceptionHandler;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
- * {@link UncaughtExceptionHandler} that simply logs the exception and rethrows it
+ * Notifies that the selected rows should be removed
  * 
  * @author Andrea Vacondio
  * 
  */
-public class UncaughtExceptionLogger implements UncaughtExceptionHandler {
-
-    private static final Logger LOG = LoggerFactory.getLogger(UncaughtExceptionLogger.class);
-
-    public void uncaughtException(Thread t, Throwable e) {
-        LOG.error("Unexpected error", e);
-        System.err.println(e);
-    }
-
+class RemoveSelectedEvent {
+    // nothing
 }
