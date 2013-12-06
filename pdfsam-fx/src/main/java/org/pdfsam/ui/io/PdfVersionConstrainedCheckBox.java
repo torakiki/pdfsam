@@ -20,6 +20,7 @@ package org.pdfsam.ui.io;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Tooltip;
 
@@ -46,11 +47,13 @@ public class PdfVersionConstrainedCheckBox extends CheckBox implements ModuleOwn
         setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Pdf version required: {0}",
                 Double.toString(this.constraint.getVersionAsDouble()))));
 
-        // TODO investigate eclipse NPE
-        /*
-         * selectedProperty().addListener((o, oldVal, newVal) -> { if (newVal) { eventStudio().broadcast(new AddPdfVersionConstraintEvent(constraint), ownerModule); } else {
-         * eventStudio().broadcast(new RemovePdfVersionConstraintEvent(constraint), ownerModule); } });
-         */
+        selectedProperty().addListener((o, oldVal, newVal) -> {
+            if (newVal) {
+                eventStudio().broadcast(new AddPdfVersionConstraintEvent(constraint), ownerModule);
+            } else {
+                eventStudio().broadcast(new RemovePdfVersionConstraintEvent(constraint), ownerModule);
+            }
+        });
 
         getStyleClass().addAll(Style.VITEM.css());
     }

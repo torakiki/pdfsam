@@ -310,22 +310,56 @@
 /**
  * Table view
  */
- .table-view .column-header{
+.table-view{
+}
+.table-view:focused {
+    -fx-background-color: -fx-focus-color, -fx-control-inner-background;
+    -fx-background-insets: 0.0, 1.0;
+    -fx-background-radius: 0.0, 0.0;
+    -fx-effect: dropshadow( three-pass-box , -fx-focus-color , 10.0, 0.0 ,1.0 ,1.0 );
+}
+.table-view .column-header{
  	-fx-background-color: -fx-box-border, -fx-control-inner-background;
-    -fx-background-insets: 0.0, 0 1 1 0;
+    -fx-background-insets: 0.0, 0.0 1.0 1.0 0.0;
     -fx-background-radius: 0.0, 0.0;
     -fx-font-weight: bold; 
- }
-.table-view:focused{
- 	-fx-background-radius: 0;
- }
+}
+.table-row-cell{
+ 	-fx-background-radius: 0.0;
+}
 .table-row-cell:focused {
     -fx-background-color: -fx-focus-color, -fx-cell-focus-inner-border, -fx-control-inner-background;
-    -fx-background-insets: 0, 1, 2;
+    -fx-background-insets: 0, 1.0, 2.0 0 2.0 0;
 }
 .table-row-cell:focused:odd {
     -fx-background-color: -fx-focus-color, -fx-cell-focus-inner-border, derive(-fx-control-inner-background,-5%);
-    -fx-background-insets: 0, 1, 2;
+    -fx-background-insets: 0.0, 1.0, 2.0 0 2.0 0;
+}
+.table-view:focused > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled:focused:selected{
+	-fx-background-color: -fx-focus-color, -fx-cell-focus-inner-border, derive(hover-color,5.0%);
+    -fx-background-insets: 0.0, 1.0, 2.0  1.0 2.0  1.0;
+}
+/**
+ * Selection table toolbar
+ */
+.selection-tool-bar:horizontal {
+   -fx-background-color: transparent;
+   -fx-background-insets: 0.0;
+   -fx-background-radius: 0.0;
+   -fx-padding: 0.416667em 0.0 0.416667em 0.0;
+}
+.selection-tool-bar .button {
+   -fx-background-color: derive(theme-color, -5.0%), theme-color;
+   -fx-background-insets: 0.0, 1;
+   -fx-background-radius: 0.0;
+}
+.selection-tool-bar .button:hover {
+   -fx-background-color: derive(theme-color, -5.0%), derive(theme-color, 15.0%);
+   -fx-background-insets: 0.0, 1;
+}
+.selection-tool-bar .button:armed {
+   -fx-background-color: derive(theme-color, -5.0%), derive(theme-color, -15.0%);
+   -fx-background-insets: 0.0, 1;
 }
 /**
  * Titled panel
@@ -353,6 +387,27 @@
 .main-scroll-panel:focused {
     -fx-background-color: -fx-background;
     -fx-background-insets: 1.0;
+}
+/**
+ * Table placeholder
+ */
+.drag-drop-placeholder{
+	-fx-alignment: center;
+ 	-fx-font-weight: bold; 
+ 	-fx-padding: 25.0;
+ 	-fx-font-size: 2.0em;
+ 	-fx-background-color: white;
+ 	-fx-border-color: derive(#D8D8D8, -10.0%);
+ 	-fx-text-fill: derive(#D8D8D8, -10.0%);
+ 	-fx-border-radius: 7.0px;
+ 	-fx-border-style: dashed;
+ 	-fx-border-width: 4.0px;
+}
+.drag-drop-placeholder:disabled {
+    -fx-opacity: 1;
+ 	-fx-border-color: #D8D8D8;
+ 	-fx-text-fill: #D8D8D8;
+ 	-fx-border-width: 3.0px;
 }
 /**
  * General
@@ -424,3 +479,6 @@
 .context-menu:show-mnemonics > .mnemonic-underline {
     -fx-stroke: theme-color;
 } 
+.tooltip {
+   -fx-background-radius:  0.0, 0.0;
+}

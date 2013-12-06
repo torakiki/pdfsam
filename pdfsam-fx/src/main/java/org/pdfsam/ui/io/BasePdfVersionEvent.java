@@ -16,22 +16,29 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui.event;
-
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+package org.pdfsam.ui.io;
 
 import org.sejda.model.pdf.PdfVersion;
 
 /**
- * Event to notify subscribers that some selected option removes a constraint on the output pdf version.
+ * Event to notify subscribers that something related to a pdf version has happened.
  * 
  * @author Andrea Vacondio
  * 
  */
-public class RemovePdfVersionConstraintEvent extends BasePdfVersionEvent {
+class BasePdfVersionEvent {
 
-    public RemovePdfVersionConstraintEvent(PdfVersion pdfVersion) {
-        super(pdfVersion);
-        requireNotNull(pdfVersion, "Unable to create a pdf version event on a null pdf version");
+    private PdfVersion pdfVersion;
+
+    public BasePdfVersionEvent(PdfVersion pdfVersion) {
+        this.pdfVersion = pdfVersion;
+    }
+
+    public PdfVersion getPdfVersion() {
+        return pdfVersion;
+    }
+
+    public boolean hasPdfVersion() {
+        return pdfVersion != null;
     }
 }

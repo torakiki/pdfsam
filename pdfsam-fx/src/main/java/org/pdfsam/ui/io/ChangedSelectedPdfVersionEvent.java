@@ -16,22 +16,20 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui.event;
-
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+package org.pdfsam.ui.io;
 
 import org.sejda.model.pdf.PdfVersion;
 
 /**
- * Event to notify subscribers that some selected option imposes a constraint on the output pdf version.
+ * Notifies the subscribers that a pdf version of the selected input file has changed. It may mean that nothing is selected anymore or a new pdf document has been selected. This
+ * event makes sense only for single input tasks.
  * 
  * @author Andrea Vacondio
  * 
  */
-public class AddPdfVersionConstraintEvent extends BasePdfVersionEvent {
+public class ChangedSelectedPdfVersionEvent extends BasePdfVersionEvent {
 
-    public AddPdfVersionConstraintEvent(PdfVersion pdfVersion) {
+    public ChangedSelectedPdfVersionEvent(PdfVersion pdfVersion) {
         super(pdfVersion);
-        requireNotNull(pdfVersion, "Unable to create a pdf version event on a null pdf version");
     }
 }

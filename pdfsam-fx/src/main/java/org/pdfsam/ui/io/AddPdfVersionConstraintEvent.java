@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 17/ott/2013
+ * Created on 08/feb/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,16 +16,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui.log;
+package org.pdfsam.ui.io;
+
+import static org.pdfsam.support.RequireUtils.requireNotNull;
+
+import org.sejda.model.pdf.PdfVersion;
 
 /**
- * Log levels that PDFsam understand
+ * Event to notify subscribers that some selected option imposes a constraint on the output pdf version.
  * 
  * @author Andrea Vacondio
  * 
  */
-public enum LogMessageLevel {
-    STANDARD,
-    WARNING,
-    ERROR;
+class AddPdfVersionConstraintEvent extends BasePdfVersionEvent {
+
+    public AddPdfVersionConstraintEvent(PdfVersion pdfVersion) {
+        super(pdfVersion);
+        requireNotNull(pdfVersion, "Unable to create a pdf version event on a null pdf version");
+    }
 }

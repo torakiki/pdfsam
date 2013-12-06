@@ -18,6 +18,12 @@
  */
 package org.pdfsam.ui.selection;
 
+import static org.pdfsam.support.RequireUtils.require;
+
+import java.util.Collections;
+
+import javafx.collections.ObservableList;
+
 /**
  * Types of moves for the selected items in the selection table
  * 
@@ -25,6 +31,59 @@ package org.pdfsam.ui.selection;
  * 
  */
 public enum MoveType {
-    UP,
-    DOWN;
+    UP {
+        @Override
+        public Interval move(ObservableList<Integer> toMove, ObservableList<?> items) {
+            if (!toMove.isEmpty() && toMove.size() < items.size() && toMove.get(0) > 0) {
+                Collections.rotate(items.subList(toMove.get(0) - 1, toMove.get(toMove.size() - 1) + 1), -1);
+                return new Interval(toMove.get(0) - 1, toMove.get(toMove.size() - 1));
+            }
+            return Interval.NULL;
+        }
+    },
+    DOWN {
+        @Override
+        public Interval move(ObservableList<Integer> toMove, ObservableList<?> items) {
+            if (!toMove.isEmpty() && toMove.size() < items.size() && toMove.get(toMove.size() - 1) < items.size() - 1) {
+                Collections.rotate(items.subList(toMove.get(0), toMove.get(toMove.size() - 1) + 2), 1);
+                return new Interval(toMove.get(0) + 1, toMove.get(toMove.size() - 1) + 2);
+            }
+            return Interval.NULL;
+        }
+    };
+
+    /**
+     * Moves the given contiguous collection of indices (a interval) in the given collection if items
+     * 
+     * @param toMove
+     * @param items
+     * @return a new interval of the given toMove items with the position of the interval after the move took place
+     */
+    public abstract Interval move(ObservableList<Integer> toMove, ObservableList<?> items);
+
+    /**
+     * A single interval of selected rows where start is inclusive, end is exclusive.
+     * 
+     * @author Andrea Vacondio
+     * 
+     */
+    public static class Interval {
+        public static final Interval NULL = new Interval(0, 0);
+        private int start, end;
+
+        private Interval(int start, int end) {
+            require(start <= end, "Interval cannot end before start");
+            this.start = start;
+            this.end = end;
+        }
+
+        public int getStart() {
+            return start;
+        }
+
+        public int getEnd() {
+            return end;
+        }
+
+    }
 }

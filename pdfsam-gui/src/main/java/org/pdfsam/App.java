@@ -26,6 +26,9 @@ import java.util.Map;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 import javafx.stage.Stage;
 
 import org.apache.commons.lang3.time.DurationFormatUtils;
@@ -34,10 +37,10 @@ import org.pdfsam.configuration.ApplicationContextHolder;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.gui.MainPane;
+import org.pdfsam.ui.support.ShowRequestEvent;
 import org.pdfsam.update.UpdateCheckRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
  * @author Andrea Vacondio
@@ -45,31 +48,32 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 public class App extends Application {
     private static final Logger LOG = LoggerFactory.getLogger(App.class);
+    private static StopWatch STOPWATCH = new StopWatch();
 
     @Override
     public void start(Stage primaryStage) {
-        AnnotationConfigApplicationContext ctx = ApplicationContextHolder.getContext();
+        STOPWATCH.start();
+        LOG.info(DefaultI18nContext.getInstance().i18n("Starting pdfsam"));
         List<String> styles = (List<String>) ApplicationContextHolder.getContext().getBean("styles");
         Map<String, Image> logos = ApplicationContextHolder.getContext().getBeansOfType(Image.class);
-        MainPane mainPane = ctx.getBean(MainPane.class);
+        MainPane mainPane = ApplicationContextHolder.getContext().getBean(MainPane.class);
         Scene scene = new Scene(mainPane);
         scene.getStylesheets().addAll(styles);
         primaryStage.setScene(scene);
         primaryStage.getIcons().addAll(logos.values());
         primaryStage.setTitle(ApplicationContextHolder.getContext().getBean("appName", String.class));
+        scene.getAccelerators().put(new KeyCodeCombination(KeyCode.L, KeyCombination.SHORTCUT_DOWN),
+                () -> eventStudio().broadcast(new ShowRequestEvent(), "LogStage"));
         primaryStage.show();
         requestCheckForUpdateIfNecessary();
+        STOPWATCH.stop();
+        LOG.info(DefaultI18nContext.getInstance().i18n("Started in {0}",
+                DurationFormatUtils.formatDurationWords(STOPWATCH.getTime(), true, true)));
     }
 
     public static void main(String[] args) {
-        LOG.info(DefaultI18nContext.getInstance().i18n("Starting pdfsam"));
-        StopWatch stopWatch = new StopWatch();
-        stopWatch.start();
         Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger());
         launch(args);
-        stopWatch.stop();
-        LOG.info(DefaultI18nContext.getInstance().i18n("Started in {0}",
-                DurationFormatUtils.formatDurationWords(stopWatch.getTime(), true, true)));
     }
 
     private static void requestCheckForUpdateIfNecessary() {

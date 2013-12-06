@@ -7,19 +7,12 @@
 		</encoder>
 	</appender>
 
-	<appender name="DISPATCHER" class="org.pdfsam.gui.log.DispatchAppender">
-		<encoder>
-			<pattern>[%d{HH:mm:ss}] %msg%n</pattern>
-		</encoder>
-	</appender>
-
-	<logger name="org.sejda" level="TRACE" />
+	<logger name="org.sejda" level="DEBUG" />
 	<logger name="org.pdfsam" level="TRACE" />
 	<logger name="org.hibernate" level="WARN" />
 	<logger name="org.springframework" level="INFO" />
 
 	<root level="TRACE">
 		<appender-ref ref="STDOUT" />
-		<appender-ref ref="DISPATCHER" />
 	</root>
 </configuration>

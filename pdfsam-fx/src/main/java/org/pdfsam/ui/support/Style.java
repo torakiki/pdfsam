@@ -41,7 +41,8 @@ public enum Style {
     NAVIGATION_BAR("navigation"),
     EXPAND_BOX("expand-navigation"),
     VITEM("spaced-vitem"),
-    MAIN_PANEL("main-scroll-panel");
+    MAIN_PANEL("main-scroll-panel"),
+    DROP_PLACEHOLDER("drag-drop-placeholder");
 
     private String[] classes;
 

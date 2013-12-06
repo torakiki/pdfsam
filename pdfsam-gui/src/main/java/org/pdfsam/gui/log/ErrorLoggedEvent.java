@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 08/feb/2013
+ * Created on 01/dic/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,29 +16,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui.event;
-
-import org.sejda.model.pdf.PdfVersion;
+package org.pdfsam.gui.log;
 
 /**
- * Event to notify subscribers that something related to a pdf version has happened.
+ * Informs that an error has been logged
  * 
  * @author Andrea Vacondio
  * 
  */
-class BasePdfVersionEvent {
-
-    private PdfVersion pdfVersion;
-
-    public BasePdfVersionEvent(PdfVersion pdfVersion) {
-        this.pdfVersion = pdfVersion;
-    }
-
-    public PdfVersion getPdfVersion() {
-        return pdfVersion;
-    }
-
-    public boolean hasPdfVersion() {
-        return pdfVersion != null;
-    }
+public class ErrorLoggedEvent {
+    // nothing
 }

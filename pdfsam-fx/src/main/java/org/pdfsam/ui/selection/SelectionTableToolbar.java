@@ -24,6 +24,7 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.io.File;
 import java.util.List;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ToolBar;
 import javafx.scene.control.Tooltip;
@@ -54,6 +55,7 @@ public class SelectionTableToolbar extends ToolBar implements ModuleOwned {
         this.ownerModule = defaultString(ownerModule);
         getItems().addAll(new AddButton(ownerModule), new ClearButton(ownerModule), new RemoveButton(ownerModule),
                 new MoveUpButton(ownerModule), new MoveDownButton(ownerModule));
+        getStyleClass().add("selection-tool-bar");
     }
 
     public String getOwnerModule() {
@@ -81,10 +83,8 @@ public class SelectionTableToolbar extends ToolBar implements ModuleOwned {
 
         @EventListener
         public final void enableOnLoadDocumentsCompletion(PdfLoadCompletedEvent event) {
-            System.out.println("Enabling " + this);
             // I'm done loading documents
-            this.setDisable(false);
-            System.out.println("Done ");
+            Platform.runLater(() -> this.setDisable(false));
         }
 
     }
@@ -125,7 +125,7 @@ public class SelectionTableToolbar extends ToolBar implements ModuleOwned {
      * @author Andrea Vacondio
      * 
      */
-    private static class RemoveButton extends SelectionToolbarButton {
+    private static class RemoveButton extends ModuleOwnedButton {
 
         public RemoveButton(String ownerModule) {
             super(ownerModule);
@@ -133,6 +133,7 @@ public class SelectionTableToolbar extends ToolBar implements ModuleOwned {
             setText(DefaultI18nContext.getInstance().i18n("_Remove"));
             setOnAction(this::removeSelected);
             setDisable(true);
+            eventStudio().addAnnotatedListeners(this);
         }
 
         public void removeSelected(ActionEvent event) {

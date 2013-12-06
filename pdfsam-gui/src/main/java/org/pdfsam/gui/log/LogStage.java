@@ -18,6 +18,8 @@
  */
 package org.pdfsam.gui.log;
 
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -32,6 +34,8 @@ import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.HideOnEscapeHandler;
+import org.pdfsam.ui.support.ShowRequestEvent;
+import org.sejda.eventstudio.annotation.EventListener;
 
 /**
  * Stage for the log panel
@@ -57,5 +61,15 @@ public class LogStage extends Stage {
         setScene(scene);
         setTitle(DefaultI18nContext.getInstance().i18n("Log register"));
         getIcons().addAll(logos);
+        eventStudio().addAnnotatedListeners(this);
+    }
+
+    @EventListener(station = "LogStage")
+    void requestShow(ShowRequestEvent event) {
+        if (!isShowing()) {
+            centerOnScreen();
+            show();
+        }
+        requestFocus();
     }
 }

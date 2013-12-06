@@ -79,10 +79,14 @@ public class PdfLoadRequestSubscriber {
 
         @Override
         public Void call() {
-            List<PdfDocumentDescriptor> loaded = loadService.load(request.getDocuments());
-            PdfLoadCompletedEvent response = new PdfLoadCompletedEvent();
-            response.addAll(loaded);
-            eventStudio().broadcast(response, request.getOwnerModule());
+            try {
+                List<PdfDocumentDescriptor> loaded = loadService.load(request.getDocuments());
+                PdfLoadCompletedEvent response = new PdfLoadCompletedEvent();
+                response.addAll(loaded);
+                eventStudio().broadcast(response, request.getOwnerModule());
+            } catch (Exception e) {
+                LOG.error("Error loading documents", e);
+            }
             return null;
         }
 

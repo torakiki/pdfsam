@@ -19,6 +19,7 @@
 package org.pdfsam.ui.module;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -80,7 +81,7 @@ public abstract class BaseTaskExecutionModule implements Module {
     @EventListener
     public void enableRunButtonOnLoadDocumentsCompletion(PdfLoadCompletedEvent event) {
         // I'm done loading documents
-        runButton.setDisable(false);
+        Platform.runLater(() -> runButton.setDisable(false));
     }
 
     @EventStation

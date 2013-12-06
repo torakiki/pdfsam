@@ -32,6 +32,7 @@ public final class ApplicationContextHolder {
 
     private ApplicationContextHolder() {
         ctx = new AnnotationConfigApplicationContext();
+        ctx.register(LoggerConfig.class);
         ctx.register(PdfsamConfig.class);
         ctx.getEnvironment().setActiveProfiles(ctx.getEnvironment().getProperty("pdfsam.package", "BASIC"));
         ctx.register(PdfsamBasicConfig.class, PdfsamEnhancedConfig.class);

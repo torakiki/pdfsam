@@ -18,7 +18,6 @@
  */
 package org.pdfsam.ui.selection;
 
-
 /**
  * Notifies that the selected rows should be removed
  * 

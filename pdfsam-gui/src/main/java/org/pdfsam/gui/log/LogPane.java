@@ -34,6 +34,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
@@ -41,7 +42,7 @@ import org.pdfsam.context.I18nContext;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.io.FileChoosers;
 import org.pdfsam.ui.support.Style;
-import org.sejda.eventstudio.annotation.EventListener;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * Panel displaying log messages
@@ -51,20 +52,19 @@ import org.sejda.eventstudio.annotation.EventListener;
  */
 @Named
 public class LogPane extends VBox {
+    @Inject
+    @Qualifier("logArea")
     private TextArea logArea;
 
     public LogPane() {
         getStyleClass().addAll(Style.CONTAINER.css());
-        logArea = new TextArea();
-        logArea.setEditable(false);
-        logArea.setWrapText(true);
-        VBox.setVgrow(logArea, Priority.ALWAYS);
-        getChildren().add(logArea);
-        eventStudio().addAnnotatedListeners(this);
     }
 
     @PostConstruct
     private void initMenu() {
+        VBox.setVgrow(logArea, Priority.ALWAYS);
+        getChildren().add(logArea);
+
         I18nContext i18n = DefaultI18nContext.getInstance();
         MenuItem copyItem = new MenuItem(i18n.i18n("Copy"));
         copyItem.setOnAction(e -> logArea.copy());
@@ -111,16 +111,6 @@ public class LogPane extends VBox {
         SeparatorMenuItem separator = new SeparatorMenuItem();
         logArea.setContextMenu(new ContextMenu(copyItem, clearItem, selectAllItem, separator, saveItem));
         logArea.focusedProperty().addListener(o -> eventStudio().broadcast(new ChangedVisiblityLogAreaEvent()));
-    }
-
-    @EventListener
-    public void onLogMessage(LogMessageEvent event) {
-        logArea.appendText(String.format("%s %s", event.getLevel(), event.getMessage()));
-        if (event.getStack() != null) {
-            for (StackTraceElement current : event.getStack()) {
-                logArea.appendText(current.toString());
-            }
-        }
     }
 
     public void saveLog() {

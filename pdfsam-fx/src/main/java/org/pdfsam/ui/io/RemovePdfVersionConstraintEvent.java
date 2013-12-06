@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 22/nov/2012
- * Copyright 2012 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 08/feb/2013
+ * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,23 +16,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.task;
+package org.pdfsam.ui.io;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 
-import org.sejda.model.notification.EventListener;
-import org.sejda.model.notification.event.AbstractNotificationEvent;
+import org.sejda.model.pdf.PdfVersion;
 
 /**
- * Listen for an {@link AbstractNotificationEvent} and broadcasts it to all the registered subscribers.
+ * Event to notify subscribers that some selected option removes a constraint on the output pdf version.
  * 
  * @author Andrea Vacondio
- * @param <T>
- *            type of the event
+ * 
  */
-class TaskEventBroadcaster<T extends AbstractNotificationEvent> implements EventListener<T> {
+class RemovePdfVersionConstraintEvent extends BasePdfVersionEvent {
 
-    public void onEvent(T event) {
-        eventStudio().broadcast(event);
+    public RemovePdfVersionConstraintEvent(PdfVersion pdfVersion) {
+        super(pdfVersion);
+        requireNotNull(pdfVersion, "Unable to create a pdf version event on a null pdf version");
     }
 }

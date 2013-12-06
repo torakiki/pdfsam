@@ -28,7 +28,7 @@ import java.util.List;
  * @author Andrea Vacondio
  * 
  */
-class BasePdfLoadEvent {
+public class BasePdfLoadEvent {
 
     private List<PdfDocumentDescriptor> documents = new ArrayList<>();
 

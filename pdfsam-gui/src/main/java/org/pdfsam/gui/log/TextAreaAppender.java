@@ -23,10 +23,21 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.io.IOException;
 import java.io.StringWriter;
 
+import javafx.application.Platform;
+import javafx.scene.control.TextArea;
+
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.apache.commons.io.output.WriterOutputStream;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.Logger;
+import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.AppenderBase;
@@ -37,16 +48,23 @@ import ch.qos.logback.core.AppenderBase;
  * @author Andrea Vacondio
  * 
  */
-public class DispatchAppender extends AppenderBase<ILoggingEvent> {
-    private PatternLayoutEncoder encoder;
+@Named
+public class TextAreaAppender extends AppenderBase<ILoggingEvent> {
 
-    @Override
-    public void start() {
-        if (this.encoder == null) {
-            addError("No layout set for the appender named [" + name + "].");
-            return;
-        }
-        super.start();
+    @Inject
+    private PatternLayoutEncoder encoder;
+    @Inject
+    @Qualifier("logArea")
+    private TextArea logArea;
+
+    @PostConstruct
+    public void init() {
+        LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
+        encoder.setContext(loggerContext);
+        encoder.start();
+        start();
+        Logger logbackLogger = loggerContext.getLogger(Logger.ROOT_LOGGER_NAME);
+        logbackLogger.addAppender(this);
     }
 
     @Override
@@ -55,29 +73,24 @@ public class DispatchAppender extends AppenderBase<ILoggingEvent> {
         try {
             encoder.init(new WriterOutputStream(writer));
             encoder.doEncode(event);
+            doAppendMessage(writer.toString(), event);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        doAppendMessage(writer.toString(), event);
     }
 
     private void doAppendMessage(String message, ILoggingEvent event) {
         if (StringUtils.isNotBlank(message)) {
-            eventStudio().broadcast(createLogMessageEvent(message, event));
-        }
-    }
-
-    private LogMessageEvent createLogMessageEvent(String message, ILoggingEvent event) {
-        if (event.getLevel().isGreaterOrEqual(Level.ERROR)) {
+            Platform.runLater(() -> logArea.appendText(String.format("%s %s", event.getLevel(), message)));
             if (event.hasCallerData()) {
-                return LogMessageEvent.newErrorMessage(message, event.getCallerData());
+                for (StackTraceElement current : event.getCallerData()) {
+                    Platform.runLater(() -> logArea.appendText(current.toString()));
+                }
             }
-            return LogMessageEvent.newErrorMessage(message);
+            if (event.getLevel().isGreaterOrEqual(Level.ERROR)) {
+                Platform.runLater(() -> eventStudio().broadcast(new ErrorLoggedEvent()));
+            }
         }
-        if (event.getLevel().toInt() == Level.WARN_INT) {
-            return LogMessageEvent.newWarningMessage(message);
-        }
-        return LogMessageEvent.newStandardMessage(message);
     }
 
     public PatternLayoutEncoder getEncoder() {

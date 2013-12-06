@@ -22,9 +22,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCodeCombination;
-import javafx.scene.input.KeyCombination;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Named;
@@ -49,12 +46,10 @@ class WorkspaceMenu extends Menu {
     @PostConstruct
     void init() {
         MenuItem load = new MenuItem(DefaultI18nContext.getInstance().i18n("_Load"));
-        load.setAccelerator(new KeyCodeCombination(KeyCode.L, KeyCombination.SHORTCUT_DOWN));
         load.setOnAction(e -> eventStudio().broadcast(new LoadWorkspaceEvent()));
         MenuItem save = new MenuItem(DefaultI18nContext.getInstance().i18n("_Save"));
-        save.setAccelerator(new KeyCodeCombination(KeyCode.S, KeyCombination.SHORTCUT_DOWN));
         save.setOnAction(e -> eventStudio().broadcast(new SaveWorkspaceEvent()));
-        Menu recent = new Menu(DefaultI18nContext.getInstance().i18n("_Recent"));
+        Menu recent = new Menu(DefaultI18nContext.getInstance().i18n("Recen_t"));
         getItems().addAll(load, save, new SeparatorMenuItem(), recent);
     }
 }

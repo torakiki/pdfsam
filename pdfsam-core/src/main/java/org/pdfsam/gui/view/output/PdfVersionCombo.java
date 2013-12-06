@@ -27,13 +27,13 @@ import javax.swing.JComboBox;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.gui.event.AddPdfVersionConstraintEvent;
-import org.pdfsam.gui.event.ChangedSelectedPdfVersionEvent;
 import org.pdfsam.gui.event.ModuleEvent;
-import org.pdfsam.gui.event.RemovePdfVersionConstraintEvent;
 import org.pdfsam.gui.view.output.PdfVersionCombo.PdfVersionComboItem;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.support.RequireUtils;
+import org.pdfsam.ui.io.AddPdfVersionConstraintEvent;
+import org.pdfsam.ui.io.ChangedSelectedPdfVersionEvent;
+import org.pdfsam.ui.io.RemovePdfVersionConstraintEvent;
 import org.sejda.model.pdf.PdfVersion;
 
 /**

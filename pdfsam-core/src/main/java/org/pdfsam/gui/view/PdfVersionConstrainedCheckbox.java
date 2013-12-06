@@ -25,10 +25,10 @@ import javax.swing.JCheckBox;
 
 import org.bushe.swing.event.EventBus;
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.gui.event.AddPdfVersionConstraintEvent;
 import org.pdfsam.gui.event.String;
-import org.pdfsam.gui.event.RemovePdfVersionConstraintEvent;
 import org.pdfsam.module.ModuleOwned;
+import org.pdfsam.ui.io.AddPdfVersionConstraintEvent;
+import org.pdfsam.ui.io.RemovePdfVersionConstraintEvent;
 import org.sejda.model.pdf.PdfVersion;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;

@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 08/feb/2013
+ * Created on 06/dic/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,20 +16,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui.event;
-
-import org.sejda.model.pdf.PdfVersion;
+package org.pdfsam.ui.support;
 
 /**
- * Notifies the subscribers that a pdf version of the selected input file has changed. It may mean that nothing is selected anymore or a new pdf document has been selected. This
- * event makes sense only for single input tasks.
+ * Event to request a component to be shown
  * 
  * @author Andrea Vacondio
  * 
  */
-public class ChangedSelectedPdfVersionEvent extends BasePdfVersionEvent {
-
-    public ChangedSelectedPdfVersionEvent(PdfVersion pdfVersion) {
-        super(pdfVersion);
-    }
+public class ShowRequestEvent {
+    // nothing
 }

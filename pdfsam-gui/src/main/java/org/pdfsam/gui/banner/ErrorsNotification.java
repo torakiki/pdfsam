@@ -28,8 +28,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Named;
 
 import org.pdfsam.gui.log.ChangedVisiblityLogAreaEvent;
-import org.pdfsam.gui.log.LogMessageEvent;
-import org.pdfsam.gui.log.LogMessageLevel;
+import org.pdfsam.gui.log.ErrorLoggedEvent;
 import org.sejda.eventstudio.annotation.EventListener;
 
 /**
@@ -56,17 +55,15 @@ public class ErrorsNotification extends Label {
     }
 
     @EventListener
-    public void onLogMessage(LogMessageEvent event) {
-        if (event.getLevel() == LogMessageLevel.ERROR) {
-            unreadMessages++;
-            setText(Integer.toString(unreadMessages));
-            if (!isVisible() && !(fade.getStatus() == Status.RUNNING)) {
-                setVisible(true);
-                fade.setFromValue(0);
-                fade.setToValue(1);
-                fade.setOnFinished(null);
-                fade.play();
-            }
+    public void onLogMessage(ErrorLoggedEvent event) {
+        unreadMessages++;
+        setText(Integer.toString(unreadMessages));
+        if (!isVisible() && !(fade.getStatus() == Status.RUNNING)) {
+            setVisible(true);
+            fade.setFromValue(0);
+            fade.setToValue(1);
+            fade.setOnFinished(null);
+            fade.play();
         }
     }
 

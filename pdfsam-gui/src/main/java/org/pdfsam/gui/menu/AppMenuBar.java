@@ -18,9 +18,13 @@
  */
 package org.pdfsam.gui.menu;
 
+import javafx.application.Platform;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -58,7 +62,7 @@ public class AppMenuBar extends MenuBar {
         MenuItem exit = new MenuItem(DefaultI18nContext.getInstance().i18n("E_xit"));
         exit.setOnAction(e -> {
             ApplicationContextHolder.getContext().close();
-            System.exit(0);
+            Platform.exit();
         });
         file.getItems().add(exit);
 
@@ -68,7 +72,8 @@ public class AppMenuBar extends MenuBar {
         edit.getItems().add(preferences);
 
         Menu help = new Menu(DefaultI18nContext.getInstance().i18n("_Help"));
-        MenuItem about = new MenuItem(DefaultI18nContext.getInstance().i18n("_About"));
+        MenuItem about = new MenuItem(DefaultI18nContext.getInstance().i18n("About"));
+        about.setAccelerator(new KeyCodeCombination(KeyCode.H, KeyCombination.SHORTCUT_DOWN));
         about.setOnAction(new ShowStageHandler(aboutStage));
         help.getItems().add(about);
         getMenus().addAll(file, edit, workspace, modulesMenu, help);

@@ -31,9 +31,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.gui.event.AddPdfVersionConstraintEvent;
-import org.pdfsam.gui.event.ChangedSelectedPdfVersionEvent;
-import org.pdfsam.gui.event.RemovePdfVersionConstraintEvent;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.support.RequireUtils;
 import org.pdfsam.ui.io.PdfVersionCombo.PdfVersionComboItem;
@@ -85,7 +82,7 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwn
         });
         versionsFilter.requiredProperty().addListener((observable, oldVal, newVal) -> {
             PdfVersionComboItem selected = getSelectionModel().getSelectedItem();
-            setItems(unfilteredItems.filtered(t -> t.isHigher(newVal.intValue())));
+            setItems(unfilteredItems.filtered(t -> t.isHigherOrEqual(newVal.intValue())));
             int selecedIndex = getItems().indexOf(selected);
             if (selecedIndex != -1) {
                 getSelectionModel().select(selecedIndex);
@@ -142,8 +139,8 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwn
             this.sourceVersion = sourceVersion;
         }
 
-        public boolean isHigher(int version) {
-            return getVersion().getVersion() > version;
+        public boolean isHigherOrEqual(int version) {
+            return getVersion().getVersion() >= version;
         }
 
         @Override

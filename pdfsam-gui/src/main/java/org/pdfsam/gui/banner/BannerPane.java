@@ -18,6 +18,8 @@
  */
 package org.pdfsam.gui.banner;
 
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
 import java.io.IOException;
 
 import javafx.fxml.FXMLLoader;
@@ -35,8 +37,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.gui.log.LogStage;
-import org.pdfsam.ui.ShowStageHandler;
+import org.pdfsam.ui.support.ShowRequestEvent;
 import org.pdfsam.ui.support.Style;
 import org.springframework.core.io.ClassPathResource;
 
@@ -54,8 +55,6 @@ public class BannerPane extends HBox {
     @Inject
     @Named("logo50")
     private Image logo;
-    @Inject
-    private LogStage logStage;
     @Inject
     private ErrorsNotification errorNotification;
 
@@ -83,7 +82,7 @@ public class BannerPane extends HBox {
         buttons.getStyleClass().addAll(Style.BANNER_BUTTONS.css());
         Button logsButton = new Button();
         logsButton.setGraphic((Group) FXMLLoader.load(new ClassPathResource("/fxml/LogViewer.fxml").getURL()));
-        logsButton.setOnAction(new ShowStageHandler(logStage));
+        logsButton.setOnAction(e -> eventStudio().broadcast(new ShowRequestEvent(), "LogStage"));
         logsButton.getStyleClass().addAll(Style.TOOLBAR_BUTTON.css());
         StackPane logs = new StackPane(logsButton, errorNotification);
         StackPane.setAlignment(errorNotification, Pos.TOP_LEFT);

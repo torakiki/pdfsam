@@ -19,6 +19,7 @@
 package org.pdfsam.gui.event;
 
 import org.junit.Test;
+import org.pdfsam.ui.io.ChangedSelectedPdfVersionEvent;
 import org.sejda.model.pdf.PdfVersion;
 
 import static org.junit.Assert.assertFalse;
