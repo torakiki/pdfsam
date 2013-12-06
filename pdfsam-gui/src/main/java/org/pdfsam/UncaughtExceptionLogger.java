@@ -24,7 +24,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * {@link UncaughtExceptionHandler} that simply logs the exception and rethrows it
+ * {@link UncaughtExceptionHandler} that simply logs the exception
  * 
  * @author Andrea Vacondio
  * 
