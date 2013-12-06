@@ -21,4 +21,4 @@ Status
 
 Requirements
 -------------------
-JDK/JRE 7
+JDK/JRE 8
