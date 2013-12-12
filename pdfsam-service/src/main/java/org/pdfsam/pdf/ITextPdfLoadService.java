@@ -23,6 +23,7 @@ import static org.pdfsam.pdf.PdfDocumentDescriptor.newCopy;
 import static org.sejda.impl.itext.util.ITextUtils.nullSafeClosePdfReader;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -48,7 +49,7 @@ public class ITextPdfLoadService implements PdfLoadService {
 
     private static final Logger LOG = LoggerFactory.getLogger(ITextPdfLoadService.class);
 
-    public List<PdfDocumentDescriptor> load(List<PdfDocumentDescriptor> toLoad) {
+    public List<PdfDocumentDescriptor> load(Collection<PdfDocumentDescriptor> toLoad) {
         LOG.debug(DefaultI18nContext.getInstance().i18n("Loading documents"));
         List<PdfDocumentDescriptor> loaded = new ArrayList<>(toLoad.size());
         for (PdfDocumentDescriptor current : toLoad) {

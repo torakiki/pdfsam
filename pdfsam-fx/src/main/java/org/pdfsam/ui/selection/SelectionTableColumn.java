@@ -95,4 +95,5 @@ public interface SelectionTableColumn<T> {
         tableColumn.setComparator(comparator());
         return tableColumn;
     }
+
 }

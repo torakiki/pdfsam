@@ -19,8 +19,11 @@
 package org.pdfsam.ui.selection;
 
 import static org.pdfsam.support.RequireUtils.require;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
+import java.util.Collection;
+
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 /**
  * Event sent when the selection on the selection table changed
@@ -30,91 +33,60 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  */
 final class SelectionChangedEvent {
 
-    private static final int UNSELECTED = -1;
-
-    private int startIndex = UNSELECTED;
-    private int endIndex = UNSELECTED;
+    private int top = Integer.MAX_VALUE;
+    private int bottom = -1;
     private int totalRows = 0;
 
-    private SelectionChangedEvent(int startIndex, int endIndex) {
-        this.startIndex = startIndex;
-        this.endIndex = endIndex;
+    private SelectionChangedEvent(Collection<? extends Integer> selected) {
+        requireNotNull(selected, "Input selection cannot be null");
+        selected.forEach((i) -> {
+            bottom = Math.max(i, bottom);
+            top = Math.min(i, top);
+        });
+    }
+
+    private SelectionChangedEvent() {
+        // nothing
     }
 
     /**
      * @return true the selection has been cleared
      */
     public boolean isClearSelection() {
-        return startIndex == UNSELECTED || endIndex == UNSELECTED;
+        return top == Integer.MAX_VALUE && bottom == -1;
     }
 
     /**
-     * 
      * @return true if its a single row selection event
      */
     public boolean isSingleSelection() {
-        return !isClearSelection() && endIndex == startIndex;
+        return !isClearSelection() && top == bottom;
     }
 
     public boolean canMove(MoveType type) {
         if (type == MoveType.DOWN) {
-            return !isClearSelection() && endIndex < totalRows - 1;
+            return !isClearSelection() && bottom < totalRows - 1;
         }
-        return !isClearSelection() && startIndex > 0;
+        return !isClearSelection() && top > 0;
     }
 
     public int getTotalRows() {
         return totalRows;
     }
 
-    public int getStartIndex() {
-        return startIndex;
-    }
-
-    public int getEndIndex() {
-        return endIndex;
-    }
-
     /**
      * @return the event where the selection has been cleared
      */
-    public SelectionChangedEvent clearSelection() {
-        this.startIndex = UNSELECTED;
-        this.endIndex = UNSELECTED;
-        this.totalRows = 0;
-        return this;
+    public static SelectionChangedEvent clearSelectionEvent() {
+        return new SelectionChangedEvent();
     }
 
     /**
      * @param index
      * @return the event where a single selection has been set
      */
-    public SelectionChangedEvent select(int index) {
-        require(index >= 0, "Unable to select negative index");
-        this.startIndex = index;
-        this.endIndex = index;
-        return this;
-    }
-
-    /**
-     * @param index
-     * @return the event where a selection starts at the given index
-     */
-    public SelectionChangedEvent startSelectionAt(int index) {
-        require(index >= 0, "Unable to select negative index");
-        this.startIndex = index;
-        return this;
-    }
-
-    /**
-     * @param index
-     * @return the event where a selection ends at the given index
-     */
-    public SelectionChangedEvent endSelectionAt(int index) {
-        require(index >= 0, "Unable to select negative index");
-        require(startIndex <= index, "Selection cannot end before start");
-        this.endIndex = index;
-        return this;
+    public static SelectionChangedEvent select(Collection<? extends Integer> index) {
+        return new SelectionChangedEvent(index);
     }
 
     /**
@@ -127,18 +99,8 @@ final class SelectionChangedEvent {
         return this;
     }
 
-    /**
-     * @param namespace
-     * @return a new instance of an event notifying that the selection has been cleared
-     */
-    public static SelectionChangedEvent selectionChanged() {
-        return new SelectionChangedEvent(UNSELECTED, UNSELECTED);
-    }
-
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("from", startIndex).append("to", endIndex).append("of", totalRows)
-                .toString();
+        return ReflectionToStringBuilder.toString(this);
     }
-
 }

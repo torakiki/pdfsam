@@ -181,11 +181,11 @@ public class SelectionTableToolbar extends ToolBar implements ModuleOwned {
             super(ownerModule);
             this.type = type;
             setDisable(true);
-            setOnAction(this::move);
+            setOnAction(this::moveOnClick);
             eventStudio().addAnnotatedListeners(this);
         }
 
-        public void move(ActionEvent event) {
+        public void moveOnClick(ActionEvent event) {
             eventStudio().broadcast(new MoveSelectedEvent(type), getOwnerModule());
         }
 

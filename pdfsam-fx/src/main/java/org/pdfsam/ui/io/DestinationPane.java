@@ -35,9 +35,10 @@ import org.pdfsam.ui.support.Style;
 public class DestinationPane extends VBox {
 
     private CheckBox overwrite = new CheckBox(DefaultI18nContext.getInstance().i18n("Overwrite if already exists"));
-
+    private BrowsableField destination;
     public DestinationPane(BrowsableField destination) {
         requireNotNull(destination, "Destination field cannot be null");
+        this.destination = destination;
         overwrite.setSelected(true);
         overwrite.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
                 "Tick the box if you want to overwrite the outpuf files if they already exist.")));
@@ -49,6 +50,10 @@ public class DestinationPane extends VBox {
 
     public CheckBox overwrite() {
         return overwrite;
+    }
+
+    public BrowsableField destination() {
+        return destination;
     }
 
 }

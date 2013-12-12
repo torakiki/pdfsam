@@ -18,6 +18,8 @@
  */
 package org.pdfsam.ui.io;
 
+import java.io.File;
+
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
@@ -68,4 +70,10 @@ abstract class BrowsableField extends HBox {
         this.browseWindowTitle = browseWindowTitle;
     }
 
+    /**
+     * Set the text from the given input file
+     * 
+     * @param inputFile
+     */
+    abstract void setTextFromFile(File inputFile);
 }

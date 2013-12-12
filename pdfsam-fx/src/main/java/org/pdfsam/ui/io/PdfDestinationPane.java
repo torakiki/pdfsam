@@ -19,6 +19,7 @@
 package org.pdfsam.ui.io;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -26,7 +27,10 @@ import javafx.scene.layout.HBox;
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
+import org.pdfsam.ui.event.SetDestinationEvent;
 import org.pdfsam.ui.support.Style;
+import org.sejda.eventstudio.annotation.EventListener;
+import org.sejda.eventstudio.annotation.EventStation;
 import org.sejda.model.pdf.PdfVersion;
 
 /**
@@ -52,9 +56,16 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned {
         versionPane.setAlignment(Pos.BOTTOM_LEFT);
         versionPane.getStyleClass().addAll(Style.VITEM.css());
         getChildren().addAll(compress, versionPane);
+        eventStudio().addAnnotatedListeners(this);
     }
 
+    @EventStation
     public String getOwnerModule() {
         return ownerModule;
+    }
+
+    @EventListener
+    public void setDestination(SetDestinationEvent event) {
+        destination().setTextFromFile(event.getFootprint());
     }
 }

@@ -20,7 +20,7 @@ package org.pdfsam.pdf;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
-import java.util.List;
+import java.util.Collection;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -80,7 +80,7 @@ public class PdfLoadRequestSubscriber {
         @Override
         public Void call() {
             try {
-                List<PdfDocumentDescriptor> loaded = loadService.load(request.getDocuments());
+                Collection<PdfDocumentDescriptor> loaded = loadService.load(request.getDocuments());
                 PdfLoadCompletedEvent response = new PdfLoadCompletedEvent();
                 response.addAll(loaded);
                 eventStudio().broadcast(response, request.getOwnerModule());

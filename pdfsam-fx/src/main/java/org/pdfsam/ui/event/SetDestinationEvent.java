@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 13/giu/2013
+ * Created on 12/dic/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,33 +16,29 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.pdf;
+package org.pdfsam.ui.event;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.concurrent.ConcurrentLinkedQueue;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
+
+import java.io.File;
 
 /**
- * Base class for pdf load related events
+ * Request to set a the destination using the given file as footprint.
  * 
  * @author Andrea Vacondio
  * 
  */
-// TODO make package private
-public class BasePdfLoadEvent {
+public class SetDestinationEvent {
 
-    private Collection<PdfDocumentDescriptor> documents = new ConcurrentLinkedQueue<>();
+    private File footprint;
 
-    public boolean add(PdfDocumentDescriptor e) {
-        return documents.add(e);
+    public SetDestinationEvent(File footprint) {
+        requireNotNull(footprint, "Footprint file cannot be null");
+        this.footprint = footprint;
     }
 
-    public boolean addAll(Collection<PdfDocumentDescriptor> c) {
-        return documents.addAll(c);
-    }
-
-    public Collection<PdfDocumentDescriptor> getDocuments() {
-        return Collections.unmodifiableCollection(documents);
+    public File getFootprint() {
+        return footprint;
     }
 
 }

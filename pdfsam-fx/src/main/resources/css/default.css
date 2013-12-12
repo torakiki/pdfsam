@@ -327,17 +327,18 @@
 .table-row-cell{
  	-fx-background-radius: 0.0;
 }
-.table-row-cell:focused {
-    -fx-background-color: -fx-focus-color, -fx-cell-focus-inner-border, -fx-control-inner-background;
-    -fx-background-insets: 0, 1.0, 2.0 0 2.0 0;
-}
+.table-row-cell:focused,
 .table-row-cell:focused:odd {
     -fx-background-color: -fx-focus-color, -fx-cell-focus-inner-border, derive(-fx-control-inner-background,-5%);
-    -fx-background-insets: 0.0, 1.0, 2.0 0 2.0 0;
+    -fx-background-insets: 0.0, 1 0 1 0, 2.0 0 2.0 0;
+}
+.table-view:focused > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled:selected{
+    -fx-background-color: lightgray;
+    -fx-text-fill: -fx-selection-bar-text;
 }
 .table-view:focused > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled:focused:selected{
-	-fx-background-color: -fx-focus-color, -fx-cell-focus-inner-border, derive(hover-color,5.0%);
-    -fx-background-insets: 0.0, 1.0, 2.0  1.0 2.0  1.0;
+	-fx-background-color: -fx-focus-color, -fx-cell-focus-inner-border, derive(-fx-control-inner-background,-8%);
+    -fx-background-insets: 0.0, 1 0 1 0, 2.0 0.0 2.0 0.0;
 }
 /**
  * Selection table toolbar

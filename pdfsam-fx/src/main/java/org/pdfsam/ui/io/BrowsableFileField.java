@@ -80,11 +80,15 @@ public class BrowsableFileField extends BrowsableField {
                     fileChooser.setInitialFileName(path.getFileName().toString());
                 }
             }
-            File chosenFile = fileChooser.showOpenDialog(getTextField().getScene().getWindow());
-            if (chosenFile != null) {
-                getTextField().setText(chosenFile.getAbsolutePath());
-                getTextField().validate();
-            }
+            setTextFromFile(fileChooser.showOpenDialog(getTextField().getScene().getWindow()));
+        }
+    }
+
+    @Override
+    void setTextFromFile(File inputFile) {
+        if (inputFile != null) {
+            getTextField().setText(inputFile.getAbsolutePath());
+            getTextField().validate();
         }
     }
 }

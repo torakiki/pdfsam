@@ -18,11 +18,15 @@
  */
 package org.pdfsam.ui.selection;
 
-import static org.pdfsam.support.RequireUtils.require;
-
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 import javafx.collections.ObservableList;
+
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 /**
  * Types of moves for the selected items in the selection table
@@ -33,57 +37,104 @@ import javafx.collections.ObservableList;
 public enum MoveType {
     UP {
         @Override
-        public Interval move(ObservableList<Integer> toMove, ObservableList<?> items) {
-            if (!toMove.isEmpty() && toMove.size() < items.size() && toMove.get(0) > 0) {
-                Collections.rotate(items.subList(toMove.get(0) - 1, toMove.get(toMove.size() - 1) + 1), -1);
-                return new Interval(toMove.get(0) - 1, toMove.get(toMove.size() - 1));
+        public SelectionAndFocus move(Integer[] selected, ObservableList<?> items, int focused) {
+            if (isSubselection(selected, items)) {
+                SelectionAndFocus newSelection = new SelectionAndFocus(focused);
+                Arrays.parallelSort(selected);
+                if (selected[0] > 0) {
+                    Arrays.stream(selected).forEach((i) -> {
+                        Collections.swap(items, i, i - 1);
+                        newSelection.moveUp(i);
+                    });
+                    return newSelection;
+                }
             }
-            return Interval.NULL;
+            return SelectionAndFocus.NULL;
         }
     },
     DOWN {
         @Override
-        public Interval move(ObservableList<Integer> toMove, ObservableList<?> items) {
-            if (!toMove.isEmpty() && toMove.size() < items.size() && toMove.get(toMove.size() - 1) < items.size() - 1) {
-                Collections.rotate(items.subList(toMove.get(0), toMove.get(toMove.size() - 1) + 2), 1);
-                return new Interval(toMove.get(0) + 1, toMove.get(toMove.size() - 1) + 2);
+        public SelectionAndFocus move(Integer[] selected, ObservableList<?> items, int focused) {
+            if (isSubselection(selected, items)) {
+                SelectionAndFocus newSelection = new SelectionAndFocus(focused);
+                Arrays.parallelSort(selected);
+                if (selected[selected.length - 1] < items.size() - 1) {
+                    Arrays.stream(selected).forEach((i) -> {
+                        Collections.swap(items, i, i + 1);
+                        newSelection.moveDown(i);
+                    });
+                    return newSelection;
+                }
             }
-            return Interval.NULL;
+            return SelectionAndFocus.NULL;
         }
     };
+    boolean isSubselection(Integer[] toMove, ObservableList<?> items) {
+        return !ArrayUtils.isEmpty(toMove) && toMove.length < items.size();
+    }
+
 
     /**
-     * Moves the given contiguous collection of indices (a interval) in the given collection if items
+     * Moves the given collection of indices in the given collection if items
      * 
-     * @param toMove
+     * @param indicesToMove
      * @param items
-     * @return a new interval of the given toMove items with the position of the interval after the move took place
+     * @param focused
+     *            the index of the focused item
+     * @return a new SelectionAndFocus holding the new coordinates for focus and selection
      */
-    public abstract Interval move(ObservableList<Integer> toMove, ObservableList<?> items);
+    public abstract SelectionAndFocus move(Integer[] indicesToMove, ObservableList<?> items, int focused);
 
-    /**
-     * A single interval of selected rows where start is inclusive, end is exclusive.
-     * 
-     * @author Andrea Vacondio
-     * 
-     */
-    public static class Interval {
-        public static final Interval NULL = new Interval(0, 0);
-        private int start, end;
+    public static final class SelectionAndFocus {
+        public static final SelectionAndFocus NULL = new SelectionAndFocus(-1);
+        private int focus = -1;
+        private int originalFocus = -1;
+        private int row = -1;
+        private Set<Integer> rows = new HashSet<>();
 
-        private Interval(int start, int end) {
-            require(start <= end, "Interval cannot end before start");
-            this.start = start;
-            this.end = end;
+        private SelectionAndFocus(int originalFocus) {
+            this.originalFocus = originalFocus;
         }
 
-        public int getStart() {
-            return start;
+        private void move(int row, int newRow) {
+            if (focus == -1) {
+                if (originalFocus == row) {
+                    focus = newRow;
+                }
+            }
+            if (this.row == -1) {
+                this.row = newRow;
+            } else {
+                rows.add(newRow);
+            }
         }
 
-        public int getEnd() {
-            return end;
+        private void moveUp(int row) {
+            int newRow = row - 1;
+            move(row, newRow);
         }
 
+        private void moveDown(int row) {
+            int newRow = row + 1;
+            move(row, newRow);
+        }
+
+        public int getFocus() {
+            return focus;
+        }
+
+        public int getRow() {
+            return row;
+        }
+
+        public int[] getRows() {
+            // TODO this sucks
+            return ArrayUtils.toPrimitive(rows.toArray(new Integer[rows.size()]));
+        }
+
+        @Override
+        public String toString() {
+            return ReflectionToStringBuilder.toString(this);
+        }
     }
 }
