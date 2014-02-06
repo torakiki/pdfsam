@@ -1,0 +1,51 @@
+.root { 
+	theme-color: #009245;
+	hover-color: #D4D4D4;
+	light-border-color: #D4D4D4;
+	dark-text-color: #5c5c5c;
+	button-color: #E5E5E5;
+}
+.label {
+	-fx-text-fill: dark-text-color;
+}
+.pdfsam-container {
+	-fx-border-width: 0.0;
+	-fx-padding: 8.0;
+}
+.button-container {
+	-fx-padding: 10.0;
+	-fx-spacing: 0.7em;
+}
+/**
+ * Buttons
+ */
+.pdfsam-button {
+    -fx-background-color:  light-border-color, button-color;
+    -fx-background-insets:  0.0, 1.0;
+    -fx-background-radius: 0.0;
+    -fx-padding: 7.0px 14.0px 7.0px 14.0px;
+    -fx-text-fill: dark-text-color !important;
+}
+.pdfsam-button:focused, .pdfsam-button:default, .pdfsam-button:armed, .pdfsam-button:hover {
+    -fx-background-color: theme-color, hover-color, button-color;
+    -fx-background-insets:  0.0, 0.0 0.0 1.0 0.0, 1.0;
+    -fx-background-radius:  0.0;
+}
+
+.pdfsam-button:hover {
+    -fx-background-color: theme-color, hover-color;
+}
+.pdfsam-button:armed{
+    -fx-opacity: 0.85;
+}
+.pdfsam-button:disabled {
+    -fx-opacity: -fx-disabled-opacity;
+}
+.browse-button {
+    -fx-background-insets:  0.0, 1.0 1.0 1.0 0.0;
+	-fx-padding: 0.0px 14.0px 0.0px 14.0px;
+}
+.browse-button:focused, .browse-button:default, .browse-button:armed, .browse-button:hover {
+    -fx-background-insets:  0.0, 0.0 0.0 1.0 0.0, 1.0 1.0 1.0 0.0;
+    -fx-background-radius:  0.0;
+}
