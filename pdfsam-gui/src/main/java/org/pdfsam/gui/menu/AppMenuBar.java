@@ -22,9 +22,6 @@ import javafx.application.Platform;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCodeCombination;
-import javafx.scene.input.KeyCombination;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -35,7 +32,6 @@ import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.gui.about.AboutStage;
 import org.pdfsam.gui.preference.PreferenceStage;
 import org.pdfsam.ui.ShowStageHandler;
-import org.pdfsam.ui.support.Style;
 
 /**
  * {@link MenuBar} of the PDFsam application
@@ -57,7 +53,7 @@ public class AppMenuBar extends MenuBar {
 
     @PostConstruct
     private void initMenues() {
-        getStyleClass().addAll(Style.MENU_BAR.css());
+        getStyleClass().add("pdfsam-menubar");
         Menu file = new Menu(DefaultI18nContext.getInstance().i18n("_File"));
         MenuItem exit = new MenuItem(DefaultI18nContext.getInstance().i18n("E_xit"));
         exit.setOnAction(e -> {
@@ -72,8 +68,7 @@ public class AppMenuBar extends MenuBar {
         edit.getItems().add(preferences);
 
         Menu help = new Menu(DefaultI18nContext.getInstance().i18n("_Help"));
-        MenuItem about = new MenuItem(DefaultI18nContext.getInstance().i18n("About"));
-        about.setAccelerator(new KeyCodeCombination(KeyCode.H, KeyCombination.SHORTCUT_DOWN));
+        MenuItem about = new MenuItem(DefaultI18nContext.getInstance().i18n("_About"));
         about.setOnAction(new ShowStageHandler(aboutStage));
         help.getItems().add(about);
         getMenus().addAll(file, edit, workspace, modulesMenu, help);

@@ -31,7 +31,6 @@ public enum Style {
     TITLED_PANE("titled-pane"),
     CONTAINER("pdfsam-container"),
     INVALID("invalid"),
-    MENU_BAR("pdfsam-menubar"),
     BANNER("pdfsam-banner"),
     BANNER_LOGO("pdfsam-logo"),
     BANNER_SPACER("pdfsam-logo-spacer"),
