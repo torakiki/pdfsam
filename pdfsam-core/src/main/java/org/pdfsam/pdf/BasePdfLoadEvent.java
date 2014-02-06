@@ -28,8 +28,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  * @author Andrea Vacondio
  * 
  */
-// TODO make package private
-public class BasePdfLoadEvent {
+class BasePdfLoadEvent {
 
     private Collection<PdfDocumentDescriptor> documents = new ConcurrentLinkedQueue<>();
 

@@ -18,15 +18,13 @@
  */
 package org.pdfsam.pdf;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.mockito.Mockito.mock;
+
 import java.io.File;
 
 import org.junit.Test;
-import org.pdfsam.gui.event.String;
-
-import static org.mockito.Mockito.mock;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 /**
  * @author Andrea Vacondio
@@ -38,7 +36,7 @@ public class BasePdfLoadEventTest {
     public void add() {
         File file = mock(File.class);
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(file);
-        BasePdfLoadEvent victim = new BasePdfLoadEvent(String.NULL);
+        BasePdfLoadEvent victim = new BasePdfLoadEvent();
         assertNotNull(victim.getDocuments());
         assertEquals(0, victim.getDocuments().size());
         victim.add(descriptor);

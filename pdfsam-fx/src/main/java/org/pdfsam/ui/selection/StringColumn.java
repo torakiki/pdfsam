@@ -25,10 +25,8 @@ import java.util.Comparator;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
-import javafx.event.EventHandler;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TextField;
 import javafx.util.Callback;
 
@@ -73,16 +71,7 @@ enum StringColumn implements SelectionTableColumn<String> {
                 System.out.println("commit " + t);
                 t.getTableView().getItems().get(t.getTablePosition().getRow()).setPageSelection(t.getNewValue());
             });
-            tableColumn.setOnEditStart(new EventHandler<TableColumn.CellEditEvent<SelectionTableRowData, String>>() {
-                public void handle(CellEditEvent<SelectionTableRowData, String> event) {
-                    System.out.println("Start " + event);
-                }
-            });
-            tableColumn.setOnEditCancel(new EventHandler<TableColumn.CellEditEvent<SelectionTableRowData, String>>() {
-                public void handle(CellEditEvent<SelectionTableRowData, String> event) {
-                    System.out.println("cancel: " + event.getSource());
-                }
-            });
+
             return tableColumn;
         }
 

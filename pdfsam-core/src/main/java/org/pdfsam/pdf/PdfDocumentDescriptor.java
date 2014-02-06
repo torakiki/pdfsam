@@ -18,6 +18,8 @@
  */
 package org.pdfsam.pdf;
 
+import static org.pdfsam.support.RequireUtils.requireNotNull;
+
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,8 +30,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.input.PdfSource;
 import org.sejda.model.pdf.PdfMetadataKey;
-
-import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 /**
  * Lightweight pdf document descriptor holding data necessary to fill the selection table and request a task execution.

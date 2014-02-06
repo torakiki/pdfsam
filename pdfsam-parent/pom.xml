@@ -11,6 +11,17 @@
 	<url>http://www.pdfsam.org</url>
 
 	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-plugin-plugin</artifactId>
+				<version>3.2</version>
+				<configuration>
+					<!-- see http://jira.codehaus.org/browse/MNG-5346 -->
+					<skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
+				</configuration>
+			</plugin>
+		</plugins>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -18,8 +29,8 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.1</version>
 					<configuration>
-						<source>1.7</source>
-						<target>1.7</target>
+						<source>1.8</source>
+						<target>1.8</target>
 					</configuration>
 				</plugin>
 			</plugins>
@@ -35,12 +46,12 @@
 		<logback.version>1.0.13</logback.version>
 		<jdepend.version>2.9.1</jdepend.version>
 		<hibernate-validator.version>4.2.0.Final</hibernate-validator.version>
-		<sejda.version>1.0.0.M9-SNAPSHOT</sejda.version>
+		<sejda.version>1.0.0.M9</sejda.version>
 		<dockingframes.version>1.1.1</dockingframes.version>
-		<eventstudio.version>1.0.3-SNAPSHOT</eventstudio.version>
+		<eventstudio.version>1.0.2</eventstudio.version>
 		<itext.version>2.1.7</itext.version>
 		<pdfbox.version>1.8.2</pdfbox.version>
-		<org.springframework.version>4.0.0.RC1</org.springframework.version>
+		<org.springframework.version>4.0.1.RELEASE</org.springframework.version>
 		<maven.build.timestamp.format>dd-MMM-yyyy</maven.build.timestamp.format>
 		<pdfsam.package>BASIC</pdfsam.package>
 		<pdfsam.builddate>${maven.build.timestamp}</pdfsam.builddate>

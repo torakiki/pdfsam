@@ -106,10 +106,9 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         infoItem.getStyleClass().add("ctx-menu-item");
         MenuItem setDestinationItem = new MenuItem(DefaultI18nContext.getInstance().i18n("Set output"));
         setDestinationItem.setOnAction(e -> {
-            // TODO different if single file out or dir out
-                File outFile = new File(getSelectionModel().getSelectedItem().getDocumentDescriptor().getFile()
-                        .getParent(), "out.pdf");
-                eventStudio().broadcast(new SetDestinationEvent(outFile), getOwnerModule());
+            File outFile = new File(
+                    getSelectionModel().getSelectedItem().getDocumentDescriptor().getFile().getParent(), "out.pdf");
+            eventStudio().broadcast(new SetDestinationEvent(outFile), getOwnerModule());
         });
         setDestinationItem.getStyleClass().add("ctx-menu-item");
 
@@ -150,9 +149,8 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     private Consumer<DragEvent> onDragDropped() {
         return (DragEvent e) -> {
             final PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
-            Stream<File> files = e.getDragboard().getFiles().parallelStream();
-            Stream<PdfDocumentDescriptor> descriptors = files.filter(f -> FileType.PDF.matches(f.getName())).map(
-                    PdfDocumentDescriptor::newDescriptorNoPassword);
+            Stream<PdfDocumentDescriptor> descriptors = e.getDragboard().getFiles().parallelStream()
+                    .filter(f -> FileType.PDF.matches(f.getName())).map(PdfDocumentDescriptor::newDescriptorNoPassword);
             descriptors.forEach(loadEvent::add);
             eventStudio().broadcast(loadEvent, getOwnerModule());
             eventStudio().broadcast(loadEvent);
