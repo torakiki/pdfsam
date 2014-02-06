@@ -1,7 +1,0 @@
-.root { 
-	theme-color: #009245;
-	menubg-color: #FFFFFF;
-	menubg-focus-color: derive(theme-color, 90.0%);
-	light-border-color: #D4D4D4;
-	dark-text-color: #5c5c5c;
-}

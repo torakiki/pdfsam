@@ -1,0 +1,22 @@
+.root { 
+	menubg-color: #FFFFFF;
+	menubg-focus-color: derive(theme-color, 90.0%);
+}
+/**
+ * About panel
+ */
+#aboutLabelAppName{
+	-fx-font-size: 1.8em;
+	-fx-font-weight: bold;
+}
+#versionLabel{
+	-fx-font-size: 0.8em;
+	-fx-font-weight: bold;
+	-fx-padding: 0.0 0.0 1.7em 0.0;
+}
+#aboutLabelsContainer{
+	-fx-padding: 10.0px;
+}
+#logoContainer{
+	-fx-padding: 0.0 1.8em 0.0 0.0;
+}

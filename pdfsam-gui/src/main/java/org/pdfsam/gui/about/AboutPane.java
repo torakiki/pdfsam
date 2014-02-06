@@ -69,7 +69,7 @@ public class AboutPane extends BorderPane {
         versionLabel.setId("versionLabel");
         labels.getChildren().add(versionLabel);
 
-        labels.getChildren().add(new Label("Copyright 2006-2013 by Andrea Vacondio"));
+        labels.getChildren().add(new Label("Copyright 2006-2014 by Andrea Vacondio"));
         labels.getChildren().add(
                 new Label(String.format("%s %s", System.getProperty("java.runtime.name"),
                         System.getProperty("java.runtime.version"))));

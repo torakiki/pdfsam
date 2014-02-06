@@ -72,7 +72,8 @@ public class PdfsamConfig {
     @Bean(name = "styles")
     public List<String> styles() {
         List<String> styles = new ArrayList<>();
-        styles.add(this.getClass().getResource("/css/main.css").toExternalForm());
+        styles.add(this.getClass().getResource("/css/defaults.css").toExternalForm());
+        styles.add(this.getClass().getResource("/css/pdfsam.css").toExternalForm());
         styles.add(this.getClass().getResource("/css/menu.css").toExternalForm());
         try {
             URL themeUrl = new ClassPathResource("/css/themes/" + DefaultUserContext.getInstance().getTheme()).getURL();
