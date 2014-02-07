@@ -5,7 +5,7 @@
     -fx-background-radius: 0, 0;
  }
 .pdfsam-menubar > .container > .menu-button:hover, .pdfsam-menubar > .container > .menu-button:focused, .pdfsam-menubar > .container > .menu-button:showing {
-    -fx-background-color: light-border-color, menubg-focus-color;
+    -fx-background-color: light-border-color, derived-focus-color;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-background-radius: 0, 0;
     -fx-text-fill: dark-text-color;
@@ -14,7 +14,7 @@
  	-fx-text-fill: dark-text-color;
 }
 .pdfsam-menubar .menu-item:focused {
-     -fx-background-color: transparent, menubg-focus-color;
+     -fx-background-color: transparent, derived-focus-color;
 }
 .menu > .right-container > .arrow, .menu:focused > .right-container > .arrow {
     -fx-background-color: dark-text-color;

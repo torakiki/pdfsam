@@ -26,19 +26,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.support.ShowRequestEvent;
-import org.pdfsam.ui.support.Style;
 import org.springframework.core.io.ClassPathResource;
 
 /**
@@ -53,39 +53,38 @@ public class BannerPane extends HBox {
     @Inject
     private ImageView payoff;
     @Inject
-    @Named("logo50")
+    @Named("logo35")
     private Image logo;
     @Inject
     private ErrorsNotification errorNotification;
 
     public BannerPane() {
-        getStyleClass().addAll(Style.BANNER.css());
+        getStyleClass().add("pdfsam-banner");
     }
 
     @PostConstruct
     private void init() throws IOException {
         HBox buttonBar = buildButtonsBar();
         HBox.setHgrow(buttonBar, Priority.ALWAYS);
-        Region spacer = new Region();
-        spacer.getStyleClass().addAll(Style.BANNER_SPACER.css());
         HBox logoView = new HBox();
-        logoView.getStyleClass().addAll(Style.BANNER_LOGO.css());
+        logoView.getStyleClass().add("pdfsam-logo");
         logoView.getChildren().addAll(new ImageView(logo), payoff);
-        getChildren().addAll(logoView, spacer, buttonBar);
+        getChildren().addAll(logoView, buttonBar);
     }
 
     private HBox buildButtonsBar() throws IOException {
-        // TODO real icons
         // TODO update buttons
         // TODO home button
         HBox buttons = new HBox();
-        buttons.getStyleClass().addAll(Style.BANNER_BUTTONS.css());
+        buttons.getStyleClass().addAll("pdfsam-container", "pdfsam-banner-buttons");
         Button logsButton = new Button();
-        logsButton.setGraphic((Group) FXMLLoader.load(new ClassPathResource("/fxml/LogViewer.fxml").getURL()));
+        logsButton.setGraphic((Group) FXMLLoader.load(new ClassPathResource("/fxml/log-button.fxml").getURL()));
         logsButton.setOnAction(e -> eventStudio().broadcast(new ShowRequestEvent(), "LogStage"));
-        logsButton.getStyleClass().addAll(Style.TOOLBAR_BUTTON.css());
+        logsButton.getStyleClass().add("pdfsam-toolbar-button");
+        logsButton.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
+                "Open the window displaying application messages")));
         StackPane logs = new StackPane(logsButton, errorNotification);
-        StackPane.setAlignment(errorNotification, Pos.TOP_LEFT);
+        StackPane.setAlignment(errorNotification, Pos.BOTTOM_LEFT);
         buttons.getChildren().add(logs);
         return buttons;
     }

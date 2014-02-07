@@ -58,9 +58,9 @@ public class PdfsamEnhancedConfig implements UIConfig {
         return new Image(resource.getInputStream());
     }
 
-    @Bean(name = "logo50")
-    public Image logo50() throws IOException {
-        Resource resource = new ClassPathResource("/images/logo50E.png");
+    @Bean(name = "logo35")
+    public Image logo35() throws IOException {
+        Resource resource = new ClassPathResource("/images/logo35E.png");
         return new Image(resource.getInputStream());
     }
 

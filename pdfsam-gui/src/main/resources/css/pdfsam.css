@@ -1,6 +1,6 @@
 .root { 
 	menubg-color: #FFFFFF;
-	menubg-focus-color: derive(theme-color, 90.0%);
+	derived-focus-color: derive(theme-color, 90.0%);
 }
 /**
  * About panel
@@ -19,4 +19,58 @@
 }
 #logoContainer{
 	-fx-padding: 0.0 1.8em 0.0 0.0;
+}
+/**
+ * Banner
+ */
+ .pdfsam-banner{
+ 	-fx-padding: 0.0;
+ 	-fx-background-color: light-border-color, bannerbg-color;
+    -fx-background-insets: 0.0, 0.0 0.0 1.0 0.0;
+    -fx-background-radius: 0.0, 0.0;
+    -fx-alignment: center-left;    
+ }
+.pdfsam-logo{
+	-fx-padding: 8.0 4.0 8.0 12.0;
+ 	-fx-spacing: 15.0px;
+ 	-fx-alignment: center-left;    
+}
+.pdfsam-banner-buttons{
+	-fx-padding: 0.0 3.0em 0.0 0.0;
+ 	-fx-spacing: 5.0px;
+ 	-fx-alignment: center-right;
+ }
+.pdfsam-toolbar-button {
+    -fx-background-color:  bannerbg-color;
+    -fx-background-insets:  0.0;
+    -fx-background-radius: 0.0;
+}
+.pdfsam-toolbar-button:focused, .pdfsam-toolbar-button:hover{
+    -fx-background-color:  light-border-color, bannerbg-color;
+    -fx-background-insets:  0.0, 1.0;
+    -fx-background-radius: 0.0;
+}
+.pdfsam-toolbar-button:armed {
+    -fx-background-color:  light-border-color, derived-focus-color;
+}
+.pdfsam-toolbar-button:disabled {
+    -fx-opacity: -fx-disabled-opacity;
+}
+.logs-notification {
+	-fx-background-color: derive(error-color, -10.0%), error-color;
+	-fx-background-insets:  0.0, 1.0;
+    -fx-background-radius: 2px;
+	-fx-font-size: 11px;
+	-fx-font-weight: bold;
+	-fx-padding: 1.5 2.5 1.5 2.5;
+	-fx-translate-y: -6.0px;
+	-fx-translate-x: 3.0px;
+	-fx-text-fill: #FFFFFF;
+	 -fx-opacity: 0.95;
+}
+.tooltip {
+  	-fx-background-color:  light-border-color, tootipbg;
+    -fx-background-insets:  0.0, 1.0;
+   	-fx-background-radius:  0.0, 0.0;
+   	-fx-text-fill: dark-text-color;
 }

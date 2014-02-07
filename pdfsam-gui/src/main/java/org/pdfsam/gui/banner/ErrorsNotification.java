@@ -45,6 +45,7 @@ public class ErrorsNotification extends Label {
     public ErrorsNotification() {
         getStyleClass().add("logs-notification");
         setVisible(false);
+        setText("!");
         eventStudio().addAnnotatedListeners(this);
     }
 
@@ -57,7 +58,6 @@ public class ErrorsNotification extends Label {
     @EventListener
     public void onLogMessage(ErrorLoggedEvent event) {
         unreadMessages++;
-        setText(Integer.toString(unreadMessages));
         if (!isVisible() && !(fade.getStatus() == Status.RUNNING)) {
             setVisible(true);
             fade.setFromValue(0);
