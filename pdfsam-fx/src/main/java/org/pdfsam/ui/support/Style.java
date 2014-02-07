@@ -27,7 +27,6 @@ package org.pdfsam.ui.support;
 public enum Style {
     BUTTON("pdfsam-button"),
     BROWSE_BUTTON("pdfsam-button", "browse-button"),
-    PREFERENCE("spaced-vitem"),
     TITLED_PANE("titled-pane"),
     CONTAINER("pdfsam-container"),
     INVALID("invalid"),

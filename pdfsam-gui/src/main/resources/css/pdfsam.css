@@ -1,6 +1,5 @@
 .root { 
 	menubg-color: #FFFFFF;
-	derived-focus-color: derive(theme-color, 90.0%);
 }
 /**
  * About panel
@@ -51,7 +50,7 @@
     -fx-background-radius: 0.0;
 }
 .pdfsam-toolbar-button:armed {
-    -fx-background-color:  light-border-color, derived-focus-color;
+    -fx-background-color:  light-border-color, -fx-focus-color;
 }
 .pdfsam-toolbar-button:disabled {
     -fx-opacity: -fx-disabled-opacity;
@@ -101,4 +100,21 @@
 }
 .pdfsam-navigation-button {
     -fx-alignment: center-left;
+}
+/**
+ * Titled panel
+ */
+ .titled-pane {
+	-fx-padding: 0.4em 0 0.4em 0;    
+}
+.titled-pane > .title {
+	-fx-background-color: -fx-box-border, -fx-control-inner-background;
+    -fx-background-insets: 0.0, 1.0;
+    -fx-background-radius: 0.0, 0.0;
+    -fx-font-weight: bold; 
+}
+.titled-pane > *.content {
+   -fx-background-color: -fx-box-border, white;
+   -fx-background-insets: 0.0, 0.0 1.0 1.0 1.0;
+   -fx-background-radius: 0.0, 0.0;
 }

@@ -57,7 +57,7 @@ class PreferenceThumbnailsPane extends VBox {
         PreferenceCheckBox highQualityThumbnails = new PreferenceCheckBox(BooleanUserPreference.HIGH_QUALITY_THUMB,
                 i18n.i18n("High quality thumbnails"), DefaultUserContext.getInstance().isHighQualityThumbnails());
         highQualityThumbnails.setTooltip(new Tooltip(i18n.i18n("Generate high quality thumbnails (slower)")));
-        highQualityThumbnails.getStyleClass().addAll(Style.PREFERENCE.css());
+        highQualityThumbnails.getStyleClass().add("spaced-vitem");
 
         final ValidableTextField thumbSize = new ValidableTextField(Integer.toString(DefaultUserContext.getInstance()
                 .getThumbnailsSize()));
@@ -82,14 +82,14 @@ class PreferenceThumbnailsPane extends VBox {
         });
         HBox second = new HBox(2, new Label(i18n.i18n("Size in px:")), thumbSize);
         second.setAlignment(Pos.BOTTOM_LEFT);
-        second.getStyleClass().addAll(Style.PREFERENCE.css());
+        second.getStyleClass().add("spaced-vitem");
 
         PreferenceComboBox<StringKeyValueItem> thumbCreator = new PreferenceComboBox<>(
                 StringUserPreference.THUMBNAILS_IDENTIFIER);
         thumbCreator.setTooltip(new Tooltip(i18n.i18n("Library used to generate thumbnails")));
         HBox third = new HBox(2, new Label(i18n.i18n("Thumbnails creator:")), thumbCreator);
         third.setAlignment(Pos.BOTTOM_LEFT);
-        third.getStyleClass().addAll(Style.PREFERENCE.css());
+        third.getStyleClass().add("spaced-vitem");
         getChildren().addAll(highQualityThumbnails, second, third);
         getStyleClass().addAll(Style.CONTAINER.css());
     }

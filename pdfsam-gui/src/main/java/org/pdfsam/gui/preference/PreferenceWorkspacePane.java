@@ -47,7 +47,7 @@ class PreferenceWorkspacePane extends VBox {
                 new Tooltip(i18n
                         .i18n("Select a previously saved workspace that will be automatically loaded at startup")));
         workspace.setBrowseWindowTitle(i18n.i18n("Select a workspace"));
-        workspace.getStyleClass().addAll(Style.PREFERENCE.css());
+        workspace.getStyleClass().add("spaced-vitem");
         workspace.getTextField().setText(DefaultUserContext.getInstance().getDefaultWorkspacePath());
 
         PreferenceBrowsableDirectoryField workingDirectory = new PreferenceBrowsableDirectoryField(
@@ -57,7 +57,7 @@ class PreferenceWorkspacePane extends VBox {
         workingDirectory.getTextField().setTooltip(
                 new Tooltip(i18n.i18n("Select a directory where documents will be saved and loaded by default")));
         workingDirectory.setBrowseWindowTitle(i18n.i18n("Select a directory"));
-        workingDirectory.getStyleClass().addAll(Style.PREFERENCE.css());
+        workingDirectory.getStyleClass().add("spaced-vitem");
         workingDirectory.getTextField().setText(DefaultUserContext.getInstance().getDefaultWorkingPath());
 
         getChildren().addAll(new Label(i18n.i18n("Load default workspace at startup:")), workspace,

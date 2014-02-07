@@ -40,19 +40,19 @@ class PreferenceBehaviorPane extends VBox {
                 i18n.i18n("Check for updates at startup"), DefaultUserContext.getInstance().isCheckForUpdates());
         checkForUpdates.setTooltip(new Tooltip(i18n
                 .i18n("Set whether new version availability should be checked on startup (restart needed)")));
-        checkForUpdates.getStyleClass().addAll(Style.PREFERENCE.css());
+        checkForUpdates.getStyleClass().add("spaced-vitem");
 
         PreferenceCheckBox playSounds = new PreferenceCheckBox(BooleanUserPreference.PLAY_SOUNDS,
                 i18n.i18n("Play alert sounds"), DefaultUserContext.getInstance().isPlaySounds());
         playSounds.setTooltip(new Tooltip(i18n.i18n("Turn on or off alert sounds")));
-        playSounds.getStyleClass().addAll(Style.PREFERENCE.css());
+        playSounds.getStyleClass().add("spaced-vitem");
 
         PreferenceCheckBox askConfirmation = new PreferenceCheckBox(BooleanUserPreference.ASK_OVERWRITE_CONFIRMATION,
                 i18n.i18n("Ask for confirmation when overwrite checkbox is selected"), DefaultUserContext.getInstance()
                         .isAskOverwriteConfirmation());
         askConfirmation.setTooltip(new Tooltip(i18n
                 .i18n("Show a dialog box asking the user for confirmation when the \"overwrite\" is selected")));
-        askConfirmation.getStyleClass().addAll(Style.PREFERENCE.css());
+        askConfirmation.getStyleClass().add("spaced-vitem");
         getChildren().addAll(checkForUpdates, playSounds, askConfirmation);
         getStyleClass().addAll(Style.CONTAINER.css());
     }
