@@ -42,9 +42,9 @@ class ExpandButton extends HBox {
         getStyleClass().add("navigation-expand-button");
         toggle.getStyleClass().addAll("pdfsam-toolbar-button", "navigation-expand-toggle");
         expand.setContent("M0,-5L5,0L0,5Z");
-        expand.getStyleClass().add("pdfsam-toolbar-button-arrow");
+        expand.getStyleClass().add("pdfsam-navigation-button-arrow");
         collapse.setContent("M0,-5L-5,0L0,5Z");
-        collapse.getStyleClass().add("pdfsam-toolbar-button-arrow");
+        collapse.getStyleClass().add("pdfsam-navigation-button-arrow");
         toggle.setGraphic(expand);
         toggle.selectedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {

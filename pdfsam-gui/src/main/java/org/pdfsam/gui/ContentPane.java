@@ -54,6 +54,9 @@ public class ContentPane extends BorderPane {
     private Map<String, BaseTaskExecutionModule> modules = new HashMap<>();
     private StackPane center = new StackPane();
 
+    public ContentPane() {
+        getStyleClass().add("default-container");
+    }
     @Inject
     public ContentPane(List<BaseTaskExecutionModule> modulesMap) {
         for (BaseTaskExecutionModule module : modulesMap) {

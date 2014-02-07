@@ -24,7 +24,7 @@
  */
  .pdfsam-banner{
  	-fx-padding: 0.0;
- 	-fx-background-color: light-border-color, bannerbg-color;
+ 	-fx-background-color: light-border-color, headerbg-color;
     -fx-background-insets: 0.0, 0.0 0.0 1.0 0.0;
     -fx-background-radius: 0.0, 0.0;
     -fx-alignment: center-left;    
@@ -40,12 +40,12 @@
  	-fx-alignment: center-right;
  }
 .pdfsam-toolbar-button {
-    -fx-background-color:  bannerbg-color;
-    -fx-background-insets:  0.0;
+    -fx-background-color: headerbg-color;
+    -fx-background-insets: 0.0;
     -fx-background-radius: 0.0;
 }
 .pdfsam-toolbar-button:focused, .pdfsam-toolbar-button:hover{
-    -fx-background-color:  light-border-color, bannerbg-color;
+    -fx-background-color:  light-border-color, defaultbg-color;
     -fx-background-insets:  0.0, 1.0;
     -fx-background-radius: 0.0;
 }
@@ -71,12 +71,12 @@
  * Navigation
  */
 .navigation {
-	-fx-background-color: quickpanebg-color;
+	-fx-background-color: defaultbg-color;
    	-fx-background-insets: 0.0;
     -fx-padding: 1.0em 0.0 1.0em 0.0;
 } 
 .navigation-buttons {
-	-fx-background-color: light-border-color, quickpanebg-color;
+	-fx-background-color: light-border-color, defaultbg-color;
    	-fx-background-insets: 0.0, 0.0 1.0 0.0 0.0;
     -fx-padding: 0.0 0.5em 0.0 0.5em;
 }
@@ -85,7 +85,7 @@
 	-fx-alignment: top-right;
 }
 .navigation-expand-toggle, .navigation-expand-toggle:focused {
-	-fx-background-color:  quickpanebg-color;
+	-fx-background-color:  defaultbg-color;
     -fx-background-insets:  0.0;
 }
 .navigation-expand-toggle:armed, .navigation-expand-toggle:hover {
@@ -95,26 +95,15 @@
 .navigation-expand-toggle:armed{
     -fx-opacity: 0.85;
 }
-.pdfsam-toolbar-button-arrow {
+.pdfsam-navigation-button-arrow {
 	-fx-fill: dark-text-color;
 }
 .pdfsam-navigation-button {
+	-fx-background-color:  defaultbg-color;
     -fx-alignment: center-left;
 }
-/**
- * Titled panel
- */
- .titled-pane {
-	-fx-padding: 0.4em 0 0.4em 0;    
-}
-.titled-pane > .title {
-	-fx-background-color: -fx-box-border, -fx-control-inner-background;
-    -fx-background-insets: 0.0, 1.0;
-    -fx-background-radius: 0.0, 0.0;
-    -fx-font-weight: bold; 
-}
-.titled-pane > *.content {
-   -fx-background-color: -fx-box-border, white;
-   -fx-background-insets: 0.0, 0.0 1.0 1.0 1.0;
-   -fx-background-radius: 0.0, 0.0;
+.main-scroll-panel {
+    -fx-background-color: defaultbg-color;
+    -fx-background-insets: 0.0;
+    -fx-padding: 0.0;
 }

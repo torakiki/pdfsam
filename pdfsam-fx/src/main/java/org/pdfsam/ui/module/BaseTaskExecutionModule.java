@@ -63,10 +63,13 @@ public abstract class BaseTaskExecutionModule implements Module {
         // runButton.setGraphic(RunAction.class.getResource("/images/run.png"));
         HBox buttonBar = new HBox();
         buttonBar.getStyleClass().addAll(Style.CONTAINER.css());
+        // buttonBar.getStyleClass().addAll(Style.WHITE_CONTAINER.css());
         buttonBar.setAlignment(Pos.CENTER_RIGHT);
         buttonBar.getChildren().add(runButton);
         modulePanel.setBottom(buttonBar);
-        ScrollPane scrollPane = new ScrollPane(getInnerPanel());
+        Pane innerPanel = getInnerPanel();
+        innerPanel.getStyleClass().add("default-container");
+        ScrollPane scrollPane = new ScrollPane(innerPanel);
         scrollPane.setFitToWidth(true);
         scrollPane.getStyleClass().addAll(Style.MAIN_PANEL.css());
         modulePanel.setCenter(scrollPane);

@@ -4,16 +4,22 @@
 	light-border-color: #D4D4D4;
 	dark-text-color: #2b2b2b;
 	button-color: #E5E5E5;
-	bannerbg-color: #FFFFFF;
-	tootipbg: #FFFFFF;
-	quickpanebg-color: #FFFFFF;
+	defaultbg-color: -fx-background;
+	headerbg-color: #FFFFFF;
+	tooltipbg-color: #FFFFFF;
 	error-color: #CF0000;	
 	-fx-focus-color: derive(lightslategray, 90.0%);
 	-fx-accent: -fx-focus-color;
 	-fx-highlight-text-fill: dark-text-color;
+	default-effect: dropshadow(one-pass-box, theme-color, 10.0, 0.0, 0.2, 0.2);
 }
 .label {
 	-fx-text-fill: dark-text-color;
+}
+.default-container {
+	-fx-background-color: defaultbg-color;
+	-fx-background-insets: 0.0;
+    -fx-background-radius: 0.0;
 }
 .pdfsam-container {
 	-fx-border-width: 0.0;
@@ -49,7 +55,7 @@
  * Tooltip
  */
 .tooltip {
-  	-fx-background-color:  light-border-color, tootipbg;
+  	-fx-background-color:  light-border-color, tooltipbg-color;
     -fx-background-insets:  0.0, 1.0;
    	-fx-background-radius:  0.0, 0.0;
    	-fx-text-fill: dark-text-color;
@@ -86,18 +92,6 @@
 .browse-button:focused, .browse-button:default, .browse-button:armed, .browse-button:hover {
     -fx-background-insets:  0.0, 0.0 0.0 1.0 0.0, 1.0 1.0 1.0 0.0;
     -fx-background-radius:  0.0;
-}
-/**
- * Invalid
- */
-.invalid{
-   -fx-background-color:  derive(error-color, 80%), -fx-control-inner-background;
-   -fx-background-insets: 0.0, 1.0;
-}
-.invalid:focused{
-   -fx-background-color:  derive(error-color, 80%), -fx-control-inner-background;
-   -fx-background-insets: 0.0, 1.0;
-   -fx-effect: dropshadow(three-pass-box, error-color, 10.0, 0.0, 0.2, 0.2);
 }
 /**
  * Error tooltip
@@ -137,5 +131,47 @@
     -fx-background-radius: 0.0 0.0;
     -fx-padding: 0.0;
 }
-
-
+/**
+ * Titled panel
+ */
+ .titled-pane {
+	-fx-padding: 0.4em 0 0.4em 0;    
+}
+.titled-pane > .title {
+	-fx-background-color: -fx-box-border, -fx-control-inner-background;
+    -fx-background-insets: 0.0, 1.0;
+    -fx-background-radius: 0.0, 0.0;
+    -fx-font-weight: bold; 
+}
+.titled-pane > *.content {
+   -fx-background-color: -fx-box-border, white;
+   -fx-background-insets: 0.0, 0.0 1.0 1.0 1.0;
+   -fx-background-radius: 0.0, 0.0;
+}
+/**
+ * TextArea
+ */
+.text-area{
+	-fx-background-color:  -fx-text-box-border, -fx-control-inner-background;
+    -fx-background-insets: 0.0, 1.0;
+    -fx-background-radius:  0.0, 0.0;
+}
+.text-area:focused {
+    -fx-background-color: -fx-focus-color, -fx-control-inner-background;
+    -fx-background-insets: 0.0, 1.0;
+    -fx-background-radius: 0.0, 0.0;
+    -fx-prompt-text-fill: transparent;
+    -fx-effect:  default-effect;	
+}
+/**
+ * Invalid
+ */
+.invalid{
+   -fx-background-color:  derive(error-color, 80%), -fx-control-inner-background;
+   -fx-background-insets: 0.0, 1.0;
+}
+.invalid:focused{
+   -fx-background-color:  derive(error-color, 80%), -fx-control-inner-background;
+   -fx-background-insets: 0.0, 1.0;
+   -fx-effect: dropshadow(one-pass-box, error-color, 10.0, 0.0, 0.2, 0.2);
+}

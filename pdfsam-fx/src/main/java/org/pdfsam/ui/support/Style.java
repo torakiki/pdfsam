@@ -28,6 +28,7 @@ public enum Style {
     BUTTON("pdfsam-button"),
     BROWSE_BUTTON("pdfsam-button", "browse-button"),
     TITLED_PANE("titled-pane"),
+    WHITE_CONTAINER("default-container"),
     CONTAINER("pdfsam-container"),
     INVALID("invalid"),
     VITEM("spaced-vitem"),
