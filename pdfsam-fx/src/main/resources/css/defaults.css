@@ -6,6 +6,7 @@
 	button-color: #E5E5E5;
 	bannerbg-color: #FFFFFF;
 	tootipbg: #FFFFFF;
+	quickpanebg-color: #FFFFFF;
 	error-color: #CF0000;	
 }
 .label {
@@ -18,6 +19,15 @@
 .button-container {
 	-fx-padding: 10.0;
 	-fx-spacing: 0.7em;
+}
+/**
+ * Tooltip
+ */
+.tooltip {
+  	-fx-background-color:  light-border-color, tootipbg;
+    -fx-background-insets:  0.0, 1.0;
+   	-fx-background-radius:  0.0, 0.0;
+   	-fx-text-fill: dark-text-color;
 }
 /**
  * Buttons

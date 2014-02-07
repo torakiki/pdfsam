@@ -18,41 +18,39 @@
  */
 package org.pdfsam.gui.quickbar;
 
-import java.io.IOException;
-
 import javafx.beans.property.BooleanProperty;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.HBox;
+import javafx.scene.shape.SVGPath;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Named;
 
-import org.pdfsam.ui.support.Style;
-import org.springframework.core.io.ClassPathResource;
-
 /**
+ * Toggle button to expand/collapse the quick buttons bar
+ * 
  * @author Andrea Vacondio
  * 
  */
 @Named
 class ExpandButton extends HBox {
-    private static final String LISTING_TOGGLE = "listing-toggle";
-    private static final String LISTING_TOGGLE_SELECTED = "listing-toggle-selected";
+    private ToggleButton toggle = new ToggleButton();
+    private SVGPath expand = new SVGPath();
+    private SVGPath collapse = new SVGPath();
 
-    private ToggleButton toggle;
-
-    ExpandButton() throws IOException {
-        getStyleClass().addAll(Style.EXPAND_BOX.css());
-        toggle = new ToggleButton();
-        toggle.setGraphic((Group) FXMLLoader.load(new ClassPathResource("/fxml/Listing.fxml").getURL()));
-        toggle.getStyleClass().add(LISTING_TOGGLE);
+    ExpandButton() {
+        getStyleClass().add("navigation-expand-button");
+        toggle.getStyleClass().addAll("pdfsam-toolbar-button", "navigation-expand-toggle");
+        expand.setContent("M0,-5L5,0L0,5Z");
+        expand.getStyleClass().add("pdfsam-toolbar-button-arrow");
+        collapse.setContent("M0,-5L-5,0L0,5Z");
+        collapse.getStyleClass().add("pdfsam-toolbar-button-arrow");
+        toggle.setGraphic(expand);
         toggle.selectedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
-                toggle.getStyleClass().add(LISTING_TOGGLE_SELECTED);
+                toggle.setGraphic(collapse);
             } else {
-                toggle.getStyleClass().remove(LISTING_TOGGLE_SELECTED);
+                toggle.setGraphic(expand);
             }
         });
     }
@@ -65,5 +63,4 @@ class ExpandButton extends HBox {
     public final BooleanProperty selectedProperty() {
         return toggle.selectedProperty();
     }
-
 }

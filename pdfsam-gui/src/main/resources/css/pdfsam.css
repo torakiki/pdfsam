@@ -59,18 +59,46 @@
 .logs-notification {
 	-fx-background-color: derive(error-color, -10.0%), error-color;
 	-fx-background-insets:  0.0, 1.0;
-    -fx-background-radius: 2px;
-	-fx-font-size: 11px;
+    -fx-background-radius: 2.0px;
+	-fx-font-size: 11.0px;
 	-fx-font-weight: bold;
 	-fx-padding: 1.5 2.5 1.5 2.5;
 	-fx-translate-y: -6.0px;
 	-fx-translate-x: 3.0px;
 	-fx-text-fill: #FFFFFF;
-	 -fx-opacity: 0.95;
+	-fx-opacity: 0.95;
 }
-.tooltip {
-  	-fx-background-color:  light-border-color, tootipbg;
-    -fx-background-insets:  0.0, 1.0;
-   	-fx-background-radius:  0.0, 0.0;
-   	-fx-text-fill: dark-text-color;
+/**
+ * Navigation
+ */
+.navigation {
+	-fx-background-color: quickpanebg-color;
+   	-fx-background-insets: 0.0;
+    -fx-padding: 1.0em 0.0 1.0em 0.0;
+} 
+.navigation-buttons {
+	-fx-background-color: light-border-color, quickpanebg-color;
+   	-fx-background-insets: 0.0, 0.0 1.0 0.0 0.0;
+    -fx-padding: 0.0 0.5em 0.0 0.5em;
+}
+.navigation-expand-button {
+	-fx-padding: 0.0 0.0 0.5em 0.0;
+	-fx-alignment: top-right;
+}
+.navigation-expand-toggle, .navigation-expand-toggle:focused {
+	-fx-background-color:  quickpanebg-color;
+    -fx-background-insets:  0.0;
+}
+.navigation-expand-toggle:armed, .navigation-expand-toggle:hover {
+    -fx-background-color: hover-color;
+    -fx-background-insets:  0.0;
+}
+.navigation-expand-toggle:armed{
+    -fx-opacity: 0.85;
+}
+.pdfsam-toolbar-button-arrow {
+	-fx-fill: dark-text-color;
+}
+.pdfsam-navigation-button {
+    -fx-alignment: center-left;
 }

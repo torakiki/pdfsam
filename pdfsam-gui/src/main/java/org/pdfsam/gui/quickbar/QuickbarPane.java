@@ -18,6 +18,7 @@
  */
 package org.pdfsam.gui.quickbar;
 
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 import javax.annotation.PostConstruct;
@@ -25,7 +26,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.module.UsageService;
-import org.pdfsam.ui.support.Style;
 
 /**
  * Vertical panel holding the quick navigation icons
@@ -44,13 +44,16 @@ public class QuickbarPane extends VBox {
     private MostUsedModulesPane mostUsedModulesPane;
 
     public QuickbarPane() {
-        getStyleClass().addAll(Style.NAVIGATION_BAR.css());
+        getStyleClass().add("navigation");
     }
 
     @PostConstruct
     private void init() {
         usage.getMostRecentlyUsed();
         mostUsedModulesPane.displayTextProperty().bind(expandButton.selectedProperty());
-        getChildren().addAll(expandButton, mostUsedModulesPane);
+        VBox buttonContainer = new VBox(expandButton, mostUsedModulesPane);
+        buttonContainer.getStyleClass().add("navigation-buttons");
+        setVgrow(buttonContainer, Priority.ALWAYS);
+        getChildren().addAll(buttonContainer);
     }
 }

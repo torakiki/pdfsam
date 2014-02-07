@@ -31,9 +31,6 @@ public enum Style {
     TITLED_PANE("titled-pane"),
     CONTAINER("pdfsam-container"),
     INVALID("invalid"),
-    TOOLBAR_NAVIGATION_BUTTON("pdfsam-toolbar-button", "pdfsam-navigation-button"),
-    NAVIGATION_BAR("navigation"),
-    EXPAND_BOX("expand-navigation"),
     VITEM("spaced-vitem"),
     MAIN_PANEL("main-scroll-panel"),
     DROP_PLACEHOLDER("drag-drop-placeholder");

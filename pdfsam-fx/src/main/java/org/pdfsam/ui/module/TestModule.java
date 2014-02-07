@@ -49,7 +49,7 @@ public class TestModule extends BaseTaskExecutionModule {
 
     @Override
     public ModuleDescriptor descriptor() {
-        return new ModuleDescriptor(ModuleCategory.MERGE, "Merge");
+        return new ModuleDescriptor(ModuleCategory.MERGE, "Merge", "Merge pdf documents together");
     }
 
     @Override

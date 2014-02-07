@@ -44,7 +44,7 @@ public class TestModule2 extends BaseTaskExecutionModule {
 
     @Override
     public ModuleDescriptor descriptor() {
-        return new ModuleDescriptor(ModuleCategory.SPLIT, "Split");
+        return new ModuleDescriptor(ModuleCategory.SPLIT, "Split", "Split documents on a predefined set of pages");
     }
 
     @Override

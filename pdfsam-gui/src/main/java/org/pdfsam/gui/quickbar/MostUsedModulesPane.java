@@ -37,7 +37,6 @@ import javax.inject.Named;
 import org.pdfsam.gui.SetCurrentModuleRequest;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.UsageService;
-import org.pdfsam.ui.support.Style;
 
 /**
  * Pane holding the most used modules quick access buttons
@@ -105,10 +104,10 @@ public class MostUsedModulesPane extends VBox {
             require(module != null, "Module cannot be null");
             this.module = module;
             setGraphic(this.module.graphic());
-            getStyleClass().addAll(Style.TOOLBAR_NAVIGATION_BUTTON.css());
+            getStyleClass().addAll("pdfsam-toolbar-button", "pdfsam-navigation-button");
             setMaxWidth(Double.MAX_VALUE);
             setOnAction(e -> eventStudio().broadcast(new SetCurrentModuleRequest(ModuleButton.this.module.id())));
-            setTooltip(new Tooltip(this.module.descriptor().getName()));
+            setTooltip(new Tooltip(this.module.descriptor().getDescription()));
         }
 
         private void displayText(boolean display) {

@@ -32,17 +32,20 @@ public final class ModuleDescriptor {
 
     private ModuleCategory category;
     private String name;
+    private String description;
     private int priority = 0;
 
-    public ModuleDescriptor(ModuleCategory category, String name) {
+    public ModuleDescriptor(ModuleCategory category, String name, String description) {
         requireNotNull(category, "Module category cannot be null");
         require(isNotBlank(name), "Module name cannot be blank");
+        require(isNotBlank(description), "Module description cannot be blank");
         this.category = category;
         this.name = name;
+        this.description = description;
     }
 
-    public ModuleDescriptor(ModuleCategory category, String name, int priority) {
-        this(category, name);
+    public ModuleDescriptor(ModuleCategory category, String name, String description, int priority) {
+        this(category, name, description);
         this.priority = priority;
     }
 
@@ -55,6 +58,13 @@ public final class ModuleDescriptor {
      */
     public String getName() {
         return name;
+    }
+
+    /**
+     * @return a human readable, internationalized description for the plugin
+     */
+    public String getDescription() {
+        return description;
     }
 
     /**
