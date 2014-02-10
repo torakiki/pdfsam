@@ -52,7 +52,6 @@ import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.event.SetDestinationEvent;
 import org.pdfsam.ui.selection.MoveType.SelectionAndFocus;
-import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
 import org.slf4j.Logger;
@@ -89,7 +88,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
             }
 
         });
-        placeHolder.getStyleClass().addAll(Style.DROP_PLACEHOLDER.css());
+        placeHolder.getStyleClass().add("drag-drop-placeholder");
         placeHolder.setDisable(true);
         setPlaceholder(placeHolder);
         setOnDragOver(e -> dragConsume(e, this.onDragOverConsumer()));
@@ -103,14 +102,12 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     private void initContextMenu() {
         MenuItem infoItem = new MenuItem(DefaultI18nContext.getInstance().i18n("Document properties"));
         // infoItem.setOnAction(e -> eventStudio().broadcast(showDocumentProperties, getOwnerModule()));
-        infoItem.getStyleClass().add("ctx-menu-item");
         MenuItem setDestinationItem = new MenuItem(DefaultI18nContext.getInstance().i18n("Set output"));
         setDestinationItem.setOnAction(e -> {
             File outFile = new File(
                     getSelectionModel().getSelectedItem().getDocumentDescriptor().getFile().getParent(), "out.pdf");
             eventStudio().broadcast(new SetDestinationEvent(outFile), getOwnerModule());
         });
-        setDestinationItem.getStyleClass().add("ctx-menu-item");
 
         getSelectionModel().getSelectedIndices().addListener((Observable o) -> {
             boolean singleSelection = getSelectionModel().getSelectedIndices().size() != 1;

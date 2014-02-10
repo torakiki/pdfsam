@@ -39,12 +39,12 @@ class ExpandButton extends HBox {
     private SVGPath collapse = new SVGPath();
 
     ExpandButton() {
-        getStyleClass().add("navigation-expand-button");
-        toggle.getStyleClass().addAll("pdfsam-toolbar-button", "navigation-expand-toggle");
+        getStyleClass().add("quickbar-expand-button");
+        toggle.getStyleClass().addAll("pdfsam-toolbar-button", "quickbar-expand-toggle");
         expand.setContent("M0,-5L5,0L0,5Z");
-        expand.getStyleClass().add("pdfsam-navigation-button-arrow");
+        expand.getStyleClass().add("quickbar-button-arrow");
         collapse.setContent("M0,-5L-5,0L0,5Z");
-        collapse.getStyleClass().add("pdfsam-navigation-button-arrow");
+        collapse.getStyleClass().add("quickbar-button-arrow");
         toggle.setGraphic(expand);
         toggle.selectedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {

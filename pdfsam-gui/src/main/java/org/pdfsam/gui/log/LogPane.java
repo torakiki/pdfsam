@@ -84,7 +84,6 @@ public class LogPane extends VBox {
 
         MenuItem clearItem = new MenuItem(i18n.i18n("Clear"));
         clearItem.setOnAction(e -> logArea.clear());
-        clearItem.getStyleClass().add("ctx-menu-item");
         // disable if there's no text
         clearItem.disableProperty().bind(new BooleanBinding() {
             {
@@ -99,13 +98,11 @@ public class LogPane extends VBox {
 
         MenuItem selectAllItem = new MenuItem(i18n.i18n("Select all"));
         selectAllItem.setOnAction(e -> logArea.selectAll());
-        selectAllItem.getStyleClass().add("ctx-menu-item");
         // disable if there's no text
         selectAllItem.disableProperty().bind(clearItem.disableProperty());
 
         MenuItem saveItem = new MenuItem(i18n.i18n("Save log"));
         saveItem.setOnAction(e -> saveLog());
-        saveItem.getStyleClass().add("ctx-menu-item");
         // disable if there's no text
         saveItem.disableProperty().bind(clearItem.disableProperty());
         SeparatorMenuItem separator = new SeparatorMenuItem();

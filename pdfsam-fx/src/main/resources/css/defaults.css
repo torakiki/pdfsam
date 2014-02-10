@@ -12,6 +12,7 @@
 	-fx-accent: -fx-focus-color;
 	-fx-highlight-text-fill: dark-text-color;
 	default-effect: dropshadow(one-pass-box, theme-color, 10.0, 0.0, 0.2, 0.2);
+	-fx-disabled-opacity: 0.40;
 }
 .label {
 	-fx-text-fill: dark-text-color;
@@ -75,7 +76,6 @@
     -fx-background-insets:  0.0, 0.0 0.0 1.0 0.0, 1.0;
     -fx-background-radius:  0.0;
 }
-
 .pdfsam-button:hover {
     -fx-background-color: theme-color, hover-color;
 }
@@ -114,11 +114,11 @@
     -fx-background-radius: 0.0 0.0;
 }
 .check-box:focused > .box {
-	-fx-background-color: -fx-focus-color, -fx-control-inner-background;
-    -fx-background-insets: 0.0, 1.0;
-    -fx-background-radius: 0.0, 0.0;
-    -fx-effect: dropshadow(one-pass-box, theme-color, 10.0, 0.0, 0.2, 0.2);	
+	-fx-background-color: -fx-focus-color, -fx-text-box-border, -fx-control-inner-background;
+    -fx-background-insets: -1.6, 0.0, 1.0;
+    -fx-background-radius: 0.0, 0.0, 0.0;
 }
+
 .check-box > .box > .mark {
     -fx-padding: 0.3em; 
 }
@@ -157,11 +157,54 @@
     -fx-background-radius:  0.0, 0.0;
 }
 .text-area:focused {
-    -fx-background-color: -fx-focus-color, -fx-control-inner-background;
-    -fx-background-insets: 0.0, 1.0;
-    -fx-background-radius: 0.0, 0.0;
+	-fx-background-color: -fx-focus-color, -fx-text-box-border, -fx-control-inner-background;
+    -fx-background-insets: -1.8, 0.0, 1.0;
+    -fx-background-radius: 0.0, 0.0, 0.0;
     -fx-prompt-text-fill: transparent;
-    -fx-effect:  default-effect;	
+}
+/**
+ * Table placeholder
+ */
+.drag-drop-placeholder{
+	-fx-alignment: center;
+ 	-fx-font-weight: bold; 
+ 	-fx-padding: 25.0;
+ 	-fx-font-size: 2.0em;
+ 	-fx-background-color: white;
+ 	-fx-border-color: derive(light-border-color, -10.0%);
+ 	-fx-text-fill: derive(light-border-color, -10.0%);
+ 	-fx-border-radius: 7.0px;
+ 	-fx-border-style: dashed;
+ 	-fx-border-width: 3.5px;
+}
+.drag-drop-placeholder:disabled {
+    -fx-opacity: 1;
+ 	-fx-border-color: light-border-color;
+ 	-fx-text-fill: light-border-color;
+ 	-fx-border-width: 3.0px;
+}
+/**
+ * Table view
+ */
+.table-view .column-header{
+ 	-fx-background-color: -fx-box-border, -fx-control-inner-background;
+    -fx-background-insets: 0.0, 0.0 1.0 1.0 0.0;
+    -fx-background-radius: 0.0, 0.0;
+    -fx-font-weight: bold; 
+}
+.table-view:focused {
+	-fx-background-color: -fx-focus-color, -fx-text-box-border, -fx-control-inner-background;
+    -fx-background-insets: -1.8, 0.0, 1.0;
+    -fx-background-radius: 0.0, 0.0, 0.0;
+}
+/**
+ * Selection table toolbar
+ */
+.selection-tool-bar:horizontal {
+   -fx-background-color: transparent;
+   -fx-background-insets: 0.0;
+   -fx-background-radius: 0.0;
+   -fx-padding: 0.416667em 0.0 0.416667em 0.0;
 }
 /**
  * Invalid

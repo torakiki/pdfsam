@@ -42,18 +42,25 @@ public class QuickbarPane extends VBox {
     private ExpandButton expandButton;
     @Inject
     private MostUsedModulesPane mostUsedModulesPane;
+    @Inject
+    private RecentlyUsedModulesPane mostRecentlyUsedModulesPane;
+    @Inject
+    private SocialPane socialPane;
 
     public QuickbarPane() {
-        getStyleClass().add("navigation");
+        getStyleClass().add("quickbar");
     }
 
     @PostConstruct
     private void init() {
         usage.getMostRecentlyUsed();
         mostUsedModulesPane.displayTextProperty().bind(expandButton.selectedProperty());
-        VBox buttonContainer = new VBox(expandButton, mostUsedModulesPane);
-        buttonContainer.getStyleClass().add("navigation-buttons");
+        mostRecentlyUsedModulesPane.displayTextProperty().bind(expandButton.selectedProperty());
+        socialPane.visibleProperty().bind(expandButton.selectedProperty());
+        socialPane.managedProperty().bind(expandButton.selectedProperty());
+        VBox buttonContainer = new VBox(expandButton, mostUsedModulesPane, mostRecentlyUsedModulesPane);
+        buttonContainer.getStyleClass().add("quickbar-buttons");
         setVgrow(buttonContainer, Priority.ALWAYS);
-        getChildren().addAll(buttonContainer);
+        getChildren().addAll(buttonContainer, socialPane);
     }
 }

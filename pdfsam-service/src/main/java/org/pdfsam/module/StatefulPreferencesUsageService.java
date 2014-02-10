@@ -18,7 +18,8 @@
  */
 package org.pdfsam.module;
 
-import java.util.ArrayList;
+import static java.util.stream.Collectors.toList;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -70,25 +71,31 @@ public class StatefulPreferencesUsageService implements UsageService {
     }
 
     public List<Module> getMostUsed() {
-        // TODO implement this and keep in mind module priority as fallback
-        List<Module> module = new ArrayList<>();
-        for (ModuleUsage entry : modules.values()) {
-            module.add(entry.module);
-        }
-        // Collections.sort(usage);
-        return module;
+        List<ModuleUsage> used = modules.values().parallelStream().collect(toList());
+        used.sort((a, b) -> {
+            if (a.totalUsed == 0 && b.totalUsed == 0) {
+                return Integer.compare(b.module.descriptor().getPriority(), a.module.descriptor().getPriority());
+            }
+            return Long.compare(b.totalUsed, a.totalUsed);
+        });
+        return used.stream().map(u -> u.module).collect(toList());
     }
 
     public List<Module> getMostRecentlyUsed() {
-        // TODO implement this and keep in mind module priority as fallback
-        List<Module> module = new ArrayList<>();
-        for (ModuleUsage entry : modules.values()) {
-            module.add(entry.module);
-        }
-        // Collections.sort(usage);
-        return module;
+        List<ModuleUsage> used = modules.values().parallelStream().filter(t -> t.lastSeen != 0).collect(toList());
+        used.sort((a, b) -> {
+            return Long.compare(b.lastSeen, a.lastSeen);
+        });
+        return used.stream().map(u -> u.module).collect(toList());
     }
-    
+
+    public void clear() {
+        try {
+            prefs.clear();
+        } catch (BackingStoreException e) {
+            LOG.error("Unable to clear modules usage statistics", e);
+        }
+    }
     /**
      * flush to the persistence backing store the current state of the usage
      */

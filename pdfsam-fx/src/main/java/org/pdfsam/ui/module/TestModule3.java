@@ -44,7 +44,7 @@ public class TestModule3 extends BaseTaskExecutionModule {
 
     @Override
     public ModuleDescriptor descriptor() {
-        return new ModuleDescriptor(ModuleCategory.SPLIT, "Simple Split", "Split pdf documents");
+        return new ModuleDescriptor(ModuleCategory.SPLIT, "Simple Split", "Split pdf documents", 1);
     }
 
     @Override
@@ -59,7 +59,6 @@ public class TestModule3 extends BaseTaskExecutionModule {
         pane.getChildren().add(new Label("Test label3"));
         return pane;
     }
-
 
     @Override
     public String id() {

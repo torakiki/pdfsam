@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 import javafx.application.Application;
+import javafx.application.HostServices;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
@@ -37,8 +38,10 @@ import org.pdfsam.configuration.ApplicationContextHolder;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.gui.MainPane;
+import org.pdfsam.ui.OpenUrlRequestEvent;
 import org.pdfsam.ui.support.ShowRequestEvent;
 import org.pdfsam.update.UpdateCheckRequest;
+import org.sejda.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -67,6 +70,7 @@ public class App extends Application {
         primaryStage.show();
         requestCheckForUpdateIfNecessary();
         STOPWATCH.stop();
+        eventStudio().addAnnotatedListeners(this);
         LOG.info(DefaultI18nContext.getInstance().i18n("Started in {0}",
                 DurationFormatUtils.formatDurationWords(STOPWATCH.getTime(), true, true)));
     }
@@ -79,6 +83,16 @@ public class App extends Application {
     private static void requestCheckForUpdateIfNecessary() {
         if (DefaultUserContext.getInstance().isCheckForUpdates()) {
             eventStudio().broadcast(new UpdateCheckRequest());
+        }
+    }
+
+    @EventListener
+    public void openUrl(OpenUrlRequestEvent event) {
+        HostServices services = getHostServices();
+        if (services != null) {
+            services.showDocument(event.getUrl());
+        } else {
+            LOG.warn("Unable to open '{}', please copy and paste the url to your browser.", event.getUrl());
         }
     }
 }

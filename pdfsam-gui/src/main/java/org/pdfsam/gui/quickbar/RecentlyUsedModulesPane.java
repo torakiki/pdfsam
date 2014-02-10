@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 28/nov/2013
+ * Created on 10/feb/2014
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,32 +16,32 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui;
+package org.pdfsam.gui.quickbar;
 
-import static org.apache.commons.lang3.StringUtils.defaultString;
-import javafx.scene.control.Button;
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.inject.Named;
 
-import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.module.ModuleOwned;
-import org.pdfsam.ui.support.Style;
-import org.sejda.eventstudio.annotation.EventStation;
+import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.module.UsageService;
 
 /**
- * {@link Button} owned by a {@link org.pdfsam.module.Module}
+ * Pane holding the recently used modules quick access buttons
  * 
  * @author Andrea Vacondio
- * 
+ *
  */
-public class ModuleOwnedButton extends Button implements ModuleOwned {
-    private String ownerModule = StringUtils.EMPTY;
+@Named
+public class RecentlyUsedModulesPane extends ModulesPane {
+    @Inject
+    private UsageService usage;
 
-    public ModuleOwnedButton(String ownerModule) {
-        this.ownerModule = defaultString(ownerModule);
-        getStyleClass().addAll(Style.BUTTON.css());
+    public RecentlyUsedModulesPane() {
+        super(DefaultI18nContext.getInstance().i18n("Recently used"));
     }
 
-    @EventStation
-    public String getOwnerModule() {
-        return ownerModule;
+    @PostConstruct
+    private void init() {
+        initFor(usage.getMostRecentlyUsed());
     }
 }

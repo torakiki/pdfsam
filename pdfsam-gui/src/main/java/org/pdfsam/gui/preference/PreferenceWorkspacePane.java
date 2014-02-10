@@ -18,14 +18,19 @@
  */
 package org.pdfsam.gui.preference;
 
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.I18nContext;
 import org.pdfsam.context.StringUserPreference;
+import org.pdfsam.module.ClearUsageRequestEvent;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.support.Style;
 
@@ -60,8 +65,15 @@ class PreferenceWorkspacePane extends VBox {
         workingDirectory.getStyleClass().add("spaced-vitem");
         workingDirectory.getTextField().setText(DefaultUserContext.getInstance().getDefaultWorkingPath());
 
+        Button clearButton = new Button(i18n.i18n("Clear"));
+        clearButton.getStyleClass().addAll(Style.BUTTON.css());
+        clearButton.setOnAction(e -> eventStudio().broadcast(new ClearUsageRequestEvent()));
+        HBox clearStats = new HBox(2, new Label(i18n.i18n("Clear usage statistics:")), clearButton);
+        clearStats.setAlignment(Pos.BOTTOM_LEFT);
+        clearStats.getStyleClass().add("spaced-vitem");
+
         getChildren().addAll(new Label(i18n.i18n("Load default workspace at startup:")), workspace,
-                new Label(i18n.i18n("Default working directory:")), workingDirectory);
+                new Label(i18n.i18n("Default working directory:")), workingDirectory, clearStats);
         getStyleClass().addAll(Style.CONTAINER.css());
     }
 }

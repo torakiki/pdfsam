@@ -70,37 +70,48 @@
 /**
  * Navigation
  */
-.navigation {
+.quickbar {
 	-fx-background-color: defaultbg-color;
    	-fx-background-insets: 0.0;
     -fx-padding: 1.0em 0.0 1.0em 0.0;
 } 
-.navigation-buttons {
+.quickbar-buttons {
 	-fx-background-color: light-border-color, defaultbg-color;
    	-fx-background-insets: 0.0, 0.0 1.0 0.0 0.0;
     -fx-padding: 0.0 0.5em 0.0 0.5em;
 }
-.navigation-expand-button {
+.quickbar-expand-button {
 	-fx-padding: 0.0 0.0 0.5em 0.0;
 	-fx-alignment: top-right;
 }
-.navigation-expand-toggle, .navigation-expand-toggle:focused {
+.quickbar-expand-toggle, .quickbar-expand-toggle:focused {
 	-fx-background-color:  defaultbg-color;
     -fx-background-insets:  0.0;
 }
-.navigation-expand-toggle:armed, .navigation-expand-toggle:hover {
+.quickbar-expand-toggle:armed, .quickbar-expand-toggle:hover {
     -fx-background-color: hover-color;
     -fx-background-insets:  0.0;
 }
-.navigation-expand-toggle:armed{
+.quickbar-expand-toggle:armed{
     -fx-opacity: 0.85;
 }
-.pdfsam-navigation-button-arrow {
+.quickbar-button-arrow {
 	-fx-fill: dark-text-color;
 }
-.pdfsam-navigation-button {
+.quickbar-modules-title{
+	-fx-padding: 0.5em 0.0 0.5em 0.0;
+	-fx-alignment: center-left;
+	-fx-font-weight: bold;
+}
+.quickbar-modules{
+	-fx-padding: 0.0 0.0 1em 0.0;
+}
+.quickbar-navigation-button {
 	-fx-background-color:  defaultbg-color;
     -fx-alignment: center-left;
+}
+.quickbar-social{
+	-fx-alignment: center;
 }
 .main-scroll-panel {
     -fx-background-color: defaultbg-color;

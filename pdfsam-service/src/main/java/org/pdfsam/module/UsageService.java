@@ -44,4 +44,9 @@ public interface UsageService {
      * @return a sorted list with the most recently modules
      */
     List<Module> getMostRecentlyUsed();
+
+    /**
+     * Clear usage statistics
+     */
+    void clear();
 }

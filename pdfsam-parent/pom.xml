@@ -50,8 +50,8 @@
 		<dockingframes.version>1.1.1</dockingframes.version>
 		<eventstudio.version>1.0.2</eventstudio.version>
 		<itext.version>2.1.7</itext.version>
-		<pdfbox.version>1.8.2</pdfbox.version>
 		<org.springframework.version>4.0.1.RELEASE</org.springframework.version>
+		<fontawesomefx.version>8.0.6</fontawesomefx.version>
 		<maven.build.timestamp.format>dd-MMM-yyyy</maven.build.timestamp.format>
 		<pdfsam.package>BASIC</pdfsam.package>
 		<pdfsam.builddate>${maven.build.timestamp}</pdfsam.builddate>
@@ -92,9 +92,9 @@
 				<version>${hibernate-validator.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.noos.xing</groupId>
-				<artifactId>mydoggy-plaf</artifactId>
-				<version>${mydoggy.version}</version>
+				<groupId>de.jensd</groupId>
+				<artifactId>fontawesomefx</artifactId>
+				<version>${fontawesomefx.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.sejda</groupId>

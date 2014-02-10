@@ -39,6 +39,8 @@ import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
+import de.jensd.fx.fontawesome.AwesomeStyle;
+
 /**
  * IoC configuration
  * 
@@ -75,6 +77,7 @@ public class PdfsamConfig {
         styles.add(this.getClass().getResource("/css/defaults.css").toExternalForm());
         styles.add(this.getClass().getResource("/css/pdfsam.css").toExternalForm());
         styles.add(this.getClass().getResource("/css/menu.css").toExternalForm());
+        styles.add(this.getClass().getResource(AwesomeStyle.LIGHT.getStylePath()).toExternalForm());
         try {
             URL themeUrl = new ClassPathResource("/css/themes/" + DefaultUserContext.getInstance().getTheme()).getURL();
             styles.add(themeUrl.toExternalForm());

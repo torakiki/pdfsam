@@ -32,8 +32,7 @@ public enum Style {
     CONTAINER("pdfsam-container"),
     INVALID("invalid"),
     VITEM("spaced-vitem"),
-    MAIN_PANEL("main-scroll-panel"),
-    DROP_PLACEHOLDER("drag-drop-placeholder");
+    MAIN_PANEL("main-scroll-panel");
 
     private String[] classes;
 

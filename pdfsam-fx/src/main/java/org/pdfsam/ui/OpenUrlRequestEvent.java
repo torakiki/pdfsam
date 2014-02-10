@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 28/nov/2013
+ * Created on 10/feb/2014
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,30 +18,24 @@
  */
 package org.pdfsam.ui;
 
-import static org.apache.commons.lang3.StringUtils.defaultString;
-import javafx.scene.control.Button;
-
-import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.module.ModuleOwned;
-import org.pdfsam.ui.support.Style;
-import org.sejda.eventstudio.annotation.EventStation;
+import static org.pdfsam.support.RequireUtils.requireNotBlank;
 
 /**
- * {@link Button} owned by a {@link org.pdfsam.module.Module}
+ * Request to open the given URL
  * 
  * @author Andrea Vacondio
- * 
+ *
  */
-public class ModuleOwnedButton extends Button implements ModuleOwned {
-    private String ownerModule = StringUtils.EMPTY;
+public class OpenUrlRequestEvent {
+    private String url;
 
-    public ModuleOwnedButton(String ownerModule) {
-        this.ownerModule = defaultString(ownerModule);
-        getStyleClass().addAll(Style.BUTTON.css());
+    public OpenUrlRequestEvent(String url) {
+        requireNotBlank(url, "URL cannot be blank");
+        this.url = url;
     }
 
-    @EventStation
-    public String getOwnerModule() {
-        return ownerModule;
+    public String getUrl() {
+        return url;
     }
+
 }

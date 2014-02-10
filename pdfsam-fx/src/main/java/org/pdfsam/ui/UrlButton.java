@@ -20,18 +20,10 @@ package org.pdfsam.ui;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.support.RequireUtils.require;
-
-import java.awt.Desktop;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.control.Button;
 
-import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.support.Style;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Button opening the default browser to the configured url when pressed
@@ -40,14 +32,11 @@ import org.slf4j.LoggerFactory;
  * 
  */
 public class UrlButton extends Button {
-    private static final Logger LOG = LoggerFactory.getLogger(UrlButton.class);
-    private String url;
 
     public UrlButton(String text, String url) {
         super(text);
         require(isNotBlank(url), "URL cannot be blank");
-        this.url = url;
-        setOnAction(e -> openUrl());
+        setOnAction(e -> eventStudio().broadcast(new OpenUrlRequestEvent(url)));
         // not sure about this. see: https://javafx-jira.kenai.com/browse/RT-28779
         /**
          * setOnKeyReleased(new EventHandler<KeyEvent>() { final KeyCombination combo = new KeyCodeCombination(KeyCode.ENTER);
@@ -55,17 +44,5 @@ public class UrlButton extends Button {
          * public void handle(KeyEvent t) { if (combo.match(t)) { openUrl(); } } });
          */
         getStyleClass().addAll(Style.BUTTON.css());
-    }
-
-    private void openUrl() {
-        try {
-            if (Desktop.isDesktopSupported()) {
-                Desktop.getDesktop().browse(new URI(UrlButton.this.url));
-            } else {
-                LOG.warn(DefaultI18nContext.getInstance().i18n("Url opening is not supported"));
-            }
-        } catch (IOException | URISyntaxException e) {
-            LOG.error(DefaultI18nContext.getInstance().i18n("Unable to open the given url {}", UrlButton.this.url), e);
-        }
     }
 }

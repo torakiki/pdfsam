@@ -81,6 +81,10 @@
 			<version>[${logback.version},]</version>
 		</dependency>
 		<dependency>
+			<groupId>de.jensd</groupId>
+			<artifactId>fontawesomefx</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>jdepend</groupId>
 			<artifactId>jdepend</artifactId>
 		</dependency>

@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 07/nov/2013
+ * Created on 10/feb/2014
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,33 +16,41 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.gui.quickbar;
+package org.pdfsam.module;
 
-import javax.annotation.PostConstruct;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.module.UsageService;
+import org.sejda.eventstudio.annotation.EventListener;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * Pane holding the most used modules quick access buttons
+ * Component listening for a request to clean the modues usage statistics and performing the clean
  * 
  * @author Andrea Vacondio
- * 
+ *
  */
 @Named
-public class MostUsedModulesPane extends ModulesPane {
-
+public class ClearUsageRequestSubscriber {
+    private static final Logger LOG = LoggerFactory.getLogger(ClearUsageRequestSubscriber.class);
     @Inject
-    private UsageService usage;
+    private UsageService service;
 
-    public MostUsedModulesPane() {
-        super(DefaultI18nContext.getInstance().i18n("Most used"));
+    public ClearUsageRequestSubscriber() {
+        eventStudio().addAnnotatedListeners(this);
     }
 
-    @PostConstruct
-    private void init() {
-        initFor(usage.getMostUsed());
+    /**
+     * Request to clear the modules usage stats
+     * 
+     * @param event
+     */
+    @EventListener(priority = Integer.MIN_VALUE)
+    public void request(ClearUsageRequestEvent event) {
+        LOG.debug("Clearing usage statistics");
+        service.clear();
     }
 }
