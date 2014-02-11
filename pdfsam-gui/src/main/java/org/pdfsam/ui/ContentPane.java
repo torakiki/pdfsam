@@ -57,6 +57,7 @@ public class ContentPane extends BorderPane {
     public ContentPane() {
         getStyleClass().add("default-container");
     }
+
     @Inject
     public ContentPane(List<BaseTaskExecutionModule> modulesMap) {
         for (BaseTaskExecutionModule module : modulesMap) {
@@ -81,6 +82,7 @@ public class ContentPane extends BorderPane {
             Timeline fadeIn = new Timeline(new KeyFrame(Duration.ZERO, new KeyValue(center.opacityProperty(), 0.0)),
                     new KeyFrame(new Duration(MODULE_FADE_MILLIS), new KeyValue(center.opacityProperty(), 1.0)));
             fadeIn.play();
+            eventStudio().broadcast(new NewCurrentModuleSetEvent(requested.descriptor()));
         }
     }
 }

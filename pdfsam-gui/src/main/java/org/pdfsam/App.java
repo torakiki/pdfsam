@@ -38,9 +38,11 @@ import org.pdfsam.configuration.ApplicationContextHolder;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.ui.MainPane;
+import org.pdfsam.ui.NewCurrentModuleSetEvent;
 import org.pdfsam.ui.OpenUrlRequestEvent;
 import org.pdfsam.ui.support.ShowRequestEvent;
 import org.pdfsam.update.UpdateCheckRequest;
+import org.sejda.eventstudio.Listener;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -68,6 +70,7 @@ public class App extends Application {
         scene.getAccelerators().put(new KeyCodeCombination(KeyCode.L, KeyCombination.SHORTCUT_DOWN),
                 () -> eventStudio().broadcast(new ShowRequestEvent(), "LogStage"));
         primaryStage.show();
+        eventStudio().add(new CurrentModuleTitleChanger(primaryStage));
         requestCheckForUpdateIfNecessary();
         STOPWATCH.stop();
         eventStudio().addAnnotatedListeners(this);
@@ -95,4 +98,22 @@ public class App extends Application {
             LOG.warn("Unable to open '{}', please copy and paste the url to your browser.", event.getUrl());
         }
     }
+
+    public static class CurrentModuleTitleChanger implements Listener<NewCurrentModuleSetEvent> {
+
+        private Stage primaryStage;
+
+        public CurrentModuleTitleChanger(Stage primaryStage) {
+            this.primaryStage = primaryStage;
+        }
+
+        public void onEvent(NewCurrentModuleSetEvent event) {
+            primaryStage.setTitle(String.format("%s - %s",
+                    ApplicationContextHolder.getContext().getBean("appName", String.class), event.getDescriptor()
+                            .getName()));
+
+        }
+
+    }
+
 }
