@@ -19,7 +19,10 @@
 package org.pdfsam.sound;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaPlayer.Status;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultUserContext;
@@ -35,8 +38,12 @@ import org.sejda.model.notification.event.TaskExecutionFailedEvent;
  */
 @Named
 public class PlaySoundController {
-
-    private SoundPlayer player = new DefaultSoundPlayer();
+    @Inject
+    @Named("errorPlayer")
+    private MediaPlayer error;
+    @Inject
+    @Named("okPlayer")
+    private MediaPlayer ok;
 
     public PlaySoundController() {
         eventStudio().addAnnotatedListeners(this);
@@ -44,17 +51,17 @@ public class PlaySoundController {
 
     @EventListener
     public void playFailed(TaskExecutionFailedEvent event) {
-        playSound(Sound.NEGATIVE);
+        playSound(error);
     }
 
     @EventListener
     public void playCompleted(TaskExecutionCompletedEvent event) {
-        playSound(Sound.POSITIVE);
+        playSound(ok);
     }
 
-    private void playSound(Sound sound) {
-        if (DefaultUserContext.getInstance().isPlaySounds()) {
-            player.play(sound);
+    private void playSound(MediaPlayer player) {
+        if (DefaultUserContext.getInstance().isPlaySounds() && player.getStatus() == Status.READY) {
+            player.play();
         }
     }
 }

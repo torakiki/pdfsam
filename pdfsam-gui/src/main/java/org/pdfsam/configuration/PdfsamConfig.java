@@ -20,15 +20,19 @@ package org.pdfsam.configuration;
 
 import java.awt.Image;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 import javax.imageio.ImageIO;
 import javax.inject.Inject;
 
+import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -85,5 +89,25 @@ public class PdfsamConfig {
             LOG.warn("Unable to find selected theme.", ioe);
         }
         return styles;
+    }
+
+    @Bean(name = "errorPlayer")
+    public MediaPlayer error() throws URISyntaxException {
+        return mediaPlayer("/sounds/error_sound.wav");
+    }
+
+    @Bean(name = "okPlayer")
+    public MediaPlayer ok() throws URISyntaxException {
+        return mediaPlayer("/sounds/ok_sound.wav");
+    }
+
+    private MediaPlayer mediaPlayer(String name) throws URISyntaxException {
+        MediaPlayer player = new MediaPlayer(new Media(this.getClass().getResource(name).toURI().toString()));
+        player.setAutoPlay(false);
+        player.setVolume(1);
+        player.setOnError(() -> {
+            LOG.error(DefaultI18nContext.getInstance().i18n("Error playing sounds"), player.getError());
+        });
+        return player;
     }
 }
