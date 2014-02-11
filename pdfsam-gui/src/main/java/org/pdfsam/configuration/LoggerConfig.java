@@ -20,8 +20,8 @@ package org.pdfsam.configuration;
 
 import javafx.scene.control.TextArea;
 
-import org.pdfsam.gui.log.LogPane;
-import org.pdfsam.gui.log.TextAreaAppender;
+import org.pdfsam.ui.log.LogPane;
+import org.pdfsam.ui.log.TextAreaAppender;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;

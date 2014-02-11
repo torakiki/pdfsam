@@ -37,7 +37,7 @@ import org.apache.commons.lang3.time.StopWatch;
 import org.pdfsam.configuration.ApplicationContextHolder;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
-import org.pdfsam.gui.MainPane;
+import org.pdfsam.ui.MainPane;
 import org.pdfsam.ui.OpenUrlRequestEvent;
 import org.pdfsam.ui.support.ShowRequestEvent;
 import org.pdfsam.update.UpdateCheckRequest;
