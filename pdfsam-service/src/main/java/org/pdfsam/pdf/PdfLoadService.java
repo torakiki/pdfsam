@@ -19,7 +19,6 @@
 package org.pdfsam.pdf;
 
 import java.util.Collection;
-import java.util.List;
 
 /**
  * Service to load pdf documents
@@ -31,8 +30,7 @@ public interface PdfLoadService {
 
     /**
      * @param toLoad
-     *            a list of {@link PdfDocumentDescriptor} the service is requested to load
-     * @return a list of {@link PdfDocumentDescriptor} the service has populated
+     *            a list of {@link PdfDocumentDescriptor} the service is requested to load and update.
      */
-    List<PdfDocumentDescriptor> load(Collection<PdfDocumentDescriptor> toLoad);
+    void load(Collection<PdfDocumentDescriptor> toLoad);
 }

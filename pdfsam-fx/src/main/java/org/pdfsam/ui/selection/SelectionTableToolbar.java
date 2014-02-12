@@ -24,7 +24,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.io.File;
 import java.util.List;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ToolBar;
 import javafx.scene.control.Tooltip;
@@ -34,7 +33,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
-import org.pdfsam.pdf.PdfLoadCompletedEvent;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.ModuleOwnedButton;
@@ -62,32 +60,6 @@ public class SelectionTableToolbar extends ToolBar implements ModuleOwned {
         return ownerModule;
     }
 
-    /**
-     * Button displayed in the selection table toolbar which disables itself when the selection table is loading documents
-     * 
-     * @author Andrea Vacondio
-     * 
-     */
-    private static class SelectionToolbarButton extends ModuleOwnedButton {
-
-        public SelectionToolbarButton(String ownerModule) {
-            super(ownerModule);
-            eventStudio().addAnnotatedListeners(this);
-        }
-
-        @EventListener
-        public final void disableWhileLoadingDocuments(PdfLoadRequestEvent event) {
-            // I'm still loading documents
-            this.setDisable(true);
-        }
-
-        @EventListener
-        public final void enableOnLoadDocumentsCompletion(PdfLoadCompletedEvent event) {
-            // I'm done loading documents
-            Platform.runLater(() -> this.setDisable(false));
-        }
-
-    }
 
     /**
      * Button to request the load of the pdf documents selected using a {@link FileChooser}
@@ -95,7 +67,7 @@ public class SelectionTableToolbar extends ToolBar implements ModuleOwned {
      * @author Andrea Vacondio
      * 
      */
-    private static class AddButton extends SelectionToolbarButton {
+    private static class AddButton extends ModuleOwnedButton {
 
         public AddButton(String ownerModule) {
             super(ownerModule);
@@ -114,7 +86,6 @@ public class SelectionTableToolbar extends ToolBar implements ModuleOwned {
                 PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
                 chosenFiles.forEach(d -> loadEvent.add(PdfDocumentDescriptor.newDescriptorNoPassword(d)));
                 eventStudio().broadcast(loadEvent, getOwnerModule());
-                eventStudio().broadcast(loadEvent);
             }
         }
     }
@@ -152,7 +123,7 @@ public class SelectionTableToolbar extends ToolBar implements ModuleOwned {
      * @author Andrea Vacondio
      * 
      */
-    private static class ClearButton extends SelectionToolbarButton {
+    private static class ClearButton extends ModuleOwnedButton {
         public ClearButton(String ownerModule) {
             super(ownerModule);
             setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Removes every document")));

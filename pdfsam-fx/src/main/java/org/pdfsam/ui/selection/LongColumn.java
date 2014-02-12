@@ -21,7 +21,6 @@ package org.pdfsam.ui.selection;
 import java.text.DateFormat;
 import java.util.Comparator;
 
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.value.ObservableValue;
 
@@ -85,7 +84,7 @@ enum LongColumn implements SelectionTableColumn<Number> {
 
         @Override
         public ObservableValue<Number> getObservableValue(SelectionTableRowData data) {
-            return new SimpleIntegerProperty(data.getDocumentDescriptor().getPages());
+            return data.getDocumentDescriptor().pagesPropery();
         }
 
         @Override

@@ -19,12 +19,9 @@
 package org.pdfsam.pdf;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.pdfsam.pdf.PdfDocumentDescriptor.newCopy;
 import static org.sejda.impl.itext.util.ITextUtils.nullSafeClosePdfReader;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
 import javax.inject.Named;
@@ -49,35 +46,35 @@ public class ITextPdfLoadService implements PdfLoadService {
 
     private static final Logger LOG = LoggerFactory.getLogger(ITextPdfLoadService.class);
 
-    public List<PdfDocumentDescriptor> load(Collection<PdfDocumentDescriptor> toLoad) {
+    public void load(Collection<PdfDocumentDescriptor> toLoad) {
         LOG.debug(DefaultI18nContext.getInstance().i18n("Loading documents"));
-        List<PdfDocumentDescriptor> loaded = new ArrayList<>(toLoad.size());
         for (PdfDocumentDescriptor current : toLoad) {
-            PdfDocumentDescriptor copy = newCopy(current);
-            PdfReader reader = null;
-            try {
-                reader = current.toPdfSource().open(PdfSourceOpeners.newPartialReadOpener());
-                copy.setEncryptionStatus(EncryptionStatus.NOT_ENCRYPTED);
-                copy.setPages(reader.getNumberOfPages());
-                copy.setVersion(String.format("1.%c", reader.getPdfVersion()));
-                @SuppressWarnings("unchecked")
-                Map<String, String> meta = reader.getInfo();
-                for (PdfMetadataKey key : PdfMetadataKey.values()) {
-                    copy.addMedatada(key, defaultString(meta.get(key.getKey())));
+            if (!current.isInvalid()) {
+                PdfReader reader = null;
+                try {
+                    reader = current.toPdfSource().open(PdfSourceOpeners.newPartialReadOpener());
+                    current.setEncryptionStatus(EncryptionStatus.NOT_ENCRYPTED);
+                    current.setPages(reader.getNumberOfPages());
+                    current.setVersion(String.format("1.%c", reader.getPdfVersion()));
+                    @SuppressWarnings("unchecked")
+                    Map<String, String> meta = reader.getInfo();
+                    for (PdfMetadataKey key : PdfMetadataKey.values()) {
+                        current.addMedatada(key, defaultString(meta.get(key.getKey())));
+                    }
+                } catch (TaskWrongPasswordException twpe) {
+                    current.setEncryptionStatus(EncryptionStatus.ENCRYPTED);
+                    LOG.warn(String.format("Owner password required %s", current.getFileName()), twpe);
+                } catch (Exception e) {
+                    LOG.error(String.format("An error occured loading the document %s", current.getFileName()), e);
+                } finally {
+                    nullSafeClosePdfReader(reader);
                 }
-                loaded.add(copy);
-            } catch (TaskWrongPasswordException twpe) {
-                copy.setEncryptionStatus(EncryptionStatus.ENCRYPTED);
-                loaded.add(copy);
-                LOG.warn(String.format("Owner password required %s", current.getFileName()), twpe);
-            } catch (Exception e) {
-                LOG.error(String.format("An error occured loading the document %s", current.getFileName()), e);
-            } finally {
-                nullSafeClosePdfReader(reader);
+                current.loaded();
+            } else {
+                LOG.trace("Skipping cancelled document {}", current.getFileName());
             }
         }
         LOG.debug(DefaultI18nContext.getInstance().i18n("Documents loaded"));
-        return loaded;
     }
 
 }

@@ -23,8 +23,10 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.UUID;
+
+import javafx.beans.property.ReadOnlyBooleanProperty;
+import javafx.beans.property.ReadOnlyBooleanWrapper;
+import javafx.beans.property.SimpleIntegerProperty;
 
 import org.apache.commons.lang3.StringUtils;
 import org.sejda.model.input.PdfFileSource;
@@ -39,8 +41,9 @@ import org.sejda.model.pdf.PdfMetadataKey;
  */
 public final class PdfDocumentDescriptor {
 
-    private UUID uuid;
-    private int pages;
+    private ReadOnlyBooleanWrapper loaded = new ReadOnlyBooleanWrapper(false);
+    private boolean invalid = false;
+    private SimpleIntegerProperty pages = new SimpleIntegerProperty(0);
     private EncryptionStatus encryptionStatus;
     private String password;
     private File file;
@@ -50,11 +53,6 @@ public final class PdfDocumentDescriptor {
     private PdfDocumentDescriptor(File file, String password) {
         this.file = file;
         this.password = password;
-        this.uuid = UUID.randomUUID();
-    }
-
-    public UUID getUuid() {
-        return uuid;
     }
 
     public void addMedatada(PdfMetadataKey key, String metadata) {
@@ -73,12 +71,20 @@ public final class PdfDocumentDescriptor {
         return StringUtils.defaultString(metadata.get(key));
     }
 
-    public int getPages() {
+    public SimpleIntegerProperty pagesPropery() {
         return pages;
     }
 
     public void setPages(int pages) {
-        this.pages = pages;
+        pagesPropery().set(pages);
+    }
+
+    public ReadOnlyBooleanProperty loadedProperty() {
+        return loaded.getReadOnlyProperty();
+    }
+
+    public void loaded() {
+        loaded.set(true);
     }
 
     public EncryptionStatus getEncryptionStatus() {
@@ -109,6 +115,14 @@ public final class PdfDocumentDescriptor {
         return file;
     }
 
+    public boolean isInvalid() {
+        return invalid;
+    }
+
+    public void invalidate() {
+        this.invalid = true;
+    }
+
     public PdfSource<File> toPdfSource() {
         return PdfFileSource.newInstanceWithPassword(file, password);
     }
@@ -121,18 +135,5 @@ public final class PdfDocumentDescriptor {
     public static PdfDocumentDescriptor newDescriptorNoPassword(File file) {
         requireNotNull(file, "Input file is mandatory");
         return new PdfDocumentDescriptor(file, null);
-    }
-
-    public static PdfDocumentDescriptor newCopy(PdfDocumentDescriptor toCopy) {
-        requireNotNull(toCopy, "Cannot copy a null document descriptor");
-        PdfDocumentDescriptor copy = new PdfDocumentDescriptor(toCopy.file, toCopy.password);
-        copy.uuid = toCopy.uuid;
-        copy.encryptionStatus = toCopy.getEncryptionStatus();
-        copy.pages = toCopy.getPages();
-        copy.version = toCopy.getVersion();
-        for (Entry<PdfMetadataKey, String> entry : toCopy.metadata.entrySet()) {
-            copy.addMedatada(entry.getKey(), entry.getValue());
-        }
-        return copy;
     }
 }

@@ -19,7 +19,6 @@
 package org.pdfsam.ui.module;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -30,8 +29,6 @@ import javafx.scene.layout.Pane;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.TaskExecutionRequestEvent;
-import org.pdfsam.pdf.PdfLoadCompletedEvent;
-import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
@@ -73,18 +70,6 @@ public abstract class BaseTaskExecutionModule implements Module {
         scrollPane.setFitToWidth(true);
         scrollPane.getStyleClass().addAll(Style.MAIN_PANEL.css());
         modulePanel.setCenter(scrollPane);
-    }
-
-    @EventListener
-    public void disableRunButtonWhileLoadingDocuments(PdfLoadRequestEvent event) {
-        // still loading
-        runButton.setDisable(true);
-    }
-
-    @EventListener
-    public void enableRunButtonOnLoadDocumentsCompletion(PdfLoadCompletedEvent event) {
-        // I'm done loading documents
-        Platform.runLater(() -> runButton.setDisable(false));
     }
 
     @EventStation

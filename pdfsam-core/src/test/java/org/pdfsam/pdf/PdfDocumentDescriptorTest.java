@@ -18,17 +18,15 @@
  */
 package org.pdfsam.pdf;
 
-import java.io.File;
-
-import org.junit.Test;
-import org.sejda.model.pdf.PdfMetadataKey;
-
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import java.io.File;
+
+import org.junit.Test;
 
 /**
  * @author Andrea Vacondio
@@ -37,32 +35,13 @@ import static org.junit.Assert.assertNotNull;
 public class PdfDocumentDescriptorTest {
 
     @Test
-    public void copy() {
-        File file = mock(File.class);
-        PdfDocumentDescriptor victim = PdfDocumentDescriptor.newDescriptor(file, "pwd");
-        victim.setEncryptionStatus(EncryptionStatus.DECRYPTED_WITH_OWNER_PWD);
-        victim.setVersion("XX");
-        victim.setPages(2);
-        victim.addMedatada(PdfMetadataKey.AUTHOR, "Chuck Norris");
-        victim.addMedatada(PdfMetadataKey.SUBJECT, "test");
-        PdfDocumentDescriptor copy = PdfDocumentDescriptor.newCopy(victim);
-        assertEquals(victim.getUuid(), copy.getUuid());
-        assertEquals(victim.getFile(), copy.getFile());
-        assertEquals(victim.getPages(), copy.getPages());
-        assertEquals(victim.getPassword(), copy.getPassword());
-        assertEquals(victim.getVersion(), copy.getVersion());
-        assertEquals(victim.getEncryptionStatus(), copy.getEncryptionStatus());
-        for (PdfMetadataKey key : PdfMetadataKey.values()) {
-            assertEquals(victim.getMedatada(key), copy.getMedatada(key));
-        }
-    }
-
-    @Test
     public void getName() {
         File file = mock(File.class);
         when(file.getName()).thenReturn("myName");
         PdfDocumentDescriptor victim = PdfDocumentDescriptor.newDescriptor(file, "pwd");
         assertNotNull(victim.getFileName());
+        assertFalse(victim.isInvalid());
+        assertFalse(victim.loadedProperty().get());
         verify(file).getName();
     }
 }

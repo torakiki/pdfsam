@@ -30,13 +30,13 @@ import org.junit.Test;
  * @author Andrea Vacondio
  * 
  */
-public class BasePdfLoadEventTest {
+public class PdfLoadRequestEventTest {
 
     @Test
     public void add() {
         File file = mock(File.class);
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(file);
-        BasePdfLoadEvent victim = new BasePdfLoadEvent();
+        PdfLoadRequestEvent victim = new PdfLoadRequestEvent("module");
         assertNotNull(victim.getDocuments());
         assertEquals(0, victim.getDocuments().size());
         victim.add(descriptor);

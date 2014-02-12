@@ -25,13 +25,11 @@ import static org.pdfsam.ui.selection.SelectionChangedEvent.select;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
-import javafx.application.Platform;
 import javafx.beans.Observable;
 import javafx.collections.ListChangeListener.Change;
 import javafx.collections.ObservableList;
@@ -47,7 +45,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
-import org.pdfsam.pdf.PdfLoadCompletedEvent;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.event.SetDestinationEvent;
@@ -146,11 +143,10 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     private Consumer<DragEvent> onDragDropped() {
         return (DragEvent e) -> {
             final PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
-            Stream<PdfDocumentDescriptor> descriptors = e.getDragboard().getFiles().parallelStream()
+            Stream<PdfDocumentDescriptor> descriptors = e.getDragboard().getFiles().stream()
                     .filter(f -> FileType.PDF.matches(f.getName())).map(PdfDocumentDescriptor::newDescriptorNoPassword);
             descriptors.forEach(loadEvent::add);
             eventStudio().broadcast(loadEvent, getOwnerModule());
-            eventStudio().broadcast(loadEvent);
             e.setDropCompleted(true);
         };
     }
@@ -160,20 +156,25 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         return ownerModule;
     }
 
-    @EventListener
-    public void onLoadDocumentsCompletion(final PdfLoadCompletedEvent event) {
-        Platform.runLater(() -> event.getDocuments().forEach(d -> getItems().add(new SelectionTableRowData(d))));
+    @EventListener(priority = Integer.MIN_VALUE)
+    public void onLoadDocumentsRequest(PdfLoadRequestEvent loadEvent) {
+        loadEvent.getDocuments().forEach(d -> getItems().add(new SelectionTableRowData(d)));
+        eventStudio().broadcast(loadEvent);
     }
 
     @EventListener
     public void onClear(final ClearSelectionTableEvent event) {
+        getItems().forEach((SelectionTableRowData d) -> d.getDocumentDescriptor().invalidate());
         getSelectionModel().clearSelection();
         getItems().clear();
     }
 
     @EventListener
     public void onRemoveSelected(RemoveSelectedEvent event) {
-        getItems().removeAll(new ArrayList<>(getSelectionModel().getSelectedItems()));
+        getSelectionModel().getSelectedItems().forEach((SelectionTableRowData d) -> {
+            d.getDocumentDescriptor().invalidate();
+            getItems().remove(d);
+        });
         getSelectionModel().clearSelection();
     }
 
