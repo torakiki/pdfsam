@@ -70,7 +70,7 @@ public class App extends Application {
         scene.getAccelerators().put(new KeyCodeCombination(KeyCode.L, KeyCombination.SHORTCUT_DOWN),
                 () -> eventStudio().broadcast(new ShowRequestEvent(), "LogStage"));
         primaryStage.show();
-        eventStudio().add(new CurrentModuleTitleChanger(primaryStage));
+        eventStudio().add(new TitleController(primaryStage));
         requestCheckForUpdateIfNecessary();
         STOPWATCH.stop();
         eventStudio().addAnnotatedListeners(this);
@@ -99,11 +99,11 @@ public class App extends Application {
         }
     }
 
-    public static class CurrentModuleTitleChanger implements Listener<NewCurrentModuleSetEvent> {
+    public static class TitleController implements Listener<NewCurrentModuleSetEvent> {
 
         private Stage primaryStage;
 
-        public CurrentModuleTitleChanger(Stage primaryStage) {
+        public TitleController(Stage primaryStage) {
             this.primaryStage = primaryStage;
         }
 
@@ -111,9 +111,7 @@ public class App extends Application {
             primaryStage.setTitle(String.format("%s - %s",
                     ApplicationContextHolder.getContext().getBean("appName", String.class), event.getDescriptor()
                             .getName()));
-
         }
-
     }
 
 }

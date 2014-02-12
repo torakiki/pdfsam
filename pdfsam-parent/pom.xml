@@ -52,6 +52,7 @@
 		<itext.version>2.1.7</itext.version>
 		<org.springframework.version>4.0.1.RELEASE</org.springframework.version>
 		<fontawesomefx.version>8.0.6</fontawesomefx.version>
+		<testfx.version>3.1.1</testfx.version>
 		<maven.build.timestamp.format>dd-MMM-yyyy</maven.build.timestamp.format>
 		<pdfsam.package>BASIC</pdfsam.package>
 		<pdfsam.builddate>${maven.build.timestamp}</pdfsam.builddate>
@@ -72,7 +73,7 @@
 		<repository>
 			<id>springsource-repo</id>
 			<name>SpringSource Repository</name>
-			<url>http://repo.springsource.org/release</url>
+			<url>http://repo.spring.io/release</url>
 		</repository>
 		<repository>
 			<id>spring-milestones</id>
@@ -142,6 +143,12 @@
 				<version>${org.springframework.version}</version>
 			</dependency>
 			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${org.springframework.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
 				<groupId>javax.inject</groupId>
 				<artifactId>javax.inject</artifactId>
 				<version>1</version>
@@ -150,6 +157,12 @@
 				<groupId>jdepend</groupId>
 				<artifactId>jdepend</artifactId>
 				<version>${jdepend.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.loadui</groupId>
+				<artifactId>testFx</artifactId>
+				<version>${testfx.version}</version>
 				<scope>test</scope>
 			</dependency>
 		</dependencies>
