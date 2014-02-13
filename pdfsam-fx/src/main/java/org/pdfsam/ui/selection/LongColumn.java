@@ -26,6 +26,7 @@ import javafx.beans.value.ObservableValue;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.FastDateFormat;
 import org.pdfsam.context.DefaultI18nContext;
 
@@ -89,7 +90,10 @@ enum LongColumn implements SelectionTableColumn<Number> {
 
         @Override
         public String getTextValue(Number item) {
-            return ObjectUtils.toString(item);
+            if (item != null && item.intValue() > 0) {
+                return ObjectUtils.toString(item);
+            }
+            return StringUtils.EMPTY;
         }
 
         public Comparator<Number> comparator() {

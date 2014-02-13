@@ -45,6 +45,18 @@ public final class RequireUtils {
     }
 
     /**
+     * throws an {@link IllegalStateException} if the condition is false
+     * 
+     * @param condition
+     * @param errorMessage
+     */
+    public static void requireState(boolean condition, String errorMessage) {
+        if (!condition) {
+            throw new IllegalStateException(errorMessage);
+        }
+    }
+
+    /**
      * throws an {@link IllegalArgumentException} if the input argument is null
      * 
      * @param arg

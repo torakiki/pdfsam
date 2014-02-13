@@ -30,15 +30,18 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
-import javafx.beans.Observable;
 import javafx.collections.ListChangeListener.Change;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.TableView;
 import javafx.scene.input.DragEvent;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.input.TransferMode;
 
 import org.apache.commons.lang3.StringUtils;
@@ -53,6 +56,9 @@ import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import de.jensd.fx.fontawesome.AwesomeDude;
+import de.jensd.fx.fontawesome.AwesomeIcon;
 
 /**
  * Table displaying selected pdf documents
@@ -97,22 +103,54 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     }
 
     private void initContextMenu() {
-        MenuItem infoItem = new MenuItem(DefaultI18nContext.getInstance().i18n("Document properties"));
+        MenuItem infoItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Document properties"),
+                AwesomeIcon.INFO);
+        infoItem.setAccelerator(new KeyCodeCombination(KeyCode.P, KeyCombination.ALT_DOWN));
         // infoItem.setOnAction(e -> eventStudio().broadcast(showDocumentProperties, getOwnerModule()));
-        MenuItem setDestinationItem = new MenuItem(DefaultI18nContext.getInstance().i18n("Set output"));
+        MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set output"),
+                AwesomeIcon.PENCIL_SQUARE_ALT);
+        setDestinationItem.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.ALT_DOWN));
+
         setDestinationItem.setOnAction(e -> {
             File outFile = new File(
                     getSelectionModel().getSelectedItem().getDocumentDescriptor().getFile().getParent(), "out.pdf");
             eventStudio().broadcast(new SetDestinationEvent(outFile), getOwnerModule());
         });
 
-        getSelectionModel().getSelectedIndices().addListener((Observable o) -> {
-            boolean singleSelection = getSelectionModel().getSelectedIndices().size() != 1;
-            setDestinationItem.setDisable(singleSelection);
-            infoItem.setDisable(singleSelection);
-        });
+        MenuItem removeSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Remove"),
+                AwesomeIcon.MINUS_SQUARE_ALT);
+        removeSelected.setAccelerator(new KeyCodeCombination(KeyCode.CANCEL));
 
-        setContextMenu(new ContextMenu(infoItem, setDestinationItem));
+        removeSelected.setOnAction(e -> eventStudio().broadcast(new RemoveSelectedEvent(), getOwnerModule()));
+
+        MenuItem moveUpSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Move Up"),
+                AwesomeIcon.CHEVRON_UP);
+        moveUpSelected.setAccelerator(new KeyCodeCombination(KeyCode.UP, KeyCombination.ALT_DOWN));
+        moveUpSelected.setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.UP), getOwnerModule()));
+
+        MenuItem moveDownSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Move Down"),
+                AwesomeIcon.CHEVRON_DOWN);
+        moveDownSelected.setAccelerator(new KeyCodeCombination(KeyCode.DOWN, KeyCombination.ALT_DOWN));
+        moveDownSelected.setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.DOWN),
+                getOwnerModule()));
+
+        eventStudio().add(SelectionChangedEvent.class, (SelectionChangedEvent e) -> {
+            setDestinationItem.setDisable(!e.isSingleSelection());
+            infoItem.setDisable(!e.isSingleSelection());
+            removeSelected.setDisable(e.isClearSelection());
+            moveUpSelected.setDisable(!e.canMove(MoveType.UP));
+            moveDownSelected.setDisable(!e.canMove(MoveType.DOWN));
+
+        }, getOwnerModule());
+        setContextMenu(new ContextMenu(removeSelected, moveUpSelected, moveDownSelected, new SeparatorMenuItem(),
+                infoItem, setDestinationItem));
+    }
+
+    private MenuItem createMenuItem(String text, AwesomeIcon icon) {
+        MenuItem item = new MenuItem(text);
+        AwesomeDude.setIcon(item, icon);
+        item.setDisable(true);
+        return item;
     }
 
     private void dragConsume(DragEvent e, Consumer<DragEvent> c) {

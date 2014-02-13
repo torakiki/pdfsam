@@ -20,6 +20,7 @@ package org.pdfsam.ui.selection;
 
 import static org.pdfsam.support.RequireUtils.require;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.pdfsam.support.RequireUtils.requireState;
 
 import java.util.Collection;
 
@@ -63,6 +64,15 @@ final class SelectionChangedEvent {
         return !isClearSelection() && top == bottom;
     }
 
+    /**
+     * @return the index for the single selection
+     * @throws IllegalStateException
+     *             if the event is not a single selection
+     */
+    public int getSingleSelection() {
+        requireState(isSingleSelection(), "Single selection expected");
+        return top;
+    }
     public boolean canMove(MoveType type) {
         if (type == MoveType.DOWN) {
             return !isClearSelection() && bottom < totalRows - 1;

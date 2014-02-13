@@ -37,6 +37,10 @@
 			<artifactId>spring-context</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>de.jensd</groupId>
+			<artifactId>fontawesomefx</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.pdfsam</groupId>
 			<artifactId>pdfsam-i18n</artifactId>
 			<version>${project.version}</version>

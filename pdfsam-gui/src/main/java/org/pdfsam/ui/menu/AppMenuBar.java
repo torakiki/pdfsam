@@ -68,7 +68,7 @@ public class AppMenuBar extends MenuBar {
         edit.getItems().add(preferences);
 
         Menu help = new Menu(DefaultI18nContext.getInstance().i18n("_Help"));
-        MenuItem about = new MenuItem(DefaultI18nContext.getInstance().i18n("_About"));
+        MenuItem about = new MenuItem(DefaultI18nContext.getInstance().i18n("A_bout"));
         about.setOnAction(new ShowStageHandler(aboutStage));
         help.getItems().add(about);
         getMenus().addAll(file, edit, workspace, modulesMenu, help);
