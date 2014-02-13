@@ -21,6 +21,7 @@ package org.pdfsam.ui.quickbar;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
+import org.junit.Ignore;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
@@ -28,6 +29,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+@Ignore
 @Configuration
 @ComponentScan(basePackages = { "org.pdfsam.ui.quickbar", "org.pdfsam.module" })
 public class QuickbarTestConfig {

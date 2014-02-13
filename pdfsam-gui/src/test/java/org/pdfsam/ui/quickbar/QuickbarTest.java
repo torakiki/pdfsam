@@ -22,6 +22,7 @@ import static org.loadui.testfx.Assertions.verifyThat;
 import javafx.scene.Parent;
 import javafx.scene.control.ContentDisplay;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.loadui.testfx.GuiTest;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -29,6 +30,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 /**
  * @author Andrea Vacondio
  */
+@Ignore
 public class QuickbarTest extends GuiTest {
 
     private AnnotationConfigApplicationContext ctx;
