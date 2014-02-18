@@ -47,9 +47,7 @@
 		<jdepend.version>2.9.1</jdepend.version>
 		<hibernate-validator.version>4.2.0.Final</hibernate-validator.version>
 		<sejda.version>1.0.0.M9</sejda.version>
-		<dockingframes.version>1.1.1</dockingframes.version>
-		<eventstudio.version>1.0.2</eventstudio.version>
-		<itext.version>2.1.7</itext.version>
+		<eventstudio.version>1.0.2</eventstudio.version>		
 		<org.springframework.version>4.0.1.RELEASE</org.springframework.version>
 		<fontawesomefx.version>8.0.6</fontawesomefx.version>
 		<testfx.version>3.1.1</testfx.version>
@@ -66,22 +64,11 @@
 			<releases>
 				<enabled>true</enabled>
 			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
 		</repository>
 		<repository>
 			<id>springsource-repo</id>
 			<name>SpringSource Repository</name>
 			<url>http://repo.spring.io/release</url>
-		</repository>
-		<repository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>http://repo.spring.io/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
 		</repository>
 	</repositories>
 
@@ -129,7 +116,7 @@
 			</dependency>
 			<dependency>
 				<groupId>org.sejda</groupId>
-				<artifactId>sejda-itext</artifactId>
+				<artifactId>sejda-itext5</artifactId>
 				<version>${sejda.version}</version>
 			</dependency>
 			<dependency>

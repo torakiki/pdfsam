@@ -31,11 +31,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.sejda</groupId>
-			<artifactId>sejda-itext</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.sejda</groupId>
-			<artifactId>sejda-pdfbox</artifactId>
+			<artifactId>sejda-itext5</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>

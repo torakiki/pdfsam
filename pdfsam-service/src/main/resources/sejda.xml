@@ -3,6 +3,6 @@
 	<notification async="false" />
 	<tasks>
 		<task parameters="org.sejda.model.parameter.DecryptParameters"
-			task="org.sejda.impl.itext.DecryptTask" />
+			task="org.sejda.impl.itext5.DecryptTask" />
 	</tasks>
 </sejda>
