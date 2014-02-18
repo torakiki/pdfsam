@@ -37,6 +37,7 @@ import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.ModuleOwnedButton;
 import org.pdfsam.ui.io.FileChoosers;
+import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper;
 import org.sejda.eventstudio.annotation.EventListener;
 
 /**
@@ -79,7 +80,7 @@ public class SelectionTableToolbar extends ToolBar implements ModuleOwned {
         }
 
         public void loadDocuments(ActionEvent event) {
-            FileChooser fileChooser = FileChoosers.getFileChooser(FileType.PDF,
+            RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(FileType.PDF,
                     DefaultI18nContext.getInstance().i18n("Select pdf documents to load"));
             List<File> chosenFiles = fileChooser.showOpenMultipleDialog(this.getScene().getWindow());
             if (chosenFiles != null && !chosenFiles.isEmpty()) {

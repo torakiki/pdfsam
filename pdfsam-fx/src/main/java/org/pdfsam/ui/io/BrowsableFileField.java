@@ -71,7 +71,8 @@ public class BrowsableFileField extends BrowsableField {
     private class BrowseEventHandler implements EventHandler<ActionEvent> {
 
         public void handle(ActionEvent event) {
-            FileChooser fileChooser = FileChoosers.getFileChooser(fileType, getBrowseWindowTitle());
+            RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(fileType,
+                    getBrowseWindowTitle());
             String currentSelection = getTextField().getText();
             if (isNotBlank(currentSelection)) {
                 Path path = Paths.get(currentSelection);

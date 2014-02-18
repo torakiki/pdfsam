@@ -57,7 +57,8 @@ public class BrowsableDirectoryField extends BrowsableField {
     private class BrowseEventHandler implements EventHandler<ActionEvent> {
 
         public void handle(ActionEvent event) {
-            DirectoryChooser fileChooser = FileChoosers.getDirectoryChooser(getBrowseWindowTitle());
+            RememberingLatestDirectoryChooserWrapper fileChooser = FileChoosers
+                    .getDirectoryChooser(getBrowseWindowTitle());
             String currentSelection = getTextField().getText();
             if (isNotBlank(currentSelection)) {
                 Path path = Paths.get(currentSelection);

@@ -19,10 +19,11 @@
 package org.pdfsam.ui.io;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 import java.nio.file.Files;
-import java.nio.file.Path;
+import java.nio.file.InvalidPathException;
 import java.nio.file.Paths;
 
 import javafx.stage.DirectoryChooser;
@@ -30,6 +31,8 @@ import javafx.stage.FileChooser;
 
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.support.io.FileType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Contains a single instance of {@link FileChooser} and provides static methods to get and configure the instance
@@ -38,17 +41,19 @@ import org.pdfsam.support.io.FileType;
  * 
  */
 public final class FileChoosers {
+    private static final Logger LOG = LoggerFactory.getLogger(FileChoosers.class);
+    private static final RememberingLatestFileChooserWrapper FILE_INSTANCE = new RememberingLatestFileChooserWrapper();
+    private static final RememberingLatestDirectoryChooserWrapper DIR_INSTANCE = new RememberingLatestDirectoryChooserWrapper();
 
-    private static final FileChooser FILE_INSTANCE = new FileChooser();
-    private static final DirectoryChooser DIR_INSTANCE = new DirectoryChooser();
     static {
         String defaultworkingPath = DefaultUserContext.getInstance().getDefaultWorkingPath();
         if (isNotBlank(defaultworkingPath)) {
-            Path initialDir = Paths.get(defaultworkingPath);
-            if (Files.isDirectory(initialDir)) {
-                File file = new File(DefaultUserContext.getInstance().getDefaultWorkingPath());
-                FILE_INSTANCE.setInitialDirectory(file);
-                DIR_INSTANCE.setInitialDirectory(file);
+            try {
+                if (Files.isDirectory(Paths.get(defaultworkingPath))) {
+                    eventStudio().broadcast(new SetLatestDirectoryEvent(new File(defaultworkingPath)));
+                }
+            } catch (InvalidPathException e) {
+                LOG.warn("Unable to set initial directory, default path is invalid.", e);
             }
         }
     }
@@ -63,7 +68,7 @@ public final class FileChoosers {
      * @param title
      * @return a shared instance of {@link FileChooser} with the given title.
      */
-    public static FileChooser getFileChooser(FileType filter, String title) {
+    public static RememberingLatestFileChooserWrapper getFileChooser(FileType filter, String title) {
         FILE_INSTANCE.getExtensionFilters().setAll(filter.getFilter());
         FILE_INSTANCE.setInitialFileName("");
         FILE_INSTANCE.setTitle(title);
@@ -74,7 +79,7 @@ public final class FileChoosers {
      * @param title
      * @return a shared instance of the {@link DirectoryChooser} with the given title.
      */
-    public static DirectoryChooser getDirectoryChooser(String title) {
+    public static RememberingLatestDirectoryChooserWrapper getDirectoryChooser(String title) {
         DIR_INSTANCE.setTitle(title);
         return DIR_INSTANCE;
     }

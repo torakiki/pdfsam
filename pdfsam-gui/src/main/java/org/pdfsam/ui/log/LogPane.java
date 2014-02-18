@@ -31,7 +31,6 @@ import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
-import javafx.stage.FileChooser;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -41,6 +40,7 @@ import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.I18nContext;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.io.FileChoosers;
+import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper;
 import org.pdfsam.ui.support.Style;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -111,7 +111,7 @@ public class LogPane extends VBox {
     }
 
     public void saveLog() {
-        FileChooser fileChooser = FileChoosers.getFileChooser(FileType.LOG,
+        RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(FileType.LOG,
                 DefaultI18nContext.getInstance().i18n("Select where to save the log file"));
         fileChooser.setInitialFileName("PDFsam.log");
         File chosenFile = fileChooser.showSaveDialog(this.getScene().getWindow());
