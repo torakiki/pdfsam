@@ -85,7 +85,6 @@ public class AboutPane extends BorderPane {
                 new UrlButton("Home", "http://www.pdfsam.org"),
                 new UrlButton(DefaultI18nContext.getInstance().i18n("License"),
                         "http://www.gnu.org/licenses/agpl-3.0.html"),
-                new UrlButton("Twitter", "http://www.pdfsam.org/twitter"),
                 new UrlButton("GitHub", "http://www.pdfsam.org/scm"));
         labels.getChildren().add(hbox);
         VBox logoPane = new VBox();

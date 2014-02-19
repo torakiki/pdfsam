@@ -43,19 +43,23 @@ class SocialPane extends HBox {
 
     public SocialPane() {
         getStyleClass().add("quickbar-social");
-        Button gitHubButton = AwesomeDude.createIconButton(AwesomeIcon.GITHUB, null, "20px", "0px",
-                ContentDisplay.GRAPHIC_ONLY);
-        gitHubButton.getStyleClass().addAll("pdfsam-toolbar-button", "quickbar-navigation-button");
-        gitHubButton.setOnAction(e -> eventStudio().broadcast(new OpenUrlRequestEvent("http://www.pdfsam.org/scm")));
+        Button gitHubButton = createButton("http://www.pdfsam.org/scm", AwesomeIcon.GITHUB);
         gitHubButton.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Fork me on GitHub")));
-        Button twitterButton = AwesomeDude.createIconButton(AwesomeIcon.TWITTER, null, "20px", "0px",
-                ContentDisplay.GRAPHIC_ONLY);
-        twitterButton.getStyleClass().addAll("pdfsam-toolbar-button", "quickbar-navigation-button");
-        twitterButton.setOnAction(e -> eventStudio()
-                .broadcast(new OpenUrlRequestEvent("http://www.pdfsam.org/twitter")));
+        Button twitterButton = createButton("http://www.pdfsam.org/twitter", AwesomeIcon.TWITTER);
         twitterButton.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Follow us on Twitter")));
-        getChildren().addAll(gitHubButton, twitterButton);
+        Button facebookButton = createButton("http://www.pdfsam.org/facebook", AwesomeIcon.FACEBOOK);
+        facebookButton.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Like us on Facebook")));
+        Button gplusButton = createButton("http://www.pdfsam.org/gplus", AwesomeIcon.GOOGLE_PLUS);
+        gplusButton.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Give us +1")));
+        getChildren().addAll(gitHubButton, twitterButton, facebookButton, gplusButton);
         setVisible(false);
     }
 
+    private Button createButton(String url, AwesomeIcon icon) {
+        Button button = AwesomeDude.createIconButton(icon, null, "16px", "0px",
+                ContentDisplay.GRAPHIC_ONLY);
+        button.getStyleClass().addAll("pdfsam-toolbar-button", "quickbar-navigation-button");
+        button.setOnAction(e -> eventStudio().broadcast(new OpenUrlRequestEvent(url)));
+        return button;
+    }
 }
