@@ -51,7 +51,9 @@ import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.event.SetDestinationEvent;
-import org.pdfsam.ui.selection.MoveType.SelectionAndFocus;
+import org.pdfsam.ui.selection.move.MoveSelectedEvent;
+import org.pdfsam.ui.selection.move.MoveType;
+import org.pdfsam.ui.selection.move.SelectionAndFocus;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
 import org.slf4j.Logger;
@@ -123,27 +125,40 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
         removeSelected.setOnAction(e -> eventStudio().broadcast(new RemoveSelectedEvent(), getOwnerModule()));
 
-        MenuItem moveUpSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Move Up"),
-                AwesomeIcon.CHEVRON_UP);
+        MenuItem moveTopSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Move to Top"),
+                AwesomeIcon.ANGLE_DOUBLE_UP);
+        moveTopSelected.setAccelerator(new KeyCodeCombination(KeyCode.HOME, KeyCombination.ALT_DOWN));
+        moveTopSelected
+                .setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.TOP), getOwnerModule()));
+
+        MenuItem moveUpSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Move Up"), AwesomeIcon.ANGLE_UP);
         moveUpSelected.setAccelerator(new KeyCodeCombination(KeyCode.UP, KeyCombination.ALT_DOWN));
         moveUpSelected.setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.UP), getOwnerModule()));
 
         MenuItem moveDownSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Move Down"),
-                AwesomeIcon.CHEVRON_DOWN);
+                AwesomeIcon.ANGLE_DOWN);
         moveDownSelected.setAccelerator(new KeyCodeCombination(KeyCode.DOWN, KeyCombination.ALT_DOWN));
         moveDownSelected.setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.DOWN),
+                getOwnerModule()));
+
+        MenuItem moveBottomSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Move to Bottom"),
+                AwesomeIcon.ANGLE_DOUBLE_DOWN);
+        moveBottomSelected.setAccelerator(new KeyCodeCombination(KeyCode.END, KeyCombination.ALT_DOWN));
+        moveBottomSelected.setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.BOTTOM),
                 getOwnerModule()));
 
         eventStudio().add(SelectionChangedEvent.class, (SelectionChangedEvent e) -> {
             setDestinationItem.setDisable(!e.isSingleSelection());
             infoItem.setDisable(!e.isSingleSelection());
             removeSelected.setDisable(e.isClearSelection());
+            moveTopSelected.setDisable(!e.canMove(MoveType.TOP));
             moveUpSelected.setDisable(!e.canMove(MoveType.UP));
             moveDownSelected.setDisable(!e.canMove(MoveType.DOWN));
+            moveBottomSelected.setDisable(!e.canMove(MoveType.BOTTOM));
 
         }, getOwnerModule());
-        setContextMenu(new ContextMenu(removeSelected, moveUpSelected, moveDownSelected, new SeparatorMenuItem(),
-                infoItem, setDestinationItem));
+        setContextMenu(new ContextMenu(removeSelected, moveTopSelected, moveUpSelected, moveDownSelected,
+                moveBottomSelected, new SeparatorMenuItem(), infoItem, setDestinationItem));
     }
 
     private MenuItem createMenuItem(String text, AwesomeIcon icon) {

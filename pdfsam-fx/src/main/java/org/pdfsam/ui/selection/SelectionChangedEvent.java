@@ -25,6 +25,7 @@ import static org.pdfsam.support.RequireUtils.requireState;
 import java.util.Collection;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.pdfsam.ui.selection.move.MoveType;
 
 /**
  * Event sent when the selection on the selection table changed
@@ -73,11 +74,21 @@ final class SelectionChangedEvent {
         requireState(isSingleSelection(), "Single selection expected");
         return top;
     }
+
     public boolean canMove(MoveType type) {
-        if (type == MoveType.DOWN) {
-            return !isClearSelection() && bottom < totalRows - 1;
+        if (isClearSelection()) {
+            return false;
         }
-        return !isClearSelection() && top > 0;
+        switch (type) {
+        case BOTTOM:
+            return isSingleSelection() && bottom < totalRows - 1;
+        case DOWN:
+            return bottom < totalRows - 1;
+        case TOP:
+            return isSingleSelection() && top > 0;
+        default:
+            return top > 0;
+        }
     }
 
     public int getTotalRows() {

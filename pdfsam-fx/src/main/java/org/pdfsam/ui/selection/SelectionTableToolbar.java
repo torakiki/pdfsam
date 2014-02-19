@@ -38,6 +38,8 @@ import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.ModuleOwnedButton;
 import org.pdfsam.ui.io.FileChoosers;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper;
+import org.pdfsam.ui.selection.move.MoveSelectedEvent;
+import org.pdfsam.ui.selection.move.MoveType;
 import org.sejda.eventstudio.annotation.EventListener;
 
 /**
