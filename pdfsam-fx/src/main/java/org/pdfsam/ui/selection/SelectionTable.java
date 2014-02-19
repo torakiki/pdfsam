@@ -50,6 +50,7 @@ import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.io.FileType;
+import org.pdfsam.ui.OpenFileRequestEvent;
 import org.pdfsam.ui.event.SetDestinationEvent;
 import org.pdfsam.ui.selection.move.MoveSelectedEvent;
 import org.pdfsam.ui.selection.move.MoveType;
@@ -147,9 +148,25 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         moveBottomSelected.setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.BOTTOM),
                 getOwnerModule()));
 
+        MenuItem openFileItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open"), AwesomeIcon.FILE_ALT);
+        openFileItem.setOnAction(e -> {
+            eventStudio().broadcast(
+                    new OpenFileRequestEvent(getSelectionModel().getSelectedItem().getDocumentDescriptor().getFile()));
+        });
+
+        MenuItem openFolderItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open Folder"),
+                AwesomeIcon.FOLDER_OPEN);
+        openFolderItem.setOnAction(e -> {
+            eventStudio().broadcast(
+                    new OpenFileRequestEvent(getSelectionModel().getSelectedItem().getDocumentDescriptor().getFile()
+                            .getParentFile()));
+        });
+
         eventStudio().add(SelectionChangedEvent.class, (SelectionChangedEvent e) -> {
             setDestinationItem.setDisable(!e.isSingleSelection());
             infoItem.setDisable(!e.isSingleSelection());
+            openFileItem.setDisable(!e.isSingleSelection());
+            openFolderItem.setDisable(!e.isSingleSelection());
             removeSelected.setDisable(e.isClearSelection());
             moveTopSelected.setDisable(!e.canMove(MoveType.TOP));
             moveUpSelected.setDisable(!e.canMove(MoveType.UP));
@@ -158,7 +175,8 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
         }, getOwnerModule());
         setContextMenu(new ContextMenu(removeSelected, moveTopSelected, moveUpSelected, moveDownSelected,
-                moveBottomSelected, new SeparatorMenuItem(), infoItem, setDestinationItem));
+                moveBottomSelected, new SeparatorMenuItem(), infoItem, openFileItem, openFolderItem,
+                new SeparatorMenuItem(), setDestinationItem));
     }
 
     private MenuItem createMenuItem(String text, AwesomeIcon icon) {

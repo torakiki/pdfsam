@@ -20,6 +20,8 @@ package org.pdfsam;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
+import java.awt.Desktop;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -39,6 +41,7 @@ import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.ui.MainPane;
 import org.pdfsam.ui.NewCurrentModuleSetEvent;
+import org.pdfsam.ui.OpenFileRequestEvent;
 import org.pdfsam.ui.OpenUrlRequestEvent;
 import org.pdfsam.ui.support.ShowRequestEvent;
 import org.pdfsam.update.UpdateCheckRequest;
@@ -96,6 +99,17 @@ public class App extends Application {
             services.showDocument(event.getUrl());
         } else {
             LOG.warn("Unable to open '{}', please copy and paste the url to your browser.", event.getUrl());
+        }
+    }
+
+    @EventListener
+    public void openPath(OpenFileRequestEvent event) {
+        if (Desktop.isDesktopSupported()) {
+            try {
+                Desktop.getDesktop().open(event.getFile());
+            } catch (IOException e) {
+                LOG.error("Unable to open '{}'", event.getFile().getAbsoluteFile());
+            }
         }
     }
 
