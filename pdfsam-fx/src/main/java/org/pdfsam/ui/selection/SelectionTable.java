@@ -38,9 +38,6 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.TableView;
 import javafx.scene.input.DragEvent;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCodeCombination;
-import javafx.scene.input.KeyCombination;
 import javafx.scene.input.TransferMode;
 
 import org.apache.commons.lang3.StringUtils;
@@ -101,7 +98,6 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         setOnDragExited(this::onDragExited);
         setOnDragDropped(e -> dragConsume(e, this.onDragDropped()));
         initContextMenu();
-        set
         eventStudio().addAnnotatedListeners(this);
     }
 
