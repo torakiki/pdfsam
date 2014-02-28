@@ -27,5 +27,5 @@ package org.pdfsam.pdf;
 public enum EncryptionStatus {
     NOT_ENCRYPTED,
     ENCRYPTED,
-    DECRYPTED_WITH_OWNER_PWD;
+    DECRYPTED_WITH_USER_PWD;
 }

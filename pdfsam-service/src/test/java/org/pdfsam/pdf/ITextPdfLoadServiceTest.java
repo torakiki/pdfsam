@@ -56,7 +56,7 @@ public class ITextPdfLoadServiceTest {
         PdfDocumentDescriptor item = toLoad.get(0);
         assertNotNull(item);
         assertEquals(2, item.pagesPropery().get());
-        assertEquals(EncryptionStatus.NOT_ENCRYPTED, item.getEncryptionStatus());
+        assertEquals(EncryptionStatus.NOT_ENCRYPTED, item.encryptionStatusProperty().get());
         assertEquals("Me", item.getMedatada(PdfMetadataKey.AUTHOR));
         assertEquals("test", item.getMedatada(PdfMetadataKey.KEYWORDS));
     }

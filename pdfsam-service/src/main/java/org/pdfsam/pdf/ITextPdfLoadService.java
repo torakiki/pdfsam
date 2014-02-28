@@ -61,7 +61,7 @@ public class ITextPdfLoadService implements PdfLoadService {
                     }
                 } catch (TaskWrongPasswordException twpe) {
                     current.setEncryptionStatus(EncryptionStatus.ENCRYPTED);
-                    LOG.warn(String.format("Owner password required %s", current.getFileName()), twpe);
+                    LOG.warn(String.format("User password required %s", current.getFileName()), twpe);
                 } catch (Exception e) {
                     LOG.error(String.format("An error occured loading the document %s", current.getFileName()), e);
                 } finally {

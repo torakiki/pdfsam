@@ -26,7 +26,10 @@ import java.util.Map;
 
 import javafx.beans.property.ReadOnlyBooleanProperty;
 import javafx.beans.property.ReadOnlyBooleanWrapper;
-import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.ReadOnlyIntegerProperty;
+import javafx.beans.property.ReadOnlyIntegerWrapper;
+import javafx.beans.property.ReadOnlyObjectProperty;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 
 import org.apache.commons.lang3.StringUtils;
 import org.sejda.model.input.PdfFileSource;
@@ -43,8 +46,9 @@ public final class PdfDocumentDescriptor {
 
     private ReadOnlyBooleanWrapper loaded = new ReadOnlyBooleanWrapper(false);
     private boolean invalid = false;
-    private SimpleIntegerProperty pages = new SimpleIntegerProperty(0);
-    private EncryptionStatus encryptionStatus;
+    private ReadOnlyIntegerWrapper pages = new ReadOnlyIntegerWrapper(0);
+    private ReadOnlyObjectWrapper<EncryptionStatus> encryptionStatus = new ReadOnlyObjectWrapper<>(
+            EncryptionStatus.NOT_ENCRYPTED);
     private String password;
     private File file;
     private String version;
@@ -71,12 +75,12 @@ public final class PdfDocumentDescriptor {
         return StringUtils.defaultString(metadata.get(key));
     }
 
-    public SimpleIntegerProperty pagesPropery() {
-        return pages;
+    public ReadOnlyIntegerProperty pagesPropery() {
+        return pages.getReadOnlyProperty();
     }
 
     public void setPages(int pages) {
-        pagesPropery().set(pages);
+        this.pages.set(pages);
     }
 
     public ReadOnlyBooleanProperty loadedProperty() {
@@ -87,12 +91,12 @@ public final class PdfDocumentDescriptor {
         loaded.set(true);
     }
 
-    public EncryptionStatus getEncryptionStatus() {
-        return encryptionStatus;
+    public ReadOnlyObjectProperty<EncryptionStatus> encryptionStatusProperty() {
+        return encryptionStatus.getReadOnlyProperty();
     }
 
     public void setEncryptionStatus(EncryptionStatus encryptionStatus) {
-        this.encryptionStatus = encryptionStatus;
+        this.encryptionStatus.set(encryptionStatus);
     }
 
     public String getPassword() {
