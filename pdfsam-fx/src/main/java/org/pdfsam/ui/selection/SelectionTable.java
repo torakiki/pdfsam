@@ -19,7 +19,6 @@
 package org.pdfsam.ui.selection;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.pdfsam.pdf.PdfDocumentDescriptor.newDescriptorNoPassword;
 import static org.pdfsam.ui.selection.SelectionChangedEvent.clearSelectionEvent;
 import static org.pdfsam.ui.selection.SelectionChangedEvent.select;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
@@ -102,17 +101,16 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         setOnDragExited(this::onDragExited);
         setOnDragDropped(e -> dragConsume(e, this.onDragDropped()));
         initContextMenu();
+        set
         eventStudio().addAnnotatedListeners(this);
     }
 
     private void initContextMenu() {
         MenuItem infoItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Document properties"),
                 AwesomeIcon.INFO);
-        infoItem.setAccelerator(new KeyCodeCombination(KeyCode.P, KeyCombination.ALT_DOWN));
         // infoItem.setOnAction(e -> eventStudio().broadcast(showDocumentProperties, getOwnerModule()));
         MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set output"),
                 AwesomeIcon.PENCIL_SQUARE_ALT);
-        setDestinationItem.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.ALT_DOWN));
 
         setDestinationItem.setOnAction(e -> {
             File outFile = new File(
@@ -122,29 +120,24 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
         MenuItem removeSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Remove"),
                 AwesomeIcon.MINUS_SQUARE_ALT);
-        removeSelected.setAccelerator(new KeyCodeCombination(KeyCode.CANCEL));
 
         removeSelected.setOnAction(e -> eventStudio().broadcast(new RemoveSelectedEvent(), getOwnerModule()));
 
         MenuItem moveTopSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Move to Top"),
                 AwesomeIcon.ANGLE_DOUBLE_UP);
-        moveTopSelected.setAccelerator(new KeyCodeCombination(KeyCode.HOME, KeyCombination.ALT_DOWN));
         moveTopSelected
                 .setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.TOP), getOwnerModule()));
 
         MenuItem moveUpSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Move Up"), AwesomeIcon.ANGLE_UP);
-        moveUpSelected.setAccelerator(new KeyCodeCombination(KeyCode.UP, KeyCombination.ALT_DOWN));
         moveUpSelected.setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.UP), getOwnerModule()));
 
         MenuItem moveDownSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Move Down"),
                 AwesomeIcon.ANGLE_DOWN);
-        moveDownSelected.setAccelerator(new KeyCodeCombination(KeyCode.DOWN, KeyCombination.ALT_DOWN));
         moveDownSelected.setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.DOWN),
                 getOwnerModule()));
 
         MenuItem moveBottomSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Move to Bottom"),
                 AwesomeIcon.ANGLE_DOUBLE_DOWN);
-        moveBottomSelected.setAccelerator(new KeyCodeCombination(KeyCode.END, KeyCombination.ALT_DOWN));
         moveBottomSelected.setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.BOTTOM),
                 getOwnerModule()));
 
@@ -161,6 +154,14 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
                     new OpenFileRequestEvent(getSelectionModel().getSelectedItem().getDocumentDescriptor().getFile()
                             .getParentFile()));
         });
+        // https://javafx-jira.kenai.com/browse/RT-28136
+        // infoItem.setAccelerator(new KeyCodeCombination(KeyCode.P, KeyCombination.ALT_DOWN));
+        // setDestinationItem.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.ALT_DOWN));
+        // removeSelected.setAccelerator(new KeyCodeCombination(KeyCode.CANCEL));
+        // moveBottomSelected.setAccelerator(new KeyCodeCombination(KeyCode.END, KeyCombination.ALT_DOWN));
+        // moveDownSelected.setAccelerator(new KeyCodeCombination(KeyCode.DOWN, KeyCombination.ALT_DOWN));
+        // moveUpSelected.setAccelerator(new KeyCodeCombination(KeyCode.UP, KeyCombination.ALT_DOWN));
+        // moveTopSelected.setAccelerator(new KeyCodeCombination(KeyCode.HOME, KeyCombination.ALT_DOWN));
 
         eventStudio().add(SelectionChangedEvent.class, (SelectionChangedEvent e) -> {
             setDestinationItem.setDisable(!e.isSingleSelection());
