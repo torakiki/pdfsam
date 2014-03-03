@@ -1,0 +1,390 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com)
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PDFsam\n"
+"Report-Msgid-Bugs-To: info@pdfsam.org\n"
+"POT-Creation-Date: 2014-02-26 12:31+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Selected file already exists"
+msgstr ""
+
+msgid "Would you like to overwrite it?"
+msgstr ""
+
+msgid "Split"
+msgstr ""
+
+msgid "Merge"
+msgstr ""
+
+msgid "Security"
+msgstr ""
+
+msgid "Other"
+msgstr ""
+
+msgid "Directories"
+msgstr ""
+
+#, java-format
+msgid "File {0} saved."
+msgstr ""
+
+msgid "Error saving log file."
+msgstr ""
+
+msgid "Starting pdfsam"
+msgstr ""
+
+#, java-format
+msgid "Started in {0}"
+msgstr ""
+
+msgid "Error playing sounds"
+msgstr ""
+
+msgid "No update available"
+msgstr ""
+
+msgid "Unable to get latest available version"
+msgstr ""
+
+msgid "Checking for updates"
+msgstr ""
+
+msgid "About"
+msgstr ""
+
+#, java-format
+msgid "Max memory {0}"
+msgstr ""
+
+msgid "License"
+msgstr ""
+
+msgid "Open the window displaying application messages"
+msgstr ""
+
+msgid "Copy"
+msgstr ""
+
+msgid "Clear"
+msgstr ""
+
+msgid "Select all"
+msgstr ""
+
+msgid "Save log"
+msgstr ""
+
+msgid "Select where to save the log file"
+msgstr ""
+
+msgid "Log register"
+msgstr ""
+
+msgid "_Workspace"
+msgstr ""
+
+msgid "_Load"
+msgstr ""
+
+msgid "_Save"
+msgstr ""
+
+msgid "Recen_t"
+msgstr ""
+
+msgid "_File"
+msgstr ""
+
+msgid "E_xit"
+msgstr ""
+
+msgid "_Edit"
+msgstr ""
+
+msgid "_Preferences"
+msgstr ""
+
+msgid "_Help"
+msgstr ""
+
+msgid "A_bout"
+msgstr ""
+
+msgid "_Modules"
+msgstr ""
+
+msgid ""
+"Select a previously saved workspace that will be automatically loaded at "
+"startup"
+msgstr ""
+
+msgid "Select a workspace"
+msgstr ""
+
+msgid "Select a directory where documents will be saved and loaded by default"
+msgstr ""
+
+msgid "Select a directory"
+msgstr ""
+
+msgid "Clear usage statistics:"
+msgstr ""
+
+msgid "Load default workspace at startup:"
+msgstr ""
+
+msgid "Default working directory:"
+msgstr ""
+
+msgid "High quality thumbnails"
+msgstr ""
+
+msgid "Generate high quality thumbnails (slower)"
+msgstr ""
+
+#, java-format
+msgid "Size must be between {0}px and {1}px"
+msgstr ""
+
+#, java-format
+msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
+msgstr ""
+
+msgid "Size in px:"
+msgstr ""
+
+msgid "Library used to generate thumbnails"
+msgstr ""
+
+msgid "Thumbnails creator:"
+msgstr ""
+
+msgid "Appearance"
+msgstr ""
+
+msgid "Behavior"
+msgstr ""
+
+msgid "Workspace"
+msgstr ""
+
+msgid "Thumbnails"
+msgstr ""
+
+msgid "Set your preferred language (restart needed)"
+msgstr ""
+
+msgid "Language:"
+msgstr ""
+
+msgid "Set your preferred theme (restart needed)"
+msgstr ""
+
+msgid "Theme:"
+msgstr ""
+
+msgid "Preferences"
+msgstr ""
+
+msgid "Check for updates at startup"
+msgstr ""
+
+msgid ""
+"Set whether new version availability should be checked on startup (restart "
+"needed)"
+msgstr ""
+
+msgid "Play alert sounds"
+msgstr ""
+
+msgid "Turn on or off alert sounds"
+msgstr ""
+
+msgid "Ask for confirmation when overwrite checkbox is selected"
+msgstr ""
+
+msgid ""
+"Show a dialog box asking the user for confirmation when the \"overwrite\" is "
+"selected"
+msgstr ""
+
+msgid "Fork me on GitHub"
+msgstr ""
+
+msgid "Follow us on Twitter"
+msgstr ""
+
+msgid "Like us on Facebook"
+msgstr ""
+
+msgid "Give us +1"
+msgstr ""
+
+msgid "Recently used"
+msgstr ""
+
+msgid "Most used"
+msgstr ""
+
+msgid "Loading documents"
+msgstr ""
+
+msgid "Documents loaded"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Select an existing directory"
+msgstr ""
+
+msgid "Select"
+msgstr ""
+
+msgid "Browse"
+msgstr ""
+
+msgid "Select a file"
+msgstr ""
+
+#, java-format
+msgid "Allowed extensions are {0}"
+msgstr ""
+
+msgid "Overwrite if already exists"
+msgstr ""
+
+msgid ""
+"Tick the box if you want to overwrite the outpuf files if they already exist."
+msgstr ""
+
+msgid "Compress output file/files"
+msgstr ""
+
+msgid "Output document pdf version:"
+msgstr ""
+
+msgid "Same as the input document"
+msgstr ""
+
+#, java-format
+msgid "Version {0}"
+msgstr ""
+
+#, java-format
+msgid "Pdf version required: {0}"
+msgstr ""
+
+msgid "Run"
+msgstr ""
+
+msgid "Destination folder"
+msgstr ""
+
+msgid "Prefix for the generated files names"
+msgstr ""
+
+msgid "Add prefix"
+msgstr ""
+
+msgid "Prefix for the output files name."
+msgstr ""
+
+msgid "Some special keywords are replaced with runtime values."
+msgstr ""
+
+msgid "Right click to add these keywords."
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Size"
+msgstr ""
+
+msgid "Modified"
+msgstr ""
+
+msgid "Pages"
+msgstr ""
+
+msgid "Drag and drop PDF files here"
+msgstr ""
+
+msgid "Document properties"
+msgstr ""
+
+msgid "Set output"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "Move to Top"
+msgstr ""
+
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
+msgid "Move to Bottom"
+msgstr ""
+
+msgid "Open"
+msgstr ""
+
+msgid "Open Folder"
+msgstr ""
+
+msgid "Add documents to the table"
+msgstr ""
+
+msgid "_Add"
+msgstr ""
+
+msgid "Select pdf documents to load"
+msgstr ""
+
+msgid "Removes selected documents"
+msgstr ""
+
+msgid "_Remove"
+msgstr ""
+
+msgid "Removes every document"
+msgstr ""
+
+msgid "_Clear"
+msgstr ""
+
+msgid "Moves up selected documents"
+msgstr ""
+
+msgid "Move _Up"
+msgstr ""
+
+msgid "Moves down selected documents"
+msgstr ""
+
+msgid "Move _Down"
+msgstr ""
+
+msgid "Page ranges"
+msgstr ""
