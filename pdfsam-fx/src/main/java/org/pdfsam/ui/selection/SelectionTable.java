@@ -258,6 +258,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
             LOG.trace("Changing selection to {}", newSelection);
             getSelectionModel().selectIndices(newSelection.getRow(), newSelection.getRows());
             getFocusModel().focus(newSelection.getFocus());
+            scrollTo(newSelection.getFocus());
         }
     }
 }
