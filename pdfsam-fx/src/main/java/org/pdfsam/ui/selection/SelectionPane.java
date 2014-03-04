@@ -36,9 +36,9 @@ public class SelectionPane extends BorderPane implements ModuleOwned {
     public SelectionPane(String ownerModule) {
         this.ownerModule = defaultString(ownerModule);
         setTop(new SelectionTableToolbar(ownerModule));
-        setCenter(new SelectionTable(ownerModule, new SelectionTableColumn<?>[] { EncryptionStatusColumn.STATUS,
-                FileColumn.NAME, LongColumn.SIZE, LongColumn.PAGES, LongColumn.LAST_MODIFIED,
-                StringColumn.PAGE_SELECTION }));
+        setCenter(new SelectionTable(ownerModule, new SelectionTableColumn<?>[] {
+                new EncryptionStatusColumn(this.ownerModule), FileColumn.NAME, LongColumn.SIZE, LongColumn.PAGES,
+                LongColumn.LAST_MODIFIED, StringColumn.PAGE_SELECTION }));
     }
 
     public String getOwnerModule() {

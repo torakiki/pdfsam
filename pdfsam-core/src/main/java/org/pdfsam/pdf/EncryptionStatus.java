@@ -25,7 +25,18 @@ package org.pdfsam.pdf;
  * 
  */
 public enum EncryptionStatus {
-    NOT_ENCRYPTED,
-    ENCRYPTED,
-    DECRYPTED_WITH_USER_PWD;
+    NOT_ENCRYPTED(false),
+    ENCRYPTED(true),
+    DECRYPTION_REQUESTED(false),
+    DECRYPTED_WITH_USER_PWD(false);
+
+    private EncryptionStatus(boolean canBeDecrypted) {
+        this.canBeDecrypted = canBeDecrypted;
+    }
+
+    private boolean canBeDecrypted = false;
+
+    public boolean canBeDecrypted() {
+        return canBeDecrypted;
+    }
 }

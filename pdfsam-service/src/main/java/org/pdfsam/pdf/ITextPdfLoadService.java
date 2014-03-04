@@ -34,6 +34,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.itextpdf.text.pdf.PdfReader;
+
 /**
  * iText implementation of the load service
  * 
@@ -46,13 +47,17 @@ public class ITextPdfLoadService implements PdfLoadService {
     private static final Logger LOG = LoggerFactory.getLogger(ITextPdfLoadService.class);
 
     public void load(Collection<PdfDocumentDescriptor> toLoad) {
-        LOG.debug(DefaultI18nContext.getInstance().i18n("Loading documents"));
+        LOG.debug(DefaultI18nContext.getInstance().i18n("Loading"));
         for (PdfDocumentDescriptor current : toLoad) {
             if (!current.isInvalid()) {
                 PdfReader reader = null;
                 try {
                     reader = current.toPdfSource().open(new DefaultPdfSourceOpener());
-                    current.setEncryptionStatus(EncryptionStatus.NOT_ENCRYPTED);
+                    if (current.encryptionStatusProperty().get() == EncryptionStatus.DECRYPTION_REQUESTED) {
+                        current.setEncryptionStatus(EncryptionStatus.DECRYPTED_WITH_USER_PWD);
+                    } else {
+                        current.setEncryptionStatus(EncryptionStatus.NOT_ENCRYPTED);
+                    }
                     current.setPages(reader.getNumberOfPages());
                     current.setVersion(String.format("1.%c", reader.getPdfVersion()));
                     Map<String, String> meta = reader.getInfo();

@@ -7,12 +7,13 @@
 	defaultbg-color: -fx-background;
 	headerbg-color: #FFFFFF;
 	tooltipbg-color: #FFFFFF;
+	pwdpopupbg-color: rgba(255.0,255.0,255.0,0.9);
 	error-color: #CF0000;	
 	-fx-focus-color: derive(lightslategray, 90.0%);
 	-fx-accent: -fx-focus-color;
 	-fx-highlight-text-fill: dark-text-color;
 	default-effect: dropshadow(one-pass-box, theme-color, 10.0, 0.0, 0.2, 0.2);
-	-fx-disabled-opacity: 0.40;
+	-fx-disabled-opacity: 0.4;
 }
 .label {
 	-fx-text-fill: dark-text-color;
@@ -135,7 +136,7 @@
  * Titled panel
  */
  .titled-pane {
-	-fx-padding: 0.4em 0 0.4em 0;    
+	-fx-padding: 0.4em 0.0 0.4em 0.0;    
 }
 .titled-pane > .title {
 	-fx-background-color: -fx-box-border, -fx-control-inner-background;
@@ -178,7 +179,7 @@
  	-fx-border-width: 3.5px;
 }
 .drag-drop-placeholder:disabled {
-    -fx-opacity: 1;
+    -fx-opacity: 1.0;
  	-fx-border-color: light-border-color;
  	-fx-text-fill: light-border-color;
  	-fx-border-width: 3.0px;
@@ -210,11 +211,27 @@
  * Invalid
  */
 .invalid{
-   -fx-background-color:  derive(error-color, 80%), -fx-control-inner-background;
+   -fx-background-color:  derive(error-color, 80.0%), -fx-control-inner-background;
    -fx-background-insets: 0.0, 1.0;
 }
 .invalid:focused{
-   -fx-background-color:  derive(error-color, 80%), -fx-control-inner-background;
+   -fx-background-color:  derive(error-color, 80.0%), -fx-control-inner-background;
    -fx-background-insets: 0.0, 1.0;
    -fx-effect: dropshadow(one-pass-box, error-color, 10.0, 0.0, 0.2, 0.2);
+}
+/**
+ * Password popup
+ */
+.pdfsam-input-password {
+	-fx-background-color: pwdpopupbg-color;
+	-fx-background-insets: 1.0;
+    -fx-background-radius: 3.0;
+    -fx-border-color: light-border-color;
+    -fx-border-width: 1.0;
+    -fx-border-radius: 3.0;
+    -fx-padding: 10.0px;
+    -fx-spacing: 5.0px;
+}
+.pdfsam-input-password-content .pdfsam-button{
+	-fx-padding: 0.0px 14.0px 0.0px 14.0px;
 }
