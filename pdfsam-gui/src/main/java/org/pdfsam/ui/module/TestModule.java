@@ -35,6 +35,7 @@ import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.selection.SelectionPane;
 import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.support.Views;
+import org.sejda.model.parameter.MergeParameters;
 import org.sejda.model.parameter.base.TaskParameters;
 import org.springframework.core.io.ClassPathResource;
 
@@ -54,8 +55,7 @@ public class TestModule extends BaseTaskExecutionModule {
 
     @Override
     protected TaskParameters getParameters() {
-        // TODO Auto-generated method stub
-        return null;
+        return new MergeParameters();
     }
 
     @Override

@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 11/feb/2014
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 21/mar/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,28 +16,29 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui;
+package org.pdfsam;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
-
-import org.pdfsam.module.ModuleDescriptor;
+import static org.apache.commons.lang3.StringUtils.trim;
 
 /**
- * Informs the UI that a new module has been set as current module
+ * Change the app title
  * 
  * @author Andrea Vacondio
  *
  */
-public class NewCurrentModuleSetEvent {
-    private ModuleDescriptor descriptor;
+public class SetTitleEvent {
+    private String title = "";
 
-    public NewCurrentModuleSetEvent(ModuleDescriptor descriptor) {
-        requireNotNull(descriptor, "Descriptor cannot be null");
-        this.descriptor = descriptor;
+    public SetTitleEvent() {
+        this.title = "";
     }
 
-    public ModuleDescriptor getDescriptor() {
-        return descriptor;
+    public SetTitleEvent(String title) {
+        this.title = trim(title);
+    }
+
+    public String getTitle() {
+        return title;
     }
 
 }

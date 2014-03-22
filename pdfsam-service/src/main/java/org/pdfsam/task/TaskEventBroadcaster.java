@@ -19,12 +19,13 @@
 package org.pdfsam.task;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import javafx.application.Platform;
 
 import org.sejda.model.notification.EventListener;
 import org.sejda.model.notification.event.AbstractNotificationEvent;
 
 /**
- * Listen for an {@link AbstractNotificationEvent} and broadcasts it to all the registered subscribers.
+ * Listen for an {@link AbstractNotificationEvent} and asyncronously broadcasts it to all the registered subscribers.
  * 
  * @author Andrea Vacondio
  * @param <T>
@@ -33,6 +34,6 @@ import org.sejda.model.notification.event.AbstractNotificationEvent;
 class TaskEventBroadcaster<T extends AbstractNotificationEvent> implements EventListener<T> {
 
     public void onEvent(T event) {
-        eventStudio().broadcast(event);
+        Platform.runLater(() -> eventStudio().broadcast(event));
     }
 }

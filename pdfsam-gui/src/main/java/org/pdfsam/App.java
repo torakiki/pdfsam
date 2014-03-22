@@ -18,6 +18,7 @@
  */
 package org.pdfsam;
 
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.awt.Desktop;
@@ -40,7 +41,6 @@ import org.pdfsam.configuration.ApplicationContextHolder;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.ui.MainPane;
-import org.pdfsam.ui.NewCurrentModuleSetEvent;
 import org.pdfsam.ui.OpenFileRequestEvent;
 import org.pdfsam.ui.OpenUrlRequestEvent;
 import org.pdfsam.ui.support.ShowRequestEvent;
@@ -113,7 +113,7 @@ public class App extends Application {
         }
     }
 
-    public static class TitleController implements Listener<NewCurrentModuleSetEvent> {
+    public static class TitleController implements Listener<SetTitleEvent> {
 
         private Stage primaryStage;
 
@@ -121,10 +121,12 @@ public class App extends Application {
             this.primaryStage = primaryStage;
         }
 
-        public void onEvent(NewCurrentModuleSetEvent event) {
-            primaryStage.setTitle(String.format("%s - %s",
-                    ApplicationContextHolder.getContext().getBean("appName", String.class), event.getDescriptor()
-                            .getName()));
+        public void onEvent(SetTitleEvent event) {
+            String title = ApplicationContextHolder.getContext().getBean("appName", String.class);
+            if (isNotBlank(event.getTitle())) {
+                title = String.format("%s - %s", title, event.getTitle());
+            }
+            primaryStage.setTitle(title);
         }
     }
 

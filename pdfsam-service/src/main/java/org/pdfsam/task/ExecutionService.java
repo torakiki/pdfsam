@@ -31,7 +31,9 @@ public interface ExecutionService {
     /**
      * Submits the input parameters for execution.
      * 
+     * @param moduleId
+     *            the requesting module
      * @param params
      */
-    void submit(TaskParameters params);
+    void submit(String moduleId, TaskParameters params);
 }

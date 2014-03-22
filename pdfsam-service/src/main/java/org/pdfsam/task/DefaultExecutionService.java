@@ -18,15 +18,17 @@
  */
 package org.pdfsam.task;
 
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import javax.inject.Named;
 
+import org.pdfsam.context.DefaultI18nContext;
 import org.sejda.core.service.DefaultTaskExecutionService;
 import org.sejda.core.service.TaskExecutionService;
 import org.sejda.model.parameter.base.TaskParameters;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Component responsible for the tasks execution
@@ -36,34 +38,18 @@ import org.sejda.model.parameter.base.TaskParameters;
  */
 @Named
 class DefaultExecutionService implements ExecutionService {
-
+    private static final Logger LOG = LoggerFactory.getLogger(DefaultExecutionService.class);
     private ExecutorService executor = Executors.newSingleThreadExecutor();
 
     @Override
-    public void submit(TaskParameters params) {
-        executor.submit(new TaskCallable(params));
-
-    }
-
-    /**
-     * Callable to submit for an asyc taks execution.
-     * 
-     * @author Andrea Vacondio
-     * 
-     */
-    private static class TaskCallable implements Callable<Void> {
-        private TaskParameters params;
-
-        public TaskCallable(TaskParameters params) {
-            this.params = params;
-        }
-
-        @Override
-        public Void call() {
+    public void submit(String moduleId, TaskParameters params) {
+        executor.submit(() -> {
             TaskExecutionService service = new DefaultTaskExecutionService();
-            service.execute(params);
-            return null;
-        }
-
+            try {
+                service.execute(params);
+            } catch (RuntimeException re) {
+                LOG.warn(DefaultI18nContext.getInstance().i18n("Unexpected error"), re);
+            }
+        });
     }
 }

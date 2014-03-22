@@ -35,6 +35,34 @@
 	-fx-padding: 0.0 0.0 0.5em 0.0 ;
 }
 /**
+ * Progress bar
+ */
+.progress-bar {
+   -fx-indeterminate-bar-escape: false;
+   -fx-indeterminate-bar-animation-time: 1;
+}
+.progress-bar > .bar {
+   -fx-background-color: derive(theme-color, -20.0%), theme-color;
+   -fx-background-radius: 0.0;        
+   -fx-background-insets: 0.0, 1.0;
+   -fx-padding: 0.416667em; /* 5 */
+}
+.progress-bar:indeterminate > .bar {
+    -fx-background-color: derive(theme-color, -20.0%), theme-color;
+    -fx-background-insets: 0.0, 1;
+    -fx-background-radius: 0.0, 0.0;     
+}
+.progress-bar:indeterminate > .track {
+    -fx-background-color: derive(theme-color, -20.0%), white;
+    -fx-background-insets: 0.0, 1.0;
+    -fx-background-radius: 0.0, 0.0;        
+}
+.progress-bar > .track {
+    -fx-background-color: derive(theme-color, -20.0%), white;
+    -fx-background-insets: 0.0, 1.0;
+    -fx-background-radius: 0.0, 0.0;        
+}
+/**
  * TextField
  */
 .text-input:focused {

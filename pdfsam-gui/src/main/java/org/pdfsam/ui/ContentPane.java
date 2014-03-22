@@ -24,9 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
+import javafx.animation.FadeTransition;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
@@ -35,6 +33,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.pdfsam.SetTitleEvent;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.pdfsam.ui.quickbar.QuickbarPane;
 import org.sejda.eventstudio.annotation.EventListener;
@@ -48,11 +47,11 @@ import org.sejda.eventstudio.annotation.EventListener;
 @Named
 public class ContentPane extends BorderPane {
 
-    private static final int MODULE_FADE_MILLIS = 500;
     @Inject
     private QuickbarPane navigation;
     private Map<String, BaseTaskExecutionModule> modules = new HashMap<>();
     private StackPane center = new StackPane();
+    private FadeTransition fade = new FadeTransition(new Duration(300), center);
 
     public ContentPane() {
         getStyleClass().add("default-container");
@@ -63,6 +62,8 @@ public class ContentPane extends BorderPane {
         for (BaseTaskExecutionModule module : modulesMap) {
             modules.put(module.id(), module);
         }
+        fade.setFromValue(0);
+        fade.setToValue(1);
     }
 
     @PostConstruct
@@ -72,17 +73,13 @@ public class ContentPane extends BorderPane {
         eventStudio().addAnnotatedListeners(this);
     }
 
-    @EventListener
+    @EventListener(priority = Integer.MIN_VALUE)
     public void onSetCurrentModuleRequest(SetCurrentModuleRequest request) {
         BaseTaskExecutionModule requested = modules.get(request.getModuleId());
         if (requested != null) {
-            center.setOpacity(0.0);
-            center.getChildren().clear();
-            center.getChildren().add(requested.modulePanel());
-            Timeline fadeIn = new Timeline(new KeyFrame(Duration.ZERO, new KeyValue(center.opacityProperty(), 0.0)),
-                    new KeyFrame(new Duration(MODULE_FADE_MILLIS), new KeyValue(center.opacityProperty(), 1.0)));
-            fadeIn.play();
-            eventStudio().broadcast(new NewCurrentModuleSetEvent(requested.descriptor()));
+            center.getChildren().setAll(requested.modulePanel());
+            fade.play();
+            eventStudio().broadcast(new SetTitleEvent(requested.descriptor().getName()));
         }
     }
 }

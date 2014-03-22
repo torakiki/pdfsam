@@ -35,11 +35,12 @@ public class TaskExecutionRequestEventTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testNullParams() {
-        new TaskExecutionRequestEvent(null, params);
-    }
-    @Test(expected = IllegalArgumentException.class)
-    public void testNullDescriptor() {
         new TaskExecutionRequestEvent("id", null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testNullId() {
+        new TaskExecutionRequestEvent(null, params);
     }
 
     @Test(expected = IllegalArgumentException.class)

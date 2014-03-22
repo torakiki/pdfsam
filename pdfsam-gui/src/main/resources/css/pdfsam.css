@@ -104,7 +104,7 @@
 	-fx-font-weight: bold;
 }
 .quickbar-modules{
-	-fx-padding: 0.0 0.0 1em 0.0;
+	-fx-padding: 0.0 0.0 1.0em 0.0;
 }
 .quickbar-navigation-button {
 	-fx-background-color:  defaultbg-color;
@@ -117,4 +117,28 @@
     -fx-background-color: defaultbg-color;
     -fx-background-insets: 0.0;
     -fx-padding: 0.0;
+}
+/**
+ * modules footer
+ */
+.progress-icons {
+ 	-fx-padding: 0.0 16.0 0.0 4.0;
+}
+.task-footer{
+ 	-fx-border-width: 0.0;
+	-fx-padding: 10.0 16.0 10.0 10.0;
+	-fx-alignment: center-right;
+}
+.task-status-button{
+	-fx-background-color:  defaultbg-color;
+    -fx-alignment: center-left;
+}
+.task-failed{
+	-fx-font-family:  FontAwesome;
+    -fx-font-size: 16.0px;
+    -fx-text-fill: linear-gradient(to bottom, derive(error-color,20.0%) 10.0%, derive(error-color,-40.0%) 80.0%);
+}
+
+.task-failed:hover {
+    -fx-effect: dropshadow( three-pass-box , derive(error-color,0.0%) , 0.01em, 0.0 , 0.0, 0.0);
 }

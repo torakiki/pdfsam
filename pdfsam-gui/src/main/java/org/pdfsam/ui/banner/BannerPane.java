@@ -85,7 +85,7 @@ public class BannerPane extends HBox {
                 "Open the window displaying application messages")));
         StackPane logs = new StackPane(logsButton, errorNotification);
         StackPane.setAlignment(errorNotification, Pos.BOTTOM_LEFT);
-        buttons.getChildren().add(logs);
+        buttons.getChildren().addAll(logs);
         return buttons;
     }
 

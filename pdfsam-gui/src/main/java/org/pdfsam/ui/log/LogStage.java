@@ -46,6 +46,7 @@ import org.sejda.eventstudio.annotation.EventListener;
 @Named
 public class LogStage extends Stage {
 
+    public static final String LOGSTAGE_EVENTSTATION = "LogStage";
     @Inject
     private LogPane logPane;
     @Inject
@@ -64,7 +65,7 @@ public class LogStage extends Stage {
         eventStudio().addAnnotatedListeners(this);
     }
 
-    @EventListener(station = "LogStage")
+    @EventListener(station = LOGSTAGE_EVENTSTATION)
     void requestShow(ShowRequestEvent event) {
         if (!isShowing()) {
             centerOnScreen();

@@ -53,14 +53,14 @@ class TaskExecutionRequestSubscriber {
 
     public TaskExecutionRequestSubscriber() {
         eventStudio().addAnnotatedListeners(this);
-        GlobalNotificationContext.getContext().addListener(PercentageOfWorkDoneChangedEvent.class,
-                new TaskEventBroadcaster<PercentageOfWorkDoneChangedEvent>());
         GlobalNotificationContext.getContext().addListener(TaskExecutionFailedEvent.class,
                 new TaskEventBroadcaster<TaskExecutionFailedEvent>());
         GlobalNotificationContext.getContext().addListener(TaskExecutionStartedEvent.class,
                 new TaskEventBroadcaster<TaskExecutionStartedEvent>());
         GlobalNotificationContext.getContext().addListener(TaskExecutionCompletedEvent.class,
                 new TaskEventBroadcaster<TaskExecutionCompletedEvent>());
+        GlobalNotificationContext.getContext().addListener(PercentageOfWorkDoneChangedEvent.class,
+                new TaskEventBroadcaster<PercentageOfWorkDoneChangedEvent>());
     }
 
     /**
@@ -72,8 +72,7 @@ class TaskExecutionRequestSubscriber {
     public void request(TaskExecutionRequestEvent event) {
         LOG.trace("Task execution request received");
         usageService.incrementUsageFor(event.getModuleId());
-        executionService.submit(event.getParameters());
+        executionService.submit(event.getModuleId(), event.getParameters());
         LOG.trace("Task execution submitted");
     }
-
 }
