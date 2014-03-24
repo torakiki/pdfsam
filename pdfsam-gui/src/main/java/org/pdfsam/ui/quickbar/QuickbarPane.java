@@ -25,8 +25,6 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.module.UsageService;
-
 /**
  * Vertical panel holding the quick navigation icons
  * 
@@ -37,13 +35,9 @@ import org.pdfsam.module.UsageService;
 public class QuickbarPane extends VBox {
 
     @Inject
-    private UsageService usage;
-    @Inject
     private ExpandButton expandButton;
     @Inject
-    private MostUsedModulesPane mostUsedModulesPane;
-    @Inject
-    private RecentlyUsedModulesPane mostRecentlyUsedModulesPane;
+    private QuickModules modules;
     @Inject
     private SocialPane socialPane;
 
@@ -53,12 +47,10 @@ public class QuickbarPane extends VBox {
 
     @PostConstruct
     private void init() {
-        usage.getMostRecentlyUsed();
-        mostUsedModulesPane.displayTextProperty().bind(expandButton.selectedProperty());
-        mostRecentlyUsedModulesPane.displayTextProperty().bind(expandButton.selectedProperty());
+        modules.displayTextProperty().bind(expandButton.selectedProperty());
         socialPane.visibleProperty().bind(expandButton.selectedProperty());
         socialPane.managedProperty().bind(expandButton.selectedProperty());
-        VBox buttonContainer = new VBox(expandButton, mostUsedModulesPane, mostRecentlyUsedModulesPane);
+        VBox buttonContainer = new VBox(expandButton, modules);
         buttonContainer.getStyleClass().add("quickbar-buttons");
         setVgrow(buttonContainer, Priority.ALWAYS);
         getChildren().addAll(buttonContainer, socialPane);

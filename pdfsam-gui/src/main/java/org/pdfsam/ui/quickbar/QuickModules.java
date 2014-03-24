@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 10/feb/2014
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 24/mar/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -18,43 +18,61 @@
  */
 package org.pdfsam.ui.quickbar;
 
-import java.util.Collection;
+import java.util.LinkedHashSet;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.BooleanPropertyBase;
-import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.pdfsam.module.Module;
+import org.pdfsam.module.UsageService;
 
 /**
- * Panel containing quick access button to open modules
+ * Panel showing buttons to access the most used and most recently used modules
  * 
  * @author Andrea Vacondio
  *
  */
-class ModulesPane extends VBox {
-    private static final int MAX_MODULES = 4;
-    private Label title;
+@Named
+class QuickModules extends VBox {
+    private static final int RECENT_MODULES = 3;
+    private static final int MAX_MODULES = 8;
+    @Inject
+    private UsageService usage;
 
-    ModulesPane(String title) {
+    QuickModules() {
         this.getStyleClass().add("quickbar-modules");
-        this.title = new Label(title);
-        this.title.getStyleClass().add("quickbar-modules-title");
-        getChildren().add(this.title);
-        this.title.managedProperty().bind(displayText);
-        this.title.visibleProperty().bind(displayText);
-
     }
 
-    void initFor(Collection<Module> modules) {
-        int modulesAdded = 0;
-        for (Module current : modules) {
+    @PostConstruct
+    void init() {
+        LinkedHashSet<Module> collected = new LinkedHashSet<>();
+        fillWithMostRecentlyUsed(collected);
+        fillWithMostUsed(collected);
+        for (Module current : collected) {
             ModuleButton currentButton = new ModuleButton(current);
-            getChildren().add(currentButton);
-            modulesAdded++;
             currentButton.displayTextProperty().bind(displayText);
-            if (modulesAdded >= MAX_MODULES) {
+            getChildren().add(currentButton);
+        }
+    }
+
+    private void fillWithMostUsed(LinkedHashSet<Module> collected) {
+        for (Module current : usage.getMostUsed()) {
+            collected.add(current);
+            if (collected.size() >= MAX_MODULES) {
+                break;
+            }
+        }
+    }
+
+    private void fillWithMostRecentlyUsed(LinkedHashSet<Module> collected) {
+        for (Module current : usage.getMostRecentlyUsed()) {
+            collected.add(current);
+            if (collected.size() >= RECENT_MODULES) {
                 break;
             }
         }
@@ -70,7 +88,7 @@ class ModulesPane extends VBox {
         }
 
         public Object getBean() {
-            return ModulesPane.this;
+            return QuickModules.this;
         }
     };
 
@@ -85,5 +103,4 @@ class ModulesPane extends VBox {
     public final BooleanProperty displayTextProperty() {
         return displayText;
     }
-
 }
