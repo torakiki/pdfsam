@@ -58,7 +58,7 @@ enum LongColumn implements SelectionTableColumn<Number> {
         }
     },
     LAST_MODIFIED {
-        private FastDateFormat formatter = FastDateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
+        private FastDateFormat formatter = FastDateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.MEDIUM);
 
         public String getColumnTitle() {
             return DefaultI18nContext.getInstance().i18n("Modified");

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDFsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2014-02-26 12:31+0100\n"
+"POT-Creation-Date: 2014-03-22 11:35+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -241,10 +241,25 @@ msgstr ""
 msgid "Most used"
 msgstr ""
 
-msgid "Loading documents"
+msgid "Task execution failed"
+msgstr ""
+
+msgid "Destination folder"
+msgstr ""
+
+msgid "Run"
+msgstr ""
+
+msgid "Open the generated file/files"
+msgstr ""
+
+msgid "Loading"
 msgstr ""
 
 msgid "Documents loaded"
+msgstr ""
+
+msgid "Unexpected error"
 msgstr ""
 
 msgid "Close"
@@ -290,12 +305,6 @@ msgstr ""
 msgid "Pdf version required: {0}"
 msgstr ""
 
-msgid "Run"
-msgstr ""
-
-msgid "Destination folder"
-msgstr ""
-
 msgid "Prefix for the generated files names"
 msgstr ""
 
@@ -321,6 +330,12 @@ msgid "Modified"
 msgstr ""
 
 msgid "Pages"
+msgstr ""
+
+msgid "This document is encrypted, double click to provide a password."
+msgstr ""
+
+msgid "Valid user password provided."
 msgstr ""
 
 msgid "Drag and drop PDF files here"
@@ -387,4 +402,10 @@ msgid "Move _Down"
 msgstr ""
 
 msgid "Page ranges"
+msgstr ""
+
+msgid "Enter the user password"
+msgstr ""
+
+msgid "Unlock"
 msgstr ""
