@@ -22,6 +22,7 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.awt.Desktop;
+import java.awt.EventQueue;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -104,6 +105,10 @@ public class App extends Application {
 
     @EventListener
     public void openPath(OpenFileRequestEvent event) {
+        EventQueue.invokeLater(() -> doOpen(event));
+    }
+
+    private void doOpen(OpenFileRequestEvent event) {
         if (Desktop.isDesktopSupported()) {
             try {
                 Desktop.getDesktop().open(event.getFile());
