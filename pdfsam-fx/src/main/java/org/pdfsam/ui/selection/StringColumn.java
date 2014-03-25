@@ -27,7 +27,6 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TextField;
 import javafx.util.Callback;
 
 import org.pdfsam.context.DefaultI18nContext;
@@ -66,71 +65,16 @@ enum StringColumn implements SelectionTableColumn<String> {
         public TableColumn<SelectionTableRowData, String> getTableColumn() {
             TableColumn<SelectionTableRowData, String> tableColumn = super.getTableColumn();
             tableColumn.setEditable(true);
-            // TODO find out why hitting enter to cancel the edit before committing
             tableColumn.setOnEditCommit(t -> {
-                System.out.println("commit " + t);
                 t.getTableView().getItems().get(t.getTablePosition().getRow()).setPageSelection(t.getNewValue());
             });
-
             return tableColumn;
         }
 
-        /**
-         * @return the editable cell factory used to create the {@link TableCell}
-         */
         public Callback<TableColumn<SelectionTableRowData, String>, TableCell<SelectionTableRowData, String>> cellFactory() {
             return new Callback<TableColumn<SelectionTableRowData, String>, TableCell<SelectionTableRowData, String>>() {
                 public TableCell<SelectionTableRowData, String> call(TableColumn<SelectionTableRowData, String> param) {
-                    return new TableCell<SelectionTableRowData, String>() {
-                        private TextField textField = new TextField();
-                        {
-                            setEditable(true);
-                            textField.focusedProperty().addListener((o, old, n) -> {
-                                if (!n) {
-                                    System.out.println("editing " + isEditing());
-                                    commitEdit(textField.getText());
-                                }
-                            });
-                        }
-
-                        @Override
-                        public void startEdit() {
-                            if (!isEmpty()) {
-                                super.startEdit();
-                                textField.setText(getTextValue(getItem()));
-                                textField.setMinWidth(this.getWidth() - this.getGraphicTextGap() * 2);
-                                setText(null);
-                                setGraphic(textField);
-                                textField.selectAll();
-                                textField.requestFocus();
-                            }
-                        }
-
-                        @Override
-                        public void cancelEdit() {
-                            super.cancelEdit();
-                            setText(getItem());
-                            setGraphic(null);
-                        }
-
-                        @Override
-                        public void updateItem(String item, boolean empty) {
-                            super.updateItem(item, empty);
-                            if (empty) {
-                                setText(null);
-                                setGraphic(null);
-                            } else {
-                                if (isEditing()) {
-                                    textField.setText(getTextValue(item));
-                                    setText(null);
-                                    setGraphic(textField);
-                                } else {
-                                    setText(getTextValue(item));
-                                    setGraphic(null);
-                                }
-                            }
-                        }
-                    };
+                    return new TooltippedTextFieldTableCell();
                 }
             };
         }
