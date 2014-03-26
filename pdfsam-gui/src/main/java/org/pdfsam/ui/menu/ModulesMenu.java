@@ -32,9 +32,9 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.module.Module;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.ui.SetCurrentModuleRequest;
-import org.pdfsam.ui.module.BaseTaskExecutionModule;
 
 /**
  * Menu letting the user select the module he/she wants to use
@@ -45,7 +45,7 @@ import org.pdfsam.ui.module.BaseTaskExecutionModule;
 @Named
 class ModulesMenu extends Menu {
     @Inject
-    private List<BaseTaskExecutionModule> modules;
+    private List<Module> modules;
 
     ModulesMenu() {
         super(DefaultI18nContext.getInstance().i18n("_Modules"));
@@ -54,7 +54,7 @@ class ModulesMenu extends Menu {
     @PostConstruct
     void initModulesMenu() {
         Map<ModuleCategory, Menu> moduleSubmenus = new HashMap<>();
-        for (final BaseTaskExecutionModule currentModule : modules) {
+        for (final Module currentModule : modules) {
             ModuleCategory category = currentModule.descriptor().getCategory();
             Menu currentMenu = moduleSubmenus.get(category);
             if (currentMenu == null) {

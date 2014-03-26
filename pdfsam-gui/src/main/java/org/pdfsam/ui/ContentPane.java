@@ -34,7 +34,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.SetTitleEvent;
-import org.pdfsam.ui.module.BaseTaskExecutionModule;
+import org.pdfsam.module.Module;
 import org.pdfsam.ui.quickbar.QuickbarPane;
 import org.sejda.eventstudio.annotation.EventListener;
 
@@ -49,7 +49,7 @@ public class ContentPane extends BorderPane {
 
     @Inject
     private QuickbarPane navigation;
-    private Map<String, BaseTaskExecutionModule> modules = new HashMap<>();
+    private Map<String, Module> modules = new HashMap<>();
     private StackPane center = new StackPane();
     private FadeTransition fade = new FadeTransition(new Duration(300), center);
 
@@ -58,8 +58,8 @@ public class ContentPane extends BorderPane {
     }
 
     @Inject
-    public ContentPane(List<BaseTaskExecutionModule> modulesMap) {
-        for (BaseTaskExecutionModule module : modulesMap) {
+    public ContentPane(List<Module> modulesMap) {
+        for (Module module : modulesMap) {
             modules.put(module.id(), module);
         }
         fade.setFromValue(0);
@@ -75,7 +75,7 @@ public class ContentPane extends BorderPane {
 
     @EventListener(priority = Integer.MIN_VALUE)
     public void onSetCurrentModuleRequest(SetCurrentModuleRequest request) {
-        BaseTaskExecutionModule requested = modules.get(request.getModuleId());
+        Module requested = modules.get(request.getModuleId());
         if (requested != null) {
             center.getChildren().setAll(requested.modulePanel());
             fade.play();
