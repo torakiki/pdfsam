@@ -26,16 +26,13 @@ import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Paths;
 
-import javafx.stage.DirectoryChooser;
-import javafx.stage.FileChooser;
-
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.support.io.FileType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Contains a single instance of {@link FileChooser} and provides static methods to get and configure the instance
+ * Contains a single instance of {@link javafx.stage.FileChooser} and provides static methods to get and configure the instance
  * 
  * @author Andrea Vacondio
  * 
@@ -66,7 +63,7 @@ public final class FileChoosers {
      * @param filter
      *            the file type extension accepted
      * @param title
-     * @return a shared instance of {@link FileChooser} with the given title.
+     * @return a shared instance of {@link javafx.stage.FileChooser} with the given title.
      */
     public static RememberingLatestFileChooserWrapper getFileChooser(FileType filter, String title) {
         FILE_INSTANCE.getExtensionFilters().setAll(filter.getFilter());
@@ -77,7 +74,7 @@ public final class FileChoosers {
 
     /**
      * @param title
-     * @return a shared instance of the {@link DirectoryChooser} with the given title.
+     * @return a shared instance of the {@link javafx.stage.DirectoryChooser} with the given title.
      */
     public static RememberingLatestDirectoryChooserWrapper getDirectoryChooser(String title) {
         DIR_INSTANCE.setTitle(title);

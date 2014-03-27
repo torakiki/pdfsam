@@ -76,8 +76,8 @@ public class App extends Application {
         primaryStage.show();
         eventStudio().add(new TitleController(primaryStage));
         requestCheckForUpdateIfNecessary();
-        STOPWATCH.stop();
         eventStudio().addAnnotatedListeners(this);
+        STOPWATCH.stop();
         LOG.info(DefaultI18nContext.getInstance().i18n("Started in {0}",
                 DurationFormatUtils.formatDurationWords(STOPWATCH.getTime(), true, true)));
     }

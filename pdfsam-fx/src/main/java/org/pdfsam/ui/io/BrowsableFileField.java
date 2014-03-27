@@ -27,7 +27,6 @@ import java.nio.file.Paths;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.stage.FileChooser;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.support.io.FileType;
@@ -63,7 +62,7 @@ public class BrowsableFileField extends BrowsableField {
     }
 
     /**
-     * {@link EventHandler} opening the {@link FileChooser} and letting the user select the input file populating the ValidableTextField.
+     * {@link EventHandler} opening the {@link javafx.stage.FileChooser} and letting the user select the input file populating the ValidableTextField.
      * 
      * @author Andrea Vacondio
      * 

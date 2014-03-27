@@ -26,7 +26,7 @@ package org.pdfsam.ui.selection.move;
  *
  */
 public interface SelectionAndFocus {
-    public static final SelectionAndFocus NULL = new SelectionAndFocus() {
+    SelectionAndFocus NULL = new SelectionAndFocus() {
 
         public int[] getRows() {
             return new int[0];

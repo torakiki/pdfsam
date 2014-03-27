@@ -27,7 +27,6 @@ import java.nio.file.Paths;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.stage.DirectoryChooser;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.support.validation.Validators;
@@ -49,7 +48,7 @@ public class BrowsableDirectoryField extends BrowsableField {
     }
 
     /**
-     * {@link EventHandler} opening the {@link DirectoryChooser} and letting the user select the input directory populating the ValidableTextField.
+     * {@link EventHandler} opening the {@link javafx.stage.DirectoryChooser} and letting the user select the input directory populating the ValidableTextField.
      * 
      * @author Andrea Vacondio
      * 
