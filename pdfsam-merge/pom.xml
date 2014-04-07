@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<description>Reusable JavaFX components to be used in PDFsam modules</description>
+	<description>GUI for pdfsam</description>
 	<url>http://www.pdfsam.org</url>
 	<parent>
 		<groupId>org.pdfsam</groupId>
@@ -11,9 +11,9 @@
 		<relativePath>../pdfsam-parent/pom.xml</relativePath>
 	</parent>
 
-	<artifactId>pdfsam-fx</artifactId>
+	<artifactId>pdfsam-merge</artifactId>
 	<packaging>jar</packaging>
-	<name>pdfsam fx views</name>
+	<name>pdfsam merge module</name>
 
 	<dependencies>
 		<dependency>
@@ -29,24 +29,8 @@
 			<artifactId>sejda-model</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.sejda</groupId>
-			<artifactId>eventstudio</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.inject</groupId>
-			<artifactId>javax.inject</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>de.jensd</groupId>
-			<artifactId>fontawesomefx</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.pdfsam</groupId>
-			<artifactId>pdfsam-i18n</artifactId>
+			<artifactId>pdfsam-fx</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
@@ -55,13 +39,12 @@
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>[${logback.version},]</version>
-		</dependency>
-		<dependency>
 			<groupId>jdepend</groupId>
 			<artifactId>jdepend</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.loadui</groupId>
+			<artifactId>testFx</artifactId>
 		</dependency>
 	</dependencies>
 </project>

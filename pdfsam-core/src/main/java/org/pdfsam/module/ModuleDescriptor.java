@@ -33,7 +33,7 @@ public final class ModuleDescriptor {
     private ModuleCategory category;
     private String name;
     private String description;
-    private int priority = 0;
+    private int priority = ModulePriority.DEFAULT.getPriority();
 
     public ModuleDescriptor(ModuleCategory category, String name, String description) {
         requireNotNull(category, "Module category cannot be null");
@@ -42,6 +42,10 @@ public final class ModuleDescriptor {
         this.category = category;
         this.name = name;
         this.description = description;
+    }
+
+    public ModuleDescriptor(ModuleCategory category, String name, String description, ModulePriority priority) {
+        this(category, name, description, priority.getPriority());
     }
 
     public ModuleDescriptor(ModuleCategory category, String name, String description, int priority) {
@@ -54,24 +58,22 @@ public final class ModuleDescriptor {
     }
 
     /**
-     * @return a human readable, internationalized name for the plugin
+     * @return a human readable, internationalized name for the module
      */
     public String getName() {
         return name;
     }
 
     /**
-     * @return a human readable, internationalized description for the plugin
+     * @return a human readable, internationalized description for the module
      */
     public String getDescription() {
         return description;
     }
 
     /**
-     * Module priority is a rough indicator of the popularity of the module. It can be used to present modules to the users in an order that has more chances of being of interest
-     * for them. The idea is to use this value to present most commonly used modules on first.
-     * 
-     * @return
+     * @return module priority. It is a rough indicator of the popularity of the module. It can be used to present modules to the users in an order that has more chances of being
+     *         of interest for them. The idea is to use this value to present most commonly used modules on first.
      */
     public int getPriority() {
         return priority;

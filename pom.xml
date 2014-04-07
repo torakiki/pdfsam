@@ -26,6 +26,7 @@
 		<module>pdfsam-core</module>
 		<module>pdfsam-service</module>
 		<module>pdfsam-fx</module>
+		<module>pdfsam-merge</module>
 	</modules>
 
 	<developers>

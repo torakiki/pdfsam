@@ -69,10 +69,6 @@
 			<artifactId>eventstudio</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.pdfsam</groupId>
 			<artifactId>pdfsam-i18n</artifactId>
 			<version>${project.version}</version>
@@ -93,13 +89,27 @@
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>[${logback.version},]</version>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>de.jensd</groupId>
 			<artifactId>fontawesomefx</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.pdfsam</groupId>
+			<artifactId>pdfsam-merge</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>[${logback.version},]</version>
 		</dependency>
 		<dependency>
 			<groupId>jdepend</groupId>
@@ -108,10 +118,6 @@
 		<dependency>
 			<groupId>org.loadui</groupId>
 			<artifactId>testFx</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
 		</dependency>
 	</dependencies>
 </project>

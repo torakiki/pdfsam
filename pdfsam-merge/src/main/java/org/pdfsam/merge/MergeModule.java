@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 29/nov/2012
- * Copyright 2012 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 07/apr/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.module;
+package org.pdfsam.merge;
 
 import java.io.IOException;
 
@@ -29,9 +29,11 @@ import javafx.scene.layout.Pane;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
+import org.pdfsam.module.ModulePriority;
 import org.pdfsam.module.PdfsamModule;
 import org.pdfsam.ui.io.BrowsableDirectoryField;
 import org.pdfsam.ui.io.PdfDestinationPane;
+import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.pdfsam.ui.selection.SelectionPane;
 import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.support.Views;
@@ -40,17 +42,21 @@ import org.sejda.model.parameter.base.TaskParameters;
 import org.springframework.core.io.ClassPathResource;
 
 /**
- * @author Andrea Vacondio
+ * Merge module to let the user merge together multiple pdf documents
  * 
+ * @author Andrea Vacondio
+ *
  */
 @PdfsamModule
-public class TestModule extends BaseTaskExecutionModule {
+public class MergeModule extends BaseTaskExecutionModule {
 
     private static final String MERGE_MODULE_ID = "merge";
 
     @Override
     public ModuleDescriptor descriptor() {
-        return new ModuleDescriptor(ModuleCategory.MERGE, "Merge", "Merge pdf documents together", -1);
+        return new ModuleDescriptor(ModuleCategory.MERGE, DefaultI18nContext.getInstance().i18n("Merge"),
+                DefaultI18nContext.getInstance().i18n("Merge together multiple pdf documents or subsections of them."),
+                ModulePriority.HIGH.getPriority());
     }
 
     @Override
