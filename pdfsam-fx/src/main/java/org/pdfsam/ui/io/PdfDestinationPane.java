@@ -55,7 +55,8 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned {
                 new Label(DefaultI18nContext.getInstance().i18n("Output document pdf version:")), version);
         versionPane.setAlignment(Pos.BOTTOM_LEFT);
         versionPane.getStyleClass().addAll(Style.VITEM.css());
-        getChildren().addAll(compress, versionPane);
+        getHChildren().add(compress);
+        getChildren().addAll(versionPane);
         eventStudio().addAnnotatedListeners(this);
     }
 

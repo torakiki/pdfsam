@@ -19,8 +19,11 @@
 package org.pdfsam.ui.io;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Tooltip;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import org.pdfsam.context.DefaultI18nContext;
@@ -36,15 +39,19 @@ public class DestinationPane extends VBox {
 
     private CheckBox overwrite = new CheckBox(DefaultI18nContext.getInstance().i18n("Overwrite if already exists"));
     private BrowsableField destination;
+    private HBox horizontalChildren;
+
     public DestinationPane(BrowsableField destination) {
         requireNotNull(destination, "Destination field cannot be null");
         this.destination = destination;
         overwrite.setSelected(true);
         overwrite.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
                 "Tick the box if you want to overwrite the outpuf files if they already exist.")));
-        destination.getStyleClass().addAll(Style.VITEM.css());
         overwrite.getStyleClass().addAll(Style.VITEM.css());
-        getChildren().addAll(destination, overwrite);
+        horizontalChildren = new HBox(20, overwrite);
+
+        destination.getStyleClass().addAll(Style.VITEM.css());
+        getChildren().addAll(destination, horizontalChildren);
         getStyleClass().addAll(Style.CONTAINER.css());
     }
 
@@ -56,4 +63,7 @@ public class DestinationPane extends VBox {
         return destination;
     }
 
+    ObservableList<Node> getHChildren() {
+        return horizontalChildren.getChildren();
+    }
 }

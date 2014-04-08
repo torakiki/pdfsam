@@ -59,6 +59,9 @@ public class BrowsableFileField extends BrowsableField {
         getTextField().setErrorMessage(
                 DefaultI18nContext.getInstance().i18n("Allowed extensions are {0}",
                         fileType.getFilter().getExtensions().toString()));
+        getTextField().setPromptText(
+                String.format("%s: %s", DefaultI18nContext.getInstance().i18n("Select a file"), fileType.getFilter()
+                        .getExtensions()));
     }
 
     /**
