@@ -113,11 +113,7 @@
 .quickbar-social{
 	-fx-alignment: center;
 }
-.main-scroll-panel {
-    -fx-background-color: defaultbg-color;
-    -fx-background-insets: 0.0;
-    -fx-padding: 0.0;
-}
+
 /**
  * modules footer
  */

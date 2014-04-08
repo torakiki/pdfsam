@@ -21,10 +21,12 @@ package org.pdfsam.merge;
 import java.io.IOException;
 
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.ModuleCategory;
@@ -35,7 +37,6 @@ import org.pdfsam.ui.io.BrowsableDirectoryField;
 import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.pdfsam.ui.selection.SelectionPane;
-import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.support.Views;
 import org.sejda.model.parameter.MergeParameters;
 import org.sejda.model.parameter.base.TaskParameters;
@@ -52,6 +53,12 @@ public class MergeModule extends BaseTaskExecutionModule {
 
     private static final String MERGE_MODULE_ID = "merge";
 
+    private SelectionPane selectionPane;
+
+    public MergeModule() {
+        this.selectionPane = new SelectionPane(id());
+    }
+
     @Override
     public ModuleDescriptor descriptor() {
         return new ModuleDescriptor(ModuleCategory.MERGE, DefaultI18nContext.getInstance().i18n("Merge"),
@@ -66,12 +73,13 @@ public class MergeModule extends BaseTaskExecutionModule {
 
     @Override
     protected Pane getInnerPanel() {
-        BorderPane pane = new BorderPane();
-        pane.getStyleClass().addAll(Style.CONTAINER.css());
+        VBox pane = new VBox(5);
+        pane.setAlignment(Pos.TOP_CENTER);
+        VBox.setVgrow(selectionPane, Priority.ALWAYS);
         BrowsableDirectoryField destination = new BrowsableDirectoryField();
         PdfDestinationPane destinationPane = new PdfDestinationPane(destination, id());
-        pane.setCenter(new SelectionPane(id()));
-        pane.setBottom(Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination folder"), destinationPane));
+        pane.getChildren().addAll(selectionPane,
+                Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination folder"), destinationPane));
         return pane;
     }
 

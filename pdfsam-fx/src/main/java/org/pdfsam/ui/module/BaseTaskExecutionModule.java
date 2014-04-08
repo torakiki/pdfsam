@@ -19,7 +19,6 @@
 package org.pdfsam.ui.module;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
@@ -48,16 +47,14 @@ public abstract class BaseTaskExecutionModule implements Module {
     private BorderPane modulePanel = new BorderPane();
 
     @PostConstruct
-    void init() {
+    final void init() {
         footer.runButton().setOnAction(
                 event -> eventStudio().broadcast(new TaskExecutionRequestEvent(id(), getParameters())));
         modulePanel.setBottom(footer);
         Pane innerPanel = getInnerPanel();
-        innerPanel.getStyleClass().add("default-container");
-        ScrollPane scrollPane = new ScrollPane(innerPanel);
-        scrollPane.setFitToWidth(true);
-        scrollPane.getStyleClass().addAll(Style.MAIN_PANEL.css());
-        modulePanel.setCenter(scrollPane);
+        innerPanel.getStyleClass().addAll(Style.DEAULT_CONTAINER.css());
+        innerPanel.getStyleClass().addAll(Style.CONTAINER.css());
+        modulePanel.setCenter(innerPanel);
     }
 
     @EventStation

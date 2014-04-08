@@ -20,6 +20,7 @@ package org.pdfsam.ui.support;
 
 import javafx.scene.Node;
 import javafx.scene.control.TitledPane;
+import javafx.scene.layout.Region;
 
 /**
  * General utility methods related to views
@@ -40,6 +41,7 @@ public final class Views {
     public static TitledPane titledPane(String titleString, Node node) {
         TitledPane pane = new TitledPane(titleString, node);
         pane.getStyleClass().addAll(Style.TITLED_PANE.css());
+        pane.setMinHeight(Region.USE_PREF_SIZE);
         return pane;
     }
 }
