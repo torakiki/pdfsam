@@ -32,7 +32,7 @@ public enum FileType {
     ALL {
         @Override
         public ExtensionFilter getFilter() {
-            return new ExtensionFilter("(*.*)", "*.*");
+            return new ExtensionFilter("(*.*)", "*.*", "*");
         }
     },
     CSV {

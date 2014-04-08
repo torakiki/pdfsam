@@ -33,7 +33,8 @@ import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.ModulePriority;
 import org.pdfsam.module.PdfsamModule;
-import org.pdfsam.ui.io.BrowsableDirectoryField;
+import org.pdfsam.support.io.FileType;
+import org.pdfsam.ui.io.BrowsableFileField;
 import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.pdfsam.ui.selection.SelectionPane;
@@ -76,10 +77,12 @@ public class MergeModule extends BaseTaskExecutionModule {
         VBox pane = new VBox(5);
         pane.setAlignment(Pos.TOP_CENTER);
         VBox.setVgrow(selectionPane, Priority.ALWAYS);
-        BrowsableDirectoryField destination = new BrowsableDirectoryField();
+        BrowsableFileField destination = new BrowsableFileField();
+        destination.setFileType(FileType.PDF);
+        destination.setMustExist(false);
         PdfDestinationPane destinationPane = new PdfDestinationPane(destination, id());
         pane.getChildren().addAll(selectionPane,
-                Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination folder"), destinationPane));
+                Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination file"), destinationPane));
         return pane;
     }
 

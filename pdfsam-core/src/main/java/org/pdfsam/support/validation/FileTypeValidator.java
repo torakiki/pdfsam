@@ -18,7 +18,6 @@
  */
 package org.pdfsam.support.validation;
 
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 import org.pdfsam.support.io.FileType;
@@ -32,17 +31,16 @@ import org.pdfsam.support.io.FileType;
 class FileTypeValidator extends FileValidator {
 
     private FileType type;
+    private boolean mustExist = true;
 
-    public FileTypeValidator(FileType type) {
+    public FileTypeValidator(FileType type, boolean mustExist) {
         requireNotNull(type, "FileType cannot be null");
         this.type = type;
+        this.mustExist = mustExist;
     }
 
     @Override
     public boolean isValid(String input) {
-        if (isNotBlank(input)) {
-            return super.isValid(input) && type.matches(input);
-        }
-        return true;
+        return (!mustExist || super.isValid(input)) && type.matches(input);
     }
 }

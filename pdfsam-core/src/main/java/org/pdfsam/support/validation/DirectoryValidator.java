@@ -18,8 +18,6 @@
  */
 package org.pdfsam.support.validation;
 
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
-
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -32,10 +30,7 @@ import java.nio.file.Paths;
 class DirectoryValidator implements Validator<String> {
 
     public boolean isValid(String input) {
-        if (isNotBlank(input)) {
             return Files.isDirectory(Paths.get(input));
-        }
-        return true;
     }
 
 }

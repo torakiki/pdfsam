@@ -40,11 +40,12 @@ import org.pdfsam.support.validation.Validators;
  */
 public class BrowsableFileField extends BrowsableField {
 
-    private FileType fileType = FileType.ALL;
+    private FileType fileType;
+    private boolean mustExist = true;
 
     public BrowsableFileField() {
         setBrowseWindowTitle(DefaultI18nContext.getInstance().i18n("Select a file"));
-        getTextField().setPromptText(DefaultI18nContext.getInstance().i18n("Select a file"));
+        setFileType(FileType.ALL);
         getBrowseButton().setOnAction(new BrowseEventHandler());
     }
 
@@ -55,13 +56,32 @@ public class BrowsableFileField extends BrowsableField {
      */
     public void setFileType(FileType fileType) {
         this.fileType = fileType;
-        getTextField().setValidator(Validators.newFileTypeString(fileType));
-        getTextField().setErrorMessage(
-                DefaultI18nContext.getInstance().i18n("Allowed extensions are {0}",
-                        fileType.getFilter().getExtensions().toString()));
-        getTextField().setPromptText(
-                String.format("%s: %s", DefaultI18nContext.getInstance().i18n("Select a file"), fileType.getFilter()
-                        .getExtensions()));
+        initValidation(fileType);
+    }
+
+    /**
+     * Set if the validation should enforce existence of the selected file
+     * 
+     * @param mustExist
+     */
+    public void setMustExist(boolean mustExist) {
+        this.mustExist = mustExist;
+        initValidation(fileType);
+    }
+
+    private void initValidation(FileType fileType) {
+        getTextField().setValidator(Validators.newFileTypeString(fileType, mustExist));
+        if (FileType.ALL == fileType) {
+            getTextField().setPromptText(DefaultI18nContext.getInstance().i18n("Select a file"));
+            getTextField().setErrorMessage("");
+        } else {
+            getTextField().setErrorMessage(
+                    DefaultI18nContext.getInstance().i18n("Allowed extensions are {0}",
+                            fileType.getFilter().getExtensions().toString()));
+            getTextField().setPromptText(
+                    String.format("%s: %s", DefaultI18nContext.getInstance().i18n("Select a file"), fileType
+                            .getFilter().getExtensions()));
+        }
     }
 
     /**

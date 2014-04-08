@@ -80,7 +80,11 @@ public class ValidableTextField extends TextField {
     }
 
     public void setErrorMessage(String message) {
-        this.errorTooltipManager = new ErrorTooltipManager(message);
+        if (isNotBlank(message)) {
+            this.errorTooltipManager = new ErrorTooltipManager(message);
+        } else {
+            this.errorTooltipManager = null;
+        }
     }
 
     /**

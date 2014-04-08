@@ -32,32 +32,53 @@ import org.pdfsam.support.io.FileType;
  */
 public class FileTypeValidatorTest {
 
-
     @Test
     public void notExisting() {
-        Validator<String> victim = Validators.newFileTypeString(FileType.ALL);
+        Validator<String> victim = Validators.newExistingFileTypeString(FileType.ALL);
         Assert.assertFalse(victim.isValid("/Chuck/Norris"));
     }
 
     @Test
     public void existingAll() throws IOException {
-        Validator<String> victim = Validators.newFileTypeString(FileType.ALL);
+        Validator<String> victim = Validators.newExistingFileTypeString(FileType.ALL);
         Path test = Files.createTempFile("tmp", ".norris");
         Assert.assertTrue(victim.isValid(test.toAbsolutePath().toString()));
         Files.delete(test);
     }
 
     @Test
+    public void existingAllNoExtension() throws IOException {
+        Validator<String> victim = Validators.newExistingFileTypeString(FileType.ALL);
+        Path test = Files.createTempFile("tmp", "");
+        Assert.assertTrue(victim.isValid(test.toAbsolutePath().toString()));
+        Files.delete(test);
+    }
+
+    @Test
     public void existingHtml() throws IOException {
-        Validator<String> victim = Validators.newFileTypeString(FileType.HTML);
+        Validator<String> victim = Validators.newExistingFileTypeString(FileType.HTML);
         Path test = Files.createTempFile("tmp", ".htm");
         Assert.assertTrue(victim.isValid(test.toAbsolutePath().toString()));
         Files.delete(test);
     }
 
     @Test
-    public void testAllowBlank() {
-        Validator<String> victim = Validators.newFileTypeString(FileType.HTML);
+    public void existingPdfInsensitive() throws IOException {
+        Validator<String> victim = Validators.newExistingFileTypeString(FileType.PDF);
+        Path test = Files.createTempFile("tmp", ".PdF");
+        Assert.assertTrue(victim.isValid(test.toAbsolutePath().toString()));
+        Files.delete(test);
+    }
+
+    @Test
+    public void allowBlank() {
+        Validator<String> victim = Validators.newExistingFileTypeString(FileType.HTML);
         Assert.assertTrue(victim.isValid(""));
+    }
+
+    @Test
+    public void notExistingValid() {
+        Validator<String> victim = Validators.newFileTypeString(FileType.ALL, false);
+        Assert.assertTrue(victim.isValid("/Chuck/Norris"));
     }
 }
