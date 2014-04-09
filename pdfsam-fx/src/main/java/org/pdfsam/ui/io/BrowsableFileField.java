@@ -19,6 +19,9 @@
 package org.pdfsam.ui.io;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.apache.commons.lang3.StringUtils.trim;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.pdfsam.support.RequireUtils.requireState;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -28,60 +31,64 @@ import java.nio.file.Paths;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
+import org.apache.commons.lang3.ObjectUtils;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.support.io.FileType;
+import org.pdfsam.support.validation.Validator;
 import org.pdfsam.support.validation.Validators;
+import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
+import org.sejda.conversion.FileOutputAdapter;
+import org.sejda.model.parameter.base.SingleOutputTaskParameters;
 
 /**
- * Component letting the user select a File of an expected type
+ * Component letting the user select a File of an expected type. By default no validation is enforced and the filetype is used only in the file chooser but the component provides a
+ * method to initialize validation.
  * 
  * @author Andrea Vacondio
  * 
  */
 public class BrowsableFileField extends BrowsableField {
 
-    private FileType fileType;
-    private boolean mustExist = true;
+    private final FileType fileType;
 
-    public BrowsableFileField() {
+    public BrowsableFileField(FileType fileType) {
         setBrowseWindowTitle(DefaultI18nContext.getInstance().i18n("Select a file"));
-        setFileType(FileType.ALL);
         getBrowseButton().setOnAction(new BrowseEventHandler());
-    }
-
-    /**
-     * Sets the {@link FileType} accepted by this component
-     * 
-     * @param fileType
-     */
-    public void setFileType(FileType fileType) {
-        this.fileType = fileType;
-        initValidation(fileType);
-    }
-
-    /**
-     * Set if the validation should enforce existence of the selected file
-     * 
-     * @param mustExist
-     */
-    public void setMustExist(boolean mustExist) {
-        this.mustExist = mustExist;
-        initValidation(fileType);
-    }
-
-    private void initValidation(FileType fileType) {
-        getTextField().setValidator(Validators.newFileTypeString(fileType, mustExist));
-        if (FileType.ALL == fileType) {
-            getTextField().setPromptText(DefaultI18nContext.getInstance().i18n("Select a file"));
-            getTextField().setErrorMessage("");
-        } else {
-            getTextField().setErrorMessage(
-                    DefaultI18nContext.getInstance().i18n("Allowed extensions are {0}",
-                            fileType.getFilter().getExtensions().toString()));
+        this.fileType = ObjectUtils.defaultIfNull(fileType, FileType.ALL);
+        if (FileType.ALL != fileType) {
             getTextField().setPromptText(
                     String.format("%s: %s", DefaultI18nContext.getInstance().i18n("Select a file"), fileType
                             .getFilter().getExtensions()));
+        } else {
+            getTextField().setPromptText(DefaultI18nContext.getInstance().i18n("Select a file"));
         }
+    }
+
+    public void enforceValidation(boolean selectedFileMustExists, boolean allowBlankString) {
+        Validator<String> validator = Validators.newFileTypeString(fileType, selectedFileMustExists);
+        if (allowBlankString) {
+            validator = Validators.decorateAsValidBlankString(validator);
+        }
+        getTextField().setValidator(validator);
+        getTextField().setErrorMessage(buildErrorMessage(selectedFileMustExists));
+    }
+
+    private String buildErrorMessage(boolean selectedFileMustExists) {
+        String errorMessage = selectedFileMustExists ? DefaultI18nContext.getInstance().i18n(
+                "The selected file must exist. ") : "";
+        if (FileType.ALL != fileType) {
+            errorMessage += DefaultI18nContext.getInstance().i18n("Allowed extensions are {0}",
+                    fileType.getFilter().getExtensions().toString());
+        }
+        return trim(errorMessage);
+    }
+
+    public void accept(SingleOutputTaskParameters params) {
+        requireNotNull(params, "Cannot set output on a null parameter instance");
+        getTextField().validate();
+        requireState(getTextField().getValidationState() != ValidationState.INVALID, DefaultI18nContext.getInstance()
+                .i18n("The selected output file is invalid"));
+        params.setOutput(new FileOutputAdapter(getTextField().getText()).getFileOutput());
     }
 
     /**

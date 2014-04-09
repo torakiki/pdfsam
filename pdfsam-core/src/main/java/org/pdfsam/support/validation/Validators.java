@@ -56,33 +56,41 @@ public final class Validators {
     }
 
     /**
-     * @return a new instance of a validator checking for an input string representing an existing file
+     * @return a new instance of a validator checking for an input string representing an existing file. Blank string are invalid.
+     * @see Validators#decorateAsValidBlankString(Validator)
      */
     public static Validator<String> newExistingFileString() {
-        return new ValidBlankStringDecorator(new FileValidator());
+        return new FileValidator();
     }
 
     /**
-     * @return a new instance of a validator checking for an input string representing an existing file of the given type
+     * @return a new instance of a validator checking for an input string representing an existing file of the given type. Blank string are invalid.
+     * @param type
+     *            type of the file represented by the input string
+     * @see Validators#decorateAsValidBlankString(Validator)
      */
     public static Validator<String> newExistingFileTypeString(FileType type) {
-        return new ValidBlankStringDecorator(new FileTypeValidator(type, true));
+        return new FileTypeValidator(type, true);
     }
 
     /**
-     * @return a new instance of a validator checking for an input string representing a file of the given type
+     * @return a new instance of a validator checking for an input string representing a file of the given type. Blank string are invalid.
+     * @param type
+     *            type of the file represented by the input string
      * @param mustExist
      *            if true the validator enforces an existing file
+     * @see Validators#decorateAsValidBlankString(Validator)
      */
     public static Validator<String> newFileTypeString(FileType type, boolean mustExist) {
-        return new ValidBlankStringDecorator(new FileTypeValidator(type, mustExist));
+        return new FileTypeValidator(type, mustExist);
     }
 
     /**
-     * @return a new instance of a validator checking for an input string representing an existing directory
+     * @return a new instance of a validator checking for an input string representing an existing directory. Blank string are invalid.
+     * @see Validators#decorateAsValidBlankString(Validator)
      */
     public static Validator<String> newExistingDirectoryString() {
-        return new ValidBlankStringDecorator(new DirectoryValidator());
+        return new DirectoryValidator();
     }
 
     /**

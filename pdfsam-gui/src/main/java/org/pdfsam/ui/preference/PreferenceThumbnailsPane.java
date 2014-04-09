@@ -18,8 +18,6 @@
  */
 package org.pdfsam.ui.preference;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
@@ -32,7 +30,7 @@ import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.I18nContext;
 import org.pdfsam.context.IntUserPreference;
 import org.pdfsam.context.StringUserPreference;
-import org.pdfsam.support.StringKeyValueItem;
+import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
@@ -68,23 +66,19 @@ class PreferenceThumbnailsPane extends VBox {
                 UPPER.toString());
         thumbSize.setPromptText(helpText);
         thumbSize.setTooltip(new Tooltip(helpText));
-        // TODO lambda
-        thumbSize.validProperty().addListener(new ChangeListener<ValidationState>() {
-            @Override
-            public void changed(ObservableValue<? extends ValidationState> observable, ValidationState oldValue,
-                    ValidationState newValue) {
-                if (newValue == ValidationState.VALID) {
-                    DefaultUserContext.getInstance().setIntegerPreference(IntUserPreference.THUMBNAILS_SIZE,
-                            Integer.parseInt(thumbSize.getText()));
-                    LOG.trace("Preference {} set to {}", IntUserPreference.THUMBNAILS_SIZE, thumbSize.getText());
-                }
-            }
-        });
+        thumbSize.validProperty().addListener(
+                (o, oldVal, newVal) -> {
+                    if (newVal == ValidationState.VALID) {
+                        DefaultUserContext.getInstance().setIntegerPreference(IntUserPreference.THUMBNAILS_SIZE,
+                                Integer.parseInt(thumbSize.getText()));
+                        LOG.trace("Preference {} set to {}", IntUserPreference.THUMBNAILS_SIZE, thumbSize.getText());
+                    }
+                });
         HBox second = new HBox(2, new Label(i18n.i18n("Size in px:")), thumbSize);
         second.setAlignment(Pos.BOTTOM_LEFT);
         second.getStyleClass().add("spaced-vitem");
 
-        PreferenceComboBox<StringKeyValueItem> thumbCreator = new PreferenceComboBox<>(
+        PreferenceComboBox<KeyStringValueItem<String>> thumbCreator = new PreferenceComboBox<>(
                 StringUserPreference.THUMBNAILS_IDENTIFIER);
         thumbCreator.setTooltip(new Tooltip(i18n.i18n("Library used to generate thumbnails")));
         HBox third = new HBox(2, new Label(i18n.i18n("Thumbnails creator:")), thumbCreator);

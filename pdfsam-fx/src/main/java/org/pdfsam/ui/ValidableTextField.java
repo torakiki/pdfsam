@@ -88,7 +88,7 @@ public class ValidableTextField extends TextField {
     }
 
     /**
-     * Sets the validator for this field and updates the validation state
+     * Sets the validator for this field. It doesn't trigger a validation.
      * 
      * @param validator
      * @see org.pdfsam.ui.support.FXValidationSupport#setValidator(org.pdfsam.support.validation.Validator)
@@ -96,7 +96,6 @@ public class ValidableTextField extends TextField {
     public void setValidator(Validator<String> validator) {
         requireNotNull(validator, "Validator cannot be null for ValidableTextField");
         validationSupport.setValidator(validator);
-        validate();
     }
 
     /**

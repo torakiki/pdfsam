@@ -4,5 +4,7 @@
 	<tasks>
 		<task parameters="org.sejda.model.parameter.DecryptParameters"
 			task="org.sejda.impl.itext5.DecryptTask" />
+		<task parameters="org.sejda.model.parameter.MergeParameters"
+			task="org.sejda.impl.itext5.MergeTask" />
 	</tasks>
 </sejda>

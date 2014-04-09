@@ -32,8 +32,9 @@ import org.pdfsam.ui.io.BrowsableFileField;
  */
 class PreferenceBrowsableFileField extends BrowsableFileField {
     PreferenceBrowsableFileField(StringUserPreference preference, FileType type) {
+        super(type);
         requireNotNull(preference, "Preference cannot be null");
-        setFileType(type);
+        enforceValidation(true, true);
         getTextField().validProperty().addListener(new PreferenceSetterOnValidState(preference, getTextField()));
     }
 }

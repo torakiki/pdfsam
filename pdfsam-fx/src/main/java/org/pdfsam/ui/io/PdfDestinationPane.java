@@ -19,6 +19,7 @@
 package org.pdfsam.ui.io;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -31,6 +32,7 @@ import org.pdfsam.ui.event.SetDestinationEvent;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
+import org.sejda.model.parameter.base.AbstractPdfOutputParameters;
 import org.sejda.model.pdf.PdfVersion;
 
 /**
@@ -68,5 +70,12 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned {
     @EventListener
     public void setDestination(SetDestinationEvent event) {
         destination().setTextFromFile(event.getFootprint());
+    }
+
+    public void accept(AbstractPdfOutputParameters params) {
+        requireNotNull(params, "Cannot set output on a null parameter instance");
+        params.setCompress(compress.isSelected());
+        params.setOverwrite(overwrite().isSelected());
+        params.setVersion(version.getSelectionModel().getSelectedItem().getVersion());
     }
 }

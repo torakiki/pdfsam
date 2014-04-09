@@ -23,6 +23,7 @@ import javafx.scene.layout.BorderPane;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.module.ModuleOwned;
+import org.sejda.model.parameter.MergeParameters;
 
 /**
  * Panel holding the selection table and its toolbar
@@ -32,16 +33,22 @@ import org.pdfsam.module.ModuleOwned;
  */
 public class SelectionPane extends BorderPane implements ModuleOwned {
     private String ownerModule = StringUtils.EMPTY;
+    private SelectionTable table;
 
     public SelectionPane(String ownerModule) {
         this.ownerModule = defaultString(ownerModule);
         setTop(new SelectionTableToolbar(ownerModule));
-        setCenter(new SelectionTable(ownerModule, new SelectionTableColumn<?>[] {
+        table = new SelectionTable(ownerModule, new SelectionTableColumn<?>[] {
                 new EncryptionStatusColumn(this.ownerModule), FileColumn.NAME, LongColumn.SIZE, LongColumn.PAGES,
-                LongColumn.LAST_MODIFIED, StringColumn.PAGE_SELECTION }));
+                LongColumn.LAST_MODIFIED, StringColumn.PAGE_SELECTION });
+        setCenter(table);
     }
 
     public String getOwnerModule() {
         return ownerModule;
+    }
+
+    public void accept(MergeParameters params) {
+        table.accept(params);
     }
 }

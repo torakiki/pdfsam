@@ -39,4 +39,10 @@ public class IntegerStringValidatorTest {
         Assert.assertTrue(victim.isValid("123"));
         Assert.assertTrue(victim.isValid("-123"));
     }
+
+    @Test
+    public void testAllowBlank() {
+        Assert.assertFalse(victim.isValid(""));
+        Assert.assertTrue(Validators.decorateAsValidBlankString(victim).isValid(""));
+    }
 }

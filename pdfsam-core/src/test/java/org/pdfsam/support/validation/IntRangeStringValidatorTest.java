@@ -40,4 +40,10 @@ public class IntRangeStringValidatorTest {
         Assert.assertTrue(victim.isValid("3"));
         Assert.assertTrue(victim.isValid("5"));
     }
+
+    @Test
+    public void testAllowBlank() {
+        Assert.assertFalse(victim.isValid(""));
+        Assert.assertTrue(Validators.decorateAsValidBlankString(victim).isValid(""));
+    }
 }

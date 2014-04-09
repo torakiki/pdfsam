@@ -19,6 +19,9 @@
 package org.pdfsam.ui.io;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
+import java.util.Arrays;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
@@ -38,7 +41,6 @@ import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
 import org.sejda.model.pdf.PdfVersion;
 
-
 /**
  * Combo box let the user select the pdf version of the generated output documents
  * 
@@ -53,14 +55,10 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwn
 
     public PdfVersionCombo(String ownerModule) {
         this.ownerModule = ownerModule;
-        // Arrays.stream(PdfVersion.values()).filter(v -> v.getVersion() > 2).map(PdfVersionComboItem::new)
-        // .collect(Collectors.toCollection(FXCollections::observableArrayList));
-        // TODO lambda
-        for (PdfVersion current : PdfVersion.values()) {
-            if (current.getVersion() > 2) {
-                unfilteredItems.add(new PdfVersionComboItem(current));
-            }
-        }
+
+        Arrays.stream(PdfVersion.values()).filter(v -> v.getVersion() > 2).map(PdfVersionComboItem::new)
+                .forEach(e -> unfilteredItems.add(e));
+
         setCellFactory(new Callback<ListView<PdfVersionComboItem>, ListCell<PdfVersionComboItem>>() {
             @Override
             public ListCell<PdfVersionComboItem> call(ListView<PdfVersionComboItem> p) {

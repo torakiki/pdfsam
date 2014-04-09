@@ -24,6 +24,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.control.TitledPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -55,9 +56,14 @@ public class MergeModule extends BaseTaskExecutionModule {
     private static final String MERGE_MODULE_ID = "merge";
 
     private SelectionPane selectionPane;
+    private MergeOptionsPane mergeOptions = new MergeOptionsPane();
+    private BrowsableFileField destinationFileField = new BrowsableFileField(FileType.PDF);
+    private PdfDestinationPane destinationPane;
 
     public MergeModule() {
         this.selectionPane = new SelectionPane(id());
+        this.destinationFileField.enforceValidation(false, false);
+        this.destinationPane = new PdfDestinationPane(destinationFileField, id());
     }
 
     @Override
@@ -69,7 +75,12 @@ public class MergeModule extends BaseTaskExecutionModule {
 
     @Override
     protected TaskParameters getParameters() {
-        return new MergeParameters();
+        MergeParameters params = new MergeParameters(mergeOptions.isMergeForms(), mergeOptions.isBlankIfOdd());
+        selectionPane.accept(params);
+        mergeOptions.accept(params);
+        destinationFileField.accept(params);
+        destinationPane.accept(params);
+        return params;
     }
 
     @Override
@@ -77,11 +88,11 @@ public class MergeModule extends BaseTaskExecutionModule {
         VBox pane = new VBox(5);
         pane.setAlignment(Pos.TOP_CENTER);
         VBox.setVgrow(selectionPane, Priority.ALWAYS);
-        BrowsableFileField destination = new BrowsableFileField();
-        destination.setFileType(FileType.PDF);
-        destination.setMustExist(false);
-        PdfDestinationPane destinationPane = new PdfDestinationPane(destination, id());
-        pane.getChildren().addAll(selectionPane,
+
+        TitledPane options = Views.titledPane(DefaultI18nContext.getInstance().i18n("Merge options"), mergeOptions);
+        options.setExpanded(false);
+
+        pane.getChildren().addAll(selectionPane, options,
                 Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination file"), destinationPane));
         return pane;
     }

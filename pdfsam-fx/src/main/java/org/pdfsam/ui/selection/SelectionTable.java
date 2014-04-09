@@ -19,6 +19,7 @@
 package org.pdfsam.ui.selection;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 import static org.pdfsam.ui.selection.SelectionChangedEvent.clearSelectionEvent;
 import static org.pdfsam.ui.selection.SelectionChangedEvent.select;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
@@ -27,7 +28,6 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.stream.Stream;
 
 import javafx.collections.ListChangeListener.Change;
 import javafx.collections.ObservableList;
@@ -45,6 +45,7 @@ import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
+import org.pdfsam.support.RequireUtils;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.OpenFileRequestEvent;
 import org.pdfsam.ui.event.SetDestinationEvent;
@@ -53,6 +54,7 @@ import org.pdfsam.ui.selection.move.MoveType;
 import org.pdfsam.ui.selection.move.SelectionAndFocus;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
+import org.sejda.model.parameter.MergeParameters;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -211,12 +213,17 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     private Consumer<DragEvent> onDragDropped() {
         return (DragEvent e) -> {
             final PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
-            Stream<PdfDocumentDescriptor> descriptors = e.getDragboard().getFiles().stream()
-                    .filter(f -> FileType.PDF.matches(f.getName())).map(PdfDocumentDescriptor::newDescriptorNoPassword);
-            descriptors.forEach(loadEvent::add);
+            e.getDragboard().getFiles().stream().filter(f -> FileType.PDF.matches(f.getName()))
+                    .map(PdfDocumentDescriptor::newDescriptorNoPassword).forEach(loadEvent::add);
             eventStudio().broadcast(loadEvent, getOwnerModule());
             e.setDropCompleted(true);
         };
+    }
+
+    public void accept(MergeParameters params) {
+        requireNotNull(params, "Cannot set input on a null parameter instance");
+        RequireUtils.require(!getItems().isEmpty(), "No input file selected");
+        getItems().stream().forEach(i -> params.addInput(i.toPdfMergeInput()));
     }
 
     @EventStation

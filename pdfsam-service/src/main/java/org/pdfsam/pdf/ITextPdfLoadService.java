@@ -52,7 +52,7 @@ public class ITextPdfLoadService implements PdfLoadService {
             if (!current.isInvalid()) {
                 PdfReader reader = null;
                 try {
-                    reader = current.toPdfSource().open(new DefaultPdfSourceOpener());
+                    reader = current.toPdfFileSource().open(new DefaultPdfSourceOpener());
                     if (current.encryptionStatusProperty().get() == EncryptionStatus.DECRYPTION_REQUESTED) {
                         current.setEncryptionStatus(EncryptionStatus.DECRYPTED_WITH_USER_PWD);
                     } else {

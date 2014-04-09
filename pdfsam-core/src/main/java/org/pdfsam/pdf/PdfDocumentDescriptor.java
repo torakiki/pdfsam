@@ -33,7 +33,6 @@ import javafx.beans.property.ReadOnlyObjectWrapper;
 
 import org.apache.commons.lang3.StringUtils;
 import org.sejda.model.input.PdfFileSource;
-import org.sejda.model.input.PdfSource;
 import org.sejda.model.pdf.PdfMetadataKey;
 
 /**
@@ -65,6 +64,10 @@ public final class PdfDocumentDescriptor {
 
     public String getFileName() {
         return file.getName();
+    }
+
+    public PdfFileSource toPdfFileSource() {
+        return PdfFileSource.newInstanceWithPassword(file, password);
     }
 
     /**
@@ -125,10 +128,6 @@ public final class PdfDocumentDescriptor {
 
     public void invalidate() {
         this.invalid = true;
-    }
-
-    public PdfSource<File> toPdfSource() {
-        return PdfFileSource.newInstanceWithPassword(file, password);
     }
 
     public static PdfDocumentDescriptor newDescriptor(File file, String password) {

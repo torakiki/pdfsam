@@ -30,8 +30,8 @@ import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.I18nContext;
 import org.pdfsam.context.StringUserPreference;
+import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.LocaleKeyValueItem;
-import org.pdfsam.support.StringKeyValueItem;
 import org.pdfsam.ui.support.Style;
 
 /**
@@ -55,15 +55,15 @@ class PreferenceAppearencePane extends VBox {
         first.setAlignment(Pos.BOTTOM_LEFT);
         first.getStyleClass().add("spaced-vitem");
 
-        PreferenceComboBox<StringKeyValueItem> themeCombo = new PreferenceComboBox<>(StringUserPreference.THEME);
-        themeCombo.getItems().add(new StringKeyValueItem("cornflower.css", "Cornflower"));
-        themeCombo.getItems().add(new StringKeyValueItem("gray.css", "Gray"));
-        themeCombo.getItems().add(new StringKeyValueItem("green.css", "Green"));
-        themeCombo.getItems().add(new StringKeyValueItem("orchid.css", "Orchid"));
-        themeCombo.getItems().add(new StringKeyValueItem("seagreen.css", "Sea Green"));
-        themeCombo.getItems().add(new StringKeyValueItem("sienna.css", "Sienna"));
+        PreferenceComboBox<KeyStringValueItem<String>> themeCombo = new PreferenceComboBox<>(StringUserPreference.THEME);
+        themeCombo.getItems().add(new KeyStringValueItem<>("cornflower.css", "Cornflower"));
+        themeCombo.getItems().add(new KeyStringValueItem<>("gray.css", "Gray"));
+        themeCombo.getItems().add(new KeyStringValueItem<>("green.css", "Green"));
+        themeCombo.getItems().add(new KeyStringValueItem<>("orchid.css", "Orchid"));
+        themeCombo.getItems().add(new KeyStringValueItem<>("seagreen.css", "Sea Green"));
+        themeCombo.getItems().add(new KeyStringValueItem<>("sienna.css", "Sienna"));
         themeCombo.setTooltip(new Tooltip(i18n.i18n("Set your preferred theme (restart needed)")));
-        themeCombo.setValue(new StringKeyValueItem(DefaultUserContext.getInstance().getTheme(), ""));
+        themeCombo.setValue(new KeyStringValueItem<>(DefaultUserContext.getInstance().getTheme(), ""));
         HBox second = new HBox(2, new Label(i18n.i18n("Theme:")), themeCombo);
         second.setAlignment(Pos.BOTTOM_LEFT);
         second.getStyleClass().add("spaced-vitem");

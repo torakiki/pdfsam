@@ -29,6 +29,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.support.validation.Validator;
 import org.pdfsam.support.validation.Validators;
 
 /**
@@ -39,9 +40,13 @@ import org.pdfsam.support.validation.Validators;
  */
 public class BrowsableDirectoryField extends BrowsableField {
 
-    public BrowsableDirectoryField() {
+    public BrowsableDirectoryField(boolean allowBlankString) {
         setBrowseWindowTitle(DefaultI18nContext.getInstance().i18n("Select a directory"));
-        getTextField().setValidator(Validators.newExistingDirectoryString());
+        Validator<String> validator = Validators.newExistingDirectoryString();
+        if (allowBlankString) {
+            validator = Validators.decorateAsValidBlankString(validator);
+        }
+        getTextField().setValidator(validator);
         getTextField().setErrorMessage(DefaultI18nContext.getInstance().i18n("Select an existing directory"));
         getTextField().setPromptText(DefaultI18nContext.getInstance().i18n("Select a directory"));
         getBrowseButton().setOnAction(new BrowseEventHandler());

@@ -31,6 +31,7 @@ import org.pdfsam.ui.io.BrowsableDirectoryField;
  */
 class PreferenceBrowsableDirectoryField extends BrowsableDirectoryField {
     PreferenceBrowsableDirectoryField(StringUserPreference preference) {
+        super(true);
         requireNotNull(preference, "Preference cannot be null");
         getTextField().validProperty().addListener(new PreferenceSetterOnValidState(preference, getTextField()));
     }

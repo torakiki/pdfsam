@@ -18,27 +18,27 @@
  */
 package org.pdfsam.support;
 
-import org.junit.Test;
-
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
 
 /**
  * @author Andrea Vacondio
  * 
  */
-public class StringKeyValueItemTest {
+public class KeyStringValueItemTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testInvalidConstructor() {
-        new StringKeyValueItem("", "Chuck");
+        new KeyStringValueItem<>(null, "Chuck");
     }
 
     @Test
     public void testEquals() {
-        StringKeyValueItem item = new StringKeyValueItem("A", "Chuck");
-        StringKeyValueItem item2 = new StringKeyValueItem("A", "Norris");
-        StringKeyValueItem item3 = new StringKeyValueItem("B", "Rambo");
+        KeyStringValueItem<String> item = new KeyStringValueItem<>("A", "Chuck");
+        KeyStringValueItem<String> item2 = new KeyStringValueItem<>("A", "Norris");
+        KeyStringValueItem<String> item3 = new KeyStringValueItem<>("B", "Rambo");
         assertTrue(item.equals(item2));
         assertFalse(item.equals(item3));
     }

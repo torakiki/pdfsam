@@ -18,10 +18,13 @@
  */
 package org.pdfsam.ui.selection;
 
+import static org.pdfsam.support.RequireUtils.requireNotNull;
+
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
-
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import org.sejda.conversion.PageRangeSetAdapter;
+import org.sejda.model.input.PdfFileSource;
+import org.sejda.model.input.PdfMergeInput;
 
 /**
  * Model for a row of the selection table
@@ -49,6 +52,14 @@ public class SelectionTableRowData {
 
     public PdfDocumentDescriptor getDocumentDescriptor() {
         return documentDescriptor;
+    }
+
+    public PdfFileSource toPdfFileSource() {
+        return documentDescriptor.toPdfFileSource();
+    }
+
+    public PdfMergeInput toPdfMergeInput() {
+        return new PdfMergeInput(toPdfFileSource(), new PageRangeSetAdapter(pageSelection).getPageRangeSet());
     }
 
 }

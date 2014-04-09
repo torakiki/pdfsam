@@ -35,7 +35,7 @@ import org.pdfsam.ui.support.Style;
  * @author Andrea Vacondio
  * 
  */
-public class DestinationPane extends VBox {
+class DestinationPane extends VBox {
 
     private CheckBox overwrite = new CheckBox(DefaultI18nContext.getInstance().i18n("Overwrite if already exists"));
     private BrowsableField destination;
@@ -47,8 +47,8 @@ public class DestinationPane extends VBox {
         overwrite.setSelected(true);
         overwrite.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
                 "Tick the box if you want to overwrite the outpuf files if they already exist.")));
-        overwrite.getStyleClass().addAll(Style.VITEM.css());
         horizontalChildren = new HBox(20, overwrite);
+        horizontalChildren.getStyleClass().addAll(Style.VITEM.css());
 
         destination.getStyleClass().addAll(Style.VITEM.css());
         getChildren().addAll(destination, horizontalChildren);

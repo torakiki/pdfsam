@@ -18,31 +18,30 @@
  */
 package org.pdfsam.support;
 
+import static org.pdfsam.support.RequireUtils.require;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
-
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
-
-import static org.pdfsam.support.RequireUtils.require;
 
 /**
  * Contains a pair of Strings, usually a key and a display value. Two items with the same key are considered equals.
  * 
  * @author Andrea Vacondio
- * 
+ * @param <K>
+ *            type for the key
  */
-public class StringKeyValueItem implements KeyValueItem<String, String> {
+public class KeyStringValueItem<K> implements KeyValueItem<K, String> {
 
-    private String key;
+    private K key;
     private String value;
 
-    public StringKeyValueItem(String key, String value) {
-        require(isNotBlank(key), "Key cannot be blank");
+    public KeyStringValueItem(K key, String value) {
+        require(key != null, "Key cannot be null");
         this.key = key;
         this.value = value;
     }
 
-    public String getKey() {
+    public K getKey() {
         return key;
     }
 
@@ -52,7 +51,7 @@ public class StringKeyValueItem implements KeyValueItem<String, String> {
 
     @Override
     public String toString() {
-        return value;
+        return value.toString();
     }
 
     @Override
@@ -65,10 +64,10 @@ public class StringKeyValueItem implements KeyValueItem<String, String> {
         if (this == other) {
             return true;
         }
-        if (!(other instanceof StringKeyValueItem)) {
+        if (!(other instanceof KeyStringValueItem)) {
             return false;
         }
-        StringKeyValueItem item = (StringKeyValueItem) other;
+        KeyStringValueItem<?> item = (KeyStringValueItem<?>) other;
         return new EqualsBuilder().append(key, item.getKey()).isEquals();
     }
 

@@ -39,7 +39,7 @@
  */
 .progress-bar {
    -fx-indeterminate-bar-escape: false;
-   -fx-indeterminate-bar-animation-time: 1;
+   -fx-indeterminate-bar-animation-time: 1.0;
 }
 .progress-bar > .bar {
    -fx-background-color: derive(theme-color, -20.0%), theme-color;
@@ -49,7 +49,7 @@
 }
 .progress-bar:indeterminate > .bar {
     -fx-background-color: derive(theme-color, -20.0%), theme-color;
-    -fx-background-insets: 0.0, 1;
+    -fx-background-insets: 0.0, 1.0;
     -fx-background-radius: 0.0, 0.0;     
 }
 .progress-bar:indeterminate > .track {
@@ -243,9 +243,8 @@
    -fx-background-insets: 0.0, 1.0;
 }
 .invalid:focused{
-   -fx-background-color:  derive(error-color, 80.0%), -fx-control-inner-background;
+   -fx-background-color:  error-color, -fx-control-inner-background;
    -fx-background-insets: 0.0, 1.0;
-   -fx-effect: dropshadow(one-pass-box, error-color, 10.0, 0.0, 0.2, 0.2);
 }
 /**
  * Password popup

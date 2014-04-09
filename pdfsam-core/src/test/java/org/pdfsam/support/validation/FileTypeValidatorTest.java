@@ -73,7 +73,8 @@ public class FileTypeValidatorTest {
     @Test
     public void allowBlank() {
         Validator<String> victim = Validators.newExistingFileTypeString(FileType.HTML);
-        Assert.assertTrue(victim.isValid(""));
+        Assert.assertFalse(victim.isValid(""));
+        Assert.assertTrue(Validators.decorateAsValidBlankString(victim).isValid(""));
     }
 
     @Test

@@ -46,7 +46,8 @@ public class FileValidatorTest {
 
     @Test
     public void testAllowBlank() {
-        Assert.assertTrue(victim.isValid(""));
+        Assert.assertFalse(victim.isValid(""));
+        Assert.assertTrue(Validators.decorateAsValidBlankString(victim).isValid(""));
     }
 
 }
