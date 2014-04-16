@@ -58,7 +58,7 @@ public class MergeSelectionPane extends SelectionPane<MergeParameters> {
             table().getItems().stream()
                     .forEach(i -> params.addInput(new PdfMergeInput(i.toPdfFileSource(), i.toPageRangeSet())));
         } catch (ConversionException e) {
-            LOG.error(DefaultI18nContext.getInstance().i18n("Invalid parameters"), e);
+            LOG.error(e.getMessage());
             onError.accept(e.getMessage());
         }
     }

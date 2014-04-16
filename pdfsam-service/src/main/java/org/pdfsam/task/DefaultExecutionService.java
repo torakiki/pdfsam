@@ -48,7 +48,7 @@ class DefaultExecutionService implements ExecutionService {
             try {
                 service.execute(params);
             } catch (RuntimeException re) {
-                LOG.warn(DefaultI18nContext.getInstance().i18n("Unexpected error"), re);
+                LOG.error(DefaultI18nContext.getInstance().i18n("Unexpected error"), re);
             }
         });
     }

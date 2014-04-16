@@ -28,7 +28,10 @@ import javafx.util.Duration;
 import javax.annotation.PostConstruct;
 import javax.inject.Named;
 
+import org.pdfsam.context.DefaultI18nContext;
 import org.sejda.eventstudio.annotation.EventListener;
+import org.sejda.model.exception.InvalidTaskParametersException;
+import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 
 /**
  * Container for the notifications
@@ -51,18 +54,33 @@ public class NotificationsContainer extends VBox {
 
     @EventListener
     public void onAddRequest(AddNotificationRequestEvent event) {
-        Notification toAdd = new Notification(event.getTitle(), event.getMessage(), event.getType());
+        addNotification(event.getTitle(), event.getMessage(), event.getType());
+    }
+
+    @EventListener
+    public void onTaskFailed(TaskExecutionFailedEvent e) {
+        if (e.getFailingCause() instanceof InvalidTaskParametersException) {
+            addNotification(DefaultI18nContext.getInstance().i18n("Invalid parameters"), DefaultI18nContext
+                    .getInstance()
+                    .i18n("Input parameters are invalid, open the application messages for more details."),
+                    NotificationType.ERROR);
+        }
+
+    }
+
+    @EventListener
+    public void onRemoveRequest(RemoveNotificationRequestEvent event) {
+        removeNotification(event.getNotificationId());
+    }
+
+    private void addNotification(String title, String message, NotificationType type) {
+        Notification toAdd = new Notification(title, message, type);
         getChildren().add(toAdd);
         toAdd.fadeAway(e -> getChildren().remove(toAdd), Duration.millis(2000));
         FadeTransition transition = new FadeTransition(Duration.millis(300), toAdd);
         transition.setFromValue(0);
         transition.setToValue(1);
         transition.play();
-    }
-
-    @EventListener
-    public void onRemoveRequest(RemoveNotificationRequestEvent event) {
-        removeNotification(event.getNotificationId());
     }
 
     private void removeNotification(String id) {
