@@ -48,7 +48,7 @@ import org.sejda.eventstudio.annotation.EventListener;
  * @author Andrea Vacondio
  * 
  */
-public class SelectionTableToolbar extends ToolBar implements ModuleOwned {
+class SelectionTableToolbar extends ToolBar implements ModuleOwned {
 
     private String ownerModule = StringUtils.EMPTY;
 

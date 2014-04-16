@@ -12,7 +12,7 @@
 	-fx-focus-color: derive(lightslategray, 90.0%);
 	-fx-accent: -fx-focus-color;
 	-fx-highlight-text-fill: dark-text-color;
-	default-effect: dropshadow(one-pass-box, theme-color, 10.0, 0.0, 0.2, 0.2);
+	default-effect: dropshadow(three-pass-box, theme-color, 10.0, 0.0, 0, 2);
 	-fx-disabled-opacity: 0.4;
 }
 .label {

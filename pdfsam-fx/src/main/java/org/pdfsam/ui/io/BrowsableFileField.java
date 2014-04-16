@@ -21,18 +21,19 @@ package org.pdfsam.ui.io;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.apache.commons.lang3.StringUtils.trim;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
-import static org.pdfsam.support.RequireUtils.requireState;
 
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.function.Consumer;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 import org.apache.commons.lang3.ObjectUtils;
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.support.TaskParametersBuildStep;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.support.validation.Validator;
 import org.pdfsam.support.validation.Validators;
@@ -47,7 +48,7 @@ import org.sejda.model.parameter.base.SingleOutputTaskParameters;
  * @author Andrea Vacondio
  * 
  */
-public class BrowsableFileField extends BrowsableField {
+public class BrowsableFileField extends BrowsableField implements TaskParametersBuildStep<SingleOutputTaskParameters> {
 
     private final FileType fileType;
 
@@ -83,14 +84,6 @@ public class BrowsableFileField extends BrowsableField {
         return trim(errorMessage);
     }
 
-    public void accept(SingleOutputTaskParameters params) {
-        requireNotNull(params, "Cannot set output on a null parameter instance");
-        getTextField().validate();
-        requireState(getTextField().getValidationState() != ValidationState.INVALID, DefaultI18nContext.getInstance()
-                .i18n("The selected output file is invalid"));
-        params.setOutput(new FileOutputAdapter(getTextField().getText()).getFileOutput());
-    }
-
     /**
      * {@link EventHandler} opening the {@link javafx.stage.FileChooser} and letting the user select the input file populating the ValidableTextField.
      * 
@@ -119,6 +112,16 @@ public class BrowsableFileField extends BrowsableField {
         if (inputFile != null) {
             getTextField().setText(inputFile.getAbsolutePath());
             getTextField().validate();
+        }
+    }
+
+    public void apply(SingleOutputTaskParameters params, Consumer<String> onError) {
+        requireNotNull(params, "Cannot set output on a null parameter instance");
+        getTextField().validate();
+        if (getTextField().getValidationState() == ValidationState.INVALID) {
+            onError.accept(DefaultI18nContext.getInstance().i18n("The selected output file is invalid"));
+        } else {
+            params.setOutput(new FileOutputAdapter(getTextField().getText()).getFileOutput());
         }
     }
 }

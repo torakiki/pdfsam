@@ -19,6 +19,7 @@
 package org.pdfsam.merge;
 
 import java.io.IOException;
+import java.util.function.Consumer;
 
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -38,7 +39,6 @@ import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.io.BrowsableFileField;
 import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
-import org.pdfsam.ui.selection.SelectionPane;
 import org.pdfsam.ui.support.Views;
 import org.sejda.model.parameter.MergeParameters;
 import org.sejda.model.parameter.base.TaskParameters;
@@ -55,13 +55,13 @@ public class MergeModule extends BaseTaskExecutionModule {
 
     private static final String MERGE_MODULE_ID = "merge";
 
-    private SelectionPane selectionPane;
+    private MergeSelectionPane selectionPane;
     private MergeOptionsPane mergeOptions = new MergeOptionsPane();
     private BrowsableFileField destinationFileField = new BrowsableFileField(FileType.PDF);
     private PdfDestinationPane destinationPane;
 
     public MergeModule() {
-        this.selectionPane = new SelectionPane(id());
+        this.selectionPane = new MergeSelectionPane(id());
         this.destinationFileField.enforceValidation(false, false);
         this.destinationPane = new PdfDestinationPane(destinationFileField, id());
     }
@@ -74,12 +74,12 @@ public class MergeModule extends BaseTaskExecutionModule {
     }
 
     @Override
-    protected TaskParameters getParameters() {
+    protected TaskParameters buildParameters(Consumer<String> onError) {
         MergeParameters params = new MergeParameters(mergeOptions.isMergeForms(), mergeOptions.isBlankIfOdd());
-        selectionPane.accept(params);
-        mergeOptions.accept(params);
-        destinationFileField.accept(params);
-        destinationPane.accept(params);
+        selectionPane.apply(params, onError);
+        mergeOptions.apply(params, onError);
+        destinationFileField.apply(params, onError);
+        destinationPane.apply(params, onError);
         return params;
     }
 

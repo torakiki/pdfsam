@@ -19,6 +19,7 @@
 package org.pdfsam.ui.module;
 
 import java.io.IOException;
+import java.util.function.Consumer;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -48,7 +49,7 @@ public class TestModule3 extends BaseTaskExecutionModule {
     }
 
     @Override
-    protected TaskParameters getParameters() {
+    protected TaskParameters buildParameters(Consumer<String> onError) {
         // TODO Auto-generated method stub
         return null;
     }

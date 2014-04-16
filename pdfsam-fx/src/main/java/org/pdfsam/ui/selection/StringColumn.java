@@ -37,7 +37,7 @@ import org.pdfsam.context.DefaultI18nContext;
  * @author Andrea Vacondio
  * 
  */
-enum StringColumn implements SelectionTableColumn<String> {
+public enum StringColumn implements SelectionTableColumn<String> {
     PAGE_SELECTION {
         public String getColumnTitle() {
             return DefaultI18nContext.getInstance().i18n("Page ranges");

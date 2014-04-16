@@ -19,23 +19,30 @@
 package org.pdfsam.ui.selection;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.pdfsam.support.RequireUtils.require;
 import javafx.scene.layout.BorderPane;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.module.ModuleOwned;
-import org.sejda.model.parameter.MergeParameters;
+import org.pdfsam.support.TaskParametersBuildStep;
+import org.sejda.model.parameter.base.TaskParameters;
 
 /**
- * Panel holding the selection table and its toolbar
+ * Panel holding the selection table and its toolbar. It is constructed specifying the columns for the selection table and it participates to the {@link TaskParameters} build
+ * process
  * 
  * @author Andrea Vacondio
- * 
+ * @param <T>
+ *            the {@link TaskParameters} that this selection panel produces
  */
-public class SelectionPane extends BorderPane implements ModuleOwned {
+public abstract class SelectionPane<T extends TaskParameters> extends BorderPane implements ModuleOwned,
+        TaskParametersBuildStep<T> {
+
     private String ownerModule = StringUtils.EMPTY;
     private SelectionTable table;
 
-    public SelectionPane(String ownerModule) {
+    public SelectionPane(String ownerModule, SelectionTableColumn<?>... columns) {
+        require(columns.length > 0, "No column has been selected");
         this.ownerModule = defaultString(ownerModule);
         setTop(new SelectionTableToolbar(ownerModule));
         table = new SelectionTable(ownerModule, new SelectionTableColumn<?>[] {
@@ -48,7 +55,8 @@ public class SelectionPane extends BorderPane implements ModuleOwned {
         return ownerModule;
     }
 
-    public void accept(MergeParameters params) {
-        table.accept(params);
+    protected SelectionTable table() {
+        return table;
     }
+
 }

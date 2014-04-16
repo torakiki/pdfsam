@@ -18,13 +18,20 @@
  */
 package org.pdfsam.ui.selection;
 
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.conversion.AdapterUtils.splitAndTrim;
+
+import java.util.Collections;
+import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
+import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
-import org.sejda.conversion.PageRangeSetAdapter;
+import org.sejda.common.collection.NullSafeSet;
+import org.sejda.conversion.exception.ConversionException;
 import org.sejda.model.input.PdfFileSource;
-import org.sejda.model.input.PdfMergeInput;
+import org.sejda.model.pdf.page.PageRange;
 
 /**
  * Model for a row of the selection table
@@ -58,8 +65,51 @@ public class SelectionTableRowData {
         return documentDescriptor.toPdfFileSource();
     }
 
-    public PdfMergeInput toPdfMergeInput() {
-        return new PdfMergeInput(toPdfFileSource(), new PageRangeSetAdapter(pageSelection).getPageRangeSet());
+    /**
+     * @return the {@link PageRange} selection set if any, an empty set otherwise.
+     */
+    public Set<PageRange> toPageRangeSet() throws ConversionException {
+        if (isNotBlank(pageSelection)) {
+            Set<PageRange> pageRangeSet = new NullSafeSet<>();
+            String[] tokens = splitAndTrim(pageSelection, ",");
+            for (String current : tokens) {
+                PageRange range = toPageRange(current);
+                if (range.getEnd() < range.getStart()) {
+                    throw new ConversionException(DefaultI18nContext.getInstance().i18n("Invalid range: {0}.",
+                            range.toString()));
+                }
+                pageRangeSet.add(range);
+            }
+            return pageRangeSet;
+        }
+        return Collections.emptySet();
     }
 
+    private PageRange toPageRange(String value) throws ConversionException {
+        String[] limits = splitAndTrim(value, "-");
+        if (limits.length > 2) {
+            throw new ConversionException(DefaultI18nContext.getInstance().i18n(
+                    "Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] or [-n] or [n-]",
+                    value));
+        }
+        if (limits.length == 1) {
+            int limitNumber = parsePageNumber(limits[0]);
+            if (value.endsWith("-")) {
+                return new PageRange(limitNumber);
+            }
+            if (value.startsWith("-")) {
+                return new PageRange(1, limitNumber);
+            }
+            return new PageRange(limitNumber, limitNumber);
+        }
+        return new PageRange(parsePageNumber(limits[0]), parsePageNumber(limits[1]));
+    }
+
+    private int parsePageNumber(String value) throws ConversionException {
+        try {
+            return Integer.parseInt(value.trim());
+        } catch (NumberFormatException nfe) {
+            throw new ConversionException(DefaultI18nContext.getInstance().i18n("Invalid number: {0}.", value));
+        }
+    }
 }

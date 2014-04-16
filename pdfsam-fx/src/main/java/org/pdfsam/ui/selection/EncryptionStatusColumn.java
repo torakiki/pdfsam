@@ -47,10 +47,10 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
  * @author Andrea Vacondio
  *
  */
-class EncryptionStatusColumn implements SelectionTableColumn<EncryptionStatus>, ModuleOwned {
+public class EncryptionStatusColumn implements SelectionTableColumn<EncryptionStatus>, ModuleOwned {
     private String ownerModule = StringUtils.EMPTY;
 
-    EncryptionStatusColumn(String ownerModule) {
+    public EncryptionStatusColumn(String ownerModule) {
         this.ownerModule = defaultString(ownerModule);
     }
 

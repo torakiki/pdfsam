@@ -18,6 +18,8 @@
  */
 package org.pdfsam.merge;
 
+import java.util.function.Consumer;
+
 import javafx.geometry.Pos;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -28,6 +30,7 @@ import javafx.scene.layout.VBox;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.support.KeyStringValueItem;
+import org.pdfsam.support.TaskParametersBuildStep;
 import org.pdfsam.ui.support.Style;
 import org.sejda.model.outline.OutlinePolicy;
 import org.sejda.model.parameter.MergeParameters;
@@ -38,7 +41,7 @@ import org.sejda.model.parameter.MergeParameters;
  * @author Andrea Vacondio
  *
  */
-class MergeOptionsPane extends VBox {
+class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergeParameters> {
 
     private CheckBox containsForms;
     private CheckBox blankIfOdd;
@@ -73,14 +76,15 @@ class MergeOptionsPane extends VBox {
         getChildren().addAll(horizontalChildren, bookmarksPolicy);
     }
 
-    void accept(MergeParameters params) {
-        params.setOutlinePolicy(outline.getSelectionModel().getSelectedItem().getKey());
-    }
     boolean isMergeForms() {
         return containsForms.isSelected();
     }
 
     boolean isBlankIfOdd() {
         return blankIfOdd.isSelected();
+    }
+
+    public void apply(MergeParameters params, Consumer<String> onError) {
+        params.setOutlinePolicy(outline.getSelectionModel().getSelectedItem().getKey());
     }
 }

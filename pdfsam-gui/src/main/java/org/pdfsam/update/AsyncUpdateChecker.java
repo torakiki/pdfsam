@@ -41,6 +41,7 @@ import org.springframework.core.env.Environment;
 @Named
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 class AsyncUpdateChecker extends SwingWorker<String, Void> {
+    // TODO Swing???
     private static final Logger LOG = LoggerFactory.getLogger(AsyncUpdateChecker.class);
 
     @Inject

@@ -29,11 +29,13 @@ import java.util.Map;
 
 import javafx.application.Application;
 import javafx.application.HostServices;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import org.apache.commons.lang3.time.DurationFormatUtils;
@@ -44,6 +46,7 @@ import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.ui.MainPane;
 import org.pdfsam.ui.OpenFileRequestEvent;
 import org.pdfsam.ui.OpenUrlRequestEvent;
+import org.pdfsam.ui.notification.NotificationsContainer;
 import org.pdfsam.ui.support.ShowRequestEvent;
 import org.pdfsam.update.UpdateCheckRequest;
 import org.sejda.eventstudio.Listener;
@@ -66,7 +69,15 @@ public class App extends Application {
         List<String> styles = (List<String>) ApplicationContextHolder.getContext().getBean("styles");
         Map<String, Image> logos = ApplicationContextHolder.getContext().getBeansOfType(Image.class);
         MainPane mainPane = ApplicationContextHolder.getContext().getBean(MainPane.class);
-        Scene scene = new Scene(mainPane);
+        // TEST
+        NotificationsContainer notifications = ApplicationContextHolder.getContext().getBean(
+                NotificationsContainer.class);
+        StackPane main = new StackPane();
+        StackPane.setAlignment(notifications, Pos.BOTTOM_RIGHT);
+        StackPane.setAlignment(mainPane, Pos.TOP_LEFT);
+        main.getChildren().addAll(mainPane, notifications);
+        // END TEST
+        Scene scene = new Scene(main);
         scene.getStylesheets().addAll(styles);
         primaryStage.setScene(scene);
         primaryStage.getIcons().addAll(logos.values());

@@ -18,13 +18,13 @@
  */
 package org.pdfsam.ui.module;
 
+import static java.util.Objects.isNull;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.math.BigDecimal;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
-import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.Tooltip;
@@ -47,8 +47,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 
+import de.jensd.fx.fontawesome.AwesomeDude;
 import de.jensd.fx.fontawesome.AwesomeIcon;
-
 /**
  * Footer common to all the modules that include the run button and the progress bar.
  * 
@@ -68,16 +68,12 @@ class ModuleFooterPane extends HBox {
 
     public ModuleFooterPane() {
         this.getStyleClass().add("task-footer");
-        Label failedGraphics = new Label(AwesomeIcon.WARNING.toString());
-        failedGraphics.getStyleClass().add("task-failed");
-        failed.getStyleClass().addAll("pdfsam-toolbar-button", "task-status-button");
-        failed.setGraphic(failedGraphics);
-        failed.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+        AwesomeDude.setIcon(failed, AwesomeIcon.TIMES_CIRCLE, "16px", ContentDisplay.GRAPHIC_ONLY);
+        failed.getStyleClass().addAll("pdfsam-toolbar-button", "task-status-button", "notification-error");
         failed.setVisible(false);
         failed.setOnAction(e -> eventStudio().broadcast(new ShowRequestEvent(), "LogStage"));
         failed.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Task execution failed")));
         open.setVisible(false);
-        bar.setRotate(180);
         bar.setPrefWidth(280);
     }
 
@@ -95,7 +91,7 @@ class ModuleFooterPane extends HBox {
         failed.setVisible(false);
         bar.setProgress(0);
         try {
-            if (event.getParameters().getOutput() != null) {
+            if (!isNull(event.getParameters().getOutput())) {
                 event.getParameters().getOutput().accept(open);
             }
         } catch (TaskOutputVisitException e) {

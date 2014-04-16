@@ -36,7 +36,7 @@ import org.pdfsam.context.DefaultI18nContext;
  * @author Andrea Vacondio
  * 
  */
-enum LongColumn implements SelectionTableColumn<Number> {
+public enum LongColumn implements SelectionTableColumn<Number> {
 
     SIZE {
         public String getColumnTitle() {

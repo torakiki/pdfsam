@@ -19,6 +19,9 @@
 package org.pdfsam.ui.module;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
+import java.util.function.Consumer;
+
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
@@ -26,21 +29,23 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.TaskExecutionRequestEvent;
+import org.pdfsam.ui.notification.AddNotificationRequestEvent;
+import org.pdfsam.ui.notification.NotificationType;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventStation;
 import org.sejda.model.parameter.base.TaskParameters;
 
 /**
- * Base class for a {@link Module}
+ * Base class for a {@link Module}. Modules are automatically scanned for event listener annotations and have their {@link EventStation} set to their {@link #id()}.
  * 
  * @author Andrea Vacondio
  *
  */
 @Named
 public abstract class BaseTaskExecutionModule implements Module {
-
     @Inject
     private ModuleFooterPane footer;
 
@@ -48,13 +53,25 @@ public abstract class BaseTaskExecutionModule implements Module {
 
     @PostConstruct
     final void init() {
-        footer.runButton().setOnAction(
-                event -> eventStudio().broadcast(new TaskExecutionRequestEvent(id(), getParameters())));
-        modulePanel.setBottom(footer);
         Pane innerPanel = getInnerPanel();
         innerPanel.getStyleClass().addAll(Style.DEAULT_CONTAINER.css());
         innerPanel.getStyleClass().addAll(Style.CONTAINER.css());
+
+        footer.runButton().setOnAction(
+                event -> {
+                    ErrorTracker errorTracker = new ErrorTracker();
+                    TaskParameters params = buildParameters(errorTracker.andThen(s -> {
+                        eventStudio().broadcast(
+                                new AddNotificationRequestEvent(NotificationType.ERROR, s, DefaultI18nContext
+                                        .getInstance().i18n("Invalid parameters")));
+                    }));
+                    if (!errorTracker.errorOnBuild) {
+                        eventStudio().broadcast(new TaskExecutionRequestEvent(id(), params));
+                    }
+                });
+        modulePanel.setBottom(footer);
         modulePanel.setCenter(innerPanel);
+        eventStudio().addAnnotatedListeners(this);
     }
 
     @EventStation
@@ -66,11 +83,27 @@ public abstract class BaseTaskExecutionModule implements Module {
     protected abstract Pane getInnerPanel();
 
     /**
+     * @param onError
+     *            function to be called in case of error while building the task parameters
      * @return parameters to be used to perform a pdf manipulation
      */
-    protected abstract TaskParameters getParameters();
+    protected abstract TaskParameters buildParameters(Consumer<String> onError);
 
     public Pane modulePanel() {
         return modulePanel;
+    }
+
+    /**
+     * It keeps track of errors during the build step and allow for a later assessment of the build process.
+     * 
+     * @author Andrea Vacondio
+     *
+     */
+    private static class ErrorTracker implements Consumer<String> {
+        boolean errorOnBuild = false;
+
+        public void accept(String error) {
+            errorOnBuild = true;
+        }
     }
 }

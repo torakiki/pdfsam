@@ -36,7 +36,7 @@ import org.pdfsam.context.DefaultI18nContext;
  * @author Andrea Vacondio
  * 
  */
-enum FileColumn implements SelectionTableColumn<File> {
+public enum FileColumn implements SelectionTableColumn<File> {
 
     NAME {
 
