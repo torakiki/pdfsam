@@ -22,9 +22,9 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.IOException;
 import java.io.StringWriter;
+import java.util.Arrays;
 
 import javafx.application.Platform;
-import javafx.scene.control.TextArea;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -32,14 +32,15 @@ import javax.inject.Named;
 
 import org.apache.commons.io.output.WriterOutputStream;
 import org.apache.commons.lang3.StringUtils;
+import org.pdfsam.context.DefaultI18nContext;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Qualifier;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
 import ch.qos.logback.classic.spi.ILoggingEvent;
+import ch.qos.logback.classic.spi.IThrowableProxy;
 import ch.qos.logback.core.AppenderBase;
 
 /**
@@ -51,11 +52,12 @@ import ch.qos.logback.core.AppenderBase;
 @Named
 public class TextAreaAppender extends AppenderBase<ILoggingEvent> {
 
+    private static final int MAX_STACK_DEPTH = 30;
+
     @Inject
     private PatternLayoutEncoder encoder;
     @Inject
-    @Qualifier("logArea")
-    private TextArea logArea;
+    public LogListView logListView;
 
     @PostConstruct
     public void init() {
@@ -81,14 +83,28 @@ public class TextAreaAppender extends AppenderBase<ILoggingEvent> {
 
     private void doAppendMessage(String message, ILoggingEvent event) {
         if (StringUtils.isNotBlank(message)) {
-            Platform.runLater(() -> logArea.appendText(String.format("%s %s", event.getLevel(), message)));
-            if (event.hasCallerData()) {
-                for (StackTraceElement current : event.getCallerData()) {
-                    Platform.runLater(() -> logArea.appendText(current.toString()));
-                }
-            }
+            Platform.runLater(() -> logListView.appendLog(LogLevel.toLogLevel(event.getLevel().toInt()), message));
+            appendStackIfAvailable(event);
             if (event.getLevel().isGreaterOrEqual(Level.ERROR)) {
                 Platform.runLater(() -> eventStudio().broadcast(new ErrorLoggedEvent()));
+            }
+        }
+    }
+
+    private void appendStackIfAvailable(ILoggingEvent event) {
+        IThrowableProxy throwable = event.getThrowableProxy();
+        if (throwable != null) {
+            Platform.runLater(() -> logListView.appendLog(LogLevel.toLogLevel(event.getLevel().toInt()),
+                    String.format("%s: %s", throwable.getClassName(), throwable.getMessage())));
+            Arrays.stream(throwable.getStackTraceElementProxyArray())
+                    .limit(MAX_STACK_DEPTH)
+                    .forEach(
+                            i -> Platform.runLater(() -> logListView.appendLog(
+                                    LogLevel.toLogLevel(event.getLevel().toInt()), i.toString())));
+            int left = throwable.getStackTraceElementProxyArray().length - MAX_STACK_DEPTH;
+            if (left > 0) {
+                Platform.runLater(() -> logListView.appendLog(LogLevel.toLogLevel(event.getLevel().toInt()),
+                        DefaultI18nContext.getInstance().i18n("...and other {0}.", Integer.toString(left))));
             }
         }
     }

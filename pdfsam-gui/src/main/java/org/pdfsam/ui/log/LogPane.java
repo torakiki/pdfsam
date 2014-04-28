@@ -18,19 +18,22 @@
  */
 package org.pdfsam.ui.log;
 
-import static org.apache.commons.lang3.StringUtils.isEmpty;
-import static org.pdfsam.support.io.TextFileWriter.writeContent;
+import static org.pdfsam.support.io.ObjectCollectionWriter.writeContent;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
+import java.util.Collection;
 
 import javafx.beans.binding.BooleanBinding;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
-import javafx.scene.control.TextArea;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
+import javafx.scene.layout.BorderPane;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -42,7 +45,6 @@ import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.io.FileChoosers;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper;
 import org.pdfsam.ui.support.Style;
-import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * Panel displaying log messages
@@ -51,53 +53,53 @@ import org.springframework.beans.factory.annotation.Qualifier;
  * 
  */
 @Named
-public class LogPane extends VBox {
+public class LogPane extends BorderPane {
+
     @Inject
-    @Qualifier("logArea")
-    private TextArea logArea;
+    public LogListView logView;
 
     public LogPane() {
         getStyleClass().addAll(Style.CONTAINER.css());
     }
 
     @PostConstruct
-    private void initMenu() {
-        VBox.setVgrow(logArea, Priority.ALWAYS);
-        getChildren().add(logArea);
+    private void postContrsutct() {
+        setCenter(logView);
 
         I18nContext i18n = DefaultI18nContext.getInstance();
         MenuItem copyItem = new MenuItem(i18n.i18n("Copy"));
-        copyItem.setOnAction(e -> logArea.copy());
+        copyItem.setAccelerator(new KeyCodeCombination(KeyCode.C, KeyCombination.SHORTCUT_DOWN));
+        copyItem.setOnAction(e -> copyLog(logView.getSelectionModel().getSelectedItems()));
         copyItem.getStyleClass().add("ctx-menu-item");
 
         // disable if no selection
         copyItem.disableProperty().bind(new BooleanBinding() {
             {
-                bind(logArea.selectionProperty());
+                bind(logView.getSelectionModel().getSelectedIndices());
             }
 
             @Override
             protected boolean computeValue() {
-                return logArea.selectionProperty().getValue().getLength() <= 0;
+                return logView.getSelectionModel().getSelectedItems().size() <= 0;
             }
         });
 
         MenuItem clearItem = new MenuItem(i18n.i18n("Clear"));
-        clearItem.setOnAction(e -> logArea.clear());
+        clearItem.setOnAction(e -> logView.getItems().clear());
         // disable if there's no text
         clearItem.disableProperty().bind(new BooleanBinding() {
             {
-                bind(logArea.textProperty());
+                bind(logView.getItems());
             }
 
             @Override
             protected boolean computeValue() {
-                return isEmpty(logArea.textProperty().getValue());
+                return logView.getItems().isEmpty();
             }
         });
 
         MenuItem selectAllItem = new MenuItem(i18n.i18n("Select all"));
-        selectAllItem.setOnAction(e -> logArea.selectAll());
+        selectAllItem.setOnAction(e -> logView.getSelectionModel().selectAll());
         // disable if there's no text
         selectAllItem.disableProperty().bind(clearItem.disableProperty());
 
@@ -106,20 +108,28 @@ public class LogPane extends VBox {
         // disable if there's no text
         saveItem.disableProperty().bind(clearItem.disableProperty());
         SeparatorMenuItem separator = new SeparatorMenuItem();
-        logArea.setContextMenu(new ContextMenu(copyItem, clearItem, selectAllItem, separator, saveItem));
-        logArea.focusedProperty().addListener(o -> eventStudio().broadcast(new ChangedVisiblityLogAreaEvent()));
+        logView.setContextMenu(new ContextMenu(copyItem, clearItem, selectAllItem, separator, saveItem));
+        logView.focusedProperty().addListener(o -> eventStudio().broadcast(new ChangedVisiblityLogAreaEvent()));
     }
 
     public void saveLog() {
-        RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(FileType.LOG,
-                DefaultI18nContext.getInstance().i18n("Select where to save the log file"));
+        RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(FileType.LOG, DefaultI18nContext
+                .getInstance().i18n("Select where to save the log file"));
         fileChooser.setInitialFileName("PDFsam.log");
         File chosenFile = fileChooser.showSaveDialog(this.getScene().getWindow());
         if (chosenFile != null) {
             if (chosenFile.exists()) {
                 // TODO show dialog? investigate. On Ubuntu it already asks confirmation.
             }
-            writeContent(logArea.getText()).to(chosenFile);
+            writeContent(logView.getItems()).to(chosenFile);
+        }
+    }
+
+    public void copyLog(Collection<LogMessage> selected) {
+        if (!selected.isEmpty()) {
+            ClipboardContent content = new ClipboardContent();
+            writeContent(selected).to(content);
+            Clipboard.getSystemClipboard().setContent(content);
         }
     }
 }

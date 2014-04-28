@@ -18,8 +18,6 @@
  */
 package org.pdfsam.configuration;
 
-import javafx.scene.control.TextArea;
-
 import org.pdfsam.ui.log.LogPane;
 import org.pdfsam.ui.log.TextAreaAppender;
 import org.springframework.context.annotation.Bean;
@@ -31,7 +29,7 @@ import org.springframework.context.annotation.FilterType;
 import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
 
 /**
- * IoC configuration for the loggin system
+ * IoC configuration for the logging system
  * 
  * @author Andrea Vacondio
  * 
@@ -41,18 +39,10 @@ import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
         LogPane.class, TextAreaAppender.class }))
 public class LoggerConfig {
 
-    @Bean(name = "logArea")
-    public TextArea logArea() {
-        TextArea logArea = new TextArea();
-        logArea.setEditable(false);
-        logArea.setWrapText(true);
-        return logArea;
-    }
-
     @Bean
     public PatternLayoutEncoder pattern() {
         PatternLayoutEncoder encoder = new PatternLayoutEncoder();
-        encoder.setPattern("[%d{HH:mm:ss}] %msg%n");
+        encoder.setPattern("%-5level %nopex [%d{HH:mm:ss}]: %msg%n");
         return encoder;
     }
 }

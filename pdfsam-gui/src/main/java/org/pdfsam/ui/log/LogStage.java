@@ -25,6 +25,7 @@ import java.util.List;
 
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import javax.annotation.PostConstruct;
@@ -33,8 +34,10 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.ui.ClosePane;
 import org.pdfsam.ui.HideOnEscapeHandler;
 import org.pdfsam.ui.support.ShowRequestEvent;
+import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 
 /**
@@ -56,7 +59,11 @@ public class LogStage extends Stage {
 
     @PostConstruct
     void init() {
-        Scene scene = new Scene(logPane);
+        BorderPane containerPane = new BorderPane();
+        containerPane.getStyleClass().addAll(Style.CONTAINER.css());
+        containerPane.setCenter(logPane);
+        containerPane.setBottom(new ClosePane());
+        Scene scene = new Scene(containerPane);
         scene.getStylesheets().addAll(styles);
         scene.setOnKeyReleased(new HideOnEscapeHandler(this));
         setScene(scene);

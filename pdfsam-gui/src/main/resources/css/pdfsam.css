@@ -15,7 +15,7 @@
     -fx-min-width: 340.0px;
 }
 .notification {
- 	-fx-background-color: theme-color, tooltipbg-color;
+ 	-fx-background-color: -fx-box-border, tooltipbg-color;
     -fx-background-insets: 0.0, 1.0;
     -fx-background-radius: 0.0, 0.0;
 	-fx-padding: 2.0 8.0 8.0 8.0 ;
@@ -55,10 +55,10 @@
     -fx-: 0.0px;
 }
 .notification .close:hover .awesome{
- 	-fx-text-fill: derive(-fx-text-base-color, 70%);
+ 	-fx-text-fill: derive(-fx-text-base-color, 70.0%);
 }
 .notification .close:armed .awesome{
- 	-fx-text-fill: derive(-fx-text-base-color, 30%);
+ 	-fx-text-fill: derive(-fx-text-base-color, 30.0%);
 }
 /**
  * About panel
@@ -75,9 +75,34 @@
 #aboutLabelsContainer{
 	-fx-padding: 10.0px;
 }
+
 #logoContainer{
 	-fx-padding: 0.0 1.8em 0.0 0.0;
+	-fx-background-color: #FFFFFF;
 }
+/**
+ * Log
+ */
+
+.log-view{
+ 	-fx-background-color: -fx-box-border,#FFFFFF;
+    -fx-background-insets: 0.0, 1.0;
+    -fx-padding: 1.0;
+}
+.log-view:focused {
+ -fx-background-color: -fx-focus-color,-fx-box-border,#FFFFFF;
+    -fx-background-insets: -1.4, 0.0, 1.0;
+    -fx-background-radius: 1.4, 0.0, 0.0;    
+}
+.log-view .list-cell,.list-cell:odd {
+}
+.warn-log{
+	-fx-text-fill: #305891;
+}
+.error-log{
+	-fx-text-fill: error-color;
+}
+
 /**
  * Banner
  */

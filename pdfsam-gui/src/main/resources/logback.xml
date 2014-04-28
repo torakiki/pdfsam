@@ -3,7 +3,7 @@
 	<!-- This is the default pdfsam logging configuration -->
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
-			<pattern>%d{HH:mm:ss.SSS} [%thread] %msg%n</pattern>
+			<pattern>%d{HH:mm:ss.SSS} %c{5}[%thread] %msg%n</pattern>
 		</encoder>
 	</appender>
 
