@@ -49,6 +49,7 @@ import org.springframework.context.annotation.Scope;
 
 import de.jensd.fx.fontawesome.AwesomeDude;
 import de.jensd.fx.fontawesome.AwesomeIcon;
+
 /**
  * Footer common to all the modules that include the run button and the progress bar.
  * 
@@ -85,7 +86,7 @@ class ModuleFooterPane extends HBox {
         eventStudio().addAnnotatedListeners(this);
     }
 
-    @EventListener
+    @EventListener(priority = Integer.MIN_VALUE)
     public void onTaskExecutionRequest(TaskExecutionRequestEvent event) {
         open.setVisible(false);
         failed.setVisible(false);

@@ -62,10 +62,9 @@ public class NotificationsContainer extends VBox {
         if (e.getFailingCause() instanceof InvalidTaskParametersException) {
             addNotification(DefaultI18nContext.getInstance().i18n("Invalid parameters"), DefaultI18nContext
                     .getInstance()
-                    .i18n("Input parameters are invalid, open the application messages for more details."),
+                    .i18n("Input parameters are invalid, open the application messages for details."),
                     NotificationType.ERROR);
         }
-
     }
 
     @EventListener
