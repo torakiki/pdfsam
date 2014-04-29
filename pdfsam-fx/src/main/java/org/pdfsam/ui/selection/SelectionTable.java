@@ -170,9 +170,9 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
             moveBottomSelected.setDisable(!e.canMove(MoveType.BOTTOM));
 
         }, getOwnerModule());
-        setContextMenu(new ContextMenu(removeSelected, moveTopSelected, moveUpSelected, moveDownSelected,
-                moveBottomSelected, new SeparatorMenuItem(), infoItem, openFileItem, openFolderItem,
-                new SeparatorMenuItem(), setDestinationItem));
+        setContextMenu(new ContextMenu(setDestinationItem, new SeparatorMenuItem(), removeSelected, moveTopSelected,
+                moveUpSelected, moveDownSelected, moveBottomSelected, new SeparatorMenuItem(), infoItem, openFileItem,
+                openFolderItem));
     }
 
     private MenuItem createMenuItem(String text, AwesomeIcon icon) {
