@@ -18,16 +18,16 @@
  */
 package org.pdfsam.ui.notification;
 
-import static org.pdfsam.support.RequireUtils.requireNotBlank;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.UUID;
 
-import javafx.animation.Animation.Status;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
@@ -48,18 +48,12 @@ class Notification extends BorderPane {
 
     private FadeTransition fade = new FadeTransition(Duration.millis(500), this);
 
-    Notification(String title, String text, NotificationType type) {
-        requireNotBlank(text, "Notification text cannot be blank");
+    Notification(String title, Node content) {
+        requireNotNull(content, "Notification content cannot be blank");
         getStyleClass().add("notification");
         setId(UUID.randomUUID().toString());
         Label titleLabel = new Label(title);
         titleLabel.getStyleClass().add("notification-title");
-        Label textLabel = new Label(text);
-        textLabel.getStyleClass().add("notification-text");
-        if (type != null) {
-            textLabel.getStyleClass().add(type.getStyleClass());
-            textLabel.setGraphic(type.getGraphic());
-        }
         Button closeButton = AwesomeDude.createIconButton(AwesomeIcon.TIMES);
         closeButton.getStyleClass().addAll("close");
         closeButton.setOnAction(e -> eventStudio().broadcast(new RemoveNotificationRequestEvent(getId())));
@@ -68,9 +62,9 @@ class Notification extends BorderPane {
         buttonPane.setAlignment(Pos.TOP_RIGHT);
         HBox.setHgrow(buttonPane, Priority.ALWAYS);
         titlePanel.getChildren().addAll(titleLabel, buttonPane);
-        BorderPane.setAlignment(textLabel, Pos.CENTER_LEFT);
+        BorderPane.setAlignment(content, Pos.CENTER_LEFT);
         setTop(titlePanel);
-        setCenter(textLabel);
+        setCenter(content);
         setOpacity(0);
         setOnMouseEntered(e -> {
             fade.pause();
@@ -83,19 +77,19 @@ class Notification extends BorderPane {
         fade.setToValue(0);
     }
 
-    void fadeAway(EventHandler<ActionEvent> onFaded, Duration delay) {
-        if (fade.getStatus() == Status.STOPPED) {
-            fade.setOnFinished(onFaded);
-            fade.setDelay(delay);
-            fade.play();
-        }
+    void onFade(EventHandler<ActionEvent> onFaded) {
+        fade.setOnFinished(onFaded);
+    }
+
+    void fadeAway(Duration delay) {
+        fade.stop();
+        fade.setDelay(delay);
+        fade.jumpTo(Duration.ZERO);
+        fade.play();
     }
 
     void fadeAway() {
-        fade.stop();
-        fade.setDelay(Duration.ZERO);
-        fade.jumpTo(Duration.ZERO);
-        fade.play();
+        fadeAway(Duration.ZERO);
     }
 
 }

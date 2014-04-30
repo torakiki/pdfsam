@@ -24,6 +24,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
 
+import javafx.application.Platform;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -54,7 +56,8 @@ class DefaultUpdateService implements UpdateService {
             Map<String, Object> map = JSON.std.mapFrom(new URL(UPDATES_URL));
             String current = map.getOrDefault(CURRENT_VERSION_KEY, "").toString();
             if (!current.equals(appVersion)) {
-                eventStudio().broadcast(new UpdateAvailableEvent(current));
+                LOG.info(DefaultI18nContext.getInstance().i18n("PDFsam {0} is available for download", current));
+                Platform.runLater(() -> eventStudio().broadcast(new UpdateAvailableEvent(current)));
             }
         } catch (IOException e) {
             LOG.warn(DefaultI18nContext.getInstance().i18n("Unable to find the latest available version."), e);

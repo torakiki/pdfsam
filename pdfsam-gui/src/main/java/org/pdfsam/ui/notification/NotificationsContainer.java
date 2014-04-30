@@ -18,20 +18,15 @@
  */
 package org.pdfsam.ui.notification;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.animation.FadeTransition;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Named;
-
-import org.pdfsam.context.DefaultI18nContext;
-import org.sejda.eventstudio.annotation.EventListener;
-import org.sejda.model.exception.InvalidTaskParametersException;
-import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 
 /**
  * Container for the notifications
@@ -47,42 +42,34 @@ public class NotificationsContainer extends VBox {
         setMaxHeight(Region.USE_PREF_SIZE);
     }
 
-    @PostConstruct
-    void init() {
-        eventStudio().addAnnotatedListeners(this);
+    void addNotification(String title, Node message) {
+        Notification toAdd = doAddNotification(title, message);
+        fadeIn(toAdd, (e) -> toAdd.fadeAway(Duration.millis(2000)));
     }
 
-    @EventListener
-    public void onAddRequest(AddNotificationRequestEvent event) {
-        addNotification(event.getTitle(), event.getMessage(), event.getType());
+    void addStickyNotification(String title, Node message) {
+        Notification toAdd = doAddNotification(title, message);
+        fadeIn(toAdd, null);
     }
 
-    @EventListener
-    public void onTaskFailed(TaskExecutionFailedEvent e) {
-        if (e.getFailingCause() instanceof InvalidTaskParametersException) {
-            addNotification(DefaultI18nContext.getInstance().i18n("Invalid parameters"), DefaultI18nContext
-                    .getInstance()
-                    .i18n("Input parameters are invalid, open the application messages for details."),
-                    NotificationType.ERROR);
-        }
-    }
-
-    @EventListener
-    public void onRemoveRequest(RemoveNotificationRequestEvent event) {
-        removeNotification(event.getNotificationId());
-    }
-
-    private void addNotification(String title, String message, NotificationType type) {
-        Notification toAdd = new Notification(title, message, type);
+    private Notification doAddNotification(String title, Node message) {
+        Notification toAdd = new Notification(title, message);
+        toAdd.onFade(e -> getChildren().remove(toAdd));
         getChildren().add(toAdd);
-        toAdd.fadeAway(e -> getChildren().remove(toAdd), Duration.millis(2000));
+        return toAdd;
+    }
+
+    private void fadeIn(Notification toAdd, EventHandler<ActionEvent> onFinished) {
         FadeTransition transition = new FadeTransition(Duration.millis(300), toAdd);
         transition.setFromValue(0);
         transition.setToValue(1);
+        if (onFinished != null) {
+            transition.setOnFinished(onFinished);
+        }
         transition.play();
     }
 
-    private void removeNotification(String id) {
+    void removeNotification(String id) {
         Node toRemove = getChildById(id);
         if (toRemove != null && toRemove instanceof Notification) {
             ((Notification) toRemove).fadeAway();
