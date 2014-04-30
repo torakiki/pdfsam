@@ -20,9 +20,11 @@ package org.pdfsam.task;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.inject.Singleton;
 
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.module.UsageService;
@@ -42,16 +44,16 @@ import org.slf4j.LoggerFactory;
  * 
  */
 @Named
-@Singleton
-class TaskExecutionRequestSubscriber {
-    private static final Logger LOG = LoggerFactory.getLogger(TaskExecutionRequestSubscriber.class);
+class TaskExecutionController {
+    private static final Logger LOG = LoggerFactory.getLogger(TaskExecutionController.class);
 
     @Inject
     private ExecutionService executionService;
     @Inject
     private UsageService usageService;
+    private ExecutorService executor = Executors.newSingleThreadExecutor();
 
-    public TaskExecutionRequestSubscriber() {
+    public TaskExecutionController() {
         eventStudio().addAnnotatedListeners(this);
         GlobalNotificationContext.getContext().addListener(TaskExecutionFailedEvent.class,
                 new TaskEventBroadcaster<TaskExecutionFailedEvent>());
@@ -72,7 +74,7 @@ class TaskExecutionRequestSubscriber {
     public void request(TaskExecutionRequestEvent event) {
         LOG.trace("Task execution request received");
         usageService.incrementUsageFor(event.getModuleId());
-        executionService.submit(event.getModuleId(), event.getParameters());
+        executor.submit(() -> executionService.submit(event.getModuleId(), event.getParameters()));
         LOG.trace("Task execution submitted");
     }
 }

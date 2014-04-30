@@ -42,7 +42,7 @@ import com.itextpdf.text.pdf.PdfReader;
  * 
  */
 @Named
-public class ITextPdfLoadService implements PdfLoadService {
+class ITextPdfLoadService implements PdfLoadService {
 
     private static final Logger LOG = LoggerFactory.getLogger(ITextPdfLoadService.class);
 

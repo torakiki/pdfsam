@@ -18,9 +18,6 @@
  */
 package org.pdfsam.task;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
@@ -39,17 +36,14 @@ import org.slf4j.LoggerFactory;
 @Named
 class DefaultExecutionService implements ExecutionService {
     private static final Logger LOG = LoggerFactory.getLogger(DefaultExecutionService.class);
-    private ExecutorService executor = Executors.newSingleThreadExecutor();
 
     @Override
     public void submit(String moduleId, TaskParameters params) {
-        executor.submit(() -> {
-            TaskExecutionService service = new DefaultTaskExecutionService();
-            try {
-                service.execute(params);
-            } catch (RuntimeException re) {
-                LOG.error(DefaultI18nContext.getInstance().i18n("Unexpected error"), re);
-            }
-        });
+        TaskExecutionService service = new DefaultTaskExecutionService();
+        try {
+            service.execute(params);
+        } catch (RuntimeException re) {
+            LOG.error(DefaultI18nContext.getInstance().i18n("Unexpected error"), re);
+        }
     }
 }

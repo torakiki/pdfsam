@@ -48,9 +48,10 @@
 		<hibernate-validator.version>4.2.0.Final</hibernate-validator.version>
 		<sejda.version>1.0.0.M9</sejda.version>
 		<eventstudio.version>1.0.2</eventstudio.version>
-		<org.springframework.version>4.0.1.RELEASE</org.springframework.version>
+		<org.springframework.version>4.0.3.RELEASE</org.springframework.version>
 		<fontawesomefx.version>8.0.6</fontawesomefx.version>
 		<testfx.version>3.1.1</testfx.version>
+		<jackson-jr.version>2.3.3</jackson-jr.version>
 		<maven.build.timestamp.format>dd-MMM-yyyy</maven.build.timestamp.format>
 		<pdfsam.package>BASIC</pdfsam.package>
 		<pdfsam.builddate>${maven.build.timestamp}</pdfsam.builddate>
@@ -145,6 +146,11 @@
 				<groupId>javax.inject</groupId>
 				<artifactId>javax.inject</artifactId>
 				<version>1</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.jr</groupId>
+				<artifactId>jackson-jr-objects</artifactId>
+				<version>${jackson-jr.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>jdepend</groupId>

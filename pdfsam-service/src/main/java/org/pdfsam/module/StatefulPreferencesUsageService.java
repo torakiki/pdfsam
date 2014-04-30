@@ -40,7 +40,7 @@ import org.slf4j.LoggerFactory;
  * 
  */
 @Named
-public class StatefulPreferencesUsageService implements UsageService {
+class StatefulPreferencesUsageService implements UsageService {
 
     private static final Logger LOG = LoggerFactory.getLogger(StatefulPreferencesUsageService.class);
 

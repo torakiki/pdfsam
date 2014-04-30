@@ -3,12 +3,12 @@
 	<!-- This is the default pdfsam logging configuration -->
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
-			<pattern>%d{HH:mm:ss.SSS} %c{5}[%thread] %msg%n</pattern>
+			<pattern>%-5level %d{HH:mm:ss.SSS} %c{5}[%thread] %msg%n</pattern>
 		</encoder>
 	</appender>
 
 	<logger name="org.sejda" level="TRACE" />
-	<logger name="org.sejda.eventstudio" level="INFO" />
+	<logger name="org.sejda.eventstudio" level="DEBUG" />
 	<logger name="org.pdfsam" level="TRACE" />
 	<logger name="org.hibernate" level="WARN" />
 	<logger name="org.springframework" level="INFO" />

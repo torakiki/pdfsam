@@ -34,12 +34,12 @@ import org.slf4j.LoggerFactory;
  *
  */
 @Named
-public class ClearUsageRequestSubscriber {
-    private static final Logger LOG = LoggerFactory.getLogger(ClearUsageRequestSubscriber.class);
+public class ClearUsageController {
+    private static final Logger LOG = LoggerFactory.getLogger(ClearUsageController.class);
     @Inject
     private UsageService service;
 
-    public ClearUsageRequestSubscriber() {
+    public ClearUsageController() {
         eventStudio().addAnnotatedListeners(this);
     }
 

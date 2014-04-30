@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 29/nov/2012
- * Copyright 2012 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 13/giu/2013
+ * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,39 +16,47 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.update;
+package org.pdfsam.pdf;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.configuration.ApplicationContextHolder;
-import org.pdfsam.context.DefaultI18nContext;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Controller responding to updates related request.
+ * Component listening for {@link PdfLoadRequestEvent}, triggering the actual pdf load and sending out a response with the result of the loading
  * 
  * @author Andrea Vacondio
  * 
  */
 @Named
-class UpdateController {
-    private static final Logger LOG = LoggerFactory.getLogger(UpdateController.class);
+public class PdfLoadController {
 
-    UpdateController() {
+    private static final Logger LOG = LoggerFactory.getLogger(PdfLoadController.class);
+
+    @Inject
+    private PdfLoadService loadService;
+    private ExecutorService executor = Executors.newSingleThreadExecutor();
+
+    public PdfLoadController() {
         eventStudio().addAnnotatedListeners(this);
     }
 
+    /**
+     * Request to load a collection of documents
+     * 
+     * @param event
+     */
     @EventListener
-    public void checkForUpdates(UpdateCheckRequest event) {
-        LOG.debug(DefaultI18nContext.getInstance().i18n("Checking for updates"));
-        AsyncUpdateChecker worker = ApplicationContextHolder.getContext().getBean(AsyncUpdateChecker.class);
-        if (worker != null) {
-            worker.execute();
-        }
+    public void request(PdfLoadRequestEvent event) {
+        LOG.trace("Pdf load request received");
+        executor.submit(() -> loadService.load(event.getDocuments()));
     }
-
 }
