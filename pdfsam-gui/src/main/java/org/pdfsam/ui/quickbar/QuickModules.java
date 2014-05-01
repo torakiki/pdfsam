@@ -18,10 +18,14 @@
  */
 package org.pdfsam.ui.quickbar;
 
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 
 import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.BooleanPropertyBase;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.scene.layout.VBox;
 
 import javax.annotation.PostConstruct;
@@ -30,6 +34,8 @@ import javax.inject.Named;
 
 import org.pdfsam.module.Module;
 import org.pdfsam.module.UsageService;
+import org.pdfsam.ui.SetCurrentModuleRequest;
+import org.sejda.eventstudio.annotation.EventListener;
 
 /**
  * Panel showing buttons to access the most used and most recently used modules
@@ -41,8 +47,10 @@ import org.pdfsam.module.UsageService;
 class QuickModules extends VBox {
     private static final int RECENT_MODULES = 3;
     private static final int MAX_MODULES = 8;
+
     @Inject
     private UsageService usage;
+    private List<ModuleButton> buttons = new ArrayList<>();
 
     QuickModules() {
         this.getStyleClass().add("quickbar-modules");
@@ -57,7 +65,14 @@ class QuickModules extends VBox {
             ModuleButton currentButton = new ModuleButton(current);
             currentButton.displayTextProperty().bind(displayText);
             getChildren().add(currentButton);
+            buttons.add(currentButton);
         }
+        eventStudio().addAnnotatedListeners(this);
+    }
+
+    @EventListener
+    public void on(SetCurrentModuleRequest r) {
+        buttons.forEach((b) -> b.setSelected(b.moduleId().equals(r.getModuleId())));
     }
 
     private void fillWithMostUsed(LinkedHashSet<Module> collected) {
@@ -81,16 +96,7 @@ class QuickModules extends VBox {
     /**
      * Property telling if the buttons labels should be visible
      */
-    private BooleanProperty displayText = new BooleanPropertyBase(false) {
-
-        public String getName() {
-            return "displayText";
-        }
-
-        public Object getBean() {
-            return QuickModules.this;
-        }
-    };
+    private BooleanProperty displayText = new SimpleBooleanProperty(false);
 
     public final void setDisplayText(boolean value) {
         displayTextProperty().set(value);

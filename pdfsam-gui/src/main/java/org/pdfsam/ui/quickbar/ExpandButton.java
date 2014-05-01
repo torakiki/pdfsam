@@ -19,6 +19,7 @@
 package org.pdfsam.ui.quickbar;
 
 import javafx.beans.property.BooleanProperty;
+import javafx.geometry.Insets;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.shape.SVGPath;
@@ -53,6 +54,7 @@ class ExpandButton extends HBox {
                 toggle.setGraphic(expand);
             }
         });
+        HBox.setMargin(toggle, new Insets(0, 7, 0, 7));
     }
 
     @PostConstruct

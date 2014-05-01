@@ -162,7 +162,7 @@
 .quickbar-buttons {
 	-fx-background-color: light-border-color, defaultbg-color;
    	-fx-background-insets: 0.0, 0.0 1.0 0.0 0.0;
-    -fx-padding: 0.0 0.5em 0.0 0.5em;
+   	-fx-padding: 0.0 0.0 0.0 3.0px;
 }
 .quickbar-expand-button {
 	-fx-padding: 0.0 0.0 0.5em 0.0;
@@ -190,9 +190,23 @@
 .quickbar-modules{
 	-fx-padding: 0.0 0.0 1.0em 0.0;
 }
-.quickbar-navigation-button {
-	-fx-background-color:  defaultbg-color;
+.quickbar-navigation-button, .quickbar-navigation-button:focused {
+	-fx-background-color:  light-border-color, defaultbg-color;
+    -fx-background-insets:  0.0, 0.0 1.0 0.0 0.0 ;
     -fx-alignment: center-left;
+    -fx-background-radius: 0.0;
+    -fx-padding: 5.0px 10.0px 5.0px 10.0px;
+}
+.quickbar-navigation-button:hover{
+	-fx-background-color:  theme-color, light-border-color, defaultbg-color;
+    -fx-background-insets:  0.0, 0.0 0.0 0.0 1.5, 0.0 1.0 0.0 1.5;		
+}
+.quickbar-navigation-button:armed {
+    -fx-background-color:  light-border-color, -fx-focus-color;
+}
+.quickbar-navigation-button:selected{
+	-fx-background-color:  light-border-color, defaultbg-color;
+    -fx-background-insets:  0.0 , 1.0 0.0 1.0 0.0 ;
 }
 .quickbar-social{
 	-fx-alignment: center;
