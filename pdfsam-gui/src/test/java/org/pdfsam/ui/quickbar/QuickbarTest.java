@@ -40,7 +40,7 @@ public class QuickbarTest extends GuiTest {
         ctx = new AnnotationConfigApplicationContext();
         ctx.register(QuickbarTestConfig.class);
         ctx.refresh();
-        return ctx.getBean(QuickbarPane.class);
+        return ctx.getBean(QuickbarModulesPane.class);
     }
 
     @Test

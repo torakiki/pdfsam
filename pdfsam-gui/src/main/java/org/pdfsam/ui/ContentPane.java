@@ -35,7 +35,7 @@ import javax.inject.Named;
 
 import org.pdfsam.SetTitleEvent;
 import org.pdfsam.module.Module;
-import org.pdfsam.ui.quickbar.QuickbarPane;
+import org.pdfsam.ui.quickbar.QuickbarModulesPane;
 import org.sejda.eventstudio.annotation.EventListener;
 
 /**
@@ -48,7 +48,7 @@ import org.sejda.eventstudio.annotation.EventListener;
 public class ContentPane extends BorderPane {
 
     @Inject
-    private QuickbarPane navigation;
+    private QuickbarModulesPane navigation;
     private Map<String, Module> modules = new HashMap<>();
     private StackPane center = new StackPane();
     private FadeTransition fade = new FadeTransition(new Duration(300), center);

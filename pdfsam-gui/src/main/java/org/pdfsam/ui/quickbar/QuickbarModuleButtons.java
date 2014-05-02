@@ -44,7 +44,7 @@ import org.sejda.eventstudio.annotation.EventListener;
  *
  */
 @Named
-class QuickModules extends VBox {
+class QuickbarModuleButtons extends VBox {
     private static final int RECENT_MODULES = 3;
     private static final int MAX_MODULES = 8;
 
@@ -52,7 +52,7 @@ class QuickModules extends VBox {
     private UsageService usage;
     private List<ModuleButton> buttons = new ArrayList<>();
 
-    QuickModules() {
+    QuickbarModuleButtons() {
         this.getStyleClass().add("quickbar-modules");
     }
 

@@ -32,27 +32,23 @@ import javax.inject.Named;
  * 
  */
 @Named
-public class QuickbarPane extends VBox {
+public class QuickbarModulesPane extends VBox {
 
     @Inject
     private ExpandButton expandButton;
     @Inject
-    private QuickModules modules;
-    @Inject
-    private SocialPane socialPane;
+    private QuickbarModuleButtons modules;
 
-    public QuickbarPane() {
+    public QuickbarModulesPane() {
         getStyleClass().add("quickbar");
     }
 
     @PostConstruct
     private void init() {
         modules.displayTextProperty().bind(expandButton.selectedProperty());
-        socialPane.visibleProperty().bind(expandButton.selectedProperty());
-        socialPane.managedProperty().bind(expandButton.selectedProperty());
         VBox buttonContainer = new VBox(expandButton, modules);
         buttonContainer.getStyleClass().add("quickbar-buttons");
         setVgrow(buttonContainer, Priority.ALWAYS);
-        getChildren().addAll(buttonContainer, socialPane);
+        getChildren().addAll(buttonContainer);
     }
 }

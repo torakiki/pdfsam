@@ -20,24 +20,18 @@ package org.pdfsam.ui.quickbar;
 
 import static org.pdfsam.support.RequireUtils.require;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.css.PseudoClass;
-import javafx.scene.control.Button;
-import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Tooltip;
 
 import org.pdfsam.module.Module;
 import org.pdfsam.ui.SetCurrentModuleRequest;
 
 /**
- * Button to open a module
+ * Quickbar button to select a module
  * 
  * @author Andrea Vacondio
  *
  */
-class ModuleButton extends Button {
-    private static final PseudoClass SELECTED_PSEUDOCLASS_STATE = PseudoClass.getPseudoClass("selected");
+class ModuleButton extends BaseQuickbarButton {
 
     private Module module;
 
@@ -46,59 +40,12 @@ class ModuleButton extends Button {
         this.module = module;
         setGraphic(this.module.graphic());
         setText(this.module.descriptor().getName());
-        getStyleClass().addAll("quickbar-navigation-button");
-        setMaxWidth(Double.MAX_VALUE);
         setOnAction(e -> eventStudio().broadcast(new SetCurrentModuleRequest(ModuleButton.this.module.id())));
         setTooltip(new Tooltip(this.module.descriptor().getDescription()));
     }
 
     String moduleId() {
         return module.id();
-    }
-
-    private BooleanProperty displayText = new SimpleBooleanProperty(false) {
-        @Override
-        protected void invalidated() {
-            if (get()) {
-                setContentDisplay(ContentDisplay.LEFT);
-            } else {
-                setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
-            }
-        }
-    };
-
-    public final BooleanProperty displayTextProperty() {
-        return displayText;
-    }
-
-    public final void setDisplayText(boolean value) {
-        displayTextProperty().set(value);
-    }
-
-    public final boolean isDisplayText() {
-        return displayText.get();
-    }
-
-    /**
-     * Property telling if the button is selected
-     */
-    private BooleanProperty selected = new SimpleBooleanProperty(false) {
-        @Override
-        protected void invalidated() {
-            pseudoClassStateChanged(SELECTED_PSEUDOCLASS_STATE, get());
-        }
-    };
-
-    public final BooleanProperty selectedProperty() {
-        return selected;
-    }
-
-    public final void setSelected(boolean value) {
-        selectedProperty().set(value);
-    }
-
-    public final boolean isSelected() {
-        return selected.get();
     }
 
 }
