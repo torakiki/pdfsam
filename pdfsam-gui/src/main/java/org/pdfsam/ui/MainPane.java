@@ -26,7 +26,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.ui.banner.BannerPane;
-import org.pdfsam.ui.menu.AppMenuBar;
 
 /**
  * Main panel containing menu, banner and the content area
@@ -40,13 +39,11 @@ public class MainPane extends VBox {
     @Inject
     private ContentPane mainPane;
     @Inject
-    private AppMenuBar menuBar;
-    @Inject
     private BannerPane banner;
 
     @PostConstruct
     public void init() {
         VBox.setVgrow(mainPane, Priority.ALWAYS);
-        getChildren().addAll(menuBar, banner, mainPane);
+        getChildren().addAll(banner, mainPane);
     }
 }

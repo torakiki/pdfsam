@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 31/ott/2013
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 03/mag/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,12 +16,12 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.menu;
+package org.pdfsam.ui.banner;
 
 import javafx.application.Platform;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.SeparatorMenuItem;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -29,23 +29,15 @@ import javax.inject.Named;
 
 import org.pdfsam.configuration.ApplicationContextHolder;
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.ui.ShowStageHandler;
-import org.pdfsam.ui.about.AboutStage;
-import org.pdfsam.ui.preference.PreferenceStage;
 
 /**
- * {@link MenuBar} of the PDFsam application
+ * Context menu showing app functionalities. This is supposed to be activated by the menu button
  * 
  * @author Andrea Vacondio
- * 
+ *
  */
 @Named
-public class AppMenuBar extends MenuBar {
-
-    @Inject
-    private PreferenceStage preferenceStage;
-    @Inject
-    private AboutStage aboutStage;
+class AppContextMenu extends ContextMenu {
     @Inject
     private WorkspaceMenu workspace;
     @Inject
@@ -53,25 +45,12 @@ public class AppMenuBar extends MenuBar {
 
     @PostConstruct
     private void initMenues() {
-        getStyleClass().add("pdfsam-menubar");
-        Menu file = new Menu(DefaultI18nContext.getInstance().i18n("_File"));
         MenuItem exit = new MenuItem(DefaultI18nContext.getInstance().i18n("E_xit"));
         exit.setOnAction(e -> {
             ApplicationContextHolder.getContext().close();
             Platform.exit();
         });
-        file.getItems().add(exit);
 
-        Menu edit = new Menu(DefaultI18nContext.getInstance().i18n("_Edit"));
-        MenuItem preferences = new MenuItem(DefaultI18nContext.getInstance().i18n("_Preferences"));
-        preferences.setOnAction(new ShowStageHandler(preferenceStage));
-        edit.getItems().add(preferences);
-
-        Menu help = new Menu(DefaultI18nContext.getInstance().i18n("_Help"));
-        MenuItem about = new MenuItem(DefaultI18nContext.getInstance().i18n("A_bout"));
-        about.setOnAction(new ShowStageHandler(aboutStage));
-        help.getItems().add(about);
-        getMenus().addAll(file, edit, workspace, modulesMenu, help);
+        getItems().addAll(workspace, modulesMenu, new SeparatorMenuItem(), exit);
     }
-
 }

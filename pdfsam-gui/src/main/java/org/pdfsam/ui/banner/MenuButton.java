@@ -19,8 +19,11 @@
 package org.pdfsam.ui.banner;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import javafx.geometry.Side;
 import javafx.scene.control.Tooltip;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
@@ -36,9 +39,18 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
  */
 @Named
 class MenuButton extends BannerButton {
+    @Inject
+    private AppContextMenu menu;
+
     MenuButton() {
         super(AwesomeIcon.REORDER);
         setOnAction(e -> eventStudio().broadcast(new ShowRequestEvent(), "LogStage"));
         setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Open menu")));
+
+    }
+
+    @PostConstruct
+    private void initMenues() {
+        setOnAction((e) -> menu.show(this, Side.BOTTOM, 0, 0));
     }
 }
