@@ -18,15 +18,7 @@
  */
 package org.pdfsam.ui.banner;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
-
-import java.io.IOException;
-
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
-import javafx.scene.control.Button;
-import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -36,10 +28,6 @@ import javafx.scene.layout.StackPane;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
-
-import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.ui.support.ShowRequestEvent;
-import org.springframework.core.io.ClassPathResource;
 
 /**
  * Panel showed on the top part of the application. It displays branding images and a toolbar
@@ -57,13 +45,19 @@ public class BannerPane extends HBox {
     private Image logo;
     @Inject
     private ErrorsNotification errorNotification;
+    @Inject
+    private LogButton logButton;
+    @Inject
+    private DashboardButton dashboardButton;
+    @Inject
+    private MenuButton menuButton;
 
     public BannerPane() {
         getStyleClass().add("pdfsam-banner");
     }
 
     @PostConstruct
-    private void init() throws IOException {
+    private void init() {
         HBox buttonBar = buildButtonsBar();
         HBox.setHgrow(buttonBar, Priority.ALWAYS);
         HBox logoView = new HBox();
@@ -72,20 +66,13 @@ public class BannerPane extends HBox {
         getChildren().addAll(logoView, buttonBar);
     }
 
-    private HBox buildButtonsBar() throws IOException {
+    private HBox buildButtonsBar() {
         // TODO update buttons
-        // TODO home button
         HBox buttons = new HBox();
         buttons.getStyleClass().addAll("pdfsam-container", "pdfsam-banner-buttons");
-        Button logsButton = new Button();
-        logsButton.setGraphic((Group) FXMLLoader.load(new ClassPathResource("/fxml/log-button.fxml").getURL()));
-        logsButton.setOnAction(e -> eventStudio().broadcast(new ShowRequestEvent(), "LogStage"));
-        logsButton.getStyleClass().add("pdfsam-toolbar-button");
-        logsButton.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
-                "Open the window displaying application messages")));
-        StackPane logs = new StackPane(logsButton, errorNotification);
+        StackPane logs = new StackPane(logButton, errorNotification);
         StackPane.setAlignment(errorNotification, Pos.BOTTOM_LEFT);
-        buttons.getChildren().addAll(logs);
+        buttons.getChildren().addAll(logs, dashboardButton, menuButton);
         return buttons;
     }
 

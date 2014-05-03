@@ -29,10 +29,10 @@ import javafx.scene.control.ContentDisplay;
  * 
  * @author Andrea Vacondio
  */
-class BaseQuickbarButton extends Button {
+public class BaseQuickbarButton extends Button {
     private static final PseudoClass SELECTED_PSEUDOCLASS_STATE = PseudoClass.getPseudoClass("selected");
 
-    BaseQuickbarButton() {
+    public BaseQuickbarButton() {
         getStyleClass().addAll("quickbar-navigation-button");
         setMaxWidth(Double.MAX_VALUE);
     }

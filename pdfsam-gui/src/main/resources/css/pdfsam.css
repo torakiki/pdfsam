@@ -113,6 +113,10 @@
     -fx-background-radius: 0.0, 0.0;
     -fx-alignment: center-left;    
  }
+.pdfsam-banner .awesome, .pdfsam-banner .awesome:hover{
+    -fx-effect: null;
+    -fx-text-fill:  derive(light-border-color, -20%);
+}
 .pdfsam-logo{
 	-fx-padding: 8.0 4.0 8.0 12.0;
  	-fx-spacing: 15.0px;
@@ -123,18 +127,18 @@
  	-fx-spacing: 5.0px;
  	-fx-alignment: center-right;
  }
-.pdfsam-toolbar-button {
+.pdfsam-toolbar-button, .pdfsam-toolbar-button:focused {
     -fx-background-color: headerbg-color;
     -fx-background-insets: 0.0;
     -fx-background-radius: 0.0;
 }
-.pdfsam-toolbar-button:focused, .pdfsam-toolbar-button:hover{
+.pdfsam-toolbar-button:hover{
     -fx-background-color:  light-border-color, defaultbg-color;
     -fx-background-insets:  0.0, 1.0;
     -fx-background-radius: 0.0;
 }
 .pdfsam-toolbar-button:armed {
-    -fx-background-color:  light-border-color, -fx-focus-color;
+    -fx-background-color:  light-border-color, derive(light-border-color, 90%);
 }
 .pdfsam-toolbar-button:disabled {
     -fx-opacity: -fx-disabled-opacity;
@@ -209,7 +213,7 @@
     -fx-background-insets:  0.0 , 1.0 0.0 1.0 0.0 ;
 }
 .quickbar-navigation-button:disabled {
-    -fx-opacity: 1;
+    -fx-opacity: 1.0;
 }
 .quickbar-social{
 	-fx-alignment: center;

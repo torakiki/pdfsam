@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 31/ott/2013
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 03/mag/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,36 +16,29 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui;
+package org.pdfsam.ui.banner;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.layout.StackPane;
+import javafx.scene.control.Tooltip;
 
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.ui.dashboard.Dashboard;
-import org.pdfsam.ui.module.ModulesPane;
+import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.ui.support.ShowRequestEvent;
+
+import de.jensd.fx.fontawesome.AwesomeIcon;
 
 /**
- * Panel containing the main area where the modules pane and the dashboard pane are displayed
+ * Button to open the menu
  * 
  * @author Andrea Vacondio
- * 
+ *
  */
 @Named
-public class ContentPane extends StackPane {
-
-    @Inject
-    private ModulesPane modules;
-    @Inject
-    private Dashboard dashboard;
-
-    @PostConstruct
-    private void init() {
-        getChildren().addAll(modules, dashboard);
-        eventStudio().addAnnotatedListeners(this);
+class MenuButton extends BannerButton {
+    MenuButton() {
+        super(AwesomeIcon.REORDER);
+        setOnAction(e -> eventStudio().broadcast(new ShowRequestEvent(), "LogStage"));
+        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Open menu")));
     }
-
 }

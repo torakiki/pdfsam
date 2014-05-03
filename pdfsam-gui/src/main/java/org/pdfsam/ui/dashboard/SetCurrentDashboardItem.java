@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 31/ott/2013
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 02/mag/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,36 +16,27 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui;
+package org.pdfsam.ui.dashboard;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.layout.StackPane;
-
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-import javax.inject.Named;
-
-import org.pdfsam.ui.dashboard.Dashboard;
-import org.pdfsam.ui.module.ModulesPane;
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.pdfsam.support.RequireUtils.require;
 
 /**
- * Panel containing the main area where the modules pane and the dashboard pane are displayed
+ * Request to set visible the given dashboard item
  * 
  * @author Andrea Vacondio
- * 
+ *
  */
-@Named
-public class ContentPane extends StackPane {
+public class SetCurrentDashboardItem {
+    private String dashboardId;
 
-    @Inject
-    private ModulesPane modules;
-    @Inject
-    private Dashboard dashboard;
+    public SetCurrentDashboardItem(String dashboardId) {
+        require(isNotBlank(dashboardId), "Dashboard id cannot be null");
+        this.dashboardId = dashboardId;
+    }
 
-    @PostConstruct
-    private void init() {
-        getChildren().addAll(modules, dashboard);
-        eventStudio().addAnnotatedListeners(this);
+    public String getDashboardItemId() {
+        return dashboardId;
     }
 
 }

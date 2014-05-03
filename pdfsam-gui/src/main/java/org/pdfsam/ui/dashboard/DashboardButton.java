@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 10/feb/2014
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 02/mag/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,36 +16,31 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.quickbar;
+package org.pdfsam.ui.dashboard;
 
 import static org.pdfsam.support.RequireUtils.require;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.control.Tooltip;
 
-import org.pdfsam.module.Module;
-import org.pdfsam.ui.SetCurrentModuleRequest;
+import org.pdfsam.ui.quickbar.BaseQuickbarButton;
 
 /**
- * Quickbar button to select a module
+ * Button for the quickbar of the dashboard
  * 
  * @author Andrea Vacondio
  *
  */
-class ModuleButton extends BaseQuickbarButton {
+class DashboardButton extends BaseQuickbarButton {
+    private DashboardItem item;
 
-    private Module module;
-
-    ModuleButton(Module module) {
-        require(module != null, "Module cannot be null");
-        this.module = module;
-        setGraphic(this.module.graphic());
-        setText(this.module.descriptor().getName());
-        setOnAction(e -> eventStudio().broadcast(new SetCurrentModuleRequest(ModuleButton.this.module.id())));
-        setTooltip(new Tooltip(this.module.descriptor().getDescription()));
+    DashboardButton(DashboardItem item) {
+        require(item != null, "Dashboard item cannot be null");
+        this.item = item;
+        setGraphic(this.item.graphic());
+        setText(this.item.name());
+        setOnAction(e -> eventStudio().broadcast(new SetCurrentDashboardItem(this.item.id())));
     }
 
-    String moduleId() {
-        return module.id();
+    String itemId() {
+        return item.id();
     }
-
 }

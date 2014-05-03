@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 21/ott/2013
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 02/mag/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -20,6 +20,7 @@ package org.pdfsam.ui;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.TextAlignment;
 
@@ -27,20 +28,21 @@ import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.support.Style;
 
 /**
- * Panel with a "Close" button to be used as bottom of closeable Stage.
+ * {@link BorderPane} where the bottom area is occupied by a panel providing a "Close" button that hides the hiding panel
  * 
  * @author Andrea Vacondio
- * 
+ *
  */
-public class ClosePane extends HBox {
+public class HidingPane extends BorderPane {
 
-    public ClosePane() {
-        setAlignment(Pos.CENTER_RIGHT);
-        getStyleClass().addAll(Style.CONTAINER.css());
+    public HidingPane() {
         Button closeButton = new Button(DefaultI18nContext.getInstance().i18n("Close"));
         closeButton.getStyleClass().addAll(Style.BUTTON.css());
         closeButton.setTextAlignment(TextAlignment.CENTER);
-        closeButton.setOnAction((e) -> this.getScene().getWindow().hide());
-        getChildren().add(closeButton);
+        closeButton.setOnAction((e) -> this.setVisible(false));
+        HBox bottom = new HBox(closeButton);
+        bottom.setAlignment(Pos.CENTER_RIGHT);
+        bottom.getStyleClass().addAll(Style.CONTAINER.css());
+        super.setBottom(bottom);
     }
 }

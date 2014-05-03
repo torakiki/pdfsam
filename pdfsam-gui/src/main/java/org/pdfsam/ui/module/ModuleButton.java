@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 31/ott/2013
+ * Created on 10/feb/2014
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,36 +16,37 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui;
+package org.pdfsam.ui.module;
 
+import static org.pdfsam.support.RequireUtils.require;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.layout.StackPane;
+import javafx.scene.control.Tooltip;
 
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-import javax.inject.Named;
-
-import org.pdfsam.ui.dashboard.Dashboard;
-import org.pdfsam.ui.module.ModulesPane;
+import org.pdfsam.module.Module;
+import org.pdfsam.ui.SetCurrentModuleRequest;
+import org.pdfsam.ui.quickbar.BaseQuickbarButton;
 
 /**
- * Panel containing the main area where the modules pane and the dashboard pane are displayed
+ * Quickbar button to select a module
  * 
  * @author Andrea Vacondio
- * 
+ *
  */
-@Named
-public class ContentPane extends StackPane {
+class ModuleButton extends BaseQuickbarButton {
 
-    @Inject
-    private ModulesPane modules;
-    @Inject
-    private Dashboard dashboard;
+    private Module module;
 
-    @PostConstruct
-    private void init() {
-        getChildren().addAll(modules, dashboard);
-        eventStudio().addAnnotatedListeners(this);
+    ModuleButton(Module module) {
+        require(module != null, "Module cannot be null");
+        this.module = module;
+        setGraphic(this.module.graphic());
+        setText(this.module.descriptor().getName());
+        setOnAction(e -> eventStudio().broadcast(new SetCurrentModuleRequest(ModuleButton.this.module.id())));
+        setTooltip(new Tooltip(this.module.descriptor().getDescription()));
+    }
+
+    String moduleId() {
+        return module.id();
     }
 
 }

@@ -38,7 +38,7 @@ import org.springframework.context.annotation.Scope;
  */
 @Named
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
-class ExpandButton extends HBox {
+public class ExpandButton extends HBox {
     private ToggleButton toggle = new ToggleButton();
     private SVGPath expand = new SVGPath();
     private SVGPath collapse = new SVGPath();

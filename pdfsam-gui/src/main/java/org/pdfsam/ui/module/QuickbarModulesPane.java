@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 31/ott/2013
+ * Created on 02/nov/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,36 +16,41 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui;
+package org.pdfsam.ui.module;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.ui.dashboard.Dashboard;
-import org.pdfsam.ui.module.ModulesPane;
+import org.pdfsam.ui.quickbar.ExpandButton;
 
 /**
- * Panel containing the main area where the modules pane and the dashboard pane are displayed
+ * Vertical panel holding the quick navigation icons to access modules and an expand button to show descriptions.
  * 
  * @author Andrea Vacondio
  * 
  */
 @Named
-public class ContentPane extends StackPane {
+public class QuickbarModulesPane extends VBox {
 
     @Inject
-    private ModulesPane modules;
+    private ExpandButton expandButton;
     @Inject
-    private Dashboard dashboard;
+    private QuickbarModuleButtons modules;
+
+    public QuickbarModulesPane() {
+        getStyleClass().add("quickbar");
+    }
 
     @PostConstruct
     private void init() {
-        getChildren().addAll(modules, dashboard);
-        eventStudio().addAnnotatedListeners(this);
+        modules.displayTextProperty().bind(expandButton.selectedProperty());
+        VBox buttonContainer = new VBox(expandButton, modules);
+        buttonContainer.getStyleClass().add("quickbar-buttons");
+        setVgrow(buttonContainer, Priority.ALWAYS);
+        getChildren().addAll(buttonContainer);
     }
-
 }

@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 24/mar/2014
+ * Created on 02/mag/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,12 +16,11 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.quickbar;
+package org.pdfsam.ui.dashboard;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
 
 import javafx.beans.property.BooleanProperty;
@@ -32,37 +31,29 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.module.Module;
-import org.pdfsam.module.UsageService;
-import org.pdfsam.ui.SetCurrentModuleRequest;
 import org.sejda.eventstudio.annotation.EventListener;
 
 /**
- * Panel showing buttons to access the most used and most recently used modules
+ * Panel containing buttons to access the dashboard items
  * 
  * @author Andrea Vacondio
  *
  */
 @Named
-class QuickbarModuleButtons extends VBox {
-    private static final int RECENT_MODULES = 3;
-    private static final int MAX_MODULES = 8;
+class QuickbarDashboardButtons extends VBox {
 
+    private List<DashboardButton> buttons = new ArrayList<>();
     @Inject
-    private UsageService usage;
-    private List<ModuleButton> buttons = new ArrayList<>();
+    private List<DashboardItem> items;
 
-    QuickbarModuleButtons() {
+    QuickbarDashboardButtons() {
         this.getStyleClass().add("quickbar-modules");
     }
 
     @PostConstruct
     void init() {
-        LinkedHashSet<Module> collected = new LinkedHashSet<>();
-        fillWithMostRecentlyUsed(collected);
-        fillWithMostUsed(collected);
-        for (Module current : collected) {
-            ModuleButton currentButton = new ModuleButton(current);
+        for (DashboardItem current : items) {
+            DashboardButton currentButton = new DashboardButton(current);
             currentButton.displayTextProperty().bind(displayText);
             getChildren().add(currentButton);
             buttons.add(currentButton);
@@ -71,26 +62,8 @@ class QuickbarModuleButtons extends VBox {
     }
 
     @EventListener
-    public void on(SetCurrentModuleRequest r) {
-        buttons.forEach((b) -> b.setSelected(b.moduleId().equals(r.getModuleId())));
-    }
-
-    private void fillWithMostUsed(LinkedHashSet<Module> collected) {
-        for (Module current : usage.getMostUsed()) {
-            collected.add(current);
-            if (collected.size() >= MAX_MODULES) {
-                break;
-            }
-        }
-    }
-
-    private void fillWithMostRecentlyUsed(LinkedHashSet<Module> collected) {
-        for (Module current : usage.getMostRecentlyUsed()) {
-            collected.add(current);
-            if (collected.size() >= RECENT_MODULES) {
-                break;
-            }
-        }
+    public void on(SetCurrentDashboardItem r) {
+        buttons.forEach((b) -> b.setSelected(b.itemId().equals(r.getDashboardItemId())));
     }
 
     /**
