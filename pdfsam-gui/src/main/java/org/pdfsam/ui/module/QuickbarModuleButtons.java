@@ -34,7 +34,7 @@ import javax.inject.Named;
 
 import org.pdfsam.module.Module;
 import org.pdfsam.module.UsageService;
-import org.pdfsam.ui.SetCurrentModuleRequest;
+import org.pdfsam.ui.event.SetCurrentModuleRequest;
 import org.sejda.eventstudio.annotation.EventListener;
 
 /**

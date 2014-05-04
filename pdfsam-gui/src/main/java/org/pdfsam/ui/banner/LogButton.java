@@ -24,7 +24,7 @@ import javafx.scene.control.Tooltip;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.ui.support.ShowRequestEvent;
+import org.pdfsam.ui.event.ShowRequestEvent;
 
 import de.jensd.fx.fontawesome.AwesomeIcon;
 

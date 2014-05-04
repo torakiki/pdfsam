@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 21/mar/2014
- * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 12/dic/2013
+ * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,29 +16,29 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam;
+package org.pdfsam.ui.event;
 
-import static org.apache.commons.lang3.StringUtils.trim;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
+
+import java.io.File;
 
 /**
- * Change the app title
+ * Request to set a the destination using the given file as footprint.
  * 
  * @author Andrea Vacondio
- *
+ * 
  */
-public class SetTitleEvent {
-    private String title = "";
+public class SetDestinationEvent {
 
-    public SetTitleEvent() {
-        this.title = "";
+    private File footprint;
+
+    public SetDestinationEvent(File footprint) {
+        requireNotNull(footprint, "Footprint file cannot be null");
+        this.footprint = footprint;
     }
 
-    public SetTitleEvent(String title) {
-        this.title = trim(title);
-    }
-
-    public String getTitle() {
-        return title;
+    public File getFootprint() {
+        return footprint;
     }
 
 }

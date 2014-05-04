@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 04/nov/2013
+ * Created on 28/nov/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,27 +16,32 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui;
+package org.pdfsam.ui.commons;
 
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.pdfsam.support.RequireUtils.require;
+import static org.apache.commons.lang3.StringUtils.defaultString;
+import javafx.scene.control.Button;
+
+import org.apache.commons.lang3.StringUtils;
+import org.pdfsam.module.ModuleOwned;
+import org.pdfsam.ui.support.Style;
+import org.sejda.eventstudio.annotation.EventStation;
 
 /**
- * Request to set the current module on the main panel
+ * {@link Button} owned by a {@link org.pdfsam.module.Module}
  * 
  * @author Andrea Vacondio
  * 
  */
-public class SetCurrentModuleRequest {
-    private String moduleId;
+public class ModuleOwnedButton extends Button implements ModuleOwned {
+    private String ownerModule = StringUtils.EMPTY;
 
-    public SetCurrentModuleRequest(String moduleId) {
-        require(isNotBlank(moduleId), "Module id cannot be null");
-        this.moduleId = moduleId;
+    public ModuleOwnedButton(String ownerModule) {
+        this.ownerModule = defaultString(ownerModule);
+        getStyleClass().addAll(Style.BUTTON.css());
     }
 
-    public String getModuleId() {
-        return moduleId;
+    @EventStation
+    public String getOwnerModule() {
+        return ownerModule;
     }
-
 }

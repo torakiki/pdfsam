@@ -34,9 +34,9 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.ui.ClosePane;
-import org.pdfsam.ui.HideOnEscapeHandler;
-import org.pdfsam.ui.support.ShowRequestEvent;
+import org.pdfsam.ui.commons.ClosePane;
+import org.pdfsam.ui.commons.HideOnEscapeHandler;
+import org.pdfsam.ui.event.ShowRequestEvent;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 

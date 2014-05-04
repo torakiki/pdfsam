@@ -36,7 +36,7 @@ import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.TaskExecutionRequestEvent;
-import org.pdfsam.ui.support.ShowRequestEvent;
+import org.pdfsam.ui.event.ShowRequestEvent;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.model.exception.TaskOutputVisitException;
 import org.sejda.model.notification.event.PercentageOfWorkDoneChangedEvent;

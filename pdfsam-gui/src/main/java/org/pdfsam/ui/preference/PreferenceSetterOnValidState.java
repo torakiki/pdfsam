@@ -24,7 +24,7 @@ import javafx.beans.value.ObservableValue;
 
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.StringUserPreference;
-import org.pdfsam.ui.ValidableTextField;
+import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

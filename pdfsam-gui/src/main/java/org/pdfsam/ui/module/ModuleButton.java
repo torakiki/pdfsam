@@ -23,7 +23,7 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.control.Tooltip;
 
 import org.pdfsam.module.Module;
-import org.pdfsam.ui.SetCurrentModuleRequest;
+import org.pdfsam.ui.event.SetCurrentModuleRequest;
 import org.pdfsam.ui.quickbar.BaseQuickbarButton;
 
 /**

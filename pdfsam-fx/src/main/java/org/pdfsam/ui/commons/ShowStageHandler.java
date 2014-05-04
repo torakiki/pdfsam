@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 12/dic/2013
+ * Created on 01/nov/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,29 +16,32 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.support;
+package org.pdfsam.ui.commons;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
-
-import java.io.File;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.stage.Stage;
 
 /**
- * Request to set a the destination using the given file as footprint.
+ * Handler for an action showing a {@link Stage}
  * 
  * @author Andrea Vacondio
- * 
  */
-public class SetDestinationEvent {
+public class ShowStageHandler implements EventHandler<ActionEvent> {
 
-    private File footprint;
+    private Stage stage;
 
-    public SetDestinationEvent(File footprint) {
-        requireNotNull(footprint, "Footprint file cannot be null");
-        this.footprint = footprint;
+    public ShowStageHandler(Stage stage) {
+        requireNotNull(stage, "Stage cannot be null");
+        this.stage = stage;
     }
 
-    public File getFootprint() {
-        return footprint;
+    public void handle(ActionEvent event) {
+        if (!stage.isShowing()) {
+            stage.centerOnScreen();
+            stage.show();
+        }
+        stage.requestFocus();
     }
-
 }

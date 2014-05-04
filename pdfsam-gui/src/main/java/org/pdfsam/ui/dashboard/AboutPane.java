@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.about;
+package org.pdfsam.ui.dashboard;
 
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -32,7 +32,7 @@ import javax.inject.Named;
 
 import org.apache.commons.io.FileUtils;
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.ui.UrlButton;
+import org.pdfsam.ui.commons.UrlButton;
 import org.pdfsam.ui.support.Style;
 
 /**

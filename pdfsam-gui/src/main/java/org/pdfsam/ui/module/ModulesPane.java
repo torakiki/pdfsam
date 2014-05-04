@@ -33,9 +33,9 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.SetTitleEvent;
 import org.pdfsam.module.Module;
-import org.pdfsam.ui.SetCurrentModuleRequest;
+import org.pdfsam.ui.event.SetCurrentModuleRequest;
+import org.pdfsam.ui.event.SetTitleEvent;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 

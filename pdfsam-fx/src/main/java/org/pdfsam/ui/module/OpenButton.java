@@ -27,7 +27,7 @@ import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Tooltip;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.ui.OpenFileRequestEvent;
+import org.pdfsam.ui.event.OpenFileRequestEvent;
 import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.output.StreamTaskOutput;

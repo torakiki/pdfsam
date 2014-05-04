@@ -32,7 +32,7 @@ import org.pdfsam.context.IntUserPreference;
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.validation.Validators;
-import org.pdfsam.ui.ValidableTextField;
+import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
 import org.slf4j.Logger;

@@ -32,7 +32,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.ui.ClosePane;
+import org.pdfsam.ui.commons.ClosePane;
 import org.pdfsam.ui.support.Style;
 
 /**

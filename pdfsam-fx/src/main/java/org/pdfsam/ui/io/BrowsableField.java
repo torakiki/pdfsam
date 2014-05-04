@@ -26,7 +26,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.ui.ValidableTextField;
+import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.Style;
 
 /**

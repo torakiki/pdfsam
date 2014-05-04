@@ -34,7 +34,7 @@ import javax.inject.Named;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.ModuleCategory;
-import org.pdfsam.ui.SetCurrentModuleRequest;
+import org.pdfsam.ui.event.SetCurrentModuleRequest;
 
 /**
  * Menu letting the user select the module he/she wants to use

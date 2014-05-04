@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 06/dic/2013
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 21/mar/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,14 +16,29 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.support;
+package org.pdfsam.ui.event;
+
+import static org.apache.commons.lang3.StringUtils.trim;
 
 /**
- * Event to request a component to be shown
+ * Change the app title
  * 
  * @author Andrea Vacondio
- * 
+ *
  */
-public class ShowRequestEvent {
-    // nothing
+public class SetTitleEvent {
+    private String title = "";
+
+    public SetTitleEvent() {
+        this.title = "";
+    }
+
+    public SetTitleEvent(String title) {
+        this.title = trim(title);
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
 }

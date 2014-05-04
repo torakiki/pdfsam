@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 21/ott/2013
+ * Created on 10/feb/2014
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,31 +16,26 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui;
+package org.pdfsam.ui.event;
 
-import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.layout.HBox;
-import javafx.scene.text.TextAlignment;
-
-import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.ui.support.Style;
+import static org.pdfsam.support.RequireUtils.requireNotBlank;
 
 /**
- * Panel with a "Close" button to be used as bottom of closeable Stage.
+ * Request to open the given URL
  * 
  * @author Andrea Vacondio
- * 
+ *
  */
-public class ClosePane extends HBox {
+public class OpenUrlRequestEvent {
+    private String url;
 
-    public ClosePane() {
-        setAlignment(Pos.CENTER_RIGHT);
-        getStyleClass().addAll(Style.CONTAINER.css());
-        Button closeButton = new Button(DefaultI18nContext.getInstance().i18n("Close"));
-        closeButton.getStyleClass().addAll(Style.BUTTON.css());
-        closeButton.setTextAlignment(TextAlignment.CENTER);
-        closeButton.setOnAction((e) -> this.getScene().getWindow().hide());
-        getChildren().add(closeButton);
+    public OpenUrlRequestEvent(String url) {
+        requireNotBlank(url, "URL cannot be blank");
+        this.url = url;
     }
+
+    public String getUrl() {
+        return url;
+    }
+
 }

@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 01/nov/2013
+ * Created on 04/nov/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,32 +16,27 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui;
+package org.pdfsam.ui.event;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.stage.Stage;
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.pdfsam.support.RequireUtils.require;
 
 /**
- * Handler for an action showing a {@link Stage}
+ * Request to set the current module on the main panel
  * 
  * @author Andrea Vacondio
+ * 
  */
-public class ShowStageHandler implements EventHandler<ActionEvent> {
+public class SetCurrentModuleRequest {
+    private String moduleId;
 
-    private Stage stage;
-
-    public ShowStageHandler(Stage stage) {
-        requireNotNull(stage, "Stage cannot be null");
-        this.stage = stage;
+    public SetCurrentModuleRequest(String moduleId) {
+        require(isNotBlank(moduleId), "Module id cannot be null");
+        this.moduleId = moduleId;
     }
 
-    public void handle(ActionEvent event) {
-        if (!stage.isShowing()) {
-            stage.centerOnScreen();
-            stage.show();
-        }
-        stage.requestFocus();
+    public String getModuleId() {
+        return moduleId;
     }
+
 }

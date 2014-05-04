@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 28/nov/2013
+ * Created on 02/nov/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,32 +16,35 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui;
+package org.pdfsam.ui.commons;
 
-import static org.apache.commons.lang3.StringUtils.defaultString;
-import javafx.scene.control.Button;
-
-import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.module.ModuleOwned;
-import org.pdfsam.ui.support.Style;
-import org.sejda.eventstudio.annotation.EventStation;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
+import javafx.event.EventHandler;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
+import javafx.scene.input.KeyEvent;
+import javafx.stage.Window;
 
 /**
- * {@link Button} owned by a {@link org.pdfsam.module.Module}
+ * Scene that hides its Window when the user presses Esc
  * 
  * @author Andrea Vacondio
  * 
  */
-public class ModuleOwnedButton extends Button implements ModuleOwned {
-    private String ownerModule = StringUtils.EMPTY;
+public class HideOnEscapeHandler implements EventHandler<KeyEvent> {
 
-    public ModuleOwnedButton(String ownerModule) {
-        this.ownerModule = defaultString(ownerModule);
-        getStyleClass().addAll(Style.BUTTON.css());
+    private static final KeyCombination ESCAPE_COMBO = new KeyCodeCombination(KeyCode.ESCAPE);
+    private Window window;
+
+    public HideOnEscapeHandler(Window window) {
+        requireNotNull(window, "Window cannot be null");
+        this.window = window;
     }
 
-    @EventStation
-    public String getOwnerModule() {
-        return ownerModule;
+    public void handle(KeyEvent t) {
+        if (window.isShowing() && ESCAPE_COMBO.match(t)) {
+            window.hide();
+        }
     }
 }

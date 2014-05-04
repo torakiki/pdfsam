@@ -27,7 +27,7 @@ import javafx.scene.layout.HBox;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.ui.OpenUrlRequestEvent;
+import org.pdfsam.ui.event.OpenUrlRequestEvent;
 
 import de.jensd.fx.fontawesome.AwesomeDude;
 import de.jensd.fx.fontawesome.AwesomeIcon;
