@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 02/mag/2014
+ * Created on 05/mag/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,12 +16,8 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.dashboard;
+package org.pdfsam.ui.preference;
 
-import java.io.IOException;
-
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
@@ -29,26 +25,27 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.springframework.core.io.ClassPathResource;
+import org.pdfsam.ui.dashboard.DashboardItem;
+
+import de.jensd.fx.fontawesome.AwesomeDude;
+import de.jensd.fx.fontawesome.AwesomeIcon;
 
 /**
- * About item for the dashboard
- * 
  * @author Andrea Vacondio
  *
  */
 @Named
-class AboutDashboadItem implements DashboardItem {
+class PreferencesDashboardItem implements DashboardItem {
 
     @Inject
-    private AboutDashboardPane pane;
+    private PreferencePane pane;
 
     public String id() {
-        return "ABOUT";
+        return "SETTINGS";
     }
 
     public String name() {
-        return DefaultI18nContext.getInstance().i18n("About");
+        return DefaultI18nContext.getInstance().i18n("Settings");
     }
 
     public Pane pane() {
@@ -56,16 +53,11 @@ class AboutDashboadItem implements DashboardItem {
     }
 
     public Node graphic() {
-        try {
-            return (Group) FXMLLoader.load(new ClassPathResource("/fxml/TestModule2.fxml").getURL());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return AwesomeDude.createIconLabel(AwesomeIcon.WRENCH, "26.0");
     }
 
     public int priority() {
-        return 0;
+        return -5;
     }
 
 }

@@ -42,7 +42,7 @@ import org.pdfsam.ui.support.Style;
  * 
  */
 @Named
-public class AboutPane extends BorderPane {
+class AboutDashboardPane extends BorderPane {
 
     @Inject
     @Named("logo")
@@ -52,7 +52,7 @@ public class AboutPane extends BorderPane {
     @Resource(name = "appVersion")
     private String version;
 
-    public AboutPane() {
+    public AboutDashboardPane() {
         getStyleClass().addAll(Style.CONTAINER.css());
     }
 

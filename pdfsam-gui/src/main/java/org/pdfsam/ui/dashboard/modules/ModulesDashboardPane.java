@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 02/mag/2014
+ * Created on 05/mag/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,31 +16,17 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.dashboard;
+package org.pdfsam.ui.dashboard.modules;
 
-import javafx.scene.Node;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.FlowPane;
+
+import javax.inject.Named;
 
 /**
- * Represents an item for the Dashboard
- * 
  * @author Andrea Vacondio
+ *
  */
-public interface DashboardItem {
+@Named
+class ModulesDashboardPane extends FlowPane {
 
-    String id();
-
-    String name();
-
-    Pane pane();
-
-    /**
-     * @return the graphic node for this {@link Pane}.
-     */
-    Node graphic();
-
-    /**
-     * @return the priority for this item. It affects the order the items have in the quickbar
-     */
-    int priority();
 }
