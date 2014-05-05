@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.module;
+package org.pdfsam.ui.workarea;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
@@ -40,26 +40,26 @@ import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 
 /**
- * Main panel containing a quickbar to access modules and a work area where the module pane is shown.
+ * Main workarea. It contains a quickbar to quickly access modules and a main area where the module pane is shown.
  * 
  * @author Andrea Vacondio
  *
  */
 @Named
-public class ModulesPane extends BorderPane {
+public class Workarea extends BorderPane {
 
     @Inject
-    private QuickbarModulesPane navigation;
+    private QuickbarWrokarea navigation;
     private Map<String, Module> modules = new HashMap<>();
     private StackPane center = new StackPane();
     private FadeTransition fade = new FadeTransition(new Duration(300), center);
 
-    public ModulesPane() {
+    public Workarea() {
         getStyleClass().addAll(Style.CONTAINER.css());
     }
 
     @Inject
-    public ModulesPane(List<Module> modulesList) {
+    public Workarea(List<Module> modulesList) {
         for (Module module : modulesList) {
             modules.put(module.id(), module);
         }

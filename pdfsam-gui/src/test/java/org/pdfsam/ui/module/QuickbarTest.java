@@ -25,8 +25,8 @@ import javafx.scene.control.ContentDisplay;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.loadui.testfx.GuiTest;
-import org.pdfsam.ui.module.ModuleButton;
-import org.pdfsam.ui.module.QuickbarModulesPane;
+import org.pdfsam.ui.workarea.ModuleButton;
+import org.pdfsam.ui.workarea.QuickbarWrokarea;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
@@ -42,7 +42,7 @@ public class QuickbarTest extends GuiTest {
         ctx = new AnnotationConfigApplicationContext();
         ctx.register(QuickbarTestConfig.class);
         ctx.refresh();
-        return ctx.getBean(QuickbarModulesPane.class);
+        return ctx.getBean(QuickbarWrokarea.class);
     }
 
     @Test

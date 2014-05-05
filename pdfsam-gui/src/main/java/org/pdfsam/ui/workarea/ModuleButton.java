@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.module;
+package org.pdfsam.ui.workarea;
 
 import static org.pdfsam.support.RequireUtils.require;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;

@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.module;
+package org.pdfsam.ui.workarea;
 
 import java.io.IOException;
 import java.util.function.Consumer;
@@ -31,6 +31,7 @@ import javafx.scene.layout.Pane;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.PdfsamModule;
+import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.sejda.model.parameter.base.TaskParameters;
 import org.springframework.core.io.ClassPathResource;
 

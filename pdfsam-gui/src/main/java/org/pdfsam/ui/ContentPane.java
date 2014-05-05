@@ -26,7 +26,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.ui.dashboard.Dashboard;
-import org.pdfsam.ui.module.ModulesPane;
+import org.pdfsam.ui.workarea.Workarea;
 
 /**
  * Panel containing the main area where the modules pane and the dashboard pane are displayed
@@ -38,7 +38,7 @@ import org.pdfsam.ui.module.ModulesPane;
 public class ContentPane extends StackPane {
 
     @Inject
-    private ModulesPane modules;
+    private Workarea modules;
     @Inject
     private Dashboard dashboard;
 
