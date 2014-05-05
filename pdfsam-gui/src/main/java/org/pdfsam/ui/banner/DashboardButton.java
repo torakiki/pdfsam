@@ -24,7 +24,7 @@ import javafx.scene.control.Tooltip;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.ui.event.ShowRequestEvent;
+import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 
 import de.jensd.fx.fontawesome.AwesomeIcon;
 
@@ -38,7 +38,7 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
 class DashboardButton extends BannerButton {
     DashboardButton() {
         super(AwesomeIcon.HOME);
-        setOnAction(e -> eventStudio().broadcast(new ShowRequestEvent(), "LogStage"));
+        setOnAction(e -> eventStudio().broadcast(new SetActiveDashboardItemRequest("MODULES")));
         setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Open main dashboard")));
     }
 }

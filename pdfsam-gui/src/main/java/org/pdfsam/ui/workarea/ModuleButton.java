@@ -19,11 +19,11 @@
 package org.pdfsam.ui.workarea;
 
 import static org.pdfsam.support.RequireUtils.require;
+import static org.pdfsam.ui.event.SetActiveModuleRequest.activeteModule;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.control.Tooltip;
 
 import org.pdfsam.module.Module;
-import org.pdfsam.ui.event.SetCurrentModuleRequest;
 import org.pdfsam.ui.quickbar.BaseQuickbarButton;
 
 /**
@@ -41,7 +41,7 @@ class ModuleButton extends BaseQuickbarButton {
         this.module = module;
         setGraphic(this.module.graphic());
         setText(this.module.descriptor().getName());
-        setOnAction(e -> eventStudio().broadcast(new SetCurrentModuleRequest(ModuleButton.this.module.id())));
+        setOnAction(e -> eventStudio().broadcast(activeteModule(ModuleButton.this.module.id())));
         setTooltip(new Tooltip(this.module.descriptor().getDescription()));
     }
 

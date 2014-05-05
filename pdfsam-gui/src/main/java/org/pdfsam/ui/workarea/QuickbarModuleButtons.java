@@ -34,7 +34,7 @@ import javax.inject.Named;
 
 import org.pdfsam.module.Module;
 import org.pdfsam.module.UsageService;
-import org.pdfsam.ui.event.SetCurrentModuleRequest;
+import org.pdfsam.ui.event.SetActiveModuleRequest;
 import org.sejda.eventstudio.annotation.EventListener;
 
 /**
@@ -71,8 +71,8 @@ class QuickbarModuleButtons extends VBox {
     }
 
     @EventListener
-    public void onSetCurrentModuleRequest(SetCurrentModuleRequest r) {
-        buttons.forEach((b) -> b.setSelected(b.moduleId().equals(r.getModuleId())));
+    public void onSetCurrentModuleRequest(SetActiveModuleRequest r) {
+        buttons.forEach((b) -> b.setSelected(b.moduleId().equals(r.getActiveModuleId())));
     }
 
     private void fillWithMostUsed(LinkedHashSet<Module> collected) {

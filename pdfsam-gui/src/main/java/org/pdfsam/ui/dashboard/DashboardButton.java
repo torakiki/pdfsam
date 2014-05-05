@@ -21,6 +21,7 @@ package org.pdfsam.ui.dashboard;
 import static org.pdfsam.support.RequireUtils.require;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
+import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.pdfsam.ui.quickbar.BaseQuickbarButton;
 
 /**
@@ -37,7 +38,7 @@ class DashboardButton extends BaseQuickbarButton {
         this.item = item;
         setGraphic(this.item.graphic());
         setText(this.item.name());
-        setOnAction(e -> eventStudio().broadcast(new SetCurrentDashboardItem(this.item.id())));
+        setOnAction(e -> eventStudio().broadcast(new SetActiveDashboardItemRequest(this.item.id())));
     }
 
     String itemId() {

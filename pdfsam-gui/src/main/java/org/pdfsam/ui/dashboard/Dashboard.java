@@ -19,6 +19,7 @@
 package org.pdfsam.ui.dashboard;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.pdfsam.ui.event.SetActiveModuleRequest.activeteCurrentModule;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.HashMap;
@@ -38,6 +39,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.pdfsam.ui.event.SetTitleEvent;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
@@ -71,13 +73,11 @@ public class Dashboard extends BorderPane {
     private void init() {
         setLeft(navigation);
         eventStudio().addAnnotatedListeners(this);
-        // TODO something better here?
-        eventStudio().broadcast(new SetCurrentDashboardItem("MODULES"));
     }
 
     @EventListener(priority = Integer.MIN_VALUE)
-    public void onSetCurrentDashboardItem(SetCurrentDashboardItem request) {
-        DashboardContentPane requested = items.get(request.getDashboardItemId());
+    public void onSetActiveDashboardItem(SetActiveDashboardItemRequest request) {
+        DashboardContentPane requested = items.get(request.getActiveItemId());
         if (requested != null) {
             center.getChildren().setAll(requested);
             fade.play();
@@ -108,7 +108,7 @@ public class Dashboard extends BorderPane {
             Button closeButton = new Button(DefaultI18nContext.getInstance().i18n("Close"));
             closeButton.getStyleClass().addAll(Style.BUTTON.css());
             closeButton.setTextAlignment(TextAlignment.CENTER);
-            closeButton.setOnAction((e) -> Dashboard.this.setVisible(false));
+            closeButton.setOnAction((e) -> eventStudio().broadcast(activeteCurrentModule()));
             HBox footer = new HBox(closeButton);
             footer.getStyleClass().addAll(Style.CLOSE_FOOTER.css());
             return footer;

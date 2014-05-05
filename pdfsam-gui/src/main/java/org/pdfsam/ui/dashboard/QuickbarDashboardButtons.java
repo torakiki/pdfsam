@@ -31,6 +31,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.sejda.eventstudio.annotation.EventListener;
 
 /**
@@ -61,8 +62,8 @@ class QuickbarDashboardButtons extends VBox {
     }
 
     @EventListener
-    public void setCurrentDashboardItem(SetCurrentDashboardItem r) {
-        buttons.forEach((b) -> b.setSelected(b.itemId().equals(r.getDashboardItemId())));
+    public void setCurrentDashboardItem(SetActiveDashboardItemRequest r) {
+        buttons.forEach((b) -> b.setSelected(b.itemId().equals(r.getActiveItemId())));
     }
 
     /**

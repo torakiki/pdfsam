@@ -26,7 +26,10 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.ui.dashboard.Dashboard;
+import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
+import org.pdfsam.ui.event.SetActiveModuleRequest;
 import org.pdfsam.ui.workarea.Workarea;
+import org.sejda.eventstudio.annotation.EventListener;
 
 /**
  * Panel containing the main area where the modules pane and the dashboard pane are displayed
@@ -46,6 +49,19 @@ public class ContentPane extends StackPane {
     private void init() {
         getChildren().addAll(modules, dashboard);
         eventStudio().addAnnotatedListeners(this);
+        // TODO something better here?
+        eventStudio().broadcast(new SetActiveDashboardItemRequest("MODULES"));
     }
 
+    @EventListener
+    public void onSetActiveModule(SetActiveModuleRequest request) {
+        dashboard.setVisible(false);
+        modules.setVisible(true);
+    }
+
+    @EventListener
+    public void onSetActiveDashboardItem(SetActiveDashboardItemRequest request) {
+        dashboard.setVisible(true);
+        modules.setVisible(false);
+    }
 }

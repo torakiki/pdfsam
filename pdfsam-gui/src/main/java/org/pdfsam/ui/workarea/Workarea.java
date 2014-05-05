@@ -34,7 +34,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.module.Module;
-import org.pdfsam.ui.event.SetCurrentModuleRequest;
+import org.pdfsam.ui.event.SetActiveModuleRequest;
 import org.pdfsam.ui.event.SetTitleEvent;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
@@ -75,9 +75,9 @@ public class Workarea extends BorderPane {
     }
 
     @EventListener(priority = Integer.MIN_VALUE)
-    public void onSetCurrentModuleRequest(SetCurrentModuleRequest request) {
-        Module requested = modules.get(request.getModuleId());
-        if (requested != null) {
+    public void onSetActiveModule(SetActiveModuleRequest request) {
+        Module requested = modules.get(request.getActiveModuleId());
+        if (request.hasActiveModule() && requested != null) {
             center.getChildren().setAll(requested.modulePanel());
             fade.play();
             eventStudio().broadcast(new SetTitleEvent(requested.descriptor().getName()));

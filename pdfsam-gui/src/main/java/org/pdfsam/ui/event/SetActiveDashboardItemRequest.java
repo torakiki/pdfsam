@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 04/nov/2013
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 05/mag/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -22,21 +22,20 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.support.RequireUtils.require;
 
 /**
- * Request to set the current module on the main panel
+ * Event to request to set active the given dashboard item
  * 
  * @author Andrea Vacondio
- * 
+ *
  */
-public class SetCurrentModuleRequest {
-    private String moduleId;
+public class SetActiveDashboardItemRequest {
+    private String id;
 
-    public SetCurrentModuleRequest(String moduleId) {
-        require(isNotBlank(moduleId), "Module id cannot be null");
-        this.moduleId = moduleId;
+    public SetActiveDashboardItemRequest(String id) {
+        require(isNotBlank(id), "Cannot set active an empty item");
+        this.id = id;
     }
 
-    public String getModuleId() {
-        return moduleId;
+    public String getActiveItemId() {
+        return id;
     }
-
 }

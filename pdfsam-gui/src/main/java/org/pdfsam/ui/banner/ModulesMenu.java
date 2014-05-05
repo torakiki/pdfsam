@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.banner;
 
+import static org.pdfsam.ui.event.SetActiveModuleRequest.activeteModule;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.HashMap;
@@ -34,7 +35,6 @@ import javax.inject.Named;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.ModuleCategory;
-import org.pdfsam.ui.event.SetCurrentModuleRequest;
 
 /**
  * Menu letting the user select the module he/she wants to use
@@ -62,7 +62,7 @@ class ModulesMenu extends Menu {
                 moduleSubmenus.put(category, currentMenu);
             }
             MenuItem moduleMenu = new MenuItem(currentModule.descriptor().getName());
-            moduleMenu.setOnAction(e -> eventStudio().broadcast(new SetCurrentModuleRequest(currentModule.id())));
+            moduleMenu.setOnAction(e -> eventStudio().broadcast(activeteModule(currentModule.id())));
             currentMenu.getItems().add(moduleMenu);
         }
         getItems().addAll(moduleSubmenus.values());
