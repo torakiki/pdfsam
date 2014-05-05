@@ -53,7 +53,7 @@ class QuickbarModuleButtons extends VBox {
     private List<ModuleButton> buttons = new ArrayList<>();
 
     QuickbarModuleButtons() {
-        this.getStyleClass().add("quickbar-modules");
+        this.getStyleClass().add("quickbar-items");
     }
 
     @PostConstruct

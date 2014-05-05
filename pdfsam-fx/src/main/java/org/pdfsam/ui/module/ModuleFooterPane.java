@@ -37,6 +37,7 @@ import javax.inject.Named;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.ui.event.ShowRequestEvent;
+import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.model.exception.TaskOutputVisitException;
 import org.sejda.model.notification.event.PercentageOfWorkDoneChangedEvent;
@@ -68,7 +69,7 @@ class ModuleFooterPane extends HBox {
     private ProgressBar bar = new ProgressBar(0);
 
     public ModuleFooterPane() {
-        this.getStyleClass().add("task-footer");
+        this.getStyleClass().addAll(Style.CLOSE_FOOTER.css());
         AwesomeDude.setIcon(failed, AwesomeIcon.TIMES_CIRCLE, "16px", ContentDisplay.GRAPHIC_ONLY);
         failed.getStyleClass().addAll("pdfsam-toolbar-button", "task-status-button", "notification-error");
         failed.setVisible(false);

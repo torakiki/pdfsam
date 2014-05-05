@@ -35,6 +35,14 @@
 	-fx-padding: 0.0 0.0 0.5em 0.0 ;
 }
 /**
+ * footer for pane
+ */
+.pdfsam-footer-close-pane{
+ 	-fx-border-width: 0.0;
+	-fx-padding: 10.0 16.0 10.0 0.0;
+	-fx-alignment: center-right;
+}
+/**
  * Progress bar
  */
 .progress-bar {

@@ -30,6 +30,7 @@ public enum Style {
     TITLED_PANE("titled-pane"),
     DEAULT_CONTAINER("default-container"),
     CONTAINER("pdfsam-container"),
+    CLOSE_FOOTER("default-container", "pdfsam-footer-close-pane"),
     INVALID("invalid"),
     VITEM("spaced-vitem"),
     MAIN_PANEL("main-scroll-panel");

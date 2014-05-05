@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.dashboard;
 
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.HashMap;
@@ -25,14 +26,18 @@ import java.util.List;
 import java.util.Map;
 
 import javafx.animation.FadeTransition;
+import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.ui.commons.HidingPane;
+import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.event.SetTitleEvent;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
@@ -43,10 +48,10 @@ import org.sejda.eventstudio.annotation.EventListener;
  * @author Andrea Vacondio
  */
 @Named
-public class Dashboard extends HidingPane {
+public class Dashboard extends BorderPane {
     @Inject
     private QuickbarDashboardPane navigation;
-    private Map<String, DashboardItem> items = new HashMap<>();
+    private Map<String, DashboardContentPane> items = new HashMap<>();
     private StackPane center = new StackPane();
     private FadeTransition fade = new FadeTransition(new Duration(300), center);
 
@@ -56,7 +61,7 @@ public class Dashboard extends HidingPane {
 
     @Inject
     public Dashboard(List<DashboardItem> itemsList) {
-        itemsList.stream().forEach(i -> items.put(i.id(), i));
+        itemsList.stream().forEach(i -> items.put(i.id(), new DashboardContentPane(i)));
         fade.setFromValue(0);
         fade.setToValue(1);
         setCenter(center);
@@ -72,11 +77,42 @@ public class Dashboard extends HidingPane {
 
     @EventListener(priority = Integer.MIN_VALUE)
     public void onSetCurrentDashboardItem(SetCurrentDashboardItem request) {
-        DashboardItem requested = items.get(request.getDashboardItemId());
+        DashboardContentPane requested = items.get(request.getDashboardItemId());
         if (requested != null) {
-            center.getChildren().setAll(requested.pane());
+            center.getChildren().setAll(requested);
             fade.play();
-            eventStudio().broadcast(new SetTitleEvent(requested.name()));
+            eventStudio().broadcast(new SetTitleEvent(requested.item.name()));
         }
+    }
+
+    /**
+     * Base class for a DashboardItem providing a footer to the item. A Close button is available in the footer and allow the user to hide the dashboard.
+     * 
+     * @author Andrea Vacondio
+     *
+     */
+    private class DashboardContentPane extends BorderPane {
+
+        private DashboardItem item;
+
+        private DashboardContentPane(DashboardItem item) {
+            requireNotNull(item, "Dashboard item cannot be null");
+            this.item = item;
+            this.item.pane().getStyleClass().addAll(Style.DEAULT_CONTAINER.css());
+            this.item.pane().getStyleClass().addAll(Style.CONTAINER.css());
+            setBottom(buildFooter());
+            setCenter(this.item.pane());
+        }
+
+        private HBox buildFooter() {
+            Button closeButton = new Button(DefaultI18nContext.getInstance().i18n("Close"));
+            closeButton.getStyleClass().addAll(Style.BUTTON.css());
+            closeButton.setTextAlignment(TextAlignment.CENTER);
+            closeButton.setOnAction((e) -> Dashboard.this.setVisible(false));
+            HBox footer = new HBox(closeButton);
+            footer.getStyleClass().addAll(Style.CLOSE_FOOTER.css());
+            return footer;
+        }
+
     }
 }

@@ -186,12 +186,7 @@
 .quickbar-button-arrow {
 	-fx-fill: dark-text-color;
 }
-.quickbar-modules-title{
-	-fx-padding: 0.5em 0.0 0.5em 0.0;
-	-fx-alignment: center-left;
-	-fx-font-weight: bold;
-}
-.quickbar-modules{
+.quickbar-items{
 	-fx-padding: 0.0 0.0 1.0em 0.0;
 }
 .quickbar-navigation-button, .quickbar-navigation-button:focused {
@@ -224,11 +219,6 @@
  */
 .progress-icons {
  	-fx-padding: 0.0 16.0 0.0 4.0;
-}
-.task-footer{
- 	-fx-border-width: 0.0;
-	-fx-padding: 10.0 16.0 10.0 10.0;
-	-fx-alignment: center-right;
 }
 .task-status-button{
 	-fx-background-color:  defaultbg-color;

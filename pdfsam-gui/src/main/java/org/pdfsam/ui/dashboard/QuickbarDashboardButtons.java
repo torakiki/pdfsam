@@ -46,7 +46,7 @@ class QuickbarDashboardButtons extends VBox {
 
     @Inject
     QuickbarDashboardButtons(List<DashboardItem> items) {
-        this.getStyleClass().add("quickbar-modules");
+        this.getStyleClass().add("quickbar-items");
         items.stream().sorted((a, b) -> a.priority() - b.priority()).forEach(i -> {
             DashboardButton currentButton = new DashboardButton(i);
             currentButton.displayTextProperty().bind(displayText);
