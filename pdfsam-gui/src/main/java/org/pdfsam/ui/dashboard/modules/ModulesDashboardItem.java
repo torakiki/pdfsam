@@ -26,6 +26,7 @@ import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.dashboard.DashboardItem;
+import org.springframework.context.annotation.Bean;
 
 import de.jensd.fx.fontawesome.AwesomeDude;
 import de.jensd.fx.fontawesome.AwesomeIcon;
@@ -39,6 +40,7 @@ public class ModulesDashboardItem implements DashboardItem {
     @Inject
     private ModulesDashboardPane pane;
 
+    @Bean(name = "defaultDashboardItemId")
     public String id() {
         return "MODULES";
     }

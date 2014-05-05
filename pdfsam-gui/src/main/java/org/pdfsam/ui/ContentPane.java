@@ -44,13 +44,15 @@ public class ContentPane extends StackPane {
     private Workarea modules;
     @Inject
     private Dashboard dashboard;
+    @Inject
+    @Named("defaultDashboardItemId")
+    private String defaultDasboardItem;
 
     @PostConstruct
     private void init() {
         getChildren().addAll(modules, dashboard);
         eventStudio().addAnnotatedListeners(this);
-        // TODO something better here?
-        eventStudio().broadcast(new SetActiveDashboardItemRequest("MODULES"));
+        eventStudio().broadcast(new SetActiveDashboardItemRequest(defaultDasboardItem));
     }
 
     @EventListener

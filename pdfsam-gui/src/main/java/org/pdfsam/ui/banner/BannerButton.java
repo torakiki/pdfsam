@@ -32,7 +32,7 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
 class BannerButton extends Button {
     BannerButton(AwesomeIcon icon) {
         getStyleClass().addAll("pdfsam-toolbar-button");
-        Label labelIcon = AwesomeDude.createIconLabel(icon, "22.0");
+        Label labelIcon = AwesomeDude.createIconLabel(icon, "28.0");
         setGraphic(labelIcon);
     }
 }

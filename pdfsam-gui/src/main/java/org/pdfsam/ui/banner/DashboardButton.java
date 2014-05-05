@@ -21,6 +21,7 @@ package org.pdfsam.ui.banner;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.control.Tooltip;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
@@ -36,9 +37,13 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
  */
 @Named
 class DashboardButton extends BannerButton {
+    @Inject
+    @Named("defaultDashboardItemId")
+    private String defaultDasboardItem;
+
     DashboardButton() {
         super(AwesomeIcon.HOME);
-        setOnAction(e -> eventStudio().broadcast(new SetActiveDashboardItemRequest("MODULES")));
+        setOnAction(e -> eventStudio().broadcast(new SetActiveDashboardItemRequest(defaultDasboardItem)));
         setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Open main dashboard")));
     }
 }
