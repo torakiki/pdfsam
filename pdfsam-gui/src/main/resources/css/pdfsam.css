@@ -202,6 +202,7 @@
 }
 .quickbar-navigation-button:armed {
     -fx-background-color:  light-border-color, -fx-focus-color;
+    -fx-background-insets:  0.0, 0.0 1.0 0.0 0.0 ;
 }
 .quickbar-navigation-button:selected{
 	-fx-background-color:  light-border-color, defaultbg-color;
