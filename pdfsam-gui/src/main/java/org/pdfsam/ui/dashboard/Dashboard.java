@@ -56,18 +56,18 @@ public class Dashboard extends HidingPane {
 
     @Inject
     public Dashboard(List<DashboardItem> itemsList) {
-        for (DashboardItem item : itemsList) {
-            items.put(item.id(), item);
-        }
+        itemsList.stream().forEach(i -> items.put(i.id(), i));
         fade.setFromValue(0);
         fade.setToValue(1);
+        setCenter(center);
     }
 
     @PostConstruct
     private void init() {
         setLeft(navigation);
-        setCenter(center);
         eventStudio().addAnnotatedListeners(this);
+        // TODO something better here?
+        eventStudio().broadcast(new SetCurrentDashboardItem("MODULES"));
     }
 
     @EventListener(priority = Integer.MIN_VALUE)

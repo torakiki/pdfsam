@@ -43,26 +43,25 @@ import org.sejda.eventstudio.annotation.EventListener;
 class QuickbarDashboardButtons extends VBox {
 
     private List<DashboardButton> buttons = new ArrayList<>();
-    @Inject
-    private List<DashboardItem> items;
 
-    QuickbarDashboardButtons() {
+    @Inject
+    QuickbarDashboardButtons(List<DashboardItem> items) {
         this.getStyleClass().add("quickbar-modules");
+        items.stream().sorted((a, b) -> a.priority() - b.priority()).forEach(i -> {
+            DashboardButton currentButton = new DashboardButton(i);
+            currentButton.displayTextProperty().bind(displayText);
+            getChildren().add(currentButton);
+            buttons.add(currentButton);
+        });
     }
 
     @PostConstruct
     void init() {
-        for (DashboardItem current : items) {
-            DashboardButton currentButton = new DashboardButton(current);
-            currentButton.displayTextProperty().bind(displayText);
-            getChildren().add(currentButton);
-            buttons.add(currentButton);
-        }
         eventStudio().addAnnotatedListeners(this);
     }
 
     @EventListener
-    public void on(SetCurrentDashboardItem r) {
+    public void setCurrentDashboardItem(SetCurrentDashboardItem r) {
         buttons.forEach((b) -> b.setSelected(b.itemId().equals(r.getDashboardItemId())));
     }
 

@@ -18,10 +18,6 @@
  */
 package org.pdfsam.ui.dashboard;
 
-import java.io.IOException;
-
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
@@ -29,7 +25,9 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.springframework.core.io.ClassPathResource;
+
+import de.jensd.fx.fontawesome.AwesomeDude;
+import de.jensd.fx.fontawesome.AwesomeIcon;
 
 /**
  * About item for the dashboard
@@ -56,12 +54,7 @@ class AboutDashboadItem implements DashboardItem {
     }
 
     public Node graphic() {
-        try {
-            return (Group) FXMLLoader.load(new ClassPathResource("/fxml/TestModule2.fxml").getURL());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return AwesomeDude.createIconLabel(AwesomeIcon.INFO_CIRCLE, "26.0");
     }
 
     public int priority() {
