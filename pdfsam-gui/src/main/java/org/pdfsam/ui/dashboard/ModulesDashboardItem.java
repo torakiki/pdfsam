@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.dashboard.modules;
+package org.pdfsam.ui.dashboard;
 
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
@@ -25,7 +25,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.ui.dashboard.DashboardItem;
 import org.springframework.context.annotation.Bean;
 
 import de.jensd.fx.fontawesome.AwesomeDude;
@@ -61,4 +60,9 @@ public class ModulesDashboardItem implements DashboardItem {
         return -10;
     }
 
+    public DashboardButton getStyledButton() {
+        DashboardButton button = new DashboardButton(this);
+        button.getStyleClass().add("dashboard-modules");
+        return button;
+    }
 }

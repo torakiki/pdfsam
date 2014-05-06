@@ -60,5 +60,4 @@ class AboutDashboadItem implements DashboardItem {
     public int priority() {
         return 0;
     }
-
 }

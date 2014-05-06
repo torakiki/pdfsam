@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.dashboard.modules;
+package org.pdfsam.ui.dashboard;
 
 import javafx.scene.layout.FlowPane;
 

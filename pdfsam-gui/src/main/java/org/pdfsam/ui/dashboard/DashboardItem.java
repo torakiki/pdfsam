@@ -43,4 +43,5 @@ public interface DashboardItem {
      * @return the priority for this item. It affects the order the items have in the quickbar
      */
     int priority();
+
 }

@@ -1,5 +1,8 @@
 .root { 
 	menubg-color: #FFFFFF;
+	info-color: #4AAAD2;
+	awesome-color: derive(light-border-color, -20.0%);
+	awesome-color-hover: derive(light-border-color, -35.0%);
 }
 /**
  * Notifications
@@ -45,7 +48,7 @@
 }
 .notification-info .awesome, .notification-info .awesome:hover{
     -fx-effect: null;
-    -fx-text-fill: #4AAAD2;
+    -fx-text-fill: info-color;
 }
 .notification .close{
 	-fx-background-color:  transparent;
@@ -83,7 +86,6 @@
 /**
  * Log
  */
-
 .log-view{
  	-fx-background-color: -fx-box-border,#FFFFFF;
     -fx-background-insets: 0.0, 1.0;
@@ -97,12 +99,11 @@
 .log-view .list-cell,.list-cell:odd {
 }
 .warn-log{
-	-fx-text-fill: #305891;
+	-fx-text-fill: derive(info-color, -30.0%);
 }
 .error-log{
 	-fx-text-fill: error-color;
 }
-
 /**
  * Banner
  */
@@ -113,9 +114,9 @@
     -fx-background-radius: 0.0, 0.0;
     -fx-alignment: center-left;    
  }
-.pdfsam-banner .awesome, .pdfsam-banner .awesome:hover{
+.pdfsam-banner .awesome {
     -fx-effect: null;
-    -fx-text-fill:  derive(light-border-color, -20%);
+    -fx-text-fill: awesome-color;
 }
 .pdfsam-logo{
 	-fx-padding: 8.0 4.0 8.0 12.0;
@@ -133,12 +134,15 @@
     -fx-background-radius: 0.0;
 }
 .pdfsam-toolbar-button:hover{
-    -fx-background-color:  light-border-color, defaultbg-color;
-    -fx-background-insets:  0.0, 1.0;
+    -fx-background-color:  theme-color, headerbg-color;
+    -fx-background-insets:  0.0, 0.0 0.0 1.5 0.0 ;
     -fx-background-radius: 0.0;
 }
+.pdfsam-toolbar-button:hover .awesome{
+	-fx-text-fill: awesome-color-hover;
+}
 .pdfsam-toolbar-button:armed {
-    -fx-background-color:  light-border-color, derive(light-border-color, 90%);
+  -fx-opacity: 0.6;
 }
 .pdfsam-toolbar-button:disabled {
     -fx-opacity: -fx-disabled-opacity;
@@ -156,7 +160,7 @@
 	-fx-opacity: 0.95;
 }
 /**
- * Navigation
+ * Quickbar
  */
 .quickbar {
 	-fx-background-color: defaultbg-color;
@@ -214,7 +218,16 @@
 .quickbar-social{
 	-fx-alignment: center;
 }
-
+/**
+ * Dashboard
+ */
+.quickbar-navigation-button .awesome{
+    -fx-effect: null;
+    -fx-text-fill: awesome-color;
+}
+.quickbar-navigation-button:hover .awesome {
+	-fx-text-fill: awesome-color-hover;
+}
 /**
  * modules footer
  */
