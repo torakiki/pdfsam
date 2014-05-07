@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.workarea;
 
+import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.HashMap;
@@ -76,8 +77,8 @@ public class Workarea extends BorderPane {
 
     @EventListener(priority = Integer.MIN_VALUE)
     public void onSetActiveModule(SetActiveModuleRequest request) {
-        Module requested = modules.get(request.getActiveModuleId());
-        if (request.hasActiveModule() && requested != null) {
+        Module requested = modules.get(request.getActiveModuleId().orElse(EMPTY));
+        if (requested != null) {
             center.getChildren().setAll(requested.modulePanel());
             fade.play();
             eventStudio().broadcast(new SetTitleEvent(requested.descriptor().getName()));

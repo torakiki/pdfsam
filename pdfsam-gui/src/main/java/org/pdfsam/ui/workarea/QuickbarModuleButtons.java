@@ -72,7 +72,9 @@ class QuickbarModuleButtons extends VBox {
 
     @EventListener
     public void onSetCurrentModuleRequest(SetActiveModuleRequest r) {
-        buttons.forEach((b) -> b.setSelected(b.moduleId().equals(r.getActiveModuleId())));
+        if (r.getActiveModuleId().isPresent()) {
+            buttons.forEach((b) -> b.setSelected(b.moduleId().equals(r.getActiveModuleId())));
+        }
     }
 
     private void fillWithMostUsed(LinkedHashSet<Module> collected) {

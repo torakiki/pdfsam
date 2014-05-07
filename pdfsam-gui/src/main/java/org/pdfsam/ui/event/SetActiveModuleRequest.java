@@ -18,9 +18,10 @@
  */
 package org.pdfsam.ui.event;
 
-import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.support.RequireUtils.require;
+
+import java.util.Optional;
 
 /**
  * Request to set the active the given module
@@ -35,12 +36,8 @@ public final class SetActiveModuleRequest {
         this.id = id;
     }
 
-    public String getActiveModuleId() {
-        return id;
-    }
-
-    public boolean hasActiveModule() {
-        return isNotBlank(id);
+    public Optional<String> getActiveModuleId() {
+        return Optional.ofNullable(id);
     }
 
     /**
@@ -57,6 +54,6 @@ public final class SetActiveModuleRequest {
      * @return an event to tell the content pane to activate the Workarea (whatever module was previously active will be active module)
      */
     public static SetActiveModuleRequest activeteCurrentModule() {
-        return new SetActiveModuleRequest(EMPTY);
+        return new SetActiveModuleRequest(null);
     }
 }
