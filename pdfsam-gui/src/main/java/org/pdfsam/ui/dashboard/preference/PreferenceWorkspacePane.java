@@ -16,15 +16,15 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.preference;
+package org.pdfsam.ui.dashboard.preference;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+
+import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
@@ -40,6 +40,7 @@ import org.pdfsam.ui.support.Style;
  * @author Andrea Vacondio
  * 
  */
+@Named
 class PreferenceWorkspacePane extends VBox {
 
     PreferenceWorkspacePane() {
@@ -65,15 +66,12 @@ class PreferenceWorkspacePane extends VBox {
         workingDirectory.getStyleClass().add("spaced-vitem");
         workingDirectory.getTextField().setText(DefaultUserContext.getInstance().getDefaultWorkingPath());
 
-        Button clearButton = new Button(i18n.i18n("Clear"));
+        Button clearButton = new Button(i18n.i18n("Clear usage statistics"));
         clearButton.getStyleClass().addAll(Style.BUTTON.css());
         clearButton.setOnAction(e -> eventStudio().broadcast(new ClearUsageRequestEvent()));
-        HBox clearStats = new HBox(2, new Label(i18n.i18n("Clear usage statistics:")), clearButton);
-        clearStats.setAlignment(Pos.BOTTOM_LEFT);
-        clearStats.getStyleClass().add("spaced-vitem");
 
         getChildren().addAll(new Label(i18n.i18n("Load default workspace at startup:")), workspace,
-                new Label(i18n.i18n("Default working directory:")), workingDirectory, clearStats);
+                new Label(i18n.i18n("Default working directory:")), workingDirectory, clearButton);
         getStyleClass().addAll(Style.CONTAINER.css());
     }
 }

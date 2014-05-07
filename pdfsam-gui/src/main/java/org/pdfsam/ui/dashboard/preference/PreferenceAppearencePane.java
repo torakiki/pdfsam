@@ -16,15 +16,15 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.preference;
+package org.pdfsam.ui.dashboard.preference;
 
 import java.util.Locale;
 
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+
+import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
@@ -40,6 +40,7 @@ import org.pdfsam.ui.support.Style;
  * @author Andrea Vacondio
  * 
  */
+@Named
 class PreferenceAppearencePane extends VBox {
 
     PreferenceAppearencePane() {
@@ -51,9 +52,7 @@ class PreferenceAppearencePane extends VBox {
         }
         localeCombo.setTooltip(new Tooltip(i18n.i18n("Set your preferred language (restart needed)")));
         localeCombo.setValue(new LocaleKeyValueItem(DefaultI18nContext.getInstance().getLocale()));
-        HBox first = new HBox(2, new Label(i18n.i18n("Language:")), localeCombo);
-        first.setAlignment(Pos.BOTTOM_LEFT);
-        first.getStyleClass().add("spaced-vitem");
+        getChildren().addAll(new Label(i18n.i18n("Language:")), localeCombo);
 
         PreferenceComboBox<KeyStringValueItem<String>> themeCombo = new PreferenceComboBox<>(StringUserPreference.THEME);
         themeCombo.getItems().add(new KeyStringValueItem<>("cornflower.css", "Cornflower"));
@@ -64,10 +63,7 @@ class PreferenceAppearencePane extends VBox {
         themeCombo.getItems().add(new KeyStringValueItem<>("sienna.css", "Sienna"));
         themeCombo.setTooltip(new Tooltip(i18n.i18n("Set your preferred theme (restart needed)")));
         themeCombo.setValue(new KeyStringValueItem<>(DefaultUserContext.getInstance().getTheme(), ""));
-        HBox second = new HBox(2, new Label(i18n.i18n("Theme:")), themeCombo);
-        second.setAlignment(Pos.BOTTOM_LEFT);
-        second.getStyleClass().add("spaced-vitem");
-        getChildren().addAll(first, second);
+        getChildren().addAll(new Label(i18n.i18n("Theme:")), themeCombo);
         getStyleClass().addAll(Style.CONTAINER.css());
     }
 

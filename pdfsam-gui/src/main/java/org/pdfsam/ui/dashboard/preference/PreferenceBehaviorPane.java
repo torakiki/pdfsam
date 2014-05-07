@@ -16,22 +16,26 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.preference;
+package org.pdfsam.ui.dashboard.preference;
 
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.VBox;
+
+import javax.inject.Named;
 
 import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.I18nContext;
 import org.pdfsam.ui.support.Style;
+
 /**
  * Preference pane displaying the behavior section
  * 
  * @author Andrea Vacondio
  * 
  */
+@Named
 class PreferenceBehaviorPane extends VBox {
     PreferenceBehaviorPane() {
         I18nContext i18n = DefaultI18nContext.getInstance();
@@ -48,7 +52,8 @@ class PreferenceBehaviorPane extends VBox {
         playSounds.getStyleClass().add("spaced-vitem");
 
         PreferenceCheckBox askConfirmation = new PreferenceCheckBox(BooleanUserPreference.ASK_OVERWRITE_CONFIRMATION,
-                i18n.i18n("Ask for confirmation when overwrite checkbox is selected"), DefaultUserContext.getInstance()
+                i18n.i18n("Ask for confirmation when the \"Overwrite\" checkbox is selected"), DefaultUserContext
+                        .getInstance()
                         .isAskOverwriteConfirmation());
         askConfirmation.setTooltip(new Tooltip(i18n
                 .i18n("Show a dialog box asking the user for confirmation when the \"overwrite\" is selected")));

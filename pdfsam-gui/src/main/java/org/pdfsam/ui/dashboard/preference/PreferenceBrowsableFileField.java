@@ -16,37 +16,25 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.preference;
+package org.pdfsam.ui.dashboard.preference;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
-import javafx.scene.control.ComboBox;
 
-import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.StringUserPreference;
-import org.pdfsam.support.KeyValueItem;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.pdfsam.support.io.FileType;
+import org.pdfsam.ui.io.BrowsableFileField;
 
 /**
- * Combo box that sets a {@link StringUserPreference}
+ * {@link BrowsableFileField} that sets a {@link StringUserPreference} when the input text is valid.
  * 
  * @author Andrea Vacondio
- * @param <T>
- *            the type of the elements in the combo
+ * 
  */
-class PreferenceComboBox<T extends KeyValueItem<String, String>> extends ComboBox<T> {
-    private static final Logger LOG = LoggerFactory.getLogger(PreferenceComboBox.class);
-    private StringUserPreference preference;
-
-    PreferenceComboBox(StringUserPreference preference) {
+class PreferenceBrowsableFileField extends BrowsableFileField {
+    PreferenceBrowsableFileField(StringUserPreference preference, FileType type) {
+        super(type);
         requireNotNull(preference, "Preference cannot be null");
-        this.preference = preference;
-        valueProperty().addListener(
-                (observable, oldValue, newValue) -> {
-                    DefaultUserContext.getInstance().setStringPreference(PreferenceComboBox.this.preference,
-                            newValue.getKey());
-                    LOG.trace("Preference {} set to {}", PreferenceComboBox.this.preference, newValue.getKey());
-                });
+        enforceValidation(true, true);
+        getTextField().validProperty().addListener(new PreferenceSetterOnValidState(preference, getTextField()));
     }
-
 }

@@ -48,6 +48,7 @@ abstract class BrowsableField extends HBox {
         browseButton.setMaxHeight(USE_PREF_SIZE);
         browseButton.setMinHeight(USE_PREF_SIZE);
         browseButton.setAlignment(Pos.CENTER);
+        textField.setMinWidth(150);
         getChildren().addAll(textField, browseButton);
     }
 

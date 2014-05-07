@@ -16,13 +16,15 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.preference;
+package org.pdfsam.ui.dashboard.preference;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+
+import javax.inject.Named;
 
 import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.DefaultI18nContext;
@@ -44,6 +46,7 @@ import org.slf4j.LoggerFactory;
  * @author Andrea Vacondio
  * 
  */
+@Named
 class PreferenceThumbnailsPane extends VBox {
     private static final Logger LOG = LoggerFactory.getLogger(PreferenceThumbnailsPane.class);
 
@@ -81,10 +84,7 @@ class PreferenceThumbnailsPane extends VBox {
         PreferenceComboBox<KeyStringValueItem<String>> thumbCreator = new PreferenceComboBox<>(
                 StringUserPreference.THUMBNAILS_IDENTIFIER);
         thumbCreator.setTooltip(new Tooltip(i18n.i18n("Library used to generate thumbnails")));
-        HBox third = new HBox(2, new Label(i18n.i18n("Thumbnails creator:")), thumbCreator);
-        third.setAlignment(Pos.BOTTOM_LEFT);
-        third.getStyleClass().add("spaced-vitem");
-        getChildren().addAll(highQualityThumbnails, second, third);
+        getChildren().addAll(highQualityThumbnails, second, new Label(i18n.i18n("Thumbnails creator:")), thumbCreator);
         getStyleClass().addAll(Style.CONTAINER.css());
     }
 }

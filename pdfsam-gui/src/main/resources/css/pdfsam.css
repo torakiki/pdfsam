@@ -63,19 +63,20 @@
  	-fx-text-fill: derive(-fx-text-base-color, 30.0%);
 }
 /**
- * About panel
+ * Dashboard panels
  */
 .small-label{
 	-fx-font-size: 0.8em;
 }
 .section-title {
 	-fx-font-size: 1.2em;
-	-fx-padding: 1.0em 0.0 0.0 0.0;
+	-fx-padding: 1.2em 0.0 0.0 0.0;
 	-fx-font-weight: bold;
 }
-.about-container{
+.dashboard-container{
 	-fx-border-width: 0.0;
 	-fx-padding: 1.2em;
+	-fx-spacing: 30.0px;
 }
 /**
  * Log

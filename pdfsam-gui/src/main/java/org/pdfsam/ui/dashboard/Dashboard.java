@@ -28,6 +28,7 @@ import java.util.Map;
 
 import javafx.animation.FadeTransition;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -101,7 +102,7 @@ public class Dashboard extends BorderPane {
             this.item.pane().getStyleClass().addAll(Style.DEAULT_CONTAINER.css());
             this.item.pane().getStyleClass().addAll(Style.CONTAINER.css());
             setBottom(buildFooter());
-            setCenter(this.item.pane());
+            setCenter(new ScrollPane(this.item.pane()));
         }
 
         private HBox buildFooter() {

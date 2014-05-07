@@ -49,8 +49,7 @@ class AboutDashboardPane extends HBox {
     private String version;
 
     public AboutDashboardPane() {
-        super(30);
-        getStyleClass().add("about-container");
+        getStyleClass().add("dashboard-container");
     }
 
     @PostConstruct

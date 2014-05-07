@@ -19,6 +19,11 @@
 .label {
 	-fx-text-fill: dark-text-color;
 }
+.scroll-pane {
+    -fx-background-color: defaultbg-color;
+    -fx-background-insets: 0;
+    -fx-padding: 1.0;
+}
 .default-container {
 	-fx-background-color: defaultbg-color;
 	-fx-background-insets: 0.0;
