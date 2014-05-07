@@ -53,7 +53,7 @@ class DefaultUpdateService implements UpdateService {
 
     public void checkForUpdates() {
         try {
-            Map<String, Object> map = JSON.std.mapFrom(new URL(UPDATES_URL));
+            Map<String, Object> map = JSON.std.mapFrom(new URL(String.format("%s?c=%s", UPDATES_URL, appVersion)));
             String current = map.getOrDefault(CURRENT_VERSION_KEY, "").toString();
             if (!current.equals(appVersion)) {
                 LOG.info(DefaultI18nContext.getInstance().i18n("PDFsam {0} is available for download", current));
