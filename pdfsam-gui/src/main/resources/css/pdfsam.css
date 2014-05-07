@@ -1,6 +1,5 @@
 .root { 
 	menubg-color: #FFFFFF;
-	info-color: #4AAAD2;
 	awesome-color: derive(light-border-color, -20.0%);
 	awesome-color-hover: derive(light-border-color, -35.0%);
 }
@@ -66,22 +65,17 @@
 /**
  * About panel
  */
-#aboutLabelAppName{
-	-fx-font-size: 1.8em;
-	-fx-font-weight: bold;
-}
-#versionLabel{
+.small-label{
 	-fx-font-size: 0.8em;
+}
+.section-title {
+	-fx-font-size: 1.2em;
+	-fx-padding: 1.0em 0.0 0.0 0.0;
 	-fx-font-weight: bold;
-	-fx-padding: 0.0 0.0 1.7em 0.0;
 }
-#aboutLabelsContainer{
-	-fx-padding: 10.0px;
-}
-
-#logoContainer{
-	-fx-padding: 0.0 1.8em 0.0 0.0;
-	-fx-background-color: #FFFFFF;
+.about-container{
+	-fx-border-width: 0.0;
+	-fx-padding: 1.2em;
 }
 /**
  * Log

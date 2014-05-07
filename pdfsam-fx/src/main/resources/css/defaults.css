@@ -14,6 +14,7 @@
 	-fx-highlight-text-fill: dark-text-color;
 	default-effect: dropshadow(three-pass-box, theme-color, 10.0, 0.0, 0, 2);
 	-fx-disabled-opacity: 0.4;
+	info-color: #4AAAD2;	
 }
 .label {
 	-fx-text-fill: dark-text-color;
@@ -41,6 +42,21 @@
  	-fx-border-width: 0.0;
 	-fx-padding: 10.0 16.0 10.0 0.0;
 	-fx-alignment: center-right;
+}
+/**
+ * hyperlink
+ */
+.pdfsam-hyperlink {
+	-fx-cursor: hand;
+	-fx-background-color: defaultbg-color;
+	-fx-text-fill: derive(info-color, -20%);
+}
+.pdfsam-hyperlink:hover {
+	-fx-underline: true;
+}
+.pdfsam-hyperlink:armed {
+	-fx-underline: false;
+	-fx-opacity: 0.7;
 }
 /**
  * Progress bar

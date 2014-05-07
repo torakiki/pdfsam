@@ -18,22 +18,21 @@
  */
 package org.pdfsam.ui.dashboard;
 
-import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
-import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.apache.commons.io.FileUtils;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.commons.UrlButton;
-import org.pdfsam.ui.support.Style;
+
+import de.jensd.fx.fontawesome.AwesomeDude;
+import de.jensd.fx.fontawesome.AwesomeIcon;
 
 /**
  * Panel displaying PDFsam logo and About panel informations
@@ -42,56 +41,78 @@ import org.pdfsam.ui.support.Style;
  * 
  */
 @Named
-class AboutDashboardPane extends BorderPane {
+class AboutDashboardPane extends HBox {
 
-    @Inject
-    @Named("logo")
-    private Group logo;
     @Resource(name = "appName")
     private String name;
     @Resource(name = "appVersion")
     private String version;
 
     public AboutDashboardPane() {
-        getStyleClass().addAll(Style.CONTAINER.css());
+        super(30);
+        getStyleClass().add("about-container");
     }
 
     @PostConstruct
     void init() {
-        VBox labels = new VBox();
-        labels.setAlignment(Pos.CENTER);
-        labels.getStyleClass().add("pdfsam-container");
-        labels.setId("aboutLabelsContainer");
-        Label appName = new Label(name);
-        appName.setId("aboutLabelAppName");
-        labels.getChildren().add(appName);
-        Label versionLabel = new Label(String.format("ver. %s", version));
-        versionLabel.setId("versionLabel");
-        labels.getChildren().add(versionLabel);
+        VBox left = new VBox(5);
+        addSectionTitle(name, left);
+        left.getChildren().addAll(new Label(String.format("ver. %s", version)),
+                new Label("Copyright 2014 by Andrea Vacondio"));
+        addHyperlink(null, "http://www.gnu.org/licenses/agpl-3.0.html", "GNU Affero General Public License v3", left);
+        addHyperlink(AwesomeIcon.HOME, "http://www.pdfsam.org", "www.pdfsam.org", left);
+        addHyperlink(AwesomeIcon.RSS_SQUARE, "http://www.pdfsam.org/feed/",
+                DefaultI18nContext.getInstance().i18n("Subscribe to the official news feed"), left);
 
-        labels.getChildren().add(new Label("Copyright 2006-2014 by Andrea Vacondio"));
-        labels.getChildren().add(
+        addSectionTitle(DefaultI18nContext.getInstance().i18n("Environment"), left);
+        left.getChildren().add(
                 new Label(String.format("%s %s", System.getProperty("java.runtime.name"),
                         System.getProperty("java.runtime.version"))));
-        labels.getChildren().add(
+        left.getChildren().add(
                 new Label(String.format("JavaFX %s", com.sun.javafx.runtime.VersionInfo.getRuntimeVersion())));
-        labels.getChildren().add(
+        left.getChildren().add(
                 new Label(DefaultI18nContext.getInstance().i18n("Max memory {0}",
                         FileUtils.byteCountToDisplaySize(Runtime.getRuntime().maxMemory()))));
-        HBox hbox = new HBox();
-        hbox.setAlignment(Pos.CENTER);
-        hbox.getStyleClass().addAll("pdfsam-container", "button-container");
-        hbox.getChildren().addAll(
-                new UrlButton("Home", "http://www.pdfsam.org"),
-                new UrlButton(DefaultI18nContext.getInstance().i18n("License"),
-                        "http://www.gnu.org/licenses/agpl-3.0.html"),
-                new UrlButton("GitHub", "http://www.pdfsam.org/scm"));
-        labels.getChildren().add(hbox);
-        VBox logoPane = new VBox();
-        logoPane.setAlignment(Pos.CENTER);
-        logoPane.setId("logoContainer");
-        logoPane.getChildren().add(logo);
-        setLeft(logoPane);
-        setCenter(labels);
+        addSectionTitle(DefaultI18nContext.getInstance().i18n("Thanks to"), left);
+        addHyperlink(null, "http://www.pdfsam.org/thanks_to",
+                DefaultI18nContext.getInstance().i18n("The open source projects making PDFsam possible"), left);
+
+        VBox right = new VBox(5);
+        addSectionTitle(DefaultI18nContext.getInstance().i18n("Support"), right);
+        addHyperlink(AwesomeIcon.BUG, "http://www.pdfsam.org/issue_tracker",
+                DefaultI18nContext.getInstance().i18n("Bug and feature requests"), right);
+        addHyperlink(AwesomeIcon.QUESTION_CIRCLE, "http://www.pdfsam.org/wiki", "HowTo wiki", right);
+        addHyperlink(AwesomeIcon.YOUTUBE_PLAY, "http://www.pdfsam.org/quickstart_video", DefaultI18nContext
+                .getInstance().i18n("Play the \"get started\" video"), right);
+
+        addSectionTitle(DefaultI18nContext.getInstance().i18n("Contribute"), right);
+        addHyperlink(AwesomeIcon.GITHUB, "http://www.pdfsam.org/scm",
+                DefaultI18nContext.getInstance().i18n("Fork PDFsam on GitHub"), right);
+        addHyperlink(AwesomeIcon.DOLLAR, "http://www.pdfsam.org/donate", DefaultI18nContext.getInstance()
+                .i18n("Donate"), right);
+
+        addSectionTitle(DefaultI18nContext.getInstance().i18n("Social"), right);
+        addHyperlink(AwesomeIcon.TWITTER_SQUARE, "http://www.pdfsam.org/twitter", DefaultI18nContext.getInstance()
+                .i18n("Follow us on Twitter"), right);
+        addHyperlink(AwesomeIcon.GOOGLE_PLUS_SQUARE, "http://www.pdfsam.org/gplus", DefaultI18nContext.getInstance()
+                .i18n("Follow us on Google Plus"), right);
+        addHyperlink(AwesomeIcon.FACEBOOK_SQUARE, "http://www.pdfsam.org/facebook", DefaultI18nContext.getInstance()
+                .i18n("Like us on Facebook"), right);
+        getChildren().addAll(left, right);
+    }
+
+    private void addSectionTitle(String title, Pane pane) {
+        Label label = new Label(title);
+        label.getStyleClass().add("section-title");
+        pane.getChildren().add(label);
+    }
+
+    private void addHyperlink(AwesomeIcon icon, String url, String text, Pane pane) {
+        UrlButton button = new UrlButton(text, url);
+        button.getStyleClass().setAll("pdfsam-hyperlink");
+        if (icon != null) {
+            AwesomeDude.setIcon(button, icon);
+        }
+        pane.getChildren().add(button);
     }
 }
