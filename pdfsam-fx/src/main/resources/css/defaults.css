@@ -15,6 +15,10 @@
 	default-effect: dropshadow(three-pass-box, theme-color, 10.0, 0.0, 0, 2);
 	-fx-disabled-opacity: 0.4;
 	info-color: #4AAAD2;	
+	awesome-color: derive(light-border-color, -20.0%);
+	awesome-color-hover: derive(light-border-color, -35.0%);	
+	awesome-error-color: #ED5554;
+	awesome-error-color-hover: derive(awesome-error-color, -35.0%);	
 }
 .label {
 	-fx-text-fill: dark-text-color;
@@ -47,6 +51,33 @@
  	-fx-border-width: 0.0;
 	-fx-padding: 10.0 16.0 10.0 0.0;
 	-fx-alignment: center-right;
+}
+.pdfsam-footer-close-pane .awesome {
+    -fx-effect: null;
+    -fx-text-fill: awesome-color;
+}
+.pdfsam-footer-button, .pdfsam-footer-button:focused, .pdfsam-toolbar-button:hover{
+    -fx-background-color: defaultbg-color;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 0.0;
+}
+.pdfsam-footer-button:hover .awesome{
+	-fx-text-fill: awesome-color-hover;
+}
+.pdfsam-footer-button:armed {
+  -fx-opacity: 0.6;
+}
+.pdfsam-footer-button:disabled {
+    -fx-opacity: -fx-disabled-opacity;
+}
+.pdfsam-footer-failed-button .awesome{
+    -fx-text-fill: awesome-error-color;
+}
+.pdfsam-footer-failed-button:hover .awesome{
+    -fx-text-fill: awesome-error-color-hover;	
+}
+.progress-icons {
+ 	-fx-padding: 0.0 16.0 0.0 4.0;
 }
 /**
  * hyperlink

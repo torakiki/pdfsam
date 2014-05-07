@@ -24,7 +24,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.math.BigDecimal;
 
 import javafx.scene.control.Button;
-import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.Tooltip;
@@ -70,8 +69,8 @@ class ModuleFooterPane extends HBox {
 
     public ModuleFooterPane() {
         this.getStyleClass().addAll(Style.CLOSE_FOOTER.css());
-        AwesomeDude.setIcon(failed, AwesomeIcon.TIMES_CIRCLE, "16px", ContentDisplay.GRAPHIC_ONLY);
-        failed.getStyleClass().addAll("pdfsam-toolbar-button", "task-status-button", "notification-error");
+        failed.setGraphic(AwesomeDude.createIconLabel(AwesomeIcon.TIMES_CIRCLE));
+        failed.getStyleClass().addAll("pdfsam-footer-button", "pdfsam-footer-failed-button");
         failed.setVisible(false);
         failed.setOnAction(e -> eventStudio().broadcast(new ShowRequestEvent(), "LogStage"));
         failed.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Task execution failed")));

@@ -23,7 +23,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.io.File;
 
 import javafx.scene.control.Button;
-import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Tooltip;
 
 import org.pdfsam.context.DefaultI18nContext;
@@ -47,8 +46,8 @@ class OpenButton extends Button implements TaskOutputDispatcher {
     private File destination;
 
     public OpenButton() {
-        getStyleClass().addAll("pdfsam-toolbar-button", "task-status-button");
-        AwesomeDude.setIcon(this, AwesomeIcon.FOLDER_OPEN, "16px", ContentDisplay.GRAPHIC_ONLY);
+        getStyleClass().add("pdfsam-footer-button");
+        setGraphic(AwesomeDude.createIconLabel(AwesomeIcon.FOLDER_OPEN));
         setOnAction(e -> {
             if (destination != null && destination.exists()) {
                 eventStudio().broadcast(new OpenFileRequestEvent(destination));

@@ -1,7 +1,5 @@
 .root { 
 	menubg-color: #FFFFFF;
-	awesome-color: derive(light-border-color, -20.0%);
-	awesome-color-hover: derive(light-border-color, -35.0%);
 }
 /**
  * Notifications
@@ -222,23 +220,4 @@
 }
 .quickbar-navigation-button:hover .awesome {
 	-fx-text-fill: awesome-color-hover;
-}
-/**
- * modules footer
- */
-.progress-icons {
- 	-fx-padding: 0.0 16.0 0.0 4.0;
-}
-.task-status-button{
-	-fx-background-color:  defaultbg-color;
-    -fx-alignment: center-left;
-}
-.task-failed{
-	-fx-font-family:  FontAwesome;
-    -fx-font-size: 16.0px;
-    -fx-text-fill: linear-gradient(to bottom, derive(error-color,20.0%) 10.0%, derive(error-color,-40.0%) 80.0%);
-}
-
-.task-failed:hover {
-    -fx-effect: dropshadow( three-pass-box , derive(error-color,0.0%) , 0.01em, 0.0 , 0.0, 0.0);
 }
