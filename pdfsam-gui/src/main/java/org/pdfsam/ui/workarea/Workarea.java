@@ -75,7 +75,7 @@ public class Workarea extends BorderPane {
         eventStudio().addAnnotatedListeners(this);
     }
 
-    @EventListener(priority = Integer.MIN_VALUE)
+    @EventListener
     public void onSetActiveModule(SetActiveModuleRequest request) {
         Module requested = modules.get(request.getActiveModuleId().orElse(EMPTY));
         if (requested != null) {

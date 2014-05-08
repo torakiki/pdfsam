@@ -76,7 +76,7 @@ public class Dashboard extends BorderPane {
         eventStudio().addAnnotatedListeners(this);
     }
 
-    @EventListener(priority = Integer.MIN_VALUE)
+    @EventListener
     public void onSetActiveDashboardItem(SetActiveDashboardItemRequest request) {
         DashboardContentPane requested = items.get(request.getActiveItemId());
         if (requested != null) {

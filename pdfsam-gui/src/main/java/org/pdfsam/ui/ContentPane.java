@@ -55,13 +55,13 @@ public class ContentPane extends StackPane {
         eventStudio().broadcast(new SetActiveDashboardItemRequest(defaultDasboardItem));
     }
 
-    @EventListener
+    @EventListener(priority = Integer.MIN_VALUE)
     public void onSetActiveModule(SetActiveModuleRequest request) {
         dashboard.setVisible(false);
         modules.setVisible(true);
     }
 
-    @EventListener
+    @EventListener(priority = Integer.MIN_VALUE)
     public void onSetActiveDashboardItem(SetActiveDashboardItemRequest request) {
         dashboard.setVisible(true);
         modules.setVisible(false);
