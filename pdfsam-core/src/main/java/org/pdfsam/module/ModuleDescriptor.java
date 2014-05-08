@@ -18,9 +18,9 @@
  */
 package org.pdfsam.module;
 
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.pdfsam.support.RequireUtils.require;
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
+
+import java.util.Optional;
 
 /**
  * Metadata to describe a module.
@@ -34,23 +34,14 @@ public final class ModuleDescriptor {
     private String name;
     private String description;
     private int priority = ModulePriority.DEFAULT.getPriority();
+    private String supportURL;
 
-    public ModuleDescriptor(ModuleCategory category, String name, String description) {
-        requireNotNull(category, "Module category cannot be null");
-        require(isNotBlank(name), "Module name cannot be blank");
-        require(isNotBlank(description), "Module description cannot be blank");
+    ModuleDescriptor(ModuleCategory category, String name, String description, int priority, String supportURL) {
         this.category = category;
         this.name = name;
         this.description = description;
-    }
-
-    public ModuleDescriptor(ModuleCategory category, String name, String description, ModulePriority priority) {
-        this(category, name, description, priority.getPriority());
-    }
-
-    public ModuleDescriptor(ModuleCategory category, String name, String description, int priority) {
-        this(category, name, description);
         this.priority = priority;
+        this.supportURL = supportURL;
     }
 
     public ModuleCategory getCategory() {
@@ -77,6 +68,13 @@ public final class ModuleDescriptor {
      */
     public int getPriority() {
         return priority;
+    }
+
+    /**
+     * @return an optional URL pointing at the location where a support resource can be found. This is intended to be a webpage where support material for the module can be found.
+     */
+    public Optional<String> getSupportURL() {
+        return Optional.ofNullable(defaultIfBlank(supportURL, null));
     }
 
 }

@@ -25,6 +25,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.ui.dashboard.modules.ModulesDashboardPane;
 import org.springframework.context.annotation.Bean;
 
 import de.jensd.fx.fontawesome.AwesomeDude;

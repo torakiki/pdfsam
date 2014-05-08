@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.workarea;
 
+import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
@@ -50,7 +51,7 @@ public class QuickbarTestConfig {
             }
 
             public ModuleDescriptor descriptor() {
-                return new ModuleDescriptor(ModuleCategory.MERGE, "test", "test module");
+                return builder().category(ModuleCategory.MERGE).name("test").description("test module").build();
             }
         };
     }

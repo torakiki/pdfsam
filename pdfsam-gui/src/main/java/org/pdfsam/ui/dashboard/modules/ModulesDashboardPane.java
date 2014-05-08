@@ -16,17 +16,28 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.dashboard;
+package org.pdfsam.ui.dashboard.modules;
+
+import java.util.List;
 
 import javafx.scene.layout.FlowPane;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.pdfsam.module.Module;
+
 /**
+ * Panel showing modules button to in the dashboard. It's used a dashboard home where the users can select the modules the want to use.
+ * 
  * @author Andrea Vacondio
  *
  */
 @Named
-class ModulesDashboardPane extends FlowPane {
+public class ModulesDashboardPane extends FlowPane {
 
+    @Inject
+    public ModulesDashboardPane(List<Module> modules) {
+        getStyleClass().add("dashboard-container");
+    }
 }

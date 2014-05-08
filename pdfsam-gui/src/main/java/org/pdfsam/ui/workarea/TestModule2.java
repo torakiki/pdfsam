@@ -18,6 +18,8 @@
  */
 package org.pdfsam.ui.workarea;
 
+import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
+
 import java.io.IOException;
 import java.util.function.Consumer;
 
@@ -44,9 +46,12 @@ public class TestModule2 extends BaseTaskExecutionModule {
 
     private static final String SPLIT_MODULE_ID = "split";
 
+    private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT).name("Split")
+            .description("Split documents on a predefined set of pages").build();
+
     @Override
     public ModuleDescriptor descriptor() {
-        return new ModuleDescriptor(ModuleCategory.SPLIT, "Split", "Split documents on a predefined set of pages", 0);
+        return descriptor;
     }
 
     @Override
@@ -61,7 +66,6 @@ public class TestModule2 extends BaseTaskExecutionModule {
         pane.getChildren().add(new Label("Test label2"));
         return pane;
     }
-
 
     @Override
     public String id() {

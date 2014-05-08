@@ -18,6 +18,8 @@
  */
 package org.pdfsam.merge;
 
+import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
+
 import java.io.IOException;
 import java.util.function.Consumer;
 
@@ -59,6 +61,13 @@ public class MergeModule extends BaseTaskExecutionModule {
     private MergeOptionsPane mergeOptions = new MergeOptionsPane();
     private BrowsableFileField destinationFileField = new BrowsableFileField(FileType.PDF);
     private PdfDestinationPane destinationPane;
+    private ModuleDescriptor descriptor = builder()
+            .category(ModuleCategory.MERGE)
+            .name(DefaultI18nContext.getInstance().i18n("Merge"))
+            .description(
+                    DefaultI18nContext.getInstance().i18n(
+                            "Merge together multiple pdf documents or subsections of them."))
+            .priority(ModulePriority.HIGH.getPriority()).build();
 
     public MergeModule() {
         this.selectionPane = new MergeSelectionPane(id());
@@ -68,9 +77,7 @@ public class MergeModule extends BaseTaskExecutionModule {
 
     @Override
     public ModuleDescriptor descriptor() {
-        return new ModuleDescriptor(ModuleCategory.MERGE, DefaultI18nContext.getInstance().i18n("Merge"),
-                DefaultI18nContext.getInstance().i18n("Merge together multiple pdf documents or subsections of them."),
-                ModulePriority.HIGH.getPriority());
+        return descriptor;
     }
 
     @Override

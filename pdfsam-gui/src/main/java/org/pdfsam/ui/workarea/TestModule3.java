@@ -18,6 +18,8 @@
  */
 package org.pdfsam.ui.workarea;
 
+import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
+
 import java.io.IOException;
 import java.util.function.Consumer;
 
@@ -43,10 +45,12 @@ import org.springframework.core.io.ClassPathResource;
 public class TestModule3 extends BaseTaskExecutionModule {
 
     private static final String SIMPLE_SPLIT_MODULE_ID = "simple.split";
+    private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT).name("Simple Split")
+            .description("Split pdf documents").build();
 
     @Override
     public ModuleDescriptor descriptor() {
-        return new ModuleDescriptor(ModuleCategory.SPLIT, "Simple Split", "Split pdf documents", 1);
+        return descriptor;
     }
 
     @Override
