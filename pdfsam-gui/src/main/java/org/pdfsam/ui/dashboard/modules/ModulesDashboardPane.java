@@ -38,6 +38,8 @@ public class ModulesDashboardPane extends FlowPane {
 
     @Inject
     public ModulesDashboardPane(List<Module> modules) {
-        getStyleClass().add("dashboard-container");
+        getStyleClass().addAll("dashboard-container", "dashboard-modules");
+        modules.stream().sorted((a, b) -> a.descriptor().getPriority() - b.descriptor().getPriority())
+                .map(ModulesDashboardTile::new).forEach(getChildren()::add);
     }
 }

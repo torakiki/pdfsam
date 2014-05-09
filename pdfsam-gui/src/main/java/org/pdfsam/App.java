@@ -70,14 +70,14 @@ public class App extends Application {
         List<String> styles = (List<String>) ApplicationContextHolder.getContext().getBean("styles");
         Map<String, Image> logos = ApplicationContextHolder.getContext().getBeansOfType(Image.class);
         MainPane mainPane = ApplicationContextHolder.getContext().getBean(MainPane.class);
-        // TEST
+
         NotificationsContainer notifications = ApplicationContextHolder.getContext().getBean(
                 NotificationsContainer.class);
         StackPane main = new StackPane();
         StackPane.setAlignment(notifications, Pos.BOTTOM_RIGHT);
         StackPane.setAlignment(mainPane, Pos.TOP_LEFT);
         main.getChildren().addAll(mainPane, notifications);
-        // END TEST
+
         Scene scene = new Scene(main);
         scene.getStylesheets().addAll(styles);
         primaryStage.setScene(scene);
