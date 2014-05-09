@@ -102,7 +102,10 @@ public class Dashboard extends BorderPane {
             this.item.pane().getStyleClass().addAll(Style.DEAULT_CONTAINER.css());
             this.item.pane().getStyleClass().addAll(Style.CONTAINER.css());
             setBottom(buildFooter());
-            setCenter(new ScrollPane(this.item.pane()));
+            ScrollPane scroll = new ScrollPane(this.item.pane());
+            scroll.setFitToHeight(true);
+            scroll.setFitToWidth(true);
+            setCenter(scroll);
         }
 
         private HBox buildFooter() {

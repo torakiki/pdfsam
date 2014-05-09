@@ -57,7 +57,7 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwn
         this.ownerModule = ownerModule;
 
         Arrays.stream(PdfVersion.values()).filter(v -> v.getVersion() > 2).map(PdfVersionComboItem::new)
-                .forEach(e -> unfilteredItems.add(e));
+                .forEach(unfilteredItems::add);
 
         setCellFactory(new Callback<ListView<PdfVersionComboItem>, ListCell<PdfVersionComboItem>>() {
             @Override

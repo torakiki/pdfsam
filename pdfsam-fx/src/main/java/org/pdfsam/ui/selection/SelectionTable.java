@@ -224,7 +224,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     @EventListener(priority = Integer.MIN_VALUE)
     public void onLoadDocumentsRequest(PdfLoadRequestEvent loadEvent) {
-        loadEvent.getDocuments().forEach(d -> getItems().add(new SelectionTableRowData(d)));
+        loadEvent.getDocuments().stream().map(SelectionTableRowData::new).forEach(getItems()::add);
         eventStudio().broadcast(loadEvent);
     }
 

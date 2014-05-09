@@ -67,7 +67,7 @@ public class MergeModule extends BaseTaskExecutionModule {
             .description(
                     DefaultI18nContext.getInstance().i18n(
                             "Merge together multiple pdf documents or subsections of them."))
-            .priority(ModulePriority.HIGH.getPriority()).build();
+            .priority(ModulePriority.HIGH.getPriority()).supportURL("http://www.pdfsam.org/merge").build();
 
     public MergeModule() {
         this.selectionPane = new MergeSelectionPane(id());

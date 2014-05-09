@@ -87,7 +87,7 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
             List<File> chosenFiles = fileChooser.showOpenMultipleDialog(this.getScene().getWindow());
             if (chosenFiles != null && !chosenFiles.isEmpty()) {
                 PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
-                chosenFiles.forEach(d -> loadEvent.add(PdfDocumentDescriptor.newDescriptorNoPassword(d)));
+                chosenFiles.stream().map(PdfDocumentDescriptor::newDescriptorNoPassword).forEach(loadEvent::add);
                 eventStudio().broadcast(loadEvent, getOwnerModule());
             }
         }

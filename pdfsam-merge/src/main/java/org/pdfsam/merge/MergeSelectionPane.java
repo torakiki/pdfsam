@@ -55,8 +55,8 @@ public class MergeSelectionPane extends SelectionPane<MergeParameters> {
             onError.accept(DefaultI18nContext.getInstance().i18n("No pdf document has been selected"));
         }
         try {
-            table().getItems().stream()
-                    .forEach(i -> params.addInput(new PdfMergeInput(i.toPdfFileSource(), i.toPageRangeSet())));
+            table().getItems().stream().map(i -> new PdfMergeInput(i.toPdfFileSource(), i.toPageRangeSet()))
+                    .forEach(params::addInput);
         } catch (ConversionException e) {
             LOG.error(e.getMessage());
             onError.accept(e.getMessage());
