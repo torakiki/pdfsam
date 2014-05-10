@@ -41,7 +41,7 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
  * @author Andrea Vacondio
  *
  */
-public class ModulesDashboardTile extends Region {
+class ModulesDashboardTile extends Region {
 
     private static final PseudoClass ARMED_PSEUDOCLASS_STATE = PseudoClass.getPseudoClass("armed");
 
