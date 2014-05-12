@@ -26,7 +26,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.ui.event.OpenFileRequestEvent;
+import org.pdfsam.ui.event.OpenFileRequest;
 import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.output.StreamTaskOutput;
@@ -50,7 +50,7 @@ class OpenButton extends Button implements TaskOutputDispatcher {
         setGraphic(AwesomeDude.createIconLabel(AwesomeIcon.FOLDER_OPEN));
         setOnAction(e -> {
             if (destination != null && destination.exists()) {
-                eventStudio().broadcast(new OpenFileRequestEvent(destination));
+                eventStudio().broadcast(new OpenFileRequest(destination));
             }
         });
         setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Open the generated file/files")));

@@ -35,7 +35,7 @@ import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.TaskExecutionRequestEvent;
-import org.pdfsam.ui.event.ShowRequestEvent;
+import org.pdfsam.ui.event.ShowStageRequest;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.model.exception.TaskOutputVisitException;
@@ -72,7 +72,7 @@ class ModuleFooterPane extends HBox {
         failed.setGraphic(AwesomeDude.createIconLabel(AwesomeIcon.TIMES_CIRCLE));
         failed.getStyleClass().addAll("pdfsam-footer-button", "pdfsam-footer-failed-button");
         failed.setVisible(false);
-        failed.setOnAction(e -> eventStudio().broadcast(new ShowRequestEvent(), "LogStage"));
+        failed.setOnAction(e -> eventStudio().broadcast(new ShowStageRequest(), "LogStage"));
         failed.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Task execution failed")));
         open.setVisible(false);
         bar.setPrefWidth(280);

@@ -22,7 +22,6 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 import java.io.File;
 import java.util.HashMap;
-import java.util.Map;
 
 import javafx.beans.property.ReadOnlyBooleanProperty;
 import javafx.beans.property.ReadOnlyBooleanWrapper;
@@ -33,7 +32,6 @@ import javafx.beans.property.ReadOnlyObjectWrapper;
 
 import org.apache.commons.lang3.StringUtils;
 import org.sejda.model.input.PdfFileSource;
-import org.sejda.model.pdf.PdfMetadataKey;
 
 /**
  * Lightweight pdf document descriptor holding data necessary to fill the selection table and request a task execution.
@@ -51,15 +49,11 @@ public final class PdfDocumentDescriptor {
     private String password;
     private File file;
     private String version;
-    private Map<PdfMetadataKey, String> metadata = new HashMap<>();
+    private HashMap<String, String> metadata = new HashMap<>();
 
     private PdfDocumentDescriptor(File file, String password) {
         this.file = file;
         this.password = password;
-    }
-
-    public void addMedatada(PdfMetadataKey key, String metadata) {
-        this.metadata.put(key, metadata);
     }
 
     public String getFileName() {
@@ -72,10 +66,15 @@ public final class PdfDocumentDescriptor {
 
     /**
      * @param key
-     * @return the metadata value for the key or an empty string
+     * @return the information dictionary value for the key or an empty string
      */
-    public String getMedatada(PdfMetadataKey key) {
+    public String getInformation(String key) {
         return StringUtils.defaultString(metadata.get(key));
+    }
+
+    public void setInformationDictionary(HashMap<String, String> info) {
+        metadata.clear();
+        metadata.putAll(info);
     }
 
     public ReadOnlyIntegerProperty pagesPropery() {
@@ -139,4 +138,5 @@ public final class PdfDocumentDescriptor {
         requireNotNull(file, "Input file is mandatory");
         return new PdfDocumentDescriptor(file, null);
     }
+
 }

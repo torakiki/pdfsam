@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 19/feb/2014
+ * Created on 10/mag/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,29 +16,42 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.event;
+package org.pdfsam.ui.info;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import javafx.geometry.Side;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 
-import java.io.File;
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import org.pdfsam.context.DefaultI18nContext;
 
 /**
- * Request to open a file or directory using the native viewer
+ * Panel showing a pdf document information like author, creator etc.
  * 
  * @author Andrea Vacondio
  *
  */
-public class OpenFileRequestEvent {
+@Named
+class InfoPane extends TabPane {
 
-    private File file;
+    @Inject
+    private SummaryTab summary;
+    private Tab security = createTab(DefaultI18nContext.getInstance().i18n("Security"));
+    @Inject
+    private KeywordsTab keywords;
 
-    public OpenFileRequestEvent(File file) {
-        requireNotNull(file, "Cannot open an empty file.");
-        this.file = file;
+    @PostConstruct
+    void init() {
+        setSide(Side.LEFT);
+        getTabs().addAll(summary, security, keywords);
     }
 
-    public File getFile() {
-        return file;
+    private static Tab createTab(String title) {
+        Tab tab = new Tab(title);
+        tab.setClosable(false);
+        return tab;
     }
-
 }

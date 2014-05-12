@@ -159,7 +159,7 @@
  	-fx-background-color: light-border-color, headerbg-color;
     -fx-background-insets: 0.0, 0.0 0.0 1.0 0.0;
     -fx-background-radius: 0.0, 0.0;
-    -fx-alignment: center-left;    
+    -fx-alignment: center-left;  
  }
 .pdfsam-banner .awesome {
     -fx-effect: null;
@@ -274,4 +274,43 @@
 }
 .quickbar-navigation-button:hover .awesome {
 	-fx-text-fill: awesome-color-hover;
+}
+/**
+ * Info pane
+ */
+.info-props{
+	-fx-background-color:  light-border-color, #FFFFFF;
+    -fx-background-insets:  0.0, 1.0;	
+	-fx-border-radius: 0.0;
+	-fx-padding: 15.0;
+	-fx-hgap: 10.0px;
+	-fx-vgap: 10.0px;
+}
+.info-property-value, .info-property {
+	-fx-background-color: #FFFFFF;
+    -fx-background-insets:  0.0;	
+	-fx-border-radius: 0.0;
+}
+.info-property {
+	-fx-font-weight: bold;
+}
+.tab-pane > .tab-header-area > .headers-region > .tab:left {
+    -fx-background-color: defaultbg-color, light-border-color, #FFFFFF;
+    -fx-background-insets: 0.0, 1.0, 2.0 2.0 2.0 2.0;
+    -fx-background-radius: 0.0;
+    -fx-opacity: 0.9;
+}
+.tab-pane > .tab-header-area > .headers-region > .tab:selected {
+    -fx-background-color: defaultbg-color, theme-color, light-border-color, #FFFFFF;
+    -fx-background-insets: 0.0, 1.0, 2.5 1.0 1.0 1.0, 2.5 2.0 2.0 2.0;
+    -fx-opacity: 1.0;
+}
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-width: 0.0;
+}
+.tab-pane > .tab-header-area > .tab-header-background {
+    -fx-background-color: defaultbg-color;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 0.0;
+    -fx-effect: null;
 }

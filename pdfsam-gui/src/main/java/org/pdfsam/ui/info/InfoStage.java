@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.log;
+package org.pdfsam.ui.info;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
@@ -36,7 +36,7 @@ import javax.inject.Named;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.commons.ClosePane;
 import org.pdfsam.ui.commons.HideOnEscapeHandler;
-import org.pdfsam.ui.event.ShowStageRequest;
+import org.pdfsam.ui.event.ShowPdfDescriptorRequest;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 
@@ -47,11 +47,11 @@ import org.sejda.eventstudio.annotation.EventListener;
  * 
  */
 @Named
-public class LogStage extends Stage {
+public class InfoStage extends Stage {
 
-    public static final String LOGSTAGE_EVENTSTATION = "LogStage";
+    public static final String INFOSTAGE_EVENTSTATION = "InfoStage";
     @Inject
-    private LogPane logPane;
+    private InfoPane infoPane;
     @Inject
     private Collection<Image> logos;
     @Resource(name = "styles")
@@ -61,19 +61,19 @@ public class LogStage extends Stage {
     void init() {
         BorderPane containerPane = new BorderPane();
         containerPane.getStyleClass().addAll(Style.CONTAINER.css());
-        containerPane.setCenter(logPane);
+        containerPane.setCenter(infoPane);
         containerPane.setBottom(new ClosePane());
         Scene scene = new Scene(containerPane);
         scene.getStylesheets().addAll(styles);
         scene.setOnKeyReleased(new HideOnEscapeHandler(this));
         setScene(scene);
-        setTitle(DefaultI18nContext.getInstance().i18n("Log register"));
+        setTitle(DefaultI18nContext.getInstance().i18n("Document details"));
         getIcons().addAll(logos);
         eventStudio().addAnnotatedListeners(this);
     }
 
-    @EventListener(station = LOGSTAGE_EVENTSTATION)
-    void requestShow(ShowStageRequest event) {
+    @EventListener
+    void requestShow(ShowPdfDescriptorRequest event) {
         if (!isShowing()) {
             centerOnScreen();
             show();

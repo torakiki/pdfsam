@@ -30,7 +30,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 import org.pdfsam.module.Module;
-import org.pdfsam.ui.event.OpenUrlRequestEvent;
+import org.pdfsam.ui.event.OpenUrlRequest;
 
 import de.jensd.fx.fontawesome.AwesomeDude;
 import de.jensd.fx.fontawesome.AwesomeIcon;
@@ -71,7 +71,7 @@ class ModulesDashboardTile extends Region {
         module.descriptor().getSupportURL().ifPresent(url -> {
             Button button = AwesomeDude.createIconButton(AwesomeIcon.YOUTUBE_PLAY, "");
             button.getStyleClass().add("pdfsam-toolbar-button");
-            button.setOnAction(e -> eventStudio().broadcast(new OpenUrlRequestEvent(url)));
+            button.setOnAction(e -> eventStudio().broadcast(new OpenUrlRequest(url)));
             toolButtons.getChildren().add(button);
             toolButtons.getStyleClass().add("dashboard-modules-toolbar");
             inner.getChildren().add(toolButtons);

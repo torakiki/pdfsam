@@ -45,8 +45,9 @@ import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.io.FileType;
-import org.pdfsam.ui.event.OpenFileRequestEvent;
-import org.pdfsam.ui.event.SetDestinationEvent;
+import org.pdfsam.ui.event.OpenFileRequest;
+import org.pdfsam.ui.event.SetDestinationRequest;
+import org.pdfsam.ui.event.ShowPdfDescriptorRequest;
 import org.pdfsam.ui.selection.move.MoveSelectedEvent;
 import org.pdfsam.ui.selection.move.MoveType;
 import org.pdfsam.ui.selection.move.SelectionAndFocus;
@@ -103,14 +104,15 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     private void initContextMenu() {
         MenuItem infoItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Document properties"),
                 AwesomeIcon.INFO);
-        // infoItem.setOnAction(e -> eventStudio().broadcast(showDocumentProperties, getOwnerModule()));
+        infoItem.setOnAction(e -> eventStudio().broadcast(
+                new ShowPdfDescriptorRequest(getSelectionModel().getSelectedItem().getDocumentDescriptor())));
         MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set output"),
                 AwesomeIcon.PENCIL_SQUARE_ALT);
 
         setDestinationItem.setOnAction(e -> {
             File outFile = new File(
                     getSelectionModel().getSelectedItem().getDocumentDescriptor().getFile().getParent(), "out.pdf");
-            eventStudio().broadcast(new SetDestinationEvent(outFile), getOwnerModule());
+            eventStudio().broadcast(new SetDestinationRequest(outFile), getOwnerModule());
         });
 
         MenuItem removeSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Remove"),
@@ -139,14 +141,14 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         MenuItem openFileItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open"), AwesomeIcon.FILE_ALT);
         openFileItem.setOnAction(e -> {
             eventStudio().broadcast(
-                    new OpenFileRequestEvent(getSelectionModel().getSelectedItem().getDocumentDescriptor().getFile()));
+                    new OpenFileRequest(getSelectionModel().getSelectedItem().getDocumentDescriptor().getFile()));
         });
 
         MenuItem openFolderItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open Folder"),
                 AwesomeIcon.FOLDER_OPEN);
         openFolderItem.setOnAction(e -> {
             eventStudio().broadcast(
-                    new OpenFileRequestEvent(getSelectionModel().getSelectedItem().getDocumentDescriptor().getFile()
+                    new OpenFileRequest(getSelectionModel().getSelectedItem().getDocumentDescriptor().getFile()
                             .getParentFile()));
         });
         // https://javafx-jira.kenai.com/browse/RT-28136

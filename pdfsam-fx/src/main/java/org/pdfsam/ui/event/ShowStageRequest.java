@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 03/mag/2014
- * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 06/dic/2013
+ * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,30 +16,14 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.banner;
-
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.control.Tooltip;
-
-import javax.inject.Named;
-
-import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.ui.event.ShowStageRequest;
-
-import de.jensd.fx.fontawesome.AwesomeIcon;
+package org.pdfsam.ui.event;
 
 /**
- * Button requiring to open the log window
+ * Event to request a component to be shown
  * 
  * @author Andrea Vacondio
- *
+ * 
  */
-@Named
-class LogButton extends BannerButton {
-
-    LogButton() {
-        super(AwesomeIcon.LIST);
-        setOnAction(e -> eventStudio().broadcast(new ShowStageRequest(), "LogStage"));
-        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Open application messages")));
-    }
+public class ShowStageRequest {
+    // nothing
 }

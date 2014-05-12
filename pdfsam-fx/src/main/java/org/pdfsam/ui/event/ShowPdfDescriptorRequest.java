@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 10/feb/2014
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 12/mag/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -18,24 +18,25 @@
  */
 package org.pdfsam.ui.event;
 
-import static org.pdfsam.support.RequireUtils.requireNotBlank;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
+
+import org.pdfsam.pdf.PdfDocumentDescriptor;
 
 /**
- * Request to open the given URL
+ * Request to display to the user the given document descriptor
  * 
  * @author Andrea Vacondio
  *
  */
-public class OpenUrlRequestEvent {
-    private String url;
+public class ShowPdfDescriptorRequest {
+    private PdfDocumentDescriptor descriptor;
 
-    public OpenUrlRequestEvent(String url) {
-        requireNotBlank(url, "URL cannot be blank");
-        this.url = url;
+    public ShowPdfDescriptorRequest(PdfDocumentDescriptor descriptor) {
+        requireNotNull(descriptor, "Cannot display a null pdf descriptor");
+        this.descriptor = descriptor;
     }
 
-    public String getUrl() {
-        return url;
+    public PdfDocumentDescriptor getDescriptor() {
+        return descriptor;
     }
-
 }

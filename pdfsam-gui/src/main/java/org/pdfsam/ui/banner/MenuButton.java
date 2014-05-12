@@ -27,7 +27,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.ui.event.ShowRequestEvent;
+import org.pdfsam.ui.event.ShowStageRequest;
 
 import de.jensd.fx.fontawesome.AwesomeIcon;
 
@@ -44,7 +44,7 @@ class MenuButton extends BannerButton {
 
     MenuButton() {
         super(AwesomeIcon.REORDER);
-        setOnAction(e -> eventStudio().broadcast(new ShowRequestEvent(), "LogStage"));
+        setOnAction(e -> eventStudio().broadcast(new ShowStageRequest(), "LogStage"));
         setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Open menu")));
 
     }

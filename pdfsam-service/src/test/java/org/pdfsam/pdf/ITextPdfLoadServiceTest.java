@@ -57,7 +57,7 @@ public class ITextPdfLoadServiceTest {
         assertNotNull(item);
         assertEquals(2, item.pagesPropery().get());
         assertEquals(EncryptionStatus.NOT_ENCRYPTED, item.encryptionStatusProperty().get());
-        assertEquals("Me", item.getMedatada(PdfMetadataKey.AUTHOR));
-        assertEquals("test", item.getMedatada(PdfMetadataKey.KEYWORDS));
+        assertEquals("Me", item.getInformation(PdfMetadataKey.AUTHOR.getKey()));
+        assertEquals("test", item.getInformation(PdfMetadataKey.KEYWORDS.getKey()));
     }
 }

@@ -32,7 +32,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.support.TaskParametersBuildStep;
-import org.pdfsam.ui.event.SetDestinationEvent;
+import org.pdfsam.ui.event.SetDestinationRequest;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
@@ -73,7 +73,7 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned,
     }
 
     @EventListener
-    public void setDestination(SetDestinationEvent event) {
+    public void setDestination(SetDestinationRequest event) {
         destination().setTextFromFile(event.getFootprint());
     }
 

@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 12/dic/2013
+ * Created on 10/feb/2014
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,27 +18,24 @@
  */
 package org.pdfsam.ui.event;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
-
-import java.io.File;
+import static org.pdfsam.support.RequireUtils.requireNotBlank;
 
 /**
- * Request to set a the destination using the given file as footprint.
+ * Request to open the given URL
  * 
  * @author Andrea Vacondio
- * 
+ *
  */
-public class SetDestinationEvent {
+public class OpenUrlRequest {
+    private String url;
 
-    private File footprint;
-
-    public SetDestinationEvent(File footprint) {
-        requireNotNull(footprint, "Footprint file cannot be null");
-        this.footprint = footprint;
+    public OpenUrlRequest(String url) {
+        requireNotBlank(url, "URL cannot be blank");
+        this.url = url;
     }
 
-    public File getFootprint() {
-        return footprint;
+    public String getUrl() {
+        return url;
     }
 
 }

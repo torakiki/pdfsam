@@ -18,18 +18,15 @@
  */
 package org.pdfsam.pdf;
 
-import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.sejda.impl.itext5.util.ITextUtils.nullSafeClosePdfReader;
 
 import java.util.Collection;
-import java.util.Map;
 
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.sejda.impl.itext5.component.DefaultPdfSourceOpener;
 import org.sejda.model.exception.TaskWrongPasswordException;
-import org.sejda.model.pdf.PdfMetadataKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -60,10 +57,7 @@ class ITextPdfLoadService implements PdfLoadService {
                     }
                     current.setPages(reader.getNumberOfPages());
                     current.setVersion(String.format("1.%c", reader.getPdfVersion()));
-                    Map<String, String> meta = reader.getInfo();
-                    for (PdfMetadataKey key : PdfMetadataKey.values()) {
-                        current.addMedatada(key, defaultString(meta.get(key.getKey())));
-                    }
+                    current.setInformationDictionary(reader.getInfo());
                 } catch (TaskWrongPasswordException twpe) {
                     current.setEncryptionStatus(EncryptionStatus.ENCRYPTED);
                     LOG.warn(String.format("User password required %s", current.getFileName()), twpe);

@@ -23,7 +23,7 @@ import static org.pdfsam.support.RequireUtils.require;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.control.Button;
 
-import org.pdfsam.ui.event.OpenUrlRequestEvent;
+import org.pdfsam.ui.event.OpenUrlRequest;
 import org.pdfsam.ui.support.Style;
 
 /**
@@ -37,7 +37,7 @@ public class UrlButton extends Button {
     public UrlButton(String text, String url) {
         super(text);
         require(isNotBlank(url), "URL cannot be blank");
-        setOnAction(e -> eventStudio().broadcast(new OpenUrlRequestEvent(url)));
+        setOnAction(e -> eventStudio().broadcast(new OpenUrlRequest(url)));
         // not sure about this. see: https://javafx-jira.kenai.com/browse/RT-28779
         /**
          * setOnKeyReleased(new EventHandler<KeyEvent>() { final KeyCombination combo = new KeyCodeCombination(KeyCode.ENTER);

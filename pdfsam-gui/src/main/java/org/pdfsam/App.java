@@ -44,10 +44,10 @@ import org.pdfsam.configuration.ApplicationContextHolder;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.ui.MainPane;
-import org.pdfsam.ui.event.OpenFileRequestEvent;
-import org.pdfsam.ui.event.OpenUrlRequestEvent;
+import org.pdfsam.ui.event.OpenFileRequest;
+import org.pdfsam.ui.event.OpenUrlRequest;
 import org.pdfsam.ui.event.SetTitleEvent;
-import org.pdfsam.ui.event.ShowRequestEvent;
+import org.pdfsam.ui.event.ShowStageRequest;
 import org.pdfsam.ui.notification.NotificationsContainer;
 import org.pdfsam.update.UpdateCheckRequest;
 import org.sejda.eventstudio.Listener;
@@ -84,7 +84,7 @@ public class App extends Application {
         primaryStage.getIcons().addAll(logos.values());
         primaryStage.setTitle(ApplicationContextHolder.getContext().getBean("appName", String.class));
         scene.getAccelerators().put(new KeyCodeCombination(KeyCode.L, KeyCombination.SHORTCUT_DOWN),
-                () -> eventStudio().broadcast(new ShowRequestEvent(), "LogStage"));
+                () -> eventStudio().broadcast(new ShowStageRequest(), "LogStage"));
         primaryStage.show();
         eventStudio().add(new TitleController(primaryStage));
         requestCheckForUpdateIfNecessary();
@@ -106,7 +106,7 @@ public class App extends Application {
     }
 
     @EventListener
-    public void openUrl(OpenUrlRequestEvent event) {
+    public void openUrl(OpenUrlRequest event) {
         HostServices services = getHostServices();
         if (services != null) {
             services.showDocument(event.getUrl());
@@ -116,11 +116,11 @@ public class App extends Application {
     }
 
     @EventListener
-    public void openPath(OpenFileRequestEvent event) {
+    public void openPath(OpenFileRequest event) {
         EventQueue.invokeLater(() -> doOpen(event));
     }
 
-    private void doOpen(OpenFileRequestEvent event) {
+    private void doOpen(OpenFileRequest event) {
         if (Desktop.isDesktopSupported()) {
             try {
                 Desktop.getDesktop().open(event.getFile());
