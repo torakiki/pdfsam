@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 import javafx.animation.FadeTransition;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
@@ -33,6 +34,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.Module;
 import org.pdfsam.ui.event.SetActiveModuleRequest;
 import org.pdfsam.ui.event.SetTitleEvent;
@@ -53,13 +55,12 @@ public class Workarea extends BorderPane {
     private Map<String, Module> modules = new HashMap<>();
     private StackPane center = new StackPane();
     private FadeTransition fade = new FadeTransition(new Duration(300), center);
-
-    public Workarea() {
-        getStyleClass().addAll(Style.CONTAINER.css());
-    }
+    private Label emptyArea = new Label(DefaultI18nContext.getInstance().i18n("Please select a module"));
 
     @Inject
     public Workarea(List<Module> modulesList) {
+        getStyleClass().addAll(Style.CONTAINER.css());
+        emptyArea.getStyleClass().add("empty-notice");
         for (Module module : modulesList) {
             modules.put(module.id(), module);
         }
@@ -69,6 +70,7 @@ public class Workarea extends BorderPane {
 
     @PostConstruct
     private void init() {
+        center.getChildren().setAll(emptyArea);
         setLeft(navigation);
         setCenter(center);
         eventStudio().addAnnotatedListeners(this);

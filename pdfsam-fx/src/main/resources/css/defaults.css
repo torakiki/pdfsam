@@ -2,7 +2,7 @@
 	theme-color: #009245;
 	hover-color: #D4D4D4;
 	light-border-color: #D4D4D4;
-	dark-text-color: #2b2b2b;
+	dark-text-color: derive(light-border-color, -70.0%);
 	button-color: #E5E5E5;
 	defaultbg-color: -fx-background;
 	headerbg-color: #FFFFFF;
