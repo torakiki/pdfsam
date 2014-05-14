@@ -19,7 +19,7 @@
 package org.pdfsam.pdf;
 
 /**
- * Possible encryption status of thed ocument
+ * Possible encryption status of the document
  * 
  * @author Andrea Vacondio
  * 

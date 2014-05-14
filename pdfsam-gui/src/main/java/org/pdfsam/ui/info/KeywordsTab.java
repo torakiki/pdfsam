@@ -19,6 +19,9 @@
 package org.pdfsam.ui.info;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.WeakChangeListener;
@@ -43,7 +46,7 @@ import org.sejda.model.pdf.PdfMetadataKey;
  */
 @Named
 class KeywordsTab extends Tab {
-    private ChangeListener<Boolean> loadedListener;
+    private ChangeListener<AtomicBoolean> loadedListener;
     private Label keywords = new Label();
 
     KeywordsTab() {

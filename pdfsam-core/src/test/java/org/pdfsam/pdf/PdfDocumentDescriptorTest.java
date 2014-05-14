@@ -41,7 +41,7 @@ public class PdfDocumentDescriptorTest {
         PdfDocumentDescriptor victim = PdfDocumentDescriptor.newDescriptor(file, "pwd");
         assertNotNull(victim.getFileName());
         assertFalse(victim.isInvalid());
-        assertFalse(victim.loadedProperty().get());
+        assertFalse(victim.loadedProperty().get().get());
         verify(file).getName();
     }
 }

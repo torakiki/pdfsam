@@ -28,7 +28,7 @@ import javax.inject.Named;
 import org.pdfsam.ui.dashboard.Dashboard;
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.pdfsam.ui.event.SetActiveModuleRequest;
-import org.pdfsam.ui.workarea.Workarea;
+import org.pdfsam.ui.workarea.WorkArea;
 import org.sejda.eventstudio.annotation.EventListener;
 
 /**
@@ -41,7 +41,7 @@ import org.sejda.eventstudio.annotation.EventListener;
 public class ContentPane extends StackPane {
 
     @Inject
-    private Workarea modules;
+    private WorkArea modules;
     @Inject
     private Dashboard dashboard;
     @Inject

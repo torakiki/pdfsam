@@ -19,14 +19,11 @@
 package org.pdfsam.ui.info;
 
 import javafx.geometry.Side;
-import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
-
-import org.pdfsam.context.DefaultI18nContext;
 
 /**
  * Panel showing a pdf document information like author, creator etc.
@@ -39,19 +36,12 @@ class InfoPane extends TabPane {
 
     @Inject
     private SummaryTab summary;
-    private Tab security = createTab(DefaultI18nContext.getInstance().i18n("Security"));
     @Inject
     private KeywordsTab keywords;
 
     @PostConstruct
     void init() {
         setSide(Side.LEFT);
-        getTabs().addAll(summary, security, keywords);
-    }
-
-    private static Tab createTab(String title) {
-        Tab tab = new Tab(title);
-        tab.setClosable(false);
-        return tab;
+        getTabs().addAll(summary, keywords);
     }
 }

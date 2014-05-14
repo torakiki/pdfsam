@@ -48,7 +48,7 @@ import org.sejda.eventstudio.annotation.EventListener;
  *
  */
 @Named
-public class Workarea extends BorderPane {
+public class WorkArea extends BorderPane {
 
     @Inject
     private QuickbarWrokarea navigation;
@@ -58,7 +58,7 @@ public class Workarea extends BorderPane {
     private Label emptyArea = new Label(DefaultI18nContext.getInstance().i18n("Please select a module"));
 
     @Inject
-    public Workarea(List<Module> modulesList) {
+    public WorkArea(List<Module> modulesList) {
         getStyleClass().addAll(Style.CONTAINER.css());
         emptyArea.getStyleClass().add("empty-notice");
         for (Module module : modulesList) {

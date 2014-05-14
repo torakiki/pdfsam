@@ -22,9 +22,8 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
 
-import javafx.beans.property.ReadOnlyBooleanProperty;
-import javafx.beans.property.ReadOnlyBooleanWrapper;
 import javafx.beans.property.ReadOnlyIntegerProperty;
 import javafx.beans.property.ReadOnlyIntegerWrapper;
 import javafx.beans.property.ReadOnlyObjectProperty;
@@ -41,7 +40,7 @@ import org.sejda.model.input.PdfFileSource;
  */
 public final class PdfDocumentDescriptor {
 
-    private ReadOnlyBooleanWrapper loaded = new ReadOnlyBooleanWrapper(false);
+    private ReadOnlyObjectWrapper<AtomicBoolean> loaded = new ReadOnlyObjectWrapper<>(new AtomicBoolean(false));
     private boolean invalid = false;
     private ReadOnlyIntegerWrapper pages = new ReadOnlyIntegerWrapper(0);
     private ReadOnlyObjectWrapper<EncryptionStatus> encryptionStatus = new ReadOnlyObjectWrapper<>(
@@ -85,12 +84,12 @@ public final class PdfDocumentDescriptor {
         this.pages.set(pages);
     }
 
-    public ReadOnlyBooleanProperty loadedProperty() {
+    public ReadOnlyObjectProperty<AtomicBoolean> loadedProperty() {
         return loaded.getReadOnlyProperty();
     }
 
     public void loaded() {
-        loaded.set(true);
+        loaded.get().set(true);
     }
 
     public ReadOnlyObjectProperty<EncryptionStatus> encryptionStatusProperty() {

@@ -28,6 +28,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
+import javafx.application.Platform;
 import javafx.collections.ListChangeListener.Change;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ContextMenu;
@@ -104,8 +105,10 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     private void initContextMenu() {
         MenuItem infoItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Document properties"),
                 AwesomeIcon.INFO);
-        infoItem.setOnAction(e -> eventStudio().broadcast(
-                new ShowPdfDescriptorRequest(getSelectionModel().getSelectedItem().getDocumentDescriptor())));
+        infoItem.setOnAction(e -> Platform.runLater(() -> {
+            eventStudio().broadcast(
+                    new ShowPdfDescriptorRequest(getSelectionModel().getSelectedItem().getDocumentDescriptor()));
+        }));
         MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set output"),
                 AwesomeIcon.PENCIL_SQUARE_ALT);
 
