@@ -30,7 +30,7 @@ import org.sejda.eventstudio.annotation.EventListener;
  * @author Andrea Vacondio
  *
  */
-public abstract class BaseRememberingLatestChooser {
+abstract class BaseRememberingLatestChooser {
 
     public BaseRememberingLatestChooser() {
         eventStudio().addAnnotatedListeners(this);

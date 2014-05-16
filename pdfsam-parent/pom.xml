@@ -46,7 +46,7 @@
 		<logback.version>1.0.13</logback.version>
 		<jdepend.version>2.9.1</jdepend.version>
 		<hibernate-validator.version>4.2.0.Final</hibernate-validator.version>
-		<sejda.version>1.0.0.M9</sejda.version>
+		<sejda.version>1.0.0.RELEASE-SNAPSHOT</sejda.version>
 		<eventstudio.version>1.0.2</eventstudio.version>
 		<org.springframework.version>4.0.3.RELEASE</org.springframework.version>
 		<fontawesomefx.version>8.0.6</fontawesomefx.version>

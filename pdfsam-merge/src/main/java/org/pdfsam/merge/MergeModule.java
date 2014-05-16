@@ -82,7 +82,7 @@ public class MergeModule extends BaseTaskExecutionModule {
 
     @Override
     protected TaskParameters buildParameters(Consumer<String> onError) {
-        MergeParameters params = new MergeParameters(mergeOptions.isMergeForms(), mergeOptions.isBlankIfOdd());
+        MergeParameters params = new MergeParameters();
         selectionPane.apply(params, onError);
         mergeOptions.apply(params, onError);
         destinationFileField.apply(params, onError);

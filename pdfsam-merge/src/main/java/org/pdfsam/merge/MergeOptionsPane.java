@@ -76,15 +76,10 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
         getChildren().addAll(horizontalChildren, bookmarksPolicy);
     }
 
-    boolean isMergeForms() {
-        return containsForms.isSelected();
-    }
-
-    boolean isBlankIfOdd() {
-        return blankIfOdd.isSelected();
-    }
 
     public void apply(MergeParameters params, Consumer<String> onError) {
         params.setOutlinePolicy(outline.getSelectionModel().getSelectedItem().getKey());
+        params.setBlankPageIfOdd(blankIfOdd.isSelected());
+        params.setCopyFormFields(containsForms.isSelected());
     }
 }
