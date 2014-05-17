@@ -20,26 +20,20 @@ package org.pdfsam.ui.io;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.apache.commons.lang3.StringUtils.trim;
-import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.function.Consumer;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 import org.apache.commons.lang3.ObjectUtils;
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.support.TaskParametersBuildStep;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.support.validation.Validator;
 import org.pdfsam.support.validation.Validators;
-import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
-import org.sejda.conversion.FileOutputAdapter;
-import org.sejda.model.parameter.base.SingleOutputTaskParameters;
 
 /**
  * Component letting the user select a File of an expected type. By default no validation is enforced and the filetype is used only in the file chooser but the component provides a
@@ -48,13 +42,14 @@ import org.sejda.model.parameter.base.SingleOutputTaskParameters;
  * @author Andrea Vacondio
  * 
  */
-public class BrowsableFileField extends BrowsableField implements TaskParametersBuildStep<SingleOutputTaskParameters> {
+public class BrowsableFileField extends BrowsableField {
 
     private final FileType fileType;
+    private BrowseEventHandler handler = new BrowseEventHandler();
 
     public BrowsableFileField(FileType fileType) {
         setBrowseWindowTitle(DefaultI18nContext.getInstance().i18n("Select a file"));
-        getBrowseButton().setOnAction(new BrowseEventHandler());
+        getBrowseButton().setOnAction(handler);
         this.fileType = ObjectUtils.defaultIfNull(fileType, FileType.ALL);
         if (FileType.ALL != fileType) {
             getTextField().setPromptText(
@@ -65,6 +60,12 @@ public class BrowsableFileField extends BrowsableField implements TaskParameters
         }
     }
 
+    /**
+     * Configure validation for the field
+     * 
+     * @param selectedFileMustExists
+     * @param allowBlankString
+     */
     public void enforceValidation(boolean selectedFileMustExists, boolean allowBlankString) {
         Validator<String> validator = Validators.newFileTypeString(fileType, selectedFileMustExists);
         if (allowBlankString) {
@@ -82,6 +83,15 @@ public class BrowsableFileField extends BrowsableField implements TaskParameters
                     fileType.getFilter().getExtensions().toString());
         }
         return trim(errorMessage);
+    }
+
+    public void setEditable(boolean value) {
+        getTextField().setEditable(value);
+        if (!value) {
+            getTextField().setOnAction(handler);
+        } else {
+            getTextField().setOnAction(null);
+        }
     }
 
     /**
@@ -112,16 +122,6 @@ public class BrowsableFileField extends BrowsableField implements TaskParameters
         if (inputFile != null) {
             getTextField().setText(inputFile.getAbsolutePath());
             getTextField().validate();
-        }
-    }
-
-    public void apply(SingleOutputTaskParameters params, Consumer<String> onError) {
-        requireNotNull(params, "Cannot set output on a null parameter instance");
-        getTextField().validate();
-        if (getTextField().getValidationState() == ValidationState.INVALID) {
-            onError.accept(DefaultI18nContext.getInstance().i18n("The selected output file is invalid"));
-        } else {
-            params.setOutput(new FileOutputAdapter(getTextField().getText()).getFileOutput());
         }
     }
 }

@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.selection;
+package org.pdfsam.ui.selection.multiple;
 
 import java.io.File;
 import java.util.Comparator;
@@ -46,7 +46,7 @@ public enum FileColumn implements SelectionTableColumn<File> {
 
         @Override
         public ObservableValue<File> getObservableValue(SelectionTableRowData data) {
-            return new ReadOnlyObjectWrapper<>(data.getDocumentDescriptor().getFile());
+            return new ReadOnlyObjectWrapper<>(data.getPdfDocumentDescriptor().getFile());
         }
 
         @Override

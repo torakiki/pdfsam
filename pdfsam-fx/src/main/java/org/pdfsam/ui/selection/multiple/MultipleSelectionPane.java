@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.selection;
+package org.pdfsam.ui.selection.multiple;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.support.RequireUtils.require;
@@ -35,13 +35,13 @@ import org.sejda.model.parameter.base.TaskParameters;
  * @param <T>
  *            the {@link TaskParameters} that this selection panel produces
  */
-public abstract class SelectionPane<T extends TaskParameters> extends BorderPane implements ModuleOwned,
+public abstract class MultipleSelectionPane<T extends TaskParameters> extends BorderPane implements ModuleOwned,
         TaskParametersBuildStep<T> {
 
     private String ownerModule = StringUtils.EMPTY;
     private SelectionTable table;
 
-    public SelectionPane(String ownerModule, SelectionTableColumn<?>... columns) {
+    public MultipleSelectionPane(String ownerModule, SelectionTableColumn<?>... columns) {
         require(columns.length > 0, "No column has been selected");
         this.ownerModule = defaultString(ownerModule);
         setTop(new SelectionTableToolbar(ownerModule));

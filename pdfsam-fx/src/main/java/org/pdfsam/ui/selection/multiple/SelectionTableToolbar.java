@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.selection;
+package org.pdfsam.ui.selection.multiple;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
@@ -38,8 +38,8 @@ import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.commons.ModuleOwnedButton;
 import org.pdfsam.ui.io.FileChoosers;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper;
-import org.pdfsam.ui.selection.move.MoveSelectedEvent;
-import org.pdfsam.ui.selection.move.MoveType;
+import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
+import org.pdfsam.ui.selection.multiple.move.MoveType;
 import org.sejda.eventstudio.annotation.EventListener;
 
 /**

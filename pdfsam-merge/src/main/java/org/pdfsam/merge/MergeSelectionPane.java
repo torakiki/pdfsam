@@ -23,12 +23,12 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
 import java.util.function.Consumer;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.ui.selection.EncryptionStatusColumn;
-import org.pdfsam.ui.selection.FileColumn;
-import org.pdfsam.ui.selection.LongColumn;
-import org.pdfsam.ui.selection.SelectionPane;
-import org.pdfsam.ui.selection.SelectionTableColumn;
-import org.pdfsam.ui.selection.StringColumn;
+import org.pdfsam.ui.selection.multiple.EncryptionStatusColumn;
+import org.pdfsam.ui.selection.multiple.FileColumn;
+import org.pdfsam.ui.selection.multiple.LongColumn;
+import org.pdfsam.ui.selection.multiple.MultipleSelectionPane;
+import org.pdfsam.ui.selection.multiple.SelectionTableColumn;
+import org.pdfsam.ui.selection.multiple.StringColumn;
 import org.sejda.conversion.exception.ConversionException;
 import org.sejda.model.input.PdfMergeInput;
 import org.sejda.model.parameter.MergeParameters;
@@ -41,7 +41,7 @@ import org.slf4j.LoggerFactory;
  * @author Andrea Vacondio
  *
  */
-public class MergeSelectionPane extends SelectionPane<MergeParameters> {
+public class MergeSelectionPane extends MultipleSelectionPane<MergeParameters> {
     private static final Logger LOG = LoggerFactory.getLogger(MergeSelectionPane.class);
 
     public MergeSelectionPane(String ownerModule) {

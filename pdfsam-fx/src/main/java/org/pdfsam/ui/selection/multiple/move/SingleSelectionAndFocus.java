@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 28/giu/2013
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 19/feb/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,27 +16,32 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.selection.move;
-
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+package org.pdfsam.ui.selection.multiple.move;
 
 /**
- * Notifies that selected elements in the selection table should be moved
+ * Single selection where the item selected is the one with focus
  * 
  * @author Andrea Vacondio
- * 
+ *
  */
-public class MoveSelectedEvent {
+class SingleSelectionAndFocus implements SelectionAndFocus {
 
-    private MoveType type;
+    private int row;
 
-    public MoveSelectedEvent(MoveType type) {
-        requireNotNull(type, "Type cannot be null");
-        this.type = type;
+    SingleSelectionAndFocus(int row) {
+        this.row = row;
     }
 
-    public MoveType getType() {
-        return type;
+    public int getFocus() {
+        return row;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public int[] getRows() {
+        return new int[0];
     }
 
 }

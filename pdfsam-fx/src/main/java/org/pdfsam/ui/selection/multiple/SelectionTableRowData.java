@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.selection;
+package org.pdfsam.ui.selection.multiple;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
@@ -28,6 +28,7 @@ import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
+import org.pdfsam.pdf.PdfDocumentDescriptorProvider;
 import org.sejda.common.collection.NullSafeSet;
 import org.sejda.conversion.exception.ConversionException;
 import org.sejda.model.input.PdfFileSource;
@@ -39,7 +40,7 @@ import org.sejda.model.pdf.page.PageRange;
  * @author Andrea Vacondio
  * 
  */
-public class SelectionTableRowData {
+public class SelectionTableRowData implements PdfDocumentDescriptorProvider {
 
     private PdfDocumentDescriptor documentDescriptor;
     private String pageSelection = StringUtils.EMPTY;
@@ -57,7 +58,7 @@ public class SelectionTableRowData {
         this.pageSelection = StringUtils.defaultString(pageSelection);
     }
 
-    public PdfDocumentDescriptor getDocumentDescriptor() {
+    public PdfDocumentDescriptor getPdfDocumentDescriptor() {
         return documentDescriptor;
     }
 

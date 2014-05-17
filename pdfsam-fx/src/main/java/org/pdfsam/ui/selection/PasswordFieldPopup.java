@@ -19,6 +19,7 @@
 package org.pdfsam.ui.selection;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -30,6 +31,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.EncryptionStatus;
+import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.ui.support.Style;
 
@@ -45,10 +47,11 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
 class PasswordFieldPopup extends PopupControl implements ModuleOwned {
     private String ownerModule = StringUtils.EMPTY;
     private PasswordFieldPopupContent content = new PasswordFieldPopupContent();
-    private SelectionTableRowData data;
+    private PdfDocumentDescriptor pdfDescriptor;
 
-    public PasswordFieldPopup(SelectionTableRowData data, String ownerModule) {
-        this.data = data;
+    public PasswordFieldPopup(PdfDocumentDescriptor pdfDescriptor, String ownerModule) {
+        requireNotNull(pdfDescriptor, "Cannot create a PasswordFieldPopup for a null Pdf document descriptor");
+        this.pdfDescriptor = pdfDescriptor;
         this.ownerModule = defaultString(ownerModule);
         getStyleClass().setAll("pdfsam-input-password");
         setAutoHide(true);
@@ -94,14 +97,12 @@ class PasswordFieldPopup extends PopupControl implements ModuleOwned {
         }
 
         public void requestLoad() {
-            if (data != null) {
-                data.getDocumentDescriptor().setPassword(passwordField.getText());
-                data.getDocumentDescriptor().setEncryptionStatus(EncryptionStatus.DECRYPTION_REQUESTED);
-                PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
-                loadEvent.add(data.getDocumentDescriptor());
-                eventStudio().broadcast(loadEvent);
-                passwordField.clear();
-            }
+            pdfDescriptor.setPassword(passwordField.getText());
+            pdfDescriptor.setEncryptionStatus(EncryptionStatus.DECRYPTION_REQUESTED);
+            PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
+            loadEvent.add(pdfDescriptor);
+            eventStudio().broadcast(loadEvent);
+            passwordField.clear();
             hide();
         }
     }

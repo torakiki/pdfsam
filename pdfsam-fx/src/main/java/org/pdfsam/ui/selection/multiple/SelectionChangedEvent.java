@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.selection;
+package org.pdfsam.ui.selection.multiple;
 
 import static org.pdfsam.support.RequireUtils.require;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
@@ -25,7 +25,7 @@ import static org.pdfsam.support.RequireUtils.requireState;
 import java.util.Collection;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-import org.pdfsam.ui.selection.move.MoveType;
+import org.pdfsam.ui.selection.multiple.move.MoveType;
 
 /**
  * Event sent when the selection on the selection table changed

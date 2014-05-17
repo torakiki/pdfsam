@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 28/nov/2013
+ * Created on 26/giu/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,14 +16,14 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.selection;
+package org.pdfsam.ui.selection.multiple;
 
 /**
- * request the selection table to be cleared
+ * Notifies that the selected rows should be removed
  * 
  * @author Andrea Vacondio
  * 
  */
-class ClearSelectionTableEvent {
+class RemoveSelectedEvent {
     // nothing
 }

@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.selection.move;
+package org.pdfsam.ui.selection.multiple.move;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -24,7 +24,7 @@ import java.util.Collections;
 import javafx.collections.ObservableList;
 
 import org.apache.commons.lang3.ArrayUtils;
-import org.pdfsam.ui.selection.SelectionTableRowData;
+import org.pdfsam.ui.selection.multiple.SelectionTableRowData;
 
 /**
  * Types of moves for the selected items in the selection table

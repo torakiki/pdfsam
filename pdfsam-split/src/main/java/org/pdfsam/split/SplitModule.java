@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.merge;
+package org.pdfsam.split;
 
 import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
 
@@ -27,7 +27,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.control.TitledPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -37,11 +36,13 @@ import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.ModulePriority;
 import org.pdfsam.module.PdfsamModule;
-import org.pdfsam.ui.io.BrowsablePdfOutputField;
+import org.pdfsam.ui.io.BrowsableDirectoryField;
 import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
+import org.pdfsam.ui.selection.single.SingleSelectionPane;
 import org.pdfsam.ui.support.Views;
-import org.sejda.model.parameter.MergeParameters;
+import org.sejda.model.parameter.AbstractSplitByPageParameters;
+import org.sejda.model.parameter.SplitByPagesParameters;
 import org.sejda.model.parameter.base.TaskParameters;
 import org.springframework.core.io.ClassPathResource;
 
@@ -52,26 +53,21 @@ import org.springframework.core.io.ClassPathResource;
  *
  */
 @PdfsamModule
-public class MergeModule extends BaseTaskExecutionModule {
+public class SplitModule extends BaseTaskExecutionModule {
 
-    private static final String MERGE_MODULE_ID = "merge";
+    private static final String SPLIT_MODULE_ID = "split";
 
-    private MergeSelectionPane selectionPane;
-    private MergeOptionsPane mergeOptions = new MergeOptionsPane();
-    private BrowsablePdfOutputField destinationFileField = new BrowsablePdfOutputField();
+    private SingleSelectionPane<AbstractSplitByPageParameters> selectionPane;
+    private BrowsableDirectoryField destinationDirectoryField = new BrowsableDirectoryField(false);
     private PdfDestinationPane destinationPane;
-    private ModuleDescriptor descriptor = builder()
-            .category(ModuleCategory.MERGE)
-            .name(DefaultI18nContext.getInstance().i18n("Merge"))
-            .description(
-                    DefaultI18nContext.getInstance().i18n(
-                            "Merge together multiple pdf documents or subsections of them."))
-            .priority(ModulePriority.HIGH.getPriority()).supportURL("http://www.pdfsam.org/merge").build();
+    private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT)
+            .name(DefaultI18nContext.getInstance().i18n("Split"))
+            .description(DefaultI18nContext.getInstance().i18n("Split a pdf document at given page numbers"))
+            .priority(ModulePriority.HIGH.getPriority()).supportURL("http://www.pdfsam.org/split").build();
 
-    public MergeModule() {
-        this.selectionPane = new MergeSelectionPane(id());
-        this.destinationFileField.enforceValidation(false, false);
-        this.destinationPane = new PdfDestinationPane(destinationFileField, id());
+    public SplitModule() {
+        this.selectionPane = new SingleSelectionPane<>(id());
+        this.destinationPane = new PdfDestinationPane(destinationDirectoryField, id());
     }
 
     @Override
@@ -81,10 +77,8 @@ public class MergeModule extends BaseTaskExecutionModule {
 
     @Override
     protected TaskParameters buildParameters(Consumer<String> onError) {
-        MergeParameters params = new MergeParameters();
+        SplitByPagesParameters params = new SplitByPagesParameters();
         selectionPane.apply(params, onError);
-        mergeOptions.apply(params, onError);
-        destinationFileField.apply(params, onError);
         destinationPane.apply(params, onError);
         return params;
     }
@@ -95,22 +89,19 @@ public class MergeModule extends BaseTaskExecutionModule {
         pane.setAlignment(Pos.TOP_CENTER);
         VBox.setVgrow(selectionPane, Priority.ALWAYS);
 
-        TitledPane options = Views.titledPane(DefaultI18nContext.getInstance().i18n("Merge options"), mergeOptions);
-        options.setExpanded(false);
-
-        pane.getChildren().addAll(selectionPane, options,
-                Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination file"), destinationPane));
+        pane.getChildren().addAll(selectionPane,
+                Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination directory"), destinationPane));
         return pane;
     }
 
     @Override
     public String id() {
-        return MERGE_MODULE_ID;
+        return SPLIT_MODULE_ID;
     }
 
     public Node graphic() {
         try {
-            return (Group) FXMLLoader.load(new ClassPathResource("/fxml/TestModule.fxml").getURL());
+            return (Group) FXMLLoader.load(new ClassPathResource("/fxml/TestModule3.fxml").getURL());
         } catch (IOException e) {
             e.printStackTrace();
         }

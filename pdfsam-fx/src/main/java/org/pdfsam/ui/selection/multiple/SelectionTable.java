@@ -16,11 +16,11 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.selection;
+package org.pdfsam.ui.selection.multiple;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.pdfsam.ui.selection.SelectionChangedEvent.clearSelectionEvent;
-import static org.pdfsam.ui.selection.SelectionChangedEvent.select;
+import static org.pdfsam.ui.selection.multiple.SelectionChangedEvent.clearSelectionEvent;
+import static org.pdfsam.ui.selection.multiple.SelectionChangedEvent.select;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
@@ -49,9 +49,9 @@ import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.event.OpenFileRequest;
 import org.pdfsam.ui.event.SetDestinationRequest;
 import org.pdfsam.ui.event.ShowPdfDescriptorRequest;
-import org.pdfsam.ui.selection.move.MoveSelectedEvent;
-import org.pdfsam.ui.selection.move.MoveType;
-import org.pdfsam.ui.selection.move.SelectionAndFocus;
+import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
+import org.pdfsam.ui.selection.multiple.move.MoveType;
+import org.pdfsam.ui.selection.multiple.move.SelectionAndFocus;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
 import org.slf4j.Logger;
@@ -107,14 +107,14 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
                 AwesomeIcon.INFO);
         infoItem.setOnAction(e -> Platform.runLater(() -> {
             eventStudio().broadcast(
-                    new ShowPdfDescriptorRequest(getSelectionModel().getSelectedItem().getDocumentDescriptor()));
+                    new ShowPdfDescriptorRequest(getSelectionModel().getSelectedItem().getPdfDocumentDescriptor()));
         }));
         MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set output"),
                 AwesomeIcon.PENCIL_SQUARE_ALT);
 
         setDestinationItem.setOnAction(e -> {
             File outFile = new File(
-                    getSelectionModel().getSelectedItem().getDocumentDescriptor().getFile().getParent(), "out.pdf");
+                    getSelectionModel().getSelectedItem().getPdfDocumentDescriptor().getFile().getParent(), "out.pdf");
             eventStudio().broadcast(new SetDestinationRequest(outFile), getOwnerModule());
         });
 
@@ -144,14 +144,14 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         MenuItem openFileItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open"), AwesomeIcon.FILE_ALT);
         openFileItem.setOnAction(e -> {
             eventStudio().broadcast(
-                    new OpenFileRequest(getSelectionModel().getSelectedItem().getDocumentDescriptor().getFile()));
+                    new OpenFileRequest(getSelectionModel().getSelectedItem().getPdfDocumentDescriptor().getFile()));
         });
 
         MenuItem openFolderItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open Folder"),
                 AwesomeIcon.FOLDER_OPEN);
         openFolderItem.setOnAction(e -> {
             eventStudio().broadcast(
-                    new OpenFileRequest(getSelectionModel().getSelectedItem().getDocumentDescriptor().getFile()
+                    new OpenFileRequest(getSelectionModel().getSelectedItem().getPdfDocumentDescriptor().getFile()
                             .getParentFile()));
         });
         // https://javafx-jira.kenai.com/browse/RT-28136
@@ -235,7 +235,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     @EventListener
     public void onClear(final ClearSelectionTableEvent event) {
-        getItems().forEach((SelectionTableRowData d) -> d.getDocumentDescriptor().invalidate());
+        getItems().forEach((SelectionTableRowData d) -> d.getPdfDocumentDescriptor().invalidate());
         getSelectionModel().clearSelection();
         getItems().clear();
     }
@@ -243,7 +243,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     @EventListener
     public void onRemoveSelected(RemoveSelectedEvent event) {
         getSelectionModel().getSelectedItems().forEach((SelectionTableRowData d) -> {
-            d.getDocumentDescriptor().invalidate();
+            d.getPdfDocumentDescriptor().invalidate();
             getItems().remove(d);
         });
         getSelectionModel().clearSelection();

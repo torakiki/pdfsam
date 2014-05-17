@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.selection;
+package org.pdfsam.ui.selection.multiple;
 
 import java.text.DateFormat;
 import java.util.Comparator;
@@ -45,7 +45,7 @@ public enum LongColumn implements SelectionTableColumn<Number> {
 
         @Override
         public ObservableValue<Number> getObservableValue(SelectionTableRowData data) {
-            return new SimpleLongProperty(data.getDocumentDescriptor().getFile().length());
+            return new SimpleLongProperty(data.getPdfDocumentDescriptor().getFile().length());
         }
 
         @Override
@@ -66,7 +66,7 @@ public enum LongColumn implements SelectionTableColumn<Number> {
 
         @Override
         public ObservableValue<Number> getObservableValue(SelectionTableRowData data) {
-            return new SimpleLongProperty(data.getDocumentDescriptor().getFile().lastModified());
+            return new SimpleLongProperty(data.getPdfDocumentDescriptor().getFile().lastModified());
         }
 
         @Override
@@ -85,7 +85,7 @@ public enum LongColumn implements SelectionTableColumn<Number> {
 
         @Override
         public ObservableValue<Number> getObservableValue(SelectionTableRowData data) {
-            return data.getDocumentDescriptor().pagesPropery();
+            return data.getPdfDocumentDescriptor().pagesPropery();
         }
 
         @Override
