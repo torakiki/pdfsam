@@ -40,8 +40,8 @@ import org.sejda.model.input.PdfFileSource;
  */
 public final class PdfDocumentDescriptor {
 
-    private ReadOnlyObjectWrapper<AtomicBoolean> loaded = new ReadOnlyObjectWrapper<>(new AtomicBoolean(false));
-    private boolean invalid = false;
+    private ReadOnlyObjectWrapper<LoadingStatus> loadingStatus = new ReadOnlyObjectWrapper<>(LoadingStatus.REQUESTED);
+    private AtomicBoolean invalid = new AtomicBoolean(false);
     private ReadOnlyIntegerWrapper pages = new ReadOnlyIntegerWrapper(0);
     private ReadOnlyObjectWrapper<EncryptionStatus> encryptionStatus = new ReadOnlyObjectWrapper<>(
             EncryptionStatus.NOT_ENCRYPTED);
@@ -84,12 +84,23 @@ public final class PdfDocumentDescriptor {
         this.pages.set(pages);
     }
 
-    public ReadOnlyObjectProperty<AtomicBoolean> loadedProperty() {
-        return loaded.getReadOnlyProperty();
+    public ReadOnlyObjectProperty<LoadingStatus> loadedProperty() {
+        return loadingStatus.getReadOnlyProperty();
+    }
+
+    /**
+     * Puts this descriptor in loading state
+     */
+    public void loading() {
+        loadingStatus.set(loadingStatus.get().loading());
     }
 
     public void loaded() {
-        loaded.get().set(true);
+        loadingStatus.set(LoadingStatus.LOADED);
+    }
+
+    public void loadedWithErrors() {
+        loadingStatus.set(LoadingStatus.LOADED_WITH_ERRORS);
     }
 
     public ReadOnlyObjectProperty<EncryptionStatus> encryptionStatusProperty() {
@@ -120,12 +131,16 @@ public final class PdfDocumentDescriptor {
         return file;
     }
 
+    /**
+     * @return true if this descriptor has been invalidated, this can happen if the user deletes it from the UI and it tells to any service performing or about to perform some
+     *         action on the descriptor that it should be ignored since not relevant anymore.
+     */
     public boolean isInvalid() {
-        return invalid;
+        return invalid.get();
     }
 
     public void invalidate() {
-        this.invalid = true;
+        this.invalid.set(true);
     }
 
     public static PdfDocumentDescriptor newDescriptor(File file, String password) {

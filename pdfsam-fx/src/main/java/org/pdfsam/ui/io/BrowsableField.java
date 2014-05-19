@@ -20,13 +20,16 @@ package org.pdfsam.ui.io;
 
 import java.io.File;
 
+import javafx.css.PseudoClass;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.commons.ValidableTextField;
+import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
 
 /**
@@ -36,20 +39,36 @@ import org.pdfsam.ui.support.Style;
  * 
  */
 abstract class BrowsableField extends HBox {
+    private static final PseudoClass SELECTED_PSEUDOCLASS_STATE = PseudoClass.getPseudoClass("selected");
+
     private Button browseButton;
     private ValidableTextField textField = new ValidableTextField();
+    private HBox validableContainer;
     private String browseWindowTitle = DefaultI18nContext.getInstance().i18n("Select");
 
     public BrowsableField() {
-        setHgrow(textField, Priority.ALWAYS);
+        HBox.setHgrow(textField, Priority.ALWAYS);
+        setAlignment(Pos.CENTER_LEFT);
+        validableContainer = new HBox(textField);
+        validableContainer.getStyleClass().add("validable-container");
         browseButton = new Button(DefaultI18nContext.getInstance().i18n("Browse"));
         browseButton.getStyleClass().addAll(Style.BROWSE_BUTTON.css());
-        browseButton.prefHeightProperty().bind(textField.heightProperty());
+        browseButton.prefHeightProperty().bind(validableContainer.heightProperty());
         browseButton.setMaxHeight(USE_PREF_SIZE);
         browseButton.setMinHeight(USE_PREF_SIZE);
         browseButton.setAlignment(Pos.CENTER);
-        textField.setMinWidth(150);
-        getChildren().addAll(textField, browseButton);
+        HBox.setHgrow(validableContainer, Priority.ALWAYS);
+        textField.validProperty().addListener((o, oldValue, newValue) -> {
+            if ((newValue == ValidationState.INVALID)) {
+                validableContainer.getStyleClass().addAll(Style.INVALID.css());
+            } else {
+                validableContainer.getStyleClass().removeAll(Style.INVALID.css());
+            }
+        });
+        textField.focusedProperty().addListener((o, oldVal, newVal) -> {
+            validableContainer.pseudoClassStateChanged(SELECTED_PSEUDOCLASS_STATE, newVal);
+        });
+        getChildren().addAll(validableContainer, browseButton);
     }
 
     /**
@@ -57,6 +76,14 @@ abstract class BrowsableField extends HBox {
      */
     public ValidableTextField getTextField() {
         return textField;
+    }
+
+    public final void setGraphic(Node value) {
+        validableContainer.getChildren().clear();
+        if (value != null) {
+            validableContainer.getChildren().add(value);
+        }
+        validableContainer.getChildren().add(textField);
     }
 
     Button getBrowseButton() {

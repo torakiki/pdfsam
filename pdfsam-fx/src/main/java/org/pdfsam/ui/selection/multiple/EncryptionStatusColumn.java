@@ -33,7 +33,7 @@ import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.EncryptionStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfDocumentDescriptorProvider;
-import org.pdfsam.ui.selection.EncryptionStatusSupport;
+import org.pdfsam.ui.selection.EncryptionStatusIndicator;
 
 /**
  * Definition of the {@link EncryptionStatus} column of the selection table
@@ -93,12 +93,13 @@ public class EncryptionStatusColumn implements SelectionTableColumn<EncryptionSt
 
     private class EncryptionStatusTableCell extends TableCell<SelectionTableRowData, EncryptionStatus> implements
             PdfDocumentDescriptorProvider {
-        private EncryptionStatusSupport encryptionStatus = null;
+        private EncryptionStatusIndicator encryptionStatus = null;
 
         private EncryptionStatusTableCell() {
             setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
             setText("");
-            encryptionStatus = new EncryptionStatusSupport(this, this, EncryptionStatusColumn.this.getOwnerModule());
+            encryptionStatus = new EncryptionStatusIndicator(this, EncryptionStatusColumn.this.getOwnerModule());
+
         }
 
         public PdfDocumentDescriptor getPdfDocumentDescriptor() {
@@ -108,7 +109,12 @@ public class EncryptionStatusColumn implements SelectionTableColumn<EncryptionSt
         @Override
         public void updateItem(final EncryptionStatus item, boolean empty) {
             super.updateItem(item, empty);
-            encryptionStatus.updateEncryptionStatus(item);
+            if (item != null) {
+                encryptionStatus.updateEncryptionStatus(item);
+                setGraphic(encryptionStatus);
+            } else {
+                setGraphic(null);
+            }
         }
     }
 }

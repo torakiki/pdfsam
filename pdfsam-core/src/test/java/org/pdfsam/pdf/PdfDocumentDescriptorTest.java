@@ -18,6 +18,7 @@
  */
 package org.pdfsam.pdf;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;
@@ -41,7 +42,7 @@ public class PdfDocumentDescriptorTest {
         PdfDocumentDescriptor victim = PdfDocumentDescriptor.newDescriptor(file, "pwd");
         assertNotNull(victim.getFileName());
         assertFalse(victim.isInvalid());
-        assertFalse(victim.loadedProperty().get().get());
+        assertEquals(LoadingStatus.REQUESTED, victim.loadedProperty().get());
         verify(file).getName();
     }
 }

@@ -49,6 +49,7 @@ class ITextPdfLoadService implements PdfLoadService {
             if (!current.isInvalid()) {
                 PdfReader reader = null;
                 try {
+                    current.loading();
                     reader = current.toPdfFileSource().open(new DefaultPdfSourceOpener());
                     if (current.encryptionStatusProperty().get() == EncryptionStatus.DECRYPTION_REQUESTED) {
                         current.setEncryptionStatus(EncryptionStatus.DECRYPTED_WITH_USER_PWD);
@@ -58,17 +59,19 @@ class ITextPdfLoadService implements PdfLoadService {
                     current.setPages(reader.getNumberOfPages());
                     current.setVersion(String.format("1.%c", reader.getPdfVersion()));
                     current.setInformationDictionary(reader.getInfo());
+                    current.loaded();
                 } catch (TaskWrongPasswordException twpe) {
                     current.setEncryptionStatus(EncryptionStatus.ENCRYPTED);
+                    current.loadedWithErrors();
                     LOG.warn(String.format("User password required %s", current.getFileName()), twpe);
                 } catch (Exception e) {
                     LOG.error(String.format("An error occured loading the document %s", current.getFileName()), e);
+                    current.loadedWithErrors();
                 } finally {
                     nullSafeClosePdfReader(reader);
                 }
-                current.loaded();
             } else {
-                LOG.trace("Skipping cancelled document {}", current.getFileName());
+                LOG.trace("Skipping invalid document {}", current.getFileName());
             }
         }
         LOG.debug(DefaultI18nContext.getInstance().i18n("Documents loaded"));

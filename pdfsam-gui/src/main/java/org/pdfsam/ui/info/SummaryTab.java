@@ -22,7 +22,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 import java.text.DateFormat;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
@@ -36,6 +35,7 @@ import javax.inject.Named;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.time.FastDateFormat;
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.pdf.LoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.ui.event.ShowPdfDescriptorRequest;
 import org.sejda.eventstudio.annotation.EventListener;
@@ -50,7 +50,7 @@ import com.itextpdf.text.pdf.PdfDate;
  *
  */
 @Named
-class SummaryTab extends BaseInfoTab implements ChangeListener<AtomicBoolean> {
+class SummaryTab extends BaseInfoTab implements ChangeListener<LoadingStatus> {
     private static FastDateFormat FORMATTER = FastDateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.MEDIUM);
     private Label fileLabel = createValueLabel();
     private Label size = createValueLabel();
@@ -123,10 +123,12 @@ class SummaryTab extends BaseInfoTab implements ChangeListener<AtomicBoolean> {
         producer.setText(descriptor.getInformation("Producer"));
     }
 
-    public void changed(ObservableValue<? extends AtomicBoolean> observable, AtomicBoolean oldValue,
-            AtomicBoolean newValue) {
-        Platform.runLater(() -> {
-            setPdfProperties(current);
-        });
+    public void changed(ObservableValue<? extends LoadingStatus> observable, LoadingStatus oldValue,
+            LoadingStatus newValue) {
+        if (newValue == LoadingStatus.LOADED) {
+            Platform.runLater(() -> {
+                setPdfProperties(current);
+            });
+        }
     }
 }

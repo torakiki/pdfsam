@@ -1,7 +1,8 @@
 .root { 
 	theme-color: #009245;
-	hover-color: #D4D4D4;
+	hover-color: derive(light-border-color, -70.0%);
 	light-border-color: #D4D4D4;
+	hover-color: #D4D4D4;
 	dark-text-color: derive(light-border-color, -70.0%);
 	button-color: #E5E5E5;
 	defaultbg-color: -fx-background;
@@ -12,7 +13,7 @@
 	-fx-focus-color: derive(lightslategray, 90.0%);
 	-fx-accent: -fx-focus-color;
 	-fx-highlight-text-fill: dark-text-color;
-	default-effect: dropshadow(three-pass-box, theme-color, 10.0, 0.0, 0, 2);
+	default-effect: dropshadow(three-pass-box, theme-color, 10.0, 0.0, 0.0, 2.0);
 	-fx-disabled-opacity: 0.4;
 	info-color: #4AAAD2;	
 	awesome-color: derive(light-border-color, -20.0%);
@@ -25,7 +26,7 @@
 }
 .scroll-pane {
     -fx-background-color: defaultbg-color;
-    -fx-background-insets: 0;
+    -fx-background-insets: 0.0;
     -fx-padding: 1.0;
 }
 .default-container {
@@ -43,6 +44,9 @@
 }
 .spaced-vitem {
 	-fx-padding: 0.0 0.0 0.5em 0.0 ;
+}
+.encryption-status {
+	-fx-content-display: graphic-only; 
 }
 /**
  * footer for pane
@@ -85,7 +89,7 @@
 .pdfsam-hyperlink {
 	-fx-cursor: hand;
 	-fx-background-color: defaultbg-color;
-	-fx-text-fill: derive(info-color, -20%);
+	-fx-text-fill: derive(info-color, -20.0%);
 }
 .pdfsam-hyperlink:hover {
 	-fx-underline: true;
@@ -130,16 +134,40 @@
     -fx-highlight-text-fill: dark-text-color;
 }
 .text-field {
-   -fx-background-color:  -fx-text-box-border, -fx-control-inner-background;
-   -fx-background-insets: 0.0, 1.0;
-   -fx-background-radius:  0.0, 0.0;
+   	-fx-background-color:  -fx-text-box-border, -fx-control-inner-background;
+  	-fx-background-insets: 0.0, 1.0;
+  	-fx-background-radius:  0.0, 0.0;
 }
-
 .text-field:focused {
-    -fx-background-color: theme-color, -fx-control-inner-background;
-    -fx-background-insets: 0.0, 1.0;
+    -fx-background-color: theme-color, derive(light-border-color, -15.0%), -fx-control-inner-background;
+    -fx-background-insets: 0.0, 0.0 0.0 1.0 0.0, 1.0 1.0 1.0 1.0;
     -fx-background-radius: 0.0, 0.0;
-    -fx-prompt-text-fill: transparent;
+}
+/**
+ * ValidableContainer
+ */
+.validable-container {
+	-fx-background-color:  -fx-text-box-border, -fx-control-inner-background;
+   	-fx-background-insets: 0.0, 1.0;
+   	-fx-background-radius:  0.0, 0.0;	
+	-fx-padding: 1.0;
+	-fx-alignment: center-left;
+	-fx-min-width: 280.0;
+}
+.validable-container:selected {
+    -fx-background-color: theme-color, derive(light-border-color, -15.0%), -fx-control-inner-background;
+    -fx-background-insets: 0.0, 0.0 0.0 1.0 0.0, 1.0 1.0 1.0 1.0;
+    -fx-background-radius: 0.0, 0.0;
+}
+.validable-container .text-field {
+   -fx-background-color:  -fx-control-inner-background;
+   -fx-background-insets: 0.0;
+   -fx-background-radius:  0.0;
+}
+.validable-container .text-field:focused {
+   -fx-background-color:  -fx-control-inner-background;
+   -fx-background-insets: 0.0;
+   -fx-background-radius:  0.0;
 }
 /**
  * Tooltip

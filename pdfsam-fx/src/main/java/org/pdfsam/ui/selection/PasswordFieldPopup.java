@@ -19,8 +19,8 @@
 package org.pdfsam.ui.selection;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.pdfsam.support.RequireUtils.requireNotNull;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.PopupControl;
@@ -49,9 +49,7 @@ class PasswordFieldPopup extends PopupControl implements ModuleOwned {
     private PasswordFieldPopupContent content = new PasswordFieldPopupContent();
     private PdfDocumentDescriptor pdfDescriptor;
 
-    public PasswordFieldPopup(PdfDocumentDescriptor pdfDescriptor, String ownerModule) {
-        requireNotNull(pdfDescriptor, "Cannot create a PasswordFieldPopup for a null Pdf document descriptor");
-        this.pdfDescriptor = pdfDescriptor;
+    public PasswordFieldPopup(String ownerModule) {
         this.ownerModule = defaultString(ownerModule);
         getStyleClass().setAll("pdfsam-input-password");
         setAutoHide(true);
@@ -66,6 +64,11 @@ class PasswordFieldPopup extends PopupControl implements ModuleOwned {
 
     PasswordFieldPopupContent getPopupContent() {
         return content;
+    }
+
+    void showFor(PdfDocumentDescriptor pdfDescriptor, Node ownerNode, double anchorX, double anchorY) {
+        this.pdfDescriptor = pdfDescriptor;
+        this.show(ownerNode, anchorX, anchorY);
     }
 
     @Override
@@ -97,11 +100,13 @@ class PasswordFieldPopup extends PopupControl implements ModuleOwned {
         }
 
         public void requestLoad() {
-            pdfDescriptor.setPassword(passwordField.getText());
-            pdfDescriptor.setEncryptionStatus(EncryptionStatus.DECRYPTION_REQUESTED);
-            PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
-            loadEvent.add(pdfDescriptor);
-            eventStudio().broadcast(loadEvent);
+            if (pdfDescriptor != null) {
+                pdfDescriptor.setPassword(passwordField.getText());
+                pdfDescriptor.setEncryptionStatus(EncryptionStatus.DECRYPTION_REQUESTED);
+                PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
+                loadEvent.add(pdfDescriptor);
+                eventStudio().broadcast(loadEvent);
+            }
             passwordField.clear();
             hide();
         }

@@ -21,16 +21,10 @@ package org.pdfsam.ui.commons;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.support.RequireUtils.require;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
-
-import java.util.Arrays;
-
 import javafx.animation.Animation.Status;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.ReadOnlyObjectProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
@@ -38,14 +32,12 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Window;
 import javafx.util.Duration;
 
 import org.pdfsam.support.validation.Validator;
 import org.pdfsam.ui.support.FXValidationSupport;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
-import org.pdfsam.ui.support.Style;
 
 /**
  * {@link TextField} triggering validation when Enter key is pressed or when focus is lost. A {@link ValidationState} property is exposed to bind to the validation state. Default
@@ -55,6 +47,7 @@ import org.pdfsam.ui.support.Style;
  * 
  */
 public class ValidableTextField extends TextField {
+    private static final KeyCombination ENTER_COMBO = new KeyCodeCombination(KeyCode.ENTER);
 
     private final FXValidationSupport<String> validationSupport = new FXValidationSupport<>();
     private ErrorTooltipManager errorTooltipManager;
@@ -65,10 +58,24 @@ public class ValidableTextField extends TextField {
 
     public ValidableTextField(String text) {
         super(text);
-        focusedProperty().addListener(new OnFocusLost());
-        setOnKeyReleased(new OnEnterPressed());
+        focusedProperty().addListener((o, oldVal, newVal) -> {
+            if (!newVal) {
+                validate();
+            }
+        });
+        setOnKeyReleased((t) -> {
+            if (ENTER_COMBO.match(t)) {
+                validate();
+            }
+        });
         textProperty().addListener(e -> validationSupport.makeNotValidated());
-        validationSupport.validationStateProperty().addListener(new StyleOnValidationStateChange());
+        validationSupport.validationStateProperty().addListener(
+                (o) -> {
+                    if ((validationSupport.validationStateProperty().get() == ValidationState.INVALID)
+                            && errorTooltipManager != null) {
+                        errorTooltipManager.showTooltip();
+                    }
+                });
     }
 
     public final ValidationState getValidationState() {
@@ -102,62 +109,8 @@ public class ValidableTextField extends TextField {
      * Triggers a validation programmatically
      */
     public void validate() {
+        validationSupport.makeNotValidated();
         validationSupport.validate(getText());
-    }
-
-    /**
-     * Style the field based on its validation state
-     * 
-     * @author Andrea Vacondio
-     * 
-     */
-    private class StyleOnValidationStateChange implements ChangeListener<ValidationState> {
-        @Override
-        public void changed(ObservableValue<? extends ValidationState> observable, ValidationState oldValue,
-                ValidationState newValue) {
-            if ((newValue == ValidationState.INVALID)
-                    && !getStyleClass().containsAll(Arrays.asList(Style.INVALID.css()))) {
-                getStyleClass().addAll(Style.INVALID.css());
-                if (errorTooltipManager != null) {
-                    errorTooltipManager.showTooltip();
-                }
-            }
-            if ((newValue != ValidationState.INVALID)
-                    && getStyleClass().containsAll(Arrays.asList(Style.INVALID.css()))) {
-                getStyleClass().removeAll(Style.INVALID.css());
-            }
-        }
-    }
-
-    /**
-     * Trigger validation on focus lost
-     * 
-     * @author Andrea Vacondio
-     * 
-     */
-    private class OnFocusLost implements ChangeListener<Boolean> {
-        @Override
-        public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-            if (!newValue) {
-                validate();
-            }
-        }
-    }
-
-    /**
-     * Trigger validation on EnterKey pressed
-     * 
-     * @author Andrea Vacondio
-     * 
-     */
-    private class OnEnterPressed implements EventHandler<KeyEvent> {
-        private final KeyCombination combo = new KeyCodeCombination(KeyCode.ENTER);
-
-        public void handle(KeyEvent t) {
-            if (combo.match(t)) {
-                validate();
-            }
-        }
     }
 
     /**

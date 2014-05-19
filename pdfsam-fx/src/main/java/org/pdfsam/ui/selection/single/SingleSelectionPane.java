@@ -23,22 +23,25 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Consumer;
 
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.WeakChangeListener;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
+import org.pdfsam.pdf.LoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfDocumentDescriptorProvider;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
@@ -48,7 +51,7 @@ import org.pdfsam.ui.event.OpenFileRequest;
 import org.pdfsam.ui.event.SetDestinationRequest;
 import org.pdfsam.ui.event.ShowPdfDescriptorRequest;
 import org.pdfsam.ui.io.BrowsableFileField;
-import org.pdfsam.ui.selection.EncryptionStatusSupport;
+import org.pdfsam.ui.selection.EncryptionStatusIndicator;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.sejda.model.parameter.base.SinglePdfSourceTaskParameters;
 
@@ -67,30 +70,37 @@ public class SingleSelectionPane<T extends SinglePdfSourceTaskParameters> extend
     private String ownerModule = StringUtils.EMPTY;
     private BrowsableFileField field = new BrowsableFileField(FileType.PDF);
     private Label pages = new Label();
-    private Label encryptionIndicator = new Label();
     private PdfDocumentDescriptor descriptor;
-    private EncryptionStatusSupport encryptionSupport;
-    private ChangeListener<AtomicBoolean> onDescriptorLoaded = (o1, oldVal1, newVal1) -> {
-        if (newVal1.get()) {
-            Platform.runLater(() -> {
-                pages.setText(DefaultI18nContext.getInstance().i18n("Pages: {}",
+    private EncryptionStatusIndicator encryptionIndicator;
+    private ChangeListener<LoadingStatus> onDescriptorLoaded = (o1, oldVal1, newVal1) -> {
+        Platform.runLater(() -> {
+            encryptionIndicator.updateEncryptionStatus(descriptor.encryptionStatusProperty().get());
+            if (newVal1 == LoadingStatus.LOADED) {
+                pages.setText(DefaultI18nContext.getInstance().i18n("Pages: {0}",
                         Integer.toString(descriptor.pagesPropery().get())));
-                encryptionSupport.updateEncryptionStatus(descriptor.encryptionStatusProperty().get());
-            });
-        }
+            }
+        });
     };
 
     public SingleSelectionPane(String ownerModule) {
         super(5);
         this.ownerModule = defaultString(ownerModule);
-        field.setEditable(false);
         field.enforceValidation(true, false);
         field.getTextField().setPromptText(
                 DefaultI18nContext.getInstance().i18n("Select or drag and drop the PDF you want to split"));
-        encryptionSupport = new EncryptionStatusSupport(this, encryptionIndicator, this.ownerModule);
-        getChildren().addAll(new HBox(5, encryptionIndicator, field), pages);
+        encryptionIndicator = new EncryptionStatusIndicator(this, this.ownerModule);
+        encryptionIndicator.setPadding(new Insets(0, 0, 0, 7));
+        field.setGraphic(encryptionIndicator);
+        HBox topRow = new HBox(5, field);
+        HBox.setHgrow(field, Priority.ALWAYS);
+        topRow.setAlignment(Pos.CENTER_LEFT);
+        getChildren().addAll(topRow, pages);
+        field.getTextField().textProperty().addListener((o, oldVal, newVal) -> pages.setText(""));
         field.getTextField().validProperty().addListener((o, oldVal, newVal) -> {
             if (newVal == ValidationState.VALID) {
+                if (descriptor != null) {
+                    descriptor.invalidate();
+                }
                 PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
                 descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(new File(field.getTextField().getText()));
                 descriptor.loadedProperty().addListener(new WeakChangeListener<>(onDescriptorLoaded));

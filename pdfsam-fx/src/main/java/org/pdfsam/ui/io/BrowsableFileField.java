@@ -50,6 +50,7 @@ public class BrowsableFileField extends BrowsableField {
     public BrowsableFileField(FileType fileType) {
         setBrowseWindowTitle(DefaultI18nContext.getInstance().i18n("Select a file"));
         getBrowseButton().setOnAction(handler);
+        getTextField().setOnAction(handler);
         this.fileType = ObjectUtils.defaultIfNull(fileType, FileType.ALL);
         if (FileType.ALL != fileType) {
             getTextField().setPromptText(
@@ -83,15 +84,6 @@ public class BrowsableFileField extends BrowsableField {
                     fileType.getFilter().getExtensions().toString());
         }
         return trim(errorMessage);
-    }
-
-    public void setEditable(boolean value) {
-        getTextField().setEditable(value);
-        if (!value) {
-            getTextField().setOnAction(handler);
-        } else {
-            getTextField().setOnAction(null);
-        }
     }
 
     /**

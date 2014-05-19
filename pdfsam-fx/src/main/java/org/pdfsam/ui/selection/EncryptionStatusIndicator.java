@@ -19,10 +19,11 @@
 package org.pdfsam.ui.selection;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
-import javafx.scene.control.Labeled;
+import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Window;
@@ -42,26 +43,25 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
  * @author Andrea Vacondio
  *
  */
-public class EncryptionStatusSupport implements ModuleOwned {
+public class EncryptionStatusIndicator extends Label implements ModuleOwned {
 
     private EncryptionStatus encryptionStatus = EncryptionStatus.NOT_ENCRYPTED;
-    private Labeled indicator;
     private String ownerModule = StringUtils.EMPTY;
     private PdfDocumentDescriptorProvider descriptorProvider;
+    private PasswordFieldPopup popup;
 
-    public EncryptionStatusSupport(PdfDocumentDescriptorProvider descriptorProvider, Labeled indicator,
-            String ownerModule) {
-        requireNotNull(indicator, "Cannot create EncryptionStatusSupport with a null indicator");
+    public EncryptionStatusIndicator(PdfDocumentDescriptorProvider descriptorProvider, String ownerModule) {
         requireNotNull(descriptorProvider,
                 "Cannot create EncryptionStatusSupport with a null PdfDocumentDescriptorProvider");
         this.ownerModule = defaultString(ownerModule);
-        this.indicator = indicator;
+        this.popup = new PasswordFieldPopup(getOwnerModule());
         this.descriptorProvider = descriptorProvider;
-        this.indicator.addEventFilter(MouseEvent.MOUSE_CLICKED, (e) -> {
+        this.addEventFilter(MouseEvent.MOUSE_CLICKED, (e) -> {
             if (encryptionStatus.canBeDecrypted()) {
                 showPasswordRequest();
             }
         });
+        this.getStyleClass().add("encryption-status");
     }
 
     public String getOwnerModule() {
@@ -72,17 +72,14 @@ public class EncryptionStatusSupport implements ModuleOwned {
      * Show a password request right below the wrapped Control
      */
     public void showPasswordRequest() {
-        Scene scene = this.indicator.getScene();
+        Scene scene = this.getScene();
         if (scene != null) {
             Window owner = scene.getWindow();
             if (owner != null && owner.isShowing()) {
-                Point2D nodeCoord = this.indicator.localToScene(this.indicator.getWidth() / 2,
-                        this.indicator.getHeight() / 1.5);
+                Point2D nodeCoord = this.localToScene(this.getWidth() / 2, this.getHeight() / 1.5);
                 double anchorX = Math.round(owner.getX() + scene.getX() + nodeCoord.getX() + 2);
-                double anchorY = Math.round(owner.getY() + scene.getY() + nodeCoord.getY() - 2);
-                PasswordFieldPopup popup = new PasswordFieldPopup(descriptorProvider.getPdfDocumentDescriptor(),
-                        getOwnerModule());
-                popup.show(this.indicator, anchorX, anchorY);
+                double anchorY = Math.round(owner.getY() + scene.getY() + nodeCoord.getY() + 2);
+                popup.showFor(descriptorProvider.getPdfDocumentDescriptor(), this, anchorX, anchorY);
             }
         }
     }
@@ -97,27 +94,37 @@ public class EncryptionStatusSupport implements ModuleOwned {
             this.encryptionStatus = encryptionStatus;
             switch (encryptionStatus) {
             case ENCRYPTED:
-                this.indicator.setGraphic(AwesomeDude.createIconLabel(AwesomeIcon.LOCK));
-                this.indicator.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
-                        "This document is encrypted, double click to provide a password.")));
+                indicator(
+                        AwesomeIcon.LOCK,
+                        DefaultI18nContext.getInstance().i18n(
+                                "This document is encrypted, double click to provide a password."));
                 break;
             case DECRYPTION_REQUESTED:
-                this.indicator.setGraphic(AwesomeDude.createIconLabel(AwesomeIcon.SPINNER));
-                this.indicator.setTooltip(null);
+                indicator(AwesomeIcon.SPINNER, null);
                 break;
             case DECRYPTED_WITH_USER_PWD:
-                this.indicator.setGraphic(AwesomeDude.createIconLabel(AwesomeIcon.UNLOCK));
-                this.indicator.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
-                        "Valid user password provided.")));
+                indicator(AwesomeIcon.UNLOCK, DefaultI18nContext.getInstance().i18n("Valid user password provided."));
                 break;
             default:
-                this.indicator.setGraphic(null);
-                this.indicator.setTooltip(null);
+                noIndicator();
                 break;
             }
         } else {
-            this.indicator.setGraphic(null);
-            this.indicator.setTooltip(null);
+            noIndicator();
         }
+    }
+
+    private void indicator(AwesomeIcon icon, String tooltip) {
+        this.setGraphic(AwesomeDude.createIconLabel(icon));
+        if (isNotBlank(tooltip)) {
+            this.setTooltip(new Tooltip(tooltip));
+        } else {
+            this.setTooltip(null);
+        }
+    }
+
+    private void noIndicator() {
+        this.setGraphic(null);
+        this.setTooltip(null);
     }
 }
