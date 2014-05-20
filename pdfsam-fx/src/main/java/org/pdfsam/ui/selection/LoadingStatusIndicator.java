@@ -20,7 +20,10 @@ package org.pdfsam.ui.selection;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.ENCRYPTED;
+import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.WITH_ERRORS;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -31,34 +34,37 @@ import javafx.stage.Window;
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
-import org.pdfsam.pdf.EncryptionStatus;
+import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptorProvider;
+import org.pdfsam.ui.event.ShowStageRequest;
 
 import de.jensd.fx.fontawesome.AwesomeDude;
 import de.jensd.fx.fontawesome.AwesomeIcon;
 
 /**
- * Component adding support for showing {@link EncryptionStatus} icons and a popup asking the user to input a password
+ * Component adding support for showing {@link PdfDescriptorLoadingStatus} icons and a popup asking the user to input a password if the document is encrypted
  * 
  * @author Andrea Vacondio
  *
  */
-public class EncryptionStatusIndicator extends Label implements ModuleOwned {
+public class LoadingStatusIndicator extends Label implements ModuleOwned {
 
-    private EncryptionStatus encryptionStatus = EncryptionStatus.NOT_ENCRYPTED;
+    private PdfDescriptorLoadingStatus encryptionStatus = PdfDescriptorLoadingStatus.REQUESTED;
     private String ownerModule = StringUtils.EMPTY;
     private PdfDocumentDescriptorProvider descriptorProvider;
     private PasswordFieldPopup popup;
 
-    public EncryptionStatusIndicator(PdfDocumentDescriptorProvider descriptorProvider, String ownerModule) {
+    public LoadingStatusIndicator(PdfDocumentDescriptorProvider descriptorProvider, String ownerModule) {
         requireNotNull(descriptorProvider,
                 "Cannot create EncryptionStatusSupport with a null PdfDocumentDescriptorProvider");
         this.ownerModule = defaultString(ownerModule);
         this.popup = new PasswordFieldPopup(getOwnerModule());
         this.descriptorProvider = descriptorProvider;
         this.addEventFilter(MouseEvent.MOUSE_CLICKED, (e) -> {
-            if (encryptionStatus.canBeDecrypted()) {
+            if (encryptionStatus == ENCRYPTED) {
                 showPasswordRequest();
+            } else if (encryptionStatus == WITH_ERRORS) {
+                eventStudio().broadcast(new ShowStageRequest(), "LogStage");
             }
         });
         this.getStyleClass().add("encryption-status");
@@ -85,11 +91,11 @@ public class EncryptionStatusIndicator extends Label implements ModuleOwned {
     }
 
     /**
-     * Updates the encryption status
+     * Updates the loading status
      * 
      * @param encryptionStatus
      */
-    public void updateEncryptionStatus(final EncryptionStatus encryptionStatus) {
+    public void updateLoadingStatus(final PdfDescriptorLoadingStatus encryptionStatus) {
         if (encryptionStatus != null) {
             this.encryptionStatus = encryptionStatus;
             switch (encryptionStatus) {
@@ -99,12 +105,17 @@ public class EncryptionStatusIndicator extends Label implements ModuleOwned {
                         DefaultI18nContext.getInstance().i18n(
                                 "This document is encrypted, double click to provide a password."));
                 break;
-            case DECRYPTION_REQUESTED:
+            case REQUESTED:
+            case LOADING:
                 indicator(AwesomeIcon.SPINNER, null);
                 break;
-            case DECRYPTED_WITH_USER_PWD:
+            case LOADED_WITH_USER_PWD_DECRYPTION:
                 indicator(AwesomeIcon.UNLOCK, DefaultI18nContext.getInstance().i18n("Valid user password provided."));
                 break;
+            case WITH_ERRORS:
+                indicator(AwesomeIcon.WARNING, null);
+                break;
+            case LOADED:
             default:
                 noIndicator();
                 break;

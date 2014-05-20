@@ -30,21 +30,21 @@ import javafx.util.Callback;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.module.ModuleOwned;
-import org.pdfsam.pdf.EncryptionStatus;
+import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfDocumentDescriptorProvider;
-import org.pdfsam.ui.selection.EncryptionStatusIndicator;
+import org.pdfsam.ui.selection.LoadingStatusIndicator;
 
 /**
- * Definition of the {@link EncryptionStatus} column of the selection table
+ * Definition of the {@link PdfDescriptorLoadingStatus} column of the selection table
  * 
  * @author Andrea Vacondio
  *
  */
-public class EncryptionStatusColumn implements SelectionTableColumn<EncryptionStatus>, ModuleOwned {
+public class LoadingStatusColumn implements SelectionTableColumn<PdfDescriptorLoadingStatus>, ModuleOwned {
     private String ownerModule = StringUtils.EMPTY;
 
-    public EncryptionStatusColumn(String ownerModule) {
+    public LoadingStatusColumn(String ownerModule) {
         this.ownerModule = defaultString(ownerModule);
     }
 
@@ -57,27 +57,27 @@ public class EncryptionStatusColumn implements SelectionTableColumn<EncryptionSt
     }
 
     @Override
-    public ObservableValue<EncryptionStatus> getObservableValue(SelectionTableRowData data) {
-        return data.getPdfDocumentDescriptor().encryptionStatusProperty();
+    public ObservableValue<PdfDescriptorLoadingStatus> getObservableValue(SelectionTableRowData data) {
+        return data.getPdfDocumentDescriptor().loadedProperty();
     }
 
     @Override
-    public String getTextValue(EncryptionStatus item) {
+    public String getTextValue(PdfDescriptorLoadingStatus item) {
         return (item != null) ? item.name() : "";
     }
 
     @Override
-    public Callback<TableColumn<SelectionTableRowData, EncryptionStatus>, TableCell<SelectionTableRowData, EncryptionStatus>> cellFactory() {
-        return new Callback<TableColumn<SelectionTableRowData, EncryptionStatus>, TableCell<SelectionTableRowData, EncryptionStatus>>() {
-            public TableCell<SelectionTableRowData, EncryptionStatus> call(
-                    TableColumn<SelectionTableRowData, EncryptionStatus> param) {
-                return new EncryptionStatusTableCell();
+    public Callback<TableColumn<SelectionTableRowData, PdfDescriptorLoadingStatus>, TableCell<SelectionTableRowData, PdfDescriptorLoadingStatus>> cellFactory() {
+        return new Callback<TableColumn<SelectionTableRowData, PdfDescriptorLoadingStatus>, TableCell<SelectionTableRowData, PdfDescriptorLoadingStatus>>() {
+            public TableCell<SelectionTableRowData, PdfDescriptorLoadingStatus> call(
+                    TableColumn<SelectionTableRowData, PdfDescriptorLoadingStatus> param) {
+                return new LoadingStatusTableCell();
             }
         };
     }
 
-    public TableColumn<SelectionTableRowData, EncryptionStatus> getTableColumn() {
-        TableColumn<SelectionTableRowData, EncryptionStatus> tableColumn = new TableColumn<>(getColumnTitle());
+    public TableColumn<SelectionTableRowData, PdfDescriptorLoadingStatus> getTableColumn() {
+        TableColumn<SelectionTableRowData, PdfDescriptorLoadingStatus> tableColumn = new TableColumn<>(getColumnTitle());
         tableColumn.setCellFactory(cellFactory());
         tableColumn.setCellValueFactory(cellValueFactory());
         tableColumn.setSortable(false);
@@ -86,19 +86,20 @@ public class EncryptionStatusColumn implements SelectionTableColumn<EncryptionSt
         return tableColumn;
     }
 
-    public Comparator<EncryptionStatus> comparator() {
+    public Comparator<PdfDescriptorLoadingStatus> comparator() {
         // not used
         return null;
     }
 
-    private class EncryptionStatusTableCell extends TableCell<SelectionTableRowData, EncryptionStatus> implements
+    private class LoadingStatusTableCell extends TableCell<SelectionTableRowData, PdfDescriptorLoadingStatus>
+            implements
             PdfDocumentDescriptorProvider {
-        private EncryptionStatusIndicator encryptionStatus = null;
+        private LoadingStatusIndicator loadingStatus = null;
 
-        private EncryptionStatusTableCell() {
+        private LoadingStatusTableCell() {
             setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
             setText("");
-            encryptionStatus = new EncryptionStatusIndicator(this, EncryptionStatusColumn.this.getOwnerModule());
+            loadingStatus = new LoadingStatusIndicator(this, LoadingStatusColumn.this.getOwnerModule());
 
         }
 
@@ -107,11 +108,11 @@ public class EncryptionStatusColumn implements SelectionTableColumn<EncryptionSt
         }
 
         @Override
-        public void updateItem(final EncryptionStatus item, boolean empty) {
+        public void updateItem(final PdfDescriptorLoadingStatus item, boolean empty) {
             super.updateItem(item, empty);
             if (item != null) {
-                encryptionStatus.updateEncryptionStatus(item);
-                setGraphic(encryptionStatus);
+                loadingStatus.updateLoadingStatus(item);
+                setGraphic(loadingStatus);
             } else {
                 setGraphic(null);
             }

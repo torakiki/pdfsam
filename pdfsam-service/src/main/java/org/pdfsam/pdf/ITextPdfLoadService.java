@@ -18,6 +18,11 @@
  */
 package org.pdfsam.pdf;
 
+import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.ENCRYPTED;
+import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.LOADED;
+import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.LOADED_WITH_USER_PWD_DECRYPTION;
+import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.LOADING;
+import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.WITH_ERRORS;
 import static org.sejda.impl.itext5.util.ITextUtils.nullSafeClosePdfReader;
 
 import java.util.Collection;
@@ -47,28 +52,32 @@ class ITextPdfLoadService implements PdfLoadService {
         LOG.debug(DefaultI18nContext.getInstance().i18n("Loading"));
         for (PdfDocumentDescriptor current : toLoad) {
             if (!current.isInvalid()) {
+                LOG.trace("Loading {}", current.getFileName());
                 PdfReader reader = null;
                 try {
-                    current.loading();
+                    current.moveStatusTo(LOADING);
                     reader = current.toPdfFileSource().open(new DefaultPdfSourceOpener());
-                    if (current.encryptionStatusProperty().get() == EncryptionStatus.DECRYPTION_REQUESTED) {
-                        current.setEncryptionStatus(EncryptionStatus.DECRYPTED_WITH_USER_PWD);
-                    } else {
-                        current.setEncryptionStatus(EncryptionStatus.NOT_ENCRYPTED);
-                    }
                     current.setPages(reader.getNumberOfPages());
                     current.setVersion(String.format("1.%c", reader.getPdfVersion()));
                     current.setInformationDictionary(reader.getInfo());
-                    current.loaded();
+                    if (current.hasPassword()) {
+                        current.moveStatusTo(LOADED_WITH_USER_PWD_DECRYPTION);
+                    } else {
+                        current.moveStatusTo(LOADED);
+                    }
                 } catch (TaskWrongPasswordException twpe) {
-                    current.setEncryptionStatus(EncryptionStatus.ENCRYPTED);
-                    current.loadedWithErrors();
-                    LOG.warn(String.format("User password required %s", current.getFileName()), twpe);
+                    current.moveStatusTo(ENCRYPTED);
+                    LOG.warn("User password required {0}", current.getFileName(), twpe);
                 } catch (Exception e) {
-                    LOG.error(String.format("An error occured loading the document %s", current.getFileName()), e);
-                    current.loadedWithErrors();
+                    LOG.error("An error occured loading the document {0}", current.getFileName(), e);
+                    current.moveStatusTo(WITH_ERRORS);
                 } finally {
-                    nullSafeClosePdfReader(reader);
+                    // boy this sucks
+                    try {
+                        nullSafeClosePdfReader(reader);
+                    } catch (RuntimeException e) {
+                        LOG.warn("An error occured closing the document", e);
+                    }
                 }
             } else {
                 LOG.trace("Skipping invalid document {}", current.getFileName());

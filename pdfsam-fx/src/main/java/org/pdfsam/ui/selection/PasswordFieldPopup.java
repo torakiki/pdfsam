@@ -30,7 +30,7 @@ import javafx.scene.layout.HBox;
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
-import org.pdfsam.pdf.EncryptionStatus;
+import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.ui.support.Style;
@@ -102,7 +102,7 @@ class PasswordFieldPopup extends PopupControl implements ModuleOwned {
         public void requestLoad() {
             if (pdfDescriptor != null) {
                 pdfDescriptor.setPassword(passwordField.getText());
-                pdfDescriptor.setEncryptionStatus(EncryptionStatus.DECRYPTION_REQUESTED);
+                pdfDescriptor.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
                 PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
                 loadEvent.add(pdfDescriptor);
                 eventStudio().broadcast(loadEvent);

@@ -31,7 +31,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.pdf.LoadingStatus;
+import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.ui.event.ShowPdfDescriptorRequest;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.model.pdf.PdfMetadataKey;
@@ -44,7 +44,7 @@ import org.sejda.model.pdf.PdfMetadataKey;
  */
 @Named
 class KeywordsTab extends Tab {
-    private ChangeListener<LoadingStatus> loadedListener;
+    private ChangeListener<PdfDescriptorLoadingStatus> loadedListener;
     private Label keywords = new Label();
 
     KeywordsTab() {
@@ -69,7 +69,7 @@ class KeywordsTab extends Tab {
     @EventListener
     void requestShow(ShowPdfDescriptorRequest event) {
         loadedListener = (o, oldVal, newVal) -> {
-            if (newVal == LoadingStatus.LOADED) {
+            if (newVal == PdfDescriptorLoadingStatus.LOADED) {
                 Platform.runLater(() -> {
                     keywords.setText(event.getDescriptor().getInformation(PdfMetadataKey.KEYWORDS.getKey()));
                 });

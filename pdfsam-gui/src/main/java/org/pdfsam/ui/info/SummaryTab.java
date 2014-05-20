@@ -35,7 +35,7 @@ import javax.inject.Named;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.time.FastDateFormat;
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.pdf.LoadingStatus;
+import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.ui.event.ShowPdfDescriptorRequest;
 import org.sejda.eventstudio.annotation.EventListener;
@@ -50,7 +50,7 @@ import com.itextpdf.text.pdf.PdfDate;
  *
  */
 @Named
-class SummaryTab extends BaseInfoTab implements ChangeListener<LoadingStatus> {
+class SummaryTab extends BaseInfoTab implements ChangeListener<PdfDescriptorLoadingStatus> {
     private static FastDateFormat FORMATTER = FastDateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.MEDIUM);
     private Label fileLabel = createValueLabel();
     private Label size = createValueLabel();
@@ -123,9 +123,9 @@ class SummaryTab extends BaseInfoTab implements ChangeListener<LoadingStatus> {
         producer.setText(descriptor.getInformation("Producer"));
     }
 
-    public void changed(ObservableValue<? extends LoadingStatus> observable, LoadingStatus oldValue,
-            LoadingStatus newValue) {
-        if (newValue == LoadingStatus.LOADED) {
+    public void changed(ObservableValue<? extends PdfDescriptorLoadingStatus> observable, PdfDescriptorLoadingStatus oldValue,
+            PdfDescriptorLoadingStatus newValue) {
+        if (newValue == PdfDescriptorLoadingStatus.LOADED) {
             Platform.runLater(() -> {
                 setPdfProperties(current);
             });

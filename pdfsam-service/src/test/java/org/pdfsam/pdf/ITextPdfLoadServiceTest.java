@@ -50,13 +50,14 @@ public class ITextPdfLoadServiceTest {
     public void load() {
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(testFile);
         List<PdfDocumentDescriptor> toLoad = new ArrayList<>();
+        assertEquals(PdfDescriptorLoadingStatus.REQUESTED, descriptor.loadedProperty().get());
         toLoad.add(descriptor);
         victim.load(toLoad);
         assertEquals(1, toLoad.size());
         PdfDocumentDescriptor item = toLoad.get(0);
         assertNotNull(item);
         assertEquals(2, item.pagesPropery().get());
-        assertEquals(EncryptionStatus.NOT_ENCRYPTED, item.encryptionStatusProperty().get());
+        assertEquals(PdfDescriptorLoadingStatus.LOADED, descriptor.loadedProperty().get());
         assertEquals("Me", item.getInformation(PdfMetadataKey.AUTHOR.getKey()));
         assertEquals("test", item.getInformation(PdfMetadataKey.KEYWORDS.getKey()));
     }

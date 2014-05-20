@@ -46,7 +46,7 @@ public abstract class MultipleSelectionPane<T extends TaskParameters> extends Bo
         this.ownerModule = defaultString(ownerModule);
         setTop(new SelectionTableToolbar(ownerModule));
         table = new SelectionTable(ownerModule, new SelectionTableColumn<?>[] {
-                new EncryptionStatusColumn(this.ownerModule), FileColumn.NAME, LongColumn.SIZE, LongColumn.PAGES,
+                new LoadingStatusColumn(this.ownerModule), FileColumn.NAME, LongColumn.SIZE, LongColumn.PAGES,
                 LongColumn.LAST_MODIFIED, StringColumn.PAGE_SELECTION });
         setCenter(table);
     }

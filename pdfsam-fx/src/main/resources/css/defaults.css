@@ -159,12 +159,12 @@
     -fx-background-insets: 0.0, 0.0 0.0 1.0 0.0, 1.0 1.0 1.0 1.0;
     -fx-background-radius: 0.0, 0.0;
 }
-.validable-container .text-field {
+.validable-container-field {
    -fx-background-color:  -fx-control-inner-background;
    -fx-background-insets: 0.0;
    -fx-background-radius:  0.0;
 }
-.validable-container .text-field:focused {
+.validable-container-field:focused {
    -fx-background-color:  -fx-control-inner-background;
    -fx-background-insets: 0.0;
    -fx-background-radius:  0.0;

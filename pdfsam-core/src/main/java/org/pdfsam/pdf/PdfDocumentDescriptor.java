@@ -18,6 +18,7 @@
  */
 package org.pdfsam.pdf;
 
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 import java.io.File;
@@ -40,11 +41,10 @@ import org.sejda.model.input.PdfFileSource;
  */
 public final class PdfDocumentDescriptor {
 
-    private ReadOnlyObjectWrapper<LoadingStatus> loadingStatus = new ReadOnlyObjectWrapper<>(LoadingStatus.REQUESTED);
+    private ReadOnlyObjectWrapper<PdfDescriptorLoadingStatus> loadingStatus = new ReadOnlyObjectWrapper<>(
+            PdfDescriptorLoadingStatus.REQUESTED);
     private AtomicBoolean invalid = new AtomicBoolean(false);
     private ReadOnlyIntegerWrapper pages = new ReadOnlyIntegerWrapper(0);
-    private ReadOnlyObjectWrapper<EncryptionStatus> encryptionStatus = new ReadOnlyObjectWrapper<>(
-            EncryptionStatus.NOT_ENCRYPTED);
     private String password;
     private File file;
     private String version;
@@ -84,31 +84,17 @@ public final class PdfDocumentDescriptor {
         this.pages.set(pages);
     }
 
-    public ReadOnlyObjectProperty<LoadingStatus> loadedProperty() {
+    public ReadOnlyObjectProperty<PdfDescriptorLoadingStatus> loadedProperty() {
         return loadingStatus.getReadOnlyProperty();
     }
 
     /**
-     * Puts this descriptor in loading state
+     * Sets the status to the given status destination
+     * 
+     * @param destination
      */
-    public void loading() {
-        loadingStatus.set(loadingStatus.get().loading());
-    }
-
-    public void loaded() {
-        loadingStatus.set(LoadingStatus.LOADED);
-    }
-
-    public void loadedWithErrors() {
-        loadingStatus.set(LoadingStatus.LOADED_WITH_ERRORS);
-    }
-
-    public ReadOnlyObjectProperty<EncryptionStatus> encryptionStatusProperty() {
-        return encryptionStatus.getReadOnlyProperty();
-    }
-
-    public void setEncryptionStatus(EncryptionStatus encryptionStatus) {
-        this.encryptionStatus.set(encryptionStatus);
+    public void moveStatusTo(PdfDescriptorLoadingStatus destination) {
+        loadingStatus.set(loadingStatus.get().moveTo(destination));
     }
 
     public String getPassword() {
@@ -117,6 +103,10 @@ public final class PdfDocumentDescriptor {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean hasPassword() {
+        return isNotBlank(password);
     }
 
     public String getVersion() {

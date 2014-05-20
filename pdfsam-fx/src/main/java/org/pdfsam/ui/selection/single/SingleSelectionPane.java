@@ -41,7 +41,7 @@ import javafx.scene.layout.VBox;
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
-import org.pdfsam.pdf.LoadingStatus;
+import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfDocumentDescriptorProvider;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
@@ -51,7 +51,7 @@ import org.pdfsam.ui.event.OpenFileRequest;
 import org.pdfsam.ui.event.SetDestinationRequest;
 import org.pdfsam.ui.event.ShowPdfDescriptorRequest;
 import org.pdfsam.ui.io.BrowsableFileField;
-import org.pdfsam.ui.selection.EncryptionStatusIndicator;
+import org.pdfsam.ui.selection.LoadingStatusIndicator;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.sejda.model.parameter.base.SinglePdfSourceTaskParameters;
 
@@ -71,13 +71,15 @@ public class SingleSelectionPane<T extends SinglePdfSourceTaskParameters> extend
     private BrowsableFileField field = new BrowsableFileField(FileType.PDF);
     private Label pages = new Label();
     private PdfDocumentDescriptor descriptor;
-    private EncryptionStatusIndicator encryptionIndicator;
-    private ChangeListener<LoadingStatus> onDescriptorLoaded = (o1, oldVal1, newVal1) -> {
+    private LoadingStatusIndicator encryptionIndicator;
+    private ChangeListener<PdfDescriptorLoadingStatus> onDescriptorLoaded = (o1, oldVal1, newVal1) -> {
         Platform.runLater(() -> {
-            encryptionIndicator.updateEncryptionStatus(descriptor.encryptionStatusProperty().get());
-            if (newVal1 == LoadingStatus.LOADED) {
+            encryptionIndicator.updateLoadingStatus(descriptor.loadedProperty().get());
+            if (newVal1 == PdfDescriptorLoadingStatus.LOADED) {
                 pages.setText(DefaultI18nContext.getInstance().i18n("Pages: {0}",
                         Integer.toString(descriptor.pagesPropery().get())));
+            } else {
+                pages.setText("");
             }
         });
     };
@@ -88,14 +90,14 @@ public class SingleSelectionPane<T extends SinglePdfSourceTaskParameters> extend
         field.enforceValidation(true, false);
         field.getTextField().setPromptText(
                 DefaultI18nContext.getInstance().i18n("Select or drag and drop the PDF you want to split"));
-        encryptionIndicator = new EncryptionStatusIndicator(this, this.ownerModule);
+        encryptionIndicator = new LoadingStatusIndicator(this, this.ownerModule);
         encryptionIndicator.setPadding(new Insets(0, 0, 0, 7));
         field.setGraphic(encryptionIndicator);
         HBox topRow = new HBox(5, field);
         HBox.setHgrow(field, Priority.ALWAYS);
         topRow.setAlignment(Pos.CENTER_LEFT);
         getChildren().addAll(topRow, pages);
-        field.getTextField().textProperty().addListener((o, oldVal, newVal) -> pages.setText(""));
+        field.getTextField().setEditable(false);
         field.getTextField().validProperty().addListener((o, oldVal, newVal) -> {
             if (newVal == ValidationState.VALID) {
                 if (descriptor != null) {

@@ -51,6 +51,7 @@ abstract class BrowsableField extends HBox {
         setAlignment(Pos.CENTER_LEFT);
         validableContainer = new HBox(textField);
         validableContainer.getStyleClass().add("validable-container");
+        textField.getStyleClass().add("validable-container-field");
         browseButton = new Button(DefaultI18nContext.getInstance().i18n("Browse"));
         browseButton.getStyleClass().addAll(Style.BROWSE_BUTTON.css());
         browseButton.prefHeightProperty().bind(validableContainer.heightProperty());
