@@ -24,12 +24,17 @@ import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.ENCRYPTED;
 import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.WITH_ERRORS;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import javafx.animation.Animation;
+import javafx.animation.Interpolator;
+import javafx.animation.RotateTransition;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Window;
+import javafx.util.Duration;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultI18nContext;
@@ -37,6 +42,8 @@ import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptorProvider;
 import org.pdfsam.ui.event.ShowStageRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.jensd.fx.fontawesome.AwesomeDude;
 import de.jensd.fx.fontawesome.AwesomeIcon;
@@ -48,26 +55,33 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
  *
  */
 public class LoadingStatusIndicator extends Label implements ModuleOwned {
+    private static final Logger LOG = LoggerFactory.getLogger(LoadingStatusIndicator.class);
 
-    private PdfDescriptorLoadingStatus encryptionStatus = PdfDescriptorLoadingStatus.REQUESTED;
+    private SimpleObjectProperty<PdfDescriptorLoadingStatus> loadingStatus = new SimpleObjectProperty<>(
+            PdfDescriptorLoadingStatus.INITIAL);
     private String ownerModule = StringUtils.EMPTY;
     private PdfDocumentDescriptorProvider descriptorProvider;
     private PasswordFieldPopup popup;
+    private final RotateTransition rotate = new RotateTransition(Duration.seconds(2), this);
 
     public LoadingStatusIndicator(PdfDocumentDescriptorProvider descriptorProvider, String ownerModule) {
         requireNotNull(descriptorProvider,
-                "Cannot create EncryptionStatusSupport with a null PdfDocumentDescriptorProvider");
+                "Cannot create LoadingStatusIndicator with a null PdfDocumentDescriptorProvider");
         this.ownerModule = defaultString(ownerModule);
         this.popup = new PasswordFieldPopup(getOwnerModule());
         this.descriptorProvider = descriptorProvider;
         this.addEventFilter(MouseEvent.MOUSE_CLICKED, (e) -> {
-            if (encryptionStatus == ENCRYPTED) {
+            if (loadingStatus.get() == ENCRYPTED) {
                 showPasswordRequest();
-            } else if (encryptionStatus == WITH_ERRORS) {
+            } else if (loadingStatus.get() == WITH_ERRORS) {
                 eventStudio().broadcast(new ShowStageRequest(), "LogStage");
             }
         });
-        this.getStyleClass().add("encryption-status");
+        loadingStatus.addListener((o, oldVal, newVal) -> updateIndicator(newVal));
+        this.getStyleClass().addAll("encryption-status");
+        rotate.setByAngle(360);
+        rotate.setCycleCount(Animation.INDEFINITE);
+        rotate.setInterpolator(Interpolator.LINEAR);
     }
 
     public String getOwnerModule() {
@@ -93,40 +107,49 @@ public class LoadingStatusIndicator extends Label implements ModuleOwned {
     /**
      * Updates the loading status
      * 
-     * @param encryptionStatus
+     * @param loadingStatus
      */
-    public void updateLoadingStatus(final PdfDescriptorLoadingStatus encryptionStatus) {
-        if (encryptionStatus != null) {
-            this.encryptionStatus = encryptionStatus;
-            switch (encryptionStatus) {
-            case ENCRYPTED:
-                indicator(
-                        AwesomeIcon.LOCK,
-                        DefaultI18nContext.getInstance().i18n(
-                                "This document is encrypted, double click to provide a password."));
-                break;
-            case REQUESTED:
-            case LOADING:
-                indicator(AwesomeIcon.SPINNER, null);
-                break;
-            case LOADED_WITH_USER_PWD_DECRYPTION:
-                indicator(AwesomeIcon.UNLOCK, DefaultI18nContext.getInstance().i18n("Valid user password provided."));
-                break;
-            case WITH_ERRORS:
-                indicator(AwesomeIcon.WARNING, null);
-                break;
-            case LOADED:
-            default:
-                noIndicator();
-                break;
-            }
+    public void setLoadingStatus(final PdfDescriptorLoadingStatus loadingStatus) {
+        if (loadingStatus != null) {
+            this.loadingStatus.set(loadingStatus);
         } else {
             noIndicator();
         }
     }
 
+    private void updateIndicator(final PdfDescriptorLoadingStatus loadingStatus) {
+        LOG.trace("Updating idicator for new status {}", loadingStatus);
+        switch (loadingStatus) {
+        case ENCRYPTED:
+            rotate.stop();
+            indicator(
+                    AwesomeIcon.LOCK,
+                    DefaultI18nContext.getInstance().i18n(
+                            "This document is encrypted, double click to provide a password."));
+            break;
+        case REQUESTED:
+        case LOADING:
+            indicator(AwesomeIcon.GEAR, null);
+            rotate.play();
+            break;
+        case LOADED_WITH_USER_PWD_DECRYPTION:
+            rotate.stop();
+            indicator(AwesomeIcon.UNLOCK, DefaultI18nContext.getInstance().i18n("Valid user password provided."));
+            break;
+        case WITH_ERRORS:
+            rotate.stop();
+            indicator(AwesomeIcon.WARNING, null);
+            break;
+        case LOADED:
+        default:
+            // noIndicator();
+            break;
+        }
+    }
+
     private void indicator(AwesomeIcon icon, String tooltip) {
-        this.setGraphic(AwesomeDude.createIconLabel(icon));
+        setRotate(0);
+        setGraphic(AwesomeDude.createIconLabel(icon));
         if (isNotBlank(tooltip)) {
             this.setTooltip(new Tooltip(tooltip));
         } else {
@@ -135,6 +158,7 @@ public class LoadingStatusIndicator extends Label implements ModuleOwned {
     }
 
     private void noIndicator() {
+        rotate.stop();
         this.setGraphic(null);
         this.setTooltip(null);
     }

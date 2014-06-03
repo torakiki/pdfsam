@@ -91,8 +91,7 @@ public class LoadingStatusColumn implements SelectionTableColumn<PdfDescriptorLo
         return null;
     }
 
-    private class LoadingStatusTableCell extends TableCell<SelectionTableRowData, PdfDescriptorLoadingStatus>
-            implements
+    private class LoadingStatusTableCell extends TableCell<SelectionTableRowData, PdfDescriptorLoadingStatus> implements
             PdfDocumentDescriptorProvider {
         private LoadingStatusIndicator loadingStatus = null;
 
@@ -100,6 +99,7 @@ public class LoadingStatusColumn implements SelectionTableColumn<PdfDescriptorLo
             setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
             setText("");
             loadingStatus = new LoadingStatusIndicator(this, LoadingStatusColumn.this.getOwnerModule());
+            setGraphic(loadingStatus);
 
         }
 
@@ -111,10 +111,7 @@ public class LoadingStatusColumn implements SelectionTableColumn<PdfDescriptorLo
         public void updateItem(final PdfDescriptorLoadingStatus item, boolean empty) {
             super.updateItem(item, empty);
             if (item != null) {
-                loadingStatus.updateLoadingStatus(item);
-                setGraphic(loadingStatus);
-            } else {
-                setGraphic(null);
+                loadingStatus.setLoadingStatus(item);
             }
         }
     }

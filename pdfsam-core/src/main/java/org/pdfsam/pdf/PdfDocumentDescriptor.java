@@ -42,7 +42,7 @@ import org.sejda.model.input.PdfFileSource;
 public final class PdfDocumentDescriptor {
 
     private ReadOnlyObjectWrapper<PdfDescriptorLoadingStatus> loadingStatus = new ReadOnlyObjectWrapper<>(
-            PdfDescriptorLoadingStatus.REQUESTED);
+            PdfDescriptorLoadingStatus.INITIAL);
     private AtomicBoolean invalid = new AtomicBoolean(false);
     private ReadOnlyIntegerWrapper pages = new ReadOnlyIntegerWrapper(0);
     private String password;

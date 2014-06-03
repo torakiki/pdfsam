@@ -29,23 +29,25 @@ import java.util.Set;
  *
  */
 public enum PdfDescriptorLoadingStatus {
+    INITIAL,
+    REQUESTED,
+    LOADING,
     LOADED,
     LOADED_WITH_USER_PWD_DECRYPTION,
     ENCRYPTED,
-    LOADING,
-    REQUESTED,
     WITH_ERRORS;
 
     static {
-        ENCRYPTED.setValidStatus(REQUESTED, WITH_ERRORS);
-        LOADING.setValidStatus(LOADED, LOADED_WITH_USER_PWD_DECRYPTION, ENCRYPTED, WITH_ERRORS);
-        REQUESTED.setValidStatus(LOADING, WITH_ERRORS);
-        WITH_ERRORS.setValidStatus(REQUESTED, WITH_ERRORS);
+        INITIAL.setValidDestinationStatus(REQUESTED, WITH_ERRORS);
+        ENCRYPTED.setValidDestinationStatus(REQUESTED, WITH_ERRORS);
+        LOADING.setValidDestinationStatus(LOADED, LOADED_WITH_USER_PWD_DECRYPTION, ENCRYPTED, WITH_ERRORS);
+        REQUESTED.setValidDestinationStatus(LOADING, WITH_ERRORS);
+        WITH_ERRORS.setValidDestinationStatus(REQUESTED, WITH_ERRORS);
     }
 
     private Set<PdfDescriptorLoadingStatus> validNext = new HashSet<>();
 
-    private void setValidStatus(PdfDescriptorLoadingStatus... canMoveTo) {
+    private void setValidDestinationStatus(PdfDescriptorLoadingStatus... canMoveTo) {
         Arrays.stream(canMoveTo).parallel().forEach(validNext::add);
     }
 

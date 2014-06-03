@@ -67,12 +67,11 @@ class ITextPdfLoadService implements PdfLoadService {
                     }
                 } catch (TaskWrongPasswordException twpe) {
                     current.moveStatusTo(ENCRYPTED);
-                    LOG.warn("User password required {0}", current.getFileName(), twpe);
+                    LOG.warn("User password required for '{}'", current.getFileName(), twpe);
                 } catch (Exception e) {
-                    LOG.error("An error occured loading the document {0}", current.getFileName(), e);
+                    LOG.error("An error occured loading the document '{}'", current.getFileName(), e);
                     current.moveStatusTo(WITH_ERRORS);
                 } finally {
-                    // boy this sucks
                     try {
                         nullSafeClosePdfReader(reader);
                     } catch (RuntimeException e) {

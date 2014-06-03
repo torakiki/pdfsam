@@ -28,7 +28,6 @@ import java.util.function.Consumer;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.WeakChangeListener;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
@@ -72,10 +71,11 @@ public class SingleSelectionPane<T extends SinglePdfSourceTaskParameters> extend
     private Label pages = new Label();
     private PdfDocumentDescriptor descriptor;
     private LoadingStatusIndicator encryptionIndicator;
-    private ChangeListener<PdfDescriptorLoadingStatus> onDescriptorLoaded = (o1, oldVal1, newVal1) -> {
+    private ChangeListener<PdfDescriptorLoadingStatus> onDescriptorLoaded = (o, oldVal, newVal) -> {
         Platform.runLater(() -> {
-            encryptionIndicator.updateLoadingStatus(descriptor.loadedProperty().get());
-            if (newVal1 == PdfDescriptorLoadingStatus.LOADED) {
+            encryptionIndicator.setLoadingStatus(newVal);
+            if (newVal == PdfDescriptorLoadingStatus.LOADED
+                    || newVal == PdfDescriptorLoadingStatus.LOADED_WITH_USER_PWD_DECRYPTION) {
                 pages.setText(DefaultI18nContext.getInstance().i18n("Pages: {0}",
                         Integer.toString(descriptor.pagesPropery().get())));
             } else {
@@ -91,7 +91,6 @@ public class SingleSelectionPane<T extends SinglePdfSourceTaskParameters> extend
         field.getTextField().setPromptText(
                 DefaultI18nContext.getInstance().i18n("Select or drag and drop the PDF you want to split"));
         encryptionIndicator = new LoadingStatusIndicator(this, this.ownerModule);
-        encryptionIndicator.setPadding(new Insets(0, 0, 0, 7));
         field.setGraphic(encryptionIndicator);
         HBox topRow = new HBox(5, field);
         HBox.setHgrow(field, Priority.ALWAYS);

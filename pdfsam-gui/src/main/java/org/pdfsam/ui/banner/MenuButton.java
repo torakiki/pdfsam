@@ -43,7 +43,7 @@ class MenuButton extends BannerButton {
     private AppContextMenu menu;
 
     MenuButton() {
-        super(AwesomeIcon.REORDER);
+        super(AwesomeIcon.BARS);
         setOnAction(e -> eventStudio().broadcast(new ShowStageRequest(), "LogStage"));
         setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Open menu")));
 
