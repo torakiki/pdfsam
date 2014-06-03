@@ -27,7 +27,7 @@
 		<module>pdfsam-service</module>
 		<module>pdfsam-fx</module>
 		<module>pdfsam-merge</module>
-		<module>pdfsam-split</module>
+		<module>pdfsam-simple-split</module>
 	</modules>
 
 	<developers>

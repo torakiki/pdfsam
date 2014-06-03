@@ -50,8 +50,9 @@ public class ITextPdfLoadServiceTest {
     public void load() {
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(testFile);
         List<PdfDocumentDescriptor> toLoad = new ArrayList<>();
-        assertEquals(PdfDescriptorLoadingStatus.REQUESTED, descriptor.loadedProperty().get());
+        assertEquals(PdfDescriptorLoadingStatus.INITIAL, descriptor.loadedProperty().get());
         toLoad.add(descriptor);
+        descriptor.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
         victim.load(toLoad);
         assertEquals(1, toLoad.size());
         PdfDocumentDescriptor item = toLoad.get(0);

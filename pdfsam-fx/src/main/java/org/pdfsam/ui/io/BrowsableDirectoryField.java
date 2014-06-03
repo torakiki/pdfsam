@@ -19,6 +19,7 @@
 package org.pdfsam.ui.io;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -33,8 +34,12 @@ import javafx.scene.input.DragEvent;
 import javafx.scene.input.TransferMode;
 
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.support.TaskParametersBuildStep;
 import org.pdfsam.support.validation.Validator;
 import org.pdfsam.support.validation.Validators;
+import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
+import org.sejda.conversion.PdfDirectoryOutputAdapter;
+import org.sejda.model.parameter.base.MultipleOutputTaskParameters;
 
 /**
  * Component letting the user select an existing directory
@@ -42,7 +47,8 @@ import org.pdfsam.support.validation.Validators;
  * @author Andrea Vacondio
  * 
  */
-public class BrowsableDirectoryField extends BrowsableField {
+public class BrowsableDirectoryField extends BrowsableField implements
+        TaskParametersBuildStep<MultipleOutputTaskParameters> {
 
     public BrowsableDirectoryField(boolean allowBlankString) {
         setBrowseWindowTitle(DefaultI18nContext.getInstance().i18n("Select a directory"));
@@ -111,5 +117,15 @@ public class BrowsableDirectoryField extends BrowsableField {
             e.getDragboard().getFiles().stream().filter(f -> f.isDirectory()).findFirst()
                     .ifPresent((file) -> setTextFromFile(file));
         };
+    }
+
+    public void apply(MultipleOutputTaskParameters params, Consumer<String> onError) {
+        requireNotNull(params, "Cannot set output on a null parameter instance");
+        getTextField().validate();
+        if (getTextField().getValidationState() == ValidationState.INVALID) {
+            onError.accept(DefaultI18nContext.getInstance().i18n("The selected output directory is invalid"));
+        } else {
+            params.setOutput(new PdfDirectoryOutputAdapter(getTextField().getText()).getPdfDirectoryOutput());
+        }
     }
 }

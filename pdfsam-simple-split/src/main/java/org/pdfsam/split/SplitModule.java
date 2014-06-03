@@ -42,7 +42,7 @@ import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.pdfsam.ui.selection.single.SingleSelectionPane;
 import org.pdfsam.ui.support.Views;
 import org.sejda.model.parameter.AbstractSplitByPageParameters;
-import org.sejda.model.parameter.SplitByPagesParameters;
+import org.sejda.model.parameter.SimpleSplitParameters;
 import org.sejda.model.parameter.base.TaskParameters;
 import org.springframework.core.io.ClassPathResource;
 
@@ -55,15 +55,16 @@ import org.springframework.core.io.ClassPathResource;
 @PdfsamModule
 public class SplitModule extends BaseTaskExecutionModule {
 
-    private static final String SPLIT_MODULE_ID = "split";
+    private static final String SPLIT_MODULE_ID = "split.simple";
 
     private SingleSelectionPane<AbstractSplitByPageParameters> selectionPane;
     private BrowsableDirectoryField destinationDirectoryField = new BrowsableDirectoryField(false);
+    private SplitOptionsPane splitOptions = new SplitOptionsPane();
     private PdfDestinationPane destinationPane;
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT)
-            .name(DefaultI18nContext.getInstance().i18n("Split"))
-            .description(DefaultI18nContext.getInstance().i18n("Split a pdf document at given page numbers"))
-            .priority(ModulePriority.HIGH.getPriority()).supportURL("http://www.pdfsam.org/split").build();
+            .name(DefaultI18nContext.getInstance().i18n("Simple Split"))
+            .description(DefaultI18nContext.getInstance().i18n("Split a pdf document at predefined page numbers"))
+            .priority(ModulePriority.HIGH.getPriority()).supportURL("http://www.pdfsam.org/simple-split").build();
 
     public SplitModule() {
         this.selectionPane = new SingleSelectionPane<>(id());
@@ -77,9 +78,14 @@ public class SplitModule extends BaseTaskExecutionModule {
 
     @Override
     protected TaskParameters buildParameters(Consumer<String> onError) {
-        SplitByPagesParameters params = new SplitByPagesParameters();
-        selectionPane.apply(params, onError);
-        destinationPane.apply(params, onError);
+        SimpleSplitParameters params = splitOptions.createParams();
+        if (params != null) {
+            selectionPane.apply(params, onError);
+            destinationDirectoryField.apply(params, onError);
+            destinationPane.apply(params, onError);
+        } else {
+            onError.accept(DefaultI18nContext.getInstance().i18n("Unable to create split parameters"));
+        }
         return params;
     }
 
@@ -90,6 +96,7 @@ public class SplitModule extends BaseTaskExecutionModule {
         VBox.setVgrow(selectionPane, Priority.ALWAYS);
 
         pane.getChildren().addAll(selectionPane,
+                Views.titledPane(DefaultI18nContext.getInstance().i18n("Split options"), splitOptions),
                 Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination directory"), destinationPane));
         return pane;
     }
