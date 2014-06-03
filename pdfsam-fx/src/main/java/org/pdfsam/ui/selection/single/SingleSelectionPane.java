@@ -28,6 +28,7 @@ import java.util.function.Consumer;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.WeakChangeListener;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
@@ -92,6 +93,7 @@ public class SingleSelectionPane<T extends SinglePdfSourceTaskParameters> extend
                 DefaultI18nContext.getInstance().i18n("Select or drag and drop the PDF you want to split"));
         encryptionIndicator = new LoadingStatusIndicator(this, this.ownerModule);
         field.setGraphic(encryptionIndicator);
+        HBox.setMargin(encryptionIndicator, new Insets(0, 0, 0, 2));
         HBox topRow = new HBox(5, field);
         HBox.setHgrow(field, Priority.ALWAYS);
         topRow.setAlignment(Pos.CENTER_LEFT);

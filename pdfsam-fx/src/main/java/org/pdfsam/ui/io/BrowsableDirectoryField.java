@@ -24,9 +24,13 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
+import java.util.function.Consumer;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.TransferMode;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.support.validation.Validator;
@@ -50,6 +54,8 @@ public class BrowsableDirectoryField extends BrowsableField {
         getTextField().setErrorMessage(DefaultI18nContext.getInstance().i18n("Select an existing directory"));
         getTextField().setPromptText(DefaultI18nContext.getInstance().i18n("Select a directory"));
         getBrowseButton().setOnAction(new BrowseEventHandler());
+        setOnDragOver(e -> dragConsume(e, this.onDragOverConsumer()));
+        setOnDragDropped(e -> dragConsume(e, this.onDragDropped()));
     }
 
     /**
@@ -84,5 +90,26 @@ public class BrowsableDirectoryField extends BrowsableField {
             }
             getTextField().validate();
         }
+    }
+
+    private void dragConsume(DragEvent e, Consumer<DragEvent> c) {
+        List<File> files = e.getDragboard().getFiles();
+        if (files != null && !files.isEmpty()) {
+            c.accept(e);
+        }
+        e.consume();
+    }
+
+    private Consumer<DragEvent> onDragOverConsumer() {
+        return (DragEvent e) -> {
+            e.acceptTransferModes(TransferMode.COPY_OR_MOVE);
+        };
+    }
+
+    private Consumer<DragEvent> onDragDropped() {
+        return (DragEvent e) -> {
+            e.getDragboard().getFiles().stream().filter(f -> f.isDirectory()).findFirst()
+                    .ifPresent((file) -> setTextFromFile(file));
+        };
     }
 }

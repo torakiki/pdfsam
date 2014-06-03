@@ -29,10 +29,12 @@ import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.geometry.Point2D;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Window;
 import javafx.util.Duration;
 
@@ -63,6 +65,7 @@ public class LoadingStatusIndicator extends Label implements ModuleOwned {
     private PdfDocumentDescriptorProvider descriptorProvider;
     private PasswordFieldPopup popup;
     private final RotateTransition rotate = new RotateTransition(Duration.seconds(2), this);
+    private final Label icon = AwesomeDude.createIconLabel(AwesomeIcon.GEAR, "18");
 
     public LoadingStatusIndicator(PdfDocumentDescriptorProvider descriptorProvider, String ownerModule) {
         requireNotNull(descriptorProvider,
@@ -79,6 +82,10 @@ public class LoadingStatusIndicator extends Label implements ModuleOwned {
         });
         loadingStatus.addListener((o, oldVal, newVal) -> updateIndicator(newVal));
         this.getStyleClass().addAll("encryption-status");
+        this.icon.setText("");
+        icon.setTextAlignment(TextAlignment.CENTER);
+        icon.setAlignment(Pos.CENTER);
+        this.setGraphic(icon);
         rotate.setByAngle(360);
         rotate.setCycleCount(Animation.INDEFINITE);
         rotate.setInterpolator(Interpolator.LINEAR);
@@ -142,14 +149,14 @@ public class LoadingStatusIndicator extends Label implements ModuleOwned {
             break;
         case LOADED:
         default:
-            // noIndicator();
+            noIndicator();
             break;
         }
     }
 
     private void indicator(AwesomeIcon icon, String tooltip) {
         setRotate(0);
-        setGraphic(AwesomeDude.createIconLabel(icon));
+        this.icon.setText(icon.toString());
         if (isNotBlank(tooltip)) {
             this.setTooltip(new Tooltip(tooltip));
         } else {
@@ -159,7 +166,7 @@ public class LoadingStatusIndicator extends Label implements ModuleOwned {
 
     private void noIndicator() {
         rotate.stop();
-        this.setGraphic(null);
+        this.icon.setText("");
         this.setTooltip(null);
     }
 }
