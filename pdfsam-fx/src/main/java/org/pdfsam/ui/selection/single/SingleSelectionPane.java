@@ -132,8 +132,8 @@ public class SingleSelectionPane<T extends SinglePdfSourceTaskParameters> extend
             eventStudio().broadcast(new ShowPdfDescriptorRequest(descriptor));
         }));
 
-        MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set output"),
-                AwesomeIcon.PENCIL_SQUARE_ALT);
+        MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set destination"),
+                AwesomeIcon.FILE_PDF_ALT);
         setDestinationItem.setOnAction(e -> {
             eventStudio().broadcast(new SetDestinationRequest(descriptor.getFile().getParentFile()), getOwnerModule());
         });

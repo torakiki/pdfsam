@@ -109,12 +109,12 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
             eventStudio().broadcast(
                     new ShowPdfDescriptorRequest(getSelectionModel().getSelectedItem().getPdfDocumentDescriptor()));
         }));
-        MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set output"),
-                AwesomeIcon.PENCIL_SQUARE_ALT);
+        MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set destination"),
+                AwesomeIcon.FILE_PDF_ALT);
 
         setDestinationItem.setOnAction(e -> {
-            File outFile = new File(
-                    getSelectionModel().getSelectedItem().getPdfDocumentDescriptor().getFile().getParent(), "out.pdf");
+            File outFile = new File(getSelectionModel().getSelectedItem().getPdfDocumentDescriptor().getFile()
+                    .getParent(), "PDFsam_out.pdf");
             eventStudio().broadcast(new SetDestinationRequest(outFile), getOwnerModule());
         });
 
