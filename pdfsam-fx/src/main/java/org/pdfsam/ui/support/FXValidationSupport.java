@@ -23,6 +23,8 @@ import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 
 import org.pdfsam.support.validation.Validator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Support class allowing validation of a value of the given type and allowing binding to the state of the validation. By default it behaves as always valid but a custom
@@ -33,6 +35,9 @@ import org.pdfsam.support.validation.Validator;
  *            the type to validate
  */
 public class FXValidationSupport<T> {
+
+    private static final Logger LOG = LoggerFactory.getLogger(FXValidationSupport.class);
+
     private ReadOnlyObjectWrapper<ValidationState> validationState = new ReadOnlyObjectWrapper<>(
             ValidationState.NOT_VALIDATED);
     private Validator<T> validator = new Validator<T>() {
@@ -42,6 +47,7 @@ public class FXValidationSupport<T> {
     };
 
     public void validate(T value) {
+        LOG.trace("Validating {}", value);
         if (validator.isValid(value)) {
             validationState.set(ValidationState.VALID);
         } else {
@@ -56,6 +62,7 @@ public class FXValidationSupport<T> {
     }
 
     public void makeNotValidated() {
+        LOG.trace("Making state {}", ValidationState.NOT_VALIDATED);
         validationState.set(ValidationState.NOT_VALIDATED);
     }
 

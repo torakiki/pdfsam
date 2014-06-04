@@ -63,11 +63,7 @@ public class ValidableTextField extends TextField {
                 validate();
             }
         });
-        setOnKeyReleased((t) -> {
-            if (ENTER_COMBO.match(t)) {
-                validate();
-            }
-        });
+
         textProperty().addListener(e -> validationSupport.makeNotValidated());
         validationSupport.validationStateProperty().addListener(
                 (o) -> {
@@ -94,6 +90,14 @@ public class ValidableTextField extends TextField {
         }
     }
 
+    public void setOnEnterValidation(final boolean active) {
+        setOnKeyReleased((t) -> {
+            if (active && ENTER_COMBO.match(t)) {
+                validate();
+            }
+        });
+    }
+
     /**
      * Sets the validator for this field. It doesn't trigger a validation.
      * 
@@ -109,7 +113,6 @@ public class ValidableTextField extends TextField {
      * Triggers a validation programmatically
      */
     public void validate() {
-        validationSupport.makeNotValidated();
         validationSupport.validate(getText());
     }
 

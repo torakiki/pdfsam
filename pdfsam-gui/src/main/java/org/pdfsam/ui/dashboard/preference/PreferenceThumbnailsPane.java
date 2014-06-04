@@ -67,6 +67,7 @@ class PreferenceThumbnailsPane extends VBox {
                 .setErrorMessage(i18n.i18n("Size must be between {0}px and {1}px", LOWER.toString(), UPPER.toString()));
         String helpText = i18n.i18n("Pixel size of the thumbnails (between {0}px and {1}px)", LOWER.toString(),
                 UPPER.toString());
+        thumbSize.setOnEnterValidation(true);
         thumbSize.setPromptText(helpText);
         thumbSize.setTooltip(new Tooltip(helpText));
         thumbSize.validProperty().addListener(
