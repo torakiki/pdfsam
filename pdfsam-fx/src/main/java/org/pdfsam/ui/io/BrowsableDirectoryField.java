@@ -50,6 +50,8 @@ import org.sejda.model.parameter.base.MultipleOutputTaskParameters;
 public class BrowsableDirectoryField extends BrowsableField implements
         TaskParametersBuildStep<MultipleOutputTaskParameters> {
 
+    private BrowseEventHandler handler = new BrowseEventHandler();
+
     public BrowsableDirectoryField(boolean allowBlankString) {
         setBrowseWindowTitle(DefaultI18nContext.getInstance().i18n("Select a directory"));
         Validator<String> validator = Validators.newExistingDirectoryString();
@@ -59,7 +61,8 @@ public class BrowsableDirectoryField extends BrowsableField implements
         getTextField().setValidator(validator);
         getTextField().setErrorMessage(DefaultI18nContext.getInstance().i18n("Select an existing directory"));
         getTextField().setPromptText(DefaultI18nContext.getInstance().i18n("Select a directory"));
-        getBrowseButton().setOnAction(new BrowseEventHandler());
+        getBrowseButton().setOnAction(handler);
+        getTextField().setOnAction(handler);
         setOnDragOver(e -> dragConsume(e, this.onDragOverConsumer()));
         setOnDragDropped(e -> dragConsume(e, this.onDragDropped()));
     }
