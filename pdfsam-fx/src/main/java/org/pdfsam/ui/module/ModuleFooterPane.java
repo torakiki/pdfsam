@@ -26,14 +26,12 @@ import java.math.BigDecimal;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
-import javafx.scene.control.Tooltip;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Named;
 
-import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.ui.event.ShowStageRequest;
 import org.pdfsam.ui.support.Style;
@@ -73,7 +71,6 @@ class ModuleFooterPane extends HBox {
         failed.getStyleClass().addAll("pdfsam-footer-button", "pdfsam-footer-failed-button");
         failed.setVisible(false);
         failed.setOnAction(e -> eventStudio().broadcast(new ShowStageRequest(), "LogStage"));
-        failed.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Task execution failed")));
         open.setVisible(false);
         bar.setPrefWidth(280);
     }

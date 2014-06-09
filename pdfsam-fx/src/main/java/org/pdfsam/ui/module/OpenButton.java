@@ -23,9 +23,7 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.io.File;
 
 import javafx.scene.control.Button;
-import javafx.scene.control.Tooltip;
 
-import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.event.OpenFileRequest;
 import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.FileTaskOutput;
@@ -53,7 +51,6 @@ class OpenButton extends Button implements TaskOutputDispatcher {
                 eventStudio().broadcast(new OpenFileRequest(destination));
             }
         });
-        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Open the generated file/files")));
     }
 
     public void dispatch(FileTaskOutput output) {
