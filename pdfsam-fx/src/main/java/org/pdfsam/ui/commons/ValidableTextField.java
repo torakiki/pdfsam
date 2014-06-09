@@ -38,6 +38,7 @@ import javafx.util.Duration;
 import org.pdfsam.support.validation.Validator;
 import org.pdfsam.ui.support.FXValidationSupport;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
+import org.pdfsam.ui.support.Style;
 
 /**
  * {@link TextField} triggering validation when Enter key is pressed or when focus is lost. A {@link ValidationState} property is exposed to bind to the validation state. Default
@@ -67,7 +68,7 @@ public class ValidableTextField extends TextField {
         textProperty().addListener(e -> validationSupport.makeNotValidated());
         validationSupport.validationStateProperty().addListener(
                 (o) -> {
-                    if ((validationSupport.validationStateProperty().get() == ValidationState.INVALID)
+                    if (validationSupport.validationStateProperty().get() == ValidationState.INVALID
                             && errorTooltipManager != null) {
                         errorTooltipManager.showTooltip();
                     }
@@ -82,6 +83,26 @@ public class ValidableTextField extends TextField {
         return validationSupport.validationStateProperty();
     }
 
+    /**
+     * the field is marked with the class "invalid" when the validation status is invalid to give the user visual feedback.
+     */
+    public void setEnableInvalidStyle(final boolean active) {
+        validationSupport.validationStateProperty().addListener((o) -> {
+            if (active) {
+                if (validationSupport.validationStateProperty().get() == ValidationState.INVALID) {
+                    getStyleClass().addAll(Style.INVALID.css());
+                } else {
+                    getStyleClass().removeAll(Style.INVALID.css());
+                }
+            }
+        });
+    }
+
+    /**
+     * Set the error message to display as a tooltip if the status is invalid
+     * 
+     * @param message
+     */
     public void setErrorMessage(String message) {
         if (isNotBlank(message)) {
             this.errorTooltipManager = new ErrorTooltipManager(message);

@@ -94,6 +94,14 @@ public final class Validators {
     }
 
     /**
+     * @return a new instance of a validator checking for an input string matching the given regex.
+     * @see Validators#decorateAsValidBlankString(Validator)
+     */
+    public static Validator<String> newRegexMatchingString(String regex) {
+        return new RegexValidator(regex);
+    }
+
+    /**
      * @param decorate
      * @return a new instance of the a validator that considers blank string as valid, it delegates otherwise
      */

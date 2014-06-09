@@ -63,6 +63,7 @@ class PreferenceThumbnailsPane extends VBox {
         final ValidableTextField thumbSize = new ValidableTextField(Integer.toString(DefaultUserContext.getInstance()
                 .getThumbnailsSize()));
         thumbSize.setValidator(Validators.newIntRangeString(LOWER, UPPER));
+        thumbSize.setEnableInvalidStyle(true);
         thumbSize
                 .setErrorMessage(i18n.i18n("Size must be between {0}px and {1}px", LOWER.toString(), UPPER.toString()));
         String helpText = i18n.i18n("Pixel size of the thumbnails (between {0}px and {1}px)", LOWER.toString(),

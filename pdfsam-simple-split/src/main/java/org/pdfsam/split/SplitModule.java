@@ -42,7 +42,6 @@ import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.pdfsam.ui.selection.single.SingleSelectionPane;
 import org.pdfsam.ui.support.Views;
 import org.sejda.model.parameter.AbstractSplitByPageParameters;
-import org.sejda.model.parameter.SimpleSplitParameters;
 import org.sejda.model.parameter.base.TaskParameters;
 import org.springframework.core.io.ClassPathResource;
 
@@ -78,13 +77,11 @@ public class SplitModule extends BaseTaskExecutionModule {
 
     @Override
     protected TaskParameters buildParameters(Consumer<String> onError) {
-        SimpleSplitParameters params = splitOptions.createParams();
+        AbstractSplitByPageParameters params = splitOptions.createParams(onError);
         if (params != null) {
             selectionPane.apply(params, onError);
             destinationDirectoryField.apply(params, onError);
             destinationPane.apply(params, onError);
-        } else {
-            onError.accept(DefaultI18nContext.getInstance().i18n("Unable to create split parameters"));
         }
         return params;
     }

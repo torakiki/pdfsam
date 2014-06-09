@@ -24,11 +24,14 @@ import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.support.TaskParametersBuildStep;
 import org.pdfsam.ui.support.Style;
+import org.sejda.model.parameter.AbstractSplitByPageParameters;
 import org.sejda.model.parameter.SimpleSplitParameters;
+import org.sejda.model.parameter.SplitByPagesParameters;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
 
 /**
@@ -37,7 +40,7 @@ import org.sejda.model.pdf.page.PredefinedSetOfPages;
  * @author Andrea Vacondio
  *
  */
-class SplitOptionsPane extends HBox implements TaskParametersBuildStep<SimpleSplitParameters> {
+class SplitOptionsPane extends VBox implements TaskParametersBuildStep<SimpleSplitParameters> {
 
     private PredefinedSetOfPagesRadioButton burst = new PredefinedSetOfPagesRadioButton(PredefinedSetOfPages.ALL_PAGES,
             DefaultI18nContext.getInstance().i18n("Burst (Split into single pages)"));
@@ -45,11 +48,14 @@ class SplitOptionsPane extends HBox implements TaskParametersBuildStep<SimpleSpl
             DefaultI18nContext.getInstance().i18n("Split even pages"));
     private PredefinedSetOfPagesRadioButton odd = new PredefinedSetOfPagesRadioButton(PredefinedSetOfPages.ODD_PAGES,
             DefaultI18nContext.getInstance().i18n("Split odd pages"));
+    private SplitAtRadioButtonDrivenTextField splitAt = new SplitAtRadioButtonDrivenTextField(DefaultI18nContext
+            .getInstance().i18n("Split at the following pages"));
 
     private ToggleGroup group = new ToggleGroup();
 
     SplitOptionsPane() {
-        super(20);
+        super(5);
+
         burst.setToggleGroup(group);
         burst.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Explode the document into single pages")));
         burst.setSelected(true);
@@ -57,16 +63,26 @@ class SplitOptionsPane extends HBox implements TaskParametersBuildStep<SimpleSpl
         even.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Split the document at every even page")));
         odd.setToggleGroup(group);
         odd.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Split the document at every odd page")));
-
+        splitAt.setToggleGroup(group);
+        splitAt.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
+                "Split the document after the given page numbers")));
+        splitAt.setPromptText(DefaultI18nContext.getInstance().i18n("Page numbers to split at (n1,n2,n3..)"));
+        HBox simpleSplit = new HBox(20, burst, even, odd);
+        simpleSplit.getStyleClass().addAll(Style.VITEM.css());
         getStyleClass().addAll(Style.CONTAINER.css());
-        getChildren().addAll(burst, even, odd);
+        getChildren().addAll(simpleSplit, splitAt);
     }
 
-    SimpleSplitParameters createParams() {
+    AbstractSplitByPageParameters createParams(Consumer<String> onError) {
         Toggle toggle = group.getSelectedToggle();
         if (toggle instanceof PredefinedSetOfPagesRadioButton) {
             return new SimpleSplitParameters(((PredefinedSetOfPagesRadioButton) toggle).getPages());
+        } else if (splitAt.isSelected()) {
+            SplitByPagesParameters retVal = new SplitByPagesParameters();
+            splitAt.apply(retVal, onError);
+            return retVal;
         }
+        onError.accept(DefaultI18nContext.getInstance().i18n("Unable to create split parameters"));
         return null;
     }
 
