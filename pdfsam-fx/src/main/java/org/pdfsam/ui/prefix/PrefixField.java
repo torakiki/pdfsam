@@ -45,6 +45,7 @@ public class PrefixField extends TextField {
         this.menu = new Menu(DefaultI18nContext.getInstance().i18n("Add prefix"));
         this.menu.getItems().addAll(new PrefixMenuItem(Prefix.TIMESTAMP), new PrefixMenuItem(Prefix.BASENAME));
         this.setContextMenu(new ContextMenu(this.menu));
+        setPrefWidth(300);
         installTooltip();
     }
 

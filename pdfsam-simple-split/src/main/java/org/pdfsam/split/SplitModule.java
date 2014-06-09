@@ -27,6 +27,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.control.TitledPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -39,10 +40,12 @@ import org.pdfsam.module.PdfsamModule;
 import org.pdfsam.ui.io.BrowsableDirectoryField;
 import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
+import org.pdfsam.ui.prefix.PrefixPane;
 import org.pdfsam.ui.selection.single.SingleSelectionPane;
 import org.pdfsam.ui.support.Views;
 import org.sejda.model.parameter.AbstractSplitByPageParameters;
 import org.sejda.model.parameter.base.TaskParameters;
+import org.sejda.model.prefix.Prefix;
 import org.springframework.core.io.ClassPathResource;
 
 /**
@@ -60,9 +63,10 @@ public class SplitModule extends BaseTaskExecutionModule {
     private BrowsableDirectoryField destinationDirectoryField = new BrowsableDirectoryField(false);
     private SplitOptionsPane splitOptions = new SplitOptionsPane();
     private PdfDestinationPane destinationPane;
+    private PrefixPane prefix = new PrefixPane();
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT)
-            .name(DefaultI18nContext.getInstance().i18n("Simple Split"))
-            .description(DefaultI18nContext.getInstance().i18n("Split a pdf document at predefined page numbers."))
+            .name(DefaultI18nContext.getInstance().i18n("Split"))
+            .description(DefaultI18nContext.getInstance().i18n("Split a pdf document at the given page numbers."))
             .priority(ModulePriority.HIGH.getPriority()).supportURL("http://www.pdfsam.org/simple-split").build();
 
     public SplitModule() {
@@ -82,6 +86,7 @@ public class SplitModule extends BaseTaskExecutionModule {
             selectionPane.apply(params, onError);
             destinationDirectoryField.apply(params, onError);
             destinationPane.apply(params, onError);
+            prefix.apply(params, onError);
         }
         return params;
     }
@@ -92,9 +97,16 @@ public class SplitModule extends BaseTaskExecutionModule {
         pane.setAlignment(Pos.TOP_CENTER);
         VBox.setVgrow(selectionPane, Priority.ALWAYS);
 
+        prefix.addMenuItemFor(Prefix.CURRENTPAGE);
+        prefix.addMenuItemFor(Prefix.FILENUMBER);
+        TitledPane prefixTitled = Views
+                .titledPane(DefaultI18nContext.getInstance().i18n("Generated documents"), prefix);
+        prefixTitled.setExpanded(false);
+
         pane.getChildren().addAll(selectionPane,
                 Views.titledPane(DefaultI18nContext.getInstance().i18n("Split options"), splitOptions),
-                Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination directory"), destinationPane));
+                Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination directory"), destinationPane),
+                prefixTitled);
         return pane;
     }
 

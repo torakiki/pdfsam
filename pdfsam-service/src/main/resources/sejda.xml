@@ -8,5 +8,7 @@
 			task="org.sejda.impl.itext5.MergeTask" />
 		<task parameters="org.sejda.model.parameter.SimpleSplitParameters"
 			task="org.sejda.impl.itext5.SplitByPageNumbersTask" />
+		<task parameters="org.sejda.model.parameter.SplitByPagesParameters"
+			task="org.sejda.impl.itext5.SplitByPageNumbersTask" />
 	</tasks>
 </sejda>

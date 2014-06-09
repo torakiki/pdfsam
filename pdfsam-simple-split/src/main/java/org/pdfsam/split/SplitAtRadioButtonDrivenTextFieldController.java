@@ -18,40 +18,52 @@
  */
 package org.pdfsam.split;
 
+import java.util.Objects;
 import java.util.function.Consumer;
+
+import javafx.scene.control.RadioButton;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.support.TaskParametersBuildStep;
 import org.pdfsam.support.validation.Validators;
-import org.pdfsam.ui.commons.RadioButtonDrivenTextField;
+import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.sejda.conversion.PageNumbersListAdapter;
 import org.sejda.model.parameter.SplitByPagesParameters;
 
 /**
- * Radio button driven text field that can accept a comma separated list of integer numbers.
+ * Controller for a radio button driven text field that can accept a comma separated list of integer numbers.
  * 
  * @author Andrea Vacondio
  *
  */
-class SplitAtRadioButtonDrivenTextField extends RadioButtonDrivenTextField implements
-        TaskParametersBuildStep<SplitByPagesParameters> {
+class SplitAtRadioButtonDrivenTextFieldController implements TaskParametersBuildStep<SplitByPagesParameters> {
 
-    public SplitAtRadioButtonDrivenTextField(String radioText) {
-        super(radioText);
-        setValidator(Validators.newRegexMatchingString("^([0-9]+,?)+$"));
-        setErrorMessage(DefaultI18nContext.getInstance().i18n("Invalid page numbers"));
+    private final RadioButton radio;
+    private final ValidableTextField field;
+
+    public SplitAtRadioButtonDrivenTextFieldController(RadioButton radio, ValidableTextField field) {
+        Objects.requireNonNull(radio);
+        Objects.requireNonNull(field);
+        this.field = field;
+        this.radio = radio;
+        this.field.setValidator(Validators.newRegexMatchingString("^([0-9]+,?)+$"));
+        this.field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Invalid page numbers"));
     }
 
     public void apply(SplitByPagesParameters params, Consumer<String> onError) {
-        if (isSelected()) {
-            validate();
-            if (getValidationState() == ValidationState.INVALID) {
+        if (radio.isSelected()) {
+            this.field.validate();
+            if (this.field.getValidationState() == ValidationState.INVALID) {
                 onError.accept(DefaultI18nContext.getInstance().i18n("Invalid page numbers"));
             } else {
-                params.addPages(new PageNumbersListAdapter(getText()).getPageNumbers());
+                params.addPages(new PageNumbersListAdapter(this.field.getText()).getPageNumbers());
             }
         }
+    }
+
+    public final boolean isSelected() {
+        return radio.isSelected();
     }
 
 }
