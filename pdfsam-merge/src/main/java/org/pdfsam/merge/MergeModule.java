@@ -95,7 +95,7 @@ public class MergeModule extends BaseTaskExecutionModule {
         pane.setAlignment(Pos.TOP_CENTER);
         VBox.setVgrow(selectionPane, Priority.ALWAYS);
 
-        TitledPane options = Views.titledPane(DefaultI18nContext.getInstance().i18n("Merge options"), mergeOptions);
+        TitledPane options = Views.titledPane(DefaultI18nContext.getInstance().i18n("Merge settings"), mergeOptions);
         options.setExpanded(false);
 
         pane.getChildren().addAll(selectionPane, options,

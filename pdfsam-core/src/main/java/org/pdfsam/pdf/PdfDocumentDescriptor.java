@@ -32,6 +32,7 @@ import javafx.beans.property.ReadOnlyObjectWrapper;
 
 import org.apache.commons.lang3.StringUtils;
 import org.sejda.model.input.PdfFileSource;
+import org.sejda.model.pdf.PdfVersion;
 
 /**
  * Lightweight pdf document descriptor holding data necessary to fill the selection table and request a task execution.
@@ -47,7 +48,7 @@ public final class PdfDocumentDescriptor {
     private ReadOnlyIntegerWrapper pages = new ReadOnlyIntegerWrapper(0);
     private String password;
     private File file;
-    private String version;
+    private PdfVersion version;
     private HashMap<String, String> metadata = new HashMap<>();
 
     private PdfDocumentDescriptor(File file, String password) {
@@ -109,11 +110,15 @@ public final class PdfDocumentDescriptor {
         return isNotBlank(password);
     }
 
-    public String getVersion() {
+    public String getVersionString() {
+        return Double.toString(version.getVersionAsDouble());
+    }
+
+    public PdfVersion getVersion() {
         return version;
     }
 
-    public void setVersion(String version) {
+    public void setVersion(PdfVersion version) {
         this.version = version;
     }
 

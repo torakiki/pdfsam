@@ -25,10 +25,6 @@ import java.util.Arrays;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import javafx.scene.control.Tooltip;
-import javafx.util.Callback;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -52,32 +48,21 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwn
     private String ownerModule = StringUtils.EMPTY;
     private ObservableList<PdfVersionComboItem> unfilteredItems = FXCollections.observableArrayList();
     private PdfVersionFilter versionsFilter = new PdfVersionFilter();
+    private SameAsSourceComboItem sameAsSource = new SameAsSourceComboItem();
 
     public PdfVersionCombo(String ownerModule) {
         this.ownerModule = ownerModule;
 
-        Arrays.stream(PdfVersion.values()).filter(v -> v.getVersion() > 2).map(PdfVersionComboItem::new)
+        Arrays.stream(PdfVersion.values()).filter(v -> v.getVersion() > 2).map(DefaultPdfVersionComboItem::new)
                 .forEach(unfilteredItems::add);
-
-        setCellFactory(new Callback<ListView<PdfVersionComboItem>, ListCell<PdfVersionComboItem>>() {
-            @Override
-            public ListCell<PdfVersionComboItem> call(ListView<PdfVersionComboItem> p) {
-                ListCell<PdfVersionComboItem> cell = new ListCell<PdfVersionComboItem>() {
-                    @Override
-                    protected void updateItem(PdfVersionComboItem item, boolean bln) {
-                        super.updateItem(item, bln);
-                        if (item != null) {
-                            setText(item.toString());
-                            if (item.sourceVersion) {
-                                setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
-                                        "Same as the input document")));
-                            }
-                        }
-                    }
-                };
-                return cell;
-            }
-        });
+        /*
+         * setCellFactory(new Callback<ListView<PdfVersionComboItem>, ListCell<PdfVersionComboItem>>() {
+         * 
+         * @Override public ListCell<PdfVersionComboItem> call(ListView<PdfVersionComboItem> p) { ListCell<PdfVersionComboItem> cell = new ListCell<PdfVersionComboItem>() {
+         * 
+         * @Override protected void updateItem(PdfVersionComboItem item, boolean bln) { super.updateItem(item, bln); if (item != null) { setText(item.toString()); } } }; return
+         * cell; } });
+         */
         versionsFilter.requiredProperty().addListener((observable, oldVal, newVal) -> {
             PdfVersionComboItem selected = getSelectionModel().getSelectedItem();
             setItems(unfilteredItems.filtered(t -> t.isHigherOrEqual(newVal.intValue())));
@@ -105,7 +90,7 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwn
 
     @EventListener
     public void onChangedSelectedPdfVersion(final ChangedSelectedPdfVersionEvent event) {
-        unfilteredItems.forEach(item -> item.setSourceVersion(event.getPdfVersion() == item.getVersion()));
+        sameAsSource.setVersion(event.getPdfVersion());
     }
 
     @EventStation
@@ -113,42 +98,48 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwn
         return this.ownerModule;
     }
 
+    public void enableSameAsSourceItem() {
+        unfilteredItems.add(0, sameAsSource);
+    }
+
     /**
-     * Item to use as a model for the {@link PdfVersionCombo}
+     * Item for a {@link PdfVersionCombo}
+     * 
+     * @author Andrea Vacondio
+     *
+     */
+    public static interface PdfVersionComboItem {
+        public PdfVersion getVersion();
+
+        public boolean isHigherOrEqual(int version);
+    }
+
+    /**
+     * Default implementations for items to be used as a model for the {@link PdfVersionCombo}
      * 
      * @author Andrea Vacondio
      * 
      */
-    public static class PdfVersionComboItem {
+    private static class DefaultPdfVersionComboItem implements PdfVersionComboItem {
 
         private PdfVersion version;
-        private boolean sourceVersion = false;
 
-        public PdfVersionComboItem(PdfVersion version) {
+        public DefaultPdfVersionComboItem(PdfVersion version) {
             RequireUtils.requireNotNull(version, "PDF version cannot be null");
             this.version = version;
         }
 
         public PdfVersion getVersion() {
-            return version;
-        }
-
-        public void setSourceVersion(boolean sourceVersion) {
-            this.sourceVersion = sourceVersion;
+            return this.version;
         }
 
         public boolean isHigherOrEqual(int version) {
-            return getVersion().getVersion() >= version;
+            return this.version.getVersion() >= version;
         }
 
         @Override
         public String toString() {
-            String versionString = DefaultI18nContext.getInstance().i18n("Version {0}",
-                    Double.toString(version.getVersionAsDouble()));
-            if (sourceVersion) {
-                return String.format("%s (*)", versionString);
-            }
-            return versionString;
+            return DefaultI18nContext.getInstance().i18n("Version {0}", Double.toString(version.getVersionAsDouble()));
         }
 
         @Override
@@ -161,11 +152,40 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwn
             if (this == other) {
                 return true;
             }
-            if (!(other instanceof PdfVersionComboItem)) {
+            if (!(other instanceof DefaultPdfVersionComboItem)) {
                 return false;
             }
-            PdfVersionComboItem otherItem = (PdfVersionComboItem) other;
-            return new EqualsBuilder().append(version, otherItem.getVersion()).isEquals();
+            DefaultPdfVersionComboItem otherItem = (DefaultPdfVersionComboItem) other;
+            return new EqualsBuilder().append(version, otherItem.version).isEquals();
         }
+    }
+
+    /**
+     * Combo item to let the user select the same PDF version of the selected input document
+     * 
+     * @author Andrea Vacondio
+     *
+     */
+    private static class SameAsSourceComboItem implements PdfVersionComboItem {
+
+        private PdfVersion version = PdfVersion.VERSION_1_5;
+
+        void setVersion(PdfVersion version) {
+            this.version = version;
+        }
+
+        public PdfVersion getVersion() {
+            return version;
+        }
+
+        public boolean isHigherOrEqual(int version) {
+            return this.version.getVersion() >= version;
+        }
+
+        @Override
+        public String toString() {
+            return DefaultI18nContext.getInstance().i18n("Same as the input document");
+        }
+
     }
 }

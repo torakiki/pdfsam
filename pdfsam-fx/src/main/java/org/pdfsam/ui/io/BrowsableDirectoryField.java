@@ -38,7 +38,7 @@ import org.pdfsam.support.TaskParametersBuildStep;
 import org.pdfsam.support.validation.Validator;
 import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
-import org.sejda.conversion.PdfDirectoryOutputAdapter;
+import org.sejda.conversion.DirectoryOutputAdapter;
 import org.sejda.model.parameter.base.MultipleOutputTaskParameters;
 
 /**
@@ -128,7 +128,7 @@ public class BrowsableDirectoryField extends BrowsableField implements
         if (getTextField().getValidationState() == ValidationState.INVALID) {
             onError.accept(DefaultI18nContext.getInstance().i18n("The selected output directory is invalid"));
         } else {
-            params.setOutput(new PdfDirectoryOutputAdapter(getTextField().getText()).getPdfDirectoryOutput());
+            params.setOutput(new DirectoryOutputAdapter(getTextField().getText()).getPdfDirectoryOutput());
         }
     }
 }

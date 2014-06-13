@@ -31,14 +31,35 @@ import java.io.File;
 public class SetDestinationRequest {
 
     private File footprint;
+    private boolean fallback = false;
 
-    public SetDestinationRequest(File footprint) {
+    private SetDestinationRequest(File footprint, boolean fallback) {
         requireNotNull(footprint, "Footprint file cannot be null");
         this.footprint = footprint;
+        this.fallback = fallback;
     }
 
     public File getFootprint() {
         return footprint;
     }
 
+    public boolean isFallback() {
+        return fallback;
+    }
+
+    /**
+     * @param footprint
+     * @return a request to set the destination for the task to the given file
+     */
+    public static SetDestinationRequest requestDestination(File footprint) {
+        return new SetDestinationRequest(footprint, false);
+    }
+
+    /**
+     * @param footprint
+     * @return a request to set the destination as fallback for the task to the given file
+     */
+    public static SetDestinationRequest requestFallbackDestination(File footprint) {
+        return new SetDestinationRequest(footprint, true);
+    }
 }

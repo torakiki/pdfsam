@@ -113,7 +113,7 @@ class SummaryTab extends BaseInfoTab implements ChangeListener<PdfDescriptorLoad
     }
 
     private void setPdfProperties(PdfDocumentDescriptor descriptor) {
-        version.setText(descriptor.getVersion());
+        version.setText(descriptor.getVersionString());
         pages.setText(Integer.toString(descriptor.pagesPropery().get()));
         created.setText(FORMATTER.format(PdfDate.decode(descriptor.getInformation("CreationDate"))));
         title.setText(descriptor.getInformation(PdfMetadataKey.TITLE.getKey()));

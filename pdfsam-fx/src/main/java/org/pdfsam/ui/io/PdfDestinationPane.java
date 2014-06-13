@@ -19,6 +19,7 @@
 package org.pdfsam.ui.io;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
@@ -58,13 +59,15 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned,
         version = new PdfVersionCombo(ownerModule);
         compress = new PdfVersionConstrainedCheckBox(PdfVersion.VERSION_1_5, ownerModule);
         compress.setText(DefaultI18nContext.getInstance().i18n("Compress output file/files"));
-        HBox versionPane = new HBox(2,
-                new Label(DefaultI18nContext.getInstance().i18n("Output document pdf version:")), version);
+        HBox versionPane = new HBox(2, new Label(DefaultI18nContext.getInstance().i18n("Output pdf version:")), version);
         versionPane.setAlignment(Pos.BOTTOM_LEFT);
         versionPane.getStyleClass().addAll(Style.VITEM.css());
-        getHChildren().add(compress);
-        getChildren().addAll(versionPane);
+        getChildren().addAll(compress, versionPane);
         eventStudio().addAnnotatedListeners(this);
+    }
+
+    public void enableSameAsSourceItem() {
+        version.enableSameAsSourceItem();
     }
 
     @EventStation
@@ -74,7 +77,9 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned,
 
     @EventListener
     public void setDestination(SetDestinationRequest event) {
-        destination().setTextFromFile(event.getFootprint());
+        if (!event.isFallback() || isBlank(destination().getTextField().getText())) {
+            destination().setTextFromFile(event.getFootprint());
+        }
     }
 
     public void apply(AbstractPdfOutputParameters params, Consumer<String> onError) {

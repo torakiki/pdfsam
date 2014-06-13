@@ -20,6 +20,8 @@ package org.pdfsam.ui.selection.single;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.pdfsam.ui.event.SetDestinationRequest.requestDestination;
+import static org.pdfsam.ui.event.SetDestinationRequest.requestFallbackDestination;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
@@ -48,16 +50,15 @@ import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.TaskParametersBuildStep;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.event.OpenFileRequest;
-import org.pdfsam.ui.event.SetDestinationRequest;
 import org.pdfsam.ui.event.ShowPdfDescriptorRequest;
 import org.pdfsam.ui.io.BrowsableFileField;
+import org.pdfsam.ui.io.ChangedSelectedPdfVersionEvent;
 import org.pdfsam.ui.selection.LoadingStatusIndicator;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.sejda.model.parameter.base.SinglePdfSourceTaskParameters;
 
 import de.jensd.fx.fontawesome.AwesomeDude;
 import de.jensd.fx.fontawesome.AwesomeIcon;
-
 /**
  * Panel letting the user select a single input PDF document
  * 
@@ -69,7 +70,7 @@ public class SingleSelectionPane<T extends SinglePdfSourceTaskParameters> extend
 
     private String ownerModule = StringUtils.EMPTY;
     private BrowsableFileField field = new BrowsableFileField(FileType.PDF);
-    private Label pages = new Label();
+    private Label details = new Label();
     private PdfDocumentDescriptor descriptor;
     private LoadingStatusIndicator encryptionIndicator;
     private ChangeListener<PdfDescriptorLoadingStatus> onDescriptorLoaded = (o, oldVal, newVal) -> {
@@ -77,10 +78,15 @@ public class SingleSelectionPane<T extends SinglePdfSourceTaskParameters> extend
             encryptionIndicator.setLoadingStatus(newVal);
             if (newVal == PdfDescriptorLoadingStatus.LOADED
                     || newVal == PdfDescriptorLoadingStatus.LOADED_WITH_USER_PWD_DECRYPTION) {
-                pages.setText(DefaultI18nContext.getInstance().i18n("Pages: {0}",
-                        Integer.toString(descriptor.pagesPropery().get())));
+                details.setText(
+                        DefaultI18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}",
+                        Integer.toString(descriptor.pagesPropery().get()), descriptor.getVersionString()));
+                eventStudio().broadcast(requestFallbackDestination(descriptor.getFile()),
+                        getOwnerModule());
+                eventStudio().broadcast(new ChangedSelectedPdfVersionEvent(descriptor.getVersion()), getOwnerModule());
+
             } else {
-                pages.setText("");
+                details.setText("");
             }
         });
     };
@@ -97,7 +103,7 @@ public class SingleSelectionPane<T extends SinglePdfSourceTaskParameters> extend
         HBox topRow = new HBox(5, field);
         HBox.setHgrow(field, Priority.ALWAYS);
         topRow.setAlignment(Pos.CENTER_LEFT);
-        getChildren().addAll(topRow, pages);
+        getChildren().addAll(topRow, details);
         field.getTextField().setEditable(false);
         field.getTextField().validProperty().addListener((o, oldVal, newVal) -> {
             if (newVal == ValidationState.VALID) {
@@ -135,7 +141,7 @@ public class SingleSelectionPane<T extends SinglePdfSourceTaskParameters> extend
         MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set destination"),
                 AwesomeIcon.FILE_PDF_ALT);
         setDestinationItem.setOnAction(e -> {
-            eventStudio().broadcast(new SetDestinationRequest(descriptor.getFile().getParentFile()), getOwnerModule());
+            eventStudio().broadcast(requestDestination(descriptor.getFile()), getOwnerModule());
         });
 
         MenuItem openFileItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open"), AwesomeIcon.FILE_ALT);

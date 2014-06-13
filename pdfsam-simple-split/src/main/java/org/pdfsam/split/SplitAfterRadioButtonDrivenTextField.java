@@ -18,10 +18,10 @@
  */
 package org.pdfsam.split;
 
-import java.util.Objects;
 import java.util.function.Consumer;
 
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.Tooltip;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.support.TaskParametersBuildStep;
@@ -32,23 +32,25 @@ import org.sejda.conversion.PageNumbersListAdapter;
 import org.sejda.model.parameter.SplitByPagesParameters;
 
 /**
- * Controller for a radio button driven text field that can accept a comma separated list of integer numbers.
+ * Component having a radio button driven text field that can accept a comma separated list of integer numbers.
  * 
  * @author Andrea Vacondio
  *
  */
-class SplitAtRadioButtonDrivenTextFieldController implements TaskParametersBuildStep<SplitByPagesParameters> {
+class SplitAfterRadioButtonDrivenTextField implements TaskParametersBuildStep<SplitByPagesParameters> {
 
-    private final RadioButton radio;
-    private final ValidableTextField field;
+    private final RadioButton radio = new RadioButton(DefaultI18nContext.getInstance().i18n(
+            "Split after the following page numbers"));
+    private final ValidableTextField field = new ValidableTextField();
 
-    public SplitAtRadioButtonDrivenTextFieldController(RadioButton radio, ValidableTextField field) {
-        Objects.requireNonNull(radio);
-        Objects.requireNonNull(field);
-        this.field = field;
-        this.radio = radio;
-        this.field.setValidator(Validators.newRegexMatchingString("^([0-9]+,?)+$"));
-        this.field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Invalid page numbers"));
+    public SplitAfterRadioButtonDrivenTextField() {
+        field.setOnEnterValidation(true);
+        field.setEnableInvalidStyle(true);
+        field.setPromptText(DefaultI18nContext.getInstance().i18n("Page numbers to split at (n1,n2,n3..)"));
+        radio.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
+                "Split the document after the given page numbers")));
+        field.setValidator(Validators.newRegexMatchingString("^([0-9]+,?)+$"));
+        field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Invalid page numbers"));
     }
 
     public void apply(SplitByPagesParameters params, Consumer<String> onError) {
@@ -62,8 +64,16 @@ class SplitAtRadioButtonDrivenTextFieldController implements TaskParametersBuild
         }
     }
 
-    public final boolean isSelected() {
+    final boolean isSelected() {
         return radio.isSelected();
+    }
+
+    RadioButton getRadio() {
+        return radio;
+    }
+
+    ValidableTextField getField() {
+        return field;
     }
 
 }

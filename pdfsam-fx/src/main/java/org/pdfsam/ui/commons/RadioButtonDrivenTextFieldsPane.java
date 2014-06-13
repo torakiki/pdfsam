@@ -40,8 +40,7 @@ public class RadioButtonDrivenTextFieldsPane extends GridPane {
 
     public RadioButtonDrivenTextFieldsPane(ToggleGroup group) {
         this.group = group;
-        setHgap(5);
-        setVgap(5);
+        getStyleClass().add("pdfsam-grid");
     }
 
     public void addRow(RadioButton radio, TextField field) {

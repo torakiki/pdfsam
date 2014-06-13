@@ -20,7 +20,6 @@ package org.pdfsam.split;
 
 import java.util.function.Consumer;
 
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Tooltip;
@@ -29,7 +28,6 @@ import javafx.scene.layout.VBox;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.commons.RadioButtonDrivenTextFieldsPane;
-import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.Style;
 import org.sejda.model.parameter.AbstractSplitByPageParameters;
 import org.sejda.model.parameter.SimpleSplitParameters;
@@ -52,7 +50,8 @@ class SplitOptionsPane extends VBox {
             DefaultI18nContext.getInstance().i18n("Split odd pages"));
 
     private ToggleGroup group = new ToggleGroup();
-    private SplitAtRadioButtonDrivenTextFieldController splitAtController;
+    private SplitAfterRadioButtonDrivenTextField splitAfter = new SplitAfterRadioButtonDrivenTextField();
+    private SplitByEveryRadioButtonDrivenTextField splitByEvery = new SplitByEveryRadioButtonDrivenTextField();
 
     SplitOptionsPane() {
         super(5);
@@ -61,19 +60,14 @@ class SplitOptionsPane extends VBox {
         burst.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Explode the document into single pages")));
         burst.setSelected(true);
         even.setToggleGroup(group);
-        even.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Split the document at every even page")));
+        even.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Split the document after every even page")));
         odd.setToggleGroup(group);
-        odd.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Split the document at every odd page")));
-        ValidableTextField splitAt = new ValidableTextField();
-        splitAt.setOnEnterValidation(true);
-        splitAt.setEnableInvalidStyle(true);
-        splitAt.setPromptText(DefaultI18nContext.getInstance().i18n("Page numbers to split at (n1,n2,n3..)"));
-        RadioButton splitAtRadio = new RadioButton(DefaultI18nContext.getInstance()
-                .i18n("Split at the following pages"));
-        splitAtRadio.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
-                "Split the document after the given page numbers")));
-        grid.addRow(splitAtRadio, splitAt);
-        splitAtController = new SplitAtRadioButtonDrivenTextFieldController(splitAtRadio, splitAt);
+        odd.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Split the document after every odd page")));
+        splitAfter.getRadio().setToggleGroup(group);
+        splitByEvery.getRadio().setToggleGroup(group);
+
+        grid.addRow(splitAfter.getRadio(), splitAfter.getField());
+        grid.addRow(splitByEvery.getRadio(), splitByEvery.getField());
 
         HBox simpleSplit = new HBox(20, burst, even, odd);
         simpleSplit.getStyleClass().addAll(Style.VITEM.css());
@@ -85,10 +79,12 @@ class SplitOptionsPane extends VBox {
         Toggle toggle = group.getSelectedToggle();
         if (toggle instanceof PredefinedSetOfPagesRadioButton) {
             return new SimpleSplitParameters(((PredefinedSetOfPagesRadioButton) toggle).getPages());
-        } else if (splitAtController.isSelected()) {
+        } else if (splitAfter.isSelected()) {
             SplitByPagesParameters retVal = new SplitByPagesParameters();
-            splitAtController.apply(retVal, onError);
+            splitAfter.apply(retVal, onError);
             return retVal;
+        } else if (splitByEvery.isSelected()) {
+            return splitByEvery.createParams(onError);
         }
         onError.accept(DefaultI18nContext.getInstance().i18n("Unable to create split parameters"));
         return null;

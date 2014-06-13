@@ -19,6 +19,7 @@
 package org.pdfsam.ui.selection.multiple;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.pdfsam.ui.event.SetDestinationRequest.requestDestination;
 import static org.pdfsam.ui.selection.multiple.SelectionChangedEvent.clearSelectionEvent;
 import static org.pdfsam.ui.selection.multiple.SelectionChangedEvent.select;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
@@ -47,7 +48,6 @@ import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.event.OpenFileRequest;
-import org.pdfsam.ui.event.SetDestinationRequest;
 import org.pdfsam.ui.event.ShowPdfDescriptorRequest;
 import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
 import org.pdfsam.ui.selection.multiple.move.MoveType;
@@ -59,7 +59,6 @@ import org.slf4j.LoggerFactory;
 
 import de.jensd.fx.fontawesome.AwesomeDude;
 import de.jensd.fx.fontawesome.AwesomeIcon;
-
 /**
  * Table displaying selected pdf documents
  * 
@@ -115,7 +114,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         setDestinationItem.setOnAction(e -> {
             File outFile = new File(getSelectionModel().getSelectedItem().getPdfDocumentDescriptor().getFile()
                     .getParent(), "PDFsam_out.pdf");
-            eventStudio().broadcast(new SetDestinationRequest(outFile), getOwnerModule());
+            eventStudio().broadcast(requestDestination(outFile), getOwnerModule());
         });
 
         MenuItem removeSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Remove"),

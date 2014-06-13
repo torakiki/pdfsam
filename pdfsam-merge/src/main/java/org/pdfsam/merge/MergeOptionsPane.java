@@ -48,14 +48,13 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
     private ComboBox<KeyStringValueItem<OutlinePolicy>> outline = new ComboBox<>();
 
     MergeOptionsPane() {
+        super(5);
         this.containsForms = new CheckBox(DefaultI18nContext.getInstance().i18n("Merge form fields"));
         this.containsForms.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
                 "Some of the selected PDF documents contain forms, merge them")));
         this.blankIfOdd = new CheckBox(DefaultI18nContext.getInstance().i18n("Add a blank page if page number is odd"));
         this.blankIfOdd.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
                 "Adds a blank page after each merged document if the document has an odd number of pages")));
-        HBox horizontalChildren = new HBox(20, this.containsForms, this.blankIfOdd);
-        horizontalChildren.getStyleClass().addAll(Style.VITEM.css());
 
         outline.getItems().add(
                 new KeyStringValueItem<>(OutlinePolicy.RETAIN, DefaultI18nContext.getInstance()
@@ -73,9 +72,8 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
         bookmarksPolicy.getStyleClass().addAll(Style.VITEM.css());
 
         getStyleClass().addAll(Style.CONTAINER.css());
-        getChildren().addAll(horizontalChildren, bookmarksPolicy);
+        getChildren().addAll(this.containsForms, this.blankIfOdd, bookmarksPolicy);
     }
-
 
     public void apply(MergeParameters params, Consumer<String> onError) {
         params.setOutlinePolicy(outline.getSelectionModel().getSelectedItem().getKey());

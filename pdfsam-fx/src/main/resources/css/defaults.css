@@ -48,6 +48,10 @@
 .encryption-status {
 	-fx-content-display: graphic-only; 
 }
+.pdfsam-grid {
+	-fx-hgap: 5.0px;
+	-fx-vgap: 0.5em;
+}
 /**
  * footer for pane
  */

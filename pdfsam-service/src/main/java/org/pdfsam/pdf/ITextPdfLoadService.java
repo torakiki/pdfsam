@@ -30,6 +30,7 @@ import java.util.Collection;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
+import org.sejda.conversion.PdfVersionAdapter;
 import org.sejda.impl.itext5.component.DefaultPdfSourceOpener;
 import org.sejda.model.exception.TaskWrongPasswordException;
 import org.slf4j.Logger;
@@ -58,7 +59,7 @@ class ITextPdfLoadService implements PdfLoadService {
                     current.moveStatusTo(LOADING);
                     reader = current.toPdfFileSource().open(new DefaultPdfSourceOpener());
                     current.setPages(reader.getNumberOfPages());
-                    current.setVersion(String.format("1.%c", reader.getPdfVersion()));
+                    current.setVersion(new PdfVersionAdapter(Character.toString(reader.getPdfVersion())).getEnumValue());
                     current.setInformationDictionary(reader.getInfo());
                     if (current.hasPassword()) {
                         current.moveStatusTo(LOADED_WITH_USER_PWD_DECRYPTION);

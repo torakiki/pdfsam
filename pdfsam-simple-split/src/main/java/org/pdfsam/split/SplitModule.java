@@ -72,6 +72,7 @@ public class SplitModule extends BaseTaskExecutionModule {
     public SplitModule() {
         this.selectionPane = new SingleSelectionPane<>(id());
         this.destinationPane = new PdfDestinationPane(destinationDirectoryField, id());
+        this.destinationPane.enableSameAsSourceItem();
     }
 
     @Override
@@ -100,11 +101,11 @@ public class SplitModule extends BaseTaskExecutionModule {
         prefix.addMenuItemFor(Prefix.CURRENTPAGE);
         prefix.addMenuItemFor(Prefix.FILENUMBER);
         TitledPane prefixTitled = Views
-                .titledPane(DefaultI18nContext.getInstance().i18n("Generated documents"), prefix);
+                .titledPane(DefaultI18nContext.getInstance().i18n("File names settings"), prefix);
         prefixTitled.setExpanded(false);
 
         pane.getChildren().addAll(selectionPane,
-                Views.titledPane(DefaultI18nContext.getInstance().i18n("Split options"), splitOptions),
+                Views.titledPane(DefaultI18nContext.getInstance().i18n("Split settings"), splitOptions),
                 Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination directory"), destinationPane),
                 prefixTitled);
         return pane;

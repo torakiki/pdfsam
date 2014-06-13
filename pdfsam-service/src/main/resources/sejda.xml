@@ -10,5 +10,7 @@
 			task="org.sejda.impl.itext5.SplitByPageNumbersTask" />
 		<task parameters="org.sejda.model.parameter.SplitByPagesParameters"
 			task="org.sejda.impl.itext5.SplitByPageNumbersTask" />
+		<task parameters="org.sejda.model.parameter.SplitByEveryXPagesParameters"
+			task="org.sejda.impl.itext5.SplitByPageNumbersTask" />
 	</tasks>
 </sejda>
