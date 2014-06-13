@@ -29,7 +29,6 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 import org.pdfsam.context.DefaultI18nContext;
@@ -96,13 +95,11 @@ public class SplitModule extends BaseTaskExecutionModule {
     protected Pane getInnerPanel() {
         VBox pane = new VBox(5);
         pane.setAlignment(Pos.TOP_CENTER);
-        VBox.setVgrow(selectionPane, Priority.ALWAYS);
 
-        prefix.addMenuItemFor(Prefix.CURRENTPAGE);
-        prefix.addMenuItemFor(Prefix.FILENUMBER);
         TitledPane prefixTitled = Views
                 .titledPane(DefaultI18nContext.getInstance().i18n("File names settings"), prefix);
-        prefixTitled.setExpanded(false);
+        prefix.addMenuItemFor(Prefix.CURRENTPAGE);
+        prefix.addMenuItemFor(Prefix.FILENUMBER);
 
         pane.getChildren().addAll(selectionPane,
                 Views.titledPane(DefaultI18nContext.getInstance().i18n("Split settings"), splitOptions),
