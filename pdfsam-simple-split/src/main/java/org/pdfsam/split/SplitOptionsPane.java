@@ -20,7 +20,6 @@ package org.pdfsam.split;
 
 import java.util.function.Consumer;
 
-import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.HBox;
@@ -30,8 +29,6 @@ import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.commons.RadioButtonDrivenTextFieldsPane;
 import org.pdfsam.ui.support.Style;
 import org.sejda.model.parameter.AbstractSplitByPageParameters;
-import org.sejda.model.parameter.SimpleSplitParameters;
-import org.sejda.model.parameter.SplitByPagesParameters;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
 
 /**
@@ -50,8 +47,8 @@ class SplitOptionsPane extends VBox {
             DefaultI18nContext.getInstance().i18n("Split odd pages"));
 
     private ToggleGroup group = new ToggleGroup();
-    private SplitAfterRadioButtonDrivenTextField splitAfter = new SplitAfterRadioButtonDrivenTextField();
-    private SplitByEveryRadioButtonDrivenTextField splitByEvery = new SplitByEveryRadioButtonDrivenTextField();
+    private SplitAfterRadioButton splitAfter = new SplitAfterRadioButton();
+    private SplitByEveryRadioButton splitByEvery = new SplitByEveryRadioButton();
 
     SplitOptionsPane() {
         super(5);
@@ -63,11 +60,11 @@ class SplitOptionsPane extends VBox {
         even.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Split the document after every even page")));
         odd.setToggleGroup(group);
         odd.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Split the document after every odd page")));
-        splitAfter.getRadio().setToggleGroup(group);
-        splitByEvery.getRadio().setToggleGroup(group);
+        splitAfter.setToggleGroup(group);
+        splitByEvery.setToggleGroup(group);
 
-        grid.addRow(splitAfter.getRadio(), splitAfter.getField());
-        grid.addRow(splitByEvery.getRadio(), splitByEvery.getField());
+        grid.addRow(splitAfter, splitAfter.getField());
+        grid.addRow(splitByEvery, splitByEvery.getField());
 
         HBox simpleSplit = new HBox(20, burst, even, odd);
         simpleSplit.getStyleClass().addAll(Style.VITEM.css());
@@ -76,18 +73,8 @@ class SplitOptionsPane extends VBox {
     }
 
     AbstractSplitByPageParameters createParams(Consumer<String> onError) {
-        Toggle toggle = group.getSelectedToggle();
-        if (toggle instanceof PredefinedSetOfPagesRadioButton) {
-            return new SimpleSplitParameters(((PredefinedSetOfPagesRadioButton) toggle).getPages());
-        } else if (splitAfter.isSelected()) {
-            SplitByPagesParameters retVal = new SplitByPagesParameters();
-            splitAfter.apply(retVal, onError);
-            return retVal;
-        } else if (splitByEvery.isSelected()) {
-            return splitByEvery.createParams(onError);
-        }
-        onError.accept(DefaultI18nContext.getInstance().i18n("Unable to create split parameters"));
-        return null;
+        return ((SplitParamsCreator<AbstractSplitByPageParameters>) group.getSelectedToggle()).createParams(onError);
+
     }
 
 }

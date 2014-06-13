@@ -30,45 +30,35 @@ import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.sejda.model.parameter.SplitByEveryXPagesParameters;
 
 /**
- * Component having a radio button driven text field that can accept an integer number.
+ * {@link RadioButton} driving a text field that can accept an integer number.
  * 
  * @author Andrea Vacondio
  *
  */
-public class SplitByEveryRadioButtonDrivenTextField {
+public class SplitByEveryRadioButton extends RadioButton implements
+        SplitParamsCreator<SplitByEveryXPagesParameters> {
 
-    private final RadioButton radio = new RadioButton(DefaultI18nContext.getInstance().i18n(
-            "Split by every \"n\" pages"));
     private final ValidableTextField field = new ValidableTextField();
 
-    public SplitByEveryRadioButtonDrivenTextField() {
+    public SplitByEveryRadioButton() {
+        super(DefaultI18nContext.getInstance().i18n("Split by every \"n\" pages"));
         field.setOnEnterValidation(true);
         field.setEnableInvalidStyle(true);
         field.setPromptText(DefaultI18nContext.getInstance().i18n("Number of pages"));
-        radio.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
+        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
                 "Splits the pdf every \"n\" pages creating documents of \"n\" pages each")));
         field.setValidator(Validators.newRegexMatchingString("^(\\d)+$"));
         field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Invalid number of pages"));
     }
 
-    SplitByEveryXPagesParameters createParams(Consumer<String> onError) {
-        if (radio.isSelected()) {
-            this.field.validate();
-            if (this.field.getValidationState() == ValidationState.INVALID) {
-                onError.accept(DefaultI18nContext.getInstance().i18n("Invalid number of pages"));
-            } else {
-                return new SplitByEveryXPagesParameters(Integer.parseInt(this.field.getText()));
-            }
+    public SplitByEveryXPagesParameters createParams(Consumer<String> onError) {
+        this.field.validate();
+        if (this.field.getValidationState() == ValidationState.INVALID) {
+            onError.accept(DefaultI18nContext.getInstance().i18n("Invalid number of pages"));
+        } else {
+            return new SplitByEveryXPagesParameters(Integer.parseInt(this.field.getText()));
         }
         return null;
-    }
-
-    final boolean isSelected() {
-        return radio.isSelected();
-    }
-
-    RadioButton getRadio() {
-        return radio;
     }
 
     ValidableTextField getField() {

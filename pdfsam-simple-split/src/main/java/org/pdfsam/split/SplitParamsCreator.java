@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 03/giu/2014
+ * Created on 13/giu/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,36 +18,17 @@
  */
 package org.pdfsam.split;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
-
 import java.util.function.Consumer;
 
-import javafx.scene.control.RadioButton;
-
-import org.sejda.model.parameter.SimpleSplitParameters;
-import org.sejda.model.pdf.page.PredefinedSetOfPages;
+import org.sejda.model.parameter.AbstractSplitByPageParameters;
 
 /**
- * A radio button associated to a Predefined set of pages
+ * Component capable of creating {@link AbstractSplitByPageParameters}
  * 
  * @author Andrea Vacondio
- *
+ * @param <T>
+ *            AbstractSplitByPageParameters created by this creator
  */
-class PredefinedSetOfPagesRadioButton extends RadioButton implements SplitParamsCreator<SimpleSplitParameters> {
-
-    private PredefinedSetOfPages pages;
-
-    public PredefinedSetOfPagesRadioButton(PredefinedSetOfPages pages, String text) {
-        super(text);
-        requireNotNull(pages, "Cannot create the radio button with a null predefined set of pages.");
-        this.pages = pages;
-    }
-
-    public PredefinedSetOfPages getPages() {
-        return pages;
-    }
-
-    public SimpleSplitParameters createParams(Consumer<String> onError) {
-        return new SimpleSplitParameters(pages);
-    }
+interface SplitParamsCreator<T extends AbstractSplitByPageParameters> {
+    T createParams(Consumer<String> onError);
 }
