@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.split;
+package org.pdfsam.splitbysize;
 
 import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
 
@@ -42,33 +42,33 @@ import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.pdfsam.ui.prefix.PrefixPane;
 import org.pdfsam.ui.selection.single.SingleSelectionPane;
 import org.pdfsam.ui.support.Views;
-import org.sejda.model.parameter.AbstractSplitByPageParameters;
+import org.sejda.model.parameter.SplitBySizeParameters;
 import org.sejda.model.parameter.base.TaskParameters;
 import org.sejda.model.prefix.Prefix;
 import org.springframework.core.io.ClassPathResource;
-
 /**
- * Simple split module to let the user set page numbers to split an input pdf document.
+ * Merge module to let the user merge together multiple pdf documents
  * 
  * @author Andrea Vacondio
  *
  */
 @PdfsamModule
-public class SplitModule extends BaseTaskExecutionModule {
+public class SplitBySizeModule extends BaseTaskExecutionModule {
 
-    private static final String SPLIT_MODULE_ID = "split.simple";
+    private static final String SPLIT_MODULE_ID = "split.bysize";
 
-    private SingleSelectionPane<AbstractSplitByPageParameters> selectionPane;
+    private SingleSelectionPane<SplitBySizeParameters> selectionPane;
     private BrowsableDirectoryField destinationDirectoryField = new BrowsableDirectoryField(false);
     private SplitOptionsPane splitOptions = new SplitOptionsPane();
     private PdfDestinationPane destinationPane;
     private PrefixPane prefix = new PrefixPane();
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT)
-            .name(DefaultI18nContext.getInstance().i18n("Split"))
-            .description(DefaultI18nContext.getInstance().i18n("Split a pdf document at the given page numbers."))
-            .priority(ModulePriority.HIGH.getPriority()).supportURL("http://www.pdfsam.org/simple-split").build();
+            .name(DefaultI18nContext.getInstance().i18n("Split by size"))
+            .description(
+                    DefaultI18nContext.getInstance().i18n("Split a pdf document in files of the give size (roughly)."))
+            .priority(ModulePriority.DEFAULT.getPriority()).supportURL("http://www.pdfsam.org/split-by-size").build();
 
-    public SplitModule() {
+    public SplitBySizeModule() {
         this.selectionPane = new SingleSelectionPane<>(id());
         this.destinationPane = new PdfDestinationPane(destinationDirectoryField, id());
         this.destinationPane.enableSameAsSourceItem();
@@ -81,7 +81,7 @@ public class SplitModule extends BaseTaskExecutionModule {
 
     @Override
     protected TaskParameters buildParameters(Consumer<String> onError) {
-        AbstractSplitByPageParameters params = splitOptions.createParams(onError);
+        SplitBySizeParameters params = splitOptions.createParams(onError);
         if (params != null) {
             selectionPane.apply(params, onError);
             destinationDirectoryField.apply(params, onError);
@@ -115,7 +115,7 @@ public class SplitModule extends BaseTaskExecutionModule {
 
     public Node graphic() {
         try {
-            return (Group) FXMLLoader.load(new ClassPathResource("/fxml/TestModule3.fxml").getURL());
+            return (Group) FXMLLoader.load(new ClassPathResource("/fxml/TestModule2.fxml").getURL());
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 09/giu/2014
+ * Created on 08/apr/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,30 +16,38 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.support.validation;
+package org.pdfsam.splitbysize;
 
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.pdfsam.support.RequireUtils.requireNotBlank;
+import java.util.function.Consumer;
 
-import java.util.regex.Pattern;
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+
+import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.ui.support.Style;
+import org.sejda.model.parameter.SplitBySizeParameters;
 
 /**
- * Validator of a string against a given regex. null string is considered as valid.
+ * Panel for the Split options
  * 
  * @author Andrea Vacondio
  *
  */
-class RegexValidator implements Validator<String> {
+class SplitOptionsPane extends HBox {
 
-    private Pattern pattern;
+    private SizeComboBox combo = new SizeComboBox();
 
-    public RegexValidator(String regex) {
-        requireNotBlank(regex, "Regex cannot be blank");
-        pattern = Pattern.compile(regex);
+    SplitOptionsPane() {
+        super(5);
+        getStyleClass().addAll(Style.CONTAINER.css());
+        setAlignment(Pos.BOTTOM_LEFT);
+        getChildren().addAll(new Label(DefaultI18nContext.getInstance().i18n("Split at this size:")), combo);
     }
 
-    public boolean isValid(String input) {
-        return isNotBlank(input) && pattern.matcher(input).matches();
+    SplitBySizeParameters createParams(Consumer<String> onError) {
+        return combo.createParams(onError);
+
     }
 
 }

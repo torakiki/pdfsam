@@ -55,14 +55,7 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwn
 
         Arrays.stream(PdfVersion.values()).filter(v -> v.getVersion() > 2).map(DefaultPdfVersionComboItem::new)
                 .forEach(unfilteredItems::add);
-        /*
-         * setCellFactory(new Callback<ListView<PdfVersionComboItem>, ListCell<PdfVersionComboItem>>() {
-         * 
-         * @Override public ListCell<PdfVersionComboItem> call(ListView<PdfVersionComboItem> p) { ListCell<PdfVersionComboItem> cell = new ListCell<PdfVersionComboItem>() {
-         * 
-         * @Override protected void updateItem(PdfVersionComboItem item, boolean bln) { super.updateItem(item, bln); if (item != null) { setText(item.toString()); } } }; return
-         * cell; } });
-         */
+
         versionsFilter.requiredProperty().addListener((observable, oldVal, newVal) -> {
             PdfVersionComboItem selected = getSelectionModel().getSelectedItem();
             setItems(unfilteredItems.filtered(t -> t.isHigherOrEqual(newVal.intValue())));
@@ -100,6 +93,7 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwn
 
     public void enableSameAsSourceItem() {
         unfilteredItems.add(0, sameAsSource);
+        getSelectionModel().selectFirst();
     }
 
     /**

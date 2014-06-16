@@ -1,6 +1,5 @@
 .root { 
 	theme-color: #009245;
-	hover-color: derive(light-border-color, -70.0%);
 	light-border-color: #D4D4D4;
 	hover-color: #D4D4D4;
 	dark-text-color: derive(light-border-color, -70.0%);
@@ -273,6 +272,18 @@
     -fx-background-insets: 0.0, 1.0;
     -fx-background-radius: 0.0 0.0;
     -fx-padding: 0.0;
+}
+
+.combo-box-base > .arrow-button {
+   -fx-background-color: -fx-text-box-border, -fx-control-inner-background;
+   -fx-background-insets: 0.0,  1.0 1.0 1.0 0.0;
+   -fx-background-radius: 0.0,0.0,0.0;
+}
+
+.combo-box-base:hover > .arrow-button{
+   -fx-background-color:  -fx-text-box-border, hover-color;
+   -fx-background-insets: 0.0, 1.0 1.0 1.0 0.0;
+   -fx-background-radius: 0.0,0.0,0.0;
 }
 /**
  * Titled panel
