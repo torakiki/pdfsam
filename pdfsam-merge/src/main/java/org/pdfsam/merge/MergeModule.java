@@ -20,14 +20,12 @@ package org.pdfsam.merge;
 
 import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
 
-import java.io.IOException;
 import java.util.function.Consumer;
 
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.TitledPane;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -43,7 +41,6 @@ import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.pdfsam.ui.support.Views;
 import org.sejda.model.parameter.MergeParameters;
 import org.sejda.model.parameter.base.TaskParameters;
-import org.springframework.core.io.ClassPathResource;
 
 /**
  * Merge module to let the user merge together multiple pdf documents
@@ -109,11 +106,6 @@ public class MergeModule extends BaseTaskExecutionModule {
     }
 
     public Node graphic() {
-        try {
-            return (Group) FXMLLoader.load(new ClassPathResource("/fxml/TestModule.fxml").getURL());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return new ImageView("merge.png");
     }
 }

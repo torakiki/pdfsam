@@ -20,14 +20,12 @@ package org.pdfsam.splitbysize;
 
 import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
 
-import java.io.IOException;
 import java.util.function.Consumer;
 
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.TitledPane;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
@@ -45,9 +43,9 @@ import org.pdfsam.ui.support.Views;
 import org.sejda.model.parameter.SplitBySizeParameters;
 import org.sejda.model.parameter.base.TaskParameters;
 import org.sejda.model.prefix.Prefix;
-import org.springframework.core.io.ClassPathResource;
+
 /**
- * Merge module to let the user merge together multiple pdf documents
+ * Split by size module to let the user split a pdf documents into documents of the given size.
  * 
  * @author Andrea Vacondio
  *
@@ -62,11 +60,12 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
     private SplitOptionsPane splitOptions = new SplitOptionsPane();
     private PdfDestinationPane destinationPane;
     private PrefixPane prefix = new PrefixPane();
-    private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT)
+    private ModuleDescriptor descriptor = builder()
+            .category(ModuleCategory.SPLIT)
             .name(DefaultI18nContext.getInstance().i18n("Split by size"))
             .description(
                     DefaultI18nContext.getInstance().i18n("Split a pdf document in files of the give size (roughly)."))
-            .priority(ModulePriority.DEFAULT.getPriority()).supportURL("http://www.pdfsam.org/split-by-size").build();
+            .priority(ModulePriority.LOW.getPriority()).supportURL("http://www.pdfsam.org/split-by-size").build();
 
     public SplitBySizeModule() {
         this.selectionPane = new SingleSelectionPane<>(id());
@@ -114,11 +113,6 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
     }
 
     public Node graphic() {
-        try {
-            return (Group) FXMLLoader.load(new ClassPathResource("/fxml/TestModule2.fxml").getURL());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return new ImageView("split_by_size.png");
     }
 }
