@@ -87,6 +87,8 @@ class AboutDashboardPane extends HBox {
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Contribute"), right);
         addHyperlink(AwesomeIcon.GITHUB, "http://www.pdfsam.org/scm",
                 DefaultI18nContext.getInstance().i18n("Fork PDFsam on GitHub"), right);
+        addHyperlink(AwesomeIcon.FLAG_ALT, "http://www.pdfsam.org/translate",
+                DefaultI18nContext.getInstance().i18n("Translate"), right);
         addHyperlink(AwesomeIcon.DOLLAR, "http://www.pdfsam.org/donate", DefaultI18nContext.getInstance()
                 .i18n("Donate"), right);
 
