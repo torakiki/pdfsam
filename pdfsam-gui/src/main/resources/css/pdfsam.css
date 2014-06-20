@@ -13,6 +13,12 @@
  	-fx-border-style: dashed;
  	-fx-border-width: 3.5px;
 }
+.header-title{
+	-fx-font-weight: bold; 
+	-fx-font-style: italic;
+	-fx-text-fill: awesome-color;
+	-fx-padding: 8.0 4.0 8.0 1.0;
+}
 /**
  * Notifications
  */
@@ -171,7 +177,7 @@
  	-fx-background-color: light-border-color, headerbg-color;
     -fx-background-insets: 0.0, 0.0 0.0 1.0 0.0;
     -fx-background-radius: 0.0, 0.0;
-    -fx-alignment: center-left;  
+    -fx-alignment: bottom-left;  
  }
 .pdfsam-banner .awesome {
     -fx-effect: null;

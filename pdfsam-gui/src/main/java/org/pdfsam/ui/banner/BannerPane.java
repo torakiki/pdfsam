@@ -18,7 +18,10 @@
  */
 package org.pdfsam.ui.banner;
 
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -28,6 +31,9 @@ import javafx.scene.layout.StackPane;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
+
+import org.pdfsam.ui.event.SetTitleEvent;
+import org.sejda.eventstudio.annotation.EventListener;
 
 /**
  * Panel showed on the top part of the application. It displays branding images and a toolbar
@@ -51,19 +57,22 @@ public class BannerPane extends HBox {
     private DashboardButton dashboardButton;
     @Inject
     private MenuButton menuButton;
+    private Label current = new Label();
 
     public BannerPane() {
         getStyleClass().add("pdfsam-banner");
+        eventStudio().addAnnotatedListeners(this);
     }
 
     @PostConstruct
     private void init() {
+        current.getStyleClass().add("header-title");
         HBox buttonBar = buildButtonsBar();
         HBox.setHgrow(buttonBar, Priority.ALWAYS);
         HBox logoView = new HBox();
         logoView.getStyleClass().add("pdfsam-logo");
         logoView.getChildren().addAll(new ImageView(logo), payoff);
-        getChildren().addAll(logoView, buttonBar);
+        getChildren().addAll(logoView, current, buttonBar);
     }
 
     private HBox buildButtonsBar() {
@@ -74,6 +83,15 @@ public class BannerPane extends HBox {
         StackPane.setAlignment(errorNotification, Pos.BOTTOM_LEFT);
         buttons.getChildren().addAll(logs, dashboardButton, menuButton);
         return buttons;
+    }
+
+    @EventListener
+    void onChangeTitle(SetTitleEvent event) {
+        if (isNotBlank(event.getTitle())) {
+            current.setText(String.format("@%s", event.getTitle()));
+        } else {
+            current.setText("");
+        }
     }
 
 }

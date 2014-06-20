@@ -18,7 +18,6 @@
  */
 package org.pdfsam;
 
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.awt.Desktop;
@@ -46,11 +45,9 @@ import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.ui.MainPane;
 import org.pdfsam.ui.event.OpenFileRequest;
 import org.pdfsam.ui.event.OpenUrlRequest;
-import org.pdfsam.ui.event.SetTitleEvent;
 import org.pdfsam.ui.event.ShowStageRequest;
 import org.pdfsam.ui.notification.NotificationsContainer;
 import org.pdfsam.update.UpdateCheckRequest;
-import org.sejda.eventstudio.Listener;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -86,7 +83,6 @@ public class App extends Application {
         scene.getAccelerators().put(new KeyCodeCombination(KeyCode.L, KeyCombination.SHORTCUT_DOWN),
                 () -> eventStudio().broadcast(new ShowStageRequest(), "LogStage"));
         primaryStage.show();
-        eventStudio().add(new TitleController(primaryStage));
         requestCheckForUpdateIfNecessary();
         eventStudio().addAnnotatedListeners(this);
         STOPWATCH.stop();
@@ -129,22 +125,4 @@ public class App extends Application {
             }
         }
     }
-
-    public static class TitleController implements Listener<SetTitleEvent> {
-
-        private Stage primaryStage;
-
-        public TitleController(Stage primaryStage) {
-            this.primaryStage = primaryStage;
-        }
-
-        public void onEvent(SetTitleEvent event) {
-            String title = ApplicationContextHolder.getContext().getBean("appName", String.class);
-            if (isNotBlank(event.getTitle())) {
-                title = String.format("%s - %s", title, event.getTitle());
-            }
-            primaryStage.setTitle(title);
-        }
-    }
-
 }
