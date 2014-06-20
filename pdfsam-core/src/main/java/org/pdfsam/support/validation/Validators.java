@@ -35,7 +35,7 @@ public final class Validators {
     }
 
     /**
-     * @return a new instance of a validator checking for a on blank input stringg
+     * @return a new instance of a validator checking for a on blank input string
      */
     public static Validator<String> newNonBlankString() {
         return new NonBlankStringValidator();

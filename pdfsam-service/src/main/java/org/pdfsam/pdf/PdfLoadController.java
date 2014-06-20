@@ -20,12 +20,17 @@ package org.pdfsam.pdf;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.pdfsam.module.Module;
+import org.pdfsam.module.RequiredPdfData;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,8 +49,11 @@ public class PdfLoadController {
     @Inject
     private PdfLoadService loadService;
     private ExecutorService executor = Executors.newSingleThreadExecutor();
+    private Map<String, RequiredPdfData[]> requiredLoadData = new HashMap<>();
 
-    public PdfLoadController() {
+    @Inject
+    public PdfLoadController(List<Module> modules) {
+        modules.forEach(m -> requiredLoadData.put(m.id(), m.requires()));
         eventStudio().addAnnotatedListeners(this);
     }
 
@@ -59,6 +67,6 @@ public class PdfLoadController {
     public void request(PdfLoadRequestEvent event) {
         LOG.trace("Pdf load request received");
         event.getDocuments().forEach((i) -> i.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED));
-        executor.submit(() -> loadService.load(event.getDocuments()));
+        executor.submit(() -> loadService.load(event.getDocuments(), requiredLoadData.get(event.getOwnerModule())));
     }
 }

@@ -48,4 +48,12 @@ public interface Module {
      * @return the graphic node for this {@link Module}.
      */
     Node graphic();
+
+    /**
+     * @return an array containing the required PDF data for this module. Each module can specify data it requires from the PDF document and the PDF load service can use this array
+     *         to load only the required data from the PDF, minimizing resources usage.
+     */
+    default RequiredPdfData[] requires() {
+        return new RequiredPdfData[] { RequiredPdfData.DEFAULT };
+    }
 }

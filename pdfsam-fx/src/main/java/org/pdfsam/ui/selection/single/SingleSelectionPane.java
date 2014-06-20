@@ -59,6 +59,7 @@ import org.sejda.model.parameter.base.SinglePdfSourceTaskParameters;
 
 import de.jensd.fx.fontawesome.AwesomeDude;
 import de.jensd.fx.fontawesome.AwesomeIcon;
+
 /**
  * Panel letting the user select a single input PDF document
  * 
@@ -73,18 +74,20 @@ public class SingleSelectionPane<T extends SinglePdfSourceTaskParameters> extend
     private Label details = new Label();
     private PdfDocumentDescriptor descriptor;
     private LoadingStatusIndicator encryptionIndicator;
-    private ChangeListener<PdfDescriptorLoadingStatus> onDescriptorLoaded = (o, oldVal, newVal) -> {
+
+    private Consumer<PdfDocumentDescriptor> onLoaded = (d) -> {
+        details.setText(DefaultI18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}",
+                Integer.toString(d.pagesPropery().get()), d.getVersionString()));
+        eventStudio().broadcast(requestFallbackDestination(d.getFile()), getOwnerModule());
+        eventStudio().broadcast(new ChangedSelectedPdfVersionEvent(d.getVersion()), getOwnerModule());
+    };
+
+    private ChangeListener<PdfDescriptorLoadingStatus> onLoadingStatusChange = (o, oldVal, newVal) -> {
         Platform.runLater(() -> {
             encryptionIndicator.setLoadingStatus(newVal);
             if (newVal == PdfDescriptorLoadingStatus.LOADED
                     || newVal == PdfDescriptorLoadingStatus.LOADED_WITH_USER_PWD_DECRYPTION) {
-                details.setText(
-                        DefaultI18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}",
-                        Integer.toString(descriptor.pagesPropery().get()), descriptor.getVersionString()));
-                eventStudio().broadcast(requestFallbackDestination(descriptor.getFile()),
-                        getOwnerModule());
-                eventStudio().broadcast(new ChangedSelectedPdfVersionEvent(descriptor.getVersion()), getOwnerModule());
-
+                onLoaded.accept(descriptor);
             } else {
                 details.setText("");
             }
@@ -112,13 +115,22 @@ public class SingleSelectionPane<T extends SinglePdfSourceTaskParameters> extend
                 }
                 PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
                 descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(new File(field.getTextField().getText()));
-                descriptor.loadedProperty().addListener(new WeakChangeListener<>(onDescriptorLoaded));
+                descriptor.loadedProperty().addListener(new WeakChangeListener<>(onLoadingStatusChange));
                 field.getTextField().getContextMenu().getItems().forEach(i -> i.setDisable(false));
                 loadEvent.add(descriptor);
                 eventStudio().broadcast(loadEvent);
             }
         });
         initContextMenu();
+    }
+
+    /**
+     * to perform when the document is loaded
+     * 
+     * @param onDescriptorLoaded
+     */
+    public void addOnLoaded(Consumer<PdfDocumentDescriptor> onDescriptorLoaded) {
+        this.onLoaded = onDescriptorLoaded.andThen(this.onLoaded);
     }
 
     public void apply(T params, Consumer<String> onError) {

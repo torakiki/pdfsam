@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 13/giu/2013
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 18/giu/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -18,23 +18,29 @@
  */
 package org.pdfsam.pdf;
 
-import java.util.Collection;
+import javax.inject.Named;
 
 import org.pdfsam.module.RequiredPdfData;
+import org.sejda.conversion.PdfVersionAdapter;
+
+import com.itextpdf.text.pdf.PdfReader;
 
 /**
- * Service to load pdf documents
+ * Consumer taking a {@link PdfReader} and populating default field of a {@link PdfDocumentDescriptor} with data coming from the {@link PdfReader}.
  * 
  * @author Andrea Vacondio
- * 
+ *
  */
-public interface PdfLoadService {
+@Named
+class DefaultPdfLoader implements PdfLoader {
 
-    /**
-     * @param toLoad
-     *            a list of {@link PdfDocumentDescriptor} the service is requested to load and update.
-     * @param datas
-     *            what the service should load from the PDF
-     */
-    void load(Collection<PdfDocumentDescriptor> toLoad, RequiredPdfData... datas);
+    public void accept(PdfReader reader, PdfDocumentDescriptor descriptor) {
+        descriptor.setPages(reader.getNumberOfPages());
+        descriptor.setVersion(new PdfVersionAdapter(Character.toString(reader.getPdfVersion())).getEnumValue());
+        descriptor.setInformationDictionary(reader.getInfo());
+    }
+
+    public RequiredPdfData key() {
+        return RequiredPdfData.DEFAULT;
+    }
 }

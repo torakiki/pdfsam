@@ -29,6 +29,7 @@
 		<module>pdfsam-merge</module>
 		<module>pdfsam-simple-split</module>
 		<module>pdfsam-split-by-size</module>
+		<module>pdfsam-split-by-bookmarks</module>
 	</modules>
 
 	<developers>

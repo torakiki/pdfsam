@@ -25,12 +25,18 @@ import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.LOADING;
 import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.WITH_ERRORS;
 import static org.sejda.impl.itext5.util.ITextUtils.nullSafeClosePdfReader;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.BiConsumer;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.sejda.conversion.PdfVersionAdapter;
+import org.pdfsam.module.RequiredPdfData;
 import org.sejda.impl.itext5.component.DefaultPdfSourceOpener;
 import org.sejda.model.exception.TaskWrongPasswordException;
 import org.slf4j.Logger;
@@ -46,11 +52,31 @@ import com.itextpdf.text.pdf.PdfReader;
  */
 @Named
 class ITextPdfLoadService implements PdfLoadService {
-
     private static final Logger LOG = LoggerFactory.getLogger(ITextPdfLoadService.class);
+    private final Map<RequiredPdfData, BiConsumer<PdfReader, PdfDocumentDescriptor>> consumers = new HashMap<>();
 
-    public void load(Collection<PdfDocumentDescriptor> toLoad) {
+    private static final BiConsumer<PdfReader, PdfDocumentDescriptor> STARTER = (r, descriptor) -> {
+        // NO OP
+    };
+
+    private static final BiConsumer<PdfReader, PdfDocumentDescriptor> FINISHER = (r, descriptor) -> {
+        if (descriptor.hasPassword()) {
+            descriptor.moveStatusTo(LOADED_WITH_USER_PWD_DECRYPTION);
+        } else {
+            descriptor.moveStatusTo(LOADED);
+        }
+    };
+
+    @Inject
+    public ITextPdfLoadService(List<PdfLoader> loaders) {
+        loaders.forEach(l -> consumers.put(l.key(), l));
+    }
+
+    public void load(Collection<PdfDocumentDescriptor> toLoad, RequiredPdfData... requires) {
         LOG.debug(DefaultI18nContext.getInstance().i18n("Loading"));
+        BiConsumer<PdfReader, PdfDocumentDescriptor> consumer = Arrays.stream(requires).parallel().map(consumers::get)
+                .reduce(STARTER, (r, d) -> r.andThen(d)).andThen(FINISHER);
+
         for (PdfDocumentDescriptor current : toLoad) {
             if (!current.isInvalid()) {
                 LOG.trace("Loading {}", current.getFileName());
@@ -58,14 +84,7 @@ class ITextPdfLoadService implements PdfLoadService {
                 try {
                     current.moveStatusTo(LOADING);
                     reader = current.toPdfFileSource().open(new DefaultPdfSourceOpener());
-                    current.setPages(reader.getNumberOfPages());
-                    current.setVersion(new PdfVersionAdapter(Character.toString(reader.getPdfVersion())).getEnumValue());
-                    current.setInformationDictionary(reader.getInfo());
-                    if (current.hasPassword()) {
-                        current.moveStatusTo(LOADED_WITH_USER_PWD_DECRYPTION);
-                    } else {
-                        current.moveStatusTo(LOADED);
-                    }
+                    consumer.accept(reader, current);
                 } catch (TaskWrongPasswordException twpe) {
                     current.moveStatusTo(ENCRYPTED);
                     LOG.warn("User password required for '{}'", current.getFileName(), twpe);
@@ -80,7 +99,7 @@ class ITextPdfLoadService implements PdfLoadService {
                     }
                 }
             } else {
-                LOG.trace("Skipping invalid document {}", current.getFileName());
+                LOG.trace("Skipping invalidated document {}", current.getFileName());
             }
         }
         LOG.debug(DefaultI18nContext.getInstance().i18n("Documents loaded"));

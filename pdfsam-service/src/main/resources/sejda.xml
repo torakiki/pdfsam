@@ -14,5 +14,7 @@
 			task="org.sejda.impl.itext5.SplitByPageNumbersTask" />
 		<task parameters="org.sejda.model.parameter.SplitBySizeParameters"
 			task="org.sejda.impl.itext5.SplitBySizeTask" />
+		<task parameters="org.sejda.model.parameter.SplitByGoToActionLevelParameters"
+			task="org.sejda.impl.itext5.SplitByGoToActionLevelTask" />
 	</tasks>
 </sejda>

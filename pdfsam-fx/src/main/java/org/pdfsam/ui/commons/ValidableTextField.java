@@ -65,7 +65,7 @@ public class ValidableTextField extends TextField {
             }
         });
 
-        textProperty().addListener(e -> validationSupport.makeNotValidated());
+        textProperty().addListener((o, oldVal, newVal) -> validationSupport.makeNotValidated());
         validationSupport.validationStateProperty().addListener(
                 (o) -> {
                     if (validationSupport.validationStateProperty().get() == ValidationState.INVALID

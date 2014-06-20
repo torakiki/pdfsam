@@ -23,6 +23,7 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import javafx.beans.property.ReadOnlyIntegerProperty;
@@ -49,7 +50,8 @@ public final class PdfDocumentDescriptor {
     private String password;
     private File file;
     private PdfVersion version;
-    private HashMap<String, String> metadata = new HashMap<>();
+    private Map<String, String> metadata = new HashMap<>();
+    private int maxGoToActionDepth = 0;
 
     private PdfDocumentDescriptor(File file, String password) {
         this.file = file;
@@ -124,6 +126,14 @@ public final class PdfDocumentDescriptor {
 
     public File getFile() {
         return file;
+    }
+
+    public void setMaxGoToActionDepth(int maxGoToActionDepth) {
+        this.maxGoToActionDepth = maxGoToActionDepth;
+    }
+
+    public int getMaxGoToActionDepth() {
+        return maxGoToActionDepth;
     }
 
     /**

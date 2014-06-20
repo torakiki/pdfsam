@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 13/giu/2013
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 18/giu/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,25 +16,15 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.pdf;
-
-import java.util.Collection;
-
-import org.pdfsam.module.RequiredPdfData;
+package org.pdfsam.module;
 
 /**
- * Service to load pdf documents
+ * PDF document data that a module requires to work properly.
  * 
  * @author Andrea Vacondio
- * 
+ *
  */
-public interface PdfLoadService {
-
-    /**
-     * @param toLoad
-     *            a list of {@link PdfDocumentDescriptor} the service is requested to load and update.
-     * @param datas
-     *            what the service should load from the PDF
-     */
-    void load(Collection<PdfDocumentDescriptor> toLoad, RequiredPdfData... datas);
+public enum RequiredPdfData {
+    DEFAULT,
+    BOOMARKS;
 }

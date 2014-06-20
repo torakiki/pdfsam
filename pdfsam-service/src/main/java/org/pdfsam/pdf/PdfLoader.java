@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 13/giu/2013
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 20/giu/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -18,23 +18,22 @@
  */
 package org.pdfsam.pdf;
 
-import java.util.Collection;
+import java.util.function.BiConsumer;
 
 import org.pdfsam.module.RequiredPdfData;
 
+import com.itextpdf.text.pdf.PdfReader;
+
 /**
- * Service to load pdf documents
+ * A {@link PdfLoader} is responsible for populating a {@link PdfDocumentDescriptor} with some data read from a {@link PdfReader}.
  * 
  * @author Andrea Vacondio
- * 
+ *
  */
-public interface PdfLoadService {
+interface PdfLoader extends BiConsumer<PdfReader, PdfDocumentDescriptor> {
 
     /**
-     * @param toLoad
-     *            a list of {@link PdfDocumentDescriptor} the service is requested to load and update.
-     * @param datas
-     *            what the service should load from the PDF
+     * @return the {@link RequiredPdfData} associated with this loader.
      */
-    void load(Collection<PdfDocumentDescriptor> toLoad, RequiredPdfData... datas);
+    RequiredPdfData key();
 }
