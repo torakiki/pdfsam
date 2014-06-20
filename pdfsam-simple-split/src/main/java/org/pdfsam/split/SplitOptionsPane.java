@@ -74,7 +74,6 @@ class SplitOptionsPane extends VBox {
 
     AbstractSplitByPageParameters createParams(Consumer<String> onError) {
         return ((SplitParamsCreator<AbstractSplitByPageParameters>) group.getSelectedToggle()).createParams(onError);
-
     }
 
 }

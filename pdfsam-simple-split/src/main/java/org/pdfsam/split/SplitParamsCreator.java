@@ -30,5 +30,6 @@ import org.sejda.model.parameter.AbstractSplitByPageParameters;
  *            AbstractSplitByPageParameters created by this creator
  */
 interface SplitParamsCreator<T extends AbstractSplitByPageParameters> {
+
     T createParams(Consumer<String> onError);
 }

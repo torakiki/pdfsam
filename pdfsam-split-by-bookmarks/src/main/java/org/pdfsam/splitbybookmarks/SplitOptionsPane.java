@@ -20,6 +20,7 @@ package org.pdfsam.splitbybookmarks;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.geometry.Pos;
@@ -72,9 +73,9 @@ class SplitOptionsPane extends VBox implements TaskParametersBuildStep<SplitByGo
         return item;
     }
 
-    public void apply(SplitByGoToActionLevelParameters params, Consumer<String> onError) {
+    public void apply(Optional<? extends SplitByGoToActionLevelParameters> params, Consumer<String> onError) {
         if (isNotBlank(regexpField.getText())) {
-            params.setMatchingTitleRegEx(regexpField.getText());
+            params.ifPresent(p -> p.setMatchingTitleRegEx(regexpField.getText()));
         }
     }
 }

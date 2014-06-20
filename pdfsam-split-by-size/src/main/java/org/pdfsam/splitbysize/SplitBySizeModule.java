@@ -20,6 +20,7 @@ package org.pdfsam.splitbysize;
 
 import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
 
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.geometry.Pos;
@@ -80,14 +81,12 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
 
     @Override
     protected TaskParameters buildParameters(Consumer<String> onError) {
-        SplitBySizeParameters params = splitOptions.createParams(onError);
-        if (params != null) {
-            selectionPane.apply(params, onError);
-            destinationDirectoryField.apply(params, onError);
-            destinationPane.apply(params, onError);
-            prefix.apply(params, onError);
-        }
-        return params;
+        Optional<SplitBySizeParameters> params = Optional.ofNullable(splitOptions.createParams(onError));
+        selectionPane.apply(params, onError);
+        destinationDirectoryField.apply(params, onError);
+        destinationPane.apply(params, onError);
+        prefix.apply(params, onError);
+        return params.orElse(null);
     }
 
     @Override

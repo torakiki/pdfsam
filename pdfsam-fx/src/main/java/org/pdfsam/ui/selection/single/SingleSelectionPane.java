@@ -19,12 +19,12 @@
 package org.pdfsam.ui.selection.single;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.pdfsam.support.RequireUtils.requireNotNull;
 import static org.pdfsam.ui.event.SetDestinationRequest.requestDestination;
 import static org.pdfsam.ui.event.SetDestinationRequest.requestFallbackDestination;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.application.Platform;
@@ -133,13 +133,12 @@ public class SingleSelectionPane<T extends SinglePdfSourceTaskParameters> extend
         this.onLoaded = onDescriptorLoaded.andThen(this.onLoaded);
     }
 
-    public void apply(T params, Consumer<String> onError) {
-        requireNotNull(params, "Cannot set input on a null parameter instance");
+    public void apply(Optional<? extends T> params, Consumer<String> onError) {
         field.getTextField().validate();
         if (field.getTextField().getValidationState() == ValidationState.INVALID) {
             onError.accept(DefaultI18nContext.getInstance().i18n("The selected PDF document is invalid"));
         } else {
-            params.setSource(descriptor.toPdfFileSource());
+            params.ifPresent(p -> p.setSource(descriptor.toPdfFileSource()));
         }
     }
 

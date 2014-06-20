@@ -18,6 +18,7 @@
  */
 package org.pdfsam.merge;
 
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.geometry.Pos;
@@ -75,9 +76,12 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
         getChildren().addAll(this.containsForms, this.blankIfOdd, bookmarksPolicy);
     }
 
-    public void apply(MergeParameters params, Consumer<String> onError) {
-        params.setOutlinePolicy(outline.getSelectionModel().getSelectedItem().getKey());
-        params.setBlankPageIfOdd(blankIfOdd.isSelected());
-        params.setCopyFormFields(containsForms.isSelected());
+    public void apply(Optional<? extends MergeParameters> params, Consumer<String> onError) {
+        params.ifPresent(p -> {
+            p.setOutlinePolicy(outline.getSelectionModel().getSelectedItem().getKey());
+            p.setBlankPageIfOdd(blankIfOdd.isSelected());
+            p.setCopyFormFields(containsForms.isSelected());
+        });
+
     }
 }

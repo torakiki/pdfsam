@@ -20,6 +20,7 @@ package org.pdfsam.splitbybookmarks;
 
 import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
 
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.geometry.Pos;
@@ -84,15 +85,13 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
 
     @Override
     protected TaskParameters buildParameters(Consumer<String> onError) {
-        SplitByGoToActionLevelParameters params = splitOptions.createParams(onError);
-        if (params != null) {
-            selectionPane.apply(params, onError);
-            splitOptions.apply(params, onError);
-            destinationDirectoryField.apply(params, onError);
-            destinationPane.apply(params, onError);
-            prefix.apply(params, onError);
-        }
-        return params;
+        Optional<SplitByGoToActionLevelParameters> params = Optional.ofNullable(splitOptions.createParams(onError));
+        selectionPane.apply(params, onError);
+        splitOptions.apply(params, onError);
+        destinationDirectoryField.apply(params, onError);
+        destinationPane.apply(params, onError);
+        prefix.apply(params, onError);
+        return params.orElse(null);
     }
 
     @Override

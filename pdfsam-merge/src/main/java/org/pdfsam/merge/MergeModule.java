@@ -20,6 +20,7 @@ package org.pdfsam.merge;
 
 import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
 
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.geometry.Pos;
@@ -78,12 +79,12 @@ public class MergeModule extends BaseTaskExecutionModule {
 
     @Override
     protected TaskParameters buildParameters(Consumer<String> onError) {
-        MergeParameters params = new MergeParameters();
+        Optional<MergeParameters> params = Optional.of(new MergeParameters());
         selectionPane.apply(params, onError);
         mergeOptions.apply(params, onError);
         destinationFileField.apply(params, onError);
         destinationPane.apply(params, onError);
-        return params;
+        return params.orElse(null);
     }
 
     @Override

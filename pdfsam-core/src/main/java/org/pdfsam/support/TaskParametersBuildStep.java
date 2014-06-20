@@ -18,6 +18,7 @@
  */
 package org.pdfsam.support;
 
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import org.sejda.model.parameter.base.TaskParameters;
@@ -35,9 +36,9 @@ public interface TaskParametersBuildStep<T extends TaskParameters> {
      * Applies changes to the input parameters and calls the provided consumer in case of error.
      * 
      * @param params
-     *            parameters the builder will apply its changes to
+     *            parameters the builder will apply its changes to.
      * @param onError
      *            function to call in case of error where the error message is supplied
      */
-    void apply(T params, Consumer<String> onError);
+    void apply(Optional<? extends T> params, Consumer<String> onError);
 }

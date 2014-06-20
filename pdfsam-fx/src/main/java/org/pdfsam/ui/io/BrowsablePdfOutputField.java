@@ -18,8 +18,7 @@
  */
 package org.pdfsam.ui.io;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
-
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import org.pdfsam.context.DefaultI18nContext;
@@ -42,13 +41,12 @@ public class BrowsablePdfOutputField extends BrowsableFileField implements
         super(FileType.PDF);
     }
 
-    public void apply(SingleOutputTaskParameters params, Consumer<String> onError) {
-        requireNotNull(params, "Cannot set output on a null parameter instance");
+    public void apply(Optional<? extends SingleOutputTaskParameters> params, Consumer<String> onError) {
         getTextField().validate();
         if (getTextField().getValidationState() == ValidationState.INVALID) {
-            onError.accept(DefaultI18nContext.getInstance().i18n("The selected output file is invalid"));
+            onError.accept(DefaultI18nContext.getInstance().i18n("The selected PDF file is invalid"));
         } else {
-            params.setOutput(new FileOutputAdapter(getTextField().getText()).getFileOutput());
+            params.ifPresent(p -> p.setOutput(new FileOutputAdapter(getTextField().getText()).getFileOutput()));
         }
     }
 }

@@ -49,5 +49,4 @@ class SplitOptionsPane extends HBox {
         return combo.createParams(onError);
 
     }
-
 }

@@ -18,13 +18,12 @@
  */
 package org.pdfsam.merge;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
-
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.ui.selection.multiple.LoadingStatusColumn;
 import org.pdfsam.ui.selection.multiple.FileColumn;
+import org.pdfsam.ui.selection.multiple.LoadingStatusColumn;
 import org.pdfsam.ui.selection.multiple.LongColumn;
 import org.pdfsam.ui.selection.multiple.MultipleSelectionPane;
 import org.pdfsam.ui.selection.multiple.SelectionTableColumn;
@@ -49,14 +48,13 @@ public class MergeSelectionPane extends MultipleSelectionPane<MergeParameters> {
                 LongColumn.SIZE, LongColumn.PAGES, LongColumn.LAST_MODIFIED, StringColumn.PAGE_SELECTION });
     }
 
-    public void apply(MergeParameters params, Consumer<String> onError) {
-        requireNotNull(params, "Cannot set input on a null parameter instance");
+    public void apply(Optional<? extends MergeParameters> params, Consumer<String> onError) {
         if (table().getItems().isEmpty()) {
             onError.accept(DefaultI18nContext.getInstance().i18n("No pdf document has been selected"));
         }
         try {
-            table().getItems().stream().map(i -> new PdfMergeInput(i.toPdfFileSource(), i.toPageRangeSet()))
-                    .forEach(params::addInput);
+            params.ifPresent(p -> table().getItems().stream()
+                    .map(i -> new PdfMergeInput(i.toPdfFileSource(), i.toPageRangeSet())).forEach(p::addInput));
         } catch (ConversionException e) {
             LOG.error(e.getMessage());
             onError.accept(e.getMessage());

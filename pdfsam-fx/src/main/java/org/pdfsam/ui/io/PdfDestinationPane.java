@@ -20,9 +20,9 @@ package org.pdfsam.ui.io;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isBlank;
-import static org.pdfsam.support.RequireUtils.requireNotNull;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.geometry.Pos;
@@ -82,10 +82,11 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned,
         }
     }
 
-    public void apply(AbstractPdfOutputParameters params, Consumer<String> onError) {
-        requireNotNull(params, "Cannot set output on a null parameter instance");
-        params.setCompress(compress.isSelected());
-        params.setOverwrite(overwrite().isSelected());
-        params.setVersion(version.getSelectionModel().getSelectedItem().getVersion());
+    public void apply(Optional<? extends AbstractPdfOutputParameters> params, Consumer<String> onError) {
+        params.ifPresent(p -> {
+            p.setCompress(compress.isSelected());
+            p.setOverwrite(overwrite().isSelected());
+            p.setVersion(version.getSelectionModel().getSelectedItem().getVersion());
+        });
     }
 }

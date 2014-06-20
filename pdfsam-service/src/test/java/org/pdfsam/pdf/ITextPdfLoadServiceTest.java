@@ -24,11 +24,13 @@ import static org.junit.Assert.assertNotNull;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Before;
 import org.junit.Test;
+import org.pdfsam.module.RequiredPdfData;
 import org.sejda.model.pdf.PdfMetadataKey;
 
 /**
@@ -36,7 +38,8 @@ import org.sejda.model.pdf.PdfMetadataKey;
  * 
  */
 public class ITextPdfLoadServiceTest {
-    private ITextPdfLoadService victim = new ITextPdfLoadService();
+    private ITextPdfLoadService victim = new ITextPdfLoadService(Arrays.asList(new PdfLoader[] {
+            new DefaultPdfLoader(), new BookmarksLevelLoader() }));
     private File testFile;
 
     @Before
@@ -53,7 +56,7 @@ public class ITextPdfLoadServiceTest {
         assertEquals(PdfDescriptorLoadingStatus.INITIAL, descriptor.loadedProperty().get());
         toLoad.add(descriptor);
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
-        victim.load(toLoad);
+        victim.load(toLoad, RequiredPdfData.DEFAULT);
         assertEquals(1, toLoad.size());
         PdfDocumentDescriptor item = toLoad.get(0);
         assertNotNull(item);

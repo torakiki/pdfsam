@@ -19,13 +19,13 @@
 package org.pdfsam.ui.io;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.event.ActionEvent;
@@ -122,13 +122,13 @@ public class BrowsableDirectoryField extends BrowsableField implements
         };
     }
 
-    public void apply(MultipleOutputTaskParameters params, Consumer<String> onError) {
-        requireNotNull(params, "Cannot set output on a null parameter instance");
+    public void apply(Optional<? extends MultipleOutputTaskParameters> params, Consumer<String> onError) {
         getTextField().validate();
         if (getTextField().getValidationState() == ValidationState.INVALID) {
             onError.accept(DefaultI18nContext.getInstance().i18n("The selected output directory is invalid"));
         } else {
-            params.setOutput(new DirectoryOutputAdapter(getTextField().getText()).getPdfDirectoryOutput());
+            params.ifPresent(p -> p.setOutput(new DirectoryOutputAdapter(getTextField().getText())
+                    .getPdfDirectoryOutput()));
         }
     }
 }

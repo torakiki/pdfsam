@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.prefix;
 
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.geometry.Pos;
@@ -59,8 +60,7 @@ public class PrefixPane extends HBox implements TaskParametersBuildStep<SinglePd
         return field.getText();
     }
 
-    public void apply(SinglePdfSourceMultipleOutputParameters params, Consumer<String> onError) {
-        params.setOutputPrefix(field.getText());
+    public void apply(Optional<? extends SinglePdfSourceMultipleOutputParameters> params, Consumer<String> onError) {
+        params.ifPresent(p -> p.setOutputPrefix(field.getText()));
     }
-
 }
