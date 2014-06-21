@@ -11,17 +11,6 @@
 	<url>http://www.pdfsam.org</url>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-plugin-plugin</artifactId>
-				<version>3.3</version>
-				<configuration>
-					<!-- see http://jira.codehaus.org/browse/MNG-5346 -->
-					<skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
-				</configuration>
-			</plugin>
-		</plugins>
 		<pluginManagement>
 			<plugins>
 				<plugin>

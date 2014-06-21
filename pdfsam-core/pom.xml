@@ -12,7 +12,7 @@
 	</parent>
 
 	<artifactId>pdfsam-core</artifactId>
-	<packaging>maven-plugin</packaging>
+	<packaging>jar</packaging>
 	<name>pdfsam core</name>
 
 	<dependencies>
