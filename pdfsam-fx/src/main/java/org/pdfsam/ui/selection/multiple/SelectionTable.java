@@ -39,6 +39,9 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.TableView;
 import javafx.scene.input.DragEvent;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.input.TransferMode;
 
 import org.apache.commons.lang3.StringUtils;
@@ -153,14 +156,13 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
                     new OpenFileRequest(getSelectionModel().getSelectedItem().getPdfDocumentDescriptor().getFile()
                             .getParentFile()));
         });
-        // https://javafx-jira.kenai.com/browse/RT-28136
-        // infoItem.setAccelerator(new KeyCodeCombination(KeyCode.P, KeyCombination.ALT_DOWN));
-        // setDestinationItem.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.ALT_DOWN));
-        // removeSelected.setAccelerator(new KeyCodeCombination(KeyCode.CANCEL));
-        // moveBottomSelected.setAccelerator(new KeyCodeCombination(KeyCode.END, KeyCombination.ALT_DOWN));
-        // moveDownSelected.setAccelerator(new KeyCodeCombination(KeyCode.DOWN, KeyCombination.ALT_DOWN));
-        // moveUpSelected.setAccelerator(new KeyCodeCombination(KeyCode.UP, KeyCombination.ALT_DOWN));
-        // moveTopSelected.setAccelerator(new KeyCodeCombination(KeyCode.HOME, KeyCombination.ALT_DOWN));
+
+        setDestinationItem.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.ALT_DOWN));
+        removeSelected.setAccelerator(new KeyCodeCombination(KeyCode.CANCEL));
+        moveBottomSelected.setAccelerator(new KeyCodeCombination(KeyCode.END, KeyCombination.ALT_DOWN));
+        moveDownSelected.setAccelerator(new KeyCodeCombination(KeyCode.DOWN, KeyCombination.ALT_DOWN));
+        moveUpSelected.setAccelerator(new KeyCodeCombination(KeyCode.UP, KeyCombination.ALT_DOWN));
+        moveTopSelected.setAccelerator(new KeyCodeCombination(KeyCode.HOME, KeyCombination.ALT_DOWN));
 
         eventStudio().add(SelectionChangedEvent.class, (SelectionChangedEvent e) -> {
             setDestinationItem.setDisable(!e.isSingleSelection());
