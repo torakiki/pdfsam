@@ -86,7 +86,7 @@ public enum MoveType {
             if (isSingleSelection(selected, items)) {
                 if (selected[0] < items.size() - 1) {
                     SelectionTableRowData item = items.remove(selected[0].intValue());
-                    items.add(items.size() - 1, item);
+                    items.add(items.size(), item);
                     return new SingleSelectionAndFocus(items.size() - 1);
                 }
             }
