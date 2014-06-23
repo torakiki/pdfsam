@@ -18,7 +18,6 @@
  */
 package org.pdfsam.configuration;
 
-import java.awt.Image;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -29,7 +28,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
-import javax.imageio.ImageIO;
 import javax.inject.Inject;
 
 import org.pdfsam.context.DefaultI18nContext;
@@ -41,7 +39,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 
 import de.jensd.fx.fontawesome.AwesomeStyle;
 
@@ -57,13 +54,6 @@ public class PdfsamConfig {
     private static final Logger LOG = LoggerFactory.getLogger(PdfsamConfig.class);
     @Inject
     private Environment env;
-
-    @Bean(name = "pdfsamLogoImage")
-    public Image getAppImage() throws IOException {
-        Resource resource = new ClassPathResource("/images/pdfsam_" + env.getProperty("pdfsam.package", "BASIC")
-                + ".png");
-        return ImageIO.read(resource.getInputStream());
-    }
 
     @Bean
     public ImageView payoff() throws IOException {
