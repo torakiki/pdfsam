@@ -103,6 +103,8 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
                 .titledPane(DefaultI18nContext.getInstance().i18n("File names settings"), prefix);
         prefix.addMenuItemFor(Prefix.CURRENTPAGE);
         prefix.addMenuItemFor(Prefix.FILENUMBER);
+        prefix.addMenuItemFor(Prefix.BOOKMARK);
+        prefix.addMenuItemFor(Prefix.BOOKMARK_STRICT);
 
         pane.getChildren().addAll(selectionPane,
                 Views.titledPane(DefaultI18nContext.getInstance().i18n("Split settings"), splitOptions),
