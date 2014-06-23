@@ -54,11 +54,11 @@ public class MergeSelectionPane extends MultipleSelectionPane<MergeParameters> {
         }
         try {
             params.ifPresent(p -> table().getItems().stream()
-                    .map(i -> new PdfMergeInput(i.toPdfFileSource(), i.toPageRangeSet())).forEach(p::addInput));
+                    .map(i -> new PdfMergeInput(i.toPdfFileSource(), i.toPageRangeSet())).forEach(i -> p.addInput(i)));
+
         } catch (ConversionException e) {
             LOG.error(e.getMessage());
             onError.accept(e.getMessage());
         }
     }
-
 }
