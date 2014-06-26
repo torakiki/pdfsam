@@ -24,6 +24,7 @@ import java.util.function.Consumer;
 
 import javafx.scene.control.RadioButton;
 
+import org.pdfsam.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
 import org.sejda.model.parameter.SimpleSplitParameters;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
 
@@ -33,7 +34,7 @@ import org.sejda.model.pdf.page.PredefinedSetOfPages;
  * @author Andrea Vacondio
  *
  */
-class PredefinedSetOfPagesRadioButton extends RadioButton implements SplitParamsCreator<SimpleSplitParameters> {
+class PredefinedSetOfPagesRadioButton extends RadioButton implements SplitParametersBuilderCreator {
 
     private PredefinedSetOfPages pages;
 
@@ -47,7 +48,36 @@ class PredefinedSetOfPagesRadioButton extends RadioButton implements SplitParams
         return pages;
     }
 
-    public SimpleSplitParameters createParams(Consumer<String> onError) {
-        return new SimpleSplitParameters(pages);
+    public SimpleSplitParametersBuilder getBuilder(Consumer<String> onError) {
+        SimpleSplitParametersBuilder builder = new SimpleSplitParametersBuilder();
+        builder.pages(pages);
+        return builder;
+    }
+
+    /**
+     * Builder for the {@link SimpleSplitParameters}
+     * 
+     * @author Andrea Vacondio
+     *
+     */
+    private static class SimpleSplitParametersBuilder extends
+            SinglePdfSourceMultipleOutputParametersBuilder<SimpleSplitParameters> {
+
+        private PredefinedSetOfPages pages;
+
+        void pages(PredefinedSetOfPages pages) {
+            this.pages = pages;
+        }
+
+        public SimpleSplitParameters build() {
+            SimpleSplitParameters params = new SimpleSplitParameters(pages);
+            params.setCompress(isCompress());
+            params.setOverwrite(isOverwrite());
+            params.setVersion(getVersion());
+            params.setOutput(getOutput());
+            params.setOutputPrefix(getPrefix());
+            params.setSource(getSource());
+            return params;
+        }
     }
 }

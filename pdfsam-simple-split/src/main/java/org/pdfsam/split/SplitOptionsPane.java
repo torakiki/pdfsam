@@ -26,6 +26,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
 import org.pdfsam.ui.commons.RadioButtonDrivenTextFieldsPane;
 import org.pdfsam.ui.support.Style;
 import org.sejda.model.parameter.AbstractSplitByPageParameters;
@@ -37,7 +38,7 @@ import org.sejda.model.pdf.page.PredefinedSetOfPages;
  * @author Andrea Vacondio
  *
  */
-class SplitOptionsPane extends VBox {
+class SplitOptionsPane extends VBox implements SplitParametersBuilderCreator {
 
     private PredefinedSetOfPagesRadioButton burst = new PredefinedSetOfPagesRadioButton(PredefinedSetOfPages.ALL_PAGES,
             DefaultI18nContext.getInstance().i18n("Burst (Split into single pages)"));
@@ -72,8 +73,9 @@ class SplitOptionsPane extends VBox {
         getChildren().addAll(simpleSplit, grid);
     }
 
-    AbstractSplitByPageParameters createParams(Consumer<String> onError) {
-        return ((SplitParamsCreator<AbstractSplitByPageParameters>) group.getSelectedToggle()).createParams(onError);
+    public SinglePdfSourceMultipleOutputParametersBuilder<? extends AbstractSplitByPageParameters> getBuilder(
+            Consumer<String> onError) {
+        return ((SplitParametersBuilderCreator) group.getSelectedToggle()).getBuilder(onError);
     }
 
 }

@@ -18,7 +18,6 @@
  */
 package org.pdfsam.ui.prefix;
 
-import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.geometry.Pos;
@@ -28,9 +27,9 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.support.TaskParametersBuildStep;
+import org.pdfsam.support.params.MultipleOutputTaskParametersBuilder;
+import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.support.Style;
-import org.sejda.model.parameter.base.SinglePdfSourceMultipleOutputParameters;
 import org.sejda.model.prefix.Prefix;
 
 /**
@@ -39,7 +38,7 @@ import org.sejda.model.prefix.Prefix;
  * @author Andrea Vacondio
  *
  */
-public class PrefixPane extends HBox implements TaskParametersBuildStep<SinglePdfSourceMultipleOutputParameters> {
+public class PrefixPane extends HBox implements TaskParametersBuildStep<MultipleOutputTaskParametersBuilder<?>> {
 
     private PrefixField field = new PrefixField();
 
@@ -60,7 +59,7 @@ public class PrefixPane extends HBox implements TaskParametersBuildStep<SinglePd
         return field.getText();
     }
 
-    public void apply(Optional<? extends SinglePdfSourceMultipleOutputParameters> params, Consumer<String> onError) {
-        params.ifPresent(p -> p.setOutputPrefix(field.getText()));
+    public void apply(MultipleOutputTaskParametersBuilder<?> builder, Consumer<String> onError) {
+        builder.prefix(getText());
     }
 }

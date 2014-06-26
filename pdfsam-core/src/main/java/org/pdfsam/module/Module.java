@@ -56,4 +56,5 @@ public interface Module {
     default RequiredPdfData[] requires() {
         return new RequiredPdfData[] { RequiredPdfData.DEFAULT };
     }
+
 }

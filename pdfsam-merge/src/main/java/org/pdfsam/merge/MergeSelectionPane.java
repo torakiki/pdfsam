@@ -18,10 +18,10 @@
  */
 package org.pdfsam.merge;
 
-import java.util.Optional;
 import java.util.function.Consumer;
 
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.selection.multiple.FileColumn;
 import org.pdfsam.ui.selection.multiple.LoadingStatusColumn;
 import org.pdfsam.ui.selection.multiple.LongColumn;
@@ -30,7 +30,6 @@ import org.pdfsam.ui.selection.multiple.SelectionTableColumn;
 import org.pdfsam.ui.selection.multiple.StringColumn;
 import org.sejda.conversion.exception.ConversionException;
 import org.sejda.model.input.PdfMergeInput;
-import org.sejda.model.parameter.MergeParameters;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,7 +39,8 @@ import org.slf4j.LoggerFactory;
  * @author Andrea Vacondio
  *
  */
-public class MergeSelectionPane extends MultipleSelectionPane<MergeParameters> {
+public class MergeSelectionPane extends MultipleSelectionPane implements
+        TaskParametersBuildStep<MergeParametersBuilder> {
     private static final Logger LOG = LoggerFactory.getLogger(MergeSelectionPane.class);
 
     public MergeSelectionPane(String ownerModule) {
@@ -48,17 +48,18 @@ public class MergeSelectionPane extends MultipleSelectionPane<MergeParameters> {
                 LongColumn.SIZE, LongColumn.PAGES, LongColumn.LAST_MODIFIED, StringColumn.PAGE_SELECTION });
     }
 
-    public void apply(Optional<? extends MergeParameters> params, Consumer<String> onError) {
-        if (table().getItems().isEmpty()) {
+    public void apply(MergeParametersBuilder builder, Consumer<String> onError) {
+        if (!table().getItems().isEmpty()) {
+            try {
+                table().getItems().stream().map(i -> new PdfMergeInput(i.toPdfFileSource(), i.toPageRangeSet()))
+                        .forEach(builder::addInput);
+            } catch (ConversionException e) {
+                LOG.error(e.getMessage());
+                onError.accept(e.getMessage());
+            }
+        } else {
             onError.accept(DefaultI18nContext.getInstance().i18n("No pdf document has been selected"));
         }
-        try {
-            params.ifPresent(p -> table().getItems().stream()
-                    .map(i -> new PdfMergeInput(i.toPdfFileSource(), i.toPageRangeSet())).forEach(i -> p.addInput(i)));
 
-        } catch (ConversionException e) {
-            LOG.error(e.getMessage());
-            onError.accept(e.getMessage());
-        }
     }
 }

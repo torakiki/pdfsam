@@ -18,7 +18,6 @@
  */
 package org.pdfsam.merge;
 
-import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.geometry.Pos;
@@ -31,10 +30,9 @@ import javafx.scene.layout.VBox;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.support.KeyStringValueItem;
-import org.pdfsam.support.TaskParametersBuildStep;
+import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.support.Style;
 import org.sejda.model.outline.OutlinePolicy;
-import org.sejda.model.parameter.MergeParameters;
 
 /**
  * Panel for the Merge options
@@ -42,7 +40,7 @@ import org.sejda.model.parameter.MergeParameters;
  * @author Andrea Vacondio
  *
  */
-class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergeParameters> {
+class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergeParametersBuilder> {
 
     private CheckBox containsForms;
     private CheckBox blankIfOdd;
@@ -76,12 +74,9 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
         getChildren().addAll(this.containsForms, this.blankIfOdd, bookmarksPolicy);
     }
 
-    public void apply(Optional<? extends MergeParameters> params, Consumer<String> onError) {
-        params.ifPresent(p -> {
-            p.setOutlinePolicy(outline.getSelectionModel().getSelectedItem().getKey());
-            p.setBlankPageIfOdd(blankIfOdd.isSelected());
-            p.setCopyFormFields(containsForms.isSelected());
-        });
-
+    public void apply(MergeParametersBuilder builder, Consumer<String> onError) {
+        builder.outlinePolicy(outline.getSelectionModel().getSelectedItem().getKey());
+        builder.blankPageIfOdd(blankIfOdd.isSelected());
+        builder.copyFormFields(containsForms.isSelected());
     }
 }

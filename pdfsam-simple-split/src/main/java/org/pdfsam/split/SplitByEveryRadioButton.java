@@ -24,6 +24,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.Tooltip;
 
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
 import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
@@ -35,8 +36,7 @@ import org.sejda.model.parameter.SplitByEveryXPagesParameters;
  * @author Andrea Vacondio
  *
  */
-public class SplitByEveryRadioButton extends RadioButton implements
-        SplitParamsCreator<SplitByEveryXPagesParameters> {
+public class SplitByEveryRadioButton extends RadioButton implements SplitParametersBuilderCreator {
 
     private final ValidableTextField field = new ValidableTextField();
 
@@ -51,18 +51,44 @@ public class SplitByEveryRadioButton extends RadioButton implements
         field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Invalid number of pages"));
     }
 
-    public SplitByEveryXPagesParameters createParams(Consumer<String> onError) {
+    public SplitByEveryXPagesParametersBuilder getBuilder(Consumer<String> onError) {
         this.field.validate();
-        if (this.field.getValidationState() == ValidationState.INVALID) {
-            onError.accept(DefaultI18nContext.getInstance().i18n("Invalid number of pages"));
-        } else {
-            return new SplitByEveryXPagesParameters(Integer.parseInt(this.field.getText()));
+        if (this.field.getValidationState() == ValidationState.VALID) {
+            return new SplitByEveryXPagesParametersBuilder(Integer.parseInt(this.field.getText()));
         }
+        onError.accept(DefaultI18nContext.getInstance().i18n("Invalid number of pages"));
         return null;
     }
 
     ValidableTextField getField() {
         return field;
+    }
+
+    /**
+     * Builder for the {@link SplitByEveryXPagesParameters}
+     * 
+     * @author Andrea Vacondio
+     *
+     */
+    private static class SplitByEveryXPagesParametersBuilder extends
+            SinglePdfSourceMultipleOutputParametersBuilder<SplitByEveryXPagesParameters> {
+
+        private int step;
+
+        SplitByEveryXPagesParametersBuilder(int step) {
+            this.step = step;
+        }
+
+        public SplitByEveryXPagesParameters build() {
+            SplitByEveryXPagesParameters params = new SplitByEveryXPagesParameters(step);
+            params.setCompress(isCompress());
+            params.setOverwrite(isOverwrite());
+            params.setVersion(getVersion());
+            params.setOutput(getOutput());
+            params.setOutputPrefix(getPrefix());
+            params.setSource(getSource());
+            return params;
+        }
     }
 
 }

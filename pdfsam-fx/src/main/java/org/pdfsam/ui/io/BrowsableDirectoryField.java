@@ -25,7 +25,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.event.ActionEvent;
@@ -34,12 +33,8 @@ import javafx.scene.input.DragEvent;
 import javafx.scene.input.TransferMode;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.support.TaskParametersBuildStep;
 import org.pdfsam.support.validation.Validator;
 import org.pdfsam.support.validation.Validators;
-import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
-import org.sejda.conversion.DirectoryOutputAdapter;
-import org.sejda.model.parameter.base.MultipleOutputTaskParameters;
 
 /**
  * Component letting the user select an existing directory
@@ -47,8 +42,7 @@ import org.sejda.model.parameter.base.MultipleOutputTaskParameters;
  * @author Andrea Vacondio
  * 
  */
-public class BrowsableDirectoryField extends BrowsableField implements
-        TaskParametersBuildStep<MultipleOutputTaskParameters> {
+public class BrowsableDirectoryField extends BrowsableField {
 
     private BrowseEventHandler handler = new BrowseEventHandler();
 
@@ -120,15 +114,5 @@ public class BrowsableDirectoryField extends BrowsableField implements
             e.getDragboard().getFiles().stream().filter(f -> f.isDirectory()).findFirst()
                     .ifPresent((file) -> setTextFromFile(file));
         };
-    }
-
-    public void apply(Optional<? extends MultipleOutputTaskParameters> params, Consumer<String> onError) {
-        getTextField().validate();
-        if (getTextField().getValidationState() == ValidationState.INVALID) {
-            onError.accept(DefaultI18nContext.getInstance().i18n("The selected output directory is invalid"));
-        } else {
-            params.ifPresent(p -> p.setOutput(new DirectoryOutputAdapter(getTextField().getText())
-                    .getPdfDirectoryOutput()));
-        }
     }
 }

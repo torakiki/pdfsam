@@ -20,7 +20,6 @@ package org.pdfsam.splitbybookmarks;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
-import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.geometry.Pos;
@@ -31,9 +30,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.support.TaskParametersBuildStep;
+import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.support.Style;
-import org.sejda.model.parameter.SplitByGoToActionLevelParameters;
 
 /**
  * Panel for the Split options
@@ -41,7 +39,7 @@ import org.sejda.model.parameter.SplitByGoToActionLevelParameters;
  * @author Andrea Vacondio
  *
  */
-class SplitOptionsPane extends VBox implements TaskParametersBuildStep<SplitByGoToActionLevelParameters> {
+class SplitOptionsPane extends VBox implements TaskParametersBuildStep<SplitByGoToActionLevelParametersBuilder> {
 
     private BookmarksLevelComboBox levelCombo = new BookmarksLevelComboBox();
     private TextField regexpField = new TextField();
@@ -62,10 +60,6 @@ class SplitOptionsPane extends VBox implements TaskParametersBuildStep<SplitByGo
         levelCombo.setMaxBookmarkLevel(max);
     }
 
-    SplitByGoToActionLevelParameters createParams(Consumer<String> onError) {
-        return levelCombo.createParams(onError);
-    }
-
     private HBox createLine(Node... items) {
         HBox item = new HBox(5, items);
         item.setAlignment(Pos.BOTTOM_LEFT);
@@ -73,9 +67,10 @@ class SplitOptionsPane extends VBox implements TaskParametersBuildStep<SplitByGo
         return item;
     }
 
-    public void apply(Optional<? extends SplitByGoToActionLevelParameters> params, Consumer<String> onError) {
+    public void apply(SplitByGoToActionLevelParametersBuilder builder, Consumer<String> onError) {
+        levelCombo.apply(builder, onError);
         if (isNotBlank(regexpField.getText())) {
-            params.ifPresent(p -> p.setMatchingTitleRegEx(regexpField.getText()));
+            builder.regexp(regexpField.getText());
         }
     }
 }

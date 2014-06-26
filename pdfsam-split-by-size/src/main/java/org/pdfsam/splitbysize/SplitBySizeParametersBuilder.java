@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 08/apr/2014
+ * Created on 26/giu/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,34 +18,31 @@
  */
 package org.pdfsam.splitbysize;
 
-import java.util.function.Consumer;
-
-import javafx.geometry.Pos;
-import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-
-import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.support.params.TaskParametersBuildStep;
-import org.pdfsam.ui.support.Style;
+import org.pdfsam.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
+import org.sejda.model.parameter.SplitBySizeParameters;
 
 /**
- * Panel for the Split options
+ * Builder for {@link SplitBySizeParameters}
  * 
  * @author Andrea Vacondio
  *
  */
-class SplitOptionsPane extends HBox implements TaskParametersBuildStep<SplitBySizeParametersBuilder> {
+class SplitBySizeParametersBuilder extends SinglePdfSourceMultipleOutputParametersBuilder<SplitBySizeParameters> {
 
-    private SizeComboBox sizeCombo = new SizeComboBox();
+    private long size;
 
-    SplitOptionsPane() {
-        super(5);
-        getStyleClass().addAll(Style.CONTAINER.css());
-        setAlignment(Pos.BOTTOM_LEFT);
-        getChildren().addAll(new Label(DefaultI18nContext.getInstance().i18n("Split at this size:")), sizeCombo);
+    void size(long size) {
+        this.size = size;
     }
 
-    public void apply(SplitBySizeParametersBuilder builder, Consumer<String> onError) {
-        sizeCombo.apply(builder, onError);
+    public SplitBySizeParameters build() {
+        SplitBySizeParameters params = new SplitBySizeParameters(size);
+        params.setCompress(isCompress());
+        params.setOverwrite(isOverwrite());
+        params.setVersion(getVersion());
+        params.setOutput(getOutput());
+        params.setOutputPrefix(getPrefix());
+        params.setSource(getSource());
+        return params;
     }
 }

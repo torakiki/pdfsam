@@ -20,7 +20,6 @@ package org.pdfsam.merge;
 
 import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
 
-import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.geometry.Pos;
@@ -40,8 +39,6 @@ import org.pdfsam.ui.io.BrowsablePdfOutputField;
 import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.pdfsam.ui.support.Views;
-import org.sejda.model.parameter.MergeParameters;
-import org.sejda.model.parameter.base.TaskParameters;
 
 /**
  * Merge module to let the user merge together multiple pdf documents
@@ -78,13 +75,13 @@ public class MergeModule extends BaseTaskExecutionModule {
     }
 
     @Override
-    protected TaskParameters buildParameters(Consumer<String> onError) {
-        Optional<MergeParameters> params = Optional.of(new MergeParameters());
-        selectionPane.apply(params, onError);
-        mergeOptions.apply(params, onError);
-        destinationFileField.apply(params, onError);
-        destinationPane.apply(params, onError);
-        return params.orElse(null);
+    protected MergeParametersBuilder getBuilder(Consumer<String> onError) {
+        MergeParametersBuilder builder = new MergeParametersBuilder();
+        selectionPane.apply(builder, onError);
+        mergeOptions.apply(builder, onError);
+        destinationFileField.apply(builder, onError);
+        destinationPane.apply(builder, onError);
+        return builder;
     }
 
     @Override

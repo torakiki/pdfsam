@@ -28,11 +28,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Tooltip;
 
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.support.FXValidationSupport;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
-import org.sejda.model.parameter.SplitBySizeParameters;
 
 /**
  * Combo box letting the user specify the filesize in the split by size task
@@ -40,7 +40,7 @@ import org.sejda.model.parameter.SplitBySizeParameters;
  * @author Andrea Vacondio
  *
  */
-class SizeComboBox extends ComboBox<String> {
+class SizeComboBox extends ComboBox<String> implements TaskParametersBuildStep<SplitBySizeParametersBuilder> {
     private static final String REGEXP = "(?i)^(\\d+)(\\s*)([KB||MB]*)";
     private static final Pattern PATTERN = Pattern.compile(REGEXP);
 
@@ -81,7 +81,7 @@ class SizeComboBox extends ComboBox<String> {
         validationSupport.validate(getSelectionModel().getSelectedItem());
     }
 
-    SplitBySizeParameters createParams(Consumer<String> onError) {
+    public void apply(SplitBySizeParametersBuilder builder, Consumer<String> onError) {
         this.validate();
         if (validationSupport.validationStateProperty().get() == ValidationState.VALID) {
             Matcher matcher = PATTERN.matcher(getSelectionModel().getSelectedItem());
@@ -93,11 +93,10 @@ class SizeComboBox extends ComboBox<String> {
                 } else if ("MB".equalsIgnoreCase(unit)) {
                     value = value.multiply(new BigDecimal(1024 * 1024));
                 }
-                return new SplitBySizeParameters(value.longValue());
+                builder.size(value.longValue());
             }
+        } else {
+            onError.accept(DefaultI18nContext.getInstance().i18n("Invalid split size"));
         }
-        onError.accept(DefaultI18nContext.getInstance().i18n("Invalid split size"));
-        return null;
-
     }
 }

@@ -24,7 +24,6 @@ import javafx.scene.layout.BorderPane;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.module.ModuleOwned;
-import org.pdfsam.support.TaskParametersBuildStep;
 import org.sejda.model.parameter.base.TaskParameters;
 
 /**
@@ -32,11 +31,8 @@ import org.sejda.model.parameter.base.TaskParameters;
  * process
  * 
  * @author Andrea Vacondio
- * @param <T>
- *            the {@link TaskParameters} that this selection panel produces
  */
-public abstract class MultipleSelectionPane<T extends TaskParameters> extends BorderPane implements ModuleOwned,
-        TaskParametersBuildStep<T> {
+public abstract class MultipleSelectionPane extends BorderPane implements ModuleOwned {
 
     private String ownerModule = StringUtils.EMPTY;
     private SelectionTable table;

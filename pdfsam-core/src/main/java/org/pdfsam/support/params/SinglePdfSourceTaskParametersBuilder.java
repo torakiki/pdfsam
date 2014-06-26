@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 10/apr/2014
+ * Created on 26/giu/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,29 +16,19 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.support;
+package org.pdfsam.support.params;
 
-import java.util.Optional;
-import java.util.function.Consumer;
-
-import org.sejda.model.parameter.base.TaskParameters;
+import org.apache.commons.lang3.builder.Builder;
+import org.sejda.model.input.PdfFileSource;
+import org.sejda.model.parameter.base.SinglePdfSourceTaskParameters;
 
 /**
- * A step in the process of building the task parameters
+ * Builder for a SinglePdfSourceTaskParameters
  * 
  * @author Andrea Vacondio
- * @param <T>
- *            type of the {@link TaskParameters} we are building
+ * @param <P>
+ *            the type of parameters
  */
-public interface TaskParametersBuildStep<T extends TaskParameters> {
-
-    /**
-     * Applies changes to the input parameters and calls the provided consumer in case of error.
-     * 
-     * @param params
-     *            parameters the builder will apply its changes to.
-     * @param onError
-     *            function to call in case of error where the error message is supplied
-     */
-    void apply(Optional<? extends T> params, Consumer<String> onError);
+public interface SinglePdfSourceTaskParametersBuilder<P extends SinglePdfSourceTaskParameters> extends Builder<P> {
+    void source(PdfFileSource source);
 }

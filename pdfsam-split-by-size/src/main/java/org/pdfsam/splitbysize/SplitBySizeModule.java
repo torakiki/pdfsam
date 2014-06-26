@@ -20,7 +20,6 @@ package org.pdfsam.splitbysize;
 
 import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
 
-import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.geometry.Pos;
@@ -30,19 +29,19 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
+import org.apache.commons.lang3.builder.Builder;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.ModulePriority;
 import org.pdfsam.module.PdfsamModule;
-import org.pdfsam.ui.io.BrowsableDirectoryField;
+import org.pdfsam.ui.io.BrowsableOutputDirectoryField;
 import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.pdfsam.ui.prefix.PrefixPane;
-import org.pdfsam.ui.selection.single.SingleSelectionPane;
+import org.pdfsam.ui.selection.single.TaskParametersBuilderSingleSelectionPane;
 import org.pdfsam.ui.support.Views;
 import org.sejda.model.parameter.SplitBySizeParameters;
-import org.sejda.model.parameter.base.TaskParameters;
 import org.sejda.model.prefix.Prefix;
 
 /**
@@ -56,8 +55,8 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
 
     private static final String SPLIT_MODULE_ID = "split.bysize";
 
-    private SingleSelectionPane<SplitBySizeParameters> selectionPane;
-    private BrowsableDirectoryField destinationDirectoryField = new BrowsableDirectoryField(false);
+    private TaskParametersBuilderSingleSelectionPane selectionPane;
+    private BrowsableOutputDirectoryField destinationDirectoryField = new BrowsableOutputDirectoryField(false);
     private SplitOptionsPane splitOptions = new SplitOptionsPane();
     private PdfDestinationPane destinationPane;
     private PrefixPane prefix = new PrefixPane();
@@ -69,7 +68,9 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
             .priority(ModulePriority.LOW.getPriority()).supportURL("http://www.pdfsam.org/split-by-size").build();
 
     public SplitBySizeModule() {
-        this.selectionPane = new SingleSelectionPane<>(id());
+        this.selectionPane = new TaskParametersBuilderSingleSelectionPane(id());
+        this.selectionPane.setPromptText(DefaultI18nContext.getInstance().i18n(
+                "Select or drag and drop the PDF you want to split"));
         this.destinationPane = new PdfDestinationPane(destinationDirectoryField, id());
         this.destinationPane.enableSameAsSourceItem();
     }
@@ -80,13 +81,14 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
     }
 
     @Override
-    protected TaskParameters buildParameters(Consumer<String> onError) {
-        Optional<SplitBySizeParameters> params = Optional.ofNullable(splitOptions.createParams(onError));
-        selectionPane.apply(params, onError);
-        destinationDirectoryField.apply(params, onError);
-        destinationPane.apply(params, onError);
-        prefix.apply(params, onError);
-        return params.orElse(null);
+    protected Builder<SplitBySizeParameters> getBuilder(Consumer<String> onError) {
+        SplitBySizeParametersBuilder builder = new SplitBySizeParametersBuilder();
+        splitOptions.apply(builder, onError);
+        selectionPane.apply(builder, onError);
+        destinationDirectoryField.apply(builder, onError);
+        destinationPane.apply(builder, onError);
+        prefix.apply(builder, onError);
+        return builder;
     }
 
     @Override

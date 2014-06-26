@@ -24,7 +24,6 @@ import static org.pdfsam.ui.event.SetDestinationRequest.requestFallbackDestinati
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
-import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.application.Platform;
@@ -47,7 +46,6 @@ import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfDocumentDescriptorProvider;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
-import org.pdfsam.support.TaskParametersBuildStep;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.event.OpenFileRequest;
 import org.pdfsam.ui.event.ShowPdfDescriptorRequest;
@@ -55,7 +53,6 @@ import org.pdfsam.ui.io.BrowsableFileField;
 import org.pdfsam.ui.io.ChangedSelectedPdfVersionEvent;
 import org.pdfsam.ui.selection.LoadingStatusIndicator;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
-import org.sejda.model.parameter.base.SinglePdfSourceTaskParameters;
 
 import de.jensd.fx.fontawesome.AwesomeDude;
 import de.jensd.fx.fontawesome.AwesomeIcon;
@@ -66,8 +63,7 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
  * @author Andrea Vacondio
  *
  */
-public class SingleSelectionPane<T extends SinglePdfSourceTaskParameters> extends VBox implements ModuleOwned,
-        TaskParametersBuildStep<T>, PdfDocumentDescriptorProvider {
+public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumentDescriptorProvider {
 
     private String ownerModule = StringUtils.EMPTY;
     private BrowsableFileField field = new BrowsableFileField(FileType.PDF);
@@ -98,8 +94,6 @@ public class SingleSelectionPane<T extends SinglePdfSourceTaskParameters> extend
         super(5);
         this.ownerModule = defaultString(ownerModule);
         field.enforceValidation(true, false);
-        field.getTextField().setPromptText(
-                DefaultI18nContext.getInstance().i18n("Select or drag and drop the PDF you want to split"));
         encryptionIndicator = new LoadingStatusIndicator(this, this.ownerModule);
         field.setGraphic(encryptionIndicator);
         HBox.setMargin(encryptionIndicator, new Insets(0, 0, 0, 2));
@@ -124,6 +118,10 @@ public class SingleSelectionPane<T extends SinglePdfSourceTaskParameters> extend
         initContextMenu();
     }
 
+    BrowsableFileField getField() {
+        return field;
+    }
+
     /**
      * to perform when the document is loaded
      * 
@@ -131,15 +129,6 @@ public class SingleSelectionPane<T extends SinglePdfSourceTaskParameters> extend
      */
     public void addOnLoaded(Consumer<PdfDocumentDescriptor> onDescriptorLoaded) {
         this.onLoaded = onDescriptorLoaded.andThen(this.onLoaded);
-    }
-
-    public void apply(Optional<? extends T> params, Consumer<String> onError) {
-        field.getTextField().validate();
-        if (field.getTextField().getValidationState() == ValidationState.INVALID) {
-            onError.accept(DefaultI18nContext.getInstance().i18n("The selected PDF document is invalid"));
-        } else {
-            params.ifPresent(p -> p.setSource(descriptor.toPdfFileSource()));
-        }
     }
 
     private void initContextMenu() {
@@ -183,5 +172,9 @@ public class SingleSelectionPane<T extends SinglePdfSourceTaskParameters> extend
 
     public PdfDocumentDescriptor getPdfDocumentDescriptor() {
         return descriptor;
+    }
+
+    public void setPromptText(String text) {
+        field.getTextField().setPromptText(text);
     }
 }

@@ -29,6 +29,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.apache.commons.lang3.builder.Builder;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.TaskExecutionRequestEvent;
@@ -60,13 +61,13 @@ public abstract class BaseTaskExecutionModule implements Module {
         footer.runButton().setOnAction(
                 event -> {
                     ErrorTracker errorTracker = new ErrorTracker();
-                    TaskParameters params = buildParameters(errorTracker.andThen(s -> {
+                    Builder<? extends TaskParameters> builder = getBuilder(errorTracker.andThen(s -> {
                         eventStudio().broadcast(
                                 new AddNotificationRequestEvent(NotificationType.ERROR, s, DefaultI18nContext
                                         .getInstance().i18n("Invalid parameters")));
                     }));
                     if (!errorTracker.errorOnBuild) {
-                        eventStudio().broadcast(new TaskExecutionRequestEvent(id(), params));
+                        eventStudio().broadcast(new TaskExecutionRequestEvent(id(), builder.build()));
                     }
                 });
         modulePanel.setBottom(footer);
@@ -85,9 +86,9 @@ public abstract class BaseTaskExecutionModule implements Module {
     /**
      * @param onError
      *            function to be called in case of error while building the task parameters
-     * @return parameters to be used to perform a pdf manipulation
+     * @return a {@link Builder} for the parameters to be used to perform a pdf manipulation
      */
-    protected abstract TaskParameters buildParameters(Consumer<String> onError);
+    protected abstract Builder<? extends TaskParameters> getBuilder(Consumer<String> onError);
 
     public Pane modulePanel() {
         return modulePanel;

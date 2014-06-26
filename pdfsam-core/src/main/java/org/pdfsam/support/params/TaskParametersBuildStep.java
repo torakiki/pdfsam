@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 08/apr/2014
+ * Created on 10/apr/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,36 +16,30 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.splitbysize;
+package org.pdfsam.support.params;
 
 import java.util.function.Consumer;
 
-import javafx.geometry.Pos;
-import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-
-import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.support.params.TaskParametersBuildStep;
-import org.pdfsam.ui.support.Style;
+import org.apache.commons.lang3.builder.Builder;
+import org.sejda.model.parameter.base.TaskParameters;
 
 /**
- * Panel for the Split options
+ * A step in the process of building the task parameters
  * 
  * @author Andrea Vacondio
- *
+ * @param <B>
+ *            type of the builder for the {@link TaskParameters} we are building
  */
-class SplitOptionsPane extends HBox implements TaskParametersBuildStep<SplitBySizeParametersBuilder> {
+@FunctionalInterface
+public interface TaskParametersBuildStep<B extends Builder<? extends TaskParameters>> {
 
-    private SizeComboBox sizeCombo = new SizeComboBox();
-
-    SplitOptionsPane() {
-        super(5);
-        getStyleClass().addAll(Style.CONTAINER.css());
-        setAlignment(Pos.BOTTOM_LEFT);
-        getChildren().addAll(new Label(DefaultI18nContext.getInstance().i18n("Split at this size:")), sizeCombo);
-    }
-
-    public void apply(SplitBySizeParametersBuilder builder, Consumer<String> onError) {
-        sizeCombo.apply(builder, onError);
-    }
+    /**
+     * Applies changes to the input parameters and calls the provided consumer in case of error.
+     * 
+     * @param builder
+     *            parameters the builder will apply its changes to.
+     * @param onError
+     *            function to call in case of error where the error message is supplied
+     */
+    void apply(B builder, Consumer<String> onError);
 }

@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 16/mag/2014
+ * Created on 26/giu/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,31 +21,33 @@ package org.pdfsam.ui.io;
 import java.util.function.Consumer;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.support.io.FileType;
-import org.pdfsam.support.params.SingleOutputTaskParametersBuilder;
+import org.pdfsam.support.params.MultipleOutputTaskParametersBuilder;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
-import org.sejda.conversion.FileOutputAdapter;
-import org.sejda.model.parameter.base.SingleOutputTaskParameters;
+import org.sejda.conversion.DirectoryOutputAdapter;
+import org.sejda.model.parameter.base.MultipleOutputTaskParameters;
 
 /**
- * A {@link BrowsableFileField} letting the user select a PDF document as output for a {@link SingleOutputTaskParameters}.
+ * A {@link BrowsableDirectoryField} letting the user select a directory as output for a {@link MultipleOutputTaskParametersBuilder}.
  * 
  * @author Andrea Vacondio
  *
  */
-public class BrowsablePdfOutputField extends BrowsableFileField implements
-        TaskParametersBuildStep<SingleOutputTaskParametersBuilder<?>> {
-    public BrowsablePdfOutputField() {
-        super(FileType.PDF);
+public class BrowsableOutputDirectoryField extends BrowsableDirectoryField implements
+        TaskParametersBuildStep<MultipleOutputTaskParametersBuilder<?>> {
+
+    public BrowsableOutputDirectoryField(boolean allowBlankString) {
+        super(allowBlankString);
     }
 
-    public void apply(SingleOutputTaskParametersBuilder<?> builder, Consumer<String> onError) {
+    @Override
+    public void apply(MultipleOutputTaskParametersBuilder<? extends MultipleOutputTaskParameters> builder,
+            Consumer<String> onError) {
         getTextField().validate();
         if (getTextField().getValidationState() == ValidationState.VALID) {
-            builder.output(new FileOutputAdapter(getTextField().getText()).getFileOutput());
+            builder.output(new DirectoryOutputAdapter(getTextField().getText()).getPdfDirectoryOutput());
         } else {
-            onError.accept(DefaultI18nContext.getInstance().i18n("The selected PDF file is invalid"));
+            onError.accept(DefaultI18nContext.getInstance().i18n("The selected output directory is invalid"));
         }
     }
 

@@ -25,11 +25,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Tooltip;
 
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.support.FXValidationSupport;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
-import org.sejda.model.parameter.SplitByGoToActionLevelParameters;
 
 /**
  * Combo box letting the user specify the filesize in the split by size task
@@ -37,7 +37,8 @@ import org.sejda.model.parameter.SplitByGoToActionLevelParameters;
  * @author Andrea Vacondio
  *
  */
-class BookmarksLevelComboBox extends ComboBox<String> {
+class BookmarksLevelComboBox extends ComboBox<String> implements
+        TaskParametersBuildStep<SplitByGoToActionLevelParametersBuilder> {
     private final FXValidationSupport<String> validationSupport = new FXValidationSupport<>();
 
     BookmarksLevelComboBox() {
@@ -84,13 +85,12 @@ class BookmarksLevelComboBox extends ComboBox<String> {
         validationSupport.validate(getSelectionModel().getSelectedItem());
     }
 
-    SplitByGoToActionLevelParameters createParams(Consumer<String> onError) {
+    public void apply(SplitByGoToActionLevelParametersBuilder builder, Consumer<String> onError) {
         this.validate();
         if (validationSupport.validationStateProperty().get() == ValidationState.VALID) {
-            return new SplitByGoToActionLevelParameters(Integer.parseInt(getSelectionModel().getSelectedItem()));
+            builder.level(Integer.parseInt(getSelectionModel().getSelectedItem()));
+        } else {
+            onError.accept(DefaultI18nContext.getInstance().i18n("Invalid bookmarks level"));
         }
-        onError.accept(DefaultI18nContext.getInstance().i18n("Invalid bookmarks level"));
-        return null;
-
     }
 }

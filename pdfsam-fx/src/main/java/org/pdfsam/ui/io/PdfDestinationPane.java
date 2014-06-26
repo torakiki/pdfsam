@@ -22,7 +22,6 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
-import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.geometry.Pos;
@@ -32,7 +31,8 @@ import javafx.scene.layout.HBox;
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
-import org.pdfsam.support.TaskParametersBuildStep;
+import org.pdfsam.support.params.AbstractPdfOutputParametersBuilder;
+import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.event.SetDestinationRequest;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
@@ -47,7 +47,7 @@ import org.sejda.model.pdf.PdfVersion;
  * 
  */
 public class PdfDestinationPane extends DestinationPane implements ModuleOwned,
-        TaskParametersBuildStep<AbstractPdfOutputParameters> {
+        TaskParametersBuildStep<AbstractPdfOutputParametersBuilder<? extends AbstractPdfOutputParameters>> {
 
     private PdfVersionCombo version;
     private PdfVersionConstrainedCheckBox compress;
@@ -82,11 +82,10 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned,
         }
     }
 
-    public void apply(Optional<? extends AbstractPdfOutputParameters> params, Consumer<String> onError) {
-        params.ifPresent(p -> {
-            p.setCompress(compress.isSelected());
-            p.setOverwrite(overwrite().isSelected());
-            p.setVersion(version.getSelectionModel().getSelectedItem().getVersion());
-        });
+    public void apply(AbstractPdfOutputParametersBuilder<? extends AbstractPdfOutputParameters> builder,
+            Consumer<String> onError) {
+        builder.compress(compress.isSelected());
+        builder.overwrite(overwrite().isSelected());
+        builder.version(version.getSelectionModel().getSelectedItem().getVersion());
     }
 }

@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 16/mag/2014
+ * Created on 23/giu/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,38 +16,36 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.io;
+package org.pdfsam.ui.selection.single;
 
 import java.util.function.Consumer;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.support.io.FileType;
 import org.pdfsam.support.params.SinglePdfSourceTaskParametersBuilder;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
-import org.sejda.conversion.PdfFileSourceAdapter;
 import org.sejda.model.parameter.base.SinglePdfSourceTaskParameters;
 
 /**
- * A {@link BrowsableFileField} letting the user select a PDF document as input for a {@link SinglePdfSourceTaskParameters}.
+ * {@link SingleSelectionPane} capable of participating as a {@link TaskParametersBuildStep} to a {@link SinglePdfSourceTaskParameters} build process.
  * 
  * @author Andrea Vacondio
  *
  */
-public class BrowsablePdfInputField extends BrowsableFileField implements
-        TaskParametersBuildStep<SinglePdfSourceTaskParametersBuilder<?>> {
+public class TaskParametersBuilderSingleSelectionPane extends SingleSelectionPane implements
+        TaskParametersBuildStep<SinglePdfSourceTaskParametersBuilder<? extends SinglePdfSourceTaskParameters>> {
 
-    public BrowsablePdfInputField() {
-        super(FileType.PDF);
+    public TaskParametersBuilderSingleSelectionPane(String ownerModule) {
+        super(ownerModule);
     }
 
-    public void apply(SinglePdfSourceTaskParametersBuilder<?> builder, Consumer<String> onError) {
-        getTextField().validate();
-        if (getTextField().getValidationState() == ValidationState.VALID) {
-            builder.source(new PdfFileSourceAdapter(getTextField().getText()).getPdfFileSource());
+    public void apply(SinglePdfSourceTaskParametersBuilder<? extends SinglePdfSourceTaskParameters> builder,
+            Consumer<String> onError) {
+        getField().getTextField().validate();
+        if (getField().getTextField().getValidationState() == ValidationState.VALID) {
+            builder.source(getPdfDocumentDescriptor().toPdfFileSource());
         } else {
-            onError.accept(DefaultI18nContext.getInstance().i18n("The selected PDF file is invalid"));
+            onError.accept(DefaultI18nContext.getInstance().i18n("The selected PDF document is invalid"));
         }
-
     }
 }

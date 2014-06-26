@@ -18,12 +18,14 @@
  */
 package org.pdfsam.split;
 
+import java.util.List;
 import java.util.function.Consumer;
 
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Tooltip;
 
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
 import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
@@ -36,7 +38,7 @@ import org.sejda.model.parameter.SplitByPagesParameters;
  * @author Andrea Vacondio
  *
  */
-class SplitAfterRadioButton extends RadioButton implements SplitParamsCreator<SplitByPagesParameters> {
+class SplitAfterRadioButton extends RadioButton implements SplitParametersBuilderCreator {
 
     private final ValidableTextField field = new ValidableTextField();
 
@@ -50,20 +52,45 @@ class SplitAfterRadioButton extends RadioButton implements SplitParamsCreator<Sp
         field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Invalid page numbers"));
     }
 
-    public SplitByPagesParameters createParams(Consumer<String> onError) {
-        this.field.validate();
-        if (this.field.getValidationState() == ValidationState.INVALID) {
-            onError.accept(DefaultI18nContext.getInstance().i18n("Invalid page numbers"));
-        } else {
-            SplitByPagesParameters params = new SplitByPagesParameters();
-            params.addPages(new PageNumbersListAdapter(this.field.getText()).getPageNumbers());
-            return params;
-        }
-        return null;
-    }
-
     ValidableTextField getField() {
         return field;
     }
 
+    public SplitByPageParametersBuilder getBuilder(Consumer<String> onError) {
+        this.field.validate();
+        if (this.field.getValidationState() == ValidationState.VALID) {
+            return new SplitByPageParametersBuilder(new PageNumbersListAdapter(this.field.getText()).getPageNumbers());
+
+        }
+        onError.accept(DefaultI18nContext.getInstance().i18n("Invalid page numbers"));
+        return null;
+    }
+
+    /**
+     * Builder for the {@link SplitByPagesParameters}
+     * 
+     * @author Andrea Vacondio
+     *
+     */
+    private static class SplitByPageParametersBuilder extends
+            SinglePdfSourceMultipleOutputParametersBuilder<SplitByPagesParameters> {
+
+        private List<Integer> pages;
+
+        SplitByPageParametersBuilder(List<Integer> pages) {
+            this.pages = pages;
+        }
+
+        public SplitByPagesParameters build() {
+            SplitByPagesParameters params = new SplitByPagesParameters();
+            params.addPages(pages);
+            params.setCompress(isCompress());
+            params.setOverwrite(isOverwrite());
+            params.setVersion(getVersion());
+            params.setOutput(getOutput());
+            params.setOutputPrefix(getPrefix());
+            params.setSource(getSource());
+            return params;
+        }
+    }
 }

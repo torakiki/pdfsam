@@ -20,16 +20,16 @@ package org.pdfsam.split;
 
 import java.util.function.Consumer;
 
+import org.pdfsam.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
 import org.sejda.model.parameter.AbstractSplitByPageParameters;
 
 /**
- * Component capable of creating {@link AbstractSplitByPageParameters}
+ * Component capable of creating a builder for {@link AbstractSplitByPageParameters}
  * 
  * @author Andrea Vacondio
- * @param <T>
- *            AbstractSplitByPageParameters created by this creator
  */
-interface SplitParamsCreator<T extends AbstractSplitByPageParameters> {
+interface SplitParametersBuilderCreator {
 
-    T createParams(Consumer<String> onError);
+    SinglePdfSourceMultipleOutputParametersBuilder<? extends AbstractSplitByPageParameters> getBuilder(
+            Consumer<String> onError);
 }
