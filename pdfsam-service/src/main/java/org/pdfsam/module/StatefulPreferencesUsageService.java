@@ -92,10 +92,15 @@ class StatefulPreferencesUsageService implements UsageService {
     public void clear() {
         try {
             prefs.clear();
+            modules.values().parallelStream().forEach(u -> {
+                u.lastSeen = 0;
+                u.totalUsed = 0;
+            });
         } catch (BackingStoreException e) {
             LOG.error("Unable to clear modules usage statistics", e);
         }
     }
+
     /**
      * flush to the persistence backing store the current state of the usage
      */
