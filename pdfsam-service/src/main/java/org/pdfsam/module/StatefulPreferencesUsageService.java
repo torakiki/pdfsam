@@ -74,7 +74,7 @@ class StatefulPreferencesUsageService implements UsageService {
         List<ModuleUsage> used = modules.values().parallelStream().collect(toList());
         used.sort((a, b) -> {
             if (a.totalUsed == 0 && b.totalUsed == 0) {
-                return Integer.compare(b.module.descriptor().getPriority(), a.module.descriptor().getPriority());
+                return Integer.compare(a.module.descriptor().getPriority(), b.module.descriptor().getPriority());
             }
             return Long.compare(b.totalUsed, a.totalUsed);
         });
