@@ -61,6 +61,11 @@ public final class DefaultUserContext implements UserContext {
     }
 
     @Override
+    public boolean isUseSmartOutput() {
+        return prefs.getBoolean(BooleanUserPreference.SMART_OUTPUT.toString(), Boolean.TRUE);
+    }
+
+    @Override
     public int getThumbnailsSize() {
         return prefs.getInt(IntUserPreference.THUMBNAILS_SIZE.toString(), 190);
     }

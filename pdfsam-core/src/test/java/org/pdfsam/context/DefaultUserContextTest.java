@@ -37,8 +37,14 @@ public class DefaultUserContextTest {
 
     @Test
     public void isCheckUpdates() {
-        DefaultUserContext.getInstance().setBooleanPreference(BooleanUserPreference.CHECK_UPDATES, false);
-        Assert.assertFalse(DefaultUserContext.getInstance().isCheckForUpdates());
+        DefaultUserContext.getInstance().setBooleanPreference(BooleanUserPreference.CHECK_UPDATES, true);
+        Assert.assertTrue(DefaultUserContext.getInstance().isCheckForUpdates());
+    }
+
+    @Test
+    public void isUseSmartOutput() {
+        DefaultUserContext.getInstance().setBooleanPreference(BooleanUserPreference.SMART_OUTPUT, true);
+        Assert.assertFalse(DefaultUserContext.getInstance().isUseSmartOutput());
     }
 
     @Test

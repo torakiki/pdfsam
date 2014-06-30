@@ -45,6 +45,8 @@ public class PreferencePane extends HBox {
     @Inject
     private PreferenceWorkspacePane workspace;
     @Inject
+    private PreferenceOutputPane output;
+    @Inject
     private PreferenceThumbnailsPane thumbnails;
 
     public PreferencePane() {
@@ -63,6 +65,8 @@ public class PreferencePane extends HBox {
         right.getChildren().add(behavior);
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Workspace"), right);
         right.getChildren().add(workspace);
+        addSectionTitle(DefaultI18nContext.getInstance().i18n("Output"), right);
+        right.getChildren().add(output);
         getChildren().addAll(left, right);
     }
 

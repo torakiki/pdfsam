@@ -37,6 +37,11 @@ public interface UserContext {
     String getDefaultWorkingPath();
 
     /**
+     * @return true if modules should set the output file/folder as the file/folder of the selected input PDF
+     */
+    boolean isUseSmartOutput();
+
+    /**
      * @return true if sounds should played
      */
     boolean isPlaySounds();

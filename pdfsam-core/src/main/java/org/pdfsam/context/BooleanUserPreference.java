@@ -28,5 +28,6 @@ public enum BooleanUserPreference {
     ASK_OVERWRITE_CONFIRMATION,
     CHECK_UPDATES,
     PLAY_SOUNDS,
-    HIGH_QUALITY_THUMB;
+    HIGH_QUALITY_THUMB,
+    SMART_OUTPUT;
 }

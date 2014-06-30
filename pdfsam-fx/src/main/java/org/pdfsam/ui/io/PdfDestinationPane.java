@@ -29,6 +29,7 @@ import javafx.scene.layout.HBox;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.support.params.AbstractPdfOutputParametersBuilder;
 import org.pdfsam.support.params.TaskParametersBuildStep;
@@ -76,7 +77,9 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned,
 
     @EventListener
     public void setDestination(SetDestinationRequest event) {
-        if (!event.isFallback() || isBlank(destination().getTextField().getText())) {
+        if (!event.isFallback()
+                || (isBlank(destination().getTextField().getText()) && DefaultUserContext.getInstance()
+                        .isUseSmartOutput())) {
             destination().setTextFromFile(event.getFootprint());
         }
     }
