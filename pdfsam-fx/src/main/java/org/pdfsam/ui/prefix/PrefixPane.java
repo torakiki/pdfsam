@@ -20,7 +20,6 @@ package org.pdfsam.ui.prefix;
 
 import java.util.function.Consumer;
 
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -43,10 +42,9 @@ public class PrefixPane extends HBox implements TaskParametersBuildStep<Multiple
     private PrefixField field = new PrefixField();
 
     public PrefixPane() {
-        super(5);
         getStyleClass().addAll(Style.CONTAINER.css());
+        getStyleClass().addAll(Style.HCONTAINER.css());
         VBox.setVgrow(field, Priority.ALWAYS);
-        setAlignment(Pos.BOTTOM_LEFT);
         getChildren().addAll(new Label(DefaultI18nContext.getInstance().i18n("Generated pdf documents name prefix:")),
                 field);
     }

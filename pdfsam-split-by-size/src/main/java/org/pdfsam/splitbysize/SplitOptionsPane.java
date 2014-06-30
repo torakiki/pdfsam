@@ -20,7 +20,6 @@ package org.pdfsam.splitbysize;
 
 import java.util.function.Consumer;
 
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 
@@ -39,9 +38,8 @@ class SplitOptionsPane extends HBox implements TaskParametersBuildStep<SplitBySi
     private SizeComboBox sizeCombo = new SizeComboBox();
 
     SplitOptionsPane() {
-        super(5);
         getStyleClass().addAll(Style.CONTAINER.css());
-        setAlignment(Pos.BOTTOM_LEFT);
+        getStyleClass().addAll(Style.HCONTAINER.css());
         getChildren().addAll(new Label(DefaultI18nContext.getInstance().i18n("Split at this size:")), sizeCombo);
     }
 

@@ -24,7 +24,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.function.Consumer;
 
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 
@@ -59,9 +58,9 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned,
         version = new PdfVersionCombo(ownerModule);
         compress = new PdfVersionConstrainedCheckBox(PdfVersion.VERSION_1_5, ownerModule);
         compress.setText(DefaultI18nContext.getInstance().i18n("Compress output file/files"));
-        HBox versionPane = new HBox(2, new Label(DefaultI18nContext.getInstance().i18n("Output pdf version:")), version);
-        versionPane.setAlignment(Pos.BOTTOM_LEFT);
+        HBox versionPane = new HBox(new Label(DefaultI18nContext.getInstance().i18n("Output pdf version:")), version);
         versionPane.getStyleClass().addAll(Style.VITEM.css());
+        versionPane.getStyleClass().addAll(Style.HCONTAINER.css());
         getChildren().addAll(compress, versionPane);
         eventStudio().addAnnotatedListeners(this);
     }

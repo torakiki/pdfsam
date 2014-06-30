@@ -18,7 +18,6 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.HBox;
@@ -79,9 +78,9 @@ class PreferenceThumbnailsPane extends VBox {
                         LOG.trace("Preference {} set to {}", IntUserPreference.THUMBNAILS_SIZE, thumbSize.getText());
                     }
                 });
-        HBox second = new HBox(2, new Label(i18n.i18n("Size in px:")), thumbSize);
-        second.setAlignment(Pos.BOTTOM_LEFT);
-        second.getStyleClass().add("spaced-vitem");
+        HBox second = new HBox(new Label(i18n.i18n("Size in px:")), thumbSize);
+        second.getStyleClass().addAll(Style.HCONTAINER.css());
+        second.getStyleClass().addAll(Style.VITEM.css());
 
         PreferenceComboBox<KeyStringValueItem<String>> thumbCreator = new PreferenceComboBox<>(
                 StringUserPreference.THUMBNAILS_IDENTIFIER);

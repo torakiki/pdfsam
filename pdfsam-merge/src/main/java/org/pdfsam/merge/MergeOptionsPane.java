@@ -20,7 +20,6 @@ package org.pdfsam.merge;
 
 import java.util.function.Consumer;
 
-import javafx.geometry.Pos;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -65,10 +64,10 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
                 new KeyStringValueItem<>(OutlinePolicy.ONE_ENTRY_EACH_DOC, DefaultI18nContext.getInstance().i18n(
                         "Create one entry for each merged document")));
         outline.getSelectionModel().selectFirst();
-        HBox bookmarksPolicy = new HBox(2, new Label(DefaultI18nContext.getInstance().i18n("Bookmarks handling:")),
+        HBox bookmarksPolicy = new HBox(new Label(DefaultI18nContext.getInstance().i18n("Bookmarks handling:")),
                 outline);
-        bookmarksPolicy.setAlignment(Pos.BOTTOM_LEFT);
         bookmarksPolicy.getStyleClass().addAll(Style.VITEM.css());
+        bookmarksPolicy.getStyleClass().addAll(Style.HCONTAINER.css());
 
         getStyleClass().addAll(Style.CONTAINER.css());
         getChildren().addAll(this.containsForms, this.blankIfOdd, bookmarksPolicy);
