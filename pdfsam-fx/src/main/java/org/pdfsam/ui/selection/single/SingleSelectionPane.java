@@ -118,7 +118,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
         initContextMenu();
     }
 
-    BrowsableFileField getField() {
+    protected BrowsableFileField getField() {
         return field;
     }
 

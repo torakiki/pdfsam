@@ -22,7 +22,6 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
 import java.util.function.Consumer;
 
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -61,9 +60,9 @@ class SplitOptionsPane extends VBox implements TaskParametersBuildStep<SplitByGo
     }
 
     private HBox createLine(Node... items) {
-        HBox item = new HBox(5, items);
-        item.setAlignment(Pos.BOTTOM_LEFT);
+        HBox item = new HBox(items);
         item.getStyleClass().addAll(Style.VITEM.css());
+        item.getStyleClass().addAll(Style.HCONTAINER.css());
         return item;
     }
 

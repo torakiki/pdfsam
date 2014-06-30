@@ -51,6 +51,10 @@
 	-fx-hgap: 5.0px;
 	-fx-vgap: 0.5em;
 }
+.spaced-hcontainer {
+	-fx-spacing: 5.0px;
+	-fx-alignment: bottom-left;
+}
 /**
  * footer for pane
  */

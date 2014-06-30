@@ -16,5 +16,7 @@
 			task="org.sejda.impl.itext5.SplitBySizeTask" />
 		<task parameters="org.sejda.model.parameter.SplitByGoToActionLevelParameters"
 			task="org.sejda.impl.itext5.SplitByGoToActionLevelTask" />
+		<task parameters="org.sejda.model.parameter.AlternateMixParameters"
+			task="org.sejda.impl.itext5.AlternateMixTask" />
 	</tasks>
 </sejda>

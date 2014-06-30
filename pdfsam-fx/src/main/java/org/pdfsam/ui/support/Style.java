@@ -33,6 +33,7 @@ public enum Style {
     CLOSE_FOOTER("default-container", "pdfsam-footer-close-pane"),
     INVALID("invalid"),
     VITEM("spaced-vitem"),
+    HCONTAINER("spaced-hcontainer"),
     MAIN_PANEL("main-scroll-panel");
 
     private String[] classes;
