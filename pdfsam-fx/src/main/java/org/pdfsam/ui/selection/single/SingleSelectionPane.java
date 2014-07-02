@@ -35,6 +35,9 @@ import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -140,6 +143,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
 
         MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set destination"),
                 AwesomeIcon.FILE_PDF_ALT);
+        setDestinationItem.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.ALT_DOWN));
         setDestinationItem.setOnAction(e -> {
             eventStudio().broadcast(requestDestination(descriptor.getFile(), getOwnerModule()), getOwnerModule());
         });
