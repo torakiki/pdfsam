@@ -44,7 +44,7 @@ public class DefaultUserContextTest {
     @Test
     public void isUseSmartOutput() {
         DefaultUserContext.getInstance().setBooleanPreference(BooleanUserPreference.SMART_OUTPUT, true);
-        Assert.assertFalse(DefaultUserContext.getInstance().isUseSmartOutput());
+        Assert.assertTrue(DefaultUserContext.getInstance().isUseSmartOutput());
     }
 
     @Test
