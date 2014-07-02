@@ -52,7 +52,7 @@ class SplitOptionsPane extends VBox implements SplitParametersBuilderCreator {
     private SplitByEveryRadioButton splitByEvery = new SplitByEveryRadioButton();
 
     SplitOptionsPane() {
-        super(5);
+        super(Style.DEFAULT_SPACING);
         RadioButtonDrivenTextFieldsPane grid = new RadioButtonDrivenTextFieldsPane(group);
         burst.setToggleGroup(group);
         burst.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Explode the document into single pages")));

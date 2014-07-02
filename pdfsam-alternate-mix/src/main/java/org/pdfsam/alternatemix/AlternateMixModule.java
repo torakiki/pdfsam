@@ -36,6 +36,7 @@ import org.pdfsam.module.PdfsamModule;
 import org.pdfsam.ui.io.BrowsablePdfOutputField;
 import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
+import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.support.Views;
 import org.sejda.model.input.PdfFileSource;
 
@@ -91,7 +92,7 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
 
     @Override
     protected Pane getInnerPanel() {
-        VBox pane = new VBox(5);
+        VBox pane = new VBox(Style.DEFAULT_SPACING);
         pane.setAlignment(Pos.TOP_CENTER);
 
         pane.getChildren().addAll(firstDocument, secondDocument,

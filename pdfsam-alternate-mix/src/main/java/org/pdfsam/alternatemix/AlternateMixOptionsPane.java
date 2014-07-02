@@ -46,7 +46,7 @@ class AlternateMixOptionsPane extends VBox implements TaskParametersBuildStep<Al
     private ValidableTextField secondStep = createValidableField();
 
     AlternateMixOptionsPane() {
-        super(5);
+        super(Style.DEFAULT_SPACING);
         this.reverseSecond.setSelected(true);
         getStyleClass().addAll(Style.CONTAINER.css());
         HBox firstStepContainer = new HBox(new Label(DefaultI18nContext.getInstance().i18n(

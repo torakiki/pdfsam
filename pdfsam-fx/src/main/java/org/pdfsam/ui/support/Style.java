@@ -36,6 +36,7 @@ public enum Style {
     HCONTAINER("spaced-hcontainer"),
     MAIN_PANEL("main-scroll-panel");
 
+    public static final int DEFAULT_SPACING = 5;
     private String[] classes;
 
     private Style(String... classes) {

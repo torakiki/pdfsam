@@ -44,7 +44,7 @@ class SplitOptionsPane extends VBox implements TaskParametersBuildStep<SplitByGo
     private TextField regexpField = new TextField();
 
     SplitOptionsPane() {
-        super(5);
+        super(Style.DEFAULT_SPACING);
         getStyleClass().addAll(Style.CONTAINER.css());
         regexpField.setPromptText(DefaultI18nContext.getInstance().i18n("Regexp the bookmark has to match"));
         regexpField.setPrefWidth(300);
