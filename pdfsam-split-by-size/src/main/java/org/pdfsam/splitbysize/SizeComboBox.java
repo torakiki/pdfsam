@@ -47,7 +47,7 @@ class SizeComboBox extends ComboBox<String> implements TaskParametersBuildStep<S
     private final FXValidationSupport<String> validationSupport = new FXValidationSupport<>();
 
     SizeComboBox() {
-        getItems().addAll("500 KB", "1 MB", "3 MB", "5 MB", "10 MB");
+        getItems().addAll("500 KB", "1 MB", "2 MB", "3 MB", "4 MB", "5 MB", "10 MB");
 
         validationSupport.setValidator(Validators.newRegexMatchingString(REGEXP));
         setEditable(true);
