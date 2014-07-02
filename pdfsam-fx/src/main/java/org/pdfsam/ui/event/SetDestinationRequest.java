@@ -49,17 +49,21 @@ public class SetDestinationRequest {
 
     /**
      * @param footprint
+     * @param the
+     *            module requesting
      * @return a request to set the destination for the task to the given file
      */
-    public static SetDestinationRequest requestDestination(File footprint) {
-        return new SetDestinationRequest(footprint, false);
+    public static SetDestinationRequest requestDestination(File footprint, String module) {
+        return new SetDestinationRequest(new File(footprint.getParent(), String.format("PDFsam_%s.pdf", module)), false);
     }
 
     /**
      * @param footprint
+     * @param the
+     *            module requesting
      * @return a request to set the destination as fallback for the task to the given file
      */
-    public static SetDestinationRequest requestFallbackDestination(File footprint) {
-        return new SetDestinationRequest(footprint, true);
+    public static SetDestinationRequest requestFallbackDestination(File footprint, String module) {
+        return new SetDestinationRequest(new File(footprint.getParent(), String.format("PDFsam_%s.pdf", module)), true);
     }
 }

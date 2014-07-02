@@ -74,7 +74,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
     private Consumer<PdfDocumentDescriptor> onLoaded = (d) -> {
         details.setText(DefaultI18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}",
                 Integer.toString(d.pagesPropery().get()), d.getVersionString()));
-        eventStudio().broadcast(requestFallbackDestination(d.getFile()), getOwnerModule());
+        eventStudio().broadcast(requestFallbackDestination(d.getFile(), getOwnerModule()), getOwnerModule());
         eventStudio().broadcast(new ChangedSelectedPdfVersionEvent(d.getVersion()), getOwnerModule());
     };
 
@@ -141,7 +141,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
         MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set destination"),
                 AwesomeIcon.FILE_PDF_ALT);
         setDestinationItem.setOnAction(e -> {
-            eventStudio().broadcast(requestDestination(descriptor.getFile()), getOwnerModule());
+            eventStudio().broadcast(requestDestination(descriptor.getFile(), getOwnerModule()), getOwnerModule());
         });
 
         MenuItem openFileItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open"), AwesomeIcon.FILE_ALT);

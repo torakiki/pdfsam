@@ -20,6 +20,7 @@ package org.pdfsam.ui.selection.multiple;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.ui.event.SetDestinationRequest.requestDestination;
+import static org.pdfsam.ui.event.SetDestinationRequest.requestFallbackDestination;
 import static org.pdfsam.ui.selection.multiple.SelectionChangedEvent.clearSelectionEvent;
 import static org.pdfsam.ui.selection.multiple.SelectionChangedEvent.select;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
@@ -62,6 +63,7 @@ import org.slf4j.LoggerFactory;
 
 import de.jensd.fx.fontawesome.AwesomeDude;
 import de.jensd.fx.fontawesome.AwesomeIcon;
+
 /**
  * Table displaying selected pdf documents
  * 
@@ -115,9 +117,9 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
                 AwesomeIcon.FILE_PDF_ALT);
 
         setDestinationItem.setOnAction(e -> {
-            File outFile = new File(getSelectionModel().getSelectedItem().getPdfDocumentDescriptor().getFile()
-                    .getParent(), "PDFsam_out.pdf");
-            eventStudio().broadcast(requestDestination(outFile), getOwnerModule());
+            eventStudio().broadcast(
+                    requestDestination(getSelectionModel().getSelectedItem().getPdfDocumentDescriptor().getFile(),
+                            getOwnerModule()), getOwnerModule());
         });
 
         MenuItem removeSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Remove"),
@@ -231,6 +233,13 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     @EventListener(priority = Integer.MIN_VALUE)
     public void onLoadDocumentsRequest(PdfLoadRequestEvent loadEvent) {
         loadEvent.getDocuments().stream().map(SelectionTableRowData::new).forEach(getItems()::add);
+        loadEvent
+                .getDocuments()
+                .stream()
+                .findFirst()
+                .ifPresent(
+                        f -> eventStudio().broadcast(requestFallbackDestination(f.getFile(), getOwnerModule()),
+                                getOwnerModule()));
         eventStudio().broadcast(loadEvent);
     }
 
