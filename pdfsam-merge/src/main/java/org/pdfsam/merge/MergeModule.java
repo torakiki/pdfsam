@@ -38,6 +38,7 @@ import org.pdfsam.module.PdfsamModule;
 import org.pdfsam.ui.io.BrowsablePdfOutputField;
 import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
+import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.support.Views;
 
 /**
@@ -86,7 +87,7 @@ public class MergeModule extends BaseTaskExecutionModule {
 
     @Override
     protected Pane getInnerPanel() {
-        VBox pane = new VBox(5);
+        VBox pane = new VBox(Style.DEFAULT_SPACING);
         pane.setAlignment(Pos.TOP_CENTER);
         VBox.setVgrow(selectionPane, Priority.ALWAYS);
 

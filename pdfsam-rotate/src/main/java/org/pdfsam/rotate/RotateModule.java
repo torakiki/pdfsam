@@ -16,11 +16,10 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.split;
+package org.pdfsam.rotate;
 
 import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
 
-import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.geometry.Pos;
@@ -28,52 +27,46 @@ import javafx.scene.Node;
 import javafx.scene.control.TitledPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
-import org.apache.commons.lang3.builder.Builder;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.ModulePriority;
 import org.pdfsam.module.PdfsamModule;
-import org.pdfsam.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
 import org.pdfsam.ui.io.BrowsableOutputDirectoryField;
 import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.pdfsam.ui.prefix.PrefixPane;
-import org.pdfsam.ui.selection.single.TaskParametersBuilderSingleSelectionPane;
 import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.support.Views;
-import org.sejda.model.parameter.AbstractSplitByPageParameters;
 import org.sejda.model.prefix.Prefix;
 
 /**
- * Simple split module to let the user set page numbers to split an input pdf document.
+ * Rotate module to let the user rotate multiple PDF documents
  * 
  * @author Andrea Vacondio
  *
  */
 @PdfsamModule
-public class SplitModule extends BaseTaskExecutionModule {
+public class RotateModule extends BaseTaskExecutionModule {
 
-    private static final String SPLIT_MODULE_ID = "split.simple";
+    private static final String ROTATE_MODULE_ID = "rotate";
 
-    private TaskParametersBuilderSingleSelectionPane selectionPane;
-    private BrowsableOutputDirectoryField destinationDirectoryField = new BrowsableOutputDirectoryField(false);
-    private SplitOptionsPane splitOptions = new SplitOptionsPane();
+    private RotateSelectionPane selectionPane;
+    private RotateOptionsPane rotateOptions = new RotateOptionsPane();
+    private BrowsableOutputDirectoryField destinationFileField = new BrowsableOutputDirectoryField(false);
     private PdfDestinationPane destinationPane;
     private PrefixPane prefix = new PrefixPane();
-    private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT)
-            .name(DefaultI18nContext.getInstance().i18n("Split"))
-            .description(DefaultI18nContext.getInstance().i18n("Split a pdf document at the given page numbers."))
-            .priority(ModulePriority.HIGH.getPriority()).supportURL("http://www.pdfsam.org/simple-split").build();
+    private ModuleDescriptor descriptor = builder().category(ModuleCategory.OTHER)
+            .name(DefaultI18nContext.getInstance().i18n("Rotate"))
+            .description(DefaultI18nContext.getInstance().i18n("Rotate the pages of multiple PDF documents."))
+            .priority(ModulePriority.DEFAULT.getPriority()).supportURL("http://www.pdfsam.org/pdf-rotate").build();
 
-    public SplitModule() {
-        this.selectionPane = new TaskParametersBuilderSingleSelectionPane(id());
-        this.selectionPane.setPromptText(DefaultI18nContext.getInstance().i18n(
-                "Select or drag and drop the PDF you want to split"));
-        this.destinationPane = new PdfDestinationPane(destinationDirectoryField, id());
-        this.destinationPane.enableSameAsSourceItem();
+    public RotateModule() {
+        this.selectionPane = new RotateSelectionPane(id());
+        this.destinationPane = new PdfDestinationPane(destinationFileField, id());
     }
 
     @Override
@@ -82,30 +75,29 @@ public class SplitModule extends BaseTaskExecutionModule {
     }
 
     @Override
-    protected Builder<? extends AbstractSplitByPageParameters> getBuilder(Consumer<String> onError) {
-        Optional<SinglePdfSourceMultipleOutputParametersBuilder<? extends AbstractSplitByPageParameters>> builder = Optional
-                .ofNullable(splitOptions.getBuilder(onError));
-        builder.ifPresent(b -> {
-            selectionPane.apply(b, onError);
-            destinationDirectoryField.apply(b, onError);
-            destinationPane.apply(b, onError);
-            prefix.apply(b, onError);
-        });
-        return builder.orElse(null);
+    protected RotateParametersBuilder getBuilder(Consumer<String> onError) {
+        RotateParametersBuilder builder = new RotateParametersBuilder();
+        selectionPane.apply(builder, onError);
+        rotateOptions.apply(builder, onError);
+        destinationFileField.apply(builder, onError);
+        destinationPane.apply(builder, onError);
+        prefix.apply(builder, onError);
+        return builder;
     }
 
     @Override
     protected Pane getInnerPanel() {
         VBox pane = new VBox(Style.DEFAULT_SPACING);
         pane.setAlignment(Pos.TOP_CENTER);
+        VBox.setVgrow(selectionPane, Priority.ALWAYS);
 
         TitledPane prefixTitled = Views
                 .titledPane(DefaultI18nContext.getInstance().i18n("File names settings"), prefix);
-        prefix.addMenuItemFor(Prefix.CURRENTPAGE);
         prefix.addMenuItemFor(Prefix.FILENUMBER);
 
-        pane.getChildren().addAll(selectionPane,
-                Views.titledPane(DefaultI18nContext.getInstance().i18n("Split settings"), splitOptions),
+        TitledPane options = Views.titledPane(DefaultI18nContext.getInstance().i18n("Rotate settings"), rotateOptions);
+
+        pane.getChildren().addAll(selectionPane, options,
                 Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination directory"), destinationPane),
                 prefixTitled);
         return pane;
@@ -113,10 +105,10 @@ public class SplitModule extends BaseTaskExecutionModule {
 
     @Override
     public String id() {
-        return SPLIT_MODULE_ID;
+        return ROTATE_MODULE_ID;
     }
 
     public Node graphic() {
-        return new ImageView("split.png");
+        return new ImageView("rotate.png");
     }
 }

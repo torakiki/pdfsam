@@ -41,9 +41,7 @@ public abstract class MultipleSelectionPane extends BorderPane implements Module
         require(columns.length > 0, "No column has been selected");
         this.ownerModule = defaultString(ownerModule);
         setTop(new SelectionTableToolbar(ownerModule));
-        table = new SelectionTable(ownerModule, new SelectionTableColumn<?>[] {
-                new LoadingStatusColumn(this.ownerModule), FileColumn.NAME, LongColumn.SIZE, LongColumn.PAGES,
-                LongColumn.LAST_MODIFIED, StringColumn.PAGE_SELECTION });
+        table = new SelectionTable(ownerModule, columns);
         setCenter(table);
     }
 
