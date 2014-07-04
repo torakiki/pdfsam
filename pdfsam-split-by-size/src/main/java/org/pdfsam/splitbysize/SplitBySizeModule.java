@@ -66,7 +66,7 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
             .name(DefaultI18nContext.getInstance().i18n("Split by size"))
             .description(
                     DefaultI18nContext.getInstance().i18n("Split a pdf document in files of the give size (roughly)."))
-            .priority(ModulePriority.LOW.getPriority()).supportURL("http://www.pdfsam.org/split-by-size").build();
+            .priority(ModulePriority.LOW.getPriority()).supportURL("http://www.pdfsam.org/pdf-split-by-size").build();
 
     public SplitBySizeModule() {
         this.selectionPane = new TaskParametersBuilderSingleSelectionPane(id());

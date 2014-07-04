@@ -66,7 +66,7 @@ public class SplitModule extends BaseTaskExecutionModule {
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT)
             .name(DefaultI18nContext.getInstance().i18n("Split"))
             .description(DefaultI18nContext.getInstance().i18n("Split a pdf document at the given page numbers."))
-            .priority(ModulePriority.HIGH.getPriority()).supportURL("http://www.pdfsam.org/simple-split").build();
+            .priority(ModulePriority.HIGH.getPriority()).supportURL("http://www.pdfsam.org/pdf-split").build();
 
     public SplitModule() {
         this.selectionPane = new TaskParametersBuilderSingleSelectionPane(id());
