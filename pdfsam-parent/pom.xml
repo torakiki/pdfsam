@@ -10,6 +10,15 @@
 	<version>3.0.0.BETA-SNAPSHOT</version>
 	<url>http://www.pdfsam.org</url>
 
+	<profiles>
+		<profile>
+			<id>enhanced</id>
+			<properties>
+				<pdfsam.package>ENHANCED</pdfsam.package>
+			</properties>
+		</profile>
+	</profiles>
+	
 	<build>
 		<pluginManagement>
 			<plugins>

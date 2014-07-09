@@ -43,15 +43,6 @@
 		</developer>
 	</developers>
 
-	<profiles>
-		<profile>
-			<id>enhanced</id>
-			<properties>
-				<pdfsam.package>ENHANCED</pdfsam.package>
-			</properties>
-		</profile>
-	</profiles>
-
 	<build>
 		<plugins>
 			<plugin>

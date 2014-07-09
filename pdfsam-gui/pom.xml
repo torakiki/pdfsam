@@ -15,6 +15,22 @@
 	<packaging>jar</packaging>
 	<name>pdfsam GUI</name>
 
+	<profiles>
+		<profile>
+			<id>fastTests</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<configuration>
+							<excludedGroups>org.loadui.testfx.categories.TestFX</excludedGroups>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
 	<build>
 		<resources>
 			<resource>
@@ -36,7 +52,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.2.1</version>
+				<version>1.3.1</version>
 				<executions>
 					<execution>
 						<goals>

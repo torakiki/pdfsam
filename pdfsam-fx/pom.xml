@@ -14,6 +14,22 @@
 	<artifactId>pdfsam-fx</artifactId>
 	<packaging>jar</packaging>
 	<name>pdfsam fx views</name>
+	
+	<profiles>
+		<profile>
+			<id>fastTests</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<configuration>
+							<excludedGroups>org.loadui.testfx.categories.TestFX</excludedGroups>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 	<dependencies>
 		<dependency>
