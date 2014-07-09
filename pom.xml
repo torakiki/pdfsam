@@ -6,13 +6,14 @@
 	<packaging>pom</packaging>
 	<name>pdfsam</name>
 	<description>A free open source desktop tool to split and merge pdf documents</description>
-	
+	<url>http://www.pdfsam.org</url>
+
 	<scm>
 		<connection>scm:git:git@github.com:torakiki/pdfsam.git</connection>
 		<developerConnection>scm:git:git@github.com:torakiki/pdfsam.git</developerConnection>
 		<url>scm:git:git@github.com:torakiki/pdfsam.git</url>
 	</scm>
-	
+
 	<parent>
 		<groupId>org.pdfsam</groupId>
 		<artifactId>pdfsam-parent</artifactId>
@@ -52,7 +53,6 @@
 	</profiles>
 
 	<build>
-
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

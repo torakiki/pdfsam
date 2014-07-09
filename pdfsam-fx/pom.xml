@@ -63,5 +63,10 @@
 			<groupId>jdepend</groupId>
 			<artifactId>jdepend</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.loadui</groupId>
+			<artifactId>testFx</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 </project>
