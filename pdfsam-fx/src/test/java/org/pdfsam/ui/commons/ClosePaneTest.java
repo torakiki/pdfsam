@@ -22,6 +22,7 @@ import static org.loadui.testfx.Assertions.verifyThat;
 import javafx.scene.Parent;
 import javafx.scene.layout.HBox;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
@@ -31,6 +32,7 @@ import org.loadui.testfx.categories.TestFX;
  * @author Andrea Vacondio
  *
  */
+@Ignore
 @Category(TestFX.class)
 public class ClosePaneTest extends GuiTest {
 

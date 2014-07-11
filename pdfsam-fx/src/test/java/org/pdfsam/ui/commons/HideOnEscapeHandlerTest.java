@@ -26,22 +26,17 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Window;
 
-import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.pdfsam.test.JavaFXThreadRule;
 
 /**
  * @author Andrea Vacondio
  *
  */
 public class HideOnEscapeHandlerTest {
-
-    private Window window = spy(new Window() {
-    });
-
-    @Before
-    public void setUp() {
-
-    }
+    @Rule
+    public JavaFXThreadRule rule = new JavaFXThreadRule();
 
     @Test(expected = IllegalArgumentException.class)
     public void nullArg() {
@@ -50,14 +45,21 @@ public class HideOnEscapeHandlerTest {
 
     @Test
     public void notShowingNoMatch() {
+        Window window = spy(new Window() {
+        });
         HideOnEscapeHandler victim = new HideOnEscapeHandler(window);
         victim.handle(new KeyEvent(KeyEvent.KEY_RELEASED, KeyCode.A.toString(), "", KeyCode.A, false, false, false,
                 false));
         verify(window, never()).hide();
     }
 
-    // TODO unable to mock Window and stub isShowing final method
+    @Test
     public void showingMatch() {
+        Window window = spy(new Window() {
+            {
+                show();
+            }
+        });
         HideOnEscapeHandler victim = new HideOnEscapeHandler(window);
         victim.handle(new KeyEvent(KeyEvent.KEY_RELEASED, KeyCode.ESCAPE.toString(), "", KeyCode.ESCAPE, false, false,
                 false, false));
@@ -66,10 +68,11 @@ public class HideOnEscapeHandlerTest {
 
     @Test
     public void notShowingMatch() {
+        Window window = spy(new Window() {
+        });
         HideOnEscapeHandler victim = new HideOnEscapeHandler(window);
         victim.handle(new KeyEvent(KeyEvent.KEY_RELEASED, KeyCode.ESCAPE.toString(), "", KeyCode.ESCAPE, false, false,
                 false, false));
         verify(window, never()).hide();
     }
-
 }

@@ -32,7 +32,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Ignore
 @Configuration
-@ComponentScan(basePackages = { "org.pdfsam.ui.quickbar", "org.pdfsam.module" })
+@ComponentScan(basePackages = { "org.pdfsam.ui.workarea", "org.pdfsam.module" })
 public class QuickbarTestConfig {
 
     @Bean
