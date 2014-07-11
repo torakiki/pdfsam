@@ -14,7 +14,7 @@
 	<artifactId>pdfsam-fx</artifactId>
 	<packaging>jar</packaging>
 	<name>pdfsam fx views</name>
-	
+
 	<profiles>
 		<profile>
 			<id>fastTests</id>
@@ -75,14 +75,25 @@
 			<artifactId>logback-classic</artifactId>
 			<version>[${logback.version},]</version>
 		</dependency>
+		
+		<!-- test dependencies -->
 		<dependency>
 			<groupId>jdepend</groupId>
 			<artifactId>jdepend</artifactId>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.loadui</groupId>
 			<artifactId>testFx</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.pdfsam</groupId>
+			<artifactId>pdfsam-core</artifactId>
+			<version>${project.version}</version>
+			<type>test-jar</type>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 </project>
