@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 28/nov/2013
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 13/lug/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,32 +16,34 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.commons;
+package org.pdfsam.ui.module;
 
-import static org.apache.commons.lang3.StringUtils.defaultString;
-import javafx.scene.control.Button;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.module.ModuleOwned;
-import org.pdfsam.ui.support.Style;
-import org.sejda.eventstudio.annotation.EventStation;
+import org.junit.Rule;
+import org.junit.Test;
+import org.pdfsam.test.JavaFXThreadRule;
 
 /**
- * {@link Button} owned by a {@link org.pdfsam.module.Module}
- * 
  * @author Andrea Vacondio
- * 
+ *
  */
-public class ModuleOwnedButton extends Button implements ModuleOwned {
-    private String ownerModule = StringUtils.EMPTY;
+public class ModuleOwnedButtonTest {
+    @Rule
+    public JavaFXThreadRule rule = new JavaFXThreadRule();
 
-    public ModuleOwnedButton(String ownerModule) {
-        this.ownerModule = defaultString(ownerModule);
-        getStyleClass().addAll(Style.BUTTON.css());
+    @Test
+    public void nullArg() {
+        ModuleOwnedButton victim = new ModuleOwnedButton(null);
+        assertNotNull(victim.getOwnerModule());
+        assertEquals(StringUtils.EMPTY, victim.getOwnerModule());
     }
 
-    @EventStation
-    public String getOwnerModule() {
-        return ownerModule;
+    @Test
+    public void notNullArg() {
+        ModuleOwnedButton victim = new ModuleOwnedButton("Chuck");
+        assertEquals("Chuck", victim.getOwnerModule());
     }
 }
