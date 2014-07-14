@@ -19,19 +19,17 @@
 package org.pdfsam.ui.selection.multiple;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.pdfsam.support.RequireUtils.requireNotNull;
 import static org.sejda.conversion.AdapterUtils.splitAndTrim;
 
+import java.io.File;
 import java.util.Collections;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
-import org.pdfsam.pdf.PdfDocumentDescriptorProvider;
 import org.sejda.common.collection.NullSafeSet;
 import org.sejda.conversion.exception.ConversionException;
-import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.pdf.page.PageRange;
 
 /**
@@ -40,15 +38,17 @@ import org.sejda.model.pdf.page.PageRange;
  * @author Andrea Vacondio
  * 
  */
-public class SelectionTableRowData implements PdfDocumentDescriptorProvider {
+public final class SelectionTableRowData extends PdfDocumentDescriptor {
 
-    private PdfDocumentDescriptor documentDescriptor;
-    private String pageSelection = StringUtils.EMPTY;
-
-    public SelectionTableRowData(PdfDocumentDescriptor documentDescriptor) {
-        requireNotNull(documentDescriptor, "Document descriptor cannot be null");
-        this.documentDescriptor = documentDescriptor;
+    public SelectionTableRowData(File file, String password) {
+        super(file, password);
     }
+
+    public SelectionTableRowData(File file) {
+        super(file, null);
+    }
+
+    private String pageSelection = StringUtils.EMPTY;
 
     public String getPageSelection() {
         return pageSelection;
@@ -56,14 +56,6 @@ public class SelectionTableRowData implements PdfDocumentDescriptorProvider {
 
     public void setPageSelection(String pageSelection) {
         this.pageSelection = StringUtils.defaultString(pageSelection);
-    }
-
-    public PdfDocumentDescriptor getPdfDocumentDescriptor() {
-        return documentDescriptor;
-    }
-
-    public PdfFileSource toPdfFileSource() {
-        return documentDescriptor.toPdfFileSource();
     }
 
     /**

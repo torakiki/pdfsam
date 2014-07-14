@@ -32,7 +32,6 @@ import javafx.stage.FileChooser;
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
-import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.io.FileChoosers;
@@ -63,7 +62,6 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
         return ownerModule;
     }
 
-
     /**
      * Button to request the load of the pdf documents selected using a {@link FileChooser}
      * 
@@ -86,8 +84,8 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
                     DefaultI18nContext.getInstance().i18n("Select pdf documents to load"));
             List<File> chosenFiles = fileChooser.showOpenMultipleDialog(this.getScene().getWindow());
             if (chosenFiles != null && !chosenFiles.isEmpty()) {
-                PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
-                chosenFiles.stream().map(PdfDocumentDescriptor::newDescriptorNoPassword).forEach(loadEvent::add);
+                PdfLoadRequestEvent<SelectionTableRowData> loadEvent = new PdfLoadRequestEvent<>(getOwnerModule());
+                chosenFiles.stream().map(SelectionTableRowData::new).forEach(loadEvent::add);
                 eventStudio().broadcast(loadEvent, getOwnerModule());
             }
         }

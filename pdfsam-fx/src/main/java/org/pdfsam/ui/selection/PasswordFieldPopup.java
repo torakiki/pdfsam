@@ -101,7 +101,7 @@ class PasswordFieldPopup extends PopupControl implements ModuleOwned {
         public void requestLoad() {
             if (pdfDescriptor != null) {
                 pdfDescriptor.setPassword(passwordField.getText());
-                PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
+                PdfLoadRequestEvent<PdfDocumentDescriptor> loadEvent = new PdfLoadRequestEvent<>(getOwnerModule());
                 loadEvent.add(pdfDescriptor);
                 eventStudio().broadcast(loadEvent);
             }

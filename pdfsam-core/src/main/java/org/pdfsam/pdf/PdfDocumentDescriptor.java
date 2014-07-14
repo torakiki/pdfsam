@@ -41,7 +41,7 @@ import org.sejda.model.pdf.PdfVersion;
  * @author Andrea Vacondio
  * 
  */
-public final class PdfDocumentDescriptor {
+public class PdfDocumentDescriptor {
 
     private ReadOnlyObjectWrapper<PdfDescriptorLoadingStatus> loadingStatus = new ReadOnlyObjectWrapper<>(
             PdfDescriptorLoadingStatus.INITIAL);
@@ -53,7 +53,8 @@ public final class PdfDocumentDescriptor {
     private Map<String, String> metadata = new HashMap<>();
     private int maxGoToActionDepth = 0;
 
-    private PdfDocumentDescriptor(File file, String password) {
+    public PdfDocumentDescriptor(File file, String password) {
+        requireNotNull(file, "Input file is mandatory");
         this.file = file;
         this.password = password;
     }
@@ -149,12 +150,10 @@ public final class PdfDocumentDescriptor {
     }
 
     public static PdfDocumentDescriptor newDescriptor(File file, String password) {
-        requireNotNull(file, "Input file is mandatory");
         return new PdfDocumentDescriptor(file, password);
     }
 
     public static PdfDocumentDescriptor newDescriptorNoPassword(File file) {
-        requireNotNull(file, "Input file is mandatory");
         return new PdfDocumentDescriptor(file, null);
     }
 

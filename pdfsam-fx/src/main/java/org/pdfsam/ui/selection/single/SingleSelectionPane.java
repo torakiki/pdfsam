@@ -110,7 +110,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
                 if (descriptor != null) {
                     descriptor.invalidate();
                 }
-                PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
+                PdfLoadRequestEvent<PdfDocumentDescriptor> loadEvent = new PdfLoadRequestEvent<>(getOwnerModule());
                 descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(new File(field.getTextField().getText()));
                 descriptor.loadedProperty().addListener(new WeakChangeListener<>(onLoadingStatusChange));
                 field.getTextField().getContextMenu().getItems().forEach(i -> i.setDisable(false));

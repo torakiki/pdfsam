@@ -48,7 +48,6 @@ import javafx.scene.input.TransferMode;
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
-import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.event.OpenFileRequest;
@@ -110,16 +109,15 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         MenuItem infoItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Document properties"),
                 AwesomeIcon.INFO);
         infoItem.setOnAction(e -> Platform.runLater(() -> {
-            eventStudio().broadcast(
-                    new ShowPdfDescriptorRequest(getSelectionModel().getSelectedItem().getPdfDocumentDescriptor()));
+            eventStudio().broadcast(new ShowPdfDescriptorRequest(getSelectionModel().getSelectedItem()));
         }));
         MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set destination"),
                 AwesomeIcon.FILE_PDF_ALT);
 
         setDestinationItem.setOnAction(e -> {
             eventStudio().broadcast(
-                    requestDestination(getSelectionModel().getSelectedItem().getPdfDocumentDescriptor().getFile(),
-                            getOwnerModule()), getOwnerModule());
+                    requestDestination(getSelectionModel().getSelectedItem().getFile(), getOwnerModule()),
+                    getOwnerModule());
         });
 
         MenuItem removeSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Remove"),
@@ -147,16 +145,14 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
         MenuItem openFileItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open"), AwesomeIcon.FILE_ALT);
         openFileItem.setOnAction(e -> {
-            eventStudio().broadcast(
-                    new OpenFileRequest(getSelectionModel().getSelectedItem().getPdfDocumentDescriptor().getFile()));
+            eventStudio().broadcast(new OpenFileRequest(getSelectionModel().getSelectedItem().getFile()));
         });
 
         MenuItem openFolderItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open Folder"),
                 AwesomeIcon.FOLDER_OPEN);
         openFolderItem.setOnAction(e -> {
             eventStudio().broadcast(
-                    new OpenFileRequest(getSelectionModel().getSelectedItem().getPdfDocumentDescriptor().getFile()
-                            .getParentFile()));
+                    new OpenFileRequest(getSelectionModel().getSelectedItem().getFile().getParentFile()));
         });
 
         setDestinationItem.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.ALT_DOWN));
@@ -217,9 +213,9 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     private Consumer<DragEvent> onDragDropped() {
         return (DragEvent e) -> {
-            final PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
+            final PdfLoadRequestEvent<SelectionTableRowData> loadEvent = new PdfLoadRequestEvent<>(getOwnerModule());
             e.getDragboard().getFiles().stream().filter(f -> FileType.PDF.matches(f.getName()))
-                    .map(PdfDocumentDescriptor::newDescriptorNoPassword).forEach(loadEvent::add);
+                    .map(SelectionTableRowData::new).forEach(loadEvent::add);
             eventStudio().broadcast(loadEvent, getOwnerModule());
             e.setDropCompleted(true);
         };
@@ -231,8 +227,8 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     }
 
     @EventListener(priority = Integer.MIN_VALUE)
-    public void onLoadDocumentsRequest(PdfLoadRequestEvent loadEvent) {
-        loadEvent.getDocuments().stream().map(SelectionTableRowData::new).forEach(getItems()::add);
+    public void onLoadDocumentsRequest(PdfLoadRequestEvent<SelectionTableRowData> loadEvent) {
+        getItems().addAll(loadEvent.getDocuments());
         loadEvent
                 .getDocuments()
                 .stream()
@@ -245,15 +241,15 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     @EventListener
     public void onClear(final ClearSelectionTableEvent event) {
-        getItems().forEach((SelectionTableRowData d) -> d.getPdfDocumentDescriptor().invalidate());
+        getItems().forEach(d -> d.invalidate());
         getSelectionModel().clearSelection();
         getItems().clear();
     }
 
     @EventListener
     public void onRemoveSelected(RemoveSelectedEvent event) {
-        getSelectionModel().getSelectedItems().forEach((SelectionTableRowData d) -> {
-            d.getPdfDocumentDescriptor().invalidate();
+        getSelectionModel().getSelectedItems().forEach(d -> {
+            d.invalidate();
             getItems().remove(d);
         });
         getSelectionModel().clearSelection();

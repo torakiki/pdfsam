@@ -36,11 +36,10 @@ public class PdfLoadRequestEventTest {
     public void add() {
         File file = mock(File.class);
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(file);
-        PdfLoadRequestEvent victim = new PdfLoadRequestEvent("module");
+        PdfLoadRequestEvent<PdfDocumentDescriptor> victim = new PdfLoadRequestEvent<>("module");
         assertNotNull(victim.getDocuments());
         assertEquals(0, victim.getDocuments().size());
         victim.add(descriptor);
         assertEquals(1, victim.getDocuments().size());
     }
-
 }

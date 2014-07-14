@@ -24,7 +24,7 @@ import java.util.Collections;
 import javafx.collections.ObservableList;
 
 import org.apache.commons.lang3.ArrayUtils;
-import org.pdfsam.ui.selection.multiple.SelectionTableRowData;
+import org.pdfsam.pdf.PdfDocumentDescriptor;
 
 /**
  * Types of moves for the selected items in the selection table
@@ -35,10 +35,11 @@ import org.pdfsam.ui.selection.multiple.SelectionTableRowData;
 public enum MoveType {
     TOP {
         @Override
-        public SelectionAndFocus move(Integer[] selected, ObservableList<SelectionTableRowData> items, int focused) {
+        public <T extends PdfDocumentDescriptor> SelectionAndFocus move(Integer[] selected, ObservableList<T> items,
+                int focused) {
             if (isSingleSelection(selected, items)) {
                 if (selected[0] > 0) {
-                    SelectionTableRowData item = items.remove(selected[0].intValue());
+                    T item = items.remove(selected[0].intValue());
                     items.add(0, item);
                     return new SingleSelectionAndFocus(0);
                 }
@@ -48,7 +49,8 @@ public enum MoveType {
     },
     UP {
         @Override
-        public SelectionAndFocus move(Integer[] selected, ObservableList<SelectionTableRowData> items, int focused) {
+        public <T extends PdfDocumentDescriptor> SelectionAndFocus move(Integer[] selected, ObservableList<T> items,
+                int focused) {
             if (isSubselection(selected, items)) {
                 MultipleSelectionAndFocus newSelection = new MultipleSelectionAndFocus(focused);
                 Arrays.parallelSort(selected);
@@ -65,7 +67,8 @@ public enum MoveType {
     },
     DOWN {
         @Override
-        public SelectionAndFocus move(Integer[] selected, ObservableList<SelectionTableRowData> items, int focused) {
+        public <T extends PdfDocumentDescriptor> SelectionAndFocus move(Integer[] selected, ObservableList<T> items,
+                int focused) {
             if (isSubselection(selected, items)) {
                 MultipleSelectionAndFocus newSelection = new MultipleSelectionAndFocus(focused);
                 Arrays.parallelSort(selected, Collections.reverseOrder(Integer::compare));
@@ -82,10 +85,11 @@ public enum MoveType {
     },
     BOTTOM {
         @Override
-        public SelectionAndFocus move(Integer[] selected, ObservableList<SelectionTableRowData> items, int focused) {
+        public <T extends PdfDocumentDescriptor> SelectionAndFocus move(Integer[] selected, ObservableList<T> items,
+                int focused) {
             if (isSingleSelection(selected, items)) {
                 if (selected[0] < items.size() - 1) {
-                    SelectionTableRowData item = items.remove(selected[0].intValue());
+                    T item = items.remove(selected[0].intValue());
                     items.add(items.size(), item);
                     return new SingleSelectionAndFocus(items.size() - 1);
                 }
@@ -110,7 +114,7 @@ public enum MoveType {
      *            the index of the focused item
      * @return a new SelectionAndFocus holding the new coordinates for focus and selection
      */
-    public abstract SelectionAndFocus move(Integer[] indicesToMove, ObservableList<SelectionTableRowData> items,
-            int focused);
+    public abstract <T extends PdfDocumentDescriptor> SelectionAndFocus move(Integer[] indicesToMove,
+            ObservableList<T> items, int focused);
 
 }

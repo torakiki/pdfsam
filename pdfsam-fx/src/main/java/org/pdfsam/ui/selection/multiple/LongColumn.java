@@ -45,7 +45,7 @@ public enum LongColumn implements SelectionTableColumn<Number> {
 
         @Override
         public ObservableValue<Number> getObservableValue(SelectionTableRowData data) {
-            return new SimpleLongProperty(data.getPdfDocumentDescriptor().getFile().length());
+            return new SimpleLongProperty(data.getFile().length());
         }
 
         @Override
@@ -66,7 +66,7 @@ public enum LongColumn implements SelectionTableColumn<Number> {
 
         @Override
         public ObservableValue<Number> getObservableValue(SelectionTableRowData data) {
-            return new SimpleLongProperty(data.getPdfDocumentDescriptor().getFile().lastModified());
+            return new SimpleLongProperty(data.getFile().lastModified());
         }
 
         @Override
@@ -85,7 +85,7 @@ public enum LongColumn implements SelectionTableColumn<Number> {
 
         @Override
         public ObservableValue<Number> getObservableValue(SelectionTableRowData data) {
-            return data.getPdfDocumentDescriptor().pagesPropery();
+            return data.pagesPropery();
         }
 
         @Override

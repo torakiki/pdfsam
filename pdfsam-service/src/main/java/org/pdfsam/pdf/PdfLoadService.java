@@ -36,5 +36,5 @@ public interface PdfLoadService {
      * @param datas
      *            what the service should load from the PDF
      */
-    void load(Collection<PdfDocumentDescriptor> toLoad, RequiredPdfData... datas);
+    void load(Collection<? extends PdfDocumentDescriptor> toLoad, RequiredPdfData... datas);
 }

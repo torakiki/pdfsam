@@ -33,8 +33,8 @@ import org.pdfsam.module.ModuleOwned;
  * @author Andrea Vacondio
  * 
  */
-public class PdfLoadRequestEvent implements ModuleOwned {
-    private Collection<PdfDocumentDescriptor> documents = new ConcurrentLinkedQueue<>();
+public class PdfLoadRequestEvent<T extends PdfDocumentDescriptor> implements ModuleOwned {
+    private Collection<T> documents = new ConcurrentLinkedQueue<>();
     private String ownerModule = StringUtils.EMPTY;
 
     public PdfLoadRequestEvent(String ownerModule) {
@@ -46,15 +46,15 @@ public class PdfLoadRequestEvent implements ModuleOwned {
         return ownerModule;
     }
 
-    public boolean add(PdfDocumentDescriptor e) {
+    public boolean add(T e) {
         return documents.add(e);
     }
 
-    public boolean addAll(Collection<PdfDocumentDescriptor> c) {
+    public boolean addAll(Collection<T> c) {
         return documents.addAll(c);
     }
 
-    public Collection<PdfDocumentDescriptor> getDocuments() {
+    public Collection<T> getDocuments() {
         return Collections.unmodifiableCollection(documents);
     }
 }
