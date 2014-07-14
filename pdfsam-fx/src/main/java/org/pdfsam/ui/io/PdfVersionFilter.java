@@ -18,9 +18,8 @@
  */
 package org.pdfsam.ui.io;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import javafx.beans.property.ReadOnlyIntegerProperty;
 import javafx.beans.property.ReadOnlyIntegerWrapper;
@@ -32,26 +31,24 @@ import javafx.beans.property.ReadOnlyIntegerWrapper;
  * 
  */
 class PdfVersionFilter {
-    private Set<Integer> filters = new HashSet<>();
-    private ReadOnlyIntegerWrapper required = new ReadOnlyIntegerWrapper(Integer.MIN_VALUE);
+    private SortedSet<Integer> filters = new TreeSet<>();
+    private ReadOnlyIntegerWrapper required = new ReadOnlyIntegerWrapper();
+
+    public PdfVersionFilter() {
+        addFilter(Integer.MIN_VALUE);
+    }
 
     public void addFilter(Integer version) {
         // the filter is not already there
         if (filters.add(version)) {
-            // it's higher then what was there
-            if (version > required.get()) {
-                required.set(version);
-            }
+            required.set(filters.last());
         }
     }
 
     public void removeFilter(Integer version) {
         // the filter was there
         if (filters.remove(version)) {
-            // I removed the highest
-            if (version == required.get()) {
-                required.set(Collections.max(filters));
-            }
+            required.set(filters.last());
         }
     }
 
