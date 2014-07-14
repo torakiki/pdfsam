@@ -32,6 +32,7 @@ import org.loadui.testfx.categories.TestFX;
  */
 @Category(TestFX.class)
 public class HidingPaneTest extends GuiTest {
+
     private HidingPane victim;
 
     @Override

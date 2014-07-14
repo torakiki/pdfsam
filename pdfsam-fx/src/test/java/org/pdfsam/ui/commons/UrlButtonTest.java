@@ -24,7 +24,9 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.Parent;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
+import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.ui.event.OpenUrlRequest;
 import org.sejda.eventstudio.Listener;
 
@@ -32,6 +34,7 @@ import org.sejda.eventstudio.Listener;
  * @author Andrea Vacondio
  *
  */
+@Category(TestFX.class)
 public class UrlButtonTest extends GuiTest {
 
     private static final String URL = "http://www.example.com";
