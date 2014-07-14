@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 19/feb/2014
+ * Created on 14/lug/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,29 +16,29 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.event;
+package org.pdfsam.ui.commons;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
 
-import java.io.File;
+import org.junit.Test;
+import org.pdfsam.pdf.PdfDocumentDescriptor;
 
 /**
- * Request to open a file or directory using the native viewer
- * 
  * @author Andrea Vacondio
  *
  */
-public class OpenFileRequest {
+public class ShowPdfDescriptorRequestTest {
 
-    private File file;
-
-    public OpenFileRequest(File file) {
-        requireNotNull(file, "Cannot open an empty file.");
-        this.file = file;
+    @Test(expected = IllegalArgumentException.class)
+    public void nullArg() {
+        new ShowPdfDescriptorRequest(null);
     }
 
-    public File getFile() {
-        return file;
+    @Test
+    public void notNullArg() {
+        PdfDocumentDescriptor arg = mock(PdfDocumentDescriptor.class);
+        ShowPdfDescriptorRequest victim = new ShowPdfDescriptorRequest(arg);
+        assertEquals(arg, victim.getDescriptor());
     }
-
 }

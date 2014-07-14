@@ -19,8 +19,8 @@
 package org.pdfsam.ui.selection.multiple;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.pdfsam.ui.event.SetDestinationRequest.requestDestination;
-import static org.pdfsam.ui.event.SetDestinationRequest.requestFallbackDestination;
+import static org.pdfsam.ui.commons.SetDestinationRequest.requestDestination;
+import static org.pdfsam.ui.commons.SetDestinationRequest.requestFallbackDestination;
 import static org.pdfsam.ui.selection.multiple.SelectionChangedEvent.clearSelectionEvent;
 import static org.pdfsam.ui.selection.multiple.SelectionChangedEvent.select;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
@@ -50,8 +50,8 @@ import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.io.FileType;
-import org.pdfsam.ui.event.OpenFileRequest;
-import org.pdfsam.ui.event.ShowPdfDescriptorRequest;
+import org.pdfsam.ui.commons.OpenFileRequest;
+import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
 import org.pdfsam.ui.selection.multiple.move.MoveType;
 import org.pdfsam.ui.selection.multiple.move.SelectionAndFocus;

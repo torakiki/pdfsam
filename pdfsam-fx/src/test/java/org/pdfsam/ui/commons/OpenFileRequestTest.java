@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 10/feb/2014
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 14/lug/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,26 +16,30 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.event;
+package org.pdfsam.ui.commons;
 
-import static org.pdfsam.support.RequireUtils.requireNotBlank;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+
+import java.io.File;
+
+import org.junit.Test;
 
 /**
- * Request to open the given URL
- * 
  * @author Andrea Vacondio
  *
  */
-public class OpenUrlRequest {
-    private String url;
+public class OpenFileRequestTest {
 
-    public OpenUrlRequest(String url) {
-        requireNotBlank(url, "URL cannot be blank");
-        this.url = url;
+    @Test(expected = IllegalArgumentException.class)
+    public void nullArg() {
+        new OpenFileRequest(null);
     }
 
-    public String getUrl() {
-        return url;
+    @Test
+    public void notNullArg() {
+        File arg = mock(File.class);
+        OpenFileRequest victim = new OpenFileRequest(arg);
+        assertEquals(arg, victim.getFile());
     }
-
 }

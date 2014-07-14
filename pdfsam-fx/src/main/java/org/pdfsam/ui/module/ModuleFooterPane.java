@@ -33,7 +33,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Named;
 
 import org.pdfsam.module.TaskExecutionRequestEvent;
-import org.pdfsam.ui.event.ShowStageRequest;
+import org.pdfsam.ui.commons.ShowStageRequest;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.model.exception.TaskOutputVisitException;

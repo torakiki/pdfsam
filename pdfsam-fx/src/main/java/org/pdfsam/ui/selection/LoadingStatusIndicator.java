@@ -43,7 +43,7 @@ import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptorProvider;
-import org.pdfsam.ui.event.ShowStageRequest;
+import org.pdfsam.ui.commons.ShowStageRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

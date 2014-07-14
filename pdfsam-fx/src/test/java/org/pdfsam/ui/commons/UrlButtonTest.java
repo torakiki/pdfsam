@@ -27,7 +27,6 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
-import org.pdfsam.ui.event.OpenUrlRequest;
 import org.sejda.eventstudio.Listener;
 
 /**

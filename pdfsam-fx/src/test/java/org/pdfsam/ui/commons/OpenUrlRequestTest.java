@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 03/mag/2014
+ * Created on 14/lug/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,30 +16,30 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.banner;
+package org.pdfsam.ui.commons;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.control.Tooltip;
+import static org.junit.Assert.assertEquals;
 
-import javax.inject.Named;
-
-import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.ui.commons.ShowStageRequest;
-
-import de.jensd.fx.fontawesome.AwesomeIcon;
+import org.junit.Test;
 
 /**
- * Button requiring to open the log window
- * 
  * @author Andrea Vacondio
  *
  */
-@Named
-class LogButton extends BannerButton {
+public class OpenUrlRequestTest {
+    @Test(expected = IllegalArgumentException.class)
+    public void nullArg() {
+        new OpenUrlRequest(null);
+    }
 
-    LogButton() {
-        super(AwesomeIcon.LIST);
-        setOnAction(e -> eventStudio().broadcast(new ShowStageRequest(), "LogStage"));
-        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Open application messages")));
+    @Test(expected = IllegalArgumentException.class)
+    public void blankArg() {
+        new OpenUrlRequest(" ");
+    }
+
+    @Test
+    public void notNullArg() {
+        OpenUrlRequest victim = new OpenUrlRequest("ChuckNorris");
+        assertEquals("ChuckNorris", victim.getUrl());
     }
 }

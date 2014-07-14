@@ -23,7 +23,6 @@ import static org.pdfsam.support.RequireUtils.require;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.control.Button;
 
-import org.pdfsam.ui.event.OpenUrlRequest;
 import org.pdfsam.ui.support.Style;
 
 /**

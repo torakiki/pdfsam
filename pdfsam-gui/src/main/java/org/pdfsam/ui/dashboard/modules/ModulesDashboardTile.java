@@ -30,7 +30,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 import org.pdfsam.module.Module;
-import org.pdfsam.ui.event.OpenUrlRequest;
+import org.pdfsam.ui.commons.OpenUrlRequest;
 
 import de.jensd.fx.fontawesome.AwesomeDude;
 import de.jensd.fx.fontawesome.AwesomeIcon;

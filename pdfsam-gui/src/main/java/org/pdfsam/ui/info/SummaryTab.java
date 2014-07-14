@@ -37,7 +37,7 @@ import org.apache.commons.lang3.time.FastDateFormat;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
-import org.pdfsam.ui.event.ShowPdfDescriptorRequest;
+import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.model.pdf.PdfMetadataKey;
 

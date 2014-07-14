@@ -33,7 +33,7 @@ import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.support.params.AbstractPdfOutputParametersBuilder;
 import org.pdfsam.support.params.TaskParametersBuildStep;
-import org.pdfsam.ui.event.SetDestinationRequest;
+import org.pdfsam.ui.commons.SetDestinationRequest;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;

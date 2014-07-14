@@ -24,7 +24,7 @@ import java.io.File;
 
 import javafx.scene.control.Button;
 
-import org.pdfsam.ui.event.OpenFileRequest;
+import org.pdfsam.ui.commons.OpenFileRequest;
 import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.output.StreamTaskOutput;

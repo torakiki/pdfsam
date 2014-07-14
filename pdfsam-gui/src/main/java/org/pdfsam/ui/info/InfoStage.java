@@ -36,7 +36,7 @@ import javax.inject.Named;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.commons.ClosePane;
 import org.pdfsam.ui.commons.HideOnEscapeHandler;
-import org.pdfsam.ui.event.ShowPdfDescriptorRequest;
+import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 

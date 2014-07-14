@@ -19,8 +19,8 @@
 package org.pdfsam.ui.selection.single;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.pdfsam.ui.event.SetDestinationRequest.requestDestination;
-import static org.pdfsam.ui.event.SetDestinationRequest.requestFallbackDestination;
+import static org.pdfsam.ui.commons.SetDestinationRequest.requestDestination;
+import static org.pdfsam.ui.commons.SetDestinationRequest.requestFallbackDestination;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
@@ -50,8 +50,8 @@ import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfDocumentDescriptorProvider;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.io.FileType;
-import org.pdfsam.ui.event.OpenFileRequest;
-import org.pdfsam.ui.event.ShowPdfDescriptorRequest;
+import org.pdfsam.ui.commons.OpenFileRequest;
+import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.pdfsam.ui.io.BrowsableFileField;
 import org.pdfsam.ui.io.ChangedSelectedPdfVersionEvent;
 import org.pdfsam.ui.selection.LoadingStatusIndicator;

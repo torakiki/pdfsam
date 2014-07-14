@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 06/dic/2013
+ * Created on 10/feb/2014
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,14 +16,26 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.event;
+package org.pdfsam.ui.commons;
+
+import static org.pdfsam.support.RequireUtils.requireNotBlank;
 
 /**
- * Event to request a component to be shown
+ * Request to open the given URL
  * 
  * @author Andrea Vacondio
- * 
+ *
  */
-public class ShowStageRequest {
-    // nothing
+public class OpenUrlRequest {
+    private String url;
+
+    public OpenUrlRequest(String url) {
+        requireNotBlank(url, "URL cannot be blank");
+        this.url = url;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
 }

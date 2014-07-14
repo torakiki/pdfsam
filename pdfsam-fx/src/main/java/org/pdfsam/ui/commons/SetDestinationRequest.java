@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.event;
+package org.pdfsam.ui.commons;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
@@ -34,7 +34,6 @@ public class SetDestinationRequest {
     private boolean fallback = false;
 
     private SetDestinationRequest(File footprint, boolean fallback) {
-        requireNotNull(footprint, "Footprint file cannot be null");
         this.footprint = footprint;
         this.fallback = fallback;
     }
@@ -54,6 +53,7 @@ public class SetDestinationRequest {
      * @return a request to set the destination for the task to the given file
      */
     public static SetDestinationRequest requestDestination(File footprint, String module) {
+        requireNotNull(footprint, "Footprint file cannot be null");
         return new SetDestinationRequest(new File(footprint.getParent(), String.format("PDFsam_%s.pdf", module)), false);
     }
 
@@ -64,6 +64,7 @@ public class SetDestinationRequest {
      * @return a request to set the destination as fallback for the task to the given file
      */
     public static SetDestinationRequest requestFallbackDestination(File footprint, String module) {
+        requireNotNull(footprint, "Footprint file cannot be null");
         return new SetDestinationRequest(new File(footprint.getParent(), String.format("PDFsam_%s.pdf", module)), true);
     }
 }
