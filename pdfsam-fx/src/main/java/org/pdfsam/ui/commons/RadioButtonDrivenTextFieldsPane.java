@@ -18,8 +18,7 @@
  */
 package org.pdfsam.ui.commons;
 
-import java.util.Objects;
-
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.control.RadioButton;
@@ -44,8 +43,8 @@ public class RadioButtonDrivenTextFieldsPane extends GridPane {
     }
 
     public void addRow(RadioButton radio, TextField field) {
-        Objects.requireNonNull(radio, "Cannot add a null radio");
-        Objects.requireNonNull(field, "Cannot add a null field");
+        requireNotNull(radio, "Cannot add a null radio");
+        requireNotNull(field, "Cannot add a null field");
         GridPane.setValignment(radio, VPos.BOTTOM);
         GridPane.setValignment(field, VPos.BOTTOM);
         GridPane.setHalignment(radio, HPos.LEFT);
