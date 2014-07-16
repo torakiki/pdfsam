@@ -141,6 +141,7 @@ public class BrowsableFileField extends BrowsableField {
         return (DragEvent e) -> {
             e.getDragboard().getFiles().stream().filter(f -> fileType.matches(f.getName())).findFirst()
                     .ifPresent((file) -> setTextFromFile(file));
+            e.setDropCompleted(true);
         };
     }
 }

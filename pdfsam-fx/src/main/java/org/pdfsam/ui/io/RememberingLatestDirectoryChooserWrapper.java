@@ -31,7 +31,7 @@ import javafx.stage.Window;
  * @author Andrea Vacondio
  *
  */
-public class RememberingLatestDirectoryChooserWrapper extends BaseRememberingLatestChooser {
+class RememberingLatestDirectoryChooserWrapper extends BaseRememberingLatestChooser {
     private DirectoryChooser wrapped = new DirectoryChooser();
 
     public final void setTitle(String value) {

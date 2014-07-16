@@ -113,6 +113,7 @@ public class BrowsableDirectoryField extends BrowsableField {
         return (DragEvent e) -> {
             e.getDragboard().getFiles().stream().filter(f -> f.isDirectory()).findFirst()
                     .ifPresent((file) -> setTextFromFile(file));
+            e.setDropCompleted(true);
         };
     }
 }
