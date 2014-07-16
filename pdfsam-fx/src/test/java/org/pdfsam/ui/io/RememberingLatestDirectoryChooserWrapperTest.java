@@ -18,17 +18,17 @@
  */
 package org.pdfsam.ui.io;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 
-import org.junit.After;
 import org.junit.Ignore;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
+import org.pdfsam.test.ClearEventStudioRule;
 
 /**
  * @author Andrea Vacondio
@@ -37,6 +37,8 @@ import org.loadui.testfx.utils.FXTestUtils;
 @Ignore
 @Category(TestFX.class)
 public class RememberingLatestDirectoryChooserWrapperTest extends GuiTest {
+    @Rule
+    public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
 
     @Test
     public void hasTitle() {
@@ -44,11 +46,6 @@ public class RememberingLatestDirectoryChooserWrapperTest extends GuiTest {
         sleep(1000);
         FXTestUtils.printGraph(find(".aButton"));
         findStageByTitle("Browse folders");
-    }
-
-    @After
-    public void tearDown() {
-        eventStudio().clear();
     }
 
     @Override

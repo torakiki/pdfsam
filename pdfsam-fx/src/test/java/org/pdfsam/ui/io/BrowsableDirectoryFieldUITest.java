@@ -19,7 +19,6 @@
 package org.pdfsam.ui.io;
 
 import static org.loadui.testfx.Assertions.verifyThat;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Arrays;
 import java.util.concurrent.CountDownLatch;
@@ -30,7 +29,6 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 
-import org.junit.After;
 import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
@@ -38,6 +36,7 @@ import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
+import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
 
@@ -49,6 +48,8 @@ import org.pdfsam.ui.support.Style;
 public class BrowsableDirectoryFieldUITest extends GuiTest {
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
+    @Rule
+    public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
 
     @Override
     protected Parent getRootNode() {
@@ -57,11 +58,6 @@ public class BrowsableDirectoryFieldUITest extends GuiTest {
         BrowsableDirectoryField victimBlank = new BrowsableDirectoryField(true);
         victimBlank.getStyleClass().add("victim-blank");
         return new HBox(victimBlank, victimNoBlank);
-    }
-
-    @After
-    public void tearDown() {
-        eventStudio().clear();
     }
 
     @Test

@@ -23,11 +23,12 @@ import static org.junit.Assert.assertTrue;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.Parent;
 
-import org.junit.After;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
+import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.eventstudio.Listener;
 import org.sejda.model.pdf.PdfVersion;
 
@@ -39,17 +40,14 @@ import org.sejda.model.pdf.PdfVersion;
 public class PdfVersionConstrainedCheckBoxTest extends GuiTest {
 
     private static final String MODULE = "MODULE";
+    @Rule
+    public ClearEventStudioRule clearStudio = new ClearEventStudioRule(MODULE);
 
     @Override
     protected Parent getRootNode() {
         PdfVersionConstrainedCheckBox victim = new PdfVersionConstrainedCheckBox(PdfVersion.VERSION_1_4, MODULE);
         victim.getStyleClass().add("victim");
         return victim;
-    }
-
-    @After
-    public void tearDown() {
-        eventStudio().clear(MODULE);
     }
 
     @Test

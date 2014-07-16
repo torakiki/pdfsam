@@ -50,11 +50,11 @@ class DestinationPane extends VBox {
         getStyleClass().addAll(Style.CONTAINER.css());
     }
 
-    public CheckBox overwrite() {
+    protected CheckBox overwrite() {
         return overwrite;
     }
 
-    public BrowsableField destination() {
+    protected BrowsableField destination() {
         return destination;
     }
 }

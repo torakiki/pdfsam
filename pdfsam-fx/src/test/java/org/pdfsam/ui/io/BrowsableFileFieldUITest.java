@@ -19,7 +19,6 @@
 package org.pdfsam.ui.io;
 
 import static org.loadui.testfx.Assertions.verifyThat;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Arrays;
 
@@ -27,12 +26,13 @@ import javafx.scene.Parent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 
-import org.junit.After;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.support.io.FileType;
+import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
 
@@ -42,6 +42,9 @@ import org.pdfsam.ui.support.Style;
  */
 @Category(TestFX.class)
 public class BrowsableFileFieldUITest extends GuiTest {
+    @Rule
+    public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
+
     @Override
     protected Parent getRootNode() {
         BrowsableFileField victimBlank = new BrowsableFileField(FileType.PDF);
@@ -52,11 +55,6 @@ public class BrowsableFileFieldUITest extends GuiTest {
         victimNoBlank.enforceValidation(false, false);
         victimNoBlank.getStyleClass().add("victim-no-blank");
         return new HBox(victimBlank, victimNoBlank);
-    }
-
-    @After
-    public void tearDown() {
-        eventStudio().clear();
     }
 
     @Test
