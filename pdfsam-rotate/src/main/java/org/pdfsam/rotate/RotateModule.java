@@ -56,7 +56,7 @@ public class RotateModule extends BaseTaskExecutionModule {
 
     private RotateSelectionPane selectionPane;
     private RotateOptionsPane rotateOptions = new RotateOptionsPane();
-    private BrowsableOutputDirectoryField destinationFileField = new BrowsableOutputDirectoryField(false);
+    private BrowsableOutputDirectoryField destinationFileField = new BrowsableOutputDirectoryField();
     private PdfDestinationPane destinationPane;
     private PrefixPane prefix = new PrefixPane();
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.OTHER)

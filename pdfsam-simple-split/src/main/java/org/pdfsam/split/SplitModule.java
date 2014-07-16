@@ -59,7 +59,7 @@ public class SplitModule extends BaseTaskExecutionModule {
     private static final String SPLIT_MODULE_ID = "split.simple";
 
     private TaskParametersBuilderSingleSelectionPane selectionPane;
-    private BrowsableOutputDirectoryField destinationDirectoryField = new BrowsableOutputDirectoryField(false);
+    private BrowsableOutputDirectoryField destinationDirectoryField = new BrowsableOutputDirectoryField();
     private SplitOptionsPane splitOptions = new SplitOptionsPane();
     private PdfDestinationPane destinationPane;
     private PrefixPane prefix = new PrefixPane();

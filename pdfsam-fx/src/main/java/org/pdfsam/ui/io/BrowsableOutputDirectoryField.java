@@ -36,8 +36,8 @@ import org.sejda.model.parameter.base.MultipleOutputTaskParameters;
 public class BrowsableOutputDirectoryField extends BrowsableDirectoryField implements
         TaskParametersBuildStep<MultipleOutputTaskParametersBuilder<?>> {
 
-    public BrowsableOutputDirectoryField(boolean allowBlankString) {
-        super(allowBlankString);
+    public BrowsableOutputDirectoryField() {
+        super(false);
     }
 
     @Override
