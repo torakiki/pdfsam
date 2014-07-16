@@ -25,7 +25,7 @@ import java.util.Arrays;
 
 import javafx.scene.Parent;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 
 import org.junit.After;
 import org.junit.Test;
@@ -51,7 +51,7 @@ public class BrowsableFileFieldUITest extends GuiTest {
         BrowsableFileField victimNoBlank = new BrowsableFileField(FileType.PDF);
         victimNoBlank.enforceValidation(false, false);
         victimNoBlank.getStyleClass().add("victim-no-blank");
-        return new VBox(victimBlank, victimNoBlank);
+        return new HBox(victimBlank, victimNoBlank);
     }
 
     @After

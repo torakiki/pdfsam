@@ -28,7 +28,7 @@ import javafx.application.Platform;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 
 import org.junit.After;
 import org.junit.Ignore;
@@ -56,7 +56,7 @@ public class BrowsableDirectoryFieldUITest extends GuiTest {
         victimNoBlank.getStyleClass().add("victim-no-blank");
         BrowsableDirectoryField victimBlank = new BrowsableDirectoryField(true);
         victimBlank.getStyleClass().add("victim-blank");
-        return new VBox(victimBlank, victimNoBlank);
+        return new HBox(victimBlank, victimNoBlank);
     }
 
     @After
