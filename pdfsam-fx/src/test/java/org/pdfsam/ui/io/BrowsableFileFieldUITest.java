@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 15/lug/2014
+ * Created on 16/lug/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,22 +22,17 @@ import static org.loadui.testfx.Assertions.verifyThat;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Arrays;
-import java.util.concurrent.CountDownLatch;
 
-import javafx.application.Platform;
 import javafx.scene.Parent;
-import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.VBox;
 
 import org.junit.After;
-import org.junit.Ignore;
-import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.junit.rules.TemporaryFolder;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
+import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
 
@@ -46,16 +41,16 @@ import org.pdfsam.ui.support.Style;
  *
  */
 @Category(TestFX.class)
-public class BrowsableDirectoryFieldUITest extends GuiTest {
-    @Rule
-    public TemporaryFolder folder = new TemporaryFolder();
-
+public class BrowsableFileFieldUITest extends GuiTest {
     @Override
     protected Parent getRootNode() {
-        BrowsableDirectoryField victimNoBlank = new BrowsableDirectoryField(false);
-        victimNoBlank.getStyleClass().add("victim-no-blank");
-        BrowsableDirectoryField victimBlank = new BrowsableDirectoryField(true);
+        BrowsableFileField victimBlank = new BrowsableFileField(FileType.PDF);
+        victimBlank.enforceValidation(false, true);
         victimBlank.getStyleClass().add("victim-blank");
+
+        BrowsableFileField victimNoBlank = new BrowsableFileField(FileType.PDF);
+        victimNoBlank.enforceValidation(false, false);
+        victimNoBlank.getStyleClass().add("victim-no-blank");
         return new VBox(victimBlank, victimNoBlank);
     }
 
@@ -66,7 +61,7 @@ public class BrowsableDirectoryFieldUITest extends GuiTest {
 
     @Test
     public void validBlank() {
-        BrowsableDirectoryField victim = find(".victim-blank");
+        BrowsableFileField victim = find(".victim-blank");
         click(victim);
         type(KeyCode.TAB);
         verifyThat(victim, v -> v.getTextField().getValidationState() == ValidationState.VALID);
@@ -74,52 +69,10 @@ public class BrowsableDirectoryFieldUITest extends GuiTest {
 
     @Test
     public void invalidBlank() {
-        BrowsableDirectoryField victim = find(".victim-no-blank");
+        BrowsableFileField victim = find(".victim-no-blank");
         click(victim);
         type(KeyCode.TAB);
         verifyThat(victim, v -> v.getTextField().getValidationState() == ValidationState.INVALID);
         Arrays.stream(Style.INVALID.css()).forEach(c -> verifyThat(victim, v -> exists("." + c)));
     }
-
-    @Test
-    public void setGraphic() throws InterruptedException {
-        Label graphic = new Label("Chuck");
-        BrowsableDirectoryField victim = find(".victim-no-blank");
-        final CountDownLatch countDownLatch = new CountDownLatch(1);
-        Platform.runLater(() -> {
-            try {
-                victim.setGraphic(graphic);
-                verifyThat(victim, v -> exists("Chuck"));
-            } finally {
-                countDownLatch.countDown();
-            }
-        });
-        countDownLatch.await();
-    }
-
-    @Test
-    @Ignore
-    public void dragAndDropExistingDirectory() {
-        // Not sure how to test this
-        /**
-         * BrowsableDirectoryField victim = find(".victim-blank"); File inputFile = folder.newFolder(); dragTo(victim, inputFile); verifyThat(victim, v ->
-         * inputFile.getAbsolutePath().equals(v.getTextField().getText()));
-         */
-    }
-
-    @Test
-    @Ignore
-    public void dragAndDropExistingFile() {
-        // Not sure how to test this
-        /**
-         * BrowsableDirectoryField victim = find(".victim-blank"); File inputFile = folder.newFile(); dragTo(victim, inputFile); verifyThat(victim, v ->
-         * isBlank(v.getTextField().getText()));
-         */
-    }
-
-    @Test
-    public void dragAndDropNotExistingDirectory() {
-
-    }
-
 }
