@@ -28,7 +28,7 @@ import java.io.IOException;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
-import org.pdfsam.test.JavaFXThreadRule;
+import org.pdfsam.test.InitializeJavaFxThreadRule;
 
 /**
  * @author Andrea Vacondio
@@ -38,7 +38,7 @@ public class BrowsableDirectoryFieldTest {
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
     @Rule
-    public JavaFXThreadRule fxThread = new JavaFXThreadRule();
+    public InitializeJavaFxThreadRule fxThread = new InitializeJavaFxThreadRule();
 
     @Test
     public void setTextFromFile() throws IOException {

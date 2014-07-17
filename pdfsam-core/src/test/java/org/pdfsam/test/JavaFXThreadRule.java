@@ -20,12 +20,8 @@ package org.pdfsam.test;
 
 import java.util.Optional;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.locks.ReentrantLock;
 
 import javafx.application.Platform;
-import javafx.embed.swing.JFXPanel;
-
-import javax.swing.SwingUtilities;
 
 import org.junit.rules.TestRule;
 import org.junit.runner.Description;
@@ -38,10 +34,6 @@ import org.junit.runners.model.Statement;
  *
  */
 public class JavaFXThreadRule implements TestRule {
-
-    static {
-        new JavaFXInitlializer().init();
-    }
 
     @Override
     public Statement apply(Statement statement, Description description) {
@@ -66,44 +58,6 @@ public class JavaFXThreadRule implements TestRule {
                 }
             }
         };
-    }
-
-    /**
-     * Perform JavaFX thread initialization
-     * 
-     * @author Andrea Vacondio
-     *
-     */
-    private static class JavaFXInitlializer {
-        private ReentrantLock setupLock = new ReentrantLock();
-        private boolean setUp = false;
-
-        void init() {
-            if (!setUp) {
-                try {
-                    setupLock.lock();
-                    if (!setUp) {
-                        setupJavaFX();
-                        setUp = true;
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } finally {
-                    setupLock.unlock();
-                }
-            }
-        }
-
-        private void setupJavaFX() throws InterruptedException {
-            System.out.println("Initializing JavaFX thread");
-            final CountDownLatch latch = new CountDownLatch(1);
-            SwingUtilities.invokeLater(() -> {
-                new JFXPanel();
-                latch.countDown();
-            });
-            latch.await();
-            System.out.println("JavaFX initialized");
-        }
     }
 
 }

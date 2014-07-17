@@ -35,7 +35,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.test.JavaFXThreadRule;
+import org.pdfsam.test.InitializeJavaFxThreadRule;
 import org.pdfsam.ui.commons.SetDestinationRequest;
 
 /**
@@ -47,7 +47,7 @@ public class PdfDestinationPaneTest {
 
     private static final String MODULE = "MODULE";
     @Rule
-    public JavaFXThreadRule fxThread = new JavaFXThreadRule();
+    public InitializeJavaFxThreadRule fxThread = new InitializeJavaFxThreadRule();
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule(MODULE);
     @Rule

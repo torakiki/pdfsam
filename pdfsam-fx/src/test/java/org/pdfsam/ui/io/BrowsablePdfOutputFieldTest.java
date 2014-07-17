@@ -37,7 +37,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.pdfsam.support.params.SingleOutputTaskParametersBuilder;
-import org.pdfsam.test.JavaFXThreadRule;
+import org.pdfsam.test.InitializeJavaFxThreadRule;
 
 /**
  * @author Andrea Vacondio
@@ -48,7 +48,7 @@ public class BrowsablePdfOutputFieldTest {
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
     @Rule
-    public JavaFXThreadRule fxThread = new JavaFXThreadRule();
+    public InitializeJavaFxThreadRule fxThread = new InitializeJavaFxThreadRule();
     @Mock
     private SingleOutputTaskParametersBuilder<?> builder;
     @Mock

@@ -38,7 +38,7 @@ import org.sejda.eventstudio.annotation.EventStation;
 import org.sejda.model.pdf.PdfVersion;
 
 /**
- * Combo box let the user select the pdf version of the generated output documents
+ * Combo box to let the user select the pdf version of the generated output documents
  * 
  * @author Andrea Vacondio
  * 

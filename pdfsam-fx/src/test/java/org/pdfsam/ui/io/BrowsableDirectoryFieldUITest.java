@@ -21,9 +21,7 @@ package org.pdfsam.ui.io;
 import static org.loadui.testfx.Assertions.verifyThat;
 
 import java.util.Arrays;
-import java.util.concurrent.CountDownLatch;
 
-import javafx.application.Platform;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
@@ -36,6 +34,7 @@ import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
+import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
@@ -78,19 +77,11 @@ public class BrowsableDirectoryFieldUITest extends GuiTest {
     }
 
     @Test
-    public void setGraphic() throws InterruptedException {
+    public void setGraphic() throws Exception {
         Label graphic = new Label("Chuck");
         BrowsableDirectoryField victim = find(".victim-no-blank");
-        final CountDownLatch countDownLatch = new CountDownLatch(1);
-        Platform.runLater(() -> {
-            try {
-                victim.setGraphic(graphic);
-                verifyThat(victim, v -> exists("Chuck"));
-            } finally {
-                countDownLatch.countDown();
-            }
-        });
-        countDownLatch.await();
+        FXTestUtils.invokeAndWait(() -> victim.setGraphic(graphic), 1);
+        verifyThat(victim, v -> exists("Chuck"));
     }
 
     @Test

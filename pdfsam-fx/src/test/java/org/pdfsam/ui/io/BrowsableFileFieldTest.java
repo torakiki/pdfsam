@@ -27,7 +27,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import org.pdfsam.support.io.FileType;
-import org.pdfsam.test.JavaFXThreadRule;
+import org.pdfsam.test.InitializeJavaFxThreadRule;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 
 /**
@@ -38,7 +38,7 @@ public class BrowsableFileFieldTest {
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
     @Rule
-    public JavaFXThreadRule fxThread = new JavaFXThreadRule();
+    public InitializeJavaFxThreadRule fxThread = new InitializeJavaFxThreadRule();
 
     @Test
     public void setTextFromNullFile() {
