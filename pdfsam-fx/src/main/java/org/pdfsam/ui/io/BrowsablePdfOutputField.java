@@ -36,8 +36,10 @@ import org.sejda.model.parameter.base.SingleOutputTaskParameters;
  */
 public class BrowsablePdfOutputField extends BrowsableFileField implements
         TaskParametersBuildStep<SingleOutputTaskParametersBuilder<?>> {
+
     public BrowsablePdfOutputField() {
         super(FileType.PDF);
+        this.enforceValidation(false, false);
     }
 
     public void apply(SingleOutputTaskParametersBuilder<?> builder, Consumer<String> onError) {

@@ -36,6 +36,7 @@ import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.pdfsam.context.UserContext;
 import org.pdfsam.support.params.AbstractPdfOutputParametersBuilder;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.model.parameter.base.AbstractPdfOutputParameters;
@@ -57,11 +58,13 @@ public class PdfDestinationPaneUITest extends GuiTest {
     private AbstractPdfOutputParametersBuilder<? extends AbstractPdfOutputParameters> builder;
     @Mock
     private Consumer<String> onError;
+    @Mock
+    private UserContext userContext;
 
     @Override
     protected Parent getRootNode() {
         BrowsablePdfInputField destination = new BrowsablePdfInputField();
-        PdfDestinationPane victim = new PdfDestinationPane(destination, MODULE);
+        PdfDestinationPane victim = new PdfDestinationPane(destination, MODULE, userContext);
         victim.getStyleClass().add("victim");
         return victim;
     }

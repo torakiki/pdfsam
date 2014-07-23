@@ -151,6 +151,11 @@
 			<artifactId>logback-classic</artifactId>
 			<version>[${logback.version},]</version>
 		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.7.7</version>
+		</dependency>
 
 		<!-- test dependencies -->
 		<dependency>

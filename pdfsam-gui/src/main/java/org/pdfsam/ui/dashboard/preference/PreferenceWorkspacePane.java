@@ -24,14 +24,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.VBox;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.I18nContext;
-import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.module.ClearUsageRequestEvent;
-import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.support.Style;
 
 /**
@@ -43,10 +42,16 @@ import org.pdfsam.ui.support.Style;
 @Named
 class PreferenceWorkspacePane extends VBox {
 
-    PreferenceWorkspacePane() {
+    @Inject
+    @Named("workingDirectory")
+    private PreferenceBrowsableDirectoryField workingDirectory;
+    @Inject
+    @Named("workspace")
+    private PreferenceBrowsableFileField workspace;
+
+    @PostConstruct
+    public void post() {
         I18nContext i18n = DefaultI18nContext.getInstance();
-        PreferenceBrowsableFileField workspace = new PreferenceBrowsableFileField(StringUserPreference.WORKSPACE_PATH,
-                FileType.XML);
         workspace.getTextField().setPromptText(
                 i18n.i18n("Select a previously saved workspace that will be automatically loaded at startup"));
         workspace.getTextField().setTooltip(
@@ -54,17 +59,13 @@ class PreferenceWorkspacePane extends VBox {
                         .i18n("Select a previously saved workspace that will be automatically loaded at startup")));
         workspace.setBrowseWindowTitle(i18n.i18n("Select a workspace"));
         workspace.getStyleClass().add("spaced-vitem");
-        workspace.getTextField().setText(DefaultUserContext.getInstance().getDefaultWorkspacePath());
 
-        PreferenceBrowsableDirectoryField workingDirectory = new PreferenceBrowsableDirectoryField(
-                StringUserPreference.WORKING_PATH);
         workingDirectory.getTextField().setPromptText(
                 i18n.i18n("Select a directory where documents will be saved and loaded by default"));
         workingDirectory.getTextField().setTooltip(
                 new Tooltip(i18n.i18n("Select a directory where documents will be saved and loaded by default")));
         workingDirectory.setBrowseWindowTitle(i18n.i18n("Select a directory"));
         workingDirectory.getStyleClass().add("spaced-vitem");
-        workingDirectory.getTextField().setText(DefaultUserContext.getInstance().getDefaultWorkingPath());
 
         Button clearButton = new Button(i18n.i18n("Clear usage statistics"));
         clearButton.getStyleClass().addAll(Style.BUTTON.css());

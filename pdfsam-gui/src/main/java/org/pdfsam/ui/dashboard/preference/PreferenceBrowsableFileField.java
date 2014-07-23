@@ -21,6 +21,7 @@ package org.pdfsam.ui.dashboard.preference;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 import org.pdfsam.context.StringUserPreference;
+import org.pdfsam.context.UserContext;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.io.BrowsableFileField;
 
@@ -31,10 +32,14 @@ import org.pdfsam.ui.io.BrowsableFileField;
  * 
  */
 class PreferenceBrowsableFileField extends BrowsableFileField {
-    PreferenceBrowsableFileField(StringUserPreference preference, FileType type) {
+
+    PreferenceBrowsableFileField(StringUserPreference preference, FileType type, UserContext userContext) {
         super(type);
         requireNotNull(preference, "Preference cannot be null");
+        requireNotNull(userContext, "UserContext cannot be null");
         enforceValidation(true, true);
-        getTextField().validProperty().addListener(new PreferenceSetterOnValidState(preference, getTextField()));
+        getTextField().validProperty().addListener(
+                new PreferenceSetterOnValidState(preference, getTextField(), userContext));
     }
+
 }

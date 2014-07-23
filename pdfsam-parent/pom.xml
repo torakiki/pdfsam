@@ -18,7 +18,7 @@
 			</properties>
 		</profile>
 	</profiles>
-	
+
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -51,7 +51,7 @@
 		<hibernate-validator.version>4.2.0.Final</hibernate-validator.version>
 		<sejda.version>1.0.0.RELEASE-SNAPSHOT</sejda.version>
 		<eventstudio.version>1.0.2</eventstudio.version>
-		<org.springframework.version>4.0.3.RELEASE</org.springframework.version>
+		<org.springframework.version>4.0.6.RELEASE</org.springframework.version>
 		<fontawesomefx.version>8.0.8</fontawesomefx.version>
 		<testfx.version>3.1.2</testfx.version>
 		<jackson-jr.version>2.3.3</jackson-jr.version>
@@ -136,8 +136,16 @@
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
-				<artifactId>spring-context</artifactId>
+				<artifactId>spring-framework-bom</artifactId>
 				<version>${org.springframework.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>

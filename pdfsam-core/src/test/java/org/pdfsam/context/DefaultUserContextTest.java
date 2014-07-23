@@ -18,7 +18,11 @@
  */
 package org.pdfsam.context;
 
-import org.junit.Assert;
+import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 /**
@@ -29,61 +33,75 @@ import org.junit.Test;
  */
 public class DefaultUserContextTest {
 
+    private DefaultUserContext victim = new DefaultUserContext();
+
     @Test
     public void isAskConfirmation() {
-        DefaultUserContext.getInstance().setBooleanPreference(BooleanUserPreference.ASK_OVERWRITE_CONFIRMATION, false);
-        Assert.assertFalse(DefaultUserContext.getInstance().isAskOverwriteConfirmation());
+        victim.setBooleanPreference(BooleanUserPreference.ASK_OVERWRITE_CONFIRMATION, true);
+        assertTrue(victim.isAskOverwriteConfirmation());
+        victim.setBooleanPreference(BooleanUserPreference.ASK_OVERWRITE_CONFIRMATION, false);
+        assertFalse(victim.isAskOverwriteConfirmation());
     }
 
     @Test
     public void isCheckUpdates() {
-        DefaultUserContext.getInstance().setBooleanPreference(BooleanUserPreference.CHECK_UPDATES, true);
-        Assert.assertTrue(DefaultUserContext.getInstance().isCheckForUpdates());
+        victim.setBooleanPreference(BooleanUserPreference.CHECK_UPDATES, false);
+        assertFalse(victim.isCheckForUpdates());
+        victim.setBooleanPreference(BooleanUserPreference.CHECK_UPDATES, true);
+        assertTrue(victim.isCheckForUpdates());
     }
 
     @Test
     public void isUseSmartOutput() {
-        DefaultUserContext.getInstance().setBooleanPreference(BooleanUserPreference.SMART_OUTPUT, true);
-        Assert.assertTrue(DefaultUserContext.getInstance().isUseSmartOutput());
+        victim.setBooleanPreference(BooleanUserPreference.SMART_OUTPUT, false);
+        assertFalse(victim.isUseSmartOutput());
+        victim.setBooleanPreference(BooleanUserPreference.SMART_OUTPUT, true);
+        assertTrue(victim.isUseSmartOutput());
     }
 
     @Test
     public void isAskPlaySounds() {
-        DefaultUserContext.getInstance().setBooleanPreference(BooleanUserPreference.PLAY_SOUNDS, false);
-        Assert.assertFalse(DefaultUserContext.getInstance().isPlaySounds());
+        victim.setBooleanPreference(BooleanUserPreference.PLAY_SOUNDS, true);
+        assertTrue(victim.isPlaySounds());
+        victim.setBooleanPreference(BooleanUserPreference.PLAY_SOUNDS, false);
+        assertFalse(victim.isPlaySounds());
     }
 
     @Test
     public void getLocale() {
-        DefaultUserContext.getInstance().setStringPreference(StringUserPreference.LOCALE, "en-GB");
-        Assert.assertEquals("en-GB", DefaultUserContext.getInstance().getLocale());
-        DefaultUserContext.getInstance().setStringPreference(StringUserPreference.LOCALE, "");
+        victim.setStringPreference(StringUserPreference.LOCALE, "en-GB");
+        assertEquals("en-GB", victim.getLocale());
+        victim.setStringPreference(StringUserPreference.LOCALE, "");
+        assertTrue(isBlank(victim.getLocale()));
     }
 
     @Test
     public void getThumbIdentifier() {
-        DefaultUserContext.getInstance().setStringPreference(StringUserPreference.THUMBNAILS_IDENTIFIER, "ChuckNorris");
-        Assert.assertEquals("ChuckNorris", DefaultUserContext.getInstance().getThumbnailsCreatorIdentifier());
-        DefaultUserContext.getInstance().setStringPreference(StringUserPreference.THUMBNAILS_IDENTIFIER, "");
+        victim.setStringPreference(StringUserPreference.THUMBNAILS_IDENTIFIER, "ChuckNorris");
+        assertEquals("ChuckNorris", victim.getThumbnailsCreatorIdentifier());
+        victim.setStringPreference(StringUserPreference.THUMBNAILS_IDENTIFIER, "");
+        assertTrue(isBlank(victim.getThumbnailsCreatorIdentifier()));
     }
 
     @Test
     public void getDefaultWorkingPath() {
-        DefaultUserContext.getInstance().setStringPreference(StringUserPreference.WORKING_PATH, "/path");
-        Assert.assertEquals("/path", DefaultUserContext.getInstance().getDefaultWorkingPath());
-        DefaultUserContext.getInstance().setStringPreference(StringUserPreference.WORKING_PATH, "");
+        victim.setStringPreference(StringUserPreference.WORKING_PATH, "/path");
+        assertEquals("/path", victim.getDefaultWorkingPath());
+        victim.setStringPreference(StringUserPreference.WORKING_PATH, "");
+        assertTrue(isBlank(victim.getDefaultWorkingPath()));
     }
 
     @Test
     public void getDefaultWorkspacePath() {
-        DefaultUserContext.getInstance().setStringPreference(StringUserPreference.WORKSPACE_PATH, "/wpath");
-        Assert.assertEquals("/wpath", DefaultUserContext.getInstance().getDefaultWorkspacePath());
-        DefaultUserContext.getInstance().setStringPreference(StringUserPreference.WORKSPACE_PATH, "");
+        victim.setStringPreference(StringUserPreference.WORKSPACE_PATH, "/wpath");
+        assertEquals("/wpath", victim.getDefaultWorkspacePath());
+        victim.setStringPreference(StringUserPreference.WORKSPACE_PATH, "");
+        assertTrue(isBlank(victim.getDefaultWorkspacePath()));
     }
 
     @Test
     public void getThumbPoolSize() {
-        DefaultUserContext.getInstance().setIntegerPreference(IntUserPreference.THUMBNAILS_SIZE, 2);
-        Assert.assertEquals(2, DefaultUserContext.getInstance().getThumbnailsSize());
+        victim.setIntegerPreference(IntUserPreference.THUMBNAILS_SIZE, 2);
+        assertEquals(2, victim.getThumbnailsSize());
     }
 }

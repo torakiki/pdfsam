@@ -23,11 +23,11 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.VBox;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.I18nContext;
 import org.pdfsam.ui.support.Style;
 
@@ -40,7 +40,12 @@ import org.pdfsam.ui.support.Style;
 @Named
 class PreferenceOutputPane extends VBox {
 
-    PreferenceOutputPane() {
+    @Inject
+    @Named("smartRadio")
+    private PreferenceRadioButton smartRadio;
+
+    @PostConstruct
+    public void post() {
         I18nContext i18n = DefaultI18nContext.getInstance();
         ToggleGroup group = new ToggleGroup();
 
@@ -48,14 +53,12 @@ class PreferenceOutputPane extends VBox {
         manualRadio.setToggleGroup(group);
         manualRadio.getStyleClass().addAll(Style.VITEM.css());
 
-        PreferenceRadioButton smartRadio = new PreferenceRadioButton(BooleanUserPreference.SMART_OUTPUT,
-                i18n.i18n("Use the selected PDF document directory as output directory"), DefaultUserContext
-                        .getInstance().isUseSmartOutput());
         smartRadio.setTooltip(new Tooltip(i18n
                 .i18n("Automatically set the destination directory to the selected PDF document directory")));
         smartRadio.getStyleClass().addAll(Style.VITEM.css());
         smartRadio.setToggleGroup(group);
 
+        // TODO handle first run when none is selected
         getChildren().addAll(manualRadio, smartRadio);
         getStyleClass().addAll(Style.CONTAINER.css());
     }

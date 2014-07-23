@@ -25,7 +25,7 @@ import javafx.scene.media.MediaPlayer.Status;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.context.DefaultUserContext;
+import org.pdfsam.context.UserContext;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
@@ -44,6 +44,8 @@ public class PlaySoundController {
     @Inject
     @Named("okPlayer")
     private MediaPlayer ok;
+    @Named
+    private UserContext userContext;
 
     public PlaySoundController() {
         eventStudio().addAnnotatedListeners(this);
@@ -60,7 +62,7 @@ public class PlaySoundController {
     }
 
     private void playSound(MediaPlayer player) {
-        if (DefaultUserContext.getInstance().isPlaySounds() && player.getStatus() == Status.READY) {
+        if (userContext.isPlaySounds() && player.getStatus() == Status.READY) {
             player.play();
         }
     }

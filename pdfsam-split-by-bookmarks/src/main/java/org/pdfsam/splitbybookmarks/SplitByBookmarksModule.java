@@ -29,8 +29,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.apache.commons.lang3.builder.Builder;
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.context.UserContext;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.ModulePriority;
@@ -44,6 +48,8 @@ import org.pdfsam.ui.selection.single.TaskParametersBuilderSingleSelectionPane;
 import org.pdfsam.ui.support.Views;
 import org.sejda.model.parameter.SplitByGoToActionLevelParameters;
 import org.sejda.model.prefix.Prefix;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * Merge module to let the user merge together multiple pdf documents
@@ -54,12 +60,16 @@ import org.sejda.model.prefix.Prefix;
 @PdfsamModule
 public class SplitByBookmarksModule extends BaseTaskExecutionModule {
 
-    private static final String SPLIT_MODULE_ID = "split.bybookmarks";
+    private static final String MODULE_ID = "split.bybookmarks";
 
     private TaskParametersBuilderSingleSelectionPane selectionPane;
-    private BrowsableOutputDirectoryField destinationDirectoryField = new BrowsableOutputDirectoryField();
-    private SplitOptionsPane splitOptions = new SplitOptionsPane();
+    @Inject
+    @Named(MODULE_ID + "field")
+    private BrowsableOutputDirectoryField destinationDirectoryField;
+    @Inject
+    @Named(MODULE_ID + "pane")
     private PdfDestinationPane destinationPane;
+    private SplitOptionsPane splitOptions = new SplitOptionsPane();
     private PrefixPane prefix = new PrefixPane();
     private ModuleDescriptor descriptor = builder()
             .category(ModuleCategory.SPLIT)
@@ -74,8 +84,6 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
         this.selectionPane = new TaskParametersBuilderSingleSelectionPane(id());
         this.selectionPane.setPromptText(DefaultI18nContext.getInstance().i18n(
                 "Select or drag and drop the PDF you want to split"));
-        this.destinationPane = new PdfDestinationPane(destinationDirectoryField, id());
-        this.destinationPane.enableSameAsSourceItem();
         this.selectionPane.addOnLoaded(d -> splitOptions.setMaxBookmarkLevel(d.getMaxGoToActionDepth()));
 
     }
@@ -117,7 +125,7 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
 
     @Override
     public String id() {
-        return SPLIT_MODULE_ID;
+        return MODULE_ID;
     }
 
     public RequiredPdfData[] requires() {
@@ -126,5 +134,21 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
 
     public Node graphic() {
         return new ImageView("split_by_bookmarks.png");
+    }
+
+    @Configuration
+    public static class ModuleConfig {
+        @Bean(name = MODULE_ID + "field")
+        public BrowsableOutputDirectoryField destinationDirectoryField() {
+            return new BrowsableOutputDirectoryField();
+        }
+
+        @Bean(name = MODULE_ID + "pane")
+        public PdfDestinationPane destinationPane(
+                @Named(MODULE_ID + "field") BrowsableOutputDirectoryField outputField, UserContext userContext) {
+            PdfDestinationPane destinationPane = new PdfDestinationPane(outputField, MODULE_ID, userContext);
+            destinationPane.enableSameAsSourceItem();
+            return destinationPane;
+        }
     }
 }

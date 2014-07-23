@@ -18,10 +18,11 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 import javafx.scene.control.RadioButton;
 
 import org.pdfsam.context.BooleanUserPreference;
-import org.pdfsam.context.DefaultUserContext;
+import org.pdfsam.context.UserContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,12 +36,14 @@ class PreferenceRadioButton extends RadioButton {
     private static final Logger LOG = LoggerFactory.getLogger(PreferenceRadioButton.class);
     private final BooleanUserPreference preference;
 
-    PreferenceRadioButton(BooleanUserPreference preference, String label, boolean selected) {
+    PreferenceRadioButton(BooleanUserPreference preference, String label, boolean selected, UserContext userContext) {
         super(label);
+        requireNotNull(preference, "Preference cannot be null");
+        requireNotNull(userContext, "UserContext cannot be null");
         setSelected(selected);
         this.preference = preference;
         selectedProperty().addListener((ov, oldVal, newVal) -> {
-            DefaultUserContext.getInstance().setBooleanPreference(PreferenceRadioButton.this.preference, newVal);
+            userContext.setBooleanPreference(PreferenceRadioButton.this.preference, newVal);
             LOG.trace("Preference {} set to {}", PreferenceRadioButton.this.preference, newVal);
         });
 

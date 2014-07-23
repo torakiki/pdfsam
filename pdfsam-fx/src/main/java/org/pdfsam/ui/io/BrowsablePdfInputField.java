@@ -20,6 +20,8 @@ package org.pdfsam.ui.io;
 
 import java.util.function.Consumer;
 
+import javax.inject.Named;
+
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.support.params.SinglePdfSourceTaskParametersBuilder;
@@ -27,6 +29,8 @@ import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.sejda.conversion.PdfFileSourceAdapter;
 import org.sejda.model.parameter.base.SinglePdfSourceTaskParameters;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
 
 /**
  * A {@link BrowsableFileField} letting the user select a PDF document as input for a {@link SinglePdfSourceTaskParameters}.
@@ -34,6 +38,8 @@ import org.sejda.model.parameter.base.SinglePdfSourceTaskParameters;
  * @author Andrea Vacondio
  *
  */
+@Named
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class BrowsablePdfInputField extends BrowsableFileField implements
         TaskParametersBuildStep<SinglePdfSourceTaskParametersBuilder<?>> {
 

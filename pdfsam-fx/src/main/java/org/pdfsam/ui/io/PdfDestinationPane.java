@@ -20,6 +20,7 @@ package org.pdfsam.ui.io;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.function.Consumer;
@@ -27,9 +28,11 @@ import java.util.function.Consumer;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 
+import javax.inject.Named;
+
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.context.DefaultUserContext;
+import org.pdfsam.context.UserContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.support.params.AbstractPdfOutputParametersBuilder;
 import org.pdfsam.support.params.TaskParametersBuildStep;
@@ -39,6 +42,8 @@ import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
 import org.sejda.model.parameter.base.AbstractPdfOutputParameters;
 import org.sejda.model.pdf.PdfVersion;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
 
 /**
  * Panel letting the user select an output destination for generated Pdf document/s.
@@ -46,15 +51,20 @@ import org.sejda.model.pdf.PdfVersion;
  * @author Andrea Vacondio
  * 
  */
+@Named("pdfDestinationPane")
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class PdfDestinationPane extends DestinationPane implements ModuleOwned,
         TaskParametersBuildStep<AbstractPdfOutputParametersBuilder<? extends AbstractPdfOutputParameters>> {
 
     private PdfVersionCombo version;
     private PdfVersionConstrainedCheckBox compress;
     private String ownerModule = StringUtils.EMPTY;
+    private UserContext userContext;
 
-    public PdfDestinationPane(BrowsableField destination, String ownerModule) {
+    public PdfDestinationPane(BrowsableField destination, String ownerModule, UserContext userContext) {
         super(destination);
+        requireNotNull(userContext, "UserContext cannot be null");
+        this.userContext = userContext;
         this.ownerModule = defaultString(ownerModule);
         version = new PdfVersionCombo(ownerModule);
         compress = new PdfVersionConstrainedCheckBox(PdfVersion.VERSION_1_5, ownerModule);
@@ -77,9 +87,7 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned,
 
     @EventListener
     public void setDestination(SetDestinationRequest event) {
-        if (!event.isFallback()
-                || (isBlank(destination().getTextField().getText()) && DefaultUserContext.getInstance()
-                        .isUseSmartOutput())) {
+        if (!event.isFallback() || (isBlank(destination().getTextField().getText()) && userContext.isUseSmartOutput())) {
             destination().setTextFromFile(event.getFootprint());
         }
     }

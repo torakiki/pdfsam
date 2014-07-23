@@ -41,7 +41,7 @@ import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.apache.commons.lang3.time.StopWatch;
 import org.pdfsam.configuration.ApplicationContextHolder;
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.context.DefaultUserContext;
+import org.pdfsam.context.UserContext;
 import org.pdfsam.ui.MainPane;
 import org.pdfsam.ui.commons.OpenFileRequest;
 import org.pdfsam.ui.commons.OpenUrlRequest;
@@ -96,7 +96,7 @@ public class App extends Application {
     }
 
     private static void requestCheckForUpdateIfNecessary() {
-        if (DefaultUserContext.getInstance().isCheckForUpdates()) {
+        if (ApplicationContextHolder.getContext().getBean(UserContext.class).isCheckForUpdates()) {
             eventStudio().broadcast(new UpdateCheckRequest());
         }
     }

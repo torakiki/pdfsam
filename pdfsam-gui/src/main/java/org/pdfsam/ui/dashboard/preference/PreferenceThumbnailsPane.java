@@ -23,14 +23,14 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.I18nContext;
 import org.pdfsam.context.IntUserPreference;
-import org.pdfsam.context.StringUserPreference;
+import org.pdfsam.context.UserContext;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.commons.ValidableTextField;
@@ -52,15 +52,23 @@ class PreferenceThumbnailsPane extends VBox {
     private static final Integer LOWER = 130;
     private static final Integer UPPER = 390;
 
-    PreferenceThumbnailsPane() {
+    @Inject
+    private UserContext userContext;
+    @Inject
+    @Named("thumbnailsCombo")
+    private PreferenceComboBox<KeyStringValueItem<String>> thumbnailsCombo;
+    @Inject
+    @Named("highQualityThumbnails")
+    private PreferenceCheckBox highQualityThumbnails;
+
+    @PostConstruct
+    public void post() {
         I18nContext i18n = DefaultI18nContext.getInstance();
-        PreferenceCheckBox highQualityThumbnails = new PreferenceCheckBox(BooleanUserPreference.HIGH_QUALITY_THUMB,
-                i18n.i18n("High quality thumbnails"), DefaultUserContext.getInstance().isHighQualityThumbnails());
+
         highQualityThumbnails.setTooltip(new Tooltip(i18n.i18n("Generate high quality thumbnails (slower)")));
         highQualityThumbnails.getStyleClass().add("spaced-vitem");
 
-        final ValidableTextField thumbSize = new ValidableTextField(Integer.toString(DefaultUserContext.getInstance()
-                .getThumbnailsSize()));
+        final ValidableTextField thumbSize = new ValidableTextField(Integer.toString(userContext.getThumbnailsSize()));
         thumbSize.setValidator(Validators.newIntRangeString(LOWER, UPPER));
         thumbSize.setEnableInvalidStyle(true);
         thumbSize
@@ -73,7 +81,7 @@ class PreferenceThumbnailsPane extends VBox {
         thumbSize.validProperty().addListener(
                 (o, oldVal, newVal) -> {
                     if (newVal == ValidationState.VALID) {
-                        DefaultUserContext.getInstance().setIntegerPreference(IntUserPreference.THUMBNAILS_SIZE,
+                        userContext.setIntegerPreference(IntUserPreference.THUMBNAILS_SIZE,
                                 Integer.parseInt(thumbSize.getText()));
                         LOG.trace("Preference {} set to {}", IntUserPreference.THUMBNAILS_SIZE, thumbSize.getText());
                     }
@@ -82,10 +90,9 @@ class PreferenceThumbnailsPane extends VBox {
         second.getStyleClass().addAll(Style.HCONTAINER.css());
         second.getStyleClass().addAll(Style.VITEM.css());
 
-        PreferenceComboBox<KeyStringValueItem<String>> thumbCreator = new PreferenceComboBox<>(
-                StringUserPreference.THUMBNAILS_IDENTIFIER);
-        thumbCreator.setTooltip(new Tooltip(i18n.i18n("Library used to generate thumbnails")));
-        getChildren().addAll(highQualityThumbnails, second, new Label(i18n.i18n("Thumbnails creator:")), thumbCreator);
+        thumbnailsCombo.setTooltip(new Tooltip(i18n.i18n("Library used to generate thumbnails")));
+        getChildren().addAll(highQualityThumbnails, second, new Label(i18n.i18n("Thumbnails creator:")),
+                thumbnailsCombo);
         getStyleClass().addAll(Style.CONTAINER.css());
     }
 }

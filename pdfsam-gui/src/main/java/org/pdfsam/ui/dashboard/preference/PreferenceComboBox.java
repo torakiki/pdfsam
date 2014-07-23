@@ -21,8 +21,8 @@ package org.pdfsam.ui.dashboard.preference;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 import javafx.scene.control.ComboBox;
 
-import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.StringUserPreference;
+import org.pdfsam.context.UserContext;
 import org.pdfsam.support.KeyValueItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,17 +36,16 @@ import org.slf4j.LoggerFactory;
  */
 class PreferenceComboBox<T extends KeyValueItem<String, String>> extends ComboBox<T> {
     private static final Logger LOG = LoggerFactory.getLogger(PreferenceComboBox.class);
+
     private StringUserPreference preference;
 
-    PreferenceComboBox(StringUserPreference preference) {
+    public PreferenceComboBox(StringUserPreference preference, UserContext userContext) {
         requireNotNull(preference, "Preference cannot be null");
+        requireNotNull(userContext, "UserContext cannot be null");
         this.preference = preference;
-        valueProperty().addListener(
-                (observable, oldValue, newValue) -> {
-                    DefaultUserContext.getInstance().setStringPreference(PreferenceComboBox.this.preference,
-                            newValue.getKey());
-                    LOG.trace("Preference {} set to {}", PreferenceComboBox.this.preference, newValue.getKey());
-                });
+        valueProperty().addListener((observable, oldValue, newValue) -> {
+            userContext.setStringPreference(PreferenceComboBox.this.preference, newValue.getKey());
+            LOG.trace("Preference {} set to {}", PreferenceComboBox.this.preference, newValue.getKey());
+        });
     }
-
 }

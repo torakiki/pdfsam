@@ -102,7 +102,9 @@ public final class DefaultI18nContext implements I18nContext {
     }
 
     private Locale getBestLocale() {
-        String localeString = DefaultUserContext.getInstance().getLocale();
+        String localeString = "";
+        // TODO
+        // String localeString = DefaultUserContext.getInstance().getLocale();
         if (StringUtils.isNotBlank(localeString)) {
             LOG.trace("Found locale string {}", localeString);
             return Locale.forLanguageTag(localeString);

@@ -36,7 +36,7 @@ import org.sejda.model.pdf.PdfVersion;
  * @author Andrea Vacondio
  * 
  */
-public class PdfVersionConstrainedCheckBox extends CheckBox implements ModuleOwned {
+class PdfVersionConstrainedCheckBox extends CheckBox implements ModuleOwned {
     private PdfVersion constraint;
     private String ownerModule = StringUtils.EMPTY;
 

@@ -30,7 +30,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.context.UserContext;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.ModulePriority;
@@ -40,6 +44,8 @@ import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.support.Views;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * Merge module to let the user merge together multiple pdf documents
@@ -50,11 +56,15 @@ import org.pdfsam.ui.support.Views;
 @PdfsamModule
 public class MergeModule extends BaseTaskExecutionModule {
 
-    private static final String MERGE_MODULE_ID = "merge";
+    private static final String MODULE_ID = "merge";
 
-    private MergeSelectionPane selectionPane;
+    private MergeSelectionPane selectionPane = new MergeSelectionPane(MODULE_ID);
     private MergeOptionsPane mergeOptions = new MergeOptionsPane();
-    private BrowsablePdfOutputField destinationFileField = new BrowsablePdfOutputField();
+    @Inject
+    @Named(MODULE_ID + "field")
+    private BrowsablePdfOutputField destinationFileField;
+    @Inject
+    @Named(MODULE_ID + "pane")
     private PdfDestinationPane destinationPane;
     private ModuleDescriptor descriptor = builder()
             .category(ModuleCategory.MERGE)
@@ -63,12 +73,6 @@ public class MergeModule extends BaseTaskExecutionModule {
                     DefaultI18nContext.getInstance().i18n(
                             "Merge together multiple pdf documents or subsections of them."))
             .priority(ModulePriority.HIGH.getPriority()).supportURL("http://www.pdfsam.org/pdf-merge").build();
-
-    public MergeModule() {
-        this.selectionPane = new MergeSelectionPane(id());
-        this.destinationFileField.enforceValidation(false, false);
-        this.destinationPane = new PdfDestinationPane(destinationFileField, id());
-    }
 
     @Override
     public ModuleDescriptor descriptor() {
@@ -101,10 +105,24 @@ public class MergeModule extends BaseTaskExecutionModule {
 
     @Override
     public String id() {
-        return MERGE_MODULE_ID;
+        return MODULE_ID;
     }
 
     public Node graphic() {
         return new ImageView("merge.png");
+    }
+
+    @Configuration
+    public static class ModuleConfig {
+        @Bean(name = MODULE_ID + "field")
+        public BrowsablePdfOutputField destinationFileField() {
+            return new BrowsablePdfOutputField();
+        }
+
+        @Bean(name = MODULE_ID + "pane")
+        public PdfDestinationPane destinationPane(@Named(MODULE_ID + "field") BrowsablePdfOutputField outputField,
+                UserContext userContext) {
+            return new PdfDestinationPane(outputField, MODULE_ID, userContext);
+        }
     }
 }

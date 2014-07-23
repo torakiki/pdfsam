@@ -30,8 +30,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.apache.commons.lang3.builder.Builder;
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.context.UserContext;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.ModulePriority;
@@ -46,6 +50,8 @@ import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.support.Views;
 import org.sejda.model.parameter.AbstractSplitByPageParameters;
 import org.sejda.model.prefix.Prefix;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * Simple split module to let the user set page numbers to split an input pdf document.
@@ -56,12 +62,16 @@ import org.sejda.model.prefix.Prefix;
 @PdfsamModule
 public class SplitModule extends BaseTaskExecutionModule {
 
-    private static final String SPLIT_MODULE_ID = "split.simple";
+    private static final String MODULE_ID = "split.simple";
 
     private TaskParametersBuilderSingleSelectionPane selectionPane;
-    private BrowsableOutputDirectoryField destinationDirectoryField = new BrowsableOutputDirectoryField();
-    private SplitOptionsPane splitOptions = new SplitOptionsPane();
+    @Inject
+    @Named(MODULE_ID + "field")
+    private BrowsableOutputDirectoryField destinationDirectoryField;
+    @Inject
+    @Named(MODULE_ID + "pane")
     private PdfDestinationPane destinationPane;
+    private SplitOptionsPane splitOptions = new SplitOptionsPane();
     private PrefixPane prefix = new PrefixPane();
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT)
             .name(DefaultI18nContext.getInstance().i18n("Split"))
@@ -72,8 +82,6 @@ public class SplitModule extends BaseTaskExecutionModule {
         this.selectionPane = new TaskParametersBuilderSingleSelectionPane(id());
         this.selectionPane.setPromptText(DefaultI18nContext.getInstance().i18n(
                 "Select or drag and drop the PDF you want to split"));
-        this.destinationPane = new PdfDestinationPane(destinationDirectoryField, id());
-        this.destinationPane.enableSameAsSourceItem();
     }
 
     @Override
@@ -113,10 +121,26 @@ public class SplitModule extends BaseTaskExecutionModule {
 
     @Override
     public String id() {
-        return SPLIT_MODULE_ID;
+        return MODULE_ID;
     }
 
     public Node graphic() {
         return new ImageView("split.png");
+    }
+
+    @Configuration
+    public static class ModuleConfig {
+        @Bean(name = MODULE_ID + "field")
+        public BrowsableOutputDirectoryField destinationDirectoryField() {
+            return new BrowsableOutputDirectoryField();
+        }
+
+        @Bean(name = MODULE_ID + "pane")
+        public PdfDestinationPane destinationPane(
+                @Named(MODULE_ID + "field") BrowsableOutputDirectoryField outputField, UserContext userContext) {
+            PdfDestinationPane destinationPane = new PdfDestinationPane(outputField, MODULE_ID, userContext);
+            destinationPane.enableSameAsSourceItem();
+            return destinationPane;
+        }
     }
 }

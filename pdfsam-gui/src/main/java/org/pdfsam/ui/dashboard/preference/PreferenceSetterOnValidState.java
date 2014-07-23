@@ -22,8 +22,8 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 
-import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.StringUserPreference;
+import org.pdfsam.context.UserContext;
 import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.slf4j.Logger;
@@ -34,22 +34,26 @@ import org.slf4j.LoggerFactory;
  * 
  */
 class PreferenceSetterOnValidState implements ChangeListener<ValidationState> {
+
     private static final Logger LOG = LoggerFactory.getLogger(PreferenceBrowsableFileField.class);
+
     private StringUserPreference preference;
     private ValidableTextField textField;
+    private UserContext userContext;
 
-    PreferenceSetterOnValidState(StringUserPreference preference, ValidableTextField textField) {
+    PreferenceSetterOnValidState(StringUserPreference preference, ValidableTextField textField, UserContext userContext) {
         requireNotNull(preference, "Preference cannot be null");
         requireNotNull(textField, "TextField cannot be null");
         this.textField = textField;
         this.preference = preference;
+        this.userContext = userContext;
     }
 
     @Override
     public void changed(ObservableValue<? extends ValidationState> observable, ValidationState oldValue,
             ValidationState newValue) {
         if (newValue == ValidationState.VALID) {
-            DefaultUserContext.getInstance().setStringPreference(preference, textField.getText());
+            userContext.setStringPreference(preference, textField.getText());
             LOG.trace("Preference {} set to {}", preference, textField.getText());
         }
     }

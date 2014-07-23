@@ -32,6 +32,7 @@ import javax.inject.Inject;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
+import org.pdfsam.context.UserContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
@@ -65,6 +66,11 @@ public class PdfsamConfig {
         return env.getProperty("pdfsam.version");
     }
 
+    @Bean
+    public UserContext userContext() {
+        return new DefaultUserContext();
+    }
+
     @Bean(name = "styles")
     public List<String> styles() {
         List<String> styles = new ArrayList<>();
@@ -73,7 +79,7 @@ public class PdfsamConfig {
         styles.add(this.getClass().getResource("/css/pdfsam.css").toExternalForm());
         styles.add(this.getClass().getResource("/css/menu.css").toExternalForm());
         try {
-            URL themeUrl = new ClassPathResource("/css/themes/" + DefaultUserContext.getInstance().getTheme()).getURL();
+            URL themeUrl = new ClassPathResource("/css/themes/" + userContext().getTheme()).getURL();
             styles.add(themeUrl.toExternalForm());
         } catch (IOException ioe) {
             LOG.warn("Unable to find selected theme.", ioe);

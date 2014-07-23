@@ -18,10 +18,11 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 import javafx.scene.control.CheckBox;
 
 import org.pdfsam.context.BooleanUserPreference;
-import org.pdfsam.context.DefaultUserContext;
+import org.pdfsam.context.UserContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,12 +37,14 @@ class PreferenceCheckBox extends CheckBox {
     private static final Logger LOG = LoggerFactory.getLogger(PreferenceCheckBox.class);
     private final BooleanUserPreference preference;
 
-    PreferenceCheckBox(BooleanUserPreference preference, String label, boolean selected) {
+    PreferenceCheckBox(BooleanUserPreference preference, String label, boolean selected, UserContext userContext) {
         super(label);
+        requireNotNull(preference, "Preference cannot be null");
+        requireNotNull(userContext, "UserContext cannot be null");
         setSelected(selected);
         this.preference = preference;
         selectedProperty().addListener((ov, oldVal, newVal) -> {
-            DefaultUserContext.getInstance().setBooleanPreference(PreferenceCheckBox.this.preference, newVal);
+            userContext.setBooleanPreference(PreferenceCheckBox.this.preference, newVal);
             LOG.trace("Preference {} set to {}", PreferenceCheckBox.this.preference, newVal);
         });
     }

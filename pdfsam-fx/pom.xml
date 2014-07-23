@@ -75,7 +75,7 @@
 			<artifactId>logback-classic</artifactId>
 			<version>[${logback.version},]</version>
 		</dependency>
-		
+
 		<!-- test dependencies -->
 		<dependency>
 			<groupId>jdepend</groupId>
@@ -94,6 +94,10 @@
 			<type>test-jar</type>
 			<scope>test</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 </project>

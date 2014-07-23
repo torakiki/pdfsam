@@ -28,7 +28,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.context.UserContext;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.ModulePriority;
@@ -39,6 +43,8 @@ import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.support.Views;
 import org.sejda.model.input.PdfFileSource;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * Alternate mix module to let the user merge two pdf documents taking pages alternately in straight or reverse order.
@@ -49,11 +55,15 @@ import org.sejda.model.input.PdfFileSource;
 @PdfsamModule
 public class AlternateMixModule extends BaseTaskExecutionModule {
 
-    private static final String SPLIT_MODULE_ID = "alternatemix";
+    private static final String MODULE_ID = "alternatemix";
 
     private AlternateMixSingleSelectionPane firstDocument;
     private AlternateMixSingleSelectionPane secondDocument;
-    private BrowsablePdfOutputField destinationFileField = new BrowsablePdfOutputField();
+    @Inject
+    @Named(MODULE_ID + "field")
+    private BrowsablePdfOutputField destinationFileField;
+    @Inject
+    @Named(MODULE_ID + "pane")
     private PdfDestinationPane destinationPane;
     private AlternateMixOptionsPane optionsPane = new AlternateMixOptionsPane();
     private ModuleDescriptor descriptor = builder()
@@ -81,8 +91,7 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
         };
         this.secondDocument.setPromptText(DefaultI18nContext.getInstance().i18n(
                 "Select or drag and drop the second PDF you want to mix"));
-        this.destinationFileField.enforceValidation(false, false);
-        this.destinationPane = new PdfDestinationPane(destinationFileField, id());
+
     }
 
     @Override
@@ -103,7 +112,7 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
 
     @Override
     public String id() {
-        return SPLIT_MODULE_ID;
+        return MODULE_ID;
     }
 
     public Node graphic() {
@@ -120,4 +129,19 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
         optionsPane.apply(builder, onError);
         return builder;
     }
+
+    @Configuration
+    public static class ModuleConfig {
+        @Bean(name = MODULE_ID + "field")
+        public BrowsablePdfOutputField destinationFileField() {
+            return new BrowsablePdfOutputField();
+        }
+
+        @Bean(name = MODULE_ID + "pane")
+        public PdfDestinationPane destinationPane(@Named(MODULE_ID + "field") BrowsablePdfOutputField outputField,
+                UserContext userContext) {
+            return new PdfDestinationPane(outputField, MODULE_ID, userContext);
+        }
+    }
+
 }

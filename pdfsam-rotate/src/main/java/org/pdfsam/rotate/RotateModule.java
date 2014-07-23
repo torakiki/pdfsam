@@ -30,7 +30,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.context.UserContext;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.ModulePriority;
@@ -42,6 +46,8 @@ import org.pdfsam.ui.prefix.PrefixPane;
 import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.support.Views;
 import org.sejda.model.prefix.Prefix;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * Rotate module to let the user rotate multiple PDF documents
@@ -52,22 +58,21 @@ import org.sejda.model.prefix.Prefix;
 @PdfsamModule
 public class RotateModule extends BaseTaskExecutionModule {
 
-    private static final String ROTATE_MODULE_ID = "rotate";
+    private static final String MODULE_ID = "rotate";
 
-    private RotateSelectionPane selectionPane;
+    private RotateSelectionPane selectionPane = new RotateSelectionPane(MODULE_ID);
     private RotateOptionsPane rotateOptions = new RotateOptionsPane();
-    private BrowsableOutputDirectoryField destinationFileField = new BrowsableOutputDirectoryField();
+    @Inject
+    @Named(MODULE_ID + "field")
+    private BrowsableOutputDirectoryField destinationFileField;
+    @Inject
+    @Named(MODULE_ID + "pane")
     private PdfDestinationPane destinationPane;
     private PrefixPane prefix = new PrefixPane();
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.OTHER)
             .name(DefaultI18nContext.getInstance().i18n("Rotate"))
             .description(DefaultI18nContext.getInstance().i18n("Rotate the pages of multiple PDF documents."))
             .priority(ModulePriority.DEFAULT.getPriority()).supportURL("http://www.pdfsam.org/pdf-rotate").build();
-
-    public RotateModule() {
-        this.selectionPane = new RotateSelectionPane(id());
-        this.destinationPane = new PdfDestinationPane(destinationFileField, id());
-    }
 
     @Override
     public ModuleDescriptor descriptor() {
@@ -105,10 +110,24 @@ public class RotateModule extends BaseTaskExecutionModule {
 
     @Override
     public String id() {
-        return ROTATE_MODULE_ID;
+        return MODULE_ID;
     }
 
     public Node graphic() {
         return new ImageView("rotate.png");
+    }
+
+    @Configuration
+    public static class ModuleConfig {
+        @Bean(name = MODULE_ID + "field")
+        public BrowsableOutputDirectoryField destinationDirectoryField() {
+            return new BrowsableOutputDirectoryField();
+        }
+
+        @Bean(name = MODULE_ID + "pane")
+        public PdfDestinationPane destinationPane(
+                @Named(MODULE_ID + "field") BrowsableOutputDirectoryField outputField, UserContext userContext) {
+            return new PdfDestinationPane(outputField, MODULE_ID, userContext);
+        }
     }
 }

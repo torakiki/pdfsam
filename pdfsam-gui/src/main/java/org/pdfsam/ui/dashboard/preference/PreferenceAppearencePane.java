@@ -24,12 +24,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.VBox;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.I18nContext;
-import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.LocaleKeyValueItem;
 import org.pdfsam.ui.support.Style;
@@ -43,10 +43,16 @@ import org.pdfsam.ui.support.Style;
 @Named
 class PreferenceAppearencePane extends VBox {
 
-    PreferenceAppearencePane() {
-        I18nContext i18n = DefaultI18nContext.getInstance();
+    @Inject
+    @Named("localeCombo")
+    private PreferenceComboBox<LocaleKeyValueItem> localeCombo;
+    @Inject
+    @Named("themeCombo")
+    private PreferenceComboBox<KeyStringValueItem<String>> themeCombo;
 
-        PreferenceComboBox<LocaleKeyValueItem> localeCombo = new PreferenceComboBox<>(StringUserPreference.LOCALE);
+    @PostConstruct
+    public void post() {
+        I18nContext i18n = DefaultI18nContext.getInstance();
         for (Locale current : DefaultI18nContext.SUPPORTED_LOCALES) {
             localeCombo.getItems().add(new LocaleKeyValueItem(current));
         }
@@ -54,15 +60,8 @@ class PreferenceAppearencePane extends VBox {
         localeCombo.setValue(new LocaleKeyValueItem(DefaultI18nContext.getInstance().getLocale()));
         getChildren().addAll(new Label(i18n.i18n("Language:")), localeCombo);
 
-        PreferenceComboBox<KeyStringValueItem<String>> themeCombo = new PreferenceComboBox<>(StringUserPreference.THEME);
-        themeCombo.getItems().add(new KeyStringValueItem<>("cornflower.css", "Cornflower"));
-        themeCombo.getItems().add(new KeyStringValueItem<>("gray.css", "Gray"));
-        themeCombo.getItems().add(new KeyStringValueItem<>("green.css", "Green"));
-        themeCombo.getItems().add(new KeyStringValueItem<>("orchid.css", "Orchid"));
-        themeCombo.getItems().add(new KeyStringValueItem<>("seagreen.css", "Sea Green"));
-        themeCombo.getItems().add(new KeyStringValueItem<>("sienna.css", "Sienna"));
         themeCombo.setTooltip(new Tooltip(i18n.i18n("Set your preferred theme (restart needed)")));
-        themeCombo.setValue(new KeyStringValueItem<>(DefaultUserContext.getInstance().getTheme(), ""));
+
         getChildren().addAll(new Label(i18n.i18n("Theme:")), themeCombo);
         getStyleClass().addAll(Style.CONTAINER.css());
     }

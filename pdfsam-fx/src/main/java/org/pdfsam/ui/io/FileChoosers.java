@@ -26,7 +26,6 @@ import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Paths;
 
-import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.support.io.FileType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,7 +42,9 @@ public final class FileChoosers {
     private static final RememberingLatestDirectoryChooserWrapper DIR_INSTANCE = new RememberingLatestDirectoryChooserWrapper();
 
     static {
-        String defaultworkingPath = DefaultUserContext.getInstance().getDefaultWorkingPath();
+        String defaultworkingPath = "";
+        // TODO
+        // String defaultworkingPath = DefaultUserContext.getInstance().getDefaultWorkingPath();
         if (isNotBlank(defaultworkingPath)) {
             try {
                 if (Files.isDirectory(Paths.get(defaultworkingPath))) {
