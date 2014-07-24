@@ -20,14 +20,17 @@ package org.pdfsam.pdf;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.io.File;
+import java.util.HashMap;
 
+import org.junit.Before;
 import org.junit.Test;
+import org.sejda.model.input.PdfFileSource;
 
 /**
  * @author Andrea Vacondio
@@ -35,14 +38,66 @@ import org.junit.Test;
  */
 public class PdfDocumentDescriptorTest {
 
-    @Test
-    public void getName() {
-        File file = mock(File.class);
+    private PdfDocumentDescriptor victim;
+    private PdfDocumentDescriptor victimNoPwd;
+    private File file;
+
+    @Before
+    public void setUp() {
+        file = mock(File.class);
         when(file.getName()).thenReturn("myName");
-        PdfDocumentDescriptor victim = PdfDocumentDescriptor.newDescriptor(file, "pwd");
-        assertNotNull(victim.getFileName());
+        when(file.isFile()).thenReturn(true);
+        victim = PdfDocumentDescriptor.newDescriptor(file, "pwd");
+        victimNoPwd = PdfDocumentDescriptor.newDescriptorNoPassword(file);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void illegal() {
+        PdfDocumentDescriptor.newDescriptorNoPassword(null);
+    }
+
+    @Test
+    public void initialState() {
         assertFalse(victim.isInvalid());
         assertEquals(PdfDescriptorLoadingStatus.INITIAL, victim.loadedProperty().get());
-        verify(file).getName();
+        assertEquals("pwd", victim.getPassword());
+        assertEquals("myName", victim.getFileName());
+        assertNull(victimNoPwd.getPassword());
     }
+
+    @Test
+    public void invalidate() {
+        assertFalse(victim.isInvalid());
+        victim.invalidate();
+        assertTrue(victim.isInvalid());
+    }
+
+    @Test
+    public void moveValidStatus() {
+        assertEquals(PdfDescriptorLoadingStatus.INITIAL, victim.loadedProperty().get());
+        victim.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
+        assertEquals(PdfDescriptorLoadingStatus.REQUESTED, victim.loadedProperty().get());
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void moveInvalidStatus() {
+        assertEquals(PdfDescriptorLoadingStatus.INITIAL, victim.loadedProperty().get());
+        victim.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
+    }
+
+    @Test
+    public void toPdfSource() {
+        PdfFileSource source = victim.toPdfFileSource();
+        assertEquals(file, source.getSource());
+        assertEquals("pwd", source.getPassword());
+    }
+
+    @Test
+    public void informationDictionary() {
+        HashMap<String, String> values = new HashMap<>();
+        values.put("key", "value");
+        victim.setInformationDictionary(values);
+        assertEquals("value", victim.getInformation("key"));
+    }
+
 }

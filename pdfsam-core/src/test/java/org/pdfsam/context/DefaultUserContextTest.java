@@ -68,6 +68,15 @@ public class DefaultUserContextTest {
     }
 
     @Test
+    public void isHighQualityThumbnails() {
+        victim.setBooleanPreference(BooleanUserPreference.HIGH_QUALITY_THUMB, false);
+        assertFalse(victim.isHighQualityThumbnails());
+        victim.setBooleanPreference(BooleanUserPreference.HIGH_QUALITY_THUMB, true);
+        assertTrue(victim.isHighQualityThumbnails());
+
+    }
+
+    @Test
     public void getLocale() {
         victim.setStringPreference(StringUserPreference.LOCALE, "en-GB");
         assertEquals("en-GB", victim.getLocale());
@@ -81,6 +90,14 @@ public class DefaultUserContextTest {
         assertEquals("ChuckNorris", victim.getThumbnailsCreatorIdentifier());
         victim.setStringPreference(StringUserPreference.THUMBNAILS_IDENTIFIER, "");
         assertTrue(isBlank(victim.getThumbnailsCreatorIdentifier()));
+    }
+
+    @Test
+    public void getTheme() {
+        victim.setStringPreference(StringUserPreference.THEME, "ChuckNorris");
+        assertEquals("ChuckNorris", victim.getTheme());
+        victim.setStringPreference(StringUserPreference.THEME, "");
+        assertEquals(DefaultUserContext.DEFAULT_THEME, victim.getTheme());
     }
 
     @Test

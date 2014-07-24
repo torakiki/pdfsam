@@ -16,26 +16,30 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.context;
+package org.pdfsam.update;
 
-import static org.pdfsam.support.RequireUtils.requireNotBlank;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
 
 /**
- * Event to notify that the application Locale should be changed
- * 
  * @author Andrea Vacondio
  *
  */
-public class SetLocaleEvent {
-    private String localeString;
-
-    public SetLocaleEvent(String localeString) {
-        requireNotBlank(localeString, "Locale string cannot be blank");
-        this.localeString = localeString;
+public class UpdateAvailableEventTest {
+    @Test(expected = IllegalArgumentException.class)
+    public void nullArg() {
+        new UpdateAvailableEvent(null);
     }
 
-    public String getLocaleString() {
-        return localeString;
+    @Test(expected = IllegalArgumentException.class)
+    public void blankArg() {
+        new UpdateAvailableEvent("");
     }
 
+    @Test
+    public void notNullArg() {
+        UpdateAvailableEvent victim = new UpdateAvailableEvent("ChuckNorris");
+        assertEquals("ChuckNorris", victim.getAvailableVersion());
+    }
 }

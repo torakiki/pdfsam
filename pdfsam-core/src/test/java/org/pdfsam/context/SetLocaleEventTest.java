@@ -18,24 +18,28 @@
  */
 package org.pdfsam.context;
 
-import static org.pdfsam.support.RequireUtils.requireNotBlank;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
 
 /**
- * Event to notify that the application Locale should be changed
- * 
  * @author Andrea Vacondio
  *
  */
-public class SetLocaleEvent {
-    private String localeString;
-
-    public SetLocaleEvent(String localeString) {
-        requireNotBlank(localeString, "Locale string cannot be blank");
-        this.localeString = localeString;
+public class SetLocaleEventTest {
+    @Test(expected = IllegalArgumentException.class)
+    public void nullArg() {
+        new SetLocaleEvent(null);
     }
 
-    public String getLocaleString() {
-        return localeString;
+    @Test(expected = IllegalArgumentException.class)
+    public void blankArg() {
+        new SetLocaleEvent("");
     }
 
+    @Test
+    public void notNullArg() {
+        SetLocaleEvent victim = new SetLocaleEvent("ChuckNorris");
+        assertEquals("ChuckNorris", victim.getLocaleString());
+    }
 }
