@@ -18,6 +18,8 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
 import java.util.Locale;
 
 import javafx.scene.control.Label;
@@ -30,6 +32,7 @@ import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.I18nContext;
+import org.pdfsam.context.SetLocaleEvent;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.LocaleKeyValueItem;
 import org.pdfsam.ui.support.Style;
@@ -57,7 +60,10 @@ class PreferenceAppearencePane extends VBox {
             localeCombo.getItems().add(new LocaleKeyValueItem(current));
         }
         localeCombo.setTooltip(new Tooltip(i18n.i18n("Set your preferred language (restart needed)")));
-        localeCombo.setValue(new LocaleKeyValueItem(DefaultI18nContext.getInstance().getLocale()));
+        localeCombo.setValue(new LocaleKeyValueItem(Locale.getDefault()));
+        localeCombo.valueProperty().addListener((observable, oldValue, newValue) -> {
+            eventStudio().broadcast(new SetLocaleEvent(newValue.getKey()));
+        });
         getChildren().addAll(new Label(i18n.i18n("Language:")), localeCombo);
 
         themeCombo.setTooltip(new Tooltip(i18n.i18n("Set your preferred theme (restart needed)")));

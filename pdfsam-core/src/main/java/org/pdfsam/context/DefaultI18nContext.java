@@ -18,13 +18,16 @@
  */
 package org.pdfsam.context;
 
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
 import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Locale;
-import java.util.ResourceBundle;
+import java.util.Optional;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
+import org.sejda.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xnap.commons.i18n.I18n;
@@ -90,27 +93,29 @@ public final class DefaultI18nContext implements I18nContext {
     private I18n i18n;
 
     private DefaultI18nContext() {
-        Locale locale = getBestLocale();
-        LOG.trace("Loading i18n bundle for {}", locale);
-        Locale.setDefault(locale);
-        this.i18n = I18nFactory.getI18n(DefaultI18nContext.class, locale);
-        LOG.debug("Locale set to {}", locale.getDisplayLanguage());
+        Locale.setDefault(getBestLocale());
+        refreshBundles();
+        eventStudio().addAnnotatedListeners(this);
     }
 
-    public Locale getLocale() {
-        return Locale.getDefault();
+    private void refreshBundles() {
+        LOG.trace("Loading i18n bundle for {}", Locale.getDefault());
+        this.i18n = I18nFactory.getI18n(DefaultI18nContext.class);
+        LOG.debug("Locale set to {}", Locale.getDefault().getDisplayLanguage());
+    }
+
+    @EventListener
+    public void refresh(SetLocaleEvent e) {
+        String localeString = e.getLocaleString();
+        if (StringUtils.isNotBlank(localeString)) {
+            LOG.trace("Setting default locale to {}", localeString);
+            Optional.ofNullable(Locale.forLanguageTag(localeString)).ifPresent(Locale::setDefault);
+            refreshBundles();
+        }
     }
 
     private Locale getBestLocale() {
-        String localeString = "";
-        // TODO
-        // String localeString = DefaultUserContext.getInstance().getLocale();
-        if (StringUtils.isNotBlank(localeString)) {
-            LOG.trace("Found locale string {}", localeString);
-            return Locale.forLanguageTag(localeString);
-        }
         if (SUPPORTED_LOCALES.contains(Locale.getDefault())) {
-            LOG.trace("Using default locale {}", Locale.getDefault());
             return Locale.getDefault();
         }
         Locale onlyLanguage = new Locale(Locale.getDefault().getLanguage());
@@ -131,10 +136,6 @@ public final class DefaultI18nContext implements I18nContext {
 
     public String i18n(String input, String... values) {
         return i18n.tr(input, values);
-    }
-
-    public ResourceBundle getResources() {
-        return i18n.getResources();
     }
 
     /**

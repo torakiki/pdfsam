@@ -15,32 +15,12 @@
 	<packaging>jar</packaging>
 	<name>pdfsam i18n</name>
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>gettext-commons-site</id>
-			<url>http://gettext-commons.googlecode.com/svn/maven-repository/</url>
-			<releases>
-				<updatePolicy>daily</updatePolicy>
-			</releases>
-		</pluginRepository>
-	</pluginRepositories>
-
-	<repositories>
-		<repository>
-			<id>gettext-commons</id>
-			<url>http://gettext-commons.googlecode.com/svn/maven-repository/</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.xnap.commons</groupId>
-				<artifactId>maven-gettext-plugin</artifactId>
-				<version>1.2.3</version>
+			<plugin>     
+				<groupId>com.googlecode.gettext-commons</groupId>
+				<artifactId>gettext-maven-plugin</artifactId>
+				<version>1.2.4</version>
 				<configuration>
 					<poDirectory>po</poDirectory>
 					<targetBundle>org.pdfsam.i18n.Messages</targetBundle>
@@ -77,13 +57,13 @@
 								<pluginExecution>
 									<pluginExecutionFilter>
 										<groupId>
-											org.xnap.commons
+											com.googlecode.gettext-commons
 										</groupId>
 										<artifactId>
-											maven-gettext-plugin
+											gettext-maven-plugin
 										</artifactId>
 										<versionRange>
-											[1.2.3,)
+											[1.2.4,)
 										</versionRange>
 										<goals>
 											<goal>merge</goal>
@@ -104,9 +84,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.xnap.commons</groupId>
+			<groupId>com.googlecode.gettext-commons</groupId>
 			<artifactId>gettext-commons</artifactId>
-			<version>0.9.6</version>
+			<version>0.9.8</version>
 		</dependency>
 	</dependencies>
 

@@ -41,6 +41,8 @@ import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.apache.commons.lang3.time.StopWatch;
 import org.pdfsam.configuration.ApplicationContextHolder;
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.context.DefaultUserContext;
+import org.pdfsam.context.SetLocaleEvent;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.ui.MainPane;
 import org.pdfsam.ui.commons.OpenFileRequest;
@@ -63,7 +65,8 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) {
         STOPWATCH.start();
-        LOG.info(DefaultI18nContext.getInstance().i18n("Starting pdfsam"));
+        LOG.info("Starting PDFsam");
+        eventStudio().broadcast(new SetLocaleEvent(new DefaultUserContext().getLocale()));
         List<String> styles = (List<String>) ApplicationContextHolder.getContext().getBean("styles");
         Map<String, Image> logos = ApplicationContextHolder.getContext().getBeansOfType(Image.class);
         MainPane mainPane = ApplicationContextHolder.getContext().getBean(MainPane.class);

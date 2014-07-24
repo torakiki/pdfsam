@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 13/dic/2011
- * Copyright 2011 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 24/lug/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -18,23 +18,21 @@
  */
 package org.pdfsam.context;
 
-
 /**
- * Context related to the i18n of the application.
+ * Event to notify that the application Locale should be changed
  * 
  * @author Andrea Vacondio
- * 
+ *
  */
-public interface I18nContext {
+public class SetLocaleEvent {
+    private String localeString;
 
-    /**
-     * 
-     * @param input
-     *            input string
-     * @param values
-     *            values for the string placeholders
-     * @return the internationalized messages.
-     */
-    String i18n(String input, String... values);
+    public SetLocaleEvent(String localeString) {
+        this.localeString = localeString;
+    }
+
+    public String getLocaleString() {
+        return localeString;
+    }
 
 }
