@@ -37,6 +37,10 @@ import javafx.stage.Window;
 public class RememberingLatestFileChooserWrapper extends BaseRememberingLatestChooser {
     private FileChooser wrapped = new FileChooser();
 
+    public RememberingLatestFileChooserWrapper() {
+        eventStudio().addAnnotatedListeners(this);
+    }
+
     final void setTitle(String value) {
         wrapped.setTitle(value);
     }

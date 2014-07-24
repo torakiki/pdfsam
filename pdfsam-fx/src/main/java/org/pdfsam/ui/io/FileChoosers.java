@@ -18,17 +18,7 @@
  */
 package org.pdfsam.ui.io;
 
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
-
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.InvalidPathException;
-import java.nio.file.Paths;
-
 import org.pdfsam.support.io.FileType;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Contains a single instance of {@link javafx.stage.FileChooser} and provides static methods to get and configure the instance
@@ -37,24 +27,8 @@ import org.slf4j.LoggerFactory;
  * 
  */
 public final class FileChoosers {
-    private static final Logger LOG = LoggerFactory.getLogger(FileChoosers.class);
     private static final RememberingLatestFileChooserWrapper FILE_INSTANCE = new RememberingLatestFileChooserWrapper();
     private static final RememberingLatestDirectoryChooserWrapper DIR_INSTANCE = new RememberingLatestDirectoryChooserWrapper();
-
-    static {
-        String defaultworkingPath = "";
-        // TODO
-        // String defaultworkingPath = DefaultUserContext.getInstance().getDefaultWorkingPath();
-        if (isNotBlank(defaultworkingPath)) {
-            try {
-                if (Files.isDirectory(Paths.get(defaultworkingPath))) {
-                    eventStudio().broadcast(new SetLatestDirectoryEvent(new File(defaultworkingPath)));
-                }
-            } catch (InvalidPathException e) {
-                LOG.warn("Unable to set initial directory, default path is invalid.", e);
-            }
-        }
-    }
 
     private FileChoosers() {
         // hide

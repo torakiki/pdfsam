@@ -18,8 +18,6 @@
  */
 package org.pdfsam.ui.io;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
-
 import java.io.File;
 
 import org.sejda.eventstudio.annotation.EventListener;
@@ -31,10 +29,6 @@ import org.sejda.eventstudio.annotation.EventListener;
  *
  */
 public abstract class BaseRememberingLatestChooser {
-
-    public BaseRememberingLatestChooser() {
-        eventStudio().addAnnotatedListeners(this);
-    }
 
     abstract void setInitialDirectory(File value);
 

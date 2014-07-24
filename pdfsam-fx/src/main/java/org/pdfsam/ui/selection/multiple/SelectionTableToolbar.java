@@ -75,8 +75,6 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
             setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Add documents to the table")));
             setText(DefaultI18nContext.getInstance().i18n("_Add"));
             setOnAction(this::loadDocuments);
-            // TODO accelerators
-            // TODO icon
         }
 
         public void loadDocuments(ActionEvent event) {
@@ -130,8 +128,6 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
             setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Removes every document")));
             setText(DefaultI18nContext.getInstance().i18n("_Clear"));
             setOnAction(this::clear);
-            // TODO accelerators
-            // TODO icon
         }
 
         public void clear(ActionEvent event) {
@@ -173,7 +169,6 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
             super(ownerModule, MoveType.UP);
             setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Moves up selected documents")));
             setText(DefaultI18nContext.getInstance().i18n("Move _Up"));
-            // TODO accelerators
         }
     }
 
@@ -183,7 +178,6 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
             super(ownerModule, MoveType.DOWN);
             setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Moves down selected documents")));
             setText(DefaultI18nContext.getInstance().i18n("Move _Down"));
-            // TODO accelerators
         }
     }
 }

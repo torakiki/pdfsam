@@ -18,11 +18,16 @@
  */
 package org.pdfsam;
 
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.awt.Desktop;
 import java.awt.EventQueue;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 
@@ -48,6 +53,7 @@ import org.pdfsam.ui.MainPane;
 import org.pdfsam.ui.commons.OpenFileRequest;
 import org.pdfsam.ui.commons.OpenUrlRequest;
 import org.pdfsam.ui.commons.ShowStageRequest;
+import org.pdfsam.ui.io.SetLatestDirectoryEvent;
 import org.pdfsam.ui.notification.NotificationsContainer;
 import org.pdfsam.update.UpdateCheckRequest;
 import org.sejda.eventstudio.annotation.EventListener;
@@ -66,7 +72,7 @@ public class App extends Application {
     public void start(Stage primaryStage) {
         STOPWATCH.start();
         LOG.info("Starting PDFsam");
-        eventStudio().broadcast(new SetLocaleEvent(new DefaultUserContext().getLocale()));
+        initUserSettings();
         List<String> styles = (List<String>) ApplicationContextHolder.getContext().getBean("styles");
         Map<String, Image> logos = ApplicationContextHolder.getContext().getBeansOfType(Image.class);
         MainPane mainPane = ApplicationContextHolder.getContext().getBean(MainPane.class);
@@ -91,6 +97,21 @@ public class App extends Application {
         STOPWATCH.stop();
         LOG.info(DefaultI18nContext.getInstance().i18n("Started in {0}",
                 DurationFormatUtils.formatDurationWords(STOPWATCH.getTime(), true, true)));
+    }
+
+    private void initUserSettings() {
+        UserContext userContext = new DefaultUserContext();
+        eventStudio().broadcast(new SetLocaleEvent(userContext.getLocale()));
+        String defaultworkingPath = userContext.getDefaultWorkingPath();
+        if (isNotBlank(defaultworkingPath)) {
+            try {
+                if (Files.isDirectory(Paths.get(defaultworkingPath))) {
+                    eventStudio().broadcast(new SetLatestDirectoryEvent(new File(defaultworkingPath)));
+                }
+            } catch (InvalidPathException e) {
+                LOG.warn("Unable to set initial directory, default path is invalid.", e);
+            }
+        }
     }
 
     public static void main(String[] args) {
