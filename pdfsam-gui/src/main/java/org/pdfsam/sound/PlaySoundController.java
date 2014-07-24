@@ -44,7 +44,7 @@ public class PlaySoundController {
     @Inject
     @Named("okPlayer")
     private MediaPlayer ok;
-    @Named
+    @Inject
     private UserContext userContext;
 
     public PlaySoundController() {
