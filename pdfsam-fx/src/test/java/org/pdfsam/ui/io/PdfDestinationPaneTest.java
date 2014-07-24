@@ -19,7 +19,6 @@
 package org.pdfsam.ui.io;
 
 import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
@@ -28,29 +27,24 @@ import static org.mockito.Mockito.when;
 import java.io.File;
 import java.io.IOException;
 
-import javax.inject.Inject;
-
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeJavaFxThreadRule;
 import org.pdfsam.ui.commons.SetDestinationRequest;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration
+@RunWith(MockitoJUnitRunner.class)
 public class PdfDestinationPaneTest {
 
     private static final String MODULE = "MODULE";
@@ -60,20 +54,8 @@ public class PdfDestinationPaneTest {
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule(MODULE);
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
-    @Inject
+    @Mock
     private UserContext userContext;
-
-    @Configuration
-    static class Config {
-
-        @Bean
-        public UserContext userContext() {
-            UserContext userContext = mock(UserContext.class);
-            when(userContext.isUseSmartOutput()).thenReturn(Boolean.FALSE);
-            return userContext;
-        }
-
-    }
 
     private BrowsableDirectoryField destination;
     private PdfDestinationPane victim;
@@ -81,6 +63,7 @@ public class PdfDestinationPaneTest {
     @Before
     public void setUp() {
         destination = spy(new BrowsableDirectoryField(false));
+        when(userContext.isUseSmartOutput()).thenReturn(Boolean.FALSE);
         victim = new PdfDestinationPane(destination, MODULE, userContext);
     }
 
