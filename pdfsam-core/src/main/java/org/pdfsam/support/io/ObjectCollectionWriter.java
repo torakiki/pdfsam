@@ -40,8 +40,9 @@ import org.slf4j.LoggerFactory;
  */
 public final class ObjectCollectionWriter implements OngoingWrite {
 
+    public static final String SEPARATOR = System.getProperty("line.separator", "\n");
+
     private static final Logger LOG = LoggerFactory.getLogger(ObjectCollectionWriter.class);
-    private static final String SEPARATOR = System.getProperty("line.separator", "\n");
 
     private Collection<? extends Object> content;
 
@@ -59,10 +60,10 @@ public final class ObjectCollectionWriter implements OngoingWrite {
             for (Object item : content) {
                 writer.append(defaultLineSeparator(item.toString()));
             }
-            LOG.info(DefaultI18nContext.getInstance().i18n("File {0} saved.", file.getAbsolutePath()));
         } catch (Exception e) {
             LOG.error(DefaultI18nContext.getInstance().i18n("Error saving log file."), e);
         }
+        LOG.info(DefaultI18nContext.getInstance().i18n("File {0} saved.", file.getAbsolutePath()));
     }
 
     @Override
@@ -75,7 +76,6 @@ public final class ObjectCollectionWriter implements OngoingWrite {
         } catch (Exception e) {
             LOG.error(DefaultI18nContext.getInstance().i18n("Error saving log file."), e);
         }
-
     }
 
     private String defaultLineSeparator(String line) {
