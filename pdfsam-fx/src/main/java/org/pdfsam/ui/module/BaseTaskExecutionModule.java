@@ -47,9 +47,8 @@ import org.sejda.model.parameter.base.TaskParameters;
  */
 @Named
 public abstract class BaseTaskExecutionModule implements Module {
-    @Inject
-    private ModuleFooterPane footer;
 
+    private ModuleFooterPane footer;
     private BorderPane modulePanel = new BorderPane();
 
     @PostConstruct
@@ -89,6 +88,11 @@ public abstract class BaseTaskExecutionModule implements Module {
      * @return a {@link Builder} for the parameters to be used to perform a pdf manipulation
      */
     protected abstract Builder<? extends TaskParameters> getBuilder(Consumer<String> onError);
+
+    @Inject
+    public void setFooter(ModuleFooterPane footer) {
+        this.footer = footer;
+    }
 
     public Pane modulePanel() {
         return modulePanel;

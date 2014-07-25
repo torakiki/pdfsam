@@ -101,7 +101,11 @@ public class App extends Application {
 
     private void initUserSettings() {
         UserContext userContext = new DefaultUserContext();
-        eventStudio().broadcast(new SetLocaleEvent(userContext.getLocale()));
+        String localeString = userContext.getLocale();
+        if (isNotBlank(localeString)) {
+            eventStudio().broadcast(new SetLocaleEvent(localeString));
+        }
+       
         String defaultworkingPath = userContext.getDefaultWorkingPath();
         if (isNotBlank(defaultworkingPath)) {
             try {

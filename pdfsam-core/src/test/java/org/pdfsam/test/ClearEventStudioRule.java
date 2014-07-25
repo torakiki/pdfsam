@@ -40,9 +40,18 @@ public class ClearEventStudioRule extends ExternalResource {
         Arrays.stream(stations).parallel().forEach(this.stations::add);
     }
 
-    @Override
-    protected void after() {
+    private void clearAll() {
         eventStudio().clear();
         stations.forEach(s -> eventStudio().clear(s));
+    }
+
+    @Override
+    protected void before() {
+        clearAll();
+    }
+
+    @Override
+    protected void after() {
+        clearAll();
     }
 }
