@@ -23,7 +23,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.math.BigDecimal;
 
-import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.layout.HBox;
@@ -33,7 +32,6 @@ import javax.annotation.PostConstruct;
 import javax.inject.Named;
 
 import org.pdfsam.module.TaskExecutionRequestEvent;
-import org.pdfsam.ui.commons.ShowStageRequest;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.model.exception.TaskOutputVisitException;
@@ -44,9 +42,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
-
-import de.jensd.fx.fontawesome.AwesomeDude;
-import de.jensd.fx.fontawesome.AwesomeIcon;
 
 /**
  * Footer common to all the modules that include the run button and the progress bar.
@@ -61,17 +56,15 @@ class ModuleFooterPane extends HBox {
     private static final Logger LOG = LoggerFactory.getLogger(ModuleFooterPane.class);
 
     private RunButton runButton = new RunButton();
-    private Button failed = new Button();
+    private TaskFailedButton failed = new TaskFailedButton();
     private OpenButton open = new OpenButton();
     private ProgressBar bar = new ProgressBar(0);
 
     public ModuleFooterPane() {
         this.getStyleClass().addAll(Style.CLOSE_FOOTER.css());
-        failed.setGraphic(AwesomeDude.createIconLabel(AwesomeIcon.TIMES_CIRCLE));
-        failed.getStyleClass().addAll("pdfsam-footer-button", "pdfsam-footer-failed-button");
         failed.setVisible(false);
-        failed.setOnAction(e -> eventStudio().broadcast(new ShowStageRequest(), "LogStage"));
         open.setVisible(false);
+        bar.getStyleClass().add("pdfsam-footer-bar");
         bar.setPrefWidth(280);
     }
 

@@ -44,7 +44,7 @@ class OpenButton extends Button implements TaskOutputDispatcher {
     private File destination;
 
     public OpenButton() {
-        getStyleClass().add("pdfsam-footer-button");
+        getStyleClass().addAll("pdfsam-footer-button", "pdfsam-footer-open-button");
         setGraphic(AwesomeDude.createIconLabel(AwesomeIcon.FOLDER_OPEN));
         setOnAction(e -> {
             if (destination != null && destination.exists()) {

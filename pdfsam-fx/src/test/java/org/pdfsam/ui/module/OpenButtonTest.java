@@ -34,8 +34,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.loadui.testfx.GuiTest;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.test.HitTestListener;
 import org.pdfsam.ui.commons.OpenFileRequest;
-import org.sejda.eventstudio.Listener;
 import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.output.StreamTaskOutput;
@@ -60,7 +60,7 @@ public class OpenButtonTest extends GuiTest {
         eventStudio().add(listener);
         victim.dispatch(output);
         click(victim);
-        assertTrue(listener.hit);
+        assertTrue(listener.isHit());
     }
 
     @Test
@@ -91,18 +91,18 @@ public class OpenButtonTest extends GuiTest {
         return new OpenButton();
     }
 
-    private static class TestListener implements Listener<OpenFileRequest> {
-        private boolean hit = false;
+    private static class TestListener extends HitTestListener<OpenFileRequest> {
         private File destination;
 
         private TestListener(File destination) {
             this.destination = destination;
         }
 
+        @Override
         public void onEvent(OpenFileRequest event) {
-            this.hit = true;
+            super.onEvent(event);
             assertEquals(destination, event.getFile());
         }
-    };
+    }
 
 }
