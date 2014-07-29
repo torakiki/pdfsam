@@ -32,7 +32,9 @@ import javafx.scene.Parent;
 
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
+import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.HitTestListener;
 import org.pdfsam.ui.commons.OpenFileRequest;
@@ -44,6 +46,7 @@ import org.sejda.model.output.StreamTaskOutput;
  * @author Andrea Vacondio
  *
  */
+@Category(TestFX.class)
 public class OpenButtonTest extends GuiTest {
 
     @Rule
