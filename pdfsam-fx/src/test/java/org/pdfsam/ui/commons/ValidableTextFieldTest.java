@@ -114,5 +114,7 @@ public class ValidableTextFieldTest extends GuiTest {
         push(KeyCode.TAB);
         sleep(500);
         assertTrue(getWindows().size() > 1);
+        // wait the tooltip to disappear
+        sleep(4500);
     }
 }
