@@ -129,10 +129,8 @@ public class LoadingStatusIndicator extends Label implements ModuleOwned {
         switch (loadingStatus) {
         case ENCRYPTED:
             rotate.stop();
-            indicator(
-                    AwesomeIcon.LOCK,
-                    DefaultI18nContext.getInstance().i18n(
-                            "This document is encrypted, double click to provide a password."));
+            indicator(AwesomeIcon.LOCK,
+                    DefaultI18nContext.getInstance().i18n("This document is encrypted, click to provide a password."));
             break;
         case REQUESTED:
         case LOADING:
