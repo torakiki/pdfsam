@@ -114,7 +114,10 @@ public class PdfDocumentDescriptor {
     }
 
     public String getVersionString() {
-        return Double.toString(version.getVersionAsDouble());
+        if (version != null) {
+            return Double.toString(version.getVersionAsDouble());
+        }
+        return "";
     }
 
     public PdfVersion getVersion() {

@@ -104,7 +104,6 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
         HBox.setHgrow(field, Priority.ALWAYS);
         topRow.setAlignment(Pos.CENTER_LEFT);
         getChildren().addAll(topRow, details);
-        field.getTextField().setEditable(false);
         field.getTextField().validProperty().addListener((o, oldVal, newVal) -> {
             if (newVal == ValidationState.VALID) {
                 if (descriptor != null) {
