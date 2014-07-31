@@ -18,6 +18,7 @@
  */
 package org.pdfsam.pdf;
 
+import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
@@ -31,6 +32,7 @@ import java.util.HashMap;
 import org.junit.Before;
 import org.junit.Test;
 import org.sejda.model.input.PdfFileSource;
+import org.sejda.model.pdf.PdfVersion;
 
 /**
  * @author Andrea Vacondio
@@ -70,6 +72,17 @@ public class PdfDocumentDescriptorTest {
         assertFalse(victim.isInvalid());
         victim.invalidate();
         assertTrue(victim.isInvalid());
+    }
+
+    @Test
+    public void noVersionString() {
+        assertEquals("", victim.getVersionString());
+    }
+
+    @Test
+    public void getVersionString() {
+        victim.setVersion(PdfVersion.VERSION_1_5);
+        assertFalse(isBlank(victim.getVersionString()));
     }
 
     @Test
