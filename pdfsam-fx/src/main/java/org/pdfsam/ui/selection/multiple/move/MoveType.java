@@ -72,7 +72,7 @@ public enum MoveType {
             if (isSubselection(selected, items)) {
                 MultipleSelectionAndFocus newSelection = new MultipleSelectionAndFocus(focused);
                 Arrays.parallelSort(selected, Collections.reverseOrder(Integer::compare));
-                if (selected[selected.length - 1] < items.size() - 1) {
+                if (selected[0] < items.size() - 1) {
                     Arrays.stream(selected).forEach((i) -> {
                         Collections.swap(items, i, i + 1);
                         newSelection.moveDown(i);
