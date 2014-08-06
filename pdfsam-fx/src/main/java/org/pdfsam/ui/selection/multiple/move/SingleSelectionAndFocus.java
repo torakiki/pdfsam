@@ -18,6 +18,8 @@
  */
 package org.pdfsam.ui.selection.multiple.move;
 
+import static org.pdfsam.support.RequireUtils.requireNotNegative;
+
 /**
  * Single selection where the item selected is the one with focus
  * 
@@ -29,6 +31,7 @@ class SingleSelectionAndFocus implements SelectionAndFocus {
     private int row;
 
     SingleSelectionAndFocus(int row) {
+        requireNotNegative(row);
         this.row = row;
     }
 
@@ -40,6 +43,9 @@ class SingleSelectionAndFocus implements SelectionAndFocus {
         return row;
     }
 
+    /**
+     * @return an empty array since this is a single row selection
+     */
     public int[] getRows() {
         return new int[0];
     }

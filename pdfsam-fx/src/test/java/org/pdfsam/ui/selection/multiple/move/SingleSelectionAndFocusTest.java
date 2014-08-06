@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 29/lug/2014
+ * Created on 06/ago/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.notification;
+package org.pdfsam.ui.selection.multiple.move;
 
 import static org.junit.Assert.assertEquals;
 
@@ -26,28 +26,18 @@ import org.junit.Test;
  * @author Andrea Vacondio
  *
  */
-public class AddNotificationRequestEventTest {
+public class SingleSelectionAndFocusTest {
 
     @Test(expected = IllegalArgumentException.class)
-    public void nullType() {
-        new AddNotificationRequestEvent(null, "notNull", "notNull");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void nullMessage() {
-        new AddNotificationRequestEvent(NotificationType.INFO, null, "notNull");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void blankMessage() {
-        new AddNotificationRequestEvent(NotificationType.INFO, " ", "notNull");
+    public void negative() {
+        new SingleSelectionAndFocus(-1);
     }
 
     @Test
     public void positive() {
-        AddNotificationRequestEvent victim = new AddNotificationRequestEvent(NotificationType.INFO, "message", "title");
-        assertEquals("message", victim.getMessage());
-        assertEquals("title", victim.getTitle());
-        assertEquals(NotificationType.INFO, victim.getType());
+        SingleSelectionAndFocus victim = new SingleSelectionAndFocus(10);
+        assertEquals(10, victim.getFocus());
+        assertEquals(10, victim.getRow());
+        assertEquals(0, victim.getRows().length);
     }
 }

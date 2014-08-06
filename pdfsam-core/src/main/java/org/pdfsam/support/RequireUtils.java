@@ -33,6 +33,17 @@ public final class RequireUtils {
     }
 
     /**
+     * throws an {@link IllegalArgumentException} if the input value is a negative integer
+     * 
+     * @param victim
+     */
+    public static void requireNotNegative(int victim) {
+        if (victim < 0) {
+            throw new IllegalArgumentException("The given value cannot be negative");
+        }
+    }
+
+    /**
      * throws an {@link IllegalArgumentException} if the condition is false
      * 
      * @param condition
