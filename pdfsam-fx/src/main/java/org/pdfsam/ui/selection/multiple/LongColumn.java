@@ -54,7 +54,7 @@ public enum LongColumn implements SelectionTableColumn<Number> {
         }
 
         public Comparator<Number> comparator() {
-            return LONG_COMPARATOR;
+            return Comparator.comparingLong(Number::longValue);
         }
     },
     LAST_MODIFIED {
@@ -75,7 +75,7 @@ public enum LongColumn implements SelectionTableColumn<Number> {
         }
 
         public Comparator<Number> comparator() {
-            return LONG_COMPARATOR;
+            return Comparator.comparingLong(Number::longValue);
         }
     },
     PAGES {
@@ -97,19 +97,7 @@ public enum LongColumn implements SelectionTableColumn<Number> {
         }
 
         public Comparator<Number> comparator() {
-            return INT_COMPARATOR;
-        }
-    };
-
-    private static final Comparator<Number> LONG_COMPARATOR = new Comparator<Number>() {
-        public int compare(Number o1, Number o2) {
-            return Long.valueOf(o1.longValue()).compareTo(Long.valueOf(o2.longValue()));
-        }
-    };
-
-    private static final Comparator<Number> INT_COMPARATOR = new Comparator<Number>() {
-        public int compare(Number o1, Number o2) {
-            return Integer.valueOf(o1.intValue()).compareTo(Integer.valueOf(o2.intValue()));
+            return Comparator.comparingLong(Number::longValue);
         }
     };
 

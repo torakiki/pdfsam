@@ -54,11 +54,7 @@ public enum StringColumn implements SelectionTableColumn<String> {
         }
 
         public Comparator<String> comparator() {
-            return new Comparator<String>() {
-                public int compare(String o1, String o2) {
-                    return o1.compareTo(o2);
-                }
-            };
+            return Comparator.naturalOrder();
         }
 
         @Override
