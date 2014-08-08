@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.selection.multiple;
 
+import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.sejda.conversion.AdapterUtils.splitAndTrim;
 
@@ -55,7 +56,7 @@ public final class SelectionTableRowData extends PdfDocumentDescriptor {
     }
 
     public void setPageSelection(String pageSelection) {
-        this.pageSelection = StringUtils.defaultString(pageSelection);
+        this.pageSelection = defaultString(pageSelection);
     }
 
     /**
