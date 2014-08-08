@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 06/ago/2014
+ * Created on 07/ago/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -25,30 +25,40 @@ import static org.mockito.Mockito.mock;
 
 import java.io.File;
 
+import org.junit.Before;
 import org.junit.Test;
+import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 
 /**
  * @author Andrea Vacondio
  *
  */
-public class StringColumnTest {
+public class LoadingStatusColumnTest {
+    private static final String MODULE = "MODULE";
+    private LoadingStatusColumn victim;
+
+    @Before
+    public void setUp() {
+        victim = new LoadingStatusColumn(MODULE);
+    }
 
     @Test
     public void getObservableValue() {
         File file = mock(File.class);
         SelectionTableRowData data = new SelectionTableRowData(file);
-        data.setPageSelection("2");
-        assertEquals("2", StringColumn.PAGE_SELECTION.getObservableValue(data).getValue());
+        assertEquals(PdfDescriptorLoadingStatus.INITIAL, victim.getObservableValue(data).getValue());
+        data.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
+        assertEquals(PdfDescriptorLoadingStatus.REQUESTED, victim.getObservableValue(data).getValue());
     }
 
     @Test
     public void getNullTextValue() {
-        assertThat(StringColumn.PAGE_SELECTION.getTextValue(null), isEmptyString());
+        assertThat(victim.getTextValue(null), isEmptyString());
     }
 
     @Test
-    public void comparator() {
-        assertEquals(-1, StringColumn.PAGE_SELECTION.comparator().compare("1", "2"));
+    public void getTextValue() {
+        assertEquals(PdfDescriptorLoadingStatus.REQUESTED.name(),
+                victim.getTextValue(PdfDescriptorLoadingStatus.REQUESTED));
     }
-
 }

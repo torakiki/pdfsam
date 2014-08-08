@@ -41,7 +41,7 @@ final class SelectionChangedEvent {
 
     private SelectionChangedEvent(Collection<? extends Integer> selected) {
         requireNotNull(selected, "Input selection cannot be null");
-        selected.forEach((i) -> {
+        selected.forEach(i -> {
             bottom = Math.max(i, bottom);
             top = Math.min(i, top);
         });
