@@ -68,7 +68,7 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
      * @author Andrea Vacondio
      * 
      */
-    private static class AddButton extends ModuleOwnedButton {
+    static class AddButton extends ModuleOwnedButton {
 
         public AddButton(String ownerModule) {
             super(ownerModule);
@@ -95,7 +95,7 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
      * @author Andrea Vacondio
      * 
      */
-    private static class RemoveButton extends ModuleOwnedButton {
+    static class RemoveButton extends ModuleOwnedButton {
 
         public RemoveButton(String ownerModule) {
             super(ownerModule);
@@ -122,7 +122,7 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
      * @author Andrea Vacondio
      * 
      */
-    private static class ClearButton extends ModuleOwnedButton {
+    static class ClearButton extends ModuleOwnedButton {
         public ClearButton(String ownerModule) {
             super(ownerModule);
             setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Removes every document")));
@@ -163,7 +163,7 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
         }
     }
 
-    private static class MoveUpButton extends BaseMoveSelectedButton {
+    static class MoveUpButton extends BaseMoveSelectedButton {
 
         public MoveUpButton(String ownerModule) {
             super(ownerModule, MoveType.UP);
@@ -172,7 +172,7 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
         }
     }
 
-    private static class MoveDownButton extends BaseMoveSelectedButton {
+    static class MoveDownButton extends BaseMoveSelectedButton {
 
         public MoveDownButton(String ownerModule) {
             super(ownerModule, MoveType.DOWN);
