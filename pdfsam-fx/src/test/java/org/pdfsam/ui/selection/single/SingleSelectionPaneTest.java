@@ -129,7 +129,7 @@ public class SingleSelectionPaneTest extends GuiTest {
             @Override
             public void onEvent(OpenFileRequest event) {
                 super.onEvent(event);
-                assertEquals(victim.getPdfDocumentDescriptor().getFile().getParent(), event.getFile());
+                assertEquals(victim.getPdfDocumentDescriptor().getFile().getParentFile(), event.getFile());
             }
         };
         eventStudio().add(OpenFileRequest.class, listener);
