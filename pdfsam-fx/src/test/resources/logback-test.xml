@@ -1,0 +1,18 @@
+<configuration>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</Pattern>
+		</encoder>
+	</appender>
+
+	<logger name="org.sejda" level="DEBUG" />
+	<logger name="org.pdfsam" level="TRACE" />
+	<logger name="org.hibernate" level="WARN" />
+	<logger name="org.springframework" level="TRACE" />
+	
+	<root level="WARN">
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>

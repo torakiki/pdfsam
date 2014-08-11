@@ -111,9 +111,9 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         infoItem.setOnAction(e -> Platform.runLater(() -> {
             eventStudio().broadcast(new ShowPdfDescriptorRequest(getSelectionModel().getSelectedItem()));
         }));
+
         MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set destination"),
                 AwesomeIcon.FILE_PDF_ALT);
-
         setDestinationItem.setOnAction(e -> {
             eventStudio().broadcast(
                     requestDestination(getSelectionModel().getSelectedItem().getFile(), getOwnerModule()),
@@ -122,7 +122,6 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
         MenuItem removeSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Remove"),
                 AwesomeIcon.MINUS_SQUARE_ALT);
-
         removeSelected.setOnAction(e -> eventStudio().broadcast(new RemoveSelectedEvent(), getOwnerModule()));
 
         MenuItem moveTopSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Move to Top"),
