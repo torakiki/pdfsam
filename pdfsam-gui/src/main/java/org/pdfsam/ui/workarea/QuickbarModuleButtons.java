@@ -51,6 +51,8 @@ class QuickbarModuleButtons extends VBox {
     @Inject
     private UsageService usage;
     private List<ModuleButton> buttons = new ArrayList<>();
+    @Inject
+    private List<Module> modules;
 
     QuickbarModuleButtons() {
         this.getStyleClass().add("quickbar-items");
@@ -58,9 +60,13 @@ class QuickbarModuleButtons extends VBox {
 
     @PostConstruct
     void init() {
+        modules.sort((a, b) -> {
+            return Integer.compare(a.descriptor().getPriority(), b.descriptor().getPriority());
+        });
         LinkedHashSet<Module> collected = new LinkedHashSet<>();
         fillWithMostRecentlyUsed(collected);
         fillWithMostUsed(collected);
+        fillWithPrioritized(collected);
         for (Module current : collected) {
             ModuleButton currentButton = new ModuleButton(current);
             currentButton.displayTextProperty().bind(displayText);
@@ -77,19 +83,28 @@ class QuickbarModuleButtons extends VBox {
 
     private void fillWithMostUsed(LinkedHashSet<Module> collected) {
         for (Module current : usage.getMostUsed()) {
-            collected.add(current);
             if (collected.size() >= MAX_MODULES) {
                 break;
             }
+            collected.add(current);
         }
     }
 
     private void fillWithMostRecentlyUsed(LinkedHashSet<Module> collected) {
         for (Module current : usage.getMostRecentlyUsed()) {
-            collected.add(current);
             if (collected.size() >= RECENT_MODULES) {
                 break;
             }
+            collected.add(current);
+        }
+    }
+
+    private void fillWithPrioritized(LinkedHashSet<Module> collected) {
+        for (Module current : modules) {
+            if (collected.size() >= MAX_MODULES) {
+                break;
+            }
+            collected.add(current);
         }
     }
 

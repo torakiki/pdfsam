@@ -46,11 +46,6 @@ public class ClearEventStudioRule extends ExternalResource {
     }
 
     @Override
-    protected void before() {
-        clearAll();
-    }
-
-    @Override
     protected void after() {
         clearAll();
     }

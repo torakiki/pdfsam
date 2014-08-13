@@ -20,18 +20,12 @@ package org.pdfsam.module;
 
 import static java.util.stream.Collectors.toList;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
-import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 import javax.inject.Named;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * {@link UsageService} implemented ab/using the {@link Preferences} framework
@@ -42,93 +36,33 @@ import org.slf4j.LoggerFactory;
 @Named
 class StatefulPreferencesUsageService implements UsageService {
 
-    private static final Logger LOG = LoggerFactory.getLogger(StatefulPreferencesUsageService.class);
-
-    private static final String LAST_SEEN_KEY = "last.seen";
-    private static final String TOTAL_USED_KEY = "total.used";
-    private Map<String, ModuleUsage> modules = new HashMap<>();
-    private Preferences prefs = Preferences.userRoot().node("/pdfsam/modules/usage");
-
     @Inject
-    public StatefulPreferencesUsageService(Map<String, Module> modulesMap) {
-        for (Module module : modulesMap.values()) {
-            ModuleUsage usage = new ModuleUsage();
-            usage.module = module;
-            Preferences node = prefs.node(module.id());
-            usage.lastSeen = node.getLong(LAST_SEEN_KEY, 0);
-            usage.totalUsed = node.getLong(TOTAL_USED_KEY, 0);
-            modules.put(module.id(), usage);
-        }
-    }
+    private PreferencesUsageDataStore dataStore;
+    @Inject
+    private Map<String, Module> modulesMap;
 
     public void incrementUsageFor(String moduleId) {
-        ModuleUsage usage = modules.get(moduleId);
-        if (usage != null) {
-            usage.totalUsed += 1;
-            usage.lastSeen = System.currentTimeMillis();
-            LOG.trace("Set total usage to {} for module {}", usage.totalUsed, moduleId);
-        }
+        dataStore.incrementUsageFor(moduleId);
     }
 
     public List<Module> getMostUsed() {
-        List<ModuleUsage> used = modules.values().parallelStream().collect(toList());
+        List<ModuleUsage> used = dataStore.getUsages();
         used.sort((a, b) -> {
-            if (a.totalUsed == 0 && b.totalUsed == 0) {
-                return Integer.compare(a.module.descriptor().getPriority(), b.module.descriptor().getPriority());
-            }
-            return Long.compare(b.totalUsed, a.totalUsed);
+            return Long.compare(b.getTotalUsed(), a.getTotalUsed());
         });
-        return used.stream().map(u -> u.module).collect(toList());
+        return used.stream().map(u -> modulesMap.get(u.getModuleId())).filter(m -> m != null).collect(toList());
     }
 
     public List<Module> getMostRecentlyUsed() {
-        List<ModuleUsage> used = modules.values().parallelStream().filter(t -> t.lastSeen != 0).collect(toList());
+        List<ModuleUsage> used = dataStore.getUsages();
         used.sort((a, b) -> {
-            return Long.compare(b.lastSeen, a.lastSeen);
+            return Long.compare(b.getLastSeen(), a.getLastSeen());
         });
-        return used.stream().map(u -> u.module).collect(toList());
+        return used.stream().map(u -> modulesMap.get(u.getModuleId())).filter(m -> m != null).collect(toList());
     }
 
     public void clear() {
-        try {
-            prefs.clear();
-            modules.values().parallelStream().forEach(u -> {
-                u.lastSeen = 0;
-                u.totalUsed = 0;
-            });
-        } catch (BackingStoreException e) {
-            LOG.error("Unable to clear modules usage statistics", e);
-        }
+        dataStore.clear();
     }
 
-    /**
-     * flush to the persistence backing store the current state of the usage
-     */
-    @PreDestroy
-    private void flush() {
-        try {
-            prefs.clear();
-            for (ModuleUsage entry : modules.values()) {
-                Preferences node = prefs.node(entry.module.id());
-                node.putLong(LAST_SEEN_KEY, entry.lastSeen);
-                node.putLong(TOTAL_USED_KEY, entry.totalUsed);
-            }
-            LOG.trace("Flush of usage statistics performed for {} modules", modules.size());
-        } catch (BackingStoreException e) {
-            LOG.error("Unable to persist modules usage statistics", e);
-        }
-    }
-
-    /**
-     * Helper class used to bind {@link Module}s and their usage statistics
-     * 
-     * @author Andrea Vacondio
-     * 
-     */
-    private static class ModuleUsage {
-        private Module module;
-        private long lastSeen = 0;
-        private long totalUsed = 0;
-
-    }
 }
