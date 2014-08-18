@@ -41,8 +41,6 @@ import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.model.pdf.PdfMetadataKey;
 
-import com.itextpdf.text.pdf.PdfDate;
-
 /**
  * Tab displaying a summary of the PDF document information.
  * 
@@ -115,7 +113,7 @@ class SummaryTab extends BaseInfoTab implements ChangeListener<PdfDescriptorLoad
     private void setPdfProperties(PdfDocumentDescriptor descriptor) {
         version.setText(descriptor.getVersionString());
         pages.setText(Integer.toString(descriptor.pagesPropery().get()));
-        created.setText(FORMATTER.format(PdfDate.decode(descriptor.getInformation("CreationDate"))));
+        created.setText(descriptor.getInformation("FormattedCreationDate"));
         title.setText(descriptor.getInformation(PdfMetadataKey.TITLE.getKey()));
         author.setText(descriptor.getInformation(PdfMetadataKey.AUTHOR.getKey()));
         creator.setText(descriptor.getInformation(PdfMetadataKey.CREATOR.getKey()));
@@ -123,8 +121,8 @@ class SummaryTab extends BaseInfoTab implements ChangeListener<PdfDescriptorLoad
         producer.setText(descriptor.getInformation("Producer"));
     }
 
-    public void changed(ObservableValue<? extends PdfDescriptorLoadingStatus> observable, PdfDescriptorLoadingStatus oldValue,
-            PdfDescriptorLoadingStatus newValue) {
+    public void changed(ObservableValue<? extends PdfDescriptorLoadingStatus> observable,
+            PdfDescriptorLoadingStatus oldValue, PdfDescriptorLoadingStatus newValue) {
         if (newValue == PdfDescriptorLoadingStatus.LOADED) {
             Platform.runLater(() -> {
                 setPdfProperties(current);

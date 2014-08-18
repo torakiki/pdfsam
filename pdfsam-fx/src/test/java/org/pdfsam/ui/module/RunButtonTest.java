@@ -28,8 +28,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.test.InitializeJavaFxThreadRule;
-import org.pdfsam.test.JavaFXThreadRule;
+import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 import org.sejda.model.parameter.base.TaskParameters;
@@ -42,7 +41,7 @@ import org.sejda.model.task.NotifiableTaskMetadata;
 public class RunButtonTest {
 
     @Rule
-    public JavaFXThreadRule fxThread = new InitializeJavaFxThreadRule();
+    public InitializeAndApplyJavaFxThreadRule fxThread = new InitializeAndApplyJavaFxThreadRule();
     @Rule
     public ClearEventStudioRule cearEventStudio = new ClearEventStudioRule();
     private RunButton victim;

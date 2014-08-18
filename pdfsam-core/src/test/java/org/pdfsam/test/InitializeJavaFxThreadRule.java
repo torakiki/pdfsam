@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 17/lug/2014
+ * Created on 18/ago/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,59 +18,22 @@
  */
 package org.pdfsam.test;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.locks.ReentrantLock;
-
-import javafx.embed.swing.JFXPanel;
-
-import javax.swing.SwingUtilities;
+import org.junit.rules.TestRule;
+import org.junit.runner.Description;
+import org.junit.runners.model.Statement;
 
 /**
- * Rule to provide JavaFX thread initialization and run test methods in the JavaFX thread
- * 
  * @author Andrea Vacondio
  *
  */
-public class InitializeJavaFxThreadRule extends JavaFXThreadRule {
+public class InitializeJavaFxThreadRule implements TestRule {
+
     static {
         new JavaFXInitlializer().init();
     }
 
-    /**
-     * Perform JavaFX thread initialization
-     * 
-     * @author Andrea Vacondio
-     *
-     */
-    private static class JavaFXInitlializer {
-        private ReentrantLock setupLock = new ReentrantLock();
-        private boolean setUp = false;
-
-        void init() {
-            if (!setUp) {
-                try {
-                    setupLock.lock();
-                    if (!setUp) {
-                        setupJavaFX();
-                        setUp = true;
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } finally {
-                    setupLock.unlock();
-                }
-            }
-        }
-
-        private void setupJavaFX() throws InterruptedException {
-            System.out.println("Initializing JavaFX thread");
-            final CountDownLatch latch = new CountDownLatch(1);
-            SwingUtilities.invokeLater(() -> {
-                new JFXPanel();
-                latch.countDown();
-            });
-            latch.await();
-            System.out.println("JavaFX initialized");
-        }
+    public Statement apply(Statement base, Description description) {
+        return base;
     }
+
 }

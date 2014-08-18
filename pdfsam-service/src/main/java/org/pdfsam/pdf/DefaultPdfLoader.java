@@ -18,11 +18,16 @@
  */
 package org.pdfsam.pdf;
 
+import java.text.DateFormat;
+import java.util.HashMap;
+
 import javax.inject.Named;
 
+import org.apache.commons.lang3.time.FastDateFormat;
 import org.pdfsam.module.RequiredPdfData;
 import org.sejda.conversion.PdfVersionAdapter;
 
+import com.itextpdf.text.pdf.PdfDate;
 import com.itextpdf.text.pdf.PdfReader;
 
 /**
@@ -34,10 +39,15 @@ import com.itextpdf.text.pdf.PdfReader;
 @Named
 class DefaultPdfLoader implements PdfLoader {
 
+    private static FastDateFormat FORMATTER = FastDateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.MEDIUM);
+
     public void accept(PdfReader reader, PdfDocumentDescriptor descriptor) {
         descriptor.setPages(reader.getNumberOfPages());
         descriptor.setVersion(new PdfVersionAdapter(Character.toString(reader.getPdfVersion())).getEnumValue());
-        descriptor.setInformationDictionary(reader.getInfo());
+        HashMap<String, String> info = reader.getInfo();
+        descriptor.setInformationDictionary(info);
+        descriptor.putInformation("FormattedCreationDate",
+                FORMATTER.format(PdfDate.decode(info.get("CreationDate"))));
     }
 
     public RequiredPdfData key() {

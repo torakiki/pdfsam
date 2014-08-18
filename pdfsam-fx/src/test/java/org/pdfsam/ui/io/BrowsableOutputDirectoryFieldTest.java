@@ -37,7 +37,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.pdfsam.support.params.MultipleOutputTaskParametersBuilder;
-import org.pdfsam.test.InitializeJavaFxThreadRule;
+import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.sejda.model.parameter.base.MultipleOutputTaskParameters;
 
 /**
@@ -49,7 +49,7 @@ public class BrowsableOutputDirectoryFieldTest {
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
     @Rule
-    public InitializeJavaFxThreadRule fxThread = new InitializeJavaFxThreadRule();
+    public InitializeAndApplyJavaFxThreadRule fxThread = new InitializeAndApplyJavaFxThreadRule();
     @Mock
     private MultipleOutputTaskParametersBuilder<? extends MultipleOutputTaskParameters> builder;
     @Mock

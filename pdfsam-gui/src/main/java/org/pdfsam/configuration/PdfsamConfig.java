@@ -19,6 +19,7 @@
 package org.pdfsam.configuration;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -64,6 +65,11 @@ public class PdfsamConfig {
     @Bean(name = "appVersion")
     public String version() {
         return env.getProperty("pdfsam.version");
+    }
+
+    @Bean(name = "updatesUrl")
+    public URL updatesUrl() throws MalformedURLException {
+        return new URL(String.format("http://www.pdfsam.org/current-version?c=%s", env.getProperty("pdfsam.version")));
     }
 
     @Bean

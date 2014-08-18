@@ -113,4 +113,10 @@ public class PdfDocumentDescriptorTest {
         assertEquals("value", victim.getInformation("key"));
     }
 
+    @Test
+    public void putInformation() {
+        victim.putInformation("key", "value");
+        assertEquals("value", victim.getInformation("key"));
+    }
+
 }

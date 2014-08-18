@@ -28,7 +28,7 @@ import javafx.stage.Window;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.pdfsam.test.InitializeJavaFxThreadRule;
+import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 
 /**
  * @author Andrea Vacondio
@@ -36,7 +36,7 @@ import org.pdfsam.test.InitializeJavaFxThreadRule;
  */
 public class HideOnEscapeHandlerTest {
     @Rule
-    public InitializeJavaFxThreadRule rule = new InitializeJavaFxThreadRule();
+    public InitializeAndApplyJavaFxThreadRule rule = new InitializeAndApplyJavaFxThreadRule();
 
     @Test(expected = IllegalArgumentException.class)
     public void nullArg() {

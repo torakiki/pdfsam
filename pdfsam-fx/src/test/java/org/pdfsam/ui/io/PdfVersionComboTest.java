@@ -27,7 +27,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.test.InitializeJavaFxThreadRule;
+import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.ui.io.PdfVersionCombo.PdfVersionComboItem;
 import org.sejda.model.pdf.PdfVersion;
 
@@ -41,7 +41,7 @@ public class PdfVersionComboTest {
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule(MODULE);
     @Rule
-    public InitializeJavaFxThreadRule fxThread = new InitializeJavaFxThreadRule();
+    public InitializeAndApplyJavaFxThreadRule fxThread = new InitializeAndApplyJavaFxThreadRule();
     private PdfVersionCombo victim;
 
     @Before

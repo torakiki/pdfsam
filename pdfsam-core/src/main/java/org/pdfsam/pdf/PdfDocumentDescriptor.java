@@ -80,6 +80,10 @@ public class PdfDocumentDescriptor {
         metadata.putAll(info);
     }
 
+    public void putInformation(String key, String value) {
+        metadata.put(key, value);
+    }
+
     public ReadOnlyIntegerProperty pagesPropery() {
         return pages.getReadOnlyProperty();
     }

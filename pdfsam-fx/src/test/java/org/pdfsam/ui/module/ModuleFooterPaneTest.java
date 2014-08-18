@@ -35,8 +35,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.test.InitializeJavaFxThreadRule;
-import org.pdfsam.test.JavaFXThreadRule;
+import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.sejda.model.exception.TaskOutputVisitException;
 import org.sejda.model.notification.event.PercentageOfWorkDoneChangedEvent;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
@@ -64,7 +63,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class ModuleFooterPaneTest {
 
     @Rule
-    public JavaFXThreadRule fxThread = new InitializeJavaFxThreadRule();
+    public InitializeAndApplyJavaFxThreadRule fxThread = new InitializeAndApplyJavaFxThreadRule();
     @Rule
     public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule("LogStage");
 

@@ -21,7 +21,6 @@ package org.pdfsam.update;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.Map;
 
 import javafx.application.Platform;
@@ -44,16 +43,18 @@ import com.fasterxml.jackson.jr.ob.JSON;
 @Named
 class DefaultUpdateService implements UpdateService {
     private static final Logger LOG = LoggerFactory.getLogger(DefaultUpdateService.class);
-    private static final String UPDATES_URL = "http://www.pdfsam.org/current-version";
     private static final String CURRENT_VERSION_KEY = "currentVersion";
 
     @Inject
     @Named("appVersion")
     private String appVersion;
+    @Inject
+    @Named("updatesUrl")
+    private Object source;
 
     public void checkForUpdates() {
         try {
-            Map<String, Object> map = JSON.std.mapFrom(new URL(String.format("%s?c=%s", UPDATES_URL, appVersion)));
+            Map<String, Object> map = JSON.std.mapFrom(source);
             String current = map.getOrDefault(CURRENT_VERSION_KEY, "").toString();
             if (!current.equals(appVersion)) {
                 LOG.info(DefaultI18nContext.getInstance().i18n("PDFsam {0} is available for download", current));
