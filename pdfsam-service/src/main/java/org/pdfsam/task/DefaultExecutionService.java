@@ -18,10 +18,10 @@
  */
 package org.pdfsam.task;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.sejda.core.service.DefaultTaskExecutionService;
 import org.sejda.core.service.TaskExecutionService;
 import org.sejda.model.parameter.base.TaskParameters;
 import org.slf4j.Logger;
@@ -37,9 +37,11 @@ import org.slf4j.LoggerFactory;
 class DefaultExecutionService implements ExecutionService {
     private static final Logger LOG = LoggerFactory.getLogger(DefaultExecutionService.class);
 
+    @Inject
+    private TaskExecutionService service;
+
     @Override
     public void submit(String moduleId, TaskParameters params) {
-        TaskExecutionService service = new DefaultTaskExecutionService();
         try {
             service.execute(params);
         } catch (RuntimeException re) {
