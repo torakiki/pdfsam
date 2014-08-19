@@ -20,6 +20,7 @@ package org.pdfsam.pdf;
 
 import java.text.DateFormat;
 import java.util.HashMap;
+import java.util.Optional;
 
 import javax.inject.Named;
 
@@ -46,8 +47,8 @@ class DefaultPdfLoader implements PdfLoader {
         descriptor.setVersion(new PdfVersionAdapter(Character.toString(reader.getPdfVersion())).getEnumValue());
         HashMap<String, String> info = reader.getInfo();
         descriptor.setInformationDictionary(info);
-        descriptor.putInformation("FormattedCreationDate",
-                FORMATTER.format(PdfDate.decode(info.get("CreationDate"))));
+        Optional.ofNullable(PdfDate.decode(info.get("CreationDate"))).map(FORMATTER::format)
+                .ifPresent(c -> descriptor.putInformation("FormattedCreationDate", c));
     }
 
     public RequiredPdfData key() {
