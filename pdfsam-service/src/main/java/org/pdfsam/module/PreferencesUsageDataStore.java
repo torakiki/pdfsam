@@ -51,6 +51,7 @@ class PreferencesUsageDataStore {
     public void flush() {
         Preferences prefs = Preferences.userRoot().node(USAGE_PATH);
         try {
+            LOG.trace("Flushing modules usage");
             prefs.flush();
         } catch (BackingStoreException e) {
             LOG.error("Unable to flush modules usage statistics", e);

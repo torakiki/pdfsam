@@ -20,16 +20,18 @@ package org.pdfsam.pdf;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
-import org.junit.Before;
+import org.junit.AfterClass;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TemporaryFolder;
 import org.pdfsam.module.RequiredPdfData;
 import org.sejda.model.pdf.PdfMetadataKey;
 
@@ -40,21 +42,21 @@ import org.sejda.model.pdf.PdfMetadataKey;
 public class ITextPdfLoadServiceTest {
     private ITextPdfLoadService victim = new ITextPdfLoadService(Arrays.asList(new PdfLoader[] {
             new DefaultPdfLoader(), new BookmarksLevelLoader() }));
-    private File testFile;
+    @Rule
+    public TemporaryFolder folder = new TemporaryFolder();
 
-    @Before
-    public void setUp() throws IOException {
-        testFile = File.createTempFile("PDFsamTest", ".pdf");
-        testFile.deleteOnExit();
-        FileUtils.copyInputStreamToFile(getClass().getResourceAsStream("/test_pdfsam.pdf"), testFile);
+    @AfterClass
+    public static void afterClass() {
+        eventStudio().clear();
     }
 
     @Test
-    public void load() {
+    public void load() throws IOException {
+        File testFile = folder.newFile("PDFsamTest.pdf");
+        FileUtils.copyInputStreamToFile(getClass().getResourceAsStream("/test_pdfsam.pdf"), testFile);
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(testFile);
-        List<PdfDocumentDescriptor> toLoad = new ArrayList<>();
+        List<PdfDocumentDescriptor> toLoad = Arrays.asList(new PdfDocumentDescriptor[] { descriptor });
         assertEquals(PdfDescriptorLoadingStatus.INITIAL, descriptor.loadedProperty().get());
-        toLoad.add(descriptor);
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
         victim.load(toLoad, RequiredPdfData.DEFAULT);
         assertEquals(1, toLoad.size());
@@ -64,5 +66,66 @@ public class ITextPdfLoadServiceTest {
         assertEquals(PdfDescriptorLoadingStatus.LOADED, descriptor.loadedProperty().get());
         assertEquals("Me", item.getInformation(PdfMetadataKey.AUTHOR.getKey()));
         assertEquals("test", item.getInformation(PdfMetadataKey.KEYWORDS.getKey()));
+    }
+
+    @Test
+    public void invalidPdf() throws IOException {
+        File testFile = folder.newFile("PDFsamTest.pdf");
+        FileUtils.copyInputStreamToFile(getClass().getResourceAsStream("/im_empty.pdf"), testFile);
+        PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(testFile);
+        List<PdfDocumentDescriptor> toLoad = Arrays.asList(new PdfDocumentDescriptor[] { descriptor });
+        assertEquals(PdfDescriptorLoadingStatus.INITIAL, descriptor.loadedProperty().get());
+        descriptor.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
+        victim.load(toLoad, RequiredPdfData.DEFAULT);
+        assertEquals(1, toLoad.size());
+        PdfDocumentDescriptor item = toLoad.get(0);
+        assertNotNull(item);
+        assertEquals(PdfDescriptorLoadingStatus.WITH_ERRORS, descriptor.loadedProperty().get());
+    }
+
+    @Test
+    public void encNoPwd() throws IOException {
+        File testFile = folder.newFile("PDFsamTest.pdf");
+        FileUtils.copyInputStreamToFile(getClass().getResourceAsStream("/enc_test_pdfsam.pdf"), testFile);
+        PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(testFile);
+        List<PdfDocumentDescriptor> toLoad = Arrays.asList(new PdfDocumentDescriptor[] { descriptor });
+        assertEquals(PdfDescriptorLoadingStatus.INITIAL, descriptor.loadedProperty().get());
+        descriptor.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
+        victim.load(toLoad, RequiredPdfData.DEFAULT);
+        assertEquals(1, toLoad.size());
+        PdfDocumentDescriptor item = toLoad.get(0);
+        assertNotNull(item);
+        assertEquals(PdfDescriptorLoadingStatus.ENCRYPTED, descriptor.loadedProperty().get());
+    }
+
+    @Test
+    public void encWithPwd() throws IOException {
+        File testFile = folder.newFile("PDFsamTest.pdf");
+        FileUtils.copyInputStreamToFile(getClass().getResourceAsStream("/enc_test_pdfsam.pdf"), testFile);
+        PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptor(testFile, "test");
+        List<PdfDocumentDescriptor> toLoad = Arrays.asList(new PdfDocumentDescriptor[] { descriptor });
+        assertEquals(PdfDescriptorLoadingStatus.INITIAL, descriptor.loadedProperty().get());
+        descriptor.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
+        victim.load(toLoad, RequiredPdfData.DEFAULT);
+        assertEquals(1, toLoad.size());
+        PdfDocumentDescriptor item = toLoad.get(0);
+        assertNotNull(item);
+        assertEquals(PdfDescriptorLoadingStatus.LOADED_WITH_USER_PWD_DECRYPTION, descriptor.loadedProperty().get());
+    }
+
+    @Test
+    public void invalidate() throws IOException {
+        File testFile = folder.newFile("PDFsamTest.pdf");
+        FileUtils.copyInputStreamToFile(getClass().getResourceAsStream("/test_pdfsam.pdf"), testFile);
+        PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(testFile);
+        List<PdfDocumentDescriptor> toLoad = Arrays.asList(new PdfDocumentDescriptor[] { descriptor });
+        assertEquals(PdfDescriptorLoadingStatus.INITIAL, descriptor.loadedProperty().get());
+        descriptor.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
+        descriptor.invalidate();
+        victim.load(toLoad, RequiredPdfData.DEFAULT);
+        assertEquals(1, toLoad.size());
+        PdfDocumentDescriptor item = toLoad.get(0);
+        assertNotNull(item);
+        assertEquals(PdfDescriptorLoadingStatus.REQUESTED, descriptor.loadedProperty().get());
     }
 }
