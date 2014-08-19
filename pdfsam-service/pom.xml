@@ -49,15 +49,14 @@
 			<groupId>com.fasterxml.jackson.jr</groupId>
 			<artifactId>jackson-jr-objects</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
 		<!-- test dependencies -->
 		<dependency>
 			<groupId>jdepend</groupId>
 			<artifactId>jdepend</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
