@@ -80,7 +80,7 @@ public class ErrorsNotification extends Label {
         }
     }
 
-    public boolean hasUnreadMessages() {
+    private boolean hasUnreadMessages() {
         return unreadMessages > 0;
     }
 
