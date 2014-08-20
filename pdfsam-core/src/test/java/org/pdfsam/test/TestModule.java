@@ -34,12 +34,13 @@ import org.pdfsam.module.ModulePriority;
  *
  */
 public class TestModule implements Module {
+    public static final String ID = "test.module";
 
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.MERGE).description("Test module")
             .name("TestModule").priority(ModulePriority.DEFAULT).build();
 
     public String id() {
-        return "test.module";
+        return ID;
     }
 
     public ModuleDescriptor descriptor() {

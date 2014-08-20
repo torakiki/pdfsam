@@ -33,10 +33,10 @@ import org.slf4j.LoggerFactory;
  */
 class JarSignatureFilter implements Predicate<Path> {
     private static final Logger LOG = LoggerFactory.getLogger(JarSignatureFilter.class);
-    private static final String SKIP_SIGNATURE_CHECKING_PROP = "skip.modules.signature.check";
+    public static final String SKIP_SIGNATURE_CHECKING_PROP = "skip.modules.signature.check";
 
     public boolean test(Path p) {
-        if (p == null || p.toString().toLowerCase().endsWith(".jar")) {
+        if (p == null || !p.toString().toLowerCase().endsWith(".jar")) {
             return false;
         }
         if (Boolean.getBoolean(SKIP_SIGNATURE_CHECKING_PROP)) {

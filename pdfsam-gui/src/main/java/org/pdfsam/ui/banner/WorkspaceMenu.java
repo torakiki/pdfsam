@@ -23,7 +23,6 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
@@ -41,15 +40,15 @@ class WorkspaceMenu extends Menu {
 
     public WorkspaceMenu() {
         super(DefaultI18nContext.getInstance().i18n("_Workspace"));
-    }
-
-    @PostConstruct
-    void init() {
+        setId("workspaceMenu");
         MenuItem load = new MenuItem(DefaultI18nContext.getInstance().i18n("_Load"));
+        load.setId("loadWorkspace");
         load.setOnAction(e -> eventStudio().broadcast(new LoadWorkspaceEvent()));
         MenuItem save = new MenuItem(DefaultI18nContext.getInstance().i18n("_Save"));
+        save.setId("saveWorkspace");
         save.setOnAction(e -> eventStudio().broadcast(new SaveWorkspaceEvent()));
         Menu recent = new Menu(DefaultI18nContext.getInstance().i18n("Recen_t"));
+        recent.setId("recentWorkspace");
         getItems().addAll(load, save, new SeparatorMenuItem(), recent);
     }
 }

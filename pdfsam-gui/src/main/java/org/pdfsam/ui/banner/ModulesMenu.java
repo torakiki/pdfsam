@@ -53,6 +53,7 @@ class ModulesMenu extends Menu {
 
     @PostConstruct
     void initModulesMenu() {
+        setId("modulesMenu");
         Map<ModuleCategory, Menu> moduleSubmenus = new HashMap<>();
         for (final Module currentModule : modules) {
             ModuleCategory category = currentModule.descriptor().getCategory();

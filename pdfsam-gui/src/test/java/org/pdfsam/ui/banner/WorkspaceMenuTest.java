@@ -19,9 +19,9 @@
 package org.pdfsam.ui.banner;
 
 import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import javafx.geometry.Side;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.Parent;
 
 import javax.inject.Inject;
@@ -31,6 +31,9 @@ import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
+import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
+import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
+import org.sejda.eventstudio.Listener;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
@@ -47,8 +50,7 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { MenuConfig.class })
 @DirtiesContext(classMode = ClassMode.AFTER_CLASS)
-public class MenuButtonTest extends GuiTest {
-
+public class WorkspaceMenuTest extends GuiTest {
     @Inject
     private ApplicationContext applicationContext;
 
@@ -58,9 +60,18 @@ public class MenuButtonTest extends GuiTest {
     }
 
     @Test
-    public void onClick() {
-        AppContextMenu menu = applicationContext.getBean(AppContextMenu.class);
-        click(AwesomeIcon.BARS.toString());
-        verify(menu).show(any(), eq(Side.BOTTOM), eq(0d), eq(0d));
+    public void onSaveClick() {
+        Listener<SaveWorkspaceEvent> listener = mock(Listener.class);
+        eventStudio().add(SaveWorkspaceEvent.class, listener);
+        click(AwesomeIcon.BARS.toString()).click("#workspaceMenu").move("#loadWorkspace").click("#saveWorkspace");
+        verify(listener).onEvent(any());
+    }
+
+    @Test
+    public void onLoadClick() {
+        Listener<LoadWorkspaceEvent> listener = mock(Listener.class);
+        eventStudio().add(LoadWorkspaceEvent.class, listener);
+        click(AwesomeIcon.BARS.toString()).click("#workspaceMenu").click("#loadWorkspace");
+        verify(listener).onEvent(any());
     }
 }

@@ -18,10 +18,10 @@
  */
 package org.pdfsam.ui.banner;
 
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.eq;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import javafx.geometry.Side;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.Parent;
 
 import javax.inject.Inject;
@@ -31,6 +31,10 @@ import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
+import org.mockito.ArgumentCaptor;
+import org.pdfsam.test.TestModule;
+import org.pdfsam.ui.event.SetActiveModuleRequest;
+import org.sejda.eventstudio.Listener;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
@@ -47,10 +51,12 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { MenuConfig.class })
 @DirtiesContext(classMode = ClassMode.AFTER_CLASS)
-public class MenuButtonTest extends GuiTest {
+public class ModulesMenuTest extends GuiTest {
 
     @Inject
     private ApplicationContext applicationContext;
+    @Inject
+    private TestModule module;
 
     @Override
     protected Parent getRootNode() {
@@ -58,9 +64,14 @@ public class MenuButtonTest extends GuiTest {
     }
 
     @Test
-    public void onClick() {
-        AppContextMenu menu = applicationContext.getBean(AppContextMenu.class);
+    public void onSaveClick() {
+        Listener<SetActiveModuleRequest> listener = mock(Listener.class);
+        eventStudio().add(SetActiveModuleRequest.class, listener);
+        ArgumentCaptor<SetActiveModuleRequest> argument = ArgumentCaptor.forClass(SetActiveModuleRequest.class);
         click(AwesomeIcon.BARS.toString());
-        verify(menu).show(any(), eq(Side.BOTTOM), eq(0d), eq(0d));
+        click("#modulesMenu").click(module.descriptor().getCategory().getDescription()).click(
+                module.descriptor().getName());
+        verify(listener).onEvent(argument.capture());
+        assertEquals(module.id(), argument.getValue().getActiveModuleId().get());
     }
 }
