@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 03/mag/2014
+ * Created on 20/ago/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,38 +16,42 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.banner;
+package org.pdfsam.test;
 
-import javafx.geometry.Side;
-import javafx.scene.control.Tooltip;
+import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
+import javafx.scene.Node;
+import javafx.scene.layout.Pane;
 
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-import javax.inject.Named;
-
-import org.pdfsam.context.DefaultI18nContext;
-
-import de.jensd.fx.fontawesome.AwesomeIcon;
+import org.pdfsam.module.Module;
+import org.pdfsam.module.ModuleCategory;
+import org.pdfsam.module.ModuleDescriptor;
+import org.pdfsam.module.ModulePriority;
 
 /**
- * Button to open the menu
+ * A test module to use in tests
  * 
  * @author Andrea Vacondio
  *
  */
-@Named
-class MenuButton extends BannerButton {
-    @Inject
-    private AppContextMenu menu;
+public class TestModule implements Module {
 
-    MenuButton() {
-        super(AwesomeIcon.BARS);
-        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Open menu")));
+    private ModuleDescriptor descriptor = builder().category(ModuleCategory.MERGE).description("Test module")
+            .name("TestModule").priority(ModulePriority.DEFAULT).build();
 
+    public String id() {
+        return "test.module";
     }
 
-    @PostConstruct
-    private void initMenues() {
-        setOnAction(e -> menu.show(this, Side.BOTTOM, 0, 0));
+    public ModuleDescriptor descriptor() {
+        return descriptor;
     }
+
+    public Pane modulePanel() {
+        return null;
+    }
+
+    public Node graphic() {
+        return null;
+    }
+
 }

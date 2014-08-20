@@ -24,13 +24,14 @@ import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
+import javax.inject.Inject;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeJavaFxThreadRule;
 import org.sejda.eventstudio.Listener;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
@@ -49,7 +50,7 @@ public class DefaultUpdateServiceTest {
     @Rule
     public InitializeJavaFxThreadRule javaFX = new InitializeJavaFxThreadRule();
 
-    @Autowired
+    @Inject
     private DefaultUpdateService victim;
 
     @Configuration

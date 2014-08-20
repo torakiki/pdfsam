@@ -18,10 +18,12 @@
  */
 package org.pdfsam.ui.banner;
 
-import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import javafx.geometry.Side;
 import javafx.scene.Parent;
 
 import javax.inject.Inject;
@@ -31,9 +33,8 @@ import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
-import org.mockito.ArgumentCaptor;
-import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
-import org.sejda.eventstudio.Listener;
+import org.pdfsam.module.Module;
+import org.pdfsam.test.TestModule;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -50,38 +51,52 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
 @Category(TestFX.class)
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration
-public class DashboardButtonTest extends GuiTest {
+public class MenuButtonTest extends GuiTest {
 
     @Inject
     private ApplicationContext applicationContext;
 
     @Override
     protected Parent getRootNode() {
-        return applicationContext.getBean(DashboardButton.class);
+        return applicationContext.getBean(MenuButton.class);
     }
 
     @Configuration
     static class Config {
         @Bean
         @Lazy
-        public DashboardButton victim() {
-            return new DashboardButton();
+        public MenuButton victim() {
+            return new MenuButton();
         }
 
-        @Bean(name = "defaultDashboardItemId")
-        public String id() {
-            return "itemId";
+        @Bean
+        @Lazy
+        public AppContextMenu menu() {
+            return spy(new AppContextMenu());
+        }
+
+        @Bean
+        @Lazy
+        public WorkspaceMenu workspaceMenu() {
+            return mock(WorkspaceMenu.class);
+        }
+
+        @Bean
+        @Lazy
+        public ModulesMenu modulesMenu() {
+            return mock(ModulesMenu.class);
+        }
+
+        @Bean
+        public Module module() {
+            return new TestModule();
         }
     }
 
     @Test
-    public void testClick() {
-        Listener<SetActiveDashboardItemRequest> listener = mock(Listener.class);
-        eventStudio().add(SetActiveDashboardItemRequest.class, listener);
-        click(AwesomeIcon.HOME.toString());
-        ArgumentCaptor<SetActiveDashboardItemRequest> argument = ArgumentCaptor
-                .forClass(SetActiveDashboardItemRequest.class);
-        verify(listener).onEvent(argument.capture());
-        assertEquals("itemId", argument.getValue().getActiveItemId());
+    public void onClick() {
+        AppContextMenu menu = applicationContext.getBean(AppContextMenu.class);
+        click(AwesomeIcon.BARS.toString());
+        verify(menu).show(any(), eq(Side.BOTTOM), eq(0d), eq(0d));
     }
 }

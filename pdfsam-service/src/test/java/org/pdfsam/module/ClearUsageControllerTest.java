@@ -20,13 +20,13 @@ package org.pdfsam.module;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
+import javax.inject.Inject;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
@@ -43,9 +43,9 @@ public class ClearUsageControllerTest {
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
 
-    @Autowired
+    @Inject
     private ClearUsageController victim;
-    @Autowired
+    @Inject
     private UsageService service;
 
     @Configuration
@@ -63,7 +63,7 @@ public class ClearUsageControllerTest {
 
     @Test
     public void clear() {
-        eventStudio().broadcast(new ClearUsageRequestEvent());
+        victim.request(new ClearUsageRequestEvent());
         verify(service).clear();
     }
 

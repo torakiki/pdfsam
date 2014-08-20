@@ -30,6 +30,8 @@ import java.math.BigDecimal;
 
 import javafx.scene.control.ProgressBar;
 
+import javax.inject.Inject;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -44,7 +46,6 @@ import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.output.TaskOutput;
 import org.sejda.model.parameter.base.TaskParameters;
 import org.sejda.model.task.NotifiableTaskMetadata;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -67,7 +68,7 @@ public class ModuleFooterPaneTest {
     @Rule
     public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule("LogStage");
 
-    @Autowired
+    @Inject
     private ApplicationContext applicationContext;
 
     @Configuration

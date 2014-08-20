@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 03/mag/2014
+ * Created on 20/ago/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,36 +18,37 @@
  */
 package org.pdfsam.ui.banner;
 
-import javafx.geometry.Side;
-import javafx.scene.control.Tooltip;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import javafx.scene.Parent;
 
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-import javax.inject.Named;
-
-import org.pdfsam.context.DefaultI18nContext;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.loadui.testfx.GuiTest;
+import org.loadui.testfx.categories.TestFX;
+import org.pdfsam.ui.commons.ShowStageRequest;
+import org.sejda.eventstudio.Listener;
 
 import de.jensd.fx.fontawesome.AwesomeIcon;
 
 /**
- * Button to open the menu
- * 
  * @author Andrea Vacondio
  *
  */
-@Named
-class MenuButton extends BannerButton {
-    @Inject
-    private AppContextMenu menu;
-
-    MenuButton() {
-        super(AwesomeIcon.BARS);
-        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Open menu")));
-
+@Category(TestFX.class)
+public class LogButtonTest extends GuiTest {
+    @Override
+    protected Parent getRootNode() {
+        return new LogButton();
     }
 
-    @PostConstruct
-    private void initMenues() {
-        setOnAction(e -> menu.show(this, Side.BOTTOM, 0, 0));
+    @Test
+    public void onClick() {
+        Listener<ShowStageRequest> listener = mock(Listener.class);
+        eventStudio().add(ShowStageRequest.class, listener, "LogStage");
+        click(AwesomeIcon.LIST.toString());
+        verify(listener).onEvent(any());
     }
 }
