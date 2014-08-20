@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 21/mar/2014
+ * Created on 20/ago/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,27 +18,29 @@
  */
 package org.pdfsam.ui.event;
 
-import static org.apache.commons.lang3.StringUtils.trim;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+
+import org.junit.Test;
 
 /**
- * Event to change the title on the application window.
- * 
  * @author Andrea Vacondio
  *
  */
-public class SetTitleEvent {
-    private String title = "";
+public class SetActiveModuleRequestTest {
 
-    public SetTitleEvent() {
-        this.title = "";
+    @Test(expected = IllegalArgumentException.class)
+    public void blank() {
+        SetActiveModuleRequest.activeteModule(" ");
     }
 
-    public SetTitleEvent(String title) {
-        this.title = trim(title);
+    @Test
+    public void id() {
+        assertEquals("moduleId", SetActiveModuleRequest.activeteModule("moduleId").getActiveModuleId().get());
     }
 
-    public String getTitle() {
-        return title;
+    @Test
+    public void current() {
+        assertFalse(SetActiveModuleRequest.activeteCurrentModule().getActiveModuleId().isPresent());
     }
-
 }
