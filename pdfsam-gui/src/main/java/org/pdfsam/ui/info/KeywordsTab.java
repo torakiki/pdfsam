@@ -28,7 +28,6 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.VBox;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
@@ -61,10 +60,6 @@ class KeywordsTab extends Tab implements ChangeListener<PdfDescriptorLoadingStat
         scroll.setFitToHeight(true);
         scroll.setFitToWidth(true);
         setContent(scroll);
-    }
-
-    @PostConstruct
-    void init() {
         eventStudio().addAnnotatedListeners(this);
     }
 

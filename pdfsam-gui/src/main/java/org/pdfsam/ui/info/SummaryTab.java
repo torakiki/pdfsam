@@ -29,7 +29,6 @@ import javafx.beans.value.ObservableValue;
 import javafx.beans.value.WeakChangeListener;
 import javafx.scene.control.Label;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Named;
 
 import org.apache.commons.io.FileUtils;
@@ -65,10 +64,6 @@ class SummaryTab extends BaseInfoTab implements ChangeListener<PdfDescriptorLoad
 
     SummaryTab() {
         setText(DefaultI18nContext.getInstance().i18n("Summary"));
-    }
-
-    @PostConstruct
-    void init() {
         grid().add(createTitleLabel("File"), 0, 0);
         grid().add(fileLabel, 1, 0);
         grid().add(createTitleLabel("Size"), 0, 1);

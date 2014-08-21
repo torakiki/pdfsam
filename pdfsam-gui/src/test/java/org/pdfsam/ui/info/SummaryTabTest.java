@@ -18,7 +18,6 @@
  */
 package org.pdfsam.ui.info;
 
-import static org.mockito.Mockito.mock;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
@@ -31,6 +30,7 @@ import javax.inject.Inject;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.junit.rules.TemporaryFolder;
 import org.junit.runner.RunWith;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
@@ -40,6 +40,7 @@ import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.sejda.model.pdf.PdfMetadataKey;
+import org.sejda.model.pdf.PdfVersion;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -57,9 +58,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @Category(TestFX.class)
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration
-public class KeywordsTabTest extends GuiTest {
+public class SummaryTabTest extends GuiTest {
     @Rule
     public ClearEventStudioRule studio = new ClearEventStudioRule();
+    @Rule
+    public TemporaryFolder folder = new TemporaryFolder();
     @Inject
     private ApplicationContext applicationContext;
 
@@ -68,37 +71,62 @@ public class KeywordsTabTest extends GuiTest {
     static class Config {
         @Bean
         @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-        public KeywordsTab tab() {
-            return new KeywordsTab();
+        public SummaryTab tab() {
+            return new SummaryTab();
         }
     }
 
     @Override
     protected Parent getRootNode() {
         TabPane tabPane = new TabPane();
-        tabPane.getTabs().addAll(applicationContext.getBean(KeywordsTab.class));
+        tabPane.getTabs().addAll(applicationContext.getBean(SummaryTab.class));
         return tabPane;
     }
 
     @Test
     @DirtiesContext
     public void showRequest() throws Exception {
-        PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(mock(File.class));
-        descriptor.putInformation(PdfMetadataKey.KEYWORDS.getKey(), "test");
+        File file = folder.newFile();
+        PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(file);
+        fillDescriptor(descriptor);
         FXTestUtils.invokeAndWait(() -> eventStudio().broadcast(new ShowPdfDescriptorRequest(descriptor)), 1);
-        exists("test");
+        assertInfoIsDisplayed(descriptor);
     }
 
     @Test
     @DirtiesContext
     public void onLoad() throws Exception {
-        PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(mock(File.class));
+        File file = folder.newFile();
+        PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(file);
         FXTestUtils.invokeAndWait(() -> eventStudio().broadcast(new ShowPdfDescriptorRequest(descriptor)), 1);
-        descriptor.putInformation(PdfMetadataKey.KEYWORDS.getKey(), "test");
+        fillDescriptor(descriptor);
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.LOADED);
-        exists("test");
+        assertInfoIsDisplayed(descriptor);
+    }
+
+    private void fillDescriptor(PdfDocumentDescriptor descriptor) {
+        descriptor.putInformation(PdfMetadataKey.TITLE.getKey(), "test.title");
+        descriptor.putInformation(PdfMetadataKey.AUTHOR.getKey(), "test.author");
+        descriptor.putInformation(PdfMetadataKey.CREATOR.getKey(), "test.creator");
+        descriptor.putInformation(PdfMetadataKey.SUBJECT.getKey(), "test.subject");
+        descriptor.putInformation("Producer", "test.producer");
+        descriptor.putInformation("FormattedCreationDate", "test.creationDate");
+        descriptor.setPages(2);
+        descriptor.setVersion(PdfVersion.VERSION_1_5);
+    }
+
+    private void assertInfoIsDisplayed(PdfDocumentDescriptor descriptor) {
+        exists("test.title");
+        exists("test.author");
+        exists("test.creator");
+        exists("test.subject");
+        exists("test.producer");
+        exists("test.creationDate");
+        exists("2");
+        exists(descriptor.getVersionString());
+        exists(descriptor.getFile().getAbsolutePath());
     }
 
 }
