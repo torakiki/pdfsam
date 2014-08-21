@@ -103,6 +103,7 @@ public class SummaryTabTest extends GuiTest {
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.LOADED);
+        Thread.sleep(1000);
         assertInfoIsDisplayed(descriptor);
     }
 

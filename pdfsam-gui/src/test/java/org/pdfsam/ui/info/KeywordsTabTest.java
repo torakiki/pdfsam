@@ -98,6 +98,7 @@ public class KeywordsTabTest extends GuiTest {
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.LOADED);
+        Thread.sleep(1000);
         exists("test");
     }
 
