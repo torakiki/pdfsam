@@ -21,6 +21,7 @@ package org.pdfsam.ui.info;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.beans.value.WeakChangeListener;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -32,6 +33,7 @@ import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
+import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.model.pdf.PdfMetadataKey;
@@ -43,9 +45,9 @@ import org.sejda.model.pdf.PdfMetadataKey;
  *
  */
 @Named
-class KeywordsTab extends Tab {
-    private ChangeListener<PdfDescriptorLoadingStatus> loadedListener;
+class KeywordsTab extends Tab implements ChangeListener<PdfDescriptorLoadingStatus> {
     private Label keywords = new Label();
+    private PdfDocumentDescriptor current;
 
     KeywordsTab() {
         VBox content = new VBox();
@@ -68,14 +70,21 @@ class KeywordsTab extends Tab {
 
     @EventListener
     void requestShow(ShowPdfDescriptorRequest event) {
-        loadedListener = (o, oldVal, newVal) -> {
-            if (newVal == PdfDescriptorLoadingStatus.LOADED) {
-                Platform.runLater(() -> {
-                    keywords.setText(event.getDescriptor().getInformation(PdfMetadataKey.KEYWORDS.getKey()));
-                });
-            }
-        };
-        event.getDescriptor().loadedProperty().addListener(new WeakChangeListener<>(loadedListener));
+        if (current != event.getDescriptor()) {
+            current = event.getDescriptor();
+            current.loadedProperty().addListener(new WeakChangeListener<>(this));
+        }
+        event.getDescriptor().loadedProperty().addListener(new WeakChangeListener<>(this));
         keywords.setText(event.getDescriptor().getInformation(PdfMetadataKey.KEYWORDS.getKey()));
+    }
+
+    public void changed(ObservableValue<? extends PdfDescriptorLoadingStatus> observable,
+            PdfDescriptorLoadingStatus oldValue, PdfDescriptorLoadingStatus newValue) {
+        if (newValue == PdfDescriptorLoadingStatus.LOADED) {
+            Platform.runLater(() -> {
+                keywords.setText(current.getInformation(PdfMetadataKey.KEYWORDS.getKey()));
+            });
+        }
+
     }
 }
