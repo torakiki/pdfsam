@@ -68,9 +68,8 @@ public class ModulesMenuTest extends GuiTest {
         Listener<SetActiveModuleRequest> listener = mock(Listener.class);
         eventStudio().add(SetActiveModuleRequest.class, listener);
         ArgumentCaptor<SetActiveModuleRequest> argument = ArgumentCaptor.forClass(SetActiveModuleRequest.class);
-        click(AwesomeIcon.BARS.toString());
-        click("#modulesMenu").click(module.descriptor().getCategory().getDescription()).click(
-                module.descriptor().getName());
+        click(AwesomeIcon.BARS.toString()).click("#modulesMenu")
+                .click(module.descriptor().getCategory().getDescription()).click(module.descriptor().getName());
         verify(listener).onEvent(argument.capture());
         assertEquals(module.id(), argument.getValue().getActiveModuleId().get());
     }

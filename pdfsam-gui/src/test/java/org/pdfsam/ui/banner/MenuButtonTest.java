@@ -26,11 +26,13 @@ import javafx.scene.Parent;
 
 import javax.inject.Inject;
 
+import org.junit.After;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
+import org.loadui.testfx.utils.FXTestUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
@@ -55,6 +57,12 @@ public class MenuButtonTest extends GuiTest {
     @Override
     protected Parent getRootNode() {
         return applicationContext.getBean(MenuButton.class);
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        AppContextMenu menu = applicationContext.getBean(AppContextMenu.class);
+        FXTestUtils.invokeAndWait(() -> menu.hide(), 1);
     }
 
     @Test
