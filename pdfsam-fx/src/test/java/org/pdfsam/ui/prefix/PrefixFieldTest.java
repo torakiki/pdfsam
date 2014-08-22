@@ -51,10 +51,7 @@ public class PrefixFieldTest extends GuiTest {
     @Test
     public void contextMenuAddsText() {
         PrefixField victim = find(".victim");
-        rightClick(victim);
-        moveBy(5, 5);
-        click();
-        click(Prefix.BASENAME.getFriendlyName());
+        rightClick(victim).click("#addPrefixMenu").click(Prefix.BASENAME.getFriendlyName());
         assertTrue(victim.getText().contains(Prefix.BASENAME.getFriendlyName()));
     }
 

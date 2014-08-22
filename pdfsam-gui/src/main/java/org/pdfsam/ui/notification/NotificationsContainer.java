@@ -70,18 +70,10 @@ public class NotificationsContainer extends VBox {
     }
 
     void removeNotification(String id) {
-        Node toRemove = getChildById(id);
+        Node toRemove = lookup(String.format("#%s", id));
         if (toRemove != null && toRemove instanceof Notification) {
             ((Notification) toRemove).fadeAway();
         }
     }
 
-    private Node getChildById(String id) {
-        for (Node current : getChildren()) {
-            if (id.equals(current.getId())) {
-                return current;
-            }
-        }
-        return null;
-    }
 }
