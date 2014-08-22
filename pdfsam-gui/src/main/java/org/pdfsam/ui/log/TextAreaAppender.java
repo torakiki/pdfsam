@@ -22,7 +22,7 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.IOException;
 import java.io.StringWriter;
-import java.util.Arrays;
+import java.util.Scanner;
 
 import javafx.application.Platform;
 
@@ -32,7 +32,6 @@ import javax.inject.Named;
 
 import org.apache.commons.io.output.WriterOutputStream;
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.context.DefaultI18nContext;
 import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.Level;
@@ -40,7 +39,6 @@ import ch.qos.logback.classic.Logger;
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
 import ch.qos.logback.classic.spi.ILoggingEvent;
-import ch.qos.logback.classic.spi.IThrowableProxy;
 import ch.qos.logback.core.AppenderBase;
 
 /**
@@ -51,8 +49,6 @@ import ch.qos.logback.core.AppenderBase;
  */
 @Named
 public class TextAreaAppender extends AppenderBase<ILoggingEvent> {
-
-    private static final int MAX_STACK_DEPTH = 30;
 
     @Inject
     private PatternLayoutEncoder encoder;
@@ -83,28 +79,15 @@ public class TextAreaAppender extends AppenderBase<ILoggingEvent> {
 
     private void doAppendMessage(String message, ILoggingEvent event) {
         if (StringUtils.isNotBlank(message)) {
-            Platform.runLater(() -> logListView.appendLog(LogLevel.toLogLevel(event.getLevel().toInt()), message));
-            appendStackIfAvailable(event);
+            Platform.runLater(() -> {
+                try (Scanner scanner = new Scanner(message)) {
+                    while (scanner.hasNextLine()) {
+                        logListView.appendLog(LogLevel.toLogLevel(event.getLevel().toInt()), scanner.nextLine());
+                    }
+                }
+            });
             if (event.getLevel().isGreaterOrEqual(Level.ERROR)) {
                 Platform.runLater(() -> eventStudio().broadcast(new ErrorLoggedEvent()));
-            }
-        }
-    }
-
-    private void appendStackIfAvailable(ILoggingEvent event) {
-        IThrowableProxy throwable = event.getThrowableProxy();
-        if (throwable != null) {
-            Platform.runLater(() -> logListView.appendLog(LogLevel.toLogLevel(event.getLevel().toInt()),
-                    String.format("%s: %s", throwable.getClassName(), throwable.getMessage())));
-            Arrays.stream(throwable.getStackTraceElementProxyArray())
-                    .limit(MAX_STACK_DEPTH)
-                    .forEach(
-                            i -> Platform.runLater(() -> logListView.appendLog(
-                                    LogLevel.toLogLevel(event.getLevel().toInt()), i.toString())));
-            int left = throwable.getStackTraceElementProxyArray().length - MAX_STACK_DEPTH;
-            if (left > 0) {
-                Platform.runLater(() -> logListView.appendLog(LogLevel.toLogLevel(event.getLevel().toInt()),
-                        DefaultI18nContext.getInstance().i18n("...and other {0}.", Integer.toString(left))));
             }
         }
     }

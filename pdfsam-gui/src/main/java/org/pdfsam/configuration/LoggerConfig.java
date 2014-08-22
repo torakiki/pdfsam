@@ -42,7 +42,7 @@ public class LoggerConfig {
     @Bean
     public PatternLayoutEncoder pattern() {
         PatternLayoutEncoder encoder = new PatternLayoutEncoder();
-        encoder.setPattern("%-5level %nopex [%d{HH:mm:ss}]: %msg%n");
+        encoder.setPattern("%-5level %nopex [%d{HH:mm:ss}]: %msg%n%xThrowable{50}");
         return encoder;
     }
 }
