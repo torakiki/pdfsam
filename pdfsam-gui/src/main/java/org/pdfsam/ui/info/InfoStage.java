@@ -49,7 +49,6 @@ import org.sejda.eventstudio.annotation.EventListener;
 @Named
 public class InfoStage extends Stage {
 
-    public static final String INFOSTAGE_EVENTSTATION = "InfoStage";
     @Inject
     private InfoPane infoPane;
     @Inject

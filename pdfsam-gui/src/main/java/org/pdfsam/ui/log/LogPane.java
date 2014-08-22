@@ -68,9 +68,9 @@ public class LogPane extends BorderPane {
 
         I18nContext i18n = DefaultI18nContext.getInstance();
         MenuItem copyItem = new MenuItem(i18n.i18n("Copy"));
+        copyItem.setId("copyLogMenuItem");
         copyItem.setAccelerator(new KeyCodeCombination(KeyCode.C, KeyCombination.SHORTCUT_DOWN));
         copyItem.setOnAction(e -> copyLog(logView.getSelectionModel().getSelectedItems()));
-        copyItem.getStyleClass().add("ctx-menu-item");
 
         // disable if no selection
         copyItem.disableProperty().bind(new BooleanBinding() {
@@ -85,6 +85,7 @@ public class LogPane extends BorderPane {
         });
 
         MenuItem clearItem = new MenuItem(i18n.i18n("Clear"));
+        clearItem.setId("clearLogMenuItem");
         clearItem.setOnAction(e -> logView.getItems().clear());
         // disable if there's no text
         clearItem.disableProperty().bind(new BooleanBinding() {
@@ -99,11 +100,13 @@ public class LogPane extends BorderPane {
         });
 
         MenuItem selectAllItem = new MenuItem(i18n.i18n("Select all"));
+        selectAllItem.setId("selectAllLogMenuItem");
         selectAllItem.setOnAction(e -> logView.getSelectionModel().selectAll());
         // disable if there's no text
         selectAllItem.disableProperty().bind(clearItem.disableProperty());
 
         MenuItem saveItem = new MenuItem(i18n.i18n("Save log"));
+        saveItem.setId("saveLogMenuItem");
         saveItem.setOnAction(e -> saveLog());
         // disable if there's no text
         saveItem.disableProperty().bind(clearItem.disableProperty());

@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 19/apr/2014
+ * Created on 22/ago/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,38 +18,24 @@
  */
 package org.pdfsam.ui.log;
 
-import static org.pdfsam.support.RequireUtils.requireNotBlank;
+import static org.junit.Assert.assertEquals;
 
-import org.apache.commons.lang3.ObjectUtils;
+import org.junit.Test;
+
+import ch.qos.logback.classic.Level;
 
 /**
- * Model for a Log message
- * 
  * @author Andrea Vacondio
  *
  */
-class LogMessage {
+public class LogLevelTest {
 
-    private String message;
-    private LogLevel level;
-
-    public LogMessage(String message, LogLevel level) {
-        requireNotBlank(message, "Cannot create an empty log message");
-        this.message = message;
-        this.level = ObjectUtils.defaultIfNull(level, LogLevel.INFO);
+    @Test
+    public void toLogLevel() {
+        assertEquals(LogLevel.ERROR, LogLevel.toLogLevel(Level.ERROR_INT));
+        assertEquals(LogLevel.WARN, LogLevel.toLogLevel(Level.WARN_INT));
+        assertEquals(LogLevel.INFO, LogLevel.toLogLevel(Level.INFO_INT));
+        assertEquals(LogLevel.INFO, LogLevel.toLogLevel(Level.DEBUG_INT));
+        assertEquals(LogLevel.INFO, LogLevel.toLogLevel(Level.TRACE_INT));
     }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public LogLevel getLevel() {
-        return level;
-    }
-
-    @Override
-    public String toString() {
-        return getMessage();
-    }
-
 }

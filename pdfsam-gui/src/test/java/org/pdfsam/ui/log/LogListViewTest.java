@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 19/apr/2014
+ * Created on 22/ago/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,38 +18,28 @@
  */
 package org.pdfsam.ui.log;
 
-import static org.pdfsam.support.RequireUtils.requireNotBlank;
+import static org.junit.Assert.assertEquals;
 
-import org.apache.commons.lang3.ObjectUtils;
+import org.junit.Rule;
+import org.junit.Test;
+import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 
 /**
- * Model for a Log message
- * 
  * @author Andrea Vacondio
  *
  */
-class LogMessage {
+public class LogListViewTest {
 
-    private String message;
-    private LogLevel level;
+    @Rule
+    public InitializeAndApplyJavaFxThreadRule javaFxThread = new InitializeAndApplyJavaFxThreadRule();
 
-    public LogMessage(String message, LogLevel level) {
-        requireNotBlank(message, "Cannot create an empty log message");
-        this.message = message;
-        this.level = ObjectUtils.defaultIfNull(level, LogLevel.INFO);
+    @Test
+    public void append() {
+        LogListView victim = new LogListView();
+        victim.appendLog(LogLevel.WARN, "testMessage");
+        victim.appendLog(LogLevel.INFO, "anotherTestMessage");
+        assertEquals(2, victim.getItems().size());
+        assertEquals("testMessage", victim.getItems().get(0).getMessage());
+        assertEquals("anotherTestMessage", victim.getItems().get(1).getMessage());
     }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public LogLevel getLevel() {
-        return level;
-    }
-
-    @Override
-    public String toString() {
-        return getMessage();
-    }
-
 }
