@@ -18,93 +18,82 @@
  */
 package org.pdfsam.ui.info;
 
-import static org.loadui.testfx.Assertions.assertNodeExists;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.timeout;
+import static org.mockito.Mockito.verify;
 
 import java.io.File;
+import java.util.Set;
 
-import javafx.scene.Parent;
-import javafx.scene.control.TabPane;
-
-import javax.inject.Inject;
+import javafx.beans.value.ChangeListener;
+import javafx.scene.Node;
+import javafx.scene.control.Labeled;
+import javafx.scene.control.ScrollPane;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
-import org.junit.runner.RunWith;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.test.InitializeJavaFxThreadRule;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.sejda.model.pdf.PdfMetadataKey;
 import org.sejda.model.pdf.PdfVersion;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Scope;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration
-public class SummaryTabTest extends GuiTest {
+public class SummaryTabTest {
     @Rule
     public ClearEventStudioRule studio = new ClearEventStudioRule();
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
-    @Inject
-    private ApplicationContext applicationContext;
-
-    @Configuration
-    @Lazy
-    static class Config {
-        @Bean
-        @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-        public SummaryTab tab() {
-            return new SummaryTab();
-        }
-    }
-
-    @Override
-    protected Parent getRootNode() {
-        TabPane tabPane = new TabPane();
-        tabPane.getTabs().addAll(applicationContext.getBean(SummaryTab.class));
-        return tabPane;
-    }
+    @Rule
+    public InitializeJavaFxThreadRule javaFxThread = new InitializeJavaFxThreadRule();
 
     @Test
-    @DirtiesContext
     public void showRequest() throws Exception {
         File file = folder.newFile();
+        SummaryTab victim = new SummaryTab();
+        Set<Node> properties = ((ScrollPane) victim.getContent()).getContent().lookupAll(".info-property-value");
+        assertNotNull(properties);
+        assertFalse(properties.isEmpty());
+        ChangeListener<? super String> listener = initListener(properties);
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(file);
         fillDescriptor(descriptor);
-        FXTestUtils.invokeAndWait(() -> eventStudio().broadcast(new ShowPdfDescriptorRequest(descriptor)), 1);
-        assertInfoIsDisplayed(descriptor);
+        FXTestUtils.invokeAndWait(() -> victim.requestShow(new ShowPdfDescriptorRequest(descriptor)), 1);
+        assertInfoIsDisplayed(listener, descriptor);
     }
 
     @Test
-    @DirtiesContext
     public void onLoad() throws Exception {
         File file = folder.newFile();
+        SummaryTab victim = new SummaryTab();
+        Set<Node> properties = ((ScrollPane) victim.getContent()).getContent().lookupAll(".info-property-value");
+        assertNotNull(properties);
+        assertFalse(properties.isEmpty());
+        ChangeListener<? super String> listener = initListener(properties);
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(file);
-        FXTestUtils.invokeAndWait(() -> eventStudio().broadcast(new ShowPdfDescriptorRequest(descriptor)), 1);
+        FXTestUtils.invokeAndWait(() -> victim.requestShow(new ShowPdfDescriptorRequest(descriptor)), 1);
         fillDescriptor(descriptor);
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.LOADED);
-        assertInfoIsDisplayed(descriptor);
+        assertInfoIsDisplayed(listener, descriptor);
+    }
+
+    private ChangeListener<? super String> initListener(Set<Node> properties) {
+        ChangeListener<? super String> listener = mock(ChangeListener.class);
+        properties.stream().filter(n -> n instanceof Labeled).map(n -> (Labeled) n)
+                .forEach(l -> l.textProperty().addListener(listener));
+        return listener;
     }
 
     private void fillDescriptor(PdfDocumentDescriptor descriptor) {
@@ -118,17 +107,16 @@ public class SummaryTabTest extends GuiTest {
         descriptor.setVersion(PdfVersion.VERSION_1_5);
     }
 
-    private void assertInfoIsDisplayed(PdfDocumentDescriptor descriptor) throws InterruptedException {
-        Thread.sleep(500);
-        assertNodeExists("test.title");
-        assertNodeExists("test.author");
-        assertNodeExists("test.creator");
-        assertNodeExists("test.subject");
-        assertNodeExists("test.producer");
-        assertNodeExists("test.creationDate");
-        assertNodeExists("2");
-        assertNodeExists(descriptor.getVersionString());
-        assertNodeExists(descriptor.getFile().getAbsolutePath());
+    private void assertInfoIsDisplayed(ChangeListener<? super String> listener, PdfDocumentDescriptor descriptor) {
+        verify(listener, timeout(2000).times(1)).changed(any(), any(), eq(descriptor.getFile().getAbsolutePath()));
+        verify(listener, timeout(2000).times(1)).changed(any(), any(), eq(descriptor.getVersionString()));
+        verify(listener, timeout(2000).times(1)).changed(any(), any(), eq("2"));
+        verify(listener, timeout(2000).times(1)).changed(any(), any(), eq("test.creationDate"));
+        verify(listener, timeout(2000).times(1)).changed(any(), any(), eq("test.title"));
+        verify(listener, timeout(2000).times(1)).changed(any(), any(), eq("test.author"));
+        verify(listener, timeout(2000).times(1)).changed(any(), any(), eq("test.creator"));
+        verify(listener, timeout(2000).times(1)).changed(any(), any(), eq("test.subject"));
+        verify(listener, timeout(2000).times(1)).changed(any(), any(), eq("test.producer"));
     }
 
 }

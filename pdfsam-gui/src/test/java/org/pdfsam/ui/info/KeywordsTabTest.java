@@ -18,88 +18,66 @@
  */
 package org.pdfsam.ui.info;
 
+import static org.junit.Assert.assertNotNull;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.mockito.Mockito.timeout;
+import static org.mockito.Mockito.verify;
 
 import java.io.File;
 
-import javafx.scene.Parent;
-import javafx.scene.control.TabPane;
-
-import javax.inject.Inject;
+import javafx.beans.value.ChangeListener;
+import javafx.scene.control.Labeled;
+import javafx.scene.control.ScrollPane;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.test.InitializeJavaFxThreadRule;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.sejda.model.pdf.PdfMetadataKey;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Scope;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration
-public class KeywordsTabTest extends GuiTest {
+public class KeywordsTabTest {
     @Rule
     public ClearEventStudioRule studio = new ClearEventStudioRule();
-    @Inject
-    private ApplicationContext applicationContext;
-
-    @Configuration
-    @Lazy
-    static class Config {
-        @Bean
-        @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-        public KeywordsTab tab() {
-            return new KeywordsTab();
-        }
-    }
-
-    @Override
-    protected Parent getRootNode() {
-        TabPane tabPane = new TabPane();
-        tabPane.getTabs().addAll(applicationContext.getBean(KeywordsTab.class));
-        return tabPane;
-    }
+    @Rule
+    public InitializeJavaFxThreadRule javaFxThread = new InitializeJavaFxThreadRule();
 
     @Test
-    @DirtiesContext
     public void showRequest() throws Exception {
+        KeywordsTab victim = new KeywordsTab();
+        Labeled keywords = (Labeled) ((ScrollPane) victim.getContent()).getContent().lookup(".info-property-value");
+        assertNotNull(keywords);
+        ChangeListener<? super String> listener = mock(ChangeListener.class);
+        keywords.textProperty().addListener(listener);
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(mock(File.class));
         descriptor.putInformation(PdfMetadataKey.KEYWORDS.getKey(), "test");
-        FXTestUtils.invokeAndWait(() -> eventStudio().broadcast(new ShowPdfDescriptorRequest(descriptor)), 1);
-        exists("test");
+        FXTestUtils.invokeAndWait(() -> victim.requestShow(new ShowPdfDescriptorRequest(descriptor)), 1);
+        verify(listener, timeout(2000).times(1)).changed(any(), any(), eq("test"));
     }
 
     @Test
-    @DirtiesContext
     public void onLoad() throws Exception {
+        KeywordsTab victim = new KeywordsTab();
+        Labeled keywords = (Labeled) ((ScrollPane) victim.getContent()).getContent().lookup(".info-property-value");
+        assertNotNull(keywords);
+        ChangeListener<? super String> listener = mock(ChangeListener.class);
+        keywords.textProperty().addListener(listener);
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(mock(File.class));
-        FXTestUtils.invokeAndWait(() -> eventStudio().broadcast(new ShowPdfDescriptorRequest(descriptor)), 1);
+        FXTestUtils.invokeAndWait(() -> victim.requestShow(new ShowPdfDescriptorRequest(descriptor)), 1);
         descriptor.putInformation(PdfMetadataKey.KEYWORDS.getKey(), "test");
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.LOADED);
-        Thread.sleep(1000);
-        exists("test");
+        verify(listener, timeout(2000).times(1)).changed(any(), any(), eq("test"));
     }
 
 }
