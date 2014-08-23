@@ -24,7 +24,6 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.shape.SVGPath;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Named;
 
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -59,10 +58,6 @@ public class ExpandButton extends HBox {
             }
         });
         HBox.setMargin(toggle, new Insets(0, 7, 0, 7));
-    }
-
-    @PostConstruct
-    private void init() {
         getChildren().add(toggle);
     }
 
