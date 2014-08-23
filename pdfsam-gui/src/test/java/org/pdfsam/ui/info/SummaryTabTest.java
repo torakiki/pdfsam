@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.info;
 
+import static org.loadui.testfx.Assertions.assertNodeExists;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
@@ -103,7 +104,6 @@ public class SummaryTabTest extends GuiTest {
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.LOADED);
-        Thread.sleep(1000);
         assertInfoIsDisplayed(descriptor);
     }
 
@@ -118,16 +118,17 @@ public class SummaryTabTest extends GuiTest {
         descriptor.setVersion(PdfVersion.VERSION_1_5);
     }
 
-    private void assertInfoIsDisplayed(PdfDocumentDescriptor descriptor) {
-        exists("test.title");
-        exists("test.author");
-        exists("test.creator");
-        exists("test.subject");
-        exists("test.producer");
-        exists("test.creationDate");
-        exists("2");
-        exists(descriptor.getVersionString());
-        exists(descriptor.getFile().getAbsolutePath());
+    private void assertInfoIsDisplayed(PdfDocumentDescriptor descriptor) throws InterruptedException {
+        Thread.sleep(500);
+        assertNodeExists("test.title");
+        assertNodeExists("test.author");
+        assertNodeExists("test.creator");
+        assertNodeExists("test.subject");
+        assertNodeExists("test.producer");
+        assertNodeExists("test.creationDate");
+        assertNodeExists("2");
+        assertNodeExists(descriptor.getVersionString());
+        assertNodeExists(descriptor.getFile().getAbsolutePath());
     }
 
 }
