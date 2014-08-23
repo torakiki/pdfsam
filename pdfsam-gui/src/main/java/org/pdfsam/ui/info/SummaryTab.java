@@ -39,6 +39,8 @@ import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.model.pdf.PdfMetadataKey;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Tab displaying a summary of the PDF document information.
@@ -48,7 +50,9 @@ import org.sejda.model.pdf.PdfMetadataKey;
  */
 @Named
 class SummaryTab extends BaseInfoTab implements ChangeListener<PdfDescriptorLoadingStatus> {
+    private static final Logger LOG = LoggerFactory.getLogger(SummaryTab.class);
     private static FastDateFormat FORMATTER = FastDateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.MEDIUM);
+
     private Label fileLabel = createValueLabel();
     private Label size = createValueLabel();
     private Label version = createValueLabel();
@@ -96,7 +100,7 @@ class SummaryTab extends BaseInfoTab implements ChangeListener<PdfDescriptorLoad
             current.loadedProperty().addListener(new WeakChangeListener<>(this));
         }
         setFileProperties(current.getFile());
-        setPdfProperties(current);
+        setPdfProperties();
     }
 
     private void setFileProperties(File file) {
@@ -105,22 +109,23 @@ class SummaryTab extends BaseInfoTab implements ChangeListener<PdfDescriptorLoad
         modified.setText(FORMATTER.format(file.lastModified()));
     }
 
-    private void setPdfProperties(PdfDocumentDescriptor descriptor) {
-        version.setText(descriptor.getVersionString());
-        pages.setText(Integer.toString(descriptor.pagesPropery().get()));
-        created.setText(descriptor.getInformation("FormattedCreationDate"));
-        title.setText(descriptor.getInformation(PdfMetadataKey.TITLE.getKey()));
-        author.setText(descriptor.getInformation(PdfMetadataKey.AUTHOR.getKey()));
-        creator.setText(descriptor.getInformation(PdfMetadataKey.CREATOR.getKey()));
-        subject.setText(descriptor.getInformation(PdfMetadataKey.SUBJECT.getKey()));
-        producer.setText(descriptor.getInformation("Producer"));
+    private void setPdfProperties() {
+        version.setText(current.getVersionString());
+        pages.setText(Integer.toString(current.pagesPropery().get()));
+        created.setText(current.getInformation("FormattedCreationDate"));
+        title.setText(current.getInformation(PdfMetadataKey.TITLE.getKey()));
+        author.setText(current.getInformation(PdfMetadataKey.AUTHOR.getKey()));
+        creator.setText(current.getInformation(PdfMetadataKey.CREATOR.getKey()));
+        subject.setText(current.getInformation(PdfMetadataKey.SUBJECT.getKey()));
+        producer.setText(current.getInformation("Producer"));
     }
 
     public void changed(ObservableValue<? extends PdfDescriptorLoadingStatus> observable,
             PdfDescriptorLoadingStatus oldValue, PdfDescriptorLoadingStatus newValue) {
         if (newValue == PdfDescriptorLoadingStatus.LOADED) {
+            LOG.trace("Descriptor loaded, updating summary tab");
             Platform.runLater(() -> {
-                setPdfProperties(current);
+                setPdfProperties();
             });
         }
     }

@@ -36,6 +36,8 @@ import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.model.pdf.PdfMetadataKey;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Tab displaying the keywords of the PDF document.
@@ -45,6 +47,7 @@ import org.sejda.model.pdf.PdfMetadataKey;
  */
 @Named
 class KeywordsTab extends Tab implements ChangeListener<PdfDescriptorLoadingStatus> {
+    private static final Logger LOG = LoggerFactory.getLogger(KeywordsTab.class);
     private Label keywords = new Label();
     private PdfDocumentDescriptor current;
 
@@ -69,13 +72,13 @@ class KeywordsTab extends Tab implements ChangeListener<PdfDescriptorLoadingStat
             current = event.getDescriptor();
             current.loadedProperty().addListener(new WeakChangeListener<>(this));
         }
-        event.getDescriptor().loadedProperty().addListener(new WeakChangeListener<>(this));
         keywords.setText(event.getDescriptor().getInformation(PdfMetadataKey.KEYWORDS.getKey()));
     }
 
     public void changed(ObservableValue<? extends PdfDescriptorLoadingStatus> observable,
             PdfDescriptorLoadingStatus oldValue, PdfDescriptorLoadingStatus newValue) {
         if (newValue == PdfDescriptorLoadingStatus.LOADED) {
+            LOG.trace("Descriptor loaded, updating keywords tab");
             Platform.runLater(() -> {
                 keywords.setText(current.getInformation(PdfMetadataKey.KEYWORDS.getKey()));
             });
