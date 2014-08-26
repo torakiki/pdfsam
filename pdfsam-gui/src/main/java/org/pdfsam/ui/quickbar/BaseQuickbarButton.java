@@ -18,11 +18,14 @@
  */
 package org.pdfsam.ui.quickbar;
 
+import java.util.Objects;
+
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.css.PseudoClass;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
+
 
 /**
  * Base class for a quickbar button that can be selected and have its text displayed
@@ -36,6 +39,11 @@ public class BaseQuickbarButton extends Button {
         getStyleClass().addAll("quickbar-navigation-button");
         setMaxWidth(Double.MAX_VALUE);
         setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+        graphicProperty().addListener((o, oldVal, newVal) -> {
+            if (Objects.nonNull(newVal)) {
+                newVal.getStyleClass().add("quickbar-navigation-button-graphic");
+            }
+        });
     }
 
     private BooleanProperty displayText = new SimpleBooleanProperty(false) {

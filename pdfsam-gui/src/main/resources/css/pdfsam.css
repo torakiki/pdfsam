@@ -280,8 +280,14 @@
 .quickbar-navigation-button:disabled {
     -fx-opacity: 1.0;
 }
-.quickbar-social{
-	-fx-alignment: center;
+.quickbar-navigation-button .quickbar-navigation-button-graphic{
+	-fx-opacity: 0.8;
+}
+.quickbar-navigation-button:disabled .quickbar-navigation-button-graphic{
+    -fx-opacity: 0.4;
+}
+.quickbar-navigation-button:hover .quickbar-navigation-button-graphic{
+	-fx-opacity: 1.0;
 }
 /**
  * Dashboard
@@ -289,6 +295,7 @@
 .quickbar-navigation-button .awesome{
     -fx-effect: null;
     -fx-text-fill: awesome-color;
+    -fx-opacity: 1.0;
 }
 .quickbar-navigation-button:hover .awesome {
 	-fx-text-fill: awesome-color-hover;

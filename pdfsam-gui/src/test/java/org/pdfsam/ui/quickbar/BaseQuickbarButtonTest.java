@@ -22,6 +22,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.Label;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -53,6 +54,21 @@ public class BaseQuickbarButtonTest {
         victim.setSelected(true);
         assertTrue(victim.isSelected());
         assertTrue(victim.isDisabled());
+    }
+
+    @Test
+    public void graphicClass() {
+        BaseQuickbarButton victim = new BaseQuickbarButton();
+        Label graphic = new Label();
+        assertFalse(graphic.getStyleClass().contains("quickbar-navigation-button-graphic"));
+        victim.setGraphic(graphic);
+        assertTrue(graphic.getStyleClass().contains("quickbar-navigation-button-graphic"));
+    }
+
+    @Test
+    public void nullProofGraphicListener() {
+        BaseQuickbarButton victim = new BaseQuickbarButton();
+        victim.setGraphic(null);
     }
 
 }
