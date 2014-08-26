@@ -35,6 +35,7 @@ public class BaseQuickbarButton extends Button {
     public BaseQuickbarButton() {
         getStyleClass().addAll("quickbar-navigation-button");
         setMaxWidth(Double.MAX_VALUE);
+        setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
     }
 
     private BooleanProperty displayText = new SimpleBooleanProperty(false) {
