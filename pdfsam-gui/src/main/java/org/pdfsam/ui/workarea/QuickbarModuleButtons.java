@@ -20,20 +20,16 @@ package org.pdfsam.ui.workarea;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.scene.layout.VBox;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.module.Module;
-import org.pdfsam.module.UsageService;
 import org.pdfsam.ui.event.SetActiveModuleRequest;
 import org.sejda.eventstudio.annotation.EventListener;
 
@@ -45,67 +41,23 @@ import org.sejda.eventstudio.annotation.EventListener;
  */
 @Named
 class QuickbarModuleButtons extends VBox {
-    private static final int RECENT_MODULES = 3;
-    private static final int MAX_MODULES = 8;
+
+    private Set<ModuleButton> buttons = new HashSet<>();
 
     @Inject
-    private UsageService usage;
-    private List<ModuleButton> buttons = new ArrayList<>();
-    @Inject
-    private List<Module> modules;
-
-    QuickbarModuleButtons() {
+    QuickbarModuleButtons(QuickbarModuleButtonsProvider provider) {
         this.getStyleClass().add("quickbar-items");
-    }
-
-    @PostConstruct
-    void init() {
-        modules.sort((a, b) -> {
-            return Integer.compare(a.descriptor().getPriority(), b.descriptor().getPriority());
+        provider.buttons().forEach(b -> {
+            b.displayTextProperty().bind(displayText);
+            getChildren().add(b);
+            this.buttons.add(b);
         });
-        LinkedHashSet<Module> collected = new LinkedHashSet<>();
-        fillWithMostRecentlyUsed(collected);
-        fillWithMostUsed(collected);
-        fillWithPrioritized(collected);
-        for (Module current : collected) {
-            ModuleButton currentButton = new ModuleButton(current);
-            currentButton.displayTextProperty().bind(displayText);
-            getChildren().add(currentButton);
-            buttons.add(currentButton);
-        }
         eventStudio().addAnnotatedListeners(this);
     }
 
     @EventListener
     public void onSetCurrentModuleRequest(SetActiveModuleRequest r) {
         r.getActiveModuleId().ifPresent(id -> buttons.forEach((b) -> b.setSelected(b.moduleId().equals(id))));
-    }
-
-    private void fillWithMostUsed(LinkedHashSet<Module> collected) {
-        for (Module current : usage.getMostUsed()) {
-            if (collected.size() >= MAX_MODULES) {
-                break;
-            }
-            collected.add(current);
-        }
-    }
-
-    private void fillWithMostRecentlyUsed(LinkedHashSet<Module> collected) {
-        for (Module current : usage.getMostRecentlyUsed()) {
-            if (collected.size() >= RECENT_MODULES) {
-                break;
-            }
-            collected.add(current);
-        }
-    }
-
-    private void fillWithPrioritized(LinkedHashSet<Module> collected) {
-        for (Module current : modules) {
-            if (collected.size() >= MAX_MODULES) {
-                break;
-            }
-            collected.add(current);
-        }
     }
 
     /**
