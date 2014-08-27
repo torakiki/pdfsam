@@ -31,8 +31,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
-import org.pdfsam.test.SecondTestModule;
-import org.pdfsam.test.TestModule;
+import org.pdfsam.test.LowPriorityTestModule;
+import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.ui.event.SetActiveModuleRequest;
 
 /**
@@ -51,8 +51,8 @@ public class QuickbarModuleButtonsTest {
     @Before
     public void setUp() {
         buttons = new HashSet<>();
-        buttons.add(new ModuleButton(new TestModule()));
-        buttons.add(new ModuleButton(new SecondTestModule()));
+        buttons.add(new ModuleButton(new DefaultPriorityTestModule()));
+        buttons.add(new ModuleButton(new LowPriorityTestModule()));
         QuickbarModuleButtonsProvider provider = mock(QuickbarModuleButtonsProvider.class);
         when(provider.buttons()).thenReturn(buttons);
         victim = new QuickbarModuleButtons(provider);
@@ -61,10 +61,10 @@ public class QuickbarModuleButtonsTest {
     @Test
     public void onSetCurrentModuleRequest() {
         buttons.forEach(m -> assertFalse(m.isSelected()));
-        SetActiveModuleRequest r = SetActiveModuleRequest.activeteModule(TestModule.ID);
+        SetActiveModuleRequest r = SetActiveModuleRequest.activeteModule(DefaultPriorityTestModule.ID);
         victim.onSetCurrentModuleRequest(r);
-        assertTrue(buttons.stream().filter(ModuleButton::isSelected).allMatch(m -> m.moduleId().equals(TestModule.ID)));
-        assertTrue(buttons.stream().filter(m -> !m.moduleId().equals(TestModule.ID))
+        assertTrue(buttons.stream().filter(ModuleButton::isSelected).allMatch(m -> m.moduleId().equals(DefaultPriorityTestModule.ID)));
+        assertTrue(buttons.stream().filter(m -> !m.moduleId().equals(DefaultPriorityTestModule.ID))
                 .noneMatch(ModuleButton::isSelected));
     }
 

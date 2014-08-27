@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 27/ago/2014
+ * Created on 20/ago/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -28,16 +28,16 @@ import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.ModulePriority;
 
 /**
- * A test module to use in unit tests
+ * A test module to use in tests
  * 
  * @author Andrea Vacondio
  *
  */
-public class SecondTestModule implements Module {
-    public static final String ID = "second.test.module";
+public class DefaultPriorityTestModule implements Module {
+    public static final String ID = "test.module";
 
-    private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT).description("Second test module")
-            .name("SecondTestModule").priority(ModulePriority.LOW).build();
+    private ModuleDescriptor descriptor = builder().category(ModuleCategory.MERGE).description("Test module")
+            .name("TestModule").priority(ModulePriority.DEFAULT).build();
 
     public String id() {
         return ID;
@@ -54,4 +54,5 @@ public class SecondTestModule implements Module {
     public Node graphic() {
         return null;
     }
+
 }

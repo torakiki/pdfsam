@@ -20,7 +20,7 @@ package org.pdfsam.ui.banner;
 
 import static org.mockito.Mockito.spy;
 
-import org.pdfsam.test.TestModule;
+import org.pdfsam.test.DefaultPriorityTestModule;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -56,7 +56,7 @@ public class MenuConfig {
     }
 
     @Bean
-    public TestModule module() {
-        return new TestModule();
+    public DefaultPriorityTestModule module() {
+        return new DefaultPriorityTestModule();
     }
 }

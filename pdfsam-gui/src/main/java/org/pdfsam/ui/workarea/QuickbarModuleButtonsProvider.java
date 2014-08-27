@@ -18,11 +18,11 @@
  */
 package org.pdfsam.ui.workarea;
 
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -38,14 +38,14 @@ class QuickbarModuleButtonsProvider {
     private static final int RECENT_MODULES = 3;
     private static final int MAX_MODULES = 8;
 
-    @Inject
-    private UsageService usage;
-    @Inject
+    private UsageService service;
     private List<Module> modules;
 
-    @PostConstruct
-    void init() {
-        modules.sort((a, b) -> {
+    @Inject
+    QuickbarModuleButtonsProvider(UsageService service, List<Module> modules) {
+        this.service = service;
+        this.modules = new ArrayList<>(modules);
+        this.modules.sort((a, b) -> {
             return Integer.compare(a.descriptor().getPriority(), b.descriptor().getPriority());
         });
     }
@@ -59,7 +59,7 @@ class QuickbarModuleButtonsProvider {
     }
 
     private void fillWithMostUsed(LinkedHashSet<ModuleButton> collected) {
-        for (Module current : usage.getMostUsed()) {
+        for (Module current : service.getMostUsed()) {
             if (collected.size() >= MAX_MODULES) {
                 break;
             }
@@ -68,7 +68,7 @@ class QuickbarModuleButtonsProvider {
     }
 
     private void fillWithMostRecentlyUsed(LinkedHashSet<ModuleButton> collected) {
-        for (Module current : usage.getMostRecentlyUsed()) {
+        for (Module current : service.getMostRecentlyUsed()) {
             if (collected.size() >= RECENT_MODULES) {
                 break;
             }

@@ -32,7 +32,7 @@ import org.junit.runner.RunWith;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.mockito.ArgumentCaptor;
-import org.pdfsam.test.TestModule;
+import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.ui.event.SetActiveModuleRequest;
 import org.sejda.eventstudio.Listener;
 import org.springframework.context.ApplicationContext;
@@ -56,7 +56,7 @@ public class ModulesMenuTest extends GuiTest {
     @Inject
     private ApplicationContext applicationContext;
     @Inject
-    private TestModule module;
+    private DefaultPriorityTestModule module;
 
     @Override
     protected Parent getRootNode() {

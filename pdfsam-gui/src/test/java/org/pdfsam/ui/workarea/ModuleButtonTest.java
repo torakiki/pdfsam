@@ -31,7 +31,7 @@ import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.test.TestModule;
+import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.ui.event.SetActiveModuleRequest;
 import org.sejda.eventstudio.Listener;
 
@@ -44,7 +44,7 @@ public class ModuleButtonTest extends GuiTest {
 
     @ClassRule
     public static ClearEventStudioRule STUDIO = new ClearEventStudioRule();
-    private TestModule module = new TestModule();
+    private DefaultPriorityTestModule module = new DefaultPriorityTestModule();
 
     @Override
     protected Parent getRootNode() {
