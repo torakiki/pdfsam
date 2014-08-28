@@ -30,7 +30,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -50,26 +49,20 @@ import org.sejda.eventstudio.annotation.EventListener;
 @Named
 public class WorkArea extends BorderPane {
 
-    @Inject
-    private QuickbarWrokarea navigation;
     private Map<String, Module> modules = new HashMap<>();
     private StackPane center = new StackPane();
     private FadeTransition fade = new FadeTransition(new Duration(300), center);
-    private Label emptyArea = new Label(DefaultI18nContext.getInstance().i18n("Please select a module"));
 
     @Inject
-    public WorkArea(List<Module> modulesList) {
+    public WorkArea(List<Module> modulesList, QuickbarWrokarea navigation) {
         getStyleClass().addAll(Style.CONTAINER.css());
+        Label emptyArea = new Label(DefaultI18nContext.getInstance().i18n("Please select a module"));
         emptyArea.getStyleClass().add("empty-notice");
         for (Module module : modulesList) {
             modules.put(module.id(), module);
         }
         fade.setFromValue(0);
         fade.setToValue(1);
-    }
-
-    @PostConstruct
-    private void init() {
         center.getChildren().setAll(emptyArea);
         setLeft(navigation);
         setCenter(center);

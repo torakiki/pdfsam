@@ -21,7 +21,6 @@ package org.pdfsam.ui.workarea;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -37,16 +36,8 @@ import org.pdfsam.ui.quickbar.ExpandButton;
 public class QuickbarWrokarea extends VBox {
 
     @Inject
-    private ExpandButton expandButton;
-    @Inject
-    private QuickbarModuleButtons modules;
-
-    public QuickbarWrokarea() {
+    public QuickbarWrokarea(ExpandButton expandButton, QuickbarModuleButtons modules) {
         getStyleClass().add("quickbar");
-    }
-
-    @PostConstruct
-    private void init() {
         modules.displayTextProperty().bind(expandButton.selectedProperty());
         VBox buttonContainer = new VBox(expandButton, modules);
         buttonContainer.getStyleClass().add("quickbar-buttons");

@@ -42,7 +42,7 @@ public class ExpandButton extends HBox {
     private SVGPath expand = new SVGPath();
     private SVGPath collapse = new SVGPath();
 
-    ExpandButton() {
+    public ExpandButton() {
         getStyleClass().add("quickbar-expand-button");
         toggle.getStyleClass().addAll("pdfsam-toolbar-button", "quickbar-expand-toggle");
         expand.setContent("M0,-5L5,0L0,5Z");
