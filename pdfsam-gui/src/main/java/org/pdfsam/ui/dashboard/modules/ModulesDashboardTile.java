@@ -88,7 +88,7 @@ class ModulesDashboardTile extends Region {
         }
     };
 
-    public final ReadOnlyBooleanProperty selectedProperty() {
+    public final ReadOnlyBooleanProperty armedProperty() {
         return armed.getReadOnlyProperty();
     }
 

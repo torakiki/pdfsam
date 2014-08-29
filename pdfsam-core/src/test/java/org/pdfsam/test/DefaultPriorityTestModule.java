@@ -37,7 +37,7 @@ public class DefaultPriorityTestModule implements Module {
     public static final String ID = "test.module";
 
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.MERGE).description("Test module")
-            .name("TestModule").priority(ModulePriority.DEFAULT).build();
+            .name("TestModule").priority(ModulePriority.DEFAULT).supportURL("http://www.chucknorrisfacts.com/").build();
 
     public String id() {
         return ID;
