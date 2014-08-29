@@ -44,6 +44,6 @@ public class IntRangeStringValidatorTest {
     @Test
     public void testAllowBlank() {
         Assert.assertFalse(victim.isValid(""));
-        Assert.assertTrue(Validators.decorateAsValidBlankString(victim).isValid(""));
+        Assert.assertTrue(Validators.decorateAsValidEmptyString(victim).isValid(""));
     }
 }

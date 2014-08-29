@@ -18,18 +18,18 @@
  */
 package org.pdfsam.support.validation;
 
+import static org.pdfsam.support.validation.Validators.decorateAsValidEmptyString;
+import static org.pdfsam.support.validation.Validators.newIntegerString;
+
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.pdfsam.support.validation.Validators.decorateAsValidBlankString;
-import static org.pdfsam.support.validation.Validators.newIntegerString;
 
 /**
  * @author Andrea Vacondio
  * 
  */
 public class BlankStringDecoratorTest {
-    private Validator<String> victim = decorateAsValidBlankString(newIntegerString());
+    private Validator<String> victim = decorateAsValidEmptyString(newIntegerString());
 
     @Test
     public void testNegative() {
@@ -44,7 +44,11 @@ public class BlankStringDecoratorTest {
 
     @Test
     public void testBlank() {
+        Assert.assertFalse(victim.isValid("  "));
+    }
+
+    @Test
+    public void validEmpty() {
         Assert.assertTrue(victim.isValid(""));
-        Assert.assertTrue(victim.isValid("  "));
     }
 }

@@ -24,63 +24,72 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
 import java.io.File;
-import java.io.IOException;
+
+import javafx.scene.Parent;
+import javafx.scene.input.KeyCode;
 
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
+import org.loadui.testfx.GuiTest;
+import org.loadui.testfx.categories.TestFX;
+import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.support.io.FileType;
-import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
+import org.pdfsam.ui.commons.ValidableTextField;
 
 /**
  * @author Andrea Vacondio
  *
  */
-public class PreferenceBrowsableFileFieldTest {
+@Category(TestFX.class)
+public class PreferenceBrowsableFileFieldTest extends GuiTest {
 
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
-    @Rule
-    public InitializeAndApplyJavaFxThreadRule javaFxThread = new InitializeAndApplyJavaFxThreadRule();
     private UserContext userContext = mock(UserContext.class);
 
-    @Test
-    public void validValue() throws IOException {
+    @Override
+    protected Parent getRootNode() {
         PreferenceBrowsableFileField victim = new PreferenceBrowsableFileField(StringUserPreference.WORKING_PATH,
                 FileType.PDF, userContext);
+        victim.setId("victim");
+        return victim;
+    }
+
+    @Test
+    public void validValue() throws Exception {
         File file = folder.newFile("chuck.pdf");
-        victim.getTextField().setText(file.getAbsolutePath());
-        victim.getTextField().validate();
+        typePathAndValidate(file.getAbsolutePath());
         verify(userContext).setStringPreference(StringUserPreference.WORKING_PATH, file.getAbsolutePath());
     }
 
     @Test
-    public void invalidValue() throws IOException {
-        PreferenceBrowsableFileField victim = new PreferenceBrowsableFileField(StringUserPreference.WORKING_PATH,
-                FileType.PDF, userContext);
+    public void invalidValue() throws Exception {
         File file = folder.newFile("chuck.norris");
-        victim.getTextField().setText(file.getAbsolutePath());
-        victim.getTextField().validate();
+        typePathAndValidate(file.getAbsolutePath());
         verify(userContext, never()).setStringPreference(any(), any());
     }
 
     @Test
-    public void emptyValue() {
-        PreferenceBrowsableFileField victim = new PreferenceBrowsableFileField(StringUserPreference.WORKING_PATH,
-                FileType.PDF, userContext);
-        victim.getTextField().setText("");
-        victim.getTextField().validate();
+    public void emptyValue() throws Exception {
+        typePathAndValidate("");
         verify(userContext).setStringPreference(StringUserPreference.WORKING_PATH, "");
     }
 
     @Test
-    public void blankValue() {
-        PreferenceBrowsableFileField victim = new PreferenceBrowsableFileField(StringUserPreference.WORKING_PATH,
-                FileType.PDF, userContext);
-        victim.getTextField().setText("  ");
-        victim.getTextField().validate();
+    public void blankValue() throws Exception {
+        typePathAndValidate("  ");
         verify(userContext, never()).setStringPreference(any(), any());
     }
+
+    private void typePathAndValidate(String path) throws Exception {
+        ValidableTextField field = find(".validable-container-field");
+        // TODO replace with typing when slash works
+        FXTestUtils.invokeAndWait(() -> field.setText(path), 2);
+        click(field).type(KeyCode.TAB);
+    }
+
 }

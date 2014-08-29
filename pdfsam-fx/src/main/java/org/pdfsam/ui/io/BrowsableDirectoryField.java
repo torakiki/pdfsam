@@ -46,11 +46,11 @@ public class BrowsableDirectoryField extends BrowsableField {
 
     private BrowseEventHandler handler = new BrowseEventHandler();
 
-    public BrowsableDirectoryField(boolean allowBlankString) {
+    public BrowsableDirectoryField(boolean allowEmptyString) {
         setBrowseWindowTitle(DefaultI18nContext.getInstance().i18n("Select a directory"));
         Validator<String> validator = Validators.newExistingDirectoryString();
-        if (allowBlankString) {
-            validator = Validators.decorateAsValidBlankString(validator);
+        if (allowEmptyString) {
+            validator = Validators.decorateAsValidEmptyString(validator);
         }
         getTextField().setValidator(validator);
         getTextField().setErrorMessage(DefaultI18nContext.getInstance().i18n("Select an existing directory"));

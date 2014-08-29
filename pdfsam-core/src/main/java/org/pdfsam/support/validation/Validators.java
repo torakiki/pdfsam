@@ -18,7 +18,7 @@
  */
 package org.pdfsam.support.validation;
 
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 
 import org.pdfsam.support.io.FileType;
 
@@ -57,7 +57,7 @@ public final class Validators {
 
     /**
      * @return a new instance of a validator checking for an input string representing an existing file. Blank string are invalid.
-     * @see Validators#decorateAsValidBlankString(Validator)
+     * @see Validators#decorateAsValidEmptyString(Validator)
      */
     public static Validator<String> newExistingFileString() {
         return new FileValidator();
@@ -67,7 +67,7 @@ public final class Validators {
      * @return a new instance of a validator checking for an input string representing an existing file of the given type. Blank string are invalid.
      * @param type
      *            type of the file represented by the input string
-     * @see Validators#decorateAsValidBlankString(Validator)
+     * @see Validators#decorateAsValidEmptyString(Validator)
      */
     public static Validator<String> newExistingFileTypeString(FileType type) {
         return new FileTypeValidator(type, true);
@@ -79,7 +79,7 @@ public final class Validators {
      *            type of the file represented by the input string
      * @param mustExist
      *            if true the validator enforces an existing file
-     * @see Validators#decorateAsValidBlankString(Validator)
+     * @see Validators#decorateAsValidEmptyString(Validator)
      */
     public static Validator<String> newFileTypeString(FileType type, boolean mustExist) {
         return new FileTypeValidator(type, mustExist);
@@ -87,7 +87,7 @@ public final class Validators {
 
     /**
      * @return a new instance of a validator checking for an input string representing an existing directory. Blank string are invalid.
-     * @see Validators#decorateAsValidBlankString(Validator)
+     * @see Validators#decorateAsValidEmptyString(Validator)
      */
     public static Validator<String> newExistingDirectoryString() {
         return new DirectoryValidator();
@@ -95,7 +95,7 @@ public final class Validators {
 
     /**
      * @return a new instance of a validator checking for an input string matching the given regex.
-     * @see Validators#decorateAsValidBlankString(Validator)
+     * @see Validators#decorateAsValidEmptyString(Validator)
      */
     public static Validator<String> newRegexMatchingString(String regex) {
         return new RegexValidator(regex);
@@ -103,28 +103,28 @@ public final class Validators {
 
     /**
      * @param decorate
-     * @return a new instance of the a validator that considers blank string as valid, it delegates otherwise
+     * @return a new instance of the a validator that considers empty string as valid, it delegates otherwise
      */
-    public static Validator<String> decorateAsValidBlankString(Validator<String> decorate) {
-        return new ValidBlankStringDecorator(decorate);
+    public static Validator<String> decorateAsValidEmptyString(Validator<String> decorate) {
+        return new ValidEmptyStringDecorator(decorate);
     }
 
     /**
-     * Decorates the input validator handling blank strings as valid
+     * Decorates the input validator handling empty strings as valid
      * 
      * @author Andrea Vacondio
      * 
      */
-    static final class ValidBlankStringDecorator implements Validator<String> {
+    static final class ValidEmptyStringDecorator implements Validator<String> {
         private Validator<String> decorate;
 
-        private ValidBlankStringDecorator(Validator<String> decorate) {
+        private ValidEmptyStringDecorator(Validator<String> decorate) {
             this.decorate = decorate;
         }
 
         @Override
         public boolean isValid(String input) {
-            if (isNotBlank(input)) {
+            if (isNotEmpty(input)) {
                 return decorate.isValid(input);
             }
             return true;
