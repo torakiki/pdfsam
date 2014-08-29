@@ -23,7 +23,6 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -53,16 +52,9 @@ class PreferenceThumbnailsPane extends VBox {
     private static final Integer UPPER = 390;
 
     @Inject
-    private UserContext userContext;
-    @Inject
-    @Named("thumbnailsCombo")
-    private PreferenceComboBox<KeyStringValueItem<String>> thumbnailsCombo;
-    @Inject
-    @Named("highQualityThumbnails")
-    private PreferenceCheckBox highQualityThumbnails;
-
-    @PostConstruct
-    public void post() {
+    public PreferenceThumbnailsPane(UserContext userContext,
+            @Named("thumbnailsCombo") PreferenceComboBox<KeyStringValueItem<String>> thumbnailsCombo,
+            @Named("highQualityThumbnails") PreferenceCheckBox highQualityThumbnails) {
         I18nContext i18n = DefaultI18nContext.getInstance();
 
         highQualityThumbnails.setTooltip(new Tooltip(i18n.i18n("Generate high quality thumbnails (slower)")));

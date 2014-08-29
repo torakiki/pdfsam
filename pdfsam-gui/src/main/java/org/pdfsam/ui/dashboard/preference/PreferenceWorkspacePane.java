@@ -18,19 +18,15 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.VBox;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.I18nContext;
-import org.pdfsam.module.ClearUsageRequestEvent;
 import org.pdfsam.ui.support.Style;
 
 /**
@@ -43,14 +39,8 @@ import org.pdfsam.ui.support.Style;
 class PreferenceWorkspacePane extends VBox {
 
     @Inject
-    @Named("workingDirectory")
-    private PreferenceBrowsableDirectoryField workingDirectory;
-    @Inject
-    @Named("workspace")
-    private PreferenceBrowsableFileField workspace;
-
-    @PostConstruct
-    public void post() {
+    public PreferenceWorkspacePane(@Named("workingDirectory") PreferenceBrowsableDirectoryField workingDirectory,
+            @Named("workspace") PreferenceBrowsableFileField workspace) {
         I18nContext i18n = DefaultI18nContext.getInstance();
         workspace.getTextField().setPromptText(
                 i18n.i18n("Select a previously saved workspace that will be automatically loaded at startup"));
@@ -67,12 +57,8 @@ class PreferenceWorkspacePane extends VBox {
         workingDirectory.setBrowseWindowTitle(i18n.i18n("Select a directory"));
         workingDirectory.getStyleClass().add("spaced-vitem");
 
-        Button clearButton = new Button(i18n.i18n("Clear usage statistics"));
-        clearButton.getStyleClass().addAll(Style.BUTTON.css());
-        clearButton.setOnAction(e -> eventStudio().broadcast(new ClearUsageRequestEvent()));
-
         getChildren().addAll(new Label(i18n.i18n("Load default workspace at startup:")), workspace,
-                new Label(i18n.i18n("Default working directory:")), workingDirectory, clearButton);
+                new Label(i18n.i18n("Default working directory:")), workingDirectory, new ClearStatisticsButton());
         getStyleClass().addAll(Style.CONTAINER.css());
     }
 }

@@ -26,7 +26,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.VBox;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -47,14 +46,8 @@ import org.pdfsam.ui.support.Style;
 class PreferenceAppearencePane extends VBox {
 
     @Inject
-    @Named("localeCombo")
-    private PreferenceComboBox<LocaleKeyValueItem> localeCombo;
-    @Inject
-    @Named("themeCombo")
-    private PreferenceComboBox<KeyStringValueItem<String>> themeCombo;
-
-    @PostConstruct
-    public void post() {
+    public PreferenceAppearencePane(@Named("localeCombo") PreferenceComboBox<LocaleKeyValueItem> localeCombo,
+            @Named("themeCombo") PreferenceComboBox<KeyStringValueItem<String>> themeCombo) {
         I18nContext i18n = DefaultI18nContext.getInstance();
         for (Locale current : DefaultI18nContext.SUPPORTED_LOCALES) {
             localeCombo.getItems().add(new LocaleKeyValueItem(current));

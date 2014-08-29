@@ -21,7 +21,6 @@ package org.pdfsam.ui.dashboard.preference;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.VBox;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -39,17 +38,9 @@ import org.pdfsam.ui.support.Style;
 class PreferenceBehaviorPane extends VBox {
 
     @Inject
-    @Named("checkForUpdates")
-    private PreferenceCheckBox checkForUpdates;
-    @Inject
-    @Named("playSounds")
-    private PreferenceCheckBox playSounds;
-    @Inject
-    @Named("askConfirmation")
-    private PreferenceCheckBox askConfirmation;
-
-    @PostConstruct
-    public void post() {
+    public PreferenceBehaviorPane(@Named("checkForUpdates") PreferenceCheckBox checkForUpdates,
+            @Named("playSounds") PreferenceCheckBox playSounds,
+            @Named("askConfirmation") PreferenceCheckBox askConfirmation) {
         I18nContext i18n = DefaultI18nContext.getInstance();
 
         checkForUpdates.setTooltip(new Tooltip(i18n
