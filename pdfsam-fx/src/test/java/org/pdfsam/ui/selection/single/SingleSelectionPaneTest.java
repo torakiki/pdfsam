@@ -135,7 +135,7 @@ public class SingleSelectionPaneTest extends GuiTest {
         eventStudio().add(OpenFileRequest.class, listener);
         typePathAndValidate();
         rightClick(".validable-container-field");
-        click(AwesomeIcon.FOLDER_OPEN.toString());
+        click(AwesomeIcon.FOLDER_ALTPEN.toString());
         assertTrue(listener.isHit());
     }
 

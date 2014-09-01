@@ -52,7 +52,7 @@
 		<sejda.version>1.0.0.RELEASE-SNAPSHOT</sejda.version>
 		<eventstudio.version>1.0.2</eventstudio.version>
 		<org.springframework.version>4.0.6.RELEASE</org.springframework.version>
-		<fontawesomefx.version>8.0.8</fontawesomefx.version>
+		<fontawesomefx.version>8.0.9</fontawesomefx.version>
 		<testfx.version>3.1.2</testfx.version>
 		<jackson-jr.version>2.4.1</jackson-jr.version>
 		<maven.build.timestamp.format>dd-MMM-yyyy</maven.build.timestamp.format>

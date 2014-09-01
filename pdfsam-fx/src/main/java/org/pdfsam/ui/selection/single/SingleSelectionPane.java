@@ -153,7 +153,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
         });
 
         MenuItem openFolderItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open Folder"),
-                AwesomeIcon.FOLDER_OPEN);
+                AwesomeIcon.FOLDER_ALTPEN);
         openFolderItem.setOnAction(e -> {
             eventStudio().broadcast(new OpenFileRequest(descriptor.getFile().getParentFile()));
         });

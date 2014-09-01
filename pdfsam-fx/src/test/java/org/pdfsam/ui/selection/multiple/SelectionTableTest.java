@@ -268,7 +268,7 @@ public class SelectionTableTest extends GuiTest {
         eventStudio().add(OpenFileRequest.class, listener);
         populate();
         rightClick("temp3.pdf");
-        click(AwesomeIcon.FOLDER_OPEN.toString());
+        click(AwesomeIcon.FOLDER_ALTPEN.toString());
         assertTrue(listener.isHit());
     }
 

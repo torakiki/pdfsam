@@ -148,7 +148,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         });
 
         MenuItem openFolderItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open Folder"),
-                AwesomeIcon.FOLDER_OPEN);
+                AwesomeIcon.FOLDER_ALTPEN);
         openFolderItem.setOnAction(e -> {
             eventStudio().broadcast(
                     new OpenFileRequest(getSelectionModel().getSelectedItem().getFile().getParentFile()));
