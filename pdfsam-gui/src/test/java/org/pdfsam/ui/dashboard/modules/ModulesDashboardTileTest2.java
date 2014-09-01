@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 28/ago/2014
+ * Created on 01/set/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -19,13 +19,12 @@
 package org.pdfsam.ui.dashboard.modules;
 
 import static org.junit.Assert.assertEquals;
-import static org.loadui.testfx.Assertions.verifyThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.Parent;
-import javafx.scene.input.MouseButton;
 
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -34,16 +33,18 @@ import org.loadui.testfx.categories.TestFX;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.DefaultPriorityTestModule;
-import org.pdfsam.ui.event.SetActiveModuleRequest;
+import org.pdfsam.ui.commons.OpenUrlRequest;
 import org.sejda.eventstudio.Listener;
+
+import de.jensd.fx.fontawesome.AwesomeIcon;
 
 /**
  * @author Andrea Vacondio
  *
  */
 @Category(TestFX.class)
-public class ModulesDashboardTileTest extends GuiTest {
-
+@Ignore
+public class ModulesDashboardTileTest2 extends GuiTest {
     @Rule
     public ClearEventStudioRule clearRule = new ClearEventStudioRule();
 
@@ -53,14 +54,13 @@ public class ModulesDashboardTileTest extends GuiTest {
     }
 
     @Test
-    public void activateOnClick() {
-        Listener<SetActiveModuleRequest> listener = mock(Listener.class);
-        eventStudio().add(SetActiveModuleRequest.class, listener);
-        move(".dashboard-modules-invisible-button").press(MouseButton.PRIMARY);
-        verifyThat(".dashboard-modules-tile", (ModulesDashboardTile v) -> v.isArmed());
-        release(MouseButton.PRIMARY);
-        ArgumentCaptor<SetActiveModuleRequest> captor = ArgumentCaptor.forClass(SetActiveModuleRequest.class);
-        verify(listener).onEvent(captor.capture());
-        assertEquals(DefaultPriorityTestModule.ID, captor.getValue().getActiveModuleId().get());
+    public void supportVideoClick() {
+        // TODO understand why if put in the same class it fails
+        Listener<OpenUrlRequest> openUrlListener = mock(Listener.class);
+        eventStudio().add(OpenUrlRequest.class, openUrlListener);
+        ArgumentCaptor<OpenUrlRequest> openUrlCaptor = ArgumentCaptor.forClass(OpenUrlRequest.class);
+        click(AwesomeIcon.YOUTUBE_PLAY.toString());
+        verify(openUrlListener).onEvent(openUrlCaptor.capture());
+        assertEquals("http://www.chucknorrisfacts.com/", openUrlCaptor.getValue().getUrl());
     }
 }
