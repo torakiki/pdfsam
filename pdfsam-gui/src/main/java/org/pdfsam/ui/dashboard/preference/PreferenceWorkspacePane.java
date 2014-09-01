@@ -40,7 +40,7 @@ class PreferenceWorkspacePane extends VBox {
 
     @Inject
     public PreferenceWorkspacePane(@Named("workingDirectory") PreferenceBrowsableDirectoryField workingDirectory,
-            @Named("workspace") PreferenceBrowsableFileField workspace) {
+            @Named("workspace") PreferenceBrowsableFileField workspace, ClearStatisticsButton clearStatsButton) {
         I18nContext i18n = DefaultI18nContext.getInstance();
         workspace.getTextField().setPromptText(
                 i18n.i18n("Select a previously saved workspace that will be automatically loaded at startup"));
@@ -58,7 +58,7 @@ class PreferenceWorkspacePane extends VBox {
         workingDirectory.getStyleClass().add("spaced-vitem");
 
         getChildren().addAll(new Label(i18n.i18n("Load default workspace at startup:")), workspace,
-                new Label(i18n.i18n("Default working directory:")), workingDirectory, new ClearStatisticsButton());
+                new Label(i18n.i18n("Default working directory:")), workingDirectory, clearStatsButton);
         getStyleClass().addAll(Style.CONTAINER.css());
     }
 }

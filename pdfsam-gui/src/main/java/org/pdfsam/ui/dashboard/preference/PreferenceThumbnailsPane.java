@@ -28,15 +28,8 @@ import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.I18nContext;
-import org.pdfsam.context.IntUserPreference;
-import org.pdfsam.context.UserContext;
 import org.pdfsam.support.KeyStringValueItem;
-import org.pdfsam.support.validation.Validators;
-import org.pdfsam.ui.commons.ValidableTextField;
-import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Preference pane displaying the Thumbnails section
@@ -46,38 +39,17 @@ import org.slf4j.LoggerFactory;
  */
 @Named
 class PreferenceThumbnailsPane extends VBox {
-    private static final Logger LOG = LoggerFactory.getLogger(PreferenceThumbnailsPane.class);
-
-    private static final Integer LOWER = 130;
-    private static final Integer UPPER = 390;
 
     @Inject
-    public PreferenceThumbnailsPane(UserContext userContext,
+    public PreferenceThumbnailsPane(
             @Named("thumbnailsCombo") PreferenceComboBox<KeyStringValueItem<String>> thumbnailsCombo,
-            @Named("highQualityThumbnails") PreferenceCheckBox highQualityThumbnails) {
+            @Named("highQualityThumbnails") PreferenceCheckBox highQualityThumbnails,
+            @Named("thumbnailsSize") PreferenceIntTextField thumbSize) {
         I18nContext i18n = DefaultI18nContext.getInstance();
 
         highQualityThumbnails.setTooltip(new Tooltip(i18n.i18n("Generate high quality thumbnails (slower)")));
         highQualityThumbnails.getStyleClass().add("spaced-vitem");
 
-        final ValidableTextField thumbSize = new ValidableTextField(Integer.toString(userContext.getThumbnailsSize()));
-        thumbSize.setValidator(Validators.newIntRangeString(LOWER, UPPER));
-        thumbSize.setEnableInvalidStyle(true);
-        thumbSize
-                .setErrorMessage(i18n.i18n("Size must be between {0}px and {1}px", LOWER.toString(), UPPER.toString()));
-        String helpText = i18n.i18n("Pixel size of the thumbnails (between {0}px and {1}px)", LOWER.toString(),
-                UPPER.toString());
-        thumbSize.setOnEnterValidation(true);
-        thumbSize.setPromptText(helpText);
-        thumbSize.setTooltip(new Tooltip(helpText));
-        thumbSize.validProperty().addListener(
-                (o, oldVal, newVal) -> {
-                    if (newVal == ValidationState.VALID) {
-                        userContext.setIntegerPreference(IntUserPreference.THUMBNAILS_SIZE,
-                                Integer.parseInt(thumbSize.getText()));
-                        LOG.trace("Preference {} set to {}", IntUserPreference.THUMBNAILS_SIZE, thumbSize.getText());
-                    }
-                });
         HBox second = new HBox(new Label(i18n.i18n("Size in px:")), thumbSize);
         second.getStyleClass().addAll(Style.HCONTAINER.css());
         second.getStyleClass().addAll(Style.VITEM.css());

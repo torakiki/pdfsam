@@ -21,6 +21,8 @@ package org.pdfsam.ui.dashboard.preference;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.control.Button;
 
+import javax.inject.Named;
+
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.ClearUsageRequestEvent;
 import org.pdfsam.ui.support.Style;
@@ -31,6 +33,7 @@ import org.pdfsam.ui.support.Style;
  * @author Andrea Vacondio
  *
  */
+@Named
 class ClearStatisticsButton extends Button {
 
     ClearStatisticsButton() {

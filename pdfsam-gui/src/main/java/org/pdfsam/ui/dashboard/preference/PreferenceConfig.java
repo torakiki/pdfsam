@@ -18,15 +18,19 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
+import javafx.scene.control.Tooltip;
+
 import javax.inject.Inject;
 
 import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.context.IntUserPreference;
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.LocaleKeyValueItem;
 import org.pdfsam.support.io.FileType;
+import org.pdfsam.support.validation.Validators;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -38,6 +42,9 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class PreferenceConfig {
+
+    private static final Integer THUMB_SIZE_LOWER = 130;
+    private static final Integer THUMB_SIZE_UPPER = 390;
 
     @Inject
     private UserContext userContext;
@@ -112,6 +119,21 @@ public class PreferenceConfig {
                 FileType.XML, userContext);
         workspace.getTextField().setText(userContext.getDefaultWorkspacePath());
         return workspace;
+    }
+
+    @Bean(name = "thumbnailsSize")
+    public PreferenceIntTextField thumbnailsSize() {
+        PreferenceIntTextField thumbnails = new PreferenceIntTextField(IntUserPreference.THUMBNAILS_SIZE, userContext,
+                Validators.newIntRangeString(THUMB_SIZE_LOWER, THUMB_SIZE_UPPER));
+        thumbnails.setText(Integer.toString(userContext.getThumbnailsSize()));
+        thumbnails.setErrorMessage(DefaultI18nContext.getInstance().i18n("Size must be between {0}px and {1}px",
+                THUMB_SIZE_LOWER.toString(), THUMB_SIZE_UPPER.toString()));
+        String helpText = DefaultI18nContext.getInstance().i18n(
+                "Pixel size of the thumbnails (between {0}px and {1}px)", THUMB_SIZE_LOWER.toString(),
+                THUMB_SIZE_UPPER.toString());
+        thumbnails.setPromptText(helpText);
+        thumbnails.setTooltip(new Tooltip(helpText));
+        return thumbnails;
     }
 
 }
