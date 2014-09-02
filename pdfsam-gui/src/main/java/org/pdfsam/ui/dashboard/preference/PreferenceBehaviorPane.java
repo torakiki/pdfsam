@@ -18,14 +18,11 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
-import javafx.scene.control.Tooltip;
 import javafx.scene.layout.VBox;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.context.I18nContext;
 import org.pdfsam.ui.support.Style;
 
 /**
@@ -41,19 +38,7 @@ class PreferenceBehaviorPane extends VBox {
     public PreferenceBehaviorPane(@Named("checkForUpdates") PreferenceCheckBox checkForUpdates,
             @Named("playSounds") PreferenceCheckBox playSounds,
             @Named("askConfirmation") PreferenceCheckBox askConfirmation) {
-        I18nContext i18n = DefaultI18nContext.getInstance();
-
-        checkForUpdates.setTooltip(new Tooltip(i18n
-                .i18n("Set whether new version availability should be checked on startup (restart needed)")));
-        checkForUpdates.getStyleClass().add("spaced-vitem");
-
-        playSounds.setTooltip(new Tooltip(i18n.i18n("Turn on or off alert sounds")));
-        playSounds.getStyleClass().add("spaced-vitem");
-
-        askConfirmation.setTooltip(new Tooltip(i18n
-                .i18n("Show a dialog box asking the user for confirmation when the \"overwrite\" is selected")));
-        askConfirmation.getStyleClass().add("spaced-vitem");
-        getChildren().addAll(checkForUpdates, playSounds, askConfirmation);
+        super(checkForUpdates, playSounds, askConfirmation);
         getStyleClass().addAll(Style.CONTAINER.css());
     }
 

@@ -23,7 +23,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -39,22 +38,9 @@ import org.pdfsam.context.DefaultI18nContext;
 public class PreferencePane extends HBox {
 
     @Inject
-    private PreferenceAppearencePane appearence;
-    @Inject
-    private PreferenceBehaviorPane behavior;
-    @Inject
-    private PreferenceWorkspacePane workspace;
-    @Inject
-    private PreferenceOutputPane output;
-    @Inject
-    private PreferenceThumbnailsPane thumbnails;
-
-    public PreferencePane() {
+    public PreferencePane(PreferenceAppearencePane appearence, PreferenceBehaviorPane behavior,
+            PreferenceWorkspacePane workspace, PreferenceOutputPane output, PreferenceThumbnailsPane thumbnails) {
         getStyleClass().add("dashboard-container");
-    }
-
-    @PostConstruct
-    void init() {
         VBox left = new VBox(5);
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Appearance"), left);
         left.getChildren().add(appearence);

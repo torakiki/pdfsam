@@ -58,6 +58,7 @@ public class PreferenceConfig {
     public PreferenceComboBox<KeyStringValueItem<String>> themeCombo() {
         PreferenceComboBox<KeyStringValueItem<String>> themeCombo = new PreferenceComboBox<>(
                 StringUserPreference.THEME, userContext);
+        themeCombo.setId("themeCombo");
         themeCombo.getItems().add(new KeyStringValueItem<>("cornflower.css", "Cornflower"));
         themeCombo.getItems().add(new KeyStringValueItem<>("gray.css", "Gray"));
         themeCombo.getItems().add(new KeyStringValueItem<>("green.css", "Green"));
@@ -75,34 +76,55 @@ public class PreferenceConfig {
 
     @Bean(name = "checkForUpdates")
     public PreferenceCheckBox checkForUpdates() {
-        return new PreferenceCheckBox(BooleanUserPreference.CHECK_UPDATES, DefaultI18nContext.getInstance().i18n(
-                "Check for updates at startup"), userContext.isCheckForUpdates(), userContext);
+        PreferenceCheckBox checkForUpdates = new PreferenceCheckBox(BooleanUserPreference.CHECK_UPDATES,
+                DefaultI18nContext.getInstance().i18n("Check for updates at startup"), userContext.isCheckForUpdates(),
+                userContext);
+        checkForUpdates.setId("checkForUpdates");
+        checkForUpdates.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
+                "Set whether new version availability should be checked on startup (restart needed)")));
+        checkForUpdates.getStyleClass().add("spaced-vitem");
+        return checkForUpdates;
     }
 
     @Bean(name = "playSounds")
     public PreferenceCheckBox playSounds() {
-        return new PreferenceCheckBox(BooleanUserPreference.PLAY_SOUNDS, DefaultI18nContext.getInstance().i18n(
-                "Play alert sounds"), userContext.isPlaySounds(), userContext);
+        PreferenceCheckBox playSounds = new PreferenceCheckBox(BooleanUserPreference.PLAY_SOUNDS, DefaultI18nContext
+                .getInstance().i18n("Play alert sounds"), userContext.isPlaySounds(), userContext);
+        playSounds.setId("playSounds");
+        playSounds.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Turn on or off alert sounds")));
+        playSounds.getStyleClass().add("spaced-vitem");
+        return playSounds;
     }
 
     @Bean(name = "askConfirmation")
     public PreferenceCheckBox askConfirmation() {
-        return new PreferenceCheckBox(BooleanUserPreference.ASK_OVERWRITE_CONFIRMATION, DefaultI18nContext
-                .getInstance().i18n("Ask for confirmation when the \"Overwrite\" checkbox is selected"),
+        PreferenceCheckBox askConfirmation = new PreferenceCheckBox(BooleanUserPreference.ASK_OVERWRITE_CONFIRMATION,
+                DefaultI18nContext.getInstance().i18n(
+                        "Ask for confirmation when the \"Overwrite\" checkbox is selected"),
                 userContext.isAskOverwriteConfirmation(), userContext);
+        askConfirmation.setId("askConfirmation");
+        askConfirmation.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
+                "Show a dialog box asking the user for confirmation when the \"overwrite\" is selected")));
+        askConfirmation.getStyleClass().add("spaced-vitem");
+        return askConfirmation;
     }
 
     @Bean(name = "highQualityThumbnails")
     public PreferenceCheckBox highQualityThumbnails() {
-        return new PreferenceCheckBox(BooleanUserPreference.HIGH_QUALITY_THUMB, DefaultI18nContext.getInstance().i18n(
-                "High quality thumbnails"), userContext.isHighQualityThumbnails(), userContext);
+        PreferenceCheckBox highQualityThumbnails = new PreferenceCheckBox(BooleanUserPreference.HIGH_QUALITY_THUMB,
+                DefaultI18nContext.getInstance().i18n("High quality thumbnails"),
+                userContext.isHighQualityThumbnails(), userContext);
+        highQualityThumbnails.setId("highQualityThumbnails");
+        return highQualityThumbnails;
     }
 
     @Bean(name = "smartRadio")
     public PreferenceRadioButton smartRadio() {
-        return new PreferenceRadioButton(BooleanUserPreference.SMART_OUTPUT, DefaultI18nContext.getInstance().i18n(
-                "Use the selected PDF document directory as output directory"), userContext.isUseSmartOutput(),
-                userContext);
+        PreferenceRadioButton smartRadio = new PreferenceRadioButton(BooleanUserPreference.SMART_OUTPUT,
+                DefaultI18nContext.getInstance().i18n("Use the selected PDF document directory as output directory"),
+                userContext.isUseSmartOutput(), userContext);
+        smartRadio.setId("smartRadio");
+        return smartRadio;
     }
 
     @Bean(name = "workingDirectory")
@@ -110,6 +132,7 @@ public class PreferenceConfig {
         PreferenceBrowsableDirectoryField workingDirectory = new PreferenceBrowsableDirectoryField(
                 StringUserPreference.WORKING_PATH, userContext);
         workingDirectory.getTextField().setText(userContext.getDefaultWorkingPath());
+        workingDirectory.setId("workingDirectory");
         return workingDirectory;
     }
 
@@ -118,6 +141,7 @@ public class PreferenceConfig {
         PreferenceBrowsableFileField workspace = new PreferenceBrowsableFileField(StringUserPreference.WORKSPACE_PATH,
                 FileType.XML, userContext);
         workspace.getTextField().setText(userContext.getDefaultWorkspacePath());
+        workspace.setId("workspace");
         return workspace;
     }
 
@@ -133,6 +157,7 @@ public class PreferenceConfig {
                 THUMB_SIZE_UPPER.toString());
         thumbnails.setPromptText(helpText);
         thumbnails.setTooltip(new Tooltip(helpText));
+        thumbnails.setId("thumbnailsSize");
         return thumbnails;
     }
 
