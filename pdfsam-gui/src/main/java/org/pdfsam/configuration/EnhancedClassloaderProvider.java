@@ -18,6 +18,8 @@
  */
 package org.pdfsam.configuration;
 
+import static org.pdfsam.support.RequireUtils.requireNotNull;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
@@ -46,27 +48,28 @@ class EnhancedClassloaderProvider {
     private static final Logger LOG = LoggerFactory.getLogger(EnhancedClassloaderProvider.class);
     private static final String MODULES_DIRECTORY = "modules";
 
-    static ClassLoader classLoader() {
+    static ClassLoader classLoader(ClassLoader classLoader) {
+        requireNotNull(classLoader, "Cannot enhance null class loader");
         try {
             Path modulesPath = getModulesPath();
             if (!Files.exists(modulesPath)) {
                 LOG.warn(DefaultI18nContext.getInstance().i18n("Modules directory {0} does not exist",
                         modulesPath.toString()));
-                return ClassLoader.getSystemClassLoader();
+                return classLoader;
             }
             LOG.debug(DefaultI18nContext.getInstance().i18n("Loading modules from {0}", modulesPath.toString()));
             try (Stream<Path> files = Files.list(modulesPath)) {
                 URL[] modules = getUrls(files);
                 if (modules.length > 0) {
                     LOG.trace(DefaultI18nContext.getInstance().i18n("Found modules jars {0}", Arrays.toString(modules)));
-                    return new URLClassLoader(modules, ClassLoader.getSystemClassLoader());
+                    return new URLClassLoader(modules, classLoader);
                 }
             }
         } catch (IOException | URISyntaxException ex) {
             LOG.warn(DefaultI18nContext.getInstance().i18n("Error finding modules paths"), ex);
         }
         LOG.trace(DefaultI18nContext.getInstance().i18n("No module has been found"));
-        return ClassLoader.getSystemClassLoader();
+        return classLoader;
     }
 
     private static URL[] getUrls(Stream<Path> files) throws MalformedURLException {
