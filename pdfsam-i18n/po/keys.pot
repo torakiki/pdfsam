@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Copyright 2014 by Andrea Vacondio (andrea.vacondio@gmail.com)
+# Copyright (C) YEAR Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com)
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PDFsam\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2014-07-15 15:19+0200\n"
+"POT-Creation-Date: 2014-09-03 10:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,14 +38,11 @@ msgstr ""
 msgid "Directories"
 msgstr ""
 
-#, java-format
-msgid "File {0} saved."
-msgstr ""
-
 msgid "Error saving log file."
 msgstr ""
 
-msgid "Starting pdfsam"
+#, java-format
+msgid "File {0} saved."
 msgstr ""
 
 #, java-format
@@ -133,10 +130,6 @@ msgstr ""
 msgid "Select where to save the log file"
 msgstr ""
 
-#, java-format
-msgid "...and other {0}."
-msgstr ""
-
 msgid "Log register"
 msgstr ""
 
@@ -192,13 +185,42 @@ msgstr ""
 msgid "Select a directory"
 msgstr ""
 
-msgid "Clear usage statistics"
-msgstr ""
-
 msgid "Load default workspace at startup:"
 msgstr ""
 
 msgid "Default working directory:"
+msgstr ""
+
+msgid "Set your preferred language (restart needed)"
+msgstr ""
+
+msgid "Language:"
+msgstr ""
+
+msgid "Set your preferred theme (restart needed)"
+msgstr ""
+
+msgid "Theme:"
+msgstr ""
+
+msgid "Generate high quality thumbnails (slower)"
+msgstr ""
+
+msgid "Size in px:"
+msgstr ""
+
+msgid "Library used to generate thumbnails"
+msgstr ""
+
+msgid "Thumbnails creator:"
+msgstr ""
+
+msgid "Manually selected"
+msgstr ""
+
+msgid ""
+"Automatically set the destination directory to the selected PDF document "
+"directory"
 msgstr ""
 
 msgid "Check for updates at startup"
@@ -223,22 +245,10 @@ msgid ""
 "selected"
 msgstr ""
 
-msgid "Set your preferred language (restart needed)"
-msgstr ""
-
-msgid "Language:"
-msgstr ""
-
-msgid "Set your preferred theme (restart needed)"
-msgstr ""
-
-msgid "Theme:"
-msgstr ""
-
 msgid "High quality thumbnails"
 msgstr ""
 
-msgid "Generate high quality thumbnails (slower)"
+msgid "Use the selected PDF document directory as output directory"
 msgstr ""
 
 #, java-format
@@ -249,24 +259,7 @@ msgstr ""
 msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
 msgstr ""
 
-msgid "Size in px:"
-msgstr ""
-
-msgid "Library used to generate thumbnails"
-msgstr ""
-
-msgid "Thumbnails creator:"
-msgstr ""
-
-msgid "Manually selected"
-msgstr ""
-
-msgid "Use the selected PDF document directory as output directory"
-msgstr ""
-
-msgid ""
-"Automatically set the destination directory to the selected PDF document "
-"directory"
+msgid "Clear usage statistics"
 msgstr ""
 
 msgid "Subscribe to the official news feed"
@@ -406,7 +399,7 @@ msgstr ""
 msgid "Generated pdf documents name prefix:"
 msgstr ""
 
-msgid "This document is encrypted, double click to provide a password."
+msgid "This document is encrypted, click to provide a password."
 msgstr ""
 
 msgid "Valid user password provided."

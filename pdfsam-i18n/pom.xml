@@ -17,13 +17,14 @@
 
 	<build>
 		<plugins>
-			<plugin>     
+			<plugin>
 				<groupId>com.googlecode.gettext-commons</groupId>
 				<artifactId>gettext-maven-plugin</artifactId>
 				<version>1.2.4</version>
 				<configuration>
 					<poDirectory>po</poDirectory>
 					<targetBundle>org.pdfsam.i18n.Messages</targetBundle>
+					<outputFormat>properties</outputFormat>
 				</configuration>
 				<executions>
 					<execution>
