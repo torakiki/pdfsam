@@ -136,6 +136,7 @@
     -fx-font-weight: bold;
 	-fx-graphic-text-gap: 8.0px;
     -fx-padding: 6.0 0.0 4.0 0.0;
+	-fx-wrap-text: true;
 }
 .dashboard-modules-tile-text{
 	-fx-font-size: 1.1em;
