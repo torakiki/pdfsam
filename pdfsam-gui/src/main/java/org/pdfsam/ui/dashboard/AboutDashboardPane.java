@@ -23,8 +23,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.apache.commons.io.FileUtils;
@@ -43,17 +42,9 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
 @Named
 class AboutDashboardPane extends HBox {
 
-    @Resource(name = "appName")
-    private String name;
-    @Resource(name = "appVersion")
-    private String version;
-
-    public AboutDashboardPane() {
+    @Inject
+    public AboutDashboardPane(@Named("appName") String name, @Named("appVersion") String version) {
         getStyleClass().add("dashboard-container");
-    }
-
-    @PostConstruct
-    void init() {
         VBox left = new VBox(5);
         addSectionTitle(name, left);
         left.getChildren().addAll(new Label(String.format("ver. %s", version)),

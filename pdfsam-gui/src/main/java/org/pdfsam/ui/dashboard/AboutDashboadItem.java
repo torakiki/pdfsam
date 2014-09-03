@@ -38,8 +38,12 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
 @Named
 class AboutDashboadItem implements DashboardItem {
 
-    @Inject
     private AboutDashboardPane pane;
+
+    @Inject
+    AboutDashboadItem(AboutDashboardPane pane) {
+        this.pane = pane;
+    }
 
     public String id() {
         return "ABOUT";

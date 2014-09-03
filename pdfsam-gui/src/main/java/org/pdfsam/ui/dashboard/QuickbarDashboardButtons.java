@@ -27,7 +27,6 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.scene.layout.VBox;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -54,16 +53,12 @@ class QuickbarDashboardButtons extends VBox {
                     getChildren().add(currentButton);
                     buttons.add(currentButton);
                 });
-    }
-
-    @PostConstruct
-    void init() {
         eventStudio().addAnnotatedListeners(this);
     }
 
     @EventListener
     public void setCurrentDashboardItem(SetActiveDashboardItemRequest r) {
-        buttons.forEach((b) -> b.setSelected(b.itemId().equals(r.getActiveItemId())));
+        buttons.forEach((b) -> b.selectIf(r.getActiveItemId()));
     }
 
     /**

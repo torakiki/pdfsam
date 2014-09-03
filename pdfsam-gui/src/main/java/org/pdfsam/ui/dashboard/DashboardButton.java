@@ -41,7 +41,12 @@ class DashboardButton extends BaseQuickbarButton {
         setOnAction(e -> eventStudio().broadcast(new SetActiveDashboardItemRequest(this.item.id())));
     }
 
-    String itemId() {
-        return item.id();
+    /**
+     * sets the button selected if the id matches
+     * 
+     * @param id
+     */
+    void selectIf(String id) {
+        setSelected(item.id().equals(id));
     }
 }
