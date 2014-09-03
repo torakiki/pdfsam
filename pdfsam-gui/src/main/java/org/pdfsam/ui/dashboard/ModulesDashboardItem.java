@@ -37,8 +37,13 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
  */
 @Named
 public class ModulesDashboardItem implements DashboardItem {
-    @Inject
+
     private ModulesDashboardPane pane;
+
+    @Inject
+    ModulesDashboardItem(ModulesDashboardPane pane) {
+        this.pane = pane;
+    }
 
     @Bean(name = "defaultDashboardItemId")
     public String id() {
@@ -61,9 +66,4 @@ public class ModulesDashboardItem implements DashboardItem {
         return -10;
     }
 
-    public DashboardButton getStyledButton() {
-        DashboardButton button = new DashboardButton(this);
-        button.getStyleClass().add("dashboard-modules");
-        return button;
-    }
 }

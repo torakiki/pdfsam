@@ -37,8 +37,12 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
 @Named
 class PreferencesDashboardItem implements DashboardItem {
 
-    @Inject
     private PreferencePane pane;
+
+    @Inject
+    PreferencesDashboardItem(PreferencePane pane) {
+        this.pane = pane;
+    }
 
     public String id() {
         return "SETTINGS";

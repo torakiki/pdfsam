@@ -37,7 +37,6 @@ import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.Module;
 import org.pdfsam.ui.event.SetActiveModuleRequest;
 import org.pdfsam.ui.event.SetTitleEvent;
-import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 
 /**
@@ -55,7 +54,6 @@ public class WorkArea extends BorderPane {
 
     @Inject
     public WorkArea(List<Module> modulesList, QuickbarWrokarea navigation) {
-        getStyleClass().addAll(Style.CONTAINER.css());
         Label emptyArea = new Label(DefaultI18nContext.getInstance().i18n("Please select a module"));
         emptyArea.getStyleClass().add("empty-notice");
         for (Module module : modulesList) {

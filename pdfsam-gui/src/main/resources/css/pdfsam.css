@@ -265,6 +265,10 @@
     -fx-alignment: center-left;
     -fx-background-radius: 0.0;
     -fx-padding: 5.0px 10.0px 5.0px 10.0px;
+    -fx-max-width: 50.0px;
+    -fx-min-width: 50.0px;
+    -fx-max-height: 40.0px;
+    -fx-min-height: 40.0px;
 }
 .quickbar-navigation-button:hover{
 	-fx-background-color:  theme-color, light-border-color, defaultbg-color;
@@ -282,7 +286,7 @@
     -fx-opacity: 1.0;
 }
 .quickbar-navigation-button .quickbar-navigation-button-graphic{
-	-fx-opacity: 0.8;
+	-fx-opacity: 0.85;
 }
 .quickbar-navigation-button:disabled .quickbar-navigation-button-graphic{
     -fx-opacity: 0.4;
