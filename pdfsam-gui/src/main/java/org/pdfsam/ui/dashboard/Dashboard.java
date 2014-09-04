@@ -41,6 +41,7 @@ import javax.inject.Named;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.pdfsam.ui.event.SetTitleEvent;
+import org.pdfsam.ui.quickbar.QuickbarPane;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 
@@ -57,18 +58,14 @@ public class Dashboard extends BorderPane {
     private FadeTransition fade = new FadeTransition(new Duration(300), center);
 
     @Inject
-    public Dashboard(QuickbarDashboardPane navigation) {
+    public Dashboard(List<DashboardItem> itemsList, QuickbarDashboardButtonsPane dashboardButtons) {
         getStyleClass().addAll(Style.CONTAINER.css());
-        setLeft(navigation);
-        eventStudio().addAnnotatedListeners(this);
-    }
-
-    @Inject
-    public Dashboard(List<DashboardItem> itemsList) {
         itemsList.stream().forEach(i -> items.put(i.id(), new DashboardContentPane(i)));
         fade.setFromValue(0);
         fade.setToValue(1);
         setCenter(center);
+        setLeft(new QuickbarPane(dashboardButtons));
+        eventStudio().addAnnotatedListeners(this);
     }
 
     @EventListener

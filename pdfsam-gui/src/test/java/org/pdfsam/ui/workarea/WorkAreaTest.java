@@ -44,7 +44,6 @@ import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.ui.event.SetActiveModuleRequest;
 import org.pdfsam.ui.event.SetTitleEvent;
-import org.pdfsam.ui.quickbar.ExpandButton;
 import org.sejda.eventstudio.Listener;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -93,23 +92,13 @@ public class WorkAreaTest {
         }
 
         @Bean
-        public ExpandButton expandButton() {
-            return new ExpandButton();
-        }
-
-        @Bean
-        public QuickbarModuleButtons buttons() {
-            return new QuickbarModuleButtons(provider());
-        }
-
-        @Bean
-        public QuickbarWrokarea quickbar() {
-            return new QuickbarWrokarea(expandButton(), buttons());
+        public QuickbarModuleButtonsPane buttons() {
+            return new QuickbarModuleButtonsPane(provider());
         }
 
         @Bean
         public WorkArea victim() {
-            return new WorkArea(modules(), quickbar());
+            return new WorkArea(modules(), buttons());
         }
 
     }

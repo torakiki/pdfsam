@@ -37,6 +37,8 @@ import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.Module;
 import org.pdfsam.ui.event.SetActiveModuleRequest;
 import org.pdfsam.ui.event.SetTitleEvent;
+import org.pdfsam.ui.quickbar.QuickbarPane;
+import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 
 /**
@@ -53,7 +55,8 @@ public class WorkArea extends BorderPane {
     private FadeTransition fade = new FadeTransition(new Duration(300), center);
 
     @Inject
-    public WorkArea(List<Module> modulesList, QuickbarWrokarea navigation) {
+    public WorkArea(List<Module> modulesList, QuickbarModuleButtonsPane modulesButtons) {
+        getStyleClass().addAll(Style.CONTAINER.css());
         Label emptyArea = new Label(DefaultI18nContext.getInstance().i18n("Please select a module"));
         emptyArea.getStyleClass().add("empty-notice");
         for (Module module : modulesList) {
@@ -62,7 +65,7 @@ public class WorkArea extends BorderPane {
         fade.setFromValue(0);
         fade.setToValue(1);
         center.getChildren().setAll(emptyArea);
-        setLeft(navigation);
+        setLeft(new QuickbarPane(modulesButtons));
         setCenter(center);
         eventStudio().addAnnotatedListeners(this);
     }

@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 03/set/2014
+ * Created on 04/set/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,16 +16,11 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.dashboard;
+package org.pdfsam.ui.quickbar;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
-import java.util.Arrays;
-
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.layout.Pane;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -33,53 +28,29 @@ import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.ui.quickbar.ExpandButton;
 
 /**
  * @author Andrea Vacondio
  *
  */
 @Category(TestFX.class)
-public class QuickbarDashboardPaneTest extends GuiTest {
+public class QuickbarPaneTest extends GuiTest {
 
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
 
     @Override
     protected Parent getRootNode() {
-        ExpandButton expandButton = new ExpandButton();
-        expandButton.setId("expand");
-        QuickbarDashboardButtons buttons = new QuickbarDashboardButtons(Arrays.asList(new DashboardItem() {
-
-            public int priority() {
-                return 0;
-            }
-
-            public Pane pane() {
-                return null;
-            }
-
-            public String name() {
-                return "name";
-            }
-
-            public String id() {
-                return "id";
-            }
-
-            public Node graphic() {
-                return null;
-            }
-        }));
+        BaseQuickbarButtonsPane buttons = new BaseQuickbarButtonsPane();
         buttons.setId("buttons");
-        return new QuickbarDashboardPane(expandButton, buttons);
+        return new QuickbarPane(buttons);
     }
 
     @Test
     public void click() {
-        QuickbarDashboardButtons buttons = find("#buttons");
+        BaseQuickbarButtonsPane buttons = find("#buttons");
         assertFalse(buttons.isDisplayText());
-        click("#expand");
+        click(".quickbar-expand-button");
         assertTrue(buttons.isDisplayText());
     }
 }

@@ -35,13 +35,13 @@ import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
  * @author Andrea Vacondio
  *
  */
-public class QuickbarDashboardButtonsTest {
+public class QuickbarDashboardButtonsPaneTest {
 
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
     @Rule
     public InitializeAndApplyJavaFxThreadRule javaFxThread = new InitializeAndApplyJavaFxThreadRule();
-    private QuickbarDashboardButtons victim;
+    private QuickbarDashboardButtonsPane victim;
 
     @Before
     public void setUp() {
@@ -51,7 +51,7 @@ public class QuickbarDashboardButtonsTest {
         DashboardItem item2 = mock(DashboardItem.class);
         when(item2.name()).thenReturn("name2");
         when(item2.id()).thenReturn("id2");
-        victim = new QuickbarDashboardButtons(Arrays.asList(item1, item2));
+        victim = new QuickbarDashboardButtonsPane(Arrays.asList(item1, item2));
     }
 
     @Test

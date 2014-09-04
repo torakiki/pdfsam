@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 02/mag/2014
+ * Created on 04/set/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,27 +16,21 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.dashboard;
+package org.pdfsam.ui.quickbar;
 
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-
-import org.pdfsam.ui.quickbar.ExpandButton;
-
 /**
- * Vertical panel holding the quick navigation icons to access dashboard items and an expand button to show descriptions.
+ * Panel showing quickbar buttons and having an expand/collapse feature
  * 
  * @author Andrea Vacondio
  *
  */
-@Named
-class QuickbarDashboardPane extends VBox {
+public class QuickbarPane extends VBox {
 
-    @Inject
-    public QuickbarDashboardPane(ExpandButton expandButton, QuickbarDashboardButtons items) {
+    public QuickbarPane(BaseQuickbarButtonsPane items) {
+        ExpandButton expandButton = new ExpandButton();
         getStyleClass().add("quickbar");
         items.displayTextProperty().bind(expandButton.selectedProperty());
         VBox buttonContainer = new VBox(expandButton, items);

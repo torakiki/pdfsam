@@ -39,13 +39,13 @@ import org.pdfsam.ui.event.SetActiveModuleRequest;
  * @author Andrea Vacondio
  *
  */
-public class QuickbarModuleButtonsTest {
+public class QuickbarModuleButtonsPaneTest {
 
     @Rule
     public InitializeAndApplyJavaFxThreadRule javaFxThread = new InitializeAndApplyJavaFxThreadRule();
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
-    private QuickbarModuleButtons victim;
+    private QuickbarModuleButtonsPane victim;
     private Set<ModuleButton> buttons;
 
     @Before
@@ -55,7 +55,7 @@ public class QuickbarModuleButtonsTest {
         buttons.add(new ModuleButton(new LowPriorityTestModule()));
         QuickbarModuleButtonsProvider provider = mock(QuickbarModuleButtonsProvider.class);
         when(provider.buttons()).thenReturn(buttons);
-        victim = new QuickbarModuleButtons(provider);
+        victim = new QuickbarModuleButtonsPane(provider);
     }
 
     @Test

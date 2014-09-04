@@ -23,14 +23,11 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.util.HashSet;
 import java.util.Set;
 
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.scene.layout.VBox;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.ui.event.SetActiveModuleRequest;
+import org.pdfsam.ui.quickbar.BaseQuickbarButtonsPane;
 import org.sejda.eventstudio.annotation.EventListener;
 
 /**
@@ -40,15 +37,14 @@ import org.sejda.eventstudio.annotation.EventListener;
  *
  */
 @Named
-class QuickbarModuleButtons extends VBox {
+class QuickbarModuleButtonsPane extends BaseQuickbarButtonsPane {
 
     private Set<ModuleButton> buttons = new HashSet<>();
 
     @Inject
-    QuickbarModuleButtons(QuickbarModuleButtonsProvider provider) {
-        this.getStyleClass().add("quickbar-items");
+    QuickbarModuleButtonsPane(QuickbarModuleButtonsProvider provider) {
         provider.buttons().forEach(b -> {
-            b.displayTextProperty().bind(displayText);
+            b.displayTextProperty().bind(displayTextProperty());
             getChildren().add(b);
             this.buttons.add(b);
         });
@@ -60,20 +56,4 @@ class QuickbarModuleButtons extends VBox {
         r.getActiveModuleId().ifPresent(id -> buttons.forEach((b) -> b.setSelected(b.moduleId().equals(id))));
     }
 
-    /**
-     * Property telling if the buttons labels should be visible
-     */
-    private BooleanProperty displayText = new SimpleBooleanProperty(false);
-
-    public final void setDisplayText(boolean value) {
-        displayTextProperty().set(value);
-    }
-
-    public final boolean isDisplayText() {
-        return displayText.get();
-    }
-
-    public final BooleanProperty displayTextProperty() {
-        return displayText;
-    }
 }

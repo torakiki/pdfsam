@@ -23,14 +23,11 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.util.ArrayList;
 import java.util.List;
 
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.scene.layout.VBox;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
+import org.pdfsam.ui.quickbar.BaseQuickbarButtonsPane;
 import org.sejda.eventstudio.annotation.EventListener;
 
 /**
@@ -40,16 +37,15 @@ import org.sejda.eventstudio.annotation.EventListener;
  *
  */
 @Named
-class QuickbarDashboardButtons extends VBox {
+class QuickbarDashboardButtonsPane extends BaseQuickbarButtonsPane {
 
     private List<DashboardButton> buttons = new ArrayList<>();
 
     @Inject
-    QuickbarDashboardButtons(List<DashboardItem> items) {
-        this.getStyleClass().add("quickbar-items");
+    QuickbarDashboardButtonsPane(List<DashboardItem> items) {
         items.stream().sorted((a, b) -> a.priority() - b.priority()).map(DashboardButton::new)
                 .forEach(currentButton -> {
-                    currentButton.displayTextProperty().bind(displayText);
+                    currentButton.displayTextProperty().bind(displayTextProperty());
                     getChildren().add(currentButton);
                     buttons.add(currentButton);
                 });
@@ -61,20 +57,4 @@ class QuickbarDashboardButtons extends VBox {
         buttons.forEach((b) -> b.selectIf(r.getActiveItemId()));
     }
 
-    /**
-     * Property telling if the buttons labels should be visible
-     */
-    private BooleanProperty displayText = new SimpleBooleanProperty(false);
-
-    public final void setDisplayText(boolean value) {
-        displayTextProperty().set(value);
-    }
-
-    public final boolean isDisplayText() {
-        return displayText.get();
-    }
-
-    public final BooleanProperty displayTextProperty() {
-        return displayText;
-    }
 }
