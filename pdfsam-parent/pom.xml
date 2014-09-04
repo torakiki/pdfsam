@@ -51,7 +51,7 @@
 		<hibernate-validator.version>4.2.0.Final</hibernate-validator.version>
 		<sejda.version>1.0.0.RELEASE-SNAPSHOT</sejda.version>
 		<eventstudio.version>1.0.2</eventstudio.version>
-		<org.springframework.version>4.0.6.RELEASE</org.springframework.version>
+		<org.springframework.version>4.1.0.RELEASE</org.springframework.version>
 		<fontawesomefx.version>8.0.9</fontawesomefx.version>
 		<testfx.version>3.1.2</testfx.version>
 		<jackson-jr.version>2.4.1</jackson-jr.version>
