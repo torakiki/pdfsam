@@ -28,12 +28,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.Pane;
 
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.mockito.ArgumentCaptor;
+import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.sejda.eventstudio.Listener;
 
@@ -43,6 +45,9 @@ import org.sejda.eventstudio.Listener;
  */
 @Category(TestFX.class)
 public class DashboardButtonTest extends GuiTest {
+
+    @Rule
+    public ClearEventStudioRule cleanStudio = new ClearEventStudioRule();
 
     @Override
     protected Parent getRootNode() {

@@ -35,7 +35,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -52,14 +51,16 @@ import org.sejda.eventstudio.annotation.EventListener;
  */
 @Named
 public class Dashboard extends BorderPane {
-    @Inject
-    private QuickbarDashboardPane navigation;
+
     private Map<String, DashboardContentPane> items = new HashMap<>();
     private StackPane center = new StackPane();
     private FadeTransition fade = new FadeTransition(new Duration(300), center);
 
-    public Dashboard() {
+    @Inject
+    public Dashboard(QuickbarDashboardPane navigation) {
         getStyleClass().addAll(Style.CONTAINER.css());
+        setLeft(navigation);
+        eventStudio().addAnnotatedListeners(this);
     }
 
     @Inject
@@ -68,12 +69,6 @@ public class Dashboard extends BorderPane {
         fade.setFromValue(0);
         fade.setToValue(1);
         setCenter(center);
-    }
-
-    @PostConstruct
-    private void init() {
-        setLeft(navigation);
-        eventStudio().addAnnotatedListeners(this);
     }
 
     @EventListener

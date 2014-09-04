@@ -25,6 +25,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.ui.dashboard.about.AboutDashboardPane;
 
 import de.jensd.fx.fontawesome.AwesomeDude;
 import de.jensd.fx.fontawesome.AwesomeIcon;

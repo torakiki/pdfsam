@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.dashboard;
+package org.pdfsam.ui.dashboard.about;
 
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -40,7 +40,7 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
  * 
  */
 @Named
-class AboutDashboardPane extends HBox {
+public class AboutDashboardPane extends HBox {
 
     @Inject
     public AboutDashboardPane(@Named("appName") String name, @Named("appVersion") String version) {
