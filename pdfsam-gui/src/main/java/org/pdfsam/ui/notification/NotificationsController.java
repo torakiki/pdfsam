@@ -89,8 +89,8 @@ public class NotificationsController {
     public void onUpdateAvailable(UpdateAvailableEvent event) {
         VBox content = new VBox(3, buildLabel(
                 DefaultI18nContext.getInstance().i18n("PDFsam {0} is available for download",
-                        event.getAvailableVersion()), NotificationType.INFO), new UrlButton("Download",
-                "http://www.pdfsam.org/download"));
+                        event.getAvailableVersion()), NotificationType.INFO), new UrlButton(DefaultI18nContext
+                .getInstance().i18n("Download"), "http://www.pdfsam.org/download"));
         content.setAlignment(Pos.TOP_RIGHT);
 
         container.addStickyNotification(DefaultI18nContext.getInstance().i18n("New version available"), content);
