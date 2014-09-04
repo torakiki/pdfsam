@@ -36,7 +36,7 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
  *
  */
 @Named
-public class ModulesDashboardItem implements DashboardItem {
+class ModulesDashboardItem implements DashboardItem {
 
     private ModulesDashboardPane pane;
 
