@@ -90,7 +90,7 @@ public class DashboardTest {
 
         @Bean
         public Dashboard victim() {
-            return new Dashboard(items(), buttons());
+            return new Dashboard(items());
         }
     }
 

@@ -24,22 +24,13 @@ import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.Parent;
 
-import javax.inject.Inject;
-
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.sejda.eventstudio.Listener;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import de.jensd.fx.fontawesome.AwesomeIcon;
 
@@ -48,30 +39,11 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
  *
  */
 @Category(TestFX.class)
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration
 public class DashboardButtonTest extends GuiTest {
-
-    @Inject
-    private ApplicationContext applicationContext;
 
     @Override
     protected Parent getRootNode() {
-        return applicationContext.getBean(DashboardButton.class);
-    }
-
-    @Configuration
-    static class Config {
-        @Bean
-        @Lazy
-        public DashboardButton victim() {
-            return new DashboardButton();
-        }
-
-        @Bean(name = "defaultDashboardItemId")
-        public String id() {
-            return "itemId";
-        }
+        return new DashboardButton("itemId");
     }
 
     @Test

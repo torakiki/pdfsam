@@ -98,7 +98,7 @@ public class WorkAreaTest {
 
         @Bean
         public WorkArea victim() {
-            return new WorkArea(modules(), buttons());
+            return new WorkArea(modules());
         }
     }
 

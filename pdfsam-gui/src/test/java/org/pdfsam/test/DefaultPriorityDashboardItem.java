@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 20/nov/2013
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 05/set/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,28 +16,39 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui;
+package org.pdfsam.test;
 
-import javafx.scene.layout.Priority;
+import javafx.scene.Node;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-
-import org.pdfsam.ui.banner.BannerPane;
+import org.pdfsam.ui.dashboard.DashboardItem;
 
 /**
- * Main panel containing menu, banner and the content area
- * 
  * @author Andrea Vacondio
- * 
+ *
  */
-@Named
-public class MainPane extends VBox {
+public class DefaultPriorityDashboardItem implements DashboardItem {
+    public static final String ID = "test.item";
 
-    @Inject
-    public MainPane(ContentPane mainPane, BannerPane banner) {
-        VBox.setVgrow(mainPane, Priority.ALWAYS);
-        getChildren().addAll(banner, mainPane);
+    public String id() {
+        return ID;
     }
+
+    public String name() {
+        return "name";
+    }
+
+    public Pane pane() {
+        return new VBox();
+    }
+
+    public Node graphic() {
+        return null;
+    }
+
+    public int priority() {
+        return 0;
+    }
+
 }

@@ -21,7 +21,6 @@ package org.pdfsam.ui;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.layout.StackPane;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -40,28 +39,28 @@ import org.sejda.eventstudio.annotation.EventListener;
 @Named
 public class ContentPane extends StackPane {
 
-    @Inject
     private WorkArea modules;
-    @Inject
     private Dashboard dashboard;
-    @Inject
-    @Named("defaultDashboardItemId")
-    private String defaultDasboardItem;
 
-    @PostConstruct
-    private void init() {
+    @Inject
+    public ContentPane(WorkArea modules, Dashboard dashboard,
+            @Named("defaultDashboardItemId") String defaultDasboardItem) {
+        this.modules = modules;
+        this.dashboard = dashboard;
         getChildren().addAll(modules, dashboard);
         eventStudio().addAnnotatedListeners(this);
         eventStudio().broadcast(new SetActiveDashboardItemRequest(defaultDasboardItem));
     }
 
     @EventListener(priority = Integer.MIN_VALUE)
+    @SuppressWarnings("unused")
     public void onSetActiveModule(SetActiveModuleRequest request) {
         dashboard.setVisible(false);
         modules.setVisible(true);
     }
 
     @EventListener(priority = Integer.MIN_VALUE)
+    @SuppressWarnings("unused")
     public void onSetActiveDashboardItem(SetActiveDashboardItemRequest request) {
         dashboard.setVisible(true);
         modules.setVisible(false);

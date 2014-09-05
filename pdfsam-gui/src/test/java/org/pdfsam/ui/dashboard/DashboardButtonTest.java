@@ -24,9 +24,7 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.layout.Pane;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -36,6 +34,7 @@ import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.test.DefaultPriorityDashboardItem;
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.sejda.eventstudio.Listener;
 
@@ -51,28 +50,7 @@ public class DashboardButtonTest extends GuiTest {
 
     @Override
     protected Parent getRootNode() {
-        return new DashboardButton(new DashboardItem() {
-
-            public int priority() {
-                return 0;
-            }
-
-            public Pane pane() {
-                return null;
-            }
-
-            public String name() {
-                return "name";
-            }
-
-            public String id() {
-                return "id";
-            }
-
-            public Node graphic() {
-                return null;
-            }
-        });
+        return new DashboardButton(new DefaultPriorityDashboardItem());
     }
 
     @Test
@@ -83,7 +61,7 @@ public class DashboardButtonTest extends GuiTest {
         ArgumentCaptor<SetActiveDashboardItemRequest> captor = ArgumentCaptor
                 .forClass(SetActiveDashboardItemRequest.class);
         verify(listener).onEvent(captor.capture());
-        assertEquals("id", captor.getValue().getActiveItemId());
+        assertEquals(DefaultPriorityDashboardItem.ID, captor.getValue().getActiveItemId());
     }
 
     @Test
@@ -92,7 +70,7 @@ public class DashboardButtonTest extends GuiTest {
         assertFalse(victim.isSelected());
         victim.selectIf("ImNotMatching");
         assertFalse(victim.isSelected());
-        FXTestUtils.invokeAndWait(() -> victim.selectIf("id"), 1);
+        FXTestUtils.invokeAndWait(() -> victim.selectIf(DefaultPriorityDashboardItem.ID), 1);
         assertTrue(victim.isSelected());
     }
 }

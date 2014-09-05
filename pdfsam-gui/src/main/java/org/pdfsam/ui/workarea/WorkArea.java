@@ -55,7 +55,7 @@ public class WorkArea extends BorderPane {
     private FadeTransition fade = new FadeTransition(new Duration(300), center);
 
     @Inject
-    public WorkArea(List<Module> modulesList, QuickbarModuleButtonsPane modulesButtons) {
+    public WorkArea(List<Module> modulesList) {
         getStyleClass().addAll(Style.CONTAINER.css());
         Label emptyArea = new Label(DefaultI18nContext.getInstance().i18n("Please select a module"));
         emptyArea.getStyleClass().add("empty-notice");
@@ -65,9 +65,13 @@ public class WorkArea extends BorderPane {
         fade.setFromValue(0);
         fade.setToValue(1);
         center.getChildren().setAll(emptyArea);
-        setLeft(new QuickbarPane(modulesButtons));
         setCenter(center);
         eventStudio().addAnnotatedListeners(this);
+    }
+
+    @Inject
+    void setModulesPane(QuickbarModuleButtonsPane modulesButtons) {
+        setLeft(new QuickbarPane(modulesButtons));
     }
 
     @EventListener

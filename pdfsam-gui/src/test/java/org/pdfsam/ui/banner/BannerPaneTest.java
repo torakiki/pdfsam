@@ -95,7 +95,7 @@ public class BannerPaneTest extends GuiTest {
 
         @Bean
         public DashboardButton dashboardButton() {
-            return new DashboardButton();
+            return new DashboardButton(id());
         }
 
         @Bean(name = "defaultDashboardItemId")

@@ -51,14 +51,18 @@ public class Dashboard extends BorderPane {
     private FadeTransition fade = new FadeTransition(new Duration(300), center);
 
     @Inject
-    public Dashboard(List<DashboardItem> itemsList, QuickbarDashboardButtonsPane dashboardButtons) {
+    public Dashboard(List<DashboardItem> itemsList) {
         getStyleClass().addAll(Style.CONTAINER.css());
         itemsList.stream().forEach(i -> items.put(i.id(), new DashboardItemPane(i)));
         fade.setFromValue(0);
         fade.setToValue(1);
         setCenter(center);
-        setLeft(new QuickbarPane(dashboardButtons));
         eventStudio().addAnnotatedListeners(this);
+    }
+
+    @Inject
+    void setDashboardButtonsPane(QuickbarDashboardButtonsPane dashboardButtons) {
+        setLeft(new QuickbarPane(dashboardButtons));
     }
 
     @EventListener

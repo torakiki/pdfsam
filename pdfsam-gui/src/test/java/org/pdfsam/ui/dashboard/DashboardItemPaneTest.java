@@ -22,10 +22,7 @@ import static org.junit.Assert.assertFalse;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -34,6 +31,7 @@ import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.test.DefaultPriorityDashboardItem;
 import org.pdfsam.ui.event.SetActiveModuleRequest;
 import org.sejda.eventstudio.Listener;
 
@@ -49,28 +47,7 @@ public class DashboardItemPaneTest extends GuiTest {
 
     @Override
     protected Parent getRootNode() {
-        return new DashboardItemPane(new DashboardItem() {
-
-            public int priority() {
-                return 0;
-            }
-
-            public Pane pane() {
-                return new VBox();
-            }
-
-            public String name() {
-                return "name";
-            }
-
-            public String id() {
-                return "id";
-            }
-
-            public Node graphic() {
-                return null;
-            }
-        });
+        return new DashboardItemPane(new DefaultPriorityDashboardItem());
     }
 
     @Test
