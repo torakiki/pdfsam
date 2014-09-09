@@ -59,11 +59,7 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
 
     private AlternateMixSingleSelectionPane firstDocument;
     private AlternateMixSingleSelectionPane secondDocument;
-    @Inject
-    @Named(MODULE_ID + "field")
     private BrowsablePdfOutputField destinationFileField;
-    @Inject
-    @Named(MODULE_ID + "pane")
     private PdfDestinationPane destinationPane;
     private AlternateMixOptionsPane optionsPane = new AlternateMixOptionsPane();
     private ModuleDescriptor descriptor = builder()
@@ -74,7 +70,11 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
                             "Merge two PDF documents taking pages alternately in straight or reverse order."))
             .priority(ModulePriority.DEFAULT.getPriority()).supportURL("http://www.pdfsam.org/alternate-mix").build();
 
-    public AlternateMixModule() {
+    @Inject
+    public AlternateMixModule(@Named(MODULE_ID + "field") BrowsablePdfOutputField destinationFileField,
+            @Named(MODULE_ID + "pane") PdfDestinationPane destinationPane) {
+        this.destinationFileField = destinationFileField;
+        this.destinationPane = destinationPane;
         this.firstDocument = new AlternateMixSingleSelectionPane(id()) {
             @Override
             void onValidSource(AlternateMixParametersBuilder builder, PdfFileSource source) {
