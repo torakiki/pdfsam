@@ -48,9 +48,11 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
     MergeOptionsPane() {
         super(5);
         this.containsForms = new CheckBox(DefaultI18nContext.getInstance().i18n("Merge form fields"));
+        this.containsForms.setId("containsFormCheck");
         this.containsForms.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
                 "Some of the selected PDF documents contain forms, merge them")));
         this.blankIfOdd = new CheckBox(DefaultI18nContext.getInstance().i18n("Add a blank page if page number is odd"));
+        this.blankIfOdd.setId("blankIfOddCheck");
         this.blankIfOdd.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
                 "Adds a blank page after each merged document if the document has an odd number of pages")));
 
