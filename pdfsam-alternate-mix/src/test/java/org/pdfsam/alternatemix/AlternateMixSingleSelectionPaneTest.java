@@ -18,33 +18,40 @@
  */
 package org.pdfsam.alternatemix;
 
+import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
+import java.io.File;
 import java.util.function.Consumer;
 
 import javafx.scene.Parent;
 
 import org.junit.Before;
-import org.junit.ClassRule;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.junit.rules.TemporaryFolder;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.ui.commons.ValidableTextField;
+import org.sejda.model.input.PdfFileSource;
 
 /**
  * @author Andrea Vacondio
  *
  */
 @Category(TestFX.class)
-public class AlternateMixOptionsPaneTest extends GuiTest {
-
-    @ClassRule
-    public static ClearEventStudioRule CLEAR_STUDIO = new ClearEventStudioRule();
+public class AlternateMixSingleSelectionPaneTest extends GuiTest {
+    private static final String MODULE = "MODULE";
+    @Rule
+    public ClearEventStudioRule clear = new ClearEventStudioRule(MODULE);
+    @Rule
+    public TemporaryFolder folder = new TemporaryFolder();
     private AlternateMixParametersBuilder builder;
     private Consumer<String> onError;
 
@@ -56,33 +63,38 @@ public class AlternateMixOptionsPaneTest extends GuiTest {
 
     @Override
     protected Parent getRootNode() {
-        return new AlternateMixOptionsPane();
+        AlternateMixSingleSelectionPane victim = new AlternateMixSingleSelectionPane(MODULE) {
+            @Override
+            void onValidSource(AlternateMixParametersBuilder builder, PdfFileSource source) {
+                builder.first(source);
+            }
+        };
+        victim.setId("victim");
+        return victim;
     }
 
     @Test
-    public void invalidFirstStep() throws Exception {
-        click("#alternateMixFirstStep").type('f');
-        AlternateMixOptionsPane victim = find(".pdfsam-container");
+    public void invalidFile() throws Exception {
+        AlternateMixSingleSelectionPane victim = find("#victim");
+        File file = folder.newFile("Chuck.norris");
+        typePath(file.getAbsolutePath());
         FXTestUtils.invokeAndWait(() -> victim.apply(builder, onError), 2);
         verify(onError).accept(anyString());
     }
 
     @Test
-    public void invalidSecondStep() throws Exception {
-        click("#alternateMixSecondStep").type('f');
-        AlternateMixOptionsPane victim = find(".pdfsam-container");
+    public void validFile() throws Exception {
+        AlternateMixSingleSelectionPane victim = find("#victim");
+        File file = folder.newFile("my.pdf");
+        typePath(file.getAbsolutePath());
         FXTestUtils.invokeAndWait(() -> victim.apply(builder, onError), 2);
-        verify(onError).accept(anyString());
-    }
-
-    @Test
-    public void validSteps() throws Exception {
-        doubleClick("#alternateMixFirstStep").type('3');
-        doubleClick("#alternateMixSecondStep").type('2');
-        AlternateMixOptionsPane victim = find(".pdfsam-container");
-        FXTestUtils.invokeAndWait(() -> victim.apply(builder, onError), 2);
-        verify(builder).stepFirst(3);
-        verify(builder).stepSecond(2);
         verify(onError, never()).accept(anyString());
+        verify(builder).first(any());
+    }
+
+    private void typePath(String path) throws Exception {
+        ValidableTextField field = find(".validable-container-field");
+        // TODO replace with typing when slash works
+        FXTestUtils.invokeAndWait(() -> field.setText(path), 2);
     }
 }
