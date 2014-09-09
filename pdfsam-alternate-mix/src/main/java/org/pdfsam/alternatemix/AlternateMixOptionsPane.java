@@ -48,6 +48,8 @@ class AlternateMixOptionsPane extends VBox implements TaskParametersBuildStep<Al
     AlternateMixOptionsPane() {
         super(Style.DEFAULT_SPACING);
         this.reverseSecond.setSelected(true);
+        this.firstStep.setId("alternateMixFirstStep");
+        this.secondStep.setId("alternateMixSecondStep");
         getStyleClass().addAll(Style.CONTAINER.css());
         HBox firstStepContainer = new HBox(new Label(DefaultI18nContext.getInstance().i18n(
                 "Switch from the first document to the second one after the following pages")), firstStep);
