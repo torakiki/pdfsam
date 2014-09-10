@@ -62,17 +62,20 @@ public class RotateModule extends BaseTaskExecutionModule {
 
     private RotateSelectionPane selectionPane = new RotateSelectionPane(MODULE_ID);
     private RotateOptionsPane rotateOptions = new RotateOptionsPane();
-    @Inject
-    @Named(MODULE_ID + "field")
-    private BrowsableOutputDirectoryField destinationFileField;
-    @Inject
-    @Named(MODULE_ID + "pane")
+    private BrowsableOutputDirectoryField destinationDirectoryField;
     private PdfDestinationPane destinationPane;
     private PrefixPane prefix = new PrefixPane();
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.OTHER)
             .name(DefaultI18nContext.getInstance().i18n("Rotate"))
             .description(DefaultI18nContext.getInstance().i18n("Rotate the pages of multiple PDF documents."))
             .priority(ModulePriority.DEFAULT.getPriority()).supportURL("http://www.pdfsam.org/pdf-rotate").build();
+
+    @Inject
+    public RotateModule(@Named(MODULE_ID + "field") BrowsableOutputDirectoryField destinationDirectoryField,
+            @Named(MODULE_ID + "pane") PdfDestinationPane destinationPane) {
+        this.destinationDirectoryField = destinationDirectoryField;
+        this.destinationPane = destinationPane;
+    }
 
     @Override
     public ModuleDescriptor descriptor() {
@@ -84,7 +87,7 @@ public class RotateModule extends BaseTaskExecutionModule {
         RotateParametersBuilder builder = new RotateParametersBuilder();
         selectionPane.apply(builder, onError);
         rotateOptions.apply(builder, onError);
-        destinationFileField.apply(builder, onError);
+        destinationDirectoryField.apply(builder, onError);
         destinationPane.apply(builder, onError);
         prefix.apply(builder, onError);
         return builder;
