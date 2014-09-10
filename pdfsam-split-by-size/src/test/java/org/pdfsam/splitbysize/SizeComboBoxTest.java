@@ -33,11 +33,13 @@ import javafx.scene.Parent;
 import javafx.scene.input.KeyCode;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
+import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
 
@@ -47,7 +49,8 @@ import org.pdfsam.ui.support.Style;
  */
 @Category(TestFX.class)
 public class SizeComboBoxTest extends GuiTest {
-
+    @Rule
+    public ClearEventStudioRule clear = new ClearEventStudioRule();
     private SplitBySizeParametersBuilder builder;
     private Consumer<String> onError;
 

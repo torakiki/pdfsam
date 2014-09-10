@@ -30,18 +30,13 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.io.File;
 import java.util.function.Consumer;
 
-import javafx.scene.Parent;
-
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.ui.selection.multiple.SelectionTableRowData;
 import org.sejda.conversion.exception.ConversionException;
 
@@ -49,13 +44,15 @@ import org.sejda.conversion.exception.ConversionException;
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class MergeSelectionPaneTest extends GuiTest {
+public class MergeSelectionPaneTest {
     private static final String MODULE = "MODULE";
     @Rule
     public ClearEventStudioRule clear = new ClearEventStudioRule(MODULE);
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
+    @Rule
+    public InitializeAndApplyJavaFxThreadRule javaFxThread = new InitializeAndApplyJavaFxThreadRule();
+    private MergeSelectionPane victim;
     private MergeParametersBuilder builder;
     private Consumer<String> onError;
 
@@ -63,38 +60,29 @@ public class MergeSelectionPaneTest extends GuiTest {
     public void setUp() {
         builder = mock(MergeParametersBuilder.class);
         onError = mock(Consumer.class);
-    }
-
-    @Override
-    protected Parent getRootNode() {
-        MergeSelectionPane victim = new MergeSelectionPane(MODULE);
-        victim.setId("victim");
-        return victim;
+        victim = new MergeSelectionPane(MODULE);
     }
 
     @Test
-    public void empty() throws Exception {
-        MergeSelectionPane victim = find("#victim");
-        FXTestUtils.invokeAndWait(() -> victim.apply(builder, onError), 2);
+    public void empty() {
+        victim.apply(builder, onError);
         verify(onError).accept(anyString());
         verify(builder, never()).addInput(any());
     }
 
     @Test
     public void notEmpty() throws Exception {
-        MergeSelectionPane victim = find("#victim");
         populate();
-        FXTestUtils.invokeAndWait(() -> victim.apply(builder, onError), 2);
+        victim.apply(builder, onError);
         verify(onError, never()).accept(anyString());
         verify(builder).addInput(any());
     }
 
     @Test
     public void converstionException() throws Exception {
-        MergeSelectionPane victim = find("#victim");
         populate();
         doThrow(new ConversionException("message")).when(builder).addInput(any());
-        FXTestUtils.invokeAndWait(() -> victim.apply(builder, onError), 2);
+        victim.apply(builder, onError);
         verify(builder).addInput(any());
         verify(onError).accept(eq("message"));
     }
@@ -103,8 +91,6 @@ public class MergeSelectionPaneTest extends GuiTest {
         File file = folder.newFile("temp.pdf");
         PdfLoadRequestEvent<SelectionTableRowData> loadEvent = new PdfLoadRequestEvent<>(MODULE);
         loadEvent.add(new SelectionTableRowData(file));
-        FXTestUtils.invokeAndWait(() -> {
-            eventStudio().broadcast(loadEvent, MODULE);
-        }, 2);
+        eventStudio().broadcast(loadEvent, MODULE);
     }
 }
