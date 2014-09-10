@@ -63,11 +63,7 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
     private static final String MODULE_ID = "split.bysize";
 
     private TaskParametersBuilderSingleSelectionPane selectionPane;
-    @Inject
-    @Named(MODULE_ID + "field")
     private BrowsableOutputDirectoryField destinationDirectoryField;
-    @Inject
-    @Named(MODULE_ID + "pane")
     private PdfDestinationPane destinationPane;
     private SplitOptionsPane splitOptions = new SplitOptionsPane();
     private PrefixPane prefix = new PrefixPane();
@@ -78,7 +74,11 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
                     DefaultI18nContext.getInstance().i18n("Split a pdf document in files of the give size (roughly)."))
             .priority(ModulePriority.LOW.getPriority()).supportURL("http://www.pdfsam.org/pdf-split-by-size").build();
 
-    public SplitBySizeModule() {
+    @Inject
+    public SplitBySizeModule(@Named(MODULE_ID + "field") BrowsableOutputDirectoryField destinationDirectoryField,
+            @Named(MODULE_ID + "pane") PdfDestinationPane destinationPane) {
+        this.destinationDirectoryField = destinationDirectoryField;
+        this.destinationPane = destinationPane;
         this.selectionPane = new TaskParametersBuilderSingleSelectionPane(id());
         this.selectionPane.setPromptText(DefaultI18nContext.getInstance().i18n(
                 "Select or drag and drop the PDF you want to split"));
