@@ -42,7 +42,7 @@ public class MenuConfig {
 
     @Bean
     public AppContextMenu menu() {
-        return spy(new AppContextMenu());
+        return spy(new AppContextMenu(workspaceMenu(), modulesMenu()));
     }
 
     @Bean

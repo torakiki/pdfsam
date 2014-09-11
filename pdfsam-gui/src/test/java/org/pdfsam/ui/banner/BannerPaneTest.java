@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.banner;
 
-import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.mock;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.IOException;
@@ -114,7 +114,7 @@ public class BannerPaneTest extends GuiTest {
 
         @Bean
         public AppContextMenu menu() {
-            return spy(new AppContextMenu());
+            return mock(AppContextMenu.class);
         }
 
         @Bean(name = "defaultDashboardItemId")

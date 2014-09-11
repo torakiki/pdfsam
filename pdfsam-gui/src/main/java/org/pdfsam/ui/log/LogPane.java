@@ -35,7 +35,6 @@ import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -55,16 +54,12 @@ import org.pdfsam.ui.support.Style;
 @Named
 public class LogPane extends BorderPane {
 
+    private LogListView logView;
     @Inject
-    public LogListView logView;
-
-    public LogPane() {
+    public LogPane(LogListView view) {
+        this.logView = view;
         getStyleClass().addAll(Style.CONTAINER.css());
-    }
-
-    @PostConstruct
-    private void postContrsutct() {
-        setCenter(logView);
+        setCenter(this.logView);
 
         I18nContext i18n = DefaultI18nContext.getInstance();
         MenuItem copyItem = new MenuItem(i18n.i18n("Copy"));

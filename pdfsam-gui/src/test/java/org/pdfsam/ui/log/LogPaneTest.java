@@ -60,7 +60,7 @@ public class LogPaneTest extends GuiTest {
         @Bean
         @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
         public LogPane pane() {
-            return new LogPane();
+            return new LogPane(view());
         }
 
         @Bean

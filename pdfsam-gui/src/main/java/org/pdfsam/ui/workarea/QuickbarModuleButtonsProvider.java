@@ -51,14 +51,14 @@ class QuickbarModuleButtonsProvider {
     }
 
     public Set<ModuleButton> buttons() {
-        LinkedHashSet<ModuleButton> collected = new LinkedHashSet<>();
+        Set<ModuleButton> collected = new LinkedHashSet<>();
         fillWithMostRecentlyUsed(collected);
         fillWithMostUsed(collected);
         fillWithPrioritized(collected);
         return collected;
     }
 
-    private void fillWithMostUsed(LinkedHashSet<ModuleButton> collected) {
+    private void fillWithMostUsed(Set<ModuleButton> collected) {
         for (Module current : service.getMostUsed()) {
             if (collected.size() >= MAX_MODULES) {
                 break;
@@ -67,7 +67,7 @@ class QuickbarModuleButtonsProvider {
         }
     }
 
-    private void fillWithMostRecentlyUsed(LinkedHashSet<ModuleButton> collected) {
+    private void fillWithMostRecentlyUsed(Set<ModuleButton> collected) {
         for (Module current : service.getMostRecentlyUsed()) {
             if (collected.size() >= RECENT_MODULES) {
                 break;
@@ -76,7 +76,7 @@ class QuickbarModuleButtonsProvider {
         }
     }
 
-    private void fillWithPrioritized(LinkedHashSet<ModuleButton> collected) {
+    private void fillWithPrioritized(Set<ModuleButton> collected) {
         for (Module current : modules) {
             if (collected.size() >= MAX_MODULES) {
                 break;

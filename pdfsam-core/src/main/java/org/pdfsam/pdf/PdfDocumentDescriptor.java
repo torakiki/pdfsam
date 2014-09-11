@@ -75,7 +75,7 @@ public class PdfDocumentDescriptor {
         return StringUtils.defaultString(metadata.get(key));
     }
 
-    public void setInformationDictionary(HashMap<String, String> info) {
+    public void setInformationDictionary(Map<String, String> info) {
         metadata.clear();
         metadata.putAll(info);
     }
