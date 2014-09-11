@@ -37,12 +37,10 @@ public enum MoveType {
         @Override
         public <T extends PdfDocumentDescriptor> SelectionAndFocus move(Integer[] selected, ObservableList<T> items,
                 int focused) {
-            if (isSingleSelection(selected, items)) {
-                if (selected[0] > 0) {
-                    T item = items.remove(selected[0].intValue());
-                    items.add(0, item);
-                    return new SingleSelectionAndFocus(0);
-                }
+            if (isSingleSelection(selected, items) && isNotFirst(selected)) {
+                T item = items.remove(selected[0].intValue());
+                items.add(0, item);
+                return new SingleSelectionAndFocus(0);
             }
             return SelectionAndFocus.NULL;
         }
@@ -54,7 +52,7 @@ public enum MoveType {
             if (isSubselection(selected, items)) {
                 MultipleSelectionAndFocus newSelection = new MultipleSelectionAndFocus(focused);
                 Arrays.parallelSort(selected);
-                if (selected[0] > 0) {
+                if (isNotFirst(selected)) {
                     Arrays.stream(selected).forEach((i) -> {
                         Collections.swap(items, i, i - 1);
                         newSelection.moveUp(i);
@@ -72,7 +70,7 @@ public enum MoveType {
             if (isSubselection(selected, items)) {
                 MultipleSelectionAndFocus newSelection = new MultipleSelectionAndFocus(focused);
                 Arrays.parallelSort(selected, Collections.reverseOrder(Integer::compare));
-                if (selected[0] < items.size() - 1) {
+                if (isNotLast(selected, items)) {
                     Arrays.stream(selected).forEach((i) -> {
                         Collections.swap(items, i, i + 1);
                         newSelection.moveDown(i);
@@ -87,16 +85,23 @@ public enum MoveType {
         @Override
         public <T extends PdfDocumentDescriptor> SelectionAndFocus move(Integer[] selected, ObservableList<T> items,
                 int focused) {
-            if (isSingleSelection(selected, items)) {
-                if (selected[0] < items.size() - 1) {
-                    T item = items.remove(selected[0].intValue());
-                    items.add(items.size(), item);
-                    return new SingleSelectionAndFocus(items.size() - 1);
-                }
+            if (isSingleSelection(selected, items) && isNotLast(selected, items)) {
+                T item = items.remove(selected[0].intValue());
+                items.add(items.size(), item);
+                return new SingleSelectionAndFocus(items.size() - 1);
             }
             return SelectionAndFocus.NULL;
         }
     };
+
+    boolean isNotFirst(Integer[] selected) {
+        return selected[0] > 0;
+    }
+
+    boolean isNotLast(Integer[] selected, ObservableList<?> items) {
+        return selected[0] < items.size() - 1;
+    }
+
     boolean isSubselection(Integer[] toMove, ObservableList<?> items) {
         return !ArrayUtils.isEmpty(toMove) && toMove.length < items.size();
     }

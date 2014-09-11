@@ -138,9 +138,9 @@ public class SplitModule extends BaseTaskExecutionModule {
         @Bean(name = MODULE_ID + "pane")
         public PdfDestinationPane destinationPane(
                 @Named(MODULE_ID + "field") BrowsableOutputDirectoryField outputField, UserContext userContext) {
-            PdfDestinationPane destinationPane = new PdfDestinationPane(outputField, MODULE_ID, userContext);
-            destinationPane.enableSameAsSourceItem();
-            return destinationPane;
+            PdfDestinationPane panel = new PdfDestinationPane(outputField, MODULE_ID, userContext);
+            panel.enableSameAsSourceItem();
+            return panel;
         }
     }
 }

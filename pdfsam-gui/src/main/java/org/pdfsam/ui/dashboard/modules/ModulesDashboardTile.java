@@ -69,10 +69,10 @@ class ModulesDashboardTile extends Region {
         inner.getStyleClass().add("dashboard-modules-tile-inner");
         getChildren().add(inner);
         module.descriptor().getSupportURL().ifPresent(url -> {
-            Button button = AwesomeDude.createIconButton(AwesomeIcon.YOUTUBE_PLAY, "");
-            button.getStyleClass().add("pdfsam-toolbar-button");
-            button.setOnAction(e -> eventStudio().broadcast(new OpenUrlRequest(url)));
-            toolButtons.getChildren().add(button);
+            Button playButton = AwesomeDude.createIconButton(AwesomeIcon.YOUTUBE_PLAY, "");
+            playButton.getStyleClass().add("pdfsam-toolbar-button");
+            playButton.setOnAction(e -> eventStudio().broadcast(new OpenUrlRequest(url)));
+            toolButtons.getChildren().add(playButton);
             toolButtons.getStyleClass().add("dashboard-modules-toolbar");
             inner.getChildren().add(toolButtons);
         });
