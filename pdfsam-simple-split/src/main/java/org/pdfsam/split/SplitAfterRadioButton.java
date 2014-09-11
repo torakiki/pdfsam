@@ -40,27 +40,23 @@ import org.sejda.model.parameter.SplitByPagesParameters;
  */
 class SplitAfterRadioButton extends RadioButton implements SplitParametersBuilderCreator {
 
-    private final ValidableTextField field = new ValidableTextField();
+    private final ValidableTextField field;
 
-    public SplitAfterRadioButton() {
+    public SplitAfterRadioButton(ValidableTextField field) {
         super(DefaultI18nContext.getInstance().i18n("Split after the following page numbers"));
-        field.setOnEnterValidation(true);
-        field.setEnableInvalidStyle(true);
-        field.setPromptText(DefaultI18nContext.getInstance().i18n("Page numbers to split at (n1,n2,n3..)"));
+        this.field = field;
+        this.field.setOnEnterValidation(true);
+        this.field.setEnableInvalidStyle(true);
+        this.field.setPromptText(DefaultI18nContext.getInstance().i18n("Page numbers to split at (n1,n2,n3..)"));
         setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Split the document after the given page numbers")));
-        field.setValidator(Validators.newRegexMatchingString("^([0-9]+,?)+$"));
-        field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Invalid page numbers"));
-    }
-
-    ValidableTextField getField() {
-        return field;
+        this.field.setValidator(Validators.newRegexMatchingString("^([0-9]+,?)+$"));
+        this.field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Invalid page numbers"));
     }
 
     public SplitByPageParametersBuilder getBuilder(Consumer<String> onError) {
         this.field.validate();
         if (this.field.getValidationState() == ValidationState.VALID) {
             return new SplitByPageParametersBuilder(new PageNumbersListAdapter(this.field.getText()).getPageNumbers());
-
         }
         onError.accept(DefaultI18nContext.getInstance().i18n("Invalid page numbers"));
         return null;
@@ -72,7 +68,7 @@ class SplitAfterRadioButton extends RadioButton implements SplitParametersBuilde
      * @author Andrea Vacondio
      *
      */
-    private static class SplitByPageParametersBuilder extends
+    static class SplitByPageParametersBuilder extends
             SinglePdfSourceMultipleOutputParametersBuilder<SplitByPagesParameters> {
 
         private List<Integer> pages;

@@ -38,17 +38,18 @@ import org.sejda.model.parameter.SplitByEveryXPagesParameters;
  */
 public class SplitByEveryRadioButton extends RadioButton implements SplitParametersBuilderCreator {
 
-    private final ValidableTextField field = new ValidableTextField();
+    private final ValidableTextField field;
 
-    public SplitByEveryRadioButton() {
+    public SplitByEveryRadioButton(ValidableTextField field) {
         super(DefaultI18nContext.getInstance().i18n("Split by every \"n\" pages"));
-        field.setOnEnterValidation(true);
-        field.setEnableInvalidStyle(true);
-        field.setPromptText(DefaultI18nContext.getInstance().i18n("Number of pages"));
+        this.field = field;
+        this.field.setOnEnterValidation(true);
+        this.field.setEnableInvalidStyle(true);
+        this.field.setPromptText(DefaultI18nContext.getInstance().i18n("Number of pages"));
         setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
                 "Splits the pdf every \"n\" pages creating documents of \"n\" pages each")));
-        field.setValidator(Validators.newRegexMatchingString("^(\\d)+$"));
-        field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Invalid number of pages"));
+        this.field.setValidator(Validators.newRegexMatchingString("^(\\d)+$"));
+        this.field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Invalid number of pages"));
     }
 
     public SplitByEveryXPagesParametersBuilder getBuilder(Consumer<String> onError) {
@@ -60,17 +61,13 @@ public class SplitByEveryRadioButton extends RadioButton implements SplitParamet
         return null;
     }
 
-    ValidableTextField getField() {
-        return field;
-    }
-
     /**
      * Builder for the {@link SplitByEveryXPagesParameters}
      * 
      * @author Andrea Vacondio
      *
      */
-    private static class SplitByEveryXPagesParametersBuilder extends
+    static class SplitByEveryXPagesParametersBuilder extends
             SinglePdfSourceMultipleOutputParametersBuilder<SplitByEveryXPagesParameters> {
 
         private int step;
