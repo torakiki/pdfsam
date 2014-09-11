@@ -60,7 +60,7 @@ class PredefinedSetOfPagesRadioButton extends RadioButton implements SplitParame
      * @author Andrea Vacondio
      *
      */
-    private static class SimpleSplitParametersBuilder extends
+    static class SimpleSplitParametersBuilder extends
             SinglePdfSourceMultipleOutputParametersBuilder<SimpleSplitParameters> {
 
         private PredefinedSetOfPages pages;
