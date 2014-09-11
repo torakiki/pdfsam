@@ -20,15 +20,12 @@ package org.pdfsam.ui.banner;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
-import javafx.scene.layout.StackPane;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -44,45 +41,18 @@ import org.sejda.eventstudio.annotation.EventListener;
 @Named
 public class BannerPane extends HBox {
 
-    @Inject
-    private ImageView payoff;
-    @Inject
-    @Named("logo35")
-    private Image logo;
-    @Inject
-    private ErrorsNotification errorNotification;
-    @Inject
-    private LogButton logButton;
-    @Inject
-    private DashboardButton dashboardButton;
-    @Inject
-    private MenuButton menuButton;
     private Label current = new Label();
 
-    public BannerPane() {
+    @Inject
+    public BannerPane(BannerButtons buttons, ImageView payoff, @Named("logo35") Image logo) {
         getStyleClass().add("pdfsam-banner");
-        eventStudio().addAnnotatedListeners(this);
-    }
-
-    @PostConstruct
-    private void init() {
         current.getStyleClass().add("header-title");
-        HBox buttonBar = buildButtonsBar();
-        HBox.setHgrow(buttonBar, Priority.ALWAYS);
+        HBox.setHgrow(buttons, Priority.ALWAYS);
         HBox logoView = new HBox();
         logoView.getStyleClass().add("pdfsam-logo");
         logoView.getChildren().addAll(new ImageView(logo), payoff);
-        getChildren().addAll(logoView, current, buttonBar);
-    }
-
-    private HBox buildButtonsBar() {
-        // TODO update buttons
-        HBox buttons = new HBox();
-        buttons.getStyleClass().addAll("pdfsam-container", "pdfsam-banner-buttons");
-        StackPane logs = new StackPane(logButton, errorNotification);
-        StackPane.setAlignment(errorNotification, Pos.BOTTOM_LEFT);
-        buttons.getChildren().addAll(logs, dashboardButton, menuButton);
-        return buttons;
+        getChildren().addAll(logoView, current, buttons);
+        eventStudio().addAnnotatedListeners(this);
     }
 
     @EventListener

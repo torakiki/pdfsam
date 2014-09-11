@@ -37,7 +37,7 @@ public class MenuConfig {
     @Bean
     @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     public MenuButton menuButton() {
-        return new MenuButton();
+        return new MenuButton(menu());
     }
 
     @Bean

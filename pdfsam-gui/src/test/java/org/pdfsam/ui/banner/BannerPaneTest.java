@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.banner;
 
+import static org.mockito.Mockito.spy;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.IOException;
@@ -37,10 +38,12 @@ import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.event.SetTitleEvent;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Scope;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.test.context.ContextConfiguration;
@@ -68,8 +71,8 @@ public class BannerPaneTest extends GuiTest {
     @Lazy
     static class Config {
         @Bean
-        public BannerPane victim() {
-            return new BannerPane();
+        public BannerPane victim() throws IOException {
+            return new BannerPane(buttons(), payoff(), logo35());
         }
 
         @Bean
@@ -81,6 +84,11 @@ public class BannerPaneTest extends GuiTest {
         public Image logo35() throws IOException {
             Resource resource = new ClassPathResource("/images/logo35B.png");
             return new Image(resource.getInputStream());
+        }
+
+        @Bean
+        public BannerButtons buttons() {
+            return new BannerButtons(notification(), logButton(), dashboardButton(), menuButton());
         }
 
         @Bean
@@ -96,6 +104,17 @@ public class BannerPaneTest extends GuiTest {
         @Bean
         public DashboardButton dashboardButton() {
             return new DashboardButton(id());
+        }
+
+        @Bean
+        @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+        public MenuButton menuButton() {
+            return new MenuButton(menu());
+        }
+
+        @Bean
+        public AppContextMenu menu() {
+            return spy(new AppContextMenu());
         }
 
         @Bean(name = "defaultDashboardItemId")

@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 03/mag/2014
+ * Created on 11/set/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,29 +18,29 @@
  */
 package org.pdfsam.ui.banner;
 
-import javafx.geometry.Side;
-import javafx.scene.control.Tooltip;
+import javafx.geometry.Pos;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.context.DefaultI18nContext;
-
-import de.jensd.fx.fontawesome.AwesomeIcon;
-
 /**
- * Button to open the menu
+ * Container for the banner buttons
  * 
  * @author Andrea Vacondio
  *
  */
 @Named
-class MenuButton extends BannerButton {
+class BannerButtons extends HBox {
 
     @Inject
-    MenuButton(AppContextMenu menu) {
-        super(AwesomeIcon.BARS);
-        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Open menu")));
-        setOnAction(e -> menu.show(this, Side.BOTTOM, 0, 0));
+    BannerButtons(ErrorsNotification errorNotification, LogButton logButton, DashboardButton dashboardButton,
+            MenuButton menuButton) {
+        getStyleClass().addAll("pdfsam-container", "pdfsam-banner-buttons");
+        StackPane logs = new StackPane(logButton, errorNotification);
+        StackPane.setAlignment(errorNotification, Pos.BOTTOM_LEFT);
+        getChildren().addAll(logs, dashboardButton, menuButton);
     }
+
 }
