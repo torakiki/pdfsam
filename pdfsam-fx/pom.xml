@@ -13,7 +13,7 @@
 
 	<artifactId>pdfsam-fx</artifactId>
 	<packaging>jar</packaging>
-	<name>pdfsam fx views</name>
+	<name>PDFsam JavaFx views</name>
 
 	<profiles>
 		<profile>

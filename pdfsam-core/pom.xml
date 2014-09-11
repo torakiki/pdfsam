@@ -13,7 +13,7 @@
 
 	<artifactId>pdfsam-core</artifactId>
 	<packaging>jar</packaging>
-	<name>pdfsam core</name>
+	<name>PDFsam core</name>
 	
 	<build>
 		<plugins>

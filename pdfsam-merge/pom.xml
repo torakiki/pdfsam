@@ -13,7 +13,7 @@
 
 	<artifactId>pdfsam-merge</artifactId>
 	<packaging>jar</packaging>
-	<name>pdfsam merge module</name>
+	<name>PDFsam merge module</name>
 
 	<dependencies>
 		<dependency>

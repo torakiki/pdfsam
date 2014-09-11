@@ -13,7 +13,7 @@
 
 	<artifactId>pdfsam-rotate</artifactId>
 	<packaging>jar</packaging>
-	<name>pdfsam rotate module</name>
+	<name>PDFsam rotate module</name>
 
 	<dependencies>
 		<dependency>

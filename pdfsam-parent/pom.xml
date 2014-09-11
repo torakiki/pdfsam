@@ -6,7 +6,7 @@
 	<groupId>org.pdfsam</groupId>
 	<artifactId>pdfsam-parent</artifactId>
 	<packaging>pom</packaging>
-	<name>pdfsam parent</name>
+	<name>PDFsam parent</name>
 	<version>3.0.0.BETA-SNAPSHOT</version>
 	<url>http://www.pdfsam.org</url>
 
