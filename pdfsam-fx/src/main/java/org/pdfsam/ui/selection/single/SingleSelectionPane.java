@@ -81,17 +81,16 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
         eventStudio().broadcast(new ChangedSelectedPdfVersionEvent(d.getVersion()), getOwnerModule());
     };
 
-    private ChangeListener<PdfDescriptorLoadingStatus> onLoadingStatusChange = (o, oldVal, newVal) -> {
-        Platform.runLater(() -> {
-            encryptionIndicator.setLoadingStatus(newVal);
-            if (newVal == PdfDescriptorLoadingStatus.LOADED
-                    || newVal == PdfDescriptorLoadingStatus.LOADED_WITH_USER_PWD_DECRYPTION) {
-                onLoaded.accept(descriptor);
-            } else {
-                details.setText("");
-            }
-        });
-    };
+    private ChangeListener<PdfDescriptorLoadingStatus> onLoadingStatusChange = (o, oldVal, newVal) -> Platform
+            .runLater(() -> {
+                encryptionIndicator.setLoadingStatus(newVal);
+                if (newVal == PdfDescriptorLoadingStatus.LOADED
+                        || newVal == PdfDescriptorLoadingStatus.LOADED_WITH_USER_PWD_DECRYPTION) {
+                    onLoaded.accept(descriptor);
+                } else {
+                    details.setText("");
+                }
+            });
 
     public SingleSelectionPane(String ownerModule) {
         super(5);
@@ -136,27 +135,22 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
     private void initContextMenu() {
         MenuItem infoItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Document properties"),
                 AwesomeIcon.INFO);
-        infoItem.setOnAction(e -> Platform.runLater(() -> {
-            eventStudio().broadcast(new ShowPdfDescriptorRequest(descriptor));
-        }));
+        infoItem.setOnAction(e -> Platform.runLater(() -> eventStudio().broadcast(
+                new ShowPdfDescriptorRequest(descriptor))));
 
         MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set destination"),
                 AwesomeIcon.FILE_PDF_ALT);
         setDestinationItem.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.ALT_DOWN));
-        setDestinationItem.setOnAction(e -> {
-            eventStudio().broadcast(requestDestination(descriptor.getFile(), getOwnerModule()), getOwnerModule());
-        });
+        setDestinationItem.setOnAction(e -> eventStudio().broadcast(
+                requestDestination(descriptor.getFile(), getOwnerModule()), getOwnerModule()));
 
         MenuItem openFileItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open"), AwesomeIcon.FILE_ALT);
-        openFileItem.setOnAction(e -> {
-            eventStudio().broadcast(new OpenFileRequest(descriptor.getFile()));
-        });
+        openFileItem.setOnAction(e -> eventStudio().broadcast(new OpenFileRequest(descriptor.getFile())));
 
         MenuItem openFolderItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open Folder"),
                 AwesomeIcon.FOLDER_ALTPEN);
-        openFolderItem.setOnAction(e -> {
-            eventStudio().broadcast(new OpenFileRequest(descriptor.getFile().getParentFile()));
-        });
+        openFolderItem.setOnAction(e -> eventStudio().broadcast(
+                new OpenFileRequest(descriptor.getFile().getParentFile())));
 
         field.getTextField().setContextMenu(
                 new ContextMenu(setDestinationItem, new SeparatorMenuItem(), infoItem, openFileItem, openFolderItem));

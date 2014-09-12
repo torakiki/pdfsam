@@ -108,17 +108,14 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     private void initContextMenu() {
         MenuItem infoItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Document properties"),
                 AwesomeIcon.INFO);
-        infoItem.setOnAction(e -> Platform.runLater(() -> {
-            eventStudio().broadcast(new ShowPdfDescriptorRequest(getSelectionModel().getSelectedItem()));
-        }));
+        infoItem.setOnAction(e -> Platform.runLater(() -> eventStudio().broadcast(
+                new ShowPdfDescriptorRequest(getSelectionModel().getSelectedItem()))));
 
         MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set destination"),
                 AwesomeIcon.FILE_PDF_ALT);
-        setDestinationItem.setOnAction(e -> {
-            eventStudio().broadcast(
-                    requestDestination(getSelectionModel().getSelectedItem().getFile(), getOwnerModule()),
-                    getOwnerModule());
-        });
+        setDestinationItem.setOnAction(e -> eventStudio()
+                .broadcast(requestDestination(getSelectionModel().getSelectedItem().getFile(), getOwnerModule()),
+                        getOwnerModule()));
 
         MenuItem removeSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Remove"),
                 AwesomeIcon.MINUS_SQUARE_ALT);
@@ -143,16 +140,13 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
                 getOwnerModule()));
 
         MenuItem openFileItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open"), AwesomeIcon.FILE_ALT);
-        openFileItem.setOnAction(e -> {
-            eventStudio().broadcast(new OpenFileRequest(getSelectionModel().getSelectedItem().getFile()));
-        });
+        openFileItem.setOnAction(e -> eventStudio().broadcast(
+                new OpenFileRequest(getSelectionModel().getSelectedItem().getFile())));
 
         MenuItem openFolderItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open Folder"),
                 AwesomeIcon.FOLDER_ALTPEN);
-        openFolderItem.setOnAction(e -> {
-            eventStudio().broadcast(
-                    new OpenFileRequest(getSelectionModel().getSelectedItem().getFile().getParentFile()));
-        });
+        openFolderItem.setOnAction(e -> eventStudio().broadcast(
+                new OpenFileRequest(getSelectionModel().getSelectedItem().getFile().getParentFile())));
 
         setDestinationItem.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.ALT_DOWN));
         removeSelected.setAccelerator(new KeyCodeCombination(KeyCode.CANCEL));
@@ -194,15 +188,12 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     }
 
     private Consumer<DragEvent> onDragOverConsumer() {
-        return (DragEvent e) -> {
-            e.acceptTransferModes(TransferMode.COPY_OR_MOVE);
-        };
+        return (DragEvent e) -> e.acceptTransferModes(TransferMode.COPY_OR_MOVE);
     }
 
     private Consumer<DragEvent> onDragEnteredConsumer() {
-        return (DragEvent e) -> {
-            placeHolder.setDisable(false);
-        };
+        return (DragEvent e) -> placeHolder.setDisable(false);
+
     }
 
     private void onDragExited(DragEvent e) {

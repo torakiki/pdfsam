@@ -36,10 +36,14 @@ import javax.inject.Named;
 @Named
 class StatefulPreferencesUsageService implements UsageService {
 
-    @Inject
     private PreferencesUsageDataStore dataStore;
-    @Inject
     private Map<String, Module> modulesMap;
+
+    @Inject
+    StatefulPreferencesUsageService(PreferencesUsageDataStore dataStore, Map<String, Module> modulesMap) {
+        this.dataStore = dataStore;
+        this.modulesMap = modulesMap;
+    }
 
     public void incrementUsageFor(String moduleId) {
         dataStore.incrementUsageFor(moduleId);
@@ -47,17 +51,13 @@ class StatefulPreferencesUsageService implements UsageService {
 
     public List<Module> getMostUsed() {
         List<ModuleUsage> used = dataStore.getUsages();
-        used.sort((a, b) -> {
-            return Long.compare(b.getTotalUsed(), a.getTotalUsed());
-        });
+        used.sort((a, b) -> Long.compare(b.getTotalUsed(), a.getTotalUsed()));
         return used.stream().map(u -> modulesMap.get(u.getModuleId())).filter(m -> m != null).collect(toList());
     }
 
     public List<Module> getMostRecentlyUsed() {
         List<ModuleUsage> used = dataStore.getUsages();
-        used.sort((a, b) -> {
-            return Long.compare(b.getLastSeen(), a.getLastSeen());
-        });
+        used.sort((a, b) -> Long.compare(b.getLastSeen(), a.getLastSeen()));
         return used.stream().map(u -> modulesMap.get(u.getModuleId())).filter(m -> m != null).collect(toList());
     }
 

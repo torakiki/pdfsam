@@ -21,44 +21,27 @@ package org.pdfsam.module;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-import javax.inject.Inject;
-
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration
 public class ClearUsageControllerTest {
 
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
 
-    @Inject
     private ClearUsageController victim;
-    @Inject
     private UsageService service;
 
-    @Configuration
-    static class Config {
-        @Bean
-        public UsageService service() {
-            return mock(UsageService.class);
-        }
-
-        @Bean
-        public ClearUsageController controller() {
-            return new ClearUsageController();
-        }
+    @Before
+    public void setUp() {
+        this.service = mock(UsageService.class);
+        this.victim = new ClearUsageController(service);
     }
 
     @Test

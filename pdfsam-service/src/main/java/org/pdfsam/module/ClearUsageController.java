@@ -36,10 +36,12 @@ import org.slf4j.LoggerFactory;
 @Named
 public class ClearUsageController {
     private static final Logger LOG = LoggerFactory.getLogger(ClearUsageController.class);
-    @Inject
+
     private UsageService service;
 
-    public ClearUsageController() {
+    @Inject
+    public ClearUsageController(UsageService service) {
+        this.service = service;
         eventStudio().addAnnotatedListeners(this);
     }
 

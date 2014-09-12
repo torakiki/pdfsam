@@ -36,7 +36,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -56,13 +58,11 @@ public class StatefulPreferencesUsageServiceTest {
     private PreferencesUsageDataStore dataStore;
 
     @Configuration
+    @ComponentScan("org.pdfsam.module")
     static class Config {
-        @Bean
-        public StatefulPreferencesUsageService victim() {
-            return new StatefulPreferencesUsageService();
-        }
 
         @Bean
+        @Primary
         public PreferencesUsageDataStore dataStore() {
             return mock(PreferencesUsageDataStore.class);
         }
