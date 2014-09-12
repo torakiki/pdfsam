@@ -55,6 +55,7 @@ import org.pdfsam.ui.support.Style;
 public class LogPane extends BorderPane {
 
     private LogListView logView;
+
     @Inject
     public LogPane(LogListView view) {
         this.logView = view;
@@ -75,7 +76,7 @@ public class LogPane extends BorderPane {
 
             @Override
             protected boolean computeValue() {
-                return logView.getSelectionModel().getSelectedItems().size() <= 0;
+                return logView.getSelectionModel().getSelectedItems().isEmpty();
             }
         });
 

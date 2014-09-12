@@ -42,10 +42,8 @@ class MultipleSelectionAndFocus implements SelectionAndFocus {
     }
 
     private void move(int row, int newRow) {
-        if (focus == -1) {
-            if (originalFocus == row) {
-                focus = newRow;
-            }
+        if (focus == -1 && originalFocus == row) {
+            focus = newRow;
         }
         if (this.row == -1) {
             this.row = newRow;

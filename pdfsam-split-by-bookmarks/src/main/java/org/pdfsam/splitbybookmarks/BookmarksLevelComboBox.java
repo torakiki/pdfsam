@@ -45,9 +45,7 @@ class BookmarksLevelComboBox extends ComboBox<String> implements
         validationSupport.setValidator(Validators.newIntegerString());
         setEditable(true);
         getSelectionModel().selectFirst();
-        valueProperty().addListener((o, oldVal, newVal) -> {
-            validate();
-        });
+        valueProperty().addListener((o, oldVal, newVal) -> validate());
         setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Set the bookmarks level to split at")));
         validationSupport.validationStateProperty().addListener((o) -> {
             if (validationSupport.validationStateProperty().get() == ValidationState.INVALID) {

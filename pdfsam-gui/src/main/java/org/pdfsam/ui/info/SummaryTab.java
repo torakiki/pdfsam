@@ -124,9 +124,7 @@ class SummaryTab extends BaseInfoTab implements ChangeListener<PdfDescriptorLoad
             PdfDescriptorLoadingStatus oldValue, PdfDescriptorLoadingStatus newValue) {
         if (newValue == PdfDescriptorLoadingStatus.LOADED) {
             LOG.trace("Descriptor loaded, updating summary tab");
-            Platform.runLater(() -> {
-                setPdfProperties();
-            });
+            Platform.runLater(() -> setPdfProperties());
         }
     }
 }

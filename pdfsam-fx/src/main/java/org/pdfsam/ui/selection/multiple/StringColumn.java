@@ -61,9 +61,8 @@ public enum StringColumn implements SelectionTableColumn<String> {
         public TableColumn<SelectionTableRowData, String> getTableColumn() {
             TableColumn<SelectionTableRowData, String> tableColumn = super.getTableColumn();
             tableColumn.setEditable(true);
-            tableColumn.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setPageSelection(t.getNewValue());
-            });
+            tableColumn.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow())
+                    .setPageSelection(t.getNewValue()));
             return tableColumn;
         }
 

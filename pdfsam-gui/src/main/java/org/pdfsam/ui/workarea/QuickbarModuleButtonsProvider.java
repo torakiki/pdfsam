@@ -45,9 +45,7 @@ class QuickbarModuleButtonsProvider {
     QuickbarModuleButtonsProvider(UsageService service, List<Module> modules) {
         this.service = service;
         this.modules = new ArrayList<>(modules);
-        this.modules.sort((a, b) -> {
-            return Integer.compare(a.descriptor().getPriority(), b.descriptor().getPriority());
-        });
+        this.modules.sort((a, b) -> Integer.compare(a.descriptor().getPriority(), b.descriptor().getPriority()));
     }
 
     public Set<ModuleButton> buttons() {

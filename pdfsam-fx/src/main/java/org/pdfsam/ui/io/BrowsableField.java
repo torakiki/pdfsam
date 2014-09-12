@@ -66,9 +66,8 @@ abstract class BrowsableField extends HBox {
                 validableContainer.getStyleClass().removeAll(Style.INVALID.css());
             }
         });
-        textField.focusedProperty().addListener((o, oldVal, newVal) -> {
-            validableContainer.pseudoClassStateChanged(SELECTED_PSEUDOCLASS_STATE, newVal);
-        });
+        textField.focusedProperty().addListener(
+                (o, oldVal, newVal) -> validableContainer.pseudoClassStateChanged(SELECTED_PSEUDOCLASS_STATE, newVal));
         getChildren().addAll(validableContainer, browseButton);
     }
 

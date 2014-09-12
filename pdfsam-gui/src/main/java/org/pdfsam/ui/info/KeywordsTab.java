@@ -79,9 +79,7 @@ class KeywordsTab extends Tab implements ChangeListener<PdfDescriptorLoadingStat
             PdfDescriptorLoadingStatus oldValue, PdfDescriptorLoadingStatus newValue) {
         if (newValue == PdfDescriptorLoadingStatus.LOADED) {
             LOG.trace("Descriptor loaded, updating keywords tab");
-            Platform.runLater(() -> {
-                keywords.setText(current.getInformation(PdfMetadataKey.KEYWORDS.getKey()));
-            });
+            Platform.runLater(() -> keywords.setText(current.getInformation(PdfMetadataKey.KEYWORDS.getKey())));
         }
 
     }

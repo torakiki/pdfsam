@@ -54,9 +54,8 @@ class PreferenceAppearencePane extends VBox {
         }
         localeCombo.setTooltip(new Tooltip(i18n.i18n("Set your preferred language (restart needed)")));
         localeCombo.setValue(new LocaleKeyValueItem(Locale.getDefault()));
-        localeCombo.valueProperty().addListener((observable, oldValue, newValue) -> {
-            eventStudio().broadcast(new SetLocaleEvent(newValue.getKey()));
-        });
+        localeCombo.valueProperty().addListener(
+                (observable, oldValue, newValue) -> eventStudio().broadcast(new SetLocaleEvent(newValue.getKey())));
         getChildren().addAll(new Label(i18n.i18n("Language:")), localeCombo);
 
         themeCombo.setTooltip(new Tooltip(i18n.i18n("Set your preferred theme (restart needed)")));

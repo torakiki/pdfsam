@@ -70,9 +70,7 @@ class Notification extends BorderPane {
             fade.pause();
             setOpacity(1);
         });
-        setOnMouseExited(e -> {
-            fade.play();
-        });
+        setOnMouseExited(e -> fade.play());
         fade.setFromValue(1);
         fade.setToValue(0);
     }

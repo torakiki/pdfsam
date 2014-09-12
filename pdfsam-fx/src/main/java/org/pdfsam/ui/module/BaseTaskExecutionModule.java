@@ -60,11 +60,10 @@ public abstract class BaseTaskExecutionModule implements Module {
         footer.runButton().setOnAction(
                 event -> {
                     ErrorTracker errorTracker = new ErrorTracker();
-                    Builder<? extends TaskParameters> builder = getBuilder(errorTracker.andThen(s -> {
-                        eventStudio().broadcast(
-                                new AddNotificationRequestEvent(NotificationType.ERROR, s, DefaultI18nContext
-                                        .getInstance().i18n("Invalid parameters")));
-                    }));
+                    Builder<? extends TaskParameters> builder = getBuilder(errorTracker.andThen(s -> eventStudio()
+                            .broadcast(
+                                    new AddNotificationRequestEvent(NotificationType.ERROR, s, DefaultI18nContext
+                                            .getInstance().i18n("Invalid parameters")))));
                     if (!errorTracker.errorOnBuild) {
                         eventStudio().broadcast(new TaskExecutionRequestEvent(id(), builder.build()));
                     }

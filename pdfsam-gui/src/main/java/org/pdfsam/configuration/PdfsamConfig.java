@@ -107,9 +107,8 @@ public class PdfsamConfig {
         MediaPlayer player = new MediaPlayer(new Media(this.getClass().getResource(name).toURI().toString()));
         player.setAutoPlay(false);
         player.setVolume(1);
-        player.setOnError(() -> {
-            LOG.error(DefaultI18nContext.getInstance().i18n("Error playing sounds"), player.getError());
-        });
+        player.setOnError(() -> LOG.error(DefaultI18nContext.getInstance().i18n("Error playing sounds"),
+                player.getError()));
         return player;
     }
 

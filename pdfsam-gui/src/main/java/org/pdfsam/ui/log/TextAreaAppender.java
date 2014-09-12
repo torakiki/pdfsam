@@ -61,8 +61,7 @@ public class TextAreaAppender extends AppenderBase<ILoggingEvent> {
         encoder.setContext(loggerContext);
         encoder.start();
         start();
-        Logger logbackLogger = loggerContext.getLogger(Logger.ROOT_LOGGER_NAME);
-        logbackLogger.addAppender(this);
+        loggerContext.getLogger(Logger.ROOT_LOGGER_NAME).addAppender(this);
     }
 
     @Override

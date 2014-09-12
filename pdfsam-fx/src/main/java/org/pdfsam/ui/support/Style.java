@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.support;
 
+
 /**
  * Defines css style classes
  * 

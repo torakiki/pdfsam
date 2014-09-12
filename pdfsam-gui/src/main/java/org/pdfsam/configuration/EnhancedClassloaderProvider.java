@@ -44,9 +44,13 @@ import org.slf4j.LoggerFactory;
  * @author Andrea Vacondio
  *
  */
-class EnhancedClassloaderProvider {
+final class EnhancedClassloaderProvider {
     private static final Logger LOG = LoggerFactory.getLogger(EnhancedClassloaderProvider.class);
     private static final String MODULES_DIRECTORY = "modules";
+
+    private EnhancedClassloaderProvider() {
+        // hide
+    }
 
     static ClassLoader classLoader(ClassLoader classLoader) {
         requireNotNull(classLoader, "Cannot enhance null class loader");

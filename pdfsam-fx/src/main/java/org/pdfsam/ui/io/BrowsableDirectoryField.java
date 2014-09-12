@@ -104,9 +104,7 @@ public class BrowsableDirectoryField extends BrowsableField {
     }
 
     private Consumer<DragEvent> onDragOverConsumer() {
-        return (DragEvent e) -> {
-            e.acceptTransferModes(TransferMode.COPY_OR_MOVE);
-        };
+        return (DragEvent e) -> e.acceptTransferModes(TransferMode.COPY_OR_MOVE);
     }
 
     private Consumer<DragEvent> onDragDropped() {

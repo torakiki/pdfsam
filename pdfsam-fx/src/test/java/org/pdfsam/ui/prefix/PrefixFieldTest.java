@@ -65,4 +65,12 @@ public class PrefixFieldTest extends GuiTest {
         click(Prefix.BASENAME.getFriendlyName());
         assertEquals(Prefix.BASENAME.getFriendlyName(), victim.getText());
     }
+
+    @Test
+    public void prefixMenuItemIsAdded() {
+        PrefixField victim = find(".victim");
+        victim.addMenuItemFor(Prefix.BOOKMARK);
+        rightClick(victim).click("#addPrefixMenu").click(Prefix.BOOKMARK.getFriendlyName());
+        assertTrue(victim.getText().contains(Prefix.BOOKMARK.getFriendlyName()));
+    }
 }
