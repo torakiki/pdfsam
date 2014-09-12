@@ -18,10 +18,8 @@
  */
 package org.pdfsam.support;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
+import org.pdfsam.TestUtils;
 
 /**
  * @author Andrea Vacondio
@@ -36,10 +34,10 @@ public class KeyStringValueItemTest {
 
     @Test
     public void testEquals() {
-        KeyStringValueItem<String> item = new KeyStringValueItem<>("A", "Chuck");
-        KeyStringValueItem<String> item2 = new KeyStringValueItem<>("A", "Norris");
-        KeyStringValueItem<String> item3 = new KeyStringValueItem<>("B", "Rambo");
-        assertTrue(item.equals(item2));
-        assertFalse(item.equals(item3));
+        KeyStringValueItem<String> eq1 = new KeyStringValueItem<>("A", "Chuck");
+        KeyStringValueItem<String> eq2 = new KeyStringValueItem<>("A", "Norris");
+        KeyStringValueItem<String> eq3 = new KeyStringValueItem<>("A", "Roundhouse");
+        KeyStringValueItem<String> diff = new KeyStringValueItem<>("B", "Rambo");
+        TestUtils.testEqualsAndHashCodes(eq1, eq2, eq3, diff);
     }
 }

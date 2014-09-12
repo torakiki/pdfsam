@@ -24,6 +24,7 @@ import java.util.Locale;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
+import org.pdfsam.TestUtils;
 
 /**
  * @author Andrea Vacondio
@@ -41,5 +42,14 @@ public class LocaleKeyValueItemTest {
         LocaleKeyValueItem victim = new LocaleKeyValueItem(Locale.ITALY);
         assertEquals(StringUtils.capitalize(Locale.ITALY.getDisplayName()), victim.getValue());
         assertEquals(Locale.ITALY.toLanguageTag(), victim.getKey());
+    }
+
+    @Test
+    public void equalsAndHashCodes() {
+        LocaleKeyValueItem eq1 = new LocaleKeyValueItem(Locale.CANADA);
+        LocaleKeyValueItem eq2 = new LocaleKeyValueItem(Locale.CANADA);
+        LocaleKeyValueItem eq3 = new LocaleKeyValueItem(Locale.CANADA);
+        LocaleKeyValueItem diff = new LocaleKeyValueItem(Locale.CHINA);
+        TestUtils.testEqualsAndHashCodes(eq1, eq2, eq3, diff);
     }
 }
