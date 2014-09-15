@@ -22,59 +22,37 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.verify;
 
-import javax.inject.Inject;
-
 import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.module.UsageService;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.core.notification.context.GlobalNotificationContext;
 import org.sejda.model.parameter.base.TaskParameters;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration
 public class TaskExecutionControllerTest {
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
-    @Inject
     private ExecutionService executionService;
-    @Inject
     private UsageService usageService;
-    @Inject
     private TaskExecutionController victim;
+
+    @Before
+    public void setUp() {
+        executionService = mock(ExecutionService.class);
+        usageService = mock(UsageService.class);
+        victim = new TaskExecutionController(executionService, usageService);
+    }
 
     @AfterClass
     public static void tearDown() {
         GlobalNotificationContext.getContext().clearListeners();
-    }
-
-    @Configuration
-    static class Config {
-        @Bean
-        public UsageService usageService() {
-            return mock(UsageService.class);
-        }
-
-        @Bean
-        public ExecutionService executionService() {
-            return mock(ExecutionService.class);
-        }
-
-        @Bean
-        public TaskExecutionController controller() {
-            return new TaskExecutionController();
-        }
     }
 
     @Test

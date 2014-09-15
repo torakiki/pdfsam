@@ -20,12 +20,14 @@ package org.pdfsam.pdf;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
+import java.io.Closeable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -42,19 +44,24 @@ import org.slf4j.LoggerFactory;
  * 
  */
 @Named
-public class PdfLoadController {
+public class PdfLoadController implements Closeable {
 
     private static final Logger LOG = LoggerFactory.getLogger(PdfLoadController.class);
 
-    @Inject
     private PdfLoadService loadService;
     private ExecutorService executor = Executors.newSingleThreadExecutor();
     private Map<String, RequiredPdfData[]> requiredLoadData = new HashMap<>();
 
     @Inject
-    public PdfLoadController(List<Module> modules) {
+    public PdfLoadController(List<Module> modules, PdfLoadService loadService) {
+        this.loadService = loadService;
         modules.forEach(m -> requiredLoadData.put(m.id(), m.requires()));
         eventStudio().addAnnotatedListeners(this);
+    }
+
+    @PreDestroy
+    public void close() {
+        executor.shutdownNow();
     }
 
     /**

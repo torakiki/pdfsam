@@ -21,10 +21,7 @@ package org.pdfsam;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
-import java.awt.Desktop;
-import java.awt.EventQueue;
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Paths;
@@ -50,7 +47,6 @@ import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.SetLocaleEvent;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.ui.MainPane;
-import org.pdfsam.ui.commons.OpenFileRequest;
 import org.pdfsam.ui.commons.OpenUrlRequest;
 import org.pdfsam.ui.commons.ShowStageRequest;
 import org.pdfsam.ui.io.SetLatestDirectoryEvent;
@@ -69,10 +65,30 @@ public class App extends Application {
     private static StopWatch STOPWATCH = new StopWatch();
 
     @Override
-    public void start(Stage primaryStage) {
+    public void init() {
         STOPWATCH.start();
         LOG.info("Starting PDFsam");
-        initUserSettings();
+        Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger());
+        UserContext userContext = new DefaultUserContext();
+        String localeString = userContext.getLocale();
+        if (isNotBlank(localeString)) {
+            eventStudio().broadcast(new SetLocaleEvent(localeString));
+        }
+
+        String defaultworkingPath = userContext.getDefaultWorkingPath();
+        if (isNotBlank(defaultworkingPath)) {
+            try {
+                if (Files.isDirectory(Paths.get(defaultworkingPath))) {
+                    eventStudio().broadcast(new SetLatestDirectoryEvent(new File(defaultworkingPath)));
+                }
+            } catch (InvalidPathException e) {
+                LOG.warn("Unable to set initial directory, default path is invalid.", e);
+            }
+        }
+    }
+
+    @Override
+    public void start(Stage primaryStage) {
         List<String> styles = (List<String>) ApplicationContextHolder.getContext().getBean("styles");
         Map<String, Image> logos = ApplicationContextHolder.getContext().getBeansOfType(Image.class);
         MainPane mainPane = ApplicationContextHolder.getContext().getBean(MainPane.class);
@@ -99,27 +115,13 @@ public class App extends Application {
                 DurationFormatUtils.formatDurationWords(STOPWATCH.getTime(), true, true)));
     }
 
-    private void initUserSettings() {
-        UserContext userContext = new DefaultUserContext();
-        String localeString = userContext.getLocale();
-        if (isNotBlank(localeString)) {
-            eventStudio().broadcast(new SetLocaleEvent(localeString));
-        }
-       
-        String defaultworkingPath = userContext.getDefaultWorkingPath();
-        if (isNotBlank(defaultworkingPath)) {
-            try {
-                if (Files.isDirectory(Paths.get(defaultworkingPath))) {
-                    eventStudio().broadcast(new SetLatestDirectoryEvent(new File(defaultworkingPath)));
-                }
-            } catch (InvalidPathException e) {
-                LOG.warn("Unable to set initial directory, default path is invalid.", e);
-            }
-        }
+    @Override
+    public void stop() {
+        LOG.info(DefaultI18nContext.getInstance().i18n("Closing PDFsam..."));
+        ApplicationContextHolder.getContext().close();
     }
 
     public static void main(String[] args) {
-        Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger());
         launch(args);
     }
 
@@ -136,21 +138,6 @@ public class App extends Application {
             services.showDocument(event.getUrl());
         } else {
             LOG.warn("Unable to open '{}', please copy and paste the url to your browser.", event.getUrl());
-        }
-    }
-
-    @EventListener
-    public void openPath(OpenFileRequest event) {
-        EventQueue.invokeLater(() -> doOpen(event));
-    }
-
-    private void doOpen(OpenFileRequest event) {
-        if (Desktop.isDesktopSupported()) {
-            try {
-                Desktop.getDesktop().open(event.getFile());
-            } catch (IOException e) {
-                LOG.error("Unable to open '{}'", event.getFile().getAbsoluteFile());
-            }
         }
     }
 }

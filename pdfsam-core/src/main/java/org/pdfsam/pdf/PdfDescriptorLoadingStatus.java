@@ -48,7 +48,7 @@ public enum PdfDescriptorLoadingStatus {
     private Set<PdfDescriptorLoadingStatus> validNext = new HashSet<>();
 
     private void setValidDestinationStatus(PdfDescriptorLoadingStatus... canMoveTo) {
-        Arrays.stream(canMoveTo).parallel().forEach(validNext::add);
+        Arrays.stream(canMoveTo).forEach(validNext::add);
     }
 
     /**

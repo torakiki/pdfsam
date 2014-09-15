@@ -26,7 +26,6 @@ import javafx.scene.control.SeparatorMenuItem;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.configuration.ApplicationContextHolder;
 import org.pdfsam.context.DefaultI18nContext;
 
 /**
@@ -40,10 +39,7 @@ class AppContextMenu extends ContextMenu {
     @Inject
     AppContextMenu(WorkspaceMenu workspace, ModulesMenu modulesMenu) {
         MenuItem exit = new MenuItem(DefaultI18nContext.getInstance().i18n("E_xit"));
-        exit.setOnAction(e -> {
-            ApplicationContextHolder.getContext().close();
-            Platform.exit();
-        });
+        exit.setOnAction((e) -> Platform.exit());
         getItems().addAll(workspace, modulesMenu, new SeparatorMenuItem(), exit);
     }
 }

@@ -20,9 +20,11 @@ package org.pdfsam.task;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
+import java.io.Closeable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -44,16 +46,17 @@ import org.slf4j.LoggerFactory;
  * 
  */
 @Named
-class TaskExecutionController {
+class TaskExecutionController implements Closeable {
     private static final Logger LOG = LoggerFactory.getLogger(TaskExecutionController.class);
 
-    @Inject
     private ExecutionService executionService;
-    @Inject
     private UsageService usageService;
     private ExecutorService executor = Executors.newSingleThreadExecutor();
 
-    public TaskExecutionController() {
+    @Inject
+    public TaskExecutionController(ExecutionService executionService, UsageService usageService) {
+        this.executionService = executionService;
+        this.usageService = usageService;
         eventStudio().addAnnotatedListeners(this);
         GlobalNotificationContext.getContext().addListener(TaskExecutionFailedEvent.class,
                 new TaskEventBroadcaster<TaskExecutionFailedEvent>());
@@ -76,5 +79,10 @@ class TaskExecutionController {
         usageService.incrementUsageFor(event.getModuleId());
         executor.submit(() -> executionService.submit(event.getModuleId(), event.getParameters()));
         LOG.trace("Task execution submitted");
+    }
+
+    @PreDestroy
+    public void close() {
+        executor.shutdownNow();
     }
 }

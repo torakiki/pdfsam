@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 30/apr/2014
+ * Created on 15/set/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,50 +16,47 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.update;
+package org.pdfsam;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
-import java.io.Closeable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.awt.Desktop;
+import java.awt.EventQueue;
+import java.io.IOException;
 
-import javax.annotation.PreDestroy;
-import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.ui.commons.OpenFileRequest;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Component listening for updates related requests
+ * Controller receiving requests to open a file with the default system application
  * 
  * @author Andrea Vacondio
  *
  */
 @Named
-public class UpdatesController implements Closeable {
-    private static final Logger LOG = LoggerFactory.getLogger(UpdatesController.class);
+class OpenFileController {
+    private static final Logger LOG = LoggerFactory.getLogger(OpenFileController.class);
 
-    private UpdateService service;
-    private ExecutorService executor = Executors.newSingleThreadExecutor();
-
-    @Inject
-    UpdatesController(UpdateService service) {
-        this.service = service;
+    OpenFileController() {
         eventStudio().addAnnotatedListeners(this);
     }
 
-    @PreDestroy
-    public void close() {
-        executor.shutdownNow();
+    @EventListener
+    public void openPath(OpenFileRequest event) {
+        EventQueue.invokeLater(() -> doOpen(event));
     }
 
-    @EventListener
-    public void checkForUpdates(UpdateCheckRequest event) {
-        LOG.debug(DefaultI18nContext.getInstance().i18n("Checking for updates"));
-        executor.submit(() -> service.checkForUpdates());
+    private void doOpen(OpenFileRequest event) {
+        if (Desktop.isDesktopSupported()) {
+            try {
+                Desktop.getDesktop().open(event.getFile());
+            } catch (IOException e) {
+                LOG.error("Unable to open '{}'", event.getFile().getAbsoluteFile());
+            }
+        }
     }
 }

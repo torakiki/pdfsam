@@ -29,63 +29,46 @@ import java.util.Arrays;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
-import javax.inject.Inject;
-
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.RequiredPdfData;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration
 public class PdfLoadControllerTest {
 
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
-    @Inject
     private PdfLoadService loadService;
-    @Inject
     private PdfLoadController victim;
 
-    @Configuration
-    static class Config {
-        @Bean
-        public PdfLoadService service() {
-            return mock(PdfLoadService.class);
-        }
+    @Before
+    public void setUp() {
+        loadService = mock(PdfLoadService.class);
+        victim = new PdfLoadController(Arrays.asList(new Module[] { new Module() {
 
-        @Bean
-        public PdfLoadController controller() {
-            return new PdfLoadController(Arrays.asList(new Module[] { new Module() {
+            public Pane modulePanel() {
+                return null;
+            }
 
-                public Pane modulePanel() {
-                    return null;
-                }
+            public String id() {
+                return "moduleId";
+            }
 
-                public String id() {
-                    return "moduleId";
-                }
+            public Node graphic() {
+                return null;
+            }
 
-                public Node graphic() {
-                    return null;
-                }
-
-                public ModuleDescriptor descriptor() {
-                    return null;
-                }
-            } }));
-        }
+            public ModuleDescriptor descriptor() {
+                return null;
+            }
+        } }), loadService);
     }
 
     @Test
