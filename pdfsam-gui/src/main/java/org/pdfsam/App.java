@@ -68,7 +68,6 @@ public class App extends Application {
     public void init() {
         STOPWATCH.start();
         LOG.info("Starting PDFsam");
-        Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger());
         UserContext userContext = new DefaultUserContext();
         String localeString = userContext.getLocale();
         if (isNotBlank(localeString)) {
@@ -108,6 +107,7 @@ public class App extends Application {
         scene.getAccelerators().put(new KeyCodeCombination(KeyCode.L, KeyCombination.SHORTCUT_DOWN),
                 () -> eventStudio().broadcast(new ShowStageRequest(), "LogStage"));
         primaryStage.show();
+        Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger());
         requestCheckForUpdateIfNecessary();
         eventStudio().addAnnotatedListeners(this);
         STOPWATCH.stop();

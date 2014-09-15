@@ -60,6 +60,6 @@ public class UpdatesController implements Closeable {
     @EventListener
     public void checkForUpdates(UpdateCheckRequest event) {
         LOG.debug(DefaultI18nContext.getInstance().i18n("Checking for updates"));
-        executor.submit(() -> service.checkForUpdates());
+        executor.execute(() -> service.checkForUpdates());
     }
 }

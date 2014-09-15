@@ -21,41 +21,24 @@ package org.pdfsam.task;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-import javax.inject.Inject;
-
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.sejda.core.service.TaskExecutionService;
 import org.sejda.model.parameter.base.TaskParameters;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration
 public class DefaultExecutionServiceTest {
 
-    @Inject
     private TaskExecutionService service;
-    @Inject
     private DefaultExecutionService victim;
 
-    @Configuration
-    static class Config {
-        @Bean
-        public TaskExecutionService service() {
-            return mock(TaskExecutionService.class);
-        }
-
-        @Bean
-        public DefaultExecutionService victim() {
-            return new DefaultExecutionService();
-        }
+    @Before
+    public void setUp() {
+        service = mock(TaskExecutionService.class);
+        victim = new DefaultExecutionService(service);
     }
 
     @Test

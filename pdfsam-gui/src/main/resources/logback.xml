@@ -1,10 +1,24 @@
 <configuration>
 
-	<!-- This is the default pdfsam logging configuration -->
+	<!-- appender logging everything to STDOUT -->
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<filter class="org.pdfsam.ui.log.UpToInfoFilter" />
 		<encoder>
 			<pattern>%-5level %d{HH:mm:ss.SSS} %c{5}[%thread] %msg%n</pattern>
 		</encoder>
+	</appender>
+
+	<!-- appender logging everything at WARN and above to STDERR -->
+	<appender name="STDERR" class="ch.qos.logback.core.ConsoleAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>warn</level>
+		</filter>
+
+		<encoder>
+			<pattern>%-5level %d{HH:mm:ss.SSS} %c[%thread] %msg%n%ex{full}
+			</pattern>
+		</encoder>
+		<target>System.err</target>
 	</appender>
 
 	<logger name="org.sejda" level="TRACE" />
@@ -15,5 +29,6 @@
 
 	<root level="TRACE">
 		<appender-ref ref="STDOUT" />
+		<appender-ref ref="STDERR" />
 	</root>
 </configuration>
