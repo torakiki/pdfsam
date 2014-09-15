@@ -33,8 +33,12 @@ import org.sejda.model.parameter.base.TaskParameters;
 @Named
 class DefaultExecutionService implements ExecutionService {
 
-    @Inject
     private TaskExecutionService service;
+
+    @Inject
+    DefaultExecutionService(TaskExecutionService service) {
+        this.service = service;
+    }
 
     @Override
     public void submit(String moduleId, TaskParameters params) {
