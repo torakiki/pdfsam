@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.workarea;
 
-import static org.pdfsam.support.RequireUtils.require;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 import static org.pdfsam.ui.event.SetActiveModuleRequest.activeteModule;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.control.Tooltip;
@@ -37,7 +37,7 @@ class ModuleButton extends BaseQuickbarButton {
     private Module module;
 
     ModuleButton(Module module) {
-        require(module != null, "Module cannot be null");
+        requireNotNull(module, "Module cannot be null");
         this.module = module;
         setGraphic(this.module.graphic());
         setText(this.module.descriptor().getName());

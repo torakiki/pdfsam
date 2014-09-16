@@ -61,4 +61,9 @@ public class ModuleButtonTest extends GuiTest {
         assertEquals(module.id(), captor.getValue().getActiveModuleId().get());
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void requiredModule() {
+        new ModuleButton(null);
+    }
+
 }
