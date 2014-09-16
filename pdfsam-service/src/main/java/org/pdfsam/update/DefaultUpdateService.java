@@ -45,16 +45,18 @@ class DefaultUpdateService implements UpdateService {
     private static final Logger LOG = LoggerFactory.getLogger(DefaultUpdateService.class);
     private static final String CURRENT_VERSION_KEY = "currentVersion";
 
-    @Inject
-    @Named("appVersion")
     private String appVersion;
+    private Object jsonSource;
+
     @Inject
-    @Named("updatesUrl")
-    private Object source;
+    DefaultUpdateService(@Named("appVersion") String appVersion, @Named("updatesUrl") Object jsonSource) {
+        this.appVersion = appVersion;
+        this.jsonSource = jsonSource;
+    }
 
     public void checkForUpdates() {
         try {
-            Map<String, Object> map = JSON.std.mapFrom(source);
+            Map<String, Object> map = JSON.std.mapFrom(jsonSource);
             String current = map.getOrDefault(CURRENT_VERSION_KEY, "").toString();
             if (!current.equals(appVersion)) {
                 LOG.info(DefaultI18nContext.getInstance().i18n("PDFsam {0} is available for download", current));

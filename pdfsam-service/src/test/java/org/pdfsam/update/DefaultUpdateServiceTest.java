@@ -24,25 +24,16 @@ import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
-import javax.inject.Inject;
-
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeJavaFxThreadRule;
 import org.sejda.eventstudio.Listener;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration
 public class DefaultUpdateServiceTest {
 
     @Rule
@@ -50,33 +41,21 @@ public class DefaultUpdateServiceTest {
     @Rule
     public InitializeJavaFxThreadRule javaFX = new InitializeJavaFxThreadRule();
 
-    @Inject
-    private DefaultUpdateService victim;
-
-    @Configuration
-    static class Config {
-
-        @Bean(name = "appVersion")
-        public String version() {
-            return "3.0.0.M1";
-        }
-
-        @Bean(name = "updatesUrl")
-        public String updatesUrl() {
-            return "{\"currentVersion\" : \"3.0.0\"}";
-        }
-
-        @Bean
-        public DefaultUpdateService controller() {
-            return new DefaultUpdateService();
-        }
-    }
-
     @Test
-    public void checkForUpdates() {
+    public void pasitiveCheckForUpdates() {
+        DefaultUpdateService victim = new DefaultUpdateService("3.0.0.M1", "{\"currentVersion\" : \"3.0.0\"}");
         Listener<UpdateAvailableEvent> listener = mock(Listener.class);
         eventStudio().add(UpdateAvailableEvent.class, listener);
         victim.checkForUpdates();
         verify(listener, timeout(1000).times(1)).onEvent(any(UpdateAvailableEvent.class));
+    }
+
+    @Test
+    public void negativeCheckForUpdates() {
+        DefaultUpdateService victim = new DefaultUpdateService("3.0.0", "{\"currentVersion\" : \"3.0.0\"}");
+        Listener<UpdateAvailableEvent> listener = mock(Listener.class);
+        eventStudio().add(UpdateAvailableEvent.class, listener);
+        victim.checkForUpdates();
+        verify(listener, timeout(1000).never()).onEvent(any(UpdateAvailableEvent.class));
     }
 }
