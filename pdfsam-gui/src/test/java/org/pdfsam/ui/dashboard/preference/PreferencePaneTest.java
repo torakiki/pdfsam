@@ -55,6 +55,7 @@ public class PreferencePaneTest {
     public static InitializeAndApplyJavaFxThreadRule INIT_FX = new InitializeAndApplyJavaFxThreadRule();
     @Inject
     private ApplicationContext applicationContext;
+    private static UserContext userContext = mock(UserContext.class);
 
     @Configuration
     @Lazy
@@ -62,7 +63,6 @@ public class PreferencePaneTest {
     static class Config extends PreferenceConfig {
         @Bean
         public UserContext userContext() {
-            UserContext userContext = mock(UserContext.class);
             when(userContext.getTheme()).thenReturn("sienna.css");
             when(userContext.isCheckForUpdates()).thenReturn(Boolean.TRUE);
             when(userContext.isAskOverwriteConfirmation()).thenReturn(Boolean.TRUE);

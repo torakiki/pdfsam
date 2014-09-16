@@ -108,15 +108,16 @@ public class SummaryTabTest {
     }
 
     private void assertInfoIsDisplayed(ChangeListener<? super String> listener, PdfDocumentDescriptor descriptor) {
-        verify(listener, timeout(2000).times(1)).changed(any(), any(), eq(descriptor.getFile().getAbsolutePath()));
-        verify(listener, timeout(2000).times(1)).changed(any(), any(), eq(descriptor.getVersionString()));
-        verify(listener, timeout(2000).times(1)).changed(any(), any(), eq("2"));
-        verify(listener, timeout(2000).times(1)).changed(any(), any(), eq("test.creationDate"));
-        verify(listener, timeout(2000).times(1)).changed(any(), any(), eq("test.title"));
-        verify(listener, timeout(2000).times(1)).changed(any(), any(), eq("test.author"));
-        verify(listener, timeout(2000).times(1)).changed(any(), any(), eq("test.creator"));
-        verify(listener, timeout(2000).times(1)).changed(any(), any(), eq("test.subject"));
-        verify(listener, timeout(2000).times(1)).changed(any(), any(), eq("test.producer"));
+        verify(listener, timeout(3000).times(1)).changed(any(), any(), eq("test.producer"));
+        verify(listener, timeout(1000).times(1)).changed(any(), any(), eq(descriptor.getFile().getAbsolutePath()));
+        verify(listener, timeout(1000).times(1)).changed(any(), any(), eq(descriptor.getVersionString()));
+        verify(listener, timeout(1000).times(1)).changed(any(), any(), eq("2"));
+        verify(listener, timeout(1000).times(1)).changed(any(), any(), eq("test.creationDate"));
+        verify(listener, timeout(1000).times(1)).changed(any(), any(), eq("test.title"));
+        verify(listener, timeout(1000).times(1)).changed(any(), any(), eq("test.author"));
+        verify(listener, timeout(1000).times(1)).changed(any(), any(), eq("test.creator"));
+        verify(listener, timeout(1000).times(1)).changed(any(), any(), eq("test.subject"));
+
     }
 
 }
