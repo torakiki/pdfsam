@@ -19,13 +19,16 @@
 package org.pdfsam.ui.io;
 
 import static org.junit.Assert.assertEquals;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Locale;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
+import org.pdfsam.context.SetLocaleEvent;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
@@ -39,6 +42,13 @@ public class BrowsableFileFieldTest {
     public TemporaryFolder folder = new TemporaryFolder();
     @Rule
     public InitializeAndApplyJavaFxThreadRule fxThread = new InitializeAndApplyJavaFxThreadRule();
+
+    @Test
+    public void defaultPromptText() {
+        eventStudio().broadcast(new SetLocaleEvent(Locale.UK.toLanguageTag()));
+        BrowsableFileField victim = new BrowsableFileField(FileType.ALL);
+        assertEquals("Select a file", victim.getTextField().getPromptText());
+    }
 
     @Test
     public void setTextFromNullFile() {
@@ -87,5 +97,4 @@ public class BrowsableFileFieldTest {
         assertEquals(ValidationState.INVALID, victim.getTextField().getValidationState());
         assertEquals(inputFile.getAbsolutePath(), victim.getTextField().getText());
     }
-
 }

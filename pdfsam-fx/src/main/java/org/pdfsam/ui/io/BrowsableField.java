@@ -60,7 +60,7 @@ abstract class BrowsableField extends HBox {
         browseButton.setAlignment(Pos.CENTER);
         HBox.setHgrow(validableContainer, Priority.ALWAYS);
         textField.validProperty().addListener((o, oldValue, newValue) -> {
-            if ((newValue == ValidationState.INVALID)) {
+            if (newValue == ValidationState.INVALID) {
                 validableContainer.getStyleClass().addAll(Style.INVALID.css());
             } else {
                 validableContainer.getStyleClass().removeAll(Style.INVALID.css());

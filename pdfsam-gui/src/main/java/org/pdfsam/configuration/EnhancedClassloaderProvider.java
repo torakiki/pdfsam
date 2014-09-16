@@ -22,14 +22,18 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.AccessController;
+import java.security.PrivilegedAction;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -66,7 +70,8 @@ final class EnhancedClassloaderProvider {
                 URL[] modules = getUrls(files);
                 if (modules.length > 0) {
                     LOG.trace(DefaultI18nContext.getInstance().i18n("Found modules jars {0}", Arrays.toString(modules)));
-                    return new URLClassLoader(modules, classLoader);
+                    return AccessController.doPrivileged((PrivilegedAction<URLClassLoader>) () -> new URLClassLoader(
+                            modules, classLoader));
                 }
             }
         } catch (IOException | URISyntaxException ex) {
@@ -77,11 +82,12 @@ final class EnhancedClassloaderProvider {
     }
 
     private static URL[] getUrls(Stream<Path> files) throws MalformedURLException {
-        Set<Path> modules = files.parallel().filter(new JarSignatureFilter()).collect(Collectors.toSet());
+        Set<URI> modules = files.parallel().filter(new JarSignatureFilter()).map(Path::toUri)
+                .collect(Collectors.toSet());
         // TODO remove all this cumbersome code once Eclipse stops complaining about uncaught exception when using stream.map
-        Set<URL> urls = new HashSet<>(modules.size());
-        for (Path module : modules) {
-            urls.add(module.toUri().toURL());
+        List<URL> urls = new ArrayList<>();
+        for (URI module : modules) {
+            urls.add(module.toURL());
         }
         return urls.toArray(new URL[urls.size()]);
     }

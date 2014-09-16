@@ -20,6 +20,11 @@ package org.pdfsam.ui.io;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+import javafx.beans.value.ChangeListener;
 
 import org.junit.Test;
 
@@ -43,6 +48,26 @@ public class PdfVersionFilterTest {
         assertEquals(10, victim.requiredProperty().get());
         victim.removeFilter(10);
         assertNotEquals(10, victim.requiredProperty().get());
+    }
+
+    @Test
+    public void failingRemove() {
+        PdfVersionFilter victim = new PdfVersionFilter();
+        ChangeListener<? super Number> listener = mock(ChangeListener.class);
+        victim.requiredProperty().addListener(listener);
+        victim.removeFilter(10);
+        verify(listener, never()).changed(any(), any(), any());
+    }
+
+    @Test
+    public void failingAdd() {
+        PdfVersionFilter victim = new PdfVersionFilter();
+        victim.addFilter(Integer.valueOf(10));
+        assertEquals(10, victim.requiredProperty().get());
+        ChangeListener<? super Number> listener = mock(ChangeListener.class);
+        victim.requiredProperty().addListener(listener);
+        victim.addFilter(Integer.valueOf(10));
+        verify(listener, never()).changed(any(), any(), any());
     }
 
     @Test
