@@ -23,6 +23,7 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import javafx.animation.FadeTransition;
 import javafx.scene.control.Label;
@@ -51,6 +52,7 @@ import org.sejda.eventstudio.annotation.EventListener;
 public class WorkArea extends BorderPane {
 
     private Map<String, Module> modules = new HashMap<>();
+    private Optional<Module> current = Optional.empty();
     private StackPane center = new StackPane();
     private FadeTransition fade = new FadeTransition(new Duration(300), center);
 
@@ -79,10 +81,11 @@ public class WorkArea extends BorderPane {
         request.getActiveModuleId().ifPresent(id -> {
             Module requested = modules.get(id);
             if (requested != null) {
+                current = Optional.of(requested);
                 center.getChildren().setAll(requested.modulePanel());
                 fade.play();
-                eventStudio().broadcast(new SetTitleEvent(requested.descriptor().getName()));
             }
         });
+        eventStudio().broadcast(new SetTitleEvent(current.map(m -> m.descriptor().getName()).orElse("")));
     }
 }

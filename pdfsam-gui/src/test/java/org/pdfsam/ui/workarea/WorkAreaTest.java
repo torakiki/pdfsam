@@ -18,9 +18,11 @@
  */
 package org.pdfsam.ui.workarea;
 
+import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
-import static org.mockito.Matchers.any;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
@@ -33,10 +35,10 @@ import javafx.scene.layout.Pane;
 
 import javax.inject.Inject;
 
-import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.UsageService;
 import org.pdfsam.test.ClearEventStudioRule;
@@ -59,8 +61,16 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration
 public class WorkAreaTest {
-    @ClassRule
-    public static ClearEventStudioRule STUDIO_RULE = new ClearEventStudioRule();
+    private static DefaultPriorityTestModule MODULE = new DefaultPriorityTestModule() {
+        @Override
+        public Pane modulePanel() {
+            HBox panel = new HBox();
+            panel.setId("modulePane");
+            return panel;
+        }
+    };
+    @Rule
+    public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
     @Rule
     public InitializeAndApplyJavaFxThreadRule javaFxThread = new InitializeAndApplyJavaFxThreadRule();
     @Inject
@@ -71,14 +81,7 @@ public class WorkAreaTest {
     static class Config {
         @Bean
         public List<Module> modules() {
-            return Arrays.asList(new DefaultPriorityTestModule() {
-                @Override
-                public Pane modulePanel() {
-                    HBox panel = new HBox();
-                    panel.setId("modulePane");
-                    return panel;
-                }
-            });
+            return Arrays.asList(MODULE);
         }
 
         @Bean
@@ -109,14 +112,40 @@ public class WorkAreaTest {
     }
 
     @Test
-    public void eventIsSent() {
+    public void eventTitleIsSent() {
         WorkArea victim = applicationContext.getBean(WorkArea.class);
         assertNull(victim.lookup("#modulePane"));
         Listener<SetTitleEvent> listener = mock(Listener.class);
         eventStudio().add(SetTitleEvent.class, listener);
         victim.onSetActiveModule(SetActiveModuleRequest.activeteModule(DefaultPriorityTestModule.ID));
-        verify(listener).onEvent(any());
+        ArgumentCaptor<SetTitleEvent> captor = ArgumentCaptor.forClass(SetTitleEvent.class);
+        verify(listener).onEvent(captor.capture());
+        assertEquals(MODULE.descriptor().getName(), captor.getValue().getTitle());
         assertNotNull(victim.lookup("#modulePane"));
+    }
+
+    @Test
+    public void emptyEventTitleIsSent() {
+        WorkArea victim = applicationContext.getBean(WorkArea.class);
+        Listener<SetTitleEvent> listener = mock(Listener.class);
+        eventStudio().add(SetTitleEvent.class, listener);
+        victim.onSetActiveModule(SetActiveModuleRequest.activeteCurrentModule());
+        ArgumentCaptor<SetTitleEvent> captor = ArgumentCaptor.forClass(SetTitleEvent.class);
+        verify(listener).onEvent(captor.capture());
+        assertTrue(isBlank(captor.getValue().getTitle()));
+    }
+
+    @Test
+    public void previousEventTitleIsSent() {
+        WorkArea victim = applicationContext.getBean(WorkArea.class);
+        victim.onSetActiveModule(SetActiveModuleRequest.activeteModule(DefaultPriorityTestModule.ID));
+        eventStudio().clear();
+        Listener<SetTitleEvent> listener = mock(Listener.class);
+        eventStudio().add(SetTitleEvent.class, listener);
+        victim.onSetActiveModule(SetActiveModuleRequest.activeteCurrentModule());
+        ArgumentCaptor<SetTitleEvent> captor = ArgumentCaptor.forClass(SetTitleEvent.class);
+        verify(listener).onEvent(captor.capture());
+        assertEquals(MODULE.descriptor().getName(), captor.getValue().getTitle());
     }
 
 }
