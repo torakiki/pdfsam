@@ -18,12 +18,15 @@
  */
 package org.pdfsam.ui.dashboard.about;
 
+import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.Parent;
+import javafx.scene.input.Clipboard;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -31,6 +34,7 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
+import org.loadui.testfx.utils.FXTestUtils;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.commons.OpenUrlRequest;
@@ -137,5 +141,15 @@ public class AboutDashboardPaneTest extends GuiTest {
         click(AwesomeIcon.FACEBOOK_SQUARE.toString());
         verify(listener, atLeastOnce()).onEvent(captor.capture());
         assertEquals("http://www.pdfsam.org/facebook", captor.getValue().getUrl());
+    }
+
+    @Test
+    public void clickCopy() throws Exception {
+        FXTestUtils.invokeAndWait(() -> {
+            Clipboard.getSystemClipboard().clear();
+            assertTrue(isBlank(Clipboard.getSystemClipboard().getString()));
+        }, 2);
+        click("#copyEnvDetails");
+        FXTestUtils.invokeAndWait(() -> assertTrue(Clipboard.getSystemClipboard().getString().contains("PDFsam")), 1);
     }
 }

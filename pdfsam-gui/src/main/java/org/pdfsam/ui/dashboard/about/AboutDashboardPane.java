@@ -18,7 +18,14 @@
  */
 package org.pdfsam.ui.dashboard.about;
 
+import static org.pdfsam.support.io.ObjectCollectionWriter.writeContent;
+
+import java.util.Arrays;
+
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -29,6 +36,7 @@ import javax.inject.Named;
 import org.apache.commons.io.FileUtils;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.commons.UrlButton;
+import org.pdfsam.ui.support.Style;
 
 import de.jensd.fx.fontawesome.AwesomeDude;
 import de.jensd.fx.fontawesome.AwesomeIcon;
@@ -55,18 +63,26 @@ public class AboutDashboardPane extends HBox {
                 DefaultI18nContext.getInstance().i18n("Subscribe to the official news feed"), left);
 
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Environment"), left);
-        left.getChildren().add(
-                new Label(String.format("%s %s", System.getProperty("java.runtime.name"),
-                        System.getProperty("java.runtime.version"))));
-        left.getChildren().add(
-                new Label(String.format("JavaFX %s", com.sun.javafx.runtime.VersionInfo.getRuntimeVersion())));
-        left.getChildren().add(
-                new Label(DefaultI18nContext.getInstance().i18n("Max memory {0}",
-                        FileUtils.byteCountToDisplaySize(Runtime.getRuntime().maxMemory()))));
+        Label runtime = new Label(String.format("%s %s", System.getProperty("java.runtime.name"),
+                System.getProperty("java.runtime.version")));
+        Label fxRuntime = new Label(String.format("JavaFX %s", com.sun.javafx.runtime.VersionInfo.getRuntimeVersion()));
+        Label memory = new Label(DefaultI18nContext.getInstance().i18n("Max memory {0}",
+                FileUtils.byteCountToDisplaySize(Runtime.getRuntime().maxMemory())));
+        Button copyButton = new Button(DefaultI18nContext.getInstance().i18n("Copy to clipboard"));
+        AwesomeDude.setIcon(copyButton, AwesomeIcon.COPY);
+        copyButton.getStyleClass().addAll(Style.BUTTON.css());
+        copyButton.setId("copyEnvDetails");
+        copyButton.setOnAction((a) -> {
+            ClipboardContent content = new ClipboardContent();
+            writeContent(Arrays.asList(name, version, runtime.getText(), fxRuntime.getText(), memory.getText())).to(
+                    content);
+            Clipboard.getSystemClipboard().setContent(content);
+        });
+        left.getChildren().addAll(runtime, fxRuntime, memory, copyButton);
+
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Thanks to"), left);
         addHyperlink(null, "http://www.pdfsam.org/thanks_to",
                 DefaultI18nContext.getInstance().i18n("The open source projects making PDFsam possible"), left);
-
         VBox right = new VBox(5);
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Support"), right);
         addHyperlink(AwesomeIcon.BUG, "http://www.pdfsam.org/issue_tracker",
@@ -91,6 +107,7 @@ public class AboutDashboardPane extends HBox {
         addHyperlink(AwesomeIcon.FACEBOOK_SQUARE, "http://www.pdfsam.org/facebook", DefaultI18nContext.getInstance()
                 .i18n("Like us on Facebook"), right);
         getChildren().addAll(left, right);
+
     }
 
     private void addSectionTitle(String title, Pane pane) {
