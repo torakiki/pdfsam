@@ -18,15 +18,20 @@
  */
 package org.pdfsam.ui.info;
 
+import static org.hamcrest.Matchers.isIn;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.eq;
+import static org.mockito.Matchers.argThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.verify;
 
 import java.io.File;
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 
 import javafx.beans.value.ChangeListener;
@@ -34,6 +39,8 @@ import javafx.scene.Node;
 import javafx.scene.control.Labeled;
 import javafx.scene.control.ScrollPane;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.time.FastDateFormat;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
@@ -51,6 +58,8 @@ import org.sejda.model.pdf.PdfVersion;
  *
  */
 public class SummaryTabTest {
+    private static FastDateFormat FORMATTER = FastDateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.MEDIUM);
+
     @Rule
     public ClearEventStudioRule studio = new ClearEventStudioRule();
     @Rule
@@ -65,11 +74,11 @@ public class SummaryTabTest {
         Set<Node> properties = ((ScrollPane) victim.getContent()).getContent().lookupAll(".info-property-value");
         assertNotNull(properties);
         assertFalse(properties.isEmpty());
-        ChangeListener<? super String> listener = initListener(properties);
+        List<ChangeListener<? super String>> listeners = initListener(properties);
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(file);
         fillDescriptor(descriptor);
         FXTestUtils.invokeAndWait(() -> victim.requestShow(new ShowPdfDescriptorRequest(descriptor)), 1);
-        assertInfoIsDisplayed(listener, descriptor);
+        assertInfoIsDisplayed(listeners, descriptor);
     }
 
     @Test
@@ -79,21 +88,24 @@ public class SummaryTabTest {
         Set<Node> properties = ((ScrollPane) victim.getContent()).getContent().lookupAll(".info-property-value");
         assertNotNull(properties);
         assertFalse(properties.isEmpty());
-        ChangeListener<? super String> listener = initListener(properties);
+        List<ChangeListener<? super String>> listeners = initListener(properties);
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(file);
         FXTestUtils.invokeAndWait(() -> victim.requestShow(new ShowPdfDescriptorRequest(descriptor)), 1);
         fillDescriptor(descriptor);
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.LOADED);
-        assertInfoIsDisplayed(listener, descriptor);
+        assertInfoIsDisplayed(listeners, descriptor);
     }
 
-    private ChangeListener<? super String> initListener(Set<Node> properties) {
-        ChangeListener<? super String> listener = mock(ChangeListener.class);
-        properties.stream().filter(n -> n instanceof Labeled).map(n -> (Labeled) n)
-                .forEach(l -> l.textProperty().addListener(listener));
-        return listener;
+    private List<ChangeListener<? super String>> initListener(Set<Node> properties) {
+        List<ChangeListener<? super String>> listeners = new ArrayList<>();
+        properties.stream().filter(n -> n instanceof Labeled).map(n -> (Labeled) n).forEach(l -> {
+            ChangeListener<? super String> listener = mock(ChangeListener.class);
+            listeners.add(listener);
+            l.textProperty().addListener(listener);
+        });
+        return listeners;
     }
 
     private void fillDescriptor(PdfDocumentDescriptor descriptor) {
@@ -107,17 +119,11 @@ public class SummaryTabTest {
         descriptor.setVersion(PdfVersion.VERSION_1_5);
     }
 
-    private void assertInfoIsDisplayed(ChangeListener<? super String> listener, PdfDocumentDescriptor descriptor) {
-        verify(listener, timeout(3000).times(1)).changed(any(), any(), eq("test.producer"));
-        verify(listener, timeout(1000).times(1)).changed(any(), any(), eq(descriptor.getFile().getAbsolutePath()));
-        verify(listener, timeout(1000).times(1)).changed(any(), any(), eq(descriptor.getVersionString()));
-        verify(listener, timeout(1000).times(1)).changed(any(), any(), eq("2"));
-        verify(listener, timeout(1000).times(1)).changed(any(), any(), eq("test.creationDate"));
-        verify(listener, timeout(1000).times(1)).changed(any(), any(), eq("test.title"));
-        verify(listener, timeout(1000).times(1)).changed(any(), any(), eq("test.author"));
-        verify(listener, timeout(1000).times(1)).changed(any(), any(), eq("test.creator"));
-        verify(listener, timeout(1000).times(1)).changed(any(), any(), eq("test.subject"));
-
+    private void assertInfoIsDisplayed(List<ChangeListener<? super String>> listeners, PdfDocumentDescriptor descriptor) {
+        File file = descriptor.getFile();
+        List<String> values = Arrays.asList("test.producer", file.getAbsolutePath(), descriptor.getVersionString(),
+                "2", "test.creationDate", "test.title", "test.author", "test.creator", "test.subject",
+                FileUtils.byteCountToDisplaySize(file.length()), FORMATTER.format(file.lastModified()));
+        listeners.forEach(l -> verify(l, timeout(2000).times(1)).changed(any(), any(), argThat(isIn(values))));
     }
-
 }
