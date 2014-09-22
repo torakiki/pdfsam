@@ -21,13 +21,13 @@
 		<target>System.err</target>
 	</appender>
 
-	<logger name="org.sejda" level="TRACE" />
-	<logger name="org.sejda.eventstudio" level="DEBUG" />
-	<logger name="org.pdfsam" level="TRACE" />
+	<logger name="org.sejda" level="DEBUG" />
+	<logger name="org.sejda.eventstudio" level="INFO" />
+	<logger name="org.pdfsam" level="INFO" />
 	<logger name="org.hibernate" level="WARN" />
-	<logger name="org.springframework" level="DEBUG" />
+	<logger name="org.springframework" level="WARN" />
 
-	<root level="TRACE">
+	<root level="INFO">
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="STDERR" />
 	</root>

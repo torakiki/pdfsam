@@ -32,7 +32,7 @@
 		<module>pdfsam-split-by-size</module>
 		<module>pdfsam-split-by-bookmarks</module>
 		<module>pdfsam-alternate-mix</module>
-		<module>pdfsam-rotate</module>
+		<module>pdfsam-rotate</module>		
 	</modules>
 
 	<developers>
