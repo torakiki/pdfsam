@@ -1,6 +1,8 @@
 PDFsam (PDF Split And Merge)
 ==============================
-Official SCM repository for PDFsam version 3
+Official SCM repository for PDFsam version 3    
+[![Build Status](https://travis-ci.org/torakiki/pdfsam.png)](https://travis-ci.org/torakiki/pdfsam)
+[![License](http://img.shields.io/badge/license-AGPLv3-blue.svg)](http://www.gnu.org/licenses/agpl-3.0.html)
 
 Version
 -------------------
@@ -17,10 +19,6 @@ Official website [pdfsam.org](http://pdfsam.org/ "PDFsam")
 License
 -------------------
 PDFsam Version 3 is open source under the [GNU Affero General Public License] v3, previous versions are released under GPLv2.
-
-Status
-----
-[![Build Status](https://travis-ci.org/torakiki/pdfsam.png)](https://travis-ci.org/torakiki/pdfsam)
 
 Requirements
 -------------------
