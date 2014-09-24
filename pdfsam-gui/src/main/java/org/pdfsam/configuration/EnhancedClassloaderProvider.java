@@ -18,6 +18,7 @@
  */
 package org.pdfsam.configuration;
 
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 import java.io.IOException;
@@ -34,6 +35,7 @@ import java.security.PrivilegedAction;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -52,6 +54,8 @@ final class EnhancedClassloaderProvider {
     private static final Logger LOG = LoggerFactory.getLogger(EnhancedClassloaderProvider.class);
     private static final String MODULES_DIRECTORY = "modules";
 
+    public static final String PDFSAM_MODULES_DIRECTORY = "pdfsam.modules.directory";
+
     private EnhancedClassloaderProvider() {
         // hide
     }
@@ -59,8 +63,8 @@ final class EnhancedClassloaderProvider {
     static ClassLoader classLoader(ClassLoader classLoader) {
         requireNotNull(classLoader, "Cannot enhance null class loader");
         try {
-            Path modulesPath = getModulesPath();
-            if (!Files.exists(modulesPath)) {
+            Path modulesPath = Optional.ofNullable(getUserSpecifiedModulesPath()).orElse(getModulesPath());
+            if (!Files.isDirectory(modulesPath)) {
                 LOG.warn(DefaultI18nContext.getInstance().i18n("Modules directory {0} does not exist",
                         modulesPath.toString()));
                 return classLoader;
@@ -94,10 +98,21 @@ final class EnhancedClassloaderProvider {
 
     private static Path getModulesPath() throws URISyntaxException {
         URL jarLocation = EnhancedClassloaderProvider.class.getProtectionDomain().getCodeSource().getLocation();
-        if (jarLocation == null) {
-            throw new RuntimeException(DefaultI18nContext.getInstance().i18n("Unable to find modules location."));
+        if (jarLocation != null) {
+            Path jarPath = Paths.get(jarLocation.toURI());
+            return Paths.get(jarPath.getParent().toString(), MODULES_DIRECTORY);
         }
-        Path jarPath = Paths.get(jarLocation.toURI());
-        return Paths.get(jarPath.getParent().toString(), MODULES_DIRECTORY);
+        LOG.warn(DefaultI18nContext.getInstance().i18n("Unable to find modules location."));
+        return null;
+    }
+
+    private static Path getUserSpecifiedModulesPath() {
+        String userPath = System.getProperty(PDFSAM_MODULES_DIRECTORY);
+        if (isNotBlank(userPath)) {
+            LOG.debug("User specified modules location {}", userPath);
+            return Paths.get(userPath);
+        }
+        return null;
+
     }
 }

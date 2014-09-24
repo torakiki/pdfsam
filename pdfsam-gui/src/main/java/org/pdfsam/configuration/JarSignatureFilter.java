@@ -21,30 +21,16 @@ package org.pdfsam.configuration;
 import java.nio.file.Path;
 import java.util.function.Predicate;
 
-import org.pdfsam.context.DefaultI18nContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /**
- * Filter that checks if the given {@link Path} is a jar and if it is signed or not. It accepts only signed jars and it can be disabled with a system property.
+ * Filter that checks if the given {@link Path} is a jar file.
  * 
  * @author Andrea Vacondio
  *
  */
 class JarSignatureFilter implements Predicate<Path> {
-    private static final Logger LOG = LoggerFactory.getLogger(JarSignatureFilter.class);
-    public static final String SKIP_SIGNATURE_CHECKING_PROP = "skip.modules.signature.check";
 
     public boolean test(Path p) {
-        if (p == null || !p.toString().toLowerCase().endsWith(".jar")) {
-            return false;
-        }
-        if (Boolean.getBoolean(SKIP_SIGNATURE_CHECKING_PROP)) {
-            LOG.info(DefaultI18nContext.getInstance().i18n("Skipping modules signature verification."));
-            return true;
-        }
-        // TODO implement signature verification
-        return false;
+        return p != null && p.toString().toLowerCase().endsWith(".jar");
     }
 
 }
