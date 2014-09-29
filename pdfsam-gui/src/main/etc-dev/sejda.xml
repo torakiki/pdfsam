@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sejda validation="true">
+	<notification async="false" />
+	<tasks>
+		<task parameters="org.sejda.model.parameter.DecryptParameters"
+			task="org.sejda.impl.itext5.DecryptTask" />
+		<task parameters="org.sejda.model.parameter.MergeParameters"
+			task="org.sejda.impl.itext5.MergeTask" />
+		<task parameters="org.sejda.model.parameter.SimpleSplitParameters"
+			task="org.sejda.impl.itext5.SplitByPageNumbersTask" />
+		<task parameters="org.sejda.model.parameter.SplitByPagesParameters"
+			task="org.sejda.impl.itext5.SplitByPageNumbersTask" />
+		<task parameters="org.sejda.model.parameter.SplitByEveryXPagesParameters"
+			task="org.sejda.impl.itext5.SplitByPageNumbersTask" />
+		<task parameters="org.sejda.model.parameter.SplitBySizeParameters"
+			task="org.sejda.impl.itext5.SplitBySizeTask" />
+		<task parameters="org.sejda.model.parameter.SplitByGoToActionLevelParameters"
+			task="org.sejda.impl.itext5.SplitByGoToActionLevelTask" />
+		<task parameters="org.sejda.model.parameter.AlternateMixParameters"
+			task="org.sejda.impl.itext5.AlternateMixTask" />
+		<task parameters="org.sejda.model.parameter.RotateParameters"
+			task="org.sejda.impl.itext5.RotateTask" />
+	</tasks>
+</sejda>
