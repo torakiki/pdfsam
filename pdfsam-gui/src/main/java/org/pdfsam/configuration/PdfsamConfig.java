@@ -69,7 +69,8 @@ public class PdfsamConfig {
 
     @Bean(name = "updatesUrl")
     public URL updatesUrl() throws MalformedURLException {
-        return new URL(String.format("http://www.pdfsam.org/current-version?c=%s", env.getProperty("pdfsam.version")));
+        return new URL(String.format("http://www.pdfsam.org/current-version?c=%s",
+                env.getProperty("pdfsam.version")));
     }
 
     @Bean

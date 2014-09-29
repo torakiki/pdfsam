@@ -52,14 +52,47 @@ public class PdfsamBasicConfig implements UIConfig {
 
     @Bean(name = "logo80")
     public Image logo80() throws IOException {
-        Resource resource = new ClassPathResource("/images/logo80B.png");
-        return new Image(resource.getInputStream());
+        return new Image(new ClassPathResource("/images/logo80B.png").getInputStream());
     }
 
     @Bean(name = "logo35")
     public Image logo35() throws IOException {
-        Resource resource = new ClassPathResource("/images/logo35B.png");
-        return new Image(resource.getInputStream());
+        return new Image(new ClassPathResource("/images/logo35B.png").getInputStream());
+    }
+
+    @Bean(name = "logo16")
+    public Image logo16() throws IOException {
+        return new Image(new ClassPathResource("/images/logo16B.png").getInputStream());
+    }
+
+    @Bean(name = "logo32")
+    public Image logo32() throws IOException {
+        return new Image(new ClassPathResource("/images/logo32B.png").getInputStream());
+    }
+
+    @Bean(name = "logo64")
+    public Image logo64() throws IOException {
+        return new Image(new ClassPathResource("/images/logo64B.png").getInputStream());
+    }
+
+    @Bean(name = "logo128")
+    public Image logo128() throws IOException {
+        return new Image(new ClassPathResource("/images/logo128B.png").getInputStream());
+    }
+
+    @Bean(name = "logo256")
+    public Image logo256() throws IOException {
+        return new Image(new ClassPathResource("/images/logo256B.png").getInputStream());
+    }
+
+    @Bean(name = "logo512")
+    public Image logo512() throws IOException {
+        return new Image(new ClassPathResource("/images/logo512B.png").getInputStream());
+    }
+
+    @Bean(name = "logo1024")
+    public Image logo1024() throws IOException {
+        return new Image(new ClassPathResource("/images/logo1024B.png").getInputStream());
     }
 
     @Bean(name = "appName")
