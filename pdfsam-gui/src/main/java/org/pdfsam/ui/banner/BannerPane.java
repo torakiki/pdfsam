@@ -44,7 +44,7 @@ public class BannerPane extends HBox {
     private Label current = new Label();
 
     @Inject
-    public BannerPane(BannerButtons buttons, ImageView payoff, @Named("logo35") Image logo) {
+    public BannerPane(BannerButtons buttons, ImageView payoff, @Named("logo32") Image logo) {
         getStyleClass().add("pdfsam-banner");
         current.getStyleClass().add("header-title");
         HBox.setHgrow(buttons, Priority.ALWAYS);
