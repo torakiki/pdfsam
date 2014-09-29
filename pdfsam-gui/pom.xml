@@ -81,7 +81,6 @@
 					<!-- make the lib folder look nicer -->
 					<repositoryLayout>flat</repositoryLayout>
 					<repositoryName>lib</repositoryName>
-					<showConsoleWindow>false</showConsoleWindow>
 					<assembleDirectory>${project.build.directory}/assembled</assembleDirectory>
 					<configurationSourceDirectory>src/main/etc</configurationSourceDirectory>
 					<copyConfigurationDirectory>true</copyConfigurationDirectory>
