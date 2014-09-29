@@ -18,45 +18,33 @@
  */
 package org.pdfsam.ui.dashboard;
 
-import static org.junit.Assert.assertFalse;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.Parent;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
-import org.mockito.ArgumentCaptor;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.DefaultPriorityDashboardItem;
+import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.ui.event.SetActiveModuleRequest;
-import org.sejda.eventstudio.Listener;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class DashboardItemPaneTest extends GuiTest {
+public class DashboardItemPaneTest {
 
+    @Rule
+    public InitializeAndApplyJavaFxThreadRule javaFxThread = new InitializeAndApplyJavaFxThreadRule();
     @Rule
     public ClearEventStudioRule cleanStudio = new ClearEventStudioRule();
 
-    @Override
-    protected Parent getRootNode() {
-        return new DashboardItemPane(new DefaultPriorityDashboardItem());
-    }
-
     @Test
-    public void onClick() {
-        Listener<SetActiveModuleRequest> listener = mock(Listener.class);
-        eventStudio().add(SetActiveModuleRequest.class, listener);
-        click(".pdfsam-button");
-        ArgumentCaptor<SetActiveModuleRequest> captor = ArgumentCaptor.forClass(SetActiveModuleRequest.class);
-        verify(listener).onEvent(captor.capture());
-        assertFalse(captor.getValue().getActiveModuleId().isPresent());
+    public void footerIsAdded() {
+        DashboardItemPane victim = new DashboardItemPane(new DefaultPriorityDashboardItem());
+        assertNull(victim.lookup(".pdfsam-button"));
+        eventStudio().broadcast(SetActiveModuleRequest.activeteModule("any"));
+        assertNotNull(victim.lookup(".pdfsam-button"));
     }
 }

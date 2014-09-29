@@ -26,7 +26,6 @@ import java.util.Map;
 import java.util.Optional;
 
 import javafx.animation.FadeTransition;
-import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
@@ -34,7 +33,6 @@ import javafx.util.Duration;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.module.Module;
 import org.pdfsam.ui.event.SetActiveModuleRequest;
 import org.pdfsam.ui.event.SetTitleEvent;
@@ -59,14 +57,11 @@ public class WorkArea extends BorderPane {
     @Inject
     public WorkArea(List<Module> modulesList) {
         getStyleClass().addAll(Style.CONTAINER.css());
-        Label emptyArea = new Label(DefaultI18nContext.getInstance().i18n("Please select a module"));
-        emptyArea.getStyleClass().add("empty-notice");
         for (Module module : modulesList) {
             modules.put(module.id(), module);
         }
         fade.setFromValue(0);
         fade.setToValue(1);
-        center.getChildren().setAll(emptyArea);
         setCenter(center);
         eventStudio().addAnnotatedListeners(this);
     }

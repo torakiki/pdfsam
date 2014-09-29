@@ -28,7 +28,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.TextAlignment;
 
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.ui.event.SetActiveModuleRequest;
 import org.pdfsam.ui.support.Style;
+import org.sejda.eventstudio.Listener;
+import org.sejda.eventstudio.ReferenceStrength;
 
 /**
  * Pane showing a {@link DashboardItem} pane as center and having a footer with a close button whose purpose is to hide the dashboard and show the workarea.
@@ -39,17 +42,26 @@ import org.pdfsam.ui.support.Style;
 class DashboardItemPane extends BorderPane {
 
     private DashboardItem item;
+    private Listener<SetActiveModuleRequest> enableFooterListener = e -> {
+        unregister();
+        setBottom(buildFooter());
+    };
 
     DashboardItemPane(DashboardItem item) {
         requireNotNull(item, "Dashboard item cannot be null");
         this.item = item;
         this.item.pane().getStyleClass().addAll(Style.DEAULT_CONTAINER.css());
         this.item.pane().getStyleClass().addAll(Style.CONTAINER.css());
-        setBottom(buildFooter());
         ScrollPane scroll = new ScrollPane(this.item.pane());
         scroll.setFitToHeight(true);
         scroll.setFitToWidth(true);
         setCenter(scroll);
+        eventStudio().add(SetActiveModuleRequest.class, enableFooterListener, Integer.MAX_VALUE,
+                ReferenceStrength.STRONG);
+    }
+
+    private void unregister() {
+        eventStudio().remove(SetActiveModuleRequest.class, enableFooterListener);
     }
 
     private HBox buildFooter() {

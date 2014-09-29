@@ -1,18 +1,6 @@
 .root { 
 	menubg-color: #FFFFFF;
 }
-.empty-notice {
-	-fx-alignment: center;
- 	-fx-font-weight: bold; 
- 	-fx-padding: 25.0;
- 	-fx-font-size: 2.0em;
- 	-fx-background-color: white;
- 	-fx-border-color: derive(dark-text-color, 30.0%);
- 	-fx-text-fill: derive(dark-text-color, 35.0%);
- 	-fx-border-radius: 7.0px;
- 	-fx-border-style: dashed;
- 	-fx-border-width: 3.5px;
-}
 .header-title{
 	-fx-font-weight: bold; 
 	-fx-font-style: italic;
