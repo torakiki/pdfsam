@@ -55,8 +55,9 @@ public class AboutDashboardPane extends HBox {
         getStyleClass().add("dashboard-container");
         VBox left = new VBox(5);
         addSectionTitle(name, left);
-        left.getChildren().addAll(new Label(String.format("ver. %s", version)),
-                new Label("Copyright 2014 by Andrea Vacondio"));
+        Label copyright = new Label("Copyright 2014 by Andrea Vacondio");
+        AwesomeDude.setIcon(copyright, AwesomeIcon.COPYRIGHT);
+        left.getChildren().addAll(new Label(String.format("ver. %s", version)), copyright);
         addHyperlink(null, "http://www.gnu.org/licenses/agpl-3.0.html", "GNU Affero General Public License v3", left);
         addHyperlink(AwesomeIcon.HOME, "http://www.pdfsam.org", "www.pdfsam.org", left);
         addHyperlink(AwesomeIcon.RSS_SQUARE, "http://www.pdfsam.org/feed/",
