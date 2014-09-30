@@ -100,6 +100,64 @@
 				</configuration>
 			</plugin>
 			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.9.1</version>
+				<executions>
+					<execution>
+						<id>parse-version</id>
+						<phase>package</phase>
+						<goals>
+							<goal>parse-version</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.akathist.maven.plugins.launch4j</groupId>
+				<artifactId>launch4j-maven-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<id>exe-creation</id>
+						<phase>package</phase>
+						<goals>
+							<goal>launch4j</goal>
+						</goals>
+						<configuration>
+							<headerType>gui</headerType>
+							<outfile>${project.build.directory}/assembled/pdfsam.exe</outfile>
+							<jar>lib/${project.build.finalName}.jar</jar>
+							<dontWrapJar>true</dontWrapJar>
+							<icon>src/assembly/resources/PDFsam_basic.ico</icon>
+
+							<errTitle>Cannot find Java Runtime Environment</errTitle>
+							<!--TODO change this as soon as jre 8 is on java.com -->
+							<downloadUrl>http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html</downloadUrl>
+							<classPath>
+								<mainClass>org.pdfsam.App</mainClass>
+								<jarLocation>lib</jarLocation>
+								<preCp>etc</preCp>
+							</classPath>
+							<jre>
+								<minVersion>1.8.0</minVersion>
+							</jre>
+							<versionInfo>
+								<fileVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.0</fileVersion>
+								<txtFileVersion>${project.version}</txtFileVersion>
+								<fileDescription>Starter for PDFsam</fileDescription>
+								<copyright>Andrea Vacondio 2014</copyright>
+								<productVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.0</productVersion>
+								<txtProductVersion>${project.version}</txtProductVersion>
+								<productName>PDF Split And Merge</productName>
+								<internalName>PDFsam</internalName>
+								<originalFilename>pdfsam.exe</originalFilename>
+							</versionInfo>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
 				<executions>
 					<execution>
@@ -116,6 +174,14 @@
 									<includes>
 										<include>
 											LICENSE.txt
+										</include>
+									</includes>
+								</resource>
+								<resource>
+									<directory>src/assembly/resources</directory>
+									<includes>
+										<include>
+											pdfsam.l4j.ini
 										</include>
 									</includes>
 								</resource>
