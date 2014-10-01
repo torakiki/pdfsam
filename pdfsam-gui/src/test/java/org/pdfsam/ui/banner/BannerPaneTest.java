@@ -72,7 +72,7 @@ public class BannerPaneTest extends GuiTest {
     static class Config {
         @Bean
         public BannerPane victim() throws IOException {
-            return new BannerPane(buttons(), payoff(), logo35());
+            return new BannerPane(buttons(), payoff(), logo32());
         }
 
         @Bean
@@ -80,9 +80,9 @@ public class BannerPaneTest extends GuiTest {
             return new ImageView(new ClassPathResource("/images/payoff.png").getURL().toExternalForm());
         }
 
-        @Bean(name = "logo35")
-        public Image logo35() throws IOException {
-            Resource resource = new ClassPathResource("/images/logo35B.png");
+        @Bean(name = "logo32")
+        public Image logo32() throws IOException {
+            Resource resource = new ClassPathResource("/images/basic/32x32.png");
             return new Image(resource.getInputStream());
         }
 
