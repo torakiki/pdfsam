@@ -60,7 +60,7 @@ public class PreferencePaneTest {
     @Configuration
     @Lazy
     @ComponentScan(basePackages = { "org.pdfsam.ui.dashboard.preference" })
-    static class Config extends PreferenceConfig {
+    static class Config {
         @Bean
         public UserContext userContext() {
             when(userContext.getTheme()).thenReturn("sienna.css");
