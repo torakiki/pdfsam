@@ -18,6 +18,11 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
+import static org.apache.commons.lang3.StringUtils.capitalize;
+
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 import javafx.scene.control.Tooltip;
 
 import javax.inject.Inject;
@@ -26,6 +31,7 @@ import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.IntUserPreference;
 import org.pdfsam.context.StringUserPreference;
+import org.pdfsam.context.Theme;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.LocaleKeyValueItem;
@@ -59,12 +65,11 @@ public class PreferenceConfig {
         PreferenceComboBox<KeyStringValueItem<String>> themeCombo = new PreferenceComboBox<>(
                 StringUserPreference.THEME, userContext);
         themeCombo.setId("themeCombo");
-        themeCombo.getItems().add(new KeyStringValueItem<>("cornflower.css", "Cornflower"));
-        themeCombo.getItems().add(new KeyStringValueItem<>("gray.css", "Gray"));
-        themeCombo.getItems().add(new KeyStringValueItem<>("green.css", "Green"));
-        themeCombo.getItems().add(new KeyStringValueItem<>("orchid.css", "Orchid"));
-        themeCombo.getItems().add(new KeyStringValueItem<>("seagreen.css", "Sea Green"));
-        themeCombo.getItems().add(new KeyStringValueItem<>("sienna.css", "Sienna"));
+        themeCombo.getItems().addAll(
+                Arrays.stream(Theme.values())
+                        .map(t -> new KeyStringValueItem<>(t.toString(), capitalize(t.toString().toLowerCase())))
+                        .collect(Collectors.toList()));
+
         themeCombo.setValue(new KeyStringValueItem<>(userContext.getTheme(), ""));
         return themeCombo;
     }

@@ -1,5 +1,4 @@
 .root { 
-	theme-color: #009245;
 	light-border-color: #D4D4D4;
 	hover-color: #D4D4D4;
 	dark-text-color: derive(light-border-color, -70.0%);

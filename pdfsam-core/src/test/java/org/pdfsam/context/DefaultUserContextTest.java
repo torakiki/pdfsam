@@ -97,7 +97,7 @@ public class DefaultUserContextTest {
         victim.setStringPreference(StringUserPreference.THEME, "ChuckNorris");
         assertEquals("ChuckNorris", victim.getTheme());
         victim.setStringPreference(StringUserPreference.THEME, "");
-        assertEquals(DefaultUserContext.DEFAULT_THEME, victim.getTheme());
+        assertTrue(isBlank(victim.getTheme()));
     }
 
     @Test

@@ -77,7 +77,7 @@ public interface UserContext {
     int getThumbnailsSize();
 
     /**
-     * @return the name of the configured theme in the form of a css present in the theme directory. Ex. "green.css"
+     * @return the name of the configured theme
      */
     String getTheme();
 

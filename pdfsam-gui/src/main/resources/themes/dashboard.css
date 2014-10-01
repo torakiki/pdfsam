@@ -1,0 +1,55 @@
+/**
+ * Dashoard 
+ */
+.dashboard-modules{
+	-fx-hgap: 1.0em;
+	-fx-vgap: 1.0em;
+	-fx-column-halignment: left;
+	-fx-row-valignment: top;
+	-fx-orientation: horizontal;
+}
+.dashboard-modules-tile {
+	-fx-padding: 0.0px;
+	-fx-background-color: transparent;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 0.0;
+}
+.dashboard-modules-tile-inner {
+ 	-fx-background-color: derive(defaultbg-color, -10.0%), tooltipbg-color;
+    -fx-background-insets: 0.0, 1.0;
+    -fx-background-radius: 0.0;
+	-fx-padding: 8.0px;
+	-fx-max-width: 260.0px;
+    -fx-min-width: 260.0px;
+    -fx-effect: dropshadow(one-pass-box, derive(defaultbg-color, -10.0%), 6.0, 0.0, 1.0, 2.0);
+}
+.dashboard-modules-invisible-button, .dashboard-modules-invisible-button:hover, .dashboard-modules-invisible-button:armed{
+    -fx-cursor: hand;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 0.0;	
+}
+.dashboard-modules-tile:hover .dashboard-modules-tile-inner{
+	-fx-effect: dropshadow(three-pass-box, derive(defaultbg-color, -30.0%), 10.0, 0.0, 0.0, 4.0);
+}
+.dashboard-modules-tile:armed .dashboard-modules-tile-inner{
+	-fx-effect: innershadow(three-pass-box, derive(defaultbg-color, -20.0%), 10.0, 0.0, 1.0, 1.0);
+}
+.dashboard-modules-tile-title{
+	-fx-font-size: 1.2em;
+    -fx-font-weight: bold;
+	-fx-graphic-text-gap: 8.0px;
+    -fx-padding: 6.0 0.0 4.0 0.0;
+	-fx-wrap-text: true;
+}
+.dashboard-modules-tile-text{
+	-fx-font-size: 1.1em;
+	-fx-wrap-text: true;
+}
+.dashboard-modules-toolbar {
+	-fx-alignment: center-right;
+}
+.dashboard-modules-toolbar .awesome {
+    -fx-effect: null;
+    -fx-text-fill: awesome-color;
+}

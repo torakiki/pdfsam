@@ -18,8 +18,6 @@
  */
 package org.pdfsam.context;
 
-import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
-
 import java.util.prefs.Preferences;
 
 import org.apache.commons.lang3.StringUtils;
@@ -32,7 +30,6 @@ import org.apache.commons.lang3.StringUtils;
  */
 public final class DefaultUserContext implements UserContext {
 
-    public static final String DEFAULT_THEME = "green.css";
     private Preferences prefs;
     private UserWorkspacesContext workspaces;
 
@@ -68,7 +65,7 @@ public final class DefaultUserContext implements UserContext {
 
     @Override
     public String getTheme() {
-        return defaultIfBlank(prefs.get(StringUserPreference.THEME.toString(), ""), DEFAULT_THEME);
+        return prefs.get(StringUserPreference.THEME.toString(), Theme.GREEN.toString());
     }
 
     @Override

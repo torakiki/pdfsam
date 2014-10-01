@@ -18,12 +18,14 @@
  */
 package org.pdfsam.configuration;
 
+import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
@@ -33,6 +35,7 @@ import javax.inject.Inject;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
+import org.pdfsam.context.Theme;
 import org.pdfsam.context.UserContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -69,8 +72,7 @@ public class PdfsamConfig {
 
     @Bean(name = "updatesUrl")
     public URL updatesUrl() throws MalformedURLException {
-        return new URL(String.format("http://www.pdfsam.org/current-version?c=%s",
-                env.getProperty("pdfsam.version")));
+        return new URL(String.format("http://www.pdfsam.org/current-version?c=%s", env.getProperty("pdfsam.version")));
     }
 
     @Bean
@@ -80,17 +82,17 @@ public class PdfsamConfig {
 
     @Bean(name = "styles")
     public List<String> styles() {
-        List<String> styles = new ArrayList<>();
-        styles.add(this.getClass().getResource(AwesomeStyle.LIGHT.getStylePath()).toExternalForm());
-        styles.add(this.getClass().getResource("/css/defaults.css").toExternalForm());
-        styles.add(this.getClass().getResource("/css/pdfsam.css").toExternalForm());
-        styles.add(this.getClass().getResource("/css/menu.css").toExternalForm());
+        String themeString = defaultIfBlank(userContext().getTheme(), Theme.GREEN.toString());
+        Theme selected = Theme.GREEN;
         try {
-            URL themeUrl = new ClassPathResource("/css/themes/" + userContext().getTheme()).getURL();
-            styles.add(themeUrl.toExternalForm());
-        } catch (IOException ioe) {
-            LOG.warn("Unable to find selected theme.", ioe);
+            selected = Theme.valueOf(themeString);
+        } catch (IllegalArgumentException e) {
+            LOG.warn("Unable to find selected theme: {}.", themeString);
         }
+        LOG.debug(DefaultI18nContext.getInstance().i18n("Installing theme {0}.", themeString));
+        List<String> styles = selected.styleSheets().stream().map(s -> this.getClass().getResource(s).toExternalForm())
+                .collect(Collectors.toList());
+        styles.add(this.getClass().getResource(AwesomeStyle.LIGHT.getStylePath()).toExternalForm());
         return styles;
     }
 

@@ -1,0 +1,58 @@
+/**
+ * Notifications
+ */
+.notifications{
+	-fx-background-color: transparent;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 0.0;
+    -fx-alignment: bottom-center; 
+    -fx-translate-y: -42.0;
+    -fx-spacing: 5.0px;
+    -fx-max-width: 340.0px;
+    -fx-min-width: 340.0px;
+}
+.notification {
+ 	-fx-background-color: -fx-box-border, tooltipbg-color;
+    -fx-background-insets: 0.0, 1.0;
+    -fx-background-radius: 0.0, 0.0;
+	-fx-padding: 2.0 8.0 8.0 8.0 ;
+	-fx-effect: dropshadow(three-pass-box, dark-text-color, 10.0, 0.0, 0.0, 3.0);
+	-fx-max-width: 320.0px;
+    -fx-min-width: 320.0px;
+}
+
+.notification-title{
+	-fx-font-size: 1.2em;
+    -fx-font-weight: bold;
+    -fx-padding: 6.0 0.0 4.0 0.0;
+}
+
+.notification-text{
+	-fx-font-size: 1.1em;
+	-fx-wrap-text: true;
+	-fx-graphic-text-gap: 8.0px;
+}
+.notification-error .awesome, .notification-error .awesome:hover{
+    -fx-effect: null;
+    -fx-text-fill: #ED5554;
+}
+.notification-warn .awesome, .notification-warn .awesome:hover{
+    -fx-effect: null;
+    -fx-text-fill: #EEAD69;
+}
+.notification-info .awesome, .notification-info .awesome:hover{
+    -fx-effect: null;
+    -fx-text-fill: info-color;
+}
+.notification .close{
+	-fx-background-color:  transparent;
+    -fx-background-insets:  0.0;
+    -fx-background-radius: 0.0;
+    -fx-padding: 0.0px;
+}
+.notification .close:hover .awesome{
+ 	-fx-text-fill: derive(-fx-text-base-color, 70.0%);
+}
+.notification .close:armed .awesome{
+ 	-fx-text-fill: derive(-fx-text-base-color, 30.0%);
+}
