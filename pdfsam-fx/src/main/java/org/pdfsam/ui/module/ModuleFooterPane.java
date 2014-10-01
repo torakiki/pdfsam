@@ -18,28 +18,12 @@
  */
 package org.pdfsam.ui.module;
 
-import static java.util.Objects.isNull;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
-
-import java.math.BigDecimal;
-
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.ProgressIndicator;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 
-import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.ui.support.Style;
-import org.sejda.eventstudio.annotation.EventListener;
-import org.sejda.model.exception.TaskOutputVisitException;
-import org.sejda.model.notification.event.PercentageOfWorkDoneChangedEvent;
-import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
-import org.sejda.model.notification.event.TaskExecutionFailedEvent;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 
@@ -53,66 +37,12 @@ import org.springframework.context.annotation.Scope;
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 class ModuleFooterPane extends HBox {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ModuleFooterPane.class);
-
     private RunButton runButton = new RunButton();
-    private TaskFailedButton failed = new TaskFailedButton();
-    private OpenButton open = new OpenButton();
-    private ProgressBar bar = new ProgressBar(0);
 
-    public ModuleFooterPane() {
+    @Inject
+    public ModuleFooterPane(ProgressPane progress) {
         this.getStyleClass().addAll(Style.CLOSE_FOOTER.css());
-        failed.setVisible(false);
-        open.setVisible(false);
-        bar.getStyleClass().add("pdfsam-footer-bar");
-        bar.setPrefWidth(280);
-    }
-
-    @PostConstruct
-    void init() {
-        StackPane buttons = new StackPane(failed, open);
-        buttons.getStyleClass().add("progress-icons");
-        this.getChildren().addAll(bar, buttons, runButton);
-        eventStudio().addAnnotatedListeners(this);
-    }
-
-    @EventListener(priority = Integer.MIN_VALUE)
-    public void onTaskExecutionRequest(TaskExecutionRequestEvent event) {
-        open.setVisible(false);
-        failed.setVisible(false);
-        bar.setProgress(0);
-        try {
-            if (!isNull(event.getParameters().getOutput())) {
-                event.getParameters().getOutput().accept(open);
-            }
-        } catch (TaskOutputVisitException e) {
-            LOG.warn("This should never happen", e);
-        }
-    }
-
-    @EventListener
-    public void onTaskCompleted(TaskExecutionCompletedEvent event) {
-        open.setVisible(true);
-        failed.setVisible(false);
-        bar.setProgress(1);
-    }
-
-    @EventListener
-    public void onTaskFailed(TaskExecutionFailedEvent event) {
-        open.setVisible(false);
-        failed.setVisible(true);
-        bar.setProgress(1);
-    }
-
-    @EventListener
-    public void onProgress(PercentageOfWorkDoneChangedEvent event) {
-        open.setVisible(false);
-        failed.setVisible(false);
-        if (event.isUndetermined()) {
-            bar.setProgress(ProgressIndicator.INDETERMINATE_PROGRESS);
-        } else {
-            bar.setProgress(event.getPercentage().divide(new BigDecimal(100)).doubleValue());
-        }
+        this.getChildren().addAll(progress, runButton);
     }
 
     RunButton runButton() {

@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 29/lug/2014
+ * Created on 01/ott/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -25,16 +25,18 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.math.BigDecimal;
+import java.util.Locale;
 
+import javafx.scene.control.Labeled;
 import javafx.scene.control.ProgressBar;
 
-import javax.inject.Inject;
-
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.pdfsam.context.SetLocaleEvent;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
@@ -46,93 +48,76 @@ import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.output.TaskOutput;
 import org.sejda.model.parameter.base.TaskParameters;
 import org.sejda.model.task.NotifiableTaskMetadata;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Scope;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration
-public class ModuleFooterPaneTest {
+public class ProgressPaneTest {
 
     @Rule
     public InitializeAndApplyJavaFxThreadRule fxThread = new InitializeAndApplyJavaFxThreadRule();
     @Rule
     public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule("LogStage");
 
-    @Inject
-    private ApplicationContext applicationContext;
+    private ProgressPane victim;
 
-    @Configuration
-    static class TestConfig {
-        @Bean
-        @Lazy
-        @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-        public ModuleFooterPane victim() {
-            return new ModuleFooterPane();
-        }
+    @Before
+    public void setUp() {
+        eventStudio().broadcast(new SetLocaleEvent(Locale.UK.toLanguageTag()));
+        victim = new ProgressPane();
     }
 
     @Test
     public void hideButtonsOnInit() {
-        ModuleFooterPane victim = applicationContext.getBean(ModuleFooterPane.class);
         victim.lookupAll(".pdfsam-footer-button").forEach(b -> assertFalse(b.isVisible()));
     }
 
     @Test
     public void onTaskCompleted() {
-        ModuleFooterPane victim = applicationContext.getBean(ModuleFooterPane.class);
         TaskExecutionCompletedEvent event = mock(TaskExecutionCompletedEvent.class);
         victim.onTaskCompleted(event);
         assertFalse(victim.lookup(".pdfsam-footer-failed-button").isVisible());
         assertTrue(victim.lookup(".pdfsam-footer-open-button").isVisible());
+        assertEquals("Completed", ((Labeled) victim.lookup(".progress-status")).getText());
         assertEquals(1, ((ProgressBar) victim.lookup(".pdfsam-footer-bar")).getProgress(), 0.01);
     }
 
     @Test
     public void onTaskFailed() {
-        ModuleFooterPane victim = applicationContext.getBean(ModuleFooterPane.class);
         TaskExecutionFailedEvent event = mock(TaskExecutionFailedEvent.class);
         victim.onTaskFailed(event);
         assertTrue(victim.lookup(".pdfsam-footer-failed-button").isVisible());
         assertFalse(victim.lookup(".pdfsam-footer-open-button").isVisible());
+        assertEquals("Failed", ((Labeled) victim.lookup(".progress-status")).getText());
         assertEquals(1, ((ProgressBar) victim.lookup(".pdfsam-footer-bar")).getProgress(), 0.01);
     }
 
     @Test
     public void onProgress() {
-        ModuleFooterPane victim = applicationContext.getBean(ModuleFooterPane.class);
         NotifiableTaskMetadata taskMetadata = mock(NotifiableTaskMetadata.class);
         PercentageOfWorkDoneChangedEvent event = new PercentageOfWorkDoneChangedEvent(new BigDecimal(50), taskMetadata);
         victim.onProgress(event);
         assertFalse(victim.lookup(".pdfsam-footer-failed-button").isVisible());
         assertFalse(victim.lookup(".pdfsam-footer-open-button").isVisible());
+        assertEquals("50 %", ((Labeled) victim.lookup(".progress-status")).getText());
         assertEquals(0.5, ((ProgressBar) victim.lookup(".pdfsam-footer-bar")).getProgress(), 0.01);
     }
 
     @Test
     public void onProgressIndeterminate() {
-        ModuleFooterPane victim = applicationContext.getBean(ModuleFooterPane.class);
         NotifiableTaskMetadata taskMetadata = mock(NotifiableTaskMetadata.class);
         PercentageOfWorkDoneChangedEvent event = new PercentageOfWorkDoneChangedEvent(
                 PercentageOfWorkDoneChangedEvent.UNDETERMINED, taskMetadata);
         victim.onProgress(event);
         assertFalse(victim.lookup(".pdfsam-footer-failed-button").isVisible());
         assertFalse(victim.lookup(".pdfsam-footer-open-button").isVisible());
+        assertEquals("Running", ((Labeled) victim.lookup(".progress-status")).getText());
         assertTrue(((ProgressBar) victim.lookup(".pdfsam-footer-bar")).isIndeterminate());
     }
 
     @Test
     public void onTaskExecutionRequest() throws TaskOutputVisitException {
-        ModuleFooterPane victim = applicationContext.getBean(ModuleFooterPane.class);
         TaskExecutionRequestEvent event = mock(TaskExecutionRequestEvent.class);
         TaskParameters params = mock(TaskParameters.class);
         TaskOutput output = mock(FileTaskOutput.class);
@@ -141,6 +126,7 @@ public class ModuleFooterPaneTest {
         victim.onTaskExecutionRequest(event);
         assertFalse(victim.lookup(".pdfsam-footer-failed-button").isVisible());
         assertFalse(victim.lookup(".pdfsam-footer-open-button").isVisible());
+        assertEquals("Requested", ((Labeled) victim.lookup(".progress-status")).getText());
         assertEquals(0, ((ProgressBar) victim.lookup(".pdfsam-footer-bar")).getProgress(), 0.01);
         verify(output).accept(any());
     }

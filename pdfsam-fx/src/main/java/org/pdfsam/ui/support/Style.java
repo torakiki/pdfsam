@@ -31,7 +31,7 @@ public enum Style {
     TITLED_PANE("titled-pane"),
     DEAULT_CONTAINER("default-container"),
     CONTAINER("pdfsam-container"),
-    CLOSE_FOOTER("default-container", "pdfsam-footer-close-pane"),
+    CLOSE_FOOTER("pdfsam-container", "pdfsam-footer-close-pane"),
     INVALID("invalid"),
     VITEM("spaced-vitem"),
     HCONTAINER("spaced-hcontainer"),
