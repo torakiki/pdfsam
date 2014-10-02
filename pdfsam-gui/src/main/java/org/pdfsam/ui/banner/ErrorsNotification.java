@@ -48,6 +48,7 @@ public class ErrorsNotification extends Label {
         eventStudio().addAnnotatedListeners(this);
         fade = new FadeTransition(Duration.millis(200), this);
         fade.setAutoReverse(true);
+        setMouseTransparent(true);
     }
 
     @EventListener
