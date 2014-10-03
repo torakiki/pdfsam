@@ -1,0 +1,21 @@
+/**
+ * Dashoard 
+ */
+.dashboard-modules-tile-inner {
+	-fx-background-color: -pdfsam-box-border-color, -pdfsam-pane-bg;
+    -fx-background-insets: 0.0, 0.3;
+    -fx-background-radius: 3.0;
+	-fx-padding: 8.0px;
+	-fx-max-width: 260.0px;
+    -fx-min-width: 260.0px;
+	-fx-effect: -pdfsam-shadow-effect;
+}
+.dashboard-modules-tile:hover .dashboard-modules-tile-inner{
+	-fx-translate-y: -1;
+	-fx-effect: -pdfsam-hover-shadow-effect;
+}
+.dashboard-modules-tile:armed .dashboard-modules-tile-inner{
+	-fx-translate-y: -2;
+	-fx-effect: -pdfsam-armed-shadow-effect;
+}
+

@@ -38,6 +38,7 @@ public class MainPane extends VBox {
     @Inject
     public MainPane(ContentPane mainPane, BannerPane banner) {
         VBox.setVgrow(mainPane, Priority.ALWAYS);
+        this.setId("pdfsam-main-pane");
         getChildren().addAll(banner, mainPane);
     }
 }

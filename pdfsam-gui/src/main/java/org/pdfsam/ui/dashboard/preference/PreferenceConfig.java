@@ -18,8 +18,6 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
-import static org.apache.commons.lang3.StringUtils.capitalize;
-
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -66,8 +64,7 @@ public class PreferenceConfig {
                 StringUserPreference.THEME, userContext);
         themeCombo.setId("themeCombo");
         themeCombo.getItems().addAll(
-                Arrays.stream(Theme.values())
-                        .map(t -> new KeyStringValueItem<>(t.toString(), capitalize(t.toString().toLowerCase())))
+                Arrays.stream(Theme.values()).map(t -> new KeyStringValueItem<>(t.toString(), t.friendlyName()))
                         .collect(Collectors.toList()));
 
         themeCombo.setValue(new KeyStringValueItem<>(userContext.getTheme(), ""));

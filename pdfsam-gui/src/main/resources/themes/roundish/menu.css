@@ -1,0 +1,10 @@
+.context-menu {
+ 	-fx-background-color: -pdfsam-box-border-color, tooltipbg-color;
+    -fx-background-insets: 0.0, 0.5;
+    -fx-background-radius: 3.0;
+	-fx-effect: -pdfsam-shadow-effect;
+}
+.menu-item:focused {
+     -fx-background-color: -pdfsam-flat-bg-color;
+}
+

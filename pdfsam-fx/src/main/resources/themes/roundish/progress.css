@@ -1,0 +1,24 @@
+.progress-pane > .progress-bar {
+   -fx-min-height: 6.0px;
+   -fx-pref-height: 6.0px;
+}
+.progress-pane > .progress-bar > .bar {
+  	-fx-background-color:  theme-color;
+  	-fx-background-insets: 0.0;
+   	-fx-background-radius:  1.0;		
+}
+.progress-pane > .progress-bar:indeterminate > .bar {
+  	-fx-background-color:  theme-color;
+  	-fx-background-insets: 0.0;
+   	-fx-background-radius:  1.0;		
+}
+.progress-pane > .progress-bar:indeterminate > .track {
+  	-fx-background-color:  -pdfsam-progress-color;
+  	-fx-background-insets: 0.0;
+   	-fx-background-radius:  1.0;		
+}
+.progress-pane > .progress-bar > .track {
+  	-fx-background-color:  -pdfsam-progress-color;
+  	-fx-background-insets: 0.0;
+   	-fx-background-radius:  1.0;		
+}

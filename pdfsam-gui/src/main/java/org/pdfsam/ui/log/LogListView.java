@@ -36,7 +36,7 @@ import javax.inject.Named;
 class LogListView extends ListView<LogMessage> {
 
     public LogListView() {
-        getStyleClass().add("log-view");
+        setId("log-view");
         getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         setCellFactory(new Callback<ListView<LogMessage>, ListCell<LogMessage>>() {
             @Override

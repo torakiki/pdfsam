@@ -2,7 +2,7 @@
 	light-border-color: #D4D4D4;
 	hover-color: #D4D4D4;
 	dark-text-color: derive(light-border-color, -70.0%);
-	button-color: #E5E5E5;
+	-pdfsam-button-color: #E5E5E5;
 	defaultbg-color: -fx-background;
 	headerbg-color: #FFFFFF;
 	tooltipbg-color: #FFFFFF;
@@ -35,6 +35,11 @@
 .pdfsam-container {
 	-fx-border-width: 0.0;
 	-fx-padding: 8.0;
+}
+.pdfsam-module-container {
+	-fx-border-width: 0.0;
+	-fx-padding: 8.0;
+	-fx-spacing: 5.0;
 }
 .button-container {
 	-fx-padding: 10.0;
@@ -101,78 +106,6 @@
 	-fx-opacity: 0.7;
 }
 /**
- * Progress bar
- */
-.progress-bar {
-   -fx-indeterminate-bar-escape: false;
-   -fx-indeterminate-bar-animation-time: 1.0;
-}
-.progress-bar > .bar {
-   -fx-background-color: derive(theme-color, -20.0%), theme-color;
-   -fx-background-radius: 0.0;        
-   -fx-background-insets: 0.0, 1.0;
-   -fx-padding: 0.416667em; /* 5 */
-}
-.progress-bar:indeterminate > .bar {
-    -fx-background-color: derive(theme-color, -20.0%), theme-color;
-    -fx-background-insets: 0.0, 1.0;
-    -fx-background-radius: 0.0, 0.0;     
-}
-.progress-bar:indeterminate > .track {
-    -fx-background-color: derive(theme-color, -20.0%), white;
-    -fx-background-insets: 0.0, 1.0;
-    -fx-background-radius: 0.0, 0.0;        
-}
-.progress-bar > .track {
-    -fx-background-color: derive(theme-color, -20.0%), white;
-    -fx-background-insets: 0.0, 1.0;
-    -fx-background-radius: 0.0, 0.0;        
-}
-/**
- * Progress panel
- */
-.progress-pane {
- 	-fx-padding: 0.0;
-	-fx-spacing: 0.5em;
-	-fx-alignment: baseline-left;
-	-fx-padding: 0.0 14.0;
-}
-.progress-status {
-	-fx-highlight-text-fill: dark-text-color;
-	-fx-font-size: 0.85em;
-}
-.progress-status-pane{
-	-fx-spacing: 0.5em;
-	-fx-alignment: baseline-left;
-}
-.progress-pane > .progress-bar {
-   -fx-indeterminate-bar-escape: false;
-   -fx-indeterminate-bar-animation-time: 1.0;
-   -fx-min-height: 5.0px;
-   -fx-pref-height: 5.0px;
-   -fx-pref-width: 300.0px;
-}
-.progress-pane > .progress-bar > .bar {
-  	-fx-background-color:  light-border-color, theme-color;
-  	-fx-background-insets: 0.0, 1.0;
-   	-fx-background-radius:  0.0, 0.0;		
-}
-.progress-pane > .progress-bar:indeterminate > .bar {
-  	-fx-background-color:  light-border-color, theme-color;
-  	-fx-background-insets: 0.0, 1.0;
-   	-fx-background-radius:  0.0, 0.0;		
-}
-.progress-pane > .progress-bar:indeterminate > .track {
-  	-fx-background-color:  light-border-color, white;
-  	-fx-background-insets: 0.0, 1.0;
-   	-fx-background-radius:  0.0, 0.0;		
-}
-.progress-pane > .progress-bar > .track {
-  	-fx-background-color:  light-border-color, white;
-  	-fx-background-insets: 0.0, 1.0;
-   	-fx-background-radius:  0.0, 0.0;		
-}
-/**
  * TextField
  */
 .text-input:focused {
@@ -228,14 +161,14 @@
  * Buttons
  */
 .pdfsam-button {
-    -fx-background-color:  light-border-color, button-color;
+    -fx-background-color:  light-border-color, -pdfsam-button-color;
     -fx-background-insets:  0.0, 1.0;
     -fx-background-radius: 0.0;
     -fx-padding: 7.0px 14.0px 7.0px 14.0px;
     -fx-text-fill: dark-text-color !important;
 }
 .pdfsam-button:focused, .pdfsam-button:default, .pdfsam-button:armed, .pdfsam-button:hover {
-    -fx-background-color: theme-color, hover-color, button-color;
+    -fx-background-color: theme-color, hover-color, -pdfsam-button-color;
     -fx-background-insets:  0.0, 0.0 0.0 1.0 0.0, 1.0;
     -fx-background-radius:  0.0;
 }

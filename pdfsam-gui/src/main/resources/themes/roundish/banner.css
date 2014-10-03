@@ -1,0 +1,30 @@
+/**
+ * Banner
+ */
+.pdfsam-banner{
+ 	-fx-padding: 0.0;
+ 	-fx-background-color: headerbg-color;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 3.0;
+    -fx-alignment: bottom-left;  
+    -fx-effect: -pdfsam-shadow-effect;
+}
+.pdfsam-toolbar-button {
+    -fx-background-color: headerbg-color;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 2.0;
+}
+.pdfsam-toolbar-button:hover, .pdfsam-toolbar-button:focused {
+    -fx-background-color:  -pdfsam-flat-bg-color;
+    -fx-background-insets:  0.0 ;
+    -fx-background-radius: 2.0;
+}
+.logs-notification {
+	-fx-background-color: error-color;
+	-fx-background-insets:  0.0;
+    -fx-background-radius: 2.0px;
+	-fx-translate-y: -6.0px;
+	-fx-translate-x: 3.0px;
+	-fx-text-fill: #FFFFFF;
+	-fx-effect: -pdfsam-shadow-effect;
+}

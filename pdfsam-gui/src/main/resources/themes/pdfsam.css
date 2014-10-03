@@ -1,6 +1,3 @@
-.root { 
-	menubg-color: #FFFFFF;
-}
 .header-title{
 	-fx-font-weight: bold; 
 	-fx-font-style: italic;
@@ -24,154 +21,23 @@
 /**
  * Log
  */
-.log-view{
+#log-view{
  	-fx-background-color: -fx-box-border,#FFFFFF;
     -fx-background-insets: 0.0, 1.0;
     -fx-padding: 1.0;
 }
-.log-view:focused {
+#log-view:focused {
  -fx-background-color: -fx-focus-color,-fx-box-border,#FFFFFF;
     -fx-background-insets: -1.4, 0.0, 1.0;
     -fx-background-radius: 1.4, 0.0, 0.0;    
 }
-.log-view .list-cell,.list-cell:odd {
+#log-view .list-cell,.list-cell:odd {
 }
 .warn-log{
 	-fx-text-fill: derive(info-color, -30.0%);
 }
 .error-log{
 	-fx-text-fill: error-color;
-}
-/**
- * Banner
- */
- .pdfsam-banner{
- 	-fx-padding: 0.0;
- 	-fx-background-color: light-border-color, headerbg-color;
-    -fx-background-insets: 0.0, 0.0 0.0 1.0 0.0;
-    -fx-background-radius: 0.0, 0.0;
-    -fx-alignment: bottom-left;  
- }
-.pdfsam-banner .awesome {
-    -fx-effect: null;
-    -fx-text-fill: awesome-color;
-}
-.pdfsam-logo{
-	-fx-padding: 8.0 4.0 8.0 12.0;
- 	-fx-spacing: 15.0px;
- 	-fx-alignment: center-left;    
-}
-.pdfsam-banner-buttons{
-	-fx-padding: 0.0 3.0em 0.0 0.0;
- 	-fx-spacing: 5.0px;
- 	-fx-alignment: center-right;
- }
-.pdfsam-toolbar-button, .pdfsam-toolbar-button:focused {
-    -fx-background-color: headerbg-color;
-    -fx-background-insets: 0.0;
-    -fx-background-radius: 0.0;
-}
-.pdfsam-toolbar-button:hover{
-    -fx-background-color:  theme-color, headerbg-color;
-    -fx-background-insets:  0.0, 0.0 0.0 1.5 0.0 ;
-    -fx-background-radius: 0.0;
-}
-.pdfsam-toolbar-button:hover .awesome{
-	-fx-text-fill: awesome-color-hover;
-}
-.pdfsam-toolbar-button:armed {
-  -fx-opacity: 0.6;
-}
-.pdfsam-toolbar-button:disabled {
-    -fx-opacity: -fx-disabled-opacity;
-}
-.logs-notification {
-	-fx-background-color: derive(error-color, -10.0%), error-color;
-	-fx-background-insets:  0.0, 1.0;
-    -fx-background-radius: 2.0px;
-	-fx-font-size: 11.0px;
-	-fx-font-weight: bold;
-	-fx-padding: 1.5 2.5 1.5 2.5;
-	-fx-translate-y: -6.0px;
-	-fx-translate-x: 3.0px;
-	-fx-text-fill: #FFFFFF;
-	-fx-opacity: 0.95;
-}
-/**
- * Quickbar
- */
-.quickbar {
-	-fx-background-color: defaultbg-color;
-   	-fx-background-insets: 0.0;
-    -fx-padding: 1.0em 0.0 1.0em 0.0;
-} 
-.quickbar-buttons {
-	-fx-background-color: light-border-color, defaultbg-color;
-   	-fx-background-insets: 0.0, 0.0 1.0 0.0 0.0;
-   	-fx-padding: 0.0 0.0 0.0 3.0px;
-}
-.quickbar-expand-button {
-	-fx-padding: 0.0 0.0 0.5em 0.0;
-	-fx-alignment: top-right;
-}
-.quickbar-expand-toggle, .quickbar-expand-toggle:focused {
-	-fx-background-color:  defaultbg-color;
-    -fx-background-insets:  0.0;
-}
-.quickbar-expand-toggle:armed, .quickbar-expand-toggle:hover {
-    -fx-background-color: hover-color;
-    -fx-background-insets:  0.0;
-}
-.quickbar-expand-toggle:armed{
-    -fx-opacity: 0.85;
-}
-.quickbar-button-arrow {
-	-fx-fill: dark-text-color;
-}
-.quickbar-items{
-	-fx-padding: 0.0 0.0 1.0em 0.0;
-}
-.quickbar-navigation-button, .quickbar-navigation-button:focused {
-	-fx-background-color:  light-border-color, defaultbg-color;
-    -fx-background-insets:  0.0, 0.0 1.0 0.0 0.0 ;
-    -fx-alignment: center-left;
-    -fx-background-radius: 0.0;
-    -fx-padding: 5.0px 10.0px 5.0px 10.0px;
-    -fx-min-width: 50.0px;
-    -fx-max-height: 40.0px;
-    -fx-min-height: 40.0px;
-}
-.quickbar-navigation-button:hover{
-	-fx-background-color:  theme-color, light-border-color, defaultbg-color;
-    -fx-background-insets:  0.0, 0.0 0.0 0.0 1.5, 0.0 1.0 0.0 1.5;		
-}
-.quickbar-navigation-button:armed {
-    -fx-background-color:  light-border-color, -fx-focus-color;
-    -fx-background-insets:  0.0, 0.0 1.0 0.0 0.0 ;
-}
-.quickbar-navigation-button:selected{
-	-fx-background-color:  light-border-color, defaultbg-color;
-    -fx-background-insets:  0.0 , 1.0 0.0 1.0 0.0 ;
-}
-.quickbar-navigation-button:disabled {
-    -fx-opacity: 1.0;
-}
-.quickbar-navigation-button .quickbar-navigation-button-graphic{
-	-fx-opacity: 0.85;
-}
-.quickbar-navigation-button:disabled .quickbar-navigation-button-graphic{
-    -fx-opacity: 0.4;
-}
-.quickbar-navigation-button:hover .quickbar-navigation-button-graphic{
-	-fx-opacity: 1.0;
-}
-.quickbar-navigation-button .awesome{
-    -fx-effect: null;
-    -fx-text-fill: awesome-color;
-    -fx-opacity: 1.0;
-}
-.quickbar-navigation-button:hover .awesome {
-	-fx-text-fill: awesome-color-hover;
 }
 /**
  * Info pane

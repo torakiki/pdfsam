@@ -19,7 +19,6 @@
 package org.pdfsam.context;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -32,23 +31,46 @@ public enum Theme {
     GREEN {
         @Override
         public List<String> styleSheets() {
-            return Arrays.asList("/themes/green/theme.css", "/themes/defaults.css", "/themes/pdfsam.css",
-                    "/themes/notifications.css", "/themes/dashboard.css", "/themes/menu.css");
+            return Arrays.asList("/themes/green/theme.css", "/themes/defaults.css", "/themes/progress.css",
+                    "/themes/pdfsam.css", "/themes/banner.css", "/themes/quickbar.css", "/themes/notifications.css",
+                    "/themes/dashboard.css", "/themes/menu.css");
+        }
+
+        @Override
+        public String friendlyName() {
+            return DefaultI18nContext.getInstance().i18n("Squared green");
         }
     },
     CORNFLOWER {
         @Override
         public List<String> styleSheets() {
-            return Arrays.asList("/themes/cornflower/theme.css", "/themes/defaults.css", "/themes/pdfsam.css",
-                    "/themes/notifications.css", "/themes/dashboard.css", "/themes/menu.css");
+            return Arrays.asList("/themes/cornflower/theme.css", "/themes/defaults.css", "/themes/progress.css",
+                    "/themes/pdfsam.css", "/themes/banner.css", "/themes/quickbar.css", "/themes/notifications.css",
+                    "/themes/dashboard.css", "/themes/menu.css");
+        }
+
+        @Override
+        public String friendlyName() {
+            return DefaultI18nContext.getInstance().i18n("Squared cornflower");
         }
     },
-    MATERIAL {
+    ROUNDISH {
         @Override
         public List<String> styleSheets() {
-            return Collections.emptyList();
+            return Arrays.asList("/themes/defaults.css", "/themes/progress.css", "/themes/roundish/theme.css",
+                    "/themes/roundish/progress.css", "/themes/pdfsam.css", "/themes/banner.css",
+                    "/themes/roundish/banner.css", "/themes/quickbar.css", "/themes/notifications.css",
+                    "/themes/roundish/notifications.css", "/themes/dashboard.css", "/themes/roundish/dashboard.css",
+                    "/themes/menu.css", "/themes/roundish/menu.css");
+        }
+
+        @Override
+        public String friendlyName() {
+            return DefaultI18nContext.getInstance().i18n("Roundish");
         }
     };
 
     public abstract List<String> styleSheets();
+
+    public abstract String friendlyName();
 }

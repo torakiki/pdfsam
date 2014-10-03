@@ -106,7 +106,7 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
 
     @Override
     protected Pane getInnerPanel() {
-        VBox pane = new VBox(5);
+        VBox pane = new VBox();
         pane.setAlignment(Pos.TOP_CENTER);
 
         TitledPane prefixTitled = Views

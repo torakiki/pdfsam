@@ -46,7 +46,6 @@ import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.pdfsam.ui.prefix.PrefixPane;
 import org.pdfsam.ui.selection.single.TaskParametersBuilderSingleSelectionPane;
-import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.support.Views;
 import org.sejda.model.parameter.AbstractSplitByPageParameters;
 import org.sejda.model.prefix.Prefix;
@@ -104,7 +103,7 @@ public class SplitModule extends BaseTaskExecutionModule {
 
     @Override
     protected Pane getInnerPanel() {
-        VBox pane = new VBox(Style.DEFAULT_SPACING);
+        VBox pane = new VBox();
         pane.setAlignment(Pos.TOP_CENTER);
 
         TitledPane prefixTitled = Views

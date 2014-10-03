@@ -55,7 +55,7 @@ public abstract class BaseTaskExecutionModule implements Module {
     final void init() {
         Pane innerPanel = getInnerPanel();
         innerPanel.getStyleClass().addAll(Style.DEAULT_CONTAINER.css());
-        innerPanel.getStyleClass().addAll(Style.CONTAINER.css());
+        innerPanel.getStyleClass().addAll(Style.MODULE_CONTAINER.css());
 
         footer.runButton().setOnAction(
                 event -> {
