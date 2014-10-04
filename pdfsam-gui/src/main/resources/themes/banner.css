@@ -42,7 +42,7 @@
     -fx-opacity: -fx-disabled-opacity;
 }
 .logs-notification {
-	-fx-background-color: derive(error-color, -10.0%), error-color;
+	-fx-background-color: derive(-pdfsam-error-color, -10.0%), -pdfsam-error-color;
 	-fx-background-insets:  0.0, 1.0;
     -fx-background-radius: 2.0px;
 	-fx-font-size: 11.0px;

@@ -7,7 +7,7 @@
 	headerbg-color: #FFFFFF;
 	tooltipbg-color: #FFFFFF;
 	pwdpopupbg-color: rgba(255.0,255.0,255.0,0.9);
-	error-color: #CF0000;	
+	-pdfsam-error-color: #CF0000;	
 	-fx-focus-color: derive(lightslategray, 90.0%);
 	-fx-accent: -fx-focus-color;
 	-fx-highlight-text-fill: dark-text-color;
@@ -340,11 +340,11 @@
  * Invalid
  */
 .invalid{
-   -fx-background-color:  derive(error-color, 80.0%), -fx-control-inner-background;
+   -fx-background-color:  derive(-pdfsam-error-color, 80.0%), -fx-control-inner-background;
    -fx-background-insets: 0.0, 1.0;
 }
 .invalid:focused{
-   -fx-background-color:  error-color, -fx-control-inner-background;
+   -fx-background-color:  -pdfsam-error-color, -fx-control-inner-background;
    -fx-background-insets: 0.0, 1.0;
 }
 /**

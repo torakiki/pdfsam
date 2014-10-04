@@ -34,7 +34,7 @@
 	-fx-opacity: 0.7;
 }
 .logs-notification {
-	-fx-background-color: error-color;
+	-fx-background-color: -pdfsam-error-color;
 	-fx-background-insets:  0.0;
     -fx-background-radius: 2.0px;
 	-fx-translate-y: -6.0px;

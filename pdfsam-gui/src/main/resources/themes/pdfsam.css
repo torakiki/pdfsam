@@ -17,7 +17,6 @@
 	-fx-padding: 1.2em;
 	-fx-spacing: 30.0px;
 }
-
 /**
  * Log
  */
@@ -37,7 +36,7 @@
 	-fx-text-fill: derive(info-color, -30.0%);
 }
 .error-log{
-	-fx-text-fill: error-color;
+	-fx-text-fill: -pdfsam-error-color;
 }
 /**
  * Info pane

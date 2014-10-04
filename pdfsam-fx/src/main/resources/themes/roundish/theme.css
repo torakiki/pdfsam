@@ -4,13 +4,14 @@
 	-pdfsam-armed-shadow-effect: dropshadow(gaussian, rgba(0.0, 0.0, 0.0, 0.2), 10.0, 0.0, 0.0, 10.0);
 	-pdfsam-flat-bg-color: #EEEEEE;
 	-pdfsam-box-border-color: derive(-pdfsam-flat-bg-color, -10.0%);
-	error-color: #F44336;
+	-pdfsam-error-color: #F44336;
 	-pdfsam-pane-bg: #FFFFFF;
 	-pdfsam-armed-button-color: derive(-pdfsam-flat-bg-color, -18.0%);
 	theme-color: #009245;
 	-pdfsam-progress-color: #C8C8C8;
 	-pdfsam-focus-border-color: rgba(0.0, 0.0, 0.0, 0.2);
 }
+
 #pdfsam-main-pane{
 	-fx-padding: 4.0 6.0 0.0 6.0;
 }
@@ -66,7 +67,9 @@
 #log-view > .virtual-flow > .scroll-bar:vertical{
    -fx-padding: 1.0;
 }
-
+.error-log{
+	-fx-text-fill: -pdfsam-error-color;
+}
 /**
  * TextField
  */
@@ -206,3 +209,16 @@
    	-fx-background-radius:  3.0;
    	-fx-text-fill: white;
 }
+/**
+ * Error tooltip
+ */
+.error-tooltip {
+	-fx-background-color:  #F44336;
+   	-fx-background-insets: 0.0;
+   	-fx-background-radius:  3.0;
+	-fx-text-fill: #FFFFFF;
+   	-fx-opacity: 0.95;
+   	-fx-font-weight: bold;
+   	-fx-padding: 0.3em 0.4em 0.3em 0.4em;    
+}
+

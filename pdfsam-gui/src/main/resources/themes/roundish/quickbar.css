@@ -12,7 +12,6 @@
 .quickbar-navigation-button, .quickbar-navigation-button:focused {
 	-fx-background-color:  defaultbg-color;
     -fx-background-insets:  0.0;
-    -fx-alignment: center;
     -fx-background-radius: 3.0;
     -fx-padding: 5.0px 10.0px 5.0px 10.0px;
     -fx-min-width: 50.0px;
