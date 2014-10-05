@@ -59,7 +59,7 @@
 }
 .tab-pane > .tab-header-area > .headers-region > .tab:left {
     -fx-background-color: defaultbg-color, light-border-color, #FFFFFF;
-    -fx-background-insets: 0.0, 1.0, 2.0 2.0 2.0 2.0;
+    -fx-background-insets: 0.0, 1.0, 2.0;
     -fx-background-radius: 0.0;
     -fx-opacity: 0.9;
 }

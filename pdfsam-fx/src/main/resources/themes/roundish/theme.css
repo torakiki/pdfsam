@@ -266,3 +266,41 @@
     -fx-background-insets: -1.8, 0.0, 1.0;
     -fx-background-radius: 0.0, 0.0, 0.0;
 }
+/**
+ * Info panel
+ */
+.info-props{
+	-fx-background-color: -pdfsam-box-border-color, -pdfsam-pane-bg;
+    -fx-background-insets: 0.0, 0.4;
+	-fx-background-radius: 3.0, 3.0;
+	-fx-padding: 15.0;
+	-fx-hgap: 10.0px;
+	-fx-vgap: 10.0px;
+}
+
+/**
+ * Tab pane
+ */
+ .tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-width: 0.0;
+}
+.tab-pane > .tab-header-area > .tab-header-background {
+    -fx-background-color: defaultbg-color;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 0.0;
+    -fx-effect: null;
+}
+.tab-pane > .tab-header-area > .headers-region > .tab:left {
+	-fx-background-color: defaultbg-color, -pdfsam-box-border-color, -pdfsam-pane-bg;
+    -fx-background-insets: 0.0, 1.0, 1.4;
+    -fx-background-radius: 3.0, 3.0, 3.0;
+    -fx-opacity: 0.8;
+}
+.tab-pane > .tab-header-area > .headers-region > .tab:selected {
+    -fx-background-color: defaultbg-color, theme-color, -pdfsam-pane-bg;
+    -fx-background-insets: 0.0, 1.0, 1.4;
+    -fx-background-radius: 3.0, 3.0, 3.0;
+    -fx-effect: -pdfsam-shadow-effect;
+    -fx-opacity: 1.0;
+}
+
