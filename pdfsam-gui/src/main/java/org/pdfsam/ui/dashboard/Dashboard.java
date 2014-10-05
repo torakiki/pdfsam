@@ -53,6 +53,7 @@ public class Dashboard extends BorderPane {
     @Inject
     public Dashboard(List<DashboardItem> itemsList) {
         getStyleClass().addAll(Style.CONTAINER.css());
+        setId("pdfsam-dashboard");
         itemsList.stream().forEach(i -> items.put(i.id(), new DashboardItemPane(i)));
         fade.setFromValue(0);
         fade.setToValue(1);

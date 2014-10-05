@@ -10,6 +10,8 @@
 	theme-color: #009245;
 	-pdfsam-progress-color: #C8C8C8;
 	-pdfsam-focus-border-color: rgba(0.0, 0.0, 0.0, 0.2);
+	awesome-error-color: #F44336;
+	awesome-error-color-hover: derive(awesome-error-color, -35.0%);		
 }
 
 #pdfsam-main-pane{
@@ -18,7 +20,9 @@
 .pdfsam-module-container {
 	-fx-spacing: 12.0;
 }
-
+#work-area, #pdfsam-dashboard {
+	-fx-padding: 8.0 2.0 8.0 2.0;
+}
 /**
  * Buttons
  */
@@ -90,7 +94,7 @@
  * Browsable field
  */
 .browsable-field {
-	-fx-spacing: 5px;
+	-fx-spacing: 5.0px;
 }
 /**
  * ValidableContainer
@@ -140,6 +144,9 @@
     -fx-border-color: none;
     -fx-border-insets: 0.0;
     -fx-background-radius: 3.0;
+}
+.titled-pane:focused > .title > .arrow-button > .arrow {
+    -fx-background-color: theme-color;
 }
 /**
  * Checkbox

@@ -57,6 +57,7 @@ public class WorkArea extends BorderPane {
     @Inject
     public WorkArea(List<Module> modulesList) {
         getStyleClass().addAll(Style.CONTAINER.css());
+        setId("work-area");
         for (Module module : modulesList) {
             modules.put(module.id(), module);
         }

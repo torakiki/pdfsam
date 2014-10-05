@@ -23,6 +23,7 @@ import java.util.Objects;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.css.PseudoClass;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 
@@ -39,6 +40,7 @@ public class BaseQuickbarButton extends Button {
         getStyleClass().addAll("quickbar-navigation-button");
         setMaxWidth(Double.MAX_VALUE);
         setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+        setAlignment(Pos.CENTER);
         graphicProperty().addListener((o, oldVal, newVal) -> {
             if (Objects.nonNull(newVal)) {
                 newVal.getStyleClass().add("quickbar-navigation-button-graphic");
@@ -51,8 +53,10 @@ public class BaseQuickbarButton extends Button {
         protected void invalidated() {
             if (get()) {
                 setContentDisplay(ContentDisplay.LEFT);
+                setAlignment(Pos.CENTER_LEFT);
             } else {
                 setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                setAlignment(Pos.CENTER);
             }
         }
     };
