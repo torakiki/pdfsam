@@ -122,6 +122,9 @@
     -fx-background-insets: 0.0, 0.0 0.0 1.0 0.0, 1.0 1.0 1.0 1.0;
     -fx-background-radius: 0.0, 0.0;
 }
+.browsable-field{
+	-fx-alignment: center-left;
+}
 /**
  * ValidableContainer
  */
@@ -215,11 +218,9 @@
     -fx-background-insets: -1.6, 0.0, 1.0;
     -fx-background-radius: 0.0, 0.0, 0.0;
 }
-
 .check-box > .box > .mark {
     -fx-padding: 0.3em; 
 }
-
 .check-box:selected > .box > .mark {
     -fx-background-color: -fx-mark-highlight-color, theme-color;
 }
@@ -231,12 +232,10 @@
    -fx-background-insets: 0.0, 1.0;
    -fx-padding: 0.2em; 
 }
-
 .radio-button:focused > .radio {
    -fx-background-color: -fx-focus-color, -fx-text-box-border, -fx-control-inner-background;
    -fx-background-insets: -1.6, 0.0, 1.0;
 }
-
 .radio-button:selected > .radio > .dot {
    -fx-background-color: -fx-mark-highlight-color, theme-color;
    -fx-background-insets: 0.0 0.0 -1.0 0.0, 0.0;

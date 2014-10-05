@@ -3,7 +3,7 @@
  */
 .dashboard-modules-tile-inner {
 	-fx-background-color: -pdfsam-box-border-color, -pdfsam-pane-bg;
-    -fx-background-insets: 0.0, 0.3;
+    -fx-background-insets: 0.0, 0.4;
     -fx-background-radius: 3.0;
 	-fx-padding: 8.0px;
 	-fx-max-width: 260.0px;

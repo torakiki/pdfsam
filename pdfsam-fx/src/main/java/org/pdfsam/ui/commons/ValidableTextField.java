@@ -59,6 +59,7 @@ public class ValidableTextField extends TextField {
 
     public ValidableTextField(String text) {
         super(text);
+        this.getStyleClass().add("validable-field");
         focusedProperty().addListener((o, oldVal, newVal) -> {
             if (!newVal) {
                 validate();

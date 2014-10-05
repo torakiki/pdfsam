@@ -21,7 +21,6 @@ package org.pdfsam.ui.io;
 import java.io.File;
 
 import javafx.css.PseudoClass;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
@@ -48,7 +47,7 @@ abstract class BrowsableField extends HBox {
 
     public BrowsableField() {
         HBox.setHgrow(textField, Priority.ALWAYS);
-        setAlignment(Pos.CENTER_LEFT);
+        this.getStyleClass().add("browsable-field");
         validableContainer = new HBox(textField);
         validableContainer.getStyleClass().add("validable-container");
         textField.getStyleClass().add("validable-container-field");

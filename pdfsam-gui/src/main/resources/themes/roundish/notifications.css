@@ -1,6 +1,6 @@
 .notification {
 	-fx-background-color: -pdfsam-box-border-color, -pdfsam-pane-bg;
-    -fx-background-insets: 0.0, 0.3;
+    -fx-background-insets: 0.0, 0.4;
     -fx-background-radius: 3.0;
 	-fx-padding: 2.0 8.0 8.0 8.0 ;
 	-fx-effect: -pdfsam-shadow-effect;

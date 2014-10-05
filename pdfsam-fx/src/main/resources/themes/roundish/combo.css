@@ -1,0 +1,90 @@
+/**
+ * Combo
+ */
+.combo-box-base{
+	-fx-background-color: -pdfsam-box-border-color, -pdfsam-flat-bg-color;
+    -fx-background-insets: 0.0, 0.4;
+    -fx-background-radius: 3.0;	
+    -fx-padding: 0.0;
+}
+.combo-box-base > .arrow-button {
+   -fx-background-color: -pdfsam-box-border-color, -pdfsam-flat-bg-color;
+   -fx-background-insets: 0.0, 0.4 0.4 0.4 0.0;
+   -fx-background-radius: 3.0, 3.0;
+}
+.combo-box-base:focused {
+	-fx-background-color: -pdfsam-focus-border-color, -pdfsam-flat-bg-color;
+    -fx-background-insets: 0.0, 1.0;
+}
+.combo-box-base:focused > .arrow-button, .combo-box-base:hover > .arrow-button{
+   -fx-background-color: transparent;
+   -fx-background-insets: 0.0;
+   -fx-background-radius: 3.0;
+}
+.combo-box-base:hover {
+   -fx-background-color: -pdfsam-box-border-color, -pdfsam-flat-bg-color;
+   -fx-background-insets: 0.0, 0.4 0.4 0.4 0.0;
+   -fx-background-radius: 3.0, 3.0;
+   -fx-effect: -pdfsam-hover-shadow-effect;
+   -fx-translate-y: -1.0;
+}
+.combo-box-base:armed > .arrow-button{
+   -fx-background-color: -pdfsam-armed-button-color;
+   -fx-background-insets: 0.0;
+   -fx-background-radius: 3.0;	
+}
+.combo-box-base:armed {
+   -fx-background-color: -pdfsam-armed-button-color;
+   -fx-background-insets: 0.0;
+   -fx-background-radius: 3.0;	   
+   -fx-effect: -pdfsam-hover-shadow-effect;
+   -fx-translate-y: -2.0;
+}
+.combo-box-popup > .list-view {
+   -fx-background-color: -pdfsam-box-border-color, tooltipbg-color;
+   -fx-background-insets: 0.0, 0.5;
+   -fx-background-radius: 3.0;
+   -fx-effect: -pdfsam-hover-shadow-effect;
+   -fx-translate-y: 2.0;
+   -fx-padding: 4.0 2.0 2.0 2.0;
+}
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:hover {
+    -fx-background-color: -pdfsam-flat-bg-color;
+}
+.combo-box-popup  > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected,
+.combo-box-popup  > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected:hover {
+    -fx-background-color: -pdfsam-box-border-color;
+    -fx-background-insets: 0.0;
+}
+.combo-box-base:editable > .arrow-button{
+   -fx-background-color: -pdfsam-box-border-color, -pdfsam-flat-bg-color;
+   -fx-background-insets: 0.0, 0.4;
+   -fx-background-radius: 0.0 3.0 3.0 0;
+}
+.combo-box-base:focused:editable > .arrow-button{
+   -fx-background-color: -pdfsam-focus-border-color, -pdfsam-flat-bg-color;
+   -fx-background-insets: 0.0, 0.4;
+   -fx-background-radius: 0.0 3.0 3.0 0;
+}
+.combo-box-base:editable:contains-focus  > .arrow-button{
+  -fx-background-color: -pdfsam-box-border-color, -pdfsam-flat-bg-color;
+  -fx-background-insets: 0.0, 0.4;
+  -fx-background-radius: 0.0 3.0 3.0 0;
+  -fx-effect: none;
+}
+.combo-box-base:hover:editable > .arrow-button{
+   -fx-background-color: -pdfsam-box-border-color, -pdfsam-flat-bg-color;
+   -fx-background-insets: 0.0, 0.4;
+   -fx-background-radius: 0 3.0 3.0 0;
+}
+.combo-box-base:armed:editable > .arrow-button{
+   -fx-background-color: -pdfsam-armed-button-color;
+   -fx-background-insets: 0.0;
+   -fx-background-radius: 3.0;   
+}
+
+.combo-box-base:hover:editable {
+}
+.combo-box-base:editable > .text-field {
+}
+
