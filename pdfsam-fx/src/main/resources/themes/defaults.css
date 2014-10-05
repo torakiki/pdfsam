@@ -184,6 +184,7 @@
 .browse-button {
     -fx-background-insets:  0.0, 1.0 1.0 1.0 0.0;
 	-fx-padding: 0.0px 14.0px 0.0px 14.0px;
+	-fx-alignment: center;
 }
 .browse-button:focused, .browse-button:default, .browse-button:armed, .browse-button:hover {
     -fx-background-insets:  0.0, 0.0 0.0 1.0 0.0, 1.0 1.0 1.0 0.0;

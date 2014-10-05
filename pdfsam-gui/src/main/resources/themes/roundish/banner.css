@@ -16,7 +16,7 @@
 }
 .pdfsam-toolbar-button:focused {
     -fx-background-color: -pdfsam-focus-border-color, headerbg-color;
-    -fx-background-insets: 0.0, 1.0;
+    -fx-background-insets: 0.0, 0.5;
     -fx-background-radius: 3.0;	
 }
 .pdfsam-toolbar-button:hover{

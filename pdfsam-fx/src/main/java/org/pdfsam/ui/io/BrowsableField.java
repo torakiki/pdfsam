@@ -57,7 +57,6 @@ abstract class BrowsableField extends HBox {
         browseButton.prefHeightProperty().bind(validableContainer.heightProperty());
         browseButton.setMaxHeight(USE_PREF_SIZE);
         browseButton.setMinHeight(USE_PREF_SIZE);
-        browseButton.setAlignment(Pos.CENTER);
         HBox.setHgrow(validableContainer, Priority.ALWAYS);
         textField.validProperty().addListener((o, oldValue, newValue) -> {
             if (newValue == ValidationState.INVALID) {

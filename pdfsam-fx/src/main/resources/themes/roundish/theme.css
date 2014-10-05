@@ -83,6 +83,18 @@
     -fx-background-insets: 0.0, 0.0 0.0 2.0 0.0;
 }
 /**
+ * ValidableContainer
+ */
+.validable-container, .validable-container:selected {
+	-fx-background-color:  transparent;
+   	-fx-background-insets: 0.0;
+   	-fx-background-radius:  0;	
+	-fx-padding: 2.0;
+	-fx-alignment: center-left;
+	-fx-min-width: 280.0;
+	-fx-spacing: 5;
+}
+/**
  * Titled pane
  */
  .titled-pane {
@@ -197,8 +209,36 @@
 .combo-box-base:armed {
    -fx-background-color: -pdfsam-armed-button-color;
    -fx-background-insets: 0.0;
-   -fx-background-radius: 3.0;	   -fx-effect: -pdfsam-hover-shadow-effect;
+   -fx-background-radius: 3.0;	   
+   -fx-effect: -pdfsam-hover-shadow-effect;
    -fx-translate-y: -2.0;
+}
+.combo-box-popup > .list-view {
+   -fx-background-color: -pdfsam-box-border-color, tooltipbg-color;
+   -fx-background-insets: 0.0, 0.5;
+   -fx-background-radius: 3.0;
+   -fx-effect: -pdfsam-shadow-effect;
+   -fx-padding: 4 2 2 2;
+}
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:hover {
+    -fx-background-color: -pdfsam-flat-bg-color;
+}
+.combo-box-popup  > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected,
+.combo-box-popup  > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected:hover {
+    -fx-background-color: -pdfsam-box-border-color;
+    -fx-background-insets: 0;
+}
+
+/**
+ * Invalid
+ */
+.invalid{
+   -fx-background-color:  derive(-pdfsam-error-color, 80.0%), -fx-control-inner-background;
+   -fx-background-insets: 0.0, 0.0 0.0 2.0 0.0;
+}
+.invalid:focused{
+   -fx-background-color:  -pdfsam-error-color, -fx-control-inner-background;
+   -fx-background-insets: 0.0, 0.0 0.0 2.0 0.0;
 }
 /**
  * Tooltip
@@ -220,5 +260,15 @@
    	-fx-opacity: 0.95;
    	-fx-font-weight: bold;
    	-fx-padding: 0.3em 0.4em 0.3em 0.4em;    
+}
+/**
+ * Password popup
+ */
+.pdfsam-input-password {
+	-fx-background-color: -pdfsam-box-border-color, -pdfsam-pane-bg;
+    -fx-background-insets: 0.0, 0.3;
+    -fx-background-radius: 3.0;
+	-fx-effect: -pdfsam-shadow-effect;
+    -fx-border-style: none;
 }
 

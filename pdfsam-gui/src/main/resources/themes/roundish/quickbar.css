@@ -20,7 +20,7 @@
 }
 .quickbar-navigation-button:focused {
 	-fx-background-color: -pdfsam-focus-border-color, defaultbg-color;
-    -fx-background-insets: 0.0, 1.0;
+    -fx-background-insets: 0.0, 0.5;
 }
 .quickbar-navigation-button:hover{
 	-fx-background-color: -pdfsam-box-border-color, -pdfsam-flat-bg-color;
