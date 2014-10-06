@@ -46,6 +46,7 @@ class PreferencesUsageDataStore {
     private static final Logger LOG = LoggerFactory.getLogger(PreferencesUsageDataStore.class);
     static final String USAGE_PATH = "/pdfsam/modules/usage";
     static final String MODULE_USAGE_KEY = "module.usage";
+    static final String TASKS_EXECUTED_KEY = "tasks.executed";
 
     @PreDestroy
     public void flush() {
@@ -70,6 +71,8 @@ class PreferencesUsageDataStore {
             LOG.trace("Usage incremented for module {}", moduleId);
         } catch (IOException e) {
             LOG.error("Unable to increment modules usage statistics", e);
+        } finally {
+            incrementTotalUsage();
         }
     }
 
@@ -96,6 +99,16 @@ class PreferencesUsageDataStore {
         } catch (BackingStoreException e) {
             LOG.error("Unable to clear modules usage statistics", e);
         }
+    }
+
+    private void incrementTotalUsage() {
+        Preferences node = Preferences.userRoot().node(USAGE_PATH);
+        node.putLong(TASKS_EXECUTED_KEY, node.getLong(TASKS_EXECUTED_KEY, 0) + 1);
+    }
+
+    public long getTotalUsage() {
+        Preferences node = Preferences.userRoot().node(USAGE_PATH);
+        return node.getLong(TASKS_EXECUTED_KEY, 0);
     }
 
 }

@@ -101,4 +101,13 @@ public class PreferencesUsageDataStoreTest {
         List<ModuleUsage> result = victim.getUsages();
         assertEquals(2, result.size());
     }
+
+    @Test
+    public void getTotalUsages() {
+        victim.incrementUsageFor("module1");
+        victim.incrementUsageFor("module1");
+        victim.incrementUsageFor("module2");
+        assertEquals(3, victim.getTotalUsage());
+    }
+
 }
