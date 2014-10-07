@@ -55,7 +55,7 @@ class OpenFileController {
             try {
                 Desktop.getDesktop().open(event.getFile());
             } catch (IOException e) {
-                LOG.error("Unable to open '{}'", event.getFile().getAbsoluteFile());
+                LOG.error(String.format("Unable to open '%s'", event.getFile().getAbsoluteFile()), e);
             }
         }
     }
