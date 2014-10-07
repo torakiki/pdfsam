@@ -59,13 +59,13 @@ public class PreferencesUsageDataStoreTest {
     }
 
     @Test
-    public void multipleIncrementUsageFor() throws JSONObjectException, IOException, InterruptedException {
+    public void multipleIncrementUsageFor() throws JSONObjectException, IOException {
         victim.incrementUsageFor("moduleId");
         ModuleUsage usage = JSON.std.beanFrom(
                 ModuleUsage.class,
                 Preferences.userRoot().node(PreferencesUsageDataStore.USAGE_PATH).node("moduleId")
                         .get(PreferencesUsageDataStore.MODULE_USAGE_KEY, ""));
-        Thread.sleep(100);
+        victim.flush();
         victim.incrementUsageFor("moduleId");
         ModuleUsage usage2 = JSON.std.beanFrom(
                 ModuleUsage.class,

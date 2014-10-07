@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 10/feb/2014
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 07/ott/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,43 +16,51 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.module;
+package org.pdfsam.ui;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.pdfsam.module.ClearUsageController;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Component listening for a request to clean the modules usage statistics and performing the clean
+ * Controller for the {@link StageStatusService}
  * 
  * @author Andrea Vacondio
  *
  */
 @Named
-public class ClearUsageController {
+public class StageStatusController {
     private static final Logger LOG = LoggerFactory.getLogger(ClearUsageController.class);
 
-    private UsageService service;
+    private StageStatusService service;
 
     @Inject
-    public ClearUsageController(UsageService service) {
+    public StageStatusController(StageStatusService service) {
         this.service = service;
         eventStudio().addAnnotatedListeners(this);
     }
 
     /**
-     * Request to clear the modules usage stats
+     * Request to clear the latest stage status
      * 
      * @param event
      */
-    @EventListener(priority = Integer.MIN_VALUE)
-    public void request(ClearUsageRequestEvent event) {
-        LOG.debug("Clearing usage statistics");
-        service.clear();
+    @EventListener
+    public void requestClear(ClearLatestStageStatusRequest event) {
+        LOG.debug("Clearing latest stage status");
+        service.clearStageStatus();
     }
+
+    @EventListener
+    public void requestStageStatus(SetLatestStageStatusRequest event) {
+        LOG.debug("Setting latest statge status to: {}", event.getStatus());
+        service.save(event.getStatus());
+    }
+
 }
