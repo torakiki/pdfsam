@@ -18,6 +18,8 @@
  */
 package org.pdfsam.ui;
 
+import javafx.stage.Stage;
+
 /**
  * Possible modes for the Stage
  * 
@@ -25,7 +27,29 @@ package org.pdfsam.ui;
  *
  */
 public enum StageMode {
-    MAXIMIZED,
-    ICONIFIED,
-    DEFAULT;
+    MAXIMIZED {
+        @Override
+        public void restore(Stage stage) {
+            stage.setMaximized(true);
+        }
+    },
+    DEFAULT {
+        @Override
+        public void restore(Stage stage) {
+            // nothing to do
+        }
+    };
+
+    /**
+     * @param stage
+     * @return the StageMode for the given stage
+     */
+    public static StageMode valueFor(Stage stage) {
+        if (stage.isMaximized()) {
+            return MAXIMIZED;
+        }
+        return DEFAULT;
+    }
+
+    public abstract void restore(Stage stage);
 }

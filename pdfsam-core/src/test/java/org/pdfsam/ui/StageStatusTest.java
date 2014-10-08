@@ -29,15 +29,41 @@ public class StageStatusTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void requiredMode() {
-        new StageStatus(1, 1, 1, 1, null);
+        StageStatus victim = new StageStatus(1, 1, 1, 1);
+        victim.setMode(null);
     }
 
     @Test
     public void testEquals() {
-        StageStatus eq1 = new StageStatus(10, 20, 100, 200, StageMode.MAXIMIZED);
-        StageStatus eq2 = new StageStatus(10, 20, 100, 200, StageMode.MAXIMIZED);
-        StageStatus eq3 = new StageStatus(10, 20, 100, 200, StageMode.MAXIMIZED);
-        StageStatus diff = new StageStatus(20, 10, 200, 100, StageMode.ICONIFIED);
+        StageStatus eq1 = new StageStatus(10, 20, 100, 200);
+        StageStatus eq2 = new StageStatus(10, 20, 100, 200);
+        StageStatus eq3 = new StageStatus(10, 20, 100, 200);
+        StageStatus diff = new StageStatus(20, 10, 200, 100);
         TestUtils.testEqualsAndHashCodes(eq1, eq2, eq3, diff);
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void immutableSetX() {
+        StageStatus.NULL.setX(1);
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void immutableSetY() {
+        StageStatus.NULL.setY(1);
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void immutableSetWisth() {
+        StageStatus.NULL.setWidth(1);
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void immutableSetHeight() {
+        StageStatus.NULL.setHeight(1);
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void immutableSetMode() {
+        StageStatus.NULL.setMode(StageMode.MAXIMIZED);
     }
 }

@@ -35,13 +35,13 @@ import org.slf4j.LoggerFactory;
  *
  */
 @Named
-public class StageStatusController {
+public class StageStatusServiceController {
     private static final Logger LOG = LoggerFactory.getLogger(ClearUsageController.class);
 
     private StageStatusService service;
 
     @Inject
-    public StageStatusController(StageStatusService service) {
+    public StageStatusServiceController(StageStatusService service) {
         this.service = service;
         eventStudio().addAnnotatedListeners(this);
     }

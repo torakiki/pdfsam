@@ -30,17 +30,17 @@ import org.pdfsam.test.ClearEventStudioRule;
  * @author Andrea Vacondio
  *
  */
-public class StageStatusControllerTest {
+public class StageStatusServiceControllerTest {
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
 
-    private StageStatusController victim;
+    private StageStatusServiceController victim;
     private StageStatusService service;
 
     @Before
     public void setUp() {
         this.service = mock(StageStatusService.class);
-        this.victim = new StageStatusController(service);
+        this.victim = new StageStatusServiceController(service);
     }
 
     @Test

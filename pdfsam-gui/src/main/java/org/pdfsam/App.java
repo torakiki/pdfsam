@@ -106,6 +106,9 @@ public class App extends Application {
         primaryStage.setTitle(ApplicationContextHolder.getContext().getBean("appName", String.class));
         scene.getAccelerators().put(new KeyCodeCombination(KeyCode.L, KeyCombination.SHORTCUT_DOWN),
                 () -> eventStudio().broadcast(new ShowStageRequest(), "LogStage"));
+        WindowStatusController stageStatusController = ApplicationContextHolder.getContext().getBean(
+                WindowStatusController.class);
+        stageStatusController.setStage(primaryStage);
         primaryStage.show();
         Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger());
         requestCheckForUpdateIfNecessary();

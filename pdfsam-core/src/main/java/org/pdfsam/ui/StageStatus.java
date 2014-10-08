@@ -32,7 +32,32 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
  */
 public class StageStatus {
 
-    public static final StageStatus NULL = new StageStatus(0, 0, 0, 0, StageMode.DEFAULT);
+    public static final StageStatus NULL = new StageStatus(0, 0, 0, 0) {
+        @Override
+        public void setX(double x) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void setY(double y) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void setWidth(double width) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void setHeight(double height) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void setMode(StageMode mode) {
+            throw new UnsupportedOperationException();
+        }
+    };
 
     private double x;
     private double y;
@@ -44,13 +69,12 @@ public class StageStatus {
         // jackson
     }
 
-    public StageStatus(double x, double y, double width, double height, StageMode mode) {
-        requireNotNull(mode, "Stage mode cannot be null");
+    public StageStatus(double x, double y, double width, double height) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
-        this.mode = mode;
+        this.mode = StageMode.DEFAULT;
     }
 
     public double getX() {
@@ -86,6 +110,7 @@ public class StageStatus {
     }
 
     public void setMode(StageMode mode) {
+        requireNotNull(mode, "Stage mode cannot be null");
         this.mode = mode;
     }
 

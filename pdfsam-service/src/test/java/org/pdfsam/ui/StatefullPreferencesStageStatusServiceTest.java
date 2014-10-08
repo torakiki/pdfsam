@@ -47,7 +47,7 @@ public class StatefullPreferencesStageStatusServiceTest {
 
     @Test
     public void save() throws JSONObjectException, IOException {
-        StageStatus status = new StageStatus(10, 20, 100, 200, StageMode.ICONIFIED);
+        StageStatus status = new StageStatus(10, 20, 100, 200);
         victim.save(status);
         StageStatus storedStatus = JSON.std.beanFrom(
                 StageStatus.class,
@@ -58,7 +58,7 @@ public class StatefullPreferencesStageStatusServiceTest {
 
     @Test
     public void testClear() {
-        StageStatus status = new StageStatus(10, 20, 100, 200, StageMode.ICONIFIED);
+        StageStatus status = new StageStatus(10, 20, 100, 200);
         victim.save(status);
         victim.clearStageStatus();
         assertTrue(isBlank(Preferences.userRoot().node(StatefullPreferencesStageStatusService.STAGE_PATH)
@@ -72,7 +72,7 @@ public class StatefullPreferencesStageStatusServiceTest {
 
     @Test
     public void getLatest() {
-        StageStatus status = new StageStatus(10, 20, 100, 200, StageMode.ICONIFIED);
+        StageStatus status = new StageStatus(10, 20, 100, 200);
         victim.save(status);
         victim.flush();
         assertEquals(status, victim.getLatestStatus());
