@@ -20,9 +20,11 @@ package org.pdfsam.ui.commons;
 
 import static org.loadui.testfx.Assertions.verifyThat;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
@@ -32,17 +34,24 @@ import org.loadui.testfx.categories.TestFX;
  * @author Andrea Vacondio
  *
  */
-@Ignore
 @Category(TestFX.class)
 public class ClosePaneTest extends GuiTest {
+    private Stage victimStage;
 
     @Override
     protected Parent getRootNode() {
-        return new ClosePane();
+        victimStage = new Stage();
+        ClosePane containerPane = new ClosePane();
+        Scene scene = new Scene(containerPane);
+        victimStage.setScene(scene);
+        Button button = new Button("show");
+        button.setOnAction(a -> victimStage.show());
+        return button;
     }
 
     @Test
     public void hide() {
+        click("show");
         verifyThat(".pdfsam-container", (HBox n) -> n.getScene().getWindow().isShowing());
         click(".pdfsam-button");
         verifyThat(".pdfsam-container", (HBox n) -> !n.getScene().getWindow().isShowing());
