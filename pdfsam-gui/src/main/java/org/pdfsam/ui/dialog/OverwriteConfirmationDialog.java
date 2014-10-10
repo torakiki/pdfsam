@@ -18,8 +18,6 @@
  */
 package org.pdfsam.ui.dialog;
 
-import java.util.List;
-
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -29,10 +27,10 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
+import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.commons.HideOnEscapeHandler;
 import org.pdfsam.ui.support.Style;
@@ -46,19 +44,14 @@ import org.pdfsam.ui.support.Style;
 @Named
 public class OverwriteConfirmationDialog extends Stage {
 
-    @Resource(name = "styles")
-    private List<String> styles;
     private boolean overwrite = false;
     private OverwriteConfirmationDialogContent dialogContent = new OverwriteConfirmationDialogContent();
 
-    public OverwriteConfirmationDialog() {
+    @Inject
+    public OverwriteConfirmationDialog(StylesConfig styles) {
         initModality(Modality.WINDOW_MODAL);
         initStyle(StageStyle.UTILITY);
         setResizable(false);
-    }
-
-    @PostConstruct
-    void init() {
         BorderPane containerPane = new BorderPane();
         containerPane.getStyleClass().addAll(Style.CONTAINER.css());
         containerPane.getStyleClass().addAll("-pdfsam-dialog", "-pdfsam-warning-dialog");
@@ -68,7 +61,7 @@ public class OverwriteConfirmationDialog extends Stage {
         buttons.getStyleClass().add("-pdfsam-dialog-buttons");
         containerPane.setBottom(buttons);
         Scene scene = new Scene(containerPane);
-        scene.getStylesheets().addAll(styles);
+        scene.getStylesheets().addAll(styles.styles());
         scene.setOnKeyReleased(new HideOnEscapeHandler(this));
         setScene(scene);
     }

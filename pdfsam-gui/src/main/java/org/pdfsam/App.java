@@ -25,7 +25,6 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Paths;
-import java.util.List;
 import java.util.Map;
 
 import javafx.application.Application;
@@ -42,6 +41,7 @@ import javafx.stage.Stage;
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.apache.commons.lang3.time.StopWatch;
 import org.pdfsam.configuration.ApplicationContextHolder;
+import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.SetLocaleEvent;
@@ -89,7 +89,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        List<String> styles = (List<String>) ApplicationContextHolder.getContext().getBean("styles");
+        StylesConfig styles = ApplicationContextHolder.getContext().getBean(StylesConfig.class);
         Map<String, Image> logos = ApplicationContextHolder.getContext().getBeansOfType(Image.class);
         MainPane mainPane = ApplicationContextHolder.getContext().getBean(MainPane.class);
 
@@ -101,7 +101,7 @@ public class App extends Application {
         main.getChildren().addAll(mainPane, notifications);
 
         Scene scene = new Scene(main);
-        scene.getStylesheets().addAll(styles);
+        scene.getStylesheets().addAll(styles.styles());
         primaryStage.setScene(scene);
         primaryStage.getIcons().addAll(logos.values());
         primaryStage.setTitle(ApplicationContextHolder.getContext().getBean("appName", String.class));

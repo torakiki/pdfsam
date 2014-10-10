@@ -21,18 +21,16 @@ package org.pdfsam.ui.info;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Collection;
-import java.util.List;
 
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.commons.ClosePane;
 import org.pdfsam.ui.commons.HideOnEscapeHandler;
@@ -50,24 +48,18 @@ import org.sejda.eventstudio.annotation.EventListener;
 public class InfoStage extends Stage {
 
     @Inject
-    private InfoPane infoPane;
-    @Inject
-    private Collection<Image> logos;
-    @Resource(name = "styles")
-    private List<String> styles;
-
-    @PostConstruct
-    void init() {
+    public InfoStage(InfoPane infoPane, Collection<Image> logos, StylesConfig styles) {
         BorderPane containerPane = new BorderPane();
         containerPane.getStyleClass().addAll(Style.CONTAINER.css());
         containerPane.setCenter(infoPane);
         containerPane.setBottom(new ClosePane());
         Scene scene = new Scene(containerPane);
-        scene.getStylesheets().addAll(styles);
+        scene.getStylesheets().addAll(styles.styles());
         scene.setOnKeyReleased(new HideOnEscapeHandler(this));
         setScene(scene);
         setTitle(DefaultI18nContext.getInstance().i18n("Document details"));
         getIcons().addAll(logos);
+        setMaximized(true);
         eventStudio().addAnnotatedListeners(this);
     }
 

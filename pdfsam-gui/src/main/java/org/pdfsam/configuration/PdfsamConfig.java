@@ -24,8 +24,6 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
@@ -44,8 +42,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
-
-import de.jensd.fx.fontawesome.AwesomeStyle;
 
 /**
  * IoC configuration
@@ -80,8 +76,8 @@ public class PdfsamConfig {
         return new DefaultUserContext();
     }
 
-    @Bean(name = "styles")
-    public List<String> styles() {
+    @Bean
+    public StylesConfig styles() {
         String themeString = defaultIfBlank(userContext().getTheme(), Theme.GREEN.toString());
         Theme selected = Theme.GREEN;
         try {
@@ -89,11 +85,7 @@ public class PdfsamConfig {
         } catch (IllegalArgumentException e) {
             LOG.warn("Unable to find selected theme: {}.", themeString);
         }
-        LOG.debug(DefaultI18nContext.getInstance().i18n("Installing theme {0}.", themeString));
-        List<String> styles = selected.styleSheets().stream().map(s -> this.getClass().getResource(s).toExternalForm())
-                .collect(Collectors.toList());
-        styles.add(this.getClass().getResource(AwesomeStyle.LIGHT.getStylePath()).toExternalForm());
-        return styles;
+        return new StylesConfig(selected);
     }
 
     @Bean(name = "errorPlayer")
