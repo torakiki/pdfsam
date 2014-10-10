@@ -32,7 +32,7 @@ import org.sejda.model.parameter.base.TaskParameters;
  * 
  * @author Andrea Vacondio
  */
-public abstract class MultipleSelectionPane extends BorderPane implements ModuleOwned {
+public class MultipleSelectionPane extends BorderPane implements ModuleOwned {
 
     private String ownerModule = StringUtils.EMPTY;
     private SelectionTable table;

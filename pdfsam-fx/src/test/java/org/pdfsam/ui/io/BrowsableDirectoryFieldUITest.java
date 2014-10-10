@@ -85,6 +85,12 @@ public class BrowsableDirectoryFieldUITest extends GuiTest {
     }
 
     @Test
+    public void nullGraphicDoesntExplode() throws Exception {
+        BrowsableDirectoryField victim = find(".victim-no-blank");
+        FXTestUtils.invokeAndWait(() -> victim.setGraphic(null), 1);
+    }
+
+    @Test
     @Ignore
     public void dragAndDropExistingDirectory() {
         // Not sure how to test this
