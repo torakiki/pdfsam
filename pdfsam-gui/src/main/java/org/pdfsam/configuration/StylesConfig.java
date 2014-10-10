@@ -42,7 +42,7 @@ public class StylesConfig {
 
     private List<String> styles = new ArrayList<>();
 
-    StylesConfig(Theme theme) {
+    public StylesConfig(Theme theme) {
         requireNotNull(theme, "Theme cannot be null");
         LOG.debug(DefaultI18nContext.getInstance().i18n("Installing theme {0}.", theme.friendlyName()));
         theme.styleSheets().stream().map(s -> this.getClass().getResource(s).toExternalForm()).forEach(styles::add);

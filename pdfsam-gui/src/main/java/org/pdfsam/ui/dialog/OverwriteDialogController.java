@@ -44,7 +44,7 @@ import org.slf4j.LoggerFactory;
  *
  */
 @Named
-public class OverwriteDialogController {
+class OverwriteDialogController {
     private static final Logger LOG = LoggerFactory.getLogger(OverwriteDialogController.class);
 
     private OverwriteConfirmationDialog dialog;
