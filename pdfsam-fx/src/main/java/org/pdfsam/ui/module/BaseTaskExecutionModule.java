@@ -37,7 +37,7 @@ import org.pdfsam.ui.notification.AddNotificationRequestEvent;
 import org.pdfsam.ui.notification.NotificationType;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventStation;
-import org.sejda.model.parameter.base.TaskParameters;
+import org.sejda.model.parameter.base.AbstractParameters;
 
 /**
  * Base class for a {@link Module}. Modules are automatically scanned for event listener annotations and have their {@link EventStation} set to their {@link #id()}.
@@ -60,7 +60,7 @@ public abstract class BaseTaskExecutionModule implements Module {
         footer.runButton().setOnAction(
                 event -> {
                     ErrorTracker errorTracker = new ErrorTracker();
-                    Builder<? extends TaskParameters> builder = getBuilder(errorTracker.andThen(s -> eventStudio()
+                    Builder<? extends AbstractParameters> builder = getBuilder(errorTracker.andThen(s -> eventStudio()
                             .broadcast(
                                     new AddNotificationRequestEvent(NotificationType.ERROR, s, DefaultI18nContext
                                             .getInstance().i18n("Invalid parameters")))));
@@ -86,7 +86,7 @@ public abstract class BaseTaskExecutionModule implements Module {
      *            function to be called in case of error while building the task parameters
      * @return a {@link Builder} for the parameters to be used to perform a pdf manipulation
      */
-    protected abstract Builder<? extends TaskParameters> getBuilder(Consumer<String> onError);
+    protected abstract Builder<? extends AbstractParameters> getBuilder(Consumer<String> onError);
 
     @Inject
     public void setFooter(ModuleFooterPane footer) {

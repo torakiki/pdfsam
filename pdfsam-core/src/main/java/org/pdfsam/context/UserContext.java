@@ -57,11 +57,6 @@ public interface UserContext {
     String getLocale();
 
     /**
-     * @return true if a confirmation should be asked when an output file is going to be overwritten.
-     */
-    boolean isAskOverwriteConfirmation();
-
-    /**
      * @return true if the thumbnails should be rendered with high quality
      */
     boolean isHighQualityThumbnails();

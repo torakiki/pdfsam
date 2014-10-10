@@ -41,7 +41,7 @@ class DestinationPane extends VBox {
         super(5);
         requireNotNull(destination, "Destination field cannot be null");
         this.destination = destination;
-        overwrite.setSelected(true);
+        overwrite.setSelected(false);
         overwrite.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
                 "Tick the box if you want to overwrite the outpuf files if they already exist.")));
 

@@ -1,0 +1,32 @@
+.-pdfsam-dialog{
+	-fx-background-color: pwdpopupbg-color;
+	-fx-background-radius: 5.0;
+	-fx-background-insets: 0.0;
+	-fx-max-width: 450.0px;
+}
+.-pdfsam-dialog-buttons{
+	-fx-spacing: 1.0em;
+	-fx-padding: 7.0;
+	-fx-alignment: bottom-center;
+}
+.-pdfsam-dialog-content{
+	-fx-spacing: 1.0em;
+	-fx-alignment: top-left ;
+}
+.-pdfsam-dialog-messages {
+	-fx-spacing: 0.2em;
+	-fx-alignment: top-left;
+}
+.-pdfsam-dialog-title{
+	-fx-font-size: 1.2em;
+    -fx-font-weight: bold;
+	-fx-wrap-text: true;    
+}
+.-pdfsam-dialog-message{
+	-fx-wrap-text: true;    
+}
+.-pdfsam-warning-dialog .awesome, .-pdfsam-warning-dialog .awesome:hover{
+    -fx-effect: null;
+    -fx-text-fill: #EEAD69;
+    -fx-min-width: 46.0px;
+}

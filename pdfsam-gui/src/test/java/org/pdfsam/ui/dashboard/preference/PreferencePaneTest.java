@@ -65,7 +65,6 @@ public class PreferencePaneTest {
         public UserContext userContext() {
             when(userContext.getTheme()).thenReturn("sienna.css");
             when(userContext.isCheckForUpdates()).thenReturn(Boolean.TRUE);
-            when(userContext.isAskOverwriteConfirmation()).thenReturn(Boolean.TRUE);
             when(userContext.isPlaySounds()).thenReturn(Boolean.TRUE);
             when(userContext.isHighQualityThumbnails()).thenReturn(Boolean.TRUE);
             when(userContext.isUseSmartOutput()).thenReturn(Boolean.TRUE);
@@ -85,7 +84,6 @@ public class PreferencePaneTest {
         assertEquals("sienna.css", theme.getSelectionModel().getSelectedItem().getKey());
         assertTrue(((PreferenceCheckBox) victim.lookup("#checkForUpdates")).isSelected());
         assertTrue(((PreferenceCheckBox) victim.lookup("#playSounds")).isSelected());
-        assertTrue(((PreferenceCheckBox) victim.lookup("#askConfirmation")).isSelected());
         assertTrue(((PreferenceCheckBox) victim.lookup("#highQualityThumbnails")).isSelected());
         assertTrue(((PreferenceRadioButton) victim.lookup("#smartRadio")).isSelected());
         assertEquals("/my/path.xml", ((PreferenceBrowsableFileField) victim.lookup("#workspace")).getTextField()

@@ -46,7 +46,7 @@ import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.output.TaskOutput;
-import org.sejda.model.parameter.base.TaskParameters;
+import org.sejda.model.parameter.base.AbstractParameters;
 import org.sejda.model.task.NotifiableTaskMetadata;
 
 /**
@@ -119,7 +119,7 @@ public class ProgressPaneTest {
     @Test
     public void onTaskExecutionRequest() throws TaskOutputVisitException {
         TaskExecutionRequestEvent event = mock(TaskExecutionRequestEvent.class);
-        TaskParameters params = mock(TaskParameters.class);
+        AbstractParameters params = mock(AbstractParameters.class);
         TaskOutput output = mock(FileTaskOutput.class);
         when(event.getParameters()).thenReturn(params);
         when(params.getOutput()).thenReturn(output);

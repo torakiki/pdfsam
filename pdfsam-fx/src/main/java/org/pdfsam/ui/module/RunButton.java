@@ -42,7 +42,7 @@ class RunButton extends Button {
         eventStudio().addAnnotatedListeners(this);
     }
 
-    @EventListener(priority = Integer.MIN_VALUE)
+    @EventListener
     public void disableRunButtonIfTaskRequested(TaskExecutionRequestEvent event) {
         setDisable(true);
     }

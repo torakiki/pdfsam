@@ -49,6 +49,7 @@ import org.pdfsam.context.UserContext;
 import org.pdfsam.ui.MainPane;
 import org.pdfsam.ui.commons.OpenUrlRequest;
 import org.pdfsam.ui.commons.ShowStageRequest;
+import org.pdfsam.ui.dialog.OverwriteConfirmationDialog;
 import org.pdfsam.ui.io.SetLatestDirectoryEvent;
 import org.pdfsam.ui.notification.NotificationsContainer;
 import org.pdfsam.update.UpdateCheckRequest;
@@ -109,6 +110,9 @@ public class App extends Application {
         WindowStatusController stageStatusController = ApplicationContextHolder.getContext().getBean(
                 WindowStatusController.class);
         stageStatusController.setStage(primaryStage);
+        OverwriteConfirmationDialog overwriteDialog = ApplicationContextHolder.getContext().getBean(
+                OverwriteConfirmationDialog.class);
+        overwriteDialog.setOwner(primaryStage);
         primaryStage.show();
         Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger());
         requestCheckForUpdateIfNecessary();

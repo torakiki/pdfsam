@@ -25,7 +25,6 @@ package org.pdfsam.context;
  * 
  */
 public enum BooleanUserPreference {
-    ASK_OVERWRITE_CONFIRMATION,
     CHECK_UPDATES,
     PLAY_SOUNDS,
     HIGH_QUALITY_THUMB,

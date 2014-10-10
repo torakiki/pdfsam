@@ -36,9 +36,8 @@ class PreferenceBehaviorPane extends VBox {
 
     @Inject
     public PreferenceBehaviorPane(@Named("checkForUpdates") PreferenceCheckBox checkForUpdates,
-            @Named("playSounds") PreferenceCheckBox playSounds,
-            @Named("askConfirmation") PreferenceCheckBox askConfirmation) {
-        super(checkForUpdates, playSounds, askConfirmation);
+            @Named("playSounds") PreferenceCheckBox playSounds) {
+        super(checkForUpdates, playSounds);
         getStyleClass().addAll(Style.CONTAINER.css());
     }
 

@@ -36,14 +36,6 @@ public class DefaultUserContextTest {
     private DefaultUserContext victim = new DefaultUserContext();
 
     @Test
-    public void isAskConfirmation() {
-        victim.setBooleanPreference(BooleanUserPreference.ASK_OVERWRITE_CONFIRMATION, true);
-        assertTrue(victim.isAskOverwriteConfirmation());
-        victim.setBooleanPreference(BooleanUserPreference.ASK_OVERWRITE_CONFIRMATION, false);
-        assertFalse(victim.isAskOverwriteConfirmation());
-    }
-
-    @Test
     public void isCheckUpdates() {
         victim.setBooleanPreference(BooleanUserPreference.CHECK_UPDATES, false);
         assertFalse(victim.isCheckForUpdates());

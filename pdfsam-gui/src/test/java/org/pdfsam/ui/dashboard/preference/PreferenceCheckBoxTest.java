@@ -41,13 +41,13 @@ public class PreferenceCheckBoxTest extends GuiTest {
 
     @Override
     protected Parent getRootNode() {
-        return new PreferenceCheckBox(BooleanUserPreference.ASK_OVERWRITE_CONFIRMATION, "select", false, userContext);
+        return new PreferenceCheckBox(BooleanUserPreference.CHECK_UPDATES, "select", false, userContext);
     }
 
     @Test
     public void preferenceSetOnClick() {
         click("select");
         verify(userContext)
-                .setBooleanPreference(eq(BooleanUserPreference.ASK_OVERWRITE_CONFIRMATION), eq(Boolean.TRUE));
+.setBooleanPreference(eq(BooleanUserPreference.CHECK_UPDATES), eq(Boolean.TRUE));
     }
 }

@@ -90,11 +90,6 @@ public final class DefaultUserContext implements UserContext {
     }
 
     @Override
-    public boolean isAskOverwriteConfirmation() {
-        return prefs.getBoolean(BooleanUserPreference.ASK_OVERWRITE_CONFIRMATION.toString(), Boolean.TRUE);
-    }
-
-    @Override
     public void setBooleanPreference(BooleanUserPreference pref, boolean value) {
         prefs.putBoolean(pref.toString(), value);
     }

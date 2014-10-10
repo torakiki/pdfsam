@@ -74,7 +74,7 @@ public class PdfDestinationPaneUITest extends GuiTest {
         PdfDestinationPane victim = find(".victim");
         victim.apply(builder, onError);
         verify(builder).compress(false);
-        verify(builder).overwrite(true);
+        verify(builder).overwrite(false);
     }
 
     @Test
@@ -92,6 +92,6 @@ public class PdfDestinationPaneUITest extends GuiTest {
         nodes.forEach(n -> click(n));
         victim.apply(builder, onError);
         verify(builder).compress(true);
-        verify(builder).overwrite(false);
+        verify(builder).overwrite(true);
     }
 }

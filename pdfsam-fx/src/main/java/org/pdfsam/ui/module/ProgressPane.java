@@ -82,7 +82,7 @@ class ProgressPane extends VBox {
         statusLabel.setText(DefaultI18nContext.getInstance().i18n("Running"));
     }
 
-    @EventListener(priority = Integer.MIN_VALUE)
+    @EventListener
     public void onTaskExecutionRequest(TaskExecutionRequestEvent event) {
         open.setVisible(false);
         failed.setVisible(false);

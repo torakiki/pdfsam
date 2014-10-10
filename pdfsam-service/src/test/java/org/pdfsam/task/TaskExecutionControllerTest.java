@@ -30,7 +30,7 @@ import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.module.UsageService;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.core.notification.context.GlobalNotificationContext;
-import org.sejda.model.parameter.base.TaskParameters;
+import org.sejda.model.parameter.base.AbstractParameters;
 
 /**
  * @author Andrea Vacondio
@@ -58,7 +58,7 @@ public class TaskExecutionControllerTest {
     @Test
     public void request() {
         String moduleId = "module";
-        TaskParameters params = mock(TaskParameters.class);
+        AbstractParameters params = mock(AbstractParameters.class);
         victim.request(new TaskExecutionRequestEvent(moduleId, params));
         verify(usageService).incrementUsageFor(moduleId);
         verify(executionService, timeout(1000).times(1)).submit(moduleId, params);

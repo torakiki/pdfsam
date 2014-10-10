@@ -98,19 +98,6 @@ public class PreferenceConfig {
         return playSounds;
     }
 
-    @Bean(name = "askConfirmation")
-    public PreferenceCheckBox askConfirmation() {
-        PreferenceCheckBox askConfirmation = new PreferenceCheckBox(BooleanUserPreference.ASK_OVERWRITE_CONFIRMATION,
-                DefaultI18nContext.getInstance().i18n(
-                        "Ask for confirmation when the \"Overwrite\" checkbox is selected"),
-                userContext.isAskOverwriteConfirmation(), userContext);
-        askConfirmation.setId("askConfirmation");
-        askConfirmation.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
-                "Show a dialog box asking the user for confirmation when the \"overwrite\" is selected")));
-        askConfirmation.getStyleClass().add("spaced-vitem");
-        return askConfirmation;
-    }
-
     @Bean(name = "highQualityThumbnails")
     public PreferenceCheckBox highQualityThumbnails() {
         PreferenceCheckBox highQualityThumbnails = new PreferenceCheckBox(BooleanUserPreference.HIGH_QUALITY_THUMB,

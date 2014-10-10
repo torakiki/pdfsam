@@ -22,7 +22,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.sejda.model.parameter.base.TaskParameters;
+import org.sejda.model.parameter.base.AbstractParameters;
 
 /**
  * @author Andrea Vacondio
@@ -31,7 +31,7 @@ import org.sejda.model.parameter.base.TaskParameters;
 @RunWith(value = org.mockito.runners.MockitoJUnitRunner.class)
 public class TaskExecutionRequestEventTest {
     @Mock
-    private TaskParameters params;
+    private AbstractParameters params;
 
     @Test(expected = IllegalArgumentException.class)
     public void testNullParams() {

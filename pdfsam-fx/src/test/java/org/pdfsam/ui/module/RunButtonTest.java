@@ -31,7 +31,7 @@ import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
-import org.sejda.model.parameter.base.TaskParameters;
+import org.sejda.model.parameter.base.AbstractParameters;
 import org.sejda.model.task.NotifiableTaskMetadata;
 
 /**
@@ -54,7 +54,7 @@ public class RunButtonTest {
     @Test
     public void disableOnRequest() {
         victim.setDisable(false);
-        TaskParameters parameters = mock(TaskParameters.class);
+        AbstractParameters parameters = mock(AbstractParameters.class);
         eventStudio().broadcast(new TaskExecutionRequestEvent("id", parameters));
         assertTrue(victim.isDisabled());
     }

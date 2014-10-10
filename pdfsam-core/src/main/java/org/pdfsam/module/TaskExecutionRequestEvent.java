@@ -22,7 +22,7 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.support.RequireUtils.require;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
-import org.sejda.model.parameter.base.TaskParameters;
+import org.sejda.model.parameter.base.AbstractParameters;
 
 /**
  * Event sent to request a parameters execution.
@@ -32,7 +32,7 @@ import org.sejda.model.parameter.base.TaskParameters;
  */
 public class TaskExecutionRequestEvent {
 
-    private TaskParameters parameters;
+    private AbstractParameters parameters;
     private String moduleId;
 
     /**
@@ -40,14 +40,14 @@ public class TaskExecutionRequestEvent {
      *            the module requiring the task
      * @param parameters
      */
-    public TaskExecutionRequestEvent(String moduleId, TaskParameters parameters) {
+    public TaskExecutionRequestEvent(String moduleId, AbstractParameters parameters) {
         requireNotNull(parameters, "Task parameters cannot be null");
         require(isNotBlank(moduleId), "Module id cannot be blank");
         this.parameters = parameters;
         this.moduleId = moduleId;
     }
 
-    public TaskParameters getParameters() {
+    public AbstractParameters getParameters() {
         return parameters;
     }
 
