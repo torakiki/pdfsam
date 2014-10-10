@@ -23,6 +23,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.prefs.BackingStoreException;
+import java.util.prefs.Preferences;
+
+import org.junit.AfterClass;
 import org.junit.Test;
 
 /**
@@ -34,6 +38,13 @@ import org.junit.Test;
 public class DefaultUserContextTest {
 
     private DefaultUserContext victim = new DefaultUserContext();
+
+    @AfterClass
+    public static void tearDown() throws BackingStoreException {
+        Preferences node = Preferences.userRoot().node("/pdfsam/user/conf");
+        node.removeNode();
+        node.flush();
+    }
 
     @Test
     public void isCheckUpdates() {
