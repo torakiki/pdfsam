@@ -68,7 +68,7 @@ class DashboardItemPane extends BorderPane {
         Button closeButton = new Button(DefaultI18nContext.getInstance().i18n("Close"));
         closeButton.getStyleClass().addAll(Style.BUTTON.css());
         closeButton.setTextAlignment(TextAlignment.CENTER);
-        closeButton.setOnAction((e) -> eventStudio().broadcast(activeteCurrentModule()));
+        closeButton.setOnAction(e -> eventStudio().broadcast(activeteCurrentModule()));
         HBox footer = new HBox(closeButton);
         footer.getStyleClass().addAll(Style.CLOSE_FOOTER.css());
         return footer;

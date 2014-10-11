@@ -74,7 +74,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
     private PdfDocumentDescriptor descriptor;
     private LoadingStatusIndicator encryptionIndicator;
 
-    private Consumer<PdfDocumentDescriptor> onLoaded = (d) -> {
+    private Consumer<PdfDocumentDescriptor> onLoaded = d -> {
         details.setText(DefaultI18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}",
                 Integer.toString(d.pagesPropery().get()), d.getVersionString()));
         eventStudio().broadcast(requestFallbackDestination(d.getFile(), getOwnerModule()), getOwnerModule());

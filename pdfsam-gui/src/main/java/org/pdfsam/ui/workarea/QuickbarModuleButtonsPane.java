@@ -53,7 +53,7 @@ class QuickbarModuleButtonsPane extends BaseQuickbarButtonsPane {
 
     @EventListener
     public void onSetCurrentModuleRequest(SetActiveModuleRequest r) {
-        r.getActiveModuleId().ifPresent(id -> buttons.forEach((b) -> b.setSelected(b.moduleId().equals(id))));
+        r.getActiveModuleId().ifPresent(id -> buttons.forEach(b -> b.setSelected(b.moduleId().equals(id))));
     }
 
 }

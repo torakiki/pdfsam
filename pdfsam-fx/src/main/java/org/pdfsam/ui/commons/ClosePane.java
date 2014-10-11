@@ -40,7 +40,7 @@ public class ClosePane extends HBox {
         Button closeButton = new Button(DefaultI18nContext.getInstance().i18n("Close"));
         closeButton.getStyleClass().addAll(Style.BUTTON.css());
         closeButton.setTextAlignment(TextAlignment.CENTER);
-        closeButton.setOnAction((e) -> this.getScene().getWindow().hide());
+        closeButton.setOnAction(e -> this.getScene().getWindow().hide());
         getChildren().add(closeButton);
     }
 }

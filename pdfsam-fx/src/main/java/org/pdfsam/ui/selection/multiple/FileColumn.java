@@ -75,7 +75,7 @@ public enum FileColumn implements SelectionTableColumn<File> {
         }
 
         public Comparator<File> comparator() {
-            return Comparator.comparing((f) -> f.getName().toLowerCase());
+            return Comparator.comparing(f -> f.getName().toLowerCase());
         }
     }
 }

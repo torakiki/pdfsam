@@ -39,7 +39,7 @@ class AppContextMenu extends ContextMenu {
     @Inject
     AppContextMenu(WorkspaceMenu workspace, ModulesMenu modulesMenu) {
         MenuItem exit = new MenuItem(DefaultI18nContext.getInstance().i18n("E_xit"));
-        exit.setOnAction((e) -> Platform.exit());
+        exit.setOnAction(e -> Platform.exit());
         getItems().addAll(workspace, modulesMenu, new SeparatorMenuItem(), exit);
     }
 }

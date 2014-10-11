@@ -55,7 +55,7 @@ class SizeComboBox extends ComboBox<String> implements TaskParametersBuildStep<S
         valueProperty().addListener((o, oldVal, newVal) -> validate());
         setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
                 "Set the size as number of bytes or specify KB or MB")));
-        validationSupport.validationStateProperty().addListener((o) -> {
+        validationSupport.validationStateProperty().addListener(o -> {
             if (validationSupport.validationStateProperty().get() == ValidationState.INVALID) {
                 getEditor().getStyleClass().addAll(Style.INVALID.css());
             } else {

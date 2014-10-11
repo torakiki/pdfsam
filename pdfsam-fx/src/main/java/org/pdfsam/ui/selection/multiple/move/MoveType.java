@@ -53,7 +53,7 @@ public enum MoveType {
                 MultipleSelectionAndFocus newSelection = new MultipleSelectionAndFocus(focused);
                 Arrays.parallelSort(selected);
                 if (isNotFirst(selected)) {
-                    Arrays.stream(selected).forEach((i) -> {
+                    Arrays.stream(selected).forEach(i -> {
                         Collections.swap(items, i, i - 1);
                         newSelection.moveUp(i);
                     });
@@ -71,7 +71,7 @@ public enum MoveType {
                 MultipleSelectionAndFocus newSelection = new MultipleSelectionAndFocus(focused);
                 Arrays.parallelSort(selected, Collections.reverseOrder(Integer::compare));
                 if (isNotLast(selected, items)) {
-                    Arrays.stream(selected).forEach((i) -> {
+                    Arrays.stream(selected).forEach(i -> {
                         Collections.swap(items, i, i + 1);
                         newSelection.moveDown(i);
                     });

@@ -68,7 +68,7 @@ public class ValidableTextField extends TextField {
 
         textProperty().addListener((o, oldVal, newVal) -> validationSupport.makeNotValidated());
         validationSupport.validationStateProperty().addListener(
-                (o) -> {
+                o -> {
                     if (validationSupport.validationStateProperty().get() == ValidationState.INVALID
                             && errorTooltipManager != null) {
                         errorTooltipManager.showTooltip();
@@ -88,7 +88,7 @@ public class ValidableTextField extends TextField {
      * the field is marked with the class "invalid" when the validation status is invalid to give the user visual feedback.
      */
     public void setEnableInvalidStyle(final boolean active) {
-        validationSupport.validationStateProperty().addListener((o) -> {
+        validationSupport.validationStateProperty().addListener(o -> {
             if (active) {
                 if (validationSupport.validationStateProperty().get() == ValidationState.INVALID) {
                     getStyleClass().addAll(Style.INVALID.css());
@@ -113,7 +113,7 @@ public class ValidableTextField extends TextField {
     }
 
     public void setOnEnterValidation(final boolean active) {
-        setOnKeyReleased((t) -> {
+        setOnKeyReleased(t -> {
             if (active && ENTER_COMBO.match(t)) {
                 validate();
             }

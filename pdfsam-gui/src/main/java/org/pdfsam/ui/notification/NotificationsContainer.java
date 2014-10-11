@@ -44,7 +44,7 @@ public class NotificationsContainer extends VBox {
 
     void addNotification(String title, Node message) {
         Notification toAdd = doAddNotification(title, message);
-        fadeIn(toAdd, (e) -> toAdd.fadeAway(Duration.millis(2000)));
+        fadeIn(toAdd, e -> toAdd.fadeAway(Duration.millis(2000)));
     }
 
     void addStickyNotification(String title, Node message) {

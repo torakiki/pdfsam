@@ -73,7 +73,7 @@ public class LoadingStatusIndicator extends Label implements ModuleOwned {
         this.ownerModule = defaultString(ownerModule);
         this.popup = new PasswordFieldPopup(getOwnerModule());
         this.descriptorProvider = descriptorProvider;
-        this.addEventFilter(MouseEvent.MOUSE_CLICKED, (e) -> {
+        this.addEventFilter(MouseEvent.MOUSE_CLICKED, e -> {
             if (loadingStatus.get() == ENCRYPTED) {
                 showPasswordRequest();
             } else if (loadingStatus.get() == WITH_ERRORS) {

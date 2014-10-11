@@ -73,7 +73,7 @@ public class AboutDashboardPane extends HBox {
         AwesomeDude.setIcon(copyButton, AwesomeIcon.COPY);
         copyButton.getStyleClass().addAll(Style.BUTTON.css());
         copyButton.setId("copyEnvDetails");
-        copyButton.setOnAction((a) -> {
+        copyButton.setOnAction(a -> {
             ClipboardContent content = new ClipboardContent();
             writeContent(Arrays.asList(name, version, runtime.getText(), fxRuntime.getText(), memory.getText())).to(
                     content);

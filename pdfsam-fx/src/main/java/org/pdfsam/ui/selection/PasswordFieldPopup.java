@@ -93,8 +93,8 @@ class PasswordFieldPopup extends PopupControl implements ModuleOwned {
             doneButton.prefHeightProperty().bind(passwordField.heightProperty());
             doneButton.setMaxHeight(USE_PREF_SIZE);
             doneButton.setMinHeight(USE_PREF_SIZE);
-            doneButton.setOnAction((e) -> requestLoad());
-            passwordField.setOnAction((e) -> requestLoad());
+            doneButton.setOnAction(e -> requestLoad());
+            passwordField.setOnAction(e -> requestLoad());
             getChildren().addAll(passwordField, doneButton);
         }
 

@@ -54,7 +54,7 @@ class QuickbarDashboardButtonsPane extends BaseQuickbarButtonsPane {
 
     @EventListener
     public void setCurrentDashboardItem(SetActiveDashboardItemRequest r) {
-        buttons.forEach((b) -> b.selectIf(r.getActiveItemId()));
+        buttons.forEach(b -> b.selectIf(r.getActiveItemId()));
     }
 
 }
