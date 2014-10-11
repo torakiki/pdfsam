@@ -18,18 +18,21 @@
  */
 package org.pdfsam.module;
 
-import org.pdfsam.support.KeyStringValueItem;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+import org.pdfsam.test.HighPriorityTestModule;
 
 /**
- * Key value item holding {@link Module} data
- * 
  * @author Andrea Vacondio
  *
  */
-public class ModuleKeyValueItem extends KeyStringValueItem<String> {
+public class ModuleKeyValueItemTest {
 
-    public ModuleKeyValueItem(Module module) {
-        super(module.id(), module.descriptor().getName());
+    @Test
+    public void constructor() {
+        ModuleKeyValueItem victim = new ModuleKeyValueItem(new HighPriorityTestModule());
+        assertEquals(HighPriorityTestModule.ID, victim.getKey());
+        assertEquals("HighPriorityTestModule", victim.getValue());
     }
-
 }
