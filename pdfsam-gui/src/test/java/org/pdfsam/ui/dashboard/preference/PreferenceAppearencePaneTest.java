@@ -59,7 +59,9 @@ public class PreferenceAppearencePaneTest extends GuiTest {
         localeCombo.setId("localeCombo");
         PreferenceComboBox<KeyStringValueItem<String>> themeCombo = new PreferenceComboBox<>(
                 StringUserPreference.THEME, userContext);
-        PreferenceAppearencePane victim = new PreferenceAppearencePane(localeCombo, themeCombo);
+        PreferenceComboBox<KeyStringValueItem<String>> startupModuleCombo = new PreferenceComboBox<>(
+                StringUserPreference.STARTUP_MODULE, userContext);
+        PreferenceAppearencePane victim = new PreferenceAppearencePane(localeCombo, themeCombo, startupModuleCombo);
         victim.setId("victim");
         return victim;
     }

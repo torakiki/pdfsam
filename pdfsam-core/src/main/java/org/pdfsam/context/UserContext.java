@@ -77,6 +77,11 @@ public interface UserContext {
     String getTheme();
 
     /**
+     * @return the module to load at application startup
+     */
+    String getStartupModule();
+
+    /**
      * Sets a {@link Boolean} preference.
      * 
      * @param pref

@@ -104,6 +104,14 @@ public class DefaultUserContextTest {
     }
 
     @Test
+    public void getStartupModule() {
+        victim.setStringPreference(StringUserPreference.STARTUP_MODULE, "ChuckNorris");
+        assertEquals("ChuckNorris", victim.getStartupModule());
+        victim.setStringPreference(StringUserPreference.STARTUP_MODULE, "");
+        assertTrue(isBlank(victim.getStartupModule()));
+    }
+
+    @Test
     public void getDefaultWorkingPath() {
         victim.setStringPreference(StringUserPreference.WORKING_PATH, "/path");
         assertEquals("/path", victim.getDefaultWorkingPath());

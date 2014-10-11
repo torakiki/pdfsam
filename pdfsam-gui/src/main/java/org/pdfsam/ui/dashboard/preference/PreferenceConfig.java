@@ -19,6 +19,7 @@
 package org.pdfsam.ui.dashboard.preference;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import javafx.scene.control.Tooltip;
@@ -31,6 +32,8 @@ import org.pdfsam.context.IntUserPreference;
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.Theme;
 import org.pdfsam.context.UserContext;
+import org.pdfsam.module.Module;
+import org.pdfsam.module.ModuleKeyValueItem;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.LocaleKeyValueItem;
 import org.pdfsam.support.io.FileType;
@@ -69,6 +72,17 @@ public class PreferenceConfig {
 
         themeCombo.setValue(new KeyStringValueItem<>(userContext.getTheme(), ""));
         return themeCombo;
+    }
+
+    @Bean(name = "startupModuleCombo")
+    public PreferenceComboBox<KeyStringValueItem<String>> startupModuleCombo(List<Module> modules) {
+        PreferenceComboBox<KeyStringValueItem<String>> startupModuleCombo = new PreferenceComboBox<>(
+                StringUserPreference.STARTUP_MODULE, userContext);
+        startupModuleCombo.getItems().add(
+                new KeyStringValueItem<>("", DefaultI18nContext.getInstance().i18n("Dashboard")));
+        modules.stream().map(ModuleKeyValueItem::new).forEach(startupModuleCombo.getItems()::add);
+        startupModuleCombo.setValue(new KeyStringValueItem<>(userContext.getStartupModule(), ""));
+        return startupModuleCombo;
     }
 
     @Bean(name = "thumbnailsCombo")

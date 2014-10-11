@@ -47,7 +47,8 @@ class PreferenceAppearencePane extends GridPane {
 
     @Inject
     public PreferenceAppearencePane(@Named("localeCombo") PreferenceComboBox<LocaleKeyValueItem> localeCombo,
-            @Named("themeCombo") PreferenceComboBox<KeyStringValueItem<String>> themeCombo) {
+            @Named("themeCombo") PreferenceComboBox<KeyStringValueItem<String>> themeCombo,
+            @Named("startupModuleCombo") PreferenceComboBox<KeyStringValueItem<String>> startupModuleCombo) {
         I18nContext i18n = DefaultI18nContext.getInstance();
         for (Locale current : DefaultI18nContext.SUPPORTED_LOCALES) {
             localeCombo.getItems().add(new LocaleKeyValueItem(current));
@@ -65,6 +66,13 @@ class PreferenceAppearencePane extends GridPane {
         add(new Label(i18n.i18n("Theme:")), 0, 1);
         setFillWidth(themeCombo, true);
         add(themeCombo, 1, 1);
+
+        startupModuleCombo.setTooltip(new Tooltip(i18n
+                .i18n("Set the module to open at application startup (restart needed)")));
+        add(new Label(i18n.i18n("Startup module:")), 0, 2);
+        setFillWidth(startupModuleCombo, true);
+        add(startupModuleCombo, 1, 2);
+
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.GRID.css());
     }

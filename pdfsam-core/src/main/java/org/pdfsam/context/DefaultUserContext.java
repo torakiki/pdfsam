@@ -69,6 +69,11 @@ public final class DefaultUserContext implements UserContext {
     }
 
     @Override
+    public String getStartupModule() {
+        return prefs.get(StringUserPreference.STARTUP_MODULE.toString(), StringUtils.EMPTY);
+    }
+
+    @Override
     public String getThumbnailsCreatorIdentifier() {
         // TODO identifier
         return prefs.get(StringUserPreference.THUMBNAILS_IDENTIFIER.toString(), StringUtils.EMPTY);

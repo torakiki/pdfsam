@@ -19,6 +19,7 @@
 package org.pdfsam;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.pdfsam.ui.event.SetActiveModuleRequest.activeteModule;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
@@ -107,12 +108,9 @@ public class App extends Application {
         primaryStage.setTitle(ApplicationContextHolder.getContext().getBean("appName", String.class));
         scene.getAccelerators().put(new KeyCodeCombination(KeyCode.L, KeyCombination.SHORTCUT_DOWN),
                 () -> eventStudio().broadcast(new ShowStageRequest(), "LogStage"));
-        WindowStatusController stageStatusController = ApplicationContextHolder.getContext().getBean(
-                WindowStatusController.class);
-        stageStatusController.setStage(primaryStage);
-        OverwriteConfirmationDialog overwriteDialog = ApplicationContextHolder.getContext().getBean(
-                OverwriteConfirmationDialog.class);
-        overwriteDialog.setOwner(primaryStage);
+        initWindowsStatusController(primaryStage);
+        initOverwriteDialogController(primaryStage);
+        initActiveModule();
         primaryStage.show();
         Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger());
         requestCheckForUpdateIfNecessary();
@@ -145,6 +143,26 @@ public class App extends Application {
             services.showDocument(event.getUrl());
         } else {
             LOG.warn("Unable to open '{}', please copy and paste the url to your browser.", event.getUrl());
+        }
+    }
+
+    private void initOverwriteDialogController(Stage primaryStage) {
+        OverwriteConfirmationDialog overwriteDialog = ApplicationContextHolder.getContext().getBean(
+                OverwriteConfirmationDialog.class);
+        overwriteDialog.setOwner(primaryStage);
+    }
+
+    private void initWindowsStatusController(Stage primaryStage) {
+        WindowStatusController stageStatusController = ApplicationContextHolder.getContext().getBean(
+                WindowStatusController.class);
+        stageStatusController.setStage(primaryStage);
+    }
+
+    private void initActiveModule() {
+        String startupModule = new DefaultUserContext().getStartupModule();
+        if (isNotBlank(startupModule)) {
+            LOG.trace("Activating startup module '{}'", startupModule);
+            eventStudio().broadcast(activeteModule(startupModule));
         }
     }
 }
