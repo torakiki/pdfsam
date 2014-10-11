@@ -17,38 +17,6 @@
 				<pdfsam.package>ENHANCED</pdfsam.package>
 			</properties>
 		</profile>
-		<profile>
-			<id>sign</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-jarsigner-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>sign</id>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-							</execution>
-							<execution>
-								<id>verify</id>
-								<goals>
-									<goal>verify</goal>
-								</goals>
-							</execution>
-						</executions>
-						<configuration>
-							<keystore>${pdfsam.sign.keystore}</keystore>
-							<alias>${pdfsam.sign.alias}</alias>
-							<storepass>${pdfsam.sign.storepass}</storepass>
-							<keypass>${pdfsam.sign.keypass}</keypass>
-							<tsa>https://timestamp.geotrust.com/tsa</tsa>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
 	</profiles>
 
 	<build>
