@@ -36,7 +36,8 @@ public enum Style {
     INVALID("invalid"),
     VITEM("spaced-vitem"),
     HCONTAINER("spaced-hcontainer"),
-    MAIN_PANEL("main-scroll-panel");
+    MAIN_PANEL("main-scroll-panel"),
+    GRID("pdfsam-grid");
 
     public static final int DEFAULT_SPACING = 5;
     private String[] classes;

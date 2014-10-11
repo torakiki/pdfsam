@@ -24,7 +24,7 @@ import java.util.Locale;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.GridPane;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -43,7 +43,7 @@ import org.pdfsam.ui.support.Style;
  * 
  */
 @Named
-class PreferenceAppearencePane extends VBox {
+class PreferenceAppearencePane extends GridPane {
 
     @Inject
     public PreferenceAppearencePane(@Named("localeCombo") PreferenceComboBox<LocaleKeyValueItem> localeCombo,
@@ -56,12 +56,17 @@ class PreferenceAppearencePane extends VBox {
         localeCombo.setValue(new LocaleKeyValueItem(Locale.getDefault()));
         localeCombo.valueProperty().addListener(
                 (observable, oldValue, newValue) -> eventStudio().broadcast(new SetLocaleEvent(newValue.getKey())));
-        getChildren().addAll(new Label(i18n.i18n("Language:")), localeCombo);
+
+        add(new Label(i18n.i18n("Language:")), 0, 0);
+        setFillWidth(localeCombo, true);
+        add(localeCombo, 1, 0);
 
         themeCombo.setTooltip(new Tooltip(i18n.i18n("Set your preferred theme (restart needed)")));
-
-        getChildren().addAll(new Label(i18n.i18n("Theme:")), themeCombo);
+        add(new Label(i18n.i18n("Theme:")), 0, 1);
+        setFillWidth(themeCombo, true);
+        add(themeCombo, 1, 1);
         getStyleClass().addAll(Style.CONTAINER.css());
+        getStyleClass().addAll(Style.GRID.css());
     }
 
 }

@@ -26,6 +26,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
 
+import org.pdfsam.ui.support.Style;
+
 /**
  * GridPane containing a {@link RadioButton}s that, when selected, activate the corresponding text field.
  * 
@@ -39,7 +41,7 @@ public class RadioButtonDrivenTextFieldsPane extends GridPane {
 
     public RadioButtonDrivenTextFieldsPane(ToggleGroup group) {
         this.group = group;
-        getStyleClass().add("pdfsam-grid");
+        getStyleClass().addAll(Style.GRID.css());
     }
 
     public void addRow(RadioButton radio, TextField field) {
