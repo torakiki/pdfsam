@@ -54,6 +54,7 @@ import org.pdfsam.ui.dialog.OverwriteConfirmationDialog;
 import org.pdfsam.ui.io.SetLatestDirectoryEvent;
 import org.pdfsam.ui.notification.NotificationsContainer;
 import org.pdfsam.update.UpdateCheckRequest;
+import org.sejda.core.Sejda;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -86,6 +87,7 @@ public class App extends Application {
                 LOG.warn("Unable to set initial directory, default path is invalid.", e);
             }
         }
+        System.setProperty(Sejda.UNETHICAL_READ_PROPERTY_NAME, "true");
     }
 
     @Override
