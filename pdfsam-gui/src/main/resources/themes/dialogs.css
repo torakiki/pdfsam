@@ -1,5 +1,5 @@
 .-pdfsam-dialog{
-	-fx-background-color: pwdpopupbg-color;
+	-fx-background-color: -pdfsam-pwdpopupbg-color;
 	-fx-background-radius: 5.0;
 	-fx-background-insets: 0.0;
 	-fx-max-width: 450.0px;

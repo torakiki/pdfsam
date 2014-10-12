@@ -7,7 +7,7 @@
 	-pdfsam-error-color: #F44336;
 	-pdfsam-pane-bg: #FFFFFF;
 	-pdfsam-armed-button-color: derive(-pdfsam-flat-bg-color, -18.0%);
-	theme-color: #009245;
+	-pdfsam-theme-color: #009245;
 	-pdfsam-progress-color: #C8C8C8;
 	-pdfsam-focus-border-color: rgba(0.0, 0.0, 0.0, 0.2);
 	awesome-error-color: #F44336;
@@ -31,7 +31,7 @@
     -fx-background-insets: 0.0, 0.4;
     -fx-background-radius: 3.0;
     -fx-padding: 7.0px 14.0px 7.0px 14.0px;
-    -fx-text-fill: dark-text-color !important;
+    -fx-text-fill: -pdfsam-dark-text-color !important;
 }
 .pdfsam-button:focused {
     -fx-background-color: -pdfsam-focus-border-color, -pdfsam-flat-bg-color;
@@ -66,7 +66,7 @@
  * Log
  */
 #log-view, #log-view:focused{
-	-fx-background-color: -pdfsam-box-border-color, tooltipbg-color;
+	-fx-background-color: -pdfsam-box-border-color, -pdfsam-tooltipbg-color;
     -fx-background-insets: 0.0, 0.4;
     -fx-background-radius: 3.0;
 	-fx-effect: -pdfsam-shadow-effect !important;
@@ -87,7 +87,7 @@
   	-fx-background-radius:  0.0, 0.0;
 }
 .text-field:focused {
-    -fx-background-color:  theme-color, -pdfsam-pane-bg;
+    -fx-background-color:  -pdfsam-theme-color, -pdfsam-pane-bg;
     -fx-background-insets: 0.0, 0.0 0.0 2.0 0.0;
 }
 /**
@@ -108,7 +108,7 @@
   	-fx-background-insets: 0.0, 0.0 0.0 2.0 0.0;
 }
 .validable-container:selected {
-   	-fx-background-color:  theme-color, -fx-control-inner-background;
+   	-fx-background-color:  -pdfsam-theme-color, -fx-control-inner-background;
     -fx-background-insets: 0.0, 0.0 0.0 2.0 0.0;
     -fx-background-radius: 0.0, 0.0;
 }
@@ -146,7 +146,7 @@
     -fx-background-radius: 3.0;
 }
 .titled-pane:focused > .title > .arrow-button > .arrow {
-    -fx-background-color: theme-color;
+    -fx-background-color: -pdfsam-theme-color;
 }
 /**
  * Checkbox
@@ -162,12 +162,12 @@
     -fx-background-radius: 1.0, 1.0, 1.0;
 }
 .check-box:selected > .box {
-    -fx-background-color: theme-color;
+    -fx-background-color: -pdfsam-theme-color;
     -fx-background-insets: 0.0;
     -fx-background-radius: 1.0;
 }
 .check-box:focused:selected > .box {
-    -fx-background-color: -pdfsam-focus-border-color, theme-color;
+    -fx-background-color: -pdfsam-focus-border-color, -pdfsam-theme-color;
     -fx-background-insets: -1.0, 0.0;
     -fx-background-radius: 1.0, 1.0;	
 }
@@ -191,11 +191,11 @@
    -fx-background-insets: -1.0, 0.0, 2.0;
 }
 .radio-button:selected > .radio {
-   -fx-background-color: theme-color;
+   -fx-background-color: -pdfsam-theme-color;
    -fx-background-insets: 0.0;
 }
 .radio-button:focused:selected > .radio {
-   -fx-background-color: -pdfsam-focus-border-color, theme-color;
+   -fx-background-color: -pdfsam-focus-border-color, -pdfsam-theme-color;
    -fx-background-insets: -1.0, 0.0;
 }
 .radio-button:selected > .radio > .dot {
@@ -292,19 +292,19 @@
     -fx-border-width: 0.0;
 }
 .tab-pane > .tab-header-area > .tab-header-background {
-    -fx-background-color: defaultbg-color;
+    -fx-background-color: -pdfsam-defaultbg-color;
     -fx-background-insets: 0.0;
     -fx-background-radius: 0.0;
     -fx-effect: null;
 }
 .tab-pane > .tab-header-area > .headers-region > .tab:left {
-	-fx-background-color: defaultbg-color, -pdfsam-box-border-color, -pdfsam-pane-bg;
+	-fx-background-color: -pdfsam-defaultbg-color, -pdfsam-box-border-color, -pdfsam-pane-bg;
     -fx-background-insets: 0.0, 1.0, 1.4;
     -fx-background-radius: 3.0, 3.0, 3.0;
     -fx-opacity: 0.8;
 }
 .tab-pane > .tab-header-area > .headers-region > .tab:selected {
-    -fx-background-color: defaultbg-color, theme-color, -pdfsam-pane-bg;
+    -fx-background-color: -pdfsam-defaultbg-color, -pdfsam-theme-color, -pdfsam-pane-bg;
     -fx-background-insets: 0.0, 1.0, 1.4;
     -fx-background-radius: 3.0, 3.0, 3.0;
     -fx-effect: -pdfsam-shadow-effect;

@@ -2,7 +2,7 @@
  * Quickbar
  */
  .quickbar-buttons {
-	-fx-background-color: defaultbg-color;
+	-fx-background-color: -pdfsam-defaultbg-color;
    	-fx-background-insets: 0.0;
 }
 .quickbar-items{
@@ -10,7 +10,7 @@
 	-fx-padding: 0.0 5.0 1.0em 0.0;
 }
 .quickbar-navigation-button, .quickbar-navigation-button:focused {
-	-fx-background-color:  defaultbg-color;
+	-fx-background-color:  -pdfsam-defaultbg-color;
     -fx-background-insets:  0.0;
     -fx-background-radius: 3.0;
     -fx-padding: 5.0px 10.0px 5.0px 10.0px;
@@ -19,7 +19,7 @@
     -fx-min-height: 40.0px;
 }
 .quickbar-navigation-button:focused {
-	-fx-background-color: -pdfsam-focus-border-color, defaultbg-color;
+	-fx-background-color: -pdfsam-focus-border-color, -pdfsam-defaultbg-color;
     -fx-background-insets: 0.0, 0.5;
 }
 .quickbar-navigation-button:hover{

@@ -3,12 +3,12 @@
    -fx-pref-height: 6.0px;
 }
 .progress-pane > .progress-bar > .bar {
-  	-fx-background-color:  theme-color;
+  	-fx-background-color:  -pdfsam-theme-color;
   	-fx-background-insets: 0.0;
    	-fx-background-radius:  2.0;		
 }
 .progress-pane > .progress-bar:indeterminate > .bar {
-  	-fx-background-color:  theme-color;
+  	-fx-background-color:  -pdfsam-theme-color;
   	-fx-background-insets: 0.0;
    	-fx-background-radius:  2.0;		
 }

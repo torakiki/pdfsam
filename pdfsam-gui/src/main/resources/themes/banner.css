@@ -3,7 +3,7 @@
  */
  .pdfsam-banner{
  	-fx-padding: 0.0;
- 	-fx-background-color: light-border-color, headerbg-color;
+ 	-fx-background-color: -pdfsam-light-border-color, -pdfsam-headerbg-color;
     -fx-background-insets: 0.0, 0.0 0.0 1.0 0.0;
     -fx-background-radius: 0.0, 0.0;
     -fx-alignment: bottom-left;  
@@ -23,12 +23,12 @@
  	-fx-alignment: center-right;
  }
 .pdfsam-toolbar-button, .pdfsam-toolbar-button:focused {
-    -fx-background-color: headerbg-color;
+    -fx-background-color: -pdfsam-headerbg-color;
     -fx-background-insets: 0.0;
     -fx-background-radius: 0.0;
 }
 .pdfsam-toolbar-button:hover{
-    -fx-background-color:  theme-color, headerbg-color;
+    -fx-background-color:  -pdfsam-theme-color, -pdfsam-headerbg-color;
     -fx-background-insets:  0.0, 0.0 0.0 1.5 0.0 ;
     -fx-background-radius: 0.0;
 }

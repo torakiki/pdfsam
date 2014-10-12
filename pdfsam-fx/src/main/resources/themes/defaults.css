@@ -1,34 +1,34 @@
 .root { 
-	light-border-color: #D4D4D4;
-	hover-color: #D4D4D4;
-	dark-text-color: derive(light-border-color, -70.0%);
+	-pdfsam-light-border-color: #D4D4D4;
+	-pdfsam-hover-color: #D4D4D4;
+	-pdfsam-dark-text-color: derive(-pdfsam-light-border-color, -70.0%);
 	-pdfsam-button-color: #E5E5E5;
-	defaultbg-color: -fx-background;
-	headerbg-color: #FFFFFF;
-	tooltipbg-color: #FFFFFF;
-	pwdpopupbg-color: rgba(255.0,255.0,255.0,0.9);
+	-pdfsam-defaultbg-color: -fx-background;
+	-pdfsam-headerbg-color: #FFFFFF;
+	-pdfsam-tooltipbg-color: #FFFFFF;
+	-pdfsam-pwdpopupbg-color: rgba(255.0,255.0,255.0,0.9);
 	-pdfsam-error-color: #CF0000;	
 	-fx-focus-color: derive(lightslategray, 90.0%);
 	-fx-accent: -fx-focus-color;
-	-fx-highlight-text-fill: dark-text-color;
-	default-effect: dropshadow(three-pass-box, theme-color, 10.0, 0.0, 0.0, 2.0);
+	-fx-highlight-text-fill: -pdfsam-dark-text-color;
+	-pdfsam-default-effect: dropshadow(three-pass-box, -pdfsam-theme-color, 10.0, 0.0, 0.0, 2.0);
 	-fx-disabled-opacity: 0.4;
-	info-color: #4AAAD2;	
-	awesome-color: derive(light-border-color, -20.0%);
-	awesome-color-hover: derive(light-border-color, -35.0%);	
+	-pdfsam-info-color: #4AAAD2;	
+	awesome-color: derive(-pdfsam-light-border-color, -20.0%);
+	awesome-color-hover: derive(-pdfsam-light-border-color, -35.0%);	
 	awesome-error-color: #ED5554;
 	awesome-error-color-hover: derive(awesome-error-color, -35.0%);	
 }
 .label {
-	-fx-text-fill: dark-text-color;
+	-fx-text-fill: -pdfsam-dark-text-color;
 }
 .scroll-pane {
-    -fx-background-color: defaultbg-color;
+    -fx-background-color: -pdfsam-defaultbg-color;
     -fx-background-insets: 0.0;
     -fx-padding: 1.0;
 }
 .default-container {
-	-fx-background-color: defaultbg-color;
+	-fx-background-color: -pdfsam-defaultbg-color;
 	-fx-background-insets: 0.0;
     -fx-background-radius: 0.0;
 }
@@ -71,7 +71,7 @@
     -fx-text-fill: awesome-color;
 }
 .pdfsam-footer-button, .pdfsam-footer-button:focused, .pdfsam-toolbar-button:hover{
-    -fx-background-color: defaultbg-color;
+    -fx-background-color: -pdfsam-defaultbg-color;
     -fx-background-insets: 0.0;
     -fx-background-radius: 0.0;
 }
@@ -95,8 +95,8 @@
  */
 .pdfsam-hyperlink {
 	-fx-cursor: hand;
-	-fx-background-color: defaultbg-color;
-	-fx-text-fill: derive(info-color, -20.0%);
+	-fx-background-color: -pdfsam-defaultbg-color;
+	-fx-text-fill: derive(-pdfsam-info-color, -20.0%);
 }
 .pdfsam-hyperlink:hover {
 	-fx-underline: true;
@@ -110,7 +110,7 @@
  */
 .text-input:focused {
     -fx-highlight-fill: -fx-accent;
-    -fx-highlight-text-fill: dark-text-color;
+    -fx-highlight-text-fill: -pdfsam-dark-text-color;
 }
 .text-field {
    	-fx-background-color:  -fx-text-box-border, -fx-control-inner-background;
@@ -118,7 +118,7 @@
   	-fx-background-radius:  0.0, 0.0;
 }
 .text-field:focused {
-    -fx-background-color: theme-color, derive(light-border-color, -15.0%), -fx-control-inner-background;
+    -fx-background-color: -pdfsam-theme-color, derive(-pdfsam-light-border-color, -15.0%), -fx-control-inner-background;
     -fx-background-insets: 0.0, 0.0 0.0 1.0 0.0, 1.0 1.0 1.0 1.0;
     -fx-background-radius: 0.0, 0.0;
 }
@@ -137,7 +137,7 @@
 	-fx-min-width: 280.0;
 }
 .validable-container:selected {
-    -fx-background-color: theme-color, derive(light-border-color, -15.0%), -fx-control-inner-background;
+    -fx-background-color: -pdfsam-theme-color, derive(-pdfsam-light-border-color, -15.0%), -fx-control-inner-background;
     -fx-background-insets: 0.0, 0.0 0.0 1.0 0.0, 1.0 1.0 1.0 1.0;
     -fx-background-radius: 0.0, 0.0;
 }
@@ -155,28 +155,28 @@
  * Tooltip
  */
 .tooltip {
-  	-fx-background-color:  light-border-color, tooltipbg-color;
+  	-fx-background-color:  -pdfsam-light-border-color, -pdfsam-tooltipbg-color;
     -fx-background-insets:  0.0, 1.0;
    	-fx-background-radius:  0.0, 0.0;
-   	-fx-text-fill: dark-text-color;
+   	-fx-text-fill: -pdfsam-dark-text-color;
 }
 /**
  * Buttons
  */
 .pdfsam-button {
-    -fx-background-color:  light-border-color, -pdfsam-button-color;
+    -fx-background-color:  -pdfsam-light-border-color, -pdfsam-button-color;
     -fx-background-insets:  0.0, 1.0;
     -fx-background-radius: 0.0;
     -fx-padding: 7.0px 14.0px 7.0px 14.0px;
-    -fx-text-fill: dark-text-color !important;
+    -fx-text-fill: -pdfsam-dark-text-color !important;
 }
 .pdfsam-button:focused, .pdfsam-button:default, .pdfsam-button:armed, .pdfsam-button:hover {
-    -fx-background-color: theme-color, hover-color, -pdfsam-button-color;
+    -fx-background-color: -pdfsam-theme-color, -pdfsam-hover-color, -pdfsam-button-color;
     -fx-background-insets:  0.0, 0.0 0.0 1.0 0.0, 1.0;
     -fx-background-radius:  0.0;
 }
 .pdfsam-button:hover {
-    -fx-background-color: theme-color, hover-color;
+    -fx-background-color: -pdfsam-theme-color, -pdfsam-hover-color;
 }
 .pdfsam-button:armed{
     -fx-opacity: 0.85;
@@ -222,7 +222,7 @@
     -fx-padding: 0.3em; 
 }
 .check-box:selected > .box > .mark {
-    -fx-background-color: -fx-mark-highlight-color, theme-color;
+    -fx-background-color: -fx-mark-highlight-color, -pdfsam-theme-color;
 }
 /**
  * Radio
@@ -237,7 +237,7 @@
    -fx-background-insets: -1.6, 0.0, 1.0;
 }
 .radio-button:selected > .radio > .dot {
-   -fx-background-color: -fx-mark-highlight-color, theme-color;
+   -fx-background-color: -fx-mark-highlight-color, -pdfsam-theme-color;
    -fx-background-insets: 0.0 0.0 -1.0 0.0, 0.0;
 }
 /**
@@ -257,7 +257,7 @@
 }
 
 .combo-box-base:hover > .arrow-button{
-   -fx-background-color:  -fx-text-box-border, hover-color;
+   -fx-background-color:  -fx-text-box-border, -pdfsam-hover-color;
    -fx-background-insets: 0.0, 1.0 1.0 1.0 0.0;
    -fx-background-radius: 0.0,0.0,0.0;
 }
@@ -301,16 +301,16 @@
  	-fx-padding: 25.0;
  	-fx-font-size: 2.0em;
  	-fx-background-color: white;
- 	-fx-border-color: derive(light-border-color, -10.0%);
- 	-fx-text-fill: derive(light-border-color, -10.0%);
+ 	-fx-border-color: derive(-pdfsam-light-border-color, -10.0%);
+ 	-fx-text-fill: derive(-pdfsam-light-border-color, -10.0%);
  	-fx-border-radius: 7.0px;
  	-fx-border-style: dashed;
  	-fx-border-width: 3.5px;
 }
 .drag-drop-placeholder:disabled {
     -fx-opacity: 1.0;
- 	-fx-border-color: light-border-color;
- 	-fx-text-fill: light-border-color;
+ 	-fx-border-color: -pdfsam-light-border-color;
+ 	-fx-text-fill: -pdfsam-light-border-color;
  	-fx-border-width: 3.0px;
 }
 /**
@@ -351,10 +351,10 @@
  * Password popup
  */
 .pdfsam-input-password {
-	-fx-background-color: pwdpopupbg-color;
+	-fx-background-color: -pdfsam-pwdpopupbg-color;
 	-fx-background-insets: 1.0;
     -fx-background-radius: 3.0;
-    -fx-border-color: light-border-color;
+    -fx-border-color: -pdfsam-light-border-color;
     -fx-border-width: 1.0;
     -fx-border-radius: 3.0;
     -fx-padding: 10.0px;

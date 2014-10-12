@@ -33,7 +33,7 @@
 #log-view .list-cell,.list-cell:odd {
 }
 .warn-log{
-	-fx-text-fill: derive(info-color, -30.0%);
+	-fx-text-fill: derive(-pdfsam-info-color, -30.0%);
 }
 .error-log{
 	-fx-text-fill: -pdfsam-error-color;
@@ -42,7 +42,7 @@
  * Info pane
  */
 .info-props{
-	-fx-background-color:  light-border-color, #FFFFFF;
+	-fx-background-color:  -pdfsam-light-border-color, #FFFFFF;
     -fx-background-insets:  0.0, 1.0;	
 	-fx-border-radius: 0.0;
 	-fx-padding: 15.0;
@@ -58,13 +58,13 @@
 	-fx-font-weight: bold;
 }
 .tab-pane > .tab-header-area > .headers-region > .tab:left {
-    -fx-background-color: defaultbg-color, light-border-color, #FFFFFF;
+    -fx-background-color: -pdfsam-defaultbg-color, -pdfsam-light-border-color, #FFFFFF;
     -fx-background-insets: 0.0, 1.0, 2.0;
     -fx-background-radius: 0.0;
     -fx-opacity: 0.9;
 }
 .tab-pane > .tab-header-area > .headers-region > .tab:selected {
-    -fx-background-color: defaultbg-color, theme-color, light-border-color, #FFFFFF;
+    -fx-background-color: -pdfsam-defaultbg-color, -pdfsam-theme-color, -pdfsam-light-border-color, #FFFFFF;
     -fx-background-insets: 0.0, 1.0, 2.5 1.0 1.0 1.0, 2.5 2.0 2.0 2.0;
     -fx-opacity: 1.0;
 }
@@ -72,7 +72,7 @@
     -fx-border-width: 0.0;
 }
 .tab-pane > .tab-header-area > .tab-header-background {
-    -fx-background-color: defaultbg-color;
+    -fx-background-color: -pdfsam-defaultbg-color;
     -fx-background-insets: 0.0;
     -fx-background-radius: 0.0;
     -fx-effect: null;

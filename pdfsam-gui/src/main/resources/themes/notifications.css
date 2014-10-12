@@ -12,11 +12,11 @@
     -fx-min-width: 340.0px;
 }
 .notification {
- 	-fx-background-color: -fx-box-border, tooltipbg-color;
+ 	-fx-background-color: -fx-box-border, -pdfsam-tooltipbg-color;
     -fx-background-insets: 0.0, 1.0;
     -fx-background-radius: 0.0, 0.0;
 	-fx-padding: 2.0 8.0 8.0 8.0 ;
-	-fx-effect: dropshadow(three-pass-box, dark-text-color, 10.0, 0.0, 0.0, 3.0);
+	-fx-effect: dropshadow(three-pass-box, -pdfsam-dark-text-color, 10.0, 0.0, 0.0, 3.0);
 	-fx-max-width: 320.0px;
     -fx-min-width: 320.0px;
 }
@@ -42,7 +42,7 @@
 }
 .notification-info .awesome, .notification-info .awesome:hover{
     -fx-effect: null;
-    -fx-text-fill: info-color;
+    -fx-text-fill: -pdfsam-info-color;
 }
 .notification .close{
 	-fx-background-color:  transparent;

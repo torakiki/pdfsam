@@ -8,7 +8,7 @@
 	-fx-padding: 0.0 14.0;
 }
 .progress-status {
-	-fx-highlight-text-fill: dark-text-color;
+	-fx-highlight-text-fill: -pdfsam-dark-text-color;
 	-fx-font-size: 0.85em;
 }
 .progress-status-pane{
@@ -23,22 +23,22 @@
    -fx-pref-width: 300.0px;
 }
 .progress-pane > .progress-bar > .bar {
-  	-fx-background-color:  light-border-color, theme-color;
+  	-fx-background-color:  -pdfsam-light-border-color, -pdfsam-theme-color;
   	-fx-background-insets: 0.0, 1.0;
    	-fx-background-radius:  0.0, 0.0;		
 }
 .progress-pane > .progress-bar:indeterminate > .bar {
-  	-fx-background-color:  light-border-color, theme-color;
+  	-fx-background-color:  -pdfsam-light-border-color, -pdfsam-theme-color;
   	-fx-background-insets: 0.0, 1.0;
    	-fx-background-radius:  0.0, 0.0;		
 }
 .progress-pane > .progress-bar:indeterminate > .track {
-  	-fx-background-color:  light-border-color, white;
+  	-fx-background-color:  -pdfsam-light-border-color, white;
   	-fx-background-insets: 0.0, 1.0;
    	-fx-background-radius:  0.0, 0.0;		
 }
 .progress-pane > .progress-bar > .track {
-  	-fx-background-color:  light-border-color, white;
+  	-fx-background-color:  -pdfsam-light-border-color, white;
   	-fx-background-insets: 0.0, 1.0;
    	-fx-background-radius:  0.0, 0.0;		
 }
