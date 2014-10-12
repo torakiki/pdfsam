@@ -75,11 +75,6 @@
 			<artifactId>logback-classic</artifactId>
 			<version>[${logback.version},]</version>
 		</dependency>
-<dependency>
-    <groupId>org.controlsfx</groupId>
-    <artifactId>controlsfx</artifactId>
-    <version>8.20.7</version>
-</dependency>
 		<!-- test dependencies -->
 		<dependency>
 			<groupId>jdepend</groupId>
