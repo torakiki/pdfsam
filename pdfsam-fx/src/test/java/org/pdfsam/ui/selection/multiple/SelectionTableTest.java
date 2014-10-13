@@ -158,7 +158,7 @@ public class SelectionTableTest extends GuiTest {
         rightClick("temp.pdf");
         click(AwesomeIcon.MINUS_SQUARE_ALT.toString());
         verifyThat("#victim", (SelectionTable n) -> n.getItems().size() == 2);
-        verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndices().isEmpty());
+        verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndices().size() == 1);
     }
 
     @Test
