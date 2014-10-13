@@ -80,7 +80,6 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         Arrays.stream(columns).forEach(c -> getColumns().add(c.getTableColumn()));
         setColumnResizePolicy(CONSTRAINED_RESIZE_POLICY);
-        setTableMenuButtonVisible(true);
         getSelectionModel().getSelectedIndices().addListener((Change<? extends Integer> c) -> {
 
             ObservableList<? extends Integer> selected = c.getList();
