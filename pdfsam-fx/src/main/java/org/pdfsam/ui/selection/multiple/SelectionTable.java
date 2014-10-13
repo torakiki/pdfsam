@@ -83,8 +83,6 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         getSelectionModel().getSelectedIndices().addListener((Change<? extends Integer> c) -> {
 
             ObservableList<? extends Integer> selected = c.getList();
-            System.out.println("----------------");
-            System.out.println("Selection changed " + c.getList());
             if (selected.isEmpty()) {
                 eventStudio().broadcast(clearSelectionEvent(), ownerModule);
                 LOG.trace("Selection cleared for {}", ownerModule);
@@ -93,7 +91,6 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
                 eventStudio().broadcast(newSelectionEvent, ownerModule);
                 LOG.trace("{} for {}", newSelectionEvent, ownerModule);
             }
-            System.out.println("----------------");
 
         });
         placeHolder.getStyleClass().add("drag-drop-placeholder");
@@ -151,11 +148,15 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
                 new OpenFileRequest(getSelectionModel().getSelectedItem().getFile().getParentFile())));
 
         setDestinationItem.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.ALT_DOWN));
-        removeSelected.setAccelerator(new KeyCodeCombination(KeyCode.CANCEL));
+        removeSelected.setAccelerator(new KeyCodeCombination(KeyCode.DELETE));
         moveBottomSelected.setAccelerator(new KeyCodeCombination(KeyCode.END, KeyCombination.ALT_DOWN));
         moveDownSelected.setAccelerator(new KeyCodeCombination(KeyCode.DOWN, KeyCombination.ALT_DOWN));
         moveUpSelected.setAccelerator(new KeyCodeCombination(KeyCode.UP, KeyCombination.ALT_DOWN));
         moveTopSelected.setAccelerator(new KeyCodeCombination(KeyCode.HOME, KeyCombination.ALT_DOWN));
+        infoItem.setAccelerator(new KeyCodeCombination(KeyCode.P, KeyCombination.ALT_DOWN));
+        openFileItem.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.SHORTCUT_DOWN));
+        openFolderItem.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.SHORTCUT_DOWN,
+                KeyCombination.ALT_DOWN));
 
         eventStudio().add(SelectionChangedEvent.class, (SelectionChangedEvent e) -> {
             setDestinationItem.setDisable(!e.isSingleSelection());
