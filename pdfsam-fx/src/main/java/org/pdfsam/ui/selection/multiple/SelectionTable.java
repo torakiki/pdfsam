@@ -83,6 +83,8 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         getSelectionModel().getSelectedIndices().addListener((Change<? extends Integer> c) -> {
 
             ObservableList<? extends Integer> selected = c.getList();
+            System.out.println("----------------");
+            System.out.println("Selection changed " + c.getList());
             if (selected.isEmpty()) {
                 eventStudio().broadcast(clearSelectionEvent(), ownerModule);
                 LOG.trace("Selection cleared for {}", ownerModule);
@@ -91,6 +93,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
                 eventStudio().broadcast(newSelectionEvent, ownerModule);
                 LOG.trace("{} for {}", newSelectionEvent, ownerModule);
             }
+            System.out.println("----------------");
 
         });
         placeHolder.getStyleClass().add("drag-drop-placeholder");
@@ -237,11 +240,11 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     @EventListener
     public void onRemoveSelected(RemoveSelectedEvent event) {
-        getSelectionModel().getSelectedItems().forEach(d -> {
-            d.invalidate();
-            getItems().remove(d);
-        });
-        getSelectionModel().clearSelection();
+        List<SelectionTableRowData> selectedItems = getSelectionModel().getSelectedItems();
+        LOG.trace("Removing {} items", selectedItems.size());
+        selectedItems.forEach(SelectionTableRowData::invalidate);
+        getItems().removeAll(selectedItems);
+        requestFocus();
     }
 
     @EventListener
