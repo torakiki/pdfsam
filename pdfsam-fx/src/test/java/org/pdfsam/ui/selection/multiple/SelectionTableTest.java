@@ -18,9 +18,13 @@
  */
 package org.pdfsam.ui.selection.multiple;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.loadui.testfx.Assertions.verifyThat;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
@@ -37,6 +41,7 @@ import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.loadui.testfx.utils.TestUtils;
+import org.mockito.ArgumentCaptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.HitTestListener;
@@ -45,6 +50,7 @@ import org.pdfsam.ui.commons.SetDestinationRequest;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
 import org.pdfsam.ui.selection.multiple.move.MoveType;
+import org.sejda.eventstudio.Listener;
 
 import de.jensd.fx.fontawesome.AwesomeIcon;
 
@@ -117,39 +123,40 @@ public class SelectionTableTest extends GuiTest {
 
     @Test
     public void itemsAdded() throws Exception {
-        HitTestListener<PdfLoadRequestEvent> listener = new HitTestListener<>();
+        Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequestEvent.class, listener);
         populate();
-        verifyThat("#victim", (SelectionTable n) -> n.getItems().size() == 3);
-        assertTrue(listener.isHit());
+        SelectionTable victim = find("#victim");
+        assertEquals(4, victim.getItems().size());
+        verify(listener).onEvent(any());
     }
 
     @Test
     public void clear() throws Exception {
         itemsAdded();
+        click("temp.pdf");
+        SelectionTable victim = find("#victim");
+        assertEquals(1, victim.getSelectionModel().getSelectedIndices().size());
         FXTestUtils.invokeAndWait(() -> {
             eventStudio().broadcast(new ClearSelectionTableEvent(), MODULE);
         }, 2);
-        verifyThat("#victim", (SelectionTable n) -> n.getItems().isEmpty());
+        assertTrue(victim.getSelectionModel().getSelectedIndices().isEmpty());
     }
 
     @Test
-    public void clearByClick() throws Exception {
+    public void clearSelectionByClick() throws Exception {
         populate();
         click("temp.pdf");
-        verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndices().size() == 1);
-        HitTestListener<SelectionChangedEvent> listener = new HitTestListener<SelectionChangedEvent>() {
-            @Override
-            public void onEvent(SelectionChangedEvent event) {
-                super.onEvent(event);
-                assertTrue(event.isClearSelection());
-            }
-        };
+        SelectionTable victim = find("#victim");
+        assertEquals(1, victim.getSelectionModel().getSelectedIndices().size());
+        Listener<SelectionChangedEvent> listener = mock(Listener.class);
+        ArgumentCaptor<SelectionChangedEvent> captor = ArgumentCaptor.forClass(SelectionChangedEvent.class);
         eventStudio().add(SelectionChangedEvent.class, listener, MODULE);
         press(KeyCode.CONTROL).click("temp.pdf");
-        verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndices().isEmpty());
+        assertTrue(victim.getSelectionModel().getSelectedIndices().isEmpty());
         release(KeyCode.CONTROL);
-        assertTrue(listener.isHit());
+        verify(listener).onEvent(captor.capture());
+        assertTrue(captor.getValue().isClearSelection());
     }
 
     @Test
@@ -157,8 +164,9 @@ public class SelectionTableTest extends GuiTest {
         populate();
         rightClick("temp.pdf");
         click(AwesomeIcon.MINUS_SQUARE_ALT.toString());
-        verifyThat("#victim", (SelectionTable n) -> n.getItems().size() == 2);
-        verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndices().size() == 1);
+        SelectionTable victim = find("#victim");
+        assertEquals(3, victim.getItems().size());
+        assertEquals(1, victim.getSelectionModel().getSelectedIndices().size());
     }
 
     @Test
@@ -168,8 +176,9 @@ public class SelectionTableTest extends GuiTest {
         FXTestUtils.invokeAndWait(() -> {
             eventStudio().broadcast(new RemoveSelectedEvent(), MODULE);
         }, 2);
-        verifyThat("#victim", (SelectionTable n) -> n.getItems().size() == 1);
-        verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndices().isEmpty());
+        SelectionTable victim = find("#victim");
+        assertEquals(2, victim.getItems().size());
+        assertEquals(1, victim.getSelectionModel().getSelectedIndices().size());
     }
 
     @Test
@@ -210,9 +219,10 @@ public class SelectionTableTest extends GuiTest {
     public void moveBottomByContextMenu() throws Exception {
         populate();
         rightClick("temp.pdf");
-        verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 0);
+        SelectionTable victim = find("#victim");
+        assertEquals(0, victim.getSelectionModel().getSelectedIndex());
         click(AwesomeIcon.ANGLE_DOUBLE_DOWN.toString());
-        verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 2);
+        assertEquals(3, victim.getSelectionModel().getSelectedIndex());
     }
 
     @Test
@@ -286,10 +296,12 @@ public class SelectionTableTest extends GuiTest {
         File file = folder.newFile("temp.pdf");
         File file2 = folder.newFile("temp2.pdf");
         File file3 = folder.newFile("temp3.pdf");
+        File file4 = folder.newFile("temp4.pdf");
         PdfLoadRequestEvent<SelectionTableRowData> loadEvent = new PdfLoadRequestEvent<>(MODULE);
         loadEvent.add(new SelectionTableRowData(file));
         loadEvent.add(new SelectionTableRowData(file2));
         loadEvent.add(new SelectionTableRowData(file3));
+        loadEvent.add(new SelectionTableRowData(file4));
         FXTestUtils.invokeAndWait(() -> {
             eventStudio().broadcast(loadEvent, MODULE);
         }, 2);
