@@ -18,6 +18,9 @@
  */
 package org.pdfsam.pdf;
 
+import static com.google.code.tempusfugit.temporal.Duration.seconds;
+import static com.google.code.tempusfugit.temporal.Timeout.timeout;
+import static com.google.code.tempusfugit.temporal.WaitFor.waitOrTimeout;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
@@ -26,6 +29,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.AfterClass;
@@ -33,8 +37,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import org.pdfsam.module.RequiredPdfData;
+import org.pdfsam.test.InitializeJavaFxThreadRule;
 import org.sejda.model.pdf.PdfMetadataKey;
-
 /**
  * @author Andrea Vacondio
  * 
@@ -44,6 +48,8 @@ public class ITextPdfLoadServiceTest {
             new DefaultPdfLoader(), new BookmarksLevelLoader() }));
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
+    @Rule
+    public InitializeJavaFxThreadRule initJavaFxThread = new InitializeJavaFxThreadRule();
 
     @AfterClass
     public static void afterClass() {
@@ -51,7 +57,7 @@ public class ITextPdfLoadServiceTest {
     }
 
     @Test
-    public void load() throws IOException {
+    public void load() throws IOException, InterruptedException, TimeoutException {
         File testFile = folder.newFile("PDFsamTest.pdf");
         FileUtils.copyInputStreamToFile(getClass().getResourceAsStream("/test_pdfsam.pdf"), testFile);
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(testFile);
@@ -62,14 +68,15 @@ public class ITextPdfLoadServiceTest {
         assertEquals(1, toLoad.size());
         PdfDocumentDescriptor item = toLoad.get(0);
         assertNotNull(item);
+        waitOrTimeout(() -> PdfDescriptorLoadingStatus.LOADED == descriptor.loadingStatus().getValue(),
+                timeout(seconds(2)));
         assertEquals(2, item.pages().getValue().intValue());
-        assertEquals(PdfDescriptorLoadingStatus.LOADED, descriptor.loadingStatus().getValue());
         assertEquals("Me", item.getInformation(PdfMetadataKey.AUTHOR.getKey()));
         assertEquals("test", item.getInformation(PdfMetadataKey.KEYWORDS.getKey()));
     }
 
     @Test
-    public void invalidPdf() throws IOException {
+    public void invalidPdf() throws IOException, InterruptedException, TimeoutException {
         File testFile = folder.newFile("PDFsamTest.pdf");
         FileUtils.copyInputStreamToFile(getClass().getResourceAsStream("/im_empty.pdf"), testFile);
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(testFile);
@@ -80,11 +87,12 @@ public class ITextPdfLoadServiceTest {
         assertEquals(1, toLoad.size());
         PdfDocumentDescriptor item = toLoad.get(0);
         assertNotNull(item);
-        assertEquals(PdfDescriptorLoadingStatus.WITH_ERRORS, descriptor.loadingStatus().getValue());
+        waitOrTimeout(() -> PdfDescriptorLoadingStatus.WITH_ERRORS == descriptor.loadingStatus().getValue(),
+                timeout(seconds(2)));
     }
 
     @Test
-    public void encNoPwd() throws IOException {
+    public void encNoPwd() throws IOException, InterruptedException, TimeoutException {
         File testFile = folder.newFile("PDFsamTest.pdf");
         FileUtils.copyInputStreamToFile(getClass().getResourceAsStream("/enc_test_pdfsam.pdf"), testFile);
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(testFile);
@@ -95,11 +103,12 @@ public class ITextPdfLoadServiceTest {
         assertEquals(1, toLoad.size());
         PdfDocumentDescriptor item = toLoad.get(0);
         assertNotNull(item);
-        assertEquals(PdfDescriptorLoadingStatus.ENCRYPTED, descriptor.loadingStatus().getValue());
+        waitOrTimeout(() -> PdfDescriptorLoadingStatus.ENCRYPTED == descriptor.loadingStatus().getValue(),
+                timeout(seconds(2)));
     }
 
     @Test
-    public void encWithPwd() throws IOException {
+    public void encWithPwd() throws IOException, InterruptedException, TimeoutException {
         File testFile = folder.newFile("PDFsamTest.pdf");
         FileUtils.copyInputStreamToFile(getClass().getResourceAsStream("/enc_test_pdfsam.pdf"), testFile);
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptor(testFile, "test");
@@ -110,11 +119,12 @@ public class ITextPdfLoadServiceTest {
         assertEquals(1, toLoad.size());
         PdfDocumentDescriptor item = toLoad.get(0);
         assertNotNull(item);
-        assertEquals(PdfDescriptorLoadingStatus.LOADED_WITH_USER_PWD_DECRYPTION, descriptor.loadingStatus().getValue());
+        waitOrTimeout(() -> PdfDescriptorLoadingStatus.LOADED_WITH_USER_PWD_DECRYPTION == descriptor.loadingStatus()
+                .getValue(), timeout(seconds(2)));
     }
 
     @Test
-    public void invalidate() throws IOException {
+    public void invalidate() throws IOException, InterruptedException, TimeoutException {
         File testFile = folder.newFile("PDFsamTest.pdf");
         FileUtils.copyInputStreamToFile(getClass().getResourceAsStream("/test_pdfsam.pdf"), testFile);
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(testFile);
@@ -126,6 +136,7 @@ public class ITextPdfLoadServiceTest {
         assertEquals(1, toLoad.size());
         PdfDocumentDescriptor item = toLoad.get(0);
         assertNotNull(item);
-        assertEquals(PdfDescriptorLoadingStatus.REQUESTED, descriptor.loadingStatus().getValue());
+        waitOrTimeout(() -> PdfDescriptorLoadingStatus.REQUESTED == descriptor.loadingStatus().getValue(),
+                timeout(seconds(2)));
     }
 }

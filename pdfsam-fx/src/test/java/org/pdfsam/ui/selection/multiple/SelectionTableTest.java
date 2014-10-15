@@ -24,6 +24,7 @@ import static org.junit.Assert.assertTrue;
 import static org.loadui.testfx.Assertions.verifyThat;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
@@ -42,7 +43,6 @@ import org.junit.rules.TemporaryFolder;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
-import org.loadui.testfx.utils.TestUtils;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
@@ -292,12 +292,12 @@ public class SelectionTableTest extends GuiTest {
 
     @Test
     public void infoByContextMenu() throws Exception {
-        HitTestListener<ShowPdfDescriptorRequest> listener = new HitTestListener<>();
+        Listener<ShowPdfDescriptorRequest> listener = mock(Listener.class);
         eventStudio().add(ShowPdfDescriptorRequest.class, listener);
         populate();
         rightClick("temp3.pdf");
         click(AwesomeIcon.INFO.toString());
-        TestUtils.awaitCondition(listener::isHit, 2);
+        verify(listener, timeout(2000)).onEvent(any());
     }
 
     @Test
