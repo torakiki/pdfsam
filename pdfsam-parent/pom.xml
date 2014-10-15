@@ -95,7 +95,7 @@
 		<slf4j.version>1.7.7</slf4j.version>
 		<commons.lang.version>3.1</commons.lang.version>
 		<commons.io.version>2.4</commons.io.version>
-		<mockito.version>1.9.5</mockito.version>
+		<mockito.version>1.10.8</mockito.version>
 		<logback.version>1.0.13</logback.version>
 		<jdepend.version>2.9.1</jdepend.version>
 		<hibernate-validator.version>4.2.0.Final</hibernate-validator.version>
