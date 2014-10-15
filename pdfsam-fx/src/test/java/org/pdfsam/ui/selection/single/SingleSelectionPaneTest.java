@@ -83,7 +83,7 @@ public class SingleSelectionPaneTest extends GuiTest {
     @Override
     protected Parent getRootNode() {
         SingleSelectionPane victim = new SingleSelectionPane(MODULE);
-        victim.setId("victim");
+        victim.setId("victim-selection-pane");
         return victim;
     }
 
@@ -124,7 +124,7 @@ public class SingleSelectionPaneTest extends GuiTest {
 
     @Test
     public void openFileMenuItem() throws Exception {
-        SingleSelectionPane victim = find("#victim");
+        SingleSelectionPane victim = find("#victim-selection-pane");
         HitTestListener<OpenFileRequest> listener = new HitTestListener<OpenFileRequest>() {
             @Override
             public void onEvent(OpenFileRequest event) {
@@ -141,7 +141,7 @@ public class SingleSelectionPaneTest extends GuiTest {
 
     @Test
     public void openFolderMenuItem() throws Exception {
-        SingleSelectionPane victim = find("#victim");
+        SingleSelectionPane victim = find("#victim-selection-pane");
         HitTestListener<OpenFileRequest> listener = new HitTestListener<OpenFileRequest>() {
             @Override
             public void onEvent(OpenFileRequest event) {
@@ -159,7 +159,7 @@ public class SingleSelectionPaneTest extends GuiTest {
     @Test
     public void additionalOnLoadedConsumer() throws Exception {
         HitConsumer<PdfDocumentDescriptor> consumer = new HitConsumer<>();
-        SingleSelectionPane victim = find("#victim");
+        SingleSelectionPane victim = find("#victim-selection-pane");
         victim.addOnLoaded(consumer);
         moveToLoadedState(victim);
         assertTrue(consumer.isHit());
@@ -169,7 +169,7 @@ public class SingleSelectionPaneTest extends GuiTest {
     public void onLoadedChangedSelectedPdfVersionEvent() throws Exception {
         Listener<ChangedSelectedPdfVersionEvent> listener = mock(Listener.class);
         eventStudio().add(ChangedSelectedPdfVersionEvent.class, listener, MODULE);
-        SingleSelectionPane victim = find("#victim");
+        SingleSelectionPane victim = find("#victim-selection-pane");
         moveToLoadedState(victim);
         verify(listener).onEvent(any());
     }
@@ -178,7 +178,7 @@ public class SingleSelectionPaneTest extends GuiTest {
     public void onDecryptedChangedSelectedPdfVersionEvent() throws Exception {
         Listener<ChangedSelectedPdfVersionEvent> listener = mock(Listener.class);
         eventStudio().add(ChangedSelectedPdfVersionEvent.class, listener, MODULE);
-        SingleSelectionPane victim = find("#victim");
+        SingleSelectionPane victim = find("#victim-selection-pane");
         moveToLoadedWithDecryption(victim);
         verify(listener).onEvent(any());
     }
@@ -188,7 +188,7 @@ public class SingleSelectionPaneTest extends GuiTest {
         Listener<SetDestinationRequest> listener = mock(Listener.class);
         ArgumentCaptor<SetDestinationRequest> captor = ArgumentCaptor.forClass(SetDestinationRequest.class);
         eventStudio().add(SetDestinationRequest.class, listener, MODULE);
-        SingleSelectionPane victim = find("#victim");
+        SingleSelectionPane victim = find("#victim-selection-pane");
 
         moveToLoadedState(victim);
         verify(listener).onEvent(captor.capture());
@@ -200,7 +200,7 @@ public class SingleSelectionPaneTest extends GuiTest {
         Listener<SetDestinationRequest> listener = mock(Listener.class);
         ArgumentCaptor<SetDestinationRequest> captor = ArgumentCaptor.forClass(SetDestinationRequest.class);
         eventStudio().add(SetDestinationRequest.class, listener, MODULE);
-        SingleSelectionPane victim = find("#victim");
+        SingleSelectionPane victim = find("#victim-selection-pane");
 
         moveToLoadedWithDecryption(victim);
         verify(listener).onEvent(captor.capture());
@@ -227,7 +227,7 @@ public class SingleSelectionPaneTest extends GuiTest {
     @Test
     public void loadingStateDetails() throws Exception {
         typePathAndValidate();
-        SingleSelectionPane victim = find("#victim");
+        SingleSelectionPane victim = find("#victim-selection-pane");
         FXTestUtils.invokeAndWait(() -> {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
@@ -237,21 +237,21 @@ public class SingleSelectionPaneTest extends GuiTest {
 
     @Test
     public void loadedDetails() throws Exception {
-        SingleSelectionPane victim = find("#victim");
+        SingleSelectionPane victim = find("#victim-selection-pane");
         moveToLoadedState(victim);
         exists("Pages: 0, PDF Version: ");
     }
 
     @Test
     public void decryptedDetails() throws Exception {
-        SingleSelectionPane victim = find("#victim");
+        SingleSelectionPane victim = find("#victim-selection-pane");
         moveToLoadedWithDecryption(victim);
         exists("Pages: 0, PDF Version: ");
     }
 
     @Test
     public void emptyDetailsOnSwithToInvalid() throws Exception {
-        SingleSelectionPane victim = find("#victim");
+        SingleSelectionPane victim = find("#victim-selection-pane");
         moveToLoadedWithDecryption(victim);
         typePathAndValidate("/this/doesnt/exists");
         Label details = find(".-pdfsam-selection-details");
@@ -261,7 +261,7 @@ public class SingleSelectionPaneTest extends GuiTest {
     @Test
     public void clickWithErrorsShowsLogStage() throws Exception {
         typePathAndValidate();
-        SingleSelectionPane victim = find("#victim");
+        SingleSelectionPane victim = find("#victim-selection-pane");
         FXTestUtils.invokeAndWait(() -> {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
@@ -276,7 +276,7 @@ public class SingleSelectionPaneTest extends GuiTest {
     @Test
     public void clickEncryptedThrowsRequest() throws Exception {
         typePathAndValidate();
-        SingleSelectionPane victim = find("#victim");
+        SingleSelectionPane victim = find("#victim-selection-pane");
         Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequestEvent.class, listener);
         FXTestUtils.invokeAndWait(() -> {
@@ -292,7 +292,7 @@ public class SingleSelectionPaneTest extends GuiTest {
 
     @Test
     public void emptyStatusIndicatorOnSwithToInvalid() throws Exception {
-        SingleSelectionPane victim = find("#victim");
+        SingleSelectionPane victim = find("#victim-selection-pane");
         moveToLoadedWithDecryption(victim);
         typePathAndValidate("/this/doesnt/exists");
         Label encStatus = find(".encryption-status");
@@ -303,7 +303,7 @@ public class SingleSelectionPaneTest extends GuiTest {
     public void invalidatedDescriptorDoesntTriggerAnything() throws Exception {
         typePathAndValidate();
         typePathAndValidate("/this/doesnt/exists");
-        SingleSelectionPane victim = find("#victim");
+        SingleSelectionPane victim = find("#victim-selection-pane");
         FXTestUtils.invokeAndWait(() -> {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
