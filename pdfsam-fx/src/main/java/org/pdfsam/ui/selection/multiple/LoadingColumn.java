@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 28/feb/2014
+ * Created on 14/ott/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -19,21 +19,27 @@
 package org.pdfsam.ui.selection.multiple;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.ENCRYPTED;
+import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.WITH_ERRORS;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Comparator;
 
 import javafx.beans.value.ObservableValue;
-import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
-import org.pdfsam.pdf.PdfDocumentDescriptorProvider;
-import org.pdfsam.ui.selection.LoadingStatusIndicator;
+import org.pdfsam.ui.commons.ShowStageRequest;
+import org.pdfsam.ui.selection.LoadingStatusIndicatorUpdater;
+import org.pdfsam.ui.selection.ShowPasswordFieldPopupRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Definition of the {@link PdfDescriptorLoadingStatus} column of the selection table
@@ -41,10 +47,11 @@ import org.pdfsam.ui.selection.LoadingStatusIndicator;
  * @author Andrea Vacondio
  *
  */
-public class LoadingStatusColumn implements SelectionTableColumn<PdfDescriptorLoadingStatus>, ModuleOwned {
+public class LoadingColumn implements SelectionTableColumn<PdfDescriptorLoadingStatus>, ModuleOwned {
+    private static final Logger LOG = LoggerFactory.getLogger(LoadingColumn.class);
     private String ownerModule = StringUtils.EMPTY;
 
-    public LoadingStatusColumn(String ownerModule) {
+    public LoadingColumn(String ownerModule) {
         this.ownerModule = defaultString(ownerModule);
     }
 
@@ -58,12 +65,12 @@ public class LoadingStatusColumn implements SelectionTableColumn<PdfDescriptorLo
 
     @Override
     public ObservableValue<PdfDescriptorLoadingStatus> getObservableValue(SelectionTableRowData data) {
-        return data.loadedProperty();
+        return data.loadingStatus();
     }
 
     @Override
     public String getTextValue(PdfDescriptorLoadingStatus item) {
-        return (item != null) ? item.name() : "";
+        return (item != null && item.getIcon() != null) ? item.getIcon().toString() : "";
     }
 
     @Override
@@ -71,48 +78,62 @@ public class LoadingStatusColumn implements SelectionTableColumn<PdfDescriptorLo
         return new Callback<TableColumn<SelectionTableRowData, PdfDescriptorLoadingStatus>, TableCell<SelectionTableRowData, PdfDescriptorLoadingStatus>>() {
             public TableCell<SelectionTableRowData, PdfDescriptorLoadingStatus> call(
                     TableColumn<SelectionTableRowData, PdfDescriptorLoadingStatus> param) {
-                return new LoadingStatusTableCell();
+                return new LoadingStatusCell();
             }
         };
     }
 
+    public Comparator<PdfDescriptorLoadingStatus> comparator() {
+        return Comparator.naturalOrder();
+    }
+
+    @Override
     public TableColumn<SelectionTableRowData, PdfDescriptorLoadingStatus> getTableColumn() {
         TableColumn<SelectionTableRowData, PdfDescriptorLoadingStatus> tableColumn = new TableColumn<>(getColumnTitle());
         tableColumn.setCellFactory(cellFactory());
         tableColumn.setCellValueFactory(cellValueFactory());
+        tableColumn.setComparator(null);
         tableColumn.setSortable(false);
-        tableColumn.setMaxWidth(22);
-        tableColumn.setMinWidth(22);
+        tableColumn.setMaxWidth(26);
+        tableColumn.setMinWidth(26);
         return tableColumn;
     }
 
-    public Comparator<PdfDescriptorLoadingStatus> comparator() {
-        // not used
-        return null;
-    }
+    /**
+     * {@link TableCell} showing a loading status indicator. In some cases it reacts to the user click taking appropriate action.
+     * 
+     * @author Andrea Vacondio
+     *
+     */
+    private class LoadingStatusCell extends TableCell<SelectionTableRowData, PdfDescriptorLoadingStatus> {
 
-    private class LoadingStatusTableCell extends TableCell<SelectionTableRowData, PdfDescriptorLoadingStatus> implements
-            PdfDocumentDescriptorProvider {
-        private LoadingStatusIndicator loadingStatus = null;
+        private LoadingStatusIndicatorUpdater updater;
 
-        private LoadingStatusTableCell() {
-            setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
-            setText("");
-            loadingStatus = new LoadingStatusIndicator(this, LoadingStatusColumn.this.getOwnerModule());
-            setGraphic(loadingStatus);
-
-        }
-
-        public PdfDocumentDescriptor getPdfDocumentDescriptor() {
-            return (SelectionTableRowData) getTableRow().getItem();
+        LoadingStatusCell() {
+            getStyleClass().addAll("encryption-status");
+            this.addEventFilter(
+                    MouseEvent.MOUSE_CLICKED,
+                    e -> {
+                        if (getItem() == ENCRYPTED) {
+                            eventStudio().broadcast(
+                                    new ShowPasswordFieldPopupRequest(getPdfDocumentDescriptor(), this),
+                                    getOwnerModule());
+                        } else if (getItem() == WITH_ERRORS) {
+                            eventStudio().broadcast(new ShowStageRequest(), "LogStage");
+                        }
+                    });
+            updater = new LoadingStatusIndicatorUpdater(this);
         }
 
         @Override
         public void updateItem(final PdfDescriptorLoadingStatus item, boolean empty) {
             super.updateItem(item, empty);
-            if (item != null) {
-                loadingStatus.setLoadingStatus(item);
-            }
+            LOG.trace("Updating idicator for new status {} for row {}", item, getTableRow().getIndex());
+            updater.accept(item);
+        }
+
+        public PdfDocumentDescriptor getPdfDocumentDescriptor() {
+            return (SelectionTableRowData) getTableRow().getItem();
         }
     }
 }

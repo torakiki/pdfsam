@@ -55,7 +55,11 @@ public interface SelectionTableColumn<T> {
                     @Override
                     public void updateItem(final T item, boolean empty) {
                         super.updateItem(item, empty);
-                        setText(getTextValue(item));
+                        if (empty || item == null) {
+                            setText("");
+                        } else {
+                            setText(getTextValue(item));
+                        }
                     }
                 };
             }

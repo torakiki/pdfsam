@@ -115,7 +115,7 @@ public class SummaryTabTest {
         descriptor.putInformation(PdfMetadataKey.SUBJECT.getKey(), "test.subject");
         descriptor.putInformation("Producer", "test.producer");
         descriptor.putInformation("FormattedCreationDate", "test.creationDate");
-        descriptor.setPages(2);
+        descriptor.pages(2);
         descriptor.setVersion(PdfVersion.VERSION_1_5);
     }
 

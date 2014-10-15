@@ -70,7 +70,7 @@ class KeywordsTab extends Tab implements ChangeListener<PdfDescriptorLoadingStat
     void requestShow(ShowPdfDescriptorRequest event) {
         if (current != event.getDescriptor()) {
             current = event.getDescriptor();
-            current.loadedProperty().addListener(new WeakChangeListener<>(this));
+            current.loadingStatus().addListener(new WeakChangeListener<>(this));
         }
         keywords.setText(event.getDescriptor().getInformation(PdfMetadataKey.KEYWORDS.getKey()));
     }

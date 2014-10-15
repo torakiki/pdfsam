@@ -56,7 +56,7 @@ public class DefaultPdfLoaderTest {
     @Test
     public void accept() {
         new DefaultPdfLoader().accept(reader, descriptor);
-        verify(descriptor).setPages(2);
+        verify(descriptor).pages(2);
         verify(descriptor).setVersion(PdfVersion.VERSION_1_4);
         verify(descriptor).setInformationDictionary(info);
         verify(descriptor, never()).putInformation(eq("FormattedCreationDate"), anyString());
@@ -66,7 +66,7 @@ public class DefaultPdfLoaderTest {
     public void acceptWithCreationDate() {
         info.put("CreationDate", "D:20140120102520+01'00'");
         new DefaultPdfLoader().accept(reader, descriptor);
-        verify(descriptor).setPages(2);
+        verify(descriptor).pages(2);
         verify(descriptor).setVersion(PdfVersion.VERSION_1_4);
         verify(descriptor).setInformationDictionary(info);
         verify(descriptor).putInformation(eq("FormattedCreationDate"), anyString());

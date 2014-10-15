@@ -25,8 +25,6 @@ import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.value.ObservableValue;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.FastDateFormat;
 import org.pdfsam.context.DefaultI18nContext;
 
@@ -58,7 +56,6 @@ public enum LongColumn implements SelectionTableColumn<Number> {
         }
     },
     LAST_MODIFIED {
-        private FastDateFormat formatter = FastDateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.MEDIUM);
 
         public String getColumnTitle() {
             return DefaultI18nContext.getInstance().i18n("Modified");
@@ -71,34 +68,15 @@ public enum LongColumn implements SelectionTableColumn<Number> {
 
         @Override
         public String getTextValue(Number item) {
-            return (item != null) ? formatter.format(item) : "";
-        }
-
-        public Comparator<Number> comparator() {
-            return Comparator.comparingLong(Number::longValue);
-        }
-    },
-    PAGES {
-        public String getColumnTitle() {
-            return DefaultI18nContext.getInstance().i18n("Pages");
-        }
-
-        @Override
-        public ObservableValue<Number> getObservableValue(SelectionTableRowData data) {
-            return data.pagesPropery();
-        }
-
-        @Override
-        public String getTextValue(Number item) {
-            if (item != null && item.intValue() > 0) {
-                return ObjectUtils.toString(item);
-            }
-            return StringUtils.EMPTY;
+            return (item != null) ? FORMATTER.format(item) : "";
         }
 
         public Comparator<Number> comparator() {
             return Comparator.comparingLong(Number::longValue);
         }
     };
+
+    private static final FastDateFormat FORMATTER = FastDateFormat.getDateTimeInstance(DateFormat.LONG,
+            DateFormat.MEDIUM);
 
 }

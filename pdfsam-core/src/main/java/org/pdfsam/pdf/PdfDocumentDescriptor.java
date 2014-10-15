@@ -26,12 +26,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import javafx.beans.property.ReadOnlyIntegerProperty;
-import javafx.beans.property.ReadOnlyIntegerWrapper;
-import javafx.beans.property.ReadOnlyObjectProperty;
-import javafx.beans.property.ReadOnlyObjectWrapper;
-
 import org.apache.commons.lang3.StringUtils;
+import org.pdfsam.support.ObservableAtomicReference;
 import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.pdf.PdfVersion;
 
@@ -43,10 +39,10 @@ import org.sejda.model.pdf.PdfVersion;
  */
 public class PdfDocumentDescriptor {
 
-    private ReadOnlyObjectWrapper<PdfDescriptorLoadingStatus> loadingStatus = new ReadOnlyObjectWrapper<>(
+    private ObservableAtomicReference<PdfDescriptorLoadingStatus> loadingStatus = new ObservableAtomicReference<>(
             PdfDescriptorLoadingStatus.INITIAL);
     private AtomicBoolean invalid = new AtomicBoolean(false);
-    private ReadOnlyIntegerWrapper pages = new ReadOnlyIntegerWrapper(0);
+    private ObservableAtomicReference<Integer> pages = new ObservableAtomicReference<>(0);
     private String password;
     private File file;
     private PdfVersion version;
@@ -84,16 +80,16 @@ public class PdfDocumentDescriptor {
         metadata.put(key, value);
     }
 
-    public ReadOnlyIntegerProperty pagesPropery() {
-        return pages.getReadOnlyProperty();
+    public void pages(int newValue) {
+        this.pages.set(newValue);
     }
 
-    public void setPages(int pages) {
-        this.pages.set(pages);
+    public ObservableAtomicReference<PdfDescriptorLoadingStatus> loadingStatus() {
+        return loadingStatus;
     }
 
-    public ReadOnlyObjectProperty<PdfDescriptorLoadingStatus> loadedProperty() {
-        return loadingStatus.getReadOnlyProperty();
+    public ObservableAtomicReference<Integer> pages() {
+        return pages;
     }
 
     /**
@@ -102,7 +98,7 @@ public class PdfDocumentDescriptor {
      * @param destination
      */
     public void moveStatusTo(PdfDescriptorLoadingStatus destination) {
-        loadingStatus.set(loadingStatus.get().moveTo(destination));
+        loadingStatus.set(loadingStatus.getValue().moveTo(destination));
     }
 
     public String getPassword() {

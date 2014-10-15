@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 07/ago/2014
+ * Created on 14/ott/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,12 +18,10 @@
  */
 package org.pdfsam.ui.selection.multiple;
 
-import static org.hamcrest.Matchers.any;
 import static org.hamcrest.Matchers.isEmptyString;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 import java.io.File;
 import java.util.Arrays;
@@ -34,41 +32,33 @@ import org.junit.Test;
  * @author Andrea Vacondio
  *
  */
-public class LongColumnTest {
+public class IntegerColumnTest {
 
     @Test
     public void comparators() {
-        Arrays.stream(LongColumn.values()).forEach(v -> assertEquals(-1, v.comparator().compare(1, 10)));
+        Arrays.stream(IntColumn.values()).forEach(v -> assertEquals(-1, v.comparator().compare(1, 10)));
     }
 
     @Test
     public void getNullTextValue() {
-        Arrays.stream(LongColumn.values()).forEach(v -> assertThat(v.getTextValue(null), isEmptyString()));
+        Arrays.stream(IntColumn.values()).forEach(v -> assertThat(v.getTextValue(null), isEmptyString()));
     }
 
     @Test
-    public void size() {
-        assertEquals("1 MB", LongColumn.SIZE.getTextValue(1024 * 1024));
+    public void negativePages() {
+        assertThat(IntColumn.PAGES.getTextValue(-1), isEmptyString());
     }
 
     @Test
-    public void lastModified() {
-        assertThat(LongColumn.LAST_MODIFIED.getTextValue(System.currentTimeMillis()), any(String.class));
+    public void pages() {
+        assertEquals("10", IntColumn.PAGES.getTextValue(10));
     }
 
     @Test
-    public void getSizeObservableValue() {
+    public void getPagesObservableValue() {
         File file = mock(File.class);
         SelectionTableRowData data = new SelectionTableRowData(file);
-        when(file.length()).thenReturn(Long.MAX_VALUE);
-        assertEquals(Long.MAX_VALUE, LongColumn.SIZE.getObservableValue(data).getValue());
-    }
-
-    @Test
-    public void getLastModifiedObservableValue() {
-        File file = mock(File.class);
-        SelectionTableRowData data = new SelectionTableRowData(file);
-        when(file.lastModified()).thenReturn(Long.MAX_VALUE);
-        assertEquals(Long.MAX_VALUE, LongColumn.LAST_MODIFIED.getObservableValue(data).getValue());
+        data.pages(10);
+        assertEquals(10, IntColumn.PAGES.getObservableValue(data).getValue().intValue());
     }
 }

@@ -43,7 +43,7 @@ class DefaultPdfLoader implements PdfLoader {
     private static FastDateFormat FORMATTER = FastDateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.MEDIUM);
 
     public void accept(PdfReader reader, PdfDocumentDescriptor descriptor) {
-        descriptor.setPages(reader.getNumberOfPages());
+        descriptor.pages(reader.getNumberOfPages());
         descriptor.setVersion(new PdfVersionAdapter(Character.toString(reader.getPdfVersion())).getEnumValue());
         Map<String, String> info = reader.getInfo();
         descriptor.setInformationDictionary(info);

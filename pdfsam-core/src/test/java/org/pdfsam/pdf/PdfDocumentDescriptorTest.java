@@ -61,7 +61,7 @@ public class PdfDocumentDescriptorTest {
     @Test
     public void initialState() {
         assertFalse(victim.isInvalid());
-        assertEquals(PdfDescriptorLoadingStatus.INITIAL, victim.loadedProperty().get());
+        assertEquals(PdfDescriptorLoadingStatus.INITIAL, victim.loadingStatus().getValue());
         assertEquals("pwd", victim.getPassword());
         assertEquals("myName", victim.getFileName());
         assertNull(victimNoPwd.getPassword());
@@ -87,14 +87,14 @@ public class PdfDocumentDescriptorTest {
 
     @Test
     public void moveValidStatus() {
-        assertEquals(PdfDescriptorLoadingStatus.INITIAL, victim.loadedProperty().get());
+        assertEquals(PdfDescriptorLoadingStatus.INITIAL, victim.loadingStatus().getValue());
         victim.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
-        assertEquals(PdfDescriptorLoadingStatus.REQUESTED, victim.loadedProperty().get());
+        assertEquals(PdfDescriptorLoadingStatus.REQUESTED, victim.loadingStatus().getValue());
     }
 
     @Test(expected = IllegalStateException.class)
     public void moveInvalidStatus() {
-        assertEquals(PdfDescriptorLoadingStatus.INITIAL, victim.loadedProperty().get());
+        assertEquals(PdfDescriptorLoadingStatus.INITIAL, victim.loadingStatus().getValue());
         victim.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
     }
 

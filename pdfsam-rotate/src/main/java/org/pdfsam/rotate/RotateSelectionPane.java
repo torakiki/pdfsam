@@ -23,7 +23,8 @@ import java.util.function.Consumer;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.selection.multiple.FileColumn;
-import org.pdfsam.ui.selection.multiple.LoadingStatusColumn;
+import org.pdfsam.ui.selection.multiple.IntColumn;
+import org.pdfsam.ui.selection.multiple.LoadingColumn;
 import org.pdfsam.ui.selection.multiple.LongColumn;
 import org.pdfsam.ui.selection.multiple.MultipleSelectionPane;
 import org.pdfsam.ui.selection.multiple.SelectionTableColumn;
@@ -38,8 +39,8 @@ public class RotateSelectionPane extends MultipleSelectionPane implements
         TaskParametersBuildStep<RotateParametersBuilder> {
 
     public RotateSelectionPane(String ownerModule) {
-        super(ownerModule, new SelectionTableColumn<?>[] { new LoadingStatusColumn(ownerModule), FileColumn.NAME,
-                LongColumn.SIZE, LongColumn.PAGES, LongColumn.LAST_MODIFIED });
+        super(ownerModule, new SelectionTableColumn<?>[] { new LoadingColumn(ownerModule), FileColumn.NAME,
+                LongColumn.SIZE, IntColumn.PAGES, LongColumn.LAST_MODIFIED });
     }
 
     public void apply(RotateParametersBuilder builder, Consumer<String> onError) {

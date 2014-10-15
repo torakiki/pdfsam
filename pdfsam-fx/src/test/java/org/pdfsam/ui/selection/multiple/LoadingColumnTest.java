@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 07/ago/2014
+ * Created on 14/ott/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -24,6 +24,7 @@ import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 
 import java.io.File;
+import java.util.Arrays;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -33,13 +34,13 @@ import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
  * @author Andrea Vacondio
  *
  */
-public class LoadingStatusColumnTest {
+public class LoadingColumnTest {
     private static final String MODULE = "MODULE";
-    private LoadingStatusColumn victim;
+    private LoadingColumn victim;
 
     @Before
     public void setUp() {
-        victim = new LoadingStatusColumn(MODULE);
+        victim = new LoadingColumn(MODULE);
     }
 
     @Test
@@ -58,7 +59,13 @@ public class LoadingStatusColumnTest {
 
     @Test
     public void getTextValue() {
-        assertEquals(PdfDescriptorLoadingStatus.REQUESTED.name(),
-                victim.getTextValue(PdfDescriptorLoadingStatus.REQUESTED));
+        Arrays.stream(PdfDescriptorLoadingStatus.values()).forEach(s -> {
+            if (s.getIcon() != null) {
+                assertEquals(s.getIcon().toString(), victim.getTextValue(s));
+            } else {
+                assertEquals("", victim.getTextValue(s));
+            }
+        });
+
     }
 }

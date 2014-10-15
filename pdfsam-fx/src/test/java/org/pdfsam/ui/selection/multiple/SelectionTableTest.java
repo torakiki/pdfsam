@@ -24,6 +24,7 @@ import static org.junit.Assert.assertTrue;
 import static org.loadui.testfx.Assertions.verifyThat;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
@@ -42,12 +43,14 @@ import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.loadui.testfx.utils.TestUtils;
 import org.mockito.ArgumentCaptor;
+import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.HitTestListener;
 import org.pdfsam.ui.commons.OpenFileRequest;
 import org.pdfsam.ui.commons.SetDestinationRequest;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
+import org.pdfsam.ui.commons.ShowStageRequest;
 import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
 import org.pdfsam.ui.selection.multiple.move.MoveType;
 import org.sejda.eventstudio.Listener;
@@ -68,9 +71,9 @@ public class SelectionTableTest extends GuiTest {
 
     @Override
     protected Parent getRootNode() {
-        SelectionTable victim = new SelectionTable(MODULE, new SelectionTableColumn<?>[] {
-                new LoadingStatusColumn(MODULE), FileColumn.NAME, LongColumn.SIZE, LongColumn.PAGES,
-                LongColumn.LAST_MODIFIED, StringColumn.PAGE_SELECTION });
+        SelectionTable victim = new SelectionTable(MODULE, new SelectionTableColumn<?>[] { new LoadingColumn(MODULE),
+                FileColumn.NAME, LongColumn.SIZE, IntColumn.PAGES, LongColumn.LAST_MODIFIED,
+                StringColumn.PAGE_SELECTION });
         victim.setId("victim");
         return victim;
     }
@@ -133,7 +136,7 @@ public class SelectionTableTest extends GuiTest {
 
     @Test
     public void clear() throws Exception {
-        itemsAdded();
+        populate();
         click("temp.pdf");
         SelectionTable victim = find("#victim");
         assertEquals(1, victim.getSelectionModel().getSelectedIndices().size());
@@ -292,18 +295,67 @@ public class SelectionTableTest extends GuiTest {
         TestUtils.awaitCondition(listener::isHit, 2);
     }
 
-    private void populate() throws Exception {
+    @Test
+    public void iconsAreShown() throws Exception {
+        SelectionTableRowData firstItem = populate();
+        FXTestUtils.invokeAndWait(() -> firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED), 2);
+        exists(PdfDescriptorLoadingStatus.REQUESTED.getIcon().toString());
+        FXTestUtils.invokeAndWait(() -> firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING), 2);
+        exists(PdfDescriptorLoadingStatus.LOADING.getIcon().toString());
+    }
+
+    @Test
+    public void clickWithErrorsShowsLogStage() throws Exception {
+        SelectionTableRowData firstItem = populate();
+        FXTestUtils.invokeAndWait(() -> {
+            firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
+            firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
+            firstItem.moveStatusTo(PdfDescriptorLoadingStatus.WITH_ERRORS);
+        }, 2);
+        Listener<ShowStageRequest> listener = mock(Listener.class);
+        eventStudio().add(ShowStageRequest.class, listener, "LogStage");
+        click(PdfDescriptorLoadingStatus.WITH_ERRORS.getIcon().toString());
+        verify(listener).onEvent(any());
+    }
+
+    @Test
+    public void clickEncryptedThrowsRequest() throws Exception {
+        SelectionTableRowData firstItem = populate();
+        FXTestUtils.invokeAndWait(() -> {
+            firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
+            firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
+            firstItem.moveStatusTo(PdfDescriptorLoadingStatus.ENCRYPTED);
+        }, 2);
+        Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
+        eventStudio().add(PdfLoadRequestEvent.class, listener);
+        click(PdfDescriptorLoadingStatus.ENCRYPTED.getIcon().toString());
+        type("pwd").click("Unlock");
+        verify(listener, times(2)).onEvent(any());
+    }
+
+    @Test
+    public void logEventOnClick() throws Exception {
+        SelectionTableRowData firstItem = populate();
+        FXTestUtils.invokeAndWait(() -> firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED), 2);
+        exists(PdfDescriptorLoadingStatus.REQUESTED.getIcon().toString());
+        FXTestUtils.invokeAndWait(() -> firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING), 2);
+        exists(PdfDescriptorLoadingStatus.LOADING.getIcon().toString());
+    }
+
+    private SelectionTableRowData populate() throws Exception {
         File file = folder.newFile("temp.pdf");
         File file2 = folder.newFile("temp2.pdf");
         File file3 = folder.newFile("temp3.pdf");
         File file4 = folder.newFile("temp4.pdf");
         PdfLoadRequestEvent<SelectionTableRowData> loadEvent = new PdfLoadRequestEvent<>(MODULE);
-        loadEvent.add(new SelectionTableRowData(file));
+        SelectionTableRowData ret = new SelectionTableRowData(file);
+        loadEvent.add(ret);
         loadEvent.add(new SelectionTableRowData(file2));
         loadEvent.add(new SelectionTableRowData(file3));
         loadEvent.add(new SelectionTableRowData(file4));
         FXTestUtils.invokeAndWait(() -> {
             eventStudio().broadcast(loadEvent, MODULE);
         }, 2);
+        return ret;
     }
 }

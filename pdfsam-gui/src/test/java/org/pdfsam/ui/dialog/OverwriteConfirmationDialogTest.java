@@ -30,6 +30,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 
 import org.junit.BeforeClass;
+import org.junit.ClassRule;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -37,6 +38,7 @@ import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.context.SetLocaleEvent;
+import org.pdfsam.test.ClearEventStudioRule;
 
 /**
  * @author Andrea Vacondio
@@ -46,6 +48,9 @@ import org.pdfsam.context.SetLocaleEvent;
 public class OverwriteConfirmationDialogTest extends GuiTest {
 
     private boolean overwrite = false;
+
+    @ClassRule
+    public static ClearEventStudioRule CLEAR_STUDIO = new ClearEventStudioRule();
 
     @BeforeClass
     public static void setUp() {

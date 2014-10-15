@@ -49,7 +49,13 @@
 	-fx-padding: 0.0 0.0 0.5em 0.0 ;
 }
 .encryption-status {
-	-fx-content-display: graphic-only; 
+	-fx-alignment: center;
+	-fx-text-alignment: center;
+	-fx-font-family: FontAwesome; 
+	-fx-font-size: 16.0px;
+}
+.not-loaded {
+	-fx-opacity: 0.5;
 }
 .pdfsam-grid {
 	-fx-hgap: 5.0px;
@@ -159,6 +165,7 @@
     -fx-background-insets:  0.0, 1.0;
    	-fx-background-radius:  0.0, 0.0;
    	-fx-text-fill: -pdfsam-dark-text-color;
+   	-fx-font-size: 12px;
 }
 /**
  * Buttons
@@ -335,6 +342,12 @@
    -fx-background-insets: 0.0;
    -fx-background-radius: 0.0;
    -fx-padding: 0.416667em 0.0 0.416667em 0.0;
+}
+/**
+ * Single selection pane
+ */
+.single-selection-pane {
+	-fx-spacing: 5.0px;
 }
 /**
  * Invalid

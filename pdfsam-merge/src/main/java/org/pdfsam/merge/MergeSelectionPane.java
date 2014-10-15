@@ -23,7 +23,8 @@ import java.util.function.Consumer;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.selection.multiple.FileColumn;
-import org.pdfsam.ui.selection.multiple.LoadingStatusColumn;
+import org.pdfsam.ui.selection.multiple.IntColumn;
+import org.pdfsam.ui.selection.multiple.LoadingColumn;
 import org.pdfsam.ui.selection.multiple.LongColumn;
 import org.pdfsam.ui.selection.multiple.MultipleSelectionPane;
 import org.pdfsam.ui.selection.multiple.SelectionTableColumn;
@@ -44,8 +45,8 @@ public class MergeSelectionPane extends MultipleSelectionPane implements
     private static final Logger LOG = LoggerFactory.getLogger(MergeSelectionPane.class);
 
     public MergeSelectionPane(String ownerModule) {
-        super(ownerModule, new SelectionTableColumn<?>[] { new LoadingStatusColumn(ownerModule), FileColumn.NAME,
-                LongColumn.SIZE, LongColumn.PAGES, LongColumn.LAST_MODIFIED, StringColumn.PAGE_SELECTION });
+        super(ownerModule, new SelectionTableColumn<?>[] { new LoadingColumn(ownerModule), FileColumn.NAME,
+                LongColumn.SIZE, IntColumn.PAGES, LongColumn.LAST_MODIFIED, StringColumn.PAGE_SELECTION });
     }
 
     public void apply(MergeParametersBuilder builder, Consumer<String> onError) {

@@ -97,7 +97,7 @@ class SummaryTab extends BaseInfoTab implements ChangeListener<PdfDescriptorLoad
     void requestShow(ShowPdfDescriptorRequest event) {
         if (current != event.getDescriptor()) {
             current = event.getDescriptor();
-            current.loadedProperty().addListener(new WeakChangeListener<>(this));
+            current.loadingStatus().addListener(new WeakChangeListener<>(this));
         }
         setFileProperties(current.getFile());
         setPdfProperties();
@@ -111,7 +111,7 @@ class SummaryTab extends BaseInfoTab implements ChangeListener<PdfDescriptorLoad
 
     private void setPdfProperties() {
         version.setText(current.getVersionString());
-        pages.setText(Integer.toString(current.pagesPropery().get()));
+        pages.setText(Integer.toString(current.pages().getValue()));
         created.setText(current.getInformation("FormattedCreationDate"));
         title.setText(current.getInformation(PdfMetadataKey.TITLE.getKey()));
         author.setText(current.getInformation(PdfMetadataKey.AUTHOR.getKey()));

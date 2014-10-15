@@ -32,6 +32,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
+import javafx.application.Platform;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -61,9 +63,9 @@ class ITextPdfLoadService implements PdfLoadService {
 
     private static final BiConsumer<PdfReader, PdfDocumentDescriptor> FINISHER = (r, descriptor) -> {
         if (descriptor.hasPassword()) {
-            descriptor.moveStatusTo(LOADED_WITH_USER_PWD_DECRYPTION);
+            fxMoveStatusTo(descriptor, LOADED_WITH_USER_PWD_DECRYPTION);
         } else {
-            descriptor.moveStatusTo(LOADED);
+            fxMoveStatusTo(descriptor, LOADED);
         }
     };
 
@@ -74,7 +76,7 @@ class ITextPdfLoadService implements PdfLoadService {
 
     public void load(Collection<? extends PdfDocumentDescriptor> toLoad, RequiredPdfData... requires) {
         LOG.debug(DefaultI18nContext.getInstance().i18n("Loading"));
-        BiConsumer<PdfReader, PdfDocumentDescriptor> consumer = Arrays.stream(requires).parallel().map(consumers::get)
+        BiConsumer<PdfReader, PdfDocumentDescriptor> consumer = Arrays.stream(requires).map(consumers::get)
                 .reduce(STARTER, (r, d) -> r.andThen(d)).andThen(FINISHER);
 
         for (PdfDocumentDescriptor current : toLoad) {
@@ -82,15 +84,15 @@ class ITextPdfLoadService implements PdfLoadService {
                 LOG.trace("Loading {}", current.getFileName());
                 PdfReader reader = null;
                 try {
-                    current.moveStatusTo(LOADING);
+                    fxMoveStatusTo(current, LOADING);
                     reader = current.toPdfFileSource().open(new DefaultPdfSourceOpener());
                     consumer.accept(reader, current);
                 } catch (TaskWrongPasswordException twpe) {
-                    current.moveStatusTo(ENCRYPTED);
+                    fxMoveStatusTo(current, ENCRYPTED);
                     LOG.warn("User password required for '{}'", current.getFileName(), twpe);
                 } catch (Exception e) {
                     LOG.error("An error occured loading the document '{}'", current.getFileName(), e);
-                    current.moveStatusTo(WITH_ERRORS);
+                    fxMoveStatusTo(current, WITH_ERRORS);
                 } finally {
                     try {
                         nullSafeClosePdfReader(reader);
@@ -98,11 +100,17 @@ class ITextPdfLoadService implements PdfLoadService {
                         LOG.warn("An error occured closing the document", e);
                     }
                 }
+                LOG.trace("Loading done for {} with status {}", current.getFileName(), current.loadingStatus()
+                        .getValue());
             } else {
                 LOG.trace("Skipping invalidated document {}", current.getFileName());
             }
         }
         LOG.debug(DefaultI18nContext.getInstance().i18n("Documents loaded"));
+    }
+
+    private static void fxMoveStatusTo(PdfDocumentDescriptor descriptor, PdfDescriptorLoadingStatus status) {
+        Platform.runLater(() -> descriptor.moveStatusTo(status));
     }
 
 }

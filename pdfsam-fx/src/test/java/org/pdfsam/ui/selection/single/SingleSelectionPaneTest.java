@@ -21,14 +21,20 @@ package org.pdfsam.ui.selection.single;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
+import java.util.Locale;
 
 import javafx.scene.Parent;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.input.KeyCode;
 
+import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -36,6 +42,8 @@ import org.junit.rules.TemporaryFolder;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
+import org.mockito.ArgumentCaptor;
+import org.pdfsam.context.SetLocaleEvent;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
@@ -45,8 +53,10 @@ import org.pdfsam.test.HitTestListener;
 import org.pdfsam.ui.commons.OpenFileRequest;
 import org.pdfsam.ui.commons.SetDestinationRequest;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
+import org.pdfsam.ui.commons.ShowStageRequest;
 import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.io.ChangedSelectedPdfVersionEvent;
+import org.sejda.eventstudio.Listener;
 
 import de.jensd.fx.fontawesome.AwesomeIcon;
 
@@ -62,6 +72,11 @@ public class SingleSelectionPaneTest extends GuiTest {
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule(MODULE);
     @Rule
     public TemporaryFolder tmpFolder = new TemporaryFolder();
+
+    @BeforeClass
+    public static void setUp() {
+        eventStudio().broadcast(new SetLocaleEvent(Locale.UK.toLanguageTag()));
+    }
 
     @Override
     protected Parent getRootNode() {
@@ -150,27 +165,44 @@ public class SingleSelectionPaneTest extends GuiTest {
 
     @Test
     public void onLoadedChangedSelectedPdfVersionEvent() throws Exception {
-        HitTestListener<ChangedSelectedPdfVersionEvent> listener = new HitTestListener<>();
+        Listener<ChangedSelectedPdfVersionEvent> listener = mock(Listener.class);
         eventStudio().add(ChangedSelectedPdfVersionEvent.class, listener, MODULE);
         SingleSelectionPane victim = find("#victim");
         moveToLoadedState(victim);
-        assertTrue(listener.isHit());
+        verify(listener).onEvent(any());
+    }
+
+    @Test
+    public void onDecryptedChangedSelectedPdfVersionEvent() throws Exception {
+        Listener<ChangedSelectedPdfVersionEvent> listener = mock(Listener.class);
+        eventStudio().add(ChangedSelectedPdfVersionEvent.class, listener, MODULE);
+        SingleSelectionPane victim = find("#victim");
+        moveToLoadedWithDecryption(victim);
+        verify(listener).onEvent(any());
     }
 
     @Test
     public void onLoadedSetDestinationRequest() throws Exception {
-        HitTestListener<SetDestinationRequest> listener = new HitTestListener<SetDestinationRequest>() {
-            @Override
-            public void onEvent(SetDestinationRequest event) {
-                super.onEvent(event);
-                assertTrue(event.isFallback());
-            }
-        };
+        Listener<SetDestinationRequest> listener = mock(Listener.class);
+        ArgumentCaptor<SetDestinationRequest> captor = ArgumentCaptor.forClass(SetDestinationRequest.class);
         eventStudio().add(SetDestinationRequest.class, listener, MODULE);
         SingleSelectionPane victim = find("#victim");
 
         moveToLoadedState(victim);
-        assertTrue(listener.isHit());
+        verify(listener).onEvent(captor.capture());
+        assertTrue(captor.getValue().isFallback());
+    }
+
+    @Test
+    public void onDecryptedSetDestinationRequest() throws Exception {
+        Listener<SetDestinationRequest> listener = mock(Listener.class);
+        ArgumentCaptor<SetDestinationRequest> captor = ArgumentCaptor.forClass(SetDestinationRequest.class);
+        eventStudio().add(SetDestinationRequest.class, listener, MODULE);
+        SingleSelectionPane victim = find("#victim");
+
+        moveToLoadedWithDecryption(victim);
+        verify(listener).onEvent(captor.capture());
+        assertTrue(captor.getValue().isFallback());
     }
 
     @Test
@@ -181,12 +213,78 @@ public class SingleSelectionPaneTest extends GuiTest {
                 .forEach(i -> assertTrue(i.isDisable()));
     }
 
+    @Test
+    public void loadingStateDetails() throws Exception {
+        typePathAndValidate();
+        SingleSelectionPane victim = find("#victim");
+        FXTestUtils.invokeAndWait(() -> {
+            victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
+            victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
+        }, 2);
+        exists("Loading...");
+    }
+
+    @Test
+    public void loadedDetails() throws Exception {
+        SingleSelectionPane victim = find("#victim");
+        moveToLoadedState(victim);
+        exists("Pages: 0, PDF Version: ");
+    }
+
+    @Test
+    public void decryptedDetails() throws Exception {
+        SingleSelectionPane victim = find("#victim");
+        moveToLoadedWithDecryption(victim);
+        exists("Pages: 0, PDF Version: ");
+    }
+
+    @Test
+    public void clickWithErrorsShowsLogStage() throws Exception {
+        typePathAndValidate();
+        SingleSelectionPane victim = find("#victim");
+        FXTestUtils.invokeAndWait(() -> {
+            victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
+            victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
+            victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.WITH_ERRORS);
+        }, 2);
+        Listener<ShowStageRequest> listener = mock(Listener.class);
+        eventStudio().add(ShowStageRequest.class, listener, "LogStage");
+        click(PdfDescriptorLoadingStatus.WITH_ERRORS.getIcon().toString());
+        verify(listener).onEvent(any());
+    }
+
+    @Test
+    public void clickEncryptedThrowsRequest() throws Exception {
+        typePathAndValidate();
+        SingleSelectionPane victim = find("#victim");
+        Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
+        eventStudio().add(PdfLoadRequestEvent.class, listener);
+        FXTestUtils.invokeAndWait(() -> {
+            victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
+            victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
+            victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.ENCRYPTED);
+        }, 2);
+
+        click(PdfDescriptorLoadingStatus.ENCRYPTED.getIcon().toString());
+        type("pwd").click("Unlock");
+        verify(listener, times(2)).onEvent(any());
+    }
+
     private void moveToLoadedState(SingleSelectionPane victim) throws Exception {
         typePathAndValidate();
         FXTestUtils.invokeAndWait(() -> {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADED);
+        }, 2);
+    }
+
+    private void moveToLoadedWithDecryption(SingleSelectionPane victim) throws Exception {
+        typePathAndValidate();
+        FXTestUtils.invokeAndWait(() -> {
+            victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
+            victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
+            victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADED_WITH_USER_PWD_DECRYPTION);
         }, 2);
     }
 

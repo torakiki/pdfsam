@@ -33,6 +33,8 @@ import java.util.function.Consumer;
 import javafx.application.Platform;
 import javafx.collections.ListChangeListener.Change;
 import javafx.collections.ObservableList;
+import javafx.geometry.Point2D;
+import javafx.scene.Scene;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
@@ -44,6 +46,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.TransferMode;
+import javafx.stage.Window;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultI18nContext;
@@ -52,6 +55,8 @@ import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.commons.OpenFileRequest;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
+import org.pdfsam.ui.selection.PasswordFieldPopup;
+import org.pdfsam.ui.selection.ShowPasswordFieldPopupRequest;
 import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
 import org.pdfsam.ui.selection.multiple.move.MoveType;
 import org.pdfsam.ui.selection.multiple.move.SelectionAndFocus;
@@ -73,6 +78,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     private static final Logger LOG = LoggerFactory.getLogger(SelectionTable.class);
     private String ownerModule = StringUtils.EMPTY;
     private Label placeHolder = new Label(DefaultI18nContext.getInstance().i18n("Drag and drop PDF files here"));
+    private PasswordFieldPopup passwordPopup;
 
     public SelectionTable(String ownerModule, SelectionTableColumn<?>... columns) {
         this.ownerModule = defaultString(ownerModule);
@@ -100,6 +106,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         setOnDragEntered(e -> dragConsume(e, this.onDragEnteredConsumer()));
         setOnDragExited(this::onDragExited);
         setOnDragDropped(e -> dragConsume(e, this.onDragDropped()));
+        passwordPopup = new PasswordFieldPopup(this.ownerModule);
         initContextMenu();
         eventStudio().addAnnotatedListeners(this);
     }
@@ -261,6 +268,21 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
             getSelectionModel().selectIndices(newSelection.getRow(), newSelection.getRows());
             getFocusModel().focus(newSelection.getFocus());
             scrollTo(newSelection.getFocus());
+        }
+    }
+
+    @EventListener
+    public void showPasswordFieldPopup(ShowPasswordFieldPopupRequest request) {
+        Scene scene = this.getScene();
+        if (scene != null) {
+            Window owner = scene.getWindow();
+            if (owner != null && owner.isShowing()) {
+                Point2D nodeCoord = request.getRequestingNode().localToScene(
+                        request.getRequestingNode().getWidth() / 2, request.getRequestingNode().getHeight() / 1.5);
+                double anchorX = Math.round(owner.getX() + scene.getX() + nodeCoord.getX() + 2);
+                double anchorY = Math.round(owner.getY() + scene.getY() + nodeCoord.getY() + 2);
+                passwordPopup.showFor(this, request.getPdfDescriptor(), anchorX, anchorY);
+            }
         }
     }
 }
