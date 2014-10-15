@@ -19,6 +19,7 @@
 package org.pdfsam.update;
 
 import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.after;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.verify;
@@ -56,6 +57,6 @@ public class DefaultUpdateServiceTest {
         Listener<UpdateAvailableEvent> listener = mock(Listener.class);
         eventStudio().add(UpdateAvailableEvent.class, listener);
         victim.checkForUpdates();
-        verify(listener, timeout(1000).never()).onEvent(any(UpdateAvailableEvent.class));
+        verify(listener, after(1000).never()).onEvent(any(UpdateAvailableEvent.class));
     }
 }
