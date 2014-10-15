@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.selection.single;
 
+import static org.apache.commons.lang3.StringUtils.isEmpty;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -31,6 +32,7 @@ import java.io.File;
 import java.util.Locale;
 
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.input.KeyCode;
 
@@ -214,6 +216,15 @@ public class SingleSelectionPaneTest extends GuiTest {
     }
 
     @Test
+    public void disableMenuOnSwitchToInvalid() throws Exception {
+        typePathAndValidate();
+        typePathAndValidate("/this/doesnt/exists");
+        ValidableTextField victim = find(".validable-container-field");
+        victim.getContextMenu().getItems().parallelStream().filter(i -> !(i instanceof SeparatorMenuItem))
+                .forEach(i -> assertTrue(i.isDisable()));
+    }
+
+    @Test
     public void loadingStateDetails() throws Exception {
         typePathAndValidate();
         SingleSelectionPane victim = find("#victim");
@@ -236,6 +247,15 @@ public class SingleSelectionPaneTest extends GuiTest {
         SingleSelectionPane victim = find("#victim");
         moveToLoadedWithDecryption(victim);
         exists("Pages: 0, PDF Version: ");
+    }
+
+    @Test
+    public void emptyDetailsOnSwithToInvalid() throws Exception {
+        SingleSelectionPane victim = find("#victim");
+        moveToLoadedWithDecryption(victim);
+        typePathAndValidate("/this/doesnt/exists");
+        Label details = find(".-pdfsam-selection-details");
+        assertTrue(isEmpty(details.getText()));
     }
 
     @Test
@@ -268,6 +288,34 @@ public class SingleSelectionPaneTest extends GuiTest {
         click(PdfDescriptorLoadingStatus.ENCRYPTED.getIcon().toString());
         type("pwd").click("Unlock");
         verify(listener, times(2)).onEvent(any());
+    }
+
+    @Test
+    public void emptyStatusIndicatorOnSwithToInvalid() throws Exception {
+        SingleSelectionPane victim = find("#victim");
+        moveToLoadedWithDecryption(victim);
+        typePathAndValidate("/this/doesnt/exists");
+        Label encStatus = find(".encryption-status");
+        assertTrue(isEmpty(encStatus.getText()));
+    }
+
+    @Test
+    public void invalidatedDescriptorDoesntTriggerAnything() throws Exception {
+        typePathAndValidate();
+        typePathAndValidate("/this/doesnt/exists");
+        SingleSelectionPane victim = find("#victim");
+        FXTestUtils.invokeAndWait(() -> {
+            victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
+            victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
+            victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADED);
+        }, 2);
+        Label details = find(".-pdfsam-selection-details");
+        assertTrue(isEmpty(details.getText()));
+        Label encStatus = find(".encryption-status");
+        assertTrue(isEmpty(encStatus.getText()));
+        ValidableTextField field = find(".validable-container-field");
+        field.getContextMenu().getItems().parallelStream().filter(i -> !(i instanceof SeparatorMenuItem))
+                .forEach(i -> assertTrue(i.isDisable()));
     }
 
     private void moveToLoadedState(SingleSelectionPane victim) throws Exception {

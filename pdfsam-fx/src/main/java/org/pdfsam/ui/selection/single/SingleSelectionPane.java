@@ -121,6 +121,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
     public SingleSelectionPane(String ownerModule) {
         this.getStyleClass().add("single-selection-pane");
         this.ownerModule = defaultString(ownerModule);
+        this.details.getStyleClass().add("-pdfsam-selection-details");
         field.enforceValidation(true, false);
         passwordPopup = new PasswordFieldPopup(this.ownerModule);
         encryptionIndicator.getStyleClass().addAll("encryption-status");
@@ -142,15 +143,25 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
                 PdfLoadRequestEvent<PdfDocumentDescriptor> loadEvent = new PdfLoadRequestEvent<>(getOwnerModule());
                 descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(new File(field.getTextField().getText()));
                 descriptor.loadingStatus().addListener(new WeakChangeListener<>(onLoadingStatusChange));
-                field.getTextField().getContextMenu().getItems().forEach(i -> i.setDisable(false));
+                setContextMenuDisable(false);
                 loadEvent.add(descriptor);
                 eventStudio().broadcast(loadEvent);
             } else {
-                invalidateDescriptor();
-                // TODO reset component status
+                reset();
             }
         });
         initContextMenu();
+    }
+
+    private void reset() {
+        invalidateDescriptor();
+        setContextMenuDisable(true);
+        encryptionIndicator.setText("");
+        details.setText("");
+    }
+
+    private void setContextMenuDisable(boolean value) {
+        field.getTextField().getContextMenu().getItems().forEach(i -> i.setDisable(value));
     }
 
     private void invalidateDescriptor() {
