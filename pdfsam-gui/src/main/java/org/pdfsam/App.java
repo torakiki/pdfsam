@@ -55,6 +55,7 @@ import org.pdfsam.ui.io.SetLatestDirectoryEvent;
 import org.pdfsam.ui.notification.NotificationsContainer;
 import org.pdfsam.update.UpdateCheckRequest;
 import org.sejda.core.Sejda;
+import org.sejda.eventstudio.EventStudio;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -71,6 +72,8 @@ public class App extends Application {
     public void init() {
         STOPWATCH.start();
         LOG.info("Starting PDFsam");
+        System.setProperty(Sejda.UNETHICAL_READ_PROPERTY_NAME, "true");
+        System.setProperty(EventStudio.MAX_QUEUE_SIZE_PROP, "20");
         UserContext userContext = new DefaultUserContext();
         String localeString = userContext.getLocale();
         if (isNotBlank(localeString)) {
@@ -87,7 +90,6 @@ public class App extends Application {
                 LOG.warn("Unable to set initial directory, default path is invalid.", e);
             }
         }
-        System.setProperty(Sejda.UNETHICAL_READ_PROPERTY_NAME, "true");
     }
 
     @Override
