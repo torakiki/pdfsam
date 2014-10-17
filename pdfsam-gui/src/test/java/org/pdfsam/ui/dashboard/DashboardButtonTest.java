@@ -73,4 +73,9 @@ public class DashboardButtonTest extends GuiTest {
         FXTestUtils.invokeAndWait(() -> victim.selectIf(DefaultPriorityDashboardItem.ID), 1);
         assertTrue(victim.isSelected());
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void nullArg() {
+        new DashboardButton(null);
+    }
 }

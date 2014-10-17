@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.dashboard;
 
-import static org.pdfsam.support.RequireUtils.require;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
@@ -34,7 +34,7 @@ class DashboardButton extends BaseQuickbarButton {
     private DashboardItem item;
 
     DashboardButton(DashboardItem item) {
-        require(item != null, "Dashboard item cannot be null");
+        requireNotNull(item, "Dashboard item cannot be null");
         this.item = item;
         setGraphic(this.item.graphic());
         setText(this.item.name());
