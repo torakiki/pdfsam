@@ -19,14 +19,18 @@
 package org.pdfsam.ui.commons;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.Parent;
 
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
+import org.mockito.ArgumentCaptor;
+import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.eventstudio.Listener;
 
 /**
@@ -34,8 +38,11 @@ import org.sejda.eventstudio.Listener;
  *
  */
 @Category(TestFX.class)
+@SuppressWarnings({ "unchecked", "unused" })
 public class UrlButtonTest extends GuiTest {
 
+    @Rule
+    public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
     private static final String URL = "http://www.example.com";
 
     @Test(expected = IllegalArgumentException.class)
@@ -50,30 +57,17 @@ public class UrlButtonTest extends GuiTest {
 
     @Test
     public void eventSent() {
-        OpenUrlRequestListener listener = new OpenUrlRequestListener();
-        eventStudio().add(listener);
-        try {
-            click(".pdfsam-button");
-            assertTrue(listener.hit);
-        } finally {
-            eventStudio().remove(listener);
-        }
+        Listener<OpenUrlRequest> listener = mock(Listener.class);
+        eventStudio().add(OpenUrlRequest.class, listener);
+        click(".pdfsam-button");
+        ArgumentCaptor<OpenUrlRequest> captor = ArgumentCaptor.forClass(OpenUrlRequest.class);
+        verify(listener).onEvent(captor.capture());
+        assertEquals(URL, captor.getValue().getUrl());
     }
 
     @Override
     protected Parent getRootNode() {
         return new UrlButton("Chuck", URL);
-    }
-
-    private static class OpenUrlRequestListener implements Listener<OpenUrlRequest> {
-
-        private boolean hit = false;
-
-        public void onEvent(OpenUrlRequest event) {
-            assertEquals(URL, event.getUrl());
-            this.hit = true;
-        }
-
     }
 
 }
