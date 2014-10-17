@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDFSam 3\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2014-09-02 17:35+0200\n"
+"POT-Creation-Date: 2014-09-04 15:44+0200\n"
 "PO-Revision-Date: 2014-04-23 06:13+0000\n"
 "Last-Translator: Cheng-Wei Chien <Unknown>\n"
 "Language-Team: Chinese (Taiwan) (zh_TW@li.org)\n"
@@ -143,17 +143,69 @@ msgstr ""
 msgid "PDFsam {0} is available for download"
 msgstr ""
 
+msgid "Download"
+msgstr ""
+
 msgid "New version available"
 msgstr ""
 
-msgid "About"
-msgstr "關於"
+msgid "Modules"
+msgstr ""
 
 msgid "Close"
 msgstr "關閉"
 
-msgid "Modules"
+msgid "Subscribe to the official news feed"
 msgstr ""
+
+msgid "Environment"
+msgstr ""
+
+#, java-format
+msgid "Max memory {0}"
+msgstr "記憶體上限 {0}"
+
+msgid "Thanks to"
+msgstr ""
+
+msgid "The open source projects making PDFsam possible"
+msgstr ""
+
+msgid "Support"
+msgstr ""
+
+msgid "Bug and feature requests"
+msgstr ""
+
+msgid "Play the \"get started\" video"
+msgstr ""
+
+msgid "Contribute"
+msgstr ""
+
+msgid "Fork PDFsam on GitHub"
+msgstr ""
+
+msgid "Translate"
+msgstr ""
+
+msgid "Donate"
+msgstr ""
+
+msgid "Social"
+msgstr ""
+
+msgid "Follow us on Twitter"
+msgstr "在推特上關注我們"
+
+msgid "Follow us on Google Plus"
+msgstr ""
+
+msgid "Like us on Facebook"
+msgstr "在臉書上幫我們按讚"
+
+msgid "About"
+msgstr "關於"
 
 msgid "Appearance"
 msgstr "外觀"
@@ -260,55 +312,6 @@ msgstr "縮圖的尺寸（介於 {0}px 與 {1}px 之間）"
 
 msgid "Clear usage statistics"
 msgstr ""
-
-msgid "Subscribe to the official news feed"
-msgstr ""
-
-msgid "Environment"
-msgstr ""
-
-#, java-format
-msgid "Max memory {0}"
-msgstr "記憶體上限 {0}"
-
-msgid "Thanks to"
-msgstr ""
-
-msgid "The open source projects making PDFsam possible"
-msgstr ""
-
-msgid "Support"
-msgstr ""
-
-msgid "Bug and feature requests"
-msgstr ""
-
-msgid "Play the \"get started\" video"
-msgstr ""
-
-msgid "Contribute"
-msgstr ""
-
-msgid "Fork PDFsam on GitHub"
-msgstr ""
-
-msgid "Translate"
-msgstr ""
-
-msgid "Donate"
-msgstr ""
-
-msgid "Social"
-msgstr ""
-
-msgid "Follow us on Twitter"
-msgstr "在推特上關注我們"
-
-msgid "Follow us on Google Plus"
-msgstr ""
-
-msgid "Like us on Facebook"
-msgstr "在臉書上幫我們按讚"
 
 msgid "Settings"
 msgstr "設定"

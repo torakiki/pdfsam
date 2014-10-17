@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2014-09-02 17:35+0200\n"
+"POT-Creation-Date: 2014-09-04 15:44+0200\n"
 "PO-Revision-Date: 2014-07-20 16:17+0000\n"
 "Last-Translator: pirtlak <pirtlak@outlook.com>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -151,19 +151,71 @@ msgstr "Girilen parametreler geçersiz, detaylar için program mesajlarını aç
 msgid "PDFsam {0} is available for download"
 msgstr "PDFsam {0} yüklemek için uygun"
 
+msgid "Download"
+msgstr ""
+
 msgid "New version available"
 msgstr "Yeni versiyon var"
 
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\MainGUI.java:222
-msgid "About"
-msgstr "Hakkında"
+msgid "Modules"
+msgstr "Modüller"
 
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:150
 msgid "Close"
 msgstr "Kapat"
 
-msgid "Modules"
-msgstr "Modüller"
+msgid "Subscribe to the official news feed"
+msgstr ""
+
+msgid "Environment"
+msgstr "Ortam"
+
+#, java-format
+msgid "Max memory {0}"
+msgstr "En fazla hafıza {0}"
+
+msgid "Thanks to"
+msgstr "Teşekkürler"
+
+msgid "The open source projects making PDFsam possible"
+msgstr ""
+
+msgid "Support"
+msgstr "Destek"
+
+msgid "Bug and feature requests"
+msgstr ""
+
+msgid "Play the \"get started\" video"
+msgstr "\"başla\" videosunu çal"
+
+msgid "Contribute"
+msgstr "Katkıda Bulunun"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "PDFsam bir GitHub iştirakidir"
+
+msgid "Translate"
+msgstr "Çevir"
+
+msgid "Donate"
+msgstr "Bağış Yapın"
+
+msgid "Social"
+msgstr "Sosyal"
+
+msgid "Follow us on Twitter"
+msgstr "Bizi Twitter'da takip edin"
+
+msgid "Follow us on Google Plus"
+msgstr "Bizi Google Plus'da takip edin"
+
+msgid "Like us on Facebook"
+msgstr "Bizi Facebook'da takip edin"
+
+# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\MainGUI.java:222
+msgid "About"
+msgstr "Hakkında"
 
 msgid "Appearance"
 msgstr "Görünüm"
@@ -274,55 +326,6 @@ msgstr "Küçük resimlerin boyutu ({0}px ve {1}px aralığında)"
 
 msgid "Clear usage statistics"
 msgstr "Kullanım istatistiklerini sil"
-
-msgid "Subscribe to the official news feed"
-msgstr ""
-
-msgid "Environment"
-msgstr "Ortam"
-
-#, java-format
-msgid "Max memory {0}"
-msgstr "En fazla hafıza {0}"
-
-msgid "Thanks to"
-msgstr "Teşekkürler"
-
-msgid "The open source projects making PDFsam possible"
-msgstr ""
-
-msgid "Support"
-msgstr "Destek"
-
-msgid "Bug and feature requests"
-msgstr ""
-
-msgid "Play the \"get started\" video"
-msgstr "\"başla\" videosunu çal"
-
-msgid "Contribute"
-msgstr "Katkıda Bulunun"
-
-msgid "Fork PDFsam on GitHub"
-msgstr "PDFsam bir GitHub iştirakidir"
-
-msgid "Translate"
-msgstr "Çevir"
-
-msgid "Donate"
-msgstr "Bağış Yapın"
-
-msgid "Social"
-msgstr "Sosyal"
-
-msgid "Follow us on Twitter"
-msgstr "Bizi Twitter'da takip edin"
-
-msgid "Follow us on Google Plus"
-msgstr "Bizi Google Plus'da takip edin"
-
-msgid "Like us on Facebook"
-msgstr "Bizi Facebook'da takip edin"
 
 msgid "Settings"
 msgstr "Ayarlar"

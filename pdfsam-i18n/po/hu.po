@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2014-09-02 17:56+0200\n"
+"POT-Creation-Date: 2014-09-04 15:44+0200\n"
 "PO-Revision-Date: 2014-09-02 08:00+0000\n"
 "Last-Translator: Richard Somlói <ricsipontaz@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -147,17 +147,69 @@ msgstr ""
 msgid "PDFsam {0} is available for download"
 msgstr "Elérhető a PDFsam {0}"
 
+msgid "Download"
+msgstr ""
+
 msgid "New version available"
 msgstr "Új verzió érhető el"
 
-msgid "About"
-msgstr "Névjegy"
+msgid "Modules"
+msgstr "Modulok"
 
 msgid "Close"
 msgstr "Bezárás"
 
-msgid "Modules"
-msgstr "Modulok"
+msgid "Subscribe to the official news feed"
+msgstr "Feliratkozás a hivatalos hírforrásra"
+
+msgid "Environment"
+msgstr "Környezet"
+
+#, java-format
+msgid "Max memory {0}"
+msgstr "Maximum memória {0}"
+
+msgid "Thanks to"
+msgstr "Köszönet"
+
+msgid "The open source projects making PDFsam possible"
+msgstr "A nyílt forráskódú közösségnek, hogy lehetővé tették a PDFsamet"
+
+msgid "Support"
+msgstr "Támogatás"
+
+msgid "Bug and feature requests"
+msgstr "Hiba és hiányzó funkció jelentése"
+
+msgid "Play the \"get started\" video"
+msgstr "A „Kezdjünk bele” videó lejátszása"
+
+msgid "Contribute"
+msgstr "Hozzájárulás"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "PDFsam forkolása GitHubon"
+
+msgid "Translate"
+msgstr "Fordítás"
+
+msgid "Donate"
+msgstr "Támogatás"
+
+msgid "Social"
+msgstr "Közösségi szolgáltatások"
+
+msgid "Follow us on Twitter"
+msgstr "Kövessen a Twitteren"
+
+msgid "Follow us on Google Plus"
+msgstr "Kövessen Google Pluson"
+
+msgid "Like us on Facebook"
+msgstr "Kedveljen a Facebookon"
+
+msgid "About"
+msgstr "Névjegy"
 
 msgid "Appearance"
 msgstr "Megjelenés"
@@ -270,55 +322,6 @@ msgstr "A bélyegképek képpont mérete ({0} és {1} között)"
 
 msgid "Clear usage statistics"
 msgstr "Használati statisztika törlése"
-
-msgid "Subscribe to the official news feed"
-msgstr "Feliratkozás a hivatalos hírforrásra"
-
-msgid "Environment"
-msgstr "Környezet"
-
-#, java-format
-msgid "Max memory {0}"
-msgstr "Maximum memória {0}"
-
-msgid "Thanks to"
-msgstr "Köszönet"
-
-msgid "The open source projects making PDFsam possible"
-msgstr "A nyílt forráskódú közösségnek, hogy lehetővé tették a PDFsamet"
-
-msgid "Support"
-msgstr "Támogatás"
-
-msgid "Bug and feature requests"
-msgstr "Hiba és hiányzó funkció jelentése"
-
-msgid "Play the \"get started\" video"
-msgstr "A „Kezdjünk bele” videó lejátszása"
-
-msgid "Contribute"
-msgstr "Hozzájárulás"
-
-msgid "Fork PDFsam on GitHub"
-msgstr "PDFsam forkolása GitHubon"
-
-msgid "Translate"
-msgstr "Fordítás"
-
-msgid "Donate"
-msgstr "Támogatás"
-
-msgid "Social"
-msgstr "Közösségi szolgáltatások"
-
-msgid "Follow us on Twitter"
-msgstr "Kövessen a Twitteren"
-
-msgid "Follow us on Google Plus"
-msgstr "Kövessen Google Pluson"
-
-msgid "Like us on Facebook"
-msgstr "Kedveljen a Facebookon"
 
 msgid "Settings"
 msgstr "Beállítások"

@@ -40,9 +40,9 @@ import org.springframework.core.io.Resource;
  * 
  */
 @Configuration
-@Profile("BASIC")
+@Profile("COMMUNITY")
 @ComponentScan(basePackages = { "org.pdfsam" }, includeFilters = @Filter(value = PdfsamModule.class))
-public class PdfsamBasicConfig implements UIConfig {
+public class PdfsamCommunityConfig implements UIConfig {
 
     @Bean(name = "logo")
     public Group logo() throws IOException {
@@ -52,51 +52,51 @@ public class PdfsamBasicConfig implements UIConfig {
 
     @Bean(name = "logo16")
     public Image logo16() throws IOException {
-        return new Image(new ClassPathResource("/images/basic/16x16.png").getInputStream());
+        return new Image(new ClassPathResource("/images/community/16x16.png").getInputStream());
     }
 
     @Bean(name = "logo24")
     public Image logo24() throws IOException {
-        return new Image(new ClassPathResource("/images/basic/24x24.png").getInputStream());
+        return new Image(new ClassPathResource("/images/community/24x24.png").getInputStream());
     }
 
     @Bean(name = "logo32")
     public Image logo32() throws IOException {
-        return new Image(new ClassPathResource("/images/basic/32x32.png").getInputStream());
+        return new Image(new ClassPathResource("/images/community/32x32.png").getInputStream());
     }
 
     @Bean(name = "logo48")
     public Image logo48() throws IOException {
-        return new Image(new ClassPathResource("/images/basic/48x48.png").getInputStream());
+        return new Image(new ClassPathResource("/images/community/48x48.png").getInputStream());
     }
 
     @Bean(name = "logo64")
     public Image logo64() throws IOException {
-        return new Image(new ClassPathResource("/images/basic/64x64.png").getInputStream());
+        return new Image(new ClassPathResource("/images/community/64x64.png").getInputStream());
     }
 
     @Bean(name = "logo96")
     public Image logo96() throws IOException {
-        return new Image(new ClassPathResource("/images/basic/96x96.png").getInputStream());
+        return new Image(new ClassPathResource("/images/community/96x96.png").getInputStream());
     }
 
     @Bean(name = "logo128")
     public Image logo128() throws IOException {
-        return new Image(new ClassPathResource("/images/basic/128x128.png").getInputStream());
+        return new Image(new ClassPathResource("/images/community/128x128.png").getInputStream());
     }
 
     @Bean(name = "logo256")
     public Image logo256() throws IOException {
-        return new Image(new ClassPathResource("/images/basic/256x256.png").getInputStream());
+        return new Image(new ClassPathResource("/images/community/256x256.png").getInputStream());
     }
 
     @Bean(name = "logo512")
     public Image logo512() throws IOException {
-        return new Image(new ClassPathResource("/images/basic/512x512.png").getInputStream());
+        return new Image(new ClassPathResource("/images/community/512x512.png").getInputStream());
     }
 
     @Bean(name = "appName")
     public String appName() {
-        return "PDF Split And Merge Basic";
+        return "PDF Split and Merge Community Edition";
     }
 }

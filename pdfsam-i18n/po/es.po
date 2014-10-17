@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2014-09-02 17:35+0200\n"
+"POT-Creation-Date: 2014-09-04 15:44+0200\n"
 "PO-Revision-Date: 2014-08-16 20:13+0000\n"
 "Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -147,18 +147,70 @@ msgstr ""
 msgid "PDFsam {0} is available for download"
 msgstr "PDFsam {0} está disponible para su descarga"
 
+msgid "Download"
+msgstr ""
+
 msgid "New version available"
 msgstr "Versión nueva disponible"
 
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\MainGUI.java:222
-msgid "About"
-msgstr "Acerca de"
+msgid "Modules"
+msgstr "Módulos"
 
 msgid "Close"
 msgstr "Cerrar"
 
-msgid "Modules"
-msgstr "Módulos"
+msgid "Subscribe to the official news feed"
+msgstr "Suscribirse al canal de noticias oficial"
+
+msgid "Environment"
+msgstr "Entorno"
+
+#, java-format
+msgid "Max memory {0}"
+msgstr "Máximo de memoria {0}"
+
+msgid "Thanks to"
+msgstr "Agradecemos a"
+
+msgid "The open source projects making PDFsam possible"
+msgstr "Los proyectos de código abierto que hicieron a PDFsam posible"
+
+msgid "Support"
+msgstr "Asistencia"
+
+msgid "Bug and feature requests"
+msgstr "Informes de errores y solicitudes"
+
+msgid "Play the \"get started\" video"
+msgstr "Reproducir el vídeo «Primeros pasos»"
+
+msgid "Contribute"
+msgstr "Contribuir"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "Ver el código fuente en GitHub"
+
+msgid "Translate"
+msgstr "Traducir"
+
+msgid "Donate"
+msgstr "Donar"
+
+msgid "Social"
+msgstr "Social"
+
+msgid "Follow us on Twitter"
+msgstr "Síganos en Twitter"
+
+msgid "Follow us on Google Plus"
+msgstr "Síganos en Google+"
+
+msgid "Like us on Facebook"
+msgstr "Síganos en Facebook"
+
+# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\MainGUI.java:222
+msgid "About"
+msgstr "Acerca de"
 
 msgid "Appearance"
 msgstr "Apariencia"
@@ -277,55 +329,6 @@ msgstr "Tamaño en píxeles de las miniaturas (entre {0} y {1} px)"
 
 msgid "Clear usage statistics"
 msgstr "Vaciar estadísticas de uso"
-
-msgid "Subscribe to the official news feed"
-msgstr "Suscribirse al canal de noticias oficial"
-
-msgid "Environment"
-msgstr "Entorno"
-
-#, java-format
-msgid "Max memory {0}"
-msgstr "Máximo de memoria {0}"
-
-msgid "Thanks to"
-msgstr "Agradecemos a"
-
-msgid "The open source projects making PDFsam possible"
-msgstr "Los proyectos de código abierto que hicieron a PDFsam posible"
-
-msgid "Support"
-msgstr "Asistencia"
-
-msgid "Bug and feature requests"
-msgstr "Informes de errores y solicitudes"
-
-msgid "Play the \"get started\" video"
-msgstr "Reproducir el vídeo «Primeros pasos»"
-
-msgid "Contribute"
-msgstr "Contribuir"
-
-msgid "Fork PDFsam on GitHub"
-msgstr "Ver el código fuente en GitHub"
-
-msgid "Translate"
-msgstr "Traducir"
-
-msgid "Donate"
-msgstr "Donar"
-
-msgid "Social"
-msgstr "Social"
-
-msgid "Follow us on Twitter"
-msgstr "Síganos en Twitter"
-
-msgid "Follow us on Google Plus"
-msgstr "Síganos en Google+"
-
-msgid "Like us on Facebook"
-msgstr "Síganos en Facebook"
 
 msgid "Settings"
 msgstr "Configuración"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2014-09-02 17:35+0200\n"
+"POT-Creation-Date: 2014-09-04 15:44+0200\n"
 "PO-Revision-Date: 2014-08-19 12:07+0000\n"
 "Last-Translator: Christian Hofmann <ch.hofmann@gmail.com>\n"
 "Language-Team: German <de@li.org>\n"
@@ -147,17 +147,69 @@ msgstr ""
 msgid "PDFsam {0} is available for download"
 msgstr "PDFsam {0} steht zum Download bereit"
 
+msgid "Download"
+msgstr ""
+
 msgid "New version available"
 msgstr "Neue Version verfügbar"
 
-msgid "About"
-msgstr "Über"
+msgid "Modules"
+msgstr "Module"
 
 msgid "Close"
 msgstr "Schließen"
 
-msgid "Modules"
-msgstr "Module"
+msgid "Subscribe to the official news feed"
+msgstr "Offiziellen News-Feed abonnieren"
+
+msgid "Environment"
+msgstr "Umgebung"
+
+#, java-format
+msgid "Max memory {0}"
+msgstr "Maximaler Speicher {0}"
+
+msgid "Thanks to"
+msgstr "Dank an:"
+
+msgid "The open source projects making PDFsam possible"
+msgstr "Open Source Projekte, die PDFsam ermöglicht haben"
+
+msgid "Support"
+msgstr "Support"
+
+msgid "Bug and feature requests"
+msgstr "Fehler- und Verbesserungs-Meldung"
+
+msgid "Play the \"get started\" video"
+msgstr "Abspielen des 'Get started' Videos"
+
+msgid "Contribute"
+msgstr "Beitragen"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "Fork PDFsam auf GitHub"
+
+msgid "Translate"
+msgstr "Übersetzen"
+
+msgid "Donate"
+msgstr "Spenden"
+
+msgid "Social"
+msgstr "Sozial"
+
+msgid "Follow us on Twitter"
+msgstr "Folge uns auf Twitter"
+
+msgid "Follow us on Google Plus"
+msgstr "Folge uns auf Google Plus"
+
+msgid "Like us on Facebook"
+msgstr "'Gefällt mir' auf Facebook"
+
+msgid "About"
+msgstr "Über"
 
 msgid "Appearance"
 msgstr "Darstellung"
@@ -278,55 +330,6 @@ msgstr "Pixel -Größe der Vorschaubilder (zwischen {0}px und {1}px)"
 
 msgid "Clear usage statistics"
 msgstr "Benutzungsstatistik löschen"
-
-msgid "Subscribe to the official news feed"
-msgstr "Offiziellen News-Feed abonnieren"
-
-msgid "Environment"
-msgstr "Umgebung"
-
-#, java-format
-msgid "Max memory {0}"
-msgstr "Maximaler Speicher {0}"
-
-msgid "Thanks to"
-msgstr "Dank an:"
-
-msgid "The open source projects making PDFsam possible"
-msgstr "Open Source Projekte, die PDFsam ermöglicht haben"
-
-msgid "Support"
-msgstr "Support"
-
-msgid "Bug and feature requests"
-msgstr "Fehler- und Verbesserungs-Meldung"
-
-msgid "Play the \"get started\" video"
-msgstr "Abspielen des 'Get started' Videos"
-
-msgid "Contribute"
-msgstr "Beitragen"
-
-msgid "Fork PDFsam on GitHub"
-msgstr "Fork PDFsam auf GitHub"
-
-msgid "Translate"
-msgstr "Übersetzen"
-
-msgid "Donate"
-msgstr "Spenden"
-
-msgid "Social"
-msgstr "Sozial"
-
-msgid "Follow us on Twitter"
-msgstr "Folge uns auf Twitter"
-
-msgid "Follow us on Google Plus"
-msgstr "Folge uns auf Google Plus"
-
-msgid "Like us on Facebook"
-msgstr "'Gefällt mir' auf Facebook"
 
 msgid "Settings"
 msgstr "Einstellungen"

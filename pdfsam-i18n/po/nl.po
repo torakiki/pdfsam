@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2014-09-02 17:35+0200\n"
+"POT-Creation-Date: 2014-09-04 15:44+0200\n"
 "PO-Revision-Date: 2014-06-27 21:09+0000\n"
 "Last-Translator: narayan <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -153,19 +153,71 @@ msgstr ""
 msgid "PDFsam {0} is available for download"
 msgstr ""
 
+msgid "Download"
+msgstr ""
+
 msgid "New version available"
 msgstr ""
 
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\MainGUI.java:222
-msgid "About"
-msgstr "Info over"
+msgid "Modules"
+msgstr ""
 
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:150
 msgid "Close"
 msgstr "Afsluiten"
 
-msgid "Modules"
+msgid "Subscribe to the official news feed"
 msgstr ""
+
+msgid "Environment"
+msgstr ""
+
+#, java-format
+msgid "Max memory {0}"
+msgstr ""
+
+msgid "Thanks to"
+msgstr ""
+
+msgid "The open source projects making PDFsam possible"
+msgstr ""
+
+msgid "Support"
+msgstr ""
+
+msgid "Bug and feature requests"
+msgstr ""
+
+msgid "Play the \"get started\" video"
+msgstr ""
+
+msgid "Contribute"
+msgstr ""
+
+msgid "Fork PDFsam on GitHub"
+msgstr ""
+
+msgid "Translate"
+msgstr ""
+
+msgid "Donate"
+msgstr ""
+
+msgid "Social"
+msgstr ""
+
+msgid "Follow us on Twitter"
+msgstr ""
+
+msgid "Follow us on Google Plus"
+msgstr ""
+
+msgid "Like us on Facebook"
+msgstr ""
+
+# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\MainGUI.java:222
+msgid "About"
+msgstr "Info over"
 
 msgid "Appearance"
 msgstr ""
@@ -281,55 +333,6 @@ msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
 msgstr ""
 
 msgid "Clear usage statistics"
-msgstr ""
-
-msgid "Subscribe to the official news feed"
-msgstr ""
-
-msgid "Environment"
-msgstr ""
-
-#, java-format
-msgid "Max memory {0}"
-msgstr ""
-
-msgid "Thanks to"
-msgstr ""
-
-msgid "The open source projects making PDFsam possible"
-msgstr ""
-
-msgid "Support"
-msgstr ""
-
-msgid "Bug and feature requests"
-msgstr ""
-
-msgid "Play the \"get started\" video"
-msgstr ""
-
-msgid "Contribute"
-msgstr ""
-
-msgid "Fork PDFsam on GitHub"
-msgstr ""
-
-msgid "Translate"
-msgstr ""
-
-msgid "Donate"
-msgstr ""
-
-msgid "Social"
-msgstr ""
-
-msgid "Follow us on Twitter"
-msgstr ""
-
-msgid "Follow us on Google Plus"
-msgstr ""
-
-msgid "Like us on Facebook"
 msgstr ""
 
 msgid "Settings"
