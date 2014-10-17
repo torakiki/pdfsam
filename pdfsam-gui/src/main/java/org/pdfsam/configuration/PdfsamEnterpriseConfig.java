@@ -24,13 +24,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 
-import org.pdfsam.module.PdfsamEnhancedModule;
+import javax.inject.Inject;
+
+import org.pdfsam.Pdfsam;
+import org.pdfsam.PdfsamEdition;
+import org.pdfsam.module.PdfsamEnterpriseModule;
 import org.pdfsam.module.PdfsamModule;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
@@ -41,64 +46,66 @@ import org.springframework.core.io.Resource;
  * 
  */
 @Configuration
-@Profile("ENHANCED")
+@Profile("ENTERPRISE")
 @ComponentScan(basePackages = { "org.pdfsam" }, includeFilters = @Filter(value = { PdfsamModule.class,
-        PdfsamEnhancedModule.class }))
-public class PdfsamEnhancedConfig implements UIConfig {
+        PdfsamEnterpriseModule.class }))
+public class PdfsamEnterpriseConfig implements UIConfig {
+    @Inject
+    private Environment env;
 
     @Bean(name = "logo")
     public Group logo() throws IOException {
-        Resource resource = new ClassPathResource("/fxml/LogoEnhanced.fxml");
+        Resource resource = new ClassPathResource("/fxml/LogoEnterprise.fxml");
         return FXMLLoader.load(resource.getURL());
     }
 
     @Bean(name = "logo16")
     public Image logo16() throws IOException {
-        return new Image(new ClassPathResource("/images/enhanced/16x16.png").getInputStream());
+        return new Image(new ClassPathResource("/images/enterprise/16x16.png").getInputStream());
     }
 
     @Bean(name = "logo24")
     public Image logo24() throws IOException {
-        return new Image(new ClassPathResource("/images/enhanced/24x24.png").getInputStream());
+        return new Image(new ClassPathResource("/images/enterprise/24x24.png").getInputStream());
     }
 
     @Bean(name = "logo32")
     public Image logo32() throws IOException {
-        return new Image(new ClassPathResource("/images/enhanced/32x32.png").getInputStream());
+        return new Image(new ClassPathResource("/images/enterprise/32x32.png").getInputStream());
     }
 
     @Bean(name = "logo48")
     public Image logo48() throws IOException {
-        return new Image(new ClassPathResource("/images/enhanced/48x48.png").getInputStream());
+        return new Image(new ClassPathResource("/images/enterprise/48x48.png").getInputStream());
     }
 
     @Bean(name = "logo64")
     public Image logo64() throws IOException {
-        return new Image(new ClassPathResource("/images/enhanced/64x64.png").getInputStream());
+        return new Image(new ClassPathResource("/images/enterprise/64x64.png").getInputStream());
     }
 
     @Bean(name = "logo96")
     public Image logo96() throws IOException {
-        return new Image(new ClassPathResource("/images/enhanced/96x96.png").getInputStream());
+        return new Image(new ClassPathResource("/images/enterprise/96x96.png").getInputStream());
     }
 
     @Bean(name = "logo128")
     public Image logo128() throws IOException {
-        return new Image(new ClassPathResource("/images/enhanced/128x128.png").getInputStream());
+        return new Image(new ClassPathResource("/images/enterprise/128x128.png").getInputStream());
     }
 
     @Bean(name = "logo256")
     public Image logo256() throws IOException {
-        return new Image(new ClassPathResource("/images/enhanced/256x256.png").getInputStream());
+        return new Image(new ClassPathResource("/images/enterprise/256x256.png").getInputStream());
     }
 
     @Bean(name = "logo512")
     public Image logo512() throws IOException {
-        return new Image(new ClassPathResource("/images/enhanced/512x512.png").getInputStream());
+        return new Image(new ClassPathResource("/images/enterprise/512x512.png").getInputStream());
     }
 
-    @Bean(name = "appName")
-    public String appName() {
-        return "PDF Split And Merge Enhanced";
+    @Bean
+    public Pdfsam pdfsam() {
+        return new Pdfsam(PdfsamEdition.ENTERPRISE, "PDF Split and Merge Enterprise", env.getProperty("pdfsam.version"));
     }
 }

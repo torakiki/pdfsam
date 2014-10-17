@@ -109,7 +109,7 @@ public class App extends Application {
         scene.getStylesheets().addAll(styles.styles());
         primaryStage.setScene(scene);
         primaryStage.getIcons().addAll(logos.values());
-        primaryStage.setTitle(ApplicationContextHolder.getContext().getBean("appName", String.class));
+        primaryStage.setTitle(ApplicationContextHolder.getContext().getBean(Pdfsam.class).name());
         scene.getAccelerators().put(new KeyCodeCombination(KeyCode.L, KeyCombination.SHORTCUT_DOWN),
                 () -> eventStudio().broadcast(new ShowStageRequest(), "LogStage"));
         initWindowsStatusController(primaryStage);

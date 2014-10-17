@@ -65,4 +65,8 @@ class StatefulPreferencesUsageService implements UsageService {
         dataStore.clear();
     }
 
+    public long getTotalUsage() {
+        return dataStore.getTotalUsage();
+    }
+
 }

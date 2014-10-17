@@ -36,6 +36,8 @@ import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.pdfsam.Pdfsam;
+import org.pdfsam.PdfsamEdition;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.ui.dashboard.about.AboutDashboardPane;
@@ -68,7 +70,7 @@ public class DashboardTest {
     static class Config {
         @Bean
         public AboutDashboardPane aboutPane() {
-            AboutDashboardPane about = new AboutDashboardPane("PDFsam", "version");
+            AboutDashboardPane about = new AboutDashboardPane(new Pdfsam(PdfsamEdition.COMMUNITY, "PDFsam", "3.0.0"));
             about.setId("aboutPane");
             return about;
         }

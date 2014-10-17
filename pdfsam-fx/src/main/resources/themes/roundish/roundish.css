@@ -1,0 +1,312 @@
+.root {
+	-pdfsam-shadow-effect: dropshadow(gaussian, rgba(0.0, 0.0, 0.0, 0.2), 6.0, 0.0, 0.0, 4.0);
+	-pdfsam-hover-shadow-effect: dropshadow(gaussian, rgba(0.0, 0.0, 0.0, 0.3), 8.0, 0.0, 0.0, 6.0);
+	-pdfsam-armed-shadow-effect: dropshadow(gaussian, rgba(0.0, 0.0, 0.0, 0.2), 10.0, 0.0, 0.0, 10.0);
+	-pdfsam-flat-bg-color: #EEEEEE;
+	-pdfsam-box-border-color: derive(-pdfsam-flat-bg-color, -10.0%);
+	-pdfsam-error-color: #F44336;
+	-pdfsam-pane-bg: #FFFFFF;
+	-pdfsam-armed-button-color: derive(-pdfsam-flat-bg-color, -18.0%);
+	-pdfsam-progress-color: #C8C8C8;
+	-pdfsam-focus-border-color: rgba(0.0, 0.0, 0.0, 0.2);
+	awesome-error-color: #F44336;
+	awesome-error-color-hover: derive(awesome-error-color, -35.0%);		
+}
+
+#pdfsam-main-pane{
+	-fx-padding: 4.0 6.0 0.0 6.0;
+}
+.pdfsam-module-container {
+	-fx-spacing: 12.0;
+}
+#work-area, #pdfsam-dashboard {
+	-fx-padding: 8.0 2.0 8.0 2.0;
+}
+/**
+ * Buttons
+ */
+.pdfsam-button, .pdfsam-button:default, .pdfsam-button:focused {
+	-fx-background-color: -pdfsam-box-border-color, -pdfsam-flat-bg-color;
+    -fx-background-insets: 0.0, 0.4;
+    -fx-background-radius: 3.0;
+    -fx-padding: 7.0px 14.0px 7.0px 14.0px;
+    -fx-text-fill: -pdfsam-dark-text-color !important;
+}
+.pdfsam-button:focused {
+    -fx-background-color: -pdfsam-focus-border-color, -pdfsam-flat-bg-color;
+    -fx-background-insets: 0.0, 1.0;
+    -fx-background-radius: 3.0;	
+}
+.pdfsam-button:hover {
+    -fx-background-color: -pdfsam-box-border-color, -pdfsam-flat-bg-color;
+    -fx-background-insets: 0.0, 0.4;
+    -fx-background-radius: 3.0;
+    -fx-translate-y: -1.0;
+	-fx-effect: -pdfsam-shadow-effect;    
+}
+.pdfsam-button:armed{
+	-fx-background-color: -pdfsam-armed-button-color;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 3.0;
+    -fx-translate-y: -2.0;
+	-fx-effect: -pdfsam-armed-shadow-effect;
+	-fx-opacity: 0.7;
+}
+.pdfsam-button:disabled {
+    -fx-translate-y: -0.0;
+    -fx-opacity: -fx-disabled-opacity;
+    -fx-effect: none;
+}
+.browse-button {
+	-fx-padding: 0.0px 14.0px 0.0px 14.0px;
+	-fx-alignment: center;
+}
+/**
+ * Log
+ */
+#log-view, #log-view:focused{
+	-fx-background-color: -pdfsam-box-border-color, -pdfsam-tooltipbg-color;
+    -fx-background-insets: 0.0, 0.4;
+    -fx-background-radius: 3.0;
+	-fx-effect: -pdfsam-shadow-effect !important;
+    -fx-padding: 1.0;
+}
+#log-view > .virtual-flow > .scroll-bar:vertical{
+   -fx-padding: 1.0;
+}
+.error-log{
+	-fx-text-fill: -pdfsam-error-color;
+}
+/**
+ * TextField
+ */
+.text-field {
+   	-fx-background-color:  -fx-text-box-border, -pdfsam-pane-bg;
+  	-fx-background-insets: 0.0, 0.0 0.0 2.0 0.0;
+  	-fx-background-radius:  0.0, 0.0;
+}
+.text-field:focused {
+    -fx-background-color:  -pdfsam-theme-color, -pdfsam-pane-bg;
+    -fx-background-insets: 0.0, 0.0 0.0 2.0 0.0;
+}
+/**
+ * Browsable field
+ */
+.browsable-field {
+	-fx-spacing: 5.0px;
+}
+/**
+ * ValidableContainer
+ */
+.validable-container {
+	-fx-background-color:  -fx-text-box-border, -fx-control-inner-background;
+  	-fx-background-insets: 0.0, 0.0 0.0 1.5 0.0;
+  	-fx-background-radius:  0.0, 0.0;
+}
+.validable-container:focused {
+  	-fx-background-insets: 0.0, 0.0 0.0 2.0 0.0;
+}
+.validable-container:selected {
+   	-fx-background-color:  -pdfsam-theme-color, -fx-control-inner-background;
+    -fx-background-insets: 0.0, 0.0 0.0 2.0 0.0;
+    -fx-background-radius: 0.0, 0.0;
+}
+.validable-container-field {
+   -fx-background-color:  transparent;
+   -fx-background-insets: 0.0;
+   -fx-background-radius:  3.0;
+}
+.validable-container-field:focused {
+   -fx-background-color:  transparent;
+   -fx-background-insets: 0.0;
+   -fx-background-radius:  3.0;
+}
+/**
+ * Titled pane
+ */
+ .titled-pane {
+	-fx-padding: 0.4em 0.0 0.4em 0.0;    
+	-fx-effect: -pdfsam-shadow-effect; 
+	-fx-background-color: -pdfsam-box-border-color, -pdfsam-pane-bg;
+    -fx-background-insets: 0.0, 0.4; 
+    -fx-background-radius: 3.0;
+}
+.titled-pane > .title {
+	-fx-background-color: -pdfsam-pane-bg;
+    -fx-background-insets: 0.0;
+    -fx-font-weight: bold; 
+    -fx-background-radius: 3.0;
+}
+.titled-pane > *.content {
+	-fx-background-color: -pdfsam-pane-bg;
+    -fx-background-insets: 0.0;
+    -fx-border-color: none;
+    -fx-border-insets: 0.0;
+    -fx-background-radius: 3.0;
+}
+.titled-pane:focused > .title > .arrow-button > .arrow {
+    -fx-background-color: -pdfsam-theme-color;
+}
+/**
+ * Checkbox
+ */
+.check-box > .box {
+    -fx-background-color: -fx-text-box-border, -fx-control-inner-background;
+    -fx-background-insets: 0.0, 2.0;
+    -fx-background-radius: 1.0, 1.0;
+}
+.check-box:focused > .box {
+	-fx-background-color: -pdfsam-focus-border-color, -fx-text-box-border, -fx-control-inner-background;
+    -fx-background-insets: -1.0, 0.0, 2.0;
+    -fx-background-radius: 1.0, 1.0, 1.0;
+}
+.check-box:selected > .box {
+    -fx-background-color: -pdfsam-theme-color;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 1.0;
+}
+.check-box:focused:selected > .box {
+    -fx-background-color: -pdfsam-focus-border-color, -pdfsam-theme-color;
+    -fx-background-insets: -1.0, 0.0;
+    -fx-background-radius: 1.0, 1.0;	
+}
+.check-box > .box > .mark {
+    -fx-padding: 0.3em; 
+}
+.check-box:selected > .box > .mark {
+    -fx-background-color: -fx-mark-highlight-color, white;
+}
+
+/**
+ * Radio
+ */
+.radio-button > .radio  {
+   -fx-background-color: -fx-text-box-border, -fx-control-inner-background;
+   -fx-background-insets: 0.0, 2.0;
+   -fx-padding: 0.1em; 
+}
+.radio-button:focused > .radio {
+   -fx-background-color: -pdfsam-focus-border-color, -fx-text-box-border, -fx-control-inner-background;
+   -fx-background-insets: -1.0, 0.0, 2.0;
+}
+.radio-button:selected > .radio {
+   -fx-background-color: -pdfsam-theme-color;
+   -fx-background-insets: 0.0;
+}
+.radio-button:focused:selected > .radio {
+   -fx-background-color: -pdfsam-focus-border-color, -pdfsam-theme-color;
+   -fx-background-insets: -1.0, 0.0;
+}
+.radio-button:selected > .radio > .dot {
+   -fx-background-color: transparent;
+   -fx-background-insets: 0.0;
+}
+
+/**
+ * TextArea, TableView
+ */
+ .table-view, .text-area{
+	-fx-background-color:  -pdfsam-box-border-color, -fx-control-inner-background;
+    -fx-background-insets: 0.0, 0.4;
+    -fx-background-radius:  3.0;
+    -fx-effect: -pdfsam-shadow-effect;
+}
+ .table-view:focused, .text-area:focused {
+	-fx-background-color: -pdfsam-focus-border-color,  -fx-control-inner-background;
+    -fx-background-insets: 0.0, 1.0;
+    -fx-background-radius: 3.0, 3.0;
+}
+/**
+ * Invalid
+ */
+.invalid{
+   -fx-background-color:  derive(-pdfsam-error-color, 80.0%), -fx-control-inner-background;
+   -fx-background-insets: 0.0, 0.0 0.0 2.0 0.0;
+}
+.invalid:focused{
+   -fx-background-color:  -pdfsam-error-color, -fx-control-inner-background;
+   -fx-background-insets: 0.0, 0.0 0.0 2.0 0.0;
+}
+/**
+ * Tooltip
+ */
+.tooltip {
+  	-fx-background-color:  #323232;
+    -fx-background-insets:  0.0;
+   	-fx-background-radius:  3.0;
+   	-fx-text-fill: white;
+}
+/**
+ * Error tooltip
+ */
+.error-tooltip {
+	-fx-background-color:  #F44336;
+   	-fx-background-insets: 0.0;
+   	-fx-background-radius:  3.0;
+	-fx-text-fill: #FFFFFF;
+   	-fx-opacity: 0.95;
+   	-fx-font-weight: bold;
+   	-fx-padding: 0.3em 0.4em 0.3em 0.4em;    
+}
+/**
+ * Password popup
+ */
+.pdfsam-input-password {
+	-fx-background-color: -pdfsam-box-border-color, -pdfsam-pane-bg;
+    -fx-background-insets: 0.0, 0.4;
+    -fx-background-radius: 3.0;
+	-fx-effect: -pdfsam-shadow-effect;
+    -fx-border-style: none;
+}
+/**
+ * Table view
+ */
+.table-view .column-header{
+ 	-fx-background-color:  -pdfsam-box-border-color, -fx-control-inner-background;
+    -fx-background-insets: 0.0, 0.0 1.0 1.0 0.0;
+    -fx-background-radius: 0.0, 0.0;
+    -fx-font-weight: bold; 
+}
+.table-view:focused {
+	-fx-background-color: -fx-focus-color, -fx-text-box-border, -fx-control-inner-background;
+    -fx-background-insets: -1.8, 0.0, 1.0;
+    -fx-background-radius: 0.0, 0.0, 0.0;
+}
+/**
+ * Info panel
+ */
+.info-props{
+	-fx-background-color: -pdfsam-box-border-color, -pdfsam-pane-bg;
+    -fx-background-insets: 0.0, 0.4;
+	-fx-background-radius: 3.0, 3.0;
+	-fx-padding: 15.0;
+	-fx-hgap: 10.0px;
+	-fx-vgap: 10.0px;
+}
+
+/**
+ * Tab pane
+ */
+ .tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-width: 0.0;
+}
+.tab-pane > .tab-header-area > .tab-header-background {
+    -fx-background-color: -pdfsam-defaultbg-color;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 0.0;
+    -fx-effect: null;
+}
+.tab-pane > .tab-header-area > .headers-region > .tab:left {
+	-fx-background-color: -pdfsam-defaultbg-color, -pdfsam-box-border-color, -pdfsam-pane-bg;
+    -fx-background-insets: 0.0, 1.0, 1.4;
+    -fx-background-radius: 3.0, 3.0, 3.0;
+    -fx-opacity: 0.8;
+}
+.tab-pane > .tab-header-area > .headers-region > .tab:selected {
+    -fx-background-color: -pdfsam-defaultbg-color, -pdfsam-theme-color, -pdfsam-pane-bg;
+    -fx-background-insets: 0.0, 1.0, 1.4;
+    -fx-background-radius: 3.0, 3.0, 3.0;
+    -fx-effect: -pdfsam-shadow-effect;
+    -fx-opacity: 1.0;
+}
+

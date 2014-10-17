@@ -36,6 +36,8 @@ import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.mockito.ArgumentCaptor;
+import org.pdfsam.Pdfsam;
+import org.pdfsam.PdfsamEdition;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.commons.OpenUrlRequest;
 import org.sejda.eventstudio.Listener;
@@ -63,7 +65,7 @@ public class AboutDashboardPaneTest extends GuiTest {
 
     @Override
     protected Parent getRootNode() {
-        return new AboutDashboardPane("PDFsam", "3.0.0");
+        return new AboutDashboardPane(new Pdfsam(PdfsamEdition.COMMUNITY, "PDFsam", "3.0.0"));
     }
 
     @Test

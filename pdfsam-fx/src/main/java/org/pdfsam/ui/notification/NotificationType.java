@@ -61,6 +61,17 @@ public enum NotificationType {
         public String getStyleClass() {
             return "notification-error";
         }
+    },
+    GO_PRO {
+        @Override
+        public Node getGraphic() {
+            return AwesomeDude.createIconLabel(AwesomeIcon.HEART_ALT, DEFAULT_ICON_SIZE);
+        }
+
+        @Override
+        public String getStyleClass() {
+            return "notification-pro";
+        }
     };
 
     private final static String DEFAULT_ICON_SIZE = "32.0";

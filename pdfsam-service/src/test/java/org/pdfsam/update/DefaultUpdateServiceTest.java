@@ -27,6 +27,8 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.junit.Rule;
 import org.junit.Test;
+import org.pdfsam.Pdfsam;
+import org.pdfsam.PdfsamEdition;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeJavaFxThreadRule;
 import org.sejda.eventstudio.Listener;
@@ -44,7 +46,8 @@ public class DefaultUpdateServiceTest {
 
     @Test
     public void pasitiveCheckForUpdates() {
-        DefaultUpdateService victim = new DefaultUpdateService("3.0.0.M1", "{\"currentVersion\" : \"3.0.0\"}");
+        DefaultUpdateService victim = new DefaultUpdateService(
+                new Pdfsam(PdfsamEdition.COMMUNITY, "PDFsam", "3.0.0.M1"), "{\"currentVersion\" : \"3.0.0\"}");
         Listener<UpdateAvailableEvent> listener = mock(Listener.class);
         eventStudio().add(UpdateAvailableEvent.class, listener);
         victim.checkForUpdates();
@@ -53,7 +56,8 @@ public class DefaultUpdateServiceTest {
 
     @Test
     public void negativeCheckForUpdates() {
-        DefaultUpdateService victim = new DefaultUpdateService("3.0.0", "{\"currentVersion\" : \"3.0.0\"}");
+        DefaultUpdateService victim = new DefaultUpdateService(new Pdfsam(PdfsamEdition.COMMUNITY, "PDFsam", "3.0.0"),
+                "{\"currentVersion\" : \"3.0.0\"}");
         Listener<UpdateAvailableEvent> listener = mock(Listener.class);
         eventStudio().add(UpdateAvailableEvent.class, listener);
         victim.checkForUpdates();

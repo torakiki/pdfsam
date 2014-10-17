@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 02/nov/2013
+ * Created on 22/ott/2013
  * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,40 +18,22 @@
  */
 package org.pdfsam.module;
 
-import java.util.List;
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
- * Service providing modules usage related functionalities
+ * Indicates that the annotated type is a pdfsam module available in the Enterprise version. Annotated classes can be picked up by the an IOC container and used at runtime to
+ * create a modules system.
  * 
  * @author Andrea Vacondio
  * 
  */
-public interface UsageService {
-
-    /**
-     * Increments the usage of the given module
-     * 
-     * @param moduleId
-     */
-    void incrementUsageFor(String moduleId);
-
-    /**
-     * @return a sorted list with the most used modules
-     */
-    List<Module> getMostUsed();
-
-    /**
-     * @return a sorted list with the most recently modules
-     */
-    List<Module> getMostRecentlyUsed();
-
-    /**
-     * Clear usage statistics
-     */
-    void clear();
-
-    /**
-     * @return number of total executed tasks
-     */
-    long getTotalUsage();
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface PdfsamEnterpriseModule {
+    // nothing
 }

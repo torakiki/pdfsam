@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 22/ott/2013
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 17/ott/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,24 +16,15 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.module;
-
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+package org.pdfsam;
 
 /**
- * Indicates that the annotated type is a pdfsam module available in the Enhanced version. Annotated classes can be picked up by the an IOC container and used at runtime to create
- * a plugin system.
+ * Edition types for PDFsam
  * 
  * @author Andrea Vacondio
- * 
+ *
  */
-@Target(ElementType.TYPE)
-@Retention(RetentionPolicy.RUNTIME)
-@Documented
-public @interface PdfsamEnhancedModule {
-    // nothing
+public enum PdfsamEdition {
+    COMMUNITY,
+    ENTERPRISE;
 }

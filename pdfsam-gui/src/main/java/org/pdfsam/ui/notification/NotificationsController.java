@@ -18,21 +18,23 @@
  */
 package org.pdfsam.ui.notification;
 
-import static org.pdfsam.support.RequireUtils.requireNotBlank;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.pdfsam.Pdfsam;
+import org.pdfsam.PdfsamEdition;
 import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.module.UsageService;
 import org.pdfsam.ui.commons.UrlButton;
 import org.pdfsam.update.UpdateAvailableEvent;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.model.exception.InvalidTaskParametersException;
+import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 
 /**
@@ -44,11 +46,17 @@ import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 @Named
 public class NotificationsController {
 
-    @Inject
-    private NotificationsContainer container;
+    private static final int TIMES_BEFORE_ENTERPRISE_NOTICE = 5;
 
-    @PostConstruct
-    void init() {
+    private NotificationsContainer container;
+    private UsageService service;
+    private Pdfsam pdfsam;
+
+    @Inject
+    NotificationsController(NotificationsContainer container, UsageService service, Pdfsam pdfsam) {
+        this.container = container;
+        this.service = service;
+        this.pdfsam = pdfsam;
         eventStudio().addAnnotatedListeners(this);
     }
 
@@ -58,7 +66,6 @@ public class NotificationsController {
     }
 
     private Label buildLabel(String message, NotificationType type) {
-        requireNotBlank(message, "Notification text cannot be blank");
         Label textLabel = new Label(message);
         textLabel.getStyleClass().add("notification-text");
         if (type != null) {
@@ -77,6 +84,20 @@ public class NotificationsController {
                             DefaultI18nContext.getInstance().i18n(
                                     "Input parameters are invalid, open the application messages for details."),
                             NotificationType.ERROR));
+        }
+    }
+
+    @EventListener
+    public void onTaskCompleted(@SuppressWarnings("unused") TaskExecutionCompletedEvent e) {
+        long usages = service.getTotalUsage();
+        if (PdfsamEdition.COMMUNITY == pdfsam.edition() && (usages % TIMES_BEFORE_ENTERPRISE_NOTICE) == 1) {
+            VBox content = new VBox(3, buildLabel(
+                    DefaultI18nContext.getInstance().i18n("You performed {0} tasks with PDFsam, did it help?",
+                            Long.toString(usages)), NotificationType.GO_PRO), new UrlButton(DefaultI18nContext
+                    .getInstance().i18n("Give something back"), "http://www.pdfsam.org/offers"));
+            content.setAlignment(Pos.TOP_RIGHT);
+
+            container.addStickyNotification(DefaultI18nContext.getInstance().i18n("PDFsam worked hard!"), content);
         }
     }
 

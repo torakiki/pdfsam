@@ -101,6 +101,12 @@ public class StatefulPreferencesUsageServiceTest {
     }
 
     @Test
+    public void getTotalUsage() {
+        victim.getTotalUsage();
+        verify(dataStore).getTotalUsage();
+    }
+
+    @Test
     public void getMostUsed() {
         List<ModuleUsage> usages = Arrays.asList(new ModuleUsage[] { fistUsage("IDontExist"), fistUsage("module1"),
                 fistUsage("module2").inc() });

@@ -34,7 +34,7 @@
 }
 .notification-error .awesome, .notification-error .awesome:hover{
     -fx-effect: null;
-    -fx-text-fill: #ED5554;
+    -fx-text-fill: -pdfsam-error-color;
 }
 .notification-warn .awesome, .notification-warn .awesome:hover{
     -fx-effect: null;
@@ -43,6 +43,10 @@
 .notification-info .awesome, .notification-info .awesome:hover{
     -fx-effect: null;
     -fx-text-fill: -pdfsam-info-color;
+}
+.notification-pro .awesome, .notification-info .awesome:hover{
+    -fx-effect: null;
+    -fx-text-fill: -pdfsam-theme-color;
 }
 .notification .close{
 	-fx-background-color:  transparent;

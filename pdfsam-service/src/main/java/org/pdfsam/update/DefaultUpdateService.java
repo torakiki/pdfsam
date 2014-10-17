@@ -28,6 +28,7 @@ import javafx.application.Platform;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.pdfsam.Pdfsam;
 import org.pdfsam.context.DefaultI18nContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,12 +46,12 @@ class DefaultUpdateService implements UpdateService {
     private static final Logger LOG = LoggerFactory.getLogger(DefaultUpdateService.class);
     private static final String CURRENT_VERSION_KEY = "currentVersion";
 
-    private String appVersion;
+    private Pdfsam pdfsam;
     private Object jsonSource;
 
     @Inject
-    DefaultUpdateService(@Named("appVersion") String appVersion, @Named("updatesUrl") Object jsonSource) {
-        this.appVersion = appVersion;
+    DefaultUpdateService(Pdfsam pdfsam, @Named("updatesUrl") Object jsonSource) {
+        this.pdfsam = pdfsam;
         this.jsonSource = jsonSource;
     }
 
@@ -58,7 +59,7 @@ class DefaultUpdateService implements UpdateService {
         try {
             Map<String, Object> map = JSON.std.mapFrom(jsonSource);
             String current = map.getOrDefault(CURRENT_VERSION_KEY, "").toString();
-            if (!current.equals(appVersion)) {
+            if (!current.equals(pdfsam.version())) {
                 LOG.info(DefaultI18nContext.getInstance().i18n("PDFsam {0} is available for download", current));
                 Platform.runLater(() -> eventStudio().broadcast(new UpdateAvailableEvent(current)));
             }

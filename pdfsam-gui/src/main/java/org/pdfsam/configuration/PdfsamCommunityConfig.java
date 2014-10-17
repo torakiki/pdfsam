@@ -24,12 +24,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 
+import javax.inject.Inject;
+
+import org.pdfsam.Pdfsam;
+import org.pdfsam.PdfsamEdition;
 import org.pdfsam.module.PdfsamModule;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
@@ -43,6 +48,9 @@ import org.springframework.core.io.Resource;
 @Profile("COMMUNITY")
 @ComponentScan(basePackages = { "org.pdfsam" }, includeFilters = @Filter(value = PdfsamModule.class))
 public class PdfsamCommunityConfig implements UIConfig {
+
+    @Inject
+    private Environment env;
 
     @Bean(name = "logo")
     public Group logo() throws IOException {
@@ -95,8 +103,9 @@ public class PdfsamCommunityConfig implements UIConfig {
         return new Image(new ClassPathResource("/images/community/512x512.png").getInputStream());
     }
 
-    @Bean(name = "appName")
-    public String appName() {
-        return "PDF Split and Merge Community Edition";
+    @Bean
+    public Pdfsam pdfsam() {
+        return new Pdfsam(PdfsamEdition.COMMUNITY, "PDF Split and Merge Community Edition",
+                env.getProperty("pdfsam.version"));
     }
 }

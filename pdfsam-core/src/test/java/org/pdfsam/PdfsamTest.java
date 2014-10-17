@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 02/nov/2013
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 17/ott/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,42 +16,28 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.module;
+package org.pdfsam;
 
-import java.util.List;
+import org.junit.Test;
 
 /**
- * Service providing modules usage related functionalities
- * 
  * @author Andrea Vacondio
- * 
+ *
  */
-public interface UsageService {
+@SuppressWarnings("unused")
+public class PdfsamTest {
+    @Test(expected = IllegalArgumentException.class)
+    public void blankName() {
+        new Pdfsam(PdfsamEdition.COMMUNITY, " ", "version");
+    }
 
-    /**
-     * Increments the usage of the given module
-     * 
-     * @param moduleId
-     */
-    void incrementUsageFor(String moduleId);
+    @Test(expected = IllegalArgumentException.class)
+    public void blankVersion() {
+        new Pdfsam(PdfsamEdition.COMMUNITY, "name", " ");
+    }
 
-    /**
-     * @return a sorted list with the most used modules
-     */
-    List<Module> getMostUsed();
-
-    /**
-     * @return a sorted list with the most recently modules
-     */
-    List<Module> getMostRecentlyUsed();
-
-    /**
-     * Clear usage statistics
-     */
-    void clear();
-
-    /**
-     * @return number of total executed tasks
-     */
-    long getTotalUsage();
+    @Test(expected = IllegalArgumentException.class)
+    public void nullEdition() {
+        new Pdfsam(null, "name", "version");
+    }
 }

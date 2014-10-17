@@ -34,6 +34,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.apache.commons.io.FileUtils;
+import org.pdfsam.Pdfsam;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.ui.commons.UrlButton;
 import org.pdfsam.ui.support.Style;
@@ -51,13 +52,13 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
 public class AboutDashboardPane extends HBox {
 
     @Inject
-    public AboutDashboardPane(@Named("appName") String name, @Named("appVersion") String version) {
+    public AboutDashboardPane(Pdfsam pdfsam) {
         getStyleClass().add("dashboard-container");
         VBox left = new VBox(5);
-        addSectionTitle(name, left);
+        addSectionTitle(pdfsam.name(), left);
         Label copyright = new Label("Copyright 2014 by Andrea Vacondio");
         AwesomeDude.setIcon(copyright, AwesomeIcon.COPYRIGHT);
-        left.getChildren().addAll(new Label(String.format("ver. %s", version)), copyright);
+        left.getChildren().addAll(new Label(String.format("ver. %s", pdfsam.version())), copyright);
         addHyperlink(null, "http://www.gnu.org/licenses/agpl-3.0.html", "GNU Affero General Public License v3", left);
         addHyperlink(AwesomeIcon.HOME, "http://www.pdfsam.org", "www.pdfsam.org", left);
         addHyperlink(AwesomeIcon.RSS_SQUARE, "http://www.pdfsam.org/feed/",
@@ -75,8 +76,9 @@ public class AboutDashboardPane extends HBox {
         copyButton.setId("copyEnvDetails");
         copyButton.setOnAction(a -> {
             ClipboardContent content = new ClipboardContent();
-            writeContent(Arrays.asList(name, version, runtime.getText(), fxRuntime.getText(), memory.getText())).to(
-                    content);
+            writeContent(
+                    Arrays.asList(pdfsam.name(), pdfsam.version(), runtime.getText(), fxRuntime.getText(),
+                            memory.getText())).to(content);
             Clipboard.getSystemClipboard().setContent(content);
         });
         left.getChildren().addAll(runtime, fxRuntime, memory, copyButton);

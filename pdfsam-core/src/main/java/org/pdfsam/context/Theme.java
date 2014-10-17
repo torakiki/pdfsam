@@ -57,11 +57,11 @@ public enum Theme {
     ROUNDISH {
         @Override
         public List<String> styleSheets() {
-            return Arrays.asList("/themes/defaults.css", "/themes/progress.css", "/themes/pdfsam.css",
-                    "/themes/banner.css", "/themes/notifications.css", "/themes/dashboard.css", "/themes/menu.css",
-                    "/themes/dialogs.css", "/themes/roundish/theme.css", "/themes/roundish/combo.css",
-                    "/themes/roundish/progress.css", "/themes/roundish/banner.css", "/themes/quickbar.css",
-                    "/themes/roundish/quickbar.css", "/themes/roundish/notifications.css",
+            return Arrays.asList("/themes/roundish/theme.css", "/themes/defaults.css", "/themes/progress.css",
+                    "/themes/pdfsam.css", "/themes/banner.css", "/themes/notifications.css", "/themes/dashboard.css",
+                    "/themes/menu.css", "/themes/dialogs.css", "/themes/roundish/roundish.css",
+                    "/themes/roundish/combo.css", "/themes/roundish/progress.css", "/themes/roundish/banner.css",
+                    "/themes/quickbar.css", "/themes/roundish/quickbar.css", "/themes/roundish/notifications.css",
                     "/themes/roundish/dashboard.css", "/themes/roundish/menu.css");
         }
 

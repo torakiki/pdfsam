@@ -61,10 +61,6 @@ public class PdfsamConfig {
         return new ImageView(new ClassPathResource("/images/payoff.png").getURL().toExternalForm());
     }
 
-    @Bean(name = "appVersion")
-    public String version() {
-        return env.getProperty("pdfsam.version");
-    }
 
     @Bean(name = "updatesUrl")
     public URL updatesUrl() throws MalformedURLException {
