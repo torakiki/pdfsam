@@ -98,7 +98,7 @@ public class NotificationsControllerTest {
 
     @Test
     public void onTaskCompleteAndNoProDisplay() {
-        when(service.getTotalUsage()).thenReturn(2L);
+        when(service.getTotalUsage()).thenReturn(1L);
         TaskExecutionCompletedEvent event = new TaskExecutionCompletedEvent(1, null);
         victim.onTaskCompleted(event);
         verify(container, never()).addNotification(anyString(), any());
@@ -106,7 +106,7 @@ public class NotificationsControllerTest {
 
     @Test
     public void onTaskCompleteAndProDisplay() {
-        when(service.getTotalUsage()).thenReturn(6L);
+        when(service.getTotalUsage()).thenReturn(5L);
         TaskExecutionCompletedEvent event = new TaskExecutionCompletedEvent(1, null);
         victim.onTaskCompleted(event);
         verify(container).addStickyNotification(anyString(), any());

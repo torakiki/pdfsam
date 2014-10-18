@@ -90,7 +90,7 @@ public class NotificationsController {
     @EventListener
     public void onTaskCompleted(@SuppressWarnings("unused") TaskExecutionCompletedEvent e) {
         long usages = service.getTotalUsage();
-        if (PdfsamEdition.COMMUNITY == pdfsam.edition() && (usages % TIMES_BEFORE_ENTERPRISE_NOTICE) == 1) {
+        if (PdfsamEdition.COMMUNITY == pdfsam.edition() && (usages % TIMES_BEFORE_ENTERPRISE_NOTICE) == 0) {
             VBox content = new VBox(3, buildLabel(
                     DefaultI18nContext.getInstance().i18n("You performed {0} tasks with PDFsam, did it help?",
                             Long.toString(usages)), NotificationType.GO_PRO), new UrlButton(DefaultI18nContext
