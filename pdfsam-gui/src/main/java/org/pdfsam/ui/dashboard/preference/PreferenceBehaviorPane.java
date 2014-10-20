@@ -18,11 +18,15 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
-import javafx.scene.layout.VBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
+import javafx.scene.layout.GridPane;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.ui.support.Style;
 
 /**
@@ -32,13 +36,24 @@ import org.pdfsam.ui.support.Style;
  * 
  */
 @Named
-class PreferenceBehaviorPane extends VBox {
+class PreferenceBehaviorPane extends GridPane {
 
     @Inject
     public PreferenceBehaviorPane(@Named("checkForUpdates") PreferenceCheckBox checkForUpdates,
-            @Named("playSounds") PreferenceCheckBox playSounds) {
-        super(checkForUpdates, playSounds);
+            @Named("playSounds") PreferenceCheckBox playSounds,
+            @Named("newsDisplayPolicy") PreferenceComboBox<KeyStringValueItem<String>> newsDisplayPolicy) {
+
+        add(checkForUpdates, 0, 0, 2, 1);
+        add(playSounds, 0, 1, 2, 1);
+
+        newsDisplayPolicy.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
+                "Set how often the PDFsam news panel should be opened")));
+        add(new Label(DefaultI18nContext.getInstance().i18n("News panel:")), 0, 2);
+        setFillWidth(newsDisplayPolicy, true);
+        add(newsDisplayPolicy, 1, 2);
+
         getStyleClass().addAll(Style.CONTAINER.css());
+        getStyleClass().addAll(Style.GRID.css());
     }
 
 }

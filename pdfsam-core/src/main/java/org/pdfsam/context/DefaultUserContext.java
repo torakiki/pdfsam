@@ -18,9 +18,13 @@
  */
 package org.pdfsam.context;
 
+import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
+
 import java.util.prefs.Preferences;
 
 import org.apache.commons.lang3.StringUtils;
+import org.pdfsam.ui.NewsPolicy;
+import org.pdfsam.ui.Theme;
 
 /**
  * {@link Preferences} implementation for the {@link UserContext}.
@@ -65,7 +69,8 @@ public final class DefaultUserContext implements UserContext {
 
     @Override
     public String getTheme() {
-        return prefs.get(StringUserPreference.THEME.toString(), StringUtils.EMPTY);
+        return defaultIfBlank(prefs.get(StringUserPreference.THEME.toString(), StringUtils.EMPTY),
+                Theme.ROUNDISH.toString());
     }
 
     @Override
@@ -75,7 +80,8 @@ public final class DefaultUserContext implements UserContext {
 
     @Override
     public String getNewsPolicy() {
-        return prefs.get(StringUserPreference.NEWS_POLICY.toString(), StringUtils.EMPTY);
+        return defaultIfBlank(prefs.get(StringUserPreference.NEWS_POLICY.toString(), StringUtils.EMPTY),
+                NewsPolicy.ONCE_A_DAY.toString());
     }
 
     @Override

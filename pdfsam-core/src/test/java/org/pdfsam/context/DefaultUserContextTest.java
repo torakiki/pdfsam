@@ -28,6 +28,8 @@ import java.util.prefs.Preferences;
 
 import org.junit.AfterClass;
 import org.junit.Test;
+import org.pdfsam.ui.NewsPolicy;
+import org.pdfsam.ui.Theme;
 
 /**
  * Test unit for the {@link DefaultUserContext}.
@@ -100,7 +102,7 @@ public class DefaultUserContextTest {
         victim.setStringPreference(StringUserPreference.THEME, "ChuckNorris");
         assertEquals("ChuckNorris", victim.getTheme());
         victim.setStringPreference(StringUserPreference.THEME, "");
-        assertTrue(isBlank(victim.getTheme()));
+        assertEquals(Theme.ROUNDISH.toString(), victim.getTheme());
     }
 
     @Test
@@ -109,6 +111,14 @@ public class DefaultUserContextTest {
         assertEquals("ChuckNorris", victim.getStartupModule());
         victim.setStringPreference(StringUserPreference.STARTUP_MODULE, "");
         assertTrue(isBlank(victim.getStartupModule()));
+    }
+
+    @Test
+    public void getNewsPolicy() {
+        victim.setStringPreference(StringUserPreference.NEWS_POLICY, "ChuckNorris");
+        assertEquals("ChuckNorris", victim.getNewsPolicy());
+        victim.setStringPreference(StringUserPreference.NEWS_POLICY, "");
+        assertEquals(NewsPolicy.ONCE_A_DAY.toString(), victim.getNewsPolicy());
     }
 
     @Test

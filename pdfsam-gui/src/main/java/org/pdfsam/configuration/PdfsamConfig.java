@@ -18,8 +18,6 @@
  */
 package org.pdfsam.configuration;
 
-import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
-
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
@@ -62,7 +60,6 @@ public class PdfsamConfig {
         return new ImageView(new ClassPathResource("/images/payoff.png").getURL().toExternalForm());
     }
 
-
     @Bean(name = "updatesUrl")
     public URL updatesUrl() throws MalformedURLException {
         return new URL(String.format("http://www.pdfsam.org/current-version?c=%s", env.getProperty("pdfsam.version")));
@@ -75,7 +72,7 @@ public class PdfsamConfig {
 
     @Bean
     public StylesConfig styles() {
-        String themeString = defaultIfBlank(userContext().getTheme(), Theme.ROUNDISH.toString());
+        String themeString = userContext().getTheme();
         Theme selected = Theme.ROUNDISH;
         try {
             selected = Theme.valueOf(themeString);

@@ -22,18 +22,25 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
+import java.util.Locale;
 
 import javax.inject.Inject;
 
+import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.pdfsam.context.SetLocaleEvent;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.module.Module;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.HighPriorityTestModule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
+import org.pdfsam.ui.NewsPolicy;
+import org.pdfsam.ui.Theme;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -59,13 +66,18 @@ public class PreferencePaneTest {
     private ApplicationContext applicationContext;
     private static UserContext userContext = mock(UserContext.class);
 
+    @BeforeClass
+    public static void setUp() {
+        eventStudio().broadcast(new SetLocaleEvent(Locale.UK.toLanguageTag()));
+    }
+
     @Configuration
     @Lazy
     @ComponentScan(basePackages = { "org.pdfsam.ui.dashboard.preference" })
     static class Config {
         @Bean
         public UserContext userContext() {
-            when(userContext.getTheme()).thenReturn("sienna.css");
+            when(userContext.getTheme()).thenReturn(Theme.ROUNDISH.toString());
             when(userContext.isCheckForUpdates()).thenReturn(Boolean.TRUE);
             when(userContext.isPlaySounds()).thenReturn(Boolean.TRUE);
             when(userContext.isHighQualityThumbnails()).thenReturn(Boolean.TRUE);
@@ -74,6 +86,7 @@ public class PreferencePaneTest {
             when(userContext.getDefaultWorkspacePath()).thenReturn("/my/path.xml");
             when(userContext.getThumbnailsSize()).thenReturn(200);
             when(userContext.getStartupModule()).thenReturn("");
+            when(userContext.getNewsPolicy()).thenReturn(NewsPolicy.ONCE_A_DAY.toString());
             return userContext;
         }
 
@@ -85,11 +98,16 @@ public class PreferencePaneTest {
 
     @Test
     @DirtiesContext
+    @SuppressWarnings("unchecked")
     public void configOnStartup() {
         PreferencePane victim = applicationContext.getBean(PreferencePane.class);
         PreferenceComboBox<KeyStringValueItem<String>> theme = (PreferenceComboBox<KeyStringValueItem<String>>) victim
                 .lookup("#themeCombo");
-        assertEquals("sienna.css", theme.getSelectionModel().getSelectedItem().getKey());
+        PreferenceComboBox<KeyStringValueItem<String>> startupModuleCombo = (PreferenceComboBox<KeyStringValueItem<String>>) victim
+                .lookup("#startupModuleCombo");
+        PreferenceComboBox<KeyStringValueItem<String>> newsDisplayPolicy = (PreferenceComboBox<KeyStringValueItem<String>>) victim
+                .lookup("#newsPolicy");
+        assertEquals(Theme.ROUNDISH.friendlyName(), theme.getSelectionModel().getSelectedItem().getValue());
         assertTrue(((PreferenceCheckBox) victim.lookup("#checkForUpdates")).isSelected());
         assertTrue(((PreferenceCheckBox) victim.lookup("#playSounds")).isSelected());
         assertTrue(((PreferenceCheckBox) victim.lookup("#highQualityThumbnails")).isSelected());
@@ -99,6 +117,9 @@ public class PreferencePaneTest {
         assertEquals("/my/path", ((PreferenceBrowsableDirectoryField) victim.lookup("#workingDirectory"))
                 .getTextField().getText());
         assertEquals("200", ((PreferenceIntTextField) victim.lookup("#thumbnailsSize")).getText());
+        assertEquals("Dashboard", startupModuleCombo.getSelectionModel().getSelectedItem().getValue());
+        assertEquals(NewsPolicy.ONCE_A_DAY.friendlyName(), newsDisplayPolicy.getSelectionModel().getSelectedItem()
+                .getValue());
     }
 
 }

@@ -37,6 +37,7 @@ import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.LocaleKeyValueItem;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.support.validation.Validators;
+import org.pdfsam.ui.NewsPolicy;
 import org.pdfsam.ui.Theme;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -78,11 +79,25 @@ public class PreferenceConfig {
     public PreferenceComboBox<KeyStringValueItem<String>> startupModuleCombo(List<Module> modules) {
         PreferenceComboBox<KeyStringValueItem<String>> startupModuleCombo = new PreferenceComboBox<>(
                 StringUserPreference.STARTUP_MODULE, userContext);
+        startupModuleCombo.setId("startupModuleCombo");
         startupModuleCombo.getItems().add(
                 new KeyStringValueItem<>("", DefaultI18nContext.getInstance().i18n("Dashboard")));
         modules.stream().map(ModuleKeyValueItem::new).forEach(startupModuleCombo.getItems()::add);
         startupModuleCombo.setValue(new KeyStringValueItem<>(userContext.getStartupModule(), ""));
         return startupModuleCombo;
+    }
+
+    @Bean(name = "newsDisplayPolicy")
+    public PreferenceComboBox<KeyStringValueItem<String>> newsDisplayPolicy() {
+        PreferenceComboBox<KeyStringValueItem<String>> newsDisplayPolicyCombo = new PreferenceComboBox<>(
+                StringUserPreference.NEWS_POLICY, userContext);
+        newsDisplayPolicyCombo.setId("newsPolicy");
+        newsDisplayPolicyCombo.getItems().addAll(
+                Arrays.stream(NewsPolicy.values()).map(t -> new KeyStringValueItem<>(t.toString(), t.friendlyName()))
+                        .collect(Collectors.toList()));
+
+        newsDisplayPolicyCombo.setValue(new KeyStringValueItem<>(userContext.getNewsPolicy(), ""));
+        return newsDisplayPolicyCombo;
     }
 
     @Bean(name = "thumbnailsCombo")

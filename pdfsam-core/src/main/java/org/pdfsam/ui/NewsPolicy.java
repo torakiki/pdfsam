@@ -16,7 +16,9 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.configuration;
+package org.pdfsam.ui;
+
+import org.pdfsam.context.DefaultI18nContext;
 
 /**
  * Policy to use when displaying latest news
@@ -25,8 +27,30 @@ package org.pdfsam.configuration;
  *
  */
 public enum NewsPolicy {
-    NEVER,
-    ONCE_A_DAY,
-    ONCE_A_WEEK,
-    ALWAYS;
+    NEVER {
+        @Override
+        public String friendlyName() {
+            return DefaultI18nContext.getInstance().i18n("Never");
+        }
+    },
+    ONCE_A_DAY {
+        @Override
+        public String friendlyName() {
+            return DefaultI18nContext.getInstance().i18n("Once a day");
+        }
+    },
+    ONCE_A_WEEK {
+        @Override
+        public String friendlyName() {
+            return DefaultI18nContext.getInstance().i18n("Once a week");
+        }
+    },
+    ALWAYS {
+        @Override
+        public String friendlyName() {
+            return DefaultI18nContext.getInstance().i18n("Always");
+        }
+    };
+
+    public abstract String friendlyName();
 }
