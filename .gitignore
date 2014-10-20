@@ -2,8 +2,10 @@
 
 .classpath
 .project
+.launch
 .settings/
 target/
+.externalToolBuilders/
 
 # Package Files #
 *.jar
