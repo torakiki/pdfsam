@@ -36,7 +36,7 @@ import javafx.scene.control.ProgressBar;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.pdfsam.context.SetLocaleEvent;
+import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;

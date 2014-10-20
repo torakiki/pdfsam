@@ -24,7 +24,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.TextAlignment;
 
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.support.Style;
 
 /**

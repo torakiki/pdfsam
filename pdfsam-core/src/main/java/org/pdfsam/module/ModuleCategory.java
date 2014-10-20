@@ -18,7 +18,7 @@
  */
 package org.pdfsam.module;
 
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 
 /**
  * The category for a module

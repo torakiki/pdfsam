@@ -23,7 +23,7 @@ import javafx.scene.control.Tooltip;
 
 import javax.inject.Named;
 
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.commons.ShowStageRequest;
 
 import de.jensd.fx.fontawesome.AwesomeIcon;

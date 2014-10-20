@@ -25,7 +25,7 @@ import javafx.scene.layout.GridPane;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.ui.support.Style;
 

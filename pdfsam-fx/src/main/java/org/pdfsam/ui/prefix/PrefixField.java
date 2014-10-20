@@ -25,8 +25,8 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 
-import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.context.I18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.sejda.model.prefix.Prefix;
 
 /**

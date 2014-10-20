@@ -27,10 +27,10 @@ import javafx.scene.control.Tooltip;
 import javax.inject.Inject;
 
 import org.pdfsam.context.BooleanUserPreference;
-import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.IntUserPreference;
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.ModuleKeyValueItem;
 import org.pdfsam.support.KeyStringValueItem;

@@ -20,7 +20,7 @@ package org.pdfsam.alternatemix;
 
 import java.util.function.Consumer;
 
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.selection.single.SingleSelectionPane;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;

@@ -27,7 +27,7 @@ import java.util.Collections;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.sejda.common.collection.NullSafeSet;
 import org.sejda.conversion.exception.ConversionException;

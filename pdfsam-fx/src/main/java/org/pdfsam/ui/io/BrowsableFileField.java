@@ -34,7 +34,7 @@ import javafx.scene.input.DragEvent;
 import javafx.scene.input.TransferMode;
 
 import org.apache.commons.lang3.ObjectUtils;
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.support.validation.Validator;
 import org.pdfsam.support.validation.Validators;

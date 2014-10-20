@@ -21,7 +21,7 @@ package org.pdfsam.ui;
 import java.util.Arrays;
 import java.util.List;
 
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 
 /**
  * Themes available for the user to configure

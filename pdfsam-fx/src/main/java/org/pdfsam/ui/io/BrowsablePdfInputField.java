@@ -22,7 +22,7 @@ import java.util.function.Consumer;
 
 import javax.inject.Named;
 
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.support.params.SinglePdfSourceTaskParametersBuilder;
 import org.pdfsam.support.params.TaskParametersBuildStep;

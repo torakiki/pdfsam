@@ -33,7 +33,7 @@ import javafx.scene.layout.VBox;
 
 import javax.inject.Named;
 
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.model.exception.TaskOutputVisitException;

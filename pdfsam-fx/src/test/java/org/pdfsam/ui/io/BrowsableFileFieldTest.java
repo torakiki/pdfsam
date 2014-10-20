@@ -28,7 +28,7 @@ import java.util.Locale;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
-import org.pdfsam.context.SetLocaleEvent;
+import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;

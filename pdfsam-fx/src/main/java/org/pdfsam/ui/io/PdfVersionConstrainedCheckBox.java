@@ -25,7 +25,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Tooltip;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.ui.support.Style;
 import org.sejda.model.pdf.PdfVersion;

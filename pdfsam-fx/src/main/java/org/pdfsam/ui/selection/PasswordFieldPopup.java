@@ -28,7 +28,7 @@ import javafx.scene.control.Skin;
 import javafx.scene.layout.HBox;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;

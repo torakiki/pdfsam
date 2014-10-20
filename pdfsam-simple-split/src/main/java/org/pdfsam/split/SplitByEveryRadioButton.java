@@ -23,7 +23,7 @@ import java.util.function.Consumer;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Tooltip;
 
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
 import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.commons.ValidableTextField;

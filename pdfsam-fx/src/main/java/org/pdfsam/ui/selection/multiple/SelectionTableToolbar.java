@@ -30,7 +30,7 @@ import javafx.scene.control.Tooltip;
 import javafx.stage.FileChooser;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.io.FileType;

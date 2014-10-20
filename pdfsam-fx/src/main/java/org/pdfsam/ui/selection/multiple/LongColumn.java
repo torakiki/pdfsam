@@ -26,7 +26,7 @@ import javafx.beans.value.ObservableValue;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.time.FastDateFormat;
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 
 /**
  * Definition of the {@link Long} columns of the selection table

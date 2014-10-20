@@ -20,7 +20,7 @@ package org.pdfsam.ui.io;
 
 import java.util.function.Consumer;
 
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.support.params.SingleOutputTaskParametersBuilder;
 import org.pdfsam.support.params.TaskParametersBuildStep;

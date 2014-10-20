@@ -21,7 +21,7 @@ package org.pdfsam.ui.module;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.control.Button;
 
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;

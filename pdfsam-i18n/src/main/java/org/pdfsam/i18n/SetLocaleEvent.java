@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 10/ott/2014
+ * Created on 24/lug/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,28 +16,28 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui;
+package org.pdfsam.i18n;
 
-import static org.junit.Assert.assertFalse;
-
-import org.junit.Test;
-import org.pdfsam.ui.StylesConfig;
-import org.pdfsam.ui.Theme;
+import static org.apache.commons.lang3.StringUtils.isBlank;
 
 /**
+ * Event to notify that the application Locale should be changed
+ * 
  * @author Andrea Vacondio
  *
  */
-public class StylesConfigTest {
+public class SetLocaleEvent {
+    private String localeString;
 
-    @Test(expected = IllegalArgumentException.class)
-    public void nullArg() {
-        new StylesConfig(null);
+    public SetLocaleEvent(String localeString) {
+        if (isBlank(localeString)) {
+            throw new IllegalArgumentException("Locale string cannot be blank");
+        }
+        this.localeString = localeString;
     }
 
-    @Test
-    public void nonNullArg() {
-        StylesConfig victim = new StylesConfig(Theme.GREEN);
-        assertFalse(victim.styles().isEmpty());
+    public String getLocaleString() {
+        return localeString;
     }
+
 }

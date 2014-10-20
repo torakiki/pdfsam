@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui;
 
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 
 /**
  * Policy to use when displaying latest news

@@ -37,7 +37,7 @@ import javafx.application.Platform;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.RequiredPdfData;
 import org.sejda.impl.itext5.component.DefaultPdfSourceOpener;
 import org.sejda.model.exception.TaskWrongPasswordException;

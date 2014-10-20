@@ -26,7 +26,7 @@ import javafx.scene.layout.VBox;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 
 /**
  * Panel showing preferences/options that the user can set or modify.

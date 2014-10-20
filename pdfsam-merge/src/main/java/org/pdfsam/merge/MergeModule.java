@@ -33,8 +33,8 @@ import javafx.scene.layout.VBox;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.UserContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.ModulePriority;

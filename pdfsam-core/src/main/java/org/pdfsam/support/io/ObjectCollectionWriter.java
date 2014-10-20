@@ -28,7 +28,7 @@ import java.util.Collection;
 
 import javafx.scene.input.ClipboardContent;
 
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

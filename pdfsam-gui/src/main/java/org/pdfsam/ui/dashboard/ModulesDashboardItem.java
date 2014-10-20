@@ -24,7 +24,7 @@ import javafx.scene.layout.Pane;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.dashboard.modules.ModulesDashboardPane;
 import org.springframework.context.annotation.Bean;
 

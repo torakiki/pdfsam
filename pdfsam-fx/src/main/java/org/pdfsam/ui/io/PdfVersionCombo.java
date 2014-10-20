@@ -29,7 +29,7 @@ import javafx.scene.control.ComboBox;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.support.RequireUtils;
 import org.pdfsam.ui.io.PdfVersionCombo.PdfVersionComboItem;

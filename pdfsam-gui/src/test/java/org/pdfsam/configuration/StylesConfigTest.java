@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 13/dic/2011
- * Copyright 2011 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 10/ott/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,25 +16,28 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.context;
+package org.pdfsam.configuration;
 
+import static org.junit.Assert.assertFalse;
+
+import org.junit.Test;
+import org.pdfsam.ui.Theme;
 
 /**
- * Context related to the i18n of the application.
- * 
  * @author Andrea Vacondio
- * 
+ *
  */
-public interface I18nContext {
+public class StylesConfigTest {
 
-    /**
-     * 
-     * @param input
-     *            input string
-     * @param values
-     *            values for the string placeholders
-     * @return the internationalized messages.
-     */
-    String i18n(String input, String... values);
+    @SuppressWarnings("unused")
+    @Test(expected = IllegalArgumentException.class)
+    public void nullArg() {
+        new StylesConfig(null);
+    }
 
+    @Test
+    public void nonNullArg() {
+        StylesConfig victim = new StylesConfig(Theme.GREEN);
+        assertFalse(victim.styles().isEmpty());
+    }
 }

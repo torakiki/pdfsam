@@ -30,8 +30,8 @@ import javafx.stage.Stage;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.ui.StylesConfig;
+import org.pdfsam.configuration.StylesConfig;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.commons.ClosePane;
 import org.pdfsam.ui.commons.HideOnEscapeHandler;
 import org.pdfsam.ui.commons.ShowStageRequest;

@@ -24,7 +24,7 @@ import javafx.beans.value.ObservableValue;
 
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 
 /**
  * Definition of the {@link Integer} columns of the selection table

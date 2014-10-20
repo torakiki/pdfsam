@@ -29,10 +29,9 @@ import javafx.scene.media.MediaPlayer;
 
 import javax.inject.Inject;
 
-import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.UserContext;
-import org.pdfsam.ui.StylesConfig;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.Theme;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

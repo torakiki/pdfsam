@@ -23,7 +23,7 @@ import javafx.scene.control.Button;
 
 import javax.inject.Named;
 
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ClearUsageRequestEvent;
 import org.pdfsam.ui.support.Style;
 

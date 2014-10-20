@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.context;
+package org.pdfsam.i18n;
 
 import static org.junit.Assert.assertEquals;
 
@@ -26,11 +26,13 @@ import org.junit.Test;
  * @author Andrea Vacondio
  *
  */
+@SuppressWarnings("unused")
 public class SetLocaleEventTest {
     @Test(expected = IllegalArgumentException.class)
     public void nullArg() {
         new SetLocaleEvent(null);
     }
+
 
     @Test(expected = IllegalArgumentException.class)
     public void blankArg() {

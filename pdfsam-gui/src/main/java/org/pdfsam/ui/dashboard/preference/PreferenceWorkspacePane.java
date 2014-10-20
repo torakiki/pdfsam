@@ -25,8 +25,8 @@ import javafx.scene.layout.VBox;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.context.I18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.ui.support.Style;
 
 /**

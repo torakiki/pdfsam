@@ -24,7 +24,7 @@ import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Tooltip;
 
-import org.pdfsam.context.DefaultI18nContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.support.FXValidationSupport;
