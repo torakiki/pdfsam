@@ -18,8 +18,6 @@
  */
 package org.pdfsam.ui.info;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
-
 import java.util.Collection;
 
 import javafx.scene.Scene;
@@ -34,18 +32,18 @@ import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.commons.ClosePane;
 import org.pdfsam.ui.commons.HideOnEscapeHandler;
-import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.pdfsam.ui.support.Style;
-import org.sejda.eventstudio.annotation.EventListener;
+import org.springframework.context.annotation.Lazy;
 
 /**
- * Stage for the log panel
+ * Stage for the info panel
  * 
  * @author Andrea Vacondio
  * 
  */
 @Named
-public class InfoStage extends Stage {
+@Lazy
+class InfoStage extends Stage {
 
     @Inject
     public InfoStage(InfoPane infoPane, Collection<Image> logos, StylesConfig styles) {
@@ -60,15 +58,6 @@ public class InfoStage extends Stage {
         setTitle(DefaultI18nContext.getInstance().i18n("Document details"));
         getIcons().addAll(logos);
         setMaximized(true);
-        eventStudio().addAnnotatedListeners(this);
     }
 
-    @EventListener
-    void requestShow(ShowPdfDescriptorRequest event) {
-        if (!isShowing()) {
-            centerOnScreen();
-            show();
-        }
-        requestFocus();
-    }
 }

@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 10/mag/2014
+ * Created on 20/ott/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,24 +18,39 @@
  */
 package org.pdfsam.ui.info;
 
-import javafx.geometry.Side;
-import javafx.scene.control.TabPane;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
+import org.sejda.eventstudio.annotation.EventListener;
+import org.springframework.context.ApplicationContext;
+
 /**
- * Panel showing a pdf document information like author, creator etc.
+ * Controller displaying the InfoStage when required
  * 
  * @author Andrea Vacondio
  *
  */
 @Named
-class InfoPane extends TabPane {
-
+public class InfoStageController {
     @Inject
-    InfoPane(SummaryTab summary, KeywordsTab keywords) {
-        setSide(Side.LEFT);
-        getTabs().addAll(summary, keywords);
+    private ApplicationContext applicationContext;
+
+    InfoStageController() {
+        eventStudio().addAnnotatedListeners(this);
     }
+
+    @EventListener(priority = Integer.MAX_VALUE)
+    @SuppressWarnings("unused")
+    void requestShow(ShowPdfDescriptorRequest event) {
+        InfoStage stage = applicationContext.getBean(InfoStage.class);
+        if (!stage.isShowing()) {
+            stage.centerOnScreen();
+            stage.show();
+        }
+        stage.requestFocus();
+    }
+
 }

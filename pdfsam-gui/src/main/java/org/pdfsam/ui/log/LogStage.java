@@ -45,7 +45,7 @@ import org.sejda.eventstudio.annotation.EventListener;
  * 
  */
 @Named
-public class LogStage extends Stage {
+class LogStage extends Stage {
 
     public static final String LOGSTAGE_EVENTSTATION = "LogStage";
 
