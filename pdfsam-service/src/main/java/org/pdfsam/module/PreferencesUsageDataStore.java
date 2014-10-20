@@ -44,7 +44,7 @@ import com.fasterxml.jackson.jr.ob.JSON;
 class PreferencesUsageDataStore {
 
     private static final Logger LOG = LoggerFactory.getLogger(PreferencesUsageDataStore.class);
-    static final String USAGE_PATH = "/pdfsam/modules/usage";
+    static final String USAGE_PATH = "/org/pdfsam/modules/usage";
     static final String MODULE_USAGE_KEY = "module.usage";
     static final String TASKS_EXECUTED_KEY = "tasks.executed";
 

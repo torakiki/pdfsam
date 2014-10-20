@@ -38,7 +38,7 @@ public final class DefaultUserContext implements UserContext {
     private UserWorkspacesContext workspaces;
 
     public DefaultUserContext() {
-        this.prefs = Preferences.userRoot().node("/pdfsam/user/conf");
+        this.prefs = Preferences.userRoot().node("/org/pdfsam/user/conf");
         this.workspaces = new PreferencesUserWorkspacesContext();
     }
 

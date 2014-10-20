@@ -52,7 +52,7 @@ class PreferencesUserWorkspacesContext implements UserWorkspacesContext {
     private Preferences prefs;
 
     public PreferencesUserWorkspacesContext() {
-        this.prefs = Preferences.userRoot().node("/pdfsam/user/workspaces");
+        this.prefs = Preferences.userRoot().node("/org/pdfsam/user/workspaces");
         populateCache();
     }
 

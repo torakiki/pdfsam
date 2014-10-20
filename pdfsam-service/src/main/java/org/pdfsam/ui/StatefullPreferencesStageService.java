@@ -43,7 +43,7 @@ import com.fasterxml.jackson.jr.ob.JSON;
 class StatefullPreferencesStageService implements StageService {
 
     private static final Logger LOG = LoggerFactory.getLogger(StatefullPreferencesStageService.class);
-    static final String STAGE_PATH = "/pdfsam/stage";
+    static final String STAGE_PATH = "/org/pdfsam/stage";
     static final String STAGE_STATUS_KEY = "stage.status";
     static final String NEWS_STAGE_DISPLAY_TIME_KEY = "news.stage.display.time";
 
