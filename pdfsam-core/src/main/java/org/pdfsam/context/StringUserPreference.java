@@ -30,5 +30,6 @@ public enum StringUserPreference {
     THUMBNAILS_IDENTIFIER,
     WORKING_PATH,
     WORKSPACE_PATH,
-    STARTUP_MODULE;
+    STARTUP_MODULE,
+    NEWS_POLICY;
 }

@@ -33,8 +33,9 @@ import javax.inject.Inject;
 
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.DefaultUserContext;
-import org.pdfsam.context.Theme;
 import org.pdfsam.context.UserContext;
+import org.pdfsam.ui.StylesConfig;
+import org.pdfsam.ui.Theme;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
@@ -74,8 +75,8 @@ public class PdfsamConfig {
 
     @Bean
     public StylesConfig styles() {
-        String themeString = defaultIfBlank(userContext().getTheme(), Theme.GREEN.toString());
-        Theme selected = Theme.GREEN;
+        String themeString = defaultIfBlank(userContext().getTheme(), Theme.ROUNDISH.toString());
+        Theme selected = Theme.ROUNDISH;
         try {
             selected = Theme.valueOf(themeString);
         } catch (IllegalArgumentException e) {

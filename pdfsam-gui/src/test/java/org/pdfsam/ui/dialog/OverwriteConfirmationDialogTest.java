@@ -36,9 +36,9 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
-import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.context.SetLocaleEvent;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.ui.StylesConfig;
 
 /**
  * @author Andrea Vacondio

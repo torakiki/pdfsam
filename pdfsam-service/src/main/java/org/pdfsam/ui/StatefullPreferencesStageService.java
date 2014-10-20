@@ -21,6 +21,7 @@ package org.pdfsam.ui;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
 import java.io.IOException;
+import java.time.Instant;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
@@ -33,17 +34,18 @@ import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.jr.ob.JSON;
 
 /**
- * Statefull implementation of a {@link StageStatusService} using {@link Preferences}.
+ * Statefull implementation of a {@link StageService} using {@link Preferences}.
  * 
  * @author Andrea Vacondio
  *
  */
 @Named
-class StatefullPreferencesStageStatusService implements StageStatusService {
+class StatefullPreferencesStageService implements StageService {
 
-    private static final Logger LOG = LoggerFactory.getLogger(StatefullPreferencesStageStatusService.class);
+    private static final Logger LOG = LoggerFactory.getLogger(StatefullPreferencesStageService.class);
     static final String STAGE_PATH = "/pdfsam/stage";
     static final String STAGE_STATUS_KEY = "stage.status";
+    static final String NEWS_STAGE_DISPLAY_TIME_KEY = "news.stage.display.time";
 
     @PreDestroy
     void flush() {
@@ -79,7 +81,7 @@ class StatefullPreferencesStageStatusService implements StageStatusService {
         return StageStatus.NULL;
     }
 
-    public void clearStageStatus() {
+    void clearStageStatus() {
         Preferences prefs = Preferences.userRoot().node(STAGE_PATH);
         try {
             prefs.removeNode();
@@ -87,5 +89,14 @@ class StatefullPreferencesStageStatusService implements StageStatusService {
         } catch (BackingStoreException e) {
             LOG.error("Unable to clear stage status", e);
         }
+    }
+
+    public void newsStageDisplayed() {
+        Preferences.userRoot().node(STAGE_PATH).putLong(NEWS_STAGE_DISPLAY_TIME_KEY, Instant.now().toEpochMilli());
+        LOG.trace("Latest news stage diplay time stored");
+    }
+
+    public Instant getLatestNewsStageDisplayInstant() {
+        return Instant.ofEpochMilli(Preferences.userRoot().node(STAGE_PATH).getLong(NEWS_STAGE_DISPLAY_TIME_KEY, 0));
     }
 }

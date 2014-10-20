@@ -30,7 +30,6 @@ import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.DefaultI18nContext;
 import org.pdfsam.context.IntUserPreference;
 import org.pdfsam.context.StringUserPreference;
-import org.pdfsam.context.Theme;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.ModuleKeyValueItem;
@@ -38,6 +37,7 @@ import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.LocaleKeyValueItem;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.support.validation.Validators;
+import org.pdfsam.ui.Theme;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

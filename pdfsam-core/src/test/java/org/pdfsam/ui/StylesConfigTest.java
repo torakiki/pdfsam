@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 07/ott/2014
+ * Created on 10/ott/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,28 +18,26 @@
  */
 package org.pdfsam.ui;
 
+import static org.junit.Assert.assertFalse;
+
+import org.junit.Test;
+import org.pdfsam.ui.StylesConfig;
+import org.pdfsam.ui.Theme;
+
 /**
- * Service providing stage related functionality
- * 
  * @author Andrea Vacondio
  *
  */
-public interface StageStatusService {
+public class StylesConfigTest {
 
-    /**
-     * Saves the give status
-     * 
-     * @param status
-     */
-    public void save(StageStatus status);
+    @Test(expected = IllegalArgumentException.class)
+    public void nullArg() {
+        new StylesConfig(null);
+    }
 
-    /**
-     * @return the latest {@link StageStatus}
-     */
-    public StageStatus getLatestStatus();
-
-    /**
-     * clears {@link StageStatus} stored information
-     */
-    public void clearStageStatus();
+    @Test
+    public void nonNullArg() {
+        StylesConfig victim = new StylesConfig(Theme.GREEN);
+        assertFalse(victim.styles().isEmpty());
+    }
 }

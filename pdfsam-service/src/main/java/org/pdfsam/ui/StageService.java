@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 10/ott/2014
+ * Created on 07/ott/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,27 +16,37 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.configuration;
+package org.pdfsam.ui;
 
-import static org.junit.Assert.assertFalse;
-
-import org.junit.Test;
-import org.pdfsam.context.Theme;
+import java.time.Instant;
 
 /**
+ * Service providing stage related functionality
+ * 
  * @author Andrea Vacondio
  *
  */
-public class StylesConfigTest {
+public interface StageService {
 
-    @Test(expected = IllegalArgumentException.class)
-    public void nullArg() {
-        new StylesConfig(null);
-    }
+    /**
+     * Saves the given status
+     * 
+     * @param status
+     */
+    public void save(StageStatus status);
 
-    @Test
-    public void nonNullArg() {
-        StylesConfig victim = new StylesConfig(Theme.GREEN);
-        assertFalse(victim.styles().isEmpty());
-    }
+    /**
+     * @return the latest {@link StageStatus}
+     */
+    public StageStatus getLatestStatus();
+
+    /**
+     * The service is informed that the Latest news stage has been displayed to the user
+     */
+    public void newsStageDisplayed();
+
+    /**
+     * @return the latest {@link Instant} when the news stage has been displayed to the user
+     */
+    Instant getLatestNewsStageDisplayInstant();
 }

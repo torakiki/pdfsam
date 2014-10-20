@@ -29,33 +29,23 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Controller for the {@link StageStatusService}
+ * Controller for the {@link StageService}
  * 
  * @author Andrea Vacondio
  *
  */
 @Named
-public class StageStatusServiceController {
+public class StageServiceController {
     private static final Logger LOG = LoggerFactory.getLogger(ClearUsageController.class);
 
-    private StageStatusService service;
+    private StageService service;
 
     @Inject
-    public StageStatusServiceController(StageStatusService service) {
+    public StageServiceController(StageService service) {
         this.service = service;
         eventStudio().addAnnotatedListeners(this);
     }
 
-    /**
-     * Request to clear the latest stage status
-     * 
-     * @param event
-     */
-    @EventListener
-    public void requestClear(ClearLatestStageStatusRequest event) {
-        LOG.debug("Clearing latest stage status");
-        service.clearStageStatus();
-    }
 
     @EventListener
     public void requestStageStatus(SetLatestStageStatusRequest event) {

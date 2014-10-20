@@ -16,10 +16,12 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.context;
+package org.pdfsam.ui;
 
 import java.util.Arrays;
 import java.util.List;
+
+import org.pdfsam.context.DefaultI18nContext;
 
 /**
  * Themes available for the user to configure

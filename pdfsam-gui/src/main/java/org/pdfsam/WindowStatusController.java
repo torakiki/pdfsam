@@ -29,7 +29,7 @@ import javax.inject.Named;
 import org.pdfsam.ui.SetLatestStageStatusRequest;
 import org.pdfsam.ui.StageMode;
 import org.pdfsam.ui.StageStatus;
-import org.pdfsam.ui.StageStatusService;
+import org.pdfsam.ui.StageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -45,10 +45,10 @@ class WindowStatusController {
     public static final String PDFSAM_DISABLE_UI_RESTORE = "pdfsam.disable.ui.restore";
 
     private Stage stage;
-    private StageStatusService service;
+    private StageService service;
 
     @Inject
-    WindowStatusController(StageStatusService service) {
+    WindowStatusController(StageService service) {
         this.service = service;
     }
 

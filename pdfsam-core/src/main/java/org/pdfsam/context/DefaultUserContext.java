@@ -65,12 +65,17 @@ public final class DefaultUserContext implements UserContext {
 
     @Override
     public String getTheme() {
-        return prefs.get(StringUserPreference.THEME.toString(), Theme.ROUNDISH.toString());
+        return prefs.get(StringUserPreference.THEME.toString(), StringUtils.EMPTY);
     }
 
     @Override
     public String getStartupModule() {
         return prefs.get(StringUserPreference.STARTUP_MODULE.toString(), StringUtils.EMPTY);
+    }
+
+    @Override
+    public String getNewsPolicy() {
+        return prefs.get(StringUserPreference.NEWS_POLICY.toString(), StringUtils.EMPTY);
     }
 
     @Override

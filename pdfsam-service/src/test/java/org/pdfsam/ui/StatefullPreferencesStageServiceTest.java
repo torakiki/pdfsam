@@ -20,9 +20,11 @@ package org.pdfsam.ui;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
+import java.time.Instant;
 import java.util.prefs.Preferences;
 
 import org.junit.After;
@@ -36,8 +38,8 @@ import com.fasterxml.jackson.jr.ob.JSONObjectException;
  * @author Andrea Vacondio
  *
  */
-public class StatefullPreferencesStageStatusServiceTest {
-    private StatefullPreferencesStageStatusService victim = new StatefullPreferencesStageStatusService();
+public class StatefullPreferencesStageServiceTest {
+    private StatefullPreferencesStageService victim = new StatefullPreferencesStageService();
 
     @After
     @Before
@@ -51,8 +53,8 @@ public class StatefullPreferencesStageStatusServiceTest {
         victim.save(status);
         StageStatus storedStatus = JSON.std.beanFrom(
                 StageStatus.class,
-                Preferences.userRoot().node(StatefullPreferencesStageStatusService.STAGE_PATH)
-                        .get(StatefullPreferencesStageStatusService.STAGE_STATUS_KEY, ""));
+                Preferences.userRoot().node(StatefullPreferencesStageService.STAGE_PATH)
+                        .get(StatefullPreferencesStageService.STAGE_STATUS_KEY, ""));
         assertEquals(status, storedStatus);
     }
 
@@ -61,8 +63,8 @@ public class StatefullPreferencesStageStatusServiceTest {
         StageStatus status = new StageStatus(10, 20, 100, 200);
         victim.save(status);
         victim.clearStageStatus();
-        assertTrue(isBlank(Preferences.userRoot().node(StatefullPreferencesStageStatusService.STAGE_PATH)
-                .get(StatefullPreferencesStageStatusService.STAGE_STATUS_KEY, "")));
+        assertTrue(isBlank(Preferences.userRoot().node(StatefullPreferencesStageService.STAGE_PATH)
+                .get(StatefullPreferencesStageService.STAGE_STATUS_KEY, "")));
     }
 
     @Test
@@ -76,5 +78,25 @@ public class StatefullPreferencesStageStatusServiceTest {
         victim.save(status);
         victim.flush();
         assertEquals(status, victim.getLatestStatus());
+    }
+
+    @Test
+    public void newsStageDisplayed() {
+        assertEquals(
+                0,
+                Preferences.userRoot().node(StatefullPreferencesStageService.STAGE_PATH)
+                        .getLong(StatefullPreferencesStageService.NEWS_STAGE_DISPLAY_TIME_KEY, 0));
+        victim.newsStageDisplayed();
+        assertNotEquals(
+                0,
+                Preferences.userRoot().node(StatefullPreferencesStageService.STAGE_PATH)
+                        .getLong(StatefullPreferencesStageService.NEWS_STAGE_DISPLAY_TIME_KEY, 0));
+    }
+
+    @Test
+    public void getLatestNewsStageDisplayInstant() {
+        assertEquals(Instant.EPOCH, victim.getLatestNewsStageDisplayInstant());
+        victim.newsStageDisplayed();
+        assertNotEquals(Instant.EPOCH, victim.getLatestNewsStageDisplayInstant());
     }
 }

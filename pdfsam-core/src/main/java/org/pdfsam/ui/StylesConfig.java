@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.configuration;
+package org.pdfsam.ui;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
@@ -25,7 +25,6 @@ import java.util.Collections;
 import java.util.List;
 
 import org.pdfsam.context.DefaultI18nContext;
-import org.pdfsam.context.Theme;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

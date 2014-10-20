@@ -82,6 +82,11 @@ public interface UserContext {
     String getStartupModule();
 
     /**
+     * @return the policy to use regarding displaying news
+     */
+    String getNewsPolicy();
+
+    /**
      * Sets a {@link Boolean} preference.
      * 
      * @param pref

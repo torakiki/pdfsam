@@ -40,7 +40,7 @@ import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.SetLatestStageStatusRequest;
 import org.pdfsam.ui.StageStatus;
-import org.pdfsam.ui.StageStatusService;
+import org.pdfsam.ui.StageService;
 import org.sejda.eventstudio.Listener;
 
 /**
@@ -52,7 +52,7 @@ public class WindowStatusControllerTest extends GuiTest {
     @Rule
     public ClearEventStudioRule eventStudioRule = new ClearEventStudioRule();
 
-    private StageStatusService service;
+    private StageService service;
     private WindowStatusController victim;
     private Stage victimStage;
 
@@ -62,7 +62,7 @@ public class WindowStatusControllerTest extends GuiTest {
         VBox containerPane = new VBox();
         Scene scene = new Scene(containerPane);
         victimStage.setScene(scene);
-        service = mock(StageStatusService.class);
+        service = mock(StageService.class);
         victim = new WindowStatusController(service);
         Button button = new Button("show");
         button.setOnAction(a -> victimStage.show());

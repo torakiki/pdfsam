@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 07/ott/2014
+ * Created on 20/ott/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,14 +16,17 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui;
+package org.pdfsam.configuration;
 
 /**
- * Request to clear the latest stage status
+ * Policy to use when displaying latest news
  * 
  * @author Andrea Vacondio
  *
  */
-public class ClearLatestStageStatusRequest {
-    // nothing
+public enum NewsPolicy {
+    NEVER,
+    ONCE_A_DAY,
+    ONCE_A_WEEK,
+    ALWAYS;
 }
