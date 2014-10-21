@@ -37,6 +37,7 @@ import org.pdfsam.ui.commons.HideOnEscapeHandler;
 import org.pdfsam.ui.commons.ShowStageRequest;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
+import org.sejda.eventstudio.annotation.EventStation;
 
 /**
  * Stage for the log panel
@@ -47,6 +48,7 @@ import org.sejda.eventstudio.annotation.EventListener;
 @Named
 class LogStage extends Stage {
 
+    @EventStation
     public static final String LOGSTAGE_EVENTSTATION = "LogStage";
 
     @Inject
@@ -65,7 +67,7 @@ class LogStage extends Stage {
         eventStudio().addAnnotatedListeners(this);
     }
 
-    @EventListener(station = LOGSTAGE_EVENTSTATION)
+    @EventListener
     void requestShow(ShowStageRequest event) {
         if (!isShowing()) {
             centerOnScreen();

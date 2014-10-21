@@ -41,8 +41,8 @@ import org.springframework.context.annotation.Lazy;
  * @author Andrea Vacondio
  * 
  */
-@Named
 @Lazy
+@Named
 class InfoStage extends Stage {
 
     @Inject

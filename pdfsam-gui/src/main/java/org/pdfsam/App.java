@@ -118,6 +118,7 @@ public class App extends Application {
         primaryStage.show();
         Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger());
         requestCheckForUpdateIfNecessary();
+        requestLatestNewsPanelDisplay();
         eventStudio().addAnnotatedListeners(this);
         STOPWATCH.stop();
         LOG.info(DefaultI18nContext.getInstance().i18n("Started in {0}",
@@ -138,6 +139,10 @@ public class App extends Application {
         if (ApplicationContextHolder.getContext().getBean(UserContext.class).isCheckForUpdates()) {
             eventStudio().broadcast(new UpdateCheckRequest());
         }
+    }
+
+    private static void requestLatestNewsPanelDisplay() {
+        eventStudio().broadcast(new ShowStageRequest(), "NewsStage");
     }
 
     @EventListener

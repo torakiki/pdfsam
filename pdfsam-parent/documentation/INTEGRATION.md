@@ -6,6 +6,10 @@ The purpose of this document is to list the points where PDFsam requires an Inte
 **@url** [http://www.pdfsam.org/current-version?c=YOURVERSION](http://www.pdfsam.org/current-version)  
 **@since** v3.0.0.BETA  
 
+*PDFsam opens a "What's new" panel once a day. Frequency can be modified in the Settings section.*  
+**@url** [http://www.pdfsam.org/latest](http://www.pdfsam.org/latest)  
+**@since** v3.0.0.BETA 
+
 *Link to the PDFsam license in the (About panel).*  
 **@url** [http://www.gnu.org/licenses/agpl-3.0.html](http://www.gnu.org/licenses/agpl-3.0.html)  
 **@since** v3.0.0.BETA  

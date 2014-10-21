@@ -77,3 +77,10 @@
     -fx-background-radius: 0.0;
     -fx-effect: null;
 }
+/**
+ * news pane
+ */
+.-pdfsam-news-pane{
+	-fx-background-color: -pdfsam-pwdpopupbg-color;
+	-fx-max-width: 450.0px;
+}

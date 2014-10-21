@@ -93,10 +93,11 @@ class StatefullPreferencesStageService implements StageService {
 
     public void newsStageDisplayed() {
         Preferences.userRoot().node(STAGE_PATH).putLong(NEWS_STAGE_DISPLAY_TIME_KEY, Instant.now().toEpochMilli());
-        LOG.trace("Latest news stage diplay time stored");
+        LOG.trace("Latest news stage display time stored");
     }
 
     public Instant getLatestNewsStageDisplayInstant() {
-        return Instant.ofEpochMilli(Preferences.userRoot().node(STAGE_PATH).getLong(NEWS_STAGE_DISPLAY_TIME_KEY, 0));
+        return Instant.ofEpochMilli(Preferences.userRoot().node(STAGE_PATH)
+                .getLong(NEWS_STAGE_DISPLAY_TIME_KEY, Instant.EPOCH.toEpochMilli()));
     }
 }

@@ -18,6 +18,9 @@
  */
 package org.pdfsam.ui;
 
+import java.time.Duration;
+import java.time.Instant;
+
 import org.pdfsam.i18n.DefaultI18nContext;
 
 /**
@@ -32,11 +35,21 @@ public enum NewsPolicy {
         public String friendlyName() {
             return DefaultI18nContext.getInstance().i18n("Never");
         }
+
+        @Override
+        public boolean isTimeToShow(Instant previousDisplayInstant) {
+            return false;
+        }
     },
     ONCE_A_DAY {
         @Override
         public String friendlyName() {
             return DefaultI18nContext.getInstance().i18n("Once a day");
+        }
+
+        @Override
+        public boolean isTimeToShow(Instant previousDisplayInstant) {
+            return previousDisplayInstant.plus(Duration.ofDays(1)).isBefore(Instant.now());
         }
     },
     ONCE_A_WEEK {
@@ -44,13 +57,29 @@ public enum NewsPolicy {
         public String friendlyName() {
             return DefaultI18nContext.getInstance().i18n("Once a week");
         }
+
+        @Override
+        public boolean isTimeToShow(Instant previousDisplayInstant) {
+            return previousDisplayInstant.plus(Duration.ofDays(7)).isBefore(Instant.now());
+        }
     },
     ALWAYS {
         @Override
         public String friendlyName() {
             return DefaultI18nContext.getInstance().i18n("Always");
         }
+
+        @Override
+        public boolean isTimeToShow(Instant previousDisplayInstant) {
+            return true;
+        }
     };
 
     public abstract String friendlyName();
+
+    /**
+     * @param previousDisplayInstant
+     * @return true if, given the latest display instant, now it i time to show.
+     */
+    public abstract boolean isTimeToShow(Instant previousDisplayInstant);
 }

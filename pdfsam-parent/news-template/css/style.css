@@ -1,0 +1,155 @@
+@font-face {
+	font-family: Sansation;
+	src: url(Sansation_Regular.ttf);
+}
+
+html {
+	background-color: #FFFFFF;
+}
+
+body {
+	padding: 0px;
+	margin: 0px;
+}
+
+#header-wrapper {
+	margin: 1em;
+}
+
+#header {
+	background-color: #FFFFFF;
+	border: 0 none;
+	margin-bottom: 5px;
+	padding: 10px;
+}
+
+#logo {
+	background: url('../images/logo.png') no-repeat left center;
+	height: 36px;
+	font-size: 32px;
+	font-family: Sansation;
+	padding-left: 36px;
+	text-align: left;
+}
+
+#logo a {
+	font-style: normal;
+	color: #000000;
+	text-decoration: none;
+}
+
+header h1 {
+	display: block;
+	right: 0;
+	top: 0;
+}
+
+.strong {
+	font-weight: bold;
+}
+
+.subtitle {
+	font-size: 16px;
+	font-style: italic;
+	font-weight: bold;
+	color: #B0B0B0;
+}
+
+#main-wrapper {
+	padding: 1em 1em 6em 1em;
+}
+
+.icon {
+	position: relative;
+	text-decoration: none;
+	color: #f3f3f3;
+	font-size: 25px;
+}
+
+.icon:before {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-transform: none !important;
+}
+
+footer {
+	position: fixed;
+	left: 0px;
+	bottom: 0px;
+	height: 7em;
+	width: 100%;
+	margin: 5px;
+	background-color: #FFFFFF;
+}
+
+#social ul {
+	left: -4px;
+	margin: 0.1em;
+	overflow: hidden;
+	position: relative;
+	top: 4px;
+	padding: 0px;
+}
+
+#social ul li {
+	display: inline-block;
+	line-height: 4.5em;
+	padding-left: 1.5em;
+}
+
+#social ul li a {
+	background: none repeat scroll 0 0 #222222;
+	border-radius: 0.5em;
+	display: inline-block;
+	height: 1.5em;
+	line-height: 1.5em;
+	opacity: 0.75;
+	outline: 0 none;
+	text-align: center;
+	text-decoration: none;
+	transition: background-color 0.25s ease-in-out 0s;
+	width: 1.5em;
+}
+
+#social ul li a:hover {
+	background: #444444;
+}
+
+.icon>.label {
+	display: none;
+}
+
+article {
+	background-color: #EEEEEE;
+	border: 0 none;
+	border-radius: 5px;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+	color: #444444;
+	margin-bottom: 2em;
+	padding: 1em;
+}
+
+article h1 {
+	font-size: 1.75em;
+	font-weight: bold;
+	margin-bottom: 0;
+}
+
+article h4 {
+	font-size: 0.70em;
+	font-weight: bold;
+	font-style: italic;
+	margin-top: 2px;
+}
+
+article p {
+	line-height: 1.5em;
+}
+
+#copyright {
+	font-size: 0.70em;
+	padding-left: 1em;
+}
