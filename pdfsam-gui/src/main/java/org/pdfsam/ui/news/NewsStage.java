@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.news;
 
+import static org.pdfsam.support.RequireUtils.requireNotBlank;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Collection;
@@ -43,6 +44,7 @@ import org.pdfsam.ui.support.Style;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Lazy;
+import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.events.EventTarget;
 import org.w3c.dom.html.HTMLAnchorElement;
@@ -58,6 +60,7 @@ import org.w3c.dom.html.HTMLAnchorElement;
 public class NewsStage extends Stage {
     private static final Logger LOG = LoggerFactory.getLogger(NewsStage.class);
 
+    private String newsUrl = "http://www.pdfsam.org/latest";
     private WebView browser = new WebView();
     private Consumer<Boolean> onLoaded = showing -> {
         LOG.trace("What's new page loaded");
@@ -71,6 +74,7 @@ public class NewsStage extends Stage {
     @Inject
     public NewsStage(Collection<Image> logos, StylesConfig styles) {
         BorderPane containerPane = new BorderPane();
+        browser.setId("newsBrowser");
         containerPane.getStyleClass().addAll(Style.CONTAINER.css());
         containerPane.getStyleClass().add("-pdfsam-news-pane");
         containerPane.setCenter(browser);
@@ -88,23 +92,29 @@ public class NewsStage extends Stage {
         WebEngine webEngine = browser.getEngine();
         webEngine.getLoadWorker().stateProperty().addListener((o, oldVal, newVal) -> {
             if (newVal == State.SUCCEEDED) {
-                wrapHrefToOpenNative(webEngine);
+                wrapHrefToOpenNative(webEngine.getDocument());
                 onLoaded.andThen(onSuccess).accept(isShowing());
             }
         });
-        webEngine.load("http://www.pdfsam.org/latest");
+        webEngine.load(newsUrl);
     }
 
-    private void wrapHrefToOpenNative(WebEngine webEngine) {
+    static void wrapHrefToOpenNative(Document document) {
         // TODO find a better way
-        NodeList nodeList = webEngine.getDocument().getElementsByTagName("a");
+        NodeList nodeList = document.getElementsByTagName("a");
         for (int i = 0; i < nodeList.getLength(); i++) {
             EventTarget eventTarget = (EventTarget) nodeList.item(i);
-            eventTarget.addEventListener("click", evt -> {
-                HTMLAnchorElement anchorElement = (HTMLAnchorElement) evt.getCurrentTarget();
+            eventTarget.addEventListener("click", e -> {
+                HTMLAnchorElement anchorElement = (HTMLAnchorElement) e.getCurrentTarget();
                 eventStudio().broadcast(new OpenUrlRequest(anchorElement.getHref()));
-                evt.preventDefault();
+                e.preventDefault();
             }, false);
         }
     }
+
+    public void setNewsUrl(String newsUrl) {
+        requireNotBlank(newsUrl, "Cannot set a blank url to fetch news from");
+        this.newsUrl = newsUrl;
+    }
+
 }

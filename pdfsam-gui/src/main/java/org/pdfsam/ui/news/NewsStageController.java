@@ -38,8 +38,8 @@ import org.springframework.context.ApplicationContext;
  *
  */
 @Named
-public class NewStageController {
-    private static final Logger LOG = LoggerFactory.getLogger(NewStageController.class);
+public class NewsStageController {
+    private static final Logger LOG = LoggerFactory.getLogger(NewsStageController.class);
     @EventStation
     public static final String NEWSSTAGE_EVENTSTATION = "NewsStage";
 
@@ -50,7 +50,7 @@ public class NewStageController {
     private UserContext userContext;
 
     @Inject
-    NewStageController(StageService service, UserContext userContext) {
+    NewsStageController(StageService service, UserContext userContext) {
         this.service = service;
         this.userContext = userContext;
         eventStudio().addAnnotatedListeners(this);
