@@ -19,12 +19,12 @@
 package org.pdfsam.merge;
 
 import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
+import static org.pdfsam.ui.support.Views.titledPane;
 
 import java.util.function.Consumer;
 
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.control.TitledPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
@@ -42,10 +42,8 @@ import org.pdfsam.module.PdfsamModule;
 import org.pdfsam.ui.io.BrowsablePdfOutputField;
 import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
-import org.pdfsam.ui.support.Views;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 /**
  * Merge module to let the user merge together multiple pdf documents
  * 
@@ -97,11 +95,9 @@ public class MergeModule extends BaseTaskExecutionModule {
         pane.setAlignment(Pos.TOP_CENTER);
         VBox.setVgrow(selectionPane, Priority.ALWAYS);
 
-        TitledPane options = Views.titledPane(DefaultI18nContext.getInstance().i18n("Merge settings"), mergeOptions);
-        options.setExpanded(false);
-
-        pane.getChildren().addAll(selectionPane, options,
-                Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination file"), destinationPane));
+        pane.getChildren().addAll(selectionPane,
+                titledPane(DefaultI18nContext.getInstance().i18n("Merge settings"), mergeOptions),
+                titledPane(DefaultI18nContext.getInstance().i18n("Destination file"), destinationPane));
         return pane;
     }
 
