@@ -92,7 +92,7 @@ public final class DefaultI18nContext implements I18nContext {
 
     private I18n i18n;
 
-    private DefaultI18nContext() {
+    DefaultI18nContext() {
         Locale.setDefault(getBestLocale());
         refreshBundles();
         eventStudio().addAnnotatedListeners(this);
@@ -109,12 +109,13 @@ public final class DefaultI18nContext implements I18nContext {
         String localeString = e.getLocaleString();
         if (StringUtils.isNotBlank(localeString)) {
             LOG.trace("Setting default locale to {}", localeString);
-            Optional.ofNullable(Locale.forLanguageTag(localeString)).ifPresent(Locale::setDefault);
+            Optional.ofNullable(Locale.forLanguageTag(localeString)).filter(SUPPORTED_LOCALES::contains)
+                    .ifPresent(Locale::setDefault);
             refreshBundles();
         }
     }
 
-    private Locale getBestLocale() {
+    Locale getBestLocale() {
         if (SUPPORTED_LOCALES.contains(Locale.getDefault())) {
             return Locale.getDefault();
         }
