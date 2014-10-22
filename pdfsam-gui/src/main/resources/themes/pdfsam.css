@@ -84,3 +84,7 @@
 	-fx-background-color: -pdfsam-pwdpopupbg-color;
 	-fx-max-width: 450.0px;
 }
+.-pdfsam-news-pane-bottom{
+	-fx-alignment: bottom-left;
+	-fx-spacing: 5px;
+}

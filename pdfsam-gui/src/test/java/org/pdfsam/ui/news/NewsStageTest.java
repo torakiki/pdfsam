@@ -44,8 +44,12 @@ import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.configuration.StylesConfig;
+import org.pdfsam.context.StringUserPreference;
+import org.pdfsam.context.UserContext;
+import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.commons.OpenUrlRequest;
+import org.pdfsam.ui.dashboard.preference.PreferenceComboBox;
 import org.sejda.eventstudio.Listener;
 
 /**
@@ -68,7 +72,9 @@ public class NewsStageTest extends GuiTest {
     @Override
     protected Parent getRootNode() {
         Button button = new Button("show");
-        newsStage = new NewsStage(Collections.emptyList(), mock(StylesConfig.class));
+        PreferenceComboBox<KeyStringValueItem<String>> newsDisplayPolicyCombo = new PreferenceComboBox<>(
+                StringUserPreference.NEWS_POLICY, mock(UserContext.class));
+        newsStage = new NewsStage(Collections.emptyList(), mock(StylesConfig.class), newsDisplayPolicyCombo);
         button.setOnAction(e -> newsStage.loadAndShow(onSuccess));
         return button;
     }

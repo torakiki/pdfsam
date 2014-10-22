@@ -34,7 +34,7 @@ import org.slf4j.LoggerFactory;
  * @param <T>
  *            the type of the elements in the combo
  */
-class PreferenceComboBox<T extends KeyValueItem<String, String>> extends ComboBox<T> {
+public class PreferenceComboBox<T extends KeyValueItem<String, String>> extends ComboBox<T> {
     private static final Logger LOG = LoggerFactory.getLogger(PreferenceComboBox.class);
 
     private StringUserPreference preference;

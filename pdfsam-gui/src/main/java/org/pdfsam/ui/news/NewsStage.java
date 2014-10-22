@@ -26,8 +26,11 @@ import java.util.function.Consumer;
 
 import javafx.concurrent.Worker.State;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
@@ -37,9 +40,11 @@ import javax.inject.Named;
 
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.ui.commons.ClosePane;
 import org.pdfsam.ui.commons.HideOnEscapeHandler;
 import org.pdfsam.ui.commons.OpenUrlRequest;
+import org.pdfsam.ui.dashboard.preference.PreferenceComboBox;
 import org.pdfsam.ui.support.Style;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -72,13 +77,22 @@ public class NewsStage extends Stage {
     };
 
     @Inject
-    public NewsStage(Collection<Image> logos, StylesConfig styles) {
+    public NewsStage(Collection<Image> logos, StylesConfig styles,
+            @Named("newsDisplayPolicy") PreferenceComboBox<KeyStringValueItem<String>> newsDisplayPolicy) {
         BorderPane containerPane = new BorderPane();
         browser.setId("newsBrowser");
         containerPane.getStyleClass().addAll(Style.CONTAINER.css());
         containerPane.getStyleClass().add("-pdfsam-news-pane");
         containerPane.setCenter(browser);
-        containerPane.setBottom(new ClosePane());
+        HBox bottom = new HBox();
+
+        ClosePane closePane = new ClosePane();
+        HBox.setHgrow(closePane, Priority.ALWAYS);
+        HBox comboPanel = new HBox(new Label(DefaultI18nContext.getInstance().i18n("Show this:")), newsDisplayPolicy);
+        comboPanel.getStyleClass().addAll(Style.CONTAINER.css());
+        comboPanel.getStyleClass().add("-pdfsam-news-pane-bottom");
+        bottom.getChildren().addAll(comboPanel, closePane);
+        containerPane.setBottom(bottom);
         Scene scene = new Scene(containerPane);
         scene.getStylesheets().addAll(styles.styles());
         scene.setOnKeyReleased(new HideOnEscapeHandler(this));

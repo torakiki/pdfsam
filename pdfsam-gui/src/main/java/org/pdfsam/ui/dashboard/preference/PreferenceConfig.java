@@ -39,8 +39,10 @@ import org.pdfsam.support.io.FileType;
 import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.NewsPolicy;
 import org.pdfsam.ui.Theme;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 /**
  * Configuration for the PDFsam preferences components
@@ -88,6 +90,7 @@ public class PreferenceConfig {
     }
 
     @Bean(name = "newsDisplayPolicy")
+    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     public PreferenceComboBox<KeyStringValueItem<String>> newsDisplayPolicy() {
         PreferenceComboBox<KeyStringValueItem<String>> newsDisplayPolicyCombo = new PreferenceComboBox<>(
                 StringUserPreference.NEWS_POLICY, userContext);

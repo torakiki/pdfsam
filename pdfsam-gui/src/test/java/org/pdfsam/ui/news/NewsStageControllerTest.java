@@ -41,11 +41,14 @@ import org.junit.runner.RunWith;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.configuration.StylesConfig;
+import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
+import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.NewsPolicy;
 import org.pdfsam.ui.StageService;
 import org.pdfsam.ui.commons.ShowStageRequest;
+import org.pdfsam.ui.dashboard.preference.PreferenceComboBox;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -91,8 +94,14 @@ public class NewsStageControllerTest extends GuiTest {
         }
 
         @Bean
+        public PreferenceComboBox<KeyStringValueItem<String>> combo() {
+            return new PreferenceComboBox<>(StringUserPreference.NEWS_POLICY, userContext());
+
+        }
+
+        @Bean
         public NewsStage stage() {
-            return spy(new NewsStage(Collections.emptyList(), mock(StylesConfig.class)));
+            return spy(new NewsStage(Collections.emptyList(), mock(StylesConfig.class), combo()));
         }
 
     }
