@@ -37,12 +37,14 @@ import java.util.function.Consumer;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
+import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
@@ -67,6 +69,13 @@ public class NewsStageTest extends GuiTest {
     @Before
     public void setUp() {
         onSuccess = mock(Consumer.class);
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        FXTestUtils.invokeAndWait(() -> {
+            newsStage.hide();
+        }, 2);
     }
 
     @Override

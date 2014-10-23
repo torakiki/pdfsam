@@ -40,6 +40,7 @@ import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
+import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
@@ -118,15 +119,18 @@ public class NewsStageControllerTest extends GuiTest {
 
     @Test
     @DirtiesContext
-    public void show() {
+    public void show() throws Exception {
         when(userContext.getNewsPolicy()).thenReturn(NewsPolicy.ALWAYS.toString());
         click("show");
         NewsStage stage = applicationContext.getBean(NewsStage.class);
         verify(stage).loadAndShow(any());
+        FXTestUtils.invokeAndWait(() -> {
+            stage.hide();
+        }, 2);
     }
 
     @Test
-    public void dontShow() {
+    public void dontShow() throws Exception {
         when(userContext.getNewsPolicy()).thenReturn(NewsPolicy.NEVER.toString());
         click("show");
         NewsStage stage = applicationContext.getBean(NewsStage.class);

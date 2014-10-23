@@ -30,16 +30,19 @@ import javafx.scene.control.Button;
 
 import javax.inject.Inject;
 
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
+import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
+import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.sejda.model.pdf.PdfMetadataKey;
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
@@ -54,8 +57,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration
 public class InfoStageTest extends GuiTest {
+    @Rule
+    public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
     @Inject
-    private ApplicationContext applicationContext;
+    private ConfigurableApplicationContext applicationContext;
 
     @Configuration
     @Lazy
@@ -99,10 +104,14 @@ public class InfoStageTest extends GuiTest {
     }
 
     @Test
-    public void show() {
+    public void show() throws Exception {
         click("show");
         InfoStage stage = applicationContext.getBean(InfoStage.class);
         assertTrue(stage.isShowing());
+        FXTestUtils.invokeAndWait(() -> {
+            stage.hide();
+            applicationContext.close();
+        }, 2);
     }
 
 }

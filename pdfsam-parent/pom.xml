@@ -107,7 +107,6 @@
 		<jackson-jr.version>2.4.1</jackson-jr.version>
 		<tempus.fugit.version>1.1</tempus.fugit.version>
 		<maven.build.timestamp.format>dd-MMM-yyyy</maven.build.timestamp.format>
-		<pdfsam.package>BASIC</pdfsam.package>
 		<pdfsam.builddate>${maven.build.timestamp}</pdfsam.builddate>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>

@@ -26,10 +26,11 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Paths;
-import java.util.Map;
 
 import javafx.application.Application;
 import javafx.application.HostServices;
+import javafx.application.Platform;
+import javafx.application.Preloader.ProgressNotification;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -61,12 +62,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * PDFsam application
+ * 
  * @author Andrea Vacondio
  * 
  */
-public class App extends Application {
-    private static final Logger LOG = LoggerFactory.getLogger(App.class);
+public class PdfsamApp extends Application {
+    private static final Logger LOG = LoggerFactory.getLogger(PdfsamApp.class);
     private static StopWatch STOPWATCH = new StopWatch();
+
+    private Scene mainScene;
 
     @Override
     public void init() {
@@ -79,7 +84,7 @@ public class App extends Application {
         if (isNotBlank(localeString)) {
             eventStudio().broadcast(new SetLocaleEvent(localeString));
         }
-
+        notifyPreloader(new ProgressNotification(0.1));
         String defaultworkingPath = userContext.getDefaultWorkingPath();
         if (isNotBlank(defaultworkingPath)) {
             try {
@@ -90,28 +95,20 @@ public class App extends Application {
                 LOG.warn("Unable to set initial directory, default path is invalid.", e);
             }
         }
+        notifyPreloader(new ProgressNotification(0.2));
+        Platform.runLater(() -> ApplicationContextHolder.getContext());
+        notifyPreloader(new ProgressNotification(0.6));
+        Platform.runLater(() -> initScene());
+        notifyPreloader(new ProgressNotification(0.8));
+
     }
 
     @Override
     public void start(Stage primaryStage) {
-        StylesConfig styles = ApplicationContextHolder.getContext().getBean(StylesConfig.class);
-        Map<String, Image> logos = ApplicationContextHolder.getContext().getBeansOfType(Image.class);
-        MainPane mainPane = ApplicationContextHolder.getContext().getBean(MainPane.class);
-
-        NotificationsContainer notifications = ApplicationContextHolder.getContext().getBean(
-                NotificationsContainer.class);
-        StackPane main = new StackPane();
-        StackPane.setAlignment(notifications, Pos.BOTTOM_RIGHT);
-        StackPane.setAlignment(mainPane, Pos.TOP_LEFT);
-        main.getChildren().addAll(mainPane, notifications);
-
-        Scene scene = new Scene(main);
-        scene.getStylesheets().addAll(styles.styles());
-        primaryStage.setScene(scene);
-        primaryStage.getIcons().addAll(logos.values());
+        primaryStage.setScene(mainScene);
+        primaryStage.getIcons().addAll(ApplicationContextHolder.getContext().getBeansOfType(Image.class).values());
         primaryStage.setTitle(ApplicationContextHolder.getContext().getBean(Pdfsam.class).name());
-        scene.getAccelerators().put(new KeyCodeCombination(KeyCode.L, KeyCombination.SHORTCUT_DOWN),
-                () -> eventStudio().broadcast(new ShowStageRequest(), "LogStage"));
+
         initWindowsStatusController(primaryStage);
         initOverwriteDialogController(primaryStage);
         initActiveModule();
@@ -125,14 +122,28 @@ public class App extends Application {
                 DurationFormatUtils.formatDurationWords(STOPWATCH.getTime(), true, true)));
     }
 
+    private void initScene() {
+        MainPane mainPane = ApplicationContextHolder.getContext().getBean(MainPane.class);
+
+        NotificationsContainer notifications = ApplicationContextHolder.getContext().getBean(
+                NotificationsContainer.class);
+        StackPane main = new StackPane();
+        StackPane.setAlignment(notifications, Pos.BOTTOM_RIGHT);
+        StackPane.setAlignment(mainPane, Pos.TOP_LEFT);
+        main.getChildren().addAll(mainPane, notifications);
+
+        StylesConfig styles = ApplicationContextHolder.getContext().getBean(StylesConfig.class);
+
+        mainScene = new Scene(main);
+        mainScene.getStylesheets().addAll(styles.styles());
+        mainScene.getAccelerators().put(new KeyCodeCombination(KeyCode.L, KeyCombination.SHORTCUT_DOWN),
+                () -> eventStudio().broadcast(new ShowStageRequest(), "LogStage"));
+    }
+
     @Override
     public void stop() {
         LOG.info(DefaultI18nContext.getInstance().i18n("Closing PDFsam..."));
         ApplicationContextHolder.getContext().close();
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 
     private static void requestCheckForUpdateIfNecessary() {

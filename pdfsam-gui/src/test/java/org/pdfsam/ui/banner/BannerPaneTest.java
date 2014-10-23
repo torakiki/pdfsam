@@ -82,7 +82,7 @@ public class BannerPaneTest extends GuiTest {
 
         @Bean(name = "logo32")
         public Image logo32() throws IOException {
-            Resource resource = new ClassPathResource("/images/community/32x32.png");
+            Resource resource = new ClassPathResource("/images/payoff.png");
             return new Image(resource.getInputStream());
         }
 

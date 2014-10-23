@@ -20,9 +20,9 @@ package org.pdfsam.configuration;
 
 import java.io.IOException;
 
-import org.pdfsam.Pdfsam;
-
 import javafx.scene.Group;
+
+import org.pdfsam.Pdfsam;
 
 /**
  * User interface configuration.
@@ -30,7 +30,7 @@ import javafx.scene.Group;
  * @author Andrea Vacondio
  * 
  */
-interface UIConfig {
+public interface UIConfig {
 
     /**
      * @return the PDFsam logo

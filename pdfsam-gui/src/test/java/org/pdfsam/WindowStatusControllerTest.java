@@ -39,8 +39,8 @@ import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.SetLatestStageStatusRequest;
-import org.pdfsam.ui.StageStatus;
 import org.pdfsam.ui.StageService;
+import org.pdfsam.ui.StageStatus;
 import org.sejda.eventstudio.Listener;
 
 /**
@@ -91,6 +91,7 @@ public class WindowStatusControllerTest extends GuiTest {
         }, 2);
         click("show").sleep(200);
         assertTrue(victimStage.isMaximized());
+        closeCurrentWindow();
     }
 
     @Test
@@ -102,6 +103,7 @@ public class WindowStatusControllerTest extends GuiTest {
         }, 2);
         click("show").sleep(200);
         assertTrue(victimStage.isMaximized());
+        closeCurrentWindow();
         System.setProperty(WindowStatusController.PDFSAM_DISABLE_UI_RESTORE, Boolean.FALSE.toString());
     }
 }

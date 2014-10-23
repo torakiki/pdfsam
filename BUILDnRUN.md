@@ -1,6 +1,6 @@
 Prerequisites
 ===========
-To build PDFsam you need the [Maven](http://maven.apache.org/) and [Oracle JDK 8](https://www.google.com/?q=Oracle+jdk+8+download)   
+To build PDFsam you need the [Maven](http://maven.apache.org/) and [Oracle JDK 8](https://www.java.com)   
 Build
 ===========
 **Build and install the jars in the local repository executing all the unit test:**   
@@ -13,5 +13,5 @@ Build
 Run
 ===========
 Once you built the artifact and they are locally installed you can run PDFsam following the steps  
-* move to the pdfsam-gui module with `cd pdfsam-gui`
+* move to the pdfsam-community module with `cd pdfsam-community`
 * run it with `mvn exec:java` 

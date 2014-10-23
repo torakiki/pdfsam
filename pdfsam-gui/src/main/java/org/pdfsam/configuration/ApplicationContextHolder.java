@@ -36,7 +36,7 @@ public final class ApplicationContextHolder {
         ctx.register(LoggerConfig.class);
         ctx.register(PdfsamConfig.class);
         ctx.getEnvironment().setActiveProfiles(ctx.getEnvironment().getProperty("pdfsam.edition", "COMMUNITY"));
-        ctx.register(PdfsamCommunityConfig.class, PdfsamEnterpriseConfig.class);
+        ctx.scan("org.pdfsam");
         ctx.registerShutdownHook();
         ctx.refresh();
     }

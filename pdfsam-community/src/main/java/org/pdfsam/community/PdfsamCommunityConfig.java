@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.configuration;
+package org.pdfsam.community;
 
 import java.io.IOException;
 
@@ -28,6 +28,7 @@ import javax.inject.Inject;
 
 import org.pdfsam.Pdfsam;
 import org.pdfsam.PdfsamEdition;
+import org.pdfsam.configuration.UIConfig;
 import org.pdfsam.module.PdfsamModule;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -39,7 +40,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
 /**
- * UI Configuration for the Basic version
+ * Configuration for PDFsam Community Edition
  * 
  * @author Andrea Vacondio
  * 
@@ -54,7 +55,7 @@ public class PdfsamCommunityConfig implements UIConfig {
 
     @Bean(name = "logo")
     public Group logo() throws IOException {
-        Resource resource = new ClassPathResource("/fxml/LogoBasic.fxml");
+        Resource resource = new ClassPathResource("/fxml/LogoCommunity.fxml");
         return FXMLLoader.load(resource.getURL());
     }
 

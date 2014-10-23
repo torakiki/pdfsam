@@ -26,7 +26,9 @@ import org.junit.Test;
  * @author Andrea Vacondio
  *
  */
+@SuppressWarnings("unused")
 public class OpenUrlRequestTest {
+
     @Test(expected = IllegalArgumentException.class)
     public void nullArg() {
         new OpenUrlRequest(null);

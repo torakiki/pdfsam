@@ -28,27 +28,20 @@ import javax.inject.Inject;
 
 import org.pdfsam.Pdfsam;
 import org.pdfsam.PdfsamEdition;
-import org.pdfsam.module.PdfsamEnterpriseModule;
-import org.pdfsam.module.PdfsamModule;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScan.Filter;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
 /**
- * UI Configuration for the Enhanced version
+ * UI Configuration for the Enterprise version
  * 
  * @author Andrea Vacondio
  * 
  */
-@Configuration
-@Profile("ENTERPRISE")
-@ComponentScan(basePackages = { "org.pdfsam" }, includeFilters = @Filter(value = { PdfsamModule.class,
-        PdfsamEnterpriseModule.class }))
+// @Configuration
+// @Profile("ENTERPRISE")
+// @ComponentScan(basePackages = { "org.pdfsam" }, includeFilters = @Filter(value = { PdfsamModule.class, PdfsamEnterpriseModule.class }))
 public class PdfsamEnterpriseConfig implements UIConfig {
     @Inject
     private Environment env;

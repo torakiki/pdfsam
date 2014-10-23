@@ -22,6 +22,7 @@
 	</parent>
 
 	<modules>
+		<module>pdfsam-community</module>
 		<module>pdfsam-gui</module>
 		<module>pdfsam-i18n</module>
 		<module>pdfsam-core</module>
