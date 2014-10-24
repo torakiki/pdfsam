@@ -66,6 +66,16 @@ public class BrowsableOutputDirectoryFieldTest {
     }
 
     @Test
+    public void validUTFSpecialChars() throws IOException {
+        BrowsableOutputDirectoryField victim = new BrowsableOutputDirectoryField();
+        File value = folder.newFolder("संसकरण_test");
+        victim.getTextField().setText(value.getAbsolutePath());
+        victim.apply(builder, onError);
+        verify(builder).output(argThat(hasProperty("destination", equalTo(value))));
+        verify(onError, never()).accept(anyString());
+    }
+
+    @Test
     public void invalid() {
         BrowsableOutputDirectoryField victim = new BrowsableOutputDirectoryField();
         victim.getTextField().setText("ChuckNorris");

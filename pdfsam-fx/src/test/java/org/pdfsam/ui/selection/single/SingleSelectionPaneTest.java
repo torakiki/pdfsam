@@ -67,6 +67,7 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
  *
  */
 @Category(TestFX.class)
+@SuppressWarnings("unchecked")
 public class SingleSelectionPaneTest extends GuiTest {
 
     private static final String MODULE = "MODULE";
@@ -250,6 +251,13 @@ public class SingleSelectionPaneTest extends GuiTest {
     }
 
     @Test
+    public void loadedDetailsSpecialChars() throws Exception {
+        SingleSelectionPane victim = find("#victim-selection-pane");
+        moveToLoadedStateWithSpecialChars(victim);
+        exists("Pages: 0, PDF Version: ");
+    }
+
+    @Test
     public void emptyDetailsOnSwithToInvalid() throws Exception {
         SingleSelectionPane victim = find("#victim-selection-pane");
         moveToLoadedWithDecryption(victim);
@@ -334,6 +342,20 @@ public class SingleSelectionPaneTest extends GuiTest {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADED_WITH_USER_PWD_DECRYPTION);
         }, 2);
+    }
+
+    private void moveToLoadedStateWithSpecialChars(SingleSelectionPane victim) throws Exception {
+        typeSpecialPathAndValidate();
+        FXTestUtils.invokeAndWait(() -> {
+            victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
+            victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
+            victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADED);
+        }, 2);
+    }
+
+    private void typeSpecialPathAndValidate() throws Exception {
+        File input = tmpFolder.newFile("संसकरण_test.pdf");
+        typePathAndValidate(input.getAbsolutePath());
     }
 
     private void typePathAndValidate() throws Exception {

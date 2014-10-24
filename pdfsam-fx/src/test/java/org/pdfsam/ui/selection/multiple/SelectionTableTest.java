@@ -349,7 +349,7 @@ public class SelectionTableTest extends GuiTest {
 
     private SelectionTableRowData populate() throws Exception {
         File file = folder.newFile("temp.pdf");
-        File file2 = folder.newFile("temp2.pdf");
+        File file2 = folder.newFile("®¯°±²³要选择需要转换的文.pdf");
         File file3 = folder.newFile("temp3.pdf");
         File file4 = folder.newFile("temp4.pdf");
         PdfLoadRequestEvent<SelectionTableRowData> loadEvent = new PdfLoadRequestEvent<>(MODULE);

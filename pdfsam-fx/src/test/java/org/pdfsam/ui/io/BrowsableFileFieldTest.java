@@ -97,4 +97,14 @@ public class BrowsableFileFieldTest {
         assertEquals(ValidationState.INVALID, victim.getTextField().getValidationState());
         assertEquals(inputFile.getAbsolutePath(), victim.getTextField().getText());
     }
+
+    @Test
+    public void validSpecialCharsFolderExisting() throws IOException {
+        BrowsableFileField victim = new BrowsableFileField(FileType.PDF);
+        victim.enforceValidation(true, true);
+        File inputFile = folder.newFile("只需要选择需要转换的文件_test.pdf");
+        victim.setTextFromFile(inputFile);
+        assertEquals(ValidationState.VALID, victim.getTextField().getValidationState());
+        assertEquals(inputFile.getAbsolutePath(), victim.getTextField().getText());
+    }
 }

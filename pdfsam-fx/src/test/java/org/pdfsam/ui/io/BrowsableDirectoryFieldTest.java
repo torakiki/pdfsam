@@ -63,8 +63,4 @@ public class BrowsableDirectoryFieldTest {
         assertEquals(inputFolder.getAbsolutePath(), victim.getTextField().getText());
     }
 
-    @Test
-    public void setDirectory() {
-
-    }
 }
