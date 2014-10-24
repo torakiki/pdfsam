@@ -81,7 +81,7 @@ public final class DefaultUserContext implements UserContext {
     @Override
     public String getNewsPolicy() {
         return defaultIfBlank(prefs.get(StringUserPreference.NEWS_POLICY.toString(), StringUtils.EMPTY),
-                NewsPolicy.ONCE_A_DAY.toString());
+                NewsPolicy.ONCE_A_WEEK.toString());
     }
 
     @Override
