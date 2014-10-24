@@ -44,11 +44,11 @@ public class PreferencePane extends HBox {
         VBox left = new VBox(5);
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Appearance"), left);
         left.getChildren().add(appearence);
-        addSectionTitle(DefaultI18nContext.getInstance().i18n("Thumbnails"), left);
-        left.getChildren().add(thumbnails);
+        // addSectionTitle(DefaultI18nContext.getInstance().i18n("Thumbnails"), left);
+        // left.getChildren().add(thumbnails);
+        addSectionTitle(DefaultI18nContext.getInstance().i18n("Behavior"), left);
+        left.getChildren().add(behavior);
         VBox right = new VBox(5);
-        addSectionTitle(DefaultI18nContext.getInstance().i18n("Behavior"), right);
-        right.getChildren().add(behavior);
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Workspace"), right);
         right.getChildren().add(workspace);
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Output"), right);
