@@ -41,7 +41,7 @@ import org.slf4j.LoggerFactory;
 public class CommunityPane extends VBox {
     private static final Logger LOG = LoggerFactory.getLogger(CommunityPane.class);
 
-    private ProgressBar progress = new ProgressBar(0);
+    private ProgressBar progress;
 
     CommunityPane() {
         getStyleClass().add("-pdfsam-community-splash");
@@ -49,6 +49,7 @@ public class CommunityPane extends VBox {
         logoView.getChildren().addAll(
                 new ImageView(this.getClass().getResource("/images/community/32x32.png").toExternalForm()),
                 new ImageView(this.getClass().getResource("/images/payoff.png").toExternalForm()));
+        progress = new ProgressBar(0);
         progress.setMaxWidth(Double.MAX_VALUE);
         Label message = new Label("Loading...");
         message.getStyleClass().add("-pdfsam-update-message");

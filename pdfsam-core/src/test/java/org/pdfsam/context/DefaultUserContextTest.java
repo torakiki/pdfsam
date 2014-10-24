@@ -118,7 +118,7 @@ public class DefaultUserContextTest {
         victim.setStringPreference(StringUserPreference.NEWS_POLICY, "ChuckNorris");
         assertEquals("ChuckNorris", victim.getNewsPolicy());
         victim.setStringPreference(StringUserPreference.NEWS_POLICY, "");
-        assertEquals(NewsPolicy.ONCE_A_DAY.toString(), victim.getNewsPolicy());
+        assertEquals(NewsPolicy.ONCE_A_WEEK.toString(), victim.getNewsPolicy());
     }
 
     @Test
