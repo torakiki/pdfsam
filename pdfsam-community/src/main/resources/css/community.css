@@ -4,9 +4,9 @@
 }
 .-pdfsam-community-splash{
 	-fx-padding: 25.0 25.0 15.0 25.0;
-	-fx-background-color: FFFFFF;
+	-fx-background-color: #C8C8C8, #FFFFFF;
+	-fx-background-insets: 0.0, 1.0;
 	-fx-spacing: 12.0px;
-	-fx-background-radius: 5.0px;
 }
 .-pdfsam-community-splash > .progress-bar {
    -fx-min-height: 4.0px;

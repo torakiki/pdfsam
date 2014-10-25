@@ -52,7 +52,7 @@ public class App extends Preloader {
     public void start(Stage stage) {
         this.stage = stage;
         this.pane = new CommunityPane();
-        stage.initStyle(StageStyle.UNDECORATED);
+        stage.initStyle(StageStyle.TRANSPARENT);
         PdfsamCommunityConfig config = new PdfsamCommunityConfig();
         Scene scene = new Scene(pane);
         scene.getStylesheets().add(this.getClass().getResource("/css/community.css").toExternalForm());
