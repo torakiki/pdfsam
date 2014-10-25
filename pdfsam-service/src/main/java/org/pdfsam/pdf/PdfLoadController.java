@@ -68,7 +68,6 @@ public class PdfLoadController implements Closeable {
      * Request to load a collection of documents
      * 
      * @param event
-     * @throws InterruptedException
      */
     @EventListener
     public void request(PdfLoadRequestEvent<? extends PdfDocumentDescriptor> event) {

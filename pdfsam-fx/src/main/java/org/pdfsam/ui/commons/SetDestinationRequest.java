@@ -48,8 +48,8 @@ public class SetDestinationRequest {
 
     /**
      * @param footprint
-     * @param the
-     *            module requesting
+     * @param module
+     *            the module requesting
      * @return a request to set the destination for the task to the given file
      */
     public static SetDestinationRequest requestDestination(File footprint, String module) {
@@ -59,8 +59,8 @@ public class SetDestinationRequest {
 
     /**
      * @param footprint
-     * @param the
-     *            module requesting
+     * @param module
+     *            the module requesting
      * @return a request to set the destination as fallback for the task to the given file
      */
     public static SetDestinationRequest requestFallbackDestination(File footprint, String module) {

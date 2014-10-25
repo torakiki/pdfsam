@@ -65,7 +65,7 @@ public class TextAreaAppenderTest {
     static class Config {
         @Bean
         public TextAreaAppender victim() {
-            return new TextAreaAppender();
+            return new TextAreaAppender(view(), encoder());
         }
 
         @Bean
