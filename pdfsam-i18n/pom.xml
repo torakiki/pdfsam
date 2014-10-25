@@ -11,7 +11,7 @@
 	</parent>
 
 	<artifactId>pdfsam-i18n</artifactId>
-  <version>3.0.0.BETA</version>
+  <version>3.0.0.M1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>PDFsam i18n</name>
 
