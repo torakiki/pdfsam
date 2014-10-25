@@ -57,6 +57,7 @@
 					<autoVersionSubmodules>true</autoVersionSubmodules>
 					<releaseProfiles>release</releaseProfiles>
 					<allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+					<goals>package</goals>
 				</configuration>
 			</plugin>
 		</plugins>
