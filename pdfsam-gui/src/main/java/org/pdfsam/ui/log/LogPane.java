@@ -43,6 +43,7 @@ import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.io.FileChoosers;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper;
+import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 import org.pdfsam.ui.support.Style;
 
 /**
@@ -115,7 +116,7 @@ public class LogPane extends BorderPane {
         RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(FileType.LOG, DefaultI18nContext
                 .getInstance().i18n("Select where to save the log file"));
         fileChooser.setInitialFileName("PDFsam.log");
-        File chosenFile = fileChooser.showSaveDialog(this.getScene().getWindow());
+        File chosenFile = fileChooser.showDialog(this.getScene().getWindow(), OpenType.SAVE);
         if (chosenFile != null) {
             if (chosenFile.exists()) {
                 // TODO show dialog? investigate. On Ubuntu it already asks confirmation.

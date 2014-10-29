@@ -54,12 +54,6 @@ public class RememberingLatestFileChooserWrapper extends BaseRememberingLatestCh
         wrapped.setInitialFileName(value);
     }
 
-    public File showOpenDialog(Window ownerWindow) {
-        File selected = wrapped.showOpenDialog(ownerWindow);
-        notifyNewLatestDirectory(selected);
-        return selected;
-    }
-
     public List<File> showOpenMultipleDialog(Window ownerWindow) {
         List<File> selected = wrapped.showOpenMultipleDialog(ownerWindow);
         if (selected != null && !selected.isEmpty()) {
@@ -68,8 +62,15 @@ public class RememberingLatestFileChooserWrapper extends BaseRememberingLatestCh
         return selected;
     }
 
-    public File showSaveDialog(Window ownerWindow) {
-        File selected = wrapped.showSaveDialog(ownerWindow);
+    public File showDialog(Window ownerWindow, OpenType type) {
+        File selected = null;
+        switch (type) {
+        case SAVE:
+            selected = wrapped.showSaveDialog(ownerWindow);
+            break;
+        default:
+            selected = wrapped.showOpenDialog(ownerWindow);
+        }
         notifyNewLatestDirectory(selected);
         return selected;
     }
@@ -84,4 +85,14 @@ public class RememberingLatestFileChooserWrapper extends BaseRememberingLatestCh
         return wrapped.getExtensionFilters();
     }
 
+    /**
+     * Possible type of open dialogs
+     * 
+     * @author Andrea Vacondio
+     *
+     */
+    public static enum OpenType {
+        OPEN,
+        SAVE;
+    }
 }

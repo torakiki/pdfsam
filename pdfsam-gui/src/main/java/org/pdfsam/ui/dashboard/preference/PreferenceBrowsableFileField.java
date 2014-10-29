@@ -24,6 +24,7 @@ import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.io.BrowsableFileField;
+import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 
 /**
  * {@link BrowsableFileField} that sets a {@link StringUserPreference} when the input text is valid.
@@ -33,8 +34,9 @@ import org.pdfsam.ui.io.BrowsableFileField;
  */
 class PreferenceBrowsableFileField extends BrowsableFileField {
 
-    PreferenceBrowsableFileField(StringUserPreference preference, FileType type, UserContext userContext) {
-        super(type);
+    PreferenceBrowsableFileField(StringUserPreference preference, FileType type, OpenType openType,
+            UserContext userContext) {
+        super(type, openType);
         requireNotNull(preference, "Preference cannot be null");
         requireNotNull(userContext, "UserContext cannot be null");
         enforceValidation(true, true);

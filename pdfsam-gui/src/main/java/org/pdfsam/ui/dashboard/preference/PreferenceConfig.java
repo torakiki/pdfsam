@@ -39,6 +39,7 @@ import org.pdfsam.support.io.FileType;
 import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.NewsPolicy;
 import org.pdfsam.ui.Theme;
+import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -160,7 +161,7 @@ public class PreferenceConfig {
     @Bean(name = "workspace")
     public PreferenceBrowsableFileField workspace() {
         PreferenceBrowsableFileField workspace = new PreferenceBrowsableFileField(StringUserPreference.WORKSPACE_PATH,
-                FileType.XML, userContext);
+                FileType.XML, OpenType.OPEN, userContext);
         workspace.getTextField().setText(userContext.getDefaultWorkspacePath());
         workspace.setId("workspace");
         return workspace;

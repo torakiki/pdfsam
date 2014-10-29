@@ -33,6 +33,7 @@ import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
 
@@ -47,11 +48,11 @@ public class BrowsableFileFieldUITest extends GuiTest {
 
     @Override
     protected Parent getRootNode() {
-        BrowsableFileField victimBlank = new BrowsableFileField(FileType.PDF);
+        BrowsableFileField victimBlank = new BrowsableFileField(FileType.PDF, OpenType.OPEN);
         victimBlank.enforceValidation(false, true);
         victimBlank.getStyleClass().add("victim-blank");
 
-        BrowsableFileField victimNoBlank = new BrowsableFileField(FileType.PDF);
+        BrowsableFileField victimNoBlank = new BrowsableFileField(FileType.PDF, OpenType.OPEN);
         victimNoBlank.enforceValidation(false, false);
         victimNoBlank.getStyleClass().add("victim-no-blank");
         return new HBox(victimBlank, victimNoBlank);

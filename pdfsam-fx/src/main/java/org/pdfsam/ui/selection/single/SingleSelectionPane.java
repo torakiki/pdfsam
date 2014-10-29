@@ -60,6 +60,7 @@ import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.pdfsam.ui.commons.ShowStageRequest;
 import org.pdfsam.ui.io.BrowsableFileField;
 import org.pdfsam.ui.io.ChangedSelectedPdfVersionEvent;
+import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 import org.pdfsam.ui.selection.LoadingStatusIndicatorUpdater;
 import org.pdfsam.ui.selection.PasswordFieldPopup;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
@@ -76,7 +77,7 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
 public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumentDescriptorProvider {
 
     private String ownerModule = StringUtils.EMPTY;
-    private BrowsableFileField field = new BrowsableFileField(FileType.PDF);
+    private BrowsableFileField field = new BrowsableFileField(FileType.PDF, OpenType.OPEN);
     private Label details = new Label();
     private PdfDocumentDescriptor descriptor;
     private PasswordFieldPopup passwordPopup;

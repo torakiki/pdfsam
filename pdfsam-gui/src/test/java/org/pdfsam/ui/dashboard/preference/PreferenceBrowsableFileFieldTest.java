@@ -39,6 +39,7 @@ import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.commons.ValidableTextField;
+import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 
 /**
  * @author Andrea Vacondio
@@ -54,7 +55,7 @@ public class PreferenceBrowsableFileFieldTest extends GuiTest {
     @Override
     protected Parent getRootNode() {
         PreferenceBrowsableFileField victim = new PreferenceBrowsableFileField(StringUserPreference.WORKING_PATH,
-                FileType.PDF, userContext);
+                FileType.PDF, OpenType.OPEN, userContext);
         victim.setId("victim");
         return victim;
     }

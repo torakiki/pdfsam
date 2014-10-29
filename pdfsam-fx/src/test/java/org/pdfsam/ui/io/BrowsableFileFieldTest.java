@@ -31,6 +31,7 @@ import org.junit.rules.TemporaryFolder;
 import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
+import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 
 /**
@@ -46,13 +47,13 @@ public class BrowsableFileFieldTest {
     @Test
     public void defaultPromptText() {
         eventStudio().broadcast(new SetLocaleEvent(Locale.UK.toLanguageTag()));
-        BrowsableFileField victim = new BrowsableFileField(FileType.ALL);
+        BrowsableFileField victim = new BrowsableFileField(FileType.ALL, OpenType.OPEN);
         assertEquals("Select a file", victim.getTextField().getPromptText());
     }
 
     @Test
     public void setTextFromNullFile() {
-        BrowsableFileField victim = new BrowsableFileField(FileType.PDF);
+        BrowsableFileField victim = new BrowsableFileField(FileType.PDF, OpenType.OPEN);
         assertEquals(ValidationState.NOT_VALIDATED, victim.getTextField().getValidationState());
         victim.setTextFromFile(null);
         assertEquals(ValidationState.NOT_VALIDATED, victim.getTextField().getValidationState());
@@ -60,7 +61,7 @@ public class BrowsableFileFieldTest {
 
     @Test
     public void validExisting() throws IOException {
-        BrowsableFileField victim = new BrowsableFileField(FileType.PDF);
+        BrowsableFileField victim = new BrowsableFileField(FileType.PDF, OpenType.SAVE);
         victim.enforceValidation(true, true);
         File inputFile = folder.newFile("test.pdf");
         victim.setTextFromFile(inputFile);
@@ -70,7 +71,7 @@ public class BrowsableFileFieldTest {
 
     @Test
     public void invalidExisting() throws IOException {
-        BrowsableFileField victim = new BrowsableFileField(FileType.PDF);
+        BrowsableFileField victim = new BrowsableFileField(FileType.PDF, OpenType.SAVE);
         victim.enforceValidation(true, true);
         File inputFile = folder.newFile("test.oss");
         victim.setTextFromFile(inputFile);
@@ -80,7 +81,7 @@ public class BrowsableFileFieldTest {
 
     @Test
     public void validNotExisting() {
-        BrowsableFileField victim = new BrowsableFileField(FileType.PDF);
+        BrowsableFileField victim = new BrowsableFileField(FileType.PDF, OpenType.OPEN);
         victim.enforceValidation(false, true);
         File inputFile = new File("ChuckNorris/roundhouse/kick.pdf");
         victim.setTextFromFile(inputFile);
@@ -90,7 +91,7 @@ public class BrowsableFileFieldTest {
 
     @Test
     public void invalidNotExisting() {
-        BrowsableFileField victim = new BrowsableFileField(FileType.PDF);
+        BrowsableFileField victim = new BrowsableFileField(FileType.PDF, OpenType.OPEN);
         victim.enforceValidation(true, true);
         File inputFile = new File("ChuckNorris/roundhouse/kick.pdf");
         victim.setTextFromFile(inputFile);
@@ -100,7 +101,7 @@ public class BrowsableFileFieldTest {
 
     @Test
     public void validSpecialCharsFolderExisting() throws IOException {
-        BrowsableFileField victim = new BrowsableFileField(FileType.PDF);
+        BrowsableFileField victim = new BrowsableFileField(FileType.PDF, OpenType.OPEN);
         victim.enforceValidation(true, true);
         File inputFile = folder.newFile("只需要选择需要转换的文件_test.pdf");
         victim.setTextFromFile(inputFile);

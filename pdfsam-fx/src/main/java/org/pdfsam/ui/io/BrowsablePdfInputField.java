@@ -26,6 +26,7 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.support.params.SinglePdfSourceTaskParametersBuilder;
 import org.pdfsam.support.params.TaskParametersBuildStep;
+import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.sejda.conversion.PdfFileSourceAdapter;
 import org.sejda.model.parameter.base.SinglePdfSourceTaskParameters;
@@ -44,7 +45,7 @@ public class BrowsablePdfInputField extends BrowsableFileField implements
         TaskParametersBuildStep<SinglePdfSourceTaskParametersBuilder<?>> {
 
     public BrowsablePdfInputField() {
-        super(FileType.PDF);
+        super(FileType.PDF, OpenType.OPEN);
     }
 
     public void apply(SinglePdfSourceTaskParametersBuilder<?> builder, Consumer<String> onError) {
