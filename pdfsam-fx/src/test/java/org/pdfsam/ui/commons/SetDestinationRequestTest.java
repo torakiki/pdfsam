@@ -21,27 +21,28 @@ package org.pdfsam.ui.commons;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 import java.io.File;
+import java.io.IOException;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TemporaryFolder;
 
 /**
  * @author Andrea Vacondio
  *
  */
 public class SetDestinationRequestTest {
+    @Rule
+    public TemporaryFolder temp = new TemporaryFolder();
 
-    private static final String PARENT = "/parent/path";
     private File file;
 
     @Before
-    public void setUp() {
-        file = mock(File.class);
-        when(file.getParent()).thenReturn(PARENT);
+    public void setUp() throws IOException {
+        file = temp.newFile();
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -58,6 +59,7 @@ public class SetDestinationRequestTest {
     @Test
     public void footprint() {
         SetDestinationRequest victim = SetDestinationRequest.requestFallbackDestination(file, "module");
-        assertEquals("/parent/path/PDFsam_module.pdf", victim.getFootprint().getAbsolutePath());
+        assertEquals(new File(file.getParent(), "PDFsam_module.pdf").getAbsolutePath(), victim.getFootprint()
+                .getAbsolutePath());
     }
 }
