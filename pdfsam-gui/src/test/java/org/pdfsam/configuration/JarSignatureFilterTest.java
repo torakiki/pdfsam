@@ -50,8 +50,7 @@ public class JarSignatureFilterTest {
     @Test
     public void isCaseInsensitive() throws IOException {
         assertTrue(victim.test(folder.newFile("test.jar").toPath()));
-        assertTrue(victim.test(folder.newFile("test.JaR").toPath()));
-        assertTrue(victim.test(folder.newFile("test.JAR").toPath()));
+        assertTrue(victim.test(folder.newFile("test1.JaR").toPath()));
+        assertTrue(victim.test(folder.newFile("test2.JAR").toPath()));
     }
-
 }
