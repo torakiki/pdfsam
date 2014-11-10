@@ -216,7 +216,9 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
             final PdfLoadRequestEvent<SelectionTableRowData> loadEvent = new PdfLoadRequestEvent<>(getOwnerModule());
             e.getDragboard().getFiles().stream().filter(f -> FileType.PDF.matches(f.getName()))
                     .map(SelectionTableRowData::new).forEach(loadEvent::add);
-            eventStudio().broadcast(loadEvent, getOwnerModule());
+            if (!loadEvent.getDocuments().isEmpty()) {
+                eventStudio().broadcast(loadEvent, getOwnerModule());
+            }
             e.setDropCompleted(true);
         };
     }
