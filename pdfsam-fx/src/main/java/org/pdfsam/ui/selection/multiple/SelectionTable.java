@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.selection.multiple;
 
+import static java.util.Arrays.stream;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.ui.commons.SetDestinationRequest.requestDestination;
 import static org.pdfsam.ui.commons.SetDestinationRequest.requestFallbackDestination;
@@ -29,6 +30,7 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.stream.Stream;
 
 import javafx.application.Platform;
 import javafx.collections.ListChangeListener.Change;
@@ -42,6 +44,7 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.TableView;
 import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
@@ -190,8 +193,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     }
 
     private void dragConsume(DragEvent e, Consumer<DragEvent> c) {
-        List<File> files = e.getDragboard().getFiles();
-        if (files != null && !files.isEmpty()) {
+        if (e.getDragboard().hasFiles()) {
             c.accept(e);
         }
         e.consume();
@@ -214,13 +216,21 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     private Consumer<DragEvent> onDragDropped() {
         return (DragEvent e) -> {
             final PdfLoadRequestEvent<SelectionTableRowData> loadEvent = new PdfLoadRequestEvent<>(getOwnerModule());
-            e.getDragboard().getFiles().stream().filter(f -> FileType.PDF.matches(f.getName()))
+            getFilesFromDragboard(e.getDragboard()).filter(f -> FileType.PDF.matches(f.getName()))
                     .map(SelectionTableRowData::new).forEach(loadEvent::add);
             if (!loadEvent.getDocuments().isEmpty()) {
                 eventStudio().broadcast(loadEvent, getOwnerModule());
             }
             e.setDropCompleted(true);
         };
+    }
+
+    private Stream<File> getFilesFromDragboard(Dragboard board) {
+        List<File> files = board.getFiles();
+        if (files.size() == 1 && files.get(0).isDirectory()) {
+            return stream(files.get(0).listFiles()).sorted();
+        }
+        return files.stream();
     }
 
     @EventStation
