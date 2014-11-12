@@ -18,9 +18,9 @@
  */
 package org.pdfsam.sound;
 
+import static org.pdfsam.support.RequireUtils.requireNotBlank;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaPlayer.Status;
+import javafx.scene.media.AudioClip;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -38,32 +38,34 @@ import org.sejda.model.notification.event.TaskExecutionFailedEvent;
  */
 @Named
 public class PlaySoundController {
-    @Inject
-    @Named("errorPlayer")
-    private MediaPlayer error;
-    @Inject
-    @Named("okPlayer")
-    private MediaPlayer ok;
-    @Inject
     private UserContext userContext;
+    private String okSoundURI;
+    private String errorSoundURI;
 
-    public PlaySoundController() {
+    @Inject
+    public PlaySoundController(UserContext userContext, @Named("okSound") String okSoundURI,
+            @Named("errorSound") String errorSoundURI) {
+        requireNotBlank(okSoundURI, "");
+        requireNotBlank(errorSoundURI, "");
+        this.userContext = userContext;
+        this.okSoundURI = okSoundURI;
+        this.errorSoundURI = errorSoundURI;
         eventStudio().addAnnotatedListeners(this);
     }
 
     @EventListener
     public void playFailed(TaskExecutionFailedEvent event) {
-        playSound(error);
+        playSound(errorSoundURI);
     }
 
     @EventListener
     public void playCompleted(TaskExecutionCompletedEvent event) {
-        playSound(ok);
+        playSound(okSoundURI);
     }
 
-    private void playSound(MediaPlayer player) {
-        if (userContext.isPlaySounds() && player.getStatus() == Status.READY) {
-            player.play();
+    private void playSound(String soundURI) {
+        if (userContext.isPlaySounds()) {
+            new AudioClip(soundURI).play(1);
         }
     }
 }
