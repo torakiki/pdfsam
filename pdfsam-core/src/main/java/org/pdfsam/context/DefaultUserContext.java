@@ -20,11 +20,14 @@ package org.pdfsam.context;
 
 import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
 
+import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.ui.NewsPolicy;
 import org.pdfsam.ui.Theme;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * {@link Preferences} implementation for the {@link UserContext}.
@@ -33,13 +36,17 @@ import org.pdfsam.ui.Theme;
  * 
  */
 public final class DefaultUserContext implements UserContext {
-
+    private static final Logger LOG = LoggerFactory.getLogger(DefaultUserContext.class);
     private Preferences prefs;
     private UserWorkspacesContext workspaces;
 
     public DefaultUserContext() {
-        this.prefs = Preferences.userRoot().node("/org/pdfsam/user/conf");
+        initNode();
         this.workspaces = new PreferencesUserWorkspacesContext();
+    }
+
+    private void initNode() {
+        this.prefs = Preferences.userRoot().node("/org/pdfsam/user/conf");
     }
 
     @Override
@@ -103,6 +110,17 @@ public final class DefaultUserContext implements UserContext {
     @Override
     public String getLocale() {
         return prefs.get(StringUserPreference.LOCALE.toString(), StringUtils.EMPTY);
+    }
+
+    @Override
+    public void clear() {
+        try {
+            prefs.removeNode();
+            prefs.flush();
+            initNode();
+        } catch (BackingStoreException e) {
+            LOG.error("Unable to clear user preferences", e);
+        }
     }
 
     @Override

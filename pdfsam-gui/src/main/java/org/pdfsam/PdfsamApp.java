@@ -77,9 +77,10 @@ public class PdfsamApp extends Application {
     public void init() {
         STOPWATCH.start();
         LOG.info("Starting PDFsam");
+        notifyPreloader(new ProgressNotification(0));
         System.setProperty(Sejda.UNETHICAL_READ_PROPERTY_NAME, "true");
         System.setProperty(EventStudio.MAX_QUEUE_SIZE_PROP, "20");
-        UserContext userContext = new DefaultUserContext();
+        UserContext userContext = initUserContext();
         String localeString = userContext.getLocale();
         if (isNotBlank(localeString)) {
             eventStudio().broadcast(new SetLocaleEvent(localeString));
@@ -95,12 +96,21 @@ public class PdfsamApp extends Application {
                 LOG.warn("Unable to set initial directory, default path is invalid.", e);
             }
         }
-        notifyPreloader(new ProgressNotification(0.2));
+        notifyPreloader(new ProgressNotification(0.3));
         Platform.runLater(() -> ApplicationContextHolder.getContext());
         notifyPreloader(new ProgressNotification(0.6));
         Platform.runLater(() -> initScene());
         notifyPreloader(new ProgressNotification(0.8));
 
+    }
+
+    private UserContext initUserContext() {
+        UserContext userContext = new DefaultUserContext();
+        if (getParameters().getRaw().contains("-clean")) {
+            userContext.clear();
+            LOG.info("Cleared user preferences");
+        }
+        return userContext;
     }
 
     @Override

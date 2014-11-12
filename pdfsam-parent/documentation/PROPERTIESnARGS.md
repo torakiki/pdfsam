@@ -12,3 +12,8 @@ A list of system properties that users can configure to alter PDFsam behavior.
 *values:* true|false 
 *default:* false  
 *description:* if set to true PDFsam will not restore the stage position, dimensions and mode, it will start with default values instead (maximized).  
+
+Runtime arguments
+=============
+**-clean**  
+*description:* clears user preferences starting PDFsam with default values for them. 

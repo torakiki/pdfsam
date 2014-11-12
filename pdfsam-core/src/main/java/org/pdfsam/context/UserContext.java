@@ -87,6 +87,11 @@ public interface UserContext {
     String getNewsPolicy();
 
     /**
+     * Clear user preferences
+     */
+    void clear();
+
+    /**
      * Sets a {@link Boolean} preference.
      * 
      * @param pref
