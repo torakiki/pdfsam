@@ -18,20 +18,12 @@
  */
 package org.pdfsam.update;
 
-import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.after;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.timeout;
-import static org.mockito.Mockito.verify;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.pdfsam.Pdfsam;
-import org.pdfsam.PdfsamEdition;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeJavaFxThreadRule;
-import org.sejda.eventstudio.Listener;
 
 /**
  * @author Andrea Vacondio
@@ -46,21 +38,13 @@ public class DefaultUpdateServiceTest {
 
     @Test
     public void pasitiveCheckForUpdates() {
-        DefaultUpdateService victim = new DefaultUpdateService(
-                new Pdfsam(PdfsamEdition.COMMUNITY, "PDFsam", "3.0.0.M1"), "{\"currentVersion\" : \"3.0.0\"}");
-        Listener<UpdateAvailableEvent> listener = mock(Listener.class);
-        eventStudio().add(UpdateAvailableEvent.class, listener);
-        victim.checkForUpdates();
-        verify(listener, timeout(1000).times(1)).onEvent(any(UpdateAvailableEvent.class));
+        DefaultUpdateService victim = new DefaultUpdateService("{\"currentVersion\" : \"3.0.0\"}");
+        assertEquals("3.0.0", victim.getLatestVersion());
     }
 
     @Test
     public void negativeCheckForUpdates() {
-        DefaultUpdateService victim = new DefaultUpdateService(new Pdfsam(PdfsamEdition.COMMUNITY, "PDFsam", "3.0.0"),
-                "{\"currentVersion\" : \"3.0.0\"}");
-        Listener<UpdateAvailableEvent> listener = mock(Listener.class);
-        eventStudio().add(UpdateAvailableEvent.class, listener);
-        victim.checkForUpdates();
-        verify(listener, after(1000).never()).onEvent(any(UpdateAvailableEvent.class));
+        DefaultUpdateService victim = new DefaultUpdateService("ChuckNorris");
+        assertEquals("", victim.getLatestVersion());
     }
 }

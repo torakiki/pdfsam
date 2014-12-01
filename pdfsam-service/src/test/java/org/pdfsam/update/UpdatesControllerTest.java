@@ -18,14 +18,22 @@
  */
 package org.pdfsam.update;
 
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.after;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.pdfsam.Pdfsam;
+import org.pdfsam.PdfsamEdition;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.test.InitializeJavaFxThreadRule;
+import org.sejda.eventstudio.Listener;
 
 /**
  * @author Andrea Vacondio
@@ -36,19 +44,43 @@ public class UpdatesControllerTest {
 
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
-
+    @Rule
+    public InitializeJavaFxThreadRule javaFX = new InitializeJavaFxThreadRule();
     private UpdatesController victim;
     private UpdateService service;
+    private Listener<UpdateAvailableEvent> listener;
 
     @Before
     public void setUp() {
         service = mock(UpdateService.class);
-        victim = new UpdatesController(service);
+        listener = mock(Listener.class);
+        victim = new UpdatesController(service, new Pdfsam(PdfsamEdition.COMMUNITY, "PDFsam", "3.0.0.M1"));
     }
 
     @Test
-    public void checkForUpdates() {
+    public void pasitiveCheckForUpdates() {
+        when(service.getLatestVersion()).thenReturn("3.0.0");
+        eventStudio().add(UpdateAvailableEvent.class, listener);
         victim.checkForUpdates(new UpdateCheckRequest());
-        verify(service, timeout(1000).times(1)).checkForUpdates();
+        verify(service, timeout(1000).times(1)).getLatestVersion();
+        verify(listener, timeout(1000).times(1)).onEvent(any(UpdateAvailableEvent.class));
+    }
+
+    @Test
+    public void negativeCheckForUpdates() {
+        when(service.getLatestVersion()).thenReturn("3.0.0.M1");
+        eventStudio().add(UpdateAvailableEvent.class, listener);
+        victim.checkForUpdates(new UpdateCheckRequest());
+        verify(service, timeout(1000).times(1)).getLatestVersion();
+        verify(listener, after(1000).never()).onEvent(any(UpdateAvailableEvent.class));
+    }
+
+    @Test
+    public void exceptionalCheckForUpdates() {
+        when(service.getLatestVersion()).thenThrow(new RuntimeException("Mock"));
+        eventStudio().add(UpdateAvailableEvent.class, listener);
+        victim.checkForUpdates(new UpdateCheckRequest());
+        verify(service, timeout(1000).times(1)).getLatestVersion();
+        verify(listener, after(1000).never()).onEvent(any(UpdateAvailableEvent.class));
     }
 }

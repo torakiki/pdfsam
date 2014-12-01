@@ -18,6 +18,7 @@
  */
 package org.pdfsam.update;
 
+
 /**
  * Service for updates related functionalities
  * 
@@ -27,7 +28,7 @@ package org.pdfsam.update;
 public interface UpdateService {
 
     /**
-     * Request to check if a new version is available
+     * @return version number of the latest version available or the empty string if unable to retrieve the information
      */
-    void checkForUpdates();
+    String getLatestVersion();
 }

@@ -18,16 +18,18 @@
  */
 package org.pdfsam.update;
 
+import static java.util.Objects.nonNull;
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
-import java.io.Closeable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.CompletableFuture;
 
-import javax.annotation.PreDestroy;
+import javafx.application.Platform;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.pdfsam.Pdfsam;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
@@ -40,26 +42,31 @@ import org.slf4j.LoggerFactory;
  *
  */
 @Named
-public class UpdatesController implements Closeable {
+public class UpdatesController {
     private static final Logger LOG = LoggerFactory.getLogger(UpdatesController.class);
 
+    private Pdfsam pdfsam;
     private UpdateService service;
-    private ExecutorService executor = Executors.newSingleThreadExecutor();
 
     @Inject
-    UpdatesController(UpdateService service) {
+    UpdatesController(UpdateService service, Pdfsam pdfsam) {
         this.service = service;
+        this.pdfsam = pdfsam;
         eventStudio().addAnnotatedListeners(this);
-    }
-
-    @PreDestroy
-    public void close() {
-        executor.shutdownNow();
     }
 
     @EventListener
     public void checkForUpdates(UpdateCheckRequest event) {
         LOG.debug(DefaultI18nContext.getInstance().i18n("Checking for updates"));
-        executor.execute(() -> service.checkForUpdates());
+        CompletableFuture.supplyAsync(service::getLatestVersion).thenAccept(current -> {
+            if (isNotBlank(current) && !pdfsam.version().equals(current)) {
+                LOG.info(DefaultI18nContext.getInstance().i18n("PDFsam {0} is available for download", current));
+                Platform.runLater(() -> eventStudio().broadcast(new UpdateAvailableEvent(current)));
+            }
+        }).whenComplete((r, e) -> {
+            if (nonNull(e)) {
+                LOG.warn(DefaultI18nContext.getInstance().i18n("Unable to find the latest available version."), e);
+            }
+        });
     }
 }
