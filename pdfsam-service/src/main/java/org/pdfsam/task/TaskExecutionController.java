@@ -31,6 +31,7 @@ import javax.inject.Named;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.module.UsageService;
 import org.sejda.core.notification.context.GlobalNotificationContext;
+import org.sejda.core.service.TaskExecutionService;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.model.notification.event.PercentageOfWorkDoneChangedEvent;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
@@ -49,12 +50,12 @@ import org.slf4j.LoggerFactory;
 class TaskExecutionController implements Closeable {
     private static final Logger LOG = LoggerFactory.getLogger(TaskExecutionController.class);
 
-    private ExecutionService executionService;
+    private TaskExecutionService executionService;
     private UsageService usageService;
     private ExecutorService executor = Executors.newSingleThreadExecutor();
 
     @Inject
-    public TaskExecutionController(ExecutionService executionService, UsageService usageService) {
+    public TaskExecutionController(TaskExecutionService executionService, UsageService usageService) {
         this.executionService = executionService;
         this.usageService = usageService;
         eventStudio().addAnnotatedListeners(this);
@@ -77,7 +78,7 @@ class TaskExecutionController implements Closeable {
     public void request(TaskExecutionRequestEvent event) {
         LOG.trace("Task execution request received");
         usageService.incrementUsageFor(event.getModuleId());
-        executor.execute(() -> executionService.submit(event.getModuleId(), event.getParameters()));
+        executor.execute(() -> executionService.execute(event.getParameters()));
         LOG.trace("Task execution submitted");
     }
 
