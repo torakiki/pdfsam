@@ -19,17 +19,16 @@
 package org.pdfsam.support.validation;
 
 /**
- * Validates that the input string is a valid integer value or empty
+ * Validates that the input string is a valid positive integer value or empty
  * 
  * @author Andrea Vacondio
  * 
  */
-class IntegerStringValidator implements Validator<String> {
+class PositiveIntegerStringValidator implements Validator<String> {
 
     public boolean isValid(String input) {
         try {
-            Integer.parseInt(input);
-            return true;
+            return Integer.parseInt(input) > 0;
         } catch (NumberFormatException e) {
             // not a valid integer
             return false;

@@ -42,10 +42,10 @@ public final class Validators {
     }
 
     /**
-     * @return a new instance of a validator checking for a input string representing an integer number
+     * @return a new instance of a validator checking for a input string representing a positive integer number
      */
-    public static Validator<String> newIntegerString() {
-        return new IntegerStringValidator();
+    public static Validator<String> newPositiveIntegerString() {
+        return new PositiveIntegerStringValidator();
     }
 
     /**

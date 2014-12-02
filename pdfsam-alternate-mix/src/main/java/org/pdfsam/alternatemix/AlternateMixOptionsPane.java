@@ -79,7 +79,7 @@ class AlternateMixOptionsPane extends VBox implements TaskParametersBuildStep<Al
         ValidableTextField field = new ValidableTextField();
         field.setEnableInvalidStyle(true);
         field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Select the number of pages"));
-        field.setValidator(Validators.newIntegerString());
+        field.setValidator(Validators.newPositiveIntegerString());
         field.setOnEnterValidation(true);
         field.setText("1");
         field.setPrefWidth(50);

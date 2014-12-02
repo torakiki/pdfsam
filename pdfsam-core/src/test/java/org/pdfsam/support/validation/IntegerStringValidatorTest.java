@@ -18,7 +18,9 @@
  */
 package org.pdfsam.support.validation;
 
-import org.junit.Assert;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 /**
@@ -27,22 +29,32 @@ import org.junit.Test;
  */
 public class IntegerStringValidatorTest {
 
-    private Validator<String> victim = Validators.newIntegerString();
+    private Validator<String> victim = Validators.newPositiveIntegerString();
 
     @Test
     public void testNegative() {
-        Assert.assertFalse(victim.isValid("dsdsa"));
+        assertFalse(victim.isValid("-123"));
     }
 
     @Test
-    public void testPositive() {
-        Assert.assertTrue(victim.isValid("123"));
-        Assert.assertTrue(victim.isValid("-123"));
+    public void testInvalid() {
+        assertFalse(victim.isValid("dsdsa"));
+    }
+
+    @Test
+    public void testZero() {
+        assertFalse(victim.isValid("0"));
+    }
+
+    @Test
+    public void testValid() {
+        assertTrue(victim.isValid("123"));
+
     }
 
     @Test
     public void testAllowBlank() {
-        Assert.assertFalse(victim.isValid(""));
-        Assert.assertTrue(Validators.decorateAsValidEmptyString(victim).isValid(""));
+        assertFalse(victim.isValid(""));
+        assertTrue(Validators.decorateAsValidEmptyString(victim).isValid(""));
     }
 }

@@ -46,7 +46,7 @@ public class PreferenceIntTextFieldTest extends GuiTest {
     @Override
     protected Parent getRootNode() {
         PreferenceIntTextField victim = new PreferenceIntTextField(IntUserPreference.THUMBNAILS_SIZE, userContext,
-                Validators.newIntegerString());
+                Validators.newPositiveIntegerString());
         victim.setId("victim");
         return victim;
     }

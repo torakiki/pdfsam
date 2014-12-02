@@ -19,7 +19,7 @@
 package org.pdfsam.support.validation;
 
 import static org.pdfsam.support.validation.Validators.decorateAsValidEmptyString;
-import static org.pdfsam.support.validation.Validators.newIntegerString;
+import static org.pdfsam.support.validation.Validators.newPositiveIntegerString;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -29,7 +29,7 @@ import org.junit.Test;
  * 
  */
 public class BlankStringDecoratorTest {
-    private Validator<String> victim = decorateAsValidEmptyString(newIntegerString());
+    private Validator<String> victim = decorateAsValidEmptyString(newPositiveIntegerString());
 
     @Test
     public void testNegative() {

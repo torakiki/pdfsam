@@ -42,7 +42,7 @@ class BookmarksLevelComboBox extends ComboBox<String> implements
     private final FXValidationSupport<String> validationSupport = new FXValidationSupport<>();
 
     BookmarksLevelComboBox() {
-        validationSupport.setValidator(Validators.newIntegerString());
+        validationSupport.setValidator(Validators.newPositiveIntegerString());
         setEditable(true);
         getSelectionModel().selectFirst();
         valueProperty().addListener((o, oldVal, newVal) -> validate());
@@ -64,7 +64,7 @@ class BookmarksLevelComboBox extends ComboBox<String> implements
                 getItems().add(Integer.toString(i));
             }
         } else {
-            Validators.newIntegerString();
+            Validators.newPositiveIntegerString();
         }
     }
 

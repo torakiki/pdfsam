@@ -24,7 +24,7 @@ package org.pdfsam.support.validation;
  * @author Andrea Vacondio
  * 
  */
-class IntRangeStringValidator extends IntegerStringValidator {
+class IntRangeStringValidator extends PositiveIntegerStringValidator {
 
     private int upper = Integer.MAX_VALUE;
     private int lower = Integer.MIN_VALUE;
