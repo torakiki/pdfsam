@@ -35,12 +35,15 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
+import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.HitTestListener;
 import org.pdfsam.ui.commons.OpenFileRequest;
 import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.output.StreamTaskOutput;
+
+import de.jensd.fx.fontawesome.AwesomeIcon;
 
 /**
  * @author Andrea Vacondio
@@ -53,7 +56,7 @@ public class OpenButtonTest extends GuiTest {
     public ClearEventStudioRule cearEventStudio = new ClearEventStudioRule();
 
     @Test
-    public void openClick() {
+    public void openClick() throws Exception {
         OpenButton victim = find(".pdfsam-footer-button");
         File file = mock(File.class);
         when(file.exists()).thenReturn(true);
@@ -61,25 +64,27 @@ public class OpenButtonTest extends GuiTest {
         when(output.getDestination()).thenReturn(file);
         TestListener listener = new TestListener(file);
         eventStudio().add(listener);
-        victim.dispatch(output);
+        FXTestUtils.invokeAndWait(() -> victim.dispatch(output), 1);
         click(victim);
         assertTrue(listener.isHit());
     }
 
     @Test
-    public void fileDestination() {
+    public void fileDestination() throws Exception {
         OpenButton victim = find(".pdfsam-footer-button");
         FileTaskOutput output = mock(FileTaskOutput.class);
-        victim.dispatch(output);
+        FXTestUtils.invokeAndWait(() -> victim.dispatch(output), 1);
         verify(output).getDestination();
+        exists(AwesomeIcon.FILE_ALT.toString());
     }
 
     @Test
-    public void directoryDestination() {
+    public void directoryDestination() throws Exception {
         OpenButton victim = find(".pdfsam-footer-button");
         DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
-        victim.dispatch(output);
+        FXTestUtils.invokeAndWait(() -> victim.dispatch(output), 1);
         verify(output).getDestination();
+        exists(AwesomeIcon.FOLDER_ALTPEN.toString());
     }
 
     @Test(expected = IllegalArgumentException.class)

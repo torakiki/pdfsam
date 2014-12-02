@@ -23,7 +23,9 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.io.File;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
 
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.commons.OpenFileRequest;
 import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.FileTaskOutput;
@@ -45,7 +47,6 @@ class OpenButton extends Button implements TaskOutputDispatcher {
 
     public OpenButton() {
         getStyleClass().addAll("pdfsam-footer-button", "pdfsam-footer-open-button");
-        setGraphic(AwesomeDude.createIconLabel(AwesomeIcon.FOLDER_ALTPEN));
         setOnAction(e -> {
             if (destination != null && destination.exists()) {
                 eventStudio().broadcast(new OpenFileRequest(destination));
@@ -55,10 +56,14 @@ class OpenButton extends Button implements TaskOutputDispatcher {
 
     public void dispatch(FileTaskOutput output) {
         destination = output.getDestination();
+        setGraphic(AwesomeDude.createIconLabel(AwesomeIcon.FILE_ALT));
+        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Open the generated document")));
     }
 
     public void dispatch(DirectoryTaskOutput output) {
         destination = output.getDestination();
+        setGraphic(AwesomeDude.createIconLabel(AwesomeIcon.FOLDER_ALTPEN));
+        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Open the destination directory")));
     }
 
     public void dispatch(StreamTaskOutput output) {
