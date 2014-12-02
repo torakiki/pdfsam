@@ -18,10 +18,11 @@
  */
 package org.pdfsam.support.validation;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.pdfsam.support.validation.Validators.decorateAsValidEmptyString;
 import static org.pdfsam.support.validation.Validators.newPositiveIntegerString;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -32,23 +33,22 @@ public class BlankStringDecoratorTest {
     private Validator<String> victim = decorateAsValidEmptyString(newPositiveIntegerString());
 
     @Test
-    public void testNegative() {
-        Assert.assertFalse(victim.isValid("dsdsa"));
+    public void negative() {
+        assertFalse(victim.isValid("dsdsa"));
     }
 
     @Test
-    public void testPositive() {
-        Assert.assertTrue(victim.isValid("123"));
-        Assert.assertTrue(victim.isValid("-123"));
+    public void positive() {
+        assertTrue(victim.isValid("123"));
     }
 
     @Test
-    public void testBlank() {
-        Assert.assertFalse(victim.isValid("  "));
+    public void blank() {
+        assertFalse(victim.isValid("  "));
     }
 
     @Test
-    public void validEmpty() {
-        Assert.assertTrue(victim.isValid(""));
+    public void empty() {
+        assertTrue(victim.isValid(""));
     }
 }

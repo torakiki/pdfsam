@@ -18,18 +18,21 @@
  */
 package org.pdfsam.support.validation;
 
+import static org.pdfsam.support.RequireUtils.require;
+
 /**
- * Validates that the input string is a valid integer in the given range
+ * Validates that the input string is a valid positive integer in the given range
  * 
  * @author Andrea Vacondio
  * 
  */
-class IntRangeStringValidator extends PositiveIntegerStringValidator {
+class PositiveIntRangeStringValidator extends PositiveIntegerStringValidator {
 
     private int upper = Integer.MAX_VALUE;
     private int lower = Integer.MIN_VALUE;
 
-    public IntRangeStringValidator(int lower, int upper) {
+    public PositiveIntRangeStringValidator(int lower, int upper) {
+        require(lower > 0 && upper > 0, "Lower and upper limit cannot be negative numbers");
         this.upper = upper;
         this.lower = lower;
     }

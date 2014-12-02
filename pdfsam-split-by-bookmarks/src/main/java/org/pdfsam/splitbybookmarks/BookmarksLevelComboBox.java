@@ -59,7 +59,7 @@ class BookmarksLevelComboBox extends ComboBox<String> implements
     public void setMaxBookmarkLevel(int max) {
         getItems().clear();
         if (max > 0) {
-            validationSupport.setValidator(Validators.newIntRangeString(1, max));
+            validationSupport.setValidator(Validators.newPositiveIntRangeString(1, max));
             for (int i = 1; i <= max; i++) {
                 getItems().add(Integer.toString(i));
             }

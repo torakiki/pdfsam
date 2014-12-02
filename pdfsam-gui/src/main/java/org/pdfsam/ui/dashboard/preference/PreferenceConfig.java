@@ -170,7 +170,7 @@ public class PreferenceConfig {
     @Bean(name = "thumbnailsSize")
     public PreferenceIntTextField thumbnailsSize() {
         PreferenceIntTextField thumbnails = new PreferenceIntTextField(IntUserPreference.THUMBNAILS_SIZE, userContext,
-                Validators.newIntRangeString(THUMB_SIZE_LOWER, THUMB_SIZE_UPPER));
+                Validators.newPositiveIntRangeString(THUMB_SIZE_LOWER, THUMB_SIZE_UPPER));
         thumbnails.setText(Integer.toString(userContext.getThumbnailsSize()));
         thumbnails.setErrorMessage(DefaultI18nContext.getInstance().i18n("Size must be between {0}px and {1}px",
                 THUMB_SIZE_LOWER.toString(), THUMB_SIZE_UPPER.toString()));

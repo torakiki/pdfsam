@@ -18,7 +18,9 @@
  */
 package org.pdfsam.support.validation;
 
-import org.junit.Assert;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 /**
@@ -26,24 +28,38 @@ import org.junit.Test;
  * 
  */
 public class IntRangeStringValidatorTest {
-    private Validator<String> victim = Validators.newIntRangeString(0, 5);
+    private Validator<String> victim = Validators.newPositiveIntRangeString(1, 5);
 
     @Test
-    public void testNegative() {
-        Assert.assertFalse(victim.isValid("dsdsa"));
-        Assert.assertFalse(victim.isValid("-123"));
+    public void negative() {
+        assertFalse(victim.isValid("-123"));
     }
 
     @Test
-    public void testPositive() {
-        Assert.assertTrue(victim.isValid("0"));
-        Assert.assertTrue(victim.isValid("3"));
-        Assert.assertTrue(victim.isValid("5"));
+    public void invalid() {
+        assertFalse(victim.isValid("dsdsa"));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void invalidLower() {
+        Validators.newPositiveIntRangeString(0, 5);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void invalidUpper() {
+        Validators.newPositiveIntRangeString(1, 0);
     }
 
     @Test
-    public void testAllowBlank() {
-        Assert.assertFalse(victim.isValid(""));
-        Assert.assertTrue(Validators.decorateAsValidEmptyString(victim).isValid(""));
+    public void valid() {
+        assertTrue(victim.isValid("1"));
+        assertTrue(victim.isValid("3"));
+        assertTrue(victim.isValid("5"));
+    }
+
+    @Test
+    public void allowBlank() {
+        assertFalse(victim.isValid(""));
+        assertTrue(Validators.decorateAsValidEmptyString(victim).isValid(""));
     }
 }
