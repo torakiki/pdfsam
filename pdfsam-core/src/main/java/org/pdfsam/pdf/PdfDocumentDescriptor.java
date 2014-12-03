@@ -24,7 +24,7 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.support.ObservableAtomicReference;
@@ -41,7 +41,7 @@ public class PdfDocumentDescriptor {
 
     private ObservableAtomicReference<PdfDescriptorLoadingStatus> loadingStatus = new ObservableAtomicReference<>(
             PdfDescriptorLoadingStatus.INITIAL);
-    private AtomicBoolean invalid = new AtomicBoolean(false);
+    private AtomicInteger references = new AtomicInteger(1);
     private ObservableAtomicReference<Integer> pages = new ObservableAtomicReference<>(0);
     private String password;
     private File file;
@@ -145,11 +145,26 @@ public class PdfDocumentDescriptor {
      *         action on the descriptor that it should be ignored since not relevant anymore.
      */
     public boolean isInvalid() {
-        return invalid.get();
+        return references.get() <= 0;
+    }
+
+    /**
+     * @return true if the descriptor has become invalid because of the release
+     */
+    public boolean release() {
+        return this.references.decrementAndGet() <= 0;
     }
 
     public void invalidate() {
-        this.invalid.set(true);
+        this.references.set(0);
+    }
+
+    /**
+     * Increment the number of reference
+     */
+    public PdfDocumentDescriptor retain() {
+        this.references.incrementAndGet();
+        return this;
     }
 
     public static PdfDocumentDescriptor newDescriptor(File file, String password) {

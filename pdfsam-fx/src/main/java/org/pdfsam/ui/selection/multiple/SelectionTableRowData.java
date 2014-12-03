@@ -59,6 +59,12 @@ public final class SelectionTableRowData extends PdfDocumentDescriptor {
         this.pageSelection = defaultString(pageSelection);
     }
 
+    @Override
+    public SelectionTableRowData retain() {
+        super.retain();
+        return this;
+    }
+
     /**
      * @return the {@link PageRange} selection set if any, an empty set otherwise.
      */

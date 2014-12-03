@@ -72,8 +72,8 @@ public class SelectionTableTest extends GuiTest {
 
     @Override
     protected Parent getRootNode() {
-        SelectionTable victim = new SelectionTable(MODULE, new SelectionTableColumn<?>[] { new LoadingColumn(MODULE),
-                FileColumn.NAME, LongColumn.SIZE, IntColumn.PAGES, LongColumn.LAST_MODIFIED,
+        SelectionTable victim = new SelectionTable(MODULE, true, new SelectionTableColumn<?>[] {
+                new LoadingColumn(MODULE), FileColumn.NAME, LongColumn.SIZE, IntColumn.PAGES, LongColumn.LAST_MODIFIED,
                 StringColumn.PAGE_SELECTION });
         victim.setId("victim");
         return victim;
@@ -190,17 +190,40 @@ public class SelectionTableTest extends GuiTest {
     }
 
     @Test
-    public void removeInvalidates() throws Exception {
+    public void removeRelease() throws Exception {
         populate();
         SelectionTable victim = find("#victim");
-        Optional<SelectionTableRowData> item = victim.getItems().stream().filter(i -> i.getFileName() != "temp.pdf")
-                .findFirst();
+        Optional<SelectionTableRowData> item = victim.getItems().stream()
+                .filter(i -> "temp.pdf".equals(i.getFileName())).findFirst();
         assertTrue(item.isPresent());
         click("temp.pdf");
         FXTestUtils.invokeAndWait(() -> {
             eventStudio().broadcast(new RemoveSelectedEvent(), MODULE);
         }, 2);
         assertTrue(item.get().isInvalid());
+    }
+
+    @Test
+    public void clearInvalidatesDuplicatedItems() throws Exception {
+        populate();
+        SelectionTable victim = find("#victim");
+        Optional<SelectionTableRowData> item = victim.getItems().stream()
+                .filter(i -> "temp.pdf".equals(i.getFileName())).findFirst();
+        rightClick("temp.pdf");
+        click(AwesomeIcon.COPY.toString());
+        FXTestUtils.invokeAndWait(() -> {
+            eventStudio().broadcast(new ClearSelectionTableEvent(), MODULE);
+        }, 2);
+        assertTrue(item.get().isInvalid());
+    }
+
+    @Test
+    public void duplicate() throws Exception {
+        populate();
+        rightClick("temp.pdf");
+        click(AwesomeIcon.COPY.toString());
+        SelectionTable victim = find("#victim");
+        assertEquals(2, victim.getItems().stream().filter(i -> "temp.pdf".equals(i.getFileName())).count());
     }
 
     @Test

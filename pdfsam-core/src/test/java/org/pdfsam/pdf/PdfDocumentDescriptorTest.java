@@ -69,9 +69,15 @@ public class PdfDocumentDescriptorTest {
 
     @Test
     public void invalidate() {
+        victim.retain().retain();
         assertFalse(victim.isInvalid());
         victim.invalidate();
         assertTrue(victim.isInvalid());
+    }
+
+    @Test
+    public void retainAndRelease() {
+        assertFalse(victim.retain().retain().release());
     }
 
     @Test

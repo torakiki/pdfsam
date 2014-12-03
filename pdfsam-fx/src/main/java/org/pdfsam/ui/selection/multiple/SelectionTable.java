@@ -28,7 +28,10 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
@@ -84,6 +87,10 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     private PasswordFieldPopup passwordPopup;
 
     public SelectionTable(String ownerModule, SelectionTableColumn<?>... columns) {
+        this(ownerModule, false, columns);
+    }
+
+    public SelectionTable(String ownerModule, boolean canDuplicateItems, SelectionTableColumn<?>... columns) {
         this.ownerModule = defaultString(ownerModule);
         setEditable(true);
         getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -110,11 +117,11 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         setOnDragExited(this::onDragExited);
         setOnDragDropped(e -> dragConsume(e, this.onDragDropped()));
         passwordPopup = new PasswordFieldPopup(this.ownerModule);
-        initContextMenu();
+        initContextMenu(canDuplicateItems);
         eventStudio().addAnnotatedListeners(this);
     }
 
-    private void initContextMenu() {
+    private void initContextMenu(boolean canDuplicateItems) {
         MenuItem infoItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Document properties"),
                 AwesomeIcon.INFO);
         infoItem.setOnAction(e -> Platform.runLater(() -> eventStudio().broadcast(
@@ -180,9 +187,24 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
             moveBottomSelected.setDisable(!e.canMove(MoveType.BOTTOM));
 
         }, getOwnerModule());
-        setContextMenu(new ContextMenu(setDestinationItem, new SeparatorMenuItem(), removeSelected, moveTopSelected,
-                moveUpSelected, moveDownSelected, moveBottomSelected, new SeparatorMenuItem(), infoItem, openFileItem,
-                openFolderItem));
+
+        ContextMenu context = new ContextMenu(setDestinationItem, new SeparatorMenuItem(), removeSelected,
+                moveTopSelected, moveUpSelected, moveDownSelected, moveBottomSelected);
+
+        if (canDuplicateItems) {
+            MenuItem duplicateItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Duplicate"),
+                    AwesomeIcon.COPY);
+            duplicateItem.setOnAction(e -> eventStudio().broadcast(new DuplicateSelectedEvent(), getOwnerModule()));
+
+            duplicateItem.setAccelerator(new KeyCodeCombination(KeyCode.DIGIT2, KeyCombination.ALT_DOWN));
+            eventStudio().add(SelectionChangedEvent.class, (SelectionChangedEvent e) -> {
+                duplicateItem.setDisable(e.isClearSelection());
+            }, getOwnerModule());
+            context.getItems().add(duplicateItem);
+        }
+
+        context.getItems().addAll(new SeparatorMenuItem(), infoItem, openFileItem, openFolderItem);
+        setContextMenu(context);
     }
 
     private MenuItem createMenuItem(String text, AwesomeIcon icon) {
@@ -252,6 +274,14 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     }
 
     @EventListener
+    public void onDuplicate(final DuplicateSelectedEvent event) {
+        LOG.trace("Duplicating selected items");
+        getSelectionModel().getSelectedItems().forEach(i -> {
+            getItems().add(i.retain());
+        });
+    }
+
+    @EventListener
     public void onClear(final ClearSelectionTableEvent event) {
         getItems().forEach(d -> d.invalidate());
         getSelectionModel().clearSelection();
@@ -260,10 +290,12 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     @EventListener
     public void onRemoveSelected(RemoveSelectedEvent event) {
-        List<SelectionTableRowData> selectedItems = getSelectionModel().getSelectedItems();
-        LOG.trace("Removing {} items", selectedItems.size());
-        selectedItems.forEach(SelectionTableRowData::invalidate);
-        getItems().removeAll(selectedItems);
+        SortedSet<Integer> indices = new TreeSet<>(Collections.reverseOrder());
+        indices.addAll(getSelectionModel().getSelectedIndices());
+        LOG.trace("Removing {} items", indices.size());
+        indices.forEach(i -> {
+            getItems().remove(i.intValue()).release();
+        });
         requestFocus();
     }
 

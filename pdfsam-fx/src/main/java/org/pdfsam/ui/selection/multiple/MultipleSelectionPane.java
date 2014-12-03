@@ -38,10 +38,14 @@ public class MultipleSelectionPane extends BorderPane implements ModuleOwned {
     private SelectionTable table;
 
     public MultipleSelectionPane(String ownerModule, SelectionTableColumn<?>... columns) {
+        this(ownerModule, false, columns);
+    }
+
+    public MultipleSelectionPane(String ownerModule, boolean canDuplicate, SelectionTableColumn<?>... columns) {
         require(columns.length > 0, "No column has been selected");
         this.ownerModule = defaultString(ownerModule);
         setTop(new SelectionTableToolbar(ownerModule));
-        table = new SelectionTable(ownerModule, columns);
+        table = new SelectionTable(ownerModule, canDuplicate, columns);
         setCenter(table);
     }
 

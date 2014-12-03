@@ -98,4 +98,8 @@ public enum PdfDescriptorLoadingStatus {
         }
         throw new IllegalStateException("Cannot move status from " + this + " to " + dest);
     }
+
+    public boolean isFinal() {
+        return validNext.isEmpty();
+    }
 }
