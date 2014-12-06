@@ -48,6 +48,7 @@ import org.pdfsam.ui.prefix.PrefixPane;
 import org.pdfsam.ui.selection.single.TaskParametersBuilderSingleSelectionPane;
 import org.pdfsam.ui.support.Views;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
+import org.sejda.eventstudio.annotation.EventStation;
 import org.sejda.model.parameter.SplitByGoToActionLevelParameters;
 import org.sejda.model.prefix.Prefix;
 import org.springframework.context.annotation.Bean;
@@ -92,8 +93,10 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
 
     public void onSaveWorkspace(SaveWorkspaceEvent event) {
         Map<String, String> data = event.getDataForModule(MODULE_ID);
-        prefix.onSaveWorkspace(data);
-        destinationPane.onSaveWorkspace(event);
+        splitOptions.saveStateTo(data);
+        destinationDirectoryField.saveStateTo(data);
+        destinationPane.saveStateTo(data);
+        prefix.saveStateTo(data);
     }
 
     @Override
@@ -132,6 +135,7 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
     }
 
     @Override
+    @EventStation
     public String id() {
         return MODULE_ID;
     }

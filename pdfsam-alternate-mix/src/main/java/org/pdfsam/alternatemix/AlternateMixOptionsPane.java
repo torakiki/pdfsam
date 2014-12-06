@@ -18,6 +18,10 @@
  */
 package org.pdfsam.alternatemix;
 
+import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
+
+import java.util.Map;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.scene.control.CheckBox;
@@ -31,6 +35,7 @@ import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
+import org.pdfsam.ui.workspace.RestorableView;
 
 /**
  * Panel for the Alternate Mix options
@@ -38,7 +43,8 @@ import org.pdfsam.ui.support.Style;
  * @author Andrea Vacondio
  *
  */
-class AlternateMixOptionsPane extends VBox implements TaskParametersBuildStep<AlternateMixParametersBuilder> {
+class AlternateMixOptionsPane extends VBox implements TaskParametersBuildStep<AlternateMixParametersBuilder>,
+        RestorableView {
 
     private CheckBox reverseFirst = new CheckBox(DefaultI18nContext.getInstance().i18n("Reverse the first document"));
     private CheckBox reverseSecond = new CheckBox(DefaultI18nContext.getInstance().i18n("Reverse the second document"));
@@ -84,5 +90,19 @@ class AlternateMixOptionsPane extends VBox implements TaskParametersBuildStep<Al
         field.setText("1");
         field.setPrefWidth(50);
         return field;
+    }
+
+    public void saveStateTo(Map<String, String> data) {
+        data.put("reverseFirst", Boolean.toString(reverseFirst.isSelected()));
+        data.put("reverseSecond", Boolean.toString(reverseSecond.isSelected()));
+        data.put("firstStep", defaultIfBlank(firstStep.getText(), null));
+        data.put("secondStep", defaultIfBlank(secondStep.getText(), null));
+    }
+
+    public void restoreStateFrom(Map<String, String> data) {
+        Optional.ofNullable(data.get("reverseFirst")).map(Boolean::valueOf).ifPresent(reverseFirst::setSelected);
+        Optional.ofNullable(data.get("reverseSecond")).map(Boolean::valueOf).ifPresent(reverseSecond::setSelected);
+        Optional.ofNullable(data.get("firstStep")).ifPresent(firstStep::setText);
+        Optional.ofNullable(data.get("secondStep")).ifPresent(secondStep::setText);
     }
 }

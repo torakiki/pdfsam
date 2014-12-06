@@ -21,6 +21,7 @@ package org.pdfsam.ui.dashboard.preference;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.pdfsam.support.KeyStringValueItem.keyValue;
 import javafx.scene.Parent;
 
 import org.junit.Test;
@@ -45,8 +46,7 @@ public class PreferenceComboBoxTest extends GuiTest {
         PreferenceComboBox<KeyStringValueItem<String>> victim = new PreferenceComboBox<>(StringUserPreference.LOCALE,
                 userContext);
         victim.setId("victim");
-        victim.getItems().addAll(new KeyStringValueItem<>("key1", "value1"),
-                new KeyStringValueItem<>("key2", "value2"), new KeyStringValueItem<>("key3", "value3"));
+        victim.getItems().addAll(keyValue("key1", "value1"), keyValue("key2", "value2"), keyValue("key3", "value3"));
         return victim;
     }
 

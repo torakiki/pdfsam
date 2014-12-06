@@ -47,6 +47,7 @@ import org.pdfsam.ui.prefix.PrefixPane;
 import org.pdfsam.ui.selection.single.TaskParametersBuilderSingleSelectionPane;
 import org.pdfsam.ui.support.Views;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
+import org.sejda.eventstudio.annotation.EventStation;
 import org.sejda.model.parameter.SplitBySizeParameters;
 import org.sejda.model.prefix.Prefix;
 import org.springframework.context.annotation.Bean;
@@ -92,8 +93,10 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
 
     public void onSaveWorkspace(SaveWorkspaceEvent event) {
         Map<String, String> data = event.getDataForModule(MODULE_ID);
-        prefix.onSaveWorkspace(data);
-        destinationPane.onSaveWorkspace(event);
+        splitOptions.saveStateTo(data);
+        destinationDirectoryField.saveStateTo(data);
+        destinationPane.saveStateTo(data);
+        prefix.saveStateTo(data);
     }
 
     @Override
@@ -125,6 +128,7 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
     }
 
     @Override
+    @EventStation
     public String id() {
         return MODULE_ID;
     }
@@ -137,15 +141,15 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
     public static class ModuleConfig {
         @Bean(name = MODULE_ID + "field")
         public BrowsableOutputDirectoryField destinationDirectoryField() {
-            return new BrowsableOutputDirectoryField();
+            BrowsableOutputDirectoryField field = new BrowsableOutputDirectoryField();
+            field.setId(MODULE_ID + "field");
+            return field;
         }
 
         @Bean(name = MODULE_ID + "pane")
         public PdfDestinationPane destinationPane(
                 @Named(MODULE_ID + "field") BrowsableOutputDirectoryField outputField, UserContext userContext) {
-            PdfDestinationPane panel = new PdfDestinationPane(outputField, MODULE_ID, userContext);
-            panel.enableSameAsSourceItem();
-            return panel;
+            return new PdfDestinationPane(outputField, MODULE_ID, userContext);
         }
     }
 }

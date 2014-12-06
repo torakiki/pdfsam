@@ -75,13 +75,11 @@ public abstract class BaseTaskExecutionModule implements Module {
         eventStudio().addAnnotatedListeners(this);
     }
 
-    @EventStation
-    public abstract String id();
-
     @EventListener
     public final void saveStateData(SaveWorkspaceEvent event) {
         onSaveWorkspace(event);
     }
+
     /**
      * @return the inner panel that allows the user to set options and preferences for this module
      */

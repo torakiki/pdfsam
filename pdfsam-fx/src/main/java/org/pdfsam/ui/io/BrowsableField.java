@@ -18,7 +18,12 @@
  */
 package org.pdfsam.ui.io;
 
+import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
+import static org.apache.commons.lang3.StringUtils.defaultString;
+
 import java.io.File;
+import java.util.Map;
+import java.util.Optional;
 
 import javafx.css.PseudoClass;
 import javafx.scene.Node;
@@ -30,6 +35,7 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
+import org.pdfsam.ui.workspace.RestorableView;
 
 /**
  * {@link ValidableTextField} with attached a browse button to let the user select a file
@@ -37,7 +43,7 @@ import org.pdfsam.ui.support.Style;
  * @author Andrea Vacondio
  * 
  */
-abstract class BrowsableField extends HBox {
+abstract class BrowsableField extends HBox implements RestorableView {
     private static final PseudoClass SELECTED_PSEUDOCLASS_STATE = PseudoClass.getPseudoClass("selected");
 
     private Button browseButton;
@@ -74,6 +80,14 @@ abstract class BrowsableField extends HBox {
      */
     public ValidableTextField getTextField() {
         return textField;
+    }
+
+    public void saveStateTo(Map<String, String> data) {
+        data.put(defaultString(getId()) + "browsableField", defaultIfBlank(textField.getText(), null));
+    }
+
+    public void restoreStateFrom(Map<String, String> data) {
+        Optional.ofNullable(data.get(defaultString(getId()) + "browsableField")).ifPresent(textField::setText);
     }
 
     public final void setGraphic(Node value) {

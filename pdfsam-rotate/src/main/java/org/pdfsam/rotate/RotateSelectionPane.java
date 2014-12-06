@@ -49,6 +49,5 @@ public class RotateSelectionPane extends MultipleSelectionPane implements
         } else {
             onError.accept(DefaultI18nContext.getInstance().i18n("No pdf document has been selected"));
         }
-
     }
 }

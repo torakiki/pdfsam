@@ -18,8 +18,11 @@
  */
 package org.pdfsam.splitbybookmarks;
 
+import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
+import java.util.Map;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.scene.Node;
@@ -31,6 +34,7 @@ import javafx.scene.layout.VBox;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.support.Style;
+import org.pdfsam.ui.workspace.RestorableView;
 
 /**
  * Panel for the Split options
@@ -38,7 +42,8 @@ import org.pdfsam.ui.support.Style;
  * @author Andrea Vacondio
  *
  */
-class SplitOptionsPane extends VBox implements TaskParametersBuildStep<SplitByGoToActionLevelParametersBuilder> {
+class SplitOptionsPane extends VBox implements TaskParametersBuildStep<SplitByGoToActionLevelParametersBuilder>,
+        RestorableView {
 
     private BookmarksLevelComboBox levelCombo = new BookmarksLevelComboBox();
     private TextField regexpField = new TextField();
@@ -73,5 +78,15 @@ class SplitOptionsPane extends VBox implements TaskParametersBuildStep<SplitByGo
         if (isNotBlank(regexpField.getText())) {
             builder.regexp(regexpField.getText());
         }
+    }
+
+    public void saveStateTo(Map<String, String> data) {
+        data.put("regexp", defaultString(regexpField.getText(), null));
+        levelCombo.saveStateTo(data);
+    }
+
+    public void restoreStateFrom(Map<String, String> data) {
+        Optional.ofNullable(data.get("regexp")).ifPresent(regexpField::setText);
+        levelCombo.restoreStateFrom(data);
     }
 }

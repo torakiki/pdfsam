@@ -58,8 +58,8 @@ public class WorkspaceController {
     public void broadcastToModulesAndSave(SaveWorkspaceEvent event) {
         LOG.trace(DefaultI18nContext.getInstance().i18n("Requesting modules state"));
         CompletableFuture
-                .allOf(modulesMap.keySet().stream()
-                        .map(m -> CompletableFuture.runAsync(() -> eventStudio().broadcast(event, m)))
+                .allOf(modulesMap.values().stream()
+                        .map(m -> CompletableFuture.runAsync(() -> eventStudio().broadcast(event, m.id())))
                         .toArray(CompletableFuture[]::new))
                 .thenRunAsync(
                         () -> {

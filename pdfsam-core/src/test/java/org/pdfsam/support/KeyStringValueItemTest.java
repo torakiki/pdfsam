@@ -18,6 +18,8 @@
  */
 package org.pdfsam.support;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 import org.pdfsam.TestUtils;
 
@@ -28,8 +30,13 @@ import org.pdfsam.TestUtils;
 public class KeyStringValueItemTest {
 
     @Test(expected = IllegalArgumentException.class)
-    public void testInvalidConstructor() {
-        new KeyStringValueItem<>(null, "Chuck");
+    public void invalid() {
+        KeyStringValueItem.keyValue(null, "Chuck");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void invalidEmpty() {
+        KeyStringValueItem.keyEmptyValue(null);
     }
 
     @Test
@@ -39,5 +46,10 @@ public class KeyStringValueItemTest {
         KeyStringValueItem<String> eq3 = new KeyStringValueItem<>("A", "Roundhouse");
         KeyStringValueItem<String> diff = new KeyStringValueItem<>("B", "Rambo");
         TestUtils.testEqualsAndHashCodes(eq1, eq2, eq3, diff);
+    }
+
+    @Test
+    public void empty() {
+        assertEquals("", KeyStringValueItem.keyEmptyValue("key").getValue());
     }
 }

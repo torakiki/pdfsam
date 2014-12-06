@@ -18,7 +18,11 @@
  */
 package org.pdfsam.split;
 
+import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
+
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.scene.control.RadioButton;
@@ -29,6 +33,7 @@ import org.pdfsam.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
 import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
+import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.conversion.PageNumbersListAdapter;
 import org.sejda.model.parameter.SplitByPagesParameters;
 
@@ -38,7 +43,7 @@ import org.sejda.model.parameter.SplitByPagesParameters;
  * @author Andrea Vacondio
  *
  */
-class SplitAfterRadioButton extends RadioButton implements SplitParametersBuilderCreator {
+class SplitAfterRadioButton extends RadioButton implements SplitParametersBuilderCreator, RestorableView {
 
     private final ValidableTextField field;
 
@@ -60,6 +65,18 @@ class SplitAfterRadioButton extends RadioButton implements SplitParametersBuilde
         }
         onError.accept(DefaultI18nContext.getInstance().i18n("Invalid page numbers"));
         return null;
+    }
+
+    public void saveStateTo(Map<String, String> data) {
+        if (isSelected()) {
+            data.put("splitAfter", Boolean.TRUE.toString());
+        }
+        data.put("splitAfter.field", defaultIfBlank(field.getText(), null));
+    }
+
+    public void restoreStateFrom(Map<String, String> data) {
+        Optional.ofNullable(data.get("splitAfter")).map(Boolean::valueOf).ifPresent(this::setSelected);
+        Optional.ofNullable(data.get("splitAfter.field")).ifPresent(field::setText);
     }
 
     /**

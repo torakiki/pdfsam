@@ -18,6 +18,7 @@
  */
 package org.pdfsam.support;
 
+import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.pdfsam.support.RequireUtils.require;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -35,7 +36,7 @@ public class KeyStringValueItem<K> implements KeyValueItem<K, String> {
     private K key;
     private String value;
 
-    public KeyStringValueItem(K key, String value) {
+    protected KeyStringValueItem(K key, String value) {
         require(key != null, "Key cannot be null");
         this.key = key;
         this.value = value;
@@ -47,6 +48,27 @@ public class KeyStringValueItem<K> implements KeyValueItem<K, String> {
 
     public String getValue() {
         return value;
+    }
+
+    /**
+     * Factory method for a key value instance where the value is empty
+     * 
+     * @param key
+     * @return
+     */
+    public static <K> KeyStringValueItem<K> keyEmptyValue(K key) {
+        return new KeyStringValueItem<>(key, EMPTY);
+    }
+
+    /**
+     * Factory method for a key value instance
+     * 
+     * @param key
+     * @param value
+     * @return
+     */
+    public static <K> KeyStringValueItem<K> keyValue(K key, String value) {
+        return new KeyStringValueItem<>(key, value);
     }
 
     @Override

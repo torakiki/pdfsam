@@ -18,6 +18,10 @@
  */
 package org.pdfsam.splitbysize;
 
+import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
+
+import java.util.Map;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.scene.control.Label;
@@ -26,6 +30,7 @@ import javafx.scene.layout.HBox;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.support.Style;
+import org.pdfsam.ui.workspace.RestorableView;
 
 /**
  * Panel for the Split options
@@ -33,7 +38,7 @@ import org.pdfsam.ui.support.Style;
  * @author Andrea Vacondio
  *
  */
-class SplitOptionsPane extends HBox implements TaskParametersBuildStep<SplitBySizeParametersBuilder> {
+class SplitOptionsPane extends HBox implements TaskParametersBuildStep<SplitBySizeParametersBuilder>, RestorableView {
 
     private SizeComboBox sizeCombo = new SizeComboBox();
 
@@ -45,5 +50,13 @@ class SplitOptionsPane extends HBox implements TaskParametersBuildStep<SplitBySi
 
     public void apply(SplitBySizeParametersBuilder builder, Consumer<String> onError) {
         sizeCombo.apply(builder, onError);
+    }
+
+    public void saveStateTo(Map<String, String> data) {
+        data.put("size", defaultIfBlank(sizeCombo.getSelectionModel().getSelectedItem(), null));
+    }
+
+    public void restoreStateFrom(Map<String, String> data) {
+        Optional.ofNullable(data.get("size")).ifPresent(sizeCombo.getSelectionModel()::select);
     }
 }

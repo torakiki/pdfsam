@@ -78,7 +78,7 @@ public class RotateOptionsPaneTest extends GuiTest {
     public void onSaveWorkspace() {
         Map<String, String> data = new HashMap<>();
         RotateOptionsPane victim = find(".pdfsam-container");
-        victim.onSaveWorkspace(data);
+        victim.saveStateTo(data);
         assertEquals(Rotation.DEGREES_90.toString(), data.get("rotation"));
         assertEquals(RotationType.ALL_PAGES.toString(), data.get("rotationType"));
     }

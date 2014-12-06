@@ -18,6 +18,11 @@
  */
 package org.pdfsam.merge;
 
+import static org.pdfsam.support.KeyStringValueItem.keyEmptyValue;
+import static org.pdfsam.support.KeyStringValueItem.keyValue;
+
+import java.util.Map;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.scene.control.CheckBox;
@@ -31,6 +36,7 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.support.Style;
+import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.model.outline.OutlinePolicy;
 
 /**
@@ -39,7 +45,7 @@ import org.sejda.model.outline.OutlinePolicy;
  * @author Andrea Vacondio
  *
  */
-class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergeParametersBuilder> {
+class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergeParametersBuilder>, RestorableView {
 
     private CheckBox containsForms;
     private CheckBox blankIfOdd;
@@ -57,14 +63,12 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
                 "Adds a blank page after each merged document if the document has an odd number of pages")));
 
         outline.getItems().add(
-                new KeyStringValueItem<>(OutlinePolicy.RETAIN, DefaultI18nContext.getInstance()
-                        .i18n("Retain bookmarks")));
+                keyValue(OutlinePolicy.RETAIN, DefaultI18nContext.getInstance().i18n("Retain bookmarks")));
         outline.getItems().add(
-                new KeyStringValueItem<>(OutlinePolicy.DISCARD, DefaultI18nContext.getInstance().i18n(
-                        "Discard bookmarks")));
+                keyValue(OutlinePolicy.DISCARD, DefaultI18nContext.getInstance().i18n("Discard bookmarks")));
         outline.getItems().add(
-                new KeyStringValueItem<>(OutlinePolicy.ONE_ENTRY_EACH_DOC, DefaultI18nContext.getInstance().i18n(
-                        "Create one entry for each merged document")));
+                keyValue(OutlinePolicy.ONE_ENTRY_EACH_DOC,
+                        DefaultI18nContext.getInstance().i18n("Create one entry for each merged document")));
         outline.getSelectionModel().selectFirst();
         HBox bookmarksPolicy = new HBox(new Label(DefaultI18nContext.getInstance().i18n("Bookmarks handling:")),
                 outline);
@@ -79,5 +83,21 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
         builder.outlinePolicy(outline.getSelectionModel().getSelectedItem().getKey());
         builder.blankPageIfOdd(blankIfOdd.isSelected());
         builder.copyFormFields(containsForms.isSelected());
+    }
+
+    public void saveStateTo(Map<String, String> data) {
+        if (!outline.getSelectionModel().isEmpty()) {
+            data.put("outline", outline.getSelectionModel().getSelectedItem().getKey().toString());
+        }
+        data.put("containsForms", Boolean.toString(containsForms.isSelected()));
+        data.put("blankIfOdd", Boolean.toString(blankIfOdd.isSelected()));
+    }
+
+    public void restoreStateFrom(Map<String, String> data) {
+        Optional.ofNullable(data.get("outline")).map(OutlinePolicy::valueOf).map(r -> keyEmptyValue(r))
+                .ifPresent(r -> this.outline.getSelectionModel().select(r));
+        Optional.ofNullable(data.get("containsForms")).map(Boolean::valueOf).ifPresent(containsForms::setSelected);
+        Optional.ofNullable(data.get("blankIfOdd")).map(Boolean::valueOf).ifPresent(blankIfOdd::setSelected);
+
     }
 }

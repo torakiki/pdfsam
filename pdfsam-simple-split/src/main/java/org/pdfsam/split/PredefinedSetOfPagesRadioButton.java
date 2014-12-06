@@ -20,11 +20,14 @@ package org.pdfsam.split;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
+import java.util.Map;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.scene.control.RadioButton;
 
 import org.pdfsam.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
+import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.model.parameter.SimpleSplitParameters;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
 
@@ -34,7 +37,7 @@ import org.sejda.model.pdf.page.PredefinedSetOfPages;
  * @author Andrea Vacondio
  *
  */
-class PredefinedSetOfPagesRadioButton extends RadioButton implements SplitParametersBuilderCreator {
+class PredefinedSetOfPagesRadioButton extends RadioButton implements SplitParametersBuilderCreator, RestorableView {
 
     private PredefinedSetOfPages pages;
 
@@ -46,6 +49,16 @@ class PredefinedSetOfPagesRadioButton extends RadioButton implements SplitParame
 
     public PredefinedSetOfPages getPages() {
         return pages;
+    }
+
+    public void saveStateTo(Map<String, String> data) {
+        if (isSelected()) {
+            data.put(pages.toString(), Boolean.TRUE.toString());
+        }
+    }
+
+    public void restoreStateFrom(Map<String, String> data) {
+        Optional.ofNullable(data.get(pages.toString())).map(Boolean::valueOf).ifPresent(this::setSelected);
     }
 
     public SimpleSplitParametersBuilder getBuilder(Consumer<String> onError) {
@@ -80,4 +93,5 @@ class PredefinedSetOfPagesRadioButton extends RadioButton implements SplitParame
             return params;
         }
     }
+
 }

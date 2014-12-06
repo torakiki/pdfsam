@@ -18,6 +18,10 @@
  */
 package org.pdfsam.splitbybookmarks;
 
+import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
+
+import java.util.Map;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.beans.property.ReadOnlyObjectProperty;
@@ -30,6 +34,7 @@ import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.support.FXValidationSupport;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
+import org.pdfsam.ui.workspace.RestorableView;
 
 /**
  * Combo box letting the user specify the filesize in the split by size task
@@ -38,7 +43,7 @@ import org.pdfsam.ui.support.Style;
  *
  */
 class BookmarksLevelComboBox extends ComboBox<String> implements
-        TaskParametersBuildStep<SplitByGoToActionLevelParametersBuilder> {
+        TaskParametersBuildStep<SplitByGoToActionLevelParametersBuilder>, RestorableView {
     private final FXValidationSupport<String> validationSupport = new FXValidationSupport<>();
 
     BookmarksLevelComboBox() {
@@ -90,5 +95,17 @@ class BookmarksLevelComboBox extends ComboBox<String> implements
         } else {
             onError.accept(DefaultI18nContext.getInstance().i18n("Invalid bookmarks level"));
         }
+    }
+
+    public void saveStateTo(Map<String, String> data) {
+        if (!getItems().isEmpty()) {
+            data.put("levelCombo.max", Integer.toString(getItems().size()));
+        }
+        data.put("levelCombo.selected", defaultIfBlank(getSelectionModel().getSelectedItem(), null));
+    }
+
+    public void restoreStateFrom(Map<String, String> data) {
+        Optional.ofNullable(data.get("levelCombo.max")).map(Integer::valueOf).ifPresent(this::setMaxBookmarkLevel);
+        Optional.ofNullable(data.get("levelCombo.selected")).ifPresent(getSelectionModel()::select);
     }
 }

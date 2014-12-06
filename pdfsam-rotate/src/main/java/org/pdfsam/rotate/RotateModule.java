@@ -46,6 +46,7 @@ import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.pdfsam.ui.prefix.PrefixPane;
 import org.pdfsam.ui.support.Views;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
+import org.sejda.eventstudio.annotation.EventStation;
 import org.sejda.model.prefix.Prefix;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -96,10 +97,10 @@ public class RotateModule extends BaseTaskExecutionModule {
 
     public void onSaveWorkspace(SaveWorkspaceEvent event) {
         Map<String, String> data = event.getDataForModule(MODULE_ID);
-        rotateOptions.onSaveWorkspace(data);
-        destinationPane.onSaveWorkspace(event);
-        data.put("destination", destinationDirectoryField.getTextField().getText());
-        prefix.onSaveWorkspace(data);
+        rotateOptions.saveStateTo(data);
+        destinationPane.saveStateTo(data);
+        destinationDirectoryField.saveStateTo(data);
+        prefix.saveStateTo(data);
     }
 
     @Override
@@ -121,6 +122,7 @@ public class RotateModule extends BaseTaskExecutionModule {
     }
 
     @Override
+    @EventStation
     public String id() {
         return MODULE_ID;
     }

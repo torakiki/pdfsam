@@ -18,6 +18,9 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
+import static org.pdfsam.support.KeyStringValueItem.keyEmptyValue;
+import static org.pdfsam.support.KeyStringValueItem.keyValue;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -71,10 +74,10 @@ public class PreferenceConfig {
                 StringUserPreference.THEME, userContext);
         themeCombo.setId("themeCombo");
         themeCombo.getItems().addAll(
-                Arrays.stream(Theme.values()).map(t -> new KeyStringValueItem<>(t.toString(), t.friendlyName()))
+                Arrays.stream(Theme.values()).map(t -> keyValue(t.toString(), t.friendlyName()))
                         .collect(Collectors.toList()));
 
-        themeCombo.setValue(new KeyStringValueItem<>(userContext.getTheme(), ""));
+        themeCombo.setValue(keyEmptyValue(userContext.getTheme()));
         return themeCombo;
     }
 
@@ -83,10 +86,9 @@ public class PreferenceConfig {
         PreferenceComboBox<KeyStringValueItem<String>> startupModuleCombo = new PreferenceComboBox<>(
                 StringUserPreference.STARTUP_MODULE, userContext);
         startupModuleCombo.setId("startupModuleCombo");
-        startupModuleCombo.getItems().add(
-                new KeyStringValueItem<>("", DefaultI18nContext.getInstance().i18n("Dashboard")));
+        startupModuleCombo.getItems().add(keyValue("", DefaultI18nContext.getInstance().i18n("Dashboard")));
         modules.stream().map(ModuleKeyValueItem::new).forEach(startupModuleCombo.getItems()::add);
-        startupModuleCombo.setValue(new KeyStringValueItem<>(userContext.getStartupModule(), ""));
+        startupModuleCombo.setValue(keyEmptyValue(userContext.getStartupModule()));
         return startupModuleCombo;
     }
 
@@ -97,10 +99,10 @@ public class PreferenceConfig {
                 StringUserPreference.NEWS_POLICY, userContext);
         newsDisplayPolicyCombo.setId("newsPolicy");
         newsDisplayPolicyCombo.getItems().addAll(
-                Arrays.stream(NewsPolicy.values()).map(t -> new KeyStringValueItem<>(t.toString(), t.friendlyName()))
+                Arrays.stream(NewsPolicy.values()).map(t -> keyValue(t.toString(), t.friendlyName()))
                         .collect(Collectors.toList()));
 
-        newsDisplayPolicyCombo.setValue(new KeyStringValueItem<>(userContext.getNewsPolicy(), ""));
+        newsDisplayPolicyCombo.setValue(keyEmptyValue(userContext.getNewsPolicy()));
         return newsDisplayPolicyCombo;
     }
 

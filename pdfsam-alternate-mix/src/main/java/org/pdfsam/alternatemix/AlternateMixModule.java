@@ -20,6 +20,7 @@ package org.pdfsam.alternatemix;
 
 import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
 
+import java.util.Map;
 import java.util.function.Consumer;
 
 import javafx.geometry.Pos;
@@ -42,6 +43,7 @@ import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.pdfsam.ui.support.Views;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
+import org.sejda.eventstudio.annotation.EventStation;
 import org.sejda.model.input.PdfFileSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -100,7 +102,10 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
     }
 
     public void onSaveWorkspace(SaveWorkspaceEvent event) {
-
+        Map<String, String> data = event.getDataForModule(MODULE_ID);
+        optionsPane.saveStateTo(data);
+        destinationFileField.saveStateTo(data);
+        destinationPane.saveStateTo(data);
     }
 
     @Override
@@ -115,6 +120,7 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
     }
 
     @Override
+    @EventStation
     public String id() {
         return MODULE_ID;
     }

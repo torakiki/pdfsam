@@ -18,6 +18,10 @@
  */
 package org.pdfsam.split;
 
+import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
+
+import java.util.Map;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.scene.control.RadioButton;
@@ -28,6 +32,7 @@ import org.pdfsam.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
 import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
+import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.model.parameter.SplitByEveryXPagesParameters;
 
 /**
@@ -36,7 +41,7 @@ import org.sejda.model.parameter.SplitByEveryXPagesParameters;
  * @author Andrea Vacondio
  *
  */
-public class SplitByEveryRadioButton extends RadioButton implements SplitParametersBuilderCreator {
+public class SplitByEveryRadioButton extends RadioButton implements SplitParametersBuilderCreator, RestorableView {
 
     private final ValidableTextField field;
 
@@ -59,6 +64,18 @@ public class SplitByEveryRadioButton extends RadioButton implements SplitParamet
         }
         onError.accept(DefaultI18nContext.getInstance().i18n("Invalid number of pages"));
         return null;
+    }
+
+    public void saveStateTo(Map<String, String> data) {
+        if (isSelected()) {
+            data.put("splitByEvery", Boolean.TRUE.toString());
+        }
+        data.put("splitByEvery.field", defaultIfBlank(field.getText(), null));
+    }
+
+    public void restoreStateFrom(Map<String, String> data) {
+        Optional.ofNullable(data.get("splitByEvery")).map(Boolean::valueOf).ifPresent(this::setSelected);
+        Optional.ofNullable(data.get("splitByEvery.field")).ifPresent(field::setText);
     }
 
     /**
