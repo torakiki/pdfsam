@@ -55,6 +55,5 @@ public class BrowsablePdfInputField extends BrowsableFileField implements
         } else {
             onError.accept(DefaultI18nContext.getInstance().i18n("The selected PDF file is invalid"));
         }
-
     }
 }

@@ -26,6 +26,7 @@ import org.pdfsam.module.Module;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.ModulePriority;
+import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 
 /**
  * A test module to use in tests
@@ -53,6 +54,10 @@ public class DefaultPriorityTestModule implements Module {
 
     public Node graphic() {
         return null;
+    }
+
+    public void onSaveWorkspace(SaveWorkspaceEvent event) {
+        // nothing
     }
 
 }

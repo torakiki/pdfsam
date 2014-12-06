@@ -41,6 +41,7 @@ import org.pdfsam.ui.io.BrowsablePdfOutputField;
 import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.pdfsam.ui.support.Views;
+import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.sejda.model.input.PdfFileSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -96,6 +97,10 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
     @Override
     public ModuleDescriptor descriptor() {
         return descriptor;
+    }
+
+    public void onSaveWorkspace(SaveWorkspaceEvent event) {
+
     }
 
     @Override

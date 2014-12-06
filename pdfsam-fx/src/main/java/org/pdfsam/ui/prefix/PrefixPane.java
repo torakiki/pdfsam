@@ -18,6 +18,9 @@
  */
 package org.pdfsam.ui.prefix;
 
+import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
+
+import java.util.Map;
 import java.util.function.Consumer;
 
 import javafx.scene.control.Label;
@@ -59,5 +62,9 @@ public class PrefixPane extends HBox implements TaskParametersBuildStep<Multiple
 
     public void apply(MultipleOutputTaskParametersBuilder<?> builder, Consumer<String> onError) {
         builder.prefix(getText());
+    }
+
+    public void onSaveWorkspace(Map<String, String> data) {
+        data.put("prefix", defaultIfBlank(field.getText(), null));
     }
 }

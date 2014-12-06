@@ -26,6 +26,7 @@ import org.pdfsam.module.Module;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.ModulePriority;
+import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 
 /**
  * @author Andrea Vacondio
@@ -52,5 +53,9 @@ public class HighPriorityTestModule implements Module {
 
     public Node graphic() {
         return null;
+    }
+
+    public void onSaveWorkspace(SaveWorkspaceEvent event) {
+        // nothing
     }
 }

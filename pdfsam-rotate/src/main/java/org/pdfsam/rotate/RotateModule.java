@@ -20,6 +20,7 @@ package org.pdfsam.rotate;
 
 import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
 
+import java.util.Map;
 import java.util.function.Consumer;
 
 import javafx.geometry.Pos;
@@ -44,6 +45,7 @@ import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.pdfsam.ui.prefix.PrefixPane;
 import org.pdfsam.ui.support.Views;
+import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.sejda.model.prefix.Prefix;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -92,6 +94,14 @@ public class RotateModule extends BaseTaskExecutionModule {
         return builder;
     }
 
+    public void onSaveWorkspace(SaveWorkspaceEvent event) {
+        Map<String, String> data = event.getDataForModule(MODULE_ID);
+        rotateOptions.onSaveWorkspace(data);
+        destinationPane.onSaveWorkspace(event);
+        data.put("destination", destinationDirectoryField.getTextField().getText());
+        prefix.onSaveWorkspace(data);
+    }
+
     @Override
     protected Pane getInnerPanel() {
         VBox pane = new VBox();
@@ -132,4 +142,5 @@ public class RotateModule extends BaseTaskExecutionModule {
             return new PdfDestinationPane(outputField, MODULE_ID, userContext);
         }
     }
+
 }

@@ -62,6 +62,24 @@ public class RememberingLatestFileChooserWrapper extends BaseRememberingLatestCh
         return selected;
     }
 
+    /**
+     * Shows the file chooser dialog of the given type
+     * 
+     * @param type
+     * @return the selected file or null
+     */
+    public File showDialog(OpenType type) {
+        return showDialog(null, type);
+    }
+
+    /**
+     * Shows the file chooser dialog of the given type
+     * 
+     * @param ownerWindow
+     *            the window owning the dialog
+     * @param type
+     * @return the selected file or null
+     */
     public File showDialog(Window ownerWindow, OpenType type) {
         File selected = null;
         switch (type) {

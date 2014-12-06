@@ -21,6 +21,8 @@ package org.pdfsam.module;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
+import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
+
 /**
  * pdfsam module.
  * 
@@ -48,6 +50,14 @@ public interface Module {
      * @return the graphic node for this {@link Module}.
      */
     Node graphic();
+
+    /**
+     * callback method letting the module react to the user requesting to save a workspace. Typical implementation will add the module state to the event data in a
+     * ChainOfResponsability fashion.
+     * 
+     * @param event
+     */
+    void onSaveWorkspace(SaveWorkspaceEvent event);
 
     /**
      * @return an array containing the required PDF data for this module. Each module can specify data it requires from the PDF document and the PDF load service can use this array

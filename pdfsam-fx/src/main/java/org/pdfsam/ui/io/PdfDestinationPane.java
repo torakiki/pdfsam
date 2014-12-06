@@ -38,6 +38,7 @@ import org.pdfsam.support.params.AbstractPdfOutputParametersBuilder;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.commons.SetDestinationRequest;
 import org.pdfsam.ui.support.Style;
+import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
 import org.sejda.model.parameter.base.AbstractPdfOutputParameters;
@@ -97,5 +98,12 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned,
         builder.compress(compress.isSelected());
         builder.overwrite(overwrite().isSelected());
         builder.version(version.getSelectionModel().getSelectedItem().getVersion());
+    }
+
+    public void onSaveWorkspace(SaveWorkspaceEvent event) {
+        event.addValue(getOwnerModule(), "compress", Boolean.toString(compress.isSelected()));
+        event.addValue(getOwnerModule(), "overwrite", Boolean.toString(overwrite().isSelected()));
+        event.addValue(getOwnerModule(), "version", version.getSelectionModel().getSelectedItem().getVersion()
+                .toString());
     }
 }

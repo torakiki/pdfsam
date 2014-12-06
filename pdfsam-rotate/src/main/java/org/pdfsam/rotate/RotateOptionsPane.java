@@ -18,6 +18,9 @@
  */
 package org.pdfsam.rotate;
 
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
+import java.util.Map;
 import java.util.function.Consumer;
 
 import javafx.scene.control.ComboBox;
@@ -67,10 +70,16 @@ class RotateOptionsPane extends HBox implements TaskParametersBuildStep<RotatePa
         getStyleClass().addAll(Style.CONTAINER.css());
         getChildren().addAll(new Label(DefaultI18nContext.getInstance().i18n("Rotate ")), this.rotationType,
                 this.rotation);
+        eventStudio().addAnnotatedListeners(this);
     }
 
     public void apply(RotateParametersBuilder builder, Consumer<String> onError) {
         builder.rotation(rotation.getSelectionModel().getSelectedItem().getKey());
         builder.rotationType(rotationType.getSelectionModel().getSelectedItem().getKey());
+    }
+
+    void onSaveWorkspace(Map<String, String> data) {
+        data.put("rotation", rotation.getSelectionModel().getSelectedItem().getKey().toString());
+        data.put("rotationType", rotationType.getSelectionModel().getSelectedItem().getKey().toString());
     }
 }

@@ -42,8 +42,10 @@ import org.pdfsam.module.PdfsamModule;
 import org.pdfsam.ui.io.BrowsablePdfOutputField;
 import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
+import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 /**
  * Merge module to let the user merge together multiple pdf documents
  * 
@@ -77,6 +79,10 @@ public class MergeModule extends BaseTaskExecutionModule {
     @Override
     public ModuleDescriptor descriptor() {
         return descriptor;
+    }
+
+    public void onSaveWorkspace(SaveWorkspaceEvent event) {
+
     }
 
     @Override

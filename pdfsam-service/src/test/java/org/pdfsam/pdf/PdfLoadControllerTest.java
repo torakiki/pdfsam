@@ -36,6 +36,7 @@ import org.pdfsam.module.Module;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.RequiredPdfData;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 
 /**
  * @author Andrea Vacondio
@@ -67,6 +68,10 @@ public class PdfLoadControllerTest {
 
             public ModuleDescriptor descriptor() {
                 return null;
+            }
+
+            public void onSaveWorkspace(SaveWorkspaceEvent event) {
+                // nothing
             }
         } }), loadService);
     }

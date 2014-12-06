@@ -22,6 +22,7 @@ import static org.apache.commons.io.FilenameUtils.wildcardMatch;
 import javafx.stage.FileChooser.ExtensionFilter;
 
 import org.apache.commons.io.IOCase;
+
 /**
  * Types of file handled by PDFsam
  * 
@@ -63,6 +64,12 @@ public enum FileType {
         @Override
         public ExtensionFilter getFilter() {
             return new ExtensionFilter("(*.xml)", "*.xml");
+        }
+    },
+    JSON {
+        @Override
+        public ExtensionFilter getFilter() {
+            return new ExtensionFilter("(*.json)", "*.json");
         }
     },
     HTML {

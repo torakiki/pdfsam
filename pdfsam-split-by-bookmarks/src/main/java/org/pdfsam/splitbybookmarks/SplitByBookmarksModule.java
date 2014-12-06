@@ -20,6 +20,7 @@ package org.pdfsam.splitbybookmarks;
 
 import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
 
+import java.util.Map;
 import java.util.function.Consumer;
 
 import javafx.geometry.Pos;
@@ -46,6 +47,7 @@ import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.pdfsam.ui.prefix.PrefixPane;
 import org.pdfsam.ui.selection.single.TaskParametersBuilderSingleSelectionPane;
 import org.pdfsam.ui.support.Views;
+import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.sejda.model.parameter.SplitByGoToActionLevelParameters;
 import org.sejda.model.prefix.Prefix;
 import org.springframework.context.annotation.Bean;
@@ -86,6 +88,12 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
                 "Select or drag and drop the PDF you want to split"));
         this.selectionPane.addOnLoaded(d -> splitOptions.setMaxBookmarkLevel(d.getMaxGoToActionDepth()));
 
+    }
+
+    public void onSaveWorkspace(SaveWorkspaceEvent event) {
+        Map<String, String> data = event.getDataForModule(MODULE_ID);
+        prefix.onSaveWorkspace(data);
+        destinationPane.onSaveWorkspace(event);
     }
 
     @Override

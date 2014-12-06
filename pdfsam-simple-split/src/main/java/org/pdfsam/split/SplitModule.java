@@ -20,6 +20,7 @@ package org.pdfsam.split;
 
 import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
 
+import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
 
@@ -47,6 +48,7 @@ import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.pdfsam.ui.prefix.PrefixPane;
 import org.pdfsam.ui.selection.single.TaskParametersBuilderSingleSelectionPane;
 import org.pdfsam.ui.support.Views;
+import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.sejda.model.parameter.AbstractSplitByPageParameters;
 import org.sejda.model.prefix.Prefix;
 import org.springframework.context.annotation.Bean;
@@ -86,6 +88,12 @@ public class SplitModule extends BaseTaskExecutionModule {
     @Override
     public ModuleDescriptor descriptor() {
         return descriptor;
+    }
+
+    public void onSaveWorkspace(SaveWorkspaceEvent event) {
+        Map<String, String> data = event.getDataForModule(MODULE_ID);
+        prefix.onSaveWorkspace(data);
+        destinationPane.onSaveWorkspace(event);
     }
 
     @Override

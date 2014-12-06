@@ -36,6 +36,8 @@ import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.ui.notification.AddNotificationRequestEvent;
 import org.pdfsam.ui.notification.NotificationType;
 import org.pdfsam.ui.support.Style;
+import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
+import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
 import org.sejda.model.parameter.base.AbstractParameters;
 
@@ -76,6 +78,10 @@ public abstract class BaseTaskExecutionModule implements Module {
     @EventStation
     public abstract String id();
 
+    @EventListener
+    public final void saveStateData(SaveWorkspaceEvent event) {
+        onSaveWorkspace(event);
+    }
     /**
      * @return the inner panel that allows the user to set options and preferences for this module
      */

@@ -18,12 +18,15 @@
  */
 package org.pdfsam.rotate;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Consumer;
 
 import javafx.scene.Parent;
@@ -34,7 +37,6 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.model.rotation.Rotation;
 import org.sejda.model.rotation.RotationType;
@@ -64,11 +66,20 @@ public class RotateOptionsPaneTest extends GuiTest {
     }
 
     @Test
-    public void validSteps() throws Exception {
+    public void validSteps() {
         RotateOptionsPane victim = find(".pdfsam-container");
-        FXTestUtils.invokeAndWait(() -> victim.apply(builder, onError), 2);
+        victim.apply(builder, onError);
         verify(builder).rotation(eq(Rotation.DEGREES_90));
         verify(builder).rotationType(eq(RotationType.ALL_PAGES));
         verify(onError, never()).accept(anyString());
+    }
+
+    @Test
+    public void onSaveWorkspace() {
+        Map<String, String> data = new HashMap<>();
+        RotateOptionsPane victim = find(".pdfsam-container");
+        victim.onSaveWorkspace(data);
+        assertEquals(Rotation.DEGREES_90.toString(), data.get("rotation"));
+        assertEquals(RotationType.ALL_PAGES.toString(), data.get("rotationType"));
     }
 }
