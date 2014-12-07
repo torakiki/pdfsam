@@ -83,6 +83,7 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
                 builder.first(source);
             }
         };
+        this.firstDocument.setId("firstDocumentMix");
         this.firstDocument.setPromptText(DefaultI18nContext.getInstance().i18n(
                 "Select or drag and drop the first PDF you want to mix"));
         this.secondDocument = new AlternateMixSingleSelectionPane(id()) {
@@ -91,6 +92,7 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
                 builder.second(source);
             }
         };
+        this.secondDocument.setId("secondDocumentMix");
         this.secondDocument.setPromptText(DefaultI18nContext.getInstance().i18n(
                 "Select or drag and drop the second PDF you want to mix"));
 
@@ -103,6 +105,8 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
 
     public void onSaveWorkspace(SaveWorkspaceEvent event) {
         Map<String, String> data = event.getDataForModule(MODULE_ID);
+        firstDocument.saveStateTo(data);
+        secondDocument.saveStateTo(data);
         optionsPane.saveStateTo(data);
         destinationFileField.saveStateTo(data);
         destinationPane.saveStateTo(data);

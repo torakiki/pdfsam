@@ -93,6 +93,7 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
 
     public void onSaveWorkspace(SaveWorkspaceEvent event) {
         Map<String, String> data = event.getDataForModule(MODULE_ID);
+        selectionPane.saveStateTo(data);
         splitOptions.saveStateTo(data);
         destinationDirectoryField.saveStateTo(data);
         destinationPane.saveStateTo(data);

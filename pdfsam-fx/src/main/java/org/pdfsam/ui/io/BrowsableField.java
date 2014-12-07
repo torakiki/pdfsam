@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.io;
 
+import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
@@ -87,6 +88,7 @@ abstract class BrowsableField extends HBox implements RestorableView {
     }
 
     public void restoreStateFrom(Map<String, String> data) {
+        textField.setText(EMPTY);
         Optional.ofNullable(data.get(defaultString(getId()) + "browsableField")).ifPresent(textField::setText);
     }
 

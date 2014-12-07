@@ -18,18 +18,24 @@
  */
 package org.pdfsam.ui.selection.single;
 
+import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.ENCRYPTED;
 import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.WITH_ERRORS;
+import static org.pdfsam.pdf.PdfDocumentDescriptor.newDescriptor;
+import static org.pdfsam.pdf.PdfDocumentDescriptor.newDescriptorNoPassword;
 import static org.pdfsam.ui.commons.SetDestinationRequest.requestDestination;
 import static org.pdfsam.ui.commons.SetDestinationRequest.requestFallbackDestination;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
+import java.util.Map;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.beans.value.WeakChangeListener;
 import javafx.geometry.Insets;
 import javafx.geometry.Point2D;
@@ -58,12 +64,14 @@ import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.commons.OpenFileRequest;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.pdfsam.ui.commons.ShowStageRequest;
+import org.pdfsam.ui.commons.ToggleChangeListener;
 import org.pdfsam.ui.io.BrowsableFileField;
 import org.pdfsam.ui.io.ChangedSelectedPdfVersionEvent;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 import org.pdfsam.ui.selection.LoadingStatusIndicatorUpdater;
 import org.pdfsam.ui.selection.PasswordFieldPopup;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
+import org.pdfsam.ui.workspace.RestorableView;
 
 import de.jensd.fx.fontawesome.AwesomeDude;
 import de.jensd.fx.fontawesome.AwesomeIcon;
@@ -74,7 +82,7 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
  * @author Andrea Vacondio
  *
  */
-public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumentDescriptorProvider {
+public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumentDescriptorProvider, RestorableView {
 
     private String ownerModule = StringUtils.EMPTY;
     private BrowsableFileField field = new BrowsableFileField(FileType.PDF, OpenType.OPEN);
@@ -119,6 +127,19 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
         }
     };
 
+    private ToggleChangeListener<? super ValidationState> onValidState = new ToggleChangeListener<ValidationState>() {
+
+        @Override
+        public void onChanged(ObservableValue<? extends ValidationState> observable, ValidationState oldValue,
+                ValidationState newVal) {
+            if (newVal == ValidationState.VALID) {
+                initializeFor(newDescriptorNoPassword(new File(field.getTextField().getText())));
+            } else {
+                reset();
+            }
+        }
+    };
+
     public SingleSelectionPane(String ownerModule) {
         this.getStyleClass().add("single-selection-pane");
         this.ownerModule = defaultString(ownerModule);
@@ -138,20 +159,18 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
         field.getStyleClass().add("single-selection-top");
         HBox.setHgrow(field, Priority.ALWAYS);
         getChildren().addAll(field, details);
-        field.getTextField().validProperty().addListener((o, oldVal, newVal) -> {
-            if (newVal == ValidationState.VALID) {
-                invalidateDescriptor();
-                PdfLoadRequestEvent<PdfDocumentDescriptor> loadEvent = new PdfLoadRequestEvent<>(getOwnerModule());
-                descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(new File(field.getTextField().getText()));
-                descriptor.loadingStatus().addListener(new WeakChangeListener<>(onLoadingStatusChange));
-                setContextMenuDisable(false);
-                loadEvent.add(descriptor);
-                eventStudio().broadcast(loadEvent);
-            } else {
-                reset();
-            }
-        });
+        field.getTextField().validProperty().addListener(onValidState);
         initContextMenu();
+    }
+
+    private void initializeFor(PdfDocumentDescriptor docDescriptor) {
+        invalidateDescriptor();
+        PdfLoadRequestEvent<PdfDocumentDescriptor> loadEvent = new PdfLoadRequestEvent<>(getOwnerModule());
+        descriptor = docDescriptor;
+        descriptor.loadingStatus().addListener(new WeakChangeListener<>(onLoadingStatusChange));
+        setContextMenuDisable(false);
+        loadEvent.add(descriptor);
+        eventStudio().broadcast(loadEvent);
     }
 
     private void reset() {
@@ -191,6 +210,23 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
 
     protected BrowsableFileField getField() {
         return field;
+    }
+
+    public void saveStateTo(Map<String, String> data) {
+        if (descriptor != null) {
+            data.put(defaultString(getId()) + "input", descriptor.getFile().getAbsolutePath());
+            data.put(defaultString(getId()) + "password", descriptor.getPassword());
+        }
+    }
+
+    public void restoreStateFrom(Map<String, String> data) {
+        getField().getTextField().setText(EMPTY);
+        Optional.ofNullable(data.get(defaultString(getId()) + "input")).ifPresent(f -> {
+            onValidState.disabled(true);
+            getField().getTextField().setText(f);
+            onValidState.disabled(false);
+            initializeFor(newDescriptor(new File(f), data.get(defaultString(getId()) + "password")));
+        });
     }
 
     /**
@@ -240,4 +276,5 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
     public void setPromptText(String text) {
         field.getTextField().setPromptText(text);
     }
+
 }
