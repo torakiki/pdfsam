@@ -43,6 +43,7 @@ class SplitOptionsPane extends HBox implements TaskParametersBuildStep<SplitBySi
     SplitOptionsPane() {
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.HCONTAINER.css());
+        sizeCombo.setId("sizeCombo");
         getChildren().addAll(new Label(DefaultI18nContext.getInstance().i18n("Split at this size:")), sizeCombo);
     }
 
