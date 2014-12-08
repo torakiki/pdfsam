@@ -27,6 +27,8 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Consumer;
 
 import javafx.scene.Parent;
@@ -115,4 +117,25 @@ public class BookmarksLevelComboBoxTest extends GuiTest {
         verify(builder).level(eq(3));
     }
 
+    @Test
+    public void saveState() {
+        BookmarksLevelComboBox victim = find("#victim");
+        victim.setMaxBookmarkLevel(3);
+        click(victim).push(KeyCode.ALT, KeyCode.DOWN).click("2");
+        Map<String, String> data = new HashMap<>();
+        victim.saveStateTo(data);
+        assertEquals("3", data.get("levelCombo.max"));
+        assertEquals("2", data.get("levelCombo.selected"));
+    }
+
+    @Test
+    public void restoreState() {
+        BookmarksLevelComboBox victim = find("#victim");
+        Map<String, String> data = new HashMap<>();
+        data.put("levelCombo.max", "3");
+        data.put("levelCombo.selected", "2");
+        victim.restoreStateFrom(data);
+        assertEquals("2", victim.getSelectionModel().getSelectedItem());
+        assertEquals(3, victim.getItems().size());
+    }
 }

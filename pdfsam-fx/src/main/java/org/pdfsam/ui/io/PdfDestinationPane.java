@@ -111,8 +111,9 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned, 
     }
 
     public void restoreStateFrom(Map<String, String> data) {
-        Optional.ofNullable(data.get("compress")).map(Boolean::valueOf).ifPresent(compress::setSelected);
-        Optional.ofNullable(data.get("overwrite")).map(Boolean::valueOf).ifPresent(overwrite()::setSelected);
+        version.initializeState();
+        compress.setSelected(Boolean.valueOf(data.get("compress")));
+        overwrite().setSelected(Boolean.valueOf(data.get("overwrite")));
         Optional.ofNullable(data.get("version")).map(PdfVersion::valueOf).map(DefaultPdfVersionComboItem::new)
                 .ifPresent(v -> this.version.getSelectionModel().select(v));
     }

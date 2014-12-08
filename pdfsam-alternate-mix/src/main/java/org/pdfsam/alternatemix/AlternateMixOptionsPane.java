@@ -55,7 +55,7 @@ class AlternateMixOptionsPane extends VBox implements TaskParametersBuildStep<Al
         super(Style.DEFAULT_SPACING);
         this.reverseSecond.setSelected(true);
         this.firstStep.setId("alternateMixFirstStep");
-        this.secondStep.setId("alternateMixSecondStep");
+        initialState();
         getStyleClass().addAll(Style.CONTAINER.css());
         HBox firstStepContainer = new HBox(new Label(DefaultI18nContext.getInstance().i18n(
                 "Switch from the first document to the second one after the following pages")), firstStep);
@@ -87,7 +87,6 @@ class AlternateMixOptionsPane extends VBox implements TaskParametersBuildStep<Al
         field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Select the number of pages"));
         field.setValidator(Validators.newPositiveIntegerString());
         field.setOnEnterValidation(true);
-        field.setText("1");
         field.setPrefWidth(50);
         return field;
     }
@@ -100,9 +99,17 @@ class AlternateMixOptionsPane extends VBox implements TaskParametersBuildStep<Al
     }
 
     public void restoreStateFrom(Map<String, String> data) {
+        initialState();
         Optional.ofNullable(data.get("reverseFirst")).map(Boolean::valueOf).ifPresent(reverseFirst::setSelected);
         Optional.ofNullable(data.get("reverseSecond")).map(Boolean::valueOf).ifPresent(reverseSecond::setSelected);
         Optional.ofNullable(data.get("firstStep")).ifPresent(firstStep::setText);
         Optional.ofNullable(data.get("secondStep")).ifPresent(secondStep::setText);
+    }
+
+    private void initialState() {
+        this.reverseFirst.setSelected(false);
+        this.reverseSecond.setSelected(true);
+        this.firstStep.setText("1");
+        this.secondStep.setText("1");
     }
 }

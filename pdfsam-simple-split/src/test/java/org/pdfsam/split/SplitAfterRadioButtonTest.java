@@ -20,6 +20,7 @@ package org.pdfsam.split;
 
 import static org.hamcrest.Matchers.contains;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.anyString;
@@ -28,6 +29,8 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Consumer;
 
 import javafx.scene.Parent;
@@ -131,7 +134,37 @@ public class SplitAfterRadioButtonTest extends GuiTest {
             assertEquals(source, params.getSource());
             verify(onError, never()).accept(anyString());
         }, 2);
-
     }
 
+    @Test
+    public void saveStateSelected() {
+        SplitAfterRadioButton victim = find("#victim");
+        click(victim);
+        click("#field").type("chuck");
+        Map<String, String> data = new HashMap<>();
+        victim.saveStateTo(data);
+        assertTrue(Boolean.valueOf(data.get("splitAfter")));
+        assertEquals("chuck", data.get("splitAfter.field"));
+    }
+
+    @Test
+    public void saveStateNotSelected() {
+        SplitAfterRadioButton victim = find("#victim");
+        Map<String, String> data = new HashMap<>();
+        victim.saveStateTo(data);
+        assertFalse(Boolean.valueOf(data.get("splitAfter")));
+        assertEquals("", data.get("splitAfter.field"));
+    }
+
+    @Test
+    public void restoreState() {
+        SplitAfterRadioButton victim = find("#victim");
+        ValidableTextField field = find("#field");
+        Map<String, String> data = new HashMap<>();
+        data.put("splitAfter", Boolean.TRUE.toString());
+        data.put("splitAfter.field", "chuck");
+        victim.restoreStateFrom(data);
+        assertTrue(victim.isSelected());
+        assertEquals("chuck", field.getText());
+    }
 }

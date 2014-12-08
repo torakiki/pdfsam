@@ -19,6 +19,7 @@
 package org.pdfsam.split;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
@@ -27,6 +28,8 @@ import static org.mockito.Mockito.verify;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Consumer;
 
 import org.junit.Before;
@@ -52,16 +55,16 @@ public class PredefinedSetOfPagesRadioButtonTest {
     public TemporaryFolder folder = new TemporaryFolder();
     @Rule
     public InitializeJavaFxThreadRule javaFxThread = new InitializeJavaFxThreadRule();
+    public PredefinedSetOfPagesRadioButton victim;
 
     @Before
     public void setUp() {
         onError = mock(Consumer.class);
+        victim = new PredefinedSetOfPagesRadioButton(PredefinedSetOfPages.ODD_PAGES, "test");
     }
 
     @Test
     public void builder() throws IOException {
-        PredefinedSetOfPagesRadioButton victim = new PredefinedSetOfPagesRadioButton(PredefinedSetOfPages.ODD_PAGES,
-                "test");
         SimpleSplitParametersBuilder builder = victim.getBuilder(onError);
         builder.compress(true);
         DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
@@ -83,4 +86,28 @@ public class PredefinedSetOfPagesRadioButtonTest {
         verify(onError, never()).accept(anyString());
     }
 
+    @Test
+    public void saveStateSelected() {
+        victim.setSelected(true);
+        Map<String, String> data = new HashMap<>();
+        victim.saveStateTo(data);
+        assertTrue(Boolean.valueOf(data.get(PredefinedSetOfPages.ODD_PAGES.toString())));
+    }
+
+    @Test
+    public void saveStateNotSelected() {
+        victim.setSelected(false);
+        Map<String, String> data = new HashMap<>();
+        victim.saveStateTo(data);
+        assertFalse(Boolean.valueOf(data.get(PredefinedSetOfPages.ODD_PAGES.toString())));
+    }
+
+    @Test
+    public void restoreState() {
+        victim.setSelected(false);
+        Map<String, String> data = new HashMap<>();
+        data.put(PredefinedSetOfPages.ODD_PAGES.toString(), Boolean.TRUE.toString());
+        victim.restoreStateFrom(data);
+        assertTrue(victim.isSelected());
+    }
 }

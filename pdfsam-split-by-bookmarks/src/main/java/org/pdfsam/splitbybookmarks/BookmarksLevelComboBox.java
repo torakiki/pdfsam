@@ -98,13 +98,12 @@ class BookmarksLevelComboBox extends ComboBox<String> implements
     }
 
     public void saveStateTo(Map<String, String> data) {
-        if (!getItems().isEmpty()) {
-            data.put("levelCombo.max", Integer.toString(getItems().size()));
-        }
+        data.put("levelCombo.max", Integer.toString(getItems().size()));
         data.put("levelCombo.selected", defaultIfBlank(getSelectionModel().getSelectedItem(), null));
     }
 
     public void restoreStateFrom(Map<String, String> data) {
+        getSelectionModel().selectFirst();
         Optional.ofNullable(data.get("levelCombo.max")).map(Integer::valueOf).ifPresent(this::setMaxBookmarkLevel);
         Optional.ofNullable(data.get("levelCombo.selected")).ifPresent(getSelectionModel()::select);
     }

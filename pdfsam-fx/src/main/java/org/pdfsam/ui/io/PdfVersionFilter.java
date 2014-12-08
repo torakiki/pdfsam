@@ -50,6 +50,11 @@ class PdfVersionFilter {
         required.set(filters.last());
     }
 
+    void reset() {
+        filters.clear();
+        addFilter(Integer.MIN_VALUE);
+    }
+
     ReadOnlyIntegerProperty requiredProperty() {
         return required.getReadOnlyProperty();
     }

@@ -18,15 +18,19 @@
  */
 package org.pdfsam.splitbybookmarks;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Consumer;
 
 import javafx.scene.Parent;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 
 import org.junit.Before;
@@ -90,5 +94,29 @@ public class SplitOptionsPaneTest extends GuiTest {
         verify(onError).accept(anyString());
         verify(builder, never()).level(anyInt());
         verify(builder, never()).regexp(anyString());
+    }
+
+    @Test
+    public void saveState() {
+        SplitOptionsPane victim = find(".pdfsam-container");
+        click("#bookmarksLevel").type('3').push(KeyCode.ENTER);
+        click("#bookmarksRegexp").type("Chuck");
+        Map<String, String> data = new HashMap<>();
+        victim.saveStateTo(data);
+        assertEquals("Chuck", data.get("regexp"));
+        assertEquals("3", data.get("levelCombo.selected"));
+    }
+
+    @Test
+    public void restoreState() {
+        SplitOptionsPane victim = find(".pdfsam-container");
+        Map<String, String> data = new HashMap<>();
+        data.put("regexp", "Chuck");
+        data.put("levelCombo.selected", "2");
+        victim.restoreStateFrom(data);
+        TextField field = find("#bookmarksRegexp");
+        assertEquals("Chuck", field.getText());
+        BookmarksLevelComboBox levelCombo = find("#bookmarksLevel");
+        assertEquals("2", levelCombo.getSelectionModel().getSelectedItem());
     }
 }

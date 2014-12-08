@@ -66,8 +66,7 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwn
                 getSelectionModel().selectLast();
             }
         });
-        versionsFilter.addFilter(-1);
-        getSelectionModel().selectLast();
+        initializeState();
         eventStudio().addAnnotatedListeners(this);
     }
 
@@ -89,6 +88,11 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwn
     @EventStation
     public String getOwnerModule() {
         return this.ownerModule;
+    }
+
+    void initializeState() {
+        versionsFilter.reset();
+        versionsFilter.addFilter(-1);
     }
 
     public void enableSameAsSourceItem() {

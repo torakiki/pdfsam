@@ -18,8 +18,6 @@
  */
 package org.pdfsam.splitbysize;
 
-import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
-
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -53,7 +51,7 @@ class SplitOptionsPane extends HBox implements TaskParametersBuildStep<SplitBySi
     }
 
     public void saveStateTo(Map<String, String> data) {
-        data.put("size", defaultIfBlank(sizeCombo.getSelectionModel().getSelectedItem(), null));
+        data.put("size", sizeCombo.getSelectionModel().getSelectedItem());
     }
 
     public void restoreStateFrom(Map<String, String> data) {

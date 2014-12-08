@@ -96,8 +96,7 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
     public void restoreStateFrom(Map<String, String> data) {
         Optional.ofNullable(data.get("outline")).map(OutlinePolicy::valueOf).map(r -> keyEmptyValue(r))
                 .ifPresent(r -> this.outline.getSelectionModel().select(r));
-        Optional.ofNullable(data.get("containsForms")).map(Boolean::valueOf).ifPresent(containsForms::setSelected);
-        Optional.ofNullable(data.get("blankIfOdd")).map(Boolean::valueOf).ifPresent(blankIfOdd::setSelected);
-
+        containsForms.setSelected(Boolean.valueOf(data.get("containsForms")));
+        blankIfOdd.setSelected(Boolean.valueOf(data.get("blankIfOdd")));
     }
 }

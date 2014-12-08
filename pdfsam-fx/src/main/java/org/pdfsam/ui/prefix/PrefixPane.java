@@ -18,7 +18,6 @@
  */
 package org.pdfsam.ui.prefix;
 
-import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
 import java.util.Map;
@@ -69,7 +68,7 @@ public class PrefixPane extends HBox implements TaskParametersBuildStep<Multiple
     }
 
     public void saveStateTo(Map<String, String> data) {
-        data.put(defaultString(getId()) + "prefix", defaultIfBlank(field.getText(), null));
+        data.put(defaultString(getId()) + "prefix", field.getText());
     }
 
     public void restoreStateFrom(Map<String, String> data) {
