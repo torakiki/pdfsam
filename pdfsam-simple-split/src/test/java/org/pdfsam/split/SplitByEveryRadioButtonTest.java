@@ -157,13 +157,13 @@ public class SplitByEveryRadioButtonTest extends GuiTest {
     }
 
     @Test
-    public void restoreState() {
+    public void restoreState() throws Exception {
         SplitByEveryRadioButton victim = find("#victim");
         ValidableTextField field = find("#field");
         Map<String, String> data = new HashMap<>();
         data.put("splitByEvery", Boolean.TRUE.toString());
         data.put("splitByEvery.field", "chuck");
-        victim.restoreStateFrom(data);
+        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
         assertTrue(victim.isSelected());
         assertEquals("chuck", field.getText());
     }

@@ -26,6 +26,7 @@ import javafx.scene.Parent;
 
 import javax.inject.Inject;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
@@ -60,6 +61,7 @@ public class WorkspaceMenuTest extends GuiTest {
     }
 
     @Test
+    @Ignore("need to find a way to test file chooser")
     public void onSaveClick() {
         Listener<SaveWorkspaceEvent> listener = mock(Listener.class);
         eventStudio().add(SaveWorkspaceEvent.class, listener);

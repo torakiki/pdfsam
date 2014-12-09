@@ -157,13 +157,13 @@ public class SplitAfterRadioButtonTest extends GuiTest {
     }
 
     @Test
-    public void restoreState() {
+    public void restoreState() throws Exception {
         SplitAfterRadioButton victim = find("#victim");
         ValidableTextField field = find("#field");
         Map<String, String> data = new HashMap<>();
         data.put("splitAfter", Boolean.TRUE.toString());
         data.put("splitAfter.field", "chuck");
-        victim.restoreStateFrom(data);
+        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
         assertTrue(victim.isSelected());
         assertEquals("chuck", field.getText());
     }
