@@ -18,7 +18,8 @@
  */
 package org.pdfsam.alternatemix;
 
-import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
+import static org.apache.commons.lang3.StringUtils.EMPTY;
+import static org.apache.commons.lang3.StringUtils.defaultString;
 
 import java.util.Map;
 import java.util.Optional;
@@ -53,8 +54,11 @@ class AlternateMixOptionsPane extends VBox implements TaskParametersBuildStep<Al
 
     AlternateMixOptionsPane() {
         super(Style.DEFAULT_SPACING);
+        this.reverseFirst.setId("reverseFirst");
+        this.reverseSecond.setId("reverseSecond");
         this.reverseSecond.setSelected(true);
         this.firstStep.setId("alternateMixFirstStep");
+        this.secondStep.setId("alternateMixSecondStep");
         initialState();
         getStyleClass().addAll(Style.CONTAINER.css());
         HBox firstStepContainer = new HBox(new Label(DefaultI18nContext.getInstance().i18n(
@@ -94,16 +98,15 @@ class AlternateMixOptionsPane extends VBox implements TaskParametersBuildStep<Al
     public void saveStateTo(Map<String, String> data) {
         data.put("reverseFirst", Boolean.toString(reverseFirst.isSelected()));
         data.put("reverseSecond", Boolean.toString(reverseSecond.isSelected()));
-        data.put("firstStep", defaultIfBlank(firstStep.getText(), null));
-        data.put("secondStep", defaultIfBlank(secondStep.getText(), null));
+        data.put("firstStep", defaultString(firstStep.getText()));
+        data.put("secondStep", defaultString(secondStep.getText()));
     }
 
     public void restoreStateFrom(Map<String, String> data) {
-        initialState();
-        Optional.ofNullable(data.get("reverseFirst")).map(Boolean::valueOf).ifPresent(reverseFirst::setSelected);
-        Optional.ofNullable(data.get("reverseSecond")).map(Boolean::valueOf).ifPresent(reverseSecond::setSelected);
-        Optional.ofNullable(data.get("firstStep")).ifPresent(firstStep::setText);
-        Optional.ofNullable(data.get("secondStep")).ifPresent(secondStep::setText);
+        reverseFirst.setSelected(Boolean.valueOf(data.get("reverseFirst")));
+        reverseSecond.setSelected(Boolean.valueOf(data.get("reverseSecond")));
+        firstStep.setText(Optional.ofNullable(data.get("firstStep")).orElse(EMPTY));
+        secondStep.setText(Optional.ofNullable(data.get("secondStep")).orElse(EMPTY));
     }
 
     private void initialState() {

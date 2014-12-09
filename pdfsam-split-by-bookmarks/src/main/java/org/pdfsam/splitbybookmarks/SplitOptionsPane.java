@@ -18,6 +18,8 @@
  */
 package org.pdfsam.splitbybookmarks;
 
+import static org.apache.commons.lang3.StringUtils.EMPTY;
+import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
 import java.util.Map;
@@ -80,12 +82,12 @@ class SplitOptionsPane extends VBox implements TaskParametersBuildStep<SplitByGo
     }
 
     public void saveStateTo(Map<String, String> data) {
-        data.put("regexp", regexpField.getText());
+        data.put("regexp", defaultString(regexpField.getText()));
         levelCombo.saveStateTo(data);
     }
 
     public void restoreStateFrom(Map<String, String> data) {
-        Optional.ofNullable(data.get("regexp")).ifPresent(regexpField::setText);
+        regexpField.setText(Optional.ofNullable(data.get("regexp")).orElse(EMPTY));
         levelCombo.restoreStateFrom(data);
     }
 }

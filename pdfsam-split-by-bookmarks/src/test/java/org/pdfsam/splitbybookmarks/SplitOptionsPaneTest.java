@@ -47,6 +47,7 @@ import org.pdfsam.test.ClearEventStudioRule;
  *
  */
 @Category(TestFX.class)
+@SuppressWarnings("unchecked")
 public class SplitOptionsPaneTest extends GuiTest {
 
     @Rule
@@ -105,6 +106,14 @@ public class SplitOptionsPaneTest extends GuiTest {
         victim.saveStateTo(data);
         assertEquals("Chuck", data.get("regexp"));
         assertEquals("3", data.get("levelCombo.selected"));
+    }
+
+    @Test
+    public void saveStateEmptyRegexp() {
+        SplitOptionsPane victim = find(".pdfsam-container");
+        Map<String, String> data = new HashMap<>();
+        victim.saveStateTo(data);
+        assertEquals("", data.get("regexp"));
     }
 
     @Test

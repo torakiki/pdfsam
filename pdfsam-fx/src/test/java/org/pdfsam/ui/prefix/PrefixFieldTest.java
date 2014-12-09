@@ -39,7 +39,7 @@ import org.sejda.model.prefix.Prefix;
 public class PrefixFieldTest extends GuiTest {
 
     @Rule
-    public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule("LogStage");
+    public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule();
 
     @Override
     protected Parent getRootNode() {

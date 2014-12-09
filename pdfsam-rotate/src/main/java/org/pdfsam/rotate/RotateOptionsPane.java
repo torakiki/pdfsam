@@ -18,6 +18,7 @@
  */
 package org.pdfsam.rotate;
 
+import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.pdfsam.support.KeyStringValueItem.keyEmptyValue;
 import static org.pdfsam.support.KeyStringValueItem.keyValue;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
@@ -58,6 +59,7 @@ class RotateOptionsPane extends HBox implements TaskParametersBuildStep<RotatePa
         this.rotationType.getItems().add(
                 keyValue(RotationType.ODD_PAGES, DefaultI18nContext.getInstance().i18n("Odd pages")));
         this.rotationType.getSelectionModel().selectFirst();
+        this.rotationType.setId("rotationType");
 
         this.rotation.getItems().add(
                 keyValue(Rotation.DEGREES_90, DefaultI18nContext.getInstance().i18n("90 degrees clockwise")));
@@ -66,6 +68,7 @@ class RotateOptionsPane extends HBox implements TaskParametersBuildStep<RotatePa
         this.rotation.getItems().add(
                 keyValue(Rotation.DEGREES_270, DefaultI18nContext.getInstance().i18n("270 degrees clockwise")));
         this.rotation.getSelectionModel().selectFirst();
+        this.rotation.setId("rotation");
 
         getStyleClass().addAll(Style.HCONTAINER.css());
         getStyleClass().addAll(Style.CONTAINER.css());
@@ -80,12 +83,12 @@ class RotateOptionsPane extends HBox implements TaskParametersBuildStep<RotatePa
     }
 
     public void saveStateTo(Map<String, String> data) {
-        if (!rotation.getSelectionModel().isEmpty()) {
-            data.put("rotation", rotation.getSelectionModel().getSelectedItem().getKey().toString());
-        }
-        if (!rotationType.getSelectionModel().isEmpty()) {
-            data.put("rotationType", rotationType.getSelectionModel().getSelectedItem().getKey().toString());
-        }
+        data.put("rotation",
+                Optional.ofNullable(rotation.getSelectionModel().getSelectedItem()).map(i -> i.getKey().toString())
+                        .orElse(EMPTY));
+        data.put("rotationType",
+                Optional.ofNullable(rotationType.getSelectionModel().getSelectedItem()).map(i -> i.getKey().toString())
+                        .orElse(EMPTY));
     }
 
     public void restoreStateFrom(Map<String, String> data) {

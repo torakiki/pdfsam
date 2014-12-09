@@ -18,15 +18,22 @@
  */
 package org.pdfsam.merge;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Consumer;
 
 import javafx.scene.Parent;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 
 import org.junit.Before;
 import org.junit.ClassRule;
@@ -35,6 +42,7 @@ import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
+import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.model.outline.OutlinePolicy;
 
@@ -71,5 +79,32 @@ public class MergeOptionsPaneTest extends GuiTest {
         verify(builder).blankPageIfOdd(true);
         verify(builder).copyFormFields(false);
         verify(onError, never()).accept(anyString());
+    }
+
+    @Test
+    public void onSaveWorkspace() {
+        click("#blankIfOddCheck");
+        Map<String, String> data = new HashMap<>();
+        MergeOptionsPane victim = find(".pdfsam-container");
+        victim.saveStateTo(data);
+        assertEquals(OutlinePolicy.RETAIN.toString(), data.get("outline"));
+        assertEquals(Boolean.TRUE.toString(), data.get("blankIfOdd"));
+        assertEquals(Boolean.FALSE.toString(), data.get("containsForms"));
+    }
+
+    @Test
+    public void restoreStateFrom() throws Exception {
+        ComboBox<KeyStringValueItem<OutlinePolicy>> outline = find("#outlineCombo");
+        CheckBox containsForms = find("#containsFormCheck");
+        CheckBox blankIfOdd = find("#blankIfOddCheck");
+        Map<String, String> data = new HashMap<>();
+        data.put("outline", OutlinePolicy.ONE_ENTRY_EACH_DOC.toString());
+        data.put("containsForms", Boolean.TRUE.toString());
+        data.put("blankIfOdd", Boolean.FALSE.toString());
+        MergeOptionsPane victim = find(".pdfsam-container");
+        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
+        assertEquals(OutlinePolicy.ONE_ENTRY_EACH_DOC, outline.getSelectionModel().getSelectedItem().getKey());
+        assertTrue(containsForms.isSelected());
+        assertFalse(blankIfOdd.isSelected());
     }
 }

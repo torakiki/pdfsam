@@ -129,6 +129,15 @@ public class BookmarksLevelComboBoxTest extends GuiTest {
     }
 
     @Test
+    public void saveStateEmptySelection() {
+        BookmarksLevelComboBox victim = find("#victim");
+        victim.setMaxBookmarkLevel(3);
+        Map<String, String> data = new HashMap<>();
+        victim.saveStateTo(data);
+        assertEquals("", data.get("levelCombo.selected"));
+    }
+
+    @Test
     public void restoreState() {
         BookmarksLevelComboBox victim = find("#victim");
         Map<String, String> data = new HashMap<>();

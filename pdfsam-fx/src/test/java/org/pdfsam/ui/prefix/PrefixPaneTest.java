@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 10/set/2014
+ * Created on 09/dic/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,11 +16,10 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.rotate;
+package org.pdfsam.ui.prefix;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyString;
-import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -30,72 +29,66 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 import javafx.scene.Parent;
-import javafx.scene.control.ComboBox;
 
 import org.junit.Before;
-import org.junit.ClassRule;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
-import org.pdfsam.support.KeyStringValueItem;
+import org.pdfsam.support.params.MultipleOutputTaskParametersBuilder;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.sejda.model.rotation.Rotation;
-import org.sejda.model.rotation.RotationType;
 
 /**
  * @author Andrea Vacondio
  *
  */
 @Category(TestFX.class)
-public class RotateOptionsPaneTest extends GuiTest {
+@SuppressWarnings({ "rawtypes", "unchecked" })
+public class PrefixPaneTest extends GuiTest {
 
-    @ClassRule
-    public static ClearEventStudioRule CLEAR_STUDIO = new ClearEventStudioRule();
+    @Rule
+    public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule();
 
-    private RotateParametersBuilder builder;
+    private MultipleOutputTaskParametersBuilder builder;
     private Consumer<String> onError;
 
     @Before
     public void setUp() {
-        builder = mock(RotateParametersBuilder.class);
+        builder = mock(MultipleOutputTaskParametersBuilder.class);
         onError = mock(Consumer.class);
     }
 
     @Override
     protected Parent getRootNode() {
-        return new RotateOptionsPane();
+        PrefixPane victim = new PrefixPane();
+        victim.setId("victim");
+        return victim;
     }
 
     @Test
-    public void validSteps() {
-        RotateOptionsPane victim = find(".pdfsam-container");
-        victim.apply(builder, onError);
-        verify(builder).rotation(eq(Rotation.DEGREES_90));
-        verify(builder).rotationType(eq(RotationType.ALL_PAGES));
+    public void apply() throws Exception {
+        PrefixPane victim = find(".pdfsam-container");
+        FXTestUtils.invokeAndWait(() -> victim.apply(builder, onError), 2);
         verify(onError, never()).accept(anyString());
+        verify(builder).prefix("PDFsam_");
     }
 
     @Test
-    public void onSaveWorkspace() {
+    public void saveState() {
+        PrefixPane victim = find(".pdfsam-container");
         Map<String, String> data = new HashMap<>();
-        RotateOptionsPane victim = find(".pdfsam-container");
         victim.saveStateTo(data);
-        assertEquals(Rotation.DEGREES_90.toString(), data.get("rotation"));
-        assertEquals(RotationType.ALL_PAGES.toString(), data.get("rotationType"));
+        assertEquals("PDFsam_", data.get("victimprefix"));
     }
 
     @Test
-    public void restoreStateFrom() throws Exception {
-        ComboBox<KeyStringValueItem<RotationType>> rotationType = find("#rotationType");
-        ComboBox<KeyStringValueItem<Rotation>> rotation = find("#rotation");
+    public void restoreState() throws Exception {
+        PrefixPane victim = find(".pdfsam-container");
         Map<String, String> data = new HashMap<>();
-        data.put("rotation", Rotation.DEGREES_270.toString());
-        data.put("rotationType", RotationType.EVEN_PAGES.toString());
-        RotateOptionsPane victim = find(".pdfsam-container");
+        data.put("victimprefix", "Chuck");
         FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
-        assertEquals(Rotation.DEGREES_270, rotation.getSelectionModel().getSelectedItem().getKey());
-        assertEquals(RotationType.EVEN_PAGES, rotationType.getSelectionModel().getSelectedItem().getKey());
+        assertEquals("Chuck", victim.getText());
     }
 }

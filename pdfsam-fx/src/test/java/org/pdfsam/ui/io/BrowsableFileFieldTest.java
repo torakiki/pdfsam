@@ -23,7 +23,9 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -107,5 +109,27 @@ public class BrowsableFileFieldTest {
         victim.setTextFromFile(inputFile);
         assertEquals(ValidationState.VALID, victim.getTextField().getValidationState());
         assertEquals(inputFile.getAbsolutePath(), victim.getTextField().getText());
+    }
+
+    @Test
+    public void saveState() throws IOException {
+        BrowsableFileField victim = new BrowsableFileField(FileType.PDF, OpenType.SAVE);
+        victim.setId("fieldId");
+        victim.enforceValidation(true, true);
+        File inputFile = folder.newFile("test.pdf");
+        victim.setTextFromFile(inputFile);
+        Map<String, String> data = new HashMap<>();
+        victim.saveStateTo(data);
+        assertEquals(inputFile.getAbsolutePath(), data.get("fieldIdbrowsableField"));
+    }
+
+    @Test
+    public void restoreState() {
+        BrowsableFileField victim = new BrowsableFileField(FileType.PDF, OpenType.SAVE);
+        victim.setId("fieldId");
+        Map<String, String> data = new HashMap<>();
+        data.put("fieldIdbrowsableField", "/some/file/test.pdf");
+        victim.restoreStateFrom(data);
+        assertEquals("/some/file/test.pdf", victim.getTextField().getText());
     }
 }

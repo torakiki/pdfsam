@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.workspace;
 
-import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
+import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 import java.io.File;
@@ -57,7 +57,7 @@ public class SaveWorkspaceEvent {
      */
     public void addValue(String module, String key, String value) {
         requireNotNull(key, "Destination file cannot be null");
-        getDataForModule(module).put(key, defaultIfBlank(value, null));
+        getDataForModule(module).put(key, defaultString(value));
     }
 
     /**

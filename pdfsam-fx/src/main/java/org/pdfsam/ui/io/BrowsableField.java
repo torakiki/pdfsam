@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.io;
 
+import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
 import java.io.File;
@@ -82,11 +83,11 @@ abstract class BrowsableField extends HBox implements RestorableView {
     }
 
     public void saveStateTo(Map<String, String> data) {
-        data.put(defaultString(getId()) + "browsableField", textField.getText());
+        data.put(defaultString(getId()) + "browsableField", defaultString(textField.getText()));
     }
 
     public void restoreStateFrom(Map<String, String> data) {
-        Optional.ofNullable(data.get(defaultString(getId()) + "browsableField")).ifPresent(textField::setText);
+        textField.setText(Optional.ofNullable(data.get(defaultString(getId()) + "browsableField")).orElse(EMPTY));
     }
 
     public final void setGraphic(Node value) {

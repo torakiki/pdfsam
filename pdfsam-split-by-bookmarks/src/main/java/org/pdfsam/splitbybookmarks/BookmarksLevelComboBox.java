@@ -18,7 +18,7 @@
  */
 package org.pdfsam.splitbybookmarks;
 
-import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
+import static org.apache.commons.lang3.StringUtils.defaultString;
 
 import java.util.Map;
 import java.util.Optional;
@@ -99,7 +99,7 @@ class BookmarksLevelComboBox extends ComboBox<String> implements
 
     public void saveStateTo(Map<String, String> data) {
         data.put("levelCombo.max", Integer.toString(getItems().size()));
-        data.put("levelCombo.selected", defaultIfBlank(getSelectionModel().getSelectedItem(), null));
+        data.put("levelCombo.selected", defaultString(getSelectionModel().getSelectedItem()));
     }
 
     public void restoreStateFrom(Map<String, String> data) {

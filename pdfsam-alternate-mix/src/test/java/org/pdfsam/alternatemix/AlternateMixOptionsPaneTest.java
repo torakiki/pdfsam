@@ -18,14 +18,20 @@
  */
 package org.pdfsam.alternatemix;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Consumer;
 
 import javafx.scene.Parent;
+import javafx.scene.control.CheckBox;
 
 import org.junit.Before;
 import org.junit.ClassRule;
@@ -35,6 +41,7 @@ import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.ui.commons.ValidableTextField;
 
 /**
  * @author Andrea Vacondio
@@ -84,5 +91,37 @@ public class AlternateMixOptionsPaneTest extends GuiTest {
         verify(builder).stepFirst(3);
         verify(builder).stepSecond(2);
         verify(onError, never()).accept(anyString());
+    }
+
+    @Test
+    public void onSaveWorkspace() {
+        doubleClick("#alternateMixFirstStep").type('3');
+        doubleClick("#alternateMixSecondStep").type('2');
+        Map<String, String> data = new HashMap<>();
+        AlternateMixOptionsPane victim = find(".pdfsam-container");
+        victim.saveStateTo(data);
+        assertEquals("3", data.get("firstStep"));
+        assertEquals("2", data.get("secondStep"));
+        assertEquals(Boolean.TRUE.toString(), data.get("reverseSecond"));
+        assertEquals(Boolean.FALSE.toString(), data.get("reverseFirst"));
+    }
+
+    @Test
+    public void restoreStateFrom() throws Exception {
+        CheckBox reverseFirst = find("#reverseFirst");
+        CheckBox reverseSecond = find("#reverseSecond");
+        ValidableTextField firstStep = find("#alternateMixFirstStep");
+        ValidableTextField secondStep = find("#alternateMixSecondStep");
+        Map<String, String> data = new HashMap<>();
+        data.put("firstStep", "4");
+        data.put("secondStep", "3");
+        data.put("reverseFirst", Boolean.TRUE.toString());
+        data.put("reverseSecond", Boolean.FALSE.toString());
+        AlternateMixOptionsPane victim = find(".pdfsam-container");
+        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
+        assertEquals("4", firstStep.getText());
+        assertEquals("3", secondStep.getText());
+        assertTrue(reverseFirst.isSelected());
+        assertFalse(reverseSecond.isSelected());
     }
 }

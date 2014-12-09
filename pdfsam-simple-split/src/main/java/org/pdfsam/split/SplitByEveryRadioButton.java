@@ -18,6 +18,9 @@
  */
 package org.pdfsam.split;
 
+import static org.apache.commons.lang3.StringUtils.EMPTY;
+import static org.apache.commons.lang3.StringUtils.defaultString;
+
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -68,12 +71,12 @@ public class SplitByEveryRadioButton extends RadioButton implements SplitParamet
         if (isSelected()) {
             data.put("splitByEvery", Boolean.TRUE.toString());
         }
-        data.put("splitByEvery.field", field.getText());
+        data.put("splitByEvery.field", defaultString(field.getText()));
     }
 
     public void restoreStateFrom(Map<String, String> data) {
         Optional.ofNullable(data.get("splitByEvery")).map(Boolean::valueOf).ifPresent(this::setSelected);
-        Optional.ofNullable(data.get("splitByEvery.field")).ifPresent(field::setText);
+        field.setText(Optional.ofNullable(data.get("splitByEvery.field")).orElse(EMPTY));
     }
 
     /**

@@ -18,6 +18,10 @@
  */
 package org.pdfsam.ui.io;
 
+import static org.apache.commons.lang3.StringUtils.isNotEmpty;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.spy;
@@ -26,6 +30,8 @@ import static org.mockito.Mockito.when;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -38,6 +44,7 @@ import org.pdfsam.context.UserContext;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.ui.commons.SetDestinationRequest;
+import org.sejda.model.pdf.PdfVersion;
 import org.springframework.test.annotation.DirtiesContext;
 
 /**
@@ -101,5 +108,25 @@ public class PdfDestinationPaneTest {
         SetDestinationRequest event = SetDestinationRequest.requestFallbackDestination(footprint, MODULE);
         victim.setDestination(event);
         verify(destination, never()).setTextFromFile(any());
+    }
+
+    @Test
+    public void saveState() {
+        victim.overwrite().setSelected(true);
+        Map<String, String> data = new HashMap<>();
+        victim.saveStateTo(data);
+        assertEquals(Boolean.TRUE.toString(), data.get("overwrite"));
+        assertEquals(Boolean.FALSE.toString(), data.get("compress"));
+        assertTrue(isNotEmpty(data.get("version")));
+    }
+
+    @Test
+    public void restoreState() {
+        Map<String, String> data = new HashMap<>();
+        data.put("overwrite", Boolean.FALSE.toString());
+        data.put("compress", Boolean.TRUE.toString());
+        data.put("version", PdfVersion.VERSION_1_4.toString());
+        victim.restoreStateFrom(data);
+        assertFalse(victim.overwrite().isSelected());
     }
 }

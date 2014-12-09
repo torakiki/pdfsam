@@ -18,6 +18,7 @@
  */
 package org.pdfsam.merge;
 
+import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.pdfsam.support.KeyStringValueItem.keyEmptyValue;
 import static org.pdfsam.support.KeyStringValueItem.keyValue;
 
@@ -70,6 +71,8 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
                 keyValue(OutlinePolicy.ONE_ENTRY_EACH_DOC,
                         DefaultI18nContext.getInstance().i18n("Create one entry for each merged document")));
         outline.getSelectionModel().selectFirst();
+        outline.setId("outlineCombo");
+
         HBox bookmarksPolicy = new HBox(new Label(DefaultI18nContext.getInstance().i18n("Bookmarks handling:")),
                 outline);
         bookmarksPolicy.getStyleClass().addAll(Style.VITEM.css());
@@ -86,9 +89,9 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
     }
 
     public void saveStateTo(Map<String, String> data) {
-        if (!outline.getSelectionModel().isEmpty()) {
-            data.put("outline", outline.getSelectionModel().getSelectedItem().getKey().toString());
-        }
+        data.put("outline",
+                Optional.ofNullable(outline.getSelectionModel().getSelectedItem()).map(i -> i.getKey().toString())
+                        .orElse(EMPTY));
         data.put("containsForms", Boolean.toString(containsForms.isSelected()));
         data.put("blankIfOdd", Boolean.toString(blankIfOdd.isSelected()));
     }
