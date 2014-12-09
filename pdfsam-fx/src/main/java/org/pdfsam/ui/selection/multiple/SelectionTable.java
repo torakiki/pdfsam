@@ -175,7 +175,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         openFolderItem.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.SHORTCUT_DOWN,
                 KeyCombination.ALT_DOWN));
 
-        eventStudio().add(SelectionChangedEvent.class, (SelectionChangedEvent e) -> {
+        eventStudio().add(SelectionChangedEvent.class, e -> {
             setDestinationItem.setDisable(!e.isSingleSelection());
             infoItem.setDisable(!e.isSingleSelection());
             openFileItem.setDisable(!e.isSingleSelection());
@@ -197,9 +197,8 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
             duplicateItem.setOnAction(e -> eventStudio().broadcast(new DuplicateSelectedEvent(), getOwnerModule()));
 
             duplicateItem.setAccelerator(new KeyCodeCombination(KeyCode.DIGIT2, KeyCombination.ALT_DOWN));
-            eventStudio().add(SelectionChangedEvent.class, (SelectionChangedEvent e) -> {
-                duplicateItem.setDisable(e.isClearSelection());
-            }, getOwnerModule());
+            eventStudio().add(SelectionChangedEvent.class, e -> duplicateItem.setDisable(e.isClearSelection()),
+                    getOwnerModule());
             context.getItems().add(duplicateItem);
         }
 
@@ -276,9 +275,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     @EventListener
     public void onDuplicate(final DuplicateSelectedEvent event) {
         LOG.trace("Duplicating selected items");
-        getSelectionModel().getSelectedItems().forEach(i -> {
-            getItems().add(i.retain());
-        });
+        getSelectionModel().getSelectedItems().forEach(i -> getItems().add(i.retain()));
     }
 
     @EventListener
@@ -293,9 +290,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         SortedSet<Integer> indices = new TreeSet<>(Collections.reverseOrder());
         indices.addAll(getSelectionModel().getSelectedIndices());
         LOG.trace("Removing {} items", indices.size());
-        indices.forEach(i -> {
-            getItems().remove(i.intValue()).release();
-        });
+        indices.forEach(i -> getItems().remove(i.intValue()).release());
         requestFocus();
     }
 

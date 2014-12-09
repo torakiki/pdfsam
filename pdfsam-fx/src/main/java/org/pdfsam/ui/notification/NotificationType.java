@@ -74,7 +74,7 @@ public enum NotificationType {
         }
     };
 
-    private final static String DEFAULT_ICON_SIZE = "32.0";
+    private static final String DEFAULT_ICON_SIZE = "32.0";
 
     public abstract Node getGraphic();
 
