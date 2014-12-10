@@ -215,7 +215,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
     public void saveStateTo(Map<String, String> data) {
         if (descriptor != null) {
             data.put(defaultString(getId()) + "input", descriptor.getFile().getAbsolutePath());
-            data.put(defaultString(getId()) + "password", descriptor.getPassword());
+            data.put(defaultString(getId()) + "input.password", descriptor.getPassword());
         }
     }
 
@@ -225,7 +225,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
             onValidState.disabled(true);
             getField().getTextField().setText(f);
             onValidState.disabled(false);
-            initializeFor(newDescriptor(new File(f), data.get(defaultString(getId()) + "password")));
+            initializeFor(newDescriptor(new File(f), data.get(defaultString(getId()) + "input.password")));
         });
     }
 

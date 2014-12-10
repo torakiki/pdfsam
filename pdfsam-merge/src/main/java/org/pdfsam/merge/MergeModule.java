@@ -83,12 +83,14 @@ public class MergeModule extends BaseTaskExecutionModule {
     }
 
     public void onSaveWorkspace(Map<String, String> data) {
+        selectionPane.saveStateTo(data);
         mergeOptions.saveStateTo(data);
         destinationFileField.saveStateTo(data);
         destinationPane.saveStateTo(data);
     }
 
     public void onLoadWorkspace(Map<String, String> data) {
+        selectionPane.restoreStateFrom(data);
         mergeOptions.restoreStateFrom(data);
         destinationFileField.restoreStateFrom(data);
         destinationPane.restoreStateFrom(data);

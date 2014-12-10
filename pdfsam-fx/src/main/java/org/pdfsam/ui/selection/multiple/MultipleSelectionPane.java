@@ -20,10 +20,14 @@ package org.pdfsam.ui.selection.multiple;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.support.RequireUtils.require;
+
+import java.util.Map;
+
 import javafx.scene.layout.BorderPane;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.module.ModuleOwned;
+import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.model.parameter.base.TaskParameters;
 
 /**
@@ -32,7 +36,7 @@ import org.sejda.model.parameter.base.TaskParameters;
  * 
  * @author Andrea Vacondio
  */
-public class MultipleSelectionPane extends BorderPane implements ModuleOwned {
+public class MultipleSelectionPane extends BorderPane implements ModuleOwned, RestorableView {
 
     private String ownerModule = StringUtils.EMPTY;
     private SelectionTable table;
@@ -55,6 +59,14 @@ public class MultipleSelectionPane extends BorderPane implements ModuleOwned {
 
     protected SelectionTable table() {
         return table;
+    }
+
+    public void saveStateTo(Map<String, String> data) {
+        table.saveStateTo(data);
+    }
+
+    public void restoreStateFrom(Map<String, String> data) {
+        table.restoreStateFrom(data);
     }
 
 }

@@ -30,9 +30,12 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.function.Consumer;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import javafx.application.Platform;
@@ -66,6 +69,7 @@ import org.pdfsam.ui.selection.ShowPasswordFieldPopupRequest;
 import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
 import org.pdfsam.ui.selection.multiple.move.MoveType;
 import org.pdfsam.ui.selection.multiple.move.SelectionAndFocus;
+import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
 import org.slf4j.Logger;
@@ -80,7 +84,7 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
  * @author Andrea Vacondio
  * 
  */
-public class SelectionTable extends TableView<SelectionTableRowData> implements ModuleOwned {
+public class SelectionTable extends TableView<SelectionTableRowData> implements ModuleOwned, RestorableView {
     private static final Logger LOG = LoggerFactory.getLogger(SelectionTable.class);
     private String ownerModule = StringUtils.EMPTY;
     private Label placeHolder = new Label(DefaultI18nContext.getInstance().i18n("Drag and drop PDF files here"));
@@ -323,5 +327,36 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
                 passwordPopup.showFor(this, request.getPdfDescriptor(), anchorX, anchorY);
             }
         }
+    }
+
+    public void saveStateTo(Map<String, String> data) {
+        data.put(defaultString(getId()) + "input.size", Integer.toString(getItems().size()));
+        IntStream.range(0, getItems().size()).forEach(i -> {
+            SelectionTableRowData current = getItems().get(i);
+            data.put(defaultString(getId()) + "input." + i, current.getFile().getAbsolutePath());
+            data.put(defaultString(getId()) + "input.password." + i, current.getPassword());
+            data.put(defaultString(getId()) + "input.range." + i, current.getPageSelection());
+        });
+    }
+
+    public void restoreStateFrom(Map<String, String> data) {
+        onClear(null);
+        int size = Optional.ofNullable(data.get(defaultString(getId()) + "input.size")).map(Integer::valueOf).orElse(0);
+        if (size > 0) {
+            PdfLoadRequestEvent<SelectionTableRowData> loadEvent = new PdfLoadRequestEvent<>(getOwnerModule());
+            IntStream.range(0, size).forEach(
+                    i -> {
+                        Optional.ofNullable(data.get(defaultString(getId()) + "input." + i)).ifPresent(
+                                f -> {
+                                    SelectionTableRowData current = new SelectionTableRowData(new File(f), data
+                                            .get(defaultString(getId()) + "input.password." + i));
+                                    current.setPageSelection(data.get(defaultString(getId()) + "input.range." + i));
+                                    loadEvent.add(current);
+                                });
+                    });
+            getItems().addAll(loadEvent.getDocuments());
+            eventStudio().broadcast(loadEvent);
+        }
+
     }
 }

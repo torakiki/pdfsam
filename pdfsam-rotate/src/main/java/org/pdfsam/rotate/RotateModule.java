@@ -95,6 +95,7 @@ public class RotateModule extends BaseTaskExecutionModule {
     }
 
     public void onSaveWorkspace(Map<String, String> data) {
+        selectionPane.saveStateTo(data);
         rotateOptions.saveStateTo(data);
         destinationPane.saveStateTo(data);
         destinationDirectoryField.saveStateTo(data);
@@ -102,6 +103,7 @@ public class RotateModule extends BaseTaskExecutionModule {
     }
 
     public void onLoadWorkspace(Map<String, String> data) {
+        selectionPane.restoreStateFrom(data);
         rotateOptions.restoreStateFrom(data);
         destinationPane.restoreStateFrom(data);
         destinationDirectoryField.restoreStateFrom(data);
