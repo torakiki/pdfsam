@@ -50,7 +50,7 @@ class WorkspaceMenu extends Menu {
         setId("workspaceMenu");
         MenuItem load = new MenuItem(DefaultI18nContext.getInstance().i18n("_Load"));
         load.setId("loadWorkspace");
-        load.setOnAction(e -> eventStudio().broadcast(new LoadWorkspaceEvent()));
+        load.setOnAction(e -> loadWorkspace());
         MenuItem save = new MenuItem(DefaultI18nContext.getInstance().i18n("_Save"));
         save.setId("saveWorkspace");
         save.setOnAction(e -> saveWorkspace());
@@ -66,6 +66,15 @@ class WorkspaceMenu extends Menu {
         File chosenFile = fileChooser.showDialog(OpenType.SAVE);
         if (chosenFile != null) {
             eventStudio().broadcast(new SaveWorkspaceEvent(chosenFile));
+        }
+    }
+
+    public void loadWorkspace() {
+        RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(FileType.JSON, DefaultI18nContext
+                .getInstance().i18n("Select the workspace to load"));
+        File chosenFile = fileChooser.showDialog(OpenType.OPEN);
+        if (chosenFile != null) {
+            eventStudio().broadcast(new LoadWorkspaceEvent(chosenFile));
         }
     }
 }

@@ -22,6 +22,7 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.function.Consumer;
 
+import javafx.application.Platform;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
@@ -36,6 +37,7 @@ import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.ui.notification.AddNotificationRequestEvent;
 import org.pdfsam.ui.notification.NotificationType;
 import org.pdfsam.ui.support.Style;
+import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
@@ -77,7 +79,12 @@ public abstract class BaseTaskExecutionModule implements Module {
 
     @EventListener
     public final void saveStateData(SaveWorkspaceEvent event) {
-        onSaveWorkspace(event);
+        onSaveWorkspace(event.getDataForModule(id()));
+    }
+
+    @EventListener
+    public final void restoreState(LoadWorkspaceEvent event) {
+        Platform.runLater(() -> onLoadWorkspace(event.getData(id())));
     }
 
     /**

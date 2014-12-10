@@ -21,6 +21,8 @@ package org.pdfsam.ui;
 import static java.util.Objects.nonNull;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
+import java.io.FileInputStream;
+import java.util.Collections;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -29,6 +31,7 @@ import javax.inject.Named;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.Module;
+import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
@@ -55,13 +58,13 @@ public class WorkspaceController {
     }
 
     @EventListener
-    public void broadcastToModulesAndSave(SaveWorkspaceEvent event) {
-        LOG.trace(DefaultI18nContext.getInstance().i18n("Requesting modules state"));
-        CompletableFuture
+    public CompletableFuture<Void> saveWorkspace(SaveWorkspaceEvent event) {
+        LOG.debug(DefaultI18nContext.getInstance().i18n("Requesting modules state"));
+        return CompletableFuture
                 .allOf(modulesMap.values().stream()
                         .map(m -> CompletableFuture.runAsync(() -> eventStudio().broadcast(event, m.id())))
                         .toArray(CompletableFuture[]::new))
-                .thenRunAsync(
+                .thenRun(
                         () -> {
                             LOG.debug(DefaultI18nContext.getInstance().i18n("Saving workspace data to {0}",
                                     event.getDestination().getAbsolutePath()));
@@ -71,13 +74,52 @@ public class WorkspaceController {
                                         .write(event.getData(), event.getDestination());
                                 LOG.info(DefaultI18nContext.getInstance().i18n("Workspace saved"));
                             } catch (Exception e1) {
-                                LOG.warn(DefaultI18nContext.getInstance().i18n("Unable to save modules workspace"), e1);
+                                LOG.error(DefaultI18nContext.getInstance().i18n("Unable to save modules workspace"), e1);
                             }
                         }).whenComplete((r, e) -> {
                     if (nonNull(e)) {
-                        LOG.warn(DefaultI18nContext.getInstance().i18n("Unable to save modules workspace"), e);
+                        LOG.error(DefaultI18nContext.getInstance().i18n("Unable to save modules workspace"), e);
                     }
                 });
+    }
+
+    @EventListener
+    public CompletableFuture<Void> loadWorspace(LoadWorkspaceEvent event) {
+        LOG.debug(DefaultI18nContext.getInstance().i18n("Loading workspace from {0}", event.workspace().getName()));
+        return CompletableFuture
+                .supplyAsync(
+                        () -> {
+                            Map<String, Object> data = Collections.emptyMap();
+                            try (FileInputStream stream = new FileInputStream(event.workspace())) {
+                                data = JSON.std.mapFrom(stream);
+                            } catch (Exception e) {
+                                LOG.error(
+                                        DefaultI18nContext.getInstance().i18n("Unable to load workspace from {0}",
+                                                event.workspace().getName()), e);
+                            }
+                            return data;
+                        })
+                .thenCompose(
+                        (data) -> {
+                            if (!data.isEmpty()) {
+                                event.setData(data);
+                                return CompletableFuture.allOf(modulesMap
+                                        .values()
+                                        .stream()
+                                        .map(m -> CompletableFuture.runAsync(() -> eventStudio().broadcast(event,
+                                                m.id()))).toArray(CompletableFuture[]::new));
+                            }
+                            return CompletableFuture.completedFuture(null);
+                        })
+                .whenComplete(
+                        (r, e) -> {
+                            if (nonNull(e)) {
+                                LOG.error(
+                                        DefaultI18nContext.getInstance().i18n("Unable to load workspace from {0}",
+                                                event.workspace().getName()), e);
+                            }
+                        });
 
     }
+
 }

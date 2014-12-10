@@ -19,6 +19,9 @@
 package org.pdfsam.test;
 
 import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
+
+import java.util.Map;
+
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
@@ -26,7 +29,6 @@ import org.pdfsam.module.Module;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.ModulePriority;
-import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 
 /**
  * A test module to use in unit tests
@@ -56,7 +58,11 @@ public class LowPriorityTestModule implements Module {
         return null;
     }
 
-    public void onSaveWorkspace(SaveWorkspaceEvent event) {
+    public void onSaveWorkspace(Map<String, String> data) {
+        // nothing
+    }
+
+    public void onLoadWorkspace(Map<String, String> data) {
         // nothing
     }
 }

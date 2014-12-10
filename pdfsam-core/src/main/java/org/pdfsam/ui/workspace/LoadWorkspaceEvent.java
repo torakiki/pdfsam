@@ -18,6 +18,13 @@
  */
 package org.pdfsam.ui.workspace;
 
+import static java.util.Objects.requireNonNull;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
+
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Event to notify that the user asked to load a workspace.
  * 
@@ -25,5 +32,24 @@ package org.pdfsam.ui.workspace;
  * 
  */
 public class LoadWorkspaceEvent {
-    // nothing
+    private Map<String, Object> data = new HashMap<>();
+    private File workspace;
+
+    public LoadWorkspaceEvent(File workspace) {
+        requireNotNull(workspace, "Workspace file cannot be null");
+        this.workspace = workspace;
+    }
+
+    public void setData(Map<String, Object> data) {
+        requireNonNull(data);
+        this.data.putAll(data);
+    }
+
+    public Map<String, String> getData(String module) {
+        return (Map) this.data.get(module);
+    }
+
+    public File workspace() {
+        return workspace;
+    }
 }

@@ -43,7 +43,6 @@ import org.pdfsam.module.PdfsamModule;
 import org.pdfsam.ui.io.BrowsablePdfOutputField;
 import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
-import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.sejda.eventstudio.annotation.EventStation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -83,11 +82,16 @@ public class MergeModule extends BaseTaskExecutionModule {
         return descriptor;
     }
 
-    public void onSaveWorkspace(SaveWorkspaceEvent event) {
-        Map<String, String> data = event.getDataForModule(MODULE_ID);
+    public void onSaveWorkspace(Map<String, String> data) {
         mergeOptions.saveStateTo(data);
         destinationFileField.saveStateTo(data);
         destinationPane.saveStateTo(data);
+    }
+
+    public void onLoadWorkspace(Map<String, String> data) {
+        mergeOptions.restoreStateFrom(data);
+        destinationFileField.restoreStateFrom(data);
+        destinationPane.restoreStateFrom(data);
     }
 
     @Override

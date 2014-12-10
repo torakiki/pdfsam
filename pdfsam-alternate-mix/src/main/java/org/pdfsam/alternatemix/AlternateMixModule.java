@@ -42,7 +42,6 @@ import org.pdfsam.ui.io.BrowsablePdfOutputField;
 import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.pdfsam.ui.support.Views;
-import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.sejda.eventstudio.annotation.EventStation;
 import org.sejda.model.input.PdfFileSource;
 import org.springframework.context.annotation.Bean;
@@ -103,13 +102,20 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
         return descriptor;
     }
 
-    public void onSaveWorkspace(SaveWorkspaceEvent event) {
-        Map<String, String> data = event.getDataForModule(MODULE_ID);
+    public void onSaveWorkspace(Map<String, String> data) {
         firstDocument.saveStateTo(data);
         secondDocument.saveStateTo(data);
         optionsPane.saveStateTo(data);
         destinationFileField.saveStateTo(data);
         destinationPane.saveStateTo(data);
+    }
+
+    public void onLoadWorkspace(Map<String, String> data) {
+        firstDocument.restoreStateFrom(data);
+        secondDocument.restoreStateFrom(data);
+        optionsPane.restoreStateFrom(data);
+        destinationFileField.restoreStateFrom(data);
+        destinationPane.restoreStateFrom(data);
     }
 
     @Override
@@ -157,5 +163,4 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
             return new PdfDestinationPane(outputField, MODULE_ID, userContext);
         }
     }
-
 }

@@ -26,17 +26,13 @@ import static org.mockito.Mockito.verify;
 
 import java.util.Arrays;
 
-import javafx.scene.Node;
-import javafx.scene.layout.Pane;
-
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.pdfsam.module.Module;
-import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.RequiredPdfData;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
+import org.pdfsam.test.DefaultPriorityTestModule;
 
 /**
  * @author Andrea Vacondio
@@ -52,33 +48,12 @@ public class PdfLoadControllerTest {
     @Before
     public void setUp() {
         loadService = mock(PdfLoadService.class);
-        victim = new PdfLoadController(Arrays.asList(new Module[] { new Module() {
-
-            public Pane modulePanel() {
-                return null;
-            }
-
-            public String id() {
-                return "moduleId";
-            }
-
-            public Node graphic() {
-                return null;
-            }
-
-            public ModuleDescriptor descriptor() {
-                return null;
-            }
-
-            public void onSaveWorkspace(SaveWorkspaceEvent event) {
-                // nothing
-            }
-        } }), loadService);
+        victim = new PdfLoadController(Arrays.asList(new Module[] { new DefaultPriorityTestModule() }), loadService);
     }
 
     @Test
     public void request() {
-        PdfLoadRequestEvent<PdfDocumentDescriptor> event = new PdfLoadRequestEvent<>("moduleId");
+        PdfLoadRequestEvent<PdfDocumentDescriptor> event = new PdfLoadRequestEvent<>(DefaultPriorityTestModule.ID);
         PdfDocumentDescriptor first = mock(PdfDocumentDescriptor.class);
         PdfDocumentDescriptor second = mock(PdfDocumentDescriptor.class);
         event.add(first);
