@@ -40,6 +40,6 @@ class LogButton extends BannerButton {
     LogButton() {
         super(AwesomeIcon.LIST);
         setOnAction(e -> eventStudio().broadcast(new ShowStageRequest(), "LogStage"));
-        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Open application messages")));
+        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Application messages")));
     }
 }

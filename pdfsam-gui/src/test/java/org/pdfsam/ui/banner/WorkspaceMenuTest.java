@@ -70,6 +70,7 @@ public class WorkspaceMenuTest extends GuiTest {
     }
 
     @Test
+    @Ignore("need to find a way to test file chooser")
     public void onLoadClick() {
         Listener<LoadWorkspaceEvent> listener = mock(Listener.class);
         eventStudio().add(LoadWorkspaceEvent.class, listener);

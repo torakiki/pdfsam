@@ -40,7 +40,7 @@ class MenuButton extends BannerButton {
     @Inject
     MenuButton(AppContextMenu menu) {
         super(AwesomeIcon.BARS);
-        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Open menu")));
+        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Application menu")));
         setOnAction(e -> menu.show(this, Side.BOTTOM, 0, 0));
     }
 }

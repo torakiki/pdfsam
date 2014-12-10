@@ -78,7 +78,7 @@ public class SaveWorkspaceEvent {
         return values;
     }
 
-    public File getDestination() {
+    public File destination() {
         return destination;
     }
 

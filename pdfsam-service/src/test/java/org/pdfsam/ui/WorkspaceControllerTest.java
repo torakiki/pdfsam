@@ -18,29 +18,29 @@
  */
 package org.pdfsam.ui;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyMap;
+import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
-import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
-import org.apache.commons.io.FileUtils;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
 import org.pdfsam.module.Module;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.sejda.eventstudio.Listener;
 
@@ -51,43 +51,88 @@ import org.sejda.eventstudio.Listener;
 public class WorkspaceControllerTest {
 
     @Rule
-    public TemporaryFolder folder = new TemporaryFolder();
-    @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
 
     private WorkspaceController victim;
+    private WorkspaceService service;
+    private File file;
 
     @Before
     public void setUp() {
+        file = mock(File.class);
         Map<String, Module> modulesMap = new HashMap<>();
         Module module = mock(Module.class);
         when(module.id()).thenReturn("module");
         modulesMap.put("module", module);
-        victim = new WorkspaceController(modulesMap);
+        service = mock(WorkspaceService.class);
+        victim = new WorkspaceController(modulesMap, service);
     }
 
     @Test
-    public void saveWorkspace() throws IOException, InterruptedException, ExecutionException {
+    public void saveWorkspace() throws InterruptedException, ExecutionException {
         Listener<SaveWorkspaceEvent> listener = mock(Listener.class);
         eventStudio().add(SaveWorkspaceEvent.class, listener, "module");
-        File file = folder.newFile();
-        assertFalse(FileUtils.readLines(file).size() > 0);
         CompletableFuture<Void> future = victim.saveWorkspace(new SaveWorkspaceEvent(file));
         future.get();
-        assertFalse(future.isCompletedExceptionally());
         verify(listener).onEvent(any());
-        assertTrue(FileUtils.readLines(file).size() > 0);
+        verify(service).saveWorkspace(anyMap(), eq(file));
     }
 
     @Test(expected = ExecutionException.class)
-    public void saveWorkspaceWithException() throws IOException, InterruptedException, ExecutionException {
+    public void saveWorkspaceWithException() throws InterruptedException, ExecutionException {
         Listener<SaveWorkspaceEvent> listener = mock(Listener.class);
         eventStudio().add(SaveWorkspaceEvent.class, listener, "module");
-        File file = folder.newFile();
-        assertFalse(FileUtils.readLines(file).size() > 0);
         SaveWorkspaceEvent event = new SaveWorkspaceEvent(file);
         doThrow(new RuntimeException("mock")).when(listener).onEvent(event);
         CompletableFuture<Void> future = victim.saveWorkspace(event);
         future.get();
     }
+
+    @Test
+    public void loadEmptyWorkspace() throws InterruptedException, ExecutionException {
+        Listener<LoadWorkspaceEvent> listener = mock(Listener.class);
+        eventStudio().add(LoadWorkspaceEvent.class, listener, "module");
+        when(service.loadWorkspace(any())).thenReturn(Collections.emptyMap());
+        CompletableFuture<Void> future = victim.loadWorspace(new LoadWorkspaceEvent(file));
+        future.get();
+        verify(listener, never()).onEvent(any());
+    }
+
+    @Test(expected = ExecutionException.class)
+    public void loadWorkspaceWithException() throws InterruptedException, ExecutionException {
+        Listener<LoadWorkspaceEvent> listener = mock(Listener.class);
+        eventStudio().add(LoadWorkspaceEvent.class, listener, "module");
+        when(service.loadWorkspace(eq(file))).thenThrow(new RuntimeException("mock"));
+        CompletableFuture<Void> future = victim.loadWorspace(new LoadWorkspaceEvent(file));
+        future.get();
+    }
+
+    @Test
+    public void loadWorkspace() throws InterruptedException, ExecutionException {
+        Listener<LoadWorkspaceEvent> listener = mock(Listener.class);
+        eventStudio().add(LoadWorkspaceEvent.class, listener, "module");
+        Map<String, Map<String, String>> data = new HashMap<>();
+        Map<String, String> moduleData = new HashMap<>();
+        moduleData.put("key", "value");
+        data.put("module", moduleData);
+        when(service.loadWorkspace(any())).thenReturn(data);
+        CompletableFuture<Void> future = victim.loadWorspace(new LoadWorkspaceEvent(file));
+        future.get();
+        verify(listener).onEvent(any());
+    }
+
+    @Test
+    public void loadWorkspaceNoDataForModule() throws InterruptedException, ExecutionException {
+        Listener<LoadWorkspaceEvent> listener = mock(Listener.class);
+        eventStudio().add(LoadWorkspaceEvent.class, listener, "anotherModule");
+        Map<String, Map<String, String>> data = new HashMap<>();
+        Map<String, String> moduleData = new HashMap<>();
+        moduleData.put("key", "value");
+        data.put("anotherModule", moduleData);
+        when(service.loadWorkspace(any())).thenReturn(data);
+        CompletableFuture<Void> future = victim.loadWorspace(new LoadWorkspaceEvent(file));
+        future.get();
+        verify(listener, never()).onEvent(any());
+    }
+
 }

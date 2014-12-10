@@ -32,7 +32,7 @@ import java.util.Map;
  * 
  */
 public class LoadWorkspaceEvent {
-    private Map<String, Object> data = new HashMap<>();
+    private Map<String, Map<String, String>> data = new HashMap<>();
     private File workspace;
 
     public LoadWorkspaceEvent(File workspace) {
@@ -40,13 +40,13 @@ public class LoadWorkspaceEvent {
         this.workspace = workspace;
     }
 
-    public void setData(Map<String, Object> data) {
+    public void setData(Map<String, Map<String, String>> data) {
         requireNonNull(data);
         this.data.putAll(data);
     }
 
     public Map<String, String> getData(String module) {
-        return (Map) this.data.get(module);
+        return this.data.get(module);
     }
 
     public File workspace() {

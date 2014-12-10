@@ -41,6 +41,6 @@ class DashboardButton extends BannerButton {
     DashboardButton(@Named("defaultDashboardItemId") String defaultDasboardItem) {
         super(AwesomeIcon.HOME);
         setOnAction(e -> eventStudio().broadcast(new SetActiveDashboardItemRequest(defaultDasboardItem)));
-        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Open main dashboard")));
+        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Dashboard")));
     }
 }

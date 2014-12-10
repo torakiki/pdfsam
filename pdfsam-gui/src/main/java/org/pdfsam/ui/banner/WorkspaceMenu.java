@@ -61,7 +61,7 @@ class WorkspaceMenu extends Menu {
 
     public void saveWorkspace() {
         RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(FileType.JSON, DefaultI18nContext
-                .getInstance().i18n("Select where to save the workspace file"));
+                .getInstance().i18n("Select the workspace file to save"));
         fileChooser.setInitialFileName("PDFsam_workspace.json");
         File chosenFile = fileChooser.showDialog(OpenType.SAVE);
         if (chosenFile != null) {

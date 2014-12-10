@@ -1,0 +1,13 @@
+{
+  "split.bybookmarks" : {
+    "input" : "/path/outline_tree.pdf",
+    "regexp" : "",
+    "levelCombo.selected" : "",
+    "compress" : "true",
+    "split.bybookmarks.destinationbrowsableField" : "/home/user/Desktop",
+    "prefix" : "PDFsam_",
+    "levelCombo.max" : "1",
+    "overwrite" : "false",
+    "version" : "VERSION_1_5"
+  }
+}

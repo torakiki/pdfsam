@@ -21,8 +21,6 @@ package org.pdfsam.ui;
 import static java.util.Objects.nonNull;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
-import java.io.FileInputStream;
-import java.util.Collections;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -37,8 +35,6 @@ import org.sejda.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fasterxml.jackson.jr.ob.JSON;
-
 /**
  * Controller for workspace related service functionalities
  * 
@@ -50,10 +46,12 @@ public class WorkspaceController {
     private static final Logger LOG = LoggerFactory.getLogger(WorkspaceController.class);
 
     private Map<String, Module> modulesMap;
+    private WorkspaceService service;
 
     @Inject
-    WorkspaceController(Map<String, Module> modulesMap) {
+    WorkspaceController(Map<String, Module> modulesMap, WorkspaceService service) {
         this.modulesMap = modulesMap;
+        this.service = service;
         eventStudio().addAnnotatedListeners(this);
     }
 
@@ -64,19 +62,7 @@ public class WorkspaceController {
                 .allOf(modulesMap.values().stream()
                         .map(m -> CompletableFuture.runAsync(() -> eventStudio().broadcast(event, m.id())))
                         .toArray(CompletableFuture[]::new))
-                .thenRun(
-                        () -> {
-                            LOG.debug(DefaultI18nContext.getInstance().i18n("Saving workspace data to {0}",
-                                    event.getDestination().getAbsolutePath()));
-                            try {
-                                JSON.std.with(JSON.Feature.PRETTY_PRINT_OUTPUT)
-                                        .without(JSON.Feature.WRITE_NULL_PROPERTIES)
-                                        .write(event.getData(), event.getDestination());
-                                LOG.info(DefaultI18nContext.getInstance().i18n("Workspace saved"));
-                            } catch (Exception e1) {
-                                LOG.error(DefaultI18nContext.getInstance().i18n("Unable to save modules workspace"), e1);
-                            }
-                        }).whenComplete((r, e) -> {
+                .thenRun(() -> service.saveWorkspace(event.getData(), event.destination())).whenComplete((r, e) -> {
                     if (nonNull(e)) {
                         LOG.error(DefaultI18nContext.getInstance().i18n("Unable to save modules workspace"), e);
                     }
@@ -87,18 +73,7 @@ public class WorkspaceController {
     public CompletableFuture<Void> loadWorspace(LoadWorkspaceEvent event) {
         LOG.debug(DefaultI18nContext.getInstance().i18n("Loading workspace from {0}", event.workspace().getName()));
         return CompletableFuture
-                .supplyAsync(
-                        () -> {
-                            Map<String, Object> data = Collections.emptyMap();
-                            try (FileInputStream stream = new FileInputStream(event.workspace())) {
-                                data = JSON.std.mapFrom(stream);
-                            } catch (Exception e) {
-                                LOG.error(
-                                        DefaultI18nContext.getInstance().i18n("Unable to load workspace from {0}",
-                                                event.workspace().getName()), e);
-                            }
-                            return data;
-                        })
+                .supplyAsync(() -> service.loadWorkspace(event.workspace()))
                 .thenCompose(
                         (data) -> {
                             if (!data.isEmpty()) {
