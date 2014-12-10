@@ -21,6 +21,8 @@ package org.pdfsam.ui.selection.single;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
@@ -29,13 +31,16 @@ import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.input.KeyCode;
 
+import org.hamcrest.Matchers;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
@@ -202,7 +207,6 @@ public class SingleSelectionPaneTest extends GuiTest {
         ArgumentCaptor<SetDestinationRequest> captor = ArgumentCaptor.forClass(SetDestinationRequest.class);
         eventStudio().add(SetDestinationRequest.class, listener, MODULE);
         SingleSelectionPane victim = find("#victim-selection-pane");
-
         moveToLoadedWithDecryption(victim);
         verify(listener).onEvent(captor.capture());
         assertTrue(captor.getValue().isFallback());
@@ -241,6 +245,59 @@ public class SingleSelectionPaneTest extends GuiTest {
         SingleSelectionPane victim = find("#victim-selection-pane");
         moveToLoadedState(victim);
         exists("Pages: 0, PDF Version: ");
+    }
+
+    @Test
+    public void onSaveWorkspace() throws Exception {
+        SingleSelectionPane victim = find("#victim-selection-pane");
+        moveToLoadedStateWithSpecialChars(victim);
+        Map<String, String> data = new HashMap<>();
+        victim.saveStateTo(data);
+        assertNull(data.get("victim-selection-paneinput.password"));
+        assertThat(data.get("victim-selection-paneinput"), Matchers.endsWith("संसकरण_test.pdf"));
+    }
+
+    @Test
+    public void onSaveWorkspaceWithPwd() throws Exception {
+        SingleSelectionPane victim = find("#victim-selection-pane");
+        moveToLoadedWithDecryption(victim);
+        victim.getPdfDocumentDescriptor().setPassword("pwd");
+        Map<String, String> data = new HashMap<>();
+        victim.saveStateTo(data);
+        assertEquals("pwd", data.get("victim-selection-paneinput.password"));
+        assertThat(data.get("victim-selection-paneinput"), Matchers.endsWith("chuck.pdf"));
+    }
+
+    @Test
+    public void onSaveWorkspaceEmptyDescriptor() {
+        SingleSelectionPane victim = find("#victim-selection-pane");
+        Map<String, String> data = new HashMap<>();
+        victim.saveStateTo(data);
+        assertTrue(data.isEmpty());
+    }
+
+    @Test
+    public void restoreStateFrom() throws Exception {
+        SingleSelectionPane victim = find("#victim-selection-pane");
+        @SuppressWarnings("rawtypes")
+        Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
+        eventStudio().add(PdfLoadRequestEvent.class, listener);
+        Map<String, String> data = new HashMap<>();
+        data.put("victim-selection-paneinput", "chuck.pdf");
+        data.put("victim-selection-paneinput.password", "pwd");
+        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
+        assertEquals("chuck.pdf", victim.getField().getTextField().getText());
+        assertEquals("pwd", victim.getPdfDocumentDescriptor().getPassword());
+        verify(listener).onEvent(any());
+    }
+
+    @Test
+    public void restoreStateFromEmpty() throws Exception {
+        SingleSelectionPane victim = find("#victim-selection-pane");
+        moveToLoadedState(victim);
+        Map<String, String> data = new HashMap<>();
+        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
+        assertTrue(isEmpty(victim.getField().getTextField().getText()));
     }
 
     @Test
