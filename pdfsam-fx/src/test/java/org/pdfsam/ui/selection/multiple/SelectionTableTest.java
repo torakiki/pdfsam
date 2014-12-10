@@ -20,6 +20,8 @@ package org.pdfsam.ui.selection.multiple;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.loadui.testfx.Assertions.verifyThat;
 import static org.mockito.Matchers.any;
@@ -30,11 +32,14 @@ import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 import javafx.scene.Parent;
 import javafx.scene.input.KeyCode;
 
+import org.hamcrest.Matchers;
 import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
@@ -133,6 +138,84 @@ public class SelectionTableTest extends GuiTest {
         SelectionTable victim = find("#victim");
         assertEquals(4, victim.getItems().size());
         verify(listener).onEvent(any());
+    }
+
+    @Test
+    public void onSaveWorkspace() throws Exception {
+        SelectionTable victim = find("#victim");
+        populate();
+        Map<String, String> data = new HashMap<>();
+        victim.saveStateTo(data);
+        assertEquals("4", data.get("victiminput.size"));
+        assertThat(data.get("victiminput.0"), Matchers.endsWith("temp.pdf"));
+        assertThat(data.get("victiminput.1"), Matchers.endsWith("®¯°±²³要选择需要转换的文.pdf"));
+        assertThat(data.get("victiminput.2"), Matchers.endsWith("temp3.pdf"));
+        assertThat(data.get("victiminput.3"), Matchers.endsWith("temp4.pdf"));
+    }
+
+    @Test
+    public void onSaveWorkspaceEmpty() {
+        SelectionTable victim = find("#victim");
+        Map<String, String> data = new HashMap<>();
+        victim.saveStateTo(data);
+        assertEquals("0", data.get("victiminput.size"));
+        assertNull(data.get("victiminput.0"));
+    }
+
+    @Test
+    public void onSaveWorkspaceEncrypted() throws Exception {
+        SelectionTable victim = find("#victim");
+        SelectionTableRowData firstItem = populate();
+        FXTestUtils.invokeAndWait(() -> {
+            firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
+            firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
+            firstItem.moveStatusTo(PdfDescriptorLoadingStatus.ENCRYPTED);
+        }, 2);
+        click(PdfDescriptorLoadingStatus.ENCRYPTED.getIcon().toString());
+        type("pwd").click("Unlock");
+        Map<String, String> data = new HashMap<>();
+        victim.saveStateTo(data);
+        assertEquals("pwd", data.get("victiminput.password.0"));
+    }
+
+    @Test
+    public void restoreStateFrom() throws Exception {
+        SelectionTable victim = find("#victim");
+        @SuppressWarnings("rawtypes")
+        Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
+        eventStudio().add(PdfLoadRequestEvent.class, listener);
+        Map<String, String> data = new HashMap<>();
+        data.put("victiminput.size", "2");
+        data.put("victiminput.0", "chuck.pdf");
+        data.put("victiminput.password.0", "pwd");
+        data.put("victiminput.range.0", "1-10");
+        data.put("victiminput.1", "norris.pdf");
+        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
+        assertEquals(2, victim.getItems().size());
+        assertEquals("chuck.pdf", victim.getItems().get(0).getFileName());
+        assertEquals("pwd", victim.getItems().get(0).getPassword());
+        assertEquals("1-10", victim.getItems().get(0).getPageSelection());
+        assertEquals("norris.pdf", victim.getItems().get(1).getFileName());
+        verify(listener).onEvent(any());
+    }
+
+    @Test
+    public void restoreStateFromEmpty() throws Exception {
+        SelectionTable victim = find("#victim");
+        populate();
+        Map<String, String> data = new HashMap<>();
+        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
+        assertTrue(victim.getItems().isEmpty());
+    }
+
+    @Test
+    public void restoreStateFromSizeZero() throws Exception {
+        SelectionTable victim = find("#victim");
+        populate();
+        Map<String, String> data = new HashMap<>();
+        data.put("victiminput.size", "0");
+        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
+        assertTrue(victim.getItems().isEmpty());
     }
 
     @Test

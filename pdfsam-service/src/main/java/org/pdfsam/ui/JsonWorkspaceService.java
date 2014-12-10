@@ -44,7 +44,7 @@ class JsonWorkspaceService implements WorkspaceService {
     private static final Logger LOG = LoggerFactory.getLogger(JsonWorkspaceService.class);
 
     public void saveWorkspace(Map<String, Map<String, String>> data, File destination) {
-        requireNotNull(destination, "Destinatin file cannot be null");
+        requireNotNull(destination, "Destination file cannot be null");
         LOG.debug(DefaultI18nContext.getInstance().i18n("Saving workspace data to {0}", destination.getAbsolutePath()));
         try {
             JSON.std.with(JSON.Feature.PRETTY_PRINT_OUTPUT).without(JSON.Feature.WRITE_NULL_PROPERTIES)

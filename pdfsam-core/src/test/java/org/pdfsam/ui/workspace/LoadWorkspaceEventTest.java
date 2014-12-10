@@ -19,9 +19,12 @@
 package org.pdfsam.ui.workspace;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.mockito.Mockito.mock;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.Test;
 
@@ -31,7 +34,7 @@ import org.junit.Test;
  */
 public class LoadWorkspaceEventTest {
     @Test(expected = IllegalArgumentException.class)
-    public void unllRequiredFile() {
+    public void nullRequiredFile() {
         new LoadWorkspaceEvent(null);
     }
 
@@ -39,5 +42,16 @@ public class LoadWorkspaceEventTest {
     public void requiredFile() {
         File file = mock(File.class);
         assertEquals(file, new LoadWorkspaceEvent(file).workspace());
+    }
+
+    public void setData() {
+        Map<String, String> data = new HashMap<>();
+        data.put("victiminput.size", "2");
+        Map<String, Map<String, String>> moduleData = new HashMap<>();
+        moduleData.put("module", data);
+        File file = mock(File.class);
+        LoadWorkspaceEvent victim = new LoadWorkspaceEvent(file);
+        victim.setData(moduleData);
+        assertFalse(victim.getData("module").isEmpty());
     }
 }
