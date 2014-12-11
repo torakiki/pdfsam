@@ -55,6 +55,7 @@ public class WorkspaceControllerTest {
 
     private WorkspaceController victim;
     private WorkspaceService service;
+    private RecentWorkspacesService recentWorkspaces;
     private File file;
 
     @Before
@@ -65,7 +66,8 @@ public class WorkspaceControllerTest {
         when(module.id()).thenReturn("module");
         modulesMap.put("module", module);
         service = mock(WorkspaceService.class);
-        victim = new WorkspaceController(modulesMap, service);
+        recentWorkspaces = mock(RecentWorkspacesService.class);
+        victim = new WorkspaceController(modulesMap, service, recentWorkspaces);
     }
 
     @Test
@@ -119,6 +121,7 @@ public class WorkspaceControllerTest {
         CompletableFuture<Void> future = victim.loadWorspace(new LoadWorkspaceEvent(file));
         future.get();
         verify(listener).onEvent(any());
+        verify(recentWorkspaces).addWorkspaceLastUsed(file);
     }
 
     @Test
@@ -133,6 +136,7 @@ public class WorkspaceControllerTest {
         CompletableFuture<Void> future = victim.loadWorspace(new LoadWorkspaceEvent(file));
         future.get();
         verify(listener, never()).onEvent(any());
+        verify(recentWorkspaces).addWorkspaceLastUsed(any());
     }
 
 }

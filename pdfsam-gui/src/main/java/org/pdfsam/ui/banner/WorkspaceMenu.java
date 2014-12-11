@@ -26,10 +26,12 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.io.FileType;
+import org.pdfsam.ui.RecentWorkspacesService;
 import org.pdfsam.ui.io.FileChoosers;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
@@ -45,17 +47,19 @@ import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 @Named
 class WorkspaceMenu extends Menu {
 
-    public WorkspaceMenu() {
+    @Inject
+    public WorkspaceMenu(RecentWorkspacesService service) {
         super(DefaultI18nContext.getInstance().i18n("_Workspace"));
         setId("workspaceMenu");
         MenuItem load = new MenuItem(DefaultI18nContext.getInstance().i18n("_Load"));
         load.setId("loadWorkspace");
         load.setOnAction(e -> loadWorkspace());
         MenuItem save = new MenuItem(DefaultI18nContext.getInstance().i18n("_Save"));
-        save.setId("saveWorkspace");
         save.setOnAction(e -> saveWorkspace());
+        save.setId("saveWorkspace");
         Menu recent = new Menu(DefaultI18nContext.getInstance().i18n("Recen_t"));
         recent.setId("recentWorkspace");
+        service.getRecentlyUsedWorkspaces().stream().map(WorkspaceMenuItem::new).forEach(recent.getItems()::add);
         getItems().addAll(load, save, new SeparatorMenuItem(), recent);
     }
 

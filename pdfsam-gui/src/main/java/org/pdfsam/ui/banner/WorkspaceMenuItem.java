@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 07/ott/2014
+ * Created on 11/dic/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,41 +16,29 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui;
+package org.pdfsam.ui.banner;
 
+import static org.pdfsam.support.RequireUtils.requireNotBlank;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
-import javax.inject.Inject;
-import javax.inject.Named;
+import java.io.File;
 
-import org.pdfsam.module.ClearUsageController;
-import org.sejda.eventstudio.annotation.EventListener;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import javafx.scene.control.MenuItem;
+
+import org.apache.commons.lang3.StringUtils;
+import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 
 /**
- * Controller for the {@link StageService}
+ * Menu item for the recent workspaces menu
  * 
  * @author Andrea Vacondio
  *
  */
-@Named
-class StageServiceController {
-    private static final Logger LOG = LoggerFactory.getLogger(ClearUsageController.class);
+class WorkspaceMenuItem extends MenuItem {
 
-    private StageService service;
-
-    @Inject
-    public StageServiceController(StageService service) {
-        this.service = service;
-        eventStudio().addAnnotatedListeners(this);
+    WorkspaceMenuItem(String path) {
+        requireNotBlank(path, "Workspace item cannot be blank");
+        this.setText(StringUtils.abbreviate(path, path.length(), 60));
+        this.setOnAction(a -> eventStudio().broadcast(new LoadWorkspaceEvent(new File(path))));
     }
-
-
-    @EventListener
-    public void requestStageStatus(SetLatestStageStatusRequest event) {
-        LOG.debug("Setting latest statge status to: {}", event.getStatus());
-        service.save(event.getStatus());
-    }
-
 }

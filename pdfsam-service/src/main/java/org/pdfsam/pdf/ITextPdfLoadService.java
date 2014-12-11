@@ -75,7 +75,7 @@ class ITextPdfLoadService implements PdfLoadService {
     }
 
     public void load(Collection<? extends PdfDocumentDescriptor> toLoad, RequiredPdfData... requires) {
-        LOG.debug(DefaultI18nContext.getInstance().i18n("Loading"));
+        LOG.debug(DefaultI18nContext.getInstance().i18n("Loading pdf documents"));
         BiConsumer<PdfReader, PdfDocumentDescriptor> consumer = Arrays.stream(requires).map(consumers::get)
                 .reduce(STARTER, (r, d) -> r.andThen(d)).andThen(FINISHER);
 

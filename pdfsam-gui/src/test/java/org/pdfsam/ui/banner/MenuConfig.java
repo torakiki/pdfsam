@@ -18,9 +18,14 @@
  */
 package org.pdfsam.ui.banner;
 
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.when;
+
+import java.util.Arrays;
 
 import org.pdfsam.test.DefaultPriorityTestModule;
+import org.pdfsam.ui.RecentWorkspacesService;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -47,7 +52,7 @@ public class MenuConfig {
 
     @Bean
     public WorkspaceMenu workspaceMenu() {
-        return new WorkspaceMenu();
+        return new WorkspaceMenu(service());
     }
 
     @Bean
@@ -58,5 +63,12 @@ public class MenuConfig {
     @Bean
     public DefaultPriorityTestModule module() {
         return new DefaultPriorityTestModule();
+    }
+
+    @Bean
+    public RecentWorkspacesService service() {
+        RecentWorkspacesService service = mock(RecentWorkspacesService.class);
+        when(service.getRecentlyUsedWorkspaces()).thenReturn(Arrays.asList("Chuck", "Norris"));
+        return service;
     }
 }

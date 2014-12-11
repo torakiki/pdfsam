@@ -27,11 +27,13 @@ import javafx.scene.Parent;
 import javax.inject.Inject;
 
 import org.junit.Ignore;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
+import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.sejda.eventstudio.Listener;
@@ -52,6 +54,8 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
 @ContextConfiguration(classes = { MenuConfig.class })
 @DirtiesContext(classMode = ClassMode.AFTER_CLASS)
 public class WorkspaceMenuTest extends GuiTest {
+    @Rule
+    public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
     @Inject
     private ApplicationContext applicationContext;
 
@@ -75,6 +79,15 @@ public class WorkspaceMenuTest extends GuiTest {
         Listener<LoadWorkspaceEvent> listener = mock(Listener.class);
         eventStudio().add(LoadWorkspaceEvent.class, listener);
         click(AwesomeIcon.BARS.toString()).click("#workspaceMenu").click("#loadWorkspace");
+        verify(listener).onEvent(any());
+    }
+
+    @Test
+    public void onRecentWorkspace() {
+        Listener<LoadWorkspaceEvent> listener = mock(Listener.class);
+        eventStudio().add(LoadWorkspaceEvent.class, listener);
+        click(AwesomeIcon.BARS.toString()).click("#workspaceMenu").move("#loadWorkspace").move("#saveWorkspace")
+                .click("#recentWorkspace").click("Chuck");
         verify(listener).onEvent(any());
     }
 }

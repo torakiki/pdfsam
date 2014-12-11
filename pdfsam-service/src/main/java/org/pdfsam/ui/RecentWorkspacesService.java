@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 08/apr/2012
- * Copyright 2012 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 11/dic/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,27 +16,33 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.context;
+package org.pdfsam.ui;
 
+import java.io.File;
 import java.util.List;
 
 /**
- * Provides methods to store and retrieve workspaces recently used by the user.
+ * Service dealing with the recently used workspaces.
  * 
  * @author Andrea Vacondio
- * 
+ *
  */
-public interface UserWorkspacesContext {
+public interface RecentWorkspacesService {
 
     /**
-     * Adds a workspace to the collection of the recently used ones.
+     * Adds the last used workspace to the collection of the recently used ones.
      * 
      * @param workspace
      */
-    void addWorkspace(String workspace);
+    void addWorkspaceLastUsed(File workspace);
 
     /**
-     * @return list of user's workspaces
+     * @return list of the absolute paths of the user's recently used workspaces
      */
-    List<String> getWorkspaces();
+    List<String> getRecentlyUsedWorkspaces();
+
+    /**
+     * Clear the recently used workspaces
+     */
+    void clear();
 }

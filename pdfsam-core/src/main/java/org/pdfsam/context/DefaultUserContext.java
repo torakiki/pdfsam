@@ -38,11 +38,9 @@ import org.slf4j.LoggerFactory;
 public final class DefaultUserContext implements UserContext {
     private static final Logger LOG = LoggerFactory.getLogger(DefaultUserContext.class);
     private Preferences prefs;
-    private UserWorkspacesContext workspaces;
 
     public DefaultUserContext() {
         initNode();
-        this.workspaces = new PreferencesUserWorkspacesContext();
     }
 
     private void initNode() {
@@ -137,10 +135,4 @@ public final class DefaultUserContext implements UserContext {
     public void setStringPreference(StringUserPreference pref, String value) {
         prefs.put(pref.toString(), value);
     }
-
-    @Override
-    public UserWorkspacesContext getUserWorkspacesContext() {
-        return workspaces;
-    }
-
 }

@@ -42,16 +42,19 @@ import org.slf4j.LoggerFactory;
  *
  */
 @Named
-public class WorkspaceController {
+class WorkspaceController {
     private static final Logger LOG = LoggerFactory.getLogger(WorkspaceController.class);
 
     private Map<String, Module> modulesMap;
     private WorkspaceService service;
+    private RecentWorkspacesService recentWorkspace;
 
     @Inject
-    WorkspaceController(Map<String, Module> modulesMap, WorkspaceService service) {
+    WorkspaceController(Map<String, Module> modulesMap, WorkspaceService service,
+            RecentWorkspacesService recentWorkspace) {
         this.modulesMap = modulesMap;
         this.service = service;
+        this.recentWorkspace = recentWorkspace;
         eventStudio().addAnnotatedListeners(this);
     }
 
@@ -78,11 +81,13 @@ public class WorkspaceController {
                         (data) -> {
                             if (!data.isEmpty()) {
                                 event.setData(data);
-                                return CompletableFuture.allOf(modulesMap
-                                        .values()
-                                        .stream()
-                                        .map(m -> CompletableFuture.runAsync(() -> eventStudio().broadcast(event,
-                                                m.id()))).toArray(CompletableFuture[]::new));
+                                return CompletableFuture.allOf(
+                                        modulesMap
+                                                .values()
+                                                .stream()
+                                                .map(m -> CompletableFuture.runAsync(() -> eventStudio().broadcast(
+                                                        event, m.id()))).toArray(CompletableFuture[]::new)).thenRun(
+                                        () -> recentWorkspace.addWorkspaceLastUsed(event.workspace()));
                             }
                             return CompletableFuture.completedFuture(null);
                         })

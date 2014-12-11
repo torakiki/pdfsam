@@ -114,10 +114,4 @@ public interface UserContext {
      * @param value
      */
     void setStringPreference(StringUserPreference pref, String value);
-
-    /**
-     * @return the workspaces context for the user
-     */
-    UserWorkspacesContext getUserWorkspacesContext();
-
 }
