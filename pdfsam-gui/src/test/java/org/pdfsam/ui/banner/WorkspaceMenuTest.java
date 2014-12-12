@@ -21,7 +21,12 @@ package org.pdfsam.ui.banner;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
+import java.io.File;
+import java.util.Arrays;
+
 import javafx.scene.Parent;
 
 import javax.inject.Inject;
@@ -34,8 +39,10 @@ import org.junit.runner.RunWith;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.ui.RecentWorkspacesService;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
+import org.pdfsam.ui.workspace.WorkspaceLoadedEvent;
 import org.sejda.eventstudio.Listener;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.annotation.DirtiesContext;
@@ -89,5 +96,15 @@ public class WorkspaceMenuTest extends GuiTest {
         click(AwesomeIcon.BARS.toString()).click("#workspaceMenu").move("#loadWorkspace").move("#saveWorkspace")
                 .click("#recentWorkspace").click("Chuck");
         verify(listener).onEvent(any());
+    }
+
+    @Test
+    @DirtiesContext
+    public void recentIsUpdated() {
+        RecentWorkspacesService service = applicationContext.getBean(RecentWorkspacesService.class);
+        when(service.getRecentlyUsedWorkspaces()).thenReturn(Arrays.asList("Micheal"));
+        eventStudio().broadcast(new WorkspaceLoadedEvent(mock(File.class)));
+        click(AwesomeIcon.BARS.toString()).click("#workspaceMenu").move("#loadWorkspace").move("#saveWorkspace")
+                .click("#recentWorkspace").click("Micheal");
     }
 }

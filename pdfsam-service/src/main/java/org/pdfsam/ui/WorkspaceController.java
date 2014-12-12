@@ -31,6 +31,7 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.Module;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
+import org.pdfsam.ui.workspace.WorkspaceLoadedEvent;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -65,7 +66,7 @@ class WorkspaceController {
                 .allOf(modulesMap.values().stream()
                         .map(m -> CompletableFuture.runAsync(() -> eventStudio().broadcast(event, m.id())))
                         .toArray(CompletableFuture[]::new))
-                .thenRun(() -> service.saveWorkspace(event.getData(), event.destination())).whenComplete((r, e) -> {
+                .thenRun(() -> service.saveWorkspace(event.getData(), event.workspace())).whenComplete((r, e) -> {
                     if (nonNull(e)) {
                         LOG.error(DefaultI18nContext.getInstance().i18n("Unable to save modules workspace"), e);
                     }
@@ -87,7 +88,11 @@ class WorkspaceController {
                                                 .stream()
                                                 .map(m -> CompletableFuture.runAsync(() -> eventStudio().broadcast(
                                                         event, m.id()))).toArray(CompletableFuture[]::new)).thenRun(
-                                        () -> recentWorkspace.addWorkspaceLastUsed(event.workspace()));
+                                        () -> {
+                                            recentWorkspace.addWorkspaceLastUsed(event.workspace());
+                                            eventStudio().broadcast(new WorkspaceLoadedEvent(event.workspace()));
+                                            LOG.info(DefaultI18nContext.getInstance().i18n("Workspace loaded"));
+                                        });
                             }
                             return CompletableFuture.completedFuture(null);
                         })
@@ -101,5 +106,4 @@ class WorkspaceController {
                         });
 
     }
-
 }

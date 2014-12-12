@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 08/apr/2012
- * Copyright 2012 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 12/dic/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -18,32 +18,25 @@
  */
 package org.pdfsam.ui.workspace;
 
-import static java.util.Objects.requireNonNull;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
- * Event to notify that the user asked to load a workspace.
+ * Base class for a workspace related event
  * 
  * @author Andrea Vacondio
- * 
+ *
  */
-public class LoadWorkspaceEvent extends BaseWorkspaceEvent {
-    private Map<String, Map<String, String>> data = new HashMap<>();
+abstract class BaseWorkspaceEvent {
+    private File workspace;
 
-    public LoadWorkspaceEvent(File workspace) {
-        super(workspace);
+    public BaseWorkspaceEvent(File workspace) {
+        requireNotNull(workspace, "Workspace file cannot be null");
+        this.workspace = workspace;
     }
 
-    public void setData(Map<String, Map<String, String>> data) {
-        requireNonNull(data);
-        this.data.putAll(data);
+    public File workspace() {
+        return workspace;
     }
-
-    public Map<String, String> getData(String module) {
-        return this.data.get(module);
-    }
-
 }

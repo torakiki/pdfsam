@@ -42,6 +42,7 @@ import org.pdfsam.module.Module;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
+import org.pdfsam.ui.workspace.WorkspaceLoadedEvent;
 import org.sejda.eventstudio.Listener;
 
 /**
@@ -113,6 +114,8 @@ public class WorkspaceControllerTest {
     public void loadWorkspace() throws InterruptedException, ExecutionException {
         Listener<LoadWorkspaceEvent> listener = mock(Listener.class);
         eventStudio().add(LoadWorkspaceEvent.class, listener, "module");
+        Listener<WorkspaceLoadedEvent> loadedListener = mock(Listener.class);
+        eventStudio().add(WorkspaceLoadedEvent.class, loadedListener);
         Map<String, Map<String, String>> data = new HashMap<>();
         Map<String, String> moduleData = new HashMap<>();
         moduleData.put("key", "value");
@@ -122,6 +125,7 @@ public class WorkspaceControllerTest {
         future.get();
         verify(listener).onEvent(any());
         verify(recentWorkspaces).addWorkspaceLastUsed(file);
+        verify(loadedListener).onEvent(any());
     }
 
     @Test

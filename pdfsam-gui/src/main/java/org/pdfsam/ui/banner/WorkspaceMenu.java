@@ -37,6 +37,8 @@ import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
+import org.pdfsam.ui.workspace.WorkspaceLoadedEvent;
+import org.sejda.eventstudio.annotation.EventListener;
 
 /**
  * Menu displaying workspace related items
@@ -47,9 +49,13 @@ import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 @Named
 class WorkspaceMenu extends Menu {
 
+    private RecentWorkspacesService service;
+    private Menu recent;
+
     @Inject
     public WorkspaceMenu(RecentWorkspacesService service) {
         super(DefaultI18nContext.getInstance().i18n("_Workspace"));
+        this.service = service;
         setId("workspaceMenu");
         MenuItem load = new MenuItem(DefaultI18nContext.getInstance().i18n("_Load"));
         load.setId("loadWorkspace");
@@ -57,10 +63,11 @@ class WorkspaceMenu extends Menu {
         MenuItem save = new MenuItem(DefaultI18nContext.getInstance().i18n("_Save"));
         save.setOnAction(e -> saveWorkspace());
         save.setId("saveWorkspace");
-        Menu recent = new Menu(DefaultI18nContext.getInstance().i18n("Recen_t"));
+        recent = new Menu(DefaultI18nContext.getInstance().i18n("Recen_t"));
         recent.setId("recentWorkspace");
         service.getRecentlyUsedWorkspaces().stream().map(WorkspaceMenuItem::new).forEach(recent.getItems()::add);
         getItems().addAll(load, save, new SeparatorMenuItem(), recent);
+        eventStudio().addAnnotatedListeners(this);
     }
 
     public void saveWorkspace() {
@@ -80,5 +87,11 @@ class WorkspaceMenu extends Menu {
         if (chosenFile != null) {
             eventStudio().broadcast(new LoadWorkspaceEvent(chosenFile));
         }
+    }
+
+    @EventListener
+    public void onWorkspaceLoaded(WorkspaceLoadedEvent e) {
+        recent.getItems().clear();
+        service.getRecentlyUsedWorkspaces().stream().map(WorkspaceMenuItem::new).forEach(recent.getItems()::add);
     }
 }

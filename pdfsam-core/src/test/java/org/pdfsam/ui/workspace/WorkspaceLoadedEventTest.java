@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 08/apr/2012
- * Copyright 2012 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 12/dic/2014
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -18,32 +18,26 @@
  */
 package org.pdfsam.ui.workspace;
 
-import static java.util.Objects.requireNonNull;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
+
+import org.junit.Test;
 
 /**
- * Event to notify that the user asked to load a workspace.
- * 
  * @author Andrea Vacondio
- * 
+ *
  */
-public class LoadWorkspaceEvent extends BaseWorkspaceEvent {
-    private Map<String, Map<String, String>> data = new HashMap<>();
-
-    public LoadWorkspaceEvent(File workspace) {
-        super(workspace);
+public class WorkspaceLoadedEventTest {
+    @Test(expected = IllegalArgumentException.class)
+    public void nullRequiredFile() {
+        new WorkspaceLoadedEvent(null);
     }
 
-    public void setData(Map<String, Map<String, String>> data) {
-        requireNonNull(data);
-        this.data.putAll(data);
+    @Test
+    public void requiredFile() {
+        File file = mock(File.class);
+        assertEquals(file, new WorkspaceLoadedEvent(file).workspace());
     }
-
-    public Map<String, String> getData(String module) {
-        return this.data.get(module);
-    }
-
 }

@@ -33,13 +33,11 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author Andrea Vacondio
  * 
  */
-public class SaveWorkspaceEvent {
+public class SaveWorkspaceEvent extends BaseWorkspaceEvent {
     private Map<String, Map<String, String>> data = new ConcurrentHashMap<>();
-    private File destination;
 
     public SaveWorkspaceEvent(File destination) {
-        requireNotNull(destination, "Destination file cannot be null");
-        this.destination = destination;
+        super(destination);
     }
 
     /**
@@ -64,7 +62,7 @@ public class SaveWorkspaceEvent {
      * Null safe get for the module data
      * 
      * @param module
-     * @return a list containig data for the module or an empy one
+     * @return a list containing data for the module or an empy one
      */
     public Map<String, String> getDataForModule(String module) {
         Map<String, String> values = data.get(module);
@@ -76,10 +74,6 @@ public class SaveWorkspaceEvent {
             }
         }
         return values;
-    }
-
-    public File destination() {
-        return destination;
     }
 
 }
