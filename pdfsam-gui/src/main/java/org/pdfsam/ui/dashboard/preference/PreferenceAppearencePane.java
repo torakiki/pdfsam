@@ -50,6 +50,7 @@ class PreferenceAppearencePane extends GridPane {
             @Named("themeCombo") PreferenceComboBox<KeyStringValueItem<String>> themeCombo,
             @Named("startupModuleCombo") PreferenceComboBox<KeyStringValueItem<String>> startupModuleCombo) {
         I18nContext i18n = DefaultI18nContext.getInstance();
+        add(new Label(i18n.i18n("Language:")), 0, 0);
         for (Locale current : DefaultI18nContext.SUPPORTED_LOCALES) {
             localeCombo.getItems().add(new LocaleKeyValueItem(current));
         }
@@ -57,19 +58,20 @@ class PreferenceAppearencePane extends GridPane {
         localeCombo.setValue(new LocaleKeyValueItem(Locale.getDefault()));
         localeCombo.valueProperty().addListener(
                 (observable, oldValue, newValue) -> eventStudio().broadcast(new SetLocaleEvent(newValue.getKey())));
-
-        add(new Label(i18n.i18n("Language:")), 0, 0);
+        localeCombo.setMaxWidth(Double.POSITIVE_INFINITY);
         setFillWidth(localeCombo, true);
         add(localeCombo, 1, 0);
 
-        themeCombo.setTooltip(new Tooltip(i18n.i18n("Set your preferred theme (restart needed)")));
         add(new Label(i18n.i18n("Theme:")), 0, 1);
+        themeCombo.setTooltip(new Tooltip(i18n.i18n("Set your preferred theme (restart needed)")));
+        themeCombo.setMaxWidth(Double.POSITIVE_INFINITY);
         setFillWidth(themeCombo, true);
         add(themeCombo, 1, 1);
 
+        add(new Label(i18n.i18n("Startup module:")), 0, 2);
         startupModuleCombo.setTooltip(new Tooltip(i18n
                 .i18n("Set the module to open at application startup (restart needed)")));
-        add(new Label(i18n.i18n("Startup module:")), 0, 2);
+        startupModuleCombo.setMaxWidth(Double.POSITIVE_INFINITY);
         setFillWidth(startupModuleCombo, true);
         add(startupModuleCombo, 1, 2);
 
