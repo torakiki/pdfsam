@@ -97,7 +97,9 @@ public class JsonWorkspaceServiceTest {
     public void cannotAccessWorkspace() throws IOException {
         File file = folder.newFile();
         FileUtils.copyInputStreamToFile(getClass().getResourceAsStream("/workspace.json"), file);
-        file.setReadable(false);
+        if (!file.setReadable(false)) {
+            throw new RuntimeException("OS does not implement read pemissions");
+        }
         victim.loadWorkspace(file);
     }
 

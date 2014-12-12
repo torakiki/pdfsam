@@ -117,12 +117,12 @@ public class SplitOptionsPaneTest extends GuiTest {
     }
 
     @Test
-    public void restoreState() {
+    public void restoreState() throws Exception {
         SplitOptionsPane victim = find(".pdfsam-container");
         Map<String, String> data = new HashMap<>();
         data.put("regexp", "Chuck");
         data.put("levelCombo.selected", "2");
-        victim.restoreStateFrom(data);
+        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
         TextField field = find("#bookmarksRegexp");
         assertEquals("Chuck", field.getText());
         BookmarksLevelComboBox levelCombo = find("#bookmarksLevel");

@@ -138,12 +138,12 @@ public class BookmarksLevelComboBoxTest extends GuiTest {
     }
 
     @Test
-    public void restoreState() {
+    public void restoreState() throws Exception {
         BookmarksLevelComboBox victim = find("#victim");
         Map<String, String> data = new HashMap<>();
         data.put("levelCombo.max", "3");
         data.put("levelCombo.selected", "2");
-        victim.restoreStateFrom(data);
+        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
         assertEquals("2", victim.getSelectionModel().getSelectedItem());
         assertEquals(3, victim.getItems().size());
     }
