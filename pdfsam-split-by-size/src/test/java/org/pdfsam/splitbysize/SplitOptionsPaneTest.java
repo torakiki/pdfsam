@@ -41,6 +41,7 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
+import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.commons.ValidableTextField;
 
@@ -99,14 +100,14 @@ public class SplitOptionsPaneTest extends GuiTest {
     }
 
     @Test
-    public void restoreState() {
+    public void restoreState() throws Exception {
         SplitOptionsPane victim = find(".pdfsam-container");
         SizeUnitRadio kilo = find("#unit" + SizeUnit.KILOBYTE.symbol());
         SizeUnitRadio mega = find("#unit" + SizeUnit.MEGABYTE.symbol());
         Map<String, String> data = new HashMap<>();
         data.put("size", "100");
         data.put(SizeUnit.MEGABYTE.toString(), Boolean.TRUE.toString());
-        victim.restoreStateFrom(data);
+        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
         ValidableTextField field = find("#sizeField");
         assertEquals("100", field.getText());
         assertTrue(mega.isSelected());
