@@ -101,4 +101,10 @@ public class JsonWorkspaceServiceTest {
         victim.loadWorkspace(file);
     }
 
+    @Test(expected = RuntimeException.class)
+    public void loadNotExistent() {
+        File file = new File("I dont exist");
+        victim.loadWorkspace(file);
+    }
+
 }
