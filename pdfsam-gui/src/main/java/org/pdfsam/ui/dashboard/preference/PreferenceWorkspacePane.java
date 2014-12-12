@@ -56,9 +56,13 @@ class PreferenceWorkspacePane extends VBox {
                 new Tooltip(i18n.i18n("Select a directory where documents will be saved and loaded by default")));
         workingDirectory.setBrowseWindowTitle(i18n.i18n("Select a directory"));
         workingDirectory.getStyleClass().add("spaced-vitem");
-
-        getChildren().addAll(new Label(i18n.i18n("Load default workspace at startup:")), workspace,
-                new Label(i18n.i18n("Default working directory:")), workingDirectory, clearStatsButton);
+        Label clearStatsLabel = new Label(
+                i18n.i18n("Usage statistics are used to populate the modules quick bar on the left with the most used and most recently used modules."));
+        clearStatsLabel.setWrapText(true);
+        getChildren()
+                .addAll(new Label(i18n.i18n("Load default workspace at startup:")), workspace,
+                        new Label(i18n.i18n("Default working directory:")), workingDirectory, clearStatsLabel,
+                        clearStatsButton);
         getStyleClass().addAll(Style.CONTAINER.css());
     }
 }
