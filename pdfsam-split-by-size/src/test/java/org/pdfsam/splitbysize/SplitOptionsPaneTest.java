@@ -19,8 +19,11 @@
 package org.pdfsam.splitbysize;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.anyLong;
 import static org.mockito.Matchers.anyString;
+import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -39,6 +42,7 @@ import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.ui.commons.ValidableTextField;
 
 /**
  * @author Andrea Vacondio
@@ -66,27 +70,46 @@ public class SplitOptionsPaneTest extends GuiTest {
     @Test
     public void apply() {
         SplitOptionsPane victim = find(".pdfsam-container");
+        click("#sizeField").type("30").push(KeyCode.ENTER);
+        click("#unit" + SizeUnit.MEGABYTE.symbol());
         victim.apply(builder, onError);
         verify(onError, never()).accept(anyString());
-        verify(builder).size(anyLong());
+        verify(builder).size(eq(30 * 1024 * 1024L));
+    }
+
+    @Test
+    public void applyError() {
+        SplitOptionsPane victim = find(".pdfsam-container");
+        click("#sizeField").type("Chuck").push(KeyCode.ENTER);
+        victim.apply(builder, onError);
+        verify(onError).accept(anyString());
+        verify(builder, never()).size(anyLong());
     }
 
     @Test
     public void saveState() {
         SplitOptionsPane victim = find(".pdfsam-container");
-        click("#sizeCombo").click().click().type("3000MB").push(KeyCode.ENTER);
+        click("#sizeField").type("3000").push(KeyCode.ENTER);
+        click("#unit" + SizeUnit.MEGABYTE.symbol());
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
-        assertEquals("3000MB", data.get("size"));
+        assertEquals("3000", data.get("size"));
+        assertTrue(Boolean.valueOf(data.get(SizeUnit.MEGABYTE.toString())));
+        assertFalse(Boolean.valueOf(data.get(SizeUnit.KILOBYTE.toString())));
     }
 
     @Test
     public void restoreState() {
         SplitOptionsPane victim = find(".pdfsam-container");
+        SizeUnitRadio kilo = find("#unit" + SizeUnit.KILOBYTE.symbol());
+        SizeUnitRadio mega = find("#unit" + SizeUnit.MEGABYTE.symbol());
         Map<String, String> data = new HashMap<>();
-        data.put("size", "3000MB");
+        data.put("size", "100");
+        data.put(SizeUnit.MEGABYTE.toString(), Boolean.TRUE.toString());
         victim.restoreStateFrom(data);
-        SizeComboBox field = find("#sizeCombo");
-        assertEquals("3000MB", field.getSelectionModel().getSelectedItem());
+        ValidableTextField field = find("#sizeField");
+        assertEquals("100", field.getText());
+        assertTrue(mega.isSelected());
+        assertFalse(kilo.isSelected());
     }
 }

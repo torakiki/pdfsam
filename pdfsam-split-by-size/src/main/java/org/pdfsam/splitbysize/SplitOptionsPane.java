@@ -18,17 +18,23 @@
  */
 package org.pdfsam.splitbysize;
 
+import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
 
 import javafx.scene.control.Label;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.params.TaskParametersBuildStep;
+import org.pdfsam.support.validation.Validators;
+import org.pdfsam.ui.commons.ValidableTextField;
+import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.workspace.RestorableView;
 
@@ -40,24 +46,48 @@ import org.pdfsam.ui.workspace.RestorableView;
  */
 class SplitOptionsPane extends HBox implements TaskParametersBuildStep<SplitBySizeParametersBuilder>, RestorableView {
 
-    private SizeComboBox sizeCombo = new SizeComboBox();
+    private final ValidableTextField field = new ValidableTextField();
+    private ToggleGroup group = new ToggleGroup();
 
     SplitOptionsPane() {
+        this.field.setOnEnterValidation(true);
+        this.field.setEnableInvalidStyle(true);
+        this.field.setPromptText(DefaultI18nContext.getInstance().i18n("Set the size to split at"));
+        this.field.setValidator(Validators.newPositiveIntegerString());
+        this.field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Size must be a number"));
+        this.field.setId("sizeField");
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.HCONTAINER.css());
-        sizeCombo.setId("sizeCombo");
-        getChildren().addAll(new Label(DefaultI18nContext.getInstance().i18n("Split at this size:")), sizeCombo);
+        getChildren().addAll(new Label(DefaultI18nContext.getInstance().i18n("Split at this size:")), this.field);
+        Arrays.stream(SizeUnit.values()).map(SizeUnitRadio::new).forEach(r -> {
+            r.setToggleGroup(group);
+            getChildren().add(r);
+        });
+        group.getToggles().stream().findFirst().ifPresent(t -> t.setSelected(true));
     }
 
     public void apply(SplitBySizeParametersBuilder builder, Consumer<String> onError) {
-        sizeCombo.apply(builder, onError);
+        this.field.validate();
+        if (this.field.getValidationState() == ValidationState.VALID) {
+            builder.size(((SizeUnitRadio) group.getSelectedToggle()).unit().toBytes(
+                    Integer.valueOf(this.field.getText())));
+        } else {
+            onError.accept(DefaultI18nContext.getInstance().i18n("Invalid split size"));
+        }
     }
 
     public void saveStateTo(Map<String, String> data) {
-        data.put("size", defaultString(sizeCombo.getSelectionModel().getSelectedItem()));
+        data.put("size", defaultString(field.getText()));
+        group.getToggles().stream().map(t -> {
+            return (SizeUnitRadio) t;
+        }).forEach(s -> s.saveStateTo(data));
     }
 
     public void restoreStateFrom(Map<String, String> data) {
-        Optional.ofNullable(data.get("size")).ifPresent(sizeCombo.getSelectionModel()::select);
+        field.setText(Optional.ofNullable(data.get("size")).orElse(EMPTY));
+        group.getToggles().stream().map(t -> {
+            return (SizeUnitRadio) t;
+        }).forEach(s -> s.restoreStateFrom(data));
     }
+
 }
