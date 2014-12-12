@@ -21,6 +21,7 @@ package org.pdfsam.ui.dashboard.preference;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -41,16 +42,17 @@ class PreferenceBehaviorPane extends GridPane {
     @Inject
     public PreferenceBehaviorPane(@Named("checkForUpdates") PreferenceCheckBox checkForUpdates,
             @Named("playSounds") PreferenceCheckBox playSounds,
-            @Named("newsDisplayPolicy") PreferenceComboBox<KeyStringValueItem<String>> newsDisplayPolicy) {
-
-        add(checkForUpdates, 0, 0, 2, 1);
-        add(playSounds, 0, 1, 2, 1);
+            @Named("newsDisplayPolicy") PreferenceComboBox<KeyStringValueItem<String>> newsDisplayPolicy,
+            CheckForUpdatesButton checkForUpdatesNow) {
 
         newsDisplayPolicy.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
                 "Set how often the PDFsam news panel should be opened")));
-        add(new Label(DefaultI18nContext.getInstance().i18n("News panel:")), 0, 2);
+        add(new Label(DefaultI18nContext.getInstance().i18n("News panel:")), 0, 0);
         setFillWidth(newsDisplayPolicy, true);
-        add(newsDisplayPolicy, 1, 2);
+        newsDisplayPolicy.setMaxWidth(Double.POSITIVE_INFINITY);
+        add(newsDisplayPolicy, 1, 0);
+        add(playSounds, 0, 1, 2, 1);
+        add(new VBox(checkForUpdates, checkForUpdatesNow), 0, 2, 2, 1);
 
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.GRID.css());
