@@ -5,99 +5,62 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDFSam 3\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2014-09-04 15:44+0200\n"
-"PO-Revision-Date: 2014-04-23 06:13+0000\n"
+"POT-Creation-Date: 2014-12-12 17:22+0100\n"
+"PO-Revision-Date: 2014-09-09 16:35+0000\n"
 "Last-Translator: Cheng-Wei Chien <Unknown>\n"
 "Language-Team: Chinese (Taiwan) (zh_TW@li.org)\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-09-02 09:01+0000\n"
-"X-Generator: Launchpad (build 17192)\n"
-
-msgid "Selected file already exists"
-msgstr "所選的檔案已存在"
-
-msgid "Would you like to overwrite it?"
-msgstr "您確定要覆寫它？"
-
-msgid "Split"
-msgstr "分割"
-
-msgid "Merge"
-msgstr "合併"
-
-msgid "Security"
-msgstr "安全性"
-
-msgid "Other"
-msgstr "其它"
-
-msgid "Directories"
-msgstr "目錄"
-
-msgid "Error saving log file."
-msgstr "儲存紀錄檔時發生錯誤。"
+"X-Launchpad-Export-Date: 2014-12-12 16:32+0000\n"
+"X-Generator: Launchpad (build 17286)\n"
 
 #, java-format
-msgid "File {0} saved."
-msgstr "檔案 {0} 已儲存。"
+msgid "Installing theme {0}."
+msgstr ""
+
+#, java-format
+msgid "Modules directory {0} does not exist"
+msgstr "模組目錄 {0} 不存在"
+
+#, java-format
+msgid "Loading modules from {0}"
+msgstr "正從 {0} 載入模組"
+
+#, java-format
+msgid "Found modules jars {0}"
+msgstr "找到模組 jar 檔 {0}"
+
+msgid "Error finding modules paths"
+msgstr "尋找模組路徑時發生錯誤"
+
+msgid "No module has been found"
+msgstr "找不到模組"
+
+msgid "Unable to find modules location."
+msgstr "找不到模組位置。"
 
 #, java-format
 msgid "Started in {0}"
 msgstr "已啟動於 {0}"
 
-msgid "Error playing sounds"
-msgstr "播放音效時發生錯誤"
-
-msgid "Skipping modules signature verification."
+msgid "Closing PDFsam..."
 msgstr ""
 
-#, java-format
-msgid "Modules directory {0} does not exist"
-msgstr ""
-
-#, java-format
-msgid "Loading modules from {0}"
-msgstr ""
-
-#, java-format
-msgid "Found modules jars {0}"
-msgstr ""
-
-msgid "Error finding modules paths"
-msgstr ""
-
-msgid "No module has been found"
-msgstr ""
-
-msgid "Unable to find modules location."
-msgstr ""
-
-msgid "Please select a module"
-msgstr ""
-
-msgid "Document details"
-msgstr ""
-
-msgid "Summary"
-msgstr ""
-
-msgid "Keywords"
-msgstr "關鍵字"
-
-msgid "Open application messages"
-msgstr ""
-
-msgid "Open menu"
-msgstr ""
-
-msgid "Open main dashboard"
-msgstr ""
+#, fuzzy
+msgid "Application menu"
+msgstr "開啟應用程式訊息"
 
 msgid "_Modules"
 msgstr "模組 (_M)"
+
+msgid "E_xit"
+msgstr "關閉程式 (_x)"
+
+#, fuzzy
+msgid "Application messages"
+msgstr "開啟應用程式訊息"
 
 msgid "_Workspace"
 msgstr "工作區 (_W)"
@@ -111,8 +74,208 @@ msgstr "儲存 (_S)"
 msgid "Recen_t"
 msgstr "檔案紀錄 (_t)"
 
-msgid "E_xit"
-msgstr "關閉程式 (_x)"
+#, fuzzy
+msgid "Select the workspace file to save"
+msgstr "請選擇一個工作區"
+
+#, fuzzy
+msgid "Select the workspace to load"
+msgstr "請選擇一個工作區"
+
+msgid "Dashboard"
+msgstr ""
+
+msgid "Document details"
+msgstr "文件詳細內容"
+
+msgid "Keywords"
+msgstr "關鍵字"
+
+msgid "Summary"
+msgstr "摘要"
+
+msgid "About"
+msgstr "關於"
+
+msgid "Subscribe to the official news feed"
+msgstr "訂閱官方新聞來源"
+
+msgid "Environment"
+msgstr "環境"
+
+#, java-format
+msgid "Max memory {0}"
+msgstr "記憶體上限 {0}"
+
+msgid "Copy to clipboard"
+msgstr ""
+
+msgid "Thanks to"
+msgstr "致謝"
+
+msgid "The open source projects making PDFsam possible"
+msgstr "讓 PDFsam 得以實現的開源專案"
+
+msgid "Support"
+msgstr "支援"
+
+msgid "Bug and feature requests"
+msgstr "錯誤回報及功能需求"
+
+msgid "Play the \"get started\" video"
+msgstr "播放「快速入門」視訊"
+
+msgid "Contribute"
+msgstr "貢獻"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "在 GitHub 上 fork PDFsam 專案"
+
+msgid "Translate"
+msgstr "翻譯"
+
+msgid "Donate"
+msgstr "贊助"
+
+msgid "Social"
+msgstr "社交"
+
+msgid "Follow us on Twitter"
+msgstr "在推特上關注我們"
+
+msgid "Follow us on Google Plus"
+msgstr "在 Google Plus 上追蹤我們"
+
+msgid "Like us on Facebook"
+msgstr "在臉書上幫我們按讚"
+
+msgid "Manually selected"
+msgstr "手動選擇"
+
+msgid ""
+"Automatically set the destination directory to the selected PDF document "
+"directory"
+msgstr "自動將目的地設為跟選取的 PDF 文件同一目錄"
+
+msgid "Appearance"
+msgstr "外觀"
+
+msgid "Behavior"
+msgstr "行為"
+
+msgid "Workspace"
+msgstr "工作區"
+
+msgid "Output"
+msgstr "輸出"
+
+msgid "Check for updates at startup"
+msgstr "啟動時檢查更新"
+
+msgid ""
+"Set whether new version availability should be checked on startup (restart "
+"needed)"
+msgstr "設定啟動時是否檢查有可用的新版本（必須重新啟動程式）"
+
+msgid "Play alert sounds"
+msgstr "播放警示音效"
+
+msgid "Turn on or off alert sounds"
+msgstr "開啟或關閉警示音效"
+
+msgid "High quality thumbnails"
+msgstr "高畫質縮圖"
+
+msgid "Use the selected PDF document directory as output directory"
+msgstr "使用選取的 PDF 文件目錄作為輸出目錄"
+
+#, java-format
+msgid "Size must be between {0}px and {1}px"
+msgstr "圖片尺寸必須介於 {0}px 與 {1}px 之間"
+
+#, java-format
+msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
+msgstr "縮圖的尺寸（介於 {0}px 與 {1}px 之間）"
+
+msgid "Generate high quality thumbnails (slower)"
+msgstr "產生高畫質縮圖（較慢）"
+
+msgid "Size in px:"
+msgstr "圖片尺寸 (px)："
+
+msgid "Library used to generate thumbnails"
+msgstr "用來產生縮圖的函式庫"
+
+msgid "Thumbnails creator:"
+msgstr "縮圖產生器："
+
+msgid "Clear usage statistics"
+msgstr "清除使用紀錄"
+
+msgid ""
+"Select a previously saved workspace that will be automatically loaded at "
+"startup"
+msgstr "請選擇一個先前儲存的工作區以便在啟動時自動載入"
+
+msgid "Select a workspace"
+msgstr "請選擇一個工作區"
+
+msgid "Select a directory where documents will be saved and loaded by default"
+msgstr "請選擇儲存及載入文件的預設目錄"
+
+msgid "Select a directory"
+msgstr "請選擇一個目錄"
+
+msgid ""
+"Usage statistics are used to populate the modules quick bar on the left with "
+"the most used and most recently used modules."
+msgstr ""
+
+msgid "Load default workspace at startup:"
+msgstr "啟動時載入預設工作區："
+
+msgid "Default working directory:"
+msgstr "預設工作目錄："
+
+msgid "Set how often the PDFsam news panel should be opened"
+msgstr ""
+
+msgid "News panel:"
+msgstr ""
+
+msgid "Language:"
+msgstr "語言："
+
+msgid "Set your preferred language (restart needed)"
+msgstr "設定您偏好的語言（必須重新啟動程式）"
+
+msgid "Theme:"
+msgstr "佈景主題："
+
+msgid "Set your preferred theme (restart needed)"
+msgstr "設定您偏好的佈景主題（必須重新啟動程式）"
+
+msgid "Startup module:"
+msgstr ""
+
+msgid "Set the module to open at application startup (restart needed)"
+msgstr ""
+
+#, fuzzy
+msgid "Check for updates now"
+msgstr "檢查更新"
+
+msgid "Close"
+msgstr "關閉"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Modules"
+msgstr "模組"
+
+msgid "Log register"
+msgstr "紀錄檔暫存器"
 
 msgid "Copy"
 msgstr "複製"
@@ -129,226 +292,265 @@ msgstr "儲存紀錄檔"
 msgid "Select where to save the log file"
 msgstr "請選擇儲存紀錄檔的位置"
 
-msgid "Log register"
-msgstr "紀錄檔暫存器"
-
 msgid "Invalid parameters"
-msgstr ""
+msgstr "無效的參數"
 
 msgid ""
 "Input parameters are invalid, open the application messages for details."
+msgstr "輸入的參數無效，請開啟應用程式訊息取得詳細的資訊。"
+
+#, java-format
+msgid "You performed {0} tasks with PDFsam, did it help?"
+msgstr ""
+
+msgid "Give something back"
+msgstr ""
+
+msgid "PDFsam worked hard!"
 msgstr ""
 
 #, java-format
 msgid "PDFsam {0} is available for download"
-msgstr ""
+msgstr "PDFsam {0} 已可下載"
 
 msgid "Download"
-msgstr ""
+msgstr "下載"
 
 msgid "New version available"
+msgstr "有新版本可用"
+
+msgid "Show this:"
 msgstr ""
 
-msgid "Modules"
+msgid "What's new"
 msgstr ""
 
-msgid "Close"
-msgstr "關閉"
-
-msgid "Subscribe to the official news feed"
+msgid "Directory not empty"
 msgstr ""
 
-msgid "Environment"
+msgid "The selected directory is not empty"
 msgstr ""
 
-#, java-format
-msgid "Max memory {0}"
-msgstr "記憶體上限 {0}"
-
-msgid "Thanks to"
+msgid "Overwrite files with the same name as the generated ones?"
 msgstr ""
 
-msgid "The open source projects making PDFsam possible"
+msgid "Don't overwrite existing file"
 msgstr ""
 
-msgid "Support"
+msgid "Overwrite confirmation"
 msgstr ""
 
-msgid "Bug and feature requests"
+msgid "A file with the given name already exists"
 msgstr ""
 
-msgid "Play the \"get started\" video"
+msgid "Do you want to overwrite it?"
 msgstr ""
 
-msgid "Contribute"
+msgid "Overwrite"
 msgstr ""
 
-msgid "Fork PDFsam on GitHub"
+msgid "Cancel"
 msgstr ""
-
-msgid "Translate"
-msgstr ""
-
-msgid "Donate"
-msgstr ""
-
-msgid "Social"
-msgstr ""
-
-msgid "Follow us on Twitter"
-msgstr "在推特上關注我們"
-
-msgid "Follow us on Google Plus"
-msgstr ""
-
-msgid "Like us on Facebook"
-msgstr "在臉書上幫我們按讚"
-
-msgid "About"
-msgstr "關於"
-
-msgid "Appearance"
-msgstr "外觀"
-
-msgid "Thumbnails"
-msgstr "縮圖"
-
-msgid "Behavior"
-msgstr "行為"
-
-msgid "Workspace"
-msgstr "工作區"
-
-msgid "Output"
-msgstr ""
-
-msgid ""
-"Select a previously saved workspace that will be automatically loaded at "
-"startup"
-msgstr "請選擇一個先前儲存的工作區以便在啟動時自動載入"
-
-msgid "Select a workspace"
-msgstr "請選擇一個工作區"
-
-msgid "Select a directory where documents will be saved and loaded by default"
-msgstr "請選擇儲存及載入文件的預設目錄"
-
-msgid "Select a directory"
-msgstr "請選擇一個目錄"
-
-msgid "Load default workspace at startup:"
-msgstr "啟動時載入預設工作區："
-
-msgid "Default working directory:"
-msgstr "預設工作目錄："
-
-msgid "Set your preferred language (restart needed)"
-msgstr "設定您偏好的語言（必須重新啟動程式）"
-
-msgid "Language:"
-msgstr "語言："
-
-msgid "Set your preferred theme (restart needed)"
-msgstr "設定您偏好的佈景主題（必須重新啟動程式）"
-
-msgid "Theme:"
-msgstr "佈景主題："
-
-msgid "Generate high quality thumbnails (slower)"
-msgstr "產生高畫質縮圖（較慢）"
-
-msgid "Size in px:"
-msgstr "圖片尺寸 (px)："
-
-msgid "Library used to generate thumbnails"
-msgstr "用來產生縮圖的函式庫"
-
-msgid "Thumbnails creator:"
-msgstr "縮圖產生器："
-
-msgid "Manually selected"
-msgstr ""
-
-msgid ""
-"Automatically set the destination directory to the selected PDF document "
-"directory"
-msgstr ""
-
-msgid "Check for updates at startup"
-msgstr "啟動時檢查更新"
-
-msgid ""
-"Set whether new version availability should be checked on startup (restart "
-"needed)"
-msgstr "設定啟動時是否檢查有可用的新版本（必須重新啟動程式）"
-
-msgid "Play alert sounds"
-msgstr "播放警示音效"
-
-msgid "Turn on or off alert sounds"
-msgstr "開啟或關閉警示音效"
-
-msgid "Ask for confirmation when the \"Overwrite\" checkbox is selected"
-msgstr ""
-
-msgid ""
-"Show a dialog box asking the user for confirmation when the \"overwrite\" is "
-"selected"
-msgstr "勾選「覆寫」時顯示對話框要求使用者再次確認"
-
-msgid "High quality thumbnails"
-msgstr "高畫質縮圖"
-
-msgid "Use the selected PDF document directory as output directory"
-msgstr ""
-
-#, java-format
-msgid "Size must be between {0}px and {1}px"
-msgstr "圖片尺寸必須介於 {0}px 與 {1}px 之間"
-
-#, java-format
-msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
-msgstr "縮圖的尺寸（介於 {0}px 與 {1}px 之間）"
-
-msgid "Clear usage statistics"
-msgstr ""
-
-msgid "Settings"
-msgstr "設定"
-
-msgid "Loading"
-msgstr "正在載入"
-
-msgid "Documents loaded"
-msgstr "文件已載入"
-
-msgid "Unexpected error"
-msgstr "非預期的錯誤"
 
 msgid "Unable to find the latest available version."
-msgstr ""
+msgstr "無法找到最新的可用版本。"
 
 msgid "Checking for updates"
 msgstr "檢查更新"
 
-msgid "Select an existing directory"
-msgstr "請選擇一個既有的目錄"
+#, fuzzy
+msgid "Loading pdf documents"
+msgstr "將所選文件往下移"
 
-msgid "Select"
-msgstr "選擇"
+msgid "Documents loaded"
+msgstr "文件已載入"
 
-msgid "Browse"
-msgstr "瀏覽"
+msgid "Requesting modules state"
+msgstr ""
 
-msgid "Select a file"
-msgstr "請選擇一個檔案"
+#, fuzzy
+msgid "Unable to save modules workspace"
+msgstr "找不到模組位置。"
 
-msgid "The selected file must exist. "
+#, fuzzy, java-format
+msgid "Loading workspace from {0}"
+msgstr "正從 {0} 載入模組"
+
+#, fuzzy
+msgid "Workspace loaded"
+msgstr "工作區"
+
+#, java-format
+msgid "Unable to load workspace from {0}"
 msgstr ""
 
 #, java-format
-msgid "Allowed extensions are {0}"
-msgstr "允許的副檔名為 {0}"
+msgid "Saving workspace data to {0}"
+msgstr ""
+
+#, fuzzy
+msgid "Workspace saved"
+msgstr "工作區"
+
+msgid "Split after the following page numbers"
+msgstr "在下列頁碼分割文件"
+
+msgid "Page numbers to split at (n1,n2,n3..)"
+msgstr "分割於頁碼 (n1, n2, n3..)"
+
+msgid "Split the document after the given page numbers"
+msgstr "在指定的頁碼分割文件"
+
+msgid "Invalid page numbers"
+msgstr "無效的頁碼"
+
+msgid "Split"
+msgstr "分割"
+
+msgid "Split a pdf document at the given page numbers."
+msgstr "在指定的頁數分割文件。"
+
+msgid "Select or drag and drop the PDF you want to split"
+msgstr "請選取或拖拉您要分割的 PDF 檔"
+
+msgid "File names settings"
+msgstr "檔名設定"
+
+msgid "Split settings"
+msgstr "分割設定"
+
+msgid "Destination directory"
+msgstr "目的地目錄"
+
+msgid "Burst (Split into single pages)"
+msgstr "細分（分割成單頁文件）"
+
+msgid "Split even pages"
+msgstr "分割出偶數頁"
+
+msgid "Split odd pages"
+msgstr "分割出奇數頁"
+
+msgid "Explode the document into single pages"
+msgstr "將文件細分成單頁文件"
+
+msgid "Split the document after every even page"
+msgstr "在每個偶數頁分割文件"
+
+msgid "Split the document after every odd page"
+msgstr "在每個奇數頁分割文件"
+
+msgid "Split by every \"n\" pages"
+msgstr "每隔 n 頁分割文件"
+
+msgid "Number of pages"
+msgstr "總頁面數"
+
+msgid "Splits the pdf every \"n\" pages creating documents of \"n\" pages each"
+msgstr "每隔 n 頁分割文件，即每個文件都恰好為 n 頁"
+
+msgid "Invalid number of pages"
+msgstr "無效的頁數"
+
+msgid "Split by size"
+msgstr "依檔案大小分割"
+
+msgid "Split a pdf document in files of the give size (roughly)."
+msgstr "（約略地）根據指定的檔案大小分割 PDF 文件。"
+
+#, fuzzy
+msgid "Set the size to split at"
+msgstr "請設定要分割的書籤層級"
+
+msgid "Size must be a number"
+msgstr ""
+
+msgid "Split at this size:"
+msgstr "依此檔案大小分割："
+
+msgid "Invalid split size"
+msgstr "無效的分割檔案大小"
+
+msgid "Kilobytes"
+msgstr ""
+
+msgid "KB"
+msgstr ""
+
+msgid "Megabytes"
+msgstr ""
+
+msgid "MB"
+msgstr ""
+
+msgid "Alternate Mix"
+msgstr "交替合併"
+
+msgid ""
+"Merge two PDF documents taking pages alternately in straight or reverse "
+"order."
+msgstr "將兩個 PDF 文件的頁面依正序或倒序合併。"
+
+msgid "Select or drag and drop the first PDF you want to mix"
+msgstr "請選取或拖拉您要混合的第一個 PDF 文件"
+
+msgid "Select or drag and drop the second PDF you want to mix"
+msgstr "請選取或拖拉您要混合的第二個 PDF 文件"
+
+msgid "Mix settings"
+msgstr "混合文件設定"
+
+msgid "Destination file"
+msgstr "輸出檔"
+
+msgid "Reverse the first document"
+msgstr "顛倒第一個文件"
+
+msgid "Reverse the second document"
+msgstr "顛倒第二個文件"
+
+msgid ""
+"Switch from the first document to the second one after the following pages"
+msgstr "在下列頁面後從第一個文件切換至第二個文件"
+
+msgid ""
+"Switch from the second document to the first one after the following pages"
+msgstr "在下列頁面後從第二個文件切換至第一個文件"
+
+msgid "Invalid parameter 'first and second step' must be numbers"
+msgstr "無效的參數「第一與第二步」必須為數字"
+
+msgid "Select the number of pages"
+msgstr "請選擇頁數"
+
+msgid "The selected PDF document is invalid"
+msgstr "選取的 PDF 文件無效"
+
+#, fuzzy
+msgid "Open the generated document"
+msgstr "顛倒第二個文件"
+
+#, fuzzy
+msgid "Open the destination directory"
+msgstr "目的地目錄"
+
+msgid "Ready"
+msgstr ""
+
+msgid "Running"
+msgstr ""
+
+msgid "Requested"
+msgstr ""
+
+msgid "Completed"
+msgstr ""
+
+msgid "Failed"
+msgstr ""
+
+msgid "Run"
+msgstr "執行"
 
 msgid "Overwrite if already exists"
 msgstr "覆寫已存在的檔案"
@@ -357,11 +559,30 @@ msgid ""
 "Tick the box if you want to overwrite the outpuf files if they already exist."
 msgstr "若您想覆寫已存在的輸出檔，請勾選此核取方塊。"
 
+msgid "Select a file"
+msgstr "請選擇一個檔案"
+
+msgid "The selected file must exist. "
+msgstr "選取的檔案必須存在。 "
+
+#, java-format
+msgid "Allowed extensions are {0}"
+msgstr "允許的副檔名為 {0}"
+
+msgid "Select"
+msgstr "選擇"
+
+msgid "Browse"
+msgstr "瀏覽"
+
+msgid "The selected PDF file is invalid"
+msgstr "選取的 PDF 檔無效"
+
 msgid "Compress output file/files"
 msgstr "壓縮輸出的檔案"
 
 msgid "Output pdf version:"
-msgstr ""
+msgstr "輸出 PDF 版本："
 
 #, java-format
 msgid "Version {0}"
@@ -374,14 +595,14 @@ msgstr "與輸入文件相同"
 msgid "Pdf version required: {0}"
 msgstr "PDF 版本需求：{0}"
 
-msgid "The selected PDF file is invalid"
-msgstr ""
+msgid "Select an existing directory"
+msgstr "請選擇一個既有的目錄"
 
 msgid "The selected output directory is invalid"
-msgstr ""
+msgstr "選取的輸出目錄無效"
 
-msgid "Run"
-msgstr "執行"
+msgid "Generated pdf documents name prefix:"
+msgstr "產出的 PDF 文件檔名前綴："
 
 msgid "Prefix for the generated files names"
 msgstr "產出檔案的名稱前綴"
@@ -398,46 +619,15 @@ msgstr "某些特殊的關鍵字會用執行階段的值取代。"
 msgid "Right click to add these keywords."
 msgstr "請按右鍵新增這些關鍵字。"
 
-msgid "Generated pdf documents name prefix:"
-msgstr ""
-
-#, fuzzy
-msgid "This document is encrypted, click to provide a password."
-msgstr "此文件已加密，請雙擊以輸入密碼。"
-
-msgid "Valid user password provided."
-msgstr "已輸入有效的使用者密碼。"
-
 msgid "Enter the user password"
 msgstr "請輸入使用者密碼"
 
 msgid "Unlock"
 msgstr "解鎖"
 
-#, java-format
-msgid "Pages: {0}, PDF Version: {1}"
-msgstr ""
-
-msgid "Document properties"
-msgstr "文件性質"
-
-msgid "Set destination"
-msgstr "設定輸出位置"
-
-msgid "Open"
-msgstr "開啟"
-
-msgid "Open Folder"
-msgstr "開啟目錄"
-
-msgid "The selected PDF document is invalid"
-msgstr ""
-
-msgid "Size"
-msgstr "檔案大小"
-
-msgid "Modified"
-msgstr "修改時間"
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "請雙擊滑鼠左鍵以設定您想合併的頁面（例如：2 或 5-23 或 2,5-7,12-）"
 
 msgid "Pages"
 msgstr "頁數"
@@ -478,8 +668,38 @@ msgstr "將所選文件往下移"
 msgid "Move _Down"
 msgstr "下移 (_D)"
 
+msgid "Page ranges"
+msgstr "頁數範圍"
+
+msgid "Size"
+msgstr "檔案大小"
+
+msgid "Modified"
+msgstr "修改時間"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "無效的範圍：{0}。"
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+"模稜兩可的頁數範圍定義：{0}。請使用下列格式：[n] 或 [n1-n2] 或 [-n] 或 [n-]"
+
+#, java-format
+msgid "Invalid number: {0}."
+msgstr "無效的數字：{0}。"
+
 msgid "Drag and drop PDF files here"
 msgstr "請將 PDF 檔拖拉至此處"
+
+msgid "Document properties"
+msgstr "文件性質"
+
+msgid "Set destination"
+msgstr "設定輸出位置"
 
 msgid "Remove"
 msgstr "移除"
@@ -496,228 +716,172 @@ msgstr "往下移"
 msgid "Move to Bottom"
 msgstr "移至最底"
 
-#, java-format
-msgid "Invalid range: {0}."
+msgid "Open"
+msgstr "開啟"
+
+msgid "Open Folder"
+msgstr "開啟目錄"
+
+msgid "Duplicate"
 msgstr ""
 
 #, java-format
-msgid ""
-"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
-"or [-n] or [n-]"
-msgstr ""
+msgid "Pages: {0}, PDF Version: {1}"
+msgstr "頁數：{0}，PDF 版本：{1}"
 
-#, java-format
-msgid "Invalid number: {0}."
-msgstr ""
-
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "請雙擊滑鼠左鍵以設定您想合併的頁面（例如：2 或 5-23 或 2,5-7,12-）"
-
-msgid "Page ranges"
-msgstr "頁數範圍"
-
-msgid "Merge together multiple pdf documents or subsections of them."
-msgstr ""
-
-msgid "Merge settings"
-msgstr ""
-
-msgid "Destination file"
+msgid "Loading..."
 msgstr ""
 
 msgid "Merge form fields"
-msgstr ""
+msgstr "合併表單欄位"
 
 msgid "Some of the selected PDF documents contain forms, merge them"
-msgstr ""
+msgstr "選取的 PDF 文件中某些含有表單，也加以合併"
 
 msgid "Add a blank page if page number is odd"
-msgstr ""
+msgstr "若頁數為奇數則新增一空白頁"
 
 msgid ""
 "Adds a blank page after each merged document if the document has an odd "
 "number of pages"
-msgstr ""
+msgstr "在每個奇數頁的被合併文件後新增一空白頁"
 
 msgid "Retain bookmarks"
-msgstr ""
+msgstr "保留書籤"
 
 msgid "Discard bookmarks"
-msgstr ""
+msgstr "捨棄書籤"
 
 msgid "Create one entry for each merged document"
-msgstr ""
+msgstr "為每個被合併文件建立一個條目"
 
 msgid "Bookmarks handling:"
-msgstr ""
+msgstr "書籤處理方式："
 
 msgid "No pdf document has been selected"
+msgstr "尚未選取 PDF 文件"
+
+msgid "Merge"
+msgstr "合併"
+
+msgid "Merge together multiple pdf documents or subsections of them."
+msgstr "合併多個 PDF 文件或其部份章節。"
+
+msgid "Merge settings"
+msgstr "合併設定"
+
+msgid "Security"
+msgstr "安全性"
+
+msgid "Other"
+msgstr "其它"
+
+msgid "Error saving log file."
+msgstr "儲存紀錄檔時發生錯誤。"
+
+#, java-format
+msgid "File {0} saved."
+msgstr "檔案 {0} 已儲存。"
+
+msgid "Directories"
+msgstr "目錄"
+
+msgid "Valid user password provided."
+msgstr "已輸入有效的使用者密碼。"
+
+msgid "This document is encrypted, click to provide a password."
+msgstr "本文件已加密，請點擊以輸入密碼。"
+
+msgid "Squared green"
 msgstr ""
 
-msgid "Burst (Split into single pages)"
+msgid "Squared cornflower"
 msgstr ""
 
-msgid "Split even pages"
-msgstr "分割出偶數頁"
-
-msgid "Split odd pages"
-msgstr "分割出奇數頁"
-
-msgid "Explode the document into single pages"
+msgid "Roundish"
 msgstr ""
 
-msgid "Split the document after every even page"
+msgid "Never"
+msgstr "從不"
+
+msgid "Once a day"
 msgstr ""
 
-msgid "Split the document after every odd page"
+msgid "Once a week"
 msgstr ""
 
-msgid "Split a pdf document at the given page numbers."
+msgid "Always"
 msgstr ""
 
-msgid "Select or drag and drop the PDF you want to split"
-msgstr ""
+msgid "Set the bookmarks level to split at"
+msgstr "請設定要分割的書籤層級"
 
-msgid "File names settings"
-msgstr ""
+msgid "Invalid bookmarks level"
+msgstr "無效的書籤層級"
 
-msgid "Split settings"
-msgstr ""
+msgid "Split by bookmarks"
+msgstr "依書籤分割"
 
-msgid "Destination directory"
-msgstr ""
+msgid ""
+"Split a pdf document at bookmarked pages by specifying a bookmark level."
+msgstr "依指定書籤層級所標記的頁面加以分割。"
 
-msgid "Split after the following page numbers"
-msgstr ""
+msgid "Regexp the bookmark has to match"
+msgstr "書籤必須符合的正規表達式"
 
-msgid "Page numbers to split at (n1,n2,n3..)"
-msgstr ""
+msgid "Split at this bookmark level:"
+msgstr "依此書籤層級分割："
 
-msgid "Split the document after the given page numbers"
-msgstr ""
-
-msgid "Invalid page numbers"
-msgstr ""
-
-msgid "Split by every \"n\" pages"
-msgstr ""
-
-msgid "Number of pages"
-msgstr "總頁面數"
-
-msgid "Splits the pdf every \"n\" pages creating documents of \"n\" pages each"
-msgstr ""
-
-msgid "Invalid number of pages"
-msgstr ""
+msgid "Matching regular expression:"
+msgstr "符合正規表達式："
 
 msgid "All pages"
-msgstr ""
+msgstr "所有頁面"
 
 msgid "Even pages"
-msgstr ""
+msgstr "偶數頁"
 
 msgid "Odd pages"
-msgstr ""
+msgstr "奇數頁"
 
 msgid "90 degrees clockwise"
-msgstr ""
+msgstr "順時針轉 90 度"
 
 msgid "180 degrees clockwise"
-msgstr ""
+msgstr "順時針轉 180 度"
 
 msgid "270 degrees clockwise"
-msgstr ""
+msgstr "順時針轉 270 度"
 
 msgid "Rotate "
-msgstr ""
+msgstr "旋轉 "
 
 msgid "Rotate"
 msgstr "旋轉"
 
 msgid "Rotate the pages of multiple PDF documents."
-msgstr ""
+msgstr "旋轉多個 PDF 文件的頁面。"
 
 msgid "Rotate settings"
-msgstr ""
+msgstr "旋轉頁面設定"
 
-msgid "Split by size"
-msgstr ""
+#~ msgid "Error playing sounds"
+#~ msgstr "播放音效時發生錯誤"
 
-msgid "Split a pdf document in files of the give size (roughly)."
-msgstr ""
+#~ msgid "Open menu"
+#~ msgstr "開啟選單"
 
-msgid "Set the size as number of bytes or specify KB or MB"
-msgstr ""
+#~ msgid "Open main dashboard"
+#~ msgstr "開啟主控板"
 
-msgid "Invalid split size"
-msgstr "無效的分割檔案大小"
+#~ msgid "Thumbnails"
+#~ msgstr "縮圖"
 
-msgid "Split at this size:"
-msgstr ""
+#~ msgid "Loading"
+#~ msgstr "正在載入"
 
-msgid "Regexp the bookmark has to match"
-msgstr ""
-
-msgid "Split at this bookmark level:"
-msgstr ""
-
-msgid "Matching regular expression:"
-msgstr ""
-
-msgid "Set the bookmarks level to split at"
-msgstr ""
-
-msgid "Invalid bookmarks level"
-msgstr ""
-
-msgid "Split by bookmarks"
-msgstr ""
-
-msgid ""
-"Split a pdf document at bookmarked pages by specifying a bookmark level."
-msgstr ""
-
-msgid "Reverse the first document"
-msgstr ""
-
-msgid "Reverse the second document"
-msgstr ""
-
-msgid ""
-"Switch from the first document to the second one after the following pages"
-msgstr ""
-
-msgid ""
-"Switch from the second document to the first one after the following pages"
-msgstr ""
-
-msgid "Invalid parameter 'first and second step' must be numbers"
-msgstr ""
-
-msgid "Select the number of pages"
-msgstr ""
-
-msgid "Alternate Mix"
-msgstr "交替合併"
-
-msgid ""
-"Merge two PDF documents taking pages alternately in straight or reverse "
-"order."
-msgstr ""
-
-msgid "Select or drag and drop the first PDF you want to mix"
-msgstr ""
-
-msgid "Select or drag and drop the second PDF you want to mix"
-msgstr ""
-
-msgid "Mix settings"
-msgstr ""
-
-#~ msgid "Starting pdfsam"
-#~ msgstr "正在啟動 pdfsam"
+#~ msgid "Set the size as number of bytes or specify KB or MB"
+#~ msgstr "請以位元組數、KB 或 MB 指定檔案大小"
 
 #~ msgid "Output document pdf version:"
 #~ msgstr "輸出文件的 PDF 版本："
@@ -725,8 +889,16 @@ msgstr ""
 #~ msgid "Unable to get latest available version"
 #~ msgstr "無法取得最新的可用版本"
 
+#~ msgid "Would you like to overwrite it?"
+#~ msgstr "您確定要覆寫它？"
+
 #~ msgid "Ask for confirmation when overwrite checkbox is selected"
 #~ msgstr "勾選覆寫核取方塊時需再次確認"
+
+#~ msgid ""
+#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" "
+#~ "is selected"
+#~ msgstr "勾選「覆寫」時顯示對話框要求使用者再次確認"
 
 #~ msgid "Destination folder"
 #~ msgstr "目標資料夾"

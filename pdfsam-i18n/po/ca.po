@@ -1,4 +1,4 @@
-# Asturian translation for pdfsam
+# Catalan translation for pdfsam
 # Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
 "POT-Creation-Date: 2014-12-12 17:22+0100\n"
-"PO-Revision-Date: 2014-03-03 14:12+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Asturian <ast@li.org>\n"
-"Language: ast\n"
+"PO-Revision-Date: 2014-10-07 01:12+0000\n"
+"Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
+"Language-Team: Catalan <ca@li.org>\n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -35,10 +35,10 @@ msgid "Found modules jars {0}"
 msgstr ""
 
 msgid "Error finding modules paths"
-msgstr ""
+msgstr "S’ha produït un error en trobar els camins dels mòduls"
 
 msgid "No module has been found"
-msgstr ""
+msgstr "No s’hi ha trobat cap mòdul"
 
 msgid "Unable to find modules location."
 msgstr ""
@@ -54,10 +54,10 @@ msgid "Application menu"
 msgstr ""
 
 msgid "_Modules"
-msgstr ""
+msgstr "_Mòduls"
 
 msgid "E_xit"
-msgstr ""
+msgstr "_Surt"
 
 msgid "Application messages"
 msgstr ""
@@ -69,7 +69,7 @@ msgid "_Load"
 msgstr ""
 
 msgid "_Save"
-msgstr ""
+msgstr "_Desa"
 
 msgid "Recen_t"
 msgstr ""
@@ -84,22 +84,22 @@ msgid "Dashboard"
 msgstr ""
 
 msgid "Document details"
-msgstr ""
+msgstr "Detalls del document"
 
 msgid "Keywords"
-msgstr "Pallabres clave"
+msgstr "Paraules clau"
 
 msgid "Summary"
-msgstr ""
+msgstr "Resum"
 
 msgid "About"
-msgstr "Tocante a"
+msgstr "Quant a"
 
 msgid "Subscribe to the official news feed"
 msgstr ""
 
 msgid "Environment"
-msgstr ""
+msgstr "Entorn"
 
 #, java-format
 msgid "Max memory {0}"
@@ -115,7 +115,7 @@ msgid "The open source projects making PDFsam possible"
 msgstr ""
 
 msgid "Support"
-msgstr ""
+msgstr "Assistència"
 
 msgid "Bug and feature requests"
 msgstr ""
@@ -130,7 +130,7 @@ msgid "Fork PDFsam on GitHub"
 msgstr ""
 
 msgid "Translate"
-msgstr ""
+msgstr "Traduïu"
 
 msgid "Donate"
 msgstr ""
@@ -159,16 +159,16 @@ msgid "Appearance"
 msgstr ""
 
 msgid "Behavior"
-msgstr ""
+msgstr "Comportament"
 
 msgid "Workspace"
-msgstr ""
+msgstr "Espai de treball"
 
 msgid "Output"
-msgstr ""
+msgstr "Sortida"
 
 msgid "Check for updates at startup"
-msgstr "Guetar actualizaciones nel entamu"
+msgstr "Verifica les actualitzacions en iniciar"
 
 msgid ""
 "Set whether new version availability should be checked on startup (restart "
@@ -176,13 +176,13 @@ msgid ""
 msgstr ""
 
 msgid "Play alert sounds"
-msgstr "escuchar les alertes sonores"
+msgstr "Reprodueix sons d'alerta"
 
 msgid "Turn on or off alert sounds"
-msgstr "activar y desactivar les alertes sonores"
+msgstr "Activa o desactiva els sons d'alerta"
 
 msgid "High quality thumbnails"
-msgstr ""
+msgstr "Miniatures d’alta qualitat"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr ""
@@ -199,7 +199,7 @@ msgid "Generate high quality thumbnails (slower)"
 msgstr ""
 
 msgid "Size in px:"
-msgstr ""
+msgstr "Mida en px:"
 
 msgid "Library used to generate thumbnails"
 msgstr ""
@@ -220,7 +220,8 @@ msgstr ""
 
 msgid "Select a directory where documents will be saved and loaded by default"
 msgstr ""
-"Seleicione un direutoriu predetermináu p'atroxar y cargar los documentos"
+"Seleccioneu un directori on es desin i carreguin els documents de manera "
+"predeterminada"
 
 msgid "Select a directory"
 msgstr ""
@@ -234,7 +235,7 @@ msgid "Load default workspace at startup:"
 msgstr ""
 
 msgid "Default working directory:"
-msgstr "Repertoriu de trabayu predetermináu"
+msgstr "Directori de treball predeterminat:"
 
 msgid "Set how often the PDFsam news panel should be opened"
 msgstr ""
@@ -243,10 +244,10 @@ msgid "News panel:"
 msgstr ""
 
 msgid "Language:"
-msgstr "Llingua:"
+msgstr "Idioma:"
 
 msgid "Set your preferred language (restart needed)"
-msgstr "Conseñe la llingua preferida (necesita reaniciar)"
+msgstr "Definiu el vostre llenguatge preferit (cal reiniciar)"
 
 msgid "Theme:"
 msgstr "Tema:"
@@ -262,31 +263,31 @@ msgstr ""
 
 #, fuzzy
 msgid "Check for updates now"
-msgstr "Guetar actualizaciones nel entamu"
+msgstr "Verifica les actualitzacions en iniciar"
 
 msgid "Close"
-msgstr "Zarrar"
+msgstr "Tanca"
 
 msgid "Settings"
-msgstr "Axustes"
+msgstr "Configuració"
 
 msgid "Modules"
-msgstr ""
+msgstr "Mòduls"
 
 msgid "Log register"
 msgstr ""
 
 msgid "Copy"
-msgstr "Copiar"
+msgstr "Copia"
 
 msgid "Clear"
-msgstr "Llimpiar"
+msgstr "Buida"
 
 msgid "Select all"
-msgstr "Seleccionalo too"
+msgstr "Selecciona-ho tot"
 
 msgid "Save log"
-msgstr "Guardar rexistru"
+msgstr "Desa el registre"
 
 msgid "Select where to save the log file"
 msgstr ""
@@ -313,10 +314,10 @@ msgid "PDFsam {0} is available for download"
 msgstr ""
 
 msgid "Download"
-msgstr ""
+msgstr "Baixa"
 
 msgid "New version available"
-msgstr ""
+msgstr "Hi ha una versió nova disponible"
 
 msgid "Show this:"
 msgstr ""
@@ -373,8 +374,9 @@ msgstr ""
 msgid "Loading workspace from {0}"
 msgstr ""
 
+#, fuzzy
 msgid "Workspace loaded"
-msgstr ""
+msgstr "Espai de treball"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
@@ -384,8 +386,9 @@ msgstr ""
 msgid "Saving workspace data to {0}"
 msgstr ""
 
+#, fuzzy
 msgid "Workspace saved"
-msgstr ""
+msgstr "Espai de treball"
 
 msgid "Split after the following page numbers"
 msgstr ""
@@ -400,7 +403,7 @@ msgid "Invalid page numbers"
 msgstr ""
 
 msgid "Split"
-msgstr "Dividir"
+msgstr "Divideix"
 
 msgid "Split a pdf document at the given page numbers."
 msgstr ""
@@ -421,10 +424,10 @@ msgid "Burst (Split into single pages)"
 msgstr ""
 
 msgid "Split even pages"
-msgstr "Dividir a partir de les páxines pares"
+msgstr "Divideix les pàgines parells"
 
 msgid "Split odd pages"
-msgstr "Dividir a partir de les páxines impares"
+msgstr "Divideix les pàgines senars"
 
 msgid "Explode the document into single pages"
 msgstr ""
@@ -439,7 +442,7 @@ msgid "Split by every \"n\" pages"
 msgstr ""
 
 msgid "Number of pages"
-msgstr "Númberu de páxines"
+msgstr "Nombre de pàgines"
 
 msgid "Splits the pdf every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
@@ -463,7 +466,7 @@ msgid "Split at this size:"
 msgstr ""
 
 msgid "Invalid split size"
-msgstr "Tamañu de división non válidu"
+msgstr "Mida de divisió incorrecta"
 
 msgid "Kilobytes"
 msgstr ""
@@ -478,7 +481,7 @@ msgid "MB"
 msgstr ""
 
 msgid "Alternate Mix"
-msgstr "Mezcla alterna"
+msgstr "Barreja alterna"
 
 msgid ""
 "Merge two PDF documents taking pages alternately in straight or reverse "
@@ -518,13 +521,14 @@ msgid "Select the number of pages"
 msgstr ""
 
 msgid "The selected PDF document is invalid"
-msgstr ""
+msgstr "El document PDF seleccionat no és vàlid"
 
 msgid "Open the generated document"
 msgstr ""
 
+#, fuzzy
 msgid "Open the destination directory"
-msgstr ""
+msgstr "Definiu el destí"
 
 msgid "Ready"
 msgstr ""
@@ -542,10 +546,10 @@ msgid "Failed"
 msgstr ""
 
 msgid "Run"
-msgstr "Executar"
+msgstr "Executa"
 
 msgid "Overwrite if already exists"
-msgstr "Sobreescibir si yá esiste"
+msgstr "Sobreescriu si ja existeix"
 
 msgid ""
 "Tick the box if you want to overwrite the outpuf files if they already exist."
@@ -565,20 +569,20 @@ msgid "Select"
 msgstr ""
 
 msgid "Browse"
-msgstr "Restolar"
+msgstr "Navega"
 
 msgid "The selected PDF file is invalid"
-msgstr ""
+msgstr "El fitxer PDF seleccionat no és vàlid"
 
 msgid "Compress output file/files"
-msgstr "Comprimir el ficheru creáu / los ficheros creaos"
+msgstr "Comprimeix el/s fitxer/s de sortida"
 
 msgid "Output pdf version:"
 msgstr ""
 
 #, java-format
 msgid "Version {0}"
-msgstr ""
+msgstr "Versió {0}"
 
 msgid "Same as the input document"
 msgstr ""
@@ -591,7 +595,7 @@ msgid "Select an existing directory"
 msgstr ""
 
 msgid "The selected output directory is invalid"
-msgstr ""
+msgstr "La carpeta de sortida seleccionada no és vàlida"
 
 msgid "Generated pdf documents name prefix:"
 msgstr ""
@@ -600,7 +604,7 @@ msgid "Prefix for the generated files names"
 msgstr ""
 
 msgid "Add prefix"
-msgstr "Amestar un prefixu"
+msgstr "Afegiu un prefix"
 
 msgid "Prefix for the output files name."
 msgstr ""
@@ -612,28 +616,28 @@ msgid "Right click to add these keywords."
 msgstr ""
 
 msgid "Enter the user password"
-msgstr ""
+msgstr "Introduïu la contrasenya de l’usuari"
 
 msgid "Unlock"
-msgstr ""
+msgstr "Desbloca"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Fai un clic dobel pa determinar les páxines que quies fusionar (ex: 2 ó 5-23 "
-"o 2,5-7, 12-)"
+"Feu doble clic per definir les pàgines que voleu combinar (p. ex. 2 o 5-23 o "
+"2,5-7,12-)"
 
 msgid "Pages"
-msgstr "Páxines"
+msgstr "Pàgines"
 
 msgid "Name"
-msgstr "Nome"
+msgstr "Nom"
 
 msgid "Add documents to the table"
 msgstr ""
 
 msgid "_Add"
-msgstr ""
+msgstr "_Afegeix"
 
 msgid "Select pdf documents to load"
 msgstr ""
@@ -642,13 +646,13 @@ msgid "Removes selected documents"
 msgstr ""
 
 msgid "_Remove"
-msgstr ""
+msgstr "_Suprimeix"
 
 msgid "Removes every document"
 msgstr ""
 
 msgid "_Clear"
-msgstr ""
+msgstr "_Neteja"
 
 msgid "Moves up selected documents"
 msgstr ""
@@ -663,17 +667,17 @@ msgid "Move _Down"
 msgstr ""
 
 msgid "Page ranges"
-msgstr ""
+msgstr "Intervals de pàgines"
 
 msgid "Size"
-msgstr ""
+msgstr "Mida"
 
 msgid "Modified"
 msgstr ""
 
 #, java-format
 msgid "Invalid range: {0}."
-msgstr ""
+msgstr "L’interval no és vàlid: {0}."
 
 #, java-format
 msgid ""
@@ -689,38 +693,38 @@ msgid "Drag and drop PDF files here"
 msgstr ""
 
 msgid "Document properties"
-msgstr "propiedaes del documentu"
+msgstr "Propietats del document"
 
 msgid "Set destination"
-msgstr ""
+msgstr "Definiu el destí"
 
 msgid "Remove"
-msgstr "Desaniciar"
+msgstr "Elimina"
 
 msgid "Move to Top"
 msgstr ""
 
 msgid "Move Up"
-msgstr "Xubir"
+msgstr "Mou cap amunt"
 
 msgid "Move Down"
-msgstr "Baxar"
+msgstr "Mou cap avall"
 
 msgid "Move to Bottom"
 msgstr ""
 
 msgid "Open"
-msgstr "Abrir"
+msgstr "Obre"
 
 msgid "Open Folder"
-msgstr ""
+msgstr "Obre la carpeta"
 
 msgid "Duplicate"
 msgstr ""
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
-msgstr ""
+msgstr "Pàgines: {0}, versió del PDF: {1}"
 
 msgid "Loading..."
 msgstr ""
@@ -755,7 +759,7 @@ msgid "No pdf document has been selected"
 msgstr ""
 
 msgid "Merge"
-msgstr ""
+msgstr "Combina"
 
 msgid "Merge together multiple pdf documents or subsections of them."
 msgstr ""
@@ -764,20 +768,20 @@ msgid "Merge settings"
 msgstr ""
 
 msgid "Security"
-msgstr ""
+msgstr "Seguretat"
 
 msgid "Other"
-msgstr ""
+msgstr "Altres"
 
 msgid "Error saving log file."
-msgstr ""
+msgstr "S’ha produït un error en desar el fitxer de registre."
 
 #, java-format
 msgid "File {0} saved."
-msgstr ""
+msgstr "S’ha desat el fitxer {0}."
 
 msgid "Directories"
-msgstr ""
+msgstr "Carpetes"
 
 msgid "Valid user password provided."
 msgstr ""
@@ -795,7 +799,7 @@ msgid "Roundish"
 msgstr ""
 
 msgid "Never"
-msgstr "Enxamás"
+msgstr "Mai"
 
 msgid "Once a day"
 msgstr ""
@@ -850,7 +854,7 @@ msgid "Rotate "
 msgstr ""
 
 msgid "Rotate"
-msgstr "Voltiar"
+msgstr "Gira"
 
 msgid "Rotate the pages of multiple PDF documents."
 msgstr ""
@@ -858,24 +862,34 @@ msgstr ""
 msgid "Rotate settings"
 msgstr ""
 
-#~ msgid "Destination folder"
-#~ msgstr "Carpeta de destín"
+#~ msgid "Open menu"
+#~ msgstr "Obre el menú"
+
+#~ msgid "Thumbnails"
+#~ msgstr "Miniatures"
+
+#~ msgid "Loading"
+#~ msgstr "S’està carregant"
 
 #~ msgid "Output document pdf version:"
-#~ msgstr "versión pdf del documentu de salida"
-
-#~ msgid "Would you like to overwrite it?"
-#~ msgstr "¿Quies sobreescribilu?"
+#~ msgstr "Versió pdf de document de sortida:"
 
 #~ msgid "Unable to get latest available version"
-#~ msgstr "imposible obtener la última versión"
+#~ msgstr "No es pot obtenir l'última versió disponible"
+
+#~ msgid "Destination folder"
+#~ msgstr "Carpeta destí"
+
+#~ msgid "Would you like to overwrite it?"
+#~ msgstr "El voleu sobreescriure?"
+
+#~ msgid "Ask for confirmation when overwrite checkbox is selected"
+#~ msgstr ""
+#~ "Demana confirmació quan la casella de selecció de sobreescriptura estigui "
+#~ "marcada"
 
 #~ msgid ""
 #~ "Show a dialog box asking the user for confirmation when the \"overwrite\" "
 #~ "is selected"
 #~ msgstr ""
-#~ "Amosar un cuadru de diálogu pidiendo confirmación cuando tea seleicionáu "
-#~ "\"sobrescribir\""
-
-#~ msgid "Ask for confirmation when overwrite checkbox is selected"
-#~ msgstr "Pidir confirmación cuando el cuadru de sobrescritura tea marcáu"
+#~ "Mostra un diàleg de confirmació quan s’ha seleccionat «sobreescriure»"

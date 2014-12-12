@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2014-10-24 10:50+0200\n"
+"POT-Creation-Date: 2014-12-12 17:22+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,9 +42,6 @@ msgstr ""
 msgid "Unable to find modules location."
 msgstr ""
 
-msgid "Error playing sounds"
-msgstr ""
-
 #, java-format
 msgid "Started in {0}"
 msgstr ""
@@ -52,7 +49,7 @@ msgstr ""
 msgid "Closing PDFsam..."
 msgstr ""
 
-msgid "Open menu"
+msgid "Application menu"
 msgstr ""
 
 msgid "_Modules"
@@ -61,7 +58,7 @@ msgstr ""
 msgid "E_xit"
 msgstr ""
 
-msgid "Open application messages"
+msgid "Application messages"
 msgstr ""
 
 msgid "_Workspace"
@@ -76,7 +73,13 @@ msgstr ""
 msgid "Recen_t"
 msgstr ""
 
-msgid "Open main dashboard"
+msgid "Select the workspace file to save"
+msgstr ""
+
+msgid "Select the workspace to load"
+msgstr ""
+
+msgid "Dashboard"
 msgstr ""
 
 msgid "Document details"
@@ -154,9 +157,6 @@ msgstr ""
 msgid "Appearance"
 msgstr ""
 
-msgid "Thumbnails"
-msgstr ""
-
 msgid "Behavior"
 msgstr ""
 
@@ -164,9 +164,6 @@ msgid "Workspace"
 msgstr ""
 
 msgid "Output"
-msgstr ""
-
-msgid "Dashboard"
 msgstr ""
 
 msgid "Check for updates at startup"
@@ -226,6 +223,11 @@ msgstr ""
 msgid "Select a directory"
 msgstr ""
 
+msgid ""
+"Usage statistics are used to populate the modules quick bar on the left with "
+"the most used and most recently used modules."
+msgstr ""
+
 msgid "Load default workspace at startup:"
 msgstr ""
 
@@ -238,22 +240,25 @@ msgstr ""
 msgid "News panel:"
 msgstr ""
 
-msgid "Set your preferred language (restart needed)"
-msgstr ""
-
 msgid "Language:"
 msgstr ""
 
-msgid "Set your preferred theme (restart needed)"
+msgid "Set your preferred language (restart needed)"
 msgstr ""
 
 msgid "Theme:"
 msgstr ""
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set your preferred theme (restart needed)"
 msgstr ""
 
 msgid "Startup module:"
+msgstr ""
+
+msgid "Set the module to open at application startup (restart needed)"
+msgstr ""
+
+msgid "Check for updates now"
 msgstr ""
 
 msgid "Close"
@@ -349,10 +354,34 @@ msgstr ""
 msgid "Checking for updates"
 msgstr ""
 
-msgid "Loading"
+msgid "Loading pdf documents"
 msgstr ""
 
 msgid "Documents loaded"
+msgstr ""
+
+msgid "Requesting modules state"
+msgstr ""
+
+msgid "Unable to save modules workspace"
+msgstr ""
+
+#, java-format
+msgid "Loading workspace from {0}"
+msgstr ""
+
+msgid "Workspace loaded"
+msgstr ""
+
+#, java-format
+msgid "Unable to load workspace from {0}"
+msgstr ""
+
+#, java-format
+msgid "Saving workspace data to {0}"
+msgstr ""
+
+msgid "Workspace saved"
 msgstr ""
 
 msgid "Split after the following page numbers"
@@ -421,13 +450,28 @@ msgstr ""
 msgid "Split a pdf document in files of the give size (roughly)."
 msgstr ""
 
+msgid "Set the size to split at"
+msgstr ""
+
+msgid "Size must be a number"
+msgstr ""
+
 msgid "Split at this size:"
 msgstr ""
 
-msgid "Set the size as number of bytes or specify KB or MB"
+msgid "Invalid split size"
 msgstr ""
 
-msgid "Invalid split size"
+msgid "Kilobytes"
+msgstr ""
+
+msgid "KB"
+msgstr ""
+
+msgid "Megabytes"
+msgstr ""
+
+msgid "MB"
 msgstr ""
 
 msgid "Alternate Mix"
@@ -471,6 +515,12 @@ msgid "Select the number of pages"
 msgstr ""
 
 msgid "The selected PDF document is invalid"
+msgstr ""
+
+msgid "Open the generated document"
+msgstr ""
+
+msgid "Open the destination directory"
 msgstr ""
 
 msgid "Ready"
@@ -658,6 +708,9 @@ msgid "Open"
 msgstr ""
 
 msgid "Open Folder"
+msgstr ""
+
+msgid "Duplicate"
 msgstr ""
 
 #, java-format

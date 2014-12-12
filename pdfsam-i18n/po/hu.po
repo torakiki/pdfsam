@@ -7,54 +7,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2014-09-04 15:44+0200\n"
-"PO-Revision-Date: 2014-09-02 08:00+0000\n"
+"POT-Creation-Date: 2014-12-12 17:22+0100\n"
+"PO-Revision-Date: 2014-11-11 10:00+0000\n"
 "Last-Translator: Richard Somlói <ricsipontaz@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-09-03 08:32+0000\n"
-"X-Generator: Launchpad (build 17196)\n"
-
-msgid "Selected file already exists"
-msgstr "A kiválasztott fájl már létezik"
-
-msgid "Would you like to overwrite it?"
-msgstr "Szeretné felülírni?"
-
-msgid "Split"
-msgstr "Leválasztás"
-
-msgid "Merge"
-msgstr "Egyesítés"
-
-msgid "Security"
-msgstr "Biztonság"
-
-msgid "Other"
-msgstr "Egyéb"
-
-msgid "Directories"
-msgstr "Mappák"
-
-msgid "Error saving log file."
-msgstr "Hiba a naplófájl mentése közben."
+"X-Launchpad-Export-Date: 2014-12-12 16:32+0000\n"
+"X-Generator: Launchpad (build 17286)\n"
 
 #, java-format
-msgid "File {0} saved."
-msgstr "{0} fájl elmentve."
-
-#, java-format
-msgid "Started in {0}"
-msgstr ""
-
-msgid "Error playing sounds"
-msgstr "Hiba a hang lejátszás közben"
-
-msgid "Skipping modules signature verification."
-msgstr "A modul aláírás ellenőrzések kihagyása."
+msgid "Installing theme {0}."
+msgstr "{0} téma telepítése"
 
 #, java-format
 msgid "Modules directory {0} does not exist"
@@ -77,29 +43,26 @@ msgstr "Nem található modul"
 msgid "Unable to find modules location."
 msgstr "Nem sikerült megtalálni a modulok helyét."
 
-msgid "Please select a module"
-msgstr "Kérem válasszon egy modult"
+#, java-format
+msgid "Started in {0}"
+msgstr "Elindulás hossza: {0}"
 
-msgid "Document details"
-msgstr "Dokumentum részletei"
+msgid "Closing PDFsam..."
+msgstr "PDFSam bezárása…"
 
-msgid "Summary"
-msgstr "Összefoglaló"
-
-msgid "Keywords"
-msgstr "Kulcsszavak"
-
-msgid "Open application messages"
+#, fuzzy
+msgid "Application menu"
 msgstr "Alkalmazás üzenetek megnyitása"
-
-msgid "Open menu"
-msgstr "Menü megnyitása"
-
-msgid "Open main dashboard"
-msgstr "Főablak megnyitása"
 
 msgid "_Modules"
 msgstr "M_odulok"
+
+msgid "E_xit"
+msgstr "_Kilépés"
+
+#, fuzzy
+msgid "Application messages"
+msgstr "Alkalmazás üzenetek megnyitása"
 
 msgid "_Workspace"
 msgstr "_Munkaterület"
@@ -113,51 +76,28 @@ msgstr "M_entés"
 msgid "Recen_t"
 msgstr "_Legutóbbiak"
 
-msgid "E_xit"
-msgstr "_Kilépés"
+#, fuzzy
+msgid "Select the workspace file to save"
+msgstr "Munkaterület kiválasztása"
 
-msgid "Copy"
-msgstr "Másolás"
+#, fuzzy
+msgid "Select the workspace to load"
+msgstr "Munkaterület kiválasztása"
 
-msgid "Clear"
-msgstr "Törlés"
+msgid "Dashboard"
+msgstr "Főablak"
 
-msgid "Select all"
-msgstr "Összes kijelölése"
+msgid "Document details"
+msgstr "Dokumentum részletei"
 
-msgid "Save log"
-msgstr "Naplófájl mentése"
+msgid "Keywords"
+msgstr "Kulcsszavak"
 
-msgid "Select where to save the log file"
-msgstr "Naplófájl mentési helyének megadása"
+msgid "Summary"
+msgstr "Összefoglaló"
 
-msgid "Log register"
-msgstr ""
-
-msgid "Invalid parameters"
-msgstr "Érvénytelen paraméterek"
-
-msgid ""
-"Input parameters are invalid, open the application messages for details."
-msgstr ""
-"A bemeneti paraméterek érvénytelek, további információért nyissa meg az "
-"alkalmazás üzeneteket."
-
-#, java-format
-msgid "PDFsam {0} is available for download"
-msgstr "Elérhető a PDFsam {0}"
-
-msgid "Download"
-msgstr ""
-
-msgid "New version available"
-msgstr "Új verzió érhető el"
-
-msgid "Modules"
-msgstr "Modulok"
-
-msgid "Close"
-msgstr "Bezárás"
+msgid "About"
+msgstr "Névjegy"
 
 msgid "Subscribe to the official news feed"
 msgstr "Feliratkozás a hivatalos hírforrásra"
@@ -167,7 +107,10 @@ msgstr "Környezet"
 
 #, java-format
 msgid "Max memory {0}"
-msgstr "Maximum memória {0}"
+msgstr "Legtöbb használt memória: {0}"
+
+msgid "Copy to clipboard"
+msgstr "Másolás a vágólapra"
 
 msgid "Thanks to"
 msgstr "Köszönet"
@@ -179,7 +122,7 @@ msgid "Support"
 msgstr "Támogatás"
 
 msgid "Bug and feature requests"
-msgstr "Hiba és hiányzó funkció jelentése"
+msgstr "Hiba vagy hiányzó funkció jelentése"
 
 msgid "Play the \"get started\" video"
 msgstr "A „Kezdjünk bele” videó lejátszása"
@@ -208,70 +151,6 @@ msgstr "Kövessen Google Pluson"
 msgid "Like us on Facebook"
 msgstr "Kedveljen a Facebookon"
 
-msgid "About"
-msgstr "Névjegy"
-
-msgid "Appearance"
-msgstr "Megjelenés"
-
-msgid "Thumbnails"
-msgstr "Bélyegképek"
-
-msgid "Behavior"
-msgstr "Viselkedés"
-
-msgid "Workspace"
-msgstr "Munkaterület"
-
-msgid "Output"
-msgstr "Kimenet"
-
-msgid ""
-"Select a previously saved workspace that will be automatically loaded at "
-"startup"
-msgstr ""
-"Válassza ki az előzőleg elmentett munkaterületet, ami automatikusan "
-"betöltődik induláskor"
-
-msgid "Select a workspace"
-msgstr "Munkaterület kiválasztása"
-
-msgid "Select a directory where documents will be saved and loaded by default"
-msgstr "Alapértelmezett mentési és betöltés mappa megadása"
-
-msgid "Select a directory"
-msgstr "Mappa kiválasztása"
-
-msgid "Load default workspace at startup:"
-msgstr "Alapértelmezett munkaterület betöltése induláskor:"
-
-msgid "Default working directory:"
-msgstr "Alapértelmezett munkamappa:"
-
-msgid "Set your preferred language (restart needed)"
-msgstr "Válassza ki a kívánt nyelvet (újraindítás szükséges)"
-
-msgid "Language:"
-msgstr "Nyelv:"
-
-msgid "Set your preferred theme (restart needed)"
-msgstr "Válassza ki a kívánt témát (újraindítás szükséges)"
-
-msgid "Theme:"
-msgstr "Téma:"
-
-msgid "Generate high quality thumbnails (slower)"
-msgstr "Kiváló minőségű bélyegképek generálása (lassabb)"
-
-msgid "Size in px:"
-msgstr "Méret (képpont):"
-
-msgid "Library used to generate thumbnails"
-msgstr "Bélyegképek generálásához használt könyvtár"
-
-msgid "Thumbnails creator:"
-msgstr "Bélyegképkészítő:"
-
 msgid "Manually selected"
 msgstr "Kézzel kiválasztva"
 
@@ -281,6 +160,18 @@ msgid ""
 msgstr ""
 "Automatikusan beállítja a kiválasztott PDF dokumentum mappáját kimeneti "
 "mappának"
+
+msgid "Appearance"
+msgstr "Megjelenés"
+
+msgid "Behavior"
+msgstr "Viselkedés"
+
+msgid "Workspace"
+msgstr "Munkaterület"
+
+msgid "Output"
+msgstr "Kimenet"
 
 msgid "Check for updates at startup"
 msgstr "Frissítés keresése induláskor"
@@ -296,16 +187,6 @@ msgstr "Figyelmeztető hangok lejátszása"
 msgid "Turn on or off alert sounds"
 msgstr "Figyelmeztető hangok be- és kikapcsolása"
 
-msgid "Ask for confirmation when the \"Overwrite\" checkbox is selected"
-msgstr "Megerősítés kérése, ha a „Felülírás” lehetőség be van pipálva"
-
-msgid ""
-"Show a dialog box asking the user for confirmation when the \"overwrite\" is "
-"selected"
-msgstr ""
-"Megjelenít egy ablakot, ahol a felhasználó jóváhagyását kéri, ha a "
-"„Felülírás” aktív"
-
 msgid "High quality thumbnails"
 msgstr "Kiváló minőségű bélyegképek"
 
@@ -320,20 +201,164 @@ msgstr "A méretnek {0} és {1} képpont között kell lennie"
 msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
 msgstr "A bélyegképek képpont mérete ({0} és {1} között)"
 
+msgid "Generate high quality thumbnails (slower)"
+msgstr "Kiváló minőségű bélyegképek generálása (lassabb)"
+
+msgid "Size in px:"
+msgstr "Méret (képpont):"
+
+msgid "Library used to generate thumbnails"
+msgstr "Bélyegképek generálásához használt könyvtár"
+
+msgid "Thumbnails creator:"
+msgstr "Bélyegképkészítő:"
+
 msgid "Clear usage statistics"
 msgstr "Használati statisztika törlése"
+
+msgid ""
+"Select a previously saved workspace that will be automatically loaded at "
+"startup"
+msgstr "Korábbi munkaterület, ami induláskor betöltődik"
+
+msgid "Select a workspace"
+msgstr "Munkaterület kiválasztása"
+
+msgid "Select a directory where documents will be saved and loaded by default"
+msgstr "Alapértelmezett mentési és betöltés mappa"
+
+msgid "Select a directory"
+msgstr "Mappa kiválasztása"
+
+msgid ""
+"Usage statistics are used to populate the modules quick bar on the left with "
+"the most used and most recently used modules."
+msgstr ""
+
+msgid "Load default workspace at startup:"
+msgstr "Alapértelmezett munkaterület betöltése induláskor:"
+
+msgid "Default working directory:"
+msgstr "Alapértelmezett munkamappa:"
+
+msgid "Set how often the PDFsam news panel should be opened"
+msgstr "Adja meg, hogy a PDFSam hírpanelje milyen gyakran nyíljon meg"
+
+msgid "News panel:"
+msgstr "Hírpanel:"
+
+msgid "Language:"
+msgstr "Nyelv:"
+
+msgid "Set your preferred language (restart needed)"
+msgstr "Válassza ki a kívánt nyelvet (újraindítás szükséges)"
+
+msgid "Theme:"
+msgstr "Téma:"
+
+msgid "Set your preferred theme (restart needed)"
+msgstr "Válassza ki a kívánt témát (újraindítás szükséges)"
+
+msgid "Startup module:"
+msgstr "Induló modul:"
+
+msgid "Set the module to open at application startup (restart needed)"
+msgstr "A modul indulása az alkalmazással együtt (újraindítás szükséges)"
+
+#, fuzzy
+msgid "Check for updates now"
+msgstr "Frissítések keresése"
+
+msgid "Close"
+msgstr "Bezárás"
 
 msgid "Settings"
 msgstr "Beállítások"
 
-msgid "Loading"
-msgstr "Betöltés"
+msgid "Modules"
+msgstr "Modulok"
 
-msgid "Documents loaded"
-msgstr "Dokumentumok betöltve"
+msgid "Log register"
+msgstr "Naplózott események"
 
-msgid "Unexpected error"
-msgstr "Váratlan hiba"
+msgid "Copy"
+msgstr "Másolás"
+
+msgid "Clear"
+msgstr "Összes törlése"
+
+msgid "Select all"
+msgstr "Összes kijelölése"
+
+msgid "Save log"
+msgstr "Naplófájl mentése"
+
+msgid "Select where to save the log file"
+msgstr "Naplófájl mentési helyének megadása"
+
+msgid "Invalid parameters"
+msgstr "Érvénytelen paraméterek"
+
+msgid ""
+"Input parameters are invalid, open the application messages for details."
+msgstr ""
+"A bemeneti paraméterek érvénytelek, további információért nyissa meg az "
+"alkalmazás üzeneteket."
+
+#, java-format
+msgid "You performed {0} tasks with PDFsam, did it help?"
+msgstr ""
+"A következő feladatot hajtotta végre a PDFSam segítségével: {0}. Segített "
+"Önnek?"
+
+msgid "Give something back"
+msgstr "Adjon vissza valamit"
+
+msgid "PDFsam worked hard!"
+msgstr "A PDFSam keményen dolgozott!"
+
+#, java-format
+msgid "PDFsam {0} is available for download"
+msgstr "Elérhető a PDFsam {0} verziója"
+
+msgid "Download"
+msgstr "Letöltés"
+
+msgid "New version available"
+msgstr "Új verzió érhető el"
+
+msgid "Show this:"
+msgstr "Megjelenítés:"
+
+msgid "What's new"
+msgstr "Újdonságok"
+
+msgid "Directory not empty"
+msgstr "A mappa nem üres"
+
+msgid "The selected directory is not empty"
+msgstr "A kiválasztott mappa nem üres"
+
+msgid "Overwrite files with the same name as the generated ones?"
+msgstr "Felülírja a generált fájlneveket egyezés esetén?"
+
+msgid "Don't overwrite existing file"
+msgstr "Ne írja felül a létező fájlokat"
+
+msgid "Overwrite confirmation"
+msgstr "Felülírás megerősítése"
+
+msgid "A file with the given name already exists"
+msgstr "Egy fájl már létezik a megadott névvel"
+
+msgid "Do you want to overwrite it?"
+msgstr "Felül szeretné írni?"
+
+msgid "Overwrite"
+msgstr "Felülírás"
+
+msgid "Cancel"
+msgstr "Mégse"
 
 msgid "Unable to find the latest available version."
 msgstr "Nem sikerült megtalálni a legutolsó verziót."
@@ -341,14 +366,208 @@ msgstr "Nem sikerült megtalálni a legutolsó verziót."
 msgid "Checking for updates"
 msgstr "Frissítések keresése"
 
-msgid "Select an existing directory"
-msgstr "Válasszon egy létező mappát"
+#, fuzzy
+msgid "Loading pdf documents"
+msgstr "Kijelölt dokumentumok mozgatás lefelé"
 
-msgid "Select"
-msgstr "Kijelölés"
+msgid "Documents loaded"
+msgstr "Dokumentumok betöltve"
 
-msgid "Browse"
-msgstr "Tallózás"
+msgid "Requesting modules state"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to save modules workspace"
+msgstr "Nem sikerült megtalálni a modulok helyét."
+
+#, fuzzy, java-format
+msgid "Loading workspace from {0}"
+msgstr "Modulok betöltése innen: {0}"
+
+#, fuzzy
+msgid "Workspace loaded"
+msgstr "Munkaterület"
+
+#, java-format
+msgid "Unable to load workspace from {0}"
+msgstr ""
+
+#, java-format
+msgid "Saving workspace data to {0}"
+msgstr ""
+
+#, fuzzy
+msgid "Workspace saved"
+msgstr "Munkaterület"
+
+msgid "Split after the following page numbers"
+msgstr "Szétválasztás a következő oldalszámoknál"
+
+msgid "Page numbers to split at (n1,n2,n3..)"
+msgstr "Szétválasztás oldalszámoknál (n1,n2,n3…)"
+
+msgid "Split the document after the given page numbers"
+msgstr "Dokumentum szétválasztása a megadott oldalszámoknál"
+
+msgid "Invalid page numbers"
+msgstr "Érvénytelen oldalszám"
+
+msgid "Split"
+msgstr "Szétválasztás"
+
+msgid "Split a pdf document at the given page numbers."
+msgstr "PDF dokumentum szétválasztása a megadott oldalszámoknál."
+
+msgid "Select or drag and drop the PDF you want to split"
+msgstr "Válassza ki vagy ejtse ide a szétválasztani kívánt PDF-et"
+
+msgid "File names settings"
+msgstr "Fájlnév beállításai"
+
+msgid "Split settings"
+msgstr "Szétválasztás beállításai"
+
+msgid "Destination directory"
+msgstr "Célmappa"
+
+msgid "Burst (Split into single pages)"
+msgstr "Szétszakítás (szétválasztja oldalanként)"
+
+msgid "Split even pages"
+msgstr "Szétválasztás páros oldalaknál"
+
+msgid "Split odd pages"
+msgstr "Szétválasztás páratlan oldalaknál"
+
+msgid "Explode the document into single pages"
+msgstr "Szétszakítja a dokumentumot oldalanként"
+
+msgid "Split the document after every even page"
+msgstr "Szétválasztás minden páros oldalnál"
+
+msgid "Split the document after every odd page"
+msgstr "Szétválasztás minden páratlan oldalnál"
+
+msgid "Split by every \"n\" pages"
+msgstr "Szétválasztás minden n-edik oldalnál"
+
+msgid "Number of pages"
+msgstr "Oldalszám"
+
+msgid "Splits the pdf every \"n\" pages creating documents of \"n\" pages each"
+msgstr "Szétválasztja a dokumentumot minden n-edik oldalnál"
+
+msgid "Invalid number of pages"
+msgstr "Érvénytelen oldalszám"
+
+msgid "Split by size"
+msgstr "Szétválasztás méret alapján"
+
+msgid "Split a pdf document in files of the give size (roughly)."
+msgstr "PDF dokumentum szétválasztása a megadott méret alapján (körülbelül)."
+
+#, fuzzy
+msgid "Set the size to split at"
+msgstr "Ennél a könyvjelzőszintnél választja szét a PDF-eket"
+
+msgid "Size must be a number"
+msgstr ""
+
+msgid "Split at this size:"
+msgstr "Szétválasztás ennél a méretnél:"
+
+msgid "Invalid split size"
+msgstr "Érvénytelen szétválasztási méret"
+
+msgid "Kilobytes"
+msgstr ""
+
+msgid "KB"
+msgstr ""
+
+msgid "Megabytes"
+msgstr ""
+
+msgid "MB"
+msgstr ""
+
+msgid "Alternate Mix"
+msgstr "Keverés"
+
+msgid ""
+"Merge two PDF documents taking pages alternately in straight or reverse "
+"order."
+msgstr ""
+"Két PDF egyesítése úgy, hogy az oldalak egymást kövessék normális vagy "
+"fordított sorrendben."
+
+msgid "Select or drag and drop the first PDF you want to mix"
+msgstr "Válassza ki vagy ejtse ide az első keverni kívánt PDF-et"
+
+msgid "Select or drag and drop the second PDF you want to mix"
+msgstr "Válassza ki vagy ejtse ide a második keverni kívánt PDF-et"
+
+msgid "Mix settings"
+msgstr "Keverés beállításai"
+
+msgid "Destination file"
+msgstr "Kimeneti fájl"
+
+msgid "Reverse the first document"
+msgstr "Az első dokumentum megfordítása"
+
+msgid "Reverse the second document"
+msgstr "A második dokumentum megfordítása"
+
+msgid ""
+"Switch from the first document to the second one after the following pages"
+msgstr "Váltson az első dokumentumról a másodikra ennél az oldalnál"
+
+msgid ""
+"Switch from the second document to the first one after the following pages"
+msgstr "Váltson a második dokumentumról az elsőre ennél az oldalnál"
+
+msgid "Invalid parameter 'first and second step' must be numbers"
+msgstr "Érvénytelen paraméter. Számokat adjon meg."
+
+msgid "Select the number of pages"
+msgstr "Adja meg az oldalszámot"
+
+msgid "The selected PDF document is invalid"
+msgstr "A kijelölt PDF érvénytelen"
+
+#, fuzzy
+msgid "Open the generated document"
+msgstr "A második dokumentum megfordítása"
+
+#, fuzzy
+msgid "Open the destination directory"
+msgstr "Célmappa"
+
+msgid "Ready"
+msgstr "Kész"
+
+msgid "Running"
+msgstr "Folyamatban"
+
+msgid "Requested"
+msgstr "Kért"
+
+msgid "Completed"
+msgstr "Befejezett"
+
+msgid "Failed"
+msgstr "Sikertelen"
+
+msgid "Run"
+msgstr "Futtatás"
+
+msgid "Overwrite if already exists"
+msgstr "Írja felül, ha már létezik"
+
+msgid ""
+"Tick the box if you want to overwrite the outpuf files if they already exist."
+msgstr "Pipálja be, ha szeretné, hogy felülírja a már létező fájlokat."
 
 msgid "Select a file"
 msgstr "Fájl kiválasztása"
@@ -360,38 +579,40 @@ msgstr "A kiválasztott fájlnak léteznie kell. "
 msgid "Allowed extensions are {0}"
 msgstr "Engedélyezett bővítmények: {0}"
 
-msgid "Overwrite if already exists"
-msgstr "Felülír, ha már létezik"
+msgid "Select"
+msgstr "Kijelölés"
 
-msgid ""
-"Tick the box if you want to overwrite the outpuf files if they already exist."
-msgstr "Pipálja be, ha szeretné, hogy felülírja a már létező fájlokat."
+msgid "Browse"
+msgstr "Tallózás"
+
+msgid "The selected PDF file is invalid"
+msgstr "A kiválasztott PDF érvénytelen"
 
 msgid "Compress output file/files"
-msgstr "Kimenő fájl(ok) tömörítése"
+msgstr "Kimeneti fájlok tömörítése"
 
 msgid "Output pdf version:"
-msgstr "Kimeneti pdf verziója:"
+msgstr "Kimeneti PDF verziója:"
 
 #, java-format
 msgid "Version {0}"
 msgstr "Verzió {0}"
 
 msgid "Same as the input document"
-msgstr "Megegyezik a bementi dokumentummal"
+msgstr "Bemeneti dokumentummal megegyező"
 
 #, java-format
 msgid "Pdf version required: {0}"
-msgstr "Szükséges pdf verzió: {0}"
+msgstr "Szükséges PDF verzió: {0}"
 
-msgid "The selected PDF file is invalid"
-msgstr "A kiválasztott PDF érvénytelen"
+msgid "Select an existing directory"
+msgstr "Válasszon egy létező mappát"
 
 msgid "The selected output directory is invalid"
 msgstr "A kiválasztott kimeneti mappa érvénytelen"
 
-msgid "Run"
-msgstr "Futtatás"
+msgid "Generated pdf documents name prefix:"
+msgstr "A generált PDF nevének előtagja:"
 
 msgid "Prefix for the generated files names"
 msgstr "Előtag hozzáadása a generált fájlnevekhez"
@@ -403,21 +624,10 @@ msgid "Prefix for the output files name."
 msgstr "Előtag a kimeneti fájlnevekhez."
 
 msgid "Some special keywords are replaced with runtime values."
-msgstr ""
+msgstr "Néhány speciális kulcsszó lecserélődik futtatás közben értékre."
 
 msgid "Right click to add these keywords."
 msgstr "Kattintson a jobb egérgombbal ezen kulcsszavak hozzáadásához."
-
-msgid "Generated pdf documents name prefix:"
-msgstr "A generált pdf dokumentum név előtagja:"
-
-#, fuzzy
-msgid "This document is encrypted, click to provide a password."
-msgstr ""
-"Ez a dokumentum titkosított, dupla kattintás után megadhatja a jelszót."
-
-msgid "Valid user password provided."
-msgstr "Érvényes felhasználó jelszó"
 
 msgid "Enter the user password"
 msgstr "Adja meg a felhasználói jelszót"
@@ -425,33 +635,14 @@ msgstr "Adja meg a felhasználói jelszót"
 msgid "Unlock"
 msgstr "Feloldás"
 
-#, java-format
-msgid "Pages: {0}, PDF Version: {1}"
-msgstr "Oldalak száma: {0}, PDF verzió: {1}"
-
-msgid "Document properties"
-msgstr "Dokumentum tulajdonságai"
-
-msgid "Set destination"
-msgstr "Cél megadása"
-
-msgid "Open"
-msgstr "Megnyitás"
-
-msgid "Open Folder"
-msgstr "Mappa megnyitása"
-
-msgid "The selected PDF document is invalid"
-msgstr "A kijelölt PDF dokumentum érvénytelen"
-
-msgid "Size"
-msgstr "Méret"
-
-msgid "Modified"
-msgstr "Módosítva"
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Dupla kattintással beállíthatja az egyesíteni kívánt oldalakat (pl.: 2 vagy "
+"5-23 vagy 2,5-7,12 -)"
 
 msgid "Pages"
-msgstr "Oldalak"
+msgstr "Oldalszám"
 
 msgid "Name"
 msgstr "Név"
@@ -475,7 +666,7 @@ msgid "Removes every document"
 msgstr "Minden dokumentum eltávolítása"
 
 msgid "_Clear"
-msgstr "_Törlés"
+msgstr "Összes _törlése"
 
 msgid "Moves up selected documents"
 msgstr "Kijelölt dokumentumok mozgatás felfelé"
@@ -489,23 +680,14 @@ msgstr "Kijelölt dokumentumok mozgatás lefelé"
 msgid "Move _Down"
 msgstr "Mozgatás _lefelé"
 
-msgid "Drag and drop PDF files here"
-msgstr "Húzza és ejtse ide a PDF fájlokat"
+msgid "Page ranges"
+msgstr "Oldaltartományok"
 
-msgid "Remove"
-msgstr "Eltávolítás"
+msgid "Size"
+msgstr "Méret"
 
-msgid "Move to Top"
-msgstr "Mozgatás felülre"
-
-msgid "Move Up"
-msgstr "Mozgatás felfelé"
-
-msgid "Move Down"
-msgstr "Mozgatás lefelé"
-
-msgid "Move to Bottom"
-msgstr "Mozgatás alulra"
+msgid "Modified"
+msgstr "Módosítva"
 
 #, java-format
 msgid "Invalid range: {0}."
@@ -523,29 +705,51 @@ msgstr ""
 msgid "Invalid number: {0}."
 msgstr "Érvénytelen szám: {0}."
 
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Drag and drop PDF files here"
+msgstr "Fogja meg és ejtse ide a PDF fájlokat"
+
+msgid "Document properties"
+msgstr "Dokumentum tulajdonságai"
+
+msgid "Set destination"
+msgstr "Cél megadása"
+
+msgid "Remove"
+msgstr "Eltávolítás"
+
+msgid "Move to Top"
+msgstr "Mozgatás felülre"
+
+msgid "Move Up"
+msgstr "Mozgatás felfelé"
+
+msgid "Move Down"
+msgstr "Mozgatás lefelé"
+
+msgid "Move to Bottom"
+msgstr "Mozgatás alulra"
+
+msgid "Open"
+msgstr "Megnyitás"
+
+msgid "Open Folder"
+msgstr "Mappa megnyitása"
+
+msgid "Duplicate"
 msgstr ""
-"Dupla kattintással beállíthatja az egyesíteni kívánt oldalakat (pl.: 2 vagy "
-"5-23 vagy 2,5-7,12 -)"
 
-msgid "Page ranges"
-msgstr "Oldaltartományok"
+#, java-format
+msgid "Pages: {0}, PDF Version: {1}"
+msgstr "Oldalak száma: {0}, PDF verzió: {1}"
 
-msgid "Merge together multiple pdf documents or subsections of them."
-msgstr "Több PDF dokumentum vagy fejezet egyesítése."
-
-msgid "Merge settings"
-msgstr "Egyesítési beállítások"
-
-msgid "Destination file"
-msgstr "Kimeneti fájl"
+msgid "Loading..."
+msgstr "Betöltés…"
 
 msgid "Merge form fields"
-msgstr "Egyesítés mezőkből"
+msgstr "Űrlapmezők meghagyása"
 
 msgid "Some of the selected PDF documents contain forms, merge them"
-msgstr ""
+msgstr "A kijelölt PDF dokumentumokban található űrlapok meghagyása"
 
 msgid "Add a blank page if page number is odd"
 msgstr "Üres oldal hozzáadása, ha az oldalak száma páratlan"
@@ -572,62 +776,81 @@ msgstr "Könyvjelzők kezelése:"
 msgid "No pdf document has been selected"
 msgstr "Nincs kiválasztott PDF dokumentum"
 
-msgid "Burst (Split into single pages)"
-msgstr "Szétszakítás (szétválasztja oldalanként)"
+msgid "Merge"
+msgstr "Egyesítés"
 
-msgid "Split even pages"
-msgstr "Szétválasztás páros oldalak után"
+msgid "Merge together multiple pdf documents or subsections of them."
+msgstr "Több PDF dokumentum, vagy azok fejezeteinek egyesítése."
 
-msgid "Split odd pages"
-msgstr "Szétválasztás páratlan oldalak után"
+msgid "Merge settings"
+msgstr "Egyesítés beállításai"
 
-msgid "Explode the document into single pages"
-msgstr "Szétszakítja a dokumentumot oldalanként"
+msgid "Security"
+msgstr "Biztonság"
 
-msgid "Split the document after every even page"
-msgstr "Szétválasztás minden páros oldal után"
+msgid "Other"
+msgstr "Egyéb"
 
-msgid "Split the document after every odd page"
-msgstr "Szétválasztás minden páratlan oldal után"
+msgid "Error saving log file."
+msgstr "Hiba a naplófájl mentése közben."
 
-msgid "Split a pdf document at the given page numbers."
-msgstr "Szétválasztás a megadott oldalszámok után ."
+#, java-format
+msgid "File {0} saved."
+msgstr "{0} fájl elmentve."
 
-msgid "Select or drag and drop the PDF you want to split"
-msgstr "Válassza ki, fogja meg majd ejtse ide a szétválasztani kívánt PDF-et"
+msgid "Directories"
+msgstr "Mappák"
 
-msgid "File names settings"
-msgstr "Fájlnév beállításai"
+msgid "Valid user password provided."
+msgstr "Érvényes felhasználó jelszó"
 
-msgid "Split settings"
-msgstr "Szétválasztás beállításai"
+msgid "This document is encrypted, click to provide a password."
+msgstr "A dokumentum titkosított, kattintson ide a jelszó megadásához."
 
-msgid "Destination directory"
-msgstr "Célmappa"
+msgid "Squared green"
+msgstr "Zöld szögletes"
 
-msgid "Split after the following page numbers"
-msgstr "Szétválasztás a következő oldalszámok után"
+msgid "Squared cornflower"
+msgstr "Búzavirág szögletes"
 
-msgid "Page numbers to split at (n1,n2,n3..)"
-msgstr "Szétválasztás oldalszámoknál (n1,n2,n3…)"
+msgid "Roundish"
+msgstr "Lekerekített"
 
-msgid "Split the document after the given page numbers"
-msgstr "Dokumentum szétválasztása a megadott oldalszámok után"
+msgid "Never"
+msgstr "Soha"
 
-msgid "Invalid page numbers"
-msgstr "Érvénytelen oldalszám"
+msgid "Once a day"
+msgstr "Naponta"
 
-msgid "Split by every \"n\" pages"
-msgstr "Szétválasztás minden n-edik oldal után"
+msgid "Once a week"
+msgstr "Hetente"
 
-msgid "Number of pages"
-msgstr "Oldalak száma"
+msgid "Always"
+msgstr "Mindig"
 
-msgid "Splits the pdf every \"n\" pages creating documents of \"n\" pages each"
-msgstr "Szétválasztja a dokumentumot minden n-edik oldal után"
+msgid "Set the bookmarks level to split at"
+msgstr "Ennél a könyvjelzőszintnél választja szét a PDF-eket"
 
-msgid "Invalid number of pages"
-msgstr "Érvénytelen oldalszám"
+msgid "Invalid bookmarks level"
+msgstr "Érvénytelen könyvjelzőszint"
+
+msgid "Split by bookmarks"
+msgstr "Szétválasztás könyvjelzők alapján"
+
+msgid ""
+"Split a pdf document at bookmarked pages by specifying a bookmark level."
+msgstr ""
+"PDF dokumentum szétválasztása a könyvjelzőzött oldalak alapján, a "
+"könyvjelzőszint megadásával."
+
+msgid "Regexp the bookmark has to match"
+msgstr "Könyvjelzővel egyező reguláris kifejezés"
+
+msgid "Split at this bookmark level:"
+msgstr "Szétválasztás ennél a könyvjelzőszintnél:"
+
+msgid "Matching regular expression:"
+msgstr "Reguláris kifejezés:"
 
 msgid "All pages"
 msgstr "Minden oldal"
@@ -639,105 +862,43 @@ msgid "Odd pages"
 msgstr "Páratlan oldalak"
 
 msgid "90 degrees clockwise"
-msgstr "90 fokkal az órajárás irányában"
+msgstr "90 fokkal az óramutató járásának irányában"
 
 msgid "180 degrees clockwise"
-msgstr "180 fokkal az órajárás irányában"
+msgstr "180 fokkal az óramutató járásának irányában"
 
 msgid "270 degrees clockwise"
-msgstr "270 fokkal az órajárás irányában"
+msgstr "270 fokkal az óramutató járásának irányában"
 
 msgid "Rotate "
-msgstr "Forgatás "
+msgstr "Elforgatás "
 
 msgid "Rotate"
-msgstr "Forgatás"
+msgstr "Elforgatás"
 
 msgid "Rotate the pages of multiple PDF documents."
-msgstr "Dokumentumok oldalainak elforgatása"
+msgstr "PDF dokumentum oldalainak elforgatása"
 
 msgid "Rotate settings"
-msgstr "Forgatás beállításai"
+msgstr "Elforgatás beállításai"
 
-msgid "Split by size"
-msgstr "Szétválasztás méret alapján"
+#~ msgid "Error playing sounds"
+#~ msgstr "Hiba hanglejátszás közben"
 
-msgid "Split a pdf document in files of the give size (roughly)."
-msgstr ""
+#~ msgid "Open menu"
+#~ msgstr "Menü megnyitása"
 
-msgid "Set the size as number of bytes or specify KB or MB"
-msgstr ""
+#~ msgid "Open main dashboard"
+#~ msgstr "Főablak megnyitása"
 
-msgid "Invalid split size"
-msgstr "Érvénytelen szétválasztási méret"
+#~ msgid "Thumbnails"
+#~ msgstr "Bélyegképek"
 
-msgid "Split at this size:"
-msgstr "Szétválasztás ennél a méretnél:"
+#~ msgid "Loading"
+#~ msgstr "Betöltés"
 
-msgid "Regexp the bookmark has to match"
-msgstr ""
-
-msgid "Split at this bookmark level:"
-msgstr ""
-
-msgid "Matching regular expression:"
-msgstr ""
-
-msgid "Set the bookmarks level to split at"
-msgstr ""
-
-msgid "Invalid bookmarks level"
-msgstr ""
-
-msgid "Split by bookmarks"
-msgstr ""
-
-msgid ""
-"Split a pdf document at bookmarked pages by specifying a bookmark level."
-msgstr ""
-
-msgid "Reverse the first document"
-msgstr "Az első dokumentum megfordítása"
-
-msgid "Reverse the second document"
-msgstr "A második dokumentum megfordítása"
-
-msgid ""
-"Switch from the first document to the second one after the following pages"
-msgstr ""
-
-msgid ""
-"Switch from the second document to the first one after the following pages"
-msgstr ""
-
-msgid "Invalid parameter 'first and second step' must be numbers"
-msgstr ""
-
-msgid "Select the number of pages"
-msgstr ""
-
-msgid "Alternate Mix"
-msgstr ""
-
-msgid ""
-"Merge two PDF documents taking pages alternately in straight or reverse "
-"order."
-msgstr ""
-
-msgid "Select or drag and drop the first PDF you want to mix"
-msgstr ""
-
-msgid "Select or drag and drop the second PDF you want to mix"
-msgstr ""
-
-msgid "Mix settings"
-msgstr ""
-
-#~ msgid "Starting pdfsam"
-#~ msgstr "pdfsam indítása"
-
-#~ msgid "...and other {0}."
-#~ msgstr "… és más {0}."
+#~ msgid "Set the size as number of bytes or specify KB or MB"
+#~ msgstr "Állítsa be a méretet byte-ban (használhat KB-ot vagy MB-ot is)"
 
 #~ msgid "Destination folder"
 #~ msgstr "Célmappa"
@@ -750,3 +911,13 @@ msgstr ""
 
 #~ msgid "Ask for confirmation when overwrite checkbox is selected"
 #~ msgstr "Megerősítést kér a felülírásra, amikor a négyzet be van jelölve"
+
+#~ msgid "Would you like to overwrite it?"
+#~ msgstr "Szeretné felülírni?"
+
+#~ msgid ""
+#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" "
+#~ "is selected"
+#~ msgstr ""
+#~ "Megjelenít egy ablakot, ahol a felhasználó jóváhagyását kéri, ha a "
+#~ "„Felülírás” aktív"

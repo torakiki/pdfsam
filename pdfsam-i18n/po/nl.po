@@ -7,53 +7,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2014-09-04 15:44+0200\n"
-"PO-Revision-Date: 2014-06-27 21:09+0000\n"
-"Last-Translator: narayan <Unknown>\n"
+"POT-Creation-Date: 2014-12-12 17:22+0100\n"
+"PO-Revision-Date: 2014-10-29 18:01+0000\n"
+"Last-Translator: Dennis <denniono@gmail.com>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-09-02 09:01+0000\n"
-"X-Generator: Launchpad (build 17192)\n"
-
-msgid "Selected file already exists"
-msgstr "Geselecteerd bestand bestaat reeds"
-
-msgid "Would you like to overwrite it?"
-msgstr "Wilt u het overschrijven?"
-
-msgid "Split"
-msgstr "Splitsen"
-
-msgid "Merge"
-msgstr "Samenvoegen"
-
-msgid "Security"
-msgstr "Beveiliging"
-
-msgid "Other"
-msgstr "Andere"
-
-msgid "Directories"
-msgstr ""
-
-msgid "Error saving log file."
-msgstr ""
+"X-Launchpad-Export-Date: 2014-12-12 16:32+0000\n"
+"X-Generator: Launchpad (build 17286)\n"
 
 #, java-format
-msgid "File {0} saved."
-msgstr ""
-
-#, java-format
-msgid "Started in {0}"
-msgstr ""
-
-msgid "Error playing sounds"
-msgstr ""
-
-msgid "Skipping modules signature verification."
+msgid "Installing theme {0}."
 msgstr ""
 
 #, java-format
@@ -72,33 +38,28 @@ msgid "Error finding modules paths"
 msgstr ""
 
 msgid "No module has been found"
-msgstr ""
+msgstr "Geen module gevonden"
 
 msgid "Unable to find modules location."
 msgstr ""
 
-msgid "Please select a module"
+#, java-format
+msgid "Started in {0}"
 msgstr ""
 
-msgid "Document details"
-msgstr ""
+msgid "Closing PDFsam..."
+msgstr "PDFsam wordt afgesloten..."
 
-msgid "Summary"
-msgstr ""
-
-msgid "Keywords"
-msgstr "Sleutelwoorden"
-
-msgid "Open application messages"
-msgstr ""
-
-msgid "Open menu"
-msgstr ""
-
-msgid "Open main dashboard"
+msgid "Application menu"
 msgstr ""
 
 msgid "_Modules"
+msgstr ""
+
+msgid "E_xit"
+msgstr ""
+
+msgid "Application messages"
 msgstr ""
 
 msgid "_Workspace"
@@ -113,7 +74,219 @@ msgstr ""
 msgid "Recen_t"
 msgstr ""
 
-msgid "E_xit"
+#, fuzzy
+msgid "Select the workspace file to save"
+msgstr "Selecteer een werkblad"
+
+#, fuzzy
+msgid "Select the workspace to load"
+msgstr "Selecteer een werkblad"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Document details"
+msgstr "Bestandseigenschappen"
+
+msgid "Keywords"
+msgstr "Sleutelwoorden"
+
+msgid "Summary"
+msgstr "Samenvatting"
+
+# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\MainGUI.java:222
+msgid "About"
+msgstr "Info over"
+
+msgid "Subscribe to the official news feed"
+msgstr ""
+
+msgid "Environment"
+msgstr ""
+
+#, java-format
+msgid "Max memory {0}"
+msgstr ""
+
+msgid "Copy to clipboard"
+msgstr "Kopieer naar klembord"
+
+msgid "Thanks to"
+msgstr "Met dank aan"
+
+msgid "The open source projects making PDFsam possible"
+msgstr ""
+
+msgid "Support"
+msgstr "Ondersteuning"
+
+msgid "Bug and feature requests"
+msgstr ""
+
+msgid "Play the \"get started\" video"
+msgstr "Speel de \"aan de slag\" video af"
+
+msgid "Contribute"
+msgstr "Bijdragen"
+
+msgid "Fork PDFsam on GitHub"
+msgstr ""
+
+msgid "Translate"
+msgstr "Vertalen"
+
+msgid "Donate"
+msgstr "Doneer"
+
+msgid "Social"
+msgstr "Sociaal"
+
+msgid "Follow us on Twitter"
+msgstr "Volg ons op Twitter"
+
+msgid "Follow us on Google Plus"
+msgstr "Volg ons op Google+"
+
+msgid "Like us on Facebook"
+msgstr "Vind ons leuk op Facebook"
+
+msgid "Manually selected"
+msgstr "Handmatig geselecteerd"
+
+msgid ""
+"Automatically set the destination directory to the selected PDF document "
+"directory"
+msgstr ""
+
+msgid "Appearance"
+msgstr "Uiterlijk"
+
+msgid "Behavior"
+msgstr "Gedrag"
+
+msgid "Workspace"
+msgstr "Werkblad"
+
+msgid "Output"
+msgstr "Uitvoer"
+
+msgid "Check for updates at startup"
+msgstr "Controleer beschikbare updates tijdens het opstarten"
+
+msgid ""
+"Set whether new version availability should be checked on startup (restart "
+"needed)"
+msgstr ""
+
+msgid "Play alert sounds"
+msgstr "Geef een waarschuwsignaal"
+
+msgid "Turn on or off alert sounds"
+msgstr "Zet het waarschuwsignaal aan of uit"
+
+msgid "High quality thumbnails"
+msgstr ""
+
+msgid "Use the selected PDF document directory as output directory"
+msgstr ""
+
+#, java-format
+msgid "Size must be between {0}px and {1}px"
+msgstr ""
+
+#, java-format
+msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
+msgstr ""
+
+msgid "Generate high quality thumbnails (slower)"
+msgstr "Geneer miniaturen van hoge kwaliteit"
+
+msgid "Size in px:"
+msgstr ""
+
+msgid "Library used to generate thumbnails"
+msgstr ""
+
+msgid "Thumbnails creator:"
+msgstr ""
+
+msgid "Clear usage statistics"
+msgstr "Gebruiksgegevens opschonen"
+
+msgid ""
+"Select a previously saved workspace that will be automatically loaded at "
+"startup"
+msgstr ""
+"Selecteer een opgeslagen werkblad wat automatisch geladen wordt bij het "
+"opstarten"
+
+msgid "Select a workspace"
+msgstr "Selecteer een werkblad"
+
+msgid "Select a directory where documents will be saved and loaded by default"
+msgstr ""
+"Selecteer een pad waar uw documenten standaard bewaard en gelezen zullen "
+"worden."
+
+msgid "Select a directory"
+msgstr "Selecteer een map"
+
+msgid ""
+"Usage statistics are used to populate the modules quick bar on the left with "
+"the most used and most recently used modules."
+msgstr ""
+
+msgid "Load default workspace at startup:"
+msgstr "Laad standaard werkblad bij het opstarten:"
+
+msgid "Default working directory:"
+msgstr "Standaard werkpad:"
+
+msgid "Set how often the PDFsam news panel should be opened"
+msgstr ""
+
+msgid "News panel:"
+msgstr ""
+
+# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:125
+# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:116
+msgid "Language:"
+msgstr "Taal:"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:224
+# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:182
+msgid "Set your preferred language (restart needed)"
+msgstr "Stel uw voorkeurstaal in (herstart noodzakelijk)"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:122
+# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:113
+msgid "Theme:"
+msgstr "Thema:"
+
+msgid "Set your preferred theme (restart needed)"
+msgstr ""
+
+msgid "Startup module:"
+msgstr ""
+
+msgid "Set the module to open at application startup (restart needed)"
+msgstr ""
+
+#, fuzzy
+msgid "Check for updates now"
+msgstr "Controleren op updates"
+
+# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:150
+msgid "Close"
+msgstr "Afsluiten"
+
+msgid "Settings"
+msgstr "Instellingen"
+
+msgid "Modules"
+msgstr ""
+
+msgid "Log register"
 msgstr ""
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\LogPanel.java:99
@@ -139,15 +312,22 @@ msgstr "Log opslaan"
 msgid "Select where to save the log file"
 msgstr ""
 
-msgid "Log register"
-msgstr ""
-
 msgid "Invalid parameters"
 msgstr ""
 
 msgid ""
 "Input parameters are invalid, open the application messages for details."
 msgstr ""
+
+#, java-format
+msgid "You performed {0} tasks with PDFsam, did it help?"
+msgstr ""
+
+msgid "Give something back"
+msgstr ""
+
+msgid "PDFsam worked hard!"
+msgstr "PDFsam was druk bezig!"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -157,195 +337,40 @@ msgid "Download"
 msgstr ""
 
 msgid "New version available"
+msgstr "Nieuwe versie beschikbaar"
+
+msgid "Show this:"
 msgstr ""
 
-msgid "Modules"
+msgid "What's new"
+msgstr "Wat is er nieuw"
+
+msgid "Directory not empty"
 msgstr ""
 
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:150
-msgid "Close"
-msgstr "Afsluiten"
-
-msgid "Subscribe to the official news feed"
+msgid "The selected directory is not empty"
 msgstr ""
 
-msgid "Environment"
-msgstr ""
+msgid "Overwrite files with the same name as the generated ones?"
+msgstr "Bestanden overschrijven met dezelfde naam als de nieuwe bestanden?"
 
-#, java-format
-msgid "Max memory {0}"
-msgstr ""
+msgid "Don't overwrite existing file"
+msgstr "Bestaande bestanden niet overschrijven"
 
-msgid "Thanks to"
-msgstr ""
+msgid "Overwrite confirmation"
+msgstr "Bevestiging voor overschrijven"
 
-msgid "The open source projects making PDFsam possible"
-msgstr ""
+msgid "A file with the given name already exists"
+msgstr "Er bestaat al een bestand met de opgegeven bestandsnaam"
 
-msgid "Support"
-msgstr ""
+msgid "Do you want to overwrite it?"
+msgstr "Wilt u dit bestand overschrijven?"
 
-msgid "Bug and feature requests"
-msgstr ""
+msgid "Overwrite"
+msgstr "Overschrijven"
 
-msgid "Play the \"get started\" video"
-msgstr ""
-
-msgid "Contribute"
-msgstr ""
-
-msgid "Fork PDFsam on GitHub"
-msgstr ""
-
-msgid "Translate"
-msgstr ""
-
-msgid "Donate"
-msgstr ""
-
-msgid "Social"
-msgstr ""
-
-msgid "Follow us on Twitter"
-msgstr ""
-
-msgid "Follow us on Google Plus"
-msgstr ""
-
-msgid "Like us on Facebook"
-msgstr ""
-
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\MainGUI.java:222
-msgid "About"
-msgstr "Info over"
-
-msgid "Appearance"
-msgstr ""
-
-msgid "Thumbnails"
-msgstr ""
-
-msgid "Behavior"
-msgstr ""
-
-msgid "Workspace"
-msgstr ""
-
-msgid "Output"
-msgstr ""
-
-msgid ""
-"Select a previously saved workspace that will be automatically loaded at "
-"startup"
-msgstr ""
-
-msgid "Select a workspace"
-msgstr ""
-
-msgid "Select a directory where documents will be saved and loaded by default"
-msgstr ""
-"Selecteer een pad waar uw documenten standaard bewaard en gelezen zullen "
-"worden."
-
-msgid "Select a directory"
-msgstr ""
-
-msgid "Load default workspace at startup:"
-msgstr ""
-
-msgid "Default working directory:"
-msgstr "Standaard werkpad:"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:224
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:182
-msgid "Set your preferred language (restart needed)"
-msgstr "Stel uw voorkeurstaal in (herstart noodzakelijk)"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:125
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:116
-msgid "Language:"
-msgstr "Taal:"
-
-msgid "Set your preferred theme (restart needed)"
-msgstr ""
-
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:122
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:113
-msgid "Theme:"
-msgstr "Thema:"
-
-msgid "Generate high quality thumbnails (slower)"
-msgstr ""
-
-msgid "Size in px:"
-msgstr ""
-
-msgid "Library used to generate thumbnails"
-msgstr ""
-
-msgid "Thumbnails creator:"
-msgstr ""
-
-msgid "Manually selected"
-msgstr ""
-
-msgid ""
-"Automatically set the destination directory to the selected PDF document "
-"directory"
-msgstr ""
-
-msgid "Check for updates at startup"
-msgstr "Controleer beschikbare updates tijdens het opstarten"
-
-msgid ""
-"Set whether new version availability should be checked on startup (restart "
-"needed)"
-msgstr ""
-
-msgid "Play alert sounds"
-msgstr "Geef een waarschuwsignaal"
-
-msgid "Turn on or off alert sounds"
-msgstr "Zet het waarschuwsignaal aan of uit"
-
-msgid "Ask for confirmation when the \"Overwrite\" checkbox is selected"
-msgstr ""
-
-msgid ""
-"Show a dialog box asking the user for confirmation when the \"overwrite\" is "
-"selected"
-msgstr ""
-"Toon een venster waarin de gebruiker om een bevestiging gevraagd wordt als "
-"het \"overschrijf\" selectievakje is geselecteerd."
-
-msgid "High quality thumbnails"
-msgstr ""
-
-msgid "Use the selected PDF document directory as output directory"
-msgstr ""
-
-#, java-format
-msgid "Size must be between {0}px and {1}px"
-msgstr ""
-
-#, java-format
-msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
-msgstr ""
-
-msgid "Clear usage statistics"
-msgstr ""
-
-msgid "Settings"
-msgstr "Instellingen"
-
-msgid "Loading"
-msgstr ""
-
-msgid "Documents loaded"
-msgstr ""
-
-msgid "Unexpected error"
-msgstr ""
+msgid "Cancel"
+msgstr "Annuleren"
 
 msgid "Unable to find the latest available version."
 msgstr ""
@@ -353,11 +378,241 @@ msgstr ""
 msgid "Checking for updates"
 msgstr "Controleren op updates"
 
-msgid "Select an existing directory"
+#, fuzzy
+msgid "Loading pdf documents"
+msgstr "Verplaatst geselecteerde bestanden omlaag"
+
+msgid "Documents loaded"
+msgstr "Bestanden geladen"
+
+msgid "Requesting modules state"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to save modules workspace"
+msgstr "Selecteer een werkblad"
+
+#, java-format
+msgid "Loading workspace from {0}"
+msgstr ""
+
+#, fuzzy
+msgid "Workspace loaded"
+msgstr "Werkblad"
+
+#, java-format
+msgid "Unable to load workspace from {0}"
+msgstr ""
+
+#, java-format
+msgid "Saving workspace data to {0}"
+msgstr ""
+
+#, fuzzy
+msgid "Workspace saved"
+msgstr "Werkblad"
+
+msgid "Split after the following page numbers"
+msgstr ""
+
+msgid "Page numbers to split at (n1,n2,n3..)"
+msgstr ""
+
+msgid "Split the document after the given page numbers"
+msgstr ""
+
+msgid "Invalid page numbers"
+msgstr ""
+
+msgid "Split"
+msgstr "Splitsen"
+
+msgid "Split a pdf document at the given page numbers."
+msgstr ""
+
+msgid "Select or drag and drop the PDF you want to split"
+msgstr ""
+
+msgid "File names settings"
+msgstr ""
+
+msgid "Split settings"
+msgstr ""
+
+msgid "Destination directory"
+msgstr ""
+
+msgid "Burst (Split into single pages)"
+msgstr ""
+
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:206
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:223
+# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:205
+# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:223
+msgid "Split even pages"
+msgstr "Splist even pagina's"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:209
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
+# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:208
+# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
+msgid "Split odd pages"
+msgstr "Splits oneven pagina's"
+
+msgid "Explode the document into single pages"
+msgstr ""
+
+msgid "Split the document after every even page"
+msgstr ""
+
+msgid "Split the document after every odd page"
+msgstr ""
+
+msgid "Split by every \"n\" pages"
+msgstr ""
+
+msgid "Number of pages"
+msgstr "Aantal pagina's"
+
+msgid "Splits the pdf every \"n\" pages creating documents of \"n\" pages each"
+msgstr ""
+
+msgid "Invalid number of pages"
+msgstr ""
+
+msgid "Split by size"
+msgstr ""
+
+msgid "Split a pdf document in files of the give size (roughly)."
+msgstr ""
+"Verdeel een pdf bestand in meerdere bestanden van een bepaalde grootte "
+"(ruwweg)"
+
+msgid "Set the size to split at"
+msgstr ""
+
+msgid "Size must be a number"
+msgstr ""
+
+msgid "Split at this size:"
+msgstr ""
+
+msgid "Invalid split size"
+msgstr "Ongeldige splitsingsgrootte"
+
+msgid "Kilobytes"
+msgstr ""
+
+msgid "KB"
+msgstr ""
+
+msgid "Megabytes"
+msgstr ""
+
+msgid "MB"
+msgstr ""
+
+msgid "Alternate Mix"
+msgstr "mix 2 documenten"
+
+msgid ""
+"Merge two PDF documents taking pages alternately in straight or reverse "
+"order."
+msgstr ""
+
+msgid "Select or drag and drop the first PDF you want to mix"
+msgstr ""
+
+msgid "Select or drag and drop the second PDF you want to mix"
+msgstr ""
+
+msgid "Mix settings"
+msgstr ""
+
+msgid "Destination file"
+msgstr ""
+
+msgid "Reverse the first document"
+msgstr ""
+
+msgid "Reverse the second document"
+msgstr "Keer het tweede bestand om"
+
+msgid ""
+"Switch from the first document to the second one after the following pages"
+msgstr ""
+
+msgid ""
+"Switch from the second document to the first one after the following pages"
+msgstr ""
+
+msgid "Invalid parameter 'first and second step' must be numbers"
+msgstr ""
+
+msgid "Select the number of pages"
+msgstr "Selecteer het aantal pagina's"
+
+msgid "The selected PDF document is invalid"
+msgstr ""
+
+#, fuzzy
+msgid "Open the generated document"
+msgstr "Keer het tweede bestand om"
+
+#, fuzzy
+msgid "Open the destination directory"
+msgstr "Kies bestemming"
+
+msgid "Ready"
+msgstr "Klaar"
+
+msgid "Running"
+msgstr ""
+
+msgid "Requested"
+msgstr ""
+
+msgid "Completed"
+msgstr "Voltooid"
+
+msgid "Failed"
+msgstr "Mislukt"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:542
+# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:462
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:526
+# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:320
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:410
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:530
+# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:408
+msgid "Run"
+msgstr "Uitvoeren"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:452
+# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:315
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:434
+# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:249
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:279
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:438
+msgid "Overwrite if already exists"
+msgstr "Bestand overschrijven als het reeds bestaat"
+
+msgid ""
+"Tick the box if you want to overwrite the outpuf files if they already exist."
+msgstr ""
+
+msgid "Select a file"
+msgstr "Selecteer een bestand"
+
+msgid "The selected file must exist. "
+msgstr "Het geselecteerde bestand moet bestaan "
+
+#, java-format
+msgid "Allowed extensions are {0}"
 msgstr ""
 
 msgid "Select"
-msgstr ""
+msgstr "Selecteren"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:394
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:421
@@ -377,27 +632,7 @@ msgstr ""
 msgid "Browse"
 msgstr "Bladeren"
 
-msgid "Select a file"
-msgstr ""
-
-msgid "The selected file must exist. "
-msgstr ""
-
-#, java-format
-msgid "Allowed extensions are {0}"
-msgstr ""
-
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:452
-# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:315
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:434
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:249
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:279
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:438
-msgid "Overwrite if already exists"
-msgstr "Bestand overschrijven als het reeds bestaat"
-
-msgid ""
-"Tick the box if you want to overwrite the outpuf files if they already exist."
+msgid "The selected PDF file is invalid"
 msgstr ""
 
 msgid "Compress output file/files"
@@ -411,27 +646,20 @@ msgid "Version {0}"
 msgstr ""
 
 msgid "Same as the input document"
-msgstr ""
+msgstr "Hetzelfde als het bronbestand"
 
 #, java-format
 msgid "Pdf version required: {0}"
 msgstr ""
 
-msgid "The selected PDF file is invalid"
-msgstr ""
+msgid "Select an existing directory"
+msgstr "Selecteer een bestaand pad"
 
 msgid "The selected output directory is invalid"
 msgstr ""
 
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:542
-# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:462
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:526
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:320
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:410
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:530
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:408
-msgid "Run"
-msgstr "Uitvoeren"
+msgid "Generated pdf documents name prefix:"
+msgstr ""
 
 msgid "Prefix for the generated files names"
 msgstr ""
@@ -448,45 +676,17 @@ msgstr ""
 msgid "Right click to add these keywords."
 msgstr ""
 
-msgid "Generated pdf documents name prefix:"
-msgstr ""
-
-msgid "This document is encrypted, click to provide a password."
-msgstr ""
-
-msgid "Valid user password provided."
-msgstr ""
-
 msgid "Enter the user password"
 msgstr ""
 
 msgid "Unlock"
+msgstr "Ontgrendelen"
+
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-
-#, java-format
-msgid "Pages: {0}, PDF Version: {1}"
-msgstr ""
-
-msgid "Document properties"
-msgstr "Document eigenschappen"
-
-msgid "Set destination"
-msgstr "Kies bestemming"
-
-msgid "Open"
-msgstr "Open"
-
-msgid "Open Folder"
-msgstr ""
-
-msgid "The selected PDF document is invalid"
-msgstr ""
-
-msgid "Size"
-msgstr ""
-
-msgid "Modified"
-msgstr ""
+"Dubbelklik om de pagina's te selecteren die u wilt samenvoegen (bijv. 2 of "
+"5-23 of 2,5-7,12-)"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:182
 # F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:180
@@ -506,34 +706,63 @@ msgid "_Add"
 msgstr ""
 
 msgid "Select pdf documents to load"
-msgstr ""
+msgstr "Selecteer pdf bestanden om te openen"
 
 msgid "Removes selected documents"
-msgstr ""
+msgstr "Verwijderd geselecteerde bestanden"
 
 msgid "_Remove"
 msgstr ""
 
 msgid "Removes every document"
-msgstr ""
+msgstr "Verwijderd elk bestand"
 
 msgid "_Clear"
 msgstr ""
 
 msgid "Moves up selected documents"
-msgstr ""
+msgstr "Verplaatst geselecteerde bestanden omhoog"
 
 msgid "Move _Up"
 msgstr ""
 
 msgid "Moves down selected documents"
-msgstr ""
+msgstr "Verplaatst geselecteerde bestanden omlaag"
 
 msgid "Move _Down"
 msgstr ""
 
+msgid "Page ranges"
+msgstr ""
+
+msgid "Size"
+msgstr "Grootte"
+
+msgid "Modified"
+msgstr "Gewijzigd"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr ""
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+
+#, java-format
+msgid "Invalid number: {0}."
+msgstr ""
+
 msgid "Drag and drop PDF files here"
 msgstr ""
+
+msgid "Document properties"
+msgstr "Document eigenschappen"
+
+msgid "Set destination"
+msgstr "Kies bestemming"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:273
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:317
@@ -564,37 +793,21 @@ msgstr "Verplaats omlaag"
 msgid "Move to Bottom"
 msgstr ""
 
-#, java-format
-msgid "Invalid range: {0}."
+msgid "Open"
+msgstr "Open"
+
+msgid "Open Folder"
+msgstr "Open map"
+
+msgid "Duplicate"
 msgstr ""
 
 #, java-format
-msgid ""
-"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
-"or [-n] or [n-]"
+msgid "Pages: {0}, PDF Version: {1}"
 msgstr ""
 
-#, java-format
-msgid "Invalid number: {0}."
-msgstr ""
-
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Dubbelklik om de pagina's te selecteren die u wilt samenvoegen (bijv. 2 of "
-"5-23 of 2,5-7,12-)"
-
-msgid "Page ranges"
-msgstr ""
-
-msgid "Merge together multiple pdf documents or subsections of them."
-msgstr ""
-
-msgid "Merge settings"
-msgstr ""
-
-msgid "Destination file"
-msgstr ""
+msgid "Loading..."
+msgstr "Laden..."
 
 msgid "Merge form fields"
 msgstr ""
@@ -603,18 +816,20 @@ msgid "Some of the selected PDF documents contain forms, merge them"
 msgstr ""
 
 msgid "Add a blank page if page number is odd"
-msgstr ""
+msgstr "Voeg een lege pagina toe als het paginanummer oneven is"
 
 msgid ""
 "Adds a blank page after each merged document if the document has an odd "
 "number of pages"
 msgstr ""
+"Voegt een lege pagina toe achter elk bestand als het bestand een oneven "
+"aantal pagina's heeft"
 
 msgid "Retain bookmarks"
-msgstr ""
+msgstr "Behoud bladwijzers"
 
 msgid "Discard bookmarks"
-msgstr ""
+msgstr "Verwijder bladwijzers"
 
 msgid "Create one entry for each merged document"
 msgstr ""
@@ -625,124 +840,57 @@ msgstr ""
 msgid "No pdf document has been selected"
 msgstr ""
 
-msgid "Burst (Split into single pages)"
+msgid "Merge"
+msgstr "Samenvoegen"
+
+msgid "Merge together multiple pdf documents or subsections of them."
 msgstr ""
 
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:206
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:223
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:205
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:223
-msgid "Split even pages"
-msgstr "Splist even pagina's"
+msgid "Merge settings"
+msgstr "Samenvoeg instellingen"
 
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:209
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:208
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
-msgid "Split odd pages"
-msgstr "Splits oneven pagina's"
+msgid "Security"
+msgstr "Beveiliging"
 
-msgid "Explode the document into single pages"
+msgid "Other"
+msgstr "Andere"
+
+msgid "Error saving log file."
+msgstr "Fout bij opslaan van het logbestand"
+
+#, java-format
+msgid "File {0} saved."
 msgstr ""
 
-msgid "Split the document after every even page"
+msgid "Directories"
+msgstr "Mappen"
+
+msgid "Valid user password provided."
 msgstr ""
 
-msgid "Split the document after every odd page"
+msgid "This document is encrypted, click to provide a password."
 msgstr ""
 
-msgid "Split a pdf document at the given page numbers."
+msgid "Squared green"
 msgstr ""
 
-msgid "Select or drag and drop the PDF you want to split"
+msgid "Squared cornflower"
 msgstr ""
 
-msgid "File names settings"
+msgid "Roundish"
 msgstr ""
 
-msgid "Split settings"
-msgstr ""
+msgid "Never"
+msgstr "Nooit"
 
-msgid "Destination directory"
-msgstr ""
+msgid "Once a day"
+msgstr "Eenmaal per dag"
 
-msgid "Split after the following page numbers"
-msgstr ""
+msgid "Once a week"
+msgstr "Eenmaal per week"
 
-msgid "Page numbers to split at (n1,n2,n3..)"
-msgstr ""
-
-msgid "Split the document after the given page numbers"
-msgstr ""
-
-msgid "Invalid page numbers"
-msgstr ""
-
-msgid "Split by every \"n\" pages"
-msgstr ""
-
-msgid "Number of pages"
-msgstr "Aantal pagina's"
-
-msgid "Splits the pdf every \"n\" pages creating documents of \"n\" pages each"
-msgstr ""
-
-msgid "Invalid number of pages"
-msgstr ""
-
-msgid "All pages"
-msgstr ""
-
-msgid "Even pages"
-msgstr ""
-
-msgid "Odd pages"
-msgstr ""
-
-msgid "90 degrees clockwise"
-msgstr ""
-
-msgid "180 degrees clockwise"
-msgstr ""
-
-msgid "270 degrees clockwise"
-msgstr ""
-
-msgid "Rotate "
-msgstr ""
-
-msgid "Rotate"
-msgstr "Draaien"
-
-msgid "Rotate the pages of multiple PDF documents."
-msgstr ""
-
-msgid "Rotate settings"
-msgstr ""
-
-msgid "Split by size"
-msgstr ""
-
-msgid "Split a pdf document in files of the give size (roughly)."
-msgstr ""
-
-msgid "Set the size as number of bytes or specify KB or MB"
-msgstr ""
-
-msgid "Invalid split size"
-msgstr "Ongeldige splitsingsgrootte"
-
-msgid "Split at this size:"
-msgstr ""
-
-msgid "Regexp the bookmark has to match"
-msgstr ""
-
-msgid "Split at this bookmark level:"
-msgstr ""
-
-msgid "Matching regular expression:"
-msgstr ""
+msgid "Always"
+msgstr "Altijd"
 
 msgid "Set the bookmarks level to split at"
 msgstr ""
@@ -757,45 +905,56 @@ msgid ""
 "Split a pdf document at bookmarked pages by specifying a bookmark level."
 msgstr ""
 
-msgid "Reverse the first document"
+msgid "Regexp the bookmark has to match"
 msgstr ""
 
-msgid "Reverse the second document"
+msgid "Split at this bookmark level:"
 msgstr ""
 
-msgid ""
-"Switch from the first document to the second one after the following pages"
+msgid "Matching regular expression:"
 msgstr ""
 
-msgid ""
-"Switch from the second document to the first one after the following pages"
-msgstr ""
+msgid "All pages"
+msgstr "Alle pagina's"
 
-msgid "Invalid parameter 'first and second step' must be numbers"
-msgstr ""
+msgid "Even pages"
+msgstr "Even pagina's"
 
-msgid "Select the number of pages"
-msgstr ""
+msgid "Odd pages"
+msgstr "Oneven pagina's"
 
-msgid "Alternate Mix"
-msgstr "mix 2 documenten"
+msgid "90 degrees clockwise"
+msgstr "90 graden"
 
-msgid ""
-"Merge two PDF documents taking pages alternately in straight or reverse "
-"order."
-msgstr ""
+msgid "180 degrees clockwise"
+msgstr "180 graden"
 
-msgid "Select or drag and drop the first PDF you want to mix"
-msgstr ""
+msgid "270 degrees clockwise"
+msgstr "270 graden"
 
-msgid "Select or drag and drop the second PDF you want to mix"
-msgstr ""
+msgid "Rotate "
+msgstr "Roteren "
 
-msgid "Mix settings"
-msgstr ""
+msgid "Rotate"
+msgstr "Draaien"
 
-#~ msgid "Starting pdfsam"
-#~ msgstr "pdfsam wordt opgestart"
+msgid "Rotate the pages of multiple PDF documents."
+msgstr "Draai pagina's van meerdere PDF bestanden"
+
+msgid "Rotate settings"
+msgstr "Draai instellingen"
+
+#~ msgid "Error playing sounds"
+#~ msgstr "Fout bij afspelen van geluid"
+
+#~ msgid "Open menu"
+#~ msgstr "Open menu"
+
+#~ msgid "Thumbnails"
+#~ msgstr "Miniaturen"
+
+#~ msgid "Loading"
+#~ msgstr "Laden"
 
 #~ msgid "Unable to get latest available version"
 #~ msgstr "Kon de laatste versie niet ophalen."
@@ -805,6 +964,16 @@ msgstr ""
 
 #~ msgid "Destination folder"
 #~ msgstr "Doelmap"
+
+#~ msgid "Would you like to overwrite it?"
+#~ msgstr "Wilt u het overschrijven?"
+
+#~ msgid ""
+#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" "
+#~ "is selected"
+#~ msgstr ""
+#~ "Toon een venster waarin de gebruiker om een bevestiging gevraagd wordt "
+#~ "als het \"overschrijf\" selectievakje is geselecteerd."
 
 #~ msgid "Ask for confirmation when overwrite checkbox is selected"
 #~ msgstr ""

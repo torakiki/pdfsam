@@ -7,53 +7,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2014-09-04 15:44+0200\n"
-"PO-Revision-Date: 2014-03-03 14:12+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2014-12-12 17:22+0100\n"
+"PO-Revision-Date: 2014-10-07 01:17+0000\n"
+"Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-09-02 09:01+0000\n"
-"X-Generator: Launchpad (build 17192)\n"
-
-msgid "Selected file already exists"
-msgstr ""
-
-msgid "Would you like to overwrite it?"
-msgstr ""
-
-msgid "Split"
-msgstr ""
-
-msgid "Merge"
-msgstr ""
-
-msgid "Security"
-msgstr ""
-
-msgid "Other"
-msgstr ""
-
-msgid "Directories"
-msgstr ""
-
-msgid "Error saving log file."
-msgstr ""
+"X-Launchpad-Export-Date: 2014-12-12 16:32+0000\n"
+"X-Generator: Launchpad (build 17286)\n"
 
 #, java-format
-msgid "File {0} saved."
-msgstr ""
-
-#, java-format
-msgid "Started in {0}"
-msgstr ""
-
-msgid "Error playing sounds"
-msgstr ""
-
-msgid "Skipping modules signature verification."
+msgid "Installing theme {0}."
 msgstr ""
 
 #, java-format
@@ -77,28 +43,23 @@ msgstr ""
 msgid "Unable to find modules location."
 msgstr ""
 
-msgid "Please select a module"
+#, java-format
+msgid "Started in {0}"
 msgstr ""
 
-msgid "Document details"
+msgid "Closing PDFsam..."
 msgstr ""
 
-msgid "Summary"
-msgstr ""
-
-msgid "Keywords"
-msgstr ""
-
-msgid "Open application messages"
-msgstr ""
-
-msgid "Open menu"
-msgstr ""
-
-msgid "Open main dashboard"
+msgid "Application menu"
 msgstr ""
 
 msgid "_Modules"
+msgstr ""
+
+msgid "E_xit"
+msgstr ""
+
+msgid "Application messages"
 msgstr ""
 
 msgid "_Workspace"
@@ -113,48 +74,25 @@ msgstr ""
 msgid "Recen_t"
 msgstr ""
 
-msgid "E_xit"
+msgid "Select the workspace file to save"
 msgstr ""
 
-msgid "Copy"
+msgid "Select the workspace to load"
 msgstr ""
 
-msgid "Clear"
+msgid "Dashboard"
 msgstr ""
 
-msgid "Select all"
+msgid "Document details"
 msgstr ""
 
-msgid "Save log"
+msgid "Keywords"
 msgstr ""
 
-msgid "Select where to save the log file"
+msgid "Summary"
 msgstr ""
 
-msgid "Log register"
-msgstr ""
-
-msgid "Invalid parameters"
-msgstr ""
-
-msgid ""
-"Input parameters are invalid, open the application messages for details."
-msgstr ""
-
-#, java-format
-msgid "PDFsam {0} is available for download"
-msgstr ""
-
-msgid "Download"
-msgstr ""
-
-msgid "New version available"
-msgstr ""
-
-msgid "Modules"
-msgstr ""
-
-msgid "Close"
+msgid "About"
 msgstr ""
 
 msgid "Subscribe to the official news feed"
@@ -165,6 +103,9 @@ msgstr ""
 
 #, java-format
 msgid "Max memory {0}"
+msgstr ""
+
+msgid "Copy to clipboard"
 msgstr ""
 
 msgid "Thanks to"
@@ -206,13 +147,15 @@ msgstr ""
 msgid "Like us on Facebook"
 msgstr ""
 
-msgid "About"
+msgid "Manually selected"
+msgstr ""
+
+msgid ""
+"Automatically set the destination directory to the selected PDF document "
+"directory"
 msgstr ""
 
 msgid "Appearance"
-msgstr ""
-
-msgid "Thumbnails"
 msgstr ""
 
 msgid "Behavior"
@@ -222,58 +165,6 @@ msgid "Workspace"
 msgstr ""
 
 msgid "Output"
-msgstr ""
-
-msgid ""
-"Select a previously saved workspace that will be automatically loaded at "
-"startup"
-msgstr ""
-
-msgid "Select a workspace"
-msgstr ""
-
-msgid "Select a directory where documents will be saved and loaded by default"
-msgstr ""
-
-msgid "Select a directory"
-msgstr ""
-
-msgid "Load default workspace at startup:"
-msgstr ""
-
-msgid "Default working directory:"
-msgstr ""
-
-msgid "Set your preferred language (restart needed)"
-msgstr ""
-
-msgid "Language:"
-msgstr ""
-
-msgid "Set your preferred theme (restart needed)"
-msgstr ""
-
-msgid "Theme:"
-msgstr ""
-
-msgid "Generate high quality thumbnails (slower)"
-msgstr ""
-
-msgid "Size in px:"
-msgstr ""
-
-msgid "Library used to generate thumbnails"
-msgstr ""
-
-msgid "Thumbnails creator:"
-msgstr ""
-
-msgid "Manually selected"
-msgstr ""
-
-msgid ""
-"Automatically set the destination directory to the selected PDF document "
-"directory"
 msgstr ""
 
 msgid "Check for updates at startup"
@@ -290,14 +181,6 @@ msgstr ""
 msgid "Turn on or off alert sounds"
 msgstr ""
 
-msgid "Ask for confirmation when the \"Overwrite\" checkbox is selected"
-msgstr ""
-
-msgid ""
-"Show a dialog box asking the user for confirmation when the \"overwrite\" is "
-"selected"
-msgstr ""
-
 msgid "High quality thumbnails"
 msgstr ""
 
@@ -312,19 +195,158 @@ msgstr ""
 msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
 msgstr ""
 
+msgid "Generate high quality thumbnails (slower)"
+msgstr ""
+
+msgid "Size in px:"
+msgstr ""
+
+msgid "Library used to generate thumbnails"
+msgstr ""
+
+msgid "Thumbnails creator:"
+msgstr ""
+
 msgid "Clear usage statistics"
+msgstr ""
+
+msgid ""
+"Select a previously saved workspace that will be automatically loaded at "
+"startup"
+msgstr ""
+
+msgid "Select a workspace"
+msgstr ""
+
+msgid "Select a directory where documents will be saved and loaded by default"
+msgstr ""
+
+msgid "Select a directory"
+msgstr ""
+
+msgid ""
+"Usage statistics are used to populate the modules quick bar on the left with "
+"the most used and most recently used modules."
+msgstr ""
+
+msgid "Load default workspace at startup:"
+msgstr ""
+
+msgid "Default working directory:"
+msgstr ""
+
+msgid "Set how often the PDFsam news panel should be opened"
+msgstr ""
+
+msgid "News panel:"
+msgstr ""
+
+msgid "Language:"
+msgstr ""
+
+msgid "Set your preferred language (restart needed)"
+msgstr ""
+
+msgid "Theme:"
+msgstr ""
+
+msgid "Set your preferred theme (restart needed)"
+msgstr ""
+
+msgid "Startup module:"
+msgstr ""
+
+msgid "Set the module to open at application startup (restart needed)"
+msgstr ""
+
+msgid "Check for updates now"
+msgstr ""
+
+msgid "Close"
 msgstr ""
 
 msgid "Settings"
 msgstr ""
 
-msgid "Loading"
+msgid "Modules"
 msgstr ""
 
-msgid "Documents loaded"
+msgid "Log register"
 msgstr ""
 
-msgid "Unexpected error"
+msgid "Copy"
+msgstr ""
+
+msgid "Clear"
+msgstr ""
+
+msgid "Select all"
+msgstr ""
+
+msgid "Save log"
+msgstr ""
+
+msgid "Select where to save the log file"
+msgstr ""
+
+msgid "Invalid parameters"
+msgstr ""
+
+msgid ""
+"Input parameters are invalid, open the application messages for details."
+msgstr ""
+
+#, java-format
+msgid "You performed {0} tasks with PDFsam, did it help?"
+msgstr ""
+
+msgid "Give something back"
+msgstr ""
+
+msgid "PDFsam worked hard!"
+msgstr ""
+
+#, java-format
+msgid "PDFsam {0} is available for download"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "New version available"
+msgstr ""
+
+msgid "Show this:"
+msgstr ""
+
+msgid "What's new"
+msgstr ""
+
+msgid "Directory not empty"
+msgstr ""
+
+msgid "The selected directory is not empty"
+msgstr ""
+
+msgid "Overwrite files with the same name as the generated ones?"
+msgstr ""
+
+msgid "Don't overwrite existing file"
+msgstr ""
+
+msgid "Overwrite confirmation"
+msgstr ""
+
+msgid "A file with the given name already exists"
+msgstr ""
+
+msgid "Do you want to overwrite it?"
+msgstr ""
+
+msgid "Overwrite"
+msgstr ""
+
+msgid "Cancel"
 msgstr ""
 
 msgid "Unable to find the latest available version."
@@ -333,13 +355,198 @@ msgstr ""
 msgid "Checking for updates"
 msgstr ""
 
-msgid "Select an existing directory"
+msgid "Loading pdf documents"
 msgstr ""
 
-msgid "Select"
+msgid "Documents loaded"
 msgstr ""
 
-msgid "Browse"
+msgid "Requesting modules state"
+msgstr ""
+
+msgid "Unable to save modules workspace"
+msgstr ""
+
+#, java-format
+msgid "Loading workspace from {0}"
+msgstr ""
+
+msgid "Workspace loaded"
+msgstr ""
+
+#, java-format
+msgid "Unable to load workspace from {0}"
+msgstr ""
+
+#, java-format
+msgid "Saving workspace data to {0}"
+msgstr ""
+
+msgid "Workspace saved"
+msgstr ""
+
+msgid "Split after the following page numbers"
+msgstr ""
+
+msgid "Page numbers to split at (n1,n2,n3..)"
+msgstr ""
+
+msgid "Split the document after the given page numbers"
+msgstr ""
+
+msgid "Invalid page numbers"
+msgstr ""
+
+msgid "Split"
+msgstr "Dividi"
+
+msgid "Split a pdf document at the given page numbers."
+msgstr ""
+
+msgid "Select or drag and drop the PDF you want to split"
+msgstr ""
+
+msgid "File names settings"
+msgstr ""
+
+msgid "Split settings"
+msgstr ""
+
+msgid "Destination directory"
+msgstr ""
+
+msgid "Burst (Split into single pages)"
+msgstr ""
+
+msgid "Split even pages"
+msgstr ""
+
+msgid "Split odd pages"
+msgstr ""
+
+msgid "Explode the document into single pages"
+msgstr ""
+
+msgid "Split the document after every even page"
+msgstr ""
+
+msgid "Split the document after every odd page"
+msgstr ""
+
+msgid "Split by every \"n\" pages"
+msgstr ""
+
+msgid "Number of pages"
+msgstr ""
+
+msgid "Splits the pdf every \"n\" pages creating documents of \"n\" pages each"
+msgstr ""
+
+msgid "Invalid number of pages"
+msgstr ""
+
+msgid "Split by size"
+msgstr ""
+
+msgid "Split a pdf document in files of the give size (roughly)."
+msgstr ""
+
+msgid "Set the size to split at"
+msgstr ""
+
+msgid "Size must be a number"
+msgstr ""
+
+msgid "Split at this size:"
+msgstr ""
+
+msgid "Invalid split size"
+msgstr ""
+
+msgid "Kilobytes"
+msgstr ""
+
+msgid "KB"
+msgstr ""
+
+msgid "Megabytes"
+msgstr ""
+
+msgid "MB"
+msgstr ""
+
+msgid "Alternate Mix"
+msgstr ""
+
+msgid ""
+"Merge two PDF documents taking pages alternately in straight or reverse "
+"order."
+msgstr ""
+
+msgid "Select or drag and drop the first PDF you want to mix"
+msgstr ""
+
+msgid "Select or drag and drop the second PDF you want to mix"
+msgstr ""
+
+msgid "Mix settings"
+msgstr ""
+
+msgid "Destination file"
+msgstr ""
+
+msgid "Reverse the first document"
+msgstr ""
+
+msgid "Reverse the second document"
+msgstr ""
+
+msgid ""
+"Switch from the first document to the second one after the following pages"
+msgstr ""
+
+msgid ""
+"Switch from the second document to the first one after the following pages"
+msgstr ""
+
+msgid "Invalid parameter 'first and second step' must be numbers"
+msgstr ""
+
+msgid "Select the number of pages"
+msgstr ""
+
+msgid "The selected PDF document is invalid"
+msgstr ""
+
+msgid "Open the generated document"
+msgstr ""
+
+msgid "Open the destination directory"
+msgstr ""
+
+msgid "Ready"
+msgstr ""
+
+msgid "Running"
+msgstr ""
+
+msgid "Requested"
+msgstr ""
+
+msgid "Completed"
+msgstr ""
+
+msgid "Failed"
+msgstr ""
+
+msgid "Run"
+msgstr ""
+
+msgid "Overwrite if already exists"
+msgstr ""
+
+msgid ""
+"Tick the box if you want to overwrite the outpuf files if they already exist."
 msgstr ""
 
 msgid "Select a file"
@@ -352,11 +559,13 @@ msgstr ""
 msgid "Allowed extensions are {0}"
 msgstr ""
 
-msgid "Overwrite if already exists"
+msgid "Select"
 msgstr ""
 
-msgid ""
-"Tick the box if you want to overwrite the outpuf files if they already exist."
+msgid "Browse"
+msgstr ""
+
+msgid "The selected PDF file is invalid"
 msgstr ""
 
 msgid "Compress output file/files"
@@ -376,13 +585,13 @@ msgstr ""
 msgid "Pdf version required: {0}"
 msgstr ""
 
-msgid "The selected PDF file is invalid"
+msgid "Select an existing directory"
 msgstr ""
 
 msgid "The selected output directory is invalid"
 msgstr ""
 
-msgid "Run"
+msgid "Generated pdf documents name prefix:"
 msgstr ""
 
 msgid "Prefix for the generated files names"
@@ -400,44 +609,14 @@ msgstr ""
 msgid "Right click to add these keywords."
 msgstr ""
 
-msgid "Generated pdf documents name prefix:"
-msgstr ""
-
-msgid "This document is encrypted, click to provide a password."
-msgstr ""
-
-msgid "Valid user password provided."
-msgstr ""
-
 msgid "Enter the user password"
 msgstr ""
 
 msgid "Unlock"
 msgstr ""
 
-#, java-format
-msgid "Pages: {0}, PDF Version: {1}"
-msgstr ""
-
-msgid "Document properties"
-msgstr ""
-
-msgid "Set destination"
-msgstr ""
-
-msgid "Open"
-msgstr ""
-
-msgid "Open Folder"
-msgstr ""
-
-msgid "The selected PDF document is invalid"
-msgstr ""
-
-msgid "Size"
-msgstr ""
-
-msgid "Modified"
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 
 msgid "Pages"
@@ -479,7 +658,36 @@ msgstr ""
 msgid "Move _Down"
 msgstr ""
 
+msgid "Page ranges"
+msgstr ""
+
+msgid "Size"
+msgstr ""
+
+msgid "Modified"
+msgstr ""
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr ""
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+
+#, java-format
+msgid "Invalid number: {0}."
+msgstr ""
+
 msgid "Drag and drop PDF files here"
+msgstr ""
+
+msgid "Document properties"
+msgstr ""
+
+msgid "Set destination"
 msgstr ""
 
 msgid "Remove"
@@ -497,34 +705,20 @@ msgstr ""
 msgid "Move to Bottom"
 msgstr ""
 
-#, java-format
-msgid "Invalid range: {0}."
+msgid "Open"
+msgstr ""
+
+msgid "Open Folder"
+msgstr ""
+
+msgid "Duplicate"
 msgstr ""
 
 #, java-format
-msgid ""
-"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
-"or [-n] or [n-]"
+msgid "Pages: {0}, PDF Version: {1}"
 msgstr ""
 
-#, java-format
-msgid "Invalid number: {0}."
-msgstr ""
-
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-
-msgid "Page ranges"
-msgstr ""
-
-msgid "Merge together multiple pdf documents or subsections of them."
-msgstr ""
-
-msgid "Merge settings"
-msgstr ""
-
-msgid "Destination file"
+msgid "Loading..."
 msgstr ""
 
 msgid "Merge form fields"
@@ -556,61 +750,78 @@ msgstr ""
 msgid "No pdf document has been selected"
 msgstr ""
 
-msgid "Burst (Split into single pages)"
+msgid "Merge"
 msgstr ""
 
-msgid "Split even pages"
+msgid "Merge together multiple pdf documents or subsections of them."
 msgstr ""
 
-msgid "Split odd pages"
+msgid "Merge settings"
 msgstr ""
 
-msgid "Explode the document into single pages"
+msgid "Security"
+msgstr "Sekureco"
+
+msgid "Other"
+msgstr "Aliaj"
+
+msgid "Error saving log file."
 msgstr ""
 
-msgid "Split the document after every even page"
+#, java-format
+msgid "File {0} saved."
 msgstr ""
 
-msgid "Split the document after every odd page"
+msgid "Directories"
+msgstr "Dosierujoj"
+
+msgid "Valid user password provided."
 msgstr ""
 
-msgid "Split a pdf document at the given page numbers."
+msgid "This document is encrypted, click to provide a password."
 msgstr ""
 
-msgid "Select or drag and drop the PDF you want to split"
+msgid "Squared green"
 msgstr ""
 
-msgid "File names settings"
+msgid "Squared cornflower"
 msgstr ""
 
-msgid "Split settings"
+msgid "Roundish"
 msgstr ""
 
-msgid "Destination directory"
+msgid "Never"
 msgstr ""
 
-msgid "Split after the following page numbers"
+msgid "Once a day"
 msgstr ""
 
-msgid "Page numbers to split at (n1,n2,n3..)"
+msgid "Once a week"
 msgstr ""
 
-msgid "Split the document after the given page numbers"
+msgid "Always"
 msgstr ""
 
-msgid "Invalid page numbers"
+msgid "Set the bookmarks level to split at"
 msgstr ""
 
-msgid "Split by every \"n\" pages"
+msgid "Invalid bookmarks level"
 msgstr ""
 
-msgid "Number of pages"
+msgid "Split by bookmarks"
 msgstr ""
 
-msgid "Splits the pdf every \"n\" pages creating documents of \"n\" pages each"
+msgid ""
+"Split a pdf document at bookmarked pages by specifying a bookmark level."
 msgstr ""
 
-msgid "Invalid number of pages"
+msgid "Regexp the bookmark has to match"
+msgstr ""
+
+msgid "Split at this bookmark level:"
+msgstr ""
+
+msgid "Matching regular expression:"
 msgstr ""
 
 msgid "All pages"
@@ -643,76 +854,5 @@ msgstr ""
 msgid "Rotate settings"
 msgstr ""
 
-msgid "Split by size"
-msgstr ""
-
-msgid "Split a pdf document in files of the give size (roughly)."
-msgstr ""
-
-msgid "Set the size as number of bytes or specify KB or MB"
-msgstr ""
-
-msgid "Invalid split size"
-msgstr ""
-
-msgid "Split at this size:"
-msgstr ""
-
-msgid "Regexp the bookmark has to match"
-msgstr ""
-
-msgid "Split at this bookmark level:"
-msgstr ""
-
-msgid "Matching regular expression:"
-msgstr ""
-
-msgid "Set the bookmarks level to split at"
-msgstr ""
-
-msgid "Invalid bookmarks level"
-msgstr ""
-
-msgid "Split by bookmarks"
-msgstr ""
-
-msgid ""
-"Split a pdf document at bookmarked pages by specifying a bookmark level."
-msgstr ""
-
-msgid "Reverse the first document"
-msgstr ""
-
-msgid "Reverse the second document"
-msgstr ""
-
-msgid ""
-"Switch from the first document to the second one after the following pages"
-msgstr ""
-
-msgid ""
-"Switch from the second document to the first one after the following pages"
-msgstr ""
-
-msgid "Invalid parameter 'first and second step' must be numbers"
-msgstr ""
-
-msgid "Select the number of pages"
-msgstr ""
-
-msgid "Alternate Mix"
-msgstr ""
-
-msgid ""
-"Merge two PDF documents taking pages alternately in straight or reverse "
-"order."
-msgstr ""
-
-msgid "Select or drag and drop the first PDF you want to mix"
-msgstr ""
-
-msgid "Select or drag and drop the second PDF you want to mix"
-msgstr ""
-
-msgid "Mix settings"
-msgstr ""
+#~ msgid "Would you like to overwrite it?"
+#~ msgstr "Ĉu vi deziras anstataŭigi ĝin?"
