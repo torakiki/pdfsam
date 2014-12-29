@@ -25,6 +25,8 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
+import org.apache.commons.lang3.SystemUtils;
+import org.junit.Assume;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
@@ -51,6 +53,7 @@ public class ClosePaneTest extends GuiTest {
 
     @Test
     public void hide() {
+        Assume.assumeTrue(!SystemUtils.IS_OS_WINDOWS);
         click("show");
         verifyThat(".pdfsam-container", (HBox n) -> n.getScene().getWindow().isShowing());
         click(".pdfsam-button");
