@@ -145,4 +145,11 @@ public class DefaultUserContextTest {
         victim.setIntegerPreference(IntUserPreference.THUMBNAILS_SIZE, 2);
         assertEquals(2, victim.getThumbnailsSize());
     }
+
+    @Test
+    public void getNumberOfLogRows() {
+        assertEquals(200, victim.getNumberOfLogRows());
+        victim.setIntegerPreference(IntUserPreference.LOGVIEW_ROWS_NUMBER, 20);
+        assertEquals(20, victim.getNumberOfLogRows());
+    }
 }

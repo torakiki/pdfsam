@@ -37,7 +37,6 @@ import org.pdfsam.ui.support.Style;
  * @author Andrea Vacondio
  * 
  */
-@Named
 class PreferenceThumbnailsPane extends VBox {
 
     @Inject

@@ -40,7 +40,7 @@ public class PreferencePane extends HBox {
 
     @Inject
     public PreferencePane(PreferenceAppearencePane appearence, PreferenceBehaviorPane behavior,
-            PreferenceWorkspacePane workspace, PreferenceOutputPane output, PreferenceThumbnailsPane thumbnails) {
+            PreferenceWorkspacePane workspace, PreferenceOutputPane output) {
         getStyleClass().add("dashboard-container");
         VBox left = new VBox(Style.DEFAULT_SPACING);
         left.setMinWidth(USE_PREF_SIZE);

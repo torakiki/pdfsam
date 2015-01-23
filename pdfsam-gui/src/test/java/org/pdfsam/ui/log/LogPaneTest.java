@@ -21,6 +21,8 @@ package org.pdfsam.ui.log;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 import javafx.scene.Parent;
 import javafx.scene.input.Clipboard;
 
@@ -32,6 +34,7 @@ import org.junit.runner.RunWith;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
+import org.pdfsam.context.UserContext;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -58,6 +61,13 @@ public class LogPaneTest extends GuiTest {
     @Lazy
     static class Config {
         @Bean
+        public UserContext context() {
+            UserContext userContext = mock(UserContext.class);
+            when(userContext.getNumberOfLogRows()).thenReturn(200);
+            return userContext;
+        }
+
+        @Bean
         @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
         public LogPane pane() {
             return new LogPane(view());
@@ -65,7 +75,7 @@ public class LogPaneTest extends GuiTest {
 
         @Bean
         public LogListView view() {
-            LogListView view = new LogListView();
+            LogListView view = new LogListView(context());
             view.appendLog(LogLevel.INFO, "A message");
             view.appendLog(LogLevel.ERROR, "An Error message");
             return view;

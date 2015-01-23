@@ -24,7 +24,11 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.util.Callback;
 
+import javax.inject.Inject;
 import javax.inject.Named;
+
+import org.pdfsam.context.UserContext;
+import org.pdfsam.ui.support.CircularObservableList;
 
 /**
  * {@link ListView} showing log messages
@@ -35,7 +39,9 @@ import javax.inject.Named;
 @Named
 class LogListView extends ListView<LogMessage> {
 
-    public LogListView() {
+    @Inject
+    public LogListView(UserContext userContext) {
+        super(new CircularObservableList<>(userContext.getNumberOfLogRows()));
         setId("log-view");
         getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         setCellFactory(new Callback<ListView<LogMessage>, ListCell<LogMessage>>() {

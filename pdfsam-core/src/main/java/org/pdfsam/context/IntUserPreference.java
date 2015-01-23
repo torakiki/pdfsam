@@ -26,4 +26,5 @@ package org.pdfsam.context;
  */
 public enum IntUserPreference {
     THUMBNAILS_SIZE,
+    LOGVIEW_ROWS_NUMBER
 }

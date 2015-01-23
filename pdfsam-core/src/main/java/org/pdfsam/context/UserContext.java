@@ -72,6 +72,11 @@ public interface UserContext {
     int getThumbnailsSize();
 
     /**
+     * @return the max number of rows that the log view should display
+     */
+    int getNumberOfLogRows();
+
+    /**
      * @return the name of the configured theme
      */
     String getTheme();

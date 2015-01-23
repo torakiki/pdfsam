@@ -106,7 +106,7 @@ public class PreferenceConfig {
         return newsDisplayPolicyCombo;
     }
 
-    @Bean(name = "thumbnailsCombo")
+    // @Bean(name = "thumbnailsCombo")
     public PreferenceComboBox<KeyStringValueItem<String>> thumbnailsCombo() {
         return new PreferenceComboBox<>(StringUserPreference.THUMBNAILS_IDENTIFIER, userContext);
     }
@@ -133,7 +133,7 @@ public class PreferenceConfig {
         return playSounds;
     }
 
-    @Bean(name = "highQualityThumbnails")
+    // @Bean(name = "highQualityThumbnails")
     public PreferenceCheckBox highQualityThumbnails() {
         PreferenceCheckBox highQualityThumbnails = new PreferenceCheckBox(BooleanUserPreference.HIGH_QUALITY_THUMB,
                 DefaultI18nContext.getInstance().i18n("High quality thumbnails"),
@@ -169,7 +169,7 @@ public class PreferenceConfig {
         return workspace;
     }
 
-    @Bean(name = "thumbnailsSize")
+    // @Bean(name = "thumbnailsSize")
     public PreferenceIntTextField thumbnailsSize() {
         PreferenceIntTextField thumbnails = new PreferenceIntTextField(IntUserPreference.THUMBNAILS_SIZE, userContext,
                 Validators.newPositiveIntRangeString(THUMB_SIZE_LOWER, THUMB_SIZE_UPPER));
@@ -182,6 +182,20 @@ public class PreferenceConfig {
         thumbnails.setPromptText(helpText);
         thumbnails.setTooltip(new Tooltip(helpText));
         thumbnails.setId("thumbnailsSize");
+        return thumbnails;
+    }
+
+    @Bean(name = "logViewRowsNumber")
+    public PreferenceIntTextField logViewRowsNumber() {
+        PreferenceIntTextField thumbnails = new PreferenceIntTextField(IntUserPreference.LOGVIEW_ROWS_NUMBER,
+                userContext, Validators.newPositiveIntegerString());
+        thumbnails.setText(Integer.toString(userContext.getNumberOfLogRows()));
+        thumbnails.setErrorMessage(DefaultI18nContext.getInstance().i18n(
+                "Maximum number of rows mast be a positive number"));
+        String helpText = DefaultI18nContext.getInstance().i18n("Maximum number of rows displayed by the Log register");
+        thumbnails.setPromptText(helpText);
+        thumbnails.setTooltip(new Tooltip(helpText));
+        thumbnails.setId("logViewRowsNumber");
         return thumbnails;
     }
 

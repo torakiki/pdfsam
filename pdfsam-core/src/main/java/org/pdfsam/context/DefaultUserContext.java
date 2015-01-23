@@ -73,6 +73,11 @@ public final class DefaultUserContext implements UserContext {
     }
 
     @Override
+    public int getNumberOfLogRows() {
+        return prefs.getInt(IntUserPreference.LOGVIEW_ROWS_NUMBER.toString(), 200);
+    }
+
+    @Override
     public String getTheme() {
         return defaultIfBlank(prefs.get(StringUserPreference.THEME.toString(), StringUtils.EMPTY),
                 Theme.ROUNDISH.toString());

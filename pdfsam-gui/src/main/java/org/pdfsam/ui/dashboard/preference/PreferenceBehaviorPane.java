@@ -43,7 +43,8 @@ class PreferenceBehaviorPane extends GridPane {
     public PreferenceBehaviorPane(@Named("checkForUpdates") PreferenceCheckBox checkForUpdates,
             @Named("playSounds") PreferenceCheckBox playSounds,
             @Named("newsDisplayPolicy") PreferenceComboBox<KeyStringValueItem<String>> newsDisplayPolicy,
-            CheckForUpdatesButton checkForUpdatesNow) {
+            CheckForUpdatesButton checkForUpdatesNow,
+            @Named("logViewRowsNumber") PreferenceIntTextField logViewRowsNumber) {
 
         newsDisplayPolicy.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
                 "Set how often the PDFsam news panel should be opened")));
@@ -51,8 +52,14 @@ class PreferenceBehaviorPane extends GridPane {
         setFillWidth(newsDisplayPolicy, true);
         newsDisplayPolicy.setMaxWidth(Double.POSITIVE_INFINITY);
         add(newsDisplayPolicy, 1, 0);
-        add(playSounds, 0, 1, 2, 1);
-        add(new VBox(checkForUpdates, checkForUpdatesNow), 0, 2, 2, 1);
+
+        add(new Label(DefaultI18nContext.getInstance().i18n("Log register rows:")), 0, 1);
+        setFillWidth(logViewRowsNumber, true);
+        logViewRowsNumber.setMaxWidth(Double.POSITIVE_INFINITY);
+        add(logViewRowsNumber, 1, 1);
+
+        add(playSounds, 0, 2, 2, 1);
+        add(new VBox(checkForUpdates, checkForUpdatesNow), 0, 3, 2, 1);
 
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.GRID.css());
