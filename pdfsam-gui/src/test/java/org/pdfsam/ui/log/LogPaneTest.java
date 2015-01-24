@@ -28,6 +28,7 @@ import javafx.scene.input.Clipboard;
 
 import javax.inject.Inject;
 
+import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
@@ -35,6 +36,7 @@ import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.context.UserContext;
+import org.pdfsam.test.ClearEventStudioRule;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -56,6 +58,8 @@ public class LogPaneTest extends GuiTest {
 
     @Inject
     private ApplicationContext applicationContext;
+    @ClassRule
+    public static ClearEventStudioRule clearStudio = new ClearEventStudioRule();
 
     @Configuration
     @Lazy

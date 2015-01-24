@@ -27,6 +27,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.pdfsam.context.UserContext;
+import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 
 /**
@@ -37,6 +38,8 @@ public class LogListViewTest {
 
     @Rule
     public InitializeAndApplyJavaFxThreadRule javaFxThread = new InitializeAndApplyJavaFxThreadRule();
+    @Rule
+    public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
     private UserContext userContext;
 
     @Before
