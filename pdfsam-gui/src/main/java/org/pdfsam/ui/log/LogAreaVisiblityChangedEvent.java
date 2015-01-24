@@ -24,6 +24,6 @@ package org.pdfsam.ui.log;
  * @author Andrea Vacondio
  * 
  */
-public class ChangedVisiblityLogAreaEvent {
+public class LogAreaVisiblityChangedEvent {
     // nothing
 }

@@ -21,6 +21,7 @@ package org.pdfsam.ui.log;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -65,5 +66,22 @@ public class LogListViewTest {
         assertEquals(2, victim.getItems().size());
         assertEquals("anotherTestMessage2", victim.getItems().get(0).getMessage());
         assertEquals("anotherTestMessage3", victim.getItems().get(1).getMessage());
+    }
+
+    @Test
+    public void maxNumberOfLogRowsChanged() {
+        when(userContext.getNumberOfLogRows()).thenReturn(5);
+        LogListView victim = new LogListView(userContext);
+        victim.appendLog(LogLevel.WARN, "testMessage");
+        victim.appendLog(LogLevel.INFO, "anotherTestMessage");
+        victim.appendLog(LogLevel.INFO, "anotherTestMessage2");
+        victim.appendLog(LogLevel.INFO, "anotherTestMessage3");
+        victim.appendLog(LogLevel.INFO, "anotherTestMessage4");
+        assertEquals(5, victim.getItems().size());
+        when(userContext.getNumberOfLogRows()).thenReturn(2);
+        eventStudio().broadcast(new MaxLogRowsChangedEvent());
+        assertEquals(2, victim.getItems().size());
+        assertEquals("anotherTestMessage3", victim.getItems().get(0).getMessage());
+        assertEquals("anotherTestMessage4", victim.getItems().get(1).getMessage());
     }
 }

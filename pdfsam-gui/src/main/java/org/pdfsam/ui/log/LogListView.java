@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.log;
 
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -41,8 +42,10 @@ class LogListView extends ListView<LogMessage> {
 
     @Inject
     public LogListView(UserContext userContext) {
-        super(new CircularObservableList<>(userContext.getNumberOfLogRows()));
+        CircularObservableList<LogMessage> items = new CircularObservableList<>(userContext.getNumberOfLogRows());
+        eventStudio().add(MaxLogRowsChangedEvent.class, e -> items.setMaxCapacity(userContext.getNumberOfLogRows()));
         setId("log-view");
+        setItems(items);
         getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         setCellFactory(new Callback<ListView<LogMessage>, ListCell<LogMessage>>() {
             @Override

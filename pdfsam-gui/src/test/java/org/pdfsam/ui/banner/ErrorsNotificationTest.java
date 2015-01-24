@@ -33,7 +33,7 @@ import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.ui.log.ChangedVisiblityLogAreaEvent;
+import org.pdfsam.ui.log.LogAreaVisiblityChangedEvent;
 import org.pdfsam.ui.log.ErrorLoggedEvent;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.ApplicationContext;
@@ -87,7 +87,7 @@ public class ErrorsNotificationTest extends GuiTest {
         assertTrue(victim.isVisible());
         // make sure the fade is done
         Thread.sleep(300);
-        FXTestUtils.invokeAndWait(() -> eventStudio().broadcast(new ChangedVisiblityLogAreaEvent()), 1);
+        FXTestUtils.invokeAndWait(() -> eventStudio().broadcast(new LogAreaVisiblityChangedEvent()), 1);
         Thread.sleep(300);
         assertFalse(victim.isVisible());
 

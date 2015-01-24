@@ -20,6 +20,7 @@ package org.pdfsam.ui.dashboard.preference;
 
 import static org.pdfsam.support.KeyStringValueItem.keyEmptyValue;
 import static org.pdfsam.support.KeyStringValueItem.keyValue;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Arrays;
 import java.util.List;
@@ -43,6 +44,8 @@ import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.NewsPolicy;
 import org.pdfsam.ui.Theme;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
+import org.pdfsam.ui.log.MaxLogRowsChangedEvent;
+import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -187,16 +190,21 @@ public class PreferenceConfig {
 
     @Bean(name = "logViewRowsNumber")
     public PreferenceIntTextField logViewRowsNumber() {
-        PreferenceIntTextField thumbnails = new PreferenceIntTextField(IntUserPreference.LOGVIEW_ROWS_NUMBER,
+        PreferenceIntTextField logRowsNumber = new PreferenceIntTextField(IntUserPreference.LOGVIEW_ROWS_NUMBER,
                 userContext, Validators.newPositiveIntegerString());
-        thumbnails.setText(Integer.toString(userContext.getNumberOfLogRows()));
-        thumbnails.setErrorMessage(DefaultI18nContext.getInstance().i18n(
+        logRowsNumber.setText(Integer.toString(userContext.getNumberOfLogRows()));
+        logRowsNumber.setErrorMessage(DefaultI18nContext.getInstance().i18n(
                 "Maximum number of rows mast be a positive number"));
         String helpText = DefaultI18nContext.getInstance().i18n("Maximum number of rows displayed by the Log register");
-        thumbnails.setPromptText(helpText);
-        thumbnails.setTooltip(new Tooltip(helpText));
-        thumbnails.setId("logViewRowsNumber");
-        return thumbnails;
+        logRowsNumber.setPromptText(helpText);
+        logRowsNumber.setTooltip(new Tooltip(helpText));
+        logRowsNumber.setId("logViewRowsNumber");
+        logRowsNumber.validProperty().addListener((o, oldVal, newVal) -> {
+            if (newVal == ValidationState.VALID) {
+                eventStudio().broadcast(new MaxLogRowsChangedEvent());
+            }
+        });
+        return logRowsNumber;
     }
 
 }

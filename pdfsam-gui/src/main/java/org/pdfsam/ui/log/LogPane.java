@@ -109,7 +109,7 @@ public class LogPane extends BorderPane {
         saveItem.disableProperty().bind(clearItem.disableProperty());
         SeparatorMenuItem separator = new SeparatorMenuItem();
         logView.setContextMenu(new ContextMenu(copyItem, clearItem, selectAllItem, separator, saveItem));
-        logView.focusedProperty().addListener(o -> eventStudio().broadcast(new ChangedVisiblityLogAreaEvent()));
+        logView.focusedProperty().addListener(o -> eventStudio().broadcast(new LogAreaVisiblityChangedEvent()));
     }
 
     public void saveLog() {

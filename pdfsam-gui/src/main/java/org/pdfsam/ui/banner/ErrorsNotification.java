@@ -26,7 +26,7 @@ import javafx.util.Duration;
 
 import javax.inject.Named;
 
-import org.pdfsam.ui.log.ChangedVisiblityLogAreaEvent;
+import org.pdfsam.ui.log.LogAreaVisiblityChangedEvent;
 import org.pdfsam.ui.log.ErrorLoggedEvent;
 import org.sejda.eventstudio.annotation.EventListener;
 
@@ -64,7 +64,7 @@ public class ErrorsNotification extends Label {
     }
 
     @EventListener
-    public void onViewedLogArea(ChangedVisiblityLogAreaEvent event) {
+    public void onViewedLogArea(LogAreaVisiblityChangedEvent event) {
         if (hasUnreadMessages() && !(fade.getStatus() == Status.RUNNING)) {
             fade.setFromValue(1);
             fade.setToValue(0);
