@@ -25,9 +25,11 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.function.Consumer;
 
 import org.junit.Before;
@@ -71,8 +73,22 @@ public class MergeSelectionPaneTest {
     }
 
     @Test
+    public void emptyByZeroPagesSelected() throws IOException {
+        File file = folder.newFile("temp.pdf");
+        PdfLoadRequestEvent<SelectionTableRowData> loadEvent = new PdfLoadRequestEvent<>(MODULE);
+        SelectionTableRowData data = new SelectionTableRowData(file);
+        data.setPageSelection("0");
+        loadEvent.add(data);
+        eventStudio().broadcast(loadEvent, MODULE);
+        victim.apply(builder, onError);
+        verify(onError).accept(anyString());
+        verify(builder, never()).addInput(any());
+    }
+
+    @Test
     public void notEmpty() throws Exception {
         populate();
+        when(builder.hasInput()).thenReturn(Boolean.TRUE);
         victim.apply(builder, onError);
         verify(onError, never()).accept(anyString());
         verify(builder).addInput(any());

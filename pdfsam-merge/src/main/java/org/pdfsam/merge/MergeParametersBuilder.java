@@ -47,6 +47,10 @@ class MergeParametersBuilder extends AbstractPdfOutputParametersBuilder<MergePar
         this.inputs.add(input);
     }
 
+    boolean hasInput() {
+        return !inputs.isEmpty();
+    }
+
     void outlinePolicy(OutlinePolicy outlinePolicy) {
         this.outlinePolicy = outlinePolicy;
     }

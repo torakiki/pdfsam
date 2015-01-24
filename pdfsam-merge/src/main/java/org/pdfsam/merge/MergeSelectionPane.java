@@ -18,6 +18,9 @@
  */
 package org.pdfsam.merge;
 
+import static org.apache.commons.lang3.StringUtils.trim;
+
+import java.util.Objects;
 import java.util.function.Consumer;
 
 import org.pdfsam.i18n.DefaultI18nContext;
@@ -50,15 +53,14 @@ public class MergeSelectionPane extends MultipleSelectionPane implements
     }
 
     public void apply(MergeParametersBuilder builder, Consumer<String> onError) {
-        if (!table().getItems().isEmpty()) {
-            try {
-                table().getItems().stream().map(i -> new PdfMergeInput(i.toPdfFileSource(), i.toPageRangeSet()))
-                        .forEach(builder::addInput);
-            } catch (ConversionException e) {
-                LOG.error(e.getMessage());
-                onError.accept(e.getMessage());
-            }
-        } else {
+        try {
+            table().getItems().stream().filter(s -> !Objects.equals("0", trim(s.getPageSelection())))
+                    .map(i -> new PdfMergeInput(i.toPdfFileSource(), i.toPageRangeSet())).forEach(builder::addInput);
+        } catch (ConversionException e) {
+            LOG.error(e.getMessage());
+            onError.accept(e.getMessage());
+        }
+        if (!builder.hasInput()) {
             onError.accept(DefaultI18nContext.getInstance().i18n("No pdf document has been selected"));
         }
 
