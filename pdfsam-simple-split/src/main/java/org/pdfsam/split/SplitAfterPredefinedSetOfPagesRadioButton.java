@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 03/giu/2014
+ * Created on 26/gen/2015
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,53 +18,65 @@
  */
 package org.pdfsam.split;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.apache.commons.lang3.StringUtils.defaultString;
 
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
 
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.Tooltip;
 
+import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
 import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.model.parameter.SimpleSplitParameters;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
 
 /**
- * A radio button associated to a Predefined set of pages
+ * A {@link RadioButton} showing a combo to select a {@link PredefinedSetOfPages} as split option
  * 
  * @author Andrea Vacondio
  *
  */
-class PredefinedSetOfPagesRadioButton extends RadioButton implements SplitParametersBuilderCreator, RestorableView {
+class SplitAfterPredefinedSetOfPagesRadioButton extends RadioButton implements SplitParametersBuilderCreator,
+        RestorableView {
 
-    private PredefinedSetOfPages pages;
+    private ComboBox<KeyStringValueItem<PredefinedSetOfPages>> combo;
 
-    public PredefinedSetOfPagesRadioButton(PredefinedSetOfPages pages, String text) {
-        super(text);
-        requireNotNull(pages, "Cannot create the radio button with a null predefined set of pages.");
-        this.pages = pages;
+    public SplitAfterPredefinedSetOfPagesRadioButton(ComboBox<KeyStringValueItem<PredefinedSetOfPages>> combo) {
+        super(DefaultI18nContext.getInstance().i18n("Split after"));
+        this.combo = combo;
+        combo.getSelectionModel().selectFirst();
+        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Split the document after the given page numbers")));
     }
 
-    public PredefinedSetOfPages getPages() {
-        return pages;
+    public SimpleSplitParametersBuilder getBuilder(Consumer<String> onError) {
+        KeyStringValueItem<PredefinedSetOfPages> selected = combo.getSelectionModel().getSelectedItem();
+        if (selected != null) {
+            return new SimpleSplitParametersBuilder(selected.getKey());
+        }
+        onError.accept(DefaultI18nContext.getInstance().i18n("No page selected"));
+        return null;
     }
 
     public void saveStateTo(Map<String, String> data) {
         if (isSelected()) {
-            data.put(pages.toString(), Boolean.TRUE.toString());
+            data.put("splitAfterPredefined", Boolean.TRUE.toString());
         }
+        KeyStringValueItem<PredefinedSetOfPages> selected = combo.getSelectionModel().getSelectedItem();
+        if (selected != null) {
+            data.put("splitAfterPredefined.combo", defaultString(selected.getKey().toString()));
+        }
+
     }
 
     public void restoreStateFrom(Map<String, String> data) {
-        Optional.ofNullable(data.get(pages.toString())).map(Boolean::valueOf).ifPresent(this::setSelected);
-    }
-
-    public SimpleSplitParametersBuilder getBuilder(Consumer<String> onError) {
-        SimpleSplitParametersBuilder builder = new SimpleSplitParametersBuilder();
-        builder.pages(pages);
-        return builder;
+        Optional.ofNullable(data.get("splitAfterPredefined")).map(Boolean::valueOf).ifPresent(this::setSelected);
+        Optional.ofNullable(data.get("splitAfterPredefined.combo")).map(PredefinedSetOfPages::valueOf)
+                .map(KeyStringValueItem::keyEmptyValue).ifPresent(this.combo.getSelectionModel()::select);
     }
 
     /**
@@ -78,7 +90,7 @@ class PredefinedSetOfPagesRadioButton extends RadioButton implements SplitParame
 
         private PredefinedSetOfPages pages;
 
-        void pages(PredefinedSetOfPages pages) {
+        SimpleSplitParametersBuilder(PredefinedSetOfPages pages) {
             this.pages = pages;
         }
 
@@ -93,5 +105,4 @@ class PredefinedSetOfPagesRadioButton extends RadioButton implements SplitParame
             return params;
         }
     }
-
 }

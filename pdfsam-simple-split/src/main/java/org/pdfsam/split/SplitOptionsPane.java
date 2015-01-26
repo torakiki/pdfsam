@@ -21,12 +21,12 @@ package org.pdfsam.split;
 import java.util.Map;
 import java.util.function.Consumer;
 
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.Tooltip;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
 import org.pdfsam.ui.commons.RadioButtonDrivenTextFieldsPane;
 import org.pdfsam.ui.commons.ValidableTextField;
@@ -43,41 +43,41 @@ import org.sejda.model.pdf.page.PredefinedSetOfPages;
  */
 class SplitOptionsPane extends VBox implements SplitParametersBuilderCreator, RestorableView {
 
-    private PredefinedSetOfPagesRadioButton burst = new PredefinedSetOfPagesRadioButton(PredefinedSetOfPages.ALL_PAGES,
-            DefaultI18nContext.getInstance().i18n("Burst (Split into single pages)"));
-    private PredefinedSetOfPagesRadioButton even = new PredefinedSetOfPagesRadioButton(PredefinedSetOfPages.EVEN_PAGES,
-            DefaultI18nContext.getInstance().i18n("Split even pages"));
-    private PredefinedSetOfPagesRadioButton odd = new PredefinedSetOfPagesRadioButton(PredefinedSetOfPages.ODD_PAGES,
-            DefaultI18nContext.getInstance().i18n("Split odd pages"));
-
     private ToggleGroup group = new ToggleGroup();
+    private SplitAfterPredefinedSetOfPagesRadioButton splitAfterPredefined;
     private SplitAfterRadioButton splitAfter;
     private SplitByEveryRadioButton splitByEvery;
 
     SplitOptionsPane() {
         super(Style.DEFAULT_SPACING);
+        ComboBox<KeyStringValueItem<PredefinedSetOfPages>> predefinedCombo = new ComboBox<>();
+        predefinedCombo.getItems().add(
+                KeyStringValueItem.keyValue(PredefinedSetOfPages.ALL_PAGES,
+                        DefaultI18nContext.getInstance().i18n("Every page")));
+        predefinedCombo.getItems().add(
+                KeyStringValueItem.keyValue(PredefinedSetOfPages.EVEN_PAGES,
+                        DefaultI18nContext.getInstance().i18n("Even pages")));
+        predefinedCombo.getItems().add(
+                KeyStringValueItem.keyValue(PredefinedSetOfPages.ODD_PAGES,
+                        DefaultI18nContext.getInstance().i18n("Odd pages")));
+        splitAfterPredefined = new SplitAfterPredefinedSetOfPagesRadioButton(predefinedCombo);
         ValidableTextField splitAfterField = new ValidableTextField();
         splitAfter = new SplitAfterRadioButton(splitAfterField);
         ValidableTextField splitByEveryField = new ValidableTextField();
         splitByEvery = new SplitByEveryRadioButton(splitByEveryField);
         RadioButtonDrivenTextFieldsPane grid = new RadioButtonDrivenTextFieldsPane(group);
-        burst.setToggleGroup(group);
-        burst.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Explode the document into single pages")));
-        burst.setSelected(true);
-        even.setToggleGroup(group);
-        even.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Split the document after every even page")));
-        odd.setToggleGroup(group);
-        odd.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Split the document after every odd page")));
+
+        splitAfterPredefined.setToggleGroup(group);
         splitAfter.setToggleGroup(group);
         splitByEvery.setToggleGroup(group);
 
+        grid.addRow(splitAfterPredefined, predefinedCombo);
         grid.addRow(splitAfter, splitAfterField);
         grid.addRow(splitByEvery, splitByEveryField);
+        splitAfterPredefined.setSelected(true);
 
-        HBox simpleSplit = new HBox(20, burst, even, odd);
-        simpleSplit.getStyleClass().addAll(Style.VITEM.css());
         getStyleClass().addAll(Style.CONTAINER.css());
-        getChildren().addAll(simpleSplit, grid);
+        getChildren().addAll(grid);
     }
 
     public SinglePdfSourceMultipleOutputParametersBuilder<? extends AbstractSplitByPageParameters> getBuilder(
@@ -86,17 +86,13 @@ class SplitOptionsPane extends VBox implements SplitParametersBuilderCreator, Re
     }
 
     public void saveStateTo(Map<String, String> data) {
-        burst.saveStateTo(data);
-        even.saveStateTo(data);
-        odd.saveStateTo(data);
+        splitAfterPredefined.saveStateTo(data);
         splitAfter.saveStateTo(data);
         splitByEvery.saveStateTo(data);
     }
 
     public void restoreStateFrom(Map<String, String> data) {
-        burst.restoreStateFrom(data);
-        even.restoreStateFrom(data);
-        odd.restoreStateFrom(data);
+        splitAfterPredefined.restoreStateFrom(data);
         splitAfter.restoreStateFrom(data);
         splitByEvery.restoreStateFrom(data);
     }

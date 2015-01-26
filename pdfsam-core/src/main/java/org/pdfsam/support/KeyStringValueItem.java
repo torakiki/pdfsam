@@ -25,7 +25,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 /**
- * Contains a pair of Strings, usually a key and a display value. Two items with the same key are considered equals.
+ * {@link KeyValueItem} where the value is a {@link String}. Two items with the same key are considered equals.
  * 
  * @author Andrea Vacondio
  * @param <K>
