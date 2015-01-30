@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<description>PDFBox implementation of the PDFsam tasks</description>
+	<parent>
+		<groupId>org.pdfsam</groupId>
+		<artifactId>pdfsam-parent</artifactId>
+		<version>3.0.0.M2-SNAPSHOT</version>
+		<relativePath>../pdfsam-parent/pom.xml</relativePath>
+	</parent>
+
+	<artifactId>pdfsam-pdfbox</artifactId>
+	<packaging>jar</packaging>
+	<name>PDFsam PDFBox implementation</name>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.sejda</groupId>
+			<artifactId>sejda-model</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>jdepend</groupId>
+			<artifactId>jdepend</artifactId>
+		</dependency>
+	</dependencies>
+</project>
