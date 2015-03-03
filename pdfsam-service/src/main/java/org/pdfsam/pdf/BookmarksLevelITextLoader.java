@@ -18,8 +18,6 @@
  */
 package org.pdfsam.pdf;
 
-import javax.inject.Named;
-
 import org.pdfsam.module.RequiredPdfData;
 import org.sejda.impl.itext5.component.ITextOutlineHandler;
 
@@ -31,8 +29,8 @@ import com.itextpdf.text.pdf.PdfReader;
  * @author Andrea Vacondio
  *
  */
-@Named
-class BookmarksLevelLoader implements PdfLoader {
+// @Named
+class BookmarksLevelITextLoader implements PdfLoader<PdfReader> {
 
     public void accept(PdfReader reader, PdfDocumentDescriptor descriptor) {
         descriptor.setMaxGoToActionDepth(new ITextOutlineHandler(reader, "").getMaxGoToActionDepth());

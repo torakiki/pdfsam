@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 14/giu/2013
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 03/mar/2015
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -39,13 +39,14 @@ import org.junit.rules.TemporaryFolder;
 import org.pdfsam.module.RequiredPdfData;
 import org.pdfsam.test.InitializeJavaFxThreadRule;
 import org.sejda.model.pdf.PdfMetadataKey;
+
 /**
  * @author Andrea Vacondio
- * 
+ *
  */
-public class ITextPdfLoadServiceTest {
-    private ITextPdfLoadService victim = new ITextPdfLoadService(Arrays.asList(new PdfLoader[] {
-            new DefaultITextLoader(), new BookmarksLevelITextLoader() }));
+public class PDFBoxPdfLoadServiceTest {
+    private PDFBoxPdfLoadService victim = new PDFBoxPdfLoadService(Arrays.asList(new PdfLoader[] {
+            new DefaultPDFBoxLoader(), new BookmarksLevelPDFBoxLoader() }));
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
     @Rule

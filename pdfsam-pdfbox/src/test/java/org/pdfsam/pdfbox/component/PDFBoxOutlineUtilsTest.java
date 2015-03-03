@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 20/giu/2014
+ * Created on 02/mar/2015
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,23 +16,32 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.pdf;
+package org.pdfsam.pdfbox.component;
 
-import java.util.function.BiConsumer;
+import static org.junit.Assert.assertEquals;
 
-import org.pdfsam.module.RequiredPdfData;
+import java.io.IOException;
+
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.junit.Test;
 
 /**
- * A {@link PdfLoader} is responsible for populating a {@link PdfDocumentDescriptor} with some data read from a source.
- * 
  * @author Andrea Vacondio
- * @param <T>
- *            type of the source
+ *
  */
-interface PdfLoader<T> extends BiConsumer<T, PdfDocumentDescriptor> {
+public class PDFBoxOutlineUtilsTest {
 
-    /**
-     * @return the {@link RequiredPdfData} associated with this loader.
-     */
-    RequiredPdfData key();
+    @Test
+    public void outlineMaxDepth() throws IOException {
+        try (PDDocument doc = PDDocument.load(getClass().getResourceAsStream("/pdf/test_outline.pdf"))) {
+            assertEquals(3, PDFBoxOutlineUtils.getMaxBookmarkLevel(doc));
+        }
+    }
+
+    @Test
+    public void noOutlineMaxDepth() throws IOException {
+        try (PDDocument doc = PDDocument.load(getClass().getResourceAsStream("/pdf/test_no_outline.pdf"))) {
+            assertEquals(0, PDFBoxOutlineUtils.getMaxBookmarkLevel(doc));
+        }
+    }
 }

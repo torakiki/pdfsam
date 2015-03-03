@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 20/giu/2014
+ * Created on 03/mar/2015
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,23 +16,39 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.pdf;
+package org.pdfsam.pdfbox.component;
 
-import java.util.function.BiConsumer;
+import java.io.IOException;
 
-import org.pdfsam.module.RequiredPdfData;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * A {@link PdfLoader} is responsible for populating a {@link PdfDocumentDescriptor} with some data read from a source.
+ * Utility class for common PDFBox related activities.
  * 
  * @author Andrea Vacondio
- * @param <T>
- *            type of the source
+ *
  */
-interface PdfLoader<T> extends BiConsumer<T, PdfDocumentDescriptor> {
+public final class PDFBoxUtils {
+    private static final Logger LOG = LoggerFactory.getLogger(PDFBoxUtils.class);
+
+    private PDFBoxUtils() {
+        // utility
+    }
 
     /**
-     * @return the {@link RequiredPdfData} associated with this loader.
+     * Null safe close of the input {@link PDDocument}
+     * 
+     * @param document
      */
-    RequiredPdfData key();
+    public static void nullSafeCloseQuietly(PDDocument document) {
+        if (document != null) {
+            try {
+                document.close();
+            } catch (IOException e) {
+                LOG.warn("An error occurred while closing the document.", e);
+            }
+        }
+    }
 }

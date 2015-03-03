@@ -118,17 +118,11 @@
 			<releases>
 				<enabled>true</enabled>
 			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
 		</repository>
 		<repository>
 			<id>springsource-repo</id>
 			<name>SpringSource Repository</name>
 			<url>http://repo.spring.io/release</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
 		</repository>
 		<repository>
 			<id>sonatype-snapshots</id>
@@ -187,11 +181,6 @@
 			<dependency>
 				<groupId>org.sejda</groupId>
 				<artifactId>sejda-itext5</artifactId>
-				<version>${sejda.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.sejda</groupId>
-				<artifactId>sejda-pdfbox</artifactId>
 				<version>${sejda.version}</version>
 			</dependency>
 			<dependency>

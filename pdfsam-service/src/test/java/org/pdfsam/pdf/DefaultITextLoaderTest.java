@@ -37,7 +37,7 @@ import com.itextpdf.text.pdf.PdfReader;
  * @author Andrea Vacondio
  *
  */
-public class DefaultPdfLoaderTest {
+public class DefaultITextLoaderTest {
 
     private PdfReader reader;
     private PdfDocumentDescriptor descriptor;
@@ -55,7 +55,7 @@ public class DefaultPdfLoaderTest {
 
     @Test
     public void accept() {
-        new DefaultPdfLoader().accept(reader, descriptor);
+        new DefaultITextLoader().accept(reader, descriptor);
         verify(descriptor).pages(2);
         verify(descriptor).setVersion(PdfVersion.VERSION_1_4);
         verify(descriptor).setInformationDictionary(info);
@@ -65,7 +65,7 @@ public class DefaultPdfLoaderTest {
     @Test
     public void acceptWithCreationDate() {
         info.put("CreationDate", "D:20140120102520+01'00'");
-        new DefaultPdfLoader().accept(reader, descriptor);
+        new DefaultITextLoader().accept(reader, descriptor);
         verify(descriptor).pages(2);
         verify(descriptor).setVersion(PdfVersion.VERSION_1_4);
         verify(descriptor).setInformationDictionary(info);

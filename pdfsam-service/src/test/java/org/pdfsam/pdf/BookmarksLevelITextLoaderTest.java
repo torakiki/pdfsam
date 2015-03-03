@@ -38,7 +38,7 @@ import com.itextpdf.text.pdf.PdfReader;
  * @author Andrea Vacondio
  *
  */
-public class BookmarksLevelLoaderTest {
+public class BookmarksLevelITextLoaderTest {
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
 
@@ -60,7 +60,7 @@ public class BookmarksLevelLoaderTest {
 
     @Test
     public void accept() {
-        new BookmarksLevelLoader().accept(reader, descriptor);
+        new BookmarksLevelITextLoader().accept(reader, descriptor);
         verify(descriptor).setMaxGoToActionDepth(3);
     }
 }

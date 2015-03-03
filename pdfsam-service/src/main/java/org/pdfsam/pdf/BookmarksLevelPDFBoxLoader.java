@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 20/giu/2014
+ * Created on 03/mar/2015
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,21 +18,27 @@
  */
 package org.pdfsam.pdf;
 
-import java.util.function.BiConsumer;
+import javax.inject.Named;
 
+import org.apache.pdfbox.pdmodel.PDDocument;
 import org.pdfsam.module.RequiredPdfData;
+import org.pdfsam.pdfbox.component.PDFBoxOutlineUtils;
 
 /**
- * A {@link PdfLoader} is responsible for populating a {@link PdfDocumentDescriptor} with some data read from a source.
+ * Loader populating the descriptor with bookmarks related data.
  * 
  * @author Andrea Vacondio
- * @param <T>
- *            type of the source
+ *
  */
-interface PdfLoader<T> extends BiConsumer<T, PdfDocumentDescriptor> {
+@Named
+class BookmarksLevelPDFBoxLoader implements PdfLoader<PDDocument> {
 
-    /**
-     * @return the {@link RequiredPdfData} associated with this loader.
-     */
-    RequiredPdfData key();
+    public void accept(PDDocument document, PdfDocumentDescriptor descriptor) {
+        descriptor.setMaxGoToActionDepth(PDFBoxOutlineUtils.getMaxBookmarkLevel(document));
+    }
+
+    public RequiredPdfData key() {
+        return RequiredPdfData.BOOMARKS;
+    }
+
 }

@@ -22,8 +22,6 @@ import java.text.DateFormat;
 import java.util.Map;
 import java.util.Optional;
 
-import javax.inject.Named;
-
 import org.apache.commons.lang3.time.FastDateFormat;
 import org.pdfsam.module.RequiredPdfData;
 import org.sejda.conversion.PdfVersionAdapter;
@@ -37,8 +35,8 @@ import com.itextpdf.text.pdf.PdfReader;
  * @author Andrea Vacondio
  *
  */
-@Named
-class DefaultPdfLoader implements PdfLoader {
+// @Named
+class DefaultITextLoader implements PdfLoader<PdfReader> {
 
     private static FastDateFormat FORMATTER = FastDateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.MEDIUM);
 
