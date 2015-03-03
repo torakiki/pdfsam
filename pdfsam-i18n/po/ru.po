@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2014-12-12 17:22+0100\n"
+"POT-Creation-Date: 2015-02-05 19:02+0100\n"
 "PO-Revision-Date: 2014-10-23 10:08+0000\n"
 "Last-Translator: kanapfelka <kanapfelka@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -197,6 +197,12 @@ msgstr "Размер должен быть между {0}px и {1}px"
 msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
 msgstr "Пиксельный размер эскизов (между  {0}px и {1}px)"
 
+msgid "Maximum number of rows mast be a positive number"
+msgstr ""
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr ""
+
 msgid "Generate high quality thumbnails (slower)"
 msgstr "Сгенерировать высококачественные эскизы (медленнее!)"
 
@@ -245,6 +251,10 @@ msgstr ""
 
 msgid "News panel:"
 msgstr ""
+
+#, fuzzy
+msgid "Log register rows:"
+msgstr "Запротоколировать регистрацию"
 
 msgid "Language:"
 msgstr "Язык:"
@@ -399,13 +409,20 @@ msgstr ""
 msgid "Workspace saved"
 msgstr "Рабочая область"
 
+#, fuzzy
+msgid "Split after"
+msgstr "Разделить"
+
+msgid "Split the document after the given page numbers"
+msgstr ""
+
+msgid "No page selected"
+msgstr ""
+
 msgid "Split after the following page numbers"
 msgstr ""
 
 msgid "Page numbers to split at (n1,n2,n3..)"
-msgstr ""
-
-msgid "Split the document after the given page numbers"
 msgstr ""
 
 msgid "Invalid page numbers"
@@ -429,28 +446,13 @@ msgstr ""
 msgid "Destination directory"
 msgstr ""
 
-msgid "Burst (Split into single pages)"
+msgid "Every page"
 msgstr ""
 
-# G:\Documents\eclipse_workspace\PDFSAMsplit\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:193
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:206
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:223
-msgid "Split even pages"
-msgstr "Разбить по чётным страницам"
-
-# G:\Documents\eclipse_workspace\PDFSAMsplit\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:196
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:209
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
-msgid "Split odd pages"
-msgstr "Разбить по нечётным страницам"
-
-msgid "Explode the document into single pages"
+msgid "Even pages"
 msgstr ""
 
-msgid "Split the document after every even page"
-msgstr ""
-
-msgid "Split the document after every odd page"
+msgid "Odd pages"
 msgstr ""
 
 msgid "Split by every \"n\" pages"
@@ -865,12 +867,6 @@ msgstr ""
 msgid "All pages"
 msgstr ""
 
-msgid "Even pages"
-msgstr ""
-
-msgid "Odd pages"
-msgstr ""
-
 msgid "90 degrees clockwise"
 msgstr ""
 
@@ -891,6 +887,18 @@ msgstr ""
 
 msgid "Rotate settings"
 msgstr ""
+
+# G:\Documents\eclipse_workspace\PDFSAMsplit\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:193
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:206
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:223
+#~ msgid "Split even pages"
+#~ msgstr "Разбить по чётным страницам"
+
+# G:\Documents\eclipse_workspace\PDFSAMsplit\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:196
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:209
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
+#~ msgid "Split odd pages"
+#~ msgstr "Разбить по нечётным страницам"
 
 #~ msgid "Error playing sounds"
 #~ msgstr "Ошибка воспроизведения звуков"

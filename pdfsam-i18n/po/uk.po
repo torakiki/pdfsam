@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2014-12-12 17:22+0100\n"
+"POT-Creation-Date: 2015-02-05 19:02+0100\n"
 "PO-Revision-Date: 2015-01-16 10:06+0000\n"
 "Last-Translator: MisterIf <pkrupitsa@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -199,6 +199,12 @@ msgstr "Розмір має бути між {0} пікселів (px) та {1} �
 msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
 msgstr "Розмір пікселів мініатюри (між {0} пікселів (px) та {1} пікселів (px))"
 
+msgid "Maximum number of rows mast be a positive number"
+msgstr ""
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr ""
+
 msgid "Generate high quality thumbnails (slower)"
 msgstr "Створити мініатюри високої якості"
 
@@ -251,6 +257,10 @@ msgstr "Встановіть, як часто Ви бажаєте показув
 
 msgid "News panel:"
 msgstr "Панель новин:"
+
+#, fuzzy
+msgid "Log register rows:"
+msgstr "Реєстрація логування"
 
 msgid "Language:"
 msgstr "Мова:"
@@ -400,14 +410,22 @@ msgstr "Збереження даних робочого простору в {0}
 msgid "Workspace saved"
 msgstr "Робочій простір збережено"
 
+#, fuzzy
+msgid "Split after"
+msgstr "Розділити"
+
+msgid "Split the document after the given page numbers"
+msgstr "Розділити документ після цих номерів сторінок"
+
+#, fuzzy
+msgid "No page selected"
+msgstr "Документ PDF не був обраний"
+
 msgid "Split after the following page numbers"
 msgstr "Розділити після наступного номера сторінки"
 
 msgid "Page numbers to split at (n1,n2,n3..)"
 msgstr "Номера сторінок для розділення (№1, №2, №3)"
-
-msgid "Split the document after the given page numbers"
-msgstr "Розділити документ після цих номерів сторінок"
 
 msgid "Invalid page numbers"
 msgstr "Не правильний номер сторінки"
@@ -430,23 +448,15 @@ msgstr "Властивості розділення"
 msgid "Destination directory"
 msgstr "Каталог (тека) призначення"
 
-msgid "Burst (Split into single pages)"
-msgstr "Вибух (Розділити на окремі сторінки)"
+#, fuzzy
+msgid "Every page"
+msgstr "Парні сторінки"
 
-msgid "Split even pages"
-msgstr "Розділити парні сторінки"
+msgid "Even pages"
+msgstr "Парні сторінки"
 
-msgid "Split odd pages"
-msgstr "Розділити непарні сторінки"
-
-msgid "Explode the document into single pages"
-msgstr "Розділити документ на окремі сторінки"
-
-msgid "Split the document after every even page"
-msgstr "Розділити документ після кожної парної сторінки"
-
-msgid "Split the document after every odd page"
-msgstr "Розділити документ після кожної непарної сторінки"
+msgid "Odd pages"
+msgstr "Непарні сторінки"
 
 msgid "Split by every \"n\" pages"
 msgstr "Розділити після кожні \"n\" сторінки"
@@ -857,12 +867,6 @@ msgstr "Відповідність регулярного виразу:"
 msgid "All pages"
 msgstr "Всі сторінки"
 
-msgid "Even pages"
-msgstr "Парні сторінки"
-
-msgid "Odd pages"
-msgstr "Непарні сторінки"
-
 msgid "90 degrees clockwise"
 msgstr "на 90 градусів за годинниковою стрілкою"
 
@@ -883,6 +887,24 @@ msgstr "Поворот сторінок багатосторінкового д�
 
 msgid "Rotate settings"
 msgstr "Властивості Обертання"
+
+#~ msgid "Burst (Split into single pages)"
+#~ msgstr "Вибух (Розділити на окремі сторінки)"
+
+#~ msgid "Split even pages"
+#~ msgstr "Розділити парні сторінки"
+
+#~ msgid "Split odd pages"
+#~ msgstr "Розділити непарні сторінки"
+
+#~ msgid "Explode the document into single pages"
+#~ msgstr "Розділити документ на окремі сторінки"
+
+#~ msgid "Split the document after every even page"
+#~ msgstr "Розділити документ після кожної парної сторінки"
+
+#~ msgid "Split the document after every odd page"
+#~ msgstr "Розділити документ після кожної непарної сторінки"
 
 #~ msgid "Destination folder"
 #~ msgstr "Цільова тека"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDFSam 3\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2014-12-12 17:22+0100\n"
+"POT-Creation-Date: 2015-02-05 19:02+0100\n"
 "PO-Revision-Date: 2014-09-09 16:35+0000\n"
 "Last-Translator: Cheng-Wei Chien <Unknown>\n"
 "Language-Team: Chinese (Taiwan) (zh_TW@li.org)\n"
@@ -197,6 +197,12 @@ msgstr "圖片尺寸必須介於 {0}px 與 {1}px 之間"
 msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
 msgstr "縮圖的尺寸（介於 {0}px 與 {1}px 之間）"
 
+msgid "Maximum number of rows mast be a positive number"
+msgstr ""
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr ""
+
 msgid "Generate high quality thumbnails (slower)"
 msgstr "產生高畫質縮圖（較慢）"
 
@@ -242,6 +248,10 @@ msgstr ""
 
 msgid "News panel:"
 msgstr ""
+
+#, fuzzy
+msgid "Log register rows:"
+msgstr "紀錄檔暫存器"
 
 msgid "Language:"
 msgstr "語言："
@@ -392,14 +402,22 @@ msgstr ""
 msgid "Workspace saved"
 msgstr "工作區"
 
+#, fuzzy
+msgid "Split after"
+msgstr "分割"
+
+msgid "Split the document after the given page numbers"
+msgstr "在指定的頁碼分割文件"
+
+#, fuzzy
+msgid "No page selected"
+msgstr "尚未選取 PDF 文件"
+
 msgid "Split after the following page numbers"
 msgstr "在下列頁碼分割文件"
 
 msgid "Page numbers to split at (n1,n2,n3..)"
 msgstr "分割於頁碼 (n1, n2, n3..)"
-
-msgid "Split the document after the given page numbers"
-msgstr "在指定的頁碼分割文件"
 
 msgid "Invalid page numbers"
 msgstr "無效的頁碼"
@@ -422,23 +440,15 @@ msgstr "分割設定"
 msgid "Destination directory"
 msgstr "目的地目錄"
 
-msgid "Burst (Split into single pages)"
-msgstr "細分（分割成單頁文件）"
+#, fuzzy
+msgid "Every page"
+msgstr "偶數頁"
 
-msgid "Split even pages"
-msgstr "分割出偶數頁"
+msgid "Even pages"
+msgstr "偶數頁"
 
-msgid "Split odd pages"
-msgstr "分割出奇數頁"
-
-msgid "Explode the document into single pages"
-msgstr "將文件細分成單頁文件"
-
-msgid "Split the document after every even page"
-msgstr "在每個偶數頁分割文件"
-
-msgid "Split the document after every odd page"
-msgstr "在每個奇數頁分割文件"
+msgid "Odd pages"
+msgstr "奇數頁"
 
 msgid "Split by every \"n\" pages"
 msgstr "每隔 n 頁分割文件"
@@ -838,12 +848,6 @@ msgstr "符合正規表達式："
 msgid "All pages"
 msgstr "所有頁面"
 
-msgid "Even pages"
-msgstr "偶數頁"
-
-msgid "Odd pages"
-msgstr "奇數頁"
-
 msgid "90 degrees clockwise"
 msgstr "順時針轉 90 度"
 
@@ -864,6 +868,24 @@ msgstr "旋轉多個 PDF 文件的頁面。"
 
 msgid "Rotate settings"
 msgstr "旋轉頁面設定"
+
+#~ msgid "Burst (Split into single pages)"
+#~ msgstr "細分（分割成單頁文件）"
+
+#~ msgid "Split even pages"
+#~ msgstr "分割出偶數頁"
+
+#~ msgid "Split odd pages"
+#~ msgstr "分割出奇數頁"
+
+#~ msgid "Explode the document into single pages"
+#~ msgstr "將文件細分成單頁文件"
+
+#~ msgid "Split the document after every even page"
+#~ msgstr "在每個偶數頁分割文件"
+
+#~ msgid "Split the document after every odd page"
+#~ msgstr "在每個奇數頁分割文件"
 
 #~ msgid "Error playing sounds"
 #~ msgstr "播放音效時發生錯誤"

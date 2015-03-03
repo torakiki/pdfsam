@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2014-12-12 17:22+0100\n"
+"POT-Creation-Date: 2015-02-05 19:02+0100\n"
 "PO-Revision-Date: 2014-07-20 16:17+0000\n"
 "Last-Translator: pirtlak <pirtlak@outlook.com>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -200,6 +200,12 @@ msgstr "Boyut {0}px ve {1}px aralığında olmalı"
 msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
 msgstr "Küçük resimlerin boyutu ({0}px ve {1}px aralığında)"
 
+msgid "Maximum number of rows mast be a positive number"
+msgstr ""
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr ""
+
 msgid "Generate high quality thumbnails (slower)"
 msgstr "Yüksek kaliteli küçük resimler oluştur (yavaştır)"
 
@@ -245,6 +251,10 @@ msgstr ""
 
 msgid "News panel:"
 msgstr ""
+
+#, fuzzy
+msgid "Log register rows:"
+msgstr "Kayıt kaydı"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:125
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:116
@@ -406,13 +416,21 @@ msgstr ""
 msgid "Workspace saved"
 msgstr "Çalışma Alanı"
 
+#, fuzzy
+msgid "Split after"
+msgstr "Böl"
+
+msgid "Split the document after the given page numbers"
+msgstr ""
+
+#, fuzzy
+msgid "No page selected"
+msgstr "Hiç pdf belgesi seçilmedi"
+
 msgid "Split after the following page numbers"
 msgstr ""
 
 msgid "Page numbers to split at (n1,n2,n3..)"
-msgstr ""
-
-msgid "Split the document after the given page numbers"
 msgstr ""
 
 msgid "Invalid page numbers"
@@ -436,22 +454,13 @@ msgstr "Ayırma ayarları"
 msgid "Destination directory"
 msgstr "Hedef dizin"
 
-msgid "Burst (Split into single pages)"
+msgid "Every page"
 msgstr ""
 
-msgid "Split even pages"
-msgstr "Çift sayfa numaralıları böl"
-
-msgid "Split odd pages"
-msgstr "Tek sayfa numaralıları böl"
-
-msgid "Explode the document into single pages"
+msgid "Even pages"
 msgstr ""
 
-msgid "Split the document after every even page"
-msgstr ""
-
-msgid "Split the document after every odd page"
+msgid "Odd pages"
 msgstr ""
 
 msgid "Split by every \"n\" pages"
@@ -897,12 +906,6 @@ msgstr ""
 msgid "All pages"
 msgstr "Tüm sayfalar"
 
-msgid "Even pages"
-msgstr ""
-
-msgid "Odd pages"
-msgstr ""
-
 msgid "90 degrees clockwise"
 msgstr "90 derece saat yönüne"
 
@@ -923,6 +926,12 @@ msgstr ""
 
 msgid "Rotate settings"
 msgstr "Döndürme ayarları"
+
+#~ msgid "Split even pages"
+#~ msgstr "Çift sayfa numaralıları böl"
+
+#~ msgid "Split odd pages"
+#~ msgstr "Tek sayfa numaralıları böl"
 
 #~ msgid "Error playing sounds"
 #~ msgstr "Seslerin çalınmasında hata"

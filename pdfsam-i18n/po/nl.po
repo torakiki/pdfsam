@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2014-12-12 17:22+0100\n"
+"POT-Creation-Date: 2015-02-05 19:02+0100\n"
 "PO-Revision-Date: 2014-10-29 18:01+0000\n"
 "Last-Translator: Dennis <denniono@gmail.com>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -198,6 +198,12 @@ msgstr ""
 msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
 msgstr ""
 
+msgid "Maximum number of rows mast be a positive number"
+msgstr ""
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr ""
+
 msgid "Generate high quality thumbnails (slower)"
 msgstr "Geneer miniaturen van hoge kwaliteit"
 
@@ -246,6 +252,9 @@ msgid "Set how often the PDFsam news panel should be opened"
 msgstr ""
 
 msgid "News panel:"
+msgstr ""
+
+msgid "Log register rows:"
 msgstr ""
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:125
@@ -412,13 +421,21 @@ msgstr ""
 msgid "Workspace saved"
 msgstr "Werkblad"
 
+#, fuzzy
+msgid "Split after"
+msgstr "Splitsen"
+
+msgid "Split the document after the given page numbers"
+msgstr ""
+
+#, fuzzy
+msgid "No page selected"
+msgstr "Handmatig geselecteerd"
+
 msgid "Split after the following page numbers"
 msgstr ""
 
 msgid "Page numbers to split at (n1,n2,n3..)"
-msgstr ""
-
-msgid "Split the document after the given page numbers"
 msgstr ""
 
 msgid "Invalid page numbers"
@@ -442,31 +459,15 @@ msgstr ""
 msgid "Destination directory"
 msgstr ""
 
-msgid "Burst (Split into single pages)"
-msgstr ""
+#, fuzzy
+msgid "Every page"
+msgstr "Even pagina's"
 
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:206
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:223
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:205
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:223
-msgid "Split even pages"
-msgstr "Splist even pagina's"
+msgid "Even pages"
+msgstr "Even pagina's"
 
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:209
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:208
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
-msgid "Split odd pages"
-msgstr "Splits oneven pagina's"
-
-msgid "Explode the document into single pages"
-msgstr ""
-
-msgid "Split the document after every even page"
-msgstr ""
-
-msgid "Split the document after every odd page"
-msgstr ""
+msgid "Odd pages"
+msgstr "Oneven pagina's"
 
 msgid "Split by every \"n\" pages"
 msgstr ""
@@ -917,12 +918,6 @@ msgstr ""
 msgid "All pages"
 msgstr "Alle pagina's"
 
-msgid "Even pages"
-msgstr "Even pagina's"
-
-msgid "Odd pages"
-msgstr "Oneven pagina's"
-
 msgid "90 degrees clockwise"
 msgstr "90 graden"
 
@@ -943,6 +938,20 @@ msgstr "Draai pagina's van meerdere PDF bestanden"
 
 msgid "Rotate settings"
 msgstr "Draai instellingen"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:206
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:223
+# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:205
+# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:223
+#~ msgid "Split even pages"
+#~ msgstr "Splist even pagina's"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:209
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
+# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:208
+# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
+#~ msgid "Split odd pages"
+#~ msgstr "Splits oneven pagina's"
 
 #~ msgid "Error playing sounds"
 #~ msgstr "Fout bij afspelen van geluid"

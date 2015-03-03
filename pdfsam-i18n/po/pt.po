@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2014-12-12 17:22+0100\n"
+"POT-Creation-Date: 2015-02-05 19:02+0100\n"
 "PO-Revision-Date: 2014-12-04 09:17+0000\n"
 "Last-Translator: Sérgio Marques <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
@@ -204,6 +204,12 @@ msgstr "Tamanho deve ser entre {0}px e {1}px"
 msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
 msgstr "Tamanho de pixeis das miniaturas (entre {0}px e {1}px)"
 
+msgid "Maximum number of rows mast be a positive number"
+msgstr ""
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr ""
+
 msgid "Generate high quality thumbnails (slower)"
 msgstr "Gerar miniaturas de alta qualidade (lento)"
 
@@ -251,6 +257,10 @@ msgstr "Define a frequência de abertura do painel de notícias do PDFsam"
 
 msgid "News panel:"
 msgstr "Painel de notícias:"
+
+#, fuzzy
+msgid "Log register rows:"
+msgstr "Registos"
 
 msgid "Language:"
 msgstr "Idioma:"
@@ -403,14 +413,22 @@ msgstr ""
 msgid "Workspace saved"
 msgstr "Área de trabalho"
 
+#, fuzzy
+msgid "Split after"
+msgstr "Separar"
+
+msgid "Split the document after the given page numbers"
+msgstr "Separar documento após o número de páginas indicado"
+
+#, fuzzy
+msgid "No page selected"
+msgstr "Não selecionou um documento PDF."
+
 msgid "Split after the following page numbers"
 msgstr "Separar após este número de páginas"
 
 msgid "Page numbers to split at (n1,n2,n3..)"
 msgstr "Número de páginas para separar (n1,n2,n3..)"
-
-msgid "Split the document after the given page numbers"
-msgstr "Separar documento após o número de páginas indicado"
 
 msgid "Invalid page numbers"
 msgstr "Número de páginas inválido"
@@ -433,23 +451,15 @@ msgstr "Definições de separação"
 msgid "Destination directory"
 msgstr "Diretório de destino"
 
-msgid "Burst (Split into single pages)"
-msgstr "Separar (em páginas individuais)"
+#, fuzzy
+msgid "Every page"
+msgstr "Páginas par"
 
-msgid "Split even pages"
-msgstr "Separar páginas pares"
+msgid "Even pages"
+msgstr "Páginas par"
 
-msgid "Split odd pages"
-msgstr "Separar páginas impares"
-
-msgid "Explode the document into single pages"
-msgstr "Separar documento para páginas individuais"
-
-msgid "Split the document after every even page"
-msgstr "Separar documento a cada página par"
-
-msgid "Split the document after every odd page"
-msgstr "Separar documento a cada página ímpar"
+msgid "Odd pages"
+msgstr "Páginas ímpar"
 
 msgid "Split by every \"n\" pages"
 msgstr "Separar a cada \"n\" páginas"
@@ -858,12 +868,6 @@ msgstr "Expressão regular coincidente:"
 msgid "All pages"
 msgstr "Todas as páginas"
 
-msgid "Even pages"
-msgstr "Páginas par"
-
-msgid "Odd pages"
-msgstr "Páginas ímpar"
-
 msgid "90 degrees clockwise"
 msgstr "90 graus à direita"
 
@@ -884,6 +888,24 @@ msgstr "Rodar as páginas de diversos documentos."
 
 msgid "Rotate settings"
 msgstr "Definições de rotação"
+
+#~ msgid "Burst (Split into single pages)"
+#~ msgstr "Separar (em páginas individuais)"
+
+#~ msgid "Split even pages"
+#~ msgstr "Separar páginas pares"
+
+#~ msgid "Split odd pages"
+#~ msgstr "Separar páginas impares"
+
+#~ msgid "Explode the document into single pages"
+#~ msgstr "Separar documento para páginas individuais"
+
+#~ msgid "Split the document after every even page"
+#~ msgstr "Separar documento a cada página par"
+
+#~ msgid "Split the document after every odd page"
+#~ msgstr "Separar documento a cada página ímpar"
 
 #~ msgid "Error playing sounds"
 #~ msgstr "Erro ao reproduzir sons"

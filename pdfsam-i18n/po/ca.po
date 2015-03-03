@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2014-12-12 17:22+0100\n"
+"POT-Creation-Date: 2015-02-05 19:02+0100\n"
 "PO-Revision-Date: 2014-10-07 01:12+0000\n"
 "Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
@@ -195,6 +195,12 @@ msgstr ""
 msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
 msgstr ""
 
+msgid "Maximum number of rows mast be a positive number"
+msgstr ""
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr ""
+
 msgid "Generate high quality thumbnails (slower)"
 msgstr ""
 
@@ -241,6 +247,9 @@ msgid "Set how often the PDFsam news panel should be opened"
 msgstr ""
 
 msgid "News panel:"
+msgstr ""
+
+msgid "Log register rows:"
 msgstr ""
 
 msgid "Language:"
@@ -390,13 +399,20 @@ msgstr ""
 msgid "Workspace saved"
 msgstr "Espai de treball"
 
+#, fuzzy
+msgid "Split after"
+msgstr "Divideix"
+
+msgid "Split the document after the given page numbers"
+msgstr ""
+
+msgid "No page selected"
+msgstr ""
+
 msgid "Split after the following page numbers"
 msgstr ""
 
 msgid "Page numbers to split at (n1,n2,n3..)"
-msgstr ""
-
-msgid "Split the document after the given page numbers"
 msgstr ""
 
 msgid "Invalid page numbers"
@@ -420,22 +436,13 @@ msgstr ""
 msgid "Destination directory"
 msgstr ""
 
-msgid "Burst (Split into single pages)"
+msgid "Every page"
 msgstr ""
 
-msgid "Split even pages"
-msgstr "Divideix les pàgines parells"
-
-msgid "Split odd pages"
-msgstr "Divideix les pàgines senars"
-
-msgid "Explode the document into single pages"
+msgid "Even pages"
 msgstr ""
 
-msgid "Split the document after every even page"
-msgstr ""
-
-msgid "Split the document after every odd page"
+msgid "Odd pages"
 msgstr ""
 
 msgid "Split by every \"n\" pages"
@@ -835,12 +842,6 @@ msgstr ""
 msgid "All pages"
 msgstr ""
 
-msgid "Even pages"
-msgstr ""
-
-msgid "Odd pages"
-msgstr ""
-
 msgid "90 degrees clockwise"
 msgstr ""
 
@@ -861,6 +862,12 @@ msgstr ""
 
 msgid "Rotate settings"
 msgstr ""
+
+#~ msgid "Split even pages"
+#~ msgstr "Divideix les pàgines parells"
+
+#~ msgid "Split odd pages"
+#~ msgstr "Divideix les pàgines senars"
 
 #~ msgid "Open menu"
 #~ msgstr "Obre el menú"

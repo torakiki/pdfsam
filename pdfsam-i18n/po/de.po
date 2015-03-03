@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2014-12-12 17:22+0100\n"
+"POT-Creation-Date: 2015-02-05 19:02+0100\n"
 "PO-Revision-Date: 2014-12-08 01:10+0000\n"
 "Last-Translator: Tobias Bannert <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
@@ -204,6 +204,12 @@ msgstr "Größe muss zwischen {0}px und {1}px liegen"
 msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
 msgstr "Pixelgröße der Vorschaubilder (zwischen {0}px und {1}px)"
 
+msgid "Maximum number of rows mast be a positive number"
+msgstr ""
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr ""
+
 msgid "Generate high quality thumbnails (slower)"
 msgstr "Vorschaubilder in hoher Qualität erstellen (langsamer)"
 
@@ -254,6 +260,10 @@ msgstr ""
 
 msgid "News panel:"
 msgstr ""
+
+#, fuzzy
+msgid "Log register rows:"
+msgstr "Protokollregister"
 
 msgid "Language:"
 msgstr "Sprache:"
@@ -406,14 +416,22 @@ msgstr ""
 msgid "Workspace saved"
 msgstr "Arbeitsbereich"
 
+#, fuzzy
+msgid "Split after"
+msgstr "Teilen"
+
+msgid "Split the document after the given page numbers"
+msgstr "Dokument nach den angegebenen Seitenzahlen teilen"
+
+#, fuzzy
+msgid "No page selected"
+msgstr "Es wurde kein PDF-Dokument ausgewählt"
+
 msgid "Split after the following page numbers"
 msgstr "Teilen nach folgenden Seitenzahlen"
 
 msgid "Page numbers to split at (n1,n2,n3..)"
 msgstr "Seitenzahlen zum Teilen bei (n1,n2,n3, …)"
-
-msgid "Split the document after the given page numbers"
-msgstr "Dokument nach den angegebenen Seitenzahlen teilen"
 
 msgid "Invalid page numbers"
 msgstr "Ungültige Seitenzahlen"
@@ -436,23 +454,15 @@ msgstr "Teileneinstellungen"
 msgid "Destination directory"
 msgstr "Zielverzeichnis"
 
-msgid "Burst (Split into single pages)"
-msgstr "Sprengen (in einzelne Seiten trennen)"
+#, fuzzy
+msgid "Every page"
+msgstr "Gerade Seiten"
 
-msgid "Split even pages"
-msgstr "Nach geraden Seitennummern trennen"
+msgid "Even pages"
+msgstr "Gerade Seiten"
 
-msgid "Split odd pages"
-msgstr "Nach ungeraden Seitennummern trennen"
-
-msgid "Explode the document into single pages"
-msgstr "Dokument in einzelne Seiten aufteilen"
-
-msgid "Split the document after every even page"
-msgstr "Dokument nach jeder geraden Seite teilen"
-
-msgid "Split the document after every odd page"
-msgstr "Dokument nach jeder ungeraden Seite teilen"
+msgid "Odd pages"
+msgstr "Ungerade Seiten"
 
 msgid "Split by every \"n\" pages"
 msgstr "Nach jeweils »n« Seiten teilen"
@@ -867,12 +877,6 @@ msgstr "Passender regulärer Ausdruck:"
 msgid "All pages"
 msgstr "Alle Seiten"
 
-msgid "Even pages"
-msgstr "Gerade Seiten"
-
-msgid "Odd pages"
-msgstr "Ungerade Seiten"
-
 msgid "90 degrees clockwise"
 msgstr "90 Grad im Uhrzeigersinn"
 
@@ -893,6 +897,24 @@ msgstr "Die Seiten mehrerer PDF-Dokumente drehen."
 
 msgid "Rotate settings"
 msgstr "Dreheneinstellungen"
+
+#~ msgid "Burst (Split into single pages)"
+#~ msgstr "Sprengen (in einzelne Seiten trennen)"
+
+#~ msgid "Split even pages"
+#~ msgstr "Nach geraden Seitennummern trennen"
+
+#~ msgid "Split odd pages"
+#~ msgstr "Nach ungeraden Seitennummern trennen"
+
+#~ msgid "Explode the document into single pages"
+#~ msgstr "Dokument in einzelne Seiten aufteilen"
+
+#~ msgid "Split the document after every even page"
+#~ msgstr "Dokument nach jeder geraden Seite teilen"
+
+#~ msgid "Split the document after every odd page"
+#~ msgstr "Dokument nach jeder ungeraden Seite teilen"
 
 #~ msgid "Error playing sounds"
 #~ msgstr "Fehler beim Abspielen der Töne"

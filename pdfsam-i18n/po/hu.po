@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2014-12-12 17:22+0100\n"
+"POT-Creation-Date: 2015-02-05 19:02+0100\n"
 "PO-Revision-Date: 2014-11-11 10:00+0000\n"
 "Last-Translator: Richard Somlói <ricsipontaz@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -201,6 +201,12 @@ msgstr "A méretnek {0} és {1} képpont között kell lennie"
 msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
 msgstr "A bélyegképek képpont mérete ({0} és {1} között)"
 
+msgid "Maximum number of rows mast be a positive number"
+msgstr ""
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr ""
+
 msgid "Generate high quality thumbnails (slower)"
 msgstr "Kiváló minőségű bélyegképek generálása (lassabb)"
 
@@ -246,6 +252,10 @@ msgstr "Adja meg, hogy a PDFSam hírpanelje milyen gyakran nyíljon meg"
 
 msgid "News panel:"
 msgstr "Hírpanel:"
+
+#, fuzzy
+msgid "Log register rows:"
+msgstr "Naplózott események"
 
 msgid "Language:"
 msgstr "Nyelv:"
@@ -400,14 +410,22 @@ msgstr ""
 msgid "Workspace saved"
 msgstr "Munkaterület"
 
+#, fuzzy
+msgid "Split after"
+msgstr "Szétválasztás"
+
+msgid "Split the document after the given page numbers"
+msgstr "Dokumentum szétválasztása a megadott oldalszámoknál"
+
+#, fuzzy
+msgid "No page selected"
+msgstr "Nincs kiválasztott PDF dokumentum"
+
 msgid "Split after the following page numbers"
 msgstr "Szétválasztás a következő oldalszámoknál"
 
 msgid "Page numbers to split at (n1,n2,n3..)"
 msgstr "Szétválasztás oldalszámoknál (n1,n2,n3…)"
-
-msgid "Split the document after the given page numbers"
-msgstr "Dokumentum szétválasztása a megadott oldalszámoknál"
 
 msgid "Invalid page numbers"
 msgstr "Érvénytelen oldalszám"
@@ -430,23 +448,15 @@ msgstr "Szétválasztás beállításai"
 msgid "Destination directory"
 msgstr "Célmappa"
 
-msgid "Burst (Split into single pages)"
-msgstr "Szétszakítás (szétválasztja oldalanként)"
+#, fuzzy
+msgid "Every page"
+msgstr "Páros oldalak"
 
-msgid "Split even pages"
-msgstr "Szétválasztás páros oldalaknál"
+msgid "Even pages"
+msgstr "Páros oldalak"
 
-msgid "Split odd pages"
-msgstr "Szétválasztás páratlan oldalaknál"
-
-msgid "Explode the document into single pages"
-msgstr "Szétszakítja a dokumentumot oldalanként"
-
-msgid "Split the document after every even page"
-msgstr "Szétválasztás minden páros oldalnál"
-
-msgid "Split the document after every odd page"
-msgstr "Szétválasztás minden páratlan oldalnál"
+msgid "Odd pages"
+msgstr "Páratlan oldalak"
 
 msgid "Split by every \"n\" pages"
 msgstr "Szétválasztás minden n-edik oldalnál"
@@ -855,12 +865,6 @@ msgstr "Reguláris kifejezés:"
 msgid "All pages"
 msgstr "Minden oldal"
 
-msgid "Even pages"
-msgstr "Páros oldalak"
-
-msgid "Odd pages"
-msgstr "Páratlan oldalak"
-
 msgid "90 degrees clockwise"
 msgstr "90 fokkal az óramutató járásának irányában"
 
@@ -881,6 +885,24 @@ msgstr "PDF dokumentum oldalainak elforgatása"
 
 msgid "Rotate settings"
 msgstr "Elforgatás beállításai"
+
+#~ msgid "Burst (Split into single pages)"
+#~ msgstr "Szétszakítás (szétválasztja oldalanként)"
+
+#~ msgid "Split even pages"
+#~ msgstr "Szétválasztás páros oldalaknál"
+
+#~ msgid "Split odd pages"
+#~ msgstr "Szétválasztás páratlan oldalaknál"
+
+#~ msgid "Explode the document into single pages"
+#~ msgstr "Szétszakítja a dokumentumot oldalanként"
+
+#~ msgid "Split the document after every even page"
+#~ msgstr "Szétválasztás minden páros oldalnál"
+
+#~ msgid "Split the document after every odd page"
+#~ msgstr "Szétválasztás minden páratlan oldalnál"
 
 #~ msgid "Error playing sounds"
 #~ msgstr "Hiba hanglejátszás közben"
