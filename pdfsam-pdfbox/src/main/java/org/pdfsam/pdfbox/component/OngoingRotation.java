@@ -18,37 +18,21 @@
  */
 package org.pdfsam.pdfbox.component;
 
-import java.io.IOException;
-
 import org.apache.pdfbox.pdmodel.PDDocument;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
- * Utility class for common PDFBox related activities.
+ * DSL interface exposing an ongoing rotation finalization method
  * 
  * @author Andrea Vacondio
- *
+ * 
  */
-public final class PDFBoxUtils {
-    private static final Logger LOG = LoggerFactory.getLogger(PDFBoxUtils.class);
 
-    private PDFBoxUtils() {
-        // utility
-    }
+public interface OngoingRotation {
 
     /**
-     * Null safe close of the input {@link PDDocument}
+     * applies the rotation to the input document
      * 
      * @param document
      */
-    public static void nullSafeCloseQuietly(PDDocument document) {
-        if (document != null) {
-            try {
-                document.close();
-            } catch (IOException e) {
-                LOG.warn("An error occurred while closing the document.", e);
-            }
-        }
-    }
+    void to(PDDocument document);
 }

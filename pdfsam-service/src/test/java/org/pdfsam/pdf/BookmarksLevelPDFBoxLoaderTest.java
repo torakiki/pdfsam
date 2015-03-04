@@ -29,7 +29,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
-import org.pdfsam.pdfbox.component.PDFBoxUtils;
+import org.sejda.common.ComponentsUtility;
 
 /**
  * @author Andrea Vacondio
@@ -50,7 +50,7 @@ public class BookmarksLevelPDFBoxLoaderTest {
 
     @After
     public void tearDown() {
-        PDFBoxUtils.nullSafeCloseQuietly(document);
+        ComponentsUtility.nullSafeCloseQuietly(document);
     }
 
     @Test
