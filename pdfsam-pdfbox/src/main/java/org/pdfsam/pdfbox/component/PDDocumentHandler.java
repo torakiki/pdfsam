@@ -29,6 +29,7 @@ import org.apache.pdfbox.cos.COSDictionary;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentInformation;
 import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageTree;
 import org.apache.pdfbox.pdmodel.interactive.viewerpreferences.PDViewerPreferences;
 import org.sejda.core.Sejda;
 import org.sejda.model.exception.TaskException;
@@ -91,7 +92,7 @@ public class PDDocumentHandler implements Closeable {
      * 
      * @param version
      */
-    public void setVersionOnPDDocument(PdfVersion version) {
+    public void setVersion(PdfVersion version) {
         if (version != null) {
             document.setVersion((float) version.getVersionAsDouble());
             LOG.trace("Version set to '{}'", version);
@@ -148,8 +149,8 @@ public class PDDocumentHandler implements Closeable {
 
     private void savePDDocument(File file, boolean decrypted) throws TaskException {
         try {
-            document.getDocumentInformation().setProducer(Sejda.CREATOR);
-            document.getDocumentInformation().setCreator("PDFsam (pdfsam.org)");
+            document.getDocumentInformation().setCreator(Sejda.CREATOR);
+            document.getDocumentInformation().setProducer("PDFsam (pdfsam.org)");
             document.getDocumentInformation().setModificationDate(new GregorianCalendar());
             document.setAllSecurityToBeRemoved(decrypted);
             LOG.trace("Saving document to {}", file);
@@ -178,6 +179,10 @@ public class PDDocumentHandler implements Closeable {
 
     public PDPage getPage(int pageNumber) {
         return document.getPage(pageNumber - 1);
+    }
+
+    public PDPageTree getPages() {
+        return document.getPages();
     }
 
 }

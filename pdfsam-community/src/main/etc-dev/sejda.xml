@@ -17,7 +17,7 @@
 		<task parameters="org.sejda.model.parameter.SplitByGoToActionLevelParameters"
 			task="org.sejda.impl.itext5.SplitByGoToActionLevelTask" />
 		<task parameters="org.sejda.model.parameter.AlternateMixParameters"
-			task="org.sejda.impl.itext5.AlternateMixTask" />
+			task="org.pdfsam.pdfbox.AlternateMixTask" />
 		<task parameters="org.sejda.model.parameter.RotateParameters"
 			task="org.pdfsam.pdfbox.RotateTask" />
 	</tasks>

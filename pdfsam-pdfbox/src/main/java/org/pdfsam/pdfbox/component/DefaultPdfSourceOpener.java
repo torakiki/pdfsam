@@ -52,7 +52,7 @@ public class DefaultPdfSourceOpener implements PdfSourceOpener<PDDocument> {
 
     public PDDocument open(PdfFileSource source) throws TaskIOException {
         try {
-            return PDDocument.load(source.getSource(), source.getPassword(), true);
+            return PDDocument.load(source.getSource(), source.getPassword());
         } catch (InvalidPasswordException ipe) {
             throw new TaskWrongPasswordException(WRONG_PWD_MESSAGE, ipe);
         } catch (IOException e) {

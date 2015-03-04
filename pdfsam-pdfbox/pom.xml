@@ -14,7 +14,7 @@
 	<artifactId>pdfsam-pdfbox</artifactId>
 	<packaging>jar</packaging>
 	<name>PDFsam PDFBox implementation</name>
-	
+
 	<repositories>
 		<repository>
 			<id>apache-snapshots</id>
@@ -27,7 +27,7 @@
 			</snapshots>
 		</repository>
 	</repositories>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -67,6 +67,18 @@
 		<dependency>
 			<groupId>jdepend</groupId>
 			<artifactId>jdepend</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.lowagie</groupId>
+			<artifactId>itext</artifactId>
+			<version>2.1.7</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${hibernate-validator.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
