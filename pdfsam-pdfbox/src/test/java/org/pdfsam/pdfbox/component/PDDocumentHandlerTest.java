@@ -29,6 +29,9 @@ import org.apache.pdfbox.cos.COSDocument;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
 import org.apache.pdfbox.pdmodel.PDDocumentInformation;
+import org.apache.pdfbox.pdmodel.PageLayout;
+import org.apache.pdfbox.pdmodel.PageMode;
+import org.apache.pdfbox.pdmodel.interactive.documentnavigation.outline.PDDocumentOutline;
 import org.apache.pdfbox.pdmodel.interactive.viewerpreferences.PDViewerPreferences;
 import org.junit.Before;
 import org.junit.Test;
@@ -44,6 +47,7 @@ public class PDDocumentHandlerTest {
     private COSDocument cosDocument;
     private PDDocumentCatalog catalog;
     private PDDocumentHandler victim;
+
     @Before
     public void setUp() {
         document = mock(PDDocument.class);
@@ -64,6 +68,25 @@ public class PDDocumentHandlerTest {
         PDDocumentInformation info = mock(PDDocumentInformation.class);
         victim.setDocumentInformation(info);
         verify(document).setDocumentInformation(info);
+    }
+
+    @Test
+    public void setDocumentOutline() {
+        PDDocumentOutline outline = new PDDocumentOutline();
+        victim.setDocumentOutline(outline);
+        verify(catalog).setDocumentOutline(outline);
+    }
+
+    @Test
+    public void setPageMode() {
+        victim.setPageMode(PageMode.USE_OUTLINES);
+        verify(catalog).setPageMode(PageMode.USE_OUTLINES);
+    }
+
+    @Test
+    public void setPageLayout() {
+        victim.setPageLayout(PageLayout.TWO_COLUMN_LEFT);
+        verify(catalog).setPageLayout(PageLayout.TWO_COLUMN_LEFT);
     }
 
     @Test
