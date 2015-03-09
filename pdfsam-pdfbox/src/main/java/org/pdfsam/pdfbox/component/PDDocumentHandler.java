@@ -30,6 +30,9 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentInformation;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageTree;
+import org.apache.pdfbox.pdmodel.PageLayout;
+import org.apache.pdfbox.pdmodel.PageMode;
+import org.apache.pdfbox.pdmodel.interactive.documentnavigation.outline.PDDocumentOutline;
 import org.apache.pdfbox.pdmodel.interactive.viewerpreferences.PDViewerPreferences;
 import org.sejda.core.Sejda;
 import org.sejda.model.exception.TaskException;
@@ -69,7 +72,6 @@ public class PDDocumentHandler implements Closeable {
         this.permissions = new PDDocumentAccessPermission(document);
 
     }
-
 
     /**
      * Set the document information on the underlying {@link PDDocument}
@@ -121,6 +123,18 @@ public class PDDocumentHandler implements Closeable {
 
     public void setViewerPreferences(PDViewerPreferences preferences) {
         document.getDocumentCatalog().setViewerPreferences(preferences);
+    }
+
+    public void setDocumentOutline(PDDocumentOutline outline) {
+        document.getDocumentCatalog().setDocumentOutline(outline);
+    }
+
+    public void setPageMode(PageMode pageMode) {
+        document.getDocumentCatalog().setPageMode(pageMode);
+    }
+
+    public void setPageLayout(PageLayout pageLayout) {
+        document.getDocumentCatalog().setPageLayout(pageLayout);
     }
 
     public void close() throws IOException {

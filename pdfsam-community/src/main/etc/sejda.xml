@@ -7,11 +7,11 @@
 		<task parameters="org.sejda.model.parameter.MergeParameters"
 			task="org.sejda.impl.itext5.MergeTask" />
 		<task parameters="org.sejda.model.parameter.SimpleSplitParameters"
-			task="org.sejda.impl.itext5.SplitByPageNumbersTask" />
+			task="org.pdfsam.pdfbox.SplitByPageNumbersTask" />
 		<task parameters="org.sejda.model.parameter.SplitByPagesParameters"
-			task="org.sejda.impl.itext5.SplitByPageNumbersTask" />
+			task="org.pdfsam.pdfbox.SplitByPageNumbersTask" />
 		<task parameters="org.sejda.model.parameter.SplitByEveryXPagesParameters"
-			task="org.sejda.impl.itext5.SplitByPageNumbersTask" />
+			task="org.pdfsam.pdfbox.SplitByPageNumbersTask" />
 		<task parameters="org.sejda.model.parameter.SplitBySizeParameters"
 			task="org.sejda.impl.itext5.SplitBySizeTask" />
 		<task parameters="org.sejda.model.parameter.SplitByGoToActionLevelParameters"

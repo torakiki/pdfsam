@@ -19,10 +19,12 @@
 package org.pdfsam.pdfbox.component;
 
 import java.io.IOException;
+import java.util.Optional;
 
 import org.apache.pdfbox.pdmodel.PDDestinationNameTreeNode;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentNameDictionary;
+import org.apache.pdfbox.pdmodel.interactive.action.PDAction;
 import org.apache.pdfbox.pdmodel.interactive.action.PDActionGoTo;
 import org.apache.pdfbox.pdmodel.interactive.documentnavigation.destination.PDDestination;
 import org.apache.pdfbox.pdmodel.interactive.documentnavigation.destination.PDNamedDestination;
@@ -74,20 +76,55 @@ public final class PDFBoxOutlineUtils {
         return maxLevel;
     }
 
-    private static boolean isPageDestination(PDOutlineItem current, PDDestinationNameTreeNode destinations) {
+    /**
+     * @param current
+     *            the outline item
+     * @param destinations
+     *            the named destinations tree to look for in case of {@link PDNamedDestination}
+     * @return the {@link PDPageDestination} for the given {@link PDOutlineItem} or null if the destination is not a page. In case the outline item has a named destination, it is
+     *         resolved against the given names tree.
+     */
+    public static Optional<PDPageDestination> toPageDestination(PDOutlineItem current,
+            PDDestinationNameTreeNode destinations) {
         try {
             PDDestination dest = current.getDestination();
-
             if (dest == null) {
-                return current.getAction() instanceof PDActionGoTo;
+                PDAction outlineAction = current.getAction();
+                if (outlineAction instanceof PDActionGoTo) {
+                    dest = ((PDActionGoTo) outlineAction).getDestination();
+                }
             }
             if (dest instanceof PDNamedDestination && destinations != null) {
                 dest = (PDDestination) destinations.getValue(((PDNamedDestination) dest).getNamedDestination());
             }
-            return dest instanceof PDPageDestination;
+            if (dest instanceof PDPageDestination) {
+                return Optional.of((PDPageDestination) dest);
+            }
         } catch (IOException e) {
             LOG.warn("Unable to get outline item destination ", e);
         }
-        return false;
+        return Optional.empty();
+    }
+
+    private static boolean isPageDestination(PDOutlineItem current, PDDestinationNameTreeNode destinations) {
+        return toPageDestination(current, destinations).isPresent();
+    }
+
+    /**
+     * Copies the dictionary from the given {@link PDOutlineItem} to the destination one
+     * 
+     * @param from
+     * @param to
+     */
+    public static void copyOutlineDictionary(PDOutlineItem from, PDOutlineItem to) {
+        to.setTitle(from.getTitle());
+        to.setTextColor(from.getTextColor());
+        to.setBold(from.isBold());
+        to.setItalic(from.isItalic());
+        if (from.isNodeOpen()) {
+            to.openNode();
+        } else {
+            to.closeNode();
+        }
     }
 }
