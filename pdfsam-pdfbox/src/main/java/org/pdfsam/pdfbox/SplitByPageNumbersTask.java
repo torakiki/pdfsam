@@ -29,6 +29,7 @@ import org.sejda.model.parameter.AbstractSplitByPageParameters;
 import org.sejda.model.task.BaseTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 /**
  * Task splitting an input pdf document on a set of pages defined in the input parameter object.
  * 
@@ -52,11 +53,11 @@ public class SplitByPageNumbersTask<T extends AbstractSplitByPageParameters> ext
         LOG.debug("Opening {} ", parameters.getSource());
         document = parameters.getSource().open(documentLoader);
 
-        splitter = new PagesPdfSplitter<T>(document, parameters);
+        splitter = new PagesPdfSplitter<T>(document);
         LOG.debug("Starting split by page numbers for {} ", parameters);
-        splitter.split(getNotifiableTaskMetadata());
+        splitter.split(getNotifiableTaskMetadata(), parameters);
 
-        LOG.debug("Input documents splitted and written to {}", parameters.getOutput());
+        LOG.debug("Input documents split and written to {}", parameters.getOutput());
     }
 
     public void after() {

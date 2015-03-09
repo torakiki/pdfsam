@@ -21,7 +21,8 @@ package org.pdfsam.pdfbox.component;
 import static org.sejda.common.ComponentsUtility.nullSafeCloseQuietly;
 import static org.sejda.core.notification.dsl.ApplicationEventsNotifier.notifyEvent;
 
-import java.io.IOException;
+import java.io.Closeable;
+import java.io.File;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.sejda.model.exception.TaskException;
@@ -30,6 +31,7 @@ import org.sejda.model.exception.TaskPermissionsException;
 import org.sejda.model.input.PdfMixInput;
 import org.sejda.model.input.PdfMixInput.PdfMixInputProcessStatus;
 import org.sejda.model.input.PdfSourceOpener;
+import org.sejda.model.pdf.PdfVersion;
 import org.sejda.model.pdf.encryption.PdfAccessPermission;
 import org.sejda.model.task.NotifiableTaskMetadata;
 import org.slf4j.Logger;
@@ -41,7 +43,7 @@ import org.slf4j.LoggerFactory;
  * @author Andrea Vacondio
  * 
  */
-public class PdfAlternateMixer extends PDDocumentHandler {
+public class PdfAlternateMixer implements Closeable {
 
     private static final Logger LOG = LoggerFactory.getLogger(PdfAlternateMixer.class);
 
@@ -50,10 +52,12 @@ public class PdfAlternateMixer extends PDDocumentHandler {
     private PDDocument fistDocument;
     private PDDocument secondDocument;
     private PdfSourceOpener<PDDocument> documentLoader = new DefaultPdfSourceOpener();
+    private PDDocumentHandler destinationDocument;
 
     public PdfAlternateMixer(PdfMixInput firstInput, PdfMixInput secondInput) {
         this.firstInput = firstInput;
         this.secondInput = secondInput;
+        destinationDocument = new PDDocumentHandler();
     }
 
     /**
@@ -74,11 +78,11 @@ public class PdfAlternateMixer extends PDDocumentHandler {
         int totalSteps = fistDocument.getNumberOfPages() + secondDocument.getNumberOfPages();
         while (firstDocStatus.hasNextPage() || secondDocStatus.hasNextPage()) {
             for (int i = 0; i < firstInput.getStep() && firstDocStatus.hasNextPage(); i++) {
-                importPage(fistDocument.getPage(firstDocStatus.nextPage() - 1));
+                destinationDocument.importPage(fistDocument.getPage(firstDocStatus.nextPage() - 1));
                 notifyEvent(taskMetadata).stepsCompleted(++currentStep).outOf(totalSteps);
             }
             for (int i = 0; i < secondInput.getStep() && secondDocStatus.hasNextPage(); i++) {
-                importPage(secondDocument.getPage(secondDocStatus.nextPage() - 1));
+                destinationDocument.importPage(secondDocument.getPage(secondDocStatus.nextPage() - 1));
                 notifyEvent(taskMetadata).stepsCompleted(++currentStep).outOf(totalSteps);
             }
         }
@@ -91,11 +95,22 @@ public class PdfAlternateMixer extends PDDocumentHandler {
         return document;
     }
 
-    @Override
-    public void close() throws IOException {
-        super.close();
-        nullSafeCloseQuietly(fistDocument);
-        nullSafeCloseQuietly(secondDocument);
+    public void compressXrefStream(boolean compress) {
+        destinationDocument.compressXrefStream(compress);
     }
 
+    public void setVersion(PdfVersion version) {
+        destinationDocument.setVersion(version);
+    }
+
+    public void save(File file) throws TaskException {
+        destinationDocument.saveDecryptedPDDocument(file);
+    }
+
+    @Override
+    public void close() {
+        nullSafeCloseQuietly(fistDocument);
+        nullSafeCloseQuietly(secondDocument);
+        nullSafeCloseQuietly(destinationDocument);
+    }
 }

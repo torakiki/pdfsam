@@ -18,7 +18,6 @@
  */
 package org.pdfsam.pdfbox.component.split;
 
-import static org.sejda.common.ComponentsUtility.nullSafeCloseQuietly;
 import static org.sejda.core.notification.dsl.ApplicationEventsNotifier.notifyEvent;
 import static org.sejda.core.support.io.IOUtils.createTemporaryPdfBuffer;
 import static org.sejda.core.support.io.model.FileOutput.file;
@@ -40,7 +39,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Abstract component providing a skeletal implementation of the split execution.
+ * Component providing split by pages functionalities.
  * 
  * @author Andrea Vacondio
  * @param <T>
@@ -51,52 +50,47 @@ public class PagesPdfSplitter<T extends AbstractSplitByPageParameters> {
     private static final Logger LOG = LoggerFactory.getLogger(PagesPdfSplitter.class);
 
     private PDDocument document;
-    private T parameters;
     private int totalPages;
-    private MultipleOutputWriter outputWriter;
-    private NextOutputStrategy splitPages;
 
     /**
      * Creates a new splitter that reads pages from the given document
      */
-    public PagesPdfSplitter(PDDocument document, T parameters) {
+    public PagesPdfSplitter(PDDocument document) {
         this.document = document;
-        this.parameters = parameters;
         this.totalPages = document.getNumberOfPages();
-        this.outputWriter = OutputWriters.newMultipleOutputWriter(parameters.isOverwrite());
-        this.splitPages = new SplitPages(parameters.getPages(totalPages));
     }
 
-    public void split(NotifiableTaskMetadata taskMetadata) throws TaskException {
-        this.splitPages.ensureIsValid();
-        PagesExtractor extractor = null;
-        try {
+    public void split(NotifiableTaskMetadata taskMetadata, T parameters) throws TaskException {
+        NextOutputStrategy splitPages = new SplitPages(parameters.getPages(totalPages));
+        splitPages.ensureIsValid();
+        MultipleOutputWriter outputWriter = OutputWriters.newMultipleOutputWriter(parameters.isOverwrite());
+
+        try (PagesExtractor extractor = new PagesExtractor(document)) {
             int outputDocumentsCounter = 0;
             for (int page = 1; page <= totalPages; page++) {
-                if (this.splitPages.isOpening(page)) {
+                if (splitPages.isOpening(page)) {
                     LOG.debug("Starting split at page {} of the original document", page);
                     outputDocumentsCounter++;
-                    extractor = new PagesExtractor(document);
                 }
                 LOG.trace("Retaining page {} of the original document", page);
                 extractor.retain(page);
                 notifyEvent(taskMetadata).stepsCompleted(page).outOf(totalPages);
-                if (this.splitPages.isClosing(page) || page == totalPages) {
+                if (splitPages.isClosing(page) || page == totalPages) {
                     File tmpFile = createTemporaryPdfBuffer();
                     LOG.debug("Created output temporary buffer {}", tmpFile);
                     extractor.setVersion(parameters.getVersion());
+                    extractor.compressXrefStream(parameters.isCompress());
                     extractor.save(tmpFile);
+                    extractor.reset();
+
                     String outName = nameGenerator(parameters.getOutputPrefix()).generate(
                             nameRequest().page(page).originalName(parameters.getSource().getName())
                                     .fileNumber(outputDocumentsCounter));
                     outputWriter.addOutput(file(tmpFile).name(outName));
 
-                    nullSafeCloseQuietly(extractor);
                     LOG.debug("Ending split at page {} of the original document", page);
                 }
             }
-        } finally {
-            nullSafeCloseQuietly(extractor);
         }
         parameters.getOutput().accept(outputWriter);
     }

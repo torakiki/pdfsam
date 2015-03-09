@@ -41,17 +41,23 @@ public class PagesExtractor implements Closeable {
     private static final Logger LOG = LoggerFactory.getLogger(PagesExtractor.class);
 
     private OutlineMerger outlineMerger;
-    private PDDocumentOutline outline = new PDDocumentOutline();
+    private PDDocumentOutline outline;
     private PDDocument originalDocument;
-    private PDDocumentHandler destinationDocument = new PDDocumentHandler();
+    private PDDocumentHandler destinationDocument;
 
     public PagesExtractor(PDDocument origin) {
-        this.outlineMerger = new OutlineMerger(origin);
         this.originalDocument = origin;
-        destinationDocument.setDocumentInformation(origin.getDocumentInformation());
-        destinationDocument.setViewerPreferences(origin.getDocumentCatalog().getViewerPreferences());
-        destinationDocument.setPageLayout(origin.getDocumentCatalog().getPageLayout());
-        destinationDocument.setPageMode(origin.getDocumentCatalog().getPageMode());
+        init();
+    }
+
+    private void init() {
+        this.outlineMerger = new OutlineMerger(originalDocument);
+        this.outline = new PDDocumentOutline();
+        this.destinationDocument = new PDDocumentHandler();
+        this.destinationDocument.setDocumentInformation(originalDocument.getDocumentInformation());
+        this.destinationDocument.setViewerPreferences(originalDocument.getDocumentCatalog().getViewerPreferences());
+        this.destinationDocument.setPageLayout(originalDocument.getDocumentCatalog().getPageLayout());
+        this.destinationDocument.setPageMode(originalDocument.getDocumentCatalog().getPageMode());
     }
 
     public void retain(int page) {
@@ -61,12 +67,12 @@ public class PagesExtractor implements Closeable {
         LOG.trace("Imported page number {}", page);
     }
 
-    /**
-     * @param version
-     * @see org.pdfsam.pdfbox.component.PDDocumentHandler#setVersion(org.sejda.model.pdf.PdfVersion)
-     */
     public void setVersion(PdfVersion version) {
         destinationDocument.setVersion(version);
+    }
+
+    public void compressXrefStream(boolean compress) {
+        destinationDocument.compressXrefStream(compress);
     }
 
     public void save(File file) throws TaskException {
@@ -80,5 +86,13 @@ public class PagesExtractor implements Closeable {
     public void close() {
         ComponentsUtility.nullSafeCloseQuietly(destinationDocument);
         outlineMerger = null;
+    }
+
+    /**
+     * Resets the component making it ready to start a new extractions from the original document
+     */
+    public void reset() {
+        close();
+        init();
     }
 }

@@ -59,7 +59,7 @@ public class AlternateMixTask extends BaseTask<AlternateMixParameters> {
         mixer.mix(getNotifiableTaskMetadata());
         mixer.setVersion(parameters.getVersion());
         mixer.compressXrefStream(parameters.isCompress());
-        mixer.saveDecryptedPDDocument(tmpFile);
+        mixer.save(tmpFile);
         nullSafeCloseQuietly(mixer);
 
         outputWriter.setOutput(file(tmpFile).name(parameters.getOutputName()));
