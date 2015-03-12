@@ -2,8 +2,6 @@
 <sejda validation="true">
 	<notification async="false" />
 	<tasks>
-		<task parameters="org.sejda.model.parameter.DecryptParameters"
-			task="org.sejda.impl.itext5.DecryptTask" />
 		<task parameters="org.sejda.model.parameter.MergeParameters"
 			task="org.sejda.impl.itext5.MergeTask" />
 		<task parameters="org.sejda.model.parameter.SimpleSplitParameters"
@@ -14,8 +12,8 @@
 			task="org.pdfsam.pdfbox.SplitByPageNumbersTask" />
 		<task parameters="org.sejda.model.parameter.SplitBySizeParameters"
 			task="org.sejda.impl.itext5.SplitBySizeTask" />
-		<task parameters="org.sejda.model.parameter.SplitByGoToActionLevelParameters"
-			task="org.sejda.impl.itext5.SplitByGoToActionLevelTask" />
+		<task parameters="org.sejda.model.parameter.SplitByOutlineLevelParameters"
+			task="org.pdfsam.pdfbox.SplitByOutlineLevelTask" />
 		<task parameters="org.sejda.model.parameter.AlternateMixParameters"
 			task="org.pdfsam.pdfbox.AlternateMixTask" />
 		<task parameters="org.sejda.model.parameter.RotateParameters"

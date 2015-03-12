@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 06/mar/2015
+ * Created on 10/mar/2015
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,47 +22,49 @@ import static org.sejda.common.ComponentsUtility.nullSafeCloseQuietly;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.pdfsam.pdfbox.component.DefaultPdfSourceOpener;
-import org.pdfsam.pdfbox.component.split.PagesPdfSplitter;
+import org.pdfsam.pdfbox.component.split.PageDestinationsLevelPdfSplitter;
 import org.sejda.model.exception.TaskException;
 import org.sejda.model.input.PdfSourceOpener;
-import org.sejda.model.parameter.AbstractSplitByPageParameters;
+import org.sejda.model.outline.OutlinePageDestinations;
+import org.sejda.model.parameter.SplitByOutlineLevelParameters;
 import org.sejda.model.task.BaseTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Task splitting an input pdf document on a set of pages defined in the input parameter object.
+ * Task splitting an input pdf document on a set of pages given by an outline level defined in the input parameter.
  * 
  * @author Andrea Vacondio
- * @param <T>
- *            the type of the parameters.
+ *
  */
-public class SplitByPageNumbersTask<T extends AbstractSplitByPageParameters> extends BaseTask<T> {
+public class SplitByOutlineLevelTask extends BaseTask<SplitByOutlineLevelParameters> {
 
-    private static final Logger LOG = LoggerFactory.getLogger(SplitByPageNumbersTask.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SplitByOutlineLevelTask.class);
 
     private PDDocument document = null;
     private PdfSourceOpener<PDDocument> documentLoader;
-    private PagesPdfSplitter<T> splitter;
+    private PageDestinationsLevelPdfSplitter splitter;
 
-    public void before(T parameters) {
+    public void before(SplitByOutlineLevelParameters parameters) {
         documentLoader = new DefaultPdfSourceOpener();
     }
 
-    public void execute(T parameters) throws TaskException {
+    public void execute(SplitByOutlineLevelParameters parameters) throws TaskException {
         LOG.debug("Opening {} ", parameters.getSource());
         document = parameters.getSource().open(documentLoader);
 
-        splitter = new PagesPdfSplitter<>(document, parameters);
-        LOG.debug("Starting split by page numbers for {} ", parameters);
+        LOG.debug("Retrieving outline information for level {}", parameters.getLevelToSplitAt());
+        OutlinePageDestinations pagesDestination = new PDFBoxOutlineLevelsHandler(document,
+                parameters.getMatchingTitleRegEx()).getPageDestinationsForLevel(parameters.getLevelToSplitAt());
+        splitter = new PageDestinationsLevelPdfSplitter(document, parameters, pagesDestination);
+        LOG.debug("Starting split by outline level for {} ", parameters);
         splitter.split(getNotifiableTaskMetadata());
 
-        LOG.debug("Input documents split and written to {}", parameters.getOutput());
+        LOG.debug("Input documents splitted and written to {}", parameters.getOutput());
     }
 
     public void after() {
         nullSafeCloseQuietly(document);
         splitter = null;
     }
-
 }
