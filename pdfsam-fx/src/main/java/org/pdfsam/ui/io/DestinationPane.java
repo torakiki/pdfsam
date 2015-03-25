@@ -43,7 +43,7 @@ class DestinationPane extends VBox {
         this.destination = destination;
         overwrite.setSelected(false);
         overwrite.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
-                "Tick the box if you want to overwrite the outpuf files if they already exist.")));
+                "Tick the box if you want to overwrite the output files if they already exist.")));
 
         destination.getStyleClass().addAll(Style.VITEM.css());
         getChildren().addAll(destination, overwrite);
