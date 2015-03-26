@@ -19,7 +19,7 @@
 package org.pdfsam.splitbybookmarks;
 
 import org.pdfsam.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
-import org.sejda.model.parameter.SplitByGoToActionLevelParameters;
+import org.sejda.model.parameter.SplitByOutlineLevelParameters;
 
 /**
  * Builder for a SplitByGoToActionLevelParameters
@@ -27,8 +27,8 @@ import org.sejda.model.parameter.SplitByGoToActionLevelParameters;
  * @author Andrea Vacondio
  *
  */
-class SplitByGoToActionLevelParametersBuilder extends
-        SinglePdfSourceMultipleOutputParametersBuilder<SplitByGoToActionLevelParameters> {
+class SplitByOutlineLevelParametersBuilder extends
+        SinglePdfSourceMultipleOutputParametersBuilder<SplitByOutlineLevelParameters> {
 
     private int level = 0;
     private String regexp;
@@ -41,8 +41,8 @@ class SplitByGoToActionLevelParametersBuilder extends
         this.regexp = regexp;
     }
 
-    public SplitByGoToActionLevelParameters build() {
-        SplitByGoToActionLevelParameters params = new SplitByGoToActionLevelParameters(level);
+    public SplitByOutlineLevelParameters build() {
+        SplitByOutlineLevelParameters params = new SplitByOutlineLevelParameters(level);
         params.setCompress(isCompress());
         params.setOverwrite(isOverwrite());
         params.setVersion(getVersion());

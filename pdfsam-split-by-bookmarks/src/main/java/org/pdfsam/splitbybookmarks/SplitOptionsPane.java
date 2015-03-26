@@ -43,7 +43,7 @@ import org.pdfsam.ui.workspace.RestorableView;
  * @author Andrea Vacondio
  *
  */
-class SplitOptionsPane extends VBox implements TaskParametersBuildStep<SplitByGoToActionLevelParametersBuilder>,
+class SplitOptionsPane extends VBox implements TaskParametersBuildStep<SplitByOutlineLevelParametersBuilder>,
         RestorableView {
 
     private BookmarksLevelComboBox levelCombo = new BookmarksLevelComboBox();
@@ -74,7 +74,7 @@ class SplitOptionsPane extends VBox implements TaskParametersBuildStep<SplitByGo
         return item;
     }
 
-    public void apply(SplitByGoToActionLevelParametersBuilder builder, Consumer<String> onError) {
+    public void apply(SplitByOutlineLevelParametersBuilder builder, Consumer<String> onError) {
         levelCombo.apply(builder, onError);
         if (isNotBlank(regexpField.getText())) {
             builder.regexp(regexpField.getText());

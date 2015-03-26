@@ -30,20 +30,20 @@ import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.output.DirectoryTaskOutput;
-import org.sejda.model.parameter.SplitByGoToActionLevelParameters;
+import org.sejda.model.parameter.SplitByOutlineLevelParameters;
 import org.sejda.model.pdf.PdfVersion;
 
 /**
  * @author Andrea Vacondio
  *
  */
-public class SplitByGoToActionLevelParametersBuilderTest {
+public class SplitByOutlineLevelParametersBuilderTest {
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
 
     @Test
     public void build() throws IOException {
-        SplitByGoToActionLevelParametersBuilder victim = new SplitByGoToActionLevelParametersBuilder();
+        SplitByOutlineLevelParametersBuilder victim = new SplitByOutlineLevelParametersBuilder();
         victim.compress(true);
         DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
         victim.output(output);
@@ -55,7 +55,7 @@ public class SplitByGoToActionLevelParametersBuilderTest {
         PdfFileSource source = PdfFileSource.newInstanceNoPassword(file);
         victim.source(source);
         victim.version(PdfVersion.VERSION_1_7);
-        SplitByGoToActionLevelParameters params = victim.build();
+        SplitByOutlineLevelParameters params = victim.build();
         assertTrue(params.isCompress());
         assertTrue(params.isOverwrite());
         assertEquals(PdfVersion.VERSION_1_7, params.getVersion());

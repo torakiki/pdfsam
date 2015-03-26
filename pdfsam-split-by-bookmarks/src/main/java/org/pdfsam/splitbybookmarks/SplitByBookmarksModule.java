@@ -48,7 +48,7 @@ import org.pdfsam.ui.prefix.PrefixPane;
 import org.pdfsam.ui.selection.single.TaskParametersBuilderSingleSelectionPane;
 import org.pdfsam.ui.support.Views;
 import org.sejda.eventstudio.annotation.EventStation;
-import org.sejda.model.parameter.SplitByGoToActionLevelParameters;
+import org.sejda.model.parameter.SplitByOutlineLevelParameters;
 import org.sejda.model.prefix.Prefix;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -112,8 +112,8 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
     }
 
     @Override
-    protected Builder<SplitByGoToActionLevelParameters> getBuilder(Consumer<String> onError) {
-        SplitByGoToActionLevelParametersBuilder builder = new SplitByGoToActionLevelParametersBuilder();
+    protected Builder<SplitByOutlineLevelParameters> getBuilder(Consumer<String> onError) {
+        SplitByOutlineLevelParametersBuilder builder = new SplitByOutlineLevelParametersBuilder();
         splitOptions.apply(builder, onError);
         selectionPane.apply(builder, onError);
         destinationDirectoryField.apply(builder, onError);

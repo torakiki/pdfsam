@@ -43,7 +43,7 @@ import org.pdfsam.ui.workspace.RestorableView;
  *
  */
 class BookmarksLevelComboBox extends ComboBox<String> implements
-        TaskParametersBuildStep<SplitByGoToActionLevelParametersBuilder>, RestorableView {
+        TaskParametersBuildStep<SplitByOutlineLevelParametersBuilder>, RestorableView {
     private final FXValidationSupport<String> validationSupport = new FXValidationSupport<>();
 
     BookmarksLevelComboBox() {
@@ -88,7 +88,7 @@ class BookmarksLevelComboBox extends ComboBox<String> implements
         validationSupport.validate(getSelectionModel().getSelectedItem());
     }
 
-    public void apply(SplitByGoToActionLevelParametersBuilder builder, Consumer<String> onError) {
+    public void apply(SplitByOutlineLevelParametersBuilder builder, Consumer<String> onError) {
         this.validate();
         if (validationSupport.validationStateProperty().get() == ValidationState.VALID) {
             builder.level(Integer.parseInt(getSelectionModel().getSelectedItem()));

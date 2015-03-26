@@ -53,12 +53,12 @@ public class SplitOptionsPaneTest extends GuiTest {
     @Rule
     public ClearEventStudioRule clear = new ClearEventStudioRule();
 
-    private SplitByGoToActionLevelParametersBuilder builder;
+    private SplitByOutlineLevelParametersBuilder builder;
     private Consumer<String> onError;
 
     @Before
     public void setUp() {
-        builder = mock(SplitByGoToActionLevelParametersBuilder.class);
+        builder = mock(SplitByOutlineLevelParametersBuilder.class);
         onError = mock(Consumer.class);
     }
 
