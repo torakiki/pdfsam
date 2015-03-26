@@ -21,9 +21,8 @@ package org.pdfsam.rotate;
 import org.pdfsam.support.params.MultipleOutputTaskParametersBuilder;
 import org.pdfsam.support.params.MultiplePdfSourceMultipleOutputParametersBuilder;
 import org.sejda.model.parameter.RotateParameters;
-import org.sejda.model.rotation.PageRotation;
+import org.sejda.model.pdf.page.PredefinedSetOfPages;
 import org.sejda.model.rotation.Rotation;
-import org.sejda.model.rotation.RotationType;
 
 /**
  * Builder for {@link RotateParameters}
@@ -34,19 +33,19 @@ import org.sejda.model.rotation.RotationType;
 class RotateParametersBuilder extends MultiplePdfSourceMultipleOutputParametersBuilder<RotateParameters> implements
         MultipleOutputTaskParametersBuilder<RotateParameters> {
 
-    private RotationType rotationType;
+    private PredefinedSetOfPages rotationType;
     private Rotation rotation;
 
     public void rotation(Rotation rotation) {
         this.rotation = rotation;
     }
 
-    public void rotationType(RotationType rotationType) {
+    public void rotationType(PredefinedSetOfPages rotationType) {
         this.rotationType = rotationType;
     }
 
     public RotateParameters build() {
-        RotateParameters params = new RotateParameters(PageRotation.createMultiplePagesRotation(rotation, rotationType));
+        RotateParameters params = new RotateParameters(rotation, rotationType);
         params.setCompress(isCompress());
         params.setOverwrite(isOverwrite());
         params.setVersion(getVersion());

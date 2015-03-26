@@ -41,8 +41,8 @@ import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.sejda.model.pdf.page.PredefinedSetOfPages;
 import org.sejda.model.rotation.Rotation;
-import org.sejda.model.rotation.RotationType;
 
 /**
  * @author Andrea Vacondio
@@ -73,7 +73,7 @@ public class RotateOptionsPaneTest extends GuiTest {
         RotateOptionsPane victim = find(".pdfsam-container");
         victim.apply(builder, onError);
         verify(builder).rotation(eq(Rotation.DEGREES_90));
-        verify(builder).rotationType(eq(RotationType.ALL_PAGES));
+        verify(builder).rotationType(eq(PredefinedSetOfPages.ALL_PAGES));
         verify(onError, never()).accept(anyString());
     }
 
@@ -83,19 +83,19 @@ public class RotateOptionsPaneTest extends GuiTest {
         RotateOptionsPane victim = find(".pdfsam-container");
         victim.saveStateTo(data);
         assertEquals(Rotation.DEGREES_90.toString(), data.get("rotation"));
-        assertEquals(RotationType.ALL_PAGES.toString(), data.get("rotationType"));
+        assertEquals(PredefinedSetOfPages.ALL_PAGES.toString(), data.get("rotationType"));
     }
 
     @Test
     public void restoreStateFrom() throws Exception {
-        ComboBox<KeyStringValueItem<RotationType>> rotationType = find("#rotationType");
+        ComboBox<KeyStringValueItem<PredefinedSetOfPages>> rotationType = find("#rotationType");
         ComboBox<KeyStringValueItem<Rotation>> rotation = find("#rotation");
         Map<String, String> data = new HashMap<>();
         data.put("rotation", Rotation.DEGREES_270.toString());
-        data.put("rotationType", RotationType.EVEN_PAGES.toString());
+        data.put("rotationType", PredefinedSetOfPages.EVEN_PAGES.toString());
         RotateOptionsPane victim = find(".pdfsam-container");
         FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
         assertEquals(Rotation.DEGREES_270, rotation.getSelectionModel().getSelectedItem().getKey());
-        assertEquals(RotationType.EVEN_PAGES, rotationType.getSelectionModel().getSelectedItem().getKey());
+        assertEquals(PredefinedSetOfPages.EVEN_PAGES, rotationType.getSelectionModel().getSelectedItem().getKey());
     }
 }

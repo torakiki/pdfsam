@@ -18,13 +18,13 @@
  */
 package org.pdfsam.pdfbox.component;
 
-import static java.util.Objects.requireNonNull;
 import static org.sejda.model.rotation.Rotation.getRotation;
+
+import java.util.Set;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
-import org.sejda.model.rotation.PageRotation;
-import org.sejda.model.rotation.RotationType;
+import org.sejda.model.rotation.Rotation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 /**
@@ -38,24 +38,26 @@ public class PdfRotator implements OngoingRotation {
     private static final Logger LOG = LoggerFactory.getLogger(PdfRotator.class);
 
     private PDDocument document;
-    private PageRotation rotation;
+    private Rotation rotation;
+    private Set<Integer> pages;
 
-    private PdfRotator(PageRotation rotation) {
-        requireNonNull(rotation, "Rotation cannot be null");
+    private PdfRotator(Rotation rotation, Set<Integer> pages) {
         this.rotation = rotation;
+        this.pages = pages;
     }
 
     /**
-     * DSL entry point to apply a rotation
+     * DSL entry point to apply a rotation to a set of pages
      * <p>
-     * <code>applyRotation(rotation).to(document);</code>
+     * <code>applyRotation(rotation, pages).to(document);</code>
      * </p>
      * 
      * @param rotation
+     * @param pages
      * @return the ongoing apply rotation exposing methods to set the document you want to apply the rotation to.
      */
-    public static OngoingRotation applyRotation(PageRotation rotation) {
-        return new PdfRotator(rotation);
+    public static OngoingRotation applyRotation(Rotation rotation, Set<Integer> pages) {
+        return new PdfRotator(rotation, pages);
     }
 
     public void to(PDDocument document) {
@@ -64,17 +66,12 @@ public class PdfRotator implements OngoingRotation {
     }
 
     /**
-     * Apply the rotation to the dictionary of the pages specified in the {@link PageRotation}
+     * Apply the rotation to the given {@link PDDocument}
      */
     private void executeRotation() {
-        RotationType type = rotation.getRotationType();
-        LOG.debug("Applying rotation of {} to pages {}", rotation.getRotation().getDegrees(), type);
-        if (RotationType.SINGLE_PAGE.equals(type)) {
-            apply(rotation.getPageNumber());
-        } else {
-            for (int j = 1; j <= document.getNumberOfPages(); j++) {
-                apply(j);
-            }
+        LOG.debug("Applying rotation of {} degrees to {} pages", rotation.getDegrees(), pages.size());
+        for (int p : pages) {
+            apply(p);
         }
     }
 
@@ -84,9 +81,7 @@ public class PdfRotator implements OngoingRotation {
      * @param pageNmber
      */
     private void apply(int pageNmber) {
-        if (rotation.accept(pageNmber)) {
             PDPage page = document.getPage(pageNmber - 1);
-            page.setRotation(rotation.getRotation().addRotation(getRotation(page.getRotation())).getDegrees());
-        }
+        page.setRotation(rotation.addRotation(getRotation(page.getRotation())).getDegrees());
     }
 }

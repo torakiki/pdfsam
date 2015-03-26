@@ -75,7 +75,8 @@ public class RotateTask extends BaseTask<RotateParameters> {
             File tmpFile = createTemporaryPdfBuffer();
             LOG.debug("Created output on temporary buffer {}", tmpFile);
 
-            applyRotation(parameters.getRotation()).to(documentHandler.getUnderlyingPDDocument());
+            applyRotation(parameters.getRotation(), parameters.getPages(documentHandler.getNumberOfPages())).to(
+                    documentHandler.getUnderlyingPDDocument());
 
             documentHandler.setVersion(parameters.getVersion());
             documentHandler.compressXrefStream(parameters.isCompress());

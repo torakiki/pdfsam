@@ -23,12 +23,14 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.pdfsam.pdfbox.component.PdfRotator.applyRotation;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.junit.Test;
-import org.sejda.model.rotation.PageRotation;
 import org.sejda.model.rotation.Rotation;
-import org.sejda.model.rotation.RotationType;
 
 /**
  * @author Andrea Vacondio
@@ -42,8 +44,7 @@ public class PdfRotatorTest {
         PDPage page = mock(PDPage.class);
         when(page.getRotation()).thenReturn(180);
         when(document.getPage(2)).thenReturn(page);
-        PageRotation rotation = PageRotation.createSinglePageRotation(3, Rotation.DEGREES_270);
-        applyRotation(rotation).to(document);
+        applyRotation(Rotation.DEGREES_270, Collections.singleton(3)).to(document);
         verify(page).setRotation(90);
     }
 
@@ -57,8 +58,7 @@ public class PdfRotatorTest {
         when(page2.getRotation()).thenReturn(90);
         when(document.getPage(1)).thenReturn(page2);
         when(document.getNumberOfPages()).thenReturn(2);
-        PageRotation rotation = PageRotation.createMultiplePagesRotation(Rotation.DEGREES_270, RotationType.ALL_PAGES);
-        applyRotation(rotation).to(document);
+        applyRotation(Rotation.DEGREES_270, new HashSet<>(Arrays.asList(1, 2))).to(document);
         verify(page1).setRotation(90);
         verify(page2).setRotation(0);
     }

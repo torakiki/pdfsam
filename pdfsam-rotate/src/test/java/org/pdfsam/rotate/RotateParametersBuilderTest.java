@@ -32,8 +32,8 @@ import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.parameter.RotateParameters;
 import org.sejda.model.pdf.PdfVersion;
+import org.sejda.model.pdf.page.PredefinedSetOfPages;
 import org.sejda.model.rotation.Rotation;
-import org.sejda.model.rotation.RotationType;
 
 /**
  * @author Andrea Vacondio
@@ -51,7 +51,7 @@ public class RotateParametersBuilderTest {
         victim.output(output);
         victim.overwrite(true);
         victim.rotation(Rotation.DEGREES_180);
-        victim.rotationType(RotationType.ODD_PAGES);
+        victim.rotationType(PredefinedSetOfPages.ODD_PAGES);
         victim.prefix("prefix");
         File file = folder.newFile("my.pdf");
         PdfFileSource source = PdfFileSource.newInstanceNoPassword(file);
@@ -61,8 +61,8 @@ public class RotateParametersBuilderTest {
         assertTrue(params.isCompress());
         assertTrue(params.isOverwrite());
         assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
-        assertEquals(Rotation.DEGREES_180, params.getRotation().getRotation());
-        assertEquals(RotationType.ODD_PAGES, params.getRotation().getRotationType());
+        assertEquals(Rotation.DEGREES_180, params.getRotation());
+        assertEquals(PredefinedSetOfPages.ODD_PAGES, params.getPredefinedSetOfPages());
         assertEquals(output, params.getOutput());
         assertEquals(source, params.getSourceList().get(0));
         assertEquals("prefix", params.getOutputPrefix());

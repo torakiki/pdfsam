@@ -36,8 +36,8 @@ import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.workspace.RestorableView;
+import org.sejda.model.pdf.page.PredefinedSetOfPages;
 import org.sejda.model.rotation.Rotation;
-import org.sejda.model.rotation.RotationType;
 
 /**
  * Panel for the Rotate options
@@ -47,17 +47,17 @@ import org.sejda.model.rotation.RotationType;
  */
 class RotateOptionsPane extends HBox implements TaskParametersBuildStep<RotateParametersBuilder>, RestorableView {
 
-    private ComboBox<KeyStringValueItem<RotationType>> rotationType = new ComboBox<>();
+    private ComboBox<KeyStringValueItem<PredefinedSetOfPages>> rotationType = new ComboBox<>();
     private ComboBox<KeyStringValueItem<Rotation>> rotation = new ComboBox<>();
 
     RotateOptionsPane() {
         super(Style.DEFAULT_SPACING);
         this.rotationType.getItems().add(
-                keyValue(RotationType.ALL_PAGES, DefaultI18nContext.getInstance().i18n("All pages")));
+                keyValue(PredefinedSetOfPages.ALL_PAGES, DefaultI18nContext.getInstance().i18n("All pages")));
         this.rotationType.getItems().add(
-                keyValue(RotationType.EVEN_PAGES, DefaultI18nContext.getInstance().i18n("Even pages")));
+                keyValue(PredefinedSetOfPages.EVEN_PAGES, DefaultI18nContext.getInstance().i18n("Even pages")));
         this.rotationType.getItems().add(
-                keyValue(RotationType.ODD_PAGES, DefaultI18nContext.getInstance().i18n("Odd pages")));
+                keyValue(PredefinedSetOfPages.ODD_PAGES, DefaultI18nContext.getInstance().i18n("Odd pages")));
         this.rotationType.getSelectionModel().selectFirst();
         this.rotationType.setId("rotationType");
 
@@ -94,7 +94,7 @@ class RotateOptionsPane extends HBox implements TaskParametersBuildStep<RotatePa
     public void restoreStateFrom(Map<String, String> data) {
         Optional.ofNullable(data.get("rotation")).map(Rotation::valueOf).map(r -> keyEmptyValue(r))
                 .ifPresent(r -> this.rotation.getSelectionModel().select(r));
-        Optional.ofNullable(data.get("rotationType")).map(RotationType::valueOf).map(r -> keyEmptyValue(r))
+        Optional.ofNullable(data.get("rotationType")).map(PredefinedSetOfPages::valueOf).map(r -> keyEmptyValue(r))
                 .ifPresent(r -> this.rotationType.getSelectionModel().select(r));
     }
 }
