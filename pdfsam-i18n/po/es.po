@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
 "POT-Creation-Date: 2015-02-05 19:02+0100\n"
 "PO-Revision-Date: 2014-12-04 21:31+0000\n"
-"Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
+"Last-Translator: Adolfo Jayme <fitoschido@gmail.com>, Ruslan López Carro <scherzo16@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -204,11 +204,11 @@ msgstr "El tamaño debe estar entre {0} y {1} px"
 msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
 msgstr "Tamaño en píxeles de las miniaturas (entre {0} y {1} px)"
 
-msgid "Maximum number of rows mast be a positive number"
-msgstr ""
+msgid "Maximum number of rows mast be a positive number" #mast and not must? O.o
+msgstr "Máximo número de filas debe ser un número positivo"
 
 msgid "Maximum number of rows displayed by the Log register"
-msgstr ""
+msgstr "Máximo número de filas mostradas por el registro de eventos"
 
 msgid "Generate high quality thumbnails (slower)"
 msgstr "Generar miniaturas de alta calidad (más lento)"
@@ -255,13 +255,13 @@ msgid "Default working directory:"
 msgstr "Carpeta de trabajo predeterminada:"
 
 msgid "Set how often the PDFsam news panel should be opened"
-msgstr ""
+msgstr "Establecer que tan a menudo deberá abrirse el panel de noticias"
 
 msgid "News panel:"
-msgstr ""
+msgstr "Panel de noticias:"
 
 msgid "Log register rows:"
-msgstr ""
+msgstr "Filas del registro:"
 
 msgid "Language:"
 msgstr "Idioma:"
@@ -298,7 +298,7 @@ msgid "Modules"
 msgstr "Módulos"
 
 msgid "Log register"
-msgstr ""
+msgstr "Registro"
 
 msgid "Copy"
 msgstr "Copiar"
@@ -329,10 +329,10 @@ msgid "You performed {0} tasks with PDFsam, did it help?"
 msgstr "Ha realizado {0} tareas con PDFsam. ¿Le ayudó el programa?"
 
 msgid "Give something back"
-msgstr ""
+msgstr "Retribuye"
 
 msgid "PDFsam worked hard!"
-msgstr ""
+msgstr "¡PDFsam trabajó duro!"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -345,7 +345,7 @@ msgid "New version available"
 msgstr "Versión nueva disponible"
 
 msgid "Show this:"
-msgstr ""
+msgstr "Muestra esto:"
 
 msgid "What's new"
 msgstr "Novedades"
@@ -392,7 +392,7 @@ msgid "Documents loaded"
 msgstr "Documentos cargados"
 
 msgid "Requesting modules state"
-msgstr ""
+msgstr "Solicitando el estado de los módulos"
 
 #, fuzzy
 msgid "Unable to save modules workspace"
@@ -408,11 +408,11 @@ msgstr "Espacio de trabajo"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
-msgstr ""
+msgstr "No se puede cargar el espacio de trabajo desde {0}"
 
 #, java-format
 msgid "Saving workspace data to {0}"
-msgstr ""
+msgstr "Guardando los datos del espacio de trabajo en {0}"
 
 #, fuzzy
 msgid "Workspace saved"
@@ -442,7 +442,7 @@ msgid "Split"
 msgstr "Dividir"
 
 msgid "Split a pdf document at the given page numbers."
-msgstr ""
+msgstr "Dividir un documento pdf en los números de página especificados"
 
 msgid "Select or drag and drop the PDF you want to split"
 msgstr "Seleccione o arrastre y suelte el PDF que quiera dividir"
@@ -483,13 +483,13 @@ msgid "Split by size"
 msgstr "Dividir por tamaño"
 
 msgid "Split a pdf document in files of the give size (roughly)."
-msgstr ""
+msgstr "Dividir un documento pdf en archivos de un tamaño dado (burdamente)"
 
 msgid "Set the size to split at"
-msgstr ""
+msgstr "Establecer el tamaño en que se dividirá en"
 
 msgid "Size must be a number"
-msgstr ""
+msgstr "El tamaño debe de ser un númeroi"
 
 msgid "Split at this size:"
 msgstr "Dividir en este tamaño:"
@@ -515,7 +515,7 @@ msgstr "Mezcla alterna"
 msgid ""
 "Merge two PDF documents taking pages alternately in straight or reverse "
 "order."
-msgstr ""
+msgstr "Mezclar dos docuemntos pdf tomando las páginas alternadamente progresivamente o retrogresivamente"
 
 msgid "Select or drag and drop the first PDF you want to mix"
 msgstr "Seleccione o arrastre y suelte el primer PDF que quiera mezclar"
@@ -544,7 +544,7 @@ msgid ""
 msgstr "Cambiar del segundo documento al primero tras las siguientes páginas"
 
 msgid "Invalid parameter 'first and second step' must be numbers"
-msgstr ""
+msgstr "Parámetro inválido 'el primer y segundo pasos' deben ser numeros'"
 
 msgid "Select the number of pages"
 msgstr "Seleccione el número de páginas"
@@ -782,7 +782,7 @@ msgid "Open Folder"
 msgstr "Abrir la carpeta"
 
 msgid "Duplicate"
-msgstr ""
+msgstr "Duplicado" #not to duplicate but a duplicate thing?
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -856,13 +856,13 @@ msgid "This document is encrypted, click to provide a password."
 msgstr "Este documento está cifrado. Pulse para proporcionar una contraseña."
 
 msgid "Squared green"
-msgstr ""
+msgstr "Rectángulo verde"
 
 msgid "Squared cornflower"
-msgstr ""
+msgstr "Rectangulo celeste"
 
 msgid "Roundish"
-msgstr ""
+msgstr "Redondeado"
 
 msgid "Never"
 msgstr "Nunca"
@@ -877,7 +877,7 @@ msgid "Always"
 msgstr "Siempre"
 
 msgid "Set the bookmarks level to split at"
-msgstr ""
+msgstr "Configurar el nivel de marcadores para dividirse en"
 
 msgid "Invalid bookmarks level"
 msgstr "Nivel de marcadores no válido"
@@ -888,9 +888,10 @@ msgstr "Dividir por marcadores"
 msgid ""
 "Split a pdf document at bookmarked pages by specifying a bookmark level."
 msgstr ""
+"Dividir un document pdf en las páginas con marcadores mediante la especificación de un nivel de marcador."
 
 msgid "Regexp the bookmark has to match"
-msgstr ""
+msgstr "Especificar las expresiones regulares con que el marcador debe equipararse"
 
 msgid "Split at this bookmark level:"
 msgstr "Dividir en este nivel de los marcadores:"
