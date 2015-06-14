@@ -28,6 +28,7 @@ import java.io.IOException;
 
 import org.apache.pdfbox.pdmodel.PDDestinationNameTreeNode;
 import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.interactive.action.PDActionGoTo;
 import org.apache.pdfbox.pdmodel.interactive.documentnavigation.destination.PDNamedDestination;
 import org.apache.pdfbox.pdmodel.interactive.documentnavigation.destination.PDPageFitDestination;
@@ -63,12 +64,13 @@ public class PDFBoxOutlineUtilsTest {
     @Test
     public void toPageDestinationAction() {
         PDPageFitDestination destination = new PDPageFitDestination();
-        destination.setPageNumber(5);
+        PDPage page = new PDPage();
+        destination.setPage(page);
         PDActionGoTo action = new PDActionGoTo();
         action.setDestination(destination);
         PDOutlineItem victim = new PDOutlineItem();
         victim.setAction(action);
-        assertEquals(5, PDFBoxOutlineUtils.toPageDestination(victim, null).get().getPageNumber());
+        assertEquals(destination.getPage(), PDFBoxOutlineUtils.toPageDestination(victim, null).get().getPage());
     }
 
     @Test
