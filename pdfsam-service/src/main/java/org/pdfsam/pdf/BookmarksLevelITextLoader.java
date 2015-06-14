@@ -19,7 +19,7 @@
 package org.pdfsam.pdf;
 
 import org.pdfsam.module.RequiredPdfData;
-import org.sejda.impl.itext5.component.ITextOutlineHandler;
+import org.sejda.impl.itext5.component.ITextOutlineLevelsHandler;
 
 import com.itextpdf.text.pdf.PdfReader;
 
@@ -33,7 +33,7 @@ import com.itextpdf.text.pdf.PdfReader;
 class BookmarksLevelITextLoader implements PdfLoader<PdfReader> {
 
     public void accept(PdfReader reader, PdfDocumentDescriptor descriptor) {
-        descriptor.setMaxGoToActionDepth(new ITextOutlineHandler(reader, "").getMaxGoToActionDepth());
+        descriptor.setMaxGoToActionDepth(new ITextOutlineLevelsHandler(reader, "").getMaxOutlineDepth());
     }
 
     public RequiredPdfData key() {
