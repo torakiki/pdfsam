@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-12-12 16:32+0000\n"
-"X-Generator: Launchpad (build 17286)\n"
+"X-Launchpad-Export-Date: 2015-08-03 07:52+0000\n"
+"X-Generator: Launchpad (build 17656)\n"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -74,13 +74,11 @@ msgstr "_Uložiť"
 msgid "Recen_t"
 msgstr "Ne_dávne"
 
-#, fuzzy
 msgid "Select the workspace file to save"
-msgstr "Vybrať pracovný priestor"
+msgstr ""
 
-#, fuzzy
 msgid "Select the workspace to load"
-msgstr "Vybrať pracovný priestor"
+msgstr ""
 
 msgid "Dashboard"
 msgstr ""
@@ -270,9 +268,8 @@ msgstr ""
 msgid "Set the module to open at application startup (restart needed)"
 msgstr ""
 
-#, fuzzy
 msgid "Check for updates now"
-msgstr "Kontrolujú sa aktualizácie"
+msgstr ""
 
 msgid "Close"
 msgstr "Zatvoriť"
@@ -376,17 +373,15 @@ msgstr "Dokumenty načítané"
 msgid "Requesting modules state"
 msgstr ""
 
-#, fuzzy
 msgid "Unable to save modules workspace"
-msgstr "Vybrať pracovný priestor"
+msgstr ""
 
 #, java-format
 msgid "Loading workspace from {0}"
 msgstr ""
 
-#, fuzzy
 msgid "Workspace loaded"
-msgstr "Pracovný priestor"
+msgstr ""
 
 #, java-format
 msgid "Unable to load workspace from {0}"
@@ -396,13 +391,11 @@ msgstr ""
 msgid "Saving workspace data to {0}"
 msgstr ""
 
-#, fuzzy
 msgid "Workspace saved"
-msgstr "Pracovný priestor"
+msgstr ""
 
-#, fuzzy
 msgid "Split after"
-msgstr "Rozdeliť"
+msgstr ""
 
 msgid "Split the document after the given page numbers"
 msgstr ""
@@ -531,13 +524,11 @@ msgstr ""
 msgid "The selected PDF document is invalid"
 msgstr ""
 
-#, fuzzy
 msgid "Open the generated document"
-msgstr "Rovnaký ako vstupný dokument"
+msgstr ""
 
-#, fuzzy
 msgid "Open the destination directory"
-msgstr "Vyberať existujúce priečinok"
+msgstr ""
 
 msgid "Ready"
 msgstr ""
@@ -868,12 +859,6 @@ msgstr ""
 
 #~ msgid "Split odd pages"
 #~ msgstr "Rozdeliť nepárne stránky"
-
-#~ msgid "Thumbnails"
-#~ msgstr "Miniatúry"
-
-#~ msgid "Loading"
-#~ msgstr "Načítava sa"
 
 #~ msgid "Output document pdf version:"
 #~ msgstr "Verzia výstupného pdf dokumentu:"

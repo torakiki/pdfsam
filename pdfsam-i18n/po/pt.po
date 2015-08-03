@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
 "POT-Creation-Date: 2015-02-05 19:02+0100\n"
-"PO-Revision-Date: 2014-12-04 09:17+0000\n"
+"PO-Revision-Date: 2015-02-23 17:44+0000\n"
 "Last-Translator: Sérgio Marques <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-12-12 16:32+0000\n"
-"X-Generator: Launchpad (build 17286)\n"
+"X-Launchpad-Export-Date: 2015-08-03 07:52+0000\n"
+"X-Generator: Launchpad (build 17656)\n"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -50,9 +50,8 @@ msgstr "Iniciado em {0}"
 msgid "Closing PDFsam..."
 msgstr "A fechar o PDFsam..."
 
-#, fuzzy
 msgid "Application menu"
-msgstr "Abrir mensagens da aplicação"
+msgstr "Menu da aplicação"
 
 msgid "_Modules"
 msgstr "_Módulos"
@@ -60,9 +59,8 @@ msgstr "_Módulos"
 msgid "E_xit"
 msgstr "_Sair"
 
-#, fuzzy
 msgid "Application messages"
-msgstr "Abrir mensagens da aplicação"
+msgstr "Mensagens da aplicação"
 
 msgid "_Workspace"
 msgstr "Área _de trabalho"
@@ -76,13 +74,11 @@ msgstr "_Gravar"
 msgid "Recen_t"
 msgstr "Recen_tes"
 
-#, fuzzy
 msgid "Select the workspace file to save"
-msgstr "Selecione a área de trabalho"
+msgstr "Selecione o ficheiro de área de trabalho para gravar"
 
-#, fuzzy
 msgid "Select the workspace to load"
-msgstr "Selecione a área de trabalho"
+msgstr "Selecione o ficheiro de área de trabalho a carregar"
 
 msgid "Dashboard"
 msgstr "Painel de controlo"
@@ -125,7 +121,7 @@ msgid "Bug and feature requests"
 msgstr "Relatórios de erros e funções"
 
 msgid "Play the \"get started\" video"
-msgstr "Reproduza o vídeo"
+msgstr "Reproduzir o vídeo de iniciação"
 
 msgid "Contribute"
 msgstr "Participar"
@@ -140,7 +136,7 @@ msgid "Donate"
 msgstr "Donativos"
 
 msgid "Social"
-msgstr "Social"
+msgstr "Redes sociais"
 
 msgid "Follow us on Twitter"
 msgstr "Siga-nos no Twitter"
@@ -205,10 +201,10 @@ msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
 msgstr "Tamanho de pixeis das miniaturas (entre {0}px e {1}px)"
 
 msgid "Maximum number of rows mast be a positive number"
-msgstr ""
+msgstr "O número máximo de linhas tem de ser positivo"
 
 msgid "Maximum number of rows displayed by the Log register"
-msgstr ""
+msgstr "Número máximo de linhas a mostrar no registo"
 
 msgid "Generate high quality thumbnails (slower)"
 msgstr "Gerar miniaturas de alta qualidade (lento)"
@@ -245,6 +241,8 @@ msgid ""
 "Usage statistics are used to populate the modules quick bar on the left with "
 "the most used and most recently used modules."
 msgstr ""
+"As estatísticas de utilização serão utilizadas para preencher a barra de "
+"módulos existente à esquerda com os módulos utilizados recentemente."
 
 msgid "Load default workspace at startup:"
 msgstr "Carregar área de trabalho padrão ao iniciar:"
@@ -258,9 +256,8 @@ msgstr "Define a frequência de abertura do painel de notícias do PDFsam"
 msgid "News panel:"
 msgstr "Painel de notícias:"
 
-#, fuzzy
 msgid "Log register rows:"
-msgstr "Registos"
+msgstr "Linhas para registo:"
 
 msgid "Language:"
 msgstr "Idioma:"
@@ -280,9 +277,8 @@ msgstr "Módulo de arranque:"
 msgid "Set the module to open at application startup (restart needed)"
 msgstr "Defina o módulo a carregar ao iniciar a aplicação (tem que reiniciar)"
 
-#, fuzzy
 msgid "Check for updates now"
-msgstr "Procurar atualizações"
+msgstr "Procurar atualizações agora"
 
 msgid "Close"
 msgstr "Fechar"
@@ -379,50 +375,44 @@ msgstr "Não foi possível localizar a versão mais recente."
 msgid "Checking for updates"
 msgstr "Procurar atualizações"
 
-#, fuzzy
 msgid "Loading pdf documents"
-msgstr "Mover documentos selecionados para baixo"
+msgstr "A carregar documentos PDF"
 
 msgid "Documents loaded"
 msgstr "Documentos carregados"
 
 msgid "Requesting modules state"
-msgstr ""
+msgstr "Solicitando estado dos módulos"
 
-#, fuzzy
 msgid "Unable to save modules workspace"
-msgstr "Localização de módulos não encontrada."
+msgstr "Não foi possível gravar a área de trabalho dos módulos"
 
-#, fuzzy, java-format
+#, java-format
 msgid "Loading workspace from {0}"
-msgstr "A carregar módulos de {0}"
+msgstr "A carregar área de trabalho de {0}"
 
-#, fuzzy
 msgid "Workspace loaded"
-msgstr "Área de trabalho"
+msgstr "Área de trabalho carregada"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
-msgstr ""
+msgstr "Não foi possível carregar a área de trabalho de {0}"
 
 #, java-format
 msgid "Saving workspace data to {0}"
-msgstr ""
+msgstr "A gravar dados da área de trabalho em {0}"
 
-#, fuzzy
 msgid "Workspace saved"
-msgstr "Área de trabalho"
+msgstr "Área de trabalho gravada"
 
-#, fuzzy
 msgid "Split after"
-msgstr "Separar"
+msgstr "Separar após"
 
 msgid "Split the document after the given page numbers"
 msgstr "Separar documento após o número de páginas indicado"
 
-#, fuzzy
 msgid "No page selected"
-msgstr "Não selecionou um documento PDF."
+msgstr "Nenhuma página selecionada"
 
 msgid "Split after the following page numbers"
 msgstr "Separar após este número de páginas"
@@ -451,9 +441,8 @@ msgstr "Definições de separação"
 msgid "Destination directory"
 msgstr "Diretório de destino"
 
-#, fuzzy
 msgid "Every page"
-msgstr "Páginas par"
+msgstr "Cada página"
 
 msgid "Even pages"
 msgstr "Páginas par"
@@ -479,12 +468,11 @@ msgstr "Separar por tamanho"
 msgid "Split a pdf document in files of the give size (roughly)."
 msgstr "Separa o documento em ficheiros deste tamanho (aproximado)."
 
-#, fuzzy
 msgid "Set the size to split at"
-msgstr "Defina o nível de marcadores em que separar"
+msgstr "Defina o tamanho de separação"
 
 msgid "Size must be a number"
-msgstr ""
+msgstr "O tamanho tem de ser um número"
 
 msgid "Split at this size:"
 msgstr "Separar neste tamanho:"
@@ -493,16 +481,16 @@ msgid "Invalid split size"
 msgstr "Tamanho inválido"
 
 msgid "Kilobytes"
-msgstr ""
+msgstr "Kilobytes"
 
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 msgid "Megabytes"
-msgstr ""
+msgstr "Megabytes"
 
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 msgid "Alternate Mix"
 msgstr "Combinação alternada"
@@ -511,8 +499,8 @@ msgid ""
 "Merge two PDF documents taking pages alternately in straight or reverse "
 "order."
 msgstr ""
-"Unir dois documentos documentos tirando as páginas alternadamente por ordem "
-"direta ou inversa."
+"Unir dois documentos tirando as páginas alternadamente por ordem direta ou "
+"inversa."
 
 msgid "Select or drag and drop the first PDF you want to mix"
 msgstr "Selecione ou arraste e largue o primeiro documento a combinar"
@@ -549,13 +537,11 @@ msgstr "Selecione o número de páginas"
 msgid "The selected PDF document is invalid"
 msgstr "O documento selecionado é inválido."
 
-#, fuzzy
 msgid "Open the generated document"
-msgstr "Inverter o segundo documento"
+msgstr "Abrir documento gerado"
 
-#, fuzzy
 msgid "Open the destination directory"
-msgstr "Diretório de destino"
+msgstr "Abrir pasta de destino"
 
 msgid "Ready"
 msgstr "Pronto"
@@ -751,7 +737,7 @@ msgid "Open Folder"
 msgstr "Abrir pasta"
 
 msgid "Duplicate"
-msgstr ""
+msgstr "Duplicar"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -823,10 +809,10 @@ msgid "This document is encrypted, click to provide a password."
 msgstr "Este docmento está encriptado. Clique para escrever a senha."
 
 msgid "Squared green"
-msgstr ""
+msgstr "Quadrado verde"
 
 msgid "Squared cornflower"
-msgstr ""
+msgstr "Centáureo quadrada"
 
 msgid "Roundish"
 msgstr "Redondo"
@@ -889,41 +875,11 @@ msgstr "Rodar as páginas de diversos documentos."
 msgid "Rotate settings"
 msgstr "Definições de rotação"
 
-#~ msgid "Burst (Split into single pages)"
-#~ msgstr "Separar (em páginas individuais)"
-
 #~ msgid "Split even pages"
 #~ msgstr "Separar páginas pares"
 
 #~ msgid "Split odd pages"
 #~ msgstr "Separar páginas impares"
-
-#~ msgid "Explode the document into single pages"
-#~ msgstr "Separar documento para páginas individuais"
-
-#~ msgid "Split the document after every even page"
-#~ msgstr "Separar documento a cada página par"
-
-#~ msgid "Split the document after every odd page"
-#~ msgstr "Separar documento a cada página ímpar"
-
-#~ msgid "Error playing sounds"
-#~ msgstr "Erro ao reproduzir sons"
-
-#~ msgid "Open menu"
-#~ msgstr "Abrir menu"
-
-#~ msgid "Open main dashboard"
-#~ msgstr "Abrir painel de controlo"
-
-#~ msgid "Thumbnails"
-#~ msgstr "Miniaturas"
-
-#~ msgid "Loading"
-#~ msgstr "Carregamento"
-
-#~ msgid "Set the size as number of bytes or specify KB or MB"
-#~ msgstr "Defina o tamanho como número de bytes, KB ou MB"
 
 #~ msgid "Destination folder"
 #~ msgstr "Pasta de destino"

@@ -8,268 +8,277 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
 "POT-Creation-Date: 2015-02-05 19:02+0100\n"
-"PO-Revision-Date: 2014-03-03 14:12+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2015-03-25 21:36+0000\n"
+"Last-Translator: Asier Iturralde Sarasola <Unknown>\n"
 "Language-Team: Basque <eu@li.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-12-12 16:32+0000\n"
-"X-Generator: Launchpad (build 17286)\n"
+"X-Launchpad-Export-Date: 2015-08-03 07:52+0000\n"
+"X-Generator: Launchpad (build 17656)\n"
 
 #, java-format
 msgid "Installing theme {0}."
-msgstr ""
+msgstr "Gaia instalatzen {0}"
 
 #, java-format
 msgid "Modules directory {0} does not exist"
-msgstr ""
+msgstr "Moduluen direktorioa {0} ez da existitzen"
 
 #, java-format
 msgid "Loading modules from {0}"
-msgstr ""
+msgstr "{0}(e)tik moduluak kargatzen"
 
 #, java-format
 msgid "Found modules jars {0}"
-msgstr ""
+msgstr "Moduluen jar-ak aurkitu dira {0}"
 
 msgid "Error finding modules paths"
-msgstr ""
+msgstr "Errorea moduluen bideak bilatzean"
 
 msgid "No module has been found"
-msgstr ""
+msgstr "Ez da modulurik aurkitu"
 
 msgid "Unable to find modules location."
-msgstr ""
+msgstr "Ezin izan da moduluen kokapena aurkitu."
 
 #, java-format
 msgid "Started in {0}"
-msgstr ""
+msgstr "{0}(e)n hasia"
 
 msgid "Closing PDFsam..."
-msgstr ""
+msgstr "PDFsam ixten..."
 
 msgid "Application menu"
-msgstr ""
+msgstr "Aplikazioaren menua"
 
 msgid "_Modules"
-msgstr ""
+msgstr "_Moduluak"
 
 msgid "E_xit"
-msgstr ""
+msgstr "I_rten"
 
 msgid "Application messages"
-msgstr ""
+msgstr "Aplikazioaren mezuak"
 
 msgid "_Workspace"
-msgstr ""
+msgstr "_Laneko area"
 
 msgid "_Load"
-msgstr ""
+msgstr "_Kargatu"
 
 msgid "_Save"
-msgstr ""
+msgstr "_Gorde"
 
 msgid "Recen_t"
-msgstr ""
+msgstr "_Azkenak"
 
 msgid "Select the workspace file to save"
-msgstr ""
+msgstr "Hautatu laneko area fitxategia gordetzeko"
 
 msgid "Select the workspace to load"
-msgstr ""
+msgstr "Hautatu laneko area kargatzeko"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Aginte-panela"
 
 msgid "Document details"
-msgstr ""
+msgstr "Dokumentuaren xehetasunak"
 
 msgid "Keywords"
 msgstr "Gako-hitzak"
 
 msgid "Summary"
-msgstr ""
+msgstr "Laburpena"
 
 msgid "About"
 msgstr "Honi buruz"
 
 msgid "Subscribe to the official news feed"
-msgstr ""
+msgstr "Harpidetu albisteen jario ofizialera"
 
 msgid "Environment"
-msgstr ""
+msgstr "Ingurunea"
 
 #, java-format
 msgid "Max memory {0}"
-msgstr ""
+msgstr "Gehienezko memoria {0}"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopiatu arbelean"
 
 msgid "Thanks to"
-msgstr ""
+msgstr "Eskerrak"
 
 msgid "The open source projects making PDFsam possible"
-msgstr ""
+msgstr "PDFsam posible egiten duten kode irekiko proiektuak"
 
 msgid "Support"
-msgstr ""
+msgstr "Sostengua"
 
 msgid "Bug and feature requests"
-msgstr ""
+msgstr "Erroreak eta ezaugarrien eskaerak"
 
 msgid "Play the \"get started\" video"
-msgstr ""
+msgstr "Ikusi \"nola hasi erabiltzen\" bideoa"
 
 msgid "Contribute"
-msgstr ""
+msgstr "Lagundu"
 
 msgid "Fork PDFsam on GitHub"
-msgstr ""
+msgstr "Egin PDFsam-en fork bat Github-en"
 
 msgid "Translate"
-msgstr ""
+msgstr "Itzuli"
 
 msgid "Donate"
-msgstr ""
+msgstr "Diruz lagundu"
 
 msgid "Social"
-msgstr ""
+msgstr "Sare sozialak"
 
 msgid "Follow us on Twitter"
-msgstr ""
+msgstr "Jarraitu Twitter-en"
 
 msgid "Follow us on Google Plus"
-msgstr ""
+msgstr "Jarraitu Google Plus-en"
 
 msgid "Like us on Facebook"
-msgstr ""
+msgstr "Atsegindu Facebook-en"
 
 msgid "Manually selected"
-msgstr ""
+msgstr "Eskuz hautatua"
 
 msgid ""
 "Automatically set the destination directory to the selected PDF document "
 "directory"
 msgstr ""
+"Ezarri automatikoki hautatutako PDF dokumentuaren direktorioa helburuko "
+"direktorio bezala"
 
 msgid "Appearance"
-msgstr ""
+msgstr "Itxura"
 
 msgid "Behavior"
-msgstr ""
+msgstr "Portaera"
 
 msgid "Workspace"
-msgstr ""
+msgstr "Laneko area"
 
 msgid "Output"
-msgstr ""
+msgstr "Irteera"
 
 msgid "Check for updates at startup"
-msgstr ""
+msgstr "Egiaztatu eguneraketarik baden abioan"
 
 msgid ""
 "Set whether new version availability should be checked on startup (restart "
 "needed)"
 msgstr ""
+"Abioan bertsio berririk baden erabilgarri egiaztatu behar den ala ez ezarri "
+"(berrabiaraztea eskatzen du)"
 
 msgid "Play alert sounds"
-msgstr ""
+msgstr "Erreproduzitu alerta soinuak"
 
 msgid "Turn on or off alert sounds"
-msgstr ""
+msgstr "Gaitu edo desgaitu alerta soinuak"
 
 msgid "High quality thumbnails"
-msgstr ""
+msgstr "Kalitate altuko koadro txikiak"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr ""
+"Erabili hautatutako PDF dokumentuaren direktorioa irteerako direktorio bezala"
 
 #, java-format
 msgid "Size must be between {0}px and {1}px"
-msgstr ""
+msgstr "Tamainak {0} eta {1} artean egon behar du"
 
 #, java-format
 msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
-msgstr ""
+msgstr "Koadro txikien pixel tamaina ({0}px eta {1}px artean)"
 
 msgid "Maximum number of rows mast be a positive number"
-msgstr ""
+msgstr "Gehienezko errenkada kopuruak zenbaki positiboa izan behar du"
 
 msgid "Maximum number of rows displayed by the Log register"
-msgstr ""
+msgstr "Log erregistroak gehienez bistaratutako errenkada kopurua"
 
 msgid "Generate high quality thumbnails (slower)"
-msgstr ""
+msgstr "Sortu kalitate altuko koadro txikiak (mantsoagoa)"
 
 msgid "Size in px:"
-msgstr ""
+msgstr "Tamaina px-etan:"
 
 msgid "Library used to generate thumbnails"
-msgstr ""
+msgstr "Koadro txikiak sortzeko erabilitako liburutegia"
 
 msgid "Thumbnails creator:"
-msgstr ""
+msgstr "Koadro txikien sortzailea:"
 
 msgid "Clear usage statistics"
-msgstr ""
+msgstr "Garbitu erabileraren estatistikak"
 
 msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
 "startup"
-msgstr ""
+msgstr "Hautatu abioan automatikoki kargatuko den aurrez gordetako laneko area"
 
 msgid "Select a workspace"
-msgstr ""
+msgstr "Hautatu laneko area"
 
 msgid "Select a directory where documents will be saved and loaded by default"
-msgstr ""
+msgstr "Hautatu modu lehenetsian dokumentuak gorde eta kargatzeko direktorioa"
 
 msgid "Select a directory"
-msgstr ""
+msgstr "Hautatu direktorioa"
 
 msgid ""
 "Usage statistics are used to populate the modules quick bar on the left with "
 "the most used and most recently used modules."
 msgstr ""
+"Erabilera estatistikak ezkerreko moduluen laster-barran azkena erabilitako "
+"moduluak eta erabilienak bistaratzeko erabiltzen dira."
 
 msgid "Load default workspace at startup:"
-msgstr ""
+msgstr "Kargatu laneko area lehenetsia abioan:"
 
 msgid "Default working directory:"
-msgstr ""
+msgstr "Laneko direktorio lehenetsia:"
 
 msgid "Set how often the PDFsam news panel should be opened"
-msgstr ""
+msgstr "Ezarri ze maiztasunekin ireki behar den PDFsam albisteen panela"
 
 msgid "News panel:"
-msgstr ""
+msgstr "Albisteen panela:"
 
 msgid "Log register rows:"
-msgstr ""
+msgstr "Log erregistroaren errenkadak:"
 
 msgid "Language:"
 msgstr "Hizkuntza:"
 
 msgid "Set your preferred language (restart needed)"
-msgstr ""
+msgstr "Ezarri zure gogoko hizkuntza (berrabiaraztea eskatzen du)"
 
 msgid "Theme:"
 msgstr "Gaia:"
 
 msgid "Set your preferred theme (restart needed)"
-msgstr ""
+msgstr "Ezarri zure gogoko gaia (berrabiaraztea eskatzen du)"
 
 msgid "Startup module:"
-msgstr ""
+msgstr "Abioko modulua:"
 
 msgid "Set the module to open at application startup (restart needed)"
 msgstr ""
+"Ezarri aplikazioa abiatzean ireki beharreko modulua (berrabiaraztea eskatzen "
+"du)"
 
 msgid "Check for updates now"
-msgstr ""
+msgstr "Egiaztatu eguneraketarik baden orain"
 
 msgid "Close"
 msgstr "Itxi"
@@ -278,10 +287,10 @@ msgid "Settings"
 msgstr "Ezarpenak"
 
 msgid "Modules"
-msgstr ""
+msgstr "Moduluak"
 
 msgid "Log register"
-msgstr ""
+msgstr "Log erregistroa"
 
 msgid "Copy"
 msgstr "Kopiatu"
@@ -290,341 +299,354 @@ msgid "Clear"
 msgstr "Garbitu"
 
 msgid "Select all"
-msgstr "Guztiak aukeratu"
+msgstr "Hautatu guztiak"
 
 msgid "Save log"
-msgstr "Erregistroa gorde"
+msgstr "Gorde erregistroa"
 
 msgid "Select where to save the log file"
-msgstr ""
+msgstr "Hautatu non gorde behar den log fitxategia"
 
 msgid "Invalid parameters"
-msgstr ""
+msgstr "Baliogabeko parametroak"
 
 msgid ""
 "Input parameters are invalid, open the application messages for details."
 msgstr ""
+"Sarrerako parametroak baliogabeak dira, ireki aplikazioaren mezuak "
+"xehetasunetarako"
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
-msgstr ""
+msgstr "{0} ataza burutu dituzu PDFsam-ekin, lagundu dizu?"
 
 msgid "Give something back"
-msgstr ""
+msgstr "Eman zerbait bueltan"
 
 msgid "PDFsam worked hard!"
-msgstr ""
+msgstr "PDFsam-ek gogor lan egin du!"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
-msgstr ""
+msgstr "PDFsam {0} deskargagarri dago"
 
 msgid "Download"
-msgstr ""
+msgstr "Deskargatu"
 
 msgid "New version available"
-msgstr ""
+msgstr "Bertsio berria eskuragarri dago"
 
 msgid "Show this:"
-msgstr ""
+msgstr "Erakutsi hau:"
 
 msgid "What's new"
-msgstr ""
+msgstr "Zer berri?"
 
 msgid "Directory not empty"
-msgstr ""
+msgstr "Direktorioa ez dago hutsik"
 
 msgid "The selected directory is not empty"
-msgstr ""
+msgstr "Hautatutako direktorioa ez dago hutsik"
 
 msgid "Overwrite files with the same name as the generated ones?"
-msgstr ""
+msgstr "Sortutakoen izen bera duten fitxategiak gainidatzi?"
 
 msgid "Don't overwrite existing file"
-msgstr ""
+msgstr "Ez gainidatzi existitzen diren fitxategiak"
 
 msgid "Overwrite confirmation"
-msgstr ""
+msgstr "Gainidazketa berrespena"
 
 msgid "A file with the given name already exists"
-msgstr ""
+msgstr "Izen bera duen fitxategi bat existitzen da"
 
 msgid "Do you want to overwrite it?"
-msgstr ""
+msgstr "Gainidatzi nahi duzu?"
 
 msgid "Overwrite"
-msgstr ""
+msgstr "Gainidatzi"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Utzi"
 
 msgid "Unable to find the latest available version."
-msgstr ""
+msgstr "Ezin izan da eskuragarri dagoen azken bertsioa aurkitu."
 
 msgid "Checking for updates"
-msgstr ""
+msgstr "Eguneraketarik badagoen egiaztatzen"
 
 msgid "Loading pdf documents"
-msgstr ""
+msgstr "pdf dokumentuak kargatzen"
 
 msgid "Documents loaded"
-msgstr ""
+msgstr "Dokumentuak kargatuta"
 
 msgid "Requesting modules state"
-msgstr ""
+msgstr "Moduluen egoera eskatzen"
 
 msgid "Unable to save modules workspace"
-msgstr ""
+msgstr "Ezin izan da moduluen laneko area gorde"
 
 #, java-format
 msgid "Loading workspace from {0}"
-msgstr ""
+msgstr "Laneko area {0}(e)tik kargatzen"
 
 msgid "Workspace loaded"
-msgstr ""
+msgstr "Laneko area kargatuta"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
-msgstr ""
+msgstr "Ezin izan da laneko area kargatu {0}(e)tik"
 
 #, java-format
 msgid "Saving workspace data to {0}"
-msgstr ""
+msgstr "Laneko arearen datuak {0}(e)n gordetzen"
 
 msgid "Workspace saved"
-msgstr ""
+msgstr "Laneko area gordeta"
 
-#, fuzzy
 msgid "Split after"
-msgstr "Zatitu"
+msgstr "Zatitu honen ondoren"
 
 msgid "Split the document after the given page numbers"
-msgstr ""
+msgstr "Zatitu dokumentua emandako orri kopuruaren ondoren"
 
 msgid "No page selected"
-msgstr ""
+msgstr "Ez da orririk hautatu"
 
 msgid "Split after the following page numbers"
-msgstr ""
+msgstr "Zatitu ondorengo orri zenbakien ondoren"
 
 msgid "Page numbers to split at (n1,n2,n3..)"
-msgstr ""
+msgstr "Zatitu beharreko orri zenbakiak (n1, n2, n3...)"
 
 msgid "Invalid page numbers"
-msgstr ""
+msgstr "Orri zenbaki baliogabeak"
 
 msgid "Split"
 msgstr "Zatitu"
 
 msgid "Split a pdf document at the given page numbers."
-msgstr ""
+msgstr "Zatitu pdf dokumentua emandako orri zenbakietan"
 
 msgid "Select or drag and drop the PDF you want to split"
-msgstr ""
+msgstr "Hautatu edo arrastatu eta jaregin zatitu nahi duzun PDFa"
 
 msgid "File names settings"
-msgstr ""
+msgstr "Fitxategi-izenen ezarpenak"
 
 msgid "Split settings"
-msgstr ""
+msgstr "Zatitzeko ezarpenak"
 
 msgid "Destination directory"
-msgstr ""
+msgstr "Helburuko direktorioa"
 
 msgid "Every page"
-msgstr ""
+msgstr "Orriro"
 
 msgid "Even pages"
-msgstr ""
+msgstr "Orri bikoitiak"
 
 msgid "Odd pages"
-msgstr ""
+msgstr "Orri bakoitiak"
 
 msgid "Split by every \"n\" pages"
-msgstr ""
+msgstr "Zatitu \"n\" orriro"
 
 msgid "Number of pages"
 msgstr "Orri-kopurua"
 
 msgid "Splits the pdf every \"n\" pages creating documents of \"n\" pages each"
-msgstr ""
+msgstr "Zatitu pdf-a \"n\" orriro, \"n\" orriko dokumentuak sortuz"
 
 msgid "Invalid number of pages"
-msgstr ""
+msgstr "Orri kopuru baliogabea"
 
 msgid "Split by size"
-msgstr ""
+msgstr "Zatitu tamainaren arabera"
 
 msgid "Split a pdf document in files of the give size (roughly)."
 msgstr ""
+"Zatitu pdf dokumentua emandako tamainako fitxategietan (gutxi gorabehera)"
 
 msgid "Set the size to split at"
-msgstr ""
+msgstr "Ezarri zatitzeko tamaina"
 
 msgid "Size must be a number"
-msgstr ""
+msgstr "Tamainak zenbaki bat izan behar du"
 
 msgid "Split at this size:"
-msgstr ""
+msgstr "Zatitu tamaina honetan:"
 
 msgid "Invalid split size"
-msgstr ""
+msgstr "Zatitzeko tamaina baliogabea"
 
 msgid "Kilobytes"
-msgstr ""
+msgstr "Kilobyte"
 
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 msgid "Megabytes"
-msgstr ""
+msgstr "Megabyte"
 
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 msgid "Alternate Mix"
-msgstr ""
+msgstr "Txandakako nahasketa"
 
 msgid ""
 "Merge two PDF documents taking pages alternately in straight or reverse "
 "order."
 msgstr ""
+"Bateratu bi PDF dokumentu bietako orriak txandakatuz (aurrerantz edo "
+"atzerantz)."
 
 msgid "Select or drag and drop the first PDF you want to mix"
-msgstr ""
+msgstr "Hautatu edo arrastatu eta jaregin nahastu nahi duzun lehen PDFa"
 
 msgid "Select or drag and drop the second PDF you want to mix"
-msgstr ""
+msgstr "Hautatu edo arrastatu eta jaregin nahastu nahi duzun bigarren PDFa"
 
 msgid "Mix settings"
-msgstr ""
+msgstr "Nahasketaren ezarpenak"
 
 msgid "Destination file"
-msgstr ""
+msgstr "Helburuko fitxategia"
 
 msgid "Reverse the first document"
-msgstr ""
+msgstr "Alderantzikatu lehen dokumentua"
 
 msgid "Reverse the second document"
-msgstr ""
+msgstr "Alderantzikatu bigarren dokumentua"
 
 msgid ""
 "Switch from the first document to the second one after the following pages"
 msgstr ""
+"Aldatu lehen dokumentutik bigarren dokumentura hurrengo orri kopuruaren "
+"ondoren"
 
 msgid ""
 "Switch from the second document to the first one after the following pages"
 msgstr ""
+"Aldatu bigarren dokumentutik lehen dokumentura hurrengo orri kopuruaren "
+"ondoren"
 
 msgid "Invalid parameter 'first and second step' must be numbers"
 msgstr ""
+"Parametro baliogabea, lehen eta bigarren pausoek zenbakiak izan behar dute"
 
 msgid "Select the number of pages"
-msgstr ""
+msgstr "Hautatu orri kopurua"
 
 msgid "The selected PDF document is invalid"
-msgstr ""
+msgstr "Hautatutako PDF dokumentua baliogabea da"
 
 msgid "Open the generated document"
-msgstr ""
+msgstr "Ireki sortutako dokumentua"
 
 msgid "Open the destination directory"
-msgstr ""
+msgstr "Ireki helburuko direktorioa"
 
 msgid "Ready"
-msgstr ""
+msgstr "Prest"
 
 msgid "Running"
-msgstr ""
+msgstr "Exekutatzen"
 
 msgid "Requested"
-msgstr ""
+msgstr "Eskatuta"
 
 msgid "Completed"
-msgstr ""
+msgstr "Osatuta"
 
 msgid "Failed"
-msgstr ""
+msgstr "Huts eginda"
 
 msgid "Run"
 msgstr "Exekutatu"
 
 msgid "Overwrite if already exists"
-msgstr ""
+msgstr "Gainidatzi dagoeneko existitzen bada"
 
 msgid ""
 "Tick the box if you want to overwrite the outpuf files if they already exist."
 msgstr ""
+"Hautatu hau irteerako fitxategiak dagoeneko existitzen direnean gainidatzi "
+"nahi badituzu."
 
 msgid "Select a file"
-msgstr ""
+msgstr "Hautatu fitxategia"
 
 msgid "The selected file must exist. "
-msgstr ""
+msgstr "Hautatutako fitxategiak existitu behar du. "
 
 #, java-format
 msgid "Allowed extensions are {0}"
-msgstr ""
+msgstr "Onartutako hedapenak hauek dira: {0}"
 
 msgid "Select"
-msgstr ""
+msgstr "Hautatu"
 
 msgid "Browse"
 msgstr "Nabigatu"
 
 msgid "The selected PDF file is invalid"
-msgstr ""
+msgstr "Hautatutako PDF fitxategia baliogabea da"
 
 msgid "Compress output file/files"
-msgstr ""
+msgstr "Konprimitu irteerako fitxategia(k)"
 
 msgid "Output pdf version:"
-msgstr ""
+msgstr "Irteerako pdf bertsioa:"
 
 #, java-format
 msgid "Version {0}"
-msgstr ""
+msgstr "{0} bertsioa"
 
 msgid "Same as the input document"
-msgstr ""
+msgstr "Sarrerako dokumentuaren berdina"
 
 #, java-format
 msgid "Pdf version required: {0}"
-msgstr ""
+msgstr "Beharrezko pdf bertsioa: {0}"
 
 msgid "Select an existing directory"
-msgstr ""
+msgstr "Hautatu existitzen den direktorio bat"
 
 msgid "The selected output directory is invalid"
-msgstr ""
+msgstr "Hautatutako irteerako direktorioa baliogabea da"
 
 msgid "Generated pdf documents name prefix:"
-msgstr ""
+msgstr "Sortutako pdf dokumentuen izenaren aurrizkia:"
 
 msgid "Prefix for the generated files names"
-msgstr ""
+msgstr "Sortutako fitxategi-izenen aurrizkia"
 
 msgid "Add prefix"
-msgstr ""
+msgstr "Gehitu aurrizkia"
 
 msgid "Prefix for the output files name."
-msgstr ""
+msgstr "Irteerako fitxategi-izenen aurrizkia"
 
 msgid "Some special keywords are replaced with runtime values."
-msgstr ""
+msgstr "Gako-hitz berezi batzuk exekuzioko balioekin ordezkatzen dira."
 
 msgid "Right click to add these keywords."
-msgstr ""
+msgstr "Eskuin klik hitz hauek gehitzeko."
 
 msgid "Enter the user password"
-msgstr ""
+msgstr "Sartu erabiltzailearen pasahitza"
 
 msgid "Unlock"
-msgstr ""
+msgstr "Desblokeatu"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Egin klik bikoitza bateratu nahi dituzun orriak ezartzeko (adibidez, 2 edo "
+"5-23 edo 2,5-7,12-)"
 
 msgid "Pages"
 msgstr "Orriak"
@@ -633,227 +655,233 @@ msgid "Name"
 msgstr "Izena"
 
 msgid "Add documents to the table"
-msgstr ""
+msgstr "Gehitu dokumentuak taulan"
 
 msgid "_Add"
-msgstr ""
+msgstr "_Gehitu"
 
 msgid "Select pdf documents to load"
-msgstr ""
+msgstr "Hautatu pdf dokumentuak kargatzeko"
 
 msgid "Removes selected documents"
-msgstr ""
+msgstr "Hautatutako dokumentuak kentzen ditu"
 
 msgid "_Remove"
-msgstr ""
+msgstr "_Kendu"
 
 msgid "Removes every document"
-msgstr ""
+msgstr "Dokumentu guztiak kentzen ditu"
 
 msgid "_Clear"
-msgstr ""
+msgstr "_Garbitu"
 
 msgid "Moves up selected documents"
-msgstr ""
+msgstr "Hautatutako dokumentuak gora eramaten ditu"
 
 msgid "Move _Up"
-msgstr ""
+msgstr "Eraman _gora"
 
 msgid "Moves down selected documents"
-msgstr ""
+msgstr "Hautatutako dokumentuak behera eramaten ditu"
 
 msgid "Move _Down"
-msgstr ""
+msgstr "Eraman _behera"
 
 msgid "Page ranges"
-msgstr ""
+msgstr "Orri-tarteak"
 
 msgid "Size"
-msgstr ""
+msgstr "Tamaina"
 
 msgid "Modified"
-msgstr ""
+msgstr "Aldatua"
 
 #, java-format
 msgid "Invalid range: {0}."
-msgstr ""
+msgstr "Tarte baliogabea: {0}."
 
 #, java-format
 msgid ""
 "Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
 "or [-n] or [n-]"
 msgstr ""
+"Orri-tarte definizio anbiguoa: {0}. Erabili ondorengo formatuak: [n] edo [n1-"
+"n2] edo [-n] edo [n-]"
 
 #, java-format
 msgid "Invalid number: {0}."
-msgstr ""
+msgstr "Zenbaki baliogabea: {0}"
 
 msgid "Drag and drop PDF files here"
-msgstr ""
+msgstr "Arrastatu eta jaregin PDF fitxategiak hona"
 
 msgid "Document properties"
-msgstr ""
+msgstr "Dokumentuaren propietateak"
 
 msgid "Set destination"
-msgstr ""
+msgstr "Ezarri helburua"
 
 msgid "Remove"
 msgstr "Kendu"
 
 msgid "Move to Top"
-msgstr ""
+msgstr "Eraman goraino"
 
 msgid "Move Up"
 msgstr "Eraman gora"
 
 msgid "Move Down"
-msgstr "Mugitu behera"
+msgstr "Eraman behera"
 
 msgid "Move to Bottom"
-msgstr ""
+msgstr "Eraman beheraino"
 
 msgid "Open"
 msgstr "Ireki"
 
 msgid "Open Folder"
-msgstr ""
+msgstr "Ireki karpeta"
 
 msgid "Duplicate"
-msgstr ""
+msgstr "Bikoiztu"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
-msgstr ""
+msgstr "Orriak: {0}, PDF bertsioa: {1}"
 
 msgid "Loading..."
-msgstr ""
+msgstr "Kargatzen..."
 
 msgid "Merge form fields"
-msgstr ""
+msgstr "Bateratu formularioko eremuak"
 
 msgid "Some of the selected PDF documents contain forms, merge them"
 msgstr ""
+"Hautatutako PDF dokumentuetako batzuk formularioak dituzte, bateratuko dira"
 
 msgid "Add a blank page if page number is odd"
-msgstr ""
+msgstr "Gehitu orri huts bat orri kopurua bakoitia bada"
 
 msgid ""
 "Adds a blank page after each merged document if the document has an odd "
 "number of pages"
 msgstr ""
+"Orri huts bat gehitzen du bateratutako dokumentu bakoitzaren atzetik "
+"dokumentuak orri kopuru bakoitia badu"
 
 msgid "Retain bookmarks"
-msgstr ""
+msgstr "Mantendu laster-markak"
 
 msgid "Discard bookmarks"
-msgstr ""
+msgstr "Baztertu laster-markak"
 
 msgid "Create one entry for each merged document"
-msgstr ""
+msgstr "Sortu sarrera bat bateratutako dokumentu bakoitzeko"
 
 msgid "Bookmarks handling:"
-msgstr ""
+msgstr "Laster-markak maneiatzea:"
 
 msgid "No pdf document has been selected"
-msgstr ""
+msgstr "Ez da pdf dokumenturik hautatu"
 
 msgid "Merge"
-msgstr ""
+msgstr "Bateratu"
 
 msgid "Merge together multiple pdf documents or subsections of them."
-msgstr ""
+msgstr "Bateratu hainbat pdf dokumentu edo azpi-atal"
 
 msgid "Merge settings"
-msgstr ""
+msgstr "Bateratzearen ezarpenak"
 
 msgid "Security"
-msgstr ""
+msgstr "Segurtasuna"
 
 msgid "Other"
-msgstr ""
+msgstr "Bestelakoa"
 
 msgid "Error saving log file."
-msgstr ""
+msgstr "Errorea log fitxategia gordetzean."
 
 #, java-format
 msgid "File {0} saved."
-msgstr ""
+msgstr "{0} fitxategia gordeta."
 
 msgid "Directories"
-msgstr ""
+msgstr "Direktorioak"
 
 msgid "Valid user password provided."
-msgstr ""
+msgstr "Baliozko erabiltzaile pasahitza sartuta."
 
 msgid "This document is encrypted, click to provide a password."
-msgstr ""
+msgstr "Dokumentua zifratuta dago, klikatu pasahitza sartzeko."
 
 msgid "Squared green"
-msgstr ""
+msgstr "Karratu berdea"
 
 msgid "Squared cornflower"
-msgstr ""
+msgstr "Artalore karratua"
 
 msgid "Roundish"
-msgstr ""
+msgstr "Borobildua"
 
 msgid "Never"
-msgstr ""
+msgstr "Inoiz ere ez"
 
 msgid "Once a day"
-msgstr ""
+msgstr "Egunean behin"
 
 msgid "Once a week"
-msgstr ""
+msgstr "Astean behin"
 
 msgid "Always"
-msgstr ""
+msgstr "Beti"
 
 msgid "Set the bookmarks level to split at"
-msgstr ""
+msgstr "Ezarri zatitu beharreko laster-marka maila:"
 
 msgid "Invalid bookmarks level"
-msgstr ""
+msgstr "Laster-marka maila baliogabea"
 
 msgid "Split by bookmarks"
-msgstr ""
+msgstr "Zatitu laster-marken arabera"
 
 msgid ""
 "Split a pdf document at bookmarked pages by specifying a bookmark level."
 msgstr ""
+"Zatitu pdf dokumentua laster-markadun orrietatik laster-marka maila zehaztuz."
 
 msgid "Regexp the bookmark has to match"
-msgstr ""
+msgstr "Laster-markak adierazpen erregular honekin bat etorri behar du"
 
 msgid "Split at this bookmark level:"
-msgstr ""
+msgstr "Zatitu laster-marka maila honetan:"
 
 msgid "Matching regular expression:"
-msgstr ""
+msgstr "Bat datorren adierazpen erregularra:"
 
 msgid "All pages"
-msgstr ""
+msgstr "Orri guztiak"
 
 msgid "90 degrees clockwise"
-msgstr ""
+msgstr "90 gradu eskuinera"
 
 msgid "180 degrees clockwise"
-msgstr ""
+msgstr "180 gradu eskuinera"
 
 msgid "270 degrees clockwise"
-msgstr ""
+msgstr "270 gradu eskuinera"
 
 msgid "Rotate "
-msgstr ""
+msgstr "Biratu "
 
 msgid "Rotate"
 msgstr "Biratu"
 
 msgid "Rotate the pages of multiple PDF documents."
-msgstr ""
+msgstr "Biratu hainbat PDF dokumenturen orriak."
 
 msgid "Rotate settings"
-msgstr ""
+msgstr "Biraketaren ezarpenak"
 
 #~ msgid "Split even pages"
 #~ msgstr "BIkoiti orriak banatu"

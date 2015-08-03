@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-12-12 16:32+0000\n"
-"X-Generator: Launchpad (build 17286)\n"
+"X-Launchpad-Export-Date: 2015-08-03 07:52+0000\n"
+"X-Generator: Launchpad (build 17656)\n"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -50,9 +50,8 @@ msgstr "{0} içinde başladı"
 msgid "Closing PDFsam..."
 msgstr ""
 
-#, fuzzy
 msgid "Application menu"
-msgstr "Program mesajlarını aç"
+msgstr ""
 
 msgid "_Modules"
 msgstr "_Modüller"
@@ -60,9 +59,8 @@ msgstr "_Modüller"
 msgid "E_xit"
 msgstr "_Çıkış"
 
-#, fuzzy
 msgid "Application messages"
-msgstr "Program mesajlarını aç"
+msgstr ""
 
 msgid "_Workspace"
 msgstr "_Çalışma Alanı"
@@ -76,13 +74,11 @@ msgstr "_Kaydet"
 msgid "Recen_t"
 msgstr "Gün_cel"
 
-#, fuzzy
 msgid "Select the workspace file to save"
-msgstr "Bir çalışma alanı seç"
+msgstr ""
 
-#, fuzzy
 msgid "Select the workspace to load"
-msgstr "Bir çalışma alanı seç"
+msgstr ""
 
 msgid "Dashboard"
 msgstr ""
@@ -252,9 +248,8 @@ msgstr ""
 msgid "News panel:"
 msgstr ""
 
-#, fuzzy
 msgid "Log register rows:"
-msgstr "Kayıt kaydı"
+msgstr ""
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:125
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:116
@@ -278,9 +273,8 @@ msgstr ""
 msgid "Set the module to open at application startup (restart needed)"
 msgstr ""
 
-#, fuzzy
 msgid "Check for updates now"
-msgstr "Güncellemeler kontrol ediliyor"
+msgstr ""
 
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:150
 msgid "Close"
@@ -382,9 +376,8 @@ msgstr "Son uygun sürüm bulunması olanaksız."
 msgid "Checking for updates"
 msgstr "Güncellemeler kontrol ediliyor"
 
-#, fuzzy
 msgid "Loading pdf documents"
-msgstr "Seçili belgeleri aşağıtaşır"
+msgstr ""
 
 msgid "Documents loaded"
 msgstr "Belgeler yükleniyor"
@@ -392,17 +385,15 @@ msgstr "Belgeler yükleniyor"
 msgid "Requesting modules state"
 msgstr ""
 
-#, fuzzy
 msgid "Unable to save modules workspace"
-msgstr "Modül konumu bulunması başarısız."
+msgstr ""
 
-#, fuzzy, java-format
+#, java-format
 msgid "Loading workspace from {0}"
-msgstr "{0} konumundan modüller yükleniyor"
+msgstr ""
 
-#, fuzzy
 msgid "Workspace loaded"
-msgstr "Çalışma Alanı"
+msgstr ""
 
 #, java-format
 msgid "Unable to load workspace from {0}"
@@ -412,20 +403,17 @@ msgstr ""
 msgid "Saving workspace data to {0}"
 msgstr ""
 
-#, fuzzy
 msgid "Workspace saved"
-msgstr "Çalışma Alanı"
+msgstr ""
 
-#, fuzzy
 msgid "Split after"
-msgstr "Böl"
+msgstr ""
 
 msgid "Split the document after the given page numbers"
 msgstr ""
 
-#, fuzzy
 msgid "No page selected"
-msgstr "Hiç pdf belgesi seçilmedi"
+msgstr ""
 
 msgid "Split after the following page numbers"
 msgstr ""
@@ -548,13 +536,11 @@ msgstr "Sayfa numaralarını seç"
 msgid "The selected PDF document is invalid"
 msgstr "Seçili PDF belgesi geçersiz"
 
-#, fuzzy
 msgid "Open the generated document"
-msgstr "İkinci belgeyi iptal et"
+msgstr ""
 
-#, fuzzy
 msgid "Open the destination directory"
-msgstr "Hedef dizin"
+msgstr ""
 
 msgid "Ready"
 msgstr ""
@@ -932,21 +918,6 @@ msgstr "Döndürme ayarları"
 
 #~ msgid "Split odd pages"
 #~ msgstr "Tek sayfa numaralıları böl"
-
-#~ msgid "Error playing sounds"
-#~ msgstr "Seslerin çalınmasında hata"
-
-#~ msgid "Open menu"
-#~ msgstr "Menüyü aç"
-
-#~ msgid "Open main dashboard"
-#~ msgstr "Ana kontrol panelini aç"
-
-#~ msgid "Thumbnails"
-#~ msgstr "Küçük Resimler"
-
-#~ msgid "Loading"
-#~ msgstr "Yükleniyor"
 
 #~ msgid "Destination folder"
 #~ msgstr "Hedef dizin"

@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-12-12 16:32+0000\n"
-"X-Generator: Launchpad (build 17286)\n"
+"X-Launchpad-Export-Date: 2015-08-03 07:52+0000\n"
+"X-Generator: Launchpad (build 17656)\n"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -406,9 +406,8 @@ msgstr ""
 msgid "Workspace saved"
 msgstr ""
 
-#, fuzzy
 msgid "Split after"
-msgstr "Χώρισμα"
+msgstr ""
 
 msgid "Split the document after the given page numbers"
 msgstr ""

@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-12-12 16:32+0000\n"
-"X-Generator: Launchpad (build 17286)\n"
+"X-Launchpad-Export-Date: 2015-08-03 07:52+0000\n"
+"X-Generator: Launchpad (build 17656)\n"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -268,9 +268,8 @@ msgstr ""
 msgid "Set the module to open at application startup (restart needed)"
 msgstr ""
 
-#, fuzzy
 msgid "Check for updates now"
-msgstr "Проверите да ли постоје исправке при покретању"
+msgstr ""
 
 msgid "Close"
 msgstr "Затвори"
@@ -395,9 +394,8 @@ msgstr ""
 msgid "Workspace saved"
 msgstr ""
 
-#, fuzzy
 msgid "Split after"
-msgstr "Издели"
+msgstr ""
 
 msgid "Split the document after the given page numbers"
 msgstr ""
@@ -529,9 +527,8 @@ msgstr ""
 msgid "Open the generated document"
 msgstr ""
 
-#, fuzzy
 msgid "Open the destination directory"
-msgstr "Одабери одредиште"
+msgstr ""
 
 msgid "Ready"
 msgstr ""
@@ -859,14 +856,14 @@ msgstr ""
 msgid "Rotate settings"
 msgstr ""
 
-#~ msgid "Split even pages"
-#~ msgstr "Одвоји парне странице"
+#~ msgid "Destination folder"
+#~ msgstr "Одредишна фасцикла"
 
 #~ msgid "Split odd pages"
 #~ msgstr "Одвоји непарне странице"
 
-#~ msgid "Destination folder"
-#~ msgstr "Одредишна фасцикла"
+#~ msgid "Split even pages"
+#~ msgstr "Одвоји парне странице"
 
 #~ msgid "Output document pdf version:"
 #~ msgstr "Издање излазног пдф документа:"

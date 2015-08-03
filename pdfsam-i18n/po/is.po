@@ -1,17 +1,17 @@
-# Polish translation for pdfsam
-# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# Icelandic translation for pdfsam
+# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the pdfsam package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
 "POT-Creation-Date: 2015-02-05 19:02+0100\n"
-"PO-Revision-Date: 2015-01-30 14:39+0000\n"
-"Last-Translator: Seweryn Opyd <Unknown>\n"
-"Language-Team: Polish <pl@li.org>\n"
-"Language: pl\n"
+"PO-Revision-Date: 2015-02-03 20:17+0000\n"
+"Last-Translator: Ellert Hardarson <ellert.hardarson@gmail.com>\n"
+"Language-Team: Icelandic <is@li.org>\n"
+"Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -87,13 +87,13 @@ msgid "Document details"
 msgstr ""
 
 msgid "Keywords"
-msgstr "Słowa kluczowe"
+msgstr ""
 
 msgid "Summary"
 msgstr ""
 
 msgid "About"
-msgstr "O programie"
+msgstr "Um"
 
 msgid "Subscribe to the official news feed"
 msgstr ""
@@ -168,7 +168,7 @@ msgid "Output"
 msgstr ""
 
 msgid "Check for updates at startup"
-msgstr "Sprawdź uaktualnienia przy starcie"
+msgstr ""
 
 msgid ""
 "Set whether new version availability should be checked on startup (restart "
@@ -176,10 +176,10 @@ msgid ""
 msgstr ""
 
 msgid "Play alert sounds"
-msgstr "Odtwórz dźwięki alarmów"
+msgstr ""
 
 msgid "Turn on or off alert sounds"
-msgstr "Włącz/wyłącz dzwieki alarmów"
+msgstr ""
 
 msgid "High quality thumbnails"
 msgstr ""
@@ -225,7 +225,7 @@ msgid "Select a workspace"
 msgstr ""
 
 msgid "Select a directory where documents will be saved and loaded by default"
-msgstr "Wybierz  domyślny katalog zapisu i odczytu dokumentów"
+msgstr ""
 
 msgid "Select a directory"
 msgstr ""
@@ -239,7 +239,7 @@ msgid "Load default workspace at startup:"
 msgstr ""
 
 msgid "Default working directory:"
-msgstr "Domyślny katalog roboczy:"
+msgstr ""
 
 msgid "Set how often the PDFsam news panel should be opened"
 msgstr ""
@@ -251,13 +251,13 @@ msgid "Log register rows:"
 msgstr ""
 
 msgid "Language:"
-msgstr "Język:"
+msgstr "Tungumál:"
 
 msgid "Set your preferred language (restart needed)"
-msgstr "Ustaw preferowany język (wymagany restart)"
+msgstr "Veldu þitt tungumál (þörf á endurræsingu)"
 
 msgid "Theme:"
-msgstr "Wystrój:"
+msgstr ""
 
 msgid "Set your preferred theme (restart needed)"
 msgstr ""
@@ -272,10 +272,10 @@ msgid "Check for updates now"
 msgstr ""
 
 msgid "Close"
-msgstr "Blisko"
+msgstr ""
 
 msgid "Settings"
-msgstr "Ustawienia"
+msgstr ""
 
 msgid "Modules"
 msgstr ""
@@ -284,16 +284,16 @@ msgid "Log register"
 msgstr ""
 
 msgid "Copy"
-msgstr "Kopiuj"
+msgstr ""
 
 msgid "Clear"
-msgstr "Wyczyść"
+msgstr ""
 
 msgid "Select all"
-msgstr "Wybierz wszystkie"
+msgstr ""
 
 msgid "Save log"
-msgstr "Zapisz log"
+msgstr ""
 
 msgid "Select where to save the log file"
 msgstr ""
@@ -413,7 +413,7 @@ msgid "Invalid page numbers"
 msgstr ""
 
 msgid "Split"
-msgstr "Podziel"
+msgstr ""
 
 msgid "Split a pdf document at the given page numbers."
 msgstr ""
@@ -443,7 +443,7 @@ msgid "Split by every \"n\" pages"
 msgstr ""
 
 msgid "Number of pages"
-msgstr "Ilość stron"
+msgstr ""
 
 msgid "Splits the pdf every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
@@ -467,7 +467,7 @@ msgid "Split at this size:"
 msgstr ""
 
 msgid "Invalid split size"
-msgstr "Błędny rozmiar dzielenia"
+msgstr ""
 
 msgid "Kilobytes"
 msgstr ""
@@ -482,7 +482,7 @@ msgid "MB"
 msgstr ""
 
 msgid "Alternate Mix"
-msgstr "Łączenie przemienne"
+msgstr ""
 
 msgid ""
 "Merge two PDF documents taking pages alternately in straight or reverse "
@@ -546,10 +546,10 @@ msgid "Failed"
 msgstr ""
 
 msgid "Run"
-msgstr "Wykonaj"
+msgstr ""
 
 msgid "Overwrite if already exists"
-msgstr "Nadpisz jeśli istnieje"
+msgstr ""
 
 msgid ""
 "Tick the box if you want to overwrite the outpuf files if they already exist."
@@ -569,13 +569,13 @@ msgid "Select"
 msgstr ""
 
 msgid "Browse"
-msgstr "Przeglądaj"
+msgstr ""
 
 msgid "The selected PDF file is invalid"
 msgstr ""
 
 msgid "Compress output file/files"
-msgstr "Kompresuj plik/pliki wyjściowe"
+msgstr ""
 
 msgid "Output pdf version:"
 msgstr ""
@@ -604,7 +604,7 @@ msgid "Prefix for the generated files names"
 msgstr ""
 
 msgid "Add prefix"
-msgstr "Dodaj przedrostek"
+msgstr ""
 
 msgid "Prefix for the output files name."
 msgstr ""
@@ -624,14 +624,12 @@ msgstr ""
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Podwójne kliknięcie żeby ustawić strony do połączenia (np. 2 lub 5-23 lub "
-"2,5-7,12-)"
 
 msgid "Pages"
-msgstr "Strony"
+msgstr ""
 
 msgid "Name"
-msgstr "Naywa"
+msgstr ""
 
 msgid "Add documents to the table"
 msgstr ""
@@ -693,28 +691,28 @@ msgid "Drag and drop PDF files here"
 msgstr ""
 
 msgid "Document properties"
-msgstr "Właściwości dokumentu"
+msgstr ""
 
 msgid "Set destination"
-msgstr "Określ punkt docelowy"
+msgstr ""
 
 msgid "Remove"
-msgstr "Usuń"
+msgstr ""
 
 msgid "Move to Top"
 msgstr ""
 
 msgid "Move Up"
-msgstr "Przenieś do góry"
+msgstr ""
 
 msgid "Move Down"
-msgstr "Przesuń niżej"
+msgstr ""
 
 msgid "Move to Bottom"
 msgstr ""
 
 msgid "Open"
-msgstr "Otwórz"
+msgstr ""
 
 msgid "Open Folder"
 msgstr ""
@@ -799,7 +797,7 @@ msgid "Roundish"
 msgstr ""
 
 msgid "Never"
-msgstr "Nigdy"
+msgstr ""
 
 msgid "Once a day"
 msgstr ""
@@ -848,38 +846,10 @@ msgid "Rotate "
 msgstr ""
 
 msgid "Rotate"
-msgstr "Obróć"
+msgstr ""
 
 msgid "Rotate the pages of multiple PDF documents."
 msgstr ""
 
 msgid "Rotate settings"
 msgstr ""
-
-#~ msgid "Split even pages"
-#~ msgstr "Podziel strony parzyste"
-
-#~ msgid "Split odd pages"
-#~ msgstr "Podziel strony nieparzyste"
-
-#~ msgid "Destination folder"
-#~ msgstr "Folder docelowy"
-
-#~ msgid "Unable to get latest available version"
-#~ msgstr "Nie można pobrać najnowszej wersji"
-
-#~ msgid "Would you like to overwrite it?"
-#~ msgstr "Czy chcesz nadpisać to?"
-
-#~ msgid "Output document pdf version:"
-#~ msgstr "Wersja PDF dokumentu wyjściowego:"
-
-#~ msgid ""
-#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" "
-#~ "is selected"
-#~ msgstr ""
-#~ "Pokaż okno dialogowe pytające użytkownika o potwierdzenie gdy \"napisz\" "
-#~ "jest zaznaczone"
-
-#~ msgid "Ask for confirmation when overwrite checkbox is selected"
-#~ msgstr "Pytaj o potwierdzenie gdy okienko nadpisywania jest zaznaczone"

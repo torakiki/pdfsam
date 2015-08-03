@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-12-12 16:32+0000\n"
-"X-Generator: Launchpad (build 17286)\n"
+"X-Launchpad-Export-Date: 2015-08-03 07:52+0000\n"
+"X-Generator: Launchpad (build 17656)\n"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -50,9 +50,8 @@ msgstr "Gestarted in {0}"
 msgid "Closing PDFsam..."
 msgstr ""
 
-#, fuzzy
 msgid "Application menu"
-msgstr "Anwendungsmeldungen öffnen"
+msgstr ""
 
 msgid "_Modules"
 msgstr "_Module"
@@ -60,9 +59,8 @@ msgstr "_Module"
 msgid "E_xit"
 msgstr "Be_enden"
 
-#, fuzzy
 msgid "Application messages"
-msgstr "Anwendungsmeldungen öffnen"
+msgstr ""
 
 msgid "_Workspace"
 msgstr "_Arbeitsbereich"
@@ -76,13 +74,11 @@ msgstr "_Speichern"
 msgid "Recen_t"
 msgstr "Le_tzte"
 
-#, fuzzy
 msgid "Select the workspace file to save"
-msgstr "Arbeitsbereich auswählen"
+msgstr ""
 
-#, fuzzy
 msgid "Select the workspace to load"
-msgstr "Arbeitsbereich auswählen"
+msgstr ""
 
 msgid "Dashboard"
 msgstr ""
@@ -261,9 +257,8 @@ msgstr ""
 msgid "News panel:"
 msgstr ""
 
-#, fuzzy
 msgid "Log register rows:"
-msgstr "Protokollregister"
+msgstr ""
 
 msgid "Language:"
 msgstr "Sprache:"
@@ -283,9 +278,8 @@ msgstr ""
 msgid "Set the module to open at application startup (restart needed)"
 msgstr ""
 
-#, fuzzy
 msgid "Check for updates now"
-msgstr "Nach Aktualisierungen wird gesucht"
+msgstr ""
 
 msgid "Close"
 msgstr "Schließen"
@@ -382,9 +376,8 @@ msgstr "Neueste Version nicht gefunden."
 msgid "Checking for updates"
 msgstr "Nach Aktualisierungen wird gesucht"
 
-#, fuzzy
 msgid "Loading pdf documents"
-msgstr "Verschiebt ausgewählte Dokumente nach unten"
+msgstr ""
 
 msgid "Documents loaded"
 msgstr "Dokumente geladen"
@@ -392,17 +385,15 @@ msgstr "Dokumente geladen"
 msgid "Requesting modules state"
 msgstr ""
 
-#, fuzzy
 msgid "Unable to save modules workspace"
-msgstr "Speicherstelle für Module nicht gefunden"
+msgstr ""
 
-#, fuzzy, java-format
+#, java-format
 msgid "Loading workspace from {0}"
-msgstr "Module von {0} werden geladen"
+msgstr ""
 
-#, fuzzy
 msgid "Workspace loaded"
-msgstr "Arbeitsbereich"
+msgstr ""
 
 #, java-format
 msgid "Unable to load workspace from {0}"
@@ -412,20 +403,17 @@ msgstr ""
 msgid "Saving workspace data to {0}"
 msgstr ""
 
-#, fuzzy
 msgid "Workspace saved"
-msgstr "Arbeitsbereich"
+msgstr ""
 
-#, fuzzy
 msgid "Split after"
-msgstr "Teilen"
+msgstr ""
 
 msgid "Split the document after the given page numbers"
 msgstr "Dokument nach den angegebenen Seitenzahlen teilen"
 
-#, fuzzy
 msgid "No page selected"
-msgstr "Es wurde kein PDF-Dokument ausgewählt"
+msgstr ""
 
 msgid "Split after the following page numbers"
 msgstr "Teilen nach folgenden Seitenzahlen"
@@ -454,9 +442,8 @@ msgstr "Teileneinstellungen"
 msgid "Destination directory"
 msgstr "Zielverzeichnis"
 
-#, fuzzy
 msgid "Every page"
-msgstr "Gerade Seiten"
+msgstr ""
 
 msgid "Even pages"
 msgstr "Gerade Seiten"
@@ -486,9 +473,8 @@ msgstr ""
 "Eine PDF-Dokumentes in einzelne Dateien einer bestimmten Größe teilen "
 "(ungefähr)"
 
-#, fuzzy
 msgid "Set the size to split at"
-msgstr "Lesezeichenebene angeben bei der geteilt werden soll"
+msgstr ""
 
 msgid "Size must be a number"
 msgstr ""
@@ -555,13 +541,11 @@ msgstr "Anzahl der Seiten auswählen"
 msgid "The selected PDF document is invalid"
 msgstr "Das ausgewählte PDF-Dckument ist nicht gültig"
 
-#, fuzzy
 msgid "Open the generated document"
-msgstr "Das zweite Dokument umkehren"
+msgstr ""
 
-#, fuzzy
 msgid "Open the destination directory"
-msgstr "Zielverzeichnis"
+msgstr ""
 
 msgid "Ready"
 msgstr ""
@@ -898,41 +882,11 @@ msgstr "Die Seiten mehrerer PDF-Dokumente drehen."
 msgid "Rotate settings"
 msgstr "Dreheneinstellungen"
 
-#~ msgid "Burst (Split into single pages)"
-#~ msgstr "Sprengen (in einzelne Seiten trennen)"
-
 #~ msgid "Split even pages"
 #~ msgstr "Nach geraden Seitennummern trennen"
 
 #~ msgid "Split odd pages"
 #~ msgstr "Nach ungeraden Seitennummern trennen"
-
-#~ msgid "Explode the document into single pages"
-#~ msgstr "Dokument in einzelne Seiten aufteilen"
-
-#~ msgid "Split the document after every even page"
-#~ msgstr "Dokument nach jeder geraden Seite teilen"
-
-#~ msgid "Split the document after every odd page"
-#~ msgstr "Dokument nach jeder ungeraden Seite teilen"
-
-#~ msgid "Error playing sounds"
-#~ msgstr "Fehler beim Abspielen der Töne"
-
-#~ msgid "Open menu"
-#~ msgstr "Menu öffnen"
-
-#~ msgid "Open main dashboard"
-#~ msgstr "Armaturenbrett öffnen"
-
-#~ msgid "Thumbnails"
-#~ msgstr "Vorschaubilder"
-
-#~ msgid "Loading"
-#~ msgstr "Wird geladen …"
-
-#~ msgid "Set the size as number of bytes or specify KB or MB"
-#~ msgstr "Größe als Anzahl in Bytes einstellen oder KB, MB bestimmen"
 
 #~ msgid "Unable to get latest available version"
 #~ msgstr "Kann neueste verfügbare Version nicht laden"

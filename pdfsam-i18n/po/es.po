@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
 "POT-Creation-Date: 2015-02-05 19:02+0100\n"
-"PO-Revision-Date: 2014-12-04 21:31+0000\n"
-"Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
+"PO-Revision-Date: 2015-03-20 16:53+0000\n"
+"Last-Translator: Martin <macross2006-alpha@yahoo.com.ar>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-12-12 16:32+0000\n"
-"X-Generator: Launchpad (build 17286)\n"
+"X-Launchpad-Export-Date: 2015-08-03 07:52+0000\n"
+"X-Generator: Launchpad (build 17656)\n"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -50,9 +50,8 @@ msgstr "Iniciado el {0}"
 msgid "Closing PDFsam..."
 msgstr "Cerrando PDFsam…"
 
-#, fuzzy
 msgid "Application menu"
-msgstr "Abrir los mensajes de la aplicación"
+msgstr "Menú de la aplicación"
 
 msgid "_Modules"
 msgstr "_Módulos"
@@ -60,9 +59,8 @@ msgstr "_Módulos"
 msgid "E_xit"
 msgstr "_Salir"
 
-#, fuzzy
 msgid "Application messages"
-msgstr "Abrir los mensajes de la aplicación"
+msgstr "Mensajes de la aplicación"
 
 msgid "_Workspace"
 msgstr "_Espacio de trabajo"
@@ -76,13 +74,11 @@ msgstr "_Guardar"
 msgid "Recen_t"
 msgstr "Recien_tes"
 
-#, fuzzy
 msgid "Select the workspace file to save"
-msgstr "Seleccionar un espacio de trabajo"
+msgstr "Seleccione el archivo de espacio de trabajo que guardar"
 
-#, fuzzy
 msgid "Select the workspace to load"
-msgstr "Seleccionar un espacio de trabajo"
+msgstr "Seleccione el espacio de trabajo que cargar"
 
 msgid "Dashboard"
 msgstr ""
@@ -258,7 +254,7 @@ msgid "Set how often the PDFsam news panel should be opened"
 msgstr ""
 
 msgid "News panel:"
-msgstr ""
+msgstr "Panel de notificaciones"
 
 msgid "Log register rows:"
 msgstr ""
@@ -284,9 +280,8 @@ msgid "Set the module to open at application startup (restart needed)"
 msgstr ""
 "Defina el módulo que abrir al iniciar la aplicación (se necesita reiniciar)"
 
-#, fuzzy
 msgid "Check for updates now"
-msgstr "Buscando actualizaciones"
+msgstr "Buscar actualizaciones ahora"
 
 msgid "Close"
 msgstr "Cerrar"
@@ -384,9 +379,8 @@ msgstr "No se pudo encontrar la versión más reciente disponible."
 msgid "Checking for updates"
 msgstr "Buscando actualizaciones"
 
-#, fuzzy
 msgid "Loading pdf documents"
-msgstr "Mueve los documentos seleccionados hacia abajo"
+msgstr ""
 
 msgid "Documents loaded"
 msgstr "Documentos cargados"
@@ -394,17 +388,15 @@ msgstr "Documentos cargados"
 msgid "Requesting modules state"
 msgstr ""
 
-#, fuzzy
 msgid "Unable to save modules workspace"
-msgstr "No se encontró la ubicación del módulo."
+msgstr ""
 
-#, fuzzy, java-format
+#, java-format
 msgid "Loading workspace from {0}"
-msgstr "Cargando módulos desde «{0}»"
+msgstr ""
 
-#, fuzzy
 msgid "Workspace loaded"
-msgstr "Espacio de trabajo"
+msgstr ""
 
 #, java-format
 msgid "Unable to load workspace from {0}"
@@ -414,20 +406,17 @@ msgstr ""
 msgid "Saving workspace data to {0}"
 msgstr ""
 
-#, fuzzy
 msgid "Workspace saved"
-msgstr "Espacio de trabajo"
+msgstr ""
 
-#, fuzzy
 msgid "Split after"
-msgstr "Dividir"
+msgstr ""
 
 msgid "Split the document after the given page numbers"
 msgstr "Dividir el documento después de los números de página dados"
 
-#, fuzzy
 msgid "No page selected"
-msgstr "No se seleccionó ningún documento PDF"
+msgstr ""
 
 msgid "Split after the following page numbers"
 msgstr "Dividir después de los números de página siguientes"
@@ -456,9 +445,8 @@ msgstr "Configurar división"
 msgid "Destination directory"
 msgstr "Carpeta de destino"
 
-#, fuzzy
 msgid "Every page"
-msgstr "Páginas pares"
+msgstr ""
 
 msgid "Even pages"
 msgstr "Páginas pares"
@@ -552,13 +540,11 @@ msgstr "Seleccione el número de páginas"
 msgid "The selected PDF document is invalid"
 msgstr "El documento PDF seleccionado no es válido"
 
-#, fuzzy
 msgid "Open the generated document"
-msgstr "Invertir el segundo documento"
+msgstr ""
 
-#, fuzzy
 msgid "Open the destination directory"
-msgstr "Carpeta de destino"
+msgstr ""
 
 msgid "Ready"
 msgstr "Preparado"
@@ -922,30 +908,6 @@ msgstr "Girar las páginas de varios documentos PDF."
 msgid "Rotate settings"
 msgstr "Configurar giro"
 
-#~ msgid "Split even pages"
-#~ msgstr "Dividir páginas pares"
-
-#~ msgid "Split odd pages"
-#~ msgstr "Dividir páginas impares"
-
-#~ msgid "Explode the document into single pages"
-#~ msgstr "Producir un archivo independiente para cada página"
-
-#~ msgid "Error playing sounds"
-#~ msgstr "Ocurrió un error al reproducir los sonidos"
-
-#~ msgid "Open menu"
-#~ msgstr "Abrir el menú"
-
-#~ msgid "Open main dashboard"
-#~ msgstr "Abrir el tablero principal"
-
-#~ msgid "Thumbnails"
-#~ msgstr "Miniaturas"
-
-#~ msgid "Loading"
-#~ msgstr "Cargando"
-
 #~ msgid "Output document pdf version:"
 #~ msgstr "Versión pdf del documento de salida"
 
@@ -957,6 +919,12 @@ msgstr "Configurar giro"
 
 #~ msgid "Unable to get latest available version"
 #~ msgstr "No es posible obtener la última versión disponible"
+
+#~ msgid "Split even pages"
+#~ msgstr "Dividir páginas pares"
+
+#~ msgid "Split odd pages"
+#~ msgstr "Dividir páginas impares"
 
 #~ msgid "Would you like to overwrite it?"
 #~ msgstr "¿Quiere sobrescribirlo?"

@@ -20,7 +20,7 @@
 				<artifactId>gettext-maven-plugin</artifactId>
 				<version>1.2.4</version>
 				<configuration>
-					<keysFile>pdfsam.pot</keysFile>
+					<keysFile>PDFsam.pot</keysFile>
 					<poDirectory>po</poDirectory>
 					<targetBundle>org.pdfsam.i18n.Messages</targetBundle>
 					<outputFormat>properties</outputFormat>

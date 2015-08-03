@@ -1,0 +1,880 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: info@pdfsam.org\n"
+"POT-Creation-Date: 2015-02-05 19:02+0100\n"
+"PO-Revision-Date: 2015-05-11 09:07+0000\n"
+"Last-Translator: Patriccollu <Patrick.Santa-Maria@laposte.net>\n"
+"Language-Team: \n"
+"Language: co\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2015-08-03 07:52+0000\n"
+"X-Generator: Launchpad (build 17656)\n"
+
+#, java-format
+msgid "Installing theme {0}."
+msgstr "Installà u temu {0}."
+
+#, java-format
+msgid "Modules directory {0} does not exist"
+msgstr "U cartulare di mudulli {0} ùn esiste micca"
+
+#, java-format
+msgid "Loading modules from {0}"
+msgstr "Caricamentu di mudulli à partesi di {0}"
+
+#, java-format
+msgid "Found modules jars {0}"
+msgstr "Mudulli jars trovi {0}"
+
+msgid "Error finding modules paths"
+msgstr "Errore mentre a ricerca di passeghji di mudulli"
+
+msgid "No module has been found"
+msgstr "Alcunu mudullu trovu"
+
+msgid "Unable to find modules location."
+msgstr "Impussibule di truvà a lucalisazione di mudulli."
+
+#, java-format
+msgid "Started in {0}"
+msgstr "Iniziu in {0}"
+
+msgid "Closing PDFsam..."
+msgstr "Chjusura di PDFsam..."
+
+msgid "Application menu"
+msgstr "Interfaccia d'appiegazione"
+
+msgid "_Modules"
+msgstr "_Mudulli"
+
+msgid "E_xit"
+msgstr "E_sce"
+
+msgid "Application messages"
+msgstr "Messaghji d'appiegazione"
+
+msgid "_Workspace"
+msgstr "_Spaziu di travagliu"
+
+msgid "_Load"
+msgstr "_Caricà"
+
+msgid "_Save"
+msgstr "_Arregistrà"
+
+msgid "Recen_t"
+msgstr "Recen_te"
+
+msgid "Select the workspace file to save"
+msgstr "Selezziunà u schedariu di spaziu di travagliu à arregistrà"
+
+msgid "Select the workspace to load"
+msgstr "Selezziunà u spaziu di travagliu à caricà"
+
+msgid "Dashboard"
+msgstr "Tavula di cummande"
+
+msgid "Document details"
+msgstr "Detaglii di u ducumentu"
+
+msgid "Keywords"
+msgstr "Parolle chjave"
+
+msgid "Summary"
+msgstr "Riassuntu"
+
+msgid "About"
+msgstr "Apprupositu"
+
+msgid "Subscribe to the official news feed"
+msgstr "Sottuscrive à i flussi di nutizie ufficiale"
+
+msgid "Environment"
+msgstr "Ambiente"
+
+#, java-format
+msgid "Max memory {0}"
+msgstr "Memoria massima {0}"
+
+msgid "Copy to clipboard"
+msgstr "Cupià ver di u preme'papei"
+
+msgid "Thanks to"
+msgstr "Ringraziamenti à"
+
+msgid "The open source projects making PDFsam possible"
+msgstr "I prughjetti 'open source' chì anu resu PDFsam pussibule"
+
+msgid "Support"
+msgstr "Supportu"
+
+msgid "Bug and feature requests"
+msgstr "Riferimentu di prublema è richiesta di migliuramentu"
+
+msgid "Play the \"get started\" video"
+msgstr "Sunà a video \"get started\""
+
+msgid "Contribute"
+msgstr "Cuntribuì"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "Frazziunà PDFsam nantu à GitHub"
+
+msgid "Translate"
+msgstr "Traduce"
+
+msgid "Donate"
+msgstr "Dunazione"
+
+msgid "Social"
+msgstr "Suciale"
+
+msgid "Follow us on Twitter"
+msgstr "Seguitatecci nantu à Twitter"
+
+msgid "Follow us on Google Plus"
+msgstr "Seguitatecci nantu à Google Plus"
+
+msgid "Like us on Facebook"
+msgstr "Ditecci 'Mi Piace' nantu à Facebook"
+
+msgid "Manually selected"
+msgstr "Selezziunatu manualmente"
+
+msgid ""
+"Automatically set the destination directory to the selected PDF document "
+"directory"
+msgstr ""
+"Definisce autumaticamente u cartulare di ducumentu PDF selezziunatu cum'è "
+"cartulare di destinazione"
+
+msgid "Appearance"
+msgstr "Aspettu"
+
+msgid "Behavior"
+msgstr "Cumportamentu"
+
+msgid "Workspace"
+msgstr "Spaziu di travagliu"
+
+msgid "Output"
+msgstr "Esciuta"
+
+msgid "Check for updates at startup"
+msgstr "Circà i rinnovi à l'iniziu di u prugramma"
+
+msgid ""
+"Set whether new version availability should be checked on startup (restart "
+"needed)"
+msgstr ""
+"Definisce s'ellu ci vole à verificà à l'iniziu a dispunibulità di e nove "
+"versioni (rilanciu necessariu)"
+
+msgid "Play alert sounds"
+msgstr "Sunà i soni d'alerta"
+
+msgid "Turn on or off alert sounds"
+msgstr "Attivà o nò i soni d'alerta"
+
+msgid "High quality thumbnails"
+msgstr "Imaghjinuccie d'alta qualità"
+
+msgid "Use the selected PDF document directory as output directory"
+msgstr ""
+"Impiegà u cartulare di ducumentu PDF selezziunatu cum'è cartulare d'esciuta"
+
+#, java-format
+msgid "Size must be between {0}px and {1}px"
+msgstr "A dimensione deve esse trà {0} è {1} px"
+
+#, java-format
+msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
+msgstr "Dimensione di l immaghjinuccie (trà {0} è {1} px)"
+
+msgid "Maximum number of rows mast be a positive number"
+msgstr "U numeru massimu di linee deve esse un numeru pusitivu"
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr "U numeru massimu di linee affissatu da u registradore di Log"
+
+msgid "Generate high quality thumbnails (slower)"
+msgstr "Creazione d'imaghjinuccie d'alta qualità (più pianu)"
+
+msgid "Size in px:"
+msgstr "Dimensione in px :"
+
+msgid "Library used to generate thumbnails"
+msgstr "Bibliuteca impiegata per arregistrà l'imaghjinuccie"
+
+msgid "Thumbnails creator:"
+msgstr "Creatore di l'imaghjinuccie :"
+
+msgid "Clear usage statistics"
+msgstr "Viutà e statistiche d'usu"
+
+msgid ""
+"Select a previously saved workspace that will be automatically loaded at "
+"startup"
+msgstr ""
+"Selezziunà un spaziu di travagliu arregistratu chì serà caricatu "
+"autumaticamente à l'iniziu"
+
+msgid "Select a workspace"
+msgstr "Selezziunà un spaziu di travagliu"
+
+msgid "Select a directory where documents will be saved and loaded by default"
+msgstr ""
+"Selezziunà un cartulare induve i ducumenti seranu arregistrati è caricati "
+"(senza altra direttiva)"
+
+msgid "Select a directory"
+msgstr "Selezziunà un cartulare"
+
+msgid ""
+"Usage statistics are used to populate the modules quick bar on the left with "
+"the most used and most recently used modules."
+msgstr ""
+"E statistiche d'usu sò impiegate per nutrisce a barra di mudulli à manu "
+"manca cù i mudulli i più impiegati è i più impiegati da pocu tempu."
+
+msgid "Load default workspace at startup:"
+msgstr "Caricà u spaziu di travagliu predefinitu à l'iniziu :"
+
+msgid "Default working directory:"
+msgstr "Cartulare di travaglu predefinitu :"
+
+msgid "Set how often the PDFsam news panel should be opened"
+msgstr "Definisce a frequenza d'apertura di u pannellu di nutizie di PDFsam"
+
+msgid "News panel:"
+msgstr "Pannellu di nutizie :"
+
+msgid "Log register rows:"
+msgstr "Linee di u registradore di Log :"
+
+msgid "Language:"
+msgstr "Lingua :"
+
+msgid "Set your preferred language (restart needed)"
+msgstr "Definisce a lingua preferita (rilanciu necessariu)"
+
+msgid "Theme:"
+msgstr "Temu :"
+
+msgid "Set your preferred theme (restart needed)"
+msgstr "Definisce u temu preferitu (rilanciu necessariu)"
+
+msgid "Startup module:"
+msgstr "Mudullu d'iniziu :"
+
+msgid "Set the module to open at application startup (restart needed)"
+msgstr ""
+"Definisce u mudullu à apre à l'iniziu di l'appiegazione (rilanciu necessariu)"
+
+msgid "Check for updates now"
+msgstr "Cuntrollà i rinnovi avà"
+
+msgid "Close"
+msgstr "Chjode"
+
+msgid "Settings"
+msgstr "Preferenze"
+
+msgid "Modules"
+msgstr "Mudulli"
+
+msgid "Log register"
+msgstr "Registradore di Log"
+
+msgid "Copy"
+msgstr "Cupià"
+
+msgid "Clear"
+msgstr "Sguassà"
+
+msgid "Select all"
+msgstr "Selezziunà tuttu"
+
+msgid "Save log"
+msgstr "Arregistrà u ghjurnale"
+
+msgid "Select where to save the log file"
+msgstr "Selezziunà induve arregistrà u schedariu di u ghjurnale"
+
+msgid "Invalid parameters"
+msgstr "Parametri inaccettevule"
+
+msgid ""
+"Input parameters are invalid, open the application messages for details."
+msgstr ""
+"I parametri d'intrata sò inaccettevule, truverete più di detaglii in i "
+"messaghji d'appiegazione."
+
+#, java-format
+msgid "You performed {0} tasks with PDFsam, did it help?"
+msgstr "Avete fattu {0} tacche cù PDFsam, vi hà aiutatu ?"
+
+msgid "Give something back"
+msgstr "Dà qualcosa"
+
+msgid "PDFsam worked hard!"
+msgstr "PDFsam hà travagliatu bè !"
+
+#, java-format
+msgid "PDFsam {0} is available for download"
+msgstr "PDFsam {0} hè dispunibule in telecaricamentu"
+
+msgid "Download"
+msgstr "Telecaricà"
+
+msgid "New version available"
+msgstr "Nova versione dispunibule"
+
+msgid "Show this:"
+msgstr "Affissà quessu :"
+
+msgid "What's new"
+msgstr "Cio chì hè novu"
+
+msgid "Directory not empty"
+msgstr "Cartulare micca viotu"
+
+msgid "The selected directory is not empty"
+msgstr "U cartulare selezziunatu ùn hè micca viotu"
+
+msgid "Overwrite files with the same name as the generated ones?"
+msgstr "Rimpiazzà i schedarii cù u litessu nome s'elli esistenu dighjà ?"
+
+msgid "Don't overwrite existing file"
+msgstr "Ùn rimpiazzate micca i schedarii chì esistenu"
+
+msgid "Overwrite confirmation"
+msgstr "Cunfirmazione di rimpiazzamentu"
+
+msgid "A file with the given name already exists"
+msgstr "Un schedariu cù u litessu nome esiste dighjà"
+
+msgid "Do you want to overwrite it?"
+msgstr "Vulete rimpiazzallu ?"
+
+msgid "Overwrite"
+msgstr "Rimpiazzà"
+
+msgid "Cancel"
+msgstr "Abbandunà"
+
+msgid "Unable to find the latest available version."
+msgstr "Impussibule di truvà l'ultima versione dispunibule."
+
+msgid "Checking for updates"
+msgstr "Cuntrollu in corsu di i rinnovi"
+
+msgid "Loading pdf documents"
+msgstr "Caricamentu di i ducumenti pdf"
+
+msgid "Documents loaded"
+msgstr "Ducumenti caricati"
+
+msgid "Requesting modules state"
+msgstr "Richiesta di u statu di i mudulli"
+
+msgid "Unable to save modules workspace"
+msgstr "Impussibule d'arregistrà u spaziu di travagliu di i mudulli"
+
+#, java-format
+msgid "Loading workspace from {0}"
+msgstr "Caricamentu di u spaziu di travagliu à partesi di {0}"
+
+msgid "Workspace loaded"
+msgstr "Spaziu di travagliu caricatu"
+
+#, java-format
+msgid "Unable to load workspace from {0}"
+msgstr "Impussibule di caricà u spaziu di travagliu à partesi di {0}"
+
+#, java-format
+msgid "Saving workspace data to {0}"
+msgstr "Arregistramentu di u spaziu di travagliu ver di {0}"
+
+msgid "Workspace saved"
+msgstr "Spaziu di travagliu arregistratu"
+
+msgid "Split after"
+msgstr "Sparte dopu à"
+
+msgid "Split the document after the given page numbers"
+msgstr "Sparte u ducumentu dopu à u numeru di pagine indicatu"
+
+msgid "No page selected"
+msgstr "Alcuna pagina ùn hè selezziunata"
+
+msgid "Split after the following page numbers"
+msgstr "Sparte dopu à stu numeru di pagine"
+
+msgid "Page numbers to split at (n1,n2,n3..)"
+msgstr "Numeri di pagine per sparte (n1,n2,n3..)"
+
+msgid "Invalid page numbers"
+msgstr "Numeru di pagine inaccettevule"
+
+msgid "Split"
+msgstr "Sparte"
+
+msgid "Split a pdf document at the given page numbers."
+msgstr "Sparte un ducumentu pdf in un numeru particulare di pagine."
+
+msgid "Select or drag and drop the PDF you want to split"
+msgstr "Selezziunà o sguillà é depone u PDF chì voi vulete sparte"
+
+msgid "File names settings"
+msgstr "Preferenze di nomi di schedariu"
+
+msgid "Split settings"
+msgstr "Preferenze di spartimentu"
+
+msgid "Destination directory"
+msgstr "Cartulare di destinazione"
+
+msgid "Every page"
+msgstr "Ogni pagina"
+
+msgid "Even pages"
+msgstr "Pagine pare"
+
+msgid "Odd pages"
+msgstr "Pagine anesche"
+
+msgid "Split by every \"n\" pages"
+msgstr "Sparte à ogni \"n\" pagine"
+
+msgid "Number of pages"
+msgstr "Numeru di pagine"
+
+msgid "Splits the pdf every \"n\" pages creating documents of \"n\" pages each"
+msgstr "Sparte u pdf ogni \"n\" pagine creendu ducumenti di \"n\" pagine ogni"
+
+msgid "Invalid number of pages"
+msgstr "U numeru di pagine hè inaccettevule"
+
+msgid "Split by size"
+msgstr "Sparte da dimensione"
+
+msgid "Split a pdf document in files of the give size (roughly)."
+msgstr ""
+"Sparte un ducumentu pdf in schedarii di a dimensione indicata (à pocu "
+"pressu)."
+
+msgid "Set the size to split at"
+msgstr "Definisce a dimensione per sparte"
+
+msgid "Size must be a number"
+msgstr "A dimensione deve esse un numeru"
+
+msgid "Split at this size:"
+msgstr "Sparte à sta dimensione :"
+
+msgid "Invalid split size"
+msgstr "Dimensione per sparte ùn hè micca accettevule"
+
+msgid "Kilobytes"
+msgstr "Kilo-ottetti"
+
+msgid "KB"
+msgstr "Ko"
+
+msgid "Megabytes"
+msgstr "Mega-ottetti"
+
+msgid "MB"
+msgstr "Mo"
+
+msgid "Alternate Mix"
+msgstr "Mischiu alternativu"
+
+msgid ""
+"Merge two PDF documents taking pages alternately in straight or reverse "
+"order."
+msgstr ""
+"Fusione di dui ducumenti PDF pigliendu e pagine alternatamente in urdine "
+"nurmale o à l'arritrosa."
+
+msgid "Select or drag and drop the first PDF you want to mix"
+msgstr "Selezziunà o sguillà é depone u primu PDF chì voi vulete mischià"
+
+msgid "Select or drag and drop the second PDF you want to mix"
+msgstr "Selezziunà o sguillà é depone u secondu PDF chì voi vulete mischià"
+
+msgid "Mix settings"
+msgstr "Preferenze di mischiu"
+
+msgid "Destination file"
+msgstr "Schedariu di ddestinazione"
+
+msgid "Reverse the first document"
+msgstr "Arritrusà u primu ducumentu"
+
+msgid "Reverse the second document"
+msgstr "Arritrusà u secondu ducumentu"
+
+msgid ""
+"Switch from the first document to the second one after the following pages"
+msgstr "Scambià da u primu ducumentu à u secondu dopu à ste pagine"
+
+msgid ""
+"Switch from the second document to the first one after the following pages"
+msgstr "Scambià da u secondu ducumentu à u primu dopu à ste pagine"
+
+msgid "Invalid parameter 'first and second step' must be numbers"
+msgstr "Parametru inaccettevule 'prima è seconda tappa' devenu esse numeri"
+
+msgid "Select the number of pages"
+msgstr "Selezziunà u numeru di pagine"
+
+msgid "The selected PDF document is invalid"
+msgstr "U PDF selezziunatu hè inaccettevule"
+
+msgid "Open the generated document"
+msgstr "Apre u ducumentu creatu"
+
+msgid "Open the destination directory"
+msgstr "Apre u cartulare di destinazione"
+
+msgid "Ready"
+msgstr "Prontu"
+
+msgid "Running"
+msgstr "In funzione"
+
+msgid "Requested"
+msgstr "Richiestu"
+
+msgid "Completed"
+msgstr "Compiu"
+
+msgid "Failed"
+msgstr "Fiascu"
+
+msgid "Run"
+msgstr "Fà funziunà"
+
+msgid "Overwrite if already exists"
+msgstr "Rimpiazzallu s'ellu esiste dighjà"
+
+msgid ""
+"Tick the box if you want to overwrite the outpuf files if they already exist."
+msgstr ""
+"Marcà l'alveola s'è voi vulete rimpiazzà i schedarii d'esciuta s'elli "
+"esistenu dighjà."
+
+msgid "Select a file"
+msgstr "Selezziunà un schedariu"
+
+msgid "The selected file must exist. "
+msgstr "U schedariu selezziunatu deve esiste. "
+
+#, java-format
+msgid "Allowed extensions are {0}"
+msgstr "E stinzioni permessi sò {0}"
+
+msgid "Select"
+msgstr "Selezziunà"
+
+msgid "Browse"
+msgstr "Sfuglià"
+
+msgid "The selected PDF file is invalid"
+msgstr "U schedariu PDF selezziunatu hè inaccettevule"
+
+msgid "Compress output file/files"
+msgstr "Cumpressione di u(i) schedariu(i) d'esciuta"
+
+msgid "Output pdf version:"
+msgstr "Versione pdf d'esciuta :"
+
+#, java-format
+msgid "Version {0}"
+msgstr "Versione {0}"
+
+msgid "Same as the input document"
+msgstr "Uguale à u ducumentu d'intrata"
+
+#, java-format
+msgid "Pdf version required: {0}"
+msgstr "Versione pdf rechiesta : {0}"
+
+msgid "Select an existing directory"
+msgstr "Selezziunà un cartulare esistente"
+
+msgid "The selected output directory is invalid"
+msgstr "U cartulare d'esciuta selezziunatu hè inaccettevule"
+
+msgid "Generated pdf documents name prefix:"
+msgstr "Prefissu di u nome di ducumenti pdf creati :"
+
+msgid "Prefix for the generated files names"
+msgstr "Prefissu per i nomi di ducumenti creati"
+
+msgid "Add prefix"
+msgstr "Aghjunghje un prefissu"
+
+msgid "Prefix for the output files name."
+msgstr "Prefissu per i nomi di schedarii d'esciuta."
+
+msgid "Some special keywords are replaced with runtime values."
+msgstr "Qualchì parolla chjave hè rimpiazzata cù valori d'esecuzione."
+
+msgid "Right click to add these keywords."
+msgstr "Cliccu dirittu per aghjunghje ste parolle chjave."
+
+msgid "Enter the user password"
+msgstr "Scrivite a parolla d'intrata di l'utilizatore"
+
+msgid "Unlock"
+msgstr "Sblucchà"
+
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Doppiu cliccu per definisce e pagine di a fusione (p.i. : 2 o 5-23 o "
+"2,5-7,12-)"
+
+msgid "Pages"
+msgstr "Pagine"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Add documents to the table"
+msgstr "Aghjunghje i ducumenti à a tavula"
+
+msgid "_Add"
+msgstr "_Aghjunghje"
+
+msgid "Select pdf documents to load"
+msgstr "Selezziunà i ducumenti pdf à caricà"
+
+msgid "Removes selected documents"
+msgstr "Caccià i ducumenti selezziunati"
+
+msgid "_Remove"
+msgstr "_Caccià"
+
+msgid "Removes every document"
+msgstr "Caccià ogni ducumentu"
+
+msgid "_Clear"
+msgstr "_Sguassà"
+
+msgid "Moves up selected documents"
+msgstr "Move insù i ducumenti selezziunati"
+
+msgid "Move _Up"
+msgstr "Move in_sù"
+
+msgid "Moves down selected documents"
+msgstr "Move inghjò i ducumenti selezziunati"
+
+msgid "Move _Down"
+msgstr "Move in_ghjò"
+
+msgid "Page ranges"
+msgstr "Stesa di pagina"
+
+msgid "Size"
+msgstr "Dimensione"
+
+msgid "Modified"
+msgstr "Mudificatu"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "Stesa inaccettevule : {0}."
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+"A definizione di a stesa di pagine hè ambigua : {0}. Impiegate e forme : [n] "
+"o [n1-n2] o [-n] o [n-]"
+
+#, java-format
+msgid "Invalid number: {0}."
+msgstr "Numeru inaccettevule : {0}."
+
+msgid "Drag and drop PDF files here"
+msgstr "Sguillà é depone i schedarii quì"
+
+msgid "Document properties"
+msgstr "Pruprietà di u ducumentu"
+
+msgid "Set destination"
+msgstr "Definisce a destinazione"
+
+msgid "Remove"
+msgstr "Caccià"
+
+msgid "Move to Top"
+msgstr "Move à u Principiu"
+
+msgid "Move Up"
+msgstr "Move Insù"
+
+msgid "Move Down"
+msgstr "Move Inghjò"
+
+msgid "Move to Bottom"
+msgstr "Move à a Fine"
+
+msgid "Open"
+msgstr "Apre"
+
+msgid "Open Folder"
+msgstr "Apre un Sfugliaghju"
+
+msgid "Duplicate"
+msgstr "Duplicà"
+
+#, java-format
+msgid "Pages: {0}, PDF Version: {1}"
+msgstr "Pagine : {0}, Version PDF : {1}"
+
+msgid "Loading..."
+msgstr "Caricamentu in corsu..."
+
+msgid "Merge form fields"
+msgstr "Fusione di i campi di furmulariiu"
+
+msgid "Some of the selected PDF documents contain forms, merge them"
+msgstr ""
+"Qualchì ducumentu PDF selezziunatu cuntene furmularii, ci vole à fà una "
+"fusione"
+
+msgid "Add a blank page if page number is odd"
+msgstr "Aghjunghje una pagina bianca s'è u numeru di pagine hè anescu"
+
+msgid ""
+"Adds a blank page after each merged document if the document has an odd "
+"number of pages"
+msgstr ""
+"Aghjunghje una pagina bianca dopu à ogni ducumentu s'è u ducumentu hà un "
+"numeru anescu di pagine"
+
+msgid "Retain bookmarks"
+msgstr "Ritene l'indette"
+
+msgid "Discard bookmarks"
+msgstr "Scaccià l'indette"
+
+msgid "Create one entry for each merged document"
+msgstr "Creà un entrata per ogni ducumentu di a fusione"
+
+msgid "Bookmarks handling:"
+msgstr "Trattamentu di l'indette :"
+
+msgid "No pdf document has been selected"
+msgstr "Alcunu ducumentu ùn hè statu selezziunatu"
+
+msgid "Merge"
+msgstr "Fusione"
+
+msgid "Merge together multiple pdf documents or subsections of them."
+msgstr "Fusione di parechji ducumenti pdf o paragrafi d'elli."
+
+msgid "Merge settings"
+msgstr "Preferenze di fusione"
+
+msgid "Security"
+msgstr "Sicurità"
+
+msgid "Other"
+msgstr "Altru"
+
+msgid "Error saving log file."
+msgstr "Errore à l'arregistramentu di u schedariu log."
+
+#, java-format
+msgid "File {0} saved."
+msgstr "Schedariu {0} arregistratu."
+
+msgid "Directories"
+msgstr "Cartulari"
+
+msgid "Valid user password provided."
+msgstr "A parolla d'intrata d'utilizatore pruvista hè accettevule."
+
+msgid "This document is encrypted, click to provide a password."
+msgstr "Stu ducumentu hè cifratu, cliccu per pruvede a parolla d'intrata."
+
+msgid "Squared green"
+msgstr "Verde quadrittatu"
+
+msgid "Squared cornflower"
+msgstr "Turchinellu quadrittatu"
+
+msgid "Roundish"
+msgstr "Ciociulu"
+
+msgid "Never"
+msgstr "Mai"
+
+msgid "Once a day"
+msgstr "Una volta per ghjornu"
+
+msgid "Once a week"
+msgstr "Una volta per settimana"
+
+msgid "Always"
+msgstr "Sempre"
+
+msgid "Set the bookmarks level to split at"
+msgstr "Definisce u livellu d'indette per sparte"
+
+msgid "Invalid bookmarks level"
+msgstr "Livellu d'indette inaccettevule"
+
+msgid "Split by bookmarks"
+msgstr "Sparte da l'indette"
+
+msgid ""
+"Split a pdf document at bookmarked pages by specifying a bookmark level."
+msgstr ""
+"Sparte un ducumentu pdf à pagine indettate specifichendu un livellu "
+"d'indetta."
+
+msgid "Regexp the bookmark has to match"
+msgstr "Espressione regulare à chì l'indetta deve currisponde"
+
+msgid "Split at this bookmark level:"
+msgstr "Sparte à stu livellu d'indetta :"
+
+msgid "Matching regular expression:"
+msgstr "L'espressione regulare currisponde :"
+
+msgid "All pages"
+msgstr "Tutte e pagine"
+
+msgid "90 degrees clockwise"
+msgstr "90 gradi in u sensu di e sfiere d'arilogiu"
+
+msgid "180 degrees clockwise"
+msgstr "180 gradi in u sensu di e sfiere d'arilogiu"
+
+msgid "270 degrees clockwise"
+msgstr "270 gradi in u sensu di e sfiere d'arilogiu"
+
+msgid "Rotate "
+msgstr "Girà "
+
+msgid "Rotate"
+msgstr "Girà"
+
+msgid "Rotate the pages of multiple PDF documents."
+msgstr "Girà e pagine di parechji ducumenti PDF."
+
+msgid "Rotate settings"
+msgstr "Preferenze di u girà"

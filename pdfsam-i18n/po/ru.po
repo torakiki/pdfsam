@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
 "POT-Creation-Date: 2015-02-05 19:02+0100\n"
-"PO-Revision-Date: 2014-10-23 10:08+0000\n"
-"Last-Translator: kanapfelka <kanapfelka@gmail.com>\n"
+"PO-Revision-Date: 2015-02-05 22:19+0000\n"
+"Last-Translator: gennzub <gennzub@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-12-12 16:32+0000\n"
-"X-Generator: Launchpad (build 17286)\n"
+"X-Launchpad-Export-Date: 2015-08-03 07:52+0000\n"
+"X-Generator: Launchpad (build 17656)\n"
 
 #, java-format
 msgid "Installing theme {0}."
-msgstr ""
+msgstr "Установка темы {0}."
 
 #, java-format
 msgid "Modules directory {0} does not exist"
@@ -32,7 +32,7 @@ msgstr "Загружаю модули из {0}"
 
 #, java-format
 msgid "Found modules jars {0}"
-msgstr ""
+msgstr "Найдено модулей jars {0}"
 
 msgid "Error finding modules paths"
 msgstr "Ошибка поиска путей модулей"
@@ -48,117 +48,117 @@ msgid "Started in {0}"
 msgstr "Запущено в {0}"
 
 msgid "Closing PDFsam..."
-msgstr "Закрываю ПДФсам"
+msgstr "Закрываю PDFsam..."
 
 msgid "Application menu"
-msgstr ""
+msgstr "Меню приложения"
 
 msgid "_Modules"
 msgstr "_Модули"
 
 msgid "E_xit"
-msgstr "Выход"
+msgstr "_Выход"
 
 msgid "Application messages"
-msgstr ""
+msgstr "Сообщения приложения"
 
 msgid "_Workspace"
-msgstr "_Рабочая_Область"
+msgstr "_Рабочая область"
 
 msgid "_Load"
 msgstr "_Загрузка"
 
 msgid "_Save"
-msgstr "_Сохранение"
+msgstr "_Сохранить"
 
 msgid "Recen_t"
-msgstr "Последние"
+msgstr "_Последние"
 
-#, fuzzy
 msgid "Select the workspace file to save"
-msgstr "Выбор рабочей области"
+msgstr "Выберите файл рабочего пространства для сохранения"
 
-#, fuzzy
 msgid "Select the workspace to load"
-msgstr "Выбор рабочей области"
+msgstr "Выберите рабочее пространство для загрузки"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Инфо-панель"
 
 msgid "Document details"
-msgstr ""
+msgstr "Детали документа"
 
 msgid "Keywords"
 msgstr "Ключевые слова"
 
 msgid "Summary"
-msgstr ""
+msgstr "Описание"
 
 msgid "About"
 msgstr "О программе"
 
 msgid "Subscribe to the official news feed"
-msgstr ""
+msgstr "Подписаться на рассылку официальных новостей"
 
 msgid "Environment"
-msgstr ""
+msgstr "Окружение"
 
 #, java-format
 msgid "Max memory {0}"
 msgstr "Максимум памяти {0}"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Копировать в буфер"
 
 msgid "Thanks to"
-msgstr ""
+msgstr "Благодарности"
 
 msgid "The open source projects making PDFsam possible"
-msgstr ""
+msgstr "Проекты с открытым исходным кодом делают возможным PDFsam"
 
 msgid "Support"
-msgstr ""
+msgstr "Поддержка"
 
 msgid "Bug and feature requests"
-msgstr ""
+msgstr "Запросы об ошибках и пожелания"
 
 msgid "Play the \"get started\" video"
-msgstr ""
+msgstr "Играть видео \"приступить\""
 
 msgid "Contribute"
-msgstr ""
+msgstr "Внести свой вклад"
 
 msgid "Fork PDFsam on GitHub"
-msgstr ""
+msgstr "Вилка PDFsam на GitHub"
 
 msgid "Translate"
-msgstr ""
+msgstr "Перевести"
 
 msgid "Donate"
-msgstr ""
+msgstr "Пожертвовать"
 
 msgid "Social"
-msgstr ""
+msgstr "Общественный"
 
 msgid "Follow us on Twitter"
 msgstr "Следите за нами на Twitter"
 
 msgid "Follow us on Google Plus"
-msgstr ""
+msgstr "Следите за нами на Google Plus"
 
 msgid "Like us on Facebook"
 msgstr "Лайкай нас на Facebook"
 
 msgid "Manually selected"
-msgstr ""
+msgstr "Выбран вручную"
 
 msgid ""
 "Automatically set the destination directory to the selected PDF document "
 "directory"
 msgstr ""
+"Автоматически установить директорию назначения в выбранный каталог PDF "
+"документа"
 
 msgid "Appearance"
-msgstr "Появление"
+msgstr "Оформление"
 
 msgid "Behavior"
 msgstr "Метод"
@@ -167,7 +167,7 @@ msgid "Workspace"
 msgstr "Рабочая область"
 
 msgid "Output"
-msgstr ""
+msgstr "Вывод"
 
 msgid "Check for updates at startup"
 msgstr "Проверять наличие обновлений при запуске"
@@ -187,7 +187,7 @@ msgid "High quality thumbnails"
 msgstr "Высококачественные эскизы"
 
 msgid "Use the selected PDF document directory as output directory"
-msgstr ""
+msgstr "Использовать каталог выбранного PDF документа как выходной каталог"
 
 #, java-format
 msgid "Size must be between {0}px and {1}px"
@@ -198,10 +198,10 @@ msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
 msgstr "Пиксельный размер эскизов (между  {0}px и {1}px)"
 
 msgid "Maximum number of rows mast be a positive number"
-msgstr ""
+msgstr "Максимальное количество строк должно быть положительное число"
 
 msgid "Maximum number of rows displayed by the Log register"
-msgstr ""
+msgstr "Максимальное количество строк, отображаемых в Журнале отчёта"
 
 msgid "Generate high quality thumbnails (slower)"
 msgstr "Сгенерировать высококачественные эскизы (медленнее!)"
@@ -216,7 +216,7 @@ msgid "Thumbnails creator:"
 msgstr "Создатель эскизов:"
 
 msgid "Clear usage statistics"
-msgstr ""
+msgstr "Очистить статистику использования"
 
 msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
@@ -239,6 +239,9 @@ msgid ""
 "Usage statistics are used to populate the modules quick bar on the left with "
 "the most used and most recently used modules."
 msgstr ""
+"Статистика использования применяется для заполнения панели быстрого доступа "
+"модулей слева с часто используемыми и последними часто используемыми "
+"модулями."
 
 msgid "Load default workspace at startup:"
 msgstr "Загрузить рабочую область по умолчанию при запуске:"
@@ -247,14 +250,13 @@ msgid "Default working directory:"
 msgstr "Рабочий каталог по умолчанию:"
 
 msgid "Set how often the PDFsam news panel should be opened"
-msgstr ""
+msgstr "Установите, как часто панель новостей PDFsam должна открываться"
 
 msgid "News panel:"
-msgstr ""
+msgstr "Панель новостей:"
 
-#, fuzzy
 msgid "Log register rows:"
-msgstr "Запротоколировать регистрацию"
+msgstr "Строки Журнала отчёта:"
 
 msgid "Language:"
 msgstr "Язык:"
@@ -269,14 +271,13 @@ msgid "Set your preferred theme (restart needed)"
 msgstr "Выберите предпочитаемую тему (нужен перезапуск)"
 
 msgid "Startup module:"
-msgstr ""
+msgstr "Запуск модуля:"
 
 msgid "Set the module to open at application startup (restart needed)"
-msgstr ""
+msgstr "Выберите модуль, открываемый при запуске приложения (нужен перезапуск)"
 
-#, fuzzy
 msgid "Check for updates now"
-msgstr "Проверка обновлений"
+msgstr "Проверить наличие обновлений"
 
 msgid "Close"
 msgstr "Закрыть"
@@ -285,10 +286,10 @@ msgid "Settings"
 msgstr "Настройки"
 
 msgid "Modules"
-msgstr ""
+msgstr "Модули"
 
 msgid "Log register"
-msgstr "Запротоколировать регистрацию"
+msgstr "Журнал отчёта"
 
 msgid "Copy"
 msgstr "Копировать"
@@ -301,7 +302,7 @@ msgid "Clear"
 msgstr "Очистить"
 
 msgid "Select all"
-msgstr "Выбрать все"
+msgstr "Выбрать всё"
 
 msgid "Save log"
 msgstr "Сохранить отчет"
@@ -310,192 +311,189 @@ msgid "Select where to save the log file"
 msgstr "Выбрать расположение файла отчёта"
 
 msgid "Invalid parameters"
-msgstr ""
+msgstr "Неверные параметры"
 
 msgid ""
 "Input parameters are invalid, open the application messages for details."
-msgstr ""
+msgstr "Входные параметры неверны, открой сообщения приложения для деталей."
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
-msgstr ""
+msgstr "Вы выполнили {0} задач с PDFsam, это помогло?"
 
 msgid "Give something back"
-msgstr ""
+msgstr "Дайте что-нибудь взамен"
 
 msgid "PDFsam worked hard!"
-msgstr ""
+msgstr "PDFsam работает жёстко!"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
-msgstr ""
+msgstr "PDFsam {0} доступен для скачивания"
 
 msgid "Download"
-msgstr ""
+msgstr "Загрузить"
 
 msgid "New version available"
-msgstr ""
+msgstr "Новая версия доступна"
 
 msgid "Show this:"
-msgstr ""
+msgstr "Показать это:"
 
 msgid "What's new"
-msgstr ""
+msgstr "Что нового"
 
 msgid "Directory not empty"
-msgstr ""
+msgstr "Каталог не пуст"
 
 msgid "The selected directory is not empty"
-msgstr ""
+msgstr "Выбранный каталог не пуст"
 
 msgid "Overwrite files with the same name as the generated ones?"
-msgstr ""
+msgstr "Переписать файлы с тем же именем, что и сгенерированный из них?"
 
 msgid "Don't overwrite existing file"
-msgstr ""
+msgstr "Не перезаписывать существующий файл"
 
 msgid "Overwrite confirmation"
-msgstr ""
+msgstr "Подтверждение перезаписи"
 
 msgid "A file with the given name already exists"
-msgstr ""
+msgstr "Файл с заданным именем уже существует"
 
 msgid "Do you want to overwrite it?"
-msgstr ""
+msgstr "Хотите перезаписать его?"
 
 msgid "Overwrite"
-msgstr ""
+msgstr "Перезаписать"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 msgid "Unable to find the latest available version."
-msgstr ""
+msgstr "Не удается найти последнюю доступную версию."
 
 msgid "Checking for updates"
 msgstr "Проверка обновлений"
 
-#, fuzzy
 msgid "Loading pdf documents"
-msgstr "Сдвигает вниз выделенные документы"
+msgstr "Загрузка pdf документов"
 
 msgid "Documents loaded"
 msgstr "Документы загружены"
 
 msgid "Requesting modules state"
-msgstr ""
+msgstr "Опрос состояния модулей"
 
-#, fuzzy
 msgid "Unable to save modules workspace"
-msgstr "Невозможно найти расположение модулей"
+msgstr "Невозможно сохранить рабочую область модулей"
 
-#, fuzzy, java-format
+#, java-format
 msgid "Loading workspace from {0}"
-msgstr "Загружаю модули из {0}"
+msgstr "Загрузка рабочей области из {0}"
 
-#, fuzzy
 msgid "Workspace loaded"
-msgstr "Рабочая область"
+msgstr "Рабочая область загружена"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
-msgstr ""
+msgstr "Невозможно загрузить рабочую область из {0}"
 
 #, java-format
 msgid "Saving workspace data to {0}"
-msgstr ""
+msgstr "Сохранение данных рабочей области в {0}"
 
-#, fuzzy
 msgid "Workspace saved"
-msgstr "Рабочая область"
+msgstr "Рабочая область сохранена"
 
-#, fuzzy
 msgid "Split after"
-msgstr "Разделить"
+msgstr "Разбить после"
 
 msgid "Split the document after the given page numbers"
-msgstr ""
+msgstr "Разбить документ после данных номеров страниц"
 
 msgid "No page selected"
-msgstr ""
+msgstr "Ни одна страница не выбрана"
 
 msgid "Split after the following page numbers"
-msgstr ""
+msgstr "Разбить после следующих номеров страниц"
 
 msgid "Page numbers to split at (n1,n2,n3..)"
-msgstr ""
+msgstr "Номера страниц для разбивки как (n1,n2,n3..)"
 
 msgid "Invalid page numbers"
-msgstr ""
+msgstr "Неверные номера страниц"
 
 msgid "Split"
 msgstr "Разделить"
 
 msgid "Split a pdf document at the given page numbers."
-msgstr ""
+msgstr "Разбить PDF-документ на заданные номера страниц."
 
 msgid "Select or drag and drop the PDF you want to split"
-msgstr ""
+msgstr "Выберите или перетащите PDF, который вы хотите разбить"
 
 msgid "File names settings"
-msgstr ""
+msgstr "Настройка имён файлов"
 
 msgid "Split settings"
-msgstr ""
+msgstr "Настройка разделения"
 
 msgid "Destination directory"
-msgstr ""
+msgstr "Каталог назначения"
 
 msgid "Every page"
-msgstr ""
+msgstr "Каждая страница"
 
 msgid "Even pages"
-msgstr ""
+msgstr "Чётные страницы"
 
 msgid "Odd pages"
-msgstr ""
+msgstr "Нечётные страницы"
 
 msgid "Split by every \"n\" pages"
-msgstr ""
+msgstr "Разбить на каждые \"n\" страниц"
 
 msgid "Number of pages"
 msgstr "Количество страниц"
 
 msgid "Splits the pdf every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
+"Разделяет PDF на каждые \"n\" страниц, создаёт документы из каждых \"n\" "
+"страниц"
 
 msgid "Invalid number of pages"
-msgstr ""
+msgstr "Неверное количество страниц"
 
 msgid "Split by size"
-msgstr ""
+msgstr "Разбить по размеру"
 
 msgid "Split a pdf document in files of the give size (roughly)."
-msgstr ""
+msgstr "Разделить PDF-документ в файлах заданного размера (примерно)."
 
 msgid "Set the size to split at"
-msgstr ""
+msgstr "Установить размер для разделения"
 
 msgid "Size must be a number"
-msgstr ""
+msgstr "Размер должен быть числом"
 
 msgid "Split at this size:"
-msgstr ""
+msgstr "Разбить на этот размер:"
 
 msgid "Invalid split size"
-msgstr "Неверный размер части"
+msgstr "Неверный размер для разделения"
 
 msgid "Kilobytes"
-msgstr ""
+msgstr "Килобайты"
 
 msgid "KB"
-msgstr ""
+msgstr "КБ"
 
 msgid "Megabytes"
-msgstr ""
+msgstr "Мегабайты"
 
 msgid "MB"
-msgstr ""
+msgstr "МБ"
 
 msgid "Alternate Mix"
 msgstr "Чередование"
@@ -504,105 +502,99 @@ msgid ""
 "Merge two PDF documents taking pages alternately in straight or reverse "
 "order."
 msgstr ""
+"Слияние двух PDF документов со страницами в прямом или обратном порядке."
 
 msgid "Select or drag and drop the first PDF you want to mix"
-msgstr ""
+msgstr "Выберите или перетащите первый PDF, который вы хотите смешать"
 
 msgid "Select or drag and drop the second PDF you want to mix"
-msgstr ""
+msgstr "Выберите или перетащите второй PDF, который вы хотите смешать"
 
 msgid "Mix settings"
-msgstr ""
+msgstr "Настройка смешивания"
 
 msgid "Destination file"
-msgstr ""
+msgstr "Файл назначения"
 
 msgid "Reverse the first document"
-msgstr ""
+msgstr "Развернуть первый документ"
 
 msgid "Reverse the second document"
-msgstr ""
+msgstr "Развернуть второй документ"
 
 msgid ""
 "Switch from the first document to the second one after the following pages"
-msgstr ""
+msgstr "Переход от первого документа ко второму после следующих страниц"
 
 msgid ""
 "Switch from the second document to the first one after the following pages"
-msgstr ""
+msgstr "Переход от второго документа к первому после следующих страниц"
 
 msgid "Invalid parameter 'first and second step' must be numbers"
-msgstr ""
+msgstr "Неверный параметр \"первого и второго этапа\", должны быть числами"
 
 msgid "Select the number of pages"
-msgstr ""
+msgstr "Выбрать количество страниц"
 
 msgid "The selected PDF document is invalid"
-msgstr ""
+msgstr "Выбранный PDF документ является неверным"
 
-#, fuzzy
 msgid "Open the generated document"
-msgstr "Убирает отмеченные документы"
+msgstr "Открыть сгенерированный документ"
 
-#, fuzzy
 msgid "Open the destination directory"
-msgstr "Установить пункт назначения"
+msgstr "Открыть каталог назначения"
 
 msgid "Ready"
-msgstr ""
+msgstr "Готов"
 
 msgid "Running"
-msgstr ""
+msgstr "Выполнение"
 
 msgid "Requested"
-msgstr ""
+msgstr "Запрошено"
 
 msgid "Completed"
-msgstr ""
+msgstr "Выполнено"
 
 msgid "Failed"
-msgstr ""
+msgstr "Неудачно"
 
 msgid "Run"
 msgstr "Выполнить"
 
-# G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:399
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:452
-# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:315
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:434
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:249
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:279
 msgid "Overwrite if already exists"
-msgstr "Перезаписать, если такой файл уже есть"
+msgstr "Перезаписать, если уже существует"
 
 msgid ""
 "Tick the box if you want to overwrite the outpuf files if they already exist."
-msgstr "Поставьте флажок для перезаписи уже существующих файлов"
+msgstr ""
+"Поставьте флажок для перезаписи выходного файла, если он уже существует."
 
 msgid "Select a file"
 msgstr "Выбор файла"
 
 msgid "The selected file must exist. "
-msgstr ""
+msgstr "Выбранный файл должен существовать. "
 
 #, java-format
 msgid "Allowed extensions are {0}"
 msgstr "Допустимые расширения {0}"
 
 msgid "Select"
-msgstr "выбор"
+msgstr "Выбрать"
 
 msgid "Browse"
 msgstr "Обзор"
 
 msgid "The selected PDF file is invalid"
-msgstr ""
+msgstr "Выбранный PDF файл неисправен"
 
 msgid "Compress output file/files"
 msgstr "Сжимать выходной файл(ы)."
 
 msgid "Output pdf version:"
-msgstr ""
+msgstr "Версия выходного PDF:"
 
 #, java-format
 msgid "Version {0}"
@@ -619,10 +611,10 @@ msgid "Select an existing directory"
 msgstr "Выбор существующего каталога"
 
 msgid "The selected output directory is invalid"
-msgstr ""
+msgstr "Выбранный каталог назначения неверен"
 
 msgid "Generated pdf documents name prefix:"
-msgstr ""
+msgstr "Префикс имени сгенерированного PDF документа"
 
 msgid "Prefix for the generated files names"
 msgstr "Префикс для сгенерированных имён файлов"
@@ -648,8 +640,8 @@ msgstr "Разблокировать"
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Дважды щелкните для установки страниц которые вы хотите объединить "
-"(например: 2 или 5-23 или 2,5-7,12 -)"
+"Дважды щелкните для установки страниц, которые хотите объединить (напр: 2 "
+"или 5-23 или 2,5-7,12 -)"
 
 msgid "Pages"
 msgstr "Страницы"
@@ -663,7 +655,7 @@ msgid "Add documents to the table"
 msgstr "Добавить документы в таблицу"
 
 msgid "_Add"
-msgstr "Добавить"
+msgstr "_Добавить"
 
 msgid "Select pdf documents to load"
 msgstr "Выберите PDF документы для загрузки"
@@ -678,7 +670,7 @@ msgid "Removes every document"
 msgstr "Убирает каждый документ"
 
 msgid "_Clear"
-msgstr "Очистить"
+msgstr "_Очистить"
 
 msgid "Moves up selected documents"
 msgstr "Сдвигает вверх отмеченные документы"
@@ -703,17 +695,19 @@ msgstr "Изменён"
 
 #, java-format
 msgid "Invalid range: {0}."
-msgstr ""
+msgstr "Неверный диапазон: {0}."
 
 #, java-format
 msgid ""
 "Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
 "or [-n] or [n-]"
 msgstr ""
+"Неоднозначное определение диапазона страниц: {0}. Используйте следующие "
+"форматы: [n] или [n1-n2] или [-n] или [n-]"
 
 #, java-format
 msgid "Invalid number: {0}."
-msgstr ""
+msgstr "Неверное число: {0}."
 
 msgid "Drag and drop PDF files here"
 msgstr "Перетащите PDF файлы сюда"
@@ -752,52 +746,54 @@ msgid "Open Folder"
 msgstr "Открыть каталог"
 
 msgid "Duplicate"
-msgstr ""
+msgstr "Дублировать"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
-msgstr ""
+msgstr "Страниц: {0}, версия PDF: {1}"
 
 msgid "Loading..."
-msgstr ""
+msgstr "Загрузка..."
 
 msgid "Merge form fields"
-msgstr ""
+msgstr "Слияние полей формы"
 
 msgid "Some of the selected PDF documents contain forms, merge them"
-msgstr ""
+msgstr "Некоторые из выбранных PDF документов содержат формы, объединить их"
 
 msgid "Add a blank page if page number is odd"
-msgstr ""
+msgstr "Добавить пустую страницу, если номер страницы нечетный"
 
 msgid ""
 "Adds a blank page after each merged document if the document has an odd "
 "number of pages"
 msgstr ""
+"Добавляет пустую страницу после каждого объединенного документа, если "
+"документ имеет нечетное количество страниц"
 
 msgid "Retain bookmarks"
-msgstr ""
+msgstr "Сохранить закладки"
 
 msgid "Discard bookmarks"
-msgstr ""
+msgstr "Отбросить закладки"
 
 msgid "Create one entry for each merged document"
-msgstr ""
+msgstr "Создать одну запись для каждого объединенного документа"
 
 msgid "Bookmarks handling:"
-msgstr ""
+msgstr "Регулировать закладки:"
 
 msgid "No pdf document has been selected"
-msgstr ""
+msgstr "Был выбран документ не PDF"
 
 msgid "Merge"
 msgstr "Объединить"
 
 msgid "Merge together multiple pdf documents or subsections of them."
-msgstr ""
+msgstr "Объединение воедино множество документов PDF или их подразделов."
 
 msgid "Merge settings"
-msgstr ""
+msgstr "Настройка объединения"
 
 msgid "Security"
 msgstr "Защита"
@@ -819,74 +815,75 @@ msgid "Valid user password provided."
 msgstr "Правильный пароль введён."
 
 msgid "This document is encrypted, click to provide a password."
-msgstr ""
+msgstr "Этот документ зашифрован, нажмите для ввода пароля."
 
 msgid "Squared green"
-msgstr ""
+msgstr "Квадратный зеленый"
 
 msgid "Squared cornflower"
-msgstr ""
+msgstr "Квадратный василёк"
 
 msgid "Roundish"
-msgstr ""
+msgstr "Округлый"
 
 msgid "Never"
 msgstr "Никогда"
 
 msgid "Once a day"
-msgstr ""
+msgstr "Раз в день"
 
 msgid "Once a week"
-msgstr ""
+msgstr "Раз в неделю"
 
 msgid "Always"
-msgstr ""
+msgstr "Всегда"
 
 msgid "Set the bookmarks level to split at"
-msgstr ""
+msgstr "Установите уровень закладок для разделения на"
 
 msgid "Invalid bookmarks level"
-msgstr ""
+msgstr "Неверный уровень закладок"
 
 msgid "Split by bookmarks"
-msgstr ""
+msgstr "Разбить по закладкам"
 
 msgid ""
 "Split a pdf document at bookmarked pages by specifying a bookmark level."
 msgstr ""
+"Разбить PDF документ на страницы с закладками , указав уровень закладок."
 
 msgid "Regexp the bookmark has to match"
-msgstr ""
+msgstr "Типа регулярного выражения закладки должен соответствовать"
 
 msgid "Split at this bookmark level:"
-msgstr ""
+msgstr "Разбить на этот уровень закладки:"
 
 msgid "Matching regular expression:"
-msgstr ""
+msgstr "Соответствующее регулярное выражение:"
 
 msgid "All pages"
-msgstr ""
+msgstr "Все страницы"
 
 msgid "90 degrees clockwise"
-msgstr ""
+msgstr "90 градусов по часовой"
 
 msgid "180 degrees clockwise"
-msgstr ""
+msgstr "180 градусов по часовой"
 
 msgid "270 degrees clockwise"
-msgstr ""
+msgstr "270 градусов по часовой"
 
 msgid "Rotate "
-msgstr ""
+msgstr "Вращение "
 
 msgid "Rotate"
 msgstr "Вращение"
 
 msgid "Rotate the pages of multiple PDF documents."
-msgstr ""
+msgstr "Поворот страниц в многостраничном документе PDF."
 
 msgid "Rotate settings"
-msgstr ""
+msgstr "Настройка вращения"
 
 # G:\Documents\eclipse_workspace\PDFSAMsplit\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:193
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:206
@@ -899,15 +896,6 @@ msgstr ""
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
 #~ msgid "Split odd pages"
 #~ msgstr "Разбить по нечётным страницам"
-
-#~ msgid "Error playing sounds"
-#~ msgstr "Ошибка воспроизведения звуков"
-
-#~ msgid "Thumbnails"
-#~ msgstr "Эскизы"
-
-#~ msgid "Loading"
-#~ msgstr "Загрузка"
 
 #~ msgid "Would you like to overwrite it?"
 #~ msgstr "Вы хотите перезаписать его?"

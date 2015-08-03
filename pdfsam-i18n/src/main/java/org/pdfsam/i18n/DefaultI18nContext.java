@@ -51,6 +51,7 @@ public final class DefaultI18nContext implements I18nContext {
         supportedLocalesCache.add(new Locale("pt", "BR"));
         supportedLocalesCache.add(new Locale("bg"));
         supportedLocalesCache.add(new Locale("ca"));
+        supportedLocalesCache.add(new Locale("co"));
         supportedLocalesCache.add(new Locale("hr"));
         supportedLocalesCache.add(new Locale("cs"));
         supportedLocalesCache.add(new Locale("da"));

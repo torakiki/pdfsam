@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-12-12 16:32+0000\n"
-"X-Generator: Launchpad (build 17286)\n"
+"X-Launchpad-Export-Date: 2015-08-03 07:52+0000\n"
+"X-Generator: Launchpad (build 17656)\n"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -270,9 +270,8 @@ msgstr ""
 msgid "Set the module to open at application startup (restart needed)"
 msgstr ""
 
-#, fuzzy
 msgid "Check for updates now"
-msgstr "Sök efter uppdateringar när programmet startar"
+msgstr ""
 
 msgid "Close"
 msgstr "Stäng"
@@ -401,9 +400,8 @@ msgstr ""
 msgid "Workspace saved"
 msgstr ""
 
-#, fuzzy
 msgid "Split after"
-msgstr "Dela"
+msgstr ""
 
 msgid "Split the document after the given page numbers"
 msgstr ""
@@ -535,9 +533,8 @@ msgstr ""
 msgid "Open the generated document"
 msgstr ""
 
-#, fuzzy
 msgid "Open the destination directory"
-msgstr "Ange destination"
+msgstr ""
 
 msgid "Ready"
 msgstr ""
@@ -902,12 +899,6 @@ msgstr ""
 msgid "Rotate settings"
 msgstr ""
 
-#~ msgid "Split even pages"
-#~ msgstr "Dela upp vid jämna sidor"
-
-#~ msgid "Split odd pages"
-#~ msgstr "Dela upp vid ojämna sidor"
-
 #~ msgid "Unable to get latest available version"
 #~ msgstr "Kunde inte hämta den senaste versionen"
 
@@ -926,6 +917,12 @@ msgstr ""
 
 #~ msgid "Ask for confirmation when overwrite checkbox is selected"
 #~ msgstr "Fråga om bekräftelse när kryssrutan om överskrivning är vald"
+
+#~ msgid "Split odd pages"
+#~ msgstr "Dela upp vid ojämna sidor"
+
+#~ msgid "Split even pages"
+#~ msgstr "Dela upp vid jämna sidor"
 
 #~ msgid "Output document pdf version:"
 #~ msgstr "Målfilens PDF-version:"

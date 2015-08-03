@@ -8,27 +8,27 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
 "POT-Creation-Date: 2015-02-05 19:02+0100\n"
-"PO-Revision-Date: 2014-10-07 01:12+0000\n"
+"PO-Revision-Date: 2015-02-08 02:49+0000\n"
 "Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-12-12 16:32+0000\n"
-"X-Generator: Launchpad (build 17286)\n"
+"X-Launchpad-Export-Date: 2015-08-03 07:52+0000\n"
+"X-Generator: Launchpad (build 17656)\n"
 
 #, java-format
 msgid "Installing theme {0}."
-msgstr ""
+msgstr "S’està instal·lant el tema {0}."
 
 #, java-format
 msgid "Modules directory {0} does not exist"
-msgstr ""
+msgstr "La carpeta de mòduls {0} no existeix"
 
 #, java-format
 msgid "Loading modules from {0}"
-msgstr ""
+msgstr "S’estan carregant els mòduls des de {0}"
 
 #, java-format
 msgid "Found modules jars {0}"
@@ -41,7 +41,7 @@ msgid "No module has been found"
 msgstr "No s’hi ha trobat cap mòdul"
 
 msgid "Unable to find modules location."
-msgstr ""
+msgstr "No s’ha trobat la ubicació dels mòduls."
 
 #, java-format
 msgid "Started in {0}"
@@ -51,7 +51,7 @@ msgid "Closing PDFsam..."
 msgstr ""
 
 msgid "Application menu"
-msgstr ""
+msgstr "Menú d’aplicacions"
 
 msgid "_Modules"
 msgstr "_Mòduls"
@@ -60,7 +60,7 @@ msgid "E_xit"
 msgstr "_Surt"
 
 msgid "Application messages"
-msgstr ""
+msgstr "Missatges de l’aplicació"
 
 msgid "_Workspace"
 msgstr ""
@@ -106,10 +106,10 @@ msgid "Max memory {0}"
 msgstr ""
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Copia al porta-retalls"
 
 msgid "Thanks to"
-msgstr ""
+msgstr "Agraïments"
 
 msgid "The open source projects making PDFsam possible"
 msgstr ""
@@ -270,9 +270,8 @@ msgstr ""
 msgid "Set the module to open at application startup (restart needed)"
 msgstr ""
 
-#, fuzzy
 msgid "Check for updates now"
-msgstr "Verifica les actualitzacions en iniciar"
+msgstr ""
 
 msgid "Close"
 msgstr "Tanca"
@@ -383,9 +382,8 @@ msgstr ""
 msgid "Loading workspace from {0}"
 msgstr ""
 
-#, fuzzy
 msgid "Workspace loaded"
-msgstr "Espai de treball"
+msgstr ""
 
 #, java-format
 msgid "Unable to load workspace from {0}"
@@ -395,13 +393,11 @@ msgstr ""
 msgid "Saving workspace data to {0}"
 msgstr ""
 
-#, fuzzy
 msgid "Workspace saved"
-msgstr "Espai de treball"
+msgstr ""
 
-#, fuzzy
 msgid "Split after"
-msgstr "Divideix"
+msgstr ""
 
 msgid "Split the document after the given page numbers"
 msgstr ""
@@ -533,9 +529,8 @@ msgstr "El document PDF seleccionat no és vàlid"
 msgid "Open the generated document"
 msgstr ""
 
-#, fuzzy
 msgid "Open the destination directory"
-msgstr "Definiu el destí"
+msgstr ""
 
 msgid "Ready"
 msgstr ""
@@ -868,15 +863,6 @@ msgstr ""
 
 #~ msgid "Split odd pages"
 #~ msgstr "Divideix les pàgines senars"
-
-#~ msgid "Open menu"
-#~ msgstr "Obre el menú"
-
-#~ msgid "Thumbnails"
-#~ msgstr "Miniatures"
-
-#~ msgid "Loading"
-#~ msgstr "S’està carregant"
 
 #~ msgid "Output document pdf version:"
 #~ msgstr "Versió pdf de document de sortida:"

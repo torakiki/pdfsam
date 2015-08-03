@@ -8,37 +8,37 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
 "POT-Creation-Date: 2015-02-05 19:02+0100\n"
-"PO-Revision-Date: 2014-05-22 11:55+0000\n"
-"Last-Translator: Tiberio Melo <tiberio.melo@ig.com.br>\n"
+"PO-Revision-Date: 2015-03-28 21:45+0000\n"
+"Last-Translator: Rodrigo Borges Freitas <rodrigo.borges.freitas@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-12-12 16:32+0000\n"
-"X-Generator: Launchpad (build 17286)\n"
+"X-Launchpad-Export-Date: 2015-08-03 07:52+0000\n"
+"X-Generator: Launchpad (build 17656)\n"
 
 #, java-format
 msgid "Installing theme {0}."
-msgstr ""
+msgstr "Instalando tema {0}"
 
 #, java-format
 msgid "Modules directory {0} does not exist"
-msgstr ""
+msgstr "Diretório de módulos {0} não existe"
 
 #, java-format
 msgid "Loading modules from {0}"
-msgstr ""
+msgstr "Lendo módulos de {0}"
 
 #, java-format
 msgid "Found modules jars {0}"
-msgstr ""
+msgstr "Módulos jars encontrados {0}"
 
 msgid "Error finding modules paths"
 msgstr ""
 
 msgid "No module has been found"
-msgstr ""
+msgstr "Nenhum módulo foi encontrado"
 
 msgid "Unable to find modules location."
 msgstr ""
@@ -48,51 +48,49 @@ msgid "Started in {0}"
 msgstr "Iniciado em {0}"
 
 msgid "Closing PDFsam..."
-msgstr ""
+msgstr "Fechando PDFsam..."
 
 msgid "Application menu"
-msgstr ""
+msgstr "Menu de aplicativos"
 
 msgid "_Modules"
-msgstr "Módulos (_M)"
+msgstr "_Módulos"
 
 msgid "E_xit"
-msgstr "Sair (_X)"
+msgstr "_Sair"
 
 msgid "Application messages"
-msgstr ""
+msgstr "Mensagens do aplicativo"
 
 msgid "_Workspace"
 msgstr "Espaço de trabalho (_W)"
 
 msgid "_Load"
-msgstr "Carregar (_L)"
+msgstr "_Carregar"
 
 msgid "_Save"
-msgstr "Salvar (_S)"
+msgstr "_Salvar"
 
 msgid "Recen_t"
-msgstr "Recente (_T)"
+msgstr "Recen_te"
 
-#, fuzzy
 msgid "Select the workspace file to save"
-msgstr "Selecione um espaço de trabalho"
+msgstr ""
 
-#, fuzzy
 msgid "Select the workspace to load"
-msgstr "Selecione um espaço de trabalho"
+msgstr ""
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Painel de controle"
 
 msgid "Document details"
-msgstr ""
+msgstr "Detalhes do documento"
 
 msgid "Keywords"
-msgstr "Palavras-chave"
+msgstr "Palavras chaves"
 
 msgid "Summary"
-msgstr ""
+msgstr "Sumário"
 
 msgid "About"
 msgstr "Sobre..."
@@ -101,23 +99,23 @@ msgid "Subscribe to the official news feed"
 msgstr ""
 
 msgid "Environment"
-msgstr ""
+msgstr "Ambiente"
 
 #, java-format
 msgid "Max memory {0}"
 msgstr "Memória máxima {0}"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Copiar para a área de transferência"
 
 msgid "Thanks to"
-msgstr ""
+msgstr "Agradecimentos a"
 
 msgid "The open source projects making PDFsam possible"
 msgstr ""
 
 msgid "Support"
-msgstr ""
+msgstr "Suporte"
 
 msgid "Bug and feature requests"
 msgstr ""
@@ -126,31 +124,31 @@ msgid "Play the \"get started\" video"
 msgstr ""
 
 msgid "Contribute"
-msgstr ""
+msgstr "Contribuir"
 
 msgid "Fork PDFsam on GitHub"
 msgstr ""
 
 msgid "Translate"
-msgstr ""
+msgstr "Traduzir"
 
 msgid "Donate"
-msgstr ""
+msgstr "Doar"
 
 msgid "Social"
-msgstr ""
+msgstr "Social"
 
 msgid "Follow us on Twitter"
 msgstr "Siga-nos no Twitter"
 
 msgid "Follow us on Google Plus"
-msgstr ""
+msgstr "Siga-nos no Google Plus"
 
 msgid "Like us on Facebook"
 msgstr "Curta-nos no Facebook"
 
 msgid "Manually selected"
-msgstr ""
+msgstr "Selecionado manualmente"
 
 msgid ""
 "Automatically set the destination directory to the selected PDF document "
@@ -167,7 +165,7 @@ msgid "Workspace"
 msgstr "Área de trabalho"
 
 msgid "Output"
-msgstr ""
+msgstr "Saída"
 
 msgid "Check for updates at startup"
 msgstr "Verificar por atualizações ao iniciar"
@@ -200,7 +198,7 @@ msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
 msgstr "Tamanho em pixels das miniaturas (entre {0}px e {1}px)"
 
 msgid "Maximum number of rows mast be a positive number"
-msgstr ""
+msgstr "Número máximo de linhas deve ser um número positivo"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr ""
@@ -218,7 +216,7 @@ msgid "Thumbnails creator:"
 msgstr "Gerador de miniaturas:"
 
 msgid "Clear usage statistics"
-msgstr ""
+msgstr "Limpar estatísticas usadas"
 
 msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
@@ -240,6 +238,8 @@ msgid ""
 "Usage statistics are used to populate the modules quick bar on the left with "
 "the most used and most recently used modules."
 msgstr ""
+"As estatísticas de uso são utilizadas para preencher os módulos da barra de "
+"acesso rápido, à esquerda, com os módulos usados com maior frequência."
 
 msgid "Load default workspace at startup:"
 msgstr "Carregar o espaço de trabalho padrão ao iniciar"
@@ -251,11 +251,10 @@ msgid "Set how often the PDFsam news panel should be opened"
 msgstr ""
 
 msgid "News panel:"
-msgstr ""
+msgstr "Painel de notícias"
 
-#, fuzzy
 msgid "Log register rows:"
-msgstr "Arquivo de registro"
+msgstr "Linhas do arquivo de registro:"
 
 msgid "Language:"
 msgstr "Idioma:"
@@ -278,9 +277,8 @@ msgstr ""
 msgid "Set the module to open at application startup (restart needed)"
 msgstr ""
 
-#, fuzzy
 msgid "Check for updates now"
-msgstr "Verificando por atualizações"
+msgstr ""
 
 msgid "Close"
 msgstr "Fechar"
@@ -289,7 +287,7 @@ msgid "Settings"
 msgstr "Configurações"
 
 msgid "Modules"
-msgstr ""
+msgstr "Módulos"
 
 msgid "Log register"
 msgstr "Arquivo de registro"
@@ -318,37 +316,39 @@ msgid "Select where to save the log file"
 msgstr "Selecione onde deseja salvar o registro"
 
 msgid "Invalid parameters"
-msgstr ""
+msgstr "Parâmetros inválidos"
 
 msgid ""
 "Input parameters are invalid, open the application messages for details."
 msgstr ""
+"Os parâmetro inseridos são inválidos, abra as mensagens do aplicativo para "
+"ver os detalhes."
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
-msgstr ""
+msgstr "Você realizou {0} tarefa(s) com  o PDFsam, foi útil?"
 
 msgid "Give something back"
-msgstr ""
+msgstr "Contribua"
 
 msgid "PDFsam worked hard!"
-msgstr ""
+msgstr "PDFsam trabalhou pesado!"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
-msgstr ""
+msgstr "PDFsam {0} está disponível para download"
 
 msgid "Download"
-msgstr ""
+msgstr "Baixar"
 
 msgid "New version available"
-msgstr ""
+msgstr "Uma nova versão está disponível"
 
 msgid "Show this:"
 msgstr ""
 
 msgid "What's new"
-msgstr ""
+msgstr "O que há de novo"
 
 msgid "Directory not empty"
 msgstr ""
@@ -360,32 +360,31 @@ msgid "Overwrite files with the same name as the generated ones?"
 msgstr ""
 
 msgid "Don't overwrite existing file"
-msgstr ""
+msgstr "Não substituir o arquivo existente"
 
 msgid "Overwrite confirmation"
-msgstr ""
+msgstr "Confirmar substituição"
 
 msgid "A file with the given name already exists"
-msgstr ""
+msgstr "Um arquivo com o mesmo nome já existe"
 
 msgid "Do you want to overwrite it?"
-msgstr ""
+msgstr "Deseja substituí-lo?"
 
 msgid "Overwrite"
-msgstr ""
+msgstr "Substituir"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 msgid "Unable to find the latest available version."
-msgstr ""
+msgstr "Não foi possível localizar a última versão disponível"
 
 msgid "Checking for updates"
-msgstr "Verificando por atualizações"
+msgstr "Verificando a disponibilidade de atualizações"
 
-#, fuzzy
 msgid "Loading pdf documents"
-msgstr "Move para baixo o(s) documento(s) selecionado(s)"
+msgstr "Carregando os arquivos em PDF"
 
 msgid "Documents loaded"
 msgstr "Documentos carregados"
@@ -393,17 +392,15 @@ msgstr "Documentos carregados"
 msgid "Requesting modules state"
 msgstr ""
 
-#, fuzzy
 msgid "Unable to save modules workspace"
-msgstr "Selecione um espaço de trabalho"
+msgstr ""
 
 #, java-format
 msgid "Loading workspace from {0}"
 msgstr ""
 
-#, fuzzy
 msgid "Workspace loaded"
-msgstr "Área de trabalho"
+msgstr ""
 
 #, java-format
 msgid "Unable to load workspace from {0}"
@@ -413,22 +410,20 @@ msgstr ""
 msgid "Saving workspace data to {0}"
 msgstr ""
 
-#, fuzzy
 msgid "Workspace saved"
-msgstr "Área de trabalho"
+msgstr ""
 
-#, fuzzy
 msgid "Split after"
-msgstr "Dividir"
+msgstr "Dividir após"
 
 msgid "Split the document after the given page numbers"
-msgstr ""
+msgstr "Dividir o documento após as páginas indicadas"
 
 msgid "No page selected"
-msgstr ""
+msgstr "Nenhuma página selecionada"
 
 msgid "Split after the following page numbers"
-msgstr ""
+msgstr "Dividir após as seguintes páginas"
 
 msgid "Page numbers to split at (n1,n2,n3..)"
 msgstr ""
@@ -443,13 +438,13 @@ msgid "Split a pdf document at the given page numbers."
 msgstr ""
 
 msgid "Select or drag and drop the PDF you want to split"
-msgstr ""
+msgstr "Selecione ou arraste e solte o PDF que você deseja dividir"
 
 msgid "File names settings"
-msgstr ""
+msgstr "Configurações de nomes de arquivo"
 
 msgid "Split settings"
-msgstr ""
+msgstr "Configurações de divisão"
 
 msgid "Destination directory"
 msgstr ""
@@ -458,31 +453,32 @@ msgid "Every page"
 msgstr ""
 
 msgid "Even pages"
-msgstr ""
+msgstr "Páginas pares"
 
 msgid "Odd pages"
-msgstr ""
+msgstr "Páginas ímpares"
 
 msgid "Split by every \"n\" pages"
-msgstr ""
+msgstr "Dividir a cada \"n\" páginas"
 
 msgid "Number of pages"
 msgstr "Número de páginas"
 
 msgid "Splits the pdf every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
+"Divide o pdf a cada \"n\" páginas, criando documentos de \"n\" páginas cada"
 
 msgid "Invalid number of pages"
 msgstr ""
 
 msgid "Split by size"
-msgstr ""
+msgstr "Dividir pelo tamanho"
 
 msgid "Split a pdf document in files of the give size (roughly)."
-msgstr ""
+msgstr "Divide o pdf em arquivos com aproximadamente o tamanho indicado"
 
 msgid "Set the size to split at"
-msgstr ""
+msgstr "Escolha o tamanho em que deseja dividir"
 
 msgid "Size must be a number"
 msgstr ""
@@ -497,13 +493,13 @@ msgid "Kilobytes"
 msgstr ""
 
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 msgid "Megabytes"
-msgstr ""
+msgstr "Megabytes"
 
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 msgid "Alternate Mix"
 msgstr "Mix alternado"
@@ -548,13 +544,11 @@ msgstr ""
 msgid "The selected PDF document is invalid"
 msgstr ""
 
-#, fuzzy
 msgid "Open the generated document"
-msgstr "Remove os documentos selecionados"
+msgstr ""
 
-#, fuzzy
 msgid "Open the destination directory"
-msgstr "Definir destino"
+msgstr ""
 
 msgid "Ready"
 msgstr ""
@@ -927,15 +921,6 @@ msgstr ""
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
 #~ msgid "Split odd pages"
 #~ msgstr "Dividir a cada página impar"
-
-#~ msgid "Error playing sounds"
-#~ msgstr "Erro ao tocar sons"
-
-#~ msgid "Thumbnails"
-#~ msgstr "Miniaturas"
-
-#~ msgid "Loading"
-#~ msgstr "Carregando"
 
 #~ msgid "Destination folder"
 #~ msgstr "Pasta de destino"

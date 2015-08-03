@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
 "POT-Creation-Date: 2015-02-05 19:02+0100\n"
-"PO-Revision-Date: 2015-01-16 10:06+0000\n"
+"PO-Revision-Date: 2015-02-20 19:43+0000\n"
 "Last-Translator: MisterIf <pkrupitsa@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-01-20 11:20+0000\n"
-"X-Generator: Launchpad (build 17304)\n"
+"X-Launchpad-Export-Date: 2015-08-03 07:52+0000\n"
+"X-Generator: Launchpad (build 17656)\n"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -258,9 +258,8 @@ msgstr "Встановіть, як часто Ви бажаєте показув
 msgid "News panel:"
 msgstr "Панель новин:"
 
-#, fuzzy
 msgid "Log register rows:"
-msgstr "Реєстрація логування"
+msgstr ""
 
 msgid "Language:"
 msgstr "Мова:"
@@ -354,7 +353,7 @@ msgid "The selected directory is not empty"
 msgstr "Обраний каталог не порожній"
 
 msgid "Overwrite files with the same name as the generated ones?"
-msgstr "Зберегти нові файли під тим же ім'ям, яке було і у файлів оригіналу?"
+msgstr "Зберегти нові файли під тим же ім'ям, що і старі?"
 
 msgid "Don't overwrite existing file"
 msgstr "Не перезаписувати існуючий файл"
@@ -410,16 +409,14 @@ msgstr "Збереження даних робочого простору в {0}
 msgid "Workspace saved"
 msgstr "Робочій простір збережено"
 
-#, fuzzy
 msgid "Split after"
-msgstr "Розділити"
+msgstr ""
 
 msgid "Split the document after the given page numbers"
 msgstr "Розділити документ після цих номерів сторінок"
 
-#, fuzzy
 msgid "No page selected"
-msgstr "Документ PDF не був обраний"
+msgstr "Ні одна сторінка не обрана"
 
 msgid "Split after the following page numbers"
 msgstr "Розділити після наступного номера сторінки"
@@ -437,20 +434,20 @@ msgid "Split a pdf document at the given page numbers."
 msgstr "Розділити PDF-документ при заданих номерах сторінок."
 
 msgid "Select or drag and drop the PDF you want to split"
-msgstr "Виберіть або перетягніть PDFфайл який Ви хочете розділити"
+msgstr ""
+"Виберіть або перетягніть сюди PDF документ, який Ви хочете розбити на частини"
 
 msgid "File names settings"
 msgstr "Властивості імен файлу"
 
 msgid "Split settings"
-msgstr "Властивості розділення"
+msgstr "Властивості розбивання"
 
 msgid "Destination directory"
 msgstr "Каталог (тека) призначення"
 
-#, fuzzy
 msgid "Every page"
-msgstr "Парні сторінки"
+msgstr "Кожна сторінка"
 
 msgid "Even pages"
 msgstr "Парні сторінки"
@@ -459,7 +456,7 @@ msgid "Odd pages"
 msgstr "Непарні сторінки"
 
 msgid "Split by every \"n\" pages"
-msgstr "Розділити після кожні \"n\" сторінки"
+msgstr "Розділити після кожної N-ї сторінки"
 
 msgid "Number of pages"
 msgstr "Номер сторінки"
@@ -473,7 +470,7 @@ msgid "Invalid number of pages"
 msgstr "Не вірний номер сторінки"
 
 msgid "Split by size"
-msgstr "Розрізати по розміру"
+msgstr "Розбити за розміром"
 
 msgid "Split a pdf document in files of the give size (roughly)."
 msgstr "Розрізання документів PDF у файли по розміру є приблизним."
@@ -485,7 +482,7 @@ msgid "Size must be a number"
 msgstr "Розмір має бути числом"
 
 msgid "Split at this size:"
-msgstr "Розрізати на такий розмір:"
+msgstr "Розбити на файли такого розміру:"
 
 msgid "Invalid split size"
 msgstr "Не вірне значення розміру різання"
@@ -622,7 +619,7 @@ msgid "The selected output directory is invalid"
 msgstr "Обраний вихідний каталог є неправильним"
 
 msgid "Generated pdf documents name prefix:"
-msgstr "Створити PDF документ з додавання у назву префіксу:"
+msgstr "Створити PDF документ з додаванням до імені файлу префіксу:"
 
 msgid "Prefix for the generated files names"
 msgstr "Префікс для назв (імен) створених файлів"
@@ -888,23 +885,11 @@ msgstr "Поворот сторінок багатосторінкового д�
 msgid "Rotate settings"
 msgstr "Властивості Обертання"
 
-#~ msgid "Burst (Split into single pages)"
-#~ msgstr "Вибух (Розділити на окремі сторінки)"
+#~ msgid "Destination folder"
+#~ msgstr "Цільова тека"
 
 #~ msgid "Split even pages"
 #~ msgstr "Розділити парні сторінки"
 
 #~ msgid "Split odd pages"
 #~ msgstr "Розділити непарні сторінки"
-
-#~ msgid "Explode the document into single pages"
-#~ msgstr "Розділити документ на окремі сторінки"
-
-#~ msgid "Split the document after every even page"
-#~ msgstr "Розділити документ після кожної парної сторінки"
-
-#~ msgid "Split the document after every odd page"
-#~ msgstr "Розділити документ після кожної непарної сторінки"
-
-#~ msgid "Destination folder"
-#~ msgstr "Цільова тека"
