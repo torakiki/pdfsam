@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 18/giu/2014
+ * Created on 03/mar/2015
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,10 +18,11 @@
  */
 package org.pdfsam.pdf;
 
-import org.pdfsam.module.RequiredPdfData;
-import org.sejda.impl.itext5.component.ITextOutlineLevelsHandler;
+import javax.inject.Named;
 
-import com.itextpdf.text.pdf.PdfReader;
+import org.pdfsam.module.RequiredPdfData;
+import org.sejda.impl.sambox.component.OutlineUtils;
+import org.sejda.sambox.pdmodel.PDDocument;
 
 /**
  * Loader populating the descriptor with bookmarks related data.
@@ -29,14 +30,15 @@ import com.itextpdf.text.pdf.PdfReader;
  * @author Andrea Vacondio
  *
  */
-// @Named
-class BookmarksLevelITextLoader implements PdfLoader<PdfReader> {
+@Named
+class BookmarksLevelSAMBoxLoader implements PdfLoader<PDDocument> {
 
-    public void accept(PdfReader reader, PdfDocumentDescriptor descriptor) {
-        descriptor.setMaxGoToActionDepth(new ITextOutlineLevelsHandler(reader, "").getMaxOutlineDepth());
+    public void accept(PDDocument document, PdfDocumentDescriptor descriptor) {
+        descriptor.setMaxGoToActionDepth(OutlineUtils.getMaxBookmarkLevel(document));
     }
 
     public RequiredPdfData key() {
         return RequiredPdfData.BOOMARKS;
     }
+
 }

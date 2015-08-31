@@ -28,18 +28,18 @@ import static org.mockito.Mockito.when;
 import java.io.File;
 import java.util.GregorianCalendar;
 
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDDocumentInformation;
 import org.junit.Before;
 import org.junit.Test;
 import org.sejda.model.pdf.PdfMetadataKey;
 import org.sejda.model.pdf.PdfVersion;
+import org.sejda.sambox.pdmodel.PDDocument;
+import org.sejda.sambox.pdmodel.PDDocumentInformation;
 
 /**
  * @author Andrea Vacondio
  *
  */
-public class DefaultPDFBoxLoaderTest {
+public class DefaultSAMBoxLoaderTest {
     private PDDocument document;
     private PDDocumentInformation info;
     private PdfDocumentDescriptor descriptor;
@@ -50,7 +50,7 @@ public class DefaultPDFBoxLoaderTest {
         descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(mock(File.class));
         info = mock(PDDocumentInformation.class);
         when(document.getDocumentInformation()).thenReturn(info);
-        when(document.getVersion()).thenReturn(1.4f);
+        when(document.getVersion()).thenReturn("1.4");
         when(document.getNumberOfPages()).thenReturn(2);
         when(info.getAuthor()).thenReturn("Chuck Norris");
         when(info.getSubject()).thenReturn("Roundhause");
@@ -59,7 +59,7 @@ public class DefaultPDFBoxLoaderTest {
 
     @Test
     public void accept() {
-        new DefaultPDFBoxLoader().accept(document, descriptor);
+        new DefaultSAMBoxLoader().accept(document, descriptor);
         assertEquals(2, descriptor.pages().getValue().intValue());
         assertEquals(PdfVersion.VERSION_1_4, descriptor.getVersion());
         assertEquals("Chuck Norris", descriptor.getInformation(PdfMetadataKey.AUTHOR.getKey()));

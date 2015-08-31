@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sejda validation="true">
 	<notification async="false" />
-	<tasks>			
+	<tasks>
 		<task parameters="org.sejda.model.parameter.MergeParameters"
 			task="org.sejda.impl.itext5.MergeTask" />
 		<task parameters="org.sejda.model.parameter.SimpleSplitParameters"
-			task="org.pdfsam.pdfbox.SplitByPageNumbersTask" />
+			task="org.sejda.impl.sambox.SplitByPageNumbersTask" />
 		<task parameters="org.sejda.model.parameter.SplitByPagesParameters"
-			task="org.pdfsam.pdfbox.SplitByPageNumbersTask" />
+			task="org.sejda.impl.sambox.SplitByPageNumbersTask" />
 		<task parameters="org.sejda.model.parameter.SplitByEveryXPagesParameters"
-			task="org.pdfsam.pdfbox.SplitByPageNumbersTask" />
+			task="org.sejda.impl.sambox.SplitByPageNumbersTask" />
 		<task parameters="org.sejda.model.parameter.SplitBySizeParameters"
-			task="org.sejda.impl.itext5.SplitBySizeTask" />
+			task="org.sejda.impl.sambox.SplitBySizeTask" />
 		<task parameters="org.sejda.model.parameter.SplitByOutlineLevelParameters"
-			task="org.pdfsam.pdfbox.SplitByOutlineLevelTask" />
+			task="org.sejda.impl.sambox.SplitByOutlineLevelTask" />
 		<task parameters="org.sejda.model.parameter.AlternateMixParameters"
-			task="org.pdfsam.pdfbox.AlternateMixTask" />
+			task="org.sejda.impl.sambox.AlternateMixTask" />
 		<task parameters="org.sejda.model.parameter.RotateParameters"
-			task="org.pdfsam.pdfbox.RotateTask" />			
+			task="org.sejda.impl.sambox.RotateTask" />
 	</tasks>
 </sejda>

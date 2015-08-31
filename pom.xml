@@ -35,7 +35,6 @@
 		<module>pdfsam-split-by-bookmarks</module>
 		<module>pdfsam-alternate-mix</module>
 		<module>pdfsam-rotate</module>
-		<module>pdfsam-pdfbox</module>
 	</modules>
 
 	<developers>

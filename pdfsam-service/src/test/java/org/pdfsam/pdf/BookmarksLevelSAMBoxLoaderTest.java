@@ -23,19 +23,21 @@ import static org.mockito.Mockito.verify;
 
 import java.io.IOException;
 
-import org.apache.pdfbox.pdmodel.PDDocument;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import org.sejda.common.ComponentsUtility;
+import org.sejda.io.SeekableSources;
+import org.sejda.sambox.input.PDFParser;
+import org.sejda.sambox.pdmodel.PDDocument;
 
 /**
  * @author Andrea Vacondio
  *
  */
-public class BookmarksLevelPDFBoxLoaderTest {
+public class BookmarksLevelSAMBoxLoaderTest {
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
 
@@ -45,7 +47,8 @@ public class BookmarksLevelPDFBoxLoaderTest {
     @Before
     public void setUp() throws IOException {
         descriptor = mock(PdfDocumentDescriptor.class);
-        document = PDDocument.load(getClass().getResourceAsStream("/test_outline.pdf"));
+        document = PDFParser.parse(SeekableSources.inMemorySeekableSourceFrom(getClass().getResourceAsStream(
+                "/test_outline.pdf")));
     }
 
     @After
@@ -55,7 +58,7 @@ public class BookmarksLevelPDFBoxLoaderTest {
 
     @Test
     public void accept() {
-        new BookmarksLevelPDFBoxLoader().accept(document, descriptor);
+        new BookmarksLevelSAMBoxLoader().accept(document, descriptor);
         verify(descriptor).setMaxGoToActionDepth(3);
     }
 }

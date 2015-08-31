@@ -24,11 +24,11 @@ import java.util.Optional;
 import javax.inject.Named;
 
 import org.apache.commons.lang3.time.FastDateFormat;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDDocumentInformation;
 import org.pdfsam.module.RequiredPdfData;
 import org.sejda.model.pdf.PdfMetadataKey;
 import org.sejda.model.pdf.PdfVersion;
+import org.sejda.sambox.pdmodel.PDDocument;
+import org.sejda.sambox.pdmodel.PDDocumentInformation;
 
 /**
  * Consumer taking a {@link PDDocument} and populating an {@link PdfDocumentDescriptor} with data coming from the info dictionary of the {@link PDDocument}.
@@ -37,13 +37,13 @@ import org.sejda.model.pdf.PdfVersion;
  *
  */
 @Named
-class DefaultPDFBoxLoader implements PdfLoader<PDDocument> {
+class DefaultSAMBoxLoader implements PdfLoader<PDDocument> {
 
     private static FastDateFormat FORMATTER = FastDateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.MEDIUM);
 
     public void accept(PDDocument document, PdfDocumentDescriptor descriptor) {
         descriptor.pages(document.getNumberOfPages());
-        descriptor.setVersion(getVersion(Float.toString(document.getVersion())));
+        descriptor.setVersion(getVersion(document.getVersion()));
         PDDocumentInformation info = document.getDocumentInformation();
         descriptor.putInformation(PdfMetadataKey.TITLE.getKey(), info.getTitle());
         descriptor.putInformation(PdfMetadataKey.AUTHOR.getKey(), info.getAuthor());
@@ -61,7 +61,7 @@ class DefaultPDFBoxLoader implements PdfLoader<PDDocument> {
 
     private PdfVersion getVersion(String version) {
         for (PdfVersion current : PdfVersion.values()) {
-            if (Double.toString(current.getVersionAsDouble()).equals(version)) {
+            if (current.getVersionAsDoubleString().equals(version)) {
                 return current;
             }
         }
