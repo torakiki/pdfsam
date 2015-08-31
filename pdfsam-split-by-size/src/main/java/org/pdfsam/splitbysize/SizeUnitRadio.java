@@ -28,8 +28,9 @@ import javafx.scene.control.RadioButton;
 import org.pdfsam.ui.workspace.RestorableView;
 
 /**
+ * Radio button for {@link SizeUnit}
+ * 
  * @author Andrea Vacondio
- *
  */
 class SizeUnitRadio extends RadioButton implements RestorableView {
 

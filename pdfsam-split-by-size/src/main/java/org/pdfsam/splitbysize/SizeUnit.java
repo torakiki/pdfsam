@@ -27,16 +27,16 @@ import org.pdfsam.i18n.DefaultI18nContext;
  *
  */
 public enum SizeUnit {
-    KILOBYTE(DefaultI18nContext.getInstance().i18n("Kilobytes"), DefaultI18nContext.getInstance().i18n("KB")) {
-        @Override
-        public long toBytes(int raw) {
-            return raw * 1024;
-        }
-    },
     MEGABYTE(DefaultI18nContext.getInstance().i18n("Megabytes"), DefaultI18nContext.getInstance().i18n("MB")) {
         @Override
         public long toBytes(int raw) {
             return KILOBYTE.toBytes(raw) * 1024;
+        }
+    },
+    KILOBYTE(DefaultI18nContext.getInstance().i18n("Kilobytes"), DefaultI18nContext.getInstance().i18n("KB")) {
+        @Override
+        public long toBytes(int raw) {
+            return raw * 1024;
         }
     };
 
