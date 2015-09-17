@@ -34,7 +34,7 @@ import org.sejda.sambox.pdmodel.PDDocument;
 class BookmarksLevelSAMBoxLoader implements PdfLoader<PDDocument> {
 
     public void accept(PDDocument document, PdfDocumentDescriptor descriptor) {
-        descriptor.setMaxGoToActionDepth(OutlineUtils.getMaxBookmarkLevel(document));
+        descriptor.setMaxGoToActionDepth(OutlineUtils.getMaxOutlineLevel(document));
     }
 
     public RequiredPdfData key() {
