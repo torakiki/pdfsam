@@ -27,6 +27,7 @@ import org.sejda.model.input.PdfMergeInput;
 import org.sejda.model.outline.OutlinePolicy;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.parameter.MergeParameters;
+import org.sejda.model.pdf.form.AcroFormPolicy;
 
 /**
  * Builder for {@link MergeParameters}
@@ -75,7 +76,10 @@ class MergeParametersBuilder extends AbstractPdfOutputParametersBuilder<MergePar
         inputs.forEach(params::addInput);
         params.setOutlinePolicy(outlinePolicy);
         params.setBlankPageIfOdd(blankIfOdd);
-        params.setCopyFormFields(copyFormFields);
+        // TODO make a proper combo for this
+        if (copyFormFields) {
+            params.setAcroFormPolicy(AcroFormPolicy.MERGE);
+        }
         params.setOutput(output);
         return params;
     }

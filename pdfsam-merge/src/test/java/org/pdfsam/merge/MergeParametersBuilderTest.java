@@ -34,6 +34,7 @@ import org.sejda.model.outline.OutlinePolicy;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.parameter.MergeParameters;
 import org.sejda.model.pdf.PdfVersion;
+import org.sejda.model.pdf.form.AcroFormPolicy;
 
 /**
  * @author Andrea Vacondio
@@ -63,7 +64,7 @@ public class MergeParametersBuilderTest {
         assertTrue(params.isOverwrite());
         assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
         assertTrue(params.isBlankPageIfOdd());
-        assertTrue(params.isCopyFormFields());
+        assertEquals(AcroFormPolicy.MERGE, params.getAcroFormPolicy());
         assertEquals(OutlinePolicy.ONE_ENTRY_EACH_DOC, params.getOutlinePolicy());
         assertEquals(output, params.getOutput());
         assertEquals(input, params.getInputList().get(0));

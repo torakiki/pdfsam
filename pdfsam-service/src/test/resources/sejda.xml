@@ -3,7 +3,7 @@
 	<notification async="false" />
 	<tasks>
 		<task parameters="org.sejda.model.parameter.MergeParameters"
-			task="org.sejda.impl.itext5.MergeTask" />
+			task="org.sejda.impl.sambox.MergeTask" />
 		<task parameters="org.sejda.model.parameter.SimpleSplitParameters"
 			task="org.sejda.impl.sambox.SplitByPageNumbersTask" />
 		<task parameters="org.sejda.model.parameter.SplitByPagesParameters"
