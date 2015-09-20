@@ -20,7 +20,6 @@ package org.pdfsam.ui.module;
 
 import static org.junit.Assert.assertTrue;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.Parent;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -30,6 +29,8 @@ import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.HitTestListener;
 import org.pdfsam.ui.commons.ShowStageRequest;
+
+import javafx.scene.Parent;
 
 /**
  * @author Andrea Vacondio

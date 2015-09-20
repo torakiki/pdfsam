@@ -20,7 +20,6 @@ package org.pdfsam.ui.quickbar;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import javafx.scene.Parent;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -28,6 +27,8 @@ import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.test.ClearEventStudioRule;
+
+import javafx.scene.Parent;
 
 /**
  * @author Andrea Vacondio

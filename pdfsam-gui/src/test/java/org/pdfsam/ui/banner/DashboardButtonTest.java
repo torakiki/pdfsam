@@ -22,7 +22,6 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.Parent;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -32,7 +31,8 @@ import org.mockito.ArgumentCaptor;
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.sejda.eventstudio.Listener;
 
-import de.jensd.fx.fontawesome.AwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.scene.Parent;
 
 /**
  * @author Andrea Vacondio
@@ -50,7 +50,7 @@ public class DashboardButtonTest extends GuiTest {
     public void testClick() {
         Listener<SetActiveDashboardItemRequest> listener = mock(Listener.class);
         eventStudio().add(SetActiveDashboardItemRequest.class, listener);
-        click(AwesomeIcon.HOME.toString());
+        click(FontAwesomeIcon.HOME.toString());
         ArgumentCaptor<SetActiveDashboardItemRequest> argument = ArgumentCaptor
                 .forClass(SetActiveDashboardItemRequest.class);
         verify(listener).onEvent(argument.capture());

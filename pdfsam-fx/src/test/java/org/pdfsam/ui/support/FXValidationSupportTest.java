@@ -24,12 +24,13 @@ import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 
 import org.junit.Test;
 import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
+
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 
 /**
  * @author Andrea Vacondio

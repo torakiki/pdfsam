@@ -23,13 +23,13 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
 
 import java.util.Comparator;
 
+import org.pdfsam.i18n.DefaultI18nContext;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.util.Callback;
-
-import org.pdfsam.i18n.DefaultI18nContext;
 
 /**
  * Definition of the {@link String} columns of the selection table

@@ -19,12 +19,13 @@
 package org.pdfsam.ui.support;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
-import javafx.beans.property.ReadOnlyObjectProperty;
-import javafx.beans.property.ReadOnlyObjectWrapper;
 
 import org.pdfsam.support.validation.Validator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javafx.beans.property.ReadOnlyObjectProperty;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 
 /**
  * Support class allowing validation of a value of the given type and allowing binding to the state of the validation. By default it behaves as always valid but a custom

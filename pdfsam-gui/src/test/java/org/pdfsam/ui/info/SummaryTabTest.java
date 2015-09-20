@@ -34,11 +34,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
-import javafx.beans.value.ChangeListener;
-import javafx.scene.Node;
-import javafx.scene.control.Labeled;
-import javafx.scene.control.ScrollPane;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.time.FastDateFormat;
 import org.junit.Rule;
@@ -52,6 +47,11 @@ import org.pdfsam.test.InitializeJavaFxThreadRule;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.sejda.model.pdf.PdfMetadataKey;
 import org.sejda.model.pdf.PdfVersion;
+
+import javafx.beans.value.ChangeListener;
+import javafx.scene.Node;
+import javafx.scene.control.Labeled;
+import javafx.scene.control.ScrollPane;
 
 /**
  * @author Andrea Vacondio

@@ -18,9 +18,6 @@
  */
 package org.pdfsam.ui.dashboard;
 
-import javafx.scene.Node;
-import javafx.scene.layout.Pane;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -28,8 +25,10 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.dashboard.modules.ModulesDashboardPane;
 import org.springframework.context.annotation.Bean;
 
-import de.jensd.fx.fontawesome.AwesomeDude;
-import de.jensd.fx.fontawesome.AwesomeIcon;
+import de.jensd.fx.glyphs.GlyphsDude;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.scene.Node;
+import javafx.scene.layout.Pane;
 
 /**
  * @author Andrea Vacondio
@@ -59,7 +58,7 @@ class ModulesDashboardItem implements DashboardItem {
     }
 
     public Node graphic() {
-        return AwesomeDude.createIconLabel(AwesomeIcon.PUZZLE_PIECE, "26.0");
+        return GlyphsDude.createIcon(FontAwesomeIcon.PUZZLE_PIECE, "26.0");
     }
 
     public int priority() {

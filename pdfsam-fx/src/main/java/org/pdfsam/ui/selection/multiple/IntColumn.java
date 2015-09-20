@@ -20,11 +20,11 @@ package org.pdfsam.ui.selection.multiple;
 
 import java.util.Comparator;
 
-import javafx.beans.value.ObservableValue;
-
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.i18n.DefaultI18nContext;
+
+import javafx.beans.value.ObservableValue;
 
 /**
  * Definition of the {@link Integer} columns of the selection table

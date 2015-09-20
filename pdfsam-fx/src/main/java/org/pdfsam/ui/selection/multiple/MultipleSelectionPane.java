@@ -23,12 +23,12 @@ import static org.pdfsam.support.RequireUtils.require;
 
 import java.util.Map;
 
-import javafx.scene.layout.BorderPane;
-
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.model.parameter.base.TaskParameters;
+
+import javafx.scene.layout.BorderPane;
 
 /**
  * Panel holding the selection table and its toolbar. It is constructed specifying the columns for the selection table and it participates to the {@link TaskParameters} build

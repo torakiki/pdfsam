@@ -21,14 +21,15 @@ package org.pdfsam.ui.io;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Tooltip;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.ui.support.Style;
 import org.sejda.model.pdf.PdfVersion;
+
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Tooltip;
 
 /**
  * A checkbox that, when ticked, informs other component that a constraint on the output pdf document version has to be enforced.

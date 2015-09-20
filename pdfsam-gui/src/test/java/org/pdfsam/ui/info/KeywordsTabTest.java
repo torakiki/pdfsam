@@ -27,10 +27,6 @@ import static org.mockito.Mockito.verify;
 
 import java.io.File;
 
-import javafx.beans.value.ChangeListener;
-import javafx.scene.control.Labeled;
-import javafx.scene.control.ScrollPane;
-
 import org.junit.Rule;
 import org.junit.Test;
 import org.loadui.testfx.utils.FXTestUtils;
@@ -40,6 +36,10 @@ import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeJavaFxThreadRule;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.sejda.model.pdf.PdfMetadataKey;
+
+import javafx.beans.value.ChangeListener;
+import javafx.scene.control.Labeled;
+import javafx.scene.control.ScrollPane;
 
 /**
  * @author Andrea Vacondio

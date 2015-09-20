@@ -20,6 +20,12 @@ package org.pdfsam.ui.dashboard.modules;
 
 import static org.pdfsam.ui.event.SetActiveModuleRequest.activeteModule;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
+import org.pdfsam.module.Module;
+import org.pdfsam.ui.commons.OpenUrlRequest;
+
+import de.jensd.fx.glyphs.GlyphsDude;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.beans.property.ReadOnlyBooleanProperty;
 import javafx.beans.property.ReadOnlyBooleanWrapper;
 import javafx.css.PseudoClass;
@@ -28,12 +34,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-
-import org.pdfsam.module.Module;
-import org.pdfsam.ui.commons.OpenUrlRequest;
-
-import de.jensd.fx.fontawesome.AwesomeDude;
-import de.jensd.fx.fontawesome.AwesomeIcon;
 
 /**
  * Tile for the dashboard modules pane. It displays details about the {@link Module} and by clicking it the module will be opened in the Workarea.
@@ -69,7 +69,7 @@ class ModulesDashboardTile extends Region {
         inner.getStyleClass().add("dashboard-modules-tile-inner");
         getChildren().add(inner);
         module.descriptor().getSupportURL().ifPresent(url -> {
-            Button playButton = AwesomeDude.createIconButton(AwesomeIcon.YOUTUBE_PLAY, "");
+            Button playButton = GlyphsDude.createIconButton(FontAwesomeIcon.YOUTUBE_PLAY, "");
             playButton.getStyleClass().add("pdfsam-toolbar-button");
             playButton.setOnAction(e -> eventStudio().broadcast(new OpenUrlRequest(url)));
             toolButtons.getChildren().add(playButton);

@@ -38,25 +38,6 @@ import java.util.function.Consumer;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import javafx.application.Platform;
-import javafx.collections.ListChangeListener.Change;
-import javafx.collections.ObservableList;
-import javafx.geometry.Point2D;
-import javafx.scene.Scene;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.SeparatorMenuItem;
-import javafx.scene.control.TableView;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.Dragboard;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCodeCombination;
-import javafx.scene.input.KeyCombination;
-import javafx.scene.input.TransferMode;
-import javafx.stage.Window;
-
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
@@ -75,8 +56,26 @@ import org.sejda.eventstudio.annotation.EventStation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.jensd.fx.fontawesome.AwesomeDude;
-import de.jensd.fx.fontawesome.AwesomeIcon;
+import de.jensd.fx.glyphs.GlyphsDude;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.application.Platform;
+import javafx.collections.ListChangeListener.Change;
+import javafx.collections.ObservableList;
+import javafx.geometry.Point2D;
+import javafx.scene.Scene;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SelectionMode;
+import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.control.TableView;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
+import javafx.scene.input.TransferMode;
+import javafx.stage.Window;
 
 /**
  * Table displaying selected pdf documents
@@ -127,44 +126,44 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     private void initContextMenu(boolean canDuplicateItems) {
         MenuItem infoItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Document properties"),
-                AwesomeIcon.INFO);
+                FontAwesomeIcon.INFO);
         infoItem.setOnAction(e -> Platform.runLater(() -> eventStudio().broadcast(
                 new ShowPdfDescriptorRequest(getSelectionModel().getSelectedItem()))));
 
         MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set destination"),
-                AwesomeIcon.FILE_PDF_ALT);
+                FontAwesomeIcon.FILE_PDF_ALT);
         setDestinationItem.setOnAction(e -> eventStudio()
                 .broadcast(requestDestination(getSelectionModel().getSelectedItem().getFile(), getOwnerModule()),
                         getOwnerModule()));
 
         MenuItem removeSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Remove"),
-                AwesomeIcon.MINUS_SQUARE_ALT);
+                FontAwesomeIcon.MINUS_SQUARE_ALT);
         removeSelected.setOnAction(e -> eventStudio().broadcast(new RemoveSelectedEvent(), getOwnerModule()));
 
         MenuItem moveTopSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Move to Top"),
-                AwesomeIcon.ANGLE_DOUBLE_UP);
+                FontAwesomeIcon.ANGLE_DOUBLE_UP);
         moveTopSelected
                 .setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.TOP), getOwnerModule()));
 
-        MenuItem moveUpSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Move Up"), AwesomeIcon.ANGLE_UP);
+        MenuItem moveUpSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Move Up"), FontAwesomeIcon.ANGLE_UP);
         moveUpSelected.setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.UP), getOwnerModule()));
 
         MenuItem moveDownSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Move Down"),
-                AwesomeIcon.ANGLE_DOWN);
+                FontAwesomeIcon.ANGLE_DOWN);
         moveDownSelected.setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.DOWN),
                 getOwnerModule()));
 
         MenuItem moveBottomSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Move to Bottom"),
-                AwesomeIcon.ANGLE_DOUBLE_DOWN);
+                FontAwesomeIcon.ANGLE_DOUBLE_DOWN);
         moveBottomSelected.setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.BOTTOM),
                 getOwnerModule()));
 
-        MenuItem openFileItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open"), AwesomeIcon.FILE_ALT);
+        MenuItem openFileItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open"), FontAwesomeIcon.FILE_ALT);
         openFileItem.setOnAction(e -> eventStudio().broadcast(
                 new OpenFileRequest(getSelectionModel().getSelectedItem().getFile())));
 
         MenuItem openFolderItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open Folder"),
-                AwesomeIcon.FOLDER_ALTPEN);
+                FontAwesomeIcon.FOLDER_OPEN_ALT);
         openFolderItem.setOnAction(e -> eventStudio().broadcast(
                 new OpenFileRequest(getSelectionModel().getSelectedItem().getFile().getParentFile())));
 
@@ -197,7 +196,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
         if (canDuplicateItems) {
             MenuItem duplicateItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Duplicate"),
-                    AwesomeIcon.COPY);
+                    FontAwesomeIcon.COPY);
             duplicateItem.setOnAction(e -> eventStudio().broadcast(new DuplicateSelectedEvent(), getOwnerModule()));
 
             duplicateItem.setAccelerator(new KeyCodeCombination(KeyCode.DIGIT2, KeyCombination.ALT_DOWN));
@@ -210,9 +209,9 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         setContextMenu(context);
     }
 
-    private MenuItem createMenuItem(String text, AwesomeIcon icon) {
+    private MenuItem createMenuItem(String text, FontAwesomeIcon icon) {
         MenuItem item = new MenuItem(text);
-        AwesomeDude.setIcon(item, icon);
+        GlyphsDude.setIcon(item, icon);
         item.setDisable(true);
         return item;
     }

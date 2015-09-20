@@ -18,14 +18,13 @@
  */
 package org.pdfsam.ui.dialog;
 
+import org.pdfsam.ui.support.Style;
+
+import de.jensd.fx.glyphs.GlyphsDude;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
-import org.pdfsam.ui.support.Style;
-
-import de.jensd.fx.fontawesome.AwesomeDude;
-import de.jensd.fx.fontawesome.AwesomeIcon;
 
 /**
  * Content for the overwrite confirmation dialog.
@@ -44,7 +43,7 @@ class OverwriteConfirmationDialogContent extends HBox {
         messageContent.getStyleClass().add("-pdfsam-dialog-message");
         VBox messages = new VBox(messageTitle, messageContent);
         messages.getStyleClass().add("-pdfsam-dialog-messages");
-        getChildren().addAll(AwesomeDude.createIconLabel(AwesomeIcon.WARNING, "42.0"), messages);
+        getChildren().addAll(GlyphsDude.createIcon(FontAwesomeIcon.WARNING, "42.0"), messages);
         getStyleClass().addAll("-pdfsam-dialog-content");
     }
 

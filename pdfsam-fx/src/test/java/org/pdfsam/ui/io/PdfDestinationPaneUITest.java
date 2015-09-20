@@ -23,10 +23,6 @@ import static org.mockito.Mockito.verify;
 import java.util.Set;
 import java.util.function.Consumer;
 
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.control.CheckBox;
-
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -40,6 +36,10 @@ import org.pdfsam.context.UserContext;
 import org.pdfsam.support.params.AbstractPdfOutputParametersBuilder;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.model.parameter.base.AbstractPdfOutputParameters;
+
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.control.CheckBox;
 
 /**
  * @author Andrea Vacondio

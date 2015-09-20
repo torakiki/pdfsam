@@ -35,11 +35,6 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-import javafx.scene.Parent;
-import javafx.scene.control.Label;
-import javafx.scene.control.SeparatorMenuItem;
-import javafx.scene.input.KeyCode;
-
 import org.hamcrest.Matchers;
 import org.junit.BeforeClass;
 import org.junit.Rule;
@@ -65,7 +60,11 @@ import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.io.ChangedSelectedPdfVersionEvent;
 import org.sejda.eventstudio.Listener;
 
-import de.jensd.fx.fontawesome.AwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.scene.Parent;
+import javafx.scene.control.Label;
+import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.input.KeyCode;
 
 /**
  * @author Andrea Vacondio
@@ -107,7 +106,7 @@ public class SingleSelectionPaneTest extends GuiTest {
         eventStudio().add(ShowPdfDescriptorRequest.class, listener);
         typePathAndValidate();
         rightClick(".validable-container-field");
-        click(AwesomeIcon.INFO.toString());
+        click(FontAwesomeIcon.INFO.toString());
         sleep(500);
         assertTrue(listener.isHit());
     }
@@ -124,7 +123,7 @@ public class SingleSelectionPaneTest extends GuiTest {
         eventStudio().add(SetDestinationRequest.class, listener, MODULE);
         typePathAndValidate();
         rightClick(".validable-container-field");
-        click(AwesomeIcon.FILE_PDF_ALT.toString());
+        click(FontAwesomeIcon.FILE_PDF_ALT.toString());
         assertTrue(listener.isHit());
     }
 
@@ -141,7 +140,7 @@ public class SingleSelectionPaneTest extends GuiTest {
         eventStudio().add(OpenFileRequest.class, listener);
         typePathAndValidate();
         rightClick(".validable-container-field");
-        click(AwesomeIcon.FILE_ALT.toString());
+        click(FontAwesomeIcon.FILE_ALT.toString());
         assertTrue(listener.isHit());
     }
 
@@ -158,7 +157,7 @@ public class SingleSelectionPaneTest extends GuiTest {
         eventStudio().add(OpenFileRequest.class, listener);
         typePathAndValidate();
         rightClick(".validable-container-field");
-        click(AwesomeIcon.FOLDER_ALTPEN.toString());
+        click(FontAwesomeIcon.FOLDER_OPEN_ALT.toString());
         assertTrue(listener.isHit());
     }
 

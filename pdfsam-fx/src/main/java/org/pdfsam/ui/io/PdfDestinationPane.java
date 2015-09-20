@@ -27,9 +27,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-
 import javax.inject.Named;
 
 import org.apache.commons.lang3.StringUtils;
@@ -48,6 +45,9 @@ import org.sejda.model.parameter.base.AbstractPdfOutputParameters;
 import org.sejda.model.pdf.PdfVersion;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
+
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 
 /**
  * Panel letting the user select an output destination for generated Pdf document/s.

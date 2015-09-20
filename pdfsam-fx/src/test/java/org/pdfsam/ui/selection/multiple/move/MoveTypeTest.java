@@ -21,8 +21,6 @@ package org.pdfsam.ui.selection.multiple.move;
 import static org.hamcrest.Matchers.contains;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -30,6 +28,9 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * @author Andrea Vacondio

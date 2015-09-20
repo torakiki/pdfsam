@@ -21,8 +21,6 @@ package org.pdfsam.ui.banner;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.verify;
-import javafx.geometry.Side;
-import javafx.scene.Parent;
 
 import javax.inject.Inject;
 
@@ -39,7 +37,9 @@ import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import de.jensd.fx.fontawesome.AwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.geometry.Side;
+import javafx.scene.Parent;
 
 /**
  * @author Andrea Vacondio
@@ -68,7 +68,7 @@ public class MenuButtonTest extends GuiTest {
     @Test
     public void onClick() {
         AppContextMenu menu = applicationContext.getBean(AppContextMenu.class);
-        click(AwesomeIcon.BARS.toString());
+        click(FontAwesomeIcon.BARS.toString());
         verify(menu).show(any(), eq(Side.BOTTOM), eq(0d), eq(0d));
     }
 }

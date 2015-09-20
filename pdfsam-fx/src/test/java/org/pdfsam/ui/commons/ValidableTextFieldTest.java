@@ -24,11 +24,6 @@ import static org.loadui.testfx.Assertions.verifyThat;
 
 import java.util.Arrays;
 
-import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.input.KeyCode;
-import javafx.scene.layout.HBox;
-
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
@@ -36,6 +31,11 @@ import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
+
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.HBox;
 
 /**
  * @author Andrea Vacondio

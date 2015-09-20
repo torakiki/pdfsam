@@ -25,8 +25,6 @@ import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.Parent;
-import javafx.scene.input.Clipboard;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -42,7 +40,9 @@ import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.commons.OpenUrlRequest;
 import org.sejda.eventstudio.Listener;
 
-import de.jensd.fx.fontawesome.AwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.scene.Parent;
+import javafx.scene.input.Clipboard;
 
 /**
  * @author Andrea Vacondio
@@ -70,77 +70,77 @@ public class AboutDashboardPaneTest extends GuiTest {
 
     @Test
     public void clickHome() {
-        click(AwesomeIcon.HOME.toString());
+        click(FontAwesomeIcon.HOME.toString());
         verify(listener).onEvent(captor.capture());
         assertEquals("http://www.pdfsam.org", captor.getValue().getUrl());
     }
 
     @Test
     public void clickFeed() {
-        click(AwesomeIcon.RSS_SQUARE.toString());
+        click(FontAwesomeIcon.RSS_SQUARE.toString());
         verify(listener).onEvent(captor.capture());
         assertEquals("http://www.pdfsam.org/feed/", captor.getValue().getUrl());
     }
 
     @Test
     public void clickBugs() {
-        click(AwesomeIcon.BUG.toString());
+        click(FontAwesomeIcon.BUG.toString());
         verify(listener).onEvent(captor.capture());
         assertEquals("http://www.pdfsam.org/issue_tracker", captor.getValue().getUrl());
     }
 
     @Test
     public void clickWiki() {
-        click(AwesomeIcon.QUESTION_CIRCLE.toString());
+        click(FontAwesomeIcon.QUESTION_CIRCLE.toString());
         verify(listener, atLeastOnce()).onEvent(captor.capture());
         assertEquals("http://www.pdfsam.org/wiki", captor.getValue().getUrl());
     }
 
     @Test
     public void clickQuickstart() {
-        click(AwesomeIcon.YOUTUBE_PLAY.toString());
+        click(FontAwesomeIcon.YOUTUBE_PLAY.toString());
         verify(listener, atLeastOnce()).onEvent(captor.capture());
         assertEquals("http://www.pdfsam.org/quickstart_video", captor.getValue().getUrl());
     }
 
     @Test
     public void clickScm() {
-        click(AwesomeIcon.GITHUB.toString());
+        click(FontAwesomeIcon.GITHUB.toString());
         verify(listener, atLeastOnce()).onEvent(captor.capture());
         assertEquals("http://www.pdfsam.org/scm", captor.getValue().getUrl());
     }
 
     @Test
     public void clickTranslate() {
-        click(AwesomeIcon.FLAG_ALT.toString());
+        click(FontAwesomeIcon.FLAG_ALT.toString());
         verify(listener, atLeastOnce()).onEvent(captor.capture());
         assertEquals("http://www.pdfsam.org/translate", captor.getValue().getUrl());
     }
 
     @Test
     public void clickDonate() {
-        click(AwesomeIcon.DOLLAR.toString());
+        click(FontAwesomeIcon.DOLLAR.toString());
         verify(listener, atLeastOnce()).onEvent(captor.capture());
         assertEquals("http://www.pdfsam.org/donate", captor.getValue().getUrl());
     }
 
     @Test
     public void clickTwitter() {
-        click(AwesomeIcon.TWITTER_SQUARE.toString());
+        click(FontAwesomeIcon.TWITTER_SQUARE.toString());
         verify(listener, atLeastOnce()).onEvent(captor.capture());
         assertEquals("http://www.pdfsam.org/twitter", captor.getValue().getUrl());
     }
 
     @Test
     public void clickGPlus() {
-        click(AwesomeIcon.GOOGLE_PLUS_SQUARE.toString());
+        click(FontAwesomeIcon.GOOGLE_PLUS_SQUARE.toString());
         verify(listener, atLeastOnce()).onEvent(captor.capture());
         assertEquals("http://www.pdfsam.org/gplus", captor.getValue().getUrl());
     }
 
     @Test
     public void clickFacebook() {
-        click(AwesomeIcon.FACEBOOK_SQUARE.toString());
+        click(FontAwesomeIcon.FACEBOOK_SQUARE.toString());
         verify(listener, atLeastOnce()).onEvent(captor.capture());
         assertEquals("http://www.pdfsam.org/facebook", captor.getValue().getUrl());
     }

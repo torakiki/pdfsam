@@ -24,11 +24,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.io.File;
 import java.util.List;
 
-import javafx.event.ActionEvent;
-import javafx.scene.control.ToolBar;
-import javafx.scene.control.Tooltip;
-import javafx.stage.FileChooser;
-
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
@@ -40,6 +35,11 @@ import org.pdfsam.ui.module.ModuleOwnedButton;
 import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
 import org.pdfsam.ui.selection.multiple.move.MoveType;
 import org.sejda.eventstudio.annotation.EventListener;
+
+import javafx.event.ActionEvent;
+import javafx.scene.control.ToolBar;
+import javafx.scene.control.Tooltip;
+import javafx.stage.FileChooser;
 
 /**
  * Toolbar for the selection table

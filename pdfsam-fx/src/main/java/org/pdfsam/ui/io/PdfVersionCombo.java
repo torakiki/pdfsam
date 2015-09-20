@@ -23,10 +23,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Arrays;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.control.ComboBox;
-
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -36,6 +32,10 @@ import org.pdfsam.ui.io.PdfVersionCombo.PdfVersionComboItem;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
 import org.sejda.model.pdf.PdfVersion;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ComboBox;
 
 /**
  * Combo box to let the user select the pdf version of the generated output documents

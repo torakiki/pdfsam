@@ -21,14 +21,14 @@ package org.pdfsam.ui.selection.multiple;
 import java.io.File;
 import java.util.Comparator;
 
+import org.pdfsam.i18n.DefaultI18nContext;
+
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.Tooltip;
 import javafx.util.Callback;
-
-import org.pdfsam.i18n.DefaultI18nContext;
 
 /**
  * Definition of the {@link File} columns of the selection table

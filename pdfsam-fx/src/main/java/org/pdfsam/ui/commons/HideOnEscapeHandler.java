@@ -19,6 +19,7 @@
 package org.pdfsam.ui.commons;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
+
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;

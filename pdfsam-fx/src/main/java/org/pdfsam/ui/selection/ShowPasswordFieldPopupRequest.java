@@ -19,9 +19,10 @@
 package org.pdfsam.ui.selection;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
-import javafx.scene.layout.Region;
 
 import org.pdfsam.pdf.PdfDocumentDescriptor;
+
+import javafx.scene.layout.Region;
 
 /**
  * Request to show a password field popup to ask the user to input the document password

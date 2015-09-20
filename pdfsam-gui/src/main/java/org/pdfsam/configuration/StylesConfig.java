@@ -29,7 +29,7 @@ import org.pdfsam.ui.Theme;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.jensd.fx.fontawesome.AwesomeStyle;
+import de.jensd.fx.glyphs.GlyphsStyle;
 
 /**
  * Styles configuration for the application
@@ -46,7 +46,7 @@ public class StylesConfig {
         requireNotNull(theme, "Theme cannot be null");
         LOG.debug(DefaultI18nContext.getInstance().i18n("Installing theme {0}.", theme.friendlyName()));
         theme.styleSheets().stream().map(s -> this.getClass().getResource(s).toExternalForm()).forEach(styles::add);
-        styles.add(this.getClass().getResource(AwesomeStyle.LIGHT.getStylePath()).toExternalForm());
+        styles.add(this.getClass().getResource(GlyphsStyle.DEFAULT.getStylePath()).toExternalForm());
     }
 
     /**

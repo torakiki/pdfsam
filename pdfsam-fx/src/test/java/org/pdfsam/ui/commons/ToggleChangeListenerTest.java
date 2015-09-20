@@ -18,9 +18,9 @@
  */
 package org.pdfsam.ui.commons;
 
-import javafx.beans.value.ObservableValue;
-
 import org.junit.Test;
+
+import javafx.beans.value.ObservableValue;
 
 /**
  * @author Andrea Vacondio

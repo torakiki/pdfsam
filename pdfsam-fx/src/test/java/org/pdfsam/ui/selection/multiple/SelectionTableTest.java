@@ -36,9 +36,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-import javafx.scene.Parent;
-import javafx.scene.input.KeyCode;
-
 import org.hamcrest.Matchers;
 import org.junit.Ignore;
 import org.junit.Rule;
@@ -61,7 +58,9 @@ import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
 import org.pdfsam.ui.selection.multiple.move.MoveType;
 import org.sejda.eventstudio.Listener;
 
-import de.jensd.fx.fontawesome.AwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.scene.Parent;
+import javafx.scene.input.KeyCode;
 
 /**
  * @author Andrea Vacondio
@@ -252,7 +251,7 @@ public class SelectionTableTest extends GuiTest {
     public void removeByContextMenu() throws Exception {
         populate();
         rightClick("temp.pdf");
-        click(AwesomeIcon.MINUS_SQUARE_ALT.toString());
+        click(FontAwesomeIcon.MINUS_SQUARE_ALT.toString());
         SelectionTable victim = find("#victim");
         assertEquals(3, victim.getItems().size());
         assertEquals(1, victim.getSelectionModel().getSelectedIndices().size());
@@ -293,7 +292,7 @@ public class SelectionTableTest extends GuiTest {
         Optional<SelectionTableRowData> item = victim.getItems().stream()
                 .filter(i -> "temp.pdf".equals(i.getFileName())).findFirst();
         rightClick("temp.pdf");
-        click(AwesomeIcon.COPY.toString());
+        click(FontAwesomeIcon.COPY.toString());
         FXTestUtils.invokeAndWait(() -> {
             eventStudio().broadcast(new ClearSelectionTableEvent(), MODULE);
         }, 2);
@@ -304,7 +303,7 @@ public class SelectionTableTest extends GuiTest {
     public void duplicate() throws Exception {
         populate();
         rightClick("temp.pdf");
-        click(AwesomeIcon.COPY.toString());
+        click(FontAwesomeIcon.COPY.toString());
         SelectionTable victim = find("#victim");
         assertEquals(2, victim.getItems().stream().filter(i -> "temp.pdf".equals(i.getFileName())).count());
     }
@@ -325,7 +324,7 @@ public class SelectionTableTest extends GuiTest {
         populate();
         rightClick("temp.pdf");
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 0);
-        click(AwesomeIcon.ANGLE_DOWN.toString());
+        click(FontAwesomeIcon.ANGLE_DOWN.toString());
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 1);
     }
 
@@ -335,7 +334,7 @@ public class SelectionTableTest extends GuiTest {
         rightClick("temp.pdf");
         SelectionTable victim = find("#victim");
         assertEquals(0, victim.getSelectionModel().getSelectedIndex());
-        click(AwesomeIcon.ANGLE_DOUBLE_DOWN.toString());
+        click(FontAwesomeIcon.ANGLE_DOUBLE_DOWN.toString());
         assertEquals(3, victim.getSelectionModel().getSelectedIndex());
     }
 
@@ -344,7 +343,7 @@ public class SelectionTableTest extends GuiTest {
         populate();
         rightClick("temp3.pdf");
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 2);
-        click(AwesomeIcon.ANGLE_UP.toString());
+        click(FontAwesomeIcon.ANGLE_UP.toString());
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 1);
     }
 
@@ -353,7 +352,7 @@ public class SelectionTableTest extends GuiTest {
         populate();
         rightClick("temp3.pdf");
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 2);
-        click(AwesomeIcon.ANGLE_DOUBLE_UP.toString());
+        click(FontAwesomeIcon.ANGLE_DOUBLE_UP.toString());
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 0);
     }
 
@@ -371,7 +370,7 @@ public class SelectionTableTest extends GuiTest {
             }
         };
         eventStudio().add(SetDestinationRequest.class, notFallbackListener, MODULE);
-        click(AwesomeIcon.FILE_PDF_ALT.toString());
+        click(FontAwesomeIcon.FILE_PDF_ALT.toString());
         assertTrue(listener.isHit());
         assertTrue(notFallbackListener.isHit());
     }
@@ -382,7 +381,7 @@ public class SelectionTableTest extends GuiTest {
         eventStudio().add(OpenFileRequest.class, listener);
         populate();
         rightClick("temp3.pdf");
-        click(AwesomeIcon.FILE_ALT.toString());
+        click(FontAwesomeIcon.FILE_ALT.toString());
         assertTrue(listener.isHit());
     }
 
@@ -392,7 +391,7 @@ public class SelectionTableTest extends GuiTest {
         eventStudio().add(OpenFileRequest.class, listener);
         populate();
         rightClick("temp3.pdf");
-        click(AwesomeIcon.FOLDER_ALTPEN.toString());
+        click(FontAwesomeIcon.FOLDER_OPEN_ALT.toString());
         assertTrue(listener.isHit());
     }
 
@@ -402,7 +401,7 @@ public class SelectionTableTest extends GuiTest {
         eventStudio().add(ShowPdfDescriptorRequest.class, listener);
         populate();
         rightClick("temp3.pdf");
-        click(AwesomeIcon.INFO.toString());
+        click(FontAwesomeIcon.INFO.toString());
         verify(listener, timeout(2000)).onEvent(any());
     }
 

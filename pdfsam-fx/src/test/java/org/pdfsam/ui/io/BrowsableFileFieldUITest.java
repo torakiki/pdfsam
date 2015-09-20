@@ -22,10 +22,6 @@ import static org.loadui.testfx.Assertions.verifyThat;
 
 import java.util.Arrays;
 
-import javafx.scene.Parent;
-import javafx.scene.input.KeyCode;
-import javafx.scene.layout.HBox;
-
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -36,6 +32,10 @@ import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
+
+import javafx.scene.Parent;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.HBox;
 
 /**
  * @author Andrea Vacondio

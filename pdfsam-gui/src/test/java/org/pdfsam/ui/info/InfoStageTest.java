@@ -25,9 +25,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.io.File;
 import java.util.Collections;
 
-import javafx.scene.Parent;
-import javafx.scene.control.Button;
-
 import javax.inject.Inject;
 
 import org.junit.Rule;
@@ -48,6 +45,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
 
 /**
  * @author Andrea Vacondio

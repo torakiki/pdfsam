@@ -25,17 +25,17 @@ import java.io.File;
 import java.util.Map;
 import java.util.Optional;
 
-import javafx.css.PseudoClass;
-import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.workspace.RestorableView;
+
+import javafx.css.PseudoClass;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 
 /**
  * {@link ValidableTextField} with attached a browse button to let the user select a file

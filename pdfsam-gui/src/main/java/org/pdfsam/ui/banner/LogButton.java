@@ -19,14 +19,14 @@
 package org.pdfsam.ui.banner;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.control.Tooltip;
 
 import javax.inject.Named;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.commons.ShowStageRequest;
 
-import de.jensd.fx.fontawesome.AwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.scene.control.Tooltip;
 
 /**
  * Button requiring to open the log window
@@ -38,7 +38,7 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
 class LogButton extends BannerButton {
 
     LogButton() {
-        super(AwesomeIcon.LIST);
+        super(FontAwesomeIcon.LIST);
         setOnAction(e -> eventStudio().broadcast(new ShowStageRequest(), "LogStage"));
         setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Application messages")));
     }

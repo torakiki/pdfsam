@@ -22,13 +22,14 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import javafx.stage.Window;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
+
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.stage.Window;
 
 /**
  * @author Andrea Vacondio

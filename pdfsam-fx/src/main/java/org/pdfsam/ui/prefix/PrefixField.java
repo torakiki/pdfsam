@@ -19,15 +19,16 @@
 package org.pdfsam.ui.prefix;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
+
+import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
+import org.sejda.model.prefix.Prefix;
+
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
-
-import org.pdfsam.i18n.DefaultI18nContext;
-import org.pdfsam.i18n.I18nContext;
-import org.sejda.model.prefix.Prefix;
 
 /**
  * Text field providing PDFsam complex prefix functionalities (context menu to automatically set prefix values)

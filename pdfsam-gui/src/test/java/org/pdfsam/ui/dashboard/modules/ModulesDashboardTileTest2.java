@@ -22,7 +22,6 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.Parent;
 
 import org.junit.Ignore;
 import org.junit.Rule;
@@ -36,7 +35,8 @@ import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.ui.commons.OpenUrlRequest;
 import org.sejda.eventstudio.Listener;
 
-import de.jensd.fx.fontawesome.AwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.scene.Parent;
 
 /**
  * @author Andrea Vacondio
@@ -59,7 +59,7 @@ public class ModulesDashboardTileTest2 extends GuiTest {
         Listener<OpenUrlRequest> openUrlListener = mock(Listener.class);
         eventStudio().add(OpenUrlRequest.class, openUrlListener);
         ArgumentCaptor<OpenUrlRequest> openUrlCaptor = ArgumentCaptor.forClass(OpenUrlRequest.class);
-        click(AwesomeIcon.YOUTUBE_PLAY.toString());
+        click(FontAwesomeIcon.YOUTUBE_PLAY.toString());
         verify(openUrlListener).onEvent(openUrlCaptor.capture());
         assertEquals("http://www.chucknorrisfacts.com/", openUrlCaptor.getValue().getUrl());
     }

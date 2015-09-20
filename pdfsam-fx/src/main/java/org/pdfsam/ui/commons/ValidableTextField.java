@@ -21,6 +21,12 @@ package org.pdfsam.ui.commons;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.support.RequireUtils.require;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
+
+import org.pdfsam.support.validation.Validator;
+import org.pdfsam.ui.support.FXValidationSupport;
+import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
+import org.pdfsam.ui.support.Style;
+
 import javafx.animation.Animation.Status;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -34,11 +40,6 @@ import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.stage.Window;
 import javafx.util.Duration;
-
-import org.pdfsam.support.validation.Validator;
-import org.pdfsam.ui.support.FXValidationSupport;
-import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
-import org.pdfsam.ui.support.Style;
 
 /**
  * {@link TextField} triggering validation when Enter key is pressed or when focus is lost. A {@link ValidationState} property is exposed to bind to the validation state. Default

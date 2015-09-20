@@ -30,9 +30,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.math.BigDecimal;
 import java.util.Locale;
 
-import javafx.scene.control.Labeled;
-import javafx.scene.control.ProgressBar;
-
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -48,6 +45,9 @@ import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.output.TaskOutput;
 import org.sejda.model.parameter.base.AbstractParameters;
 import org.sejda.model.task.NotifiableTaskMetadata;
+
+import javafx.scene.control.Labeled;
+import javafx.scene.control.ProgressBar;
 
 /**
  * @author Andrea Vacondio

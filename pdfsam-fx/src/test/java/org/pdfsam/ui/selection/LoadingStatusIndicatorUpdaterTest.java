@@ -21,13 +21,14 @@ package org.pdfsam.ui.selection;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
-import javafx.scene.control.Label;
 
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
+
+import javafx.scene.control.Label;
 
 /**
  * @author Andrea Vacondio

@@ -23,10 +23,10 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 import java.util.function.Consumer;
 
+import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
+
 import javafx.scene.control.Labeled;
 import javafx.scene.control.Tooltip;
-
-import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 
 /**
  * Consumer taking care of updating a {@link Labeled} indicator based on the input {@link PdfDescriptorLoadingStatus}

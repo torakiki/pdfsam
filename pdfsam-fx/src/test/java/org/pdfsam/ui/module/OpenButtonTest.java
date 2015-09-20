@@ -28,8 +28,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.io.File;
 import java.io.OutputStream;
 
-import javafx.scene.Parent;
-
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -43,7 +41,8 @@ import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.output.StreamTaskOutput;
 
-import de.jensd.fx.fontawesome.AwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.scene.Parent;
 
 /**
  * @author Andrea Vacondio
@@ -75,7 +74,7 @@ public class OpenButtonTest extends GuiTest {
         FileTaskOutput output = mock(FileTaskOutput.class);
         FXTestUtils.invokeAndWait(() -> victim.dispatch(output), 1);
         verify(output).getDestination();
-        exists(AwesomeIcon.FILE_ALT.toString());
+        exists(FontAwesomeIcon.FILE_ALT.toString());
     }
 
     @Test
@@ -84,7 +83,7 @@ public class OpenButtonTest extends GuiTest {
         DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
         FXTestUtils.invokeAndWait(() -> victim.dispatch(output), 1);
         verify(output).getDestination();
-        exists(AwesomeIcon.FOLDER_ALTPEN.toString());
+        exists(FontAwesomeIcon.FOLDER_OPEN_ALT.toString());
     }
 
     @Test(expected = IllegalArgumentException.class)

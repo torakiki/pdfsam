@@ -18,11 +18,11 @@
  */
 package org.pdfsam.ui.selection.multiple;
 
+import org.pdfsam.i18n.DefaultI18nContext;
+
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.util.converter.DefaultStringConverter;
-
-import org.pdfsam.i18n.DefaultI18nContext;
 
 /**
  * Editable cell showing a tooltip

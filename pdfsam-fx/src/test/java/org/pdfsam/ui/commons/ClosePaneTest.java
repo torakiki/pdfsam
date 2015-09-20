@@ -19,11 +19,6 @@
 package org.pdfsam.ui.commons;
 
 import static org.loadui.testfx.Assertions.verifyThat;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
 
 import org.apache.commons.lang3.SystemUtils;
 import org.junit.Assume;
@@ -31,6 +26,12 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
+
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio

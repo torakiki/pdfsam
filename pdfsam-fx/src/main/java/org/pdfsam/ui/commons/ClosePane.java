@@ -18,13 +18,13 @@
  */
 package org.pdfsam.ui.commons;
 
+import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.ui.support.Style;
+
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.TextAlignment;
-
-import org.pdfsam.i18n.DefaultI18nContext;
-import org.pdfsam.ui.support.Style;
 
 /**
  * Panel with a "Close" button to be used as bottom of closeable Stage.

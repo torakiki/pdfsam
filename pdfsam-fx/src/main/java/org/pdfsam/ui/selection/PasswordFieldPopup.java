@@ -20,12 +20,6 @@ package org.pdfsam.ui.selection;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.PopupControl;
-import javafx.scene.control.Skin;
-import javafx.scene.layout.HBox;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.i18n.DefaultI18nContext;
@@ -34,8 +28,14 @@ import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.ui.support.Style;
 
-import de.jensd.fx.fontawesome.AwesomeDude;
-import de.jensd.fx.fontawesome.AwesomeIcon;
+import de.jensd.fx.glyphs.GlyphsDude;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.PopupControl;
+import javafx.scene.control.Skin;
+import javafx.scene.layout.HBox;
 
 /**
  * A popup displaying a password field to let the user input a document password
@@ -87,7 +87,7 @@ public class PasswordFieldPopup extends PopupControl implements ModuleOwned {
         public PasswordFieldPopupContent() {
             getStyleClass().setAll("pdfsam-input-password-content");
             passwordField.setPromptText(DefaultI18nContext.getInstance().i18n("Enter the user password"));
-            Button doneButton = AwesomeDude.createIconButton(AwesomeIcon.UNLOCK,
+            Button doneButton = GlyphsDude.createIconButton(FontAwesomeIcon.UNLOCK,
                     DefaultI18nContext.getInstance().i18n("Unlock"));
             doneButton.getStyleClass().addAll(Style.BUTTON.css());
             doneButton.prefHeightProperty().bind(passwordField.heightProperty());

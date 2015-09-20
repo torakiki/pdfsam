@@ -19,10 +19,11 @@
 package org.pdfsam.ui.selection;
 
 import static org.mockito.Mockito.mock;
-import javafx.scene.layout.Region;
 
 import org.junit.Test;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
+
+import javafx.scene.layout.Region;
 
 /**
  * @author Andrea Vacondio

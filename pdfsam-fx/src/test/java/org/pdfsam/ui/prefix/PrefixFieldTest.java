@@ -20,8 +20,6 @@ package org.pdfsam.ui.prefix;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import javafx.scene.Parent;
-import javafx.scene.input.KeyCode;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -30,6 +28,9 @@ import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.model.prefix.Prefix;
+
+import javafx.scene.Parent;
+import javafx.scene.input.KeyCode;
 
 /**
  * @author Andrea Vacondio

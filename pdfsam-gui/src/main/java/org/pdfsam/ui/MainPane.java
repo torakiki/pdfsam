@@ -18,13 +18,13 @@
  */
 package org.pdfsam.ui;
 
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.ui.banner.BannerPane;
+
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 
 /**
  * Main panel containing menu, banner and the content area

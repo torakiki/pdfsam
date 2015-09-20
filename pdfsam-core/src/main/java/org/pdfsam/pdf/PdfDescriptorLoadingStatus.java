@@ -26,7 +26,7 @@ import java.util.Set;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 
-import de.jensd.fx.fontawesome.AwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 
 /**
  * Possible loading status for a descriptor
@@ -36,14 +36,14 @@ import de.jensd.fx.fontawesome.AwesomeIcon;
  */
 public enum PdfDescriptorLoadingStatus {
     INITIAL,
-    REQUESTED(AwesomeIcon.CLOCK_ALT, ""),
-    LOADING(AwesomeIcon.ANGLE_RIGHT, ""),
+    REQUESTED(FontAwesomeIcon.CLOCK_ALT, ""),
+    LOADING(FontAwesomeIcon.ANGLE_RIGHT, ""),
     LOADED,
-    LOADED_WITH_USER_PWD_DECRYPTION(AwesomeIcon.UNLOCK, DefaultI18nContext.getInstance().i18n(
+    LOADED_WITH_USER_PWD_DECRYPTION(FontAwesomeIcon.UNLOCK, DefaultI18nContext.getInstance().i18n(
             "Valid user password provided.")),
-    ENCRYPTED(AwesomeIcon.LOCK, DefaultI18nContext.getInstance().i18n(
+    ENCRYPTED(FontAwesomeIcon.LOCK, DefaultI18nContext.getInstance().i18n(
             "This document is encrypted, click to provide a password.")),
-    WITH_ERRORS(AwesomeIcon.WARNING, "");
+    WITH_ERRORS(FontAwesomeIcon.WARNING, "");
 
     static {
         INITIAL.setValidDestinationStatus(REQUESTED, WITH_ERRORS);
@@ -54,19 +54,19 @@ public enum PdfDescriptorLoadingStatus {
     }
 
     private Set<PdfDescriptorLoadingStatus> validNext = new HashSet<>();
-    private AwesomeIcon icon;
+    private FontAwesomeIcon icon;
     private String description;
 
     PdfDescriptorLoadingStatus() {
         this(null, "");
     }
 
-    PdfDescriptorLoadingStatus(AwesomeIcon icon, String description) {
+    PdfDescriptorLoadingStatus(FontAwesomeIcon icon, String description) {
         this.icon = icon;
         this.description = defaultString(description);
     }
 
-    public AwesomeIcon getIcon() {
+    public FontAwesomeIcon getIcon() {
         return icon;
     }
 

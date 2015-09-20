@@ -18,17 +18,16 @@
  */
 package org.pdfsam.ui.dashboard;
 
-import javafx.scene.Node;
-import javafx.scene.layout.Pane;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.dashboard.about.AboutDashboardPane;
 
-import de.jensd.fx.fontawesome.AwesomeDude;
-import de.jensd.fx.fontawesome.AwesomeIcon;
+import de.jensd.fx.glyphs.GlyphsDude;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.scene.Node;
+import javafx.scene.layout.Pane;
 
 /**
  * About item for the dashboard
@@ -59,7 +58,7 @@ class AboutDashboadItem implements DashboardItem {
     }
 
     public Node graphic() {
-        return AwesomeDude.createIconLabel(AwesomeIcon.INFO_CIRCLE, "26.0");
+        return GlyphsDude.createIcon(FontAwesomeIcon.INFO_CIRCLE, "26.0");
     }
 
     public int priority() {

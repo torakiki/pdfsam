@@ -21,9 +21,10 @@ package org.pdfsam.ui.commons;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.support.RequireUtils.require;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.control.Button;
 
 import org.pdfsam.ui.support.Style;
+
+import javafx.scene.control.Button;
 
 /**
  * Button opening the default browser to the configured url when pressed

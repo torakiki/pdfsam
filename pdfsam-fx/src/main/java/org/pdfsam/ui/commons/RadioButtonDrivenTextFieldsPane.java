@@ -19,14 +19,15 @@
 package org.pdfsam.ui.commons;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
+
+import org.pdfsam.ui.support.Style;
+
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
-
-import org.pdfsam.ui.support.Style;
 
 /**
  * GridPane containing a {@link RadioButton}s that, when selected, activate the corresponding text field.

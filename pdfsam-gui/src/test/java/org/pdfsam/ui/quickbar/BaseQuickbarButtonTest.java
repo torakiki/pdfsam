@@ -21,12 +21,13 @@ package org.pdfsam.ui.quickbar;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import javafx.scene.control.ContentDisplay;
-import javafx.scene.control.Label;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
+
+import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.Label;
 
 /**
  * @author Andrea Vacondio

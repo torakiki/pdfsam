@@ -19,7 +19,6 @@
 package org.pdfsam.ui.module;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.control.Button;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.TaskExecutionRequestEvent;
@@ -27,6 +26,8 @@ import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
+
+import javafx.scene.control.Button;
 
 /**
  * Run button that enable/disable itself according the task executions events.

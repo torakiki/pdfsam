@@ -18,9 +18,9 @@
  */
 package org.pdfsam.ui.notification;
 
+import de.jensd.fx.glyphs.GlyphsDude;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.scene.Node;
-import de.jensd.fx.fontawesome.AwesomeDude;
-import de.jensd.fx.fontawesome.AwesomeIcon;
 
 /**
  * Type of notifications
@@ -32,7 +32,7 @@ public enum NotificationType {
     INFO {
         @Override
         public Node getGraphic() {
-            return AwesomeDude.createIconLabel(AwesomeIcon.INFO_CIRCLE, DEFAULT_ICON_SIZE);
+            return GlyphsDude.createIcon(FontAwesomeIcon.INFO_CIRCLE, DEFAULT_ICON_SIZE);
         }
 
         @Override
@@ -43,7 +43,7 @@ public enum NotificationType {
     WARN {
         @Override
         public Node getGraphic() {
-            return AwesomeDude.createIconLabel(AwesomeIcon.WARNING, DEFAULT_ICON_SIZE);
+            return GlyphsDude.createIcon(FontAwesomeIcon.WARNING, DEFAULT_ICON_SIZE);
         }
 
         @Override
@@ -54,7 +54,7 @@ public enum NotificationType {
     ERROR {
         @Override
         public Node getGraphic() {
-            return AwesomeDude.createIconLabel(AwesomeIcon.TIMES_CIRCLE, DEFAULT_ICON_SIZE);
+            return GlyphsDude.createIcon(FontAwesomeIcon.TIMES_CIRCLE, DEFAULT_ICON_SIZE);
         }
 
         @Override
@@ -65,7 +65,7 @@ public enum NotificationType {
     GO_PRO {
         @Override
         public Node getGraphic() {
-            return AwesomeDude.createIconLabel(AwesomeIcon.HEART_ALT, DEFAULT_ICON_SIZE);
+            return GlyphsDude.createIcon(FontAwesomeIcon.HEART_ALT, DEFAULT_ICON_SIZE);
         }
 
         @Override

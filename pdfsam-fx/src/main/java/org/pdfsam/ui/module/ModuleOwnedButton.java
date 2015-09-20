@@ -19,12 +19,13 @@
 package org.pdfsam.ui.module;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
-import javafx.scene.control.Button;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventStation;
+
+import javafx.scene.control.Button;
 
 /**
  * {@link Button} owned by a {@link org.pdfsam.module.Module}

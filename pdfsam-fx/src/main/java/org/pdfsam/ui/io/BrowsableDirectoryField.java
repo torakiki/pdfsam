@@ -27,14 +27,14 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.function.Consumer;
 
+import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.support.validation.Validator;
+import org.pdfsam.support.validation.Validators;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.TransferMode;
-
-import org.pdfsam.i18n.DefaultI18nContext;
-import org.pdfsam.support.validation.Validator;
-import org.pdfsam.support.validation.Validators;
 
 /**
  * Component letting the user select an existing directory

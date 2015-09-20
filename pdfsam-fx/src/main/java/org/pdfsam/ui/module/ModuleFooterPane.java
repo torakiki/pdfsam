@@ -18,14 +18,14 @@
  */
 package org.pdfsam.ui.module;
 
-import javafx.scene.layout.HBox;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.ui.support.Style;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
+
+import javafx.scene.layout.HBox;
 
 /**
  * Footer common to all the modules that include the run button and the progress bar.

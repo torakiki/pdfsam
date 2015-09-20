@@ -19,12 +19,12 @@
 package org.pdfsam.ui.module;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.control.Button;
 
 import org.pdfsam.ui.commons.ShowStageRequest;
 
-import de.jensd.fx.fontawesome.AwesomeDude;
-import de.jensd.fx.fontawesome.AwesomeIcon;
+import de.jensd.fx.glyphs.GlyphsDude;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.scene.control.Button;
 
 /**
  * Button requesting to open the log stage to show the user possible errors
@@ -36,7 +36,7 @@ class TaskFailedButton extends Button {
 
     public TaskFailedButton() {
         getStyleClass().addAll("pdfsam-footer-button", "pdfsam-footer-failed-button");
-        setGraphic(AwesomeDude.createIconLabel(AwesomeIcon.TIMES_CIRCLE));
+        setGraphic(GlyphsDude.createIcon(FontAwesomeIcon.TIMES_CIRCLE));
         setOnAction(e -> eventStudio().broadcast(new ShowStageRequest(), "LogStage"));
     }
 }

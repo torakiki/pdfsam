@@ -23,8 +23,6 @@ import static org.loadui.testfx.Assertions.verifyThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.Parent;
-import javafx.scene.input.MouseButton;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -36,6 +34,9 @@ import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.ui.event.SetActiveModuleRequest;
 import org.sejda.eventstudio.Listener;
+
+import javafx.scene.Parent;
+import javafx.scene.input.MouseButton;
 
 /**
  * @author Andrea Vacondio

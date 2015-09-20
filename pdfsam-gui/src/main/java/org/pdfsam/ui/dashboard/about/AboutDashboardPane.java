@@ -22,14 +22,6 @@ import static org.pdfsam.support.io.ObjectCollectionWriter.writeContent;
 
 import java.util.Arrays;
 
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.input.Clipboard;
-import javafx.scene.input.ClipboardContent;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -39,8 +31,15 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.commons.UrlButton;
 import org.pdfsam.ui.support.Style;
 
-import de.jensd.fx.fontawesome.AwesomeDude;
-import de.jensd.fx.fontawesome.AwesomeIcon;
+import de.jensd.fx.glyphs.GlyphsDude;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 /**
  * Panel displaying PDFsam logo and About panel informations
@@ -57,11 +56,11 @@ public class AboutDashboardPane extends HBox {
         VBox left = new VBox(5);
         addSectionTitle(pdfsam.name(), left);
         Label copyright = new Label("Copyright 2014 by Andrea Vacondio");
-        AwesomeDude.setIcon(copyright, AwesomeIcon.COPYRIGHT);
+        GlyphsDude.setIcon(copyright, FontAwesomeIcon.COPYRIGHT);
         left.getChildren().addAll(new Label(String.format("ver. %s", pdfsam.version())), copyright);
         addHyperlink(null, "http://www.gnu.org/licenses/agpl-3.0.html", "GNU Affero General Public License v3", left);
-        addHyperlink(AwesomeIcon.HOME, "http://www.pdfsam.org", "www.pdfsam.org", left);
-        addHyperlink(AwesomeIcon.RSS_SQUARE, "http://www.pdfsam.org/feed/",
+        addHyperlink(FontAwesomeIcon.HOME, "http://www.pdfsam.org", "www.pdfsam.org", left);
+        addHyperlink(FontAwesomeIcon.RSS_SQUARE, "http://www.pdfsam.org/feed/",
                 DefaultI18nContext.getInstance().i18n("Subscribe to the official news feed"), left);
 
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Environment"), left);
@@ -71,7 +70,7 @@ public class AboutDashboardPane extends HBox {
         Label memory = new Label(DefaultI18nContext.getInstance().i18n("Max memory {0}",
                 FileUtils.byteCountToDisplaySize(Runtime.getRuntime().maxMemory())));
         Button copyButton = new Button(DefaultI18nContext.getInstance().i18n("Copy to clipboard"));
-        AwesomeDude.setIcon(copyButton, AwesomeIcon.COPY);
+        GlyphsDude.setIcon(copyButton, FontAwesomeIcon.COPY);
         copyButton.getStyleClass().addAll(Style.BUTTON.css());
         copyButton.setId("copyEnvDetails");
         copyButton.setOnAction(a -> {
@@ -88,26 +87,26 @@ public class AboutDashboardPane extends HBox {
                 DefaultI18nContext.getInstance().i18n("The open source projects making PDFsam possible"), left);
         VBox right = new VBox(5);
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Support"), right);
-        addHyperlink(AwesomeIcon.BUG, "http://www.pdfsam.org/issue_tracker",
+        addHyperlink(FontAwesomeIcon.BUG, "http://www.pdfsam.org/issue_tracker",
                 DefaultI18nContext.getInstance().i18n("Bug and feature requests"), right);
-        addHyperlink(AwesomeIcon.QUESTION_CIRCLE, "http://www.pdfsam.org/wiki", "HowTo wiki", right);
-        addHyperlink(AwesomeIcon.YOUTUBE_PLAY, "http://www.pdfsam.org/quickstart_video", DefaultI18nContext
+        addHyperlink(FontAwesomeIcon.QUESTION_CIRCLE, "http://www.pdfsam.org/wiki", "HowTo wiki", right);
+        addHyperlink(FontAwesomeIcon.YOUTUBE_PLAY, "http://www.pdfsam.org/quickstart_video", DefaultI18nContext
                 .getInstance().i18n("Play the \"get started\" video"), right);
 
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Contribute"), right);
-        addHyperlink(AwesomeIcon.GITHUB, "http://www.pdfsam.org/scm",
+        addHyperlink(FontAwesomeIcon.GITHUB, "http://www.pdfsam.org/scm",
                 DefaultI18nContext.getInstance().i18n("Fork PDFsam on GitHub"), right);
-        addHyperlink(AwesomeIcon.FLAG_ALT, "http://www.pdfsam.org/translate",
+        addHyperlink(FontAwesomeIcon.FLAG_ALT, "http://www.pdfsam.org/translate",
                 DefaultI18nContext.getInstance().i18n("Translate"), right);
-        addHyperlink(AwesomeIcon.DOLLAR, "http://www.pdfsam.org/donate", DefaultI18nContext.getInstance()
+        addHyperlink(FontAwesomeIcon.DOLLAR, "http://www.pdfsam.org/donate", DefaultI18nContext.getInstance()
                 .i18n("Donate"), right);
 
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Social"), right);
-        addHyperlink(AwesomeIcon.TWITTER_SQUARE, "http://www.pdfsam.org/twitter", DefaultI18nContext.getInstance()
+        addHyperlink(FontAwesomeIcon.TWITTER_SQUARE, "http://www.pdfsam.org/twitter", DefaultI18nContext.getInstance()
                 .i18n("Follow us on Twitter"), right);
-        addHyperlink(AwesomeIcon.GOOGLE_PLUS_SQUARE, "http://www.pdfsam.org/gplus", DefaultI18nContext.getInstance()
+        addHyperlink(FontAwesomeIcon.GOOGLE_PLUS_SQUARE, "http://www.pdfsam.org/gplus", DefaultI18nContext.getInstance()
                 .i18n("Follow us on Google Plus"), right);
-        addHyperlink(AwesomeIcon.FACEBOOK_SQUARE, "http://www.pdfsam.org/facebook", DefaultI18nContext.getInstance()
+        addHyperlink(FontAwesomeIcon.FACEBOOK_SQUARE, "http://www.pdfsam.org/facebook", DefaultI18nContext.getInstance()
                 .i18n("Like us on Facebook"), right);
         getChildren().addAll(left, right);
 
@@ -119,11 +118,11 @@ public class AboutDashboardPane extends HBox {
         pane.getChildren().add(label);
     }
 
-    private void addHyperlink(AwesomeIcon icon, String url, String text, Pane pane) {
+    private void addHyperlink(FontAwesomeIcon icon, String url, String text, Pane pane) {
         UrlButton button = new UrlButton(text, url);
         button.getStyleClass().setAll("pdfsam-hyperlink");
         if (icon != null) {
-            AwesomeDude.setIcon(button, icon);
+            GlyphsDude.setIcon(button, icon);
         }
         pane.getChildren().add(button);
     }

@@ -21,7 +21,6 @@ package org.pdfsam.ui.banner;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.Parent;
 
 import javax.inject.Inject;
 
@@ -33,8 +32,8 @@ import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.ui.log.LogAreaVisiblityChangedEvent;
 import org.pdfsam.ui.log.ErrorLoggedEvent;
+import org.pdfsam.ui.log.LogAreaVisiblityChangedEvent;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -43,6 +42,8 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import javafx.scene.Parent;
 
 /**
  * @author Andrea Vacondio

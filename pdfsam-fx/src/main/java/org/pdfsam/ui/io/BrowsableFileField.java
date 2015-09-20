@@ -28,17 +28,17 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.function.Consumer;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.TransferMode;
-
 import org.apache.commons.lang3.ObjectUtils;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.support.validation.Validator;
 import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
+
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.TransferMode;
 
 /**
  * Component letting the user select a File of an expected type. By default no validation is enforced and the filetype is used only in the file chooser but the component provides a

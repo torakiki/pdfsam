@@ -22,15 +22,15 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 
-import javafx.scene.Node;
-import javafx.scene.control.Labeled;
-
 import org.junit.Rule;
 import org.junit.Test;
 import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.test.HighPriorityTestModule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.test.LowPriorityTestModule;
+
+import javafx.scene.Node;
+import javafx.scene.control.Labeled;
 
 /**
  * @author Andrea Vacondio

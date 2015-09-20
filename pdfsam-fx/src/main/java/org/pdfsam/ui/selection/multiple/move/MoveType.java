@@ -21,10 +21,10 @@ package org.pdfsam.ui.selection.multiple.move;
 import java.util.Arrays;
 import java.util.Collections;
 
-import javafx.collections.ObservableList;
-
 import org.apache.commons.lang3.ArrayUtils;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
+
+import javafx.collections.ObservableList;
 
 /**
  * Types of moves for the selected items in the selection table

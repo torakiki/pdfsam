@@ -33,26 +33,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.beans.value.WeakChangeListener;
-import javafx.geometry.Insets;
-import javafx.geometry.Point2D;
-import javafx.scene.Scene;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SeparatorMenuItem;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCodeCombination;
-import javafx.scene.input.KeyCombination;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
-import javafx.stage.Window;
-
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
@@ -73,8 +53,27 @@ import org.pdfsam.ui.selection.PasswordFieldPopup;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.workspace.RestorableView;
 
-import de.jensd.fx.fontawesome.AwesomeDude;
-import de.jensd.fx.fontawesome.AwesomeIcon;
+import de.jensd.fx.glyphs.GlyphsDude;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.beans.value.WeakChangeListener;
+import javafx.geometry.Insets;
+import javafx.geometry.Point2D;
+import javafx.scene.Scene;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
+import javafx.stage.Window;
 
 /**
  * Panel letting the user select a single input PDF document
@@ -240,21 +239,21 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
 
     private void initContextMenu() {
         MenuItem infoItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Document properties"),
-                AwesomeIcon.INFO);
+                FontAwesomeIcon.INFO);
         infoItem.setOnAction(e -> Platform.runLater(() -> eventStudio().broadcast(
                 new ShowPdfDescriptorRequest(descriptor))));
 
         MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set destination"),
-                AwesomeIcon.FILE_PDF_ALT);
+                FontAwesomeIcon.FILE_PDF_ALT);
         setDestinationItem.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.ALT_DOWN));
         setDestinationItem.setOnAction(e -> eventStudio().broadcast(
                 requestDestination(descriptor.getFile(), getOwnerModule()), getOwnerModule()));
 
-        MenuItem openFileItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open"), AwesomeIcon.FILE_ALT);
+        MenuItem openFileItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open"), FontAwesomeIcon.FILE_ALT);
         openFileItem.setOnAction(e -> eventStudio().broadcast(new OpenFileRequest(descriptor.getFile())));
 
         MenuItem openFolderItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open Folder"),
-                AwesomeIcon.FOLDER_ALTPEN);
+                FontAwesomeIcon.FOLDER_OPEN_ALT);
         openFolderItem.setOnAction(e -> eventStudio().broadcast(
                 new OpenFileRequest(descriptor.getFile().getParentFile())));
 
@@ -262,9 +261,9 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
                 new ContextMenu(setDestinationItem, new SeparatorMenuItem(), infoItem, openFileItem, openFolderItem));
     }
 
-    private MenuItem createMenuItem(String text, AwesomeIcon icon) {
+    private MenuItem createMenuItem(String text, FontAwesomeIcon icon) {
         MenuItem item = new MenuItem(text);
-        AwesomeDude.setIcon(item, icon);
+        GlyphsDude.setIcon(item, icon);
         item.setDisable(true);
         return item;
     }

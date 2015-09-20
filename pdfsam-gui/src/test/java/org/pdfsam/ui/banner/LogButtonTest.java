@@ -22,7 +22,6 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.Parent;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -31,7 +30,8 @@ import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.ui.commons.ShowStageRequest;
 import org.sejda.eventstudio.Listener;
 
-import de.jensd.fx.fontawesome.AwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.scene.Parent;
 
 /**
  * @author Andrea Vacondio
@@ -48,7 +48,7 @@ public class LogButtonTest extends GuiTest {
     public void onClick() {
         Listener<ShowStageRequest> listener = mock(Listener.class);
         eventStudio().add(ShowStageRequest.class, listener, "LogStage");
-        click(AwesomeIcon.LIST.toString());
+        click(FontAwesomeIcon.LIST.toString());
         verify(listener).onEvent(any());
     }
 }

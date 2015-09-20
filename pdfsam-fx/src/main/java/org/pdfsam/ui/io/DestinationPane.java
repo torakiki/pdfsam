@@ -19,12 +19,13 @@
 package org.pdfsam.ui.io;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Tooltip;
-import javafx.scene.layout.VBox;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.support.Style;
+
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Tooltip;
+import javafx.scene.layout.VBox;
 
 /**
  * Base panel with minimal output options

@@ -19,7 +19,6 @@
 package org.pdfsam.ui;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.layout.StackPane;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -29,6 +28,8 @@ import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.pdfsam.ui.event.SetActiveModuleRequest;
 import org.pdfsam.ui.workarea.WorkArea;
 import org.sejda.eventstudio.annotation.EventListener;
+
+import javafx.scene.layout.StackPane;
 
 /**
  * Panel containing the main area where the modules pane and the dashboard pane are displayed

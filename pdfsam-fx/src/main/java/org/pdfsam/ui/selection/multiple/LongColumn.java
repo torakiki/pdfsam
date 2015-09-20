@@ -21,12 +21,12 @@ package org.pdfsam.ui.selection.multiple;
 import java.text.DateFormat;
 import java.util.Comparator;
 
-import javafx.beans.property.SimpleLongProperty;
-import javafx.beans.value.ObservableValue;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.time.FastDateFormat;
 import org.pdfsam.i18n.DefaultI18nContext;
+
+import javafx.beans.property.SimpleLongProperty;
+import javafx.beans.value.ObservableValue;
 
 /**
  * Definition of the {@link Long} columns of the selection table

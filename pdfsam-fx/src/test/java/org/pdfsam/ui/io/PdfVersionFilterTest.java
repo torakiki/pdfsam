@@ -24,9 +24,10 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
-import javafx.beans.value.ChangeListener;
 
 import org.junit.Test;
+
+import javafx.beans.value.ChangeListener;
 
 /**
  * @author Andrea Vacondio

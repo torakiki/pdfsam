@@ -23,8 +23,6 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.pdfsam.ui.selection.multiple.SelectionChangedEvent.select;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -39,6 +37,9 @@ import org.pdfsam.ui.selection.multiple.SelectionTableToolbar.MoveDownButton;
 import org.pdfsam.ui.selection.multiple.SelectionTableToolbar.MoveUpButton;
 import org.pdfsam.ui.selection.multiple.SelectionTableToolbar.RemoveButton;
 import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
+
+import javafx.scene.Node;
+import javafx.scene.Parent;
 
 /**
  * @author Andrea Vacondio

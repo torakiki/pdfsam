@@ -23,6 +23,8 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.UUID;
 
+import de.jensd.fx.glyphs.GlyphsDude;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -35,8 +37,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
-import de.jensd.fx.fontawesome.AwesomeDude;
-import de.jensd.fx.fontawesome.AwesomeIcon;
 
 /**
  * Container for a basic notification with title, text and icon.
@@ -54,7 +54,7 @@ class Notification extends BorderPane {
         setId(UUID.randomUUID().toString());
         Label titleLabel = new Label(title);
         titleLabel.getStyleClass().add("notification-title");
-        Button closeButton = AwesomeDude.createIconButton(AwesomeIcon.TIMES);
+        Button closeButton = GlyphsDude.createIconButton(FontAwesomeIcon.TIMES);
         closeButton.getStyleClass().addAll("close");
         closeButton.setOnAction(e -> eventStudio().broadcast(new RemoveNotificationRequestEvent(getId())));
         HBox titlePanel = new HBox();
