@@ -20,18 +20,18 @@ package org.pdfsam.community;
 
 import java.io.IOException;
 
+import org.pdfsam.PdfsamApp;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.sun.javafx.application.LauncherImpl;
+
 import javafx.application.Preloader;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
-import org.pdfsam.PdfsamApp;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.sun.javafx.application.LauncherImpl;
 
 /**
  * PDFsam Community Edition App
@@ -61,8 +61,8 @@ public class App extends Preloader {
             HBox logoView = new HBox();
             logoView.getChildren().addAll(new ImageView(config.logo32()),
                     new ImageView(this.getClass().getResource("/images/payoff.png").toExternalForm()));
-            stage.getIcons().addAll(config.logo16(), config.logo24(), config.logo48(), config.logo64(),
-                    config.logo96(), config.logo128(), config.logo256());
+            stage.getIcons().addAll(config.logo16(), config.logo24(), config.logo48(), config.logo64(), config.logo96(),
+                    config.logo128(), config.logo256());
 
             stage.setTitle("PDF Split and Merge Community Edition");
             stage.centerOnScreen();
@@ -70,27 +70,12 @@ public class App extends Preloader {
         } catch (IOException e) {
             LOG.error("An error occurred during startup", e);
         }
-
     }
 
     @Override
     public void handleStateChangeNotification(StateChangeNotification scn) {
         if (scn.getType() == StateChangeNotification.Type.BEFORE_START) {
             stage.hide();
-        }
-    }
-
-    @Override
-    public void handleApplicationNotification(PreloaderNotification info) {
-        if (pane != null && info instanceof ProgressNotification) {
-            pane.setProgress((ProgressNotification) info);
-        }
-    }
-
-    @Override
-    public void handleProgressNotification(ProgressNotification info) {
-        if (pane != null) {
-            pane.setProgress(info);
         }
     }
 }

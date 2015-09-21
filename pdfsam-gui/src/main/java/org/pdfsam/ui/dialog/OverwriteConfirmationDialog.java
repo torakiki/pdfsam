@@ -18,6 +18,15 @@
  */
 package org.pdfsam.ui.dialog;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import org.pdfsam.configuration.StylesConfig;
+import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.ui.commons.HideOnEscapeHandler;
+import org.pdfsam.ui.support.Style;
+import org.springframework.context.annotation.Lazy;
+
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -27,14 +36,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-
-import org.pdfsam.configuration.StylesConfig;
-import org.pdfsam.i18n.DefaultI18nContext;
-import org.pdfsam.ui.commons.HideOnEscapeHandler;
-import org.pdfsam.ui.support.Style;
-
 /**
  * Dialog asking the user to confirm for the output file overwrite
  * 
@@ -42,6 +43,7 @@ import org.pdfsam.ui.support.Style;
  *
  */
 @Named
+@Lazy
 public class OverwriteConfirmationDialog extends Stage {
 
     private boolean overwrite = false;

@@ -25,7 +25,7 @@ import javax.inject.Named;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.commons.ShowStageRequest;
 
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import javafx.scene.control.Tooltip;
 
 /**
@@ -38,7 +38,7 @@ import javafx.scene.control.Tooltip;
 class LogButton extends BannerButton {
 
     LogButton() {
-        super(FontAwesomeIcon.LIST);
+        super(MaterialDesignIcon.COMMENT_ALERT_OUTLINE);
         setOnAction(e -> eventStudio().broadcast(new ShowStageRequest(), "LogStage"));
         setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Application messages")));
     }

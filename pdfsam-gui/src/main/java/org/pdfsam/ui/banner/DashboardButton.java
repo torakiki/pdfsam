@@ -26,7 +26,7 @@ import javax.inject.Named;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import javafx.scene.control.Tooltip;
 
 /**
@@ -39,7 +39,7 @@ import javafx.scene.control.Tooltip;
 class DashboardButton extends BannerButton {
     @Inject
     DashboardButton(@Named("defaultDashboardItemId") String defaultDasboardItem) {
-        super(FontAwesomeIcon.HOME);
+        super(MaterialDesignIcon.HOME);
         setOnAction(e -> eventStudio().broadcast(new SetActiveDashboardItemRequest(defaultDasboardItem)));
         setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Dashboard")));
     }

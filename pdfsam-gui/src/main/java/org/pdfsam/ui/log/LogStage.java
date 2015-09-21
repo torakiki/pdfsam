@@ -22,11 +22,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Collection;
 
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -38,6 +33,12 @@ import org.pdfsam.ui.commons.ShowStageRequest;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
+import org.springframework.context.annotation.Lazy;
+
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 /**
  * Stage for the log panel
@@ -45,8 +46,9 @@ import org.sejda.eventstudio.annotation.EventStation;
  * @author Andrea Vacondio
  * 
  */
+@Lazy
 @Named
-class LogStage extends Stage {
+public class LogStage extends Stage {
 
     @EventStation
     public static final String LOGSTAGE_EVENTSTATION = "LogStage";

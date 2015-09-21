@@ -36,6 +36,7 @@ import org.sejda.model.output.TaskOutputDispatcher;
 import org.sejda.model.parameter.base.AbstractParameters;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Lazy;
 
 /**
  * Controller receiving task execution requests and displaying the dialog if necessary
@@ -44,7 +45,8 @@ import org.slf4j.LoggerFactory;
  *
  */
 @Named
-class OverwriteDialogController {
+@Lazy
+public class OverwriteDialogController {
     private static final Logger LOG = LoggerFactory.getLogger(OverwriteDialogController.class);
 
     private OverwriteConfirmationDialog dialog;
@@ -68,17 +70,14 @@ class OverwriteDialogController {
 
                     public void dispatch(DirectoryTaskOutput output) {
                         if (isNotEmpty(output.getDestination().listFiles())) {
-                            if (!dialog
-                                    .title(DefaultI18nContext.getInstance().i18n("Directory not empty"))
-                                    .messageTitle(
-                                            DefaultI18nContext.getInstance()
-                                                    .i18n("The selected directory is not empty"))
-                                    .messageContent(
-                                            DefaultI18nContext.getInstance().i18n(
-                                                    "Overwrite files with the same name as the generated ones?"))
+                            if (!dialog.title(DefaultI18nContext.getInstance().i18n("Directory not empty"))
+                                    .messageTitle(DefaultI18nContext.getInstance()
+                                            .i18n("The selected directory is not empty"))
+                                    .messageContent(DefaultI18nContext.getInstance()
+                                            .i18n("Overwrite files with the same name as the generated ones?"))
                                     .shouldOverwrite()) {
-                                throw new BroadcastInterruptionException(DefaultI18nContext.getInstance().i18n(
-                                        "Don't overwrite existing file"));
+                                throw new BroadcastInterruptionException(
+                                        DefaultI18nContext.getInstance().i18n("Don't overwrite existing file"));
                             }
                             LOG.trace("Enabling overwrite of the existing output file");
                             params.setOverwrite(true);
@@ -87,16 +86,14 @@ class OverwriteDialogController {
 
                     public void dispatch(FileTaskOutput output) {
                         if (output.getDestination().exists()) {
-                            if (!dialog
-                                    .title(DefaultI18nContext.getInstance().i18n("Overwrite confirmation"))
-                                    .messageTitle(
-                                            DefaultI18nContext.getInstance().i18n(
-                                                    "A file with the given name already exists"))
+                            if (!dialog.title(DefaultI18nContext.getInstance().i18n("Overwrite confirmation"))
+                                    .messageTitle(DefaultI18nContext.getInstance()
+                                            .i18n("A file with the given name already exists"))
                                     .messageContent(
                                             DefaultI18nContext.getInstance().i18n("Do you want to overwrite it?"))
                                     .shouldOverwrite()) {
-                                throw new BroadcastInterruptionException(DefaultI18nContext.getInstance().i18n(
-                                        "Don't overwrite existing file"));
+                                throw new BroadcastInterruptionException(
+                                        DefaultI18nContext.getInstance().i18n("Don't overwrite existing file"));
                             }
                             LOG.trace("Enabling overwrite of the existing output file");
                             params.setOverwrite(true);

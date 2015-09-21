@@ -27,19 +27,6 @@ import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Paths;
 
-import javafx.application.Application;
-import javafx.application.HostServices;
-import javafx.application.Platform;
-import javafx.application.Preloader.ProgressNotification;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCodeCombination;
-import javafx.scene.input.KeyCombination;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
-
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.apache.commons.lang3.time.StopWatch;
 import org.pdfsam.configuration.ApplicationContextHolder;
@@ -52,7 +39,9 @@ import org.pdfsam.ui.MainPane;
 import org.pdfsam.ui.commons.OpenUrlRequest;
 import org.pdfsam.ui.commons.ShowStageRequest;
 import org.pdfsam.ui.dialog.OverwriteConfirmationDialog;
+import org.pdfsam.ui.dialog.OverwriteDialogController;
 import org.pdfsam.ui.io.SetLatestDirectoryEvent;
+import org.pdfsam.ui.log.LogStage;
 import org.pdfsam.ui.notification.NotificationsContainer;
 import org.pdfsam.update.UpdateCheckRequest;
 import org.sejda.core.Sejda;
@@ -60,6 +49,18 @@ import org.sejda.eventstudio.EventStudio;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javafx.application.Application;
+import javafx.application.HostServices;
+import javafx.application.Preloader.ProgressNotification;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 /**
  * PDFsam application
@@ -85,7 +86,6 @@ public class PdfsamApp extends Application {
         if (isNotBlank(localeString)) {
             eventStudio().broadcast(new SetLocaleEvent(localeString));
         }
-        notifyPreloader(new ProgressNotification(0.1));
         String defaultworkingPath = userContext.getDefaultWorkingPath();
         if (isNotBlank(defaultworkingPath)) {
             try {
@@ -96,12 +96,8 @@ public class PdfsamApp extends Application {
                 LOG.warn("Unable to set initial directory, default path is invalid.", e);
             }
         }
-        notifyPreloader(new ProgressNotification(0.3));
-        Platform.runLater(() -> ApplicationContextHolder.getContext());
-        notifyPreloader(new ProgressNotification(0.6));
-        Platform.runLater(() -> initScene());
-        notifyPreloader(new ProgressNotification(0.8));
-
+        ApplicationContextHolder.getContext();
+        Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger());
     }
 
     private UserContext initUserContext() {
@@ -115,15 +111,18 @@ public class PdfsamApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+
+        initScene();
         primaryStage.setScene(mainScene);
         primaryStage.getIcons().addAll(ApplicationContextHolder.getContext().getBeansOfType(Image.class).values());
         primaryStage.setTitle(ApplicationContextHolder.getContext().getBean(Pdfsam.class).name());
 
+        initFXThreadComponents();
         initWindowsStatusController(primaryStage);
         initOverwriteDialogController(primaryStage);
         initActiveModule();
         primaryStage.show();
-        Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger());
+
         requestCheckForUpdateIfNecessary();
         requestLatestNewsPanelDisplay();
         eventStudio().addAnnotatedListeners(this);
@@ -135,8 +134,8 @@ public class PdfsamApp extends Application {
     private void initScene() {
         MainPane mainPane = ApplicationContextHolder.getContext().getBean(MainPane.class);
 
-        NotificationsContainer notifications = ApplicationContextHolder.getContext().getBean(
-                NotificationsContainer.class);
+        NotificationsContainer notifications = ApplicationContextHolder.getContext()
+                .getBean(NotificationsContainer.class);
         StackPane main = new StackPane();
         StackPane.setAlignment(notifications, Pos.BOTTOM_RIGHT);
         StackPane.setAlignment(mainPane, Pos.TOP_LEFT);
@@ -176,15 +175,23 @@ public class PdfsamApp extends Application {
         }
     }
 
+    /**
+     * Init those components that can be initialized only in the java fx thread
+     */
+    private void initFXThreadComponents() {
+        ApplicationContextHolder.getContext().getBean(OverwriteDialogController.class);
+        ApplicationContextHolder.getContext().getBean(LogStage.class);
+
+    }
     private void initOverwriteDialogController(Stage primaryStage) {
-        OverwriteConfirmationDialog overwriteDialog = ApplicationContextHolder.getContext().getBean(
-                OverwriteConfirmationDialog.class);
+        OverwriteConfirmationDialog overwriteDialog = ApplicationContextHolder.getContext()
+                .getBean(OverwriteConfirmationDialog.class);
         overwriteDialog.setOwner(primaryStage);
     }
 
     private void initWindowsStatusController(Stage primaryStage) {
-        WindowStatusController stageStatusController = ApplicationContextHolder.getContext().getBean(
-                WindowStatusController.class);
+        WindowStatusController stageStatusController = ApplicationContextHolder.getContext()
+                .getBean(WindowStatusController.class);
         stageStatusController.setStage(primaryStage);
     }
 

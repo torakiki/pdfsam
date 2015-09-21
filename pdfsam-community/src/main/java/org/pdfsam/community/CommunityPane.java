@@ -22,15 +22,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import javafx.application.Preloader.ProgressNotification;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Main panel for the community edition
@@ -49,7 +48,7 @@ public class CommunityPane extends VBox {
         logoView.getChildren().addAll(
                 new ImageView(this.getClass().getResource("/images/community/32x32.png").toExternalForm()),
                 new ImageView(this.getClass().getResource("/images/payoff.png").toExternalForm()));
-        progress = new ProgressBar(0);
+        progress = new ProgressBar(-1);
         progress.setMaxWidth(Double.MAX_VALUE);
         Label message = new Label("Loading...");
         message.getStyleClass().add("-pdfsam-update-message");
@@ -64,9 +63,5 @@ public class CommunityPane extends VBox {
         version.getStyleClass().add("-pdfsam-splash-version");
         version.setMaxWidth(Double.MAX_VALUE);
         getChildren().addAll(logoView, progress, message, version);
-    }
-
-    void setProgress(ProgressNotification info) {
-        progress.setProgress(info.getProgress());
     }
 }

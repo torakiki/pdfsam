@@ -23,7 +23,7 @@ import javax.inject.Named;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import javafx.geometry.Side;
 import javafx.scene.control.Tooltip;
 
@@ -38,7 +38,7 @@ class MenuButton extends BannerButton {
 
     @Inject
     MenuButton(AppContextMenu menu) {
-        super(FontAwesomeIcon.BARS);
+        super(MaterialDesignIcon.MENU);
         setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Application menu")));
         setOnAction(e -> menu.show(this, Side.BOTTOM, 0, 0));
     }

@@ -47,7 +47,7 @@ public final class ApplicationContextHolder {
     public static AnnotationConfigApplicationContext getContext() {
         return DefaultApplicationContextHolder.CONTEXT.ctx;
     }
-
+    
     /**
      * Lazy initialization holder class idiom (Joshua Bloch, Effective Java second edition, item 71).
      * 
