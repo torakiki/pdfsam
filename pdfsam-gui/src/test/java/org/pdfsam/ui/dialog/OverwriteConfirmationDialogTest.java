@@ -25,10 +25,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Locale;
 
-import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.input.KeyCode;
-
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Ignore;
@@ -37,8 +33,13 @@ import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.configuration.StylesConfig;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.test.ClearEventStudioRule;
+
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
 
 /**
  * @author Andrea Vacondio
@@ -72,14 +73,14 @@ public class OverwriteConfirmationDialogTest extends GuiTest {
         click("show");
         find("MessageTitle");
         find("MessageContent");
-        click("Cancel");
+        click(DefaultI18nContext.getInstance().i18n("Cancel"));
     }
 
     @Test
     public void cancel() {
         this.overwrite = true;
         click("show");
-        click("Cancel");
+        click(DefaultI18nContext.getInstance().i18n("Cancel"));
         assertFalse(this.overwrite);
     }
 
@@ -87,7 +88,7 @@ public class OverwriteConfirmationDialogTest extends GuiTest {
     public void overwrite() {
         this.overwrite = false;
         click("show");
-        click("Overwrite");
+        click(DefaultI18nContext.getInstance().i18n("Overwrite"));
         assertTrue(this.overwrite);
     }
 

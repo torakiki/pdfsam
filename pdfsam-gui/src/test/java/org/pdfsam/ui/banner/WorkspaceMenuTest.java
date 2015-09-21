@@ -48,7 +48,6 @@ import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.scene.Parent;
 
 /**
@@ -75,7 +74,8 @@ public class WorkspaceMenuTest extends GuiTest {
     public void onSaveClick() {
         Listener<SaveWorkspaceEvent> listener = mock(Listener.class);
         eventStudio().add(SaveWorkspaceEvent.class, listener);
-        click(FontAwesomeIcon.BARS.toString()).click("#workspaceMenu").move("#loadWorkspace").click("#saveWorkspace");
+        click(".button").click("#workspaceMenu").move("#loadWorkspace")
+                .click("#saveWorkspace");
         verify(listener).onEvent(any());
     }
 
@@ -84,7 +84,7 @@ public class WorkspaceMenuTest extends GuiTest {
     public void onLoadClick() {
         Listener<LoadWorkspaceEvent> listener = mock(Listener.class);
         eventStudio().add(LoadWorkspaceEvent.class, listener);
-        click(FontAwesomeIcon.BARS.toString()).click("#workspaceMenu").click("#loadWorkspace");
+        click(".button").click("#workspaceMenu").click("#loadWorkspace");
         verify(listener).onEvent(any());
     }
 
@@ -92,7 +92,7 @@ public class WorkspaceMenuTest extends GuiTest {
     public void onRecentWorkspace() {
         Listener<LoadWorkspaceEvent> listener = mock(Listener.class);
         eventStudio().add(LoadWorkspaceEvent.class, listener);
-        click(FontAwesomeIcon.BARS.toString()).click("#workspaceMenu").move("#loadWorkspace").move("#saveWorkspace")
+        click(".button").click("#workspaceMenu").move("#loadWorkspace").move("#saveWorkspace")
                 .click("#recentWorkspace").click("Chuck");
         verify(listener).onEvent(any());
     }
@@ -103,7 +103,7 @@ public class WorkspaceMenuTest extends GuiTest {
         RecentWorkspacesService service = applicationContext.getBean(RecentWorkspacesService.class);
         when(service.getRecentlyUsedWorkspaces()).thenReturn(Arrays.asList("Micheal"));
         eventStudio().broadcast(new WorkspaceLoadedEvent(mock(File.class)));
-        click(FontAwesomeIcon.BARS.toString()).click("#workspaceMenu").move("#loadWorkspace").move("#saveWorkspace")
+        click(".button").click("#workspaceMenu").move("#loadWorkspace").move("#saveWorkspace")
                 .click("#recentWorkspace").click("Micheal");
     }
 }

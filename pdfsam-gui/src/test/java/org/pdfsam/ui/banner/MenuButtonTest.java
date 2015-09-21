@@ -37,7 +37,6 @@ import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.geometry.Side;
 import javafx.scene.Parent;
 
@@ -68,7 +67,7 @@ public class MenuButtonTest extends GuiTest {
     @Test
     public void onClick() {
         AppContextMenu menu = applicationContext.getBean(AppContextMenu.class);
-        click(FontAwesomeIcon.BARS.toString());
+        click(".button");
         verify(menu).show(any(), eq(Side.BOTTOM), eq(0d), eq(0d));
     }
 }

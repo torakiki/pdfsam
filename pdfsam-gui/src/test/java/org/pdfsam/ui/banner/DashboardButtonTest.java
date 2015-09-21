@@ -31,7 +31,6 @@ import org.mockito.ArgumentCaptor;
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.sejda.eventstudio.Listener;
 
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.scene.Parent;
 
 /**
@@ -50,7 +49,7 @@ public class DashboardButtonTest extends GuiTest {
     public void testClick() {
         Listener<SetActiveDashboardItemRequest> listener = mock(Listener.class);
         eventStudio().add(SetActiveDashboardItemRequest.class, listener);
-        click(FontAwesomeIcon.HOME.toString());
+        click(".button");
         ArgumentCaptor<SetActiveDashboardItemRequest> argument = ArgumentCaptor
                 .forClass(SetActiveDashboardItemRequest.class);
         verify(listener).onEvent(argument.capture());

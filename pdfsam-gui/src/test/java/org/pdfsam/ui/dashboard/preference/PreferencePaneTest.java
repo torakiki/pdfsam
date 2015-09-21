@@ -33,6 +33,7 @@ import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.pdfsam.context.UserContext;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.module.Module;
 import org.pdfsam.support.KeyStringValueItem;
@@ -117,7 +118,8 @@ public class PreferencePaneTest {
         assertEquals("/my/path", ((PreferenceBrowsableDirectoryField) victim.lookup("#workingDirectory"))
                 .getTextField().getText());
         // assertEquals("200", ((PreferenceIntTextField) victim.lookup("#thumbnailsSize")).getText());
-        assertEquals("Dashboard", startupModuleCombo.getSelectionModel().getSelectedItem().getValue());
+        assertEquals(DefaultI18nContext.getInstance().i18n("Dashboard"),
+                startupModuleCombo.getSelectionModel().getSelectedItem().getValue());
         assertEquals(NewsPolicy.ONCE_A_DAY.friendlyName(), newsDisplayPolicy.getSelectionModel().getSelectedItem()
                 .getValue());
     }

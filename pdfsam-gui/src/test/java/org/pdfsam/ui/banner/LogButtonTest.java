@@ -30,7 +30,6 @@ import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.ui.commons.ShowStageRequest;
 import org.sejda.eventstudio.Listener;
 
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.scene.Parent;
 
 /**
@@ -48,7 +47,7 @@ public class LogButtonTest extends GuiTest {
     public void onClick() {
         Listener<ShowStageRequest> listener = mock(Listener.class);
         eventStudio().add(ShowStageRequest.class, listener, "LogStage");
-        click(FontAwesomeIcon.LIST.toString());
+        click(".button");
         verify(listener).onEvent(any());
     }
 }

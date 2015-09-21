@@ -40,7 +40,6 @@ import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.scene.Parent;
 
 /**
@@ -68,7 +67,7 @@ public class ModulesMenuTest extends GuiTest {
         Listener<SetActiveModuleRequest> listener = mock(Listener.class);
         eventStudio().add(SetActiveModuleRequest.class, listener);
         ArgumentCaptor<SetActiveModuleRequest> argument = ArgumentCaptor.forClass(SetActiveModuleRequest.class);
-        click(FontAwesomeIcon.BARS.toString()).click("#modulesMenu")
+        click(".button").click("#modulesMenu")
                 .click(module.descriptor().getCategory().getDescription()).click(module.descriptor().getName());
         verify(listener).onEvent(argument.capture());
         assertEquals(module.id(), argument.getValue().getActiveModuleId().get());

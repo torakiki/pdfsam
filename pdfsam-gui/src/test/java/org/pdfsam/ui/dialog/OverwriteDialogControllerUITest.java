@@ -27,9 +27,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
 
-import javafx.scene.Parent;
-import javafx.scene.control.Button;
-
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
@@ -38,6 +35,7 @@ import org.junit.rules.TemporaryFolder;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.configuration.StylesConfig;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
@@ -46,6 +44,9 @@ import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.parameter.MergeParameters;
 import org.sejda.model.parameter.SimpleSplitParameters;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
+
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
 
 /**
  * @author Andrea Vacondio
@@ -81,7 +82,7 @@ public class OverwriteDialogControllerUITest extends GuiTest {
         Button button = find("show");
         button.setOnAction(a -> eventStudio().broadcast(new TaskExecutionRequestEvent("id", parameters)));
         click("show");
-        click("Cancel");
+        click(DefaultI18nContext.getInstance().i18n("Cancel"));
         assertFalse(parameters.isOverwrite());
     }
 
@@ -94,7 +95,7 @@ public class OverwriteDialogControllerUITest extends GuiTest {
         Button button = find("show");
         button.setOnAction(a -> eventStudio().broadcast(new TaskExecutionRequestEvent("id", parameters)));
         click("show");
-        click("Overwrite");
+        click(DefaultI18nContext.getInstance().i18n("Overwrite"));
         assertTrue(parameters.isOverwrite());
     }
 
@@ -107,7 +108,7 @@ public class OverwriteDialogControllerUITest extends GuiTest {
         Button button = find("show");
         button.setOnAction(a -> eventStudio().broadcast(new TaskExecutionRequestEvent("id", parameters)));
         click("show");
-        click("Cancel");
+        click(DefaultI18nContext.getInstance().i18n("Cancel"));
         assertFalse(parameters.isOverwrite());
     }
 
@@ -120,7 +121,7 @@ public class OverwriteDialogControllerUITest extends GuiTest {
         Button button = find("show");
         button.setOnAction(a -> eventStudio().broadcast(new TaskExecutionRequestEvent("id", parameters)));
         click("show");
-        click("Overwrite");
+        click(DefaultI18nContext.getInstance().i18n("Overwrite"));
         assertTrue(parameters.isOverwrite());
     }
 }
