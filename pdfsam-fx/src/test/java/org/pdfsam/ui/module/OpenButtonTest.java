@@ -43,6 +43,7 @@ import org.sejda.model.output.StreamTaskOutput;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.scene.Parent;
+import javafx.scene.text.Text;
 
 /**
  * @author Andrea Vacondio
@@ -74,7 +75,8 @@ public class OpenButtonTest extends GuiTest {
         FileTaskOutput output = mock(FileTaskOutput.class);
         FXTestUtils.invokeAndWait(() -> victim.dispatch(output), 1);
         verify(output).getDestination();
-        exists(FontAwesomeIcon.FILE_ALT.toString());
+        Text icon = find(".glyph-icon");
+        assertEquals(FontAwesomeIcon.FILE_ALT.characterToString(), icon.getText());
     }
 
     @Test
@@ -83,7 +85,8 @@ public class OpenButtonTest extends GuiTest {
         DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
         FXTestUtils.invokeAndWait(() -> victim.dispatch(output), 1);
         verify(output).getDestination();
-        exists(FontAwesomeIcon.FOLDER_OPEN_ALT.toString());
+        Text icon = find(".glyph-icon");
+        assertEquals(FontAwesomeIcon.FOLDER_OPEN_ALT.characterToString(), icon.getText());
     }
 
     @Test(expected = IllegalArgumentException.class)

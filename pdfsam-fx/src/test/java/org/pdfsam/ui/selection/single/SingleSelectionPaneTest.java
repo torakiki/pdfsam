@@ -45,6 +45,7 @@ import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.mockito.ArgumentCaptor;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
@@ -60,7 +61,6 @@ import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.io.ChangedSelectedPdfVersionEvent;
 import org.sejda.eventstudio.Listener;
 
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.SeparatorMenuItem;
@@ -106,7 +106,7 @@ public class SingleSelectionPaneTest extends GuiTest {
         eventStudio().add(ShowPdfDescriptorRequest.class, listener);
         typePathAndValidate();
         rightClick(".validable-container-field");
-        click(FontAwesomeIcon.INFO.toString());
+        click(DefaultI18nContext.getInstance().i18n("Document properties"));
         sleep(500);
         assertTrue(listener.isHit());
     }
@@ -123,7 +123,7 @@ public class SingleSelectionPaneTest extends GuiTest {
         eventStudio().add(SetDestinationRequest.class, listener, MODULE);
         typePathAndValidate();
         rightClick(".validable-container-field");
-        click(FontAwesomeIcon.FILE_PDF_ALT.toString());
+        click(DefaultI18nContext.getInstance().i18n("Set destination"));
         assertTrue(listener.isHit());
     }
 
@@ -140,7 +140,7 @@ public class SingleSelectionPaneTest extends GuiTest {
         eventStudio().add(OpenFileRequest.class, listener);
         typePathAndValidate();
         rightClick(".validable-container-field");
-        click(FontAwesomeIcon.FILE_ALT.toString());
+        click(DefaultI18nContext.getInstance().i18n("Open"));
         assertTrue(listener.isHit());
     }
 
@@ -157,7 +157,7 @@ public class SingleSelectionPaneTest extends GuiTest {
         eventStudio().add(OpenFileRequest.class, listener);
         typePathAndValidate();
         rightClick(".validable-container-field");
-        click(FontAwesomeIcon.FOLDER_OPEN_ALT.toString());
+        click(DefaultI18nContext.getInstance().i18n("Open Folder"));
         assertTrue(listener.isHit());
     }
 

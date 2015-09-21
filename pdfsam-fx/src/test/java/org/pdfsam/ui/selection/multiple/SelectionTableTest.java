@@ -46,6 +46,7 @@ import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.mockito.ArgumentCaptor;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
@@ -171,7 +172,7 @@ public class SelectionTableTest extends GuiTest {
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.ENCRYPTED);
         }, 2);
         click(PdfDescriptorLoadingStatus.ENCRYPTED.getIcon().toString());
-        type("pwd").click("Unlock");
+        type("pwd").click(DefaultI18nContext.getInstance().i18n("Unlock"));
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
         assertEquals("pwd", data.get("victiminput.password.0"));
@@ -292,7 +293,7 @@ public class SelectionTableTest extends GuiTest {
         Optional<SelectionTableRowData> item = victim.getItems().stream()
                 .filter(i -> "temp.pdf".equals(i.getFileName())).findFirst();
         rightClick("temp.pdf");
-        click(FontAwesomeIcon.COPY.toString());
+        click(DefaultI18nContext.getInstance().i18n("Duplicate"));
         FXTestUtils.invokeAndWait(() -> {
             eventStudio().broadcast(new ClearSelectionTableEvent(), MODULE);
         }, 2);
@@ -303,7 +304,7 @@ public class SelectionTableTest extends GuiTest {
     public void duplicate() throws Exception {
         populate();
         rightClick("temp.pdf");
-        click(FontAwesomeIcon.COPY.toString());
+        click(DefaultI18nContext.getInstance().i18n("Duplicate"));
         SelectionTable victim = find("#victim");
         assertEquals(2, victim.getItems().stream().filter(i -> "temp.pdf".equals(i.getFileName())).count());
     }
@@ -324,7 +325,7 @@ public class SelectionTableTest extends GuiTest {
         populate();
         rightClick("temp.pdf");
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 0);
-        click(FontAwesomeIcon.ANGLE_DOWN.toString());
+        click(DefaultI18nContext.getInstance().i18n("Move Down"));
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 1);
     }
 
@@ -334,7 +335,7 @@ public class SelectionTableTest extends GuiTest {
         rightClick("temp.pdf");
         SelectionTable victim = find("#victim");
         assertEquals(0, victim.getSelectionModel().getSelectedIndex());
-        click(FontAwesomeIcon.ANGLE_DOUBLE_DOWN.toString());
+        click(DefaultI18nContext.getInstance().i18n("Move to Bottom"));
         assertEquals(3, victim.getSelectionModel().getSelectedIndex());
     }
 
@@ -343,7 +344,7 @@ public class SelectionTableTest extends GuiTest {
         populate();
         rightClick("temp3.pdf");
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 2);
-        click(FontAwesomeIcon.ANGLE_UP.toString());
+        click(DefaultI18nContext.getInstance().i18n("Move Up"));
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 1);
     }
 
@@ -352,7 +353,7 @@ public class SelectionTableTest extends GuiTest {
         populate();
         rightClick("temp3.pdf");
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 2);
-        click(FontAwesomeIcon.ANGLE_DOUBLE_UP.toString());
+        click(DefaultI18nContext.getInstance().i18n("Move to Top"));
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 0);
     }
 
@@ -370,7 +371,7 @@ public class SelectionTableTest extends GuiTest {
             }
         };
         eventStudio().add(SetDestinationRequest.class, notFallbackListener, MODULE);
-        click(FontAwesomeIcon.FILE_PDF_ALT.toString());
+        click(DefaultI18nContext.getInstance().i18n("Set destination"));
         assertTrue(listener.isHit());
         assertTrue(notFallbackListener.isHit());
     }
@@ -381,7 +382,7 @@ public class SelectionTableTest extends GuiTest {
         eventStudio().add(OpenFileRequest.class, listener);
         populate();
         rightClick("temp3.pdf");
-        click(FontAwesomeIcon.FILE_ALT.toString());
+        click(DefaultI18nContext.getInstance().i18n("Open"));
         assertTrue(listener.isHit());
     }
 
@@ -391,7 +392,7 @@ public class SelectionTableTest extends GuiTest {
         eventStudio().add(OpenFileRequest.class, listener);
         populate();
         rightClick("temp3.pdf");
-        click(FontAwesomeIcon.FOLDER_OPEN_ALT.toString());
+        click(DefaultI18nContext.getInstance().i18n("Open Folder"));
         assertTrue(listener.isHit());
     }
 
@@ -401,7 +402,7 @@ public class SelectionTableTest extends GuiTest {
         eventStudio().add(ShowPdfDescriptorRequest.class, listener);
         populate();
         rightClick("temp3.pdf");
-        click(FontAwesomeIcon.INFO.toString());
+        click(DefaultI18nContext.getInstance().i18n("Document properties"));
         verify(listener, timeout(2000)).onEvent(any());
     }
 
@@ -439,7 +440,7 @@ public class SelectionTableTest extends GuiTest {
         Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequestEvent.class, listener);
         click(PdfDescriptorLoadingStatus.ENCRYPTED.getIcon().toString());
-        type("pwd").click("Unlock");
+        type("pwd").click(DefaultI18nContext.getInstance().i18n("Unlock"));
         verify(listener, times(2)).onEvent(any());
     }
 
