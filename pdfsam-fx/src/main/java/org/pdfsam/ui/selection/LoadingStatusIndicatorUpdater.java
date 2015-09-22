@@ -18,13 +18,18 @@
  */
 package org.pdfsam.ui.selection;
 
+import static java.util.Objects.nonNull;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 
+import de.jensd.fx.glyphs.GlyphIcons;
+import de.jensd.fx.glyphs.GlyphsDude;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Labeled;
 import javafx.scene.control.Tooltip;
 
@@ -44,16 +49,18 @@ public class LoadingStatusIndicatorUpdater implements Consumer<PdfDescriptorLoad
     }
 
     public void accept(PdfDescriptorLoadingStatus t) {
-        indicator.setText(textValueFor(t));
+
+        GlyphIcons icon = Optional.ofNullable(t).map(PdfDescriptorLoadingStatus::getIcon).orElse(null);
+        if (nonNull(icon)) {
+            GlyphsDude.setIcon(indicator, icon, ContentDisplay.CENTER);
+        } else {
+            indicator.setGraphic(null);
+        }
         if (t != null && isNotBlank(t.getDescription())) {
             indicator.setTooltip(new Tooltip(t.getDescription()));
         } else {
             indicator.setTooltip(null);
         }
 
-    }
-
-    public static String textValueFor(PdfDescriptorLoadingStatus item) {
-        return (item != null && item.getIcon() != null) ? item.getIcon().toString() : "";
     }
 }
