@@ -6,8 +6,7 @@ Prerequisites
 
 Build
 ===========
-* move to the pdfsam-parent module with `cd pdfsam-parent`
-* run one of the following commands:  
+* run one of the following commands from the project root:  
 **Build and install the jars in the local repository executing all the unit test:**   
 `mvn clean install`    
 **Build and install the jars in the local repository executing quick unit test:**   
@@ -18,6 +17,5 @@ Build
 Run
 ===========
 Once you built the artifact and they are locally installed you can run PDFsam following the steps  
-* from `pdfsam-parent` move to the project root with `cd ..`
 * move to the pdfsam-community module with `cd pdfsam-community`
 * run it with `mvn exec:java`
