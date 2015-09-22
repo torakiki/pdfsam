@@ -21,9 +21,10 @@
 		<target>System.err</target>
 	</appender>
 
-	<logger name="org.sejda" level="DEBUG" />
-	<logger name="org.sejda.eventstudio" level="INFO" />
-	<logger name="org.pdfsam" level="DEBUG" />
+	<logger name="org.sejda" level="INFO" />
+	<logger name="org.sejda.eventstudio" level="WARN" />
+	<logger name="org.sejda.sambox" level="INFO" />
+	<logger name="org.pdfsam" level="INFO" />
 	<logger name="org.hibernate" level="WARN" />
 	<logger name="org.springframework" level="WARN" />
 
