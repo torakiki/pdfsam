@@ -236,14 +236,14 @@ public class SingleSelectionPaneTest extends GuiTest {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
         }, 2);
-        exists("Loading...");
+        exists(DefaultI18nContext.getInstance().i18n("Loading..."));
     }
 
     @Test
     public void loadedDetails() throws Exception {
         SingleSelectionPane victim = find("#victim-selection-pane");
         moveToLoadedState(victim);
-        exists("Pages: 0, PDF Version: ");
+        exists(DefaultI18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}", "0", ""));
     }
 
     @Test
@@ -303,14 +303,14 @@ public class SingleSelectionPaneTest extends GuiTest {
     public void decryptedDetails() throws Exception {
         SingleSelectionPane victim = find("#victim-selection-pane");
         moveToLoadedWithDecryption(victim);
-        exists("Pages: 0, PDF Version: ");
+        exists(DefaultI18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}", "0", ""));
     }
 
     @Test
     public void loadedDetailsSpecialChars() throws Exception {
         SingleSelectionPane victim = find("#victim-selection-pane");
         moveToLoadedStateWithSpecialChars(victim);
-        exists("Pages: 0, PDF Version: ");
+        exists(DefaultI18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}", "0", ""));
     }
 
     @Test
@@ -350,7 +350,7 @@ public class SingleSelectionPaneTest extends GuiTest {
         }, 2);
 
         click(PdfDescriptorLoadingStatus.ENCRYPTED.getIcon().toString());
-        type("pwd").click("Unlock");
+        type("pwd").click(DefaultI18nContext.getInstance().i18n("Unlock"));
         verify(listener, times(2)).onEvent(any());
     }
 
