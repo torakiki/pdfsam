@@ -32,6 +32,7 @@ import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.HitTestListener;
+import org.pdfsam.ui.commons.RemoveSelectedEvent;
 import org.pdfsam.ui.selection.multiple.SelectionTableToolbar.ClearButton;
 import org.pdfsam.ui.selection.multiple.SelectionTableToolbar.MoveDownButton;
 import org.pdfsam.ui.selection.multiple.SelectionTableToolbar.MoveUpButton;

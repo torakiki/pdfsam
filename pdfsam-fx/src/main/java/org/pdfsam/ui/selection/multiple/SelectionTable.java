@@ -44,6 +44,7 @@ import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.commons.OpenFileRequest;
+import org.pdfsam.ui.commons.RemoveSelectedEvent;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.pdfsam.ui.selection.PasswordFieldPopup;
 import org.pdfsam.ui.selection.ShowPasswordFieldPopupRequest;

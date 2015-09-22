@@ -52,6 +52,7 @@ import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.HitTestListener;
 import org.pdfsam.ui.commons.OpenFileRequest;
+import org.pdfsam.ui.commons.RemoveSelectedEvent;
 import org.pdfsam.ui.commons.SetDestinationRequest;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.pdfsam.ui.commons.ShowStageRequest;

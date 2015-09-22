@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.selection.multiple;
+package org.pdfsam.ui.commons;
 
 /**
  * Notifies that the selected rows should be removed
@@ -24,6 +24,6 @@ package org.pdfsam.ui.selection.multiple;
  * @author Andrea Vacondio
  * 
  */
-class RemoveSelectedEvent {
+public class RemoveSelectedEvent {
     // nothing
 }

@@ -29,6 +29,7 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.io.FileType;
+import org.pdfsam.ui.commons.RemoveSelectedEvent;
 import org.pdfsam.ui.io.FileChoosers;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper;
 import org.pdfsam.ui.module.ModuleOwnedButton;
