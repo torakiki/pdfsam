@@ -30,7 +30,7 @@ import org.sejda.model.output.StreamTaskOutput;
 import org.sejda.model.output.TaskOutputDispatcher;
 
 import de.jensd.fx.glyphs.GlyphsDude;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
 
@@ -55,13 +55,13 @@ class OpenButton extends Button implements TaskOutputDispatcher {
 
     public void dispatch(FileTaskOutput output) {
         destination = output.getDestination();
-        setGraphic(GlyphsDude.createIcon(FontAwesomeIcon.FILE_ALT));
+        setGraphic(GlyphsDude.createIcon(MaterialDesignIcon.FILE_PDF_BOX, "1.4em"));
         setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Open the generated document")));
     }
 
     public void dispatch(DirectoryTaskOutput output) {
         destination = output.getDestination();
-        setGraphic(GlyphsDude.createIcon(FontAwesomeIcon.FOLDER_OPEN_ALT));
+        setGraphic(GlyphsDude.createIcon(MaterialDesignIcon.FOLDER_OUTLINE, "1.4em"));
         setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Open the destination directory")));
     }
 

@@ -56,8 +56,10 @@ import org.sejda.eventstudio.annotation.EventStation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import de.jensd.fx.glyphs.GlyphIcons;
 import de.jensd.fx.glyphs.GlyphsDude;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
+import de.jensd.fx.glyphs.materialicons.MaterialIcon;
 import javafx.application.Platform;
 import javafx.collections.ListChangeListener.Change;
 import javafx.collections.ObservableList;
@@ -126,44 +128,46 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     private void initContextMenu(boolean canDuplicateItems) {
         MenuItem infoItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Document properties"),
-                FontAwesomeIcon.INFO);
+                MaterialDesignIcon.INFORMATION_OUTLINE);
         infoItem.setOnAction(e -> Platform.runLater(() -> eventStudio().broadcast(
                 new ShowPdfDescriptorRequest(getSelectionModel().getSelectedItem()))));
 
         MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set destination"),
-                FontAwesomeIcon.FILE_PDF_ALT);
+                MaterialIcon.FLIGHT_LAND);
         setDestinationItem.setOnAction(e -> eventStudio()
                 .broadcast(requestDestination(getSelectionModel().getSelectedItem().getFile(), getOwnerModule()),
                         getOwnerModule()));
 
         MenuItem removeSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Remove"),
-                FontAwesomeIcon.MINUS_SQUARE_ALT);
+                MaterialDesignIcon.MINUS);
         removeSelected.setOnAction(e -> eventStudio().broadcast(new RemoveSelectedEvent(), getOwnerModule()));
 
         MenuItem moveTopSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Move to Top"),
-                FontAwesomeIcon.ANGLE_DOUBLE_UP);
+                MaterialDesignIcon.CHEVRON_DOUBLE_UP);
         moveTopSelected
                 .setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.TOP), getOwnerModule()));
 
-        MenuItem moveUpSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Move Up"), FontAwesomeIcon.ANGLE_UP);
+        MenuItem moveUpSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Move Up"),
+                MaterialDesignIcon.CHEVRON_UP);
         moveUpSelected.setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.UP), getOwnerModule()));
 
         MenuItem moveDownSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Move Down"),
-                FontAwesomeIcon.ANGLE_DOWN);
+                MaterialDesignIcon.CHEVRON_DOWN);
         moveDownSelected.setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.DOWN),
                 getOwnerModule()));
 
         MenuItem moveBottomSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Move to Bottom"),
-                FontAwesomeIcon.ANGLE_DOUBLE_DOWN);
+                MaterialDesignIcon.CHEVRON_DOUBLE_DOWN);
         moveBottomSelected.setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.BOTTOM),
                 getOwnerModule()));
 
-        MenuItem openFileItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open"), FontAwesomeIcon.FILE_ALT);
+        MenuItem openFileItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open"),
+                MaterialDesignIcon.FILE_PDF_BOX);
         openFileItem.setOnAction(e -> eventStudio().broadcast(
                 new OpenFileRequest(getSelectionModel().getSelectedItem().getFile())));
 
         MenuItem openFolderItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open Folder"),
-                FontAwesomeIcon.FOLDER_OPEN_ALT);
+                MaterialDesignIcon.FOLDER_OUTLINE);
         openFolderItem.setOnAction(e -> eventStudio().broadcast(
                 new OpenFileRequest(getSelectionModel().getSelectedItem().getFile().getParentFile())));
 
@@ -196,7 +200,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
         if (canDuplicateItems) {
             MenuItem duplicateItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Duplicate"),
-                    FontAwesomeIcon.COPY);
+                    MaterialDesignIcon.CONTENT_COPY);
             duplicateItem.setOnAction(e -> eventStudio().broadcast(new DuplicateSelectedEvent(), getOwnerModule()));
 
             duplicateItem.setAccelerator(new KeyCodeCombination(KeyCode.DIGIT2, KeyCombination.ALT_DOWN));
@@ -209,9 +213,9 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         setContextMenu(context);
     }
 
-    private MenuItem createMenuItem(String text, FontAwesomeIcon icon) {
+    private MenuItem createMenuItem(String text, GlyphIcons icon) {
         MenuItem item = new MenuItem(text);
-        GlyphsDude.setIcon(item, icon);
+        GlyphsDude.setIcon(item, icon, "1.1em");
         item.setDisable(true);
         return item;
     }

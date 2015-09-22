@@ -29,6 +29,7 @@ import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 
 import javafx.scene.control.Label;
+import javafx.scene.text.Text;
 
 /**
  * @author Andrea Vacondio
@@ -50,14 +51,16 @@ public class LoadingStatusIndicatorUpdaterTest {
     @Test
     public void textAndTooltip() {
         victim.accept(PdfDescriptorLoadingStatus.ENCRYPTED);
-        assertEquals(PdfDescriptorLoadingStatus.ENCRYPTED.getIcon().toString(), labeled.getText());
+        assertEquals(PdfDescriptorLoadingStatus.ENCRYPTED.getIcon().characterToString(),
+                ((Text) labeled.getGraphic()).getText());
         assertNotNull(labeled.getTooltip());
     }
 
     @Test
     public void textAndNoTooltip() {
         victim.accept(PdfDescriptorLoadingStatus.LOADING);
-        assertEquals(PdfDescriptorLoadingStatus.LOADING.getIcon().toString(), labeled.getText());
+        assertEquals(PdfDescriptorLoadingStatus.LOADING.getIcon().characterToString(),
+                ((Text) labeled.getGraphic()).getText());
         assertNull(labeled.getTooltip());
     }
 
@@ -69,19 +72,21 @@ public class LoadingStatusIndicatorUpdaterTest {
     }
 
     @Test
-    public void nullTextValueFor() {
-        assertEquals("", LoadingStatusIndicatorUpdater.textValueFor(null));
+    public void nullState() {
+        victim.accept(null);
+        assertNull(labeled.getGraphic());
     }
 
     @Test
-    public void nullIconTextValueFor() {
-        assertEquals("", LoadingStatusIndicatorUpdater.textValueFor(PdfDescriptorLoadingStatus.INITIAL));
+    public void nullIcon() {
+        victim.accept(PdfDescriptorLoadingStatus.INITIAL);
+        assertNull(labeled.getGraphic());
     }
 
     @Test
-    public void notNullIconTextValueFor() {
-        assertEquals(PdfDescriptorLoadingStatus.REQUESTED.getIcon().toString(),
-                LoadingStatusIndicatorUpdater.textValueFor(PdfDescriptorLoadingStatus.REQUESTED));
+    public void notNullIcon() {
+        victim.accept(PdfDescriptorLoadingStatus.REQUESTED);
+        assertNotNull(labeled.getGraphic());
     }
 
 }

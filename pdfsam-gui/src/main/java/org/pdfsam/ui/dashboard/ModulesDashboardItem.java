@@ -26,7 +26,7 @@ import org.pdfsam.ui.dashboard.modules.ModulesDashboardPane;
 import org.springframework.context.annotation.Bean;
 
 import de.jensd.fx.glyphs.GlyphsDude;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
@@ -58,7 +58,7 @@ class ModulesDashboardItem implements DashboardItem {
     }
 
     public Node graphic() {
-        return GlyphsDude.createIcon(FontAwesomeIcon.PUZZLE_PIECE, "26.0");
+        return GlyphsDude.createIcon(MaterialDesignIcon.VIEW_MODULE, "26.0");
     }
 
     public int priority() {

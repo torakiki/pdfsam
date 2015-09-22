@@ -61,6 +61,5 @@ public class LoadingStatusIndicatorUpdater implements Consumer<PdfDescriptorLoad
         } else {
             indicator.setTooltip(null);
         }
-
     }
 }

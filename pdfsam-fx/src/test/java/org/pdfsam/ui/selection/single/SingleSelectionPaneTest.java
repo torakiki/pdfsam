@@ -333,7 +333,7 @@ public class SingleSelectionPaneTest extends GuiTest {
         }, 2);
         Listener<ShowStageRequest> listener = mock(Listener.class);
         eventStudio().add(ShowStageRequest.class, listener, "LogStage");
-        click(PdfDescriptorLoadingStatus.WITH_ERRORS.getIcon().toString());
+        click(".glyph-icon");
         verify(listener).onEvent(any());
     }
 
@@ -349,7 +349,7 @@ public class SingleSelectionPaneTest extends GuiTest {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.ENCRYPTED);
         }, 2);
 
-        click(PdfDescriptorLoadingStatus.ENCRYPTED.getIcon().toString());
+        click(".glyph-icon");
         type("pwd").click(DefaultI18nContext.getInstance().i18n("Unlock"));
         verify(listener, times(2)).onEvent(any());
     }

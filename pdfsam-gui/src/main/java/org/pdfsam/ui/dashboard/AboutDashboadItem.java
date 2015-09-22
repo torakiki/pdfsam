@@ -25,7 +25,7 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.dashboard.about.AboutDashboardPane;
 
 import de.jensd.fx.glyphs.GlyphsDude;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
@@ -58,7 +58,7 @@ class AboutDashboadItem implements DashboardItem {
     }
 
     public Node graphic() {
-        return GlyphsDude.createIcon(FontAwesomeIcon.INFO_CIRCLE, "26.0");
+        return GlyphsDude.createIcon(MaterialDesignIcon.INFORMATION, "26.0");
     }
 
     public int priority() {

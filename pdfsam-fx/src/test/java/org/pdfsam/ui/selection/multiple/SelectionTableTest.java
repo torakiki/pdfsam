@@ -59,9 +59,10 @@ import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
 import org.pdfsam.ui.selection.multiple.move.MoveType;
 import org.sejda.eventstudio.Listener;
 
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import javafx.scene.Parent;
 import javafx.scene.input.KeyCode;
+import javafx.scene.text.Text;
 
 /**
  * @author Andrea Vacondio
@@ -77,9 +78,9 @@ public class SelectionTableTest extends GuiTest {
 
     @Override
     protected Parent getRootNode() {
-        SelectionTable victim = new SelectionTable(MODULE, true, new SelectionTableColumn<?>[] {
-                new LoadingColumn(MODULE), FileColumn.NAME, LongColumn.SIZE, IntColumn.PAGES, LongColumn.LAST_MODIFIED,
-                StringColumn.PAGE_SELECTION });
+        SelectionTable victim = new SelectionTable(MODULE, true,
+                new SelectionTableColumn<?>[] { new LoadingColumn(MODULE), FileColumn.NAME, LongColumn.SIZE,
+                        IntColumn.PAGES, LongColumn.LAST_MODIFIED, StringColumn.PAGE_SELECTION });
         victim.setId("victim");
         return victim;
     }
@@ -170,8 +171,8 @@ public class SelectionTableTest extends GuiTest {
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.ENCRYPTED);
-        }, 2);
-        click(PdfDescriptorLoadingStatus.ENCRYPTED.getIcon().toString());
+        } , 2);
+        click(".glyph-icon");
         type("pwd").click(DefaultI18nContext.getInstance().i18n("Unlock"));
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
@@ -226,7 +227,7 @@ public class SelectionTableTest extends GuiTest {
         assertEquals(1, victim.getSelectionModel().getSelectedIndices().size());
         FXTestUtils.invokeAndWait(() -> {
             eventStudio().broadcast(new ClearSelectionTableEvent(), MODULE);
-        }, 2);
+        } , 2);
         assertTrue(victim.getSelectionModel().getSelectedIndices().isEmpty());
     }
 
@@ -252,7 +253,7 @@ public class SelectionTableTest extends GuiTest {
     public void removeByContextMenu() throws Exception {
         populate();
         rightClick("temp.pdf");
-        click(FontAwesomeIcon.MINUS_SQUARE_ALT.toString());
+        click(MaterialDesignIcon.MINUS.toString());
         SelectionTable victim = find("#victim");
         assertEquals(3, victim.getItems().size());
         assertEquals(1, victim.getSelectionModel().getSelectedIndices().size());
@@ -266,7 +267,7 @@ public class SelectionTableTest extends GuiTest {
         click("temp.pdf").press(KeyCode.CONTROL).click("temp3.pdf").release(KeyCode.CONTROL);
         FXTestUtils.invokeAndWait(() -> {
             eventStudio().broadcast(new RemoveSelectedEvent(), MODULE);
-        }, 2);
+        } , 2);
         SelectionTable victim = find("#victim");
         assertEquals(2, victim.getItems().size());
         assertEquals(1, victim.getSelectionModel().getSelectedIndices().size());
@@ -282,7 +283,7 @@ public class SelectionTableTest extends GuiTest {
         click("temp.pdf");
         FXTestUtils.invokeAndWait(() -> {
             eventStudio().broadcast(new RemoveSelectedEvent(), MODULE);
-        }, 2);
+        } , 2);
         assertTrue(item.get().isInvalid());
     }
 
@@ -296,7 +297,7 @@ public class SelectionTableTest extends GuiTest {
         click(DefaultI18nContext.getInstance().i18n("Duplicate"));
         FXTestUtils.invokeAndWait(() -> {
             eventStudio().broadcast(new ClearSelectionTableEvent(), MODULE);
-        }, 2);
+        } , 2);
         assertTrue(item.get().isInvalid());
     }
 
@@ -316,7 +317,7 @@ public class SelectionTableTest extends GuiTest {
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 0);
         FXTestUtils.invokeAndWait(() -> {
             eventStudio().broadcast(new MoveSelectedEvent(MoveType.DOWN), MODULE);
-        }, 2);
+        } , 2);
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 1);
     }
 
@@ -410,9 +411,11 @@ public class SelectionTableTest extends GuiTest {
     public void iconsAreShown() throws Exception {
         SelectionTableRowData firstItem = populate();
         FXTestUtils.invokeAndWait(() -> firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED), 2);
-        exists(PdfDescriptorLoadingStatus.REQUESTED.getIcon().toString());
+        Text icon = find(".glyph-icon");
+        assertEquals(PdfDescriptorLoadingStatus.REQUESTED.getIcon().characterToString(), icon.getText());
         FXTestUtils.invokeAndWait(() -> firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING), 2);
-        exists(PdfDescriptorLoadingStatus.LOADING.getIcon().toString());
+        icon = find(".glyph-icon");
+        assertEquals(PdfDescriptorLoadingStatus.LOADING.getIcon().characterToString(), icon.getText());
     }
 
     @Test
@@ -422,10 +425,10 @@ public class SelectionTableTest extends GuiTest {
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.WITH_ERRORS);
-        }, 2);
+        } , 2);
         Listener<ShowStageRequest> listener = mock(Listener.class);
         eventStudio().add(ShowStageRequest.class, listener, "LogStage");
-        click(PdfDescriptorLoadingStatus.WITH_ERRORS.getIcon().toString());
+        click(".glyph-icon");
         verify(listener).onEvent(any());
     }
 
@@ -436,10 +439,10 @@ public class SelectionTableTest extends GuiTest {
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.ENCRYPTED);
-        }, 2);
+        } , 2);
         Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequestEvent.class, listener);
-        click(PdfDescriptorLoadingStatus.ENCRYPTED.getIcon().toString());
+        click(".glyph-icon");
         type("pwd").click(DefaultI18nContext.getInstance().i18n("Unlock"));
         verify(listener, times(2)).onEvent(any());
     }
@@ -448,9 +451,11 @@ public class SelectionTableTest extends GuiTest {
     public void logEventOnClick() throws Exception {
         SelectionTableRowData firstItem = populate();
         FXTestUtils.invokeAndWait(() -> firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED), 2);
-        exists(PdfDescriptorLoadingStatus.REQUESTED.getIcon().toString());
+        Text icon = find(".glyph-icon");
+        assertEquals(PdfDescriptorLoadingStatus.REQUESTED.getIcon().characterToString(), icon.getText());
         FXTestUtils.invokeAndWait(() -> firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING), 2);
-        exists(PdfDescriptorLoadingStatus.LOADING.getIcon().toString());
+        icon = find(".glyph-icon");
+        assertEquals(PdfDescriptorLoadingStatus.LOADING.getIcon().characterToString(), icon.getText());
     }
 
     private SelectionTableRowData populate() throws Exception {
@@ -466,7 +471,7 @@ public class SelectionTableTest extends GuiTest {
         loadEvent.add(new SelectionTableRowData(file4));
         FXTestUtils.invokeAndWait(() -> {
             eventStudio().broadcast(loadEvent, MODULE);
-        }, 2);
+        } , 2);
         return ret;
     }
 }

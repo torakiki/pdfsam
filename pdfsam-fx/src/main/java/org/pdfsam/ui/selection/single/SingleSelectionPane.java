@@ -53,8 +53,10 @@ import org.pdfsam.ui.selection.PasswordFieldPopup;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.workspace.RestorableView;
 
+import de.jensd.fx.glyphs.GlyphIcons;
 import de.jensd.fx.glyphs.GlyphsDude;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
+import de.jensd.fx.glyphs.materialicons.MaterialIcon;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -239,21 +241,22 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
 
     private void initContextMenu() {
         MenuItem infoItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Document properties"),
-                FontAwesomeIcon.INFO);
+                MaterialDesignIcon.INFORMATION_OUTLINE);
         infoItem.setOnAction(e -> Platform.runLater(() -> eventStudio().broadcast(
                 new ShowPdfDescriptorRequest(descriptor))));
 
         MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set destination"),
-                FontAwesomeIcon.FILE_PDF_ALT);
+                MaterialIcon.FLIGHT_LAND);
         setDestinationItem.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.ALT_DOWN));
         setDestinationItem.setOnAction(e -> eventStudio().broadcast(
                 requestDestination(descriptor.getFile(), getOwnerModule()), getOwnerModule()));
 
-        MenuItem openFileItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open"), FontAwesomeIcon.FILE_ALT);
+        MenuItem openFileItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open"),
+                MaterialDesignIcon.FILE_PDF_BOX);
         openFileItem.setOnAction(e -> eventStudio().broadcast(new OpenFileRequest(descriptor.getFile())));
 
         MenuItem openFolderItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open Folder"),
-                FontAwesomeIcon.FOLDER_OPEN_ALT);
+                MaterialDesignIcon.FOLDER_OUTLINE);
         openFolderItem.setOnAction(e -> eventStudio().broadcast(
                 new OpenFileRequest(descriptor.getFile().getParentFile())));
 
@@ -261,9 +264,9 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
                 new ContextMenu(setDestinationItem, new SeparatorMenuItem(), infoItem, openFileItem, openFolderItem));
     }
 
-    private MenuItem createMenuItem(String text, FontAwesomeIcon icon) {
+    private MenuItem createMenuItem(String text, GlyphIcons icon) {
         MenuItem item = new MenuItem(text);
-        GlyphsDude.setIcon(item, icon);
+        GlyphsDude.setIcon(item, icon, "1.1em");
         item.setDisable(true);
         return item;
     }

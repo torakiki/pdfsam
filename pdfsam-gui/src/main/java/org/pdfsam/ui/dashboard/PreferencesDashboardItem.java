@@ -25,7 +25,7 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.dashboard.preference.PreferencePane;
 
 import de.jensd.fx.glyphs.GlyphsDude;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
@@ -56,7 +56,7 @@ class PreferencesDashboardItem implements DashboardItem {
     }
 
     public Node graphic() {
-        return GlyphsDude.createIcon(FontAwesomeIcon.WRENCH, "26.0");
+        return GlyphsDude.createIcon(MaterialDesignIcon.SETTINGS, "26.0");
     }
 
     public int priority() {
