@@ -6,11 +6,11 @@ Official SCM repository for PDFsam version 3
 
 Version
 -------------------
-Currently developing v3.0.0 first milestone
+Currently developing v3.0.0 second milestone
 
 What
 -------------------
-PDFsam is a desktop application written in Java originally designed to split and merge Pdf documents. It currently performs many tasks beside split and merge like rotation, mix, encryption etc.
+PDFsam is a desktop application written in Java originally designed to split and merge Pdf documents. It currently performs many tasks beside split and merge like rotation, mix, etc.
 
 Where
 -------------------

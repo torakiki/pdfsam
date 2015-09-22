@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<description>PDFsam App</description>
 	<url>http://www.pdfsam.org</url>
@@ -13,6 +14,20 @@
 	<artifactId>pdfsam-community</artifactId>
 	<packaging>jar</packaging>
 	<name>PDFsam Community Edition application</name>
+
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/torakiki/pdfsam/issues</url>
+	</issueManagement>
+
+	<licenses>
+		<license>
+			<name>GNU Affero General Public License</name>
+			<url>http://www.gnu.org/licenses/agpl-3.0.html</url>
+			<distribution>repo</distribution>
+			<comments>AGPLv3</comments>
+		</license>
+	</licenses>
 
 	<profiles>
 		<profile>
