@@ -6,7 +6,7 @@
 		<groupId>org.pdfsam</groupId>
 		<artifactId>pdfsam-parent</artifactId>
 		<version>3.0.0.M2-SNAPSHOT</version>
-		<relativePath>../pdfsam-parent/pom.xml</relativePath>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<artifactId>pdfsam-i18n</artifactId>
@@ -45,7 +45,7 @@
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
+				<!--This plugin's configuration is used to store Eclipse m2e settings
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>

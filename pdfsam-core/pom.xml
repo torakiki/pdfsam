@@ -6,13 +6,13 @@
 		<groupId>org.pdfsam</groupId>
 		<artifactId>pdfsam-parent</artifactId>
 		<version>3.0.0.M2-SNAPSHOT</version>
-		<relativePath>../pdfsam-parent/pom.xml</relativePath>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<artifactId>pdfsam-core</artifactId>
 	<packaging>jar</packaging>
 	<name>PDFsam core</name>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -42,7 +42,7 @@
 		<dependency>
 			<groupId>de.jensd</groupId>
 			<artifactId>fontawesomefx</artifactId>
-		</dependency>		
+		</dependency>
 		<dependency>
 			<groupId>org.sejda</groupId>
 			<artifactId>sejda-model</artifactId>
