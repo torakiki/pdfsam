@@ -1,18 +1,30 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com)
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-02-05 19:02+0100\n"
+"POT-Creation-Date: 2015-09-22 20:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-08-03 07:52+0000\n"
-"X-Generator: Launchpad (build 17656)\n"
 "Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Dashboard"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Overwrite"
+msgstr ""
 
 #, java-format
 msgid "Installing theme {0}."
@@ -74,9 +86,6 @@ msgid "Select the workspace file to save"
 msgstr ""
 
 msgid "Select the workspace to load"
-msgstr ""
-
-msgid "Dashboard"
 msgstr ""
 
 msgid "Document details"
@@ -220,8 +229,7 @@ msgstr ""
 msgid "Select a workspace"
 msgstr ""
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr ""
 
 msgid "Select a directory"
@@ -349,12 +357,6 @@ msgstr ""
 msgid "Do you want to overwrite it?"
 msgstr ""
 
-msgid "Overwrite"
-msgstr ""
-
-msgid "Cancel"
-msgstr ""
-
 msgid "Unable to find the latest available version."
 msgstr ""
 
@@ -442,8 +444,7 @@ msgstr ""
 msgid "Number of pages"
 msgstr ""
 
-msgid ""
-"Splits the pdf every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the pdf every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 
 msgid "Invalid number of pages"
@@ -467,16 +468,16 @@ msgstr ""
 msgid "Invalid split size"
 msgstr ""
 
-msgid "Kilobytes"
-msgstr ""
-
-msgid "KB"
-msgstr ""
-
 msgid "Megabytes"
 msgstr ""
 
 msgid "MB"
+msgstr ""
+
+msgid "Kilobytes"
+msgstr ""
+
+msgid "KB"
 msgstr ""
 
 msgid "Alternate Mix"
@@ -522,6 +523,61 @@ msgstr ""
 msgid "The selected PDF document is invalid"
 msgstr ""
 
+msgid "Completed"
+msgstr ""
+
+msgid "Failed"
+msgstr ""
+
+msgid "Running"
+msgstr ""
+
+msgid "Requested"
+msgstr ""
+
+msgid "Select a file"
+msgstr ""
+
+msgid "Unlock"
+msgstr ""
+
+msgid "Duplicate"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
+msgid "Move to Bottom"
+msgstr ""
+
+msgid "Move Up"
+msgstr ""
+
+msgid "Move to Top"
+msgstr ""
+
+msgid "Set destination"
+msgstr ""
+
+msgid "Open"
+msgstr ""
+
+msgid "Open Folder"
+msgstr ""
+
+msgid "Document properties"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+#, java-format
+msgid "Pages: {0}, PDF Version: {1}"
+msgstr ""
+
 msgid "Open the generated document"
 msgstr ""
 
@@ -531,18 +587,6 @@ msgstr ""
 msgid "Ready"
 msgstr ""
 
-msgid "Running"
-msgstr ""
-
-msgid "Requested"
-msgstr ""
-
-msgid "Completed"
-msgstr ""
-
-msgid "Failed"
-msgstr ""
-
 msgid "Run"
 msgstr ""
 
@@ -550,10 +594,7 @@ msgid "Overwrite if already exists"
 msgstr ""
 
 msgid ""
-"Tick the box if you want to overwrite the outpuf files if they already exist."
-msgstr ""
-
-msgid "Select a file"
+"Tick the box if you want to overwrite the output files if they already exist."
 msgstr ""
 
 msgid "The selected file must exist. "
@@ -614,9 +655,6 @@ msgid "Right click to add these keywords."
 msgstr ""
 
 msgid "Enter the user password"
-msgstr ""
-
-msgid "Unlock"
 msgstr ""
 
 msgid ""
@@ -688,55 +726,24 @@ msgstr ""
 msgid "Drag and drop PDF files here"
 msgstr ""
 
-msgid "Document properties"
-msgstr ""
-
-msgid "Set destination"
-msgstr ""
-
-msgid "Remove"
-msgstr ""
-
-msgid "Move to Top"
-msgstr ""
-
-msgid "Move Up"
-msgstr ""
-
-msgid "Move Down"
-msgstr ""
-
-msgid "Move to Bottom"
-msgstr ""
-
-msgid "Open"
-msgstr ""
-
-msgid "Open Folder"
-msgstr ""
-
-msgid "Duplicate"
-msgstr ""
-
-#, java-format
-msgid "Pages: {0}, PDF Version: {1}"
-msgstr ""
-
-msgid "Loading..."
-msgstr ""
-
-msgid "Merge form fields"
-msgstr ""
-
-msgid "Some of the selected PDF documents contain forms, merge them"
-msgstr ""
-
 msgid "Add a blank page if page number is odd"
 msgstr ""
 
 msgid ""
 "Adds a blank page after each merged document if the document has an odd "
 "number of pages"
+msgstr ""
+
+msgid "Merge fields"
+msgstr ""
+
+msgid "Merge renaming existing fields"
+msgstr ""
+
+msgid "Discard forms"
+msgstr ""
+
+msgid "Interactive forms (AcroForms):"
 msgstr ""
 
 msgid "Retain bookmarks"
