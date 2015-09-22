@@ -41,7 +41,7 @@ class MergeParametersBuilder extends AbstractPdfOutputParametersBuilder<MergePar
     private Set<PdfMergeInput> inputs = new NullSafeSet<>();
     private OutlinePolicy outlinePolicy = OutlinePolicy.RETAIN;
     private boolean blankIfOdd;
-    private boolean copyFormFields;
+    private AcroFormPolicy formsPolicy = AcroFormPolicy.MERGE;
     private FileTaskOutput output;
 
     void addInput(PdfMergeInput input) {
@@ -60,8 +60,8 @@ class MergeParametersBuilder extends AbstractPdfOutputParametersBuilder<MergePar
         this.blankIfOdd = blankIfOdd;
     }
 
-    void copyFormFields(boolean copyFormFields) {
-        this.copyFormFields = copyFormFields;
+    void acroFormsPolicy(AcroFormPolicy formsPolicy) {
+        this.formsPolicy = formsPolicy;
     }
 
     public void output(FileTaskOutput output) {
@@ -76,10 +76,7 @@ class MergeParametersBuilder extends AbstractPdfOutputParametersBuilder<MergePar
         inputs.forEach(params::addInput);
         params.setOutlinePolicy(outlinePolicy);
         params.setBlankPageIfOdd(blankIfOdd);
-        // TODO make a proper combo for this
-        if (copyFormFields) {
-            params.setAcroFormPolicy(AcroFormPolicy.MERGE);
-        }
+        params.setAcroFormPolicy(formsPolicy);
         params.setOutput(output);
         return params;
     }
