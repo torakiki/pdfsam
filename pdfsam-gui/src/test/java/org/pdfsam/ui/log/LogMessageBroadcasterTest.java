@@ -52,7 +52,7 @@ import ch.qos.logback.classic.spi.ILoggingEvent;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration
-public class TextAreaAppenderTest {
+public class LogMessageBroadcasterTest {
 
     @Rule
     public InitializeJavaFxThreadRule initJavaFx = new InitializeJavaFxThreadRule();
@@ -64,8 +64,8 @@ public class TextAreaAppenderTest {
     @Lazy
     static class Config {
         @Bean
-        public TextAreaAppender victim() {
-            return new TextAreaAppender(view(), encoder());
+        public LogMessageBroadcaster victim() {
+            return new LogMessageBroadcaster(view(), encoder());
         }
 
         @Bean
@@ -83,7 +83,7 @@ public class TextAreaAppenderTest {
 
     @Test
     public void infoLog() throws IOException {
-        TextAreaAppender victim = applicationContext.getBean(TextAreaAppender.class);
+        LogMessageBroadcaster victim = applicationContext.getBean(LogMessageBroadcaster.class);
         PatternLayoutEncoder encoder = applicationContext.getBean(PatternLayoutEncoder.class);
         ILoggingEvent event = mock(ILoggingEvent.class);
         when(event.getLevel()).thenReturn(Level.INFO);
@@ -96,7 +96,7 @@ public class TextAreaAppenderTest {
 
     @Test
     public void eventOnError() {
-        TextAreaAppender victim = applicationContext.getBean(TextAreaAppender.class);
+        LogMessageBroadcaster victim = applicationContext.getBean(LogMessageBroadcaster.class);
         ILoggingEvent event = mock(ILoggingEvent.class);
         when(event.getLevel()).thenReturn(Level.ERROR);
         when(event.getFormattedMessage()).thenReturn("myMessage");

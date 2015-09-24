@@ -19,7 +19,7 @@
 package org.pdfsam.configuration;
 
 import org.pdfsam.ui.log.LogPane;
-import org.pdfsam.ui.log.TextAreaAppender;
+import org.pdfsam.ui.log.LogMessageBroadcaster;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
@@ -36,7 +36,7 @@ import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
  */
 @Configuration
 @ComponentScan(basePackages = { "org.pdfsam.gui.log" }, includeFilters = @Filter(type = FilterType.ASSIGNABLE_TYPE, value = {
-        LogPane.class, TextAreaAppender.class }))
+        LogPane.class, LogMessageBroadcaster.class }))
 public class LoggerConfig {
 
     @Bean

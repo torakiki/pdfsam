@@ -54,7 +54,7 @@ public class LogStage extends Stage {
     public static final String LOGSTAGE_EVENTSTATION = "LogStage";
 
     @Inject
-    public LogStage(LogPane logPane, Collection<Image> logos, StylesConfig styles) {
+    public LogStage(LogPane logPane, LogListView logView, Collection<Image> logos, StylesConfig styles) {
         BorderPane containerPane = new BorderPane();
         containerPane.getStyleClass().addAll(Style.CONTAINER.css());
         containerPane.setCenter(logPane);
@@ -67,6 +67,13 @@ public class LogStage extends Stage {
         getIcons().addAll(logos);
         setMaximized(true);
         eventStudio().addAnnotatedListeners(this);
+        showingProperty().addListener((v, oldVal, newVal) -> {
+            if (newVal) {
+                eventStudio().add(logView, LOGSTAGE_EVENTSTATION);
+            } else {
+                eventStudio().remove(logView, LOGSTAGE_EVENTSTATION);
+            }
+        });
     }
 
     @EventListener

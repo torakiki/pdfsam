@@ -77,11 +77,12 @@ public class PdfsamApp extends Application {
     @Override
     public void init() {
         STOPWATCH.start();
+        UserContext userContext = new DefaultUserContext();
+        System.setProperty(EventStudio.MAX_QUEUE_SIZE_PROP, Integer.toString(userContext.getNumberOfLogRows()));
         LOG.info("Starting PDFsam");
         notifyPreloader(new ProgressNotification(0));
         System.setProperty(Sejda.UNETHICAL_READ_PROPERTY_NAME, "true");
-        System.setProperty(EventStudio.MAX_QUEUE_SIZE_PROP, "20");
-        UserContext userContext = initUserContext();
+        cleanUserContextIfNeeded(userContext);
         String localeString = userContext.getLocale();
         if (isNotBlank(localeString)) {
             eventStudio().broadcast(new SetLocaleEvent(localeString));
@@ -100,13 +101,11 @@ public class PdfsamApp extends Application {
         Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger());
     }
 
-    private UserContext initUserContext() {
-        UserContext userContext = new DefaultUserContext();
+    private void cleanUserContextIfNeeded(UserContext userContext) {
         if (getParameters().getRaw().contains("-clean")) {
             userContext.clear();
             LOG.info("Cleared user preferences");
         }
-        return userContext;
     }
 
     @Override
@@ -183,6 +182,7 @@ public class PdfsamApp extends Application {
         ApplicationContextHolder.getContext().getBean(LogStage.class);
 
     }
+
     private void initOverwriteDialogController(Stage primaryStage) {
         OverwriteConfirmationDialog overwriteDialog = ApplicationContextHolder.getContext()
                 .getBean(OverwriteConfirmationDialog.class);

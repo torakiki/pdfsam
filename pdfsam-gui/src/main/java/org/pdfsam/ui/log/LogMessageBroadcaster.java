@@ -24,8 +24,6 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.util.Scanner;
 
-import javafx.application.Platform;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -39,6 +37,7 @@ import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.AppenderBase;
+import javafx.application.Platform;
 
 /**
  * A Logback appender appending log messages to a {@link LogListView}.
@@ -47,14 +46,12 @@ import ch.qos.logback.core.AppenderBase;
  * 
  */
 @Named
-public class TextAreaAppender extends AppenderBase<ILoggingEvent> {
+public class LogMessageBroadcaster extends AppenderBase<ILoggingEvent> {
 
-    private LogListView logListView;
     private PatternLayoutEncoder encoder;
 
     @Inject
-    TextAreaAppender(LogListView logListView, PatternLayoutEncoder encoder) {
-        this.logListView = logListView;
+    LogMessageBroadcaster(PatternLayoutEncoder encoder) {
         this.encoder = encoder;
         LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
         encoder.setContext(loggerContext);
@@ -80,7 +77,9 @@ public class TextAreaAppender extends AppenderBase<ILoggingEvent> {
             Platform.runLater(() -> {
                 try (Scanner scanner = new Scanner(message)) {
                     while (scanner.hasNextLine()) {
-                        logListView.appendLog(LogLevel.toLogLevel(event.getLevel().toInt()), scanner.nextLine());
+                        eventStudio().broadcast(
+                                new LogMessage(scanner.nextLine(), LogLevel.toLogLevel(event.getLevel().toInt())),
+                                "LogStage");
                     }
                 }
                 if (event.getLevel().isGreaterOrEqual(Level.ERROR)) {
