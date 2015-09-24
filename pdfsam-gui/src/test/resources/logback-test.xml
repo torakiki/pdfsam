@@ -8,7 +8,7 @@
 	</appender>
 
 	<logger name="org.sejda" level="DEBUG" />
-	<logger name="org.sejda.eventstudio" level="DEBUG" />
+	<logger name="org.sejda.eventstudio" level="WARN" />
 	<logger name="org.pdfsam" level="TRACE" />
 	<logger name="org.hibernate" level="WARN" />
 	<logger name="org.springframework" level="WARN" />
