@@ -18,12 +18,12 @@
  */
 package org.pdfsam.ui.banner;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
-
-import javax.inject.Inject;
-import javax.inject.Named;
 
 /**
  * Container for the banner buttons
@@ -40,7 +40,7 @@ class BannerButtons extends HBox {
         getStyleClass().addAll("pdfsam-container", "pdfsam-banner-buttons");
         StackPane logs = new StackPane(logButton, errorNotification);
         StackPane.setAlignment(errorNotification, Pos.BOTTOM_LEFT);
-        getChildren().addAll(logs, dashboardButton, menuButton);
+        getChildren().addAll(dashboardButton, logs, menuButton);
     }
 
 }
