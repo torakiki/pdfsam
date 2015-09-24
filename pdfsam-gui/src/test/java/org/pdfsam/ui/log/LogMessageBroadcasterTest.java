@@ -33,7 +33,7 @@ import javax.inject.Inject;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.pdfsam.test.InitializeJavaFxThreadRule;
+import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.eventstudio.Listener;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -54,18 +54,18 @@ import ch.qos.logback.classic.spi.ILoggingEvent;
 @ContextConfiguration
 public class LogMessageBroadcasterTest {
 
-    @Rule
-    public InitializeJavaFxThreadRule initJavaFx = new InitializeJavaFxThreadRule();
 
     @Inject
     private ApplicationContext applicationContext;
+    @Rule
+    public ClearEventStudioRule clearStudio = new ClearEventStudioRule("LogStage");
 
     @Configuration
     @Lazy
     static class Config {
         @Bean
         public LogMessageBroadcaster victim() {
-            return new LogMessageBroadcaster(view(), encoder());
+            return new LogMessageBroadcaster(encoder());
         }
 
         @Bean
@@ -74,15 +74,12 @@ public class LogMessageBroadcasterTest {
             encoder.setPattern("%msg");
             return spy(encoder);
         }
-
-        @Bean
-        public LogListView view() {
-            return mock(LogListView.class);
-        }
     }
 
     @Test
     public void infoLog() throws IOException {
+        Listener<LogMessage> listener = mock(Listener.class);
+        eventStudio().add(LogMessage.class, listener, "LogStage");
         LogMessageBroadcaster victim = applicationContext.getBean(LogMessageBroadcaster.class);
         PatternLayoutEncoder encoder = applicationContext.getBean(PatternLayoutEncoder.class);
         ILoggingEvent event = mock(ILoggingEvent.class);
@@ -90,8 +87,7 @@ public class LogMessageBroadcasterTest {
         when(event.getFormattedMessage()).thenReturn("myMessage");
         victim.append(event);
         verify(encoder).doEncode(event);
-        LogListView view = applicationContext.getBean(LogListView.class);
-        verify(view, timeout(1000).times(1)).appendLog(LogLevel.INFO, "myMessage");
+        verify(listener).onEvent(any(LogMessage.class));
     }
 
     @Test

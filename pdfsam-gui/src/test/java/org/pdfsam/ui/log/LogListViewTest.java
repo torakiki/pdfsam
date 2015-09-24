@@ -51,8 +51,8 @@ public class LogListViewTest {
     public void append() {
         when(userContext.getNumberOfLogRows()).thenReturn(200);
         LogListView victim = new LogListView(userContext);
-        victim.appendLog(LogLevel.WARN, "testMessage");
-        victim.appendLog(LogLevel.INFO, "anotherTestMessage");
+        victim.onEvent(new LogMessage("testMessage", LogLevel.WARN));
+        victim.onEvent(new LogMessage("anotherTestMessage", LogLevel.INFO));
         assertEquals(2, victim.getItems().size());
         assertEquals("testMessage", victim.getItems().get(0).getMessage());
         assertEquals("anotherTestMessage", victim.getItems().get(1).getMessage());
@@ -62,10 +62,10 @@ public class LogListViewTest {
     public void appendSizeConstraint() {
         when(userContext.getNumberOfLogRows()).thenReturn(2);
         LogListView victim = new LogListView(userContext);
-        victim.appendLog(LogLevel.WARN, "testMessage");
-        victim.appendLog(LogLevel.INFO, "anotherTestMessage");
-        victim.appendLog(LogLevel.INFO, "anotherTestMessage2");
-        victim.appendLog(LogLevel.INFO, "anotherTestMessage3");
+        victim.onEvent(new LogMessage("testMessage", LogLevel.WARN));
+        victim.onEvent(new LogMessage("anotherTestMessage", LogLevel.INFO));
+        victim.onEvent(new LogMessage("anotherTestMessage2", LogLevel.INFO));
+        victim.onEvent(new LogMessage("anotherTestMessage3", LogLevel.INFO));
         assertEquals(2, victim.getItems().size());
         assertEquals("anotherTestMessage2", victim.getItems().get(0).getMessage());
         assertEquals("anotherTestMessage3", victim.getItems().get(1).getMessage());
@@ -75,11 +75,11 @@ public class LogListViewTest {
     public void maxNumberOfLogRowsChanged() {
         when(userContext.getNumberOfLogRows()).thenReturn(5);
         LogListView victim = new LogListView(userContext);
-        victim.appendLog(LogLevel.WARN, "testMessage");
-        victim.appendLog(LogLevel.INFO, "anotherTestMessage");
-        victim.appendLog(LogLevel.INFO, "anotherTestMessage2");
-        victim.appendLog(LogLevel.INFO, "anotherTestMessage3");
-        victim.appendLog(LogLevel.INFO, "anotherTestMessage4");
+        victim.onEvent(new LogMessage("testMessage", LogLevel.WARN));
+        victim.onEvent(new LogMessage("anotherTestMessage", LogLevel.INFO));
+        victim.onEvent(new LogMessage("anotherTestMessage2", LogLevel.INFO));
+        victim.onEvent(new LogMessage("anotherTestMessage3", LogLevel.INFO));
+        victim.onEvent(new LogMessage("anotherTestMessage4", LogLevel.INFO));
         assertEquals(5, victim.getItems().size());
         when(userContext.getNumberOfLogRows()).thenReturn(2);
         eventStudio().broadcast(new MaxLogRowsChangedEvent());

@@ -23,8 +23,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import javafx.scene.Parent;
-import javafx.scene.input.Clipboard;
 
 import javax.inject.Inject;
 
@@ -46,6 +44,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import javafx.scene.Parent;
+import javafx.scene.input.Clipboard;
 
 /**
  * @author Andrea Vacondio
@@ -80,8 +81,8 @@ public class LogPaneTest extends GuiTest {
         @Bean
         public LogListView view() {
             LogListView view = new LogListView(context());
-            view.appendLog(LogLevel.INFO, "A message");
-            view.appendLog(LogLevel.ERROR, "An Error message");
+            view.onEvent(new LogMessage("A message", LogLevel.INFO));
+            view.onEvent(new LogMessage("An Error message", LogLevel.ERROR));
             return view;
         }
     }
