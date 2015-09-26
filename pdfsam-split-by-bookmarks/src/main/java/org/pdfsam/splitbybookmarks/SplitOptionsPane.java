@@ -54,8 +54,8 @@ class SplitOptionsPane extends VBox implements TaskParametersBuildStep<SplitByOu
         getStyleClass().addAll(Style.CONTAINER.css());
         levelCombo.setId("bookmarksLevel");
         regexpField.setId("bookmarksRegexp");
-        regexpField.setPromptText(DefaultI18nContext.getInstance().i18n("Regexp the bookmark has to match"));
-        regexpField.setPrefWidth(300);
+        regexpField.setPromptText(DefaultI18nContext.getInstance().i18n("Regular expression the bookmark has to match"));
+        regexpField.setPrefWidth(350);
         getChildren().addAll(
                 createLine(new Label(DefaultI18nContext.getInstance().i18n("Split at this bookmark level:")),
                         levelCombo),

@@ -36,7 +36,6 @@ import org.sejda.model.output.TaskOutputDispatcher;
 import org.sejda.model.parameter.base.AbstractParameters;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Lazy;
 
 /**
  * Controller receiving task execution requests and displaying the dialog if necessary
@@ -45,7 +44,6 @@ import org.springframework.context.annotation.Lazy;
  *
  */
 @Named
-@Lazy
 public class OverwriteDialogController {
     private static final Logger LOG = LoggerFactory.getLogger(OverwriteDialogController.class);
 

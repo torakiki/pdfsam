@@ -18,20 +18,9 @@
  */
 package org.pdfsam.community;
 
-import java.io.IOException;
-
 import org.pdfsam.PdfsamApp;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import com.sun.javafx.application.LauncherImpl;
-
-import javafx.application.Preloader;
-import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+import javafx.application.Application;
 
 /**
  * PDFsam Community Edition App
@@ -39,43 +28,10 @@ import javafx.stage.StageStyle;
  * @author Andrea Vacondio
  *
  */
-public class App extends Preloader {
-    private static final Logger LOG = LoggerFactory.getLogger(App.class);
-    private Stage stage;
-    private CommunityPane pane;
+public class App {
 
     public static void main(String[] args) {
-        LauncherImpl.launchApplication(PdfsamApp.class, App.class, args);
+        Application.launch(PdfsamApp.class, args);
     }
 
-    @Override
-    public void start(Stage stage) {
-        this.stage = stage;
-        this.pane = new CommunityPane();
-        stage.initStyle(StageStyle.TRANSPARENT);
-        PdfsamCommunityConfig config = new PdfsamCommunityConfig();
-        Scene scene = new Scene(pane);
-        scene.getStylesheets().add(this.getClass().getResource("/css/community.css").toExternalForm());
-        stage.setScene(scene);
-        try {
-            HBox logoView = new HBox();
-            logoView.getChildren().addAll(new ImageView(config.logo32()),
-                    new ImageView(this.getClass().getResource("/images/payoff.png").toExternalForm()));
-            stage.getIcons().addAll(config.logo16(), config.logo24(), config.logo48(), config.logo64(), config.logo96(),
-                    config.logo128(), config.logo256());
-
-            stage.setTitle("PDF Split and Merge Community Edition");
-            stage.centerOnScreen();
-            stage.show();
-        } catch (IOException e) {
-            LOG.error("An error occurred during startup", e);
-        }
-    }
-
-    @Override
-    public void handleStateChangeNotification(StateChangeNotification scn) {
-        if (scn.getType() == StateChangeNotification.Type.BEFORE_START) {
-            stage.hide();
-        }
-    }
 }

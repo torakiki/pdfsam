@@ -52,7 +52,7 @@ public class PrefixPane extends HBox implements TaskParametersBuildStep<Multiple
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.HCONTAINER.css());
         VBox.setVgrow(field, Priority.ALWAYS);
-        getChildren().addAll(new Label(DefaultI18nContext.getInstance().i18n("Generated pdf documents name prefix:")),
+        getChildren().addAll(new Label(DefaultI18nContext.getInstance().i18n("Generated PDF documents name prefix:")),
                 field);
     }
 

@@ -20,10 +20,6 @@ package org.pdfsam.community;
 
 import java.io.IOException;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
-import javafx.scene.image.Image;
-
 import javax.inject.Inject;
 
 import org.pdfsam.Pdfsam;
@@ -39,6 +35,10 @@ import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
+import javafx.scene.image.Image;
+
 /**
  * Configuration for PDFsam Community Edition
  * 
@@ -47,7 +47,7 @@ import org.springframework.core.io.Resource;
  */
 @Configuration
 @Profile("COMMUNITY")
-@ComponentScan(basePackages = { "org.pdfsam" }, includeFilters = @Filter(value = PdfsamModule.class))
+@ComponentScan(basePackages = { "org.pdfsam" }, includeFilters = @Filter(value = PdfsamModule.class) )
 public class PdfsamCommunityConfig implements UIConfig {
 
     @Inject
@@ -106,7 +106,7 @@ public class PdfsamCommunityConfig implements UIConfig {
 
     @Bean
     public Pdfsam pdfsam() {
-        return new Pdfsam(PdfsamEdition.COMMUNITY, "PDF Split and Merge Community Edition",
+        return new Pdfsam(PdfsamEdition.COMMUNITY, "PDF Split and Merge Basic Edition",
                 env.getProperty("pdfsam.version"));
     }
 }

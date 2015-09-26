@@ -33,7 +33,6 @@ import org.pdfsam.ui.commons.ShowStageRequest;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
-import org.springframework.context.annotation.Lazy;
 
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -46,7 +45,6 @@ import javafx.stage.Stage;
  * @author Andrea Vacondio
  * 
  */
-@Lazy
 @Named
 public class LogStage extends Stage {
 

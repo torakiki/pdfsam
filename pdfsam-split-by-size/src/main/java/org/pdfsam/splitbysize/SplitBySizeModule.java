@@ -23,13 +23,6 @@ import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.control.TitledPane;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -52,6 +45,13 @@ import org.sejda.model.prefix.Prefix;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.control.TitledPane;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+
 /**
  * Split by size module to let the user split a pdf documents into documents of the given size.
  * 
@@ -72,7 +72,7 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
             .category(ModuleCategory.SPLIT)
             .name(DefaultI18nContext.getInstance().i18n("Split by size"))
             .description(
-                    DefaultI18nContext.getInstance().i18n("Split a pdf document in files of the give size (roughly)."))
+                    DefaultI18nContext.getInstance().i18n("Split a PDF document in files of the given size (roughly)."))
             .priority(ModulePriority.LOW.getPriority()).supportURL("http://www.pdfsam.org/pdf-split-by-size").build();
 
     @Inject

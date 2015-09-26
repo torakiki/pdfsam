@@ -25,9 +25,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.Tooltip;
-
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
 import org.pdfsam.support.validation.Validators;
@@ -35,6 +32,9 @@ import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.model.parameter.SplitByEveryXPagesParameters;
+
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.Tooltip;
 
 /**
  * {@link RadioButton} driving a text field that can accept an integer number.
@@ -53,7 +53,7 @@ public class SplitByEveryRadioButton extends RadioButton implements SplitParamet
         this.field.setEnableInvalidStyle(true);
         this.field.setPromptText(DefaultI18nContext.getInstance().i18n("Number of pages"));
         setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
-                "Splits the pdf every \"n\" pages creating documents of \"n\" pages each")));
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each")));
         this.field.setValidator(Validators.newRegexMatchingString("^(\\d)+$"));
         this.field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Invalid number of pages"));
     }

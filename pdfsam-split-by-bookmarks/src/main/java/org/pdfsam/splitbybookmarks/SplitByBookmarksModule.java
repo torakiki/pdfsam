@@ -23,13 +23,6 @@ import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.control.TitledPane;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -53,8 +46,15 @@ import org.sejda.model.prefix.Prefix;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.control.TitledPane;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+
 /**
- * Merge module to let the user merge together multiple pdf documents
+ * Module to split a given PDF document based on bookmarks levels
  * 
  * @author Andrea Vacondio
  *
@@ -74,7 +74,7 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
             .name(DefaultI18nContext.getInstance().i18n("Split by bookmarks"))
             .description(
                     DefaultI18nContext.getInstance().i18n(
-                            "Split a pdf document at bookmarked pages by specifying a bookmark level."))
+"Split a PDF document at bookmarked pages by specifying a bookmark level."))
             .priority(ModulePriority.DEFAULT.getPriority()).supportURL("http://www.pdfsam.org/pdf-split-by-bookmark")
             .build();
 

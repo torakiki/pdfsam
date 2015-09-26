@@ -45,7 +45,7 @@ class PdfVersionConstrainedCheckBox extends CheckBox implements ModuleOwned {
         requireNotNull(constraint, "PdfVersion cannot be null");
         this.ownerModule = defaultString(ownerModule);
         this.constraint = constraint;
-        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Pdf version required: {0}",
+        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("PDF version required: {0}",
                 Double.toString(this.constraint.getVersionAsDouble()))));
 
         selectedProperty().addListener((o, oldVal, newVal) -> {

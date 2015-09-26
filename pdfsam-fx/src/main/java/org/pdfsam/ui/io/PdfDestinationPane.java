@@ -74,7 +74,7 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned, 
         version = new PdfVersionCombo(ownerModule);
         compress = new PdfVersionConstrainedCheckBox(PdfVersion.VERSION_1_5, ownerModule);
         compress.setText(DefaultI18nContext.getInstance().i18n("Compress output file/files"));
-        HBox versionPane = new HBox(new Label(DefaultI18nContext.getInstance().i18n("Output pdf version:")), version);
+        HBox versionPane = new HBox(new Label(DefaultI18nContext.getInstance().i18n("Output PDF version:")), version);
         versionPane.getStyleClass().addAll(Style.VITEM.css());
         versionPane.getStyleClass().addAll(Style.HCONTAINER.css());
         getChildren().addAll(compress, versionPane);

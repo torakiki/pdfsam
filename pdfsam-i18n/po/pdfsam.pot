@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-09-22 20:05+0200\n"
+"POT-Creation-Date: 2015-09-26 14:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -414,7 +414,7 @@ msgstr ""
 msgid "Split"
 msgstr ""
 
-msgid "Split a pdf document at the given page numbers."
+msgid "Split a PDF document at the given page numbers."
 msgstr ""
 
 msgid "Select or drag and drop the PDF you want to split"
@@ -444,7 +444,7 @@ msgstr ""
 msgid "Number of pages"
 msgstr ""
 
-msgid "Splits the pdf every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 
 msgid "Invalid number of pages"
@@ -453,7 +453,7 @@ msgstr ""
 msgid "Split by size"
 msgstr ""
 
-msgid "Split a pdf document in files of the give size (roughly)."
+msgid "Split a PDF document in files of the given size (roughly)."
 msgstr ""
 
 msgid "Set the size to split at"
@@ -616,7 +616,7 @@ msgstr ""
 msgid "Compress output file/files"
 msgstr ""
 
-msgid "Output pdf version:"
+msgid "Output PDF version:"
 msgstr ""
 
 #, java-format
@@ -627,7 +627,7 @@ msgid "Same as the input document"
 msgstr ""
 
 #, java-format
-msgid "Pdf version required: {0}"
+msgid "PDF version required: {0}"
 msgstr ""
 
 msgid "Select an existing directory"
@@ -636,7 +636,7 @@ msgstr ""
 msgid "The selected output directory is invalid"
 msgstr ""
 
-msgid "Generated pdf documents name prefix:"
+msgid "Generated PDF documents name prefix:"
 msgstr ""
 
 msgid "Prefix for the generated files names"
@@ -758,13 +758,13 @@ msgstr ""
 msgid "Bookmarks handling:"
 msgstr ""
 
-msgid "No pdf document has been selected"
+msgid "No PDF document has been selected"
 msgstr ""
 
 msgid "Merge"
 msgstr ""
 
-msgid "Merge together multiple pdf documents or subsections of them."
+msgid "Merge together multiple PDF documents or subsections of them."
 msgstr ""
 
 msgid "Merge settings"
@@ -823,10 +823,10 @@ msgid "Split by bookmarks"
 msgstr ""
 
 msgid ""
-"Split a pdf document at bookmarked pages by specifying a bookmark level."
+"Split a PDF document at bookmarked pages by specifying a bookmark level."
 msgstr ""
 
-msgid "Regexp the bookmark has to match"
+msgid "Regular expression the bookmark has to match"
 msgstr ""
 
 msgid "Split at this bookmark level:"

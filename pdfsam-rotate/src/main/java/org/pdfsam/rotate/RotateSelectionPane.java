@@ -47,7 +47,7 @@ public class RotateSelectionPane extends MultipleSelectionPane implements
         if (!table().getItems().isEmpty()) {
             table().getItems().stream().map(i -> i.toPdfFileSource()).forEach(builder::addSource);
         } else {
-            onError.accept(DefaultI18nContext.getInstance().i18n("No pdf document has been selected"));
+            onError.accept(DefaultI18nContext.getInstance().i18n("No PDF document has been selected"));
         }
     }
 }

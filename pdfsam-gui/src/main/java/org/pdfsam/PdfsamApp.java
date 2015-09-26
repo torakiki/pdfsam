@@ -22,10 +22,12 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.ui.event.SetActiveModuleRequest.activeteModule;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
+import java.awt.SplashScreen;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Paths;
+import java.util.Optional;
 
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.apache.commons.lang3.time.StopWatch;
@@ -39,9 +41,7 @@ import org.pdfsam.ui.MainPane;
 import org.pdfsam.ui.commons.OpenUrlRequest;
 import org.pdfsam.ui.commons.ShowStageRequest;
 import org.pdfsam.ui.dialog.OverwriteConfirmationDialog;
-import org.pdfsam.ui.dialog.OverwriteDialogController;
 import org.pdfsam.ui.io.SetLatestDirectoryEvent;
-import org.pdfsam.ui.log.LogStage;
 import org.pdfsam.ui.notification.NotificationsContainer;
 import org.pdfsam.update.UpdateCheckRequest;
 import org.sejda.core.Sejda;
@@ -52,7 +52,6 @@ import org.slf4j.LoggerFactory;
 
 import javafx.application.Application;
 import javafx.application.HostServices;
-import javafx.application.Preloader.ProgressNotification;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -71,7 +70,7 @@ import javafx.stage.Stage;
 public class PdfsamApp extends Application {
     private static final Logger LOG = LoggerFactory.getLogger(PdfsamApp.class);
     private static StopWatch STOPWATCH = new StopWatch();
-
+    public static String SPLASH_STATION = "SplashStation";
     private Scene mainScene;
 
     @Override
@@ -80,7 +79,6 @@ public class PdfsamApp extends Application {
         UserContext userContext = new DefaultUserContext();
         System.setProperty(EventStudio.MAX_QUEUE_SIZE_PROP, Integer.toString(userContext.getNumberOfLogRows()));
         LOG.info("Starting PDFsam");
-        notifyPreloader(new ProgressNotification(0));
         System.setProperty(Sejda.UNETHICAL_READ_PROPERTY_NAME, "true");
         cleanUserContextIfNeeded(userContext);
         String localeString = userContext.getLocale();
@@ -97,8 +95,6 @@ public class PdfsamApp extends Application {
                 LOG.warn("Unable to set initial directory, default path is invalid.", e);
             }
         }
-        ApplicationContextHolder.getContext();
-        Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger());
     }
 
     private void cleanUserContextIfNeeded(UserContext userContext) {
@@ -110,13 +106,12 @@ public class PdfsamApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-
+        ApplicationContextHolder.getContext();
+        Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger());
         initScene();
         primaryStage.setScene(mainScene);
         primaryStage.getIcons().addAll(ApplicationContextHolder.getContext().getBeansOfType(Image.class).values());
         primaryStage.setTitle(ApplicationContextHolder.getContext().getBean(Pdfsam.class).name());
-
-        initFXThreadComponents();
         initWindowsStatusController(primaryStage);
         initOverwriteDialogController(primaryStage);
         initActiveModule();
@@ -125,9 +120,14 @@ public class PdfsamApp extends Application {
         requestCheckForUpdateIfNecessary();
         requestLatestNewsPanelDisplay();
         eventStudio().addAnnotatedListeners(this);
+        closeSplash();
         STOPWATCH.stop();
         LOG.info(DefaultI18nContext.getInstance().i18n("Started in {0}",
                 DurationFormatUtils.formatDurationWords(STOPWATCH.getTime(), true, true)));
+    }
+
+    private void closeSplash() {
+        Optional.ofNullable(SplashScreen.getSplashScreen()).ifPresent(SplashScreen::close);
     }
 
     private void initScene() {
@@ -172,15 +172,6 @@ public class PdfsamApp extends Application {
         } else {
             LOG.warn("Unable to open '{}', please copy and paste the url to your browser.", event.getUrl());
         }
-    }
-
-    /**
-     * Init those components that can be initialized only in the java fx thread
-     */
-    private void initFXThreadComponents() {
-        ApplicationContextHolder.getContext().getBean(OverwriteDialogController.class);
-        ApplicationContextHolder.getContext().getBean(LogStage.class);
-
     }
 
     private void initOverwriteDialogController(Stage primaryStage) {

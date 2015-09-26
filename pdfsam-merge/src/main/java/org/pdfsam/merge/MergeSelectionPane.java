@@ -61,7 +61,7 @@ public class MergeSelectionPane extends MultipleSelectionPane implements
             onError.accept(e.getMessage());
         }
         if (!builder.hasInput()) {
-            onError.accept(DefaultI18nContext.getInstance().i18n("No pdf document has been selected"));
+            onError.accept(DefaultI18nContext.getInstance().i18n("No PDF document has been selected"));
         }
 
     }

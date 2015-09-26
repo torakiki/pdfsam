@@ -72,7 +72,7 @@ public class SplitModule extends BaseTaskExecutionModule {
     private PrefixPane prefix = new PrefixPane();
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT)
             .name(DefaultI18nContext.getInstance().i18n("Split"))
-            .description(DefaultI18nContext.getInstance().i18n("Split a pdf document at the given page numbers."))
+            .description(DefaultI18nContext.getInstance().i18n("Split a PDF document at the given page numbers."))
             .priority(ModulePriority.HIGH.getPriority()).supportURL("http://www.pdfsam.org/pdf-split").build();
 
     @Inject
