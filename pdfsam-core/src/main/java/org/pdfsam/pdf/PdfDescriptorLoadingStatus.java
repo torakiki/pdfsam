@@ -45,7 +45,8 @@ public enum PdfDescriptorLoadingStatus {
             "Valid user password provided.")),
     ENCRYPTED(FontAwesomeIcon.LOCK, DefaultI18nContext.getInstance().i18n(
             "This document is encrypted, click to provide a password.")),
-    WITH_ERRORS(FontAwesomeIcon.WARNING, "");
+    WITH_ERRORS(FontAwesomeIcon.WARNING, DefaultI18nContext.getInstance()
+            .i18n("An error has occurred, click for more details."));
 
     static {
         INITIAL.setValidDestinationStatus(REQUESTED, WITH_ERRORS);
