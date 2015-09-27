@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-09-26 14:36+0200\n"
+"POT-Creation-Date: 2015-09-27 19:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -790,6 +790,9 @@ msgid "Valid user password provided."
 msgstr ""
 
 msgid "This document is encrypted, click to provide a password."
+msgstr ""
+
+msgid "An error has occurred, click for more details."
 msgstr ""
 
 msgid "Squared green"
