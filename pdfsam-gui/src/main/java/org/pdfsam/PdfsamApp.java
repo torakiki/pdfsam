@@ -42,6 +42,7 @@ import org.pdfsam.ui.commons.OpenUrlRequest;
 import org.pdfsam.ui.commons.ShowStageRequest;
 import org.pdfsam.ui.dialog.OverwriteConfirmationDialog;
 import org.pdfsam.ui.io.SetLatestDirectoryEvent;
+import org.pdfsam.ui.log.LogMessageBroadcaster;
 import org.pdfsam.ui.notification.NotificationsContainer;
 import org.pdfsam.update.UpdateCheckRequest;
 import org.sejda.core.Sejda;
@@ -70,7 +71,6 @@ import javafx.stage.Stage;
 public class PdfsamApp extends Application {
     private static final Logger LOG = LoggerFactory.getLogger(PdfsamApp.class);
     private static StopWatch STOPWATCH = new StopWatch();
-    public static String SPLASH_STATION = "SplashStation";
     private Scene mainScene;
 
     @Override
@@ -107,6 +107,7 @@ public class PdfsamApp extends Application {
     @Override
     public void start(Stage primaryStage) {
         ApplicationContextHolder.getContext();
+        startLogAppender();
         Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger());
         initScene();
         primaryStage.setScene(mainScene);
@@ -124,6 +125,11 @@ public class PdfsamApp extends Application {
         STOPWATCH.stop();
         LOG.info(DefaultI18nContext.getInstance().i18n("Started in {0}",
                 DurationFormatUtils.formatDurationWords(STOPWATCH.getTime(), true, true)));
+    }
+
+    private void startLogAppender() {
+        LogMessageBroadcaster broadcaster = ApplicationContextHolder.getContext().getBean(LogMessageBroadcaster.class);
+        broadcaster.start();
     }
 
     private void closeSplash() {

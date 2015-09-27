@@ -31,8 +31,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
-import javafx.application.Platform;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -44,6 +42,8 @@ import org.sejda.model.exception.TaskWrongPasswordException;
 import org.sejda.sambox.pdmodel.PDDocument;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javafx.application.Platform;
 
 /**
  * @author Andrea Vacondio
@@ -89,8 +89,8 @@ class SAMBoxPdfLoadService implements PdfLoadService {
                     LOG.error("An error occured loading the document '{}'", current.getFileName(), e);
                     fxMoveStatusTo(current, WITH_ERRORS);
                 }
-                LOG.trace("Loading done for {} with status {}", current.getFileName(), current.loadingStatus()
-                        .getValue());
+                LOG.info("Loading done for {} with status {}", current.getFileName(),
+                        current.loadingStatus().getValue());
             } else {
                 LOG.trace("Skipping invalidated document {}", current.getFileName());
             }

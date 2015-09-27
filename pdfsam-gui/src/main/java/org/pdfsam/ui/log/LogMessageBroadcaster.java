@@ -55,9 +55,9 @@ public class LogMessageBroadcaster extends AppenderBase<ILoggingEvent> {
         this.encoder = encoder;
         LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
         encoder.setContext(loggerContext);
+        setContext(loggerContext);
         encoder.start();
-        start();
-        loggerContext.getLogger(Logger.ROOT_LOGGER_NAME).addAppender(this);
+        ((LoggerContext) this.getContext()).getLogger(Logger.ROOT_LOGGER_NAME).addAppender(this);
     }
 
     @Override
@@ -96,5 +96,4 @@ public class LogMessageBroadcaster extends AppenderBase<ILoggingEvent> {
     public void setEncoder(PatternLayoutEncoder encoder) {
         this.encoder = encoder;
     }
-
 }
