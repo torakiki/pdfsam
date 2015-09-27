@@ -35,38 +35,45 @@
 			<build>
 				<plugins>
 					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>appassembler-maven-plugin</artifactId>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-shade-plugin</artifactId>
 						<executions>
 							<execution>
-								<id>pdfsam-appassembler</id>
 								<phase>package</phase>
 								<goals>
-									<goal>assemble</goal>
+									<goal>shade</goal>
 								</goals>
+								<configuration>
+									<createDependencyReducedPom>false</createDependencyReducedPom>
+									<transformers>
+										<transformer
+											implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+											<mainClass>org.pdfsam.community.App</mainClass>
+											<manifestEntries>
+												<Class-Path>etc/</Class-Path>
+												<SplashScreen-Image>images/community/splash.gif</SplashScreen-Image>
+											</manifestEntries>
+										</transformer>
+									</transformers>
+									<filters>
+										<filter>
+											<artifact>*:*</artifact>
+											<excludes>
+												<exclude>META-INF/*.SF</exclude>
+												<exclude>META-INF/*.DSA</exclude>
+												<exclude>META-INF/*.RSA</exclude>
+												<exclude>META-INF/NOTICE*</exclude>
+												<exclude>META-INF/notice*</exclude>
+												<exclude>META-INF/LICENSE*</exclude>
+												<exclude>META-INF/license*</exclude>
+												<exclude>META-INF/DEPENDENCIES*</exclude>
+												<exclude>license/*</exclude>
+											</excludes>
+										</filter>
+									</filters>
+								</configuration>
 							</execution>
 						</executions>
-						<configuration>
-							<!-- make the lib folder look nicer -->
-							<repositoryLayout>flat</repositoryLayout>
-							<repositoryName>lib</repositoryName>
-							<assembleDirectory>${project.build.directory}/assembled</assembleDirectory>
-							<configurationSourceDirectory>src/main/etc</configurationSourceDirectory>
-							<copyConfigurationDirectory>true</copyConfigurationDirectory>
-							<licenseHeaderFile>src/assembly/HEADER.txt</licenseHeaderFile>
-							<tempDirectory>modules</tempDirectory>
-							<!-- Default JVM memory args -->
-							<extraJvmArguments>-Xmx256M</extraJvmArguments>
-							<binFileExtensions>
-								<unix>.sh</unix>
-							</binFileExtensions>
-							<programs>
-								<program>
-									<mainClass>org.pdfsam.community.App</mainClass>
-									<id>pdfsam</id>
-								</program>
-							</programs>
-						</configuration>
 					</plugin>
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
@@ -85,7 +92,7 @@
 					<plugin>
 						<groupId>com.akathist.maven.plugins.launch4j</groupId>
 						<artifactId>launch4j-maven-plugin</artifactId>
-						<version>1.6</version>
+						<version>1.7.8</version>
 						<executions>
 							<execution>
 								<id>exe-creation</id>
@@ -95,28 +102,22 @@
 								</goals>
 								<configuration>
 									<headerType>gui</headerType>
-									<outfile>${project.build.directory}/assembled/pdfsam.exe</outfile>
-									<jar>lib/${project.build.finalName}.jar</jar>
+									<outfile>${project.build.directory}/pdfsam.exe</outfile>
+									<jar>${project.build.finalName}.jar</jar>
 									<dontWrapJar>true</dontWrapJar>
 									<icon>src/assembly/resources/PDFsam_basic.ico</icon>
-
 									<errTitle>Cannot find Java Runtime Environment</errTitle>
-									<classPath>
-										<mainClass>org.pdfsam.community.App</mainClass>
-										<jarLocation>lib</jarLocation>
-										<preCp>etc</preCp>
-									</classPath>
 									<jre>
 										<minVersion>1.8.0</minVersion>
 									</jre>
 									<versionInfo>
 										<fileVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.0</fileVersion>
 										<txtFileVersion>${project.version}</txtFileVersion>
-										<fileDescription>Starter for PDFsam</fileDescription>
-										<copyright>Andrea Vacondio 2014</copyright>
+										<fileDescription>Starter for PDFsam Basic</fileDescription>
+										<copyright>Andrea Vacondio 2015</copyright>
 										<productVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.0</productVersion>
 										<txtProductVersion>${project.version}</txtProductVersion>
-										<productName>PDF Split And Merge Community Edition</productName>
+										<productName>PDF Split And Merge Basic Edition</productName>
 										<internalName>PDFsam</internalName>
 										<originalFilename>pdfsam.exe</originalFilename>
 									</versionInfo>
@@ -125,6 +126,26 @@
 						</executions>
 					</plugin>
 					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>dependencies-list</id>
+								<phase>package</phase>
+								<goals>
+									<goal>list</goal>
+								</goals>
+								<configuration>
+									<outputFile>
+										${project.build.directory}/assembled/resources/DEPENDENCIES
+									</outputFile>
+									<includeScope>compile</includeScope>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-resources-plugin</artifactId>
 						<executions>
 							<execution>
@@ -145,12 +166,42 @@
 											</includes>
 										</resource>
 										<resource>
-											<directory>src/assembly/resources</directory>
+											<directory>${basedir}/src/main/resources/images/community</directory>
+											<targetPath>${project.build.directory}/assembled/resources</targetPath>
+											<includes>
+												<include>
+													splash.gif
+												</include>
+											</includes>
+										</resource>
+										<resource>
+											<directory>${basedir}/src/assembly/resources</directory>
 											<includes>
 												<include>
 													pdfsam.l4j.ini
 												</include>
 											</includes>
+										</resource>
+										<resource>
+											<directory>${project.build.directory}</directory>
+											<includes>
+												<include>
+													pdfsam.exe
+												</include>
+												<include>
+													${project.build.finalName}.${project.packaging}
+												</include>
+											</includes>
+										</resource>
+										<resource>
+											<targetPath>${project.build.directory}/assembled/bin</targetPath>
+											<directory>${basedir}/src/assembly/resources/bin</directory>
+											<filtering>true</filtering>
+										</resource>
+										<resource>
+											<targetPath>${project.build.directory}/assembled/etc</targetPath>
+											<directory>${basedir}/src/main/etc</directory>
+											<filtering>false</filtering>
 										</resource>
 									</resources>
 								</configuration>
@@ -237,6 +288,12 @@
 			<groupId>org.pdfsam</groupId>
 			<artifactId>pdfsam-gui</artifactId>
 			<version>${project.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>ch.qos.logback</groupId>

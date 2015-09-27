@@ -89,8 +89,7 @@ class SAMBoxPdfLoadService implements PdfLoadService {
                     LOG.error("An error occured loading the document '{}'", current.getFileName(), e);
                     fxMoveStatusTo(current, WITH_ERRORS);
                 }
-                LOG.info("Loading done for {} with status {}", current.getFileName(),
-                        current.loadingStatus().getValue());
+                LOG.info("{} loaded", current.getFileName());
             } else {
                 LOG.trace("Skipping invalidated document {}", current.getFileName());
             }
