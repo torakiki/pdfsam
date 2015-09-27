@@ -37,7 +37,6 @@ import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.AppenderBase;
-import javafx.application.Platform;
 
 /**
  * A Logback appender appending log messages to a {@link LogListView}.
@@ -74,18 +73,16 @@ public class LogMessageBroadcaster extends AppenderBase<ILoggingEvent> {
 
     private void doAppendMessage(String message, ILoggingEvent event) {
         if (StringUtils.isNotBlank(message)) {
-            Platform.runLater(() -> {
-                try (Scanner scanner = new Scanner(message)) {
-                    while (scanner.hasNextLine()) {
-                        eventStudio().broadcast(
-                                new LogMessage(scanner.nextLine(), LogLevel.toLogLevel(event.getLevel().toInt())),
-                                "LogStage");
-                    }
+            try (Scanner scanner = new Scanner(message)) {
+                while (scanner.hasNextLine()) {
+                    eventStudio().broadcast(
+                            new LogMessage(scanner.nextLine(), LogLevel.toLogLevel(event.getLevel().toInt())),
+                            "LogStage");
                 }
-                if (event.getLevel().isGreaterOrEqual(Level.ERROR)) {
-                    eventStudio().broadcast(new ErrorLoggedEvent());
-                }
-            });
+            }
+            if (event.getLevel().isGreaterOrEqual(Level.ERROR)) {
+                eventStudio().broadcast(new ErrorLoggedEvent());
+            }
         }
     }
 

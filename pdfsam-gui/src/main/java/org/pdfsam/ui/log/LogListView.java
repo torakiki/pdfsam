@@ -28,6 +28,7 @@ import org.pdfsam.context.UserContext;
 import org.pdfsam.ui.support.CircularObservableList;
 import org.sejda.eventstudio.Listener;
 
+import javafx.application.Platform;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
@@ -74,8 +75,10 @@ class LogListView extends ListView<LogMessage>implements Listener<LogMessage> {
     }
 
     public void onEvent(LogMessage event) {
-        getItems().add(event);
-        scrollTo(getItems().size() - 1);
+        Platform.runLater(() -> {
+            getItems().add(event);
+            scrollTo(getItems().size() - 1);
+        });
     }
 
 }

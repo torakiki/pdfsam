@@ -34,6 +34,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.test.InitializeJavaFxThreadRule;
 import org.sejda.eventstudio.Listener;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -59,6 +60,8 @@ public class LogMessageBroadcasterTest {
     private ApplicationContext applicationContext;
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule("LogStage");
+    @Rule
+    public InitializeJavaFxThreadRule threadFx = new InitializeJavaFxThreadRule();
 
     @Configuration
     @Lazy
@@ -85,6 +88,7 @@ public class LogMessageBroadcasterTest {
         ILoggingEvent event = mock(ILoggingEvent.class);
         when(event.getLevel()).thenReturn(Level.INFO);
         when(event.getFormattedMessage()).thenReturn("myMessage");
+        victim.start();
         victim.append(event);
         verify(encoder).doEncode(event);
         verify(listener).onEvent(any(LogMessage.class));
@@ -98,6 +102,7 @@ public class LogMessageBroadcasterTest {
         when(event.getFormattedMessage()).thenReturn("myMessage");
         Listener<ErrorLoggedEvent> listener = mock(Listener.class);
         eventStudio().add(ErrorLoggedEvent.class, listener);
+        victim.start();
         victim.append(event);
         verify(listener, timeout(1000).times(1)).onEvent(any());
     }
