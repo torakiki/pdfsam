@@ -18,6 +18,7 @@
  */
 package org.pdfsam;
 
+import static java.util.Objects.nonNull;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.ui.event.SetActiveModuleRequest.activeteModule;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
@@ -38,6 +39,9 @@ import org.pdfsam.context.UserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.ui.MainPane;
+import org.pdfsam.ui.SetLatestStageStatusRequest;
+import org.pdfsam.ui.StageMode;
+import org.pdfsam.ui.StageStatus;
 import org.pdfsam.ui.commons.OpenUrlRequest;
 import org.pdfsam.ui.commons.ShowStageRequest;
 import org.pdfsam.ui.dialog.OverwriteConfirmationDialog;
@@ -53,6 +57,7 @@ import org.slf4j.LoggerFactory;
 
 import javafx.application.Application;
 import javafx.application.HostServices;
+import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -71,7 +76,7 @@ import javafx.stage.Stage;
 public class PdfsamApp extends Application {
     private static final Logger LOG = LoggerFactory.getLogger(PdfsamApp.class);
     private static StopWatch STOPWATCH = new StopWatch();
-    private Scene mainScene;
+    private Stage primaryStage;
 
     @Override
     public void init() {
@@ -106,13 +111,14 @@ public class PdfsamApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        this.primaryStage = primaryStage;
         ApplicationContextHolder.getContext();
         startLogAppender();
         Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger());
-        initScene();
-        primaryStage.setScene(mainScene);
+        primaryStage.setScene(initScene());
         primaryStage.getIcons().addAll(ApplicationContextHolder.getContext().getBeansOfType(Image.class).values());
         primaryStage.setTitle(ApplicationContextHolder.getContext().getBean(Pdfsam.class).name());
+        primaryStage.setOnCloseRequest(e -> Platform.exit());
         initWindowsStatusController(primaryStage);
         initOverwriteDialogController(primaryStage);
         initActiveModule();
@@ -136,7 +142,7 @@ public class PdfsamApp extends Application {
         Optional.ofNullable(SplashScreen.getSplashScreen()).ifPresent(SplashScreen::close);
     }
 
-    private void initScene() {
+    private Scene initScene() {
         MainPane mainPane = ApplicationContextHolder.getContext().getBean(MainPane.class);
 
         NotificationsContainer notifications = ApplicationContextHolder.getContext()
@@ -148,15 +154,22 @@ public class PdfsamApp extends Application {
 
         StylesConfig styles = ApplicationContextHolder.getContext().getBean(StylesConfig.class);
 
-        mainScene = new Scene(main);
+        Scene mainScene = new Scene(main);
         mainScene.getStylesheets().addAll(styles.styles());
         mainScene.getAccelerators().put(new KeyCodeCombination(KeyCode.L, KeyCombination.SHORTCUT_DOWN),
                 () -> eventStudio().broadcast(new ShowStageRequest(), "LogStage"));
+        return mainScene;
     }
 
     @Override
     public void stop() {
         LOG.info(DefaultI18nContext.getInstance().i18n("Closing PDFsam..."));
+        if (nonNull(primaryStage)) {
+            StageStatus status = new StageStatus(this.primaryStage.getX(), this.primaryStage.getY(),
+                    this.primaryStage.getWidth(), this.primaryStage.getHeight());
+            status.setMode(StageMode.valueFor(this.primaryStage));
+            eventStudio().broadcast(new SetLatestStageStatusRequest(status));
+        }
         ApplicationContextHolder.getContext().close();
     }
 

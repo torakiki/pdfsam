@@ -18,15 +18,15 @@
  */
 package org.pdfsam.ui.banner;
 
-import javafx.application.Platform;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SeparatorMenuItem;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.i18n.DefaultI18nContext;
+
+import javafx.application.Platform;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SeparatorMenuItem;
 
 /**
  * Context menu showing app functionalities. This is supposed to be activated by the menu button
