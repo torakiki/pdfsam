@@ -45,49 +45,30 @@ public final class DefaultI18nContext implements I18nContext {
     public static final Set<Locale> SUPPORTED_LOCALES;
     static {
         Set<Locale> supportedLocalesCache = new LinkedHashSet<>();
-        supportedLocalesCache.add(new Locale("ar"));
-        supportedLocalesCache.add(new Locale("ast"));
+        supportedLocalesCache.add(new Locale("eu"));
         supportedLocalesCache.add(new Locale("bs"));
         supportedLocalesCache.add(new Locale("pt", "BR"));
-        supportedLocalesCache.add(new Locale("bg"));
         supportedLocalesCache.add(new Locale("ca"));
+        supportedLocalesCache.add(Locale.SIMPLIFIED_CHINESE);
+        supportedLocalesCache.add(Locale.TRADITIONAL_CHINESE);
         supportedLocalesCache.add(new Locale("co"));
-        supportedLocalesCache.add(new Locale("hr"));
         supportedLocalesCache.add(new Locale("cs"));
         supportedLocalesCache.add(new Locale("da"));
         supportedLocalesCache.add(new Locale("nl"));
         supportedLocalesCache.add(Locale.UK);
-        supportedLocalesCache.add(new Locale("fa"));
-        supportedLocalesCache.add(new Locale("et"));
-        supportedLocalesCache.add(new Locale("fi"));
         supportedLocalesCache.add(Locale.FRENCH);
-        supportedLocalesCache.add(new Locale("gl"));
         supportedLocalesCache.add(Locale.GERMAN);
-        supportedLocalesCache.add(new Locale("el"));
-        supportedLocalesCache.add(new Locale("iw", "IL"));
         supportedLocalesCache.add(new Locale("hu"));
         supportedLocalesCache.add(Locale.JAPANESE);
-        supportedLocalesCache.add(new Locale("id"));
         supportedLocalesCache.add(Locale.ITALIAN);
-        supportedLocalesCache.add(Locale.KOREAN);
-        supportedLocalesCache.add(new Locale("nb"));
-        supportedLocalesCache.add(new Locale("lv"));
-        supportedLocalesCache.add(new Locale("lt"));
-        supportedLocalesCache.add(new Locale("pl"));
         supportedLocalesCache.add(new Locale("pt"));
         supportedLocalesCache.add(new Locale("ro"));
         supportedLocalesCache.add(new Locale("ru"));
-        supportedLocalesCache.add(Locale.SIMPLIFIED_CHINESE);
         supportedLocalesCache.add(new Locale("sk"));
-        supportedLocalesCache.add(new Locale("sl"));
         supportedLocalesCache.add(new Locale("es"));
-        supportedLocalesCache.add(new Locale("sv"));
         supportedLocalesCache.add(new Locale("tr"));
-        supportedLocalesCache.add(new Locale("th"));
         supportedLocalesCache.add(new Locale("uk"));
-        supportedLocalesCache.add(new Locale("vi"));
-        supportedLocalesCache.add(Locale.TRADITIONAL_CHINESE);
-        supportedLocalesCache.add(new Locale("zh", "HK"));
+
         SUPPORTED_LOCALES = Collections.unmodifiableSet(supportedLocalesCache);
     }
 

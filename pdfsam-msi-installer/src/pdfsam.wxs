@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+    <?include $(sys.CURRENTDIR)pdfsamVariables.wxi ?>
+	  <?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
+    <Product Id="$(var.ProductCode)" Name="$(var.ProductName)" Language="$(var.ProductLanguage)" Version="$(var.ProductVersion)" Manufacturer="$(var.ProductManufacturer)" UpgradeCode="$(var.ProductUpgradeCode)">
+        <Package Description="!(loc.ProductDescription)" Comments="!(loc.ProductComments)" InstallerVersion="200" InstallPrivileges="elevated" Compressed="yes" Id="*" />
+        <Media Id="1" Cabinet="$(var.ProductCodeName).cab" EmbedCab="yes" />
+        <Property Id="ARPHELPLINK" Value="!(loc.ProductHelpLink)" />
+        <Property Id="ALLUSERS" Value="1" />
+        <Property Id="ARPPRODUCTICON" Value="pdfsam.ico" />
+		    <Property Id="SKIPTHANKSPAGE" Value="No" Secure="yes" />
+        <Icon Id="pdfsam.ico" SourceFile="$(var.ProductIcon)" />
+
+        <Upgrade Id="$(var.ProductUpgradeCode)">
+            <UpgradeVersion OnlyDetect="yes" Minimum="$(var.ProductVersion)" Property="NEWPRODUCTFOUND" IncludeMinimum="no" />
+            <UpgradeVersion Minimum="$(var.RTMProductVersion)" IncludeMinimum="yes" Maximum="$(var.ProductVersion)" Property="UPGRADEFOUND" IncludeMaximum="no" />
+        </Upgrade>
+
+        <CustomAction Id="PreventDowngrading" Error="!(loc.NewerVersionInstalled)" />
+		    <Property Id="WixShellExecTarget" Value="http://www.pdfsam.org/thanks"/>
+		    <CustomAction Id="LaunchBrowser" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" Execute="immediate" Return="ignore"/>
+		    <CustomAction Id="LaunchApplication" Directory="APPLICATIONFOLDER" ExeCommand='[APPLICATIONFOLDER]pdfsam.exe' Execute="immediate" Return="asyncNoWait"/>
+
+        <InstallExecuteSequence>
+            <Custom Action="PreventDowngrading" After="FindRelatedProducts">NEWPRODUCTFOUND</Custom>
+            <RemoveExistingProducts After="InstallFinalize" />
+			      <Custom Action='LaunchBrowser' Before='InstallFinalize'>NOT Installed AND (SKIPTHANKSPAGE = "No")</Custom>
+        </InstallExecuteSequence>
+
+        <!-- Check some requirements ONLY on "install", but not on change or uninstall. -->
+        <Property Id="JRE_CURRENT_VERSION" Secure="yes">
+            <RegistrySearch Id="JRE_CURRENT_VERSION_REGSEARCH" Root="HKLM" Key="SOFTWARE\JavaSoft\Java Runtime Environment" Name="CurrentVersion" Type="raw" Win64="no" />
+        </Property>
+        <Property Id="JRE64_CURRENT_VERSION" Secure="yes">
+            <RegistrySearch Id="JRE64_CURRENT_VERSION_REGSEARCH" Root="HKLM" Key="SOFTWARE\JavaSoft\Java Runtime Environment" Name="CurrentVersion" Type="raw" Win64="yes" />
+        </Property>
+        <Property Id="JDK_CURRENT_VERSION" Secure="yes">
+            <RegistrySearch Id="JDK_CURRENT_VERSION_REGSEARCH" Root="HKLM" Key="SOFTWARE\JavaSoft\Java Development Kit" Name="CurrentVersion" Type="raw" Win64="no" />
+        </Property>
+        <Property Id="JDK64_CURRENT_VERSION" Secure="yes">
+            <RegistrySearch Id="JDK64_CURRENT_VERSION_REGSEARCH" Root="HKLM" Key="SOFTWARE\JavaSoft\Java Development Kit" Name="CurrentVersion" Type="raw" Win64="yes" />
+        </Property>
+
+        <InstallUISequence>
+            <Custom Action="PreventDowngrading" After="FindRelatedProducts">NEWPRODUCTFOUND</Custom>
+        </InstallUISequence>
+        <!-- RemoveFolderEx requires that we "remember" the path for uninstall. This workaround is only required for the uninstall. -->
+        <Property Id="APPLICATIONFOLDER" Secure="yes">
+            <RegistrySearch Id="APPLICATIONFOLDER_REGSEARCH" Root="HKLM" Key="SOFTWARE\$(var.ProductName)" Name="Path" Type="raw" Win64="no" />
+        </Property>
+		    <!-- NSIS installer for pdfsam writes in the 32bits branch -->
+        <Property Id="PRE_MSI_SETUP_INSTALLLOCATION_ALLUSERS" Secure="yes">
+            <RegistrySearch Id="PRE_MSI_SETUP_INSTALLLOCATION_ALLUSERS_REGSEARCH" Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\pdfsam" Name="InstallLocation" Type="raw" Win64="no" />
+        </Property>
+		    <!-- NSIS installer for pdfsam writes in the 32bits branch -->
+        <Property Id="PRE_MSI_SETUP_INSTALLLOCATION_USER" Secure="yes">
+            <RegistrySearch Id="PRE_MSI_SETUP_INSTALLLOCATION_USER_REGSEARCH" Root="HKCU" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\pdfsam" Name="InstallLocation" Type="raw" Win64="no" />
+        </Property>
+		    <Property Id="LOCALE" Value="English (UK)"/>
+		    <Property Id="LOCALE_CODE" Value="en_GB" Secure="yes"/>
+
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="$(var.PlatformProgramFilesFolder)" Name="PFiles" ComponentGuidGenerationSeed="{d0d99ae7-c01f-41d6-83d5-a1b7ee8b39bf}">
+                <Directory Id="APPLICATIONFOLDER" Name="$(var.ProductName)">
+                    <Component Id="pdfsam_community_current.jar" Guid="*">
+                        <File Id="pdfsam_community_current.jar" Name="pdfsam-community-3.0.0.M2.jar" Source="input\pdfsam-community-3.0.0.M2.jar" KeyPath="yes" />
+                        <RegistryValue Root="HKLM" Key="SOFTWARE\$(var.ProductName)" Name="Version" Type="string" Value="$(var.ProductVersion)" />
+                    </Component>
+                    <Component Id="pdfsam.l4j.ini" Guid="*">
+                        <File Id="pdfsam.l4j.ini" Name="pdfsam.l4j.ini" Source="input\pdfsam.l4j.ini" KeyPath="yes" />
+                    </Component>
+                    <Component Id="pdfsam.exe" Guid="*">
+                        <File Id="pdfsam.exe" Name="pdfsam.exe" Source="input\pdfsam.exe" KeyPath="yes" />
+                    </Component>
+                    <Component Id="LICENSE.txt" Guid="*">
+                        <File Id="LICENSE.txt" Name="LICENSE.txt" Source="input\LICENSE.txt" KeyPath="yes" />
+                    </Component>
+                    <Directory Id="bin" Name="bin">
+                        <Component Id="pdfsam.bat" Guid="*">
+                            <File Id="pdfsam.bat" Name="pdfsam.bat" Source="input\bin\pdfsam.bat" KeyPath="yes" />
+                        </Component>
+                        <Component Id="pdfsam.sh" Guid="*">
+                            <File Id="pdfsam.sh" Name="pdfsam.sh" Source="input\bin\pdfsam.sh" KeyPath="yes" />
+                        </Component>
+                    </Directory>
+                    <Directory Id="resources" Name="resources">
+                        <Component Id="DEPENDENCIES" Guid="*">
+                            <File Id="DEPENDENCIES" Name="DEPENDENCIES" Source="input\resources\DEPENDENCIES" KeyPath="yes" />
+                        </Component>
+                        <Component Id="splash.gif" Guid="*">
+                            <File Id="splash.gif" Name="splash.gif" Source="input\resources\splash.gif" KeyPath="yes" />
+                        </Component>
+                    </Directory>
+                    <Directory Id="etc" Name="etc">
+                        <Component Id="logback.xml" Guid="*">
+                            <File Id="logback.xml" Name="logback.xml" Source="input\etc\logback.xml" KeyPath="yes" />
+                        </Component>
+                    </Directory>
+                </Directory>
+            </Directory>
+            <Directory Id="ProgramMenuFolder">
+                <Directory Id="ProgramMenuDir" Name="!(loc.PDFSplitandMerge)" />
+            </Directory>
+        </Directory>
+        <DirectoryRef Id="APPLICATIONFOLDER">
+            <Component Id="CleanupMainApplicationFolder" Guid="*">
+                <RegistryValue Root="HKLM" Key="SOFTWARE\$(var.ProductName)" Name="Path" Type="string" Value="[APPLICATIONFOLDER]" KeyPath="yes" />
+                <util:RemoveFolderEx On="uninstall" Property="APPLICATIONFOLDER" />
+            </Component>
+        </DirectoryRef>
+    		<DirectoryRef Id="ProgramMenuDir">
+    			<Component Id="StartMenuShortcuts" Guid="*">
+    				<RemoveFolder Id="ProgramMenuDir" On="uninstall" />
+    				<RegistryValue Id="MenuDirInstalled" Root="HKCU" Key="Software\$(var.ProductName)" Type="integer" Value="1" Name="MenuDirInstalled" KeyPath="yes" />
+    				<util:InternetShortcut Id="ShortcutPDFSamWiki" Name="!(loc.PDFSamWiki)" Target="!(loc.PDFSamWikiLink)" Type="url" />
+    				<Shortcut Id="ShortcutPDFSam" Name="!(loc.ProductName)" Target="[APPLICATIONFOLDER]pdfsam.exe" WorkingDirectory="APPLICATIONFOLDER" Advertise="no" Icon="pdfsam.ico" IconIndex="0" />
+    				<Shortcut Id="UninstallProduct" Name="Uninstall" Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]" Directory="ProgramMenuDir" Description="Uninstalls PDFsam" />
+    			</Component>
+    		</DirectoryRef>
+        <Feature Id="MainAppFeature" ConfigurableDirectory="APPLICATIONFOLDER" Title="!(loc.ProductName)" Level="1" Absent="disallow" Display="expand" AllowAdvertise="no" InstallDefault="local" Description="!(loc.ProductNameDescription)">
+            <ComponentRef Id="CleanupMainApplicationFolder" />
+            <ComponentRef Id="pdfsam_community_current.jar" />
+            <ComponentRef Id="pdfsam.l4j.ini" />
+            <ComponentRef Id="pdfsam.exe" />
+            <ComponentRef Id="LICENSE.txt" />
+            <ComponentRef Id="pdfsam.bat" />
+            <ComponentRef Id="pdfsam.sh" />
+            <ComponentRef Id="DEPENDENCIES" />
+            <ComponentRef Id="splash.gif" />
+            <ComponentRef Id="logback.xml" />
+            <ComponentRef Id="StartMenuShortcuts" />
+        </Feature>
+        <WixVariable Id="WixUILicenseRtf" Value="resources\LICENSE.rtf" />
+        <WixVariable Id="WixUIBannerBmp" Value="resources\BannerBmp_Enhanced.bmp" />
+        <WixVariable Id="WixUIDialogBmp" Value="resources\DialogBmp.bmp" />
+        <UI>
+            <UIRef Id="featuresTree" />
+        </UI>
+    </Product>
+</Wix>

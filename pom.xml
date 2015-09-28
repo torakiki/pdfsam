@@ -92,6 +92,7 @@
 		<module>pdfsam-alternate-mix</module>
 		<module>pdfsam-rotate</module>
 		<module>pdfsam-docs</module>
+		<module>pdfsam-msi-installer</module>
 	</modules>
 
 	<developers>

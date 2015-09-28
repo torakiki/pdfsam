@@ -303,29 +303,15 @@ msgstr "Moduli"
 msgid "Log register"
 msgstr "Registro messaggi"
 
-# F:\workspace_pdfsame_enanched\pdfsam-maine\it\pdfsam\panels\LogPanel.java:99
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\LogPanel.java:99
 msgid "Copy"
 msgstr "Copia"
 
-# F:\workspace_pdfsame_enanched\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:282
-# F:\workspace_pdfsame_enanched\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:286
-# F:\workspace_pdfsame_enanched\pdfsam-maine\it\pdfsam\panels\LogPanel.java:105
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:284
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:294
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\LogPanel.java:105
 msgid "Clear"
 msgstr "Pulisci"
 
-# F:\workspace_pdfsame_enanched\pdfsam-maine\it\pdfsam\panels\LogPanel.java:112
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\LogPanel.java:112
 msgid "Select all"
 msgstr "Seleziona tutto"
 
-# F:\workspace_pdfsame_enanched\pdfsam-maine\it\pdfsam\panels\ButtonsBar.java:117
-# F:\workspace_pdfsame_enanched\pdfsam-maine\it\pdfsam\panels\LogPanel.java:121
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\ButtonsBar.java:117
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\LogPanel.java:121
 msgid "Save log"
 msgstr "Salva registro"
 
@@ -583,27 +569,9 @@ msgstr "Completato"
 msgid "Failed"
 msgstr "Operazione non riuscita"
 
-# F:\workspace_pdfsame_enanched\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:532
-# F:\workspace_pdfsame_enanched\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:403
-# F:\workspace_pdfsame_enanched\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:487
-# F:\workspace_pdfsame_enanched\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:311
-# F:\workspace_pdfsame_enanched\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:372
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:542
-# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:462
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:526
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:320
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:410
 msgid "Run"
 msgstr "Esegui"
 
-# F:\workspace_pdfsame_enanched\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:451
-# F:\workspace_pdfsame_enanched\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:405
-# F:\workspace_pdfsame_enanched\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:248
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:452
-# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:315
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:434
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:249
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:279
 msgid "Overwrite if already exists"
 msgstr "Sovrascrivi se già esistente"
 
@@ -626,30 +594,6 @@ msgstr "Le estensioni ammesse sono {0}"
 msgid "Select"
 msgstr "Seleziona"
 
-# F:\workspace_pdfsame_enanched\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:393
-# F:\workspace_pdfsame_enanched\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:420
-# F:\workspace_pdfsame_enanched\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:447
-# F:\workspace_pdfsame_enanched\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:171
-# F:\workspace_pdfsame_enanched\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:323
-# F:\workspace_pdfsame_enanched\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:401
-# F:\workspace_pdfsame_enanched\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:148
-# F:\workspace_pdfsame_enanched\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:175
-# F:\workspace_pdfsame_enanched\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:243
-# F:\workspace_pdfsame_enanched\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:157
-# F:\workspace_pdfsame_enanched\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:285
-# F:\workspace_pdfsame_enanched\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:225
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:394
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:421
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:448
-# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:175
-# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:340
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:430
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:150
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:177
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:244
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:164
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:304
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:233
 msgid "Browse"
 msgstr "Sfoglia"
 
@@ -708,15 +652,9 @@ msgid ""
 msgstr ""
 "Doppio clic per impostare le pagine da unire (es:2 or 5-23 or 2,5-7,12-)"
 
-# F:\workspace_pdfsame_enanched\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:180
-# F:\workspace_pdfsame_enanched\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:172
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:182
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:180
 msgid "Pages"
 msgstr "Pagine"
 
-# F:\workspace_pdfsame_enanched\pdfsam-maine\it\pdfsam\panels\JInfoPanel.java:118
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JInfoPanel.java:118
 msgid "Name"
 msgstr "Nome"
 
@@ -787,31 +725,15 @@ msgstr "Proprietà documento"
 msgid "Set destination"
 msgstr "Imposta destinazione"
 
-# F:\workspace_pdfsame_enanched\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:271
-# F:\workspace_pdfsame_enanched\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:315
-# F:\workspace_pdfsame_enanched\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:258
-# F:\workspace_pdfsame_enanched\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:303
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:273
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:317
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:266
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:311
 msgid "Remove"
 msgstr "Rimuovi"
 
 msgid "Move to Top"
 msgstr "Sposta in Cima"
 
-# F:\workspace_pdfsame_enanched\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:265
-# F:\workspace_pdfsame_enanched\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:312
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:273
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:320
 msgid "Move Up"
 msgstr "Sposta su"
 
-# F:\workspace_pdfsame_enanched\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:274
-# F:\workspace_pdfsame_enanched\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:321
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:282
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:329
 msgid "Move Down"
 msgstr "Sposta giù"
 
@@ -965,40 +887,3 @@ msgstr "Ruota le pagine di più documenti PDF"
 msgid "Rotate settings"
 msgstr "Impostazioni di rotazione"
 
-# F:\workspace_pdfsame_enanched\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:200
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:206
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:223
-#~ msgid "Split even pages"
-#~ msgstr "Dividi pagine pari"
-
-# F:\workspace_pdfsame_enanched\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:203
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:209
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
-#~ msgid "Split odd pages"
-#~ msgstr "Dividi pagine dispari"
-
-#~ msgid "Destination folder"
-#~ msgstr "Cartella di destinazione"
-
-#~ msgid "Would you like to overwrite it?"
-#~ msgstr "Vuoi sovrascriverlo?"
-
-# F:\workspace_pdfsame_enanched\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:328
-# F:\workspace_pdfsame_enanched\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:290
-# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:353
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:318
-#~ msgid "Output document pdf version:"
-#~ msgstr "Versione PDF del documento di destinazione:"
-
-#~ msgid "Unable to get latest available version"
-#~ msgstr "Impossibile identificare l'ultima versione disponibile"
-
-#~ msgid ""
-#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" "
-#~ "is selected"
-#~ msgstr ""
-#~ "Mostra una finestra che chiede all'utente una conferma quando "
-#~ "\"sovrascrivi\" è selezionato."
-
-#~ msgid "Ask for confirmation when overwrite checkbox is selected"
-#~ msgstr "Chiede conferma quando l'opzione di sovrascrittura è selezionata"
