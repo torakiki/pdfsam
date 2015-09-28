@@ -20,7 +20,9 @@ package org.pdfsam.configuration;
 
 import static org.junit.Assert.assertFalse;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.ui.Theme;
 
 /**
@@ -28,6 +30,9 @@ import org.pdfsam.ui.Theme;
  *
  */
 public class StylesConfigTest {
+
+    @Rule
+    public InitializeAndApplyJavaFxThreadRule initFx = new InitializeAndApplyJavaFxThreadRule();
 
     @SuppressWarnings("unused")
     @Test(expected = IllegalArgumentException.class)
