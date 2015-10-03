@@ -1,7 +1,6 @@
-.context-menu {
+.combo-box-popup > .list-view , .context-menu {
  	-fx-background-color: -pdfsam-light-border-color, -pdfsam-tooltipbg-color;
     -fx-background-insets: 0.0, 0.5;
     -fx-background-radius: 0.0;
 	-fx-effect: none;
 }
-
