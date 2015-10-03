@@ -25,7 +25,7 @@ import org.pdfsam.module.Module;
 import org.pdfsam.ui.commons.OpenUrlRequest;
 
 import de.jensd.fx.glyphs.GlyphsDude;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import javafx.beans.property.ReadOnlyBooleanProperty;
 import javafx.beans.property.ReadOnlyBooleanWrapper;
 import javafx.css.PseudoClass;
@@ -69,7 +69,7 @@ class ModulesDashboardTile extends Region {
         inner.getStyleClass().add("dashboard-modules-tile-inner");
         getChildren().add(inner);
         module.descriptor().getSupportURL().ifPresent(url -> {
-            Button playButton = GlyphsDude.createIconButton(FontAwesomeIcon.YOUTUBE_PLAY, "");
+            Button playButton = GlyphsDude.createIconButton(MaterialDesignIcon.HELP_CIRCLE, "");
             playButton.getStyleClass().add("pdfsam-toolbar-button");
             playButton.setOnAction(e -> eventStudio().broadcast(new OpenUrlRequest(url)));
             toolButtons.getChildren().add(playButton);
