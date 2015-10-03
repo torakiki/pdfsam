@@ -18,6 +18,7 @@
  */
 package org.pdfsam.context;
 
+import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
 
 import java.util.prefs.BackingStoreException;
@@ -36,7 +37,12 @@ import org.slf4j.LoggerFactory;
  * 
  */
 public final class DefaultUserContext implements UserContext {
+
     private static final Logger LOG = LoggerFactory.getLogger(DefaultUserContext.class);
+
+    static final String CHECK_FOR_UPDATES_PROP = "org.pdfsam.default.checkforupdate";
+    static final String LOCALE_PROP = "org.pdfsam.default.locale";
+
     private Preferences prefs;
 
     public DefaultUserContext() {
@@ -89,9 +95,14 @@ public final class DefaultUserContext implements UserContext {
     }
 
     @Override
-    public String getNewsPolicy() {
-        return defaultIfBlank(prefs.get(StringUserPreference.NEWS_POLICY.toString(), StringUtils.EMPTY),
-                NewsPolicy.ONCE_A_WEEK.toString());
+    public NewsPolicy getNewsPolicy() {
+        try {
+            return NewsPolicy.valueOf(defaultIfBlank(prefs.get(StringUserPreference.NEWS_POLICY.toString(), EMPTY),
+                    NewsPolicy.ONCE_A_WEEK.toString()));
+        } catch (IllegalArgumentException e) {
+            LOG.warn("Invalid news policy", e);
+            return NewsPolicy.ONCE_A_WEEK;
+        }
     }
 
     @Override
@@ -102,7 +113,8 @@ public final class DefaultUserContext implements UserContext {
 
     @Override
     public boolean isCheckForUpdates() {
-        return prefs.getBoolean(BooleanUserPreference.CHECK_UPDATES.toString(), Boolean.TRUE);
+        return prefs.getBoolean(BooleanUserPreference.CHECK_UPDATES.toString(),
+                Boolean.valueOf(System.getProperty(CHECK_FOR_UPDATES_PROP, Boolean.TRUE.toString())));
     }
 
     @Override
@@ -112,7 +124,7 @@ public final class DefaultUserContext implements UserContext {
 
     @Override
     public String getLocale() {
-        return prefs.get(StringUserPreference.LOCALE.toString(), StringUtils.EMPTY);
+        return prefs.get(StringUserPreference.LOCALE.toString(), System.getProperty(LOCALE_PROP));
     }
 
     @Override

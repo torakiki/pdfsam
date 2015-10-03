@@ -26,8 +26,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javafx.scene.control.Tooltip;
-
 import javax.inject.Inject;
 
 import org.pdfsam.context.BooleanUserPreference;
@@ -50,6 +48,8 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
+
+import javafx.scene.control.Tooltip;
 
 /**
  * Configuration for the PDFsam preferences components
@@ -105,7 +105,7 @@ public class PreferenceConfig {
                 Arrays.stream(NewsPolicy.values()).map(t -> keyValue(t.toString(), t.friendlyName()))
                         .collect(Collectors.toList()));
 
-        newsDisplayPolicyCombo.setValue(keyEmptyValue(userContext.getNewsPolicy()));
+        newsDisplayPolicyCombo.setValue(keyEmptyValue(userContext.getNewsPolicy().toString()));
         return newsDisplayPolicyCombo;
     }
 

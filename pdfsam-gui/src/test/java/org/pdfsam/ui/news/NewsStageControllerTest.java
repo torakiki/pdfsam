@@ -29,9 +29,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.time.Instant;
 import java.util.Collections;
 
-import javafx.scene.Parent;
-import javafx.scene.control.Button;
-
 import javax.inject.Inject;
 
 import org.junit.Rule;
@@ -57,6 +54,9 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
 
 /**
  * @author Andrea Vacondio
@@ -110,8 +110,8 @@ public class NewsStageControllerTest extends GuiTest {
     @Override
     protected Parent getRootNode() {
         Button button = new Button("show");
-        button.setOnAction(e -> eventStudio().broadcast(new ShowStageRequest(),
-                NewsStageController.NEWSSTAGE_EVENTSTATION));
+        button.setOnAction(
+                e -> eventStudio().broadcast(new ShowStageRequest(), NewsStageController.NEWSSTAGE_EVENTSTATION));
         applicationContext.getBean(NewsStage.class);
         applicationContext.getBean(NewsStageController.class);
         return button;
@@ -120,18 +120,18 @@ public class NewsStageControllerTest extends GuiTest {
     @Test
     @DirtiesContext
     public void show() throws Exception {
-        when(userContext.getNewsPolicy()).thenReturn(NewsPolicy.ALWAYS.toString());
+        when(userContext.getNewsPolicy()).thenReturn(NewsPolicy.ALWAYS);
         click("show");
         NewsStage stage = applicationContext.getBean(NewsStage.class);
         verify(stage).loadAndShow(any());
         FXTestUtils.invokeAndWait(() -> {
             stage.hide();
-        }, 2);
+        } , 2);
     }
 
     @Test
     public void dontShow() throws Exception {
-        when(userContext.getNewsPolicy()).thenReturn(NewsPolicy.NEVER.toString());
+        when(userContext.getNewsPolicy()).thenReturn(NewsPolicy.NEVER);
         click("show");
         NewsStage stage = applicationContext.getBean(NewsStage.class);
         verify(stage, never()).loadAndShow(any());

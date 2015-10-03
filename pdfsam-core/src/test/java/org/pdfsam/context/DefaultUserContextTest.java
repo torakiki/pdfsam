@@ -52,6 +52,16 @@ public class DefaultUserContextTest {
     }
 
     @Test
+    public void isCheckUpdatesSystemDefault() {
+        System.setProperty(DefaultUserContext.CHECK_FOR_UPDATES_PROP, "false");
+        assertFalse(victim.isCheckForUpdates());
+        victim.setBooleanPreference(BooleanUserPreference.CHECK_UPDATES, true);
+        assertTrue(victim.isCheckForUpdates());
+        System.clearProperty(DefaultUserContext.CHECK_FOR_UPDATES_PROP);
+
+    }
+
+    @Test
     public void isUseSmartOutput() {
         victim.setBooleanPreference(BooleanUserPreference.SMART_OUTPUT, false);
         assertFalse(victim.isUseSmartOutput());
@@ -93,6 +103,15 @@ public class DefaultUserContextTest {
     }
 
     @Test
+    public void getLocalesystemProp() {
+        System.setProperty(DefaultUserContext.LOCALE_PROP, "es-ES");
+        assertEquals("es-ES", victim.getLocale());
+        victim.setStringPreference(StringUserPreference.LOCALE, "");
+        assertTrue(isBlank(victim.getLocale()));
+        System.clearProperty(DefaultUserContext.CHECK_FOR_UPDATES_PROP);
+    }
+
+    @Test
     public void getThumbIdentifier() {
         victim.setStringPreference(StringUserPreference.THUMBNAILS_IDENTIFIER, "ChuckNorris");
         assertEquals("ChuckNorris", victim.getThumbnailsCreatorIdentifier());
@@ -118,10 +137,16 @@ public class DefaultUserContextTest {
 
     @Test
     public void getNewsPolicy() {
-        victim.setStringPreference(StringUserPreference.NEWS_POLICY, "ChuckNorris");
-        assertEquals("ChuckNorris", victim.getNewsPolicy());
+        victim.setStringPreference(StringUserPreference.NEWS_POLICY, NewsPolicy.ALWAYS.toString());
+        assertEquals(NewsPolicy.ALWAYS, victim.getNewsPolicy());
         victim.setStringPreference(StringUserPreference.NEWS_POLICY, "");
-        assertEquals(NewsPolicy.ONCE_A_WEEK.toString(), victim.getNewsPolicy());
+        assertEquals(NewsPolicy.ONCE_A_WEEK, victim.getNewsPolicy());
+    }
+
+    @Test
+    public void getNewsPolicyFallback() {
+        victim.setStringPreference(StringUserPreference.NEWS_POLICY, "ChuckNorris");
+        assertEquals(NewsPolicy.ONCE_A_WEEK, victim.getNewsPolicy());
     }
 
     @Test

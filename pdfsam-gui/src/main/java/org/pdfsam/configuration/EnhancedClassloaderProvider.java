@@ -54,7 +54,7 @@ final class EnhancedClassloaderProvider {
     private static final Logger LOG = LoggerFactory.getLogger(EnhancedClassloaderProvider.class);
     private static final String MODULES_DIRECTORY = "modules";
 
-    public static final String PDFSAM_MODULES_DIRECTORY = "pdfsam.modules.directory";
+    public static final String PDFSAM_MODULES_DIRECTORY = "org.pdfsam.modules.directory";
 
     private EnhancedClassloaderProvider() {
         // hide

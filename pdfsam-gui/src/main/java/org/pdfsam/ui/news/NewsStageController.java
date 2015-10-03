@@ -24,7 +24,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.UserContext;
-import org.pdfsam.ui.NewsPolicy;
 import org.pdfsam.ui.StageService;
 import org.pdfsam.ui.commons.ShowStageRequest;
 import org.sejda.eventstudio.annotation.EventListener;
@@ -59,8 +58,7 @@ public class NewsStageController {
     @SuppressWarnings("unused")
     @EventListener
     void requestShow(ShowStageRequest event) {
-        if (NewsPolicy.valueOf(userContext.getNewsPolicy()).isTimeToShow(
-                this.service.getLatestNewsStageDisplayInstant())) {
+        if (userContext.getNewsPolicy().isTimeToShow(this.service.getLatestNewsStageDisplayInstant())) {
             LOG.debug("Requesting to display latest PDFsam news");
             NewsStage stage = applicationContext.getBean(NewsStage.class);
             stage.loadAndShow(showing -> service.newsStageDisplayed());

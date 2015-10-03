@@ -87,7 +87,7 @@ public class PreferencePaneTest {
             when(userContext.getDefaultWorkspacePath()).thenReturn("/my/path.xml");
             when(userContext.getThumbnailsSize()).thenReturn(200);
             when(userContext.getStartupModule()).thenReturn("");
-            when(userContext.getNewsPolicy()).thenReturn(NewsPolicy.ONCE_A_DAY.toString());
+            when(userContext.getNewsPolicy()).thenReturn(NewsPolicy.ONCE_A_DAY);
             return userContext;
         }
 
