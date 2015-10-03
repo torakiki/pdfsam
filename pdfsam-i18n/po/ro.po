@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-02-05 19:02+0100\n"
+"POT-Creation-Date: 2015-09-27 19:09+0200\n"
 "PO-Revision-Date: 2015-04-25 01:10+0000\n"
 "Last-Translator: Angelescu <titus0818@yahoo.com>\n"
 "Language-Team: Romanian <ro@li.org>\n"
@@ -15,8 +15,17 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-08-03 07:52+0000\n"
-"X-Generator: Launchpad (build 17656)\n"
+"X-Launchpad-Export-Date: 2015-10-03 09:48+0000\n"
+"X-Generator: Launchpad (build 17783)\n"
+
+msgid "Dashboard"
+msgstr "Tablou de bord"
+
+msgid "Cancel"
+msgstr "Anulează"
+
+msgid "Overwrite"
+msgstr "Suprascrie"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -79,9 +88,6 @@ msgstr "Selectați fișierul spațiu de lucru de salvat"
 
 msgid "Select the workspace to load"
 msgstr "Selectați spațiul de lucru de încărcat"
-
-msgid "Dashboard"
-msgstr "Tablou de bord"
 
 msgid "Document details"
 msgstr "Detalii document"
@@ -362,12 +368,6 @@ msgstr "Există deja un fișier cu numele dat"
 msgid "Do you want to overwrite it?"
 msgstr "Doriți să fie suprascris?"
 
-msgid "Overwrite"
-msgstr "Suprascrie"
-
-msgid "Cancel"
-msgstr "Anulează"
-
 msgid "Unable to find the latest available version."
 msgstr "Nu se poate găsi ultima versiune disponibilă."
 
@@ -425,8 +425,8 @@ msgstr "Numere de pagină nevalide"
 msgid "Split"
 msgstr "Împarte"
 
-msgid "Split a pdf document at the given page numbers."
-msgstr "Împarte un document pdf la numărul de pagini date."
+msgid "Split a PDF document at the given page numbers."
+msgstr ""
 
 msgid "Select or drag and drop the PDF you want to split"
 msgstr "Selectați sau trageți și plasați PDF-ul pe care doriți să-l împărțiți"
@@ -455,10 +455,8 @@ msgstr "Împarte la fiecare \"n\" pagini"
 msgid "Number of pages"
 msgstr "Număr de pagini"
 
-msgid "Splits the pdf every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
-"Împarte pdf-ul la fiecare \"n\" pagini creând documente de \"n\" pagini "
-"fiecare"
 
 msgid "Invalid number of pages"
 msgstr "Număr de pagini nevalid"
@@ -466,8 +464,8 @@ msgstr "Număr de pagini nevalid"
 msgid "Split by size"
 msgstr "Împarte după dimensiune"
 
-msgid "Split a pdf document in files of the give size (roughly)."
-msgstr "Împarte un document pdf în fișiere de dimensiune dată (aproximativ)."
+msgid "Split a PDF document in files of the given size (roughly)."
+msgstr ""
 
 msgid "Set the size to split at"
 msgstr "Configurați dimensiunea de împărțit la"
@@ -481,17 +479,17 @@ msgstr "Împarte la această dimensiune:"
 msgid "Invalid split size"
 msgstr "Mărime împărțire nevalabilă"
 
-msgid "Kilobytes"
-msgstr "Kiloocteți"
-
-msgid "KB"
-msgstr "KiO"
-
 msgid "Megabytes"
 msgstr "Megaocteți"
 
 msgid "MB"
 msgstr "MiO"
+
+msgid "Kilobytes"
+msgstr "Kiloocteți"
+
+msgid "KB"
+msgstr "KiO"
 
 msgid "Alternate Mix"
 msgstr "Mixaj alternativ"
@@ -537,6 +535,61 @@ msgstr "Selectați numărul de pagini"
 msgid "The selected PDF document is invalid"
 msgstr "Documentul PDF selectat nu este valid"
 
+msgid "Completed"
+msgstr "Finalizat"
+
+msgid "Failed"
+msgstr "Eșuat"
+
+msgid "Running"
+msgstr "Rulează"
+
+msgid "Requested"
+msgstr "Solicitat"
+
+msgid "Select a file"
+msgstr "Selectați un fișier"
+
+msgid "Unlock"
+msgstr "Deblochează"
+
+msgid "Duplicate"
+msgstr "Duplicare"
+
+msgid "Move Down"
+msgstr "Mută în jos"
+
+msgid "Move to Bottom"
+msgstr "Mută la urmă"
+
+msgid "Move Up"
+msgstr "Mută în sus"
+
+msgid "Move to Top"
+msgstr "Mută în vârf"
+
+msgid "Set destination"
+msgstr "Configurați destinația"
+
+msgid "Open"
+msgstr "Deschide"
+
+msgid "Open Folder"
+msgstr "Deschide dosar"
+
+msgid "Document properties"
+msgstr "Proprietăți document"
+
+msgid "Remove"
+msgstr "Elimină"
+
+msgid "Loading..."
+msgstr "Se încarcă..."
+
+#, java-format
+msgid "Pages: {0}, PDF Version: {1}"
+msgstr "Pagini: {0}, Versiune PDF: {1}"
+
 msgid "Open the generated document"
 msgstr "Deschide documentul generat"
 
@@ -546,18 +599,6 @@ msgstr "Deschide directorul destinație"
 msgid "Ready"
 msgstr "Gata"
 
-msgid "Running"
-msgstr "Rulează"
-
-msgid "Requested"
-msgstr "Solicitat"
-
-msgid "Completed"
-msgstr "Finalizat"
-
-msgid "Failed"
-msgstr "Eșuat"
-
 msgid "Run"
 msgstr "Rulează"
 
@@ -565,13 +606,8 @@ msgid "Overwrite if already exists"
 msgstr "Suprascrie dacă există deja"
 
 msgid ""
-"Tick the box if you want to overwrite the outpuf files if they already exist."
+"Tick the box if you want to overwrite the output files if they already exist."
 msgstr ""
-"Bifați căsuța dacă doriți să se suprascrie fișierele de ieșire dacă acestea "
-"deja există."
-
-msgid "Select a file"
-msgstr "Selectați un fișier"
 
 msgid "The selected file must exist. "
 msgstr "Fișierul selectat trebuie să existe. "
@@ -592,8 +628,8 @@ msgstr "Fișierul PDF selectat nu este valid"
 msgid "Compress output file/files"
 msgstr "Comprimă ieșirea fișierului/fișierelor"
 
-msgid "Output pdf version:"
-msgstr "Versiune PDF de ieșire:"
+msgid "Output PDF version:"
+msgstr ""
 
 #, java-format
 msgid "Version {0}"
@@ -603,8 +639,8 @@ msgid "Same as the input document"
 msgstr "La fel ca documentul de intrare"
 
 #, java-format
-msgid "Pdf version required: {0}"
-msgstr "Versiunea Pdf solicitată: {0}"
+msgid "PDF version required: {0}"
+msgstr ""
 
 msgid "Select an existing directory"
 msgstr "Selectați un director existent"
@@ -612,8 +648,8 @@ msgstr "Selectați un director existent"
 msgid "The selected output directory is invalid"
 msgstr "Directorul de ieșire selectat nu este valid"
 
-msgid "Generated pdf documents name prefix:"
-msgstr "Prefix nume documente pdf generate:"
+msgid "Generated PDF documents name prefix:"
+msgstr ""
 
 msgid "Prefix for the generated files names"
 msgstr "Prefix pentru denumirile fișiereleor generate"
@@ -632,9 +668,6 @@ msgstr "Click dreapta pentru a se adăuga aceste cuvinte cheie."
 
 msgid "Enter the user password"
 msgstr "Introduceți parola de utilizator"
-
-msgid "Unlock"
-msgstr "Deblochează"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -707,50 +740,6 @@ msgstr "Număr nevalid: {0}."
 msgid "Drag and drop PDF files here"
 msgstr "Trageți și plasați aici fișierele PDF"
 
-msgid "Document properties"
-msgstr "Proprietăți document"
-
-msgid "Set destination"
-msgstr "Configurați destinația"
-
-msgid "Remove"
-msgstr "Elimină"
-
-msgid "Move to Top"
-msgstr "Mută în vârf"
-
-msgid "Move Up"
-msgstr "Mută în sus"
-
-msgid "Move Down"
-msgstr "Mută în jos"
-
-msgid "Move to Bottom"
-msgstr "Mută la urmă"
-
-msgid "Open"
-msgstr "Deschide"
-
-msgid "Open Folder"
-msgstr "Deschide dosar"
-
-msgid "Duplicate"
-msgstr "Duplicare"
-
-#, java-format
-msgid "Pages: {0}, PDF Version: {1}"
-msgstr "Pagini: {0}, Versiune PDF: {1}"
-
-msgid "Loading..."
-msgstr "Se încarcă..."
-
-msgid "Merge form fields"
-msgstr "Combină din câmpuri"
-
-msgid "Some of the selected PDF documents contain forms, merge them"
-msgstr ""
-"Unele dintre documentele PDF selectate conțin formulare, acestea se combină"
-
 msgid "Add a blank page if page number is odd"
 msgstr "Adaugă o pagină goală dacă numărul paginii este impar"
 
@@ -760,6 +749,18 @@ msgid ""
 msgstr ""
 "Adaugă o pagină goală după fiecare document combinat dacă documentul are un "
 "număr de pagini impar"
+
+msgid "Merge fields"
+msgstr ""
+
+msgid "Merge renaming existing fields"
+msgstr ""
+
+msgid "Discard forms"
+msgstr ""
+
+msgid "Interactive forms (AcroForms):"
+msgstr ""
 
 msgid "Retain bookmarks"
 msgstr "Reține semnele de carte"
@@ -773,14 +774,14 @@ msgstr "Creează o intrare pentru fiecare document combinat"
 msgid "Bookmarks handling:"
 msgstr ""
 
-msgid "No pdf document has been selected"
-msgstr "Nu a fost selectat nici un document pdf"
+msgid "No PDF document has been selected"
+msgstr ""
 
 msgid "Merge"
 msgstr "Combinare"
 
-msgid "Merge together multiple pdf documents or subsections of them."
-msgstr "Combină împreună mai multe documente pdf sau subsecțiuni ale acestora."
+msgid "Merge together multiple PDF documents or subsections of them."
+msgstr ""
 
 msgid "Merge settings"
 msgstr "Configurări combinare"
@@ -806,6 +807,9 @@ msgstr "S-a furnizat o parolă utilizator validă."
 
 msgid "This document is encrypted, click to provide a password."
 msgstr "Acest document este criptat, apăsați pentru a furniza o parolă."
+
+msgid "An error has occurred, click for more details."
+msgstr ""
 
 msgid "Squared green"
 msgstr ""
@@ -838,12 +842,10 @@ msgid "Split by bookmarks"
 msgstr "Împarte după semne de carte"
 
 msgid ""
-"Split a pdf document at bookmarked pages by specifying a bookmark level."
+"Split a PDF document at bookmarked pages by specifying a bookmark level."
 msgstr ""
-"Împarte un document pdf după semnele de carte ale paginilor specificând un "
-"nivel semn de carte."
 
-msgid "Regexp the bookmark has to match"
+msgid "Regular expression the bookmark has to match"
 msgstr ""
 
 msgid "Split at this bookmark level:"

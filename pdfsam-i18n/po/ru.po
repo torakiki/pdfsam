@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-02-05 19:02+0100\n"
+"POT-Creation-Date: 2015-09-27 19:09+0200\n"
 "PO-Revision-Date: 2015-02-05 22:19+0000\n"
 "Last-Translator: gennzub <gennzub@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -15,8 +15,17 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-08-03 07:52+0000\n"
-"X-Generator: Launchpad (build 17656)\n"
+"X-Launchpad-Export-Date: 2015-10-03 09:48+0000\n"
+"X-Generator: Launchpad (build 17783)\n"
+
+msgid "Dashboard"
+msgstr "Инфо-панель"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Overwrite"
+msgstr "Перезаписать"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -79,9 +88,6 @@ msgstr "Выберите файл рабочего пространства дл
 
 msgid "Select the workspace to load"
 msgstr "Выберите рабочее пространство для загрузки"
-
-msgid "Dashboard"
-msgstr "Инфо-панель"
 
 msgid "Document details"
 msgstr "Детали документа"
@@ -364,12 +370,6 @@ msgstr "Файл с заданным именем уже существует"
 msgid "Do you want to overwrite it?"
 msgstr "Хотите перезаписать его?"
 
-msgid "Overwrite"
-msgstr "Перезаписать"
-
-msgid "Cancel"
-msgstr "Отмена"
-
 msgid "Unable to find the latest available version."
 msgstr "Не удается найти последнюю доступную версию."
 
@@ -427,8 +427,8 @@ msgstr "Неверные номера страниц"
 msgid "Split"
 msgstr "Разделить"
 
-msgid "Split a pdf document at the given page numbers."
-msgstr "Разбить PDF-документ на заданные номера страниц."
+msgid "Split a PDF document at the given page numbers."
+msgstr ""
 
 msgid "Select or drag and drop the PDF you want to split"
 msgstr "Выберите или перетащите PDF, который вы хотите разбить"
@@ -457,10 +457,8 @@ msgstr "Разбить на каждые \"n\" страниц"
 msgid "Number of pages"
 msgstr "Количество страниц"
 
-msgid "Splits the pdf every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
-"Разделяет PDF на каждые \"n\" страниц, создаёт документы из каждых \"n\" "
-"страниц"
 
 msgid "Invalid number of pages"
 msgstr "Неверное количество страниц"
@@ -468,8 +466,8 @@ msgstr "Неверное количество страниц"
 msgid "Split by size"
 msgstr "Разбить по размеру"
 
-msgid "Split a pdf document in files of the give size (roughly)."
-msgstr "Разделить PDF-документ в файлах заданного размера (примерно)."
+msgid "Split a PDF document in files of the given size (roughly)."
+msgstr ""
 
 msgid "Set the size to split at"
 msgstr "Установить размер для разделения"
@@ -483,17 +481,17 @@ msgstr "Разбить на этот размер:"
 msgid "Invalid split size"
 msgstr "Неверный размер для разделения"
 
-msgid "Kilobytes"
-msgstr "Килобайты"
-
-msgid "KB"
-msgstr "КБ"
-
 msgid "Megabytes"
 msgstr "Мегабайты"
 
 msgid "MB"
 msgstr "МБ"
+
+msgid "Kilobytes"
+msgstr "Килобайты"
+
+msgid "KB"
+msgstr "КБ"
 
 msgid "Alternate Mix"
 msgstr "Чередование"
@@ -539,6 +537,67 @@ msgstr "Выбрать количество страниц"
 msgid "The selected PDF document is invalid"
 msgstr "Выбранный PDF документ является неверным"
 
+msgid "Completed"
+msgstr "Выполнено"
+
+msgid "Failed"
+msgstr "Неудачно"
+
+msgid "Running"
+msgstr "Выполнение"
+
+msgid "Requested"
+msgstr "Запрошено"
+
+msgid "Select a file"
+msgstr "Выбор файла"
+
+msgid "Unlock"
+msgstr "Разблокировать"
+
+msgid "Duplicate"
+msgstr "Дублировать"
+
+msgid "Move Down"
+msgstr "Переместить ниже"
+
+msgid "Move to Bottom"
+msgstr "Переместить в конец"
+
+msgid "Move Up"
+msgstr "Переместить выше"
+
+msgid "Move to Top"
+msgstr "Переместить в начало"
+
+msgid "Set destination"
+msgstr "Установить пункт назначения"
+
+msgid "Open"
+msgstr "Открыть"
+
+msgid "Open Folder"
+msgstr "Открыть каталог"
+
+msgid "Document properties"
+msgstr "Свойства документа"
+
+# G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:252
+# G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:297
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:273
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:317
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:266
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:311
+msgid "Remove"
+msgstr "Удалить"
+
+msgid "Loading..."
+msgstr "Загрузка..."
+
+#, java-format
+msgid "Pages: {0}, PDF Version: {1}"
+msgstr "Страниц: {0}, версия PDF: {1}"
+
 msgid "Open the generated document"
 msgstr "Открыть сгенерированный документ"
 
@@ -548,18 +607,6 @@ msgstr "Открыть каталог назначения"
 msgid "Ready"
 msgstr "Готов"
 
-msgid "Running"
-msgstr "Выполнение"
-
-msgid "Requested"
-msgstr "Запрошено"
-
-msgid "Completed"
-msgstr "Выполнено"
-
-msgid "Failed"
-msgstr "Неудачно"
-
 msgid "Run"
 msgstr "Выполнить"
 
@@ -567,12 +614,8 @@ msgid "Overwrite if already exists"
 msgstr "Перезаписать, если уже существует"
 
 msgid ""
-"Tick the box if you want to overwrite the outpuf files if they already exist."
+"Tick the box if you want to overwrite the output files if they already exist."
 msgstr ""
-"Поставьте флажок для перезаписи выходного файла, если он уже существует."
-
-msgid "Select a file"
-msgstr "Выбор файла"
 
 msgid "The selected file must exist. "
 msgstr "Выбранный файл должен существовать. "
@@ -593,8 +636,8 @@ msgstr "Выбранный PDF файл неисправен"
 msgid "Compress output file/files"
 msgstr "Сжимать выходной файл(ы)."
 
-msgid "Output pdf version:"
-msgstr "Версия выходного PDF:"
+msgid "Output PDF version:"
+msgstr ""
 
 #, java-format
 msgid "Version {0}"
@@ -604,8 +647,8 @@ msgid "Same as the input document"
 msgstr "Как в редактируемом документе"
 
 #, java-format
-msgid "Pdf version required: {0}"
-msgstr "Необходима версия PDF: {0}"
+msgid "PDF version required: {0}"
+msgstr ""
 
 msgid "Select an existing directory"
 msgstr "Выбор существующего каталога"
@@ -613,8 +656,8 @@ msgstr "Выбор существующего каталога"
 msgid "The selected output directory is invalid"
 msgstr "Выбранный каталог назначения неверен"
 
-msgid "Generated pdf documents name prefix:"
-msgstr "Префикс имени сгенерированного PDF документа"
+msgid "Generated PDF documents name prefix:"
+msgstr ""
 
 msgid "Prefix for the generated files names"
 msgstr "Префикс для сгенерированных имён файлов"
@@ -633,9 +676,6 @@ msgstr "Правый клик для добавления этих ключев�
 
 msgid "Enter the user password"
 msgstr "Введите пароль пользователя"
-
-msgid "Unlock"
-msgstr "Разблокировать"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -712,55 +752,6 @@ msgstr "Неверное число: {0}."
 msgid "Drag and drop PDF files here"
 msgstr "Перетащите PDF файлы сюда"
 
-msgid "Document properties"
-msgstr "Свойства документа"
-
-msgid "Set destination"
-msgstr "Установить пункт назначения"
-
-# G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:252
-# G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:297
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:273
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:317
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:266
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:311
-msgid "Remove"
-msgstr "Удалить"
-
-msgid "Move to Top"
-msgstr "Переместить в начало"
-
-msgid "Move Up"
-msgstr "Переместить выше"
-
-msgid "Move Down"
-msgstr "Переместить ниже"
-
-msgid "Move to Bottom"
-msgstr "Переместить в конец"
-
-msgid "Open"
-msgstr "Открыть"
-
-msgid "Open Folder"
-msgstr "Открыть каталог"
-
-msgid "Duplicate"
-msgstr "Дублировать"
-
-#, java-format
-msgid "Pages: {0}, PDF Version: {1}"
-msgstr "Страниц: {0}, версия PDF: {1}"
-
-msgid "Loading..."
-msgstr "Загрузка..."
-
-msgid "Merge form fields"
-msgstr "Слияние полей формы"
-
-msgid "Some of the selected PDF documents contain forms, merge them"
-msgstr "Некоторые из выбранных PDF документов содержат формы, объединить их"
-
 msgid "Add a blank page if page number is odd"
 msgstr "Добавить пустую страницу, если номер страницы нечетный"
 
@@ -770,6 +761,18 @@ msgid ""
 msgstr ""
 "Добавляет пустую страницу после каждого объединенного документа, если "
 "документ имеет нечетное количество страниц"
+
+msgid "Merge fields"
+msgstr ""
+
+msgid "Merge renaming existing fields"
+msgstr ""
+
+msgid "Discard forms"
+msgstr ""
+
+msgid "Interactive forms (AcroForms):"
+msgstr ""
 
 msgid "Retain bookmarks"
 msgstr "Сохранить закладки"
@@ -783,14 +786,14 @@ msgstr "Создать одну запись для каждого объеди�
 msgid "Bookmarks handling:"
 msgstr "Регулировать закладки:"
 
-msgid "No pdf document has been selected"
-msgstr "Был выбран документ не PDF"
+msgid "No PDF document has been selected"
+msgstr ""
 
 msgid "Merge"
 msgstr "Объединить"
 
-msgid "Merge together multiple pdf documents or subsections of them."
-msgstr "Объединение воедино множество документов PDF или их подразделов."
+msgid "Merge together multiple PDF documents or subsections of them."
+msgstr ""
 
 msgid "Merge settings"
 msgstr "Настройка объединения"
@@ -816,6 +819,9 @@ msgstr "Правильный пароль введён."
 
 msgid "This document is encrypted, click to provide a password."
 msgstr "Этот документ зашифрован, нажмите для ввода пароля."
+
+msgid "An error has occurred, click for more details."
+msgstr ""
 
 msgid "Squared green"
 msgstr "Квадратный зеленый"
@@ -848,12 +854,11 @@ msgid "Split by bookmarks"
 msgstr "Разбить по закладкам"
 
 msgid ""
-"Split a pdf document at bookmarked pages by specifying a bookmark level."
+"Split a PDF document at bookmarked pages by specifying a bookmark level."
 msgstr ""
-"Разбить PDF документ на страницы с закладками , указав уровень закладок."
 
-msgid "Regexp the bookmark has to match"
-msgstr "Типа регулярного выражения закладки должен соответствовать"
+msgid "Regular expression the bookmark has to match"
+msgstr ""
 
 msgid "Split at this bookmark level:"
 msgstr "Разбить на этот уровень закладки:"

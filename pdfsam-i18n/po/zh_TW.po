@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDFSam 3\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-02-05 19:02+0100\n"
+"POT-Creation-Date: 2015-09-27 19:09+0200\n"
 "PO-Revision-Date: 2015-07-06 04:48+0000\n"
 "Last-Translator: Zhoujin Wu <zhoujin.wu@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (zh_TW@li.org)\n"
@@ -13,8 +13,17 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-08-03 07:52+0000\n"
-"X-Generator: Launchpad (build 17656)\n"
+"X-Launchpad-Export-Date: 2015-10-03 09:48+0000\n"
+"X-Generator: Launchpad (build 17783)\n"
+
+msgid "Dashboard"
+msgstr "儀表板"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Overwrite"
+msgstr "覆寫"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -77,9 +86,6 @@ msgstr ""
 
 msgid "Select the workspace to load"
 msgstr ""
-
-msgid "Dashboard"
-msgstr "儀表板"
 
 msgid "Document details"
 msgstr "文件詳細內容"
@@ -350,12 +356,6 @@ msgstr "已存在相同名稱的檔案"
 msgid "Do you want to overwrite it?"
 msgstr "是否要覆寫？"
 
-msgid "Overwrite"
-msgstr "覆寫"
-
-msgid "Cancel"
-msgstr "取消"
-
 msgid "Unable to find the latest available version."
 msgstr "無法找到最新的可用版本。"
 
@@ -413,8 +413,8 @@ msgstr "無效的頁碼"
 msgid "Split"
 msgstr "分割"
 
-msgid "Split a pdf document at the given page numbers."
-msgstr "在指定的頁數分割文件。"
+msgid "Split a PDF document at the given page numbers."
+msgstr ""
 
 msgid "Select or drag and drop the PDF you want to split"
 msgstr "請選取或拖拉您要分割的 PDF 檔"
@@ -443,8 +443,8 @@ msgstr "每隔 n 頁分割文件"
 msgid "Number of pages"
 msgstr "總頁面數"
 
-msgid "Splits the pdf every \"n\" pages creating documents of \"n\" pages each"
-msgstr "每隔 n 頁分割文件，即每個文件都恰好為 n 頁"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr ""
 
 msgid "Invalid number of pages"
 msgstr "無效的頁數"
@@ -452,8 +452,8 @@ msgstr "無效的頁數"
 msgid "Split by size"
 msgstr "依檔案大小分割"
 
-msgid "Split a pdf document in files of the give size (roughly)."
-msgstr "（約略地）根據指定的檔案大小分割 PDF 文件。"
+msgid "Split a PDF document in files of the given size (roughly)."
+msgstr ""
 
 msgid "Set the size to split at"
 msgstr "設定分割檔的大小"
@@ -467,17 +467,17 @@ msgstr "依此檔案大小分割："
 msgid "Invalid split size"
 msgstr "無效的分割檔案大小"
 
-msgid "Kilobytes"
-msgstr "KB"
-
-msgid "KB"
-msgstr "KB"
-
 msgid "Megabytes"
 msgstr "MB"
 
 msgid "MB"
 msgstr ""
+
+msgid "Kilobytes"
+msgstr "KB"
+
+msgid "KB"
+msgstr "KB"
 
 msgid "Alternate Mix"
 msgstr "交替合併"
@@ -522,6 +522,61 @@ msgstr "請選擇頁數"
 msgid "The selected PDF document is invalid"
 msgstr "選取的 PDF 文件無效"
 
+msgid "Completed"
+msgstr ""
+
+msgid "Failed"
+msgstr ""
+
+msgid "Running"
+msgstr ""
+
+msgid "Requested"
+msgstr ""
+
+msgid "Select a file"
+msgstr "請選擇一個檔案"
+
+msgid "Unlock"
+msgstr "解鎖"
+
+msgid "Duplicate"
+msgstr ""
+
+msgid "Move Down"
+msgstr "往下移"
+
+msgid "Move to Bottom"
+msgstr "移至最底"
+
+msgid "Move Up"
+msgstr "往上移"
+
+msgid "Move to Top"
+msgstr "移至最頂"
+
+msgid "Set destination"
+msgstr "設定輸出位置"
+
+msgid "Open"
+msgstr "開啟"
+
+msgid "Open Folder"
+msgstr "開啟目錄"
+
+msgid "Document properties"
+msgstr "文件性質"
+
+msgid "Remove"
+msgstr "移除"
+
+msgid "Loading..."
+msgstr ""
+
+#, java-format
+msgid "Pages: {0}, PDF Version: {1}"
+msgstr "頁數：{0}，PDF 版本：{1}"
+
 msgid "Open the generated document"
 msgstr "開啟產生的文件"
 
@@ -531,18 +586,6 @@ msgstr "打開目的地資料天"
 msgid "Ready"
 msgstr "準備就緒"
 
-msgid "Running"
-msgstr ""
-
-msgid "Requested"
-msgstr ""
-
-msgid "Completed"
-msgstr ""
-
-msgid "Failed"
-msgstr ""
-
 msgid "Run"
 msgstr "執行"
 
@@ -550,11 +593,8 @@ msgid "Overwrite if already exists"
 msgstr "覆寫已存在的檔案"
 
 msgid ""
-"Tick the box if you want to overwrite the outpuf files if they already exist."
-msgstr "若您想覆寫已存在的輸出檔，請勾選此核取方塊。"
-
-msgid "Select a file"
-msgstr "請選擇一個檔案"
+"Tick the box if you want to overwrite the output files if they already exist."
+msgstr ""
 
 msgid "The selected file must exist. "
 msgstr "選取的檔案必須存在。 "
@@ -575,8 +615,8 @@ msgstr "選取的 PDF 檔無效"
 msgid "Compress output file/files"
 msgstr "壓縮輸出的檔案"
 
-msgid "Output pdf version:"
-msgstr "輸出 PDF 版本："
+msgid "Output PDF version:"
+msgstr ""
 
 #, java-format
 msgid "Version {0}"
@@ -586,8 +626,8 @@ msgid "Same as the input document"
 msgstr "與輸入文件相同"
 
 #, java-format
-msgid "Pdf version required: {0}"
-msgstr "PDF 版本需求：{0}"
+msgid "PDF version required: {0}"
+msgstr ""
 
 msgid "Select an existing directory"
 msgstr "請選擇一個既有的目錄"
@@ -595,8 +635,8 @@ msgstr "請選擇一個既有的目錄"
 msgid "The selected output directory is invalid"
 msgstr "選取的輸出目錄無效"
 
-msgid "Generated pdf documents name prefix:"
-msgstr "產出的 PDF 文件檔名前綴："
+msgid "Generated PDF documents name prefix:"
+msgstr ""
 
 msgid "Prefix for the generated files names"
 msgstr "產出檔案的名稱前綴"
@@ -615,9 +655,6 @@ msgstr "請按右鍵新增這些關鍵字。"
 
 msgid "Enter the user password"
 msgstr "請輸入使用者密碼"
-
-msgid "Unlock"
-msgstr "解鎖"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -689,49 +726,6 @@ msgstr "無效的數字：{0}。"
 msgid "Drag and drop PDF files here"
 msgstr "請將 PDF 檔拖拉至此處"
 
-msgid "Document properties"
-msgstr "文件性質"
-
-msgid "Set destination"
-msgstr "設定輸出位置"
-
-msgid "Remove"
-msgstr "移除"
-
-msgid "Move to Top"
-msgstr "移至最頂"
-
-msgid "Move Up"
-msgstr "往上移"
-
-msgid "Move Down"
-msgstr "往下移"
-
-msgid "Move to Bottom"
-msgstr "移至最底"
-
-msgid "Open"
-msgstr "開啟"
-
-msgid "Open Folder"
-msgstr "開啟目錄"
-
-msgid "Duplicate"
-msgstr ""
-
-#, java-format
-msgid "Pages: {0}, PDF Version: {1}"
-msgstr "頁數：{0}，PDF 版本：{1}"
-
-msgid "Loading..."
-msgstr ""
-
-msgid "Merge form fields"
-msgstr "合併表單欄位"
-
-msgid "Some of the selected PDF documents contain forms, merge them"
-msgstr "選取的 PDF 文件中某些含有表單，也加以合併"
-
 msgid "Add a blank page if page number is odd"
 msgstr "若頁數為奇數則新增一空白頁"
 
@@ -739,6 +733,18 @@ msgid ""
 "Adds a blank page after each merged document if the document has an odd "
 "number of pages"
 msgstr "在每個奇數頁的被合併文件後新增一空白頁"
+
+msgid "Merge fields"
+msgstr ""
+
+msgid "Merge renaming existing fields"
+msgstr ""
+
+msgid "Discard forms"
+msgstr ""
+
+msgid "Interactive forms (AcroForms):"
+msgstr ""
 
 msgid "Retain bookmarks"
 msgstr "保留書籤"
@@ -752,14 +758,14 @@ msgstr "為每個被合併文件建立一個條目"
 msgid "Bookmarks handling:"
 msgstr "書籤處理方式："
 
-msgid "No pdf document has been selected"
-msgstr "尚未選取 PDF 文件"
+msgid "No PDF document has been selected"
+msgstr ""
 
 msgid "Merge"
 msgstr "合併"
 
-msgid "Merge together multiple pdf documents or subsections of them."
-msgstr "合併多個 PDF 文件或其部份章節。"
+msgid "Merge together multiple PDF documents or subsections of them."
+msgstr ""
 
 msgid "Merge settings"
 msgstr "合併設定"
@@ -785,6 +791,9 @@ msgstr "已輸入有效的使用者密碼。"
 
 msgid "This document is encrypted, click to provide a password."
 msgstr "本文件已加密，請點擊以輸入密碼。"
+
+msgid "An error has occurred, click for more details."
+msgstr ""
 
 msgid "Squared green"
 msgstr ""
@@ -817,11 +826,11 @@ msgid "Split by bookmarks"
 msgstr "依書籤分割"
 
 msgid ""
-"Split a pdf document at bookmarked pages by specifying a bookmark level."
-msgstr "依指定書籤層級所標記的頁面加以分割。"
+"Split a PDF document at bookmarked pages by specifying a bookmark level."
+msgstr ""
 
-msgid "Regexp the bookmark has to match"
-msgstr "書籤必須符合的正規表達式"
+msgid "Regular expression the bookmark has to match"
+msgstr ""
 
 msgid "Split at this bookmark level:"
 msgstr "依此書籤層級分割："

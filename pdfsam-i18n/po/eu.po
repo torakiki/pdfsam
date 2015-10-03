@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-02-05 19:02+0100\n"
+"POT-Creation-Date: 2015-09-27 19:09+0200\n"
 "PO-Revision-Date: 2015-03-25 21:36+0000\n"
 "Last-Translator: Asier Iturralde Sarasola <Unknown>\n"
 "Language-Team: Basque <eu@li.org>\n"
@@ -15,8 +15,17 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-08-03 07:52+0000\n"
-"X-Generator: Launchpad (build 17656)\n"
+"X-Launchpad-Export-Date: 2015-10-03 09:48+0000\n"
+"X-Generator: Launchpad (build 17783)\n"
+
+msgid "Dashboard"
+msgstr "Aginte-panela"
+
+msgid "Cancel"
+msgstr "Utzi"
+
+msgid "Overwrite"
+msgstr "Gainidatzi"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -79,9 +88,6 @@ msgstr "Hautatu laneko area fitxategia gordetzeko"
 
 msgid "Select the workspace to load"
 msgstr "Hautatu laneko area kargatzeko"
-
-msgid "Dashboard"
-msgstr "Aginte-panela"
 
 msgid "Document details"
 msgstr "Dokumentuaren xehetasunak"
@@ -363,12 +369,6 @@ msgstr "Izen bera duen fitxategi bat existitzen da"
 msgid "Do you want to overwrite it?"
 msgstr "Gainidatzi nahi duzu?"
 
-msgid "Overwrite"
-msgstr "Gainidatzi"
-
-msgid "Cancel"
-msgstr "Utzi"
-
 msgid "Unable to find the latest available version."
 msgstr "Ezin izan da eskuragarri dagoen azken bertsioa aurkitu."
 
@@ -426,8 +426,8 @@ msgstr "Orri zenbaki baliogabeak"
 msgid "Split"
 msgstr "Zatitu"
 
-msgid "Split a pdf document at the given page numbers."
-msgstr "Zatitu pdf dokumentua emandako orri zenbakietan"
+msgid "Split a PDF document at the given page numbers."
+msgstr ""
 
 msgid "Select or drag and drop the PDF you want to split"
 msgstr "Hautatu edo arrastatu eta jaregin zatitu nahi duzun PDFa"
@@ -456,8 +456,8 @@ msgstr "Zatitu \"n\" orriro"
 msgid "Number of pages"
 msgstr "Orri-kopurua"
 
-msgid "Splits the pdf every \"n\" pages creating documents of \"n\" pages each"
-msgstr "Zatitu pdf-a \"n\" orriro, \"n\" orriko dokumentuak sortuz"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr ""
 
 msgid "Invalid number of pages"
 msgstr "Orri kopuru baliogabea"
@@ -465,9 +465,8 @@ msgstr "Orri kopuru baliogabea"
 msgid "Split by size"
 msgstr "Zatitu tamainaren arabera"
 
-msgid "Split a pdf document in files of the give size (roughly)."
+msgid "Split a PDF document in files of the given size (roughly)."
 msgstr ""
-"Zatitu pdf dokumentua emandako tamainako fitxategietan (gutxi gorabehera)"
 
 msgid "Set the size to split at"
 msgstr "Ezarri zatitzeko tamaina"
@@ -481,17 +480,17 @@ msgstr "Zatitu tamaina honetan:"
 msgid "Invalid split size"
 msgstr "Zatitzeko tamaina baliogabea"
 
-msgid "Kilobytes"
-msgstr "Kilobyte"
-
-msgid "KB"
-msgstr "KB"
-
 msgid "Megabytes"
 msgstr "Megabyte"
 
 msgid "MB"
 msgstr "MB"
+
+msgid "Kilobytes"
+msgstr "Kilobyte"
+
+msgid "KB"
+msgstr "KB"
 
 msgid "Alternate Mix"
 msgstr "Txandakako nahasketa"
@@ -543,6 +542,61 @@ msgstr "Hautatu orri kopurua"
 msgid "The selected PDF document is invalid"
 msgstr "Hautatutako PDF dokumentua baliogabea da"
 
+msgid "Completed"
+msgstr "Osatuta"
+
+msgid "Failed"
+msgstr "Huts eginda"
+
+msgid "Running"
+msgstr "Exekutatzen"
+
+msgid "Requested"
+msgstr "Eskatuta"
+
+msgid "Select a file"
+msgstr "Hautatu fitxategia"
+
+msgid "Unlock"
+msgstr "Desblokeatu"
+
+msgid "Duplicate"
+msgstr "Bikoiztu"
+
+msgid "Move Down"
+msgstr "Eraman behera"
+
+msgid "Move to Bottom"
+msgstr "Eraman beheraino"
+
+msgid "Move Up"
+msgstr "Eraman gora"
+
+msgid "Move to Top"
+msgstr "Eraman goraino"
+
+msgid "Set destination"
+msgstr "Ezarri helburua"
+
+msgid "Open"
+msgstr "Ireki"
+
+msgid "Open Folder"
+msgstr "Ireki karpeta"
+
+msgid "Document properties"
+msgstr "Dokumentuaren propietateak"
+
+msgid "Remove"
+msgstr "Kendu"
+
+msgid "Loading..."
+msgstr "Kargatzen..."
+
+#, java-format
+msgid "Pages: {0}, PDF Version: {1}"
+msgstr "Orriak: {0}, PDF bertsioa: {1}"
+
 msgid "Open the generated document"
 msgstr "Ireki sortutako dokumentua"
 
@@ -552,18 +606,6 @@ msgstr "Ireki helburuko direktorioa"
 msgid "Ready"
 msgstr "Prest"
 
-msgid "Running"
-msgstr "Exekutatzen"
-
-msgid "Requested"
-msgstr "Eskatuta"
-
-msgid "Completed"
-msgstr "Osatuta"
-
-msgid "Failed"
-msgstr "Huts eginda"
-
 msgid "Run"
 msgstr "Exekutatu"
 
@@ -571,13 +613,8 @@ msgid "Overwrite if already exists"
 msgstr "Gainidatzi dagoeneko existitzen bada"
 
 msgid ""
-"Tick the box if you want to overwrite the outpuf files if they already exist."
+"Tick the box if you want to overwrite the output files if they already exist."
 msgstr ""
-"Hautatu hau irteerako fitxategiak dagoeneko existitzen direnean gainidatzi "
-"nahi badituzu."
-
-msgid "Select a file"
-msgstr "Hautatu fitxategia"
 
 msgid "The selected file must exist. "
 msgstr "Hautatutako fitxategiak existitu behar du. "
@@ -598,8 +635,8 @@ msgstr "Hautatutako PDF fitxategia baliogabea da"
 msgid "Compress output file/files"
 msgstr "Konprimitu irteerako fitxategia(k)"
 
-msgid "Output pdf version:"
-msgstr "Irteerako pdf bertsioa:"
+msgid "Output PDF version:"
+msgstr ""
 
 #, java-format
 msgid "Version {0}"
@@ -609,8 +646,8 @@ msgid "Same as the input document"
 msgstr "Sarrerako dokumentuaren berdina"
 
 #, java-format
-msgid "Pdf version required: {0}"
-msgstr "Beharrezko pdf bertsioa: {0}"
+msgid "PDF version required: {0}"
+msgstr ""
 
 msgid "Select an existing directory"
 msgstr "Hautatu existitzen den direktorio bat"
@@ -618,8 +655,8 @@ msgstr "Hautatu existitzen den direktorio bat"
 msgid "The selected output directory is invalid"
 msgstr "Hautatutako irteerako direktorioa baliogabea da"
 
-msgid "Generated pdf documents name prefix:"
-msgstr "Sortutako pdf dokumentuen izenaren aurrizkia:"
+msgid "Generated PDF documents name prefix:"
+msgstr ""
 
 msgid "Prefix for the generated files names"
 msgstr "Sortutako fitxategi-izenen aurrizkia"
@@ -638,9 +675,6 @@ msgstr "Eskuin klik hitz hauek gehitzeko."
 
 msgid "Enter the user password"
 msgstr "Sartu erabiltzailearen pasahitza"
-
-msgid "Unlock"
-msgstr "Desblokeatu"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -715,50 +749,6 @@ msgstr "Zenbaki baliogabea: {0}"
 msgid "Drag and drop PDF files here"
 msgstr "Arrastatu eta jaregin PDF fitxategiak hona"
 
-msgid "Document properties"
-msgstr "Dokumentuaren propietateak"
-
-msgid "Set destination"
-msgstr "Ezarri helburua"
-
-msgid "Remove"
-msgstr "Kendu"
-
-msgid "Move to Top"
-msgstr "Eraman goraino"
-
-msgid "Move Up"
-msgstr "Eraman gora"
-
-msgid "Move Down"
-msgstr "Eraman behera"
-
-msgid "Move to Bottom"
-msgstr "Eraman beheraino"
-
-msgid "Open"
-msgstr "Ireki"
-
-msgid "Open Folder"
-msgstr "Ireki karpeta"
-
-msgid "Duplicate"
-msgstr "Bikoiztu"
-
-#, java-format
-msgid "Pages: {0}, PDF Version: {1}"
-msgstr "Orriak: {0}, PDF bertsioa: {1}"
-
-msgid "Loading..."
-msgstr "Kargatzen..."
-
-msgid "Merge form fields"
-msgstr "Bateratu formularioko eremuak"
-
-msgid "Some of the selected PDF documents contain forms, merge them"
-msgstr ""
-"Hautatutako PDF dokumentuetako batzuk formularioak dituzte, bateratuko dira"
-
 msgid "Add a blank page if page number is odd"
 msgstr "Gehitu orri huts bat orri kopurua bakoitia bada"
 
@@ -768,6 +758,18 @@ msgid ""
 msgstr ""
 "Orri huts bat gehitzen du bateratutako dokumentu bakoitzaren atzetik "
 "dokumentuak orri kopuru bakoitia badu"
+
+msgid "Merge fields"
+msgstr ""
+
+msgid "Merge renaming existing fields"
+msgstr ""
+
+msgid "Discard forms"
+msgstr ""
+
+msgid "Interactive forms (AcroForms):"
+msgstr ""
 
 msgid "Retain bookmarks"
 msgstr "Mantendu laster-markak"
@@ -781,14 +783,14 @@ msgstr "Sortu sarrera bat bateratutako dokumentu bakoitzeko"
 msgid "Bookmarks handling:"
 msgstr "Laster-markak maneiatzea:"
 
-msgid "No pdf document has been selected"
-msgstr "Ez da pdf dokumenturik hautatu"
+msgid "No PDF document has been selected"
+msgstr ""
 
 msgid "Merge"
 msgstr "Bateratu"
 
-msgid "Merge together multiple pdf documents or subsections of them."
-msgstr "Bateratu hainbat pdf dokumentu edo azpi-atal"
+msgid "Merge together multiple PDF documents or subsections of them."
+msgstr ""
 
 msgid "Merge settings"
 msgstr "Bateratzearen ezarpenak"
@@ -814,6 +816,9 @@ msgstr "Baliozko erabiltzaile pasahitza sartuta."
 
 msgid "This document is encrypted, click to provide a password."
 msgstr "Dokumentua zifratuta dago, klikatu pasahitza sartzeko."
+
+msgid "An error has occurred, click for more details."
+msgstr ""
 
 msgid "Squared green"
 msgstr "Karratu berdea"
@@ -846,12 +851,11 @@ msgid "Split by bookmarks"
 msgstr "Zatitu laster-marken arabera"
 
 msgid ""
-"Split a pdf document at bookmarked pages by specifying a bookmark level."
+"Split a PDF document at bookmarked pages by specifying a bookmark level."
 msgstr ""
-"Zatitu pdf dokumentua laster-markadun orrietatik laster-marka maila zehaztuz."
 
-msgid "Regexp the bookmark has to match"
-msgstr "Laster-markak adierazpen erregular honekin bat etorri behar du"
+msgid "Regular expression the bookmark has to match"
+msgstr ""
 
 msgid "Split at this bookmark level:"
 msgstr "Zatitu laster-marka maila honetan:"

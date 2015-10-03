@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-02-05 19:02+0100\n"
+"POT-Creation-Date: 2015-09-27 19:09+0200\n"
 "PO-Revision-Date: 2015-04-25 19:17+0000\n"
 "Last-Translator: mjjzf <mjjzf@syntaktisk.dk>\n"
 "Language-Team: Danish <da@li.org>\n"
@@ -15,8 +15,17 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-08-03 07:52+0000\n"
-"X-Generator: Launchpad (build 17656)\n"
+"X-Launchpad-Export-Date: 2015-10-03 09:48+0000\n"
+"X-Generator: Launchpad (build 17783)\n"
+
+msgid "Dashboard"
+msgstr "Oversigt"
+
+msgid "Cancel"
+msgstr "Fortryd"
+
+msgid "Overwrite"
+msgstr "Overskriv"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -79,9 +88,6 @@ msgstr "Vælg arbejdsområde-fil, der skal gemmes"
 
 msgid "Select the workspace to load"
 msgstr "Vælg arbejdsområde-fil, der skal åbnes"
-
-msgid "Dashboard"
-msgstr "Oversigt"
 
 msgid "Document details"
 msgstr "Detaljer om dokumentet"
@@ -358,12 +364,6 @@ msgstr "Der findes allerede en fil med det angivne navn"
 msgid "Do you want to overwrite it?"
 msgstr "Ønsker du at overskrive den?"
 
-msgid "Overwrite"
-msgstr "Overskriv"
-
-msgid "Cancel"
-msgstr "Fortryd"
-
 msgid "Unable to find the latest available version."
 msgstr "Kunne ikke finde den nyeste version."
 
@@ -421,8 +421,8 @@ msgstr "Ugyldige sidetal"
 msgid "Split"
 msgstr "Opdel"
 
-msgid "Split a pdf document at the given page numbers."
-msgstr "Opdel et PDF-dokument ved de givne sidetal."
+msgid "Split a PDF document at the given page numbers."
+msgstr ""
 
 msgid "Select or drag and drop the PDF you want to split"
 msgstr "Vælg eller træk den PDF-fil, du ønsker at opdele"
@@ -451,10 +451,8 @@ msgstr "Opdel for hver \"n\" sider"
 msgid "Number of pages"
 msgstr "Antal sider"
 
-msgid "Splits the pdf every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
-"Adskiller PDF-filen hver \"n\". side og genererer en række dokumenter med "
-"hver \"n\" sider"
 
 msgid "Invalid number of pages"
 msgstr "Ugyldigt antal sider"
@@ -462,8 +460,8 @@ msgstr "Ugyldigt antal sider"
 msgid "Split by size"
 msgstr "Opdel efter størrelse"
 
-msgid "Split a pdf document in files of the give size (roughly)."
-msgstr "Opdel et PDF-dokument i filer af (cirka) den angivne størrelse"
+msgid "Split a PDF document in files of the given size (roughly)."
+msgstr ""
 
 msgid "Set the size to split at"
 msgstr "Sæt størrelsen, der deles ved"
@@ -477,17 +475,17 @@ msgstr "Del ved denne størrelse:"
 msgid "Invalid split size"
 msgstr "Ugyldig opdelingsstørrelse"
 
-msgid "Kilobytes"
-msgstr "Kilobytes"
-
-msgid "KB"
-msgstr "KB"
-
 msgid "Megabytes"
 msgstr "Megabytes"
 
 msgid "MB"
 msgstr "MB"
+
+msgid "Kilobytes"
+msgstr "Kilobytes"
+
+msgid "KB"
+msgstr "KB"
 
 msgid "Alternate Mix"
 msgstr "Alternerende sammensætning"
@@ -534,6 +532,61 @@ msgstr "Vælg antal sider"
 msgid "The selected PDF document is invalid"
 msgstr "Det valgte PDF-dokument er ugyldigt"
 
+msgid "Completed"
+msgstr "Fuldført"
+
+msgid "Failed"
+msgstr "Fejlet"
+
+msgid "Running"
+msgstr "Behandler"
+
+msgid "Requested"
+msgstr "Bestilt"
+
+msgid "Select a file"
+msgstr "Vælg en fil"
+
+msgid "Unlock"
+msgstr "Lås op"
+
+msgid "Duplicate"
+msgstr "Dupliker"
+
+msgid "Move Down"
+msgstr "Flyt ned"
+
+msgid "Move to Bottom"
+msgstr "Flyt til bunden"
+
+msgid "Move Up"
+msgstr "Flyt op"
+
+msgid "Move to Top"
+msgstr "Flyt til toppen"
+
+msgid "Set destination"
+msgstr "Sæt destination"
+
+msgid "Open"
+msgstr "Åbn"
+
+msgid "Open Folder"
+msgstr "Åbn mappe"
+
+msgid "Document properties"
+msgstr "Dokumentegenskaber"
+
+msgid "Remove"
+msgstr "Fjern"
+
+msgid "Loading..."
+msgstr "Inddlæser..."
+
+#, java-format
+msgid "Pages: {0}, PDF Version: {1}"
+msgstr "Sider: {0}, PDF-version: {1}"
+
 msgid "Open the generated document"
 msgstr "Åbn det genererede dokument"
 
@@ -543,18 +596,6 @@ msgstr "Åbn destinationsmappen"
 msgid "Ready"
 msgstr "Klar"
 
-msgid "Running"
-msgstr "Behandler"
-
-msgid "Requested"
-msgstr "Bestilt"
-
-msgid "Completed"
-msgstr "Fuldført"
-
-msgid "Failed"
-msgstr "Fejlet"
-
 msgid "Run"
 msgstr "Udfør"
 
@@ -562,13 +603,8 @@ msgid "Overwrite if already exists"
 msgstr "Overskriv hvis eksisterende"
 
 msgid ""
-"Tick the box if you want to overwrite the outpuf files if they already exist."
+"Tick the box if you want to overwrite the output files if they already exist."
 msgstr ""
-"Afkryds boksen, hvis du ønsker at overskrive outputfilerne, hvis de allerede "
-"findes."
-
-msgid "Select a file"
-msgstr "Vælg en fil"
 
 msgid "The selected file must exist. "
 msgstr "Den valgte fil skal eksistere. "
@@ -589,8 +625,8 @@ msgstr "Den valgte PDF-fil er ugyldig"
 msgid "Compress output file/files"
 msgstr "Komprimer destinationsfil(er)"
 
-msgid "Output pdf version:"
-msgstr "PDF-version til output:"
+msgid "Output PDF version:"
+msgstr ""
 
 #, java-format
 msgid "Version {0}"
@@ -600,8 +636,8 @@ msgid "Same as the input document"
 msgstr "Samme som input-dokumentet"
 
 #, java-format
-msgid "Pdf version required: {0}"
-msgstr "PDF-version påkrævet: {0}"
+msgid "PDF version required: {0}"
+msgstr ""
 
 msgid "Select an existing directory"
 msgstr "Vælg en eksisterende mappe"
@@ -609,8 +645,8 @@ msgstr "Vælg en eksisterende mappe"
 msgid "The selected output directory is invalid"
 msgstr "Den valgte output-mappe er ugyldig"
 
-msgid "Generated pdf documents name prefix:"
-msgstr "Navnepræfiks for de genererede PDF-dokumenter:"
+msgid "Generated PDF documents name prefix:"
+msgstr ""
 
 msgid "Prefix for the generated files names"
 msgstr "Præfiks for de genererede filnavne"
@@ -629,9 +665,6 @@ msgstr "Højreklik for at tilføje disse nøgleord."
 
 msgid "Enter the user password"
 msgstr "Indtast adgangskode"
-
-msgid "Unlock"
-msgstr "Lås op"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -706,49 +739,6 @@ msgstr "Ugyldigt tal: {0}"
 msgid "Drag and drop PDF files here"
 msgstr "Træk PDF-filer hertil"
 
-msgid "Document properties"
-msgstr "Dokumentegenskaber"
-
-msgid "Set destination"
-msgstr "Sæt destination"
-
-msgid "Remove"
-msgstr "Fjern"
-
-msgid "Move to Top"
-msgstr "Flyt til toppen"
-
-msgid "Move Up"
-msgstr "Flyt op"
-
-msgid "Move Down"
-msgstr "Flyt ned"
-
-msgid "Move to Bottom"
-msgstr "Flyt til bunden"
-
-msgid "Open"
-msgstr "Åbn"
-
-msgid "Open Folder"
-msgstr "Åbn mappe"
-
-msgid "Duplicate"
-msgstr "Dupliker"
-
-#, java-format
-msgid "Pages: {0}, PDF Version: {1}"
-msgstr "Sider: {0}, PDF-version: {1}"
-
-msgid "Loading..."
-msgstr "Inddlæser..."
-
-msgid "Merge form fields"
-msgstr "Flet formularfelter"
-
-msgid "Some of the selected PDF documents contain forms, merge them"
-msgstr "Nogle af de valgte PDF-filer indeholder formularer, flet dem"
-
 msgid "Add a blank page if page number is odd"
 msgstr "Tilføj en tom side, hvis sidetallet er ulige"
 
@@ -758,6 +748,18 @@ msgid ""
 msgstr ""
 "Tilføj en tom side efter hvert flettet dokument, hvis dokumentet har et "
 "ulige sidetal"
+
+msgid "Merge fields"
+msgstr ""
+
+msgid "Merge renaming existing fields"
+msgstr ""
+
+msgid "Discard forms"
+msgstr ""
+
+msgid "Interactive forms (AcroForms):"
+msgstr ""
 
 msgid "Retain bookmarks"
 msgstr "Behold bogmærker"
@@ -771,14 +773,14 @@ msgstr "Opret en postering for hvert flettet dokument"
 msgid "Bookmarks handling:"
 msgstr "Håndtering af bogmærker"
 
-msgid "No pdf document has been selected"
-msgstr "Der er ikke valgt et PDF-dokument"
+msgid "No PDF document has been selected"
+msgstr ""
 
 msgid "Merge"
 msgstr "Sammenflet"
 
-msgid "Merge together multiple pdf documents or subsections of them."
-msgstr "Flet flere PDF-dokumenter eller dele af dem."
+msgid "Merge together multiple PDF documents or subsections of them."
+msgstr ""
 
 msgid "Merge settings"
 msgstr "Indstillinger for fletning"
@@ -804,6 +806,9 @@ msgstr "Gyldig adgangskode anvendt."
 
 msgid "This document is encrypted, click to provide a password."
 msgstr "Dette dokument er krypteret, opgiv en adgangskode."
+
+msgid "An error has occurred, click for more details."
+msgstr ""
 
 msgid "Squared green"
 msgstr "Grønne kanter"
@@ -836,13 +841,11 @@ msgid "Split by bookmarks"
 msgstr "Opdel ved bogmærker"
 
 msgid ""
-"Split a pdf document at bookmarked pages by specifying a bookmark level."
+"Split a PDF document at bookmarked pages by specifying a bookmark level."
 msgstr ""
-"Opdel et PDF-dokument ved sider med et bogmærke ved at angive et "
-"bogmærkeniveau."
 
-msgid "Regexp the bookmark has to match"
-msgstr "Regexp: Bogmærket skal matche"
+msgid "Regular expression the bookmark has to match"
+msgstr ""
 
 msgid "Split at this bookmark level:"
 msgstr "Opdel ved dette bogmærkeniveau:"

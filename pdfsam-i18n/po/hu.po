@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-02-05 19:02+0100\n"
+"POT-Creation-Date: 2015-09-27 19:09+0200\n"
 "PO-Revision-Date: 2015-03-06 09:32+0000\n"
 "Last-Translator: Richard Somlói <ricsipontaz@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -15,8 +15,17 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-08-03 07:52+0000\n"
-"X-Generator: Launchpad (build 17656)\n"
+"X-Launchpad-Export-Date: 2015-10-03 09:48+0000\n"
+"X-Generator: Launchpad (build 17783)\n"
+
+msgid "Dashboard"
+msgstr "Főablak"
+
+msgid "Cancel"
+msgstr "Mégse"
+
+msgid "Overwrite"
+msgstr "Felülírás"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -79,9 +88,6 @@ msgstr "Válassza ki a mentendő munkaterületet"
 
 msgid "Select the workspace to load"
 msgstr "Válassza ki a betöltendő munkaterületet"
-
-msgid "Dashboard"
-msgstr "Főablak"
 
 msgid "Document details"
 msgstr "Dokumentum részletei"
@@ -360,12 +366,6 @@ msgstr "Egy fájl már létezik a megadott névvel"
 msgid "Do you want to overwrite it?"
 msgstr "Felül szeretné írni?"
 
-msgid "Overwrite"
-msgstr "Felülírás"
-
-msgid "Cancel"
-msgstr "Mégse"
-
 msgid "Unable to find the latest available version."
 msgstr "Nem sikerült megtalálni a legutolsó verziót."
 
@@ -423,8 +423,8 @@ msgstr "Érvénytelen oldalszám"
 msgid "Split"
 msgstr "Szétválasztás"
 
-msgid "Split a pdf document at the given page numbers."
-msgstr "PDF dokumentum szétválasztása a megadott oldalszámoknál."
+msgid "Split a PDF document at the given page numbers."
+msgstr ""
 
 msgid "Select or drag and drop the PDF you want to split"
 msgstr "Válassza ki vagy ejtse ide a szétválasztani kívánt PDF-et"
@@ -453,8 +453,8 @@ msgstr "Szétválasztás minden n-edik oldalnál"
 msgid "Number of pages"
 msgstr "Oldalszám"
 
-msgid "Splits the pdf every \"n\" pages creating documents of \"n\" pages each"
-msgstr "Szétválasztja a dokumentumot minden n-edik oldalnál"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr ""
 
 msgid "Invalid number of pages"
 msgstr "Érvénytelen oldalszám"
@@ -462,8 +462,8 @@ msgstr "Érvénytelen oldalszám"
 msgid "Split by size"
 msgstr "Szétválasztás méret alapján"
 
-msgid "Split a pdf document in files of the give size (roughly)."
-msgstr "PDF dokumentum szétválasztása a megadott méret alapján (körülbelül)."
+msgid "Split a PDF document in files of the given size (roughly)."
+msgstr ""
 
 msgid "Set the size to split at"
 msgstr "Szétválasztás a következő méretnél"
@@ -477,17 +477,17 @@ msgstr "Szétválasztás ennél a méretnél:"
 msgid "Invalid split size"
 msgstr "Érvénytelen szétválasztási méret"
 
-msgid "Kilobytes"
-msgstr "Kilobyte"
-
-msgid "KB"
-msgstr "KB"
-
 msgid "Megabytes"
 msgstr "Megabyte"
 
 msgid "MB"
 msgstr "MB"
+
+msgid "Kilobytes"
+msgstr "Kilobyte"
+
+msgid "KB"
+msgstr "KB"
 
 msgid "Alternate Mix"
 msgstr "Keverés"
@@ -534,6 +534,61 @@ msgstr "Adja meg az oldalszámot"
 msgid "The selected PDF document is invalid"
 msgstr "A kijelölt PDF érvénytelen"
 
+msgid "Completed"
+msgstr "Befejezett"
+
+msgid "Failed"
+msgstr "Sikertelen"
+
+msgid "Running"
+msgstr "Folyamatban"
+
+msgid "Requested"
+msgstr "Kért"
+
+msgid "Select a file"
+msgstr "Fájl kiválasztása"
+
+msgid "Unlock"
+msgstr "Feloldás"
+
+msgid "Duplicate"
+msgstr "Másolat készítés"
+
+msgid "Move Down"
+msgstr "Mozgatás lefelé"
+
+msgid "Move to Bottom"
+msgstr "Mozgatás alulra"
+
+msgid "Move Up"
+msgstr "Mozgatás felfelé"
+
+msgid "Move to Top"
+msgstr "Mozgatás felülre"
+
+msgid "Set destination"
+msgstr "Cél megadása"
+
+msgid "Open"
+msgstr "Megnyitás"
+
+msgid "Open Folder"
+msgstr "Mappa megnyitása"
+
+msgid "Document properties"
+msgstr "Dokumentum tulajdonságai"
+
+msgid "Remove"
+msgstr "Eltávolítás"
+
+msgid "Loading..."
+msgstr "Betöltés…"
+
+#, java-format
+msgid "Pages: {0}, PDF Version: {1}"
+msgstr "Oldalak száma: {0}, PDF verzió: {1}"
+
 msgid "Open the generated document"
 msgstr "Létrehozott dokumentum megnyitása"
 
@@ -543,18 +598,6 @@ msgstr "Célmappa megnyitása"
 msgid "Ready"
 msgstr "Kész"
 
-msgid "Running"
-msgstr "Folyamatban"
-
-msgid "Requested"
-msgstr "Kért"
-
-msgid "Completed"
-msgstr "Befejezett"
-
-msgid "Failed"
-msgstr "Sikertelen"
-
 msgid "Run"
 msgstr "Futtatás"
 
@@ -562,11 +605,8 @@ msgid "Overwrite if already exists"
 msgstr "Írja felül, ha már létezik"
 
 msgid ""
-"Tick the box if you want to overwrite the outpuf files if they already exist."
-msgstr "Pipálja be, ha szeretné, hogy felülírja a már létező fájlokat."
-
-msgid "Select a file"
-msgstr "Fájl kiválasztása"
+"Tick the box if you want to overwrite the output files if they already exist."
+msgstr ""
 
 msgid "The selected file must exist. "
 msgstr "A kiválasztott fájlnak léteznie kell. "
@@ -587,8 +627,8 @@ msgstr "A kiválasztott PDF érvénytelen"
 msgid "Compress output file/files"
 msgstr "Kimeneti fájlok tömörítése"
 
-msgid "Output pdf version:"
-msgstr "Kimeneti PDF verziója:"
+msgid "Output PDF version:"
+msgstr ""
 
 #, java-format
 msgid "Version {0}"
@@ -598,8 +638,8 @@ msgid "Same as the input document"
 msgstr "Bemeneti dokumentummal megegyező"
 
 #, java-format
-msgid "Pdf version required: {0}"
-msgstr "Szükséges PDF verzió: {0}"
+msgid "PDF version required: {0}"
+msgstr ""
 
 msgid "Select an existing directory"
 msgstr "Válasszon egy létező mappát"
@@ -607,8 +647,8 @@ msgstr "Válasszon egy létező mappát"
 msgid "The selected output directory is invalid"
 msgstr "A kiválasztott kimeneti mappa érvénytelen"
 
-msgid "Generated pdf documents name prefix:"
-msgstr "A generált PDF nevének előtagja:"
+msgid "Generated PDF documents name prefix:"
+msgstr ""
 
 msgid "Prefix for the generated files names"
 msgstr "Előtag hozzáadása a generált fájlnevekhez"
@@ -627,9 +667,6 @@ msgstr "Kattintson a jobb egérgombbal ezen kulcsszavak hozzáadásához."
 
 msgid "Enter the user password"
 msgstr "Adja meg a felhasználói jelszót"
-
-msgid "Unlock"
-msgstr "Feloldás"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -704,49 +741,6 @@ msgstr "Érvénytelen szám: {0}."
 msgid "Drag and drop PDF files here"
 msgstr "Fogja meg és ejtse ide a PDF fájlokat"
 
-msgid "Document properties"
-msgstr "Dokumentum tulajdonságai"
-
-msgid "Set destination"
-msgstr "Cél megadása"
-
-msgid "Remove"
-msgstr "Eltávolítás"
-
-msgid "Move to Top"
-msgstr "Mozgatás felülre"
-
-msgid "Move Up"
-msgstr "Mozgatás felfelé"
-
-msgid "Move Down"
-msgstr "Mozgatás lefelé"
-
-msgid "Move to Bottom"
-msgstr "Mozgatás alulra"
-
-msgid "Open"
-msgstr "Megnyitás"
-
-msgid "Open Folder"
-msgstr "Mappa megnyitása"
-
-msgid "Duplicate"
-msgstr "Másolat készítés"
-
-#, java-format
-msgid "Pages: {0}, PDF Version: {1}"
-msgstr "Oldalak száma: {0}, PDF verzió: {1}"
-
-msgid "Loading..."
-msgstr "Betöltés…"
-
-msgid "Merge form fields"
-msgstr "Űrlapmezők meghagyása"
-
-msgid "Some of the selected PDF documents contain forms, merge them"
-msgstr "A kijelölt PDF dokumentumokban található űrlapok meghagyása"
-
 msgid "Add a blank page if page number is odd"
 msgstr "Üres oldal hozzáadása, ha az oldalak száma páratlan"
 
@@ -756,6 +750,18 @@ msgid ""
 msgstr ""
 "Minden oldal után egy üres oldal hozzáadása, ha a dokumentum oldalszáma "
 "páratlan"
+
+msgid "Merge fields"
+msgstr ""
+
+msgid "Merge renaming existing fields"
+msgstr ""
+
+msgid "Discard forms"
+msgstr ""
+
+msgid "Interactive forms (AcroForms):"
+msgstr ""
 
 msgid "Retain bookmarks"
 msgstr "Könyvjelzők megtartása"
@@ -769,14 +775,14 @@ msgstr "Bejegyzés készítése minden egyesített dokumentumhoz"
 msgid "Bookmarks handling:"
 msgstr "Könyvjelzők kezelése:"
 
-msgid "No pdf document has been selected"
-msgstr "Nincs kiválasztott PDF dokumentum"
+msgid "No PDF document has been selected"
+msgstr ""
 
 msgid "Merge"
 msgstr "Egyesítés"
 
-msgid "Merge together multiple pdf documents or subsections of them."
-msgstr "Több PDF dokumentum, vagy azok fejezeteinek egyesítése."
+msgid "Merge together multiple PDF documents or subsections of them."
+msgstr ""
 
 msgid "Merge settings"
 msgstr "Egyesítés beállításai"
@@ -802,6 +808,9 @@ msgstr "Érvényes felhasználó jelszó"
 
 msgid "This document is encrypted, click to provide a password."
 msgstr "A dokumentum titkosított, kattintson ide a jelszó megadásához."
+
+msgid "An error has occurred, click for more details."
+msgstr ""
 
 msgid "Squared green"
 msgstr "Zöld szögletes"
@@ -834,13 +843,11 @@ msgid "Split by bookmarks"
 msgstr "Szétválasztás könyvjelzők alapján"
 
 msgid ""
-"Split a pdf document at bookmarked pages by specifying a bookmark level."
+"Split a PDF document at bookmarked pages by specifying a bookmark level."
 msgstr ""
-"PDF dokumentum szétválasztása a könyvjelzőzött oldalak alapján, a "
-"könyvjelzőszint megadásával."
 
-msgid "Regexp the bookmark has to match"
-msgstr "Könyvjelzővel egyező reguláris kifejezés"
+msgid "Regular expression the bookmark has to match"
+msgstr ""
 
 msgid "Split at this bookmark level:"
 msgstr "Szétválasztás ennél a könyvjelzőszintnél:"

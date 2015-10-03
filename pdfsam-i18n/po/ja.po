@@ -1,0 +1,894 @@
+# Japanese translation for pdfsam
+# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
+# This file is distributed under the same license as the pdfsam package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pdfsam\n"
+"Report-Msgid-Bugs-To: info@pdfsam.org\n"
+"POT-Creation-Date: 2015-09-27 19:09+0200\n"
+"PO-Revision-Date: 2015-09-28 13:51+0000\n"
+"Last-Translator: Naofumi Fukue <naofum@gmail.com>\n"
+"Language-Team: Japanese <ja@li.org>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2015-10-03 09:48+0000\n"
+"X-Generator: Launchpad (build 17783)\n"
+
+msgid "Dashboard"
+msgstr "ダッシュボード"
+
+msgid "Cancel"
+msgstr "キャンセル"
+
+msgid "Overwrite"
+msgstr "上書き"
+
+#, java-format
+msgid "Installing theme {0}."
+msgstr "テーマ {0} をインストールしています。"
+
+#, java-format
+msgid "Modules directory {0} does not exist"
+msgstr "モジュールのディレクトリー {0} が存在しません"
+
+#, java-format
+msgid "Loading modules from {0}"
+msgstr "{0} からモジュールをロードしています"
+
+#, java-format
+msgid "Found modules jars {0}"
+msgstr "モジュールの jar {0} が見つかりました"
+
+msgid "Error finding modules paths"
+msgstr "モジュールのパスを検索中にエラー"
+
+msgid "No module has been found"
+msgstr "モジュールが見つかりません"
+
+msgid "Unable to find modules location."
+msgstr "モジュールの場所を検索できません。"
+
+#, java-format
+msgid "Started in {0}"
+msgstr "{0} から開始しました"
+
+msgid "Closing PDFsam..."
+msgstr "PDFsam を閉じています..."
+
+msgid "Application menu"
+msgstr "アプリケーションメニュー"
+
+msgid "_Modules"
+msgstr "モジュール(_M)"
+
+msgid "E_xit"
+msgstr "終了(_X)"
+
+msgid "Application messages"
+msgstr "アプリケーション メッセージ"
+
+msgid "_Workspace"
+msgstr "ワークスペース(_W)"
+
+msgid "_Load"
+msgstr "読み込み(_L)"
+
+msgid "_Save"
+msgstr "保存(_S)"
+
+msgid "Recen_t"
+msgstr "最近開いたファイル(_T)"
+
+msgid "Select the workspace file to save"
+msgstr "保存するワークスペースファイルを選択してください"
+
+msgid "Select the workspace to load"
+msgstr "読み込むワークスペースファイルを選択してください"
+
+msgid "Document details"
+msgstr "文書の詳細"
+
+msgid "Keywords"
+msgstr "キーワード"
+
+msgid "Summary"
+msgstr "サマリー"
+
+msgid "About"
+msgstr "このアプリについて"
+
+msgid "Subscribe to the official news feed"
+msgstr "公式ニュースフィードを購読する"
+
+msgid "Environment"
+msgstr "環境"
+
+#, java-format
+msgid "Max memory {0}"
+msgstr "最大メモリー {0}"
+
+msgid "Copy to clipboard"
+msgstr "クリップボードにコピー"
+
+msgid "Thanks to"
+msgstr "謝辞"
+
+msgid "The open source projects making PDFsam possible"
+msgstr "PDFsam を提供するオープンソースプロジェクト"
+
+msgid "Support"
+msgstr "サポート"
+
+msgid "Bug and feature requests"
+msgstr "バグと機能のリクエスト"
+
+msgid "Play the \"get started\" video"
+msgstr "\"始めましょう\" ビデオを再生"
+
+msgid "Contribute"
+msgstr "貢献"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "GitHub で PDFsam をフォーク"
+
+msgid "Translate"
+msgstr "翻訳"
+
+msgid "Donate"
+msgstr "寄付"
+
+msgid "Social"
+msgstr "ソーシャル"
+
+msgid "Follow us on Twitter"
+msgstr "Twitter でフォロー"
+
+msgid "Follow us on Google Plus"
+msgstr "Google+ でフォロー"
+
+msgid "Like us on Facebook"
+msgstr "Facebook でいいね"
+
+msgid "Manually selected"
+msgstr "手動で選択"
+
+msgid ""
+"Automatically set the destination directory to the selected PDF document "
+"directory"
+msgstr ""
+"出力先ディレクトリを選択された PDF 文書ディレクトリに自動的に設定します"
+
+msgid "Appearance"
+msgstr "外観"
+
+msgid "Behavior"
+msgstr "動作"
+
+msgid "Workspace"
+msgstr "ワークスペース"
+
+msgid "Output"
+msgstr "出力"
+
+msgid "Check for updates at startup"
+msgstr "起動時に更新を確認する"
+
+msgid ""
+"Set whether new version availability should be checked on startup (restart "
+"needed)"
+msgstr ""
+"起動時に、新しいバージョンが利用可能かどうか確認するように設定します (再起動"
+"が必要です)"
+
+msgid "Play alert sounds"
+msgstr "警告サウンドを再生"
+
+msgid "Turn on or off alert sounds"
+msgstr "警告サウンドをオン/オフします"
+
+msgid "High quality thumbnails"
+msgstr "高品質サムネイル"
+
+msgid "Use the selected PDF document directory as output directory"
+msgstr "出力ディレクトリとして選択した PDF 文書ディレクトリを使用します"
+
+#, java-format
+msgid "Size must be between {0}px and {1}px"
+msgstr "サイズは {0}px から {1}px の間にする必要があります"
+
+#, java-format
+msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
+msgstr "サムネイルのピクセルサイズ ({0}px から {1}px の間)"
+
+msgid "Maximum number of rows mast be a positive number"
+msgstr "行の最大数は正の数にする必要があります"
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr "ログレジスターによって表示される行の最大数"
+
+msgid "Generate high quality thumbnails (slower)"
+msgstr "高品質のサムネイルを生成します (遅くなります)"
+
+msgid "Size in px:"
+msgstr "サイズ (px):"
+
+msgid "Library used to generate thumbnails"
+msgstr "サムネイルを生成するために使用するライブラリー"
+
+msgid "Thumbnails creator:"
+msgstr "サムネイル作成:"
+
+msgid "Clear usage statistics"
+msgstr "使用状況をクリア"
+
+msgid ""
+"Select a previously saved workspace that will be automatically loaded at "
+"startup"
+msgstr "起動時に自動的にロードされる、以前に保存したワークスペースを選択します"
+
+msgid "Select a workspace"
+msgstr "ワークスペースを選択"
+
+msgid "Select a directory where documents will be saved and loaded by default"
+msgstr "デフォルトで文書が保存および読み込まれるディレクトリを選択します"
+
+msgid "Select a directory"
+msgstr "ディレクトリを選択"
+
+msgid ""
+"Usage statistics are used to populate the modules quick bar on the left with "
+"the most used and most recently used modules."
+msgstr ""
+"クイックバーの左に、最もよく使用された、そして最近使用したモジュールを設定す"
+"るために利用状況が使用されます。"
+
+msgid "Load default workspace at startup:"
+msgstr "起動時にデフォルトのワークスペースを読み込む:"
+
+msgid "Default working directory:"
+msgstr "デフォルトの作業ディレクトリ:"
+
+msgid "Set how often the PDFsam news panel should be opened"
+msgstr "PDFsam ニュースパネルが開かれる頻度を設定します"
+
+msgid "News panel:"
+msgstr "ニュースパネル:"
+
+msgid "Log register rows:"
+msgstr "ログ登録行:"
+
+msgid "Language:"
+msgstr "言語："
+
+msgid "Set your preferred language (restart needed)"
+msgstr "使用言語の設定（要リスタート）"
+
+msgid "Theme:"
+msgstr "テーマ:"
+
+msgid "Set your preferred theme (restart needed)"
+msgstr "お好みのテーマを設定（要リスタート）"
+
+msgid "Startup module:"
+msgstr "起動モジュール:"
+
+msgid "Set the module to open at application startup (restart needed)"
+msgstr "アプリケーションの起動時に開くモジュールを設定します（要リスタート）"
+
+msgid "Check for updates now"
+msgstr "今すぐ更新を確認"
+
+msgid "Close"
+msgstr "閉じる"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Modules"
+msgstr "モジュール"
+
+msgid "Log register"
+msgstr "ログ登録"
+
+msgid "Copy"
+msgstr "コピー"
+
+msgid "Clear"
+msgstr "クリア"
+
+msgid "Select all"
+msgstr "全てを選択"
+
+msgid "Save log"
+msgstr "ログの保存"
+
+msgid "Select where to save the log file"
+msgstr "ログファイルを保存する場所を選択"
+
+msgid "Invalid parameters"
+msgstr "パラメータが正しくありません"
+
+msgid ""
+"Input parameters are invalid, open the application messages for details."
+msgstr ""
+"入力パラメータが正しくありません。詳細については、アプリケーション メッセージ"
+"を開いてください。"
+
+#, java-format
+msgid "You performed {0} tasks with PDFsam, did it help?"
+msgstr "PDFsamで {0} のタスクを実行しました。役立ちましたか?"
+
+msgid "Give something back"
+msgstr "何か戻します"
+
+msgid "PDFsam worked hard!"
+msgstr "PDFsam はがんばりました!"
+
+#, java-format
+msgid "PDFsam {0} is available for download"
+msgstr "PDFsam {0} がダウンロードできます"
+
+msgid "Download"
+msgstr "ダウンロード"
+
+msgid "New version available"
+msgstr "新しいバージョンが利用可能です"
+
+msgid "Show this:"
+msgstr "これを表示:"
+
+msgid "What's new"
+msgstr "新着情報"
+
+msgid "Directory not empty"
+msgstr "ディレクトリが空ではありません"
+
+msgid "The selected directory is not empty"
+msgstr "選択したディレクトリが空ではありません"
+
+msgid "Overwrite files with the same name as the generated ones?"
+msgstr "生成したもので同じ名前のファイルを上書きしますか?"
+
+msgid "Don't overwrite existing file"
+msgstr "既存のファイルを上書きしない"
+
+msgid "Overwrite confirmation"
+msgstr "上書きの確認"
+
+msgid "A file with the given name already exists"
+msgstr "指定した名前のファイルは既に存在します"
+
+msgid "Do you want to overwrite it?"
+msgstr "上書きしますか?"
+
+msgid "Unable to find the latest available version."
+msgstr "最新の利用可能なバージョンが見つかりません。"
+
+msgid "Checking for updates"
+msgstr "更新を確認しています"
+
+msgid "Loading pdf documents"
+msgstr "PDF 文書を読み込んできます"
+
+msgid "Documents loaded"
+msgstr "文書を読み込みました"
+
+msgid "Requesting modules state"
+msgstr "モジュールの状態を要求中"
+
+msgid "Unable to save modules workspace"
+msgstr "モジュールのワークスペースを保存できません"
+
+#, java-format
+msgid "Loading workspace from {0}"
+msgstr "{0} からワークスペースを読み込んでいます"
+
+msgid "Workspace loaded"
+msgstr "ワークスペースを読み込みました"
+
+#, java-format
+msgid "Unable to load workspace from {0}"
+msgstr "{0} からワークスペースを読み込みできません"
+
+#, java-format
+msgid "Saving workspace data to {0}"
+msgstr "{0} にワークスペースのデータを保存しています"
+
+msgid "Workspace saved"
+msgstr "ワークスペースを保存しました"
+
+msgid "Split after"
+msgstr "後で分割"
+
+msgid "Split the document after the given page numbers"
+msgstr "指定したページ番号の後で文書を分割します"
+
+msgid "No page selected"
+msgstr "ページが選択されていません"
+
+msgid "Split after the following page numbers"
+msgstr "次のページ番号の後で文書を分割します"
+
+msgid "Page numbers to split at (n1,n2,n3..)"
+msgstr "分割するページ番号 (n1,n2,n3..)"
+
+msgid "Invalid page numbers"
+msgstr "ページ番号が正しくありません"
+
+msgid "Split"
+msgstr "分割"
+
+msgid "Split a PDF document at the given page numbers."
+msgstr "指定したページ番号で PDF 文書を分割します。"
+
+msgid "Select or drag and drop the PDF you want to split"
+msgstr "分割したい PDF を選択するか、ドラッグ アンド ドロップします"
+
+msgid "File names settings"
+msgstr "ファイル名の設定"
+
+msgid "Split settings"
+msgstr "分割の設定"
+
+msgid "Destination directory"
+msgstr "出力先ディレクトリ"
+
+msgid "Every page"
+msgstr "各ページ"
+
+msgid "Even pages"
+msgstr "偶数ページ"
+
+msgid "Odd pages"
+msgstr "奇数ページ"
+
+msgid "Split by every \"n\" pages"
+msgstr "\"n\" ページごとに分割"
+
+msgid "Number of pages"
+msgstr "ページ数"
+
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr ""
+"\"n\" ページ毎に PDF ファイルを分割し、\"n\" はページ毎の文書を作成します"
+
+msgid "Invalid number of pages"
+msgstr "ページ数が正しくありません"
+
+msgid "Split by size"
+msgstr "サイズで分割"
+
+msgid "Split a PDF document in files of the given size (roughly)."
+msgstr "指定された (大まかな) サイズのファイルに PDF 文書を分割します。"
+
+msgid "Set the size to split at"
+msgstr "分割するサイズを設定"
+
+msgid "Size must be a number"
+msgstr "サイズは数字にする必要があります"
+
+msgid "Split at this size:"
+msgstr "このサイズで分割:"
+
+msgid "Invalid split size"
+msgstr "分割サイズは無効です"
+
+msgid "Megabytes"
+msgstr "メガバイト"
+
+msgid "MB"
+msgstr "MB"
+
+msgid "Kilobytes"
+msgstr "キロバイト"
+
+msgid "KB"
+msgstr "KB"
+
+msgid "Alternate Mix"
+msgstr "交互にミックス"
+
+msgid ""
+"Merge two PDF documents taking pages alternately in straight or reverse "
+"order."
+msgstr "順番または逆順で、ページを交互に、2 つの PDF 文書をマージします。"
+
+msgid "Select or drag and drop the first PDF you want to mix"
+msgstr ""
+"ミックスしたい最初の PDF ファイルを選択するか、ドラッグ アンド ドロップします"
+
+msgid "Select or drag and drop the second PDF you want to mix"
+msgstr ""
+"ミックスしたい二番目の PDF ファイルを選択するか、ドラッグ アンド ドロップしま"
+"す"
+
+msgid "Mix settings"
+msgstr "ミックス設定"
+
+msgid "Destination file"
+msgstr "出力先ファイル"
+
+msgid "Reverse the first document"
+msgstr "最初の文書を逆順にする"
+
+msgid "Reverse the second document"
+msgstr "二番目の文書を逆順にする"
+
+msgid ""
+"Switch from the first document to the second one after the following pages"
+msgstr "次のページの後で、最初の文書から二番目の文書に切り替えます"
+
+msgid ""
+"Switch from the second document to the first one after the following pages"
+msgstr "次のページの後で、二番目の文書から最初の文書に切り替えます"
+
+msgid "Invalid parameter 'first and second step' must be numbers"
+msgstr ""
+"パラメーターが正しくありません '最初と二番目のステップ' は数字にする必要があ"
+"ります"
+
+msgid "Select the number of pages"
+msgstr "ページ数を選択"
+
+msgid "The selected PDF document is invalid"
+msgstr "選択した PDF 文書が正しくありません"
+
+msgid "Completed"
+msgstr "完了"
+
+msgid "Failed"
+msgstr "失敗"
+
+msgid "Running"
+msgstr "実行中"
+
+msgid "Requested"
+msgstr "リクエスト"
+
+msgid "Select a file"
+msgstr "ファイルを選択"
+
+msgid "Unlock"
+msgstr "ロックを解除"
+
+msgid "Duplicate"
+msgstr "複製"
+
+msgid "Move Down"
+msgstr "下に移動"
+
+msgid "Move to Bottom"
+msgstr "一番下に移動"
+
+msgid "Move Up"
+msgstr "上に移動"
+
+msgid "Move to Top"
+msgstr "一番上に移動"
+
+msgid "Set destination"
+msgstr "出力先の設定"
+
+msgid "Open"
+msgstr "開く"
+
+msgid "Open Folder"
+msgstr "フォルダーを開く"
+
+msgid "Document properties"
+msgstr "文書のプロパティ"
+
+msgid "Remove"
+msgstr "削除"
+
+msgid "Loading..."
+msgstr "読み込み中..."
+
+#, java-format
+msgid "Pages: {0}, PDF Version: {1}"
+msgstr "ページ数: {0}, PDF バージョン: {1}"
+
+msgid "Open the generated document"
+msgstr "生成した文書を開く"
+
+msgid "Open the destination directory"
+msgstr "出力先ディレクトリを開く"
+
+msgid "Ready"
+msgstr "準備完了"
+
+msgid "Run"
+msgstr "実行"
+
+msgid "Overwrite if already exists"
+msgstr "既存の場合上書きする"
+
+msgid ""
+"Tick the box if you want to overwrite the output files if they already exist."
+msgstr ""
+"出力ファイルがすでに存在する場合に上書きする場合は、このボックスにチェックを"
+"入れます。"
+
+msgid "The selected file must exist. "
+msgstr "選択したファイルは存在する必要があります。 "
+
+#, java-format
+msgid "Allowed extensions are {0}"
+msgstr "許可される拡張子は {0}"
+
+msgid "Select"
+msgstr "選択"
+
+msgid "Browse"
+msgstr "参照"
+
+msgid "The selected PDF file is invalid"
+msgstr "選択した PDF ファイルが正しくありません"
+
+msgid "Compress output file/files"
+msgstr "出力ファイルを圧縮する"
+
+msgid "Output PDF version:"
+msgstr "出力 PDF バージョン:"
+
+#, java-format
+msgid "Version {0}"
+msgstr "バージョン {0}"
+
+msgid "Same as the input document"
+msgstr "入力文書と同じにする"
+
+#, java-format
+msgid "PDF version required: {0}"
+msgstr "必要な PDF バージョン: {0}"
+
+msgid "Select an existing directory"
+msgstr "既存のディレクトリを選択"
+
+msgid "The selected output directory is invalid"
+msgstr "選択した出力ディレクトリが正しくありません"
+
+msgid "Generated PDF documents name prefix:"
+msgstr "生成する PDF 文書名の接頭語:"
+
+msgid "Prefix for the generated files names"
+msgstr "生成されるファイル名の接頭語"
+
+msgid "Add prefix"
+msgstr "接頭語を追加"
+
+msgid "Prefix for the output files name."
+msgstr "出力ファイル名の接頭語。"
+
+msgid "Some special keywords are replaced with runtime values."
+msgstr "一部の特殊なキーワードは、実行時の値に置き換えられます。"
+
+msgid "Right click to add these keywords."
+msgstr "右クリックしてこのキーワードを追加します。"
+
+msgid "Enter the user password"
+msgstr "ユーザー パスワードを入力"
+
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"ダブルクリックして、マージしたいページを設定します (例: 2 または 5-23 または "
+"2,5-7,12-)"
+
+msgid "Pages"
+msgstr "ページ"
+
+msgid "Name"
+msgstr "名前"
+
+msgid "Add documents to the table"
+msgstr "テーブルに文書を追加"
+
+msgid "_Add"
+msgstr "追加(_A)"
+
+msgid "Select pdf documents to load"
+msgstr "読み込む PDF 文書を選択"
+
+msgid "Removes selected documents"
+msgstr "選択した文書を削除"
+
+msgid "_Remove"
+msgstr "削除(_R)"
+
+msgid "Removes every document"
+msgstr "すべての文書を削除"
+
+msgid "_Clear"
+msgstr "クリア(_C)"
+
+msgid "Moves up selected documents"
+msgstr "選択した文書を上に移動"
+
+msgid "Move _Up"
+msgstr "上に移動(_U)"
+
+msgid "Moves down selected documents"
+msgstr "選択した文書を下に移動"
+
+msgid "Move _Down"
+msgstr "下に移動(_D)"
+
+msgid "Page ranges"
+msgstr "ページの範囲"
+
+msgid "Size"
+msgstr "サイズ"
+
+msgid "Modified"
+msgstr "更新日"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "範囲が正しくありません: {0}。"
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+"あいまいなページの範囲の定義: {0}。 次の形式を使用してください: [n] または "
+"[n1-n2] または [-n] または [n-]"
+
+#, java-format
+msgid "Invalid number: {0}."
+msgstr "数が正しくありません: {0}。"
+
+msgid "Drag and drop PDF files here"
+msgstr "ここに PDF ファイルをドラッグ＆ドロップします"
+
+msgid "Add a blank page if page number is odd"
+msgstr "ページ番号が奇数の場合、空白のページを追加"
+
+msgid ""
+"Adds a blank page after each merged document if the document has an odd "
+"number of pages"
+msgstr ""
+"文書のページ番号が奇数の場合、マージされた文書の後に空白ページを追加します"
+
+msgid "Merge fields"
+msgstr "フィールドをマージ"
+
+msgid "Merge renaming existing fields"
+msgstr "既存のフィールドの名前を変更してマージします"
+
+msgid "Discard forms"
+msgstr "フォームを破棄"
+
+msgid "Interactive forms (AcroForms):"
+msgstr "インタラクティブフォーム (AcroForms):"
+
+msgid "Retain bookmarks"
+msgstr "しおりを保持する"
+
+msgid "Discard bookmarks"
+msgstr "しおりを破棄する"
+
+msgid "Create one entry for each merged document"
+msgstr "マージされた文書それぞれにエントリを 1 つ作成します"
+
+msgid "Bookmarks handling:"
+msgstr "しおりの処理:"
+
+msgid "No PDF document has been selected"
+msgstr "PDF 文書が選択されていません"
+
+msgid "Merge"
+msgstr "マージ"
+
+msgid "Merge together multiple PDF documents or subsections of them."
+msgstr "複数の PDF 文書またはそのサブセクションを一緒にマージします。"
+
+msgid "Merge settings"
+msgstr "マージ設定"
+
+msgid "Security"
+msgstr "セキュリティ"
+
+msgid "Other"
+msgstr "その他"
+
+msgid "Error saving log file."
+msgstr "ログファイルの保存中にエラー。"
+
+#, java-format
+msgid "File {0} saved."
+msgstr "ファイル {0} を保存しました。"
+
+msgid "Directories"
+msgstr "ディレクトリ"
+
+msgid "Valid user password provided."
+msgstr "有効なユーザー パスワードが入力されました。"
+
+msgid "This document is encrypted, click to provide a password."
+msgstr ""
+"この文書は暗号化されています。クリックして、パスワードを入力してください。"
+
+msgid "An error has occurred, click for more details."
+msgstr "エラーが発生しました。詳細はクリックしてください。"
+
+msgid "Squared green"
+msgstr "緑の四角"
+
+msgid "Squared cornflower"
+msgstr "ヤグルマギクの四角"
+
+msgid "Roundish"
+msgstr "丸み"
+
+msgid "Never"
+msgstr "なし"
+
+msgid "Once a day"
+msgstr "1 日 1 回"
+
+msgid "Once a week"
+msgstr "1 週間に 1 回"
+
+msgid "Always"
+msgstr "常に"
+
+msgid "Set the bookmarks level to split at"
+msgstr "分割するしおりのレベルを設定"
+
+msgid "Invalid bookmarks level"
+msgstr "しおりのレベルが正しくありません"
+
+msgid "Split by bookmarks"
+msgstr "しおりで分割"
+
+msgid ""
+"Split a PDF document at bookmarked pages by specifying a bookmark level."
+msgstr "しおりのレベルを指定して、しおりのページで PDF 文書を分割します。"
+
+msgid "Regular expression the bookmark has to match"
+msgstr "しおりが一致する必要がある正規表現"
+
+msgid "Split at this bookmark level:"
+msgstr "しおりのレベルで分割:"
+
+msgid "Matching regular expression:"
+msgstr "一致する正規表現:"
+
+msgid "All pages"
+msgstr "すべてのページ"
+
+msgid "90 degrees clockwise"
+msgstr "時計回りに 90 度"
+
+msgid "180 degrees clockwise"
+msgstr "時計回りに 180 度"
+
+msgid "270 degrees clockwise"
+msgstr "時計回りに 270 度"
+
+msgid "Rotate "
+msgstr "回転 "
+
+msgid "Rotate"
+msgstr "回転"
+
+msgid "Rotate the pages of multiple PDF documents."
+msgstr "複数の PDF 文書のページを回転させます。"
+
+msgid "Rotate settings"
+msgstr "回転の設定"
+
+#~ msgid "Split even pages"
+#~ msgstr "各奇数ページが先頭になるように分割する"
+
+#~ msgid "Split odd pages"
+#~ msgstr "各偶数ページが先頭になるように分割する"
+
+#~ msgid "Destination folder"
+#~ msgstr "出力先フォルダ"
