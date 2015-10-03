@@ -56,8 +56,9 @@
         <Property Id="PRE_MSI_SETUP_INSTALLLOCATION_USER" Secure="yes">
             <RegistrySearch Id="PRE_MSI_SETUP_INSTALLLOCATION_USER_REGSEARCH" Root="HKCU" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\pdfsam" Name="InstallLocation" Type="raw" Win64="no" />
         </Property>
-		    <Property Id="LOCALE" Value="English (UK)"/>
-		    <Property Id="LOCALE_CODE" Value="en_GB" Secure="yes"/>
+		<Property Id="LOCALE" Value="English (UK)"/>
+		<Property Id="LOCALE_CODE" Value="en_GB" Secure="yes"/>
+		<Property Id="CHECK_FOR_UPDATES" Value="true" Secure="yes"/>
 
         <Directory Id="TARGETDIR" Name="SourceDir">
             <Directory Id="$(var.PlatformProgramFilesFolder)" Name="PFiles" ComponentGuidGenerationSeed="{d0d99ae7-c01f-41d6-83d5-a1b7ee8b39bf}">
@@ -68,6 +69,8 @@
                     </Component>
                     <Component Id="pdfsam.l4j.ini" Guid="*">
                         <File Id="pdfsam.l4j.ini" Name="pdfsam.l4j.ini" Source="input\pdfsam.l4j.ini" KeyPath="yes" />
+                        <IniFile Id="pdfsam.l4j.ini.locale" Action="createLine" Directory="APPLICATIONFOLDER" Section="conf" Key="-Dorg.pdfsam.default.locale" Value="[LOCALE_CODE]" Name="pdfsam.l4j.ini" />
+                        <IniFile Id="pdfsam.l4j.ini.checkUpdates" Action="createLine" Directory="APPLICATIONFOLDER" Section="conf" Key="-Dorg.pdfsam.default.checkforupdate" Value="[CHECK_FOR_UPDATES]" Name="pdfsam.l4j.ini" />
                     </Component>
                     <Component Id="pdfsam.exe" Guid="*">
                         <File Id="pdfsam.exe" Name="pdfsam.exe" Source="input\pdfsam.exe" KeyPath="yes" />
