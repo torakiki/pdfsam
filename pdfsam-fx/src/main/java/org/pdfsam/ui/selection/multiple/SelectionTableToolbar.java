@@ -27,6 +27,7 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
+import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.commons.RemoveSelectedEvent;
@@ -83,8 +84,8 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
                     DefaultI18nContext.getInstance().i18n("Select pdf documents to load"));
             List<File> chosenFiles = fileChooser.showOpenMultipleDialog(this.getScene().getWindow());
             if (chosenFiles != null && !chosenFiles.isEmpty()) {
-                PdfLoadRequestEvent<SelectionTableRowData> loadEvent = new PdfLoadRequestEvent<>(getOwnerModule());
-                chosenFiles.stream().map(SelectionTableRowData::new).forEach(loadEvent::add);
+                PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
+                chosenFiles.stream().map(PdfDocumentDescriptor::newDescriptorNoPassword).forEach(loadEvent::add);
                 eventStudio().broadcast(loadEvent, getOwnerModule());
             }
         }

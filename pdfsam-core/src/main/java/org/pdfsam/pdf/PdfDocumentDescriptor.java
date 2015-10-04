@@ -49,7 +49,7 @@ public class PdfDocumentDescriptor {
     private Map<String, String> metadata = new HashMap<>();
     private int maxGoToActionDepth = 0;
 
-    public PdfDocumentDescriptor(File file, String password) {
+    private PdfDocumentDescriptor(File file, String password) {
         requireNotNull(file, "Input file is mandatory");
         this.file = file;
         this.password = password;
@@ -141,11 +141,11 @@ public class PdfDocumentDescriptor {
     }
 
     /**
-     * @return true if this descriptor has been invalidated, this can happen if the user deletes it from the UI and it tells to any service performing or about to perform some
-     *         action on the descriptor that it should be ignored since not relevant anymore.
+     * @return true if this descriptor has references, this can be false if the user deletes it from the UI and it tells to any service performing or about to perform some action
+     *         on the descriptor that it should be ignored since not relevant anymore.
      */
-    public boolean isInvalid() {
-        return references.get() <= 0;
+    public boolean hasReferences() {
+        return references.get() > 0;
     }
 
     /**
@@ -155,7 +155,7 @@ public class PdfDocumentDescriptor {
         return this.references.decrementAndGet() <= 0;
     }
 
-    public void invalidate() {
+    public void releaseAll() {
         this.references.set(0);
     }
 

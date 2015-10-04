@@ -26,6 +26,7 @@ import static org.mockito.Mockito.mock;
 import java.io.File;
 
 import org.junit.Test;
+import org.pdfsam.pdf.PdfDocumentDescriptor;
 
 /**
  * @author Andrea Vacondio
@@ -36,7 +37,7 @@ public class StringColumnTest {
     @Test
     public void getObservableValue() {
         File file = mock(File.class);
-        SelectionTableRowData data = new SelectionTableRowData(file);
+        SelectionTableRowData data = new SelectionTableRowData(PdfDocumentDescriptor.newDescriptorNoPassword(file));
         data.setPageSelection("2");
         assertEquals("2", StringColumn.PAGE_SELECTION.getObservableValue(data).getValue());
     }

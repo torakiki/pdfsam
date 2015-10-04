@@ -65,7 +65,7 @@ public class LoadingColumn implements SelectionTableColumn<PdfDescriptorLoadingS
 
     @Override
     public ObservableValue<PdfDescriptorLoadingStatus> getObservableValue(SelectionTableRowData data) {
-        return data.loadingStatus();
+        return data.descriptor().loadingStatus();
     }
 
     @Override
@@ -133,7 +133,7 @@ public class LoadingColumn implements SelectionTableColumn<PdfDescriptorLoadingS
         }
 
         public PdfDocumentDescriptor getPdfDocumentDescriptor() {
-            return (SelectionTableRowData) getTableRow().getItem();
+            return ((SelectionTableRowData) getTableRow().getItem()).descriptor();
         }
     }
 }

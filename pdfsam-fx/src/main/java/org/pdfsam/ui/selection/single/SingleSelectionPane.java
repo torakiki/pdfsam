@@ -129,7 +129,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
     };
 
     private ChangeListener<PdfDescriptorLoadingStatus> onLoadingStatusChange = (o, oldVal, newVal) -> {
-        if (descriptor != null & !descriptor.isInvalid()) {
+        if (descriptor != null & descriptor.hasReferences()) {
             encryptionIndicatorUpdate.andThen(detailsUpdate).andThen(onLoaded).accept(descriptor);
         }
     };
@@ -173,7 +173,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
 
     private void initializeFor(PdfDocumentDescriptor docDescriptor) {
         invalidateDescriptor();
-        PdfLoadRequestEvent<PdfDocumentDescriptor> loadEvent = new PdfLoadRequestEvent<>(getOwnerModule());
+        PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
         descriptor = docDescriptor;
         descriptor.loadingStatus().addListener(new WeakChangeListener<>(onLoadingStatusChange));
         setContextMenuDisable(false);
@@ -199,7 +199,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
 
     private void invalidateDescriptor() {
         if (nonNull(descriptor)) {
-            descriptor.invalidate();
+            descriptor.releaseAll();
         }
     }
 

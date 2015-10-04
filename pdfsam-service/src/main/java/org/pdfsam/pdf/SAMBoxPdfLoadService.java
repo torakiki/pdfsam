@@ -77,7 +77,7 @@ class SAMBoxPdfLoadService implements PdfLoadService {
                 .reduce(STARTER, (r, d) -> r.andThen(d)).andThen(FINISHER);
 
         for (PdfDocumentDescriptor current : toLoad) {
-            if (!current.isInvalid()) {
+            if (current.hasReferences()) {
                 LOG.trace("Loading {}", current.getFileName());
                 fxMoveStatusTo(current, LOADING);
                 try (PDDocumentHandler document = current.toPdfFileSource().open(new DefaultPdfSourceOpener())) {

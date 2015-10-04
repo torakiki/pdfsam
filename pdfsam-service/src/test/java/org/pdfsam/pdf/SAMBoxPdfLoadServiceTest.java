@@ -132,7 +132,7 @@ public class SAMBoxPdfLoadServiceTest {
         List<PdfDocumentDescriptor> toLoad = Arrays.asList(new PdfDocumentDescriptor[] { descriptor });
         assertEquals(PdfDescriptorLoadingStatus.INITIAL, descriptor.loadingStatus().getValue());
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
-        descriptor.invalidate();
+        descriptor.releaseAll();
         victim.load(toLoad, RequiredPdfData.DEFAULT);
         assertEquals(1, toLoad.size());
         PdfDocumentDescriptor item = toLoad.get(0);

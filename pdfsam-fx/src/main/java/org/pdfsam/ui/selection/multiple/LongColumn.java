@@ -43,7 +43,7 @@ public enum LongColumn implements SelectionTableColumn<Number> {
 
         @Override
         public ObservableValue<Number> getObservableValue(SelectionTableRowData data) {
-            return new SimpleLongProperty(data.getFile().length());
+            return new SimpleLongProperty(data.descriptor().getFile().length());
         }
 
         @Override
@@ -63,7 +63,7 @@ public enum LongColumn implements SelectionTableColumn<Number> {
 
         @Override
         public ObservableValue<Number> getObservableValue(SelectionTableRowData data) {
-            return new SimpleLongProperty(data.getFile().lastModified());
+            return new SimpleLongProperty(data.descriptor().getFile().lastModified());
         }
 
         @Override

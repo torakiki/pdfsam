@@ -60,7 +60,7 @@ public class PdfDocumentDescriptorTest {
 
     @Test
     public void initialState() {
-        assertFalse(victim.isInvalid());
+        assertTrue(victim.hasReferences());
         assertEquals(PdfDescriptorLoadingStatus.INITIAL, victim.loadingStatus().getValue());
         assertEquals("pwd", victim.getPassword());
         assertEquals("myName", victim.getFileName());
@@ -70,9 +70,9 @@ public class PdfDocumentDescriptorTest {
     @Test
     public void invalidate() {
         victim.retain().retain();
-        assertFalse(victim.isInvalid());
-        victim.invalidate();
-        assertTrue(victim.isInvalid());
+        assertTrue(victim.hasReferences());
+        victim.releaseAll();
+        assertFalse(victim.hasReferences());
     }
 
     @Test

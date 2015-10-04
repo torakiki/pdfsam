@@ -48,6 +48,7 @@ import org.loadui.testfx.utils.FXTestUtils;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
+import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.HitTestListener;
@@ -167,7 +168,7 @@ public class SelectionTableTest extends GuiTest {
     @Test
     public void onSaveWorkspaceEncrypted() throws Exception {
         SelectionTable victim = find("#victim");
-        SelectionTableRowData firstItem = populate();
+        PdfDocumentDescriptor firstItem = populate();
         FXTestUtils.invokeAndWait(() -> {
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
@@ -194,10 +195,11 @@ public class SelectionTableTest extends GuiTest {
         data.put("victiminput.1", "norris.pdf");
         FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
         assertEquals(2, victim.getItems().size());
-        assertEquals("chuck.pdf", victim.getItems().get(0).getFileName());
-        assertEquals("pwd", victim.getItems().get(0).getPassword());
-        assertEquals("1-10", victim.getItems().get(0).getPageSelection());
-        assertEquals("norris.pdf", victim.getItems().get(1).getFileName());
+        SelectionTableRowData first = victim.getItems().get(0);
+        assertEquals("chuck.pdf", first.descriptor().getFileName());
+        assertEquals("pwd", first.descriptor().getPassword());
+        assertEquals("1-10", first.getPageSelection());
+        assertEquals("norris.pdf", victim.getItems().get(1).descriptor().getFileName());
         verify(listener).onEvent(any());
     }
 
@@ -279,13 +281,13 @@ public class SelectionTableTest extends GuiTest {
         populate();
         SelectionTable victim = find("#victim");
         Optional<SelectionTableRowData> item = victim.getItems().stream()
-                .filter(i -> "temp.pdf".equals(i.getFileName())).findFirst();
+                .filter(i -> "temp.pdf".equals(i.descriptor().getFileName())).findFirst();
         assertTrue(item.isPresent());
         click("temp.pdf");
         FXTestUtils.invokeAndWait(() -> {
             eventStudio().broadcast(new RemoveSelectedEvent(), MODULE);
         } , 2);
-        assertTrue(item.get().isInvalid());
+        assertFalse(item.get().descriptor().hasReferences());
     }
 
     @Test
@@ -293,13 +295,13 @@ public class SelectionTableTest extends GuiTest {
         populate();
         SelectionTable victim = find("#victim");
         Optional<SelectionTableRowData> item = victim.getItems().stream()
-                .filter(i -> "temp.pdf".equals(i.getFileName())).findFirst();
+                .filter(i -> "temp.pdf".equals(i.descriptor().getFileName())).findFirst();
         rightClick("temp.pdf");
         click(DefaultI18nContext.getInstance().i18n("Duplicate"));
         FXTestUtils.invokeAndWait(() -> {
             eventStudio().broadcast(new ClearSelectionTableEvent(), MODULE);
         } , 2);
-        assertTrue(item.get().isInvalid());
+        assertFalse(item.get().descriptor().hasReferences());
     }
 
     @Test
@@ -308,7 +310,8 @@ public class SelectionTableTest extends GuiTest {
         rightClick("temp.pdf");
         click(DefaultI18nContext.getInstance().i18n("Duplicate"));
         SelectionTable victim = find("#victim");
-        assertEquals(2, victim.getItems().stream().filter(i -> "temp.pdf".equals(i.getFileName())).count());
+        assertEquals(2,
+                victim.getItems().stream().filter(i -> "temp.pdf".equals(i.descriptor().getFileName())).count());
     }
 
     @Test
@@ -410,7 +413,7 @@ public class SelectionTableTest extends GuiTest {
 
     @Test
     public void iconsAreShown() throws Exception {
-        SelectionTableRowData firstItem = populate();
+        PdfDocumentDescriptor firstItem = populate();
         FXTestUtils.invokeAndWait(() -> firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED), 2);
         Text icon = find(".glyph-icon");
         assertEquals(PdfDescriptorLoadingStatus.REQUESTED.getIcon().characterToString(), icon.getText());
@@ -421,7 +424,7 @@ public class SelectionTableTest extends GuiTest {
 
     @Test
     public void clickWithErrorsShowsLogStage() throws Exception {
-        SelectionTableRowData firstItem = populate();
+        PdfDocumentDescriptor firstItem = populate();
         FXTestUtils.invokeAndWait(() -> {
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
@@ -435,7 +438,7 @@ public class SelectionTableTest extends GuiTest {
 
     @Test
     public void clickEncryptedThrowsRequest() throws Exception {
-        SelectionTableRowData firstItem = populate();
+        PdfDocumentDescriptor firstItem = populate();
         FXTestUtils.invokeAndWait(() -> {
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
@@ -450,7 +453,7 @@ public class SelectionTableTest extends GuiTest {
 
     @Test
     public void logEventOnClick() throws Exception {
-        SelectionTableRowData firstItem = populate();
+        PdfDocumentDescriptor firstItem = populate();
         FXTestUtils.invokeAndWait(() -> firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED), 2);
         Text icon = find(".glyph-icon");
         assertEquals(PdfDescriptorLoadingStatus.REQUESTED.getIcon().characterToString(), icon.getText());
@@ -459,17 +462,17 @@ public class SelectionTableTest extends GuiTest {
         assertEquals(PdfDescriptorLoadingStatus.LOADING.getIcon().characterToString(), icon.getText());
     }
 
-    private SelectionTableRowData populate() throws Exception {
+    private PdfDocumentDescriptor populate() throws Exception {
         File file = folder.newFile("temp.pdf");
         File file2 = folder.newFile("®¯°±²³要选择需要转换的文.pdf");
         File file3 = folder.newFile("temp3.pdf");
         File file4 = folder.newFile("temp4.pdf");
-        PdfLoadRequestEvent<SelectionTableRowData> loadEvent = new PdfLoadRequestEvent<>(MODULE);
-        SelectionTableRowData ret = new SelectionTableRowData(file);
+        PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(MODULE);
+        PdfDocumentDescriptor ret = PdfDocumentDescriptor.newDescriptorNoPassword(file);
         loadEvent.add(ret);
-        loadEvent.add(new SelectionTableRowData(file2));
-        loadEvent.add(new SelectionTableRowData(file3));
-        loadEvent.add(new SelectionTableRowData(file4));
+        loadEvent.add(PdfDocumentDescriptor.newDescriptorNoPassword(file2));
+        loadEvent.add(PdfDocumentDescriptor.newDescriptorNoPassword(file3));
+        loadEvent.add(PdfDocumentDescriptor.newDescriptorNoPassword(file4));
         FXTestUtils.invokeAndWait(() -> {
             eventStudio().broadcast(loadEvent, MODULE);
         } , 2);

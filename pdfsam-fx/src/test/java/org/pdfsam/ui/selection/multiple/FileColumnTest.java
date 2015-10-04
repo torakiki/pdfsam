@@ -27,6 +27,7 @@ import static org.mockito.Mockito.when;
 import java.io.File;
 
 import org.junit.Test;
+import org.pdfsam.pdf.PdfDocumentDescriptor;
 
 /**
  * @author Andrea Vacondio
@@ -36,7 +37,8 @@ public class FileColumnTest {
     @Test
     public void getObservableValue() {
         File file = mock(File.class);
-        SelectionTableRowData data = new SelectionTableRowData(file);
+        PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(file);
+        SelectionTableRowData data = new SelectionTableRowData(descriptor);
         assertEquals(file, FileColumn.NAME.getObservableValue(data).getValue());
     }
 

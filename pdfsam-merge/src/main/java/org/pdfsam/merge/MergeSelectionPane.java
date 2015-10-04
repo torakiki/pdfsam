@@ -43,8 +43,8 @@ import org.slf4j.LoggerFactory;
  * @author Andrea Vacondio
  *
  */
-public class MergeSelectionPane extends MultipleSelectionPane implements
-        TaskParametersBuildStep<MergeParametersBuilder> {
+public class MergeSelectionPane extends MultipleSelectionPane
+        implements TaskParametersBuildStep<MergeParametersBuilder> {
     private static final Logger LOG = LoggerFactory.getLogger(MergeSelectionPane.class);
 
     public MergeSelectionPane(String ownerModule) {
@@ -55,7 +55,8 @@ public class MergeSelectionPane extends MultipleSelectionPane implements
     public void apply(MergeParametersBuilder builder, Consumer<String> onError) {
         try {
             table().getItems().stream().filter(s -> !Objects.equals("0", trim(s.getPageSelection())))
-                    .map(i -> new PdfMergeInput(i.toPdfFileSource(), i.toPageRangeSet())).forEach(builder::addInput);
+                    .map(i -> new PdfMergeInput(i.descriptor().toPdfFileSource(), i.toPageRangeSet()))
+                    .forEach(builder::addInput);
         } catch (ConversionException e) {
             LOG.error(e.getMessage());
             onError.accept(e.getMessage());
@@ -63,6 +64,5 @@ public class MergeSelectionPane extends MultipleSelectionPane implements
         if (!builder.hasInput()) {
             onError.accept(DefaultI18nContext.getInstance().i18n("No PDF document has been selected"));
         }
-
     }
 }

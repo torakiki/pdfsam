@@ -27,6 +27,7 @@ import java.io.File;
 import java.util.Arrays;
 
 import org.junit.Test;
+import org.pdfsam.pdf.PdfDocumentDescriptor;
 
 /**
  * @author Andrea Vacondio
@@ -57,8 +58,9 @@ public class IntegerColumnTest {
     @Test
     public void getPagesObservableValue() {
         File file = mock(File.class);
-        SelectionTableRowData data = new SelectionTableRowData(file);
-        data.pages(10);
+        PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(file);
+        SelectionTableRowData data = new SelectionTableRowData(descriptor);
+        descriptor.pages(10);
         assertEquals(10, IntColumn.PAGES.getObservableValue(data).getValue().intValue());
     }
 }

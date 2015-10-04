@@ -29,6 +29,7 @@ import java.io.File;
 import java.util.Arrays;
 
 import org.junit.Test;
+import org.pdfsam.pdf.PdfDocumentDescriptor;
 
 /**
  * @author Andrea Vacondio
@@ -59,7 +60,8 @@ public class LongColumnTest {
     @Test
     public void getSizeObservableValue() {
         File file = mock(File.class);
-        SelectionTableRowData data = new SelectionTableRowData(file);
+        PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(file);
+        SelectionTableRowData data = new SelectionTableRowData(descriptor);
         when(file.length()).thenReturn(Long.MAX_VALUE);
         assertEquals(Long.MAX_VALUE, LongColumn.SIZE.getObservableValue(data).getValue());
     }
@@ -67,7 +69,8 @@ public class LongColumnTest {
     @Test
     public void getLastModifiedObservableValue() {
         File file = mock(File.class);
-        SelectionTableRowData data = new SelectionTableRowData(file);
+        PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(file);
+        SelectionTableRowData data = new SelectionTableRowData(descriptor);
         when(file.lastModified()).thenReturn(Long.MAX_VALUE);
         assertEquals(Long.MAX_VALUE, LongColumn.LAST_MODIFIED.getObservableValue(data).getValue());
     }

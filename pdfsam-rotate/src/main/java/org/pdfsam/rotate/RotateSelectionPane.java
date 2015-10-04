@@ -21,6 +21,7 @@ package org.pdfsam.rotate;
 import java.util.function.Consumer;
 
 import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.selection.multiple.FileColumn;
 import org.pdfsam.ui.selection.multiple.IntColumn;
@@ -28,6 +29,7 @@ import org.pdfsam.ui.selection.multiple.LoadingColumn;
 import org.pdfsam.ui.selection.multiple.LongColumn;
 import org.pdfsam.ui.selection.multiple.MultipleSelectionPane;
 import org.pdfsam.ui.selection.multiple.SelectionTableColumn;
+import org.pdfsam.ui.selection.multiple.SelectionTableRowData;
 
 /**
  * Selection panel for the rotate module.
@@ -35,8 +37,8 @@ import org.pdfsam.ui.selection.multiple.SelectionTableColumn;
  * @author Andrea Vacondio
  *
  */
-public class RotateSelectionPane extends MultipleSelectionPane implements
-        TaskParametersBuildStep<RotateParametersBuilder> {
+public class RotateSelectionPane extends MultipleSelectionPane
+        implements TaskParametersBuildStep<RotateParametersBuilder> {
 
     public RotateSelectionPane(String ownerModule) {
         super(ownerModule, new SelectionTableColumn<?>[] { new LoadingColumn(ownerModule), FileColumn.NAME,
@@ -45,7 +47,8 @@ public class RotateSelectionPane extends MultipleSelectionPane implements
 
     public void apply(RotateParametersBuilder builder, Consumer<String> onError) {
         if (!table().getItems().isEmpty()) {
-            table().getItems().stream().map(i -> i.toPdfFileSource()).forEach(builder::addSource);
+            table().getItems().stream().map(SelectionTableRowData::descriptor)
+                    .map(PdfDocumentDescriptor::toPdfFileSource).forEach(builder::addSource);
         } else {
             onError.accept(DefaultI18nContext.getInstance().i18n("No PDF document has been selected"));
         }

@@ -46,7 +46,7 @@ public enum FileColumn implements SelectionTableColumn<File> {
 
         @Override
         public ObservableValue<File> getObservableValue(SelectionTableRowData data) {
-            return new ReadOnlyObjectWrapper<>(data.getFile());
+            return new ReadOnlyObjectWrapper<>(data.descriptor().getFile());
         }
 
         @Override

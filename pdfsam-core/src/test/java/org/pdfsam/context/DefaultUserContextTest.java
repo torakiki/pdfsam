@@ -104,8 +104,8 @@ public class DefaultUserContextTest {
 
     @Test
     public void getLocalesystemProp() {
-        System.setProperty(DefaultUserContext.LOCALE_PROP, "es-ES");
-        assertEquals("es-ES", victim.getLocale());
+        System.setProperty(DefaultUserContext.LOCALE_PROP, "es");
+        assertEquals("es", victim.getLocale());
         victim.setStringPreference(StringUserPreference.LOCALE, "");
         assertTrue(isBlank(victim.getLocale()));
         System.clearProperty(DefaultUserContext.CHECK_FOR_UPDATES_PROP);

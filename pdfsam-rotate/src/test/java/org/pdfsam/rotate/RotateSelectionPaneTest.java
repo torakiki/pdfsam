@@ -28,8 +28,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.io.File;
 import java.util.function.Consumer;
 
-import javafx.scene.Parent;
-
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -38,9 +36,11 @@ import org.junit.rules.TemporaryFolder;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
+import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.ui.selection.multiple.SelectionTableRowData;
+
+import javafx.scene.Parent;
 
 /**
  * @author Andrea Vacondio
@@ -88,8 +88,8 @@ public class RotateSelectionPaneTest extends GuiTest {
 
     private void populate() throws Exception {
         File file = folder.newFile("temp.pdf");
-        PdfLoadRequestEvent<SelectionTableRowData> loadEvent = new PdfLoadRequestEvent<>(MODULE);
-        loadEvent.add(new SelectionTableRowData(file));
+        PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(MODULE);
+        loadEvent.add(PdfDocumentDescriptor.newDescriptorNoPassword(file));
         FXTestUtils.invokeAndWait(() -> {
             eventStudio().broadcast(loadEvent, MODULE);
         }, 2);

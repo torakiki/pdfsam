@@ -29,6 +29,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.conversion.exception.ConversionException;
 import org.sejda.model.pdf.page.PageRange;
@@ -47,33 +48,34 @@ public class SelectionTableRowDataTest {
 
     @Test
     public void empty() {
-        assertTrue(new SelectionTableRowData(file).toPageRangeSet().isEmpty());
+        assertTrue(new SelectionTableRowData(PdfDocumentDescriptor.newDescriptorNoPassword(file)).toPageRangeSet()
+                .isEmpty());
     }
 
     @Test(expected = ConversionException.class)
     public void invalid() {
-        SelectionTableRowData victim = new SelectionTableRowData(file);
+        SelectionTableRowData victim = new SelectionTableRowData(PdfDocumentDescriptor.newDescriptorNoPassword(file));
         victim.setPageSelection("Chuck Norris");
         victim.toPageRangeSet();
     }
 
     @Test(expected = ConversionException.class)
     public void invalidRange() {
-        SelectionTableRowData victim = new SelectionTableRowData(file);
+        SelectionTableRowData victim = new SelectionTableRowData(PdfDocumentDescriptor.newDescriptorNoPassword(file));
         victim.setPageSelection("1-2-3");
         victim.toPageRangeSet();
     }
 
     @Test(expected = ConversionException.class)
     public void endLower() {
-        SelectionTableRowData victim = new SelectionTableRowData(file);
+        SelectionTableRowData victim = new SelectionTableRowData(PdfDocumentDescriptor.newDescriptorNoPassword(file));
         victim.setPageSelection("10-5");
         victim.toPageRangeSet();
     }
 
     @Test
     public void singlePage() {
-        SelectionTableRowData victim = new SelectionTableRowData(file);
+        SelectionTableRowData victim = new SelectionTableRowData(PdfDocumentDescriptor.newDescriptorNoPassword(file));
         victim.setPageSelection("5");
         Set<PageRange> pageSet = victim.toPageRangeSet();
         assertEquals(1, pageSet.size());
@@ -83,7 +85,7 @@ public class SelectionTableRowDataTest {
 
     @Test
     public void rangePage() {
-        SelectionTableRowData victim = new SelectionTableRowData(file);
+        SelectionTableRowData victim = new SelectionTableRowData(PdfDocumentDescriptor.newDescriptorNoPassword(file));
         victim.setPageSelection("5-10");
         Set<PageRange> pageSet = victim.toPageRangeSet();
         assertEquals(1, pageSet.size());
@@ -93,7 +95,7 @@ public class SelectionTableRowDataTest {
 
     @Test
     public void endPage() {
-        SelectionTableRowData victim = new SelectionTableRowData(file);
+        SelectionTableRowData victim = new SelectionTableRowData(PdfDocumentDescriptor.newDescriptorNoPassword(file));
         victim.setPageSelection("-10");
         Set<PageRange> pageSet = victim.toPageRangeSet();
         assertEquals(1, pageSet.size());
@@ -103,7 +105,7 @@ public class SelectionTableRowDataTest {
 
     @Test
     public void startPage() {
-        SelectionTableRowData victim = new SelectionTableRowData(file);
+        SelectionTableRowData victim = new SelectionTableRowData(PdfDocumentDescriptor.newDescriptorNoPassword(file));
         victim.setPageSelection("10-");
         Set<PageRange> pageSet = victim.toPageRangeSet();
         assertEquals(1, pageSet.size());
@@ -113,7 +115,7 @@ public class SelectionTableRowDataTest {
 
     @Test
     public void multiple() {
-        SelectionTableRowData victim = new SelectionTableRowData(file);
+        SelectionTableRowData victim = new SelectionTableRowData(PdfDocumentDescriptor.newDescriptorNoPassword(file));
         victim.setPageSelection("2-4,10-");
         Set<PageRange> pageSet = victim.toPageRangeSet();
         assertEquals(2, pageSet.size());

@@ -29,6 +29,7 @@ import java.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
+import org.pdfsam.pdf.PdfDocumentDescriptor;
 
 /**
  * @author Andrea Vacondio
@@ -46,9 +47,10 @@ public class LoadingColumnTest {
     @Test
     public void getObservableValue() {
         File file = mock(File.class);
-        SelectionTableRowData data = new SelectionTableRowData(file);
+        PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(file);
+        SelectionTableRowData data = new SelectionTableRowData(descriptor);
         assertEquals(PdfDescriptorLoadingStatus.INITIAL, victim.getObservableValue(data).getValue());
-        data.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
+        descriptor.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
         assertEquals(PdfDescriptorLoadingStatus.REQUESTED, victim.getObservableValue(data).getValue());
     }
 

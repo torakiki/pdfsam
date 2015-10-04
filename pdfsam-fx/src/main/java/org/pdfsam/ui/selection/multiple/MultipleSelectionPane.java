@@ -57,7 +57,7 @@ public class MultipleSelectionPane extends BorderPane implements ModuleOwned, Re
         return ownerModule;
     }
 
-    protected SelectionTable table() {
+    public SelectionTable table() {
         return table;
     }
 

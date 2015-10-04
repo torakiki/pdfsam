@@ -22,7 +22,6 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.sejda.conversion.AdapterUtils.splitAndTrim;
 
-import java.io.File;
 import java.util.Collections;
 import java.util.Set;
 
@@ -39,17 +38,19 @@ import org.sejda.model.pdf.page.PageRange;
  * @author Andrea Vacondio
  * 
  */
-public final class SelectionTableRowData extends PdfDocumentDescriptor {
+public final class SelectionTableRowData {
 
-    public SelectionTableRowData(File file, String password) {
-        super(file, password);
-    }
-
-    public SelectionTableRowData(File file) {
-        super(file, null);
-    }
-
+    private PdfDocumentDescriptor descriptor;
     private String pageSelection = StringUtils.EMPTY;
+
+    public SelectionTableRowData(PdfDocumentDescriptor descriptor) {
+        this.descriptor = descriptor;
+    }
+
+    public SelectionTableRowData(PdfDocumentDescriptor descriptor, String pageSelection) {
+        this(descriptor);
+        this.pageSelection = pageSelection;
+    }
 
     public String getPageSelection() {
         return pageSelection;
@@ -59,10 +60,17 @@ public final class SelectionTableRowData extends PdfDocumentDescriptor {
         this.pageSelection = defaultString(pageSelection);
     }
 
-    @Override
-    public SelectionTableRowData retain() {
-        super.retain();
-        return this;
+    public SelectionTableRowData duplicate() {
+        descriptor.retain();
+        return new SelectionTableRowData(descriptor, pageSelection);
+    }
+
+    public PdfDocumentDescriptor descriptor() {
+        return descriptor;
+    }
+
+    public void invalidate() {
+        descriptor.release();
     }
 
     /**
@@ -75,8 +83,8 @@ public final class SelectionTableRowData extends PdfDocumentDescriptor {
             for (String current : tokens) {
                 PageRange range = toPageRange(current);
                 if (range.getEnd() < range.getStart()) {
-                    throw new ConversionException(DefaultI18nContext.getInstance().i18n("Invalid range: {0}.",
-                            range.toString()));
+                    throw new ConversionException(
+                            DefaultI18nContext.getInstance().i18n("Invalid range: {0}.", range.toString()));
                 }
                 pageRangeSet.add(range);
             }

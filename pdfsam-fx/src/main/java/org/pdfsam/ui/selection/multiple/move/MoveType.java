@@ -22,7 +22,6 @@ import java.util.Arrays;
 import java.util.Collections;
 
 import org.apache.commons.lang3.ArrayUtils;
-import org.pdfsam.pdf.PdfDocumentDescriptor;
 
 import javafx.collections.ObservableList;
 
@@ -35,8 +34,7 @@ import javafx.collections.ObservableList;
 public enum MoveType {
     TOP {
         @Override
-        public <T extends PdfDocumentDescriptor> SelectionAndFocus move(Integer[] selected, ObservableList<T> items,
-                int focused) {
+        public <T> SelectionAndFocus move(Integer[] selected, ObservableList<T> items, int focused) {
             if (isSingleSelection(selected, items) && isNotFirst(selected)) {
                 T item = items.remove(selected[0].intValue());
                 items.add(0, item);
@@ -47,8 +45,7 @@ public enum MoveType {
     },
     UP {
         @Override
-        public <T extends PdfDocumentDescriptor> SelectionAndFocus move(Integer[] selected, ObservableList<T> items,
-                int focused) {
+        public <T> SelectionAndFocus move(Integer[] selected, ObservableList<T> items, int focused) {
             if (isSubselection(selected, items)) {
                 MultipleSelectionAndFocus newSelection = new MultipleSelectionAndFocus(focused);
                 Arrays.parallelSort(selected);
@@ -65,8 +62,7 @@ public enum MoveType {
     },
     DOWN {
         @Override
-        public <T extends PdfDocumentDescriptor> SelectionAndFocus move(Integer[] selected, ObservableList<T> items,
-                int focused) {
+        public <T> SelectionAndFocus move(Integer[] selected, ObservableList<T> items, int focused) {
             if (isSubselection(selected, items)) {
                 MultipleSelectionAndFocus newSelection = new MultipleSelectionAndFocus(focused);
                 Arrays.parallelSort(selected, Collections.reverseOrder(Integer::compare));
@@ -83,8 +79,7 @@ public enum MoveType {
     },
     BOTTOM {
         @Override
-        public <T extends PdfDocumentDescriptor> SelectionAndFocus move(Integer[] selected, ObservableList<T> items,
-                int focused) {
+        public <T> SelectionAndFocus move(Integer[] selected, ObservableList<T> items, int focused) {
             if (isSingleSelection(selected, items) && isNotLast(selected, items)) {
                 T item = items.remove(selected[0].intValue());
                 items.add(items.size(), item);
@@ -119,7 +114,6 @@ public enum MoveType {
      *            the index of the focused item
      * @return a new SelectionAndFocus holding the new coordinates for focus and selection
      */
-    public abstract <T extends PdfDocumentDescriptor> SelectionAndFocus move(Integer[] indicesToMove,
-            ObservableList<T> items, int focused);
+    public abstract <T> SelectionAndFocus move(Integer[] indicesToMove, ObservableList<T> items, int focused);
 
 }

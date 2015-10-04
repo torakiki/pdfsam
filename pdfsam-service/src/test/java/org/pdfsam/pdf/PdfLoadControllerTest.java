@@ -53,7 +53,7 @@ public class PdfLoadControllerTest {
 
     @Test
     public void request() {
-        PdfLoadRequestEvent<PdfDocumentDescriptor> event = new PdfLoadRequestEvent<>(DefaultPriorityTestModule.ID);
+        PdfLoadRequestEvent event = new PdfLoadRequestEvent(DefaultPriorityTestModule.ID);
         PdfDocumentDescriptor first = mock(PdfDocumentDescriptor.class);
         PdfDocumentDescriptor second = mock(PdfDocumentDescriptor.class);
         event.add(first);
