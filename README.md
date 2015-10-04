@@ -6,7 +6,7 @@ Official SCM repository for PDFsam version 3
 
 Version
 -------------------
-Currently developing v3.0.0 second milestone
+Currently developing v3.0.0 third milestone
 
 What
 -------------------
