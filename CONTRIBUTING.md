@@ -20,5 +20,5 @@ Code contribution
  - Include unit tests to cover your feature or bugfix.
  
  [our CLA]: https://github.com/torakiki/pdfsam-CLAs 
- [sejda.org]: http://pdfsam.org 
+ [pdfsam.org]: http://pdfsam.org 
  [superuser]: http://superuser.com/questions/tagged/pdfsam
