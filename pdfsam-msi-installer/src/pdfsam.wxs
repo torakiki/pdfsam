@@ -138,8 +138,8 @@
             <ComponentRef Id="StartMenuShortcuts" />
         </Feature>
         <WixVariable Id="WixUILicenseRtf" Value="resources\LICENSE.rtf" />
-        <WixVariable Id="WixUIBannerBmp" Value="resources\BannerBmp_Enhanced.bmp" />
-        <WixVariable Id="WixUIDialogBmp" Value="resources\DialogBmp.bmp" />
+        <WixVariable Id="WixUIBannerBmp" Value="resources\BannerBmp.bmp" />
+        <WixVariable Id="WixUIDialogBmp" Value="resources\installer.bmp" />
         <UI>
             <UIRef Id="featuresTree" />
         </UI>
