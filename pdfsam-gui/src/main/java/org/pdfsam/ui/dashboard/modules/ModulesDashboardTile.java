@@ -69,10 +69,11 @@ class ModulesDashboardTile extends Region {
         inner.getStyleClass().add("dashboard-modules-tile-inner");
         getChildren().add(inner);
         module.descriptor().getSupportURL().ifPresent(url -> {
-            Button playButton = GlyphsDude.createIconButton(MaterialDesignIcon.HELP_CIRCLE, "");
-            playButton.getStyleClass().add("pdfsam-toolbar-button");
-            playButton.setOnAction(e -> eventStudio().broadcast(new OpenUrlRequest(url)));
-            toolButtons.getChildren().add(playButton);
+            Button helpButton = new Button();
+            helpButton.setGraphic(GlyphsDude.createIcon(MaterialDesignIcon.HELP_CIRCLE, "1.4em"));
+            helpButton.getStyleClass().add("pdfsam-toolbar-button");
+            helpButton.setOnAction(e -> eventStudio().broadcast(new OpenUrlRequest(url)));
+            toolButtons.getChildren().add(helpButton);
             toolButtons.getStyleClass().add("dashboard-modules-toolbar");
             inner.getChildren().add(toolButtons);
         });
