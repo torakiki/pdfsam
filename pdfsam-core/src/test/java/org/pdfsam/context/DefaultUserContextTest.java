@@ -24,6 +24,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.pdfsam.ui.NewsPolicy;
 import org.pdfsam.ui.Theme;
@@ -37,6 +38,11 @@ import org.pdfsam.ui.Theme;
 public class DefaultUserContextTest {
 
     private DefaultUserContext victim = new DefaultUserContext();
+
+    @Before
+    public void setUp() {
+        victim.clear();
+    }
 
     @After
     public void tearDown() {
@@ -108,7 +114,7 @@ public class DefaultUserContextTest {
         assertEquals("es", victim.getLocale());
         victim.setStringPreference(StringUserPreference.LOCALE, "");
         assertTrue(isBlank(victim.getLocale()));
-        System.clearProperty(DefaultUserContext.CHECK_FOR_UPDATES_PROP);
+        System.clearProperty(DefaultUserContext.LOCALE_PROP);
     }
 
     @Test
@@ -141,6 +147,15 @@ public class DefaultUserContextTest {
         assertEquals(NewsPolicy.ALWAYS, victim.getNewsPolicy());
         victim.setStringPreference(StringUserPreference.NEWS_POLICY, "");
         assertEquals(NewsPolicy.ONCE_A_WEEK, victim.getNewsPolicy());
+    }
+
+    @Test
+    public void getNewsPolicySysPro() {
+        System.setProperty(DefaultUserContext.NEWS_PROP, NewsPolicy.ONCE_A_DAY.toString());
+        assertEquals(NewsPolicy.ONCE_A_DAY, victim.getNewsPolicy());
+        victim.setStringPreference(StringUserPreference.NEWS_POLICY, "");
+        assertEquals(NewsPolicy.ONCE_A_WEEK, victim.getNewsPolicy());
+        System.clearProperty(DefaultUserContext.NEWS_PROP);
     }
 
     @Test

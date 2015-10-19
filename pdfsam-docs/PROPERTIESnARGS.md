@@ -25,6 +25,13 @@ A list of system properties that users can configure to alter PDFsam behavior.
 *default:* true   
 *description:* if not already set in the application preferences, tells PDFsam if it should check for updates at startup. 
 
+
+**org.pdfsam.default.news**  
+*values:* NEVER|ONCE_A_WEEK|ONCE_A_DAY|ALWAYS   
+*default:* ONCE_A_WEEK   
+*description:* if not already set in the application preferences, tells PDFsam how often it should open the news panel. 
+
+
 Runtime arguments
 =============
 **-clean**  
