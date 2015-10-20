@@ -67,11 +67,9 @@ class WindowStatusController {
     }
 
     private void defaultStageStatus() {
-        Rectangle2D bounds = Screen.getPrimary().getBounds();
-        stage.setX(bounds.getMinX());
-        stage.setY(bounds.getMinY());
-        stage.setWidth(bounds.getWidth());
-        stage.setHeight(bounds.getHeight());
+        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
+        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 4);
         stage.setMaximized(true);
 
     }
