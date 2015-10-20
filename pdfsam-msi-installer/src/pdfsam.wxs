@@ -29,7 +29,7 @@
 		    <CustomAction Id="LaunchApplication" Directory="APPLICATIONFOLDER" ExeCommand='[APPLICATIONFOLDER]pdfsam.exe' Execute="immediate" Return="asyncNoWait"/>
 
         <InstallExecuteSequence>
-            <Custom Action="PreventDowngrading" After="FindRelatedProducts">NEWPRODUCTFOUND</Custom>                      
+            <Custom Action="PreventDowngrading" After="FindRelatedProducts">NEWPRODUCTFOUND</Custom>
             <RemoveExistingProducts After="InstallFinalize" />
 			<Custom Action="SetCustomActionDataValue" Before="InstallFinalize"></Custom>
             <Custom Action="CustomActions.AddLine" After="SetCustomActionDataValue"></Custom>
@@ -119,7 +119,7 @@
     			<Component Id="StartMenuShortcuts" Guid="*">
     				<RemoveFolder Id="ProgramMenuDir" On="uninstall" />
     				<RegistryValue Id="MenuDirInstalled" Root="HKCU" Key="Software\$(var.ProductName)" Type="integer" Value="1" Name="MenuDirInstalled" KeyPath="yes" />
-    				<util:InternetShortcut Id="ShortcutPDFSamWiki" Name="!(loc.PDFSamWiki)" Target="!(loc.PDFSamWikiLink)" Type="url" />
+    				<util:InternetShortcut Id="ShortcutPDFSamWeb" Name="!(loc.PDFSamWeb)" Target="!(loc.PDFSamWebLink)" Type="url" />
     				<Shortcut Id="ShortcutPDFSam" Name="!(loc.ProductName)" Target="[APPLICATIONFOLDER]pdfsam.exe" WorkingDirectory="APPLICATIONFOLDER" Advertise="no" Icon="pdfsam.ico" IconIndex="0" />
     				<Shortcut Id="UninstallProduct" Name="Uninstall" Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]" Directory="ProgramMenuDir" Description="Uninstalls PDFsam" />
     			</Component>

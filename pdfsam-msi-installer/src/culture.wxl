@@ -7,8 +7,8 @@
 	<String Id="ProductComments">PDF Split And Merge Basic Package</String>
 	<String Id="ProductHelpLink">http://www.pdfsam.org/</String>
 	<String Id="i18n">en_GB</String>
-	<String Id="PDFSamWiki">Wiki</String>
-	<String Id="PDFSamWikiLink">http://www.pdfsam.org/wiki/</String>
+	<String Id="PDFSamWeb">PDFsam on the Web</String>
+	<String Id="PDFSamWebLink">http://pdfsam.org/</String>
 	<String Id="Tutorial">Tutorial</String>
 	<String Id="PDFSplitandMerge">PDFsam Basic</String>
 	<String Id="NewerVersionInstalled">Newer version of PDFsam Basic is already installed.</String>
