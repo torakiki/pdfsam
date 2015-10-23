@@ -18,26 +18,16 @@
  */
 package org.pdfsam.ui.news;
 
-import static org.pdfsam.support.RequireUtils.requireNotBlank;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Collection;
 import java.util.function.Consumer;
 
-import javafx.concurrent.Worker.State;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
-import javafx.stage.Stage;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.pdfsam.ConfigurableProperty;
+import org.pdfsam.Pdfsam;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.KeyStringValueItem;
@@ -54,6 +44,17 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.events.EventTarget;
 import org.w3c.dom.html.HTMLAnchorElement;
 
+import javafx.concurrent.Worker.State;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+import javafx.stage.Stage;
+
 /**
  * Stage showing the latest news
  * 
@@ -65,8 +66,8 @@ import org.w3c.dom.html.HTMLAnchorElement;
 public class NewsStage extends Stage {
     private static final Logger LOG = LoggerFactory.getLogger(NewsStage.class);
 
-    private String newsUrl = "http://www.pdfsam.org/latest";
     private WebView browser = new WebView();
+    private Pdfsam pdfsam;
     private Consumer<Boolean> onLoaded = showing -> {
         LOG.trace("What's new page loaded");
         if (!showing) {
@@ -78,7 +79,9 @@ public class NewsStage extends Stage {
 
     @Inject
     public NewsStage(Collection<Image> logos, StylesConfig styles,
-            @Named("newsDisplayPolicy") PreferenceComboBox<KeyStringValueItem<String>> newsDisplayPolicy) {
+            @Named("newsDisplayPolicy") PreferenceComboBox<KeyStringValueItem<String>> newsDisplayPolicy,
+            Pdfsam pdfsam) {
+        this.pdfsam = pdfsam;
         BorderPane containerPane = new BorderPane();
         browser.setId("newsBrowser");
         containerPane.getStyleClass().addAll(Style.CONTAINER.css());
@@ -110,7 +113,7 @@ public class NewsStage extends Stage {
                 onLoaded.andThen(onSuccess).accept(isShowing());
             }
         });
-        webEngine.load(newsUrl);
+        webEngine.load(pdfsam.property(ConfigurableProperty.NEWS_URL));
     }
 
     static void wrapHrefToOpenNative(Document document) {
@@ -125,10 +128,4 @@ public class NewsStage extends Stage {
             }, false);
         }
     }
-
-    public void setNewsUrl(String newsUrl) {
-        requireNotBlank(newsUrl, "Cannot set a blank url to fetch news from");
-        this.newsUrl = newsUrl;
-    }
-
 }

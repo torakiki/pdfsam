@@ -58,7 +58,9 @@ public class NotificationsControllerTest {
     public void setUp() {
         service = mock(UsageService.class);
         container = mock(NotificationsContainer.class);
-        victim = new NotificationsController(container, service, new Pdfsam(PdfsamEdition.COMMUNITY, "name", "version"));
+        Pdfsam pdfsam = mock(Pdfsam.class);
+        when(pdfsam.edition()).thenReturn(PdfsamEdition.COMMUNITY);
+        victim = new NotificationsController(container, service, pdfsam);
     }
 
     @Test
@@ -114,7 +116,6 @@ public class NotificationsControllerTest {
 
     @Test
     public void onTaskCompleteDontDisplayForEnterprise() {
-        victim = new NotificationsController(container, service, new Pdfsam(PdfsamEdition.COMMUNITY, "name", "version"));
         when(service.getTotalUsage()).thenReturn(6L);
         TaskExecutionCompletedEvent event = new TaskExecutionCompletedEvent(1, null);
         victim.onTaskCompleted(event);

@@ -18,6 +18,22 @@
  */
 package org.pdfsam.ui.dashboard.about;
 
+import static org.pdfsam.ConfigurableProperty.COPYRIGHT;
+import static org.pdfsam.ConfigurableProperty.DONATE_URL;
+import static org.pdfsam.ConfigurableProperty.FACEBOOK_URL;
+import static org.pdfsam.ConfigurableProperty.FEED_URL;
+import static org.pdfsam.ConfigurableProperty.GPLUS_URL;
+import static org.pdfsam.ConfigurableProperty.HOME_LABEL;
+import static org.pdfsam.ConfigurableProperty.HOME_URL;
+import static org.pdfsam.ConfigurableProperty.LICENSE_NAME;
+import static org.pdfsam.ConfigurableProperty.LICENSE_URL;
+import static org.pdfsam.ConfigurableProperty.QUICKSTART_URL;
+import static org.pdfsam.ConfigurableProperty.SCM_URL;
+import static org.pdfsam.ConfigurableProperty.SUPPORT_URL;
+import static org.pdfsam.ConfigurableProperty.TRACKER_URL;
+import static org.pdfsam.ConfigurableProperty.TRANSLATE_URL;
+import static org.pdfsam.ConfigurableProperty.TWITTER_URL;
+import static org.pdfsam.ConfigurableProperty.VERSION;
 import static org.pdfsam.support.io.ObjectCollectionWriter.writeContent;
 
 import java.util.Arrays;
@@ -55,12 +71,12 @@ public class AboutDashboardPane extends HBox {
         getStyleClass().add("dashboard-container");
         VBox left = new VBox(5);
         addSectionTitle(pdfsam.name(), left);
-        Label copyright = new Label("Copyright 2014 by Andrea Vacondio");
+        Label copyright = new Label(pdfsam.property(COPYRIGHT));
         GlyphsDude.setIcon(copyright, FontAwesomeIcon.COPYRIGHT);
-        left.getChildren().addAll(new Label(String.format("ver. %s", pdfsam.version())), copyright);
-        addHyperlink(null, "http://www.gnu.org/licenses/agpl-3.0.html", "GNU Affero General Public License v3", left);
-        addHyperlink(FontAwesomeIcon.HOME, "http://www.pdfsam.org", "www.pdfsam.org", left);
-        addHyperlink(FontAwesomeIcon.RSS_SQUARE, "http://www.pdfsam.org/feed/",
+        left.getChildren().addAll(new Label(String.format("ver. %s", pdfsam.property(VERSION))), copyright);
+        addHyperlink(null, pdfsam.property(LICENSE_URL), pdfsam.property(LICENSE_NAME), left);
+        addHyperlink(FontAwesomeIcon.HOME, pdfsam.property(HOME_URL), pdfsam.property(HOME_LABEL), left);
+        addHyperlink(FontAwesomeIcon.RSS_SQUARE, pdfsam.property(FEED_URL),
                 DefaultI18nContext.getInstance().i18n("Subscribe to the official news feed"), left);
 
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Environment"), left);
@@ -75,9 +91,8 @@ public class AboutDashboardPane extends HBox {
         copyButton.setId("copyEnvDetails");
         copyButton.setOnAction(a -> {
             ClipboardContent content = new ClipboardContent();
-            writeContent(
-                    Arrays.asList(pdfsam.name(), pdfsam.version(), runtime.getText(), fxRuntime.getText(),
-                            memory.getText())).to(content);
+            writeContent(Arrays.asList(pdfsam.name(), pdfsam.property(VERSION), runtime.getText(), fxRuntime.getText(),
+                    memory.getText())).to(content);
             Clipboard.getSystemClipboard().setContent(content);
         });
         left.getChildren().addAll(runtime, fxRuntime, memory, copyButton);
@@ -87,29 +102,29 @@ public class AboutDashboardPane extends HBox {
                 DefaultI18nContext.getInstance().i18n("The open source projects making PDFsam possible"), left);
         VBox right = new VBox(5);
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Support"), right);
-        addHyperlink(FontAwesomeIcon.BUG, "http://www.pdfsam.org/issue_tracker",
+        addHyperlink(FontAwesomeIcon.BUG, pdfsam.property(TRACKER_URL),
                 DefaultI18nContext.getInstance().i18n("Bug and feature requests"), right);
-        addHyperlink(FontAwesomeIcon.QUESTION_CIRCLE, "http://www.pdfsam.org/wiki", "HowTo wiki", right);
-        addHyperlink(FontAwesomeIcon.YOUTUBE_PLAY, "http://www.pdfsam.org/quickstart_video", DefaultI18nContext
-                .getInstance().i18n("Play the \"get started\" video"), right);
+        addHyperlink(FontAwesomeIcon.QUESTION_CIRCLE, pdfsam.property(SUPPORT_URL),
+                DefaultI18nContext.getInstance().i18n("Support"), right);
+        addHyperlink(FontAwesomeIcon.YOUTUBE_PLAY, pdfsam.property(QUICKSTART_URL),
+                DefaultI18nContext.getInstance().i18n("Play the \"get started\" video"), right);
 
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Contribute"), right);
-        addHyperlink(FontAwesomeIcon.GITHUB, "http://www.pdfsam.org/scm",
+        addHyperlink(FontAwesomeIcon.GITHUB, pdfsam.property(SCM_URL),
                 DefaultI18nContext.getInstance().i18n("Fork PDFsam on GitHub"), right);
-        addHyperlink(FontAwesomeIcon.FLAG_ALT, "http://www.pdfsam.org/translate",
+        addHyperlink(FontAwesomeIcon.FLAG_ALT, pdfsam.property(TRANSLATE_URL),
                 DefaultI18nContext.getInstance().i18n("Translate"), right);
-        addHyperlink(FontAwesomeIcon.DOLLAR, "http://www.pdfsam.org/donate", DefaultI18nContext.getInstance()
-                .i18n("Donate"), right);
+        addHyperlink(FontAwesomeIcon.DOLLAR, pdfsam.property(DONATE_URL),
+                DefaultI18nContext.getInstance().i18n("Donate"), right);
 
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Social"), right);
-        addHyperlink(FontAwesomeIcon.TWITTER_SQUARE, "http://www.pdfsam.org/twitter", DefaultI18nContext.getInstance()
-                .i18n("Follow us on Twitter"), right);
-        addHyperlink(FontAwesomeIcon.GOOGLE_PLUS_SQUARE, "http://www.pdfsam.org/gplus", DefaultI18nContext.getInstance()
-                .i18n("Follow us on Google Plus"), right);
-        addHyperlink(FontAwesomeIcon.FACEBOOK_SQUARE, "http://www.pdfsam.org/facebook", DefaultI18nContext.getInstance()
-                .i18n("Like us on Facebook"), right);
+        addHyperlink(FontAwesomeIcon.TWITTER_SQUARE, pdfsam.property(TWITTER_URL),
+                DefaultI18nContext.getInstance().i18n("Follow us on Twitter"), right);
+        addHyperlink(FontAwesomeIcon.GOOGLE_PLUS_SQUARE, pdfsam.property(GPLUS_URL),
+                DefaultI18nContext.getInstance().i18n("Follow us on Google Plus"), right);
+        addHyperlink(FontAwesomeIcon.FACEBOOK_SQUARE, pdfsam.property(FACEBOOK_URL),
+                DefaultI18nContext.getInstance().i18n("Like us on Facebook"), right);
         getChildren().addAll(left, right);
-
     }
 
     private void addSectionTitle(String title, Pane pane) {

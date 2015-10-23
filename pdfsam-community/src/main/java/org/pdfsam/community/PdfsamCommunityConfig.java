@@ -23,7 +23,6 @@ import java.io.IOException;
 import javax.inject.Inject;
 
 import org.pdfsam.Pdfsam;
-import org.pdfsam.PdfsamEdition;
 import org.pdfsam.configuration.UIConfig;
 import org.pdfsam.module.PdfsamModule;
 import org.springframework.context.annotation.Bean;
@@ -106,7 +105,6 @@ public class PdfsamCommunityConfig implements UIConfig {
 
     @Bean
     public Pdfsam pdfsam() {
-        return new Pdfsam(PdfsamEdition.COMMUNITY, "PDF Split and Merge Basic Edition",
-                env.getProperty("pdfsam.version"));
+        return new PdfsamCommunity("PDF Split and Merge Basic Edition", env);
     }
 }

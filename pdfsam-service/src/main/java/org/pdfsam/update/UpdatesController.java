@@ -20,11 +20,10 @@ package org.pdfsam.update;
 
 import static java.util.Objects.nonNull;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.pdfsam.ConfigurableProperty.VERSION;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.concurrent.CompletableFuture;
-
-import javafx.application.Platform;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -34,6 +33,8 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javafx.application.Platform;
 
 /**
  * Component listening for updates related requests
@@ -59,7 +60,7 @@ public class UpdatesController {
     public void checkForUpdates(UpdateCheckRequest event) {
         LOG.debug(DefaultI18nContext.getInstance().i18n("Checking for updates"));
         CompletableFuture.supplyAsync(service::getLatestVersion).thenAccept(current -> {
-            if (isNotBlank(current) && !pdfsam.version().equals(current)) {
+            if (isNotBlank(current) && !pdfsam.property(VERSION).equals(current)) {
                 LOG.info(DefaultI18nContext.getInstance().i18n("PDFsam {0} is available for download", current));
                 Platform.runLater(() -> eventStudio().broadcast(new UpdateAvailableEvent(current)));
             }

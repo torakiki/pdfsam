@@ -38,6 +38,7 @@ import org.junit.runner.RunWith;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
+import org.pdfsam.Pdfsam;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
@@ -102,7 +103,7 @@ public class NewsStageControllerTest extends GuiTest {
 
         @Bean
         public NewsStage stage() {
-            return spy(new NewsStage(Collections.emptyList(), mock(StylesConfig.class), combo()));
+            return spy(new NewsStage(Collections.emptyList(), mock(StylesConfig.class), combo(), mock(Pdfsam.class)));
         }
 
     }

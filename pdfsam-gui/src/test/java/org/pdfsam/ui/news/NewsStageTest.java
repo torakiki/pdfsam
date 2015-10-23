@@ -27,15 +27,13 @@ import static org.mockito.Mockito.after;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.net.URISyntaxException;
 import java.util.Collections;
 import java.util.concurrent.TimeoutException;
 import java.util.function.Consumer;
-
-import javafx.scene.Parent;
-import javafx.scene.control.Button;
 
 import org.junit.After;
 import org.junit.Before;
@@ -45,6 +43,8 @@ import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
+import org.pdfsam.ConfigurableProperty;
+import org.pdfsam.Pdfsam;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
@@ -53,6 +53,9 @@ import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.commons.OpenUrlRequest;
 import org.pdfsam.ui.dashboard.preference.PreferenceComboBox;
 import org.sejda.eventstudio.Listener;
+
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
 
 /**
  * @author Andrea Vacondio
@@ -65,6 +68,7 @@ public class NewsStageTest extends GuiTest {
     public ClearEventStudioRule cleanStudio = new ClearEventStudioRule();
     private Consumer<Boolean> onSuccess;
     private NewsStage newsStage;
+    private Pdfsam pdfsam;
 
     @Before
     public void setUp() {
@@ -75,7 +79,7 @@ public class NewsStageTest extends GuiTest {
     public void tearDown() throws Exception {
         FXTestUtils.invokeAndWait(() -> {
             newsStage.hide();
-        }, 2);
+        } , 2);
     }
 
     @Override
@@ -83,37 +87,41 @@ public class NewsStageTest extends GuiTest {
         Button button = new Button("show");
         PreferenceComboBox<KeyStringValueItem<String>> newsDisplayPolicyCombo = new PreferenceComboBox<>(
                 StringUserPreference.NEWS_POLICY, mock(UserContext.class));
-        newsStage = new NewsStage(Collections.emptyList(), mock(StylesConfig.class), newsDisplayPolicyCombo);
+        pdfsam = mock(Pdfsam.class);
+        newsStage = new NewsStage(Collections.emptyList(), mock(StylesConfig.class), newsDisplayPolicyCombo, pdfsam);
         button.setOnAction(e -> newsStage.loadAndShow(onSuccess));
         return button;
     }
 
     @Test
-    public void stageIsShown() throws URISyntaxException, InterruptedException, TimeoutException {
-        newsStage.setNewsUrl(this.getClass().getClassLoader().getResource("htmltest.html").toURI().toString());
+    public void stageIsShown() throws InterruptedException, TimeoutException, URISyntaxException {
+        when(pdfsam.property(ConfigurableProperty.NEWS_URL))
+                .thenReturn(getClass().getResource("/htmltest.html").toURI().toString());
         click("show");
         waitOrTimeout(() -> newsStage.isShowing(), timeout(seconds(2)));
     }
 
     @Test
     public void onSuccessIsHit() throws URISyntaxException {
-        newsStage.setNewsUrl(this.getClass().getClassLoader().getResource("htmltest.html").toURI().toString());
+        when(pdfsam.property(ConfigurableProperty.NEWS_URL))
+                .thenReturn(getClass().getResource("/htmltest.html").toURI().toString());
         click("show");
         verify(onSuccess, timeout(2000)).accept(false);
     }
 
     @Test
     public void onSuccessNeverIsHit() {
-        newsStage.setNewsUrl("/this/does/not/exists");
+        when(pdfsam.property(ConfigurableProperty.NEWS_URL)).thenReturn("/this/does/not/exists");
         click("show");
         verify(onSuccess, after(1000).never()).accept(anyBoolean());
     }
 
     @Test
-    public void wrapHrefToOpenNative() throws URISyntaxException, InterruptedException, TimeoutException {
+    public void wrapHrefToOpenNative() throws InterruptedException, TimeoutException, URISyntaxException {
+        when(pdfsam.property(ConfigurableProperty.NEWS_URL))
+                .thenReturn(getClass().getResource("/htmltest.html").toURI().toString());
         Listener<OpenUrlRequest> listener = mock(Listener.class);
         eventStudio().add(OpenUrlRequest.class, listener);
-        newsStage.setNewsUrl(this.getClass().getClassLoader().getResource("htmltest.html").toURI().toString());
         click("show");
         waitOrTimeout(() -> newsStage.isShowing(), timeout(seconds(2)));
         click("#newsBrowser");

@@ -29,6 +29,7 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
 import org.pdfsam.PdfsamEdition;
 import org.pdfsam.test.ClearEventStudioRule;
@@ -54,7 +55,10 @@ public class UpdatesControllerTest {
     public void setUp() {
         service = mock(UpdateService.class);
         listener = mock(Listener.class);
-        victim = new UpdatesController(service, new Pdfsam(PdfsamEdition.COMMUNITY, "PDFsam", "3.0.0.M1"));
+        Pdfsam pdfsam = mock(Pdfsam.class);
+        when(pdfsam.edition()).thenReturn(PdfsamEdition.COMMUNITY);
+        when(pdfsam.property(ConfigurableProperty.VERSION)).thenReturn("3.0.0.M1");
+        victim = new UpdatesController(service, pdfsam);
     }
 
     @Test

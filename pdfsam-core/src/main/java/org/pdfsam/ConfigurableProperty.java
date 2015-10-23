@@ -19,33 +19,32 @@
 package org.pdfsam;
 
 /**
- * Information about the current running version of PDFsam
+ * Possible configurable properties
  * 
  * @author Andrea Vacondio
- *
  */
-public interface Pdfsam {
-    /**
-     * @return application edition
-     */
-    PdfsamEdition edition();
+public enum ConfigurableProperty {
+    HOME_URL("pdfsam.home.url"),
+    HOME_LABEL("pdfsam.home.label"),
+    VERSION("pdfsam.version"),
+    COPYRIGHT("pdfsam.copyright"),
+    LICENSE_NAME("pdfsam.license.name"),
+    LICENSE_URL("pdfsam.license.url"),
+    FEED_URL("pdfsam.feed.url"),
+    THANKS_URL("pdfsam.thanks.url"),
+    TRACKER_URL("pdfsam.tracker.url"),
+    SUPPORT_URL("pdfsam.support.url"),
+    QUICKSTART_URL("pdfsam.quickstart.url"),
+    TWITTER_URL("pdfsam.twitter.url"),
+    FACEBOOK_URL("pdfsam.facebook.url"),
+    GPLUS_URL("pdfsam.gplus.url"),
+    TRANSLATE_URL("pdfsam.translate.url"),
+    SCM_URL("pdfsam.scm.url"),
+    DONATE_URL("pdfsam.donate.url"),
+    NEWS_URL("pdfsam.news.url");
+    public final String prop;
 
-    /**
-     * @return application name
-     */
-    String name();
-
-    /**
-     * @param prop
-     * @param defaultValue
-     * @return a configurable property value
-     */
-    public String property(ConfigurableProperty prop, String defaultValue);
-
-    /**
-     * @param prop
-     * @param defaultValue
-     * @return a configurable property value or blank if no value is available
-     */
-    public String property(ConfigurableProperty prop);
+    private ConfigurableProperty(String prop) {
+        this.prop = prop;
+    }
 }

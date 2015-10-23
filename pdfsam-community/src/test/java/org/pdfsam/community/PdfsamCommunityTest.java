@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 17/ott/2014
+ * Created on 22 ott 2015
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,28 +16,28 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam;
+package org.pdfsam.community;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
 
 import org.junit.Test;
+import org.pdfsam.PdfsamEdition;
+import org.springframework.core.env.Environment;
 
-/**
- * @author Andrea Vacondio
- *
- */
-@SuppressWarnings("unused")
-public class PdfsamTest {
+public class PdfsamCommunityTest {
     @Test(expected = IllegalArgumentException.class)
     public void blankName() {
-        new Pdfsam(PdfsamEdition.COMMUNITY, " ", "version");
+        new PdfsamCommunity(" ", mock(Environment.class));
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void blankVersion() {
-        new Pdfsam(PdfsamEdition.COMMUNITY, "name", " ");
+    public void nullEnv() {
+        new PdfsamCommunity("name", null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void nullEdition() {
-        new Pdfsam(null, "name", "version");
+    @Test
+    public void edition() {
+        assertEquals(PdfsamEdition.COMMUNITY, new PdfsamCommunity("name", mock(Environment.class)).edition());
     }
 }

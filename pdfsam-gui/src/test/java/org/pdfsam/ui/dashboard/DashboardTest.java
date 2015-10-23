@@ -23,12 +23,11 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Arrays;
 import java.util.List;
-
-import javafx.scene.layout.StackPane;
 
 import javax.inject.Inject;
 
@@ -36,6 +35,7 @@ import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
 import org.pdfsam.PdfsamEdition;
 import org.pdfsam.test.ClearEventStudioRule;
@@ -50,6 +50,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import javafx.scene.layout.StackPane;
 
 /**
  * @author Andrea Vacondio
@@ -70,7 +72,29 @@ public class DashboardTest {
     static class Config {
         @Bean
         public AboutDashboardPane aboutPane() {
-            AboutDashboardPane about = new AboutDashboardPane(new Pdfsam(PdfsamEdition.COMMUNITY, "PDFsam", "3.0.0"));
+            Pdfsam pdfsam = mock(Pdfsam.class);
+            when(pdfsam.edition()).thenReturn(PdfsamEdition.COMMUNITY);
+            when(pdfsam.name()).thenReturn("PDFsam");
+            when(pdfsam.property(ConfigurableProperty.VERSION)).thenReturn("3.0.0");
+            when(pdfsam.property(ConfigurableProperty.HOME_URL)).thenReturn("http://www.pdfsam.org");
+            when(pdfsam.property(ConfigurableProperty.HOME_LABEL)).thenReturn("home");
+            when(pdfsam.property(ConfigurableProperty.FEED_URL)).thenReturn("http://www.pdfsam.org/feed/");
+            when(pdfsam.property(ConfigurableProperty.QUICKSTART_URL))
+                    .thenReturn("http://www.pdfsam.org/quickstart_video");
+            when(pdfsam.property(ConfigurableProperty.SUPPORT_URL)).thenReturn("http://www.pdfsam.org/support");
+            when(pdfsam.property(ConfigurableProperty.SCM_URL)).thenReturn("http://www.pdfsam.org/scm");
+            when(pdfsam.property(ConfigurableProperty.TRANSLATE_URL)).thenReturn("http://www.pdfsam.org/translate");
+            when(pdfsam.property(ConfigurableProperty.TWITTER_URL)).thenReturn("http://www.pdfsam.org/twitter");
+            when(pdfsam.property(ConfigurableProperty.DONATE_URL)).thenReturn("http://www.pdfsam.org/donate");
+            when(pdfsam.property(ConfigurableProperty.GPLUS_URL)).thenReturn("http://www.pdfsam.org/gplus");
+            when(pdfsam.property(ConfigurableProperty.FACEBOOK_URL)).thenReturn("http://www.pdfsam.org/facebook");
+            when(pdfsam.property(ConfigurableProperty.LICENSE_NAME)).thenReturn("agpl3");
+            when(pdfsam.property(ConfigurableProperty.LICENSE_URL))
+                    .thenReturn("http://www.gnu.org/licenses/agpl-3.0.html");
+            when(pdfsam.property(ConfigurableProperty.TRACKER_URL)).thenReturn("http://www.pdfsam.org/issue_tracker");
+            when(pdfsam.property(ConfigurableProperty.THANKS_URL)).thenReturn("http://www.pdfsam.org/issue_tracker");
+            when(pdfsam.property(ConfigurableProperty.GPLUS_URL)).thenReturn("http://www.pdfsam.org/gplus");
+            AboutDashboardPane about = new AboutDashboardPane(pdfsam);
             about.setId("aboutPane");
             return about;
         }
