@@ -23,9 +23,15 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javax.inject.Named;
 
 import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.ui.commons.Animations;
 import org.pdfsam.ui.commons.ShowStageRequest;
+import org.pdfsam.ui.log.ErrorLoggedEvent;
+import org.pdfsam.ui.log.LogAreaVisiblityChangedEvent;
+import org.sejda.eventstudio.annotation.EventListener;
 
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
+import javafx.animation.Animation.Status;
+import javafx.animation.Timeline;
 import javafx.scene.control.Tooltip;
 
 /**
@@ -36,9 +42,43 @@ import javafx.scene.control.Tooltip;
 @Named
 class LogButton extends BannerButton {
 
+    static final String HAS_ERRORS_CSS_CLASS = "log-has-errors";
+    private Timeline anim;
+
     LogButton() {
         super(MaterialDesignIcon.COMMENT_ALERT_OUTLINE);
-        setOnAction(e -> eventStudio().broadcast(new ShowStageRequest(), "LogStage"));
+        setOnAction(e -> {
+            hasUnseenErrors(false);
+            eventStudio().broadcast(new ShowStageRequest(), "LogStage");
+        });
         setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Application messages")));
+        anim = Animations.shake(this);
+        eventStudio().addAnnotatedListeners(this);
+    }
+
+    @EventListener
+    public void onLogMessage(ErrorLoggedEvent event) {
+        hasUnseenErrors(true);
+    }
+
+    @EventListener
+    public void onViewedLogArea(LogAreaVisiblityChangedEvent event) {
+        hasUnseenErrors(false);
+    }
+
+    void hasUnseenErrors(boolean value) {
+        if (value) {
+            if (!(anim.getStatus() == Status.RUNNING)) {
+                anim.play();
+            }
+            if (!getStyleClass().contains(HAS_ERRORS_CSS_CLASS)) {
+                getStyleClass().add(HAS_ERRORS_CSS_CLASS);
+            }
+        } else {
+            getStyleClass().remove(HAS_ERRORS_CSS_CLASS);
+            anim.stop();
+            setRotate(0);
+            setScaleY(1);
+        }
     }
 }

@@ -26,9 +26,7 @@ import javax.inject.Named;
 import org.pdfsam.news.LatestNewsEvent;
 import org.sejda.eventstudio.ReferenceStrength;
 
-import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 
 /**
  * Container for the banner buttons
@@ -40,13 +38,10 @@ import javafx.scene.layout.StackPane;
 class BannerButtons extends HBox {
 
     @Inject
-    BannerButtons(ErrorsNotification errorNotification, LogButton logButton, DashboardButton dashboardButton,
-            NewsButton newsButton, MenuButton menuButton) {
+    BannerButtons(LogButton logButton, DashboardButton dashboardButton, NewsButton newsButton, MenuButton menuButton) {
         getStyleClass().addAll("pdfsam-container", "pdfsam-banner-buttons");
-        StackPane logs = new StackPane(logButton, errorNotification);
-        StackPane.setAlignment(errorNotification, Pos.BOTTOM_LEFT);
         newsButton.setDisable(true);
-        getChildren().addAll(dashboardButton, logs, newsButton, menuButton);
+        getChildren().addAll(dashboardButton, logButton, newsButton, menuButton);
         eventStudio().add(LatestNewsEvent.class, (e) -> {
             if (!e.latestNews.isEmpty()) {
                 newsButton.setDisable(false);

@@ -88,13 +88,9 @@ public class BannerPaneTest extends GuiTest {
 
         @Bean
         public BannerButtons buttons() {
-            return new BannerButtons(notification(), logButton(), dashboardButton(), newsButton(), menuButton());
+            return new BannerButtons(logButton(), dashboardButton(), newsButton(), menuButton());
         }
 
-        @Bean
-        public ErrorsNotification notification() {
-            return new ErrorsNotification();
-        }
 
         @Bean
         public LogButton logButton() {

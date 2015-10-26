@@ -18,6 +18,8 @@
  */
 package org.pdfsam.ui.banner;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -49,5 +51,15 @@ public class LogButtonTest extends GuiTest {
         eventStudio().add(ShowStageRequest.class, listener, "LogStage");
         click(".button");
         verify(listener).onEvent(any());
+    }
+
+    @Test
+    public void setUpToDate() {
+        LogButton victim = find(".button");
+        assertFalse(victim.getStyleClass().contains(LogButton.HAS_ERRORS_CSS_CLASS));
+        victim.hasUnseenErrors(true);
+        assertTrue(victim.getStyleClass().contains(LogButton.HAS_ERRORS_CSS_CLASS));
+        victim.hasUnseenErrors(false);
+        assertFalse(victim.getStyleClass().contains(LogButton.HAS_ERRORS_CSS_CLASS));
     }
 }

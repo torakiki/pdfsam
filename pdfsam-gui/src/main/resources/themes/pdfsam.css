@@ -25,21 +25,30 @@
     -fx-background-insets: 0.0, 1.0;
     -fx-padding: 1.0;
 }
+
 #log-view:focused {
  -fx-background-color: -fx-focus-color,-fx-box-border,#FFFFFF;
     -fx-background-insets: -1.4, 0.0, 1.0;
     -fx-background-radius: 1.4, 0.0, 0.0;    
 }
+
 #log-view .list-cell,.list-cell:odd {
 }
+
 .info-log{
 	-fx-text-fill: -pdfsam-dark-text-color;
 }
+
 .warn-log{
 	-fx-text-fill: derive(-pdfsam-info-color, -30.0%);
 }
+
 .error-log{
 	-fx-text-fill: -pdfsam-error-color;
+}
+
+.log-has-errors > .glyph-icon  {
+    -fx-fill: -pdfsam-error-color;
 }
 /**
  * Info pane
