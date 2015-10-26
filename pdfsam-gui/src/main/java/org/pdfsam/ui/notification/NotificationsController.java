@@ -18,24 +18,26 @@
  */
 package org.pdfsam.ui.notification;
 
+import static org.pdfsam.ui.commons.UrlButton.styledUrlButton;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.geometry.Pos;
-import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
 import org.pdfsam.PdfsamEdition;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.UsageService;
-import org.pdfsam.ui.commons.UrlButton;
 import org.pdfsam.update.UpdateAvailableEvent;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.model.exception.InvalidTaskParametersException;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
+
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 
 /**
  * Component dealing with events that require a visual notification
@@ -78,11 +80,10 @@ public class NotificationsController {
     @EventListener
     public void onTaskFailed(TaskExecutionFailedEvent e) {
         if (e.getFailingCause() instanceof InvalidTaskParametersException) {
-            container.addNotification(
-                    DefaultI18nContext.getInstance().i18n("Invalid parameters"),
+            container.addNotification(DefaultI18nContext.getInstance().i18n("Invalid parameters"),
                     buildLabel(
-                            DefaultI18nContext.getInstance().i18n(
-                                    "Input parameters are invalid, open the application messages for details."),
+                            DefaultI18nContext.getInstance()
+                                    .i18n("Input parameters are invalid, open the application messages for details."),
                             NotificationType.ERROR));
         }
     }
@@ -91,10 +92,12 @@ public class NotificationsController {
     public void onTaskCompleted(@SuppressWarnings("unused") TaskExecutionCompletedEvent e) {
         long usages = service.getTotalUsage();
         if (PdfsamEdition.COMMUNITY == pdfsam.edition() && (usages % TIMES_BEFORE_ENTERPRISE_NOTICE) == 0) {
-            VBox content = new VBox(3, buildLabel(
-                    DefaultI18nContext.getInstance().i18n("You performed {0} tasks with PDFsam, did it help?",
-                            Long.toString(usages)), NotificationType.GO_PRO), new UrlButton(DefaultI18nContext
-                    .getInstance().i18n("Give something back"), "http://www.pdfsam.org/offers"));
+            VBox content = new VBox(3,
+                    buildLabel(DefaultI18nContext.getInstance()
+                            .i18n("You performed {0} tasks with PDFsam, did it help?", Long.toString(usages)),
+                    NotificationType.GO_PRO),
+                    styledUrlButton(DefaultI18nContext.getInstance().i18n("Give something back"),
+                            pdfsam.property(ConfigurableProperty.DONATE_URL), null));
             content.setAlignment(Pos.TOP_RIGHT);
 
             container.addStickyNotification(DefaultI18nContext.getInstance().i18n("PDFsam worked hard!"), content);
@@ -108,10 +111,11 @@ public class NotificationsController {
 
     @EventListener
     public void onUpdateAvailable(UpdateAvailableEvent event) {
-        VBox content = new VBox(3, buildLabel(
-                DefaultI18nContext.getInstance().i18n("PDFsam {0} is available for download",
-                        event.getAvailableVersion()), NotificationType.INFO), new UrlButton(DefaultI18nContext
-                .getInstance().i18n("Download"), "http://www.pdfsam.org/download"));
+        VBox content = new VBox(3,
+                buildLabel(DefaultI18nContext.getInstance().i18n("PDFsam {0} is available for download",
+                        event.getAvailableVersion()), NotificationType.INFO),
+                styledUrlButton(DefaultI18nContext.getInstance().i18n("Download"),
+                        pdfsam.property(ConfigurableProperty.DOWNLOAD_URL), null));
         content.setAlignment(Pos.TOP_RIGHT);
 
         container.addStickyNotification(DefaultI18nContext.getInstance().i18n("New version available"), content);

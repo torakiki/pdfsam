@@ -49,7 +49,3 @@
 .dashboard-modules-toolbar {
 	-fx-alignment: center-right;
 }
-.dashboard-modules-toolbar .awesome {
-    -fx-effect: null;
-    -fx-text-fill: awesome-color;
-}

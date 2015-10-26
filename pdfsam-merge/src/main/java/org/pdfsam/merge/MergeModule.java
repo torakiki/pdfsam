@@ -62,17 +62,15 @@ public class MergeModule extends BaseTaskExecutionModule {
     private MergeOptionsPane mergeOptions = new MergeOptionsPane();
     private BrowsablePdfOutputField destinationFileField;
     private PdfDestinationPane destinationPane;
-    private ModuleDescriptor descriptor = builder()
-            .category(ModuleCategory.MERGE)
+    private ModuleDescriptor descriptor = builder().category(ModuleCategory.MERGE)
             .name(DefaultI18nContext.getInstance().i18n("Merge"))
-            .description(
-                    DefaultI18nContext.getInstance().i18n(
-"Merge together multiple PDF documents or subsections of them."))
+            .description(DefaultI18nContext.getInstance()
+                    .i18n("Merge together multiple PDF documents or subsections of them."))
             .priority(ModulePriority.HIGH.getPriority()).supportURL("http://www.pdfsam.org/pdf-merge").build();
 
     @Inject
-    public MergeModule(@Named(MODULE_ID + "field") BrowsablePdfOutputField destinationFileField, @Named(MODULE_ID
-            + "pane") PdfDestinationPane destinationPane) {
+    public MergeModule(@Named(MODULE_ID + "field") BrowsablePdfOutputField destinationFileField,
+            @Named(MODULE_ID + "pane") PdfDestinationPane destinationPane) {
         this.destinationFileField = destinationFileField;
         this.destinationPane = destinationPane;
     }

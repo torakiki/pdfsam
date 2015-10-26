@@ -29,10 +29,9 @@ import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import javafx.scene.control.Tooltip;
 
 /**
- * Button requiring to open the log window
+ * Button requesting to open the log window
  * 
  * @author Andrea Vacondio
- *
  */
 @Named
 class LogButton extends BannerButton {

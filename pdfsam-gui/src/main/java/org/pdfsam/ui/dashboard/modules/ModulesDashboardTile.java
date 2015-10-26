@@ -22,7 +22,7 @@ import static org.pdfsam.ui.event.SetActiveModuleRequest.activeteModule;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.pdfsam.module.Module;
-import org.pdfsam.ui.commons.OpenUrlRequest;
+import org.pdfsam.ui.commons.UrlButton;
 
 import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
@@ -69,10 +69,8 @@ class ModulesDashboardTile extends Region {
         inner.getStyleClass().add("dashboard-modules-tile-inner");
         getChildren().add(inner);
         module.descriptor().getSupportURL().ifPresent(url -> {
-            Button helpButton = new Button();
+            UrlButton helpButton = UrlButton.urlButton(null, url, null, "pdfsam-toolbar-button");
             helpButton.setGraphic(GlyphsDude.createIcon(MaterialDesignIcon.HELP_CIRCLE, "1.4em"));
-            helpButton.getStyleClass().add("pdfsam-toolbar-button");
-            helpButton.setOnAction(e -> eventStudio().broadcast(new OpenUrlRequest(url)));
             toolButtons.getChildren().add(helpButton);
             toolButtons.getStyleClass().add("dashboard-modules-toolbar");
             inner.getChildren().add(toolButtons);

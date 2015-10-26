@@ -32,6 +32,7 @@ import org.mockito.ArgumentCaptor;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.eventstudio.Listener;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.scene.Parent;
 
 /**
@@ -48,12 +49,12 @@ public class UrlButtonTest extends GuiTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void nullUrl() {
-        new UrlButton("Chuck", null);
+        UrlButton.urlButton("Chuck", null, FontAwesomeIcon.ADN);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void emptyUrl() {
-        new UrlButton("Chuck", "");
+        UrlButton.urlButton("Chuck", "", FontAwesomeIcon.ADN);
     }
 
     @Test
@@ -68,7 +69,7 @@ public class UrlButtonTest extends GuiTest {
 
     @Override
     protected Parent getRootNode() {
-        return new UrlButton("Chuck", URL);
+        return UrlButton.styledUrlButton("Chuck", URL, null);
     }
 
 }

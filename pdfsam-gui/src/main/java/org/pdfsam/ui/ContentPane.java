@@ -23,13 +23,21 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.pdfsam.news.HideNewsPanelRequest;
+import org.pdfsam.news.ShowNewsPanelRequest;
 import org.pdfsam.ui.dashboard.Dashboard;
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.pdfsam.ui.event.SetActiveModuleRequest;
+import org.pdfsam.ui.news.NewsPanel;
 import org.pdfsam.ui.workarea.WorkArea;
 import org.sejda.eventstudio.annotation.EventListener;
 
+import javafx.animation.FadeTransition;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 
 /**
  * Panel containing the main area where the modules pane and the dashboard pane are displayed
@@ -38,17 +46,35 @@ import javafx.scene.layout.StackPane;
  * 
  */
 @Named
-public class ContentPane extends StackPane {
+public class ContentPane extends HBox {
 
     private WorkArea modules;
     private Dashboard dashboard;
+    private VBox newsContainer;
+    private FadeTransition fadeIn;
+    private FadeTransition fadeOut;
 
     @Inject
-    public ContentPane(WorkArea modules, Dashboard dashboard,
+    public ContentPane(WorkArea modules, Dashboard dashboard, NewsPanel news,
             @Named("defaultDashboardItemId") String defaultDasboardItem) {
         this.modules = modules;
         this.dashboard = dashboard;
-        getChildren().addAll(modules, dashboard);
+        this.newsContainer = new VBox(news);
+        this.newsContainer.getStyleClass().add("news-container");
+        StackPane stack = new StackPane(modules, dashboard);
+        setHgrow(stack, Priority.ALWAYS);
+        newsContainer.managedProperty().bind(newsContainer.visibleProperty());
+        newsContainer.setVisible(false);
+        fadeIn = new FadeTransition(new Duration(300), newsContainer);
+        fadeIn.setFromValue(0);
+        fadeIn.setToValue(1);
+        fadeOut = new FadeTransition(new Duration(300), newsContainer);
+        fadeOut.setFromValue(1);
+        fadeOut.setToValue(0);
+        fadeOut.setOnFinished(e -> {
+            newsContainer.setVisible(false);
+        });
+        getChildren().addAll(stack, newsContainer);
         eventStudio().addAnnotatedListeners(this);
         eventStudio().broadcast(new SetActiveDashboardItemRequest(defaultDasboardItem));
     }
@@ -66,4 +92,22 @@ public class ContentPane extends StackPane {
         dashboard.setVisible(true);
         modules.setVisible(false);
     }
+
+    @EventListener(priority = Integer.MIN_VALUE)
+    @SuppressWarnings("unused")
+    public void onShowNewsPanel(ShowNewsPanelRequest request) {
+        if (!newsContainer.isVisible()) {
+            newsContainer.setVisible(true);
+            fadeIn.play();
+        }
+    }
+
+    @EventListener(priority = Integer.MIN_VALUE)
+    @SuppressWarnings("unused")
+    public void onHideNewsPanel(HideNewsPanelRequest request) {
+        if (newsContainer.isVisible()) {
+            fadeOut.play();
+        }
+    }
+
 }

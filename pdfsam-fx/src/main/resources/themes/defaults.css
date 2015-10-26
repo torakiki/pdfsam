@@ -12,7 +12,7 @@
 	-fx-accent: -fx-focus-color;
 	-fx-highlight-text-fill: -pdfsam-dark-text-color;
 	-pdfsam-default-effect: dropshadow(three-pass-box, -pdfsam-theme-color, 10.0, 0.0, 0.0, 2.0);
-	-fx-disabled-opacity: 0.4;
+	-fx-disabled-opacity: 0.3;
 	-pdfsam-info-color: #4AAAD2;	
 	awesome-color: derive(-pdfsam-light-border-color, -20.0%);
 	awesome-color-hover: derive(-pdfsam-light-border-color, -35.0%);	
@@ -165,7 +165,7 @@
     -fx-background-insets:  0.0, 1.0;
    	-fx-background-radius:  0.0, 0.0;
    	-fx-text-fill: -pdfsam-dark-text-color;
-   	-fx-font-size: 11px;
+   	-fx-font-size: 11.0px;
 }
 /**
  * Buttons
@@ -375,4 +375,19 @@
 }
 .pdfsam-input-password-content .pdfsam-button{
 	-fx-padding: 0.0px 14.0px 0.0px 14.0px;
+}
+/**
+ * Close button
+ */
+.close-button {
+	-fx-background-color:  transparent;
+    -fx-background-insets:  0.0;
+    -fx-background-radius: 0.0;
+    -fx-padding: 0.0px;
+}
+.close-button:hover > .glyph-icon{
+ 	-fx-fill: derive(-fx-text-base-color, 70.0%);
+}
+.close-button:armed > .glyph-icon{
+ 	-fx-fill: derive(-fx-text-base-color, 30.0%);
 }

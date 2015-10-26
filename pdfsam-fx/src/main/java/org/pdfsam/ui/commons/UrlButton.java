@@ -18,12 +18,15 @@
  */
 package org.pdfsam.ui.commons;
 
+import static java.util.Objects.nonNull;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.support.RequireUtils.require;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.pdfsam.ui.support.Style;
 
+import de.jensd.fx.glyphs.GlyphIcons;
+import de.jensd.fx.glyphs.GlyphsDude;
 import javafx.scene.control.Button;
 
 /**
@@ -34,16 +37,47 @@ import javafx.scene.control.Button;
  */
 public class UrlButton extends Button {
 
-    public UrlButton(String text, String url) {
+    private UrlButton(String text) {
         super(text);
-        require(isNotBlank(url), "URL cannot be blank");
-        setOnAction(e -> eventStudio().broadcast(new OpenUrlRequest(url)));
-        // not sure about this. see: https://javafx-jira.kenai.com/browse/RT-28779
-        /**
-         * setOnKeyReleased(new EventHandler<KeyEvent>() { final KeyCombination combo = new KeyCodeCombination(KeyCode.ENTER);
-         * 
-         * public void handle(KeyEvent t) { if (combo.match(t)) { openUrl(); } } });
-         */
-        getStyleClass().addAll(Style.BUTTON.css());
     }
+
+    /**
+     * factory methods to create an url button with default {@link Style#BUTTON} style
+     * 
+     * @param text
+     *            optional button text
+     * @param url
+     * @param icon
+     *            optional icon
+     * @return
+     */
+    public static final UrlButton styledUrlButton(String text, String url, GlyphIcons icon) {
+        return urlButton(text, url, icon, Style.BUTTON.css());
+    }
+
+    /**
+     * Factory method to create an {@link UrlButton}
+     * 
+     * @param text
+     *            optional button text
+     * @param url
+     * @param icon
+     *            optional icon
+     * @param style
+     *            optional style classes
+     * @return
+     */
+    public static final UrlButton urlButton(String text, String url, GlyphIcons icon, String... style) {
+        require(isNotBlank(url), "URL cannot be blank");
+        UrlButton button = new UrlButton(text);
+        button.setOnAction(e -> eventStudio().broadcast(new OpenUrlRequest(url)));
+        if (nonNull(icon)) {
+            GlyphsDude.setIcon(button, icon);
+        }
+        if (nonNull(style) && style.length > 0) {
+            button.getStyleClass().addAll(style);
+        }
+        return button;
+    }
+
 }

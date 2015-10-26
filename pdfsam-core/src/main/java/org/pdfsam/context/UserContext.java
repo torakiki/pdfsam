@@ -18,8 +18,6 @@
  */
 package org.pdfsam.context;
 
-import org.pdfsam.ui.NewsPolicy;
-
 /**
  * Context holding user related application settings.
  * 
@@ -87,11 +85,6 @@ public interface UserContext {
      * @return the module to load at application startup
      */
     String getStartupModule();
-
-    /**
-     * @return the policy to use regarding displaying news
-     */
-    NewsPolicy getNewsPolicy();
 
     /**
      * Clear user preferences

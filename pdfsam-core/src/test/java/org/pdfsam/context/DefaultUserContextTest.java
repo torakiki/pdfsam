@@ -26,7 +26,6 @@ import static org.junit.Assert.assertTrue;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.pdfsam.ui.NewsPolicy;
 import org.pdfsam.ui.Theme;
 
 /**
@@ -139,29 +138,6 @@ public class DefaultUserContextTest {
         assertEquals("ChuckNorris", victim.getStartupModule());
         victim.setStringPreference(StringUserPreference.STARTUP_MODULE, "");
         assertTrue(isBlank(victim.getStartupModule()));
-    }
-
-    @Test
-    public void getNewsPolicy() {
-        victim.setStringPreference(StringUserPreference.NEWS_POLICY, NewsPolicy.ALWAYS.toString());
-        assertEquals(NewsPolicy.ALWAYS, victim.getNewsPolicy());
-        victim.setStringPreference(StringUserPreference.NEWS_POLICY, "");
-        assertEquals(NewsPolicy.ONCE_A_WEEK, victim.getNewsPolicy());
-    }
-
-    @Test
-    public void getNewsPolicySysPro() {
-        System.setProperty(DefaultUserContext.NEWS_PROP, NewsPolicy.ONCE_A_DAY.toString());
-        assertEquals(NewsPolicy.ONCE_A_DAY, victim.getNewsPolicy());
-        victim.setStringPreference(StringUserPreference.NEWS_POLICY, "");
-        assertEquals(NewsPolicy.ONCE_A_WEEK, victim.getNewsPolicy());
-        System.clearProperty(DefaultUserContext.NEWS_PROP);
-    }
-
-    @Test
-    public void getNewsPolicyFallback() {
-        victim.setStringPreference(StringUserPreference.NEWS_POLICY, "ChuckNorris");
-        assertEquals(NewsPolicy.ONCE_A_WEEK, victim.getNewsPolicy());
     }
 
     @Test

@@ -39,15 +39,12 @@ import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.LocaleKeyValueItem;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.support.validation.Validators;
-import org.pdfsam.ui.NewsPolicy;
 import org.pdfsam.ui.Theme;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 import org.pdfsam.ui.log.MaxLogRowsChangedEvent;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
 
 import javafx.scene.control.Tooltip;
 
@@ -93,20 +90,6 @@ public class PreferenceConfig {
         modules.stream().map(ModuleKeyValueItem::new).forEach(startupModuleCombo.getItems()::add);
         startupModuleCombo.setValue(keyEmptyValue(userContext.getStartupModule()));
         return startupModuleCombo;
-    }
-
-    @Bean(name = "newsDisplayPolicy")
-    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-    public PreferenceComboBox<KeyStringValueItem<String>> newsDisplayPolicy() {
-        PreferenceComboBox<KeyStringValueItem<String>> newsDisplayPolicyCombo = new PreferenceComboBox<>(
-                StringUserPreference.NEWS_POLICY, userContext);
-        newsDisplayPolicyCombo.setId("newsPolicy");
-        newsDisplayPolicyCombo.getItems().addAll(
-                Arrays.stream(NewsPolicy.values()).map(t -> keyValue(t.toString(), t.friendlyName()))
-                        .collect(Collectors.toList()));
-
-        newsDisplayPolicyCombo.setValue(keyEmptyValue(userContext.getNewsPolicy().toString()));
-        return newsDisplayPolicyCombo;
     }
 
     // @Bean(name = "thumbnailsCombo")

@@ -55,7 +55,7 @@ class Notification extends BorderPane {
         Label titleLabel = new Label(title);
         titleLabel.getStyleClass().add("notification-title");
         Button closeButton = GlyphsDude.createIconButton(FontAwesomeIcon.TIMES);
-        closeButton.getStyleClass().addAll("close");
+        closeButton.getStyleClass().addAll("close-button");
         closeButton.setOnAction(e -> eventStudio().broadcast(new RemoveNotificationRequestEvent(getId())));
         HBox titlePanel = new HBox();
         StackPane buttonPane = new StackPane(closeButton);

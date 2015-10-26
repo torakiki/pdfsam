@@ -6,9 +6,9 @@ The purpose of this document is to list the points where PDFsam requires an Inte
 **@url** [http://www.pdfsam.org/current-version?c=YOURVERSION](http://www.pdfsam.org/current-version)  
 **@since** v3.0.0.BETA  
 
-*PDFsam opens a "What's new" panel once a day. Frequency can be modified in the Settings section.*  
-**@url** [http://www.pdfsam.org/latest](http://www.pdfsam.org/latest)  
-**@since** v3.0.0.BETA 
+*PDFsam reads the latest news from here and fills the news panel.*  
+**@url** [http://www.pdfsam.org/whats-new](http://www.pdfsam.org/whats-new)  
+**@since** v3.0.0.M3  
 
 *Link to the PDFsam license in the (About panel).*  
 **@url** [http://www.gnu.org/licenses/agpl-3.0.html](http://www.gnu.org/licenses/agpl-3.0.html)  
@@ -30,9 +30,9 @@ The purpose of this document is to list the points where PDFsam requires an Inte
 **@url** [http://www.pdfsam.org/issue_tracker](http://www.pdfsam.org/issue_tracker)  
 **@since** v3.0.0.BETA  
 
-*Link to the official PDFsam Wiki (About panel).*  
-**@url** [http://www.pdfsam.org/wiki](http://www.pdfsam.org/wiki)  
-**@since** v3.0.0.BETA  
+*Link to the official PDFsam support page (About panel).*  
+**@url** [http://www.pdfsam.org/support](http://www.pdfsam.org/support)  
+**@since** v3.0.0.M3  
 
 *Link to the PDFsam "Get started" video (About panel).*  
 **@url** [http://www.pdfsam.org/quickstart_video](http://www.pdfsam.org/quickstart_video)  

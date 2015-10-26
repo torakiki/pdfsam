@@ -33,6 +33,7 @@ import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.ui.dashboard.Dashboard;
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.pdfsam.ui.event.SetActiveModuleRequest;
+import org.pdfsam.ui.news.NewsPanel;
 import org.pdfsam.ui.workarea.WorkArea;
 
 /**
@@ -47,12 +48,14 @@ public class ContentPaneTest {
     private WorkArea modules;
     private Dashboard dashboard;
     private ContentPane victim;
+    private NewsPanel newsPanel;
 
     @Before
     public void setUp() {
         modules = new WorkArea(Arrays.asList(new DefaultPriorityTestModule()));
         dashboard = new Dashboard(Arrays.asList(new DefaultPriorityDashboardItem()));
-        victim = new ContentPane(modules, dashboard, "defaultItem");
+        newsPanel = new NewsPanel();
+        victim = new ContentPane(modules, dashboard, newsPanel, "defaultItem");
     }
 
     @Test

@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 12/dic/2011
- * Copyright 2011 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 24 ott 2015
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,19 +16,26 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.context;
+package org.pdfsam.news;
+
+import java.util.Collections;
+import java.util.List;
+
+import org.pdfsam.support.RequireUtils;
 
 /**
- * Possible {@link String} preferences.
+ * Response to a fetch latest news request
  * 
  * @author Andrea Vacondio
- * 
  */
-public enum StringUserPreference {
-    LOCALE,
-    THEME,
-    THUMBNAILS_IDENTIFIER,
-    WORKING_PATH,
-    WORKSPACE_PATH,
-    STARTUP_MODULE;
+public class LatestNewsEvent {
+
+    public final List<NewsData> latestNews;
+    public final boolean isUpToDate;
+
+    public LatestNewsEvent(List<NewsData> latestNews, boolean isUpToDate) {
+        RequireUtils.requireNotNull(latestNews, "Latest news cannot be null");
+        this.latestNews = Collections.unmodifiableList(latestNews);
+        this.isUpToDate = isUpToDate;
+    }
 }

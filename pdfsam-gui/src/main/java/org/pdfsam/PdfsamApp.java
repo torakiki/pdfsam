@@ -38,6 +38,8 @@ import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
+import org.pdfsam.news.FetchLatestNewsRequest;
+import org.pdfsam.news.NewsService;
 import org.pdfsam.ui.MainPane;
 import org.pdfsam.ui.SetLatestStageStatusRequest;
 import org.pdfsam.ui.StageMode;
@@ -125,7 +127,8 @@ public class PdfsamApp extends Application {
         primaryStage.show();
 
         requestCheckForUpdateIfNecessary();
-        requestLatestNewsPanelDisplay();
+        cleanLatestNewsIfNeeded();
+        requestLatestNews();
         eventStudio().addAnnotatedListeners(this);
         closeSplash();
         STOPWATCH.stop();
@@ -179,8 +182,14 @@ public class PdfsamApp extends Application {
         }
     }
 
-    private static void requestLatestNewsPanelDisplay() {
-        eventStudio().broadcast(new ShowStageRequest(), "NewsStage");
+    private void cleanLatestNewsIfNeeded() {
+        if (getParameters().getRaw().contains("-clean")) {
+            ApplicationContextHolder.getContext().getBean(NewsService.class).clear();
+        }
+    }
+
+    private static void requestLatestNews() {
+        eventStudio().broadcast(FetchLatestNewsRequest.INSTANCE);
     }
 
     @EventListener

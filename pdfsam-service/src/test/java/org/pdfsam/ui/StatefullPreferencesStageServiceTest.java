@@ -20,11 +20,9 @@ package org.pdfsam.ui;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.time.Instant;
 import java.util.prefs.Preferences;
 
 import org.junit.After;
@@ -78,25 +76,5 @@ public class StatefullPreferencesStageServiceTest {
         victim.save(status);
         victim.flush();
         assertEquals(status, victim.getLatestStatus());
-    }
-
-    @Test
-    public void newsStageDisplayed() {
-        assertEquals(
-                0,
-                Preferences.userRoot().node(StatefullPreferencesStageService.STAGE_PATH)
-                        .getLong(StatefullPreferencesStageService.NEWS_STAGE_DISPLAY_TIME_KEY, 0));
-        victim.newsStageDisplayed();
-        assertNotEquals(
-                0,
-                Preferences.userRoot().node(StatefullPreferencesStageService.STAGE_PATH)
-                        .getLong(StatefullPreferencesStageService.NEWS_STAGE_DISPLAY_TIME_KEY, 0));
-    }
-
-    @Test
-    public void getLatestNewsStageDisplayInstant() {
-        assertEquals(Instant.EPOCH, victim.getLatestNewsStageDisplayInstant());
-        victim.newsStageDisplayed();
-        assertNotEquals(Instant.EPOCH, victim.getLatestNewsStageDisplayInstant());
     }
 }

@@ -134,11 +134,8 @@ public class AboutDashboardPane extends HBox {
     }
 
     private void addHyperlink(FontAwesomeIcon icon, String url, String text, Pane pane) {
-        UrlButton button = new UrlButton(text, url);
+        UrlButton button = UrlButton.styledUrlButton(text, url, icon);
         button.getStyleClass().setAll("pdfsam-hyperlink");
-        if (icon != null) {
-            GlyphsDude.setIcon(button, icon);
-        }
         pane.getChildren().add(button);
     }
 }

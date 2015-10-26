@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 12/dic/2011
- * Copyright 2011 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 24 ott 2015
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,19 +16,17 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.context;
+package org.pdfsam.news;
 
 /**
- * Possible {@link String} preferences.
+ * Request to hide the news panel
  * 
  * @author Andrea Vacondio
- * 
  */
-public enum StringUserPreference {
-    LOCALE,
-    THEME,
-    THUMBNAILS_IDENTIFIER,
-    WORKING_PATH,
-    WORKSPACE_PATH,
-    STARTUP_MODULE;
+public class HideNewsPanelRequest {
+    public static final HideNewsPanelRequest INSTANCE = new HideNewsPanelRequest();
+
+    private HideNewsPanelRequest() {
+        // hide
+    }
 }

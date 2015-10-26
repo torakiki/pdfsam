@@ -18,17 +18,15 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
-import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.i18n.DefaultI18nContext;
-import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.ui.support.Style;
+
+import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 
 /**
  * Preference pane displaying the behavior section
@@ -42,16 +40,8 @@ class PreferenceBehaviorPane extends GridPane {
     @Inject
     public PreferenceBehaviorPane(@Named("checkForUpdates") PreferenceCheckBox checkForUpdates,
             @Named("playSounds") PreferenceCheckBox playSounds,
-            @Named("newsDisplayPolicy") PreferenceComboBox<KeyStringValueItem<String>> newsDisplayPolicy,
             CheckForUpdatesButton checkForUpdatesNow,
             @Named("logViewRowsNumber") PreferenceIntTextField logViewRowsNumber) {
-
-        newsDisplayPolicy.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
-                "Set how often the PDFsam news panel should be opened")));
-        add(new Label(DefaultI18nContext.getInstance().i18n("News panel:")), 0, 0);
-        setFillWidth(newsDisplayPolicy, true);
-        newsDisplayPolicy.setMaxWidth(Double.POSITIVE_INFINITY);
-        add(newsDisplayPolicy, 1, 0);
 
         add(new Label(DefaultI18nContext.getInstance().i18n("Log register rows:")), 0, 1);
         setFillWidth(logViewRowsNumber, true);

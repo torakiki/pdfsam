@@ -24,7 +24,6 @@ import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.ui.NewsPolicy;
 import org.pdfsam.ui.Theme;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,7 +40,6 @@ public final class DefaultUserContext implements UserContext {
 
     static final String CHECK_FOR_UPDATES_PROP = "org.pdfsam.default.checkforupdate";
     static final String LOCALE_PROP = "org.pdfsam.default.locale";
-    static final String NEWS_PROP = "org.pdfsam.default.news";
 
     private Preferences prefs;
 
@@ -92,18 +90,6 @@ public final class DefaultUserContext implements UserContext {
     @Override
     public String getStartupModule() {
         return prefs.get(StringUserPreference.STARTUP_MODULE.toString(), StringUtils.EMPTY);
-    }
-
-    @Override
-    public NewsPolicy getNewsPolicy() {
-        try {
-            return NewsPolicy.valueOf(defaultIfBlank(
-                    prefs.get(StringUserPreference.NEWS_POLICY.toString(), System.getProperty(NEWS_PROP)),
-                    NewsPolicy.ONCE_A_WEEK.toString()));
-        } catch (IllegalArgumentException e) {
-            LOG.warn("Invalid news policy", e);
-            return NewsPolicy.ONCE_A_WEEK;
-        }
     }
 
     @Override

@@ -41,7 +41,8 @@ public enum ConfigurableProperty {
     TRANSLATE_URL("pdfsam.translate.url"),
     SCM_URL("pdfsam.scm.url"),
     DONATE_URL("pdfsam.donate.url"),
-    NEWS_URL("pdfsam.news.url");
+    NEWS_URL("pdfsam.news.url"),
+    DOWNLOAD_URL("pdfsam.download.url");
     public final String prop;
 
     private ConfigurableProperty(String prop) {
