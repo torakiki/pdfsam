@@ -30,6 +30,7 @@ import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
+import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
 import org.pdfsam.PdfsamEdition;
 import org.pdfsam.module.UsageService;
@@ -60,6 +61,8 @@ public class NotificationsControllerTest {
         container = mock(NotificationsContainer.class);
         Pdfsam pdfsam = mock(Pdfsam.class);
         when(pdfsam.edition()).thenReturn(PdfsamEdition.COMMUNITY);
+        when(pdfsam.property(ConfigurableProperty.DOWNLOAD_URL)).thenReturn("http://www.pdfsam.org");
+        when(pdfsam.property(ConfigurableProperty.DONATE_URL)).thenReturn("http://www.pdfsam.org");
         victim = new NotificationsController(container, service, pdfsam);
     }
 
