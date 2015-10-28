@@ -50,6 +50,7 @@
 							<autoVersionSubmodules>true</autoVersionSubmodules>
 							<releaseProfiles>release</releaseProfiles>
 							<preparationGoals>clean install</preparationGoals>
+							<goals>package</goals>
 						</configuration>
 					</plugin>
 					<plugin>
