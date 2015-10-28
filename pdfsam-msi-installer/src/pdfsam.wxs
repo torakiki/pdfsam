@@ -13,7 +13,7 @@
 		<Property Id="LOCALE_CODE" Value="en_GB" Secure="yes"/>
 		<Property Id="CHECK_FOR_UPDATES" Value="true" Secure="yes"/>
 
-        <Icon Id="pdfsam.ico" SourceFile="$(var.ProductIcon)" />
+    <Icon Id="pdfsam.ico" SourceFile="$(var.ProductIcon)" />
 		<Binary Id="AddLine.dll" SourceFile="AddLine.CA.dll" />
 		<CustomAction Id="SetCustomActionDataValue" Return="check" Property="CustomActions.AddLine" Value="locale=[LOCALE_CODE];updates=[CHECK_FOR_UPDATES];folder=[APPLICATIONFOLDER]" />
 		<CustomAction Id="CustomActions.AddLine" Return="check" Execute="deferred" BinaryKey="AddLine.dll" DllEntry="AddLine" Impersonate="no"/>
@@ -70,7 +70,7 @@
             <Directory Id="$(var.PlatformProgramFilesFolder)" Name="PFiles" ComponentGuidGenerationSeed="{d0d99ae7-c01f-41d6-83d5-a1b7ee8b39bf}">
                 <Directory Id="APPLICATIONFOLDER" Name="$(var.ProductName)">
                     <Component Id="pdfsam_community_current.jar" Guid="*">
-                        <File Id="pdfsam_community_current.jar" Name="pdfsam-community-3.0.0.M2.jar" Source="input\pdfsam-community-3.0.0.M2.jar" KeyPath="yes" />
+                        <File Id="pdfsam_community_current.jar" Name="pdfsam-community-$(var.ProductFullVersion).jar" Source="input\pdfsam-community-$(var.ProductFullVersion).jar" KeyPath="yes" />
                         <RegistryValue Root="HKLM" Key="SOFTWARE\$(var.ProductName)" Name="Version" Type="string" Value="$(var.ProductVersion)" />
                     </Component>
                     <Component Id="pdfsam.l4j.ini" Guid="*">

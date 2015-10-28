@@ -7,6 +7,7 @@
 	<?define ProductLabelVersion="3" ?>
 	<!-- Change this -->
 	<?define ProductCode="{1badc945-f59c-45c3-8741-d2b9ff91452b}" ?>
+	<?define ProductFullVersion="3.0.0.M3" ?>
 
 	<!-- Static configuration options. -->
 	<?define ProductVersion="$(var.ProductMajorVersion).$(var.ProductMinorVersion).$(var.ProductPatchVersion).$(var.ProductLabelVersion)" ?>
