@@ -26,6 +26,7 @@ import javax.inject.Named;
 import org.pdfsam.news.LatestNewsEvent;
 import org.sejda.eventstudio.ReferenceStrength;
 
+import javafx.application.Platform;
 import javafx.scene.layout.HBox;
 
 /**
@@ -44,8 +45,10 @@ class BannerButtons extends HBox {
         getChildren().addAll(dashboardButton, logButton, newsButton, menuButton);
         eventStudio().add(LatestNewsEvent.class, (e) -> {
             if (!e.latestNews.isEmpty()) {
-                newsButton.setDisable(false);
-                newsButton.setUpToDate(e.isUpToDate);
+                Platform.runLater(() -> {
+                    newsButton.setDisable(false);
+                    newsButton.setUpToDate(e.isUpToDate);
+                });
             }
         } , Integer.MAX_VALUE, ReferenceStrength.STRONG);
     }
