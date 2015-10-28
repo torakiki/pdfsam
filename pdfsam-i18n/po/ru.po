@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-09-27 19:09+0200\n"
+"POT-Creation-Date: 2015-10-28 15:21+0100\n"
 "PO-Revision-Date: 2015-02-05 22:19+0000\n"
 "Last-Translator: gennzub <gennzub@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -15,8 +15,35 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-03 09:48+0000\n"
-"X-Generator: Launchpad (build 17783)\n"
+"X-Launchpad-Export-Date: 2015-10-28 14:24+0000\n"
+"X-Generator: Launchpad (build 17837)\n"
+
+msgid "Subscribe to the official news feed"
+msgstr "Подписаться на рассылку официальных новостей"
+
+msgid "Bug and feature requests"
+msgstr "Запросы об ошибках и пожелания"
+
+msgid "Play the \"get started\" video"
+msgstr "Играть видео \"приступить\""
+
+msgid "Fork PDFsam on GitHub"
+msgstr "Вилка PDFsam на GitHub"
+
+msgid "Translate"
+msgstr "Перевести"
+
+msgid "Donate"
+msgstr "Пожертвовать"
+
+msgid "Follow us on Twitter"
+msgstr "Следите за нами на Twitter"
+
+msgid "Follow us on Google Plus"
+msgstr "Следите за нами на Google Plus"
+
+msgid "Like us on Facebook"
+msgstr "Лайкай нас на Facebook"
 
 msgid "Dashboard"
 msgstr "Инфо-панель"
@@ -59,9 +86,6 @@ msgstr "Запущено в {0}"
 msgid "Closing PDFsam..."
 msgstr "Закрываю PDFsam..."
 
-msgid "Application menu"
-msgstr "Меню приложения"
-
 msgid "_Modules"
 msgstr "_Модули"
 
@@ -89,6 +113,9 @@ msgstr "Выберите файл рабочего пространства дл
 msgid "Select the workspace to load"
 msgstr "Выберите рабочее пространство для загрузки"
 
+msgid "What's new"
+msgstr "Что нового"
+
 msgid "Document details"
 msgstr "Детали документа"
 
@@ -100,9 +127,6 @@ msgstr "Описание"
 
 msgid "About"
 msgstr "О программе"
-
-msgid "Subscribe to the official news feed"
-msgstr "Подписаться на рассылку официальных новостей"
 
 msgid "Environment"
 msgstr "Окружение"
@@ -123,35 +147,11 @@ msgstr "Проекты с открытым исходным кодом дела�
 msgid "Support"
 msgstr "Поддержка"
 
-msgid "Bug and feature requests"
-msgstr "Запросы об ошибках и пожелания"
-
-msgid "Play the \"get started\" video"
-msgstr "Играть видео \"приступить\""
-
 msgid "Contribute"
 msgstr "Внести свой вклад"
 
-msgid "Fork PDFsam on GitHub"
-msgstr "Вилка PDFsam на GitHub"
-
-msgid "Translate"
-msgstr "Перевести"
-
-msgid "Donate"
-msgstr "Пожертвовать"
-
 msgid "Social"
 msgstr "Общественный"
-
-msgid "Follow us on Twitter"
-msgstr "Следите за нами на Twitter"
-
-msgid "Follow us on Google Plus"
-msgstr "Следите за нами на Google Plus"
-
-msgid "Like us on Facebook"
-msgstr "Лайкай нас на Facebook"
 
 msgid "Manually selected"
 msgstr "Выбран вручную"
@@ -255,12 +255,6 @@ msgstr "Загрузить рабочую область по умолчанию
 msgid "Default working directory:"
 msgstr "Рабочий каталог по умолчанию:"
 
-msgid "Set how often the PDFsam news panel should be opened"
-msgstr "Установите, как часто панель новостей PDFsam должна открываться"
-
-msgid "News panel:"
-msgstr "Панель новостей:"
-
 msgid "Log register rows:"
 msgstr "Строки Журнала отчёта:"
 
@@ -343,12 +337,6 @@ msgstr "Загрузить"
 msgid "New version available"
 msgstr "Новая версия доступна"
 
-msgid "Show this:"
-msgstr "Показать это:"
-
-msgid "What's new"
-msgstr "Что нового"
-
 msgid "Directory not empty"
 msgstr "Каталог не пуст"
 
@@ -375,6 +363,17 @@ msgstr "Не удается найти последнюю доступную в�
 
 msgid "Checking for updates"
 msgstr "Проверка обновлений"
+
+msgid "Fetching latest news"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to retrieve the latest news"
+msgstr "Не удается найти последнюю доступную версию."
+
+#, fuzzy
+msgid "Unable to retrieve latest news"
+msgstr "Не удалось получить последнюю доступную версию."
 
 msgid "Loading pdf documents"
 msgstr "Загрузка pdf документов"
@@ -832,18 +831,6 @@ msgstr "Квадратный василёк"
 msgid "Roundish"
 msgstr "Округлый"
 
-msgid "Never"
-msgstr "Никогда"
-
-msgid "Once a day"
-msgstr "Раз в день"
-
-msgid "Once a week"
-msgstr "Раз в неделю"
-
-msgid "Always"
-msgstr "Всегда"
-
 msgid "Set the bookmarks level to split at"
 msgstr "Установите уровень закладок для разделения на"
 
@@ -890,6 +877,30 @@ msgstr "Поворот страниц в многостраничном доку
 msgid "Rotate settings"
 msgstr "Настройка вращения"
 
+#~ msgid "Application menu"
+#~ msgstr "Меню приложения"
+
+#~ msgid "Set how often the PDFsam news panel should be opened"
+#~ msgstr "Установите, как часто панель новостей PDFsam должна открываться"
+
+#~ msgid "News panel:"
+#~ msgstr "Панель новостей:"
+
+#~ msgid "Show this:"
+#~ msgstr "Показать это:"
+
+#~ msgid "Never"
+#~ msgstr "Никогда"
+
+#~ msgid "Once a day"
+#~ msgstr "Раз в день"
+
+#~ msgid "Once a week"
+#~ msgstr "Раз в неделю"
+
+#~ msgid "Always"
+#~ msgstr "Всегда"
+
 # G:\Documents\eclipse_workspace\PDFSAMsplit\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:193
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:206
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:223
@@ -904,9 +915,6 @@ msgstr "Настройка вращения"
 
 #~ msgid "Would you like to overwrite it?"
 #~ msgstr "Вы хотите перезаписать его?"
-
-#~ msgid "Unable to get latest available version"
-#~ msgstr "Не удалось получить последнюю доступную версию."
 
 #~ msgid "Ask for confirmation when overwrite checkbox is selected"
 #~ msgstr "Запрашивать подтверждение, если выбран флажок перезаписи"

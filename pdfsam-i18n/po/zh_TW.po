@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDFSam 3\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-09-27 19:09+0200\n"
+"POT-Creation-Date: 2015-10-28 15:21+0100\n"
 "PO-Revision-Date: 2015-07-06 04:48+0000\n"
 "Last-Translator: Zhoujin Wu <zhoujin.wu@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (zh_TW@li.org)\n"
@@ -13,8 +13,35 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-03 09:48+0000\n"
-"X-Generator: Launchpad (build 17783)\n"
+"X-Launchpad-Export-Date: 2015-10-28 14:24+0000\n"
+"X-Generator: Launchpad (build 17837)\n"
+
+msgid "Subscribe to the official news feed"
+msgstr "訂閱官方新聞來源"
+
+msgid "Bug and feature requests"
+msgstr "錯誤回報及功能需求"
+
+msgid "Play the \"get started\" video"
+msgstr "播放「快速入門」視訊"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "在 GitHub 上 fork PDFsam 專案"
+
+msgid "Translate"
+msgstr "翻譯"
+
+msgid "Donate"
+msgstr "贊助"
+
+msgid "Follow us on Twitter"
+msgstr "在推特上關注我們"
+
+msgid "Follow us on Google Plus"
+msgstr "在 Google Plus 上追蹤我們"
+
+msgid "Like us on Facebook"
+msgstr "在臉書上幫我們按讚"
 
 msgid "Dashboard"
 msgstr "儀表板"
@@ -57,9 +84,6 @@ msgstr "已啟動於 {0}"
 msgid "Closing PDFsam..."
 msgstr ""
 
-msgid "Application menu"
-msgstr ""
-
 msgid "_Modules"
 msgstr "模組 (_M)"
 
@@ -87,6 +111,9 @@ msgstr ""
 msgid "Select the workspace to load"
 msgstr ""
 
+msgid "What's new"
+msgstr "新增功能"
+
 msgid "Document details"
 msgstr "文件詳細內容"
 
@@ -98,9 +125,6 @@ msgstr "摘要"
 
 msgid "About"
 msgstr "關於"
-
-msgid "Subscribe to the official news feed"
-msgstr "訂閱官方新聞來源"
 
 msgid "Environment"
 msgstr "環境"
@@ -121,35 +145,11 @@ msgstr "讓 PDFsam 得以實現的開源專案"
 msgid "Support"
 msgstr "支援"
 
-msgid "Bug and feature requests"
-msgstr "錯誤回報及功能需求"
-
-msgid "Play the \"get started\" video"
-msgstr "播放「快速入門」視訊"
-
 msgid "Contribute"
 msgstr "貢獻"
 
-msgid "Fork PDFsam on GitHub"
-msgstr "在 GitHub 上 fork PDFsam 專案"
-
-msgid "Translate"
-msgstr "翻譯"
-
-msgid "Donate"
-msgstr "贊助"
-
 msgid "Social"
 msgstr "社交"
-
-msgid "Follow us on Twitter"
-msgstr "在推特上關注我們"
-
-msgid "Follow us on Google Plus"
-msgstr "在 Google Plus 上追蹤我們"
-
-msgid "Like us on Facebook"
-msgstr "在臉書上幫我們按讚"
 
 msgid "Manually selected"
 msgstr "手動選擇"
@@ -245,12 +245,6 @@ msgstr "啟動時載入預設工作區："
 msgid "Default working directory:"
 msgstr "預設工作目錄："
 
-msgid "Set how often the PDFsam news panel should be opened"
-msgstr ""
-
-msgid "News panel:"
-msgstr "新面板:"
-
 msgid "Log register rows:"
 msgstr "紀錄暫存器列數:"
 
@@ -329,12 +323,6 @@ msgstr "下載"
 msgid "New version available"
 msgstr "有新版本可用"
 
-msgid "Show this:"
-msgstr "顯示:"
-
-msgid "What's new"
-msgstr "新增功能"
-
 msgid "Directory not empty"
 msgstr "目錄不是空的"
 
@@ -361,6 +349,17 @@ msgstr "無法找到最新的可用版本。"
 
 msgid "Checking for updates"
 msgstr "檢查更新"
+
+msgid "Fetching latest news"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to retrieve the latest news"
+msgstr "無法找到最新的可用版本。"
+
+#, fuzzy
+msgid "Unable to retrieve latest news"
+msgstr "無法取得最新的可用版本"
 
 msgid "Loading pdf documents"
 msgstr "載入 PDF 文件"
@@ -804,18 +803,6 @@ msgstr ""
 msgid "Roundish"
 msgstr ""
 
-msgid "Never"
-msgstr "從不"
-
-msgid "Once a day"
-msgstr ""
-
-msgid "Once a week"
-msgstr ""
-
-msgid "Always"
-msgstr "永遠"
-
 msgid "Set the bookmarks level to split at"
 msgstr "請設定要分割的書籤層級"
 
@@ -862,6 +849,18 @@ msgstr "旋轉多個 PDF 文件的頁面。"
 msgid "Rotate settings"
 msgstr "旋轉頁面設定"
 
+#~ msgid "News panel:"
+#~ msgstr "新面板:"
+
+#~ msgid "Show this:"
+#~ msgstr "顯示:"
+
+#~ msgid "Never"
+#~ msgstr "從不"
+
+#~ msgid "Always"
+#~ msgstr "永遠"
+
 #~ msgid "Split even pages"
 #~ msgstr "分割出偶數頁"
 
@@ -870,9 +869,6 @@ msgstr "旋轉頁面設定"
 
 #~ msgid "Output document pdf version:"
 #~ msgstr "輸出文件的 PDF 版本："
-
-#~ msgid "Unable to get latest available version"
-#~ msgstr "無法取得最新的可用版本"
 
 #~ msgid "Would you like to overwrite it?"
 #~ msgstr "您確定要覆寫它？"

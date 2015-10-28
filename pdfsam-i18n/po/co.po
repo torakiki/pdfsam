@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-09-27 19:09+0200\n"
+"POT-Creation-Date: 2015-10-28 15:21+0100\n"
 "PO-Revision-Date: 2015-05-11 09:07+0000\n"
 "Last-Translator: Patriccollu <Patrick.Santa-Maria@laposte.net>\n"
 "Language-Team: \n"
@@ -10,8 +10,35 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-03 09:48+0000\n"
-"X-Generator: Launchpad (build 17783)\n"
+"X-Launchpad-Export-Date: 2015-10-28 14:24+0000\n"
+"X-Generator: Launchpad (build 17837)\n"
+
+msgid "Subscribe to the official news feed"
+msgstr "Sottuscrive à i flussi di nutizie ufficiale"
+
+msgid "Bug and feature requests"
+msgstr "Riferimentu di prublema è richiesta di migliuramentu"
+
+msgid "Play the \"get started\" video"
+msgstr "Sunà a video \"get started\""
+
+msgid "Fork PDFsam on GitHub"
+msgstr "Frazziunà PDFsam nantu à GitHub"
+
+msgid "Translate"
+msgstr "Traduce"
+
+msgid "Donate"
+msgstr "Dunazione"
+
+msgid "Follow us on Twitter"
+msgstr "Seguitatecci nantu à Twitter"
+
+msgid "Follow us on Google Plus"
+msgstr "Seguitatecci nantu à Google Plus"
+
+msgid "Like us on Facebook"
+msgstr "Ditecci 'Mi Piace' nantu à Facebook"
 
 msgid "Dashboard"
 msgstr "Tavula di cummande"
@@ -54,9 +81,6 @@ msgstr "Iniziu in {0}"
 msgid "Closing PDFsam..."
 msgstr "Chjusura di PDFsam..."
 
-msgid "Application menu"
-msgstr "Interfaccia d'appiegazione"
-
 msgid "_Modules"
 msgstr "_Mudulli"
 
@@ -84,6 +108,9 @@ msgstr "Selezziunà u schedariu di spaziu di travagliu à arregistrà"
 msgid "Select the workspace to load"
 msgstr "Selezziunà u spaziu di travagliu à caricà"
 
+msgid "What's new"
+msgstr "Cio chì hè novu"
+
 msgid "Document details"
 msgstr "Detaglii di u ducumentu"
 
@@ -95,9 +122,6 @@ msgstr "Riassuntu"
 
 msgid "About"
 msgstr "Apprupositu"
-
-msgid "Subscribe to the official news feed"
-msgstr "Sottuscrive à i flussi di nutizie ufficiale"
 
 msgid "Environment"
 msgstr "Ambiente"
@@ -118,35 +142,11 @@ msgstr "I prughjetti 'open source' chì anu resu PDFsam pussibule"
 msgid "Support"
 msgstr "Supportu"
 
-msgid "Bug and feature requests"
-msgstr "Riferimentu di prublema è richiesta di migliuramentu"
-
-msgid "Play the \"get started\" video"
-msgstr "Sunà a video \"get started\""
-
 msgid "Contribute"
 msgstr "Cuntribuì"
 
-msgid "Fork PDFsam on GitHub"
-msgstr "Frazziunà PDFsam nantu à GitHub"
-
-msgid "Translate"
-msgstr "Traduce"
-
-msgid "Donate"
-msgstr "Dunazione"
-
 msgid "Social"
 msgstr "Suciale"
-
-msgid "Follow us on Twitter"
-msgstr "Seguitatecci nantu à Twitter"
-
-msgid "Follow us on Google Plus"
-msgstr "Seguitatecci nantu à Google Plus"
-
-msgid "Like us on Facebook"
-msgstr "Ditecci 'Mi Piace' nantu à Facebook"
 
 msgid "Manually selected"
 msgstr "Selezziunatu manualmente"
@@ -253,12 +253,6 @@ msgstr "Caricà u spaziu di travagliu predefinitu à l'iniziu :"
 msgid "Default working directory:"
 msgstr "Cartulare di travaglu predefinitu :"
 
-msgid "Set how often the PDFsam news panel should be opened"
-msgstr "Definisce a frequenza d'apertura di u pannellu di nutizie di PDFsam"
-
-msgid "News panel:"
-msgstr "Pannellu di nutizie :"
-
 msgid "Log register rows:"
 msgstr "Linee di u registradore di Log :"
 
@@ -340,12 +334,6 @@ msgstr "Telecaricà"
 msgid "New version available"
 msgstr "Nova versione dispunibule"
 
-msgid "Show this:"
-msgstr "Affissà quessu :"
-
-msgid "What's new"
-msgstr "Cio chì hè novu"
-
 msgid "Directory not empty"
 msgstr "Cartulare micca viotu"
 
@@ -372,6 +360,17 @@ msgstr "Impussibule di truvà l'ultima versione dispunibule."
 
 msgid "Checking for updates"
 msgstr "Cuntrollu in corsu di i rinnovi"
+
+msgid "Fetching latest news"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to retrieve the latest news"
+msgstr "Impussibule di truvà l'ultima versione dispunibule."
+
+#, fuzzy
+msgid "Unable to retrieve latest news"
+msgstr "Impussibule d'arregistrà u spaziu di travagliu di i mudulli"
 
 msgid "Loading pdf documents"
 msgstr "Caricamentu di i ducumenti pdf"
@@ -822,18 +821,6 @@ msgstr "Turchinellu quadrittatu"
 msgid "Roundish"
 msgstr "Ciociulu"
 
-msgid "Never"
-msgstr "Mai"
-
-msgid "Once a day"
-msgstr "Una volta per ghjornu"
-
-msgid "Once a week"
-msgstr "Una volta per settimana"
-
-msgid "Always"
-msgstr "Sempre"
-
 msgid "Set the bookmarks level to split at"
 msgstr "Definisce u livellu d'indette per sparte"
 
@@ -879,3 +866,27 @@ msgstr "Girà e pagine di parechji ducumenti PDF."
 
 msgid "Rotate settings"
 msgstr "Preferenze di u girà"
+
+#~ msgid "Application menu"
+#~ msgstr "Interfaccia d'appiegazione"
+
+#~ msgid "Set how often the PDFsam news panel should be opened"
+#~ msgstr "Definisce a frequenza d'apertura di u pannellu di nutizie di PDFsam"
+
+#~ msgid "News panel:"
+#~ msgstr "Pannellu di nutizie :"
+
+#~ msgid "Show this:"
+#~ msgstr "Affissà quessu :"
+
+#~ msgid "Never"
+#~ msgstr "Mai"
+
+#~ msgid "Once a day"
+#~ msgstr "Una volta per ghjornu"
+
+#~ msgid "Once a week"
+#~ msgstr "Una volta per settimana"
+
+#~ msgid "Always"
+#~ msgstr "Sempre"

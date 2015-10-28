@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-09-27 19:09+0200\n"
+"POT-Creation-Date: 2015-10-28 15:21+0100\n"
 "PO-Revision-Date: 2015-02-23 17:44+0000\n"
 "Last-Translator: Sérgio Marques <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
@@ -15,8 +15,35 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-03 09:48+0000\n"
-"X-Generator: Launchpad (build 17783)\n"
+"X-Launchpad-Export-Date: 2015-10-28 14:24+0000\n"
+"X-Generator: Launchpad (build 17837)\n"
+
+msgid "Subscribe to the official news feed"
+msgstr "Subscreva a fonte oficial de notícias"
+
+msgid "Bug and feature requests"
+msgstr "Relatórios de erros e funções"
+
+msgid "Play the \"get started\" video"
+msgstr "Reproduzir o vídeo de iniciação"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "Clonar PDFsam no GitHub"
+
+msgid "Translate"
+msgstr "Traduzir"
+
+msgid "Donate"
+msgstr "Donativos"
+
+msgid "Follow us on Twitter"
+msgstr "Siga-nos no Twitter"
+
+msgid "Follow us on Google Plus"
+msgstr "Siga-nos no Google Plus"
+
+msgid "Like us on Facebook"
+msgstr "Gosto no Facebook"
 
 msgid "Dashboard"
 msgstr "Painel de controlo"
@@ -59,9 +86,6 @@ msgstr "Iniciado em {0}"
 msgid "Closing PDFsam..."
 msgstr "A fechar o PDFsam..."
 
-msgid "Application menu"
-msgstr "Menu da aplicação"
-
 msgid "_Modules"
 msgstr "_Módulos"
 
@@ -89,6 +113,9 @@ msgstr "Selecione o ficheiro de área de trabalho para gravar"
 msgid "Select the workspace to load"
 msgstr "Selecione o ficheiro de área de trabalho a carregar"
 
+msgid "What's new"
+msgstr "Novidades"
+
 msgid "Document details"
 msgstr "Detalhes do documento"
 
@@ -100,9 +127,6 @@ msgstr "Resumo"
 
 msgid "About"
 msgstr "Sobre"
-
-msgid "Subscribe to the official news feed"
-msgstr "Subscreva a fonte oficial de notícias"
 
 msgid "Environment"
 msgstr "Ambiente"
@@ -123,35 +147,11 @@ msgstr "Os projetos open source que tornaram o PDFsam possível"
 msgid "Support"
 msgstr "Suporte"
 
-msgid "Bug and feature requests"
-msgstr "Relatórios de erros e funções"
-
-msgid "Play the \"get started\" video"
-msgstr "Reproduzir o vídeo de iniciação"
-
 msgid "Contribute"
 msgstr "Participar"
 
-msgid "Fork PDFsam on GitHub"
-msgstr "Clonar PDFsam no GitHub"
-
-msgid "Translate"
-msgstr "Traduzir"
-
-msgid "Donate"
-msgstr "Donativos"
-
 msgid "Social"
 msgstr "Redes sociais"
-
-msgid "Follow us on Twitter"
-msgstr "Siga-nos no Twitter"
-
-msgid "Follow us on Google Plus"
-msgstr "Siga-nos no Google Plus"
-
-msgid "Like us on Facebook"
-msgstr "Gosto no Facebook"
 
 msgid "Manually selected"
 msgstr "Seleção manual"
@@ -256,12 +256,6 @@ msgstr "Carregar área de trabalho padrão ao iniciar:"
 msgid "Default working directory:"
 msgstr "Diretório de trabalho padrão:"
 
-msgid "Set how often the PDFsam news panel should be opened"
-msgstr "Define a frequência de abertura do painel de notícias do PDFsam"
-
-msgid "News panel:"
-msgstr "Painel de notícias:"
-
 msgid "Log register rows:"
 msgstr "Linhas para registo:"
 
@@ -342,12 +336,6 @@ msgstr "Transferir"
 msgid "New version available"
 msgstr "Nova versão disponível"
 
-msgid "Show this:"
-msgstr "Mostrar:"
-
-msgid "What's new"
-msgstr "Novidades"
-
 msgid "Directory not empty"
 msgstr "Diretótio não vazio"
 
@@ -374,6 +362,17 @@ msgstr "Não foi possível localizar a versão mais recente."
 
 msgid "Checking for updates"
 msgstr "Procurar atualizações"
+
+msgid "Fetching latest news"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to retrieve the latest news"
+msgstr "Não foi possível localizar a versão mais recente."
+
+#, fuzzy
+msgid "Unable to retrieve latest news"
+msgstr "Não foi possível obter a última versão"
 
 msgid "Loading pdf documents"
 msgstr "A carregar documentos PDF"
@@ -824,18 +823,6 @@ msgstr "Centáureo quadrada"
 msgid "Roundish"
 msgstr "Redondo"
 
-msgid "Never"
-msgstr "Nunca"
-
-msgid "Once a day"
-msgstr "Diariamente"
-
-msgid "Once a week"
-msgstr "Semanalmente"
-
-msgid "Always"
-msgstr "Sempre"
-
 msgid "Set the bookmarks level to split at"
 msgstr "Defina o nível de marcadores em que separar"
 
@@ -882,6 +869,30 @@ msgstr "Rodar as páginas de diversos documentos."
 msgid "Rotate settings"
 msgstr "Definições de rotação"
 
+#~ msgid "Application menu"
+#~ msgstr "Menu da aplicação"
+
+#~ msgid "Set how often the PDFsam news panel should be opened"
+#~ msgstr "Define a frequência de abertura do painel de notícias do PDFsam"
+
+#~ msgid "News panel:"
+#~ msgstr "Painel de notícias:"
+
+#~ msgid "Show this:"
+#~ msgstr "Mostrar:"
+
+#~ msgid "Never"
+#~ msgstr "Nunca"
+
+#~ msgid "Once a day"
+#~ msgstr "Diariamente"
+
+#~ msgid "Once a week"
+#~ msgstr "Semanalmente"
+
+#~ msgid "Always"
+#~ msgstr "Sempre"
+
 #~ msgid "Split even pages"
 #~ msgstr "Separar páginas pares"
 
@@ -896,9 +907,6 @@ msgstr "Definições de rotação"
 
 #~ msgid "Would you like to overwrite it?"
 #~ msgstr "Deseja substituir o ficheiro existente?"
-
-#~ msgid "Unable to get latest available version"
-#~ msgstr "Não foi possível obter a última versão"
 
 #~ msgid "Ask for confirmation when overwrite checkbox is selected"
 #~ msgstr "Pedir confirmação se a caixa de substituição estiver selecionada"

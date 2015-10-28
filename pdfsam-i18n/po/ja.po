@@ -7,16 +7,43 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-09-27 19:09+0200\n"
-"PO-Revision-Date: 2015-09-28 13:51+0000\n"
+"POT-Creation-Date: 2015-10-28 15:21+0100\n"
+"PO-Revision-Date: 2015-10-12 11:07+0000\n"
 "Last-Translator: Naofumi Fukue <naofum@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-03 09:48+0000\n"
-"X-Generator: Launchpad (build 17783)\n"
+"X-Launchpad-Export-Date: 2015-10-28 14:24+0000\n"
+"X-Generator: Launchpad (build 17837)\n"
+
+msgid "Subscribe to the official news feed"
+msgstr "公式ニュースフィードを購読する"
+
+msgid "Bug and feature requests"
+msgstr "バグと機能のリクエスト"
+
+msgid "Play the \"get started\" video"
+msgstr "\"始めましょう\" ビデオを再生"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "GitHub で PDFsam をフォーク"
+
+msgid "Translate"
+msgstr "翻訳"
+
+msgid "Donate"
+msgstr "寄付"
+
+msgid "Follow us on Twitter"
+msgstr "Twitter でフォロー"
+
+msgid "Follow us on Google Plus"
+msgstr "Google+ でフォロー"
+
+msgid "Like us on Facebook"
+msgstr "Facebook でいいね"
 
 msgid "Dashboard"
 msgstr "ダッシュボード"
@@ -59,9 +86,6 @@ msgstr "{0} から開始しました"
 msgid "Closing PDFsam..."
 msgstr "PDFsam を閉じています..."
 
-msgid "Application menu"
-msgstr "アプリケーションメニュー"
-
 msgid "_Modules"
 msgstr "モジュール(_M)"
 
@@ -89,6 +113,9 @@ msgstr "保存するワークスペースファイルを選択してください
 msgid "Select the workspace to load"
 msgstr "読み込むワークスペースファイルを選択してください"
 
+msgid "What's new"
+msgstr "新着情報"
+
 msgid "Document details"
 msgstr "文書の詳細"
 
@@ -100,9 +127,6 @@ msgstr "サマリー"
 
 msgid "About"
 msgstr "このアプリについて"
-
-msgid "Subscribe to the official news feed"
-msgstr "公式ニュースフィードを購読する"
 
 msgid "Environment"
 msgstr "環境"
@@ -123,35 +147,11 @@ msgstr "PDFsam を提供するオープンソースプロジェクト"
 msgid "Support"
 msgstr "サポート"
 
-msgid "Bug and feature requests"
-msgstr "バグと機能のリクエスト"
-
-msgid "Play the \"get started\" video"
-msgstr "\"始めましょう\" ビデオを再生"
-
 msgid "Contribute"
 msgstr "貢献"
 
-msgid "Fork PDFsam on GitHub"
-msgstr "GitHub で PDFsam をフォーク"
-
-msgid "Translate"
-msgstr "翻訳"
-
-msgid "Donate"
-msgstr "寄付"
-
 msgid "Social"
 msgstr "ソーシャル"
-
-msgid "Follow us on Twitter"
-msgstr "Twitter でフォロー"
-
-msgid "Follow us on Google Plus"
-msgstr "Google+ でフォロー"
-
-msgid "Like us on Facebook"
-msgstr "Facebook でいいね"
 
 msgid "Manually selected"
 msgstr "手動で選択"
@@ -194,7 +194,7 @@ msgid "High quality thumbnails"
 msgstr "高品質サムネイル"
 
 msgid "Use the selected PDF document directory as output directory"
-msgstr "出力ディレクトリとして選択した PDF 文書ディレクトリを使用します"
+msgstr "出力ディレクトリとして選択した PDF 文書ディレクトリを使用する"
 
 #, java-format
 msgid "Size must be between {0}px and {1}px"
@@ -251,12 +251,6 @@ msgstr "起動時にデフォルトのワークスペースを読み込む:"
 
 msgid "Default working directory:"
 msgstr "デフォルトの作業ディレクトリ:"
-
-msgid "Set how often the PDFsam news panel should be opened"
-msgstr "PDFsam ニュースパネルが開かれる頻度を設定します"
-
-msgid "News panel:"
-msgstr "ニュースパネル:"
 
 msgid "Log register rows:"
 msgstr "ログ登録行:"
@@ -338,12 +332,6 @@ msgstr "ダウンロード"
 msgid "New version available"
 msgstr "新しいバージョンが利用可能です"
 
-msgid "Show this:"
-msgstr "これを表示:"
-
-msgid "What's new"
-msgstr "新着情報"
-
 msgid "Directory not empty"
 msgstr "ディレクトリが空ではありません"
 
@@ -370,6 +358,17 @@ msgstr "最新の利用可能なバージョンが見つかりません。"
 
 msgid "Checking for updates"
 msgstr "更新を確認しています"
+
+msgid "Fetching latest news"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to retrieve the latest news"
+msgstr "最新の利用可能なバージョンが見つかりません。"
+
+#, fuzzy
+msgid "Unable to retrieve latest news"
+msgstr "モジュールのワークスペースを保存できません"
 
 msgid "Loading pdf documents"
 msgstr "PDF 文書を読み込んできます"
@@ -411,7 +410,7 @@ msgid "No page selected"
 msgstr "ページが選択されていません"
 
 msgid "Split after the following page numbers"
-msgstr "次のページ番号の後で文書を分割します"
+msgstr "次のページ番号の後で文書を分割"
 
 msgid "Page numbers to split at (n1,n2,n3..)"
 msgstr "分割するページ番号 (n1,n2,n3..)"
@@ -426,7 +425,7 @@ msgid "Split a PDF document at the given page numbers."
 msgstr "指定したページ番号で PDF 文書を分割します。"
 
 msgid "Select or drag and drop the PDF you want to split"
-msgstr "分割したい PDF を選択するか、ドラッグ アンド ドロップします"
+msgstr "分割したい PDF を選択するか、ドラッグ＆ドロップします"
 
 msgid "File names settings"
 msgstr "ファイル名の設定"
@@ -499,12 +498,11 @@ msgstr "順番または逆順で、ページを交互に、2 つの PDF 文書�
 
 msgid "Select or drag and drop the first PDF you want to mix"
 msgstr ""
-"ミックスしたい最初の PDF ファイルを選択するか、ドラッグ アンド ドロップします"
+"ミックスしたい最初の PDF ファイルを選択するか、ドラッグ＆ドロップします"
 
 msgid "Select or drag and drop the second PDF you want to mix"
 msgstr ""
-"ミックスしたい二番目の PDF ファイルを選択するか、ドラッグ アンド ドロップしま"
-"す"
+"ミックスしたい二番目の PDF ファイルを選択するか、ドラッグ＆ドロップします"
 
 msgid "Mix settings"
 msgstr "ミックス設定"
@@ -520,11 +518,11 @@ msgstr "二番目の文書を逆順にする"
 
 msgid ""
 "Switch from the first document to the second one after the following pages"
-msgstr "次のページの後で、最初の文書から二番目の文書に切り替えます"
+msgstr "次のページの後で、最初の文書から二番目の文書に切り替え"
 
 msgid ""
 "Switch from the second document to the first one after the following pages"
-msgstr "次のページの後で、二番目の文書から最初の文書に切り替えます"
+msgstr "次のページの後で、二番目の文書から最初の文書に切り替え"
 
 msgid "Invalid parameter 'first and second step' must be numbers"
 msgstr ""
@@ -759,7 +757,7 @@ msgid "Merge fields"
 msgstr "フィールドをマージ"
 
 msgid "Merge renaming existing fields"
-msgstr "既存のフィールドの名前を変更してマージします"
+msgstr "既存のフィールドの名前を変更してマージ"
 
 msgid "Discard forms"
 msgstr "フォームを破棄"
@@ -774,7 +772,7 @@ msgid "Discard bookmarks"
 msgstr "しおりを破棄する"
 
 msgid "Create one entry for each merged document"
-msgstr "マージされた文書それぞれにエントリを 1 つ作成します"
+msgstr "マージされた文書それぞれにエントリを 1 つ作成"
 
 msgid "Bookmarks handling:"
 msgstr "しおりの処理:"
@@ -826,18 +824,6 @@ msgstr "ヤグルマギクの四角"
 msgid "Roundish"
 msgstr "丸み"
 
-msgid "Never"
-msgstr "なし"
-
-msgid "Once a day"
-msgstr "1 日 1 回"
-
-msgid "Once a week"
-msgstr "1 週間に 1 回"
-
-msgid "Always"
-msgstr "常に"
-
 msgid "Set the bookmarks level to split at"
 msgstr "分割するしおりのレベルを設定"
 
@@ -883,6 +869,30 @@ msgstr "複数の PDF 文書のページを回転させます。"
 
 msgid "Rotate settings"
 msgstr "回転の設定"
+
+#~ msgid "Application menu"
+#~ msgstr "アプリケーションメニュー"
+
+#~ msgid "Set how often the PDFsam news panel should be opened"
+#~ msgstr "PDFsam ニュースパネルが開かれる頻度を設定します"
+
+#~ msgid "News panel:"
+#~ msgstr "ニュースパネル:"
+
+#~ msgid "Show this:"
+#~ msgstr "これを表示:"
+
+#~ msgid "Never"
+#~ msgstr "なし"
+
+#~ msgid "Once a day"
+#~ msgstr "1 日 1 回"
+
+#~ msgid "Once a week"
+#~ msgstr "1 週間に 1 回"
+
+#~ msgid "Always"
+#~ msgstr "常に"
 
 #~ msgid "Split even pages"
 #~ msgstr "各奇数ページが先頭になるように分割する"

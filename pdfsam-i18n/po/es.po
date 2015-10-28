@@ -7,19 +7,46 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-09-27 19:09+0200\n"
-"PO-Revision-Date: 2015-10-02 15:16+0000\n"
+"POT-Creation-Date: 2015-10-28 15:21+0100\n"
+"PO-Revision-Date: 2015-10-26 16:13+0000\n"
 "Last-Translator: Ruslan López Carro <scherzo_16@hotmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-03 09:48+0000\n"
-"X-Generator: Launchpad (build 17783)\n"
+"X-Launchpad-Export-Date: 2015-10-28 14:24+0000\n"
+"X-Generator: Launchpad (build 17837)\n"
+
+msgid "Subscribe to the official news feed"
+msgstr "Suscribirse al canal de noticias oficial"
+
+msgid "Bug and feature requests"
+msgstr "Informes de errores y solicitudes"
+
+msgid "Play the \"get started\" video"
+msgstr "Reproducir el vídeo «Primeros pasos»"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "Bifurcar PDFsam en GitHub"
+
+msgid "Translate"
+msgstr "Traducir"
+
+msgid "Donate"
+msgstr "Donar"
+
+msgid "Follow us on Twitter"
+msgstr "Síganos en Twitter"
+
+msgid "Follow us on Google Plus"
+msgstr "Síganos en Google+"
+
+msgid "Like us on Facebook"
+msgstr "Síganos en Facebook"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Tablero"
 
 msgid "Cancel"
 msgstr "Cancelar"
@@ -59,9 +86,6 @@ msgstr "Iniciado el {0}"
 msgid "Closing PDFsam..."
 msgstr "Cerrando PDFsam…"
 
-msgid "Application menu"
-msgstr "Menú de la aplicación"
-
 msgid "_Modules"
 msgstr "_Módulos"
 
@@ -89,6 +113,9 @@ msgstr "Seleccione el archivo de espacio de trabajo que guardar"
 msgid "Select the workspace to load"
 msgstr "Seleccione el espacio de trabajo que cargar"
 
+msgid "What's new"
+msgstr "Novedades"
+
 msgid "Document details"
 msgstr "Detalles del documento"
 
@@ -101,9 +128,6 @@ msgstr "Resumen"
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\MainGUI.java:222
 msgid "About"
 msgstr "Acerca de"
-
-msgid "Subscribe to the official news feed"
-msgstr "Suscribirse al canal de noticias oficial"
 
 msgid "Environment"
 msgstr "Entorno"
@@ -124,35 +148,11 @@ msgstr "Los proyectos de código abierto que hicieron a PDFsam posible"
 msgid "Support"
 msgstr "Asistencia"
 
-msgid "Bug and feature requests"
-msgstr "Informes de errores y solicitudes"
-
-msgid "Play the \"get started\" video"
-msgstr "Reproducir el vídeo «Primeros pasos»"
-
 msgid "Contribute"
 msgstr "Contribuir"
 
-msgid "Fork PDFsam on GitHub"
-msgstr "Ver el código fuente en GitHub"
-
-msgid "Translate"
-msgstr "Traducir"
-
-msgid "Donate"
-msgstr "Donar"
-
 msgid "Social"
 msgstr "Social"
-
-msgid "Follow us on Twitter"
-msgstr "Síganos en Twitter"
-
-msgid "Follow us on Google Plus"
-msgstr "Síganos en Google+"
-
-msgid "Like us on Facebook"
-msgstr "Síganos en Facebook"
 
 msgid "Manually selected"
 msgstr "Seleccionado manualmente"
@@ -225,7 +225,7 @@ msgid "Thumbnails creator:"
 msgstr "Creador de las miniaturas:"
 
 msgid "Clear usage statistics"
-msgstr "Vaciar estadísticas de uso"
+msgstr "Borrar estadísticas de uso"
 
 msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
@@ -257,14 +257,6 @@ msgstr "Cargar espacio de trabajo predeterminado al iniciar:"
 
 msgid "Default working directory:"
 msgstr "Carpeta de trabajo predeterminada:"
-
-msgid "Set how often the PDFsam news panel should be opened"
-msgstr ""
-"Establece que tan frecuentemente el panel de notificaciones de PDFsam deberá "
-"ser abierto"
-
-msgid "News panel:"
-msgstr "Panel de notificaciones"
 
 msgid "Log register rows:"
 msgstr "Líneas del archivo de registro"
@@ -349,12 +341,6 @@ msgstr "Descargar"
 msgid "New version available"
 msgstr "Versión nueva disponible"
 
-msgid "Show this:"
-msgstr ""
-
-msgid "What's new"
-msgstr "Novedades"
-
 msgid "Directory not empty"
 msgstr "La carpeta no está vacía"
 
@@ -383,6 +369,17 @@ msgstr "No se pudo encontrar la versión más reciente disponible."
 msgid "Checking for updates"
 msgstr "Buscando actualizaciones"
 
+msgid "Fetching latest news"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to retrieve the latest news"
+msgstr "No se pudo encontrar la versión más reciente disponible."
+
+#, fuzzy
+msgid "Unable to retrieve latest news"
+msgstr "No es posible obtener la última versión disponible"
+
 msgid "Loading pdf documents"
 msgstr "Cargando documentos pdf"
 
@@ -393,7 +390,7 @@ msgid "Requesting modules state"
 msgstr "Solicitando el estado de los módulos"
 
 msgid "Unable to save modules workspace"
-msgstr ""
+msgstr "Imposible guardar los módulos del espacio de trabajo"
 
 #, java-format
 msgid "Loading workspace from {0}"
@@ -408,7 +405,7 @@ msgstr "No se pudo cargar el espacio de trabajo desde {0}"
 
 #, java-format
 msgid "Saving workspace data to {0}"
-msgstr ""
+msgstr "Guardando datos de espacio de trabajo en {0}"
 
 msgid "Workspace saved"
 msgstr "Espacio de trabajo guardado"
@@ -475,13 +472,13 @@ msgid "Split by size"
 msgstr "Dividir por tamaño"
 
 msgid "Split a PDF document in files of the given size (roughly)."
-msgstr ""
+msgstr "Dividir documento PDF en archivos del siguiente tamaño (aproximado)"
 
 msgid "Set the size to split at"
-msgstr ""
+msgstr "Establecer el tamaño de división en"
 
 msgid "Size must be a number"
-msgstr ""
+msgstr "El tamaño debe ser un número"
 
 msgid "Split at this size:"
 msgstr "Dividir en este tamaño:"
@@ -490,16 +487,16 @@ msgid "Invalid split size"
 msgstr "El tamaño de la división no es válido"
 
 msgid "Megabytes"
-msgstr ""
+msgstr "Megabytes"
 
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 msgid "Kilobytes"
-msgstr ""
+msgstr "Kilobytes"
 
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 msgid "Alternate Mix"
 msgstr "Mezcla alterna"
@@ -508,6 +505,8 @@ msgid ""
 "Merge two PDF documents taking pages alternately in straight or reverse "
 "order."
 msgstr ""
+"Unir dos documentos PDF tomando páginas de forma alternada en orden directo "
+"o inverso."
 
 msgid "Select or drag and drop the first PDF you want to mix"
 msgstr "Seleccione o arrastre y suelte el primer PDF que quiera mezclar"
@@ -536,7 +535,7 @@ msgid ""
 msgstr "Cambiar del segundo documento al primero tras las siguientes páginas"
 
 msgid "Invalid parameter 'first and second step' must be numbers"
-msgstr ""
+msgstr "Parámetro inválido 'primer y segundo paso' deben ser números"
 
 msgid "Select the number of pages"
 msgstr "Seleccione el número de páginas"
@@ -545,16 +544,16 @@ msgid "The selected PDF document is invalid"
 msgstr "El documento PDF seleccionado no es válido"
 
 msgid "Completed"
-msgstr ""
+msgstr "Finalizado"
 
 msgid "Failed"
-msgstr ""
+msgstr "Falló"
 
 msgid "Running"
-msgstr ""
+msgstr "En proceso"
 
 msgid "Requested"
-msgstr ""
+msgstr "Solicitado"
 
 msgid "Select a file"
 msgstr "Seleccione un archivo"
@@ -563,7 +562,7 @@ msgid "Unlock"
 msgstr "Desbloquear"
 
 msgid "Duplicate"
-msgstr ""
+msgstr "Duplicado"
 
 # G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:268
 # G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:315
@@ -614,10 +613,10 @@ msgid "Pages: {0}, PDF Version: {1}"
 msgstr "Páginas: {0}, versión de PDF: {1}"
 
 msgid "Open the generated document"
-msgstr ""
+msgstr "Abrir el documento generado"
 
 msgid "Open the destination directory"
-msgstr ""
+msgstr "Abrir la carpeta de destino"
 
 msgid "Ready"
 msgstr "Preparado"
@@ -636,7 +635,7 @@ msgstr "Sobrescribir si ya existe"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
-msgstr ""
+msgstr "Marcar para sobrescribir los archivos de salida si ya existen."
 
 msgid "The selected file must exist. "
 msgstr "El archivo que seleccione debe existir. "
@@ -658,7 +657,7 @@ msgid "Compress output file/files"
 msgstr "Comprimir archivo(s) de salida"
 
 msgid "Output PDF version:"
-msgstr ""
+msgstr "Version PDF de salida:"
 
 #, java-format
 msgid "Version {0}"
@@ -669,7 +668,7 @@ msgstr "Igual que el documento de entrada"
 
 #, java-format
 msgid "PDF version required: {0}"
-msgstr ""
+msgstr "Se requiere PDF versión: {0}"
 
 msgid "Select an existing directory"
 msgstr "Seleccione una carpeta existente"
@@ -678,7 +677,7 @@ msgid "The selected output directory is invalid"
 msgstr "La carpeta de salida seleccionada no es válida"
 
 msgid "Generated PDF documents name prefix:"
-msgstr ""
+msgstr "Prefijo en el nombre de los documentos PDF generados:"
 
 msgid "Prefix for the generated files names"
 msgstr "Prefijo para los nombres de archivo generados"
@@ -790,16 +789,16 @@ msgstr ""
 "un número de páginas impar"
 
 msgid "Merge fields"
-msgstr ""
+msgstr "Unir campos"
 
 msgid "Merge renaming existing fields"
-msgstr ""
+msgstr "Unir campos restantes existentes"
 
 msgid "Discard forms"
-msgstr ""
+msgstr "Descartar formularios"
 
 msgid "Interactive forms (AcroForms):"
-msgstr ""
+msgstr "Formularios interactivos (AcroForms):"
 
 msgid "Retain bookmarks"
 msgstr "Conservar los marcadores"
@@ -814,13 +813,13 @@ msgid "Bookmarks handling:"
 msgstr "Manejo de los marcadores:"
 
 msgid "No PDF document has been selected"
-msgstr ""
+msgstr "No se seleccionó ningún documento PDF"
 
 msgid "Merge"
 msgstr "Combinar"
 
 msgid "Merge together multiple PDF documents or subsections of them."
-msgstr ""
+msgstr "Une múltiples documentos PDF o subsecciones de los mismos."
 
 msgid "Merge settings"
 msgstr "Configurar la combinación"
@@ -848,7 +847,7 @@ msgid "This document is encrypted, click to provide a password."
 msgstr "Este documento está cifrado. Pulse para proporcionar una contraseña."
 
 msgid "An error has occurred, click for more details."
-msgstr ""
+msgstr "Ocurrió un error, haga clic para mayor información."
 
 msgid "Squared green"
 msgstr ""
@@ -857,22 +856,10 @@ msgid "Squared cornflower"
 msgstr ""
 
 msgid "Roundish"
-msgstr ""
-
-msgid "Never"
-msgstr "Nunca"
-
-msgid "Once a day"
-msgstr "Una vez al día"
-
-msgid "Once a week"
-msgstr "Una vez a la semana"
-
-msgid "Always"
-msgstr "Siempre"
+msgstr "Redondeado"
 
 msgid "Set the bookmarks level to split at"
-msgstr ""
+msgstr "Establecer la división a nivel de marcadores en"
 
 msgid "Invalid bookmarks level"
 msgstr "Nivel de marcadores no válido"
@@ -883,6 +870,8 @@ msgstr "Dividir por marcadores"
 msgid ""
 "Split a PDF document at bookmarked pages by specifying a bookmark level."
 msgstr ""
+"Dividir documentos PDF en marcadores de páginas especificando un nivel de "
+"marcador."
 
 msgid "Regular expression the bookmark has to match"
 msgstr ""
@@ -917,6 +906,32 @@ msgstr "Girar las páginas de varios documentos PDF."
 msgid "Rotate settings"
 msgstr "Configurar giro"
 
+#~ msgid "Application menu"
+#~ msgstr "Menú de la aplicación"
+
+#~ msgid "Set how often the PDFsam news panel should be opened"
+#~ msgstr ""
+#~ "Establece que tan frecuentemente el panel de notificaciones de PDFsam "
+#~ "deberá ser abierto"
+
+#~ msgid "News panel:"
+#~ msgstr "Panel de notificaciones"
+
+#~ msgid "Show this:"
+#~ msgstr "Muestra esto:"
+
+#~ msgid "Never"
+#~ msgstr "Nunca"
+
+#~ msgid "Once a day"
+#~ msgstr "Una vez al día"
+
+#~ msgid "Once a week"
+#~ msgstr "Una vez a la semana"
+
+#~ msgid "Always"
+#~ msgstr "Siempre"
+
 #~ msgid "Output document pdf version:"
 #~ msgstr "Versión pdf del documento de salida"
 
@@ -925,9 +940,6 @@ msgstr "Configurar giro"
 
 #~ msgid "Ask for confirmation when overwrite checkbox is selected"
 #~ msgstr "Pedir confirmación cuando la casilla de sobrescritura esté marcada"
-
-#~ msgid "Unable to get latest available version"
-#~ msgstr "No es posible obtener la última versión disponible"
 
 #~ msgid "Split even pages"
 #~ msgstr "Dividir páginas pares"

@@ -7,16 +7,43 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-09-27 19:09+0200\n"
-"PO-Revision-Date: 2015-09-27 17:31+0000\n"
-"Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
+"POT-Creation-Date: 2015-10-28 15:21+0100\n"
+"PO-Revision-Date: 2015-10-16 10:05+0000\n"
+"Last-Translator: mattia.b89 <Unknown>\n"
 "Language-Team: Italian <it@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-03 09:48+0000\n"
-"X-Generator: Launchpad (build 17783)\n"
+"X-Launchpad-Export-Date: 2015-10-28 14:24+0000\n"
+"X-Generator: Launchpad (build 17837)\n"
+
+msgid "Subscribe to the official news feed"
+msgstr "Iscriviti al feed ufficiale delle notizie"
+
+msgid "Bug and feature requests"
+msgstr "Bug e richieste"
+
+msgid "Play the \"get started\" video"
+msgstr "Riproduci il video \"come iniziare\""
+
+msgid "Fork PDFsam on GitHub"
+msgstr "Fail il fork di PDFsam su GitHub"
+
+msgid "Translate"
+msgstr "Traduci"
+
+msgid "Donate"
+msgstr "Dona"
+
+msgid "Follow us on Twitter"
+msgstr "Seguici su Twitter"
+
+msgid "Follow us on Google Plus"
+msgstr "Seguici su Google Plus"
+
+msgid "Like us on Facebook"
+msgstr "Mi piace su Facebook"
 
 msgid "Dashboard"
 msgstr "Bacheca"
@@ -59,9 +86,6 @@ msgstr "Avviato in {0}"
 msgid "Closing PDFsam..."
 msgstr "Chiudendo PDFsam..."
 
-msgid "Application menu"
-msgstr "Menù dell'applicazione"
-
 msgid "_Modules"
 msgstr "_Moduli"
 
@@ -89,6 +113,9 @@ msgstr "Seleziona il file dove salvare l'area di lavoro"
 msgid "Select the workspace to load"
 msgstr "Selezionare l'area di lavoro da caricare"
 
+msgid "What's new"
+msgstr "Novità"
+
 msgid "Document details"
 msgstr "Dettagli documento"
 
@@ -100,9 +127,6 @@ msgstr "Riepilogo"
 
 msgid "About"
 msgstr "Informazioni"
-
-msgid "Subscribe to the official news feed"
-msgstr "Iscriviti al feed ufficiale delle notizie"
 
 msgid "Environment"
 msgstr "Ambiente"
@@ -123,35 +147,11 @@ msgstr "I progetti open source rendono PDFsam possibile"
 msgid "Support"
 msgstr "Supporto"
 
-msgid "Bug and feature requests"
-msgstr "Bug e richieste"
-
-msgid "Play the \"get started\" video"
-msgstr "Riproduci il video \"come iniziare\""
-
 msgid "Contribute"
 msgstr "Contribuisci"
 
-msgid "Fork PDFsam on GitHub"
-msgstr "Fail il fork di PDFsam su GitHub"
-
-msgid "Translate"
-msgstr "Traduci"
-
-msgid "Donate"
-msgstr "Dona"
-
 msgid "Social"
 msgstr "Social"
-
-msgid "Follow us on Twitter"
-msgstr "Seguici su Twitter"
-
-msgid "Follow us on Google Plus"
-msgstr "Seguici su Google Plus"
-
-msgid "Like us on Facebook"
-msgstr "Mi piace su Facebook"
 
 msgid "Manually selected"
 msgstr "Seleziona manualmente"
@@ -257,14 +257,6 @@ msgstr "Carica un'area di lavoro di default all'avvio"
 msgid "Default working directory:"
 msgstr "Cartella di lavoro predefinita:"
 
-msgid "Set how often the PDFsam news panel should be opened"
-msgstr ""
-"Impostare quanto spesso visualizzare il pannello delle novità relative a "
-"PDFsam"
-
-msgid "News panel:"
-msgstr "Pannello novità:"
-
 msgid "Log register rows:"
 msgstr "Righe del Log:"
 
@@ -345,10 +337,10 @@ msgstr "I parametri sono invalidi, aprire il pannello messaggio per dettagli."
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
-msgstr "Hai effettuato {0} manipolazioni con PDFSam, ti ha aiutato?"
+msgstr "Hai fatto {0} operazioni con PDFsam, ti ha aiutato?"
 
 msgid "Give something back"
-msgstr "Dai qualcoa indietro"
+msgstr "Dai qualcosa indietro"
 
 msgid "PDFsam worked hard!"
 msgstr "PDFsam ha lavorato duro!"
@@ -362,12 +354,6 @@ msgstr "Scarica"
 
 msgid "New version available"
 msgstr "Una nuova versione è disponibile"
-
-msgid "Show this:"
-msgstr "Mostra questo:"
-
-msgid "What's new"
-msgstr "Novità"
 
 msgid "Directory not empty"
 msgstr "Directory non vuota"
@@ -395,6 +381,17 @@ msgstr "Impossibile trovare la versione più recente"
 
 msgid "Checking for updates"
 msgstr "Verifica disponibilità aggiornamenti"
+
+msgid "Fetching latest news"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to retrieve the latest news"
+msgstr "Impossibile trovare la versione più recente"
+
+#, fuzzy
+msgid "Unable to retrieve latest news"
+msgstr "Impossibile identificare l'ultima versione disponibile"
 
 msgid "Loading pdf documents"
 msgstr "Caricando i documenti"
@@ -912,18 +909,6 @@ msgstr "Fiordaliso quadrato"
 msgid "Roundish"
 msgstr "Rotondeggianti"
 
-msgid "Never"
-msgstr "Mai"
-
-msgid "Once a day"
-msgstr "Una volta al giorno"
-
-msgid "Once a week"
-msgstr "Una volta alla settimana"
-
-msgid "Always"
-msgstr "Sempre"
-
 msgid "Set the bookmarks level to split at"
 msgstr "Seleziona il livello dei segnalibri a cui dividere"
 
@@ -972,6 +957,32 @@ msgstr "Ruota le pagine di più documenti PDF"
 msgid "Rotate settings"
 msgstr "Impostazioni di rotazione"
 
+#~ msgid "Application menu"
+#~ msgstr "Menù dell'applicazione"
+
+#~ msgid "Set how often the PDFsam news panel should be opened"
+#~ msgstr ""
+#~ "Impostare quanto spesso visualizzare il pannello delle novità relative a "
+#~ "PDFsam"
+
+#~ msgid "News panel:"
+#~ msgstr "Pannello novità:"
+
+#~ msgid "Show this:"
+#~ msgstr "Mostra questo:"
+
+#~ msgid "Never"
+#~ msgstr "Mai"
+
+#~ msgid "Once a day"
+#~ msgstr "Una volta al giorno"
+
+#~ msgid "Once a week"
+#~ msgstr "Una volta alla settimana"
+
+#~ msgid "Always"
+#~ msgstr "Sempre"
+
 # F:\workspace_pdfsame_enanched\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:200
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:206
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:223
@@ -996,9 +1007,6 @@ msgstr "Impostazioni di rotazione"
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:318
 #~ msgid "Output document pdf version:"
 #~ msgstr "Versione PDF del documento di destinazione:"
-
-#~ msgid "Unable to get latest available version"
-#~ msgstr "Impossibile identificare l'ultima versione disponibile"
 
 #~ msgid ""
 #~ "Show a dialog box asking the user for confirmation when the \"overwrite\" "

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-09-27 19:09+0200\n"
+"POT-Creation-Date: 2015-10-28 15:21+0100\n"
 "PO-Revision-Date: 2015-03-25 21:36+0000\n"
 "Last-Translator: Asier Iturralde Sarasola <Unknown>\n"
 "Language-Team: Basque <eu@li.org>\n"
@@ -15,8 +15,35 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-03 09:48+0000\n"
-"X-Generator: Launchpad (build 17783)\n"
+"X-Launchpad-Export-Date: 2015-10-28 14:24+0000\n"
+"X-Generator: Launchpad (build 17837)\n"
+
+msgid "Subscribe to the official news feed"
+msgstr "Harpidetu albisteen jario ofizialera"
+
+msgid "Bug and feature requests"
+msgstr "Erroreak eta ezaugarrien eskaerak"
+
+msgid "Play the \"get started\" video"
+msgstr "Ikusi \"nola hasi erabiltzen\" bideoa"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "Egin PDFsam-en fork bat Github-en"
+
+msgid "Translate"
+msgstr "Itzuli"
+
+msgid "Donate"
+msgstr "Diruz lagundu"
+
+msgid "Follow us on Twitter"
+msgstr "Jarraitu Twitter-en"
+
+msgid "Follow us on Google Plus"
+msgstr "Jarraitu Google Plus-en"
+
+msgid "Like us on Facebook"
+msgstr "Atsegindu Facebook-en"
 
 msgid "Dashboard"
 msgstr "Aginte-panela"
@@ -59,9 +86,6 @@ msgstr "{0}(e)n hasia"
 msgid "Closing PDFsam..."
 msgstr "PDFsam ixten..."
 
-msgid "Application menu"
-msgstr "Aplikazioaren menua"
-
 msgid "_Modules"
 msgstr "_Moduluak"
 
@@ -89,6 +113,9 @@ msgstr "Hautatu laneko area fitxategia gordetzeko"
 msgid "Select the workspace to load"
 msgstr "Hautatu laneko area kargatzeko"
 
+msgid "What's new"
+msgstr "Zer berri?"
+
 msgid "Document details"
 msgstr "Dokumentuaren xehetasunak"
 
@@ -100,9 +127,6 @@ msgstr "Laburpena"
 
 msgid "About"
 msgstr "Honi buruz"
-
-msgid "Subscribe to the official news feed"
-msgstr "Harpidetu albisteen jario ofizialera"
 
 msgid "Environment"
 msgstr "Ingurunea"
@@ -123,35 +147,11 @@ msgstr "PDFsam posible egiten duten kode irekiko proiektuak"
 msgid "Support"
 msgstr "Sostengua"
 
-msgid "Bug and feature requests"
-msgstr "Erroreak eta ezaugarrien eskaerak"
-
-msgid "Play the \"get started\" video"
-msgstr "Ikusi \"nola hasi erabiltzen\" bideoa"
-
 msgid "Contribute"
 msgstr "Lagundu"
 
-msgid "Fork PDFsam on GitHub"
-msgstr "Egin PDFsam-en fork bat Github-en"
-
-msgid "Translate"
-msgstr "Itzuli"
-
-msgid "Donate"
-msgstr "Diruz lagundu"
-
 msgid "Social"
 msgstr "Sare sozialak"
-
-msgid "Follow us on Twitter"
-msgstr "Jarraitu Twitter-en"
-
-msgid "Follow us on Google Plus"
-msgstr "Jarraitu Google Plus-en"
-
-msgid "Like us on Facebook"
-msgstr "Atsegindu Facebook-en"
 
 msgid "Manually selected"
 msgstr "Eskuz hautatua"
@@ -254,12 +254,6 @@ msgstr "Kargatu laneko area lehenetsia abioan:"
 msgid "Default working directory:"
 msgstr "Laneko direktorio lehenetsia:"
 
-msgid "Set how often the PDFsam news panel should be opened"
-msgstr "Ezarri ze maiztasunekin ireki behar den PDFsam albisteen panela"
-
-msgid "News panel:"
-msgstr "Albisteen panela:"
-
 msgid "Log register rows:"
 msgstr "Log erregistroaren errenkadak:"
 
@@ -342,12 +336,6 @@ msgstr "Deskargatu"
 msgid "New version available"
 msgstr "Bertsio berria eskuragarri dago"
 
-msgid "Show this:"
-msgstr "Erakutsi hau:"
-
-msgid "What's new"
-msgstr "Zer berri?"
-
 msgid "Directory not empty"
 msgstr "Direktorioa ez dago hutsik"
 
@@ -374,6 +362,17 @@ msgstr "Ezin izan da eskuragarri dagoen azken bertsioa aurkitu."
 
 msgid "Checking for updates"
 msgstr "Eguneraketarik badagoen egiaztatzen"
+
+msgid "Fetching latest news"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to retrieve the latest news"
+msgstr "Ezin izan da eskuragarri dagoen azken bertsioa aurkitu."
+
+#, fuzzy
+msgid "Unable to retrieve latest news"
+msgstr "Ezin izan da moduluen laneko area gorde"
 
 msgid "Loading pdf documents"
 msgstr "pdf dokumentuak kargatzen"
@@ -829,18 +828,6 @@ msgstr "Artalore karratua"
 msgid "Roundish"
 msgstr "Borobildua"
 
-msgid "Never"
-msgstr "Inoiz ere ez"
-
-msgid "Once a day"
-msgstr "Egunean behin"
-
-msgid "Once a week"
-msgstr "Astean behin"
-
-msgid "Always"
-msgstr "Beti"
-
 msgid "Set the bookmarks level to split at"
 msgstr "Ezarri zatitu beharreko laster-marka maila:"
 
@@ -886,6 +873,30 @@ msgstr "Biratu hainbat PDF dokumenturen orriak."
 
 msgid "Rotate settings"
 msgstr "Biraketaren ezarpenak"
+
+#~ msgid "Application menu"
+#~ msgstr "Aplikazioaren menua"
+
+#~ msgid "Set how often the PDFsam news panel should be opened"
+#~ msgstr "Ezarri ze maiztasunekin ireki behar den PDFsam albisteen panela"
+
+#~ msgid "News panel:"
+#~ msgstr "Albisteen panela:"
+
+#~ msgid "Show this:"
+#~ msgstr "Erakutsi hau:"
+
+#~ msgid "Never"
+#~ msgstr "Inoiz ere ez"
+
+#~ msgid "Once a day"
+#~ msgstr "Egunean behin"
+
+#~ msgid "Once a week"
+#~ msgstr "Astean behin"
+
+#~ msgid "Always"
+#~ msgstr "Beti"
 
 #~ msgid "Split even pages"
 #~ msgstr "BIkoiti orriak banatu"

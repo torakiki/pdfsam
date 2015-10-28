@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-09-27 19:09+0200\n"
+"POT-Creation-Date: 2015-10-28 15:21+0100\n"
 "PO-Revision-Date: 2015-05-15 12:23+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Armenian <hy@li.org>\n"
@@ -15,8 +15,35 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-03 09:48+0000\n"
-"X-Generator: Launchpad (build 17783)\n"
+"X-Launchpad-Export-Date: 2015-10-28 14:24+0000\n"
+"X-Generator: Launchpad (build 17837)\n"
+
+msgid "Subscribe to the official news feed"
+msgstr ""
+
+msgid "Bug and feature requests"
+msgstr ""
+
+msgid "Play the \"get started\" video"
+msgstr ""
+
+msgid "Fork PDFsam on GitHub"
+msgstr ""
+
+msgid "Translate"
+msgstr ""
+
+msgid "Donate"
+msgstr ""
+
+msgid "Follow us on Twitter"
+msgstr ""
+
+msgid "Follow us on Google Plus"
+msgstr ""
+
+msgid "Like us on Facebook"
+msgstr ""
 
 msgid "Dashboard"
 msgstr ""
@@ -59,9 +86,6 @@ msgstr ""
 msgid "Closing PDFsam..."
 msgstr ""
 
-msgid "Application menu"
-msgstr ""
-
 msgid "_Modules"
 msgstr ""
 
@@ -89,6 +113,9 @@ msgstr ""
 msgid "Select the workspace to load"
 msgstr ""
 
+msgid "What's new"
+msgstr ""
+
 msgid "Document details"
 msgstr ""
 
@@ -99,9 +126,6 @@ msgid "Summary"
 msgstr ""
 
 msgid "About"
-msgstr ""
-
-msgid "Subscribe to the official news feed"
 msgstr ""
 
 msgid "Environment"
@@ -123,34 +147,10 @@ msgstr ""
 msgid "Support"
 msgstr ""
 
-msgid "Bug and feature requests"
-msgstr ""
-
-msgid "Play the \"get started\" video"
-msgstr ""
-
 msgid "Contribute"
 msgstr ""
 
-msgid "Fork PDFsam on GitHub"
-msgstr ""
-
-msgid "Translate"
-msgstr ""
-
-msgid "Donate"
-msgstr ""
-
 msgid "Social"
-msgstr ""
-
-msgid "Follow us on Twitter"
-msgstr ""
-
-msgid "Follow us on Google Plus"
-msgstr ""
-
-msgid "Like us on Facebook"
 msgstr ""
 
 msgid "Manually selected"
@@ -247,12 +247,6 @@ msgstr ""
 msgid "Default working directory:"
 msgstr ""
 
-msgid "Set how often the PDFsam news panel should be opened"
-msgstr ""
-
-msgid "News panel:"
-msgstr ""
-
 msgid "Log register rows:"
 msgstr ""
 
@@ -331,12 +325,6 @@ msgstr ""
 msgid "New version available"
 msgstr ""
 
-msgid "Show this:"
-msgstr ""
-
-msgid "What's new"
-msgstr ""
-
 msgid "Directory not empty"
 msgstr ""
 
@@ -362,6 +350,15 @@ msgid "Unable to find the latest available version."
 msgstr ""
 
 msgid "Checking for updates"
+msgstr ""
+
+msgid "Fetching latest news"
+msgstr ""
+
+msgid "Unable to retrieve the latest news"
+msgstr ""
+
+msgid "Unable to retrieve latest news"
 msgstr ""
 
 msgid "Loading pdf documents"
@@ -803,18 +800,6 @@ msgid "Squared cornflower"
 msgstr ""
 
 msgid "Roundish"
-msgstr ""
-
-msgid "Never"
-msgstr ""
-
-msgid "Once a day"
-msgstr ""
-
-msgid "Once a week"
-msgstr ""
-
-msgid "Always"
 msgstr ""
 
 msgid "Set the bookmarks level to split at"

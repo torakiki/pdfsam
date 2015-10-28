@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-09-27 19:09+0200\n"
+"POT-Creation-Date: 2015-10-28 15:21+0100\n"
 "PO-Revision-Date: 2015-02-08 02:49+0000\n"
 "Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
@@ -15,8 +15,35 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-03 09:48+0000\n"
-"X-Generator: Launchpad (build 17783)\n"
+"X-Launchpad-Export-Date: 2015-10-28 14:24+0000\n"
+"X-Generator: Launchpad (build 17837)\n"
+
+msgid "Subscribe to the official news feed"
+msgstr ""
+
+msgid "Bug and feature requests"
+msgstr ""
+
+msgid "Play the \"get started\" video"
+msgstr ""
+
+msgid "Fork PDFsam on GitHub"
+msgstr ""
+
+msgid "Translate"
+msgstr "Traduïu"
+
+msgid "Donate"
+msgstr ""
+
+msgid "Follow us on Twitter"
+msgstr ""
+
+msgid "Follow us on Google Plus"
+msgstr ""
+
+msgid "Like us on Facebook"
+msgstr ""
 
 msgid "Dashboard"
 msgstr ""
@@ -59,9 +86,6 @@ msgstr ""
 msgid "Closing PDFsam..."
 msgstr ""
 
-msgid "Application menu"
-msgstr "Menú d’aplicacions"
-
 msgid "_Modules"
 msgstr "_Mòduls"
 
@@ -89,6 +113,9 @@ msgstr ""
 msgid "Select the workspace to load"
 msgstr ""
 
+msgid "What's new"
+msgstr ""
+
 msgid "Document details"
 msgstr "Detalls del document"
 
@@ -100,9 +127,6 @@ msgstr "Resum"
 
 msgid "About"
 msgstr "Quant a"
-
-msgid "Subscribe to the official news feed"
-msgstr ""
 
 msgid "Environment"
 msgstr "Entorn"
@@ -123,34 +147,10 @@ msgstr ""
 msgid "Support"
 msgstr "Assistència"
 
-msgid "Bug and feature requests"
-msgstr ""
-
-msgid "Play the \"get started\" video"
-msgstr ""
-
 msgid "Contribute"
 msgstr ""
 
-msgid "Fork PDFsam on GitHub"
-msgstr ""
-
-msgid "Translate"
-msgstr "Traduïu"
-
-msgid "Donate"
-msgstr ""
-
 msgid "Social"
-msgstr ""
-
-msgid "Follow us on Twitter"
-msgstr ""
-
-msgid "Follow us on Google Plus"
-msgstr ""
-
-msgid "Like us on Facebook"
 msgstr ""
 
 msgid "Manually selected"
@@ -249,12 +249,6 @@ msgstr ""
 msgid "Default working directory:"
 msgstr "Directori de treball predeterminat:"
 
-msgid "Set how often the PDFsam news panel should be opened"
-msgstr ""
-
-msgid "News panel:"
-msgstr ""
-
 msgid "Log register rows:"
 msgstr ""
 
@@ -333,12 +327,6 @@ msgstr "Baixa"
 msgid "New version available"
 msgstr "Hi ha una versió nova disponible"
 
-msgid "Show this:"
-msgstr ""
-
-msgid "What's new"
-msgstr ""
-
 msgid "Directory not empty"
 msgstr ""
 
@@ -365,6 +353,17 @@ msgstr ""
 
 msgid "Checking for updates"
 msgstr ""
+
+msgid "Fetching latest news"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to retrieve the latest news"
+msgstr "No es pot obtenir l'última versió disponible"
+
+#, fuzzy
+msgid "Unable to retrieve latest news"
+msgstr "No es pot obtenir l'última versió disponible"
 
 msgid "Loading pdf documents"
 msgstr ""
@@ -809,18 +808,6 @@ msgstr ""
 msgid "Roundish"
 msgstr ""
 
-msgid "Never"
-msgstr "Mai"
-
-msgid "Once a day"
-msgstr ""
-
-msgid "Once a week"
-msgstr ""
-
-msgid "Always"
-msgstr ""
-
 msgid "Set the bookmarks level to split at"
 msgstr ""
 
@@ -867,6 +854,12 @@ msgstr ""
 msgid "Rotate settings"
 msgstr ""
 
+#~ msgid "Application menu"
+#~ msgstr "Menú d’aplicacions"
+
+#~ msgid "Never"
+#~ msgstr "Mai"
+
 #~ msgid "Split even pages"
 #~ msgstr "Divideix les pàgines parells"
 
@@ -875,9 +868,6 @@ msgstr ""
 
 #~ msgid "Output document pdf version:"
 #~ msgstr "Versió pdf de document de sortida:"
-
-#~ msgid "Unable to get latest available version"
-#~ msgstr "No es pot obtenir l'última versió disponible"
 
 #~ msgid "Destination folder"
 #~ msgstr "Carpeta destí"

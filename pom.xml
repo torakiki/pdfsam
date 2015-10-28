@@ -127,11 +127,7 @@
 			</snapshots>
 		</repository>
 		<repository>
-			<id>central</id>
-			<name>bintray</name>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
+			<id>jcentral</id>
 			<url>http://jcenter.bintray.com</url>
 		</repository>
 	</repositories>

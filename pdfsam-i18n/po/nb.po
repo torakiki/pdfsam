@@ -7,37 +7,64 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-09-27 19:09+0200\n"
-"PO-Revision-Date: 2014-03-16 18:29+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-10-28 15:21+0100\n"
+"PO-Revision-Date: 2015-10-19 10:42+0000\n"
+"Last-Translator: Wolloloo <vidartf@gmail.com>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-03 09:48+0000\n"
-"X-Generator: Launchpad (build 17783)\n"
+"X-Launchpad-Export-Date: 2015-10-28 14:24+0000\n"
+"X-Generator: Launchpad (build 17837)\n"
+
+msgid "Subscribe to the official news feed"
+msgstr "Abonner på det offisielle nyhetsbrevet"
+
+msgid "Bug and feature requests"
+msgstr "Feilmeldinger og forslag til nye egenskaper"
+
+msgid "Play the \"get started\" video"
+msgstr "Spill av \"kom igang\" filmklipp"
+
+msgid "Fork PDFsam on GitHub"
+msgstr ""
+
+msgid "Translate"
+msgstr "Oversett"
+
+msgid "Donate"
+msgstr "Donér"
+
+msgid "Follow us on Twitter"
+msgstr "Følg oss på Twitter"
+
+msgid "Follow us on Google Plus"
+msgstr "Følg oss på Google Plus"
+
+msgid "Like us on Facebook"
+msgstr "Lik oss på Facebook"
 
 msgid "Dashboard"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 msgid "Overwrite"
-msgstr ""
+msgstr "Erstatt"
 
 #, java-format
 msgid "Installing theme {0}."
-msgstr ""
+msgstr "Installerer tema {0}"
 
 #, java-format
 msgid "Modules directory {0} does not exist"
-msgstr ""
+msgstr "Modulmappe {0} finnes ikke"
 
 #, java-format
 msgid "Loading modules from {0}"
-msgstr ""
+msgstr "Laster moduler fra {0}"
 
 #, java-format
 msgid "Found modules jars {0}"
@@ -47,114 +74,87 @@ msgid "Error finding modules paths"
 msgstr ""
 
 msgid "No module has been found"
-msgstr ""
+msgstr "Ingen modul ble funnet"
 
 msgid "Unable to find modules location."
-msgstr ""
+msgstr "Klarte ikke å finne modulplassering"
 
 #, java-format
 msgid "Started in {0}"
-msgstr ""
+msgstr "Startet i {0}"
 
 msgid "Closing PDFsam..."
-msgstr ""
-
-msgid "Application menu"
-msgstr ""
+msgstr "Lukker PDFsam..."
 
 msgid "_Modules"
-msgstr ""
+msgstr "_Moduler"
 
 msgid "E_xit"
 msgstr ""
 
 msgid "Application messages"
-msgstr ""
+msgstr "Programmeldinger"
 
 msgid "_Workspace"
-msgstr ""
+msgstr "_Arbeidsområde"
 
 msgid "_Load"
-msgstr ""
+msgstr "Å_pne"
 
 msgid "_Save"
-msgstr ""
+msgstr "_Lagre"
 
 msgid "Recen_t"
-msgstr ""
+msgstr "_Nylig"
 
 msgid "Select the workspace file to save"
-msgstr ""
+msgstr "Velg fil fra arbeidsområde for lagring"
 
 msgid "Select the workspace to load"
+msgstr "Velg arbeidområde du vil åpne"
+
+msgid "What's new"
 msgstr ""
 
 msgid "Document details"
-msgstr ""
+msgstr "Dokumentdetaljer"
 
 msgid "Keywords"
 msgstr "Nøkkelord"
 
 msgid "Summary"
-msgstr ""
+msgstr "Oppsummering"
 
 msgid "About"
 msgstr "Om"
-
-msgid "Subscribe to the official news feed"
-msgstr ""
 
 msgid "Environment"
 msgstr ""
 
 #, java-format
 msgid "Max memory {0}"
-msgstr ""
+msgstr "Maks minne {0}"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopier til utklippstavle"
 
 msgid "Thanks to"
-msgstr ""
+msgstr "Takk til"
 
 msgid "The open source projects making PDFsam possible"
-msgstr ""
+msgstr "Åpen kildekode prosjekter som har gjort PDFsam mulig"
 
 msgid "Support"
-msgstr ""
-
-msgid "Bug and feature requests"
-msgstr ""
-
-msgid "Play the \"get started\" video"
-msgstr ""
+msgstr "Støtte"
 
 msgid "Contribute"
-msgstr ""
-
-msgid "Fork PDFsam on GitHub"
-msgstr ""
-
-msgid "Translate"
-msgstr ""
-
-msgid "Donate"
-msgstr ""
+msgstr "Bidra"
 
 msgid "Social"
-msgstr ""
-
-msgid "Follow us on Twitter"
-msgstr ""
-
-msgid "Follow us on Google Plus"
-msgstr ""
-
-msgid "Like us on Facebook"
-msgstr ""
+msgstr "Sosialt"
 
 msgid "Manually selected"
-msgstr ""
+msgstr "Valgt manuelt"
 
 msgid ""
 "Automatically set the destination directory to the selected PDF document "
@@ -162,62 +162,63 @@ msgid ""
 msgstr ""
 
 msgid "Appearance"
-msgstr ""
+msgstr "Utseende"
 
 msgid "Behavior"
-msgstr ""
+msgstr "Oppførsel"
 
 msgid "Workspace"
-msgstr ""
+msgstr "Arbeidsområde"
 
 msgid "Output"
-msgstr ""
+msgstr "Resultat"
 
 msgid "Check for updates at startup"
-msgstr ""
+msgstr "Se etter oppdateringer ved oppstart"
 
 msgid ""
 "Set whether new version availability should be checked on startup (restart "
 "needed)"
 msgstr ""
+"Angi om det skal søkes etter ny versjon ved oppstart (omstart nødvendig)"
 
 msgid "Play alert sounds"
-msgstr ""
+msgstr "Spill av alarmlyder"
 
 msgid "Turn on or off alert sounds"
-msgstr ""
+msgstr "Slå alarmlyder på eller av"
 
 msgid "High quality thumbnails"
-msgstr ""
+msgstr "Høykvalitets miniatyrbilder"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr ""
 
 #, java-format
 msgid "Size must be between {0}px and {1}px"
-msgstr ""
+msgstr "Størrelse må være mellom {0}px og {1}px"
 
 #, java-format
 msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
-msgstr ""
+msgstr "Pikselstørrelse på miniatyrbilder (mellom {0}px og {1}px)"
 
 msgid "Maximum number of rows mast be a positive number"
-msgstr ""
+msgstr "Det maksimale antallet rader må være et positivt tall"
 
 msgid "Maximum number of rows displayed by the Log register"
-msgstr ""
+msgstr "Maksimalt antall rader vist av loggregisteret"
 
 msgid "Generate high quality thumbnails (slower)"
-msgstr ""
+msgstr "Generer høykvalitets miniatyrbilder (tregere)"
 
 msgid "Size in px:"
-msgstr ""
+msgstr "Størrelse i px:"
 
 msgid "Library used to generate thumbnails"
-msgstr ""
+msgstr "Bibliotek brukt til å generere minibilder"
 
 msgid "Thumbnails creator:"
-msgstr ""
+msgstr "Minibilder laget av:"
 
 msgid "Clear usage statistics"
 msgstr ""
@@ -226,35 +227,33 @@ msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
 "startup"
 msgstr ""
+"Velg et tidligere lagret arbeidsområde som blir innlest automatisk ved "
+"oppstart"
 
 msgid "Select a workspace"
-msgstr ""
+msgstr "Velg et arbeidsområde"
 
 msgid "Select a directory where documents will be saved and loaded by default"
-msgstr ""
+msgstr "Velg en mappe hvor dokumenter blir lagret og innlest som standard"
 
 msgid "Select a directory"
-msgstr ""
+msgstr "Velg en mappe"
 
 msgid ""
 "Usage statistics are used to populate the modules quick bar on the left with "
 "the most used and most recently used modules."
 msgstr ""
+"Brukstatistikk blir brukt til å fylle modul hurtigtilgangsområdet til "
+"venstre med de mest og nyest brukte modulene."
 
 msgid "Load default workspace at startup:"
-msgstr ""
+msgstr "Les standard arbeidsområde ved oppstart:"
 
 msgid "Default working directory:"
 msgstr "Standard arbeidsmappe:"
 
-msgid "Set how often the PDFsam news panel should be opened"
-msgstr ""
-
-msgid "News panel:"
-msgstr ""
-
 msgid "Log register rows:"
-msgstr ""
+msgstr "Rader i loggregisteret:"
 
 msgid "Language:"
 msgstr "Språk:"
@@ -266,28 +265,28 @@ msgid "Theme:"
 msgstr "Tema:"
 
 msgid "Set your preferred theme (restart needed)"
-msgstr ""
+msgstr "Angi foretrukket tema (omstart nødvendig)"
 
 msgid "Startup module:"
-msgstr ""
+msgstr "Oppstartsmodul:"
 
 msgid "Set the module to open at application startup (restart needed)"
-msgstr ""
+msgstr "Sett modulen som åpnes ved programstart (omstart nødvendig)"
 
 msgid "Check for updates now"
-msgstr ""
+msgstr "Sjekk for oppdateringer nå"
 
 msgid "Close"
-msgstr "Steng"
+msgstr "Lukk"
 
 msgid "Settings"
-msgstr "Instillinger"
+msgstr "Innstillinger"
 
 msgid "Modules"
-msgstr ""
+msgstr "Moduler"
 
 msgid "Log register"
-msgstr ""
+msgstr "Loggregister"
 
 msgid "Copy"
 msgstr "Kopier"
@@ -299,13 +298,13 @@ msgid "Select all"
 msgstr "Merk alt"
 
 msgid "Save log"
-msgstr ""
+msgstr "Lagre logg"
 
 msgid "Select where to save the log file"
-msgstr ""
+msgstr "Velg hvor loggfil skal lagres"
 
 msgid "Invalid parameters"
-msgstr ""
+msgstr "Ugyldige parametere"
 
 msgid ""
 "Input parameters are invalid, open the application messages for details."
@@ -316,44 +315,38 @@ msgid "You performed {0} tasks with PDFsam, did it help?"
 msgstr ""
 
 msgid "Give something back"
-msgstr ""
+msgstr "Gi noe tilbake"
 
 msgid "PDFsam worked hard!"
 msgstr ""
 
 #, java-format
 msgid "PDFsam {0} is available for download"
-msgstr ""
+msgstr "PDFsam {0} er tilgjengelig for nedlasting"
 
 msgid "Download"
-msgstr ""
+msgstr "Last ned"
 
 msgid "New version available"
-msgstr ""
-
-msgid "Show this:"
-msgstr ""
-
-msgid "What's new"
-msgstr ""
+msgstr "Ny versjon tilgjengelig"
 
 msgid "Directory not empty"
-msgstr ""
+msgstr "Mappa er ikke tom"
 
 msgid "The selected directory is not empty"
-msgstr ""
+msgstr "Den valgte mappa er ikke tom"
 
 msgid "Overwrite files with the same name as the generated ones?"
-msgstr ""
+msgstr "Overskriv filer med det samme navnet som de genererte?"
 
 msgid "Don't overwrite existing file"
-msgstr ""
+msgstr "Ikke erstatt eksisterende fil"
 
 msgid "Overwrite confirmation"
 msgstr ""
 
 msgid "A file with the given name already exists"
-msgstr ""
+msgstr "En fil med det navnet eksisterer allerede"
 
 msgid "Do you want to overwrite it?"
 msgstr ""
@@ -362,6 +355,15 @@ msgid "Unable to find the latest available version."
 msgstr ""
 
 msgid "Checking for updates"
+msgstr ""
+
+msgid "Fetching latest news"
+msgstr ""
+
+msgid "Unable to retrieve the latest news"
+msgstr ""
+
+msgid "Unable to retrieve latest news"
 msgstr ""
 
 msgid "Loading pdf documents"
@@ -807,18 +809,6 @@ msgstr ""
 msgid "Roundish"
 msgstr ""
 
-msgid "Never"
-msgstr "Aldri"
-
-msgid "Once a day"
-msgstr ""
-
-msgid "Once a week"
-msgstr ""
-
-msgid "Always"
-msgstr ""
-
 msgid "Set the bookmarks level to split at"
 msgstr ""
 
@@ -864,6 +854,18 @@ msgstr ""
 
 msgid "Rotate settings"
 msgstr ""
+
+#~ msgid "Application menu"
+#~ msgstr "Programmeny"
+
+#~ msgid "Set how often the PDFsam news panel should be opened"
+#~ msgstr "Sett hvor ofte PDFsams nyhetspanel skal åpnes"
+
+#~ msgid "News panel:"
+#~ msgstr "Nyhetspanel:"
+
+#~ msgid "Never"
+#~ msgstr "Aldri"
 
 #~ msgid "Split even pages"
 #~ msgstr "Del partall-sider"

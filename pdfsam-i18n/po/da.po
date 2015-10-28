@@ -7,16 +7,43 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-09-27 19:09+0200\n"
-"PO-Revision-Date: 2015-04-25 19:17+0000\n"
-"Last-Translator: mjjzf <mjjzf@syntaktisk.dk>\n"
+"POT-Creation-Date: 2015-10-28 15:21+0100\n"
+"PO-Revision-Date: 2015-10-21 17:23+0000\n"
+"Last-Translator: Simon Aagaard <sim@aagaard.dk>\n"
 "Language-Team: Danish <da@li.org>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-03 09:48+0000\n"
-"X-Generator: Launchpad (build 17783)\n"
+"X-Launchpad-Export-Date: 2015-10-28 14:24+0000\n"
+"X-Generator: Launchpad (build 17837)\n"
+
+msgid "Subscribe to the official news feed"
+msgstr "Abonner på det officielle nyhedsfeed"
+
+msgid "Bug and feature requests"
+msgstr "Fejl og ønsker"
+
+msgid "Play the \"get started\" video"
+msgstr "Afspil \"Kom i gang\"-videoen"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "Om at forke PDFsam på GitHub"
+
+msgid "Translate"
+msgstr "Oversæt"
+
+msgid "Donate"
+msgstr "Doner"
+
+msgid "Follow us on Twitter"
+msgstr "Følg os på Twitter"
+
+msgid "Follow us on Google Plus"
+msgstr "Følg os på Google Plus"
+
+msgid "Like us on Facebook"
+msgstr "Følg os på Facebook"
 
 msgid "Dashboard"
 msgstr "Oversigt"
@@ -59,9 +86,6 @@ msgstr "Startet i {0}"
 msgid "Closing PDFsam..."
 msgstr "Lukker PDFsam..."
 
-msgid "Application menu"
-msgstr "Programmenu"
-
 msgid "_Modules"
 msgstr "_Moduler"
 
@@ -89,6 +113,9 @@ msgstr "Vælg arbejdsområde-fil, der skal gemmes"
 msgid "Select the workspace to load"
 msgstr "Vælg arbejdsområde-fil, der skal åbnes"
 
+msgid "What's new"
+msgstr "Hvad er nyt"
+
 msgid "Document details"
 msgstr "Detaljer om dokumentet"
 
@@ -100,9 +127,6 @@ msgstr "Resumé"
 
 msgid "About"
 msgstr "Om"
-
-msgid "Subscribe to the official news feed"
-msgstr "Abonner på det officielle nyhedsfeed"
 
 msgid "Environment"
 msgstr "Miljø"
@@ -123,35 +147,11 @@ msgstr "De open source-projekter, der gør PDFSAM mulig"
 msgid "Support"
 msgstr "Support"
 
-msgid "Bug and feature requests"
-msgstr "Fejl og ønsker"
-
-msgid "Play the \"get started\" video"
-msgstr "Afspil \"Kom i gang\"-videoen"
-
 msgid "Contribute"
 msgstr "Bidrag"
 
-msgid "Fork PDFsam on GitHub"
-msgstr "Om at forke PDFsam på GitHub"
-
-msgid "Translate"
-msgstr "Oversæt"
-
-msgid "Donate"
-msgstr "Doner"
-
 msgid "Social"
 msgstr "Socialt"
-
-msgid "Follow us on Twitter"
-msgstr "Følg os på Twitter"
-
-msgid "Follow us on Google Plus"
-msgstr "Følg os på Google Plus"
-
-msgid "Like us on Facebook"
-msgstr "Følg os på Facebook"
 
 msgid "Manually selected"
 msgstr "Manuelt valgt"
@@ -251,12 +251,6 @@ msgstr "Indlæs standardarbejdsområde ved start:"
 msgid "Default working directory:"
 msgstr "Standard arbejdsmappe:"
 
-msgid "Set how often the PDFsam news panel should be opened"
-msgstr "Angiv hvor ofte nyhedpanelet i PDFSAM skal åbnes"
-
-msgid "News panel:"
-msgstr "Nyhedspanel:"
-
 msgid "Log register rows:"
 msgstr "Rækker i Log-register:"
 
@@ -337,12 +331,6 @@ msgstr "Download"
 msgid "New version available"
 msgstr "Ny version til rådighed"
 
-msgid "Show this:"
-msgstr "Vis denne:"
-
-msgid "What's new"
-msgstr "Hvad er nyt"
-
 msgid "Directory not empty"
 msgstr "Mappe ikke tom"
 
@@ -369,6 +357,17 @@ msgstr "Kunne ikke finde den nyeste version."
 
 msgid "Checking for updates"
 msgstr "Søger efter opdateringer"
+
+msgid "Fetching latest news"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to retrieve the latest news"
+msgstr "Kunne ikke finde den nyeste version."
+
+#, fuzzy
+msgid "Unable to retrieve latest news"
+msgstr "Kunne ikke hente senest tilgængelige version"
 
 msgid "Loading pdf documents"
 msgstr "Indlæser PDF-dokumenter"
@@ -422,7 +421,7 @@ msgid "Split"
 msgstr "Opdel"
 
 msgid "Split a PDF document at the given page numbers."
-msgstr ""
+msgstr "Opdel et PDF dokument ved det angivet nummer,"
 
 msgid "Select or drag and drop the PDF you want to split"
 msgstr "Vælg eller træk den PDF-fil, du ønsker at opdele"
@@ -453,6 +452,8 @@ msgstr "Antal sider"
 
 msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
+"Opdel PDF dokumentet for hver \"n\" side, hvilket danner dokumenter på \"n\" "
+"sider hver."
 
 msgid "Invalid number of pages"
 msgstr "Ugyldigt antal sider"
@@ -461,7 +462,7 @@ msgid "Split by size"
 msgstr "Opdel efter størrelse"
 
 msgid "Split a PDF document in files of the given size (roughly)."
-msgstr ""
+msgstr "Opdel et PDF dokument i filer efter den angivet størrelse (cirka)"
 
 msgid "Set the size to split at"
 msgstr "Sæt størrelsen, der deles ved"
@@ -605,6 +606,7 @@ msgstr "Overskriv hvis eksisterende"
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
 msgstr ""
+"Markér boksen hvis du ønsker at overskrive en eventuel  fil med samme navn."
 
 msgid "The selected file must exist. "
 msgstr "Den valgte fil skal eksistere. "
@@ -626,7 +628,7 @@ msgid "Compress output file/files"
 msgstr "Komprimer destinationsfil(er)"
 
 msgid "Output PDF version:"
-msgstr ""
+msgstr "Gem i PDF version:"
 
 #, java-format
 msgid "Version {0}"
@@ -637,7 +639,7 @@ msgstr "Samme som input-dokumentet"
 
 #, java-format
 msgid "PDF version required: {0}"
-msgstr ""
+msgstr "PDF version påkrævet: {0}"
 
 msgid "Select an existing directory"
 msgstr "Vælg en eksisterende mappe"
@@ -646,7 +648,7 @@ msgid "The selected output directory is invalid"
 msgstr "Den valgte output-mappe er ugyldig"
 
 msgid "Generated PDF documents name prefix:"
-msgstr ""
+msgstr "Fornavn til genereret PDF dokumenter:"
 
 msgid "Prefix for the generated files names"
 msgstr "Præfiks for de genererede filnavne"
@@ -750,16 +752,16 @@ msgstr ""
 "ulige sidetal"
 
 msgid "Merge fields"
-msgstr ""
+msgstr "Flet felter"
 
 msgid "Merge renaming existing fields"
-msgstr ""
+msgstr "Flet og omdøb eksisterende felter"
 
 msgid "Discard forms"
-msgstr ""
+msgstr "Slet udfyldnings felter"
 
 msgid "Interactive forms (AcroForms):"
-msgstr ""
+msgstr "Visuelle udfyldnings felter"
 
 msgid "Retain bookmarks"
 msgstr "Behold bogmærker"
@@ -774,13 +776,13 @@ msgid "Bookmarks handling:"
 msgstr "Håndtering af bogmærker"
 
 msgid "No PDF document has been selected"
-msgstr ""
+msgstr "Der er ikke blevet valgt et PDF dokument"
 
 msgid "Merge"
 msgstr "Sammenflet"
 
 msgid "Merge together multiple PDF documents or subsections of them."
-msgstr ""
+msgstr "Flet flere PDF dokumenter eller dele af dem."
 
 msgid "Merge settings"
 msgstr "Indstillinger for fletning"
@@ -808,7 +810,7 @@ msgid "This document is encrypted, click to provide a password."
 msgstr "Dette dokument er krypteret, opgiv en adgangskode."
 
 msgid "An error has occurred, click for more details."
-msgstr ""
+msgstr "Der er sket en fejl, klik for flere detaljer."
 
 msgid "Squared green"
 msgstr "Grønne kanter"
@@ -818,18 +820,6 @@ msgstr "Kantet kornblomst"
 
 msgid "Roundish"
 msgstr "Rundet"
-
-msgid "Never"
-msgstr "Aldrig"
-
-msgid "Once a day"
-msgstr "En gang om dagen"
-
-msgid "Once a week"
-msgstr "En gang om ugen"
-
-msgid "Always"
-msgstr "Altid"
 
 msgid "Set the bookmarks level to split at"
 msgstr "Vælg bogmærkeniveau, der splittes ved"
@@ -843,6 +833,8 @@ msgstr "Opdel ved bogmærker"
 msgid ""
 "Split a PDF document at bookmarked pages by specifying a bookmark level."
 msgstr ""
+"Opdel et PDF dokument ved sider med bogmærker, ved at specificere er "
+"bogmærke niveau."
 
 msgid "Regular expression the bookmark has to match"
 msgstr ""
@@ -877,14 +869,35 @@ msgstr "Roter sider fra flere PDF-dokumenter"
 msgid "Rotate settings"
 msgstr "Indstillinger for rotation"
 
+#~ msgid "Application menu"
+#~ msgstr "Programmenu"
+
+#~ msgid "Set how often the PDFsam news panel should be opened"
+#~ msgstr "Angiv hvor ofte nyhedpanelet i PDFSAM skal åbnes"
+
+#~ msgid "News panel:"
+#~ msgstr "Nyhedspanel:"
+
+#~ msgid "Show this:"
+#~ msgstr "Vis denne:"
+
+#~ msgid "Never"
+#~ msgstr "Aldrig"
+
+#~ msgid "Once a day"
+#~ msgstr "En gang om dagen"
+
+#~ msgid "Once a week"
+#~ msgstr "En gang om ugen"
+
+#~ msgid "Always"
+#~ msgstr "Altid"
+
 #~ msgid "Split odd pages"
 #~ msgstr "Opdel ved ulige sider"
 
 #~ msgid "Split even pages"
 #~ msgstr "Opdel ved lige sider"
-
-#~ msgid "Unable to get latest available version"
-#~ msgstr "Kunne ikke hente senest tilgængelige version"
 
 #~ msgid "Destination folder"
 #~ msgstr "Destinationsmappe"

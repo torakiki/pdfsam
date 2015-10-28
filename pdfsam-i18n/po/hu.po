@@ -7,16 +7,43 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-09-27 19:09+0200\n"
-"PO-Revision-Date: 2015-03-06 09:32+0000\n"
+"POT-Creation-Date: 2015-10-28 15:21+0100\n"
+"PO-Revision-Date: 2015-10-05 07:48+0000\n"
 "Last-Translator: Richard Somlói <ricsipontaz@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-03 09:48+0000\n"
-"X-Generator: Launchpad (build 17783)\n"
+"X-Launchpad-Export-Date: 2015-10-28 14:24+0000\n"
+"X-Generator: Launchpad (build 17837)\n"
+
+msgid "Subscribe to the official news feed"
+msgstr "Feliratkozás a hivatalos hírforrásra"
+
+msgid "Bug and feature requests"
+msgstr "Hiba vagy hiányzó funkció jelentése"
+
+msgid "Play the \"get started\" video"
+msgstr "A „Kezdjünk bele” videó lejátszása"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "PDFsam forkolása GitHubon"
+
+msgid "Translate"
+msgstr "Fordítás"
+
+msgid "Donate"
+msgstr "Támogatás"
+
+msgid "Follow us on Twitter"
+msgstr "Kövessen a Twitteren"
+
+msgid "Follow us on Google Plus"
+msgstr "Kövessen Google Pluson"
+
+msgid "Like us on Facebook"
+msgstr "Kedveljen a Facebookon"
 
 msgid "Dashboard"
 msgstr "Főablak"
@@ -54,13 +81,10 @@ msgstr "Nem sikerült megtalálni a modulok helyét."
 
 #, java-format
 msgid "Started in {0}"
-msgstr "Elindulás hossza: {0}"
+msgstr "Elindulás ideje: {0}"
 
 msgid "Closing PDFsam..."
 msgstr "PDFSam bezárása…"
-
-msgid "Application menu"
-msgstr "Alkalmazásmenü"
 
 msgid "_Modules"
 msgstr "M_odulok"
@@ -89,6 +113,9 @@ msgstr "Válassza ki a mentendő munkaterületet"
 msgid "Select the workspace to load"
 msgstr "Válassza ki a betöltendő munkaterületet"
 
+msgid "What's new"
+msgstr "Újdonságok"
+
 msgid "Document details"
 msgstr "Dokumentum részletei"
 
@@ -100,9 +127,6 @@ msgstr "Összefoglaló"
 
 msgid "About"
 msgstr "Névjegy"
-
-msgid "Subscribe to the official news feed"
-msgstr "Feliratkozás a hivatalos hírforrásra"
 
 msgid "Environment"
 msgstr "Környezet"
@@ -123,35 +147,11 @@ msgstr "A nyílt forráskódú közösségnek, hogy lehetővé tették a PDFsame
 msgid "Support"
 msgstr "Támogatás"
 
-msgid "Bug and feature requests"
-msgstr "Hiba vagy hiányzó funkció jelentése"
-
-msgid "Play the \"get started\" video"
-msgstr "A „Kezdjünk bele” videó lejátszása"
-
 msgid "Contribute"
 msgstr "Hozzájárulás"
 
-msgid "Fork PDFsam on GitHub"
-msgstr "PDFsam forkolása GitHubon"
-
-msgid "Translate"
-msgstr "Fordítás"
-
-msgid "Donate"
-msgstr "Támogatás"
-
 msgid "Social"
 msgstr "Közösségi szolgáltatások"
-
-msgid "Follow us on Twitter"
-msgstr "Kövessen a Twitteren"
-
-msgid "Follow us on Google Plus"
-msgstr "Kövessen Google Pluson"
-
-msgid "Like us on Facebook"
-msgstr "Kedveljen a Facebookon"
 
 msgid "Manually selected"
 msgstr "Kézzel kiválasztva"
@@ -251,14 +251,8 @@ msgstr "Alapértelmezett munkaterület betöltése induláskor:"
 msgid "Default working directory:"
 msgstr "Alapértelmezett munkamappa:"
 
-msgid "Set how often the PDFsam news panel should be opened"
-msgstr "Adja meg, hogy a PDFSam hírpanelje milyen gyakran nyíljon meg"
-
-msgid "News panel:"
-msgstr "Hírpanel:"
-
 msgid "Log register rows:"
-msgstr "Napló sorok száma:"
+msgstr "Naplózott sorok száma:"
 
 msgid "Language:"
 msgstr "Nyelv:"
@@ -339,12 +333,6 @@ msgstr "Letöltés"
 msgid "New version available"
 msgstr "Új verzió érhető el"
 
-msgid "Show this:"
-msgstr "Megjelenítés:"
-
-msgid "What's new"
-msgstr "Újdonságok"
-
 msgid "Directory not empty"
 msgstr "A mappa nem üres"
 
@@ -371,6 +359,17 @@ msgstr "Nem sikerült megtalálni a legutolsó verziót."
 
 msgid "Checking for updates"
 msgstr "Frissítések keresése"
+
+msgid "Fetching latest news"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to retrieve the latest news"
+msgstr "Nem sikerült megtalálni a legutolsó verziót."
+
+#, fuzzy
+msgid "Unable to retrieve latest news"
+msgstr "Nem sikerült beolvasni a legfrissebb verziót"
 
 msgid "Loading pdf documents"
 msgstr "PDF dokumentumok betöltése"
@@ -406,13 +405,13 @@ msgid "Split after"
 msgstr "Szétválasztás valami után"
 
 msgid "Split the document after the given page numbers"
-msgstr "Dokumentum szétválasztása a megadott oldalszámoknál"
+msgstr "Dokumentum szétválasztása a megadott oldalszámok után"
 
 msgid "No page selected"
 msgstr "Nincs oldal kiválasztva"
 
 msgid "Split after the following page numbers"
-msgstr "Szétválasztás a következő oldalszámoknál"
+msgstr "Szétválasztás a következő oldalszámok után"
 
 msgid "Page numbers to split at (n1,n2,n3..)"
 msgstr "Szétválasztás oldalszámoknál (n1,n2,n3…)"
@@ -424,7 +423,7 @@ msgid "Split"
 msgstr "Szétválasztás"
 
 msgid "Split a PDF document at the given page numbers."
-msgstr ""
+msgstr "Dokumentum szétválasztása a megadott oldalszámoknál"
 
 msgid "Select or drag and drop the PDF you want to split"
 msgstr "Válassza ki vagy ejtse ide a szétválasztani kívánt PDF-et"
@@ -454,7 +453,7 @@ msgid "Number of pages"
 msgstr "Oldalszám"
 
 msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
-msgstr ""
+msgstr "Minden „n” oldal után szétválasztja a PDF dokumentumot"
 
 msgid "Invalid number of pages"
 msgstr "Érvénytelen oldalszám"
@@ -463,7 +462,7 @@ msgid "Split by size"
 msgstr "Szétválasztás méret alapján"
 
 msgid "Split a PDF document in files of the given size (roughly)."
-msgstr ""
+msgstr "A megadott méret alapján választja szét a dokumentumokat (nagyjából)"
 
 msgid "Set the size to split at"
 msgstr "Szétválasztás a következő méretnél"
@@ -607,6 +606,8 @@ msgstr "Írja felül, ha már létezik"
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
 msgstr ""
+"Jelölje be a, ha azt szeretné, hogy a már létező kimeneti fájlok felül "
+"legyenek írva."
 
 msgid "The selected file must exist. "
 msgstr "A kiválasztott fájlnak léteznie kell. "
@@ -628,7 +629,7 @@ msgid "Compress output file/files"
 msgstr "Kimeneti fájlok tömörítése"
 
 msgid "Output PDF version:"
-msgstr ""
+msgstr "Kimeneti PDF verzió:"
 
 #, java-format
 msgid "Version {0}"
@@ -639,7 +640,7 @@ msgstr "Bemeneti dokumentummal megegyező"
 
 #, java-format
 msgid "PDF version required: {0}"
-msgstr ""
+msgstr "Szükséges PDF verzió: {0}"
 
 msgid "Select an existing directory"
 msgstr "Válasszon egy létező mappát"
@@ -648,7 +649,7 @@ msgid "The selected output directory is invalid"
 msgstr "A kiválasztott kimeneti mappa érvénytelen"
 
 msgid "Generated PDF documents name prefix:"
-msgstr ""
+msgstr "A generált PDF dokumentumok nevének előtagja:"
 
 msgid "Prefix for the generated files names"
 msgstr "Előtag hozzáadása a generált fájlnevekhez"
@@ -752,16 +753,16 @@ msgstr ""
 "páratlan"
 
 msgid "Merge fields"
-msgstr ""
+msgstr "Mezők egyesítése"
 
 msgid "Merge renaming existing fields"
-msgstr ""
+msgstr "Létező mezők átnevezésének egyesítése"
 
 msgid "Discard forms"
-msgstr ""
+msgstr "Űrlapok elvetése"
 
 msgid "Interactive forms (AcroForms):"
-msgstr ""
+msgstr "Interaktív űrlapok (AcroForms):"
 
 msgid "Retain bookmarks"
 msgstr "Könyvjelzők megtartása"
@@ -776,13 +777,13 @@ msgid "Bookmarks handling:"
 msgstr "Könyvjelzők kezelése:"
 
 msgid "No PDF document has been selected"
-msgstr ""
+msgstr "Nincs kijelölve PDF dokumentum"
 
 msgid "Merge"
 msgstr "Egyesítés"
 
 msgid "Merge together multiple PDF documents or subsections of them."
-msgstr ""
+msgstr "Több PDF dokumentum vagy azok alfejezeteinek egyesítése"
 
 msgid "Merge settings"
 msgstr "Egyesítés beállításai"
@@ -810,7 +811,7 @@ msgid "This document is encrypted, click to provide a password."
 msgstr "A dokumentum titkosított, kattintson ide a jelszó megadásához."
 
 msgid "An error has occurred, click for more details."
-msgstr ""
+msgstr "Egy hiba lépett fel, kattintson a további részletekért."
 
 msgid "Squared green"
 msgstr "Zöld szögletes"
@@ -820,18 +821,6 @@ msgstr "Búzavirág szögletes"
 
 msgid "Roundish"
 msgstr "Lekerekített"
-
-msgid "Never"
-msgstr "Soha"
-
-msgid "Once a day"
-msgstr "Naponta"
-
-msgid "Once a week"
-msgstr "Hetente"
-
-msgid "Always"
-msgstr "Mindig"
 
 msgid "Set the bookmarks level to split at"
 msgstr "Ennél a könyvjelzőszintnél választja szét a PDF-eket"
@@ -845,9 +834,11 @@ msgstr "Szétválasztás könyvjelzők alapján"
 msgid ""
 "Split a PDF document at bookmarked pages by specifying a bookmark level."
 msgstr ""
+"A könyvjelzőzött oldalaknál választja szét a dokumentumot a könyvjelző "
+"szintek segítségével."
 
 msgid "Regular expression the bookmark has to match"
-msgstr ""
+msgstr "Reguláris kifejezés mellyel a könyvjelzőnek meg kell egyeznie"
 
 msgid "Split at this bookmark level:"
 msgstr "Szétválasztás ennél a könyvjelzőszintnél:"
@@ -879,14 +870,35 @@ msgstr "PDF dokumentum oldalainak elforgatása"
 msgid "Rotate settings"
 msgstr "Elforgatás beállításai"
 
+#~ msgid "Application menu"
+#~ msgstr "Alkalmazásmenü"
+
+#~ msgid "Set how often the PDFsam news panel should be opened"
+#~ msgstr "Adja meg, hogy a PDFSam hírpanelje milyen gyakran nyíljon meg"
+
+#~ msgid "News panel:"
+#~ msgstr "Hírpanel:"
+
+#~ msgid "Show this:"
+#~ msgstr "Megjelenítés:"
+
+#~ msgid "Never"
+#~ msgstr "Soha"
+
+#~ msgid "Once a day"
+#~ msgstr "Naponta"
+
+#~ msgid "Once a week"
+#~ msgstr "Hetente"
+
+#~ msgid "Always"
+#~ msgstr "Mindig"
+
 #~ msgid "Destination folder"
 #~ msgstr "Célmappa"
 
 #~ msgid "Output document pdf version:"
 #~ msgstr "Kimeneti dokumentum pdf verziója:"
-
-#~ msgid "Unable to get latest available version"
-#~ msgstr "Nem sikerült beolvasni a legfrissebb verziót"
 
 #~ msgid "Ask for confirmation when overwrite checkbox is selected"
 #~ msgstr "Megerősítést kér a felülírásra, amikor a négyzet be van jelölve"

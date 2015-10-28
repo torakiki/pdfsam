@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-09-27 19:09+0200\n"
+"POT-Creation-Date: 2015-10-28 15:21+0100\n"
 "PO-Revision-Date: 2015-04-15 08:58+0000\n"
 "Last-Translator: Arnout <arnout.van.eerde@gmail.com>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -15,8 +15,35 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-03 09:48+0000\n"
-"X-Generator: Launchpad (build 17783)\n"
+"X-Launchpad-Export-Date: 2015-10-28 14:24+0000\n"
+"X-Generator: Launchpad (build 17837)\n"
+
+msgid "Subscribe to the official news feed"
+msgstr "Abonneren op de officiële nieuwsbrief"
+
+msgid "Bug and feature requests"
+msgstr "Bug en feature aanvragen"
+
+msgid "Play the \"get started\" video"
+msgstr "Speel de \"aan de slag\" video af"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "Fork PFDsam op GitHub"
+
+msgid "Translate"
+msgstr "Vertalen"
+
+msgid "Donate"
+msgstr "Doneren"
+
+msgid "Follow us on Twitter"
+msgstr "Volg ons op Twitter"
+
+msgid "Follow us on Google Plus"
+msgstr "Volg ons op Google+"
+
+msgid "Like us on Facebook"
+msgstr "Vind ons leuk op Facebook"
 
 msgid "Dashboard"
 msgstr "Dashboard"
@@ -59,9 +86,6 @@ msgstr "Gestart in {0}"
 msgid "Closing PDFsam..."
 msgstr "PDFsam wordt afgesloten..."
 
-msgid "Application menu"
-msgstr "Toepassingsmenu"
-
 msgid "_Modules"
 msgstr "_Modules"
 
@@ -89,6 +113,9 @@ msgstr "Selecteer het omgevingsbestand dat moet worden opgeslagen"
 msgid "Select the workspace to load"
 msgstr "Selecteer de te laden omgeving"
 
+msgid "What's new"
+msgstr "Wat is er nieuw"
+
 msgid "Document details"
 msgstr "Bestandseigenschappen"
 
@@ -100,9 +127,6 @@ msgstr "Samenvatting"
 
 msgid "About"
 msgstr "Over"
-
-msgid "Subscribe to the official news feed"
-msgstr "Abonneren op de officiële nieuwsbrief"
 
 msgid "Environment"
 msgstr "Omgeving"
@@ -123,35 +147,11 @@ msgstr "De open source projecten die PDFsam mogelijk maken"
 msgid "Support"
 msgstr "Ondersteuning"
 
-msgid "Bug and feature requests"
-msgstr "Bug en feature aanvragen"
-
-msgid "Play the \"get started\" video"
-msgstr "Speel de \"aan de slag\" video af"
-
 msgid "Contribute"
 msgstr "Bijdragen"
 
-msgid "Fork PDFsam on GitHub"
-msgstr "Fork PFDsam op GitHub"
-
-msgid "Translate"
-msgstr "Vertalen"
-
-msgid "Donate"
-msgstr "Doneren"
-
 msgid "Social"
 msgstr "Sociaal"
-
-msgid "Follow us on Twitter"
-msgstr "Volg ons op Twitter"
-
-msgid "Follow us on Google Plus"
-msgstr "Volg ons op Google+"
-
-msgid "Like us on Facebook"
-msgstr "Vind ons leuk op Facebook"
 
 msgid "Manually selected"
 msgstr "Handmatig geselecteerd"
@@ -256,12 +256,6 @@ msgstr "Laad standaard werkblad bij het opstarten:"
 msgid "Default working directory:"
 msgstr "Standaard werkpad:"
 
-msgid "Set how often the PDFsam news panel should be opened"
-msgstr "Stel in hoe vaak het PDFsam nieuwspaneel zal worden geopend"
-
-msgid "News panel:"
-msgstr "Nieuws paneel:"
-
 msgid "Log register rows:"
 msgstr "Rijen van het Log register:"
 
@@ -356,12 +350,6 @@ msgstr "Downloaden"
 msgid "New version available"
 msgstr "Nieuwe versie beschikbaar"
 
-msgid "Show this:"
-msgstr "Weergeef dit:"
-
-msgid "What's new"
-msgstr "Wat is er nieuw"
-
 msgid "Directory not empty"
 msgstr "Map is niet leeg"
 
@@ -388,6 +376,17 @@ msgstr "Kan laatst beschikbare versie niet vinden."
 
 msgid "Checking for updates"
 msgstr "Controleren op updates"
+
+msgid "Fetching latest news"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to retrieve the latest news"
+msgstr "Kan laatst beschikbare versie niet vinden."
+
+#, fuzzy
+msgid "Unable to retrieve latest news"
+msgstr "Kon de laatste versie niet ophalen."
 
 msgid "Loading pdf documents"
 msgstr "PDF-documenten laden"
@@ -873,18 +872,6 @@ msgstr "Korenbloem kwadraat"
 msgid "Roundish"
 msgstr "Rondachtig"
 
-msgid "Never"
-msgstr "Nooit"
-
-msgid "Once a day"
-msgstr "Eenmaal per dag"
-
-msgid "Once a week"
-msgstr "Eenmaal per week"
-
-msgid "Always"
-msgstr "Altijd"
-
 msgid "Set the bookmarks level to split at"
 msgstr "Stel het bladwijzerniveau om te splitsen in op"
 
@@ -931,15 +918,36 @@ msgstr "Draai de pagina's van meerdere PDF-documenten."
 msgid "Rotate settings"
 msgstr "Draai instellingen"
 
+#~ msgid "Application menu"
+#~ msgstr "Toepassingsmenu"
+
+#~ msgid "Set how often the PDFsam news panel should be opened"
+#~ msgstr "Stel in hoe vaak het PDFsam nieuwspaneel zal worden geopend"
+
+#~ msgid "News panel:"
+#~ msgstr "Nieuws paneel:"
+
+#~ msgid "Show this:"
+#~ msgstr "Weergeef dit:"
+
+#~ msgid "Never"
+#~ msgstr "Nooit"
+
+#~ msgid "Once a day"
+#~ msgstr "Eenmaal per dag"
+
+#~ msgid "Once a week"
+#~ msgstr "Eenmaal per week"
+
+#~ msgid "Always"
+#~ msgstr "Altijd"
+
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:209
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
 # F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:208
 # F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
 #~ msgid "Split odd pages"
 #~ msgstr "Splits oneven pagina's"
-
-#~ msgid "Unable to get latest available version"
-#~ msgstr "Kon de laatste versie niet ophalen."
 
 #~ msgid "Output document pdf version:"
 #~ msgstr "Pdf-versie van het doelbestand:"

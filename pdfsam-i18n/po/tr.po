@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-09-27 19:09+0200\n"
+"POT-Creation-Date: 2015-10-28 15:21+0100\n"
 "PO-Revision-Date: 2014-07-20 16:17+0000\n"
 "Last-Translator: pirtlak <pirtlak@outlook.com>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -15,8 +15,35 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-03 09:48+0000\n"
-"X-Generator: Launchpad (build 17783)\n"
+"X-Launchpad-Export-Date: 2015-10-28 14:24+0000\n"
+"X-Generator: Launchpad (build 17837)\n"
+
+msgid "Subscribe to the official news feed"
+msgstr ""
+
+msgid "Bug and feature requests"
+msgstr ""
+
+msgid "Play the \"get started\" video"
+msgstr "\"başla\" videosunu çal"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "PDFsam bir GitHub iştirakidir"
+
+msgid "Translate"
+msgstr "Çevir"
+
+msgid "Donate"
+msgstr "Bağış Yapın"
+
+msgid "Follow us on Twitter"
+msgstr "Bizi Twitter'da takip edin"
+
+msgid "Follow us on Google Plus"
+msgstr "Bizi Google Plus'da takip edin"
+
+msgid "Like us on Facebook"
+msgstr "Bizi Facebook'da takip edin"
 
 msgid "Dashboard"
 msgstr ""
@@ -59,9 +86,6 @@ msgstr "{0} içinde başladı"
 msgid "Closing PDFsam..."
 msgstr ""
 
-msgid "Application menu"
-msgstr ""
-
 msgid "_Modules"
 msgstr "_Modüller"
 
@@ -89,6 +113,9 @@ msgstr ""
 msgid "Select the workspace to load"
 msgstr ""
 
+msgid "What's new"
+msgstr ""
+
 msgid "Document details"
 msgstr "Belge detayları"
 
@@ -101,9 +128,6 @@ msgstr "Özet"
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\MainGUI.java:222
 msgid "About"
 msgstr "Hakkında"
-
-msgid "Subscribe to the official news feed"
-msgstr ""
 
 msgid "Environment"
 msgstr "Ortam"
@@ -124,35 +148,11 @@ msgstr ""
 msgid "Support"
 msgstr "Destek"
 
-msgid "Bug and feature requests"
-msgstr ""
-
-msgid "Play the \"get started\" video"
-msgstr "\"başla\" videosunu çal"
-
 msgid "Contribute"
 msgstr "Katkıda Bulunun"
 
-msgid "Fork PDFsam on GitHub"
-msgstr "PDFsam bir GitHub iştirakidir"
-
-msgid "Translate"
-msgstr "Çevir"
-
-msgid "Donate"
-msgstr "Bağış Yapın"
-
 msgid "Social"
 msgstr "Sosyal"
-
-msgid "Follow us on Twitter"
-msgstr "Bizi Twitter'da takip edin"
-
-msgid "Follow us on Google Plus"
-msgstr "Bizi Google Plus'da takip edin"
-
-msgid "Like us on Facebook"
-msgstr "Bizi Facebook'da takip edin"
 
 msgid "Manually selected"
 msgstr "El ile seçildi"
@@ -248,12 +248,6 @@ msgstr "Başlangıçta yüklenecek öntanımlı çalışma alanı:"
 msgid "Default working directory:"
 msgstr "Öntanımlı çalışma dizini:"
 
-msgid "Set how often the PDFsam news panel should be opened"
-msgstr ""
-
-msgid "News panel:"
-msgstr ""
-
 msgid "Log register rows:"
 msgstr ""
 
@@ -343,12 +337,6 @@ msgstr ""
 msgid "New version available"
 msgstr "Yeni versiyon var"
 
-msgid "Show this:"
-msgstr ""
-
-msgid "What's new"
-msgstr ""
-
 msgid "Directory not empty"
 msgstr ""
 
@@ -375,6 +363,16 @@ msgstr "Son uygun sürüm bulunması olanaksız."
 
 msgid "Checking for updates"
 msgstr "Güncellemeler kontrol ediliyor"
+
+msgid "Fetching latest news"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to retrieve the latest news"
+msgstr "Son uygun sürüm bulunması olanaksız."
+
+msgid "Unable to retrieve latest news"
+msgstr ""
 
 msgid "Loading pdf documents"
 msgstr ""
@@ -862,18 +860,6 @@ msgid "Squared cornflower"
 msgstr ""
 
 msgid "Roundish"
-msgstr ""
-
-msgid "Never"
-msgstr ""
-
-msgid "Once a day"
-msgstr ""
-
-msgid "Once a week"
-msgstr ""
-
-msgid "Always"
 msgstr ""
 
 msgid "Set the bookmarks level to split at"

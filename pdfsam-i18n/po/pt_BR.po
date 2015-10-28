@@ -7,16 +7,43 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-09-27 19:09+0200\n"
-"PO-Revision-Date: 2015-08-26 10:32+0000\n"
-"Last-Translator: Tiberio Melo <tiberio.melo@defensoria.ce.gov.br>\n"
+"POT-Creation-Date: 2015-10-28 15:21+0100\n"
+"PO-Revision-Date: 2015-10-16 14:31+0000\n"
+"Last-Translator: Claudio Weiler <ceweiler@yahoo.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-03 09:48+0000\n"
-"X-Generator: Launchpad (build 17783)\n"
+"X-Launchpad-Export-Date: 2015-10-28 14:24+0000\n"
+"X-Generator: Launchpad (build 17837)\n"
+
+msgid "Subscribe to the official news feed"
+msgstr "Inscreva-se no canal ofício de notícias"
+
+msgid "Bug and feature requests"
+msgstr "Informe de erros e pedidos de funcionalidades"
+
+msgid "Play the \"get started\" video"
+msgstr "Reproduzir o vídeo \"começando a utilizar\""
+
+msgid "Fork PDFsam on GitHub"
+msgstr "Derive PDFsam no GitHub"
+
+msgid "Translate"
+msgstr "Traduzir"
+
+msgid "Donate"
+msgstr "Doar"
+
+msgid "Follow us on Twitter"
+msgstr "Siga-nos no Twitter"
+
+msgid "Follow us on Google Plus"
+msgstr "Siga-nos no Google Plus"
+
+msgid "Like us on Facebook"
+msgstr "Curta-nos no Facebook"
 
 msgid "Dashboard"
 msgstr "Painel de controle"
@@ -59,9 +86,6 @@ msgstr "Iniciado em {0}"
 msgid "Closing PDFsam..."
 msgstr "Fechando PDFsam..."
 
-msgid "Application menu"
-msgstr "Menu de aplicativos"
-
 msgid "_Modules"
 msgstr "_Módulos"
 
@@ -89,6 +113,9 @@ msgstr "Selecione área de trabalho para salvar"
 msgid "Select the workspace to load"
 msgstr "Selecione área de trabalho para ler"
 
+msgid "What's new"
+msgstr "O que há de novo"
+
 msgid "Document details"
 msgstr "Detalhes do documento"
 
@@ -100,9 +127,6 @@ msgstr "Sumário"
 
 msgid "About"
 msgstr "Sobre..."
-
-msgid "Subscribe to the official news feed"
-msgstr "Inscreva-se no canal ofício de notícias"
 
 msgid "Environment"
 msgstr "Ambiente"
@@ -123,35 +147,11 @@ msgstr "O projeto de código aberto tornou o PDFsam possível"
 msgid "Support"
 msgstr "Suporte"
 
-msgid "Bug and feature requests"
-msgstr "Informe de erros e pedidos de funcionalidades"
-
-msgid "Play the \"get started\" video"
-msgstr "Reproduzir o vídeo \"começando a utilizar\""
-
 msgid "Contribute"
 msgstr "Contribuir"
 
-msgid "Fork PDFsam on GitHub"
-msgstr "Derive PDFsam no GitHub"
-
-msgid "Translate"
-msgstr "Traduzir"
-
-msgid "Donate"
-msgstr "Doar"
-
 msgid "Social"
 msgstr "Social"
-
-msgid "Follow us on Twitter"
-msgstr "Siga-nos no Twitter"
-
-msgid "Follow us on Google Plus"
-msgstr "Siga-nos no Google Plus"
-
-msgid "Like us on Facebook"
-msgstr "Curta-nos no Facebook"
 
 msgid "Manually selected"
 msgstr "Selecionado manualmente"
@@ -255,13 +255,6 @@ msgstr "Carregar o espaço de trabalho padrão ao iniciar"
 msgid "Default working directory:"
 msgstr "Pasta de trabalho padrão:"
 
-msgid "Set how often the PDFsam news panel should be opened"
-msgstr ""
-"Seleciona a frequência com que o painel de notícias do PDFsam deve ser aberto"
-
-msgid "News panel:"
-msgstr "Painel de notícias"
-
 msgid "Log register rows:"
 msgstr "Linhas do arquivo de registro:"
 
@@ -354,12 +347,6 @@ msgstr "Baixar"
 msgid "New version available"
 msgstr "Uma nova versão está disponível"
 
-msgid "Show this:"
-msgstr "Mostra isto:"
-
-msgid "What's new"
-msgstr "O que há de novo"
-
 msgid "Directory not empty"
 msgstr "O diretório não está vazio"
 
@@ -386,6 +373,17 @@ msgstr "Não foi possível localizar a última versão disponível"
 
 msgid "Checking for updates"
 msgstr "Verificando a disponibilidade de atualizações"
+
+msgid "Fetching latest news"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to retrieve the latest news"
+msgstr "Não foi possível localizar a última versão disponível"
+
+#, fuzzy
+msgid "Unable to retrieve latest news"
+msgstr "Não foi possível obter a última versão disponível"
 
 msgid "Loading pdf documents"
 msgstr "Carregando os arquivos em PDF"
@@ -439,7 +437,7 @@ msgid "Split"
 msgstr "Dividir"
 
 msgid "Split a PDF document at the given page numbers."
-msgstr ""
+msgstr "Dividir um documento PDF nas páginas indicadas"
 
 msgid "Select or drag and drop the PDF you want to split"
 msgstr "Selecione ou arraste e solte o PDF que você deseja dividir"
@@ -470,6 +468,7 @@ msgstr "Número de páginas"
 
 msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
+"Dividir o PDF a cada \"n\" páginas criando documentos de \"n\" páginas cada"
 
 msgid "Invalid number of pages"
 msgstr "Número de páginas inválido"
@@ -479,6 +478,7 @@ msgstr "Dividir pelo tamanho"
 
 msgid "Split a PDF document in files of the given size (roughly)."
 msgstr ""
+"Dividir um documento PDF em arquivos com o tamanho informado (grosso modo)."
 
 msgid "Set the size to split at"
 msgstr "Escolha o tamanho em que deseja dividir"
@@ -652,6 +652,8 @@ msgstr "Sobrescrever existente"
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
 msgstr ""
+"Marque a caixa se você deseja sobrescrever os arquivos de saída se eles já "
+"existirem."
 
 msgid "The selected file must exist. "
 msgstr "O arquivo selecionado deve existir "
@@ -827,7 +829,7 @@ msgid "Bookmarks handling:"
 msgstr "Manipulação de marcações de texto:"
 
 msgid "No PDF document has been selected"
-msgstr ""
+msgstr "Nenhum documento PDF foi selecionado"
 
 msgid "Merge"
 msgstr "Unir"
@@ -861,7 +863,7 @@ msgid "This document is encrypted, click to provide a password."
 msgstr "Este documento é criptografado, clique para fornecer uma senha."
 
 msgid "An error has occurred, click for more details."
-msgstr ""
+msgstr "Ocorreu um erro, clique para mais detalhes."
 
 msgid "Squared green"
 msgstr "Quadriculado verde"
@@ -871,18 +873,6 @@ msgstr "Quadriculado com flor de milho"
 
 msgid "Roundish"
 msgstr "Arredondado"
-
-msgid "Never"
-msgstr "Jamais"
-
-msgid "Once a day"
-msgstr "Uma vez por dia"
-
-msgid "Once a week"
-msgstr "Uma vez por semana"
-
-msgid "Always"
-msgstr "Sempre"
 
 msgid "Set the bookmarks level to split at"
 msgstr "Define o nível de marcadores de texto para dividir em"
@@ -930,6 +920,32 @@ msgstr "Rotaciona as páginas de múltiplos documentos PDF"
 msgid "Rotate settings"
 msgstr "Configuração de rotação"
 
+#~ msgid "Application menu"
+#~ msgstr "Menu de aplicativos"
+
+#~ msgid "Set how often the PDFsam news panel should be opened"
+#~ msgstr ""
+#~ "Seleciona a frequência com que o painel de notícias do PDFsam deve ser "
+#~ "aberto"
+
+#~ msgid "News panel:"
+#~ msgstr "Painel de notícias"
+
+#~ msgid "Show this:"
+#~ msgstr "Mostra isto:"
+
+#~ msgid "Never"
+#~ msgstr "Jamais"
+
+#~ msgid "Once a day"
+#~ msgstr "Uma vez por dia"
+
+#~ msgid "Once a week"
+#~ msgstr "Uma vez por semana"
+
+#~ msgid "Always"
+#~ msgstr "Sempre"
+
 # G:\Documents\eclipse_workspace\PDFSAMsplit\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:193
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:206
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:223
@@ -947,9 +963,6 @@ msgstr "Configuração de rotação"
 
 #~ msgid "Ask for confirmation when overwrite checkbox is selected"
 #~ msgstr "Pedir confirmação quando o campo sobrescrever estiver marcado"
-
-#~ msgid "Unable to get latest available version"
-#~ msgstr "Não foi possível obter a última versão disponível"
 
 #~ msgid ""
 #~ "Show a dialog box asking the user for confirmation when the \"overwrite\" "
