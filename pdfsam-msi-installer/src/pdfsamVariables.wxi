@@ -4,9 +4,9 @@
 	<?define ProductMajorVersion="3" ?>
 	<?define ProductMinorVersion="0" ?>
 	<?define ProductPatchVersion="0" ?>
-	<?define ProductLabelVersion="2" ?>
+	<?define ProductLabelVersion="3" ?>
 	<!-- Change this -->
-	<?define ProductCode="{0de449ac-0854-45a9-86b9-0427787f09c9}" ?>
+	<?define ProductCode="{1badc945-f59c-45c3-8741-d2b9ff91452b}" ?>
 
 	<!-- Static configuration options. -->
 	<?define ProductVersion="$(var.ProductMajorVersion).$(var.ProductMinorVersion).$(var.ProductPatchVersion).$(var.ProductLabelVersion)" ?>

@@ -1,6 +1,6 @@
 @ECHO OFF
 
-SET MsiName=pdfsam-v3.0.0.M2
+SET MsiName=pdfsam-v3.0.0.M3
 
 REM Prevent compiling with outdated pdfsam.wixobj file if there is a error in candle.
 del /Q pdfsam.wixobj
