@@ -32,6 +32,8 @@ import org.sejda.common.collection.NullSafeSet;
 import org.sejda.conversion.exception.ConversionException;
 import org.sejda.model.pdf.page.PageRange;
 
+import javafx.beans.property.SimpleStringProperty;
+
 /**
  * Model for a row of the selection table
  * 
@@ -41,7 +43,7 @@ import org.sejda.model.pdf.page.PageRange;
 public final class SelectionTableRowData {
 
     private PdfDocumentDescriptor descriptor;
-    private String pageSelection = StringUtils.EMPTY;
+    private SimpleStringProperty pageSelection = new SimpleStringProperty(StringUtils.EMPTY);
 
     public SelectionTableRowData(PdfDocumentDescriptor descriptor) {
         this.descriptor = descriptor;
@@ -49,20 +51,24 @@ public final class SelectionTableRowData {
 
     public SelectionTableRowData(PdfDocumentDescriptor descriptor, String pageSelection) {
         this(descriptor);
-        this.pageSelection = pageSelection;
+        this.pageSelection.set(defaultString(pageSelection));
     }
 
     public String getPageSelection() {
-        return pageSelection;
+        return pageSelection.get();
     }
 
     public void setPageSelection(String pageSelection) {
-        this.pageSelection = defaultString(pageSelection);
+        this.pageSelection.set(defaultString(pageSelection));
+    }
+
+    public SimpleStringProperty pageSelectionProperty() {
+        return pageSelection;
     }
 
     public SelectionTableRowData duplicate() {
         descriptor.retain();
-        return new SelectionTableRowData(descriptor, pageSelection);
+        return new SelectionTableRowData(descriptor, pageSelection.get());
     }
 
     public PdfDocumentDescriptor descriptor() {
@@ -77,9 +83,9 @@ public final class SelectionTableRowData {
      * @return the {@link PageRange} selection set if any, an empty set otherwise.
      */
     public Set<PageRange> toPageRangeSet() throws ConversionException {
-        if (isNotBlank(pageSelection)) {
+        if (isNotBlank(pageSelection.get())) {
             Set<PageRange> pageRangeSet = new NullSafeSet<>();
-            String[] tokens = splitAndTrim(pageSelection, ",");
+            String[] tokens = splitAndTrim(pageSelection.get(), ",");
             for (String current : tokens) {
                 PageRange range = toPageRange(current);
                 if (range.getEnd() < range.getStart()) {

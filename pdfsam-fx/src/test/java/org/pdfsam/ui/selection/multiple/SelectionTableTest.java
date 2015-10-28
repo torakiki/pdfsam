@@ -462,6 +462,20 @@ public class SelectionTableTest extends GuiTest {
         assertEquals(PdfDescriptorLoadingStatus.LOADING.getIcon().characterToString(), icon.getText());
     }
 
+    @Test
+    public void editCommitOnFocusLost() throws Exception {
+        populate();
+        SelectionTable victim = find("#victim");
+        Optional<SelectionTableRowData> item = victim.getItems().stream()
+                .filter(i -> "temp.pdf".equals(i.descriptor().getFileName())).findFirst();
+        assertTrue(item.isPresent());
+        item.get().setPageSelection("2");
+        Thread.sleep(1000);
+        click("2").type(KeyCode.ENTER, KeyCode.DIGIT5);
+        click("temp4.pdf");
+        assertEquals(item.get().getPageSelection(), "5");
+    }
+
     private PdfDocumentDescriptor populate() throws Exception {
         File file = folder.newFile("temp.pdf");
         File file2 = folder.newFile("®¯°±²³要选择需要转换的文.pdf");

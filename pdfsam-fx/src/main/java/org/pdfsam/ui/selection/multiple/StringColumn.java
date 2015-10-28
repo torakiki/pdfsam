@@ -25,7 +25,6 @@ import java.util.Comparator;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 
-import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -45,7 +44,7 @@ public enum StringColumn implements SelectionTableColumn<String> {
 
         @Override
         public ObservableValue<String> getObservableValue(SelectionTableRowData data) {
-            return new SimpleStringProperty(data.getPageSelection());
+            return data.pageSelectionProperty();
         }
 
         @Override
