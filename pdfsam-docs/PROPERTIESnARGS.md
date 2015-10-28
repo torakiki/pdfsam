@@ -47,3 +47,9 @@ A list of properties that can be set during the silent installation of the PDFsa
 *default:* default locale  
 *description:* if no locale is set in the application preferences, tells PDFsam to use this locale.  
 
+
+**SKIPTHANKSPAGE**
+*values:* Yes|No  
+*default:* No  
+*description:* Tells the MSI installer to skip or not the thanks page that is usually opened once the installation completes successfully .  
+
