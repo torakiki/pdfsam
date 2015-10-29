@@ -8,5 +8,6 @@ Build
 -------
 
 1) Run `ant create-bundle` to build the MacOS app
-2) Run `make` to build the dmg file
+2) Run `sudo codesign --deep -s "ANDREA VACONDIO" release/PDFsam.app` to sign the app. You'll need the certificate installed first.
+3) Run `make` to build the dmg file
 
