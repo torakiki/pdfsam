@@ -31,7 +31,7 @@
 
             <runtime dir="${env.JAVA_HOME}"/>
 
-            <classpath file="../pdfsam-community/target/pdfsam-community-3.0.0.M3-SNAPSHOT.jar"/>
+            <classpath file="../pdfsam-community/target/pdfsam-community-3.0.0.RELEASE-SNAPSHOT.jar"/>
 
             <option value="-Xdock:icon=Contents/Resources/Icon.icns"/>
             <option value="-Dapple.laf.useScreenMenuBar=true"/>

@@ -19,7 +19,7 @@
 ################################################################################
 
 NAME ?= PDFsam
-VERSION ?= 3.0.0.M3
+VERSION ?= 3.0.0.RELEASE
 
 SOURCE_DIR ?= release
 SOURCE_FILES ?= PDFsam.app
