@@ -36,23 +36,21 @@ import com.fasterxml.jackson.jr.ob.JSONObjectException;
  * @author Andrea Vacondio
  *
  */
-public class StatefullPreferencesStageServiceTest {
-    private StatefullPreferencesStageService victim = new StatefullPreferencesStageService();
+public class DefaultStageServiceTest {
+    private DefaultStageService victim = new DefaultStageService();
 
     @After
     @Before
     public void clear() {
-        victim.clearStageStatus();
+        victim.clear();
     }
 
     @Test
     public void save() throws JSONObjectException, IOException {
         StageStatus status = new StageStatus(10, 20, 100, 200);
         victim.save(status);
-        StageStatus storedStatus = JSON.std.beanFrom(
-                StageStatus.class,
-                Preferences.userRoot().node(StatefullPreferencesStageService.STAGE_PATH)
-                        .get(StatefullPreferencesStageService.STAGE_STATUS_KEY, ""));
+        StageStatus storedStatus = JSON.std.beanFrom(StageStatus.class, Preferences.userRoot()
+                .node(DefaultStageService.STAGE_PATH).get(DefaultStageService.STAGE_STATUS_KEY, ""));
         assertEquals(status, storedStatus);
     }
 
@@ -60,9 +58,9 @@ public class StatefullPreferencesStageServiceTest {
     public void testClear() {
         StageStatus status = new StageStatus(10, 20, 100, 200);
         victim.save(status);
-        victim.clearStageStatus();
-        assertTrue(isBlank(Preferences.userRoot().node(StatefullPreferencesStageService.STAGE_PATH)
-                .get(StatefullPreferencesStageService.STAGE_STATUS_KEY, "")));
+        victim.clear();
+        assertTrue(isBlank(Preferences.userRoot().node(DefaultStageService.STAGE_PATH)
+                .get(DefaultStageService.STAGE_STATUS_KEY, "")));
     }
 
     @Test
@@ -74,7 +72,6 @@ public class StatefullPreferencesStageServiceTest {
     public void getLatest() {
         StageStatus status = new StageStatus(10, 20, 100, 200);
         victim.save(status);
-        victim.flush();
         assertEquals(status, victim.getLatestStatus());
     }
 }

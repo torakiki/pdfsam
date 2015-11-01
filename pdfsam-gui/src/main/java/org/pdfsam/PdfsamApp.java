@@ -43,6 +43,7 @@ import org.pdfsam.news.NewsService;
 import org.pdfsam.ui.MainPane;
 import org.pdfsam.ui.SetLatestStageStatusRequest;
 import org.pdfsam.ui.StageMode;
+import org.pdfsam.ui.StageService;
 import org.pdfsam.ui.StageStatus;
 import org.pdfsam.ui.commons.OpenUrlRequest;
 import org.pdfsam.ui.commons.ShowStageRequest;
@@ -117,6 +118,7 @@ public class PdfsamApp extends Application {
         ApplicationContextHolder.getContext();
         startLogAppender();
         Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger());
+        cleanIfNeeded();
         primaryStage.setScene(initScene());
         primaryStage.getIcons().addAll(ApplicationContextHolder.getContext().getBeansOfType(Image.class).values());
         primaryStage.setTitle(ApplicationContextHolder.getContext().getBean(Pdfsam.class).name());
@@ -127,7 +129,6 @@ public class PdfsamApp extends Application {
         primaryStage.show();
 
         requestCheckForUpdateIfNecessary();
-        cleanLatestNewsIfNeeded();
         requestLatestNews();
         eventStudio().addAnnotatedListeners(this);
         closeSplash();
@@ -182,9 +183,10 @@ public class PdfsamApp extends Application {
         }
     }
 
-    private void cleanLatestNewsIfNeeded() {
+    private void cleanIfNeeded() {
         if (getParameters().getRaw().contains("-clean")) {
             ApplicationContextHolder.getContext().getBean(NewsService.class).clear();
+            ApplicationContextHolder.getContext().getBean(StageService.class).clear();
         }
     }
 

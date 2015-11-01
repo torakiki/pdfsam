@@ -37,4 +37,9 @@ public interface StageService {
      * @return the latest {@link StageStatus}
      */
     public StageStatus getLatestStatus();
+
+    /**
+     * clear all stored information about the latest {@link StageStatus}
+     */
+    void clear();
 }

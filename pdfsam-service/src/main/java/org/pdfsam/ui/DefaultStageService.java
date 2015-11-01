@@ -24,7 +24,6 @@ import java.io.IOException;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
-import javax.annotation.PreDestroy;
 import javax.inject.Named;
 
 import org.slf4j.Logger;
@@ -33,28 +32,17 @@ import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.jr.ob.JSON;
 
 /**
- * Statefull implementation of a {@link StageService} using {@link Preferences}.
+ * Default implementation of a {@link StageService} using {@link Preferences}.
  * 
  * @author Andrea Vacondio
  *
  */
 @Named
-class StatefullPreferencesStageService implements StageService {
+class DefaultStageService implements StageService {
 
-    private static final Logger LOG = LoggerFactory.getLogger(StatefullPreferencesStageService.class);
+    private static final Logger LOG = LoggerFactory.getLogger(DefaultStageService.class);
     static final String STAGE_PATH = "/org/pdfsam/stage";
     static final String STAGE_STATUS_KEY = "stage.status";
-
-    @PreDestroy
-    void flush() {
-        Preferences prefs = Preferences.userRoot().node(STAGE_PATH);
-        try {
-            LOG.trace("Flushing stage information");
-            prefs.flush();
-        } catch (BackingStoreException e) {
-            LOG.error("Unable to stage status information", e);
-        }
-    }
 
     public void save(StageStatus status) {
         Preferences node = Preferences.userRoot().node(STAGE_PATH);
@@ -79,7 +67,7 @@ class StatefullPreferencesStageService implements StageService {
         return StageStatus.NULL;
     }
 
-    void clearStageStatus() {
+    public void clear() {
         Preferences prefs = Preferences.userRoot().node(STAGE_PATH);
         try {
             prefs.removeNode();
