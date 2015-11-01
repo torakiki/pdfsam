@@ -1,16 +1,8 @@
 PDFsam (PDF Split And Merge)
 ==============================
-Official SCM repository for PDFsam version 3    
+Official SCM repository for PDFsam Basic, a free and open source, multi-platform software designed to split, merge and rotate PDF files.    
 [![Build Status](https://travis-ci.org/torakiki/pdfsam.png)](https://travis-ci.org/torakiki/pdfsam)
 [![License](http://img.shields.io/badge/license-AGPLv3-blue.svg)](http://www.gnu.org/licenses/agpl-3.0.html)
-
-Version
--------------------
-Currently developing v3.0.0 third milestone
-
-What
--------------------
-PDFsam is a desktop application written in Java originally designed to split and merge Pdf documents. It currently performs many tasks beside split and merge like rotation, mix, etc.
 
 Where
 -------------------
@@ -22,7 +14,19 @@ PDFsam Version 3 is open source under the [GNU Affero General Public License] v3
 
 Requirements
 -------------------
-JDK/JRE 8
+PDFsam Basic is written using the JavaFX and requires a Java Runtime Environment 8 (or above) with JavaFx to run
+
+Build
+-------------------
+This is a [simple guide](pdfsam-docs/BUILDnRUN.md) that can help you building PDFsam Basic
+
+Contribute
+------------------
+Contributes are more then welcome, just please make sure you first read the [contributing guidelines](CONTRIBUTING.md)   
+
+Tips and tweaks  
+------------------
+A list of properties and arguments that can tweak PDFsam behavior and be found [here](pdfsam-docs/PROPERTIESnARGS.md) 
 
   [GNU Affero General Public License]: http://www.gnu.org/licenses/agpl-3.0.html
 

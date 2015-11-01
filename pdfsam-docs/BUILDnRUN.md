@@ -6,16 +6,18 @@ Prerequisites
 
 Build
 ===========
+* [clone the PDFsam repository](https://help.github.com/articles/cloning-a-repository/)   
+* Checkout the tag you want to build. Ex. `git chckout 3.0.0.M4`   
 * run one of the following commands from the project root:  
 **Build and install the jars in the local repository executing all the unit test:**   
-`mvn clean install`    
-**Build and install the jars in the local repository executing quick unit test:**   
-`mvn clean install -PfastTests`    
+`mvn clean install -Prelease`    
 **Build and install the jars in the local repository skipping tests:**   
-`mvn clean install -Dmaven.test.skip=true`    
+`mvn clean install -Dmaven.test.skip=true -Prelease`    
 
 Run
 ===========
-Once you built the artifact and they are locally installed you can run PDFsam following the steps  
+Once you built the artifacts and they are locally installed you can run PDFsam following the steps  
 * move to the pdfsam-community module with `cd pdfsam-community`
-* run it with `mvn exec:java`
+* run it with `mvn exec:java`   
+Or you can find the zip bindle in the `target` directory of the `pdfsam-community` module.
+
