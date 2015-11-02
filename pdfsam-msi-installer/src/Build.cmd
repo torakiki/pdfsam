@@ -10,10 +10,10 @@ del /Q verifyWithLanguageDlg.wixobj
 del /Q exitDlg.wixobj
 
 REM Build the MSI
-"%WIX%bin\candle.exe" pdfsam.wxs requirementsDlg.wxs featuresTree.wxs verifyWithLanguageDlg.wxs exitDlg.wxs -ext WixUIExtension -ext WixUtilExtension
+"%WIX%bin\candle.exe" pdfsam.wxs requirementsDlg.wxs featuresTree.wxs verifyWithLanguageDlg.wxs exitDlg.wxs -ext WixUIExtension -ext WixUtilExtension -ext WixNetFxExtension -ext WixNetFxExtension
 
 REM English
-IF EXIST pdfsam.wixobj "%WIX%bin\light.exe" pdfsam.wixobj requirementsDlg.wixobj verifyWithLanguageDlg.wixobj featuresTree.wixobj exitDlg.wixobj -ext WixUIExtension -ext WixUtilExtension -spdb -out "output\pdfsam-v%PDFSAM_VERSION%.msi" -loc "culture.wxl" -cultures:en-us
+IF EXIST pdfsam.wixobj "%WIX%bin\light.exe" pdfsam.wixobj requirementsDlg.wixobj verifyWithLanguageDlg.wixobj featuresTree.wixobj exitDlg.wixobj -ext WixUIExtension -ext WixUtilExtension -ext WixNetFxExtension -ext WixNetFxExtension -spdb -out "output\pdfsam-v%PDFSAM_VERSION%.msi" -loc "culture.wxl" -cultures:en-us
 
 REM Cleanup
 del /Q pdfsam.wixobj
