@@ -30,6 +30,8 @@ import javafx.geometry.Rectangle2D;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
+import java.util.Optional;
+
 /**
  * Controller for the Window status
  * 
@@ -79,7 +81,14 @@ class WindowStatusController {
         stage.setY(latestStatus.getY());
         stage.setWidth(latestStatus.getWidth());
         stage.setHeight(latestStatus.getHeight());
-        latestStatus.getMode().restore(stage);
+
+        if(isNotMac()) {
+            latestStatus.getMode().restore(stage);
+        }
+    }
+
+    private boolean isNotMac() {
+        return !Optional.of(System.getProperty("os.name")).orElse("").toLowerCase().contains("mac");
     }
 
     private boolean hasAvailableScreen(StageStatus status) {
