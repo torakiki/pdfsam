@@ -26,7 +26,7 @@ Contributes are more then welcome, just please make sure you first read the [con
 
 Tips and tweaks  
 ------------------
-A list of properties and arguments that can tweak PDFsam behavior and be found [here](pdfsam-docs/PROPERTIESnARGS.md) 
+A list of properties and arguments that can tweak PDFsam behavior can be found [here](pdfsam-docs/PROPERTIESnARGS.md) 
 
   [GNU Affero General Public License]: http://www.gnu.org/licenses/agpl-3.0.html
 
