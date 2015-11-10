@@ -28,6 +28,7 @@ import static org.mockito.Mockito.verify;
 import org.junit.Test;
 
 import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 
 /**
  * @author Andrea Vacondio
@@ -57,7 +58,7 @@ public class PdfVersionFilterTest {
         ChangeListener<? super Number> listener = mock(ChangeListener.class);
         victim.requiredProperty().addListener(listener);
         victim.removeFilter(10);
-        verify(listener, never()).changed(any(), any(), any());
+        verify(listener, never()).changed(any(ObservableValue.class), any(Number.class), any(Number.class));
     }
 
     @Test
@@ -68,7 +69,7 @@ public class PdfVersionFilterTest {
         ChangeListener<? super Number> listener = mock(ChangeListener.class);
         victim.requiredProperty().addListener(listener);
         victim.addFilter(Integer.valueOf(10));
-        verify(listener, never()).changed(any(), any(), any());
+        verify(listener, never()).changed(any(ObservableValue.class), any(Number.class), any(Number.class));
     }
 
     @Test

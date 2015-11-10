@@ -20,6 +20,7 @@ package org.pdfsam.ui.info;
 
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.timeout;
@@ -38,6 +39,7 @@ import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.sejda.model.pdf.PdfMetadataKey;
 
 import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Labeled;
 import javafx.scene.control.ScrollPane;
 
@@ -61,7 +63,7 @@ public class KeywordsTabTest {
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(mock(File.class));
         descriptor.putInformation(PdfMetadataKey.KEYWORDS.getKey(), "test");
         FXTestUtils.invokeAndWait(() -> victim.requestShow(new ShowPdfDescriptorRequest(descriptor)), 1);
-        verify(listener, timeout(2000).times(1)).changed(any(), any(), eq("test"));
+        verify(listener, timeout(2000).times(1)).changed(any(ObservableValue.class), anyString(), eq("test"));
     }
 
     @Test
@@ -77,7 +79,7 @@ public class KeywordsTabTest {
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.LOADED);
-        verify(listener, timeout(2000).times(1)).changed(any(), any(), eq("test"));
+        verify(listener, timeout(2000).times(1)).changed(any(ObservableValue.class), anyString(), eq("test"));
     }
 
 }

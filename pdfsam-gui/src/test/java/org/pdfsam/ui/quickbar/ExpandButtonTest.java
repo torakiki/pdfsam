@@ -28,6 +28,7 @@ import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 
 import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.ToggleButton;
@@ -50,6 +51,6 @@ public class ExpandButtonTest extends GuiTest {
         ChangeListener<? super Node> listener = mock(ChangeListener.class);
         toggle.graphicProperty().addListener(listener);
         click(".quickbar-expand-toggle");
-        verify(listener).changed(any(), any(), any());
+        verify(listener).changed(any(ObservableValue.class), any(Node.class), any(Node.class));
     }
 }

@@ -22,6 +22,7 @@ import static org.hamcrest.Matchers.isIn;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.argThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.timeout;
@@ -49,6 +50,7 @@ import org.sejda.model.pdf.PdfMetadataKey;
 import org.sejda.model.pdf.PdfVersion;
 
 import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
 import javafx.scene.control.Labeled;
 import javafx.scene.control.ScrollPane;
@@ -124,6 +126,7 @@ public class SummaryTabTest {
         List<String> values = Arrays.asList("test.producer", file.getAbsolutePath(), descriptor.getVersionString(),
                 "2", "test.creationDate", "test.title", "test.author", "test.creator", "test.subject",
                 FileUtils.byteCountToDisplaySize(file.length()), FORMATTER.format(file.lastModified()));
-        listeners.forEach(l -> verify(l, timeout(2000).times(1)).changed(any(), any(), argThat(isIn(values))));
+        listeners.forEach(l -> verify(l, timeout(2000).times(1)).changed(any(ObservableValue.class), anyString(),
+                argThat(isIn(values))));
     }
 }
