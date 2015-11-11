@@ -4,3 +4,10 @@
     -fx-background-radius: 0.0;
 	-fx-effect: none;
 }
+.pdfsam-input-password {
+	-fx-background-color: -pdfsam-box-border-color, -pdfsam-pane-bg;
+    -fx-background-insets: 0.0, 0.4;
+    -fx-background-radius: 0.0;
+	-fx-effect: none;
+    -fx-border-style: none;
+}
