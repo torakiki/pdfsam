@@ -33,10 +33,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import javafx.scene.Parent;
-import javafx.scene.input.KeyCode;
-import javafx.scene.layout.HBox;
-
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -53,6 +49,10 @@ import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.parameter.SplitByPagesParameters;
 import org.sejda.model.pdf.PdfVersion;
+
+import javafx.scene.Parent;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.HBox;
 
 /**
  * @author Andrea Vacondio
@@ -90,10 +90,34 @@ public class SplitAfterRadioButtonTest extends GuiTest {
     }
 
     @Test
+    public void validWhiteSpace() {
+        ValidableTextField field = find("#field");
+        assertEquals(ValidationState.NOT_VALIDATED, field.getValidationState());
+        click(field).type("2, 4 ,10").push(KeyCode.ENTER);
+        assertEquals(ValidationState.VALID, field.getValidationState());
+    }
+
+    @Test
     public void invalid() {
         ValidableTextField field = find("#field");
         assertEquals(ValidationState.NOT_VALIDATED, field.getValidationState());
         click(field).type("Chuck").push(KeyCode.ENTER);
+        assertEquals(ValidationState.INVALID, field.getValidationState());
+    }
+
+    @Test
+    public void invalidZero() {
+        ValidableTextField field = find("#field");
+        assertEquals(ValidationState.NOT_VALIDATED, field.getValidationState());
+        click(field).type("0").push(KeyCode.ENTER);
+        assertEquals(ValidationState.INVALID, field.getValidationState());
+    }
+
+    @Test
+    public void invalidContainsZero() {
+        ValidableTextField field = find("#field");
+        assertEquals(ValidationState.NOT_VALIDATED, field.getValidationState());
+        click(field).type("14,0").push(KeyCode.ENTER);
         assertEquals(ValidationState.INVALID, field.getValidationState());
     }
 
