@@ -23,14 +23,6 @@ import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.control.TitledPane;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -49,6 +41,14 @@ import org.sejda.eventstudio.annotation.EventStation;
 import org.sejda.model.prefix.Prefix;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.control.TitledPane;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 
 /**
  * Rotate module to let the user rotate multiple PDF documents
@@ -69,7 +69,7 @@ public class RotateModule extends BaseTaskExecutionModule {
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.OTHER)
             .name(DefaultI18nContext.getInstance().i18n("Rotate"))
             .description(DefaultI18nContext.getInstance().i18n("Rotate the pages of multiple PDF documents."))
-            .priority(ModulePriority.DEFAULT.getPriority()).supportURL("http://www.pdfsam.org/pdf-rotate").build();
+            .priority(ModulePriority.DEFAULT.getPriority()).supportURL("http://www.pdfsam.org/rotate-pdf").build();
 
     @Inject
     public RotateModule(@Named(MODULE_ID + "field") BrowsableOutputDirectoryField destinationDirectoryField,
