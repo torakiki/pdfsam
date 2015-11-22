@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-10-28 15:21+0100\n"
+"POT-Creation-Date: 2015-11-18 16:13+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -406,6 +406,9 @@ msgid "Page numbers to split at (n1,n2,n3..)"
 msgstr ""
 
 msgid "Invalid page numbers"
+msgstr ""
+
+msgid "Only valid positive page numbers are allowed"
 msgstr ""
 
 msgid "Split"

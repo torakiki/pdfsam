@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-10-28 15:21+0100\n"
+"POT-Creation-Date: 2015-11-18 16:13+0100\n"
 "PO-Revision-Date: 2015-02-23 17:44+0000\n"
 "Last-Translator: Sérgio Marques <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-28 14:24+0000\n"
-"X-Generator: Launchpad (build 17837)\n"
+"X-Launchpad-Export-Date: 2015-11-22 09:53+0000\n"
+"X-Generator: Launchpad (build 17850)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Subscreva a fonte oficial de notícias"
@@ -366,13 +366,11 @@ msgstr "Procurar atualizações"
 msgid "Fetching latest news"
 msgstr ""
 
-#, fuzzy
 msgid "Unable to retrieve the latest news"
-msgstr "Não foi possível localizar a versão mais recente."
+msgstr ""
 
-#, fuzzy
 msgid "Unable to retrieve latest news"
-msgstr "Não foi possível obter a última versão"
+msgstr ""
 
 msgid "Loading pdf documents"
 msgstr "A carregar documentos PDF"
@@ -421,6 +419,9 @@ msgstr "Número de páginas para separar (n1,n2,n3..)"
 
 msgid "Invalid page numbers"
 msgstr "Número de páginas inválido"
+
+msgid "Only valid positive page numbers are allowed"
+msgstr ""
 
 msgid "Split"
 msgstr "Separar"
@@ -869,30 +870,6 @@ msgstr "Rodar as páginas de diversos documentos."
 msgid "Rotate settings"
 msgstr "Definições de rotação"
 
-#~ msgid "Application menu"
-#~ msgstr "Menu da aplicação"
-
-#~ msgid "Set how often the PDFsam news panel should be opened"
-#~ msgstr "Define a frequência de abertura do painel de notícias do PDFsam"
-
-#~ msgid "News panel:"
-#~ msgstr "Painel de notícias:"
-
-#~ msgid "Show this:"
-#~ msgstr "Mostrar:"
-
-#~ msgid "Never"
-#~ msgstr "Nunca"
-
-#~ msgid "Once a day"
-#~ msgstr "Diariamente"
-
-#~ msgid "Once a week"
-#~ msgstr "Semanalmente"
-
-#~ msgid "Always"
-#~ msgstr "Sempre"
-
 #~ msgid "Split even pages"
 #~ msgstr "Separar páginas pares"
 
@@ -905,8 +882,14 @@ msgstr "Definições de rotação"
 #~ msgid "Output document pdf version:"
 #~ msgstr "Versão pdf do documento a criar:"
 
+#~ msgid "Never"
+#~ msgstr "Nunca"
+
 #~ msgid "Would you like to overwrite it?"
 #~ msgstr "Deseja substituir o ficheiro existente?"
+
+#~ msgid "Unable to get latest available version"
+#~ msgstr "Não foi possível obter a última versão"
 
 #~ msgid "Ask for confirmation when overwrite checkbox is selected"
 #~ msgstr "Pedir confirmação se a caixa de substituição estiver selecionada"
