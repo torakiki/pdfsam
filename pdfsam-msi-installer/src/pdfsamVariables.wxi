@@ -6,7 +6,7 @@
 	<?define ProductPatchVersion="0" ?>
 	<?define ProductLabelVersion="5" ?>
 	<!-- Change this -->
-	<?define ProductCode="{b1989a70-3017-475c-a757-3db52df0b89e}" ?>
+	<?define ProductCode="{dae3a88d-8bec-4d32-b4c8-99a1a8f33216}" ?>
 	<?define ProductFullVersion="3.0.0.RELEASE" ?>
 
 	<!-- Static configuration options. -->
