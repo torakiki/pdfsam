@@ -3,8 +3,9 @@
 	<!-- Values required to change for a new release: -->
 	<?define ProductMajorVersion="3" ?>
 	<?define ProductMinorVersion="0" ?>
-	<?define ProductPatchVersion="0" ?>
-	<?define ProductLabelVersion="5" ?>
+	<!-- Change patch version otherwise upgrade is not detected -->
+	<?define ProductPatchVersion="5" ?>
+	<?define ProductLabelVersion="0" ?>
 	<!-- Change this -->
 	<?define ProductCode="{dae3a88d-8bec-4d32-b4c8-99a1a8f33216}" ?>
 	<?define ProductFullVersion="3.0.0.RELEASE" ?>
