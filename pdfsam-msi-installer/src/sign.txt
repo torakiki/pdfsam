@@ -1,1 +1,1 @@
-"c:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\signtool.exe" sign /t http://timestamp.verisign.com/scripts/timstamp.dll /f cert.pfx pdfsam-v3.0.0.M2.msi
+"c:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\signtool.exe" sign /t http://timestamp.verisign.com/scripts/timstamp.dll /f cert.pfx /d "PDFsam Basic" pdfsam-v3.0.0.M2.msi
