@@ -57,9 +57,6 @@ import javafx.scene.control.Tooltip;
 @Configuration
 public class PreferenceConfig {
 
-    private static final Integer THUMB_SIZE_LOWER = 130;
-    private static final Integer THUMB_SIZE_UPPER = 390;
-
     @Inject
     private UserContext userContext;
 
@@ -153,22 +150,6 @@ public class PreferenceConfig {
         workspace.getTextField().setText(userContext.getDefaultWorkspacePath());
         workspace.setId("workspace");
         return workspace;
-    }
-
-    // @Bean(name = "thumbnailsSize")
-    public PreferenceIntTextField thumbnailsSize() {
-        PreferenceIntTextField thumbnails = new PreferenceIntTextField(IntUserPreference.THUMBNAILS_SIZE, userContext,
-                Validators.newPositiveIntRangeString(THUMB_SIZE_LOWER, THUMB_SIZE_UPPER));
-        thumbnails.setText(Integer.toString(userContext.getThumbnailsSize()));
-        thumbnails.setErrorMessage(DefaultI18nContext.getInstance().i18n("Size must be between {0}px and {1}px",
-                THUMB_SIZE_LOWER.toString(), THUMB_SIZE_UPPER.toString()));
-        String helpText = DefaultI18nContext.getInstance().i18n(
-                "Pixel size of the thumbnails (between {0}px and {1}px)", THUMB_SIZE_LOWER.toString(),
-                THUMB_SIZE_UPPER.toString());
-        thumbnails.setPromptText(helpText);
-        thumbnails.setTooltip(new Tooltip(helpText));
-        thumbnails.setId("thumbnailsSize");
-        return thumbnails;
     }
 
     @Bean(name = "logViewRowsNumber")

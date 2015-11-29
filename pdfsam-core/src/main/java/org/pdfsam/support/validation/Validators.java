@@ -35,6 +35,17 @@ public final class Validators {
     }
 
     /**
+     * @return a new instance of a validator that always returns false
+     */
+    public static Validator<String> newInvalidString() {
+        return new Validator<String>() {
+            public boolean isValid(String input) {
+                return false;
+            }
+        };
+    }
+
+    /**
      * @return a new instance of a validator checking for a on blank input string
      */
     public static Validator<String> newNonBlankString() {
@@ -46,6 +57,13 @@ public final class Validators {
      */
     public static Validator<String> newPositiveIntegerString() {
         return new PositiveIntegerStringValidator();
+    }
+
+    /**
+     * @return a new instance of a validator checking for a input integer is positive
+     */
+    public static Validator<Integer> newPositiveInteger() {
+        return new PositiveIntegerValidator();
     }
 
     /**
@@ -129,6 +147,5 @@ public final class Validators {
             }
             return true;
         }
-
     }
 }
