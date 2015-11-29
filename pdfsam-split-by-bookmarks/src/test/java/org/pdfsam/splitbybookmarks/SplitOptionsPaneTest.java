@@ -29,10 +29,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import javafx.scene.Parent;
-import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
-
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -41,6 +37,10 @@ import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.test.ClearEventStudioRule;
+
+import javafx.scene.Parent;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 
 /**
  * @author Andrea Vacondio
@@ -70,6 +70,8 @@ public class SplitOptionsPaneTest extends GuiTest {
     @Test
     public void applyLevel() throws Exception {
         SplitOptionsPane victim = find(".pdfsam-container");
+        BookmarksLevelComboBox combo = find("#bookmarksLevel");
+        combo.setMaxBookmarkLevel(10);
         click("#bookmarksLevel").type('3').push(KeyCode.ENTER);
         FXTestUtils.invokeAndWait(() -> victim.apply(builder, onError), 2);
         verify(onError, never()).accept(anyString());
@@ -80,6 +82,8 @@ public class SplitOptionsPaneTest extends GuiTest {
     @Test
     public void applyRegexp() throws Exception {
         SplitOptionsPane victim = find(".pdfsam-container");
+        BookmarksLevelComboBox combo = find("#bookmarksLevel");
+        combo.setMaxBookmarkLevel(10);
         click("#bookmarksLevel").type('3').push(KeyCode.ENTER);
         click("#bookmarksRegexp").type("Chuck");
         FXTestUtils.invokeAndWait(() -> victim.apply(builder, onError), 2);
@@ -91,6 +95,8 @@ public class SplitOptionsPaneTest extends GuiTest {
     @Test
     public void emptyLevel() throws Exception {
         SplitOptionsPane victim = find(".pdfsam-container");
+        BookmarksLevelComboBox combo = find("#bookmarksLevel");
+        combo.setMaxBookmarkLevel(10);
         FXTestUtils.invokeAndWait(() -> victim.apply(builder, onError), 2);
         verify(onError).accept(anyString());
         verify(builder, never()).level(anyInt());
@@ -100,6 +106,8 @@ public class SplitOptionsPaneTest extends GuiTest {
     @Test
     public void saveState() {
         SplitOptionsPane victim = find(".pdfsam-container");
+        BookmarksLevelComboBox combo = find("#bookmarksLevel");
+        combo.setMaxBookmarkLevel(10);
         click("#bookmarksLevel").type('3').push(KeyCode.ENTER);
         click("#bookmarksRegexp").type("Chuck");
         Map<String, String> data = new HashMap<>();
