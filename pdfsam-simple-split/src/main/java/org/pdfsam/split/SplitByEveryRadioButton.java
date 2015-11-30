@@ -52,9 +52,9 @@ public class SplitByEveryRadioButton extends RadioButton implements SplitParamet
         this.field.setOnEnterValidation(true);
         this.field.setEnableInvalidStyle(true);
         this.field.setPromptText(DefaultI18nContext.getInstance().i18n("Number of pages"));
-        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each")));
-        this.field.setValidator(Validators.newRegexMatchingString("^(\\d)+$"));
+        setTooltip(new Tooltip(DefaultI18nContext.getInstance()
+                .i18n("Splits the PDF every \"n\" pages creating documents of \"n\" pages each")));
+        this.field.setValidator(Validators.newPositiveIntegerString());
         this.field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Invalid number of pages"));
     }
 
@@ -79,14 +79,20 @@ public class SplitByEveryRadioButton extends RadioButton implements SplitParamet
         field.setText(Optional.ofNullable(data.get("splitByEvery.field")).orElse(EMPTY));
     }
 
+    void setMaxPages(Integer value) {
+        if (value > 1) {
+            this.field.setValidator(Validators.newPositiveIntRangeString(1, value - 1));
+        }
+    }
+
     /**
      * Builder for the {@link SplitByEveryXPagesParameters}
      * 
      * @author Andrea Vacondio
      *
      */
-    static class SplitByEveryXPagesParametersBuilder extends
-            SinglePdfSourceMultipleOutputParametersBuilder<SplitByEveryXPagesParameters> {
+    static class SplitByEveryXPagesParametersBuilder
+            extends SinglePdfSourceMultipleOutputParametersBuilder<SplitByEveryXPagesParameters> {
 
         private int step;
 

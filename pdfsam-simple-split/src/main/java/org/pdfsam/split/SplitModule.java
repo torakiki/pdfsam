@@ -24,13 +24,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.control.TitledPane;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -53,6 +46,13 @@ import org.sejda.model.parameter.AbstractSplitByPageParameters;
 import org.sejda.model.prefix.Prefix;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.control.TitledPane;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 /**
  * Simple split module to let the user set page numbers to split an input pdf document.
@@ -81,8 +81,9 @@ public class SplitModule extends BaseTaskExecutionModule {
         this.destinationDirectoryField = destinationDirectoryField;
         this.destinationPane = destinationPane;
         this.selectionPane = new TaskParametersBuilderSingleSelectionPane(id());
-        this.selectionPane.setPromptText(DefaultI18nContext.getInstance().i18n(
-                "Select or drag and drop the PDF you want to split"));
+        this.selectionPane.setPromptText(
+                DefaultI18nContext.getInstance().i18n("Select or drag and drop the PDF you want to split"));
+        this.selectionPane.addOnLoaded(d -> splitOptions.setMaxPages(d.pages().getValue()));
     }
 
     @Override
@@ -124,13 +125,14 @@ public class SplitModule extends BaseTaskExecutionModule {
         VBox pane = new VBox();
         pane.setAlignment(Pos.TOP_CENTER);
 
-        TitledPane prefixTitled = Views
-                .titledPane(DefaultI18nContext.getInstance().i18n("File names settings"), prefix);
+        TitledPane prefixTitled = Views.titledPane(DefaultI18nContext.getInstance().i18n("File names settings"),
+                prefix);
         prefix.addMenuItemFor(Prefix.CURRENTPAGE);
         prefix.addMenuItemFor(Prefix.FILENUMBER);
 
-        pane.getChildren().addAll(selectionPane,
-                Views.titledPane(DefaultI18nContext.getInstance().i18n("Split settings"), splitOptions),
+        pane.getChildren()
+                .addAll(selectionPane, Views.titledPane(DefaultI18nContext.getInstance().i18n("Split settings"),
+                        splitOptions),
                 Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination directory"), destinationPane),
                 prefixTitled);
         return pane;
@@ -154,8 +156,8 @@ public class SplitModule extends BaseTaskExecutionModule {
         }
 
         @Bean(name = MODULE_ID + "pane")
-        public PdfDestinationPane destinationPane(
-                @Named(MODULE_ID + "field") BrowsableOutputDirectoryField outputField, UserContext userContext) {
+        public PdfDestinationPane destinationPane(@Named(MODULE_ID + "field") BrowsableOutputDirectoryField outputField,
+                UserContext userContext) {
             PdfDestinationPane panel = new PdfDestinationPane(outputField, MODULE_ID, userContext);
             panel.enableSameAsSourceItem();
             return panel;

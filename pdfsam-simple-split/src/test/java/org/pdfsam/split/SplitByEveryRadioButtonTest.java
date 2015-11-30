@@ -33,10 +33,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import javafx.scene.Parent;
-import javafx.scene.input.KeyCode;
-import javafx.scene.layout.HBox;
-
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -53,6 +49,10 @@ import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.parameter.SplitByEveryXPagesParameters;
 import org.sejda.model.pdf.PdfVersion;
+
+import javafx.scene.Parent;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.HBox;
 
 /**
  * @author Andrea Vacondio
@@ -98,6 +98,16 @@ public class SplitByEveryRadioButtonTest extends GuiTest {
     }
 
     @Test
+    public void invalidMaxPage() {
+        ValidableTextField field = find("#field");
+        SplitByEveryRadioButton victim = find("#victim");
+        victim.setMaxPages(10);
+        assertEquals(ValidationState.NOT_VALIDATED, field.getValidationState());
+        click(field).type("10").push(KeyCode.ENTER);
+        assertEquals(ValidationState.INVALID, field.getValidationState());
+    }
+
+    @Test
     public void invalidBuilder() throws Exception {
         ValidableTextField field = find("#field");
         SplitByEveryRadioButton victim = find("#victim");
@@ -133,7 +143,7 @@ public class SplitByEveryRadioButtonTest extends GuiTest {
             assertEquals(output, params.getOutput());
             assertEquals(source, params.getSource());
             verify(onError, never()).accept(anyString());
-        }, 2);
+        } , 2);
     }
 
     @Test
