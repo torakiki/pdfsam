@@ -180,6 +180,15 @@ public class SingleSelectionPaneTest extends GuiTest {
     }
 
     @Test
+    public void additionalOnLoadedConsumerNotHit() throws Exception {
+        HitConsumer<PdfDocumentDescriptor> consumer = new HitConsumer<>();
+        SingleSelectionPane victim = find("#victim-selection-pane");
+        victim.addOnLoaded(consumer);
+        moveToEncrytedState(victim);
+        assertFalse(consumer.isHit());
+    }
+
+    @Test
     public void onLoadedChangedSelectedPdfVersionEvent() throws Exception {
         Listener<ChangedSelectedPdfVersionEvent> listener = mock(Listener.class);
         eventStudio().add(ChangedSelectedPdfVersionEvent.class, listener, MODULE);
@@ -350,16 +359,10 @@ public class SingleSelectionPaneTest extends GuiTest {
 
     @Test
     public void clickEncryptedThrowsRequest() throws Exception {
-        typePathAndValidate();
         SingleSelectionPane victim = find("#victim-selection-pane");
         Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequestEvent.class, listener);
-        FXTestUtils.invokeAndWait(() -> {
-            victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
-            victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
-            victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.ENCRYPTED);
-        } , 2);
-
+        moveToEncrytedState(victim);
         click(".glyph-icon");
         type("pwd").click(DefaultI18nContext.getInstance().i18n("Unlock"));
         verify(listener, times(2)).onEvent(any());
@@ -400,6 +403,15 @@ public class SingleSelectionPaneTest extends GuiTest {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADED);
+        } , 2);
+    }
+
+    private void moveToEncrytedState(SingleSelectionPane victim) throws Exception {
+        typePathAndValidate();
+        FXTestUtils.invokeAndWait(() -> {
+            victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
+            victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
+            victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.ENCRYPTED);
         } , 2);
     }
 

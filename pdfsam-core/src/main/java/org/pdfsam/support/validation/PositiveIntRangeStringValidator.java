@@ -32,7 +32,8 @@ class PositiveIntRangeStringValidator extends PositiveIntegerStringValidator {
     private int lower = Integer.MIN_VALUE;
 
     public PositiveIntRangeStringValidator(int lower, int upper) {
-        require(lower > 0 && upper > 0, "Lower and upper limit cannot be negative numbers");
+        require(lower > 0 && upper > 0,
+                "Lower and upper limit cannot be negative numbers, lower=" + lower + " upper=" + upper);
         this.upper = upper;
         this.lower = lower;
     }

@@ -99,12 +99,8 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
     private MenuItem removeSelected;
 
     private Consumer<PdfDocumentDescriptor> onLoaded = d -> {
-        PdfDescriptorLoadingStatus status = d.loadingStatus().getValue();
-        if (status == PdfDescriptorLoadingStatus.LOADED
-                || status == PdfDescriptorLoadingStatus.LOADED_WITH_USER_PWD_DECRYPTION) {
-            eventStudio().broadcast(requestFallbackDestination(d.getFile(), getOwnerModule()), getOwnerModule());
-            eventStudio().broadcast(new ChangedSelectedPdfVersionEvent(d.getVersion()), getOwnerModule());
-        }
+        eventStudio().broadcast(requestFallbackDestination(d.getFile(), getOwnerModule()), getOwnerModule());
+        eventStudio().broadcast(new ChangedSelectedPdfVersionEvent(d.getVersion()), getOwnerModule());
     };
 
     private Consumer<PdfDocumentDescriptor> detailsUpdate = d -> {
@@ -130,7 +126,13 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
 
     private ChangeListener<PdfDescriptorLoadingStatus> onLoadingStatusChange = (o, oldVal, newVal) -> {
         if (descriptor != null & descriptor.hasReferences()) {
-            encryptionIndicatorUpdate.andThen(detailsUpdate).andThen(onLoaded).accept(descriptor);
+            encryptionIndicatorUpdate.andThen(detailsUpdate).andThen(d -> {
+                PdfDescriptorLoadingStatus status = d.loadingStatus().getValue();
+                if (status == PdfDescriptorLoadingStatus.LOADED
+                        || status == PdfDescriptorLoadingStatus.LOADED_WITH_USER_PWD_DECRYPTION) {
+                    onLoaded.accept(d);
+                }
+            }).accept(descriptor);
         }
     };
 

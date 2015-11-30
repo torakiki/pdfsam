@@ -25,11 +25,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.support.validation.Validators;
@@ -38,14 +33,19 @@ import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.workspace.RestorableView;
 
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+
 /**
  * Panel for the Alternate Mix options
  * 
  * @author Andrea Vacondio
  *
  */
-class AlternateMixOptionsPane extends VBox implements TaskParametersBuildStep<AlternateMixParametersBuilder>,
-        RestorableView {
+class AlternateMixOptionsPane extends VBox
+        implements TaskParametersBuildStep<AlternateMixParametersBuilder>, RestorableView {
 
     private CheckBox reverseFirst = new CheckBox(DefaultI18nContext.getInstance().i18n("Reverse the first document"));
     private CheckBox reverseSecond = new CheckBox(DefaultI18nContext.getInstance().i18n("Reverse the second document"));
@@ -61,13 +61,25 @@ class AlternateMixOptionsPane extends VBox implements TaskParametersBuildStep<Al
         this.secondStep.setId("alternateMixSecondStep");
         initialState();
         getStyleClass().addAll(Style.CONTAINER.css());
-        HBox firstStepContainer = new HBox(new Label(DefaultI18nContext.getInstance().i18n(
-                "Switch from the first document to the second one after the following pages")), firstStep);
+        HBox firstStepContainer = new HBox(
+                new Label(DefaultI18nContext.getInstance()
+                        .i18n("Switch from the first document to the second one after the following pages")),
+                firstStep);
         firstStepContainer.getStyleClass().addAll(Style.HCONTAINER.css());
-        HBox secondStepContainer = new HBox(new Label(DefaultI18nContext.getInstance().i18n(
-                "Switch from the second document to the first one after the following pages")), secondStep);
+        HBox secondStepContainer = new HBox(
+                new Label(DefaultI18nContext.getInstance()
+                        .i18n("Switch from the second document to the first one after the following pages")),
+                secondStep);
         secondStepContainer.getStyleClass().addAll(Style.HCONTAINER.css());
         getChildren().addAll(this.reverseFirst, this.reverseSecond, firstStepContainer, secondStepContainer);
+    }
+
+    void setFirstDocumentMaxPages(Integer value) {
+        this.firstStep.setValidator(Validators.newPositiveIntRangeString(1, value));
+    }
+
+    void setSecondDocumentMaxPages(Integer value) {
+        this.secondStep.setValidator(Validators.newPositiveIntRangeString(1, value));
     }
 
     public void apply(AlternateMixParametersBuilder builder, Consumer<String> onError) {
@@ -80,15 +92,15 @@ class AlternateMixOptionsPane extends VBox implements TaskParametersBuildStep<Al
             builder.stepFirst(Integer.parseInt(firstStep.getText()));
             builder.stepSecond(Integer.parseInt(secondStep.getText()));
         } else {
-            onError.accept(DefaultI18nContext.getInstance().i18n(
-                    "Invalid parameter 'first and second step' must be numbers"));
+            onError.accept(
+                    DefaultI18nContext.getInstance().i18n("Invalid parameter 'first and second step' must be numbers"));
         }
     }
 
     private static ValidableTextField createValidableField() {
         ValidableTextField field = new ValidableTextField();
         field.setEnableInvalidStyle(true);
-        field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Select the number of pages"));
+        field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Select a valid number of pages"));
         field.setValidator(Validators.newPositiveIntegerString());
         field.setOnEnterValidation(true);
         field.setPrefWidth(50);
@@ -115,4 +127,5 @@ class AlternateMixOptionsPane extends VBox implements TaskParametersBuildStep<Al
         this.firstStep.setText("1");
         this.secondStep.setText("1");
     }
+
 }
