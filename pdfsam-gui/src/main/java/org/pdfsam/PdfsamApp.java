@@ -51,6 +51,7 @@ import org.pdfsam.ui.dialog.OverwriteConfirmationDialog;
 import org.pdfsam.ui.io.SetLatestDirectoryEvent;
 import org.pdfsam.ui.log.LogMessageBroadcaster;
 import org.pdfsam.ui.notification.NotificationsContainer;
+import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.update.UpdateCheckRequest;
 import org.sejda.core.Sejda;
 import org.sejda.eventstudio.EventStudio;
@@ -126,6 +127,7 @@ public class PdfsamApp extends Application {
         initWindowsStatusController(primaryStage);
         initOverwriteDialogController(primaryStage);
         initActiveModule();
+        loadWorkspaceIfRequired();
         primaryStage.show();
 
         requestCheckForUpdateIfNecessary();
@@ -221,6 +223,13 @@ public class PdfsamApp extends Application {
         if (isNotBlank(startupModule)) {
             LOG.trace("Activating startup module '{}'", startupModule);
             eventStudio().broadcast(activeteModule(startupModule));
+        }
+    }
+
+    private void loadWorkspaceIfRequired() {
+        String workspace = new DefaultUserContext().getDefaultWorkspacePath();
+        if (isNotBlank(workspace) && Files.exists(Paths.get(workspace))) {
+            eventStudio().broadcast(new LoadWorkspaceEvent(new File(workspace)));
         }
     }
 }

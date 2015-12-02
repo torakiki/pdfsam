@@ -146,7 +146,7 @@ public class PreferenceConfig {
     @Bean(name = "workspace")
     public PreferenceBrowsableFileField workspace() {
         PreferenceBrowsableFileField workspace = new PreferenceBrowsableFileField(StringUserPreference.WORKSPACE_PATH,
-                FileType.XML, OpenType.OPEN, userContext);
+                FileType.JSON, OpenType.OPEN, userContext);
         workspace.getTextField().setText(userContext.getDefaultWorkspacePath());
         workspace.setId("workspace");
         return workspace;
