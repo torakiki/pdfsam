@@ -22,10 +22,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SeparatorMenuItem;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -39,6 +35,10 @@ import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.pdfsam.ui.workspace.WorkspaceLoadedEvent;
 import org.sejda.eventstudio.annotation.EventListener;
+
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SeparatorMenuItem;
 
 /**
  * Menu displaying workspace related items
@@ -71,8 +71,8 @@ class WorkspaceMenu extends Menu {
     }
 
     public void saveWorkspace() {
-        RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(FileType.JSON, DefaultI18nContext
-                .getInstance().i18n("Select the workspace file to save"));
+        RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(FileType.JSON,
+                DefaultI18nContext.getInstance().i18n("Select the workspace file to save"));
         fileChooser.setInitialFileName("PDFsam_workspace.json");
         File chosenFile = fileChooser.showDialog(OpenType.SAVE);
         if (chosenFile != null) {
@@ -81,8 +81,8 @@ class WorkspaceMenu extends Menu {
     }
 
     public void loadWorkspace() {
-        RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(FileType.JSON, DefaultI18nContext
-                .getInstance().i18n("Select the workspace to load"));
+        RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(FileType.JSON,
+                DefaultI18nContext.getInstance().i18n("Select the workspace to load"));
         File chosenFile = fileChooser.showDialog(OpenType.OPEN);
         if (chosenFile != null) {
             eventStudio().broadcast(new LoadWorkspaceEvent(chosenFile));

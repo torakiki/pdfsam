@@ -106,4 +106,14 @@ public class WorkspaceMenuTest extends GuiTest {
         click(".button").click("#workspaceMenu").move("#loadWorkspace").move("#saveWorkspace")
                 .click("#recentWorkspace").click("Micheal");
     }
+
+    @Test
+    @DirtiesContext
+    public void recentIsUpdatedAndMnemonicAreNotParsed() {
+        RecentWorkspacesService service = applicationContext.getBean(RecentWorkspacesService.class);
+        when(service.getRecentlyUsedWorkspaces()).thenReturn(Arrays.asList("I_have_underscores"));
+        eventStudio().broadcast(new WorkspaceLoadedEvent(mock(File.class)));
+        click(".button").click("#workspaceMenu").move("#loadWorkspace").move("#saveWorkspace").click("#recentWorkspace")
+                .click("I_have_underscores");
+    }
 }

@@ -23,10 +23,10 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 
-import javafx.scene.control.MenuItem;
-
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
+
+import javafx.scene.control.MenuItem;
 
 /**
  * Menu item for the recent workspaces menu
@@ -40,5 +40,6 @@ class WorkspaceMenuItem extends MenuItem {
         requireNotBlank(path, "Workspace item cannot be blank");
         this.setText(StringUtils.abbreviate(path, path.length(), 60));
         this.setOnAction(a -> eventStudio().broadcast(new LoadWorkspaceEvent(new File(path))));
+        this.setMnemonicParsing(false);
     }
 }
