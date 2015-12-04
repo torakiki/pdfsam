@@ -27,23 +27,23 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 /**
- * Content for the overwrite confirmation dialog.
+ * Content for a confirmation dialog.
  * 
  * @author Andrea Vacondio
  *
  */
-class OverwriteConfirmationDialogContent extends HBox {
+class ConfirmationDialogContent extends HBox {
 
     private Label messageTitle = new Label();
     private Label messageContent = new Label();
 
-    OverwriteConfirmationDialogContent() {
+    ConfirmationDialogContent(MaterialDesignIcon icon) {
         getStyleClass().addAll(Style.CONTAINER.css());
         messageTitle.getStyleClass().add("-pdfsam-dialog-title");
         messageContent.getStyleClass().add("-pdfsam-dialog-message");
         VBox messages = new VBox(messageTitle, messageContent);
         messages.getStyleClass().add("-pdfsam-dialog-messages");
-        getChildren().addAll(GlyphsDude.createIcon(MaterialDesignIcon.ALERT, "42.0"), messages);
+        getChildren().addAll(GlyphsDude.createIcon(icon, "42.0"), messages);
         getStyleClass().addAll("-pdfsam-dialog-content");
     }
 

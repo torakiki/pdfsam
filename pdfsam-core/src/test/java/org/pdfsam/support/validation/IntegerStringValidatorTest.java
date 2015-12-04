@@ -29,7 +29,7 @@ import org.junit.Test;
  */
 public class IntegerStringValidatorTest {
 
-    private Validator<String> victim = Validators.newPositiveIntegerString();
+    private Validator<String> victim = Validators.positiveInteger();
 
     @Test
     public void testNegative() {
@@ -55,6 +55,6 @@ public class IntegerStringValidatorTest {
     @Test
     public void testAllowBlank() {
         assertFalse(victim.isValid(""));
-        assertTrue(Validators.decorateAsValidEmptyString(victim).isValid(""));
+        assertTrue(Validators.validEmpty(victim).isValid(""));
     }
 }

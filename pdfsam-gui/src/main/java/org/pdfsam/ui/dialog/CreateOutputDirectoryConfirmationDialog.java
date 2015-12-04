@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 09/ott/2014
+ * Created on 03 dic 2015
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,19 +26,21 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.springframework.context.annotation.Lazy;
 
 /**
- * Dialog asking the user to confirm for the output file overwrite
+ * Dialog asking the user if he wants to create a non existing output directory
  * 
  * @author Andrea Vacondio
- *
  */
 @Named
 @Lazy
-public class OverwriteConfirmationDialog extends ConfirmationDialog {
+public class CreateOutputDirectoryConfirmationDialog extends ConfirmationDialog {
 
     @Inject
-    public OverwriteConfirmationDialog(StylesConfig styles) {
-        super(styles, DialogStyle.WARNING, DefaultI18nContext.getInstance().i18n("Overwrite"),
-                DefaultI18nContext.getInstance().i18n("Cancel"));
+    public CreateOutputDirectoryConfirmationDialog(StylesConfig styles) {
+        super(styles, DialogStyle.QUESTION, DefaultI18nContext.getInstance().i18n("Yes"),
+                DefaultI18nContext.getInstance().i18n("No"));
+        this.title(DefaultI18nContext.getInstance().i18n("Non existing directory"))
+                .messageTitle(DefaultI18nContext.getInstance().i18n("The selected output directory does not exist"))
+                .messageContent(DefaultI18nContext.getInstance().i18n("Do you want to create it?"));
     }
 
 }

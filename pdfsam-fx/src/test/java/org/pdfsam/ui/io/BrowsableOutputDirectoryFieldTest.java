@@ -20,11 +20,13 @@ package org.pdfsam.ui.io;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasProperty;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.argThat;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 import java.io.IOException;
@@ -37,7 +39,9 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.pdfsam.support.params.MultipleOutputTaskParametersBuilder;
+import org.pdfsam.test.HitTestListener;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
+import org.pdfsam.ui.commons.NonExistingOutputDirectoryEvent;
 import org.sejda.model.parameter.base.MultipleOutputTaskParameters;
 
 /**
@@ -76,12 +80,33 @@ public class BrowsableOutputDirectoryFieldTest {
     }
 
     @Test
-    public void invalid() {
+    public void invalidBlank() {
         BrowsableOutputDirectoryField victim = new BrowsableOutputDirectoryField();
-        victim.getTextField().setText("ChuckNorris");
+        victim.getTextField().setText("  ");
         victim.apply(builder, onError);
         verify(builder, never()).output(any());
         verify(onError).accept(anyString());
     }
 
+    @Test
+    public void invalidFile() throws IOException {
+        BrowsableOutputDirectoryField victim = new BrowsableOutputDirectoryField();
+        File value = folder.newFile();
+        victim.getTextField().setText(value.getAbsolutePath());
+        victim.apply(builder, onError);
+        verify(builder, never()).output(any());
+        verify(onError).accept(anyString());
+    }
+
+    @Test
+    public void validNonExisting() throws IOException {
+        HitTestListener<NonExistingOutputDirectoryEvent> listener = new HitTestListener<>();
+        eventStudio().add(NonExistingOutputDirectoryEvent.class, listener);
+        BrowsableOutputDirectoryField victim = new BrowsableOutputDirectoryField();
+        File value = folder.newFolder();
+        victim.getTextField().setText(value.getAbsolutePath());
+        folder.delete();
+        victim.apply(builder, onError);
+        assertTrue(listener.isHit());
+    }
 }

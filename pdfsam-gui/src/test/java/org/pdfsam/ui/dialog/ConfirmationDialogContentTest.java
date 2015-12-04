@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 09/ott/2014
+ * Created on 10/ott/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,27 +18,31 @@
  */
 package org.pdfsam.ui.dialog;
 
-import javax.inject.Inject;
-import javax.inject.Named;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.loadui.testfx.GuiTest;
+import org.loadui.testfx.categories.TestFX;
 
-import org.pdfsam.configuration.StylesConfig;
-import org.pdfsam.i18n.DefaultI18nContext;
-import org.springframework.context.annotation.Lazy;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
+import javafx.scene.Parent;
 
 /**
- * Dialog asking the user to confirm for the output file overwrite
- * 
  * @author Andrea Vacondio
  *
  */
-@Named
-@Lazy
-public class OverwriteConfirmationDialog extends ConfirmationDialog {
-
-    @Inject
-    public OverwriteConfirmationDialog(StylesConfig styles) {
-        super(styles, DialogStyle.WARNING, DefaultI18nContext.getInstance().i18n("Overwrite"),
-                DefaultI18nContext.getInstance().i18n("Cancel"));
+@Category(TestFX.class)
+public class ConfirmationDialogContentTest extends GuiTest {
+    @Override
+    protected Parent getRootNode() {
+        ConfirmationDialogContent victim = new ConfirmationDialogContent(MaterialDesignIcon.ACCOUNT);
+        victim.messageTitle("MessageTitle");
+        victim.messageContent("MessageContent");
+        return victim;
     }
 
+    @Test
+    public void contentIsShown() {
+        find("MessageTitle");
+        find("MessageContent");
+    }
 }

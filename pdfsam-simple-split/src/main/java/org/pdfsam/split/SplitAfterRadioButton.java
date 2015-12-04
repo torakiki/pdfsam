@@ -55,7 +55,7 @@ class SplitAfterRadioButton extends RadioButton implements SplitParametersBuilde
         this.field.setEnableInvalidStyle(true);
         this.field.setPromptText(DefaultI18nContext.getInstance().i18n("Page numbers to split at (n1,n2,n3..)"));
         setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Split the document after the given page numbers")));
-        this.field.setValidator(Validators.newRegexMatchingString("^([1-9]\\d*(\\s*,\\s*)?)+$"));
+        this.field.setValidator(Validators.regexMatching("^([1-9]\\d*(\\s*,\\s*)?)+$"));
         this.field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Invalid page numbers"));
     }
 

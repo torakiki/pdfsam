@@ -20,8 +20,8 @@ package org.pdfsam.support.validation;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.pdfsam.support.validation.Validators.decorateAsValidEmptyString;
-import static org.pdfsam.support.validation.Validators.newPositiveIntegerString;
+import static org.pdfsam.support.validation.Validators.positiveInteger;
+import static org.pdfsam.support.validation.Validators.validEmpty;
 
 import org.junit.Test;
 
@@ -30,7 +30,7 @@ import org.junit.Test;
  * 
  */
 public class BlankStringDecoratorTest {
-    private Validator<String> victim = decorateAsValidEmptyString(newPositiveIntegerString());
+    private Validator<String> victim = validEmpty(positiveInteger());
 
     @Test
     public void negative() {

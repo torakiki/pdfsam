@@ -47,7 +47,7 @@ class BookmarksLevelComboBox extends ComboBox<String>
     private final FXValidationSupport<String> validationSupport = new FXValidationSupport<>();
 
     BookmarksLevelComboBox() {
-        validationSupport.setValidator(Validators.newInvalidString());
+        validationSupport.setValidator(Validators.alwaysFalse());
         setEditable(true);
         getSelectionModel().selectFirst();
         valueProperty().addListener((o, oldVal, newVal) -> validate());
@@ -73,12 +73,12 @@ class BookmarksLevelComboBox extends ComboBox<String>
     public void setMaxBookmarkLevel(int max) {
         getItems().clear();
         if (max > 0) {
-            validationSupport.setValidator(Validators.newPositiveIntRangeString(1, max));
+            validationSupport.setValidator(Validators.positiveIntRange(1, max));
             for (int i = 1; i <= max; i++) {
                 getItems().add(Integer.toString(i));
             }
         } else {
-            validationSupport.setValidator(Validators.newInvalidString());
+            validationSupport.setValidator(Validators.alwaysFalse());
         }
     }
 

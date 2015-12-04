@@ -83,7 +83,7 @@ public class OverwriteDialogControllerTest {
         verify(dialog, never()).title(anyString());
         verify(dialog, never()).messageContent(anyString());
         verify(dialog, never()).messageTitle(anyString());
-        verify(dialog, never()).shouldOverwrite();
+        verify(dialog, never()).response();
     }
 
     @Test
@@ -99,7 +99,7 @@ public class OverwriteDialogControllerTest {
         verify(dialog, never()).title(anyString());
         verify(dialog, never()).messageContent(anyString());
         verify(dialog, never()).messageTitle(anyString());
-        verify(dialog, never()).shouldOverwrite();
+        verify(dialog, never()).response();
     }
 
 }

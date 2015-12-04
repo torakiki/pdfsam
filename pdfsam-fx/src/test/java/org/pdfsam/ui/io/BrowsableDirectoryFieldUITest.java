@@ -19,6 +19,9 @@
 package org.pdfsam.ui.io;
 
 import static org.loadui.testfx.Assertions.verifyThat;
+import static org.pdfsam.support.validation.Validators.nonBlank;
+import static org.pdfsam.support.validation.Validators.positiveInteger;
+import static org.pdfsam.support.validation.Validators.validEmpty;
 
 import java.util.Arrays;
 
@@ -38,7 +41,6 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
-
 /**
  * @author Andrea Vacondio
  *
@@ -52,9 +54,11 @@ public class BrowsableDirectoryFieldUITest extends GuiTest {
 
     @Override
     protected Parent getRootNode() {
-        BrowsableDirectoryField victimNoBlank = new BrowsableDirectoryField(false);
+        BrowsableDirectoryField victimNoBlank = new BrowsableDirectoryField();
+        victimNoBlank.getTextField().setValidator(nonBlank());
         victimNoBlank.getStyleClass().add("victim-no-blank");
-        BrowsableDirectoryField victimBlank = new BrowsableDirectoryField(true);
+        BrowsableDirectoryField victimBlank = new BrowsableDirectoryField();
+        victimBlank.getTextField().setValidator(validEmpty(positiveInteger()));
         victimBlank.getStyleClass().add("victim-blank");
         return new HBox(victimBlank, victimNoBlank);
     }
@@ -108,11 +112,6 @@ public class BrowsableDirectoryFieldUITest extends GuiTest {
          * BrowsableDirectoryField victim = find(".victim-blank"); File inputFile = folder.newFile(); dragTo(victim, inputFile); verifyThat(victim, v ->
          * isBlank(v.getTextField().getText()));
          */
-    }
-
-    @Test
-    public void dragAndDropNotExistingDirectory() {
-
     }
 
 }

@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class NonBlankStringValidatorTest {
 
-    private Validator<String> victim = Validators.newNonBlankString();
+    private Validator<String> victim = Validators.nonBlank();
 
     @Test
     public void testNegative() {

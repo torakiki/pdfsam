@@ -18,7 +18,12 @@
  */
 package org.pdfsam.support.validation;
 
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.apache.commons.lang3.StringUtils.isNotEmpty;
+
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
 
 import org.pdfsam.support.io.FileType;
 
@@ -37,47 +42,36 @@ public final class Validators {
     /**
      * @return a new instance of a validator that always returns false
      */
-    public static Validator<String> newInvalidString() {
-        return new Validator<String>() {
-            public boolean isValid(String input) {
-                return false;
-            }
-        };
+    public static Validator<String> alwaysFalse() {
+        return v -> false;
     }
 
     /**
      * @return a new instance of a validator checking for a on blank input string
      */
-    public static Validator<String> newNonBlankString() {
-        return new NonBlankStringValidator();
+    public static Validator<String> nonBlank() {
+        return v -> isNotBlank(v);
     }
 
     /**
      * @return a new instance of a validator checking for a input string representing a positive integer number
      */
-    public static Validator<String> newPositiveIntegerString() {
+    public static Validator<String> positiveInteger() {
         return new PositiveIntegerStringValidator();
-    }
-
-    /**
-     * @return a new instance of a validator checking for a input integer is positive
-     */
-    public static Validator<Integer> newPositiveInteger() {
-        return new PositiveIntegerValidator();
     }
 
     /**
      * @return a new instance of a validator checking for a input string representing a positive integer number in the given range
      */
-    public static Validator<String> newPositiveIntRangeString(int lower, int upper) {
+    public static Validator<String> positiveIntRange(int lower, int upper) {
         return new PositiveIntRangeStringValidator(lower, upper);
     }
 
     /**
      * @return a new instance of a validator checking for an input string representing an existing file. Blank string are invalid.
-     * @see Validators#decorateAsValidEmptyString(Validator)
+     * @see Validators#validEmpty(Validator)
      */
-    public static Validator<String> newExistingFileString() {
+    public static Validator<String> existingFile() {
         return new FileValidator();
     }
 
@@ -85,9 +79,9 @@ public final class Validators {
      * @return a new instance of a validator checking for an input string representing an existing file of the given type. Blank string are invalid.
      * @param type
      *            type of the file represented by the input string
-     * @see Validators#decorateAsValidEmptyString(Validator)
+     * @see Validators#validEmpty(Validator)
      */
-    public static Validator<String> newExistingFileTypeString(FileType type) {
+    public static Validator<String> existingFileType(FileType type) {
         return new FileTypeValidator(type, true);
     }
 
@@ -97,55 +91,54 @@ public final class Validators {
      *            type of the file represented by the input string
      * @param mustExist
      *            if true the validator enforces an existing file
-     * @see Validators#decorateAsValidEmptyString(Validator)
+     * @see Validators#validEmpty(Validator)
      */
-    public static Validator<String> newFileTypeString(FileType type, boolean mustExist) {
+    public static Validator<String> fileType(FileType type, boolean mustExist) {
         return new FileTypeValidator(type, mustExist);
     }
 
     /**
      * @return a new instance of a validator checking for an input string representing an existing directory. Blank string are invalid.
-     * @see Validators#decorateAsValidEmptyString(Validator)
+     * @see Validators#validEmpty(Validator)
      */
-    public static Validator<String> newExistingDirectoryString() {
-        return new DirectoryValidator();
+    public static Validator<String> existingDirectory() {
+        return v -> isNotBlank(v) && Files.isDirectory(Paths.get(v));
     }
 
     /**
      * @return a new instance of a validator checking for an input string matching the given regex.
-     * @see Validators#decorateAsValidEmptyString(Validator)
+     * @see Validators#validEmpty(Validator)
      */
-    public static Validator<String> newRegexMatchingString(String regex) {
+    public static Validator<String> regexMatching(String regex) {
         return new RegexValidator(regex);
     }
 
     /**
-     * @param decorate
+     * @param validator
      * @return a new instance of the a validator that considers empty string as valid, it delegates otherwise
      */
-    public static Validator<String> decorateAsValidEmptyString(Validator<String> decorate) {
-        return new ValidEmptyStringDecorator(decorate);
+    public static Validator<String> validEmpty(Validator<String> validator) {
+        return v -> {
+            if (isNotEmpty(v)) {
+                return validator.isValid(v);
+            }
+            return true;
+        };
     }
 
     /**
-     * Decorates the input validator handling empty strings as valid
-     * 
-     * @author Andrea Vacondio
-     * 
+     * @param validator
+     * @return a new instance of a validator that negates the given one
      */
-    static final class ValidEmptyStringDecorator implements Validator<String> {
-        private Validator<String> decorate;
+    public static Validator<String> not(Validator<String> validator) {
+        return v -> !validator.isValid(v);
+    }
 
-        private ValidEmptyStringDecorator(Validator<String> decorate) {
-            this.decorate = decorate;
-        }
-
-        @Override
-        public boolean isValid(String input) {
-            if (isNotEmpty(input)) {
-                return decorate.isValid(input);
-            }
-            return true;
-        }
+    /**
+     * @param validator
+     * @return a new instance of a validator that returns true if all the given validators return true
+     */
+    public static Validator<String> and(Validator<String>... validators) {
+        return v -> Arrays.stream(validators).allMatch(validator -> validator.isValid(v));
     }
 }

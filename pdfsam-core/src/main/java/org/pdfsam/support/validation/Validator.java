@@ -23,6 +23,7 @@ package org.pdfsam.support.validation;
  * @param <T>
  *            type of the input to validate
  */
+@FunctionalInterface
 public interface Validator<T> {
 
     /**

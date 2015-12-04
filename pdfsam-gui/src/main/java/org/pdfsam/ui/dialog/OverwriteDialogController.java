@@ -73,7 +73,7 @@ public class OverwriteDialogController {
                                             .i18n("The selected directory is not empty"))
                                     .messageContent(DefaultI18nContext.getInstance()
                                             .i18n("Overwrite files with the same name as the generated ones?"))
-                                    .shouldOverwrite()) {
+                                    .response()) {
                                 throw new BroadcastInterruptionException(
                                         DefaultI18nContext.getInstance().i18n("Don't overwrite existing file"));
                             }
@@ -89,7 +89,7 @@ public class OverwriteDialogController {
                                             .i18n("A file with the given name already exists"))
                                     .messageContent(
                                             DefaultI18nContext.getInstance().i18n("Do you want to overwrite it?"))
-                                    .shouldOverwrite()) {
+                                    .response()) {
                                 throw new BroadcastInterruptionException(
                                         DefaultI18nContext.getInstance().i18n("Don't overwrite existing file"));
                             }

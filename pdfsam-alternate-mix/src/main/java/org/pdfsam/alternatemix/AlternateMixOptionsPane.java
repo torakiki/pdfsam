@@ -20,6 +20,8 @@ package org.pdfsam.alternatemix;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.pdfsam.support.validation.Validators.positiveIntRange;
+import static org.pdfsam.support.validation.Validators.positiveInteger;
 
 import java.util.Map;
 import java.util.Optional;
@@ -27,7 +29,6 @@ import java.util.function.Consumer;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.params.TaskParametersBuildStep;
-import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
@@ -75,11 +76,11 @@ class AlternateMixOptionsPane extends VBox
     }
 
     void setFirstDocumentMaxPages(Integer value) {
-        this.firstStep.setValidator(Validators.newPositiveIntRangeString(1, value));
+        this.firstStep.setValidator(positiveIntRange(1, value));
     }
 
     void setSecondDocumentMaxPages(Integer value) {
-        this.secondStep.setValidator(Validators.newPositiveIntRangeString(1, value));
+        this.secondStep.setValidator(positiveIntRange(1, value));
     }
 
     public void apply(AlternateMixParametersBuilder builder, Consumer<String> onError) {
@@ -101,7 +102,7 @@ class AlternateMixOptionsPane extends VBox
         ValidableTextField field = new ValidableTextField();
         field.setEnableInvalidStyle(true);
         field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Select a valid number of pages"));
-        field.setValidator(Validators.newPositiveIntegerString());
+        field.setValidator(positiveInteger());
         field.setOnEnterValidation(true);
         field.setPrefWidth(50);
         return field;

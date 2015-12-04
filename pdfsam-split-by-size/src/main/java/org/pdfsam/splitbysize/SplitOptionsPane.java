@@ -26,10 +26,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import javafx.scene.control.Label;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.HBox;
-
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.support.validation.Validators;
@@ -37,6 +33,10 @@ import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.workspace.RestorableView;
+
+import javafx.scene.control.Label;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.HBox;
 
 /**
  * Panel for the Split options
@@ -53,7 +53,7 @@ class SplitOptionsPane extends HBox implements TaskParametersBuildStep<SplitBySi
         this.field.setOnEnterValidation(true);
         this.field.setEnableInvalidStyle(true);
         this.field.setPromptText(DefaultI18nContext.getInstance().i18n("Set the size to split at"));
-        this.field.setValidator(Validators.newPositiveIntegerString());
+        this.field.setValidator(Validators.positiveInteger());
         this.field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Size must be a number"));
         this.field.setId("sizeField");
         getStyleClass().addAll(Style.CONTAINER.css());

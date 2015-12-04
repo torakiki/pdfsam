@@ -23,8 +23,6 @@ import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
-import javafx.scene.Parent;
-import javafx.scene.input.KeyCode;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -33,6 +31,9 @@ import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.context.IntUserPreference;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.support.validation.Validators;
+
+import javafx.scene.Parent;
+import javafx.scene.input.KeyCode;
 
 /**
  * @author Andrea Vacondio
@@ -46,7 +47,7 @@ public class PreferenceIntTextFieldTest extends GuiTest {
     @Override
     protected Parent getRootNode() {
         PreferenceIntTextField victim = new PreferenceIntTextField(IntUserPreference.THUMBNAILS_SIZE, userContext,
-                Validators.newPositiveIntegerString());
+                Validators.positiveInteger());
         victim.setId("victim");
         return victim;
     }

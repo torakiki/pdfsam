@@ -29,3 +29,7 @@
     -fx-fill: #EEAD69;
     -fx-min-width: 46.0px;
 }
+.-pdfsam-question-dialog .glyph-icon, .-pdfsam-question-dialog .glyph-icon:hover{
+	-fx-fill: -pdfsam-theme-color;
+    -fx-min-width: 46.0px;
+}

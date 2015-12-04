@@ -18,13 +18,21 @@
  */
 package org.pdfsam.ui.io;
 
+import static org.pdfsam.support.validation.Validators.and;
+import static org.pdfsam.support.validation.Validators.nonBlank;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.function.Consumer;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.params.MultipleOutputTaskParametersBuilder;
 import org.pdfsam.support.params.TaskParametersBuildStep;
+import org.pdfsam.ui.commons.NonExistingOutputDirectoryEvent;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
-import org.sejda.conversion.DirectoryOutputAdapter;
+import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.parameter.base.MultipleOutputTaskParameters;
 
 /**
@@ -33,11 +41,11 @@ import org.sejda.model.parameter.base.MultipleOutputTaskParameters;
  * @author Andrea Vacondio
  *
  */
-public class BrowsableOutputDirectoryField extends BrowsableDirectoryField implements
-        TaskParametersBuildStep<MultipleOutputTaskParametersBuilder<?>> {
+public class BrowsableOutputDirectoryField extends BrowsableDirectoryField
+        implements TaskParametersBuildStep<MultipleOutputTaskParametersBuilder<?>> {
 
     public BrowsableOutputDirectoryField() {
-        super(false);
+        getTextField().setValidator(and(nonBlank(), v -> !Files.isRegularFile(Paths.get(v))));
     }
 
     @Override
@@ -45,10 +53,17 @@ public class BrowsableOutputDirectoryField extends BrowsableDirectoryField imple
             Consumer<String> onError) {
         getTextField().validate();
         if (getTextField().getValidationState() == ValidationState.VALID) {
-            builder.output(new DirectoryOutputAdapter(getTextField().getText()).getPdfDirectoryOutput());
+            Path output = Paths.get(getTextField().getText());
+            if (!Files.exists(output)) {
+                eventStudio().broadcast(new NonExistingOutputDirectoryEvent(output));
+            }
+            if (Files.isDirectory(output)) {
+                builder.output(new DirectoryTaskOutput(output.toFile()));
+            } else {
+                onError.accept(DefaultI18nContext.getInstance().i18n("An existing output directory is required"));
+            }
         } else {
-            onError.accept(DefaultI18nContext.getInstance().i18n("The selected output directory is invalid"));
+            onError.accept(DefaultI18nContext.getInstance().i18n("The output directory is required"));
         }
     }
-
 }

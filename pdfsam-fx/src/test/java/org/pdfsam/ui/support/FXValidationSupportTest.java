@@ -42,7 +42,7 @@ public class FXValidationSupportTest {
     @Test
     public void startingState() {
         FXValidationSupport<String> victim = new FXValidationSupport<>();
-        victim.setValidator(Validators.newNonBlankString());
+        victim.setValidator(Validators.nonBlank());
         assertEquals(ValidationState.NOT_VALIDATED, victim.validationStateProperty().get());
         ChangeListener<ValidationState> listener = mock(ChangeListener.class);
         victim.validationStateProperty().addListener(listener);
@@ -55,7 +55,7 @@ public class FXValidationSupportTest {
     @Test
     public void behaviour() {
         FXValidationSupport<String> victim = new FXValidationSupport<>();
-        victim.setValidator(Validators.newNonBlankString());
+        victim.setValidator(Validators.nonBlank());
         ChangeListener<ValidationState> listener = mock(ChangeListener.class);
         victim.validationStateProperty().addListener(listener);
         victim.validate("Chuck");

@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 10/ott/2014
+ * Created on 03 dic 2015
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,32 +16,24 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.dialog;
+package org.pdfsam.ui.commons;
 
-import javafx.scene.Parent;
+import static org.pdfsam.support.RequireUtils.requireNotNull;
 
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
+import java.nio.file.Path;
 
 /**
+ * Event signaling that a non existing output directory was requested
+ * 
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class OverwriteConfirmationDialogContentTest extends GuiTest {
-    @Override
-    protected Parent getRootNode() {
-        OverwriteConfirmationDialogContent victim = new OverwriteConfirmationDialogContent();
-        victim.messageTitle("MessageTitle");
-        victim.messageContent("MessageContent");
-        return victim;
-    }
+public class NonExistingOutputDirectoryEvent {
 
-    @Test
-    public void contentIsShown() {
-        find("MessageTitle");
-        find("MessageContent");
+    public final Path outputDirectory;
+
+    public NonExistingOutputDirectoryEvent(Path outputDirectory) {
+        requireNotNull(outputDirectory, "Cannot create a null output directory");
+        this.outputDirectory = outputDirectory;
     }
 }

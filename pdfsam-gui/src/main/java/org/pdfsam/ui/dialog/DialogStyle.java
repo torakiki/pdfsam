@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 29 nov 2015
+ * Created on 03 dic 2015
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,40 +16,24 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.support.validation;
+package org.pdfsam.ui.dialog;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-import org.junit.Test;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 
 /**
+ * Possible dialog styles
+ * 
  * @author Andrea Vacondio
- *
  */
-public class PositiveIntegerValidatorTest {
+public enum DialogStyle {
+    WARNING("-pdfsam-warning-dialog", MaterialDesignIcon.ALERT),
+    QUESTION("-pdfsam-question-dialog", MaterialDesignIcon.HELP_CIRCLE);
+    public final String style;
+    public final MaterialDesignIcon icon;
 
-    private Validator<Integer> victim = Validators.newPositiveInteger();
-
-    @Test
-    public void negative() {
-        assertFalse(victim.isValid(-123));
-    }
-
-    @Test
-    public void negativeNull() {
-        assertFalse(victim.isValid(null));
-    }
-
-    @Test
-    public void zero() {
-        assertFalse(victim.isValid(0));
-    }
-
-    @Test
-    public void valid() {
-        assertTrue(victim.isValid(123));
-
+    private DialogStyle(String style, MaterialDesignIcon icon) {
+        this.style = style;
+        this.icon = icon;
     }
 
 }

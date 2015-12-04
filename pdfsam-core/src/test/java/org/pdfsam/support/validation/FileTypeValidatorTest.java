@@ -34,13 +34,13 @@ public class FileTypeValidatorTest {
 
     @Test
     public void notExisting() {
-        Validator<String> victim = Validators.newExistingFileTypeString(FileType.ALL);
+        Validator<String> victim = Validators.existingFileType(FileType.ALL);
         Assert.assertFalse(victim.isValid("/Chuck/Norris"));
     }
 
     @Test
     public void existingAll() throws IOException {
-        Validator<String> victim = Validators.newExistingFileTypeString(FileType.ALL);
+        Validator<String> victim = Validators.existingFileType(FileType.ALL);
         Path test = Files.createTempFile("tmp", ".norris");
         Assert.assertTrue(victim.isValid(test.toAbsolutePath().toString()));
         Files.delete(test);
@@ -48,7 +48,7 @@ public class FileTypeValidatorTest {
 
     @Test
     public void existingAllNoExtension() throws IOException {
-        Validator<String> victim = Validators.newExistingFileTypeString(FileType.ALL);
+        Validator<String> victim = Validators.existingFileType(FileType.ALL);
         Path test = Files.createTempFile("tmp", "");
         Assert.assertTrue(victim.isValid(test.toAbsolutePath().toString()));
         Files.delete(test);
@@ -56,7 +56,7 @@ public class FileTypeValidatorTest {
 
     @Test
     public void existingHtml() throws IOException {
-        Validator<String> victim = Validators.newExistingFileTypeString(FileType.HTML);
+        Validator<String> victim = Validators.existingFileType(FileType.HTML);
         Path test = Files.createTempFile("tmp", ".htm");
         Assert.assertTrue(victim.isValid(test.toAbsolutePath().toString()));
         Files.delete(test);
@@ -64,7 +64,7 @@ public class FileTypeValidatorTest {
 
     @Test
     public void existingPdfInsensitive() throws IOException {
-        Validator<String> victim = Validators.newExistingFileTypeString(FileType.PDF);
+        Validator<String> victim = Validators.existingFileType(FileType.PDF);
         Path test = Files.createTempFile("tmp", ".PdF");
         Assert.assertTrue(victim.isValid(test.toAbsolutePath().toString()));
         Files.delete(test);
@@ -72,14 +72,14 @@ public class FileTypeValidatorTest {
 
     @Test
     public void allowBlank() {
-        Validator<String> victim = Validators.newExistingFileTypeString(FileType.HTML);
+        Validator<String> victim = Validators.existingFileType(FileType.HTML);
         Assert.assertFalse(victim.isValid(""));
-        Assert.assertTrue(Validators.decorateAsValidEmptyString(victim).isValid(""));
+        Assert.assertTrue(Validators.validEmpty(victim).isValid(""));
     }
 
     @Test
     public void notExistingValid() {
-        Validator<String> victim = Validators.newFileTypeString(FileType.ALL, false);
+        Validator<String> victim = Validators.fileType(FileType.ALL, false);
         Assert.assertTrue(victim.isValid("/Chuck/Norris"));
     }
 }

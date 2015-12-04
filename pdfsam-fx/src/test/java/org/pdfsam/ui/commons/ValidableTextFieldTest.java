@@ -60,7 +60,7 @@ public class ValidableTextFieldTest extends GuiTest {
     @Test
     public void validateOnFocusChange() {
         victim.setErrorMessage("");
-        victim.setValidator(Validators.newNonBlankString());
+        victim.setValidator(Validators.nonBlank());
         assertEquals(ValidationState.NOT_VALIDATED, victim.getValidationState());
         click(victim);
         // focus lost
@@ -70,7 +70,7 @@ public class ValidableTextFieldTest extends GuiTest {
 
     @Test
     public void invalidCssApplied() {
-        victim.setValidator(Validators.newNonBlankString());
+        victim.setValidator(Validators.nonBlank());
         victim.setEnableInvalidStyle(true);
         click(victim);
         // focus lost
@@ -89,7 +89,7 @@ public class ValidableTextFieldTest extends GuiTest {
 
     @Test
     public void validateOnEnter() {
-        victim.setValidator(Validators.newNonBlankString());
+        victim.setValidator(Validators.nonBlank());
         victim.setOnEnterValidation(true);
         click(victim);
         // focus lost
@@ -108,7 +108,7 @@ public class ValidableTextFieldTest extends GuiTest {
 
     @Test
     public void tooltip() {
-        victim.setValidator(Validators.newNonBlankString());
+        victim.setValidator(Validators.nonBlank());
         click(victim);
         // focus lost
         push(KeyCode.TAB);

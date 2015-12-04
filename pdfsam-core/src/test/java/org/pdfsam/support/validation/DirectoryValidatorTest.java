@@ -30,7 +30,7 @@ import org.junit.Test;
  *
  */
 public class DirectoryValidatorTest {
-    private Validator<String> victim = Validators.newExistingDirectoryString();
+    private Validator<String> victim = Validators.existingDirectory();
 
     @Test
     public void testNegative() {
@@ -47,6 +47,6 @@ public class DirectoryValidatorTest {
     @Test
     public void testAllowBlank() {
         Assert.assertFalse(victim.isValid(""));
-        Assert.assertTrue(Validators.decorateAsValidEmptyString(victim).isValid(""));
+        Assert.assertTrue(Validators.validEmpty(victim).isValid(""));
     }
 }

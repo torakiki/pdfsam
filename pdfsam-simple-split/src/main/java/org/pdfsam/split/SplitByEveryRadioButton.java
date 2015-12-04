@@ -54,7 +54,7 @@ public class SplitByEveryRadioButton extends RadioButton implements SplitParamet
         this.field.setPromptText(DefaultI18nContext.getInstance().i18n("Number of pages"));
         setTooltip(new Tooltip(DefaultI18nContext.getInstance()
                 .i18n("Splits the PDF every \"n\" pages creating documents of \"n\" pages each")));
-        this.field.setValidator(Validators.newPositiveIntegerString());
+        this.field.setValidator(Validators.positiveInteger());
         this.field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Invalid number of pages"));
     }
 
@@ -81,7 +81,7 @@ public class SplitByEveryRadioButton extends RadioButton implements SplitParamet
 
     void setMaxPages(Integer value) {
         if (value > 1) {
-            this.field.setValidator(Validators.newPositiveIntRangeString(1, value - 1));
+            this.field.setValidator(Validators.positiveIntRange(1, value - 1));
         }
     }
 

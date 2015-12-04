@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 10/ott/2014
+ * Created on 04 dic 2015
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -23,35 +23,39 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Locale;
 
 import org.junit.BeforeClass;
-import org.junit.ClassRule;
-import org.junit.Ignore;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.junit.rules.TemporaryFolder;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.ui.commons.NonExistingOutputDirectoryEvent;
 
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.input.KeyCode;
 
 /**
  * @author Andrea Vacondio
  *
  */
 @Category(TestFX.class)
-public class OverwriteConfirmationDialogTest extends GuiTest {
+public class CreateOutputDirectoryDialogControllerTest extends GuiTest {
+    @Rule
+    public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule();
 
-    private boolean overwrite = false;
-
-    @ClassRule
-    public static ClearEventStudioRule CLEAR_STUDIO = new ClearEventStudioRule();
+    @Rule
+    public TemporaryFolder folder = new TemporaryFolder();
 
     @BeforeClass
     public static void setUp() {
@@ -61,44 +65,31 @@ public class OverwriteConfirmationDialogTest extends GuiTest {
     @Override
     protected Parent getRootNode() {
         StylesConfig styles = mock(StylesConfig.class);
-        OverwriteConfirmationDialog victim = new OverwriteConfirmationDialog(styles);
+        CreateOutputDirectoryDialogController victim = new CreateOutputDirectoryDialogController(
+                new CreateOutputDirectoryConfirmationDialog(styles));
         Button button = new Button("show");
-        button.setOnAction(a -> overwrite = victim.title("Title").messageTitle("MessageTitle")
-                .messageContent("MessageContent").response());
         return button;
     }
 
     @Test
-    public void contentIsShown() {
+    public void negativeTest() throws IOException {
+        Button button = find("show");
+        Path file = Paths.get(folder.newFolder().getAbsolutePath());
+        button.setOnAction(a -> eventStudio().broadcast(new NonExistingOutputDirectoryEvent(file)));
+        folder.delete();
         click("show");
-        find("MessageTitle");
-        find("MessageContent");
-        click(DefaultI18nContext.getInstance().i18n("Cancel"));
+        click(DefaultI18nContext.getInstance().i18n("No"));
+        assertFalse(Files.exists(file));
     }
 
     @Test
-    public void cancel() {
-        this.overwrite = true;
+    public void positiveTest() throws IOException {
+        Button button = find("show");
+        Path file = Paths.get(folder.newFolder().getAbsolutePath());
+        button.setOnAction(a -> eventStudio().broadcast(new NonExistingOutputDirectoryEvent(file)));
+        folder.delete();
         click("show");
-        click(DefaultI18nContext.getInstance().i18n("Cancel"));
-        assertFalse(this.overwrite);
+        click(DefaultI18nContext.getInstance().i18n("Yes"));
+        assertTrue(Files.exists(file));
     }
-
-    @Test
-    public void overwrite() {
-        this.overwrite = false;
-        click("show");
-        click(DefaultI18nContext.getInstance().i18n("Overwrite"));
-        assertTrue(this.overwrite);
-    }
-
-    @Test
-    @Ignore
-    public void esc() {
-        this.overwrite = true;
-        click("show");
-        push(KeyCode.ESCAPE);
-        assertFalse(this.overwrite);
-    }
-
 }

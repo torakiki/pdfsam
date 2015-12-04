@@ -28,7 +28,7 @@ import org.junit.Test;
  * 
  */
 public class IntRangeStringValidatorTest {
-    private Validator<String> victim = Validators.newPositiveIntRangeString(1, 5);
+    private Validator<String> victim = Validators.positiveIntRange(1, 5);
 
     @Test
     public void negative() {
@@ -42,12 +42,12 @@ public class IntRangeStringValidatorTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void invalidLower() {
-        Validators.newPositiveIntRangeString(0, 5);
+        Validators.positiveIntRange(0, 5);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void invalidUpper() {
-        Validators.newPositiveIntRangeString(1, 0);
+        Validators.positiveIntRange(1, 0);
     }
 
     @Test
@@ -60,6 +60,6 @@ public class IntRangeStringValidatorTest {
     @Test
     public void allowBlank() {
         assertFalse(victim.isValid(""));
-        assertTrue(Validators.decorateAsValidEmptyString(victim).isValid(""));
+        assertTrue(Validators.validEmpty(victim).isValid(""));
     }
 }

@@ -43,14 +43,14 @@ public class BrowsableDirectoryFieldTest {
     @Test
     public void setTextFromFile() throws IOException {
         File inputFile = folder.newFile();
-        BrowsableDirectoryField victim = new BrowsableDirectoryField(false);
+        BrowsableDirectoryField victim = new BrowsableDirectoryField();
         victim.setTextFromFile(inputFile);
         assertEquals(inputFile.getParent(), victim.getTextField().getText());
     }
 
     @Test
     public void setTextFromNullFile() {
-        BrowsableDirectoryField victim = new BrowsableDirectoryField(false);
+        BrowsableDirectoryField victim = new BrowsableDirectoryField();
         victim.setTextFromFile(null);
         verifyThat(victim, v -> isBlank(v.getTextField().getText()));
     }
@@ -58,7 +58,7 @@ public class BrowsableDirectoryFieldTest {
     @Test
     public void setTextFromDirectory() throws IOException {
         File inputFolder = folder.newFolder();
-        BrowsableDirectoryField victim = new BrowsableDirectoryField(false);
+        BrowsableDirectoryField victim = new BrowsableDirectoryField();
         victim.setTextFromFile(inputFolder);
         assertEquals(inputFolder.getAbsolutePath(), victim.getTextField().getText());
     }

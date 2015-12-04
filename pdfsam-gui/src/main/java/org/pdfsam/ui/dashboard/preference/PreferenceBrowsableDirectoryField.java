@@ -19,6 +19,8 @@
 package org.pdfsam.ui.dashboard.preference;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.pdfsam.support.validation.Validators.validEmpty;
+import static org.pdfsam.support.validation.Validators.existingDirectory;
 
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
@@ -33,10 +35,10 @@ import org.pdfsam.ui.io.BrowsableDirectoryField;
 class PreferenceBrowsableDirectoryField extends BrowsableDirectoryField {
 
     PreferenceBrowsableDirectoryField(StringUserPreference preference, UserContext userContext) {
-        super(true);
+        getTextField().setValidator(validEmpty(existingDirectory()));
         requireNotNull(preference, "Preference cannot be null");
         requireNotNull(userContext, "UserContext cannot be null");
-        getTextField().validProperty().addListener(
-                new PreferenceSetterOnValidState(preference, getTextField(), userContext));
+        getTextField().validProperty()
+                .addListener(new PreferenceSetterOnValidState(preference, getTextField(), userContext));
     }
 }

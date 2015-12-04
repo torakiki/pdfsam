@@ -27,7 +27,7 @@ import org.junit.Test;
  *
  */
 public class AlwaysInvalidStringTest {
-    private Validator<String> victim = Validators.newInvalidString();
+    private Validator<String> victim = Validators.alwaysFalse();
 
     @Test
     public void negative() {

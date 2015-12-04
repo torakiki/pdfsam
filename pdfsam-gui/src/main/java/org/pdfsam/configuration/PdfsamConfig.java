@@ -23,8 +23,6 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-import javafx.scene.image.ImageView;
-
 import javax.inject.Inject;
 
 import org.pdfsam.context.DefaultUserContext;
@@ -37,6 +35,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
+
+import javafx.scene.image.ImageView;
 
 /**
  * IoC configuration

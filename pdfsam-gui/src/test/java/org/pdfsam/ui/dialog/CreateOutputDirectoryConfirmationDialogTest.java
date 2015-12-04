@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 10/ott/2014
+ * Created on 04 dic 2015
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -27,7 +27,6 @@ import java.util.Locale;
 
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
@@ -39,16 +38,14 @@ import org.pdfsam.test.ClearEventStudioRule;
 
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.input.KeyCode;
 
 /**
  * @author Andrea Vacondio
  *
  */
 @Category(TestFX.class)
-public class OverwriteConfirmationDialogTest extends GuiTest {
-
-    private boolean overwrite = false;
+public class CreateOutputDirectoryConfirmationDialogTest extends GuiTest {
+    private boolean confirm = false;
 
     @ClassRule
     public static ClearEventStudioRule CLEAR_STUDIO = new ClearEventStudioRule();
@@ -61,44 +58,34 @@ public class OverwriteConfirmationDialogTest extends GuiTest {
     @Override
     protected Parent getRootNode() {
         StylesConfig styles = mock(StylesConfig.class);
-        OverwriteConfirmationDialog victim = new OverwriteConfirmationDialog(styles);
+        CreateOutputDirectoryConfirmationDialog victim = new CreateOutputDirectoryConfirmationDialog(styles);
         Button button = new Button("show");
-        button.setOnAction(a -> overwrite = victim.title("Title").messageTitle("MessageTitle")
-                .messageContent("MessageContent").response());
+        button.setOnAction(a -> confirm = victim.response());
         return button;
     }
 
     @Test
     public void contentIsShown() {
         click("show");
-        find("MessageTitle");
-        find("MessageContent");
-        click(DefaultI18nContext.getInstance().i18n("Cancel"));
+        find(DefaultI18nContext.getInstance().i18n("The selected output directory does not exist"));
+        find(DefaultI18nContext.getInstance().i18n("Do you want to create it?"));
+        click(DefaultI18nContext.getInstance().i18n("No"));
     }
 
     @Test
     public void cancel() {
-        this.overwrite = true;
+        this.confirm = true;
         click("show");
-        click(DefaultI18nContext.getInstance().i18n("Cancel"));
-        assertFalse(this.overwrite);
+        click(DefaultI18nContext.getInstance().i18n("No"));
+        assertFalse(this.confirm);
     }
 
     @Test
     public void overwrite() {
-        this.overwrite = false;
+        this.confirm = false;
         click("show");
-        click(DefaultI18nContext.getInstance().i18n("Overwrite"));
-        assertTrue(this.overwrite);
-    }
-
-    @Test
-    @Ignore
-    public void esc() {
-        this.overwrite = true;
-        click("show");
-        push(KeyCode.ESCAPE);
-        assertFalse(this.overwrite);
+        click(DefaultI18nContext.getInstance().i18n("Yes"));
+        assertTrue(this.confirm);
     }
 
 }

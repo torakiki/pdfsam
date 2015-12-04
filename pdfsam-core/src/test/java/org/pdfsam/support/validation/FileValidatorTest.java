@@ -30,7 +30,7 @@ import org.junit.Test;
  *
  */
 public class FileValidatorTest {
-    private Validator<String> victim = Validators.newExistingFileString();
+    private Validator<String> victim = Validators.existingFile();
 
     @Test
     public void testNegative() {
@@ -47,7 +47,7 @@ public class FileValidatorTest {
     @Test
     public void testAllowBlank() {
         Assert.assertFalse(victim.isValid(""));
-        Assert.assertTrue(Validators.decorateAsValidEmptyString(victim).isValid(""));
+        Assert.assertTrue(Validators.validEmpty(victim).isValid(""));
     }
 
 }

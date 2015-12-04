@@ -26,7 +26,7 @@ import org.junit.Test;
  *
  */
 public class RegexValidatorTest {
-    private Validator<String> victim = Validators.newRegexMatchingString("^([0-9]+,?)+$");
+    private Validator<String> victim = Validators.regexMatching("^([0-9]+,?)+$");
 
     @Test
     public void testNegative() {
@@ -42,6 +42,6 @@ public class RegexValidatorTest {
     @Test
     public void testAllowBlank() {
         Assert.assertFalse(victim.isValid(""));
-        Assert.assertTrue(Validators.decorateAsValidEmptyString(victim).isValid(""));
+        Assert.assertTrue(Validators.validEmpty(victim).isValid(""));
     }
 }

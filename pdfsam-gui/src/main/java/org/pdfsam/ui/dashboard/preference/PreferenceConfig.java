@@ -155,7 +155,7 @@ public class PreferenceConfig {
     @Bean(name = "logViewRowsNumber")
     public PreferenceIntTextField logViewRowsNumber() {
         PreferenceIntTextField logRowsNumber = new PreferenceIntTextField(IntUserPreference.LOGVIEW_ROWS_NUMBER,
-                userContext, Validators.newPositiveIntegerString());
+                userContext, Validators.positiveInteger());
         logRowsNumber.setText(Integer.toString(userContext.getNumberOfLogRows()));
         logRowsNumber.setErrorMessage(DefaultI18nContext.getInstance().i18n(
                 "Maximum number of rows mast be a positive number"));

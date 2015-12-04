@@ -69,7 +69,7 @@ public class PdfDestinationPaneTest {
 
     @Before
     public void setUp() {
-        destination = spy(new BrowsableDirectoryField(false));
+        destination = spy(new BrowsableDirectoryField());
         when(userContext.isUseSmartOutput()).thenReturn(Boolean.FALSE);
         victim = new PdfDestinationPane(destination, MODULE, userContext);
     }
