@@ -25,14 +25,7 @@
 					<targetBundle>org.pdfsam.i18n.Messages</targetBundle>
 					<outputFormat>properties</outputFormat>
 				</configuration>
-				<executions>
-					<execution>
-						<id>gettext-merge</id>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>merge</goal>
-						</goals>
-					</execution>
+				<executions>					
 					<execution>
 						<id>gettext-dist</id>
 						<phase>generate-resources</phase>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-11-18 16:13+0100\n"
+"POT-Creation-Date: 2015-12-04 17:54+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,6 +51,18 @@ msgid "Cancel"
 msgstr ""
 
 msgid "Overwrite"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "The selected output directory does not exist"
+msgstr ""
+
+msgid "Do you want to create it?"
 msgstr ""
 
 #, java-format
@@ -192,14 +204,6 @@ msgstr ""
 msgid "Use the selected PDF document directory as output directory"
 msgstr ""
 
-#, java-format
-msgid "Size must be between {0}px and {1}px"
-msgstr ""
-
-#, java-format
-msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
-msgstr ""
-
 msgid "Maximum number of rows mast be a positive number"
 msgstr ""
 
@@ -322,6 +326,9 @@ msgid "Download"
 msgstr ""
 
 msgid "New version available"
+msgstr ""
+
+msgid "Non existing directory"
 msgstr ""
 
 msgid "Directory not empty"
@@ -517,7 +524,7 @@ msgstr ""
 msgid "Invalid parameter 'first and second step' must be numbers"
 msgstr ""
 
-msgid "Select the number of pages"
+msgid "Select a valid number of pages"
 msgstr ""
 
 msgid "The selected PDF document is invalid"
@@ -633,7 +640,10 @@ msgstr ""
 msgid "Select an existing directory"
 msgstr ""
 
-msgid "The selected output directory is invalid"
+msgid "An existing output directory is required"
+msgstr ""
+
+msgid "The output directory is required"
 msgstr ""
 
 msgid "Generated PDF documents name prefix:"
