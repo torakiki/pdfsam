@@ -18,7 +18,6 @@
  */
 package org.pdfsam.i18n;
 
-
 /**
  * Context related to the i18n of the application.
  * 
@@ -31,10 +30,30 @@ public interface I18nContext {
      * 
      * @param input
      *            input string
-     * @param values
-     *            values for the string placeholders
      * @return the internationalized messages.
      */
-    String i18n(String input, String... values);
+    String i18n(String input);
+
+    /**
+     * 
+     * @param input
+     *            input string
+     * @param value
+     *            value for a string {0} placeholder
+     * @return the internationalized messages.
+     */
+    String i18n(String input, String value);
+
+    /**
+     * 
+     * @param input
+     *            input string
+     * @param value0
+     *            value for a string {0} placeholder
+     * @param value1
+     *            value for a string {1} placeholder
+     * @return the internationalized messages.
+     */
+    String i18n(String input, String value0, String value1);
 
 }

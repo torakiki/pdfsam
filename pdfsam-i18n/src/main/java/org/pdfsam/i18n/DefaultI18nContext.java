@@ -43,6 +43,7 @@ public final class DefaultI18nContext implements I18nContext {
 
     private static final Logger LOG = LoggerFactory.getLogger(DefaultI18nContext.class);
     public static final Set<Locale> SUPPORTED_LOCALES;
+
     static {
         Set<Locale> supportedLocalesCache = new LinkedHashSet<>();
         supportedLocalesCache.add(new Locale("eu"));
@@ -117,8 +118,16 @@ public final class DefaultI18nContext implements I18nContext {
         return DefaultI18nContextHolder.CONTEXT;
     }
 
-    public String i18n(String input, String... values) {
-        return i18n.tr(input, values);
+    public String i18n(String input) {
+        return i18n.tr(input);
+    }
+
+    public String i18n(String input, String value) {
+        return i18n.tr(input, value);
+    }
+
+    public String i18n(String input, String value0, String value1) {
+        return i18n.tr(input, value0, value1);
     }
 
     /**
