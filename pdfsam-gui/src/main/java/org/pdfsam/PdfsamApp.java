@@ -88,7 +88,6 @@ public class PdfsamApp extends Application {
         UserContext userContext = new DefaultUserContext();
         System.setProperty(EventStudio.MAX_QUEUE_SIZE_PROP, Integer.toString(userContext.getNumberOfLogRows()));
         LOG.info("Starting PDFsam");
-        System.setProperty(Sejda.UNETHICAL_READ_PROPERTY_NAME, "true");
         cleanUserContextIfNeeded(userContext);
         String localeString = userContext.getLocale();
         if (isNotBlank(localeString)) {
@@ -119,6 +118,7 @@ public class PdfsamApp extends Application {
         ApplicationContextHolder.getContext();
         startLogAppender();
         Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger());
+        initSejda();
         cleanIfNeeded();
         primaryStage.setScene(initScene());
         primaryStage.getIcons().addAll(ApplicationContextHolder.getContext().getBeansOfType(Image.class).values());
@@ -137,6 +137,13 @@ public class PdfsamApp extends Application {
         STOPWATCH.stop();
         LOG.info(DefaultI18nContext.getInstance().i18n("Started in {0}",
                 DurationFormatUtils.formatDurationWords(STOPWATCH.getTime(), true, true)));
+    }
+
+    private void initSejda() {
+        Pdfsam pdfsam = ApplicationContextHolder.getContext().getBean(Pdfsam.class);
+        System.out.println("here");
+        Sejda.CREATOR = pdfsam.shortName() + " v" + pdfsam.property(ConfigurableProperty.VERSION);
+        System.setProperty(Sejda.UNETHICAL_READ_PROPERTY_NAME, "true");
     }
 
     private void startLogAppender() {

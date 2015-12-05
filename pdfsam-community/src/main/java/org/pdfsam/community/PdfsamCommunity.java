@@ -22,6 +22,7 @@ import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.pdfsam.support.RequireUtils.requireNotBlank;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
+import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
 import org.pdfsam.PdfsamEdition;
 import org.springframework.core.env.Environment;
@@ -33,12 +34,15 @@ import org.springframework.core.env.Environment;
 public class PdfsamCommunity implements Pdfsam {
     private Environment env;
     private String name;
+    private String shortName;
 
-    public PdfsamCommunity(String name, Environment env) {
+    public PdfsamCommunity(String name, String shortName, Environment env) {
         requireNotBlank(name, "Application name cannot be blank");
+        requireNotBlank(shortName, "Application short name cannot be blank");
         requireNotNull(env, "Environment cannot be null");
         this.env = env;
         this.name = name;
+        this.shortName = shortName;
     }
 
     public PdfsamEdition edition() {
@@ -49,12 +53,15 @@ public class PdfsamCommunity implements Pdfsam {
         return name;
     }
 
-    public String property(org.pdfsam.ConfigurableProperty prop, String defaultValue) {
+    public String shortName() {
+        return shortName;
+    }
+
+    public String property(ConfigurableProperty prop, String defaultValue) {
         return env.getProperty(prop.prop, defaultValue);
     }
 
-    public String property(org.pdfsam.ConfigurableProperty prop) {
+    public String property(ConfigurableProperty prop) {
         return env.getProperty(prop.prop, EMPTY);
     }
-
 }

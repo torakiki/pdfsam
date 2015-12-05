@@ -36,6 +36,11 @@ public interface Pdfsam {
     String name();
 
     /**
+     * @return application short name
+     */
+    String shortName();
+
+    /**
      * @param prop
      * @param defaultValue
      * @return a configurable property value

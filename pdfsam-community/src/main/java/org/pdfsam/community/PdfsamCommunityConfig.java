@@ -105,6 +105,6 @@ public class PdfsamCommunityConfig implements UIConfig {
 
     @Bean
     public Pdfsam pdfsam() {
-        return new PdfsamCommunity("PDF Split and Merge Basic Edition", env);
+        return new PdfsamCommunity("PDF Split and Merge Basic Edition", "PDFsam Basic", env);
     }
 }

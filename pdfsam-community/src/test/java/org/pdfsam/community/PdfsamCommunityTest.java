@@ -28,16 +28,21 @@ import org.springframework.core.env.Environment;
 public class PdfsamCommunityTest {
     @Test(expected = IllegalArgumentException.class)
     public void blankName() {
-        new PdfsamCommunity(" ", mock(Environment.class));
+        new PdfsamCommunity(" ", "something", mock(Environment.class));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void blankShortName() {
+        new PdfsamCommunity("Something", " ", mock(Environment.class));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void nullEnv() {
-        new PdfsamCommunity("name", null);
+        new PdfsamCommunity("name", "short", null);
     }
 
     @Test
     public void edition() {
-        assertEquals(PdfsamEdition.COMMUNITY, new PdfsamCommunity("name", mock(Environment.class)).edition());
+        assertEquals(PdfsamEdition.COMMUNITY, new PdfsamCommunity("name", "short", mock(Environment.class)).edition());
     }
 }
