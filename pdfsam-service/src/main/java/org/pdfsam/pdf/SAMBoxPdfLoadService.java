@@ -36,10 +36,11 @@ import javax.inject.Named;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.RequiredPdfData;
-import org.sejda.impl.sambox.component.DefaultPdfSourceOpener;
-import org.sejda.impl.sambox.component.PDDocumentHandler;
-import org.sejda.model.exception.TaskWrongPasswordException;
+import org.sejda.io.BufferedSeekableSource;
+import org.sejda.io.FileChannelSeekableSource;
+import org.sejda.sambox.input.PDFParser;
 import org.sejda.sambox.pdmodel.PDDocument;
+import org.sejda.sambox.pdmodel.encryption.InvalidPasswordException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -80,9 +81,11 @@ class SAMBoxPdfLoadService implements PdfLoadService {
             if (current.hasReferences()) {
                 LOG.trace("Loading {}", current.getFileName());
                 fxMoveStatusTo(current, LOADING);
-                try (PDDocumentHandler document = current.toPdfFileSource().open(new DefaultPdfSourceOpener())) {
-                    consumer.accept(document.getUnderlyingPDDocument(), current);
-                } catch (TaskWrongPasswordException twpe) {
+                try (PDDocument document = PDFParser.parse(
+                        new BufferedSeekableSource(new FileChannelSeekableSource(current.getFile())),
+                        current.getPassword())) {
+                    consumer.accept(document, current);
+                } catch (InvalidPasswordException twpe) {
                     fxMoveStatusTo(current, ENCRYPTED);
                     LOG.warn("User password required for '{}'", current.getFileName(), twpe);
                 } catch (Exception e) {
