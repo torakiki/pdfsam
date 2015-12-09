@@ -29,6 +29,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import org.sejda.model.input.PdfFileSource;
+import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.parameter.AlternateMixParameters;
 import org.sejda.model.pdf.PdfVersion;
@@ -51,7 +52,7 @@ public class AlternateMixParametersBuilderTest {
         victim.first(firstSource);
         FileTaskOutput output = mock(FileTaskOutput.class);
         victim.output(output);
-        victim.overwrite(true);
+        victim.existingOutput(ExistingOutputPolicy.OVERWRITE);
         victim.reverseFirst(true);
         victim.reverseSecond(true);
         victim.stepFirst(2);
@@ -61,7 +62,7 @@ public class AlternateMixParametersBuilderTest {
         victim.version(PdfVersion.VERSION_1_7);
         AlternateMixParameters params = victim.build();
         assertTrue(params.isCompress());
-        assertTrue(params.isOverwrite());
+        assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
         assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
         assertTrue(params.getFirstInput().isReverse());
         assertTrue(params.getSecondInput().isReverse());

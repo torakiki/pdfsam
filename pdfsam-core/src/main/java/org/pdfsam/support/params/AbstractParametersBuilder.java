@@ -19,24 +19,26 @@
 package org.pdfsam.support.params;
 
 import org.apache.commons.lang3.builder.Builder;
+import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.parameter.base.AbstractParameters;
 
 /**
  * Abstract builder for {@link AbstractParameters}.
  * 
  * @author Andrea Vacondio
- * @param <P>
+ * @param
+ *            <P>
  *            type of the parameters this builder builds
  */
 public abstract class AbstractParametersBuilder<P extends AbstractParameters> implements Builder<P> {
-    private boolean overwrite;
+    private ExistingOutputPolicy existingOutput = ExistingOutputPolicy.FAIL;
 
-    public void overwrite(boolean overwrite) {
-        this.overwrite = overwrite;
+    public void existingOutput(ExistingOutputPolicy existingOutput) {
+        this.existingOutput = existingOutput;
     }
 
-    protected boolean isOverwrite() {
-        return overwrite;
+    protected ExistingOutputPolicy existingOutput() {
+        return existingOutput;
     }
 
 }

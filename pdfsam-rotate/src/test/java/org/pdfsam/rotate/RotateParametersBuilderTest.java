@@ -30,6 +30,7 @@ import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.output.DirectoryTaskOutput;
+import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.parameter.RotateParameters;
 import org.sejda.model.pdf.PdfVersion;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
@@ -49,7 +50,7 @@ public class RotateParametersBuilderTest {
         victim.compress(true);
         DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
         victim.output(output);
-        victim.overwrite(true);
+        victim.existingOutput(ExistingOutputPolicy.OVERWRITE);
         victim.rotation(Rotation.DEGREES_180);
         victim.rotationType(PredefinedSetOfPages.ODD_PAGES);
         victim.prefix("prefix");
@@ -59,7 +60,7 @@ public class RotateParametersBuilderTest {
         victim.version(PdfVersion.VERSION_1_7);
         RotateParameters params = victim.build();
         assertTrue(params.isCompress());
-        assertTrue(params.isOverwrite());
+        assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
         assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
         assertEquals(Rotation.DEGREES_180, params.getRotation());
         assertEquals(PredefinedSetOfPages.ODD_PAGES, params.getPredefinedSetOfPages());

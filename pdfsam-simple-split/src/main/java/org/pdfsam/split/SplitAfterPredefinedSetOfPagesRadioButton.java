@@ -24,16 +24,16 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.Tooltip;
-
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
 import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.model.parameter.SimpleSplitParameters;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
+
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.Tooltip;
 
 /**
  * A {@link RadioButton} showing a combo to select a {@link PredefinedSetOfPages} as split option
@@ -97,7 +97,7 @@ class SplitAfterPredefinedSetOfPagesRadioButton extends RadioButton implements S
         public SimpleSplitParameters build() {
             SimpleSplitParameters params = new SimpleSplitParameters(pages);
             params.setCompress(isCompress());
-            params.setOverwrite(isOverwrite());
+            params.setExistingOutputPolicy(existingOutput());
             params.setVersion(getVersion());
             params.setOutput(getOutput());
             params.setOutputPrefix(getPrefix());

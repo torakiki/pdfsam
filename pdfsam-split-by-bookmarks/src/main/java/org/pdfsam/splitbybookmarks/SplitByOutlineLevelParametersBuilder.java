@@ -44,7 +44,7 @@ class SplitByOutlineLevelParametersBuilder extends
     public SplitByOutlineLevelParameters build() {
         SplitByOutlineLevelParameters params = new SplitByOutlineLevelParameters(level);
         params.setCompress(isCompress());
-        params.setOverwrite(isOverwrite());
+        params.setExistingOutputPolicy(existingOutput());
         params.setVersion(getVersion());
         params.setMatchingTitleRegEx(regexp);
         params.setOutput(getOutput());

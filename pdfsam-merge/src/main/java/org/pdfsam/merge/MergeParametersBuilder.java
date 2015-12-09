@@ -71,7 +71,7 @@ class MergeParametersBuilder extends AbstractPdfOutputParametersBuilder<MergePar
     public MergeParameters build() {
         MergeParameters params = new MergeParameters();
         params.setCompress(isCompress());
-        params.setOverwrite(isOverwrite());
+        params.setExistingOutputPolicy(existingOutput());
         params.setVersion(getVersion());
         inputs.forEach(params::addInput);
         params.setOutlinePolicy(outlinePolicy);

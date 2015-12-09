@@ -30,6 +30,7 @@ import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.output.DirectoryTaskOutput;
+import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.parameter.SplitBySizeParameters;
 import org.sejda.model.pdf.PdfVersion;
 
@@ -47,7 +48,7 @@ public class SplitBySizeParametersBuilderTest {
         victim.compress(true);
         DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
         victim.output(output);
-        victim.overwrite(true);
+        victim.existingOutput(ExistingOutputPolicy.OVERWRITE);
         victim.size(120l);
         victim.prefix("prefix");
         File file = folder.newFile("my.pdf");
@@ -56,7 +57,7 @@ public class SplitBySizeParametersBuilderTest {
         victim.version(PdfVersion.VERSION_1_7);
         SplitBySizeParameters params = victim.build();
         assertTrue(params.isCompress());
-        assertTrue(params.isOverwrite());
+        assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
         assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
         assertEquals(120l, params.getSizeToSplitAt());
         assertEquals("prefix", params.getOutputPrefix());

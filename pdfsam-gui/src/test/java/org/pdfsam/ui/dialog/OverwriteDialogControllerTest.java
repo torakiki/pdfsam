@@ -35,6 +35,7 @@ import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.sejda.model.exception.TaskOutputVisitException;
 import org.sejda.model.output.DirectoryTaskOutput;
+import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.parameter.MergeParameters;
 import org.sejda.model.parameter.SimpleSplitParameters;
@@ -63,7 +64,7 @@ public class OverwriteDialogControllerTest {
     @Test
     public void isOverwrite() throws TaskOutputVisitException {
         MergeParameters parameters = new MergeParameters();
-        parameters.setOverwrite(true);
+        parameters.setExistingOutputPolicy(ExistingOutputPolicy.OVERWRITE);
         FileTaskOutput output = mock(FileTaskOutput.class);
         parameters.setOutput(output);
         victim.request(new TaskExecutionRequestEvent("id", parameters));
@@ -73,7 +74,7 @@ public class OverwriteDialogControllerTest {
     @Test
     public void fileDoesntExists() {
         MergeParameters parameters = new MergeParameters();
-        parameters.setOverwrite(false);
+        parameters.setExistingOutputPolicy(ExistingOutputPolicy.FAIL);
         FileTaskOutput output = mock(FileTaskOutput.class);
         File file = mock(File.class);
         when(file.exists()).thenReturn(Boolean.FALSE);
@@ -89,7 +90,7 @@ public class OverwriteDialogControllerTest {
     @Test
     public void directoryIsEmpty() {
         SimpleSplitParameters parameters = new SimpleSplitParameters(PredefinedSetOfPages.ALL_PAGES);
-        parameters.setOverwrite(false);
+        parameters.setExistingOutputPolicy(ExistingOutputPolicy.FAIL);
         DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
         File file = mock(File.class);
         when(file.listFiles()).thenReturn(new File[0]);

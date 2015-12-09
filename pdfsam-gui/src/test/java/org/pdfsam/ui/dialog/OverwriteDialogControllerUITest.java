@@ -18,8 +18,7 @@
  */
 package org.pdfsam.ui.dialog;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
@@ -40,6 +39,7 @@ import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.model.output.DirectoryTaskOutput;
+import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.parameter.MergeParameters;
 import org.sejda.model.parameter.SimpleSplitParameters;
@@ -76,52 +76,52 @@ public class OverwriteDialogControllerUITest extends GuiTest {
     @Test
     public void cancelOnFileExists() throws IOException {
         MergeParameters parameters = new MergeParameters();
-        parameters.setOverwrite(false);
+        parameters.setExistingOutputPolicy(ExistingOutputPolicy.FAIL);
         File file = folder.newFile();
         parameters.setOutput(new FileTaskOutput(file));
         Button button = find("show");
         button.setOnAction(a -> eventStudio().broadcast(new TaskExecutionRequestEvent("id", parameters)));
         click("show");
         click(DefaultI18nContext.getInstance().i18n("Cancel"));
-        assertFalse(parameters.isOverwrite());
+        assertEquals(ExistingOutputPolicy.FAIL, parameters.getExistingOutputPolicy());
     }
 
     @Test
     public void overwriteOnFileExists() throws IOException {
         MergeParameters parameters = new MergeParameters();
-        parameters.setOverwrite(false);
+        parameters.setExistingOutputPolicy(ExistingOutputPolicy.FAIL);
         File file = folder.newFile();
         parameters.setOutput(new FileTaskOutput(file));
         Button button = find("show");
         button.setOnAction(a -> eventStudio().broadcast(new TaskExecutionRequestEvent("id", parameters)));
         click("show");
         click(DefaultI18nContext.getInstance().i18n("Overwrite"));
-        assertTrue(parameters.isOverwrite());
+        assertEquals(ExistingOutputPolicy.OVERWRITE, parameters.getExistingOutputPolicy());
     }
 
     @Test
     public void cancelOnNotEmptyDir() throws IOException {
         SimpleSplitParameters parameters = new SimpleSplitParameters(PredefinedSetOfPages.ALL_PAGES);
-        parameters.setOverwrite(false);
+        parameters.setExistingOutputPolicy(ExistingOutputPolicy.FAIL);
         folder.newFile();
         parameters.setOutput(new DirectoryTaskOutput(folder.getRoot()));
         Button button = find("show");
         button.setOnAction(a -> eventStudio().broadcast(new TaskExecutionRequestEvent("id", parameters)));
         click("show");
         click(DefaultI18nContext.getInstance().i18n("Cancel"));
-        assertFalse(parameters.isOverwrite());
+        assertEquals(ExistingOutputPolicy.FAIL, parameters.getExistingOutputPolicy());
     }
 
     @Test
     public void overwriteOnNotEmptyDir() throws IOException {
         SimpleSplitParameters parameters = new SimpleSplitParameters(PredefinedSetOfPages.ALL_PAGES);
-        parameters.setOverwrite(false);
+        parameters.setExistingOutputPolicy(ExistingOutputPolicy.FAIL);
         folder.newFile();
         parameters.setOutput(new DirectoryTaskOutput(folder.getRoot()));
         Button button = find("show");
         button.setOnAction(a -> eventStudio().broadcast(new TaskExecutionRequestEvent("id", parameters)));
         click("show");
         click(DefaultI18nContext.getInstance().i18n("Overwrite"));
-        assertTrue(parameters.isOverwrite());
+        assertEquals(ExistingOutputPolicy.OVERWRITE, parameters.getExistingOutputPolicy());
     }
 }

@@ -41,6 +41,7 @@ import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
+import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.parameter.base.AbstractPdfOutputParameters;
 import org.sejda.model.pdf.PdfVersion;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -100,7 +101,9 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned, 
     public void apply(AbstractPdfOutputParametersBuilder<? extends AbstractPdfOutputParameters> builder,
             Consumer<String> onError) {
         builder.compress(compress.isSelected());
-        builder.overwrite(overwrite().isSelected());
+        if (overwrite().isSelected()) {
+            builder.existingOutput(ExistingOutputPolicy.OVERWRITE);
+        }
         builder.version(version.getSelectionModel().getSelectedItem().getVersion());
     }
 

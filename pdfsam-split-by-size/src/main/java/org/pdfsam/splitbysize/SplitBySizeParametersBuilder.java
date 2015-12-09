@@ -38,7 +38,7 @@ class SplitBySizeParametersBuilder extends SinglePdfSourceMultipleOutputParamete
     public SplitBySizeParameters build() {
         SplitBySizeParameters params = new SplitBySizeParameters(size);
         params.setCompress(isCompress());
-        params.setOverwrite(isOverwrite());
+        params.setExistingOutputPolicy(existingOutput());
         params.setVersion(getVersion());
         params.setOutput(getOutput());
         params.setOutputPrefix(getPrefix());

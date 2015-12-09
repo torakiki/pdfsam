@@ -81,7 +81,7 @@ class AlternateMixParametersBuilder extends AbstractPdfOutputParametersBuilder<A
         PdfMixInput secondInput = new PdfMixInput(secondSource, reverseSecond, stepSecond);
         AlternateMixParameters params = new AlternateMixParameters(firstInput, secondInput);
         params.setCompress(isCompress());
-        params.setOverwrite(isOverwrite());
+        params.setExistingOutputPolicy(existingOutput());
         params.setVersion(getVersion());
         params.setOutput(output);
         return params;

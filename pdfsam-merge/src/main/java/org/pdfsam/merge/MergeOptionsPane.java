@@ -78,6 +78,8 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
                 .add(keyValue(OutlinePolicy.DISCARD, DefaultI18nContext.getInstance().i18n("Discard bookmarks")));
         outline.getItems().add(keyValue(OutlinePolicy.ONE_ENTRY_EACH_DOC,
                 DefaultI18nContext.getInstance().i18n("Create one entry for each merged document")));
+        outline.getItems().add(keyValue(OutlinePolicy.RETAIN_AS_ONE_ENTRY,
+                DefaultI18nContext.getInstance().i18n("Retain bookmarks as one entry for each merged document")));
         outline.getSelectionModel().selectFirst();
         outline.setId("outlineCombo");
 

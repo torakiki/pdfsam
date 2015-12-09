@@ -34,10 +34,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import javafx.scene.Parent;
-import javafx.scene.control.ComboBox;
-import javafx.scene.layout.HBox;
-
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -51,9 +47,14 @@ import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.output.DirectoryTaskOutput;
+import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.parameter.SimpleSplitParameters;
 import org.sejda.model.pdf.PdfVersion;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
+
+import javafx.scene.Parent;
+import javafx.scene.control.ComboBox;
+import javafx.scene.layout.HBox;
 
 /**
  * @author Andrea Vacondio
@@ -95,14 +96,14 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest extends GuiTest {
             builder.compress(true);
             DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
             builder.output(output);
-            builder.overwrite(true);
+            builder.existingOutput(ExistingOutputPolicy.OVERWRITE);
             builder.prefix("prefix");
             PdfFileSource source = PdfFileSource.newInstanceNoPassword(file);
             builder.source(source);
             builder.version(PdfVersion.VERSION_1_7);
             SimpleSplitParameters params = builder.build();
             assertTrue(params.isCompress());
-            assertTrue(params.isOverwrite());
+            assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
             assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
             assertThat(params.getPages(6), contains(1, 3, 5));
             assertThat(params.getPages(6), not(contains(2, 4, 6)));

@@ -31,6 +31,7 @@ import org.junit.rules.TemporaryFolder;
 import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.input.PdfMergeInput;
 import org.sejda.model.outline.OutlinePolicy;
+import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.parameter.MergeParameters;
 import org.sejda.model.pdf.PdfVersion;
@@ -50,7 +51,7 @@ public class MergeParametersBuilderTest {
         victim.compress(true);
         FileTaskOutput output = mock(FileTaskOutput.class);
         victim.output(output);
-        victim.overwrite(true);
+        victim.existingOutput(ExistingOutputPolicy.OVERWRITE);
         victim.blankPageIfOdd(true);
         victim.acroFormsPolicy(AcroFormPolicy.DISCARD);
         victim.outlinePolicy(OutlinePolicy.ONE_ENTRY_EACH_DOC);
@@ -61,7 +62,7 @@ public class MergeParametersBuilderTest {
         victim.version(PdfVersion.VERSION_1_7);
         MergeParameters params = victim.build();
         assertTrue(params.isCompress());
-        assertTrue(params.isOverwrite());
+        assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
         assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
         assertTrue(params.isBlankPageIfOdd());
         assertEquals(AcroFormPolicy.DISCARD, params.getAcroFormPolicy());

@@ -30,6 +30,7 @@ import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.exception.BroadcastInterruptionException;
 import org.sejda.model.exception.TaskOutputVisitException;
 import org.sejda.model.output.DirectoryTaskOutput;
+import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.output.StreamTaskOutput;
 import org.sejda.model.output.TaskOutputDispatcher;
@@ -59,7 +60,7 @@ public class OverwriteDialogController {
     public void request(TaskExecutionRequestEvent event) {
         AbstractParameters params = event.getParameters();
         try {
-            if (!params.isOverwrite()) {
+            if (params.getExistingOutputPolicy() != ExistingOutputPolicy.OVERWRITE) {
                 event.getParameters().getOutput().accept(new TaskOutputDispatcher() {
 
                     public void dispatch(StreamTaskOutput output) {
@@ -78,7 +79,7 @@ public class OverwriteDialogController {
                                         DefaultI18nContext.getInstance().i18n("Don't overwrite existing file"));
                             }
                             LOG.trace("Enabling overwrite of the existing output file");
-                            params.setOverwrite(true);
+                            params.setExistingOutputPolicy(ExistingOutputPolicy.OVERWRITE);
                         }
                     }
 
@@ -94,7 +95,7 @@ public class OverwriteDialogController {
                                         DefaultI18nContext.getInstance().i18n("Don't overwrite existing file"));
                             }
                             LOG.trace("Enabling overwrite of the existing output file");
-                            params.setOverwrite(true);
+                            params.setExistingOutputPolicy(ExistingOutputPolicy.OVERWRITE);
                         }
                     }
                 });

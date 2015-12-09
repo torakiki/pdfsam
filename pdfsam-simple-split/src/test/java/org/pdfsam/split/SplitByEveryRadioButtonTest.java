@@ -47,6 +47,7 @@ import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.output.DirectoryTaskOutput;
+import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.parameter.SplitByEveryXPagesParameters;
 import org.sejda.model.pdf.PdfVersion;
 
@@ -129,14 +130,14 @@ public class SplitByEveryRadioButtonTest extends GuiTest {
             builder.compress(true);
             DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
             builder.output(output);
-            builder.overwrite(true);
+            builder.existingOutput(ExistingOutputPolicy.OVERWRITE);
             builder.prefix("prefix");
             PdfFileSource source = PdfFileSource.newInstanceNoPassword(file);
             builder.source(source);
             builder.version(PdfVersion.VERSION_1_7);
             SplitByEveryXPagesParameters params = builder.build();
             assertTrue(params.isCompress());
-            assertTrue(params.isOverwrite());
+            assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
             assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
             assertThat(params.getPages(20), contains(6, 12, 18));
             assertEquals("prefix", params.getOutputPrefix());

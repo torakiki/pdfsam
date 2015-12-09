@@ -18,6 +18,8 @@
  */
 package org.pdfsam.ui.io;
 
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
 import java.util.Set;
@@ -35,6 +37,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.support.params.AbstractPdfOutputParametersBuilder;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.parameter.base.AbstractPdfOutputParameters;
 
 import javafx.scene.Node;
@@ -74,7 +77,7 @@ public class PdfDestinationPaneUITest extends GuiTest {
         PdfDestinationPane victim = find(".victim");
         victim.apply(builder, onError);
         verify(builder).compress(false);
-        verify(builder).overwrite(false);
+        verify(builder, never()).existingOutput(any());
     }
 
     @Test
@@ -92,6 +95,6 @@ public class PdfDestinationPaneUITest extends GuiTest {
         nodes.forEach(n -> click(n));
         victim.apply(builder, onError);
         verify(builder).compress(true);
-        verify(builder).overwrite(true);
+        verify(builder).existingOutput(ExistingOutputPolicy.OVERWRITE);
     }
 }

@@ -47,7 +47,7 @@ class RotateParametersBuilder extends MultiplePdfSourceMultipleOutputParametersB
     public RotateParameters build() {
         RotateParameters params = new RotateParameters(rotation, rotationType);
         params.setCompress(isCompress());
-        params.setOverwrite(isOverwrite());
+        params.setExistingOutputPolicy(existingOutput());
         params.setVersion(getVersion());
         params.setOutput(getOutput());
         params.setOutputPrefix(getPrefix());
