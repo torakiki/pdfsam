@@ -61,7 +61,6 @@ import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
 import org.pdfsam.ui.selection.multiple.move.MoveType;
 import org.sejda.eventstudio.Listener;
 
-import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import javafx.scene.Parent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.text.Text;
@@ -251,12 +250,10 @@ public class SelectionTableTest extends GuiTest {
     }
 
     @Test
-    @Ignore("Fails on CI server")
-    // TODO
     public void removeByContextMenu() throws Exception {
         populate();
         rightClick("temp.pdf");
-        click(MaterialDesignIcon.MINUS.toString());
+        click(DefaultI18nContext.getInstance().i18n("Remove"));
         SelectionTable victim = find("#victim");
         assertEquals(3, victim.getItems().size());
         assertEquals(1, victim.getSelectionModel().getSelectedIndices().size());
