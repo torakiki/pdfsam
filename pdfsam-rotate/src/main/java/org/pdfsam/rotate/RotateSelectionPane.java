@@ -41,8 +41,8 @@ public class RotateSelectionPane extends MultipleSelectionPane
         implements TaskParametersBuildStep<RotateParametersBuilder> {
 
     public RotateSelectionPane(String ownerModule) {
-        super(ownerModule, new SelectionTableColumn<?>[] { new LoadingColumn(ownerModule), FileColumn.NAME,
-                LongColumn.SIZE, IntColumn.PAGES, LongColumn.LAST_MODIFIED });
+        super(ownerModule, false, false, new SelectionTableColumn<?>[] { new LoadingColumn(ownerModule),
+                FileColumn.NAME, LongColumn.SIZE, IntColumn.PAGES, LongColumn.LAST_MODIFIED });
     }
 
     public void apply(RotateParametersBuilder builder, Consumer<String> onError) {

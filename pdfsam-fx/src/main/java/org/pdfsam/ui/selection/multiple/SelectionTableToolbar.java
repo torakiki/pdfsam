@@ -53,10 +53,12 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
 
     private String ownerModule = StringUtils.EMPTY;
 
-    public SelectionTableToolbar(String ownerModule) {
+    public SelectionTableToolbar(String ownerModule, boolean canMove) {
         this.ownerModule = defaultString(ownerModule);
-        getItems().addAll(new AddButton(ownerModule), new ClearButton(ownerModule), new RemoveButton(ownerModule),
-                new MoveUpButton(ownerModule), new MoveDownButton(ownerModule));
+        getItems().addAll(new AddButton(ownerModule), new ClearButton(ownerModule), new RemoveButton(ownerModule));
+        if (canMove) {
+            getItems().addAll(new MoveUpButton(ownerModule), new MoveDownButton(ownerModule));
+        }
         getStyleClass().add("selection-tool-bar");
     }
 

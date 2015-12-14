@@ -55,7 +55,7 @@ public class SelectionTableToolbarTest extends GuiTest {
 
     @Override
     protected Parent getRootNode() {
-        SelectionTableToolbar victim = new SelectionTableToolbar(MODULE);
+        SelectionTableToolbar victim = new SelectionTableToolbar(MODULE, true);
         victim.setId("victim");
         return victim;
     }

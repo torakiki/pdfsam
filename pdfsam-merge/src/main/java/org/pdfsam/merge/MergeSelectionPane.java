@@ -48,7 +48,7 @@ public class MergeSelectionPane extends MultipleSelectionPane
     private static final Logger LOG = LoggerFactory.getLogger(MergeSelectionPane.class);
 
     public MergeSelectionPane(String ownerModule) {
-        super(ownerModule, true, new SelectionTableColumn<?>[] { new LoadingColumn(ownerModule), FileColumn.NAME,
+        super(ownerModule, true, true, new SelectionTableColumn<?>[] { new LoadingColumn(ownerModule), FileColumn.NAME,
                 LongColumn.SIZE, IntColumn.PAGES, LongColumn.LAST_MODIFIED, StringColumn.PAGE_SELECTION });
     }
 

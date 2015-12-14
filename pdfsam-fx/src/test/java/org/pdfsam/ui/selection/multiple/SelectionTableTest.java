@@ -80,7 +80,7 @@ public class SelectionTableTest extends GuiTest {
 
     @Override
     protected Parent getRootNode() {
-        SelectionTable victim = new SelectionTable(MODULE, true,
+        SelectionTable victim = new SelectionTable(MODULE, true, true,
                 new SelectionTableColumn<?>[] { new LoadingColumn(MODULE), FileColumn.NAME, LongColumn.SIZE,
                         IntColumn.PAGES, LongColumn.LAST_MODIFIED, StringColumn.PAGE_SELECTION });
         victim.setId("victim");
