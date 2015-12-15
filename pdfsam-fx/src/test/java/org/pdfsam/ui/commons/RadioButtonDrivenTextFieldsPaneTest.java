@@ -26,6 +26,8 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
+import org.loadui.testfx.utils.FXTestUtils;
+import org.pdfsam.ui.help.HelpUtils;
 
 import javafx.scene.Parent;
 import javafx.scene.control.RadioButton;
@@ -39,28 +41,36 @@ import javafx.scene.control.ToggleGroup;
 @Category(TestFX.class)
 public class RadioButtonDrivenTextFieldsPaneTest extends GuiTest {
 
-    private RadioButtonDrivenTextFieldsPane victim;
     private ToggleGroup group = new ToggleGroup();
 
     @Override
     protected Parent getRootNode() {
-        victim = new RadioButtonDrivenTextFieldsPane(group);
+        RadioButtonDrivenTextFieldsPane victim = new RadioButtonDrivenTextFieldsPane(group);
         RadioButton radio = new RadioButton("RADIO");
         TextField field = new TextField();
         field.getStyleClass().add("FIELD");
         field.setText("FIELD");
-        victim.addRow(radio, field);
+        victim.addRow(radio, field, HelpUtils.helpIcon("Help"));
+        victim.setId("victim");
         return victim;
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void nullRadio() {
-        victim.addRow(null, new TextField());
+        RadioButtonDrivenTextFieldsPane victim = find("#victim");
+        victim.addRow(null, new TextField(), HelpUtils.helpIcon("Help"));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void nullField() {
-        victim.addRow(new RadioButton(), null);
+        RadioButtonDrivenTextFieldsPane victim = find("#victim");
+        victim.addRow(new RadioButton(), null, HelpUtils.helpIcon("Help"));
+    }
+
+    @Test
+    public void nullHelp() throws Exception {
+        RadioButtonDrivenTextFieldsPane victim = find("#victim");
+        FXTestUtils.invokeAndWait(() -> victim.addRow(new RadioButton(), new TextField(), null), 2);
     }
 
     @Test

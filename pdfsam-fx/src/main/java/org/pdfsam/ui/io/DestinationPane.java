@@ -19,12 +19,12 @@
 package org.pdfsam.ui.io;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.pdfsam.ui.help.HelpUtils.helpIcon;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.support.Style;
 
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Tooltip;
 import javafx.scene.layout.VBox;
 
 /**
@@ -43,8 +43,9 @@ class DestinationPane extends VBox {
         requireNotNull(destination, "Destination field cannot be null");
         this.destination = destination;
         overwrite.setSelected(false);
-        overwrite.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
-                "Tick the box if you want to overwrite the output files if they already exist.")));
+        overwrite.setGraphic(helpIcon(DefaultI18nContext.getInstance()
+                .i18n("Tick the box if you want to overwrite the output files if they already exist.")));
+        overwrite.getStyleClass().addAll(Style.WITH_HELP.css());
 
         destination.getStyleClass().addAll(Style.VITEM.css());
         getChildren().addAll(destination, overwrite);

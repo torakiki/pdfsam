@@ -11,3 +11,8 @@
 	-fx-effect: none;
     -fx-border-style: none;
 }
+
+.pdfsam-help-popup {
+    -fx-background-radius: 0.0;
+	-fx-effect: none;
+}

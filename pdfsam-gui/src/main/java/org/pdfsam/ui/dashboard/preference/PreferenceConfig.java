@@ -20,6 +20,7 @@ package org.pdfsam.ui.dashboard.preference;
 
 import static org.pdfsam.support.KeyStringValueItem.keyEmptyValue;
 import static org.pdfsam.support.KeyStringValueItem.keyValue;
+import static org.pdfsam.ui.help.HelpUtils.helpIcon;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Arrays;
@@ -43,10 +44,9 @@ import org.pdfsam.ui.Theme;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 import org.pdfsam.ui.log.MaxLogRowsChangedEvent;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
+import org.pdfsam.ui.support.Style;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import javafx.scene.control.Tooltip;
 
 /**
  * Configuration for the PDFsam preferences components
@@ -100,8 +100,9 @@ public class PreferenceConfig {
                 DefaultI18nContext.getInstance().i18n("Check for updates at startup"), userContext.isCheckForUpdates(),
                 userContext);
         checkForUpdates.setId("checkForUpdates");
-        checkForUpdates.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n(
-                "Set whether new version availability should be checked on startup (restart needed)")));
+        checkForUpdates.setGraphic(helpIcon(DefaultI18nContext.getInstance()
+                .i18n("Set whether new version availability should be checked on startup (restart needed)")));
+        checkForUpdates.getStyleClass().addAll(Style.WITH_HELP.css());
         checkForUpdates.getStyleClass().add("spaced-vitem");
         return checkForUpdates;
     }
@@ -111,7 +112,8 @@ public class PreferenceConfig {
         PreferenceCheckBox playSounds = new PreferenceCheckBox(BooleanUserPreference.PLAY_SOUNDS, DefaultI18nContext
                 .getInstance().i18n("Play alert sounds"), userContext.isPlaySounds(), userContext);
         playSounds.setId("playSounds");
-        playSounds.setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Turn on or off alert sounds")));
+        playSounds.setGraphic(helpIcon(DefaultI18nContext.getInstance().i18n("Turn on or off alert sounds")));
+        playSounds.getStyleClass().addAll(Style.WITH_HELP.css());
         playSounds.getStyleClass().add("spaced-vitem");
         return playSounds;
     }
@@ -159,9 +161,6 @@ public class PreferenceConfig {
         logRowsNumber.setText(Integer.toString(userContext.getNumberOfLogRows()));
         logRowsNumber.setErrorMessage(DefaultI18nContext.getInstance().i18n(
                 "Maximum number of rows mast be a positive number"));
-        String helpText = DefaultI18nContext.getInstance().i18n("Maximum number of rows displayed by the Log register");
-        logRowsNumber.setPromptText(helpText);
-        logRowsNumber.setTooltip(new Tooltip(helpText));
         logRowsNumber.setId("logViewRowsNumber");
         logRowsNumber.validProperty().addListener((o, oldVal, newVal) -> {
             if (newVal == ValidationState.VALID) {

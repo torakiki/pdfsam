@@ -36,7 +36,6 @@ import org.sejda.conversion.PageNumbersListAdapter;
 import org.sejda.model.parameter.SplitByPagesParameters;
 
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.Tooltip;
 
 /**
  * {@link RadioButton} driving a text field that can accept a comma separated list of integer numbers.
@@ -54,7 +53,6 @@ class SplitAfterRadioButton extends RadioButton implements SplitParametersBuilde
         this.field.setOnEnterValidation(true);
         this.field.setEnableInvalidStyle(true);
         this.field.setPromptText(DefaultI18nContext.getInstance().i18n("Page numbers to split at (n1,n2,n3..)"));
-        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Split the document after the given page numbers")));
         this.field.setValidator(Validators.regexMatching("^([1-9]\\d*(\\s*,\\s*)?)+$"));
         this.field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Invalid page numbers"));
     }

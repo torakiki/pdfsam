@@ -259,6 +259,13 @@
     -fx-border-style: none;
 }
 /**
+ * Help popup
+ */
+ .pdfsam-help-popup {
+    -fx-background-radius: 3.0;
+	-fx-effect: -pdfsam-shadow-effect;
+}
+/**
  * Table view
  */
 .table-view .column-header{

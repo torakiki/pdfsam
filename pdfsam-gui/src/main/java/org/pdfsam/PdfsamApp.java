@@ -141,7 +141,6 @@ public class PdfsamApp extends Application {
 
     private void initSejda() {
         Pdfsam pdfsam = ApplicationContextHolder.getContext().getBean(Pdfsam.class);
-        System.out.println("here");
         Sejda.CREATOR = pdfsam.shortName() + " v" + pdfsam.property(ConfigurableProperty.VERSION);
         System.setProperty(Sejda.UNETHICAL_READ_PROPERTY_NAME, "true");
     }

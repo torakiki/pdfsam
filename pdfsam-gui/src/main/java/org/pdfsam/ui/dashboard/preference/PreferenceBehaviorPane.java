@@ -18,6 +18,8 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
+import static org.pdfsam.ui.help.HelpUtils.helpIcon;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -39,17 +41,18 @@ class PreferenceBehaviorPane extends GridPane {
 
     @Inject
     public PreferenceBehaviorPane(@Named("checkForUpdates") PreferenceCheckBox checkForUpdates,
-            @Named("playSounds") PreferenceCheckBox playSounds,
-            CheckForUpdatesButton checkForUpdatesNow,
+            @Named("playSounds") PreferenceCheckBox playSounds, CheckForUpdatesButton checkForUpdatesNow,
             @Named("logViewRowsNumber") PreferenceIntTextField logViewRowsNumber) {
 
         add(new Label(DefaultI18nContext.getInstance().i18n("Log register rows:")), 0, 1);
         setFillWidth(logViewRowsNumber, true);
         logViewRowsNumber.setMaxWidth(Double.POSITIVE_INFINITY);
         add(logViewRowsNumber, 1, 1);
+        add(helpIcon(DefaultI18nContext.getInstance().i18n("Maximum number of rows displayed by the Log register")), 2,
+                1);
 
-        add(playSounds, 0, 2, 2, 1);
-        add(new VBox(checkForUpdates, checkForUpdatesNow), 0, 3, 2, 1);
+        add(playSounds, 0, 2, 3, 1);
+        add(new VBox(checkForUpdates, checkForUpdatesNow), 0, 3, 3, 1);
 
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.GRID.css());

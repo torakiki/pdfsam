@@ -21,14 +21,12 @@ package org.pdfsam.ui.prefix;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 import org.pdfsam.i18n.DefaultI18nContext;
-import org.pdfsam.i18n.I18nContext;
 import org.sejda.model.prefix.Prefix;
 
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Tooltip;
 
 /**
  * Text field providing PDFsam complex prefix functionalities (context menu to automatically set prefix values)
@@ -48,17 +46,6 @@ public class PrefixField extends TextField {
         this.menu.getItems().addAll(new PrefixMenuItem(Prefix.TIMESTAMP), new PrefixMenuItem(Prefix.BASENAME));
         this.setContextMenu(new ContextMenu(this.menu));
         setPrefWidth(300);
-        installTooltip();
-    }
-
-    private void installTooltip() {
-        I18nContext ctx = DefaultI18nContext.getInstance();
-        StringBuilder sb = new StringBuilder(ctx.i18n("Prefix for the output files name."));
-        sb.append("\n");
-        sb.append(ctx.i18n("Some special keywords are replaced with runtime values."));
-        sb.append("\n");
-        sb.append(ctx.i18n("Right click to add these keywords."));
-        this.setTooltip(new Tooltip(sb.toString()));
     }
 
     /**

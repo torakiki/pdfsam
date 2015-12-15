@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.commons;
 
+import static java.util.Objects.nonNull;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 import org.pdfsam.ui.support.Style;
@@ -28,6 +29,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
+import javafx.scene.text.Text;
 
 /**
  * GridPane containing a {@link RadioButton}s that, when selected, activate the corresponding text field.
@@ -45,7 +47,7 @@ public class RadioButtonDrivenTextFieldsPane extends GridPane {
         getStyleClass().addAll(Style.GRID.css());
     }
 
-    public void addRow(RadioButton radio, Region field) {
+    public void addRow(RadioButton radio, Region field, Text helpIcon) {
         requireNotNull(radio, "Cannot add a null radio");
         requireNotNull(field, "Cannot add a null field");
         GridPane.setValignment(radio, VPos.BOTTOM);
@@ -64,6 +66,9 @@ public class RadioButtonDrivenTextFieldsPane extends GridPane {
         radio.setToggleGroup(group);
         add(radio, 0, rows);
         add(field, 1, rows);
+        if (nonNull(helpIcon)) {
+            add(helpIcon, 2, rows);
+        }
         rows++;
 
     }

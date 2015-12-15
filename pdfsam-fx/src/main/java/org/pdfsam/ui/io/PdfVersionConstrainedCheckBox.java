@@ -20,6 +20,7 @@ package org.pdfsam.ui.io;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.pdfsam.ui.help.HelpUtils.helpIcon;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.apache.commons.lang3.StringUtils;
@@ -29,7 +30,6 @@ import org.pdfsam.ui.support.Style;
 import org.sejda.model.pdf.PdfVersion;
 
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Tooltip;
 
 /**
  * A checkbox that, when ticked, informs other component that a constraint on the output pdf document version has to be enforced.
@@ -45,8 +45,9 @@ class PdfVersionConstrainedCheckBox extends CheckBox implements ModuleOwned {
         requireNotNull(constraint, "PdfVersion cannot be null");
         this.ownerModule = defaultString(ownerModule);
         this.constraint = constraint;
-        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("PDF version required: {0}",
+        this.setGraphic(helpIcon(DefaultI18nContext.getInstance().i18n("PDF version required: {0}",
                 Double.toString(this.constraint.getVersionAsDouble()))));
+        this.getStyleClass().addAll(Style.WITH_HELP.css());
 
         selectedProperty().addListener((o, oldVal, newVal) -> {
             if (newVal) {

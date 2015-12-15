@@ -18,6 +18,8 @@
  */
 package org.pdfsam.split;
 
+import static org.pdfsam.ui.help.HelpUtils.helpIcon;
+
 import java.util.Map;
 import java.util.function.Consumer;
 
@@ -67,10 +69,12 @@ class SplitOptionsPane extends VBox implements SplitParametersBuilderCreator, Re
         splitAfterPredefined.setToggleGroup(group);
         splitAfter.setToggleGroup(group);
         splitByEvery.setToggleGroup(group);
-
-        grid.addRow(splitAfterPredefined, predefinedCombo);
-        grid.addRow(splitAfter, splitAfterField);
-        grid.addRow(splitByEvery, splitByEveryField);
+        grid.addRow(splitAfterPredefined, predefinedCombo,
+                helpIcon(DefaultI18nContext.getInstance().i18n("Split the document after the given page numbers")));
+        grid.addRow(splitAfter, splitAfterField,
+                helpIcon(DefaultI18nContext.getInstance().i18n("Split the document after the given page numbers")));
+        grid.addRow(splitByEvery, splitByEveryField, helpIcon(DefaultI18nContext.getInstance()
+                .i18n("Splits the PDF every \"n\" pages creating documents of \"n\" pages each")));
         splitAfterPredefined.setSelected(true);
 
         getStyleClass().addAll(Style.CONTAINER.css());

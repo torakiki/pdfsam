@@ -33,7 +33,6 @@ import org.sejda.model.pdf.page.PredefinedSetOfPages;
 
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.Tooltip;
 
 /**
  * A {@link RadioButton} showing a combo to select a {@link PredefinedSetOfPages} as split option
@@ -50,7 +49,6 @@ class SplitAfterPredefinedSetOfPagesRadioButton extends RadioButton implements S
         super(DefaultI18nContext.getInstance().i18n("Split after"));
         this.combo = combo;
         combo.getSelectionModel().selectFirst();
-        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Split the document after the given page numbers")));
     }
 
     public SimpleSplitParametersBuilder getBuilder(Consumer<String> onError) {

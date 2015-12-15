@@ -21,6 +21,7 @@ package org.pdfsam.merge;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.pdfsam.support.KeyStringValueItem.keyEmptyValue;
 import static org.pdfsam.support.KeyStringValueItem.keyValue;
+import static org.pdfsam.ui.help.HelpUtils.helpIcon;
 
 import java.util.Map;
 import java.util.Optional;
@@ -37,10 +38,8 @@ import org.sejda.model.pdf.form.AcroFormPolicy;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
 /**
  * Panel for the Merge options
  * 
@@ -56,9 +55,10 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
     MergeOptionsPane() {
         super(5);
         blankIfOdd = new CheckBox(DefaultI18nContext.getInstance().i18n("Add a blank page if page number is odd"));
-        blankIfOdd.setId("blankIfOddCheck");
-        blankIfOdd.setTooltip(new Tooltip(DefaultI18nContext.getInstance()
+        blankIfOdd.setGraphic(helpIcon(DefaultI18nContext.getInstance()
                 .i18n("Adds a blank page after each merged document if the document has an odd number of pages")));
+        blankIfOdd.getStyleClass().addAll(Style.WITH_HELP.css());
+        blankIfOdd.setId("blankIfOddCheck");
 
         acroForms.getItems().add(keyValue(AcroFormPolicy.MERGE, DefaultI18nContext.getInstance().i18n("Merge fields")));
         acroForms.getItems().add(keyValue(AcroFormPolicy.MERGE_RENAMING_EXISTING_FIELDS,

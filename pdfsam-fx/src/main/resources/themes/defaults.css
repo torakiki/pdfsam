@@ -19,7 +19,7 @@
 	awesome-error-color: #ED5554;
 	awesome-error-color-hover: derive(awesome-error-color, -35.0%);	
 }
-.label {
+.label, .text, .button {
 	-fx-text-fill: -pdfsam-dark-text-color;
 }
 .scroll-pane {
@@ -64,6 +64,10 @@
 .spaced-hcontainer {
 	-fx-spacing: 5.0px;
 	-fx-alignment: bottom-left;
+}
+.with-help{
+	-fx-graphic-text-gap: 12.0px;
+	-fx-content-display: RIGHT;
 }
 /**
  * footer for pane
@@ -375,6 +379,19 @@
 }
 .pdfsam-input-password-content .pdfsam-button{
 	-fx-padding: 0.0px 14.0px 0.0px 14.0px;
+}
+/**
+ * Help popup
+ */
+ .pdfsam-help-popup {
+ 	-fx-background-color: -fx-box-border, -pdfsam-tooltipbg-color;
+    -fx-background-insets: 0.0, 1.0;
+    -fx-background-radius: 0.0, 0.0;
+	-fx-effect: dropshadow(three-pass-box, -pdfsam-dark-text-color, 10.0, 0.0, 0.0, 3.0);
+    -fx-padding: 10.0px;
+    -fx-spacing: 5.0px;
+    -fx-font-size: 1.0em;   
+    -fx-fill: -pdfsam-dark-text-color;
 }
 /**
  * Close button

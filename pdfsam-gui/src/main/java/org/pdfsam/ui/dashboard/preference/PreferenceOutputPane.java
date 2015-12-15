@@ -18,10 +18,7 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.Tooltip;
-import javafx.scene.layout.VBox;
+import static org.pdfsam.ui.help.HelpUtils.helpIcon;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -29,6 +26,10 @@ import javax.inject.Named;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.ui.support.Style;
+
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.VBox;
 
 /**
  * Preference pane displaying the output section
@@ -48,10 +49,11 @@ class PreferenceOutputPane extends VBox {
         manualRadio.setToggleGroup(group);
         manualRadio.getStyleClass().addAll(Style.VITEM.css());
 
-        smartRadio.setTooltip(new Tooltip(i18n
-                .i18n("Automatically set the destination directory to the selected PDF document directory")));
         smartRadio.getStyleClass().addAll(Style.VITEM.css());
         smartRadio.setToggleGroup(group);
+        smartRadio.setGraphic(helpIcon(DefaultI18nContext.getInstance()
+                .i18n("Automatically set the destination directory to the selected PDF document directory")));
+        smartRadio.getStyleClass().addAll(Style.WITH_HELP.css());
 
         // TODO handle first run when none is selected
         getChildren().addAll(manualRadio, smartRadio);
