@@ -56,15 +56,15 @@ public class RadioButtonDrivenTextFieldsPaneTest extends GuiTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void nullRadio() {
+    public void nullRadio() throws Exception {
         RadioButtonDrivenTextFieldsPane victim = find("#victim");
-        victim.addRow(null, new TextField(), HelpUtils.helpIcon("Help"));
+        FXTestUtils.invokeAndWait(() -> victim.addRow(null, new TextField(), HelpUtils.helpIcon("Help")), 2);
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void nullField() {
+    public void nullField() throws Exception {
         RadioButtonDrivenTextFieldsPane victim = find("#victim");
-        victim.addRow(new RadioButton(), null, HelpUtils.helpIcon("Help"));
+        FXTestUtils.invokeAndWait(() -> victim.addRow(new RadioButton(), null, HelpUtils.helpIcon("Help")), 2);
     }
 
     @Test
