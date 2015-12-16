@@ -27,10 +27,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.params.TaskParametersBuildStep;
@@ -38,6 +34,10 @@ import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
 import org.sejda.model.rotation.Rotation;
+
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 
 /**
  * Panel for the Rotate options
@@ -66,7 +66,7 @@ class RotateOptionsPane extends HBox implements TaskParametersBuildStep<RotatePa
         this.rotation.getItems().add(
                 keyValue(Rotation.DEGREES_180, DefaultI18nContext.getInstance().i18n("180 degrees clockwise")));
         this.rotation.getItems().add(
-                keyValue(Rotation.DEGREES_270, DefaultI18nContext.getInstance().i18n("270 degrees clockwise")));
+                keyValue(Rotation.DEGREES_270, DefaultI18nContext.getInstance().i18n("90 degrees counterclockwise")));
         this.rotation.getSelectionModel().selectFirst();
         this.rotation.setId("rotation");
 
