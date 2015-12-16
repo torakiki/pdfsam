@@ -22,6 +22,7 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 
+import org.junit.After;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -36,6 +37,7 @@ import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
 
 import javafx.scene.Parent;
+import javafx.scene.input.KeyCode;
 
 /**
  * @author Andrea Vacondio
@@ -56,6 +58,11 @@ public class SelectionTableWithoutMoveTest extends GuiTest {
                         IntColumn.PAGES, LongColumn.LAST_MODIFIED, StringColumn.PAGE_SELECTION });
         victim.setId("victim");
         return victim;
+    }
+
+    @After
+    public void tearDown() {
+        type(KeyCode.ESCAPE);
     }
 
     @Test(expected = NoNodesFoundException.class)
