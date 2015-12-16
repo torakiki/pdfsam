@@ -57,7 +57,7 @@ public final class HelpUtils {
     }
 
     private static Text helpIcon(HelpPopup popup) {
-        Text icon = GlyphsDude.createIcon(MaterialDesignIcon.HELP_CIRCLE, "1.2em");
+        Text icon = GlyphsDude.createIcon(MaterialDesignIcon.HELP_CIRCLE, "1.1em");
         icon.setOnMouseEntered(e -> {
             Point2D p = icon.localToScreen(icon.getLayoutBounds().getMaxX(), icon.getLayoutBounds().getMaxY());
             popup.show(icon, p.getX(), p.getY());

@@ -66,7 +66,7 @@
 	-fx-alignment: bottom-left;
 }
 .with-help{
-	-fx-graphic-text-gap: 12.0px;
+	-fx-graphic-text-gap: 10.0px;
 	-fx-content-display: RIGHT;
 }
 /**
@@ -392,6 +392,9 @@
     -fx-spacing: 5.0px;
     -fx-font-size: 1.0em;   
     -fx-fill: -pdfsam-dark-text-color;
+}
+.pdfsam-help-popup .text{
+	-fx-fill: -pdfsam-dark-text-color;
 }
 /**
  * Close button

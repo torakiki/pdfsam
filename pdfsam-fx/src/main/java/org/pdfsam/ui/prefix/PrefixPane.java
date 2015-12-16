@@ -36,8 +36,8 @@ import org.sejda.model.prefix.Prefix;
 
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 
 /**
  * Panel with a text field to set the prefix for a task
@@ -56,8 +56,10 @@ public class PrefixPane extends HBox
         I18nContext ctx = DefaultI18nContext.getInstance();
         getChildren().addAll(new Label(DefaultI18nContext.getInstance().i18n("Generated PDF documents name prefix:")),
                 field,
-                helpIcon(new VBox(new Text(ctx.i18n("Prefix for the output files name.")),
-                        new Text(ctx.i18n("Some special keywords are replaced with runtime values.")),
+                        helpIcon(new TextFlow(
+                                new Text(ctx.i18n("Prefix for the output files name.") + System.lineSeparator()),
+                                new Text(ctx.i18n("Some special keywords are replaced with runtime values.")
+                                        + System.lineSeparator()),
                         new Text(ctx.i18n("Right click to add these keywords.")))));
     }
 

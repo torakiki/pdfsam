@@ -34,7 +34,6 @@ import org.pdfsam.ui.workspace.RestorableView;
 
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Tooltip;
 
 /**
  * Combo box letting the user specify the filesize in the split by size task
@@ -51,7 +50,6 @@ class BookmarksLevelComboBox extends ComboBox<String>
         setEditable(true);
         getSelectionModel().selectFirst();
         valueProperty().addListener((o, oldVal, newVal) -> validate());
-        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Set the bookmarks level to split at")));
         validationSupport.validationStateProperty().addListener(o -> {
             if (validationSupport.validationStateProperty().get() == ValidationState.INVALID) {
                 getEditor().getStyleClass().addAll(Style.INVALID.css());

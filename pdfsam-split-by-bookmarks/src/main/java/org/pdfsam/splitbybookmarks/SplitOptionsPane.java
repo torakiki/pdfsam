@@ -21,21 +21,25 @@ package org.pdfsam.splitbybookmarks;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.pdfsam.ui.help.HelpUtils.helpIcon;
 
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
+
+import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
+import org.pdfsam.support.params.TaskParametersBuildStep;
+import org.pdfsam.ui.support.Style;
+import org.pdfsam.ui.workspace.RestorableView;
 
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
-import org.pdfsam.i18n.DefaultI18nContext;
-import org.pdfsam.support.params.TaskParametersBuildStep;
-import org.pdfsam.ui.support.Style;
-import org.pdfsam.ui.workspace.RestorableView;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 
 /**
  * Panel for the Split options
@@ -43,8 +47,8 @@ import org.pdfsam.ui.workspace.RestorableView;
  * @author Andrea Vacondio
  *
  */
-class SplitOptionsPane extends VBox implements TaskParametersBuildStep<SplitByOutlineLevelParametersBuilder>,
-        RestorableView {
+class SplitOptionsPane extends VBox
+        implements TaskParametersBuildStep<SplitByOutlineLevelParametersBuilder>, RestorableView {
 
     private BookmarksLevelComboBox levelCombo = new BookmarksLevelComboBox();
     private TextField regexpField = new TextField();
@@ -52,15 +56,18 @@ class SplitOptionsPane extends VBox implements TaskParametersBuildStep<SplitByOu
     SplitOptionsPane() {
         super(Style.DEFAULT_SPACING);
         getStyleClass().addAll(Style.CONTAINER.css());
+        I18nContext ctx = DefaultI18nContext.getInstance();
         levelCombo.setId("bookmarksLevel");
         regexpField.setId("bookmarksRegexp");
-        regexpField.setPromptText(DefaultI18nContext.getInstance().i18n("Regular expression the bookmark has to match"));
+        regexpField.setPromptText(ctx.i18n("Regular expression the bookmark has to match"));
         regexpField.setPrefWidth(350);
-        getChildren().addAll(
-                createLine(new Label(DefaultI18nContext.getInstance().i18n("Split at this bookmark level:")),
-                        levelCombo),
-                createLine(new Label(DefaultI18nContext.getInstance().i18n("Matching regular expression:")),
-                        regexpField));
+        getChildren().addAll(createLine(new Label(ctx.i18n("Split at this bookmark level:")), levelCombo),
+                createLine(new Label(ctx.i18n("Matching regular expression:")), regexpField,
+                        helpIcon(new TextFlow(
+                                new Text(ctx.i18n("A regular expression the bookmark text has to match")
+                                        + System.lineSeparator()),
+                        new Text(ctx.i18n(
+                                "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""))))));
     }
 
     void setMaxBookmarkLevel(int max) {
