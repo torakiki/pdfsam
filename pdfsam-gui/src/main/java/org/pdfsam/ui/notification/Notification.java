@@ -23,19 +23,13 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.UUID;
 
-import de.jensd.fx.glyphs.GlyphsDude;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 /**
@@ -54,23 +48,21 @@ class Notification extends BorderPane {
         setId(UUID.randomUUID().toString());
         Label titleLabel = new Label(title);
         titleLabel.getStyleClass().add("notification-title");
-        Button closeButton = GlyphsDude.createIconButton(FontAwesomeIcon.TIMES);
-        closeButton.getStyleClass().addAll("close-button");
-        closeButton.setOnAction(e -> eventStudio().broadcast(new RemoveNotificationRequestEvent(getId())));
-        HBox titlePanel = new HBox();
-        StackPane buttonPane = new StackPane(closeButton);
-        buttonPane.setAlignment(Pos.TOP_RIGHT);
-        HBox.setHgrow(buttonPane, Priority.ALWAYS);
-        titlePanel.getChildren().addAll(titleLabel, buttonPane);
         BorderPane.setAlignment(content, Pos.CENTER_LEFT);
-        setTop(titlePanel);
+        setTop(titleLabel);
         setCenter(content);
         setOpacity(0);
         setOnMouseEntered(e -> {
-            fade.pause();
+            fade.stop();
             setOpacity(1);
         });
-        setOnMouseExited(e -> fade.play());
+        setOnMouseClicked(e -> {
+            setOnMouseEntered(null);
+            setOnMouseExited(null);
+            fade.stop();
+            eventStudio().broadcast(new RemoveNotificationRequestEvent(getId()));
+        });
+        setOnMouseExited(e -> fadeAway(Duration.millis(2500)));
         fade.setFromValue(1);
         fade.setToValue(0);
     }

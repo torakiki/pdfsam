@@ -18,6 +18,8 @@
  */
 package org.pdfsam.ui.notification;
 
+import javax.inject.Named;
+
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -25,8 +27,6 @@ import javafx.scene.Node;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
-
-import javax.inject.Named;
 
 /**
  * Container for the notifications
@@ -44,7 +44,7 @@ public class NotificationsContainer extends VBox {
 
     void addNotification(String title, Node message) {
         Notification toAdd = doAddNotification(title, message);
-        fadeIn(toAdd, e -> toAdd.fadeAway(Duration.millis(2000)));
+        fadeIn(toAdd, e -> toAdd.fadeAway(Duration.seconds(5)));
     }
 
     void addStickyNotification(String title, Node message) {
