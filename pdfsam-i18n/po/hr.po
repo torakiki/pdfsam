@@ -1,16 +1,16 @@
-# Finnish translation for pdfsam
-# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# Croatian translation for pdfsam
+# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the pdfsam package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-12-16 18:03+0100\n"
-"PO-Revision-Date: 2014-03-03 14:12+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Finnish <fi@li.org>\n"
+"PO-Revision-Date: 2015-12-19 11:03+0000\n"
+"Last-Translator: Slavko Blazevic <rapidcro@gmail.com>\n"
+"Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -54,10 +54,10 @@ msgid "Overwrite"
 msgstr ""
 
 msgid "No"
-msgstr ""
+msgstr "Ne"
 
 msgid "Yes"
-msgstr ""
+msgstr "Da"
 
 msgid "The selected output directory does not exist"
 msgstr ""
@@ -131,50 +131,50 @@ msgid "Document details"
 msgstr ""
 
 msgid "Keywords"
-msgstr ""
+msgstr "Ključne riječi"
 
 msgid "Summary"
 msgstr ""
 
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\MainGUI.java:222
 msgid "About"
-msgstr "Tietoja"
+msgstr "O programu"
 
 msgid "Environment"
 msgstr ""
 
 #, java-format
 msgid "Max memory {0}"
-msgstr ""
+msgstr "Max memorija {0}"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopiraj u međuspremnik"
 
 msgid "Thanks to"
-msgstr ""
+msgstr "Zahvaljujući"
 
 msgid "The open source projects making PDFsam possible"
-msgstr ""
+msgstr "Open source projektima čineći PDFsam da postoji"
 
 msgid "Support"
-msgstr ""
+msgstr "Podrška"
 
 msgid "Contribute"
-msgstr ""
+msgstr "Doprinjeti"
 
 msgid "Social"
-msgstr ""
+msgstr "Društvene mreže"
 
 msgid "Manually selected"
-msgstr ""
+msgstr "Ručni odabir"
 
 msgid ""
 "Automatically set the destination directory to the selected PDF document "
 "directory"
 msgstr ""
+"Automatski postavite odredišni direktorij jednak kao odabrani PDF dokument"
 
 msgid "Appearance"
-msgstr ""
+msgstr "Izgled"
 
 msgid "Behavior"
 msgstr ""
@@ -186,7 +186,7 @@ msgid "Output"
 msgstr ""
 
 msgid "Check for updates at startup"
-msgstr ""
+msgstr "Provjeri nadogradnje prilikom pokretanja"
 
 msgid ""
 "Set whether new version availability should be checked on startup (restart "
@@ -194,10 +194,10 @@ msgid ""
 msgstr ""
 
 msgid "Play alert sounds"
-msgstr ""
+msgstr "Koristi zvukove upozorenja"
 
 msgid "Turn on or off alert sounds"
-msgstr ""
+msgstr "Uključi ili isključi zvukove upozorenja"
 
 msgid "High quality thumbnails"
 msgstr ""
@@ -233,7 +233,7 @@ msgstr ""
 
 msgid ""
 "Select a directory where documents will be saved and loaded by default"
-msgstr ""
+msgstr "Odaberite mapu gdje će dokumenti biti spremljeni i učitani"
 
 msgid "Select a directory"
 msgstr ""
@@ -247,7 +247,7 @@ msgid "Load default workspace at startup:"
 msgstr ""
 
 msgid "Default working directory:"
-msgstr ""
+msgstr "Uobičajena mapa za rad:"
 
 msgid "Log register rows:"
 msgstr ""
@@ -255,20 +255,14 @@ msgstr ""
 msgid "Maximum number of rows displayed by the Log register"
 msgstr ""
 
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:125
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:116
 msgid "Language:"
-msgstr "Kieli:"
+msgstr "Jezik:"
 
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:224
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:182
 msgid "Set your preferred language (restart needed)"
-msgstr "Valitse kieli (vaatii uudelleenkäynnistyksen)"
+msgstr "Postavite vaš jezik (potrebno ponovno pokretanje)"
 
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:122
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:113
 msgid "Theme:"
-msgstr "Teema:"
+msgstr "Tema:"
 
 msgid "Set your preferred theme (restart needed)"
 msgstr ""
@@ -282,12 +276,11 @@ msgstr ""
 msgid "Check for updates now"
 msgstr ""
 
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:150
 msgid "Close"
-msgstr "Sulje"
+msgstr "Zatvori"
 
 msgid "Settings"
-msgstr ""
+msgstr "Postavke"
 
 msgid "Modules"
 msgstr ""
@@ -295,25 +288,17 @@ msgstr ""
 msgid "Log register"
 msgstr ""
 
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\LogPanel.java:99
 msgid "Copy"
-msgstr "Kopioi"
+msgstr "Kopiraj"
 
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:284
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:294
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\LogPanel.java:105
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:297
 msgid "Clear"
-msgstr "Tyhjennä"
+msgstr "Obriši"
 
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\LogPanel.java:112
 msgid "Select all"
-msgstr "Valitse kaikki"
+msgstr "Odaberi sve"
 
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\ButtonsBar.java:117
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\LogPanel.java:121
 msgid "Save log"
-msgstr "Tallenna loki"
+msgstr "Spremi zapisnik."
 
 msgid "Select where to save the log file"
 msgstr ""
@@ -433,7 +418,7 @@ msgid "Only valid positive page numbers are allowed"
 msgstr ""
 
 msgid "Split"
-msgstr "Jaa kahtia"
+msgstr "Razdijeli"
 
 msgid "Split a PDF document at the given page numbers."
 msgstr ""
@@ -470,7 +455,7 @@ msgid "Split by every \"n\" pages"
 msgstr ""
 
 msgid "Number of pages"
-msgstr ""
+msgstr "Broj stranica"
 
 msgid "Invalid number of pages"
 msgstr ""
@@ -491,7 +476,7 @@ msgid "Split at this size:"
 msgstr ""
 
 msgid "Invalid split size"
-msgstr "Kelvoton jakamiskoko."
+msgstr "Neispravna veličina razdvajanja"
 
 msgid "Megabytes"
 msgstr ""
@@ -506,7 +491,7 @@ msgid "KB"
 msgstr ""
 
 msgid "Alternate Mix"
-msgstr "Vaihtoehtoinen sekoittaminen"
+msgstr "Miješani dokument"
 
 msgid ""
 "Merge two PDF documents taking pages alternately in straight or reverse "
@@ -566,49 +551,35 @@ msgstr ""
 msgid "Unlock"
 msgstr ""
 
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:273
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:317
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:266
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:311
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:269
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:314
 msgid "Remove"
-msgstr "Poista"
+msgstr "Ukloni"
 
 msgid "Duplicate"
 msgstr ""
 
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:282
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:329
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:285
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:332
 msgid "Move Down"
-msgstr "Alaspäin"
+msgstr "Premjesti dolje"
 
 msgid "Move to Bottom"
 msgstr ""
 
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:273
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:320
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:276
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:323
 msgid "Move Up"
-msgstr "Ylöspäin"
+msgstr "Premjesti gore"
 
 msgid "Move to Top"
 msgstr ""
 
 msgid "Set destination"
-msgstr ""
+msgstr "Postavi odredište"
 
 msgid "Open"
-msgstr ""
+msgstr "Otvori"
 
 msgid "Open Folder"
 msgstr ""
 
 msgid "Document properties"
-msgstr ""
+msgstr "Svojstva dokumenta"
 
 msgid "Loading..."
 msgstr ""
@@ -626,24 +597,11 @@ msgstr ""
 msgid "Ready"
 msgstr ""
 
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:542
-# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:462
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:526
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:320
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:410
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:530
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:408
 msgid "Run"
-msgstr "Aja"
+msgstr "Pokreni"
 
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:452
-# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:315
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:434
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:249
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:279
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:438
 msgid "Overwrite if already exists"
-msgstr "Ylikirjoita, jos on jo olemassa"
+msgstr "Prepiši preko ako već postoji"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
@@ -659,29 +617,14 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:394
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:421
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:448
-# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:175
-# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:340
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:430
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:150
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:177
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:244
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:164
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:304
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:233
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:434
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:163
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:300
 msgid "Browse"
-msgstr "Selaa"
+msgstr "Pregledaj"
 
 msgid "The selected PDF file is invalid"
 msgstr ""
 
 msgid "Compress output file/files"
-msgstr "Pakkaa tulostustiedosto(t)"
+msgstr "Sažmi izlazne datoteke"
 
 msgid "Output PDF version:"
 msgstr ""
@@ -722,7 +665,7 @@ msgid "Prefix for the generated files names"
 msgstr ""
 
 msgid "Add prefix"
-msgstr ""
+msgstr "Dodaj prefiks"
 
 msgid "Enter the user password"
 msgstr ""
@@ -730,17 +673,14 @@ msgstr ""
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Kliknite dva puta da bi označili stranice koje želite spojiti (npr.: 2 ili 5-"
+"23 ili 2,5-7,12-)"
 
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:182
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:180
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:183
 msgid "Pages"
-msgstr "Sivut"
+msgstr "Stranice"
 
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JInfoPanel.java:118
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:128
 msgid "Name"
-msgstr "Nimi"
+msgstr "Naziv"
 
 msgid "Add documents to the table"
 msgstr ""
@@ -924,7 +864,7 @@ msgid "Rotate "
 msgstr ""
 
 msgid "Rotate"
-msgstr ""
+msgstr "Rotiraj"
 
 msgid "Rotate the pages of multiple PDF documents."
 msgstr ""
@@ -932,25 +872,33 @@ msgstr ""
 msgid "Rotate settings"
 msgstr ""
 
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:206
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:223
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:205
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:223
 #~ msgid "Split even pages"
-#~ msgstr "Jaa parilliset sivut"
+#~ msgstr "Podijeli parne stranice"
 
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:209
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:208
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
 #~ msgid "Split odd pages"
-#~ msgstr "Jaa parittomat sivut"
-
-#~ msgid "Never"
-#~ msgstr "Ei koskaan"
+#~ msgstr "Podijeli neparne stranice"
 
 #~ msgid "Output document pdf version:"
-#~ msgstr "Tulostustiedoston PDF-versio:"
+#~ msgstr "Pdf inačica izlaznog dokumenta:"
+
+#~ msgid "Never"
+#~ msgstr "Nikada"
 
 #~ msgid "Unable to get latest available version"
-#~ msgstr "Uusimman version hakeminen epäonnistui."
+#~ msgstr "Ne mogu čitati posljednju dostupnu inačicu"
+
+#~ msgid "Destination folder"
+#~ msgstr "Odredišna mapa"
+
+#~ msgid ""
+#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" is "
+#~ "selected"
+#~ msgstr ""
+#~ "Prikaži dijaloški okvir za potvrdu korisnika kada je \"pisati preko\" "
+#~ "označeno"
+
+#~ msgid "Ask for confirmation when overwrite checkbox is selected"
+#~ msgstr "Traži potvrdu kada je označena kučica za pisanje preko"
+
+#~ msgid "Would you like to overwrite it?"
+#~ msgstr "Želite li pisati preko?"

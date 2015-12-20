@@ -2,16 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-11-18 16:13+0100\n"
+"POT-Creation-Date: 2015-12-16 18:03+0100\n"
 "PO-Revision-Date: 2015-05-11 09:07+0000\n"
 "Last-Translator: Patriccollu <Patrick.Santa-Maria@laposte.net>\n"
 "Language-Team: \n"
-"Language: co\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-11-22 09:52+0000\n"
-"X-Generator: Launchpad (build 17850)\n"
+"X-Launchpad-Export-Date: 2015-12-20 17:40+0000\n"
+"X-Generator: Launchpad (build 17865)\n"
+"Language: co\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Sottuscrive à i flussi di nutizie ufficiale"
@@ -48,6 +48,18 @@ msgstr "Abbandunà"
 
 msgid "Overwrite"
 msgstr "Rimpiazzà"
+
+msgid "No"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "The selected output directory does not exist"
+msgstr ""
+
+msgid "Do you want to create it?"
+msgstr ""
 
 #, java-format
 msgid "Installing theme {0}."
@@ -193,19 +205,8 @@ msgid "Use the selected PDF document directory as output directory"
 msgstr ""
 "Impiegà u cartulare di ducumentu PDF selezziunatu cum'è cartulare d'esciuta"
 
-#, java-format
-msgid "Size must be between {0}px and {1}px"
-msgstr "A dimensione deve esse trà {0} è {1} px"
-
-#, java-format
-msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
-msgstr "Dimensione di l immaghjinuccie (trà {0} è {1} px)"
-
 msgid "Maximum number of rows mast be a positive number"
 msgstr "U numeru massimu di linee deve esse un numeru pusitivu"
-
-msgid "Maximum number of rows displayed by the Log register"
-msgstr "U numeru massimu di linee affissatu da u registradore di Log"
 
 msgid "Generate high quality thumbnails (slower)"
 msgstr "Creazione d'imaghjinuccie d'alta qualità (più pianu)"
@@ -232,7 +233,8 @@ msgstr ""
 msgid "Select a workspace"
 msgstr "Selezziunà un spaziu di travagliu"
 
-msgid "Select a directory where documents will be saved and loaded by default"
+msgid ""
+"Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Selezziunà un cartulare induve i ducumenti seranu arregistrati è caricati "
 "(senza altra direttiva)"
@@ -255,6 +257,9 @@ msgstr "Cartulare di travaglu predefinitu :"
 
 msgid "Log register rows:"
 msgstr "Linee di u registradore di Log :"
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr "U numeru massimu di linee affissatu da u registradore di Log"
 
 msgid "Language:"
 msgstr "Lingua :"
@@ -334,6 +339,9 @@ msgstr "Telecaricà"
 msgid "New version available"
 msgstr "Nova versione dispunibule"
 
+msgid "Non existing directory"
+msgstr ""
+
 msgid "Directory not empty"
 msgstr "Cartulare micca viotu"
 
@@ -403,9 +411,6 @@ msgstr "Spaziu di travagliu arregistratu"
 msgid "Split after"
 msgstr "Sparte dopu à"
 
-msgid "Split the document after the given page numbers"
-msgstr "Sparte u ducumentu dopu à u numeru di pagine indicatu"
-
 msgid "No page selected"
 msgstr "Alcuna pagina ùn hè selezziunata"
 
@@ -448,14 +453,18 @@ msgstr "Pagine pare"
 msgid "Odd pages"
 msgstr "Pagine anesche"
 
+msgid "Split the document after the given page numbers"
+msgstr "Sparte u ducumentu dopu à u numeru di pagine indicatu"
+
+msgid ""
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr ""
+
 msgid "Split by every \"n\" pages"
 msgstr "Sparte à ogni \"n\" pagine"
 
 msgid "Number of pages"
 msgstr "Numeru di pagine"
-
-msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
-msgstr ""
 
 msgid "Invalid number of pages"
 msgstr "U numeru di pagine hè inaccettevule"
@@ -529,8 +538,8 @@ msgstr "Scambià da u secondu ducumentu à u primu dopu à ste pagine"
 msgid "Invalid parameter 'first and second step' must be numbers"
 msgstr "Parametru inaccettevule 'prima è seconda tappa' devenu esse numeri"
 
-msgid "Select the number of pages"
-msgstr "Selezziunà u numeru di pagine"
+msgid "Select a valid number of pages"
+msgstr ""
 
 msgid "The selected PDF document is invalid"
 msgstr "U PDF selezziunatu hè inaccettevule"
@@ -552,6 +561,9 @@ msgstr "Selezziunà un schedariu"
 
 msgid "Unlock"
 msgstr "Sblucchà"
+
+msgid "Remove"
+msgstr "Caccià"
 
 msgid "Duplicate"
 msgstr "Duplicà"
@@ -579,9 +591,6 @@ msgstr "Apre un Sfugliaghju"
 
 msgid "Document properties"
 msgstr "Pruprietà di u ducumentu"
-
-msgid "Remove"
-msgstr "Caccià"
 
 msgid "Loading..."
 msgstr "Caricamentu in corsu..."
@@ -645,17 +654,14 @@ msgstr ""
 msgid "Select an existing directory"
 msgstr "Selezziunà un cartulare esistente"
 
-msgid "The selected output directory is invalid"
-msgstr "U cartulare d'esciuta selezziunatu hè inaccettevule"
+msgid "An existing output directory is required"
+msgstr ""
+
+msgid "The output directory is required"
+msgstr ""
 
 msgid "Generated PDF documents name prefix:"
 msgstr ""
-
-msgid "Prefix for the generated files names"
-msgstr "Prefissu per i nomi di ducumenti creati"
-
-msgid "Add prefix"
-msgstr "Aghjunghje un prefissu"
 
 msgid "Prefix for the output files name."
 msgstr "Prefissu per i nomi di schedarii d'esciuta."
@@ -666,14 +672,20 @@ msgstr "Qualchì parolla chjave hè rimpiazzata cù valori d'esecuzione."
 msgid "Right click to add these keywords."
 msgstr "Cliccu dirittu per aghjunghje ste parolle chjave."
 
+msgid "Prefix for the generated files names"
+msgstr "Prefissu per i nomi di ducumenti creati"
+
+msgid "Add prefix"
+msgstr "Aghjunghje un prefissu"
+
 msgid "Enter the user password"
 msgstr "Scrivite a parolla d'intrata di l'utilizatore"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Doppiu cliccu per definisce e pagine di a fusione (p.i. : 2 o 5-23 o "
-"2,5-7,12-)"
+"Doppiu cliccu per definisce e pagine di a fusione (p.i. : 2 o 5-23 o 2,5-"
+"7,12-)"
 
 msgid "Pages"
 msgstr "Pagine"
@@ -773,6 +785,9 @@ msgstr "Scaccià l'indette"
 msgid "Create one entry for each merged document"
 msgstr "Creà un entrata per ogni ducumentu di a fusione"
 
+msgid "Retain bookmarks as one entry for each merged document"
+msgstr ""
+
 msgid "Bookmarks handling:"
 msgstr "Trattamentu di l'indette :"
 
@@ -822,9 +837,6 @@ msgstr "Turchinellu quadrittatu"
 msgid "Roundish"
 msgstr "Ciociulu"
 
-msgid "Set the bookmarks level to split at"
-msgstr "Definisce u livellu d'indette per sparte"
-
 msgid "Invalid bookmarks level"
 msgstr "Livellu d'indette inaccettevule"
 
@@ -844,6 +856,13 @@ msgstr "Sparte à stu livellu d'indetta :"
 msgid "Matching regular expression:"
 msgstr "L'espressione regulare currisponde :"
 
+msgid "A regular expression the bookmark text has to match"
+msgstr ""
+
+msgid ""
+"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+
 msgid "All pages"
 msgstr "Tutte e pagine"
 
@@ -853,8 +872,8 @@ msgstr "90 gradi in u sensu di e sfiere d'arilogiu"
 msgid "180 degrees clockwise"
 msgstr "180 gradi in u sensu di e sfiere d'arilogiu"
 
-msgid "270 degrees clockwise"
-msgstr "270 gradi in u sensu di e sfiere d'arilogiu"
+msgid "90 degrees counterclockwise"
+msgstr ""
 
 msgid "Rotate "
 msgstr "Girà "

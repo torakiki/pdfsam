@@ -6,17 +6,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
-"Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-11-18 16:13+0100\n"
-"PO-Revision-Date: 2015-11-20 19:13+0000\n"
-"Last-Translator: Jean-Marc <Unknown>\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-12-16 18:03+0100\n"
+"PO-Revision-Date: 2015-12-10 20:10+0000\n"
+"Last-Translator: Carolopolitain <david_chmfr@yahoo.fr>\n"
 "Language-Team: French <fr@li.org>\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-11-22 09:53+0000\n"
-"X-Generator: Launchpad (build 17850)\n"
+"X-Launchpad-Export-Date: 2015-12-20 17:40+0000\n"
+"X-Generator: Launchpad (build 17865)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Souscrire au fil d’actualités officiel"
@@ -53,6 +52,18 @@ msgstr "Annuler"
 
 msgid "Overwrite"
 msgstr "Remplacer"
+
+msgid "No"
+msgstr "Non"
+
+msgid "Yes"
+msgstr "Oui"
+
+msgid "The selected output directory does not exist"
+msgstr "Le répertoire de sortie n'existe pas"
+
+msgid "Do you want to create it?"
+msgstr "Voulez-vous le créer ?"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -197,19 +208,8 @@ msgstr "Miniatures haute qualité"
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Utiliser le dossier du document PDF chargé"
 
-#, java-format
-msgid "Size must be between {0}px and {1}px"
-msgstr "La taille doit être entre {0}px et {1}px"
-
-#, java-format
-msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
-msgstr "Taille des miniatures en pixels (entre {0}px et {1}px)"
-
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Le nombre maximum de lignes doit être un nombre positif."
-
-msgid "Maximum number of rows displayed by the Log register"
-msgstr "Le nombre maximum de lignes affichées par le registre d'évènements."
 
 msgid "Generate high quality thumbnails (slower)"
 msgstr "Générer des miniatures de haute qualité (lent)"
@@ -235,7 +235,8 @@ msgstr ""
 msgid "Select a workspace"
 msgstr "Sélectionner un espace de travail"
 
-msgid "Select a directory where documents will be saved and loaded by default"
+msgid ""
+"Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Sélectionner un dossier par défaut de chargement et d’enregistrement des "
 "documents"
@@ -258,6 +259,9 @@ msgstr "Répertoire de travail par défaut :"
 
 msgid "Log register rows:"
 msgstr "Lignes du registre d'évènements :"
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr "Le nombre maximum de lignes affichées par le registre d'évènements."
 
 msgid "Language:"
 msgstr "Langue :"
@@ -346,6 +350,9 @@ msgstr "Télécharger"
 msgid "New version available"
 msgstr "Nouvelle version disponible"
 
+msgid "Non existing directory"
+msgstr "Répertoire non existant"
+
 msgid "Directory not empty"
 msgstr "Dossier non vide"
 
@@ -415,9 +422,6 @@ msgstr "Espace de travail sauvegardé"
 msgid "Split after"
 msgstr "Découper après"
 
-msgid "Split the document after the given page numbers"
-msgstr "Découper le document après les numéros de pages indiqués"
-
 msgid "No page selected"
 msgstr "Aucune page sélectionnée"
 
@@ -460,16 +464,20 @@ msgstr "les pages paires"
 msgid "Odd pages"
 msgstr "les pages impaires"
 
+msgid "Split the document after the given page numbers"
+msgstr "Découper le document après les numéros de pages indiqués"
+
+msgid ""
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr ""
+"Couper le document PDF toutes les « n » pages va créer des documents de « n "
+"» pages chacun"
+
 msgid "Split by every \"n\" pages"
 msgstr "En groupes de pages au nombre de"
 
 msgid "Number of pages"
 msgstr "Nombre de pages"
-
-msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
-msgstr ""
-"Couper le document PDF toutes les « n » pages va créer des documents de « n "
-"» pages chacun"
 
 msgid "Invalid number of pages"
 msgstr "Nombre de pages erroné"
@@ -547,8 +555,8 @@ msgid "Invalid parameter 'first and second step' must be numbers"
 msgstr ""
 "Paramètre erroné : « les premier et second pas » doivent être des nombres"
 
-msgid "Select the number of pages"
-msgstr "Indiquer un nombre de pages"
+msgid "Select a valid number of pages"
+msgstr "Sélectionner un numéro de page valide"
 
 msgid "The selected PDF document is invalid"
 msgstr "Le document PDF sélectionné n’est pas valide"
@@ -569,7 +577,10 @@ msgid "Select a file"
 msgstr "Sélectionner un fichier"
 
 msgid "Unlock"
-msgstr "Déverrouillage"
+msgstr "Déverrouiller"
+
+msgid "Remove"
+msgstr "Supprimer"
 
 msgid "Duplicate"
 msgstr "Dupliquer"
@@ -605,9 +616,6 @@ msgstr "Ouvrir le dossier"
 
 msgid "Document properties"
 msgstr "Propriétés du document"
-
-msgid "Remove"
-msgstr "Supprimer"
 
 msgid "Loading..."
 msgstr "Chargement…"
@@ -678,17 +686,14 @@ msgstr "Version de PDF requise : {0}"
 msgid "Select an existing directory"
 msgstr "Sélectionner un dossier existant"
 
-msgid "The selected output directory is invalid"
-msgstr "Le dossier de création sélectionné n’est pas valide"
+msgid "An existing output directory is required"
+msgstr "Un répertoire de sortie existant est requis"
+
+msgid "The output directory is required"
+msgstr "Le répertoire de sortie est requis"
 
 msgid "Generated PDF documents name prefix:"
 msgstr "Préfixe pour les noms des documents PDF générés :"
-
-msgid "Prefix for the generated files names"
-msgstr "Préfixe des noms de fichiers générés"
-
-msgid "Add prefix"
-msgstr "Ajouter un préfixe"
 
 msgid "Prefix for the output files name."
 msgstr "Préfixe des noms de fichiers créés."
@@ -698,6 +703,12 @@ msgstr "Certains mots-clés sont remplacées par des valeurs d’exécution."
 
 msgid "Right click to add these keywords."
 msgstr "Cliquer‑droit pour ajouter ces mots‑clés."
+
+msgid "Prefix for the generated files names"
+msgstr "Préfixe des noms de fichiers générés"
+
+msgid "Add prefix"
+msgstr "Ajouter un préfixe"
 
 msgid "Enter the user password"
 msgstr "Entrer le mot de passe d’ouverture"
@@ -770,8 +781,8 @@ msgid ""
 "Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
 "or [-n] or [n-]"
 msgstr ""
-"Définition d’ensemble de pages ambiguë : {0}. Utiliser les formats "
-"suivants : [n] ou [n1-n2] ou [-n] ou [n-]"
+"Définition d’ensemble de pages ambiguë : {0}. Utiliser les formats suivants "
+": [n] ou [n1-n2] ou [-n] ou [n-]"
 
 #, java-format
 msgid "Invalid number: {0}."
@@ -810,6 +821,9 @@ msgstr "ignorer les signets"
 
 msgid "Create one entry for each merged document"
 msgstr "créer un signet par document fusionné"
+
+msgid "Retain bookmarks as one entry for each merged document"
+msgstr ""
 
 msgid "Bookmarks handling:"
 msgstr "Gestion des signets :"
@@ -860,9 +874,6 @@ msgstr "Bleuet angulaire"
 msgid "Roundish"
 msgstr "Arrondi"
 
-msgid "Set the bookmarks level to split at"
-msgstr "Indiquer le niveau de signet où couper"
-
 msgid "Invalid bookmarks level"
 msgstr "Niveau de signet erroné"
 
@@ -884,8 +895,15 @@ msgstr "Découper au niveau de signet :"
 msgid "Matching regular expression:"
 msgstr "Suivant l'expression régulière :"
 
+msgid "A regular expression the bookmark text has to match"
+msgstr ""
+
+msgid ""
+"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+
 msgid "All pages"
-msgstr "toutes les pages"
+msgstr "Toutes les pages"
 
 msgid "90 degrees clockwise"
 msgstr "de 90° (sens horaire)"
@@ -893,8 +911,8 @@ msgstr "de 90° (sens horaire)"
 msgid "180 degrees clockwise"
 msgstr "de 180°"
 
-msgid "270 degrees clockwise"
-msgstr "de 270° (sens horaire)"
+msgid "90 degrees counterclockwise"
+msgstr ""
 
 msgid "Rotate "
 msgstr "Tourner "
@@ -918,11 +936,11 @@ msgstr "Paramètres de rotation"
 #~ msgstr "Voulez vous le remplacer ?"
 
 #~ msgid ""
-#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" "
-#~ "is selected"
+#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" is "
+#~ "selected"
 #~ msgstr ""
-#~ "Affiche une boîte de dialogue demandant confirmation quand \"Remplacer "
-#~ "le(s) fichier(s) existant(s)\" est coché"
+#~ "Affiche une boîte de dialogue demandant confirmation quand \"Remplacer le(s) "
+#~ "fichier(s) existant(s)\" est coché"
 
 #~ msgid "Ask for confirmation when overwrite checkbox is selected"
 #~ msgstr ""

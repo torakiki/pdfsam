@@ -5,16 +5,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDFSam 3\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-11-18 16:13+0100\n"
+"POT-Creation-Date: 2015-12-16 18:03+0100\n"
 "PO-Revision-Date: 2015-10-30 08:18+0000\n"
 "Last-Translator: Jeff Huang <s8321414@yahoo.com.tw>\n"
 "Language-Team: Chinese (Taiwan) (zh_TW@li.org)\n"
-"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-11-22 09:52+0000\n"
-"X-Generator: Launchpad (build 17850)\n"
+"X-Launchpad-Export-Date: 2015-12-20 17:40+0000\n"
+"X-Generator: Launchpad (build 17865)\n"
+"Language: zh_TW\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "訂閱官方新聞來源"
@@ -51,6 +51,18 @@ msgstr "取消"
 
 msgid "Overwrite"
 msgstr "覆寫"
+
+msgid "No"
+msgstr "否"
+
+msgid "Yes"
+msgstr "是"
+
+msgid "The selected output directory does not exist"
+msgstr ""
+
+msgid "Do you want to create it?"
+msgstr ""
 
 #, java-format
 msgid "Installing theme {0}."
@@ -191,19 +203,8 @@ msgstr "高畫質縮圖"
 msgid "Use the selected PDF document directory as output directory"
 msgstr "使用選取的 PDF 文件目錄作為輸出目錄"
 
-#, java-format
-msgid "Size must be between {0}px and {1}px"
-msgstr "圖片尺寸必須介於 {0}px 與 {1}px 之間"
-
-#, java-format
-msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
-msgstr "縮圖的尺寸（介於 {0}px 與 {1}px 之間）"
-
 msgid "Maximum number of rows mast be a positive number"
 msgstr "列數的最大值必須要是正整數"
-
-msgid "Maximum number of rows displayed by the Log register"
-msgstr "列數的最大值顯示在紀錄檔暫存器"
 
 msgid "Generate high quality thumbnails (slower)"
 msgstr "產生高畫質縮圖（較慢）"
@@ -228,7 +229,8 @@ msgstr "請選擇一個先前儲存的工作區以便在啟動時自動載入"
 msgid "Select a workspace"
 msgstr "請選擇一個工作區"
 
-msgid "Select a directory where documents will be saved and loaded by default"
+msgid ""
+"Select a directory where documents will be saved and loaded by default"
 msgstr "請選擇儲存及載入文件的預設目錄"
 
 msgid "Select a directory"
@@ -247,6 +249,9 @@ msgstr "預設工作目錄："
 
 msgid "Log register rows:"
 msgstr "紀錄暫存器列數:"
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr "列數的最大值顯示在紀錄檔暫存器"
 
 msgid "Language:"
 msgstr "語言："
@@ -323,6 +328,9 @@ msgstr "下載"
 msgid "New version available"
 msgstr "有新版本可用"
 
+msgid "Non existing directory"
+msgstr ""
+
 msgid "Directory not empty"
 msgstr "目錄不是空的"
 
@@ -392,9 +400,6 @@ msgstr "工作區儲存完畢"
 msgid "Split after"
 msgstr "分割後"
 
-msgid "Split the document after the given page numbers"
-msgstr "在指定的頁碼分割文件"
-
 msgid "No page selected"
 msgstr "沒有選取任何頁碼"
 
@@ -437,14 +442,18 @@ msgstr "偶數頁"
 msgid "Odd pages"
 msgstr "奇數頁"
 
+msgid "Split the document after the given page numbers"
+msgstr "在指定的頁碼分割文件"
+
+msgid ""
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr "以每「n」頁分離將會建立數個「n」頁的文件檔"
+
 msgid "Split by every \"n\" pages"
 msgstr "每隔 n 頁分割文件"
 
 msgid "Number of pages"
 msgstr "總頁面數"
-
-msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
-msgstr "以每「n」頁分離將會建立數個「n」頁的文件檔"
 
 msgid "Invalid number of pages"
 msgstr "無效的頁數"
@@ -516,8 +525,8 @@ msgstr "在下列頁面後從第二個文件切換至第一個文件"
 msgid "Invalid parameter 'first and second step' must be numbers"
 msgstr "無效的參數「第一與第二步」必須為數字"
 
-msgid "Select the number of pages"
-msgstr "請選擇頁數"
+msgid "Select a valid number of pages"
+msgstr ""
 
 msgid "The selected PDF document is invalid"
 msgstr "選取的 PDF 文件無效"
@@ -539,6 +548,9 @@ msgstr "請選擇一個檔案"
 
 msgid "Unlock"
 msgstr "解鎖"
+
+msgid "Remove"
+msgstr "移除"
 
 msgid "Duplicate"
 msgstr "複製"
@@ -566,9 +578,6 @@ msgstr "開啟目錄"
 
 msgid "Document properties"
 msgstr "文件性質"
-
-msgid "Remove"
-msgstr "移除"
 
 msgid "Loading..."
 msgstr "載入中…"
@@ -632,17 +641,14 @@ msgstr "需要的 PDF 版本：{0}"
 msgid "Select an existing directory"
 msgstr "請選擇一個既有的目錄"
 
-msgid "The selected output directory is invalid"
-msgstr "選取的輸出目錄無效"
+msgid "An existing output directory is required"
+msgstr ""
+
+msgid "The output directory is required"
+msgstr ""
 
 msgid "Generated PDF documents name prefix:"
 msgstr "以這個名稱作為後綴生成 PDF 檔案："
-
-msgid "Prefix for the generated files names"
-msgstr "產出檔案的名稱前綴"
-
-msgid "Add prefix"
-msgstr "新增前綴"
 
 msgid "Prefix for the output files name."
 msgstr "輸出檔案的名稱前綴。"
@@ -652,6 +658,12 @@ msgstr "某些特殊的關鍵字會用執行階段的值取代。"
 
 msgid "Right click to add these keywords."
 msgstr "請按右鍵新增這些關鍵字。"
+
+msgid "Prefix for the generated files names"
+msgstr "產出檔案的名稱前綴"
+
+msgid "Add prefix"
+msgstr "新增前綴"
 
 msgid "Enter the user password"
 msgstr "請輸入使用者密碼"
@@ -716,8 +728,7 @@ msgstr "無效的範圍：{0}。"
 msgid ""
 "Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
 "or [-n] or [n-]"
-msgstr ""
-"模稜兩可的頁數範圍定義：{0}。請使用下列格式：[n] 或 [n1-n2] 或 [-n] 或 [n-]"
+msgstr "模稜兩可的頁數範圍定義：{0}。請使用下列格式：[n] 或 [n1-n2] 或 [-n] 或 [n-]"
 
 #, java-format
 msgid "Invalid number: {0}."
@@ -754,6 +765,9 @@ msgstr "捨棄書籤"
 
 msgid "Create one entry for each merged document"
 msgstr "為每個被合併文件建立一個條目"
+
+msgid "Retain bookmarks as one entry for each merged document"
+msgstr ""
 
 msgid "Bookmarks handling:"
 msgstr "書籤處理方式："
@@ -804,9 +818,6 @@ msgstr "方形矢車菊"
 msgid "Roundish"
 msgstr "圓形"
 
-msgid "Set the bookmarks level to split at"
-msgstr "請設定要分割的書籤層級"
-
 msgid "Invalid bookmarks level"
 msgstr "無效的書籤層級"
 
@@ -826,6 +837,13 @@ msgstr "依此書籤層級分割："
 msgid "Matching regular expression:"
 msgstr "符合正規表達式："
 
+msgid "A regular expression the bookmark text has to match"
+msgstr ""
+
+msgid ""
+"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+
 msgid "All pages"
 msgstr "所有頁面"
 
@@ -835,8 +853,8 @@ msgstr "順時針轉 90 度"
 msgid "180 degrees clockwise"
 msgstr "順時針轉 180 度"
 
-msgid "270 degrees clockwise"
-msgstr "順時針轉 270 度"
+msgid "90 degrees counterclockwise"
+msgstr ""
 
 msgid "Rotate "
 msgstr "旋轉 "
@@ -872,8 +890,8 @@ msgstr "旋轉頁面設定"
 #~ msgstr "勾選覆寫核取方塊時需再次確認"
 
 #~ msgid ""
-#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" "
-#~ "is selected"
+#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" is "
+#~ "selected"
 #~ msgstr "勾選「覆寫」時顯示對話框要求使用者再次確認"
 
 #~ msgid "Destination folder"

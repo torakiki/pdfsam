@@ -6,17 +6,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
-"Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-11-18 16:13+0100\n"
-"PO-Revision-Date: 2015-11-21 23:59+0000\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-12-16 18:03+0100\n"
+"PO-Revision-Date: 2015-12-13 10:15+0000\n"
 "Last-Translator: Naofumi Fukue <naofum@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
-"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-11-22 09:52+0000\n"
-"X-Generator: Launchpad (build 17850)\n"
+"X-Launchpad-Export-Date: 2015-12-20 17:40+0000\n"
+"X-Generator: Launchpad (build 17865)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "公式ニュースフィードを購読する"
@@ -53,6 +52,18 @@ msgstr "キャンセル"
 
 msgid "Overwrite"
 msgstr "上書き"
+
+msgid "No"
+msgstr "いいえ"
+
+msgid "Yes"
+msgstr "はい"
+
+msgid "The selected output directory does not exist"
+msgstr "選択した出力ディレクトリは存在しません"
+
+msgid "Do you want to create it?"
+msgstr "作成しますか?"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -159,8 +170,7 @@ msgstr "手動で選択"
 msgid ""
 "Automatically set the destination directory to the selected PDF document "
 "directory"
-msgstr ""
-"出力先ディレクトリを選択された PDF 文書ディレクトリに自動的に設定します"
+msgstr "出力先ディレクトリを選択された PDF 文書ディレクトリに自動的に設定します"
 
 msgid "Appearance"
 msgstr "外観"
@@ -180,9 +190,7 @@ msgstr "起動時に更新を確認する"
 msgid ""
 "Set whether new version availability should be checked on startup (restart "
 "needed)"
-msgstr ""
-"起動時に、新しいバージョンが利用可能かどうか確認するように設定します (再起動"
-"が必要です)"
+msgstr "起動時に、新しいバージョンが利用可能かどうか確認するように設定します (再起動が必要です)"
 
 msgid "Play alert sounds"
 msgstr "警告サウンドを再生"
@@ -196,19 +204,8 @@ msgstr "高品質サムネイル"
 msgid "Use the selected PDF document directory as output directory"
 msgstr "出力ディレクトリとして選択した PDF 文書ディレクトリを使用する"
 
-#, java-format
-msgid "Size must be between {0}px and {1}px"
-msgstr "サイズは {0}px から {1}px の間にする必要があります"
-
-#, java-format
-msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
-msgstr "サムネイルのピクセルサイズ ({0}px から {1}px の間)"
-
 msgid "Maximum number of rows mast be a positive number"
 msgstr "行の最大数は正の数にする必要があります"
-
-msgid "Maximum number of rows displayed by the Log register"
-msgstr "ログレジスターによって表示される行の最大数"
 
 msgid "Generate high quality thumbnails (slower)"
 msgstr "高品質のサムネイルを生成します (遅くなります)"
@@ -233,7 +230,8 @@ msgstr "起動時に自動的にロードされる、以前に保存したワー
 msgid "Select a workspace"
 msgstr "ワークスペースを選択"
 
-msgid "Select a directory where documents will be saved and loaded by default"
+msgid ""
+"Select a directory where documents will be saved and loaded by default"
 msgstr "デフォルトで文書が保存および読み込まれるディレクトリを選択します"
 
 msgid "Select a directory"
@@ -242,9 +240,7 @@ msgstr "ディレクトリを選択"
 msgid ""
 "Usage statistics are used to populate the modules quick bar on the left with "
 "the most used and most recently used modules."
-msgstr ""
-"クイックバーの左に、最もよく使用された、そして最近使用したモジュールを設定す"
-"るために利用状況が使用されます。"
+msgstr "クイックバーの左に、最もよく使用された、そして最近使用したモジュールを設定するために利用状況が使用されます。"
 
 msgid "Load default workspace at startup:"
 msgstr "起動時にデフォルトのワークスペースを読み込む:"
@@ -254,6 +250,9 @@ msgstr "デフォルトの作業ディレクトリ:"
 
 msgid "Log register rows:"
 msgstr "ログ登録行:"
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr "ログレジスターによって表示される行の最大数"
 
 msgid "Language:"
 msgstr "言語："
@@ -308,9 +307,7 @@ msgstr "パラメータが正しくありません"
 
 msgid ""
 "Input parameters are invalid, open the application messages for details."
-msgstr ""
-"入力パラメータが正しくありません。詳細については、アプリケーション メッセージ"
-"を開いてください。"
+msgstr "入力パラメータが正しくありません。詳細については、アプリケーション メッセージを開いてください。"
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
@@ -331,6 +328,9 @@ msgstr "ダウンロード"
 
 msgid "New version available"
 msgstr "新しいバージョンが利用可能です"
+
+msgid "Non existing directory"
+msgstr "存在しないディレクトリ"
 
 msgid "Directory not empty"
 msgstr "ディレクトリが空ではありません"
@@ -401,9 +401,6 @@ msgstr "ワークスペースを保存しました"
 msgid "Split after"
 msgstr "後で分割"
 
-msgid "Split the document after the given page numbers"
-msgstr "指定したページ番号の後で文書を分割します"
-
 msgid "No page selected"
 msgstr "ページが選択されていません"
 
@@ -446,15 +443,18 @@ msgstr "偶数ページ"
 msgid "Odd pages"
 msgstr "奇数ページ"
 
+msgid "Split the document after the given page numbers"
+msgstr "指定したページ番号の後で文書を分割します"
+
+msgid ""
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr "\"n\" ページ毎に PDF ファイルを分割し、\"n\" はページ毎の文書を作成します"
+
 msgid "Split by every \"n\" pages"
 msgstr "\"n\" ページごとに分割"
 
 msgid "Number of pages"
 msgstr "ページ数"
-
-msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
-msgstr ""
-"\"n\" ページ毎に PDF ファイルを分割し、\"n\" はページ毎の文書を作成します"
 
 msgid "Invalid number of pages"
 msgstr "ページ数が正しくありません"
@@ -498,12 +498,10 @@ msgid ""
 msgstr "順番または逆順で、ページを交互に、2 つの PDF 文書をマージします。"
 
 msgid "Select or drag and drop the first PDF you want to mix"
-msgstr ""
-"ミックスしたい最初の PDF ファイルを選択するか、ドラッグ＆ドロップします"
+msgstr "ミックスしたい最初の PDF ファイルを選択するか、ドラッグ＆ドロップします"
 
 msgid "Select or drag and drop the second PDF you want to mix"
-msgstr ""
-"ミックスしたい二番目の PDF ファイルを選択するか、ドラッグ＆ドロップします"
+msgstr "ミックスしたい二番目の PDF ファイルを選択するか、ドラッグ＆ドロップします"
 
 msgid "Mix settings"
 msgstr "ミックス設定"
@@ -526,12 +524,10 @@ msgid ""
 msgstr "次のページの後で、二番目の文書から最初の文書に切り替え"
 
 msgid "Invalid parameter 'first and second step' must be numbers"
-msgstr ""
-"パラメーターが正しくありません '最初と二番目のステップ' は数字にする必要があ"
-"ります"
+msgstr "パラメーターが正しくありません '最初と二番目のステップ' は数字にする必要があります"
 
-msgid "Select the number of pages"
-msgstr "ページ数を選択"
+msgid "Select a valid number of pages"
+msgstr "正しいページ番号を選択してください"
 
 msgid "The selected PDF document is invalid"
 msgstr "選択した PDF 文書が正しくありません"
@@ -553,6 +549,9 @@ msgstr "ファイルを選択"
 
 msgid "Unlock"
 msgstr "ロックを解除"
+
+msgid "Remove"
+msgstr "削除"
 
 msgid "Duplicate"
 msgstr "複製"
@@ -581,9 +580,6 @@ msgstr "フォルダーを開く"
 msgid "Document properties"
 msgstr "文書のプロパティ"
 
-msgid "Remove"
-msgstr "削除"
-
 msgid "Loading..."
 msgstr "読み込み中..."
 
@@ -608,9 +604,7 @@ msgstr "既存の場合上書きする"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
-msgstr ""
-"出力ファイルがすでに存在する場合に上書きする場合は、このボックスにチェックを"
-"入れます。"
+msgstr "出力ファイルがすでに存在する場合に上書きする場合は、このボックスにチェックを入れます。"
 
 msgid "The selected file must exist. "
 msgstr "選択したファイルは存在する必要があります。 "
@@ -648,17 +642,14 @@ msgstr "必要な PDF バージョン: {0}"
 msgid "Select an existing directory"
 msgstr "既存のディレクトリを選択"
 
-msgid "The selected output directory is invalid"
-msgstr "選択した出力ディレクトリが正しくありません"
+msgid "An existing output directory is required"
+msgstr "存在する出力ディレクトリが必要です"
+
+msgid "The output directory is required"
+msgstr "出力ディレクトリが必要です"
 
 msgid "Generated PDF documents name prefix:"
 msgstr "生成する PDF 文書名の接頭語:"
-
-msgid "Prefix for the generated files names"
-msgstr "生成されるファイル名の接頭語"
-
-msgid "Add prefix"
-msgstr "接頭語を追加"
 
 msgid "Prefix for the output files name."
 msgstr "出力ファイル名の接頭語。"
@@ -669,14 +660,18 @@ msgstr "一部の特殊なキーワードは、実行時の値に置き換えら
 msgid "Right click to add these keywords."
 msgstr "右クリックしてこのキーワードを追加します。"
 
+msgid "Prefix for the generated files names"
+msgstr "生成されるファイル名の接頭語"
+
+msgid "Add prefix"
+msgstr "接頭語を追加"
+
 msgid "Enter the user password"
 msgstr "ユーザー パスワードを入力"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"ダブルクリックして、マージしたいページを設定します (例: 2 または 5-23 または "
-"2,5-7,12-)"
+msgstr "ダブルクリックして、マージしたいページを設定します (例: 2 または 5-23 または 2,5-7,12-)"
 
 msgid "Pages"
 msgstr "ページ"
@@ -735,8 +730,7 @@ msgid ""
 "Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
 "or [-n] or [n-]"
 msgstr ""
-"あいまいなページの範囲の定義: {0}。 次の形式を使用してください: [n] または "
-"[n1-n2] または [-n] または [n-]"
+"あいまいなページの範囲の定義: {0}。 次の形式を使用してください: [n] または [n1-n2] または [-n] または [n-]"
 
 #, java-format
 msgid "Invalid number: {0}."
@@ -751,8 +745,7 @@ msgstr "ページ番号が奇数の場合、空白のページを追加"
 msgid ""
 "Adds a blank page after each merged document if the document has an odd "
 "number of pages"
-msgstr ""
-"文書のページ番号が奇数の場合、マージされた文書の後に空白ページを追加します"
+msgstr "文書のページ番号が奇数の場合、マージされた文書の後に空白ページを追加します"
 
 msgid "Merge fields"
 msgstr "フィールドをマージ"
@@ -774,6 +767,9 @@ msgstr "しおりを破棄する"
 
 msgid "Create one entry for each merged document"
 msgstr "マージされた文書それぞれにエントリを 1 つ作成"
+
+msgid "Retain bookmarks as one entry for each merged document"
+msgstr ""
 
 msgid "Bookmarks handling:"
 msgstr "しおりの処理:"
@@ -810,8 +806,7 @@ msgid "Valid user password provided."
 msgstr "有効なユーザー パスワードが入力されました。"
 
 msgid "This document is encrypted, click to provide a password."
-msgstr ""
-"この文書は暗号化されています。クリックして、パスワードを入力してください。"
+msgstr "この文書は暗号化されています。クリックして、パスワードを入力してください。"
 
 msgid "An error has occurred, click for more details."
 msgstr "エラーが発生しました。詳細はクリックしてください。"
@@ -824,9 +819,6 @@ msgstr "ヤグルマギクの四角"
 
 msgid "Roundish"
 msgstr "丸み"
-
-msgid "Set the bookmarks level to split at"
-msgstr "分割するしおりのレベルを設定"
 
 msgid "Invalid bookmarks level"
 msgstr "しおりのレベルが正しくありません"
@@ -847,6 +839,13 @@ msgstr "しおりのレベルで分割:"
 msgid "Matching regular expression:"
 msgstr "一致する正規表現:"
 
+msgid "A regular expression the bookmark text has to match"
+msgstr ""
+
+msgid ""
+"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+
 msgid "All pages"
 msgstr "すべてのページ"
 
@@ -856,8 +855,8 @@ msgstr "時計回りに 90 度"
 msgid "180 degrees clockwise"
 msgstr "時計回りに 180 度"
 
-msgid "270 degrees clockwise"
-msgstr "時計回りに 270 度"
+msgid "90 degrees counterclockwise"
+msgstr ""
 
 msgid "Rotate "
 msgstr "回転 "

@@ -6,17 +6,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
-"Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-11-18 16:13+0100\n"
-"PO-Revision-Date: 2015-11-20 13:12+0000\n"
-"Last-Translator: Yamil Taler <yamiltaler@gmail.com>\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-12-16 18:03+0100\n"
+"PO-Revision-Date: 2015-12-16 18:52+0000\n"
+"Last-Translator: juanpgc <juangpc@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-11-22 09:52+0000\n"
-"X-Generator: Launchpad (build 17850)\n"
+"X-Launchpad-Export-Date: 2015-12-20 17:40+0000\n"
+"X-Generator: Launchpad (build 17865)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Suscribirse al canal de noticias oficial"
@@ -53,6 +52,18 @@ msgstr "Cancelar"
 
 msgid "Overwrite"
 msgstr "Sobrescribir"
+
+msgid "No"
+msgstr "No"
+
+msgid "Yes"
+msgstr "Sí"
+
+msgid "The selected output directory does not exist"
+msgstr "La carpeta destino seleccionada no existe"
+
+msgid "Do you want to create it?"
+msgstr "Quiere crearla?"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -198,19 +209,8 @@ msgstr "Miniaturas de alta calidad"
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Usar la carpeta del archivo PDF seleccionado como carpeta de salida"
 
-#, java-format
-msgid "Size must be between {0}px and {1}px"
-msgstr "El tamaño debe estar entre {0} y {1} px"
-
-#, java-format
-msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
-msgstr "Tamaño en píxeles de las miniaturas (entre {0} y {1} px)"
-
 msgid "Maximum number of rows mast be a positive number"
 msgstr "La cantidad máxima de líneas debe ser un número positivo"
-
-msgid "Maximum number of rows displayed by the Log register"
-msgstr "Cantidad máxima de líneas visibles en el archivo de registro"
 
 msgid "Generate high quality thumbnails (slower)"
 msgstr "Generar miniaturas de alta calidad (más lento)"
@@ -237,7 +237,8 @@ msgstr ""
 msgid "Select a workspace"
 msgstr "Seleccionar un espacio de trabajo"
 
-msgid "Select a directory where documents will be saved and loaded by default"
+msgid ""
+"Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Seleccione la carpeta donde se guardarán y cargarán documentos de manera "
 "predeterminada"
@@ -260,6 +261,9 @@ msgstr "Carpeta de trabajo predeterminada:"
 
 msgid "Log register rows:"
 msgstr "Líneas del archivo de registro"
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr "Cantidad máxima de líneas visibles en el archivo de registro"
 
 msgid "Language:"
 msgstr "Idioma:"
@@ -341,6 +345,9 @@ msgstr "Descargar"
 msgid "New version available"
 msgstr "Versión nueva disponible"
 
+msgid "Non existing directory"
+msgstr "La carpeta no existe"
+
 msgid "Directory not empty"
 msgstr "La carpeta no está vacía"
 
@@ -411,9 +418,6 @@ msgstr "Espacio de trabajo guardado"
 msgid "Split after"
 msgstr "Dividir después"
 
-msgid "Split the document after the given page numbers"
-msgstr "Dividir el documento después de los números de página dados"
-
 msgid "No page selected"
 msgstr "No se seleccionó ninguna página"
 
@@ -456,15 +460,19 @@ msgstr "Páginas pares"
 msgid "Odd pages"
 msgstr "Páginas impares"
 
+msgid "Split the document after the given page numbers"
+msgstr "Dividir el documento después de los números de página dados"
+
+msgid ""
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr ""
+"Divide el PDF cada \"n\" páginas creado documentos de \"n\" páginas cada uno"
+
 msgid "Split by every \"n\" pages"
 msgstr "Dividir cada «n» páginas"
 
 msgid "Number of pages"
 msgstr "Número de páginas"
-
-msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
-msgstr ""
-"Divide el PDF cada \"n\" páginas creado documentos de \"n\" páginas cada uno"
 
 msgid "Invalid number of pages"
 msgstr "Número de páginas no válido"
@@ -538,8 +546,8 @@ msgstr "Cambiar del segundo documento al primero tras las siguientes páginas"
 msgid "Invalid parameter 'first and second step' must be numbers"
 msgstr "Parámetro inválido 'primer y segundo paso' deben ser números"
 
-msgid "Select the number of pages"
-msgstr "Seleccione el número de páginas"
+msgid "Select a valid number of pages"
+msgstr "Seleccione un número de páginas válido"
 
 msgid "The selected PDF document is invalid"
 msgstr "El documento PDF seleccionado no es válido"
@@ -561,6 +569,15 @@ msgstr "Seleccione un archivo"
 
 msgid "Unlock"
 msgstr "Desbloquear"
+
+# G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:252
+# G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:297
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:273
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:317
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:266
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:311
+msgid "Remove"
+msgstr "Eliminar"
 
 msgid "Duplicate"
 msgstr "Duplicado"
@@ -596,15 +613,6 @@ msgstr "Abrir la carpeta"
 
 msgid "Document properties"
 msgstr "Propiedades del documento"
-
-# G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:252
-# G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:297
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:273
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:317
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:266
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:311
-msgid "Remove"
-msgstr "Eliminar"
 
 msgid "Loading..."
 msgstr "Cargando…"
@@ -674,17 +682,14 @@ msgstr "Se requiere PDF versión: {0}"
 msgid "Select an existing directory"
 msgstr "Seleccione una carpeta existente"
 
-msgid "The selected output directory is invalid"
-msgstr "La carpeta de salida seleccionada no es válida"
+msgid "An existing output directory is required"
+msgstr "Se requiere una carpeta destino ya existente"
+
+msgid "The output directory is required"
+msgstr "Se requiere una carpeta destino"
 
 msgid "Generated PDF documents name prefix:"
 msgstr "Prefijo en el nombre de los documentos PDF generados:"
-
-msgid "Prefix for the generated files names"
-msgstr "Prefijo para los nombres de archivo generados"
-
-msgid "Add prefix"
-msgstr "Añadir prefijo"
 
 msgid "Prefix for the output files name."
 msgstr "Prefijo para el nombre de los archivos de salida."
@@ -697,6 +702,12 @@ msgstr ""
 msgid "Right click to add these keywords."
 msgstr ""
 "Pulse con el botón secundario del ratón para añadir esas palabras clave."
+
+msgid "Prefix for the generated files names"
+msgstr "Prefijo para los nombres de archivo generados"
+
+msgid "Add prefix"
+msgstr "Añadir prefijo"
 
 msgid "Enter the user password"
 msgstr "Escriba la contraseña del usuario"
@@ -790,10 +801,10 @@ msgstr ""
 "un número de páginas impar"
 
 msgid "Merge fields"
-msgstr "Unir campos"
+msgstr "Combinar campos"
 
 msgid "Merge renaming existing fields"
-msgstr "Unir campos restantes existentes"
+msgstr "Combinar campos restantes"
 
 msgid "Discard forms"
 msgstr "Descartar formularios"
@@ -809,6 +820,9 @@ msgstr "Descartar los marcadores"
 
 msgid "Create one entry for each merged document"
 msgstr "Crear una entrada por cada documento combinado"
+
+msgid "Retain bookmarks as one entry for each merged document"
+msgstr "Conservar los marcadores de cada documento combinado"
 
 msgid "Bookmarks handling:"
 msgstr "Manejo de los marcadores:"
@@ -854,13 +868,10 @@ msgid "Squared green"
 msgstr "Cuadrado verde"
 
 msgid "Squared cornflower"
-msgstr ""
+msgstr "Cuadrado azul"
 
 msgid "Roundish"
 msgstr "Redondeado"
-
-msgid "Set the bookmarks level to split at"
-msgstr "Establecer la división a nivel de marcadores en"
 
 msgid "Invalid bookmarks level"
 msgstr "Nivel de marcadores no válido"
@@ -875,13 +886,23 @@ msgstr ""
 "marcador."
 
 msgid "Regular expression the bookmark has to match"
-msgstr "Expresión regular del marcador que debe coincidir"
+msgstr "Expresión regular con la que el marcador debe coinicidir"
 
 msgid "Split at this bookmark level:"
 msgstr "Dividir en este nivel de los marcadores:"
 
 msgid "Matching regular expression:"
-msgstr "Coincide con la expresión regular:"
+msgstr "Expresiones regulares coincidentes"
+
+msgid "A regular expression the bookmark text has to match"
+msgstr ""
+"Una expresión regular que coincida con el texto del marcador marcador"
+
+msgid ""
+"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+"Ejemplo: Use .*Capítulo.* para encontrar marcadores con la palabra "
+"\"Capítulo*"
 
 msgid "All pages"
 msgstr "Todas las páginas"
@@ -892,8 +913,8 @@ msgstr "90 grados a la derecha"
 msgid "180 degrees clockwise"
 msgstr "180 grados a la derecha"
 
-msgid "270 degrees clockwise"
-msgstr "270 grados a la derecha"
+msgid "90 degrees counterclockwise"
+msgstr "90 grados en sentido anti-horario"
 
 msgid "Rotate "
 msgstr "Girar "
@@ -932,8 +953,8 @@ msgstr "Configurar giro"
 #~ msgstr "¿Quiere sobrescribirlo?"
 
 #~ msgid ""
-#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" "
-#~ "is selected"
+#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" is "
+#~ "selected"
 #~ msgstr ""
 #~ "Mostrar un cuadro de dialogo pidiendo confirmación cuando «sobrescribir» "
 #~ "esté seleccionado"

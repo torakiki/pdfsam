@@ -6,17 +6,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
-"Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-11-18 16:13+0100\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-12-16 18:03+0100\n"
 "PO-Revision-Date: 2015-02-05 22:19+0000\n"
 "Last-Translator: gennzub <gennzub@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
-"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-11-22 09:53+0000\n"
-"X-Generator: Launchpad (build 17850)\n"
+"X-Launchpad-Export-Date: 2015-12-20 17:40+0000\n"
+"X-Generator: Launchpad (build 17865)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Подписаться на рассылку официальных новостей"
@@ -53,6 +52,18 @@ msgstr "Отмена"
 
 msgid "Overwrite"
 msgstr "Перезаписать"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "The selected output directory does not exist"
+msgstr ""
+
+msgid "Do you want to create it?"
+msgstr ""
 
 #, java-format
 msgid "Installing theme {0}."
@@ -195,19 +206,8 @@ msgstr "Высококачественные эскизы"
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Использовать каталог выбранного PDF документа как выходной каталог"
 
-#, java-format
-msgid "Size must be between {0}px and {1}px"
-msgstr "Размер должен быть между {0}px и {1}px"
-
-#, java-format
-msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
-msgstr "Пиксельный размер эскизов (между  {0}px и {1}px)"
-
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Максимальное количество строк должно быть положительное число"
-
-msgid "Maximum number of rows displayed by the Log register"
-msgstr "Максимальное количество строк, отображаемых в Журнале отчёта"
 
 msgid "Generate high quality thumbnails (slower)"
 msgstr "Сгенерировать высококачественные эскизы (медленнее!)"
@@ -234,7 +234,8 @@ msgstr ""
 msgid "Select a workspace"
 msgstr "Выбор рабочей области"
 
-msgid "Select a directory where documents will be saved and loaded by default"
+msgid ""
+"Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Выберите каталог, где документы будут сохранены и загружены по умолчанию"
 
@@ -258,6 +259,9 @@ msgstr "Рабочий каталог по умолчанию:"
 msgid "Log register rows:"
 msgstr "Строки Журнала отчёта:"
 
+msgid "Maximum number of rows displayed by the Log register"
+msgstr "Максимальное количество строк, отображаемых в Журнале отчёта"
+
 msgid "Language:"
 msgstr "Язык:"
 
@@ -274,7 +278,8 @@ msgid "Startup module:"
 msgstr "Запуск модуля:"
 
 msgid "Set the module to open at application startup (restart needed)"
-msgstr "Выберите модуль, открываемый при запуске приложения (нужен перезапуск)"
+msgstr ""
+"Выберите модуль, открываемый при запуске приложения (нужен перезапуск)"
 
 msgid "Check for updates now"
 msgstr "Проверить наличие обновлений"
@@ -336,6 +341,9 @@ msgstr "Загрузить"
 
 msgid "New version available"
 msgstr "Новая версия доступна"
+
+msgid "Non existing directory"
+msgstr ""
 
 msgid "Directory not empty"
 msgstr "Каталог не пуст"
@@ -406,9 +414,6 @@ msgstr "Рабочая область сохранена"
 msgid "Split after"
 msgstr "Разбить после"
 
-msgid "Split the document after the given page numbers"
-msgstr "Разбить документ после данных номеров страниц"
-
 msgid "No page selected"
 msgstr "Ни одна страница не выбрана"
 
@@ -451,14 +456,18 @@ msgstr "Чётные страницы"
 msgid "Odd pages"
 msgstr "Нечётные страницы"
 
+msgid "Split the document after the given page numbers"
+msgstr "Разбить документ после данных номеров страниц"
+
+msgid ""
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr ""
+
 msgid "Split by every \"n\" pages"
 msgstr "Разбить на каждые \"n\" страниц"
 
 msgid "Number of pages"
 msgstr "Количество страниц"
-
-msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
-msgstr ""
 
 msgid "Invalid number of pages"
 msgstr "Неверное количество страниц"
@@ -531,8 +540,8 @@ msgstr "Переход от второго документа к первому 
 msgid "Invalid parameter 'first and second step' must be numbers"
 msgstr "Неверный параметр \"первого и второго этапа\", должны быть числами"
 
-msgid "Select the number of pages"
-msgstr "Выбрать количество страниц"
+msgid "Select a valid number of pages"
+msgstr ""
 
 msgid "The selected PDF document is invalid"
 msgstr "Выбранный PDF документ является неверным"
@@ -554,6 +563,15 @@ msgstr "Выбор файла"
 
 msgid "Unlock"
 msgstr "Разблокировать"
+
+# G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:252
+# G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:297
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:273
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:317
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:266
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:311
+msgid "Remove"
+msgstr "Удалить"
 
 msgid "Duplicate"
 msgstr "Дублировать"
@@ -581,15 +599,6 @@ msgstr "Открыть каталог"
 
 msgid "Document properties"
 msgstr "Свойства документа"
-
-# G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:252
-# G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:297
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:273
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:317
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:266
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:311
-msgid "Remove"
-msgstr "Удалить"
 
 msgid "Loading..."
 msgstr "Загрузка..."
@@ -653,17 +662,14 @@ msgstr ""
 msgid "Select an existing directory"
 msgstr "Выбор существующего каталога"
 
-msgid "The selected output directory is invalid"
-msgstr "Выбранный каталог назначения неверен"
+msgid "An existing output directory is required"
+msgstr ""
+
+msgid "The output directory is required"
+msgstr ""
 
 msgid "Generated PDF documents name prefix:"
 msgstr ""
-
-msgid "Prefix for the generated files names"
-msgstr "Префикс для сгенерированных имён файлов"
-
-msgid "Add prefix"
-msgstr "Добавить префикс"
 
 msgid "Prefix for the output files name."
 msgstr "Префикс для имён готовых файлов"
@@ -673,6 +679,12 @@ msgstr "Некоторые ключевые слова заменены знач
 
 msgid "Right click to add these keywords."
 msgstr "Правый клик для добавления этих ключевых слов"
+
+msgid "Prefix for the generated files names"
+msgstr "Префикс для сгенерированных имён файлов"
+
+msgid "Add prefix"
+msgstr "Добавить префикс"
 
 msgid "Enter the user password"
 msgstr "Введите пароль пользователя"
@@ -783,6 +795,9 @@ msgstr "Отбросить закладки"
 msgid "Create one entry for each merged document"
 msgstr "Создать одну запись для каждого объединенного документа"
 
+msgid "Retain bookmarks as one entry for each merged document"
+msgstr ""
+
 msgid "Bookmarks handling:"
 msgstr "Регулировать закладки:"
 
@@ -832,9 +847,6 @@ msgstr "Квадратный василёк"
 msgid "Roundish"
 msgstr "Округлый"
 
-msgid "Set the bookmarks level to split at"
-msgstr "Установите уровень закладок для разделения на"
-
 msgid "Invalid bookmarks level"
 msgstr "Неверный уровень закладок"
 
@@ -854,6 +866,13 @@ msgstr "Разбить на этот уровень закладки:"
 msgid "Matching regular expression:"
 msgstr "Соответствующее регулярное выражение:"
 
+msgid "A regular expression the bookmark text has to match"
+msgstr ""
+
+msgid ""
+"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+
 msgid "All pages"
 msgstr "Все страницы"
 
@@ -863,8 +882,8 @@ msgstr "90 градусов по часовой"
 msgid "180 degrees clockwise"
 msgstr "180 градусов по часовой"
 
-msgid "270 degrees clockwise"
-msgstr "270 градусов по часовой"
+msgid "90 degrees counterclockwise"
+msgstr ""
 
 msgid "Rotate "
 msgstr "Вращение "
@@ -903,8 +922,8 @@ msgstr "Настройка вращения"
 #~ msgstr "Запрашивать подтверждение, если выбран флажок перезаписи"
 
 #~ msgid ""
-#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" "
-#~ "is selected"
+#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" is "
+#~ "selected"
 #~ msgstr ""
 #~ "Показывать диалоговое окно с запросом подтверждения, если выбрана "
 #~ "\"перезапись\""

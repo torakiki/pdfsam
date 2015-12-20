@@ -6,17 +6,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
-"Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-11-18 16:13+0100\n"
-"PO-Revision-Date: 2015-02-20 19:43+0000\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-12-16 18:03+0100\n"
+"PO-Revision-Date: 2015-12-19 10:45+0000\n"
 "Last-Translator: MisterIf <pkrupitsa@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
-"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-11-22 09:52+0000\n"
-"X-Generator: Launchpad (build 17850)\n"
+"X-Launchpad-Export-Date: 2015-12-20 17:40+0000\n"
+"X-Generator: Launchpad (build 17865)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Підписатися на офіційний канал новин"
@@ -53,6 +52,18 @@ msgstr "Скасувати"
 
 msgid "Overwrite"
 msgstr "Замінити"
+
+msgid "No"
+msgstr "Ні"
+
+msgid "Yes"
+msgstr "Так"
+
+msgid "The selected output directory does not exist"
+msgstr "Обраний вихідний каталог не існує"
+
+msgid "Do you want to create it?"
+msgstr "Ви хочете створити його?"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -197,19 +208,8 @@ msgstr "Мініатюри високої якості"
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Використовувати  каталог обраного PDF документа як вихідний каталог"
 
-#, java-format
-msgid "Size must be between {0}px and {1}px"
-msgstr "Розмір має бути між {0} пікселів (px) та {1} пікселів (px)"
-
-#, java-format
-msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
-msgstr "Розмір пікселів мініатюри (між {0} пікселів (px) та {1} пікселів (px))"
-
 msgid "Maximum number of rows mast be a positive number"
-msgstr ""
-
-msgid "Maximum number of rows displayed by the Log register"
-msgstr ""
+msgstr "Максимальна кількість рядків має бути позитивним числом"
 
 msgid "Generate high quality thumbnails (slower)"
 msgstr "Створити мініатюри високої якості"
@@ -236,7 +236,8 @@ msgstr ""
 msgid "Select a workspace"
 msgstr "Обрати робочий простір"
 
-msgid "Select a directory where documents will be saved and loaded by default"
+msgid ""
+"Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Оберіть каталог, в якому документи будуть збережені та завантажені за "
 "замовчуванням"
@@ -259,7 +260,11 @@ msgid "Default working directory:"
 msgstr "Робочий каталог за умовчанням:"
 
 msgid "Log register rows:"
+msgstr "Зареєстровані рядки:"
+
+msgid "Maximum number of rows displayed by the Log register"
 msgstr ""
+"Максимальна кількість відображуваних рядків відображується в регістрі логів"
 
 msgid "Language:"
 msgstr "Мова:"
@@ -340,6 +345,9 @@ msgstr "Завантажити"
 msgid "New version available"
 msgstr "Доступна нова версія"
 
+msgid "Non existing directory"
+msgstr "Не існуючий каталог"
+
 msgid "Directory not empty"
 msgstr "Каталог непорожній"
 
@@ -368,13 +376,13 @@ msgid "Checking for updates"
 msgstr "Перевірка оновлень"
 
 msgid "Fetching latest news"
-msgstr ""
+msgstr "Вибірка останніх новин"
 
 msgid "Unable to retrieve the latest news"
-msgstr ""
+msgstr "Неможливо отримати останні новини"
 
 msgid "Unable to retrieve latest news"
-msgstr ""
+msgstr "Неможливо отримати останні новини"
 
 msgid "Loading pdf documents"
 msgstr "Завантаження pdf документа"
@@ -407,10 +415,7 @@ msgid "Workspace saved"
 msgstr "Робочій простір збережено"
 
 msgid "Split after"
-msgstr ""
-
-msgid "Split the document after the given page numbers"
-msgstr "Розділити документ після цих номерів сторінок"
+msgstr "Після Розділення"
 
 msgid "No page selected"
 msgstr "Ні одна сторінка не обрана"
@@ -425,13 +430,13 @@ msgid "Invalid page numbers"
 msgstr "Не правильний номер сторінки"
 
 msgid "Only valid positive page numbers are allowed"
-msgstr ""
+msgstr "Дозволено тільки дійсні позитивні числа для сторінок"
 
 msgid "Split"
 msgstr "Розділити"
 
 msgid "Split a PDF document at the given page numbers."
-msgstr ""
+msgstr "Розділення PDF файлу на задані номери сторінок"
 
 msgid "Select or drag and drop the PDF you want to split"
 msgstr ""
@@ -455,14 +460,20 @@ msgstr "Парні сторінки"
 msgid "Odd pages"
 msgstr "Непарні сторінки"
 
+msgid "Split the document after the given page numbers"
+msgstr "Розділити документ після цих номерів сторінок"
+
+msgid ""
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr ""
+"Розділення DPF файлу на кожні \"n\" сторінок створює документи (файли) з "
+"кожною \"n\" сторінкою"
+
 msgid "Split by every \"n\" pages"
 msgstr "Розділити після кожної N-ї сторінки"
 
 msgid "Number of pages"
 msgstr "Номер сторінки"
-
-msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
-msgstr ""
 
 msgid "Invalid number of pages"
 msgstr "Не вірний номер сторінки"
@@ -471,7 +482,7 @@ msgid "Split by size"
 msgstr "Розбити за розміром"
 
 msgid "Split a PDF document in files of the given size (roughly)."
-msgstr ""
+msgstr "Розділення PDF документу на файли заданого розміру (приблизно)."
 
 msgid "Set the size to split at"
 msgstr "Встановити розмір при розрізанні"
@@ -535,8 +546,8 @@ msgstr "Перехід від другого документа до першо�
 msgid "Invalid parameter 'first and second step' must be numbers"
 msgstr "Невірні параметри 'перший і другий крок', які повинні бути числами"
 
-msgid "Select the number of pages"
-msgstr "Оберіть номер сторінки"
+msgid "Select a valid number of pages"
+msgstr "Виберіть коректний номер сторінок"
 
 msgid "The selected PDF document is invalid"
 msgstr "Обраний PDF документ є поганим"
@@ -558,6 +569,9 @@ msgstr "Обрати файл"
 
 msgid "Unlock"
 msgstr "Розблокувати"
+
+msgid "Remove"
+msgstr "Видалити"
 
 msgid "Duplicate"
 msgstr "Дублювати"
@@ -586,9 +600,6 @@ msgstr "Відкрити теку"
 msgid "Document properties"
 msgstr "Властивості документа"
 
-msgid "Remove"
-msgstr "Видалити"
-
 msgid "Loading..."
 msgstr "Завантаження…"
 
@@ -614,6 +625,8 @@ msgstr "Перезаписати, якщо вже існує"
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
 msgstr ""
+"Встановіть цей прапорець, якщо ви хочете, щоб програма перезаписала вихідні "
+"файли, якщо вони вже існують."
 
 msgid "The selected file must exist. "
 msgstr "Обраний файл повинен існувати "
@@ -635,7 +648,7 @@ msgid "Compress output file/files"
 msgstr "Стискати вихідний файл(-и)"
 
 msgid "Output PDF version:"
-msgstr ""
+msgstr "Вихідна версія PDF:"
 
 #, java-format
 msgid "Version {0}"
@@ -646,22 +659,19 @@ msgstr "Як і вхідний файл (документ)"
 
 #, java-format
 msgid "PDF version required: {0}"
-msgstr ""
+msgstr "Необхідна версія PDF: {0}"
 
 msgid "Select an existing directory"
 msgstr "Обрати вихідний каталог"
 
-msgid "The selected output directory is invalid"
-msgstr "Обраний вихідний каталог є неправильним"
+msgid "An existing output directory is required"
+msgstr "Необхідно обрати існуючий вихідний каталог"
+
+msgid "The output directory is required"
+msgstr "Необхідно обрати вихідний каталог"
 
 msgid "Generated PDF documents name prefix:"
-msgstr ""
-
-msgid "Prefix for the generated files names"
-msgstr "Префікс для назв (імен) створених файлів"
-
-msgid "Add prefix"
-msgstr "Додати префікс до ім’я файлу"
+msgstr "Створити PDF файли з наступним префіксом:"
 
 msgid "Prefix for the output files name."
 msgstr "Префікс для назв (імен) вихідних файлів"
@@ -672,6 +682,12 @@ msgstr ""
 
 msgid "Right click to add these keywords."
 msgstr "Клацніть правою кнопкою миші, щоб додати ці ключові слова."
+
+msgid "Prefix for the generated files names"
+msgstr "Префікс для назв (імен) створених файлів"
+
+msgid "Add prefix"
+msgstr "Додати префікс до ім’я файлу"
 
 msgid "Enter the user password"
 msgstr "Ввести пароль користувача"
@@ -760,16 +776,16 @@ msgstr ""
 "має непарну кількість сторінок"
 
 msgid "Merge fields"
-msgstr ""
+msgstr "Об’єднання полів"
 
 msgid "Merge renaming existing fields"
-msgstr ""
+msgstr "Злиття перейменованих існуючих полів"
 
 msgid "Discard forms"
-msgstr ""
+msgstr "Відкинути форми"
 
 msgid "Interactive forms (AcroForms):"
-msgstr ""
+msgstr "Інтерактивні форми (AcroForms):"
 
 msgid "Retain bookmarks"
 msgstr "Зберегти закладки"
@@ -780,17 +796,21 @@ msgstr "Відкинути закладки"
 msgid "Create one entry for each merged document"
 msgstr "Створити один запис для кожного об'єднаного документа"
 
+msgid "Retain bookmarks as one entry for each merged document"
+msgstr "Збережіть закладки як один запис для кожного об'єднаного документа"
+
 msgid "Bookmarks handling:"
 msgstr "Регулювання закладок:"
 
 msgid "No PDF document has been selected"
-msgstr ""
+msgstr "Не один PDF документ не був обраний"
 
 msgid "Merge"
 msgstr "Об’єднати"
 
 msgid "Merge together multiple PDF documents or subsections of them."
 msgstr ""
+"Злиття (об’єднання) декількох  PDF документів разом або підрозділів з них."
 
 msgid "Merge settings"
 msgstr "Налаштування Об’єднання"
@@ -818,7 +838,7 @@ msgid "This document is encrypted, click to provide a password."
 msgstr "Цей документ захищено, натисніть для вводу паролю."
 
 msgid "An error has occurred, click for more details."
-msgstr ""
+msgstr "Сталася помилка, натисніть для більш докладної інформації."
 
 msgid "Squared green"
 msgstr "Зелені кути"
@@ -829,9 +849,6 @@ msgstr "Квадратні волошки"
 msgid "Roundish"
 msgstr "Округлена"
 
-msgid "Set the bookmarks level to split at"
-msgstr "Встановіть рівень закладок на розділення"
-
 msgid "Invalid bookmarks level"
 msgstr "Не вірний рівень закладок"
 
@@ -841,15 +858,24 @@ msgstr "Розділити закладки"
 msgid ""
 "Split a PDF document at bookmarked pages by specifying a bookmark level."
 msgstr ""
+"Розділення PDF документу в закладках сторінок, вказавши рівень закладок."
 
 msgid "Regular expression the bookmark has to match"
-msgstr ""
+msgstr "Регулярний вираз закладки повинен відповідати"
 
 msgid "Split at this bookmark level:"
 msgstr "Розділяти на такий рівень закладок:"
 
 msgid "Matching regular expression:"
 msgstr "Відповідність регулярного виразу:"
+
+msgid "A regular expression the bookmark text has to match"
+msgstr "Регулярний вираз тексту закладки повинен відповідати"
+
+msgid ""
+"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+"Приклад: використовуйте .* Глава.*, щоб закладки вже містили слово \"Глава\""
 
 msgid "All pages"
 msgstr "Всі сторінки"
@@ -860,8 +886,8 @@ msgstr "на 90 градусів за годинниковою стрілкою"
 msgid "180 degrees clockwise"
 msgstr "на 180 градусів за годинниковою стрілкою"
 
-msgid "270 degrees clockwise"
-msgstr "на 270 градусів за годинниковою стрілкою"
+msgid "90 degrees counterclockwise"
+msgstr "90 градусів проти годинникової стрілки"
 
 msgid "Rotate "
 msgstr "Обертати "

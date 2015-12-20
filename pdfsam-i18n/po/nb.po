@@ -6,17 +6,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
-"Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-11-18 16:13+0100\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-12-16 18:03+0100\n"
 "PO-Revision-Date: 2015-10-19 10:42+0000\n"
 "Last-Translator: Wolloloo <vidartf@gmail.com>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
-"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-11-22 09:52+0000\n"
-"X-Generator: Launchpad (build 17850)\n"
+"X-Launchpad-Export-Date: 2015-12-20 17:40+0000\n"
+"X-Generator: Launchpad (build 17865)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Abonner på det offisielle nyhetsbrevet"
@@ -53,6 +52,18 @@ msgstr "Avbryt"
 
 msgid "Overwrite"
 msgstr "Erstatt"
+
+msgid "No"
+msgstr ""
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "The selected output directory does not exist"
+msgstr ""
+
+msgid "Do you want to create it?"
+msgstr ""
 
 #, java-format
 msgid "Installing theme {0}."
@@ -194,19 +205,8 @@ msgstr "Høykvalitets miniatyrbilder"
 msgid "Use the selected PDF document directory as output directory"
 msgstr ""
 
-#, java-format
-msgid "Size must be between {0}px and {1}px"
-msgstr "Størrelse må være mellom {0}px og {1}px"
-
-#, java-format
-msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
-msgstr "Pikselstørrelse på miniatyrbilder (mellom {0}px og {1}px)"
-
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Det maksimale antallet rader må være et positivt tall"
-
-msgid "Maximum number of rows displayed by the Log register"
-msgstr "Maksimalt antall rader vist av loggregisteret"
 
 msgid "Generate high quality thumbnails (slower)"
 msgstr "Generer høykvalitets miniatyrbilder (tregere)"
@@ -233,7 +233,8 @@ msgstr ""
 msgid "Select a workspace"
 msgstr "Velg et arbeidsområde"
 
-msgid "Select a directory where documents will be saved and loaded by default"
+msgid ""
+"Select a directory where documents will be saved and loaded by default"
 msgstr "Velg en mappe hvor dokumenter blir lagret og innlest som standard"
 
 msgid "Select a directory"
@@ -254,6 +255,9 @@ msgstr "Standard arbeidsmappe:"
 
 msgid "Log register rows:"
 msgstr "Rader i loggregisteret:"
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr "Maksimalt antall rader vist av loggregisteret"
 
 msgid "Language:"
 msgstr "Språk:"
@@ -330,6 +334,9 @@ msgstr "Last ned"
 msgid "New version available"
 msgstr "Ny versjon tilgjengelig"
 
+msgid "Non existing directory"
+msgstr ""
+
 msgid "Directory not empty"
 msgstr "Mappa er ikke tom"
 
@@ -399,9 +406,6 @@ msgstr ""
 msgid "Split after"
 msgstr ""
 
-msgid "Split the document after the given page numbers"
-msgstr ""
-
 msgid "No page selected"
 msgstr ""
 
@@ -444,14 +448,18 @@ msgstr ""
 msgid "Odd pages"
 msgstr ""
 
+msgid "Split the document after the given page numbers"
+msgstr ""
+
+msgid ""
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr ""
+
 msgid "Split by every \"n\" pages"
 msgstr ""
 
 msgid "Number of pages"
 msgstr "Antall sider"
-
-msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
-msgstr ""
 
 msgid "Invalid number of pages"
 msgstr ""
@@ -523,7 +531,7 @@ msgstr ""
 msgid "Invalid parameter 'first and second step' must be numbers"
 msgstr ""
 
-msgid "Select the number of pages"
+msgid "Select a valid number of pages"
 msgstr ""
 
 msgid "The selected PDF document is invalid"
@@ -546,6 +554,9 @@ msgstr ""
 
 msgid "Unlock"
 msgstr ""
+
+msgid "Remove"
+msgstr "Fjern"
 
 msgid "Duplicate"
 msgstr ""
@@ -573,9 +584,6 @@ msgstr ""
 
 msgid "Document properties"
 msgstr "Dokumentegenskaper"
-
-msgid "Remove"
-msgstr "Fjern"
 
 msgid "Loading..."
 msgstr ""
@@ -639,17 +647,14 @@ msgstr ""
 msgid "Select an existing directory"
 msgstr ""
 
-msgid "The selected output directory is invalid"
+msgid "An existing output directory is required"
+msgstr ""
+
+msgid "The output directory is required"
 msgstr ""
 
 msgid "Generated PDF documents name prefix:"
 msgstr ""
-
-msgid "Prefix for the generated files names"
-msgstr ""
-
-msgid "Add prefix"
-msgstr "Legg til prefiks"
 
 msgid "Prefix for the output files name."
 msgstr ""
@@ -659,6 +664,12 @@ msgstr ""
 
 msgid "Right click to add these keywords."
 msgstr ""
+
+msgid "Prefix for the generated files names"
+msgstr ""
+
+msgid "Add prefix"
+msgstr "Legg til prefiks"
 
 msgid "Enter the user password"
 msgstr ""
@@ -763,6 +774,9 @@ msgstr ""
 msgid "Create one entry for each merged document"
 msgstr ""
 
+msgid "Retain bookmarks as one entry for each merged document"
+msgstr ""
+
 msgid "Bookmarks handling:"
 msgstr ""
 
@@ -812,9 +826,6 @@ msgstr ""
 msgid "Roundish"
 msgstr ""
 
-msgid "Set the bookmarks level to split at"
-msgstr ""
-
 msgid "Invalid bookmarks level"
 msgstr ""
 
@@ -834,6 +845,13 @@ msgstr ""
 msgid "Matching regular expression:"
 msgstr ""
 
+msgid "A regular expression the bookmark text has to match"
+msgstr ""
+
+msgid ""
+"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+
 msgid "All pages"
 msgstr ""
 
@@ -843,7 +861,7 @@ msgstr ""
 msgid "180 degrees clockwise"
 msgstr ""
 
-msgid "270 degrees clockwise"
+msgid "90 degrees counterclockwise"
 msgstr ""
 
 msgid "Rotate "

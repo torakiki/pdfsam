@@ -6,17 +6,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
-"Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-11-18 16:13+0100\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-12-16 18:03+0100\n"
 "PO-Revision-Date: 2015-10-21 17:23+0000\n"
 "Last-Translator: Simon Aagaard <sim@aagaard.dk>\n"
 "Language-Team: Danish <da@li.org>\n"
-"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-11-22 09:53+0000\n"
-"X-Generator: Launchpad (build 17850)\n"
+"X-Launchpad-Export-Date: 2015-12-20 17:40+0000\n"
+"X-Generator: Launchpad (build 17865)\n"
+"Language: da\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Abonner på det officielle nyhedsfeed"
@@ -53,6 +53,18 @@ msgstr "Fortryd"
 
 msgid "Overwrite"
 msgstr "Overskriv"
+
+msgid "No"
+msgstr "Nej"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "The selected output directory does not exist"
+msgstr ""
+
+msgid "Do you want to create it?"
+msgstr ""
 
 #, java-format
 msgid "Installing theme {0}."
@@ -179,7 +191,8 @@ msgstr "Søg efter opdateringer ved opstart"
 msgid ""
 "Set whether new version availability should be checked on startup (restart "
 "needed)"
-msgstr "Skal der checkes ved start, om der er en ny version? (kræver genstart)"
+msgstr ""
+"Skal der checkes ved start, om der er en ny version? (kræver genstart)"
 
 msgid "Play alert sounds"
 msgstr "Afspil lyde"
@@ -193,19 +206,8 @@ msgstr "Miniaturer i høj kvalitet"
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Anvend det valgte dokuments mappe som outputmappe"
 
-#, java-format
-msgid "Size must be between {0}px and {1}px"
-msgstr "Størrelsen skal være mellem {0}px og {1}px"
-
-#, java-format
-msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
-msgstr "Pixelstørrelsen på miniaturer (mellem {0}px og {1}px)"
-
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Det højeste antal rækker skal være et positivt tal"
-
-msgid "Maximum number of rows displayed by the Log register"
-msgstr "Det højeste antal rækker, der vises i Log-registret"
 
 msgid "Generate high quality thumbnails (slower)"
 msgstr "Generer miniaturer i høj kvalitet (langsommere)"
@@ -232,7 +234,8 @@ msgstr ""
 msgid "Select a workspace"
 msgstr "Vælg et arbejdsområde"
 
-msgid "Select a directory where documents will be saved and loaded by default"
+msgid ""
+"Select a directory where documents will be saved and loaded by default"
 msgstr "Vælg en mappe hvorfra dokumenter som standard indlæses fra og til"
 
 msgid "Select a directory"
@@ -254,6 +257,9 @@ msgstr "Standard arbejdsmappe:"
 msgid "Log register rows:"
 msgstr "Rækker i Log-register:"
 
+msgid "Maximum number of rows displayed by the Log register"
+msgstr "Det højeste antal rækker, der vises i Log-registret"
+
 msgid "Language:"
 msgstr "Sprog:"
 
@@ -270,7 +276,8 @@ msgid "Startup module:"
 msgstr "Modul ved start:"
 
 msgid "Set the module to open at application startup (restart needed)"
-msgstr "Vælg modulet, der skal åbnes ved programmets start (genstart påkrævet)"
+msgstr ""
+"Vælg modulet, der skal åbnes ved programmets start (genstart påkrævet)"
 
 msgid "Check for updates now"
 msgstr "Søg efter opdateringer nu"
@@ -330,6 +337,9 @@ msgstr "Download"
 
 msgid "New version available"
 msgstr "Ny version til rådighed"
+
+msgid "Non existing directory"
+msgstr ""
 
 msgid "Directory not empty"
 msgstr "Mappe ikke tom"
@@ -400,9 +410,6 @@ msgstr "Arbejdsområde gemt"
 msgid "Split after"
 msgstr "Skil efter"
 
-msgid "Split the document after the given page numbers"
-msgstr "Opdel dokumentet efter de givne sidetal"
-
 msgid "No page selected"
 msgstr "Der er ikke valgt en side"
 
@@ -445,16 +452,20 @@ msgstr "Lige sider"
 msgid "Odd pages"
 msgstr "Ulige sider"
 
+msgid "Split the document after the given page numbers"
+msgstr "Opdel dokumentet efter de givne sidetal"
+
+msgid ""
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr ""
+"Opdel PDF dokumentet for hver \"n\" side, hvilket danner dokumenter på \"n\" "
+"sider hver."
+
 msgid "Split by every \"n\" pages"
 msgstr "Opdel for hver \"n\" sider"
 
 msgid "Number of pages"
 msgstr "Antal sider"
-
-msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
-msgstr ""
-"Opdel PDF dokumentet for hver \"n\" side, hvilket danner dokumenter på \"n\" "
-"sider hver."
 
 msgid "Invalid number of pages"
 msgstr "Ugyldigt antal sider"
@@ -528,8 +539,8 @@ msgstr "Skift fra andet dokument til det første efter følgende sider"
 msgid "Invalid parameter 'first and second step' must be numbers"
 msgstr "Ugyldig parameter for 'første og andet trin' - det skal være tal"
 
-msgid "Select the number of pages"
-msgstr "Vælg antal sider"
+msgid "Select a valid number of pages"
+msgstr ""
 
 msgid "The selected PDF document is invalid"
 msgstr "Det valgte PDF-dokument er ugyldigt"
@@ -551,6 +562,9 @@ msgstr "Vælg en fil"
 
 msgid "Unlock"
 msgstr "Lås op"
+
+msgid "Remove"
+msgstr "Fjern"
 
 msgid "Duplicate"
 msgstr "Dupliker"
@@ -578,9 +592,6 @@ msgstr "Åbn mappe"
 
 msgid "Document properties"
 msgstr "Dokumentegenskaber"
-
-msgid "Remove"
-msgstr "Fjern"
 
 msgid "Loading..."
 msgstr "Inddlæser..."
@@ -645,17 +656,14 @@ msgstr "PDF version påkrævet: {0}"
 msgid "Select an existing directory"
 msgstr "Vælg en eksisterende mappe"
 
-msgid "The selected output directory is invalid"
-msgstr "Den valgte output-mappe er ugyldig"
+msgid "An existing output directory is required"
+msgstr ""
+
+msgid "The output directory is required"
+msgstr ""
 
 msgid "Generated PDF documents name prefix:"
 msgstr "Fornavn til genereret PDF dokumenter:"
-
-msgid "Prefix for the generated files names"
-msgstr "Præfiks for de genererede filnavne"
-
-msgid "Add prefix"
-msgstr "Tilføj præfiks"
 
 msgid "Prefix for the output files name."
 msgstr "Præfiks for navne på outputfiler."
@@ -665,6 +673,12 @@ msgstr "Særlige nøgleord erstattes med kendte værdier."
 
 msgid "Right click to add these keywords."
 msgstr "Højreklik for at tilføje disse nøgleord."
+
+msgid "Prefix for the generated files names"
+msgstr "Præfiks for de genererede filnavne"
+
+msgid "Add prefix"
+msgstr "Tilføj præfiks"
 
 msgid "Enter the user password"
 msgstr "Indtast adgangskode"
@@ -773,6 +787,9 @@ msgstr "Fjern bogmærker"
 msgid "Create one entry for each merged document"
 msgstr "Opret en postering for hvert flettet dokument"
 
+msgid "Retain bookmarks as one entry for each merged document"
+msgstr ""
+
 msgid "Bookmarks handling:"
 msgstr "Håndtering af bogmærker"
 
@@ -822,9 +839,6 @@ msgstr "Kantet kornblomst"
 msgid "Roundish"
 msgstr "Rundet"
 
-msgid "Set the bookmarks level to split at"
-msgstr "Vælg bogmærkeniveau, der splittes ved"
-
 msgid "Invalid bookmarks level"
 msgstr "Ugyldigt bogmærkeniveau"
 
@@ -846,6 +860,13 @@ msgstr "Opdel ved dette bogmærkeniveau:"
 msgid "Matching regular expression:"
 msgstr "Matcher regulært udtryk:"
 
+msgid "A regular expression the bookmark text has to match"
+msgstr ""
+
+msgid ""
+"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+
 msgid "All pages"
 msgstr "Alle sider"
 
@@ -855,8 +876,8 @@ msgstr "90 grader med uret"
 msgid "180 degrees clockwise"
 msgstr "180 grader med uret"
 
-msgid "270 degrees clockwise"
-msgstr "270 grader med uret"
+msgid "90 degrees counterclockwise"
+msgstr ""
 
 msgid "Rotate "
 msgstr "Roter "
@@ -892,11 +913,11 @@ msgstr "Indstillinger for rotation"
 #~ msgstr "Arbejdsfils pdf-version"
 
 #~ msgid ""
-#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" "
-#~ "is selected"
+#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" is "
+#~ "selected"
 #~ msgstr ""
-#~ "Viser en dialogbiks, der spørger brugeren om bekræftelse når \"Overskriv"
-#~ "\" er valgt"
+#~ "Viser en dialogbiks, der spørger brugeren om bekræftelse når \"Overskriv\" "
+#~ "er valgt"
 
 #~ msgid "Ask for confirmation when overwrite checkbox is selected"
 #~ msgstr "Spørg om bekræftelse når afkrydsningsfeltet er markeret"

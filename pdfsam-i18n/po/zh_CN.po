@@ -6,17 +6,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
-"Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-11-18 16:13+0100\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-12-16 18:03+0100\n"
 "PO-Revision-Date: 2014-03-03 14:12+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-11-22 09:52+0000\n"
-"X-Generator: Launchpad (build 17850)\n"
+"X-Launchpad-Export-Date: 2015-12-20 17:40+0000\n"
+"X-Generator: Launchpad (build 17865)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr ""
@@ -52,6 +51,18 @@ msgid "Cancel"
 msgstr ""
 
 msgid "Overwrite"
+msgstr ""
+
+msgid "No"
+msgstr "否"
+
+msgid "Yes"
+msgstr "是"
+
+msgid "The selected output directory does not exist"
+msgstr ""
+
+msgid "Do you want to create it?"
 msgstr ""
 
 #, java-format
@@ -193,18 +204,7 @@ msgstr ""
 msgid "Use the selected PDF document directory as output directory"
 msgstr ""
 
-#, java-format
-msgid "Size must be between {0}px and {1}px"
-msgstr ""
-
-#, java-format
-msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
-msgstr ""
-
 msgid "Maximum number of rows mast be a positive number"
-msgstr ""
-
-msgid "Maximum number of rows displayed by the Log register"
 msgstr ""
 
 msgid "Generate high quality thumbnails (slower)"
@@ -230,7 +230,8 @@ msgstr ""
 msgid "Select a workspace"
 msgstr ""
 
-msgid "Select a directory where documents will be saved and loaded by default"
+msgid ""
+"Select a directory where documents will be saved and loaded by default"
 msgstr "设置默认的文档保存和加载路径"
 
 msgid "Select a directory"
@@ -248,6 +249,9 @@ msgid "Default working directory:"
 msgstr "默认工作目录："
 
 msgid "Log register rows:"
+msgstr ""
+
+msgid "Maximum number of rows displayed by the Log register"
 msgstr ""
 
 msgid "Language:"
@@ -325,6 +329,9 @@ msgstr ""
 msgid "New version available"
 msgstr ""
 
+msgid "Non existing directory"
+msgstr ""
+
 msgid "Directory not empty"
 msgstr ""
 
@@ -394,9 +401,6 @@ msgstr ""
 msgid "Split after"
 msgstr ""
 
-msgid "Split the document after the given page numbers"
-msgstr ""
-
 msgid "No page selected"
 msgstr ""
 
@@ -439,14 +443,18 @@ msgstr ""
 msgid "Odd pages"
 msgstr ""
 
+msgid "Split the document after the given page numbers"
+msgstr ""
+
+msgid ""
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr ""
+
 msgid "Split by every \"n\" pages"
 msgstr ""
 
 msgid "Number of pages"
 msgstr "页数"
-
-msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
-msgstr ""
 
 msgid "Invalid number of pages"
 msgstr ""
@@ -518,7 +526,7 @@ msgstr ""
 msgid "Invalid parameter 'first and second step' must be numbers"
 msgstr ""
 
-msgid "Select the number of pages"
+msgid "Select a valid number of pages"
 msgstr ""
 
 msgid "The selected PDF document is invalid"
@@ -541,6 +549,9 @@ msgstr ""
 
 msgid "Unlock"
 msgstr ""
+
+msgid "Remove"
+msgstr "移除"
 
 msgid "Duplicate"
 msgstr ""
@@ -568,9 +579,6 @@ msgstr ""
 
 msgid "Document properties"
 msgstr "文档属性"
-
-msgid "Remove"
-msgstr "移除"
 
 msgid "Loading..."
 msgstr ""
@@ -634,17 +642,14 @@ msgstr ""
 msgid "Select an existing directory"
 msgstr ""
 
-msgid "The selected output directory is invalid"
+msgid "An existing output directory is required"
+msgstr ""
+
+msgid "The output directory is required"
 msgstr ""
 
 msgid "Generated PDF documents name prefix:"
 msgstr ""
-
-msgid "Prefix for the generated files names"
-msgstr ""
-
-msgid "Add prefix"
-msgstr "添加前缀"
 
 msgid "Prefix for the output files name."
 msgstr ""
@@ -654,6 +659,12 @@ msgstr ""
 
 msgid "Right click to add these keywords."
 msgstr ""
+
+msgid "Prefix for the generated files names"
+msgstr ""
+
+msgid "Add prefix"
+msgstr "添加前缀"
 
 msgid "Enter the user password"
 msgstr ""
@@ -756,6 +767,9 @@ msgstr ""
 msgid "Create one entry for each merged document"
 msgstr ""
 
+msgid "Retain bookmarks as one entry for each merged document"
+msgstr ""
+
 msgid "Bookmarks handling:"
 msgstr ""
 
@@ -805,9 +819,6 @@ msgstr ""
 msgid "Roundish"
 msgstr ""
 
-msgid "Set the bookmarks level to split at"
-msgstr ""
-
 msgid "Invalid bookmarks level"
 msgstr ""
 
@@ -827,6 +838,13 @@ msgstr ""
 msgid "Matching regular expression:"
 msgstr ""
 
+msgid "A regular expression the bookmark text has to match"
+msgstr ""
+
+msgid ""
+"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+
 msgid "All pages"
 msgstr ""
 
@@ -836,7 +854,7 @@ msgstr ""
 msgid "180 degrees clockwise"
 msgstr ""
 
-msgid "270 degrees clockwise"
+msgid "90 degrees counterclockwise"
 msgstr ""
 
 msgid "Rotate "
@@ -873,8 +891,8 @@ msgstr ""
 #~ msgstr "您想要覆盖此文件吗？"
 
 #~ msgid ""
-#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" "
-#~ "is selected"
+#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" is "
+#~ "selected"
 #~ msgstr "当“覆写”被选中时，显示对话框要求用户进行确认"
 
 #~ msgid "Ask for confirmation when overwrite checkbox is selected"

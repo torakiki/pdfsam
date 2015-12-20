@@ -6,17 +6,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
-"Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-11-18 16:13+0100\n"
-"PO-Revision-Date: 2015-10-05 07:48+0000\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-12-16 18:03+0100\n"
+"PO-Revision-Date: 2015-12-01 14:24+0000\n"
 "Last-Translator: Richard Somlói <ricsipontaz@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
-"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-11-22 09:53+0000\n"
-"X-Generator: Launchpad (build 17850)\n"
+"X-Launchpad-Export-Date: 2015-12-20 17:40+0000\n"
+"X-Generator: Launchpad (build 17865)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Feliratkozás a hivatalos hírforrásra"
@@ -53,6 +52,18 @@ msgstr "Mégse"
 
 msgid "Overwrite"
 msgstr "Felülírás"
+
+msgid "No"
+msgstr "Nem"
+
+msgid "Yes"
+msgstr "Igen"
+
+msgid "The selected output directory does not exist"
+msgstr ""
+
+msgid "Do you want to create it?"
+msgstr ""
 
 #, java-format
 msgid "Installing theme {0}."
@@ -195,19 +206,8 @@ msgstr "Kiváló minőségű bélyegképek"
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Használja a kiválasztott PDF mappáját kimeneti mappaként"
 
-#, java-format
-msgid "Size must be between {0}px and {1}px"
-msgstr "A méretnek {0} és {1} képpont között kell lennie"
-
-#, java-format
-msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
-msgstr "A bélyegképek képpont mérete ({0} és {1} között)"
-
 msgid "Maximum number of rows mast be a positive number"
 msgstr "A sorok maximum száma egy pozitív szám legyen"
-
-msgid "Maximum number of rows displayed by the Log register"
-msgstr "A naplóban megjelenített sorok maximális száma"
 
 msgid "Generate high quality thumbnails (slower)"
 msgstr "Kiváló minőségű bélyegképek generálása (lassabb)"
@@ -232,7 +232,8 @@ msgstr "Korábbi munkaterület, ami induláskor betöltődik"
 msgid "Select a workspace"
 msgstr "Munkaterület kiválasztása"
 
-msgid "Select a directory where documents will be saved and loaded by default"
+msgid ""
+"Select a directory where documents will be saved and loaded by default"
 msgstr "Alapértelmezett mentési és betöltés mappa"
 
 msgid "Select a directory"
@@ -253,6 +254,9 @@ msgstr "Alapértelmezett munkamappa:"
 
 msgid "Log register rows:"
 msgstr "Naplózott sorok száma:"
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr "A naplóban megjelenített sorok maximális száma"
 
 msgid "Language:"
 msgstr "Nyelv:"
@@ -333,6 +337,9 @@ msgstr "Letöltés"
 msgid "New version available"
 msgstr "Új verzió érhető el"
 
+msgid "Non existing directory"
+msgstr ""
+
 msgid "Directory not empty"
 msgstr "A mappa nem üres"
 
@@ -361,13 +368,13 @@ msgid "Checking for updates"
 msgstr "Frissítések keresése"
 
 msgid "Fetching latest news"
-msgstr ""
+msgstr "Legfrissebb hírek letöltése"
 
 msgid "Unable to retrieve the latest news"
-msgstr ""
+msgstr "Nem sikerült a legfrissebb hírek letöltése"
 
 msgid "Unable to retrieve latest news"
-msgstr ""
+msgstr "Nem sikerült a legfrissebb hírek letöltése"
 
 msgid "Loading pdf documents"
 msgstr "PDF dokumentumok betöltése"
@@ -402,9 +409,6 @@ msgstr "Munkaterület elmentve"
 msgid "Split after"
 msgstr "Szétválasztás valami után"
 
-msgid "Split the document after the given page numbers"
-msgstr "Dokumentum szétválasztása a megadott oldalszámok után"
-
 msgid "No page selected"
 msgstr "Nincs oldal kiválasztva"
 
@@ -418,7 +422,7 @@ msgid "Invalid page numbers"
 msgstr "Érvénytelen oldalszám"
 
 msgid "Only valid positive page numbers are allowed"
-msgstr ""
+msgstr "Csak pozitív, egész számok engedélyezettek"
 
 msgid "Split"
 msgstr "Szétválasztás"
@@ -447,14 +451,18 @@ msgstr "Páros oldalak"
 msgid "Odd pages"
 msgstr "Páratlan oldalak"
 
+msgid "Split the document after the given page numbers"
+msgstr "Dokumentum szétválasztása a megadott oldalszámok után"
+
+msgid ""
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr "Minden „n” oldal után szétválasztja a PDF dokumentumot"
+
 msgid "Split by every \"n\" pages"
 msgstr "Szétválasztás minden n-edik oldalnál"
 
 msgid "Number of pages"
 msgstr "Oldalszám"
-
-msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
-msgstr "Minden „n” oldal után szétválasztja a PDF dokumentumot"
 
 msgid "Invalid number of pages"
 msgstr "Érvénytelen oldalszám"
@@ -528,8 +536,8 @@ msgstr "Váltson a második dokumentumról az elsőre ennél az oldalnál"
 msgid "Invalid parameter 'first and second step' must be numbers"
 msgstr "Érvénytelen paraméter. Számokat adjon meg."
 
-msgid "Select the number of pages"
-msgstr "Adja meg az oldalszámot"
+msgid "Select a valid number of pages"
+msgstr ""
 
 msgid "The selected PDF document is invalid"
 msgstr "A kijelölt PDF érvénytelen"
@@ -551,6 +559,9 @@ msgstr "Fájl kiválasztása"
 
 msgid "Unlock"
 msgstr "Feloldás"
+
+msgid "Remove"
+msgstr "Eltávolítás"
 
 msgid "Duplicate"
 msgstr "Másolat készítés"
@@ -578,9 +589,6 @@ msgstr "Mappa megnyitása"
 
 msgid "Document properties"
 msgstr "Dokumentum tulajdonságai"
-
-msgid "Remove"
-msgstr "Eltávolítás"
 
 msgid "Loading..."
 msgstr "Betöltés…"
@@ -646,17 +654,14 @@ msgstr "Szükséges PDF verzió: {0}"
 msgid "Select an existing directory"
 msgstr "Válasszon egy létező mappát"
 
-msgid "The selected output directory is invalid"
-msgstr "A kiválasztott kimeneti mappa érvénytelen"
+msgid "An existing output directory is required"
+msgstr ""
+
+msgid "The output directory is required"
+msgstr ""
 
 msgid "Generated PDF documents name prefix:"
 msgstr "A generált PDF dokumentumok nevének előtagja:"
-
-msgid "Prefix for the generated files names"
-msgstr "Előtag hozzáadása a generált fájlnevekhez"
-
-msgid "Add prefix"
-msgstr "Előtag hozzáadása"
 
 msgid "Prefix for the output files name."
 msgstr "Előtag a kimeneti fájlnevekhez."
@@ -666,6 +671,12 @@ msgstr "Néhány speciális kulcsszó lecserélődik futtatás közben értékre
 
 msgid "Right click to add these keywords."
 msgstr "Kattintson a jobb egérgombbal ezen kulcsszavak hozzáadásához."
+
+msgid "Prefix for the generated files names"
+msgstr "Előtag hozzáadása a generált fájlnevekhez"
+
+msgid "Add prefix"
+msgstr "Előtag hozzáadása"
 
 msgid "Enter the user password"
 msgstr "Adja meg a felhasználói jelszót"
@@ -774,6 +785,9 @@ msgstr "Könyvjelzők eldobása"
 msgid "Create one entry for each merged document"
 msgstr "Bejegyzés készítése minden egyesített dokumentumhoz"
 
+msgid "Retain bookmarks as one entry for each merged document"
+msgstr ""
+
 msgid "Bookmarks handling:"
 msgstr "Könyvjelzők kezelése:"
 
@@ -823,9 +837,6 @@ msgstr "Búzavirág szögletes"
 msgid "Roundish"
 msgstr "Lekerekített"
 
-msgid "Set the bookmarks level to split at"
-msgstr "Ennél a könyvjelzőszintnél választja szét a PDF-eket"
-
 msgid "Invalid bookmarks level"
 msgstr "Érvénytelen könyvjelzőszint"
 
@@ -847,6 +858,13 @@ msgstr "Szétválasztás ennél a könyvjelzőszintnél:"
 msgid "Matching regular expression:"
 msgstr "Reguláris kifejezés:"
 
+msgid "A regular expression the bookmark text has to match"
+msgstr ""
+
+msgid ""
+"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+
 msgid "All pages"
 msgstr "Minden oldal"
 
@@ -856,8 +874,8 @@ msgstr "90 fokkal az óramutató járásának irányában"
 msgid "180 degrees clockwise"
 msgstr "180 fokkal az óramutató járásának irányában"
 
-msgid "270 degrees clockwise"
-msgstr "270 fokkal az óramutató járásának irányában"
+msgid "90 degrees counterclockwise"
+msgstr ""
 
 msgid "Rotate "
 msgstr "Elforgatás "
@@ -887,8 +905,8 @@ msgstr "Elforgatás beállításai"
 #~ msgstr "Szeretné felülírni?"
 
 #~ msgid ""
-#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" "
-#~ "is selected"
+#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" is "
+#~ "selected"
 #~ msgstr ""
 #~ "Megjelenít egy ablakot, ahol a felhasználó jóváhagyását kéri, ha a "
 #~ "„Felülírás” aktív"

@@ -6,17 +6,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
-"Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-11-18 16:13+0100\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-12-16 18:03+0100\n"
 "PO-Revision-Date: 2014-07-20 16:17+0000\n"
 "Last-Translator: pirtlak <pirtlak@outlook.com>\n"
 "Language-Team: Turkish <tr@li.org>\n"
-"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-11-22 09:52+0000\n"
-"X-Generator: Launchpad (build 17850)\n"
+"X-Launchpad-Export-Date: 2015-12-20 17:40+0000\n"
+"X-Generator: Launchpad (build 17865)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr ""
@@ -52,6 +51,18 @@ msgid "Cancel"
 msgstr ""
 
 msgid "Overwrite"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "The selected output directory does not exist"
+msgstr ""
+
+msgid "Do you want to create it?"
 msgstr ""
 
 #, java-format
@@ -194,18 +205,7 @@ msgstr "Yüksek kaliteli küçük resimler"
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Seçili PDF belgesinin dizinini çıktı dizini olarak kullan"
 
-#, java-format
-msgid "Size must be between {0}px and {1}px"
-msgstr "Boyut {0}px ve {1}px aralığında olmalı"
-
-#, java-format
-msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
-msgstr "Küçük resimlerin boyutu ({0}px ve {1}px aralığında)"
-
 msgid "Maximum number of rows mast be a positive number"
-msgstr ""
-
-msgid "Maximum number of rows displayed by the Log register"
 msgstr ""
 
 msgid "Generate high quality thumbnails (slower)"
@@ -231,7 +231,8 @@ msgstr "Başlangıçta otomatik yüklenen bir önceki çalışma alanını seç"
 msgid "Select a workspace"
 msgstr "Bir çalışma alanı seç"
 
-msgid "Select a directory where documents will be saved and loaded by default"
+msgid ""
+"Select a directory where documents will be saved and loaded by default"
 msgstr "Dosyaların kaydedileceği ve öntanımlı olarak yükleneceği dizini seç"
 
 msgid "Select a directory"
@@ -249,6 +250,9 @@ msgid "Default working directory:"
 msgstr "Öntanımlı çalışma dizini:"
 
 msgid "Log register rows:"
+msgstr ""
+
+msgid "Maximum number of rows displayed by the Log register"
 msgstr ""
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:125
@@ -315,7 +319,8 @@ msgstr "Geçersiz parametreler"
 
 msgid ""
 "Input parameters are invalid, open the application messages for details."
-msgstr "Girilen parametreler geçersiz, detaylar için program mesajlarını açın."
+msgstr ""
+"Girilen parametreler geçersiz, detaylar için program mesajlarını açın."
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
@@ -336,6 +341,9 @@ msgstr ""
 
 msgid "New version available"
 msgstr "Yeni versiyon var"
+
+msgid "Non existing directory"
+msgstr ""
 
 msgid "Directory not empty"
 msgstr ""
@@ -406,9 +414,6 @@ msgstr ""
 msgid "Split after"
 msgstr ""
 
-msgid "Split the document after the given page numbers"
-msgstr ""
-
 msgid "No page selected"
 msgstr ""
 
@@ -451,14 +456,18 @@ msgstr ""
 msgid "Odd pages"
 msgstr ""
 
+msgid "Split the document after the given page numbers"
+msgstr ""
+
+msgid ""
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr ""
+
 msgid "Split by every \"n\" pages"
 msgstr "Her \"n\" sayfada bir ayır"
 
 msgid "Number of pages"
 msgstr "Sayfa numaraları"
-
-msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
-msgstr ""
 
 msgid "Invalid number of pages"
 msgstr "Geçersiz sayfa numarası"
@@ -530,8 +539,8 @@ msgstr ""
 msgid "Invalid parameter 'first and second step' must be numbers"
 msgstr ""
 
-msgid "Select the number of pages"
-msgstr "Sayfa numaralarını seç"
+msgid "Select a valid number of pages"
+msgstr ""
 
 msgid "The selected PDF document is invalid"
 msgstr "Seçili PDF belgesi geçersiz"
@@ -553,6 +562,15 @@ msgstr "Bir dosya seçin"
 
 msgid "Unlock"
 msgstr "Kilidi aç"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:273
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:317
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:266
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:311
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:269
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:314
+msgid "Remove"
+msgstr "Kaldır"
 
 msgid "Duplicate"
 msgstr ""
@@ -588,15 +606,6 @@ msgstr "Klasörü Aç"
 
 msgid "Document properties"
 msgstr "Belge özellikleri"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:273
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:317
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:266
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:311
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:269
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:314
-msgid "Remove"
-msgstr "Kaldır"
 
 msgid "Loading..."
 msgstr ""
@@ -688,17 +697,14 @@ msgstr ""
 msgid "Select an existing directory"
 msgstr "Mevcut bir dizin seçin"
 
-msgid "The selected output directory is invalid"
-msgstr "Seçilen çıkış dizini geçersiz"
+msgid "An existing output directory is required"
+msgstr ""
+
+msgid "The output directory is required"
+msgstr ""
 
 msgid "Generated PDF documents name prefix:"
 msgstr ""
-
-msgid "Prefix for the generated files names"
-msgstr "Oluşturulan dosya adı için önek"
-
-msgid "Add prefix"
-msgstr "Önek ekle"
 
 msgid "Prefix for the output files name."
 msgstr "Çıktı dosyası adı için önek"
@@ -708,6 +714,12 @@ msgstr ""
 
 msgid "Right click to add these keywords."
 msgstr "Bu anahtar kelimeleri eklemek için sağ tıklayın"
+
+msgid "Prefix for the generated files names"
+msgstr "Oluşturulan dosya adı için önek"
+
+msgid "Add prefix"
+msgstr "Önek ekle"
 
 msgid "Enter the user password"
 msgstr "Kullanıcı parolası girin"
@@ -815,6 +827,9 @@ msgstr ""
 msgid "Create one entry for each merged document"
 msgstr ""
 
+msgid "Retain bookmarks as one entry for each merged document"
+msgstr ""
+
 msgid "Bookmarks handling:"
 msgstr ""
 
@@ -864,9 +879,6 @@ msgstr ""
 msgid "Roundish"
 msgstr ""
 
-msgid "Set the bookmarks level to split at"
-msgstr ""
-
 msgid "Invalid bookmarks level"
 msgstr ""
 
@@ -886,6 +898,13 @@ msgstr ""
 msgid "Matching regular expression:"
 msgstr ""
 
+msgid "A regular expression the bookmark text has to match"
+msgstr ""
+
+msgid ""
+"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+
 msgid "All pages"
 msgstr "Tüm sayfalar"
 
@@ -895,8 +914,8 @@ msgstr "90 derece saat yönüne"
 msgid "180 degrees clockwise"
 msgstr "180 derece saat yönüne"
 
-msgid "270 degrees clockwise"
-msgstr "270 derece saat yönüne"
+msgid "90 degrees counterclockwise"
+msgstr ""
 
 msgid "Rotate "
 msgstr "Döndür "

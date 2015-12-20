@@ -6,17 +6,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
-"Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-11-18 16:13+0100\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-12-16 18:03+0100\n"
 "PO-Revision-Date: 2015-10-29 08:17+0000\n"
 "Last-Translator: Tom Lemmens <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-11-22 09:53+0000\n"
-"X-Generator: Launchpad (build 17850)\n"
+"X-Launchpad-Export-Date: 2015-12-20 17:40+0000\n"
+"X-Generator: Launchpad (build 17865)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Abonneren op de officiële nieuwsbrief"
@@ -53,6 +52,18 @@ msgstr "Annuleren"
 
 msgid "Overwrite"
 msgstr "Overschrijven"
+
+msgid "No"
+msgstr "Nee"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "The selected output directory does not exist"
+msgstr ""
+
+msgid "Do you want to create it?"
+msgstr ""
 
 #, java-format
 msgid "Installing theme {0}."
@@ -196,19 +207,8 @@ msgstr "Thumbnails van hoge kwaliteit"
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Gebruik de map van het geselecteerde PDF-document als uitvoermap"
 
-#, java-format
-msgid "Size must be between {0}px and {1}px"
-msgstr "Grootte moet tussen de {0}px en {1}px liggen"
-
-#, java-format
-msgid "Pixel size of the thumbnails (between {0}px and {1}px)"
-msgstr "Pixelgrootte van de thumbnails (tussen {0}px en {1}px)"
-
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Maximaal aantal rijen moet een positief getal zijn"
-
-msgid "Maximum number of rows displayed by the Log register"
-msgstr "Maximaal aantal rijen dat het Log register toont"
 
 msgid "Generate high quality thumbnails (slower)"
 msgstr "Genereer thumbnails van hoge kwaliteit (trager)"
@@ -235,7 +235,8 @@ msgstr ""
 msgid "Select a workspace"
 msgstr "Selecteer een werkblad"
 
-msgid "Select a directory where documents will be saved and loaded by default"
+msgid ""
+"Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Selecteer een map waar uw documenten standaard bewaard en geladen zullen "
 "worden"
@@ -258,6 +259,9 @@ msgstr "Standaard werkpad:"
 
 msgid "Log register rows:"
 msgstr "Rijen van het Log register:"
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr "Maximaal aantal rijen dat het Log register toont"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:125
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:116
@@ -350,6 +354,9 @@ msgstr "Downloaden"
 msgid "New version available"
 msgstr "Nieuwe versie beschikbaar"
 
+msgid "Non existing directory"
+msgstr ""
+
 msgid "Directory not empty"
 msgstr "Map is niet leeg"
 
@@ -419,9 +426,6 @@ msgstr "Werkblad opgeslagen"
 msgid "Split after"
 msgstr "Splits na"
 
-msgid "Split the document after the given page numbers"
-msgstr "Splits het document na de gegeven paginanummers"
-
 msgid "No page selected"
 msgstr "Geen pagina geselecteerd"
 
@@ -464,16 +468,20 @@ msgstr "Even pagina's"
 msgid "Odd pages"
 msgstr "Oneven pagina's"
 
+msgid "Split the document after the given page numbers"
+msgstr "Splits het document na de gegeven paginanummers"
+
+msgid ""
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr ""
+"Splits het PDF-document om de \"n\" pagina's, wat documenten van \"n\" "
+"pagina's elk creëert."
+
 msgid "Split by every \"n\" pages"
 msgstr "Splits na elke \"n\" pagina's"
 
 msgid "Number of pages"
 msgstr "Aantal pagina's"
-
-msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
-msgstr ""
-"Splits het PDF-document om de \"n\" pagina's, wat documenten van \"n\" "
-"pagina's elk creëert."
 
 msgid "Invalid number of pages"
 msgstr "Ongeldig aantal pagina's"
@@ -551,8 +559,8 @@ msgstr ""
 msgid "Invalid parameter 'first and second step' must be numbers"
 msgstr "Ongeldige parameter 'eerste en tweede stap' moeten nummers zijn"
 
-msgid "Select the number of pages"
-msgstr "Selecteer het aantal pagina's"
+msgid "Select a valid number of pages"
+msgstr ""
 
 msgid "The selected PDF document is invalid"
 msgstr "Het geselecteerde PDF-document is ongeldig"
@@ -574,6 +582,15 @@ msgstr "Selecteer een bestand"
 
 msgid "Unlock"
 msgstr "Ontgrendelen"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:273
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:317
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:266
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:311
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:269
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:314
+msgid "Remove"
+msgstr "Verwijder"
 
 msgid "Duplicate"
 msgstr "Dupliceer"
@@ -601,15 +618,6 @@ msgstr "Open map"
 
 msgid "Document properties"
 msgstr "Document-eigenschappen"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:273
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:317
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:266
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:311
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:269
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:314
-msgid "Remove"
-msgstr "Verwijder"
 
 msgid "Loading..."
 msgstr "Laden..."
@@ -695,17 +703,14 @@ msgstr "Vereiste PDF-versie: {0}"
 msgid "Select an existing directory"
 msgstr "Selecteer een bestaande map"
 
-msgid "The selected output directory is invalid"
-msgstr "De geselecteerde map is ongeldig"
+msgid "An existing output directory is required"
+msgstr ""
+
+msgid "The output directory is required"
+msgstr ""
 
 msgid "Generated PDF documents name prefix:"
 msgstr "Voorvoegsel doelbestand:"
-
-msgid "Prefix for the generated files names"
-msgstr "Voorvoegsel voor de gegenereerde bestandsnamen"
-
-msgid "Add prefix"
-msgstr "Voeg voorvoegsel toe"
 
 msgid "Prefix for the output files name."
 msgstr "Voorvoegsel voor de bestandsnamen van de uitvoer."
@@ -716,14 +721,20 @@ msgstr "Enkele speciale trefwoorden worden vervangen door runtime-waarden."
 msgid "Right click to add these keywords."
 msgstr "Rechter-muisknop om deze trefwoorden toe te voegen"
 
+msgid "Prefix for the generated files names"
+msgstr "Voorvoegsel voor de gegenereerde bestandsnamen"
+
+msgid "Add prefix"
+msgstr "Voeg voorvoegsel toe"
+
 msgid "Enter the user password"
 msgstr "Geef het gebruikerswachtwoord"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Dubbelklik om de pagina's te selecteren die u wilt samenvoegen (bijv. 2 of "
-"5-23 of 2,5-7,12-)"
+"Dubbelklik om de pagina's te selecteren die u wilt samenvoegen (bijv. 2 of 5-"
+"23 of 2,5-7,12-)"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:182
 # F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:180
@@ -828,6 +839,9 @@ msgstr "Verwijder bladwijzers"
 msgid "Create one entry for each merged document"
 msgstr "Maak een ingang voor elk samengevoegd document"
 
+msgid "Retain bookmarks as one entry for each merged document"
+msgstr ""
+
 msgid "Bookmarks handling:"
 msgstr "Bladwijzer behandeling:"
 
@@ -877,9 +891,6 @@ msgstr "Korenbloem kwadraat"
 msgid "Roundish"
 msgstr "Rondachtig"
 
-msgid "Set the bookmarks level to split at"
-msgstr "Stel het bladwijzerniveau om te splitsen in op"
-
 msgid "Invalid bookmarks level"
 msgstr "Onjuist bladwijzerniveau"
 
@@ -899,6 +910,13 @@ msgstr "Splits op dit bladwijzerniveau:"
 msgid "Matching regular expression:"
 msgstr "Vergelijkt regular expression:"
 
+msgid "A regular expression the bookmark text has to match"
+msgstr ""
+
+msgid ""
+"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+
 msgid "All pages"
 msgstr "Alle pagina's"
 
@@ -908,8 +926,8 @@ msgstr "90 graden met de klok mee"
 msgid "180 degrees clockwise"
 msgstr "180 graden met de klok mee"
 
-msgid "270 degrees clockwise"
-msgstr "270 graden met de klok mee"
+msgid "90 degrees counterclockwise"
+msgstr ""
 
 msgid "Rotate "
 msgstr "Draaien "
@@ -946,16 +964,15 @@ msgstr "Draai instellingen"
 #~ msgstr "Wilt u het overschrijven?"
 
 #~ msgid ""
-#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" "
-#~ "is selected"
+#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" is "
+#~ "selected"
 #~ msgstr ""
-#~ "Toon een venster waarin de gebruiker om een bevestiging gevraagd wordt "
-#~ "als het \"overschrijf\" selectievakje is geselecteerd."
+#~ "Toon een venster waarin de gebruiker om een bevestiging gevraagd wordt als "
+#~ "het \"overschrijf\" selectievakje is geselecteerd."
 
 #~ msgid "Ask for confirmation when overwrite checkbox is selected"
 #~ msgstr ""
-#~ "Vraag naar bevestiging als het \"overschrijf\" selectievakje is "
-#~ "geselecteerd"
+#~ "Vraag naar bevestiging als het \"overschrijf\" selectievakje is geselecteerd"
 
 #~ msgid "Split even pages"
 #~ msgstr "Splits even pagina's"
