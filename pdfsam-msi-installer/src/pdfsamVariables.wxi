@@ -4,11 +4,11 @@
 	<?define ProductMajorVersion="3" ?>
 	<?define ProductMinorVersion="0" ?>
 	<!-- Change patch version otherwise upgrade is not detected -->
-	<?define ProductPatchVersion="5" ?>
+	<?define ProductPatchVersion="10" ?>
 	<?define ProductLabelVersion="0" ?>
 	<!-- Change this -->
-	<?define ProductCode="{dae3a88d-8bec-4d32-b4c8-99a1a8f33216}" ?>
-	<?define ProductFullVersion="3.0.0.RELEASE" ?>
+	<?define ProductCode="{4e4ef242-7ff0-423e-99ed-c96305b840c0}" ?>
+	<?define ProductFullVersion="3.0.1.RELEASE" ?>
 
 	<!-- Static configuration options. -->
 	<?define ProductVersion="$(var.ProductMajorVersion).$(var.ProductMinorVersion).$(var.ProductPatchVersion).$(var.ProductLabelVersion)" ?>
