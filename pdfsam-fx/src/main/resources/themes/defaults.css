@@ -396,3 +396,18 @@
 .pdfsam-help-popup .text{
 	-fx-fill: -pdfsam-dark-text-color;
 }
+/**
+ * Close button
+ */
+.close-button {
+	-fx-background-color:  transparent;
+    -fx-background-insets:  0.0;
+    -fx-background-radius: 0.0;
+    -fx-padding: 0.0px;
+}
+.close-button:hover > .glyph-icon{
+ 	-fx-fill: derive(-fx-text-base-color, 70.0%);
+}
+.close-button:armed > .glyph-icon{
+ 	-fx-fill: derive(-fx-text-base-color, 30.0%);
+}
