@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.pdfsam</groupId>
 		<artifactId>pdfsam-parent</artifactId>
-		<version>3.0.1.RELEASE</version>
+		<version>3.0.2.RELEASE-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
