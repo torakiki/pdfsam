@@ -67,12 +67,11 @@ public class PreferenceConfig {
 
     @Bean(name = "themeCombo")
     public PreferenceComboBox<KeyStringValueItem<String>> themeCombo() {
-        PreferenceComboBox<KeyStringValueItem<String>> themeCombo = new PreferenceComboBox<>(
-                StringUserPreference.THEME, userContext);
+        PreferenceComboBox<KeyStringValueItem<String>> themeCombo = new PreferenceComboBox<>(StringUserPreference.THEME,
+                userContext);
         themeCombo.setId("themeCombo");
-        themeCombo.getItems().addAll(
-                Arrays.stream(Theme.values()).map(t -> keyValue(t.toString(), t.friendlyName()))
-                        .collect(Collectors.toList()));
+        themeCombo.getItems().addAll(Arrays.stream(Theme.values()).map(t -> keyValue(t.toString(), t.friendlyName()))
+                .collect(Collectors.toList()));
 
         themeCombo.setValue(keyEmptyValue(userContext.getTheme()));
         return themeCombo;
@@ -87,11 +86,6 @@ public class PreferenceConfig {
         modules.stream().map(ModuleKeyValueItem::new).forEach(startupModuleCombo.getItems()::add);
         startupModuleCombo.setValue(keyEmptyValue(userContext.getStartupModule()));
         return startupModuleCombo;
-    }
-
-    // @Bean(name = "thumbnailsCombo")
-    public PreferenceComboBox<KeyStringValueItem<String>> thumbnailsCombo() {
-        return new PreferenceComboBox<>(StringUserPreference.THUMBNAILS_IDENTIFIER, userContext);
     }
 
     @Bean(name = "checkForUpdates")
@@ -109,8 +103,8 @@ public class PreferenceConfig {
 
     @Bean(name = "playSounds")
     public PreferenceCheckBox playSounds() {
-        PreferenceCheckBox playSounds = new PreferenceCheckBox(BooleanUserPreference.PLAY_SOUNDS, DefaultI18nContext
-                .getInstance().i18n("Play alert sounds"), userContext.isPlaySounds(), userContext);
+        PreferenceCheckBox playSounds = new PreferenceCheckBox(BooleanUserPreference.PLAY_SOUNDS,
+                DefaultI18nContext.getInstance().i18n("Play alert sounds"), userContext.isPlaySounds(), userContext);
         playSounds.setId("playSounds");
         playSounds.setGraphic(helpIcon(DefaultI18nContext.getInstance().i18n("Turn on or off alert sounds")));
         playSounds.getStyleClass().addAll(Style.WITH_HELP.css());
@@ -118,13 +112,16 @@ public class PreferenceConfig {
         return playSounds;
     }
 
-    // @Bean(name = "highQualityThumbnails")
-    public PreferenceCheckBox highQualityThumbnails() {
-        PreferenceCheckBox highQualityThumbnails = new PreferenceCheckBox(BooleanUserPreference.HIGH_QUALITY_THUMB,
-                DefaultI18nContext.getInstance().i18n("High quality thumbnails"),
-                userContext.isHighQualityThumbnails(), userContext);
-        highQualityThumbnails.setId("highQualityThumbnails");
-        return highQualityThumbnails;
+    @Bean(name = "donationNotification")
+    public PreferenceCheckBox donationNotification() {
+        PreferenceCheckBox donationNotification = new PreferenceCheckBox(BooleanUserPreference.DONATION_NOTIFICATION,
+                DefaultI18nContext.getInstance().i18n("Show donation window"), userContext.isPlaySounds(), userContext);
+        donationNotification.setId("donationNotification");
+        donationNotification.setGraphic(helpIcon(DefaultI18nContext.getInstance().i18n(
+                "Turn on or off the notification appearing once in a while and asking the user to support PDFsam with a donation")));
+        donationNotification.getStyleClass().addAll(Style.WITH_HELP.css());
+        donationNotification.getStyleClass().add("spaced-vitem");
+        return donationNotification;
     }
 
     @Bean(name = "smartRadio")
@@ -159,8 +156,8 @@ public class PreferenceConfig {
         PreferenceIntTextField logRowsNumber = new PreferenceIntTextField(IntUserPreference.LOGVIEW_ROWS_NUMBER,
                 userContext, Validators.positiveInteger());
         logRowsNumber.setText(Integer.toString(userContext.getNumberOfLogRows()));
-        logRowsNumber.setErrorMessage(DefaultI18nContext.getInstance().i18n(
-                "Maximum number of rows mast be a positive number"));
+        logRowsNumber.setErrorMessage(
+                DefaultI18nContext.getInstance().i18n("Maximum number of rows mast be a positive number"));
         logRowsNumber.setId("logViewRowsNumber");
         logRowsNumber.validProperty().addListener((o, oldVal, newVal) -> {
             if (newVal == ValidationState.VALID) {

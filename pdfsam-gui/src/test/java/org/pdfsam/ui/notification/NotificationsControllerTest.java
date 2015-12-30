@@ -33,6 +33,7 @@ import org.junit.Test;
 import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
 import org.pdfsam.PdfsamEdition;
+import org.pdfsam.context.UserContext;
 import org.pdfsam.module.UsageService;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
@@ -54,16 +55,19 @@ public class NotificationsControllerTest {
     private UsageService service;
     private NotificationsContainer container;
     private NotificationsController victim;
+    private UserContext context;
 
     @Before
     public void setUp() {
         service = mock(UsageService.class);
         container = mock(NotificationsContainer.class);
         Pdfsam pdfsam = mock(Pdfsam.class);
+        context = mock(UserContext.class);
         when(pdfsam.edition()).thenReturn(PdfsamEdition.COMMUNITY);
         when(pdfsam.property(ConfigurableProperty.DOWNLOAD_URL)).thenReturn("http://www.pdfsam.org");
         when(pdfsam.property(ConfigurableProperty.DONATE_URL)).thenReturn("http://www.pdfsam.org");
-        victim = new NotificationsController(container, service, pdfsam);
+        when(context.isDonationNotification()).thenReturn(true);
+        victim = new NotificationsController(container, service, pdfsam, context);
     }
 
     @Test
@@ -104,24 +108,24 @@ public class NotificationsControllerTest {
     @Test
     public void onTaskCompleteAndNoProDisplay() {
         when(service.getTotalUsage()).thenReturn(1L);
-        TaskExecutionCompletedEvent event = new TaskExecutionCompletedEvent(1, null);
-        victim.onTaskCompleted(event);
-        verify(container, never()).addNotification(anyString(), any());
+        victim.onTaskCompleted(new TaskExecutionCompletedEvent(1, null));
+        when(service.getTotalUsage()).thenReturn(6L);
+        victim.onTaskCompleted(new TaskExecutionCompletedEvent(1, null));
+        verify(container, never()).addStickyNotification(anyString(), any());
     }
 
     @Test
     public void onTaskCompleteAndProDisplay() {
         when(service.getTotalUsage()).thenReturn(5L);
-        TaskExecutionCompletedEvent event = new TaskExecutionCompletedEvent(1, null);
-        victim.onTaskCompleted(event);
+        victim.onTaskCompleted(new TaskExecutionCompletedEvent(1, null));
         verify(container).addStickyNotification(anyString(), any());
     }
 
     @Test
-    public void onTaskCompleteDontDisplayForEnterprise() {
-        when(service.getTotalUsage()).thenReturn(6L);
-        TaskExecutionCompletedEvent event = new TaskExecutionCompletedEvent(1, null);
-        victim.onTaskCompleted(event);
-        verify(container, never()).addNotification(anyString(), any());
+    public void onTaskCompleteDontDisplaySettingIsOn() {
+        when(context.isDonationNotification()).thenReturn(false);
+        when(service.getTotalUsage()).thenReturn(5L);
+        victim.onTaskCompleted(new TaskExecutionCompletedEvent(1, null));
+        verify(container, never()).addStickyNotification(anyString(), any());
     }
 }

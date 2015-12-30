@@ -83,11 +83,11 @@ public class DefaultUserContextTest {
     }
 
     @Test
-    public void isHighQualityThumbnails() {
-        victim.setBooleanPreference(BooleanUserPreference.HIGH_QUALITY_THUMB, false);
-        assertFalse(victim.isHighQualityThumbnails());
-        victim.setBooleanPreference(BooleanUserPreference.HIGH_QUALITY_THUMB, true);
-        assertTrue(victim.isHighQualityThumbnails());
+    public void isDonationNotification() {
+        victim.setBooleanPreference(BooleanUserPreference.DONATION_NOTIFICATION, false);
+        assertFalse(victim.isDonationNotification());
+        victim.setBooleanPreference(BooleanUserPreference.DONATION_NOTIFICATION, true);
+        assertTrue(victim.isDonationNotification());
     }
 
     @Test
@@ -114,14 +114,6 @@ public class DefaultUserContextTest {
         victim.setStringPreference(StringUserPreference.LOCALE, "");
         assertTrue(isBlank(victim.getLocale()));
         System.clearProperty(DefaultUserContext.LOCALE_PROP);
-    }
-
-    @Test
-    public void getThumbIdentifier() {
-        victim.setStringPreference(StringUserPreference.THUMBNAILS_IDENTIFIER, "ChuckNorris");
-        assertEquals("ChuckNorris", victim.getThumbnailsCreatorIdentifier());
-        victim.setStringPreference(StringUserPreference.THUMBNAILS_IDENTIFIER, "");
-        assertTrue(isBlank(victim.getThumbnailsCreatorIdentifier()));
     }
 
     @Test
@@ -154,12 +146,6 @@ public class DefaultUserContextTest {
         assertEquals("/wpath", victim.getDefaultWorkspacePath());
         victim.setStringPreference(StringUserPreference.WORKSPACE_PATH, "");
         assertTrue(isBlank(victim.getDefaultWorkspacePath()));
-    }
-
-    @Test
-    public void getThumbPoolSize() {
-        victim.setIntegerPreference(IntUserPreference.THUMBNAILS_SIZE, 2);
-        assertEquals(2, victim.getThumbnailsSize());
     }
 
     @Test

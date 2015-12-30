@@ -80,11 +80,10 @@ public class PreferencePaneTest {
             when(userContext.getTheme()).thenReturn(Theme.ROUNDISH.toString());
             when(userContext.isCheckForUpdates()).thenReturn(Boolean.TRUE);
             when(userContext.isPlaySounds()).thenReturn(Boolean.TRUE);
-            when(userContext.isHighQualityThumbnails()).thenReturn(Boolean.TRUE);
+            when(userContext.isDonationNotification()).thenReturn(Boolean.TRUE);
             when(userContext.isUseSmartOutput()).thenReturn(Boolean.TRUE);
             when(userContext.getDefaultWorkingPath()).thenReturn("/my/path");
             when(userContext.getDefaultWorkspacePath()).thenReturn("/my/path.xml");
-            when(userContext.getThumbnailsSize()).thenReturn(200);
             when(userContext.getStartupModule()).thenReturn("");
             return userContext;
         }

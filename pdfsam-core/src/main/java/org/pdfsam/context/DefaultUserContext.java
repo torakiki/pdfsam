@@ -67,13 +67,13 @@ public final class DefaultUserContext implements UserContext {
     }
 
     @Override
-    public boolean isUseSmartOutput() {
-        return prefs.getBoolean(BooleanUserPreference.SMART_OUTPUT.toString(), Boolean.TRUE);
+    public boolean isDonationNotification() {
+        return prefs.getBoolean(BooleanUserPreference.DONATION_NOTIFICATION.toString(), Boolean.TRUE);
     }
 
     @Override
-    public int getThumbnailsSize() {
-        return prefs.getInt(IntUserPreference.THUMBNAILS_SIZE.toString(), 190);
+    public boolean isUseSmartOutput() {
+        return prefs.getBoolean(BooleanUserPreference.SMART_OUTPUT.toString(), Boolean.TRUE);
     }
 
     @Override
@@ -93,20 +93,9 @@ public final class DefaultUserContext implements UserContext {
     }
 
     @Override
-    public String getThumbnailsCreatorIdentifier() {
-        // TODO identifier
-        return prefs.get(StringUserPreference.THUMBNAILS_IDENTIFIER.toString(), StringUtils.EMPTY);
-    }
-
-    @Override
     public boolean isCheckForUpdates() {
         return prefs.getBoolean(BooleanUserPreference.CHECK_UPDATES.toString(),
                 Boolean.valueOf(System.getProperty(CHECK_FOR_UPDATES_PROP, Boolean.TRUE.toString())));
-    }
-
-    @Override
-    public boolean isHighQualityThumbnails() {
-        return prefs.getBoolean(BooleanUserPreference.HIGH_QUALITY_THUMB.toString(), Boolean.FALSE);
     }
 
     @Override

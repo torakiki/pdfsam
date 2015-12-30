@@ -27,6 +27,7 @@ import javax.inject.Named;
 import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
 import org.pdfsam.PdfsamEdition;
+import org.pdfsam.context.UserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.UsageService;
 import org.pdfsam.update.UpdateAvailableEvent;
@@ -53,12 +54,15 @@ public class NotificationsController {
     private NotificationsContainer container;
     private UsageService service;
     private Pdfsam pdfsam;
+    private UserContext userContext;
 
     @Inject
-    NotificationsController(NotificationsContainer container, UsageService service, Pdfsam pdfsam) {
+    NotificationsController(NotificationsContainer container, UsageService service, Pdfsam pdfsam,
+            UserContext userContext) {
         this.container = container;
         this.service = service;
         this.pdfsam = pdfsam;
+        this.userContext = userContext;
         eventStudio().addAnnotatedListeners(this);
     }
 
@@ -91,7 +95,8 @@ public class NotificationsController {
     @EventListener
     public void onTaskCompleted(@SuppressWarnings("unused") TaskExecutionCompletedEvent e) {
         long usages = service.getTotalUsage();
-        if (PdfsamEdition.COMMUNITY == pdfsam.edition() && (usages % TIMES_BEFORE_ENTERPRISE_NOTICE) == 0) {
+        if (PdfsamEdition.COMMUNITY == pdfsam.edition() && (usages % TIMES_BEFORE_ENTERPRISE_NOTICE) == 0
+                && userContext.isDonationNotification()) {
             VBox content = new VBox(3,
                     buildLabel(DefaultI18nContext.getInstance()
                             .i18n("You performed {0} tasks with PDFsam, did it help?", Long.toString(usages)),

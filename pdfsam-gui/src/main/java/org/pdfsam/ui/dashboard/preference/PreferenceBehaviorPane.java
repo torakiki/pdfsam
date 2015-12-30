@@ -41,7 +41,9 @@ class PreferenceBehaviorPane extends GridPane {
 
     @Inject
     public PreferenceBehaviorPane(@Named("checkForUpdates") PreferenceCheckBox checkForUpdates,
-            @Named("playSounds") PreferenceCheckBox playSounds, CheckForUpdatesButton checkForUpdatesNow,
+            @Named("playSounds") PreferenceCheckBox playSounds,
+            @Named("donationNotification") PreferenceCheckBox donationNotification,
+            CheckForUpdatesButton checkForUpdatesNow,
             @Named("logViewRowsNumber") PreferenceIntTextField logViewRowsNumber) {
 
         add(new Label(DefaultI18nContext.getInstance().i18n("Log register rows:")), 0, 1);
@@ -52,7 +54,8 @@ class PreferenceBehaviorPane extends GridPane {
                 1);
 
         add(playSounds, 0, 2, 3, 1);
-        add(new VBox(checkForUpdates, checkForUpdatesNow), 0, 3, 3, 1);
+        add(donationNotification, 0, 3, 3, 1);
+        add(new VBox(checkForUpdates, checkForUpdatesNow), 0, 4, 3, 1);
 
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.GRID.css());
