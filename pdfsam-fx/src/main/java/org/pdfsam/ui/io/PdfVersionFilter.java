@@ -18,11 +18,14 @@
  */
 package org.pdfsam.ui.io;
 
+import java.util.Comparator;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import javafx.beans.property.ReadOnlyIntegerProperty;
-import javafx.beans.property.ReadOnlyIntegerWrapper;
+import org.sejda.model.pdf.PdfVersion;
+
+import javafx.beans.property.ReadOnlyObjectProperty;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 
 /**
  * Component holding pdf version filter data used filter out pdf versions that don't meet the minimum version number required.
@@ -31,20 +34,20 @@ import javafx.beans.property.ReadOnlyIntegerWrapper;
  * 
  */
 class PdfVersionFilter {
-    private SortedSet<Integer> filters = new TreeSet<>();
-    private ReadOnlyIntegerWrapper required = new ReadOnlyIntegerWrapper();
+    private SortedSet<PdfVersion> filters = new TreeSet<>(Comparator.comparingDouble(v -> v.getVersion()));
+    private ReadOnlyObjectWrapper<PdfVersion> required = new ReadOnlyObjectWrapper<>();
 
-    public PdfVersionFilter() {
-        addFilter(Integer.MIN_VALUE);
+    PdfVersionFilter() {
+        addFilter(PdfVersion.VERSION_1_0);
     }
 
-    public void addFilter(Integer version) {
+    public void addFilter(PdfVersion version) {
         // the filter is not already there
         filters.add(version);
         required.set(filters.last());
     }
 
-    public void removeFilter(Integer version) {
+    public void removeFilter(PdfVersion version) {
         // the filter was there
         filters.remove(version);
         required.set(filters.last());
@@ -52,10 +55,10 @@ class PdfVersionFilter {
 
     void reset() {
         filters.clear();
-        addFilter(Integer.MIN_VALUE);
+        addFilter(PdfVersion.VERSION_1_0);
     }
 
-    ReadOnlyIntegerProperty requiredProperty() {
+    ReadOnlyObjectProperty<PdfVersion> requiredProperty() {
         return required.getReadOnlyProperty();
     }
 

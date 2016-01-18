@@ -61,7 +61,7 @@ class DefaultSAMBoxLoader implements PdfLoader<PDDocument> {
 
     private PdfVersion getVersion(String version) {
         for (PdfVersion current : PdfVersion.values()) {
-            if (current.getVersionAsDoubleString().equals(version)) {
+            if (current.getVersionString().equals(version)) {
                 return current;
             }
         }

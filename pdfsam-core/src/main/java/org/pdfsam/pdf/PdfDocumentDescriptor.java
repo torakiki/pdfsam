@@ -18,6 +18,7 @@
  */
 package org.pdfsam.pdf;
 
+import static java.util.Optional.ofNullable;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
@@ -30,7 +31,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.support.ObservableAtomicReference;
 import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.pdf.PdfVersion;
-
 /**
  * Lightweight pdf document descriptor holding data necessary to fill the selection table and request a task execution.
  * 
@@ -114,10 +114,7 @@ public class PdfDocumentDescriptor {
     }
 
     public String getVersionString() {
-        if (version != null) {
-            return Double.toString(version.getVersionAsDouble());
-        }
-        return "";
+        return ofNullable(version).map(PdfVersion::getVersionString).orElse("");
     }
 
     public PdfVersion getVersion() {

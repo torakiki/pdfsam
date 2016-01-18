@@ -46,7 +46,7 @@ class PdfVersionConstrainedCheckBox extends CheckBox implements ModuleOwned {
         this.ownerModule = defaultString(ownerModule);
         this.constraint = constraint;
         this.setGraphic(helpIcon(DefaultI18nContext.getInstance().i18n("PDF version required: {0}",
-                Double.toString(this.constraint.getVersionAsDouble()))));
+                this.constraint.getVersionString())));
         this.getStyleClass().addAll(Style.WITH_HELP.css());
 
         selectedProperty().addListener((o, oldVal, newVal) -> {

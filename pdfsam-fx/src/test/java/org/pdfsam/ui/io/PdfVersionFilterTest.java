@@ -26,6 +26,7 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Test;
+import org.sejda.model.pdf.PdfVersion;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -39,49 +40,49 @@ public class PdfVersionFilterTest {
     @Test
     public void add() {
         PdfVersionFilter victim = new PdfVersionFilter();
-        victim.addFilter(Integer.valueOf(10));
-        assertEquals(10, victim.requiredProperty().get());
+        victim.addFilter(PdfVersion.VERSION_1_4);
+        assertEquals(PdfVersion.VERSION_1_4, victim.requiredProperty().get());
     }
 
     @Test
     public void remove() {
         PdfVersionFilter victim = new PdfVersionFilter();
-        victim.addFilter(10);
-        assertEquals(10, victim.requiredProperty().get());
-        victim.removeFilter(10);
+        victim.addFilter(PdfVersion.VERSION_1_4);
+        assertEquals(PdfVersion.VERSION_1_4, victim.requiredProperty().get());
+        victim.removeFilter(PdfVersion.VERSION_1_4);
         assertNotEquals(10, victim.requiredProperty().get());
     }
 
     @Test
     public void failingRemove() {
         PdfVersionFilter victim = new PdfVersionFilter();
-        ChangeListener<? super Number> listener = mock(ChangeListener.class);
+        ChangeListener<? super PdfVersion> listener = mock(ChangeListener.class);
         victim.requiredProperty().addListener(listener);
-        victim.removeFilter(10);
-        verify(listener, never()).changed(any(ObservableValue.class), any(Number.class), any(Number.class));
+        victim.removeFilter(PdfVersion.VERSION_1_4);
+        verify(listener, never()).changed(any(ObservableValue.class), any(PdfVersion.class), any(PdfVersion.class));
     }
 
     @Test
     public void failingAdd() {
         PdfVersionFilter victim = new PdfVersionFilter();
-        victim.addFilter(Integer.valueOf(10));
-        assertEquals(10, victim.requiredProperty().get());
-        ChangeListener<? super Number> listener = mock(ChangeListener.class);
+        victim.addFilter(PdfVersion.VERSION_1_4);
+        assertEquals(PdfVersion.VERSION_1_4, victim.requiredProperty().get());
+        ChangeListener<? super PdfVersion> listener = mock(ChangeListener.class);
         victim.requiredProperty().addListener(listener);
-        victim.addFilter(Integer.valueOf(10));
-        verify(listener, never()).changed(any(ObservableValue.class), any(Number.class), any(Number.class));
+        victim.addFilter(PdfVersion.VERSION_1_4);
+        verify(listener, never()).changed(any(ObservableValue.class), any(PdfVersion.class), any(PdfVersion.class));
     }
 
     @Test
     public void keepMaxAsRequired() {
         PdfVersionFilter victim = new PdfVersionFilter();
-        victim.addFilter(10);
-        assertEquals(10, victim.requiredProperty().get());
-        victim.addFilter(50);
-        assertEquals(50, victim.requiredProperty().get());
-        victim.addFilter(20);
-        assertEquals(50, victim.requiredProperty().get());
-        victim.removeFilter(50);
-        assertEquals(20, victim.requiredProperty().get());
+        victim.addFilter(PdfVersion.VERSION_1_4);
+        assertEquals(PdfVersion.VERSION_1_4, victim.requiredProperty().get());
+        victim.addFilter(PdfVersion.VERSION_1_7);
+        assertEquals(PdfVersion.VERSION_1_7, victim.requiredProperty().get());
+        victim.addFilter(PdfVersion.VERSION_1_5);
+        assertEquals(PdfVersion.VERSION_1_7, victim.requiredProperty().get());
+        victim.removeFilter(PdfVersion.VERSION_1_7);
+        assertEquals(PdfVersion.VERSION_1_5, victim.requiredProperty().get());
     }
 }
