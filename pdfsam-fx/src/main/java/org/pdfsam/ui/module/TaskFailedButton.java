@@ -20,7 +20,9 @@ package org.pdfsam.ui.module;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.commons.ShowStageRequest;
+import org.pdfsam.ui.support.Style;
 
 import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
@@ -35,8 +37,12 @@ import javafx.scene.control.Button;
 class TaskFailedButton extends Button {
 
     public TaskFailedButton() {
-        getStyleClass().addAll("pdfsam-footer-button", "pdfsam-footer-failed-button");
-        setGraphic(GlyphsDude.createIcon(FontAwesomeIcon.TIMES_CIRCLE));
+        getStyleClass().addAll(Style.FOOTER_BUTTON.css());
+        getStyleClass().add("footer-failed-button");
+        setText(DefaultI18nContext.getInstance().i18n("Show errors"));
+        GlyphsDude.setIcon(this, FontAwesomeIcon.TIMES_CIRCLE, "1.6em");
+        setMaxHeight(Double.MAX_VALUE);
+        setPrefHeight(Double.MAX_VALUE);
         setOnAction(e -> eventStudio().broadcast(new ShowStageRequest(), "LogStage"));
     }
 }

@@ -21,6 +21,9 @@ package org.pdfsam.ui.module;
 import static java.util.Objects.isNull;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
+import java.math.BigDecimal;
+
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.model.exception.TaskOutputVisitException;
@@ -30,33 +33,47 @@ import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 
 /**
+ * Horizontal buttons panel shown in the footer
+ * 
  * @author Andrea Vacondio
  *
  */
-class FooterButtons extends HBox {
+class Footer extends HBox {
 
-    private static final Logger LOG = LoggerFactory.getLogger(FooterButtons.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Footer.class);
 
-    private Label progressLabel = new Label("0%");
+    private ProgressBar bar = new ProgressBar(0);
+    private Label statusLabel = new Label();
     private OpenButton open = new OpenButton();
     private TaskFailedButton failed = new TaskFailedButton();
 
-    public FooterButtons(RunButton runButton) {
-        this.getStyleClass().add("footer-buttons-pane");
-        this.progressLabel.getStyleClass().add("progress-label");
+    public Footer(RunButton runButton) {
+        this.getStyleClass().addAll("pdfsam-container", "footer-pane");
+        this.statusLabel.getStyleClass().add("status-label");
+        this.statusLabel.setVisible(false);
+        this.bar.setMaxWidth(Double.MAX_VALUE);
+        this.bar.getStyleClass().add("pdfsam-footer-bar");
+        this.statusLabel.setMaxHeight(Double.MAX_VALUE);
+        VBox progressPane = new VBox(statusLabel, bar);
+        progressPane.getStyleClass().add("progress-pane");
+        VBox.setVgrow(statusLabel, Priority.ALWAYS);
+        HBox.setHgrow(bar, Priority.ALWAYS);
+        HBox.setHgrow(progressPane, Priority.ALWAYS);
         this.failed.setVisible(false);
         this.open.setVisible(false);
         StackPane buttons = new StackPane(failed, open);
-        Region spacer = new Region();
-        HBox.setHgrow(spacer, Priority.ALWAYS);
-        this.getChildren().addAll(progressLabel, spacer, buttons, runButton);
+        buttons.setAlignment(Pos.CENTER_LEFT);
+        this.getChildren().addAll(runButton, buttons, progressPane);
         eventStudio().addAnnotatedListeners(this);
     }
 
@@ -64,7 +81,9 @@ class FooterButtons extends HBox {
     public void onTaskExecutionRequest(TaskExecutionRequestEvent event) {
         open.setVisible(false);
         failed.setVisible(false);
-        progressLabel.setText("0%");
+        statusLabel.setVisible(true);
+        statusLabel.setText(DefaultI18nContext.getInstance().i18n("Requested"));
+        bar.setProgress(0);
         try {
             if (!isNull(event.getParameters().getOutput())) {
                 event.getParameters().getOutput().accept(open);
@@ -78,23 +97,28 @@ class FooterButtons extends HBox {
     public void onTaskCompleted(TaskExecutionCompletedEvent event) {
         open.setVisible(true);
         failed.setVisible(false);
-        progressLabel.setText("100%");
+        statusLabel.setText(DefaultI18nContext.getInstance().i18n("Completed"));
+        bar.setProgress(1);
     }
 
     @EventListener
     public void onTaskFailed(TaskExecutionFailedEvent event) {
         open.setVisible(false);
         failed.setVisible(true);
+        statusLabel.setText(DefaultI18nContext.getInstance().i18n("Failed"));
     }
 
     @EventListener
     public void onProgress(PercentageOfWorkDoneChangedEvent event) {
         open.setVisible(false);
         failed.setVisible(false);
+        statusLabel.setText(DefaultI18nContext.getInstance().i18n("Running"));
         if (event.isUndetermined()) {
-            // TODO
+            bar.setProgress(ProgressIndicator.INDETERMINATE_PROGRESS);
         } else {
-            progressLabel.setText(String.format("%d %%", event.getPercentage().intValue()));
+            bar.setProgress(event.getPercentage().divide(new BigDecimal(100)).doubleValue());
+            statusLabel.setText(DefaultI18nContext.getInstance().i18n("Running {0}%",
+                    Integer.toString(event.getPercentage().intValue())));
         }
     }
 }

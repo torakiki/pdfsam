@@ -80,26 +80,6 @@
     -fx-effect: null;
     -fx-text-fill: awesome-color;
 }
-.pdfsam-footer-button, .pdfsam-footer-button:focused, .pdfsam-toolbar-button:hover{
-    -fx-background-color: -pdfsam-defaultbg-color;
-    -fx-background-insets: 0.0;
-    -fx-background-radius: 0.0;
-}
-.pdfsam-footer-button:hover .awesome{
-	-fx-text-fill: awesome-color-hover;
-}
-.pdfsam-footer-button:armed {
-  -fx-opacity: 0.6;
-}
-.pdfsam-footer-button:disabled {
-    -fx-opacity: -fx-disabled-opacity;
-}
-.pdfsam-footer-failed-button .awesome{
-    -fx-text-fill: awesome-error-color;
-}
-.pdfsam-footer-failed-button:hover .awesome{
-    -fx-text-fill: awesome-error-color-hover;	
-}
 /**
  * hyperlink
  */
@@ -410,4 +390,10 @@
 }
 .close-button:armed > .glyph-icon{
  	-fx-fill: derive(-fx-text-base-color, 30.0%);
+}
+/**
+ * Footer button
+ */
+ .footer-button, .footer-button:default, .footer-button:focused {
+    -fx-padding: 2.0px 16.0px 2.0px 12.0px;
 }

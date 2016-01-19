@@ -23,7 +23,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.util.function.Consumer;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.apache.commons.lang3.builder.Builder;
@@ -52,27 +51,25 @@ import javafx.scene.layout.Pane;
 @Named
 public abstract class BaseTaskExecutionModule implements Module {
 
-    private ModuleFooterPane footer;
     private BorderPane modulePanel = new BorderPane();
 
     @PostConstruct
     final void init() {
-        Pane innerPanel = getInnerPanel();
+        RunButton runButton = new RunButton();
+        Pane innerPanel = getInnerPanel(new Footer(runButton));
         innerPanel.getStyleClass().addAll(Style.DEAULT_CONTAINER.css());
         innerPanel.getStyleClass().addAll(Style.MODULE_CONTAINER.css());
 
-        footer.runButton().setOnAction(
-                event -> {
-                    ErrorTracker errorTracker = new ErrorTracker();
-                    Builder<? extends AbstractParameters> builder = getBuilder(errorTracker.andThen(s -> eventStudio()
-                            .broadcast(
-                                    new AddNotificationRequestEvent(NotificationType.ERROR, s, DefaultI18nContext
-                                            .getInstance().i18n("Invalid parameters")))));
-                    if (!errorTracker.errorOnBuild) {
-                        eventStudio().broadcast(new TaskExecutionRequestEvent(id(), builder.build()));
-                    }
-                });
-        modulePanel.setBottom(footer);
+
+        runButton.setOnAction(event -> {
+            ErrorTracker errorTracker = new ErrorTracker();
+            Builder<? extends AbstractParameters> builder = getBuilder(errorTracker
+                    .andThen(s -> eventStudio().broadcast(new AddNotificationRequestEvent(NotificationType.ERROR, s,
+                            DefaultI18nContext.getInstance().i18n("Invalid parameters")))));
+            if (!errorTracker.errorOnBuild) {
+                eventStudio().broadcast(new TaskExecutionRequestEvent(id(), builder.build()));
+            }
+        });
         modulePanel.setCenter(innerPanel);
         eventStudio().addAnnotatedListeners(this);
     }
@@ -90,7 +87,7 @@ public abstract class BaseTaskExecutionModule implements Module {
     /**
      * @return the inner panel that allows the user to set options and preferences for this module
      */
-    protected abstract Pane getInnerPanel();
+    protected abstract Pane getInnerPanel(Pane footer);
 
     /**
      * @param onError
@@ -98,11 +95,6 @@ public abstract class BaseTaskExecutionModule implements Module {
      * @return a {@link Builder} for the parameters to be used to perform a pdf manipulation
      */
     protected abstract Builder<? extends AbstractParameters> getBuilder(Consumer<String> onError);
-
-    @Inject
-    public void setFooter(ModuleFooterPane footer) {
-        this.footer = footer;
-    }
 
     public Pane modulePanel() {
         return modulePanel;

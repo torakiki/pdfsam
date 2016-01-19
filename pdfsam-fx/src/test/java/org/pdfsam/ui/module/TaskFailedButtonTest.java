@@ -44,14 +44,16 @@ public class TaskFailedButtonTest extends GuiTest {
 
     @Override
     protected Parent getRootNode() {
-        return new TaskFailedButton();
+        TaskFailedButton button = new TaskFailedButton();
+        button.setMaxHeight(30);
+        return button;
     }
 
     @Test
     public void failButtonVisibleOnFailure() {
         HitTestListener<ShowStageRequest> hit = new HitTestListener<>();
         eventStudio().add(ShowStageRequest.class, hit, "LogStage");
-        click(".pdfsam-footer-failed-button");
+        click(".footer-failed-button");
         assertTrue(hit.isHit());
     }
 }

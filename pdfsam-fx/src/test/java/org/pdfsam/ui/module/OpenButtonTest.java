@@ -41,6 +41,7 @@ import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.output.StreamTaskOutput;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import javafx.scene.Parent;
 import javafx.scene.text.Text;
@@ -57,7 +58,7 @@ public class OpenButtonTest extends GuiTest {
 
     @Test
     public void openClick() throws Exception {
-        OpenButton victim = find(".pdfsam-footer-button");
+        OpenButton victim = find(".footer-button");
         File file = mock(File.class);
         when(file.exists()).thenReturn(true);
         FileTaskOutput output = mock(FileTaskOutput.class);
@@ -71,17 +72,17 @@ public class OpenButtonTest extends GuiTest {
 
     @Test
     public void fileDestination() throws Exception {
-        OpenButton victim = find(".pdfsam-footer-button");
+        OpenButton victim = find(".footer-button");
         FileTaskOutput output = mock(FileTaskOutput.class);
         FXTestUtils.invokeAndWait(() -> victim.dispatch(output), 1);
         verify(output).getDestination();
         Text icon = find(".glyph-icon");
-        assertEquals(MaterialDesignIcon.FILE_PDF_BOX.characterToString(), icon.getText());
+        assertEquals(FontAwesomeIcon.FILE_PDF_ALT.characterToString(), icon.getText());
     }
 
     @Test
     public void directoryDestination() throws Exception {
-        OpenButton victim = find(".pdfsam-footer-button");
+        OpenButton victim = find(".footer-button");
         DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
         FXTestUtils.invokeAndWait(() -> victim.dispatch(output), 1);
         verify(output).getDestination();
@@ -91,14 +92,16 @@ public class OpenButtonTest extends GuiTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void streamDestination() {
-        OpenButton victim = find(".pdfsam-footer-button");
+        OpenButton victim = find(".footer-button");
         OutputStream stream = mock(OutputStream.class);
         victim.dispatch(new StreamTaskOutput(stream));
     }
 
     @Override
     protected Parent getRootNode() {
-        return new OpenButton();
+        OpenButton button = new OpenButton();
+        button.setMaxHeight(30);
+        return button;
     }
 
     private static class TestListener extends HitTestListener<OpenFileRequest> {

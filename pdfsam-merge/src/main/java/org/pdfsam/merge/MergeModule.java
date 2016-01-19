@@ -105,14 +105,14 @@ public class MergeModule extends BaseTaskExecutionModule {
     }
 
     @Override
-    protected Pane getInnerPanel() {
+    protected Pane getInnerPanel(Pane footer) {
         VBox pane = new VBox();
         pane.setAlignment(Pos.TOP_CENTER);
         VBox.setVgrow(selectionPane, Priority.ALWAYS);
 
         pane.getChildren().addAll(selectionPane,
                 titledPane(DefaultI18nContext.getInstance().i18n("Merge settings"), mergeOptions),
-                titledPane(DefaultI18nContext.getInstance().i18n("Destination file"), destinationPane));
+                titledPane(DefaultI18nContext.getInstance().i18n("Destination file"), destinationPane), footer);
         return pane;
     }
 

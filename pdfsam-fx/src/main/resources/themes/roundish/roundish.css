@@ -317,3 +317,9 @@
     -fx-opacity: 1.0;
 }
 
+/**
+ * Footer button
+ */
+ .footer-button, .footer-button:default, .footer-button:focused {
+    -fx-padding: 2.0px 16.0px 2.0px 12.0px;
+}

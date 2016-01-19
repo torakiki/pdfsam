@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 01/ott/2014
+ * Created on 19 gen 2016
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -54,34 +54,34 @@ import javafx.scene.control.ProgressBar;
  * @author Andrea Vacondio
  *
  */
-public class ProgressPaneTest {
-
+public class FooterTest {
     @Rule
     public InitializeAndApplyJavaFxThreadRule fxThread = new InitializeAndApplyJavaFxThreadRule();
     @Rule
     public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule("LogStage");
 
-    private ProgressPane victim;
+    private Footer victim;
 
     @Before
     public void setUp() {
         eventStudio().broadcast(new SetLocaleEvent(Locale.UK.toLanguageTag()));
-        victim = new ProgressPane();
+        victim = new Footer(new RunButton());
     }
 
     @Test
     public void hideButtonsOnInit() {
-        victim.lookupAll(".pdfsam-footer-button").forEach(b -> assertFalse(b.isVisible()));
+        assertFalse(victim.lookup(".footer-failed-button").isVisible());
+        assertFalse(victim.lookup(".footer-open-button").isVisible());
     }
 
     @Test
     public void onTaskCompleted() {
         TaskExecutionCompletedEvent event = mock(TaskExecutionCompletedEvent.class);
         victim.onTaskCompleted(event);
-        assertFalse(victim.lookup(".pdfsam-footer-failed-button").isVisible());
-        assertTrue(victim.lookup(".pdfsam-footer-open-button").isVisible());
+        assertFalse(victim.lookup(".footer-failed-button").isVisible());
+        assertTrue(victim.lookup(".footer-open-button").isVisible());
         assertEquals(DefaultI18nContext.getInstance().i18n("Completed"),
-                ((Labeled) victim.lookup(".progress-status")).getText());
+                ((Labeled) victim.lookup(".status-label")).getText());
         assertEquals(1, ((ProgressBar) victim.lookup(".pdfsam-footer-bar")).getProgress(), 0.01);
     }
 
@@ -89,11 +89,11 @@ public class ProgressPaneTest {
     public void onTaskFailed() {
         TaskExecutionFailedEvent event = mock(TaskExecutionFailedEvent.class);
         victim.onTaskFailed(event);
-        assertTrue(victim.lookup(".pdfsam-footer-failed-button").isVisible());
-        assertFalse(victim.lookup(".pdfsam-footer-open-button").isVisible());
+        assertTrue(victim.lookup(".footer-failed-button").isVisible());
+        assertFalse(victim.lookup(".footer-open-button").isVisible());
         assertEquals(DefaultI18nContext.getInstance().i18n("Failed"),
-                ((Labeled) victim.lookup(".progress-status")).getText());
-        assertEquals(1, ((ProgressBar) victim.lookup(".pdfsam-footer-bar")).getProgress(), 0.01);
+                ((Labeled) victim.lookup(".status-label")).getText());
+        assertEquals(0, ((ProgressBar) victim.lookup(".pdfsam-footer-bar")).getProgress(), 0.01);
     }
 
     @Test
@@ -101,9 +101,9 @@ public class ProgressPaneTest {
         NotifiableTaskMetadata taskMetadata = mock(NotifiableTaskMetadata.class);
         PercentageOfWorkDoneChangedEvent event = new PercentageOfWorkDoneChangedEvent(new BigDecimal(50), taskMetadata);
         victim.onProgress(event);
-        assertFalse(victim.lookup(".pdfsam-footer-failed-button").isVisible());
-        assertFalse(victim.lookup(".pdfsam-footer-open-button").isVisible());
-        assertEquals("50 %", ((Labeled) victim.lookup(".progress-status")).getText());
+        assertFalse(victim.lookup(".footer-failed-button").isVisible());
+        assertFalse(victim.lookup(".footer-open-button").isVisible());
+        assertEquals("Running 50%", ((Labeled) victim.lookup(".status-label")).getText());
         assertEquals(0.5, ((ProgressBar) victim.lookup(".pdfsam-footer-bar")).getProgress(), 0.01);
     }
 
@@ -113,10 +113,10 @@ public class ProgressPaneTest {
         PercentageOfWorkDoneChangedEvent event = new PercentageOfWorkDoneChangedEvent(
                 PercentageOfWorkDoneChangedEvent.UNDETERMINED, taskMetadata);
         victim.onProgress(event);
-        assertFalse(victim.lookup(".pdfsam-footer-failed-button").isVisible());
-        assertFalse(victim.lookup(".pdfsam-footer-open-button").isVisible());
+        assertFalse(victim.lookup(".footer-failed-button").isVisible());
+        assertFalse(victim.lookup(".footer-open-button").isVisible());
         assertEquals(DefaultI18nContext.getInstance().i18n("Running"),
-                ((Labeled) victim.lookup(".progress-status")).getText());
+                ((Labeled) victim.lookup(".status-label")).getText());
         assertTrue(((ProgressBar) victim.lookup(".pdfsam-footer-bar")).isIndeterminate());
     }
 
@@ -128,10 +128,10 @@ public class ProgressPaneTest {
         when(event.getParameters()).thenReturn(params);
         when(params.getOutput()).thenReturn(output);
         victim.onTaskExecutionRequest(event);
-        assertFalse(victim.lookup(".pdfsam-footer-failed-button").isVisible());
-        assertFalse(victim.lookup(".pdfsam-footer-open-button").isVisible());
+        assertFalse(victim.lookup(".footer-failed-button").isVisible());
+        assertFalse(victim.lookup(".footer-open-button").isVisible());
         assertEquals(DefaultI18nContext.getInstance().i18n("Requested"),
-                ((Labeled) victim.lookup(".progress-status")).getText());
+                ((Labeled) victim.lookup(".status-label")).getText());
         assertEquals(0, ((ProgressBar) victim.lookup(".pdfsam-footer-bar")).getProgress(), 0.01);
         verify(output).accept(any());
     }

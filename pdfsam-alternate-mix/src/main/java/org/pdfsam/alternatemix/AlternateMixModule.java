@@ -63,12 +63,10 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
     private BrowsablePdfOutputField destinationFileField;
     private PdfDestinationPane destinationPane;
     private AlternateMixOptionsPane optionsPane = new AlternateMixOptionsPane();
-    private ModuleDescriptor descriptor = builder()
-            .category(ModuleCategory.MERGE)
+    private ModuleDescriptor descriptor = builder().category(ModuleCategory.MERGE)
             .name(DefaultI18nContext.getInstance().i18n("Alternate Mix"))
-            .description(
-                    DefaultI18nContext.getInstance().i18n(
-                            "Merge two PDF documents taking pages alternately in straight or reverse order."))
+            .description(DefaultI18nContext.getInstance()
+                    .i18n("Merge two PDF documents taking pages alternately in straight or reverse order."))
             .priority(ModulePriority.DEFAULT.getPriority()).supportURL("http://www.pdfsam.org/alternate-mix").build();
 
     @Inject
@@ -83,8 +81,8 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
             }
         };
         this.firstDocument.setId("firstDocumentMix");
-        this.firstDocument.setPromptText(DefaultI18nContext.getInstance().i18n(
-                "Select or drag and drop the first PDF you want to mix"));
+        this.firstDocument.setPromptText(
+                DefaultI18nContext.getInstance().i18n("Select or drag and drop the first PDF you want to mix"));
         this.firstDocument.addOnLoaded(d -> optionsPane.setFirstDocumentMaxPages(d.pages().getValue()));
         this.secondDocument = new AlternateMixSingleSelectionPane(id()) {
             @Override
@@ -93,8 +91,8 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
             }
         };
         this.secondDocument.setId("secondDocumentMix");
-        this.secondDocument.setPromptText(DefaultI18nContext.getInstance().i18n(
-                "Select or drag and drop the second PDF you want to mix"));
+        this.secondDocument.setPromptText(
+                DefaultI18nContext.getInstance().i18n("Select or drag and drop the second PDF you want to mix"));
         this.secondDocument.addOnLoaded(d -> optionsPane.setSecondDocumentMaxPages(d.pages().getValue()));
     }
 
@@ -120,13 +118,13 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
     }
 
     @Override
-    protected Pane getInnerPanel() {
+    protected Pane getInnerPanel(Pane footer) {
         VBox pane = new VBox();
         pane.setAlignment(Pos.TOP_CENTER);
 
         pane.getChildren().addAll(firstDocument, secondDocument,
                 Views.titledPane(DefaultI18nContext.getInstance().i18n("Mix settings"), optionsPane),
-                Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination file"), destinationPane));
+                Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination file"), destinationPane), footer);
         return pane;
     }
 

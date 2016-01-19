@@ -111,7 +111,7 @@ public class RotateModule extends BaseTaskExecutionModule {
     }
 
     @Override
-    protected Pane getInnerPanel() {
+    protected Pane getInnerPanel(Pane footer) {
         VBox pane = new VBox();
         pane.setAlignment(Pos.TOP_CENTER);
         VBox.setVgrow(selectionPane, Priority.ALWAYS);
@@ -124,7 +124,7 @@ public class RotateModule extends BaseTaskExecutionModule {
 
         pane.getChildren().addAll(selectionPane, options,
                 Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination directory"), destinationPane),
-                prefixTitled);
+                prefixTitled, footer);
         return pane;
     }
 

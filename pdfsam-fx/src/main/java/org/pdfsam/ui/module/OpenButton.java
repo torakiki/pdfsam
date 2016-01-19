@@ -24,15 +24,16 @@ import java.io.File;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.commons.OpenFileRequest;
+import org.pdfsam.ui.support.Style;
 import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.output.StreamTaskOutput;
 import org.sejda.model.output.TaskOutputDispatcher;
 
 import de.jensd.fx.glyphs.GlyphsDude;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import javafx.scene.control.Button;
-import javafx.scene.control.Tooltip;
 
 /**
  * Button to open the latest manipulation result
@@ -45,7 +46,11 @@ class OpenButton extends Button implements TaskOutputDispatcher {
     private File destination;
 
     public OpenButton() {
-        getStyleClass().addAll("pdfsam-footer-button", "pdfsam-footer-open-button");
+        getStyleClass().addAll(Style.FOOTER_BUTTON.css());
+        getStyleClass().add("footer-open-button");
+        setText(DefaultI18nContext.getInstance().i18n("Open"));
+        setMaxHeight(Double.MAX_VALUE);
+        setPrefHeight(Double.MAX_VALUE);
         setOnAction(e -> {
             if (destination != null && destination.exists()) {
                 eventStudio().broadcast(new OpenFileRequest(destination));
@@ -55,14 +60,12 @@ class OpenButton extends Button implements TaskOutputDispatcher {
 
     public void dispatch(FileTaskOutput output) {
         destination = output.getDestination();
-        setGraphic(GlyphsDude.createIcon(MaterialDesignIcon.FILE_PDF_BOX, "1.4em"));
-        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Open the generated document")));
+        setGraphic(GlyphsDude.createIcon(FontAwesomeIcon.FILE_PDF_ALT, "1.6em"));
     }
 
     public void dispatch(DirectoryTaskOutput output) {
         destination = output.getDestination();
-        setGraphic(GlyphsDude.createIcon(MaterialDesignIcon.FOLDER_OUTLINE, "1.4em"));
-        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Open the destination directory")));
+        setGraphic(GlyphsDude.createIcon(MaterialDesignIcon.FOLDER_OUTLINE, "1.6em"));
     }
 
     public void dispatch(StreamTaskOutput output) {

@@ -121,7 +121,7 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
     }
 
     @Override
-    protected Pane getInnerPanel() {
+    protected Pane getInnerPanel(Pane footer) {
         VBox pane = new VBox();
         pane.setAlignment(Pos.TOP_CENTER);
 
@@ -136,7 +136,7 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
                 .addAll(selectionPane, Views.titledPane(DefaultI18nContext.getInstance().i18n("Split settings"),
                         splitOptions),
                 Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination directory"), destinationPane),
-                prefixTitled);
+                prefixTitled, footer);
         return pane;
     }
 
