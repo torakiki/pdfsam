@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-12-16 18:03+0100\n"
-"PO-Revision-Date: 2015-12-19 10:32+0000\n"
+"POT-Creation-Date: 2016-01-19 12:33+0100\n"
+"PO-Revision-Date: 2016-01-20 10:37+0000\n"
 "Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-20 17:40+0000\n"
-"X-Generator: Launchpad (build 17865)\n"
+"X-Launchpad-Export-Date: 2016-01-20 10:41+0000\n"
+"X-Generator: Launchpad (build 17886)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Iscriviti al feed ufficiale delle notizie"
@@ -202,8 +202,15 @@ msgstr "Riproduci suoni di allerta"
 msgid "Turn on or off alert sounds"
 msgstr "Attiva o disattiva suoni di allerta"
 
-msgid "High quality thumbnails"
-msgstr "Miniature in alta qualità"
+msgid "Show donation window"
+msgstr "Mostra la finestra per le donazioni"
+
+msgid ""
+"Turn on or off the notification appearing once in a while and asking the "
+"user to support PDFsam with a donation"
+msgstr ""
+"Abilita o disabilita la notifica che appare ogni tanto chiedendo all'utente "
+"di supportare PDFsam con una donazione"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Utilizzare la cartella del PDF selezionato come cartella di output"
@@ -638,14 +645,12 @@ msgstr "Caricamento..."
 msgid "Pages: {0}, PDF Version: {1}"
 msgstr "Pagine: {0}, Versione PDF: {1}"
 
-msgid "Open the generated document"
-msgstr "Apri il documento generato"
+msgid "Show errors"
+msgstr "Mostra errori"
 
-msgid "Open the destination directory"
-msgstr "Apri la cartella di destinazione"
-
-msgid "Ready"
-msgstr "Pronto"
+#, java-format
+msgid "Running {0}%"
+msgstr "In esecuzione {0}%"
 
 # F:\workspace_pdfsame_enanched\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:532
 # F:\workspace_pdfsame_enanched\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:403

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-12-16 18:03+0100\n"
-"PO-Revision-Date: 2015-12-10 20:10+0000\n"
-"Last-Translator: Carolopolitain <david_chmfr@yahoo.fr>\n"
+"POT-Creation-Date: 2016-01-19 12:33+0100\n"
+"PO-Revision-Date: 2016-01-20 10:35+0000\n"
+"Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-20 17:40+0000\n"
-"X-Generator: Launchpad (build 17865)\n"
+"X-Launchpad-Export-Date: 2016-01-20 10:41+0000\n"
+"X-Generator: Launchpad (build 17886)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Souscrire au fil d’actualités officiel"
@@ -95,7 +95,7 @@ msgid "Started in {0}"
 msgstr "PDFsam a démarré en {0}"
 
 msgid "Closing PDFsam..."
-msgstr "Fermeture de PDFsam…"
+msgstr "Fermeture de PDFsam..."
 
 msgid "_Modules"
 msgstr "_Modules"
@@ -147,7 +147,7 @@ msgid "Max memory {0}"
 msgstr "Mémoire maxi. {0}"
 
 msgid "Copy to clipboard"
-msgstr "Copier dans le presse‑papiers"
+msgstr "Copier dans le presse-papier"
 
 msgid "Thanks to"
 msgstr "Remerciements"
@@ -202,8 +202,15 @@ msgstr "Jouer les notifications sonores"
 msgid "Turn on or off alert sounds"
 msgstr "Activer ou désactiver les notifications sonores"
 
-msgid "High quality thumbnails"
-msgstr "Miniatures haute qualité"
+msgid "Show donation window"
+msgstr "Afficher la fenêtre de don"
+
+msgid ""
+"Turn on or off the notification appearing once in a while and asking the "
+"user to support PDFsam with a donation"
+msgstr ""
+"Activer ou désactiver la notification apparaissant de temps en temps et "
+"demandant à l'utilisateur de soutenir PDFsam par un don"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Utiliser le dossier du document PDF chargé"
@@ -258,21 +265,19 @@ msgid "Default working directory:"
 msgstr "Répertoire de travail par défaut :"
 
 msgid "Log register rows:"
-msgstr "Lignes du registre d'évènements :"
+msgstr "Lignes du registre d'événements :"
 
 msgid "Maximum number of rows displayed by the Log register"
-msgstr "Le nombre maximum de lignes affichées par le registre d'évènements."
+msgstr "Le nombre maximum de lignes affichées par le registre d'événements."
 
 msgid "Language:"
-msgstr "Langue :"
+msgstr "Langue :"
 
 msgid "Set your preferred language (restart needed)"
 msgstr "Choisir la langue préférée (redémarrage nécessaire)"
 
-# F:\workspace_pdfsame_enanched\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:120
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:122
 msgid "Theme:"
-msgstr "Thème :"
+msgstr "Thème :"
 
 msgid "Set your preferred theme (restart needed)"
 msgstr "Choisir le thème préféré (redémarrage nécessaire)"
@@ -311,12 +316,8 @@ msgstr "Vider"
 msgid "Select all"
 msgstr "Tout sélectionner"
 
-# F:\workspace_pdfsame_enanched\pdfsam-maine\it\pdfsam\panels\ButtonsBar.java:117
-# F:\workspace_pdfsame_enanched\pdfsam-maine\it\pdfsam\panels\LogPanel.java:121
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\ButtonsBar.java:117
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\LogPanel.java:121
 msgid "Save log"
-msgstr "Sauvegarder le journal"
+msgstr "Enregistrer le journal"
 
 msgid "Select where to save the log file"
 msgstr "Sélectionner l’emplacement de sauvegarde du journal"
@@ -520,7 +521,7 @@ msgid ""
 "Merge two PDF documents taking pages alternately in straight or reverse "
 "order."
 msgstr ""
-"Fusionner deux documents PDF en alternant leurs pages, dans l\\u2019ordre ou "
+"Fusionner deux documents PDF en alternant leurs pages, dans l’ordre ou "
 "inversées."
 
 msgid "Select or drag and drop the first PDF you want to mix"
@@ -544,7 +545,7 @@ msgstr "Inverser le deuxième document"
 msgid ""
 "Switch from the first document to the second one after the following pages"
 msgstr ""
-"Passer du premier document au second après le nombre de pages suivant ]:"
+"Passer du premier document au second après le nombre de pages suivant :"
 
 msgid ""
 "Switch from the second document to the first one after the following pages"
@@ -624,14 +625,12 @@ msgstr "Chargement…"
 msgid "Pages: {0}, PDF Version: {1}"
 msgstr "Pages : {0}, Version PDF : {1}"
 
-msgid "Open the generated document"
-msgstr "Ouvrir le document généré"
+msgid "Show errors"
+msgstr ""
 
-msgid "Open the destination directory"
-msgstr "Ouvrir le dossier de création"
-
-msgid "Ready"
-msgstr "Prêt"
+#, java-format
+msgid "Running {0}%"
+msgstr ""
 
 # G:\Documents\eclipse_workspace\PDFSAMsplit\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:368
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:542
@@ -824,6 +823,7 @@ msgstr "créer un signet par document fusionné"
 
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr ""
+"Conserver les favoris en tant qu'une entrée pour chaque document fusionné"
 
 msgid "Bookmarks handling:"
 msgstr "Gestion des signets :"
@@ -896,11 +896,13 @@ msgid "Matching regular expression:"
 msgstr "Suivant l'expression régulière :"
 
 msgid "A regular expression the bookmark text has to match"
-msgstr ""
+msgstr "Une expression rationnelle correspondant au texte du favori"
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
 msgstr ""
+"Exemple : utiliser .*Chapitre.* pour trouver les favoris contenant le mot "
+"\"Chapitre\""
 
 msgid "All pages"
 msgstr "Toutes les pages"
@@ -912,7 +914,7 @@ msgid "180 degrees clockwise"
 msgstr "de 180°"
 
 msgid "90 degrees counterclockwise"
-msgstr ""
+msgstr "90 degrés dans le sens antihoraire"
 
 msgid "Rotate "
 msgstr "Tourner "

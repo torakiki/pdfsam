@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-12-16 18:03+0100\n"
+"POT-Creation-Date: 2016-01-19 12:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -198,7 +198,12 @@ msgstr ""
 msgid "Turn on or off alert sounds"
 msgstr ""
 
-msgid "High quality thumbnails"
+msgid "Show donation window"
+msgstr ""
+
+msgid ""
+"Turn on or off the notification appearing once in a while and asking the "
+"user to support PDFsam with a donation"
 msgstr ""
 
 msgid "Use the selected PDF document directory as output directory"
@@ -585,13 +590,11 @@ msgstr ""
 msgid "Pages: {0}, PDF Version: {1}"
 msgstr ""
 
-msgid "Open the generated document"
+msgid "Show errors"
 msgstr ""
 
-msgid "Open the destination directory"
-msgstr ""
-
-msgid "Ready"
+#, java-format
+msgid "Running {0}%"
 msgstr ""
 
 msgid "Run"

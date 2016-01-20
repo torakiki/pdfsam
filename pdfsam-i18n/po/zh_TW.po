@@ -5,15 +5,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDFSam 3\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2015-12-16 18:03+0100\n"
-"PO-Revision-Date: 2015-10-30 08:18+0000\n"
+"POT-Creation-Date: 2016-01-19 12:33+0100\n"
+"PO-Revision-Date: 2016-01-03 08:35+0000\n"
 "Last-Translator: Jeff Huang <s8321414@yahoo.com.tw>\n"
 "Language-Team: Chinese (Taiwan) (zh_TW@li.org)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-20 17:40+0000\n"
-"X-Generator: Launchpad (build 17865)\n"
+"X-Launchpad-Export-Date: 2016-01-20 10:41+0000\n"
+"X-Generator: Launchpad (build 17886)\n"
 "Language: zh_TW\n"
 
 msgid "Subscribe to the official news feed"
@@ -59,10 +59,10 @@ msgid "Yes"
 msgstr "是"
 
 msgid "The selected output directory does not exist"
-msgstr ""
+msgstr "選定的輸出目錄不存在"
 
 msgid "Do you want to create it?"
-msgstr ""
+msgstr "您想要建立它嗎？"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -197,8 +197,13 @@ msgstr "播放警示音效"
 msgid "Turn on or off alert sounds"
 msgstr "開啟或關閉警示音效"
 
-msgid "High quality thumbnails"
-msgstr "高畫質縮圖"
+msgid "Show donation window"
+msgstr "顯示捐款視窗"
+
+msgid ""
+"Turn on or off the notification appearing once in a while and asking the "
+"user to support PDFsam with a donation"
+msgstr "打開或是關閉每過一段時間就會出現的，詢問使用者是否會以捐款支援 PDFsam 的通知"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "使用選取的 PDF 文件目錄作為輸出目錄"
@@ -329,7 +334,7 @@ msgid "New version available"
 msgstr "有新版本可用"
 
 msgid "Non existing directory"
-msgstr ""
+msgstr "不存在的目錄"
 
 msgid "Directory not empty"
 msgstr "目錄不是空的"
@@ -413,7 +418,7 @@ msgid "Invalid page numbers"
 msgstr "無效的頁碼"
 
 msgid "Only valid positive page numbers are allowed"
-msgstr ""
+msgstr "只有有效的正數頁面數才可用"
 
 msgid "Split"
 msgstr "分割"
@@ -526,7 +531,7 @@ msgid "Invalid parameter 'first and second step' must be numbers"
 msgstr "無效的參數「第一與第二步」必須為數字"
 
 msgid "Select a valid number of pages"
-msgstr ""
+msgstr "選擇有效的頁面數"
 
 msgid "The selected PDF document is invalid"
 msgstr "選取的 PDF 文件無效"
@@ -586,14 +591,12 @@ msgstr "載入中…"
 msgid "Pages: {0}, PDF Version: {1}"
 msgstr "頁數：{0}，PDF 版本：{1}"
 
-msgid "Open the generated document"
-msgstr "開啟產生的文件"
+msgid "Show errors"
+msgstr ""
 
-msgid "Open the destination directory"
-msgstr "打開目的地資料天"
-
-msgid "Ready"
-msgstr "準備就緒"
+#, java-format
+msgid "Running {0}%"
+msgstr ""
 
 msgid "Run"
 msgstr "執行"
@@ -642,10 +645,10 @@ msgid "Select an existing directory"
 msgstr "請選擇一個既有的目錄"
 
 msgid "An existing output directory is required"
-msgstr ""
+msgstr "必須有一存在的輸出目錄"
 
 msgid "The output directory is required"
-msgstr ""
+msgstr "必須有輸出目錄"
 
 msgid "Generated PDF documents name prefix:"
 msgstr "以這個名稱作為後綴生成 PDF 檔案："
@@ -767,7 +770,7 @@ msgid "Create one entry for each merged document"
 msgstr "為每個被合併文件建立一個條目"
 
 msgid "Retain bookmarks as one entry for each merged document"
-msgstr ""
+msgstr "為每一個合併的文件保留書籤為一個項目"
 
 msgid "Bookmarks handling:"
 msgstr "書籤處理方式："
@@ -838,11 +841,11 @@ msgid "Matching regular expression:"
 msgstr "符合正規表達式："
 
 msgid "A regular expression the bookmark text has to match"
-msgstr ""
+msgstr "書籤文字必須符合的正規表達式"
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
-msgstr ""
+msgstr "範例：使用 *Chapter.* 以符合包含 \"Chapter\" 的書籤"
 
 msgid "All pages"
 msgstr "所有頁面"
@@ -854,7 +857,7 @@ msgid "180 degrees clockwise"
 msgstr "順時針轉 180 度"
 
 msgid "90 degrees counterclockwise"
-msgstr ""
+msgstr "逆時針90度"
 
 msgid "Rotate "
 msgstr "旋轉 "

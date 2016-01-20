@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-12-16 18:03+0100\n"
+"POT-Creation-Date: 2016-01-19 12:33+0100\n"
 "PO-Revision-Date: 2015-12-06 11:31+0000\n"
 "Last-Translator: Rodrigo Borges Freitas <rodrigo.borges.freitas@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-20 17:40+0000\n"
-"X-Generator: Launchpad (build 17865)\n"
+"X-Launchpad-Export-Date: 2016-01-20 10:41+0000\n"
+"X-Generator: Launchpad (build 17886)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Inscreva-se no canal ofício de notícias"
@@ -202,8 +202,13 @@ msgstr "Tocar alertas sonoros"
 msgid "Turn on or off alert sounds"
 msgstr "Ligar ou desligar alertas sonoros"
 
-msgid "High quality thumbnails"
-msgstr "Miniaturas de alta qualidade"
+msgid "Show donation window"
+msgstr ""
+
+msgid ""
+"Turn on or off the notification appearing once in a while and asking the "
+"user to support PDFsam with a donation"
+msgstr ""
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr ""
@@ -633,14 +638,12 @@ msgstr "Carregando..."
 msgid "Pages: {0}, PDF Version: {1}"
 msgstr "Páginas: {0}, Versão do PDF: {1}"
 
-msgid "Open the generated document"
-msgstr "Abrir o documento gerado"
+msgid "Show errors"
+msgstr ""
 
-msgid "Open the destination directory"
-msgstr "Abrir o diretório de destino"
-
-msgid "Ready"
-msgstr "Pronto"
+#, java-format
+msgid "Running {0}%"
+msgstr ""
 
 # G:\Documents\eclipse_workspace\PDFSAMsplit\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:368
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:542
