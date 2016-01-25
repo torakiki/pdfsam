@@ -21,6 +21,8 @@ package org.pdfsam.ui.notification;
 import static org.pdfsam.ui.commons.UrlButton.styledUrlButton;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
+import java.security.SecureRandom;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -36,8 +38,12 @@ import org.sejda.model.exception.InvalidTaskParametersException;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
 /**
@@ -55,6 +61,7 @@ public class NotificationsController {
     private UsageService service;
     private Pdfsam pdfsam;
     private UserContext userContext;
+    private SecureRandom random = new SecureRandom();
 
     @Inject
     NotificationsController(NotificationsContainer container, UsageService service, Pdfsam pdfsam,
@@ -97,16 +104,41 @@ public class NotificationsController {
         long usages = service.getTotalUsage();
         if (PdfsamEdition.COMMUNITY == pdfsam.edition() && (usages % TIMES_BEFORE_ENTERPRISE_NOTICE) == 0
                 && userContext.isDonationNotification()) {
-            VBox content = new VBox(3,
-                    buildLabel(DefaultI18nContext.getInstance()
-                            .i18n("You performed {0} tasks with PDFsam, did it help?", Long.toString(usages)),
-                    NotificationType.GO_PRO),
-                    styledUrlButton(DefaultI18nContext.getInstance().i18n("Give something back"),
-                            pdfsam.property(ConfigurableProperty.DONATE_URL), null));
-            content.setAlignment(Pos.TOP_RIGHT);
-
-            container.addStickyNotification(DefaultI18nContext.getInstance().i18n("PDFsam worked hard!"), content);
+            if ((random.nextInt() % 2) == 0) {
+                addDonationNotification(usages);
+            } else {
+                addShareNotification(usages);
+            }
         }
+    }
+
+    private void addDonationNotification(long usages) {
+        VBox content = new VBox(3,
+                buildLabel(DefaultI18nContext.getInstance().i18n("You performed {0} tasks with PDFsam, did it help?",
+                        Long.toString(usages)), NotificationType.GO_PRO),
+                styledUrlButton(DefaultI18nContext.getInstance().i18n("Give something back"),
+                        pdfsam.property(ConfigurableProperty.DONATE_URL), null));
+        content.setAlignment(Pos.TOP_RIGHT);
+
+        container.addStickyNotification(DefaultI18nContext.getInstance().i18n("PDFsam worked hard!"), content);
+    }
+
+    private void addShareNotification(long usages) {
+        Region spacer = new Region();
+        HBox.setHgrow(spacer, Priority.ALWAYS);
+        VBox content = new VBox(3,
+                buildLabel(DefaultI18nContext.getInstance().i18n("You performed {0} tasks with PDFsam, did it help?",
+                        Long.toString(usages)), NotificationType.SHARE),
+                new HBox(3, spacer,
+                        styledUrlButton(null, pdfsam.property(ConfigurableProperty.GPLUS_SHARE_URL),
+                                FontAwesomeIcon.GOOGLE_PLUS),
+                        styledUrlButton(null, pdfsam.property(ConfigurableProperty.FACEBOOK_SHARE_URL),
+                                FontAwesomeIcon.FACEBOOK),
+                        styledUrlButton(DefaultI18nContext.getInstance().i18n("Spread the word!"),
+                                pdfsam.property(ConfigurableProperty.TWEETER_SHARE_URL), FontAwesomeIcon.TWITTER)));
+        content.setAlignment(Pos.TOP_RIGHT);
+
+        container.addStickyNotification(DefaultI18nContext.getInstance().i18n("PDFsam worked hard!"), content);
     }
 
     @EventListener

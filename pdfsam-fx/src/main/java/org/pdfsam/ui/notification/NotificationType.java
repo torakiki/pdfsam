@@ -73,6 +73,17 @@ public enum NotificationType {
         public String getStyleClass() {
             return "notification-pro";
         }
+    },
+    SHARE {
+        @Override
+        public Node getGraphic() {
+            return GlyphsDude.createIcon(FontAwesomeIcon.SHARE_ALT, DEFAULT_ICON_SIZE);
+        }
+
+        @Override
+        public String getStyleClass() {
+            return "";
+        }
     };
 
     private static final String DEFAULT_ICON_SIZE = "32.0";
