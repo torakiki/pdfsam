@@ -103,4 +103,5 @@ if "%FORCE_EXIT_ON_ERROR%" == "on" (
   if %ERROR_CODE% NEQ 0 exit %ERROR_CODE%
 )
 
+pause
 exit /B %ERROR_CODE%
