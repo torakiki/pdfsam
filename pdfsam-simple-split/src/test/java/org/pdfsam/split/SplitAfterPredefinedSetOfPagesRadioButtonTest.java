@@ -44,8 +44,10 @@ import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.split.SplitAfterPredefinedSetOfPagesRadioButton.SimpleSplitParametersBuilder;
 import org.pdfsam.support.KeyStringValueItem;
+import org.pdfsam.support.params.SplitParametersBuilder;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.model.input.PdfFileSource;
+import org.sejda.model.optimization.OptimizationPolicy;
 import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.parameter.SimpleSplitParameters;
@@ -110,8 +112,31 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest extends GuiTest {
             assertEquals("prefix", params.getOutputPrefix());
             assertEquals(output, params.getOutput());
             assertEquals(source, params.getSource());
+            assertEquals(OptimizationPolicy.AUTO, params.getOptimizationPolicy());
             verify(onError, never()).accept(anyString());
-        }, 2);
+        } , 2);
+    }
+    @Test
+    public void builderDisabledOptimization() throws Exception {
+        SplitAfterPredefinedSetOfPagesRadioButton victim = find("#victim");
+        click("#combo").click("Odd pages");
+        final File file = folder.newFile("my.pdf");
+        FXTestUtils.invokeAndWait(() -> {
+            SimpleSplitParametersBuilder builder = victim.getBuilder(onError);
+            builder.compress(true);
+            DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
+            builder.output(output);
+            builder.existingOutput(ExistingOutputPolicy.OVERWRITE);
+            builder.prefix("prefix");
+            PdfFileSource source = PdfFileSource.newInstanceNoPassword(file);
+            builder.source(source);
+            builder.version(PdfVersion.VERSION_1_7);
+            System.setProperty(SplitParametersBuilder.PDFSAM_DISABLE_SPLIT_OPTIMIZATION, Boolean.TRUE.toString());
+            SimpleSplitParameters params = builder.build();
+            assertEquals(OptimizationPolicy.NO, params.getOptimizationPolicy());
+            verify(onError, never()).accept(anyString());
+        } , 2);
+        System.setProperty(SplitParametersBuilder.PDFSAM_DISABLE_SPLIT_OPTIMIZATION, Boolean.FALSE.toString());
     }
 
     @Test

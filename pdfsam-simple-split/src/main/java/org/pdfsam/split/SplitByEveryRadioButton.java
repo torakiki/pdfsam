@@ -26,7 +26,7 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 import org.pdfsam.i18n.DefaultI18nContext;
-import org.pdfsam.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
+import org.pdfsam.support.params.SplitParametersBuilder;
 import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
@@ -88,8 +88,7 @@ public class SplitByEveryRadioButton extends RadioButton implements SplitParamet
      * @author Andrea Vacondio
      *
      */
-    static class SplitByEveryXPagesParametersBuilder
-            extends SinglePdfSourceMultipleOutputParametersBuilder<SplitByEveryXPagesParameters> {
+    static class SplitByEveryXPagesParametersBuilder extends SplitParametersBuilder<SplitByEveryXPagesParameters> {
 
         private int step;
 
@@ -105,6 +104,7 @@ public class SplitByEveryRadioButton extends RadioButton implements SplitParamet
             params.setOutput(getOutput());
             params.setOutputPrefix(getPrefix());
             params.setSource(getSource());
+            params.setOptimizationPolicy(getOptimizationPolicy());
             return params;
         }
     }

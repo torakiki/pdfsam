@@ -26,7 +26,7 @@ import java.util.function.Consumer;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.KeyStringValueItem;
-import org.pdfsam.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
+import org.pdfsam.support.params.SplitParametersBuilder;
 import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.model.parameter.SimpleSplitParameters;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
@@ -40,8 +40,8 @@ import javafx.scene.control.RadioButton;
  * @author Andrea Vacondio
  *
  */
-class SplitAfterPredefinedSetOfPagesRadioButton extends RadioButton implements SplitParametersBuilderCreator,
-        RestorableView {
+class SplitAfterPredefinedSetOfPagesRadioButton extends RadioButton
+        implements SplitParametersBuilderCreator, RestorableView {
 
     private ComboBox<KeyStringValueItem<PredefinedSetOfPages>> combo;
 
@@ -83,8 +83,7 @@ class SplitAfterPredefinedSetOfPagesRadioButton extends RadioButton implements S
      * @author Andrea Vacondio
      *
      */
-    static class SimpleSplitParametersBuilder extends
-            SinglePdfSourceMultipleOutputParametersBuilder<SimpleSplitParameters> {
+    static class SimpleSplitParametersBuilder extends SplitParametersBuilder<SimpleSplitParameters> {
 
         private PredefinedSetOfPages pages;
 
@@ -100,6 +99,7 @@ class SplitAfterPredefinedSetOfPagesRadioButton extends RadioButton implements S
             params.setOutput(getOutput());
             params.setOutputPrefix(getPrefix());
             params.setSource(getSource());
+            params.setOptimizationPolicy(getOptimizationPolicy());
             return params;
         }
     }

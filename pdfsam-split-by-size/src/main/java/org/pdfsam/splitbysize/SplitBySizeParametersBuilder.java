@@ -18,7 +18,7 @@
  */
 package org.pdfsam.splitbysize;
 
-import org.pdfsam.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
+import org.pdfsam.support.params.SplitParametersBuilder;
 import org.sejda.model.parameter.SplitBySizeParameters;
 
 /**
@@ -27,7 +27,7 @@ import org.sejda.model.parameter.SplitBySizeParameters;
  * @author Andrea Vacondio
  *
  */
-class SplitBySizeParametersBuilder extends SinglePdfSourceMultipleOutputParametersBuilder<SplitBySizeParameters> {
+class SplitBySizeParametersBuilder extends SplitParametersBuilder<SplitBySizeParameters> {
 
     private long size;
 
@@ -43,6 +43,7 @@ class SplitBySizeParametersBuilder extends SinglePdfSourceMultipleOutputParamete
         params.setOutput(getOutput());
         params.setOutputPrefix(getPrefix());
         params.setSource(getSource());
+        params.setOptimizationPolicy(getOptimizationPolicy());
         return params;
     }
 }

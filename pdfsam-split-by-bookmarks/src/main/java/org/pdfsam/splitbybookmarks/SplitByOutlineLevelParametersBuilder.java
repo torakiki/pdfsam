@@ -18,7 +18,7 @@
  */
 package org.pdfsam.splitbybookmarks;
 
-import org.pdfsam.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
+import org.pdfsam.support.params.SplitParametersBuilder;
 import org.sejda.model.parameter.SplitByOutlineLevelParameters;
 
 /**
@@ -27,8 +27,7 @@ import org.sejda.model.parameter.SplitByOutlineLevelParameters;
  * @author Andrea Vacondio
  *
  */
-class SplitByOutlineLevelParametersBuilder extends
-        SinglePdfSourceMultipleOutputParametersBuilder<SplitByOutlineLevelParameters> {
+class SplitByOutlineLevelParametersBuilder extends SplitParametersBuilder<SplitByOutlineLevelParameters> {
 
     private int level = 0;
     private String regexp;
@@ -50,6 +49,7 @@ class SplitByOutlineLevelParametersBuilder extends
         params.setOutput(getOutput());
         params.setOutputPrefix(getPrefix());
         params.setSource(getSource());
+        params.setOptimizationPolicy(getOptimizationPolicy());
         return params;
     }
 }
