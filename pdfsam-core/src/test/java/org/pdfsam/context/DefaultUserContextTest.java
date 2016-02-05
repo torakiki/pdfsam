@@ -57,6 +57,14 @@ public class DefaultUserContextTest {
     }
 
     @Test
+    public void isSaveWokspaceOnExit() {
+        victim.setBooleanPreference(BooleanUserPreference.SAVE_WORKSPACE_ON_EXIT, false);
+        assertFalse(victim.isSaveWorkspaceOnExit());
+        victim.setBooleanPreference(BooleanUserPreference.SAVE_WORKSPACE_ON_EXIT, true);
+        assertTrue(victim.isSaveWorkspaceOnExit());
+    }
+
+    @Test
     public void isCheckUpdatesSystemDefault() {
         System.setProperty(DefaultUserContext.CHECK_FOR_UPDATES_PROP, "false");
         assertFalse(victim.isCheckForUpdates());

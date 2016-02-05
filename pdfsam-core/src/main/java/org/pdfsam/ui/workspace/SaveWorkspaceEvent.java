@@ -35,9 +35,16 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class SaveWorkspaceEvent extends BaseWorkspaceEvent {
     private Map<String, Map<String, String>> data = new ConcurrentHashMap<>();
+    public final boolean awaitCompletion;
 
     public SaveWorkspaceEvent(File destination) {
         super(destination);
+        this.awaitCompletion = false;
+    }
+
+    public SaveWorkspaceEvent(File destination, boolean awaitCompletion) {
+        super(destination);
+        this.awaitCompletion = awaitCompletion;
     }
 
     /**

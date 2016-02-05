@@ -139,6 +139,7 @@ public class PreferenceConfig {
                 StringUserPreference.WORKING_PATH, userContext);
         workingDirectory.getTextField().setText(userContext.getDefaultWorkingPath());
         workingDirectory.setId("workingDirectory");
+        workingDirectory.getStyleClass().add("spaced-vitem");
         return workingDirectory;
     }
 
@@ -148,7 +149,21 @@ public class PreferenceConfig {
                 FileType.JSON, OpenType.OPEN, userContext);
         workspace.getTextField().setText(userContext.getDefaultWorkspacePath());
         workspace.setId("workspace");
+        workspace.getStyleClass().add("spaced-vitem");
         return workspace;
+    }
+
+    @Bean(name = "saveWorkspaceOnExit")
+    public PreferenceCheckBox saveWorkspaceOnExit() {
+        PreferenceCheckBox saveWorkspaceOnExit = new PreferenceCheckBox(BooleanUserPreference.SAVE_WORKSPACE_ON_EXIT,
+                DefaultI18nContext.getInstance().i18n("Save default workspace on exit"),
+                userContext.isSaveWorkspaceOnExit(), userContext);
+        saveWorkspaceOnExit.setId("saveWorkspaceOnExit");
+        saveWorkspaceOnExit.setGraphic(helpIcon(
+                DefaultI18nContext.getInstance().i18n("If a default workspace is set, save it on application exit")));
+        saveWorkspaceOnExit.getStyleClass().addAll(Style.WITH_HELP.css());
+        saveWorkspaceOnExit.getStyleClass().add("spaced-vitem");
+        return saveWorkspaceOnExit;
     }
 
     @Bean(name = "logViewRowsNumber")

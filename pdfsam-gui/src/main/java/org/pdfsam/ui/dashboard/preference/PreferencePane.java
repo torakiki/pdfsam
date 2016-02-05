@@ -18,16 +18,17 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
-import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.support.Style;
+
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 
 /**
  * Panel showing preferences/options that the user can set or modify.
@@ -51,6 +52,7 @@ public class PreferencePane extends HBox {
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Behavior"), left);
         left.getChildren().add(behavior);
         VBox right = new VBox(Style.DEFAULT_SPACING);
+        HBox.setHgrow(right, Priority.ALWAYS);
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Workspace"), right);
         right.getChildren().add(workspace);
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Output"), right);

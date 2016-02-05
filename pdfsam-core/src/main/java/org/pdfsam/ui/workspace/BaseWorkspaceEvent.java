@@ -39,4 +39,5 @@ abstract class BaseWorkspaceEvent {
     public File workspace() {
         return workspace;
     }
+
 }

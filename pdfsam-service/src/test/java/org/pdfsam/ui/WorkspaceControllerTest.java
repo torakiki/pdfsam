@@ -72,23 +72,21 @@ public class WorkspaceControllerTest {
     }
 
     @Test
-    public void saveWorkspace() throws InterruptedException, ExecutionException {
+    public void saveWorkspace() {
         Listener<SaveWorkspaceEvent> listener = mock(Listener.class);
         eventStudio().add(SaveWorkspaceEvent.class, listener, "module");
-        CompletableFuture<Void> future = victim.saveWorkspace(new SaveWorkspaceEvent(file));
-        future.get();
+        victim.saveWorkspace(new SaveWorkspaceEvent(file, true));
         verify(listener).onEvent(any());
         verify(service).saveWorkspace(anyMap(), eq(file));
     }
 
-    @Test(expected = ExecutionException.class)
-    public void saveWorkspaceWithException() throws InterruptedException, ExecutionException {
+    @Test
+    public void saveWorkspaceWithException() {
         Listener<SaveWorkspaceEvent> listener = mock(Listener.class);
         eventStudio().add(SaveWorkspaceEvent.class, listener, "module");
-        SaveWorkspaceEvent event = new SaveWorkspaceEvent(file);
+        SaveWorkspaceEvent event = new SaveWorkspaceEvent(file, true);
         doThrow(new RuntimeException("mock")).when(listener).onEvent(event);
-        CompletableFuture<Void> future = victim.saveWorkspace(event);
-        future.get();
+        victim.saveWorkspace(event);
     }
 
     @Test

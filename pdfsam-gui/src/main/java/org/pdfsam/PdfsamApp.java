@@ -52,6 +52,7 @@ import org.pdfsam.ui.io.SetLatestDirectoryEvent;
 import org.pdfsam.ui.log.LogMessageBroadcaster;
 import org.pdfsam.ui.notification.NotificationsContainer;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
+import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.pdfsam.update.UpdateCheckRequest;
 import org.sejda.core.Sejda;
 import org.sejda.eventstudio.EventStudio;
@@ -81,11 +82,11 @@ public class PdfsamApp extends Application {
     private static final Logger LOG = LoggerFactory.getLogger(PdfsamApp.class);
     private static StopWatch STOPWATCH = new StopWatch();
     private Stage primaryStage;
+    UserContext userContext = new DefaultUserContext();
 
     @Override
     public void init() {
         STOPWATCH.start();
-        UserContext userContext = new DefaultUserContext();
         System.setProperty(EventStudio.MAX_QUEUE_SIZE_PROP, Integer.toString(userContext.getNumberOfLogRows()));
         LOG.info("Starting PDFsam");
         cleanUserContextIfNeeded(userContext);
@@ -182,6 +183,7 @@ public class PdfsamApp extends Application {
             status.setMode(StageMode.valueFor(this.primaryStage));
             eventStudio().broadcast(new SetLatestStageStatusRequest(status));
         }
+        saveWorkspaceIfRequired();
         ApplicationContextHolder.getContext().close();
     }
 
@@ -225,7 +227,7 @@ public class PdfsamApp extends Application {
     }
 
     private void initActiveModule() {
-        String startupModule = new DefaultUserContext().getStartupModule();
+        String startupModule = userContext.getStartupModule();
         if (isNotBlank(startupModule)) {
             LOG.trace("Activating startup module '{}'", startupModule);
             eventStudio().broadcast(activeteModule(startupModule));
@@ -233,9 +235,18 @@ public class PdfsamApp extends Application {
     }
 
     private void loadWorkspaceIfRequired() {
-        String workspace = new DefaultUserContext().getDefaultWorkspacePath();
+        String workspace = userContext.getDefaultWorkspacePath();
         if (isNotBlank(workspace) && Files.exists(Paths.get(workspace))) {
             eventStudio().broadcast(new LoadWorkspaceEvent(new File(workspace)));
+        }
+    }
+
+    private void saveWorkspaceIfRequired() {
+        if (userContext.isSaveWorkspaceOnExit()) {
+            String workspace = userContext.getDefaultWorkspacePath();
+            if (isNotBlank(workspace) && Files.exists(Paths.get(workspace))) {
+                eventStudio().broadcast(new SaveWorkspaceEvent(new File(workspace), true));
+            }
         }
     }
 }

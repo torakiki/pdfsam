@@ -18,16 +18,21 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
-import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
-import javafx.scene.layout.VBox;
+import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.pdfsam.ui.help.HelpUtils.helpIcon;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.I18nContext;
+import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
+
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 
 /**
  * Preference pane displaying the workspace section
@@ -40,29 +45,31 @@ class PreferenceWorkspacePane extends VBox {
 
     @Inject
     public PreferenceWorkspacePane(@Named("workingDirectory") PreferenceBrowsableDirectoryField workingDirectory,
-            @Named("workspace") PreferenceBrowsableFileField workspace, ClearStatisticsButton clearStatsButton) {
+            @Named("workspace") PreferenceBrowsableFileField workspace,
+            @Named("saveWorkspaceOnExit") PreferenceCheckBox saveWorkspaceOnExit) {
         I18nContext i18n = DefaultI18nContext.getInstance();
+        workingDirectory.getTextField()
+                .setPromptText(i18n.i18n("Select a directory where documents will be saved and loaded by default"));
+        workingDirectory.setBrowseWindowTitle(i18n.i18n("Select a directory"));
+        HBox workigDirPane = new HBox(workingDirectory,
+                helpIcon(i18n.i18n("Select a directory where documents will be saved and loaded by default")));
+        HBox.setHgrow(workingDirectory, Priority.ALWAYS);
+        workigDirPane.getStyleClass().add("with-help-hcontainer");
+
         workspace.getTextField().setPromptText(
                 i18n.i18n("Select a previously saved workspace that will be automatically loaded at startup"));
-        workspace.getTextField().setTooltip(
-                new Tooltip(i18n
-                        .i18n("Select a previously saved workspace that will be automatically loaded at startup")));
         workspace.setBrowseWindowTitle(i18n.i18n("Select a workspace"));
-        workspace.getStyleClass().add("spaced-vitem");
-
-        workingDirectory.getTextField().setPromptText(
-                i18n.i18n("Select a directory where documents will be saved and loaded by default"));
-        workingDirectory.getTextField().setTooltip(
-                new Tooltip(i18n.i18n("Select a directory where documents will be saved and loaded by default")));
-        workingDirectory.setBrowseWindowTitle(i18n.i18n("Select a directory"));
-        workingDirectory.getStyleClass().add("spaced-vitem");
-        Label clearStatsLabel = new Label(
-                i18n.i18n("Usage statistics are used to populate the modules quick bar on the left with the most used and most recently used modules."));
-        clearStatsLabel.setWrapText(true);
-        getChildren()
-                .addAll(new Label(i18n.i18n("Load default workspace at startup:")), workspace,
-                        new Label(i18n.i18n("Default working directory:")), workingDirectory, clearStatsLabel,
-                        clearStatsButton);
+        HBox workspaceDirPane = new HBox(workspace, helpIcon(
+                i18n.i18n("Select a previously saved workspace that will be automatically loaded at startup")));
+        HBox.setHgrow(workspace, Priority.ALWAYS);
+        workspaceDirPane.getStyleClass().add("with-help-hcontainer");
+        workspace.getTextField().validProperty().addListener((o, oldVal, newVal) -> {
+            saveWorkspaceOnExit
+                    .setDisable(isBlank(workspace.getTextField().getText()) || newVal != ValidationState.VALID);
+        });
+        workspace.getTextField().validate();
+        getChildren().addAll(new Label(i18n.i18n("Default working directory:")), workigDirPane,
+                new Label(i18n.i18n("Load default workspace at startup:")), workspaceDirPane, saveWorkspaceOnExit);
         getStyleClass().addAll(Style.CONTAINER.css());
     }
 }

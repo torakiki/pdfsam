@@ -26,8 +26,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Locale;
 
-import javafx.scene.Parent;
-
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -41,6 +39,8 @@ import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.LocaleKeyValueItem;
 import org.sejda.eventstudio.Listener;
+
+import javafx.scene.Parent;
 
 /**
  * @author Andrea Vacondio
@@ -61,7 +61,9 @@ public class PreferenceAppearencePaneTest extends GuiTest {
                 StringUserPreference.THEME, userContext);
         PreferenceComboBox<KeyStringValueItem<String>> startupModuleCombo = new PreferenceComboBox<>(
                 StringUserPreference.STARTUP_MODULE, userContext);
-        PreferenceAppearencePane victim = new PreferenceAppearencePane(localeCombo, themeCombo, startupModuleCombo);
+        ClearStatisticsButton clearStatsButton = new ClearStatisticsButton();
+        PreferenceAppearencePane victim = new PreferenceAppearencePane(localeCombo, themeCombo, startupModuleCombo,
+                clearStatsButton);
         victim.setId("victim");
         return victim;
     }

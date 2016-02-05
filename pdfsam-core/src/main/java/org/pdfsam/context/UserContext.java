@@ -57,6 +57,11 @@ public interface UserContext {
     boolean isCheckForUpdates();
 
     /**
+     * @return if workspace should be saved on application exit
+     */
+    boolean isSaveWorkspaceOnExit();
+
+    /**
      * @return the locale
      */
     String getLocale();

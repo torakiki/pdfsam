@@ -77,6 +77,11 @@ public final class DefaultUserContext implements UserContext {
     }
 
     @Override
+    public boolean isSaveWorkspaceOnExit() {
+        return prefs.getBoolean(BooleanUserPreference.SAVE_WORKSPACE_ON_EXIT.toString(), Boolean.FALSE);
+    }
+
+    @Override
     public int getNumberOfLogRows() {
         return prefs.getInt(IntUserPreference.LOGVIEW_ROWS_NUMBER.toString(), 200);
     }

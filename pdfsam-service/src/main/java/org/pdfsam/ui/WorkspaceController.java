@@ -23,6 +23,7 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -60,9 +61,9 @@ class WorkspaceController {
     }
 
     @EventListener
-    public CompletableFuture<Void> saveWorkspace(SaveWorkspaceEvent event) {
+    public void saveWorkspace(SaveWorkspaceEvent event) {
         LOG.debug(DefaultI18nContext.getInstance().i18n("Requesting modules state"));
-        return CompletableFuture
+        CompletableFuture<Void> future = CompletableFuture
                 .allOf(modulesMap.values().stream()
                         .map(m -> CompletableFuture.runAsync(() -> eventStudio().broadcast(event, m.id())))
                         .toArray(CompletableFuture[]::new))
@@ -71,39 +72,37 @@ class WorkspaceController {
                         LOG.error(DefaultI18nContext.getInstance().i18n("Unable to save modules workspace"), e);
                     }
                 });
+        if (event.awaitCompletion) {
+            try {
+                future.get();
+            } catch (InterruptedException | ExecutionException e) {
+                LOG.error(DefaultI18nContext.getInstance().i18n("Unable to save workspace to {0}",
+                        event.workspace().getName()), e);
+            }
+        }
     }
 
     @EventListener
     public CompletableFuture<Void> loadWorspace(LoadWorkspaceEvent event) {
         LOG.debug(DefaultI18nContext.getInstance().i18n("Loading workspace from {0}", event.workspace().getName()));
-        return CompletableFuture
-                .supplyAsync(() -> service.loadWorkspace(event.workspace()))
-                .thenCompose(
-                        (data) -> {
-                            if (!data.isEmpty()) {
-                                event.setData(data);
-                                return CompletableFuture.allOf(
-                                        modulesMap
-                                                .values()
-                                                .stream()
-                                                .map(m -> CompletableFuture.runAsync(() -> eventStudio().broadcast(
-                                                        event, m.id()))).toArray(CompletableFuture[]::new)).thenRun(
-                                        () -> {
-                                            recentWorkspace.addWorkspaceLastUsed(event.workspace());
-                                            eventStudio().broadcast(new WorkspaceLoadedEvent(event.workspace()));
-                                            LOG.info(DefaultI18nContext.getInstance().i18n("Workspace loaded"));
-                                        });
-                            }
-                            return CompletableFuture.completedFuture(null);
-                        })
-                .whenComplete(
-                        (r, e) -> {
-                            if (nonNull(e)) {
-                                LOG.error(
-                                        DefaultI18nContext.getInstance().i18n("Unable to load workspace from {0}",
-                                                event.workspace().getName()), e);
-                            }
-                        });
+        return CompletableFuture.supplyAsync(() -> service.loadWorkspace(event.workspace())).thenCompose((data) -> {
+            if (!data.isEmpty()) {
+                event.setData(data);
+                return CompletableFuture.allOf(modulesMap.values().stream()
+                        .map(m -> CompletableFuture.runAsync(() -> eventStudio().broadcast(event, m.id())))
+                        .toArray(CompletableFuture[]::new)).thenRun(() -> {
+                    recentWorkspace.addWorkspaceLastUsed(event.workspace());
+                    eventStudio().broadcast(new WorkspaceLoadedEvent(event.workspace()));
+                    LOG.info(DefaultI18nContext.getInstance().i18n("Workspace loaded"));
+                });
+            }
+            return CompletableFuture.completedFuture(null);
+        }).whenComplete((r, e) -> {
+            if (nonNull(e)) {
+                LOG.error(DefaultI18nContext.getInstance().i18n("Unable to load workspace from {0}",
+                        event.workspace().getName()), e);
+            }
+        });
 
     }
 }

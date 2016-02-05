@@ -35,6 +35,7 @@ import org.pdfsam.ui.support.Style;
 
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+
 /**
  * Preference pane displaying the appearance section
  * 
@@ -47,7 +48,8 @@ class PreferenceAppearencePane extends GridPane {
     @Inject
     public PreferenceAppearencePane(@Named("localeCombo") PreferenceComboBox<LocaleKeyValueItem> localeCombo,
             @Named("themeCombo") PreferenceComboBox<KeyStringValueItem<String>> themeCombo,
-            @Named("startupModuleCombo") PreferenceComboBox<KeyStringValueItem<String>> startupModuleCombo) {
+            @Named("startupModuleCombo") PreferenceComboBox<KeyStringValueItem<String>> startupModuleCombo,
+            ClearStatisticsButton clearStatsButton) {
         I18nContext i18n = DefaultI18nContext.getInstance();
         add(new Label(i18n.i18n("Language:")), 0, 0);
         for (Locale current : DefaultI18nContext.SUPPORTED_LOCALES) {
@@ -74,6 +76,14 @@ class PreferenceAppearencePane extends GridPane {
         add(startupModuleCombo, 1, 2);
         add(helpIcon(i18n.i18n("Set the module to open at application startup (restart needed)")), 2, 2);
 
+        GridPane statsPane = new GridPane();
+        statsPane.add(clearStatsButton, 0, 0);
+        statsPane.add(
+                helpIcon(i18n
+                        .i18n("Usage statistics are used to populate the modules quick bar on the left with the most used and most recently used modules.")),
+                1, 0);
+        statsPane.getStyleClass().addAll(Style.GRID.css());
+        add(statsPane, 0, 3, 3, 1);
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.GRID.css());
     }

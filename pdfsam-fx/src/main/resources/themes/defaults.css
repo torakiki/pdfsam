@@ -65,6 +65,10 @@
 	-fx-spacing: 5.0px;
 	-fx-alignment: bottom-left;
 }
+.with-help-hcontainer {
+	-fx-spacing: 5.0px;
+	-fx-alignment: center-left;
+}
 .with-help{
 	-fx-graphic-text-gap: 10.0px;
 	-fx-content-display: RIGHT;
