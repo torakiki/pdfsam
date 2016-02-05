@@ -26,7 +26,7 @@ A list of system properties that users can configure to alter PDFsam behavior.
 *description:* if not already set in the application preferences, tells PDFsam if it should check for updates at startup. 
 
 
-**org.pdfsam.disable.split.optimization**
+**org.pdfsam.disable.split.optimization**  
 *values:* true|false  
 *default:* false   
 *description:* if set to true PDFsam will not try to optimize split tasks result files.
@@ -34,8 +34,13 @@ A list of system properties that users can configure to alter PDFsam behavior.
 
 Runtime arguments
 =============
-**-clean**  
+**-c**    
+**-clean**
+**--clean**  
 *description:* clears user preferences and locally stored information, starting PDFsam with default values. 
+
+**--workspace="/path/to/workspace"**  
+*description:* loads the given workspace. This has precedence over the application settings.
 
 
 MSI properties

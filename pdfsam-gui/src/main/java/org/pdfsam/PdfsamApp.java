@@ -19,6 +19,7 @@
 package org.pdfsam;
 
 import static java.util.Objects.nonNull;
+import static java.util.Optional.ofNullable;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.ui.event.SetActiveModuleRequest.activeteModule;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
@@ -28,8 +29,10 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.Optional;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.apache.commons.lang3.time.StopWatch;
 import org.pdfsam.configuration.ApplicationContextHolder;
@@ -194,7 +197,9 @@ public class PdfsamApp extends Application {
     }
 
     private void cleanIfNeeded() {
-        if (getParameters().getRaw().contains("-clean")) {
+        List<String> raws = getParameters().getRaw();
+        if (raws.contains("--clean") || raws.contains("-clean") || raws.contains("-c")) {
+            LOG.debug("Cleaning...");
             ApplicationContextHolder.getContext().getBean(NewsService.class).clear();
             ApplicationContextHolder.getContext().getBean(StageService.class).clear();
         }
@@ -235,7 +240,8 @@ public class PdfsamApp extends Application {
     }
 
     private void loadWorkspaceIfRequired() {
-        String workspace = userContext.getDefaultWorkspacePath();
+        String workspace = ofNullable(getParameters().getNamed().get("workspace")).filter(StringUtils::isNotBlank)
+                .orElseGet(userContext::getDefaultWorkspacePath);
         if (isNotBlank(workspace) && Files.exists(Paths.get(workspace))) {
             eventStudio().broadcast(new LoadWorkspaceEvent(new File(workspace)));
         }
