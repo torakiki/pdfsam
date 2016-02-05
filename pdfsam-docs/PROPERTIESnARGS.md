@@ -35,7 +35,7 @@ A list of system properties that users can configure to alter PDFsam behavior.
 Runtime arguments
 =============
 **-c**    
-**-clean**
+**-clean**  
 **--clean**  
 *description:* clears user preferences and locally stored information, starting PDFsam with default values. 
 
