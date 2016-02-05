@@ -65,7 +65,7 @@ final class EnhancedClassloaderProvider {
         try {
             Path modulesPath = Optional.ofNullable(getUserSpecifiedModulesPath()).orElse(getModulesPath());
             if (!Files.isDirectory(modulesPath)) {
-                LOG.warn(DefaultI18nContext.getInstance().i18n("Modules directory {0} does not exist",
+                LOG.info(DefaultI18nContext.getInstance().i18n("Modules directory {0} does not exist",
                         modulesPath.toString()));
                 return classLoader;
             }
@@ -73,9 +73,10 @@ final class EnhancedClassloaderProvider {
             try (Stream<Path> files = Files.list(modulesPath)) {
                 URL[] modules = getUrls(files);
                 if (modules.length > 0) {
-                    LOG.trace(DefaultI18nContext.getInstance().i18n("Found modules jars {0}", Arrays.toString(modules)));
-                    return AccessController.doPrivileged((PrivilegedAction<URLClassLoader>) () -> new URLClassLoader(
-                            modules, classLoader));
+                    LOG.trace(
+                            DefaultI18nContext.getInstance().i18n("Found modules jars {0}", Arrays.toString(modules)));
+                    return AccessController.doPrivileged(
+                            (PrivilegedAction<URLClassLoader>) () -> new URLClassLoader(modules, classLoader));
                 }
             }
         } catch (IOException | URISyntaxException ex) {
