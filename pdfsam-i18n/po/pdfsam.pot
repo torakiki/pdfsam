@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2016-01-19 12:33+0100\n"
+"POT-Creation-Date: 2016-02-22 16:49+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -209,6 +209,12 @@ msgstr ""
 msgid "Use the selected PDF document directory as output directory"
 msgstr ""
 
+msgid "Save default workspace on exit"
+msgstr ""
+
+msgid "If a default workspace is set, save it on application exit"
+msgstr ""
+
 msgid "Maximum number of rows mast be a positive number"
 msgstr ""
 
@@ -227,6 +233,12 @@ msgstr ""
 msgid "Clear usage statistics"
 msgstr ""
 
+msgid "Select a directory where documents will be saved and loaded by default"
+msgstr ""
+
+msgid "Select a directory"
+msgstr ""
+
 msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
 "startup"
@@ -235,21 +247,10 @@ msgstr ""
 msgid "Select a workspace"
 msgstr ""
 
-msgid "Select a directory where documents will be saved and loaded by default"
-msgstr ""
-
-msgid "Select a directory"
-msgstr ""
-
-msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+msgid "Default working directory:"
 msgstr ""
 
 msgid "Load default workspace at startup:"
-msgstr ""
-
-msgid "Default working directory:"
 msgstr ""
 
 msgid "Log register rows:"
@@ -274,6 +275,11 @@ msgid "Startup module:"
 msgstr ""
 
 msgid "Set the module to open at application startup (restart needed)"
+msgstr ""
+
+msgid ""
+"Usage statistics are used to populate the modules quick bar on the left with "
+"the most used and most recently used modules."
 msgstr ""
 
 msgid "Check for updates now"
@@ -321,6 +327,9 @@ msgid "Give something back"
 msgstr ""
 
 msgid "PDFsam worked hard!"
+msgstr ""
+
+msgid "Spread the word!"
 msgstr ""
 
 #, java-format
@@ -382,6 +391,10 @@ msgid "Requesting modules state"
 msgstr ""
 
 msgid "Unable to save modules workspace"
+msgstr ""
+
+#, java-format
+msgid "Unable to save workspace to {0}"
 msgstr ""
 
 #, java-format
@@ -541,6 +554,10 @@ msgstr ""
 msgid "Failed"
 msgstr ""
 
+#, java-format
+msgid "Running {0}%"
+msgstr ""
+
 msgid "Running"
 msgstr ""
 
@@ -591,10 +608,6 @@ msgid "Pages: {0}, PDF Version: {1}"
 msgstr ""
 
 msgid "Show errors"
-msgstr ""
-
-#, java-format
-msgid "Running {0}%"
 msgstr ""
 
 msgid "Run"
@@ -759,6 +772,9 @@ msgstr ""
 msgid "Interactive forms (AcroForms):"
 msgstr ""
 
+msgid "What to do in case one or more input documents contain Acro Forms"
+msgstr ""
+
 msgid "Retain bookmarks"
 msgstr ""
 
@@ -772,6 +788,25 @@ msgid "Retain bookmarks as one entry for each merged document"
 msgstr ""
 
 msgid "Bookmarks handling:"
+msgstr ""
+
+msgid "What to do in case one or more input documents contain bookmarks"
+msgstr ""
+
+msgid "Don't generate"
+msgstr ""
+
+msgid "From file names"
+msgstr ""
+
+msgid "From document titles"
+msgstr ""
+
+msgid "Table of contents:"
+msgstr ""
+
+msgid ""
+"Set if a table of contents should be added to the generated PDF document"
 msgstr ""
 
 msgid "No PDF document has been selected"
