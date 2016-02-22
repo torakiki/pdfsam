@@ -92,8 +92,8 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
         options.add(helpIcon(i18n.i18n("What to do in case one or more input documents contain bookmarks")), 2, 1);
 
         toc.getItems().add(keyValue(ToCPolicy.NONE, i18n.i18n("Don't generate")));
-        toc.getItems().add(keyValue(ToCPolicy.FILE_NAMES, i18n.i18n("From file names")));
-        toc.getItems().add(keyValue(ToCPolicy.DOC_TITLES, i18n.i18n("From document titles")));
+        toc.getItems().add(keyValue(ToCPolicy.FILE_NAMES, i18n.i18n("Generate from file names")));
+        toc.getItems().add(keyValue(ToCPolicy.DOC_TITLES, i18n.i18n("Generate from documents titles")));
         toc.getSelectionModel().selectFirst();
         toc.setId("tocCombo");
         options.add(new Label(i18n.i18n("Table of contents:")), 0, 2);
