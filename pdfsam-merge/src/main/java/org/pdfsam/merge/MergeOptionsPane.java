@@ -28,18 +28,21 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.model.outline.OutlinePolicy;
 import org.sejda.model.pdf.form.AcroFormPolicy;
+import org.sejda.model.toc.ToCPolicy;
 
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+
 /**
  * Panel for the Merge options
  * 
@@ -51,50 +54,63 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
     private ComboBox<KeyStringValueItem<AcroFormPolicy>> acroForms = new ComboBox<>();
     private CheckBox blankIfOdd;
     private ComboBox<KeyStringValueItem<OutlinePolicy>> outline = new ComboBox<>();
+    private ComboBox<KeyStringValueItem<ToCPolicy>> toc = new ComboBox<>();
 
     MergeOptionsPane() {
         super(5);
-        blankIfOdd = new CheckBox(DefaultI18nContext.getInstance().i18n("Add a blank page if page number is odd"));
-        blankIfOdd.setGraphic(helpIcon(DefaultI18nContext.getInstance()
-                .i18n("Adds a blank page after each merged document if the document has an odd number of pages")));
+        I18nContext i18n = DefaultI18nContext.getInstance();
+        blankIfOdd = new CheckBox(i18n.i18n("Add a blank page if page number is odd"));
+        blankIfOdd.setGraphic(helpIcon(
+                i18n.i18n("Adds a blank page after each merged document if the document has an odd number of pages")));
         blankIfOdd.getStyleClass().addAll(Style.WITH_HELP.css());
         blankIfOdd.setId("blankIfOddCheck");
 
-        acroForms.getItems().add(keyValue(AcroFormPolicy.MERGE, DefaultI18nContext.getInstance().i18n("Merge fields")));
-        acroForms.getItems().add(keyValue(AcroFormPolicy.MERGE_RENAMING_EXISTING_FIELDS,
-                DefaultI18nContext.getInstance().i18n("Merge renaming existing fields")));
-        acroForms.getItems()
-                .add(keyValue(AcroFormPolicy.DISCARD, DefaultI18nContext.getInstance().i18n("Discard forms")));
+        GridPane options = new GridPane();
+
+        acroForms.getItems().add(keyValue(AcroFormPolicy.MERGE, i18n.i18n("Merge fields")));
+        acroForms.getItems().add(
+                keyValue(AcroFormPolicy.MERGE_RENAMING_EXISTING_FIELDS, i18n.i18n("Merge renaming existing fields")));
+        acroForms.getItems().add(keyValue(AcroFormPolicy.DISCARD, i18n.i18n("Discard forms")));
         acroForms.getSelectionModel().selectFirst();
         acroForms.setId("acroFormsCombo");
-        HBox formsPolicy = new HBox(new Label(DefaultI18nContext.getInstance().i18n("Interactive forms (AcroForms):")),
-                acroForms);
-        formsPolicy.getStyleClass().addAll(Style.VITEM.css());
-        formsPolicy.getStyleClass().addAll(Style.HCONTAINER.css());
+        options.add(new Label(i18n.i18n("Interactive forms (AcroForms):")), 0, 0);
+        acroForms.setMaxWidth(Double.POSITIVE_INFINITY);
+        options.add(acroForms, 1, 0);
+        options.add(helpIcon(i18n.i18n("What to do in case one or more input documents contain Acro Forms")), 2, 0);
 
-        outline.getItems()
-                .add(keyValue(OutlinePolicy.RETAIN, DefaultI18nContext.getInstance().i18n("Retain bookmarks")));
-        outline.getItems()
-                .add(keyValue(OutlinePolicy.DISCARD, DefaultI18nContext.getInstance().i18n("Discard bookmarks")));
-        outline.getItems().add(keyValue(OutlinePolicy.ONE_ENTRY_EACH_DOC,
-                DefaultI18nContext.getInstance().i18n("Create one entry for each merged document")));
+        outline.getItems().add(keyValue(OutlinePolicy.RETAIN, i18n.i18n("Retain bookmarks")));
+        outline.getItems().add(keyValue(OutlinePolicy.DISCARD, i18n.i18n("Discard bookmarks")));
+        outline.getItems().add(
+                keyValue(OutlinePolicy.ONE_ENTRY_EACH_DOC, i18n.i18n("Create one entry for each merged document")));
         outline.getItems().add(keyValue(OutlinePolicy.RETAIN_AS_ONE_ENTRY,
-                DefaultI18nContext.getInstance().i18n("Retain bookmarks as one entry for each merged document")));
+                i18n.i18n("Retain bookmarks as one entry for each merged document")));
         outline.getSelectionModel().selectFirst();
         outline.setId("outlineCombo");
+        options.add(new Label(i18n.i18n("Bookmarks handling:")), 0, 1);
+        outline.setMaxWidth(Double.POSITIVE_INFINITY);
+        options.add(outline, 1, 1);
+        options.add(helpIcon(i18n.i18n("What to do in case one or more input documents contain bookmarks")), 2, 1);
 
-        HBox bookmarksPolicy = new HBox(new Label(DefaultI18nContext.getInstance().i18n("Bookmarks handling:")),
-                outline);
-        bookmarksPolicy.getStyleClass().addAll(Style.VITEM.css());
-        bookmarksPolicy.getStyleClass().addAll(Style.HCONTAINER.css());
+        toc.getItems().add(keyValue(ToCPolicy.NONE, i18n.i18n("Don't generate")));
+        toc.getItems().add(keyValue(ToCPolicy.FILE_NAMES, i18n.i18n("From file names")));
+        toc.getItems().add(keyValue(ToCPolicy.DOC_TITLES, i18n.i18n("From document titles")));
+        toc.getSelectionModel().selectFirst();
+        toc.setId("tocCombo");
+        options.add(new Label(i18n.i18n("Table of contents:")), 0, 2);
+        toc.setMaxWidth(Double.POSITIVE_INFINITY);
+        options.add(toc, 1, 2);
+        options.add(helpIcon(i18n.i18n("Set if a table of contents should be added to the generated PDF document")), 2,
+                2);
+        options.getStyleClass().addAll(Style.GRID.css());
 
         getStyleClass().addAll(Style.CONTAINER.css());
-        getChildren().addAll(blankIfOdd, formsPolicy, bookmarksPolicy);
+        getChildren().addAll(blankIfOdd, options);
     }
 
     public void apply(MergeParametersBuilder builder, Consumer<String> onError) {
         builder.outlinePolicy(outline.getSelectionModel().getSelectedItem().getKey());
         builder.acroFormsPolicy(acroForms.getSelectionModel().getSelectedItem().getKey());
+        builder.tocPolicy(toc.getSelectionModel().getSelectedItem().getKey());
         builder.blankPageIfOdd(blankIfOdd.isSelected());
     }
 
@@ -103,6 +119,8 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
                 .map(i -> i.getKey().toString()).orElse(EMPTY));
         data.put("acroForms", Optional.ofNullable(acroForms.getSelectionModel().getSelectedItem())
                 .map(i -> i.getKey().toString()).orElse(EMPTY));
+        data.put("toc", Optional.ofNullable(toc.getSelectionModel().getSelectedItem()).map(i -> i.getKey().toString())
+                .orElse(EMPTY));
         data.put("blankIfOdd", Boolean.toString(blankIfOdd.isSelected()));
     }
 
@@ -111,6 +129,8 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
                 .ifPresent(r -> this.outline.getSelectionModel().select(r));
         Optional.ofNullable(data.get("acroForms")).map(AcroFormPolicy::valueOf).map(r -> keyEmptyValue(r))
                 .ifPresent(r -> this.acroForms.getSelectionModel().select(r));
+        Optional.ofNullable(data.get("toc")).map(ToCPolicy::valueOf).map(r -> keyEmptyValue(r))
+                .ifPresent(r -> this.toc.getSelectionModel().select(r));
         blankIfOdd.setSelected(Boolean.valueOf(data.get("blankIfOdd")));
     }
 }

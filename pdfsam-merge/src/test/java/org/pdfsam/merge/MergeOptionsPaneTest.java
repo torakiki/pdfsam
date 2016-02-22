@@ -41,6 +41,7 @@ import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.model.outline.OutlinePolicy;
 import org.sejda.model.pdf.form.AcroFormPolicy;
+import org.sejda.model.toc.ToCPolicy;
 
 import javafx.scene.Parent;
 import javafx.scene.control.CheckBox;
@@ -78,6 +79,7 @@ public class MergeOptionsPaneTest extends GuiTest {
         verify(builder).outlinePolicy(eq(OutlinePolicy.RETAIN));
         verify(builder).blankPageIfOdd(true);
         verify(builder).acroFormsPolicy(AcroFormPolicy.MERGE);
+        verify(builder).tocPolicy(ToCPolicy.NONE);
         verify(onError, never()).accept(anyString());
     }
 
@@ -90,22 +92,26 @@ public class MergeOptionsPaneTest extends GuiTest {
         assertEquals(OutlinePolicy.RETAIN.toString(), data.get("outline"));
         assertEquals(Boolean.TRUE.toString(), data.get("blankIfOdd"));
         assertEquals(AcroFormPolicy.MERGE.toString(), data.get("acroForms"));
+        assertEquals(ToCPolicy.NONE.toString(), data.get("toc"));
     }
 
     @Test
     public void restoreStateFrom() throws Exception {
         ComboBox<KeyStringValueItem<OutlinePolicy>> outline = find("#outlineCombo");
-        ComboBox<KeyStringValueItem<OutlinePolicy>> forms = find("#acroFormsCombo");
+        ComboBox<KeyStringValueItem<AcroFormPolicy>> forms = find("#acroFormsCombo");
+        ComboBox<KeyStringValueItem<AcroFormPolicy>> toc = find("#tocCombo");
         CheckBox blankIfOdd = find("#blankIfOddCheck");
         Map<String, String> data = new HashMap<>();
         data.put("outline", OutlinePolicy.ONE_ENTRY_EACH_DOC.toString());
         data.put("acroForms", AcroFormPolicy.MERGE_RENAMING_EXISTING_FIELDS.toString());
         data.put("blankIfOdd", Boolean.FALSE.toString());
+        data.put("toc", ToCPolicy.DOC_TITLES.toString());
         MergeOptionsPane victim = find(".pdfsam-container");
         FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
         assertEquals(OutlinePolicy.ONE_ENTRY_EACH_DOC, outline.getSelectionModel().getSelectedItem().getKey());
         assertEquals(AcroFormPolicy.MERGE_RENAMING_EXISTING_FIELDS,
                 forms.getSelectionModel().getSelectedItem().getKey());
+        assertEquals(ToCPolicy.DOC_TITLES, toc.getSelectionModel().getSelectedItem().getKey());
         assertFalse(blankIfOdd.isSelected());
     }
 }

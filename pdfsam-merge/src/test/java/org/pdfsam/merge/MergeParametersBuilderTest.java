@@ -36,6 +36,7 @@ import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.parameter.MergeParameters;
 import org.sejda.model.pdf.PdfVersion;
 import org.sejda.model.pdf.form.AcroFormPolicy;
+import org.sejda.model.toc.ToCPolicy;
 
 /**
  * @author Andrea Vacondio
@@ -55,6 +56,7 @@ public class MergeParametersBuilderTest {
         victim.blankPageIfOdd(true);
         victim.acroFormsPolicy(AcroFormPolicy.DISCARD);
         victim.outlinePolicy(OutlinePolicy.ONE_ENTRY_EACH_DOC);
+        victim.tocPolicy(ToCPolicy.DOC_TITLES);
         File file = folder.newFile("my.pdf");
         PdfFileSource source = PdfFileSource.newInstanceNoPassword(file);
         PdfMergeInput input = new PdfMergeInput(source);
@@ -67,6 +69,7 @@ public class MergeParametersBuilderTest {
         assertTrue(params.isBlankPageIfOdd());
         assertEquals(AcroFormPolicy.DISCARD, params.getAcroFormPolicy());
         assertEquals(OutlinePolicy.ONE_ENTRY_EACH_DOC, params.getOutlinePolicy());
+        assertEquals(ToCPolicy.DOC_TITLES, params.getTableOfContentsPolicy());
         assertEquals(output, params.getOutput());
         assertEquals(input, params.getInputList().get(0));
     }

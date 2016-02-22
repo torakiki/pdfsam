@@ -28,6 +28,7 @@ import org.sejda.model.outline.OutlinePolicy;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.parameter.MergeParameters;
 import org.sejda.model.pdf.form.AcroFormPolicy;
+import org.sejda.model.toc.ToCPolicy;
 
 /**
  * Builder for {@link MergeParameters}
@@ -35,13 +36,14 @@ import org.sejda.model.pdf.form.AcroFormPolicy;
  * @author Andrea Vacondio
  *
  */
-class MergeParametersBuilder extends AbstractPdfOutputParametersBuilder<MergeParameters> implements
-        SingleOutputTaskParametersBuilder<MergeParameters> {
+class MergeParametersBuilder extends AbstractPdfOutputParametersBuilder<MergeParameters>
+        implements SingleOutputTaskParametersBuilder<MergeParameters> {
 
     private Set<PdfMergeInput> inputs = new NullSafeSet<>();
     private OutlinePolicy outlinePolicy = OutlinePolicy.RETAIN;
     private boolean blankIfOdd;
     private AcroFormPolicy formsPolicy = AcroFormPolicy.MERGE;
+    private ToCPolicy tocPolicy = ToCPolicy.NONE;
     private FileTaskOutput output;
 
     void addInput(PdfMergeInput input) {
@@ -64,6 +66,10 @@ class MergeParametersBuilder extends AbstractPdfOutputParametersBuilder<MergePar
         this.formsPolicy = formsPolicy;
     }
 
+    void tocPolicy(ToCPolicy tocPolicy) {
+        this.tocPolicy = tocPolicy;
+    }
+
     public void output(FileTaskOutput output) {
         this.output = output;
     }
@@ -77,6 +83,7 @@ class MergeParametersBuilder extends AbstractPdfOutputParametersBuilder<MergePar
         params.setOutlinePolicy(outlinePolicy);
         params.setBlankPageIfOdd(blankIfOdd);
         params.setAcroFormPolicy(formsPolicy);
+        params.setTableOfContentsPolicy(tocPolicy);
         params.setOutput(output);
         return params;
     }
