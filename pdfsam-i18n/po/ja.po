@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-01-19 12:33+0100\n"
-"PO-Revision-Date: 2016-01-08 15:38+0000\n"
+"POT-Creation-Date: 2016-02-22 17:07+0100\n"
+"PO-Revision-Date: 2016-02-21 03:32+0000\n"
 "Last-Translator: Naofumi Fukue <naofum@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-01-20 10:40+0000\n"
-"X-Generator: Launchpad (build 17886)\n"
+"X-Launchpad-Export-Date: 2016-02-26 08:24+0000\n"
+"X-Generator: Launchpad (build 17925)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "公式ニュースフィードを購読する"
@@ -209,6 +209,12 @@ msgstr "PDFsamをサポートするために、たまに表示されて寄付を
 msgid "Use the selected PDF document directory as output directory"
 msgstr "出力ディレクトリとして選択した PDF 文書ディレクトリを使用する"
 
+msgid "Save default workspace on exit"
+msgstr "終了時にデフォルトのワークスペースを保存"
+
+msgid "If a default workspace is set, save it on application exit"
+msgstr "デフォルトのワークスペースが設定されている場合、アプリケーションの終了時にそれを保存します"
+
 msgid "Maximum number of rows mast be a positive number"
 msgstr "行の最大数は正の数にする必要があります"
 
@@ -228,14 +234,6 @@ msgid "Clear usage statistics"
 msgstr "使用状況をクリア"
 
 msgid ""
-"Select a previously saved workspace that will be automatically loaded at "
-"startup"
-msgstr "起動時に自動的にロードされる、以前に保存したワークスペースを選択します"
-
-msgid "Select a workspace"
-msgstr "ワークスペースを選択"
-
-msgid ""
 "Select a directory where documents will be saved and loaded by default"
 msgstr "デフォルトで文書が保存および読み込まれるディレクトリを選択します"
 
@@ -243,15 +241,18 @@ msgid "Select a directory"
 msgstr "ディレクトリを選択"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
-msgstr "クイックバーの左に、最もよく使用された、そして最近使用したモジュールを設定するために利用状況が使用されます。"
+"Select a previously saved workspace that will be automatically loaded at "
+"startup"
+msgstr "起動時に自動的にロードされる、以前に保存したワークスペースを選択します"
 
-msgid "Load default workspace at startup:"
-msgstr "起動時にデフォルトのワークスペースを読み込む:"
+msgid "Select a workspace"
+msgstr "ワークスペースを選択"
 
 msgid "Default working directory:"
 msgstr "デフォルトの作業ディレクトリ:"
+
+msgid "Load default workspace at startup:"
+msgstr "起動時にデフォルトのワークスペースを読み込む:"
 
 msgid "Log register rows:"
 msgstr "ログ登録行:"
@@ -276,6 +277,11 @@ msgstr "起動モジュール:"
 
 msgid "Set the module to open at application startup (restart needed)"
 msgstr "アプリケーションの起動時に開くモジュールを設定します（要リスタート）"
+
+msgid ""
+"Usage statistics are used to populate the modules quick bar on the left with "
+"the most used and most recently used modules."
+msgstr "クイックバーの左に、最もよく使用された、そして最近使用したモジュールを設定するために利用状況が使用されます。"
 
 msgid "Check for updates now"
 msgstr "今すぐ更新を確認"
@@ -323,6 +329,9 @@ msgstr "何か戻します"
 
 msgid "PDFsam worked hard!"
 msgstr "PDFsam はがんばりました!"
+
+msgid "Spread the word!"
+msgstr "言葉を広げます!"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -384,6 +393,10 @@ msgstr "モジュールの状態を要求中"
 
 msgid "Unable to save modules workspace"
 msgstr "モジュールのワークスペースを保存できません"
+
+#, java-format
+msgid "Unable to save workspace to {0}"
+msgstr "ワークスペースを {0} に保存できません"
 
 #, java-format
 msgid "Loading workspace from {0}"
@@ -543,6 +556,10 @@ msgstr "完了"
 msgid "Failed"
 msgstr "失敗"
 
+#, java-format
+msgid "Running {0}%"
+msgstr "実行中 {0}%"
+
 msgid "Running"
 msgstr "実行中"
 
@@ -593,11 +610,7 @@ msgid "Pages: {0}, PDF Version: {1}"
 msgstr "ページ数: {0}, PDF バージョン: {1}"
 
 msgid "Show errors"
-msgstr ""
-
-#, java-format
-msgid "Running {0}%"
-msgstr ""
+msgstr "エラーを表示"
 
 msgid "Run"
 msgstr "実行"
@@ -762,6 +775,9 @@ msgstr "フォームを破棄"
 msgid "Interactive forms (AcroForms):"
 msgstr "インタラクティブフォーム (AcroForms):"
 
+msgid "What to do in case one or more input documents contain Acro Forms"
+msgstr ""
+
 msgid "Retain bookmarks"
 msgstr "しおりを保持する"
 
@@ -776,6 +792,25 @@ msgstr "マージされた文書それぞれに 1 つエントリーとしてブ
 
 msgid "Bookmarks handling:"
 msgstr "しおりの処理:"
+
+msgid "What to do in case one or more input documents contain bookmarks"
+msgstr ""
+
+msgid "Don't generate"
+msgstr ""
+
+msgid "Generate from file names"
+msgstr ""
+
+msgid "Generate from documents titles"
+msgstr ""
+
+msgid "Table of contents:"
+msgstr ""
+
+msgid ""
+"Set if a table of contents should be added to the generated PDF document"
+msgstr ""
 
 msgid "No PDF document has been selected"
 msgstr "PDF 文書が選択されていません"

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2016-01-19 12:33+0100\n"
+"POT-Creation-Date: 2016-02-22 17:07+0100\n"
 "PO-Revision-Date: 2016-01-09 15:47+0000\n"
 "Last-Translator: Patriccollu <Patrick.Santa-Maria@laposte.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-01-20 10:40+0000\n"
-"X-Generator: Launchpad (build 17886)\n"
+"X-Launchpad-Export-Date: 2016-02-26 08:24+0000\n"
+"X-Generator: Launchpad (build 17925)\n"
 "Language: co\n"
 
 msgid "Subscribe to the official news feed"
@@ -212,6 +212,12 @@ msgid "Use the selected PDF document directory as output directory"
 msgstr ""
 "Impiegà u cartulare di ducumentu PDF selezziunatu cum'è cartulare d'esciuta"
 
+msgid "Save default workspace on exit"
+msgstr ""
+
+msgid "If a default workspace is set, save it on application exit"
+msgstr ""
+
 msgid "Maximum number of rows mast be a positive number"
 msgstr "U numeru massimu di linee deve esse un numeru pusitivu"
 
@@ -231,16 +237,6 @@ msgid "Clear usage statistics"
 msgstr "Viutà e statistiche d'usu"
 
 msgid ""
-"Select a previously saved workspace that will be automatically loaded at "
-"startup"
-msgstr ""
-"Selezziunà un spaziu di travagliu arregistratu chì serà caricatu "
-"autumaticamente à l'iniziu"
-
-msgid "Select a workspace"
-msgstr "Selezziunà un spaziu di travagliu"
-
-msgid ""
 "Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Selezziunà un cartulare induve i ducumenti seranu arregistrati è caricati "
@@ -250,17 +246,20 @@ msgid "Select a directory"
 msgstr "Selezziunà un cartulare"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Select a previously saved workspace that will be automatically loaded at "
+"startup"
 msgstr ""
-"E statistiche d'usu sò impiegate per nutrisce a barra di mudulli à manu "
-"manca cù i mudulli i più impiegati è i più impiegati da pocu tempu."
+"Selezziunà un spaziu di travagliu arregistratu chì serà caricatu "
+"autumaticamente à l'iniziu"
 
-msgid "Load default workspace at startup:"
-msgstr "Caricà u spaziu di travagliu predefinitu à l'iniziu :"
+msgid "Select a workspace"
+msgstr "Selezziunà un spaziu di travagliu"
 
 msgid "Default working directory:"
 msgstr "Cartulare di travaglu predefinitu :"
+
+msgid "Load default workspace at startup:"
+msgstr "Caricà u spaziu di travagliu predefinitu à l'iniziu :"
 
 msgid "Log register rows:"
 msgstr "Linee di u registradore di Log :"
@@ -286,6 +285,13 @@ msgstr "Mudullu d'iniziu :"
 msgid "Set the module to open at application startup (restart needed)"
 msgstr ""
 "Definisce u mudullu à apre à l'iniziu di l'appiegazione (rilanciu necessariu)"
+
+msgid ""
+"Usage statistics are used to populate the modules quick bar on the left with "
+"the most used and most recently used modules."
+msgstr ""
+"E statistiche d'usu sò impiegate per nutrisce a barra di mudulli à manu "
+"manca cù i mudulli i più impiegati è i più impiegati da pocu tempu."
 
 msgid "Check for updates now"
 msgstr "Cuntrollà i rinnovi avà"
@@ -335,6 +341,9 @@ msgstr "Dà qualcosa"
 
 msgid "PDFsam worked hard!"
 msgstr "PDFsam hà travagliatu bè !"
+
+msgid "Spread the word!"
+msgstr ""
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -396,6 +405,10 @@ msgstr "Richiesta di u statu di i mudulli"
 
 msgid "Unable to save modules workspace"
 msgstr "Impussibule d'arregistrà u spaziu di travagliu di i mudulli"
+
+#, java-format
+msgid "Unable to save workspace to {0}"
+msgstr ""
 
 #, java-format
 msgid "Loading workspace from {0}"
@@ -559,6 +572,10 @@ msgstr "Compiu"
 msgid "Failed"
 msgstr "Fiascu"
 
+#, java-format
+msgid "Running {0}%"
+msgstr ""
+
 msgid "Running"
 msgstr "In funzione"
 
@@ -609,10 +626,6 @@ msgid "Pages: {0}, PDF Version: {1}"
 msgstr "Pagine : {0}, Version PDF : {1}"
 
 msgid "Show errors"
-msgstr ""
-
-#, java-format
-msgid "Running {0}%"
 msgstr ""
 
 msgid "Run"
@@ -785,6 +798,9 @@ msgstr "Scaccià i furmularii"
 msgid "Interactive forms (AcroForms):"
 msgstr "Furmularii interrattivi (AcroForms) :"
 
+msgid "What to do in case one or more input documents contain Acro Forms"
+msgstr ""
+
 msgid "Retain bookmarks"
 msgstr "Ritene l'indette"
 
@@ -799,6 +815,25 @@ msgstr "Ritene l'indette cù un entrata per ogni ducumentu di a fusione"
 
 msgid "Bookmarks handling:"
 msgstr "Trattamentu di l'indette :"
+
+msgid "What to do in case one or more input documents contain bookmarks"
+msgstr ""
+
+msgid "Don't generate"
+msgstr ""
+
+msgid "Generate from file names"
+msgstr ""
+
+msgid "Generate from documents titles"
+msgstr ""
+
+msgid "Table of contents:"
+msgstr ""
+
+msgid ""
+"Set if a table of contents should be added to the generated PDF document"
+msgstr ""
 
 msgid "No PDF document has been selected"
 msgstr "Alcunu ducumentu PDF ùn hè statu selezziunatu"

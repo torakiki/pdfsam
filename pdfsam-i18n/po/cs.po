@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-01-19 12:33+0100\n"
+"POT-Creation-Date: 2016-02-22 17:07+0100\n"
 "PO-Revision-Date: 2016-01-19 19:15+0000\n"
 "Last-Translator: Petr Katerinak <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-01-20 10:41+0000\n"
-"X-Generator: Launchpad (build 17886)\n"
+"X-Launchpad-Export-Date: 2016-02-26 08:24+0000\n"
+"X-Generator: Launchpad (build 17925)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Odebírat oficiální novinky"
@@ -212,6 +212,12 @@ msgstr ""
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Použít adresář PDF dokumentů jako výstupní adresář"
 
+msgid "Save default workspace on exit"
+msgstr ""
+
+msgid "If a default workspace is set, save it on application exit"
+msgstr ""
+
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Maximální počet řádků musí být celé kladné číslo"
 
@@ -231,16 +237,6 @@ msgid "Clear usage statistics"
 msgstr "Smazat statistiky užívání"
 
 msgid ""
-"Select a previously saved workspace that will be automatically loaded at "
-"startup"
-msgstr ""
-"Vyberte dříve uloženou pracovní plochu, která se bude automaticky načítat po "
-"spuštění"
-
-msgid "Select a workspace"
-msgstr "Vyberte pracovní plochu"
-
-msgid ""
 "Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Vyberte adresář, který bude sloužit k automatickému načítání a ukládání "
@@ -250,17 +246,20 @@ msgid "Select a directory"
 msgstr "Vyberte adresář"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Select a previously saved workspace that will be automatically loaded at "
+"startup"
 msgstr ""
-"Statistiky využití se používají k naplnění rychlého přístupu s "
-"nejpoužívanějšími a naposledy použitými moduly."
+"Vyberte dříve uloženou pracovní plochu, která se bude automaticky načítat po "
+"spuštění"
 
-msgid "Load default workspace at startup:"
-msgstr "Nahrát výchozí pracovní plochu po spuštění:"
+msgid "Select a workspace"
+msgstr "Vyberte pracovní plochu"
 
 msgid "Default working directory:"
 msgstr "Výchozí pracovní adresář:"
+
+msgid "Load default workspace at startup:"
+msgstr "Nahrát výchozí pracovní plochu po spuštění:"
 
 msgid "Log register rows:"
 msgstr "Délka logu:"
@@ -286,6 +285,13 @@ msgstr "Výchozí modul"
 msgid "Set the module to open at application startup (restart needed)"
 msgstr ""
 "Modul, který se zobrazí po spuštění aplikace (projeví se po restartu)"
+
+msgid ""
+"Usage statistics are used to populate the modules quick bar on the left with "
+"the most used and most recently used modules."
+msgstr ""
+"Statistiky využití se používají k naplnění rychlého přístupu s "
+"nejpoužívanějšími a naposledy použitými moduly."
 
 msgid "Check for updates now"
 msgstr "Zkontrolovat aktualizace"
@@ -334,6 +340,9 @@ msgstr "Nabídněte něco zpět"
 
 msgid "PDFsam worked hard!"
 msgstr "PDFsam pracuje tvrdě!"
+
+msgid "Spread the word!"
+msgstr ""
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -395,6 +404,10 @@ msgstr "Zjišťuji stav modulů"
 
 msgid "Unable to save modules workspace"
 msgstr "Nedaří se uložit pracovní plochu modulů"
+
+#, java-format
+msgid "Unable to save workspace to {0}"
+msgstr ""
 
 #, java-format
 msgid "Loading workspace from {0}"
@@ -554,6 +567,10 @@ msgstr "Hotovo"
 msgid "Failed"
 msgstr "Nezdařilo se"
 
+#, java-format
+msgid "Running {0}%"
+msgstr "Zpracování {0}%"
+
 msgid "Running"
 msgstr "Běží"
 
@@ -605,10 +622,6 @@ msgstr "Stránek: {0}, verze PDF {1}"
 
 msgid "Show errors"
 msgstr "Zobrazovat chyby"
-
-#, java-format
-msgid "Running {0}%"
-msgstr "Zpracování {0}%"
 
 msgid "Run"
 msgstr "Spustit"
@@ -779,6 +792,9 @@ msgstr "Zrušit formuláře"
 msgid "Interactive forms (AcroForms):"
 msgstr "Interaktivní formuláře (AcroForms):"
 
+msgid "What to do in case one or more input documents contain Acro Forms"
+msgstr ""
+
 msgid "Retain bookmarks"
 msgstr "Zachovat záložky"
 
@@ -793,6 +809,25 @@ msgstr "Zachovat záložky jako jednu položku pro každý sloučený dokument"
 
 msgid "Bookmarks handling:"
 msgstr "Manipulace se záložkami:"
+
+msgid "What to do in case one or more input documents contain bookmarks"
+msgstr ""
+
+msgid "Don't generate"
+msgstr ""
+
+msgid "Generate from file names"
+msgstr ""
+
+msgid "Generate from documents titles"
+msgstr ""
+
+msgid "Table of contents:"
+msgstr ""
+
+msgid ""
+"Set if a table of contents should be added to the generated PDF document"
+msgstr ""
 
 msgid "No PDF document has been selected"
 msgstr "Nebylo vybráno žádné PDF"

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-01-19 12:33+0100\n"
+"POT-Creation-Date: 2016-02-22 17:07+0100\n"
 "PO-Revision-Date: 2015-10-19 10:42+0000\n"
 "Last-Translator: Wolloloo <vidartf@gmail.com>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-01-20 10:41+0000\n"
-"X-Generator: Launchpad (build 17886)\n"
+"X-Launchpad-Export-Date: 2016-02-26 08:24+0000\n"
+"X-Generator: Launchpad (build 17925)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Abonner på det offisielle nyhetsbrevet"
@@ -210,6 +210,12 @@ msgstr ""
 msgid "Use the selected PDF document directory as output directory"
 msgstr ""
 
+msgid "Save default workspace on exit"
+msgstr ""
+
+msgid "If a default workspace is set, save it on application exit"
+msgstr ""
+
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Det maksimale antallet rader må være et positivt tall"
 
@@ -229,6 +235,13 @@ msgid "Clear usage statistics"
 msgstr ""
 
 msgid ""
+"Select a directory where documents will be saved and loaded by default"
+msgstr "Velg en mappe hvor dokumenter blir lagret og innlest som standard"
+
+msgid "Select a directory"
+msgstr "Velg en mappe"
+
+msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
 "startup"
 msgstr ""
@@ -238,25 +251,11 @@ msgstr ""
 msgid "Select a workspace"
 msgstr "Velg et arbeidsområde"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
-msgstr "Velg en mappe hvor dokumenter blir lagret og innlest som standard"
-
-msgid "Select a directory"
-msgstr "Velg en mappe"
-
-msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
-msgstr ""
-"Brukstatistikk blir brukt til å fylle modul hurtigtilgangsområdet til "
-"venstre med de mest og nyest brukte modulene."
+msgid "Default working directory:"
+msgstr "Standard arbeidsmappe:"
 
 msgid "Load default workspace at startup:"
 msgstr "Les standard arbeidsområde ved oppstart:"
-
-msgid "Default working directory:"
-msgstr "Standard arbeidsmappe:"
 
 msgid "Log register rows:"
 msgstr "Rader i loggregisteret:"
@@ -281,6 +280,13 @@ msgstr "Oppstartsmodul:"
 
 msgid "Set the module to open at application startup (restart needed)"
 msgstr "Sett modulen som åpnes ved programstart (omstart nødvendig)"
+
+msgid ""
+"Usage statistics are used to populate the modules quick bar on the left with "
+"the most used and most recently used modules."
+msgstr ""
+"Brukstatistikk blir brukt til å fylle modul hurtigtilgangsområdet til "
+"venstre med de mest og nyest brukte modulene."
 
 msgid "Check for updates now"
 msgstr "Sjekk for oppdateringer nå"
@@ -327,6 +333,9 @@ msgid "Give something back"
 msgstr "Gi noe tilbake"
 
 msgid "PDFsam worked hard!"
+msgstr ""
+
+msgid "Spread the word!"
 msgstr ""
 
 #, java-format
@@ -388,6 +397,10 @@ msgid "Requesting modules state"
 msgstr ""
 
 msgid "Unable to save modules workspace"
+msgstr ""
+
+#, java-format
+msgid "Unable to save workspace to {0}"
 msgstr ""
 
 #, java-format
@@ -548,6 +561,10 @@ msgstr ""
 msgid "Failed"
 msgstr ""
 
+#, java-format
+msgid "Running {0}%"
+msgstr ""
+
 msgid "Running"
 msgstr ""
 
@@ -598,10 +615,6 @@ msgid "Pages: {0}, PDF Version: {1}"
 msgstr ""
 
 msgid "Show errors"
-msgstr ""
-
-#, java-format
-msgid "Running {0}%"
 msgstr ""
 
 msgid "Run"
@@ -768,6 +781,9 @@ msgstr ""
 msgid "Interactive forms (AcroForms):"
 msgstr ""
 
+msgid "What to do in case one or more input documents contain Acro Forms"
+msgstr ""
+
 msgid "Retain bookmarks"
 msgstr ""
 
@@ -781,6 +797,25 @@ msgid "Retain bookmarks as one entry for each merged document"
 msgstr ""
 
 msgid "Bookmarks handling:"
+msgstr ""
+
+msgid "What to do in case one or more input documents contain bookmarks"
+msgstr ""
+
+msgid "Don't generate"
+msgstr ""
+
+msgid "Generate from file names"
+msgstr ""
+
+msgid "Generate from documents titles"
+msgstr ""
+
+msgid "Table of contents:"
+msgstr ""
+
+msgid ""
+"Set if a table of contents should be added to the generated PDF document"
 msgstr ""
 
 msgid "No PDF document has been selected"

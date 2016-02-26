@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-01-19 12:33+0100\n"
-"PO-Revision-Date: 2016-01-10 17:13+0000\n"
+"POT-Creation-Date: 2016-02-22 17:07+0100\n"
+"PO-Revision-Date: 2016-02-04 16:50+0000\n"
 "Last-Translator: Tobias Bannert <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-01-20 10:41+0000\n"
-"X-Generator: Launchpad (build 17886)\n"
+"X-Launchpad-Export-Date: 2016-02-26 08:24+0000\n"
+"X-Generator: Launchpad (build 17925)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Offiziellen News-Feed abonnieren"
@@ -216,6 +216,12 @@ msgid "Use the selected PDF document directory as output directory"
 msgstr ""
 "Verzeichnis des ausgewählten PDF-Dokumentes als Ausgabeverzeichnis benutzen"
 
+msgid "Save default workspace on exit"
+msgstr ""
+
+msgid "If a default workspace is set, save it on application exit"
+msgstr ""
+
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Maximale Zeilenanzahl muss eine positive Zahl sein"
 
@@ -236,16 +242,6 @@ msgid "Clear usage statistics"
 msgstr "Benutzungsstatistik löschen"
 
 msgid ""
-"Select a previously saved workspace that will be automatically loaded at "
-"startup"
-msgstr ""
-"Einen bereits verwendeten Arbeitsbereich auswählen, der beim Start "
-"automatisch geladen werden soll"
-
-msgid "Select a workspace"
-msgstr "Arbeitsbereich auswählen"
-
-msgid ""
 "Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Bitte ein Verzeichnis auswählen, in dem Dokumente standardmäßig gespeichert "
@@ -255,17 +251,20 @@ msgid "Select a directory"
 msgstr "Verzeichnis auswählen"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Select a previously saved workspace that will be automatically loaded at "
+"startup"
 msgstr ""
-"Die Nutzungsstatisik wird verwendet, um die Schnellzugriffsleiste (links) "
-"mit den zuletzt und am häufigsten verwendeten Modulen zu füllen."
+"Einen bereits verwendeten Arbeitsbereich auswählen, der beim Start "
+"automatisch geladen werden soll"
 
-msgid "Load default workspace at startup:"
-msgstr "Standardarbeitsbereich beim Start laden:"
+msgid "Select a workspace"
+msgstr "Arbeitsbereich auswählen"
 
 msgid "Default working directory:"
 msgstr "Standardarbeitsverzeichnis:"
+
+msgid "Load default workspace at startup:"
+msgstr "Standardarbeitsbereich beim Start laden:"
 
 msgid "Log register rows:"
 msgstr "Protokollregisterzeilen:"
@@ -292,6 +291,13 @@ msgid "Set the module to open at application startup (restart needed)"
 msgstr ""
 "Das Modul festlegen, welches beim Anwendungsstart geöffnet wird (Neustart "
 "erforderlich)."
+
+msgid ""
+"Usage statistics are used to populate the modules quick bar on the left with "
+"the most used and most recently used modules."
+msgstr ""
+"Die Nutzungsstatisik wird verwendet, um die Schnellzugriffsleiste (links) "
+"mit den zuletzt und am häufigsten verwendeten Modulen zu füllen."
 
 msgid "Check for updates now"
 msgstr "Jetzt nach Aktualisierungen suchen"
@@ -341,6 +347,9 @@ msgstr "Etwas zurückgeben"
 
 msgid "PDFsam worked hard!"
 msgstr "PDFsam hat schwer gearbeitet!"
+
+msgid "Spread the word!"
+msgstr ""
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -402,6 +411,10 @@ msgstr "Module werden abgefragt"
 
 msgid "Unable to save modules workspace"
 msgstr "Modularbeitsbereich konnte nicht gespeichert werden."
+
+#, java-format
+msgid "Unable to save workspace to {0}"
+msgstr ""
 
 #, java-format
 msgid "Loading workspace from {0}"
@@ -562,6 +575,10 @@ msgstr "Fertiggestellt"
 msgid "Failed"
 msgstr "Fehlgeschlagen"
 
+#, java-format
+msgid "Running {0}%"
+msgstr "{0}% wird ausgeführt"
+
 msgid "Running"
 msgstr "In Bearbeitung"
 
@@ -612,11 +629,7 @@ msgid "Pages: {0}, PDF Version: {1}"
 msgstr "Seiten: {0}, PDF-Version: {1}"
 
 msgid "Show errors"
-msgstr ""
-
-#, java-format
-msgid "Running {0}%"
-msgstr ""
+msgstr "Fehler anzeigen"
 
 msgid "Run"
 msgstr "Start"
@@ -788,6 +801,9 @@ msgstr "Formular löschen"
 msgid "Interactive forms (AcroForms):"
 msgstr "Interaktive Formulare (AcroForms)"
 
+msgid "What to do in case one or more input documents contain Acro Forms"
+msgstr ""
+
 msgid "Retain bookmarks"
 msgstr "Lesezeichen beibehalten"
 
@@ -803,6 +819,25 @@ msgstr ""
 
 msgid "Bookmarks handling:"
 msgstr "Behandlung von Lesezeichen:"
+
+msgid "What to do in case one or more input documents contain bookmarks"
+msgstr ""
+
+msgid "Don't generate"
+msgstr ""
+
+msgid "Generate from file names"
+msgstr ""
+
+msgid "Generate from documents titles"
+msgstr ""
+
+msgid "Table of contents:"
+msgstr ""
+
+msgid ""
+"Set if a table of contents should be added to the generated PDF document"
+msgstr ""
 
 msgid "No PDF document has been selected"
 msgstr "Es wurd kein PDF-Dokument ausgewählt"

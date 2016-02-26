@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-01-19 12:33+0100\n"
+"POT-Creation-Date: 2016-02-22 17:07+0100\n"
 "PO-Revision-Date: 2015-12-19 10:45+0000\n"
 "Last-Translator: MisterIf <pkrupitsa@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-01-20 10:40+0000\n"
-"X-Generator: Launchpad (build 17886)\n"
+"X-Launchpad-Export-Date: 2016-02-26 08:24+0000\n"
+"X-Generator: Launchpad (build 17925)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Підписатися на офіційний канал новин"
@@ -213,6 +213,12 @@ msgstr ""
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Використовувати  каталог обраного PDF документа як вихідний каталог"
 
+msgid "Save default workspace on exit"
+msgstr ""
+
+msgid "If a default workspace is set, save it on application exit"
+msgstr ""
+
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Максимальна кількість рядків має бути позитивним числом"
 
@@ -232,16 +238,6 @@ msgid "Clear usage statistics"
 msgstr "Очистити статистику"
 
 msgid ""
-"Select a previously saved workspace that will be automatically loaded at "
-"startup"
-msgstr ""
-"Оберіть раніше збережений робочий простір, який буде автоматично завантажено "
-"при запуску програми"
-
-msgid "Select a workspace"
-msgstr "Обрати робочий простір"
-
-msgid ""
 "Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Оберіть каталог, в якому документи будуть збережені та завантажені за "
@@ -251,18 +247,20 @@ msgid "Select a directory"
 msgstr "Вкажіть каталог"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Select a previously saved workspace that will be automatically loaded at "
+"startup"
 msgstr ""
-"Статистика роботи з програмою використовуються для заповнення панелі модулів "
-"(розташована зліва) з найбільш часто використовуваних  та нещодавно "
-"використовуваних модулів."
+"Оберіть раніше збережений робочий простір, який буде автоматично завантажено "
+"при запуску програми"
 
-msgid "Load default workspace at startup:"
-msgstr "Встановити робочий простір за умовчуванням під час старту:"
+msgid "Select a workspace"
+msgstr "Обрати робочий простір"
 
 msgid "Default working directory:"
 msgstr "Робочий каталог за умовчанням:"
+
+msgid "Load default workspace at startup:"
+msgstr "Встановити робочий простір за умовчуванням під час старту:"
 
 msgid "Log register rows:"
 msgstr "Зареєстровані рядки:"
@@ -290,6 +288,14 @@ msgid "Set the module to open at application startup (restart needed)"
 msgstr ""
 "Встановіть модуль, який буде відкрито при запуску програми (необхідне "
 "перезавантаження)"
+
+msgid ""
+"Usage statistics are used to populate the modules quick bar on the left with "
+"the most used and most recently used modules."
+msgstr ""
+"Статистика роботи з програмою використовуються для заповнення панелі модулів "
+"(розташована зліва) з найбільш часто використовуваних  та нещодавно "
+"використовуваних модулів."
 
 msgid "Check for updates now"
 msgstr "Перевірити зараз наявність оновлень"
@@ -339,6 +345,9 @@ msgstr "Введіть що-небудь"
 
 msgid "PDFsam worked hard!"
 msgstr "PDFsam працює тяжко!"
+
+msgid "Spread the word!"
+msgstr ""
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -400,6 +409,10 @@ msgstr "Запит стану модулів"
 
 msgid "Unable to save modules workspace"
 msgstr "Неможливо зберегти модулі робочого простору"
+
+#, java-format
+msgid "Unable to save workspace to {0}"
+msgstr ""
 
 #, java-format
 msgid "Loading workspace from {0}"
@@ -563,6 +576,10 @@ msgstr "Завершено"
 msgid "Failed"
 msgstr "Помилка"
 
+#, java-format
+msgid "Running {0}%"
+msgstr ""
+
 msgid "Running"
 msgstr "Запущено"
 
@@ -613,10 +630,6 @@ msgid "Pages: {0}, PDF Version: {1}"
 msgstr "Сторінок: {0}, версія PDF {1}"
 
 msgid "Show errors"
-msgstr ""
-
-#, java-format
-msgid "Running {0}%"
 msgstr ""
 
 msgid "Run"
@@ -790,6 +803,9 @@ msgstr "Відкинути форми"
 msgid "Interactive forms (AcroForms):"
 msgstr "Інтерактивні форми (AcroForms):"
 
+msgid "What to do in case one or more input documents contain Acro Forms"
+msgstr ""
+
 msgid "Retain bookmarks"
 msgstr "Зберегти закладки"
 
@@ -804,6 +820,25 @@ msgstr "Збережіть закладки як один запис для ко
 
 msgid "Bookmarks handling:"
 msgstr "Регулювання закладок:"
+
+msgid "What to do in case one or more input documents contain bookmarks"
+msgstr ""
+
+msgid "Don't generate"
+msgstr ""
+
+msgid "Generate from file names"
+msgstr ""
+
+msgid "Generate from documents titles"
+msgstr ""
+
+msgid "Table of contents:"
+msgstr ""
+
+msgid ""
+"Set if a table of contents should be added to the generated PDF document"
+msgstr ""
 
 msgid "No PDF document has been selected"
 msgstr "Не один PDF документ не був обраний"

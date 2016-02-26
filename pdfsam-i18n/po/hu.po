@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-01-19 12:33+0100\n"
+"POT-Creation-Date: 2016-02-22 17:07+0100\n"
 "PO-Revision-Date: 2015-12-01 14:24+0000\n"
 "Last-Translator: Richard Somlói <ricsipontaz@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-01-20 10:41+0000\n"
-"X-Generator: Launchpad (build 17886)\n"
+"X-Launchpad-Export-Date: 2016-02-26 08:24+0000\n"
+"X-Generator: Launchpad (build 17925)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Feliratkozás a hivatalos hírforrásra"
@@ -211,6 +211,12 @@ msgstr ""
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Használja a kiválasztott PDF mappáját kimeneti mappaként"
 
+msgid "Save default workspace on exit"
+msgstr ""
+
+msgid "If a default workspace is set, save it on application exit"
+msgstr ""
+
 msgid "Maximum number of rows mast be a positive number"
 msgstr "A sorok maximum száma egy pozitív szám legyen"
 
@@ -230,14 +236,6 @@ msgid "Clear usage statistics"
 msgstr "Használati statisztika törlése"
 
 msgid ""
-"Select a previously saved workspace that will be automatically loaded at "
-"startup"
-msgstr "Korábbi munkaterület, ami induláskor betöltődik"
-
-msgid "Select a workspace"
-msgstr "Munkaterület kiválasztása"
-
-msgid ""
 "Select a directory where documents will be saved and loaded by default"
 msgstr "Alapértelmezett mentési és betöltés mappa"
 
@@ -245,17 +243,18 @@ msgid "Select a directory"
 msgstr "Mappa kiválasztása"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
-msgstr ""
-"A használati statisztikák alapján kerülnek a baloldali gyorsindítóra a "
-"leggyakrabban, illetve a legutóbb használt modulok."
+"Select a previously saved workspace that will be automatically loaded at "
+"startup"
+msgstr "Korábbi munkaterület, ami induláskor betöltődik"
 
-msgid "Load default workspace at startup:"
-msgstr "Alapértelmezett munkaterület betöltése induláskor:"
+msgid "Select a workspace"
+msgstr "Munkaterület kiválasztása"
 
 msgid "Default working directory:"
 msgstr "Alapértelmezett munkamappa:"
+
+msgid "Load default workspace at startup:"
+msgstr "Alapértelmezett munkaterület betöltése induláskor:"
 
 msgid "Log register rows:"
 msgstr "Naplózott sorok száma:"
@@ -280,6 +279,13 @@ msgstr "Induló modul:"
 
 msgid "Set the module to open at application startup (restart needed)"
 msgstr "A modul indulása az alkalmazással együtt (újraindítás szükséges)"
+
+msgid ""
+"Usage statistics are used to populate the modules quick bar on the left with "
+"the most used and most recently used modules."
+msgstr ""
+"A használati statisztikák alapján kerülnek a baloldali gyorsindítóra a "
+"leggyakrabban, illetve a legutóbb használt modulok."
 
 msgid "Check for updates now"
 msgstr "Frissítés keresése most"
@@ -331,6 +337,9 @@ msgstr "Adjon vissza valamit"
 
 msgid "PDFsam worked hard!"
 msgstr "A PDFSam keményen dolgozott!"
+
+msgid "Spread the word!"
+msgstr ""
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -392,6 +401,10 @@ msgstr "Modul állapotának lekérése"
 
 msgid "Unable to save modules workspace"
 msgstr "Nem sikerült a modulok munkaterületének mentése"
+
+#, java-format
+msgid "Unable to save workspace to {0}"
+msgstr ""
 
 #, java-format
 msgid "Loading workspace from {0}"
@@ -553,6 +566,10 @@ msgstr "Befejezett"
 msgid "Failed"
 msgstr "Sikertelen"
 
+#, java-format
+msgid "Running {0}%"
+msgstr ""
+
 msgid "Running"
 msgstr "Folyamatban"
 
@@ -603,10 +620,6 @@ msgid "Pages: {0}, PDF Version: {1}"
 msgstr "Oldalak száma: {0}, PDF verzió: {1}"
 
 msgid "Show errors"
-msgstr ""
-
-#, java-format
-msgid "Running {0}%"
 msgstr ""
 
 msgid "Run"
@@ -779,6 +792,9 @@ msgstr "Űrlapok elvetése"
 msgid "Interactive forms (AcroForms):"
 msgstr "Interaktív űrlapok (AcroForms):"
 
+msgid "What to do in case one or more input documents contain Acro Forms"
+msgstr ""
+
 msgid "Retain bookmarks"
 msgstr "Könyvjelzők megtartása"
 
@@ -793,6 +809,25 @@ msgstr ""
 
 msgid "Bookmarks handling:"
 msgstr "Könyvjelzők kezelése:"
+
+msgid "What to do in case one or more input documents contain bookmarks"
+msgstr ""
+
+msgid "Don't generate"
+msgstr ""
+
+msgid "Generate from file names"
+msgstr ""
+
+msgid "Generate from documents titles"
+msgstr ""
+
+msgid "Table of contents:"
+msgstr ""
+
+msgid ""
+"Set if a table of contents should be added to the generated PDF document"
+msgstr ""
 
 msgid "No PDF document has been selected"
 msgstr "Nincs kijelölve PDF dokumentum"

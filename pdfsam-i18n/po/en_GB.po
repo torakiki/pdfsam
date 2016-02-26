@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-01-19 12:33+0100\n"
-"PO-Revision-Date: 2015-12-19 05:58+0000\n"
-"Last-Translator: Flames_in_Paradise <Unknown>\n"
+"POT-Creation-Date: 2016-02-22 17:07+0100\n"
+"PO-Revision-Date: 2016-02-23 16:00+0000\n"
+"Last-Translator: Andi Chandler <Unknown>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-01-20 10:40+0000\n"
-"X-Generator: Launchpad (build 17886)\n"
+"X-Launchpad-Export-Date: 2016-02-26 08:24+0000\n"
+"X-Generator: Launchpad (build 17925)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Subscribe to the official news feed"
@@ -203,15 +203,23 @@ msgid "Turn on or off alert sounds"
 msgstr "Turn on or off alert sounds"
 
 msgid "Show donation window"
-msgstr ""
+msgstr "Show donation window"
 
 msgid ""
 "Turn on or off the notification appearing once in a while and asking the "
 "user to support PDFsam with a donation"
 msgstr ""
+"Turn on or off the notification appearing once in a while and asking the "
+"user to support PDFsam with a donation"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Use the selected PDF document directory as output directory"
+
+msgid "Save default workspace on exit"
+msgstr "Save default workspace on exit"
+
+msgid "If a default workspace is set, save it on application exit"
+msgstr "If a default workspace is set, save it on application exit"
 
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Maximum number of rows mast be a positive number"
@@ -232,6 +240,14 @@ msgid "Clear usage statistics"
 msgstr "Clear usage statistics"
 
 msgid ""
+"Select a directory where documents will be saved and loaded by default"
+msgstr ""
+"Select a directory where documents will be saved and loaded by default"
+
+msgid "Select a directory"
+msgstr "Select a directory"
+
+msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
 "startup"
 msgstr ""
@@ -241,26 +257,11 @@ msgstr ""
 msgid "Select a workspace"
 msgstr "Select a workspace"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
-msgstr ""
-"Select a directory where documents will be saved and loaded by default"
-
-msgid "Select a directory"
-msgstr "Select a directory"
-
-msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
-msgstr ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+msgid "Default working directory:"
+msgstr "Default working directory:"
 
 msgid "Load default workspace at startup:"
 msgstr "Load default workspace at startup:"
-
-msgid "Default working directory:"
-msgstr "Default working directory:"
 
 msgid "Log register rows:"
 msgstr "Log register rows:"
@@ -285,6 +286,13 @@ msgstr "Startup module:"
 
 msgid "Set the module to open at application startup (restart needed)"
 msgstr "Set the module to open at application startup (restart needed)"
+
+msgid ""
+"Usage statistics are used to populate the modules quick bar on the left with "
+"the most used and most recently used modules."
+msgstr ""
+"Usage statistics are used to populate the modules quick bar on the left with "
+"the most used and most recently used modules."
 
 msgid "Check for updates now"
 msgstr "Check for updates now"
@@ -333,6 +341,9 @@ msgstr "Give something back"
 
 msgid "PDFsam worked hard!"
 msgstr "PDFsam worked hard!"
+
+msgid "Spread the word!"
+msgstr "Spread the word!"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -394,6 +405,10 @@ msgstr "Requesting modules state"
 
 msgid "Unable to save modules workspace"
 msgstr "Unable to save modules workspace"
+
+#, java-format
+msgid "Unable to save workspace to {0}"
+msgstr "Unable to save workspace to {0}"
 
 #, java-format
 msgid "Loading workspace from {0}"
@@ -558,6 +573,10 @@ msgstr "Completed"
 msgid "Failed"
 msgstr "Failed"
 
+#, java-format
+msgid "Running {0}%"
+msgstr "Running {0}%"
+
 msgid "Running"
 msgstr "Running"
 
@@ -608,11 +627,7 @@ msgid "Pages: {0}, PDF Version: {1}"
 msgstr "Pages: {0}, PDF Version: {1}"
 
 msgid "Show errors"
-msgstr ""
-
-#, java-format
-msgid "Running {0}%"
-msgstr ""
+msgstr "Show errors"
 
 msgid "Run"
 msgstr "Run"
@@ -782,6 +797,9 @@ msgstr "Discard forms"
 msgid "Interactive forms (AcroForms):"
 msgstr "Interactive forms (AcroForms):"
 
+msgid "What to do in case one or more input documents contain Acro Forms"
+msgstr "What to do in case one or more input documents contain Acro Forms"
+
 msgid "Retain bookmarks"
 msgstr "Retain bookmarks"
 
@@ -792,10 +810,30 @@ msgid "Create one entry for each merged document"
 msgstr "Create one entry for each merged document"
 
 msgid "Retain bookmarks as one entry for each merged document"
-msgstr ""
+msgstr "Retain bookmarks as one entry for each merged document"
 
 msgid "Bookmarks handling:"
 msgstr "Bookmarks handling:"
+
+msgid "What to do in case one or more input documents contain bookmarks"
+msgstr "What to do in case one or more input documents contain bookmarks"
+
+msgid "Don't generate"
+msgstr "Don't generate"
+
+msgid "Generate from file names"
+msgstr "Generate from file names"
+
+msgid "Generate from documents titles"
+msgstr "Generate from documents titles"
+
+msgid "Table of contents:"
+msgstr "Table of contents:"
+
+msgid ""
+"Set if a table of contents should be added to the generated PDF document"
+msgstr ""
+"Set if a table of contents should be added to the generated PDF document"
 
 msgid "No PDF document has been selected"
 msgstr "No PDF document has been selected"

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-01-19 12:33+0100\n"
+"POT-Creation-Date: 2016-02-22 17:07+0100\n"
 "PO-Revision-Date: 2015-04-25 01:10+0000\n"
 "Last-Translator: Angelescu <titus0818@yahoo.com>\n"
 "Language-Team: Romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-01-20 10:41+0000\n"
-"X-Generator: Launchpad (build 17886)\n"
+"X-Launchpad-Export-Date: 2016-02-26 08:24+0000\n"
+"X-Generator: Launchpad (build 17925)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Subscrieți la fluxul de știri oficial"
@@ -214,6 +214,12 @@ msgid "Use the selected PDF document directory as output directory"
 msgstr ""
 "Utilizează directorul documentului PDF selectat ca director de ieșire"
 
+msgid "Save default workspace on exit"
+msgstr ""
+
+msgid "If a default workspace is set, save it on application exit"
+msgstr ""
+
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Numărul maxim de rânduri trebuie să fie un număr pozitiv"
 
@@ -233,6 +239,14 @@ msgid "Clear usage statistics"
 msgstr "Curăță statisticile de utilizare"
 
 msgid ""
+"Select a directory where documents will be saved and loaded by default"
+msgstr ""
+"Selectați un director implicit unde documentele vor fi salvate și încărcate"
+
+msgid "Select a directory"
+msgstr "Selectați un director"
+
+msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
 "startup"
 msgstr ""
@@ -242,24 +256,11 @@ msgstr ""
 msgid "Select a workspace"
 msgstr "Selectați un spațiu de lucru"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
-msgstr ""
-"Selectați un director implicit unde documentele vor fi salvate și încărcate"
-
-msgid "Select a directory"
-msgstr "Selectați un director"
-
-msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
-msgstr ""
+msgid "Default working directory:"
+msgstr "Director de lucru implicit"
 
 msgid "Load default workspace at startup:"
 msgstr "Încarcă la pornire spațiul de lucru implicit"
-
-msgid "Default working directory:"
-msgstr "Director de lucru implicit"
 
 msgid "Log register rows:"
 msgstr "Rânduri registru jurnal"
@@ -285,6 +286,11 @@ msgstr "Modul de pornire:"
 msgid "Set the module to open at application startup (restart needed)"
 msgstr ""
 "Configurează modulul să se deschidă la pornirea aplicației (trebuie repornit)"
+
+msgid ""
+"Usage statistics are used to populate the modules quick bar on the left with "
+"the most used and most recently used modules."
+msgstr ""
 
 msgid "Check for updates now"
 msgstr "Verifică acum pentru actualizări"
@@ -334,6 +340,9 @@ msgstr "Dați ceva în schimb"
 
 msgid "PDFsam worked hard!"
 msgstr "PDFsam lucrează din greu!"
+
+msgid "Spread the word!"
+msgstr ""
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -395,6 +404,10 @@ msgstr "Se solicită starea modulelor"
 
 msgid "Unable to save modules workspace"
 msgstr "Nu se pot salva modulele spațiului de lucru"
+
+#, java-format
+msgid "Unable to save workspace to {0}"
+msgstr ""
 
 #, java-format
 msgid "Loading workspace from {0}"
@@ -557,6 +570,10 @@ msgstr "Finalizat"
 msgid "Failed"
 msgstr "Eșuat"
 
+#, java-format
+msgid "Running {0}%"
+msgstr ""
+
 msgid "Running"
 msgstr "Rulează"
 
@@ -607,10 +624,6 @@ msgid "Pages: {0}, PDF Version: {1}"
 msgstr "Pagini: {0}, Versiune PDF: {1}"
 
 msgid "Show errors"
-msgstr ""
-
-#, java-format
-msgid "Running {0}%"
 msgstr ""
 
 msgid "Run"
@@ -779,6 +792,9 @@ msgstr ""
 msgid "Interactive forms (AcroForms):"
 msgstr ""
 
+msgid "What to do in case one or more input documents contain Acro Forms"
+msgstr ""
+
 msgid "Retain bookmarks"
 msgstr "Reține semnele de carte"
 
@@ -792,6 +808,25 @@ msgid "Retain bookmarks as one entry for each merged document"
 msgstr ""
 
 msgid "Bookmarks handling:"
+msgstr ""
+
+msgid "What to do in case one or more input documents contain bookmarks"
+msgstr ""
+
+msgid "Don't generate"
+msgstr ""
+
+msgid "Generate from file names"
+msgstr ""
+
+msgid "Generate from documents titles"
+msgstr ""
+
+msgid "Table of contents:"
+msgstr ""
+
+msgid ""
+"Set if a table of contents should be added to the generated PDF document"
 msgstr ""
 
 msgid "No PDF document has been selected"

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-01-19 12:33+0100\n"
+"POT-Creation-Date: 2016-02-22 17:07+0100\n"
 "PO-Revision-Date: 2015-03-25 21:36+0000\n"
 "Last-Translator: Asier Iturralde Sarasola <Unknown>\n"
 "Language-Team: Basque <eu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-01-20 10:41+0000\n"
-"X-Generator: Launchpad (build 17886)\n"
+"X-Launchpad-Export-Date: 2016-02-26 08:24+0000\n"
+"X-Generator: Launchpad (build 17925)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Harpidetu albisteen jario ofizialera"
@@ -214,6 +214,12 @@ msgid "Use the selected PDF document directory as output directory"
 msgstr ""
 "Erabili hautatutako PDF dokumentuaren direktorioa irteerako direktorio bezala"
 
+msgid "Save default workspace on exit"
+msgstr ""
+
+msgid "If a default workspace is set, save it on application exit"
+msgstr ""
+
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Gehienezko errenkada kopuruak zenbaki positiboa izan behar du"
 
@@ -233,15 +239,6 @@ msgid "Clear usage statistics"
 msgstr "Garbitu erabileraren estatistikak"
 
 msgid ""
-"Select a previously saved workspace that will be automatically loaded at "
-"startup"
-msgstr ""
-"Hautatu abioan automatikoki kargatuko den aurrez gordetako laneko area"
-
-msgid "Select a workspace"
-msgstr "Hautatu laneko area"
-
-msgid ""
 "Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Hautatu modu lehenetsian dokumentuak gorde eta kargatzeko direktorioa"
@@ -250,17 +247,19 @@ msgid "Select a directory"
 msgstr "Hautatu direktorioa"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Select a previously saved workspace that will be automatically loaded at "
+"startup"
 msgstr ""
-"Erabilera estatistikak ezkerreko moduluen laster-barran azkena erabilitako "
-"moduluak eta erabilienak bistaratzeko erabiltzen dira."
+"Hautatu abioan automatikoki kargatuko den aurrez gordetako laneko area"
 
-msgid "Load default workspace at startup:"
-msgstr "Kargatu laneko area lehenetsia abioan:"
+msgid "Select a workspace"
+msgstr "Hautatu laneko area"
 
 msgid "Default working directory:"
 msgstr "Laneko direktorio lehenetsia:"
+
+msgid "Load default workspace at startup:"
+msgstr "Kargatu laneko area lehenetsia abioan:"
 
 msgid "Log register rows:"
 msgstr "Log erregistroaren errenkadak:"
@@ -287,6 +286,13 @@ msgid "Set the module to open at application startup (restart needed)"
 msgstr ""
 "Ezarri aplikazioa abiatzean ireki beharreko modulua (berrabiaraztea eskatzen "
 "du)"
+
+msgid ""
+"Usage statistics are used to populate the modules quick bar on the left with "
+"the most used and most recently used modules."
+msgstr ""
+"Erabilera estatistikak ezkerreko moduluen laster-barran azkena erabilitako "
+"moduluak eta erabilienak bistaratzeko erabiltzen dira."
 
 msgid "Check for updates now"
 msgstr "Egiaztatu eguneraketarik baden orain"
@@ -336,6 +342,9 @@ msgstr "Eman zerbait bueltan"
 
 msgid "PDFsam worked hard!"
 msgstr "PDFsam-ek gogor lan egin du!"
+
+msgid "Spread the word!"
+msgstr ""
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -397,6 +406,10 @@ msgstr "Moduluen egoera eskatzen"
 
 msgid "Unable to save modules workspace"
 msgstr "Ezin izan da moduluen laneko area gorde"
+
+#, java-format
+msgid "Unable to save workspace to {0}"
+msgstr ""
 
 #, java-format
 msgid "Loading workspace from {0}"
@@ -563,6 +576,10 @@ msgstr "Osatuta"
 msgid "Failed"
 msgstr "Huts eginda"
 
+#, java-format
+msgid "Running {0}%"
+msgstr ""
+
 msgid "Running"
 msgstr "Exekutatzen"
 
@@ -613,10 +630,6 @@ msgid "Pages: {0}, PDF Version: {1}"
 msgstr "Orriak: {0}, PDF bertsioa: {1}"
 
 msgid "Show errors"
-msgstr ""
-
-#, java-format
-msgid "Running {0}%"
 msgstr ""
 
 msgid "Run"
@@ -787,6 +800,9 @@ msgstr ""
 msgid "Interactive forms (AcroForms):"
 msgstr ""
 
+msgid "What to do in case one or more input documents contain Acro Forms"
+msgstr ""
+
 msgid "Retain bookmarks"
 msgstr "Mantendu laster-markak"
 
@@ -801,6 +817,25 @@ msgstr ""
 
 msgid "Bookmarks handling:"
 msgstr "Laster-markak maneiatzea:"
+
+msgid "What to do in case one or more input documents contain bookmarks"
+msgstr ""
+
+msgid "Don't generate"
+msgstr ""
+
+msgid "Generate from file names"
+msgstr ""
+
+msgid "Generate from documents titles"
+msgstr ""
+
+msgid "Table of contents:"
+msgstr ""
+
+msgid ""
+"Set if a table of contents should be added to the generated PDF document"
+msgstr ""
 
 msgid "No PDF document has been selected"
 msgstr ""
