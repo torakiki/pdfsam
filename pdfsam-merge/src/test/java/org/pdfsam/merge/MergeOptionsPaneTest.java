@@ -20,6 +20,7 @@ package org.pdfsam.merge;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
@@ -78,6 +79,7 @@ public class MergeOptionsPaneTest extends GuiTest {
         FXTestUtils.invokeAndWait(() -> victim.apply(builder, onError), 2);
         verify(builder).outlinePolicy(eq(OutlinePolicy.RETAIN));
         verify(builder).blankPageIfOdd(true);
+        verify(builder).footer(false);
         verify(builder).acroFormsPolicy(AcroFormPolicy.MERGE);
         verify(builder).tocPolicy(ToCPolicy.NONE);
         verify(onError, never()).accept(anyString());
@@ -91,6 +93,7 @@ public class MergeOptionsPaneTest extends GuiTest {
         victim.saveStateTo(data);
         assertEquals(OutlinePolicy.RETAIN.toString(), data.get("outline"));
         assertEquals(Boolean.TRUE.toString(), data.get("blankIfOdd"));
+        assertEquals(Boolean.FALSE.toString(), data.get("footer"));
         assertEquals(AcroFormPolicy.MERGE.toString(), data.get("acroForms"));
         assertEquals(ToCPolicy.NONE.toString(), data.get("toc"));
     }
@@ -101,10 +104,12 @@ public class MergeOptionsPaneTest extends GuiTest {
         ComboBox<KeyStringValueItem<AcroFormPolicy>> forms = find("#acroFormsCombo");
         ComboBox<KeyStringValueItem<AcroFormPolicy>> toc = find("#tocCombo");
         CheckBox blankIfOdd = find("#blankIfOddCheck");
+        CheckBox footer = find("#footerCheck");
         Map<String, String> data = new HashMap<>();
         data.put("outline", OutlinePolicy.ONE_ENTRY_EACH_DOC.toString());
         data.put("acroForms", AcroFormPolicy.MERGE_RENAMING_EXISTING_FIELDS.toString());
         data.put("blankIfOdd", Boolean.FALSE.toString());
+        data.put("footer", Boolean.TRUE.toString());
         data.put("toc", ToCPolicy.DOC_TITLES.toString());
         MergeOptionsPane victim = find(".pdfsam-container");
         FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
@@ -113,5 +118,6 @@ public class MergeOptionsPaneTest extends GuiTest {
                 forms.getSelectionModel().getSelectedItem().getKey());
         assertEquals(ToCPolicy.DOC_TITLES, toc.getSelectionModel().getSelectedItem().getKey());
         assertFalse(blankIfOdd.isSelected());
+        assertTrue(footer.isSelected());
     }
 }

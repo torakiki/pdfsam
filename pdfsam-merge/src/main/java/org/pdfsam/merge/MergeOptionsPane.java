@@ -53,6 +53,7 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
 
     private ComboBox<KeyStringValueItem<AcroFormPolicy>> acroForms = new ComboBox<>();
     private CheckBox blankIfOdd;
+    private CheckBox footer;
     private ComboBox<KeyStringValueItem<OutlinePolicy>> outline = new ComboBox<>();
     private ComboBox<KeyStringValueItem<ToCPolicy>> toc = new ComboBox<>();
 
@@ -64,6 +65,11 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
                 i18n.i18n("Adds a blank page after each merged document if the document has an odd number of pages")));
         blankIfOdd.getStyleClass().addAll(Style.WITH_HELP.css());
         blankIfOdd.setId("blankIfOddCheck");
+
+        footer = new CheckBox(i18n.i18n("Add a footer"));
+        footer.setGraphic(helpIcon(i18n.i18n("Adds a page footer with the name of the file the page belonged to.")));
+        footer.getStyleClass().addAll(Style.WITH_HELP.css());
+        footer.setId("footerCheck");
 
         GridPane options = new GridPane();
 
@@ -104,7 +110,7 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
         options.getStyleClass().addAll(Style.GRID.css());
 
         getStyleClass().addAll(Style.CONTAINER.css());
-        getChildren().addAll(blankIfOdd, options);
+        getChildren().addAll(blankIfOdd, footer, options);
     }
 
     public void apply(MergeParametersBuilder builder, Consumer<String> onError) {
@@ -112,6 +118,7 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
         builder.acroFormsPolicy(acroForms.getSelectionModel().getSelectedItem().getKey());
         builder.tocPolicy(toc.getSelectionModel().getSelectedItem().getKey());
         builder.blankPageIfOdd(blankIfOdd.isSelected());
+        builder.footer(footer.isSelected());
     }
 
     public void saveStateTo(Map<String, String> data) {
@@ -122,6 +129,7 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
         data.put("toc", Optional.ofNullable(toc.getSelectionModel().getSelectedItem()).map(i -> i.getKey().toString())
                 .orElse(EMPTY));
         data.put("blankIfOdd", Boolean.toString(blankIfOdd.isSelected()));
+        data.put("footer", Boolean.toString(footer.isSelected()));
     }
 
     public void restoreStateFrom(Map<String, String> data) {
@@ -132,5 +140,6 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
         Optional.ofNullable(data.get("toc")).map(ToCPolicy::valueOf).map(r -> keyEmptyValue(r))
                 .ifPresent(r -> this.toc.getSelectionModel().select(r));
         blankIfOdd.setSelected(Boolean.valueOf(data.get("blankIfOdd")));
+        footer.setSelected(Boolean.valueOf(data.get("footer")));
     }
 }

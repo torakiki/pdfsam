@@ -57,6 +57,7 @@ public class MergeParametersBuilderTest {
         victim.acroFormsPolicy(AcroFormPolicy.DISCARD);
         victim.outlinePolicy(OutlinePolicy.ONE_ENTRY_EACH_DOC);
         victim.tocPolicy(ToCPolicy.DOC_TITLES);
+        victim.footer(true);
         File file = folder.newFile("my.pdf");
         PdfFileSource source = PdfFileSource.newInstanceNoPassword(file);
         PdfMergeInput input = new PdfMergeInput(source);
@@ -67,6 +68,7 @@ public class MergeParametersBuilderTest {
         assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
         assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
         assertTrue(params.isBlankPageIfOdd());
+        assertTrue(params.isFilenameFooter());
         assertEquals(AcroFormPolicy.DISCARD, params.getAcroFormPolicy());
         assertEquals(OutlinePolicy.ONE_ENTRY_EACH_DOC, params.getOutlinePolicy());
         assertEquals(ToCPolicy.DOC_TITLES, params.getTableOfContentsPolicy());
