@@ -53,6 +53,7 @@ public final class DefaultI18nContext implements I18nContext {
         supportedLocalesCache.add(Locale.SIMPLIFIED_CHINESE);
         supportedLocalesCache.add(Locale.TRADITIONAL_CHINESE);
         supportedLocalesCache.add(new Locale("co"));
+        supportedLocalesCache.add(new Locale("hr"));
         supportedLocalesCache.add(new Locale("cs"));
         supportedLocalesCache.add(new Locale("da"));
         supportedLocalesCache.add(new Locale("nl"));

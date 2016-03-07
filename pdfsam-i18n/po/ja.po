@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-22 17:07+0100\n"
-"PO-Revision-Date: 2016-02-21 03:32+0000\n"
+"PO-Revision-Date: 2016-02-28 05:24+0000\n"
 "Last-Translator: Naofumi Fukue <naofum@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-02-26 08:24+0000\n"
-"X-Generator: Launchpad (build 17925)\n"
+"X-Launchpad-Export-Date: 2016-03-04 09:56+0000\n"
+"X-Generator: Launchpad (build 17936)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "公式ニュースフィードを購読する"
@@ -776,7 +776,7 @@ msgid "Interactive forms (AcroForms):"
 msgstr "インタラクティブフォーム (AcroForms):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
-msgstr ""
+msgstr "1 または複数の入力文書に Acro Form が含まれている場合に行うこと"
 
 msgid "Retain bookmarks"
 msgstr "しおりを保持する"
@@ -788,29 +788,29 @@ msgid "Create one entry for each merged document"
 msgstr "マージされた文書それぞれにエントリを 1 つ作成"
 
 msgid "Retain bookmarks as one entry for each merged document"
-msgstr "マージされた文書それぞれに 1 つエントリーとしてブックマークを保持します"
+msgstr "マージされた文書それぞれに 1 つのエントリーとしてしおりを保持します"
 
 msgid "Bookmarks handling:"
 msgstr "しおりの処理:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
-msgstr ""
+msgstr "1 または複数の入力文書にしおりが含まれている場合に行うこと"
 
 msgid "Don't generate"
-msgstr ""
+msgstr "生成しない"
 
 msgid "Generate from file names"
-msgstr ""
+msgstr "ファイル名から生成"
 
 msgid "Generate from documents titles"
-msgstr ""
+msgstr "文書タイトルから生成"
 
 msgid "Table of contents:"
-msgstr ""
+msgstr "目次:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
-msgstr ""
+msgstr "生成される PDF 文書に目次を追加する必要がある場合に設定します"
 
 msgid "No PDF document has been selected"
 msgstr "PDF 文書が選択されていません"
@@ -878,11 +878,11 @@ msgid "Matching regular expression:"
 msgstr "一致する正規表現:"
 
 msgid "A regular expression the bookmark text has to match"
-msgstr "ブックマークのテキストが一致する正規表現"
+msgstr "しおりのテキストが一致する正規表現"
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
-msgstr "例: 単語 \"Chapter\" を含むブックマークに一致させる場合、 .*Chapter.* を使用します"
+msgstr "例: 単語 \"Chapter\" を含むしおりに一致させる場合、 .*Chapter.* を使用します"
 
 msgid "All pages"
 msgstr "すべてのページ"

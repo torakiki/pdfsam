@@ -8,14 +8,15 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-22 17:07+0100\n"
-"PO-Revision-Date: 2016-02-25 08:31+0000\n"
+"PO-Revision-Date: 2016-02-27 09:49+0000\n"
 "Last-Translator: Bourrel <phbourrel@gmail.com>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-02-26 08:24+0000\n"
-"X-Generator: Launchpad (build 17925)\n"
+"X-Launchpad-Export-Date: 2016-03-04 09:56+0000\n"
+"X-Generator: Launchpad (build 17936)\n"
+"Language: fr\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Souscrire au fil d’actualités officiel"
@@ -79,7 +80,7 @@ msgstr "Chargement des modules depuis {0}"
 
 #, java-format
 msgid "Found modules jars {0}"
-msgstr "Fichiers JAR de modules {0} trouvés"
+msgstr "Fichiers de modules JAR {0} trouvés"
 
 msgid "Error finding modules paths"
 msgstr "Erreur de détection des chemins des modules"
@@ -92,7 +93,7 @@ msgstr "Localisation de modules impossible"
 
 #, java-format
 msgid "Started in {0}"
-msgstr "PDFsam a démarré en {0}"
+msgstr "Démarré en {0}"
 
 msgid "Closing PDFsam..."
 msgstr "Fermeture de PDFsam..."
@@ -153,7 +154,7 @@ msgid "Thanks to"
 msgstr "Remerciements"
 
 msgid "The open source projects making PDFsam possible"
-msgstr "aux projets open‑source rendant possible PDFsam"
+msgstr "Les projets open source rendant possible pdfsam"
 
 msgid "Support"
 msgstr "Assistance"
@@ -165,7 +166,7 @@ msgid "Social"
 msgstr "Réseaux sociaux"
 
 msgid "Manually selected"
-msgstr "Sélectionner manuellement"
+msgstr "Sélectionné manuellement"
 
 msgid ""
 "Automatically set the destination directory to the selected PDF document "
@@ -213,13 +214,14 @@ msgstr ""
 "demandant à l'utilisateur de soutenir PDFsam par un don"
 
 msgid "Use the selected PDF document directory as output directory"
-msgstr "Utiliser le dossier du document PDF chargé"
+msgstr "Utiliser le dossier du document PDF chargé comme dossier de sortie"
 
 msgid "Save default workspace on exit"
-msgstr ""
+msgstr "Enregistrer l''espace de travail par défaut en quittant"
 
 msgid "If a default workspace is set, save it on application exit"
 msgstr ""
+"Si un espace de travail par défaut est défini, l''enregistrer en quittant"
 
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Le nombre maximum de lignes doit être un nombre positif."
@@ -348,7 +350,7 @@ msgid "PDFsam worked hard!"
 msgstr "PDFsam a bien travaillé !"
 
 msgid "Spread the word!"
-msgstr ""
+msgstr "Faites passer le message!"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -361,7 +363,7 @@ msgid "New version available"
 msgstr "Nouvelle version disponible"
 
 msgid "Non existing directory"
-msgstr "Répertoire non existant"
+msgstr "Répertoire inexistant"
 
 msgid "Directory not empty"
 msgstr "Dossier non vide"
@@ -391,7 +393,7 @@ msgid "Checking for updates"
 msgstr "Recherche de mises à jour…"
 
 msgid "Fetching latest news"
-msgstr "Aller chercher les dernières nouvelles"
+msgstr "Récupération des dernières nouvelles"
 
 msgid "Unable to retrieve the latest news"
 msgstr "Impossible de récupérer les dernières nouvelles"
@@ -413,22 +415,22 @@ msgstr "Enregistrement de l'espace de travail impossible"
 
 #, java-format
 msgid "Unable to save workspace to {0}"
-msgstr ""
+msgstr "Impossible d''enregistrer l''espace de travail sur {0}"
 
 #, java-format
 msgid "Loading workspace from {0}"
-msgstr ""
+msgstr "Charger l''espace de travail depuis {0}"
 
 msgid "Workspace loaded"
 msgstr "Espace de travail chargé"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
-msgstr ""
+msgstr "Impossible de charger l''espace de travail depuis {0}"
 
 #, java-format
 msgid "Saving workspace data to {0}"
-msgstr ""
+msgstr "Enregistrement des données de l''espace de travail sur {0}"
 
 msgid "Workspace saved"
 msgstr "Espace de travail sauvegardé"
@@ -699,10 +701,10 @@ msgid "Select an existing directory"
 msgstr "Sélectionner un dossier existant"
 
 msgid "An existing output directory is required"
-msgstr "Un répertoire de sortie existant est requis"
+msgstr "Un dossier de sortie existant est nécessaire"
 
 msgid "The output directory is required"
-msgstr "Le répertoire de sortie est requis"
+msgstr "Le dossier de sortie est nécessaire"
 
 msgid "Generated PDF documents name prefix:"
 msgstr "Préfixe pour les noms des documents PDF générés :"
@@ -827,15 +829,16 @@ msgstr "Formulaires interactifs (AcroForms) :"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr ""
+"Que faire si un ou plusieurs fichiers sources contiennent des Acro Forms"
 
 msgid "Retain bookmarks"
-msgstr "conserver les signets"
+msgstr "Conserver les signets"
 
 msgid "Discard bookmarks"
-msgstr "ignorer les signets"
+msgstr "Ignorer les signets"
 
 msgid "Create one entry for each merged document"
-msgstr "créer un signet par document fusionné"
+msgstr "Créer un signet par document fusionné"
 
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr ""
@@ -846,9 +849,10 @@ msgstr "Gestion des signets :"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr ""
+"Que faire si un ou plusieurs fichiers sources contiennent des signets"
 
 msgid "Don't generate"
-msgstr ""
+msgstr "Ne pas générer"
 
 msgid "Generate from file names"
 msgstr "Générer depuis les noms de fichier"
@@ -903,10 +907,10 @@ msgid "An error has occurred, click for more details."
 msgstr "Une erreur s'est produite, cliquez pour pour plus de détails"
 
 msgid "Squared green"
-msgstr "Vert angulaire"
+msgstr "Vert quadrillé"
 
 msgid "Squared cornflower"
-msgstr "Bleuet angulaire"
+msgstr "Bleuet quadrillé"
 
 msgid "Roundish"
 msgstr "Arrondi"
@@ -945,7 +949,7 @@ msgid "All pages"
 msgstr "Toutes les pages"
 
 msgid "90 degrees clockwise"
-msgstr "de 90° (sens horaire)"
+msgstr "de 90° dans le sens horaire"
 
 msgid "180 degrees clockwise"
 msgstr "de 180°"
@@ -957,7 +961,7 @@ msgid "Rotate "
 msgstr "Tourner "
 
 msgid "Rotate"
-msgstr "Rotation"
+msgstr "Tourner"
 
 msgid "Rotate the pages of multiple PDF documents."
 msgstr "Faire pivoter les pages de plusieurs documents PDF."

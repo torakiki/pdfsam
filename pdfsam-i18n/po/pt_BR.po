@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-22 17:07+0100\n"
-"PO-Revision-Date: 2015-12-06 11:31+0000\n"
-"Last-Translator: Rodrigo Borges Freitas <rodrigo.borges.freitas@gmail.com>\n"
+"PO-Revision-Date: 2016-03-02 22:11+0000\n"
+"Last-Translator: Vinicius Gagno <vgagno@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-02-26 08:24+0000\n"
-"X-Generator: Launchpad (build 17925)\n"
+"X-Launchpad-Export-Date: 2016-03-04 09:56+0000\n"
+"X-Generator: Launchpad (build 17936)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Inscreva-se no canal ofício de notícias"
@@ -203,7 +203,7 @@ msgid "Turn on or off alert sounds"
 msgstr "Ligar ou desligar alertas sonoros"
 
 msgid "Show donation window"
-msgstr ""
+msgstr "Mostrar janela de doação"
 
 msgid ""
 "Turn on or off the notification appearing once in a while and asking the "
@@ -215,10 +215,10 @@ msgstr ""
 "Use o diretório do documento PDF selecionado como o diretório de saída"
 
 msgid "Save default workspace on exit"
-msgstr ""
+msgstr "Salvar área de trabalho padrão ao sair"
 
 msgid "If a default workspace is set, save it on application exit"
-msgstr ""
+msgstr "Se uma área de trabalho padrão"
 
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Número máximo de linhas deve ser um número positivo"
@@ -354,7 +354,7 @@ msgid "PDFsam worked hard!"
 msgstr "PDFsam trabalhou pesado!"
 
 msgid "Spread the word!"
-msgstr ""
+msgstr "Espalhe a palavra!"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -419,7 +419,7 @@ msgstr "Incapaz de salva a área de trabalho dos módulos"
 
 #, java-format
 msgid "Unable to save workspace to {0}"
-msgstr ""
+msgstr "Impossível salvar área de trabalho em {0}"
 
 #, java-format
 msgid "Loading workspace from {0}"
@@ -590,7 +590,7 @@ msgstr "Erro"
 
 #, java-format
 msgid "Running {0}%"
-msgstr ""
+msgstr "Executando {0}%"
 
 msgid "Running"
 msgstr "Executando"
@@ -656,7 +656,7 @@ msgid "Pages: {0}, PDF Version: {1}"
 msgstr "Páginas: {0}, Versão do PDF: {1}"
 
 msgid "Show errors"
-msgstr ""
+msgstr "Mostrar erros"
 
 # G:\Documents\eclipse_workspace\PDFSAMsplit\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:368
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:542
@@ -838,7 +838,7 @@ msgid "Merge fields"
 msgstr "Campos unidos"
 
 msgid "Merge renaming existing fields"
-msgstr ""
+msgstr "Unir renomeando os campos existentes"
 
 msgid "Discard forms"
 msgstr "Formulários discartados"
@@ -866,22 +866,23 @@ msgstr "Manipulação de marcações de texto:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr ""
+"O que fazer no caso de um ou mais documentos de entrada conterem marcadores"
 
 msgid "Don't generate"
-msgstr ""
+msgstr "Não gere"
 
 msgid "Generate from file names"
-msgstr ""
+msgstr "Gerar a partir dos nomes de arquivos"
 
 msgid "Generate from documents titles"
-msgstr ""
+msgstr "Gerar a partir do título dos documentos"
 
 msgid "Table of contents:"
-msgstr ""
+msgstr "Tabela de conteúdo:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
-msgstr ""
+msgstr "Marque se uma tabela de conteúdo deve ser adicionada ao PFD gerado"
 
 msgid "No PDF document has been selected"
 msgstr "Nenhum documento PDF foi selecionado"
@@ -951,11 +952,13 @@ msgid "Matching regular expression:"
 msgstr "Procura pela expressão regular:"
 
 msgid "A regular expression the bookmark text has to match"
-msgstr ""
+msgstr "Uma expressão regular que o texto do marcador tem que corresponder"
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
 msgstr ""
+"Exemplo: use .*Capítulo* para encontrar marcadores contendo a palavra "
+"\"Capítulo\""
 
 msgid "All pages"
 msgstr "Todas as páginas"
@@ -967,7 +970,7 @@ msgid "180 degrees clockwise"
 msgstr "180 graus no sentido horário"
 
 msgid "90 degrees counterclockwise"
-msgstr ""
+msgstr "90 graus anti-horário"
 
 msgid "Rotate "
 msgstr "Rotaciona "
