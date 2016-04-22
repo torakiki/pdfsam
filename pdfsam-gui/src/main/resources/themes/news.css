@@ -26,9 +26,15 @@
     -fx-font-weight: bold;
     -fx-fill: -pdfsam-dark-text-color;
     -fx-wrap-text: true;
-    -fx-padding: 0.0 0.0 1.0;
+    -fx-padding: 0.0 0.0 1.5;
 }
-
+.news-box-title:hover {
+    -fx-underline: true;
+    -fx-cursor: hand;
+}
+.news-box-title-important {
+	-fx-fill: -pdfsam-theme-color;	
+}
 .news-box {
 	-fx-background-color: -fx-box-border, -pdfsam-tooltipbg-color;
     -fx-background-insets: 0.0, 0.4 0.0 0.0 0.0;

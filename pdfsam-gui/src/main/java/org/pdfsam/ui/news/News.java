@@ -19,14 +19,17 @@
 package org.pdfsam.ui.news;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
 import org.pdfsam.news.NewsData;
+import org.pdfsam.ui.commons.OpenUrlRequest;
 import org.pdfsam.ui.commons.UrlButton;
 
 import de.jensd.fx.glyphs.GlyphsDude;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -48,12 +51,23 @@ public class News extends VBox {
 
     News(NewsData data) {
         this.getStyleClass().add("news-box");
+        TextFlow flow = new TextFlow();
+        if (data.isImportant()) {
+            Text megaphone = GlyphsDude.createIcon(FontAwesomeIcon.BULLHORN, "1.2em");
+            megaphone.getStyleClass().clear();
+            megaphone.getStyleClass().add("news-box-title-important");
+            flow.getChildren().addAll(megaphone, new Text(" "));
+        }
+
         Text titleText = new Text(data.getTitle() + System.lineSeparator());
+        titleText.setOnMouseClicked(e -> eventStudio().broadcast(new OpenUrlRequest(data.getLink())));
         titleText.getStyleClass().add("news-box-title");
+
         Text contentText = new Text(data.getContent());
         contentText.setTextAlignment(TextAlignment.JUSTIFY);
         contentText.getStyleClass().add("news-content");
-        TextFlow flow = new TextFlow(titleText, contentText);
+
+        flow.getChildren().addAll(titleText, contentText);
         flow.setTextAlignment(TextAlignment.JUSTIFY);
         Label labelDate = new Label(FORMATTER.format(data.getDate()), GlyphsDude.createIcon(MaterialDesignIcon.CLOCK));
         labelDate.setPrefWidth(Integer.MAX_VALUE);
@@ -62,7 +76,7 @@ public class News extends VBox {
         bottom.setAlignment(Pos.CENTER_LEFT);
         bottom.getStyleClass().add("news-box-footer");
         if (isNotBlank(data.getLink())) {
-            Button link = UrlButton.urlButton(null, data.getLink(), MaterialDesignIcon.DOTS_HORIZONTAL,
+            Button link = UrlButton.urlButton(null, data.getLink(), FontAwesomeIcon.EXTERNAL_LINK_SQUARE,
                     "pdfsam-toolbar-button");
             bottom.getChildren().add(link);
         }

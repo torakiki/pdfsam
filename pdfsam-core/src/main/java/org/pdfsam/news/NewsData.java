@@ -33,6 +33,7 @@ public class NewsData {
     private String content;
     private String link;
     private LocalDate date;
+    private boolean important;
 
     public int getId() {
         return id;
@@ -72,6 +73,14 @@ public class NewsData {
 
     public void setDate(String dateString) {
         this.date = LocalDate.parse(dateString, DateTimeFormatter.BASIC_ISO_DATE);
+    }
+
+    public boolean isImportant() {
+        return important;
+    }
+
+    public void setImportant(String important) {
+        this.important = Boolean.valueOf(important);
     }
 
 }
