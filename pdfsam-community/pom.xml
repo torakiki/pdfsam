@@ -223,6 +223,74 @@
 								</configuration>
 							</execution>
 						</executions>
+					</plugin>					
+					<plugin>
+						<artifactId>jdeb</artifactId>
+						<groupId>org.vafer</groupId>
+						<version>1.5</version>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>jdeb</goal>
+								</goals>
+								<configuration>
+									<deb>[[buildDir]]/[[artifactId]]_[[version]]-1_all.[[extension]]</deb>
+									<dataSet>
+										<data>
+											<src>${project.build.directory}/assembled/bin/pdfsam.sh</src>
+											<dst>/opt/pdfsam-basic/bin/pdfsam-basic</dst>
+											<type>file</type>
+											<mapper>
+												<type>perm</type>
+												<filemode>755</filemode>
+											</mapper>
+										</data>
+										<data>
+											<src>${project.build.directory}/assembled</src>
+											<type>directory</type>
+											<excludes>pdfsam.exe,pdfsam.l4j.ini,bin/pdfsam.sh,bin/pdfsam.bat</excludes>
+											<mapper>
+												<type>perm</type>
+												<prefix>/opt/pdfsam-basic</prefix>
+												<filemode>644</filemode>
+												<dirmode>755</dirmode>
+											</mapper>
+										</data>
+										<data>
+											<type>link</type>
+											<linkName>/usr/bin/pdfsam</linkName>
+											<linkTarget>/opt/pdfsam-basic/bin/pdfsam-basic</linkTarget>
+											<symlink>true</symlink>
+											<mapper>
+												<type>perm</type>
+												<filemode>755</filemode>
+											</mapper>
+										</data>										
+										<data>
+											<src>${project.basedir}/src/deb/doc/changelog.Debian.gz</src>
+											<dst>/usr/share/doc/pdfsam-basic/changelog.Debian.gz</dst>
+											<type>file</type>
+										</data>
+										<data>
+											<src>${project.basedir}/src/deb/doc/copyright</src>
+											<dst>/usr/share/doc/pdfsam-basic/copyright</dst>
+											<type>file</type>
+										</data>
+										<data>
+											<src>${project.basedir}/src/deb/pdfsam-basic.desktop</src>
+											<dst>/usr/share/applications/pdfsam-basic.desktop</dst>
+											<type>file</type>
+										</data>
+										<data>
+											<src>${project.basedir}/src/deb/icon.svg</src>
+											<dst>/opt/pdfsam-basic/icon.svg</dst>
+											<type>file</type>
+										</data>						
+									</dataSet>
+								</configuration>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>
