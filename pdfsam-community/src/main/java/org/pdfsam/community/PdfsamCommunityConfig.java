@@ -32,10 +32,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.image.Image;
 
 /**
@@ -51,12 +48,6 @@ public class PdfsamCommunityConfig implements UIConfig {
 
     @Inject
     private Environment env;
-
-    @Bean(name = "logo")
-    public Group logo() throws IOException {
-        Resource resource = new ClassPathResource("/fxml/LogoCommunity.fxml");
-        return FXMLLoader.load(resource.getURL());
-    }
 
     @Bean(name = "logo16")
     public Image logo16() throws IOException {
