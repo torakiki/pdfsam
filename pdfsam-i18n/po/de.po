@@ -686,7 +686,7 @@ msgid "The output directory is required"
 msgstr "Das Ausgabeverzeichnis wird benötigt"
 
 msgid "Generated PDF documents name prefix:"
-msgstr "Vorsilbe dür den erstellten PDF-Dokumentnamen:"
+msgstr "Vorsilbe für den erstellten PDF-Dokumentnamen:"
 
 msgid "Prefix for the output files name."
 msgstr "Vorsilbe für den Ausgabedateinamen."
