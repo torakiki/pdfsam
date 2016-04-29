@@ -19,7 +19,7 @@
 		<CustomAction Id="SetCustomActionDataValue" Return="check" Property="CustomActions.AddLine" Value="locale=[LOCALE_CODE];updates=[CHECK_FOR_UPDATES];folder=[APPLICATIONFOLDER]" />
 		<CustomAction Id="CustomActions.AddLine" Return="check" Execute="deferred" BinaryKey="AddLine.dll" DllEntry="AddLine" Impersonate="no"/>
 		
-		<MajorUpgrade DowngradeErrorMessage="A later version of PDFsam Basic is already installed. Setup will now exit." />
+		<MajorUpgrade DowngradeErrorMessage="A newer version of PDFsam Basic is already installed. Setup will now exit." />
 
 		<Property Id="WixShellExecTarget" Value="http://www.pdfsam.org/thanks"/>
 		<CustomAction Id="LaunchBrowser" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" Execute="immediate" Return="ignore"/>
@@ -113,7 +113,7 @@
     				<RegistryValue Id="MenuDirInstalled" Root="HKCU" Key="Software\$(var.ProductName)" Type="integer" Value="1" Name="MenuDirInstalled" KeyPath="yes" />
     				<util:InternetShortcut Id="ShortcutPDFSamWeb" Name="!(loc.PDFSamWeb)" Target="!(loc.PDFSamWebLink)" Type="url" />
     				<Shortcut Id="ShortcutPDFSam" Name="!(loc.ProductName)" Target="[APPLICATIONFOLDER]pdfsam.exe" WorkingDirectory="APPLICATIONFOLDER" Advertise="no" Icon="pdfsam.ico" IconIndex="0" />
-    				<Shortcut Id="UninstallProduct" Name="Uninstall" Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]" Directory="ProgramMenuDir" Description="Uninstalls PDFsam" />
+    				<Shortcut Id="UninstallProduct" Name="Uninstall" Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]" Directory="ProgramMenuDir" Description="Uninstalls PDFsam Basic" />
     			</Component>
     		</DirectoryRef>
         <Feature Id="MainAppFeature" ConfigurableDirectory="APPLICATIONFOLDER" Title="!(loc.ProductName)" Level="1" Absent="disallow" Display="expand" AllowAdvertise="no" InstallDefault="local" Description="!(loc.ProductNameDescription)">
