@@ -48,6 +48,9 @@
 .spaced-vitem {
 	-fx-padding: 0.0 0.0 0.5em 0.0 ;
 }
+.both-spaced-vitem {
+	-fx-padding: 0.5em 0.0 0.5em 0.0 ;
+}
 .encryption-status {
 	-fx-alignment: center;
 	-fx-text-alignment: center;

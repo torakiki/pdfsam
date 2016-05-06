@@ -19,6 +19,7 @@
 package org.pdfsam.splitbysize;
 
 import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
+import static org.pdfsam.ui.io.PdfDestinationPane.DestinationPanelFields.DISCARD_BOOKMARKS;
 
 import java.util.Map;
 import java.util.function.Consumer;
@@ -128,7 +129,7 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
 
         pane.getChildren().addAll(selectionPane,
                 Views.titledPane(DefaultI18nContext.getInstance().i18n("Split settings"), splitOptions),
-                Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination directory"), destinationPane),
+                Views.titledPane(DefaultI18nContext.getInstance().i18n("Output settings"), destinationPane),
                 prefixTitled, footer);
         return pane;
     }
@@ -155,7 +156,7 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
         @Bean(name = MODULE_ID + "pane")
         public PdfDestinationPane destinationPane(@Named(MODULE_ID + "field") BrowsableOutputDirectoryField outputField,
                 UserContext userContext) {
-            PdfDestinationPane panel = new PdfDestinationPane(outputField, MODULE_ID, userContext);
+            PdfDestinationPane panel = new PdfDestinationPane(outputField, MODULE_ID, userContext, DISCARD_BOOKMARKS);
             panel.enableSameAsSourceItem();
             return panel;
         }

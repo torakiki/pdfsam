@@ -56,8 +56,6 @@ class PdfVersionConstrainedCheckBox extends CheckBox implements ModuleOwned {
                 eventStudio().broadcast(new RemovePdfVersionConstraintEvent(constraint), ownerModule);
             }
         });
-
-        getStyleClass().addAll(Style.VITEM.css());
     }
 
     public String getOwnerModule() {

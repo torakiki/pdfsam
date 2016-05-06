@@ -18,16 +18,18 @@
  */
 package org.pdfsam.ui.io;
 
+import static java.util.Arrays.asList;
+import static java.util.Optional.empty;
+import static java.util.Optional.ofNullable;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.pdfsam.ui.help.HelpUtils.helpIcon;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
-
-import javax.inject.Named;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.UserContext;
@@ -44,29 +46,27 @@ import org.sejda.eventstudio.annotation.EventStation;
 import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.parameter.base.AbstractPdfOutputParameters;
 import org.sejda.model.pdf.PdfVersion;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Scope;
 
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
-
 /**
  * Panel letting the user select an output destination for generated Pdf document/s.
  * 
  * @author Andrea Vacondio
  * 
  */
-@Named("pdfDestinationPane")
-@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class PdfDestinationPane extends DestinationPane implements ModuleOwned, RestorableView,
         TaskParametersBuildStep<AbstractPdfOutputParametersBuilder<? extends AbstractPdfOutputParameters>> {
 
     private PdfVersionCombo version;
     private PdfVersionConstrainedCheckBox compress;
+    private Optional<CheckBox> discardBookmarks = empty();
     private String ownerModule = StringUtils.EMPTY;
     private UserContext userContext;
 
-    public PdfDestinationPane(BrowsableField destination, String ownerModule, UserContext userContext) {
+    public PdfDestinationPane(BrowsableField destination, String ownerModule, UserContext userContext,
+            DestinationPanelFields... optionalFields) {
         super(destination);
         destination.setId(ownerModule + ".destination");
         requireNotNull(userContext, "UserContext cannot be null");
@@ -75,10 +75,20 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned, 
         version = new PdfVersionCombo(ownerModule);
         compress = new PdfVersionConstrainedCheckBox(PdfVersion.VERSION_1_5, ownerModule);
         compress.setText(DefaultI18nContext.getInstance().i18n("Compress output file/files"));
+        if (asList(optionalFields).contains(DestinationPanelFields.DISCARD_BOOKMARKS)) {
+            CheckBox discardBookmarksField = new CheckBox(DefaultI18nContext.getInstance().i18n("Discard bookmarks"));
+            discardBookmarksField.setGraphic(helpIcon(DefaultI18nContext.getInstance()
+                    .i18n("Tick the box if you don't want to retain any bookmark from the original PDF document")));
+            discardBookmarksField.getStyleClass().addAll(Style.WITH_HELP.css());
+            discardBookmarksField.setId("discardBookmarksField");
+            discardBookmarks = Optional.of(discardBookmarksField);
+        }
         HBox versionPane = new HBox(new Label(DefaultI18nContext.getInstance().i18n("Output PDF version:")), version);
-        versionPane.getStyleClass().addAll(Style.VITEM.css());
+        versionPane.getStyleClass().add("both-spaced-vitem");
         versionPane.getStyleClass().addAll(Style.HCONTAINER.css());
-        getChildren().addAll(compress, versionPane);
+        getChildren().add(compress);
+        discardBookmarks.ifPresent(getChildren()::add);
+        getChildren().add(versionPane);
         eventStudio().addAnnotatedListeners(this);
     }
 
@@ -93,7 +103,8 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned, 
 
     @EventListener
     public void setDestination(SetDestinationRequest event) {
-        if (!event.isFallback() || (isBlank(destination().getTextField().getText()) && userContext.isUseSmartOutput())) {
+        if (!event.isFallback()
+                || (isBlank(destination().getTextField().getText()) && userContext.isUseSmartOutput())) {
             destination().setTextFromFile(event.getFootprint());
         }
     }
@@ -105,11 +116,17 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned, 
             builder.existingOutput(ExistingOutputPolicy.OVERWRITE);
         }
         builder.version(version.getSelectionModel().getSelectedItem().getVersion());
+        discardBookmarks.ifPresent(d -> {
+            builder.discardBookmarks(d.isSelected());
+        });
     }
 
     public void saveStateTo(Map<String, String> data) {
         data.put("compress", Boolean.toString(compress.isSelected()));
         data.put("overwrite", Boolean.toString(overwrite().isSelected()));
+        discardBookmarks.ifPresent(d -> {
+            data.put("discardBookmarks", Boolean.toString(d.isSelected()));
+        });
         data.put("version", version.getSelectionModel().getSelectedItem().getVersion().toString());
     }
 
@@ -117,7 +134,14 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned, 
         version.initializeState();
         compress.setSelected(Boolean.valueOf(data.get("compress")));
         overwrite().setSelected(Boolean.valueOf(data.get("overwrite")));
-        Optional.ofNullable(data.get("version")).map(PdfVersion::valueOf).map(DefaultPdfVersionComboItem::new)
+        discardBookmarks.ifPresent(d -> {
+            d.setSelected(Boolean.valueOf(data.get("discardBookmarks")));
+        });
+        ofNullable(data.get("version")).map(PdfVersion::valueOf).map(DefaultPdfVersionComboItem::new)
                 .ifPresent(v -> this.version.getSelectionModel().select(v));
+    }
+
+    public static enum DestinationPanelFields {
+        DISCARD_BOOKMARKS;
     }
 }

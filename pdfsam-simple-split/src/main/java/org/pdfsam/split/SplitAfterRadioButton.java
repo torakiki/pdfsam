@@ -102,6 +102,7 @@ class SplitAfterRadioButton extends RadioButton implements SplitParametersBuilde
             params.setOutputPrefix(getPrefix());
             params.setSource(getSource());
             params.setOptimizationPolicy(getOptimizationPolicy());
+            params.discardOutline(isDiscardBookmarks());
             return params;
         }
     }

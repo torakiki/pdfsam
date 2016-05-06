@@ -50,6 +50,7 @@ class SplitByOutlineLevelParametersBuilder extends SplitParametersBuilder<SplitB
         params.setOutputPrefix(getPrefix());
         params.setSource(getSource());
         params.setOptimizationPolicy(getOptimizationPolicy());
+        params.discardOutline(isDiscardBookmarks());
         return params;
     }
 }

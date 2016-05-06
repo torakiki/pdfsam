@@ -19,6 +19,7 @@
 package org.pdfsam.split;
 
 import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
+import static org.pdfsam.ui.io.PdfDestinationPane.DestinationPanelFields.DISCARD_BOOKMARKS;
 
 import java.util.Map;
 import java.util.Optional;
@@ -53,7 +54,6 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-
 /**
  * Simple split module to let the user set page numbers to split an input pdf document.
  * 
@@ -133,7 +133,7 @@ public class SplitModule extends BaseTaskExecutionModule {
         pane.getChildren()
                 .addAll(selectionPane, Views.titledPane(DefaultI18nContext.getInstance().i18n("Split settings"),
                         splitOptions),
-                Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination directory"), destinationPane),
+                        Views.titledPane(DefaultI18nContext.getInstance().i18n("Output settings"), destinationPane),
                 prefixTitled, footer);
         return pane;
     }
@@ -158,7 +158,7 @@ public class SplitModule extends BaseTaskExecutionModule {
         @Bean(name = MODULE_ID + "pane")
         public PdfDestinationPane destinationPane(@Named(MODULE_ID + "field") BrowsableOutputDirectoryField outputField,
                 UserContext userContext) {
-            PdfDestinationPane panel = new PdfDestinationPane(outputField, MODULE_ID, userContext);
+            PdfDestinationPane panel = new PdfDestinationPane(outputField, MODULE_ID, userContext, DISCARD_BOOKMARKS);
             panel.enableSameAsSourceItem();
             return panel;
         }

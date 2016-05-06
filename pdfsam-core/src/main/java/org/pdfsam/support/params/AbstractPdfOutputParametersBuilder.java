@@ -28,9 +28,10 @@ import org.sejda.model.pdf.PdfVersion;
  * @param <P>
  *            type of the parameters the builder builds
  */
-public abstract class AbstractPdfOutputParametersBuilder<P extends AbstractPdfOutputParameters> extends
-        AbstractParametersBuilder<P> {
+public abstract class AbstractPdfOutputParametersBuilder<P extends AbstractPdfOutputParameters>
+        extends AbstractParametersBuilder<P> {
     private boolean compress;
+    private boolean discardBookmarks = false;
     private PdfVersion version;
 
     public void compress(boolean compress) {
@@ -47,5 +48,13 @@ public abstract class AbstractPdfOutputParametersBuilder<P extends AbstractPdfOu
 
     protected PdfVersion getVersion() {
         return version;
+    }
+
+    public void discardBookmarks(boolean discardBookmarks) {
+        this.discardBookmarks = discardBookmarks;
+    }
+
+    protected boolean isDiscardBookmarks() {
+        return discardBookmarks;
     }
 }
