@@ -58,7 +58,6 @@ public class PdfVersionComboTest {
 
     @Test
     public void removeConstraintRestoresItems() {
-
         eventStudio().broadcast(new AddPdfVersionConstraintEvent(PdfVersion.VERSION_1_4), MODULE);
         eventStudio().broadcast(new AddPdfVersionConstraintEvent(PdfVersion.VERSION_1_6), MODULE);
         assertFalse(comboHasItem(victim, PdfVersion.VERSION_1_5));
@@ -79,6 +78,14 @@ public class PdfVersionComboTest {
         eventStudio().broadcast(new ChangedSelectedPdfVersionEvent(PdfVersion.VERSION_1_4), MODULE);
         long values = victim.getItems().stream().filter(i -> i.getVersion().equals(PdfVersion.VERSION_1_4)).count();
         assertEquals(2, values);
+    }
+
+    @Test
+    public void lowestIsSelected() {
+        victim.enableSameAsSourceItem();
+        eventStudio().broadcast(new ChangedSelectedPdfVersionEvent(PdfVersion.VERSION_1_4), MODULE);
+        eventStudio().broadcast(new AddPdfVersionConstraintEvent(PdfVersion.VERSION_1_5), MODULE);
+        assertEquals(PdfVersion.VERSION_1_5, victim.getSelectionModel().getSelectedItem().getVersion());
     }
 
     private boolean comboHasItem(PdfVersionCombo combo, PdfVersion version) {

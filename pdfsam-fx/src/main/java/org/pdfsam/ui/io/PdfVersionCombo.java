@@ -63,7 +63,7 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwn
             if (selecedIndex != -1) {
                 getSelectionModel().select(selecedIndex);
             } else {
-                getSelectionModel().selectLast();
+                getSelectionModel().selectFirst();
             }
         });
         initializeState();
