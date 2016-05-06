@@ -51,12 +51,14 @@ public class SplitBySizeParametersBuilderTest {
         victim.existingOutput(ExistingOutputPolicy.OVERWRITE);
         victim.size(120l);
         victim.prefix("prefix");
+        victim.discardBookmarks(true);
         File file = folder.newFile("my.pdf");
         PdfFileSource source = PdfFileSource.newInstanceNoPassword(file);
         victim.source(source);
         victim.version(PdfVersion.VERSION_1_7);
         SplitBySizeParameters params = victim.build();
         assertTrue(params.isCompress());
+        assertTrue(params.discardOutline());
         assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
         assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
         assertEquals(120l, params.getSizeToSplitAt());

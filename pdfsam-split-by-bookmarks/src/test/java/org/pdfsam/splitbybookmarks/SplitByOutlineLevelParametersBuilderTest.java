@@ -19,6 +19,7 @@
 package org.pdfsam.splitbybookmarks;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 
@@ -58,6 +59,7 @@ public class SplitByOutlineLevelParametersBuilderTest {
         victim.version(PdfVersion.VERSION_1_7);
         SplitByOutlineLevelParameters params = victim.build();
         assertTrue(params.isCompress());
+        assertFalse(params.discardOutline());
         assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
         assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
         assertEquals(2, params.getLevelToSplitAt());

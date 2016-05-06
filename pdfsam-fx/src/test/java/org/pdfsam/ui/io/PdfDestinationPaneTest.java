@@ -21,6 +21,7 @@ package org.pdfsam.ui.io;
 import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.never;
@@ -117,6 +118,7 @@ public class PdfDestinationPaneTest {
         victim.saveStateTo(data);
         assertEquals(Boolean.TRUE.toString(), data.get("overwrite"));
         assertEquals(Boolean.FALSE.toString(), data.get("compress"));
+        assertNull(data.get("discardBookmarks"));
         assertTrue(isNotEmpty(data.get("version")));
     }
 

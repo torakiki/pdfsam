@@ -37,6 +37,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.support.params.AbstractPdfOutputParametersBuilder;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.ui.io.PdfDestinationPane.DestinationPanelFields;
 import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.parameter.base.AbstractPdfOutputParameters;
 
@@ -67,7 +68,8 @@ public class PdfDestinationPaneUITest extends GuiTest {
     @Override
     protected Parent getRootNode() {
         BrowsablePdfInputField destination = new BrowsablePdfInputField();
-        PdfDestinationPane victim = new PdfDestinationPane(destination, MODULE, userContext);
+        PdfDestinationPane victim = new PdfDestinationPane(destination, MODULE, userContext,
+                DestinationPanelFields.DISCARD_BOOKMARKS);
         victim.getStyleClass().add("victim");
         return victim;
     }
@@ -77,6 +79,7 @@ public class PdfDestinationPaneUITest extends GuiTest {
         PdfDestinationPane victim = find(".victim");
         victim.apply(builder, onError);
         verify(builder).compress(false);
+        verify(builder).discardBookmarks(false);
         verify(builder, never()).existingOutput(any());
     }
 
@@ -96,5 +99,6 @@ public class PdfDestinationPaneUITest extends GuiTest {
         victim.apply(builder, onError);
         verify(builder).compress(true);
         verify(builder).existingOutput(ExistingOutputPolicy.OVERWRITE);
+        verify(builder).discardBookmarks(true);
     }
 }
