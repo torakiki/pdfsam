@@ -68,8 +68,7 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
     private PdfDestinationPane destinationPane;
     private SplitOptionsPane splitOptions = new SplitOptionsPane();
     private PrefixPane prefix = new PrefixPane();
-    private ModuleDescriptor descriptor = builder()
-            .category(ModuleCategory.SPLIT)
+    private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT)
             .name(DefaultI18nContext.getInstance().i18n("Split by size"))
             .description(
                     DefaultI18nContext.getInstance().i18n("Split a PDF document in files of the given size (roughly)."))
@@ -81,8 +80,8 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
         this.destinationDirectoryField = destinationDirectoryField;
         this.destinationPane = destinationPane;
         this.selectionPane = new TaskParametersBuilderSingleSelectionPane(id());
-        this.selectionPane.setPromptText(DefaultI18nContext.getInstance().i18n(
-                "Select or drag and drop the PDF you want to split"));
+        this.selectionPane.setPromptText(
+                DefaultI18nContext.getInstance().i18n("Select or drag and drop the PDF you want to split"));
     }
 
     @Override
@@ -122,8 +121,8 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
         VBox pane = new VBox();
         pane.setAlignment(Pos.TOP_CENTER);
 
-        TitledPane prefixTitled = Views
-                .titledPane(DefaultI18nContext.getInstance().i18n("File names settings"), prefix);
+        TitledPane prefixTitled = Views.titledPane(DefaultI18nContext.getInstance().i18n("File names settings"),
+                prefix);
         prefix.addMenuItemFor(Prefix.CURRENTPAGE);
         prefix.addMenuItemFor(Prefix.FILENUMBER);
 
@@ -154,9 +153,11 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
         }
 
         @Bean(name = MODULE_ID + "pane")
-        public PdfDestinationPane destinationPane(
-                @Named(MODULE_ID + "field") BrowsableOutputDirectoryField outputField, UserContext userContext) {
-            return new PdfDestinationPane(outputField, MODULE_ID, userContext);
+        public PdfDestinationPane destinationPane(@Named(MODULE_ID + "field") BrowsableOutputDirectoryField outputField,
+                UserContext userContext) {
+            PdfDestinationPane panel = new PdfDestinationPane(outputField, MODULE_ID, userContext);
+            panel.enableSameAsSourceItem();
+            return panel;
         }
     }
 }
