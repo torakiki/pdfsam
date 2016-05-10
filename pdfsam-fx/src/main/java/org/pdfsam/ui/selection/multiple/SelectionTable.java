@@ -19,6 +19,8 @@
 package org.pdfsam.ui.selection.multiple;
 
 import static java.util.Arrays.stream;
+import static java.util.Optional.of;
+import static java.util.Optional.ofNullable;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.ui.commons.SetDestinationRequest.requestDestination;
 import static org.pdfsam.ui.commons.SetDestinationRequest.requestFallbackDestination;
@@ -32,6 +34,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -74,7 +77,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.DataFormat;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.KeyCode;
@@ -90,7 +96,12 @@ import javafx.stage.Window;
  * 
  */
 public class SelectionTable extends TableView<SelectionTableRowData> implements ModuleOwned, RestorableView {
+
     private static final Logger LOG = LoggerFactory.getLogger(SelectionTable.class);
+
+    private static final DataFormat DND_TABLE_SELECTION_MIME_TYPE = new DataFormat(
+            "application/x-java-table-selection-list");
+
     private String ownerModule = StringUtils.EMPTY;
     private Label placeHolder = new Label(DefaultI18nContext.getInstance().i18n("Drag and drop PDF files here"));
     private PasswordFieldPopup passwordPopup;
@@ -103,6 +114,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         Arrays.stream(columns).forEach(c -> getColumns().add(c.getTableColumn()));
         setColumnResizePolicy(CONSTRAINED_RESIZE_POLICY);
+        initDragAndDrop(canMove);
         getSelectionModel().getSelectedIndices().addListener((Change<? extends Integer> c) -> {
 
             ObservableList<? extends Integer> selected = c.getList();
@@ -119,10 +131,6 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         placeHolder.getStyleClass().add("drag-drop-placeholder");
         placeHolder.setDisable(true);
         setPlaceholder(placeHolder);
-        setOnDragOver(e -> dragConsume(e, this.onDragOverConsumer()));
-        setOnDragEntered(e -> dragConsume(e, this.onDragEnteredConsumer()));
-        setOnDragExited(this::onDragExited);
-        setOnDragDropped(e -> dragConsume(e, this.onDragDropped()));
         passwordPopup = new PasswordFieldPopup(this.ownerModule);
         MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set destination"),
                 MaterialIcon.FLIGHT_LAND);
@@ -234,6 +242,93 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         return item;
     }
 
+    private void initDragAndDrop(boolean canMove) {
+        setOnDragOver(e -> dragConsume(e, this.onDragOverConsumer()));
+        setOnDragEntered(e -> dragConsume(e, this.onDragEnteredConsumer()));
+        setOnDragExited(this::onDragExited);
+        setOnDragDropped(e -> dragConsume(e, this.onDragDropped()));
+        if (canMove) {
+            setRowFactory(tv -> {
+                TableRow<SelectionTableRowData> row = new TableRow<>();
+                row.setOnDragDetected(e -> {
+                    ArrayList<Integer> selection = new ArrayList<>(getSelectionModel().getSelectedIndices());
+                    // TODO selection must be contiguos
+                    if (!row.isEmpty() && !selection.isEmpty()) {
+                        Dragboard db = row.startDragAndDrop(TransferMode.MOVE);
+                        db.setDragView(row.snapshot(null, null));
+                        ClipboardContent cc = new ClipboardContent();
+                        cc.put(DND_TABLE_SELECTION_MIME_TYPE, selection);
+                        db.setContent(cc);
+                        e.consume();
+
+                    }
+                });
+
+                row.setOnDragOver(e -> {
+                    if (e.getGestureSource() != row && e.getDragboard().hasContent(DND_TABLE_SELECTION_MIME_TYPE)) {
+                        if (!((List<Integer>) e.getDragboard().getContent(DND_TABLE_SELECTION_MIME_TYPE))
+                                .contains(row.getIndex())) {
+                            e.acceptTransferModes(TransferMode.MOVE);
+                            e.consume();
+                        }
+                    }
+                });
+                row.setOnDragEntered(e -> {
+                    if (!row.isEmpty() && e.getDragboard().hasContent(DND_TABLE_SELECTION_MIME_TYPE)) {
+                        if (!((List<Integer>) e.getDragboard().getContent(DND_TABLE_SELECTION_MIME_TYPE))
+                                .contains(row.getIndex())) {
+                            row.setOpacity(0.6);
+                        }
+                    }
+                });
+                row.setOnDragExited(e -> {
+                    if (!row.isEmpty() && e.getDragboard().hasContent(DND_TABLE_SELECTION_MIME_TYPE)) {
+                        if (!((List<Integer>) e.getDragboard().getContent(DND_TABLE_SELECTION_MIME_TYPE))
+                                .contains(row.getIndex())) {
+                            row.setOpacity(1);
+                        }
+                    }
+                });
+
+                row.setOnDragDropped(e -> {
+                    Dragboard db = e.getDragboard();
+                    if (db.hasContent(DND_TABLE_SELECTION_MIME_TYPE)) {
+                        Optional<SelectionTableRowData> focus = ofNullable(getFocusModel().getFocusedItem());
+                        Optional<SelectionTableRowData> toDrop = of(row).filter(r -> !r.isEmpty())
+                                .map(TableRow::getIndex).map(getItems()::get);
+
+                        List<Integer> dragged = (List<Integer>) e.getDragboard()
+                                .getContent(DND_TABLE_SELECTION_MIME_TYPE);
+                        List<SelectionTableRowData> toMove = dragged.stream().map(getItems()::get)
+                                .filter(Objects::nonNull).collect(Collectors.toList());
+                        getItems().removeAll(toMove);
+
+                        int dropIndex = getItems().size();
+                        if (toDrop.isPresent()) {
+                            int toDropNewIndex = toDrop.map(getItems()::indexOf).get();
+                            if (toDropNewIndex == row.getIndex()) {
+                                // we dropped up
+                                dropIndex = toDropNewIndex;
+                            } else {
+                                // we dropped down
+                                dropIndex = toDropNewIndex + 1;
+                            }
+                        }
+
+                        getItems().addAll(dropIndex, toMove);
+                        e.setDropCompleted(true);
+                        getSelectionModel().clearSelection();
+                        getSelectionModel().selectRange(dropIndex, dropIndex + toMove.size());
+                        focus.map(getItems()::indexOf).ifPresent(getFocusModel()::focus);
+                        e.consume();
+                    }
+                });
+
+                return row;
+            });
+        }
+    }
+
     private void dragConsume(DragEvent e, Consumer<DragEvent> c) {
         if (e.getDragboard().hasFiles()) {
             c.accept(e);
@@ -257,6 +352,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     private Consumer<DragEvent> onDragDropped() {
         return (DragEvent e) -> {
+            System.out.println("oy");
             final PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
             getFilesFromDragboard(e.getDragboard()).filter(f -> FileType.PDF.matches(f.getName()))
                     .map(PdfDocumentDescriptor::newDescriptorNoPassword).forEach(loadEvent::add);
