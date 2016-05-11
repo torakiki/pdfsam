@@ -252,7 +252,6 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
                 TableRow<SelectionTableRowData> row = new TableRow<>();
                 row.setOnDragDetected(e -> {
                     ArrayList<Integer> selection = new ArrayList<>(getSelectionModel().getSelectedIndices());
-                    // TODO selection must be contiguos
                     if (!row.isEmpty() && !selection.isEmpty()) {
                         Dragboard db = row.startDragAndDrop(TransferMode.MOVE);
                         db.setDragView(row.snapshot(null, null));
@@ -352,7 +351,6 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     private Consumer<DragEvent> onDragDropped() {
         return (DragEvent e) -> {
-            System.out.println("oy");
             final PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
             getFilesFromDragboard(e.getDragboard()).filter(f -> FileType.PDF.matches(f.getName()))
                     .map(PdfDocumentDescriptor::newDescriptorNoPassword).forEach(loadEvent::add);
