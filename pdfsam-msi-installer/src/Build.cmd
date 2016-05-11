@@ -1,6 +1,6 @@
 @ECHO OFF
 
-SET PDFSAM_VERSION=3.0.2.RELEASE
+SET PDFSAM_VERSION=3.0.3.RELEASE
 
 REM Prevent compiling with outdated pdfsam.wixobj file if there is a error in candle.
 del /Q pdfsam.wixobj
@@ -24,3 +24,5 @@ del /Q exitDlg.wixobj
 SET Culture=
 SET MsiName=
 SET WinSDK=
+
+IF EXIST "output\pdfsam-v%PDFSAM_VERSION%.msi" "signtool.exe" sign /t http://timestamp.verisign.com/scripts/timstamp.dll /a /d "PDFsam Basic" "output\pdfsam-v%PDFSAM_VERSION%.msi"
