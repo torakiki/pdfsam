@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-02-22 17:07+0100\n"
-"PO-Revision-Date: 2015-10-24 22:36+0000\n"
-"Last-Translator: Sotirios Chousos <hsotiris@yahoo.com>\n"
+"POT-Creation-Date: 2016-05-07 18:34+0200\n"
+"PO-Revision-Date: 2016-05-07 01:12+0000\n"
+"Last-Translator: ntelos <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-04 09:56+0000\n"
-"X-Generator: Launchpad (build 17936)\n"
+"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
+"X-Generator: Launchpad (build 18025)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Εγγραφείτε στην επίσημη ροή ειδήσεων"
@@ -24,46 +24,46 @@ msgid "Bug and feature requests"
 msgstr ""
 
 msgid "Play the \"get started\" video"
-msgstr ""
+msgstr "Πατήστε για να ξεκινήσει το εισαγωγικό βίντεο"
 
 msgid "Fork PDFsam on GitHub"
-msgstr ""
+msgstr "Κάντε fork το PDFsam στο GitHub"
 
 msgid "Translate"
-msgstr ""
+msgstr "Μετάφραση"
 
 msgid "Donate"
-msgstr ""
+msgstr "Κάντε Δωρεά"
 
 msgid "Follow us on Twitter"
-msgstr ""
+msgstr "Ακολουθήστε μας στο Twitter"
 
 msgid "Follow us on Google Plus"
-msgstr ""
+msgstr "Ακολουθήστε μας στο Google Plus"
 
 msgid "Like us on Facebook"
-msgstr ""
+msgstr "Κάντε μας like στο Facebook"
 
 msgid "Dashboard"
 msgstr "Πίνακας Αναφορών"
 
 msgid "Cancel"
-msgstr "Ακύρωση"
+msgstr "Άκυρο"
 
 msgid "Overwrite"
 msgstr "Αντικατάσταση"
 
 msgid "No"
-msgstr ""
+msgstr "Όχι"
 
 msgid "Yes"
-msgstr ""
+msgstr "Ναι"
 
 msgid "The selected output directory does not exist"
 msgstr ""
 
 msgid "Do you want to create it?"
-msgstr ""
+msgstr "Θέλετε να δημιουργηθεί;"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -125,7 +125,7 @@ msgid "Select the workspace to load"
 msgstr "Επιλέξτε το αρχείο χώρου εργασίας για να το ανοίξετε"
 
 msgid "What's new"
-msgstr ""
+msgstr "Τι νέο υπάρχει"
 
 msgid "Document details"
 msgstr "Λεπτομέρειες εγγράφου"
@@ -160,10 +160,10 @@ msgid "Support"
 msgstr "Υποστήριξη"
 
 msgid "Contribute"
-msgstr ""
+msgstr "Συνεισφέρετε"
 
 msgid "Social"
-msgstr ""
+msgstr "Κοινωνικά"
 
 msgid "Manually selected"
 msgstr ""
@@ -174,19 +174,19 @@ msgid ""
 msgstr ""
 
 msgid "Appearance"
-msgstr ""
+msgstr "Εμφάνιση"
 
 msgid "Behavior"
-msgstr ""
+msgstr "Συμπεριφορά"
 
 msgid "Workspace"
-msgstr ""
+msgstr "Χώρος εργασίας"
 
 msgid "Output"
-msgstr ""
+msgstr "Αποτέλεσμα"
 
 msgid "Check for updates at startup"
-msgstr ""
+msgstr "Έλεγχος για αναβαθμίσεις κατά την εκκίνηση"
 
 msgid ""
 "Set whether new version availability should be checked on startup (restart "
@@ -197,63 +197,70 @@ msgid "Play alert sounds"
 msgstr ""
 
 msgid "Turn on or off alert sounds"
-msgstr ""
+msgstr "Ενεργοποίηση ή απενεργοποίηση ήχων συναγερμού"
 
 msgid "Show donation window"
-msgstr ""
+msgstr "Εμφάνιση παραθύρου δωρεάς"
 
 msgid ""
 "Turn on or off the notification appearing once in a while and asking the "
 "user to support PDFsam with a donation"
 msgstr ""
+"Ενεργοποίηση ή απενεργοποίηση της ειδοποίησης που εμφανίζεται κάθε τόσο "
+"ζητώντας από τον χρήστη να υποστηρίξει το PDFsam με κάποια δωρεά"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr ""
 
 msgid "Save default workspace on exit"
-msgstr ""
+msgstr "Αποθήκευση προεπιλεγμένου χώρου εργασίας κατά την έξοδο"
 
 msgid "If a default workspace is set, save it on application exit"
 msgstr ""
+"Αν ένας προεπιλεγμένος χώρος εργασίας έχει οριστεί, αποθηκεύεται κατά την "
+"έξοδο από την εφαρμογή"
 
 msgid "Maximum number of rows mast be a positive number"
-msgstr ""
+msgstr "Ο μέγιστος αριθμός γραμμών πρέπει να είναι θετικός αριθμός"
 
 msgid "Generate high quality thumbnails (slower)"
 msgstr ""
+"Δημιουργία καλύτερης ποιότητας μικρογραφιών (απαιτεί περισσότερο χρόνο)"
 
 msgid "Size in px:"
-msgstr ""
+msgstr "Μέγεθος σε εικονοστοιχεία/pixels"
 
 msgid "Library used to generate thumbnails"
 msgstr ""
 
 msgid "Thumbnails creator:"
-msgstr ""
+msgstr "Δημιουργός μικρογραφιών"
 
 msgid "Clear usage statistics"
-msgstr ""
+msgstr "Καθαρισμός στατιστικών χρήσης"
 
 msgid ""
 "Select a directory where documents will be saved and loaded by default"
-msgstr ""
+msgstr "Επιλογή φακέλου προεπιλεγμένης αποθήκευσης και φόρτωσης των εγγράφων"
 
 msgid "Select a directory"
-msgstr ""
+msgstr "Επιλογή καταλόγου"
 
 msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
 "startup"
 msgstr ""
+"Επιλογή αποθηκευμένου χώρου εργασίας ώστε να γίνεται αυτόματη φόρτωση κατά "
+"την εκκίνηση"
 
 msgid "Select a workspace"
-msgstr ""
+msgstr "Επιλογή χώρου εργασίας"
 
 msgid "Default working directory:"
-msgstr ""
+msgstr "Προεπιλεγμένος κατάλογος εργασίας"
 
 msgid "Load default workspace at startup:"
-msgstr ""
+msgstr "Φόρτωση προεπιλεγμένου χώρου εργασίας κατά την εκκίνηση"
 
 msgid "Log register rows:"
 msgstr ""
@@ -267,7 +274,7 @@ msgid "Language:"
 msgstr "Γλώσσα:"
 
 msgid "Set your preferred language (restart needed)"
-msgstr ""
+msgstr "Ορισμός γλώσσας επιλογής (απαιτείται επανεκκίνηση)"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:122
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:113
@@ -275,31 +282,36 @@ msgid "Theme:"
 msgstr "Θέμα:"
 
 msgid "Set your preferred theme (restart needed)"
-msgstr ""
+msgstr "Ορισμός θέματος επιλογής (απαιτείται επανεκκίνηση)"
 
 msgid "Startup module:"
-msgstr ""
+msgstr "Άρθρωμα εκκίνησης / Startup module"
 
 msgid "Set the module to open at application startup (restart needed)"
 msgstr ""
+"Ορισμός αρθρώματος/module προς άνοιγμα κατά την εκκίνηση της εφαρμογής "
+"(απαιτείται επανεκκίνηση)"
 
 msgid ""
 "Usage statistics are used to populate the modules quick bar on the left with "
 "the most used and most recently used modules."
 msgstr ""
+"Τα στατιστικά χρήσης χρησιμοποιούνται για να ενημερώσουν την μπάρα "
+"συντομεύσεων αρθρωμάτων (modules) στα αριστερά με τα περισσότερο και πιο "
+"πρόσφατα χρησιμοποιημένα αρθρώματα."
 
 msgid "Check for updates now"
-msgstr ""
+msgstr "Έλεγχος ενημερώσεων τώρα"
 
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:150
 msgid "Close"
 msgstr "Κλείσιμο"
 
 msgid "Settings"
-msgstr ""
+msgstr "Ρυθμίσεις"
 
 msgid "Modules"
-msgstr ""
+msgstr "Αρθρώματα/Modules"
 
 msgid "Log register"
 msgstr ""
@@ -320,119 +332,121 @@ msgid "Select all"
 msgstr "Επιλογή όλων"
 
 msgid "Save log"
-msgstr ""
+msgstr "Αποθήκευση αρχείου καταγραφής"
 
 msgid "Select where to save the log file"
-msgstr ""
+msgstr "Επιλογή χώρου αποθήκευσης του αρχείου"
 
 msgid "Invalid parameters"
-msgstr ""
+msgstr "Μη έγκυρες παραμέτροι"
 
 msgid ""
 "Input parameters are invalid, open the application messages for details."
 msgstr ""
+"Μη έγκυρες παράμετροι εισόδου, ανοίξτε το μήνυμα της εφαρμογής για "
+"λεπτομέρειες"
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
-msgstr ""
+msgstr "Εκτελέσατε {0} εργασίες με το PDFsam, σας βοήθησε;"
 
 msgid "Give something back"
-msgstr ""
+msgstr "Επιστρέψτε κάποιο δεδομένο"
 
 msgid "PDFsam worked hard!"
-msgstr ""
+msgstr "Το PDFsam δούλεψε σκληρά!"
 
 msgid "Spread the word!"
-msgstr ""
+msgstr "Διαδώστε το!"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
-msgstr ""
+msgstr "Το PDFsam {0} είναι διαθέσιμο για λήψη"
 
 msgid "Download"
-msgstr ""
+msgstr "Λήψη"
 
 msgid "New version available"
-msgstr ""
+msgstr "Νέα έκδοση διαθέσιμη"
 
 msgid "Non existing directory"
-msgstr ""
+msgstr "Ο κατάλογος δεν υπάρχει"
 
 msgid "Directory not empty"
-msgstr ""
+msgstr "Ο κατάλογος δεν είναι κενός"
 
 msgid "The selected directory is not empty"
-msgstr ""
+msgstr "Ο επιλεγμένος κατάλογος δεν είναι κενός"
 
 msgid "Overwrite files with the same name as the generated ones?"
-msgstr ""
+msgstr "Επανεγγραφή αρχείων ίδιου ονόματος με αυτά που δημιουργήθηκαν;"
 
 msgid "Don't overwrite existing file"
-msgstr ""
+msgstr "Μην επανεγγράφετε ήδη υπάρχον αρχείο"
 
 msgid "Overwrite confirmation"
-msgstr ""
+msgstr "Επιβεβαίωση επανεγγραφής"
 
 msgid "A file with the given name already exists"
-msgstr ""
+msgstr "Υπάρχει ήδη ένα αρχείο με το ίδιο όνομα"
 
 msgid "Do you want to overwrite it?"
-msgstr ""
+msgstr "Θέλετε να το αντικαταστήσετε;"
 
 msgid "Unable to find the latest available version."
-msgstr ""
+msgstr "Αδύνατη η εύρεση της τελευταίας διαθέσιμης έκδοσης"
 
 msgid "Checking for updates"
-msgstr ""
+msgstr "Έλεγχος ενημερώσεων"
 
 msgid "Fetching latest news"
-msgstr ""
+msgstr "Ανάκτηση τελευταίων νέων"
 
 msgid "Unable to retrieve the latest news"
-msgstr ""
+msgstr "Αδύνατη η ανάκτηση των τελευταίων νέων"
 
 msgid "Unable to retrieve latest news"
-msgstr ""
+msgstr "Αδύνατη η ανάκτηση τελευταίων νέων"
 
 msgid "Loading pdf documents"
-msgstr ""
+msgstr "Φόρτωση εγγράφων pdf"
 
 msgid "Documents loaded"
-msgstr ""
+msgstr "Φόρτωση εγγράφων επιτυχής"
 
 msgid "Requesting modules state"
-msgstr ""
+msgstr "Κατάσταση των ζητούμενων αρθρωμάτων/modules"
 
 msgid "Unable to save modules workspace"
-msgstr ""
+msgstr "Αδύνατη η αποθήκευση του χώρου εργασίας αρθρωμάτων"
 
 #, java-format
 msgid "Unable to save workspace to {0}"
-msgstr ""
+msgstr "Αδύνατη η αποθήκευση του χώρου εργασίας στο {0}"
 
 #, java-format
 msgid "Loading workspace from {0}"
-msgstr ""
+msgstr "Φόρτωση του χώρου εργασίας από το {0}"
 
 msgid "Workspace loaded"
-msgstr ""
+msgstr "Φόρτωση χώρου εργασίας επιτυχής"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
-msgstr ""
+msgstr "Αδύνατη η φόρτωση χώρου εργασίας από το {0}"
 
 #, java-format
 msgid "Saving workspace data to {0}"
-msgstr ""
+msgstr "Αποθήκευση δεδομένων χώρου εργασίας στο {0}"
 
 msgid "Workspace saved"
-msgstr ""
+msgstr "Αποθήκευση χώρου εργασίας"
 
 msgid "Split after"
 msgstr ""
 
 msgid "No page selected"
-msgstr ""
+msgstr "Καμμία επιλογή σελίδας"
 
 msgid "Split after the following page numbers"
 msgstr ""
@@ -441,31 +455,33 @@ msgid "Page numbers to split at (n1,n2,n3..)"
 msgstr ""
 
 msgid "Invalid page numbers"
-msgstr ""
+msgstr "Μη έγκυροι αριθμοί σελίδων"
 
 msgid "Only valid positive page numbers are allowed"
-msgstr ""
+msgstr "Μόνο έγκυροι θετικοί αριθμοί σελίδων επιτρέπονται"
 
 msgid "Split"
 msgstr "Χώρισμα"
 
 msgid "Split a PDF document at the given page numbers."
-msgstr ""
+msgstr "Διαχώρισε ένα έγγραφο PDF στους συγκεκριμένους αριθμούς σελίδων"
 
 msgid "Select or drag and drop the PDF you want to split"
 msgstr ""
+"Επιλέξτε ή μεταφέρετε και αποθέστε το αρχείο PDF που επιθυμείτε να "
+"διαχωρίσετε"
 
 msgid "File names settings"
-msgstr ""
+msgstr "Ρυθμίσεις ονόματος αρχείων"
 
 msgid "Split settings"
-msgstr ""
+msgstr "Ρυθμίσεις διαχωρισμού"
 
-msgid "Destination directory"
+msgid "Output settings"
 msgstr ""
 
 msgid "Every page"
-msgstr ""
+msgstr "Κάθε σελίδα"
 
 msgid "Even pages"
 msgstr ""
@@ -474,7 +490,7 @@ msgid "Odd pages"
 msgstr ""
 
 msgid "Split the document after the given page numbers"
-msgstr ""
+msgstr "Διαχώρισε το έγγραφο μετά από τους δοθέντες αριθμούς σελίδων"
 
 msgid ""
 "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
@@ -484,7 +500,7 @@ msgid "Split by every \"n\" pages"
 msgstr ""
 
 msgid "Number of pages"
-msgstr ""
+msgstr "Αριθμός σελίδων"
 
 msgid "Invalid number of pages"
 msgstr ""
@@ -695,6 +711,14 @@ msgstr ""
 msgid "Compress output file/files"
 msgstr ""
 
+msgid "Discard bookmarks"
+msgstr ""
+
+msgid ""
+"Tick the box if you don't want to retain any bookmark from the original PDF "
+"document"
+msgstr ""
+
 msgid "Output PDF version:"
 msgstr ""
 
@@ -821,6 +845,12 @@ msgid ""
 "number of pages"
 msgstr ""
 
+msgid "Add a footer"
+msgstr ""
+
+msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr ""
+
 msgid "Merge fields"
 msgstr ""
 
@@ -837,9 +867,6 @@ msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr ""
 
 msgid "Retain bookmarks"
-msgstr ""
-
-msgid "Discard bookmarks"
 msgstr ""
 
 msgid "Create one entry for each merged document"
@@ -965,6 +992,9 @@ msgstr ""
 
 msgid "Rotate settings"
 msgstr ""
+
+msgid "Destination directory"
+msgstr "Κατάλογος προορισμού"
 
 #~ msgid "Destination folder"
 #~ msgstr "Φάκελος προορισμού"

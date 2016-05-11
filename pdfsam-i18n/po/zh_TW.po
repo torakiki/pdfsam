@@ -5,15 +5,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDFSam 3\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2016-02-22 17:07+0100\n"
+"POT-Creation-Date: 2016-05-07 18:34+0200\n"
 "PO-Revision-Date: 2016-02-25 14:36+0000\n"
 "Last-Translator: Jeff Huang <s8321414@yahoo.com.tw>\n"
 "Language-Team: Chinese (Taiwan) (zh_TW@li.org)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-04 09:56+0000\n"
-"X-Generator: Launchpad (build 17936)\n"
+"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
+"X-Generator: Launchpad (build 18025)\n"
 "Language: zh_TW\n"
 
 msgid "Subscribe to the official news feed"
@@ -448,8 +448,8 @@ msgstr "檔名設定"
 msgid "Split settings"
 msgstr "分割設定"
 
-msgid "Destination directory"
-msgstr "目的地目錄"
+msgid "Output settings"
+msgstr ""
 
 msgid "Every page"
 msgstr "每一頁"
@@ -640,6 +640,14 @@ msgstr "選取的 PDF 檔無效"
 msgid "Compress output file/files"
 msgstr "壓縮輸出的檔案"
 
+msgid "Discard bookmarks"
+msgstr "捨棄書籤"
+
+msgid ""
+"Tick the box if you don't want to retain any bookmark from the original PDF "
+"document"
+msgstr ""
+
 msgid "Output PDF version:"
 msgstr "輸出 PDF 版本："
 
@@ -761,6 +769,12 @@ msgid ""
 "number of pages"
 msgstr "在每個奇數頁的被合併文件後新增一空白頁"
 
+msgid "Add a footer"
+msgstr ""
+
+msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr ""
+
 msgid "Merge fields"
 msgstr "合併欄位"
 
@@ -778,9 +792,6 @@ msgstr "在一個或多個輸入文件包含 Acro 表單時要怎麼做"
 
 msgid "Retain bookmarks"
 msgstr "保留書籤"
-
-msgid "Discard bookmarks"
-msgstr "捨棄書籤"
 
 msgid "Create one entry for each merged document"
 msgstr "為每個被合併文件建立一個條目"
@@ -905,6 +916,9 @@ msgstr "旋轉多個 PDF 文件的頁面。"
 
 msgid "Rotate settings"
 msgstr "旋轉頁面設定"
+
+msgid "Destination directory"
+msgstr "目的地目錄"
 
 #~ msgid "Split even pages"
 #~ msgstr "分割出偶數頁"

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-02-22 17:07+0100\n"
-"PO-Revision-Date: 2016-01-04 20:46+0000\n"
-"Last-Translator: Malena Vasquez <Unknown>\n"
+"POT-Creation-Date: 2016-05-07 18:34+0200\n"
+"PO-Revision-Date: 2016-03-16 19:44+0000\n"
+"Last-Translator: Orlando <gutierrez_rojo@hotmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-04 09:56+0000\n"
-"X-Generator: Launchpad (build 17936)\n"
+"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
+"X-Generator: Launchpad (build 18025)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Suscribirse al canal de noticias oficial"
@@ -217,10 +217,12 @@ msgid "Use the selected PDF document directory as output directory"
 msgstr "Usar la carpeta del archivo PDF seleccionado como carpeta de salida"
 
 msgid "Save default workspace on exit"
-msgstr ""
+msgstr "Guardar área de trabajo predeterminado al salir"
 
 msgid "If a default workspace is set, save it on application exit"
 msgstr ""
+"Si un área de trabajo predeterminado está seleccionado, guardar al salir de "
+"la aplicación"
 
 msgid "Maximum number of rows mast be a positive number"
 msgstr "La cantidad máxima de líneas debe ser un número positivo"
@@ -349,7 +351,7 @@ msgid "PDFsam worked hard!"
 msgstr "¡PDFsam trabajó duro!"
 
 msgid "Spread the word!"
-msgstr ""
+msgstr "¡Pasa la voz!"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -415,7 +417,7 @@ msgstr "Imposible guardar los módulos del espacio de trabajo"
 
 #, java-format
 msgid "Unable to save workspace to {0}"
-msgstr ""
+msgstr "Imposible guardar trabajo en {0}"
 
 #, java-format
 msgid "Loading workspace from {0}"
@@ -468,8 +470,8 @@ msgstr "Configurar nombres de archivo"
 msgid "Split settings"
 msgstr "Configurar división"
 
-msgid "Destination directory"
-msgstr "Carpeta de destino"
+msgid "Output settings"
+msgstr ""
 
 msgid "Every page"
 msgstr "Cada página"
@@ -580,7 +582,7 @@ msgstr "Falló"
 
 #, java-format
 msgid "Running {0}%"
-msgstr ""
+msgstr "Ejecutando {0}"
 
 msgid "Running"
 msgstr "En proceso"
@@ -646,7 +648,7 @@ msgid "Pages: {0}, PDF Version: {1}"
 msgstr "Páginas: {0}, versión de PDF: {1}"
 
 msgid "Show errors"
-msgstr ""
+msgstr "Mostrar los errores"
 
 # G:\Documents\eclipse_workspace\PDFSAMsplit\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:368
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:542
@@ -682,6 +684,14 @@ msgstr "El archivo PDF seleccionado no es válido"
 
 msgid "Compress output file/files"
 msgstr "Comprimir archivo(s) de salida"
+
+msgid "Discard bookmarks"
+msgstr "Descartar los marcadores"
+
+msgid ""
+"Tick the box if you don't want to retain any bookmark from the original PDF "
+"document"
+msgstr ""
 
 msgid "Output PDF version:"
 msgstr "Version PDF de salida:"
@@ -818,6 +828,13 @@ msgstr ""
 "Añade una página vacía tras cada documento combinado si el documento tiene "
 "un número de páginas impar"
 
+msgid "Add a footer"
+msgstr "Añadir pie de página"
+
+msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr ""
+"Añadir un pie de página con el nombre del fichero al que pertenece la página"
+
 msgid "Merge fields"
 msgstr "Combinar campos"
 
@@ -831,13 +848,10 @@ msgid "Interactive forms (AcroForms):"
 msgstr "Formularios interactivos (AcroForms):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
-msgstr ""
+msgstr "Que hacer en caso de que una o más documentos contengan Acro Forms"
 
 msgid "Retain bookmarks"
 msgstr "Conservar los marcadores"
-
-msgid "Discard bookmarks"
-msgstr "Descartar los marcadores"
 
 msgid "Create one entry for each merged document"
 msgstr "Crear una entrada por cada documento combinado"
@@ -849,23 +863,24 @@ msgid "Bookmarks handling:"
 msgstr "Manejo de los marcadores:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
-msgstr ""
+msgstr "Que hacer en caso de que una o más documentos contengan marcadores"
 
 msgid "Don't generate"
-msgstr ""
+msgstr "No generar"
 
 msgid "Generate from file names"
-msgstr ""
+msgstr "Generar partiendo de los nombres de fichero"
 
 msgid "Generate from documents titles"
-msgstr ""
+msgstr "Generar partiendo de los títulos de documento"
 
 msgid "Table of contents:"
-msgstr ""
+msgstr "Índice de contenidos"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr ""
+"Marcar si se debe añadir un índice de contenidos al documento PDF generado"
 
 msgid "No PDF document has been selected"
 msgstr "No se seleccionó ningún documento PDF"
@@ -967,6 +982,9 @@ msgstr "Girar las páginas de varios documentos PDF."
 
 msgid "Rotate settings"
 msgstr "Configurar giro"
+
+msgid "Destination directory"
+msgstr "Carpeta de destino"
 
 #~ msgid "Never"
 #~ msgstr "Nunca"

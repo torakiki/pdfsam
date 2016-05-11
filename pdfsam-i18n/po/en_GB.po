@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-02-22 17:07+0100\n"
-"PO-Revision-Date: 2016-02-23 16:00+0000\n"
+"POT-Creation-Date: 2016-05-07 18:34+0200\n"
+"PO-Revision-Date: 2016-05-10 10:14+0000\n"
 "Last-Translator: Andi Chandler <Unknown>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-04 09:56+0000\n"
-"X-Generator: Launchpad (build 17936)\n"
+"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
+"X-Generator: Launchpad (build 18025)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Subscribe to the official news feed"
@@ -461,8 +461,8 @@ msgstr "File names settings"
 msgid "Split settings"
 msgstr "Split settings"
 
-msgid "Destination directory"
-msgstr "Destination directory"
+msgid "Output settings"
+msgstr "Output settings"
 
 msgid "Every page"
 msgstr "Every page"
@@ -659,6 +659,16 @@ msgstr "The selected PDF file is invalid"
 msgid "Compress output file/files"
 msgstr "Compress output file/files"
 
+msgid "Discard bookmarks"
+msgstr "Discard bookmarks"
+
+msgid ""
+"Tick the box if you don't want to retain any bookmark from the original PDF "
+"document"
+msgstr ""
+"Tick the box if you don't want to retain any bookmarks from the original PDF "
+"document"
+
 msgid "Output PDF version:"
 msgstr "Output PDF version:"
 
@@ -785,6 +795,12 @@ msgstr ""
 "Adds a blank page after each merged document if the document has an odd "
 "number of pages"
 
+msgid "Add a footer"
+msgstr "Add a footer"
+
+msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr "Adds a page footer with the name of the file the page belonged to."
+
 msgid "Merge fields"
 msgstr "Merge fields"
 
@@ -802,9 +818,6 @@ msgstr "What to do in case one or more input documents contain Acro Forms"
 
 msgid "Retain bookmarks"
 msgstr "Retain bookmarks"
-
-msgid "Discard bookmarks"
-msgstr "Discard bookmarks"
 
 msgid "Create one entry for each merged document"
 msgstr "Create one entry for each merged document"
@@ -932,6 +945,9 @@ msgstr "Rotate the pages of multiple PDF documents."
 
 msgid "Rotate settings"
 msgstr "Rotate settings"
+
+msgid "Destination directory"
+msgstr "Destination directory"
 
 #~ msgid "Split even pages"
 #~ msgstr "Split even pages"

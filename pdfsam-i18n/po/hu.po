@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-02-22 17:07+0100\n"
+"POT-Creation-Date: 2016-05-07 18:34+0200\n"
 "PO-Revision-Date: 2015-12-01 14:24+0000\n"
 "Last-Translator: Richard Somlói <ricsipontaz@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-04 09:56+0000\n"
-"X-Generator: Launchpad (build 17936)\n"
+"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
+"X-Generator: Launchpad (build 18025)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Feliratkozás a hivatalos hírforrásra"
@@ -457,8 +457,8 @@ msgstr "Fájlnév beállításai"
 msgid "Split settings"
 msgstr "Szétválasztás beállításai"
 
-msgid "Destination directory"
-msgstr "Célmappa"
+msgid "Output settings"
+msgstr ""
 
 msgid "Every page"
 msgstr "Minden oldal"
@@ -653,6 +653,14 @@ msgstr "A kiválasztott PDF érvénytelen"
 msgid "Compress output file/files"
 msgstr "Kimeneti fájlok tömörítése"
 
+msgid "Discard bookmarks"
+msgstr "Könyvjelzők eldobása"
+
+msgid ""
+"Tick the box if you don't want to retain any bookmark from the original PDF "
+"document"
+msgstr ""
+
 msgid "Output PDF version:"
 msgstr "Kimeneti PDF verzió:"
 
@@ -780,6 +788,12 @@ msgstr ""
 "Minden oldal után egy üres oldal hozzáadása, ha a dokumentum oldalszáma "
 "páratlan"
 
+msgid "Add a footer"
+msgstr ""
+
+msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr ""
+
 msgid "Merge fields"
 msgstr "Mezők egyesítése"
 
@@ -797,9 +811,6 @@ msgstr ""
 
 msgid "Retain bookmarks"
 msgstr "Könyvjelzők megtartása"
-
-msgid "Discard bookmarks"
-msgstr "Könyvjelzők eldobása"
 
 msgid "Create one entry for each merged document"
 msgstr "Bejegyzés készítése minden egyesített dokumentumhoz"
@@ -926,6 +937,9 @@ msgstr "PDF dokumentum oldalainak elforgatása"
 
 msgid "Rotate settings"
 msgstr "Elforgatás beállításai"
+
+msgid "Destination directory"
+msgstr "Célmappa"
 
 #~ msgid "Destination folder"
 #~ msgstr "Célmappa"

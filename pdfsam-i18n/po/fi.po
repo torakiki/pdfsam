@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-02-22 17:07+0100\n"
+"POT-Creation-Date: 2016-05-07 18:34+0200\n"
 "PO-Revision-Date: 2014-03-03 14:12+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-04 09:56+0000\n"
-"X-Generator: Launchpad (build 17936)\n"
+"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
+"X-Generator: Launchpad (build 18025)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr ""
@@ -465,7 +465,7 @@ msgstr ""
 msgid "Split settings"
 msgstr ""
 
-msgid "Destination directory"
+msgid "Output settings"
 msgstr ""
 
 msgid "Every page"
@@ -699,6 +699,14 @@ msgstr ""
 msgid "Compress output file/files"
 msgstr "Pakkaa tulostustiedosto(t)"
 
+msgid "Discard bookmarks"
+msgstr ""
+
+msgid ""
+"Tick the box if you don't want to retain any bookmark from the original PDF "
+"document"
+msgstr ""
+
 msgid "Output PDF version:"
 msgstr ""
 
@@ -825,6 +833,12 @@ msgid ""
 "number of pages"
 msgstr ""
 
+msgid "Add a footer"
+msgstr ""
+
+msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr ""
+
 msgid "Merge fields"
 msgstr ""
 
@@ -841,9 +855,6 @@ msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr ""
 
 msgid "Retain bookmarks"
-msgstr ""
-
-msgid "Discard bookmarks"
 msgstr ""
 
 msgid "Create one entry for each merged document"
@@ -968,6 +979,9 @@ msgid "Rotate the pages of multiple PDF documents."
 msgstr ""
 
 msgid "Rotate settings"
+msgstr ""
+
+msgid "Destination directory"
 msgstr ""
 
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:206

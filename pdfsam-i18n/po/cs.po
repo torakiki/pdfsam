@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-02-22 17:07+0100\n"
+"POT-Creation-Date: 2016-05-07 18:34+0200\n"
 "PO-Revision-Date: 2016-01-19 19:15+0000\n"
 "Last-Translator: Petr Katerinak <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-04 09:56+0000\n"
-"X-Generator: Launchpad (build 17936)\n"
+"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
+"X-Generator: Launchpad (build 18025)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Odebírat oficiální novinky"
@@ -460,8 +460,8 @@ msgstr "Nastavení názvů souborů"
 msgid "Split settings"
 msgstr "Nastavení dělení"
 
-msgid "Destination directory"
-msgstr "Cílový adresář"
+msgid "Output settings"
+msgstr ""
 
 msgid "Every page"
 msgstr "Každá stránka"
@@ -653,6 +653,14 @@ msgstr "Vybráné PDF není podporováno"
 msgid "Compress output file/files"
 msgstr "Komprimovat výstupní soubor(y)"
 
+msgid "Discard bookmarks"
+msgstr "Zrušit záložky"
+
+msgid ""
+"Tick the box if you don't want to retain any bookmark from the original PDF "
+"document"
+msgstr ""
+
 msgid "Output PDF version:"
 msgstr "Verze výstupního PDF:"
 
@@ -780,6 +788,12 @@ msgid ""
 msgstr ""
 "Přidat prázdnou stránku za každý dokument, pokud má lichý počet stránek"
 
+msgid "Add a footer"
+msgstr ""
+
+msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr ""
+
 msgid "Merge fields"
 msgstr "Sloučit pole"
 
@@ -797,9 +811,6 @@ msgstr ""
 
 msgid "Retain bookmarks"
 msgstr "Zachovat záložky"
-
-msgid "Discard bookmarks"
-msgstr "Zrušit záložky"
 
 msgid "Create one entry for each merged document"
 msgstr "Vytvořit položku pro každý sloučený dokument"
@@ -926,6 +937,9 @@ msgstr "Otočit stránky u více PDF."
 
 msgid "Rotate settings"
 msgstr "Nastavení rotace"
+
+msgid "Destination directory"
+msgstr "Cílový adresář"
 
 #~ msgid "Split even pages"
 #~ msgstr "Rozdělit za sudými stránkami"

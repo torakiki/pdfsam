@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-02-22 17:07+0100\n"
-"PO-Revision-Date: 2016-02-28 05:24+0000\n"
+"POT-Creation-Date: 2016-05-07 18:34+0200\n"
+"PO-Revision-Date: 2016-03-17 14:42+0000\n"
 "Last-Translator: Naofumi Fukue <naofum@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-04 09:56+0000\n"
-"X-Generator: Launchpad (build 17936)\n"
+"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
+"X-Generator: Launchpad (build 18025)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "公式ニュースフィードを購読する"
@@ -449,8 +449,8 @@ msgstr "ファイル名の設定"
 msgid "Split settings"
 msgstr "分割の設定"
 
-msgid "Destination directory"
-msgstr "出力先ディレクトリ"
+msgid "Output settings"
+msgstr ""
 
 msgid "Every page"
 msgstr "各ページ"
@@ -641,6 +641,14 @@ msgstr "選択した PDF ファイルが正しくありません"
 msgid "Compress output file/files"
 msgstr "出力ファイルを圧縮する"
 
+msgid "Discard bookmarks"
+msgstr "しおりを破棄する"
+
+msgid ""
+"Tick the box if you don't want to retain any bookmark from the original PDF "
+"document"
+msgstr ""
+
 msgid "Output PDF version:"
 msgstr "出力 PDF バージョン:"
 
@@ -763,6 +771,12 @@ msgid ""
 "number of pages"
 msgstr "文書のページ番号が奇数の場合、マージされた文書の後に空白ページを追加します"
 
+msgid "Add a footer"
+msgstr "フッターを追加"
+
+msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr "ページが属するファイルの名前でページフッターを追加します。"
+
 msgid "Merge fields"
 msgstr "フィールドをマージ"
 
@@ -780,9 +794,6 @@ msgstr "1 または複数の入力文書に Acro Form が含まれている場�
 
 msgid "Retain bookmarks"
 msgstr "しおりを保持する"
-
-msgid "Discard bookmarks"
-msgstr "しおりを破棄する"
 
 msgid "Create one entry for each merged document"
 msgstr "マージされた文書それぞれにエントリを 1 つ作成"
@@ -907,6 +918,9 @@ msgstr "複数の PDF 文書のページを回転させます。"
 
 msgid "Rotate settings"
 msgstr "回転の設定"
+
+msgid "Destination directory"
+msgstr "出力先ディレクトリ"
 
 #~ msgid "Split even pages"
 #~ msgstr "各奇数ページが先頭になるように分割する"

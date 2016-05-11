@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-02-22 17:07+0100\n"
+"POT-Creation-Date: 2016-05-07 18:34+0200\n"
 "PO-Revision-Date: 2016-03-01 10:59+0000\n"
 "Last-Translator: Slavko Blazevic <rapidcro@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-04 09:56+0000\n"
-"X-Generator: Launchpad (build 17936)\n"
+"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
+"X-Generator: Launchpad (build 18025)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Pretplati se na novosti"
@@ -462,8 +462,8 @@ msgstr "Postavke imena datoteke"
 msgid "Split settings"
 msgstr "Postavke razdvajanja"
 
-msgid "Destination directory"
-msgstr "Odredišna mapa"
+msgid "Output settings"
+msgstr ""
 
 msgid "Every page"
 msgstr "Svaku stranicu"
@@ -656,6 +656,14 @@ msgstr "Odabrana PDF datoteka nije ispravna"
 msgid "Compress output file/files"
 msgstr "Sažmi izlazne datoteke"
 
+msgid "Discard bookmarks"
+msgstr "Odbaci oznake"
+
+msgid ""
+"Tick the box if you don't want to retain any bookmark from the original PDF "
+"document"
+msgstr ""
+
 msgid "Output PDF version:"
 msgstr "Izlazna PDF verzija:"
 
@@ -783,6 +791,12 @@ msgstr ""
 "Dodaj praznu stranicu nakon svakog povezanog dokumenta ukoliko dokument ima "
 "neparan broj stranica."
 
+msgid "Add a footer"
+msgstr ""
+
+msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr ""
+
 msgid "Merge fields"
 msgstr "Poveži polja"
 
@@ -801,9 +815,6 @@ msgstr ""
 
 msgid "Retain bookmarks"
 msgstr "Zadrži oznake"
-
-msgid "Discard bookmarks"
-msgstr "Odbaci oznake"
 
 msgid "Create one entry for each merged document"
 msgstr "Izradi jedan unos za svaki povezani dokument"
@@ -931,6 +942,9 @@ msgstr "Rotiraj stranice od više PDF dokumenata."
 
 msgid "Rotate settings"
 msgstr "Postavke rotiranja"
+
+msgid "Destination directory"
+msgstr "Odredišna mapa"
 
 #~ msgid "Split even pages"
 #~ msgstr "Podijeli parne stranice"

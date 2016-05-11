@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-02-22 17:07+0100\n"
-"PO-Revision-Date: 2016-02-27 20:06+0000\n"
+"POT-Creation-Date: 2016-05-07 18:34+0200\n"
+"PO-Revision-Date: 2016-03-27 10:33+0000\n"
 "Last-Translator: mjjzf <mjjzf@syntaktisk.dk>\n"
 "Language-Team: Danish <da@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-04 09:56+0000\n"
-"X-Generator: Launchpad (build 17936)\n"
+"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
+"X-Generator: Launchpad (build 18025)\n"
 "Language: da\n"
 
 msgid "Subscribe to the official news feed"
@@ -207,15 +207,19 @@ msgid ""
 "Turn on or off the notification appearing once in a while and asking the "
 "user to support PDFsam with a donation"
 msgstr ""
+"Aktiver eller deaktiver beskeden, der viser sig fra tid til anden, med "
+"opfordring til brugeren om at støtte PDFsam med en donation"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Anvend det valgte dokuments mappe som outputmappe"
 
 msgid "Save default workspace on exit"
-msgstr ""
+msgstr "Gem standardarbejdsområde, når programmet lukkes"
 
 msgid "If a default workspace is set, save it on application exit"
 msgstr ""
+"Gem standardområdet når programmet lukkes, hvis der er sat et "
+"standardarbejdsområde"
 
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Det højeste antal rækker skal være et positivt tal"
@@ -340,7 +344,7 @@ msgid "PDFsam worked hard!"
 msgstr "PDFSAM har arbejdet hårdt!"
 
 msgid "Spread the word!"
-msgstr ""
+msgstr "Sig det videre!"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -353,7 +357,7 @@ msgid "New version available"
 msgstr "Ny version til rådighed"
 
 msgid "Non existing directory"
-msgstr ""
+msgstr "Ikke-eksisterende mappe"
 
 msgid "Directory not empty"
 msgstr "Mappe ikke tom"
@@ -383,13 +387,13 @@ msgid "Checking for updates"
 msgstr "Søger efter opdateringer"
 
 msgid "Fetching latest news"
-msgstr ""
+msgstr "Henter seneste nyheder"
 
 msgid "Unable to retrieve the latest news"
-msgstr ""
+msgstr "Kunne ikke hente de seneste nyheder"
 
 msgid "Unable to retrieve latest news"
-msgstr ""
+msgstr "Kunne ikke hente seneste nyheder"
 
 msgid "Loading pdf documents"
 msgstr "Indlæser PDF-dokumenter"
@@ -405,7 +409,7 @@ msgstr "Arbejdsområdet for moduler kunne ikke gemmes"
 
 #, java-format
 msgid "Unable to save workspace to {0}"
-msgstr ""
+msgstr "Kunne ikke gemme arbejdsområde til {0}"
 
 #, java-format
 msgid "Loading workspace from {0}"
@@ -441,7 +445,7 @@ msgid "Invalid page numbers"
 msgstr "Ugyldige sidetal"
 
 msgid "Only valid positive page numbers are allowed"
-msgstr ""
+msgstr "Kun gyldige positive sidetal tillades"
 
 msgid "Split"
 msgstr "Opdel"
@@ -458,8 +462,8 @@ msgstr "Indstillinger for filnavne"
 msgid "Split settings"
 msgstr "Indstillinger for opdeling"
 
-msgid "Destination directory"
-msgstr "Destinationsmappe"
+msgid "Output settings"
+msgstr ""
 
 msgid "Every page"
 msgstr "Hver side"
@@ -558,7 +562,7 @@ msgid "Invalid parameter 'first and second step' must be numbers"
 msgstr "Ugyldig parameter for 'første og andet trin' - det skal være tal"
 
 msgid "Select a valid number of pages"
-msgstr ""
+msgstr "Vælg et gyldigt antal sider"
 
 msgid "The selected PDF document is invalid"
 msgstr "Det valgte PDF-dokument er ugyldigt"
@@ -571,7 +575,7 @@ msgstr "Fejlet"
 
 #, java-format
 msgid "Running {0}%"
-msgstr ""
+msgstr "Kører {0}%"
 
 msgid "Running"
 msgstr "Behandler"
@@ -623,7 +627,7 @@ msgid "Pages: {0}, PDF Version: {1}"
 msgstr "Sider: {0}, PDF-version: {1}"
 
 msgid "Show errors"
-msgstr ""
+msgstr "Vis fejl"
 
 msgid "Run"
 msgstr "Udfør"
@@ -655,6 +659,14 @@ msgstr "Den valgte PDF-fil er ugyldig"
 msgid "Compress output file/files"
 msgstr "Komprimer destinationsfil(er)"
 
+msgid "Discard bookmarks"
+msgstr "Fjern bogmærker"
+
+msgid ""
+"Tick the box if you don't want to retain any bookmark from the original PDF "
+"document"
+msgstr ""
+
 msgid "Output PDF version:"
 msgstr "Gem i PDF version:"
 
@@ -673,10 +685,10 @@ msgid "Select an existing directory"
 msgstr "Vælg en eksisterende mappe"
 
 msgid "An existing output directory is required"
-msgstr ""
+msgstr "En eksisterende output-mappe er påkrævet"
 
 msgid "The output directory is required"
-msgstr ""
+msgstr "En output-mappe er påkrævet"
 
 msgid "Generated PDF documents name prefix:"
 msgstr "Fornavn til genereret PDF dokumenter:"
@@ -782,6 +794,12 @@ msgstr ""
 "Tilføj en tom side efter hvert flettet dokument, hvis dokumentet har et "
 "ulige sidetal"
 
+msgid "Add a footer"
+msgstr "Tilføj en sidefod"
+
+msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr "Tilføj en sidefod med navnet på den fil, som siden tihører."
+
 msgid "Merge fields"
 msgstr "Flet felter"
 
@@ -795,41 +813,39 @@ msgid "Interactive forms (AcroForms):"
 msgstr "Visuelle udfyldnings felter"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
-msgstr ""
+msgstr "Adfærd når et eller flere inputdokumenter indeholder Acro Forms"
 
 msgid "Retain bookmarks"
 msgstr "Behold bogmærker"
-
-msgid "Discard bookmarks"
-msgstr "Fjern bogmærker"
 
 msgid "Create one entry for each merged document"
 msgstr "Opret en postering for hvert flettet dokument"
 
 msgid "Retain bookmarks as one entry for each merged document"
-msgstr ""
+msgstr "Behold bogmærker som en postering for hvert flettet dokument"
 
 msgid "Bookmarks handling:"
 msgstr "Håndtering af bogmærker"
 
 msgid "What to do in case one or more input documents contain bookmarks"
-msgstr ""
+msgstr "Adfærd, når et eller flere inputdokumenter indeholder bogmærker"
 
 msgid "Don't generate"
-msgstr ""
+msgstr "Generer ikke"
 
 msgid "Generate from file names"
-msgstr ""
+msgstr "Generer fra filnavne"
 
 msgid "Generate from documents titles"
-msgstr ""
+msgstr "Generer fra dokumenttitler"
 
 msgid "Table of contents:"
-msgstr ""
+msgstr "Indholdsfortegnelse:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr ""
+"Sæt hvis en indholdsfortegnelse skal tilføjes til det genererede PDF-dokument"
 
 msgid "No PDF document has been selected"
 msgstr "Der er ikke blevet valgt et PDF dokument"
@@ -890,7 +906,7 @@ msgstr ""
 "bogmærke niveau."
 
 msgid "Regular expression the bookmark has to match"
-msgstr ""
+msgstr "Udtryk, som bogmærket skal matche"
 
 msgid "Split at this bookmark level:"
 msgstr "Opdel ved dette bogmærkeniveau:"
@@ -899,11 +915,13 @@ msgid "Matching regular expression:"
 msgstr "Matcher regulært udtryk:"
 
 msgid "A regular expression the bookmark text has to match"
-msgstr ""
+msgstr "Et udtryk, som bogmærketeksten skal matche"
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
 msgstr ""
+"Eksempel: Brug .*Kapitel.* for at matche bogmærker, der indeholder ordet "
+"\"Kapitel\""
 
 msgid "All pages"
 msgstr "Alle sider"
@@ -915,7 +933,7 @@ msgid "180 degrees clockwise"
 msgstr "180 grader med uret"
 
 msgid "90 degrees counterclockwise"
-msgstr ""
+msgstr "90 grader mod uret"
 
 msgid "Rotate "
 msgstr "Roter "
@@ -928,6 +946,9 @@ msgstr "Roter sider fra flere PDF-dokumenter"
 
 msgid "Rotate settings"
 msgstr "Indstillinger for rotation"
+
+msgid "Destination directory"
+msgstr "Destinationsmappe"
 
 #~ msgid "Split odd pages"
 #~ msgstr "Opdel ved ulige sider"

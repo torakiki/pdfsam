@@ -2,28 +2,28 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2016-02-22 17:07+0100\n"
-"PO-Revision-Date: 2016-01-09 15:47+0000\n"
+"POT-Creation-Date: 2016-05-07 18:34+0200\n"
+"PO-Revision-Date: 2016-05-10 12:09+0000\n"
 "Last-Translator: Patriccollu <Patrick.Santa-Maria@laposte.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-04 09:56+0000\n"
-"X-Generator: Launchpad (build 17936)\n"
+"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
+"X-Generator: Launchpad (build 18025)\n"
 "Language: co\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Sottuscrive à i flussi di nutizie ufficiale"
 
 msgid "Bug and feature requests"
-msgstr "Riferimentu di prublema è richiesta di migliuramentu"
+msgstr "Riferimentu di penseru è richiesta di migliuramentu"
 
 msgid "Play the \"get started\" video"
-msgstr "Sunà a video \"get started\""
+msgstr "Fighjà a video \"cumu principià\""
 
 msgid "Fork PDFsam on GitHub"
-msgstr "Frazziunà PDFsam nantu à GitHub"
+msgstr "Frazziunà PDFsam nant'à GitHub"
 
 msgid "Translate"
 msgstr "Traduce"
@@ -32,16 +32,16 @@ msgid "Donate"
 msgstr "Dunazione"
 
 msgid "Follow us on Twitter"
-msgstr "Seguitatecci nantu à Twitter"
+msgstr "Seguitatecci nant'à Twitter"
 
 msgid "Follow us on Google Plus"
-msgstr "Seguitatecci nantu à Google Plus"
+msgstr "Seguitatecci nant'à Google Plus"
 
 msgid "Like us on Facebook"
-msgstr "Ditecci 'Mi Piace' nantu à Facebook"
+msgstr "Ditecci 'Mi Piace' nant'à Facebook"
 
 msgid "Dashboard"
-msgstr "Tavula di cummande"
+msgstr "Tavulone di cummande"
 
 msgid "Cancel"
 msgstr "Abbandunà"
@@ -78,7 +78,7 @@ msgid "Found modules jars {0}"
 msgstr "Mudulli jars trovi {0}"
 
 msgid "Error finding modules paths"
-msgstr "Errore mentre a ricerca di passeghji di mudulli"
+msgstr "Sbagliu durante a ricerca di passeghji di mudulli"
 
 msgid "No module has been found"
 msgstr "Alcunu mudullu trovu"
@@ -100,7 +100,7 @@ msgid "E_xit"
 msgstr "E_sce"
 
 msgid "Application messages"
-msgstr "Messaghji d'appiegazione"
+msgstr "Messaghji d'appiecazione"
 
 msgid "_Workspace"
 msgstr "_Spaziu di travagliu"
@@ -121,7 +121,7 @@ msgid "Select the workspace to load"
 msgstr "Selezziunà u spaziu di travagliu à caricà"
 
 msgid "What's new"
-msgstr "Cio chì hè novu"
+msgstr "Ciò chì hè novu"
 
 msgid "Document details"
 msgstr "Detaglii di u ducumentu"
@@ -152,7 +152,7 @@ msgid "The open source projects making PDFsam possible"
 msgstr "I prughjetti 'open source' chì anu resu PDFsam pussibule"
 
 msgid "Support"
-msgstr "Supportu"
+msgstr "Assistenza"
 
 msgid "Contribute"
 msgstr "Cuntribuì"
@@ -206,17 +206,19 @@ msgid ""
 "user to support PDFsam with a donation"
 msgstr ""
 "Attivà/disattivà u messaghju chì s'affaca di quandu in quandu per dumandà di "
-"fà una dunazione per suppurtà PDFsam"
+"fà una dunazione per sustene PDFsam"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr ""
 "Impiegà u cartulare di ducumentu PDF selezziunatu cum'è cartulare d'esciuta"
 
 msgid "Save default workspace on exit"
-msgstr ""
+msgstr "Arregistrà à l'esciuta u spaziu di travagliu predefinitu"
 
 msgid "If a default workspace is set, save it on application exit"
 msgstr ""
+"S'è un spaziu di travagliu predefinitu hè specificatu, arregistrallu à "
+"l'esciuta di l'appiecazione"
 
 msgid "Maximum number of rows mast be a positive number"
 msgstr "U numeru massimu di linee deve esse un numeru pusitivu"
@@ -284,7 +286,7 @@ msgstr "Mudullu d'iniziu :"
 
 msgid "Set the module to open at application startup (restart needed)"
 msgstr ""
-"Definisce u mudullu à apre à l'iniziu di l'appiegazione (rilanciu necessariu)"
+"Definisce u mudullu à apre à l'iniziu di l'appiecazione (rilanciu necessariu)"
 
 msgid ""
 "Usage statistics are used to populate the modules quick bar on the left with "
@@ -312,7 +314,7 @@ msgid "Copy"
 msgstr "Cupià"
 
 msgid "Clear"
-msgstr "Sguassà"
+msgstr "Squassà"
 
 msgid "Select all"
 msgstr "Selezziunà tuttu"
@@ -330,7 +332,7 @@ msgid ""
 "Input parameters are invalid, open the application messages for details."
 msgstr ""
 "I parametri d'intrata sò inaccettevule, truverete più di detaglii in i "
-"messaghji d'appiegazione."
+"messaghji d'appiecazione."
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
@@ -343,7 +345,7 @@ msgid "PDFsam worked hard!"
 msgstr "PDFsam hà travagliatu bè !"
 
 msgid "Spread the word!"
-msgstr ""
+msgstr "Sparghje dapertuttu !"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -408,7 +410,7 @@ msgstr "Impussibule d'arregistrà u spaziu di travagliu di i mudulli"
 
 #, java-format
 msgid "Unable to save workspace to {0}"
-msgstr ""
+msgstr "Impussibule d\"arregistrà u spaziu di travagliu ver di {0}"
 
 #, java-format
 msgid "Loading workspace from {0}"
@@ -461,8 +463,8 @@ msgstr "Preferenze di nomi di schedariu"
 msgid "Split settings"
 msgstr "Preferenze di spartimentu"
 
-msgid "Destination directory"
-msgstr "Cartulare di destinazione"
+msgid "Output settings"
+msgstr "Preferenze d'esciuta"
 
 msgid "Every page"
 msgstr "Ogni pagina"
@@ -528,7 +530,7 @@ msgid ""
 "Merge two PDF documents taking pages alternately in straight or reverse "
 "order."
 msgstr ""
-"Fusione di dui ducumenti PDF pigliendu e pagine alternatamente in urdine "
+"Fusione di dui ducumenti PDF pigliendu e pagine alternatamente in ordine "
 "nurmale o à l'arritrosa."
 
 msgid "Select or drag and drop the first PDF you want to mix"
@@ -574,7 +576,7 @@ msgstr "Fiascu"
 
 #, java-format
 msgid "Running {0}%"
-msgstr ""
+msgstr "Operazione in corsu : {0}%"
 
 msgid "Running"
 msgstr "In funzione"
@@ -626,7 +628,7 @@ msgid "Pages: {0}, PDF Version: {1}"
 msgstr "Pagine : {0}, Version PDF : {1}"
 
 msgid "Show errors"
-msgstr ""
+msgstr "Affissà i sbaglii"
 
 msgid "Run"
 msgstr "Fà funziunà"
@@ -659,6 +661,16 @@ msgstr "U schedariu PDF selezziunatu hè inaccettevule"
 msgid "Compress output file/files"
 msgstr "Cumpressione di u(i) schedariu(i) d'esciuta"
 
+msgid "Discard bookmarks"
+msgstr "Scaccià l'indette"
+
+msgid ""
+"Tick the box if you don't want to retain any bookmark from the original PDF "
+"document"
+msgstr ""
+"Marcà l'alveola s'è ùn vulete ritene alcuna indetta da u ducumentu PDF "
+"d'urigine"
+
 msgid "Output PDF version:"
 msgstr "Versione PDF d'esciuta :"
 
@@ -677,10 +689,10 @@ msgid "Select an existing directory"
 msgstr "Selezziunà un cartulare esistente"
 
 msgid "An existing output directory is required"
-msgstr "Un cartulare d'esciuta esistente hè riquiestu"
+msgstr "Un cartulare d'esciuta esistente hè richiestu"
 
 msgid "The output directory is required"
-msgstr "U cartulare d'esciuta hè riquiestu"
+msgstr "U cartulare d'esciuta hè richiestu"
 
 msgid "Generated PDF documents name prefix:"
 msgstr "Prefissu di u nome di ducumenti PDF creati :"
@@ -734,7 +746,7 @@ msgid "Removes every document"
 msgstr "Caccià ogni ducumentu"
 
 msgid "_Clear"
-msgstr "_Sguassà"
+msgstr "_Squassà"
 
 msgid "Moves up selected documents"
 msgstr "Move insù i ducumenti selezziunati"
@@ -786,6 +798,14 @@ msgstr ""
 "Aghjunghje una pagina bianca dopu à ogni ducumentu s'è u ducumentu hà un "
 "numeru anescu di pagine"
 
+msgid "Add a footer"
+msgstr "Aghjunghje un bassu di pagina"
+
+msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr ""
+"Aghjunghje un bassu di pagina cù u nome di u schedariu chì cuntene sta "
+"pagina."
+
 msgid "Merge fields"
 msgstr "Fusione di i campi"
 
@@ -799,41 +819,40 @@ msgid "Interactive forms (AcroForms):"
 msgstr "Furmularii interrattivi (AcroForms) :"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
-msgstr ""
+msgstr "Chì fà quandu unu ducumentu d'urigine, o più, cuntene Acro Forms"
 
 msgid "Retain bookmarks"
 msgstr "Ritene l'indette"
 
-msgid "Discard bookmarks"
-msgstr "Scaccià l'indette"
-
 msgid "Create one entry for each merged document"
-msgstr "Creà un entrata per ogni ducumentu di a fusione"
+msgstr "Creà un'entrata per ogni ducumentu di a fusione"
 
 msgid "Retain bookmarks as one entry for each merged document"
-msgstr "Ritene l'indette cù un entrata per ogni ducumentu di a fusione"
+msgstr "Ritene l'indette cum'è un'entrata per ogni ducumentu di a fusione"
 
 msgid "Bookmarks handling:"
 msgstr "Trattamentu di l'indette :"
 
 msgid "What to do in case one or more input documents contain bookmarks"
-msgstr ""
+msgstr "Chì fà quandu unu ducumentu d'urigine, o più, cuntene indette"
 
 msgid "Don't generate"
-msgstr ""
+msgstr "Ùn creà nunda"
 
 msgid "Generate from file names"
-msgstr ""
+msgstr "Creà da i nomi di schedariu"
 
 msgid "Generate from documents titles"
-msgstr ""
+msgstr "Creà da i tituli di i ducumenti"
 
 msgid "Table of contents:"
-msgstr ""
+msgstr "Tavula di cuntenutu :"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr ""
+"Definisce s'è una tavula di cuntenutu deve esse aghjunta à u ducumentu PDF "
+"creatu"
 
 msgid "No PDF document has been selected"
 msgstr "Alcunu ducumentu PDF ùn hè statu selezziunatu"
@@ -854,7 +873,7 @@ msgid "Other"
 msgstr "Altru"
 
 msgid "Error saving log file."
-msgstr "Errore à l'arregistramentu di u schedariu log."
+msgstr "Sbagliu à l'arregistramentu di u schedariu log."
 
 #, java-format
 msgid "File {0} saved."
@@ -870,7 +889,7 @@ msgid "This document is encrypted, click to provide a password."
 msgstr "Stu ducumentu hè cifratu, cliccu per pruvede a parolla d'intrata."
 
 msgid "An error has occurred, click for more details."
-msgstr "Un errore s'hè affacatu, cliccà quì per sapene di più."
+msgstr "Un sbagliu s'hè affacatu, cliccà quì per sapene di più."
 
 msgid "Squared green"
 msgstr "Verde quadrittatu"
@@ -934,6 +953,9 @@ msgstr "Girà e pagine di parechji ducumenti PDF."
 
 msgid "Rotate settings"
 msgstr "Preferenze di u girà"
+
+msgid "Destination directory"
+msgstr "Cartulare di destinazione"
 
 #~ msgid "Never"
 #~ msgstr "Mai"

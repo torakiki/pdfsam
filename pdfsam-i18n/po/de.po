@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-02-22 17:07+0100\n"
-"PO-Revision-Date: 2016-02-04 16:50+0000\n"
-"Last-Translator: Tobias Bannert <Unknown>\n"
+"POT-Creation-Date: 2016-05-07 18:34+0200\n"
+"PO-Revision-Date: 2016-04-08 09:57+0000\n"
+"Last-Translator: tobson <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-04 09:56+0000\n"
-"X-Generator: Launchpad (build 17936)\n"
+"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
+"X-Generator: Launchpad (build 18025)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Offiziellen News-Feed abonnieren"
@@ -217,10 +217,11 @@ msgstr ""
 "Verzeichnis des ausgewählten PDF-Dokumentes als Ausgabeverzeichnis benutzen"
 
 msgid "Save default workspace on exit"
-msgstr ""
+msgstr "Standard-Workspace beim Schließen speichern"
 
 msgid "If a default workspace is set, save it on application exit"
 msgstr ""
+"Wenn ein Standard-Workspace ausgewählt ist, diesen beim Schließen speichern"
 
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Maximale Zeilenanzahl muss eine positive Zahl sein"
@@ -349,7 +350,7 @@ msgid "PDFsam worked hard!"
 msgstr "PDFsam hat schwer gearbeitet!"
 
 msgid "Spread the word!"
-msgstr ""
+msgstr "weitersagen!"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -414,7 +415,7 @@ msgstr "Modularbeitsbereich konnte nicht gespeichert werden."
 
 #, java-format
 msgid "Unable to save workspace to {0}"
-msgstr ""
+msgstr "Arbeitsbereich kann nicht nach {0} gespeichert werden"
 
 #, java-format
 msgid "Loading workspace from {0}"
@@ -467,8 +468,8 @@ msgstr "Dateinameneinstellungen"
 msgid "Split settings"
 msgstr "Teileneinstellungen"
 
-msgid "Destination directory"
-msgstr "Zielverzeichnis"
+msgid "Output settings"
+msgstr ""
 
 msgid "Every page"
 msgstr "Jede Seite"
@@ -662,6 +663,14 @@ msgstr "Die ausgewählte PDF-Datei ist nicht gültig"
 msgid "Compress output file/files"
 msgstr "Ausgabedatei(en) komprimieren"
 
+msgid "Discard bookmarks"
+msgstr "Lesezeichen entfernen"
+
+msgid ""
+"Tick the box if you don't want to retain any bookmark from the original PDF "
+"document"
+msgstr ""
+
 msgid "Output PDF version:"
 msgstr "Ausgabe-PDF-Version:"
 
@@ -686,7 +695,7 @@ msgid "The output directory is required"
 msgstr "Das Ausgabeverzeichnis wird benötigt"
 
 msgid "Generated PDF documents name prefix:"
-msgstr "Vorsilbe für den erstellten PDF-Dokumentnamen:"
+msgstr "Vorsilbe dür den erstellten PDF-Dokumentnamen:"
 
 msgid "Prefix for the output files name."
 msgstr "Vorsilbe für den Ausgabedateinamen."
@@ -789,6 +798,13 @@ msgstr ""
 "Fügt eine Leerseite nach jedem zusammengeführten Dokument ein, wenn es eine "
 "ungerade Seitenzahl hat"
 
+msgid "Add a footer"
+msgstr "Eine Fußzeile hinzufügen"
+
+msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr ""
+"Fügt eine Fußzeile mit dem Dateinamen des Dokuments auf der Seite ein"
+
 msgid "Merge fields"
 msgstr "Felder verbinden"
 
@@ -802,13 +818,10 @@ msgid "Interactive forms (AcroForms):"
 msgstr "Interaktive Formulare (AcroForms)"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
-msgstr ""
+msgstr "Was zu tun ist, wenn ein oder mehrere Dokumente AcroForms enthält"
 
 msgid "Retain bookmarks"
 msgstr "Lesezeichen beibehalten"
-
-msgid "Discard bookmarks"
-msgstr "Lesezeichen entfernen"
 
 msgid "Create one entry for each merged document"
 msgstr "Einen Eintrag für jedes zusammengeführte Dokument erzeugen"
@@ -822,22 +835,25 @@ msgstr "Behandlung von Lesezeichen:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr ""
+"Was zu tun ist, wenn ein oder mehrere Dokumente Lesezeichen beinhaltet"
 
 msgid "Don't generate"
-msgstr ""
+msgstr "Nicht erstellen"
 
 msgid "Generate from file names"
-msgstr ""
+msgstr "Aus Dateinamen erstellen"
 
 msgid "Generate from documents titles"
-msgstr ""
+msgstr "Aus dem Dokumententitel erzeugen"
 
 msgid "Table of contents:"
-msgstr ""
+msgstr "Inhaltsverzeichnis:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr ""
+"Auswählen, wenn ein Inhaltsverzeichnis dem generierten PDF Dokument "
+"hinzugefügt werden soll"
 
 msgid "No PDF document has been selected"
 msgstr "Es wurd kein PDF-Dokument ausgewählt"
@@ -939,6 +955,9 @@ msgstr "Die Seiten mehrerer PDF-Dokumente drehen."
 
 msgid "Rotate settings"
 msgstr "Dreheneinstellungen"
+
+msgid "Destination directory"
+msgstr "Zielverzeichnis"
 
 #~ msgid "Never"
 #~ msgstr "Niemals"

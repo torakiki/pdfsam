@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-02-22 17:07+0100\n"
-"PO-Revision-Date: 2016-03-02 22:11+0000\n"
-"Last-Translator: Vinicius Gagno <vgagno@gmail.com>\n"
+"POT-Creation-Date: 2016-05-07 18:34+0200\n"
+"PO-Revision-Date: 2016-03-22 23:02+0000\n"
+"Last-Translator: Daniel Silvestre <daniel.silvestre@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-04 09:56+0000\n"
-"X-Generator: Launchpad (build 17936)\n"
+"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
+"X-Generator: Launchpad (build 18025)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Inscreva-se no canal ofício de notícias"
@@ -209,6 +209,8 @@ msgid ""
 "Turn on or off the notification appearing once in a while and asking the "
 "user to support PDFsam with a donation"
 msgstr ""
+"Ativa ou desativa a notificação que aparece de vez em quando pedindo ao "
+"usuário para suportar o PDFsam com uma doação"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr ""
@@ -472,8 +474,8 @@ msgstr "Configurações de nomes de arquivo"
 msgid "Split settings"
 msgstr "Configurações de divisão"
 
-msgid "Destination directory"
-msgstr "Diretório de destino"
+msgid "Output settings"
+msgstr ""
 
 msgid "Every page"
 msgstr "Cada página"
@@ -701,6 +703,14 @@ msgstr "O arquivo PDF selecionado é inválido"
 msgid "Compress output file/files"
 msgstr "Compactar arquivo(s) gerado(s)"
 
+msgid "Discard bookmarks"
+msgstr "Descartar marcações de texto"
+
+msgid ""
+"Tick the box if you don't want to retain any bookmark from the original PDF "
+"document"
+msgstr ""
+
 msgid "Output PDF version:"
 msgstr "Versão do PDF de saída"
 
@@ -834,6 +844,12 @@ msgstr ""
 "Adiciona uma página em branco após cada documento mesclado se o documento "
 "tiver um número ímpar de páginas"
 
+msgid "Add a footer"
+msgstr ""
+
+msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr ""
+
 msgid "Merge fields"
 msgstr "Campos unidos"
 
@@ -848,18 +864,17 @@ msgstr "Formulários interativos (AcroForms)"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr ""
+"O que fazer no caso de um ou mais documentos de entrada conterem Acro Forms"
 
 msgid "Retain bookmarks"
 msgstr "Manter marcações de texto"
-
-msgid "Discard bookmarks"
-msgstr "Descartar marcações de texto"
 
 msgid "Create one entry for each merged document"
 msgstr "Criar uma entrada para cada documento mesclado"
 
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr ""
+"Mantenha os marcadores como uma entrada para cada documento consolidado"
 
 msgid "Bookmarks handling:"
 msgstr "Manipulação de marcações de texto:"
@@ -983,6 +998,9 @@ msgstr "Rotaciona as páginas de múltiplos documentos PDF"
 
 msgid "Rotate settings"
 msgstr "Configuração de rotação"
+
+msgid "Destination directory"
+msgstr "Diretório de destino"
 
 # G:\Documents\eclipse_workspace\PDFSAMsplit\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:193
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:206

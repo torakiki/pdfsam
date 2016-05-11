@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-02-22 17:07+0100\n"
-"PO-Revision-Date: 2016-02-22 16:23+0000\n"
+"POT-Creation-Date: 2016-05-07 18:34+0200\n"
+"PO-Revision-Date: 2016-05-07 16:38+0000\n"
 "Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-04 09:56+0000\n"
-"X-Generator: Launchpad (build 17936)\n"
+"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
+"X-Generator: Launchpad (build 18025)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Iscriviti al feed ufficiale delle notizie"
@@ -484,8 +484,8 @@ msgstr "Impostazioni nomi file"
 msgid "Split settings"
 msgstr "Impostazioni di divisione"
 
-msgid "Destination directory"
-msgstr "Directory di destinazione"
+msgid "Output settings"
+msgstr "Impostazioni di output"
 
 msgid "Every page"
 msgstr "Ogni pagina"
@@ -740,6 +740,16 @@ msgstr "Il file PDF selezionato non è valido"
 msgid "Compress output file/files"
 msgstr "Comprimi file destinazione"
 
+msgid "Discard bookmarks"
+msgstr "Elimina i segnalibri"
+
+msgid ""
+"Tick the box if you don't want to retain any bookmark from the original PDF "
+"document"
+msgstr ""
+"Spunta il riquadro se non vuoi mantenere i segnalibri presenti nel documento "
+"PDF originale"
+
 msgid "Output PDF version:"
 msgstr "Versione PDF di uscita:"
 
@@ -872,6 +882,13 @@ msgstr ""
 "Aggiungi una pagina vuota dopo ogni documento unito, se il documento ha un "
 "numero di pagine dispari"
 
+msgid "Add a footer"
+msgstr "Aggiungi piè di pagina"
+
+msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr ""
+"Aggiungi un piè di pagina con il nome del file a cui la pagina apparteneva"
+
 msgid "Merge fields"
 msgstr "Unisci i campi"
 
@@ -889,9 +906,6 @@ msgstr "Cosa fare nel caso i documenti contengano Acro Forms"
 
 msgid "Retain bookmarks"
 msgstr "Mantieni i segnalibri"
-
-msgid "Discard bookmarks"
-msgstr "Elimina i segnalibri"
 
 msgid "Create one entry for each merged document"
 msgstr "Crea una voce per ogni documento unito"
@@ -1022,6 +1036,9 @@ msgstr "Ruota le pagine di più documenti PDF"
 
 msgid "Rotate settings"
 msgstr "Impostazioni di rotazione"
+
+msgid "Destination directory"
+msgstr "Directory di destinazione"
 
 # F:\workspace_pdfsame_enanched\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:200
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:206

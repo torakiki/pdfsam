@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-02-22 17:07+0100\n"
+"POT-Creation-Date: 2016-05-07 18:34+0200\n"
 "PO-Revision-Date: 2016-02-25 15:36+0000\n"
 "Last-Translator: Pedro Gomes <pemagomes@gmail.com>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-04 09:56+0000\n"
-"X-Generator: Launchpad (build 17936)\n"
+"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
+"X-Generator: Launchpad (build 18025)\n"
 "Language: pt\n"
 
 msgid "Subscribe to the official news feed"
@@ -464,8 +464,8 @@ msgstr "Definições de nome"
 msgid "Split settings"
 msgstr "Definições de separação"
 
-msgid "Destination directory"
-msgstr "Diretório de destino"
+msgid "Output settings"
+msgstr ""
 
 msgid "Every page"
 msgstr "Cada página"
@@ -661,6 +661,14 @@ msgstr "O ficheiro selecionado é inválido."
 msgid "Compress output file/files"
 msgstr "Comprimir ficheiro(s) de saída"
 
+msgid "Discard bookmarks"
+msgstr "Descartar separadores"
+
+msgid ""
+"Tick the box if you don't want to retain any bookmark from the original PDF "
+"document"
+msgstr ""
+
 msgid "Output PDF version:"
 msgstr "Versão de saída PDF:"
 
@@ -788,6 +796,12 @@ msgstr ""
 "Adiciona uma página vazia após cada documento unido se o documento possuir "
 "um número ímpar de páginas"
 
+msgid "Add a footer"
+msgstr ""
+
+msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr ""
+
 msgid "Merge fields"
 msgstr "Unir campos"
 
@@ -805,9 +819,6 @@ msgstr ""
 
 msgid "Retain bookmarks"
 msgstr "Manter marcadores"
-
-msgid "Discard bookmarks"
-msgstr "Descartar separadores"
 
 msgid "Create one entry for each merged document"
 msgstr "Criar uma entrada para cada documento unido"
@@ -933,6 +944,9 @@ msgstr "Rodar as páginas de diversos documentos."
 
 msgid "Rotate settings"
 msgstr "Definições de rotação"
+
+msgid "Destination directory"
+msgstr "Diretório de destino"
 
 #~ msgid "Split even pages"
 #~ msgstr "Separar páginas pares"

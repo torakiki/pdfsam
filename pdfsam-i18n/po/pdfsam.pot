@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2016-03-07 12:43+0100\n"
+"POT-Creation-Date: 2016-05-07 18:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -448,7 +448,7 @@ msgstr ""
 msgid "Split settings"
 msgstr ""
 
-msgid "Destination directory"
+msgid "Output settings"
 msgstr ""
 
 msgid "Every page"
@@ -639,6 +639,14 @@ msgstr ""
 msgid "Compress output file/files"
 msgstr ""
 
+msgid "Discard bookmarks"
+msgstr ""
+
+msgid ""
+"Tick the box if you don't want to retain any bookmark from the original PDF "
+"document"
+msgstr ""
+
 msgid "Output PDF version:"
 msgstr ""
 
@@ -784,9 +792,6 @@ msgstr ""
 msgid "Retain bookmarks"
 msgstr ""
 
-msgid "Discard bookmarks"
-msgstr ""
-
 msgid "Create one entry for each merged document"
 msgstr ""
 
@@ -909,4 +914,7 @@ msgid "Rotate the pages of multiple PDF documents."
 msgstr ""
 
 msgid "Rotate settings"
+msgstr ""
+
+msgid "Destination directory"
 msgstr ""
