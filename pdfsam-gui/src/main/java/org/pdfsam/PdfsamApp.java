@@ -26,6 +26,7 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.awt.SplashScreen;
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Paths;
@@ -212,8 +213,18 @@ public class PdfsamApp extends Application {
     @EventListener
     public void openUrl(OpenUrlRequest event) {
         HostServices services = getHostServices();
-        if (services != null) {
-            services.showDocument(event.getUrl());
+        if (nonNull(services)) {
+            try {
+                services.showDocument(event.getUrl());
+            } catch (NullPointerException npe) {
+                // service delegate can be null but there's no way to check it first so we have to catch the npe
+                LOG.info("Unable to open url using HostServices, trying fallback");
+                try {
+                    Runtime.getRuntime().exec(getOpenCmd(event.getUrl()));
+                } catch (IOException e) {
+                    LOG.warn("Unable to open the url", e);
+                }
+            }
         } else {
             LOG.warn("Unable to open '{}', please copy and paste the url to your browser.", event.getUrl());
         }
@@ -254,5 +265,19 @@ public class PdfsamApp extends Application {
                 eventStudio().broadcast(new SaveWorkspaceEvent(new File(workspace), true));
             }
         }
+    }
+
+    public static String getOpenCmd(String url) throws IOException {
+        String os = System.getProperty("os.name").toLowerCase();
+        if (os.indexOf("mac") >= 0) {
+            return String.format("%s %s", "open", url);
+        }
+        if (os.indexOf("win") >= 0) {
+            return String.format("%s %s", "explorer", url);
+        }
+        if (os.indexOf("nix") >= 0 || os.indexOf("nux") >= 0 || os.indexOf("aix") > 0) {
+            return String.format("%s %s", "xdg-open", url);
+        }
+        throw new IOException("Unable to identify the OS");
     }
 }
