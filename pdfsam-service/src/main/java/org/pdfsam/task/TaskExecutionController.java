@@ -18,6 +18,7 @@
  */
 package org.pdfsam.task;
 
+import static org.apache.commons.lang3.StringUtils.isNoneBlank;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.Closeable;
@@ -28,17 +29,21 @@ import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.module.UsageService;
 import org.sejda.core.notification.context.GlobalNotificationContext;
 import org.sejda.core.service.TaskExecutionService;
 import org.sejda.eventstudio.annotation.EventListener;
+import org.sejda.model.notification.event.AbstractNotificationEvent;
 import org.sejda.model.notification.event.PercentageOfWorkDoneChangedEvent;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 import org.sejda.model.notification.event.TaskExecutionStartedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javafx.application.Platform;
 
 /**
  * Component listening for {@link TaskExecutionRequestEvent} and triggering the actual execution
@@ -53,6 +58,7 @@ class TaskExecutionController implements Closeable {
     private TaskExecutionService executionService;
     private UsageService usageService;
     private ExecutorService executor = Executors.newSingleThreadExecutor();
+    private String currentModule = StringUtils.EMPTY;
 
     @Inject
     public TaskExecutionController(TaskExecutionService executionService, UsageService usageService) {
@@ -78,6 +84,7 @@ class TaskExecutionController implements Closeable {
     public void request(TaskExecutionRequestEvent event) {
         LOG.trace("Task execution request received");
         usageService.incrementUsageFor(event.getModuleId());
+        currentModule = event.getModuleId();
         executor.execute(() -> executionService.execute(event.getParameters()));
         LOG.trace("Task execution submitted");
     }
@@ -85,5 +92,16 @@ class TaskExecutionController implements Closeable {
     @PreDestroy
     public void close() {
         executor.shutdownNow();
+    }
+
+    class TaskEventBroadcaster<T extends AbstractNotificationEvent>
+            implements org.sejda.model.notification.EventListener<T> {
+
+        public void onEvent(T event) {
+            Platform.runLater(() -> eventStudio().broadcast(event));
+            if (isNoneBlank(currentModule)) {
+                Platform.runLater(() -> eventStudio().broadcast(event, currentModule));
+            }
+        }
     }
 }

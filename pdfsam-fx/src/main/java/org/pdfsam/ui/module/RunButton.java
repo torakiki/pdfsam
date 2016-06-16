@@ -20,12 +20,16 @@ package org.pdfsam.ui.module;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
+import javax.inject.Named;
+
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
 
 import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
@@ -37,7 +41,9 @@ import javafx.scene.control.Button;
  * @author Andrea Vacondio
  *
  */
-class RunButton extends Button {
+@Named
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+public class RunButton extends Button {
 
     public RunButton() {
         getStyleClass().addAll(Style.FOOTER_BUTTON.css());

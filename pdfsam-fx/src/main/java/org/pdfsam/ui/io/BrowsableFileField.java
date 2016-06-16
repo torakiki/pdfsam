@@ -119,7 +119,7 @@ public class BrowsableFileField extends BrowsableField {
     }
 
     @Override
-    void setTextFromFile(File inputFile) {
+    public void setTextFromFile(File inputFile) {
         if (inputFile != null) {
             getTextField().setText(inputFile.getAbsolutePath());
             getTextField().validate();

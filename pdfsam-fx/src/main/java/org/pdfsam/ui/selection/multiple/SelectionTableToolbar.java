@@ -30,6 +30,7 @@ import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.io.FileType;
+import org.pdfsam.ui.commons.ClearSelectionEvent;
 import org.pdfsam.ui.commons.RemoveSelectedEvent;
 import org.pdfsam.ui.io.FileChoosers;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper;
@@ -135,7 +136,7 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
         }
 
         public void clear(ActionEvent event) {
-            eventStudio().broadcast(new ClearSelectionTableEvent(), getOwnerModule());
+            eventStudio().broadcast(new ClearSelectionEvent(), getOwnerModule());
         }
     }
 

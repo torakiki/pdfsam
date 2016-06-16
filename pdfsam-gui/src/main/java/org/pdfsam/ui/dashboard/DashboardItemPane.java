@@ -19,7 +19,7 @@
 package org.pdfsam.ui.dashboard;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
-import static org.pdfsam.ui.event.SetActiveModuleRequest.activeteCurrentModule;
+import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteCurrentModule;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -28,7 +28,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.TextAlignment;
 
 import org.pdfsam.i18n.DefaultI18nContext;
-import org.pdfsam.ui.event.SetActiveModuleRequest;
+import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.Listener;
 import org.sejda.eventstudio.ReferenceStrength;

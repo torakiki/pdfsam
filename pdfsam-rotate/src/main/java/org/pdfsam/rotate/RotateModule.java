@@ -30,11 +30,15 @@ import org.pdfsam.context.UserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
+import org.pdfsam.module.ModuleInputOutputType;
 import org.pdfsam.module.ModulePriority;
 import org.pdfsam.module.PdfsamModule;
 import org.pdfsam.ui.io.BrowsableOutputDirectoryField;
 import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
+import org.pdfsam.ui.module.Footer;
+import org.pdfsam.ui.module.OpenButton;
+import org.pdfsam.ui.module.RunButton;
 import org.pdfsam.ui.prefix.PrefixPane;
 import org.pdfsam.ui.support.Views;
 import org.sejda.eventstudio.annotation.EventStation;
@@ -46,7 +50,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.TitledPane;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
@@ -67,13 +70,15 @@ public class RotateModule extends BaseTaskExecutionModule {
     private PdfDestinationPane destinationPane;
     private PrefixPane prefix = new PrefixPane();
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.OTHER)
+            .inputTypes(ModuleInputOutputType.MULTIPLE_PDF, ModuleInputOutputType.SINGLE_PDF)
             .name(DefaultI18nContext.getInstance().i18n("Rotate"))
             .description(DefaultI18nContext.getInstance().i18n("Rotate the pages of multiple PDF documents."))
             .priority(ModulePriority.DEFAULT.getPriority()).supportURL("http://www.pdfsam.org/rotate-pdf").build();
 
     @Inject
     public RotateModule(@Named(MODULE_ID + "field") BrowsableOutputDirectoryField destinationDirectoryField,
-            @Named(MODULE_ID + "pane") PdfDestinationPane destinationPane) {
+            @Named(MODULE_ID + "pane") PdfDestinationPane destinationPane, @Named(MODULE_ID + "footer") Footer footer) {
+        super(footer);
         this.destinationDirectoryField = destinationDirectoryField;
         this.destinationPane = destinationPane;
     }
@@ -111,20 +116,20 @@ public class RotateModule extends BaseTaskExecutionModule {
     }
 
     @Override
-    protected Pane getInnerPanel(Pane footer) {
+    protected VBox getInnerPanel() {
         VBox pane = new VBox();
         pane.setAlignment(Pos.TOP_CENTER);
         VBox.setVgrow(selectionPane, Priority.ALWAYS);
 
-        TitledPane prefixTitled = Views
-                .titledPane(DefaultI18nContext.getInstance().i18n("File names settings"), prefix);
+        TitledPane prefixTitled = Views.titledPane(DefaultI18nContext.getInstance().i18n("File names settings"),
+                prefix);
         prefix.addMenuItemFor(Prefix.FILENUMBER);
 
         TitledPane options = Views.titledPane(DefaultI18nContext.getInstance().i18n("Rotate settings"), rotateOptions);
 
         pane.getChildren().addAll(selectionPane, options,
                 Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination directory"), destinationPane),
-                prefixTitled, footer);
+                prefixTitled);
         return pane;
     }
 
@@ -146,9 +151,19 @@ public class RotateModule extends BaseTaskExecutionModule {
         }
 
         @Bean(name = MODULE_ID + "pane")
-        public PdfDestinationPane destinationPane(
-                @Named(MODULE_ID + "field") BrowsableOutputDirectoryField outputField, UserContext userContext) {
+        public PdfDestinationPane destinationPane(@Named(MODULE_ID + "field") BrowsableOutputDirectoryField outputField,
+                UserContext userContext) {
             return new PdfDestinationPane(outputField, MODULE_ID, userContext);
+        }
+
+        @Bean(name = MODULE_ID + "footer")
+        public Footer footer(RunButton runButton, @Named(MODULE_ID + "openButton") OpenButton openButton) {
+            return new Footer(runButton, openButton, MODULE_ID);
+        }
+
+        @Bean(name = MODULE_ID + "openButton")
+        public OpenButton openButton() {
+            return new OpenButton(MODULE_ID, ModuleInputOutputType.SINGLE_PDF);
         }
     }
 

@@ -31,6 +31,7 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
 public final class ModuleDescriptorBuilder {
 
     private ModuleCategory category;
+    private ModuleInputOutputType[] inputTypes;
     private String name;
     private String description;
     private int priority = ModulePriority.DEFAULT.getPriority();
@@ -42,6 +43,11 @@ public final class ModuleDescriptorBuilder {
 
     public ModuleDescriptorBuilder category(ModuleCategory category) {
         this.category = category;
+        return this;
+    }
+
+    public ModuleDescriptorBuilder inputTypes(ModuleInputOutputType... inputTypes) {
+        this.inputTypes = inputTypes;
         return this;
     }
 
@@ -83,6 +89,6 @@ public final class ModuleDescriptorBuilder {
         requireNotNull(category, "Module category cannot be null");
         require(isNotBlank(name), "Module name cannot be blank");
         require(isNotBlank(description), "Module description cannot be blank");
-        return new ModuleDescriptor(category, name, description, priority, supportURL);
+        return new ModuleDescriptor(category, name, description, priority, supportURL, inputTypes);
     }
 }

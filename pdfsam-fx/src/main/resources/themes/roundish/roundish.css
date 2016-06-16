@@ -320,6 +320,23 @@
 /**
  * Footer button
  */
- .footer-button, .footer-button:default, .footer-button:focused {
+.footer-button, .footer-button:default, .footer-button:focused {
     -fx-padding: 2.0px 16.0px 2.0px 12.0px;
+}
+.footer-open-button, .footer-open-button:default, .footer-open-button:focused {
+	-fx-padding: 0.0px 0.0px 0.0px 12.0px;
+	-fx-background-radius: 3.0;
+}
+.footer-open-button > .arrow-button {
+   -fx-background-color:  transparent;
+   -fx-background-radius: 0.0 3.0 3.0 0.0;
+   -fx-background-insets: 0.0;
+}
+.footer-open-button > .arrow-button:hover{
+   -fx-background-color:  -pdfsam-hover-color;
+   -fx-background-radius: 0.0 3.0 3.0 0.0;
+   -fx-background-insets: 0.0;
+}
+.footer-open-button > .arrow-button:pressed{
+	-fx-background-color: -pdfsam-armed-button-color;
 }

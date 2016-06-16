@@ -25,9 +25,9 @@ import javax.inject.Named;
 
 import org.pdfsam.news.HideNewsPanelRequest;
 import org.pdfsam.news.ShowNewsPanelRequest;
+import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.pdfsam.ui.dashboard.Dashboard;
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
-import org.pdfsam.ui.event.SetActiveModuleRequest;
 import org.pdfsam.ui.news.NewsPanel;
 import org.pdfsam.ui.workarea.WorkArea;
 import org.sejda.eventstudio.annotation.EventListener;

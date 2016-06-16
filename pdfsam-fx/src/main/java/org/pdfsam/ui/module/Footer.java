@@ -18,20 +18,19 @@
  */
 package org.pdfsam.ui.module;
 
-import static java.util.Objects.isNull;
+import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.math.BigDecimal;
 
+import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.sejda.eventstudio.annotation.EventListener;
-import org.sejda.model.exception.TaskOutputVisitException;
+import org.sejda.eventstudio.annotation.EventStation;
 import org.sejda.model.notification.event.PercentageOfWorkDoneChangedEvent;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -48,16 +47,19 @@ import javafx.scene.layout.VBox;
  * @author Andrea Vacondio
  *
  */
-class Footer extends HBox {
-
-    private static final Logger LOG = LoggerFactory.getLogger(Footer.class);
+public class Footer extends HBox {
 
     private ProgressBar bar = new ProgressBar(0);
     private Label statusLabel = new Label();
-    private OpenButton open = new OpenButton();
     private TaskFailedButton failed = new TaskFailedButton();
+    private OpenButton openButton;
+    private RunButton runButton;
+    private String ownerModule = StringUtils.EMPTY;
 
-    public Footer(RunButton runButton) {
+    public Footer(RunButton runButton, OpenButton openButton, String ownerModule) {
+        this.ownerModule = defaultString(ownerModule);
+        this.openButton = openButton;
+        this.runButton = runButton;
         this.getStyleClass().addAll("pdfsam-container", "footer-pane");
         this.statusLabel.getStyleClass().add("status-label");
         this.statusLabel.setVisible(false);
@@ -70,48 +72,51 @@ class Footer extends HBox {
         HBox.setHgrow(bar, Priority.ALWAYS);
         HBox.setHgrow(progressPane, Priority.ALWAYS);
         this.failed.setVisible(false);
-        this.open.setVisible(false);
-        StackPane buttons = new StackPane(failed, open);
+        StackPane buttons = new StackPane(failed, openButton);
         buttons.setAlignment(Pos.CENTER_LEFT);
         this.getChildren().addAll(runButton, buttons, progressPane);
+        eventStudio().add(TaskExecutionRequestEvent.class, e -> {
+            if (e.getModuleId().equals(ownerModule)) {
+                failed.setVisible(false);
+                openButton.setVisible(false);
+                statusLabel.setVisible(true);
+                statusLabel.setText(DefaultI18nContext.getInstance().i18n("Requested"));
+                bar.setProgress(0);
+            }
+        });
         eventStudio().addAnnotatedListeners(this);
     }
 
-    @EventListener
-    public void onTaskExecutionRequest(TaskExecutionRequestEvent event) {
-        open.setVisible(false);
-        failed.setVisible(false);
-        statusLabel.setVisible(true);
-        statusLabel.setText(DefaultI18nContext.getInstance().i18n("Requested"));
-        bar.setProgress(0);
-        try {
-            if (!isNull(event.getParameters().getOutput())) {
-                event.getParameters().getOutput().accept(open);
-            }
-        } catch (TaskOutputVisitException e) {
-            LOG.warn("This should never happen", e);
-        }
+    public OpenButton openButton() {
+        return openButton;
+    }
+
+    public RunButton runButton() {
+        return runButton;
+    }
+
+    @EventStation
+    public String getOwnerModule() {
+        return ownerModule;
     }
 
     @EventListener
     public void onTaskCompleted(TaskExecutionCompletedEvent event) {
-        open.setVisible(true);
         failed.setVisible(false);
+        openButton.setVisible(true);
         statusLabel.setText(DefaultI18nContext.getInstance().i18n("Completed"));
         bar.setProgress(1);
     }
 
     @EventListener
     public void onTaskFailed(TaskExecutionFailedEvent event) {
-        open.setVisible(false);
+        openButton.setVisible(false);
         failed.setVisible(true);
         statusLabel.setText(DefaultI18nContext.getInstance().i18n("Failed"));
     }
 
     @EventListener
     public void onProgress(PercentageOfWorkDoneChangedEvent event) {
-        open.setVisible(false);
-        failed.setVisible(false);
         statusLabel.setText(DefaultI18nContext.getInstance().i18n("Running"));
         if (event.isUndetermined()) {
             bar.setProgress(ProgressIndicator.INDETERMINATE_PROGRESS);

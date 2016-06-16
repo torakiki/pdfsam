@@ -26,7 +26,7 @@ import java.util.Set;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.ui.event.SetActiveModuleRequest;
+import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.pdfsam.ui.quickbar.BaseQuickbarButtonsPane;
 import org.sejda.eventstudio.annotation.EventListener;
 

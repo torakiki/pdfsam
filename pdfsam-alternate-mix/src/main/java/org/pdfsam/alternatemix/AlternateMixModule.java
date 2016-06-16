@@ -30,11 +30,15 @@ import org.pdfsam.context.UserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
+import org.pdfsam.module.ModuleInputOutputType;
 import org.pdfsam.module.ModulePriority;
 import org.pdfsam.module.PdfsamModule;
 import org.pdfsam.ui.io.BrowsablePdfOutputField;
 import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
+import org.pdfsam.ui.module.Footer;
+import org.pdfsam.ui.module.OpenButton;
+import org.pdfsam.ui.module.RunButton;
 import org.pdfsam.ui.support.Views;
 import org.sejda.eventstudio.annotation.EventStation;
 import org.sejda.model.input.PdfFileSource;
@@ -44,7 +48,6 @@ import org.springframework.context.annotation.Configuration;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 /**
@@ -63,7 +66,7 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
     private BrowsablePdfOutputField destinationFileField;
     private PdfDestinationPane destinationPane;
     private AlternateMixOptionsPane optionsPane = new AlternateMixOptionsPane();
-    private ModuleDescriptor descriptor = builder().category(ModuleCategory.MERGE)
+    private ModuleDescriptor descriptor = builder().category(ModuleCategory.MERGE).inputTypes(ModuleInputOutputType.OTHER)
             .name(DefaultI18nContext.getInstance().i18n("Alternate Mix"))
             .description(DefaultI18nContext.getInstance()
                     .i18n("Merge two PDF documents taking pages alternately in straight or reverse order."))
@@ -71,7 +74,8 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
 
     @Inject
     public AlternateMixModule(@Named(MODULE_ID + "field") BrowsablePdfOutputField destinationFileField,
-            @Named(MODULE_ID + "pane") PdfDestinationPane destinationPane) {
+            @Named(MODULE_ID + "pane") PdfDestinationPane destinationPane, @Named(MODULE_ID + "footer") Footer footer) {
+        super(footer);
         this.destinationFileField = destinationFileField;
         this.destinationPane = destinationPane;
         this.firstDocument = new AlternateMixSingleSelectionPane(id()) {
@@ -118,13 +122,13 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
     }
 
     @Override
-    protected Pane getInnerPanel(Pane footer) {
+    protected VBox getInnerPanel() {
         VBox pane = new VBox();
         pane.setAlignment(Pos.TOP_CENTER);
 
         pane.getChildren().addAll(firstDocument, secondDocument,
                 Views.titledPane(DefaultI18nContext.getInstance().i18n("Mix settings"), optionsPane),
-                Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination file"), destinationPane), footer);
+                Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination file"), destinationPane));
         return pane;
     }
 
@@ -161,5 +165,16 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
                 UserContext userContext) {
             return new PdfDestinationPane(outputField, MODULE_ID, userContext);
         }
+
+        @Bean(name = MODULE_ID + "footer")
+        public Footer footer(RunButton runButton, @Named(MODULE_ID + "openButton") OpenButton openButton) {
+            return new Footer(runButton, openButton, MODULE_ID);
+        }
+
+        @Bean(name = MODULE_ID + "openButton")
+        public OpenButton openButton() {
+            return new OpenButton(MODULE_ID, ModuleInputOutputType.SINGLE_PDF);
+        }
+
     }
 }

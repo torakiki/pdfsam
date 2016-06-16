@@ -44,7 +44,7 @@ import org.pdfsam.module.UsageService;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
-import org.pdfsam.ui.event.SetActiveModuleRequest;
+import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.pdfsam.ui.event.SetTitleEvent;
 import org.sejda.eventstudio.Listener;
 import org.springframework.context.ApplicationContext;

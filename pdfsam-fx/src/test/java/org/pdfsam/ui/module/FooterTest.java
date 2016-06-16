@@ -35,6 +35,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
+import org.pdfsam.module.ModuleInputOutputType;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
@@ -55,23 +56,26 @@ import javafx.scene.control.ProgressBar;
  *
  */
 public class FooterTest {
+    private static final String MODULE_ID = "moduleId";
     @Rule
     public InitializeAndApplyJavaFxThreadRule fxThread = new InitializeAndApplyJavaFxThreadRule();
     @Rule
-    public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule("LogStage");
+    public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule();
 
     private Footer victim;
 
     @Before
     public void setUp() {
         eventStudio().broadcast(new SetLocaleEvent(Locale.UK.toLanguageTag()));
-        victim = new Footer(new RunButton());
+        OpenButton button = new OpenButton(MODULE_ID, ModuleInputOutputType.SINGLE_PDF);
+        victim = new Footer(new RunButton(), button, MODULE_ID);
     }
 
     @Test
-    public void hideButtonsOnInit() {
+    public void hideOnInit() {
         assertFalse(victim.lookup(".footer-failed-button").isVisible());
         assertFalse(victim.lookup(".footer-open-button").isVisible());
+        assertFalse(victim.lookup(".status-label").isVisible());
     }
 
     @Test
@@ -123,17 +127,27 @@ public class FooterTest {
 
     @Test
     public void onTaskExecutionRequest() throws TaskOutputVisitException {
-        TaskExecutionRequestEvent event = mock(TaskExecutionRequestEvent.class);
         AbstractParameters params = mock(AbstractParameters.class);
+        TaskExecutionRequestEvent event = new TaskExecutionRequestEvent(MODULE_ID, params);
         TaskOutput output = mock(FileTaskOutput.class);
-        when(event.getParameters()).thenReturn(params);
         when(params.getOutput()).thenReturn(output);
-        victim.onTaskExecutionRequest(event);
+        eventStudio().broadcast(event);
         assertFalse(victim.lookup(".footer-failed-button").isVisible());
         assertFalse(victim.lookup(".footer-open-button").isVisible());
+        assertTrue(victim.lookup(".status-label").isVisible());
         assertEquals(DefaultI18nContext.getInstance().i18n("Requested"),
                 ((Labeled) victim.lookup(".status-label")).getText());
         assertEquals(0, ((ProgressBar) victim.lookup(".pdfsam-footer-bar")).getProgress(), 0.01);
         verify(output).accept(any());
+    }
+
+    @Test
+    public void onTaskExecutionRequestDifferentModule() {
+        AbstractParameters params = mock(AbstractParameters.class);
+        TaskExecutionRequestEvent event = new TaskExecutionRequestEvent("AnotherModule", params);
+        TaskOutput output = mock(FileTaskOutput.class);
+        when(params.getOutput()).thenReturn(output);
+        eventStudio().broadcast(event);
+        assertFalse(victim.lookup(".status-label").isVisible());
     }
 }

@@ -32,7 +32,7 @@ import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.test.DefaultPriorityTestModule;
-import org.pdfsam.ui.event.SetActiveModuleRequest;
+import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.sejda.eventstudio.Listener;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.annotation.DirtiesContext;
@@ -68,7 +68,7 @@ public class ModulesMenuTest extends GuiTest {
         eventStudio().add(SetActiveModuleRequest.class, listener);
         ArgumentCaptor<SetActiveModuleRequest> argument = ArgumentCaptor.forClass(SetActiveModuleRequest.class);
         click(".button").click("#modulesMenu")
-                .click(module.descriptor().getCategory().getDescription()).click(module.descriptor().getName());
+                .click(module.descriptor().category.getDescription()).click(module.descriptor().getName());
         verify(listener).onEvent(argument.capture());
         assertEquals(module.id(), argument.getValue().getActiveModuleId().get());
     }

@@ -18,15 +18,12 @@
  */
 package org.pdfsam.ui.banner;
 
-import static org.pdfsam.ui.event.SetActiveModuleRequest.activeteModule;
+import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuItem;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -35,6 +32,9 @@ import javax.inject.Named;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.ModuleCategory;
+
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
 
 /**
  * Menu letting the user select the module he/she wants to use
@@ -56,7 +56,7 @@ class ModulesMenu extends Menu {
         setId("modulesMenu");
         Map<ModuleCategory, Menu> moduleSubmenus = new HashMap<>();
         for (final Module currentModule : modules) {
-            ModuleCategory category = currentModule.descriptor().getCategory();
+            ModuleCategory category = currentModule.descriptor().category;
             Menu currentMenu = moduleSubmenus.get(category);
             if (currentMenu == null) {
                 currentMenu = new Menu(category.getDescription());

@@ -49,6 +49,7 @@ import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.io.FileType;
+import org.pdfsam.ui.commons.ClearSelectionEvent;
 import org.pdfsam.ui.commons.OpenFileRequest;
 import org.pdfsam.ui.commons.RemoveSelectedEvent;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
@@ -390,7 +391,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     }
 
     @EventListener
-    public void onClear(final ClearSelectionTableEvent event) {
+    public void onClear(final ClearSelectionEvent event) {
         getItems().forEach(d -> d.descriptor().releaseAll());
         getSelectionModel().clearSelection();
         getItems().clear();

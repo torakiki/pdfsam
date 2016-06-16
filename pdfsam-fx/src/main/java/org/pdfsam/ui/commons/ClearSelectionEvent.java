@@ -16,14 +16,14 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.selection.multiple;
+package org.pdfsam.ui.commons;
 
 /**
- * request the selection table to be cleared
+ * request the selection component to be cleared
  * 
  * @author Andrea Vacondio
  * 
  */
-class ClearSelectionTableEvent {
+public class ClearSelectionEvent {
     // nothing
 }

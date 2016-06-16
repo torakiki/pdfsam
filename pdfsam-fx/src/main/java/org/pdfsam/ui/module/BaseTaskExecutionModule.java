@@ -41,6 +41,7 @@ import org.sejda.model.parameter.base.AbstractParameters;
 import javafx.application.Platform;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 /**
  * Base class for a {@link Module}. Modules are automatically scanned for event listener annotations and have their {@link EventStation} set to their {@link #id()}.
@@ -52,16 +53,20 @@ import javafx.scene.layout.Pane;
 public abstract class BaseTaskExecutionModule implements Module {
 
     private BorderPane modulePanel = new BorderPane();
+    private Footer footer;
+
+    public BaseTaskExecutionModule(Footer footer) {
+        this.footer = footer;
+    }
 
     @PostConstruct
     final void init() {
-        RunButton runButton = new RunButton();
-        Pane innerPanel = getInnerPanel(new Footer(runButton));
+        VBox innerPanel = getInnerPanel();
         innerPanel.getStyleClass().addAll(Style.DEAULT_CONTAINER.css());
         innerPanel.getStyleClass().addAll(Style.MODULE_CONTAINER.css());
+        innerPanel.getChildren().add(footer);
 
-
-        runButton.setOnAction(event -> {
+        footer.runButton().setOnAction(event -> {
             ErrorTracker errorTracker = new ErrorTracker();
             Builder<? extends AbstractParameters> builder = getBuilder(errorTracker
                     .andThen(s -> eventStudio().broadcast(new AddNotificationRequestEvent(NotificationType.ERROR, s,
@@ -87,7 +92,7 @@ public abstract class BaseTaskExecutionModule implements Module {
     /**
      * @return the inner panel that allows the user to set options and preferences for this module
      */
-    protected abstract Pane getInnerPanel(Pane footer);
+    protected abstract VBox getInnerPanel();
 
     /**
      * @param onError

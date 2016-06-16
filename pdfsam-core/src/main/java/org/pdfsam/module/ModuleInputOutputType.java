@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 22/nov/2012
- * Copyright 2012 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 10 giu 2016
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,24 +16,16 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.task;
-
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.application.Platform;
-
-import org.sejda.model.notification.EventListener;
-import org.sejda.model.notification.event.AbstractNotificationEvent;
+package org.pdfsam.module;
 
 /**
- * Listen for an {@link AbstractNotificationEvent} and asyncronously broadcasts it to all the registered subscribers.
+ * Type of input/output of the module
  * 
  * @author Andrea Vacondio
- * @param <T>
- *            type of the event
+ *
  */
-class TaskEventBroadcaster<T extends AbstractNotificationEvent> implements EventListener<T> {
-
-    public void onEvent(T event) {
-        Platform.runLater(() -> eventStudio().broadcast(event));
-    }
+public enum ModuleInputOutputType {
+    MULTIPLE_PDF,
+    SINGLE_PDF,
+    OTHER;
 }

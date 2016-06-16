@@ -30,9 +30,9 @@ import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.DefaultPriorityDashboardItem;
 import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
+import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.pdfsam.ui.dashboard.Dashboard;
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
-import org.pdfsam.ui.event.SetActiveModuleRequest;
 import org.pdfsam.ui.news.NewsPanel;
 import org.pdfsam.ui.workarea.WorkArea;
 

@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.dashboard.modules;
 
-import static org.pdfsam.ui.event.SetActiveModuleRequest.activeteModule;
+import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.pdfsam.module.Module;

@@ -34,7 +34,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.module.Module;
-import org.pdfsam.ui.event.SetActiveModuleRequest;
+import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.pdfsam.ui.event.SetTitleEvent;
 import org.pdfsam.ui.quickbar.QuickbarPane;
 import org.pdfsam.ui.support.Style;

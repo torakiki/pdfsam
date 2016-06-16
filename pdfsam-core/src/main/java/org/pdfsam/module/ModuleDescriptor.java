@@ -18,8 +18,11 @@
  */
 package org.pdfsam.module;
 
+import static java.util.Optional.ofNullable;
 import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -30,22 +33,22 @@ import java.util.Optional;
  */
 public final class ModuleDescriptor {
 
-    private ModuleCategory category;
     private String name;
     private String description;
     private int priority = ModulePriority.DEFAULT.getPriority();
     private String supportURL;
+    private final List<ModuleInputOutputType> inputTypes;
+    public final ModuleCategory category;
 
-    ModuleDescriptor(ModuleCategory category, String name, String description, int priority, String supportURL) {
-        this.category = category;
+    ModuleDescriptor(ModuleCategory category, String name, String description, int priority, String supportURL,
+            ModuleInputOutputType... inputTypes) {
+        this.category = ofNullable(category).orElse(ModuleCategory.OTHER);
         this.name = name;
         this.description = description;
         this.priority = priority;
         this.supportURL = supportURL;
-    }
-
-    public ModuleCategory getCategory() {
-        return category;
+        this.inputTypes = ofNullable(inputTypes).filter(t -> t.length > 0).map(Arrays::asList)
+                .orElseGet(() -> Arrays.asList(ModuleInputOutputType.OTHER));
     }
 
     /**
@@ -74,7 +77,14 @@ public final class ModuleDescriptor {
      * @return an optional URL pointing at the location where a support resource can be found. This is intended to be a webpage where support material for the module can be found.
      */
     public Optional<String> getSupportURL() {
-        return Optional.ofNullable(defaultIfBlank(supportURL, null));
+        return ofNullable(defaultIfBlank(supportURL, null));
     }
 
+    /**
+     * @param type
+     * @return true if this module has the given input type
+     */
+    public boolean hasInputType(ModuleInputOutputType type) {
+        return inputTypes.contains(type);
+    }
 }

@@ -22,13 +22,14 @@ import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
 
 import java.util.Map;
 
-import javafx.scene.Node;
-import javafx.scene.layout.Pane;
-
 import org.pdfsam.module.Module;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
+import org.pdfsam.module.ModuleInputOutputType;
 import org.pdfsam.module.ModulePriority;
+
+import javafx.scene.Node;
+import javafx.scene.layout.Pane;
 
 /**
  * A test module to use in tests
@@ -40,7 +41,8 @@ public class DefaultPriorityTestModule implements Module {
     public static final String ID = "test.module";
 
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.MERGE).description("Test module")
-            .name("TestModule").priority(ModulePriority.DEFAULT).supportURL("http://www.chucknorrisfacts.com/").build();
+            .inputTypes(ModuleInputOutputType.SINGLE_PDF).name("TestModule").priority(ModulePriority.DEFAULT)
+            .supportURL("http://www.chucknorrisfacts.com/").build();
 
     public String id() {
         return ID;

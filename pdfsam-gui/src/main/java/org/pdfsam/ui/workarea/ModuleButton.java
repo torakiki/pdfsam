@@ -19,7 +19,7 @@
 package org.pdfsam.ui.workarea;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
-import static org.pdfsam.ui.event.SetActiveModuleRequest.activeteModule;
+import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import javafx.scene.control.Tooltip;
 

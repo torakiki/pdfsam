@@ -33,12 +33,16 @@ import org.pdfsam.context.UserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
+import org.pdfsam.module.ModuleInputOutputType;
 import org.pdfsam.module.ModulePriority;
 import org.pdfsam.module.PdfsamModule;
 import org.pdfsam.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
 import org.pdfsam.ui.io.BrowsableOutputDirectoryField;
 import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
+import org.pdfsam.ui.module.Footer;
+import org.pdfsam.ui.module.OpenButton;
+import org.pdfsam.ui.module.RunButton;
 import org.pdfsam.ui.prefix.PrefixPane;
 import org.pdfsam.ui.selection.single.TaskParametersBuilderSingleSelectionPane;
 import org.pdfsam.ui.support.Views;
@@ -52,8 +56,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.TitledPane;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+
 /**
  * Simple split module to let the user set page numbers to split an input pdf document.
  * 
@@ -70,14 +74,15 @@ public class SplitModule extends BaseTaskExecutionModule {
     private PdfDestinationPane destinationPane;
     private SplitOptionsPane splitOptions = new SplitOptionsPane();
     private PrefixPane prefix = new PrefixPane();
-    private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT)
+    private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT).inputTypes(ModuleInputOutputType.SINGLE_PDF)
             .name(DefaultI18nContext.getInstance().i18n("Split"))
             .description(DefaultI18nContext.getInstance().i18n("Split a PDF document at the given page numbers."))
             .priority(ModulePriority.HIGH.getPriority()).supportURL("http://www.pdfsam.org/pdf-split").build();
 
     @Inject
     public SplitModule(@Named(MODULE_ID + "field") BrowsableOutputDirectoryField destinationDirectoryField,
-            @Named(MODULE_ID + "pane") PdfDestinationPane destinationPane) {
+            @Named(MODULE_ID + "pane") PdfDestinationPane destinationPane, @Named(MODULE_ID + "footer") Footer footer) {
+        super(footer);
         this.destinationDirectoryField = destinationDirectoryField;
         this.destinationPane = destinationPane;
         this.selectionPane = new TaskParametersBuilderSingleSelectionPane(id());
@@ -121,7 +126,7 @@ public class SplitModule extends BaseTaskExecutionModule {
     }
 
     @Override
-    protected Pane getInnerPanel(Pane footer) {
+    protected VBox getInnerPanel() {
         VBox pane = new VBox();
         pane.setAlignment(Pos.TOP_CENTER);
 
@@ -130,11 +135,10 @@ public class SplitModule extends BaseTaskExecutionModule {
         prefix.addMenuItemFor(Prefix.CURRENTPAGE);
         prefix.addMenuItemFor(Prefix.FILENUMBER);
 
-        pane.getChildren()
-                .addAll(selectionPane, Views.titledPane(DefaultI18nContext.getInstance().i18n("Split settings"),
-                        splitOptions),
-                        Views.titledPane(DefaultI18nContext.getInstance().i18n("Output settings"), destinationPane),
-                prefixTitled, footer);
+        pane.getChildren().addAll(selectionPane,
+                Views.titledPane(DefaultI18nContext.getInstance().i18n("Split settings"), splitOptions),
+                Views.titledPane(DefaultI18nContext.getInstance().i18n("Output settings"), destinationPane),
+                prefixTitled);
         return pane;
     }
 
@@ -161,6 +165,16 @@ public class SplitModule extends BaseTaskExecutionModule {
             PdfDestinationPane panel = new PdfDestinationPane(outputField, MODULE_ID, userContext, DISCARD_BOOKMARKS);
             panel.enableSameAsSourceItem();
             return panel;
+        }
+
+        @Bean(name = MODULE_ID + "footer")
+        public Footer footer(RunButton runButton, @Named(MODULE_ID + "openButton") OpenButton openButton) {
+            return new Footer(runButton, openButton, MODULE_ID);
+        }
+
+        @Bean(name = MODULE_ID + "openButton")
+        public OpenButton openButton() {
+            return new OpenButton(MODULE_ID, ModuleInputOutputType.MULTIPLE_PDF);
         }
     }
 }

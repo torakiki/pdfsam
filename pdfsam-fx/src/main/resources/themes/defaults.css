@@ -402,5 +402,29 @@
  * Footer button
  */
  .footer-button, .footer-button:default, .footer-button:focused {
-    -fx-padding: 2.0px 16.0px 2.0px 12.0px;
+    -fx-padding: 2.0px 16.0px 2.0px 12.0px;  
+}
+ .footer-open-button, .footer-open-button:default, .footer-open-button:focused {
+	-fx-padding: 2.0px 0.0px 2.0px 12.0px;
+}
+
+.footer-open-button > .label, .footer-open-button:focused > .label {
+    -fx-text-fill: -fx-text-base-color;
+   	-fx-background-color:  transparent;
+    -fx-background-insets:0.0;
+    -fx-background-radius: 0.0;
+	-fx-padding: 0.0px 6.0px 0.0px 6.0px; 
+}
+.footer-open-button > .arrow-button {
+   -fx-background-color:  transparent;
+   -fx-background-insets: 0.0;
+   -fx-background-radius: 0.0;
+}
+.footer-open-button > .arrow-button:hover{
+   -fx-background-color:  -pdfsam-hover-color;
+   -fx-background-insets: 0.0;
+   -fx-background-radius: 0.0;
+}
+.footer-open-button > .arrow-button:pressed{
+    -fx-opacity: 0.85;
 }

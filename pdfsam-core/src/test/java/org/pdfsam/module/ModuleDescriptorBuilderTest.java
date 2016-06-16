@@ -63,7 +63,7 @@ public class ModuleDescriptorBuilderTest {
     public void build() {
         ModuleDescriptor victim = builder().category(ModuleCategory.MERGE).description("desc").name("name")
                 .priority(ModulePriority.DEFAULT).supportURL("url").build();
-        assertEquals(ModuleCategory.MERGE, victim.getCategory());
+        assertEquals(ModuleCategory.MERGE, victim.category);
         assertEquals("desc", victim.getDescription());
         assertEquals("name", victim.getName());
         assertEquals("url", victim.getSupportURL().get());

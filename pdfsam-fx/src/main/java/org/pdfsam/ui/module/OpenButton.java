@@ -18,44 +18,105 @@
  */
 package org.pdfsam.ui.module;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.requireNonNull;
+import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.module.Module;
+import org.pdfsam.module.ModuleInputOutputType;
+import org.pdfsam.module.TaskExecutionRequestEvent;
+import org.pdfsam.pdf.PdfDocumentDescriptor;
+import org.pdfsam.pdf.PdfLoadRequestEvent;
+import org.pdfsam.ui.commons.ClearSelectionEvent;
 import org.pdfsam.ui.commons.OpenFileRequest;
 import org.pdfsam.ui.support.Style;
+import org.sejda.eventstudio.ReferenceStrength;
+import org.sejda.eventstudio.annotation.EventListener;
+import org.sejda.eventstudio.annotation.EventStation;
+import org.sejda.model.exception.TaskOutputVisitException;
+import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.output.StreamTaskOutput;
 import org.sejda.model.output.TaskOutputDispatcher;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
-import javafx.scene.control.Button;
-
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SplitMenuButton;
 /**
  * Button to open the latest manipulation result
  * 
  * @author Andrea Vacondio
  *
  */
-class OpenButton extends Button implements TaskOutputDispatcher {
+public class OpenButton extends SplitMenuButton implements TaskOutputDispatcher {
 
+    private static final Logger LOG = LoggerFactory.getLogger(OpenButton.class);
+    private String ownerModule = StringUtils.EMPTY;
     private File destination;
+    private List<File> latestOutput = new ArrayList<>();
+    private ModuleInputOutputType outputType;
 
-    public OpenButton() {
-        getStyleClass().addAll(Style.FOOTER_BUTTON.css());
+    public OpenButton(String ownerModule, ModuleInputOutputType outputType) {
+        requireNonNull(outputType);
+        this.outputType = outputType;
+        this.ownerModule = defaultString(ownerModule);
+        setId(ownerModule + ".openButton");
+        getStyleClass().addAll(Style.BUTTON.css());
         getStyleClass().add("footer-open-button");
         setText(DefaultI18nContext.getInstance().i18n("Open"));
         setMaxHeight(Double.MAX_VALUE);
         setPrefHeight(Double.MAX_VALUE);
+        setVisible(false);
         setOnAction(e -> {
             if (destination != null && destination.exists()) {
                 eventStudio().broadcast(new OpenFileRequest(destination));
             }
         });
+        eventStudio().add(TaskExecutionRequestEvent.class, e -> {
+            if (e.getModuleId().equals(ownerModule)) {
+                latestOutput.clear();
+                try {
+                    if (!isNull(e.getParameters().getOutput())) {
+                        e.getParameters().getOutput().accept(this);
+                    }
+                } catch (TaskOutputVisitException ex) {
+                    LOG.warn("This should never happen", ex);
+                }
+            }
+        }, -10, ReferenceStrength.STRONG);
+        eventStudio().addAnnotatedListeners(this);
+    }
+
+    public void initModules(Collection<Module> modules) {
+        modules.forEach(m -> {
+            if (m.descriptor().hasInputType(outputType)) {
+                getItems().add(new OpenWithMenuItem(m));
+            }
+        });
+    }
+
+    @EventStation
+    public String getOwnerModule() {
+        return ownerModule;
+    }
+
+    @EventListener(priority = -10)
+    public void onTaskCompleted(TaskExecutionCompletedEvent event) {
+        latestOutput.addAll(event.getNotifiableTaskMetadata().taskOutput());
     }
 
     public void dispatch(FileTaskOutput output) {
@@ -72,4 +133,17 @@ class OpenButton extends Button implements TaskOutputDispatcher {
         throw new IllegalArgumentException("Unsupported output type");
     }
 
+    private class OpenWithMenuItem extends MenuItem {
+
+        private OpenWithMenuItem(Module module) {
+            setText(module.descriptor().getName());
+            setOnAction((e) -> {
+                eventStudio().broadcast(new ClearSelectionEvent(), module.id());
+                eventStudio().broadcast(activeteModule(module.id()));
+                PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(module.id());
+                latestOutput.stream().map(PdfDocumentDescriptor::newDescriptorNoPassword).forEach(loadEvent::add);
+                eventStudio().broadcast(loadEvent, module.id());
+            });
+        }
+    }
 }
