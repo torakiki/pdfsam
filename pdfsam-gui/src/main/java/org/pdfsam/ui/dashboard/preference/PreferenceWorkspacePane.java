@@ -46,7 +46,8 @@ class PreferenceWorkspacePane extends VBox {
     @Inject
     public PreferenceWorkspacePane(@Named("workingDirectory") PreferenceBrowsableDirectoryField workingDirectory,
             @Named("workspace") PreferenceBrowsableFileField workspace,
-            @Named("saveWorkspaceOnExit") PreferenceCheckBox saveWorkspaceOnExit) {
+            @Named("saveWorkspaceOnExit") PreferenceCheckBox saveWorkspaceOnExit,
+            @Named("savePwdInWorkspace") PreferenceCheckBox savePwdInWorkspace) {
         I18nContext i18n = DefaultI18nContext.getInstance();
         workingDirectory.getTextField()
                 .setPromptText(i18n.i18n("Select a directory where documents will be saved and loaded by default"));
@@ -69,7 +70,8 @@ class PreferenceWorkspacePane extends VBox {
         });
         workspace.getTextField().validate();
         getChildren().addAll(new Label(i18n.i18n("Default working directory:")), workigDirPane,
-                new Label(i18n.i18n("Load default workspace at startup:")), workspaceDirPane, saveWorkspaceOnExit);
+                new Label(i18n.i18n("Load default workspace at startup:")), workspaceDirPane, saveWorkspaceOnExit,
+                savePwdInWorkspace);
         getStyleClass().addAll(Style.CONTAINER.css());
     }
 }

@@ -104,6 +104,11 @@ public final class DefaultUserContext implements UserContext {
     }
 
     @Override
+    public boolean isSavePwdInWorkspaceFile() {
+        return prefs.getBoolean(BooleanUserPreference.SAVE_PWD_IN_WORKSPACE.toString(), Boolean.FALSE);
+    }
+
+    @Override
     public String getLocale() {
         return prefs.get(StringUserPreference.LOCALE.toString(), System.getProperty(LOCALE_PROP));
     }

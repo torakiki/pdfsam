@@ -44,6 +44,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import org.apache.commons.lang3.StringUtils;
+import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
@@ -442,7 +443,9 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         IntStream.range(0, getItems().size()).forEach(i -> {
             SelectionTableRowData current = getItems().get(i);
             data.put(defaultString(getId()) + "input." + i, current.descriptor().getFile().getAbsolutePath());
-            data.put(defaultString(getId()) + "input.password." + i, current.descriptor().getPassword());
+            if (new DefaultUserContext().isSavePwdInWorkspaceFile()) {
+                data.put(defaultString(getId()) + "input.password." + i, current.descriptor().getPassword());
+            }
             data.put(defaultString(getId()) + "input.range." + i, current.getPageSelection());
         });
     }

@@ -65,6 +65,14 @@ public class DefaultUserContextTest {
     }
 
     @Test
+    public void isSavePwdInWorkspace() {
+        victim.setBooleanPreference(BooleanUserPreference.SAVE_PWD_IN_WORKSPACE, false);
+        assertFalse(victim.isSavePwdInWorkspaceFile());
+        victim.setBooleanPreference(BooleanUserPreference.SAVE_PWD_IN_WORKSPACE, true);
+        assertTrue(victim.isSavePwdInWorkspaceFile());
+    }
+
+    @Test
     public void isCheckUpdatesSystemDefault() {
         System.setProperty(DefaultUserContext.CHECK_FOR_UPDATES_PROP, "false");
         assertFalse(victim.isCheckForUpdates());

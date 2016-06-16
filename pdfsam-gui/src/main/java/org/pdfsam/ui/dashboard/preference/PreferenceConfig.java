@@ -112,6 +112,19 @@ public class PreferenceConfig {
         return playSounds;
     }
 
+    @Bean(name = "savePwdInWorkspace")
+    public PreferenceCheckBox savePwdInWorkspace() {
+        PreferenceCheckBox savePwdInWorkspace = new PreferenceCheckBox(BooleanUserPreference.SAVE_PWD_IN_WORKSPACE,
+                DefaultI18nContext.getInstance().i18n("Store passwords in the workspace file"),
+                userContext.isPlaySounds(), userContext);
+        savePwdInWorkspace.setId("savePwdInWorkspace");
+        savePwdInWorkspace.setGraphic(helpIcon(DefaultI18nContext.getInstance().i18n(
+                "If an encrypted PDF document has been opened with a password, save the password in the workspace file")));
+        savePwdInWorkspace.getStyleClass().addAll(Style.WITH_HELP.css());
+        savePwdInWorkspace.getStyleClass().add("spaced-vitem");
+        return savePwdInWorkspace;
+    }
+
     @Bean(name = "donationNotification")
     public PreferenceCheckBox donationNotification() {
         PreferenceCheckBox donationNotification = new PreferenceCheckBox(BooleanUserPreference.DONATION_NOTIFICATION,

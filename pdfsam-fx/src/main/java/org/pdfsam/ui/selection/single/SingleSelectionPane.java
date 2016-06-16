@@ -36,6 +36,7 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 import org.apache.commons.lang3.StringUtils;
+import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
@@ -230,7 +231,9 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
     public void saveStateTo(Map<String, String> data) {
         if (descriptor != null) {
             data.put(defaultString(getId()) + "input", descriptor.getFile().getAbsolutePath());
-            data.put(defaultString(getId()) + "input.password", descriptor.getPassword());
+            if (new DefaultUserContext().isSavePwdInWorkspaceFile()) {
+                data.put(defaultString(getId()) + "input.password", descriptor.getPassword());
+            }
         }
     }
 

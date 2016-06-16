@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.selection.single;
 
+import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -45,6 +46,8 @@ import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.mockito.ArgumentCaptor;
+import org.pdfsam.context.BooleanUserPreference;
+import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
@@ -255,7 +258,7 @@ public class SingleSelectionPaneTest extends GuiTest {
         FXTestUtils.invokeAndWait(() -> {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
-        } , 2);
+        }, 2);
         exists(DefaultI18nContext.getInstance().i18n("Loading..."));
     }
 
@@ -278,12 +281,25 @@ public class SingleSelectionPaneTest extends GuiTest {
 
     @Test
     public void onSaveWorkspaceWithPwd() throws Exception {
+        new DefaultUserContext().setBooleanPreference(BooleanUserPreference.SAVE_PWD_IN_WORKSPACE, true);
         SingleSelectionPane victim = find("#victim-selection-pane");
         moveToLoadedWithDecryption(victim);
         victim.getPdfDocumentDescriptor().setPassword("pwd");
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
         assertEquals("pwd", data.get("victim-selection-paneinput.password"));
+        assertThat(data.get("victim-selection-paneinput"), Matchers.endsWith("chuck.pdf"));
+    }
+
+    @Test
+    public void onSaveWorkspaceWithoutPwd() throws Exception {
+        new DefaultUserContext().setBooleanPreference(BooleanUserPreference.SAVE_PWD_IN_WORKSPACE, false);
+        SingleSelectionPane victim = find("#victim-selection-pane");
+        moveToLoadedWithDecryption(victim);
+        victim.getPdfDocumentDescriptor().setPassword("pwd");
+        Map<String, String> data = new HashMap<>();
+        victim.saveStateTo(data);
+        assertTrue(isBlank(data.get("victim-selection-paneinput.password")));
         assertThat(data.get("victim-selection-paneinput"), Matchers.endsWith("chuck.pdf"));
     }
 
@@ -350,7 +366,7 @@ public class SingleSelectionPaneTest extends GuiTest {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.WITH_ERRORS);
-        } , 2);
+        }, 2);
         Listener<ShowStageRequest> listener = mock(Listener.class);
         eventStudio().add(ShowStageRequest.class, listener, "LogStage");
         click(".glyph-icon");
@@ -386,7 +402,7 @@ public class SingleSelectionPaneTest extends GuiTest {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADED);
-        } , 2);
+        }, 2);
         Label details = find(".-pdfsam-selection-details");
         assertTrue(isEmpty(details.getText()));
         Label encStatus = find(".encryption-status");
@@ -403,7 +419,7 @@ public class SingleSelectionPaneTest extends GuiTest {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADED);
-        } , 2);
+        }, 2);
     }
 
     private void moveToEncrytedState(SingleSelectionPane victim) throws Exception {
@@ -412,7 +428,7 @@ public class SingleSelectionPaneTest extends GuiTest {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.ENCRYPTED);
-        } , 2);
+        }, 2);
     }
 
     private void moveToLoadedWithDecryption(SingleSelectionPane victim) throws Exception {
@@ -421,7 +437,7 @@ public class SingleSelectionPaneTest extends GuiTest {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADED_WITH_USER_PWD_DECRYPTION);
-        } , 2);
+        }, 2);
     }
 
     private void moveToLoadedStateWithSpecialChars(SingleSelectionPane victim) throws Exception {
@@ -430,7 +446,7 @@ public class SingleSelectionPaneTest extends GuiTest {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADED);
-        } , 2);
+        }, 2);
     }
 
     private void typeSpecialPathAndValidate() throws Exception {

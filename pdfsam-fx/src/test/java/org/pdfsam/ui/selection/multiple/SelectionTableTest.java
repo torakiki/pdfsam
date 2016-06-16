@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.selection.multiple;
 
+import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
@@ -47,6 +48,8 @@ import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.mockito.ArgumentCaptor;
+import org.pdfsam.context.BooleanUserPreference;
+import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
@@ -172,19 +175,37 @@ public class SelectionTableTest extends GuiTest {
     }
 
     @Test
-    public void onSaveWorkspaceEncrypted() throws Exception {
+    public void onSaveWorkspaceEncryptedPwdStored() throws Exception {
+        new DefaultUserContext().setBooleanPreference(BooleanUserPreference.SAVE_PWD_IN_WORKSPACE, true);
         SelectionTable victim = find("#victim");
         PdfDocumentDescriptor firstItem = populate();
         FXTestUtils.invokeAndWait(() -> {
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.ENCRYPTED);
-        } , 2);
+        }, 2);
         click(".glyph-icon");
         type("pwd").click(DefaultI18nContext.getInstance().i18n("Unlock"));
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
         assertEquals("pwd", data.get("victiminput.password.0"));
+    }
+
+    @Test
+    public void onSaveWorkspaceEncryptedNoPwdStored() throws Exception {
+        new DefaultUserContext().setBooleanPreference(BooleanUserPreference.SAVE_PWD_IN_WORKSPACE, false);
+        SelectionTable victim = find("#victim");
+        PdfDocumentDescriptor firstItem = populate();
+        FXTestUtils.invokeAndWait(() -> {
+            firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
+            firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
+            firstItem.moveStatusTo(PdfDescriptorLoadingStatus.ENCRYPTED);
+        }, 2);
+        click(".glyph-icon");
+        type("pwd").click(DefaultI18nContext.getInstance().i18n("Unlock"));
+        Map<String, String> data = new HashMap<>();
+        victim.saveStateTo(data);
+        assertTrue(isBlank(data.get("victiminput.password.0")));
     }
 
     @Test
@@ -236,7 +257,7 @@ public class SelectionTableTest extends GuiTest {
         assertEquals(1, victim.getSelectionModel().getSelectedIndices().size());
         FXTestUtils.invokeAndWait(() -> {
             eventStudio().broadcast(new ClearSelectionEvent(), MODULE);
-        } , 2);
+        }, 2);
         assertTrue(victim.getSelectionModel().getSelectedIndices().isEmpty());
     }
 
@@ -274,7 +295,7 @@ public class SelectionTableTest extends GuiTest {
         click("temp.pdf").press(KeyCode.CONTROL).click("temp3.pdf").release(KeyCode.CONTROL);
         FXTestUtils.invokeAndWait(() -> {
             eventStudio().broadcast(new RemoveSelectedEvent(), MODULE);
-        } , 2);
+        }, 2);
         SelectionTable victim = find("#victim");
         assertEquals(2, victim.getItems().size());
         assertEquals(1, victim.getSelectionModel().getSelectedIndices().size());
@@ -290,7 +311,7 @@ public class SelectionTableTest extends GuiTest {
         click("temp.pdf");
         FXTestUtils.invokeAndWait(() -> {
             eventStudio().broadcast(new RemoveSelectedEvent(), MODULE);
-        } , 2);
+        }, 2);
         assertFalse(item.get().descriptor().hasReferences());
     }
 
@@ -304,7 +325,7 @@ public class SelectionTableTest extends GuiTest {
         click(DefaultI18nContext.getInstance().i18n("Duplicate"));
         FXTestUtils.invokeAndWait(() -> {
             eventStudio().broadcast(new ClearSelectionEvent(), MODULE);
-        } , 2);
+        }, 2);
         assertFalse(item.get().descriptor().hasReferences());
     }
 
@@ -325,7 +346,7 @@ public class SelectionTableTest extends GuiTest {
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 0);
         FXTestUtils.invokeAndWait(() -> {
             eventStudio().broadcast(new MoveSelectedEvent(MoveType.DOWN), MODULE);
-        } , 2);
+        }, 2);
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 1);
     }
 
@@ -435,7 +456,7 @@ public class SelectionTableTest extends GuiTest {
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.WITH_ERRORS);
-        } , 2);
+        }, 2);
         Listener<ShowStageRequest> listener = mock(Listener.class);
         eventStudio().add(ShowStageRequest.class, listener, "LogStage");
         click(".glyph-icon");
@@ -449,7 +470,7 @@ public class SelectionTableTest extends GuiTest {
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.ENCRYPTED);
-        } , 2);
+        }, 2);
         Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequestEvent.class, listener);
         click(".glyph-icon");
@@ -496,7 +517,7 @@ public class SelectionTableTest extends GuiTest {
         loadEvent.add(PdfDocumentDescriptor.newDescriptorNoPassword(file4));
         FXTestUtils.invokeAndWait(() -> {
             eventStudio().broadcast(loadEvent, MODULE);
-        } , 2);
+        }, 2);
         return ret;
     }
 }
