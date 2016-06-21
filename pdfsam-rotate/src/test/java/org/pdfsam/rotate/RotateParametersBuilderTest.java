@@ -24,15 +24,20 @@ import static org.mockito.Mockito.mock;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Set;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
+import org.pdfsam.task.BulkRotateParameters;
+import org.pdfsam.task.PdfRotationInput;
 import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.ExistingOutputPolicy;
-import org.sejda.model.parameter.RotateParameters;
 import org.sejda.model.pdf.PdfVersion;
+import org.sejda.model.pdf.page.PageRange;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
 import org.sejda.model.rotation.Rotation;
 
@@ -43,29 +48,66 @@ import org.sejda.model.rotation.Rotation;
 public class RotateParametersBuilderTest {
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
+    private RotateParametersBuilder victim;
 
-    @Test
-    public void build() throws IOException {
-        RotateParametersBuilder victim = new RotateParametersBuilder();
+    @Before
+    public void setUp() {
+        victim = new RotateParametersBuilder();
         victim.compress(true);
-        DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
-        victim.output(output);
         victim.existingOutput(ExistingOutputPolicy.OVERWRITE);
         victim.rotation(Rotation.DEGREES_180);
         victim.rotationType(PredefinedSetOfPages.ODD_PAGES);
         victim.prefix("prefix");
+    }
+
+    @Test
+    public void buildDefaultSelection() throws IOException {
+        DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
+        victim.output(output);
         File file = folder.newFile("my.pdf");
         PdfFileSource source = PdfFileSource.newInstanceNoPassword(file);
-        victim.addSource(source);
+        victim.addInput(source, null);
         victim.version(PdfVersion.VERSION_1_7);
-        RotateParameters params = victim.build();
+        BulkRotateParameters params = victim.build();
         assertTrue(params.isCompress());
         assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
         assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
-        assertEquals(Rotation.DEGREES_180, params.getRotation());
-        assertEquals(PredefinedSetOfPages.ODD_PAGES, params.getPredefinedSetOfPages());
+        Set<PdfRotationInput> inputs = params.getInputSet();
+        assertEquals(1, inputs.size());
+        PdfRotationInput input = inputs.iterator().next();
+        assertEquals(Rotation.DEGREES_180, input.rotation);
+        assertEquals(source, input.source);
         assertEquals(output, params.getOutput());
-        assertEquals(source, params.getSourceList().get(0));
+        assertEquals(3, input.getPages(5).size());
         assertEquals("prefix", params.getOutputPrefix());
+    }
+
+    @Test
+    public void buildRanges() throws IOException {
+        DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
+        victim.output(output);
+        File file = folder.newFile("my.pdf");
+        PdfFileSource source = PdfFileSource.newInstanceNoPassword(file);
+        victim.addInput(source, Collections.singleton(new PageRange(2, 5)));
+        victim.version(PdfVersion.VERSION_1_7);
+        BulkRotateParameters params = victim.build();
+        Set<PdfRotationInput> inputs = params.getInputSet();
+        assertEquals(1, inputs.size());
+        PdfRotationInput input = inputs.iterator().next();
+        assertEquals(Rotation.DEGREES_180, input.rotation);
+        assertEquals(4, input.getPages(5).size());
+    }
+
+    @Test
+    public void buildMultiple() throws IOException {
+        DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
+        victim.output(output);
+        File file = folder.newFile("my.pdf");
+        PdfFileSource source = PdfFileSource.newInstanceNoPassword(file);
+        victim.addInput(source, Collections.singleton(new PageRange(2, 5)));
+        victim.addInput(PdfFileSource.newInstanceNoPassword(file), Collections.emptySet());
+        BulkRotateParameters params = victim.build();
+        Set<PdfRotationInput> inputs = params.getInputSet();
+        assertEquals(2, inputs.size());
     }
 }

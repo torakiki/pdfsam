@@ -29,6 +29,20 @@
 		</dependency>
 		<dependency>
 			<groupId>org.sejda</groupId>
+			<artifactId>sejda-core</artifactId>
+			<version>${sejda.version}</version>
+			<type>test-jar</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.sejda</groupId>
+			<artifactId>sejda-model</artifactId>
+			<version>${sejda.version}</version>
+			<type>test-jar</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.sejda</groupId>
 			<artifactId>sejda-sambox</artifactId>
 			<exclusions>
 				<exclusion>

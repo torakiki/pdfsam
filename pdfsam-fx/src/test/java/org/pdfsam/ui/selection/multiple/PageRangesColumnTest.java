@@ -32,24 +32,24 @@ import org.pdfsam.pdf.PdfDocumentDescriptor;
  * @author Andrea Vacondio
  *
  */
-public class StringColumnTest {
+public class PageRangesColumnTest {
 
     @Test
     public void getObservableValue() {
         File file = mock(File.class);
         SelectionTableRowData data = new SelectionTableRowData(PdfDocumentDescriptor.newDescriptorNoPassword(file));
         data.setPageSelection("2");
-        assertEquals("2", StringColumn.PAGE_SELECTION.getObservableValue(data).getValue());
+        assertEquals("2", new PageRangesColumn().getObservableValue(data).getValue());
     }
 
     @Test
     public void getNullTextValue() {
-        assertThat(StringColumn.PAGE_SELECTION.getTextValue(null), isEmptyString());
+        assertThat(new PageRangesColumn().getTextValue(null), isEmptyString());
     }
 
     @Test
     public void comparator() {
-        assertEquals(-1, StringColumn.PAGE_SELECTION.comparator().compare("1", "2"));
+        assertEquals(-1, new PageRangesColumn().comparator().compare("1", "2"));
     }
 
 }

@@ -16,7 +16,6 @@
 			task="org.sejda.impl.sambox.SplitByOutlineLevelTask" />
 		<task parameters="org.sejda.model.parameter.AlternateMixParameters"
 			task="org.sejda.impl.sambox.AlternateMixTask" />
-		<task parameters="org.sejda.model.parameter.RotateParameters"
-			task="org.sejda.impl.sambox.RotateTask" />
+		<task parameters="org.pdfsam.task.BulkRotateParameters" task="org.pdfsam.task.BulkRotateTask" />
 	</tasks>
 </sejda>

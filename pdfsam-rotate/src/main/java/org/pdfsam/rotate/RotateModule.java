@@ -91,8 +91,8 @@ public class RotateModule extends BaseTaskExecutionModule {
     @Override
     protected RotateParametersBuilder getBuilder(Consumer<String> onError) {
         RotateParametersBuilder builder = new RotateParametersBuilder();
-        selectionPane.apply(builder, onError);
         rotateOptions.apply(builder, onError);
+        selectionPane.apply(builder, onError);
         destinationDirectoryField.apply(builder, onError);
         destinationPane.apply(builder, onError);
         prefix.apply(builder, onError);

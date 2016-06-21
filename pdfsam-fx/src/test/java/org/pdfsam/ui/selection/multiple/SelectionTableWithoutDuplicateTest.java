@@ -56,7 +56,7 @@ public class SelectionTableWithoutDuplicateTest extends GuiTest {
     protected Parent getRootNode() {
         SelectionTable victim = new SelectionTable(MODULE, false, true,
                 new SelectionTableColumn<?>[] { new LoadingColumn(MODULE), FileColumn.NAME, LongColumn.SIZE,
-                        IntColumn.PAGES, LongColumn.LAST_MODIFIED, StringColumn.PAGE_SELECTION });
+                        IntColumn.PAGES, LongColumn.LAST_MODIFIED, new PageRangesColumn() });
         victim.setId("victim");
         return victim;
     }

@@ -30,8 +30,8 @@ import org.pdfsam.ui.selection.multiple.IntColumn;
 import org.pdfsam.ui.selection.multiple.LoadingColumn;
 import org.pdfsam.ui.selection.multiple.LongColumn;
 import org.pdfsam.ui.selection.multiple.MultipleSelectionPane;
+import org.pdfsam.ui.selection.multiple.PageRangesColumn;
 import org.pdfsam.ui.selection.multiple.SelectionTableColumn;
-import org.pdfsam.ui.selection.multiple.StringColumn;
 import org.sejda.conversion.exception.ConversionException;
 import org.sejda.model.input.PdfMergeInput;
 import org.slf4j.Logger;
@@ -48,8 +48,10 @@ public class MergeSelectionPane extends MultipleSelectionPane
     private static final Logger LOG = LoggerFactory.getLogger(MergeSelectionPane.class);
 
     public MergeSelectionPane(String ownerModule) {
-        super(ownerModule, true, true, new SelectionTableColumn<?>[] { new LoadingColumn(ownerModule), FileColumn.NAME,
-                LongColumn.SIZE, IntColumn.PAGES, LongColumn.LAST_MODIFIED, StringColumn.PAGE_SELECTION });
+        super(ownerModule, true, true,
+                new SelectionTableColumn<?>[] { new LoadingColumn(ownerModule), FileColumn.NAME, LongColumn.SIZE,
+                        IntColumn.PAGES, LongColumn.LAST_MODIFIED, new PageRangesColumn(DefaultI18nContext.getInstance()
+                                .i18n("Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)")) });
     }
 
     public void apply(MergeParametersBuilder builder, Consumer<String> onError) {
@@ -57,12 +59,12 @@ public class MergeSelectionPane extends MultipleSelectionPane
             table().getItems().stream().filter(s -> !Objects.equals("0", trim(s.getPageSelection())))
                     .map(i -> new PdfMergeInput(i.descriptor().toPdfFileSource(), i.toPageRangeSet()))
                     .forEach(builder::addInput);
+            if (!builder.hasInput()) {
+                onError.accept(DefaultI18nContext.getInstance().i18n("No PDF document has been selected"));
+            }
         } catch (ConversionException e) {
             LOG.error(e.getMessage());
             onError.accept(e.getMessage());
-        }
-        if (!builder.hasInput()) {
-            onError.accept(DefaultI18nContext.getInstance().i18n("No PDF document has been selected"));
         }
     }
 }

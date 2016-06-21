@@ -23,6 +23,7 @@ import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
@@ -74,16 +75,17 @@ public class RotateSelectionPaneTest extends GuiTest {
         RotateSelectionPane victim = find("#victim");
         FXTestUtils.invokeAndWait(() -> victim.apply(builder, onError), 2);
         verify(onError).accept(anyString());
-        verify(builder, never()).addSource(any());
+        verify(builder, never()).addInput(any(), any());
     }
 
     @Test
     public void notEmpty() throws Exception {
         RotateSelectionPane victim = find("#victim");
         populate();
+        when(builder.hasInput()).thenReturn(Boolean.TRUE);
         FXTestUtils.invokeAndWait(() -> victim.apply(builder, onError), 2);
         verify(onError, never()).accept(anyString());
-        verify(builder).addSource(any());
+        verify(builder).addInput(any(), any());
     }
 
     private void populate() throws Exception {

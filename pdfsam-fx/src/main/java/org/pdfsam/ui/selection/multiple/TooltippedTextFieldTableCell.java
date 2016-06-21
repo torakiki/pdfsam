@@ -18,7 +18,8 @@
  */
 package org.pdfsam.ui.selection.multiple;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import static java.util.Objects.nonNull;
+import static org.pdfsam.support.RequireUtils.requireNotBlank;
 
 import javafx.event.Event;
 import javafx.scene.control.ContentDisplay;
@@ -42,8 +43,7 @@ import javafx.util.converter.DefaultStringConverter;
  */
 class TooltippedTextFieldTableCell extends TableCell<SelectionTableRowData, String> {
 
-    private Tooltip tooltip = new Tooltip(DefaultI18nContext.getInstance()
-            .i18n("Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"));
+    private Tooltip tooltip = new Tooltip();
 
     private final TextField textField = new TextField();
 
@@ -52,14 +52,17 @@ class TooltippedTextFieldTableCell extends TableCell<SelectionTableRowData, Stri
     @Override
     public void updateItem(String item, boolean empty) {
         super.updateItem(item, empty);
-        if (item != null) {
+        if (nonNull(item) && nonNull(tooltip)) {
             setTooltip(tooltip);
         } else {
             setTooltip(null);
         }
     }
 
-    public TooltippedTextFieldTableCell() {
+    public TooltippedTextFieldTableCell(String tooltipMessage) {
+        requireNotBlank(tooltipMessage, "Tooltiped cell must have a tooltip message");
+        this.tooltip.setText(tooltipMessage);
+
         itemProperty().addListener((obx, oldItem, newItem) -> {
             if (newItem == null) {
                 setText(null);

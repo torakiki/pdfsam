@@ -18,9 +18,19 @@
  */
 package org.pdfsam.rotate;
 
+import static java.util.Objects.isNull;
+
+import java.util.Set;
+
+import org.pdfsam.support.params.AbstractPdfOutputParametersBuilder;
 import org.pdfsam.support.params.MultipleOutputTaskParametersBuilder;
-import org.pdfsam.support.params.MultiplePdfSourceMultipleOutputParametersBuilder;
+import org.pdfsam.task.BulkRotateParameters;
+import org.pdfsam.task.PdfRotationInput;
+import org.sejda.common.collection.NullSafeSet;
+import org.sejda.model.input.PdfSource;
+import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.parameter.RotateParameters;
+import org.sejda.model.pdf.page.PageRange;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
 import org.sejda.model.rotation.Rotation;
 
@@ -30,28 +40,60 @@ import org.sejda.model.rotation.Rotation;
  * @author Andrea Vacondio
  *
  */
-class RotateParametersBuilder extends MultiplePdfSourceMultipleOutputParametersBuilder<RotateParameters> implements
-        MultipleOutputTaskParametersBuilder<RotateParameters> {
+class RotateParametersBuilder extends AbstractPdfOutputParametersBuilder<BulkRotateParameters>
+        implements MultipleOutputTaskParametersBuilder<BulkRotateParameters> {
 
-    private PredefinedSetOfPages rotationType;
+    private DirectoryTaskOutput output;
+    private String prefix;
+    private Set<PdfRotationInput> inputs = new NullSafeSet<>();
     private Rotation rotation;
+    private PredefinedSetOfPages predefinedRotationType;
+
+    void addInput(PdfSource<?> source, Set<PageRange> pageSelection) {
+        if (isNull(pageSelection) || pageSelection.isEmpty()) {
+            this.inputs.add(new PdfRotationInput(source, rotation, predefinedRotationType));
+        } else {
+            this.inputs.add(new PdfRotationInput(source, rotation, pageSelection.stream().toArray(PageRange[]::new)));
+        }
+    }
+
+    boolean hasInput() {
+        return !inputs.isEmpty();
+    }
+
+    public void output(DirectoryTaskOutput output) {
+        this.output = output;
+    }
+
+    public void prefix(String prefix) {
+        this.prefix = prefix;
+    }
+
+    protected DirectoryTaskOutput getOutput() {
+        return output;
+    }
+
+    protected String getPrefix() {
+        return prefix;
+    }
 
     public void rotation(Rotation rotation) {
         this.rotation = rotation;
     }
 
-    public void rotationType(PredefinedSetOfPages rotationType) {
-        this.rotationType = rotationType;
+    public void rotationType(PredefinedSetOfPages predefinedRotationType) {
+        this.predefinedRotationType = predefinedRotationType;
+
     }
 
-    public RotateParameters build() {
-        RotateParameters params = new RotateParameters(rotation, rotationType);
+    public BulkRotateParameters build() {
+        BulkRotateParameters params = new BulkRotateParameters();
         params.setCompress(isCompress());
         params.setExistingOutputPolicy(existingOutput());
         params.setVersion(getVersion());
         params.setOutput(getOutput());
         params.setOutputPrefix(getPrefix());
-        getInputs().forEach(params::addSource);
+        inputs.forEach(params::addInput);
         return params;
     }
 
