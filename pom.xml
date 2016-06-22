@@ -90,6 +90,7 @@
 		<module>pdfsam-split-by-bookmarks</module>
 		<module>pdfsam-alternate-mix</module>
 		<module>pdfsam-rotate</module>
+		<module>pdfsam-extract</module>
 		<module>pdfsam-docs</module>
 		<module>pdfsam-msi-installer</module>
 	</modules>

@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 05 feb 2016
+ * Created on 26/giu/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,21 +16,26 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.support.params;
+package org.pdfsam.extract;
 
+import java.util.Set;
+
+import org.pdfsam.support.params.SinglePdfSourceSingleOutputParametersBuilder;
 import org.sejda.model.optimization.OptimizationPolicy;
-import org.sejda.model.parameter.base.SinglePdfSourceMultipleOutputParameters;
+import org.sejda.model.parameter.ExtractPagesParameters;
+import org.sejda.model.parameter.RotateParameters;
+import org.sejda.model.pdf.page.PageRange;
 
 /**
- * Builder for split tasks parameters
+ * Builder for {@link RotateParameters}
  * 
  * @author Andrea Vacondio
  *
  */
-public abstract class SplitParametersBuilder<P extends SinglePdfSourceMultipleOutputParameters>
-        extends SinglePdfSourceMultipleOutputParametersBuilder<P> {
+class ExtractParametersBuilder extends SinglePdfSourceSingleOutputParametersBuilder<ExtractPagesParameters> {
 
     private OptimizationPolicy optimizationPolicy = OptimizationPolicy.AUTO;
+    private Set<PageRange> ranges;
 
     public void optimizationPolicy(OptimizationPolicy optimizationPolicy) {
         this.optimizationPolicy = optimizationPolicy;
@@ -41,6 +46,23 @@ public abstract class SplitParametersBuilder<P extends SinglePdfSourceMultipleOu
             return optimizationPolicy;
         }
         return OptimizationPolicy.NO;
+    }
+
+    public void ranges(Set<PageRange> ranges) {
+        this.ranges = ranges;
+    }
+
+    public ExtractPagesParameters build() {
+        ExtractPagesParameters params = new ExtractPagesParameters();
+        params.setCompress(isCompress());
+        params.setExistingOutputPolicy(existingOutput());
+        params.setVersion(getVersion());
+        params.setOutput(getOutput());
+        params.setSource(getSource());
+        params.setOptimizationPolicy(getOptimizationPolicy());
+        params.discardOutline(isDiscardBookmarks());
+        params.addAllPageRanges(ranges);
+        return params;
     }
 
 }

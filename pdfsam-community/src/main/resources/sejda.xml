@@ -17,5 +17,7 @@
 		<task parameters="org.sejda.model.parameter.AlternateMixParameters"
 			task="org.sejda.impl.sambox.AlternateMixTask" />
 		<task parameters="org.pdfsam.task.BulkRotateParameters" task="org.pdfsam.task.BulkRotateTask" />
+		<task parameters="org.sejda.model.parameter.ExtractPagesParameters"
+			task="org.sejda.impl.sambox.ExtractPagesTask" />
 	</tasks>
 </sejda>

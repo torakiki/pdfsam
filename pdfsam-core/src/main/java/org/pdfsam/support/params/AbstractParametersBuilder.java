@@ -26,11 +26,12 @@ import org.sejda.model.parameter.base.AbstractParameters;
  * Abstract builder for {@link AbstractParameters}.
  * 
  * @author Andrea Vacondio
- * @param
- *            <P>
+ * @param <P>
  *            type of the parameters this builder builds
  */
 public abstract class AbstractParametersBuilder<P extends AbstractParameters> implements Builder<P> {
+
+    public static final String PDFSAM_DISABLE_SPLIT_OPTIMIZATION = "org.pdfsam.disable.split.optimization";
     private ExistingOutputPolicy existingOutput = ExistingOutputPolicy.FAIL;
 
     public void existingOutput(ExistingOutputPolicy existingOutput) {

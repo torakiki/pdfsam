@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<description>PDFsam extract module</description>
+	<url>http://www.pdfsam.org/rotate-pdf/</url>
+	<parent>
+		<groupId>org.pdfsam</groupId>
+		<artifactId>pdfsam-parent</artifactId>
+		<version>3.0.4.RELEASE-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<artifactId>pdfsam-extract</artifactId>
+	<packaging>jar</packaging>
+	<name>PDFsam extract module</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.sejda</groupId>
+			<artifactId>sejda-model</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.pdfsam</groupId>
+			<artifactId>pdfsam-fx</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.pdfsam</groupId>
+			<artifactId>pdfsam-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<!-- test dependencies -->
+		<dependency>
+			<groupId>org.pdfsam</groupId>
+			<artifactId>pdfsam-core</artifactId>
+			<version>${project.version}</version>
+			<type>test-jar</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>jdepend</groupId>
+			<artifactId>jdepend</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.loadui</groupId>
+			<artifactId>testFx</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>

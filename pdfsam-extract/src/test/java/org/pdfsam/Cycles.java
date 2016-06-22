@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 08/ago/2014
+ * Created on 10/set/2014
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,31 +16,13 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.selection.multiple;
+package org.pdfsam;
 
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-
-import java.io.File;
-
-import org.junit.Rule;
-import org.junit.Test;
-import org.pdfsam.pdf.PdfDocumentDescriptor;
-import org.pdfsam.test.ClearEventStudioRule;
 
 /**
  * @author Andrea Vacondio
  *
  */
-public class SelectionTableRowDataTest {
-
-    @Rule
-    public ClearEventStudioRule eventStudioRule = new ClearEventStudioRule();
-
-    @Test
-    public void empty() {
-        File file = mock(File.class);
-        assertTrue(new SelectionTableRowData(PdfDocumentDescriptor.newDescriptorNoPassword(file)).toPageRangeSet()
-                .isEmpty());
-    }
+public class Cycles extends TestCycles {
+    // nothing
 }
