@@ -163,7 +163,7 @@ public class RotateModule extends BaseTaskExecutionModule {
 
         @Bean(name = MODULE_ID + "openButton")
         public OpenButton openButton() {
-            return new OpenButton(MODULE_ID, ModuleInputOutputType.SINGLE_PDF);
+            return new OpenButton(MODULE_ID, ModuleInputOutputType.MULTIPLE_PDF);
         }
     }
 
