@@ -18,6 +18,8 @@
  */
 package org.pdfsam.merge;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
@@ -32,15 +34,16 @@ import java.io.File;
 import java.util.function.Consumer;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
+import org.mockito.ArgumentCaptor;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.sejda.conversion.exception.ConversionException;
+import org.sejda.model.input.PdfMergeInput;
 
 /**
  * @author Andrea Vacondio
@@ -73,23 +76,35 @@ public class MergeSelectionPaneTest {
     }
 
     @Test
-    @Ignore
     public void emptyByZeroPagesSelected() throws Exception {
         populate();
         victim.table().getItems().get(0).setPageSelection("0");
         victim.apply(builder, onError);
         verify(onError).accept(anyString());
         verify(builder, never()).addInput(any());
-
     }
 
     @Test
-    public void notEmpty() throws Exception {
+    public void emptyPageSelection() throws Exception {
         populate();
         when(builder.hasInput()).thenReturn(Boolean.TRUE);
         victim.apply(builder, onError);
         verify(onError, never()).accept(anyString());
-        verify(builder).addInput(any());
+        ArgumentCaptor<PdfMergeInput> input = ArgumentCaptor.forClass(PdfMergeInput.class);
+        verify(builder).addInput(input.capture());
+        assertTrue(input.getValue().getPageSelection().isEmpty());
+    }
+
+    @Test
+    public void notEmptyPageSelection() throws Exception {
+        populate();
+        when(builder.hasInput()).thenReturn(Boolean.TRUE);
+        victim.table().getItems().get(0).setPageSelection("1,3-10");
+        victim.apply(builder, onError);
+        verify(onError, never()).accept(anyString());
+        ArgumentCaptor<PdfMergeInput> input = ArgumentCaptor.forClass(PdfMergeInput.class);
+        verify(builder).addInput(input.capture());
+        assertEquals(2, input.getValue().getPageSelection().size());
     }
 
     @Test
