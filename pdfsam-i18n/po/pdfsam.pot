@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2016-06-21 19:37+0200\n"
+"POT-Creation-Date: 2016-06-22 17:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -198,7 +198,7 @@ msgstr ""
 msgid "Turn on or off alert sounds"
 msgstr ""
 
-msgid "Store passwords in the workspace file"
+msgid "Store passwords when saving a workspace file"
 msgstr ""
 
 msgid ""
@@ -750,20 +750,6 @@ msgstr ""
 msgid "Modified"
 msgstr ""
 
-#, java-format
-msgid "Invalid range: {0}."
-msgstr ""
-
-#, java-format
-msgid ""
-"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
-"or [-n] or [n-]"
-msgstr ""
-
-#, java-format
-msgid "Invalid number: {0}."
-msgstr ""
-
 msgid "Drag and drop PDF files here"
 msgstr ""
 
@@ -859,6 +845,20 @@ msgstr ""
 msgid "Directories"
 msgstr ""
 
+#, java-format
+msgid "Invalid range: {0}."
+msgstr ""
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+
+#, java-format
+msgid "Invalid number: {0}."
+msgstr ""
+
 msgid "Valid user password provided."
 msgstr ""
 
@@ -901,6 +901,27 @@ msgstr ""
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+
+msgid "Extract"
+msgstr ""
+
+msgid "Extract pages from a PDF document."
+msgstr ""
+
+msgid "Select or drag and drop a PDF"
+msgstr ""
+
+msgid "Extract settings"
+msgstr ""
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid "Invalid page ranges"
+msgstr ""
+
+msgid "Extract pages:"
 msgstr ""
 
 msgid ""

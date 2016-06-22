@@ -115,7 +115,7 @@ public class PreferenceConfig {
     @Bean(name = "savePwdInWorkspace")
     public PreferenceCheckBox savePwdInWorkspace() {
         PreferenceCheckBox savePwdInWorkspace = new PreferenceCheckBox(BooleanUserPreference.SAVE_PWD_IN_WORKSPACE,
-                DefaultI18nContext.getInstance().i18n("Store passwords in the workspace file"),
+                DefaultI18nContext.getInstance().i18n("Store passwords when saving a workspace file"),
                 userContext.isPlaySounds(), userContext);
         savePwdInWorkspace.setId("savePwdInWorkspace");
         savePwdInWorkspace.setGraphic(helpIcon(DefaultI18nContext.getInstance().i18n(
