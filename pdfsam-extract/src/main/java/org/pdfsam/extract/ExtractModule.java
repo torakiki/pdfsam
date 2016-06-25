@@ -131,7 +131,7 @@ public class ExtractModule extends BaseTaskExecutionModule {
     }
 
     public Node graphic() {
-        return new ImageView("rotate.png");
+        return new ImageView("extract.png");
     }
 
     @Configuration
