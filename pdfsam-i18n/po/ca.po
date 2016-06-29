@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-05-07 18:34+0200\n"
+"POT-Creation-Date: 2016-06-22 17:45+0200\n"
 "PO-Revision-Date: 2015-02-08 02:49+0000\n"
 "Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
-"X-Generator: Launchpad (build 18025)\n"
+"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
+"X-Generator: Launchpad (build 18115)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr ""
@@ -197,6 +197,14 @@ msgstr "Reprodueix sons d'alerta"
 
 msgid "Turn on or off alert sounds"
 msgstr "Activa o desactiva els sons d'alerta"
+
+msgid "Store passwords when saving a workspace file"
+msgstr ""
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
 
 msgid "Show donation window"
 msgstr ""
@@ -695,11 +703,11 @@ msgstr "Afegiu un prefix"
 msgid "Enter the user password"
 msgstr "Introduïu la contrasenya de l’usuari"
 
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Feu doble clic per definir les pàgines que voleu combinar (p. ex. 2 o 5-23 o "
-"2,5-7,12-)"
+
+msgid "Page ranges"
+msgstr "Intervals de pàgines"
 
 msgid "Pages"
 msgstr "Pàgines"
@@ -740,27 +748,10 @@ msgstr ""
 msgid "Move _Down"
 msgstr ""
 
-msgid "Page ranges"
-msgstr "Intervals de pàgines"
-
 msgid "Size"
 msgstr "Mida"
 
 msgid "Modified"
-msgstr ""
-
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "L’interval no és vàlid: {0}."
-
-#, java-format
-msgid ""
-"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
-"or [-n] or [n-]"
-msgstr ""
-
-#, java-format
-msgid "Invalid number: {0}."
 msgstr ""
 
 msgid "Drag and drop PDF files here"
@@ -826,6 +817,12 @@ msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr ""
 
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Feu doble clic per definir les pàgines que voleu combinar (p. ex. 2 o 5-23 o "
+"2,5-7,12-)"
+
 msgid "No PDF document has been selected"
 msgstr ""
 
@@ -853,6 +850,20 @@ msgstr "S’ha desat el fitxer {0}."
 
 msgid "Directories"
 msgstr "Carpetes"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "L’interval no és vàlid: {0}."
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+
+#, java-format
+msgid "Invalid number: {0}."
+msgstr ""
 
 msgid "Valid user password provided."
 msgstr ""
@@ -896,6 +907,31 @@ msgstr ""
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+
+msgid "Extract"
+msgstr ""
+
+msgid "Extract pages from a PDF document."
+msgstr ""
+
+msgid "Select or drag and drop a PDF"
+msgstr ""
+
+msgid "Extract settings"
+msgstr ""
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid "Invalid page ranges"
+msgstr ""
+
+msgid "Extract pages:"
+msgstr ""
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 
 msgid "All pages"

@@ -5,15 +5,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDFSam 3\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2016-05-07 18:34+0200\n"
+"POT-Creation-Date: 2016-06-22 17:45+0200\n"
 "PO-Revision-Date: 2016-02-25 14:36+0000\n"
 "Last-Translator: Jeff Huang <s8321414@yahoo.com.tw>\n"
 "Language-Team: Chinese (Taiwan) (zh_TW@li.org)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
-"X-Generator: Launchpad (build 18025)\n"
+"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
+"X-Generator: Launchpad (build 18115)\n"
 "Language: zh_TW\n"
 
 msgid "Subscribe to the official news feed"
@@ -196,6 +196,14 @@ msgstr "播放警示音效"
 
 msgid "Turn on or off alert sounds"
 msgstr "開啟或關閉警示音效"
+
+msgid "Store passwords when saving a workspace file"
+msgstr ""
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
 
 msgid "Show donation window"
 msgstr "顯示捐款視窗"
@@ -692,9 +700,11 @@ msgstr "新增前綴"
 msgid "Enter the user password"
 msgstr "請輸入使用者密碼"
 
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "請雙擊滑鼠左鍵以設定您想合併的頁面（例如：2 或 5-23 或 2,5-7,12-）"
+msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid "Page ranges"
+msgstr "頁數範圍"
 
 msgid "Pages"
 msgstr "頁數"
@@ -735,28 +745,11 @@ msgstr "將所選文件往下移"
 msgid "Move _Down"
 msgstr "下移 (_D)"
 
-msgid "Page ranges"
-msgstr "頁數範圍"
-
 msgid "Size"
 msgstr "檔案大小"
 
 msgid "Modified"
 msgstr "修改時間"
-
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "無效的範圍：{0}。"
-
-#, java-format
-msgid ""
-"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
-"or [-n] or [n-]"
-msgstr "模稜兩可的頁數範圍定義：{0}。請使用下列格式：[n] 或 [n1-n2] 或 [-n] 或 [n-]"
-
-#, java-format
-msgid "Invalid number: {0}."
-msgstr "無效的數字：{0}。"
 
 msgid "Drag and drop PDF files here"
 msgstr "請將 PDF 檔拖拉至此處"
@@ -821,6 +814,10 @@ msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr "當表格內容應該要被加入到產生的 PDF 文件中時設定"
 
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "請雙擊滑鼠左鍵以設定您想合併的頁面（例如：2 或 5-23 或 2,5-7,12-）"
+
 msgid "No PDF document has been selected"
 msgstr "未選取 PDF 文件檔"
 
@@ -848,6 +845,20 @@ msgstr "檔案 {0} 已儲存。"
 
 msgid "Directories"
 msgstr "目錄"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "無效的範圍：{0}。"
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr "模稜兩可的頁數範圍定義：{0}。請使用下列格式：[n] 或 [n1-n2] 或 [-n] 或 [n-]"
+
+#, java-format
+msgid "Invalid number: {0}."
+msgstr "無效的數字：{0}。"
 
 msgid "Valid user password provided."
 msgstr "已輸入有效的使用者密碼。"
@@ -892,6 +903,31 @@ msgstr "書籤文字必須符合的正規表達式"
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
 msgstr "範例：使用 *Chapter.* 以符合包含 \"Chapter\" 的書籤"
+
+msgid "Extract"
+msgstr ""
+
+msgid "Extract pages from a PDF document."
+msgstr ""
+
+msgid "Select or drag and drop a PDF"
+msgstr ""
+
+msgid "Extract settings"
+msgstr ""
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid "Invalid page ranges"
+msgstr ""
+
+msgid "Extract pages:"
+msgstr ""
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
 
 msgid "All pages"
 msgstr "所有頁面"

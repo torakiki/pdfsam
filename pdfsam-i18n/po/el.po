@@ -7,21 +7,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-05-07 18:34+0200\n"
-"PO-Revision-Date: 2016-05-07 01:12+0000\n"
+"POT-Creation-Date: 2016-06-22 17:45+0200\n"
+"PO-Revision-Date: 2016-05-19 19:14+0000\n"
 "Last-Translator: ntelos <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
-"X-Generator: Launchpad (build 18025)\n"
+"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
+"X-Generator: Launchpad (build 18115)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Εγγραφείτε στην επίσημη ροή ειδήσεων"
 
 msgid "Bug and feature requests"
-msgstr ""
+msgstr "Αιτήσεις σφαλμάτων και λειτουργιών"
 
 msgid "Play the \"get started\" video"
 msgstr "Πατήστε για να ξεκινήσει το εισαγωγικό βίντεο"
@@ -60,7 +60,7 @@ msgid "Yes"
 msgstr "Ναι"
 
 msgid "The selected output directory does not exist"
-msgstr ""
+msgstr "Ο επιλεγμένος κατάλογος εξόδου δεν υπάρχει"
 
 msgid "Do you want to create it?"
 msgstr "Θέλετε να δημιουργηθεί;"
@@ -166,12 +166,14 @@ msgid "Social"
 msgstr "Κοινωνικά"
 
 msgid "Manually selected"
-msgstr ""
+msgstr "Χειροκίνητη επιλογή"
 
 msgid ""
 "Automatically set the destination directory to the selected PDF document "
 "directory"
 msgstr ""
+"Αυτόματα όρισε τον κατάλογο προορισμού στον επιλεγμένο κατάλογο των αρχείων "
+"PDF"
 
 msgid "Appearance"
 msgstr "Εμφάνιση"
@@ -192,12 +194,22 @@ msgid ""
 "Set whether new version availability should be checked on startup (restart "
 "needed)"
 msgstr ""
+"Ορίστε εάν επιθυμείτε να γίνεται έλεγχος διαθεσιμότητας νέας έκδοσης κατά "
+"την εκκίνηση (απαιτείται επανεκκίνηση)"
 
 msgid "Play alert sounds"
-msgstr ""
+msgstr "Αναπαραγωγή ήχων συναγερμού"
 
 msgid "Turn on or off alert sounds"
 msgstr "Ενεργοποίηση ή απενεργοποίηση ήχων συναγερμού"
+
+msgid "Store passwords when saving a workspace file"
+msgstr ""
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
 
 msgid "Show donation window"
 msgstr "Εμφάνιση παραθύρου δωρεάς"
@@ -210,7 +222,7 @@ msgstr ""
 "ζητώντας από τον χρήστη να υποστηρίξει το PDFsam με κάποια δωρεά"
 
 msgid "Use the selected PDF document directory as output directory"
-msgstr ""
+msgstr "Ορίστε τον επιλεγμένο κατάλογο εγγράφων PDF ώς κατάλογο εξόδου"
 
 msgid "Save default workspace on exit"
 msgstr "Αποθήκευση προεπιλεγμένου χώρου εργασίας κατά την έξοδο"
@@ -231,7 +243,7 @@ msgid "Size in px:"
 msgstr "Μέγεθος σε εικονοστοιχεία/pixels"
 
 msgid "Library used to generate thumbnails"
-msgstr ""
+msgstr "Απαιτούμενη βιβλιοθήκη για την δημιουργία μικρογραφιών"
 
 msgid "Thumbnails creator:"
 msgstr "Δημιουργός μικρογραφιών"
@@ -263,10 +275,10 @@ msgid "Load default workspace at startup:"
 msgstr "Φόρτωση προεπιλεγμένου χώρου εργασίας κατά την εκκίνηση"
 
 msgid "Log register rows:"
-msgstr ""
+msgstr "Γραμμές εγγραφής αρχείων καταγραφής"
 
 msgid "Maximum number of rows displayed by the Log register"
-msgstr ""
+msgstr "Μέγιστος αριθμός γραμμών καταγράφηκε από τα αρχεία καταγραφής"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:125
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:116
@@ -314,7 +326,7 @@ msgid "Modules"
 msgstr "Αρθρώματα/Modules"
 
 msgid "Log register"
-msgstr ""
+msgstr "Αρχεία καταγραφής"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\LogPanel.java:99
 msgid "Copy"
@@ -443,16 +455,17 @@ msgid "Workspace saved"
 msgstr "Αποθήκευση χώρου εργασίας"
 
 msgid "Split after"
-msgstr ""
+msgstr "Διαχώρισε μετά"
 
 msgid "No page selected"
 msgstr "Καμμία επιλογή σελίδας"
 
 msgid "Split after the following page numbers"
-msgstr ""
+msgstr "Διαχώρισε μετά τους εξής αριθμούς σελίδων"
 
 msgid "Page numbers to split at (n1,n2,n3..)"
 msgstr ""
+"Οι αριθμοί σελίδων στις οποίες θα υπάρξει διαχωρισμός είναι (n1,n2,n3)"
 
 msgid "Invalid page numbers"
 msgstr "Μη έγκυροι αριθμοί σελίδων"
@@ -478,16 +491,16 @@ msgid "Split settings"
 msgstr "Ρυθμίσεις διαχωρισμού"
 
 msgid "Output settings"
-msgstr ""
+msgstr "Ρυθμίσεις εξόδου"
 
 msgid "Every page"
 msgstr "Κάθε σελίδα"
 
 msgid "Even pages"
-msgstr ""
+msgstr "Σελίδες αριθμημένες με άρτιο αριθμό"
 
 msgid "Odd pages"
-msgstr ""
+msgstr "Σελίδες αριθμημένες με περιττό αριθμό"
 
 msgid "Split the document after the given page numbers"
 msgstr "Διαχώρισε το έγγραφο μετά από τους δοθέντες αριθμούς σελίδων"
@@ -495,110 +508,124 @@ msgstr "Διαχώρισε το έγγραφο μετά από τους δοθέ
 msgid ""
 "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
+"Διαχωρίζει το PDF κάθε \"n\" σελίδες δημιουργώντας επιμέρους έγγραφα με "
+"\"n\" σελίδες το καθένα"
 
 msgid "Split by every \"n\" pages"
-msgstr ""
+msgstr "Διαχώρισε κάθε \"n\" σελίδες"
 
 msgid "Number of pages"
 msgstr "Αριθμός σελίδων"
 
 msgid "Invalid number of pages"
-msgstr ""
+msgstr "Μη έγκυρος αριθμός σελίδων"
 
 msgid "Split by size"
-msgstr ""
+msgstr "Διαχωρισμός βάσει μεγέθους"
 
 msgid "Split a PDF document in files of the given size (roughly)."
 msgstr ""
+"Διαχώρισε ένα PDF έγγραφο σε αρχεία του δοθέντος μεγέθους (κατά προσέγγιση)."
 
 msgid "Set the size to split at"
-msgstr ""
+msgstr "Ορίστε το μέγεθος στο οποίο θα υπάρξει διαχωρισμός"
 
 msgid "Size must be a number"
-msgstr ""
+msgstr "Το μέγεθος πρέπει να είναι ένας αριθμός"
 
 msgid "Split at this size:"
-msgstr ""
+msgstr "Διαχώρισε σε αυτό το μέγεθος"
 
 msgid "Invalid split size"
-msgstr ""
+msgstr "Μη έγκυρο μέγεθος διαχωρισμού"
 
 msgid "Megabytes"
-msgstr ""
+msgstr "Megabytes"
 
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 msgid "Kilobytes"
-msgstr ""
+msgstr "Kilobytes"
 
 msgid "KB"
-msgstr ""
+msgstr "ΚΒ"
 
 msgid "Alternate Mix"
-msgstr ""
+msgstr "Εναλλακτική μείξη"
 
 msgid ""
 "Merge two PDF documents taking pages alternately in straight or reverse "
 "order."
 msgstr ""
+"Συγχώνευσε δύο PDF έγγραφα παίρνοντας σελίδες εναλλαξ από την αρχή ως το "
+"τέλος ή και αντίστροφα."
 
 msgid "Select or drag and drop the first PDF you want to mix"
 msgstr ""
+"Επιλεξτε η μεταφερετε και αποθεσατε το πρωτο PDF το οποιο θελετε να "
+"συγχωνευσετε"
 
 msgid "Select or drag and drop the second PDF you want to mix"
 msgstr ""
+"Επιλεξτε η μεταφερετε και αποθεσατε το δευτερο PDF το οποιο θελετε να "
+"συγχωνευσετε"
 
 msgid "Mix settings"
-msgstr ""
+msgstr "Ρυθμισεις συγχωνευσης"
 
 msgid "Destination file"
-msgstr ""
+msgstr "Αρχειο προορισμου"
 
 msgid "Reverse the first document"
-msgstr ""
+msgstr "Αντιστρεψτε το πρωτο αρχειο"
 
 msgid "Reverse the second document"
-msgstr ""
+msgstr "Αντιστρέψτε το δεύτερο αρχείο"
 
 msgid ""
 "Switch from the first document to the second one after the following pages"
 msgstr ""
+"Κάντε εναλλαγή από το πρώτο έγγραφο στο δεύτερο μετά από τις συγκεκριμένες "
+"σελίδες"
 
 msgid ""
 "Switch from the second document to the first one after the following pages"
 msgstr ""
+"Κάντε εναλλαγή από το δεύτερο έγγραφο στο πρώτο μετά από τις συγκεκριμένες "
+"σελίδες"
 
 msgid "Invalid parameter 'first and second step' must be numbers"
 msgstr ""
+"Μη έγκυρες παράμετροι 'το πρώτο και δεύτερο βήμα' πρέπει να είναι αριθμοί"
 
 msgid "Select a valid number of pages"
-msgstr ""
+msgstr "Επιλέξτε έναν έγκυρο αριθμό σελίδων"
 
 msgid "The selected PDF document is invalid"
-msgstr ""
+msgstr "Το συγκεκριμένο έγγραφο PDF είναι μη έγκυρο"
 
 msgid "Completed"
-msgstr ""
+msgstr "Ολοκληρώθηκε"
 
 msgid "Failed"
-msgstr ""
+msgstr "Απέτυχε"
 
 #, java-format
 msgid "Running {0}%"
-msgstr ""
+msgstr "Εκτελείται {0}%"
 
 msgid "Running"
-msgstr ""
+msgstr "Σε Εξέλιξη"
 
 msgid "Requested"
-msgstr ""
+msgstr "Αιτήθηκε"
 
 msgid "Select a file"
-msgstr ""
+msgstr "Επιλέξτε ένα αρχείο"
 
 msgid "Unlock"
-msgstr ""
+msgstr "Ξεκλείδωμα"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:273
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:317
@@ -610,7 +637,7 @@ msgid "Remove"
 msgstr "Απομάκρυνση"
 
 msgid "Duplicate"
-msgstr ""
+msgstr "Δημιουργία αντίγραφου"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:282
 # F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:329
@@ -620,7 +647,7 @@ msgid "Move Down"
 msgstr "Μετακίνηση προς τα κάτω"
 
 msgid "Move to Bottom"
-msgstr ""
+msgstr "Μετακίνηση στο τέλος"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:273
 # F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:320
@@ -630,29 +657,29 @@ msgid "Move Up"
 msgstr "Μετακίνηση προς τα πάνω"
 
 msgid "Move to Top"
-msgstr ""
+msgstr "Μετακίνηση στην αρχή"
 
 msgid "Set destination"
-msgstr ""
+msgstr "Ορισμός προορισμού"
 
 msgid "Open"
-msgstr ""
+msgstr "Άνοιγμα"
 
 msgid "Open Folder"
-msgstr ""
+msgstr "Άνοιγμα Φακέλου"
 
 msgid "Document properties"
-msgstr ""
+msgstr "Ιδιότητες εγγράφου"
 
 msgid "Loading..."
-msgstr ""
+msgstr "Φόρτωση..."
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
-msgstr ""
+msgstr "Σελίδες: {0}, Έκδοση PDF: {1}"
 
 msgid "Show errors"
-msgstr ""
+msgstr "Εμφάνιση σφαλμάτων"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:542
 # F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:462
@@ -676,16 +703,18 @@ msgstr "Αντικατάσταση αν ήδη υπάρχει"
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
 msgstr ""
+"Τσεκάρετε το κουτί αν επιθυμείτε να γίνει επανεγγραφή των αρχείων που "
+"εξάγετε σε περίπτωση που ήδη υπάρχουν."
 
 msgid "The selected file must exist. "
-msgstr ""
+msgstr "Το επιλεγμένο αρχείο πρέπει να υπάρχει. "
 
 #, java-format
 msgid "Allowed extensions are {0}"
-msgstr ""
+msgstr "Επιτρεπόμενες προεκτάσεις είναι {0}"
 
 msgid "Select"
-msgstr ""
+msgstr "Επιλογή"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:394
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:421
@@ -706,66 +735,70 @@ msgid "Browse"
 msgstr "Αναζήτηση"
 
 msgid "The selected PDF file is invalid"
-msgstr ""
+msgstr "Το επιλεγμένο αρχείο PDF δεν είναι έγκυρο"
 
 msgid "Compress output file/files"
-msgstr ""
+msgstr "Συμπίεση αρχείου/αρχείων εξόδου"
 
 msgid "Discard bookmarks"
-msgstr ""
+msgstr "Απόρριψη σελιδοδεικτών"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
 "document"
 msgstr ""
+"Τσεκάρετε το κουτί αν δεν επιθυμείτε να διατηρήσετε κάποιον σελιδοδείκτη από "
+"το αρχικό έγγραφο PDF."
 
 msgid "Output PDF version:"
-msgstr ""
+msgstr "Έκδοση εξαγώγιμου αρχείου PDF"
 
 #, java-format
 msgid "Version {0}"
-msgstr ""
+msgstr "Έκδοση {0}"
 
 msgid "Same as the input document"
-msgstr ""
+msgstr "Το ίδιο όπως και το έγγραφο εισόδου"
 
 #, java-format
 msgid "PDF version required: {0}"
-msgstr ""
+msgstr "Απαιτούμενη έκδοση PDF: {0}"
 
 msgid "Select an existing directory"
-msgstr ""
+msgstr "Επιλέξτε έναν υπάρχων κατάλογο"
 
 msgid "An existing output directory is required"
-msgstr ""
+msgstr "Απαιτείται ένας ήδη υπάρχων κατάλογος εξόδου"
 
 msgid "The output directory is required"
-msgstr ""
+msgstr "Απαιτείται ο κατάλογος εξόδου"
 
 msgid "Generated PDF documents name prefix:"
-msgstr ""
+msgstr "Πρόθεμα ονόματος των παραγόμενων εγγράφων PDF:"
 
 msgid "Prefix for the output files name."
-msgstr ""
+msgstr "Πρόθεμα για τα εξαγόμενα ονόματα αρχείων."
 
 msgid "Some special keywords are replaced with runtime values."
 msgstr ""
 
 msgid "Right click to add these keywords."
-msgstr ""
+msgstr "Κάντε δεξί κλικ για να προσθέσετε αυτές τις λέξεις-κλειδιά."
 
 msgid "Prefix for the generated files names"
-msgstr ""
+msgstr "Πρόθεμα για τα παραγόμενα ονόματα αρχείων"
 
 msgid "Add prefix"
-msgstr ""
+msgstr "Προσθήκη προθέματος"
 
 msgid "Enter the user password"
+msgstr "Εισάγετε τον κωδικό χρήστη"
+
+msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgid "Page ranges"
+msgstr "Εύρος σελίδων"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:182
 # F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:180
@@ -779,185 +812,204 @@ msgid "Name"
 msgstr "'Όνομα"
 
 msgid "Add documents to the table"
-msgstr ""
+msgstr "Προσθέστε έγγραφα στον πίνακα"
 
 msgid "_Add"
-msgstr ""
+msgstr "_Προσθήκη"
 
 msgid "Select pdf documents to load"
-msgstr ""
+msgstr "Επιλέξτε έγγραφα PDF προς φόρτωση"
 
 msgid "Removes selected documents"
-msgstr ""
+msgstr "Αφαιρεί επιλεγμένα έγγραφα"
 
 msgid "_Remove"
-msgstr ""
+msgstr "_Απομάκρυνση"
 
 msgid "Removes every document"
-msgstr ""
+msgstr "Απομακρύνει κάθε έγγραφο"
 
 msgid "_Clear"
-msgstr ""
+msgstr "_Εκκαθάριση"
 
 msgid "Moves up selected documents"
-msgstr ""
+msgstr "Μετακινεί προς τα επάνω επιλεγμένα έγγραφα"
 
 msgid "Move _Up"
-msgstr ""
+msgstr "Μετακίνηση _Επάνω"
 
 msgid "Moves down selected documents"
-msgstr ""
+msgstr "Μετακινεί προς τα κάτω επιλεγμένα έγγραφα"
 
 msgid "Move _Down"
-msgstr ""
-
-msgid "Page ranges"
-msgstr ""
+msgstr "Μετακίνηση _Κάτω"
 
 msgid "Size"
-msgstr ""
+msgstr "Μέγεθος"
 
 msgid "Modified"
+msgstr "Τροποποιήθηκε"
+
+msgid "Drag and drop PDF files here"
+msgstr "Μεταφέρετε και αποθέσατε αρχεία PDF εδώ"
+
+msgid "Add a blank page if page number is odd"
+msgstr "Πρόσθεσε μια κενή σελίδα αν ο αριθμός σελίδας είναι περιττός"
+
+msgid ""
+"Adds a blank page after each merged document if the document has an odd "
+"number of pages"
 msgstr ""
+"Προσθέτει μια κενή σελίδα μετά από κάθε συγχωνευμένο έγγραφο εάν το έγγραφο "
+"έχει περιττό αριθμό σελίδων"
+
+msgid "Add a footer"
+msgstr "Πρόσθεσε ένα υποσέλιδο"
+
+msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr ""
+"Προσθέτει ένα υποσέλιδο με το όνομα του αρχείου στο οποίο ανήκε η σελίδα."
+
+msgid "Merge fields"
+msgstr "Συγχώνευση πεδίων"
+
+msgid "Merge renaming existing fields"
+msgstr "Συγχώνευσε μετονομάζοντας υπάρχοντα πεδία"
+
+msgid "Discard forms"
+msgstr "Απόρριψη φόρμας"
+
+msgid "Interactive forms (AcroForms):"
+msgstr "Διαδραστικές φόρμες (AcroForms):"
+
+msgid "What to do in case one or more input documents contain Acro Forms"
+msgstr ""
+"Τί να γίνει σε περίπτωση που ένα ή και περισσότερα έγγραφα εισόδου περιέχουν "
+"Acro Forms"
+
+msgid "Retain bookmarks"
+msgstr "Διατήρηση σελιδοδεικτών"
+
+msgid "Create one entry for each merged document"
+msgstr "Δημιούργησε μία είσοδο για κάθε συγχωνευμένο έγγραφο"
+
+msgid "Retain bookmarks as one entry for each merged document"
+msgstr ""
+
+msgid "Bookmarks handling:"
+msgstr "Διαχείριση σελιδοδεικτών:"
+
+msgid "What to do in case one or more input documents contain bookmarks"
+msgstr ""
+"Τί να γίνει σε περίπτωση που ένα ή και περισσότερα έγγραφα εισόδου περιέχουν "
+"σελιδοδείκτες"
+
+msgid "Don't generate"
+msgstr "Μη αναπαραγωγή"
+
+msgid "Generate from file names"
+msgstr "Παραγωγή από ονόματα αρχείων"
+
+msgid "Generate from documents titles"
+msgstr "Παραγωγή από τίτλους εγγράφων"
+
+msgid "Table of contents:"
+msgstr "Πίνακας περιεχομένων:"
+
+msgid ""
+"Set if a table of contents should be added to the generated PDF document"
+msgstr ""
+"Ορίστε εάν επιθυμείτε να προστεθεί πίνακας περιεχομένων στο έγγραφο PDF που "
+"θα παραχθεί"
+
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Κάντε διπλό κλικ για να εισάγετε τις σελίδες που θέλετε να συγχωνεύσετε "
+"(π.χ.: 2 ή 5-23 ή 2,5-7,12-)"
+
+msgid "No PDF document has been selected"
+msgstr "Δεν έχει επιλεγεί κάποιο έγγραφο PDF"
+
+msgid "Merge"
+msgstr "Συγχώνευση"
+
+msgid "Merge together multiple PDF documents or subsections of them."
+msgstr "Συγχώνευσε πολλαπλά έγγραφα PDF ή επιμέρους τομείς αυτών."
+
+msgid "Merge settings"
+msgstr "Ρυθμίσεις συγχώνευσης"
+
+msgid "Security"
+msgstr "Ασφάλεια"
+
+msgid "Other"
+msgstr "Άλλο"
+
+msgid "Error saving log file."
+msgstr "Σφάλμα κατά την αποθήκευση του αρχείου καταγραφής."
+
+#, java-format
+msgid "File {0} saved."
+msgstr "Αρχείο {0} αποθηκεύτηκε."
+
+msgid "Directories"
+msgstr "Κατάλογοι"
 
 #, java-format
 msgid "Invalid range: {0}."
-msgstr ""
+msgstr "Μη έγκυρο εύρος: {0}."
 
 #, java-format
 msgid ""
 "Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
 "or [-n] or [n-]"
 msgstr ""
+"Ασαφής ορισμός εύρους σελίδων: {0}. Χρησιμοποίησε τις εξής μορφοποιήσεις: "
+"[n] ή [n1-n2] ή [-n] ή [n-]"
 
 #, java-format
 msgid "Invalid number: {0}."
-msgstr ""
-
-msgid "Drag and drop PDF files here"
-msgstr ""
-
-msgid "Add a blank page if page number is odd"
-msgstr ""
-
-msgid ""
-"Adds a blank page after each merged document if the document has an odd "
-"number of pages"
-msgstr ""
-
-msgid "Add a footer"
-msgstr ""
-
-msgid "Adds a page footer with the name of the file the page belonged to."
-msgstr ""
-
-msgid "Merge fields"
-msgstr ""
-
-msgid "Merge renaming existing fields"
-msgstr ""
-
-msgid "Discard forms"
-msgstr ""
-
-msgid "Interactive forms (AcroForms):"
-msgstr ""
-
-msgid "What to do in case one or more input documents contain Acro Forms"
-msgstr ""
-
-msgid "Retain bookmarks"
-msgstr ""
-
-msgid "Create one entry for each merged document"
-msgstr ""
-
-msgid "Retain bookmarks as one entry for each merged document"
-msgstr ""
-
-msgid "Bookmarks handling:"
-msgstr ""
-
-msgid "What to do in case one or more input documents contain bookmarks"
-msgstr ""
-
-msgid "Don't generate"
-msgstr ""
-
-msgid "Generate from file names"
-msgstr ""
-
-msgid "Generate from documents titles"
-msgstr ""
-
-msgid "Table of contents:"
-msgstr ""
-
-msgid ""
-"Set if a table of contents should be added to the generated PDF document"
-msgstr ""
-
-msgid "No PDF document has been selected"
-msgstr ""
-
-msgid "Merge"
-msgstr ""
-
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr ""
-
-msgid "Merge settings"
-msgstr ""
-
-msgid "Security"
-msgstr ""
-
-msgid "Other"
-msgstr ""
-
-msgid "Error saving log file."
-msgstr ""
-
-#, java-format
-msgid "File {0} saved."
-msgstr ""
-
-msgid "Directories"
-msgstr ""
+msgstr "Μη έγκυρος αριθμός: {0}."
 
 msgid "Valid user password provided."
-msgstr ""
+msgstr "Καταχωρήθηκε έγκυρος κωδικός χρήστη."
 
 msgid "This document is encrypted, click to provide a password."
 msgstr ""
+"Το συγκεκριμένο έγγραφο είναι κρυπτογραφημένο, κάντε κλικ για να δώσετε έναν "
+"κωδικό."
 
 msgid "An error has occurred, click for more details."
 msgstr ""
+"Κάποιο σφάλμα παρουσιάστηκε, κάντε κλικ για περισσότερες λεπτομέρειες."
 
 msgid "Squared green"
-msgstr ""
+msgstr "Τετραγωνισμένο πράσινο"
 
 msgid "Squared cornflower"
-msgstr ""
+msgstr "Τετραγωνισμένο μπλε"
 
 msgid "Roundish"
-msgstr ""
+msgstr "Στρογγυλεμένο"
 
 msgid "Invalid bookmarks level"
-msgstr ""
+msgstr "Μη έγκυρο επίπεδο σελιδοδεικτών"
 
 msgid "Split by bookmarks"
-msgstr ""
+msgstr "Διαχωρισμός βάσει σελιδοδεικτών"
 
 msgid ""
 "Split a PDF document at bookmarked pages by specifying a bookmark level."
 msgstr ""
+"Διαχωρίστε ένα έγγραφο PDF σε σελίδες που αποτελούν σελιδοδείκτες ορίζοντας "
+"ένα επίπεδο σελιδοδεικτών."
 
 msgid "Regular expression the bookmark has to match"
-msgstr ""
+msgstr "Συνήθης έκφραση που πρέπει να ταιριάξει ο σελιδοδείκτης"
 
 msgid "Split at this bookmark level:"
-msgstr ""
+msgstr "Διαχωρισμός στο συγκεκριμένο επίπεδο σελιδοδεικτών:"
 
 msgid "Matching regular expression:"
 msgstr ""
@@ -968,30 +1020,57 @@ msgstr ""
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
 msgstr ""
+"Παράδειγμα: χρήση .*Κεφάλαιο.* να βρεθούν σελιδοδείκτες που περιέχουν την "
+"λέξη \"Κεφάλαιο\""
+
+msgid "Extract"
+msgstr ""
+
+msgid "Extract pages from a PDF document."
+msgstr ""
+
+msgid "Select or drag and drop a PDF"
+msgstr ""
+
+msgid "Extract settings"
+msgstr ""
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid "Invalid page ranges"
+msgstr ""
+
+msgid "Extract pages:"
+msgstr ""
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
 
 msgid "All pages"
-msgstr ""
+msgstr "Όλες οι σελίδες"
 
 msgid "90 degrees clockwise"
-msgstr ""
+msgstr "90 μοίρες κατά την φορά των δεικτών του ρολογιού"
 
 msgid "180 degrees clockwise"
-msgstr ""
+msgstr "180 μοίρες κατά την φορά των δεικτών του ρολογιού"
 
 msgid "90 degrees counterclockwise"
-msgstr ""
+msgstr "90 μοίρες αντίστροφα από την φορά των δεικτών του ρολογιού"
 
 msgid "Rotate "
-msgstr ""
+msgstr "Περιστροφή "
 
 msgid "Rotate"
-msgstr ""
+msgstr "Περιστροφή"
 
 msgid "Rotate the pages of multiple PDF documents."
-msgstr ""
+msgstr "Περιστρέψτε τις σελίδες πολλαπλών εγγράφων PDF."
 
 msgid "Rotate settings"
-msgstr ""
+msgstr "Ανακύκλιση ρυθμίσεων"
 
 msgid "Destination directory"
 msgstr "Κατάλογος προορισμού"

@@ -7,71 +7,71 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-05-07 18:34+0200\n"
-"PO-Revision-Date: 2015-01-27 19:30+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2016-06-22 17:45+0200\n"
+"PO-Revision-Date: 2016-06-28 14:29+0000\n"
+"Last-Translator: Joonas Tamm <joonas.tamm@gmail.com>\n"
 "Language-Team: Estonian <et@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
-"X-Generator: Launchpad (build 18025)\n"
+"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
+"X-Generator: Launchpad (build 18115)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr ""
 
 msgid "Bug and feature requests"
-msgstr ""
+msgstr "Tõrgete ja funktsioonide päringud"
 
 msgid "Play the \"get started\" video"
-msgstr ""
+msgstr "Mängi \"kuidas alustada\" videot"
 
 msgid "Fork PDFsam on GitHub"
 msgstr ""
 
 msgid "Translate"
-msgstr ""
+msgstr "Tõlgi"
 
 msgid "Donate"
-msgstr ""
+msgstr "Anneta"
 
 msgid "Follow us on Twitter"
-msgstr ""
+msgstr "Jälgi meid Twitteris"
 
 msgid "Follow us on Google Plus"
-msgstr ""
+msgstr "Jälgi meid Google Plus-is"
 
 msgid "Like us on Facebook"
 msgstr ""
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Töölaud"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Katkesta"
 
 msgid "Overwrite"
-msgstr ""
+msgstr "Kirjuta Üle"
 
 msgid "No"
-msgstr ""
+msgstr "Ei"
 
 msgid "Yes"
-msgstr ""
+msgstr "Jah"
 
 msgid "The selected output directory does not exist"
-msgstr ""
+msgstr "Valitud väljundkataloog ei eksisteeri"
 
 msgid "Do you want to create it?"
-msgstr ""
+msgstr "Kas soovid selle luua?"
 
 #, java-format
 msgid "Installing theme {0}."
-msgstr ""
+msgstr "Installeerimias teemat {0}."
 
 #, java-format
 msgid "Modules directory {0} does not exist"
-msgstr ""
+msgstr "Moodulite kataloogi {0} ei eksisteeri"
 
 #, java-format
 msgid "Loading modules from {0}"
@@ -82,90 +82,90 @@ msgid "Found modules jars {0}"
 msgstr ""
 
 msgid "Error finding modules paths"
-msgstr ""
+msgstr "Viga moodulite asukohtade leidmisel"
 
 msgid "No module has been found"
-msgstr ""
+msgstr "Ühtegi moodulit ei leitud"
 
 msgid "Unable to find modules location."
-msgstr ""
+msgstr "Pole suuteline leidma moodulite asukohta."
 
 #, java-format
 msgid "Started in {0}"
-msgstr ""
+msgstr "Alustatud {0}"
 
 msgid "Closing PDFsam..."
-msgstr ""
+msgstr "Sulgemas PDFsam-i..."
 
 msgid "_Modules"
-msgstr ""
+msgstr "_Moodulid"
 
 msgid "E_xit"
 msgstr ""
 
 msgid "Application messages"
-msgstr ""
+msgstr "Rakenduse sõnumid"
 
 msgid "_Workspace"
 msgstr ""
 
 msgid "_Load"
-msgstr ""
+msgstr "_Laadi"
 
 msgid "_Save"
-msgstr ""
+msgstr "_Salvesta"
 
 msgid "Recen_t"
 msgstr ""
 
 msgid "Select the workspace file to save"
-msgstr ""
+msgstr "Vali töölaua fail mida salvestada"
 
 msgid "Select the workspace to load"
-msgstr ""
+msgstr "Vali töölaud mida laadida"
 
 msgid "What's new"
-msgstr ""
+msgstr "Mis on uut"
 
 msgid "Document details"
-msgstr ""
+msgstr "Dokumentide üksikasjad"
 
 msgid "Keywords"
 msgstr "Märksõnad"
 
 msgid "Summary"
-msgstr ""
+msgstr "Kokkuvõte"
 
 msgid "About"
-msgstr "Programmist"
+msgstr "Teave"
 
 msgid "Environment"
-msgstr ""
+msgstr "Keskkond"
 
 #, java-format
 msgid "Max memory {0}"
 msgstr ""
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopeeri lõikelauale"
 
 msgid "Thanks to"
-msgstr ""
+msgstr "Tänud"
 
 msgid "The open source projects making PDFsam possible"
-msgstr ""
+msgstr "Avatud lähtekoodiga projetid, mis teevad PDFsam-i võimalikuks"
 
 msgid "Support"
-msgstr ""
+msgstr "Kasutajatugi"
 
 msgid "Contribute"
-msgstr ""
+msgstr "Toeta"
 
 msgid "Social"
-msgstr ""
+msgstr "Sotsiaalne"
 
 msgid "Manually selected"
-msgstr ""
+msgstr "Käsitsi valitud"
 
 msgid ""
 "Automatically set the destination directory to the selected PDF document "
@@ -173,19 +173,19 @@ msgid ""
 msgstr ""
 
 msgid "Appearance"
-msgstr ""
+msgstr "Välimus"
 
 msgid "Behavior"
-msgstr ""
+msgstr "Käitumine"
 
 msgid "Workspace"
-msgstr ""
+msgstr "Töölaud"
 
 msgid "Output"
-msgstr ""
+msgstr "Väljund"
 
 msgid "Check for updates at startup"
-msgstr ""
+msgstr "Kontrolli käivitamisel uuendusi"
 
 msgid ""
 "Set whether new version availability should be checked on startup (restart "
@@ -196,7 +196,15 @@ msgid "Play alert sounds"
 msgstr "Mängi hoiatushelisid"
 
 msgid "Turn on or off alert sounds"
-msgstr "Lülita hoiatushelid sisse/välja"
+msgstr "Lülita hoiatushelid sisse või välja"
+
+msgid "Store passwords when saving a workspace file"
+msgstr ""
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
 
 msgid "Show donation window"
 msgstr ""
@@ -207,16 +215,16 @@ msgid ""
 msgstr ""
 
 msgid "Use the selected PDF document directory as output directory"
-msgstr ""
+msgstr "Kasuta valitud PDF dokumendi kataloogi väljundkataloogina"
 
 msgid "Save default workspace on exit"
-msgstr ""
+msgstr "Salvesta sulgemisel vaikimisi töölaud"
 
 msgid "If a default workspace is set, save it on application exit"
 msgstr ""
 
 msgid "Maximum number of rows mast be a positive number"
-msgstr ""
+msgstr "Maksimaalne ridade arv peab olema positiivne number"
 
 msgid "Generate high quality thumbnails (slower)"
 msgstr ""
@@ -225,10 +233,10 @@ msgid "Size in px:"
 msgstr ""
 
 msgid "Library used to generate thumbnails"
-msgstr ""
+msgstr "Eelvaadete genereerimiseks kasutatud teek"
 
 msgid "Thumbnails creator:"
-msgstr ""
+msgstr "Eelvaadete looja:"
 
 msgid "Clear usage statistics"
 msgstr ""
@@ -238,21 +246,22 @@ msgid ""
 msgstr "Vali vaikimisi kataloog, kust dokumendid loetakse ja salvestatakse"
 
 msgid "Select a directory"
-msgstr ""
+msgstr "Vali kataloog"
 
 msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
 "startup"
 msgstr ""
+"Vali eelnevalt salvestatud kataloog, mis laetakse automaatselt käivitamisel"
 
 msgid "Select a workspace"
-msgstr ""
+msgstr "Vali töölaud"
 
 msgid "Default working directory:"
 msgstr "Vaikimisi töökataloog:"
 
 msgid "Load default workspace at startup:"
-msgstr ""
+msgstr "Lae vaikimisi töölaud käivitamisel:"
 
 msgid "Log register rows:"
 msgstr ""
@@ -264,7 +273,7 @@ msgid "Language:"
 msgstr "Keel:"
 
 msgid "Set your preferred language (restart needed)"
-msgstr "Säti eelistatud keel (vajalik taaskäivitamine)"
+msgstr "Seadista eelistatud keel (taaskäivitus vajalik)"
 
 msgid "Theme:"
 msgstr "Teema:"
@@ -273,7 +282,7 @@ msgid "Set your preferred theme (restart needed)"
 msgstr ""
 
 msgid "Startup module:"
-msgstr ""
+msgstr "Käivitusmoodul:"
 
 msgid "Set the module to open at application startup (restart needed)"
 msgstr ""
@@ -693,11 +702,11 @@ msgstr "Lisa prefiks"
 msgid "Enter the user password"
 msgstr ""
 
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Topelt klikk sättimaks lehekülgi, mida soovid ühendada (näiteks: 2 või 5-23 "
-"või 2,5-7,12-)"
+
+msgid "Page ranges"
+msgstr ""
 
 msgid "Pages"
 msgstr "Leheküljed"
@@ -738,27 +747,10 @@ msgstr ""
 msgid "Move _Down"
 msgstr ""
 
-msgid "Page ranges"
-msgstr ""
-
 msgid "Size"
 msgstr ""
 
 msgid "Modified"
-msgstr ""
-
-#, java-format
-msgid "Invalid range: {0}."
-msgstr ""
-
-#, java-format
-msgid ""
-"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
-"or [-n] or [n-]"
-msgstr ""
-
-#, java-format
-msgid "Invalid number: {0}."
 msgstr ""
 
 msgid "Drag and drop PDF files here"
@@ -824,6 +816,12 @@ msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr ""
 
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Topelt klikk sättimaks lehekülgi, mida soovid ühendada (näiteks: 2 või 5-23 "
+"või 2,5-7,12-)"
+
 msgid "No PDF document has been selected"
 msgstr ""
 
@@ -850,6 +848,20 @@ msgid "File {0} saved."
 msgstr ""
 
 msgid "Directories"
+msgstr ""
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr ""
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+
+#, java-format
+msgid "Invalid number: {0}."
 msgstr ""
 
 msgid "Valid user password provided."
@@ -894,6 +906,31 @@ msgstr ""
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+
+msgid "Extract"
+msgstr ""
+
+msgid "Extract pages from a PDF document."
+msgstr ""
+
+msgid "Select or drag and drop a PDF"
+msgstr ""
+
+msgid "Extract settings"
+msgstr ""
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid "Invalid page ranges"
+msgstr ""
+
+msgid "Extract pages:"
+msgstr ""
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 
 msgid "All pages"

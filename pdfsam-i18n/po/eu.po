@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-05-07 18:34+0200\n"
+"POT-Creation-Date: 2016-06-22 17:45+0200\n"
 "PO-Revision-Date: 2015-03-25 21:36+0000\n"
 "Last-Translator: Asier Iturralde Sarasola <Unknown>\n"
 "Language-Team: Basque <eu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
-"X-Generator: Launchpad (build 18025)\n"
+"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
+"X-Generator: Launchpad (build 18115)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Harpidetu albisteen jario ofizialera"
@@ -201,6 +201,14 @@ msgstr "Erreproduzitu alerta soinuak"
 
 msgid "Turn on or off alert sounds"
 msgstr "Gaitu edo desgaitu alerta soinuak"
+
+msgid "Store passwords when saving a workspace file"
+msgstr ""
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
 
 msgid "Show donation window"
 msgstr ""
@@ -713,11 +721,11 @@ msgstr "Gehitu aurrizkia"
 msgid "Enter the user password"
 msgstr "Sartu erabiltzailearen pasahitza"
 
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Egin klik bikoitza bateratu nahi dituzun orriak ezartzeko (adibidez, 2 edo 5-"
-"23 edo 2,5-7,12-)"
+
+msgid "Page ranges"
+msgstr "Orri-tarteak"
 
 msgid "Pages"
 msgstr "Orriak"
@@ -758,30 +766,11 @@ msgstr "Hautatutako dokumentuak behera eramaten ditu"
 msgid "Move _Down"
 msgstr "Eraman _behera"
 
-msgid "Page ranges"
-msgstr "Orri-tarteak"
-
 msgid "Size"
 msgstr "Tamaina"
 
 msgid "Modified"
 msgstr "Aldatua"
-
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "Tarte baliogabea: {0}."
-
-#, java-format
-msgid ""
-"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
-"or [-n] or [n-]"
-msgstr ""
-"Orri-tarte definizio anbiguoa: {0}. Erabili ondorengo formatuak: [n] edo [n1-"
-"n2] edo [-n] edo [n-]"
-
-#, java-format
-msgid "Invalid number: {0}."
-msgstr "Zenbaki baliogabea: {0}"
 
 msgid "Drag and drop PDF files here"
 msgstr "Arrastatu eta jaregin PDF fitxategiak hona"
@@ -848,6 +837,12 @@ msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr ""
 
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Egin klik bikoitza bateratu nahi dituzun orriak ezartzeko (adibidez, 2 edo 5-"
+"23 edo 2,5-7,12-)"
+
 msgid "No PDF document has been selected"
 msgstr ""
 
@@ -875,6 +870,22 @@ msgstr "{0} fitxategia gordeta."
 
 msgid "Directories"
 msgstr "Direktorioak"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "Tarte baliogabea: {0}."
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+"Orri-tarte definizio anbiguoa: {0}. Erabili ondorengo formatuak: [n] edo [n1-"
+"n2] edo [-n] edo [n-]"
+
+#, java-format
+msgid "Invalid number: {0}."
+msgstr "Zenbaki baliogabea: {0}"
 
 msgid "Valid user password provided."
 msgstr "Baliozko erabiltzaile pasahitza sartuta."
@@ -918,6 +929,31 @@ msgstr ""
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+
+msgid "Extract"
+msgstr ""
+
+msgid "Extract pages from a PDF document."
+msgstr ""
+
+msgid "Select or drag and drop a PDF"
+msgstr ""
+
+msgid "Extract settings"
+msgstr ""
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid "Invalid page ranges"
+msgstr ""
+
+msgid "Extract pages:"
+msgstr ""
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 
 msgid "All pages"

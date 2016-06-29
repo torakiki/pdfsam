@@ -1,16 +1,16 @@
-# Slovak translation for pdfsam
-# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# Korean translation for pdfsam
+# Copyright (c) 2016 Rosetta Contributors and Canonical Ltd 2016
 # This file is distributed under the same license as the pdfsam package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-06-22 17:45+0200\n"
-"PO-Revision-Date: 2014-04-17 21:16+0000\n"
-"Last-Translator: DAG Software <Unknown>\n"
-"Language-Team: Slovak <sk@li.org>\n"
+"PO-Revision-Date: 2016-03-21 08:28+0000\n"
+"Last-Translator: hyunggi hong <hghong@dongah21.co.kr>\n"
+"Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,46 +18,46 @@ msgstr ""
 "X-Generator: Launchpad (build 18115)\n"
 
 msgid "Subscribe to the official news feed"
-msgstr ""
+msgstr "공식 뉴스피드 구독하기"
 
 msgid "Bug and feature requests"
-msgstr ""
+msgstr "버그 및 기능 요청"
 
 msgid "Play the \"get started\" video"
-msgstr ""
+msgstr "\"사용법\" 영상보기"
 
 msgid "Fork PDFsam on GitHub"
-msgstr ""
+msgstr "GitHub 에서 PDFsam 개발하기"
 
 msgid "Translate"
 msgstr ""
 
 msgid "Donate"
-msgstr ""
+msgstr "기부하기"
 
 msgid "Follow us on Twitter"
-msgstr "Sledujte nás na Twitteri"
+msgstr "트위터 팔로우하기"
 
 msgid "Follow us on Google Plus"
-msgstr ""
+msgstr "구글+ 팔로우하기"
 
 msgid "Like us on Facebook"
-msgstr "Likenite nás na facebooku"
+msgstr "페이스북 좋아요하기"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "대시보드"
 
 msgid "Cancel"
-msgstr ""
+msgstr "취소"
 
 msgid "Overwrite"
-msgstr ""
+msgstr "덮어쓰기"
 
 msgid "No"
-msgstr ""
+msgstr "아니오"
 
 msgid "Yes"
-msgstr ""
+msgstr "예"
 
 msgid "The selected output directory does not exist"
 msgstr ""
@@ -98,25 +98,25 @@ msgid "Closing PDFsam..."
 msgstr ""
 
 msgid "_Modules"
-msgstr "_Moduly"
+msgstr ""
 
 msgid "E_xit"
-msgstr "U_končiť"
+msgstr "나가기(_X)"
 
 msgid "Application messages"
 msgstr ""
 
 msgid "_Workspace"
-msgstr "_Pracovný priestor"
+msgstr ""
 
 msgid "_Load"
-msgstr "_Načítať"
+msgstr ""
 
 msgid "_Save"
-msgstr "_Uložiť"
+msgstr "저장하기(_S)"
 
 msgid "Recen_t"
-msgstr "Ne_dávne"
+msgstr ""
 
 msgid "Select the workspace file to save"
 msgstr ""
@@ -131,13 +131,13 @@ msgid "Document details"
 msgstr ""
 
 msgid "Keywords"
-msgstr ""
+msgstr "키워드"
 
 msgid "Summary"
 msgstr ""
 
 msgid "About"
-msgstr "O aplikácii"
+msgstr "프로그램 정보"
 
 msgid "Environment"
 msgstr ""
@@ -162,7 +162,7 @@ msgid "Contribute"
 msgstr ""
 
 msgid "Social"
-msgstr ""
+msgstr "소셜"
 
 msgid "Manually selected"
 msgstr ""
@@ -173,19 +173,19 @@ msgid ""
 msgstr ""
 
 msgid "Appearance"
-msgstr "Vzhľad"
-
-msgid "Behavior"
-msgstr "Správanie"
-
-msgid "Workspace"
-msgstr "Pracovný priestor"
-
-msgid "Output"
 msgstr ""
 
+msgid "Behavior"
+msgstr ""
+
+msgid "Workspace"
+msgstr ""
+
+msgid "Output"
+msgstr "내보내기"
+
 msgid "Check for updates at startup"
-msgstr "Skontrolovať aktualizácie pri štarte"
+msgstr "프로그램 시작시 업데이트 확인"
 
 msgid ""
 "Set whether new version availability should be checked on startup (restart "
@@ -193,10 +193,10 @@ msgid ""
 msgstr ""
 
 msgid "Play alert sounds"
-msgstr "Prehrávať upozorňujúce zvuky"
+msgstr ""
 
 msgid "Turn on or off alert sounds"
-msgstr "Zapnúť alebo vypnúť upozorňujúce zvuky"
+msgstr ""
 
 msgid "Store passwords when saving a workspace file"
 msgstr ""
@@ -230,7 +230,7 @@ msgid "Generate high quality thumbnails (slower)"
 msgstr ""
 
 msgid "Size in px:"
-msgstr "Veľkosť v pixeloch:"
+msgstr ""
 
 msgid "Library used to generate thumbnails"
 msgstr ""
@@ -243,10 +243,10 @@ msgstr ""
 
 msgid ""
 "Select a directory where documents will be saved and loaded by default"
-msgstr "Vyberte priečinok, v ktorom budú dokumenty ukladané a nahrávané"
+msgstr ""
 
 msgid "Select a directory"
-msgstr "Vyberte priečinok"
+msgstr ""
 
 msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
@@ -254,10 +254,10 @@ msgid ""
 msgstr ""
 
 msgid "Select a workspace"
-msgstr "Vybrať pracovný priestor"
+msgstr ""
 
 msgid "Default working directory:"
-msgstr "Predvolený pracovný priečinok:"
+msgstr ""
 
 msgid "Load default workspace at startup:"
 msgstr ""
@@ -269,13 +269,13 @@ msgid "Maximum number of rows displayed by the Log register"
 msgstr ""
 
 msgid "Language:"
-msgstr "Jazyk:"
+msgstr "언어："
 
 msgid "Set your preferred language (restart needed)"
-msgstr "Nastavte vami preferovaný jazyk (potrebný reštart)"
+msgstr "언어 설정 (재시작 필요)"
 
 msgid "Theme:"
-msgstr "Motív:"
+msgstr "테마:"
 
 msgid "Set your preferred theme (restart needed)"
 msgstr ""
@@ -295,10 +295,10 @@ msgid "Check for updates now"
 msgstr ""
 
 msgid "Close"
-msgstr "Zatvoriť"
+msgstr "닫기"
 
 msgid "Settings"
-msgstr "Nastavenia"
+msgstr "설정"
 
 msgid "Modules"
 msgstr ""
@@ -307,16 +307,16 @@ msgid "Log register"
 msgstr ""
 
 msgid "Copy"
-msgstr "Kopírovať"
+msgstr "복사"
 
 msgid "Clear"
-msgstr "Vyčistiť"
+msgstr ""
 
 msgid "Select all"
-msgstr "Vybrať všetko"
+msgstr ""
 
 msgid "Save log"
-msgstr "Uložiť záznam"
+msgstr ""
 
 msgid "Select where to save the log file"
 msgstr ""
@@ -379,7 +379,7 @@ msgid "Unable to find the latest available version."
 msgstr ""
 
 msgid "Checking for updates"
-msgstr "Kontrolujú sa aktualizácie"
+msgstr ""
 
 msgid "Fetching latest news"
 msgstr ""
@@ -394,7 +394,7 @@ msgid "Loading pdf documents"
 msgstr ""
 
 msgid "Documents loaded"
-msgstr "Dokumenty načítané"
+msgstr ""
 
 msgid "Requesting modules state"
 msgstr ""
@@ -443,7 +443,7 @@ msgid "Only valid positive page numbers are allowed"
 msgstr ""
 
 msgid "Split"
-msgstr "Rozdeliť"
+msgstr "분할"
 
 msgid "Split a PDF document at the given page numbers."
 msgstr ""
@@ -501,7 +501,7 @@ msgid "Split at this size:"
 msgstr ""
 
 msgid "Invalid split size"
-msgstr "Neplatná veľkosť rozdelenia"
+msgstr "유효하지 않은 분할 크기"
 
 msgid "Megabytes"
 msgstr ""
@@ -516,7 +516,7 @@ msgid "KB"
 msgstr ""
 
 msgid "Alternate Mix"
-msgstr "Náhodne premiešať"
+msgstr "교대로 섞기"
 
 msgid ""
 "Merge two PDF documents taking pages alternately in straight or reverse "
@@ -575,40 +575,40 @@ msgid "Requested"
 msgstr ""
 
 msgid "Select a file"
-msgstr "Vybrať súbor"
+msgstr ""
 
 msgid "Unlock"
-msgstr "Odomknúť"
+msgstr ""
 
 msgid "Remove"
-msgstr "Odobrať"
+msgstr ""
 
 msgid "Duplicate"
 msgstr ""
 
 msgid "Move Down"
-msgstr "Posunúť nadol"
+msgstr "아래로 이동"
 
 msgid "Move to Bottom"
-msgstr "Presunúť dolu"
+msgstr ""
 
 msgid "Move Up"
-msgstr "Posunúť nahor"
+msgstr "위로 이동"
 
 msgid "Move to Top"
-msgstr "Presunúť hore"
+msgstr ""
 
 msgid "Set destination"
 msgstr ""
 
 msgid "Open"
-msgstr "Otvoriť"
+msgstr "열기"
 
 msgid "Open Folder"
-msgstr "Otvoriť priečinok"
+msgstr ""
 
 msgid "Document properties"
-msgstr "Vlastnosti dokumentu"
+msgstr ""
 
 msgid "Loading..."
 msgstr ""
@@ -621,10 +621,10 @@ msgid "Show errors"
 msgstr ""
 
 msgid "Run"
-msgstr "Spustiť"
+msgstr ""
 
 msgid "Overwrite if already exists"
-msgstr "Prepísať ak už existuje"
+msgstr "파일이 이미 있으면 덮어 쓰기"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
@@ -638,16 +638,16 @@ msgid "Allowed extensions are {0}"
 msgstr ""
 
 msgid "Select"
-msgstr "Vybrať"
+msgstr ""
 
 msgid "Browse"
-msgstr "Prehliadať"
+msgstr "찾아보기"
 
 msgid "The selected PDF file is invalid"
 msgstr ""
 
 msgid "Compress output file/files"
-msgstr "Komprimovať výstupný súbor/súbory"
+msgstr ""
 
 msgid "Discard bookmarks"
 msgstr ""
@@ -662,17 +662,17 @@ msgstr ""
 
 #, java-format
 msgid "Version {0}"
-msgstr "Verzia {0}"
+msgstr ""
 
 msgid "Same as the input document"
-msgstr "Rovnaký ako vstupný dokument"
+msgstr ""
 
 #, java-format
 msgid "PDF version required: {0}"
 msgstr ""
 
 msgid "Select an existing directory"
-msgstr "Vyberať existujúce priečinok"
+msgstr ""
 
 msgid "An existing output directory is required"
 msgstr ""
@@ -696,7 +696,7 @@ msgid "Prefix for the generated files names"
 msgstr ""
 
 msgid "Add prefix"
-msgstr "Pridať predponu"
+msgstr ""
 
 msgid "Enter the user password"
 msgstr ""
@@ -708,16 +708,16 @@ msgid "Page ranges"
 msgstr ""
 
 msgid "Pages"
-msgstr "Strany"
+msgstr "페이지 수"
 
 msgid "Name"
-msgstr "Meno"
+msgstr ""
 
 msgid "Add documents to the table"
 msgstr ""
 
 msgid "_Add"
-msgstr "Prid_ať"
+msgstr ""
 
 msgid "Select pdf documents to load"
 msgstr ""
@@ -726,34 +726,34 @@ msgid "Removes selected documents"
 msgstr ""
 
 msgid "_Remove"
-msgstr "Odst_rániť"
+msgstr ""
 
 msgid "Removes every document"
 msgstr ""
 
 msgid "_Clear"
-msgstr "_Vyčistiť"
+msgstr ""
 
 msgid "Moves up selected documents"
 msgstr ""
 
 msgid "Move _Up"
-msgstr "Posunúť _vyššie"
+msgstr ""
 
 msgid "Moves down selected documents"
 msgstr ""
 
 msgid "Move _Down"
-msgstr "Posunúť _nižšie"
+msgstr ""
 
 msgid "Size"
-msgstr "Veľkosť"
+msgstr ""
 
 msgid "Modified"
-msgstr "Upravené"
+msgstr ""
 
 msgid "Drag and drop PDF files here"
-msgstr "Pretiahnite a pusťte sem PDF súbory"
+msgstr ""
 
 msgid "Add a blank page if page number is odd"
 msgstr ""
@@ -823,7 +823,7 @@ msgid "No PDF document has been selected"
 msgstr ""
 
 msgid "Merge"
-msgstr "Spojiť"
+msgstr ""
 
 msgid "Merge together multiple PDF documents or subsections of them."
 msgstr ""
@@ -832,20 +832,20 @@ msgid "Merge settings"
 msgstr ""
 
 msgid "Security"
-msgstr "Zabezpečenie"
+msgstr ""
 
 msgid "Other"
-msgstr "Iné"
+msgstr ""
 
 msgid "Error saving log file."
 msgstr ""
 
 #, java-format
 msgid "File {0} saved."
-msgstr "Súbor {0} uložený"
+msgstr ""
 
 msgid "Directories"
-msgstr "Priečinky"
+msgstr ""
 
 #, java-format
 msgid "Invalid range: {0}."
@@ -946,7 +946,7 @@ msgid "Rotate "
 msgstr ""
 
 msgid "Rotate"
-msgstr ""
+msgstr "회전"
 
 msgid "Rotate the pages of multiple PDF documents."
 msgstr ""
@@ -958,30 +958,10 @@ msgid "Destination directory"
 msgstr ""
 
 #~ msgid "Split even pages"
-#~ msgstr "Rozdeliť párne stránky"
+#~ msgstr "짝수 페이지 분할"
 
 #~ msgid "Split odd pages"
-#~ msgstr "Rozdeliť nepárne stránky"
-
-#~ msgid "Output document pdf version:"
-#~ msgstr "Verzia výstupného pdf dokumentu:"
-
-#~ msgid "Never"
-#~ msgstr "Nikdy"
-
-#~ msgid "Unable to get latest available version"
-#~ msgstr "Nemôžem stiahnuť najnovšiu verziu."
-
-#~ msgid "Would you like to overwrite it?"
-#~ msgstr "Chcete ho prepísať?"
+#~ msgstr "홀수 페이지 분할"
 
 #~ msgid "Destination folder"
-#~ msgstr "Cieľový priečinok"
-
-#~ msgid "Ask for confirmation when overwrite checkbox is selected"
-#~ msgstr "Vyžadovať potvrdenie, keď je zaškrtnuté políčko prepísania"
-
-#~ msgid ""
-#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" is "
-#~ "selected"
-#~ msgstr "Zobraziť potvrdzujúce okno, keď je \"prepísať\" zvolené"
+#~ msgstr "대상 폴더"

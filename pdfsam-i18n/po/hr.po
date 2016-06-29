@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-05-07 18:34+0200\n"
+"POT-Creation-Date: 2016-06-22 17:45+0200\n"
 "PO-Revision-Date: 2016-03-01 10:59+0000\n"
 "Last-Translator: Slavko Blazevic <rapidcro@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
-"X-Generator: Launchpad (build 18025)\n"
+"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
+"X-Generator: Launchpad (build 18115)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Pretplati se na novosti"
@@ -200,6 +200,14 @@ msgstr "Koristi zvukove upozorenja"
 
 msgid "Turn on or off alert sounds"
 msgstr "Uključi ili isključi zvukove upozorenja"
+
+msgid "Store passwords when saving a workspace file"
+msgstr ""
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
 
 msgid "Show donation window"
 msgstr "Prikaži prozor za donacije"
@@ -708,11 +716,11 @@ msgstr "Dodaj prefiks"
 msgid "Enter the user password"
 msgstr "Unesite lozinku"
 
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Kliknite dva puta da bi označili stranice koje želite spojiti (npr.: 2 ili 5-"
-"23 ili 2,5-7,12-)"
+
+msgid "Page ranges"
+msgstr "Raspon stranica"
 
 msgid "Pages"
 msgstr "Stranice"
@@ -753,30 +761,11 @@ msgstr "Premješta odabrani dokument dolje"
 msgid "Move _Down"
 msgstr "Pomakni _dolje"
 
-msgid "Page ranges"
-msgstr "Raspon stranica"
-
 msgid "Size"
 msgstr "Veličina"
 
 msgid "Modified"
 msgstr "Izmijenjeno"
-
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "Pogrešan raspon: {0}."
-
-#, java-format
-msgid ""
-"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
-"or [-n] or [n-]"
-msgstr ""
-"Dvosmislena definicija raspona: {0}. Koristite navedeni format: [n] or [n1-"
-"n2] or [-n] or [n-]"
-
-#, java-format
-msgid "Invalid number: {0}."
-msgstr "Pogrešan broj: {0}."
 
 msgid "Drag and drop PDF files here"
 msgstr "Povuci i ispusti PDF dokument ovdje."
@@ -844,6 +833,12 @@ msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr "Postaviti dal će se tabela sadržaja dodati izrađenom PDF dokumentu"
 
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Kliknite dva puta da bi označili stranice koje želite spojiti (npr.: 2 ili 5-"
+"23 ili 2,5-7,12-)"
+
 msgid "No PDF document has been selected"
 msgstr "Nije odabran nijedan PDF dokument"
 
@@ -871,6 +866,22 @@ msgstr "Datoteka {0} spremljena"
 
 msgid "Directories"
 msgstr "Mape"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "Pogrešan raspon: {0}."
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+"Dvosmislena definicija raspona: {0}. Koristite navedeni format: [n] or [n1-"
+"n2] or [-n] or [n-]"
+
+#, java-format
+msgid "Invalid number: {0}."
+msgstr "Pogrešan broj: {0}."
 
 msgid "Valid user password provided."
 msgstr "Uneseni korisnički podaci su ispravni."
@@ -918,6 +929,31 @@ msgid ""
 msgstr ""
 "Primjer: koristite .*Chapter.* da bi odgovaralo oznaci koja sadrži riječ "
 "\"Chapter\""
+
+msgid "Extract"
+msgstr ""
+
+msgid "Extract pages from a PDF document."
+msgstr ""
+
+msgid "Select or drag and drop a PDF"
+msgstr ""
+
+msgid "Extract settings"
+msgstr ""
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid "Invalid page ranges"
+msgstr ""
+
+msgid "Extract pages:"
+msgstr ""
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
 
 msgid "All pages"
 msgstr "Sve stranice"

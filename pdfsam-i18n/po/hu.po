@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-05-07 18:34+0200\n"
+"POT-Creation-Date: 2016-06-22 17:45+0200\n"
 "PO-Revision-Date: 2015-12-01 14:24+0000\n"
 "Last-Translator: Richard Somlói <ricsipontaz@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
-"X-Generator: Launchpad (build 18025)\n"
+"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
+"X-Generator: Launchpad (build 18115)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Feliratkozás a hivatalos hírforrásra"
@@ -199,6 +199,14 @@ msgstr "Figyelmeztető hangok lejátszása"
 
 msgid "Turn on or off alert sounds"
 msgstr "Figyelmeztető hangok be- és kikapcsolása"
+
+msgid "Store passwords when saving a workspace file"
+msgstr ""
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
 
 msgid "Show donation window"
 msgstr ""
@@ -705,11 +713,11 @@ msgstr "Előtag hozzáadása"
 msgid "Enter the user password"
 msgstr "Adja meg a felhasználói jelszót"
 
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Dupla kattintással beállíthatja az egyesíteni kívánt oldalakat (pl.: 2 vagy "
-"5-23 vagy 2,5-7,12 -)"
+
+msgid "Page ranges"
+msgstr "Oldaltartományok"
 
 msgid "Pages"
 msgstr "Oldalszám"
@@ -750,30 +758,11 @@ msgstr "Kijelölt dokumentumok mozgatás lefelé"
 msgid "Move _Down"
 msgstr "Mozgatás _lefelé"
 
-msgid "Page ranges"
-msgstr "Oldaltartományok"
-
 msgid "Size"
 msgstr "Méret"
 
 msgid "Modified"
 msgstr "Módosítva"
-
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "Érvénytelen tartomány: {0}."
-
-#, java-format
-msgid ""
-"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
-"or [-n] or [n-]"
-msgstr ""
-"Zavaros oldaltartomány: {0}. Kérjük használja a következő formátumokat: [n] "
-"vagy [n1-n2] vagy [-n] vagy [n-]"
-
-#, java-format
-msgid "Invalid number: {0}."
-msgstr "Érvénytelen szám: {0}."
 
 msgid "Drag and drop PDF files here"
 msgstr "Fogja meg és ejtse ide a PDF fájlokat"
@@ -840,6 +829,12 @@ msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr ""
 
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Dupla kattintással beállíthatja az egyesíteni kívánt oldalakat (pl.: 2 vagy "
+"5-23 vagy 2,5-7,12 -)"
+
 msgid "No PDF document has been selected"
 msgstr "Nincs kijelölve PDF dokumentum"
 
@@ -867,6 +862,22 @@ msgstr "{0} fájl elmentve."
 
 msgid "Directories"
 msgstr "Mappák"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "Érvénytelen tartomány: {0}."
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+"Zavaros oldaltartomány: {0}. Kérjük használja a következő formátumokat: [n] "
+"vagy [n1-n2] vagy [-n] vagy [n-]"
+
+#, java-format
+msgid "Invalid number: {0}."
+msgstr "Érvénytelen szám: {0}."
 
 msgid "Valid user password provided."
 msgstr "Érvényes felhasználó jelszó"
@@ -912,6 +923,31 @@ msgstr ""
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+
+msgid "Extract"
+msgstr ""
+
+msgid "Extract pages from a PDF document."
+msgstr ""
+
+msgid "Select or drag and drop a PDF"
+msgstr ""
+
+msgid "Extract settings"
+msgstr ""
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid "Invalid page ranges"
+msgstr ""
+
+msgid "Extract pages:"
+msgstr ""
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 
 msgid "All pages"

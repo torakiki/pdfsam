@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-05-07 18:34+0200\n"
-"PO-Revision-Date: 2016-03-17 14:42+0000\n"
+"POT-Creation-Date: 2016-06-22 17:45+0200\n"
+"PO-Revision-Date: 2016-06-26 09:52+0000\n"
 "Last-Translator: Naofumi Fukue <naofum@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
-"X-Generator: Launchpad (build 18025)\n"
+"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
+"X-Generator: Launchpad (build 18115)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "公式ニュースフィードを購読する"
@@ -197,6 +197,14 @@ msgstr "警告サウンドを再生"
 
 msgid "Turn on or off alert sounds"
 msgstr "警告サウンドをオン/オフします"
+
+msgid "Store passwords when saving a workspace file"
+msgstr "ワークスペース ファイルの保存時にパスワードを格納する"
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr "暗号化された PDF ドキュメントをパスワードを使用して開いた場合に、ワークスペース ファイルにパスワードを保存します"
 
 msgid "Show donation window"
 msgstr "寄付ウインドウを表示"
@@ -450,7 +458,7 @@ msgid "Split settings"
 msgstr "分割の設定"
 
 msgid "Output settings"
-msgstr ""
+msgstr "出力設定"
 
 msgid "Every page"
 msgstr "各ページ"
@@ -647,7 +655,7 @@ msgstr "しおりを破棄する"
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
 "document"
-msgstr ""
+msgstr "元の PDF 文書からブックマークを残したくない場合、このボックスにチェックを入れます"
 
 msgid "Output PDF version:"
 msgstr "出力 PDF バージョン:"
@@ -693,9 +701,11 @@ msgstr "接頭語を追加"
 msgid "Enter the user password"
 msgstr "ユーザー パスワードを入力"
 
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "ダブルクリックして、マージしたいページを設定します (例: 2 または 5-23 または 2,5-7,12-)"
+msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "ダブルクリックして選択したページをセットします (例: 2 or 5-23 or 2,5-7,12-)"
+
+msgid "Page ranges"
+msgstr "ページの範囲"
 
 msgid "Pages"
 msgstr "ページ"
@@ -736,29 +746,11 @@ msgstr "選択した文書を下に移動"
 msgid "Move _Down"
 msgstr "下に移動(_D)"
 
-msgid "Page ranges"
-msgstr "ページの範囲"
-
 msgid "Size"
 msgstr "サイズ"
 
 msgid "Modified"
 msgstr "更新日"
-
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "範囲が正しくありません: {0}。"
-
-#, java-format
-msgid ""
-"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
-"or [-n] or [n-]"
-msgstr ""
-"あいまいなページの範囲の定義: {0}。 次の形式を使用してください: [n] または [n1-n2] または [-n] または [n-]"
-
-#, java-format
-msgid "Invalid number: {0}."
-msgstr "数が正しくありません: {0}。"
 
 msgid "Drag and drop PDF files here"
 msgstr "ここに PDF ファイルをドラッグ＆ドロップします"
@@ -823,6 +815,10 @@ msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr "生成される PDF 文書に目次を追加する必要がある場合に設定します"
 
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "ダブルクリックして、マージしたいページを設定します (例: 2 または 5-23 または 2,5-7,12-)"
+
 msgid "No PDF document has been selected"
 msgstr "PDF 文書が選択されていません"
 
@@ -850,6 +846,21 @@ msgstr "ファイル {0} を保存しました。"
 
 msgid "Directories"
 msgstr "ディレクトリ"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "範囲が正しくありません: {0}。"
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+"あいまいなページの範囲の定義: {0}。 次の形式を使用してください: [n] または [n1-n2] または [-n] または [n-]"
+
+#, java-format
+msgid "Invalid number: {0}."
+msgstr "数が正しくありません: {0}。"
 
 msgid "Valid user password provided."
 msgstr "有効なユーザー パスワードが入力されました。"
@@ -894,6 +905,31 @@ msgstr "しおりのテキストが一致する正規表現"
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
 msgstr "例: 単語 \"Chapter\" を含むしおりに一致させる場合、 .*Chapter.* を使用します"
+
+msgid "Extract"
+msgstr "抽出"
+
+msgid "Extract pages from a PDF document."
+msgstr "PDF 文書からページを抽出します。"
+
+msgid "Select or drag and drop a PDF"
+msgstr "PDF を選択またはドラッグ アンド ドロップ"
+
+msgid "Extract settings"
+msgstr "抽出設定"
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "抽出するページ (例: 2 or 5-23 or 2,5-7,12-)"
+
+msgid "Invalid page ranges"
+msgstr "ページ範囲が正しくありません"
+
+msgid "Extract pages:"
+msgstr "ページの抽出:"
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "ダブルクリックして、回転したいページをセットします (例: 2 or 5-23 or 2,5-7,12-)"
 
 msgid "All pages"
 msgstr "すべてのページ"

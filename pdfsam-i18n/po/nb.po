@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-05-07 18:34+0200\n"
+"POT-Creation-Date: 2016-06-22 17:45+0200\n"
 "PO-Revision-Date: 2015-10-19 10:42+0000\n"
 "Last-Translator: Wolloloo <vidartf@gmail.com>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
-"X-Generator: Launchpad (build 18025)\n"
+"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
+"X-Generator: Launchpad (build 18115)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Abonner på det offisielle nyhetsbrevet"
@@ -198,6 +198,14 @@ msgstr "Spill av alarmlyder"
 
 msgid "Turn on or off alert sounds"
 msgstr "Slå alarmlyder på eller av"
+
+msgid "Store passwords when saving a workspace file"
+msgstr ""
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
 
 msgid "Show donation window"
 msgstr ""
@@ -698,11 +706,11 @@ msgstr "Legg til prefiks"
 msgid "Enter the user password"
 msgstr ""
 
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Dobbeltklikk for å velge sider du vil slå sammen (f.eks.: 2 eller 5-23 eller "
-"2,5-7,12 -)"
+
+msgid "Page ranges"
+msgstr ""
 
 msgid "Pages"
 msgstr "Sider"
@@ -743,27 +751,10 @@ msgstr ""
 msgid "Move _Down"
 msgstr ""
 
-msgid "Page ranges"
-msgstr ""
-
 msgid "Size"
 msgstr ""
 
 msgid "Modified"
-msgstr ""
-
-#, java-format
-msgid "Invalid range: {0}."
-msgstr ""
-
-#, java-format
-msgid ""
-"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
-"or [-n] or [n-]"
-msgstr ""
-
-#, java-format
-msgid "Invalid number: {0}."
 msgstr ""
 
 msgid "Drag and drop PDF files here"
@@ -829,6 +820,12 @@ msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr ""
 
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Dobbeltklikk for å velge sider du vil slå sammen (f.eks.: 2 eller 5-23 eller "
+"2,5-7,12 -)"
+
 msgid "No PDF document has been selected"
 msgstr ""
 
@@ -855,6 +852,20 @@ msgid "File {0} saved."
 msgstr ""
 
 msgid "Directories"
+msgstr ""
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr ""
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+
+#, java-format
+msgid "Invalid number: {0}."
 msgstr ""
 
 msgid "Valid user password provided."
@@ -899,6 +910,31 @@ msgstr ""
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+
+msgid "Extract"
+msgstr ""
+
+msgid "Extract pages from a PDF document."
+msgstr ""
+
+msgid "Select or drag and drop a PDF"
+msgstr ""
+
+msgid "Extract settings"
+msgstr ""
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid "Invalid page ranges"
+msgstr ""
+
+msgid "Extract pages:"
+msgstr ""
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 
 msgid "All pages"

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-05-07 18:34+0200\n"
+"POT-Creation-Date: 2016-06-22 17:45+0200\n"
 "PO-Revision-Date: 2015-02-05 22:19+0000\n"
 "Last-Translator: gennzub <gennzub@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
-"X-Generator: Launchpad (build 18025)\n"
+"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
+"X-Generator: Launchpad (build 18115)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Подписаться на рассылку официальных новостей"
@@ -199,6 +199,14 @@ msgstr "Воспроизводить звуковые предупреждени
 
 msgid "Turn on or off alert sounds"
 msgstr "Включение и отключение звуков предупреждений"
+
+msgid "Store passwords when saving a workspace file"
+msgstr ""
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
 
 msgid "Show donation window"
 msgstr ""
@@ -713,11 +721,11 @@ msgstr "Добавить префикс"
 msgid "Enter the user password"
 msgstr "Введите пароль пользователя"
 
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Дважды щелкните для установки страниц, которые хотите объединить (напр: 2 "
-"или 5-23 или 2,5-7,12 -)"
+
+msgid "Page ranges"
+msgstr "Дипапазоны страниц"
 
 msgid "Pages"
 msgstr "Страницы"
@@ -760,30 +768,11 @@ msgstr "Сдвигает вниз выделенные документы"
 msgid "Move _Down"
 msgstr "Переместить _ниже"
 
-msgid "Page ranges"
-msgstr "Дипапазоны страниц"
-
 msgid "Size"
 msgstr "Размер"
 
 msgid "Modified"
 msgstr "Изменён"
-
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "Неверный диапазон: {0}."
-
-#, java-format
-msgid ""
-"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
-"or [-n] or [n-]"
-msgstr ""
-"Неоднозначное определение диапазона страниц: {0}. Используйте следующие "
-"форматы: [n] или [n1-n2] или [-n] или [n-]"
-
-#, java-format
-msgid "Invalid number: {0}."
-msgstr "Неверное число: {0}."
 
 msgid "Drag and drop PDF files here"
 msgstr "Перетащите PDF файлы сюда"
@@ -850,6 +839,12 @@ msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr ""
 
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Дважды щелкните для установки страниц, которые хотите объединить (напр: 2 "
+"или 5-23 или 2,5-7,12 -)"
+
 msgid "No PDF document has been selected"
 msgstr ""
 
@@ -877,6 +872,22 @@ msgstr "Файл {0} сохранён."
 
 msgid "Directories"
 msgstr "Каталоги"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "Неверный диапазон: {0}."
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+"Неоднозначное определение диапазона страниц: {0}. Используйте следующие "
+"форматы: [n] или [n1-n2] или [-n] или [n-]"
+
+#, java-format
+msgid "Invalid number: {0}."
+msgstr "Неверное число: {0}."
 
 msgid "Valid user password provided."
 msgstr "Правильный пароль введён."
@@ -920,6 +931,31 @@ msgstr ""
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+
+msgid "Extract"
+msgstr ""
+
+msgid "Extract pages from a PDF document."
+msgstr ""
+
+msgid "Select or drag and drop a PDF"
+msgstr ""
+
+msgid "Extract settings"
+msgstr ""
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid "Invalid page ranges"
+msgstr ""
+
+msgid "Extract pages:"
+msgstr ""
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 
 msgid "All pages"

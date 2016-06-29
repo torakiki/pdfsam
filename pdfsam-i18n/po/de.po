@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-05-07 18:34+0200\n"
-"PO-Revision-Date: 2016-04-08 09:57+0000\n"
-"Last-Translator: tobson <Unknown>\n"
+"POT-Creation-Date: 2016-06-22 17:45+0200\n"
+"PO-Revision-Date: 2016-06-28 12:13+0000\n"
+"Last-Translator: Tobias Bannert <tobannert@gmail.com>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
-"X-Generator: Launchpad (build 18025)\n"
+"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
+"X-Generator: Launchpad (build 18115)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Offiziellen News-Feed abonnieren"
@@ -201,6 +201,16 @@ msgstr "Warnklänge abspielen"
 
 msgid "Turn on or off alert sounds"
 msgstr "Warnklänge an- oder ausschalten"
+
+msgid "Store passwords when saving a workspace file"
+msgstr ""
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
+"Wenn ein verschlüsseltes PDF-Dokument mit einem Passwort geöffnet wurde, "
+"speichere das Passwort in der Arbeitsbank-Datei"
 
 msgid "Show donation window"
 msgstr "Spendenfenster anzeigen"
@@ -469,7 +479,7 @@ msgid "Split settings"
 msgstr "Teileneinstellungen"
 
 msgid "Output settings"
-msgstr ""
+msgstr "Ausgabeeinstellungen"
 
 msgid "Every page"
 msgstr "Jede Seite"
@@ -670,6 +680,8 @@ msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
 "document"
 msgstr ""
+"Markiere das Kästchen, wenn du die Lesezeichen des Ausgangs-PDF-Dokument "
+"nicht übernehmen möchtest"
 
 msgid "Output PDF version:"
 msgstr "Ausgabe-PDF-Version:"
@@ -695,7 +707,7 @@ msgid "The output directory is required"
 msgstr "Das Ausgabeverzeichnis wird benötigt"
 
 msgid "Generated PDF documents name prefix:"
-msgstr "Vorsilbe dür den erstellten PDF-Dokumentnamen:"
+msgstr "Vorsilbe für den erstellten PDF-Dokumentnamen:"
 
 msgid "Prefix for the output files name."
 msgstr "Vorsilbe für den Ausgabedateinamen."
@@ -715,11 +727,13 @@ msgstr "Vorsilbe hinzufügen"
 msgid "Enter the user password"
 msgstr "Benutzerpasswort eingeben"
 
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Doppelklicken um die Seiten für das Zusammenführen festzulegen (z.B: 2 oder "
-"5-23 oder 2,5-7,12-)"
+"Doppelklicken, um ausgewählte Seiten festzulegen  (z.B.: 2 oder 5-23 oder  "
+"2,5-7,12-)"
+
+msgid "Page ranges"
+msgstr "Seitenbereiche"
 
 msgid "Pages"
 msgstr "Seiten"
@@ -760,30 +774,11 @@ msgstr "Verschiebt ausgewählte Dokumente nach unten"
 msgid "Move _Down"
 msgstr "Nach _unten schieben"
 
-msgid "Page ranges"
-msgstr "Seitenbereiche"
-
 msgid "Size"
 msgstr "Größe"
 
 msgid "Modified"
 msgstr "Geändert"
-
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "Ungültiger Bereich: {0}."
-
-#, java-format
-msgid ""
-"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
-"or [-n] or [n-]"
-msgstr ""
-"Mehrdeutige Angabe des Seitenbereichs: {0}. Bitte folgende Formate benutzen: "
-" [n] oder [n1-n2] oder [-n] oder[n-]"
-
-#, java-format
-msgid "Invalid number: {0}."
-msgstr "Ungültige Zahl: {0}."
 
 msgid "Drag and drop PDF files here"
 msgstr "PDF-Datein hier ziehen und ablegen"
@@ -855,6 +850,12 @@ msgstr ""
 "Auswählen, wenn ein Inhaltsverzeichnis dem generierten PDF Dokument "
 "hinzugefügt werden soll"
 
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Doppelklicken um die Seiten für das Zusammenführen festzulegen (z.B: 2 oder "
+"5-23 oder 2,5-7,12-)"
+
 msgid "No PDF document has been selected"
 msgstr "Es wurd kein PDF-Dokument ausgewählt"
 
@@ -882,6 +883,22 @@ msgstr "Datei {0} gespeichert."
 
 msgid "Directories"
 msgstr "Verzeichnisse"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "Ungültiger Bereich: {0}."
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+"Mehrdeutige Angabe des Seitenbereichs: {0}. Bitte folgende Formate benutzen: "
+" [n] oder [n1-n2] oder [-n] oder[n-]"
+
+#, java-format
+msgid "Invalid number: {0}."
+msgstr "Ungültige Zahl: {0}."
 
 msgid "Valid user password provided."
 msgstr "Gültiges Benutzerpasswort übermittelt."
@@ -931,6 +948,33 @@ msgid ""
 msgstr ""
 "Beispiel: .*Kapitel.* verwenden, für Übereinstimmungen mit Lesezeichen, die "
 "das Wort »Kapitel« enthalten"
+
+msgid "Extract"
+msgstr "Extrahieren"
+
+msgid "Extract pages from a PDF document."
+msgstr "Seiten aus einem PDF-Dokument extrahieren"
+
+msgid "Select or drag and drop a PDF"
+msgstr "PDF auswählen oder ziehen und ablegen"
+
+msgid "Extract settings"
+msgstr "Einstellungen extrahieren"
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Seiten zum Extrahieren (z.B.: 2 oder 5-23 oder  2,5-7,12-)"
+
+msgid "Invalid page ranges"
+msgstr "Ungültige Seitenbereiche"
+
+msgid "Extract pages:"
+msgstr "Seiten extrahieren"
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Doppelklicken, um Seiten festzulegen, die gedreht werden sollen  (z.B.: 2 "
+"oder 5-23 oder  2,5-7,12-)"
 
 msgid "All pages"
 msgstr "Alle Seiten"

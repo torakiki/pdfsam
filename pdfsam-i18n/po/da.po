@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-05-07 18:34+0200\n"
+"POT-Creation-Date: 2016-06-22 17:45+0200\n"
 "PO-Revision-Date: 2016-03-27 10:33+0000\n"
 "Last-Translator: mjjzf <mjjzf@syntaktisk.dk>\n"
 "Language-Team: Danish <da@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
-"X-Generator: Launchpad (build 18025)\n"
+"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
+"X-Generator: Launchpad (build 18115)\n"
 "Language: da\n"
 
 msgid "Subscribe to the official news feed"
@@ -199,6 +199,14 @@ msgstr "Afspil lyde"
 
 msgid "Turn on or off alert sounds"
 msgstr "Slå lyde til eller fra"
+
+msgid "Store passwords when saving a workspace file"
+msgstr ""
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
 
 msgid "Show donation window"
 msgstr "Vis donationsvindue"
@@ -711,11 +719,11 @@ msgstr "Tilføj præfiks"
 msgid "Enter the user password"
 msgstr "Indtast adgangskode"
 
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Dobbeltklik for at angive sider, du ønsker at flette (fx. 2 eller 5-23 eller "
-"2,5-7,12-)"
+
+msgid "Page ranges"
+msgstr "Sideintervaller"
 
 msgid "Pages"
 msgstr "Sider"
@@ -756,30 +764,11 @@ msgstr "Flytter valgte dokumenter ned"
 msgid "Move _Down"
 msgstr "Flyt _ned"
 
-msgid "Page ranges"
-msgstr "Sideintervaller"
-
 msgid "Size"
 msgstr "Størrelse"
 
 msgid "Modified"
 msgstr "Ændret"
-
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "Ugyldige intervaller: {0}"
-
-#, java-format
-msgid ""
-"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
-"or [-n] or [n-]"
-msgstr ""
-"Flertydige sideintervaller: {0}. Anvend følgende formater: [n] or [n1-n2] "
-"eller [-n] eller [n-]"
-
-#, java-format
-msgid "Invalid number: {0}."
-msgstr "Ugyldigt tal: {0}"
 
 msgid "Drag and drop PDF files here"
 msgstr "Træk PDF-filer hertil"
@@ -847,6 +836,12 @@ msgid ""
 msgstr ""
 "Sæt hvis en indholdsfortegnelse skal tilføjes til det genererede PDF-dokument"
 
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Dobbeltklik for at angive sider, du ønsker at flette (fx. 2 eller 5-23 eller "
+"2,5-7,12-)"
+
 msgid "No PDF document has been selected"
 msgstr "Der er ikke blevet valgt et PDF dokument"
 
@@ -874,6 +869,22 @@ msgstr "Filen {0} gemt."
 
 msgid "Directories"
 msgstr "Mapper"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "Ugyldige intervaller: {0}"
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+"Flertydige sideintervaller: {0}. Anvend følgende formater: [n] or [n1-n2] "
+"eller [-n] eller [n-]"
+
+#, java-format
+msgid "Invalid number: {0}."
+msgstr "Ugyldigt tal: {0}"
 
 msgid "Valid user password provided."
 msgstr "Gyldig adgangskode anvendt."
@@ -922,6 +933,31 @@ msgid ""
 msgstr ""
 "Eksempel: Brug .*Kapitel.* for at matche bogmærker, der indeholder ordet "
 "\"Kapitel\""
+
+msgid "Extract"
+msgstr ""
+
+msgid "Extract pages from a PDF document."
+msgstr ""
+
+msgid "Select or drag and drop a PDF"
+msgstr ""
+
+msgid "Extract settings"
+msgstr ""
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid "Invalid page ranges"
+msgstr ""
+
+msgid "Extract pages:"
+msgstr ""
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
 
 msgid "All pages"
 msgstr "Alle sider"

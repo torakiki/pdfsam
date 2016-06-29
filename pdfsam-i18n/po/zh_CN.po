@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-05-07 18:34+0200\n"
-"PO-Revision-Date: 2016-03-29 06:41+0000\n"
-"Last-Translator: Kai <Unknown>\n"
+"POT-Creation-Date: 2016-06-22 17:45+0200\n"
+"PO-Revision-Date: 2016-06-29 05:29+0000\n"
+"Last-Translator: hotwhj@gmail.com <hotwhj@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
-"X-Generator: Launchpad (build 18025)\n"
+"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
+"X-Generator: Launchpad (build 18115)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "订阅官方新闻推送"
@@ -134,7 +134,7 @@ msgid "Keywords"
 msgstr "关键词"
 
 msgid "Summary"
-msgstr ""
+msgstr "摘要"
 
 msgid "About"
 msgstr "关于"
@@ -147,16 +147,16 @@ msgid "Max memory {0}"
 msgstr ""
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "复制到剪贴板"
 
 msgid "Thanks to"
-msgstr ""
+msgstr "致谢"
 
 msgid "The open source projects making PDFsam possible"
-msgstr ""
+msgstr "开源软件项目让PDFSam成为可能"
 
 msgid "Support"
-msgstr ""
+msgstr "支持"
 
 msgid "Contribute"
 msgstr ""
@@ -165,12 +165,12 @@ msgid "Social"
 msgstr ""
 
 msgid "Manually selected"
-msgstr ""
+msgstr "手动选择"
 
 msgid ""
 "Automatically set the destination directory to the selected PDF document "
 "directory"
-msgstr ""
+msgstr "自动设置目标文件夹到选定的PDF文档目录"
 
 msgid "Appearance"
 msgstr ""
@@ -182,7 +182,7 @@ msgid "Workspace"
 msgstr ""
 
 msgid "Output"
-msgstr ""
+msgstr "输出"
 
 msgid "Check for updates at startup"
 msgstr "启动时检查更新"
@@ -190,13 +190,21 @@ msgstr "启动时检查更新"
 msgid ""
 "Set whether new version availability should be checked on startup (restart "
 "needed)"
-msgstr ""
+msgstr "设置是否启动程序时检查可用更新（需重启后生效）"
 
 msgid "Play alert sounds"
 msgstr "播放提示音"
 
 msgid "Turn on or off alert sounds"
 msgstr "开启或关闭提示音"
+
+msgid "Store passwords when saving a workspace file"
+msgstr ""
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
 
 msgid "Show donation window"
 msgstr ""
@@ -693,9 +701,11 @@ msgstr "添加前缀"
 msgid "Enter the user password"
 msgstr ""
 
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "双击设置要合并的页面 （比如：2 或 5-23 或 2,5-7, 12-）"
+msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid "Page ranges"
+msgstr ""
 
 msgid "Pages"
 msgstr "页数"
@@ -736,27 +746,10 @@ msgstr ""
 msgid "Move _Down"
 msgstr ""
 
-msgid "Page ranges"
-msgstr ""
-
 msgid "Size"
 msgstr ""
 
 msgid "Modified"
-msgstr ""
-
-#, java-format
-msgid "Invalid range: {0}."
-msgstr ""
-
-#, java-format
-msgid ""
-"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
-"or [-n] or [n-]"
-msgstr ""
-
-#, java-format
-msgid "Invalid number: {0}."
 msgstr ""
 
 msgid "Drag and drop PDF files here"
@@ -822,6 +815,10 @@ msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr ""
 
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "双击设置要合并的页面 （比如：2 或 5-23 或 2,5-7, 12-）"
+
 msgid "No PDF document has been selected"
 msgstr ""
 
@@ -848,6 +845,20 @@ msgid "File {0} saved."
 msgstr ""
 
 msgid "Directories"
+msgstr ""
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr ""
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+
+#, java-format
+msgid "Invalid number: {0}."
 msgstr ""
 
 msgid "Valid user password provided."
@@ -892,6 +903,31 @@ msgstr ""
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+
+msgid "Extract"
+msgstr ""
+
+msgid "Extract pages from a PDF document."
+msgstr ""
+
+msgid "Select or drag and drop a PDF"
+msgstr ""
+
+msgid "Extract settings"
+msgstr ""
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid "Invalid page ranges"
+msgstr ""
+
+msgid "Extract pages:"
+msgstr ""
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 
 msgid "All pages"

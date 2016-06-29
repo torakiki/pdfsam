@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2016-05-07 18:34+0200\n"
-"PO-Revision-Date: 2016-05-10 12:09+0000\n"
+"POT-Creation-Date: 2016-06-22 17:45+0200\n"
+"PO-Revision-Date: 2016-06-26 17:21+0000\n"
 "Last-Translator: Patriccollu <Patrick.Santa-Maria@laposte.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
-"X-Generator: Launchpad (build 18025)\n"
+"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
+"X-Generator: Launchpad (build 18115)\n"
 "Language: co\n"
 
 msgid "Subscribe to the official news feed"
@@ -197,6 +197,18 @@ msgstr "Sunà i soni d'alerta"
 
 msgid "Turn on or off alert sounds"
 msgstr "Attivà o nò i soni d'alerta"
+
+msgid "Store passwords when saving a workspace file"
+msgstr ""
+"Arregistrà e parolle d'intrata à l'arregistramentu d'un schedariu di spaziu "
+"di travagliu"
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
+"S'è un ducumentu PDF cifratu hè statu apertu cù una parolla d'intrata, "
+"arregistrà a parolla d'intrata in u spaziu di travagliu"
 
 msgid "Show donation window"
 msgstr "Affissà a finestra di dunazione"
@@ -455,7 +467,7 @@ msgid "Split a PDF document at the given page numbers."
 msgstr "Sparte un ducumentu PDF à un numeru di pagine indicatu."
 
 msgid "Select or drag and drop the PDF you want to split"
-msgstr "Selezziunà o sguillà é depone u PDF chì voi vulete sparte"
+msgstr "Selezziunà o sguillà è depone u PDF chì voi vulete sparte"
 
 msgid "File names settings"
 msgstr "Preferenze di nomi di schedariu"
@@ -534,10 +546,10 @@ msgstr ""
 "nurmale o à l'arritrosa."
 
 msgid "Select or drag and drop the first PDF you want to mix"
-msgstr "Selezziunà o sguillà é depone u primu PDF chì voi vulete mischià"
+msgstr "Selezziunà o sguillà è depone u primu PDF chì voi vulete mischià"
 
 msgid "Select or drag and drop the second PDF you want to mix"
-msgstr "Selezziunà o sguillà é depone u secondu PDF chì voi vulete mischià"
+msgstr "Selezziunà o sguillà è depone u secondu PDF chì voi vulete mischià"
 
 msgid "Mix settings"
 msgstr "Preferenze di mischiu"
@@ -715,11 +727,13 @@ msgstr "Aghjunghje un prefissu"
 msgid "Enter the user password"
 msgstr "Scrivite a parolla d'intrata di l'utilizatore"
 
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Doppiu cliccu per definisce e pagine di a fusione (p.i. : 2 o 5-23 o 2,5-"
+"Doppiu cliccu per definisce e pagine selezziunate (p.i. : 2 o 5-23 o 2,5-"
 "7,12-)"
+
+msgid "Page ranges"
+msgstr "Stesa di pagina"
 
 msgid "Pages"
 msgstr "Pagine"
@@ -760,33 +774,14 @@ msgstr "Move inghjò i ducumenti selezziunati"
 msgid "Move _Down"
 msgstr "Move in_ghjò"
 
-msgid "Page ranges"
-msgstr "Stesa di pagina"
-
 msgid "Size"
 msgstr "Dimensione"
 
 msgid "Modified"
 msgstr "Mudificatu"
 
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "Stesa inaccettevule : {0}."
-
-#, java-format
-msgid ""
-"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
-"or [-n] or [n-]"
-msgstr ""
-"A definizione di a stesa di pagine hè ambigua : {0}. Impiegate e forme : [n] "
-"o [n1-n2] o [-n] o [n-]"
-
-#, java-format
-msgid "Invalid number: {0}."
-msgstr "Numeru inaccettevule : {0}."
-
 msgid "Drag and drop PDF files here"
-msgstr "Sguillà é depone i schedarii quì"
+msgstr "Sguillà è depone i schedarii PDF quì"
 
 msgid "Add a blank page if page number is odd"
 msgstr "Aghjunghje una pagina bianca s'è u numeru di pagine hè anescu"
@@ -854,6 +849,12 @@ msgstr ""
 "Definisce s'è una tavula di cuntenutu deve esse aghjunta à u ducumentu PDF "
 "creatu"
 
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Doppiu cliccu per definisce e pagine di a fusione (p.i. : 2 o 5-23 o 2,5-"
+"7,12-)"
+
 msgid "No PDF document has been selected"
 msgstr "Alcunu ducumentu PDF ùn hè statu selezziunatu"
 
@@ -881,6 +882,22 @@ msgstr "Schedariu {0} arregistratu."
 
 msgid "Directories"
 msgstr "Cartulari"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "Stesa inaccettevule : {0}."
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+"A definizione di a stesa di pagine hè ambigua : {0}. Impiegate e forme : [n] "
+"o [n1-n2] o [-n] o [n-]"
+
+#, java-format
+msgid "Invalid number: {0}."
+msgstr "Numeru inaccettevule : {0}."
 
 msgid "Valid user password provided."
 msgstr "A parolla d'intrata d'utilizatore pruvista hè accettevule."
@@ -929,6 +946,33 @@ msgid ""
 msgstr ""
 "Esempiu : impiegate .*Capitulu.* per currisponde à l'indette chì cuntenenu a "
 "parolla \"Capitulu\""
+
+msgid "Extract"
+msgstr "Estrae"
+
+msgid "Extract pages from a PDF document."
+msgstr "Estrae pagine da un ducumentu PDF."
+
+msgid "Select or drag and drop a PDF"
+msgstr "Selezziunà o sguillà è depone un PDF"
+
+msgid "Extract settings"
+msgstr "Preferenze d'estrazzione"
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Pagine à estrae (p.i. : 2 o 5-23 o 2,5-7,12-)"
+
+msgid "Invalid page ranges"
+msgstr "Stese di pagina micca accettevule"
+
+msgid "Extract pages:"
+msgstr "Estrae e pagine :"
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Doppiu cliccu per definisce e pagine ch'ellu ci vole à girà (p.i. : 2 o 5-23 "
+"o 2,5-7,12-)"
 
 msgid "All pages"
 msgstr "Tutte e pagine"

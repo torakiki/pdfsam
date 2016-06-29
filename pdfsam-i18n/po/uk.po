@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-05-07 18:34+0200\n"
+"POT-Creation-Date: 2016-06-22 17:45+0200\n"
 "PO-Revision-Date: 2015-12-19 10:45+0000\n"
 "Last-Translator: MisterIf <pkrupitsa@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
-"X-Generator: Launchpad (build 18025)\n"
+"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
+"X-Generator: Launchpad (build 18115)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Підписатися на офіційний канал новин"
@@ -201,6 +201,14 @@ msgstr "Відтворювати звуки повідомлення"
 
 msgid "Turn on or off alert sounds"
 msgstr "Включення або виключення звукових сигналів"
+
+msgid "Store passwords when saving a workspace file"
+msgstr ""
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
 
 msgid "Show donation window"
 msgstr ""
@@ -716,11 +724,11 @@ msgstr "Додати префікс до ім’я файлу"
 msgid "Enter the user password"
 msgstr "Ввести пароль користувача"
 
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Двічі клацніть, щоб подивитися сторінки, які ви хочете об'єднати (наприклад: "
-"2 або 5-23 або 2,5-7,12-)"
+
+msgid "Page ranges"
+msgstr "Діапазон сторінок"
 
 msgid "Pages"
 msgstr "Сторінки"
@@ -761,30 +769,11 @@ msgstr "Перемістити вниз обрані документи"
 msgid "Move _Down"
 msgstr "Перемістити в_низ"
 
-msgid "Page ranges"
-msgstr "Діапазон сторінок"
-
 msgid "Size"
 msgstr "Розмір"
 
 msgid "Modified"
 msgstr "Змінено"
-
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "Не вірний діапазон: {0}."
-
-#, java-format
-msgid ""
-"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
-"or [-n] or [n-]"
-msgstr ""
-"Визначено неоднозначний діапазон сторінок: {0}. Використовуйте такі формати: "
-"[n] або [n1-n2] або [-n] або [n-]"
-
-#, java-format
-msgid "Invalid number: {0}."
-msgstr "Не правильне число: {0}"
 
 msgid "Drag and drop PDF files here"
 msgstr "Перетягніть PDF файл сюди"
@@ -851,6 +840,12 @@ msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr ""
 
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Двічі клацніть, щоб подивитися сторінки, які ви хочете об'єднати (наприклад: "
+"2 або 5-23 або 2,5-7,12-)"
+
 msgid "No PDF document has been selected"
 msgstr "Не один PDF документ не був обраний"
 
@@ -879,6 +874,22 @@ msgstr "Файлів {0} збережено."
 
 msgid "Directories"
 msgstr "Теки:"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "Не вірний діапазон: {0}."
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+"Визначено неоднозначний діапазон сторінок: {0}. Використовуйте такі формати: "
+"[n] або [n1-n2] або [-n] або [n-]"
+
+#, java-format
+msgid "Invalid number: {0}."
+msgstr "Не правильне число: {0}"
 
 msgid "Valid user password provided."
 msgstr "Вірний пароль користувача надано."
@@ -925,6 +936,31 @@ msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
 msgstr ""
 "Приклад: використовуйте .* Глава.*, щоб закладки вже містили слово \"Глава\""
+
+msgid "Extract"
+msgstr ""
+
+msgid "Extract pages from a PDF document."
+msgstr ""
+
+msgid "Select or drag and drop a PDF"
+msgstr ""
+
+msgid "Extract settings"
+msgstr ""
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid "Invalid page ranges"
+msgstr ""
+
+msgid "Extract pages:"
+msgstr ""
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
 
 msgid "All pages"
 msgstr "Всі сторінки"

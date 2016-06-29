@@ -7,18 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-05-07 18:34+0200\n"
-"PO-Revision-Date: 2016-03-22 23:02+0000\n"
-"Last-Translator: Daniel Silvestre <daniel.silvestre@gmail.com>\n"
+"POT-Creation-Date: 2016-06-22 17:45+0200\n"
+"PO-Revision-Date: 2016-06-27 20:09+0000\n"
+"Last-Translator: pedsann <pedsann@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
-"X-Generator: Launchpad (build 18025)\n"
+"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
+"X-Generator: Launchpad (build 18115)\n"
 
 msgid "Subscribe to the official news feed"
-msgstr "Inscreva-se no canal ofício de notícias"
+msgstr "Increva-se no canal oficial de notícias"
 
 msgid "Bug and feature requests"
 msgstr "Informe de erros e pedidos de funcionalidades"
@@ -201,6 +201,16 @@ msgstr "Tocar alertas sonoros"
 
 msgid "Turn on or off alert sounds"
 msgstr "Ligar ou desligar alertas sonoros"
+
+msgid "Store passwords when saving a workspace file"
+msgstr "Armazenar senhas ao salvar arquivo de espaço de trabalho"
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
+"Se um documento PDF encriptado for aberto com senha, salvar a senha no "
+"arquivo de espaço de trabalho"
 
 msgid "Show donation window"
 msgstr "Mostrar janela de doação"
@@ -475,7 +485,7 @@ msgid "Split settings"
 msgstr "Configurações de divisão"
 
 msgid "Output settings"
-msgstr ""
+msgstr "Configurações de saida"
 
 msgid "Every page"
 msgstr "Cada página"
@@ -710,6 +720,8 @@ msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
 "document"
 msgstr ""
+"Marque a caixa se você não quiser manter qualquer marcador do documento PDF "
+"original"
 
 msgid "Output PDF version:"
 msgstr "Versão do PDF de saída"
@@ -758,11 +770,11 @@ msgstr "Adicionar prefixo"
 msgid "Enter the user password"
 msgstr "Entre a senha do usuário"
 
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Clique duplo para definir as páginas que serão mescladas (ex: 2 ou 5-23 ou "
-"2,5-7,12-)"
+msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Duplo clique para selecionar páginas (ex: 2 ou 5-23 ou 2,5-7,12-)"
+
+msgid "Page ranges"
+msgstr "Intervalo de páginas"
 
 # G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:166
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:182
@@ -806,30 +818,11 @@ msgstr "Move para baixo o(s) documento(s) selecionado(s)"
 msgid "Move _Down"
 msgstr "Mover para baixo (_D)"
 
-msgid "Page ranges"
-msgstr "Intervalo de páginas"
-
 msgid "Size"
 msgstr "Tamanho"
 
 msgid "Modified"
 msgstr "Modificado Em"
-
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "Intervalo inválido : {0}."
-
-#, java-format
-msgid ""
-"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
-"or [-n] or [n-]"
-msgstr ""
-"Definição ambígua do intervalo de página: {0}. Use os seguintes formatos: "
-"[n] ou [n1-n2] ou [-n] ou [n-]"
-
-#, java-format
-msgid "Invalid number: {0}."
-msgstr "Número inválido: {0}."
 
 msgid "Drag and drop PDF files here"
 msgstr "Arraste e solte os arquivos em PDF aqui"
@@ -845,10 +838,10 @@ msgstr ""
 "tiver um número ímpar de páginas"
 
 msgid "Add a footer"
-msgstr ""
+msgstr "Adicionar um rodapé"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
-msgstr ""
+msgstr "Adiciona um rodapé com o nome do arquivo ao qual a página pertencia."
 
 msgid "Merge fields"
 msgstr "Campos unidos"
@@ -899,6 +892,12 @@ msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr "Marque se uma tabela de conteúdo deve ser adicionada ao PFD gerado"
 
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Clique duplo para definir as páginas que serão mescladas (ex: 2 ou 5-23 ou "
+"2,5-7,12-)"
+
 msgid "No PDF document has been selected"
 msgstr "Nenhum documento PDF foi selecionado"
 
@@ -926,6 +925,22 @@ msgstr "{0} arquivo(s) salvo(s)"
 
 msgid "Directories"
 msgstr "Pastas"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "Intervalo inválido : {0}."
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+"Definição ambígua do intervalo de página: {0}. Use os seguintes formatos: "
+"[n] ou [n1-n2] ou [-n] ou [n-]"
+
+#, java-format
+msgid "Invalid number: {0}."
+msgstr "Número inválido: {0}."
 
 msgid "Valid user password provided."
 msgstr "Senha válida fornecida."
@@ -974,6 +989,33 @@ msgid ""
 msgstr ""
 "Exemplo: use .*Capítulo* para encontrar marcadores contendo a palavra "
 "\"Capítulo\""
+
+msgid "Extract"
+msgstr "Extrair"
+
+msgid "Extract pages from a PDF document."
+msgstr "Extrair páginas de um documento PDF."
+
+msgid "Select or drag and drop a PDF"
+msgstr "Selecione ou arraste um PDF"
+
+msgid "Extract settings"
+msgstr "Configurações de Extração"
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Páginas para extrair (ex: 2 ou 5-23 ou 2,5-7,12-)"
+
+msgid "Invalid page ranges"
+msgstr "Intervalo de páginas inválido"
+
+msgid "Extract pages:"
+msgstr "Extrair páginas:"
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Duplo clique para selecionar as páginas para rotacionar (ex: 2 ou 5-23 ou "
+"2,5-7,12-)"
 
 msgid "All pages"
 msgstr "Todas as páginas"

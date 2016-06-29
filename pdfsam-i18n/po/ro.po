@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-05-07 18:34+0200\n"
+"POT-Creation-Date: 2016-06-22 17:45+0200\n"
 "PO-Revision-Date: 2015-04-25 01:10+0000\n"
 "Last-Translator: Angelescu <titus0818@yahoo.com>\n"
 "Language-Team: Romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
-"X-Generator: Launchpad (build 18025)\n"
+"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
+"X-Generator: Launchpad (build 18115)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Subscrieți la fluxul de știri oficial"
@@ -201,6 +201,14 @@ msgstr "Redare sunete de alertă"
 
 msgid "Turn on or off alert sounds"
 msgstr "Deschide sau închide sunetele de alarmă"
+
+msgid "Store passwords when saving a workspace file"
+msgstr ""
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
 
 msgid "Show donation window"
 msgstr ""
@@ -707,11 +715,11 @@ msgstr "Adaugă prefix"
 msgid "Enter the user password"
 msgstr "Introduceți parola de utilizator"
 
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Dublu clik pentru configurarea paginilor pe care doriți să le uniți (ex: 2 "
-"sau 5-23 sau 2,5-7,12-)"
+
+msgid "Page ranges"
+msgstr "Intervalele de pagini"
 
 msgid "Pages"
 msgstr "Pagini"
@@ -752,28 +760,11 @@ msgstr "Mută în jos documentele selectate"
 msgid "Move _Down"
 msgstr "Mută în _jos"
 
-msgid "Page ranges"
-msgstr "Intervalele de pagini"
-
 msgid "Size"
 msgstr "Dimensiune"
 
 msgid "Modified"
 msgstr "Modificat"
-
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "Interval nevalid: {0}."
-
-#, java-format
-msgid ""
-"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
-"or [-n] or [n-]"
-msgstr ""
-
-#, java-format
-msgid "Invalid number: {0}."
-msgstr "Număr nevalid: {0}."
 
 msgid "Drag and drop PDF files here"
 msgstr "Trageți și plasați aici fișierele PDF"
@@ -840,6 +831,12 @@ msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr ""
 
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Dublu clik pentru configurarea paginilor pe care doriți să le uniți (ex: 2 "
+"sau 5-23 sau 2,5-7,12-)"
+
 msgid "No PDF document has been selected"
 msgstr ""
 
@@ -867,6 +864,20 @@ msgstr "Fișierul {0} s-a salvat."
 
 msgid "Directories"
 msgstr "Directoare"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "Interval nevalid: {0}."
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+
+#, java-format
+msgid "Invalid number: {0}."
+msgstr "Număr nevalid: {0}."
 
 msgid "Valid user password provided."
 msgstr "S-a furnizat o parolă utilizator validă."
@@ -910,6 +921,31 @@ msgstr ""
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+
+msgid "Extract"
+msgstr ""
+
+msgid "Extract pages from a PDF document."
+msgstr ""
+
+msgid "Select or drag and drop a PDF"
+msgstr ""
+
+msgid "Extract settings"
+msgstr ""
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid "Invalid page ranges"
+msgstr ""
+
+msgid "Extract pages:"
+msgstr ""
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 
 msgid "All pages"

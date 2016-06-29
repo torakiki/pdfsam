@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-05-07 18:34+0200\n"
+"POT-Creation-Date: 2016-06-22 17:45+0200\n"
 "PO-Revision-Date: 2016-03-07 19:04+0000\n"
 "Last-Translator: Jean-Marc <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-11 10:24+0000\n"
-"X-Generator: Launchpad (build 18025)\n"
+"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
+"X-Generator: Launchpad (build 18115)\n"
 "Language: fr\n"
 
 msgid "Subscribe to the official news feed"
@@ -202,6 +202,14 @@ msgstr "Jouer les notifications sonores"
 
 msgid "Turn on or off alert sounds"
 msgstr "Activer ou désactiver les notifications sonores"
+
+msgid "Store passwords when saving a workspace file"
+msgstr ""
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
 
 msgid "Show donation window"
 msgstr "Afficher la fenêtre de don"
@@ -735,11 +743,11 @@ msgstr "Ajouter un préfixe"
 msgid "Enter the user password"
 msgstr "Entrer le mot de passe d’ouverture"
 
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Double-cliquez pour entrer les groupes de pages à fusionner (ex\\: 2 ou 5-23 "
-"ou 2,5-7,12-)"
+
+msgid "Page ranges"
+msgstr "Groupes de pages"
 
 # G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:166
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:182
@@ -785,30 +793,11 @@ msgstr "Descendre dans le tableau les documents sélectionnés"
 msgid "Move _Down"
 msgstr "_Descendre"
 
-msgid "Page ranges"
-msgstr "Groupes de pages"
-
 msgid "Size"
 msgstr "Taille"
 
 msgid "Modified"
 msgstr "Modifié"
-
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "Sélection non valide : {0}."
-
-#, java-format
-msgid ""
-"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
-"or [-n] or [n-]"
-msgstr ""
-"Définition d’ensemble de pages ambiguë : {0}. Utiliser les formats suivants "
-": [n] ou [n1-n2] ou [-n] ou [n-]"
-
-#, java-format
-msgid "Invalid number: {0}."
-msgstr "Nombre non valide : {0}."
 
 msgid "Drag and drop PDF files here"
 msgstr "Glisser et déposer ici les fichiers PDF"
@@ -881,6 +870,12 @@ msgstr ""
 "À cocher si vous voulez qu'une table des matières soit ajoutée au document "
 "PDF généré"
 
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Double-cliquez pour entrer les groupes de pages à fusionner (ex\\: 2 ou 5-23 "
+"ou 2,5-7,12-)"
+
 msgid "No PDF document has been selected"
 msgstr "Aucun document PDF n'a été sélectionné"
 
@@ -908,6 +903,22 @@ msgstr "Fichier {0} enregistré."
 
 msgid "Directories"
 msgstr "Répertoires"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "Sélection non valide : {0}."
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+"Définition d’ensemble de pages ambiguë : {0}. Utiliser les formats suivants "
+": [n] ou [n1-n2] ou [-n] ou [n-]"
+
+#, java-format
+msgid "Invalid number: {0}."
+msgstr "Nombre non valide : {0}."
 
 msgid "Valid user password provided."
 msgstr "Mot de passe d’ouverture correct"
@@ -956,6 +967,31 @@ msgid ""
 msgstr ""
 "Exemple : utiliser .*Chapitre.* pour trouver les favoris contenant le mot "
 "\"Chapitre\""
+
+msgid "Extract"
+msgstr ""
+
+msgid "Extract pages from a PDF document."
+msgstr ""
+
+msgid "Select or drag and drop a PDF"
+msgstr ""
+
+msgid "Extract settings"
+msgstr ""
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid "Invalid page ranges"
+msgstr ""
+
+msgid "Extract pages:"
+msgstr ""
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
 
 msgid "All pages"
 msgstr "Toutes les pages"
