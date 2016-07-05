@@ -64,6 +64,7 @@ import org.pdfsam.update.UpdateCheckRequest;
 import org.sejda.core.Sejda;
 import org.sejda.eventstudio.EventStudio;
 import org.sejda.eventstudio.annotation.EventListener;
+import org.sejda.impl.sambox.component.PDDocumentHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -95,6 +96,7 @@ public class PdfsamApp extends Application {
     public void init() {
         STOPWATCH.start();
         System.setProperty(EventStudio.MAX_QUEUE_SIZE_PROP, Integer.toString(userContext.getNumberOfLogRows()));
+        System.setProperty(PDDocumentHandler.SAMBOX_USE_ASYNC_WRITER, Boolean.TRUE.toString());
         LOG.info("Starting PDFsam");
         cleanUserContextIfNeeded(userContext);
         String localeString = userContext.getLocale();
