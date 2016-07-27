@@ -32,6 +32,11 @@ A list of system properties that users can configure to alter PDFsam behavior.
 *description:* if set to true PDFsam will not try to optimize split tasks result files.
 
 
+**org.pdfsam.default.donate.notification**  
+*values:* true|false  
+*default:* true   
+*description:* if not already set in the application preferences, tells PDFsam if it should show the notification to kindly ask for a donation. 
+
 Runtime arguments
 =============
 **-c**    
@@ -51,6 +56,12 @@ A list of properties that can be set during the silent installation of the PDFsa
 *values:* true|false  
 *default:* true   
 *description:* if not already set in the application preferences, tells PDFsam if it should check for updates at startup. 
+
+
+**DONATE_NOTIFICATION**   
+*values:* true|false  
+*default:* true   
+*description:* if not already set in the application preferences, tells PDFsam if it should show the notification to kindly ask for a donation. 
 
 
 **LOCALE_CODE**

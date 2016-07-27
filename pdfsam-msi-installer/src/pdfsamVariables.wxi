@@ -7,10 +7,10 @@
 	<?define ProductPatchVersion="0" ?>
 	<?define ProductLabelVersion="0" ?>
 	<!-- Change this -->
-	<?define ProductCode="{16742ebe-bf7c-4e42-a96c-81ad607d3b9c}" ?>
-	<?define ProductFullVersion="3.1.0" ?>
+	<?define ProductFullVersion="3.1.0.RELEASE" ?>
 
 	<!-- Static configuration options. -->
+	<?define ProductCode="*" ?>
 	<?define ProductVersion="$(var.ProductMajorVersion).$(var.ProductMinorVersion).$(var.ProductPatchVersion).$(var.ProductLabelVersion)" ?>
 	<?define ProductLanguage="!(loc.ProductLanguage)" ?>
 	<?define ProductName="PDFsam Basic" ?>

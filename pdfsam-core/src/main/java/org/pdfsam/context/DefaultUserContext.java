@@ -39,6 +39,7 @@ public final class DefaultUserContext implements UserContext {
     private static final Logger LOG = LoggerFactory.getLogger(DefaultUserContext.class);
 
     static final String CHECK_FOR_UPDATES_PROP = "org.pdfsam.default.checkforupdate";
+    static final String DONATE_NOTIFICATION_PROP = "org.pdfsam.default.donate.notification";
     static final String LOCALE_PROP = "org.pdfsam.default.locale";
 
     private Preferences prefs;
@@ -68,7 +69,8 @@ public final class DefaultUserContext implements UserContext {
 
     @Override
     public boolean isDonationNotification() {
-        return prefs.getBoolean(BooleanUserPreference.DONATION_NOTIFICATION.toString(), Boolean.TRUE);
+        return prefs.getBoolean(BooleanUserPreference.DONATION_NOTIFICATION.toString(),
+                Boolean.valueOf(System.getProperty(DONATE_NOTIFICATION_PROP, Boolean.TRUE.toString())));
     }
 
     @Override
