@@ -24,4 +24,3 @@ test_script:
 cache:
 - C:\maven\
 - C:\gettext\
-- '%HOMEPATH%\.m2'
