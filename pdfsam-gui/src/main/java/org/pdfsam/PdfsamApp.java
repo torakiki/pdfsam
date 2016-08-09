@@ -147,6 +147,7 @@ public class PdfsamApp extends Application {
 
         requestCheckForUpdateIfNecessary();
         requestLatestNews();
+        new InputPdfArgumentsController().accept(rawParameters);
         eventStudio().addAnnotatedListeners(this);
         closeSplash();
         STOPWATCH.stop();

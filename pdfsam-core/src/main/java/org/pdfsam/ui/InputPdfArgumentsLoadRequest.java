@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 16/lug/2014
+ * Created on 09 ago 2016
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,37 +16,18 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.test;
+package org.pdfsam.ui;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
-
-import java.util.Arrays;
-import java.util.Set;
-
-import org.junit.rules.ExternalResource;
-import org.sejda.common.collection.NullSafeSet;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Rule that makes sure that event studio listeners are cleared after each test
+ * A request to load the given PDFs passed as application arguments
  * 
  * @author Andrea Vacondio
  *
  */
-public class ClearEventStudioRule extends ExternalResource {
-
-    private Set<String> stations = new NullSafeSet<>();
-
-    public ClearEventStudioRule(String... stations) {
-        Arrays.stream(stations).forEach(this.stations::add);
-    }
-
-    private void clearAll() {
-        eventStudio().clear();
-        stations.forEach(s -> eventStudio().clear(s));
-    }
-
-    @Override
-    protected void after() {
-        clearAll();
-    }
+public class InputPdfArgumentsLoadRequest {
+    public final List<Path> pdfs = new ArrayList<>();
 }
