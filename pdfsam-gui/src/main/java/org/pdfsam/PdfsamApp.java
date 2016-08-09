@@ -90,7 +90,9 @@ public class PdfsamApp extends Application {
     private static final Logger LOG = LoggerFactory.getLogger(PdfsamApp.class);
     private static StopWatch STOPWATCH = new StopWatch();
     private Stage primaryStage;
-    UserContext userContext = new DefaultUserContext();
+    private UserContext userContext = new DefaultUserContext();
+    private List<String> rawParameters;
+    private boolean clean;
 
     @Override
     public void init() {
@@ -98,6 +100,8 @@ public class PdfsamApp extends Application {
         System.setProperty(EventStudio.MAX_QUEUE_SIZE_PROP, Integer.toString(userContext.getNumberOfLogRows()));
         System.setProperty(PDDocumentHandler.SAMBOX_USE_ASYNC_WRITER, Boolean.TRUE.toString());
         LOG.info("Starting PDFsam");
+        rawParameters = getParameters().getRaw();
+        clean = rawParameters.contains("--clean") || rawParameters.contains("-clean") || rawParameters.contains("-c");
         cleanUserContextIfNeeded(userContext);
         String localeString = userContext.getLocale();
         if (isNotBlank(localeString)) {
@@ -116,7 +120,7 @@ public class PdfsamApp extends Application {
     }
 
     private void cleanUserContextIfNeeded(UserContext userContext) {
-        if (getParameters().getRaw().contains("-clean")) {
+        if (clean) {
             userContext.clear();
             LOG.info("Cleared user preferences");
         }
@@ -204,8 +208,7 @@ public class PdfsamApp extends Application {
     }
 
     private void cleanIfNeeded() {
-        List<String> raws = getParameters().getRaw();
-        if (raws.contains("--clean") || raws.contains("-clean") || raws.contains("-c")) {
+        if (clean) {
             LOG.debug("Cleaning...");
             ApplicationContextHolder.getContext().getBean(NewsService.class).clear();
             ApplicationContextHolder.getContext().getBean(StageService.class).clear();
