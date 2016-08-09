@@ -11,7 +11,7 @@
 	<logger name="org.sejda.eventstudio" level="ERROR" />
 	<logger name="org.pdfsam" level="DEBUG" />
 	<logger name="org.hibernate" level="WARN" />
-	<logger name="org.springframework" level="TRACE" />
+	<logger name="org.springframework" level="WARN" />
 	
 	<root level="WARN">
 		<appender-ref ref="STDOUT" />
