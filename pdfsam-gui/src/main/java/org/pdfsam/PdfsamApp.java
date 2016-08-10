@@ -53,7 +53,7 @@ import org.pdfsam.ui.StageService;
 import org.pdfsam.ui.StageStatus;
 import org.pdfsam.ui.commons.OpenUrlRequest;
 import org.pdfsam.ui.commons.ShowStageRequest;
-import org.pdfsam.ui.dialog.OverwriteConfirmationDialog;
+import org.pdfsam.ui.dialog.ConfirmationDialog;
 import org.pdfsam.ui.io.SetLatestDirectoryEvent;
 import org.pdfsam.ui.log.LogMessageBroadcaster;
 import org.pdfsam.ui.module.OpenButton;
@@ -139,7 +139,7 @@ public class PdfsamApp extends Application {
         primaryStage.setTitle(ApplicationContextHolder.getContext().getBean(Pdfsam.class).name());
         primaryStage.setOnCloseRequest(e -> Platform.exit());
         initWindowsStatusController(primaryStage);
-        initOverwriteDialogController(primaryStage);
+        initDialogsOwner(primaryStage);
         initActiveModule();
         loadWorkspaceIfRequired();
         initOpenButtons();
@@ -240,16 +240,13 @@ public class PdfsamApp extends Application {
         }
     }
 
-    private void initOverwriteDialogController(Stage primaryStage) {
-        OverwriteConfirmationDialog overwriteDialog = ApplicationContextHolder.getContext()
-                .getBean(OverwriteConfirmationDialog.class);
-        overwriteDialog.setOwner(primaryStage);
+    private void initDialogsOwner(Stage primaryStage) {
+        ApplicationContextHolder.getContext().getBeansOfType(ConfirmationDialog.class).values()
+                .forEach(d -> d.setOwner(primaryStage));
     }
 
     private void initWindowsStatusController(Stage primaryStage) {
-        WindowStatusController stageStatusController = ApplicationContextHolder.getContext()
-                .getBean(WindowStatusController.class);
-        stageStatusController.setStage(primaryStage);
+        ApplicationContextHolder.getContext().getBean(WindowStatusController.class).setStage(primaryStage);
     }
 
     private void initActiveModule() {

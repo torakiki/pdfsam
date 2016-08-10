@@ -37,7 +37,7 @@ import javafx.stage.Window;
  * @author Andrea Vacondio
  *
  */
-class ConfirmationDialog extends Stage {
+public class ConfirmationDialog extends Stage {
 
     private ConfirmationDialogContent dialogContent;
     private boolean response = false;
