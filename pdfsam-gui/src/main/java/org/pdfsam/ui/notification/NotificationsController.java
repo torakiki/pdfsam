@@ -31,7 +31,6 @@ import org.pdfsam.Pdfsam;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.UsageService;
-import org.pdfsam.ui.InputPdfArgumentsLoadRequest;
 import org.pdfsam.update.UpdateAvailableEvent;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.model.exception.InvalidTaskParametersException;
@@ -155,25 +154,5 @@ public class NotificationsController {
         content.setAlignment(Pos.TOP_RIGHT);
 
         container.addStickyNotification(DefaultI18nContext.getInstance().i18n("New version available"), content);
-    }
-
-    @EventListener
-    public void onInputFilesAsArgs(InputPdfArgumentsLoadRequest event) {
-
-        if (event.pdfs.size() > 0) {
-            VBox content = new VBox(3,
-                    buildLabel(DefaultI18nContext.getInstance().i18n("What do you want to do with them?"), null),
-                    new HBox(3,
-                            styledUrlButton(null, pdfsam.property(ConfigurableProperty.GPLUS_SHARE_URL),
-                                    FontAwesomeIcon.GOOGLE_PLUS),
-                            styledUrlButton(null, pdfsam.property(ConfigurableProperty.FACEBOOK_SHARE_URL),
-                                    FontAwesomeIcon.FACEBOOK),
-                            styledUrlButton(DefaultI18nContext.getInstance().i18n("Spread the word!"),
-                                    pdfsam.property(ConfigurableProperty.TWEETER_SHARE_URL), FontAwesomeIcon.TWITTER)));
-            content.setAlignment(Pos.TOP_RIGHT);
-            container.addStickyNotification(DefaultI18nContext.getInstance().i18n("{0} PDF files selected",
-                    Integer.toString(event.pdfs.size())), content);
-
-        }
     }
 }
