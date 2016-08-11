@@ -27,6 +27,7 @@ import java.util.Locale;
 
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
@@ -38,6 +39,7 @@ import org.pdfsam.test.ClearEventStudioRule;
 
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
 
 /**
  * @author Andrea Vacondio
@@ -81,10 +83,30 @@ public class CreateOutputDirectoryConfirmationDialogTest extends GuiTest {
     }
 
     @Test
+    @Ignore
+    // TODO focus issue on Linux
+    public void cancelOnEsc() {
+        this.confirm = true;
+        click("show");
+        type(KeyCode.ESCAPE);
+        assertFalse(this.confirm);
+    }
+
+    @Test
     public void overwrite() {
         this.confirm = false;
         click("show");
         click(DefaultI18nContext.getInstance().i18n("Yes"));
+        assertTrue(this.confirm);
+    }
+
+    @Test
+    @Ignore
+    // TODO focus issue on Linux
+    public void overwriteOnEnter() {
+        this.confirm = false;
+        click("show");
+        type(KeyCode.ENTER);
         assertTrue(this.confirm);
     }
 

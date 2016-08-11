@@ -19,7 +19,6 @@
 package org.pdfsam.ui.dialog;
 
 import org.pdfsam.configuration.StylesConfig;
-import org.pdfsam.ui.commons.HideOnEscapeHandler;
 import org.pdfsam.ui.support.Style;
 
 import javafx.scene.Scene;
@@ -52,12 +51,12 @@ public class ConfirmationDialog extends Stage {
         containerPane.getStyleClass().addAll(Style.CONTAINER.css());
         containerPane.getStyleClass().addAll("-pdfsam-dialog", style.style);
         containerPane.setCenter(dialogContent);
-        HBox buttons = new HBox(buildButton(positiveButtonText, true), buildButton(negativeButtonText, false));
+        HBox buttons = new HBox(buildPositiveButton(positiveButtonText, true),
+                buildCancelButton(negativeButtonText, false));
         buttons.getStyleClass().add("-pdfsam-dialog-buttons");
         containerPane.setBottom(buttons);
         Scene scene = new Scene(containerPane);
         scene.getStylesheets().addAll(styles.styles());
-        scene.setOnKeyReleased(new HideOnEscapeHandler(this));
         setScene(scene);
     }
 
@@ -94,4 +93,17 @@ public class ConfirmationDialog extends Stage {
         });
         return button;
     }
+
+    private Button buildPositiveButton(String text, boolean response) {
+        Button button = buildButton(text, response);
+        button.setDefaultButton(true);
+        return button;
+    }
+
+    private Button buildCancelButton(String text, boolean response) {
+        Button button = buildButton(text, response);
+        button.setCancelButton(true);
+        return button;
+    }
+
 }
