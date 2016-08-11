@@ -40,6 +40,7 @@ class SplitByOutlineLevelParametersBuilder extends SplitParametersBuilder<SplitB
         this.regexp = regexp;
     }
 
+    @Override
     public SplitByOutlineLevelParameters build() {
         SplitByOutlineLevelParameters params = new SplitByOutlineLevelParameters(level);
         params.setCompress(isCompress());

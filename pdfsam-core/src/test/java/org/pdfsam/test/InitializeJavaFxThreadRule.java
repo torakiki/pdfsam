@@ -32,6 +32,7 @@ public class InitializeJavaFxThreadRule implements TestRule {
         new JavaFXInitlializer().init();
     }
 
+    @Override
     public Statement apply(Statement base, Description description) {
         return base;
     }

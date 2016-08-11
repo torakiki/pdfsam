@@ -61,10 +61,12 @@ class RotateParametersBuilder extends AbstractPdfOutputParametersBuilder<BulkRot
         return !inputs.isEmpty();
     }
 
+    @Override
     public void output(DirectoryTaskOutput output) {
         this.output = output;
     }
 
+    @Override
     public void prefix(String prefix) {
         this.prefix = prefix;
     }
@@ -86,6 +88,7 @@ class RotateParametersBuilder extends AbstractPdfOutputParametersBuilder<BulkRot
 
     }
 
+    @Override
     public BulkRotateParameters build() {
         BulkRotateParameters params = new BulkRotateParameters();
         params.setCompress(isCompress());

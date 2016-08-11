@@ -31,22 +31,27 @@ import org.pdfsam.ui.dashboard.DashboardItem;
 public class DefaultPriorityDashboardItem implements DashboardItem {
     public static final String ID = "test.item";
 
+    @Override
     public String id() {
         return ID;
     }
 
+    @Override
     public String name() {
         return "name";
     }
 
+    @Override
     public Pane pane() {
         return new VBox();
     }
 
+    @Override
     public Node graphic() {
         return null;
     }
 
+    @Override
     public int priority() {
         return 0;
     }

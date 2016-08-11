@@ -38,6 +38,7 @@ class RegexValidator implements Validator<String> {
         pattern = Pattern.compile(regex);
     }
 
+    @Override
     public boolean isValid(String input) {
         return isNotBlank(input) && pattern.matcher(input).matches();
     }

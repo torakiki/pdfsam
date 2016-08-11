@@ -37,6 +37,7 @@ import org.pdfsam.ui.InputPdfArgumentsLoadRequest;
  */
 class InputPdfArgumentsController implements Consumer<List<String>> {
 
+    @Override
     public void accept(List<String> pdfs) {
         if (nonNull(pdfs) && !pdfs.isEmpty()) {
             InputPdfArgumentsLoadRequest event = new InputPdfArgumentsLoadRequest();

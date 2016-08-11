@@ -43,6 +43,7 @@ import com.fasterxml.jackson.jr.ob.JSON;
 class JsonWorkspaceService implements WorkspaceService {
     private static final Logger LOG = LoggerFactory.getLogger(JsonWorkspaceService.class);
 
+    @Override
     public void saveWorkspace(Map<String, Map<String, String>> data, File destination) {
         requireNotNull(destination, "Destination file cannot be null");
         LOG.debug(DefaultI18nContext.getInstance().i18n("Saving workspace data to {0}", destination.getAbsolutePath()));
@@ -56,6 +57,7 @@ class JsonWorkspaceService implements WorkspaceService {
         }
     }
 
+    @Override
     @SuppressWarnings("unchecked")
     public Map<String, Map<String, String>> loadWorkspace(File workspace) {
         requireNotNull(workspace, "Workspace file cannot be null");

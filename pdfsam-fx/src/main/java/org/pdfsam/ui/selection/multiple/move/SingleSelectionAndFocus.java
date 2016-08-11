@@ -35,10 +35,12 @@ class SingleSelectionAndFocus implements SelectionAndFocus {
         this.row = row;
     }
 
+    @Override
     public int getFocus() {
         return row;
     }
 
+    @Override
     public int getRow() {
         return row;
     }
@@ -46,6 +48,7 @@ class SingleSelectionAndFocus implements SelectionAndFocus {
     /**
      * @return an empty array since this is a single row selection
      */
+    @Override
     public int[] getRows() {
         return new int[0];
     }

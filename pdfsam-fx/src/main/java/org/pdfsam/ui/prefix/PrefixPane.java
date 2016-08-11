@@ -71,14 +71,17 @@ public class PrefixPane extends HBox
         return field.getText();
     }
 
+    @Override
     public void apply(MultipleOutputTaskParametersBuilder<?> builder, Consumer<String> onError) {
         builder.prefix(getText());
     }
 
+    @Override
     public void saveStateTo(Map<String, String> data) {
         data.put(defaultString(getId()) + "prefix", defaultString(field.getText()));
     }
 
+    @Override
     public void restoreStateFrom(Map<String, String> data) {
         field.setText(Optional.ofNullable(data.get(defaultString(getId()) + "prefix")).orElse(EMPTY));
     }

@@ -43,6 +43,7 @@ public class HideOnEscapeHandler implements EventHandler<KeyEvent> {
         this.window = window;
     }
 
+    @Override
     public void handle(KeyEvent t) {
         if (window.isShowing() && ESCAPE_COMBO.match(t)) {
             window.hide();

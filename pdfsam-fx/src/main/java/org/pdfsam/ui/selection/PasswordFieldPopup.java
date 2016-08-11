@@ -57,6 +57,7 @@ public class PasswordFieldPopup extends PopupControl implements ModuleOwned {
         eventStudio().addAnnotatedListeners(this);
     }
 
+    @Override
     public String getOwnerModule() {
         return ownerModule;
     }

@@ -120,6 +120,7 @@ class SummaryTab extends BaseInfoTab implements ChangeListener<PdfDescriptorLoad
         producer.setText(current.getInformation("Producer"));
     }
 
+    @Override
     public void changed(ObservableValue<? extends PdfDescriptorLoadingStatus> observable,
             PdfDescriptorLoadingStatus oldValue, PdfDescriptorLoadingStatus newValue) {
         if (newValue == PdfDescriptorLoadingStatus.LOADED) {

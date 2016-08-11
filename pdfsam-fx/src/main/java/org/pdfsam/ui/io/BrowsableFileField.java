@@ -103,6 +103,7 @@ public class BrowsableFileField extends BrowsableField {
      */
     private class BrowseEventHandler implements EventHandler<ActionEvent> {
 
+        @Override
         public void handle(ActionEvent event) {
             RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(fileType,
                     getBrowseWindowTitle());

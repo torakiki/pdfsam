@@ -105,6 +105,7 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
         return descriptor;
     }
 
+    @Override
     public void onSaveWorkspace(Map<String, String> data) {
         firstDocument.saveStateTo(data);
         secondDocument.saveStateTo(data);
@@ -113,6 +114,7 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
         destinationPane.saveStateTo(data);
     }
 
+    @Override
     public void onLoadWorkspace(Map<String, String> data) {
         firstDocument.restoreStateFrom(data);
         secondDocument.restoreStateFrom(data);
@@ -138,6 +140,7 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
         return MODULE_ID;
     }
 
+    @Override
     public Node graphic() {
         return new ImageView("alternate_mix.png");
     }

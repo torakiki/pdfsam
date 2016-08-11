@@ -85,6 +85,7 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwn
         sameAsSource.setVersion(event.getPdfVersion());
     }
 
+    @Override
     @EventStation
     public String getOwnerModule() {
         return this.ownerModule;
@@ -127,10 +128,12 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwn
             this.version = version;
         }
 
+        @Override
         public PdfVersion getVersion() {
             return this.version;
         }
 
+        @Override
         public boolean isHigherOrEqual(PdfVersion version) {
             return this.version.getVersion() >= version.getVersion();
         }
@@ -172,10 +175,12 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwn
             this.version = version;
         }
 
+        @Override
         public PdfVersion getVersion() {
             return version;
         }
 
+        @Override
         public boolean isHigherOrEqual(PdfVersion other) {
             return this.version.getVersion() >= other.getVersion();
         }

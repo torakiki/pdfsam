@@ -113,6 +113,7 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
         getChildren().addAll(blankIfOdd, footer, options);
     }
 
+    @Override
     public void apply(MergeParametersBuilder builder, Consumer<String> onError) {
         builder.outlinePolicy(outline.getSelectionModel().getSelectedItem().getKey());
         builder.acroFormsPolicy(acroForms.getSelectionModel().getSelectedItem().getKey());
@@ -121,6 +122,7 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
         builder.footer(footer.isSelected());
     }
 
+    @Override
     public void saveStateTo(Map<String, String> data) {
         data.put("outline", Optional.ofNullable(outline.getSelectionModel().getSelectedItem())
                 .map(i -> i.getKey().toString()).orElse(EMPTY));
@@ -132,6 +134,7 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
         data.put("footer", Boolean.toString(footer.isSelected()));
     }
 
+    @Override
     public void restoreStateFrom(Map<String, String> data) {
         Optional.ofNullable(data.get("outline")).map(OutlinePolicy::valueOf).map(r -> keyEmptyValue(r))
                 .ifPresent(r -> this.outline.getSelectionModel().select(r));

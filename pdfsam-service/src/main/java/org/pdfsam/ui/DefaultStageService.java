@@ -44,6 +44,7 @@ class DefaultStageService implements StageService {
     static final String STAGE_PATH = "/org/pdfsam/stage";
     static final String STAGE_STATUS_KEY = "stage.status";
 
+    @Override
     public void save(StageStatus status) {
         Preferences node = Preferences.userRoot().node(STAGE_PATH);
         try {
@@ -54,6 +55,7 @@ class DefaultStageService implements StageService {
         }
     }
 
+    @Override
     public StageStatus getLatestStatus() {
         Preferences node = Preferences.userRoot().node(STAGE_PATH);
         try {
@@ -67,6 +69,7 @@ class DefaultStageService implements StageService {
         return StageStatus.NULL;
     }
 
+    @Override
     public void clear() {
         Preferences prefs = Preferences.userRoot().node(STAGE_PATH);
         try {

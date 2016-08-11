@@ -82,10 +82,12 @@ abstract class BrowsableField extends HBox implements RestorableView {
         return textField;
     }
 
+    @Override
     public void saveStateTo(Map<String, String> data) {
         data.put(defaultString(getId()) + "browsableField", defaultString(textField.getText()));
     }
 
+    @Override
     public void restoreStateFrom(Map<String, String> data) {
         textField.setText(Optional.ofNullable(data.get(defaultString(getId()) + "browsableField")).orElse(EMPTY));
     }

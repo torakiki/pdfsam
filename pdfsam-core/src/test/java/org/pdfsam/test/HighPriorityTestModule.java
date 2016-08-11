@@ -41,26 +41,32 @@ public class HighPriorityTestModule implements Module {
             .description("High priority test module").name("HighPriorityTestModule").priority(ModulePriority.HIGH)
             .build();
 
+    @Override
     public String id() {
         return ID;
     }
 
+    @Override
     public ModuleDescriptor descriptor() {
         return descriptor;
     }
 
+    @Override
     public Pane modulePanel() {
         return null;
     }
 
+    @Override
     public Node graphic() {
         return null;
     }
 
+    @Override
     public void onSaveWorkspace(Map<String, String> data) {
         // nothing
     }
 
+    @Override
     public void onLoadWorkspace(Map<String, String> data) {
         // nothing
     }

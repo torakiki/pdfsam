@@ -99,6 +99,7 @@ public class RotateModule extends BaseTaskExecutionModule {
         return builder;
     }
 
+    @Override
     public void onSaveWorkspace(Map<String, String> data) {
         selectionPane.saveStateTo(data);
         rotateOptions.saveStateTo(data);
@@ -107,6 +108,7 @@ public class RotateModule extends BaseTaskExecutionModule {
         prefix.saveStateTo(data);
     }
 
+    @Override
     public void onLoadWorkspace(Map<String, String> data) {
         selectionPane.restoreStateFrom(data);
         rotateOptions.restoreStateFrom(data);
@@ -139,6 +141,7 @@ public class RotateModule extends BaseTaskExecutionModule {
         return MODULE_ID;
     }
 
+    @Override
     public Node graphic() {
         return new ImageView("rotate.png");
     }

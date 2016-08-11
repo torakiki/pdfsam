@@ -84,6 +84,7 @@ public class MergeModule extends BaseTaskExecutionModule {
         return descriptor;
     }
 
+    @Override
     public void onSaveWorkspace(Map<String, String> data) {
         selectionPane.saveStateTo(data);
         mergeOptions.saveStateTo(data);
@@ -91,6 +92,7 @@ public class MergeModule extends BaseTaskExecutionModule {
         destinationPane.saveStateTo(data);
     }
 
+    @Override
     public void onLoadWorkspace(Map<String, String> data) {
         selectionPane.restoreStateFrom(data);
         mergeOptions.restoreStateFrom(data);
@@ -126,6 +128,7 @@ public class MergeModule extends BaseTaskExecutionModule {
         return MODULE_ID;
     }
 
+    @Override
     public Node graphic() {
         return new ImageView("merge.png");
     }

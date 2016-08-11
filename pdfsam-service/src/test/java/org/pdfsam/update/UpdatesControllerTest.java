@@ -31,7 +31,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
-import org.pdfsam.PdfsamEdition;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeJavaFxThreadRule;
 import org.sejda.eventstudio.Listener;
@@ -56,7 +55,6 @@ public class UpdatesControllerTest {
         service = mock(UpdateService.class);
         listener = mock(Listener.class);
         Pdfsam pdfsam = mock(Pdfsam.class);
-        when(pdfsam.edition()).thenReturn(PdfsamEdition.COMMUNITY);
         when(pdfsam.property(ConfigurableProperty.VERSION)).thenReturn("3.0.0.M1");
         victim = new UpdatesController(service, pdfsam);
     }

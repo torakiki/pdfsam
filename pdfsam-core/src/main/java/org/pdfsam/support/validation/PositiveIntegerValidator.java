@@ -28,6 +28,7 @@ import static java.util.Objects.nonNull;
  */
 public class PositiveIntegerValidator implements Validator<Integer> {
 
+    @Override
     public boolean isValid(Integer input) {
         return nonNull(input) && input > 0;
     }

@@ -42,6 +42,7 @@ class AlternateMixParametersBuilder extends AbstractPdfOutputParametersBuilder<A
     private int stepFirst = 1;
     private int stepSecond = 1;
 
+    @Override
     public void output(FileTaskOutput output) {
         this.output = output;
     }
@@ -76,6 +77,7 @@ class AlternateMixParametersBuilder extends AbstractPdfOutputParametersBuilder<A
         return this;
     }
 
+    @Override
     public AlternateMixParameters build() {
         PdfMixInput firstInput = new PdfMixInput(firstSource, reverseFirst, stepFirst);
         PdfMixInput secondInput = new PdfMixInput(secondSource, reverseSecond, stepSecond);

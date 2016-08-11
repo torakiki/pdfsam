@@ -120,6 +120,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
     private Consumer<PdfDocumentDescriptor> encryptionIndicatorUpdate = new Consumer<PdfDocumentDescriptor>() {
         private LoadingStatusIndicatorUpdater updater = new LoadingStatusIndicatorUpdater(encryptionIndicator);
 
+        @Override
         public void accept(PdfDocumentDescriptor t) {
             updater.accept(t.loadingStatus().getValue());
         }
@@ -220,6 +221,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
         }
     }
 
+    @Override
     public PdfDocumentDescriptor getPdfDocumentDescriptor() {
         return descriptor;
     }
@@ -228,6 +230,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
         return field;
     }
 
+    @Override
     public void saveStateTo(Map<String, String> data) {
         if (descriptor != null) {
             data.put(defaultString(getId()) + "input", descriptor.getFile().getAbsolutePath());
@@ -237,6 +240,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
         }
     }
 
+    @Override
     public void restoreStateFrom(Map<String, String> data) {
         getField().getTextField().setText(EMPTY);
         Optional.ofNullable(data.get(defaultString(getId()) + "input")).ifPresent(f -> {
@@ -304,6 +308,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
         return item;
     }
 
+    @Override
     @EventStation
     public String getOwnerModule() {
         return ownerModule;

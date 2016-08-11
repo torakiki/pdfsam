@@ -30,6 +30,7 @@ import javafx.beans.value.ObservableValue;
 public abstract class ToggleChangeListener<T> implements ChangeListener<T> {
     private boolean disabled = false;
 
+    @Override
     public final void changed(ObservableValue<? extends T> observable, T oldValue, T newValue) {
         if (!disabled) {
             onChanged(observable, oldValue, newValue);

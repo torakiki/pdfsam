@@ -32,7 +32,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
-import org.pdfsam.PdfsamEdition;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.module.UsageService;
 import org.pdfsam.test.ClearEventStudioRule;
@@ -63,7 +62,6 @@ public class NotificationsControllerTest {
         container = mock(NotificationsContainer.class);
         Pdfsam pdfsam = mock(Pdfsam.class);
         context = mock(UserContext.class);
-        when(pdfsam.edition()).thenReturn(PdfsamEdition.COMMUNITY);
         when(pdfsam.property(ConfigurableProperty.DOWNLOAD_URL)).thenReturn("http://www.pdfsam.org");
         when(pdfsam.property(ConfigurableProperty.DONATE_URL)).thenReturn("http://www.pdfsam.org");
         when(pdfsam.property(ConfigurableProperty.TWEETER_SHARE_URL)).thenReturn("http://www.pdfsam.org");

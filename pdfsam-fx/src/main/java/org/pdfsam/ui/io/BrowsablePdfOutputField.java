@@ -43,6 +43,7 @@ public class BrowsablePdfOutputField extends BrowsableFileField implements
         this.enforceValidation(false, false);
     }
 
+    @Override
     public void apply(SingleOutputTaskParametersBuilder<?> builder, Consumer<String> onError) {
         getTextField().validate();
         if (getTextField().getValidationState() == ValidationState.VALID) {

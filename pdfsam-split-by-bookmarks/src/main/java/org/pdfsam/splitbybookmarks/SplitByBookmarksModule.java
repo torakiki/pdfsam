@@ -93,6 +93,7 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
 
     }
 
+    @Override
     public void onSaveWorkspace(Map<String, String> data) {
         selectionPane.saveStateTo(data);
         splitOptions.saveStateTo(data);
@@ -101,6 +102,7 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
         prefix.saveStateTo(data);
     }
 
+    @Override
     public void onLoadWorkspace(Map<String, String> data) {
         selectionPane.restoreStateFrom(data);
         splitOptions.restoreStateFrom(data);
@@ -150,10 +152,12 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
         return MODULE_ID;
     }
 
+    @Override
     public RequiredPdfData[] requires() {
         return new RequiredPdfData[] { RequiredPdfData.DEFAULT, RequiredPdfData.BOOMARKS };
     }
 
+    @Override
     public Node graphic() {
         return new ImageView("split_by_bookmarks.png");
     }

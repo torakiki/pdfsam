@@ -45,26 +45,31 @@ class StatefulPreferencesUsageService implements UsageService {
         this.modulesMap = modulesMap;
     }
 
+    @Override
     public void incrementUsageFor(String moduleId) {
         dataStore.incrementUsageFor(moduleId);
     }
 
+    @Override
     public List<Module> getMostUsed() {
         List<ModuleUsage> used = dataStore.getUsages();
         used.sort((a, b) -> Long.compare(b.getTotalUsed(), a.getTotalUsed()));
         return used.stream().map(u -> modulesMap.get(u.getModuleId())).filter(m -> m != null).collect(toList());
     }
 
+    @Override
     public List<Module> getMostRecentlyUsed() {
         List<ModuleUsage> used = dataStore.getUsages();
         used.sort((a, b) -> Long.compare(b.getLastSeen(), a.getLastSeen()));
         return used.stream().map(u -> modulesMap.get(u.getModuleId())).filter(m -> m != null).collect(toList());
     }
 
+    @Override
     public void clear() {
         dataStore.clear();
     }
 
+    @Override
     public long getTotalUsage() {
         return dataStore.getTotalUsage();
     }

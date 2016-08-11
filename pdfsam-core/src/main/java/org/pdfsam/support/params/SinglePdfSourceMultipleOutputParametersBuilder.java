@@ -37,14 +37,17 @@ public abstract class SinglePdfSourceMultipleOutputParametersBuilder<P extends S
     private DirectoryTaskOutput output;
     private String prefix;
 
+    @Override
     public void source(PdfFileSource source) {
         this.source = source;
     }
 
+    @Override
     public void output(DirectoryTaskOutput output) {
         this.output = output;
     }
 
+    @Override
     public void prefix(String prefix) {
         this.prefix = prefix;
     }

@@ -44,26 +44,32 @@ public class DefaultPriorityTestModule implements Module {
             .inputTypes(ModuleInputOutputType.SINGLE_PDF).name("TestModule").priority(ModulePriority.DEFAULT)
             .supportURL("http://www.chucknorrisfacts.com/").build();
 
+    @Override
     public String id() {
         return ID;
     }
 
+    @Override
     public ModuleDescriptor descriptor() {
         return descriptor;
     }
 
+    @Override
     public Pane modulePanel() {
         return null;
     }
 
+    @Override
     public Node graphic() {
         return null;
     }
 
+    @Override
     public void onSaveWorkspace(Map<String, String> data) {
         // nothing
     }
 
+    @Override
     public void onLoadWorkspace(Map<String, String> data) {
         // nothing
     }

@@ -41,10 +41,12 @@ public class LocaleKeyValueItem implements KeyValueItem<String, String>, Compara
         this.locale = locale;
     }
 
+    @Override
     public String getKey() {
         return locale.toLanguageTag();
     }
 
+    @Override
     public String getValue() {
         return StringUtils.capitalize(locale.getDisplayName());
     }

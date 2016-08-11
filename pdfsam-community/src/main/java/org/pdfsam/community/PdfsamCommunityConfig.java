@@ -94,6 +94,7 @@ public class PdfsamCommunityConfig implements UIConfig {
         return new Image(new ClassPathResource("/images/community/512x512.png").getInputStream());
     }
 
+    @Override
     @Bean
     public Pdfsam pdfsam() {
         return new PdfsamCommunity("PDF Split and Merge Basic Edition", "PDFsam Basic", env);

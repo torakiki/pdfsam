@@ -75,10 +75,12 @@ class MergeParametersBuilder extends AbstractPdfOutputParametersBuilder<MergePar
         this.tocPolicy = tocPolicy;
     }
 
+    @Override
     public void output(FileTaskOutput output) {
         this.output = output;
     }
 
+    @Override
     public MergeParameters build() {
         MergeParameters params = new MergeParameters();
         params.setCompress(isCompress());

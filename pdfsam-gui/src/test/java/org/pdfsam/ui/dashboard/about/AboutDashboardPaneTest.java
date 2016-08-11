@@ -37,7 +37,6 @@ import org.loadui.testfx.utils.FXTestUtils;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
-import org.pdfsam.PdfsamEdition;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.commons.OpenUrlRequest;
@@ -68,7 +67,6 @@ public class AboutDashboardPaneTest extends GuiTest {
     @Override
     protected Parent getRootNode() {
         Pdfsam pdfsam = mock(Pdfsam.class);
-        when(pdfsam.edition()).thenReturn(PdfsamEdition.COMMUNITY);
         when(pdfsam.name()).thenReturn("PDFsam");
         when(pdfsam.property(ConfigurableProperty.VERSION)).thenReturn("3.0.0");
         when(pdfsam.property(ConfigurableProperty.HOME_URL)).thenReturn("http://www.pdfsam.org");

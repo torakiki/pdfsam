@@ -75,6 +75,7 @@ class KeywordsTab extends Tab implements ChangeListener<PdfDescriptorLoadingStat
         keywords.setText(event.getDescriptor().getInformation(PdfMetadataKey.KEYWORDS.getKey()));
     }
 
+    @Override
     public void changed(ObservableValue<? extends PdfDescriptorLoadingStatus> observable,
             PdfDescriptorLoadingStatus oldValue, PdfDescriptorLoadingStatus newValue) {
         if (newValue == PdfDescriptorLoadingStatus.LOADED) {

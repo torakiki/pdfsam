@@ -42,10 +42,12 @@ public class KeyStringValueItem<K> implements KeyValueItem<K, String> {
         this.value = value;
     }
 
+    @Override
     public K getKey() {
         return key;
     }
 
+    @Override
     public String getValue() {
         return value;
     }

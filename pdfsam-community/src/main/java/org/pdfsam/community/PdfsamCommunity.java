@@ -24,7 +24,6 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
-import org.pdfsam.PdfsamEdition;
 import org.springframework.core.env.Environment;
 
 /**
@@ -45,22 +44,22 @@ public class PdfsamCommunity implements Pdfsam {
         this.shortName = shortName;
     }
 
-    public PdfsamEdition edition() {
-        return PdfsamEdition.COMMUNITY;
-    }
-
+    @Override
     public String name() {
         return name;
     }
 
+    @Override
     public String shortName() {
         return shortName;
     }
 
+    @Override
     public String property(ConfigurableProperty prop, String defaultValue) {
         return env.getProperty(prop.prop, defaultValue);
     }
 
+    @Override
     public String property(ConfigurableProperty prop) {
         return env.getProperty(prop.prop, EMPTY);
     }

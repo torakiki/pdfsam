@@ -39,6 +39,7 @@ abstract class AlternateMixSingleSelectionPane extends SingleSelectionPane imple
         super(ownerModule);
     }
 
+    @Override
     public void apply(AlternateMixParametersBuilder builder, Consumer<String> onError) {
         getField().getTextField().validate();
         if (getField().getTextField().getValidationState() == ValidationState.VALID) {

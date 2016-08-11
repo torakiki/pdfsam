@@ -29,6 +29,7 @@ import java.util.function.Predicate;
  */
 class JarSignatureFilter implements Predicate<Path> {
 
+    @Override
     public boolean test(Path p) {
         return p != null && p.toString().toLowerCase().endsWith(".jar");
     }

@@ -51,6 +51,7 @@ class SplitAfterPredefinedSetOfPagesRadioButton extends RadioButton
         combo.getSelectionModel().selectFirst();
     }
 
+    @Override
     public SimpleSplitParametersBuilder getBuilder(Consumer<String> onError) {
         KeyStringValueItem<PredefinedSetOfPages> selected = combo.getSelectionModel().getSelectedItem();
         if (selected != null) {
@@ -60,6 +61,7 @@ class SplitAfterPredefinedSetOfPagesRadioButton extends RadioButton
         return null;
     }
 
+    @Override
     public void saveStateTo(Map<String, String> data) {
         if (isSelected()) {
             data.put("splitAfterPredefined", Boolean.TRUE.toString());
@@ -71,6 +73,7 @@ class SplitAfterPredefinedSetOfPagesRadioButton extends RadioButton
 
     }
 
+    @Override
     public void restoreStateFrom(Map<String, String> data) {
         Optional.ofNullable(data.get("splitAfterPredefined")).map(Boolean::valueOf).ifPresent(this::setSelected);
         Optional.ofNullable(data.get("splitAfterPredefined.combo")).map(PredefinedSetOfPages::valueOf)
@@ -91,6 +94,7 @@ class SplitAfterPredefinedSetOfPagesRadioButton extends RadioButton
             this.pages = pages;
         }
 
+        @Override
         public SimpleSplitParameters build() {
             SimpleSplitParameters params = new SimpleSplitParameters(pages);
             params.setCompress(isCompress());

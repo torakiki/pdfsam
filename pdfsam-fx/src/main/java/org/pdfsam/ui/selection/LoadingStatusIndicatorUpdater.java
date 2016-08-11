@@ -48,6 +48,7 @@ public class LoadingStatusIndicatorUpdater implements Consumer<PdfDescriptorLoad
         this.indicator = indicator;
     }
 
+    @Override
     public void accept(PdfDescriptorLoadingStatus t) {
 
         GlyphIcons icon = Optional.ofNullable(t).map(PdfDescriptorLoadingStatus::getIcon).orElse(null);

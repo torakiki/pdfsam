@@ -26,6 +26,7 @@ package org.pdfsam.support.validation;
  */
 class PositiveIntegerStringValidator implements Validator<String> {
 
+    @Override
     public boolean isValid(String input) {
         try {
             return Integer.parseInt(input) > 0;

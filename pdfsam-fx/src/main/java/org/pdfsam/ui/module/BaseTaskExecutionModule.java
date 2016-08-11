@@ -101,6 +101,7 @@ public abstract class BaseTaskExecutionModule implements Module {
      */
     protected abstract Builder<? extends AbstractParameters> getBuilder(Consumer<String> onError);
 
+    @Override
     public Pane modulePanel() {
         return modulePanel;
     }
@@ -114,6 +115,7 @@ public abstract class BaseTaskExecutionModule implements Module {
     private static class ErrorTracker implements Consumer<String> {
         boolean errorOnBuild = false;
 
+        @Override
         public void accept(String error) {
             errorOnBuild = true;
         }

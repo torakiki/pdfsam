@@ -30,6 +30,7 @@ public class HitTestListener<T> implements Listener<T> {
 
     private boolean hit = false;
 
+    @Override
     public void onEvent(T event) {
         this.hit = true;
     }

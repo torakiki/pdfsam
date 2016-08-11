@@ -95,6 +95,7 @@ class BookmarksLevelComboBox extends ComboBox<String>
         validationSupport.validate(getValue());
     }
 
+    @Override
     public void apply(SplitByOutlineLevelParametersBuilder builder, Consumer<String> onError) {
         this.validate();
         if (validationSupport.validationStateProperty().get() == ValidationState.VALID) {
@@ -104,11 +105,13 @@ class BookmarksLevelComboBox extends ComboBox<String>
         }
     }
 
+    @Override
     public void saveStateTo(Map<String, String> data) {
         data.put("levelCombo.max", Integer.toString(getItems().size()));
         data.put("levelCombo.selected", ofNullable(getValue()).orElse(""));
     }
 
+    @Override
     public void restoreStateFrom(Map<String, String> data) {
         getSelectionModel().selectFirst();
         ofNullable(data.get("levelCombo.max")).map(Integer::valueOf).ifPresent(this::setMaxBookmarkLevel);

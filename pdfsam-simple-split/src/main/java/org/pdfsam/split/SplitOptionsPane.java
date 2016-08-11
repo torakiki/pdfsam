@@ -85,17 +85,20 @@ class SplitOptionsPane extends VBox implements SplitParametersBuilderCreator, Re
         splitByEvery.setMaxPages(value);
     }
 
+    @Override
     public SinglePdfSourceMultipleOutputParametersBuilder<? extends AbstractSplitByPageParameters> getBuilder(
             Consumer<String> onError) {
         return ((SplitParametersBuilderCreator) group.getSelectedToggle()).getBuilder(onError);
     }
 
+    @Override
     public void saveStateTo(Map<String, String> data) {
         splitAfterPredefined.saveStateTo(data);
         splitAfter.saveStateTo(data);
         splitByEvery.saveStateTo(data);
     }
 
+    @Override
     public void restoreStateFrom(Map<String, String> data) {
         splitAfterPredefined.restoreStateFrom(data);
         splitAfter.restoreStateFrom(data);

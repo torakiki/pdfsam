@@ -71,6 +71,7 @@ public class PdfVersionConstrainedCheckBoxTest extends GuiTest {
     private static class BasePdfVersionEventListener<T extends BasePdfVersionEvent> implements Listener<T> {
         private boolean hit = false;
 
+        @Override
         public void onEvent(T event) {
             this.hit = true;
             assertEquals(PdfVersion.VERSION_1_4, event.getPdfVersion());

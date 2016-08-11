@@ -37,7 +37,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
-import org.pdfsam.PdfsamEdition;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.ui.dashboard.about.AboutDashboardPane;
@@ -73,7 +72,6 @@ public class DashboardTest {
         @Bean
         public AboutDashboardPane aboutPane() {
             Pdfsam pdfsam = mock(Pdfsam.class);
-            when(pdfsam.edition()).thenReturn(PdfsamEdition.COMMUNITY);
             when(pdfsam.name()).thenReturn("PDFsam");
             when(pdfsam.property(ConfigurableProperty.VERSION)).thenReturn("3.0.0");
             when(pdfsam.property(ConfigurableProperty.HOME_URL)).thenReturn("http://www.pdfsam.org");

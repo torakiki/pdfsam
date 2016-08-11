@@ -43,22 +43,27 @@ class PreferencesDashboardItem implements DashboardItem {
         this.pane = pane;
     }
 
+    @Override
     public String id() {
         return "SETTINGS";
     }
 
+    @Override
     public String name() {
         return DefaultI18nContext.getInstance().i18n("Settings");
     }
 
+    @Override
     public Pane pane() {
         return pane;
     }
 
+    @Override
     public Node graphic() {
         return GlyphsDude.createIcon(MaterialDesignIcon.SETTINGS, "26.0");
     }
 
+    @Override
     public int priority() {
         return -5;
     }

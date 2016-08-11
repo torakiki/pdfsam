@@ -55,10 +55,12 @@ public class LoadingColumn implements SelectionTableColumn<PdfDescriptorLoadingS
         this.ownerModule = defaultString(ownerModule);
     }
 
+    @Override
     public String getOwnerModule() {
         return ownerModule;
     }
 
+    @Override
     public String getColumnTitle() {
         return null;
     }
@@ -76,6 +78,7 @@ public class LoadingColumn implements SelectionTableColumn<PdfDescriptorLoadingS
     @Override
     public Callback<TableColumn<SelectionTableRowData, PdfDescriptorLoadingStatus>, TableCell<SelectionTableRowData, PdfDescriptorLoadingStatus>> cellFactory() {
         return new Callback<TableColumn<SelectionTableRowData, PdfDescriptorLoadingStatus>, TableCell<SelectionTableRowData, PdfDescriptorLoadingStatus>>() {
+            @Override
             public TableCell<SelectionTableRowData, PdfDescriptorLoadingStatus> call(
                     TableColumn<SelectionTableRowData, PdfDescriptorLoadingStatus> param) {
                 return new LoadingStatusCell();
@@ -83,6 +86,7 @@ public class LoadingColumn implements SelectionTableColumn<PdfDescriptorLoadingS
         };
     }
 
+    @Override
     public Comparator<PdfDescriptorLoadingStatus> comparator() {
         return Comparator.naturalOrder();
     }

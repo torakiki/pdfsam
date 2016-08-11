@@ -54,6 +54,7 @@ public class RotateSelectionPane extends MultipleSelectionPane
                                 .i18n("Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)")) });
     }
 
+    @Override
     public void apply(RotateParametersBuilder builder, Consumer<String> onError) {
         try {
             table().getItems().stream().filter(s -> !Objects.equals("0", trim(s.getPageSelection())))

@@ -52,6 +52,7 @@ class ExtractParametersBuilder extends SinglePdfSourceSingleOutputParametersBuil
         this.ranges = ranges;
     }
 
+    @Override
     public ExtractPagesParameters build() {
         ExtractPagesParameters params = new ExtractPagesParameters();
         params.setCompress(isCompress());

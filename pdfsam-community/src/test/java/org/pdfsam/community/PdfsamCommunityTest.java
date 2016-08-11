@@ -18,11 +18,9 @@
  */
 package org.pdfsam.community;
 
-import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 
 import org.junit.Test;
-import org.pdfsam.PdfsamEdition;
 import org.springframework.core.env.Environment;
 
 public class PdfsamCommunityTest {
@@ -39,10 +37,5 @@ public class PdfsamCommunityTest {
     @Test(expected = IllegalArgumentException.class)
     public void nullEnv() {
         new PdfsamCommunity("name", "short", null);
-    }
-
-    @Test
-    public void edition() {
-        assertEquals(PdfsamEdition.COMMUNITY, new PdfsamCommunity("name", "short", mock(Environment.class)).edition());
     }
 }

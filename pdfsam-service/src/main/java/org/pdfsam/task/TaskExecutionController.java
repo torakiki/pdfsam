@@ -89,6 +89,7 @@ class TaskExecutionController implements Closeable {
         LOG.trace("Task execution submitted");
     }
 
+    @Override
     @PreDestroy
     public void close() {
         executor.shutdownNow();
@@ -97,6 +98,7 @@ class TaskExecutionController implements Closeable {
     class TaskEventBroadcaster<T extends AbstractNotificationEvent>
             implements org.sejda.model.notification.EventListener<T> {
 
+        @Override
         public void onEvent(T event) {
             Platform.runLater(() -> eventStudio().broadcast(event));
             if (isNoneBlank(currentModule)) {

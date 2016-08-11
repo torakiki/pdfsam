@@ -45,22 +45,27 @@ class AboutDashboadItem implements DashboardItem {
         this.pane = pane;
     }
 
+    @Override
     public String id() {
         return "ABOUT";
     }
 
+    @Override
     public String name() {
         return DefaultI18nContext.getInstance().i18n("About");
     }
 
+    @Override
     public Pane pane() {
         return pane;
     }
 
+    @Override
     public Node graphic() {
         return GlyphsDude.createIcon(MaterialDesignIcon.INFORMATION, "26.0");
     }
 
+    @Override
     public int priority() {
         return 0;
     }

@@ -371,6 +371,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         return files.stream();
     }
 
+    @Override
     @EventStation
     public String getOwnerModule() {
         return ownerModule;
@@ -438,6 +439,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         }
     }
 
+    @Override
     public void saveStateTo(Map<String, String> data) {
         data.put(defaultString(getId()) + "input.size", Integer.toString(getItems().size()));
         IntStream.range(0, getItems().size()).forEach(i -> {
@@ -450,6 +452,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         });
     }
 
+    @Override
     public void restoreStateFrom(Map<String, String> data) {
         onClear(null);
         int size = Optional.ofNullable(data.get(defaultString(getId()) + "input.size")).map(Integer::valueOf).orElse(0);

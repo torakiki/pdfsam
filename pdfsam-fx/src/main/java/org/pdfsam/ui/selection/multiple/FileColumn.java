@@ -40,6 +40,7 @@ public enum FileColumn implements SelectionTableColumn<File> {
 
     NAME {
 
+        @Override
         public String getColumnTitle() {
             return DefaultI18nContext.getInstance().i18n("Name");
         }
@@ -57,6 +58,7 @@ public enum FileColumn implements SelectionTableColumn<File> {
         @Override
         public Callback<TableColumn<SelectionTableRowData, File>, TableCell<SelectionTableRowData, File>> cellFactory() {
             return new Callback<TableColumn<SelectionTableRowData, File>, TableCell<SelectionTableRowData, File>>() {
+                @Override
                 public TableCell<SelectionTableRowData, File> call(TableColumn<SelectionTableRowData, File> param) {
                     return new TableCell<SelectionTableRowData, File>() {
                         @Override
@@ -74,6 +76,7 @@ public enum FileColumn implements SelectionTableColumn<File> {
             };
         }
 
+        @Override
         public Comparator<File> comparator() {
             return Comparator.comparing(f -> f.getName().toLowerCase());
         }

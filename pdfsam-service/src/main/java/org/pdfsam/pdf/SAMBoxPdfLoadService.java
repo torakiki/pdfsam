@@ -72,6 +72,7 @@ class SAMBoxPdfLoadService implements PdfLoadService {
         loaders.forEach(l -> consumers.put(l.key(), l));
     }
 
+    @Override
     public void load(Collection<? extends PdfDocumentDescriptor> toLoad, RequiredPdfData... requires) {
         LOG.debug(DefaultI18nContext.getInstance().i18n("Loading pdf documents"));
         BiConsumer<PDDocument, PdfDocumentDescriptor> consumer = Arrays.stream(requires).map(consumers::get)

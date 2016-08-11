@@ -48,6 +48,7 @@ public class BrowsablePdfInputField extends BrowsableFileField implements
         super(FileType.PDF, OpenType.OPEN);
     }
 
+    @Override
     public void apply(SinglePdfSourceTaskParametersBuilder<?> builder, Consumer<String> onError) {
         getTextField().validate();
         if (getTextField().getValidationState() == ValidationState.VALID) {

@@ -39,6 +39,7 @@ public class TaskParametersBuilderSingleSelectionPane extends SingleSelectionPan
         super(ownerModule);
     }
 
+    @Override
     public void apply(SinglePdfSourceTaskParametersBuilder<? extends SinglePdfSourceTaskParameters> builder,
             Consumer<String> onError) {
         getField().getTextField().validate();

@@ -55,6 +55,7 @@ class DefaultNewsService implements NewsService {
         this.pdfsam = pdfsam;
     }
 
+    @Override
     public List<NewsData> getLatestNews() {
         try {
             return JSON.std.with(Feature.READ_ONLY, true).listOfFrom(NewsData.class,
@@ -65,15 +66,18 @@ class DefaultNewsService implements NewsService {
         return Collections.emptyList();
     }
 
+    @Override
     public void setLatestNewsSeen(int id) {
         Preferences.userRoot().node(NEWS_PATH).putInt(LATEST_NEWS_ID, id);
         LOG.trace("Latest news id stored");
     }
 
+    @Override
     public int getLatestNewsSeen() {
         return Preferences.userRoot().node(NEWS_PATH).getInt(LATEST_NEWS_ID, -1);
     }
 
+    @Override
     public void clear() {
         Preferences prefs = Preferences.userRoot().node(NEWS_PATH);
         try {

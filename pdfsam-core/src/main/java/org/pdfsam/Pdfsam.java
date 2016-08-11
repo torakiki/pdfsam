@@ -25,10 +25,6 @@ package org.pdfsam;
  *
  */
 public interface Pdfsam {
-    /**
-     * @return application edition
-     */
-    PdfsamEdition edition();
 
     /**
      * @return application name

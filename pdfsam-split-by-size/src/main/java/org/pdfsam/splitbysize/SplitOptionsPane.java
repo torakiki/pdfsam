@@ -66,6 +66,7 @@ class SplitOptionsPane extends HBox implements TaskParametersBuildStep<SplitBySi
         group.getToggles().stream().findFirst().ifPresent(t -> t.setSelected(true));
     }
 
+    @Override
     public void apply(SplitBySizeParametersBuilder builder, Consumer<String> onError) {
         this.field.validate();
         if (this.field.getValidationState() == ValidationState.VALID) {
@@ -76,6 +77,7 @@ class SplitOptionsPane extends HBox implements TaskParametersBuildStep<SplitBySi
         }
     }
 
+    @Override
     public void saveStateTo(Map<String, String> data) {
         data.put("size", defaultString(field.getText()));
         group.getToggles().stream().map(t -> {
@@ -83,6 +85,7 @@ class SplitOptionsPane extends HBox implements TaskParametersBuildStep<SplitBySi
         }).forEach(s -> s.saveStateTo(data));
     }
 
+    @Override
     public void restoreStateFrom(Map<String, String> data) {
         field.setText(Optional.ofNullable(data.get("size")).orElse(EMPTY));
         group.getToggles().stream().map(t -> {

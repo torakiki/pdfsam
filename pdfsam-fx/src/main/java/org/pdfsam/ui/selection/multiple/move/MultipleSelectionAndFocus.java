@@ -62,14 +62,17 @@ class MultipleSelectionAndFocus implements SelectionAndFocus {
         move(row, newRow);
     }
 
+    @Override
     public int getFocus() {
         return focus;
     }
 
+    @Override
     public int getRow() {
         return row;
     }
 
+    @Override
     public int[] getRows() {
         // TODO this sucks
         return ArrayUtils.toPrimitive(rows.toArray(new Integer[rows.size()]));

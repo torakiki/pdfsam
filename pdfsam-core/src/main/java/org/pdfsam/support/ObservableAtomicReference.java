@@ -36,6 +36,7 @@ public class ObservableAtomicReference<T> extends ObservableValueBase<T> {
         this.value.set(initialValue);
     }
 
+    @Override
     public T getValue() {
         return value.get();
     }

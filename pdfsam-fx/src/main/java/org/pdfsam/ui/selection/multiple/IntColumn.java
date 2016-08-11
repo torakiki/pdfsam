@@ -33,6 +33,7 @@ import javafx.beans.value.ObservableValue;
  */
 public enum IntColumn implements SelectionTableColumn<Integer> {
     PAGES {
+        @Override
         public String getColumnTitle() {
             return DefaultI18nContext.getInstance().i18n("Pages");
         }
@@ -50,6 +51,7 @@ public enum IntColumn implements SelectionTableColumn<Integer> {
             return StringUtils.EMPTY;
         }
 
+        @Override
         public Comparator<Integer> comparator() {
             return Comparator.naturalOrder();
         }

@@ -33,6 +33,7 @@ public class UncaughtExceptionLogger implements UncaughtExceptionHandler {
 
     private static final Logger LOG = LoggerFactory.getLogger(UncaughtExceptionLogger.class);
 
+    @Override
     public void uncaughtException(Thread t, Throwable e) {
         LOG.error("Unexpected error", e);
     }

@@ -58,6 +58,7 @@ class PdfVersionConstrainedCheckBox extends CheckBox implements ModuleOwned {
         });
     }
 
+    @Override
     public String getOwnerModule() {
         return ownerModule;
     }

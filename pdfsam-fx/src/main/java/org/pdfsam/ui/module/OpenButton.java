@@ -119,16 +119,19 @@ public class OpenButton extends SplitMenuButton implements TaskOutputDispatcher 
         latestOutput.addAll(event.getNotifiableTaskMetadata().taskOutput());
     }
 
+    @Override
     public void dispatch(FileTaskOutput output) {
         destination = output.getDestination();
         setGraphic(GlyphsDude.createIcon(FontAwesomeIcon.FILE_PDF_ALT, "1.6em"));
     }
 
+    @Override
     public void dispatch(DirectoryTaskOutput output) {
         destination = output.getDestination();
         setGraphic(GlyphsDude.createIcon(MaterialDesignIcon.FOLDER_OUTLINE, "1.6em"));
     }
 
+    @Override
     public void dispatch(StreamTaskOutput output) {
         throw new IllegalArgumentException("Unsupported output type");
     }

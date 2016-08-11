@@ -42,6 +42,7 @@ public class PdfLoadRequestEvent implements ModuleOwned {
         this.ownerModule = ownerModule;
     }
 
+    @Override
     public String getOwnerModule() {
         return ownerModule;
     }

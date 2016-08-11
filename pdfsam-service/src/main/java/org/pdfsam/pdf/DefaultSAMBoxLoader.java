@@ -41,6 +41,7 @@ class DefaultSAMBoxLoader implements PdfLoader<PDDocument> {
 
     private static FastDateFormat FORMATTER = FastDateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.MEDIUM);
 
+    @Override
     public void accept(PDDocument document, PdfDocumentDescriptor descriptor) {
         descriptor.pages(document.getNumberOfPages());
         descriptor.setVersion(getVersion(document.getVersion()));
@@ -55,6 +56,7 @@ class DefaultSAMBoxLoader implements PdfLoader<PDDocument> {
                 .ifPresent(c -> descriptor.putInformation("FormattedCreationDate", c));
     }
 
+    @Override
     public RequiredPdfData key() {
         return RequiredPdfData.DEFAULT;
     }

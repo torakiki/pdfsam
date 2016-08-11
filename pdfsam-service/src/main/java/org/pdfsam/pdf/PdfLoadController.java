@@ -59,6 +59,7 @@ public class PdfLoadController implements Closeable {
         eventStudio().addAnnotatedListeners(this);
     }
 
+    @Override
     @PreDestroy
     public void close() {
         executor.shutdownNow();

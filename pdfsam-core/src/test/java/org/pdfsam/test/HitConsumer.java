@@ -34,6 +34,7 @@ public class HitConsumer<T> implements Consumer<T> {
         return hit;
     }
 
+    @Override
     public void accept(T t) {
         this.hit = true;
 

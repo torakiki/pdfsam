@@ -74,6 +74,7 @@ class LogListView extends ListView<LogMessage>implements Listener<LogMessage> {
         }
     }
 
+    @Override
     public void onEvent(LogMessage event) {
         Platform.runLater(() -> {
             getItems().add(event);

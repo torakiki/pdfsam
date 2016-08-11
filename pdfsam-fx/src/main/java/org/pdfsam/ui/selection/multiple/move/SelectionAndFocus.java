@@ -28,14 +28,17 @@ package org.pdfsam.ui.selection.multiple.move;
 public interface SelectionAndFocus {
     SelectionAndFocus NULL = new SelectionAndFocus() {
 
+        @Override
         public int[] getRows() {
             return new int[0];
         }
 
+        @Override
         public int getRow() {
             return -1;
         }
 
+        @Override
         public int getFocus() {
             return -1;
         }

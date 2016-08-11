@@ -99,6 +99,7 @@ public class ExtractModule extends BaseTaskExecutionModule {
         return builder;
     }
 
+    @Override
     public void onSaveWorkspace(Map<String, String> data) {
         selectionPane.saveStateTo(data);
         extractOptions.saveStateTo(data);
@@ -106,6 +107,7 @@ public class ExtractModule extends BaseTaskExecutionModule {
         destinationFileField.saveStateTo(data);
     }
 
+    @Override
     public void onLoadWorkspace(Map<String, String> data) {
         selectionPane.restoreStateFrom(data);
         extractOptions.restoreStateFrom(data);
@@ -130,6 +132,7 @@ public class ExtractModule extends BaseTaskExecutionModule {
         return MODULE_ID;
     }
 
+    @Override
     public Node graphic() {
         return new ImageView("extract.png");
     }

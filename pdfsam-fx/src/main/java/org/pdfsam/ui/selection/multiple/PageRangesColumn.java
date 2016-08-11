@@ -51,6 +51,7 @@ public class PageRangesColumn implements SelectionTableColumn<String> {
         }
     }
 
+    @Override
     public String getColumnTitle() {
         return DefaultI18nContext.getInstance().i18n("Page ranges");
     }
@@ -65,6 +66,7 @@ public class PageRangesColumn implements SelectionTableColumn<String> {
         return defaultString(item, EMPTY);
     }
 
+    @Override
     public Comparator<String> comparator() {
         return Comparator.naturalOrder();
     }
@@ -78,8 +80,10 @@ public class PageRangesColumn implements SelectionTableColumn<String> {
         return tableColumn;
     }
 
+    @Override
     public Callback<TableColumn<SelectionTableRowData, String>, TableCell<SelectionTableRowData, String>> cellFactory() {
         return new Callback<TableColumn<SelectionTableRowData, String>, TableCell<SelectionTableRowData, String>>() {
+            @Override
             public TableCell<SelectionTableRowData, String> call(TableColumn<SelectionTableRowData, String> param) {
                 return new TooltippedTextFieldTableCell(tooltipMessage);
             }

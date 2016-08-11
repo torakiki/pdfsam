@@ -50,6 +50,7 @@ public interface SelectionTableColumn<T> {
      */
     default Callback<TableColumn<SelectionTableRowData, T>, TableCell<SelectionTableRowData, T>> cellFactory() {
         return new Callback<TableColumn<SelectionTableRowData, T>, TableCell<SelectionTableRowData, T>>() {
+            @Override
             public TableCell<SelectionTableRowData, T> call(TableColumn<SelectionTableRowData, T> param) {
                 return new TableCell<SelectionTableRowData, T>() {
                     @Override
@@ -77,6 +78,7 @@ public interface SelectionTableColumn<T> {
      */
     default Callback<CellDataFeatures<SelectionTableRowData, T>, ObservableValue<T>> cellValueFactory() {
         return new Callback<CellDataFeatures<SelectionTableRowData, T>, ObservableValue<T>>() {
+            @Override
             public ObservableValue<T> call(CellDataFeatures<SelectionTableRowData, T> param) {
                 if (param.getValue() != null) {
                     return getObservableValue(param.getValue());

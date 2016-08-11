@@ -43,10 +43,12 @@ public abstract class MultiplePdfSourceMultipleOutputParametersBuilder<P extends
         this.inputs.add(input);
     }
 
+    @Override
     public void prefix(String prefix) {
         this.prefix = prefix;
     }
 
+    @Override
     public void output(DirectoryTaskOutput output) {
         this.output = output;
     }

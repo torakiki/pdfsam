@@ -63,6 +63,7 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
         getStyleClass().add("selection-tool-bar");
     }
 
+    @Override
     public String getOwnerModule() {
         return ownerModule;
     }

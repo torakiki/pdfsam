@@ -37,6 +37,7 @@ import javafx.beans.value.ObservableValue;
 public enum LongColumn implements SelectionTableColumn<Number> {
 
     SIZE {
+        @Override
         public String getColumnTitle() {
             return DefaultI18nContext.getInstance().i18n("Size");
         }
@@ -51,12 +52,14 @@ public enum LongColumn implements SelectionTableColumn<Number> {
             return (item != null) ? FileUtils.byteCountToDisplaySize(item.longValue()) : "";
         }
 
+        @Override
         public Comparator<Number> comparator() {
             return Comparator.comparingLong(Number::longValue);
         }
     },
     LAST_MODIFIED {
 
+        @Override
         public String getColumnTitle() {
             return DefaultI18nContext.getInstance().i18n("Modified");
         }
@@ -71,6 +74,7 @@ public enum LongColumn implements SelectionTableColumn<Number> {
             return (item != null) ? FORMATTER.format(item) : "";
         }
 
+        @Override
         public Comparator<Number> comparator() {
             return Comparator.comparingLong(Number::longValue);
         }

@@ -94,6 +94,7 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
         return descriptor;
     }
 
+    @Override
     public void onSaveWorkspace(Map<String, String> data) {
         selectionPane.saveStateTo(data);
         splitOptions.saveStateTo(data);
@@ -102,6 +103,7 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
         prefix.saveStateTo(data);
     }
 
+    @Override
     public void onLoadWorkspace(Map<String, String> data) {
         selectionPane.restoreStateFrom(data);
         splitOptions.restoreStateFrom(data);
@@ -144,6 +146,7 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
         return MODULE_ID;
     }
 
+    @Override
     public Node graphic() {
         return new ImageView("split_by_size.png");
     }

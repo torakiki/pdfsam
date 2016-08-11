@@ -83,6 +83,7 @@ class AlternateMixOptionsPane extends VBox
         this.secondStep.setValidator(positiveIntRange(1, value));
     }
 
+    @Override
     public void apply(AlternateMixParametersBuilder builder, Consumer<String> onError) {
         builder.reverseFirst(reverseFirst.isSelected());
         builder.reverseSecond(reverseSecond.isSelected());
@@ -108,6 +109,7 @@ class AlternateMixOptionsPane extends VBox
         return field;
     }
 
+    @Override
     public void saveStateTo(Map<String, String> data) {
         data.put("reverseFirst", Boolean.toString(reverseFirst.isSelected()));
         data.put("reverseSecond", Boolean.toString(reverseSecond.isSelected()));
@@ -115,6 +117,7 @@ class AlternateMixOptionsPane extends VBox
         data.put("secondStep", defaultString(secondStep.getText()));
     }
 
+    @Override
     public void restoreStateFrom(Map<String, String> data) {
         reverseFirst.setSelected(Boolean.valueOf(data.get("reverseFirst")));
         reverseSecond.setSelected(Boolean.valueOf(data.get("reverseSecond")));

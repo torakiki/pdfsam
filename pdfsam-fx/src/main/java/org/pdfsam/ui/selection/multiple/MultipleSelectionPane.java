@@ -50,6 +50,7 @@ public class MultipleSelectionPane extends BorderPane implements ModuleOwned, Re
         setCenter(table);
     }
 
+    @Override
     public String getOwnerModule() {
         return ownerModule;
     }
@@ -58,10 +59,12 @@ public class MultipleSelectionPane extends BorderPane implements ModuleOwned, Re
         return table;
     }
 
+    @Override
     public void saveStateTo(Map<String, String> data) {
         table.saveStateTo(data);
     }
 
+    @Override
     public void restoreStateFrom(Map<String, String> data) {
         table.restoreStateFrom(data);
     }

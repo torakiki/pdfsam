@@ -36,10 +36,12 @@ public abstract class SinglePdfSourceSingleOutputParametersBuilder<P extends Sin
     private PdfFileSource source;
     private FileTaskOutput output;
 
+    @Override
     public void source(PdfFileSource source) {
         this.source = source;
     }
 
+    @Override
     public void output(FileTaskOutput output) {
         this.output = output;
     }

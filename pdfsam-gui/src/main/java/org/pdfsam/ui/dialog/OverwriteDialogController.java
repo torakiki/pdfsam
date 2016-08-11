@@ -63,10 +63,12 @@ public class OverwriteDialogController {
             if (params.getExistingOutputPolicy() != ExistingOutputPolicy.OVERWRITE) {
                 event.getParameters().getOutput().accept(new TaskOutputDispatcher() {
 
+                    @Override
                     public void dispatch(StreamTaskOutput output) {
                         // nothing to do
                     }
 
+                    @Override
                     public void dispatch(DirectoryTaskOutput output) {
                         if (isNotEmpty(output.getDestination().listFiles())) {
                             if (!dialog.title(DefaultI18nContext.getInstance().i18n("Directory not empty"))
@@ -83,6 +85,7 @@ public class OverwriteDialogController {
                         }
                     }
 
+                    @Override
                     public void dispatch(FileTaskOutput output) {
                         if (output.getDestination().exists()) {
                             if (!dialog.title(DefaultI18nContext.getInstance().i18n("Overwrite confirmation"))

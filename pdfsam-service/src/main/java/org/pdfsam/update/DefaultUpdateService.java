@@ -49,6 +49,7 @@ class DefaultUpdateService implements UpdateService {
         this.jsonSource = jsonSource;
     }
 
+    @Override
     public String getLatestVersion() {
         try {
             return JSON.std.mapFrom(jsonSource).getOrDefault(CURRENT_VERSION_KEY, "").toString();

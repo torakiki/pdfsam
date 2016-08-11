@@ -96,6 +96,7 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned, 
         version.enableSameAsSourceItem();
     }
 
+    @Override
     @EventStation
     public String getOwnerModule() {
         return ownerModule;
@@ -109,6 +110,7 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned, 
         }
     }
 
+    @Override
     public void apply(AbstractPdfOutputParametersBuilder<? extends AbstractPdfOutputParameters> builder,
             Consumer<String> onError) {
         builder.compress(compress.isSelected());
@@ -121,6 +123,7 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned, 
         });
     }
 
+    @Override
     public void saveStateTo(Map<String, String> data) {
         data.put("compress", Boolean.toString(compress.isSelected()));
         data.put("overwrite", Boolean.toString(overwrite().isSelected()));
@@ -130,6 +133,7 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned, 
         data.put("version", version.getSelectionModel().getSelectedItem().getVersion().toString());
     }
 
+    @Override
     public void restoreStateFrom(Map<String, String> data) {
         version.initializeState();
         compress.setSelected(Boolean.valueOf(data.get("compress")));

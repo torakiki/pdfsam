@@ -22,13 +22,13 @@ import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
 
 import java.util.Map;
 
-import javafx.scene.Node;
-import javafx.scene.layout.Pane;
-
 import org.pdfsam.module.Module;
 import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.ModulePriority;
+
+import javafx.scene.Node;
+import javafx.scene.layout.Pane;
 
 /**
  * A test module to use in unit tests
@@ -42,26 +42,32 @@ public class LowPriorityTestModule implements Module {
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT)
             .description("Low priority test module").name("LowPriorityTestModule").priority(ModulePriority.LOW).build();
 
+    @Override
     public String id() {
         return ID;
     }
 
+    @Override
     public ModuleDescriptor descriptor() {
         return descriptor;
     }
 
+    @Override
     public Pane modulePanel() {
         return null;
     }
 
+    @Override
     public Node graphic() {
         return null;
     }
 
+    @Override
     public void onSaveWorkspace(Map<String, String> data) {
         // nothing
     }
 
+    @Override
     public void onLoadWorkspace(Map<String, String> data) {
         // nothing
     }

@@ -62,6 +62,7 @@ public class BrowsableDirectoryField extends BrowsableField {
      */
     private class BrowseEventHandler implements EventHandler<ActionEvent> {
 
+        @Override
         public void handle(ActionEvent event) {
             RememberingLatestDirectoryChooserWrapper fileChooser = FileChoosers
                     .getDirectoryChooser(getBrowseWindowTitle());

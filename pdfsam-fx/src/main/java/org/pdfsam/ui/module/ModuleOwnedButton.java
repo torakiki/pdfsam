@@ -41,6 +41,7 @@ public class ModuleOwnedButton extends Button implements ModuleOwned {
         getStyleClass().addAll(Style.BUTTON.css());
     }
 
+    @Override
     @EventStation
     public String getOwnerModule() {
         return ownerModule;

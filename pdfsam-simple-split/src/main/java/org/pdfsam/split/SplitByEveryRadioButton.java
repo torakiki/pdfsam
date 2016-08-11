@@ -55,6 +55,7 @@ public class SplitByEveryRadioButton extends RadioButton implements SplitParamet
         this.field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Invalid number of pages"));
     }
 
+    @Override
     public SplitByEveryXPagesParametersBuilder getBuilder(Consumer<String> onError) {
         this.field.validate();
         if (this.field.getValidationState() == ValidationState.VALID) {
@@ -64,6 +65,7 @@ public class SplitByEveryRadioButton extends RadioButton implements SplitParamet
         return null;
     }
 
+    @Override
     public void saveStateTo(Map<String, String> data) {
         if (isSelected()) {
             data.put("splitByEvery", Boolean.TRUE.toString());
@@ -71,6 +73,7 @@ public class SplitByEveryRadioButton extends RadioButton implements SplitParamet
         data.put("splitByEvery.field", defaultString(field.getText()));
     }
 
+    @Override
     public void restoreStateFrom(Map<String, String> data) {
         Optional.ofNullable(data.get("splitByEvery")).map(Boolean::valueOf).ifPresent(this::setSelected);
         field.setText(Optional.ofNullable(data.get("splitByEvery.field")).orElse(EMPTY));
@@ -96,6 +99,7 @@ public class SplitByEveryRadioButton extends RadioButton implements SplitParamet
             this.step = step;
         }
 
+        @Override
         public SplitByEveryXPagesParameters build() {
             SplitByEveryXPagesParameters params = new SplitByEveryXPagesParameters(step);
             params.setCompress(isCompress());

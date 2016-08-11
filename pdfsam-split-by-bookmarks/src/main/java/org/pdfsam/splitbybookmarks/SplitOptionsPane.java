@@ -81,6 +81,7 @@ class SplitOptionsPane extends VBox
         return item;
     }
 
+    @Override
     public void apply(SplitByOutlineLevelParametersBuilder builder, Consumer<String> onError) {
         levelCombo.apply(builder, onError);
         if (isNotBlank(regexpField.getText())) {
@@ -88,11 +89,13 @@ class SplitOptionsPane extends VBox
         }
     }
 
+    @Override
     public void saveStateTo(Map<String, String> data) {
         data.put("regexp", defaultString(regexpField.getText()));
         levelCombo.saveStateTo(data);
     }
 
+    @Override
     public void restoreStateFrom(Map<String, String> data) {
         regexpField.setText(Optional.ofNullable(data.get("regexp")).orElse(EMPTY));
         levelCombo.restoreStateFrom(data);

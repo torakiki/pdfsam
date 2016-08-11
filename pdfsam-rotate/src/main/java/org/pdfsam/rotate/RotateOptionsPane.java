@@ -77,11 +77,13 @@ class RotateOptionsPane extends HBox implements TaskParametersBuildStep<RotatePa
         eventStudio().addAnnotatedListeners(this);
     }
 
+    @Override
     public void apply(RotateParametersBuilder builder, Consumer<String> onError) {
         builder.rotation(rotation.getSelectionModel().getSelectedItem().getKey());
         builder.rotationType(rotationType.getSelectionModel().getSelectedItem().getKey());
     }
 
+    @Override
     public void saveStateTo(Map<String, String> data) {
         data.put("rotation",
                 Optional.ofNullable(rotation.getSelectionModel().getSelectedItem()).map(i -> i.getKey().toString())
@@ -91,6 +93,7 @@ class RotateOptionsPane extends HBox implements TaskParametersBuildStep<RotatePa
                         .orElse(EMPTY));
     }
 
+    @Override
     public void restoreStateFrom(Map<String, String> data) {
         Optional.ofNullable(data.get("rotation")).map(Rotation::valueOf).map(r -> keyEmptyValue(r))
                 .ifPresent(r -> this.rotation.getSelectionModel().select(r));

@@ -70,6 +70,7 @@ class ExtractOptionsPane extends HBox implements TaskParametersBuildStep<Extract
                 helpIcon("Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-)"));
     }
 
+    @Override
     public void apply(ExtractParametersBuilder builder, Consumer<String> onError) {
         this.field.validate();
         if (this.field.getValidationState() == ValidationState.VALID) {
@@ -83,10 +84,12 @@ class ExtractOptionsPane extends HBox implements TaskParametersBuildStep<Extract
         }
     }
 
+    @Override
     public void saveStateTo(Map<String, String> data) {
         data.put("pages", defaultString(field.getText()));
     }
 
+    @Override
     public void restoreStateFrom(Map<String, String> data) {
         field.setText(Optional.ofNullable(data.get("pages")).orElse(EMPTY));
     }
