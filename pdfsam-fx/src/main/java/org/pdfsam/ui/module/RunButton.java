@@ -51,6 +51,7 @@ public class RunButton extends Button {
         GlyphsDude.setIcon(this, MaterialDesignIcon.PLAY, "2.0em");
         setMaxHeight(Double.MAX_VALUE);
         setPrefHeight(Double.MAX_VALUE);
+        setDefaultButton(true);
         eventStudio().addAnnotatedListeners(this);
     }
 

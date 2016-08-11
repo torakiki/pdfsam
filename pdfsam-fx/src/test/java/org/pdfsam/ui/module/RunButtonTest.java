@@ -52,6 +52,11 @@ public class RunButtonTest {
     }
 
     @Test
+    public void isDefault() {
+        assertTrue(victim.isDefaultButton());
+    }
+
+    @Test
     public void disableOnRequest() {
         victim.setDisable(false);
         AbstractParameters parameters = mock(AbstractParameters.class);
