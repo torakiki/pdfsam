@@ -54,6 +54,7 @@ import org.pdfsam.ui.StageStatus;
 import org.pdfsam.ui.commons.OpenUrlRequest;
 import org.pdfsam.ui.commons.ShowStageRequest;
 import org.pdfsam.ui.dialog.ConfirmationDialog;
+import org.pdfsam.ui.dialog.OpenWithDialog;
 import org.pdfsam.ui.io.SetLatestDirectoryEvent;
 import org.pdfsam.ui.log.LogMessageBroadcaster;
 import org.pdfsam.ui.module.OpenButton;
@@ -147,12 +148,12 @@ public class PdfsamApp extends Application {
 
         requestCheckForUpdateIfNecessary();
         requestLatestNews();
-        new InputPdfArgumentsController().accept(rawParameters);
         eventStudio().addAnnotatedListeners(this);
         closeSplash();
         STOPWATCH.stop();
         LOG.info(DefaultI18nContext.getInstance().i18n("Started in {0}",
                 DurationFormatUtils.formatDurationWords(STOPWATCH.getTime(), true, true)));
+        new InputPdfArgumentsController().accept(rawParameters);
     }
 
     private void initSejda() {
@@ -243,6 +244,7 @@ public class PdfsamApp extends Application {
     private void initDialogsOwner(Stage primaryStage) {
         ApplicationContextHolder.getContext().getBeansOfType(ConfirmationDialog.class).values()
                 .forEach(d -> d.setOwner(primaryStage));
+        ApplicationContextHolder.getContext().getBean(OpenWithDialog.class).setOwner(primaryStage);
     }
 
     private void initWindowsStatusController(Stage primaryStage) {

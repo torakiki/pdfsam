@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 09 ago 2016
+ * Created on 12 ago 2016
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,22 +18,30 @@
  */
 package org.pdfsam.ui;
 
-import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
+import static org.junit.Assert.assertEquals;
 
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.TemporaryFolder;
 import org.pdfsam.module.ModuleInputOutputType;
 
 /**
- * A request to load the given PDFs passed as application arguments
- * 
  * @author Andrea Vacondio
  *
  */
-public class InputPdfArgumentsLoadRequest {
-    public final List<Path> pdfs = new ArrayList<>();
+public class InputPdfArgumentsLoadRequestTest {
 
-    public ModuleInputOutputType requiredInputTyle(){
-        return pdfs.size() > 1 ? ModuleInputOutputType.MULTIPLE_PDF : ModuleInputOutputType.SINGLE_PDF;
+    private InputPdfArgumentsLoadRequest victim = new InputPdfArgumentsLoadRequest();
+
+    @Rule
+    public TemporaryFolder folder = new TemporaryFolder();
+
+    @Test
+    public void requiredInputTyle() throws Exception {
+        victim.pdfs.add(folder.newFile().toPath());
+        assertEquals(ModuleInputOutputType.SINGLE_PDF, victim.requiredInputTyle());
+        victim.pdfs.add(folder.newFile().toPath());
+        assertEquals(ModuleInputOutputType.MULTIPLE_PDF, victim.requiredInputTyle());
     }
+
 }

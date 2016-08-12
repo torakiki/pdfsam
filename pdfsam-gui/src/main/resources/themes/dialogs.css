@@ -17,7 +17,7 @@
 	-fx-spacing: 0.2em;
 	-fx-alignment: top-left;
 }
-.-pdfsam-dialog-title{
+.-pdfsam-dialog-title, .-pdfsam-open-with-dialog-title{
 	-fx-font-size: 1.2em;
     -fx-font-weight: bold;
 	-fx-wrap-text: true;    
@@ -32,4 +32,17 @@
 .-pdfsam-question-dialog .glyph-icon, .-pdfsam-question-dialog .glyph-icon:hover{
 	-fx-fill: -pdfsam-theme-color;
     -fx-min-width: 46.0px;
+}
+.-pdfsam-open-with-container {
+	-fx-spacing: 1.0em;
+	-fx-alignment: top-center;
+	-fx-padding: 16.0;
+} 
+.-pdfsam-open-with-dialog-title{
+	-fx-padding: 0.0 0.0 5.0 0.0;
+}
+.-pdfsam-open-with-dialog{
+	-fx-background-color: -pdfsam-pwdpopupbg-color;
+	-fx-background-radius: 5.0;
+	-fx-background-insets: 0.0;
 }

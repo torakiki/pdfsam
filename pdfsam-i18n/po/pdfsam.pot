@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2016-06-22 17:45+0200\n"
+"POT-Creation-Date: 2016-08-11 15:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 msgid "Subscribe to the official news feed"
 msgstr ""
@@ -352,6 +353,15 @@ msgstr ""
 
 msgid "Non existing directory"
 msgstr ""
+
+#, java-format
+msgid "{0} PDF files selected, "
+msgstr ""
+
+msgid "what do you want to do with it?"
+msgid_plural "what do you want to do with them?"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Directory not empty"
 msgstr ""

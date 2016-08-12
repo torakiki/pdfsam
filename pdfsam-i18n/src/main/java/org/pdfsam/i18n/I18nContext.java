@@ -27,33 +27,41 @@ package org.pdfsam.i18n;
 public interface I18nContext {
 
     /**
-     * 
      * @param input
      *            input string
-     * @return the internationalized messages.
+     * @return the internationalized message.
      */
     String i18n(String input);
 
     /**
-     * 
      * @param input
      *            input string
      * @param value
      *            value for a string {0} placeholder
-     * @return the internationalized messages.
+     * @return the internationalized message.
      */
     String i18n(String input, String value);
 
     /**
-     * 
      * @param input
      *            input string
      * @param value0
      *            value for a string {0} placeholder
      * @param value1
      *            value for a string {1} placeholder
-     * @return the internationalized messages.
+     * @return the internationalized message.
      */
     String i18n(String input, String value0, String value1);
+
+    /**
+     * @param singular
+     *            input string for singular
+     * @param plural
+     *            input string for plural
+     * @param n
+     *            discriminating
+     * @return the internationalized message.
+     */
+    String i18npl(String singular, String plural, long n);
 
 }

@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 03 dic 2015
+ * Created on 12 ago 2016
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,47 +18,35 @@
  */
 package org.pdfsam.ui.dialog;
 
+import static java.util.Objects.nonNull;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-
-import java.io.IOException;
-import java.nio.file.Files;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.ui.commons.NonExistingOutputDirectoryEvent;
+import org.pdfsam.ui.InputPdfArgumentsLoadRequest;
 import org.sejda.eventstudio.annotation.EventListener;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
- * Controller receiving notifications of a non existing directory and displaying the dialog to request the user which action to perform
+ * Controller receiving notifications of input PDF files as application arguments and asking the user which module should be used to open them
  * 
  * @author Andrea Vacondio
- *
  */
 @Named
-public class CreateOutputDirectoryDialogController {
+public class OpenWithDialogController {
 
-    private static final Logger LOG = LoggerFactory.getLogger(OverwriteDialogController.class);
-
-    private CreateOutputDirectoryConfirmationDialog dialog;
+    private OpenWithDialog dialog;
 
     @Inject
-    public CreateOutputDirectoryDialogController(CreateOutputDirectoryConfirmationDialog dialog) {
+    public OpenWithDialogController(OpenWithDialog dialog) {
         this.dialog = dialog;
         eventStudio().addAnnotatedListeners(this);
     }
 
     @EventListener
-    public void request(NonExistingOutputDirectoryEvent event) {
-        try {
-            if (dialog.response()) {
-                Files.createDirectories(event.outputDirectory);
-                LOG.debug("Created output directory {}", event.outputDirectory);
-            }
-        } catch (IOException e) {
-            LOG.warn("Unable to create output directory", e);
+    public void on(InputPdfArgumentsLoadRequest event) {
+        if (nonNull(event)) {
+            dialog.initFor(event).showAndWait();
         }
     }
 }
