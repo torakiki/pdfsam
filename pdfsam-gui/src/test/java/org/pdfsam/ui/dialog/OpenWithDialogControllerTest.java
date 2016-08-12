@@ -48,13 +48,13 @@ import javafx.scene.control.Button;
  */
 @Category(TestFX.class)
 public class OpenWithDialogControllerTest extends GuiTest {
-    @Rule
-    public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule();
 
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
     private Module module1 = new HighPriorityTestModule();
     private Module module2 = new DefaultPriorityTestModule();
+    @Rule
+    public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule(module1.id(), module2.id());
 
     @Override
     protected Parent getRootNode() {
