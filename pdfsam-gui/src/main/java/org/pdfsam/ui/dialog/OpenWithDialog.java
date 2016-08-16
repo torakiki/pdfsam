@@ -105,8 +105,8 @@ public class OpenWithDialog extends Stage {
     OpenWithDialog initFor(InputPdfArgumentsLoadRequest event) {
 
         this.messageTitle
-                .setText(DefaultI18nContext.getInstance().i18npl("Select the task to perform on the following files",
-                        "Select the task to perform on the following file", event.pdfs.size()));
+                .setText(DefaultI18nContext.getInstance().i18npl("Select the task to perform on the following file",
+                        "Select the task to perform on the following files", event.pdfs.size()));
         filesList
                 .setItems(FXCollections.observableArrayList(event.pdfs.stream().map(Path::toString).collect(toList())));
         modules.forEach(m -> {
