@@ -4,6 +4,7 @@
 	<String Id="ProductName">PDFsam Basic</String>
 	<String Id="ProductDescription">A free open source tool to manipulate PDF documents</String>
 	<String Id="ProductNameDescription">Basic version of PDFsam, a free open source tool to manipulate PDF documents</String>
+	<String Id="ContextMenuDescription">Context menu shortcuts</String>
 	<String Id="ProductComments">PDF Split And Merge Basic Package</String>
 	<String Id="ProductHelpLink">http://www.pdfsam.org/</String>
 	<String Id="i18n">en_GB</String>
@@ -22,5 +23,5 @@
 	<String Id="JavaFoundText">Java Runtime Environment correctly found</String>
 	<String Id="JavaRequiredText">Java Runtime Environment could not be found or is outdated. Please install Oracle JRE or JDK version 1.8 or later. See http://java.com/download/ for more information.</String>
 	<String Id="StartMenuShortcuts">Start menu shortcuts</String>
-	<String Id="StartMenuShortcutsDesc">Install start menu shortcuts</String>
+	<String Id="StartMenuShortcutsDesc">Install start menu shortcuts</String>	
 </WixLocalization>

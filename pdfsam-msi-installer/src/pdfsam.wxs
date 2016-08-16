@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
-    <?include $(sys.CURRENTDIR)pdfsamVariables.wxi ?>
-	  <?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
-    <Product Id="$(var.ProductCode)" Name="$(var.ProductName)" Language="$(var.ProductLanguage)" Version="$(var.ProductVersion)" Manufacturer="$(var.ProductManufacturer)" UpgradeCode="$(var.ProductUpgradeCode)">
-    <Package Description="!(loc.ProductDescription)" Comments="!(loc.ProductComments)" InstallerVersion="200" InstallPrivileges="elevated" Compressed="yes" Id="*" />
-    <Media Id="1" Cabinet="$(var.ProductCodeName).cab" EmbedCab="yes" />
-    <PropertyRef Id="NETFRAMEWORK30"/>
-    <Property Id="ARPHELPLINK" Value="!(loc.ProductHelpLink)" />
-    <Property Id="ALLUSERS" Value="1" />
-    <Property Id="ARPPRODUCTICON" Value="pdfsam.ico" />
-	<Property Id="SKIPTHANKSPAGE" Value="No" Secure="yes" />
-	<Property Id="LOCALE" Value="English (UK)"/>
-	<Property Id="LOCALE_CODE" Value="en_GB" Secure="yes"/>
-	<Property Id="CHECK_FOR_UPDATES" Value="true" Secure="yes"/>
-	<Property Id="DONATE_NOTIFICATION" Value="true" Secure="yes"/>
-
-    <Icon Id="pdfsam.ico" SourceFile="$(var.ProductIcon)" />
+    	<?include $(sys.CURRENTDIR)pdfsamVariables.wxi ?>
+	  	<?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
+	    <Product Id="$(var.ProductCode)" Name="$(var.ProductName)" Language="$(var.ProductLanguage)" Version="$(var.ProductVersion)" Manufacturer="$(var.ProductManufacturer)" UpgradeCode="$(var.ProductUpgradeCode)">
+	    <Package Description="!(loc.ProductDescription)" Comments="!(loc.ProductComments)" InstallerVersion="200" InstallPrivileges="elevated" Compressed="yes" Id="*" />
+	    <Media Id="1" Cabinet="$(var.ProductCodeName).cab" EmbedCab="yes" />
+	    <PropertyRef Id="NETFRAMEWORK30"/>
+	    <Property Id="ARPHELPLINK" Value="!(loc.ProductHelpLink)" />
+	    <Property Id="ALLUSERS" Value="1" />
+	    <Property Id="ARPPRODUCTICON" Value="pdfsam.ico" />
+		<Property Id="SKIPTHANKSPAGE" Value="No" Secure="yes" />
+		<Property Id="LOCALE" Value="English (UK)"/>
+		<Property Id="LOCALE_CODE" Value="en_GB" Secure="yes"/>
+		<Property Id="CHECK_FOR_UPDATES" Value="true" Secure="yes"/>
+		<Property Id="DONATE_NOTIFICATION" Value="true" Secure="yes"/>
+	
+	    <Icon Id="pdfsam.ico" SourceFile="$(var.ProductIcon)" />
 		<Binary Id="AddLine.dll" SourceFile="AddLine.CA.dll" />
 		<CustomAction Id="SetCustomActionDataValue" Return="check" Property="CustomActions.AddLine" Value="locale=[LOCALE_CODE];updates=[CHECK_FOR_UPDATES];donate=[DONATE_NOTIFICATION];folder=[APPLICATIONFOLDER]" />
 		<CustomAction Id="CustomActions.AddLine" Return="check" Execute="deferred" BinaryKey="AddLine.dll" DllEntry="AddLine" Impersonate="no"/>
@@ -60,6 +60,12 @@
         </Property>
 
         <Directory Id="TARGETDIR" Name="SourceDir">
+	        <Directory Id="SendToFolder">
+				<Component Id="SendToShortcut" Guid="*">
+					<Shortcut Id="pdfsamSendTo" Name="$(var.ProductName)" Target="[APPLICATIONFOLDER]pdfsam.exe" Advertise="no" Icon="pdfsam.ico" IconIndex="0" />
+					<RegistryValue Root="HKCU" Key="Software/$(var.ProductName)" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+				</Component>
+	  		</Directory>
             <Directory Id="$(var.PlatformProgramFilesFolder)" Name="PFiles" ComponentGuidGenerationSeed="{d0d99ae7-c01f-41d6-83d5-a1b7ee8b39bf}">
                 <Directory Id="APPLICATIONFOLDER" Name="$(var.ProductName)">
                     <Component Id="pdfsam_community_current.jar" Guid="*">
@@ -101,6 +107,7 @@
             <Directory Id="ProgramMenuFolder">
                 <Directory Id="ProgramMenuDir" Name="!(loc.PDFSplitandMerge)" />
             </Directory>
+            <Directory Id="SendTo" FileSource="[SendToFolder]" />
         </Directory>
         <DirectoryRef Id="APPLICATIONFOLDER">
             <Component Id="CleanupMainApplicationFolder" Guid="*">
@@ -108,15 +115,42 @@
                 <util:RemoveFolderEx On="uninstall" Property="APPLICATIONFOLDER" />
             </Component>
         </DirectoryRef>
-    		<DirectoryRef Id="ProgramMenuDir">
-    			<Component Id="StartMenuShortcuts" Guid="*">
-    				<RemoveFolder Id="ProgramMenuDir" On="uninstall" />
-    				<RegistryValue Id="MenuDirInstalled" Root="HKCU" Key="Software\$(var.ProductName)" Type="integer" Value="1" Name="MenuDirInstalled" KeyPath="yes" />
-    				<util:InternetShortcut Id="ShortcutPDFSamWeb" Name="!(loc.PDFSamWeb)" Target="!(loc.PDFSamWebLink)" Type="url" />
-    				<Shortcut Id="ShortcutPDFSam" Name="!(loc.ProductName)" Target="[APPLICATIONFOLDER]pdfsam.exe" WorkingDirectory="APPLICATIONFOLDER" Advertise="no" Icon="pdfsam.ico" IconIndex="0" />
-    				<Shortcut Id="UninstallProduct" Name="Uninstall" Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]" Directory="ProgramMenuDir" Description="Uninstalls PDFsam Basic" />
-    			</Component>
-    		</DirectoryRef>
+   		<DirectoryRef Id="ProgramMenuDir">
+   			<Component Id="StartMenuShortcuts" Guid="*">
+   				<RemoveFolder Id="ProgramMenuDir" On="uninstall" />
+   				<RegistryValue Id="MenuDirInstalled" Root="HKCU" Key="Software\$(var.ProductName)" Type="integer" Value="1" Name="MenuDirInstalled" KeyPath="yes" />
+   				<util:InternetShortcut Id="ShortcutPDFSamWeb" Name="!(loc.PDFSamWeb)" Target="!(loc.PDFSamWebLink)" Type="url" />
+   				<Shortcut Id="ShortcutPDFSam" Name="!(loc.ProductName)" Target="[APPLICATIONFOLDER]pdfsam.exe" WorkingDirectory="APPLICATIONFOLDER" Advertise="no" Icon="pdfsam.ico" IconIndex="0" />
+   				<Shortcut Id="UninstallProduct" Name="Uninstall" Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]" Directory="ProgramMenuDir" Description="Uninstalls PDFsam Basic" />
+   			</Component>
+   		</DirectoryRef>
+    	
+	    <Component Id="FileAssociations" Guid="09b5be81-2bb4-470b-a2b1-737e152308a3" Directory="APPLICATIONFOLDER" KeyPath="yes">
+	    	
+			<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\$(var.ProgId)" Value="!(loc.ProductName)" Type="string" />
+			<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\$(var.ProgId)\DefaultIcon" Value="[APPLICATIONFOLDER]pdfsam.exe,0" Type="string" />
+         	
+         	<RegistryValue Root="HKCR" Key=".pdf\OpenWithProgids" Value="" Name="$(var.ProgId)" Type="string" />
+	     	<RegistryValue Root="HKCR" Key=".pdf\OpenWithList\pdfsam.exe" Value="" Type="string" />
+        	<RegistryValue Root="HKCR" Key="Applications\pdfsam.exe\shell\open\command" Value="&quot;[APPLICATIONFOLDER]pdfsam.exe&quot; &quot;%1&quot;" Type="string" />
+  			<RegistryValue Root="HKCR" Key="Applications\pdfsam.exe\SupportedTypes" Name=".pdf" Value="" Type="string" />
+        	
+        	<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\.pdf\OpenWithProgIds" Name="$(var.ProgId)" Value="" Type="string" />
+  			<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\.pdf\OpenWithList\pdfsam.exe" Value="" Type="string" />
+  			<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\Applications\pdfsam.exe\SupportedTypes" Name=".pdf" Value="" Type="string" />
+        	<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\$(var.ProgId)\shell\open\command" Value="&quot;[APPLICATIONFOLDER]pdfsam.exe&quot; &quot;%1&quot;" Type="string" />           
+         	<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\$(var.ProgId)\shell\open" Name="FriendlyAppName" Value="$(var.ProductName)" Type="string" />
+
+            <RegistryValue Root="HKLM" Key="SOFTWARE\$(var.ProductName)\Capabilities" Name="ApplicationIcon" Value="[APPLICATIONFOLDER]pdfsam.exe,0" Type="string" />
+            <RegistryValue Root="HKLM" Key="SOFTWARE\$(var.ProductName)\Capabilities" Name="ApplicationName" Value="$(var.ProductName)" Type="string" />
+    		<RegistryValue Root="HKLM" Key="SOFTWARE\$(var.ProductName)\Capabilities" Name="ApplicationDescription" Value="!(loc.ProductDescription)" Type="string" />
+            <RegistryValue Root="HKLM" Key="SOFTWARE\$(var.ProductName)\Capabilities\FileAssociations" Value="$(var.ProgId)" Name=".pdf" Type="string" />
+         	<RegistryValue Root="HKLM" Key="SOFTWARE\RegisteredApplications" Name="$(var.ProductName)" Value="SOFTWARE\$(var.ProductName)\Capabilities" Type="string" />
+
+            <!-- Add an entry to make sure it is runnable via Run Command  -->
+            <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\pdfsam.exe" Value="[APPLICATIONFOLDER]pdfsam.exe" Type="string" />
+        </Component>
+    		
         <Feature Id="MainAppFeature" ConfigurableDirectory="APPLICATIONFOLDER" Title="!(loc.ProductName)" Level="1" Absent="disallow" Display="expand" AllowAdvertise="no" InstallDefault="local" Description="!(loc.ProductNameDescription)">
             <ComponentRef Id="CleanupMainApplicationFolder" />
             <ComponentRef Id="pdfsam_community_current.jar" />
@@ -130,6 +164,11 @@
             <ComponentRef Id="logback.xml" />
             <ComponentRef Id="StartMenuShortcuts" />
         </Feature>
+        <Feature Id="AddContextMenu" Title="Context menu shortcuts" Description="!(loc.ContextMenuDescription)" Level="1">
+            <ComponentRef Id="FileAssociations" />
+            <ComponentRef Id="SendToShortcut" />
+		</Feature>
+		
         <WixVariable Id="WixUILicenseRtf" Value="resources\LICENSE.rtf" />
         <WixVariable Id="WixUIBannerBmp" Value="resources\BannerBmp.bmp" />
         <WixVariable Id="WixUIDialogBmp" Value="resources\installer.bmp" />

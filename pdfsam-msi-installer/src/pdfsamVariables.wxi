@@ -4,16 +4,17 @@
 	<?define ProductMajorVersion="3" ?>
 	<?define ProductMinorVersion="10" ?>
 	<!-- Change patch version otherwise upgrade is not detected -->
-	<?define ProductPatchVersion="0" ?>
+	<?define ProductPatchVersion="1" ?>
 	<?define ProductLabelVersion="0" ?>
 	<!-- Change this -->
-	<?define ProductFullVersion="3.1.0.RELEASE" ?>
+	<?define ProductFullVersion="3.1.1.RELEASE-SNAPSHOT" ?>
 
 	<!-- Static configuration options. -->
 	<?define ProductCode="*" ?>
 	<?define ProductVersion="$(var.ProductMajorVersion).$(var.ProductMinorVersion).$(var.ProductPatchVersion).$(var.ProductLabelVersion)" ?>
 	<?define ProductLanguage="!(loc.ProductLanguage)" ?>
 	<?define ProductName="PDFsam Basic" ?>
+	<?define ProgId="PDFsamBasic.FileAssoc.Pdf" ?>
 	<?define ProductNameWithVersion="$(var.ProductName) $(var.ProductVersion)" ?>
 	<?define ProductCodeName="PDFsam" ?>
 	<?define ProductManufacturer="Andrea Vacondio" ?>
