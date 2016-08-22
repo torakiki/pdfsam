@@ -103,7 +103,7 @@
 									<outfile>${project.build.directory}/pdfsam.exe</outfile>
 									<jar>${project.build.finalName}.jar</jar>
 									<dontWrapJar>true</dontWrapJar>
-									<icon>src/assembly/resources/PDFsam_basic.ico</icon>
+									<icon>src/assembly/resources/pdfsam.ico</icon>
 									<errTitle>Cannot find Java Runtime Environment</errTitle>
 									<jre>
 										<minVersion>1.8.0</minVersion>
