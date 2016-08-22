@@ -111,7 +111,7 @@
 									<versionInfo>
 										<fileVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.0</fileVersion>
 										<txtFileVersion>${project.version}</txtFileVersion>
-										<fileDescription>Starter for PDFsam Basic</fileDescription>
+										<fileDescription>PDFsam Basic</fileDescription>
 										<copyright>Andrea Vacondio 2015</copyright>
 										<productVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.0</productVersion>
 										<txtProductVersion>${project.version}</txtProductVersion>

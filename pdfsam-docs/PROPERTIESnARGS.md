@@ -45,8 +45,10 @@ Runtime arguments
 *description:* clears user preferences and locally stored information, starting PDFsam with default values. 
 
 **--workspace="/path/to/workspace"**  
-*description:* loads the given workspace. This has precedence over the application settings.
+*description:* loads the given workspace. This has precedence over the application settings. 
 
+**/path/to/file1.pdf /path/to/file2.pdf**  
+*description:* a list of PDF files to be opened with PDFsam. 
 
 MSI properties
 =============
