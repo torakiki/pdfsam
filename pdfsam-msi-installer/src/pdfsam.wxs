@@ -134,6 +134,7 @@
 	     	<RegistryValue Root="HKCR" Key=".pdf\OpenWithList\pdfsam.exe" Value="" Type="string" />
         	<RegistryValue Root="HKCR" Key="Applications\pdfsam.exe\shell\open\command" Value="&quot;[APPLICATIONFOLDER]pdfsam.exe&quot; &quot;%1&quot;" Type="string" />
   			<RegistryValue Root="HKCR" Key="Applications\pdfsam.exe\SupportedTypes" Name=".pdf" Value="" Type="string" />
+  			<RegistryValue Root="HKCR" Key="Local Settings\Software\Microsoft\Windows\Shell\MuiCache" Name="[APPLICATIONFOLDER]pdfsam.exe.ApplicationCompany" Value="Andrea Vacondio" Type="string" />
         	
         	<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\.pdf\OpenWithProgIds" Name="$(var.ProgId)" Value="" Type="string" />
   			<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\.pdf\OpenWithList\pdfsam.exe" Value="" Type="string" />
