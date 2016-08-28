@@ -53,15 +53,19 @@ public abstract class MultiplePdfSourceMultipleOutputParametersBuilder<P extends
         this.output = output;
     }
 
-    protected DirectoryTaskOutput getOutput() {
+    public DirectoryTaskOutput getOutput() {
         return output;
     }
 
-    protected String getPrefix() {
+    public String getPrefix() {
         return prefix;
     }
 
-    protected Set<PdfFileSource> getInputs() {
+    public Set<PdfFileSource> getInputs() {
         return inputs;
+    }
+
+    public boolean hasInput() {
+        return !inputs.isEmpty();
     }
 }

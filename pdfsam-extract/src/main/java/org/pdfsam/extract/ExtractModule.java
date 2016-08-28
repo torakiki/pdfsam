@@ -35,20 +35,24 @@ import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.ModuleInputOutputType;
 import org.pdfsam.module.ModulePriority;
 import org.pdfsam.module.PdfsamModule;
-import org.pdfsam.ui.io.BrowsablePdfOutputField;
+import org.pdfsam.ui.io.BrowsableOutputDirectoryField;
 import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.pdfsam.ui.module.Footer;
 import org.pdfsam.ui.module.OpenButton;
 import org.pdfsam.ui.module.RunButton;
-import org.pdfsam.ui.selection.single.TaskParametersBuilderSingleSelectionPane;
+import org.pdfsam.ui.prefix.PrefixPane;
+import org.pdfsam.ui.support.Views;
 import org.sejda.eventstudio.annotation.EventStation;
+import org.sejda.model.prefix.Prefix;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.control.TitledPane;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 /**
@@ -62,26 +66,25 @@ public class ExtractModule extends BaseTaskExecutionModule {
 
     private static final String MODULE_ID = "extract";
 
-    private TaskParametersBuilderSingleSelectionPane selectionPane;
+    private ExtractSelectionPane selectionPane = new ExtractSelectionPane(MODULE_ID);
     private ExtractOptionsPane extractOptions = new ExtractOptionsPane();
-    private BrowsablePdfOutputField destinationFileField;
+    private BrowsableOutputDirectoryField destinationDirectoryField;
     private PdfDestinationPane destinationPane;
+    private PrefixPane prefix = new PrefixPane();
 
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT)
-            .inputTypes(ModuleInputOutputType.SINGLE_PDF).name(DefaultI18nContext.getInstance().i18n("Extract"))
-            .description(DefaultI18nContext.getInstance().i18n("Extract pages from a PDF document."))
+            .inputTypes(ModuleInputOutputType.MULTIPLE_PDF, ModuleInputOutputType.SINGLE_PDF)
+            .name(DefaultI18nContext.getInstance().i18n("Extract"))
+            .description(DefaultI18nContext.getInstance().i18n("Extract pages from PDF documents."))
             .priority(ModulePriority.DEFAULT.getPriority()).supportURL("http://www.pdfsam.org/pdf-extract-pages")
             .build();
 
     @Inject
-    public ExtractModule(@Named(MODULE_ID + "field") BrowsablePdfOutputField destinationFileField,
+    public ExtractModule(@Named(MODULE_ID + "field") BrowsableOutputDirectoryField destinationDirectoryField,
             @Named(MODULE_ID + "pane") PdfDestinationPane destinationPane, @Named(MODULE_ID + "footer") Footer footer) {
         super(footer);
-        this.destinationFileField = destinationFileField;
+        this.destinationDirectoryField = destinationDirectoryField;
         this.destinationPane = destinationPane;
-        this.selectionPane = new TaskParametersBuilderSingleSelectionPane(id());
-        this.selectionPane.setPromptText(DefaultI18nContext.getInstance().i18n("Select or drag and drop a PDF"));
-        // this.selectionPane.addOnLoaded(d -> splitOptions.setMaxPages(d.pages().getValue()));
     }
 
     @Override
@@ -94,8 +97,9 @@ public class ExtractModule extends BaseTaskExecutionModule {
         ExtractParametersBuilder builder = new ExtractParametersBuilder();
         extractOptions.apply(builder, onError);
         selectionPane.apply(builder, onError);
-        destinationFileField.apply(builder, onError);
+        destinationDirectoryField.apply(builder, onError);
         destinationPane.apply(builder, onError);
+        prefix.apply(builder, onError);
         return builder;
     }
 
@@ -104,25 +108,38 @@ public class ExtractModule extends BaseTaskExecutionModule {
         selectionPane.saveStateTo(data);
         extractOptions.saveStateTo(data);
         destinationPane.saveStateTo(data);
-        destinationFileField.saveStateTo(data);
+        destinationDirectoryField.saveStateTo(data);
+        prefix.saveStateTo(data);
     }
 
     @Override
     public void onLoadWorkspace(Map<String, String> data) {
+        if (data.containsKey("input")) {
+            data.put("input.0", data.get("input"));
+            data.put("input.password.0", data.get("input.password"));
+            data.put("input.size", "1");
+        }
         selectionPane.restoreStateFrom(data);
         extractOptions.restoreStateFrom(data);
         destinationPane.restoreStateFrom(data);
-        destinationFileField.restoreStateFrom(data);
+        destinationDirectoryField.restoreStateFrom(data);
+        prefix.restoreStateFrom(data);
     }
 
     @Override
     protected VBox getInnerPanel() {
         VBox pane = new VBox();
         pane.setAlignment(Pos.TOP_CENTER);
+        VBox.setVgrow(selectionPane, Priority.ALWAYS);
+
+        TitledPane prefixTitled = Views.titledPane(DefaultI18nContext.getInstance().i18n("File names settings"),
+                prefix);
+        prefix.addMenuItemFor(Prefix.FILENUMBER);
 
         pane.getChildren().addAll(selectionPane,
                 titledPane(DefaultI18nContext.getInstance().i18n("Extract settings"), extractOptions),
-                titledPane(DefaultI18nContext.getInstance().i18n("Destination file"), destinationPane));
+                titledPane(DefaultI18nContext.getInstance().i18n("Destination directory"), destinationPane),
+                prefixTitled);
         return pane;
     }
 
@@ -140,16 +157,14 @@ public class ExtractModule extends BaseTaskExecutionModule {
     @Configuration
     public static class ModuleConfig {
         @Bean(name = MODULE_ID + "field")
-        public BrowsablePdfOutputField destinationFileField() {
-            return new BrowsablePdfOutputField();
+        public BrowsableOutputDirectoryField destinationDirectoryField() {
+            return new BrowsableOutputDirectoryField();
         }
 
         @Bean(name = MODULE_ID + "pane")
-        public PdfDestinationPane destinationPane(@Named(MODULE_ID + "field") BrowsablePdfOutputField outputField,
+        public PdfDestinationPane destinationPane(@Named(MODULE_ID + "field") BrowsableOutputDirectoryField outputField,
                 UserContext userContext) {
-            PdfDestinationPane panel = new PdfDestinationPane(outputField, MODULE_ID, userContext, DISCARD_BOOKMARKS);
-            panel.enableSameAsSourceItem();
-            return panel;
+            return new PdfDestinationPane(outputField, MODULE_ID, userContext, DISCARD_BOOKMARKS);
         }
 
         @Bean(name = MODULE_ID + "footer")
@@ -159,7 +174,7 @@ public class ExtractModule extends BaseTaskExecutionModule {
 
         @Bean(name = MODULE_ID + "openButton")
         public OpenButton openButton() {
-            return new OpenButton(MODULE_ID, ModuleInputOutputType.SINGLE_PDF);
+            return new OpenButton(MODULE_ID, ModuleInputOutputType.MULTIPLE_PDF);
         }
     }
 

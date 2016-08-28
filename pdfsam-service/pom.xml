@@ -54,8 +54,8 @@
 					<artifactId>bcmail-jdk15</artifactId>
 				</exclusion>
 				<exclusion>
-					<artifactId>guava</artifactId>
-					<groupId>com.google.guava</groupId>
+					<artifactId>poi-ooxml</artifactId>
+					<groupId>org.apache.poi</groupId>
 				</exclusion>
 			</exclusions>
 		</dependency>

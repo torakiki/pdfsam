@@ -22,7 +22,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Set;
 
@@ -32,8 +31,8 @@ import org.junit.rules.TemporaryFolder;
 import org.pdfsam.support.params.ConversionUtils;
 import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.optimization.OptimizationPolicy;
+import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.ExistingOutputPolicy;
-import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.parameter.ExtractPagesParameters;
 import org.sejda.model.pdf.PdfVersion;
 import org.sejda.model.pdf.page.PageRange;
@@ -50,13 +49,15 @@ public class ExtractParametersBuilderTest {
     public void build() throws IOException {
         ExtractParametersBuilder victim = new ExtractParametersBuilder();
         victim.compress(true);
-        FileTaskOutput output = mock(FileTaskOutput.class);
+        DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
         victim.output(output);
         victim.existingOutput(ExistingOutputPolicy.OVERWRITE);
         victim.discardBookmarks(true);
-        File file = folder.newFile("my.pdf");
-        PdfFileSource source = PdfFileSource.newInstanceNoPassword(file);
-        victim.source(source);
+        victim.prefix("prefix");
+        victim.invertSelection(true);
+        PdfFileSource source = PdfFileSource.newInstanceNoPassword(folder.newFile("my.pdf"));
+        victim.addSource(source);
+        victim.addSource(PdfFileSource.newInstanceNoPassword(folder.newFile("mytest.pdf")));
         victim.version(PdfVersion.VERSION_1_7);
         Set<PageRange> ranges = ConversionUtils.toPageRangeSet("2,5-20,33");
         victim.ranges(ranges);
@@ -68,6 +69,9 @@ public class ExtractParametersBuilderTest {
         assertEquals(OptimizationPolicy.AUTO, params.getOptimizationPolicy());
         assertEquals(ranges, params.getPageSelection());
         assertEquals(output, params.getOutput());
-        assertEquals(source, params.getSource());
+        assertTrue(params.isInvertSelection());
+        assertEquals("prefix", params.getOutputPrefix());
+        assertEquals(2, params.getSourceList().size());
+        assertEquals(source, params.getSourceList().get(0));
     }
 }

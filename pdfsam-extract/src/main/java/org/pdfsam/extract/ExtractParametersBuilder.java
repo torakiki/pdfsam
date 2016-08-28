@@ -20,22 +20,22 @@ package org.pdfsam.extract;
 
 import java.util.Set;
 
-import org.pdfsam.support.params.SinglePdfSourceSingleOutputParametersBuilder;
+import org.pdfsam.support.params.MultiplePdfSourceMultipleOutputParametersBuilder;
 import org.sejda.model.optimization.OptimizationPolicy;
 import org.sejda.model.parameter.ExtractPagesParameters;
-import org.sejda.model.parameter.RotateParameters;
 import org.sejda.model.pdf.page.PageRange;
 
 /**
- * Builder for {@link RotateParameters}
+ * Builder for {@link ExtractPagesParameters}
  * 
  * @author Andrea Vacondio
  *
  */
-class ExtractParametersBuilder extends SinglePdfSourceSingleOutputParametersBuilder<ExtractPagesParameters> {
+class ExtractParametersBuilder extends MultiplePdfSourceMultipleOutputParametersBuilder<ExtractPagesParameters> {
 
     private OptimizationPolicy optimizationPolicy = OptimizationPolicy.AUTO;
     private Set<PageRange> ranges;
+    private boolean invertSelection = false;
 
     public void optimizationPolicy(OptimizationPolicy optimizationPolicy) {
         this.optimizationPolicy = optimizationPolicy;
@@ -52,6 +52,10 @@ class ExtractParametersBuilder extends SinglePdfSourceSingleOutputParametersBuil
         this.ranges = ranges;
     }
 
+    public void invertSelection(boolean invertSelection) {
+        this.invertSelection = invertSelection;
+    }
+
     @Override
     public ExtractPagesParameters build() {
         ExtractPagesParameters params = new ExtractPagesParameters();
@@ -59,10 +63,12 @@ class ExtractParametersBuilder extends SinglePdfSourceSingleOutputParametersBuil
         params.setExistingOutputPolicy(existingOutput());
         params.setVersion(getVersion());
         params.setOutput(getOutput());
-        params.setSource(getSource());
         params.setOptimizationPolicy(getOptimizationPolicy());
         params.discardOutline(isDiscardBookmarks());
         params.addAllPageRanges(ranges);
+        params.setOutputPrefix(getPrefix());
+        params.setInvertSelection(invertSelection);
+        getInputs().forEach(params::addSource);
         return params;
     }
 
