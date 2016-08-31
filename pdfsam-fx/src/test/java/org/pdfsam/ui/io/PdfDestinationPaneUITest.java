@@ -78,7 +78,7 @@ public class PdfDestinationPaneUITest extends GuiTest {
     public void applyDefault() {
         PdfDestinationPane victim = find(".victim");
         victim.apply(builder, onError);
-        verify(builder).compress(false);
+        verify(builder).compress(true);
         verify(builder).discardBookmarks(false);
         verify(builder, never()).existingOutput(any());
     }
@@ -88,7 +88,7 @@ public class PdfDestinationPaneUITest extends GuiTest {
         PdfDestinationPane victim = find(".victim");
         click(n -> n instanceof PdfVersionConstrainedCheckBox);
         victim.apply(builder, onError);
-        verify(builder).compress(true);
+        verify(builder).compress(false);
     }
 
     @Test
@@ -97,7 +97,7 @@ public class PdfDestinationPaneUITest extends GuiTest {
         Set<Node> nodes = findAll(n -> n instanceof CheckBox, victim);
         nodes.forEach(n -> click(n));
         victim.apply(builder, onError);
-        verify(builder).compress(true);
+        verify(builder).compress(false);
         verify(builder).existingOutput(ExistingOutputPolicy.OVERWRITE);
         verify(builder).discardBookmarks(true);
     }
