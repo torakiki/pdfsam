@@ -20,6 +20,8 @@ package org.pdfsam.ui.workspace;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 
 import java.io.File;
@@ -53,5 +55,17 @@ public class LoadWorkspaceEventTest {
         LoadWorkspaceEvent victim = new LoadWorkspaceEvent(file);
         victim.setData(moduleData);
         assertFalse(victim.getData("module").isEmpty());
+    }
+
+    public void getNonExisting() {
+        Map<String, String> data = new HashMap<>();
+        data.put("victiminput.size", "2");
+        Map<String, Map<String, String>> moduleData = new HashMap<>();
+        moduleData.put("module", data);
+        File file = mock(File.class);
+        LoadWorkspaceEvent victim = new LoadWorkspaceEvent(file);
+        victim.setData(moduleData);
+        assertNotNull(victim.getData("CHUCK"));
+        assertTrue(victim.getData("CHUCK").isEmpty());
     }
 }

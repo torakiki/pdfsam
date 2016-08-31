@@ -19,6 +19,7 @@
 package org.pdfsam.ui.workspace;
 
 import static java.util.Objects.requireNonNull;
+import static java.util.Optional.ofNullable;
 
 import java.io.File;
 import java.util.HashMap;
@@ -43,7 +44,7 @@ public class LoadWorkspaceEvent extends BaseWorkspaceEvent {
     }
 
     public Map<String, String> getData(String module) {
-        return this.data.get(module);
+        return ofNullable(this.data.get(module)).orElseGet(HashMap::new);
     }
 
 }
