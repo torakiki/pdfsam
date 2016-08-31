@@ -65,11 +65,3 @@
 .quickbar-navigation-button:hover .quickbar-navigation-button-graphic{
 	-fx-opacity: 1.0;
 }
-.quickbar-navigation-button .awesome{
-    -fx-effect: null;
-    -fx-text-fill: awesome-color;
-    -fx-opacity: 1.0;
-}
-.quickbar-navigation-button:hover .awesome {
-	-fx-text-fill: awesome-color-hover;
-}
