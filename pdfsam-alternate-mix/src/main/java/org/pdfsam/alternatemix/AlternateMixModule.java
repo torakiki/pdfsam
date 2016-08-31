@@ -67,7 +67,7 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.MERGE)
             .inputTypes(ModuleInputOutputType.MULTIPLE_PDF).name(DefaultI18nContext.getInstance().i18n("Alternate Mix"))
             .description(DefaultI18nContext.getInstance()
-                    .i18n("Merge two or more PDF documents alternating between them in natural or reverse order."))
+                    .i18n("Merge two or more PDF documents taking pages alternately in natural or reverse order."))
             .priority(ModulePriority.DEFAULT.getPriority()).supportURL("http://www.pdfsam.org/mix-pdf/").build();
 
     @Inject
