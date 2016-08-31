@@ -117,7 +117,7 @@ public class PdfDestinationPaneTest {
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
         assertEquals(Boolean.TRUE.toString(), data.get("overwrite"));
-        assertEquals(Boolean.FALSE.toString(), data.get("compress"));
+        assertEquals(Boolean.TRUE.toString(), data.get("compress"));
         assertNull(data.get("discardBookmarks"));
         assertTrue(isNotEmpty(data.get("version")));
     }

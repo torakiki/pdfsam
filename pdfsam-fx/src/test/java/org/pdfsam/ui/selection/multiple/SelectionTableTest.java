@@ -211,7 +211,6 @@ public class SelectionTableTest extends GuiTest {
     @Test
     public void restoreStateFrom() throws Exception {
         SelectionTable victim = find("#victim");
-        @SuppressWarnings("rawtypes")
         Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequestEvent.class, listener);
         Map<String, String> data = new HashMap<>();
@@ -233,7 +232,7 @@ public class SelectionTableTest extends GuiTest {
         SelectionTableRowData second = victim.getItems().get(1);
         assertEquals("norris.pdf", second.descriptor().getFileName());
         assertNull(second.pageSelection.get());
-        assertEquals("1", second.pace.get());
+        assertNull(second.pace.get());
         assertFalse(second.reverse.get());
         verify(listener).onEvent(any());
     }
