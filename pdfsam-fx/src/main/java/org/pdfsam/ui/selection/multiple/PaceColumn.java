@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 27/nov/2013
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 30 ago 2016
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -18,9 +18,8 @@
  */
 package org.pdfsam.ui.selection.multiple;
 
-import static org.apache.commons.lang3.StringUtils.EMPTY;
+import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
 import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.apache.commons.lang3.StringUtils.isNoneBlank;
 
 import java.util.Comparator;
 
@@ -32,38 +31,30 @@ import javafx.scene.control.TableColumn;
 import javafx.util.Callback;
 
 /**
- * Definition of the page ranges column of the selection table
+ * Definition of the pace column of the selection table
  * 
  * @author Andrea Vacondio
- * 
+ *
  */
-public class PageRangesColumn implements SelectionTableColumn<String> {
-    private String tooltipMessage = DefaultI18nContext.getInstance()
-            .i18n("Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)");
+public class PaceColumn implements SelectionTableColumn<String> {
 
-    public PageRangesColumn() {
+    public PaceColumn() {
         // nothing
-    }
-
-    public PageRangesColumn(String tooltipMessage) {
-        if (isNoneBlank(tooltipMessage)) {
-            this.tooltipMessage = tooltipMessage;
-        }
     }
 
     @Override
     public String getColumnTitle() {
-        return DefaultI18nContext.getInstance().i18n("Page ranges");
+        return DefaultI18nContext.getInstance().i18n("Pace");
     }
 
     @Override
     public ObservableValue<String> getObservableValue(SelectionTableRowData data) {
-        return data.pageSelection;
+        return data.pace;
     }
 
     @Override
     public String getTextValue(String item) {
-        return defaultString(item, EMPTY);
+        return defaultString(item, "1");
     }
 
     @Override
@@ -75,8 +66,8 @@ public class PageRangesColumn implements SelectionTableColumn<String> {
     public TableColumn<SelectionTableRowData, String> getTableColumn() {
         TableColumn<SelectionTableRowData, String> tableColumn = SelectionTableColumn.super.getTableColumn();
         tableColumn.setEditable(true);
-        tableColumn.setOnEditCommit(
-                t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).pageSelection.set(t.getNewValue()));
+        tableColumn.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).pace
+                .set(defaultIfBlank(t.getNewValue(), "1")));
         return tableColumn;
     }
 
@@ -85,8 +76,10 @@ public class PageRangesColumn implements SelectionTableColumn<String> {
         return new Callback<TableColumn<SelectionTableRowData, String>, TableCell<SelectionTableRowData, String>>() {
             @Override
             public TableCell<SelectionTableRowData, String> call(TableColumn<SelectionTableRowData, String> param) {
-                return new TooltippedTextFieldTableCell(tooltipMessage);
+                return new TooltippedTextFieldTableCell(DefaultI18nContext.getInstance().i18n(
+                        "Double click to set the number of pages after which the task will switch to the next file"));
             }
         };
     }
+
 }

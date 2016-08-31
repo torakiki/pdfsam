@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 06/ago/2014
+ * Created on 31 ago 2016
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,9 +18,7 @@
  */
 package org.pdfsam.ui.selection.multiple;
 
-import static org.hamcrest.Matchers.isEmptyString;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 
 import java.io.File;
@@ -32,24 +30,22 @@ import org.pdfsam.pdf.PdfDocumentDescriptor;
  * @author Andrea Vacondio
  *
  */
-public class PageRangesColumnTest {
-
+public class PaceColumnTest {
     @Test
     public void getObservableValue() {
         File file = mock(File.class);
         SelectionTableRowData data = new SelectionTableRowData(PdfDocumentDescriptor.newDescriptorNoPassword(file));
         data.pageSelection.set("2");
-        assertEquals("2", new PageRangesColumn().getObservableValue(data).getValue());
+        assertEquals("2", new PaceColumn().getObservableValue(data).getValue());
     }
 
     @Test
     public void getNullTextValue() {
-        assertThat(new PageRangesColumn().getTextValue(null), isEmptyString());
+        assertEquals("1", new PaceColumn().getTextValue(null));
     }
 
     @Test
     public void comparator() {
-        assertEquals(-1, new PageRangesColumn().comparator().compare("1", "2"));
+        assertEquals(-1, new PaceColumn().comparator().compare("1", "2"));
     }
-
 }

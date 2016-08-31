@@ -57,7 +57,7 @@ public class MergeSelectionPane extends MultipleSelectionPane
     @Override
     public void apply(MergeParametersBuilder builder, Consumer<String> onError) {
         try {
-            table().getItems().stream().filter(s -> !Objects.equals("0", trim(s.getPageSelection())))
+            table().getItems().stream().filter(s -> !Objects.equals("0", trim(s.pageSelection.get())))
                     .map(i -> new PdfMergeInput(i.descriptor().toPdfFileSource(), i.toPageRangeSet()))
                     .forEach(builder::addInput);
             if (!builder.hasInput()) {

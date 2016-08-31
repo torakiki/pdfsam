@@ -19,19 +19,20 @@
 package org.pdfsam.alternatemix;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 
-import java.io.File;
 import java.io.IOException;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import org.sejda.model.input.PdfFileSource;
+import org.sejda.model.input.PdfMixInput;
 import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.output.FileTaskOutput;
-import org.sejda.model.parameter.AlternateMixParameters;
+import org.sejda.model.parameter.AlternateMixMultipleInputParameters;
 import org.sejda.model.pdf.PdfVersion;
 
 /**
@@ -47,29 +48,32 @@ public class AlternateMixParametersBuilderTest {
     public void build() throws IOException {
         AlternateMixParametersBuilder victim = new AlternateMixParametersBuilder();
         victim.compress(true);
-        File file = folder.newFile("my.pdf");
-        PdfFileSource firstSource = PdfFileSource.newInstanceNoPassword(file);
-        victim.first(firstSource);
+        PdfMixInput first = new PdfMixInput(PdfFileSource.newInstanceNoPassword(folder.newFile("first.pdf")), true, 2);
+        victim.addInput(first);
         FileTaskOutput output = mock(FileTaskOutput.class);
         victim.output(output);
         victim.existingOutput(ExistingOutputPolicy.OVERWRITE);
-        victim.reverseFirst(true);
-        victim.reverseSecond(true);
-        victim.stepFirst(2);
-        victim.stepSecond(4);
-        PdfFileSource secondSource = PdfFileSource.newInstanceNoPassword(file);
-        victim.second(secondSource);
+        PdfMixInput second = new PdfMixInput(PdfFileSource.newInstanceNoPassword(folder.newFile("second.pdf")), false,
+                4);
+        victim.addInput(second);
+        PdfMixInput third = new PdfMixInput(PdfFileSource.newInstanceNoPassword(folder.newFile("third.pdf")));
+        victim.addInput(third);
         victim.version(PdfVersion.VERSION_1_7);
-        AlternateMixParameters params = victim.build();
+        assertTrue(victim.hasInput());
+        AlternateMixMultipleInputParameters params = victim.build();
         assertTrue(params.isCompress());
         assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
         assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
-        assertTrue(params.getFirstInput().isReverse());
-        assertTrue(params.getSecondInput().isReverse());
-        assertEquals(2, params.getFirstInput().getStep());
-        assertEquals(4, params.getSecondInput().getStep());
+        assertEquals(3, params.getInputList().size());
+        assertEquals(first, params.getInputList().get(0));
+        assertEquals(second, params.getInputList().get(1));
+        assertEquals(third, params.getInputList().get(2));
+        assertTrue(params.getInputList().get(0).isReverse());
+        assertFalse(params.getInputList().get(1).isReverse());
+        assertFalse(params.getInputList().get(2).isReverse());
+        assertEquals(2, params.getInputList().get(0).getStep());
+        assertEquals(4, params.getInputList().get(1).getStep());
+        assertEquals(1, params.getInputList().get(2).getStep());
         assertEquals(output, params.getOutput());
-        assertEquals(firstSource, params.getFirstInput().getSource());
-        assertEquals(secondSource, params.getSecondInput().getSource());
     }
 }

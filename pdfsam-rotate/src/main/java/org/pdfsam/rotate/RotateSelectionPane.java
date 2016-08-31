@@ -57,7 +57,7 @@ public class RotateSelectionPane extends MultipleSelectionPane
     @Override
     public void apply(RotateParametersBuilder builder, Consumer<String> onError) {
         try {
-            table().getItems().stream().filter(s -> !Objects.equals("0", trim(s.getPageSelection())))
+            table().getItems().stream().filter(s -> !Objects.equals("0", trim(s.pageSelection.get())))
                     .forEach(i -> builder.addInput(i.descriptor().toPdfFileSource(), i.toPageRangeSet()));
             if (!builder.hasInput()) {
                 onError.accept(DefaultI18nContext.getInstance().i18n("No PDF document has been selected"));

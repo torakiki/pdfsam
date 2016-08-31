@@ -18,8 +18,6 @@
  */
 package org.pdfsam.ui.selection.multiple;
 
-import static org.apache.commons.lang3.StringUtils.defaultString;
-
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
@@ -28,6 +26,7 @@ import org.pdfsam.support.params.ConversionUtils;
 import org.sejda.conversion.exception.ConversionException;
 import org.sejda.model.pdf.page.PageRange;
 
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
@@ -39,38 +38,31 @@ import javafx.beans.property.SimpleStringProperty;
 public final class SelectionTableRowData {
 
     private PdfDocumentDescriptor descriptor;
-    private SimpleStringProperty pageSelection = new SimpleStringProperty(StringUtils.EMPTY);
+
+    public final SimpleStringProperty pageSelection = new SimpleStringProperty(StringUtils.EMPTY);
+    public final SimpleStringProperty pace = new SimpleStringProperty("1");
+    public final SimpleBooleanProperty reverse = new SimpleBooleanProperty(false);
 
     public SelectionTableRowData(PdfDocumentDescriptor descriptor) {
         this.descriptor = descriptor;
     }
 
-    public SelectionTableRowData(PdfDocumentDescriptor descriptor, String pageSelection) {
-        this(descriptor);
-        this.pageSelection.set(defaultString(pageSelection));
-    }
-
-    public String getPageSelection() {
-        return pageSelection.get();
-    }
-
-    public void setPageSelection(String pageSelection) {
-        this.pageSelection.set(defaultString(pageSelection));
-    }
-
-    public SimpleStringProperty pageSelectionProperty() {
-        return pageSelection;
-    }
-
     public SelectionTableRowData duplicate() {
         descriptor.retain();
-        return new SelectionTableRowData(descriptor, pageSelection.get());
+        SelectionTableRowData dupe = new SelectionTableRowData(descriptor);
+        dupe.pageSelection.set(pageSelection.get());
+        dupe.reverse.set(reverse.get());
+        dupe.pace.set(pace.get());
+        return dupe;
     }
 
     public PdfDocumentDescriptor descriptor() {
         return descriptor;
     }
 
+    /**
+     * Signals that this row data is not valid/needed anymore
+     */
     public void invalidate() {
         descriptor.release();
     }

@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 09/set/2014
+ * Created on 31 ago 2016
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,14 +16,12 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.merge;
+package org.pdfsam.alternatemix;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
-import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -42,30 +40,31 @@ import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
-import org.sejda.conversion.exception.ConversionException;
-import org.sejda.model.input.PdfMergeInput;
+import org.sejda.model.input.PdfMixInput;
 
 /**
  * @author Andrea Vacondio
  *
  */
-public class MergeSelectionPaneTest {
+public class AlternateMixSelectionPaneTest {
     private static final String MODULE = "MODULE";
+
     @Rule
     public ClearEventStudioRule clear = new ClearEventStudioRule(MODULE);
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
     @Rule
     public InitializeAndApplyJavaFxThreadRule javaFxThread = new InitializeAndApplyJavaFxThreadRule();
-    private MergeSelectionPane victim;
-    private MergeParametersBuilder builder;
+
+    private AlternateMixParametersBuilder builder;
     private Consumer<String> onError;
+    private AlternateMixSelectionPane victim;
 
     @Before
     public void setUp() {
-        builder = mock(MergeParametersBuilder.class);
+        builder = mock(AlternateMixParametersBuilder.class);
         onError = mock(Consumer.class);
-        victim = new MergeSelectionPane(MODULE);
+        victim = new AlternateMixSelectionPane(MODULE);
     }
 
     @Test
@@ -76,44 +75,35 @@ public class MergeSelectionPaneTest {
     }
 
     @Test
-    public void emptyByZeroPagesSelected() throws Exception {
+    public void invalidPace() throws Exception {
         populate();
-        victim.table().getItems().get(0).pageSelection.set("0");
+        victim.table().getItems().get(0).pace.set("Chuck");
         victim.apply(builder, onError);
         verify(onError).accept(anyString());
         verify(builder, never()).addInput(any());
     }
 
     @Test
-    public void emptyPageSelection() throws Exception {
+    public void zeroPace() throws Exception {
         populate();
-        when(builder.hasInput()).thenReturn(Boolean.TRUE);
+        victim.table().getItems().get(0).pace.set("0");
         victim.apply(builder, onError);
-        verify(onError, never()).accept(anyString());
-        ArgumentCaptor<PdfMergeInput> input = ArgumentCaptor.forClass(PdfMergeInput.class);
-        verify(builder).addInput(input.capture());
-        assertTrue(input.getValue().getPageSelection().isEmpty());
+        verify(onError).accept(anyString());
+        verify(builder, never()).addInput(any());
     }
 
     @Test
-    public void notEmptyPageSelection() throws Exception {
+    public void validInput() throws Exception {
         populate();
         when(builder.hasInput()).thenReturn(Boolean.TRUE);
-        victim.table().getItems().get(0).pageSelection.set("1,3-10");
+        victim.table().getItems().get(0).reverse.set(true);
+        victim.table().getItems().get(0).pace.set("3");
         victim.apply(builder, onError);
         verify(onError, never()).accept(anyString());
-        ArgumentCaptor<PdfMergeInput> input = ArgumentCaptor.forClass(PdfMergeInput.class);
+        ArgumentCaptor<PdfMixInput> input = ArgumentCaptor.forClass(PdfMixInput.class);
         verify(builder).addInput(input.capture());
-        assertEquals(2, input.getValue().getPageSelection().size());
-    }
-
-    @Test
-    public void converstionException() throws Exception {
-        populate();
-        doThrow(new ConversionException("message")).when(builder).addInput(any());
-        victim.apply(builder, onError);
-        verify(builder).addInput(any());
-        verify(onError).accept(eq("message"));
+        assertEquals(3, input.getValue().getStep());
+        assertTrue(input.getValue().isReverse());
     }
 
     private void populate() throws Exception {

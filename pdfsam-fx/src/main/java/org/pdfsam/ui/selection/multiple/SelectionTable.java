@@ -110,7 +110,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     private Consumer<SelectionChangedEvent> selectionChangedConsumer;
 
     public SelectionTable(String ownerModule, boolean canDuplicateItems, boolean canMove,
-            SelectionTableColumn<?>... columns) {
+            TableColumnProvider<?>... columns) {
         this.ownerModule = defaultString(ownerModule);
         setEditable(true);
         getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -444,11 +444,14 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         data.put(defaultString(getId()) + "input.size", Integer.toString(getItems().size()));
         IntStream.range(0, getItems().size()).forEach(i -> {
             SelectionTableRowData current = getItems().get(i);
-            data.put(defaultString(getId()) + "input." + i, current.descriptor().getFile().getAbsolutePath());
+            String id = defaultString(getId());
+            data.put(id + "input." + i, current.descriptor().getFile().getAbsolutePath());
             if (new DefaultUserContext().isSavePwdInWorkspaceFile()) {
-                data.put(defaultString(getId()) + "input.password." + i, current.descriptor().getPassword());
+                data.put(id + "input.password." + i, current.descriptor().getPassword());
             }
-            data.put(defaultString(getId()) + "input.range." + i, current.getPageSelection());
+            data.put(id + "input.range." + i, defaultString(current.pageSelection.get()));
+            data.put(id + "input.step." + i, defaultString(current.pace.get()));
+            data.put(id + "input.reverse." + i, Boolean.toString(current.reverse.get()));
         });
     }
 
@@ -465,7 +468,11 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
                     PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptor(new File(f),
                             data.get(id + "input.password." + i));
                     loadEvent.add(descriptor);
-                    items.add(new SelectionTableRowData(descriptor, data.get(id + "input.range." + i)));
+                    SelectionTableRowData row = new SelectionTableRowData(descriptor);
+                    row.pageSelection.set(data.get(id + "input.range." + i));
+                    row.pace.set(data.get(id + "input.step." + i));
+                    row.reverse.set(Boolean.valueOf(data.get(id + "input.reverse." + i)));
+                    items.add(row);
                 });
             });
             getItems().addAll(items);

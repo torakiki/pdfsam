@@ -219,14 +219,22 @@ public class SelectionTableTest extends GuiTest {
         data.put("victiminput.0", "chuck.pdf");
         data.put("victiminput.password.0", "pwd");
         data.put("victiminput.range.0", "1-10");
+        data.put("victiminput.step.0", "4");
+        data.put("victiminput.reverse.0", "true");
         data.put("victiminput.1", "norris.pdf");
         FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
         assertEquals(2, victim.getItems().size());
         SelectionTableRowData first = victim.getItems().get(0);
         assertEquals("chuck.pdf", first.descriptor().getFileName());
         assertEquals("pwd", first.descriptor().getPassword());
-        assertEquals("1-10", first.getPageSelection());
-        assertEquals("norris.pdf", victim.getItems().get(1).descriptor().getFileName());
+        assertEquals("1-10", first.pageSelection.get());
+        assertEquals("4", first.pace.get());
+        assertTrue(first.reverse.get());
+        SelectionTableRowData second = victim.getItems().get(1);
+        assertEquals("norris.pdf", second.descriptor().getFileName());
+        assertNull(second.pageSelection.get());
+        assertEquals("1", second.pace.get());
+        assertFalse(second.reverse.get());
         verify(listener).onEvent(any());
     }
 
@@ -497,11 +505,11 @@ public class SelectionTableTest extends GuiTest {
         Optional<SelectionTableRowData> item = victim.getItems().stream()
                 .filter(i -> "temp.pdf".equals(i.descriptor().getFileName())).findFirst();
         assertTrue(item.isPresent());
-        item.get().setPageSelection("2");
+        item.get().pageSelection.set("2");
         Thread.sleep(1000);
         click("2").type(KeyCode.ENTER, KeyCode.DIGIT5);
         click("temp4.pdf");
-        assertEquals(item.get().getPageSelection(), "5");
+        assertEquals(item.get().pageSelection.get(), "5");
     }
 
     private PdfDocumentDescriptor populate() throws Exception {

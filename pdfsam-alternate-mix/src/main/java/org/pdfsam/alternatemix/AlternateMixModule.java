@@ -41,13 +41,13 @@ import org.pdfsam.ui.module.OpenButton;
 import org.pdfsam.ui.module.RunButton;
 import org.pdfsam.ui.support.Views;
 import org.sejda.eventstudio.annotation.EventStation;
-import org.sejda.model.input.PdfFileSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 /**
@@ -61,16 +61,14 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
 
     private static final String MODULE_ID = "alternatemix";
 
-    private AlternateMixSingleSelectionPane firstDocument;
-    private AlternateMixSingleSelectionPane secondDocument;
+    private AlternateMixSelectionPane selectionPane = new AlternateMixSelectionPane(MODULE_ID);
     private BrowsablePdfOutputField destinationFileField;
     private PdfDestinationPane destinationPane;
-    private AlternateMixOptionsPane optionsPane = new AlternateMixOptionsPane();
-    private ModuleDescriptor descriptor = builder().category(ModuleCategory.MERGE).inputTypes(ModuleInputOutputType.OTHER)
-            .name(DefaultI18nContext.getInstance().i18n("Alternate Mix"))
+    private ModuleDescriptor descriptor = builder().category(ModuleCategory.MERGE)
+            .inputTypes(ModuleInputOutputType.MULTIPLE_PDF).name(DefaultI18nContext.getInstance().i18n("Alternate Mix"))
             .description(DefaultI18nContext.getInstance()
-                    .i18n("Merge two PDF documents taking pages alternately in straight or reverse order."))
-            .priority(ModulePriority.DEFAULT.getPriority()).supportURL("http://www.pdfsam.org/alternate-mix").build();
+                    .i18n("Merge two or more PDF documents alternating between them in natural or reverse order."))
+            .priority(ModulePriority.DEFAULT.getPriority()).supportURL("http://www.pdfsam.org/mix-pdf/").build();
 
     @Inject
     public AlternateMixModule(@Named(MODULE_ID + "field") BrowsablePdfOutputField destinationFileField,
@@ -78,26 +76,7 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
         super(footer);
         this.destinationFileField = destinationFileField;
         this.destinationPane = destinationPane;
-        this.firstDocument = new AlternateMixSingleSelectionPane(id()) {
-            @Override
-            void onValidSource(AlternateMixParametersBuilder builder, PdfFileSource source) {
-                builder.first(source);
-            }
-        };
-        this.firstDocument.setId("firstDocumentMix");
-        this.firstDocument.setPromptText(
-                DefaultI18nContext.getInstance().i18n("Select or drag and drop the first PDF you want to mix"));
-        this.firstDocument.addOnLoaded(d -> optionsPane.setFirstDocumentMaxPages(d.pages().getValue()));
-        this.secondDocument = new AlternateMixSingleSelectionPane(id()) {
-            @Override
-            void onValidSource(AlternateMixParametersBuilder builder, PdfFileSource source) {
-                builder.second(source);
-            }
-        };
-        this.secondDocument.setId("secondDocumentMix");
-        this.secondDocument.setPromptText(
-                DefaultI18nContext.getInstance().i18n("Select or drag and drop the second PDF you want to mix"));
-        this.secondDocument.addOnLoaded(d -> optionsPane.setSecondDocumentMaxPages(d.pages().getValue()));
+
     }
 
     @Override
@@ -107,18 +86,14 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
 
     @Override
     public void onSaveWorkspace(Map<String, String> data) {
-        firstDocument.saveStateTo(data);
-        secondDocument.saveStateTo(data);
-        optionsPane.saveStateTo(data);
+        selectionPane.saveStateTo(data);
         destinationFileField.saveStateTo(data);
         destinationPane.saveStateTo(data);
     }
 
     @Override
     public void onLoadWorkspace(Map<String, String> data) {
-        firstDocument.restoreStateFrom(data);
-        secondDocument.restoreStateFrom(data);
-        optionsPane.restoreStateFrom(data);
+        selectionPane.restoreStateFrom(data);
         destinationFileField.restoreStateFrom(data);
         destinationPane.restoreStateFrom(data);
     }
@@ -127,9 +102,9 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
     protected VBox getInnerPanel() {
         VBox pane = new VBox();
         pane.setAlignment(Pos.TOP_CENTER);
+        VBox.setVgrow(selectionPane, Priority.ALWAYS);
 
-        pane.getChildren().addAll(firstDocument, secondDocument,
-                Views.titledPane(DefaultI18nContext.getInstance().i18n("Mix settings"), optionsPane),
+        pane.getChildren().addAll(selectionPane,
                 Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination file"), destinationPane));
         return pane;
     }
@@ -148,11 +123,9 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
     @Override
     protected AlternateMixParametersBuilder getBuilder(Consumer<String> onError) {
         AlternateMixParametersBuilder builder = new AlternateMixParametersBuilder();
-        firstDocument.apply(builder, onError);
-        secondDocument.apply(builder, onError);
+        selectionPane.apply(builder, onError);
         destinationFileField.apply(builder, onError);
         destinationPane.apply(builder, onError);
-        optionsPane.apply(builder, onError);
         return builder;
     }
 

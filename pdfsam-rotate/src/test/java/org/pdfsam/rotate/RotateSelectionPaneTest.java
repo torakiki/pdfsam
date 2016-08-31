@@ -93,7 +93,7 @@ public class RotateSelectionPaneTest {
     public void notEmptyPageSelection() throws Exception {
         populate();
         when(builder.hasInput()).thenReturn(Boolean.TRUE);
-        victim.table().getItems().get(0).setPageSelection("1,3-10");
+        victim.table().getItems().get(0).pageSelection.set("1,3-10");
         victim.apply(builder, onError);
         verify(onError, never()).accept(anyString());
         ArgumentCaptor<Set> ranges = ArgumentCaptor.forClass(Set.class);
@@ -113,7 +113,7 @@ public class RotateSelectionPaneTest {
     @Test
     public void emptyByZeroPagesSelected() throws Exception {
         populate();
-        victim.table().getItems().get(0).setPageSelection("0");
+        victim.table().getItems().get(0).pageSelection.set("0");
         victim.apply(builder, onError);
         verify(onError).accept(anyString());
         verify(builder, never()).addInput(any(), any());

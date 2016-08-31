@@ -33,7 +33,7 @@ import javafx.util.Callback;
  * @param <T>
  *            type of the column data
  */
-public interface SelectionTableColumn<T> {
+public interface SelectionTableColumn<T> extends TableColumnProvider<T> {
 
     /**
      * @return the title for the column
@@ -94,6 +94,7 @@ public interface SelectionTableColumn<T> {
      */
     ObservableValue<T> getObservableValue(SelectionTableRowData data);
 
+    @Override
     default TableColumn<SelectionTableRowData, T> getTableColumn() {
         TableColumn<SelectionTableRowData, T> tableColumn = new TableColumn<>(getColumnTitle());
         tableColumn.setCellFactory(cellFactory());

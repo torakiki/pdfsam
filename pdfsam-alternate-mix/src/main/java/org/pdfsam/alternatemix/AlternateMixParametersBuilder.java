@@ -18,74 +18,48 @@
  */
 package org.pdfsam.alternatemix;
 
+import java.util.Set;
+
 import org.pdfsam.support.params.AbstractPdfOutputParametersBuilder;
 import org.pdfsam.support.params.SingleOutputTaskParametersBuilder;
-import org.sejda.model.input.PdfFileSource;
+import org.sejda.common.collection.NullSafeSet;
 import org.sejda.model.input.PdfMixInput;
 import org.sejda.model.output.FileTaskOutput;
-import org.sejda.model.parameter.AlternateMixParameters;
+import org.sejda.model.parameter.AlternateMixMultipleInputParameters;
 
 /**
- * Builder for the {@link AlternateMixParameters}
+ * Builder for the {@link AlternateMixMultipleInputParameters}
  * 
  * @author Andrea Vacondio
  *
  */
-class AlternateMixParametersBuilder extends AbstractPdfOutputParametersBuilder<AlternateMixParameters> implements
-        SingleOutputTaskParametersBuilder<AlternateMixParameters> {
+class AlternateMixParametersBuilder extends AbstractPdfOutputParametersBuilder<AlternateMixMultipleInputParameters>
+        implements SingleOutputTaskParametersBuilder<AlternateMixMultipleInputParameters> {
 
     private FileTaskOutput output;
-    private PdfFileSource firstSource;
-    private PdfFileSource secondSource;
-    private boolean reverseFirst;
-    private boolean reverseSecond;
-    private int stepFirst = 1;
-    private int stepSecond = 1;
+    private Set<PdfMixInput> inputs = new NullSafeSet<>();
 
     @Override
     public void output(FileTaskOutput output) {
         this.output = output;
     }
 
-    AlternateMixParametersBuilder first(PdfFileSource firstSource) {
-        this.firstSource = firstSource;
-        return this;
+    void addInput(PdfMixInput input) {
+        this.inputs.add(input);
     }
 
-    AlternateMixParametersBuilder second(PdfFileSource secondSource) {
-        this.secondSource = secondSource;
-        return this;
-    }
-
-    AlternateMixParametersBuilder reverseFirst(boolean reverseFirst) {
-        this.reverseFirst = reverseFirst;
-        return this;
-    }
-
-    AlternateMixParametersBuilder reverseSecond(boolean reverseSecond) {
-        this.reverseSecond = reverseSecond;
-        return this;
-    }
-
-    AlternateMixParametersBuilder stepFirst(int stepFirst) {
-        this.stepFirst = stepFirst;
-        return this;
-    }
-
-    AlternateMixParametersBuilder stepSecond(int stepSecond) {
-        this.stepSecond = stepSecond;
-        return this;
+    boolean hasInput() {
+        return !inputs.isEmpty();
     }
 
     @Override
-    public AlternateMixParameters build() {
-        PdfMixInput firstInput = new PdfMixInput(firstSource, reverseFirst, stepFirst);
-        PdfMixInput secondInput = new PdfMixInput(secondSource, reverseSecond, stepSecond);
-        AlternateMixParameters params = new AlternateMixParameters(firstInput, secondInput);
+    public AlternateMixMultipleInputParameters build() {
+        AlternateMixMultipleInputParameters params = new AlternateMixMultipleInputParameters();
         params.setCompress(isCompress());
         params.setExistingOutputPolicy(existingOutput());
         params.setVersion(getVersion());
         params.setOutput(output);
+        inputs.forEach(params::addInput);
         return params;
     }
 }
