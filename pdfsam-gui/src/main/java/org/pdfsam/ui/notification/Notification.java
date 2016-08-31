@@ -48,6 +48,7 @@ class Notification extends BorderPane {
         setId(UUID.randomUUID().toString());
         Label titleLabel = new Label(title);
         titleLabel.getStyleClass().add("notification-title");
+        content.getStyleClass().add("notification-content");
         BorderPane.setAlignment(content, Pos.CENTER_LEFT);
         setTop(titleLabel);
         setCenter(content);

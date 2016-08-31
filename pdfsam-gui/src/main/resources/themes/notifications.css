@@ -15,7 +15,7 @@
  	-fx-background-color: -fx-box-border, -pdfsam-tooltipbg-color;
     -fx-background-insets: 0.0, 1.0;
     -fx-background-radius: 0.0, 0.0;
-	-fx-padding: 2.0 8.0 8.0 8.0 ;
+	-fx-padding: 2.0 0.0 8.0 0.0 ;
 	-fx-effect: dropshadow(three-pass-box, -pdfsam-dark-text-color, 10.0, 0.0, 0.0, 3.0);
 	-fx-max-width: 320.0px;
     -fx-min-width: 320.0px;
@@ -24,7 +24,11 @@
 .notification-title{
 	-fx-font-size: 1.2em;
     -fx-font-weight: bold;
-    -fx-padding: 8.0 0.0 4.0 0.0;
+    -fx-padding: 8.0 8.0 4.0 8.0;
+}
+
+.notification-content{
+    -fx-padding: 0.0 8.0 0.0 8.0;
 }
 
 .notification-text{
@@ -32,18 +36,22 @@
 	-fx-wrap-text: true;
 	-fx-graphic-text-gap: 8.0px;
 }
+
 .notification-error > .glyph-icon {
     -fx-effect: null;
     -fx-fill: -pdfsam-error-color;
 }
+
 .notification-warn > .glyph-icon  {
     -fx-effect: null;
     -fx-fill: #EEAD69;
 }
+
 .notification-info > .glyph-icon  {
     -fx-effect: null;
     -fx-fill: -pdfsam-info-color;
 }
+
 .notification-pro  > .glyph-icon {
     -fx-effect: null;
     -fx-fill: -pdfsam-theme-color;
