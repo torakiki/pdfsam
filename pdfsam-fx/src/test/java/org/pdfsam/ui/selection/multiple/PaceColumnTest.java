@@ -35,7 +35,7 @@ public class PaceColumnTest {
     public void getObservableValue() {
         File file = mock(File.class);
         SelectionTableRowData data = new SelectionTableRowData(PdfDocumentDescriptor.newDescriptorNoPassword(file));
-        data.pageSelection.set("2");
+        data.pace.set("2");
         assertEquals("2", new PaceColumn().getObservableValue(data).getValue());
     }
 
