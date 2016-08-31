@@ -75,6 +75,7 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned, 
         version = new PdfVersionCombo(ownerModule);
         compress = new PdfVersionConstrainedCheckBox(PdfVersion.VERSION_1_5, ownerModule);
         compress.setText(DefaultI18nContext.getInstance().i18n("Compress output file/files"));
+        compress.setSelected(true);
         if (asList(optionalFields).contains(DestinationPanelFields.DISCARD_BOOKMARKS)) {
             CheckBox discardBookmarksField = new CheckBox(DefaultI18nContext.getInstance().i18n("Discard bookmarks"));
             discardBookmarksField.setGraphic(helpIcon(DefaultI18nContext.getInstance()
