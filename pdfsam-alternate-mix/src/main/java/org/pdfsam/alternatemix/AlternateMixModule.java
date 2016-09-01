@@ -93,6 +93,21 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
 
     @Override
     public void onLoadWorkspace(Map<String, String> data) {
+        // backwards comp when alternate mix had 2 inputs
+        if (data.containsKey("firstDocumentMixinput")) {
+            data.put("input.0", data.get("firstDocumentMixinput"));
+            data.put("input.password.0", data.get("firstDocumentMixinputinput.password"));
+            data.put("input.step.0", data.get("firstStep"));
+            data.put("input.reverse.0", data.get("reverseFirst"));
+            data.put("input.size", "1");
+            if (data.containsKey("secondDocumentMixinput")) {
+                data.put("input.1", data.get("secondDocumentMixinput"));
+                data.put("input.password.1", data.get("secondDocumentMixinput.password"));
+                data.put("input.step.1", data.get("secondStep"));
+                data.put("input.reverse.1", data.get("reverseSecond"));
+                data.put("input.size", "2");
+            }
+        }
         selectionPane.restoreStateFrom(data);
         destinationFileField.restoreStateFrom(data);
         destinationPane.restoreStateFrom(data);
