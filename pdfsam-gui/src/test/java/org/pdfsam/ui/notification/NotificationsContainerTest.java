@@ -19,12 +19,14 @@
 package org.pdfsam.ui.notification;
 
 import static org.junit.Assert.assertNotNull;
-import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
+import org.loadui.testfx.utils.FXTestUtils;
+import org.pdfsam.test.InitializeJavaFxThreadRule;
+
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 
 /**
  * @author Andrea Vacondio
@@ -33,23 +35,23 @@ import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 public class NotificationsContainerTest {
 
     @Rule
-    public InitializeAndApplyJavaFxThreadRule javaFxThread = new InitializeAndApplyJavaFxThreadRule();
+    public InitializeJavaFxThreadRule javaFxThread = new InitializeJavaFxThreadRule();
 
     @Test
-    public void addNotification() {
+    public void addNotification() throws Exception {
         NotificationsContainer victim = new NotificationsContainer();
         HBox node = new HBox(new Label("Chuck"));
         node.setId("chuck");
         victim.addNotification("myTitle", node);
-        assertNotNull(victim.lookup("#chuck"));
+        FXTestUtils.invokeAndWait(() -> assertNotNull(victim.lookup("#chuck")), 1);
     }
 
     @Test
-    public void addStickyNotification() {
+    public void addStickyNotification() throws Exception {
         NotificationsContainer victim = new NotificationsContainer();
         Label node = new Label("Chuck");
         node.setId("chuck");
         victim.addStickyNotification("myTitle", node);
-        assertNotNull(victim.lookup("#chuck"));
+        FXTestUtils.invokeAndWait(() -> assertNotNull(victim.lookup("#chuck")), 1);
     }
 }
