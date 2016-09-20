@@ -40,6 +40,6 @@ public class UpdateAvailableEventTest {
     @Test
     public void notNullArg() {
         UpdateAvailableEvent victim = new UpdateAvailableEvent("ChuckNorris");
-        assertEquals("ChuckNorris", victim.getAvailableVersion());
+        assertEquals("ChuckNorris", victim.availableVersion);
     }
 }

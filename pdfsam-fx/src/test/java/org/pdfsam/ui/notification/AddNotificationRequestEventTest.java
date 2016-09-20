@@ -46,8 +46,8 @@ public class AddNotificationRequestEventTest {
     @Test
     public void positive() {
         AddNotificationRequestEvent victim = new AddNotificationRequestEvent(NotificationType.INFO, "message", "title");
-        assertEquals("message", victim.getMessage());
-        assertEquals("title", victim.getTitle());
-        assertEquals(NotificationType.INFO, victim.getType());
+        assertEquals("message", victim.message);
+        assertEquals("title", victim.title);
+        assertEquals(NotificationType.INFO, victim.type);
     }
 }

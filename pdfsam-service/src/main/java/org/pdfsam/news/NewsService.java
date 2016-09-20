@@ -44,6 +44,16 @@ public interface NewsService {
     void setLatestNewsSeen(int id);
 
     /**
+     * @return the latest important news id the user has seen or -1 if the news panel was never open
+     */
+    int getLatestImportantNewsSeen();
+
+    /**
+     * sets the id of the latest important news seen
+     */
+    void setLatestImportantNewsSeen(int id);
+
+    /**
      * clear all stored information about the latest news
      */
     void clear();

@@ -31,6 +31,7 @@ import org.pdfsam.Pdfsam;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.UsageService;
+import org.pdfsam.news.NewImportantNews;
 import org.pdfsam.update.UpdateAvailableEvent;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.model.exception.InvalidTaskParametersException;
@@ -74,7 +75,7 @@ public class NotificationsController {
 
     @EventListener
     public void onAddRequest(AddNotificationRequestEvent event) {
-        container.addNotification(event.getTitle(), buildLabel(event.getMessage(), event.getType()));
+        container.addNotification(event.title, buildLabel(event.message, event.type));
     }
 
     private Label buildLabel(String message, NotificationType type) {
@@ -141,18 +142,27 @@ public class NotificationsController {
 
     @EventListener
     public void onRemoveRequest(RemoveNotificationRequestEvent event) {
-        container.removeNotification(event.getNotificationId());
+        container.removeNotification(event.notificationId);
     }
 
     @EventListener
     public void onUpdateAvailable(UpdateAvailableEvent event) {
         VBox content = new VBox(3,
                 buildLabel(DefaultI18nContext.getInstance().i18n("PDFsam {0} is available for download",
-                        event.getAvailableVersion()), NotificationType.INFO),
+                        event.availableVersion), NotificationType.INFO),
                 styledUrlButton(DefaultI18nContext.getInstance().i18n("Download"),
                         pdfsam.property(ConfigurableProperty.DOWNLOAD_URL), null));
         content.setAlignment(Pos.TOP_RIGHT);
 
         container.addStickyNotification(DefaultI18nContext.getInstance().i18n("New version available"), content);
+    }
+
+    @EventListener
+    public void onNewImportantNews(NewImportantNews event) {
+        VBox content = new VBox(3, buildLabel(event.news.getContent(), null), styledUrlButton(
+                DefaultI18nContext.getInstance().i18n("Open"), event.news.getLink(), FontAwesomeIcon.EXTERNAL_LINK));
+        content.setAlignment(Pos.TOP_RIGHT);
+
+        container.addStickyNotification(event.news.getTitle(), content);
     }
 }

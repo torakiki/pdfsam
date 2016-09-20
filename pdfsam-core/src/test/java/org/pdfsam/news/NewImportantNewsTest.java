@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 11/apr/2014
+ * Created on 26 ott 2015
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,22 +16,13 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.notification;
+package org.pdfsam.news;
 
-import static org.pdfsam.support.RequireUtils.requireNotBlank;
+import org.junit.Test;
 
-/**
- * Request for a notification to be removed/hidden
- * 
- * @author Andrea Vacondio
- *
- */
-class RemoveNotificationRequestEvent {
-
-    public final String notificationId;
-
-    public RemoveNotificationRequestEvent(String notificationId) {
-        requireNotBlank(notificationId, "Cannot request to remove a notification without supplying the id");
-        this.notificationId = notificationId;
+public class NewImportantNewsTest {
+    @Test(expected = IllegalArgumentException.class)
+    public void invalidArg() {
+        new NewImportantNews(null);
     }
 }

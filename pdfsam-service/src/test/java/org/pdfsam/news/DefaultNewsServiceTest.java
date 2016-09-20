@@ -48,6 +48,14 @@ public class DefaultNewsServiceTest {
     }
 
     @Test
+    public void testSetLatestImportantNewsSeen() {
+        victim.clear();
+        assertEquals(-1, victim.getLatestImportantNewsSeen());
+        victim.setLatestImportantNewsSeen(5);
+        assertEquals(5, victim.getLatestImportantNewsSeen());
+    }
+
+    @Test
     public void testClear() {
         victim.setLatestNewsSeen(5);
         assertEquals(5, victim.getLatestNewsSeen());

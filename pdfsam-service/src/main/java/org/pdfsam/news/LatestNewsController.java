@@ -52,10 +52,15 @@ public class LatestNewsController {
     @EventListener
     public void fetchLatestNews(FetchLatestNewsRequest event) {
         LOG.debug(DefaultI18nContext.getInstance().i18n("Fetching latest news"));
-        CompletableFuture.supplyAsync(service::getLatestNews).thenAccept(current -> {
-            if (nonNull(current) && !current.isEmpty()) {
-                currentLatest = current.get(0).getId();
-                eventStudio().broadcast(new LatestNewsEvent(current, service.getLatestNewsSeen() >= currentLatest));
+        CompletableFuture.supplyAsync(service::getLatestNews).thenAcceptAsync(news -> {
+            if (nonNull(news) && !news.isEmpty()) {
+                currentLatest = news.get(0).getId();
+                eventStudio().broadcast(new LatestNewsEvent(news, service.getLatestNewsSeen() >= currentLatest));
+                news.stream().filter(n -> n.isImportant()).findFirst()
+                        .filter(n -> service.getLatestImportantNewsSeen() < n.getId()).ifPresent(n -> {
+                            service.setLatestImportantNewsSeen(n.getId());
+                            eventStudio().broadcast(new NewImportantNews(n));
+                        });
             }
         }).whenComplete((r, e) -> {
             if (nonNull(e)) {

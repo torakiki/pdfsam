@@ -34,8 +34,6 @@ import org.sejda.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javafx.application.Platform;
-
 /**
  * Component listening for updates related requests
  * 
@@ -62,7 +60,7 @@ public class UpdatesController {
         CompletableFuture.supplyAsync(service::getLatestVersion).thenAccept(current -> {
             if (isNotBlank(current) && !pdfsam.property(VERSION).equals(current)) {
                 LOG.info(DefaultI18nContext.getInstance().i18n("PDFsam {0} is available for download", current));
-                Platform.runLater(() -> eventStudio().broadcast(new UpdateAvailableEvent(current)));
+                eventStudio().broadcast(new UpdateAvailableEvent(current));
             }
         }).whenComplete((r, e) -> {
             if (nonNull(e)) {

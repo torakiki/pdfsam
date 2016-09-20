@@ -48,6 +48,7 @@ class DefaultNewsService implements NewsService {
     private static final Logger LOG = LoggerFactory.getLogger(DefaultNewsService.class);
     private static final String NEWS_PATH = "/org/pdfsam/user/news";
     private static final String LATEST_NEWS_ID = "latest.news.id";
+    private static final String LATEST_IMPORTANT_NEWS_ID = "latest.important.news.id";
     private Pdfsam pdfsam;
 
     @Inject
@@ -67,14 +68,25 @@ class DefaultNewsService implements NewsService {
     }
 
     @Override
+    public int getLatestNewsSeen() {
+        return Preferences.userRoot().node(NEWS_PATH).getInt(LATEST_NEWS_ID, -1);
+    }
+
+    @Override
     public void setLatestNewsSeen(int id) {
         Preferences.userRoot().node(NEWS_PATH).putInt(LATEST_NEWS_ID, id);
         LOG.trace("Latest news id stored");
     }
 
     @Override
-    public int getLatestNewsSeen() {
-        return Preferences.userRoot().node(NEWS_PATH).getInt(LATEST_NEWS_ID, -1);
+    public int getLatestImportantNewsSeen() {
+        return Preferences.userRoot().node(NEWS_PATH).getInt(LATEST_IMPORTANT_NEWS_ID, -1);
+    }
+
+    @Override
+    public void setLatestImportantNewsSeen(int id) {
+        Preferences.userRoot().node(NEWS_PATH).putInt(LATEST_IMPORTANT_NEWS_ID, id);
+        LOG.trace("Latest important news id stored");
     }
 
     @Override

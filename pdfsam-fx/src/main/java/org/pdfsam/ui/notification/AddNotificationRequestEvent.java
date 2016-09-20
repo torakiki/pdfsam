@@ -28,9 +28,9 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
  *
  */
 public class AddNotificationRequestEvent {
-    private NotificationType type;
-    private String message;
-    private String title;
+    public final NotificationType type;
+    public final String message;
+    public final String title;
 
     public AddNotificationRequestEvent(NotificationType type, String message, String title) {
         requireNotNull(type, "Notification type cannot be null");
@@ -38,18 +38,6 @@ public class AddNotificationRequestEvent {
         this.type = type;
         this.message = message;
         this.title = title;
-    }
-
-    public NotificationType getType() {
-        return type;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public String getTitle() {
-        return title;
     }
 
 }

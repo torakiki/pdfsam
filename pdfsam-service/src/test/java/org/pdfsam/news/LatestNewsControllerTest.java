@@ -71,14 +71,58 @@ public class LatestNewsControllerTest {
         when(service.getLatestNewsSeen()).thenReturn(5);
 
         Listener<LatestNewsEvent> listener = mock(Listener.class);
+        Listener<NewImportantNews> listenerImportantNews = mock(Listener.class);
         eventStudio().add(LatestNewsEvent.class, listener);
+        eventStudio().add(NewImportantNews.class, listenerImportantNews);
         victim.fetchLatestNews(FetchLatestNewsRequest.INSTANCE);
         verify(service, timeout(1000).times(1)).getLatestNews();
         ArgumentCaptor<LatestNewsEvent> captor = ArgumentCaptor.forClass(LatestNewsEvent.class);
         verify(listener, timeout(1000).times(1)).onEvent(captor.capture());
+        verify(listenerImportantNews, never()).onEvent(any());
         assertTrue(captor.getValue().isUpToDate);
         assertEquals(1, captor.getValue().latestNews.size());
         assertEquals(data, captor.getValue().latestNews.get(0));
+    }
+
+    @Test
+    public void fetchLatestNewsWithImportant() {
+        NewsData data = new NewsData();
+        data.setId("5");
+        data.setImportant("true");
+        when(service.getLatestNews()).thenReturn(Arrays.asList(data));
+        when(service.getLatestNewsSeen()).thenReturn(5);
+        when(service.getLatestImportantNewsSeen()).thenReturn(3);
+
+        Listener<LatestNewsEvent> listener = mock(Listener.class);
+        Listener<NewImportantNews> listenerImportantNews = mock(Listener.class);
+        eventStudio().add(LatestNewsEvent.class, listener);
+        eventStudio().add(NewImportantNews.class, listenerImportantNews);
+        victim.fetchLatestNews(FetchLatestNewsRequest.INSTANCE);
+        verify(service, timeout(1000).times(1)).getLatestNews();
+        ArgumentCaptor<NewImportantNews> captor = ArgumentCaptor.forClass(NewImportantNews.class);
+        verify(listener, timeout(1000).times(1)).onEvent(any());
+        verify(listenerImportantNews, timeout(1000).times(1)).onEvent(captor.capture());
+        assertEquals(data, captor.getValue().news);
+    }
+
+    @Test
+    public void fetchLatestNewsWithImportantButSeen() {
+        NewsData data = new NewsData();
+        data.setId("5");
+        data.setImportant("true");
+        when(service.getLatestNews()).thenReturn(Arrays.asList(data));
+        when(service.getLatestNewsSeen()).thenReturn(5);
+        when(service.getLatestImportantNewsSeen()).thenReturn(5);
+
+        Listener<LatestNewsEvent> listener = mock(Listener.class);
+        Listener<NewImportantNews> listenerImportantNews = mock(Listener.class);
+        eventStudio().add(LatestNewsEvent.class, listener);
+        eventStudio().add(NewImportantNews.class, listenerImportantNews);
+        victim.fetchLatestNews(FetchLatestNewsRequest.INSTANCE);
+        verify(service, timeout(1000).times(1)).getLatestNews();
+        ArgumentCaptor<NewImportantNews> captor = ArgumentCaptor.forClass(NewImportantNews.class);
+        verify(listener, timeout(1000).times(1)).onEvent(any());
+        verify(listenerImportantNews, never()).onEvent(captor.capture());
     }
 
     @Test

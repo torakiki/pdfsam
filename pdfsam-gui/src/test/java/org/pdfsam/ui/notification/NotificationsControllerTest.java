@@ -26,6 +26,8 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.util.Collections;
+
 import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Rule;
@@ -34,6 +36,8 @@ import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.module.UsageService;
+import org.pdfsam.news.NewImportantNews;
+import org.pdfsam.news.NewsData;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.update.UpdateAvailableEvent;
@@ -101,7 +105,8 @@ public class NotificationsControllerTest {
 
     @Test
     public void onInvalidParameters() {
-        TaskExecutionFailedEvent event = new TaskExecutionFailedEvent(new InvalidTaskParametersException(), null);
+        TaskExecutionFailedEvent event = new TaskExecutionFailedEvent(
+                new InvalidTaskParametersException("", Collections.emptyList()), null);
         victim.onTaskFailed(event);
         verify(container).addNotification(anyString(), any());
     }
@@ -128,5 +133,16 @@ public class NotificationsControllerTest {
         when(service.getTotalUsage()).thenReturn(5L);
         victim.onTaskCompleted(new TaskExecutionCompletedEvent(1, null));
         verify(container, never()).addStickyNotification(anyString(), any());
+    }
+
+    @Test
+    public void onNewImportantNews() {
+        NewsData data = new NewsData();
+        data.setTitle("title");
+        data.setContent("content");
+        data.setLink("link");
+        NewImportantNews event = new NewImportantNews(data);
+        victim.onNewImportantNews(event);
+        verify(container).addStickyNotification(eq("title"), any());
     }
 }

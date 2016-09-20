@@ -22,7 +22,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /**
- * JavaBean used as data model for a single news and used to unmashal a json
+ * JavaBean used as data model for a single news and used to unmarshal a json
  * 
  * @author Andrea Vacondio
  */
