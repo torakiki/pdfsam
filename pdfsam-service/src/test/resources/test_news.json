@@ -1,0 +1,10 @@
+[
+{
+      "id": "21",
+      "title" : "news-title",
+      "content": "news-content",
+      "date": "20160809",
+      "link": "http://www.pdfsam.org/",
+      "important": true
+    }
+]

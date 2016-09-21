@@ -19,10 +19,20 @@
 package org.pdfsam.news;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
+import java.io.File;
+import java.util.List;
+
+import org.apache.commons.io.FileUtils;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TemporaryFolder;
+import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
 
 /**
@@ -31,11 +41,15 @@ import org.pdfsam.Pdfsam;
  */
 public class DefaultNewsServiceTest {
 
+    @Rule
+    public TemporaryFolder folder = new TemporaryFolder();
+
     private DefaultNewsService victim;
+    private Pdfsam pdfsam;
 
     @Before
     public void setUp() {
-        Pdfsam pdfsam = mock(Pdfsam.class);
+        pdfsam = mock(Pdfsam.class);
         victim = new DefaultNewsService(pdfsam);
     }
 
@@ -61,6 +75,21 @@ public class DefaultNewsServiceTest {
         assertEquals(5, victim.getLatestNewsSeen());
         victim.clear();
         assertEquals(-1, victim.getLatestNewsSeen());
+    }
+
+    @Test
+    public void testGetLatestNews() throws Exception {
+        File file = folder.newFile();
+        FileUtils.copyInputStreamToFile(getClass().getResourceAsStream("/test_news.json"), file);
+        when(pdfsam.property(ConfigurableProperty.NEWS_URL)).thenReturn(file.toURI().toString());
+        List<NewsData> news = victim.getLatestNews();
+        assertEquals(1, news.size());
+        assertEquals("news-title", news.get(0).getTitle());
+        assertEquals("news-content", news.get(0).getContent());
+        assertEquals(21, news.get(0).getId());
+        assertEquals("http://www.pdfsam.org/", news.get(0).getLink());
+        assertNotNull(news.get(0).getDate());
+        assertTrue(news.get(0).isImportant());
     }
 
 }
