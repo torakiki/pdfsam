@@ -220,7 +220,7 @@
 		<org.springframework.version>4.3.2.RELEASE</org.springframework.version>
 		<fontawesomefx.version>8.9</fontawesomefx.version>
 		<testfx.version>3.1.2</testfx.version>
-		<jackson-jr.version>2.4.1</jackson-jr.version>
+		<jackson-jr.version>2.8.3</jackson-jr.version>
 		<tempus.fugit.version>1.1</tempus.fugit.version>
 		<bouncycastle.version>1.54</bouncycastle.version>
 		<maven.build.timestamp.format>dd-MMM-yyyy</maven.build.timestamp.format>
