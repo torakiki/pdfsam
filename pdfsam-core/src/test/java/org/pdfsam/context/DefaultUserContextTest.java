@@ -59,9 +59,9 @@ public class DefaultUserContextTest {
     @Test
     public void isCheckForNews() {
         victim.setBooleanPreference(BooleanUserPreference.CHECK_FOR_NEWS, false);
-        assertFalse(victim.isCheckForUpdates());
+        assertFalse(victim.isCheckForNews());
         victim.setBooleanPreference(BooleanUserPreference.CHECK_FOR_NEWS, true);
-        assertTrue(victim.isCheckForUpdates());
+        assertTrue(victim.isCheckForNews());
     }
 
     @Test
