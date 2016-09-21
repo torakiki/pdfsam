@@ -25,5 +25,9 @@ package org.pdfsam.update;
  * 
  */
 public class UpdateCheckRequest {
-    // nothing
+    public static final UpdateCheckRequest INSTANCE = new UpdateCheckRequest();
+
+    private UpdateCheckRequest() {
+        // hide
+    }
 }

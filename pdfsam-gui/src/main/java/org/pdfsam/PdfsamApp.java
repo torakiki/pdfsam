@@ -134,7 +134,7 @@ public class PdfsamApp extends Application {
         startLogAppender();
         Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger());
         initSejda();
-        cleanIfNeeded();
+        cleanIfRequired();
         primaryStage.setScene(initScene());
         primaryStage.getIcons().addAll(ApplicationContextHolder.getContext().getBeansOfType(Image.class).values());
         primaryStage.setTitle(ApplicationContextHolder.getContext().getBean(Pdfsam.class).name());
@@ -146,8 +146,8 @@ public class PdfsamApp extends Application {
         initOpenButtons();
         primaryStage.show();
 
-        requestCheckForUpdateIfNecessary();
-        requestLatestNews();
+        requestCheckForUpdateIfRequired();
+        requestLatestNewsIfRequired();
         eventStudio().addAnnotatedListeners(this);
         closeSplash();
         STOPWATCH.stop();
@@ -203,13 +203,13 @@ public class PdfsamApp extends Application {
         ApplicationContextHolder.getContext().close();
     }
 
-    private static void requestCheckForUpdateIfNecessary() {
+    private static void requestCheckForUpdateIfRequired() {
         if (ApplicationContextHolder.getContext().getBean(UserContext.class).isCheckForUpdates()) {
-            eventStudio().broadcast(new UpdateCheckRequest());
+            eventStudio().broadcast(UpdateCheckRequest.INSTANCE);
         }
     }
 
-    private void cleanIfNeeded() {
+    private void cleanIfRequired() {
         if (clean) {
             LOG.debug("Cleaning...");
             ApplicationContextHolder.getContext().getBean(NewsService.class).clear();
@@ -217,8 +217,10 @@ public class PdfsamApp extends Application {
         }
     }
 
-    private static void requestLatestNews() {
-        eventStudio().broadcast(FetchLatestNewsRequest.INSTANCE);
+    private static void requestLatestNewsIfRequired() {
+        if (ApplicationContextHolder.getContext().getBean(UserContext.class).isCheckForNews()) {
+            eventStudio().broadcast(FetchLatestNewsRequest.INSTANCE);
+        }
     }
 
     @EventListener

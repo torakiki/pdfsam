@@ -26,6 +26,7 @@ package org.pdfsam.context;
  */
 public enum BooleanUserPreference {
     CHECK_UPDATES,
+    CHECK_FOR_NEWS,
     PLAY_SOUNDS,
     DONATION_NOTIFICATION,
     HIGH_QUALITY_THUMB,

@@ -106,6 +106,11 @@ public final class DefaultUserContext implements UserContext {
     }
 
     @Override
+    public boolean isCheckForNews() {
+        return prefs.getBoolean(BooleanUserPreference.CHECK_FOR_NEWS.toString(), Boolean.TRUE);
+    }
+
+    @Override
     public boolean isSavePwdInWorkspaceFile() {
         return prefs.getBoolean(BooleanUserPreference.SAVE_PWD_IN_WORKSPACE.toString(), Boolean.FALSE);
     }

@@ -57,6 +57,11 @@ public interface UserContext {
     boolean isCheckForUpdates();
 
     /**
+     * @return if news check should be performed
+     */
+    boolean isCheckForNews();
+
+    /**
      * @return true if documents password should be saved when saving a workspace
      */
     boolean isSavePwdInWorkspaceFile();
@@ -114,4 +119,5 @@ public interface UserContext {
      * @param value
      */
     void setStringPreference(StringUserPreference pref, String value);
+
 }

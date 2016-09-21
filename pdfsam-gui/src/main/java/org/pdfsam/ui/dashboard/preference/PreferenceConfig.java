@@ -101,6 +101,19 @@ public class PreferenceConfig {
         return checkForUpdates;
     }
 
+    @Bean(name = "checkForNews")
+    public PreferenceCheckBox checkForNews() {
+        PreferenceCheckBox checkForNews = new PreferenceCheckBox(BooleanUserPreference.CHECK_FOR_NEWS,
+                DefaultI18nContext.getInstance().i18n("Check for news at startup"), userContext.isCheckForNews(),
+                userContext);
+        checkForNews.setId("checkForNews");
+        checkForNews.setGraphic(helpIcon(DefaultI18nContext.getInstance()
+                .i18n("Set whether the application should check for news availability on startup (restart needed)")));
+        checkForNews.getStyleClass().addAll(Style.WITH_HELP.css());
+        checkForNews.getStyleClass().add("spaced-vitem");
+        return checkForNews;
+    }
+
     @Bean(name = "playSounds")
     public PreferenceCheckBox playSounds() {
         PreferenceCheckBox playSounds = new PreferenceCheckBox(BooleanUserPreference.PLAY_SOUNDS,

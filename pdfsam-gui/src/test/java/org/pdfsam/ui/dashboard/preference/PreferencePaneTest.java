@@ -79,6 +79,7 @@ public class PreferencePaneTest {
         public UserContext userContext() {
             when(userContext.getTheme()).thenReturn(Theme.ROUNDISH.toString());
             when(userContext.isCheckForUpdates()).thenReturn(Boolean.TRUE);
+            when(userContext.isCheckForNews()).thenReturn(Boolean.TRUE);
             when(userContext.isPlaySounds()).thenReturn(Boolean.TRUE);
             when(userContext.isDonationNotification()).thenReturn(Boolean.TRUE);
             when(userContext.isUseSmartOutput()).thenReturn(Boolean.TRUE);
@@ -105,14 +106,13 @@ public class PreferencePaneTest {
                 .lookup("#startupModuleCombo");
         assertEquals(Theme.ROUNDISH.friendlyName(), theme.getSelectionModel().getSelectedItem().getValue());
         assertTrue(((PreferenceCheckBox) victim.lookup("#checkForUpdates")).isSelected());
+        assertTrue(((PreferenceCheckBox) victim.lookup("#checkForNews")).isSelected());
         assertTrue(((PreferenceCheckBox) victim.lookup("#playSounds")).isSelected());
-        // assertTrue(((PreferenceCheckBox) victim.lookup("#highQualityThumbnails")).isSelected());
         assertTrue(((PreferenceRadioButton) victim.lookup("#smartRadio")).isSelected());
         assertEquals("/my/path.xml", ((PreferenceBrowsableFileField) victim.lookup("#workspace")).getTextField()
                 .getText());
         assertEquals("/my/path", ((PreferenceBrowsableDirectoryField) victim.lookup("#workingDirectory"))
                 .getTextField().getText());
-        // assertEquals("200", ((PreferenceIntTextField) victim.lookup("#thumbnailsSize")).getText());
         assertEquals(DefaultI18nContext.getInstance().i18n("Dashboard"),
                 startupModuleCombo.getSelectionModel().getSelectedItem().getValue());
     }

@@ -57,6 +57,14 @@ public class DefaultUserContextTest {
     }
 
     @Test
+    public void isCheckForNews() {
+        victim.setBooleanPreference(BooleanUserPreference.CHECK_FOR_NEWS, false);
+        assertFalse(victim.isCheckForUpdates());
+        victim.setBooleanPreference(BooleanUserPreference.CHECK_FOR_NEWS, true);
+        assertTrue(victim.isCheckForUpdates());
+    }
+
+    @Test
     public void isSaveWokspaceOnExit() {
         victim.setBooleanPreference(BooleanUserPreference.SAVE_WORKSPACE_ON_EXIT, false);
         assertFalse(victim.isSaveWorkspaceOnExit());
