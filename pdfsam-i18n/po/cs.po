@@ -7,15 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-06-22 17:45+0200\n"
+"POT-Creation-Date: 2016-09-21 12:10+0200\n"
 "PO-Revision-Date: 2016-01-19 19:15+0000\n"
 "Last-Translator: Petr Katerinak <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
-"X-Generator: Launchpad (build 18115)\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Launchpad-Export-Date: 2016-09-25 08:41+0000\n"
+"X-Generator: Launchpad (build 18204)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Odebírat oficiální novinky"
@@ -193,6 +194,14 @@ msgid ""
 msgstr ""
 "Nastaví zjišťování novějších verzí po spuštění aplikace (je potřeba restart)"
 
+msgid "Check for news at startup"
+msgstr ""
+
+msgid ""
+"Set whether the application should check for news availability on startup "
+"(restart needed)"
+msgstr ""
+
 msgid "Play alert sounds"
 msgstr "Přehrávat upozornění"
 
@@ -362,8 +371,19 @@ msgstr "Stáhnout"
 msgid "New version available"
 msgstr "Nová verze je k dispozici"
 
+msgid "Open"
+msgstr "Otevřít"
+
 msgid "Non existing directory"
 msgstr "Neexistující adresář"
+
+msgid "Open with"
+msgstr ""
+
+msgid "Select the task to perform on the following file"
+msgid_plural "Select the task to perform on the following files"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Directory not empty"
 msgstr "Adresář není prázdný"
@@ -530,44 +550,18 @@ msgid "Alternate Mix"
 msgstr "Alternativní míchání souborů"
 
 msgid ""
-"Merge two PDF documents taking pages alternately in straight or reverse "
-"order."
-msgstr "Spojí dva dokumenty s přímým nebo obráceným střídáním stran"
-
-msgid "Select or drag and drop the first PDF you want to mix"
-msgstr "Vyberte nebo přetáhněte první PDF pro smíchání"
-
-msgid "Select or drag and drop the second PDF you want to mix"
-msgstr "Vyberte nebo přetáhněte druhé PDF pro smíchání"
-
-msgid "Mix settings"
-msgstr "Nastavení míchání"
+"Merge two or more PDF documents taking pages alternately in natural or "
+"reverse order."
+msgstr ""
 
 msgid "Destination file"
 msgstr "Cílový soubor"
 
-msgid "Reverse the first document"
-msgstr "Obrátit první dokument"
+msgid "No PDF document has been selected"
+msgstr "Nebylo vybráno žádné PDF"
 
-msgid "Reverse the second document"
-msgstr "Obrátit druhý dokument"
-
-msgid ""
-"Switch from the first document to the second one after the following pages"
-msgstr "Změnit první dokument na druhý po následovném počtu stránek"
-
-msgid ""
-"Switch from the second document to the first one after the following pages"
-msgstr "Změnit druhý dokument na první po následovném počtu stránek"
-
-msgid "Invalid parameter 'first and second step' must be numbers"
-msgstr "Neplatný parametr 'první a druhý krok' musí být čísla"
-
-msgid "Select a valid number of pages"
-msgstr "Zvolte správný počet stránek"
-
-msgid "The selected PDF document is invalid"
-msgstr "Vybrané PDF není v pořádku."
+msgid "Select a positive integer number as pace"
+msgstr ""
 
 msgid "Completed"
 msgstr "Hotovo"
@@ -611,9 +605,6 @@ msgstr "Přesunout zcela nahoru"
 
 msgid "Set destination"
 msgstr "Nastavit cíl"
-
-msgid "Open"
-msgstr "Otevřít"
 
 msgid "Open Folder"
 msgstr "Otevřít adresář"
@@ -759,14 +750,28 @@ msgstr "Posune zvolené dokumenty dolů"
 msgid "Move _Down"
 msgstr "Posunout _dolů"
 
+msgid "Pace"
+msgstr ""
+
+msgid ""
+"Double click to set the number of pages after which the task will switch to "
+"the next file"
+msgstr ""
+
 msgid "Size"
 msgstr "Velikost"
 
 msgid "Modified"
 msgstr "Změněno"
 
+msgid "Reverse"
+msgstr "Obrátit"
+
 msgid "Drag and drop PDF files here"
 msgstr "Přetáhněte PDF zde"
+
+msgid "The selected PDF document is invalid"
+msgstr "Vybrané PDF není v pořádku."
 
 msgid "Add a blank page if page number is odd"
 msgstr "Přidat prázdnou stránku, pokud je počet stránek lichý"
@@ -834,9 +839,6 @@ msgid ""
 msgstr ""
 "Dvakrát klikněte na stránky, které chcete sloučit (př: 2 nebo 5-23 nebo 2,5-"
 "7,12-)"
-
-msgid "No PDF document has been selected"
-msgstr "Nebylo vybráno žádné PDF"
 
 msgid "Merge"
 msgstr "Sloučit"
@@ -928,14 +930,14 @@ msgstr ""
 msgid "Extract"
 msgstr ""
 
-msgid "Extract pages from a PDF document."
-msgstr ""
-
-msgid "Select or drag and drop a PDF"
+msgid "Extract pages from PDF documents."
 msgstr ""
 
 msgid "Extract settings"
 msgstr ""
+
+msgid "Destination directory"
+msgstr "Cílový adresář"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -973,9 +975,6 @@ msgstr "Otočit stránky u více PDF."
 
 msgid "Rotate settings"
 msgstr "Nastavení rotace"
-
-msgid "Destination directory"
-msgstr "Cílový adresář"
 
 #~ msgid "Split even pages"
 #~ msgstr "Rozdělit za sudými stránkami"

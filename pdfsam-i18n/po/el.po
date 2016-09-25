@@ -7,15 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-06-22 17:45+0200\n"
-"PO-Revision-Date: 2016-05-19 19:14+0000\n"
-"Last-Translator: ntelos <Unknown>\n"
+"POT-Creation-Date: 2016-09-21 12:10+0200\n"
+"PO-Revision-Date: 2016-07-23 16:08+0000\n"
+"Last-Translator: George Melidis <melidis@gmail.com>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
-"X-Generator: Launchpad (build 18115)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Launchpad-Export-Date: 2016-09-25 08:41+0000\n"
+"X-Generator: Launchpad (build 18204)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Εγγραφείτε στην επίσημη ροή ειδήσεων"
@@ -197,6 +198,14 @@ msgstr ""
 "Ορίστε εάν επιθυμείτε να γίνεται έλεγχος διαθεσιμότητας νέας έκδοσης κατά "
 "την εκκίνηση (απαιτείται επανεκκίνηση)"
 
+msgid "Check for news at startup"
+msgstr ""
+
+msgid ""
+"Set whether the application should check for news availability on startup "
+"(restart needed)"
+msgstr ""
+
 msgid "Play alert sounds"
 msgstr "Αναπαραγωγή ήχων συναγερμού"
 
@@ -204,12 +213,14 @@ msgid "Turn on or off alert sounds"
 msgstr "Ενεργοποίηση ή απενεργοποίηση ήχων συναγερμού"
 
 msgid "Store passwords when saving a workspace file"
-msgstr ""
+msgstr "Αποθήκευση των κωδικών κατά την αποθήκευση του αρχείου εργασιών"
 
 msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
 "password in the workspace file"
 msgstr ""
+"Εάν ένα κρυπτογραφημένο PDF έγγραφο έχει ανοιχτεί με χρήση κωδικού, "
+"αποθήκευσε τον κωδικό στο αρχείο εργασίας"
 
 msgid "Show donation window"
 msgstr "Εμφάνιση παραθύρου δωρεάς"
@@ -381,8 +392,19 @@ msgstr "Λήψη"
 msgid "New version available"
 msgstr "Νέα έκδοση διαθέσιμη"
 
+msgid "Open"
+msgstr "Άνοιγμα"
+
 msgid "Non existing directory"
 msgstr "Ο κατάλογος δεν υπάρχει"
+
+msgid "Open with"
+msgstr ""
+
+msgid "Select the task to perform on the following file"
+msgid_plural "Select the task to perform on the following files"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Directory not empty"
 msgstr "Ο κατάλογος δεν είναι κενός"
@@ -555,55 +577,18 @@ msgid "Alternate Mix"
 msgstr "Εναλλακτική μείξη"
 
 msgid ""
-"Merge two PDF documents taking pages alternately in straight or reverse "
-"order."
+"Merge two or more PDF documents taking pages alternately in natural or "
+"reverse order."
 msgstr ""
-"Συγχώνευσε δύο PDF έγγραφα παίρνοντας σελίδες εναλλαξ από την αρχή ως το "
-"τέλος ή και αντίστροφα."
-
-msgid "Select or drag and drop the first PDF you want to mix"
-msgstr ""
-"Επιλεξτε η μεταφερετε και αποθεσατε το πρωτο PDF το οποιο θελετε να "
-"συγχωνευσετε"
-
-msgid "Select or drag and drop the second PDF you want to mix"
-msgstr ""
-"Επιλεξτε η μεταφερετε και αποθεσατε το δευτερο PDF το οποιο θελετε να "
-"συγχωνευσετε"
-
-msgid "Mix settings"
-msgstr "Ρυθμισεις συγχωνευσης"
 
 msgid "Destination file"
 msgstr "Αρχειο προορισμου"
 
-msgid "Reverse the first document"
-msgstr "Αντιστρεψτε το πρωτο αρχειο"
+msgid "No PDF document has been selected"
+msgstr "Δεν έχει επιλεγεί κάποιο έγγραφο PDF"
 
-msgid "Reverse the second document"
-msgstr "Αντιστρέψτε το δεύτερο αρχείο"
-
-msgid ""
-"Switch from the first document to the second one after the following pages"
+msgid "Select a positive integer number as pace"
 msgstr ""
-"Κάντε εναλλαγή από το πρώτο έγγραφο στο δεύτερο μετά από τις συγκεκριμένες "
-"σελίδες"
-
-msgid ""
-"Switch from the second document to the first one after the following pages"
-msgstr ""
-"Κάντε εναλλαγή από το δεύτερο έγγραφο στο πρώτο μετά από τις συγκεκριμένες "
-"σελίδες"
-
-msgid "Invalid parameter 'first and second step' must be numbers"
-msgstr ""
-"Μη έγκυρες παράμετροι 'το πρώτο και δεύτερο βήμα' πρέπει να είναι αριθμοί"
-
-msgid "Select a valid number of pages"
-msgstr "Επιλέξτε έναν έγκυρο αριθμό σελίδων"
-
-msgid "The selected PDF document is invalid"
-msgstr "Το συγκεκριμένο έγγραφο PDF είναι μη έγκυρο"
 
 msgid "Completed"
 msgstr "Ολοκληρώθηκε"
@@ -661,9 +646,6 @@ msgstr "Μετακίνηση στην αρχή"
 
 msgid "Set destination"
 msgstr "Ορισμός προορισμού"
-
-msgid "Open"
-msgstr "Άνοιγμα"
 
 msgid "Open Folder"
 msgstr "Άνοιγμα Φακέλου"
@@ -780,7 +762,7 @@ msgid "Prefix for the output files name."
 msgstr "Πρόθεμα για τα εξαγόμενα ονόματα αρχείων."
 
 msgid "Some special keywords are replaced with runtime values."
-msgstr ""
+msgstr "Μερικοί ειδικοί χαρακτήρες αντικαθίστανται με τιμές εκτέλεσης."
 
 msgid "Right click to add these keywords."
 msgstr "Κάντε δεξί κλικ για να προσθέσετε αυτές τις λέξεις-κλειδιά."
@@ -796,6 +778,7 @@ msgstr "Εισάγετε τον κωδικό χρήστη"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Διπλό κλικ για να ορίσετε επιλεγμένες σελίδες (π.χ.:  2 ή  5-23 ή 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "Εύρος σελίδων"
@@ -844,14 +827,28 @@ msgstr "Μετακινεί προς τα κάτω επιλεγμένα έγγρ�
 msgid "Move _Down"
 msgstr "Μετακίνηση _Κάτω"
 
+msgid "Pace"
+msgstr ""
+
+msgid ""
+"Double click to set the number of pages after which the task will switch to "
+"the next file"
+msgstr ""
+
 msgid "Size"
 msgstr "Μέγεθος"
 
 msgid "Modified"
 msgstr "Τροποποιήθηκε"
 
+msgid "Reverse"
+msgstr ""
+
 msgid "Drag and drop PDF files here"
 msgstr "Μεταφέρετε και αποθέσατε αρχεία PDF εδώ"
+
+msgid "The selected PDF document is invalid"
+msgstr "Το συγκεκριμένο έγγραφο PDF είναι μη έγκυρο"
 
 msgid "Add a blank page if page number is odd"
 msgstr "Πρόσθεσε μια κενή σελίδα αν ο αριθμός σελίδας είναι περιττός"
@@ -895,6 +892,7 @@ msgstr "Δημιούργησε μία είσοδο για κάθε συγχων�
 
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr ""
+"Διατήρηση σελιδοδεικτών ως ξεχωριστή καταχώρηση για κάθε συγχωνευμένο έγγραφο"
 
 msgid "Bookmarks handling:"
 msgstr "Διαχείριση σελιδοδεικτών:"
@@ -927,9 +925,6 @@ msgid ""
 msgstr ""
 "Κάντε διπλό κλικ για να εισάγετε τις σελίδες που θέλετε να συγχωνεύσετε "
 "(π.χ.: 2 ή 5-23 ή 2,5-7,12-)"
-
-msgid "No PDF document has been selected"
-msgstr "Δεν έχει επιλεγεί κάποιο έγγραφο PDF"
 
 msgid "Merge"
 msgstr "Συγχώνευση"
@@ -1012,10 +1007,11 @@ msgid "Split at this bookmark level:"
 msgstr "Διαχωρισμός στο συγκεκριμένο επίπεδο σελιδοδεικτών:"
 
 msgid "Matching regular expression:"
-msgstr ""
+msgstr "Ταίριασμα κανονικών εκφράσεων"
 
 msgid "A regular expression the bookmark text has to match"
 msgstr ""
+"Μια κανονική έκφραση που το  κείμενο του σελιδοδείκτη πρέπει να ταιριάξει"
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
@@ -1024,29 +1020,31 @@ msgstr ""
 "λέξη \"Κεφάλαιο\""
 
 msgid "Extract"
-msgstr ""
+msgstr "Εξαγωγή"
 
-msgid "Extract pages from a PDF document."
-msgstr ""
-
-msgid "Select or drag and drop a PDF"
+msgid "Extract pages from PDF documents."
 msgstr ""
 
 msgid "Extract settings"
-msgstr ""
+msgstr "Εξαγωγή ρυθμίσεων"
+
+msgid "Destination directory"
+msgstr "Κατάλογος προορισμού"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "Σελίδες προς εξαγωγή  (π.χ.: 2 ή 5-23 ή 2,5-7,12-)"
 
 msgid "Invalid page ranges"
-msgstr ""
+msgstr "Μη έγκυρο εύρος σελίδων"
 
 msgid "Extract pages:"
-msgstr ""
+msgstr "Εξαγωγή σελίδων:"
 
 msgid ""
 "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Διπλό κλικ για να ορίσετε σελίδες που θέλετε να περιστρέψετε (π.χ.:  2 ή  5-"
+"23 ή 2,5-7,12-)"
 
 msgid "All pages"
 msgstr "Όλες οι σελίδες"
@@ -1071,9 +1069,6 @@ msgstr "Περιστρέψτε τις σελίδες πολλαπλών εγγρ
 
 msgid "Rotate settings"
 msgstr "Ανακύκλιση ρυθμίσεων"
-
-msgid "Destination directory"
-msgstr "Κατάλογος προορισμού"
 
 #~ msgid "Destination folder"
 #~ msgstr "Φάκελος προορισμού"

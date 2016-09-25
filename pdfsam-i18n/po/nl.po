@@ -7,15 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-06-22 17:45+0200\n"
+"POT-Creation-Date: 2016-09-21 12:10+0200\n"
 "PO-Revision-Date: 2016-02-11 20:33+0000\n"
 "Last-Translator: Wout Huygens <wout.huygens@telenet.be>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
-"X-Generator: Launchpad (build 18115)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Launchpad-Export-Date: 2016-09-25 08:41+0000\n"
+"X-Generator: Launchpad (build 18204)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Abonneren op de officiële nieuwsbrief"
@@ -194,6 +195,14 @@ msgid ""
 msgstr ""
 "Instellen of beschikbaarheid van een nieuwe versie aangevinkt moet staan bij "
 "het opstarten (opnieuw opstarten nodig)"
+
+msgid "Check for news at startup"
+msgstr ""
+
+msgid ""
+"Set whether the application should check for news availability on startup "
+"(restart needed)"
+msgstr ""
 
 msgid "Play alert sounds"
 msgstr "Speel waarschuwingsgeluid"
@@ -378,8 +387,19 @@ msgstr "Downloaden"
 msgid "New version available"
 msgstr "Nieuwe versie beschikbaar"
 
+msgid "Open"
+msgstr "Open"
+
 msgid "Non existing directory"
 msgstr "Niet-bestaande map"
+
+msgid "Open with"
+msgstr ""
+
+msgid "Select the task to perform on the following file"
+msgid_plural "Select the task to perform on the following files"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Directory not empty"
 msgstr "Map is niet leeg"
@@ -550,48 +570,18 @@ msgid "Alternate Mix"
 msgstr "Afgewisselde Mix"
 
 msgid ""
-"Merge two PDF documents taking pages alternately in straight or reverse "
-"order."
+"Merge two or more PDF documents taking pages alternately in natural or "
+"reverse order."
 msgstr ""
-"Twee PDF documenten samenvoegen door afwisselend pagina's te pakken op "
-"(omgekeerde) volgorde."
-
-msgid "Select or drag and drop the first PDF you want to mix"
-msgstr "Selecteer de eerste PDF die u wilt mixen, of sleep hem hierheen"
-
-msgid "Select or drag and drop the second PDF you want to mix"
-msgstr "Selecteer de tweede PDF die u wilt mixen, of sleep hem hierheen"
-
-msgid "Mix settings"
-msgstr "Mix-instellingen"
 
 msgid "Destination file"
 msgstr "Bestemmingsbestand"
 
-msgid "Reverse the first document"
-msgstr "Eerste document omkeren"
+msgid "No PDF document has been selected"
+msgstr "Geen PDF-document geselecteerd"
 
-msgid "Reverse the second document"
-msgstr "Tweede document omkeren"
-
-msgid ""
-"Switch from the first document to the second one after the following pages"
+msgid "Select a positive integer number as pace"
 msgstr ""
-"Schakelen tussen het eerste en het tweede document, na de volgende pagina's"
-
-msgid ""
-"Switch from the second document to the first one after the following pages"
-msgstr ""
-"Schakelen van het tweede naar het eerste document na de volgende pagina's"
-
-msgid "Invalid parameter 'first and second step' must be numbers"
-msgstr "Ongeldige parameter 'eerste en tweede stap' moeten nummers zijn"
-
-msgid "Select a valid number of pages"
-msgstr "Selecteer een geldig aantal pagina's"
-
-msgid "The selected PDF document is invalid"
-msgstr "Het geselecteerde PDF-document is ongeldig"
 
 msgid "Completed"
 msgstr "Voltooid"
@@ -641,9 +631,6 @@ msgstr "Ga naar begin"
 
 msgid "Set destination"
 msgstr "Kies bestemming"
-
-msgid "Open"
-msgstr "Open"
 
 msgid "Open Folder"
 msgstr "Open map"
@@ -814,14 +801,28 @@ msgstr "Verplaatst geselecteerde bestanden omlaag"
 msgid "Move _Down"
 msgstr "Om_laag verplaatsen"
 
+msgid "Pace"
+msgstr ""
+
+msgid ""
+"Double click to set the number of pages after which the task will switch to "
+"the next file"
+msgstr ""
+
 msgid "Size"
 msgstr "Grootte"
 
 msgid "Modified"
 msgstr "Aangepast"
 
+msgid "Reverse"
+msgstr "Omgekeerd"
+
 msgid "Drag and drop PDF files here"
 msgstr "Sleep PDF-bestanden hierheen"
+
+msgid "The selected PDF document is invalid"
+msgstr "Het geselecteerde PDF-document is ongeldig"
 
 msgid "Add a blank page if page number is odd"
 msgstr "Voeg een blanco pagina toe als het paginanummer oneven is"
@@ -890,9 +891,6 @@ msgid ""
 msgstr ""
 "Dubbelklik om de pagina's te selecteren die u wilt samenvoegen (bijv. 2 of 5-"
 "23 of 2,5-7,12-)"
-
-msgid "No PDF document has been selected"
-msgstr "Geen PDF-document geselecteerd"
 
 msgid "Merge"
 msgstr "Samenvoegen"
@@ -984,14 +982,14 @@ msgstr ""
 msgid "Extract"
 msgstr ""
 
-msgid "Extract pages from a PDF document."
-msgstr ""
-
-msgid "Select or drag and drop a PDF"
+msgid "Extract pages from PDF documents."
 msgstr ""
 
 msgid "Extract settings"
 msgstr ""
+
+msgid "Destination directory"
+msgstr "Bestemmingsmap"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -1029,9 +1027,6 @@ msgstr "Draai de pagina's van meerdere PDF-documenten."
 
 msgid "Rotate settings"
 msgstr "Draai instellingen"
-
-msgid "Destination directory"
-msgstr "Bestemmingsmap"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:209
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224

@@ -5,15 +5,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDFSam 3\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2016-06-22 17:45+0200\n"
+"POT-Creation-Date: 2016-09-21 12:10+0200\n"
 "PO-Revision-Date: 2016-02-25 14:36+0000\n"
 "Last-Translator: Jeff Huang <s8321414@yahoo.com.tw>\n"
 "Language-Team: Chinese (Taiwan) (zh_TW@li.org)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
-"X-Generator: Launchpad (build 18115)\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Launchpad-Export-Date: 2016-09-25 08:41+0000\n"
+"X-Generator: Launchpad (build 18204)\n"
 "Language: zh_TW\n"
 
 msgid "Subscribe to the official news feed"
@@ -191,6 +192,14 @@ msgid ""
 "needed)"
 msgstr "設定啟動時是否檢查有可用的新版本（必須重新啟動程式）"
 
+msgid "Check for news at startup"
+msgstr ""
+
+msgid ""
+"Set whether the application should check for news availability on startup "
+"(restart needed)"
+msgstr ""
+
 msgid "Play alert sounds"
 msgstr "播放警示音效"
 
@@ -350,8 +359,19 @@ msgstr "下載"
 msgid "New version available"
 msgstr "有新版本可用"
 
+msgid "Open"
+msgstr "開啟"
+
 msgid "Non existing directory"
 msgstr "不存在的目錄"
+
+msgid "Open with"
+msgstr ""
+
+msgid "Select the task to perform on the following file"
+msgid_plural "Select the task to perform on the following files"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Directory not empty"
 msgstr "目錄不是空的"
@@ -518,44 +538,18 @@ msgid "Alternate Mix"
 msgstr "交替合併"
 
 msgid ""
-"Merge two PDF documents taking pages alternately in straight or reverse "
-"order."
-msgstr "將兩個 PDF 文件的頁面依正序或倒序合併。"
-
-msgid "Select or drag and drop the first PDF you want to mix"
-msgstr "請選取或拖拉您要混合的第一個 PDF 文件"
-
-msgid "Select or drag and drop the second PDF you want to mix"
-msgstr "請選取或拖拉您要混合的第二個 PDF 文件"
-
-msgid "Mix settings"
-msgstr "混合文件設定"
+"Merge two or more PDF documents taking pages alternately in natural or "
+"reverse order."
+msgstr ""
 
 msgid "Destination file"
 msgstr "輸出檔"
 
-msgid "Reverse the first document"
-msgstr "顛倒第一個文件"
+msgid "No PDF document has been selected"
+msgstr "未選取 PDF 文件檔"
 
-msgid "Reverse the second document"
-msgstr "顛倒第二個文件"
-
-msgid ""
-"Switch from the first document to the second one after the following pages"
-msgstr "在下列頁面後從第一個文件切換至第二個文件"
-
-msgid ""
-"Switch from the second document to the first one after the following pages"
-msgstr "在下列頁面後從第二個文件切換至第一個文件"
-
-msgid "Invalid parameter 'first and second step' must be numbers"
-msgstr "無效的參數「第一與第二步」必須為數字"
-
-msgid "Select a valid number of pages"
-msgstr "選擇有效的頁面數"
-
-msgid "The selected PDF document is invalid"
-msgstr "選取的 PDF 文件無效"
+msgid "Select a positive integer number as pace"
+msgstr ""
 
 msgid "Completed"
 msgstr "已完成"
@@ -599,9 +593,6 @@ msgstr "移至最頂"
 
 msgid "Set destination"
 msgstr "設定輸出位置"
-
-msgid "Open"
-msgstr "開啟"
 
 msgid "Open Folder"
 msgstr "開啟目錄"
@@ -745,14 +736,28 @@ msgstr "將所選文件往下移"
 msgid "Move _Down"
 msgstr "下移 (_D)"
 
+msgid "Pace"
+msgstr ""
+
+msgid ""
+"Double click to set the number of pages after which the task will switch to "
+"the next file"
+msgstr ""
+
 msgid "Size"
 msgstr "檔案大小"
 
 msgid "Modified"
 msgstr "修改時間"
 
+msgid "Reverse"
+msgstr "反轉"
+
 msgid "Drag and drop PDF files here"
 msgstr "請將 PDF 檔拖拉至此處"
+
+msgid "The selected PDF document is invalid"
+msgstr "選取的 PDF 文件無效"
 
 msgid "Add a blank page if page number is odd"
 msgstr "若頁數為奇數則新增一空白頁"
@@ -817,9 +822,6 @@ msgstr "當表格內容應該要被加入到產生的 PDF 文件中時設定"
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "請雙擊滑鼠左鍵以設定您想合併的頁面（例如：2 或 5-23 或 2,5-7,12-）"
-
-msgid "No PDF document has been selected"
-msgstr "未選取 PDF 文件檔"
 
 msgid "Merge"
 msgstr "合併"
@@ -907,14 +909,14 @@ msgstr "範例：使用 *Chapter.* 以符合包含 \"Chapter\" 的書籤"
 msgid "Extract"
 msgstr ""
 
-msgid "Extract pages from a PDF document."
-msgstr ""
-
-msgid "Select or drag and drop a PDF"
+msgid "Extract pages from PDF documents."
 msgstr ""
 
 msgid "Extract settings"
 msgstr ""
+
+msgid "Destination directory"
+msgstr "目的地目錄"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -952,9 +954,6 @@ msgstr "旋轉多個 PDF 文件的頁面。"
 
 msgid "Rotate settings"
 msgstr "旋轉頁面設定"
-
-msgid "Destination directory"
-msgstr "目的地目錄"
 
 #~ msgid "Split even pages"
 #~ msgstr "分割出偶數頁"

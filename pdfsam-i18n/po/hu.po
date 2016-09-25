@@ -7,15 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-06-22 17:45+0200\n"
+"POT-Creation-Date: 2016-09-21 12:10+0200\n"
 "PO-Revision-Date: 2015-12-01 14:24+0000\n"
 "Last-Translator: Richard Somlói <ricsipontaz@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
-"X-Generator: Launchpad (build 18115)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Launchpad-Export-Date: 2016-09-25 08:41+0000\n"
+"X-Generator: Launchpad (build 18204)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Feliratkozás a hivatalos hírforrásra"
@@ -194,6 +195,14 @@ msgid ""
 "needed)"
 msgstr "Új verzió meglétének ellenőrzése induláskor (újraindítást igényel)"
 
+msgid "Check for news at startup"
+msgstr ""
+
+msgid ""
+"Set whether the application should check for news availability on startup "
+"(restart needed)"
+msgstr ""
+
 msgid "Play alert sounds"
 msgstr "Figyelmeztető hangok lejátszása"
 
@@ -359,8 +368,19 @@ msgstr "Letöltés"
 msgid "New version available"
 msgstr "Új verzió érhető el"
 
+msgid "Open"
+msgstr "Megnyitás"
+
 msgid "Non existing directory"
 msgstr ""
+
+msgid "Open with"
+msgstr ""
+
+msgid "Select the task to perform on the following file"
+msgid_plural "Select the task to perform on the following files"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Directory not empty"
 msgstr "A mappa nem üres"
@@ -527,46 +547,18 @@ msgid "Alternate Mix"
 msgstr "Keverés"
 
 msgid ""
-"Merge two PDF documents taking pages alternately in straight or reverse "
-"order."
+"Merge two or more PDF documents taking pages alternately in natural or "
+"reverse order."
 msgstr ""
-"Két PDF egyesítése úgy, hogy az oldalak egymást kövessék normális vagy "
-"fordított sorrendben."
-
-msgid "Select or drag and drop the first PDF you want to mix"
-msgstr "Válassza ki vagy ejtse ide az első keverni kívánt PDF-et"
-
-msgid "Select or drag and drop the second PDF you want to mix"
-msgstr "Válassza ki vagy ejtse ide a második keverni kívánt PDF-et"
-
-msgid "Mix settings"
-msgstr "Keverés beállításai"
 
 msgid "Destination file"
 msgstr "Kimeneti fájl"
 
-msgid "Reverse the first document"
-msgstr "Az első dokumentum megfordítása"
+msgid "No PDF document has been selected"
+msgstr "Nincs kijelölve PDF dokumentum"
 
-msgid "Reverse the second document"
-msgstr "A második dokumentum megfordítása"
-
-msgid ""
-"Switch from the first document to the second one after the following pages"
-msgstr "Váltson az első dokumentumról a másodikra ennél az oldalnál"
-
-msgid ""
-"Switch from the second document to the first one after the following pages"
-msgstr "Váltson a második dokumentumról az elsőre ennél az oldalnál"
-
-msgid "Invalid parameter 'first and second step' must be numbers"
-msgstr "Érvénytelen paraméter. Számokat adjon meg."
-
-msgid "Select a valid number of pages"
+msgid "Select a positive integer number as pace"
 msgstr ""
-
-msgid "The selected PDF document is invalid"
-msgstr "A kijelölt PDF érvénytelen"
 
 msgid "Completed"
 msgstr "Befejezett"
@@ -610,9 +602,6 @@ msgstr "Mozgatás felülre"
 
 msgid "Set destination"
 msgstr "Cél megadása"
-
-msgid "Open"
-msgstr "Megnyitás"
 
 msgid "Open Folder"
 msgstr "Mappa megnyitása"
@@ -758,14 +747,28 @@ msgstr "Kijelölt dokumentumok mozgatás lefelé"
 msgid "Move _Down"
 msgstr "Mozgatás _lefelé"
 
+msgid "Pace"
+msgstr ""
+
+msgid ""
+"Double click to set the number of pages after which the task will switch to "
+"the next file"
+msgstr ""
+
 msgid "Size"
 msgstr "Méret"
 
 msgid "Modified"
 msgstr "Módosítva"
 
+msgid "Reverse"
+msgstr "Kijelölés megfordítása"
+
 msgid "Drag and drop PDF files here"
 msgstr "Fogja meg és ejtse ide a PDF fájlokat"
+
+msgid "The selected PDF document is invalid"
+msgstr "A kijelölt PDF érvénytelen"
 
 msgid "Add a blank page if page number is odd"
 msgstr "Üres oldal hozzáadása, ha az oldalak száma páratlan"
@@ -834,9 +837,6 @@ msgid ""
 msgstr ""
 "Dupla kattintással beállíthatja az egyesíteni kívánt oldalakat (pl.: 2 vagy "
 "5-23 vagy 2,5-7,12 -)"
-
-msgid "No PDF document has been selected"
-msgstr "Nincs kijelölve PDF dokumentum"
 
 msgid "Merge"
 msgstr "Egyesítés"
@@ -928,14 +928,14 @@ msgstr ""
 msgid "Extract"
 msgstr ""
 
-msgid "Extract pages from a PDF document."
-msgstr ""
-
-msgid "Select or drag and drop a PDF"
+msgid "Extract pages from PDF documents."
 msgstr ""
 
 msgid "Extract settings"
 msgstr ""
+
+msgid "Destination directory"
+msgstr "Célmappa"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -973,9 +973,6 @@ msgstr "PDF dokumentum oldalainak elforgatása"
 
 msgid "Rotate settings"
 msgstr "Elforgatás beállításai"
-
-msgid "Destination directory"
-msgstr "Célmappa"
 
 #~ msgid "Destination folder"
 #~ msgstr "Célmappa"

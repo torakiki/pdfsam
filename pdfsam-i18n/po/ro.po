@@ -7,15 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-06-22 17:45+0200\n"
+"POT-Creation-Date: 2016-09-21 12:10+0200\n"
 "PO-Revision-Date: 2015-04-25 01:10+0000\n"
 "Last-Translator: Angelescu <titus0818@yahoo.com>\n"
 "Language-Team: Romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
-"X-Generator: Launchpad (build 18115)\n"
+"Plural-Forms: nplurals=3; plural=(n == 1 ? 0: (((n % 100 > 19) || ((n % 100 "
+"== 0) && (n != 0))) ? 2: 1));\n"
+"X-Launchpad-Export-Date: 2016-09-25 08:41+0000\n"
+"X-Generator: Launchpad (build 18204)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Subscrieți la fluxul de știri oficial"
@@ -196,6 +198,14 @@ msgstr ""
 "Configurați dacă disponibilitatea unei versiuni noi ar trebui verificată la "
 "pornire (trebuie repornit)"
 
+msgid "Check for news at startup"
+msgstr ""
+
+msgid ""
+"Set whether the application should check for news availability on startup "
+"(restart needed)"
+msgstr ""
+
 msgid "Play alert sounds"
 msgstr "Redare sunete de alertă"
 
@@ -362,8 +372,19 @@ msgstr "Descărcare"
 msgid "New version available"
 msgstr "Este disponibilă o nouă versiune"
 
+msgid "Open"
+msgstr "Deschide"
+
 msgid "Non existing directory"
 msgstr ""
+
+msgid "Open with"
+msgstr ""
+
+msgid "Select the task to perform on the following file"
+msgid_plural "Select the task to perform on the following files"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Directory not empty"
 msgstr "Directorul nu este gol"
@@ -531,46 +552,18 @@ msgid "Alternate Mix"
 msgstr "Mixaj alternativ"
 
 msgid ""
-"Merge two PDF documents taking pages alternately in straight or reverse "
-"order."
+"Merge two or more PDF documents taking pages alternately in natural or "
+"reverse order."
 msgstr ""
-
-msgid "Select or drag and drop the first PDF you want to mix"
-msgstr ""
-"Selectați sau trageți și plasați primul PDF pe care doriți să-l mixați"
-
-msgid "Select or drag and drop the second PDF you want to mix"
-msgstr ""
-"Selectați sau trageți și plasați al doilea PDF pe care doriți să-l mixați"
-
-msgid "Mix settings"
-msgstr "Configurări mixare"
 
 msgid "Destination file"
 msgstr "Fișier destinație"
 
-msgid "Reverse the first document"
-msgstr "Inversează primul document"
-
-msgid "Reverse the second document"
-msgstr "Inversează al doilea document"
-
-msgid ""
-"Switch from the first document to the second one after the following pages"
-msgstr "Schimbă de la primul document la al doilea după paginile următoare"
-
-msgid ""
-"Switch from the second document to the first one after the following pages"
-msgstr "Schimbă de la al doilea document la primul după paginile următoare"
-
-msgid "Invalid parameter 'first and second step' must be numbers"
-msgstr "Parametru nevalid 'primul și al doilea pas' trebuie să fie numere"
-
-msgid "Select a valid number of pages"
+msgid "No PDF document has been selected"
 msgstr ""
 
-msgid "The selected PDF document is invalid"
-msgstr "Documentul PDF selectat nu este valid"
+msgid "Select a positive integer number as pace"
+msgstr ""
 
 msgid "Completed"
 msgstr "Finalizat"
@@ -614,9 +607,6 @@ msgstr "Mută în vârf"
 
 msgid "Set destination"
 msgstr "Configurați destinația"
-
-msgid "Open"
-msgstr "Deschide"
 
 msgid "Open Folder"
 msgstr "Deschide dosar"
@@ -760,14 +750,28 @@ msgstr "Mută în jos documentele selectate"
 msgid "Move _Down"
 msgstr "Mută în _jos"
 
+msgid "Pace"
+msgstr ""
+
+msgid ""
+"Double click to set the number of pages after which the task will switch to "
+"the next file"
+msgstr ""
+
 msgid "Size"
 msgstr "Dimensiune"
 
 msgid "Modified"
 msgstr "Modificat"
 
+msgid "Reverse"
+msgstr "Invers"
+
 msgid "Drag and drop PDF files here"
 msgstr "Trageți și plasați aici fișierele PDF"
+
+msgid "The selected PDF document is invalid"
+msgstr "Documentul PDF selectat nu este valid"
 
 msgid "Add a blank page if page number is odd"
 msgstr "Adaugă o pagină goală dacă numărul paginii este impar"
@@ -836,9 +840,6 @@ msgid ""
 msgstr ""
 "Dublu clik pentru configurarea paginilor pe care doriți să le uniți (ex: 2 "
 "sau 5-23 sau 2,5-7,12-)"
-
-msgid "No PDF document has been selected"
-msgstr ""
 
 msgid "Merge"
 msgstr "Combinare"
@@ -926,14 +927,14 @@ msgstr ""
 msgid "Extract"
 msgstr ""
 
-msgid "Extract pages from a PDF document."
-msgstr ""
-
-msgid "Select or drag and drop a PDF"
+msgid "Extract pages from PDF documents."
 msgstr ""
 
 msgid "Extract settings"
 msgstr ""
+
+msgid "Destination directory"
+msgstr "Director destinație"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -971,9 +972,6 @@ msgstr "Rotește paginile mai multor documente PDf."
 
 msgid "Rotate settings"
 msgstr "Configurări rotire"
-
-msgid "Destination directory"
-msgstr "Director destinație"
 
 #~ msgid "Split odd pages"
 #~ msgstr "Extrage pagini impare"

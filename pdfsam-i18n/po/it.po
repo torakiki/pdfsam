@@ -7,15 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-06-22 17:45+0200\n"
-"PO-Revision-Date: 2016-06-22 15:51+0000\n"
+"POT-Creation-Date: 2016-09-21 12:10+0200\n"
+"PO-Revision-Date: 2016-09-21 10:18+0000\n"
 "Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
-"X-Generator: Launchpad (build 18115)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Launchpad-Export-Date: 2016-09-25 08:41+0000\n"
+"X-Generator: Launchpad (build 18204)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Iscriviti al feed ufficiale delle notizie"
@@ -27,7 +28,7 @@ msgid "Play the \"get started\" video"
 msgstr "Riproduci il video \"come iniziare\""
 
 msgid "Fork PDFsam on GitHub"
-msgstr "Fail il fork di PDFsam su GitHub"
+msgstr "Fai un fork di PDFsam su GitHub"
 
 msgid "Translate"
 msgstr "Traduci"
@@ -195,6 +196,16 @@ msgid ""
 msgstr ""
 "Impostare se abilitare la verifica di una nuova versione all'avvio (riavvio "
 "necessario)"
+
+msgid "Check for news at startup"
+msgstr "Ritrova notizie all'avvio"
+
+msgid ""
+"Set whether the application should check for news availability on startup "
+"(restart needed)"
+msgstr ""
+"Impostare se l'applicazione deve verificare la disponibilità di notizie "
+"all'avvio (riavvio necessario)"
 
 msgid "Play alert sounds"
 msgstr "Riproduci suoni di allerta"
@@ -388,8 +399,19 @@ msgstr "Scarica"
 msgid "New version available"
 msgstr "Una nuova versione è disponibile"
 
+msgid "Open"
+msgstr "Apri"
+
 msgid "Non existing directory"
 msgstr "Directory non esistente"
+
+msgid "Open with"
+msgstr "Apri con"
+
+msgid "Select the task to perform on the following file"
+msgid_plural "Select the task to perform on the following files"
+msgstr[0] "Selezionare l'attività che si desidera eseguire sul seguente file"
+msgstr[1] "Selezionare l'attività che si desidera eseguire sui seguenti file"
 
 msgid "Directory not empty"
 msgstr "Directory non vuota"
@@ -483,7 +505,7 @@ msgid "Split"
 msgstr "Dividi"
 
 msgid "Split a PDF document at the given page numbers."
-msgstr "Divide un PDF al numero di pagina indicato"
+msgstr "Dividi un PDF al numero di pagina indicato"
 
 msgid "Select or drag and drop the PDF you want to split"
 msgstr "Selezionare o trascinare il PDF che si desidera dividere"
@@ -527,7 +549,7 @@ msgid "Split by size"
 msgstr "Dividi per dimensione"
 
 msgid "Split a PDF document in files of the given size (roughly)."
-msgstr "Divide un documento PDF in file della dimensione data (circa)."
+msgstr "Dividi un documento PDF in file della dimensione data (circa)"
 
 msgid "Set the size to split at"
 msgstr "Imposta la dimensione a cui dividere"
@@ -558,46 +580,20 @@ msgid "Alternate Mix"
 msgstr "Miscelazione alternata"
 
 msgid ""
-"Merge two PDF documents taking pages alternately in straight or reverse "
-"order."
+"Merge two or more PDF documents taking pages alternately in natural or "
+"reverse order."
 msgstr ""
-"Unire due PDF inserendo alternativamente le pagine in ordine crescente o "
-"decrescente"
-
-msgid "Select or drag and drop the first PDF you want to mix"
-msgstr "Selezionare o trascinare il primo PDF che si vuole unire"
-
-msgid "Select or drag and drop the second PDF you want to mix"
-msgstr "Selezionare o trascinare il secondo PDF che si vuole unire"
-
-msgid "Mix settings"
-msgstr "Impostazioni di miscelazione"
+"Unisce due o più documenti PDF inserendo alternativamente le pagine in "
+"ordine naturale od inverso."
 
 msgid "Destination file"
 msgstr "File di destinazione"
 
-msgid "Reverse the first document"
-msgstr "Inverti il primo documento"
+msgid "No PDF document has been selected"
+msgstr "Nessun documento PDF è stato selezionato"
 
-msgid "Reverse the second document"
-msgstr "Inverti il secondo documento"
-
-msgid ""
-"Switch from the first document to the second one after the following pages"
-msgstr "Cambiare dal primo documento al secondo dopo le seguenti pagine"
-
-msgid ""
-"Switch from the second document to the first one after the following pages"
-msgstr "Cambiare dal secondo documento al primo dopo le seguenti pagine"
-
-msgid "Invalid parameter 'first and second step' must be numbers"
-msgstr "Parametri non validi 'primo e secondo passo' devono essere numeri"
-
-msgid "Select a valid number of pages"
-msgstr "Selezionare un numero di pagine valido"
-
-msgid "The selected PDF document is invalid"
-msgstr "Il documento PDF selezionato non è valido"
+msgid "Select a positive integer number as pace"
+msgstr "Selezionare un passo positivo"
 
 msgid "Completed"
 msgstr "Completato"
@@ -657,9 +653,6 @@ msgstr "Sposta in Cima"
 
 msgid "Set destination"
 msgstr "Imposta destinazione"
-
-msgid "Open"
-msgstr "Apri"
 
 msgid "Open Folder"
 msgstr "Apri Cartella"
@@ -855,14 +848,30 @@ msgstr "Sposta in basso i documenti selezionati"
 msgid "Move _Down"
 msgstr "Sposta In _Basso"
 
+msgid "Pace"
+msgstr "Passo"
+
+msgid ""
+"Double click to set the number of pages after which the task will switch to "
+"the next file"
+msgstr ""
+"Doppio click per impostare il numero di pagine dopo cui passare al file "
+"successivo"
+
 msgid "Size"
 msgstr "Dimensione"
 
 msgid "Modified"
 msgstr "Modificato"
 
+msgid "Reverse"
+msgstr "Inverti"
+
 msgid "Drag and drop PDF files here"
-msgstr "Trascina e rilascia qui i files PDF"
+msgstr "Trascina e rilascia qui i file PDF"
+
+msgid "The selected PDF document is invalid"
+msgstr "Il documento PDF selezionato non è valido"
 
 msgid "Add a blank page if page number is odd"
 msgstr "Aggiungi una pagina vuota se il numero di pagine è dispari"
@@ -933,9 +942,6 @@ msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Doppio clic per impostare le pagine da unire (ex: 2 or 5-23 or 2,5-7,12-)"
-
-msgid "No PDF document has been selected"
-msgstr "Nessun documento PDF è stato selezionato"
 
 msgid "Merge"
 msgstr "Unisci"
@@ -1029,14 +1035,14 @@ msgstr ""
 msgid "Extract"
 msgstr "Estrai"
 
-msgid "Extract pages from a PDF document."
-msgstr "Estrai pagine da un documento PDF"
-
-msgid "Select or drag and drop a PDF"
-msgstr "Seleziona e trascina un rilascia un PDF"
+msgid "Extract pages from PDF documents."
+msgstr "Estrai pagine da documenti PDF"
 
 msgid "Extract settings"
 msgstr "Impostazioni di estrazione"
+
+msgid "Destination directory"
+msgstr "Directory di destinazione"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Pagine da estrarre (es: 2 or 5-23 or 2,5-7,12-)"
@@ -1076,9 +1082,6 @@ msgstr "Ruota le pagine di più documenti PDF"
 
 msgid "Rotate settings"
 msgstr "Impostazioni di rotazione"
-
-msgid "Destination directory"
-msgstr "Directory di destinazione"
 
 # F:\workspace_pdfsame_enanched\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:200
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:206

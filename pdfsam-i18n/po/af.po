@@ -1,22 +1,21 @@
-# Serbian translation for pdfsam
-# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# Afrikaans translation for pdfsam
+# Copyright (c) 2016 Rosetta Contributors and Canonical Ltd 2016
 # This file is distributed under the same license as the pdfsam package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-09-21 12:10+0200\n"
-"PO-Revision-Date: 2014-03-03 14:12+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Serbian <sr@li.org>\n"
+"PO-Revision-Date: 2016-09-08 13:59+0000\n"
+"Last-Translator: kek <Unknown>\n"
+"Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2016-09-25 08:41+0000\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Launchpad-Export-Date: 2016-09-25 08:40+0000\n"
 "X-Generator: Launchpad (build 18204)\n"
 
 msgid "Subscribe to the official news feed"
@@ -35,13 +34,13 @@ msgid "Translate"
 msgstr ""
 
 msgid "Donate"
-msgstr ""
+msgstr "Doneer"
 
 msgid "Follow us on Twitter"
-msgstr ""
+msgstr "Volg ons op Twitter"
 
 msgid "Follow us on Google Plus"
-msgstr ""
+msgstr "Volg ons op Google Plus"
 
 msgid "Like us on Facebook"
 msgstr ""
@@ -53,19 +52,19 @@ msgid "Cancel"
 msgstr ""
 
 msgid "Overwrite"
-msgstr ""
+msgstr "Oorskryf"
 
 msgid "No"
-msgstr "Не"
+msgstr "Nee"
 
 msgid "Yes"
-msgstr "Да"
+msgstr "Ja"
 
 msgid "The selected output directory does not exist"
 msgstr ""
 
 msgid "Do you want to create it?"
-msgstr ""
+msgstr "Wil jy dit maak?"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -115,7 +114,7 @@ msgid "_Load"
 msgstr ""
 
 msgid "_Save"
-msgstr ""
+msgstr "_Stoor"
 
 msgid "Recen_t"
 msgstr ""
@@ -133,13 +132,13 @@ msgid "Document details"
 msgstr ""
 
 msgid "Keywords"
-msgstr "Кључне речи"
+msgstr "Sleutelwoorde"
 
 msgid "Summary"
-msgstr ""
+msgstr "Opsomming"
 
 msgid "About"
-msgstr "О програму"
+msgstr "Oor"
 
 msgid "Environment"
 msgstr ""
@@ -152,7 +151,7 @@ msgid "Copy to clipboard"
 msgstr ""
 
 msgid "Thanks to"
-msgstr ""
+msgstr "Met danke vir"
 
 msgid "The open source projects making PDFsam possible"
 msgstr ""
@@ -164,7 +163,7 @@ msgid "Contribute"
 msgstr ""
 
 msgid "Social"
-msgstr ""
+msgstr "Sosiaal"
 
 msgid "Manually selected"
 msgstr ""
@@ -175,19 +174,19 @@ msgid ""
 msgstr ""
 
 msgid "Appearance"
-msgstr ""
+msgstr "Voorkoms"
 
 msgid "Behavior"
-msgstr ""
+msgstr "Gedrag"
 
 msgid "Workspace"
-msgstr ""
+msgstr "Werkspasie"
 
 msgid "Output"
-msgstr ""
+msgstr "Uittree"
 
 msgid "Check for updates at startup"
-msgstr "Проверите да ли постоје исправке при покретању"
+msgstr ""
 
 msgid ""
 "Set whether new version availability should be checked on startup (restart "
@@ -203,10 +202,10 @@ msgid ""
 msgstr ""
 
 msgid "Play alert sounds"
-msgstr "Пусти звук упозорења"
+msgstr ""
 
 msgid "Turn on or off alert sounds"
-msgstr "Укључи или искључи обавештења звукова"
+msgstr ""
 
 msgid "Store passwords when saving a workspace file"
 msgstr ""
@@ -254,7 +253,6 @@ msgstr ""
 msgid ""
 "Select a directory where documents will be saved and loaded by default"
 msgstr ""
-"Изаберите фасциклу где ће документ бити подразумевано сачуван и учитан"
 
 msgid "Select a directory"
 msgstr ""
@@ -268,7 +266,7 @@ msgid "Select a workspace"
 msgstr ""
 
 msgid "Default working directory:"
-msgstr "Подразумевана радна фасцикла:"
+msgstr ""
 
 msgid "Load default workspace at startup:"
 msgstr ""
@@ -280,13 +278,13 @@ msgid "Maximum number of rows displayed by the Log register"
 msgstr ""
 
 msgid "Language:"
-msgstr "Језик:"
+msgstr ""
 
 msgid "Set your preferred language (restart needed)"
-msgstr "Подесите жељени језик (потребно је препокретање)"
+msgstr ""
 
 msgid "Theme:"
-msgstr "Тема:"
+msgstr ""
 
 msgid "Set your preferred theme (restart needed)"
 msgstr ""
@@ -306,10 +304,10 @@ msgid "Check for updates now"
 msgstr ""
 
 msgid "Close"
-msgstr "Затвори"
+msgstr ""
 
 msgid "Settings"
-msgstr "Поставке"
+msgstr ""
 
 msgid "Modules"
 msgstr ""
@@ -318,16 +316,16 @@ msgid "Log register"
 msgstr ""
 
 msgid "Copy"
-msgstr "Умножи"
+msgstr ""
 
 msgid "Clear"
-msgstr "Очисти"
+msgstr ""
 
 msgid "Select all"
-msgstr "Изабери све"
+msgstr ""
 
 msgid "Save log"
-msgstr "Сачувај дневник"
+msgstr ""
 
 msgid "Select where to save the log file"
 msgstr ""
@@ -363,7 +361,7 @@ msgid "New version available"
 msgstr ""
 
 msgid "Open"
-msgstr "Отвори"
+msgstr ""
 
 msgid "Non existing directory"
 msgstr ""
@@ -465,7 +463,7 @@ msgid "Only valid positive page numbers are allowed"
 msgstr ""
 
 msgid "Split"
-msgstr "Издели"
+msgstr ""
 
 msgid "Split a PDF document at the given page numbers."
 msgstr ""
@@ -502,7 +500,7 @@ msgid "Split by every \"n\" pages"
 msgstr ""
 
 msgid "Number of pages"
-msgstr "Број страница"
+msgstr ""
 
 msgid "Invalid number of pages"
 msgstr ""
@@ -523,7 +521,7 @@ msgid "Split at this size:"
 msgstr ""
 
 msgid "Invalid split size"
-msgstr "Неважећа раздвојена величина"
+msgstr ""
 
 msgid "Megabytes"
 msgstr ""
@@ -538,7 +536,7 @@ msgid "KB"
 msgstr ""
 
 msgid "Alternate Mix"
-msgstr "Мешани документ"
+msgstr ""
 
 msgid ""
 "Merge two or more PDF documents taking pages alternately in natural or "
@@ -577,31 +575,31 @@ msgid "Unlock"
 msgstr ""
 
 msgid "Remove"
-msgstr "Уклони"
+msgstr ""
 
 msgid "Duplicate"
 msgstr ""
 
 msgid "Move Down"
-msgstr "Помери доле"
+msgstr ""
 
 msgid "Move to Bottom"
 msgstr ""
 
 msgid "Move Up"
-msgstr "Помери нагоре"
+msgstr ""
 
 msgid "Move to Top"
 msgstr ""
 
 msgid "Set destination"
-msgstr "Одабери одредиште"
+msgstr ""
 
 msgid "Open Folder"
 msgstr ""
 
 msgid "Document properties"
-msgstr "Својства документа"
+msgstr ""
 
 msgid "Loading..."
 msgstr ""
@@ -614,10 +612,10 @@ msgid "Show errors"
 msgstr ""
 
 msgid "Run"
-msgstr "Покрени"
+msgstr ""
 
 msgid "Overwrite if already exists"
-msgstr "Замени ако већ постоји"
+msgstr ""
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
@@ -634,13 +632,13 @@ msgid "Select"
 msgstr ""
 
 msgid "Browse"
-msgstr "Прегледај"
+msgstr ""
 
 msgid "The selected PDF file is invalid"
 msgstr ""
 
 msgid "Compress output file/files"
-msgstr "Сажми излазне датотеке"
+msgstr ""
 
 msgid "Discard bookmarks"
 msgstr ""
@@ -689,7 +687,7 @@ msgid "Prefix for the generated files names"
 msgstr ""
 
 msgid "Add prefix"
-msgstr "Додај префикс"
+msgstr ""
 
 msgid "Enter the user password"
 msgstr ""
@@ -701,10 +699,10 @@ msgid "Page ranges"
 msgstr ""
 
 msgid "Pages"
-msgstr "Странице"
+msgstr ""
 
 msgid "Name"
-msgstr "Назив:"
+msgstr ""
 
 msgid "Add documents to the table"
 msgstr ""
@@ -754,7 +752,7 @@ msgid "Modified"
 msgstr ""
 
 msgid "Reverse"
-msgstr "Обрнуто"
+msgstr ""
 
 msgid "Drag and drop PDF files here"
 msgstr ""
@@ -825,8 +823,6 @@ msgstr ""
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Двапут кликните да бисте подесили странице које желите да обједините (нпр: 2 "
-"или 5-23 или 2,5-7,12 -)"
 
 msgid "Merge"
 msgstr ""
@@ -952,37 +948,10 @@ msgid "Rotate "
 msgstr ""
 
 msgid "Rotate"
-msgstr "Окрени"
+msgstr ""
 
 msgid "Rotate the pages of multiple PDF documents."
 msgstr ""
 
 msgid "Rotate settings"
 msgstr ""
-
-#~ msgid "Destination folder"
-#~ msgstr "Одредишна фасцикла"
-
-#~ msgid "Split odd pages"
-#~ msgstr "Одвоји непарне странице"
-
-#~ msgid "Split even pages"
-#~ msgstr "Одвоји парне странице"
-
-#~ msgid "Output document pdf version:"
-#~ msgstr "Издање излазног пдф документа:"
-
-#~ msgid "Ask for confirmation when overwrite checkbox is selected"
-#~ msgstr "Питајте за потврду када је означено поље зазамену"
-
-#~ msgid ""
-#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" is "
-#~ "selected"
-#~ msgstr ""
-#~ "Прикажи дијалошки оквир за потврду корисника када је \"замени\" изабрано"
-
-#~ msgid "Would you like to overwrite it?"
-#~ msgstr "Да ли желите да је замените?"
-
-#~ msgid "Unable to get latest available version"
-#~ msgstr "Није могуће добити најновију доступну верзију"

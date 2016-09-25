@@ -7,15 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-06-22 17:45+0200\n"
+"POT-Creation-Date: 2016-09-21 12:10+0200\n"
 "PO-Revision-Date: 2015-12-19 10:45+0000\n"
 "Last-Translator: MisterIf <pkrupitsa@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
-"X-Generator: Launchpad (build 18115)\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Launchpad-Export-Date: 2016-09-25 08:40+0000\n"
+"X-Generator: Launchpad (build 18204)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Підписатися на офіційний канал новин"
@@ -196,6 +198,14 @@ msgstr ""
 "Вкажіть, чи перевіряти наявність нової версії при запуску програми "
 "(необхідна перезавантаження)"
 
+msgid "Check for news at startup"
+msgstr ""
+
+msgid ""
+"Set whether the application should check for news availability on startup "
+"(restart needed)"
+msgstr ""
+
 msgid "Play alert sounds"
 msgstr "Відтворювати звуки повідомлення"
 
@@ -367,8 +377,19 @@ msgstr "Завантажити"
 msgid "New version available"
 msgstr "Доступна нова версія"
 
+msgid "Open"
+msgstr "Відкрити"
+
 msgid "Non existing directory"
 msgstr "Не існуючий каталог"
+
+msgid "Open with"
+msgstr ""
+
+msgid "Select the task to perform on the following file"
+msgid_plural "Select the task to perform on the following files"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Directory not empty"
 msgstr "Каталог непорожній"
@@ -538,45 +559,18 @@ msgid "Alternate Mix"
 msgstr "Чередування"
 
 msgid ""
-"Merge two PDF documents taking pages alternately in straight or reverse "
-"order."
+"Merge two or more PDF documents taking pages alternately in natural or "
+"reverse order."
 msgstr ""
-"Об’єднання двох PDF документів почергово в прямому або зворотному порядку."
-
-msgid "Select or drag and drop the first PDF you want to mix"
-msgstr "Оберіть або перетягніть сюди перший PDF файл для чередування"
-
-msgid "Select or drag and drop the second PDF you want to mix"
-msgstr "Оберіть або перетягніть сюди другий PDF файл для чередування"
-
-msgid "Mix settings"
-msgstr "Параметри чередування"
 
 msgid "Destination file"
 msgstr "Файл призначення (готовий PDF)"
 
-msgid "Reverse the first document"
-msgstr "Реверсувати (зворотній порядок) перший документ"
+msgid "No PDF document has been selected"
+msgstr "Не один PDF документ не був обраний"
 
-msgid "Reverse the second document"
-msgstr "Реверсувати (зворотній порядок) другий документ"
-
-msgid ""
-"Switch from the first document to the second one after the following pages"
-msgstr "Перехід від першого документа до другого після наступних сторінок"
-
-msgid ""
-"Switch from the second document to the first one after the following pages"
-msgstr "Перехід від другого документа до першого після наступних сторінок"
-
-msgid "Invalid parameter 'first and second step' must be numbers"
-msgstr "Невірні параметри 'перший і другий крок', які повинні бути числами"
-
-msgid "Select a valid number of pages"
-msgstr "Виберіть коректний номер сторінок"
-
-msgid "The selected PDF document is invalid"
-msgstr "Обраний PDF документ є поганим"
+msgid "Select a positive integer number as pace"
+msgstr ""
 
 msgid "Completed"
 msgstr "Завершено"
@@ -620,9 +614,6 @@ msgstr "Перемістити нагору"
 
 msgid "Set destination"
 msgstr "Встановити теку (папку) призначення"
-
-msgid "Open"
-msgstr "Відкрити"
 
 msgid "Open Folder"
 msgstr "Відкрити теку"
@@ -769,14 +760,28 @@ msgstr "Перемістити вниз обрані документи"
 msgid "Move _Down"
 msgstr "Перемістити в_низ"
 
+msgid "Pace"
+msgstr ""
+
+msgid ""
+"Double click to set the number of pages after which the task will switch to "
+"the next file"
+msgstr ""
+
 msgid "Size"
 msgstr "Розмір"
 
 msgid "Modified"
 msgstr "Змінено"
 
+msgid "Reverse"
+msgstr ""
+
 msgid "Drag and drop PDF files here"
 msgstr "Перетягніть PDF файл сюди"
+
+msgid "The selected PDF document is invalid"
+msgstr "Обраний PDF документ є поганим"
 
 msgid "Add a blank page if page number is odd"
 msgstr "Додати порожню сторінку, якщо номер сторінки непарний"
@@ -845,9 +850,6 @@ msgid ""
 msgstr ""
 "Двічі клацніть, щоб подивитися сторінки, які ви хочете об'єднати (наприклад: "
 "2 або 5-23 або 2,5-7,12-)"
-
-msgid "No PDF document has been selected"
-msgstr "Не один PDF документ не був обраний"
 
 msgid "Merge"
 msgstr "Об’єднати"
@@ -940,14 +942,14 @@ msgstr ""
 msgid "Extract"
 msgstr ""
 
-msgid "Extract pages from a PDF document."
-msgstr ""
-
-msgid "Select or drag and drop a PDF"
+msgid "Extract pages from PDF documents."
 msgstr ""
 
 msgid "Extract settings"
 msgstr ""
+
+msgid "Destination directory"
+msgstr "Каталог (тека) призначення"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -985,9 +987,6 @@ msgstr "Поворот сторінок багатосторінкового д�
 
 msgid "Rotate settings"
 msgstr "Властивості Обертання"
-
-msgid "Destination directory"
-msgstr "Каталог (тека) призначення"
 
 #~ msgid "Destination folder"
 #~ msgstr "Цільова тека"

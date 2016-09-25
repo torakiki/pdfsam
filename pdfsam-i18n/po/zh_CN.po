@@ -7,15 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-06-22 17:45+0200\n"
-"PO-Revision-Date: 2016-06-29 05:29+0000\n"
-"Last-Translator: hotwhj@gmail.com <hotwhj@gmail.com>\n"
+"POT-Creation-Date: 2016-09-21 12:10+0200\n"
+"PO-Revision-Date: 2016-09-11 02:14+0000\n"
+"Last-Translator: cinbook <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
-"X-Generator: Launchpad (build 18115)\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Launchpad-Export-Date: 2016-09-25 08:41+0000\n"
+"X-Generator: Launchpad (build 18204)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "订阅官方新闻推送"
@@ -63,7 +64,7 @@ msgid "The selected output directory does not exist"
 msgstr "已选的输出目录不存在"
 
 msgid "Do you want to create it?"
-msgstr "你想要创建它吗？"
+msgstr "您想要创建它吗？"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -79,7 +80,7 @@ msgstr "从{0}加载模块"
 
 #, java-format
 msgid "Found modules jars {0}"
-msgstr ""
+msgstr "找到的jar安装包 {0}"
 
 msgid "Error finding modules paths"
 msgstr ""
@@ -192,6 +193,14 @@ msgid ""
 "needed)"
 msgstr "设置是否启动程序时检查可用更新（需重启后生效）"
 
+msgid "Check for news at startup"
+msgstr ""
+
+msgid ""
+"Set whether the application should check for news availability on startup "
+"(restart needed)"
+msgstr ""
+
 msgid "Play alert sounds"
 msgstr "播放提示音"
 
@@ -215,7 +224,7 @@ msgid ""
 msgstr ""
 
 msgid "Use the selected PDF document directory as output directory"
-msgstr ""
+msgstr "使用当前PDF文档所在的目录作为输出目录"
 
 msgid "Save default workspace on exit"
 msgstr ""
@@ -227,7 +236,7 @@ msgid "Maximum number of rows mast be a positive number"
 msgstr ""
 
 msgid "Generate high quality thumbnails (slower)"
-msgstr ""
+msgstr "生成高质量缩略图(较慢)"
 
 msgid "Size in px:"
 msgstr ""
@@ -239,7 +248,7 @@ msgid "Thumbnails creator:"
 msgstr ""
 
 msgid "Clear usage statistics"
-msgstr ""
+msgstr "清除使用记录"
 
 msgid ""
 "Select a directory where documents will be saved and loaded by default"
@@ -351,8 +360,19 @@ msgstr ""
 msgid "New version available"
 msgstr ""
 
+msgid "Open"
+msgstr "打开"
+
 msgid "Non existing directory"
 msgstr ""
+
+msgid "Open with"
+msgstr ""
+
+msgid "Select the task to perform on the following file"
+msgid_plural "Select the task to perform on the following files"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Directory not empty"
 msgstr ""
@@ -519,43 +539,17 @@ msgid "Alternate Mix"
 msgstr "交替混合"
 
 msgid ""
-"Merge two PDF documents taking pages alternately in straight or reverse "
-"order."
-msgstr ""
-
-msgid "Select or drag and drop the first PDF you want to mix"
-msgstr ""
-
-msgid "Select or drag and drop the second PDF you want to mix"
-msgstr ""
-
-msgid "Mix settings"
+"Merge two or more PDF documents taking pages alternately in natural or "
+"reverse order."
 msgstr ""
 
 msgid "Destination file"
 msgstr ""
 
-msgid "Reverse the first document"
+msgid "No PDF document has been selected"
 msgstr ""
 
-msgid "Reverse the second document"
-msgstr ""
-
-msgid ""
-"Switch from the first document to the second one after the following pages"
-msgstr ""
-
-msgid ""
-"Switch from the second document to the first one after the following pages"
-msgstr ""
-
-msgid "Invalid parameter 'first and second step' must be numbers"
-msgstr ""
-
-msgid "Select a valid number of pages"
-msgstr ""
-
-msgid "The selected PDF document is invalid"
+msgid "Select a positive integer number as pace"
 msgstr ""
 
 msgid "Completed"
@@ -600,9 +594,6 @@ msgstr ""
 
 msgid "Set destination"
 msgstr "设置目标"
-
-msgid "Open"
-msgstr "打开"
 
 msgid "Open Folder"
 msgstr ""
@@ -746,13 +737,27 @@ msgstr ""
 msgid "Move _Down"
 msgstr ""
 
+msgid "Pace"
+msgstr ""
+
+msgid ""
+"Double click to set the number of pages after which the task will switch to "
+"the next file"
+msgstr ""
+
 msgid "Size"
 msgstr ""
 
 msgid "Modified"
 msgstr ""
 
+msgid "Reverse"
+msgstr "反转"
+
 msgid "Drag and drop PDF files here"
+msgstr ""
+
+msgid "The selected PDF document is invalid"
 msgstr ""
 
 msgid "Add a blank page if page number is odd"
@@ -818,9 +823,6 @@ msgstr ""
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "双击设置要合并的页面 （比如：2 或 5-23 或 2,5-7, 12-）"
-
-msgid "No PDF document has been selected"
-msgstr ""
 
 msgid "Merge"
 msgstr ""
@@ -908,13 +910,13 @@ msgstr ""
 msgid "Extract"
 msgstr ""
 
-msgid "Extract pages from a PDF document."
-msgstr ""
-
-msgid "Select or drag and drop a PDF"
+msgid "Extract pages from PDF documents."
 msgstr ""
 
 msgid "Extract settings"
+msgstr ""
+
+msgid "Destination directory"
 msgstr ""
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -952,9 +954,6 @@ msgid "Rotate the pages of multiple PDF documents."
 msgstr ""
 
 msgid "Rotate settings"
-msgstr ""
-
-msgid "Destination directory"
 msgstr ""
 
 #~ msgid "Split even pages"

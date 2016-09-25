@@ -7,21 +7,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-06-22 17:45+0200\n"
-"PO-Revision-Date: 2016-04-19 15:33+0000\n"
-"Last-Translator: ezra <ezra250@gmail.com>\n"
+"POT-Creation-Date: 2016-09-21 12:10+0200\n"
+"PO-Revision-Date: 2016-09-20 13:12+0000\n"
+"Last-Translator: iko <Unknown>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
-"X-Generator: Launchpad (build 18115)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Launchpad-Export-Date: 2016-09-25 08:40+0000\n"
+"X-Generator: Launchpad (build 18204)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "הירשם לערוץ החדשות הרשמי"
 
 msgid "Bug and feature requests"
-msgstr ""
+msgstr "בקשות לשיפור ותיקוני באגים"
 
 msgid "Play the \"get started\" video"
 msgstr "הפעל את הוידאו 'הוראות למתחילים'"
@@ -45,7 +46,7 @@ msgid "Like us on Facebook"
 msgstr "עשה לנו לייק בפייסבוק"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "תפריט ראשי"
 
 msgid "Cancel"
 msgstr "ביטול"
@@ -71,28 +72,28 @@ msgstr "מתקין ערכת נושא {0}"
 
 #, java-format
 msgid "Modules directory {0} does not exist"
-msgstr "תיקיית המודולים {0} לא קיימת"
+msgstr "תיקיית הרכיבים {0} לא קיימת"
 
 #, java-format
 msgid "Loading modules from {0}"
-msgstr "טוען מודולים מ- {0}"
+msgstr "טען רכיבים מ-{0}"
 
 #, java-format
 msgid "Found modules jars {0}"
-msgstr ""
+msgstr "נמצאו {0} jar-ים של רכיבים"
 
 msgid "Error finding modules paths"
-msgstr "שגיאה במציאת נתיב המודולים"
+msgstr "שגיאה בחיפוש נתיבי הרכיבים"
 
 msgid "No module has been found"
-msgstr "לא נמצאו מודולים"
+msgstr "לא נמצאו רכיבים"
 
 msgid "Unable to find modules location."
-msgstr "לא מצליח למצוא את מיקום המודולים"
+msgstr "אי אפשר למצוא את מיקום הרכיבים"
 
 #, java-format
 msgid "Started in {0}"
-msgstr ""
+msgstr "התחיל ב {0}"
 
 msgid "Closing PDFsam..."
 msgstr "סוגר את PDFsam..."
@@ -101,88 +102,88 @@ msgid "_Modules"
 msgstr "_רכיבים"
 
 msgid "E_xit"
-msgstr ""
+msgstr "י_ציאה"
 
 msgid "Application messages"
-msgstr ""
+msgstr "הודעות התוכנית"
 
 msgid "_Workspace"
-msgstr ""
+msgstr "_סביבת עבודה"
 
 msgid "_Load"
-msgstr ""
+msgstr "_טען"
 
 msgid "_Save"
-msgstr ""
+msgstr "_שמור"
 
 msgid "Recen_t"
-msgstr ""
+msgstr "_קבצים אחרונים"
 
 msgid "Select the workspace file to save"
-msgstr ""
+msgstr "בחירת סביבת העבודה לשמירה"
 
 msgid "Select the workspace to load"
-msgstr ""
+msgstr "בחירת סביבת העבודה לטעינה"
 
 msgid "What's new"
-msgstr ""
+msgstr "מה חדש"
 
 msgid "Document details"
-msgstr ""
+msgstr "פרטי המסמך"
 
 msgid "Keywords"
 msgstr "מילות מפתח"
 
 msgid "Summary"
-msgstr ""
+msgstr "סיכום"
 
 msgid "About"
 msgstr "אודות"
 
 msgid "Environment"
-msgstr ""
+msgstr "סביבה"
 
 #, java-format
 msgid "Max memory {0}"
-msgstr ""
+msgstr "זכרון מקסימלי {0}"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "העתק ללוח"
 
 msgid "Thanks to"
-msgstr ""
+msgstr "תודתנו נתונה ל:"
 
 msgid "The open source projects making PDFsam possible"
-msgstr ""
+msgstr "פרויקטי קוד פתוח שאיפשרו את בניית PDFsam"
 
 msgid "Support"
-msgstr ""
+msgstr "תמיכה"
 
 msgid "Contribute"
-msgstr ""
+msgstr "לתרום"
 
 msgid "Social"
-msgstr ""
+msgstr "חברתי"
 
 msgid "Manually selected"
-msgstr ""
+msgstr "בחירה ידנית"
 
 msgid ""
 "Automatically set the destination directory to the selected PDF document "
 "directory"
-msgstr ""
+msgstr "בחר באופן אוטומטי את תיקיית מסמכי PDF הנבחרת כתיקיית היעד"
 
 msgid "Appearance"
-msgstr ""
+msgstr "מראה"
 
 msgid "Behavior"
-msgstr ""
+msgstr "התנהגות"
 
 msgid "Workspace"
-msgstr ""
+msgstr "סביבת העבודה"
 
 msgid "Output"
-msgstr ""
+msgstr "פלט"
 
 msgid "Check for updates at startup"
 msgstr "בדוק עידכונים בהפעלה"
@@ -190,6 +191,14 @@ msgstr "בדוק עידכונים בהפעלה"
 msgid ""
 "Set whether new version availability should be checked on startup (restart "
 "needed)"
+msgstr "האם לבדוק זמינות של גרסה חדשה בזמן ההפעלה (נדרש אתחול מחדש)"
+
+msgid "Check for news at startup"
+msgstr ""
+
+msgid ""
+"Set whether the application should check for news availability on startup "
+"(restart needed)"
 msgstr ""
 
 msgid "Play alert sounds"
@@ -199,74 +208,74 @@ msgid "Turn on or off alert sounds"
 msgstr "הפעלת או כיבוי צלילי ההתרעה"
 
 msgid "Store passwords when saving a workspace file"
-msgstr ""
+msgstr "שמור סיסמאות בקובץ סביבת העבודה"
 
 msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
 "password in the workspace file"
-msgstr ""
+msgstr "אם קובץ PDF מוצפן נפתח עם סיסמה, שמור את הסיסמה בקובץ סביבת העבודה"
 
 msgid "Show donation window"
-msgstr ""
+msgstr "הצג חלון תרומה"
 
 msgid ""
 "Turn on or off the notification appearing once in a while and asking the "
 "user to support PDFsam with a donation"
-msgstr ""
+msgstr "הצג או הסתר את החלון שמופיע מדי פעם ומבקש תרומה לתמיכה ב PDFsam"
 
 msgid "Use the selected PDF document directory as output directory"
-msgstr ""
+msgstr "השתמש בתיקיה של מסמך ה PDF הנבחר כתיקית הפלט"
 
 msgid "Save default workspace on exit"
-msgstr ""
+msgstr "שמור ביציאה את סביבת העבודה של ברירת המחדל"
 
 msgid "If a default workspace is set, save it on application exit"
-msgstr ""
+msgstr "אם מוגדרת סביבת העבודה של ברירת המחדל, שמור אותה ביציאה מהתוכנית"
 
 msgid "Maximum number of rows mast be a positive number"
-msgstr ""
+msgstr "מספר העמודות המקסימלי חייב להיות מספר חיובי"
 
 msgid "Generate high quality thumbnails (slower)"
-msgstr ""
+msgstr "צור תמונות מוקוטנות באיכות גבוהה (איטי)"
 
 msgid "Size in px:"
-msgstr ""
+msgstr "גודל בפיקסלים:"
 
 msgid "Library used to generate thumbnails"
-msgstr ""
+msgstr "ספריה שמשמשת ליצירת מתונות מוקטנות"
 
 msgid "Thumbnails creator:"
-msgstr ""
+msgstr "יצירת תמונות מוקטנות:"
 
 msgid "Clear usage statistics"
-msgstr ""
+msgstr "מחק את סטטיסטיקות השימוש"
 
 msgid ""
 "Select a directory where documents will be saved and loaded by default"
 msgstr "בחר את התיקיה שבה קבצים ישמרו או יטענו כברירת מחדל"
 
 msgid "Select a directory"
-msgstr ""
+msgstr "בחר תיקייה"
 
 msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
 "startup"
-msgstr ""
+msgstr "בחר סביבת עבודה שמורה, כך שתיטען באופן אוטומטי עם הפעלת התוכנית"
 
 msgid "Select a workspace"
-msgstr ""
+msgstr "בחר סביבת עבודה"
 
 msgid "Default working directory:"
 msgstr "תיקיית ברירת המחדל לעבודה:"
 
 msgid "Load default workspace at startup:"
-msgstr ""
+msgstr "טען את סביבת העבודה של ברירת המחדל בהפעלת התוכנית"
 
 msgid "Log register rows:"
-msgstr ""
+msgstr "שורות יומן הרישום:"
 
 msgid "Maximum number of rows displayed by the Log register"
-msgstr ""
+msgstr "מספר השורות המקסימלי של יומן הרישום"
 
 msgid "Language:"
 msgstr "שפה:"
@@ -278,21 +287,23 @@ msgid "Theme:"
 msgstr "ערכת נושא:"
 
 msgid "Set your preferred theme (restart needed)"
-msgstr ""
+msgstr "בחר את ערכת הנושא המועדפת (נדרש אתחול)"
 
 msgid "Startup module:"
-msgstr ""
+msgstr "רכיב האיתחול:"
 
 msgid "Set the module to open at application startup (restart needed)"
-msgstr ""
+msgstr "בחר את הרכיב שיפתח עם אתחול התוכנית (נדרש אתחול)"
 
 msgid ""
 "Usage statistics are used to populate the modules quick bar on the left with "
 "the most used and most recently used modules."
 msgstr ""
+"סטטיסטיקת השימוש משמשת להוספת הרכיבים האחרונים והשימושיים ביותר לסרגל הגישה "
+"המהירה."
 
 msgid "Check for updates now"
-msgstr ""
+msgstr "בדוק עידכונים עכשיו"
 
 msgid "Close"
 msgstr "סגירה"
@@ -301,10 +312,10 @@ msgid "Settings"
 msgstr "הגדרות"
 
 msgid "Modules"
-msgstr ""
+msgstr "רכיבים"
 
 msgid "Log register"
-msgstr ""
+msgstr "יומן הרישום"
 
 msgid "Copy"
 msgstr "העתק"
@@ -319,306 +330,288 @@ msgid "Save log"
 msgstr "שמירת היומן"
 
 msgid "Select where to save the log file"
-msgstr ""
+msgstr "בחר היכן לשמור את יומן הרישום"
 
 msgid "Invalid parameters"
-msgstr ""
+msgstr "פרמטרים לא תקינים"
 
 msgid ""
 "Input parameters are invalid, open the application messages for details."
-msgstr ""
+msgstr "פרמטרי הקלט אינם תקינים. מידע נוסף בהודעות התוכנית."
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
-msgstr ""
+msgstr "ביצעת {0} פעולות עם PDFsam, האם זה הועיל לך?"
 
 msgid "Give something back"
-msgstr ""
+msgstr "תן משהו בחזרה"
 
 msgid "PDFsam worked hard!"
-msgstr ""
+msgstr "PDFsam עבד קשה!"
 
 msgid "Spread the word!"
-msgstr ""
+msgstr "הפץ את השמועה!"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
-msgstr ""
+msgstr "גרסה {0} של PDFsam זמינה להורדה"
 
 msgid "Download"
-msgstr ""
+msgstr "הורד"
 
 msgid "New version available"
-msgstr ""
+msgstr "גרסה חדשה זמינה"
+
+msgid "Open"
+msgstr "פתח"
 
 msgid "Non existing directory"
-msgstr ""
+msgstr "תיקייה לא קיימת"
+
+msgid "Open with"
+msgstr "פתח באמצעות"
+
+msgid "Select the task to perform on the following file"
+msgid_plural "Select the task to perform on the following files"
+msgstr[0] "בחר את הפעולה לביצוע על הקובץ הבא"
+msgstr[1] "בחר את הפעולה לביצוע על הקבצים הבאים"
 
 msgid "Directory not empty"
-msgstr ""
+msgstr "הספרייה לא ריקה"
 
 msgid "The selected directory is not empty"
-msgstr ""
+msgstr "הספריה שנבחרה לא ריקה"
 
 msgid "Overwrite files with the same name as the generated ones?"
-msgstr ""
+msgstr "לדרוס קבצים בעלי שם זהה לקבצים הנוצרים?"
 
 msgid "Don't overwrite existing file"
-msgstr ""
+msgstr "אל תדרוס קבצים קיימים"
 
 msgid "Overwrite confirmation"
-msgstr ""
+msgstr "אישור דריסה"
 
 msgid "A file with the given name already exists"
-msgstr ""
+msgstr "קובץ בעל שם זה כבר קיים"
 
 msgid "Do you want to overwrite it?"
-msgstr ""
+msgstr "האם לדרוס אותו?"
 
 msgid "Unable to find the latest available version."
-msgstr ""
+msgstr "אי אפשר למצוא את הגירסה הזמינה האחרונה"
 
 msgid "Checking for updates"
-msgstr ""
+msgstr "מחפש עדכונים"
 
 msgid "Fetching latest news"
-msgstr ""
+msgstr "מביא את החדשות האחרונות"
 
 msgid "Unable to retrieve the latest news"
-msgstr ""
+msgstr "אי אפשר להביא את החדשות האחרונות"
 
 msgid "Unable to retrieve latest news"
-msgstr ""
+msgstr "אי אפשר להביא את חדשות אחרונות"
 
 msgid "Loading pdf documents"
-msgstr ""
+msgstr "טוען מסמכי PDF"
 
 msgid "Documents loaded"
-msgstr ""
+msgstr "המסמכים נטענו"
 
 msgid "Requesting modules state"
-msgstr ""
+msgstr "מברר מצב הרכיבים"
 
 msgid "Unable to save modules workspace"
-msgstr ""
+msgstr "אי אפשר לשמור את סביבת העבודה של הרכיבים"
 
 #, java-format
 msgid "Unable to save workspace to {0}"
-msgstr ""
+msgstr "שמירת סביבת העבודה ל-{0} נכשלה"
 
 #, java-format
 msgid "Loading workspace from {0}"
-msgstr ""
+msgstr "טוען סביבת עבודה מ-{0}"
 
 msgid "Workspace loaded"
-msgstr ""
+msgstr "סביבת העבודה נטענה"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
-msgstr ""
+msgstr "טעינת סביבת העבודה מ-{0} נכשלה"
 
 #, java-format
 msgid "Saving workspace data to {0}"
-msgstr ""
+msgstr "שומר סביבת עבודה ל-{0}"
 
 msgid "Workspace saved"
-msgstr ""
+msgstr "סביבת העבודה נשמרה"
 
 msgid "Split after"
-msgstr ""
+msgstr "פצל אחרי"
 
 msgid "No page selected"
-msgstr ""
+msgstr "לא נבחר עמוד"
 
 msgid "Split after the following page numbers"
-msgstr ""
+msgstr "פצל אחרי העמודים הבאים"
 
 msgid "Page numbers to split at (n1,n2,n3..)"
-msgstr ""
+msgstr "מספרי העמודים לפיצול (ד1,ד2,ד3...)"
 
 msgid "Invalid page numbers"
-msgstr ""
+msgstr "מספרי עמודים לא חוקיים"
 
 msgid "Only valid positive page numbers are allowed"
-msgstr ""
+msgstr "מותרים רק מספרי עמודים חיוביים חוקיים"
 
 msgid "Split"
 msgstr "פיצול"
 
 msgid "Split a PDF document at the given page numbers."
-msgstr ""
+msgstr "פצל מסמך PDF לפי מספרי עמודים"
 
 msgid "Select or drag and drop the PDF you want to split"
-msgstr ""
+msgstr "בחר או גרור ושחרר את מסמכי ה-PDF לפיצול"
 
 msgid "File names settings"
-msgstr ""
+msgstr "הגדרות שמות הקבצים"
 
 msgid "Split settings"
-msgstr ""
+msgstr "הגדרות הפיצול"
 
 msgid "Output settings"
-msgstr ""
+msgstr "הגדרות הפלט"
 
 msgid "Every page"
-msgstr ""
+msgstr "כל עמוד"
 
 msgid "Even pages"
-msgstr ""
+msgstr "עמודים זוגיים"
 
 msgid "Odd pages"
-msgstr ""
+msgstr "עמודים אי־זוגיים"
 
 msgid "Split the document after the given page numbers"
-msgstr ""
+msgstr "פצל את המסמך אחרי מספרי העמודים הנתונים"
 
 msgid ""
 "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
-msgstr ""
+msgstr "פצל את המסמך כל מספר דפים נתון וצור מסמכים בעלי אותו מספר דפים"
 
 msgid "Split by every \"n\" pages"
-msgstr ""
+msgstr "פצל כל מספר דפים נתון"
 
 msgid "Number of pages"
 msgstr "מספר העמודים"
 
 msgid "Invalid number of pages"
-msgstr ""
+msgstr "מספר העמודים אינו חוקי"
 
 msgid "Split by size"
-msgstr ""
+msgstr "פצל לפי גודל"
 
 msgid "Split a PDF document in files of the given size (roughly)."
-msgstr ""
+msgstr "פצל את מסמך ה-PDF למסמכים בעלי גודל זהה (בקרוב)."
 
 msgid "Set the size to split at"
-msgstr ""
+msgstr "קבע את גודל לפיצול"
 
 msgid "Size must be a number"
-msgstr ""
+msgstr "הגודל חייב להיות מספר"
 
 msgid "Split at this size:"
-msgstr ""
+msgstr "פצל בגודל:"
 
 msgid "Invalid split size"
 msgstr "גודל הפיצול שגוי"
 
 msgid "Megabytes"
-msgstr ""
+msgstr "מגה בתים"
 
 msgid "MB"
-msgstr ""
+msgstr "מ\"ב"
 
 msgid "Kilobytes"
-msgstr ""
+msgstr "קילו בתים"
 
 msgid "KB"
-msgstr ""
+msgstr "ק\"ב"
 
 msgid "Alternate Mix"
 msgstr "ערבול חלופי"
 
 msgid ""
-"Merge two PDF documents taking pages alternately in straight or reverse "
-"order."
-msgstr ""
-
-msgid "Select or drag and drop the first PDF you want to mix"
-msgstr ""
-
-msgid "Select or drag and drop the second PDF you want to mix"
-msgstr ""
-
-msgid "Mix settings"
-msgstr ""
+"Merge two or more PDF documents taking pages alternately in natural or "
+"reverse order."
+msgstr "מזג שני מסמכי PDF או יותר, תוך לקיחת העמודים בסדר רגיל או הפוך."
 
 msgid "Destination file"
-msgstr ""
+msgstr "קובץ היעד"
 
-msgid "Reverse the first document"
-msgstr ""
+msgid "No PDF document has been selected"
+msgstr "לא נבחר אף מסמך PDF"
 
-msgid "Reverse the second document"
-msgstr ""
-
-msgid ""
-"Switch from the first document to the second one after the following pages"
-msgstr ""
-
-msgid ""
-"Switch from the second document to the first one after the following pages"
-msgstr ""
-
-msgid "Invalid parameter 'first and second step' must be numbers"
-msgstr ""
-
-msgid "Select a valid number of pages"
-msgstr ""
-
-msgid "The selected PDF document is invalid"
-msgstr ""
+msgid "Select a positive integer number as pace"
+msgstr "בחרו מספר חיובי כקצב ההתקדמות"
 
 msgid "Completed"
-msgstr ""
+msgstr "הסתיים"
 
 msgid "Failed"
-msgstr ""
+msgstr "נכשל"
 
 #, java-format
 msgid "Running {0}%"
-msgstr ""
+msgstr "פועל %{0}"
 
 msgid "Running"
-msgstr ""
+msgstr "פועל"
 
 msgid "Requested"
-msgstr ""
+msgstr "התבקש"
 
 msgid "Select a file"
-msgstr ""
+msgstr "בחרו קובץ"
 
 msgid "Unlock"
-msgstr ""
+msgstr "שחרור"
 
 msgid "Remove"
 msgstr "הסרה"
 
 msgid "Duplicate"
-msgstr ""
+msgstr "שכפול"
 
 msgid "Move Down"
 msgstr "הזז מטה"
 
 msgid "Move to Bottom"
-msgstr ""
+msgstr "העבר לסוף"
 
 msgid "Move Up"
 msgstr "הזז מעלה"
 
 msgid "Move to Top"
-msgstr ""
+msgstr "העבר להתחלה"
 
 msgid "Set destination"
 msgstr "בחר יעד"
 
-msgid "Open"
-msgstr "פתח"
-
 msgid "Open Folder"
-msgstr ""
+msgstr "פתח תיקייה"
 
 msgid "Document properties"
 msgstr "מאפייני המסמך"
 
 msgid "Loading..."
-msgstr ""
+msgstr "טוען..."
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
-msgstr ""
+msgstr "עמודים: {0}, PDF בגרסה: {1}"
 
 msgid "Show errors"
-msgstr ""
+msgstr "הצג שגיאות"
 
 msgid "Run"
 msgstr "הפעלה"
@@ -628,84 +621,86 @@ msgstr "החלף קובץ במידה שקיים"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
-msgstr ""
+msgstr "סמנו אם ברצונכם לדרוס את קבצי הפלט אם הם כבר קיימים"
 
 msgid "The selected file must exist. "
-msgstr ""
+msgstr "הקובץ הנבחר חייב להים קיים. "
 
 #, java-format
 msgid "Allowed extensions are {0}"
-msgstr ""
+msgstr "ההרחבות המותרות הן: {0}"
 
 msgid "Select"
-msgstr ""
+msgstr "בחרו"
 
 msgid "Browse"
 msgstr "עיון"
 
 msgid "The selected PDF file is invalid"
-msgstr ""
+msgstr "קובץ ה-PDF שנבחר אינו תקין"
 
 msgid "Compress output file/files"
 msgstr "דחיסת קובץ/קובצי הפלט"
 
 msgid "Discard bookmarks"
-msgstr ""
+msgstr "מחק סימניות"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
 "document"
-msgstr ""
+msgstr "סמנו אם ברצונכם שלא לשמור את הסימניות ממסמך ה-PDF המקורי"
 
 msgid "Output PDF version:"
-msgstr ""
+msgstr "גרסת PDF של הפלט:"
 
 #, java-format
 msgid "Version {0}"
-msgstr ""
+msgstr "גירסה {0}"
 
 msgid "Same as the input document"
-msgstr ""
+msgstr "כמו מסמך הקלט"
 
 #, java-format
 msgid "PDF version required: {0}"
-msgstr ""
+msgstr "גרסת PDF נדרשת: {0}"
 
 msgid "Select an existing directory"
-msgstr ""
+msgstr "בחרו תיקיה קיימת"
 
 msgid "An existing output directory is required"
-msgstr ""
+msgstr "נדרשת תיקיה קיימת לפלט"
 
 msgid "The output directory is required"
-msgstr ""
+msgstr "נדרשת תיקיה לפלט"
 
 msgid "Generated PDF documents name prefix:"
-msgstr ""
+msgstr "צור קבצי PDF עם שם שמתחיל ב:"
 
 msgid "Prefix for the output files name."
-msgstr ""
+msgstr "תחילית עבור שמות קבצי הפלט."
 
 msgid "Some special keywords are replaced with runtime values."
-msgstr ""
+msgstr "מספר מילות מפתח מוחלפות בערכים בזמן הריצה."
 
 msgid "Right click to add these keywords."
-msgstr ""
+msgstr "לחצו על כפתור ימין של העכבר להוספת מילות המפתח האלו."
 
 msgid "Prefix for the generated files names"
-msgstr ""
+msgstr "תחילית עבור יצירת שמות קבצי הפלט"
 
 msgid "Add prefix"
 msgstr "הוספת סיומת"
 
 msgid "Enter the user password"
-msgstr ""
+msgstr "הכניסו את סיסמת המשתמש"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"לחצו לחיצה כפולה לקבוע את העמודים הנבחרים (למשל: \"2\", \"5-23\" או \"-2,5-"
+"7,12\")"
 
 msgid "Page ranges"
-msgstr ""
+msgstr "טווחי דפים"
 
 msgid "Pages"
 msgstr "עמודים"
@@ -714,250 +709,265 @@ msgid "Name"
 msgstr "שם"
 
 msgid "Add documents to the table"
-msgstr ""
+msgstr "הוספת מסמכים לטבלה"
 
 msgid "_Add"
-msgstr ""
+msgstr "הוס_ף"
 
 msgid "Select pdf documents to load"
-msgstr ""
+msgstr "בחרו את מסמכי ה-PDF לטעינה"
 
 msgid "Removes selected documents"
-msgstr ""
+msgstr "הסר את המסמכים שנבחרו"
 
 msgid "_Remove"
-msgstr ""
+msgstr "הס_ר"
 
 msgid "Removes every document"
-msgstr ""
+msgstr "מסיר את כל המסמכים"
 
 msgid "_Clear"
-msgstr ""
+msgstr "_נקה"
 
 msgid "Moves up selected documents"
-msgstr ""
+msgstr "הזז למעלה את המסמכים השנבחרו"
 
 msgid "Move _Up"
-msgstr ""
+msgstr "הזז למ_עלה"
 
 msgid "Moves down selected documents"
-msgstr ""
+msgstr "הזז למטה את המסמכים השנבחרו"
 
 msgid "Move _Down"
+msgstr "הזז למ_טה"
+
+msgid "Pace"
+msgstr "קצב ההתקדמות"
+
+msgid ""
+"Double click to set the number of pages after which the task will switch to "
+"the next file"
 msgstr ""
+"לחצו לחיצה כפולה לקבוע את מספר העמודים שאחריהם הפעולה תעבור לקובץ הבא"
 
 msgid "Size"
-msgstr ""
+msgstr "גודל"
 
 msgid "Modified"
-msgstr ""
+msgstr "השתנה"
+
+msgid "Reverse"
+msgstr "סדר הפוך"
 
 msgid "Drag and drop PDF files here"
-msgstr ""
+msgstr "גרור ושחרר קבצי PDF לכאן"
+
+msgid "The selected PDF document is invalid"
+msgstr "מסמך ה-PDF שנבחר אינו תקין"
 
 msgid "Add a blank page if page number is odd"
-msgstr ""
+msgstr "הוסף דך ריק אם מספר הדפים אינו זוגי"
 
 msgid ""
 "Adds a blank page after each merged document if the document has an odd "
 "number of pages"
 msgstr ""
+"הוספת עמוד ריק אחרי כל אחד מהמסמכים למיזוג, אם מספר העמודים במסמך אינו זוגי"
 
 msgid "Add a footer"
-msgstr ""
+msgstr "הוסף הערה בתחתית העמוד"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
-msgstr ""
+msgstr "הוספת שם הקובץ בתחתית העמודים שלו"
 
 msgid "Merge fields"
-msgstr ""
+msgstr "מזג את השדות"
 
 msgid "Merge renaming existing fields"
-msgstr ""
+msgstr "מזג עם שינוי שמות השדות הקיימים"
 
 msgid "Discard forms"
-msgstr ""
+msgstr "מחק טפסים"
 
 msgid "Interactive forms (AcroForms):"
-msgstr ""
+msgstr "טפסים אינטראקטיביים (AcroForms ):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
-msgstr ""
+msgstr "מה לעשות במידה ואחד או יותר מהמסמכים מכילים טפסים (AcroForms)"
 
 msgid "Retain bookmarks"
-msgstr ""
+msgstr "שמור סימניות"
 
 msgid "Create one entry for each merged document"
-msgstr ""
+msgstr "צור קבוצה עבור כל מסמך ממוזג"
 
 msgid "Retain bookmarks as one entry for each merged document"
-msgstr ""
+msgstr "צור קבוצה עבור הסמניות מאותו קובץ ממוזג"
 
 msgid "Bookmarks handling:"
-msgstr ""
+msgstr "טיפול בסמניות:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
-msgstr ""
+msgstr "מה לעשות במידה ואחד או יותר מהמסמכים מכילים סימניות"
 
 msgid "Don't generate"
-msgstr ""
+msgstr "אל תיצור"
 
 msgid "Generate from file names"
-msgstr ""
+msgstr "צור משמות הקבצים"
 
 msgid "Generate from documents titles"
-msgstr ""
+msgstr "צור מכותרות המסמכים"
 
 msgid "Table of contents:"
-msgstr ""
+msgstr "תוכן העניינים:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
-msgstr ""
+msgstr "בחרו אם להוסיף תוכן עניינים למסמך ה-PDF שיווצר"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"לחץ פעמיים על מנת להגדיר את מספר הדפים שברצונך למזג (לדוגמא: 2 או 5-23 או "
-"2,5-7,12-)"
-
-msgid "No PDF document has been selected"
-msgstr ""
+"לחצו לחיצה כפולה לקבוע את העמודים למיזוג (למשל: \"2\", \"5-23\" או \"-2,5-"
+"7,12\")"
 
 msgid "Merge"
-msgstr ""
+msgstr "מזג"
 
 msgid "Merge together multiple PDF documents or subsections of them."
-msgstr ""
+msgstr "מזג מספר מסמכי PDF או חלקים שלהם"
 
 msgid "Merge settings"
-msgstr ""
+msgstr "הגדרות מיזוג"
 
 msgid "Security"
-msgstr ""
+msgstr "אבטחה"
 
 msgid "Other"
-msgstr ""
+msgstr "אחר"
 
 msgid "Error saving log file."
-msgstr ""
+msgstr "שגיאה בשמירת קובץ היומן"
 
 #, java-format
 msgid "File {0} saved."
-msgstr ""
+msgstr "קובץ {0} נשמר."
 
 msgid "Directories"
-msgstr ""
+msgstr "תיקיות"
 
 #, java-format
 msgid "Invalid range: {0}."
-msgstr ""
+msgstr "טווח לא חוקי: {0}"
 
 #, java-format
 msgid ""
 "Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
 "or [-n] or [n-]"
 msgstr ""
+"טווח הדפים לא מובן: {0}. השתמשו בצורות הבאות: [x], [x-y], [x-], או [-x]"
 
 #, java-format
 msgid "Invalid number: {0}."
-msgstr ""
+msgstr "מספר לא חוקי: {0}"
 
 msgid "Valid user password provided."
-msgstr ""
+msgstr "התקבלה סיסמת משתמש חוקית."
 
 msgid "This document is encrypted, click to provide a password."
-msgstr ""
+msgstr "זהו מסמך מוצפן. לחצו על מנת לתת את הסיסמה."
 
 msgid "An error has occurred, click for more details."
-msgstr ""
+msgstr "ארעה שגיאה, לחצו לפרטים נוספים."
 
 msgid "Squared green"
-msgstr ""
+msgstr "רבוע ירוק"
 
 msgid "Squared cornflower"
-msgstr ""
+msgstr "רבוע קורנפלור"
 
 msgid "Roundish"
-msgstr ""
+msgstr "מעוגל"
 
 msgid "Invalid bookmarks level"
-msgstr ""
+msgstr "רמת סימניות שגויה"
 
 msgid "Split by bookmarks"
-msgstr ""
+msgstr "פצול על פי סימניות"
 
 msgid ""
 "Split a PDF document at bookmarked pages by specifying a bookmark level."
-msgstr ""
+msgstr "פצל מסמך PDF על פי עמודי הסימניות על ידי ציון רמת הסימניות."
 
 msgid "Regular expression the bookmark has to match"
-msgstr ""
+msgstr "ביטוי רגולרי לחיפוש הסימנייה"
 
 msgid "Split at this bookmark level:"
-msgstr ""
+msgstr "פיצול ברמת הסימניות:"
 
 msgid "Matching regular expression:"
-msgstr ""
+msgstr "ביטוי רגולרי לחיפוש"
 
 msgid "A regular expression the bookmark text has to match"
-msgstr ""
+msgstr "ביטוי רגולרי שצריך להתאים שם של הסימנייה"
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
 msgstr ""
+"לדוגמה: השתמשו ב- .*פרק.* (נקודות לפני הכוכביות) להתאמה לסימניות שמכילות את "
+"המילה \"פרק\""
 
 msgid "Extract"
-msgstr ""
+msgstr "חלץ"
 
-msgid "Extract pages from a PDF document."
-msgstr ""
-
-msgid "Select or drag and drop a PDF"
-msgstr ""
+msgid "Extract pages from PDF documents."
+msgstr "חלץ עמודים ממסמך PDF"
 
 msgid "Extract settings"
-msgstr ""
+msgstr "הגדרות החילוץ"
+
+msgid "Destination directory"
+msgstr "תידיית היעד"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "מספרי העמודים לבחירה (למשל: \"2\", \"5-23\" או \"-2,5-7,12\")"
 
 msgid "Invalid page ranges"
-msgstr ""
+msgstr "טווחי דפים לא חוקיים"
 
 msgid "Extract pages:"
-msgstr ""
+msgstr "חלץ עמודים:"
 
 msgid ""
 "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"לחצו לחיצה כפולה לקבוע את העמודים לסיבוב (למשל: \"2\", \"5-23\" או \"-2,5-"
+"7,12\")"
 
 msgid "All pages"
-msgstr ""
+msgstr "כל העמודים"
 
 msgid "90 degrees clockwise"
-msgstr ""
+msgstr "סיבוב 90 מעלות עם כיוון השעון"
 
 msgid "180 degrees clockwise"
-msgstr ""
+msgstr "סיבוב 180מעלות"
 
 msgid "90 degrees counterclockwise"
-msgstr ""
+msgstr "סיבוב 90 מעלות כנגד כיוון השעון"
 
 msgid "Rotate "
-msgstr ""
+msgstr "סובב "
 
 msgid "Rotate"
-msgstr "הטייה"
+msgstr "סובב"
 
 msgid "Rotate the pages of multiple PDF documents."
-msgstr ""
+msgstr "סובב עמודים של מספר מסמכי PDF"
 
 msgid "Rotate settings"
-msgstr ""
-
-msgid "Destination directory"
-msgstr ""
+msgstr "הגדרות הסיבוב"
 
 #~ msgid "Split even pages"
 #~ msgstr "פיצול עמודים זוגיים"

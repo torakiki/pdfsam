@@ -7,15 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-06-22 17:45+0200\n"
-"PO-Revision-Date: 2016-03-16 19:44+0000\n"
-"Last-Translator: Orlando <gutierrez_rojo@hotmail.com>\n"
+"POT-Creation-Date: 2016-09-21 12:10+0200\n"
+"PO-Revision-Date: 2016-09-19 17:26+0000\n"
+"Last-Translator: Diego Xavier <smilzo_pazzo@hotmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
-"X-Generator: Launchpad (build 18115)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Launchpad-Export-Date: 2016-09-25 08:41+0000\n"
+"X-Generator: Launchpad (build 18204)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Suscribirse al canal de noticias oficial"
@@ -197,6 +198,14 @@ msgstr ""
 "Seleccionar si se debe comprobar la disponibilidad de nuevas versiones al "
 "inicio (requiere reiniciar)"
 
+msgid "Check for news at startup"
+msgstr ""
+
+msgid ""
+"Set whether the application should check for news availability on startup "
+"(restart needed)"
+msgstr ""
+
 msgid "Play alert sounds"
 msgstr "Reproducir los sonidos de alerta"
 
@@ -210,6 +219,8 @@ msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
 "password in the workspace file"
 msgstr ""
+"Si un archivo PDF encriptado ha sido abierto con un password, guarda la "
+"contraseña en el archivo de espacio de trabajo"
 
 msgid "Show donation window"
 msgstr "Mostrar pantalla de donación"
@@ -371,8 +382,19 @@ msgstr "Descargar"
 msgid "New version available"
 msgstr "Versión nueva disponible"
 
+msgid "Open"
+msgstr "Abrir"
+
 msgid "Non existing directory"
 msgstr "La carpeta no existe"
+
+msgid "Open with"
+msgstr "Abrir con"
+
+msgid "Select the task to perform on the following file"
+msgid_plural "Select the task to perform on the following files"
+msgstr[0] "Seleccione la tarea a realizar en el siguiente archivo"
+msgstr[1] "Seleccione la tarea a realizar en los siguientes archivos"
 
 msgid "Directory not empty"
 msgstr "La carpeta no está vacía"
@@ -479,7 +501,7 @@ msgid "Split settings"
 msgstr "Configurar división"
 
 msgid "Output settings"
-msgstr ""
+msgstr "Ajustes de salida"
 
 msgid "Every page"
 msgstr "Cada página"
@@ -541,46 +563,20 @@ msgid "Alternate Mix"
 msgstr "Mezcla alterna"
 
 msgid ""
-"Merge two PDF documents taking pages alternately in straight or reverse "
-"order."
+"Merge two or more PDF documents taking pages alternately in natural or "
+"reverse order."
 msgstr ""
-"Unir dos documentos PDF tomando páginas de forma alternada en orden directo "
-"o inverso."
-
-msgid "Select or drag and drop the first PDF you want to mix"
-msgstr "Seleccione o arrastre y suelte el primer PDF que quiera mezclar"
-
-msgid "Select or drag and drop the second PDF you want to mix"
-msgstr "Seleccione o arrastre y suelte el segundo PDF que quiera mezclar"
-
-msgid "Mix settings"
-msgstr "Configurar mezcla"
+"Unir dos o más documentos PDF tomando páginas alternadamente en orden "
+"natural o reverso"
 
 msgid "Destination file"
 msgstr "Archivo de destino"
 
-msgid "Reverse the first document"
-msgstr "Invertir el primer documento"
+msgid "No PDF document has been selected"
+msgstr "No se seleccionó ningún documento PDF"
 
-msgid "Reverse the second document"
-msgstr "Invertir el segundo documento"
-
-msgid ""
-"Switch from the first document to the second one after the following pages"
-msgstr "Cambiar del primer documento al segundo tras las siguientes páginas"
-
-msgid ""
-"Switch from the second document to the first one after the following pages"
-msgstr "Cambiar del segundo documento al primero tras las siguientes páginas"
-
-msgid "Invalid parameter 'first and second step' must be numbers"
-msgstr "Parámetro inválido 'primer y segundo paso' deben ser números"
-
-msgid "Select a valid number of pages"
-msgstr "Seleccione un número de páginas válido"
-
-msgid "The selected PDF document is invalid"
-msgstr "El documento PDF seleccionado no es válido"
+msgid "Select a positive integer number as pace"
+msgstr ""
 
 msgid "Completed"
 msgstr "Finalizado"
@@ -638,9 +634,6 @@ msgstr "Mover al principio"
 
 msgid "Set destination"
 msgstr "Fijar destino"
-
-msgid "Open"
-msgstr "Abrir"
 
 msgid "Open Folder"
 msgstr "Abrir la carpeta"
@@ -700,6 +693,8 @@ msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
 "document"
 msgstr ""
+"Marque el casillero si usted no quiere retener ningún marcador del documento "
+"PDF original"
 
 msgid "Output PDF version:"
 msgstr "Version PDF de salida:"
@@ -798,14 +793,30 @@ msgstr "Mueve los documentos seleccionados hacia abajo"
 msgid "Move _Down"
 msgstr "_Bajar"
 
+msgid "Pace"
+msgstr ""
+
+msgid ""
+"Double click to set the number of pages after which the task will switch to "
+"the next file"
+msgstr ""
+"Doble click para fijar el número de páginas despúes de las cuales la tarea "
+"va a cambiar al siguiente archivo"
+
 msgid "Size"
 msgstr "Tamaño"
 
 msgid "Modified"
 msgstr "Modificado el"
 
+msgid "Reverse"
+msgstr "Invertir"
+
 msgid "Drag and drop PDF files here"
 msgstr "Arrastre y suelte los archivos PDF aquí"
+
+msgid "The selected PDF document is invalid"
+msgstr "El documento PDF seleccionado no es válido"
 
 msgid "Add a blank page if page number is odd"
 msgstr "Añadir una página vacía si el número de páginas es impar"
@@ -876,9 +887,6 @@ msgid ""
 msgstr ""
 "Pulse dos veces para asignar las páginas que quiera mezclar (ej., 2 o 5-23 o "
 "2,5-7,12-)"
-
-msgid "No PDF document has been selected"
-msgstr "No se seleccionó ningún documento PDF"
 
 msgid "Merge"
 msgstr "Combinar"
@@ -971,29 +979,31 @@ msgstr ""
 "\"Capítulo*"
 
 msgid "Extract"
-msgstr ""
+msgstr "Extraer"
 
-msgid "Extract pages from a PDF document."
-msgstr ""
-
-msgid "Select or drag and drop a PDF"
-msgstr ""
+msgid "Extract pages from PDF documents."
+msgstr "Extraiga páginas de documentos PDF"
 
 msgid "Extract settings"
-msgstr ""
+msgstr "Ajustes de estracción"
+
+msgid "Destination directory"
+msgstr "Carpeta de destino"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "Páginas a extraer (ej: 2 o 5-23 o 2,5-7,12-)"
 
 msgid "Invalid page ranges"
-msgstr ""
+msgstr "Rangos no válidos de página"
 
 msgid "Extract pages:"
-msgstr ""
+msgstr "Extraer páginas"
 
 msgid ""
 "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Haga doble click para establecer las páginas que quiere rotar/girar (ej: 2 o "
+"5-23 o 2,5-7,12-)"
 
 msgid "All pages"
 msgstr "Todas las páginas"
@@ -1018,9 +1028,6 @@ msgstr "Girar las páginas de varios documentos PDF."
 
 msgid "Rotate settings"
 msgstr "Configurar giro"
-
-msgid "Destination directory"
-msgstr "Carpeta de destino"
 
 #~ msgid "Never"
 #~ msgstr "Nunca"

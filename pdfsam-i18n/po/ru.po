@@ -7,15 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-06-22 17:45+0200\n"
-"PO-Revision-Date: 2015-02-05 22:19+0000\n"
-"Last-Translator: gennzub <gennzub@gmail.com>\n"
+"POT-Creation-Date: 2016-09-21 12:10+0200\n"
+"PO-Revision-Date: 2016-07-06 12:09+0000\n"
+"Last-Translator: ZVV <vvzakharenkov@mail.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
-"X-Generator: Launchpad (build 18115)\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Launchpad-Export-Date: 2016-09-25 08:41+0000\n"
+"X-Generator: Launchpad (build 18204)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Подписаться на рассылку официальных новостей"
@@ -63,7 +65,7 @@ msgid "The selected output directory does not exist"
 msgstr ""
 
 msgid "Do you want to create it?"
-msgstr ""
+msgstr "Желаете создать?"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -194,6 +196,14 @@ msgid ""
 "needed)"
 msgstr "Проверка обновлений при запуске (нужен перезапуск)"
 
+msgid "Check for news at startup"
+msgstr ""
+
+msgid ""
+"Set whether the application should check for news availability on startup "
+"(restart needed)"
+msgstr ""
+
 msgid "Play alert sounds"
 msgstr "Воспроизводить звуковые предупреждения"
 
@@ -221,6 +231,7 @@ msgstr "Использовать каталог выбранного PDF док�
 
 msgid "Save default workspace on exit"
 msgstr ""
+"При выходе из программы, сохранять рабочую среду, используемую по умолчанию"
 
 msgid "If a default workspace is set, save it on application exit"
 msgstr ""
@@ -352,7 +363,7 @@ msgid "PDFsam worked hard!"
 msgstr "PDFsam работает жёстко!"
 
 msgid "Spread the word!"
-msgstr ""
+msgstr "Растянуть слово"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -364,8 +375,19 @@ msgstr "Загрузить"
 msgid "New version available"
 msgstr "Новая версия доступна"
 
+msgid "Open"
+msgstr "Открыть"
+
 msgid "Non existing directory"
+msgstr "Несуществующий каталог"
+
+msgid "Open with"
 msgstr ""
+
+msgid "Select the task to perform on the following file"
+msgid_plural "Select the task to perform on the following files"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Directory not empty"
 msgstr "Каталог не пуст"
@@ -401,7 +423,7 @@ msgid "Unable to retrieve the latest news"
 msgstr ""
 
 msgid "Unable to retrieve latest news"
-msgstr ""
+msgstr "Невозможно скачать последние новости"
 
 msgid "Loading pdf documents"
 msgstr "Загрузка pdf документов"
@@ -453,13 +475,13 @@ msgid "Invalid page numbers"
 msgstr "Неверные номера страниц"
 
 msgid "Only valid positive page numbers are allowed"
-msgstr ""
+msgstr "Допускается только корректное положительное число страниц"
 
 msgid "Split"
 msgstr "Разделить"
 
 msgid "Split a PDF document at the given page numbers."
-msgstr ""
+msgstr "Разделяет документ PDF на заданных по номеру страницах."
 
 msgid "Select or drag and drop the PDF you want to split"
 msgstr "Выберите или перетащите PDF, который вы хотите разбить"
@@ -471,7 +493,7 @@ msgid "Split settings"
 msgstr "Настройка разделения"
 
 msgid "Output settings"
-msgstr ""
+msgstr "Настройки вывода"
 
 msgid "Every page"
 msgstr "Каждая страница"
@@ -488,6 +510,8 @@ msgstr "Разбить документ после данных номеров �
 msgid ""
 "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
+"Разделяет документ PDF на каждой n-ной странице, создавая документы с числом "
+"страниц n каждый"
 
 msgid "Split by every \"n\" pages"
 msgstr "Разбить на каждые \"n\" страниц"
@@ -502,7 +526,7 @@ msgid "Split by size"
 msgstr "Разбить по размеру"
 
 msgid "Split a PDF document in files of the given size (roughly)."
-msgstr ""
+msgstr "Разделяет документ PDF на файлы заданного размера (грубо)."
 
 msgid "Set the size to split at"
 msgstr "Установить размер для разделения"
@@ -532,45 +556,18 @@ msgid "Alternate Mix"
 msgstr "Чередование"
 
 msgid ""
-"Merge two PDF documents taking pages alternately in straight or reverse "
-"order."
+"Merge two or more PDF documents taking pages alternately in natural or "
+"reverse order."
 msgstr ""
-"Слияние двух PDF документов со страницами в прямом или обратном порядке."
-
-msgid "Select or drag and drop the first PDF you want to mix"
-msgstr "Выберите или перетащите первый PDF, который вы хотите смешать"
-
-msgid "Select or drag and drop the second PDF you want to mix"
-msgstr "Выберите или перетащите второй PDF, который вы хотите смешать"
-
-msgid "Mix settings"
-msgstr "Настройка смешивания"
 
 msgid "Destination file"
 msgstr "Файл назначения"
 
-msgid "Reverse the first document"
-msgstr "Развернуть первый документ"
-
-msgid "Reverse the second document"
-msgstr "Развернуть второй документ"
-
-msgid ""
-"Switch from the first document to the second one after the following pages"
-msgstr "Переход от первого документа ко второму после следующих страниц"
-
-msgid ""
-"Switch from the second document to the first one after the following pages"
-msgstr "Переход от второго документа к первому после следующих страниц"
-
-msgid "Invalid parameter 'first and second step' must be numbers"
-msgstr "Неверный параметр \"первого и второго этапа\", должны быть числами"
-
-msgid "Select a valid number of pages"
+msgid "No PDF document has been selected"
 msgstr ""
 
-msgid "The selected PDF document is invalid"
-msgstr "Выбранный PDF документ является неверным"
+msgid "Select a positive integer number as pace"
+msgstr ""
 
 msgid "Completed"
 msgstr "Выполнено"
@@ -621,9 +618,6 @@ msgstr "Переместить в начало"
 msgid "Set destination"
 msgstr "Установить пункт назначения"
 
-msgid "Open"
-msgstr "Открыть"
-
 msgid "Open Folder"
 msgstr "Открыть каталог"
 
@@ -638,7 +632,7 @@ msgid "Pages: {0}, PDF Version: {1}"
 msgstr "Страниц: {0}, версия PDF: {1}"
 
 msgid "Show errors"
-msgstr ""
+msgstr "Показывать ошибки"
 
 msgid "Run"
 msgstr "Выполнить"
@@ -678,7 +672,7 @@ msgid ""
 msgstr ""
 
 msgid "Output PDF version:"
-msgstr ""
+msgstr "Версия PDF при сохранении:"
 
 #, java-format
 msgid "Version {0}"
@@ -689,19 +683,19 @@ msgstr "Как в редактируемом документе"
 
 #, java-format
 msgid "PDF version required: {0}"
-msgstr ""
+msgstr "Требуется указать версию PDF: {0}"
 
 msgid "Select an existing directory"
 msgstr "Выбор существующего каталога"
 
 msgid "An existing output directory is required"
-msgstr ""
+msgstr "Требуется существующий каталог для вывода"
 
 msgid "The output directory is required"
-msgstr ""
+msgstr "Требуется каталог для вывода"
 
 msgid "Generated PDF documents name prefix:"
-msgstr ""
+msgstr "Префикс названия документа PDF:"
 
 msgid "Prefix for the output files name."
 msgstr "Префикс для имён готовых файлов"
@@ -723,6 +717,8 @@ msgstr "Введите пароль пользователя"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Дважды кликните для указания выбранных страниц (например: 2, или 5-23, или "
+"2,5-7,12)"
 
 msgid "Page ranges"
 msgstr "Дипапазоны страниц"
@@ -768,14 +764,28 @@ msgstr "Сдвигает вниз выделенные документы"
 msgid "Move _Down"
 msgstr "Переместить _ниже"
 
+msgid "Pace"
+msgstr ""
+
+msgid ""
+"Double click to set the number of pages after which the task will switch to "
+"the next file"
+msgstr ""
+
 msgid "Size"
 msgstr "Размер"
 
 msgid "Modified"
 msgstr "Изменён"
 
+msgid "Reverse"
+msgstr "В обратном порядке"
+
 msgid "Drag and drop PDF files here"
 msgstr "Перетащите PDF файлы сюда"
+
+msgid "The selected PDF document is invalid"
+msgstr "Выбранный PDF документ является неверным"
 
 msgid "Add a blank page if page number is odd"
 msgstr "Добавить пустую страницу, если номер страницы нечетный"
@@ -800,13 +810,15 @@ msgid "Merge renaming existing fields"
 msgstr ""
 
 msgid "Discard forms"
-msgstr ""
+msgstr "Отбросить формы"
 
 msgid "Interactive forms (AcroForms):"
-msgstr ""
+msgstr "Интерактивные формы (AcroForms):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr ""
+"Что делать в случае, если один или несколько входящих документов содержат "
+"формы AcroForms"
 
 msgid "Retain bookmarks"
 msgstr "Сохранить закладки"
@@ -822,9 +834,11 @@ msgstr "Регулировать закладки:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr ""
+"Что делать в случае, если один или несколько входящих документов содержат "
+"закладки"
 
 msgid "Don't generate"
-msgstr ""
+msgstr "Не генерировать"
 
 msgid "Generate from file names"
 msgstr ""
@@ -844,9 +858,6 @@ msgid ""
 msgstr ""
 "Дважды щелкните для установки страниц, которые хотите объединить (напр: 2 "
 "или 5-23 или 2,5-7,12 -)"
-
-msgid "No PDF document has been selected"
-msgstr ""
 
 msgid "Merge"
 msgstr "Объединить"
@@ -896,7 +907,7 @@ msgid "This document is encrypted, click to provide a password."
 msgstr "Этот документ зашифрован, нажмите для ввода пароля."
 
 msgid "An error has occurred, click for more details."
-msgstr ""
+msgstr "Произошла ошибка, кликните для получения более подробной информации."
 
 msgid "Squared green"
 msgstr "Квадратный зеленый"
@@ -934,22 +945,22 @@ msgid ""
 msgstr ""
 
 msgid "Extract"
-msgstr ""
+msgstr "Извлечь"
 
-msgid "Extract pages from a PDF document."
-msgstr ""
-
-msgid "Select or drag and drop a PDF"
+msgid "Extract pages from PDF documents."
 msgstr ""
 
 msgid "Extract settings"
 msgstr ""
 
+msgid "Destination directory"
+msgstr "Каталог назначения"
+
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 
 msgid "Invalid page ranges"
-msgstr ""
+msgstr "Некорректный интервал страниц"
 
 msgid "Extract pages:"
 msgstr ""
@@ -968,7 +979,7 @@ msgid "180 degrees clockwise"
 msgstr "180 градусов по часовой"
 
 msgid "90 degrees counterclockwise"
-msgstr ""
+msgstr "90 градусов против часовой стрелки"
 
 msgid "Rotate "
 msgstr "Вращение "
@@ -981,9 +992,6 @@ msgstr "Поворот страниц в многостраничном доку
 
 msgid "Rotate settings"
 msgstr "Настройка вращения"
-
-msgid "Destination directory"
-msgstr "Каталог назначения"
 
 # G:\Documents\eclipse_workspace\PDFSAMsplit\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:193
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:206

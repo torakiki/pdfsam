@@ -7,15 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-06-22 17:45+0200\n"
+"POT-Creation-Date: 2016-09-21 12:10+0200\n"
 "PO-Revision-Date: 2014-07-20 16:17+0000\n"
 "Last-Translator: pirtlak <pirtlak@outlook.com>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
-"X-Generator: Launchpad (build 18115)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Launchpad-Export-Date: 2016-09-25 08:41+0000\n"
+"X-Generator: Launchpad (build 18204)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr ""
@@ -193,6 +194,14 @@ msgid ""
 "needed)"
 msgstr ""
 
+msgid "Check for news at startup"
+msgstr ""
+
+msgid ""
+"Set whether the application should check for news availability on startup "
+"(restart needed)"
+msgstr ""
+
 msgid "Play alert sounds"
 msgstr "Hata sesi çal"
 
@@ -364,8 +373,19 @@ msgstr ""
 msgid "New version available"
 msgstr "Yeni versiyon var"
 
+msgid "Open"
+msgstr "Aç"
+
 msgid "Non existing directory"
 msgstr ""
+
+msgid "Open with"
+msgstr ""
+
+msgid "Select the task to perform on the following file"
+msgid_plural "Select the task to perform on the following files"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Directory not empty"
 msgstr ""
@@ -532,44 +552,18 @@ msgid "Alternate Mix"
 msgstr "Alternatif Karıştırma"
 
 msgid ""
-"Merge two PDF documents taking pages alternately in straight or reverse "
-"order."
+"Merge two or more PDF documents taking pages alternately in natural or "
+"reverse order."
 msgstr ""
-
-msgid "Select or drag and drop the first PDF you want to mix"
-msgstr "Karıştırmak için birinci PDF dosyasını sürükle bırak ya da seç"
-
-msgid "Select or drag and drop the second PDF you want to mix"
-msgstr "Karıştırmak için ikinci PDF dosyasını sürükle bırak ya da seç"
-
-msgid "Mix settings"
-msgstr "Karıştırma ayarları"
 
 msgid "Destination file"
 msgstr "Hedef dosya"
 
-msgid "Reverse the first document"
-msgstr "Birinci belgeyi iptal et"
-
-msgid "Reverse the second document"
-msgstr "İkinci belgeyi iptal et"
-
-msgid ""
-"Switch from the first document to the second one after the following pages"
+msgid "No PDF document has been selected"
 msgstr ""
 
-msgid ""
-"Switch from the second document to the first one after the following pages"
+msgid "Select a positive integer number as pace"
 msgstr ""
-
-msgid "Invalid parameter 'first and second step' must be numbers"
-msgstr ""
-
-msgid "Select a valid number of pages"
-msgstr ""
-
-msgid "The selected PDF document is invalid"
-msgstr "Seçili PDF belgesi geçersiz"
 
 msgid "Completed"
 msgstr ""
@@ -627,9 +621,6 @@ msgstr "En Üste Taşı"
 
 msgid "Set destination"
 msgstr "Hedef seç"
-
-msgid "Open"
-msgstr "Aç"
 
 msgid "Open Folder"
 msgstr "Klasörü Aç"
@@ -806,14 +797,28 @@ msgstr "Seçili belgeleri aşağıtaşır"
 msgid "Move _Down"
 msgstr "_Aşağı Taşı"
 
+msgid "Pace"
+msgstr ""
+
+msgid ""
+"Double click to set the number of pages after which the task will switch to "
+"the next file"
+msgstr ""
+
 msgid "Size"
 msgstr "Boyut"
 
 msgid "Modified"
 msgstr "Değiştirildi"
 
+msgid "Reverse"
+msgstr ""
+
 msgid "Drag and drop PDF files here"
 msgstr "Pdf dosyalarını buraya sürükle bırak"
+
+msgid "The selected PDF document is invalid"
+msgstr "Seçili PDF belgesi geçersiz"
 
 msgid "Add a blank page if page number is odd"
 msgstr ""
@@ -877,9 +882,6 @@ msgstr ""
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-
-msgid "No PDF document has been selected"
 msgstr ""
 
 msgid "Merge"
@@ -968,14 +970,14 @@ msgstr ""
 msgid "Extract"
 msgstr ""
 
-msgid "Extract pages from a PDF document."
-msgstr ""
-
-msgid "Select or drag and drop a PDF"
+msgid "Extract pages from PDF documents."
 msgstr ""
 
 msgid "Extract settings"
 msgstr ""
+
+msgid "Destination directory"
+msgstr "Hedef dizin"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -1013,9 +1015,6 @@ msgstr ""
 
 msgid "Rotate settings"
 msgstr "Döndürme ayarları"
-
-msgid "Destination directory"
-msgstr "Hedef dizin"
 
 #~ msgid "Split even pages"
 #~ msgstr "Çift sayfa numaralıları böl"

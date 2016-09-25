@@ -2,15 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2016-06-22 17:45+0200\n"
-"PO-Revision-Date: 2016-06-26 17:21+0000\n"
+"POT-Creation-Date: 2016-09-21 12:10+0200\n"
+"PO-Revision-Date: 2016-08-24 13:24+0000\n"
 "Last-Translator: Patriccollu <Patrick.Santa-Maria@laposte.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-06-29 07:48+0000\n"
-"X-Generator: Launchpad (build 18115)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Launchpad-Export-Date: 2016-09-25 08:40+0000\n"
+"X-Generator: Launchpad (build 18204)\n"
 "Language: co\n"
 
 msgid "Subscribe to the official news feed"
@@ -192,6 +193,14 @@ msgstr ""
 "Definisce s'ellu ci vole à verificà à l'iniziu a dispunibulità di e nove "
 "versioni (rilanciu necessariu)"
 
+msgid "Check for news at startup"
+msgstr ""
+
+msgid ""
+"Set whether the application should check for news availability on startup "
+"(restart needed)"
+msgstr ""
+
 msgid "Play alert sounds"
 msgstr "Sunà i soni d'alerta"
 
@@ -369,8 +378,19 @@ msgstr "Telecaricà"
 msgid "New version available"
 msgstr "Nova versione dispunibule"
 
+msgid "Open"
+msgstr "Apre"
+
 msgid "Non existing directory"
 msgstr "Cartulare inesistente"
+
+msgid "Open with"
+msgstr "Apre cù"
+
+msgid "Select the task to perform on the following file"
+msgid_plural "Select the task to perform on the following files"
+msgstr[0] "Selezziunà a tacca à fà per stu schedariu"
+msgstr[1] "Selezziunà a tacca à fà per sti schedarii"
 
 msgid "Directory not empty"
 msgstr "Cartulare micca viotu"
@@ -539,46 +559,18 @@ msgid "Alternate Mix"
 msgstr "Mischiu alternativu"
 
 msgid ""
-"Merge two PDF documents taking pages alternately in straight or reverse "
-"order."
+"Merge two or more PDF documents taking pages alternately in natural or "
+"reverse order."
 msgstr ""
-"Fusione di dui ducumenti PDF pigliendu e pagine alternatamente in ordine "
-"nurmale o à l'arritrosa."
-
-msgid "Select or drag and drop the first PDF you want to mix"
-msgstr "Selezziunà o sguillà è depone u primu PDF chì voi vulete mischià"
-
-msgid "Select or drag and drop the second PDF you want to mix"
-msgstr "Selezziunà o sguillà è depone u secondu PDF chì voi vulete mischià"
-
-msgid "Mix settings"
-msgstr "Preferenze di mischiu"
 
 msgid "Destination file"
 msgstr "Schedariu di destinazione"
 
-msgid "Reverse the first document"
-msgstr "Arritrusà u primu ducumentu"
+msgid "No PDF document has been selected"
+msgstr "Alcunu ducumentu PDF ùn hè statu selezziunatu"
 
-msgid "Reverse the second document"
-msgstr "Arritrusà u secondu ducumentu"
-
-msgid ""
-"Switch from the first document to the second one after the following pages"
-msgstr "Scambià da u primu ducumentu à u secondu dopu à ste pagine"
-
-msgid ""
-"Switch from the second document to the first one after the following pages"
-msgstr "Scambià da u secondu ducumentu à u primu dopu à ste pagine"
-
-msgid "Invalid parameter 'first and second step' must be numbers"
-msgstr "Parametru inaccettevule 'prima è seconda tappa' devenu esse numeri"
-
-msgid "Select a valid number of pages"
-msgstr "Selezziunà un numeru accettevule di pagine"
-
-msgid "The selected PDF document is invalid"
-msgstr "U PDF selezziunatu hè inaccettevule"
+msgid "Select a positive integer number as pace"
+msgstr ""
 
 msgid "Completed"
 msgstr "Compiu"
@@ -622,9 +614,6 @@ msgstr "Move à u Principiu"
 
 msgid "Set destination"
 msgstr "Definisce a destinazione"
-
-msgid "Open"
-msgstr "Apre"
 
 msgid "Open Folder"
 msgstr "Apre un Sfugliaghju"
@@ -774,14 +763,28 @@ msgstr "Move inghjò i ducumenti selezziunati"
 msgid "Move _Down"
 msgstr "Move in_ghjò"
 
+msgid "Pace"
+msgstr ""
+
+msgid ""
+"Double click to set the number of pages after which the task will switch to "
+"the next file"
+msgstr ""
+
 msgid "Size"
 msgstr "Dimensione"
 
 msgid "Modified"
 msgstr "Mudificatu"
 
+msgid "Reverse"
+msgstr ""
+
 msgid "Drag and drop PDF files here"
 msgstr "Sguillà è depone i schedarii PDF quì"
+
+msgid "The selected PDF document is invalid"
+msgstr "U PDF selezziunatu hè inaccettevule"
 
 msgid "Add a blank page if page number is odd"
 msgstr "Aghjunghje una pagina bianca s'è u numeru di pagine hè anescu"
@@ -854,9 +857,6 @@ msgid ""
 msgstr ""
 "Doppiu cliccu per definisce e pagine di a fusione (p.i. : 2 o 5-23 o 2,5-"
 "7,12-)"
-
-msgid "No PDF document has been selected"
-msgstr "Alcunu ducumentu PDF ùn hè statu selezziunatu"
 
 msgid "Merge"
 msgstr "Fusione"
@@ -950,14 +950,14 @@ msgstr ""
 msgid "Extract"
 msgstr "Estrae"
 
-msgid "Extract pages from a PDF document."
-msgstr "Estrae pagine da un ducumentu PDF."
-
-msgid "Select or drag and drop a PDF"
-msgstr "Selezziunà o sguillà è depone un PDF"
+msgid "Extract pages from PDF documents."
+msgstr ""
 
 msgid "Extract settings"
 msgstr "Preferenze d'estrazzione"
+
+msgid "Destination directory"
+msgstr "Cartulare di destinazione"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Pagine à estrae (p.i. : 2 o 5-23 o 2,5-7,12-)"
@@ -997,9 +997,6 @@ msgstr "Girà e pagine di parechji ducumenti PDF."
 
 msgid "Rotate settings"
 msgstr "Preferenze di u girà"
-
-msgid "Destination directory"
-msgstr "Cartulare di destinazione"
 
 #~ msgid "Never"
 #~ msgstr "Mai"
