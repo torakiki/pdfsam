@@ -63,8 +63,8 @@ A list of properties that can be set during the silent installation of the PDFsa
 **DONATE_NOTIFICATION**   
 *values:* true|false  
 *default:* true   
-*description:* if not already set in the application preferences, tells PDFsam if it should show the notification to kindly ask for a donation. 
-*since:* 3.2.1   
+*description:* if not already set in the application preferences, tells PDFsam if it should show the notification to kindly ask for a donation.   
+*since:* 3.2.1  
 
 
 **LOCALE_CODE**
