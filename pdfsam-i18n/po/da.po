@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-09-21 12:10+0200\n"
-"PO-Revision-Date: 2016-09-22 18:01+0000\n"
-"Last-Translator: vrw07286 <Unknown>\n"
+"POT-Creation-Date: 2016-09-30 10:43+0200\n"
+"PO-Revision-Date: 2016-09-30 08:22+0000\n"
+"Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: Danish <da@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2016-09-25 08:41+0000\n"
+"X-Launchpad-Export-Date: 2016-09-30 08:48+0000\n"
 "X-Generator: Launchpad (build 18204)\n"
 "Language: da\n"
 
@@ -386,10 +386,8 @@ msgstr "Ikke-eksisterende mappe"
 msgid "Open with"
 msgstr "Åbn med"
 
-msgid "Select the task to perform on the following file"
-msgid_plural "Select the task to perform on the following files"
-msgstr[0] "Vælg handlingen, der skal foretages med den følgende fil"
-msgstr[1] "Vælg handlingen, der skal foretages med de følgende filer"
+msgid "Select the task to perform on the following files"
+msgstr "Vælg handlingen, der skal foretages med de følgende filer"
 
 msgid "Directory not empty"
 msgstr "Mappe ikke tom"
@@ -986,34 +984,3 @@ msgstr "Roter sider fra flere PDF-dokumenter"
 
 msgid "Rotate settings"
 msgstr "Indstillinger for rotation"
-
-#~ msgid "Split odd pages"
-#~ msgstr "Opdel ved ulige sider"
-
-#~ msgid "Split even pages"
-#~ msgstr "Opdel ved lige sider"
-
-#~ msgid "Unable to get latest available version"
-#~ msgstr "Kunne ikke hente senest tilgængelige version"
-
-#~ msgid "Destination folder"
-#~ msgstr "Destinationsmappe"
-
-#~ msgid "Never"
-#~ msgstr "Aldrig"
-
-#~ msgid "Would you like to overwrite it?"
-#~ msgstr "Ønsker du at overskrive den?"
-
-#~ msgid "Output document pdf version:"
-#~ msgstr "Arbejdsfils pdf-version"
-
-#~ msgid ""
-#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" is "
-#~ "selected"
-#~ msgstr ""
-#~ "Viser en dialogbiks, der spørger brugeren om bekræftelse når \"Overskriv\" "
-#~ "er valgt"
-
-#~ msgid "Ask for confirmation when overwrite checkbox is selected"
-#~ msgstr "Spørg om bekræftelse når afkrydsningsfeltet er markeret"

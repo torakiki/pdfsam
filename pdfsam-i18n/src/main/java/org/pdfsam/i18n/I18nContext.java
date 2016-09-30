@@ -62,6 +62,6 @@ public interface I18nContext {
      *            discriminating
      * @return the internationalized message.
      */
-    String i18npl(String singular, String plural, long n);
+    // String i18npl(String singular, String plural, long n);
 
 }

@@ -136,11 +136,6 @@ public final class DefaultI18nContext implements I18nContext {
         return i18n.tr(input, value0, value1);
     }
 
-    @Override
-    public String i18npl(String singular, String plural, long n) {
-        return i18n.trn(singular, plural, n);
-    }
-
     /**
      * Lazy initialization holder class idiom (Joshua Bloch, Effective Java second edition, item 71).
      * 

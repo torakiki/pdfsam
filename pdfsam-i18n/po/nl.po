@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-09-21 12:10+0200\n"
-"PO-Revision-Date: 2016-02-11 20:33+0000\n"
-"Last-Translator: Wout Huygens <wout.huygens@telenet.be>\n"
+"POT-Creation-Date: 2016-09-30 10:43+0200\n"
+"PO-Revision-Date: 2016-09-30 08:32+0000\n"
+"Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2016-09-25 08:41+0000\n"
+"X-Launchpad-Export-Date: 2016-09-30 08:48+0000\n"
 "X-Generator: Launchpad (build 18204)\n"
 
 msgid "Subscribe to the official news feed"
@@ -61,10 +61,10 @@ msgid "Yes"
 msgstr "Ja"
 
 msgid "The selected output directory does not exist"
-msgstr "De geselecteerde output-map bestaat niet"
+msgstr "De geselecteerde uitvoermap bestaat niet"
 
 msgid "Do you want to create it?"
-msgstr "Wil je dat maken?"
+msgstr "Wil je die maken?"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -108,7 +108,7 @@ msgid "Application messages"
 msgstr "Toepassingsberichten"
 
 msgid "_Workspace"
-msgstr "_Omgeving"
+msgstr "Werkomgeving"
 
 msgid "_Load"
 msgstr "_Laden"
@@ -120,10 +120,10 @@ msgid "Recen_t"
 msgstr "_Recent"
 
 msgid "Select the workspace file to save"
-msgstr "Selecteer het omgevingsbestand dat moet worden opgeslagen"
+msgstr "Selecteer het werkomgevingsbestand dat moet worden opgeslagen"
 
 msgid "Select the workspace to load"
-msgstr "Selecteer de te laden omgeving"
+msgstr "Selecteer de werkomgeving die moet worden geladen"
 
 msgid "What's new"
 msgstr "Wat is er nieuw"
@@ -172,10 +172,10 @@ msgid ""
 "Automatically set the destination directory to the selected PDF document "
 "directory"
 msgstr ""
-"Bestemmingsmap automatisch instellen naar de het geselecteerde PDF-document"
+"Stel de map van het geselecteerde PDF-bestand automatisch in als uitvoermap"
 
 msgid "Appearance"
-msgstr "Uiterlijk"
+msgstr "Weergave"
 
 msgid "Behavior"
 msgstr "Gedrag"
@@ -193,30 +193,34 @@ msgid ""
 "Set whether new version availability should be checked on startup (restart "
 "needed)"
 msgstr ""
-"Instellen of beschikbaarheid van een nieuwe versie aangevinkt moet staan bij "
-"het opstarten (opnieuw opstarten nodig)"
+"Stel in of bij het opstarten moet worden gecontroleerd of een nieuwe versie "
+"beschikbaar is (opnieuw opstarten vereist)"
 
 msgid "Check for news at startup"
-msgstr ""
+msgstr "Controleer op nieuws bij het opstarten"
 
 msgid ""
 "Set whether the application should check for news availability on startup "
 "(restart needed)"
 msgstr ""
+"Stel in of het programma bij het opstarten moet controleren of er nieuws "
+"beschikbaar is (opnieuw opstarten vereist)"
 
 msgid "Play alert sounds"
-msgstr "Speel waarschuwingsgeluid"
+msgstr "Speel waarschuwingsgeluiden af"
 
 msgid "Turn on or off alert sounds"
 msgstr "Zet waarschuwingsgeluiden aan of uit"
 
 msgid "Store passwords when saving a workspace file"
-msgstr ""
+msgstr "Sla wachtwoorden op in de werkomgeving"
 
 msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
 "password in the workspace file"
 msgstr ""
+"Als een versleuteld PDF-bestand is geopend met een wachtwoord, sla het "
+"wachtwoord dan op in de werkomgeving"
 
 msgid "Show donation window"
 msgstr "Toon donatievenster"
@@ -225,17 +229,19 @@ msgid ""
 "Turn on or off the notification appearing once in a while and asking the "
 "user to support PDFsam with a donation"
 msgstr ""
-"Schakel het verschijnen van meldigen nu en dan in of uit die de gebruiker "
-"vragen om PDFsam te ondersteunen met een donatie"
+"Schakel de meldingen in of uit die af en toe verschijnen en waarin wordt "
+"gevraagd om PDFsam te ondersteunen met een donatie"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Gebruik de map van het geselecteerde PDF-document als uitvoermap"
 
 msgid "Save default workspace on exit"
-msgstr ""
+msgstr "Sla de standaard werkomgeving op bij het afsluiten"
 
 msgid "If a default workspace is set, save it on application exit"
 msgstr ""
+"Als een standaard werkomgeving is ingesteld, sla deze dan op bij het "
+"afsluiten van het programma"
 
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Maximaal aantal rijen moet een positief getal zijn"
@@ -268,23 +274,23 @@ msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
 "startup"
 msgstr ""
-"Selecteer een eerder opgeslagen werkblad dat automatisch geladen zal worden "
-"bij het opstarten"
+"Selecteer een eerder opgeslagen werkomgeving die automatisch zal worden "
+"geladen bij het opstarten"
 
 msgid "Select a workspace"
-msgstr "Selecteer een werkblad"
+msgstr "Selecteer een werkomgeving"
 
 msgid "Default working directory:"
-msgstr "Standaard werkpad:"
+msgstr "Standaard werkmap"
 
 msgid "Load default workspace at startup:"
-msgstr "Laad standaard werkblad bij het opstarten:"
+msgstr "Laad standaard werkomgeving bij het opstarten:"
 
 msgid "Log register rows:"
-msgstr "Rijen van het Log register:"
+msgstr "Regels in logboek:"
 
 msgid "Maximum number of rows displayed by the Log register"
-msgstr "Maximaal aantal rijen dat het Log register toont"
+msgstr "Maximum aantal regels dat het logboek toont"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:125
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:116
@@ -375,7 +381,7 @@ msgid "PDFsam worked hard!"
 msgstr "PDFsam heeft hard gewerkt!"
 
 msgid "Spread the word!"
-msgstr ""
+msgstr "Zeg het voort!"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -394,12 +400,10 @@ msgid "Non existing directory"
 msgstr "Niet-bestaande map"
 
 msgid "Open with"
-msgstr ""
+msgstr "Open met"
 
-msgid "Select the task to perform on the following file"
-msgid_plural "Select the task to perform on the following files"
-msgstr[0] ""
-msgstr[1] ""
+msgid "Select the task to perform on the following files"
+msgstr "Selecteer de taak om uit te voeren op de volgende bestanden"
 
 msgid "Directory not empty"
 msgstr "Map is niet leeg"
@@ -451,7 +455,7 @@ msgstr "Kan modules-werkblad niet opslaan"
 
 #, java-format
 msgid "Unable to save workspace to {0}"
-msgstr ""
+msgstr "Kan de werkomgeving niet opslaan in {0}"
 
 #, java-format
 msgid "Loading workspace from {0}"
@@ -505,7 +509,7 @@ msgid "Split settings"
 msgstr "Splits-instellingen"
 
 msgid "Output settings"
-msgstr ""
+msgstr "Uitvoerinstellingen"
 
 msgid "Every page"
 msgstr "Elke pagina"
@@ -573,6 +577,8 @@ msgid ""
 "Merge two or more PDF documents taking pages alternately in natural or "
 "reverse order."
 msgstr ""
+"Voeg twee of meer PDF-bestanden samen, waarbij afwisselend de "
+"oorspronkelijke of de omgekeerde volgorde van de pagina's wordt aangehouden"
 
 msgid "Destination file"
 msgstr "Bestemmingsbestand"
@@ -581,7 +587,7 @@ msgid "No PDF document has been selected"
 msgstr "Geen PDF-document geselecteerd"
 
 msgid "Select a positive integer number as pace"
-msgstr ""
+msgstr "Selecteer een positief geheel getal als stap"
 
 msgid "Completed"
 msgstr "Voltooid"
@@ -706,6 +712,8 @@ msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
 "document"
 msgstr ""
+"Vink het vakje aan als u geen enkele bladwijzer uit het oorspronkelijke PDF-"
+"bestand wilt behouden"
 
 msgid "Output PDF version:"
 msgstr "PDF-versie van het doelbestand:"
@@ -753,6 +761,8 @@ msgstr "Geef het gebruikerswachtwoord"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Dubbelklik om de geselecteerde pagina's in te stellen (bijv. 2 of 5-23 of "
+"2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "Paginabereiken"
@@ -802,12 +812,14 @@ msgid "Move _Down"
 msgstr "Om_laag verplaatsen"
 
 msgid "Pace"
-msgstr ""
+msgstr "Stap"
 
 msgid ""
 "Double click to set the number of pages after which the task will switch to "
 "the next file"
 msgstr ""
+"Dubbelklik om in te stellen na welk aantal pagina's de taak naar het "
+"volgende bestand gaat"
 
 msgid "Size"
 msgstr "Grootte"
@@ -835,10 +847,12 @@ msgstr ""
 "oneven aantal pagina's heeft"
 
 msgid "Add a footer"
-msgstr ""
+msgstr "Voettekst toevoegen"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr ""
+"Voegt een voettekst toe met de naam van het bestand waartoe de pagina "
+"behoorde"
 
 msgid "Merge fields"
 msgstr "Velden samenvoegen"
@@ -854,6 +868,8 @@ msgstr "Interactieve formulieren (AcroForms):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr ""
+"Selecteer wat gedaan moet worden als een of meer bestanden interactieve "
+"formulieren (Acro Forms) bevatten"
 
 msgid "Retain bookmarks"
 msgstr "Behoud bladwijzers"
@@ -869,22 +885,26 @@ msgstr "Bladwijzer behandeling:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr ""
+"Selecteer wat gedaan moet worden als een of meer bestanden bladwijzers "
+"bevatten"
 
 msgid "Don't generate"
-msgstr ""
+msgstr "Niet samenstellen"
 
 msgid "Generate from file names"
-msgstr ""
+msgstr "Samenstellen op basis van bestandsnamen"
 
 msgid "Generate from documents titles"
-msgstr ""
+msgstr "Samenstellen op basis van de titels van documenten"
 
 msgid "Table of contents:"
-msgstr ""
+msgstr "Inhoudsopgave"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr ""
+"Stel in of een inhoudsopgave moet worden toegevoegd aan het samengestelde "
+"PDF-bestand"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -980,29 +1000,32 @@ msgstr ""
 "\"Hoofdstuk\" bevatten."
 
 msgid "Extract"
-msgstr ""
+msgstr "Extraheren"
 
 msgid "Extract pages from PDF documents."
-msgstr ""
+msgstr "Extraheer pagina's uit PDF-bestanden"
 
 msgid "Extract settings"
-msgstr ""
+msgstr "Extraheerinstellingen"
 
 msgid "Destination directory"
 msgstr "Bestemmingsmap"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Pagina's die moeten worden geëxtraheerd (bijv. 2 or 5-23 of 2,5,7,12-)"
 
 msgid "Invalid page ranges"
-msgstr ""
+msgstr "Ongeldig paginabereik"
 
 msgid "Extract pages:"
-msgstr ""
+msgstr "Extraheer pagina's:"
 
 msgid ""
 "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Dubbelklik om in te stellen welke pagina's u wilt roteren (bijv. 2 of 5-23 "
+"of 2,5-7,12-)"
 
 msgid "All pages"
 msgstr "Alle pagina's"
@@ -1028,38 +1051,3 @@ msgstr "Draai de pagina's van meerdere PDF-documenten."
 msgid "Rotate settings"
 msgstr "Draai instellingen"
 
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:209
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:208
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
-#~ msgid "Split odd pages"
-#~ msgstr "Splits oneven pagina's"
-
-#~ msgid "Never"
-#~ msgstr "Nooit"
-
-#~ msgid "Unable to get latest available version"
-#~ msgstr "Kon de laatste versie niet ophalen."
-
-#~ msgid "Output document pdf version:"
-#~ msgstr "Pdf-versie van het doelbestand:"
-
-#~ msgid "Destination folder"
-#~ msgstr "Doelmap"
-
-#~ msgid "Would you like to overwrite it?"
-#~ msgstr "Wilt u het overschrijven?"
-
-#~ msgid ""
-#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" is "
-#~ "selected"
-#~ msgstr ""
-#~ "Toon een venster waarin de gebruiker om een bevestiging gevraagd wordt als "
-#~ "het \"overschrijf\" selectievakje is geselecteerd."
-
-#~ msgid "Ask for confirmation when overwrite checkbox is selected"
-#~ msgstr ""
-#~ "Vraag naar bevestiging als het \"overschrijf\" selectievakje is geselecteerd"
-
-#~ msgid "Split even pages"
-#~ msgstr "Splits even pagina's"
