@@ -3,11 +3,11 @@
 	<!-- Values required to change for a new release: -->
 	<?define ProductMajorVersion="3" ?>
 	<?define ProductMinorVersion="20" ?>
-	<?define ProductPatchVersion="1" ?>
+	<?define ProductPatchVersion="2" ?>
 	<!-- Changing only this doesn't qualify for an upgrade so the upgrade is not detected -->
 	<?define ProductLabelVersion="0" ?>
 	<!-- Change this -->
-	<?define ProductFullVersion="3.2.1.RELEASE" ?>
+	<?define ProductFullVersion="3.2.2.RELEASE" ?>
 
 	<!-- Static configuration options. -->
 	<?define ProductCode="*" ?>
