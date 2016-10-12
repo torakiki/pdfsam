@@ -82,7 +82,6 @@ public class AboutDashboardPane extends HBox {
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Environment"), left);
         Label runtime = new Label(String.format("%s %s", System.getProperty("java.runtime.name"),
                 System.getProperty("java.runtime.version")));
-        Label fxRuntime = new Label(String.format("JavaFX %s", com.sun.javafx.runtime.VersionInfo.getRuntimeVersion()));
         Label memory = new Label(DefaultI18nContext.getInstance().i18n("Max memory {0}",
                 FileUtils.byteCountToDisplaySize(Runtime.getRuntime().maxMemory())));
         Button copyButton = new Button(DefaultI18nContext.getInstance().i18n("Copy to clipboard"));
@@ -91,11 +90,11 @@ public class AboutDashboardPane extends HBox {
         copyButton.setId("copyEnvDetails");
         copyButton.setOnAction(a -> {
             ClipboardContent content = new ClipboardContent();
-            writeContent(Arrays.asList(pdfsam.name(), pdfsam.property(VERSION), runtime.getText(), fxRuntime.getText(),
-                    memory.getText())).to(content);
+            writeContent(Arrays.asList(pdfsam.name(), pdfsam.property(VERSION), runtime.getText(), memory.getText()))
+                    .to(content);
             Clipboard.getSystemClipboard().setContent(content);
         });
-        left.getChildren().addAll(runtime, fxRuntime, memory, copyButton);
+        left.getChildren().addAll(runtime, memory, copyButton);
 
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Thanks to"), left);
         addHyperlink(null, "http://www.pdfsam.org/thanks_to",
