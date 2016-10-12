@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
+import static java.util.Objects.isNull;
 import static org.pdfsam.ui.help.HelpUtils.helpIcon;
 
 import javax.inject.Inject;
@@ -48,6 +49,7 @@ class PreferenceOutputPane extends VBox {
         RadioButton manualRadio = new RadioButton(i18n.i18n("Manually selected"));
         manualRadio.setToggleGroup(group);
         manualRadio.getStyleClass().addAll(Style.VITEM.css());
+        manualRadio.setId("manualRadio");
 
         smartRadio.getStyleClass().addAll(Style.VITEM.css());
         smartRadio.setToggleGroup(group);
@@ -55,7 +57,10 @@ class PreferenceOutputPane extends VBox {
                 .i18n("Automatically set the destination directory to the selected PDF document directory")));
         smartRadio.getStyleClass().addAll(Style.WITH_HELP.css());
 
-        // TODO handle first run when none is selected
+        if (isNull(group.getSelectedToggle())) {
+            group.selectToggle(manualRadio);
+        }
+
         getChildren().addAll(manualRadio, smartRadio);
         getStyleClass().addAll(Style.CONTAINER.css());
     }

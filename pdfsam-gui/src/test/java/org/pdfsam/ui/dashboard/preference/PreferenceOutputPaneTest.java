@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 29/ago/2014
+ * Created on 12 ott 2016
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
-import static org.mockito.Matchers.eq;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -30,24 +30,35 @@ import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.UserContext;
 
 import javafx.scene.Parent;
+import javafx.scene.control.RadioButton;
 
 /**
  * @author Andrea Vacondio
  *
  */
 @Category(TestFX.class)
-public class PreferenceCheckBoxTest extends GuiTest {
-
+public class PreferenceOutputPaneTest extends GuiTest {
     private UserContext userContext = mock(UserContext.class);
 
     @Override
     protected Parent getRootNode() {
-        return new PreferenceCheckBox(BooleanUserPreference.CHECK_UPDATES, "select", false, userContext);
+        PreferenceRadioButton smartRadio = new PreferenceRadioButton(BooleanUserPreference.SMART_OUTPUT, "radio", false,
+                userContext);
+        smartRadio.setId("smartRadio");
+        PreferenceOutputPane victim = new PreferenceOutputPane(smartRadio);
+        victim.setId("victim");
+        return victim;
     }
 
     @Test
-    public void preferenceSetOnClick() {
-        click("select");
-        verify(userContext).setBooleanPreference(eq(BooleanUserPreference.CHECK_UPDATES), eq(Boolean.TRUE));
+    public void manualRadioIsSelected() {
+        assertTrue(((RadioButton) find("#manualRadio")).isSelected());
     }
+
+    @Test
+    public void clickManual() {
+        click("#smartRadio");
+        verify(userContext).setBooleanPreference(BooleanUserPreference.SMART_OUTPUT, true);
+    }
+
 }
