@@ -81,6 +81,15 @@ public class PdfVersionComboTest {
     }
 
     @Test
+    public void sameAsSourceVersionLowerThenConstraint() {
+        victim.enableSameAsSourceItem();
+        eventStudio().broadcast(new AddPdfVersionConstraintEvent(PdfVersion.VERSION_1_5), MODULE);
+        assertEquals(4, victim.getItems().size());
+        eventStudio().broadcast(new ChangedSelectedPdfVersionEvent(PdfVersion.VERSION_1_4), MODULE);
+        assertEquals(3, victim.getItems().size());
+    }
+
+    @Test
     public void lowestIsSelected() {
         victim.enableSameAsSourceItem();
         eventStudio().broadcast(new ChangedSelectedPdfVersionEvent(PdfVersion.VERSION_1_4), MODULE);
