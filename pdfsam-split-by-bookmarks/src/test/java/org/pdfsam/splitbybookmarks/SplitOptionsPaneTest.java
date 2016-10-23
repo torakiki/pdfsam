@@ -25,8 +25,11 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.function.Consumer;
 
 import org.junit.Before;
@@ -55,6 +58,7 @@ public class SplitOptionsPaneTest extends GuiTest {
 
     private SplitByOutlineLevelParametersBuilder builder;
     private Consumer<String> onError;
+    private SortedSet<Integer> validLevels = new TreeSet<>(Arrays.asList(2, 3, 4, 5, 6, 7, 10));
 
     @Before
     public void setUp() {
@@ -71,7 +75,7 @@ public class SplitOptionsPaneTest extends GuiTest {
     public void applyLevel() throws Exception {
         SplitOptionsPane victim = find(".pdfsam-container");
         BookmarksLevelComboBox combo = find("#bookmarksLevel");
-        combo.setMaxBookmarkLevel(10);
+        combo.setValidBookmarkLevels(validLevels);
         click("#bookmarksLevel").type('3').push(KeyCode.ENTER);
         FXTestUtils.invokeAndWait(() -> victim.apply(builder, onError), 2);
         verify(onError, never()).accept(anyString());
@@ -83,7 +87,7 @@ public class SplitOptionsPaneTest extends GuiTest {
     public void applyRegexp() throws Exception {
         SplitOptionsPane victim = find(".pdfsam-container");
         BookmarksLevelComboBox combo = find("#bookmarksLevel");
-        combo.setMaxBookmarkLevel(10);
+        combo.setValidBookmarkLevels(validLevels);
         click("#bookmarksLevel").type('3').push(KeyCode.ENTER);
         click("#bookmarksRegexp").type("Chuck");
         FXTestUtils.invokeAndWait(() -> victim.apply(builder, onError), 2);
@@ -96,7 +100,7 @@ public class SplitOptionsPaneTest extends GuiTest {
     public void emptyLevel() throws Exception {
         SplitOptionsPane victim = find(".pdfsam-container");
         BookmarksLevelComboBox combo = find("#bookmarksLevel");
-        combo.setMaxBookmarkLevel(10);
+        combo.setValidBookmarkLevels(validLevels);
         FXTestUtils.invokeAndWait(() -> victim.apply(builder, onError), 2);
         verify(onError).accept(anyString());
         verify(builder, never()).level(anyInt());
@@ -107,13 +111,14 @@ public class SplitOptionsPaneTest extends GuiTest {
     public void saveState() {
         SplitOptionsPane victim = find(".pdfsam-container");
         BookmarksLevelComboBox combo = find("#bookmarksLevel");
-        combo.setMaxBookmarkLevel(10);
+        combo.setValidBookmarkLevels(validLevels);
         click("#bookmarksLevel").type('3').push(KeyCode.ENTER);
         click("#bookmarksRegexp").type("Chuck");
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
         assertEquals("Chuck", data.get("regexp"));
         assertEquals("3", data.get("levelCombo.selected"));
+        assertEquals("2,3,4,5,6,7,10", data.get("levelCombo.levels"));
     }
 
     @Test
@@ -130,10 +135,12 @@ public class SplitOptionsPaneTest extends GuiTest {
         Map<String, String> data = new HashMap<>();
         data.put("regexp", "Chuck");
         data.put("levelCombo.selected", "2");
+        data.put("levelCombo.levels", "2,3,5,6,7,10");
         FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
         TextField field = find("#bookmarksRegexp");
         assertEquals("Chuck", field.getText());
         BookmarksLevelComboBox levelCombo = find("#bookmarksLevel");
+        assertEquals(6, levelCombo.getItems().size());
         assertEquals("2", levelCombo.getSelectionModel().getSelectedItem());
     }
 }

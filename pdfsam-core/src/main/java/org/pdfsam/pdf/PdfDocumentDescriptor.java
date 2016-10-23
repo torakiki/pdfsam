@@ -18,19 +18,25 @@
  */
 package org.pdfsam.pdf;
 
+import static java.util.Objects.nonNull;
 import static java.util.Optional.ofNullable;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 import java.io.File;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.support.ObservableAtomicReference;
 import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.pdf.PdfVersion;
+
 /**
  * Lightweight pdf document descriptor holding data necessary to fill the selection table and request a task execution.
  * 
@@ -47,7 +53,7 @@ public class PdfDocumentDescriptor {
     private File file;
     private PdfVersion version;
     private Map<String, String> metadata = new HashMap<>();
-    private int maxGoToActionDepth = 0;
+    private SortedSet<Integer> validBookmarksLevels = Collections.emptySortedSet();
 
     private PdfDocumentDescriptor(File file, String password) {
         requireNotNull(file, "Input file is mandatory");
@@ -129,12 +135,15 @@ public class PdfDocumentDescriptor {
         return file;
     }
 
-    public void setMaxGoToActionDepth(int maxGoToActionDepth) {
-        this.maxGoToActionDepth = maxGoToActionDepth;
+    public void setValidBookmarksLevels(Set<Integer> levels) {
+        this.validBookmarksLevels = new TreeSet<>();
+        if (nonNull(levels)) {
+            levels.stream().forEach(this.validBookmarksLevels::add);
+        }
     }
 
-    public int getMaxGoToActionDepth() {
-        return maxGoToActionDepth;
+    public SortedSet<Integer> getValidBookmarksLevels() {
+        return validBookmarksLevels;
     }
 
     /**

@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 03/mar/2015
+ * Created on 22 ott 2016
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,31 +16,34 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.pdf;
+package org.pdfsam.support.validation;
 
-import javax.inject.Named;
+import static java.util.Optional.ofNullable;
 
-import org.pdfsam.module.RequiredPdfData;
-import org.sejda.impl.sambox.component.OutlineUtils;
-import org.sejda.sambox.pdmodel.PDDocument;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
- * Loader populating the descriptor with bookmarks related data.
+ * Validates that a given String represent an integer in a given set
  * 
  * @author Andrea Vacondio
  *
  */
-@Named
-class BookmarksLevelSAMBoxLoader implements PdfLoader<PDDocument> {
+public class ContainedIntegerValidator implements Validator<String> {
+    private Set<Integer> valid = new HashSet<>();
 
-    @Override
-    public void accept(PDDocument document, PdfDocumentDescriptor descriptor) {
-        descriptor.setValidBookmarksLevels(OutlineUtils.getOutlineLevelsWithPageDestination(document));
+    public ContainedIntegerValidator(Set<Integer> validValues) {
+        ofNullable(validValues).map(valid::addAll);
     }
 
     @Override
-    public RequiredPdfData key() {
-        return RequiredPdfData.BOOMARKS;
+    public boolean isValid(String input) {
+        try {
+            return valid.contains(Integer.parseInt(input));
+        } catch (NumberFormatException e) {
+            // not a valid integer
+            return false;
+        }
     }
 
 }

@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 03/mar/2015
+ * Created on 22 ott 2016
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,31 +16,36 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.pdf;
+package org.pdfsam.support.validation;
 
-import javax.inject.Named;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-import org.pdfsam.module.RequiredPdfData;
-import org.sejda.impl.sambox.component.OutlineUtils;
-import org.sejda.sambox.pdmodel.PDDocument;
+import java.util.Arrays;
+import java.util.HashSet;
+
+import org.junit.Test;
 
 /**
- * Loader populating the descriptor with bookmarks related data.
- * 
  * @author Andrea Vacondio
  *
  */
-@Named
-class BookmarksLevelSAMBoxLoader implements PdfLoader<PDDocument> {
+public class ContainedIntegerValidatorTest {
+    private Validator<String> victim = Validators.containedInteger(new HashSet<>(Arrays.asList(-2, 5, 6)));
 
-    @Override
-    public void accept(PDDocument document, PdfDocumentDescriptor descriptor) {
-        descriptor.setValidBookmarksLevels(OutlineUtils.getOutlineLevelsWithPageDestination(document));
+    @Test
+    public void testNotContained() {
+        assertFalse(victim.isValid("50"));
     }
 
-    @Override
-    public RequiredPdfData key() {
-        return RequiredPdfData.BOOMARKS;
+    @Test
+    public void testInvalid() {
+        assertFalse(victim.isValid("dsdsa"));
     }
 
+    @Test
+    public void testValid() {
+        assertTrue(victim.isValid("5"));
+
+    }
 }

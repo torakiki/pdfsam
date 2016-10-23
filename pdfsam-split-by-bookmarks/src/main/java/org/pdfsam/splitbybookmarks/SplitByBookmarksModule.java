@@ -89,7 +89,7 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
         this.selectionPane = new TaskParametersBuilderSingleSelectionPane(id());
         this.selectionPane.setPromptText(
                 DefaultI18nContext.getInstance().i18n("Select or drag and drop the PDF you want to split"));
-        this.selectionPane.addOnLoaded(d -> splitOptions.setMaxBookmarkLevel(d.getMaxGoToActionDepth()));
+        this.selectionPane.addOnLoaded(d -> splitOptions.setValidBookmarkLevels(d.getValidBookmarksLevels()));
 
     }
 

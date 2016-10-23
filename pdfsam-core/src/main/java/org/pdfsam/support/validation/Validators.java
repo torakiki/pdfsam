@@ -24,6 +24,7 @@ import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.Set;
 
 import org.pdfsam.support.io.FileType;
 
@@ -65,6 +66,13 @@ public final class Validators {
      */
     public static Validator<String> positiveIntRange(int lower, int upper) {
         return new PositiveIntRangeStringValidator(lower, upper);
+    }
+
+    /**
+     * @return a new instance of a validator checking for a input string representing an integer contained in the given set
+     */
+    public static Validator<String> containedInteger(Set<Integer> validValues) {
+        return new ContainedIntegerValidator(validValues);
     }
 
     /**

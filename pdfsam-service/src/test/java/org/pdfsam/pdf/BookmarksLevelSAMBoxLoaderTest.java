@@ -18,16 +18,20 @@
  */
 package org.pdfsam.pdf;
 
+import static org.hamcrest.Matchers.hasItems;
+import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 import java.io.IOException;
+import java.util.Set;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
+import org.mockito.ArgumentCaptor;
 import org.sejda.common.ComponentsUtility;
 import org.sejda.io.SeekableSources;
 import org.sejda.sambox.input.PDFParser;
@@ -47,8 +51,8 @@ public class BookmarksLevelSAMBoxLoaderTest {
     @Before
     public void setUp() throws IOException {
         descriptor = mock(PdfDocumentDescriptor.class);
-        document = PDFParser.parse(SeekableSources.inMemorySeekableSourceFrom(getClass().getResourceAsStream(
-                "/test_outline.pdf")));
+        document = PDFParser
+                .parse(SeekableSources.inMemorySeekableSourceFrom(getClass().getResourceAsStream("/test_outline.pdf")));
     }
 
     @After
@@ -59,6 +63,8 @@ public class BookmarksLevelSAMBoxLoaderTest {
     @Test
     public void accept() {
         new BookmarksLevelSAMBoxLoader().accept(document, descriptor);
-        verify(descriptor).setMaxGoToActionDepth(3);
+        ArgumentCaptor<Set> captor = ArgumentCaptor.forClass(Set.class);
+        verify(descriptor).setValidBookmarksLevels(captor.capture());
+        assertThat((Set<Integer>) captor.getValue(), hasItems(1, 2, 3));
     }
 }

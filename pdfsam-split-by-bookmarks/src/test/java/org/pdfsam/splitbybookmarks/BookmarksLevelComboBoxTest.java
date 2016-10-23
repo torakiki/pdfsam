@@ -18,7 +18,9 @@
  */
 package org.pdfsam.splitbybookmarks;
 
+import static org.hamcrest.Matchers.hasItems;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
@@ -29,6 +31,8 @@ import static org.mockito.Mockito.verify;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.function.Consumer;
 
 import org.junit.Before;
@@ -57,6 +61,7 @@ public class BookmarksLevelComboBoxTest extends GuiTest {
     public ClearEventStudioRule clear = new ClearEventStudioRule();
     private SplitByOutlineLevelParametersBuilder builder;
     private Consumer<String> onError;
+    private SortedSet<Integer> validLevels = new TreeSet<>(Arrays.asList(2, 3, 4, 5, 6, 7, 10));
 
     @Before
     public void setUp() {
@@ -74,8 +79,8 @@ public class BookmarksLevelComboBoxTest extends GuiTest {
     @Test
     public void validateOnChange() {
         BookmarksLevelComboBox victim = find("#victim");
-        victim.setMaxBookmarkLevel(40);
-        victim.setMaxBookmarkLevel(3);
+        victim.setValidBookmarkLevels(new TreeSet<>(Arrays.asList(300)));
+        victim.setValidBookmarkLevels(validLevels);
         assertEquals(ValidationState.NOT_VALIDATED, victim.getValidationState());
         click("#victim").push(KeyCode.ALT, KeyCode.DOWN).click("3");
         assertEquals(ValidationState.VALID, victim.getValidationState());
@@ -84,7 +89,7 @@ public class BookmarksLevelComboBoxTest extends GuiTest {
     @Test
     public void invalidIntegerValue() {
         BookmarksLevelComboBox victim = find("#victim");
-        victim.setMaxBookmarkLevel(40);
+        victim.setValidBookmarkLevels(validLevels);
         assertEquals(ValidationState.NOT_VALIDATED, victim.getValidationState());
         click("#victim").type("Chuck").push(KeyCode.ENTER);
         assertEquals(ValidationState.INVALID, victim.getValidationState());
@@ -94,16 +99,16 @@ public class BookmarksLevelComboBoxTest extends GuiTest {
     @Test
     public void validValueOnFocusLost() {
         BookmarksLevelComboBox victim = find("#victim");
-        victim.setMaxBookmarkLevel(40);
-        click("#victim").type("30").push(KeyCode.TAB);
-        assertEquals("30", victim.getValue());
+        victim.setValidBookmarkLevels(validLevels);
+        click("#victim").type("10").push(KeyCode.TAB);
+        assertEquals("10", victim.getValue());
         assertEquals(ValidationState.VALID, victim.getValidationState());
     }
 
     @Test
     public void invalidValueOnFocusLost() {
         BookmarksLevelComboBox victim = find("#victim");
-        victim.setMaxBookmarkLevel(10);
+        victim.setValidBookmarkLevels(validLevels);
         assertEquals(ValidationState.NOT_VALIDATED, victim.getValidationState());
         click("#victim").type("Chuck").push(KeyCode.TAB);
         assertEquals(ValidationState.INVALID, victim.getValidationState());
@@ -113,9 +118,9 @@ public class BookmarksLevelComboBoxTest extends GuiTest {
     @Test
     public void invalidRangeValue() {
         BookmarksLevelComboBox victim = find("#victim");
-        victim.setMaxBookmarkLevel(3);
+        victim.setValidBookmarkLevels(validLevels);
         assertEquals(ValidationState.NOT_VALIDATED, victim.getValidationState());
-        click("#victim").type("4").push(KeyCode.ENTER);
+        click("#victim").type("40").push(KeyCode.ENTER);
         assertEquals(ValidationState.INVALID, victim.getValidationState());
         Arrays.stream(Style.INVALID.css()).forEach((s) -> exists("." + s));
     }
@@ -134,7 +139,7 @@ public class BookmarksLevelComboBoxTest extends GuiTest {
     public void invalidApply() throws Exception {
         BookmarksLevelComboBox victim = find("#victim");
         assertEquals(ValidationState.NOT_VALIDATED, victim.getValidationState());
-        victim.setMaxBookmarkLevel(10);
+        victim.setValidBookmarkLevels(validLevels);
         click("#victim").type("Chuck").push(KeyCode.ENTER);
         FXTestUtils.invokeAndWait(() -> victim.apply(builder, onError), 1);
         verify(onError).accept(anyString());
@@ -145,7 +150,7 @@ public class BookmarksLevelComboBoxTest extends GuiTest {
     public void validApply() throws Exception {
         BookmarksLevelComboBox victim = find("#victim");
         assertEquals(ValidationState.NOT_VALIDATED, victim.getValidationState());
-        victim.setMaxBookmarkLevel(10);
+        victim.setValidBookmarkLevels(validLevels);
         click("#victim").type("3").push(KeyCode.ENTER);
         FXTestUtils.invokeAndWait(() -> victim.apply(builder, onError), 1);
         verify(onError, never()).accept(anyString());
@@ -155,18 +160,18 @@ public class BookmarksLevelComboBoxTest extends GuiTest {
     @Test
     public void saveState() {
         BookmarksLevelComboBox victim = find("#victim");
-        victim.setMaxBookmarkLevel(3);
+        victim.setValidBookmarkLevels(validLevels);
         click(victim).push(KeyCode.ALT, KeyCode.DOWN).click("2");
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
-        assertEquals("3", data.get("levelCombo.max"));
+        assertEquals("2,3,4,5,6,7,10", data.get("levelCombo.levels"));
         assertEquals("2", data.get("levelCombo.selected"));
     }
 
     @Test
     public void saveStateEmptySelection() {
         BookmarksLevelComboBox victim = find("#victim");
-        victim.setMaxBookmarkLevel(3);
+        victim.setValidBookmarkLevels(validLevels);
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
         assertEquals("", data.get("levelCombo.selected"));
@@ -175,19 +180,31 @@ public class BookmarksLevelComboBoxTest extends GuiTest {
     @Test
     public void restoreState() throws Exception {
         BookmarksLevelComboBox victim = find("#victim");
-        victim.setMaxBookmarkLevel(40);
+        victim.setValidBookmarkLevels(new TreeSet<>(Arrays.asList(40, 50)));
+        Map<String, String> data = new HashMap<>();
+        data.put("levelCombo.levels", "2,3,5,6,7,10");
+        data.put("levelCombo.selected", "2");
+        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
+        assertEquals("2", victim.getValue());
+        assertThat(victim.getItems(), hasItems("2", "3", "5", "6", "7", "10"));
+    }
+
+    @Test
+    public void restoreStateBackwardCompatible() throws Exception {
+        BookmarksLevelComboBox victim = find("#victim");
+        victim.setValidBookmarkLevels(new TreeSet<>(Arrays.asList(40, 50)));
         Map<String, String> data = new HashMap<>();
         data.put("levelCombo.max", "3");
         data.put("levelCombo.selected", "2");
         FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
         assertEquals("2", victim.getValue());
-        assertEquals(3, victim.getItems().size());
+        assertThat(victim.getItems(), hasItems("1", "2", "3"));
     }
 
     @Test
     public void restoreStateEmptySelected() throws Exception {
         BookmarksLevelComboBox victim = find("#victim");
-        victim.setMaxBookmarkLevel(40);
+        victim.setValidBookmarkLevels(validLevels);
         Map<String, String> data = new HashMap<>();
         data.put("levelCombo.selected", "");
         FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
@@ -197,7 +214,7 @@ public class BookmarksLevelComboBoxTest extends GuiTest {
     @Test
     public void restoreStateNullSelected() throws Exception {
         BookmarksLevelComboBox victim = find("#victim");
-        victim.setMaxBookmarkLevel(40);
+        victim.setValidBookmarkLevels(validLevels);
         Map<String, String> data = new HashMap<>();
         data.put("levelCombo.selected", null);
         FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);

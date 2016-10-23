@@ -21,8 +21,12 @@ package org.pdfsam.splitbybookmarks;
 import static java.util.Objects.nonNull;
 import static java.util.Optional.ofNullable;
 
+import java.util.Arrays;
 import java.util.Map;
+import java.util.SortedSet;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.params.TaskParametersBuildStep;
@@ -68,13 +72,11 @@ class BookmarksLevelComboBox extends ComboBox<String>
         });
     }
 
-    public void setMaxBookmarkLevel(int max) {
+    public void setValidBookmarkLevels(SortedSet<Integer> levels) {
         getItems().clear();
-        if (max > 0) {
-            validationSupport.setValidator(Validators.positiveIntRange(1, max));
-            for (int i = 1; i <= max; i++) {
-                getItems().add(Integer.toString(i));
-            }
+        if (nonNull(levels)) {
+            validationSupport.setValidator(Validators.containedInteger(levels));
+            levels.stream().map(i -> i.toString()).forEach(getItems()::add);
         } else {
             validationSupport.setValidator(Validators.alwaysFalse());
         }
@@ -107,14 +109,18 @@ class BookmarksLevelComboBox extends ComboBox<String>
 
     @Override
     public void saveStateTo(Map<String, String> data) {
-        data.put("levelCombo.max", Integer.toString(getItems().size()));
+        data.put("levelCombo.levels", getItems().stream().collect(Collectors.joining(",")));
         data.put("levelCombo.selected", ofNullable(getValue()).orElse(""));
     }
 
     @Override
     public void restoreStateFrom(Map<String, String> data) {
         getSelectionModel().selectFirst();
-        ofNullable(data.get("levelCombo.max")).map(Integer::valueOf).ifPresent(this::setMaxBookmarkLevel);
+        ofNullable(data.get("levelCombo.max")).map(Integer::valueOf).ifPresent(max -> {
+            IntStream.rangeClosed(1, max).mapToObj(Integer::toString).forEach(getItems()::add);
+        });
+        Arrays.stream(ofNullable(data.get("levelCombo.levels")).map(l -> l.split(",")).orElse(new String[0]))
+                .forEach(getItems()::add);
         setValue(ofNullable(data.get("levelCombo.selected")).orElse(""));
     }
 }
