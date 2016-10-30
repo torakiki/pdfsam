@@ -130,7 +130,7 @@ public class RotateModule extends BaseTaskExecutionModule {
         TitledPane options = Views.titledPane(DefaultI18nContext.getInstance().i18n("Rotate settings"), rotateOptions);
 
         pane.getChildren().addAll(selectionPane, options,
-                Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination directory"), destinationPane),
+                Views.titledPane(DefaultI18nContext.getInstance().i18n("Output settings"), destinationPane),
                 prefixTitled);
         return pane;
     }

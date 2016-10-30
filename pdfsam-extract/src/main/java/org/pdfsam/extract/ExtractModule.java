@@ -138,7 +138,7 @@ public class ExtractModule extends BaseTaskExecutionModule {
 
         pane.getChildren().addAll(selectionPane,
                 titledPane(DefaultI18nContext.getInstance().i18n("Extract settings"), extractOptions),
-                titledPane(DefaultI18nContext.getInstance().i18n("Destination directory"), destinationPane),
+                titledPane(DefaultI18nContext.getInstance().i18n("Output settings"), destinationPane),
                 prefixTitled);
         return pane;
     }
