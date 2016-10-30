@@ -8,15 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-09-30 10:43+0200\n"
-"PO-Revision-Date: 2015-12-01 14:24+0000\n"
-"Last-Translator: Richard Somlói <ricsipontaz@gmail.com>\n"
+"PO-Revision-Date: 2016-10-28 12:22+0000\n"
+"Last-Translator: Mark <Unknown>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2016-09-30 08:48+0000\n"
-"X-Generator: Launchpad (build 18204)\n"
+"X-Launchpad-Export-Date: 2016-10-30 09:56+0000\n"
+"X-Generator: Launchpad (build 18246)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Feliratkozás a hivatalos hírforrásra"
@@ -61,10 +60,10 @@ msgid "Yes"
 msgstr "Igen"
 
 msgid "The selected output directory does not exist"
-msgstr ""
+msgstr "A kijelölt kimeneti könyvtár nem létezik"
 
 msgid "Do you want to create it?"
-msgstr ""
+msgstr "Létre akarod hozni?"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -196,12 +195,14 @@ msgid ""
 msgstr "Új verzió meglétének ellenőrzése induláskor (újraindítást igényel)"
 
 msgid "Check for news at startup"
-msgstr ""
+msgstr "Hírek ellenőrzése indításkor"
 
 msgid ""
 "Set whether the application should check for news availability on startup "
 "(restart needed)"
 msgstr ""
+"Állítsd be az alkalmazást, hogy ellenőrizze a híreket az indításkor "
+"(újraindítás szükséges)"
 
 msgid "Play alert sounds"
 msgstr "Figyelmeztető hangok lejátszása"
@@ -210,29 +211,35 @@ msgid "Turn on or off alert sounds"
 msgstr "Figyelmeztető hangok be- és kikapcsolása"
 
 msgid "Store passwords when saving a workspace file"
-msgstr ""
+msgstr "Jelszó tárolása a munkakörnyezeti fájlba"
 
 msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
 "password in the workspace file"
 msgstr ""
+"Ha egy titkosított PDF dokumentumot nyitottak meg egy jelszóval, akkor a "
+"munkakörnyezeti fájlba mentse el a jelszót"
 
 msgid "Show donation window"
-msgstr ""
+msgstr "Adomány ablak megjelenítése"
 
 msgid ""
 "Turn on or off the notification appearing once in a while and asking the "
 "user to support PDFsam with a donation"
 msgstr ""
+"Kapcsolja ki vagy be az értesítési ablakot egyszer és kérje meg a "
+"felhasználót, hogy támogassa a PDFsam-ot az adományával."
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Használja a kiválasztott PDF mappáját kimeneti mappaként"
 
 msgid "Save default workspace on exit"
-msgstr ""
+msgstr "Alapértelmezett munkakörnyezeti fájl mentése kilépéskor"
 
 msgid "If a default workspace is set, save it on application exit"
 msgstr ""
+"Ha be van állítva az alapértelmezett munkakörnyezeti fájl, akkor mentse el "
+"az alkalmazáskor való kilépéskor."
 
 msgid "Maximum number of rows mast be a positive number"
 msgstr "A sorok maximum száma egy pozitív szám legyen"
@@ -356,7 +363,7 @@ msgid "PDFsam worked hard!"
 msgstr "A PDFSam keményen dolgozott!"
 
 msgid "Spread the word!"
-msgstr ""
+msgstr "Terjeszd az igét!"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -372,13 +379,13 @@ msgid "Open"
 msgstr "Megnyitás"
 
 msgid "Non existing directory"
-msgstr ""
+msgstr "Nem létező könyvtár"
 
 msgid "Open with"
-msgstr ""
+msgstr "Megnyitás ezzel"
 
 msgid "Select the task to perform on the following files"
-msgstr ""
+msgstr "Feladat kiválasztása amit végre fog hajtani a következő fájlokon"
 
 msgid "Directory not empty"
 msgstr "A mappa nem üres"
@@ -430,7 +437,7 @@ msgstr "Nem sikerült a modulok munkaterületének mentése"
 
 #, java-format
 msgid "Unable to save workspace to {0}"
-msgstr ""
+msgstr "Nem lehet elmenteni a munkakörnyezeti fájlt a {0} könyvtárba"
 
 #, java-format
 msgid "Loading workspace from {0}"
@@ -484,7 +491,7 @@ msgid "Split settings"
 msgstr "Szétválasztás beállításai"
 
 msgid "Output settings"
-msgstr ""
+msgstr "Kimeneti beállítások"
 
 msgid "Every page"
 msgstr "Minden oldal"
@@ -548,6 +555,8 @@ msgid ""
 "Merge two or more PDF documents taking pages alternately in natural or "
 "reverse order."
 msgstr ""
+"Két vagy több PDF dokumentum egyesítése az oldalakat normál vagy fordított "
+"sorrendbe rendezi"
 
 msgid "Destination file"
 msgstr "Kimeneti fájl"
@@ -556,7 +565,7 @@ msgid "No PDF document has been selected"
 msgstr "Nincs kijelölve PDF dokumentum"
 
 msgid "Select a positive integer number as pace"
-msgstr ""
+msgstr "Válassz egy pozitív egész számot tempónak"
 
 msgid "Completed"
 msgstr "Befejezett"
@@ -566,7 +575,7 @@ msgstr "Sikertelen"
 
 #, java-format
 msgid "Running {0}%"
-msgstr ""
+msgstr "{0}% kész"
 
 msgid "Running"
 msgstr "Folyamatban"
@@ -615,7 +624,7 @@ msgid "Pages: {0}, PDF Version: {1}"
 msgstr "Oldalak száma: {0}, PDF verzió: {1}"
 
 msgid "Show errors"
-msgstr ""
+msgstr "Mutatsd a hibákat"
 
 msgid "Run"
 msgstr "Futtatás"
@@ -674,10 +683,10 @@ msgid "Select an existing directory"
 msgstr "Válasszon egy létező mappát"
 
 msgid "An existing output directory is required"
-msgstr ""
+msgstr "Egy létező kimeneti könyvtár kötelező"
 
 msgid "The output directory is required"
-msgstr ""
+msgstr "A kimeneti könyvtár kötelező"
 
 msgid "Generated PDF documents name prefix:"
 msgstr "A generált PDF dokumentumok nevének előtagja:"
@@ -702,6 +711,7 @@ msgstr "Adja meg a felhasználói jelszót"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Kattints duplán az oldalak kijelöléséhez (pl.: 2 vagy 5-23 vagy 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "Oldaltartományok"
@@ -746,7 +756,7 @@ msgid "Move _Down"
 msgstr "Mozgatás _lefelé"
 
 msgid "Pace"
-msgstr ""
+msgstr "tempó"
 
 msgid ""
 "Double click to set the number of pages after which the task will switch to "
@@ -779,10 +789,10 @@ msgstr ""
 "páratlan"
 
 msgid "Add a footer"
-msgstr ""
+msgstr "Lábléc hozzádása"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
-msgstr ""
+msgstr "Lábléc hozzáadása a fájl nevével, amihez az oldal tartozik"
 
 msgid "Merge fields"
 msgstr "Mezők egyesítése"
@@ -798,6 +808,7 @@ msgstr "Interaktív űrlapok (AcroForms):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr ""
+"Mi legyen a teendő, ha egy vagy több dokumentum Acro Űrlapot tartalmaz"
 
 msgid "Retain bookmarks"
 msgstr "Könyvjelzők megtartása"
@@ -806,29 +817,33 @@ msgid "Create one entry for each merged document"
 msgstr "Bejegyzés készítése minden egyesített dokumentumhoz"
 
 msgid "Retain bookmarks as one entry for each merged document"
-msgstr ""
+msgstr "Tartsa meg a könyvjelzőket minden egyesített dokumentumhoz"
 
 msgid "Bookmarks handling:"
 msgstr "Könyvjelzők kezelése:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr ""
+"Mi történjen abban az esetben, ha egy vagy több bemeneti dokumentum "
+"könyvjelzőket tartalmaz."
 
 msgid "Don't generate"
-msgstr ""
+msgstr "Ne generáljon"
 
 msgid "Generate from file names"
-msgstr ""
+msgstr "Generáljon a fájl nevekből"
 
 msgid "Generate from documents titles"
-msgstr ""
+msgstr "Generáljon a dokumentum címekből"
 
 msgid "Table of contents:"
-msgstr ""
+msgstr "Tartalomjegyzék"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr ""
+"Állítsd be, ha azt szeretnéd, hogy a tartalomjegyzéket hozzáadja a generált "
+"PDF dokumentumhoz"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -917,32 +932,34 @@ msgid "Matching regular expression:"
 msgstr "Reguláris kifejezés:"
 
 msgid "A regular expression the bookmark text has to match"
-msgstr ""
+msgstr "Egy kereső kifejezés, amit a könyvjelző szövegnek tartalmaznia kell"
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
 msgstr ""
+"Például: használd a .*fejezet.* ahhoz, hogy megtaláld az olyan "
+"könyvjelzőket, amelyek tartalmazzák a \"fejezet\" szót"
 
 msgid "Extract"
-msgstr ""
+msgstr "Kiszedés"
 
 msgid "Extract pages from PDF documents."
-msgstr ""
+msgstr "Oldalak kiszedése a PDF dokumentumokból"
 
 msgid "Extract settings"
-msgstr ""
+msgstr "Beállítások kiszedése"
 
 msgid "Destination directory"
 msgstr "Célmappa"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "Oldalak kiszedése (pl.: 2 vagy 5-23 vagy 2,5-7,12-)"
 
 msgid "Invalid page ranges"
-msgstr ""
+msgstr "Érvénytelen oldal tartomány"
 
 msgid "Extract pages:"
-msgstr ""
+msgstr "Oldalak kivonása:"
 
 msgid ""
 "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -958,7 +975,7 @@ msgid "180 degrees clockwise"
 msgstr "180 fokkal az óramutató járásának irányában"
 
 msgid "90 degrees counterclockwise"
-msgstr ""
+msgstr "90 fokkal az órajárásnak megfelelően"
 
 msgid "Rotate "
 msgstr "Elforgatás "

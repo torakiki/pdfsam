@@ -14,10 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2016-09-30 08:48+0000\n"
-"X-Generator: Launchpad (build 18204)\n"
+"X-Launchpad-Export-Date: 2016-10-30 09:56+0000\n"
+"X-Generator: Launchpad (build 18246)\n"
 
 msgid "Name"
 msgstr "Nazwa"
@@ -992,3 +990,33 @@ msgstr "Obróć strony wielu dokumentów PDF."
 msgid "Rotate settings"
 msgstr "Ustawienia obracania stron"
 
+#~ msgid "Split even pages"
+#~ msgstr "Podziel strony parzyste"
+
+#~ msgid "Split odd pages"
+#~ msgstr "Podziel strony nieparzyste"
+
+#~ msgid "Destination folder"
+#~ msgstr "Folder docelowy"
+
+#~ msgid "Never"
+#~ msgstr "Nigdy"
+
+#~ msgid "Unable to get latest available version"
+#~ msgstr "Nie można pobrać najnowszej wersji"
+
+#~ msgid "Would you like to overwrite it?"
+#~ msgstr "Czy chcesz nadpisać to?"
+
+#~ msgid "Output document pdf version:"
+#~ msgstr "Wersja PDF dokumentu wyjściowego:"
+
+#~ msgid ""
+#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" is "
+#~ "selected"
+#~ msgstr ""
+#~ "Pokaż okno dialogowe pytające użytkownika o potwierdzenie gdy \"napisz\" "
+#~ "jest zaznaczone"
+
+#~ msgid "Ask for confirmation when overwrite checkbox is selected"
+#~ msgstr "Pytaj o potwierdzenie gdy okienko nadpisywania jest zaznaczone"

@@ -9,9 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2016-09-30 08:48+0000\n"
-"X-Generator: Launchpad (build 18204)\n"
+"X-Launchpad-Export-Date: 2016-10-30 09:56+0000\n"
+"X-Generator: Launchpad (build 18246)\n"
 "Language: co\n"
 
 msgid "Subscribe to the official news feed"
@@ -995,3 +994,6 @@ msgstr "Girà e pagine di parechji ducumenti PDF."
 
 msgid "Rotate settings"
 msgstr "Preferenze di u girà"
+
+#~ msgid "Never"
+#~ msgstr "Mai"

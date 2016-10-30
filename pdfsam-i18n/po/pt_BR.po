@@ -14,9 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Launchpad-Export-Date: 2016-09-30 08:48+0000\n"
-"X-Generator: Launchpad (build 18204)\n"
+"X-Launchpad-Export-Date: 2016-10-30 09:56+0000\n"
+"X-Generator: Launchpad (build 18246)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Inscreva-se no canal oficial de notícias"
@@ -1033,3 +1032,40 @@ msgstr "Rotaciona as páginas de múltiplos documentos PDF"
 
 msgid "Rotate settings"
 msgstr "Configuração de rotação"
+
+# G:\Documents\eclipse_workspace\PDFSAMsplit\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:193
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:206
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:223
+#~ msgid "Split even pages"
+#~ msgstr "Dividir a cada página pár"
+
+# G:\Documents\eclipse_workspace\PDFSAMsplit\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:196
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:209
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
+#~ msgid "Split odd pages"
+#~ msgstr "Dividir a cada página impar"
+
+#~ msgid "Never"
+#~ msgstr "Jamais"
+
+#~ msgid "Destination folder"
+#~ msgstr "Pasta de destino"
+
+#~ msgid "Ask for confirmation when overwrite checkbox is selected"
+#~ msgstr "Pedir confirmação quando o campo sobrescrever estiver marcado"
+
+#~ msgid "Unable to get latest available version"
+#~ msgstr "Não foi possível obter a última versão disponível"
+
+#~ msgid ""
+#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" is "
+#~ "selected"
+#~ msgstr ""
+#~ "Mostrar uma caixa de diálogo solicitando a confirmação do usuário quando "
+#~ "\"sobrescrever\" estiver selecionado"
+
+#~ msgid "Output document pdf version:"
+#~ msgstr "Versão pdf do documento gerado:"
+
+#~ msgid "Would you like to overwrite it?"
+#~ msgstr "Você deseja sobrescrevê-lo?"

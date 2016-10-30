@@ -14,9 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2016-09-30 08:48+0000\n"
-"X-Generator: Launchpad (build 18204)\n"
+"X-Launchpad-Export-Date: 2016-10-30 09:56+0000\n"
+"X-Generator: Launchpad (build 18246)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "הירשם לערוץ החדשות הרשמי"
@@ -967,3 +966,28 @@ msgstr "סובב עמודים של מספר מסמכי PDF"
 msgid "Rotate settings"
 msgstr "הגדרות הסיבוב"
 
+#~ msgid "Split even pages"
+#~ msgstr "פיצול עמודים זוגיים"
+
+#~ msgid "Split odd pages"
+#~ msgstr "פיצול עמודים אי־זוגיים"
+
+#~ msgid "Destination folder"
+#~ msgstr "תיקיית היעד"
+
+#~ msgid "Output document pdf version:"
+#~ msgstr "גרסת ה־pdf של מסמך הפלט:"
+
+#~ msgid "Never"
+#~ msgstr "לעולם לא"
+
+#~ msgid "Would you like to overwrite it?"
+#~ msgstr "האם לשכתב על גביו?"
+
+#~ msgid "Unable to get latest available version"
+#~ msgstr "לא ניתן לאחזר את הגרסה העדכנית ביותר הזמינה"
+
+#~ msgid ""
+#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" is "
+#~ "selected"
+#~ msgstr "הצג חלון הזהרה כאשר משתמש משכתב חומר קיים"

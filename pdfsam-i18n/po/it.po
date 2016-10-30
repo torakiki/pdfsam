@@ -14,9 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2016-09-30 08:48+0000\n"
-"X-Generator: Launchpad (build 18204)\n"
+"X-Launchpad-Export-Date: 2016-10-30 09:56+0000\n"
+"X-Generator: Launchpad (build 18246)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Iscriviti al feed ufficiale delle notizie"
@@ -1080,3 +1079,44 @@ msgstr "Ruota le pagine di più documenti PDF"
 
 msgid "Rotate settings"
 msgstr "Impostazioni di rotazione"
+
+# F:\workspace_pdfsame_enanched\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:200
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:206
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:223
+#~ msgid "Split even pages"
+#~ msgstr "Dividi pagine pari"
+
+# F:\workspace_pdfsame_enanched\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:203
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:209
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
+#~ msgid "Split odd pages"
+#~ msgstr "Dividi pagine dispari"
+
+#~ msgid "Never"
+#~ msgstr "Mai"
+
+#~ msgid "Destination folder"
+#~ msgstr "Cartella di destinazione"
+
+#~ msgid "Would you like to overwrite it?"
+#~ msgstr "Vuoi sovrascriverlo?"
+
+# F:\workspace_pdfsame_enanched\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:328
+# F:\workspace_pdfsame_enanched\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:290
+# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:353
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:318
+#~ msgid "Output document pdf version:"
+#~ msgstr "Versione PDF del documento di destinazione:"
+
+#~ msgid "Unable to get latest available version"
+#~ msgstr "Impossibile identificare l'ultima versione disponibile"
+
+#~ msgid ""
+#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" is "
+#~ "selected"
+#~ msgstr ""
+#~ "Mostra una finestra che chiede all'utente una conferma quando "
+#~ "\"sovrascrivi\" è selezionato."
+
+#~ msgid "Ask for confirmation when overwrite checkbox is selected"
+#~ msgstr "Chiede conferma quando l'opzione di sovrascrittura è selezionata"
