@@ -5,9 +5,9 @@
 	-fx-background-color: -pdfsam-box-border-color, -pdfsam-pane-bg;
     -fx-background-insets: 0.0, 0.4;
     -fx-background-radius: 3.0;
-	-fx-padding: 8.0px;
-	-fx-max-width: 260.0px;
-    -fx-min-width: 260.0px;
+	-fx-padding: 0.666667em;
+	-fx-max-width: 22em;
+    -fx-min-width: 22em;
 	-fx-effect: -pdfsam-shadow-effect;
 }
 .dashboard-modules-tile:hover .dashboard-modules-tile-inner{

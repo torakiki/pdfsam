@@ -5,20 +5,20 @@
 	-fx-background-color: -pdfsam-defaultbg-color;
 	-fx-background-insets: 0.0;
     -fx-background-radius: 0.0;
-	-fx-spacing: 0.2em;
+	-fx-spacing: 0.25em;
 	-fx-alignment: bottom-center;
-	-fx-max-height: 46.0px;
-    -fx-min-height: 46.0px;
+	-fx-max-height: 3.916666em;
+    -fx-min-height: 3.916666em;
 }
 .progress-pane {
 	-fx-alignment: bottom-left;
-	-fx-min-height: 30.0px;
-	-fx-spacing: 5.0px;
+	-fx-min-height: 2.5em;
+	-fx-spacing: 0.416667em;
 }
 .progress-pane .status-label {
 	-fx-background-color:  -pdfsam-button-color;
 	-fx-background-radius: 0.0;
-	-fx-padding: 1.0px 10.0px;
+	-fx-padding: 0.083333em 0.833333em;
 	-fx-font-size: 0.8em;
 	-fx-pref-height: 0.8em;
 	-fx-max-height: 1.4em;
@@ -28,13 +28,13 @@
 .footer-pane .progress-bar {
    -fx-indeterminate-bar-escape: false;
    -fx-indeterminate-bar-animation-time: 1.0;
-   -fx-max-height: 5.0px;
-   -fx-min-height: 5.0px;
-   -fx-pref-height: 5.0px;
+   -fx-max-height: 0.416667em;
+   -fx-min-height: 0.416667em;
+   -fx-pref-height: 0.416667em;
 }
 .footer-pane  .progress-bar > .bar {
   	-fx-background-color:  -pdfsam-light-border-color, -pdfsam-theme-color;
-  	-fx-background-insets: 0.0, 1.0;
+  	-fx-background-insets: 0.0, 0.083333em;
    	-fx-background-radius:  0.0, 0.0;				
 }
 .footer-pane  .progress-bar:indeterminate > .bar {
@@ -44,11 +44,11 @@
 }
 .footer-pane  .progress-bar:indeterminate > .track {  	
   	-fx-background-color:  -pdfsam-light-border-color, white;
-  	-fx-background-insets: 0.0, 1.0;
+  	-fx-background-insets: 0.0, 0.083333em;
    	-fx-background-radius:  0.0, 0.0;		
 }
 .footer-pane  .progress-bar > .track {
   	-fx-background-color:  -pdfsam-light-border-color, white;
-  	-fx-background-insets: 0.0, 1.0;
+  	-fx-background-insets: 0.0, 0.083333em;
    	-fx-background-radius:  0.0, 0.0;		
 }

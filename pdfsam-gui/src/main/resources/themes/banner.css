@@ -8,10 +8,7 @@
     -fx-background-radius: 0.0, 0.0;
     -fx-alignment: bottom-left;  
  }
-.pdfsam-banner .awesome {
-    -fx-effect: null;
-    -fx-text-fill: awesome-color;
-}
+
 .pdfsam-logo{
 	-fx-padding: 8.0 4.0 8.0 12.0;
  	-fx-spacing: 15.0px;
@@ -19,7 +16,7 @@
 }
 .pdfsam-banner-buttons{
 	-fx-padding: 0.0 3.0em 0.0 0.0;
- 	-fx-spacing: 5.0px;
+ 	-fx-spacing:  0.416667em;
  	-fx-alignment: center-right;
  }
 .pdfsam-toolbar-button, .pdfsam-toolbar-button:focused {
@@ -31,9 +28,6 @@
     -fx-background-color:  -pdfsam-theme-color, -pdfsam-headerbg-color;
     -fx-background-insets:  0.0, 0.0 0.0 1.5 0.0 ;
     -fx-background-radius: 0.0;
-}
-.pdfsam-toolbar-button:hover .awesome{
-	-fx-text-fill: awesome-color-hover;
 }
 .pdfsam-toolbar-button:armed {
   -fx-opacity: 0.6;

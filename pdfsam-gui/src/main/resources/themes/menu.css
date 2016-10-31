@@ -1,5 +1,5 @@
 .context-menu {
-    -fx-padding: 0.3em 0.3em 0.3em 0.3em;
+    -fx-padding: 0.333333em 0.333333em 0.333333em 0.333333em;
 }
 .menu > .right-container > .arrow, .menu:focused > .right-container > .arrow {
     -fx-background-color: -pdfsam-dark-text-color;

@@ -6,17 +6,17 @@
    	-fx-background-insets: 0.0;
 }
 .quickbar-items{
-	-fx-spacing: 3px;
-	-fx-padding: 0.0 5.0 1.0em 0.0;
+	-fx-spacing: 0.25em;
+	-fx-padding: 0.0 0.416667em 1.0em 0.0;
 }
 .quickbar-navigation-button, .quickbar-navigation-button:focused {
 	-fx-background-color:  -pdfsam-defaultbg-color;
     -fx-background-insets:  0.0;
     -fx-background-radius: 3.0;
-    -fx-padding: 5.0px 10.0px 5.0px 10.0px;
-    -fx-min-width: 50.0px;
-    -fx-max-height: 40.0px;
-    -fx-min-height: 40.0px;
+    -fx-padding: 0.416667em 0.833333em 0.416667em 0.833333em;
+    -fx-min-width: 4.166666em;
+    -fx-max-height: 3.333333em;
+    -fx-min-height: 3.333333em;
 }
 .quickbar-navigation-button:focused {
 	-fx-background-color: -pdfsam-focus-border-color, -pdfsam-defaultbg-color;

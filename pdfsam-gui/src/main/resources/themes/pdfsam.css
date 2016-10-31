@@ -1,21 +1,21 @@
 .header-title{
 	-fx-font-weight: bold; 
 	-fx-font-style: italic;
-	-fx-text-fill: awesome-color;
-	-fx-padding: 8.0 4.0 8.0 1.0;
+	-fx-text-fill: -pdfsam-light-text-color;
+	-fx-padding: 0.666667em 0.333333em 0.666667em 0.083333em;
 }
 /**
  * Dashboard panels
  */
 .section-title {
-	-fx-font-size: 1.2em;
-	-fx-padding: 1.2em 0.0 0.0 0.0;
+	-fx-font-size: 1.25em;
+	-fx-padding: 1.166666em 0.0 0.0 0.0;
 	-fx-font-weight: bold;
 }
 .dashboard-container{
 	-fx-border-width: 0.0;
-	-fx-padding: 1.2em;
-	-fx-spacing: 30.0px;
+	-fx-padding: 1.166666em;
+	-fx-spacing: 2.5em;
 }
 /**
  * Log
@@ -23,13 +23,13 @@
 #log-view{
  	-fx-background-color: -fx-box-border,#FFFFFF;
     -fx-background-insets: 0.0, 1.0;
-    -fx-padding: 1.0;
+    -fx-padding: 0.083333em;
 }
 
 #log-view:focused {
  -fx-background-color: -fx-focus-color,-fx-box-border,#FFFFFF;
-    -fx-background-insets: -1.4, 0.0, 1.0;
-    -fx-background-radius: 1.4, 0.0, 0.0;    
+ -fx-background-insets: -1.4, 0.0, 1.0;
+ -fx-background-radius: 1.4, 0.0, 0.0;    
 }
 
 #log-view .list-cell,.list-cell:odd {
@@ -57,9 +57,9 @@
 	-fx-background-color:  -pdfsam-light-border-color, #FFFFFF;
     -fx-background-insets:  0.0, 1.0;	
 	-fx-border-radius: 0.0;
-	-fx-padding: 15.0;
-	-fx-hgap: 10.0px;
-	-fx-vgap: 10.0px;
+	-fx-padding: 1.25em;
+	-fx-hgap: 0.833333em;
+	-fx-vgap: 0.833333em;
 }
 .info-property-value, .info-property {
 	-fx-background-color: #FFFFFF;

@@ -46,7 +46,7 @@
    -fx-background-radius: 3.0;
    -fx-effect: -pdfsam-hover-shadow-effect;
    -fx-translate-y: 2.0;
-   -fx-padding: 4.0 2.0 2.0 2.0;
+   -fx-padding: 0.333333em 0.166667em 0.166667em 0.166667em;
 }
 .combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:hover {
     -fx-background-color: -pdfsam-flat-bg-color;

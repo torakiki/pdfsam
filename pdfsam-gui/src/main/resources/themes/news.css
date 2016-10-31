@@ -2,7 +2,7 @@
  * News
  */
  .news-container{
-	-fx-padding: 14.0, 6.0, 14.0, 6.0;
+	-fx-padding: 1.166666em, 0.5em, 1.166666em, 0.5em;
 }
 .scrollable-news {
 	-fx-background-color: -pdfsam-tooltipbg-color;
@@ -13,20 +13,20 @@
     -fx-background-insets: 0.0, 1.0;
     -fx-background-radius: 0.0, 0.0;
 	-fx-effect: dropshadow(three-pass-box, -pdfsam-dark-text-color, 10.0, 0.0, 0.0, 3.0);
-	-fx-max-width: 300.0px;
-    -fx-spacing: 5.0px;
+	-fx-max-width: 25em;
+    -fx-spacing: 0.416667em;
 }
 .news-panel-title {
-	-fx-font-size: 1.2em;
+	-fx-font-size: 1.25em;
     -fx-font-weight: bold;
    	-fx-alignment: center;
-   	-fx-padding: 0.0 0.0 3.0;
+   	-fx-padding: 0.0 0.0 0.25em;
 }
 .news-box-title {
     -fx-font-weight: bold;
     -fx-fill: -pdfsam-dark-text-color;
     -fx-wrap-text: true;
-    -fx-padding: 0.0 0.0 1.5;
+    -fx-padding: 0.0 0.0 0.166667em;
 }
 .news-box-title:hover {
     -fx-underline: true;
@@ -39,11 +39,11 @@
 	-fx-background-color: -fx-box-border, -pdfsam-tooltipbg-color;
     -fx-background-insets: 0.0, 0.4 0.0 0.0 0.0;
     -fx-background-radius: 0.0;
-    -fx-padding: 5.0;
+    -fx-padding: 0.416667em;
 }
 
 .news-box-footer {
-    -fx-padding: 4.0 0.0 0.0 0.0;
+    -fx-padding: 0.333333em 0.0 0.0 0.0;
 }
 
 .news-content {
