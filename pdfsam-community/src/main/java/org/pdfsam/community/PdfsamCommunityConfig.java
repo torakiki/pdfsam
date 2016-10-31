@@ -49,12 +49,10 @@ public class PdfsamCommunityConfig implements UIConfig {
     @Inject
     private Environment env;
 
-    @Bean(name = "logo16")
     public Image logo16() throws IOException {
         return new Image(new ClassPathResource("/images/community/16x16.png").getInputStream());
     }
 
-    @Bean(name = "logo24")
     public Image logo24() throws IOException {
         return new Image(new ClassPathResource("/images/community/24x24.png").getInputStream());
     }
@@ -69,12 +67,10 @@ public class PdfsamCommunityConfig implements UIConfig {
         return new Image(new ClassPathResource("/images/community/48x48.png").getInputStream());
     }
 
-    @Bean(name = "logo64")
     public Image logo64() throws IOException {
         return new Image(new ClassPathResource("/images/community/64x64.png").getInputStream());
     }
 
-    @Bean(name = "logo96")
     public Image logo96() throws IOException {
         return new Image(new ClassPathResource("/images/community/96x96.png").getInputStream());
     }
@@ -84,12 +80,10 @@ public class PdfsamCommunityConfig implements UIConfig {
         return new Image(new ClassPathResource("/images/community/128x128.png").getInputStream());
     }
 
-    @Bean(name = "logo256")
     public Image logo256() throws IOException {
         return new Image(new ClassPathResource("/images/community/256x256.png").getInputStream());
     }
 
-    @Bean(name = "logo512")
     public Image logo512() throws IOException {
         return new Image(new ClassPathResource("/images/community/512x512.png").getInputStream());
     }
