@@ -112,5 +112,7 @@ exec "$JAVACMD" $JAVA_OPTS -Xmx256M \
   -Dapp.repo="$REPO" \
   -Dapp.home="$BASEDIR" \
   -Dbasedir="$BASEDIR" \
+  -Dprism.text=t2k \
+  -Dprism.lcdtext=false \
   org.pdfsam.community.App \
   "$@"

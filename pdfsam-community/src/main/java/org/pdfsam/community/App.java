@@ -31,8 +31,6 @@ import javafx.application.Application;
 public class App {
 
     public static void main(String[] args) {
-        System.setProperty("prism.text", "t2k");
-        System.setProperty("prism.lcdtext", "false");
         Application.launch(PdfsamApp.class, args);
     }
 
