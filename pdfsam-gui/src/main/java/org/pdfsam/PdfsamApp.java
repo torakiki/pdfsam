@@ -100,6 +100,7 @@ public class PdfsamApp extends Application {
         STOPWATCH.start();
         System.setProperty(EventStudio.MAX_QUEUE_SIZE_PROP, Integer.toString(userContext.getNumberOfLogRows()));
         System.setProperty(PDDocumentHandler.SAMBOX_USE_ASYNC_WRITER, Boolean.TRUE.toString());
+        System.setProperty(Sejda.UNETHICAL_READ_PROPERTY_NAME, Boolean.TRUE.toString());
         LOG.info("Starting PDFsam");
         rawParameters = getParameters().getRaw();
         clean = rawParameters.contains("--clean") || rawParameters.contains("-clean") || rawParameters.contains("-c");
@@ -159,7 +160,6 @@ public class PdfsamApp extends Application {
     private void initSejda() {
         Pdfsam pdfsam = ApplicationContextHolder.getContext().getBean(Pdfsam.class);
         Sejda.CREATOR = pdfsam.shortName() + " v" + pdfsam.property(ConfigurableProperty.VERSION);
-        System.setProperty(Sejda.UNETHICAL_READ_PROPERTY_NAME, "true");
     }
 
     private void startLogAppender() {
