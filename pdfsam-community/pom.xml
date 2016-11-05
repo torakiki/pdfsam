@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<description>PDFsam App</description>
 	<url>http://www.pdfsam.org</url>
@@ -45,7 +46,8 @@
 								<configuration>
 									<createDependencyReducedPom>false</createDependencyReducedPom>
 									<transformers>
-										<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+										<transformer
+											implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 											<mainClass>org.pdfsam.community.App</mainClass>
 											<manifestEntries>
 												<Class-Path>etc/</Class-Path>
@@ -118,6 +120,9 @@
 										<productName>PDF Split And Merge Basic Edition</productName>
 										<internalName>PDFsam</internalName>
 										<originalFilename>pdfsam.exe</originalFilename>
+										<language>
+											ENGLISH_US
+										</language>
 									</versionInfo>
 								</configuration>
 							</execution>
@@ -223,7 +228,7 @@
 								</configuration>
 							</execution>
 						</executions>
-					</plugin>					
+					</plugin>
 					<plugin>
 						<artifactId>jdeb</artifactId>
 						<groupId>org.vafer</groupId>
@@ -266,7 +271,7 @@
 												<type>perm</type>
 												<filemode>755</filemode>
 											</mapper>
-										</data>										
+										</data>
 										<data>
 											<src>${project.basedir}/src/deb/doc/changelog.Debian.gz</src>
 											<dst>/usr/share/doc/pdfsam-basic/changelog.Debian.gz</dst>
@@ -286,7 +291,7 @@
 											<src>${project.basedir}/src/deb/icon.svg</src>
 											<dst>/opt/pdfsam-basic/icon.svg</dst>
 											<type>file</type>
-										</data>						
+										</data>
 									</dataSet>
 								</configuration>
 							</execution>
