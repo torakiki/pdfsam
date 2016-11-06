@@ -87,6 +87,7 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
         this.selectionPane = new TaskParametersBuilderSingleSelectionPane(id());
         this.selectionPane.setPromptText(
                 DefaultI18nContext.getInstance().i18n("Select or drag and drop the PDF you want to split"));
+        initModuleSettingsPanel(settingPanel());
     }
 
     @Override
@@ -123,8 +124,7 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
         return builder;
     }
 
-    @Override
-    protected VBox getInnerPanel() {
+    private VBox settingPanel() {
         VBox pane = new VBox();
         pane.setAlignment(Pos.TOP_CENTER);
 

@@ -22,7 +22,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.function.Consumer;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Named;
 
 import org.apache.commons.lang3.builder.Builder;
@@ -59,12 +58,10 @@ public abstract class BaseTaskExecutionModule implements Module {
         this.footer = footer;
     }
 
-    @PostConstruct
-    final void init() {
-        VBox innerPanel = getInnerPanel();
-        innerPanel.getStyleClass().addAll(Style.DEAULT_CONTAINER.css());
-        innerPanel.getStyleClass().addAll(Style.MODULE_CONTAINER.css());
-        innerPanel.getChildren().add(footer);
+    protected final void initModuleSettingsPanel(VBox panel) {
+        panel.getStyleClass().addAll(Style.DEAULT_CONTAINER.css());
+        panel.getStyleClass().addAll(Style.MODULE_CONTAINER.css());
+        panel.getChildren().add(footer);
 
         footer.runButton().setOnAction(event -> {
             ErrorTracker errorTracker = new ErrorTracker();
@@ -75,7 +72,7 @@ public abstract class BaseTaskExecutionModule implements Module {
                 eventStudio().broadcast(new TaskExecutionRequestEvent(id(), builder.build()));
             }
         });
-        modulePanel.setCenter(innerPanel);
+        modulePanel.setCenter(panel);
         eventStudio().addAnnotatedListeners(this);
     }
 
@@ -88,11 +85,6 @@ public abstract class BaseTaskExecutionModule implements Module {
     public final void restoreState(LoadWorkspaceEvent event) {
         Platform.runLater(() -> onLoadWorkspace(event.getData(id())));
     }
-
-    /**
-     * @return the inner panel that allows the user to set options and preferences for this module
-     */
-    protected abstract VBox getInnerPanel();
 
     /**
      * @param onError

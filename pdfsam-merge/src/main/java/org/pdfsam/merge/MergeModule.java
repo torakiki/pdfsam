@@ -77,6 +77,7 @@ public class MergeModule extends BaseTaskExecutionModule {
         super(footer);
         this.destinationFileField = destinationFileField;
         this.destinationPane = destinationPane;
+        initModuleSettingsPanel(settingPanel());
     }
 
     @Override
@@ -110,8 +111,7 @@ public class MergeModule extends BaseTaskExecutionModule {
         return builder;
     }
 
-    @Override
-    protected VBox getInnerPanel() {
+    private VBox settingPanel() {
         VBox pane = new VBox();
         pane.setAlignment(Pos.TOP_CENTER);
         VBox.setVgrow(selectionPane, Priority.ALWAYS);

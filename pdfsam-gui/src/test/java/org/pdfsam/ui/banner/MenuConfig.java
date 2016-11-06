@@ -57,7 +57,7 @@ public class MenuConfig {
 
     @Bean
     public ModulesMenu modulesMenu() {
-        return new ModulesMenu();
+        return new ModulesMenu(Arrays.asList(new DefaultPriorityTestModule()));
     }
 
     @Bean

@@ -90,7 +90,7 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
         this.selectionPane.setPromptText(
                 DefaultI18nContext.getInstance().i18n("Select or drag and drop the PDF you want to split"));
         this.selectionPane.addOnLoaded(d -> splitOptions.setValidBookmarkLevels(d.getValidBookmarksLevels()));
-
+        initModuleSettingsPanel(settingPanel());
     }
 
     @Override
@@ -127,8 +127,7 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
         return builder;
     }
 
-    @Override
-    protected VBox getInnerPanel() {
+    private VBox settingPanel() {
         VBox pane = new VBox();
         pane.setAlignment(Pos.TOP_CENTER);
 

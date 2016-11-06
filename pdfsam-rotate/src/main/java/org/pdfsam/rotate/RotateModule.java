@@ -81,6 +81,7 @@ public class RotateModule extends BaseTaskExecutionModule {
         super(footer);
         this.destinationDirectoryField = destinationDirectoryField;
         this.destinationPane = destinationPane;
+        initModuleSettingsPanel(settingPanel());
     }
 
     @Override
@@ -117,8 +118,7 @@ public class RotateModule extends BaseTaskExecutionModule {
         prefix.restoreStateFrom(data);
     }
 
-    @Override
-    protected VBox getInnerPanel() {
+    private VBox settingPanel() {
         VBox pane = new VBox();
         pane.setAlignment(Pos.TOP_CENTER);
         VBox.setVgrow(selectionPane, Priority.ALWAYS);

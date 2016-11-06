@@ -76,7 +76,7 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
         super(footer);
         this.destinationFileField = destinationFileField;
         this.destinationPane = destinationPane;
-
+        initModuleSettingsPanel(settingPanel());
     }
 
     @Override
@@ -113,8 +113,7 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
         destinationPane.restoreStateFrom(data);
     }
 
-    @Override
-    protected VBox getInnerPanel() {
+    private VBox settingPanel() {
         VBox pane = new VBox();
         pane.setAlignment(Pos.TOP_CENTER);
         VBox.setVgrow(selectionPane, Priority.ALWAYS);
