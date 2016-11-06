@@ -200,6 +200,7 @@ public class PdfsamApp extends Application {
             eventStudio().broadcast(new SetLatestStageStatusRequest(status));
         }
         saveWorkspaceIfRequired();
+        eventStudio().broadcast(new ShutdownEvent());
         ApplicationContextHolder.getContext().close();
     }
 

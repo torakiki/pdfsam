@@ -20,6 +20,7 @@ package org.pdfsam.module;
 
 import static java.util.stream.Collectors.toList;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,9 +29,10 @@ import java.util.List;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
-import javax.annotation.PreDestroy;
 import javax.inject.Named;
 
+import org.pdfsam.ShutdownEvent;
+import org.sejda.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,15 +50,8 @@ class PreferencesUsageDataStore {
     static final String MODULE_USAGE_KEY = "module.usage";
     static final String TASKS_EXECUTED_KEY = "tasks.executed";
 
-    @PreDestroy
-    public void flush() {
-        Preferences prefs = Preferences.userRoot().node(USAGE_PATH);
-        try {
-            LOG.trace("Flushing modules usage");
-            prefs.flush();
-        } catch (BackingStoreException e) {
-            LOG.error("Unable to flush modules usage statistics", e);
-        }
+    public PreferencesUsageDataStore() {
+        eventStudio().addAnnotatedListeners(this);
     }
 
     public void incrementUsageFor(String moduleId) {
@@ -109,6 +104,21 @@ class PreferencesUsageDataStore {
     public long getTotalUsage() {
         Preferences node = Preferences.userRoot().node(USAGE_PATH);
         return node.getLong(TASKS_EXECUTED_KEY, 0);
+    }
+
+    @EventListener
+    public void onShutdown(ShutdownEvent event) {
+        flush();
+    }
+
+    public void flush() {
+        Preferences prefs = Preferences.userRoot().node(USAGE_PATH);
+        try {
+            LOG.trace("Flushing modules usage");
+            prefs.flush();
+        } catch (BackingStoreException e) {
+            LOG.error("Unable to flush modules usage statistics", e);
+        }
     }
 
 }
