@@ -25,13 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import javafx.animation.FadeTransition;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
-import javafx.util.Duration;
-
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.pdfsam.module.Module;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
@@ -40,13 +34,17 @@ import org.pdfsam.ui.quickbar.QuickbarPane;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 
+import javafx.animation.FadeTransition;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
+import javafx.util.Duration;
+
 /**
  * Main workarea. It contains a quickbar to quickly access modules and a main area where the module pane is shown.
  * 
  * @author Andrea Vacondio
  *
  */
-@Named
 public class WorkArea extends BorderPane {
 
     private Map<String, Module> modules = new HashMap<>();
@@ -55,21 +53,17 @@ public class WorkArea extends BorderPane {
     private FadeTransition fade = new FadeTransition(new Duration(300), center);
 
     @Inject
-    public WorkArea(List<Module> modulesList) {
+    public WorkArea(List<Module> modules, QuickbarModuleButtonsPane modulesButtons) {
         getStyleClass().addAll(Style.CONTAINER.css());
         setId("work-area");
-        for (Module module : modulesList) {
-            modules.put(module.id(), module);
+        for (Module module : modules) {
+            this.modules.put(module.id(), module);
         }
         fade.setFromValue(0);
         fade.setToValue(1);
         setCenter(center);
-        eventStudio().addAnnotatedListeners(this);
-    }
-
-    @Inject
-    void setModulesPane(QuickbarModuleButtonsPane modulesButtons) {
         setLeft(new QuickbarPane(modulesButtons));
+        eventStudio().addAnnotatedListeners(this);
     }
 
     @EventListener

@@ -27,7 +27,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.IntUserPreference;
@@ -45,8 +45,7 @@ import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 import org.pdfsam.ui.log.MaxLogRowsChangedEvent;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.sejda.injector.Provides;
 
 /**
  * Configuration for the PDFsam preferences components
@@ -54,19 +53,17 @@ import org.springframework.context.annotation.Configuration;
  * @author Andrea Vacondio
  *
  */
-@Configuration
 public class PreferenceConfig {
 
-    @Inject
-    private UserContext userContext;
-
-    @Bean(name = "localeCombo")
-    public PreferenceComboBox<LocaleKeyValueItem> localeCombo() {
+    @Provides
+    @Named("localeCombo")
+    public PreferenceComboBox<LocaleKeyValueItem> localeCombo(UserContext userContext) {
         return new PreferenceComboBox<>(StringUserPreference.LOCALE, userContext);
     }
 
-    @Bean(name = "themeCombo")
-    public PreferenceComboBox<KeyStringValueItem<String>> themeCombo() {
+    @Provides
+    @Named("themeCombo")
+    public PreferenceComboBox<KeyStringValueItem<String>> themeCombo(UserContext userContext) {
         PreferenceComboBox<KeyStringValueItem<String>> themeCombo = new PreferenceComboBox<>(StringUserPreference.THEME,
                 userContext);
         themeCombo.setId("themeCombo");
@@ -77,8 +74,10 @@ public class PreferenceConfig {
         return themeCombo;
     }
 
-    @Bean(name = "startupModuleCombo")
-    public PreferenceComboBox<KeyStringValueItem<String>> startupModuleCombo(List<Module> modules) {
+    @Provides
+    @Named("startupModuleCombo")
+    public PreferenceComboBox<KeyStringValueItem<String>> startupModuleCombo(List<Module> modules,
+            UserContext userContext) {
         PreferenceComboBox<KeyStringValueItem<String>> startupModuleCombo = new PreferenceComboBox<>(
                 StringUserPreference.STARTUP_MODULE, userContext);
         startupModuleCombo.setId("startupModuleCombo");
@@ -88,8 +87,9 @@ public class PreferenceConfig {
         return startupModuleCombo;
     }
 
-    @Bean(name = "checkForUpdates")
-    public PreferenceCheckBox checkForUpdates() {
+    @Provides
+    @Named("checkForUpdates")
+    public PreferenceCheckBox checkForUpdates(UserContext userContext) {
         PreferenceCheckBox checkForUpdates = new PreferenceCheckBox(BooleanUserPreference.CHECK_UPDATES,
                 DefaultI18nContext.getInstance().i18n("Check for updates at startup"), userContext.isCheckForUpdates(),
                 userContext);
@@ -101,8 +101,9 @@ public class PreferenceConfig {
         return checkForUpdates;
     }
 
-    @Bean(name = "checkForNews")
-    public PreferenceCheckBox checkForNews() {
+    @Provides
+    @Named("checkForNews")
+    public PreferenceCheckBox checkForNews(UserContext userContext) {
         PreferenceCheckBox checkForNews = new PreferenceCheckBox(BooleanUserPreference.CHECK_FOR_NEWS,
                 DefaultI18nContext.getInstance().i18n("Check for news at startup"), userContext.isCheckForNews(),
                 userContext);
@@ -114,8 +115,9 @@ public class PreferenceConfig {
         return checkForNews;
     }
 
-    @Bean(name = "playSounds")
-    public PreferenceCheckBox playSounds() {
+    @Provides
+    @Named("playSounds")
+    public PreferenceCheckBox playSounds(UserContext userContext) {
         PreferenceCheckBox playSounds = new PreferenceCheckBox(BooleanUserPreference.PLAY_SOUNDS,
                 DefaultI18nContext.getInstance().i18n("Play alert sounds"), userContext.isPlaySounds(), userContext);
         playSounds.setId("playSounds");
@@ -125,8 +127,9 @@ public class PreferenceConfig {
         return playSounds;
     }
 
-    @Bean(name = "savePwdInWorkspace")
-    public PreferenceCheckBox savePwdInWorkspace() {
+    @Provides
+    @Named("savePwdInWorkspace")
+    public PreferenceCheckBox savePwdInWorkspace(UserContext userContext) {
         PreferenceCheckBox savePwdInWorkspace = new PreferenceCheckBox(BooleanUserPreference.SAVE_PWD_IN_WORKSPACE,
                 DefaultI18nContext.getInstance().i18n("Store passwords when saving a workspace file"),
                 userContext.isPlaySounds(), userContext);
@@ -138,8 +141,9 @@ public class PreferenceConfig {
         return savePwdInWorkspace;
     }
 
-    @Bean(name = "donationNotification")
-    public PreferenceCheckBox donationNotification() {
+    @Provides
+    @Named("donationNotification")
+    public PreferenceCheckBox donationNotification(UserContext userContext) {
         PreferenceCheckBox donationNotification = new PreferenceCheckBox(BooleanUserPreference.DONATION_NOTIFICATION,
                 DefaultI18nContext.getInstance().i18n("Show donation window"), userContext.isPlaySounds(), userContext);
         donationNotification.setId("donationNotification");
@@ -150,8 +154,9 @@ public class PreferenceConfig {
         return donationNotification;
     }
 
-    @Bean(name = "smartRadio")
-    public PreferenceRadioButton smartRadio() {
+    @Provides
+    @Named("smartRadio")
+    public PreferenceRadioButton smartRadio(UserContext userContext) {
         PreferenceRadioButton smartRadio = new PreferenceRadioButton(BooleanUserPreference.SMART_OUTPUT,
                 DefaultI18nContext.getInstance().i18n("Use the selected PDF document directory as output directory"),
                 userContext.isUseSmartOutput(), userContext);
@@ -159,8 +164,9 @@ public class PreferenceConfig {
         return smartRadio;
     }
 
-    @Bean(name = "workingDirectory")
-    public PreferenceBrowsableDirectoryField workingDirectory() {
+    @Provides
+    @Named("workingDirectory")
+    public PreferenceBrowsableDirectoryField workingDirectory(UserContext userContext) {
         PreferenceBrowsableDirectoryField workingDirectory = new PreferenceBrowsableDirectoryField(
                 StringUserPreference.WORKING_PATH, userContext);
         workingDirectory.getTextField().setText(userContext.getDefaultWorkingPath());
@@ -169,8 +175,9 @@ public class PreferenceConfig {
         return workingDirectory;
     }
 
-    @Bean(name = "workspace")
-    public PreferenceBrowsableFileField workspace() {
+    @Provides
+    @Named("workspace")
+    public PreferenceBrowsableFileField workspace(UserContext userContext) {
         PreferenceBrowsableFileField workspace = new PreferenceBrowsableFileField(StringUserPreference.WORKSPACE_PATH,
                 FileType.JSON, OpenType.OPEN, userContext);
         workspace.getTextField().setText(userContext.getDefaultWorkspacePath());
@@ -179,8 +186,9 @@ public class PreferenceConfig {
         return workspace;
     }
 
-    @Bean(name = "saveWorkspaceOnExit")
-    public PreferenceCheckBox saveWorkspaceOnExit() {
+    @Provides
+    @Named("saveWorkspaceOnExit")
+    public PreferenceCheckBox saveWorkspaceOnExit(UserContext userContext) {
         PreferenceCheckBox saveWorkspaceOnExit = new PreferenceCheckBox(BooleanUserPreference.SAVE_WORKSPACE_ON_EXIT,
                 DefaultI18nContext.getInstance().i18n("Save default workspace on exit"),
                 userContext.isSaveWorkspaceOnExit(), userContext);
@@ -192,8 +200,9 @@ public class PreferenceConfig {
         return saveWorkspaceOnExit;
     }
 
-    @Bean(name = "logViewRowsNumber")
-    public PreferenceIntTextField logViewRowsNumber() {
+    @Provides
+    @Named("logViewRowsNumber")
+    public PreferenceIntTextField logViewRowsNumber(UserContext userContext) {
         PreferenceIntTextField logRowsNumber = new PreferenceIntTextField(IntUserPreference.LOGVIEW_ROWS_NUMBER,
                 userContext, Validators.positiveInteger());
         logRowsNumber.setText(Integer.toString(userContext.getNumberOfLogRows()));

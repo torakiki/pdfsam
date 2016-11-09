@@ -23,9 +23,9 @@ import static org.pdfsam.support.RequireUtils.requireNotNull;
 import java.util.Map;
 import java.util.Optional;
 
-import javafx.scene.control.RadioButton;
-
 import org.pdfsam.ui.workspace.RestorableView;
+
+import javafx.scene.control.RadioButton;
 
 /**
  * Radio button for {@link SizeUnit}

@@ -41,14 +41,6 @@ import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.HighPriorityTestModule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.ui.Theme;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * @author Andrea Vacondio

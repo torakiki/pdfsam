@@ -37,7 +37,6 @@ import com.fasterxml.jackson.jr.ob.JSON;
  * @author Andrea Vacondio
  *
  */
-@Named
 class DefaultUpdateService implements UpdateService {
     private static final Logger LOG = LoggerFactory.getLogger(DefaultUpdateService.class);
     private static final String CURRENT_VERSION_KEY = "currentVersion";

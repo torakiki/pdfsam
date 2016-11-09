@@ -18,6 +18,8 @@
  */
 package org.pdfsam.news;
 
+import static org.pdfsam.support.RequireUtils.requireNotNull;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.Collections;
@@ -26,7 +28,6 @@ import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
@@ -42,8 +43,7 @@ import com.fasterxml.jackson.jr.ob.JSON.Feature;
  * 
  * @author Andrea Vacondio
  */
-@Named
-class DefaultNewsService implements NewsService {
+public class DefaultNewsService implements NewsService {
 
     private static final Logger LOG = LoggerFactory.getLogger(DefaultNewsService.class);
     private static final String NEWS_PATH = "/org/pdfsam/user/news";
@@ -53,6 +53,7 @@ class DefaultNewsService implements NewsService {
 
     @Inject
     DefaultNewsService(Pdfsam pdfsam) {
+        requireNotNull(pdfsam, "Application info cannot be null");
         this.pdfsam = pdfsam;
     }
 

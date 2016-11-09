@@ -19,19 +19,16 @@
 package org.pdfsam.community;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
-import javax.inject.Inject;
+import javax.inject.Named;
 
+import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
-import org.pdfsam.configuration.UIConfig;
-import org.pdfsam.module.PdfsamModule;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScan.Filter;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
-import org.springframework.core.env.Environment;
-import org.springframework.core.io.ClassPathResource;
+import org.sejda.injector.Auto;
+import org.sejda.injector.Prototype;
+import org.sejda.injector.Provides;
 
 import javafx.scene.image.Image;
 
@@ -41,56 +38,63 @@ import javafx.scene.image.Image;
  * @author Andrea Vacondio
  * 
  */
-@Configuration
-@Profile("COMMUNITY")
-@ComponentScan(basePackages = { "org.pdfsam" }, includeFilters = @Filter(value = PdfsamModule.class) )
-public class PdfsamCommunityConfig implements UIConfig {
+public class PdfsamCommunityConfig {
 
-    @Inject
-    private Environment env;
-
-    public Image logo16() throws IOException {
-        return new Image(new ClassPathResource("/images/community/16x16.png").getInputStream());
+    public Image logo16() {
+        return new Image(this.getClass().getResourceAsStream("/images/community/16x16.png"));
     }
 
-    public Image logo24() throws IOException {
-        return new Image(new ClassPathResource("/images/community/24x24.png").getInputStream());
+    public Image logo24() {
+        return new Image(this.getClass().getResourceAsStream("/images/community/24x24.png"));
     }
 
-    @Bean(name = "logo32")
-    public Image logo32() throws IOException {
-        return new Image(new ClassPathResource("/images/community/32x32.png").getInputStream());
+    @Provides
+    @Named("logo32")
+    @Prototype
+    public Image logo32() {
+        return new Image(this.getClass().getResourceAsStream("/images/community/32x32.png"));
     }
 
-    @Bean(name = "logo48")
-    public Image logo48() throws IOException {
-        return new Image(new ClassPathResource("/images/community/48x48.png").getInputStream());
+    @Provides
+    @Named("logo48")
+    @Prototype
+    public Image logo48() {
+        return new Image(this.getClass().getResourceAsStream("/images/community/48x48.png"));
     }
 
-    public Image logo64() throws IOException {
-        return new Image(new ClassPathResource("/images/community/64x64.png").getInputStream());
+    public Image logo64() {
+        return new Image(this.getClass().getResourceAsStream("/images/community/64x64.png"));
     }
 
-    public Image logo96() throws IOException {
-        return new Image(new ClassPathResource("/images/community/96x96.png").getInputStream());
+    public Image logo96() {
+        return new Image(this.getClass().getResourceAsStream("/images/community/96x96.png"));
     }
 
-    @Bean(name = "logo128")
-    public Image logo128() throws IOException {
-        return new Image(new ClassPathResource("/images/community/128x128.png").getInputStream());
+    @Provides
+    @Named("logo128")
+    @Prototype
+    public Image logo128() {
+        return new Image(this.getClass().getResourceAsStream("/images/community/128x128.png"));
     }
 
-    public Image logo256() throws IOException {
-        return new Image(new ClassPathResource("/images/community/256x256.png").getInputStream());
+    public Image logo256() {
+        return new Image(this.getClass().getResourceAsStream("/images/community/256x256.png"));
     }
 
-    public Image logo512() throws IOException {
-        return new Image(new ClassPathResource("/images/community/512x512.png").getInputStream());
+    public Image logo512() {
+        return new Image(this.getClass().getResourceAsStream("/images/community/512x512.png"));
     }
 
-    @Override
-    @Bean
-    public Pdfsam pdfsam() {
-        return new PdfsamCommunity("PDF Split and Merge Basic Edition", "PDFsam Basic", env);
+    @Provides
+    @Auto
+    public Pdfsam pdfsam() throws IOException {
+        return new PdfsamCommunity("PDF Split and Merge Basic Edition", "PDFsam Basic");
+    }
+
+    @Provides
+    @Named("updatesUrl")
+    public Object updatesUrl(Pdfsam pdfsam) throws MalformedURLException {
+        return new URL(String.format("http://www.pdfsam.org/current-version?c=%s",
+                pdfsam.property(ConfigurableProperty.VERSION)));
     }
 }

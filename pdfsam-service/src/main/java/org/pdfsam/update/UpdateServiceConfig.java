@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 22/ott/2013
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 06 nov 2016
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,24 +16,18 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.module;
+package org.pdfsam.update;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import org.sejda.injector.Components;
+import org.sejda.injector.Provides;
 
 /**
- * Indicates that the annotated type is a pdfsam module available in the Enterprise version. Annotated classes can be picked up by the an IOC container and used at runtime to
- * create a modules system.
- * 
  * @author Andrea Vacondio
- * 
  */
-@Target(ElementType.TYPE)
-@Retention(RetentionPolicy.RUNTIME)
-@Documented
-public @interface PdfsamEnterpriseModule {
-    // nothing
+@Components({ UpdatesController.class })
+public class UpdateServiceConfig {
+    @Provides
+    UpdateService news(DefaultUpdateService updates) {
+        return updates;
+    }
 }

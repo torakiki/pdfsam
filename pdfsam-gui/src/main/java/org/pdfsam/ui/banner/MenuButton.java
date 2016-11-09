@@ -19,7 +19,6 @@
 package org.pdfsam.ui.banner;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import javafx.geometry.Side;
@@ -30,7 +29,6 @@ import javafx.geometry.Side;
  * @author Andrea Vacondio
  *
  */
-@Named
 class MenuButton extends BannerButton {
 
     @Inject

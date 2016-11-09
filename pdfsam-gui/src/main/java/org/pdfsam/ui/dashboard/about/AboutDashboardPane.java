@@ -39,7 +39,6 @@ import static org.pdfsam.support.io.ObjectCollectionWriter.writeContent;
 import java.util.Arrays;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.apache.commons.io.FileUtils;
 import org.pdfsam.Pdfsam;
@@ -63,7 +62,6 @@ import javafx.scene.layout.VBox;
  * @author Andrea Vacondio
  * 
  */
-@Named
 public class AboutDashboardPane extends HBox {
 
     @Inject

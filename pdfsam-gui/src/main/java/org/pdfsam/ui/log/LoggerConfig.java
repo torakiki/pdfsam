@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 01/dic/2013
- * Copyright 2013 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 09 nov 2016
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,30 +16,22 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.configuration;
+package org.pdfsam.ui.log;
 
-import org.pdfsam.ui.log.LogPane;
-import org.pdfsam.ui.log.LogMessageBroadcaster;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScan.Filter;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.FilterType;
+import org.sejda.injector.Components;
+import org.sejda.injector.Prototype;
+import org.sejda.injector.Provides;
 
 import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
 
 /**
- * IoC configuration for the logging system
- * 
  * @author Andrea Vacondio
- * 
+ *
  */
-@Configuration
-@ComponentScan(basePackages = { "org.pdfsam.gui.log" }, includeFilters = @Filter(type = FilterType.ASSIGNABLE_TYPE, value = {
-        LogPane.class, LogMessageBroadcaster.class }))
+@Components({ LogMessageBroadcaster.class, LogStage.class })
 public class LoggerConfig {
-
-    @Bean
+    @Provides
+    @Prototype
     public PatternLayoutEncoder pattern() {
         PatternLayoutEncoder encoder = new PatternLayoutEncoder();
         encoder.setPattern("%-5level %nopex [%d{HH:mm:ss}]: %msg%n%xThrowable{50}");

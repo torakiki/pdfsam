@@ -20,12 +20,11 @@ package org.pdfsam.ui.dashboard.modules;
 
 import java.util.List;
 
-import javafx.scene.layout.FlowPane;
-
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.pdfsam.module.Module;
+
+import javafx.scene.layout.FlowPane;
 
 /**
  * Panel showing modules button to in the dashboard. It's used a dashboard home where the users can select the modules the want to use.
@@ -33,7 +32,6 @@ import org.pdfsam.module.Module;
  * @author Andrea Vacondio
  *
  */
-@Named
 public class ModulesDashboardPane extends FlowPane {
 
     @Inject

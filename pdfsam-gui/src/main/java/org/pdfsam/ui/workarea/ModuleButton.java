@@ -21,10 +21,11 @@ package org.pdfsam.ui.workarea;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.control.Tooltip;
 
 import org.pdfsam.module.Module;
 import org.pdfsam.ui.quickbar.BaseQuickbarButton;
+
+import javafx.scene.control.Tooltip;
 
 /**
  * Quickbar button to select a module

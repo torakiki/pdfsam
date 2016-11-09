@@ -19,13 +19,13 @@
 package org.pdfsam.ui.dashboard.preference;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.control.Button;
-
-import javax.inject.Named;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ClearUsageRequestEvent;
 import org.pdfsam.ui.support.Style;
+import org.sejda.injector.Prototype;
+
+import javafx.scene.control.Button;
 
 /**
  * Button sending a request to clear usage statistics
@@ -33,7 +33,7 @@ import org.pdfsam.ui.support.Style;
  * @author Andrea Vacondio
  *
  */
-@Named
+@Prototype
 class ClearStatisticsButton extends Button {
 
     ClearStatisticsButton() {

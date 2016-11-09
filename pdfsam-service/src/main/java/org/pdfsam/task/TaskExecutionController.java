@@ -25,7 +25,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.ShutdownEvent;
@@ -34,6 +33,7 @@ import org.pdfsam.module.UsageService;
 import org.sejda.core.notification.context.GlobalNotificationContext;
 import org.sejda.core.service.TaskExecutionService;
 import org.sejda.eventstudio.annotation.EventListener;
+import org.sejda.injector.Auto;
 import org.sejda.model.notification.event.AbstractNotificationEvent;
 import org.sejda.model.notification.event.PercentageOfWorkDoneChangedEvent;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
@@ -50,8 +50,8 @@ import javafx.application.Platform;
  * @author Andrea Vacondio
  * 
  */
-@Named
-class TaskExecutionController {
+@Auto
+public class TaskExecutionController {
     private static final Logger LOG = LoggerFactory.getLogger(TaskExecutionController.class);
 
     private TaskExecutionService executionService;

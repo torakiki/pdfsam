@@ -45,7 +45,6 @@ import javafx.util.Duration;
  * @author Andrea Vacondio
  * 
  */
-@Named
 public class ContentPane extends HBox {
 
     private WorkArea modules;

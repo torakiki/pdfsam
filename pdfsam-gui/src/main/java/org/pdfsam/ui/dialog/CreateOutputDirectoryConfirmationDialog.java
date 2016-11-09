@@ -19,19 +19,15 @@
 package org.pdfsam.ui.dialog;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.i18n.DefaultI18nContext;
-import org.springframework.context.annotation.Lazy;
 
 /**
  * Dialog asking the user if he wants to create a non existing output directory
  * 
  * @author Andrea Vacondio
  */
-@Named
-@Lazy
 public class CreateOutputDirectoryConfirmationDialog extends ConfirmationDialog {
 
     @Inject

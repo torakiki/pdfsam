@@ -26,7 +26,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.Module;
@@ -41,7 +40,6 @@ import javafx.scene.control.MenuItem;
  * @author Andrea Vacondio
  * 
  */
-@Named
 class ModulesMenu extends Menu {
 
     @Inject

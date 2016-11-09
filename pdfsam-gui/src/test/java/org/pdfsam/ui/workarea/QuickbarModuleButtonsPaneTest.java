@@ -30,10 +30,10 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.test.LowPriorityTestModule;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
-import org.pdfsam.test.DefaultPriorityTestModule;
 
 /**
  * @author Andrea Vacondio

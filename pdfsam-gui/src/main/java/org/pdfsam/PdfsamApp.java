@@ -31,13 +31,11 @@ import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.apache.commons.lang3.time.StopWatch;
-import org.pdfsam.configuration.ApplicationContextHolder;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.UserContext;
@@ -53,10 +51,13 @@ import org.pdfsam.ui.StageService;
 import org.pdfsam.ui.StageStatus;
 import org.pdfsam.ui.commons.OpenUrlRequest;
 import org.pdfsam.ui.commons.ShowStageRequest;
+import org.pdfsam.ui.dashboard.DashboardConfig;
+import org.pdfsam.ui.dashboard.preference.PreferenceConfig;
 import org.pdfsam.ui.dialog.ConfirmationDialog;
 import org.pdfsam.ui.dialog.OpenWithDialog;
 import org.pdfsam.ui.io.SetLatestDirectoryEvent;
 import org.pdfsam.ui.log.LogMessageBroadcaster;
+import org.pdfsam.ui.log.LoggerConfig;
 import org.pdfsam.ui.module.OpenButton;
 import org.pdfsam.ui.notification.NotificationsContainer;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
@@ -66,6 +67,7 @@ import org.sejda.core.Sejda;
 import org.sejda.eventstudio.EventStudio;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.impl.sambox.component.PDDocumentHandler;
+import org.sejda.injector.Injector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -89,11 +91,13 @@ import javafx.stage.Stage;
  */
 public class PdfsamApp extends Application {
     private static final Logger LOG = LoggerFactory.getLogger(PdfsamApp.class);
+
     private static StopWatch STOPWATCH = new StopWatch();
     private Stage primaryStage;
     private UserContext userContext = new DefaultUserContext();
     private List<String> rawParameters;
     private boolean clean;
+    private Injector injector;
 
     @Override
     public void init() {
@@ -131,14 +135,14 @@ public class PdfsamApp extends Application {
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        ApplicationContextHolder.getContext();
+        injector = initInjector();
         startLogAppender();
         Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger());
         initSejda();
         cleanIfRequired();
         primaryStage.setScene(initScene());
-        primaryStage.getIcons().addAll(ApplicationContextHolder.getContext().getBeansOfType(Image.class).values());
-        primaryStage.setTitle(ApplicationContextHolder.getContext().getBean(Pdfsam.class).name());
+        primaryStage.getIcons().addAll(injector.instancesOfType(Image.class));
+        primaryStage.setTitle(injector.instance(Pdfsam.class).name());
         primaryStage.setOnCloseRequest(e -> Platform.exit());
         initWindowsStatusController(primaryStage);
         initDialogsOwner(primaryStage);
@@ -157,13 +161,19 @@ public class PdfsamApp extends Application {
         new InputPdfArgumentsController().accept(rawParameters);
     }
 
+    private Injector initInjector() {
+        Injector.addConfig(new PdfsamConfig(), new LoggerConfig(), new PreferenceConfig(), new DashboardConfig());
+        Services.initServices();
+        return Injector.start();
+    }
+
     private void initSejda() {
-        Pdfsam pdfsam = ApplicationContextHolder.getContext().getBean(Pdfsam.class);
+        Pdfsam pdfsam = injector.instance(Pdfsam.class);
         Sejda.CREATOR = pdfsam.shortName() + " v" + pdfsam.property(ConfigurableProperty.VERSION);
     }
 
     private void startLogAppender() {
-        LogMessageBroadcaster broadcaster = ApplicationContextHolder.getContext().getBean(LogMessageBroadcaster.class);
+        LogMessageBroadcaster broadcaster = injector.instance(LogMessageBroadcaster.class);
         broadcaster.start();
     }
 
@@ -172,16 +182,15 @@ public class PdfsamApp extends Application {
     }
 
     private Scene initScene() {
-        MainPane mainPane = ApplicationContextHolder.getContext().getBean(MainPane.class);
+        MainPane mainPane = injector.instance(MainPane.class);
 
-        NotificationsContainer notifications = ApplicationContextHolder.getContext()
-                .getBean(NotificationsContainer.class);
+        NotificationsContainer notifications = injector.instance(NotificationsContainer.class);
         StackPane main = new StackPane();
         StackPane.setAlignment(notifications, Pos.BOTTOM_RIGHT);
         StackPane.setAlignment(mainPane, Pos.TOP_LEFT);
         main.getChildren().addAll(mainPane, notifications);
 
-        StylesConfig styles = ApplicationContextHolder.getContext().getBean(StylesConfig.class);
+        StylesConfig styles = injector.instance(StylesConfig.class);
 
         Scene mainScene = new Scene(main);
         mainScene.getStylesheets().addAll(styles.styles());
@@ -201,11 +210,11 @@ public class PdfsamApp extends Application {
         }
         saveWorkspaceIfRequired();
         eventStudio().broadcast(new ShutdownEvent());
-        ApplicationContextHolder.getContext().close();
+        injector.close();
     }
 
-    private static void requestCheckForUpdateIfRequired() {
-        if (ApplicationContextHolder.getContext().getBean(UserContext.class).isCheckForUpdates()) {
+    private void requestCheckForUpdateIfRequired() {
+        if (injector.instance(UserContext.class).isCheckForUpdates()) {
             eventStudio().broadcast(UpdateCheckRequest.INSTANCE);
         }
     }
@@ -213,13 +222,13 @@ public class PdfsamApp extends Application {
     private void cleanIfRequired() {
         if (clean) {
             LOG.debug("Cleaning...");
-            ApplicationContextHolder.getContext().getBean(NewsService.class).clear();
-            ApplicationContextHolder.getContext().getBean(StageService.class).clear();
+            injector.instance(NewsService.class).clear();
+            injector.instance(StageService.class).clear();
         }
     }
 
-    private static void requestLatestNewsIfRequired() {
-        if (ApplicationContextHolder.getContext().getBean(UserContext.class).isCheckForNews()) {
+    private void requestLatestNewsIfRequired() {
+        if (injector.instance(UserContext.class).isCheckForNews()) {
             eventStudio().broadcast(FetchLatestNewsRequest.INSTANCE);
         }
     }
@@ -245,13 +254,12 @@ public class PdfsamApp extends Application {
     }
 
     private void initDialogsOwner(Stage primaryStage) {
-        ApplicationContextHolder.getContext().getBeansOfType(ConfirmationDialog.class).values()
-                .forEach(d -> d.setOwner(primaryStage));
-        ApplicationContextHolder.getContext().getBean(OpenWithDialog.class).setOwner(primaryStage);
+        injector.instancesOfType(ConfirmationDialog.class).stream().forEach(d -> d.setOwner(primaryStage));
+        injector.instance(OpenWithDialog.class).setOwner(primaryStage);
     }
 
     private void initWindowsStatusController(Stage primaryStage) {
-        ApplicationContextHolder.getContext().getBean(WindowStatusController.class).setStage(primaryStage);
+        injector.instance(WindowStatusController.class).setStage(primaryStage);
     }
 
     private void initActiveModule() {
@@ -263,10 +271,10 @@ public class PdfsamApp extends Application {
     }
 
     private void initOpenButtons() {
-        Map<String, Module> modules = ApplicationContextHolder.getContext().getBeansOfType(Module.class);
-        Map<String, OpenButton> openButtons = ApplicationContextHolder.getContext().getBeansOfType(OpenButton.class);
-        for (OpenButton button : openButtons.values()) {
-            button.initModules(modules.values());
+        List<Module> modules = injector.instancesOfType(Module.class);
+        List<OpenButton> openButtons = injector.instancesOfType(OpenButton.class);
+        for (OpenButton button : openButtons) {
+            button.initModules(modules);
         }
     }
 

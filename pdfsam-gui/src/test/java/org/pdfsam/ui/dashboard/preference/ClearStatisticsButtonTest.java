@@ -22,7 +22,6 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.Parent;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -32,6 +31,8 @@ import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.module.ClearUsageRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.eventstudio.Listener;
+
+import javafx.scene.Parent;
 
 /**
  * @author Andrea Vacondio

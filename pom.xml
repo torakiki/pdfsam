@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.pdfsam</groupId>
 	<artifactId>pdfsam-parent</artifactId>
@@ -50,6 +51,7 @@
 							<autoVersionSubmodules>true</autoVersionSubmodules>
 							<releaseProfiles>release</releaseProfiles>
 							<preparationGoals>clean install</preparationGoals>
+							<localCheckout>true</localCheckout>
 							<goals>package</goals>
 						</configuration>
 					</plugin>
@@ -217,7 +219,7 @@
 		<hibernate-validator.version>4.2.0.Final</hibernate-validator.version>
 		<sejda.version>2.7.1</sejda.version>
 		<eventstudio.version>1.0.5</eventstudio.version>
-		<org.springframework.version>4.3.3.RELEASE</org.springframework.version>
+		<injector.version>1.0.2</injector.version>
 		<fontawesomefx.version>8.9</fontawesomefx.version>
 		<testfx.version>3.1.2</testfx.version>
 		<jackson-jr.version>2.8.4</jackson-jr.version>
@@ -278,23 +280,9 @@
 				<version>${sejda.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-framework-bom</artifactId>
-				<version>${org.springframework.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-				<exclusions>
-					<exclusion>
-						<groupId>commons-logging</groupId>
-						<artifactId>commons-logging</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-test</artifactId>
-				<version>${org.springframework.version}</version>
-				<scope>test</scope>
+				<groupId>org.sejda</groupId>
+				<artifactId>sejda-injector</artifactId>
+				<version>${injector.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>javax.inject</groupId>

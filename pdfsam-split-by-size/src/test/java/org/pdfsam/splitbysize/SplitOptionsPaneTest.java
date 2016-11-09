@@ -32,9 +32,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import javafx.scene.Parent;
-import javafx.scene.input.KeyCode;
-
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -44,6 +41,9 @@ import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.commons.ValidableTextField;
+
+import javafx.scene.Parent;
+import javafx.scene.input.KeyCode;
 
 /**
  * @author Andrea Vacondio

@@ -46,6 +46,7 @@ public enum ConfigurableProperty {
     GPLUS_SHARE_URL("pdfsam.gplus.share.url"),
     NEWS_URL("pdfsam.news.url"),
     DOWNLOAD_URL("pdfsam.download.url");
+
     public final String prop;
 
     private ConfigurableProperty(String prop) {

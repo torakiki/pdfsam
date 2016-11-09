@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 13/dic/2011
- * Copyright 2011 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 08 nov 2016
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,57 +16,67 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.configuration;
+package org.pdfsam;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URISyntaxException;
-import java.net.URL;
 
-import javax.inject.Inject;
+import javax.inject.Named;
 
+import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.UserContext;
+import org.pdfsam.sound.PlaySoundController;
+import org.pdfsam.ui.MainPane;
 import org.pdfsam.ui.Theme;
+import org.pdfsam.ui.dialog.CreateOutputDirectoryDialogController;
+import org.pdfsam.ui.dialog.OpenWithDialogController;
+import org.pdfsam.ui.dialog.OverwriteDialogController;
+import org.pdfsam.ui.info.InfoStageController;
+import org.pdfsam.ui.notification.NotificationsController;
+import org.sejda.injector.Auto;
+import org.sejda.injector.Components;
+import org.sejda.injector.Prototype;
+import org.sejda.injector.Provides;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.env.Environment;
-import org.springframework.core.io.ClassPathResource;
 
 import javafx.scene.image.ImageView;
 
 /**
- * IoC configuration
- * 
  * @author Andrea Vacondio
- * 
+ *
  */
-@Configuration
-@PropertySource("classpath:pdfsam.properties")
+@Components({ OpenFileController.class, WindowStatusController.class, PlaySoundController.class, MainPane.class,
+        NotificationsController.class, InfoStageController.class, OpenWithDialogController.class,
+        OverwriteDialogController.class, CreateOutputDirectoryDialogController.class })
 public class PdfsamConfig {
     private static final Logger LOG = LoggerFactory.getLogger(PdfsamConfig.class);
-    @Inject
-    private Environment env;
 
-    @Bean
-    public ImageView payoff() throws IOException {
-        return new ImageView(new ClassPathResource("/images/payoff.png").getURL().toExternalForm());
+    @Provides
+    @Named("errorSound")
+    public String error() throws URISyntaxException {
+        return this.getClass().getResource("/sounds/error_sound.wav").toURI().toString();
     }
 
-    @Bean(name = "updatesUrl")
-    public URL updatesUrl() throws MalformedURLException {
-        return new URL(String.format("http://www.pdfsam.org/current-version?c=%s", env.getProperty("pdfsam.version")));
+    @Provides
+    @Named("okSound")
+    public String ok() throws URISyntaxException {
+        return this.getClass().getResource("/sounds/ok_sound.wav").toURI().toString();
     }
 
-    @Bean
+    @Provides
+    @Prototype
+    public ImageView payoff() throws URISyntaxException {
+        return new ImageView(this.getClass().getResource("/images/payoff.png").toURI().toString());
+    }
+
+    @Provides
+    @Auto
     public UserContext userContext() {
         return new DefaultUserContext();
     }
 
-    @Bean
+    @Provides
     public StylesConfig styles() {
         String themeString = userContext().getTheme();
         Theme selected = Theme.ROUNDISH;
@@ -77,15 +87,4 @@ public class PdfsamConfig {
         }
         return new StylesConfig(selected);
     }
-
-    @Bean(name = "errorSound")
-    public String error() throws URISyntaxException {
-        return this.getClass().getResource("/sounds/error_sound.wav").toURI().toString();
-    }
-
-    @Bean(name = "okSound")
-    public String ok() throws URISyntaxException {
-        return this.getClass().getResource("/sounds/ok_sound.wav").toURI().toString();
-    }
-
 }

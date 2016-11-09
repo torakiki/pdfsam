@@ -35,8 +35,6 @@ import java.util.Map.Entry;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
-import javax.inject.Named;
-
 import org.pdfsam.ShutdownEvent;
 import org.pdfsam.support.LRUMap;
 import org.sejda.eventstudio.annotation.EventListener;
@@ -49,10 +47,10 @@ import org.slf4j.LoggerFactory;
  * @author Andrea Vacondio
  *
  */
-@Named
 class PreferencesRecentWorkspacesService implements RecentWorkspacesService {
 
     private static final Logger LOG = LoggerFactory.getLogger(PreferencesRecentWorkspacesService.class);
+
     static final int MAX_CAPACITY = 5;
     static final String WORKSPACES_PATH = "/org/pdfsam/user/workspaces";
 

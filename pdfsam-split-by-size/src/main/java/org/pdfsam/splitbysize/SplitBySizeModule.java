@@ -34,7 +34,6 @@ import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.ModuleInputOutputType;
 import org.pdfsam.module.ModulePriority;
-import org.pdfsam.module.PdfsamModule;
 import org.pdfsam.ui.io.BrowsableOutputDirectoryField;
 import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
@@ -45,10 +44,11 @@ import org.pdfsam.ui.prefix.PrefixPane;
 import org.pdfsam.ui.selection.single.TaskParametersBuilderSingleSelectionPane;
 import org.pdfsam.ui.support.Views;
 import org.sejda.eventstudio.annotation.EventStation;
+import org.sejda.injector.Auto;
+import org.sejda.injector.Components;
+import org.sejda.injector.Provides;
 import org.sejda.model.parameter.SplitBySizeParameters;
 import org.sejda.model.prefix.Prefix;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -62,7 +62,7 @@ import javafx.scene.layout.VBox;
  * @author Andrea Vacondio
  *
  */
-@PdfsamModule
+@Auto
 public class SplitBySizeModule extends BaseTaskExecutionModule {
 
     private static final String MODULE_ID = "split.bysize";
@@ -72,8 +72,8 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
     private PdfDestinationPane destinationPane;
     private SplitOptionsPane splitOptions = new SplitOptionsPane();
     private PrefixPane prefix = new PrefixPane();
-    private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT).inputTypes(ModuleInputOutputType.SINGLE_PDF)
-            .name(DefaultI18nContext.getInstance().i18n("Split by size"))
+    private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT)
+            .inputTypes(ModuleInputOutputType.SINGLE_PDF).name(DefaultI18nContext.getInstance().i18n("Split by size"))
             .description(
                     DefaultI18nContext.getInstance().i18n("Split a PDF document in files of the given size (roughly)."))
             .priority(ModulePriority.LOW.getPriority()).supportURL("http://www.pdfsam.org/pdf-split-by-size").build();
@@ -151,16 +151,18 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
         return new ImageView("split_by_size.png");
     }
 
-    @Configuration
+    @Components({ SplitBySizeModule.class })
     public static class ModuleConfig {
-        @Bean(name = MODULE_ID + "field")
+        @Provides
+        @Named(MODULE_ID + "field")
         public BrowsableOutputDirectoryField destinationDirectoryField() {
             BrowsableOutputDirectoryField field = new BrowsableOutputDirectoryField();
             field.setId(MODULE_ID + "field");
             return field;
         }
 
-        @Bean(name = MODULE_ID + "pane")
+        @Provides
+        @Named(MODULE_ID + "pane")
         public PdfDestinationPane destinationPane(@Named(MODULE_ID + "field") BrowsableOutputDirectoryField outputField,
                 UserContext userContext) {
             PdfDestinationPane panel = new PdfDestinationPane(outputField, MODULE_ID, userContext, DISCARD_BOOKMARKS);
@@ -168,12 +170,14 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
             return panel;
         }
 
-        @Bean(name = MODULE_ID + "footer")
+        @Provides
+        @Named(MODULE_ID + "footer")
         public Footer footer(RunButton runButton, @Named(MODULE_ID + "openButton") OpenButton openButton) {
             return new Footer(runButton, openButton, MODULE_ID);
         }
 
-        @Bean(name = MODULE_ID + "openButton")
+        @Provides
+        @Named(MODULE_ID + "openButton")
         public OpenButton openButton() {
             return new OpenButton(MODULE_ID, ModuleInputOutputType.MULTIPLE_PDF);
         }

@@ -25,11 +25,9 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.nio.file.Path;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.i18n.DefaultI18nContext;
@@ -59,7 +57,6 @@ import javafx.stage.Window;
  * 
  * @author Andrea Vacondio
  */
-@Named
 public class OpenWithDialog extends Stage {
 
     private Label messageTitle = new Label();
@@ -68,13 +65,13 @@ public class OpenWithDialog extends Stage {
     private List<Module> modules;
 
     @Inject
-    public OpenWithDialog(StylesConfig styles, Map<String, Module> modules) {
+    public OpenWithDialog(StylesConfig styles, List<Module> modules) {
         initModality(Modality.WINDOW_MODAL);
         initStyle(StageStyle.UTILITY);
         setResizable(false);
         setTitle(DefaultI18nContext.getInstance().i18n("Open with"));
 
-        this.modules = modules.values().stream().sorted(comparing(m -> m.descriptor().getName())).collect(toList());
+        this.modules = modules.stream().sorted(comparing(m -> m.descriptor().getName())).collect(toList());
 
         messageTitle.getStyleClass().add("-pdfsam-open-with-dialog-title");
 

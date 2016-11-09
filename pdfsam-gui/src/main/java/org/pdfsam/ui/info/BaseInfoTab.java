@@ -18,6 +18,8 @@
  */
 package org.pdfsam.ui.info;
 
+import org.pdfsam.i18n.DefaultI18nContext;
+
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
@@ -26,8 +28,6 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
-
-import org.pdfsam.i18n.DefaultI18nContext;
 
 /**
  * Base class for {@link Tab} in the info panel

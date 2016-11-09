@@ -25,9 +25,6 @@ import static org.mockito.Mockito.verify;
 
 import java.io.File;
 
-import javafx.scene.Parent;
-import javafx.scene.input.KeyCode;
-
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -40,6 +37,9 @@ import org.pdfsam.context.UserContext;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
+
+import javafx.scene.Parent;
+import javafx.scene.input.KeyCode;
 
 /**
  * @author Andrea Vacondio

@@ -22,8 +22,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.stream.Collectors;
 
-import javax.inject.Named;
-
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.news.HideNewsPanelRequest;
 import org.pdfsam.news.LatestNewsEvent;
@@ -47,7 +45,6 @@ import javafx.scene.layout.VBox;
  * @author Andrea Vacondio
  *
  */
-@Named
 public class NewsPanel extends VBox {
     private VBox newsPanel = new VBox();
     ScrollPane scroll = new ScrollPane(newsPanel);

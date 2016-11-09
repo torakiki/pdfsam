@@ -23,14 +23,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.io.File;
 import java.text.DateFormat;
 
-import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.beans.value.WeakChangeListener;
-import javafx.scene.control.Label;
-
-import javax.inject.Named;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.time.FastDateFormat;
 import org.pdfsam.i18n.DefaultI18nContext;
@@ -42,13 +34,18 @@ import org.sejda.model.pdf.PdfMetadataKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.beans.value.WeakChangeListener;
+import javafx.scene.control.Label;
+
 /**
  * Tab displaying a summary of the PDF document information.
  * 
  * @author Andrea Vacondio
  *
  */
-@Named
 class SummaryTab extends BaseInfoTab implements ChangeListener<PdfDescriptorLoadingStatus> {
     private static final Logger LOG = LoggerFactory.getLogger(SummaryTab.class);
     private static FastDateFormat FORMATTER = FastDateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.MEDIUM);

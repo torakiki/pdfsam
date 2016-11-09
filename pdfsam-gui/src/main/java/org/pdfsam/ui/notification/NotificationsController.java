@@ -24,7 +24,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.security.SecureRandom;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
@@ -34,6 +33,7 @@ import org.pdfsam.module.UsageService;
 import org.pdfsam.news.NewImportantNews;
 import org.pdfsam.update.UpdateAvailableEvent;
 import org.sejda.eventstudio.annotation.EventListener;
+import org.sejda.injector.Auto;
 import org.sejda.model.exception.InvalidTaskParametersException;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
@@ -52,7 +52,7 @@ import javafx.scene.layout.VBox;
  * @author Andrea Vacondio
  *
  */
-@Named
+@Auto
 public class NotificationsController {
 
     private static final int TIMES_BEFORE_ENTERPRISE_NOTICE = 5;

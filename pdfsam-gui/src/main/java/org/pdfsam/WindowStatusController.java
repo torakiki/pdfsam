@@ -18,11 +18,13 @@
  */
 package org.pdfsam;
 
+import java.util.Optional;
+
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.pdfsam.ui.StageService;
 import org.pdfsam.ui.StageStatus;
+import org.sejda.injector.Auto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,15 +32,13 @@ import javafx.geometry.Rectangle2D;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-import java.util.Optional;
-
 /**
  * Controller for the Window status
  * 
  * @author Andrea Vacondio
  *
  */
-@Named
+@Auto
 class WindowStatusController {
     private static final Logger LOG = LoggerFactory.getLogger(WindowStatusController.class);
     public static final String PDFSAM_DISABLE_UI_RESTORE = "org.pdfsam.disable.ui.restore";
@@ -82,7 +82,7 @@ class WindowStatusController {
         stage.setWidth(latestStatus.getWidth());
         stage.setHeight(latestStatus.getHeight());
 
-        if(isNotMac()) {
+        if (isNotMac()) {
             latestStatus.getMode().restore(stage);
         }
     }

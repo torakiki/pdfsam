@@ -19,11 +19,9 @@
 package org.pdfsam.ui.dialog;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.i18n.DefaultI18nContext;
-import org.springframework.context.annotation.Lazy;
 
 /**
  * Dialog asking the user to confirm for the output file overwrite
@@ -31,8 +29,6 @@ import org.springframework.context.annotation.Lazy;
  * @author Andrea Vacondio
  *
  */
-@Named
-@Lazy
 public class OverwriteConfirmationDialog extends ConfirmationDialog {
 
     @Inject

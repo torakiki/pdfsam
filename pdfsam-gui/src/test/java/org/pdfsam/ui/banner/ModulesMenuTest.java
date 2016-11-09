@@ -34,11 +34,6 @@ import org.mockito.ArgumentCaptor;
 import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.sejda.eventstudio.Listener;
-import org.springframework.context.ApplicationContext;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.annotation.DirtiesContext.ClassMode;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javafx.scene.Parent;
 

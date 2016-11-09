@@ -20,8 +20,6 @@ package org.pdfsam.ui.banner;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
-import javax.inject.Named;
-
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.commons.Animations;
 import org.pdfsam.ui.commons.ShowStageRequest;
@@ -39,7 +37,6 @@ import javafx.scene.control.Tooltip;
  * 
  * @author Andrea Vacondio
  */
-@Named
 class LogButton extends BannerButton {
 
     static final String HAS_ERRORS_CSS_CLASS = "log-has-errors";

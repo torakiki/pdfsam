@@ -19,7 +19,6 @@
 package org.pdfsam.ui.dashboard.preference;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.support.Style;
@@ -36,7 +35,6 @@ import javafx.scene.layout.VBox;
  * @author Andrea Vacondio
  * 
  */
-@Named
 public class PreferencePane extends HBox {
 
     @Inject

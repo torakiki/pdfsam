@@ -18,22 +18,20 @@
  */
 package org.pdfsam.ui.info;
 
-import java.util.Collection;
-
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
+import java.util.List;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.commons.ClosePane;
 import org.pdfsam.ui.commons.HideOnEscapeHandler;
 import org.pdfsam.ui.support.Style;
-import org.springframework.context.annotation.Lazy;
+
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 /**
  * Stage for the info panel
@@ -41,12 +39,10 @@ import org.springframework.context.annotation.Lazy;
  * @author Andrea Vacondio
  * 
  */
-@Lazy
-@Named
 class InfoStage extends Stage {
 
     @Inject
-    public InfoStage(InfoPane infoPane, Collection<Image> logos, StylesConfig styles) {
+    public InfoStage(InfoPane infoPane, List<Image> logos, StylesConfig styles) {
         BorderPane containerPane = new BorderPane();
         containerPane.getStyleClass().addAll(Style.CONTAINER.css());
         containerPane.setCenter(infoPane);

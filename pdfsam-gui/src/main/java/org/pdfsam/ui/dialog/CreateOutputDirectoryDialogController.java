@@ -24,10 +24,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 
 import javax.inject.Inject;
-import javax.inject.Named;
+import javax.inject.Provider;
 
 import org.pdfsam.ui.commons.NonExistingOutputDirectoryEvent;
 import org.sejda.eventstudio.annotation.EventListener;
+import org.sejda.injector.Auto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,15 +38,15 @@ import org.slf4j.LoggerFactory;
  * @author Andrea Vacondio
  *
  */
-@Named
+@Auto
 public class CreateOutputDirectoryDialogController {
 
-    private static final Logger LOG = LoggerFactory.getLogger(OverwriteDialogController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CreateOutputDirectoryDialogController.class);
 
-    private CreateOutputDirectoryConfirmationDialog dialog;
+    private Provider<CreateOutputDirectoryConfirmationDialog> dialog;
 
     @Inject
-    public CreateOutputDirectoryDialogController(CreateOutputDirectoryConfirmationDialog dialog) {
+    public CreateOutputDirectoryDialogController(Provider<CreateOutputDirectoryConfirmationDialog> dialog) {
         this.dialog = dialog;
         eventStudio().addAnnotatedListeners(this);
     }
@@ -53,7 +54,7 @@ public class CreateOutputDirectoryDialogController {
     @EventListener
     public void request(NonExistingOutputDirectoryEvent event) {
         try {
-            if (dialog.response()) {
+            if (dialog.get().response()) {
                 Files.createDirectories(event.outputDirectory);
                 LOG.debug("Created output directory {}", event.outputDirectory);
             }

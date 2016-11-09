@@ -25,10 +25,10 @@ import java.io.StringWriter;
 import java.util.Scanner;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.apache.commons.io.output.WriterOutputStream;
 import org.apache.commons.lang3.StringUtils;
+import org.sejda.injector.Auto;
 import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.Level;
@@ -44,7 +44,7 @@ import ch.qos.logback.core.AppenderBase;
  * @author Andrea Vacondio
  * 
  */
-@Named
+@Auto
 public class LogMessageBroadcaster extends AppenderBase<ILoggingEvent> {
 
     private PatternLayoutEncoder encoder;

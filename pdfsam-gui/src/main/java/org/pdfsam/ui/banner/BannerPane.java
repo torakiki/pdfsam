@@ -20,11 +20,6 @@ package org.pdfsam.ui.banner;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -32,13 +27,18 @@ import javax.inject.Named;
 import org.pdfsam.ui.event.SetTitleEvent;
 import org.sejda.eventstudio.annotation.EventListener;
 
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+
 /**
  * Panel showed on the top part of the application. It displays branding images and a toolbar
  * 
  * @author Andrea Vacondio
  * 
  */
-@Named
 public class BannerPane extends HBox {
 
     private Label current = new Label();

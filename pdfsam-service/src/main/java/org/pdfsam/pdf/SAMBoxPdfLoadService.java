@@ -31,9 +31,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.RequiredPdfData;
 import org.sejda.io.BufferedSeekableSource;
@@ -50,7 +47,6 @@ import javafx.application.Platform;
  * @author Andrea Vacondio
  *
  */
-@Named
 class SAMBoxPdfLoadService implements PdfLoadService {
     private static final Logger LOG = LoggerFactory.getLogger(SAMBoxPdfLoadService.class);
     private final Map<RequiredPdfData, BiConsumer<PDDocument, PdfDocumentDescriptor>> consumers = new HashMap<>();
@@ -67,7 +63,6 @@ class SAMBoxPdfLoadService implements PdfLoadService {
         }
     };
 
-    @Inject
     public SAMBoxPdfLoadService(List<PdfLoader<PDDocument>> loaders) {
         loaders.forEach(l -> consumers.put(l.key(), l));
     }

@@ -67,12 +67,12 @@
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>javax.inject</groupId>
-			<artifactId>javax.inject</artifactId>
+			<groupId>org.sejda</groupId>
+			<artifactId>sejda-injector</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>de.jensd</groupId>
@@ -133,11 +133,6 @@
 		<dependency>
 			<groupId>org.loadui</groupId>
 			<artifactId>testFx</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>

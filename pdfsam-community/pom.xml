@@ -371,7 +371,14 @@
 			<artifactId>logback-classic</artifactId>
 			<version>${logback.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.sejda</groupId>
+			<artifactId>sejda-injector</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+		</dependency>
 		<!-- test dependencies -->
 		<dependency>
 			<groupId>jdepend</groupId>

@@ -22,7 +22,6 @@ import static java.util.Objects.nonNull;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.pdfsam.context.UserContext;
 import org.pdfsam.ui.support.CircularObservableList;
@@ -40,8 +39,7 @@ import javafx.util.Callback;
  * @author Andrea Vacondio
  *
  */
-@Named
-class LogListView extends ListView<LogMessage>implements Listener<LogMessage> {
+class LogListView extends ListView<LogMessage> implements Listener<LogMessage> {
 
     @Inject
     public LogListView(UserContext userContext) {

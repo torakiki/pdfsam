@@ -24,7 +24,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.pdfsam.ui.quickbar.BaseQuickbarButtonsPane;
@@ -36,7 +35,6 @@ import org.sejda.eventstudio.annotation.EventListener;
  * @author Andrea Vacondio
  *
  */
-@Named
 class QuickbarDashboardButtonsPane extends BaseQuickbarButtonsPane {
 
     private List<DashboardButton> buttons = new ArrayList<>();

@@ -29,9 +29,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import javafx.scene.Parent;
-import javafx.scene.control.ComboBox;
-
 import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;
@@ -43,6 +40,9 @@ import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
 import org.sejda.model.rotation.Rotation;
+
+import javafx.scene.Parent;
+import javafx.scene.control.ComboBox;
 
 /**
  * @author Andrea Vacondio

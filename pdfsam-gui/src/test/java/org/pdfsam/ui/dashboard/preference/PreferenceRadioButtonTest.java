@@ -21,7 +21,6 @@ package org.pdfsam.ui.dashboard.preference;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import javafx.scene.Parent;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -29,6 +28,8 @@ import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.UserContext;
+
+import javafx.scene.Parent;
 
 /**
  * @author Andrea Vacondio

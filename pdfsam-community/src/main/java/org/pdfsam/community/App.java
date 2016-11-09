@@ -19,6 +19,7 @@
 package org.pdfsam.community;
 
 import org.pdfsam.PdfsamApp;
+import org.sejda.injector.Injector;
 
 import javafx.application.Application;
 
@@ -29,8 +30,12 @@ import javafx.application.Application;
  *
  */
 public class App {
-
     public static void main(String[] args) {
+        Injector.addConfig(new PdfsamCommunityConfig(), new org.pdfsam.alternatemix.AlternateMixModule.ModuleConfig(),
+                new org.pdfsam.extract.ExtractModule.ModuleConfig(), new org.pdfsam.merge.MergeModule.ModuleConfig(),
+                new org.pdfsam.rotate.RotateModule.ModuleConfig(), new org.pdfsam.split.SplitModule.ModuleConfig(),
+                new org.pdfsam.splitbybookmarks.SplitByBookmarksModule.ModuleConfig(),
+                new org.pdfsam.splitbysize.SplitBySizeModule.ModuleConfig());
         Application.launch(PdfsamApp.class, args);
     }
 

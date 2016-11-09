@@ -19,12 +19,13 @@
 package org.pdfsam.ui.dashboard.preference;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
-import javafx.scene.control.CheckBox;
 
 import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.UserContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javafx.scene.control.CheckBox;
 
 /**
  * Checkbox updating the relative preference on item selection/deselection

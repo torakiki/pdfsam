@@ -24,10 +24,10 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.util.concurrent.CompletableFuture;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.sejda.eventstudio.annotation.EventListener;
+import org.sejda.injector.Auto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,7 +36,7 @@ import org.slf4j.LoggerFactory;
  * 
  * @author Andrea Vacondio
  */
-@Named
+@Auto
 public class LatestNewsController {
     private static final Logger LOG = LoggerFactory.getLogger(LatestNewsController.class);
 

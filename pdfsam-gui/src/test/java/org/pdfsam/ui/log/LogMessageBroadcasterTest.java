@@ -36,12 +36,6 @@ import org.junit.runner.RunWith;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeJavaFxThreadRule;
 import org.sejda.eventstudio.Listener;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.encoder.PatternLayoutEncoder;

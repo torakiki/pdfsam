@@ -22,7 +22,6 @@ import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.pdfsam.support.KeyStringValueItem.keyValue;
-import javafx.scene.Parent;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -31,6 +30,8 @@ import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.support.KeyStringValueItem;
+
+import javafx.scene.Parent;
 
 /**
  * @author Andrea Vacondio

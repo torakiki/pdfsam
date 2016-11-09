@@ -36,6 +36,14 @@
 			<artifactId>pdfsam-core</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.sejda</groupId>
+			<artifactId>sejda-injector</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+		</dependency>			
 		<!-- test dependencies -->
 		<dependency>
 			<groupId>org.pdfsam</groupId>

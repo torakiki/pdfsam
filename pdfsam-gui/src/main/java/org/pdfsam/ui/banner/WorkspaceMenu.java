@@ -23,7 +23,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.io.File;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.io.FileType;
@@ -46,7 +45,6 @@ import javafx.scene.control.SeparatorMenuItem;
  * @author Andrea Vacondio
  * 
  */
-@Named
 class WorkspaceMenu extends Menu {
 
     private RecentWorkspacesService service;

@@ -18,11 +18,11 @@
  */
 package org.pdfsam.test;
 
+import org.pdfsam.ui.dashboard.DashboardItem;
+
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-
-import org.pdfsam.ui.dashboard.DashboardItem;
 
 /**
  * @author Andrea Vacondio

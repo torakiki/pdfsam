@@ -18,8 +18,6 @@
  */
 package org.pdfsam.ui.notification;
 
-import javax.inject.Named;
-
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -35,7 +33,6 @@ import javafx.util.Duration;
  * @author Andrea Vacondio
  *
  */
-@Named
 public class NotificationsContainer extends VBox {
 
     public NotificationsContainer() {

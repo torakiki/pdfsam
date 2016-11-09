@@ -24,6 +24,7 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.io.IOException;
 
 import javax.inject.Inject;
+import javax.inject.Scope;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -34,16 +35,6 @@ import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.event.SetTitleEvent;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Scope;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javafx.scene.Parent;
 import javafx.scene.image.Image;

@@ -25,6 +25,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import javax.inject.Inject;
+import javax.inject.Scope;
 
 import org.junit.ClassRule;
 import org.junit.Test;
@@ -35,15 +36,6 @@ import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Scope;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javafx.scene.Parent;
 import javafx.scene.input.Clipboard;

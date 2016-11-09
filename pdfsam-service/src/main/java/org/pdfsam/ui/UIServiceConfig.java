@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 22 ott 2015
+ * Created on 06 nov 2016
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,26 +16,31 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.community;
+package org.pdfsam.ui;
 
-import static org.mockito.Mockito.mock;
+import org.sejda.injector.Components;
+import org.sejda.injector.Provides;
 
-import org.junit.Test;
-import org.omg.CORBA.Environment;
+/**
+ * @author Andrea Vacondio
+ *
+ */
+@Components({ WorkspaceController.class, StageServiceController.class })
+public class UIServiceConfig {
 
-public class PdfsamCommunityTest {
-    @Test(expected = IllegalArgumentException.class)
-    public void blankName() {
-        new PdfsamCommunity(" ", "something", mock(Environment.class));
+    @Provides
+    RecentWorkspacesService recentWorkspaces() {
+        return new PreferencesRecentWorkspacesService();
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void blankShortName() {
-        new PdfsamCommunity("Something", " ", mock(Environment.class));
+    @Provides
+    WorkspaceService workspaces() {
+        return new JsonWorkspaceService();
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void nullEnv() {
-        new PdfsamCommunity("name", "short", null);
+    @Provides
+    StageService stage() {
+        return new DefaultStageService();
     }
+
 }

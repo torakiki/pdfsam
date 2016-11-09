@@ -35,7 +35,6 @@ import javafx.scene.control.Tooltip;
  * @author Andrea Vacondio
  *
  */
-@Named
 class DashboardButton extends BannerButton {
     @Inject
     DashboardButton(@Named("defaultDashboardItemId") String defaultDasboardItem) {

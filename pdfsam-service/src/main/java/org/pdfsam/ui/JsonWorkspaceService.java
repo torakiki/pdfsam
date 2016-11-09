@@ -25,8 +25,6 @@ import java.io.FileInputStream;
 import java.util.Collections;
 import java.util.Map;
 
-import javax.inject.Named;
-
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,7 +37,6 @@ import com.fasterxml.jackson.jr.ob.JSON;
  * @author Andrea Vacondio
  *
  */
-@Named
 class JsonWorkspaceService implements WorkspaceService {
     private static final Logger LOG = LoggerFactory.getLogger(JsonWorkspaceService.class);
 

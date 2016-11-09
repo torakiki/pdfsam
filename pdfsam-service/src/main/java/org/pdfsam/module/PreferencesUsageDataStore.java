@@ -29,8 +29,6 @@ import java.util.List;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
-import javax.inject.Named;
-
 import org.pdfsam.ShutdownEvent;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
@@ -40,9 +38,7 @@ import com.fasterxml.jackson.jr.ob.JSON;
 
 /**
  * @author Andrea Vacondio
- *
  */
-@Named
 class PreferencesUsageDataStore {
 
     private static final Logger LOG = LoggerFactory.getLogger(PreferencesUsageDataStore.class);

@@ -22,7 +22,6 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.Parent;
 
 import org.junit.ClassRule;
 import org.junit.Test;
@@ -34,6 +33,8 @@ import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.sejda.eventstudio.Listener;
+
+import javafx.scene.Parent;
 
 /**
  * @author Andrea Vacondio

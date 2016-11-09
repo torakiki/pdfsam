@@ -19,8 +19,6 @@
 package org.pdfsam.ui.dashboard.preference;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
@@ -28,6 +26,9 @@ import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 
 /**
  * @author Andrea Vacondio

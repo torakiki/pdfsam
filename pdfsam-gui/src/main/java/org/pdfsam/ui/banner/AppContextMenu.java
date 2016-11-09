@@ -19,7 +19,6 @@
 package org.pdfsam.ui.banner;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 
@@ -34,7 +33,6 @@ import javafx.scene.control.SeparatorMenuItem;
  * @author Andrea Vacondio
  *
  */
-@Named
 class AppContextMenu extends ContextMenu {
     @Inject
     AppContextMenu(WorkspaceMenu workspace, ModulesMenu modulesMenu) {

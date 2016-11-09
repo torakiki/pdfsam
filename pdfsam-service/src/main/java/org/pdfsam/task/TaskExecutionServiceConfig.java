@@ -16,24 +16,22 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam;
+package org.pdfsam.task;
 
 import org.sejda.core.service.DefaultTaskExecutionService;
 import org.sejda.core.service.TaskExecutionService;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.sejda.injector.Components;
+import org.sejda.injector.Provides;
 
 /**
- * Configuration for the service module
- * 
  * @author Andrea Vacondio
- *
  */
-@Configuration
-public class ServiceConfig {
+@Components({ TaskExecutionController.class })
+public class TaskExecutionServiceConfig {
 
-    @Bean
-    public TaskExecutionService service() {
+    @Provides
+    TaskExecutionService executionService() {
         return new DefaultTaskExecutionService();
     }
+
 }

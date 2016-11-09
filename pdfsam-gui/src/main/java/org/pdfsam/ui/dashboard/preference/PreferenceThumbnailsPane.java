@@ -18,11 +18,6 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
-import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -30,6 +25,11 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.ui.support.Style;
+
+import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 /**
  * Preference pane displaying the Thumbnails section

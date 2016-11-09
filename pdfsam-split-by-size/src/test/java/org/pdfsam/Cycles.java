@@ -18,8 +18,6 @@
  */
 package org.pdfsam;
 
-import org.pdfsam.TestCycles;
-
 /**
  * @author Andrea Vacondio
  *

@@ -22,17 +22,17 @@ import static java.util.Objects.nonNull;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.pdfsam.ui.InputPdfArgumentsLoadRequest;
 import org.sejda.eventstudio.annotation.EventListener;
+import org.sejda.injector.Auto;
 
 /**
  * Controller receiving notifications of input PDF files as application arguments and asking the user which module should be used to open them
  * 
  * @author Andrea Vacondio
  */
-@Named
+@Auto
 public class OpenWithDialogController {
 
     private OpenWithDialog dialog;

@@ -39,12 +39,6 @@ import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.sejda.model.pdf.PdfMetadataKey;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javafx.scene.Parent;
 import javafx.scene.control.Button;

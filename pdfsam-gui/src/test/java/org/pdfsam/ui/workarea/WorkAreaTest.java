@@ -30,9 +30,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.util.Arrays;
 import java.util.List;
 
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-
 import javax.inject.Inject;
 
 import org.junit.Rule;
@@ -47,12 +44,9 @@ import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.pdfsam.ui.event.SetTitleEvent;
 import org.sejda.eventstudio.Listener;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 
 /**
  * @author Andrea Vacondio

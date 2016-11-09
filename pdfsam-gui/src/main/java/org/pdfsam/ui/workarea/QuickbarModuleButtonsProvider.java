@@ -22,9 +22,9 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.pdfsam.module.Module;
 import org.pdfsam.module.UsageService;
@@ -33,7 +33,6 @@ import org.pdfsam.module.UsageService;
  * @author Andrea Vacondio
  *
  */
-@Named
 class QuickbarModuleButtonsProvider {
     private static final int RECENT_MODULES = 3;
     private static final int MAX_MODULES = 8;
@@ -48,38 +47,38 @@ class QuickbarModuleButtonsProvider {
         this.modules.sort((a, b) -> Integer.compare(a.descriptor().getPriority(), b.descriptor().getPriority()));
     }
 
-    public Set<ModuleButton> buttons() {
-        Set<ModuleButton> collected = new LinkedHashSet<>();
+    public List<ModuleButton> buttons() {
+        Set<Module> collected = new LinkedHashSet<>();
         fillWithMostRecentlyUsed(collected);
         fillWithMostUsed(collected);
         fillWithPrioritized(collected);
-        return collected;
+        return collected.stream().map(ModuleButton::new).collect(Collectors.toList());
     }
 
-    private void fillWithMostUsed(Set<ModuleButton> collected) {
+    private void fillWithMostUsed(Set<Module> collected) {
         for (Module current : service.getMostUsed()) {
             if (collected.size() >= MAX_MODULES) {
                 break;
             }
-            collected.add(new ModuleButton(current));
+            collected.add(current);
         }
     }
 
-    private void fillWithMostRecentlyUsed(Set<ModuleButton> collected) {
+    private void fillWithMostRecentlyUsed(Set<Module> collected) {
         for (Module current : service.getMostRecentlyUsed()) {
             if (collected.size() >= RECENT_MODULES) {
                 break;
             }
-            collected.add(new ModuleButton(current));
+            collected.add(current);
         }
     }
 
-    private void fillWithPrioritized(Set<ModuleButton> collected) {
+    private void fillWithPrioritized(Set<Module> collected) {
         for (Module current : modules) {
             if (collected.size() >= MAX_MODULES) {
                 break;
             }
-            collected.add(new ModuleButton(current));
+            collected.add(current);
         }
     }
 }

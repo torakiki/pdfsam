@@ -19,16 +19,6 @@
 package org.pdfsam.ui.info;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.beans.value.WeakChangeListener;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.Tab;
-import javafx.scene.layout.VBox;
-
-import javax.inject.Named;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
@@ -39,13 +29,21 @@ import org.sejda.model.pdf.PdfMetadataKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.beans.value.WeakChangeListener;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Tab;
+import javafx.scene.layout.VBox;
+
 /**
  * Tab displaying the keywords of the PDF document.
  * 
  * @author Andrea Vacondio
  *
  */
-@Named
 class KeywordsTab extends Tab implements ChangeListener<PdfDescriptorLoadingStatus> {
     private static final Logger LOG = LoggerFactory.getLogger(KeywordsTab.class);
     private Label keywords = new Label();

@@ -33,7 +33,6 @@ import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.ModuleInputOutputType;
 import org.pdfsam.module.ModulePriority;
-import org.pdfsam.module.PdfsamModule;
 import org.pdfsam.ui.io.BrowsablePdfOutputField;
 import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
@@ -41,8 +40,9 @@ import org.pdfsam.ui.module.Footer;
 import org.pdfsam.ui.module.OpenButton;
 import org.pdfsam.ui.module.RunButton;
 import org.sejda.eventstudio.annotation.EventStation;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.sejda.injector.Auto;
+import org.sejda.injector.Components;
+import org.sejda.injector.Provides;
 
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -56,7 +56,7 @@ import javafx.scene.layout.VBox;
  * @author Andrea Vacondio
  *
  */
-@PdfsamModule
+@Auto
 public class MergeModule extends BaseTaskExecutionModule {
 
     private static final String MODULE_ID = "merge";
@@ -133,25 +133,29 @@ public class MergeModule extends BaseTaskExecutionModule {
         return new ImageView("merge.png");
     }
 
-    @Configuration
+    @Components({ MergeModule.class })
     public static class ModuleConfig {
-        @Bean(name = MODULE_ID + "field")
+        @Provides
+        @Named(MODULE_ID + "field")
         public BrowsablePdfOutputField destinationFileField() {
             return new BrowsablePdfOutputField();
         }
 
-        @Bean(name = MODULE_ID + "pane")
+        @Provides
+        @Named(MODULE_ID + "pane")
         public PdfDestinationPane destinationPane(@Named(MODULE_ID + "field") BrowsablePdfOutputField outputField,
                 UserContext userContext) {
             return new PdfDestinationPane(outputField, MODULE_ID, userContext);
         }
 
-        @Bean(name = MODULE_ID + "footer")
+        @Provides
+        @Named(MODULE_ID + "footer")
         public Footer footer(RunButton runButton, @Named(MODULE_ID + "openButton") OpenButton openButton) {
             return new Footer(runButton, openButton, MODULE_ID);
         }
 
-        @Bean(name = MODULE_ID + "openButton")
+        @Provides
+        @Named(MODULE_ID + "openButton")
         public OpenButton openButton() {
             return new OpenButton(MODULE_ID, ModuleInputOutputType.SINGLE_PDF);
         }

@@ -19,9 +19,9 @@
 package org.pdfsam.ui;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.pdfsam.ui.banner.BannerPane;
+import org.sejda.injector.Auto;
 
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -32,7 +32,7 @@ import javafx.scene.layout.VBox;
  * @author Andrea Vacondio
  * 
  */
-@Named
+@Auto
 public class MainPane extends VBox {
 
     @Inject

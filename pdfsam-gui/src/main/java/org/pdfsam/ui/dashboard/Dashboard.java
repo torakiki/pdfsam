@@ -24,13 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javafx.animation.FadeTransition;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
-import javafx.util.Duration;
-
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.pdfsam.ui.event.SetTitleEvent;
@@ -38,12 +32,16 @@ import org.pdfsam.ui.quickbar.QuickbarPane;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 
+import javafx.animation.FadeTransition;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
+import javafx.util.Duration;
+
 /**
  * Panel showing the app dashboard
  * 
  * @author Andrea Vacondio
  */
-@Named
 public class Dashboard extends BorderPane {
 
     private Map<String, DashboardItemPane> items = new HashMap<>();
@@ -51,19 +49,15 @@ public class Dashboard extends BorderPane {
     private FadeTransition fade = new FadeTransition(new Duration(300), center);
 
     @Inject
-    public Dashboard(List<DashboardItem> itemsList) {
+    public Dashboard(List<DashboardItem> itemsList, QuickbarDashboardButtonsPane dashboardButtons) {
         getStyleClass().addAll(Style.CONTAINER.css());
         setId("pdfsam-dashboard");
         itemsList.stream().forEach(i -> items.put(i.id(), new DashboardItemPane(i)));
         fade.setFromValue(0);
         fade.setToValue(1);
         setCenter(center);
-        eventStudio().addAnnotatedListeners(this);
-    }
-
-    @Inject
-    void setDashboardButtonsPane(QuickbarDashboardButtonsPane dashboardButtons) {
         setLeft(new QuickbarPane(dashboardButtons));
+        eventStudio().addAnnotatedListeners(this);
     }
 
     @EventListener

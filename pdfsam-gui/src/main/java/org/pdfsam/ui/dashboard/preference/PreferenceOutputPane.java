@@ -38,7 +38,6 @@ import javafx.scene.layout.VBox;
  * @author Andrea Vacondio
  *
  */
-@Named
 class PreferenceOutputPane extends VBox {
 
     @Inject

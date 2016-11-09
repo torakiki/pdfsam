@@ -23,9 +23,9 @@ import static java.util.stream.Collectors.toList;
 import java.util.List;
 import java.util.Map;
 import java.util.prefs.Preferences;
+import java.util.stream.Collectors;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 /**
  * {@link UsageService} implemented ab/using the {@link Preferences} framework
@@ -33,16 +33,14 @@ import javax.inject.Named;
  * @author Andrea Vacondio
  * 
  */
-@Named
 class StatefulPreferencesUsageService implements UsageService {
 
-    private PreferencesUsageDataStore dataStore;
+    private PreferencesUsageDataStore dataStore = new PreferencesUsageDataStore();
     private Map<String, Module> modulesMap;
 
     @Inject
-    StatefulPreferencesUsageService(PreferencesUsageDataStore dataStore, Map<String, Module> modulesMap) {
-        this.dataStore = dataStore;
-        this.modulesMap = modulesMap;
+    StatefulPreferencesUsageService(List<Module> modules) {
+        this.modulesMap = modules.stream().collect(Collectors.toMap(Module::id, m -> m));
     }
 
     @Override

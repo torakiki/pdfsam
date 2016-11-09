@@ -36,7 +36,6 @@ import javafx.scene.layout.VBox;
  * @author Andrea Vacondio
  * 
  */
-@Named
 class PreferenceBehaviorPane extends GridPane {
 
     @Inject

@@ -42,11 +42,6 @@ import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.pdfsam.ui.workspace.WorkspaceLoadedEvent;
 import org.sejda.eventstudio.Listener;
-import org.springframework.context.ApplicationContext;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.annotation.DirtiesContext.ClassMode;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javafx.scene.Parent;
 

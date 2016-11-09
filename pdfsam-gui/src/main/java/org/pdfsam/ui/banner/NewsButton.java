@@ -20,8 +20,6 @@ package org.pdfsam.ui.banner;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
-import javax.inject.Named;
-
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.news.ShowNewsPanelRequest;
 import org.pdfsam.ui.commons.Animations;
@@ -36,7 +34,6 @@ import javafx.scene.control.Tooltip;
  * 
  * @author Andrea Vacondio
  */
-@Named
 class NewsButton extends BannerButton {
 
     static final String UP_TO_DATE_CSS_CLASS = "news-not-up-to-date";

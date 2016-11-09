@@ -24,8 +24,6 @@ import java.io.IOException;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
-import javax.inject.Named;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,7 +35,6 @@ import com.fasterxml.jackson.jr.ob.JSON;
  * @author Andrea Vacondio
  *
  */
-@Named
 class DefaultStageService implements StageService {
 
     private static final Logger LOG = LoggerFactory.getLogger(DefaultStageService.class);

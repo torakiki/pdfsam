@@ -24,10 +24,9 @@ import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.io.IOException;
 
-import javax.inject.Named;
-
 import org.pdfsam.ui.commons.OpenFileRequest;
 import org.sejda.eventstudio.annotation.EventListener;
+import org.sejda.injector.Auto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,7 +36,7 @@ import org.slf4j.LoggerFactory;
  * @author Andrea Vacondio
  *
  */
-@Named
+@Auto
 class OpenFileController {
     private static final Logger LOG = LoggerFactory.getLogger(OpenFileController.class);
 

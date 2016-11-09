@@ -22,8 +22,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.function.Consumer;
 
-import javax.inject.Named;
-
 import org.apache.commons.lang3.builder.Builder;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.Module;
@@ -48,7 +46,6 @@ import javafx.scene.layout.VBox;
  * @author Andrea Vacondio
  *
  */
-@Named
 public abstract class BaseTaskExecutionModule implements Module {
 
     private BorderPane modulePanel = new BorderPane();

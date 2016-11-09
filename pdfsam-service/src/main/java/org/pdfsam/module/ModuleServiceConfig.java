@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 22 ott 2015
+ * Created on 06 nov 2016
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,26 +16,21 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.community;
+package org.pdfsam.module;
 
-import static org.mockito.Mockito.mock;
+import java.util.List;
 
-import org.junit.Test;
-import org.omg.CORBA.Environment;
+import org.sejda.injector.Components;
+import org.sejda.injector.Provides;
 
-public class PdfsamCommunityTest {
-    @Test(expected = IllegalArgumentException.class)
-    public void blankName() {
-        new PdfsamCommunity(" ", "something", mock(Environment.class));
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void blankShortName() {
-        new PdfsamCommunity("Something", " ", mock(Environment.class));
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void nullEnv() {
-        new PdfsamCommunity("name", "short", null);
+/**
+ * @author Andrea Vacondio
+ *
+ */
+@Components({ ClearUsageController.class })
+public class ModuleServiceConfig {
+    @Provides
+    UsageService usageService(List<Module> modules) {
+        return new StatefulPreferencesUsageService(modules);
     }
 }

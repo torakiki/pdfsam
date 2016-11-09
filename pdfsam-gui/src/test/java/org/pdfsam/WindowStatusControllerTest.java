@@ -24,11 +24,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 import org.junit.Ignore;
 import org.junit.Rule;
@@ -42,6 +37,12 @@ import org.pdfsam.ui.SetLatestStageStatusRequest;
 import org.pdfsam.ui.StageService;
 import org.pdfsam.ui.StageStatus;
 import org.sejda.eventstudio.Listener;
+
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio

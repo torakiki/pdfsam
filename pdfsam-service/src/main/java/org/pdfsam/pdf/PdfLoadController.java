@@ -27,12 +27,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.pdfsam.ShutdownEvent;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.RequiredPdfData;
 import org.sejda.eventstudio.annotation.EventListener;
+import org.sejda.injector.Auto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,7 +42,7 @@ import org.slf4j.LoggerFactory;
  * @author Andrea Vacondio
  * 
  */
-@Named
+@Auto
 public class PdfLoadController {
 
     private static final Logger LOG = LoggerFactory.getLogger(PdfLoadController.class);

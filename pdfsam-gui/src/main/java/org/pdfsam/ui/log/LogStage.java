@@ -20,10 +20,9 @@ package org.pdfsam.ui.log;
 
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
-import java.util.Collection;
+import java.util.List;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.i18n.DefaultI18nContext;
@@ -33,6 +32,7 @@ import org.pdfsam.ui.commons.ShowStageRequest;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
+import org.sejda.injector.Auto;
 
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -45,14 +45,14 @@ import javafx.stage.Stage;
  * @author Andrea Vacondio
  * 
  */
-@Named
+@Auto
 public class LogStage extends Stage {
 
     @EventStation
     public static final String LOGSTAGE_EVENTSTATION = "LogStage";
 
     @Inject
-    public LogStage(LogPane logPane, LogListView logView, Collection<Image> logos, StylesConfig styles) {
+    public LogStage(LogPane logPane, LogListView logView, List<Image> logos, StylesConfig styles) {
         BorderPane containerPane = new BorderPane();
         containerPane.getStyleClass().addAll(Style.CONTAINER.css());
         containerPane.setCenter(logPane);

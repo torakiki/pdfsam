@@ -21,11 +21,11 @@ package org.pdfsam.ui.info;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import javax.inject.Inject;
-import javax.inject.Named;
+import javax.inject.Provider;
 
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.sejda.eventstudio.annotation.EventListener;
-import org.springframework.context.ApplicationContext;
+import org.sejda.injector.Auto;
 
 /**
  * Controller displaying the InfoStage when required
@@ -33,19 +33,21 @@ import org.springframework.context.ApplicationContext;
  * @author Andrea Vacondio
  *
  */
-@Named
+@Auto
 public class InfoStageController {
-    @Inject
-    private ApplicationContext applicationContext;
 
-    InfoStageController() {
+    private Provider<InfoStage> stageProvider;
+
+    @Inject
+    InfoStageController(Provider<InfoStage> stageProvider) {
+        this.stageProvider = stageProvider;
         eventStudio().addAnnotatedListeners(this);
     }
 
     @EventListener(priority = Integer.MAX_VALUE)
     @SuppressWarnings("unused")
     void requestShow(ShowPdfDescriptorRequest event) {
-        InfoStage stage = applicationContext.getBean(InfoStage.class);
+        InfoStage stage = stageProvider.get();
         if (!stage.isShowing()) {
             stage.centerOnScreen();
             stage.show();

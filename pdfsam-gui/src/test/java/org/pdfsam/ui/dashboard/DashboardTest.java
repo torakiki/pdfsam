@@ -43,12 +43,6 @@ import org.pdfsam.ui.dashboard.about.AboutDashboardPane;
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.pdfsam.ui.event.SetTitleEvent;
 import org.sejda.eventstudio.Listener;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javafx.scene.layout.StackPane;
 

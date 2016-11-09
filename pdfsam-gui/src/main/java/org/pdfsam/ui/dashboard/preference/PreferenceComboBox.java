@@ -19,13 +19,14 @@
 package org.pdfsam.ui.dashboard.preference;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
-import javafx.scene.control.ComboBox;
 
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.support.KeyValueItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javafx.scene.control.ComboBox;
 
 /**
  * Combo box that sets a {@link StringUserPreference}

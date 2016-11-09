@@ -42,7 +42,6 @@ import javafx.scene.layout.GridPane;
  * @author Andrea Vacondio
  * 
  */
-@Named
 class PreferenceAppearencePane extends GridPane {
 
     @Inject

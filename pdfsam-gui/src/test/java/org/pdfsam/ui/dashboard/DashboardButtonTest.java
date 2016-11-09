@@ -24,7 +24,6 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.Parent;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -37,6 +36,8 @@ import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.DefaultPriorityDashboardItem;
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.sejda.eventstudio.Listener;
+
+import javafx.scene.Parent;
 
 /**
  * @author Andrea Vacondio

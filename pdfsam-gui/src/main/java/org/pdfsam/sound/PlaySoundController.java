@@ -20,15 +20,17 @@ package org.pdfsam.sound;
 
 import static org.pdfsam.support.RequireUtils.requireNotBlank;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
-import javafx.scene.media.AudioClip;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.UserContext;
 import org.sejda.eventstudio.annotation.EventListener;
+import org.sejda.injector.Auto;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
+
+import javafx.scene.media.AudioClip;
 
 /**
  * Controller responding to sound related events.
@@ -36,7 +38,7 @@ import org.sejda.model.notification.event.TaskExecutionFailedEvent;
  * @author Andrea Vacondio
  * 
  */
-@Named
+@Auto
 public class PlaySoundController {
     private UserContext userContext;
     private String okSoundURI;

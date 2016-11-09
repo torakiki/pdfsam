@@ -21,7 +21,6 @@ package org.pdfsam.ui.banner;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.pdfsam.news.LatestNewsEvent;
 import org.sejda.eventstudio.ReferenceStrength;
@@ -35,7 +34,6 @@ import javafx.scene.layout.HBox;
  * @author Andrea Vacondio
  *
  */
-@Named
 class BannerButtons extends HBox {
 
     @Inject

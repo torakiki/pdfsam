@@ -21,9 +21,9 @@ package org.pdfsam.module;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.sejda.eventstudio.annotation.EventListener;
+import org.sejda.injector.Auto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,7 +33,7 @@ import org.slf4j.LoggerFactory;
  * @author Andrea Vacondio
  *
  */
-@Named
+@Auto
 public class ClearUsageController {
     private static final Logger LOG = LoggerFactory.getLogger(ClearUsageController.class);
 

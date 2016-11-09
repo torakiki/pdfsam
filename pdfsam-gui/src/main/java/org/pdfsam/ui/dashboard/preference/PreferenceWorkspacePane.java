@@ -40,7 +40,6 @@ import javafx.scene.layout.VBox;
  * @author Andrea Vacondio
  * 
  */
-@Named
 class PreferenceWorkspacePane extends VBox {
 
     @Inject

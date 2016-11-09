@@ -24,6 +24,16 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.io.File;
 import java.util.Collection;
 
+import javax.inject.Inject;
+
+import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
+import org.pdfsam.support.io.FileType;
+import org.pdfsam.ui.io.FileChoosers;
+import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper;
+import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
+import org.pdfsam.ui.support.Style;
+
 import javafx.beans.binding.BooleanBinding;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
@@ -35,24 +45,12 @@ import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-
-import org.pdfsam.i18n.DefaultI18nContext;
-import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.support.io.FileType;
-import org.pdfsam.ui.io.FileChoosers;
-import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper;
-import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
-import org.pdfsam.ui.support.Style;
-
 /**
  * Panel displaying log messages
  * 
  * @author Andrea Vacondio
  * 
  */
-@Named
 public class LogPane extends BorderPane {
 
     private LogListView logView;
@@ -113,8 +111,8 @@ public class LogPane extends BorderPane {
     }
 
     public void saveLog() {
-        RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(FileType.LOG, DefaultI18nContext
-                .getInstance().i18n("Select where to save the log file"));
+        RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(FileType.LOG,
+                DefaultI18nContext.getInstance().i18n("Select where to save the log file"));
         fileChooser.setInitialFileName("PDFsam.log");
         File chosenFile = fileChooser.showDialog(this.getScene().getWindow(), OpenType.SAVE);
         if (chosenFile != null) {
