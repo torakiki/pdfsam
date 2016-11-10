@@ -27,14 +27,11 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
-import java.util.Arrays;
 import java.util.List;
 
-import javax.inject.Inject;
-
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.UsageService;
@@ -44,6 +41,8 @@ import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.pdfsam.ui.event.SetTitleEvent;
 import org.sejda.eventstudio.Listener;
+import org.sejda.injector.Injector;
+import org.sejda.injector.Provides;
 
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -52,75 +51,69 @@ import javafx.scene.layout.Pane;
  * @author Andrea Vacondio
  *
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration
 public class WorkAreaTest {
-    private static DefaultPriorityTestModule MODULE = new DefaultPriorityTestModule() {
-        @Override
-        public Pane modulePanel() {
-            HBox panel = new HBox();
-            panel.setId("modulePane");
-            return panel;
-        }
-    };
+
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
     @Rule
     public InitializeAndApplyJavaFxThreadRule javaFxThread = new InitializeAndApplyJavaFxThreadRule();
-    @Inject
-    private ApplicationContext applicationContext;
+    private Injector injector;
 
-    @Configuration
-    @Lazy
+    @Before
+    public void setUp() {
+        injector = Injector.start(new Config());
+    }
+
     static class Config {
-        @Bean
-        public List<Module> modules() {
-            return Arrays.asList(MODULE);
+
+        @Provides
+        public Module module() {
+            return new TestModule();
         }
 
-        @Bean
+        @Provides
         public UsageService service() {
             return mock(UsageService.class);
         }
 
-        @Bean
-        public QuickbarModuleButtonsProvider provider() {
-            return new QuickbarModuleButtonsProvider(service(), modules());
+        @Provides
+        public QuickbarModuleButtonsProvider provider(UsageService service, List<Module> modules) {
+            return new QuickbarModuleButtonsProvider(service, modules);
         }
 
-        @Bean
-        public QuickbarModuleButtonsPane buttons() {
-            return new QuickbarModuleButtonsPane(provider());
+        @Provides
+        public QuickbarModuleButtonsPane buttons(QuickbarModuleButtonsProvider provider) {
+            return new QuickbarModuleButtonsPane(provider);
         }
 
-        @Bean
-        public WorkArea victim() {
-            return new WorkArea(modules());
+        @Provides
+        public WorkArea victim(List<Module> modules, QuickbarModuleButtonsPane pane) {
+            return new WorkArea(modules, pane);
         }
     }
 
     @Test
     public void wrongModuleDoesntBoom() {
-        WorkArea victim = applicationContext.getBean(WorkArea.class);
+        WorkArea victim = injector.instance(WorkArea.class);
         victim.onSetActiveModule(SetActiveModuleRequest.activeteModule("chuck norris"));
     }
 
     @Test
     public void eventTitleIsSent() {
-        WorkArea victim = applicationContext.getBean(WorkArea.class);
+        WorkArea victim = injector.instance(WorkArea.class);
         assertNull(victim.lookup("#modulePane"));
         Listener<SetTitleEvent> listener = mock(Listener.class);
         eventStudio().add(SetTitleEvent.class, listener);
         victim.onSetActiveModule(SetActiveModuleRequest.activeteModule(DefaultPriorityTestModule.ID));
         ArgumentCaptor<SetTitleEvent> captor = ArgumentCaptor.forClass(SetTitleEvent.class);
         verify(listener).onEvent(captor.capture());
-        assertEquals(MODULE.descriptor().getName(), captor.getValue().getTitle());
+        assertEquals(injector.instance(TestModule.class).descriptor().getName(), captor.getValue().getTitle());
         assertNotNull(victim.lookup("#modulePane"));
     }
 
     @Test
     public void emptyEventTitleIsSent() {
-        WorkArea victim = applicationContext.getBean(WorkArea.class);
+        WorkArea victim = injector.instance(WorkArea.class);
         Listener<SetTitleEvent> listener = mock(Listener.class);
         eventStudio().add(SetTitleEvent.class, listener);
         victim.onSetActiveModule(SetActiveModuleRequest.activeteCurrentModule());
@@ -131,7 +124,7 @@ public class WorkAreaTest {
 
     @Test
     public void previousEventTitleIsSent() {
-        WorkArea victim = applicationContext.getBean(WorkArea.class);
+        WorkArea victim = injector.instance(WorkArea.class);
         victim.onSetActiveModule(SetActiveModuleRequest.activeteModule(DefaultPriorityTestModule.ID));
         eventStudio().clear();
         Listener<SetTitleEvent> listener = mock(Listener.class);
@@ -139,7 +132,15 @@ public class WorkAreaTest {
         victim.onSetActiveModule(SetActiveModuleRequest.activeteCurrentModule());
         ArgumentCaptor<SetTitleEvent> captor = ArgumentCaptor.forClass(SetTitleEvent.class);
         verify(listener).onEvent(captor.capture());
-        assertEquals(MODULE.descriptor().getName(), captor.getValue().getTitle());
+        assertEquals(injector.instance(TestModule.class).descriptor().getName(), captor.getValue().getTitle());
     }
 
+    public static class TestModule extends DefaultPriorityTestModule {
+        @Override
+        public Pane modulePanel() {
+            HBox panel = new HBox();
+            panel.setId("modulePane");
+            return panel;
+        }
+    }
 }

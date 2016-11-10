@@ -38,6 +38,9 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.sejda.injector.Components;
+import org.sejda.injector.Injector;
+import org.sejda.injector.Provides;
 import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.output.FileTaskOutput;
@@ -56,7 +59,6 @@ import javafx.scene.control.Button;
 public class OverwriteDialogControllerUITest extends GuiTest {
     @Rule
     public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule();
-
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
 
@@ -67,10 +69,19 @@ public class OverwriteDialogControllerUITest extends GuiTest {
 
     @Override
     protected Parent getRootNode() {
-        StylesConfig styles = mock(StylesConfig.class);
-        OverwriteDialogController victim = new OverwriteDialogController(new OverwriteConfirmationDialog(styles));
+        Injector.start(new Config());
         Button button = new Button("show");
         return button;
+    }
+
+    @Components({ OverwriteDialogController.class })
+    static class Config {
+
+        @Provides
+        StylesConfig style() {
+            return mock(StylesConfig.class);
+        }
+
     }
 
     @Test

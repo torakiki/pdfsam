@@ -25,8 +25,8 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -63,8 +63,8 @@ public class OpenWithDialogTest extends GuiTest {
     @Override
     protected Parent getRootNode() {
         StylesConfig styles = mock(StylesConfig.class);
-        Map<String, Module> modulesMap = new HashMap<>();
-        modulesMap.put(module.id(), module);
+        List<Module> modulesMap = new ArrayList<>();
+        modulesMap.add(module);
         new OpenWithDialogController(new OpenWithDialog(styles, modulesMap));
         Button button = new Button("show");
         return button;

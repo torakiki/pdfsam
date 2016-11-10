@@ -24,18 +24,16 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import javax.inject.Inject;
-import javax.inject.Scope;
-
 import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.sejda.injector.Injector;
+import org.sejda.injector.Provides;
 
 import javafx.scene.Parent;
 import javafx.scene.input.Clipboard;
@@ -45,32 +43,26 @@ import javafx.scene.input.Clipboard;
  *
  */
 @Category(TestFX.class)
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration
 public class LogPaneTest extends GuiTest {
 
-    @Inject
-    private ApplicationContext applicationContext;
     @ClassRule
     public static ClearEventStudioRule clearStudio = new ClearEventStudioRule();
+    private Injector injector;
 
-    @Configuration
-    @Lazy
     static class Config {
-        @Bean
-        public UserContext context() {
+        @Provides
+        UserContext context() {
             UserContext userContext = mock(UserContext.class);
             when(userContext.getNumberOfLogRows()).thenReturn(200);
             return userContext;
         }
 
-        @Bean
-        @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-        public LogPane pane() {
-            return new LogPane(view());
+        @Provides
+        public LogPane pane(LogListView view) {
+            return new LogPane(view);
         }
 
-        @Bean
+        @Provides
         public LogListView view() {
             LogListView view = new LogListView(context());
             view.onEvent(new LogMessage("A message", LogLevel.INFO));
@@ -81,13 +73,13 @@ public class LogPaneTest extends GuiTest {
 
     @Override
     protected Parent getRootNode() {
-        return applicationContext.getBean(LogPane.class);
+        injector = Injector.start(new Config());
+        return injector.instance(LogPane.class);
     }
 
     @Test
-    @DirtiesContext
-    public void clear() throws Exception {
-        LogListView view = applicationContext.getBean(LogListView.class);
+    public void clear() {
+        LogListView view = injector.instance(LogListView.class);
         assertEquals(2, view.getItems().size());
         rightClick("A message").click("#clearLogMenuItem");
         assertEquals(0, view.getItems().size());
@@ -100,13 +92,13 @@ public class LogPaneTest extends GuiTest {
             assertTrue(isBlank(Clipboard.getSystemClipboard().getString()));
         }, 2);
         click("A message").rightClick("A message").click("#copyLogMenuItem");
-        FXTestUtils
-                .invokeAndWait(() -> assertTrue(Clipboard.getSystemClipboard().getString().contains("A message")), 1);
+        FXTestUtils.invokeAndWait(() -> assertTrue(Clipboard.getSystemClipboard().getString().contains("A message")),
+                1);
     }
 
     @Test
-    public void selectAll() throws Exception {
-        LogListView view = applicationContext.getBean(LogListView.class);
+    public void selectAll() {
+        LogListView view = injector.instance(LogListView.class);
         rightClick("A message").click("#selectAllLogMenuItem");
         assertEquals(2, view.getSelectionModel().getSelectedItems().size());
     }

@@ -20,21 +20,26 @@ package org.pdfsam.ui;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
 
-import java.util.Arrays;
+import javax.inject.Named;
 
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.pdfsam.module.Module;
+import org.pdfsam.module.UsageService;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.DefaultPriorityDashboardItem;
 import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.pdfsam.ui.dashboard.Dashboard;
+import org.pdfsam.ui.dashboard.DashboardItem;
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
-import org.pdfsam.ui.news.NewsPanel;
 import org.pdfsam.ui.workarea.WorkArea;
+import org.sejda.injector.Injector;
+import org.sejda.injector.Provides;
 
 /**
  * @author Andrea Vacondio
@@ -45,31 +50,48 @@ public class ContentPaneTest {
     public InitializeAndApplyJavaFxThreadRule javaFxThread = new InitializeAndApplyJavaFxThreadRule();
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
-    private WorkArea modules;
-    private Dashboard dashboard;
-    private ContentPane victim;
-    private NewsPanel newsPanel;
+    private Injector injector;
 
     @Before
     public void setUp() {
-        modules = new WorkArea(Arrays.asList(new DefaultPriorityTestModule()));
-        dashboard = new Dashboard(Arrays.asList(new DefaultPriorityDashboardItem()));
-        newsPanel = new NewsPanel();
-        victim = new ContentPane(modules, dashboard, newsPanel, "defaultItem");
+        injector = Injector.start(new Config());
+    }
+
+    static class Config {
+        @Provides
+        public UsageService usageService() {
+            return mock(UsageService.class);
+        }
+
+        @Provides
+        public Module module() {
+            return new DefaultPriorityTestModule();
+        }
+
+        @Provides
+        public DashboardItem dashboardItem() {
+            return new DefaultPriorityDashboardItem();
+        }
+
+        @Provides
+        @Named("defaultDashboardItemId")
+        public String defaultItem() {
+            return "defaultItem";
+        }
     }
 
     @Test
     public void onSetActiveModule() {
-        victim.onSetActiveModule(SetActiveModuleRequest.activeteCurrentModule());
-        assertTrue(modules.isVisible());
-        assertFalse(dashboard.isVisible());
+        injector.instance(ContentPane.class).onSetActiveModule(SetActiveModuleRequest.activeteCurrentModule());
+        assertTrue(injector.instance(WorkArea.class).isVisible());
+        assertFalse(injector.instance(Dashboard.class).isVisible());
     }
 
     @Test
     public void onSetActiveDashboardItem() {
-        victim.onSetActiveDashboardItem(new SetActiveDashboardItemRequest("id"));
-        assertTrue(dashboard.isVisible());
-        assertFalse(modules.isVisible());
+        injector.instance(ContentPane.class).onSetActiveDashboardItem(new SetActiveDashboardItemRequest("id"));
+        assertTrue(injector.instance(Dashboard.class).isVisible());
+        assertFalse(injector.instance(WorkArea.class).isVisible());
     }
 
 }

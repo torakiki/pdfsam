@@ -28,14 +28,14 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.IOException;
 
-import javax.inject.Inject;
-
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeJavaFxThreadRule;
 import org.sejda.eventstudio.Listener;
+import org.sejda.injector.Injector;
+import org.sejda.injector.Provides;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
@@ -45,27 +45,26 @@ import ch.qos.logback.classic.spi.ILoggingEvent;
  * @author Andrea Vacondio
  *
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration
 public class LogMessageBroadcasterTest {
 
-
-    @Inject
-    private ApplicationContext applicationContext;
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule("LogStage");
     @Rule
     public InitializeJavaFxThreadRule threadFx = new InitializeJavaFxThreadRule();
+    private Injector injector;
 
-    @Configuration
-    @Lazy
+    @Before
+    public void setUp() {
+        injector = Injector.start(new Config());
+    }
+
     static class Config {
-        @Bean
-        public LogMessageBroadcaster victim() {
-            return new LogMessageBroadcaster(encoder());
+        @Provides
+        public LogMessageBroadcaster victim(PatternLayoutEncoder encoder) {
+            return new LogMessageBroadcaster(encoder);
         }
 
-        @Bean
+        @Provides
         public PatternLayoutEncoder encoder() {
             PatternLayoutEncoder encoder = new PatternLayoutEncoder();
             encoder.setPattern("%msg");
@@ -77,8 +76,8 @@ public class LogMessageBroadcasterTest {
     public void infoLog() throws IOException {
         Listener<LogMessage> listener = mock(Listener.class);
         eventStudio().add(LogMessage.class, listener, "LogStage");
-        LogMessageBroadcaster victim = applicationContext.getBean(LogMessageBroadcaster.class);
-        PatternLayoutEncoder encoder = applicationContext.getBean(PatternLayoutEncoder.class);
+        LogMessageBroadcaster victim = injector.instance(LogMessageBroadcaster.class);
+        PatternLayoutEncoder encoder = injector.instance(PatternLayoutEncoder.class);
         ILoggingEvent event = mock(ILoggingEvent.class);
         when(event.getLevel()).thenReturn(Level.INFO);
         when(event.getFormattedMessage()).thenReturn("myMessage");
@@ -90,7 +89,7 @@ public class LogMessageBroadcasterTest {
 
     @Test
     public void eventOnError() {
-        LogMessageBroadcaster victim = applicationContext.getBean(LogMessageBroadcaster.class);
+        LogMessageBroadcaster victim = injector.instance(LogMessageBroadcaster.class);
         ILoggingEvent event = mock(ILoggingEvent.class);
         when(event.getLevel()).thenReturn(Level.ERROR);
         when(event.getFormattedMessage()).thenReturn("myMessage");

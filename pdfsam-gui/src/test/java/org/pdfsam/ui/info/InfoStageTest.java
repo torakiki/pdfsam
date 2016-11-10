@@ -23,14 +23,10 @@ import static org.mockito.Mockito.mock;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
-import java.util.Collections;
-
-import javax.inject.Inject;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
@@ -38,73 +34,59 @@ import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
+import org.sejda.injector.Components;
+import org.sejda.injector.Injector;
+import org.sejda.injector.Prototype;
+import org.sejda.injector.Provides;
 import org.sejda.model.pdf.PdfMetadataKey;
 
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 
 /**
  * @author Andrea Vacondio
  *
  */
 @Category(TestFX.class)
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration
 public class InfoStageTest extends GuiTest {
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
-    @Inject
-    private ConfigurableApplicationContext applicationContext;
+    private Injector injector;
 
-    @Configuration
-    @Lazy
+    @Components({ InfoStageController.class })
     static class Config {
-        @Bean
-        public InfoStageController controller() {
-            return new InfoStageController();
+
+        @Provides
+        StylesConfig style() {
+            return mock(StylesConfig.class);
         }
 
-        @Bean
-        public KeywordsTab keywords() {
-            return new KeywordsTab();
-        }
-
-        @Bean
-        public SummaryTab summary() {
-            return new SummaryTab();
-        }
-
-        @Bean
-        public InfoPane pane() {
-            return new InfoPane(summary(), keywords());
-        }
-
-        @Bean
-        public InfoStage stage() {
-            return new InfoStage(pane(), Collections.emptyList(), mock(StylesConfig.class));
+        @Provides
+        @Prototype
+        public Image payoff() {
+            return new Image(this.getClass().getResourceAsStream("/images/payoff.png"));
         }
 
     }
 
     @Override
     protected Parent getRootNode() {
+        injector = Injector.start(new Config());
         Button button = new Button("show");
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(mock(File.class));
         descriptor.putInformation(PdfMetadataKey.KEYWORDS.getKey(), "test");
         button.setOnAction(e -> eventStudio().broadcast(new ShowPdfDescriptorRequest(descriptor)));
-        applicationContext.getBean(InfoStage.class);
-        applicationContext.getBean(InfoStageController.class);
         return button;
     }
 
     @Test
     public void show() throws Exception {
         click("show");
-        InfoStage stage = applicationContext.getBean(InfoStage.class);
+        InfoStage stage = injector.instance(InfoStage.class);
         assertTrue(stage.isShowing());
         FXTestUtils.invokeAndWait(() -> {
             stage.hide();
-            applicationContext.close();
         }, 2);
     }
 

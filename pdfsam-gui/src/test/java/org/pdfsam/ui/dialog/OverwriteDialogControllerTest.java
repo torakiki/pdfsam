@@ -30,9 +30,13 @@ import java.io.File;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
+import org.sejda.injector.Components;
+import org.sejda.injector.Injector;
+import org.sejda.injector.Provides;
 import org.sejda.model.exception.TaskOutputVisitException;
 import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.ExistingOutputPolicy;
@@ -52,13 +56,25 @@ public class OverwriteDialogControllerTest {
     @Rule
     public InitializeAndApplyJavaFxThreadRule javaFxThread = new InitializeAndApplyJavaFxThreadRule();
 
-    private OverwriteDialogController victim;
-    private OverwriteConfirmationDialog dialog;
+    private Injector injector;
 
     @Before
     public void setUp() {
-        dialog = mock(OverwriteConfirmationDialog.class);
-        victim = new OverwriteDialogController(dialog);
+        injector = Injector.start(new Config());
+    }
+
+    @Components({ OverwriteDialogController.class })
+    static class Config {
+        @Provides
+        OverwriteConfirmationDialog dialog() {
+            return mock(OverwriteConfirmationDialog.class);
+        }
+
+        @Provides
+        StylesConfig style() {
+            return mock(StylesConfig.class);
+        }
+
     }
 
     @Test
@@ -67,7 +83,7 @@ public class OverwriteDialogControllerTest {
         parameters.setExistingOutputPolicy(ExistingOutputPolicy.OVERWRITE);
         FileTaskOutput output = mock(FileTaskOutput.class);
         parameters.setOutput(output);
-        victim.request(new TaskExecutionRequestEvent("id", parameters));
+        injector.instance(OverwriteDialogController.class).request(new TaskExecutionRequestEvent("id", parameters));
         verify(output, never()).accept(any());
     }
 
@@ -80,7 +96,8 @@ public class OverwriteDialogControllerTest {
         when(file.exists()).thenReturn(Boolean.FALSE);
         when(output.getDestination()).thenReturn(file);
         parameters.setOutput(output);
-        victim.request(new TaskExecutionRequestEvent("id", parameters));
+        injector.instance(OverwriteDialogController.class).request(new TaskExecutionRequestEvent("id", parameters));
+        OverwriteConfirmationDialog dialog = injector.instance(OverwriteConfirmationDialog.class);
         verify(dialog, never()).title(anyString());
         verify(dialog, never()).messageContent(anyString());
         verify(dialog, never()).messageTitle(anyString());
@@ -96,7 +113,8 @@ public class OverwriteDialogControllerTest {
         when(file.listFiles()).thenReturn(new File[0]);
         when(output.getDestination()).thenReturn(file);
         parameters.setOutput(output);
-        victim.request(new TaskExecutionRequestEvent("id", parameters));
+        injector.instance(OverwriteDialogController.class).request(new TaskExecutionRequestEvent("id", parameters));
+        OverwriteConfirmationDialog dialog = injector.instance(OverwriteConfirmationDialog.class);
         verify(dialog, never()).title(anyString());
         verify(dialog, never()).messageContent(anyString());
         verify(dialog, never()).messageTitle(anyString());

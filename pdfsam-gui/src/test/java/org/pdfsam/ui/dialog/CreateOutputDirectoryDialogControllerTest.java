@@ -41,6 +41,9 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.commons.NonExistingOutputDirectoryEvent;
+import org.sejda.injector.Components;
+import org.sejda.injector.Injector;
+import org.sejda.injector.Provides;
 
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -64,11 +67,19 @@ public class CreateOutputDirectoryDialogControllerTest extends GuiTest {
 
     @Override
     protected Parent getRootNode() {
-        StylesConfig styles = mock(StylesConfig.class);
-        CreateOutputDirectoryDialogController victim = new CreateOutputDirectoryDialogController(
-                new CreateOutputDirectoryConfirmationDialog(styles));
+        Injector.start(new Config());
         Button button = new Button("show");
         return button;
+    }
+
+    @Components({ CreateOutputDirectoryDialogController.class })
+    static class Config {
+
+        @Provides
+        StylesConfig style() {
+            return mock(StylesConfig.class);
+        }
+
     }
 
     @Test

@@ -23,8 +23,8 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -46,11 +46,11 @@ public class QuickbarModuleButtonsPaneTest {
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
     private QuickbarModuleButtonsPane victim;
-    private Set<ModuleButton> buttons;
+    private List<ModuleButton> buttons;
 
     @Before
     public void setUp() {
-        buttons = new HashSet<>();
+        buttons = new ArrayList<>();
         buttons.add(new ModuleButton(new DefaultPriorityTestModule()));
         buttons.add(new ModuleButton(new LowPriorityTestModule()));
         QuickbarModuleButtonsProvider provider = mock(QuickbarModuleButtonsProvider.class);
@@ -63,7 +63,8 @@ public class QuickbarModuleButtonsPaneTest {
         buttons.forEach(m -> assertFalse(m.isSelected()));
         SetActiveModuleRequest r = SetActiveModuleRequest.activeteModule(DefaultPriorityTestModule.ID);
         victim.onSetCurrentModuleRequest(r);
-        assertTrue(buttons.stream().filter(ModuleButton::isSelected).allMatch(m -> m.moduleId().equals(DefaultPriorityTestModule.ID)));
+        assertTrue(buttons.stream().filter(ModuleButton::isSelected)
+                .allMatch(m -> m.moduleId().equals(DefaultPriorityTestModule.ID)));
         assertTrue(buttons.stream().filter(m -> !m.moduleId().equals(DefaultPriorityTestModule.ID))
                 .noneMatch(ModuleButton::isSelected));
     }

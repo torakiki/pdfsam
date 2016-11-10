@@ -26,12 +26,10 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Locale;
 
-import javax.inject.Inject;
-
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
@@ -41,34 +39,35 @@ import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.HighPriorityTestModule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.ui.Theme;
+import org.sejda.injector.Injector;
+import org.sejda.injector.Provides;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration
 public class PreferencePaneTest {
 
     @ClassRule
     public static ClearEventStudioRule STUDIO_RULE = new ClearEventStudioRule();
     @ClassRule
     public static InitializeAndApplyJavaFxThreadRule INIT_FX = new InitializeAndApplyJavaFxThreadRule();
-    @Inject
-    private ApplicationContext applicationContext;
-    private static UserContext userContext = mock(UserContext.class);
+    private Injector injector;
 
     @BeforeClass
-    public static void setUp() {
+    public static void setUpClass() {
         eventStudio().broadcast(new SetLocaleEvent(Locale.UK.toLanguageTag()));
     }
 
-    @Configuration
-    @Lazy
-    @ComponentScan(basePackages = { "org.pdfsam.ui.dashboard.preference" })
+    @Before
+    public void setUp() {
+        injector = Injector.start(new Config(), new PreferenceConfig());
+    }
+
     static class Config {
-        @Bean
+        @Provides
         public UserContext userContext() {
+            UserContext userContext = mock(UserContext.class);
             when(userContext.getTheme()).thenReturn(Theme.ROUNDISH.toString());
             when(userContext.isCheckForUpdates()).thenReturn(Boolean.TRUE);
             when(userContext.isCheckForNews()).thenReturn(Boolean.TRUE);
@@ -81,17 +80,16 @@ public class PreferencePaneTest {
             return userContext;
         }
 
-        @Bean
+        @Provides
         public Module aModule() {
             return new HighPriorityTestModule();
         }
     }
 
     @Test
-    @DirtiesContext
     @SuppressWarnings("unchecked")
     public void configOnStartup() {
-        PreferencePane victim = applicationContext.getBean(PreferencePane.class);
+        PreferencePane victim = injector.instance(PreferencePane.class);
         PreferenceComboBox<KeyStringValueItem<String>> theme = (PreferenceComboBox<KeyStringValueItem<String>>) victim
                 .lookup("#themeCombo");
         PreferenceComboBox<KeyStringValueItem<String>> startupModuleCombo = (PreferenceComboBox<KeyStringValueItem<String>>) victim
@@ -101,10 +99,10 @@ public class PreferencePaneTest {
         assertTrue(((PreferenceCheckBox) victim.lookup("#checkForNews")).isSelected());
         assertTrue(((PreferenceCheckBox) victim.lookup("#playSounds")).isSelected());
         assertTrue(((PreferenceRadioButton) victim.lookup("#smartRadio")).isSelected());
-        assertEquals("/my/path.xml", ((PreferenceBrowsableFileField) victim.lookup("#workspace")).getTextField()
-                .getText());
-        assertEquals("/my/path", ((PreferenceBrowsableDirectoryField) victim.lookup("#workingDirectory"))
-                .getTextField().getText());
+        assertEquals("/my/path.xml",
+                ((PreferenceBrowsableFileField) victim.lookup("#workspace")).getTextField().getText());
+        assertEquals("/my/path",
+                ((PreferenceBrowsableDirectoryField) victim.lookup("#workingDirectory")).getTextField().getText());
         assertEquals(DefaultI18nContext.getInstance().i18n("Dashboard"),
                 startupModuleCombo.getSelectionModel().getSelectedItem().getValue());
     }
