@@ -35,12 +35,13 @@ import javax.inject.Inject;
  */
 class StatefulPreferencesUsageService implements UsageService {
 
-    private PreferencesUsageDataStore dataStore = new PreferencesUsageDataStore();
+    private PreferencesUsageDataStore dataStore;
     private Map<String, Module> modulesMap;
 
     @Inject
-    StatefulPreferencesUsageService(List<Module> modules) {
+    StatefulPreferencesUsageService(List<Module> modules, PreferencesUsageDataStore dataStore) {
         this.modulesMap = modules.stream().collect(Collectors.toMap(Module::id, m -> m));
+        this.dataStore = dataStore;
     }
 
     @Override

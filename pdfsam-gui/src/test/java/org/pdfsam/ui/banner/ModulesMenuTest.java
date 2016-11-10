@@ -23,17 +23,15 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
-import javax.inject.Inject;
-
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.sejda.eventstudio.Listener;
+import org.sejda.injector.Injector;
 
 import javafx.scene.Parent;
 
@@ -42,23 +40,20 @@ import javafx.scene.Parent;
  *
  */
 @Category(TestFX.class)
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { MenuConfig.class })
-@DirtiesContext(classMode = ClassMode.AFTER_CLASS)
 public class ModulesMenuTest extends GuiTest {
 
-    @Inject
-    private ApplicationContext applicationContext;
-    @Inject
-    private DefaultPriorityTestModule module;
+
+    private Injector injector;
 
     @Override
     protected Parent getRootNode() {
-        return applicationContext.getBean(MenuButton.class);
+        injector = Injector.start(new MenuConfig());
+        return injector.instance(MenuButton.class);
     }
 
     @Test
     public void onSaveClick() {
+        DefaultPriorityTestModule module = injector.instance(DefaultPriorityTestModule.class);
         Listener<SetActiveModuleRequest> listener = mock(Listener.class);
         eventStudio().add(SetActiveModuleRequest.class, listener);
         ArgumentCaptor<SetActiveModuleRequest> argument = ArgumentCaptor.forClass(SetActiveModuleRequest.class);

@@ -24,45 +24,43 @@ import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
 
-import javax.inject.Scope;
-
 import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.ui.RecentWorkspacesService;
+import org.sejda.injector.Prototype;
+import org.sejda.injector.Provides;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Configuration
-@Lazy
 public class MenuConfig {
-    @Bean
-    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-    public MenuButton menuButton() {
-        return new MenuButton(menu());
+    @Provides
+    @Prototype
+    public MenuButton menuButton(AppContextMenu menu) {
+        return new MenuButton(menu);
     }
 
-    @Bean
-    public AppContextMenu menu() {
-        return spy(new AppContextMenu(workspaceMenu(), modulesMenu()));
+    @Provides
+    public AppContextMenu menu(WorkspaceMenu workspaceMenu, ModulesMenu modulesMenu) {
+        return spy(new AppContextMenu(workspaceMenu, modulesMenu));
     }
 
-    @Bean
-    public WorkspaceMenu workspaceMenu() {
-        return new WorkspaceMenu(service());
+    @Provides
+    public WorkspaceMenu workspaceMenu(RecentWorkspacesService service) {
+        return new WorkspaceMenu(service);
     }
 
-    @Bean
+    @Provides
     public ModulesMenu modulesMenu() {
         return new ModulesMenu(Arrays.asList(new DefaultPriorityTestModule()));
     }
 
-    @Bean
+    @Provides
     public DefaultPriorityTestModule module() {
         return new DefaultPriorityTestModule();
     }
 
-    @Bean
+    @Provides
     public RecentWorkspacesService service() {
         RecentWorkspacesService service = mock(RecentWorkspacesService.class);
         when(service.getRecentlyUsedWorkspaces()).thenReturn(Arrays.asList("Chuck", "Norris"));

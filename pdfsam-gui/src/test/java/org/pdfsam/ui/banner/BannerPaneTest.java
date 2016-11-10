@@ -18,23 +18,23 @@
  */
 package org.pdfsam.ui.banner;
 
-import static org.mockito.Mockito.mock;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
-import java.io.IOException;
+import java.net.URISyntaxException;
 
-import javax.inject.Inject;
-import javax.inject.Scope;
+import javax.inject.Named;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.event.SetTitleEvent;
+import org.sejda.injector.Injector;
+import org.sejda.injector.Prototype;
+import org.sejda.injector.Provides;
 
 import javafx.scene.Parent;
 import javafx.scene.image.Image;
@@ -45,74 +45,52 @@ import javafx.scene.image.ImageView;
  *
  */
 @Category(TestFX.class)
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { MenuConfig.class, org.pdfsam.ui.banner.BannerPaneTest.Config.class })
 public class BannerPaneTest extends GuiTest {
     @Rule
     public ClearEventStudioRule cleanStudio = new ClearEventStudioRule();
-    @Inject
-    private ApplicationContext applicationContext;
+    private Injector injector;
 
     @Override
     protected Parent getRootNode() {
-        return applicationContext.getBean(BannerPane.class);
+        injector = Injector.start(new MenuConfig(), new Config());
+        return injector.instance(BannerPane.class);
     }
 
-    @Configuration
-    @Lazy
     static class Config {
-        @Bean
-        public BannerPane victim() throws IOException {
-            return new BannerPane(buttons(), payoff(), logo32());
+        @Provides
+        public BannerPane victim(BannerButtons buttons, @Named("logo32") Image logo, ImageView payoff) {
+            return new BannerPane(buttons, payoff, logo);
         }
 
-        @Bean
-        public ImageView payoff() throws IOException {
-            return new ImageView(new ClassPathResource("/images/payoff.png").getURL().toExternalForm());
+        @Provides
+        @Prototype
+        public ImageView payoff() throws URISyntaxException {
+            return new ImageView(this.getClass().getResource("/images/payoff.png").toURI().toString());
         }
 
-        @Bean(name = "logo32")
-        public Image logo32() throws IOException {
-            Resource resource = new ClassPathResource("/images/payoff.png");
-            return new Image(resource.getInputStream());
+        @Provides
+        @Named("logo32")
+        @Prototype
+        public Image logo32() {
+            return new Image(this.getClass().getResourceAsStream("/images/payoff.png"));
         }
 
-        @Bean
-        public BannerButtons buttons() {
-            return new BannerButtons(logButton(), dashboardButton(), newsButton(), menuButton());
+        @Provides
+        public BannerButtons buttons(LogButton logButton, DashboardButton dashboardButton, NewsButton newsButton,
+                MenuButton menuButton) {
+            return new BannerButtons(logButton, dashboardButton, newsButton, menuButton);
         }
 
-
-        @Bean
-        public LogButton logButton() {
-            return new LogButton();
-        }
-
-        @Bean
+        @Provides
         public DashboardButton dashboardButton() {
-            return new DashboardButton(id());
+            return new DashboardButton("itemId");
         }
 
-        @Bean
+        @Provides
         public NewsButton newsButton() {
             return new NewsButton();
         }
 
-        @Bean
-        @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-        public MenuButton menuButton() {
-            return new MenuButton(menu());
-        }
-
-        @Bean
-        public AppContextMenu menu() {
-            return mock(AppContextMenu.class);
-        }
-
-        @Bean(name = "defaultDashboardItemId")
-        public String id() {
-            return "itemId";
-        }
     }
 
     @Test

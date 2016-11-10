@@ -30,7 +30,7 @@ import org.sejda.injector.Provides;
 @Components({ ClearUsageController.class })
 public class ModuleServiceConfig {
     @Provides
-    UsageService usageService(List<Module> modules) {
-        return new StatefulPreferencesUsageService(modules);
+    UsageService usageService(List<Module> modules, PreferencesUsageDataStore dataStore) {
+        return new StatefulPreferencesUsageService(modules, dataStore);
     }
 }

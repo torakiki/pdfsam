@@ -18,24 +18,28 @@
  */
 package org.pdfsam.community;
 
-import static org.mockito.Mockito.mock;
+import static org.junit.Assert.assertEquals;
+
+import java.io.IOException;
 
 import org.junit.Test;
-import org.omg.CORBA.Environment;
+import org.pdfsam.ConfigurableProperty;
 
 public class PdfsamCommunityTest {
     @Test(expected = IllegalArgumentException.class)
-    public void blankName() {
-        new PdfsamCommunity(" ", "something", mock(Environment.class));
+    public void blankName() throws IOException {
+        new PdfsamCommunity(" ", "something");
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void blankShortName() {
-        new PdfsamCommunity("Something", " ", mock(Environment.class));
+    public void blankShortName() throws IOException {
+        new PdfsamCommunity("Something", " ");
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void nullEnv() {
-        new PdfsamCommunity("name", "short", null);
+    @Test
+    public void property() throws IOException {
+        PdfsamCommunity pdfsam = new PdfsamCommunity("name", "short");
+        assertEquals("1.0.0", pdfsam.property(ConfigurableProperty.VERSION));
+        assertEquals("Chuck", pdfsam.property(ConfigurableProperty.FEED_URL, "Chuck"));
     }
 }

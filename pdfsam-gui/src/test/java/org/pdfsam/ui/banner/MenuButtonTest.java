@@ -22,15 +22,11 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.verify;
 
-import javax.inject.Inject;
-
 import org.junit.After;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
 import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
+import org.sejda.injector.Injector;
 
 import javafx.geometry.Side;
 import javafx.scene.Parent;
@@ -39,29 +35,26 @@ import javafx.scene.Parent;
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { MenuConfig.class })
-@DirtiesContext(classMode = ClassMode.AFTER_CLASS)
+
 public class MenuButtonTest extends GuiTest {
 
-    @Inject
-    private ApplicationContext applicationContext;
+    private Injector injector;
 
     @Override
     protected Parent getRootNode() {
-        return applicationContext.getBean(MenuButton.class);
+        injector = Injector.start(new MenuConfig());
+        return injector.instance(MenuButton.class);
     }
 
     @After
     public void tearDown() throws Exception {
-        AppContextMenu menu = applicationContext.getBean(AppContextMenu.class);
+        AppContextMenu menu = injector.instance(AppContextMenu.class);
         FXTestUtils.invokeAndWait(() -> menu.hide(), 1);
     }
 
     @Test
     public void onClick() {
-        AppContextMenu menu = applicationContext.getBean(AppContextMenu.class);
+        AppContextMenu menu = injector.instance(AppContextMenu.class);
         click(".button");
         verify(menu).show(any(), eq(Side.BOTTOM), eq(0d), eq(0d));
     }

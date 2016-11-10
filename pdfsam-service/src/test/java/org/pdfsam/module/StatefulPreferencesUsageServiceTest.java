@@ -29,39 +29,39 @@ import static org.pdfsam.module.ModuleUsage.usage;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.inject.Inject;
+import javax.inject.Named;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.sejda.injector.Injector;
+import org.sejda.injector.Provides;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration
 public class StatefulPreferencesUsageServiceTest {
 
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
-    @Inject
-    private StatefulPreferencesUsageService victim;
-    @Inject
-    private PreferencesUsageDataStore dataStore;
+    private Injector injector;
 
-    @Configuration
-    @ComponentScan("org.pdfsam.module")
+    @Before
+    public void setUp() {
+        injector = Injector.start(new Config(), new ModuleServiceConfig());
+    }
+
     static class Config {
 
-        @Bean
-        @Primary
+        @Provides
         public PreferencesUsageDataStore dataStore() {
             return mock(PreferencesUsageDataStore.class);
         }
 
-        @Bean
+        @Provides
+        @Named("module1")
         public Module module1() {
             Module module = mock(Module.class);
             when(module.id()).thenReturn("module1");
@@ -71,7 +71,8 @@ public class StatefulPreferencesUsageServiceTest {
             return module;
         }
 
-        @Bean
+        @Provides
+        @Named("module2")
         public Module module2() {
             Module module = mock(Module.class);
             when(module.id()).thenReturn("module2");
@@ -84,38 +85,38 @@ public class StatefulPreferencesUsageServiceTest {
 
     @Test
     public void clean() {
-        victim.clear();
-        verify(dataStore).clear();
+        injector.instance(StatefulPreferencesUsageService.class).clear();
+        verify(injector.instance(PreferencesUsageDataStore.class)).clear();
     }
 
     @Test
     public void increment() {
-        victim.incrementUsageFor("Chuck");
-        verify(dataStore).incrementUsageFor("Chuck");
+        injector.instance(StatefulPreferencesUsageService.class).incrementUsageFor("Chuck");
+        verify(injector.instance(PreferencesUsageDataStore.class)).incrementUsageFor("Chuck");
     }
 
     @Test
     public void getTotalUsage() {
-        victim.getTotalUsage();
-        verify(dataStore).getTotalUsage();
+        injector.instance(StatefulPreferencesUsageService.class).getTotalUsage();
+        verify(injector.instance(PreferencesUsageDataStore.class)).getTotalUsage();
     }
 
     @Test
     public void getMostUsed() {
-        List<ModuleUsage> usages = Arrays.asList(new ModuleUsage[] { fistUsage("IDontExist"), fistUsage("module1"),
-                fistUsage("module2").inc() });
-        when(dataStore.getUsages()).thenReturn(usages);
-        List<Module> mostUsed = victim.getMostUsed();
+        List<ModuleUsage> usages = Arrays.asList(
+                new ModuleUsage[] { fistUsage("IDontExist"), fistUsage("module1"), fistUsage("module2").inc() });
+        when(injector.instance(PreferencesUsageDataStore.class).getUsages()).thenReturn(usages);
+        List<Module> mostUsed = injector.instance(StatefulPreferencesUsageService.class).getMostUsed();
         assertEquals(2, mostUsed.size());
         assertEquals("module2", mostUsed.get(0).id());
     }
 
     @Test
     public void getMostRecentlyUsed() {
-        List<ModuleUsage> usages = Arrays.asList(new ModuleUsage[] { usage("IDontExist", 1), usage("module1", 2),
-                usage("module2", 3) });
-        when(dataStore.getUsages()).thenReturn(usages);
-        List<Module> mostUsed = victim.getMostRecentlyUsed();
+        List<ModuleUsage> usages = Arrays
+                .asList(new ModuleUsage[] { usage("IDontExist", 1), usage("module1", 2), usage("module2", 3) });
+        when(injector.instance(PreferencesUsageDataStore.class).getUsages()).thenReturn(usages);
+        List<Module> mostUsed = injector.instance(StatefulPreferencesUsageService.class).getMostRecentlyUsed();
         assertEquals(2, mostUsed.size());
         assertEquals("module2", mostUsed.get(0).id());
     }

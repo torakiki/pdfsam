@@ -29,8 +29,10 @@ import static org.mockito.Mockito.when;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -40,6 +42,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.pdfsam.module.Module;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.pdfsam.ui.workspace.WorkspaceLoadedEvent;
@@ -62,19 +65,17 @@ public class WorkspaceControllerTest {
     @Before
     public void setUp() {
         file = mock(File.class);
-        Map<String, Module> modulesMap = new HashMap<>();
-        Module module = mock(Module.class);
-        when(module.id()).thenReturn("module");
-        modulesMap.put("module", module);
+        List<Module> modules = new ArrayList<>();
+        modules.add(new DefaultPriorityTestModule());
         service = mock(WorkspaceService.class);
         recentWorkspaces = mock(RecentWorkspacesService.class);
-        victim = new WorkspaceController(modulesMap, service, recentWorkspaces);
+        victim = new WorkspaceController(modules, service, recentWorkspaces);
     }
 
     @Test
     public void saveWorkspace() {
         Listener<SaveWorkspaceEvent> listener = mock(Listener.class);
-        eventStudio().add(SaveWorkspaceEvent.class, listener, "module");
+        eventStudio().add(SaveWorkspaceEvent.class, listener, DefaultPriorityTestModule.ID);
         victim.saveWorkspace(new SaveWorkspaceEvent(file, true));
         verify(listener).onEvent(any());
         verify(service).saveWorkspace(anyMap(), eq(file));
@@ -83,7 +84,7 @@ public class WorkspaceControllerTest {
     @Test
     public void saveWorkspaceWithException() {
         Listener<SaveWorkspaceEvent> listener = mock(Listener.class);
-        eventStudio().add(SaveWorkspaceEvent.class, listener, "module");
+        eventStudio().add(SaveWorkspaceEvent.class, listener, DefaultPriorityTestModule.ID);
         SaveWorkspaceEvent event = new SaveWorkspaceEvent(file, true);
         doThrow(new RuntimeException("mock")).when(listener).onEvent(event);
         victim.saveWorkspace(event);
@@ -92,7 +93,7 @@ public class WorkspaceControllerTest {
     @Test
     public void loadEmptyWorkspace() throws InterruptedException, ExecutionException {
         Listener<LoadWorkspaceEvent> listener = mock(Listener.class);
-        eventStudio().add(LoadWorkspaceEvent.class, listener, "module");
+        eventStudio().add(LoadWorkspaceEvent.class, listener, DefaultPriorityTestModule.ID);
         when(service.loadWorkspace(any())).thenReturn(Collections.emptyMap());
         CompletableFuture<Void> future = victim.loadWorspace(new LoadWorkspaceEvent(file));
         future.get();
@@ -102,7 +103,7 @@ public class WorkspaceControllerTest {
     @Test(expected = ExecutionException.class)
     public void loadWorkspaceWithException() throws InterruptedException, ExecutionException {
         Listener<LoadWorkspaceEvent> listener = mock(Listener.class);
-        eventStudio().add(LoadWorkspaceEvent.class, listener, "module");
+        eventStudio().add(LoadWorkspaceEvent.class, listener, DefaultPriorityTestModule.ID);
         when(service.loadWorkspace(eq(file))).thenThrow(new RuntimeException("mock"));
         CompletableFuture<Void> future = victim.loadWorspace(new LoadWorkspaceEvent(file));
         future.get();
@@ -111,7 +112,7 @@ public class WorkspaceControllerTest {
     @Test
     public void loadWorkspace() throws InterruptedException, ExecutionException {
         Listener<LoadWorkspaceEvent> listener = mock(Listener.class);
-        eventStudio().add(LoadWorkspaceEvent.class, listener, "module");
+        eventStudio().add(LoadWorkspaceEvent.class, listener, DefaultPriorityTestModule.ID);
         Listener<WorkspaceLoadedEvent> loadedListener = mock(Listener.class);
         eventStudio().add(WorkspaceLoadedEvent.class, loadedListener);
         Map<String, Map<String, String>> data = new HashMap<>();
