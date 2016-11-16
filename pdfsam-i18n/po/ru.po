@@ -60,7 +60,7 @@ msgid "Yes"
 msgstr "Да"
 
 msgid "The selected output directory does not exist"
-msgstr ""
+msgstr "Выбранный выходной каталог не существует"
 
 msgid "Do you want to create it?"
 msgstr "Желаете создать?"
@@ -195,12 +195,12 @@ msgid ""
 msgstr "Проверка обновлений при запуске (нужен перезапуск)"
 
 msgid "Check for news at startup"
-msgstr ""
+msgstr "Проверять наличие новостей при запуске"
 
 msgid ""
 "Set whether the application should check for news availability on startup "
 "(restart needed)"
-msgstr ""
+msgstr "Установите нужно ли проверять наличие новостей при запуске (нужен перезапуск)"
 
 msgid "Play alert sounds"
 msgstr "Воспроизводить звуковые предупреждения"
@@ -209,7 +209,7 @@ msgid "Turn on or off alert sounds"
 msgstr "Включение и отключение звуков предупреждений"
 
 msgid "Store passwords when saving a workspace file"
-msgstr ""
+msgstr "Сохранять пароли при сохранении файла рабочего пространства"
 
 msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
@@ -217,7 +217,7 @@ msgid ""
 msgstr ""
 
 msgid "Show donation window"
-msgstr ""
+msgstr "Показывать окно пожертвований"
 
 msgid ""
 "Turn on or off the notification appearing once in a while and asking the "
@@ -232,10 +232,10 @@ msgstr ""
 "При выходе из программы, сохранять рабочую среду, используемую по умолчанию"
 
 msgid "If a default workspace is set, save it on application exit"
-msgstr ""
+msgstr "Сохранять рабочую среду, используемую по умолчанию, при выходе из приложения"
 
 msgid "Maximum number of rows mast be a positive number"
-msgstr "Максимальное количество строк должно быть положительное число"
+msgstr "Максимальное количество строк должно быть положительным числом"
 
 msgid "Generate high quality thumbnails (slower)"
 msgstr "Сгенерировать высококачественные эскизы (медленнее!)"
@@ -380,10 +380,10 @@ msgid "Non existing directory"
 msgstr "Несуществующий каталог"
 
 msgid "Open with"
-msgstr ""
+msgstr "Открыть с помощью"
 
 msgid "Select the task to perform on the following files"
-msgstr ""
+msgstr "Выберите действие над следующими файлами"
 
 msgid "Directory not empty"
 msgstr "Каталог не пуст"
@@ -413,10 +413,10 @@ msgid "Checking for updates"
 msgstr "Проверка обновлений"
 
 msgid "Fetching latest news"
-msgstr ""
+msgstr "Выборка последних новостей"
 
 msgid "Unable to retrieve the latest news"
-msgstr ""
+msgstr "Невозможно скачать последние новости"
 
 msgid "Unable to retrieve latest news"
 msgstr "Невозможно скачать последние новости"
@@ -435,7 +435,7 @@ msgstr "Невозможно сохранить рабочую область м
 
 #, java-format
 msgid "Unable to save workspace to {0}"
-msgstr ""
+msgstr "Невозможно сохранить рабочую среду в {0}"
 
 #, java-format
 msgid "Loading workspace from {0}"
@@ -555,12 +555,14 @@ msgid ""
 "Merge two or more PDF documents taking pages alternately in natural or "
 "reverse order."
 msgstr ""
+"Объединение двух или более PDF документов, принимая страницы поочередно в естественном или "
+"обратном порядке."
 
 msgid "Destination file"
 msgstr "Файл назначения"
 
 msgid "No PDF document has been selected"
-msgstr ""
+msgstr "Не выбрано PDF файла"
 
 msgid "Select a positive integer number as pace"
 msgstr ""
@@ -573,7 +575,7 @@ msgstr "Неудачно"
 
 #, java-format
 msgid "Running {0}%"
-msgstr ""
+msgstr "Выполнение {0}%"
 
 msgid "Running"
 msgstr "Выполнение"
@@ -794,13 +796,13 @@ msgstr ""
 "документ имеет нечетное количество страниц"
 
 msgid "Add a footer"
-msgstr ""
+msgstr "Добавить нижний колонтитул"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr ""
 
 msgid "Merge fields"
-msgstr ""
+msgstr "Объеденить поля"
 
 msgid "Merge renaming existing fields"
 msgstr ""
@@ -837,17 +839,18 @@ msgid "Don't generate"
 msgstr "Не генерировать"
 
 msgid "Generate from file names"
-msgstr ""
+msgstr "Сгенерировать из названия файлов"
 
 msgid "Generate from documents titles"
-msgstr ""
+msgstr "Сгенерировать из названия документов"
 
 msgid "Table of contents:"
-msgstr ""
+msgstr "Содержание"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr ""
+"Укажите если содержание должно быть добавлено в сгенерированный PDF документ"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -944,26 +947,27 @@ msgid "Extract"
 msgstr "Извлечь"
 
 msgid "Extract pages from PDF documents."
-msgstr ""
+msgstr "Извлечь страницы из PDF документа"
 
 msgid "Extract settings"
-msgstr ""
+msgstr "Извлечь настройки"
 
 msgid "Destination directory"
 msgstr "Каталог назначения"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "Страницы, которые нужно извлечь (например: 2 или 5-23 или 2,5-7,12-)"
 
 msgid "Invalid page ranges"
 msgstr "Некорректный интервал страниц"
 
 msgid "Extract pages:"
-msgstr ""
+msgstr "Извлечь страницы:"
 
 msgid ""
 "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Кликните дважды, чтобы установить страницы, которые нужно повернуть(пример: 2 или 5-23 или 2,5-7,12-)"
 
 msgid "All pages"
 msgstr "Все страницы"
