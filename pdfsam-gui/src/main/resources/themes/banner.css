@@ -47,3 +47,9 @@
 	-fx-text-fill: #FFFFFF;
 	-fx-opacity: 0.95;
 }
+.header-title{
+	-fx-font-weight: bold; 
+	-fx-font-style: italic;
+	-fx-text-fill: -pdfsam-light-text-color;
+	-fx-padding: 0.666667em 0.333333em 0.666667em 0.083333em;
+}
