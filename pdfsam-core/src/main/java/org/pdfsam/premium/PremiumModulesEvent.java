@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 05/mag/2014
+ * Created on 24 ott 2015
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,32 +16,24 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.dashboard.modules;
+package org.pdfsam.premium;
 
+import java.util.Collections;
 import java.util.List;
 
-import javax.inject.Inject;
-
-import org.pdfsam.module.Module;
-
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.VBox;
+import org.pdfsam.support.RequireUtils;
 
 /**
- * Panel showing modules button to in the dashboard. It's used a dashboard home where the users can select the modules the want to use.
+ * Response to a fetch premium modules request
  * 
  * @author Andrea Vacondio
- *
  */
-public class ModulesDashboardPane extends VBox {
+public class PremiumModulesEvent {
 
-    @Inject
-    public ModulesDashboardPane(List<Module> modules) {
-        FlowPane modulesPane = new FlowPane();
-        getStyleClass().addAll("dashboard-container");
-        modulesPane.getStyleClass().add("dashboard-modules");
-        modules.stream().sorted((a, b) -> a.descriptor().getPriority() - b.descriptor().getPriority())
-                .map(ModulesDashboardTile::new).forEach(modulesPane.getChildren()::add);
-        this.getChildren().add(modulesPane);
+    public final List<PremiumModule> premiumModules;
+
+    public PremiumModulesEvent(List<PremiumModule> premiumModules) {
+        RequireUtils.requireNotNull(premiumModules, "Premium modules cannot be null");
+        this.premiumModules = Collections.unmodifiableList(premiumModules);
     }
 }

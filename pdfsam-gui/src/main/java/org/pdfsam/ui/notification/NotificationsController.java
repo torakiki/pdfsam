@@ -30,7 +30,7 @@ import org.pdfsam.Pdfsam;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.UsageService;
-import org.pdfsam.news.NewImportantNews;
+import org.pdfsam.news.NewImportantNewsEvent;
 import org.pdfsam.update.UpdateAvailableEvent;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.injector.Auto;
@@ -158,7 +158,7 @@ public class NotificationsController {
     }
 
     @EventListener
-    public void onNewImportantNews(NewImportantNews event) {
+    public void onNewImportantNews(NewImportantNewsEvent event) {
         VBox content = new VBox(3, buildLabel(event.news.getContent(), null), styledUrlButton(
                 DefaultI18nContext.getInstance().i18n("Open"), event.news.getLink(), FontAwesomeIcon.EXTERNAL_LINK));
         content.setAlignment(Pos.TOP_RIGHT);

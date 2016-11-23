@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 12/dic/2011
- * Copyright 2011 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Created on 26 ott 2015
+ * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,22 +16,13 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.context;
+package org.pdfsam.news;
 
-/**
- * Possible {@link Boolean} preferences.
- * 
- * @author Andrea Vacondio
- * 
- */
-public enum BooleanUserPreference {
-    CHECK_UPDATES,
-    CHECK_FOR_NEWS,
-    PLAY_SOUNDS,
-    DONATION_NOTIFICATION,
-    PREMIUM_MODULES,
-    HIGH_QUALITY_THUMB,
-    SMART_OUTPUT,
-    SAVE_WORKSPACE_ON_EXIT,
-    SAVE_PWD_IN_WORKSPACE;
+import org.junit.Test;
+
+public class NewImportantNewsEventTest {
+    @Test(expected = IllegalArgumentException.class)
+    public void invalidArg() {
+        new NewImportantNewsEvent(null);
+    }
 }

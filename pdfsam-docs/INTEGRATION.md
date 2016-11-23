@@ -10,6 +10,10 @@ The purpose of this document is to list the points where PDFsam requires an Inte
 **@url** [http://www.pdfsam.org/whats-new](http://www.pdfsam.org/whats-new)  
 **@since** v3.0.0.M3  
 
+*PDFsam reads descriptions of premium modules to show in the dashboard.*  
+**@url** [http://www.pdfsam.org/whats-new](http://www.pdfsam.org/premium-modules)  
+**@since** v3.3.0  
+
 *Link to the PDFsam license in the (About panel).*  
 **@url** [http://www.gnu.org/licenses/agpl-3.0.html](http://www.gnu.org/licenses/agpl-3.0.html)  
 **@since** v3.0.0.BETA  

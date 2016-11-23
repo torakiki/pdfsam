@@ -1,17 +1,4 @@
 /**
- * Dashboard panels
- */
-.section-title {
-	-fx-font-size: 1.25em;
-	-fx-padding: 1.166666em 0.0 0.0 0.0;
-	-fx-font-weight: bold;
-}
-.dashboard-container{
-	-fx-border-width: 0.0;
-	-fx-padding: 1.166666em;
-	-fx-spacing: 2.5em;
-}
-/**
  * Log
  */
 #log-view{

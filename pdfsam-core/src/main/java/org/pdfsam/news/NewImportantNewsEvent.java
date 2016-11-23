@@ -26,11 +26,11 @@ import org.pdfsam.support.RequireUtils;
  * @author Andrea Vacondio
  *
  */
-public class NewImportantNews {
+public class NewImportantNewsEvent {
 
     public final NewsData news;
 
-    public NewImportantNews(NewsData news) {
+    public NewImportantNewsEvent(NewsData news) {
         RequireUtils.requireNotNull(news, "News cannot be null");
         this.news = news;
     }

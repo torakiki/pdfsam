@@ -71,9 +71,9 @@ public class LatestNewsControllerTest {
         when(service.getLatestNewsSeen()).thenReturn(5);
 
         Listener<LatestNewsEvent> listener = mock(Listener.class);
-        Listener<NewImportantNews> listenerImportantNews = mock(Listener.class);
+        Listener<NewImportantNewsEvent> listenerImportantNews = mock(Listener.class);
         eventStudio().add(LatestNewsEvent.class, listener);
-        eventStudio().add(NewImportantNews.class, listenerImportantNews);
+        eventStudio().add(NewImportantNewsEvent.class, listenerImportantNews);
         victim.fetchLatestNews(FetchLatestNewsRequest.INSTANCE);
         verify(service, timeout(1000).times(1)).getLatestNews();
         ArgumentCaptor<LatestNewsEvent> captor = ArgumentCaptor.forClass(LatestNewsEvent.class);
@@ -94,12 +94,12 @@ public class LatestNewsControllerTest {
         when(service.getLatestImportantNewsSeen()).thenReturn(3);
 
         Listener<LatestNewsEvent> listener = mock(Listener.class);
-        Listener<NewImportantNews> listenerImportantNews = mock(Listener.class);
+        Listener<NewImportantNewsEvent> listenerImportantNews = mock(Listener.class);
         eventStudio().add(LatestNewsEvent.class, listener);
-        eventStudio().add(NewImportantNews.class, listenerImportantNews);
+        eventStudio().add(NewImportantNewsEvent.class, listenerImportantNews);
         victim.fetchLatestNews(FetchLatestNewsRequest.INSTANCE);
         verify(service, timeout(1000).times(1)).getLatestNews();
-        ArgumentCaptor<NewImportantNews> captor = ArgumentCaptor.forClass(NewImportantNews.class);
+        ArgumentCaptor<NewImportantNewsEvent> captor = ArgumentCaptor.forClass(NewImportantNewsEvent.class);
         verify(listener, timeout(1000).times(1)).onEvent(any());
         verify(listenerImportantNews, timeout(1000).times(1)).onEvent(captor.capture());
         assertEquals(data, captor.getValue().news);
@@ -115,12 +115,12 @@ public class LatestNewsControllerTest {
         when(service.getLatestImportantNewsSeen()).thenReturn(5);
 
         Listener<LatestNewsEvent> listener = mock(Listener.class);
-        Listener<NewImportantNews> listenerImportantNews = mock(Listener.class);
+        Listener<NewImportantNewsEvent> listenerImportantNews = mock(Listener.class);
         eventStudio().add(LatestNewsEvent.class, listener);
-        eventStudio().add(NewImportantNews.class, listenerImportantNews);
+        eventStudio().add(NewImportantNewsEvent.class, listenerImportantNews);
         victim.fetchLatestNews(FetchLatestNewsRequest.INSTANCE);
         verify(service, timeout(1000).times(1)).getLatestNews();
-        ArgumentCaptor<NewImportantNews> captor = ArgumentCaptor.forClass(NewImportantNews.class);
+        ArgumentCaptor<NewImportantNewsEvent> captor = ArgumentCaptor.forClass(NewImportantNewsEvent.class);
         verify(listener, timeout(1000).times(1)).onEvent(any());
         verify(listenerImportantNews, never()).onEvent(captor.capture());
     }

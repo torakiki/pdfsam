@@ -1,0 +1,9 @@
+[
+	{
+      "id": "1",
+      "name" : "module-name",
+      "description": "module-description",
+      "product": "visual",
+      "url": "http://www.pdfsam.org/"
+    }
+]

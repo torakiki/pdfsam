@@ -44,6 +44,7 @@ import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.module.Module;
 import org.pdfsam.news.FetchLatestNewsRequest;
 import org.pdfsam.news.NewsService;
+import org.pdfsam.premium.FetchPremiumModulesRequest;
 import org.pdfsam.ui.MainPane;
 import org.pdfsam.ui.SetLatestStageStatusRequest;
 import org.pdfsam.ui.StageMode;
@@ -149,6 +150,7 @@ public class PdfsamApp extends Application {
         initActiveModule();
         loadWorkspaceIfRequired();
         initOpenButtons();
+        requestPremiumModulesDescriptionIfRequired();
         primaryStage.show();
 
         requestCheckForUpdateIfRequired();
@@ -275,6 +277,12 @@ public class PdfsamApp extends Application {
         List<OpenButton> openButtons = injector.instancesOfType(OpenButton.class);
         for (OpenButton button : openButtons) {
             button.initModules(modules);
+        }
+    }
+
+    private void requestPremiumModulesDescriptionIfRequired() {
+        if (injector.instance(UserContext.class).isFetchPremiumModules()) {
+            eventStudio().broadcast(FetchPremiumModulesRequest.INSTANCE);
         }
     }
 

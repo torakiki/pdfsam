@@ -36,7 +36,7 @@ import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.module.UsageService;
-import org.pdfsam.news.NewImportantNews;
+import org.pdfsam.news.NewImportantNewsEvent;
 import org.pdfsam.news.NewsData;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
@@ -141,7 +141,7 @@ public class NotificationsControllerTest {
         data.setTitle("title");
         data.setContent("content");
         data.setLink("link");
-        NewImportantNews event = new NewImportantNews(data);
+        NewImportantNewsEvent event = new NewImportantNewsEvent(data);
         victim.onNewImportantNews(event);
         verify(container).addStickyNotification(eq("title"), any());
     }

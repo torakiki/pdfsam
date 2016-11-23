@@ -45,6 +45,7 @@ public enum ConfigurableProperty {
     FACEBOOK_SHARE_URL("pdfsam.facebook.share.url"),
     GPLUS_SHARE_URL("pdfsam.gplus.share.url"),
     NEWS_URL("pdfsam.news.url"),
+    PREMIUM_MODULES_URL("pdfsam.premium.modules.url"),
     DOWNLOAD_URL("pdfsam.download.url");
 
     public final String prop;
