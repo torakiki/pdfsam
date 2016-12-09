@@ -42,6 +42,7 @@ public final class DefaultUserContext implements UserContext {
     static final String CHECK_FOR_NEWS_PROP = "org.pdfsam.default.checkfornews";
     static final String DONATE_NOTIFICATION_PROP = "org.pdfsam.default.donate.notification";
     static final String PLAY_SOUNDS_PROP = "org.pdfsam.default.play.sounds";
+    static final String FETCH_PREMIUM_MODULES_PROP = "org.pdfsam.default.fetch.premium.modules";    
     static final String LOCALE_PROP = "org.pdfsam.default.locale";
 
     private Preferences prefs;
@@ -74,6 +75,12 @@ public final class DefaultUserContext implements UserContext {
     public boolean isDonationNotification() {
         return prefs.getBoolean(BooleanUserPreference.DONATION_NOTIFICATION.toString(),
                 Boolean.valueOf(System.getProperty(DONATE_NOTIFICATION_PROP, Boolean.TRUE.toString())));
+    }
+
+    @Override
+    public boolean isFetchPremiumModules() {
+        return prefs.getBoolean(BooleanUserPreference.PREMIUM_MODULES.toString(),
+                Boolean.valueOf(System.getProperty(FETCH_PREMIUM_MODULES_PROP, Boolean.TRUE.toString())));
     }
 
     @Override

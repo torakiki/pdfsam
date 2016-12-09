@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 08 nov 2016
+ * Created on 24 ott 2015
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,27 +16,24 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam;
+package org.pdfsam.premium;
 
-import org.pdfsam.module.ModuleServiceConfig;
-import org.pdfsam.news.NewsServiceConfig;
-import org.pdfsam.pdf.PdfServiceConfig;
-import org.pdfsam.premium.PremiumServiceConfig;
-import org.pdfsam.task.TaskExecutionServiceConfig;
-import org.pdfsam.ui.UIServiceConfig;
-import org.pdfsam.update.UpdateServiceConfig;
-import org.sejda.injector.Injector;
+import java.util.Collections;
+import java.util.List;
+
+import org.pdfsam.support.RequireUtils;
 
 /**
+ * Response to a fetch premium modules request
+ * 
  * @author Andrea Vacondio
- *
  */
-public class Services {
-    /**
-     * Adds configurations to the injector to create all the instances necessary to have the services up and running
-     */
-    public static void initServices() {
-        Injector.addConfig(new UpdateServiceConfig(), new UIServiceConfig(), new TaskExecutionServiceConfig(),
-                new PdfServiceConfig(), new NewsServiceConfig(), new ModuleServiceConfig(), new PremiumServiceConfig());
+public class PremiumModulesEvent {
+
+    public final List<PremiumModule> premiumModules;
+
+    public PremiumModulesEvent(List<PremiumModule> premiumModules) {
+        RequireUtils.requireNotNull(premiumModules, "Premium modules cannot be null");
+        this.premiumModules = Collections.unmodifiableList(premiumModules);
     }
 }

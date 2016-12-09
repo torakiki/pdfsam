@@ -155,6 +155,20 @@ public class PreferenceConfig {
     }
 
     @Provides
+    @Named("fetchPremiumModules")
+    public PreferenceCheckBox fetchPremiumModules(UserContext userContext) {
+        PreferenceCheckBox donationNotification = new PreferenceCheckBox(BooleanUserPreference.PREMIUM_MODULES,
+                DefaultI18nContext.getInstance().i18n("Show premium features"), userContext.isPlaySounds(),
+                userContext);
+        donationNotification.setId("fetchPremiumModules");
+        donationNotification.setGraphic(helpIcon(DefaultI18nContext.getInstance().i18n(
+                "Set whether the application should fetch and show premium features description in the modules dashboard")));
+        donationNotification.getStyleClass().addAll(Style.WITH_HELP.css());
+        donationNotification.getStyleClass().add("spaced-vitem");
+        return donationNotification;
+    }
+
+    @Provides
     @Named("smartRadio")
     public PreferenceRadioButton smartRadio(UserContext userContext) {
         PreferenceRadioButton smartRadio = new PreferenceRadioButton(BooleanUserPreference.SMART_OUTPUT,

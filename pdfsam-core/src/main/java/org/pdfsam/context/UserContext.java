@@ -52,6 +52,11 @@ public interface UserContext {
     boolean isDonationNotification();
 
     /**
+     * @return true if premium modules description should be fetched and shown
+     */
+    boolean isFetchPremiumModules();
+
+    /**
      * @return if updates check should be performed
      */
     boolean isCheckForUpdates();

@@ -141,6 +141,23 @@ public class DefaultUserContextTest {
     }
 
     @Test
+    public void isPremiumModules() {
+        victim.setBooleanPreference(BooleanUserPreference.PREMIUM_MODULES, false);
+        assertFalse(victim.isFetchPremiumModules());
+        victim.setBooleanPreference(BooleanUserPreference.PREMIUM_MODULES, true);
+        assertTrue(victim.isFetchPremiumModules());
+    }
+
+    @Test
+    public void isPremiumModulesSystemDefault() {
+        System.setProperty(DefaultUserContext.FETCH_PREMIUM_MODULES_PROP, "false");
+        assertFalse(victim.isFetchPremiumModules());
+        victim.setBooleanPreference(BooleanUserPreference.PREMIUM_MODULES, true);
+        assertTrue(victim.isFetchPremiumModules());
+        System.clearProperty(DefaultUserContext.FETCH_PREMIUM_MODULES_PROP);
+    }
+
+    @Test
     public void clear() {
         assertTrue(victim.isUseSmartOutput());
         victim.setBooleanPreference(BooleanUserPreference.SMART_OUTPUT, false);

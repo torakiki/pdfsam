@@ -59,7 +59,7 @@ public class LatestNewsController {
                 news.stream().filter(n -> n.isImportant()).findFirst()
                         .filter(n -> service.getLatestImportantNewsSeen() < n.getId()).ifPresent(n -> {
                             service.setLatestImportantNewsSeen(n.getId());
-                            eventStudio().broadcast(new NewImportantNews(n));
+                            eventStudio().broadcast(new NewImportantNewsEvent(n));
                         });
             }
         }).whenComplete((r, e) -> {

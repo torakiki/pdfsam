@@ -73,6 +73,7 @@ public class PreferencePaneTest {
             when(userContext.isCheckForNews()).thenReturn(Boolean.TRUE);
             when(userContext.isPlaySounds()).thenReturn(Boolean.TRUE);
             when(userContext.isDonationNotification()).thenReturn(Boolean.TRUE);
+            when(userContext.isFetchPremiumModules()).thenReturn(Boolean.TRUE);
             when(userContext.isUseSmartOutput()).thenReturn(Boolean.TRUE);
             when(userContext.getDefaultWorkingPath()).thenReturn("/my/path");
             when(userContext.getDefaultWorkspacePath()).thenReturn("/my/path.xml");
@@ -98,6 +99,8 @@ public class PreferencePaneTest {
         assertTrue(((PreferenceCheckBox) victim.lookup("#checkForUpdates")).isSelected());
         assertTrue(((PreferenceCheckBox) victim.lookup("#checkForNews")).isSelected());
         assertTrue(((PreferenceCheckBox) victim.lookup("#playSounds")).isSelected());
+        assertTrue(((PreferenceCheckBox) victim.lookup("#donationNotification")).isSelected());
+        assertTrue(((PreferenceCheckBox) victim.lookup("#fetchPremiumModules")).isSelected());
         assertTrue(((PreferenceRadioButton) victim.lookup("#smartRadio")).isSelected());
         assertEquals("/my/path.xml",
                 ((PreferenceBrowsableFileField) victim.lookup("#workspace")).getTextField().getText());

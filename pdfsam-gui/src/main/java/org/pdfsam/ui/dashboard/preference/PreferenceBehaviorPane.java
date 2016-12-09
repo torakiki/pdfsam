@@ -42,6 +42,7 @@ class PreferenceBehaviorPane extends GridPane {
     public PreferenceBehaviorPane(@Named("checkForUpdates") PreferenceCheckBox checkForUpdates,
             @Named("playSounds") PreferenceCheckBox playSounds,
             @Named("donationNotification") PreferenceCheckBox donationNotification,
+            @Named("fetchPremiumModules") PreferenceCheckBox fetchPremiumModules,
             CheckForUpdatesButton checkForUpdatesNow,
             @Named("logViewRowsNumber") PreferenceIntTextField logViewRowsNumber,
             @Named("checkForNews") PreferenceCheckBox checkForNews) {
@@ -56,7 +57,8 @@ class PreferenceBehaviorPane extends GridPane {
         add(playSounds, 0, 2, 3, 1);
         add(donationNotification, 0, 3, 3, 1);
         add(checkForNews, 0, 4, 3, 1);
-        add(new VBox(checkForUpdates, checkForUpdatesNow), 0, 5, 3, 1);
+        add(fetchPremiumModules, 0, 5, 3, 1);
+        add(new VBox(checkForUpdates, checkForUpdatesNow), 0, 6, 3, 1);
 
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.GRID.css());

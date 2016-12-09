@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 08 nov 2016
+ * Created on 20 set 2016
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,27 +16,22 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam;
+package org.pdfsam.news;
 
-import org.pdfsam.module.ModuleServiceConfig;
-import org.pdfsam.news.NewsServiceConfig;
-import org.pdfsam.pdf.PdfServiceConfig;
-import org.pdfsam.premium.PremiumServiceConfig;
-import org.pdfsam.task.TaskExecutionServiceConfig;
-import org.pdfsam.ui.UIServiceConfig;
-import org.pdfsam.update.UpdateServiceConfig;
-import org.sejda.injector.Injector;
+import org.pdfsam.support.RequireUtils;
 
 /**
+ * Notifies that a new important news is available
+ * 
  * @author Andrea Vacondio
  *
  */
-public class Services {
-    /**
-     * Adds configurations to the injector to create all the instances necessary to have the services up and running
-     */
-    public static void initServices() {
-        Injector.addConfig(new UpdateServiceConfig(), new UIServiceConfig(), new TaskExecutionServiceConfig(),
-                new PdfServiceConfig(), new NewsServiceConfig(), new ModuleServiceConfig(), new PremiumServiceConfig());
+public class NewImportantNewsEvent {
+
+    public final NewsData news;
+
+    public NewImportantNewsEvent(NewsData news) {
+        RequireUtils.requireNotNull(news, "News cannot be null");
+        this.news = news;
     }
 }
