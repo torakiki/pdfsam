@@ -26,6 +26,18 @@ A list of system properties that users can configure to alter PDFsam behavior.
 *description:* if not already set in the application preferences, tells PDFsam if it should check for updates at startup. 
 
 
+**org.pdfsam.default.checkfornews**  
+*values:* true|false  
+*default:* true   
+*description:* if not already set in the application preferences, tells PDFsam if it should check for news at startup. 
+
+
+**org.pdfsam.default.play.sounds**  
+*values:* true|false  
+*default:* true   
+*description:* if not already set in the application preferences, tells PDFsam if it should play alter sounds. 
+
+
 **org.pdfsam.disable.split.optimization**  
 *values:* true|false  
 *default:* false   
@@ -58,6 +70,20 @@ A list of properties that can be set during the silent installation of the PDFsa
 *values:* true|false  
 *default:* true   
 *description:* if not already set in the application preferences, tells PDFsam if it should check for updates at startup. 
+
+
+**CHECK_FOR_NEWS**   
+*values:* true|false  
+*default:* true   
+*description:* if not already set in the application preferences, tells PDFsam if it should check for news at startup. 
+*since:* 3.2.5  
+
+
+**PLAY_SOUNDS**   
+*values:* true|false  
+*default:* true   
+*description:* if not already set in the application preferences, tells PDFsam if it should play alert sounds. 
+*since:* 3.2.5  
 
 
 **DONATE_NOTIFICATION**   

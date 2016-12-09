@@ -20,6 +20,10 @@ using System.IO;
                     session.Log("Added -Dorg.pdfsam.default.donate.notification=" + session.CustomActionData["donate"]);
                     File.AppendAllText(path, "-Dorg.pdfsam.default.locale=" + session.CustomActionData["locale"] + Environment.NewLine);
                     session.Log("Added -Dorg.pdfsam.default.locale=" + session.CustomActionData["locale"]);                     
+                    File.AppendAllText(path, "-Dorg.pdfsam.default.checkfornews=" + session.CustomActionData["news"] + Environment.NewLine);
+                    session.Log("Added -Dorg.pdfsam.default.checkfornews=" + session.CustomActionData["news"]);                     
+                    File.AppendAllText(path, "-Dorg.pdfsam.default.play.sounds=" + session.CustomActionData["sounds"] + Environment.NewLine);
+                    session.Log("Added -Dorg.pdfsam.default.play.sounds=" + session.CustomActionData["sounds"]);                     
                 }else   
                 {
                     session.Log("Unable to find l4j ini file");

@@ -57,11 +57,29 @@ public class DefaultUserContextTest {
     }
 
     @Test
+    public void isCheckUpdatesSystemDefault() {
+        System.setProperty(DefaultUserContext.CHECK_FOR_UPDATES_PROP, "false");
+        assertFalse(victim.isCheckForUpdates());
+        victim.setBooleanPreference(BooleanUserPreference.CHECK_UPDATES, true);
+        assertTrue(victim.isCheckForUpdates());
+        System.clearProperty(DefaultUserContext.CHECK_FOR_UPDATES_PROP);
+    }
+
+    @Test
     public void isCheckForNews() {
         victim.setBooleanPreference(BooleanUserPreference.CHECK_FOR_NEWS, false);
         assertFalse(victim.isCheckForNews());
         victim.setBooleanPreference(BooleanUserPreference.CHECK_FOR_NEWS, true);
         assertTrue(victim.isCheckForNews());
+    }
+
+    @Test
+    public void isCheckNewsSystemDefault() {
+        System.setProperty(DefaultUserContext.CHECK_FOR_NEWS_PROP, "false");
+        assertFalse(victim.isCheckForNews());
+        victim.setBooleanPreference(BooleanUserPreference.CHECK_FOR_NEWS, true);
+        assertTrue(victim.isCheckForNews());
+        System.clearProperty(DefaultUserContext.CHECK_FOR_NEWS_PROP);
     }
 
     @Test
@@ -81,15 +99,6 @@ public class DefaultUserContextTest {
     }
 
     @Test
-    public void isCheckUpdatesSystemDefault() {
-        System.setProperty(DefaultUserContext.CHECK_FOR_UPDATES_PROP, "false");
-        assertFalse(victim.isCheckForUpdates());
-        victim.setBooleanPreference(BooleanUserPreference.CHECK_UPDATES, true);
-        assertTrue(victim.isCheckForUpdates());
-        System.clearProperty(DefaultUserContext.CHECK_FOR_UPDATES_PROP);
-    }
-
-    @Test
     public void isUseSmartOutput() {
         victim.setBooleanPreference(BooleanUserPreference.SMART_OUTPUT, false);
         assertFalse(victim.isUseSmartOutput());
@@ -103,6 +112,15 @@ public class DefaultUserContextTest {
         assertTrue(victim.isPlaySounds());
         victim.setBooleanPreference(BooleanUserPreference.PLAY_SOUNDS, false);
         assertFalse(victim.isPlaySounds());
+    }
+
+    @Test
+    public void isPlaySoundsSystemDefault() {
+        System.setProperty(DefaultUserContext.PLAY_SOUNDS_PROP, "false");
+        assertFalse(victim.isPlaySounds());
+        victim.setBooleanPreference(BooleanUserPreference.PLAY_SOUNDS, true);
+        assertTrue(victim.isPlaySounds());
+        System.clearProperty(DefaultUserContext.PLAY_SOUNDS_PROP);
     }
 
     @Test
