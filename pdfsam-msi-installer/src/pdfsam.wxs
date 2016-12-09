@@ -16,10 +16,11 @@
 		<Property Id="CHECK_FOR_NEWS" Value="true" Secure="yes"/>
 		<Property Id="PLAY_SOUNDS" Value="true" Secure="yes"/>
 		<Property Id="DONATE_NOTIFICATION" Value="true" Secure="yes"/>
+		<Property Id="PREMIUM_MODULES" Value="true" Secure="yes"/>
 	
 	    <Icon Id="pdfsam.ico" SourceFile="$(var.ProductIcon)" />
 		<Binary Id="AddLine.dll" SourceFile="AddLine.CA.dll" />
-		<CustomAction Id="SetCustomActionDataValue" Return="check" Property="CustomActions.AddLine" Value="locale=[LOCALE_CODE];updates=[CHECK_FOR_UPDATES];sounds=[PLAY_SOUNDS];news=[CHECK_FOR_NEWS];donate=[DONATE_NOTIFICATION];folder=[APPLICATIONFOLDER]" />
+		<CustomAction Id="SetCustomActionDataValue" Return="check" Property="CustomActions.AddLine" Value="locale=[LOCALE_CODE];updates=[CHECK_FOR_UPDATES];sounds=[PLAY_SOUNDS];news=[CHECK_FOR_NEWS];premium=[PREMIUM_MODULES];donate=[DONATE_NOTIFICATION];folder=[APPLICATIONFOLDER]" />
 		<CustomAction Id="CustomActions.AddLine" Return="check" Execute="deferred" BinaryKey="AddLine.dll" DllEntry="AddLine" Impersonate="no"/>
 		
 		<MajorUpgrade DowngradeErrorMessage="A newer version of PDFsam Basic is already installed. Setup will now exit." />

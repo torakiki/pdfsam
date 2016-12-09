@@ -24,6 +24,8 @@ using System.IO;
                     session.Log("Added -Dorg.pdfsam.default.checkfornews=" + session.CustomActionData["news"]);                     
                     File.AppendAllText(path, "-Dorg.pdfsam.default.play.sounds=" + session.CustomActionData["sounds"] + Environment.NewLine);
                     session.Log("Added -Dorg.pdfsam.default.play.sounds=" + session.CustomActionData["sounds"]);                     
+                    File.AppendAllText(path, "-Dorg.pdfsam.default.fetch.premium.modules=" + session.CustomActionData["premium"] + Environment.NewLine);
+                    session.Log("Added -Dorg.pdfsam.default.fetch.premium.modules=" + session.CustomActionData["premium"]);                     
                 }else   
                 {
                     session.Log("Unable to find l4j ini file");
