@@ -31,13 +31,13 @@ public enum PremiumProduct {
     VISUAL {
         @Override
         public Node graphic() {
-            return new ImageView("images/visual64.png");
+            return new ImageView("images/visual32.png");
         }
     },
     ENHANCED {
         @Override
         public Node graphic() {
-            return new ImageView("images/enhanced64.png");
+            return new ImageView("images/enhanced32.png");
         }
     },
     OTHER;
