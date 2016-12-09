@@ -26,13 +26,6 @@ import org.pdfsam.ui.commons.UrlButton;
 
 import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
-import javafx.beans.property.ReadOnlyBooleanProperty;
-import javafx.beans.property.ReadOnlyBooleanWrapper;
-import javafx.css.PseudoClass;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 /**
@@ -41,57 +34,20 @@ import javafx.scene.layout.VBox;
  * @author Andrea Vacondio
  *
  */
-class ModulesDashboardTile extends Region {
+class ModulesDashboardTile extends DashboardTile {
 
-    private static final PseudoClass ARMED_PSEUDOCLASS_STATE = PseudoClass.getPseudoClass("armed");
-
-    private VBox topTile = new VBox(5);
-    private Button button = new Button();
     private VBox toolButtons = new VBox(5);
 
     ModulesDashboardTile(Module module) {
-        getStyleClass().addAll("dashboard-modules-tile");
-        Label titleLabel = new Label(module.descriptor().getName());
-        titleLabel.getStyleClass().add("dashboard-modules-tile-title");
-        titleLabel.setGraphic(module.graphic());
-        Label textLabel = new Label(module.descriptor().getDescription());
-        textLabel.getStyleClass().add("dashboard-modules-tile-text");
-        textLabel.setMinHeight(USE_PREF_SIZE);
-        topTile.getChildren().addAll(titleLabel, textLabel);
-        button.getStyleClass().add("dashboard-modules-invisible-button");
-        button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-        button.setOnAction(e -> eventStudio().broadcast(activeteModule(module.id())));
-        armed.bind(button.armedProperty());
-        VBox inner = new VBox(new StackPane(topTile, button));
-        prefHeightProperty().bind(inner.heightProperty());
-        setMaxHeight(USE_PREF_SIZE);
-        setMinHeight(USE_PREF_SIZE);
-        inner.getStyleClass().add("dashboard-modules-tile-inner");
-        getChildren().add(inner);
+        super(module.descriptor().getName(), module.descriptor().getDescription(), module.graphic());
+        setOnAction(e -> eventStudio().broadcast(activeteModule(module.id())));
+
         module.descriptor().getSupportURL().ifPresent(url -> {
             UrlButton helpButton = UrlButton.urlButton(null, url, null, "pdfsam-toolbar-button");
             helpButton.setGraphic(GlyphsDude.createIcon(MaterialDesignIcon.HELP_CIRCLE, "1.4em"));
             toolButtons.getChildren().add(helpButton);
             toolButtons.getStyleClass().add("dashboard-modules-toolbar");
-            inner.getChildren().add(toolButtons);
+            addBottomPanel(toolButtons);
         });
-    }
-
-    /**
-     * Property telling if the region (acting as a button) is armed
-     */
-    private ReadOnlyBooleanWrapper armed = new ReadOnlyBooleanWrapper(false) {
-        @Override
-        protected void invalidated() {
-            pseudoClassStateChanged(ARMED_PSEUDOCLASS_STATE, get());
-        }
-    };
-
-    public final ReadOnlyBooleanProperty armedProperty() {
-        return armed.getReadOnlyProperty();
-    }
-
-    public final boolean isArmed() {
-        return armed.get();
     }
 }

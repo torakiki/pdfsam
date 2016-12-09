@@ -145,12 +145,12 @@ public class PdfsamApp extends Application {
         primaryStage.getIcons().addAll(injector.instancesOfType(Image.class));
         primaryStage.setTitle(injector.instance(Pdfsam.class).name());
         primaryStage.setOnCloseRequest(e -> Platform.exit());
+        requestPremiumModulesDescriptionIfRequired();
         initWindowsStatusController(primaryStage);
         initDialogsOwner(primaryStage);
         initActiveModule();
         loadWorkspaceIfRequired();
         initOpenButtons();
-        requestPremiumModulesDescriptionIfRequired();
         primaryStage.show();
 
         requestCheckForUpdateIfRequired();

@@ -18,12 +18,19 @@
  */
 package org.pdfsam.ui.dashboard.modules;
 
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
 import java.util.List;
 
 import javax.inject.Inject;
 
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.Module;
+import org.pdfsam.premium.PremiumModulesEvent;
+import org.sejda.eventstudio.annotation.EventListener;
 
+import javafx.application.Platform;
+import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 
@@ -43,5 +50,19 @@ public class ModulesDashboardPane extends VBox {
         modules.stream().sorted((a, b) -> a.descriptor().getPriority() - b.descriptor().getPriority())
                 .map(ModulesDashboardTile::new).forEach(modulesPane.getChildren()::add);
         this.getChildren().add(modulesPane);
+        eventStudio().addAnnotatedListeners(this);
+    }
+
+    @EventListener
+    public void onPremiumModules(PremiumModulesEvent e) {
+        if (!e.premiumModules.isEmpty()) {
+            Label premiumTile = new Label(DefaultI18nContext.getInstance().i18n("Premium features"));
+            premiumTile.getStyleClass().add("modules-tile-title");
+            FlowPane modulesPane = new FlowPane();
+            modulesPane.getStyleClass().add("dashboard-modules");
+            e.premiumModules.stream().sorted((a, b) -> a.getId() - b.getId()).map(PremiumModuleTile::new)
+                    .forEach(modulesPane.getChildren()::add);
+            Platform.runLater(() -> this.getChildren().addAll(premiumTile, modulesPane));
+        }
     }
 }

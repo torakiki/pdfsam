@@ -68,6 +68,10 @@ public class PremiumModule {
     }
 
     public void setProduct(String product) {
-        this.product = PremiumProduct.valueOf(product.toUpperCase());
+        try {
+            this.product = PremiumProduct.valueOf(product.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            this.product = PremiumProduct.OTHER;
+        }
     }
 }

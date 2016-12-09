@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 23 nov 2016
+ * Created on 25 nov 2016
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,33 +16,23 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.premium;
+package org.pdfsam.ui.dashboard.modules;
 
-import javafx.scene.Node;
-import javafx.scene.image.ImageView;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
+import org.pdfsam.premium.PremiumModule;
+import org.pdfsam.ui.commons.OpenUrlRequest;
 
 /**
- * Types of premium products
+ * A tile showing premium modules info
  * 
  * @author Andrea Vacondio
  *
  */
-public enum PremiumProduct {
-    VISUAL {
-        @Override
-        public Node graphic() {
-            return new ImageView("images/visual64.png");
-        }
-    },
-    ENHANCED {
-        @Override
-        public Node graphic() {
-            return new ImageView("images/enhanced64.png");
-        }
-    },
-    OTHER;
+public class PremiumModuleTile extends DashboardTile {
 
-    public Node graphic() {
-        return null;
+    PremiumModuleTile(PremiumModule module) {
+        super(module.getName(), module.getDescription(), module.getProduct().graphic());
+        setOnAction(e -> eventStudio().broadcast(new OpenUrlRequest(module.getUrl())));
     }
 }

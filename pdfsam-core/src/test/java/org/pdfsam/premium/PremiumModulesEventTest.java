@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 23 nov 2016
+ * Created on 25 nov 2016
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,31 +18,15 @@
  */
 package org.pdfsam.premium;
 
-import javafx.scene.Node;
-import javafx.scene.image.ImageView;
+import org.junit.Test;
 
 /**
- * Types of premium products
- * 
  * @author Andrea Vacondio
  *
  */
-public enum PremiumProduct {
-    VISUAL {
-        @Override
-        public Node graphic() {
-            return new ImageView("images/visual64.png");
-        }
-    },
-    ENHANCED {
-        @Override
-        public Node graphic() {
-            return new ImageView("images/enhanced64.png");
-        }
-    },
-    OTHER;
-
-    public Node graphic() {
-        return null;
+public class PremiumModulesEventTest {
+    @Test(expected = IllegalArgumentException.class)
+    public void invalidArg() {
+        new PremiumModulesEvent(null);
     }
 }
