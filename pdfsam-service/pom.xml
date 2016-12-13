@@ -58,6 +58,10 @@
 					<artifactId>poi-ooxml</artifactId>
 					<groupId>org.apache.poi</groupId>
 				</exclusion>
+				<exclusion>
+					<artifactId>sejda-image-writers</artifactId>
+					<groupId>org.sejda</groupId>
+				</exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>
