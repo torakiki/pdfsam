@@ -38,10 +38,9 @@ import javafx.scene.layout.VBox;
  * @author Andrea Vacondio
  *
  */
-class DashboardTile extends Region {
+class DashboardTile extends VBox {
     private static final PseudoClass ARMED_PSEUDOCLASS_STATE = PseudoClass.getPseudoClass("armed");
 
-    VBox bottom = new VBox();
     private Button button = new Button();
 
     public DashboardTile(String title, String description, Node graphic) {
@@ -61,12 +60,10 @@ class DashboardTile extends Region {
         button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 
         armed.bind(button.armedProperty());
-        bottom.getChildren().addAll(new StackPane(topTile, button));
-        bottom.getStyleClass().add("dashboard-modules-tile-inner");
-        prefHeightProperty().bind(bottom.heightProperty());
+        getChildren().addAll(new StackPane(topTile, button));
+        getStyleClass().add("dashboard-modules-tile-inner");
         setMaxHeight(USE_PREF_SIZE);
         setMinHeight(USE_PREF_SIZE);
-        getChildren().add(bottom);
     }
 
     /**
@@ -92,6 +89,6 @@ class DashboardTile extends Region {
     }
 
     void addBottomPanel(Region pane) {
-        bottom.getChildren().add(pane);
+        getChildren().add(pane);
     }
 }

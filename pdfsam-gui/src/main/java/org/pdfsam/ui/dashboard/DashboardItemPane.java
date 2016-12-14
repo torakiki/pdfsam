@@ -30,6 +30,7 @@ import org.sejda.eventstudio.ReferenceStrength;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.TextAlignment;
@@ -54,8 +55,10 @@ class DashboardItemPane extends BorderPane {
         this.item.pane().getStyleClass().addAll(Style.DEAULT_CONTAINER.css());
         this.item.pane().getStyleClass().addAll(Style.CONTAINER.css());
         ScrollPane scroll = new ScrollPane(this.item.pane());
-        scroll.setFitToHeight(true);
+        scroll.getStyleClass().addAll(Style.DEAULT_CONTAINER.css());
         scroll.setFitToWidth(true);
+        scroll.setHbarPolicy(ScrollBarPolicy.NEVER);
+        scroll.setVbarPolicy(ScrollBarPolicy.AS_NEEDED);
         setCenter(scroll);
         eventStudio().add(SetActiveModuleRequest.class, enableFooterListener, Integer.MAX_VALUE,
                 ReferenceStrength.STRONG);
