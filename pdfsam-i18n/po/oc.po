@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-09-30 10:43+0200\n"
+"POT-Creation-Date: 2016-12-09 10:29+0100\n"
 "PO-Revision-Date: 2014-03-03 14:12+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Occitan (post 1500) <oc@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-10-30 09:56+0000\n"
-"X-Generator: Launchpad (build 18246)\n"
+"X-Launchpad-Export-Date: 2016-12-13 14:52+0000\n"
+"X-Generator: Launchpad (build 18293)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr ""
@@ -164,6 +164,9 @@ msgstr ""
 msgid "Social"
 msgstr ""
 
+msgid "Premium features"
+msgstr ""
+
 msgid "Manually selected"
 msgstr ""
 
@@ -220,6 +223,14 @@ msgstr ""
 msgid ""
 "Turn on or off the notification appearing once in a while and asking the "
 "user to support PDFsam with a donation"
+msgstr ""
+
+msgid "Show premium features"
+msgstr ""
+
+msgid ""
+"Set whether the application should fetch and show premium features "
+"description in the modules dashboard"
 msgstr ""
 
 msgid "Use the selected PDF document directory as output directory"
@@ -396,6 +407,15 @@ msgid "Unable to find the latest available version."
 msgstr ""
 
 msgid "Checking for updates"
+msgstr ""
+
+msgid "Unable to retrieve premium features description"
+msgstr ""
+
+msgid "Fetching premium modules"
+msgstr ""
+
+msgid "Unable to retrieve premium modules"
 msgstr ""
 
 msgid "Fetching latest news"
@@ -911,9 +931,6 @@ msgid "Extract pages from PDF documents."
 msgstr ""
 
 msgid "Extract settings"
-msgstr ""
-
-msgid "Destination directory"
 msgstr ""
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"

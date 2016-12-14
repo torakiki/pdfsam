@@ -5,15 +5,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDFSam 3\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2016-09-30 10:43+0200\n"
+"POT-Creation-Date: 2016-12-09 10:29+0100\n"
 "PO-Revision-Date: 2016-02-25 14:36+0000\n"
 "Last-Translator: Jeff Huang <s8321414@yahoo.com.tw>\n"
 "Language-Team: Chinese (Taiwan) (zh_TW@li.org)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-10-30 09:56+0000\n"
-"X-Generator: Launchpad (build 18246)\n"
+"X-Launchpad-Export-Date: 2016-12-13 14:52+0000\n"
+"X-Generator: Launchpad (build 18293)\n"
 "Language: zh_TW\n"
 
 msgid "Subscribe to the official news feed"
@@ -163,6 +163,9 @@ msgstr "貢獻"
 msgid "Social"
 msgstr "社群"
 
+msgid "Premium features"
+msgstr ""
+
 msgid "Manually selected"
 msgstr "手動選擇"
 
@@ -220,6 +223,14 @@ msgid ""
 "Turn on or off the notification appearing once in a while and asking the "
 "user to support PDFsam with a donation"
 msgstr "打開或是關閉每過一段時間就會出現的，詢問使用者是否會以捐款支援 PDFsam 的通知"
+
+msgid "Show premium features"
+msgstr ""
+
+msgid ""
+"Set whether the application should fetch and show premium features "
+"description in the modules dashboard"
+msgstr ""
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "使用選取的 PDF 文件目錄作為輸出目錄"
@@ -396,6 +407,15 @@ msgstr "無法找到最新的可用版本。"
 
 msgid "Checking for updates"
 msgstr "檢查更新"
+
+msgid "Unable to retrieve premium features description"
+msgstr ""
+
+msgid "Fetching premium modules"
+msgstr ""
+
+msgid "Unable to retrieve premium modules"
+msgstr ""
 
 msgid "Fetching latest news"
 msgstr "正在擷取最新消息"
@@ -911,9 +931,6 @@ msgstr ""
 
 msgid "Extract settings"
 msgstr ""
-
-msgid "Destination directory"
-msgstr "目的地目錄"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""

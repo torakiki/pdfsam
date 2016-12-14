@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-09-30 10:43+0200\n"
-"PO-Revision-Date: 2016-09-11 02:14+0000\n"
-"Last-Translator: cinbook <Unknown>\n"
+"POT-Creation-Date: 2016-12-09 10:29+0100\n"
+"PO-Revision-Date: 2016-11-17 14:39+0000\n"
+"Last-Translator: AlephAlpha <alephalpha911@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-10-30 09:56+0000\n"
-"X-Generator: Launchpad (build 18246)\n"
+"X-Launchpad-Export-Date: 2016-12-13 14:52+0000\n"
+"X-Generator: Launchpad (build 18293)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "订阅官方新闻推送"
@@ -92,7 +92,7 @@ msgstr "找不到模块路径"
 
 #, java-format
 msgid "Started in {0}"
-msgstr ""
+msgstr "{0}后开始"
 
 msgid "Closing PDFsam..."
 msgstr "正在关闭PDFsam..."
@@ -104,7 +104,7 @@ msgid "E_xit"
 msgstr "退出(_X)"
 
 msgid "Application messages"
-msgstr ""
+msgstr "应用信息"
 
 msgid "_Workspace"
 msgstr "工作区"
@@ -128,7 +128,7 @@ msgid "What's new"
 msgstr ""
 
 msgid "Document details"
-msgstr ""
+msgstr "文档详情"
 
 msgid "Keywords"
 msgstr "关键词"
@@ -140,7 +140,7 @@ msgid "About"
 msgstr "关于"
 
 msgid "Environment"
-msgstr ""
+msgstr "环境"
 
 #, java-format
 msgid "Max memory {0}"
@@ -159,9 +159,12 @@ msgid "Support"
 msgstr "支持"
 
 msgid "Contribute"
-msgstr ""
+msgstr "贡献"
 
 msgid "Social"
+msgstr ""
+
+msgid "Premium features"
 msgstr ""
 
 msgid "Manually selected"
@@ -176,10 +179,10 @@ msgid "Appearance"
 msgstr ""
 
 msgid "Behavior"
-msgstr ""
+msgstr "行为"
 
 msgid "Workspace"
-msgstr ""
+msgstr "工作区"
 
 msgid "Output"
 msgstr "输出"
@@ -215,11 +218,19 @@ msgid ""
 msgstr ""
 
 msgid "Show donation window"
-msgstr ""
+msgstr "显示捐赠窗口"
 
 msgid ""
 "Turn on or off the notification appearing once in a while and asking the "
 "user to support PDFsam with a donation"
+msgstr ""
+
+msgid "Show premium features"
+msgstr ""
+
+msgid ""
+"Set whether the application should fetch and show premium features "
+"description in the modules dashboard"
 msgstr ""
 
 msgid "Use the selected PDF document directory as output directory"
@@ -396,6 +407,15 @@ msgid "Unable to find the latest available version."
 msgstr ""
 
 msgid "Checking for updates"
+msgstr ""
+
+msgid "Unable to retrieve premium features description"
+msgstr ""
+
+msgid "Fetching premium modules"
+msgstr ""
+
+msgid "Unable to retrieve premium modules"
 msgstr ""
 
 msgid "Fetching latest news"
@@ -911,9 +931,6 @@ msgid "Extract pages from PDF documents."
 msgstr ""
 
 msgid "Extract settings"
-msgstr ""
-
-msgid "Destination directory"
 msgstr ""
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"

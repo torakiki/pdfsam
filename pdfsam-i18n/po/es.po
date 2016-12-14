@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-09-30 10:43+0200\n"
+"POT-Creation-Date: 2016-12-09 10:29+0100\n"
 "PO-Revision-Date: 2016-09-30 08:24+0000\n"
 "Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-10-30 09:56+0000\n"
-"X-Generator: Launchpad (build 18246)\n"
+"X-Launchpad-Export-Date: 2016-12-13 14:52+0000\n"
+"X-Generator: Launchpad (build 18293)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Suscribirse al canal de noticias oficial"
@@ -165,6 +165,9 @@ msgstr "Contribuir"
 msgid "Social"
 msgstr "Social"
 
+msgid "Premium features"
+msgstr ""
+
 msgid "Manually selected"
 msgstr "Seleccionado manualmente"
 
@@ -230,6 +233,14 @@ msgid ""
 msgstr ""
 "Habilitar o deshabitar la notificación que aparece cada tanto y solicitando "
 "al usuario apoyar a PDFsam con una donación"
+
+msgid "Show premium features"
+msgstr ""
+
+msgid ""
+"Set whether the application should fetch and show premium features "
+"description in the modules dashboard"
+msgstr ""
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Usar la carpeta del archivo PDF seleccionado como carpeta de salida"
@@ -420,6 +431,15 @@ msgstr "No se pudo encontrar la versión más reciente disponible."
 
 msgid "Checking for updates"
 msgstr "Buscando actualizaciones"
+
+msgid "Unable to retrieve premium features description"
+msgstr ""
+
+msgid "Fetching premium modules"
+msgstr ""
+
+msgid "Unable to retrieve premium modules"
+msgstr ""
 
 msgid "Fetching latest news"
 msgstr "Obtener últimas novedades"
@@ -983,9 +1003,6 @@ msgstr "Extraiga páginas de documentos PDF"
 
 msgid "Extract settings"
 msgstr "Ajustes de estracción"
-
-msgid "Destination directory"
-msgstr "Carpeta de destino"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Páginas a extraer (ej: 2 o 5-23 o 2,5-7,12-)"

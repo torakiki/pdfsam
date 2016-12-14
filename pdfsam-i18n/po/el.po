@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-09-30 10:43+0200\n"
-"PO-Revision-Date: 2016-07-23 16:08+0000\n"
+"POT-Creation-Date: 2016-12-09 10:29+0100\n"
+"PO-Revision-Date: 2016-12-10 18:17+0000\n"
 "Last-Translator: George Melidis <melidis@gmail.com>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-10-30 09:56+0000\n"
-"X-Generator: Launchpad (build 18246)\n"
+"X-Launchpad-Export-Date: 2016-12-13 14:52+0000\n"
+"X-Generator: Launchpad (build 18293)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Εγγραφείτε στην επίσημη ροή ειδήσεων"
@@ -165,6 +165,9 @@ msgstr "Συνεισφέρετε"
 msgid "Social"
 msgstr "Κοινωνικά"
 
+msgid "Premium features"
+msgstr "Premium χαρακτηριστικά"
+
 msgid "Manually selected"
 msgstr "Χειροκίνητη επιλογή"
 
@@ -198,12 +201,14 @@ msgstr ""
 "την εκκίνηση (απαιτείται επανεκκίνηση)"
 
 msgid "Check for news at startup"
-msgstr ""
+msgstr "Ελέγξτε για τις ειδήσεις κατά την εκκίνηση"
 
 msgid ""
 "Set whether the application should check for news availability on startup "
 "(restart needed)"
 msgstr ""
+"Ορίστε εάν η εφαρμογή θα πρέπει να ελέγχει για τη διαθεσιμότητα ειδήσεων "
+"κατά την εκκίνηση (απαιτείται επανεκκίνηση )"
 
 msgid "Play alert sounds"
 msgstr "Αναπαραγωγή ήχων συναγερμού"
@@ -230,6 +235,16 @@ msgid ""
 msgstr ""
 "Ενεργοποίηση ή απενεργοποίηση της ειδοποίησης που εμφανίζεται κάθε τόσο "
 "ζητώντας από τον χρήστη να υποστηρίξει το PDFsam με κάποια δωρεά"
+
+msgid "Show premium features"
+msgstr "Εμφάνιση premium χαρακτηριστικών"
+
+msgid ""
+"Set whether the application should fetch and show premium features "
+"description in the modules dashboard"
+msgstr ""
+"Ορίστε εάν η εφαρμογή θα πρέπει να ανακτά και να προβάλει περιγραφή premium "
+"χαρακτηριστικών στο ταμπλό"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Ορίστε τον επιλεγμένο κατάλογο εγγράφων PDF ώς κατάλογο εξόδου"
@@ -398,10 +413,10 @@ msgid "Non existing directory"
 msgstr "Ο κατάλογος δεν υπάρχει"
 
 msgid "Open with"
-msgstr ""
+msgstr "Άνοιγμα με"
 
 msgid "Select the task to perform on the following files"
-msgstr ""
+msgstr "Επιλογή της επίδρασης στα επόμενα αρχεία"
 
 msgid "Directory not empty"
 msgstr "Ο κατάλογος δεν είναι κενός"
@@ -429,6 +444,15 @@ msgstr "Αδύνατη η εύρεση της τελευταίας διαθέσ�
 
 msgid "Checking for updates"
 msgstr "Έλεγχος ενημερώσεων"
+
+msgid "Unable to retrieve premium features description"
+msgstr "Αδυναμία ανάκτησης κορυφαίων χαρακτηριστικών περιγραφής"
+
+msgid "Fetching premium modules"
+msgstr "Ανάκτηση κορυφαίων"
+
+msgid "Unable to retrieve premium modules"
+msgstr "Αδυναμία ανάκτησης"
 
 msgid "Fetching latest news"
 msgstr "Ανάκτηση τελευταίων νέων"
@@ -577,6 +601,8 @@ msgid ""
 "Merge two or more PDF documents taking pages alternately in natural or "
 "reverse order."
 msgstr ""
+"Ένωση δύο ή περισσότερων αρχείων PDF, λαμβάνοντας σελίδες με την κανονική ή "
+"αντίστροφη σειρά"
 
 msgid "Destination file"
 msgstr "Αρχειο προορισμου"
@@ -585,7 +611,7 @@ msgid "No PDF document has been selected"
 msgstr "Δεν έχει επιλεγεί κάποιο έγγραφο PDF"
 
 msgid "Select a positive integer number as pace"
-msgstr ""
+msgstr "Επιλέξτε έναν θετικό ακέραιο αριθμό για ρυθμό"
 
 msgid "Completed"
 msgstr "Ολοκληρώθηκε"
@@ -825,12 +851,14 @@ msgid "Move _Down"
 msgstr "Μετακίνηση _Κάτω"
 
 msgid "Pace"
-msgstr ""
+msgstr "Βήμα"
 
 msgid ""
 "Double click to set the number of pages after which the task will switch to "
 "the next file"
 msgstr ""
+"Κάντε διπλό κλικ για να ορίσετε τον αριθμό των σελίδων μετά από το οποίο η "
+"διεργασία θα μεταβεί στο επόμενο αρχείο"
 
 msgid "Size"
 msgstr "Μέγεθος"
@@ -839,7 +867,7 @@ msgid "Modified"
 msgstr "Τροποποιήθηκε"
 
 msgid "Reverse"
-msgstr ""
+msgstr "Αντιστροφή"
 
 msgid "Drag and drop PDF files here"
 msgstr "Μεταφέρετε και αποθέσατε αρχεία PDF εδώ"
@@ -1020,13 +1048,10 @@ msgid "Extract"
 msgstr "Εξαγωγή"
 
 msgid "Extract pages from PDF documents."
-msgstr ""
+msgstr "Εξαγωγή σελίδων από έγγραφο PDF"
 
 msgid "Extract settings"
 msgstr "Εξαγωγή ρυθμίσεων"
-
-msgid "Destination directory"
-msgstr "Κατάλογος προορισμού"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Σελίδες προς εξαγωγή  (π.χ.: 2 ή 5-23 ή 2,5-7,12-)"

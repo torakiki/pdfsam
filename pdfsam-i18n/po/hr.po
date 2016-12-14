@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-09-30 10:43+0200\n"
+"POT-Creation-Date: 2016-12-09 10:29+0100\n"
 "PO-Revision-Date: 2016-03-01 10:59+0000\n"
 "Last-Translator: Slavko Blazevic <rapidcro@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-10-30 09:56+0000\n"
-"X-Generator: Launchpad (build 18246)\n"
+"X-Launchpad-Export-Date: 2016-12-13 14:52+0000\n"
+"X-Generator: Launchpad (build 18293)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Pretplati se na novosti"
@@ -164,6 +164,9 @@ msgstr "Doprinjeti"
 msgid "Social"
 msgstr "Društvene mreže"
 
+msgid "Premium features"
+msgstr ""
+
 msgid "Manually selected"
 msgstr "Ručni odabir"
 
@@ -226,6 +229,14 @@ msgid ""
 msgstr ""
 "Uključi ili isključi znakove upozorenja koje povremeno pitaju korisnika za "
 "PDFsam donaciju."
+
+msgid "Show premium features"
+msgstr ""
+
+msgid ""
+"Set whether the application should fetch and show premium features "
+"description in the modules dashboard"
+msgstr ""
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Koristi odabranu mapu kao zadanu izlaznu mapu za PDF."
@@ -410,6 +421,15 @@ msgstr "Nije moguće pronaći posljednju dostupnu verziju."
 
 msgid "Checking for updates"
 msgstr "Provjeravanje nadopuna"
+
+msgid "Unable to retrieve premium features description"
+msgstr ""
+
+msgid "Fetching premium modules"
+msgstr ""
+
+msgid "Unable to retrieve premium modules"
+msgstr ""
 
 msgid "Fetching latest news"
 msgstr "Dohvaćanje zadnjih novosti"
@@ -936,9 +956,6 @@ msgstr ""
 
 msgid "Extract settings"
 msgstr ""
-
-msgid "Destination directory"
-msgstr "Odredišna mapa"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
