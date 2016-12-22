@@ -18,8 +18,6 @@
  */
 package org.pdfsam;
 
-import java.net.URISyntaxException;
-
 import javax.inject.Named;
 
 import org.pdfsam.configuration.StylesConfig;
@@ -54,20 +52,20 @@ public class PdfsamConfig {
 
     @Provides
     @Named("errorSound")
-    public String error() throws URISyntaxException {
-        return this.getClass().getResource("/sounds/error_sound.wav").toURI().toString();
+    public String error() {
+        return this.getClass().getResource("/sounds/error_sound.wav").toExternalForm();
     }
 
     @Provides
     @Named("okSound")
-    public String ok() throws URISyntaxException {
-        return this.getClass().getResource("/sounds/ok_sound.wav").toURI().toString();
+    public String ok() {
+        return this.getClass().getResource("/sounds/ok_sound.wav").toExternalForm();
     }
 
     @Provides
     @Prototype
-    public ImageView payoff() throws URISyntaxException {
-        return new ImageView(this.getClass().getResource("/images/payoff.png").toURI().toString());
+    public ImageView payoff() {
+        return new ImageView(this.getClass().getResource("/images/payoff.png").toExternalForm());
     }
 
     @Provides
