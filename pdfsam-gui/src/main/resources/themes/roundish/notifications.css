@@ -2,8 +2,7 @@
 	-fx-background-color: -pdfsam-box-border-color, -pdfsam-pane-bg;
     -fx-background-insets: 0.0, 0.4;
     -fx-background-radius: 3.0;
-	-fx-padding: 0.25em 0.0 0.666667em 0.0 ;
 	-fx-effect: -pdfsam-shadow-effect;
-	-fx-max-width: 26.666666em;
+	-fx-max-width: 26.666666em; 
     -fx-min-width: 26.666666em;
 }

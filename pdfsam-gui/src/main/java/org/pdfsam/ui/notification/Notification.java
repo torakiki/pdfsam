@@ -23,13 +23,19 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.UUID;
 
+import org.pdfsam.ui.support.Style;
+
+import de.jensd.fx.glyphs.GlyphsDude;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 /**
@@ -45,12 +51,18 @@ class Notification extends BorderPane {
     Notification(String title, Node content) {
         requireNotNull(content, "Notification content cannot be blank");
         getStyleClass().add("notification");
+        getStyleClass().addAll(Style.CONTAINER.css());
         setId(UUID.randomUUID().toString());
+        Button closeButton = GlyphsDude.createIconButton(FontAwesomeIcon.TIMES);
+        closeButton.getStyleClass().addAll("close-button");
+        closeButton.setOnAction(e -> eventStudio().broadcast(new RemoveNotificationRequestEvent(getId())));
         Label titleLabel = new Label(title);
+        titleLabel.setPrefWidth(Integer.MAX_VALUE);
         titleLabel.getStyleClass().add("notification-title");
-        content.getStyleClass().add("notification-content");
+        StackPane top = new StackPane(titleLabel, closeButton);
+        top.setAlignment(Pos.TOP_RIGHT);
         BorderPane.setAlignment(content, Pos.CENTER_LEFT);
-        setTop(titleLabel);
+        setTop(top);
         setCenter(content);
         setOpacity(0);
         setOnMouseEntered(e -> {
@@ -63,7 +75,6 @@ class Notification extends BorderPane {
             fade.stop();
             eventStudio().broadcast(new RemoveNotificationRequestEvent(getId()));
         });
-        setOnMouseExited(e -> fadeAway(Duration.millis(2500)));
         fade.setFromValue(1);
         fade.setToValue(0);
     }

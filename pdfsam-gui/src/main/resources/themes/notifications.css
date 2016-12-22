@@ -15,7 +15,6 @@
  	-fx-background-color: -fx-box-border, -pdfsam-tooltipbg-color;
     -fx-background-insets: 0.0, 1.0;
     -fx-background-radius: 0.0, 0.0;
-	-fx-padding: 0.166667em 0.0 0.666667em 0.0 ;
 	-fx-effect: dropshadow(three-pass-box, -pdfsam-dark-text-color, 10.0, 0.0, 0.0, 3.0);
 	-fx-max-width: 26.666666em;
     -fx-min-width: 26.666666em;
@@ -24,11 +23,8 @@
 .notification-title{
 	-fx-font-size: 1.25em;
     -fx-font-weight: bold;
-    -fx-padding: 0.666667em 0.666667em 0.333333em 0.666667em;
-}
-
-.notification-content{
-    -fx-padding: 0.0 8.0 0.0 8.0;
+    -fx-alignment: center-left;
+    -fx-padding: 0.25em 0.666667em 0.333333em 0;
 }
 
 .notification-text{
