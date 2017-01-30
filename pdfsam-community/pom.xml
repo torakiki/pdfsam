@@ -128,25 +128,6 @@
 					</plugin>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-dependency-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>dependencies-list</id>
-								<phase>package</phase>
-								<goals>
-									<goal>list</goal>
-								</goals>
-								<configuration>
-									<outputFile>
-										${project.build.directory}/assembled/resources/DEPENDENCIES
-									</outputFile>
-									<includeScope>compile</includeScope>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-resources-plugin</artifactId>
 						<executions>
 							<execution>
@@ -165,6 +146,10 @@
 													LICENSE.txt
 												</include>
 											</includes>
+										</resource>
+										<resource>
+											<directory>${basedir}/doc</directory>
+											<targetPath>${project.build.directory}/assembled/doc</targetPath>
 										</resource>
 										<resource>
 											<directory>${basedir}/src/main/resources/images/community</directory>
@@ -289,6 +274,16 @@
 											<src>${project.basedir}/src/deb/icon.svg</src>
 											<dst>/opt/pdfsam-basic/icon.svg</dst>
 											<type>file</type>
+										</data>
+										<data>
+											<src>doc</src>
+											<type>directory</type>
+											<mapper>
+												<type>perm</type>
+												<prefix>/opt/pdfsam-basic/doc</prefix>
+												<filemode>644</filemode>
+												<dirmode>755</dirmode>
+											</mapper>
 										</data>
 									</dataSet>
 								</configuration>
