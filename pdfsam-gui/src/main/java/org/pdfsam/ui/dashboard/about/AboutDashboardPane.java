@@ -94,9 +94,6 @@ public class AboutDashboardPane extends HBox {
         });
         left.getChildren().addAll(runtime, memory, copyButton);
 
-        addSectionTitle(DefaultI18nContext.getInstance().i18n("Thanks to"), left);
-        addHyperlink(null, "http://www.pdfsam.org/thanks_to",
-                DefaultI18nContext.getInstance().i18n("The open source projects making PDFsam possible"), left);
         VBox right = new VBox(5);
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Support"), right);
         addHyperlink(FontAwesomeIcon.BUG, pdfsam.property(TRACKER_URL),
