@@ -27,6 +27,7 @@ import org.pdfsam.sound.PlaySoundController;
 import org.pdfsam.ui.MainPane;
 import org.pdfsam.ui.Theme;
 import org.pdfsam.ui.dialog.CreateOutputDirectoryDialogController;
+import org.pdfsam.ui.dialog.LenientTaskExecutionDialogController;
 import org.pdfsam.ui.dialog.OpenWithDialogController;
 import org.pdfsam.ui.dialog.OverwriteDialogController;
 import org.pdfsam.ui.info.InfoStageController;
@@ -46,7 +47,8 @@ import javafx.scene.image.ImageView;
  */
 @Components({ OpenFileController.class, WindowStatusController.class, PlaySoundController.class, MainPane.class,
         NotificationsController.class, InfoStageController.class, OpenWithDialogController.class,
-        OverwriteDialogController.class, CreateOutputDirectoryDialogController.class })
+        OverwriteDialogController.class, CreateOutputDirectoryDialogController.class,
+        LenientTaskExecutionDialogController.class })
 public class PdfsamConfig {
     private static final Logger LOG = LoggerFactory.getLogger(PdfsamConfig.class);
 

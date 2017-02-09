@@ -42,7 +42,7 @@ public final class DefaultUserContext implements UserContext {
     static final String CHECK_FOR_NEWS_PROP = "org.pdfsam.default.checkfornews";
     static final String DONATE_NOTIFICATION_PROP = "org.pdfsam.default.donate.notification";
     static final String PLAY_SOUNDS_PROP = "org.pdfsam.default.play.sounds";
-    static final String FETCH_PREMIUM_MODULES_PROP = "org.pdfsam.default.fetch.premium.modules";    
+    static final String FETCH_PREMIUM_MODULES_PROP = "org.pdfsam.default.fetch.premium.modules";
     static final String LOCALE_PROP = "org.pdfsam.default.locale";
 
     private Preferences prefs;
