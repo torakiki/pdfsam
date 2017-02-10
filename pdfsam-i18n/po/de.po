@@ -578,7 +578,7 @@ msgid "KB"
 msgstr "KB"
 
 msgid "Alternate Mix"
-msgstr "Alternativer Mix"
+msgstr "Alternierendes Mischen"
 
 msgid ""
 "Merge two or more PDF documents taking pages alternately in natural or "
