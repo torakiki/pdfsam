@@ -27,6 +27,8 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.awt.SplashScreen;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Paths;
@@ -72,6 +74,8 @@ import org.sejda.injector.Injector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.sun.javafx.scene.control.skin.TitledPaneSkin;
+
 import javafx.application.Application;
 import javafx.application.HostServices;
 import javafx.application.Platform;
@@ -83,6 +87,7 @@ import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  * PDFsam application
@@ -151,6 +156,7 @@ public class PdfsamApp extends Application {
         initActiveModule();
         loadWorkspaceIfRequired();
         initOpenButtons();
+        setTitledPaneDuration(new Duration(150.0));
         primaryStage.show();
 
         requestCheckForUpdateIfRequired();
@@ -300,6 +306,21 @@ public class PdfsamApp extends Application {
             if (isNotBlank(workspace) && Files.exists(Paths.get(workspace))) {
                 eventStudio().broadcast(new SaveWorkspaceEvent(new File(workspace), true));
             }
+        }
+    }
+
+    private void setTitledPaneDuration(Duration duration) {
+        // yes, this sucks but I guess it's better then copy paste the whole skin just to change the duration
+        try {
+            Field durationField = TitledPaneSkin.class.getField("TRANSITION_DURATION");
+            Field modifiersField = Field.class.getDeclaredField("modifiers");
+            modifiersField.setAccessible(true);
+            modifiersField.setInt(durationField, durationField.getModifiers() & ~Modifier.FINAL);
+
+            durationField.setAccessible(true);
+            durationField.set(TitledPaneSkin.class, duration);
+        } catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e) {
+            LOG.info("Unable to set custom duration for titled pane animation.");
         }
     }
 
