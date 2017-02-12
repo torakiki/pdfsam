@@ -8,10 +8,7 @@ install:
         (new-object System.Net.WebClient).DownloadFile('https://github.com/mlocati/gettext-iconv-windows/releases/download/v0.19.8.1-v1.14/gettext0.19.8.1-iconv1.14-shared-64.zip', 'C:\gettext-bin.zip')
         [System.IO.Compression.ZipFile]::ExtractToDirectory("C:\gettext-bin.zip", "C:\gettext")
       }
-  - echo %PATH%
-  - echo %M2_HOME%      
   - cmd: SET PATH=C:\gettext\bin;%PATH%
-  - echo %PATH%
   - cmd: SET MAVEN_OPTS=-Xmx2g
   - cmd: SET JAVA_OPTS=-Xmx2g
   - cmd: mvn --version
