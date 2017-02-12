@@ -68,7 +68,7 @@ public class PdfDestinationPaneUITest extends GuiTest {
     @Override
     protected Parent getRootNode() {
         BrowsablePdfInputField destination = new BrowsablePdfInputField();
-        PdfDestinationPane victim = new PdfDestinationPane(destination, MODULE, userContext,
+        PdfDestinationPane victim = new PdfDestinationPane(destination, MODULE, userContext, true,
                 DestinationPanelFields.DISCARD_BOOKMARKS);
         victim.getStyleClass().add("victim");
         return victim;

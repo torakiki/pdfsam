@@ -1,0 +1,15 @@
+/**
+ * Advanced destination pane
+ */
+.advanced-destination-pane{
+ 	-fx-effect: none; 
+	-fx-background-color: -advanced_bg;
+    -fx-background-insets: 0.0; 
+} 
+.advanced-destination-pane > .title {
+	-fx-background-color: -advanced_bg;
+}
+.advanced-destination-pane > *.content {
+	-fx-background-color: -advanced_bg;
+	-fx-background-insets: 0.0;
+}

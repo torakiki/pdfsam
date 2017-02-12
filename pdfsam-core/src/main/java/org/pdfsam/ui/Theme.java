@@ -35,7 +35,8 @@ public enum Theme {
         public List<String> styleSheets() {
             return Arrays.asList("/themes/green/theme.css", "/themes/defaults.css", "/themes/progress.css",
                     "/themes/pdfsam.css", "/themes/banner.css", "/themes/quickbar.css", "/themes/notifications.css",
-                    "/themes/dashboard.css", "/themes/news.css", "/themes/menu.css", "/themes/dialogs.css");
+                    "/themes/dashboard.css", "/themes/news.css", "/themes/menu.css", "/themes/dialogs.css",
+                    "/themes/defaults.last.css");
         }
 
         @Override
@@ -48,7 +49,8 @@ public enum Theme {
         public List<String> styleSheets() {
             return Arrays.asList("/themes/cornflower/theme.css", "/themes/defaults.css", "/themes/progress.css",
                     "/themes/pdfsam.css", "/themes/banner.css", "/themes/quickbar.css", "/themes/notifications.css",
-                    "/themes/dashboard.css", "/themes/news.css", "/themes/menu.css", "/themes/dialogs.css");
+                    "/themes/dashboard.css", "/themes/news.css", "/themes/menu.css", "/themes/dialogs.css",
+                    "/themes/defaults.last.css");
         }
 
         @Override
@@ -64,7 +66,8 @@ public enum Theme {
                     "/themes/menu.css", "/themes/news.css", "/themes/dialogs.css", "/themes/roundish/roundish.css",
                     "/themes/roundish/combo.css", "/themes/roundish/progress.css", "/themes/roundish/banner.css",
                     "/themes/quickbar.css", "/themes/roundish/quickbar.css", "/themes/roundish/notifications.css",
-                    "/themes/roundish/news.css", "/themes/roundish/dashboard.css", "/themes/roundish/menu.css");
+                    "/themes/roundish/news.css", "/themes/roundish/dashboard.css", "/themes/roundish/menu.css",
+                    "/themes/defaults.last.css");
         }
 
         @Override

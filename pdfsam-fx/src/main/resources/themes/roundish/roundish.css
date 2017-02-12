@@ -124,7 +124,7 @@
 /**
  * Titled pane
  */
- .titled-pane {
+.titled-pane {
 	-fx-padding: 0.416667em 0.0 0.416667em 0.0;    
 	-fx-effect: -pdfsam-shadow-effect; 
 	-fx-background-color: -pdfsam-box-border-color, -pdfsam-pane-bg;

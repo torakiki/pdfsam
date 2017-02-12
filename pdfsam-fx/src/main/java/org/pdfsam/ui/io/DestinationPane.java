@@ -39,7 +39,7 @@ class DestinationPane extends VBox {
     private BrowsableField destination;
 
     public DestinationPane(BrowsableField destination) {
-        super(5);
+        super(Style.DEFAULT_SPACING);
         requireNotNull(destination, "Destination field cannot be null");
         this.destination = destination;
         overwrite.setSelected(false);

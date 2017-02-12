@@ -18,6 +18,7 @@
 	awesome-error-color: #ED5554;
 	awesome-error-color-hover: derive(awesome-error-color, -35.0%);	
 	-fx-font-smoothing-type: gray;
+	-advanced_bg: #F4F4F4;
 }
 .label, .text, .button {
 	-fx-text-fill: -pdfsam-dark-text-color;
@@ -128,7 +129,7 @@
    	-fx-background-radius:  0.0, 0.0;	
 	-fx-padding: 1.0;
 	-fx-alignment: center-left;
-	-fx-min-width: 24em;
+	-fx-min-width: 24.0em;
 }
 .validable-container:selected {
     -fx-background-color: -pdfsam-theme-color, derive(-pdfsam-light-border-color, -15.0%), -fx-control-inner-background;
@@ -181,7 +182,7 @@
 }
 .browse-button {
     -fx-background-insets:  0.0, 1.0 1.0 1.0 0.0;
-	-fx-padding: 0 11.166666em 0 1.166666em;
+	-fx-padding: 0.0 11.166666em 0.0 1.166666em;
 	-fx-alignment: center;
 }
 .browse-button:focused, .browse-button:default, .browse-button:armed, .browse-button:hover {
@@ -273,6 +274,7 @@
    -fx-background-insets: 0.0, 0.0 1.0 1.0 1.0;
    -fx-background-radius: 0.0, 0.0;
 }
+
 /**
  * TextArea
  */
@@ -362,7 +364,7 @@
     -fx-spacing: 0.416667em;
 }
 .pdfsam-input-password-content .pdfsam-button{
-	-fx-padding: 0 1.166666em 0 1.166666em;
+	-fx-padding: 0.0 1.166666em 0.0 1.166666em;
 }
 /**
  * Help popup
@@ -399,10 +401,10 @@
  * Footer button
  */
  .footer-button, .footer-button:default, .footer-button:focused {
-    -fx-padding: 0.166667em 1.333333em 0.166667em 1em; 
+    -fx-padding: 0.166667em 1.333333em 0.166667em 1.0em; 
 }
  .footer-open-button, .footer-open-button:default, .footer-open-button:focused {
-	-fx-padding: 0.166667em 0 0.166667em 1em;
+	-fx-padding: 0.166667em 0.0 0.166667em 1.0em;
 }
 
 .footer-open-button > .label, .footer-open-button:focused > .label {
