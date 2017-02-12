@@ -43,6 +43,7 @@ class MergeParametersBuilder extends AbstractPdfOutputParametersBuilder<MergePar
     private OutlinePolicy outlinePolicy = OutlinePolicy.RETAIN;
     private boolean blankIfOdd;
     private boolean footer;
+    private boolean normalize;
     private AcroFormPolicy formsPolicy = AcroFormPolicy.MERGE;
     private ToCPolicy tocPolicy = ToCPolicy.NONE;
     private FileTaskOutput output;
@@ -65,6 +66,10 @@ class MergeParametersBuilder extends AbstractPdfOutputParametersBuilder<MergePar
 
     void footer(boolean footer) {
         this.footer = footer;
+    }
+
+    void normalize(boolean normalize) {
+        this.normalize = normalize;
     }
 
     void acroFormsPolicy(AcroFormPolicy formsPolicy) {
@@ -93,6 +98,7 @@ class MergeParametersBuilder extends AbstractPdfOutputParametersBuilder<MergePar
         params.setTableOfContentsPolicy(tocPolicy);
         params.setOutput(output);
         params.setFilenameFooter(footer);
+        params.setNormalizePageSizes(normalize);
         return params;
     }
 

@@ -54,6 +54,7 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
     private ComboBox<KeyStringValueItem<AcroFormPolicy>> acroForms = new ComboBox<>();
     private CheckBox blankIfOdd;
     private CheckBox footer;
+    private CheckBox normalize;
     private ComboBox<KeyStringValueItem<OutlinePolicy>> outline = new ComboBox<>();
     private ComboBox<KeyStringValueItem<ToCPolicy>> toc = new ComboBox<>();
 
@@ -70,6 +71,11 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
         footer.setGraphic(helpIcon(i18n.i18n("Adds a page footer with the name of the file the page belonged to.")));
         footer.getStyleClass().addAll(Style.WITH_HELP.css());
         footer.setId("footerCheck");
+
+        normalize = new CheckBox(i18n.i18n("Normalize pages size"));
+        normalize.setGraphic(helpIcon(i18n.i18n("Resizes all pages to have the same width as the first page.")));
+        normalize.getStyleClass().addAll(Style.WITH_HELP.css());
+        normalize.setId("normalizeCheck");
 
         GridPane options = new GridPane();
 
@@ -110,7 +116,7 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
         options.getStyleClass().addAll(Style.GRID.css());
 
         getStyleClass().addAll(Style.CONTAINER.css());
-        getChildren().addAll(blankIfOdd, footer, options);
+        getChildren().addAll(blankIfOdd, footer, normalize, options);
     }
 
     @Override
@@ -120,6 +126,7 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
         builder.tocPolicy(toc.getSelectionModel().getSelectedItem().getKey());
         builder.blankPageIfOdd(blankIfOdd.isSelected());
         builder.footer(footer.isSelected());
+        builder.normalize(normalize.isSelected());
     }
 
     @Override
@@ -132,6 +139,7 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
                 .orElse(EMPTY));
         data.put("blankIfOdd", Boolean.toString(blankIfOdd.isSelected()));
         data.put("footer", Boolean.toString(footer.isSelected()));
+        data.put("normalize", Boolean.toString(normalize.isSelected()));
     }
 
     @Override
@@ -144,5 +152,6 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
                 .ifPresent(r -> this.toc.getSelectionModel().select(r));
         blankIfOdd.setSelected(Boolean.valueOf(data.get("blankIfOdd")));
         footer.setSelected(Boolean.valueOf(data.get("footer")));
+        normalize.setSelected(Boolean.valueOf(data.get("normalize")));
     }
 }
