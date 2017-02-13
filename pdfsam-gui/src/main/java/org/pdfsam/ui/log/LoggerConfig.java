@@ -19,22 +19,12 @@
 package org.pdfsam.ui.log;
 
 import org.sejda.injector.Components;
-import org.sejda.injector.Prototype;
-import org.sejda.injector.Provides;
-
-import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Components({ LogMessageBroadcaster.class, LogStage.class })
+@Components({ LogStage.class })
 public class LoggerConfig {
-    @Provides
-    @Prototype
-    public PatternLayoutEncoder pattern() {
-        PatternLayoutEncoder encoder = new PatternLayoutEncoder();
-        encoder.setPattern("%-5level %nopex [%d{HH:mm:ss}]: %msg%n%xThrowable{50}");
-        return encoder;
-    }
+    // nothing
 }

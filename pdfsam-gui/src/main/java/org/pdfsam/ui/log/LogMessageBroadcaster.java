@@ -24,11 +24,8 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.util.Scanner;
 
-import javax.inject.Inject;
-
 import org.apache.commons.io.output.WriterOutputStream;
 import org.apache.commons.lang3.StringUtils;
-import org.sejda.injector.Auto;
 import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.Level;
@@ -44,13 +41,11 @@ import ch.qos.logback.core.AppenderBase;
  * @author Andrea Vacondio
  * 
  */
-@Auto
 public class LogMessageBroadcaster extends AppenderBase<ILoggingEvent> {
 
     private PatternLayoutEncoder encoder;
 
-    @Inject
-    LogMessageBroadcaster(PatternLayoutEncoder encoder) {
+    public LogMessageBroadcaster(PatternLayoutEncoder encoder) {
         this.encoder = encoder;
         LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
         encoder.setContext(loggerContext);

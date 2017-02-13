@@ -65,13 +65,8 @@ public class LogStage extends Stage {
         getIcons().addAll(logos);
         setMaximized(true);
         eventStudio().addAnnotatedListeners(this);
-        showingProperty().addListener((v, oldVal, newVal) -> {
-            if (newVal) {
-                eventStudio().add(logView, LOGSTAGE_EVENTSTATION);
-            } else {
-                eventStudio().remove(logView, LOGSTAGE_EVENTSTATION);
-            }
-        });
+        this.onShowingProperty().addListener((o, oldVal, newVal) -> logView.scrollToBottomIfShowing());
+        eventStudio().add(logView, LOGSTAGE_EVENTSTATION);
     }
 
     @EventListener

@@ -67,7 +67,6 @@ import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.pdfsam.update.UpdateCheckRequest;
 import org.sejda.core.Sejda;
-import org.sejda.eventstudio.EventStudio;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.impl.sambox.component.PDDocumentHandler;
 import org.sejda.injector.Injector;
@@ -76,6 +75,7 @@ import org.slf4j.LoggerFactory;
 
 import com.sun.javafx.scene.control.skin.TitledPaneSkin;
 
+import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
 import javafx.application.Application;
 import javafx.application.HostServices;
 import javafx.application.Platform;
@@ -104,11 +104,12 @@ public class PdfsamApp extends Application {
     private List<String> rawParameters;
     private boolean clean;
     private Injector injector;
+    private LogMessageBroadcaster broadcaster;
 
     @Override
     public void init() {
         STOPWATCH.start();
-        System.setProperty(EventStudio.MAX_QUEUE_SIZE_PROP, Integer.toString(userContext.getNumberOfLogRows()));
+        startLogAppender();
         System.setProperty(PDDocumentHandler.SAMBOX_USE_ASYNC_WRITER, Boolean.TRUE.toString());
         System.setProperty(Sejda.UNETHICAL_READ_PROPERTY_NAME, Boolean.TRUE.toString());
         LOG.info("Starting PDFsam");
@@ -142,7 +143,6 @@ public class PdfsamApp extends Application {
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         injector = initInjector();
-        startLogAppender();
         Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger());
         initSejda();
         cleanIfRequired();
@@ -181,7 +181,9 @@ public class PdfsamApp extends Application {
     }
 
     private void startLogAppender() {
-        LogMessageBroadcaster broadcaster = injector.instance(LogMessageBroadcaster.class);
+        PatternLayoutEncoder encoder = new PatternLayoutEncoder();
+        encoder.setPattern("%-5level %nopex [%d{HH:mm:ss}]: %msg%n%xThrowable{50}");
+        broadcaster = new LogMessageBroadcaster(encoder);
         broadcaster.start();
     }
 

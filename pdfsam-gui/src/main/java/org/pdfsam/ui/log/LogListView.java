@@ -19,6 +19,7 @@
 package org.pdfsam.ui.log;
 
 import static java.util.Objects.nonNull;
+import static java.util.Optional.ofNullable;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import javax.inject.Inject;
@@ -28,9 +29,11 @@ import org.pdfsam.ui.support.CircularObservableList;
 import org.sejda.eventstudio.Listener;
 
 import javafx.application.Platform;
+import javafx.scene.Scene;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.stage.Window;
 import javafx.util.Callback;
 
 /**
@@ -76,8 +79,14 @@ class LogListView extends ListView<LogMessage> implements Listener<LogMessage> {
     public void onEvent(LogMessage event) {
         Platform.runLater(() -> {
             getItems().add(event);
-            scrollTo(getItems().size() - 1);
+            scrollToBottomIfShowing();
         });
     }
 
+    public void scrollToBottomIfShowing() {
+        if (!getItems().isEmpty()
+                && ofNullable(this.getScene()).map(Scene::getWindow).map(Window::isShowing).orElse(Boolean.TRUE)) {
+            scrollTo(getItems().size() - 1);
+        }
+    }
 }
