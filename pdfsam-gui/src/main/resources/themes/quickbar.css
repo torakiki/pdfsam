@@ -15,9 +15,13 @@
 	-fx-padding: 0.0 0.0 0.5em 0.0;
 	-fx-alignment: top-right;
 }
-.quickbar-expand-toggle, .quickbar-expand-toggle:focused {
+.quickbar-expand-toggle {
 	-fx-background-color:  -pdfsam-defaultbg-color;
     -fx-background-insets:  0.0;
+}
+.quickbar-expand-toggle:focused {
+	-fx-background-color: -pdfsam-focus-border-color, -pdfsam-defaultbg-color;
+    -fx-background-insets: 0.0, 0.5;
 }
 .quickbar-expand-toggle:armed, .quickbar-expand-toggle:hover {
     -fx-background-color: -pdfsam-hover-color;
