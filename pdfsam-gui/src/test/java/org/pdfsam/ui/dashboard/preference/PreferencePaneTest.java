@@ -38,7 +38,6 @@ import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.HighPriorityTestModule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
-import org.pdfsam.ui.Theme;
 import org.sejda.injector.Injector;
 import org.sejda.injector.Provides;
 
@@ -90,11 +89,8 @@ public class PreferencePaneTest {
     @SuppressWarnings("unchecked")
     public void configOnStartup() {
         PreferencePane victim = injector.instance(PreferencePane.class);
-        PreferenceComboBox<KeyStringValueItem<String>> theme = (PreferenceComboBox<KeyStringValueItem<String>>) victim
-                .lookup("#themeCombo");
         PreferenceComboBox<KeyStringValueItem<String>> startupModuleCombo = (PreferenceComboBox<KeyStringValueItem<String>>) victim
                 .lookup("#startupModuleCombo");
-        assertEquals(Theme.ROUNDISH.friendlyName(), theme.getSelectionModel().getSelectedItem().getValue());
         assertTrue(((PreferenceCheckBox) victim.lookup("#checkForUpdates")).isSelected());
         assertTrue(((PreferenceCheckBox) victim.lookup("#checkForNews")).isSelected());
         assertTrue(((PreferenceCheckBox) victim.lookup("#playSounds")).isSelected());
