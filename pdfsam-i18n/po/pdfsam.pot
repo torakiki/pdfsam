@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2016-10-30 10:54+0100\n"
+"POT-Creation-Date: 2017-02-13 12:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,6 +51,13 @@ msgid "Cancel"
 msgstr ""
 
 msgid "Overwrite"
+msgstr ""
+
+msgid "PDFsam can try to overcome the failure"
+msgstr ""
+
+msgid ""
+"It may result in PDF files with partial or missing data, proceed anyway?"
 msgstr ""
 
 msgid "No"
@@ -149,12 +156,6 @@ msgstr ""
 msgid "Copy to clipboard"
 msgstr ""
 
-msgid "Thanks to"
-msgstr ""
-
-msgid "The open source projects making PDFsam possible"
-msgstr ""
-
 msgid "Support"
 msgstr ""
 
@@ -162,6 +163,9 @@ msgid "Contribute"
 msgstr ""
 
 msgid "Social"
+msgstr ""
+
+msgid "Premium features"
 msgstr ""
 
 msgid "Manually selected"
@@ -222,6 +226,14 @@ msgid ""
 "user to support PDFsam with a donation"
 msgstr ""
 
+msgid "Show premium features"
+msgstr ""
+
+msgid ""
+"Set whether the application should fetch and show premium features "
+"description in the modules dashboard"
+msgstr ""
+
 msgid "Use the selected PDF document directory as output directory"
 msgstr ""
 
@@ -279,12 +291,6 @@ msgid "Language:"
 msgstr ""
 
 msgid "Set your preferred language (restart needed)"
-msgstr ""
-
-msgid "Theme:"
-msgstr ""
-
-msgid "Set your preferred theme (restart needed)"
 msgstr ""
 
 msgid "Startup module:"
@@ -370,6 +376,9 @@ msgstr ""
 msgid "Select the task to perform on the following files"
 msgstr ""
 
+msgid "Task failed"
+msgstr ""
+
 msgid "Directory not empty"
 msgstr ""
 
@@ -395,6 +404,15 @@ msgid "Unable to find the latest available version."
 msgstr ""
 
 msgid "Checking for updates"
+msgstr ""
+
+msgid "Unable to retrieve premium features description"
+msgstr ""
+
+msgid "Fetching premium modules"
+msgstr ""
+
+msgid "Unable to retrieve premium modules"
 msgstr ""
 
 msgid "Fetching latest news"
@@ -646,6 +664,12 @@ msgstr ""
 msgid "Output PDF version:"
 msgstr ""
 
+msgid "Show advanced settings"
+msgstr ""
+
+msgid "Hide advanced settings"
+msgstr ""
+
 #, java-format
 msgid "Version {0}"
 msgstr ""
@@ -769,6 +793,12 @@ msgstr ""
 msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr ""
 
+msgid "Normalize pages size"
+msgstr ""
+
+msgid "Resizes all pages to have the same width as the first page."
+msgstr ""
+
 msgid "Merge fields"
 msgstr ""
 
@@ -865,12 +895,6 @@ msgid "This document is encrypted, click to provide a password."
 msgstr ""
 
 msgid "An error has occurred, click for more details."
-msgstr ""
-
-msgid "Squared green"
-msgstr ""
-
-msgid "Squared cornflower"
 msgstr ""
 
 msgid "Roundish"
