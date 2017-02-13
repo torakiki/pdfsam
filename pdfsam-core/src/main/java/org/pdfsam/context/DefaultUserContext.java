@@ -18,13 +18,10 @@
  */
 package org.pdfsam.context;
 
-import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
-
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.ui.Theme;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -96,12 +93,6 @@ public final class DefaultUserContext implements UserContext {
     @Override
     public int getNumberOfLogRows() {
         return prefs.getInt(IntUserPreference.LOGVIEW_ROWS_NUMBER.toString(), 200);
-    }
-
-    @Override
-    public String getTheme() {
-        return defaultIfBlank(prefs.get(StringUserPreference.THEME.toString(), StringUtils.EMPTY),
-                Theme.ROUNDISH.toString());
     }
 
     @Override

@@ -1,5 +1,12 @@
 .context-menu {
+	 -fx-background-color: -pdfsam-box-border-color, -pdfsam-tooltipbg-color;
+    -fx-background-insets: 0.0, 0.5;
+    -fx-background-radius: 3.0;
+	-fx-effect: -pdfsam-shadow-effect;
     -fx-padding: 0.333333em 0.333333em 0.333333em 0.333333em;
+}
+.menu-item:focused {
+     -fx-background-color: -pdfsam-flat-bg-color;
 }
 .menu > .right-container > .arrow, .menu:focused > .right-container > .arrow {
     -fx-background-color: -pdfsam-dark-text-color;

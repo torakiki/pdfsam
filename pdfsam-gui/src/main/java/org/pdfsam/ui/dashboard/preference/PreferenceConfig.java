@@ -23,9 +23,7 @@ import static org.pdfsam.support.KeyStringValueItem.keyValue;
 import static org.pdfsam.ui.help.HelpUtils.helpIcon;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.inject.Named;
 
@@ -40,7 +38,6 @@ import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.LocaleKeyValueItem;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.support.validation.Validators;
-import org.pdfsam.ui.Theme;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 import org.pdfsam.ui.log.MaxLogRowsChangedEvent;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
@@ -59,19 +56,6 @@ public class PreferenceConfig {
     @Named("localeCombo")
     public PreferenceComboBox<LocaleKeyValueItem> localeCombo(UserContext userContext) {
         return new PreferenceComboBox<>(StringUserPreference.LOCALE, userContext);
-    }
-
-    @Provides
-    @Named("themeCombo")
-    public PreferenceComboBox<KeyStringValueItem<String>> themeCombo(UserContext userContext) {
-        PreferenceComboBox<KeyStringValueItem<String>> themeCombo = new PreferenceComboBox<>(StringUserPreference.THEME,
-                userContext);
-        themeCombo.setId("themeCombo");
-        themeCombo.getItems().addAll(Arrays.stream(Theme.values()).map(t -> keyValue(t.toString(), t.friendlyName()))
-                .collect(Collectors.toList()));
-
-        themeCombo.setValue(keyEmptyValue(userContext.getTheme()));
-        return themeCombo;
     }
 
     @Provides

@@ -9,10 +9,10 @@
     -fx-background-insets: 0.0;
 }
 .news-panel{
-	-fx-background-color: -fx-box-border, -pdfsam-tooltipbg-color;
-    -fx-background-insets: 0.0, 1.0;
-    -fx-background-radius: 0.0, 0.0;
-	-fx-effect: dropshadow(three-pass-box, -pdfsam-dark-text-color, 10.0, 0.0, 0.0, 3.0);
+	-fx-background-color: -pdfsam-box-border-color, -pdfsam-pane-bg;
+    -fx-background-insets: 0.0, 0.4;
+    -fx-background-radius: 3.0;
+	-fx-effect: -pdfsam-shadow-effect;
 	-fx-max-width: 25em;
     -fx-spacing: 0.416667em;
 }

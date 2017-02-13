@@ -68,7 +68,6 @@ public class PreferencePaneTest {
         @Provides
         public UserContext userContext() {
             UserContext userContext = mock(UserContext.class);
-            when(userContext.getTheme()).thenReturn(Theme.ROUNDISH.toString());
             when(userContext.isCheckForUpdates()).thenReturn(Boolean.TRUE);
             when(userContext.isCheckForNews()).thenReturn(Boolean.TRUE);
             when(userContext.isPlaySounds()).thenReturn(Boolean.TRUE);

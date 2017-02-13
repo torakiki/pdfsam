@@ -87,11 +87,6 @@ public interface UserContext {
     int getNumberOfLogRows();
 
     /**
-     * @return the name of the configured theme
-     */
-    String getTheme();
-
-    /**
      * @return the module to load at application startup
      */
     String getStartupModule();

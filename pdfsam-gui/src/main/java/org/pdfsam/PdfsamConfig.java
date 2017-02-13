@@ -36,8 +36,6 @@ import org.sejda.injector.Auto;
 import org.sejda.injector.Components;
 import org.sejda.injector.Prototype;
 import org.sejda.injector.Provides;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javafx.scene.image.ImageView;
 
@@ -50,7 +48,6 @@ import javafx.scene.image.ImageView;
         OverwriteDialogController.class, CreateOutputDirectoryDialogController.class,
         LenientTaskExecutionDialogController.class })
 public class PdfsamConfig {
-    private static final Logger LOG = LoggerFactory.getLogger(PdfsamConfig.class);
 
     @Provides
     @Named("errorSound")
@@ -78,13 +75,6 @@ public class PdfsamConfig {
 
     @Provides
     public StylesConfig styles() {
-        String themeString = userContext().getTheme();
-        Theme selected = Theme.ROUNDISH;
-        try {
-            selected = Theme.valueOf(themeString);
-        } catch (IllegalArgumentException e) {
-            LOG.warn("Unable to find selected theme: {}.", themeString);
-        }
-        return new StylesConfig(selected);
+        return new StylesConfig(Theme.ROUNDISH);
     }
 }

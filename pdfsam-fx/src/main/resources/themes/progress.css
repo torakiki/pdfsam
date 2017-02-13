@@ -33,22 +33,25 @@
    -fx-pref-height: 0.416667em;
 }
 .footer-pane  .progress-bar > .bar {
-  	-fx-background-color:  -pdfsam-light-border-color, -pdfsam-theme-color;
-  	-fx-background-insets: 0.0, 0.083333em;
-   	-fx-background-radius:  0.0, 0.0;				
+  	-fx-background-color:  -pdfsam-theme-color;
+  	-fx-background-insets: 0.0;
+   	-fx-background-radius:  0.166667em;				
 }
 .footer-pane  .progress-bar:indeterminate > .bar {
-  	-fx-background-color:  derive(-pdfsam-theme-color, 90.0% );
+  	-fx-background-color:  -pdfsam-theme-color;
   	-fx-background-insets: 0.0;
-   	-fx-background-radius:  0.0;		
+   	-fx-background-radius:  0.166667em;			
 }
 .footer-pane  .progress-bar:indeterminate > .track {  	
-  	-fx-background-color:  -pdfsam-light-border-color, white;
-  	-fx-background-insets: 0.0, 0.083333em;
-   	-fx-background-radius:  0.0, 0.0;		
+  	-fx-background-color:  -pdfsam-progress-color;
+  	-fx-background-insets: 0.0;
+   	-fx-background-radius:  0.166667em;				
 }
 .footer-pane  .progress-bar > .track {
-  	-fx-background-color:  -pdfsam-light-border-color, white;
-  	-fx-background-insets: 0.0, 0.083333em;
-   	-fx-background-radius:  0.0, 0.0;		
+  	-fx-background-color:  -pdfsam-progress-color;
+  	-fx-background-insets: 0.0;
+   	-fx-background-radius:  0.166667em;			
+}
+.progress-pane .status-label {
+	-fx-background-radius: 0.166667em;	
 }

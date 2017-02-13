@@ -1,6 +1,0 @@
-.news-panel{
-	-fx-background-color: -pdfsam-box-border-color, -pdfsam-pane-bg;
-    -fx-background-insets: 0.0, 0.4;
-    -fx-background-radius: 3.0;
-	-fx-effect: -pdfsam-shadow-effect;
-}

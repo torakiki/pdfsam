@@ -46,7 +46,6 @@ class PreferenceAppearencePane extends GridPane {
 
     @Inject
     public PreferenceAppearencePane(@Named("localeCombo") PreferenceComboBox<LocaleKeyValueItem> localeCombo,
-            @Named("themeCombo") PreferenceComboBox<KeyStringValueItem<String>> themeCombo,
             @Named("startupModuleCombo") PreferenceComboBox<KeyStringValueItem<String>> startupModuleCombo,
             ClearStatisticsButton clearStatsButton) {
         I18nContext i18n = DefaultI18nContext.getInstance();
@@ -63,17 +62,11 @@ class PreferenceAppearencePane extends GridPane {
         add(localeCombo, 1, 0);
         add(helpIcon(i18n.i18n("Set your preferred language (restart needed)")), 2, 0);
 
-        add(new Label(i18n.i18n("Theme:")), 0, 1);
-        themeCombo.setMaxWidth(Double.POSITIVE_INFINITY);
-        setFillWidth(themeCombo, true);
-        add(themeCombo, 1, 1);
-        add(helpIcon(i18n.i18n("Set your preferred theme (restart needed)")), 2, 1);
-
-        add(new Label(i18n.i18n("Startup module:")), 0, 2);
+        add(new Label(i18n.i18n("Startup module:")), 0, 1);
         startupModuleCombo.setMaxWidth(Double.POSITIVE_INFINITY);
         setFillWidth(startupModuleCombo, true);
-        add(startupModuleCombo, 1, 2);
-        add(helpIcon(i18n.i18n("Set the module to open at application startup (restart needed)")), 2, 2);
+        add(startupModuleCombo, 1, 1);
+        add(helpIcon(i18n.i18n("Set the module to open at application startup (restart needed)")), 2, 1);
 
         GridPane statsPane = new GridPane();
         statsPane.add(clearStatsButton, 0, 0);

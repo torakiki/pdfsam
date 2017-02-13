@@ -26,7 +26,6 @@ import static org.junit.Assert.assertTrue;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.pdfsam.ui.Theme;
 
 /**
  * Test unit for the {@link DefaultUserContext}.
@@ -181,14 +180,6 @@ public class DefaultUserContextTest {
         victim.setStringPreference(StringUserPreference.LOCALE, "");
         assertTrue(isBlank(victim.getLocale()));
         System.clearProperty(DefaultUserContext.LOCALE_PROP);
-    }
-
-    @Test
-    public void getTheme() {
-        victim.setStringPreference(StringUserPreference.THEME, "ChuckNorris");
-        assertEquals("ChuckNorris", victim.getTheme());
-        victim.setStringPreference(StringUserPreference.THEME, "");
-        assertEquals(Theme.ROUNDISH.toString(), victim.getTheme());
     }
 
     @Test

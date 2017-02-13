@@ -30,44 +30,14 @@ import org.pdfsam.i18n.DefaultI18nContext;
  *
  */
 public enum Theme {
-    GREEN {
-        @Override
-        public List<String> styleSheets() {
-            return Arrays.asList("/themes/green/theme.css", "/themes/defaults.css", "/themes/progress.css",
-                    "/themes/pdfsam.css", "/themes/banner.css", "/themes/quickbar.css", "/themes/notifications.css",
-                    "/themes/dashboard.css", "/themes/news.css", "/themes/menu.css", "/themes/dialogs.css",
-                    "/themes/defaults.last.css");
-        }
 
-        @Override
-        public String friendlyName() {
-            return DefaultI18nContext.getInstance().i18n("Squared green");
-        }
-    },
-    CORNFLOWER {
-        @Override
-        public List<String> styleSheets() {
-            return Arrays.asList("/themes/cornflower/theme.css", "/themes/defaults.css", "/themes/progress.css",
-                    "/themes/pdfsam.css", "/themes/banner.css", "/themes/quickbar.css", "/themes/notifications.css",
-                    "/themes/dashboard.css", "/themes/news.css", "/themes/menu.css", "/themes/dialogs.css",
-                    "/themes/defaults.last.css");
-        }
-
-        @Override
-        public String friendlyName() {
-            return DefaultI18nContext.getInstance().i18n("Squared cornflower");
-        }
-    },
     ROUNDISH {
         @Override
         public List<String> styleSheets() {
-            return Arrays.asList("/themes/roundish/theme.css", "/themes/defaults.css", "/themes/progress.css",
-                    "/themes/pdfsam.css", "/themes/banner.css", "/themes/notifications.css", "/themes/dashboard.css",
-                    "/themes/menu.css", "/themes/news.css", "/themes/dialogs.css", "/themes/roundish/roundish.css",
-                    "/themes/roundish/combo.css", "/themes/roundish/progress.css", "/themes/roundish/banner.css",
-                    "/themes/quickbar.css", "/themes/roundish/quickbar.css", "/themes/roundish/notifications.css",
-                    "/themes/roundish/news.css", "/themes/roundish/dashboard.css", "/themes/roundish/menu.css",
-                    "/themes/defaults.last.css");
+            return Arrays.asList("/themes/defaults.css", "/themes/progress.css", "/themes/pdfsam.css",
+                    "/themes/news.css", "/themes/dialogs.css", "/themes/combo.css", "/themes/progress.css",
+                    "/themes/banner.css", "/themes/quickbar.css", "/themes/notifications.css", "/themes/dashboard.css",
+                    "/themes/menu.css", "/themes/defaults.last.css");
         }
 
         @Override

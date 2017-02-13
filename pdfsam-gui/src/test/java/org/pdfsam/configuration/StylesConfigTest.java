@@ -42,7 +42,7 @@ public class StylesConfigTest {
 
     @Test
     public void nonNullArg() {
-        StylesConfig victim = new StylesConfig(Theme.GREEN);
+        StylesConfig victim = new StylesConfig(Theme.ROUNDISH);
         assertFalse(victim.styles().isEmpty());
     }
 }

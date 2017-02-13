@@ -48,10 +48,10 @@ public class PreferenceSetterOnValidStateTest {
 
     @Test
     public void changed() {
-        PreferenceSetterOnValidState victim = new PreferenceSetterOnValidState(StringUserPreference.THEME,
+        PreferenceSetterOnValidState victim = new PreferenceSetterOnValidState(StringUserPreference.STARTUP_MODULE,
                 new ValidableTextField("testText"), userContext);
         victim.changed(null, ValidationState.NOT_VALIDATED, ValidationState.VALID);
-        verify(userContext).setStringPreference(StringUserPreference.THEME, "testText");
+        verify(userContext).setStringPreference(StringUserPreference.STARTUP_MODULE, "testText");
 
     }
 }

@@ -61,7 +61,6 @@ class DashboardTile extends VBox {
 
         armed.bind(button.armedProperty());
         getChildren().addAll(new StackPane(topTile, button));
-        getStyleClass().add("dashboard-modules-tile-inner");
         setMaxHeight(USE_PREF_SIZE);
         setMinHeight(USE_PREF_SIZE);
     }

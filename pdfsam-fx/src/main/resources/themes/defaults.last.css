@@ -13,3 +13,46 @@
 	-fx-background-color: -advanced_bg;
 	-fx-background-insets: 0.0;
 }
+/**
+ * Footer button
+ */
+.footer-button, .footer-button:default, .footer-button:focused {
+    -fx-padding: 0.166667em 1.333333em 0.166667em 1.0em;
+}
+.footer-open-button, .footer-open-button:default, .footer-open-button:focused {
+	-fx-padding: 0.0 0.0 0.0 1.0em;
+	-fx-background-radius: 0.25em;
+}
+
+.footer-open-button > .label, .footer-open-button:focused > .label {
+    -fx-text-fill: -fx-text-base-color;
+   	-fx-background-color:  transparent;
+    -fx-background-insets:0.0;
+    -fx-background-radius: 0.0;
+	-fx-padding: 0.0 0.5em 0.0 0.5em; 
+}
+.footer-open-button > .arrow-button {
+   -fx-background-color:  transparent;
+   -fx-background-radius: 0.0 0.25em 0.25em 0.0;
+   -fx-background-insets: 0.0;
+}
+.footer-open-button > .arrow-button:hover{
+   -fx-background-color:  -pdfsam-hover-color;
+   -fx-background-radius: 0.0 0.25em 0.25em 0.0;
+   -fx-background-insets: 0.0;
+}
+.footer-open-button > .arrow-button:pressed{
+	-fx-background-color: -pdfsam-armed-button-color;
+    -fx-opacity: 0.85;
+}
+/**
+ * Browse button
+ */
+.browse-button {
+	-fx-padding: 0.0 1.166666em 0.0 1.166666em;
+	-fx-alignment: center;
+}
+.browsable-field{
+	-fx-alignment: center-left;
+	-fx-spacing: 0.416667em;
+}
