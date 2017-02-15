@@ -30,6 +30,7 @@ import org.pdfsam.ui.selection.multiple.LoadingColumn;
 import org.pdfsam.ui.selection.multiple.LongColumn;
 import org.pdfsam.ui.selection.multiple.MultipleSelectionPane;
 import org.pdfsam.ui.selection.multiple.PaceColumn;
+import org.pdfsam.ui.selection.multiple.PageRangesColumn;
 import org.pdfsam.ui.selection.multiple.ReverseColumn;
 import org.pdfsam.ui.selection.multiple.SelectionTableRowData;
 import org.pdfsam.ui.selection.multiple.TableColumnProvider;
@@ -43,8 +44,12 @@ public class AlternateMixSelectionPane extends MultipleSelectionPane
         implements TaskParametersBuildStep<AlternateMixParametersBuilder> {
 
     public AlternateMixSelectionPane(String ownerModule) {
-        super(ownerModule, true, true, new TableColumnProvider<?>[] { new LoadingColumn(ownerModule), FileColumn.NAME,
-                LongColumn.SIZE, IntColumn.PAGES, LongColumn.LAST_MODIFIED, new PaceColumn(), new ReverseColumn() });
+        super(ownerModule, true, true,
+                new TableColumnProvider<?>[] { new LoadingColumn(ownerModule), FileColumn.NAME, LongColumn.SIZE,
+                        IntColumn.PAGES, LongColumn.LAST_MODIFIED,
+                        new PageRangesColumn(DefaultI18nContext.getInstance()
+                                .i18n("Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)")),
+                        new PaceColumn(), new ReverseColumn() });
     }
 
     @Override
@@ -55,8 +60,10 @@ public class AlternateMixSelectionPane extends MultipleSelectionPane
             for (SelectionTableRowData row : table().getItems()) {
                 String step = defaultIfBlank(row.pace.get(), "1").trim();
                 if (step.matches("[1-9]\\d*")) {
-                    builder.addInput(new PdfMixInput(row.descriptor().toPdfFileSource(), row.reverse.get(),
-                            Integer.parseInt(step)));
+                    PdfMixInput input = new PdfMixInput(row.descriptor().toPdfFileSource(), row.reverse.get(),
+                            Integer.parseInt(step));
+                    input.addAllPageRanges(row.toPageRangeSet());
+                    builder.addInput(input);
                 } else {
                     onError.accept(DefaultI18nContext.getInstance().i18n("Select a positive integer number as pace"));
                     break;

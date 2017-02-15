@@ -18,7 +18,9 @@
  */
 package org.pdfsam.alternatemix;
 
+import static org.hamcrest.Matchers.contains;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
@@ -98,12 +100,14 @@ public class AlternateMixSelectionPaneTest {
         when(builder.hasInput()).thenReturn(Boolean.TRUE);
         victim.table().getItems().get(0).reverse.set(true);
         victim.table().getItems().get(0).pace.set("3");
+        victim.table().getItems().get(0).pageSelection.set("3-5,8");
         victim.apply(builder, onError);
         verify(onError, never()).accept(anyString());
         ArgumentCaptor<PdfMixInput> input = ArgumentCaptor.forClass(PdfMixInput.class);
         verify(builder).addInput(input.capture());
         assertEquals(3, input.getValue().getStep());
         assertTrue(input.getValue().isReverse());
+        assertThat(input.getValue().getPages(10), contains(3, 4, 5, 8));
     }
 
     private void populate() throws Exception {
