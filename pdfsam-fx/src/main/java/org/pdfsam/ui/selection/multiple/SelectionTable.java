@@ -54,6 +54,8 @@ import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.pdfsam.ui.commons.OpenFileRequest;
 import org.pdfsam.ui.commons.RemoveSelectedEvent;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
+import org.pdfsam.ui.notification.AddNotificationRequestEvent;
+import org.pdfsam.ui.notification.NotificationType;
 import org.pdfsam.ui.selection.PasswordFieldPopup;
 import org.pdfsam.ui.selection.ShowPasswordFieldPopupRequest;
 import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
@@ -358,6 +360,11 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
                     .map(PdfDocumentDescriptor::newDescriptorNoPassword).forEach(loadEvent::add);
             if (!loadEvent.getDocuments().isEmpty()) {
                 eventStudio().broadcast(loadEvent, getOwnerModule());
+            } else {
+                eventStudio().broadcast(new AddNotificationRequestEvent(NotificationType.WARN,
+                        DefaultI18nContext.getInstance()
+                                .i18n("Drag and drop PDF files or directories containing PDF files"),
+                        DefaultI18nContext.getInstance().i18n("No PDF found")));
             }
             e.setDropCompleted(true);
         };
