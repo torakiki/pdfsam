@@ -102,6 +102,16 @@ public class PdfDestinationPaneTest {
     }
 
     @Test
+    public void reset() {
+        destination.getTextField().setText("ChuckNorris");
+        victim.overwrite().setSelected(true);
+        victim.resetView();
+        assertEquals("", destination.getTextField().getText());
+        assertFalse(victim.overwrite().isSelected());
+
+    }
+
+    @Test
     public void dontSetFallbackDestinationIfNoSmartOutput() throws IOException {
         File footprint = folder.newFile("test.pdf");
         SetDestinationRequest event = SetDestinationRequest.requestFallbackDestination(footprint, MODULE);

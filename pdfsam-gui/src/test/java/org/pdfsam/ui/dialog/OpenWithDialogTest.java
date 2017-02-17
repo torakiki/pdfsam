@@ -40,7 +40,7 @@ import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.ui.InputPdfArgumentsLoadRequest;
-import org.pdfsam.ui.commons.ClearSelectionEvent;
+import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.sejda.eventstudio.Listener;
 
@@ -72,8 +72,8 @@ public class OpenWithDialogTest extends GuiTest {
 
     @Test
     public void singleArg() throws IOException {
-        Listener<ClearSelectionEvent> clearListener = mock(Listener.class);
-        eventStudio().add(ClearSelectionEvent.class, clearListener, module.id());
+        Listener<ClearModuleEvent> clearListener = mock(Listener.class);
+        eventStudio().add(ClearModuleEvent.class, clearListener, module.id());
         Listener<SetActiveModuleRequest> activeModuleListener = mock(Listener.class);
         eventStudio().add(SetActiveModuleRequest.class, activeModuleListener);
         Listener<PdfLoadRequestEvent> loadRequestListener = mock(Listener.class);

@@ -56,7 +56,7 @@ import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.HitTestListener;
-import org.pdfsam.ui.commons.ClearSelectionEvent;
+import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.pdfsam.ui.commons.OpenFileRequest;
 import org.pdfsam.ui.commons.RemoveSelectedEvent;
 import org.pdfsam.ui.commons.SetDestinationRequest;
@@ -263,7 +263,7 @@ public class SelectionTableTest extends GuiTest {
         SelectionTable victim = find("#victim");
         assertEquals(1, victim.getSelectionModel().getSelectedIndices().size());
         FXTestUtils.invokeAndWait(() -> {
-            eventStudio().broadcast(new ClearSelectionEvent(), MODULE);
+            eventStudio().broadcast(new ClearModuleEvent(), MODULE);
         }, 2);
         assertTrue(victim.getSelectionModel().getSelectedIndices().isEmpty());
     }
@@ -331,7 +331,7 @@ public class SelectionTableTest extends GuiTest {
         rightClick("temp.pdf");
         click(DefaultI18nContext.getInstance().i18n("Duplicate"));
         FXTestUtils.invokeAndWait(() -> {
-            eventStudio().broadcast(new ClearSelectionEvent(), MODULE);
+            eventStudio().broadcast(new ClearModuleEvent(), MODULE);
         }, 2);
         assertFalse(item.get().descriptor().hasReferences());
     }

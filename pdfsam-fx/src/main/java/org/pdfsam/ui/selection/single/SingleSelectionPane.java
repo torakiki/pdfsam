@@ -44,7 +44,7 @@ import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfDocumentDescriptorProvider;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.io.FileType;
-import org.pdfsam.ui.commons.ClearSelectionEvent;
+import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.pdfsam.ui.commons.OpenFileRequest;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.pdfsam.ui.commons.ShowStageRequest;
@@ -268,7 +268,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
                 e -> Platform.runLater(() -> eventStudio().broadcast(new ShowPdfDescriptorRequest(descriptor))));
 
         removeSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Remove"), MaterialDesignIcon.MINUS);
-        removeSelected.setOnAction(e -> eventStudio().broadcast(new ClearSelectionEvent(), getOwnerModule()));
+        removeSelected.setOnAction(e -> eventStudio().broadcast(new ClearModuleEvent(), getOwnerModule()));
 
         MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set destination"),
                 MaterialIcon.FLIGHT_LAND);
@@ -290,7 +290,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
     }
 
     @EventListener
-    public void onClearSelected(ClearSelectionEvent event) {
+    public void onClearSelected(ClearModuleEvent event) {
         field.getTextField().setText("");
         disableRemoveMenuItemIfNeeded();
     }

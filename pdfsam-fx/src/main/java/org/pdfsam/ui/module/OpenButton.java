@@ -36,7 +36,7 @@ import org.pdfsam.module.ModuleInputOutputType;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
-import org.pdfsam.ui.commons.ClearSelectionEvent;
+import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.pdfsam.ui.commons.OpenFileRequest;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.ReferenceStrength;
@@ -56,6 +56,7 @@ import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitMenuButton;
+
 /**
  * Button to open the latest manipulation result
  * 
@@ -76,7 +77,7 @@ public class OpenButton extends SplitMenuButton implements TaskOutputDispatcher 
         this.ownerModule = defaultString(ownerModule);
         setId(ownerModule + ".openButton");
         getStyleClass().addAll(Style.BUTTON.css());
-        getStyleClass().add("footer-open-button");
+        getStyleClass().addAll("pdfsam-split-button", "footer-open-button");
         setText(DefaultI18nContext.getInstance().i18n("Open"));
         setMaxHeight(Double.MAX_VALUE);
         setPrefHeight(Double.MAX_VALUE);
@@ -141,7 +142,7 @@ public class OpenButton extends SplitMenuButton implements TaskOutputDispatcher 
         private OpenWithMenuItem(Module module) {
             setText(module.descriptor().getName());
             setOnAction((e) -> {
-                eventStudio().broadcast(new ClearSelectionEvent(), module.id());
+                eventStudio().broadcast(new ClearModuleEvent(), module.id());
                 eventStudio().broadcast(activeteModule(module.id()));
                 PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(module.id());
                 latestOutput.stream().map(PdfDocumentDescriptor::newDescriptorNoPassword).forEach(loadEvent::add);

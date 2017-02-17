@@ -211,6 +211,34 @@
     -fx-effect: none;
 }
 /**
+ * split button
+ */
+.pdfsam-split-button, .pdfsam-split-button:default, .pdfsam-split-button:focused {
+	-fx-padding: 0.0 0.0 0.0 1.166666em;
+	-fx-background-radius: 0.25em;
+}
+.pdfsam-split-button > .label, .pdfsam-split-button:focused > .label {
+    -fx-text-fill: -fx-text-base-color;
+   	-fx-background-color:  transparent;
+    -fx-background-insets:0.0;
+    -fx-background-radius: 0.0;
+	-fx-padding: 0.583333em 0.5em 0.583333em 0.5em; 
+}
+.pdfsam-split-button > .arrow-button {
+   -fx-background-color:  transparent;
+   -fx-background-radius: 0.0 0.25em 0.25em 0.0;
+   -fx-background-insets: 0.0;
+}
+.pdfsam-split-button > .arrow-button:hover{
+   -fx-background-color:  -pdfsam-hover-color;
+   -fx-background-radius: 0.0 0.25em 0.25em 0.0;
+   -fx-background-insets: 0.0;
+}
+.pdfsam-split-button > .arrow-button:pressed{
+	-fx-background-color: -pdfsam-armed-button-color;
+    -fx-opacity: 0.85;
+}
+/**
  * Checkbox
  */
 .check-box > .box {

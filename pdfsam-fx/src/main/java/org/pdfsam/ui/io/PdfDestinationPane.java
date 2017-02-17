@@ -37,6 +37,7 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.support.params.AbstractPdfOutputParametersBuilder;
 import org.pdfsam.support.params.TaskParametersBuildStep;
+import org.pdfsam.ui.ResettableView;
 import org.pdfsam.ui.commons.SetDestinationRequest;
 import org.pdfsam.ui.io.PdfVersionCombo.DefaultPdfVersionComboItem;
 import org.pdfsam.ui.support.Style;
@@ -60,7 +61,7 @@ import javafx.scene.layout.VBox;
  * @author Andrea Vacondio
  * 
  */
-public class PdfDestinationPane extends DestinationPane implements ModuleOwned, RestorableView,
+public class PdfDestinationPane extends DestinationPane implements ModuleOwned, RestorableView, ResettableView,
         TaskParametersBuildStep<AbstractPdfOutputParametersBuilder<? extends AbstractPdfOutputParameters>> {
 
     private PdfVersionCombo version;
@@ -87,6 +88,7 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned, 
         compress = new PdfVersionConstrainedCheckBox(PdfVersion.VERSION_1_5, ownerModule);
         compress.setText(DefaultI18nContext.getInstance().i18n("Compress output file/files"));
         compress.setSelected(true);
+        compress.setId("compressField");
         compress.getStyleClass().addAll(Style.VITEM.css());
 
         if (asList(optionalFields).contains(DestinationPanelFields.DISCARD_BOOKMARKS)) {
@@ -138,6 +140,14 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned, 
     }
 
     @Override
+    public void resetView() {
+        super.resetView();
+        version.resetView();
+        compress.setSelected(true);
+        discardBookmarks.ifPresent(c -> c.setSelected(false));
+    }
+
+    @Override
     public void apply(AbstractPdfOutputParametersBuilder<? extends AbstractPdfOutputParameters> builder,
             Consumer<String> onError) {
         builder.compress(compress.isSelected());
@@ -162,7 +172,7 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned, 
 
     @Override
     public void restoreStateFrom(Map<String, String> data) {
-        version.initializeState();
+        version.resetView();
         compress.setSelected(Boolean.valueOf(data.get("compress")));
         overwrite().setSelected(Boolean.valueOf(data.get("overwrite")));
         discardBookmarks.ifPresent(d -> {

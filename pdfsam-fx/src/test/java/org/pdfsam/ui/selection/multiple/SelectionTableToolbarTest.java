@@ -21,6 +21,8 @@ package org.pdfsam.ui.selection.multiple;
 import static java.util.Arrays.asList;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.pdfsam.ui.selection.multiple.SelectionChangedEvent.select;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
@@ -30,15 +32,17 @@ import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.loadui.testfx.utils.FXTestUtils;
+import org.mockito.ArgumentCaptor;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.HitTestListener;
-import org.pdfsam.ui.commons.ClearSelectionEvent;
+import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.pdfsam.ui.commons.RemoveSelectedEvent;
 import org.pdfsam.ui.selection.multiple.SelectionTableToolbar.ClearButton;
 import org.pdfsam.ui.selection.multiple.SelectionTableToolbar.MoveDownButton;
 import org.pdfsam.ui.selection.multiple.SelectionTableToolbar.MoveUpButton;
 import org.pdfsam.ui.selection.multiple.SelectionTableToolbar.RemoveButton;
 import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
+import org.sejda.eventstudio.Listener;
 
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -63,10 +67,20 @@ public class SelectionTableToolbarTest extends GuiTest {
 
     @Test
     public void clear() {
-        HitTestListener<ClearSelectionEvent> listener = new HitTestListener<>();
-        eventStudio().add(ClearSelectionEvent.class, listener, MODULE);
+        HitTestListener<ClearModuleEvent> listener = new HitTestListener<>();
+        eventStudio().add(ClearModuleEvent.class, listener, MODULE);
         click(b -> b instanceof ClearButton);
         assertTrue(listener.isHit());
+    }
+
+    @Test
+    public void clearAllSettings() {
+        Listener<ClearModuleEvent> listener = mock(Listener.class);
+        ArgumentCaptor<ClearModuleEvent> captor = ArgumentCaptor.forClass(ClearModuleEvent.class);
+        eventStudio().add(ClearModuleEvent.class, listener, MODULE);
+        click(".arrow-button").click(".menu-item");
+        verify(listener).onEvent(captor.capture());
+        assertTrue(captor.getValue().clearEverything);
     }
 
     @Test

@@ -21,7 +21,6 @@ package org.pdfsam.rotate;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.pdfsam.support.KeyStringValueItem.keyEmptyValue;
 import static org.pdfsam.support.KeyStringValueItem.keyValue;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Map;
 import java.util.Optional;
@@ -30,6 +29,7 @@ import java.util.function.Consumer;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.params.TaskParametersBuildStep;
+import org.pdfsam.ui.ResettableView;
 import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
@@ -45,36 +45,41 @@ import javafx.scene.layout.HBox;
  * @author Andrea Vacondio
  *
  */
-class RotateOptionsPane extends HBox implements TaskParametersBuildStep<RotateParametersBuilder>, RestorableView {
+class RotateOptionsPane extends HBox
+        implements TaskParametersBuildStep<RotateParametersBuilder>, RestorableView, ResettableView {
 
     private ComboBox<KeyStringValueItem<PredefinedSetOfPages>> rotationType = new ComboBox<>();
     private ComboBox<KeyStringValueItem<Rotation>> rotation = new ComboBox<>();
 
     RotateOptionsPane() {
         super(Style.DEFAULT_SPACING);
-        this.rotationType.getItems().add(
-                keyValue(PredefinedSetOfPages.ALL_PAGES, DefaultI18nContext.getInstance().i18n("All pages")));
-        this.rotationType.getItems().add(
-                keyValue(PredefinedSetOfPages.EVEN_PAGES, DefaultI18nContext.getInstance().i18n("Even pages")));
-        this.rotationType.getItems().add(
-                keyValue(PredefinedSetOfPages.ODD_PAGES, DefaultI18nContext.getInstance().i18n("Odd pages")));
-        this.rotationType.getSelectionModel().selectFirst();
+        this.rotationType.getItems()
+                .add(keyValue(PredefinedSetOfPages.ALL_PAGES, DefaultI18nContext.getInstance().i18n("All pages")));
+        this.rotationType.getItems()
+                .add(keyValue(PredefinedSetOfPages.EVEN_PAGES, DefaultI18nContext.getInstance().i18n("Even pages")));
+        this.rotationType.getItems()
+                .add(keyValue(PredefinedSetOfPages.ODD_PAGES, DefaultI18nContext.getInstance().i18n("Odd pages")));
         this.rotationType.setId("rotationType");
 
-        this.rotation.getItems().add(
-                keyValue(Rotation.DEGREES_90, DefaultI18nContext.getInstance().i18n("90 degrees clockwise")));
-        this.rotation.getItems().add(
-                keyValue(Rotation.DEGREES_180, DefaultI18nContext.getInstance().i18n("180 degrees clockwise")));
+        this.rotation.getItems()
+                .add(keyValue(Rotation.DEGREES_90, DefaultI18nContext.getInstance().i18n("90 degrees clockwise")));
+        this.rotation.getItems()
+                .add(keyValue(Rotation.DEGREES_180, DefaultI18nContext.getInstance().i18n("180 degrees clockwise")));
         this.rotation.getItems().add(
                 keyValue(Rotation.DEGREES_270, DefaultI18nContext.getInstance().i18n("90 degrees counterclockwise")));
-        this.rotation.getSelectionModel().selectFirst();
         this.rotation.setId("rotation");
 
         getStyleClass().addAll(Style.HCONTAINER.css());
         getStyleClass().addAll(Style.CONTAINER.css());
+        resetView();
         getChildren().addAll(new Label(DefaultI18nContext.getInstance().i18n("Rotate ")), this.rotationType,
                 this.rotation);
-        eventStudio().addAnnotatedListeners(this);
+    }
+
+    @Override
+    public void resetView() {
+        this.rotationType.getSelectionModel().selectFirst();
+        this.rotation.getSelectionModel().selectFirst();
     }
 
     @Override
@@ -85,12 +90,10 @@ class RotateOptionsPane extends HBox implements TaskParametersBuildStep<RotatePa
 
     @Override
     public void saveStateTo(Map<String, String> data) {
-        data.put("rotation",
-                Optional.ofNullable(rotation.getSelectionModel().getSelectedItem()).map(i -> i.getKey().toString())
-                        .orElse(EMPTY));
-        data.put("rotationType",
-                Optional.ofNullable(rotationType.getSelectionModel().getSelectedItem()).map(i -> i.getKey().toString())
-                        .orElse(EMPTY));
+        data.put("rotation", Optional.ofNullable(rotation.getSelectionModel().getSelectedItem())
+                .map(i -> i.getKey().toString()).orElse(EMPTY));
+        data.put("rotationType", Optional.ofNullable(rotationType.getSelectionModel().getSelectedItem())
+                .map(i -> i.getKey().toString()).orElse(EMPTY));
     }
 
     @Override

@@ -98,4 +98,20 @@ public class RotateOptionsPaneTest extends GuiTest {
         assertEquals(Rotation.DEGREES_270, rotation.getSelectionModel().getSelectedItem().getKey());
         assertEquals(PredefinedSetOfPages.EVEN_PAGES, rotationType.getSelectionModel().getSelectedItem().getKey());
     }
+
+    @Test
+    public void reset() throws Exception {
+        ComboBox<KeyStringValueItem<PredefinedSetOfPages>> rotationType = find("#rotationType");
+        ComboBox<KeyStringValueItem<Rotation>> rotation = find("#rotation");
+        Map<String, String> data = new HashMap<>();
+        data.put("rotation", Rotation.DEGREES_270.toString());
+        data.put("rotationType", PredefinedSetOfPages.EVEN_PAGES.toString());
+        RotateOptionsPane victim = find(".pdfsam-container");
+        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
+        assertEquals(Rotation.DEGREES_270, rotation.getSelectionModel().getSelectedItem().getKey());
+        assertEquals(PredefinedSetOfPages.EVEN_PAGES, rotationType.getSelectionModel().getSelectedItem().getKey());
+        FXTestUtils.invokeAndWait(() -> victim.resetView(), 2);
+        assertEquals(Rotation.DEGREES_90, rotation.getSelectionModel().getSelectedItem().getKey());
+        assertEquals(PredefinedSetOfPages.ALL_PAGES, rotationType.getSelectionModel().getSelectedItem().getKey());
+    }
 }

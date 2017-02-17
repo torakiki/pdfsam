@@ -30,6 +30,7 @@ import java.util.function.Consumer;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.params.ConversionUtils;
 import org.pdfsam.support.params.TaskParametersBuildStep;
+import org.pdfsam.ui.ResettableView;
 import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
@@ -45,7 +46,8 @@ import javafx.scene.layout.HBox;
  * @author Andrea Vacondio
  *
  */
-class ExtractOptionsPane extends HBox implements TaskParametersBuildStep<ExtractParametersBuilder>, RestorableView {
+class ExtractOptionsPane extends HBox
+        implements TaskParametersBuildStep<ExtractParametersBuilder>, RestorableView, ResettableView {
 
     private final ValidableTextField field = new ValidableTextField();
 
@@ -92,5 +94,10 @@ class ExtractOptionsPane extends HBox implements TaskParametersBuildStep<Extract
     @Override
     public void restoreStateFrom(Map<String, String> data) {
         field.setText(Optional.ofNullable(data.get("pages")).orElse(EMPTY));
+    }
+
+    @Override
+    public void resetView() {
+        this.field.setText("");
     }
 }

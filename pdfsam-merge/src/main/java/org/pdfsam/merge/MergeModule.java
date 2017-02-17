@@ -33,12 +33,14 @@ import org.pdfsam.module.ModuleCategory;
 import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.ModuleInputOutputType;
 import org.pdfsam.module.ModulePriority;
+import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.pdfsam.ui.io.BrowsablePdfOutputField;
 import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
 import org.pdfsam.ui.module.Footer;
 import org.pdfsam.ui.module.OpenButton;
 import org.pdfsam.ui.module.RunButton;
+import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
 import org.sejda.injector.Auto;
 import org.sejda.injector.Components;
@@ -126,6 +128,14 @@ public class MergeModule extends BaseTaskExecutionModule {
     @EventStation
     public String id() {
         return MODULE_ID;
+    }
+
+    @EventListener
+    public void onClearModule(ClearModuleEvent e) {
+        if (e.clearEverything) {
+            mergeOptions.resetView();
+            destinationPane.resetView();
+        }
     }
 
     @Override

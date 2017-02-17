@@ -35,7 +35,7 @@ import org.pdfsam.module.Module;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.ui.InputPdfArgumentsLoadRequest;
-import org.pdfsam.ui.commons.ClearSelectionEvent;
+import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.pdfsam.ui.commons.HideOnEscapeHandler;
 import org.pdfsam.ui.support.Style;
 
@@ -117,7 +117,7 @@ public class OpenWithDialog extends Stage {
                 });
 
                 current.setOnAction((e) -> {
-                    eventStudio().broadcast(new ClearSelectionEvent(), m.id());
+                    eventStudio().broadcast(new ClearModuleEvent(), m.id());
                     eventStudio().broadcast(activeteModule(m.id()));
                     hide();
                     PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(m.id());

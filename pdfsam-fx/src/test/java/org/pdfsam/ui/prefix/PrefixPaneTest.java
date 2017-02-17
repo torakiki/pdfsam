@@ -91,4 +91,13 @@ public class PrefixPaneTest extends GuiTest {
         FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
         assertEquals("Chuck", victim.getText());
     }
+
+    @Test
+    public void reset() throws Exception {
+        click(p -> p instanceof PrefixField);
+        type("newPref");
+        PrefixPane victim = find(".pdfsam-container");
+        FXTestUtils.invokeAndWait(() -> victim.resetView(), 2);
+        assertEquals("PDFsam_", victim.getText());
+    }
 }

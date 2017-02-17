@@ -18,6 +18,9 @@
  */
 package org.pdfsam.ui.io;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -32,11 +35,13 @@ import org.junit.rules.TemporaryFolder;
 import org.junit.runner.RunWith;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
+import org.loadui.testfx.utils.FXTestUtils;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.support.params.AbstractPdfOutputParametersBuilder;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.io.PdfDestinationPane.DestinationPanelFields;
 import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.parameter.base.AbstractPdfOutputParameters;
@@ -100,5 +105,19 @@ public class PdfDestinationPaneUITest extends GuiTest {
         verify(builder).compress(false);
         verify(builder).existingOutput(ExistingOutputPolicy.OVERWRITE);
         verify(builder).discardBookmarks(true);
+    }
+
+    @Test
+    public void reset() throws Exception {
+        PdfDestinationPane victim = find(".victim");
+        click(".validable-container-field").type("Chuck");
+        Set<Node> nodes = findAll(n -> n instanceof CheckBox, victim);
+        nodes.forEach(n -> click(n));
+        FXTestUtils.invokeAndWait(() -> victim.resetView(), 2);
+        assertEquals("", ((ValidableTextField) find(".validable-container-field")).getText());
+        assertFalse(victim.overwrite().isSelected());
+        assertFalse(((CheckBox) find("#discardBookmarksField")).isSelected());
+        assertTrue(((CheckBox) find("#compressField")).isSelected());
+
     }
 }

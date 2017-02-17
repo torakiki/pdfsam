@@ -31,6 +31,7 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.params.TaskParametersBuildStep;
+import org.pdfsam.ui.ResettableView;
 import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.model.outline.OutlinePolicy;
@@ -49,8 +50,8 @@ import javafx.scene.layout.VBox;
  * @author Andrea Vacondio
  *
  */
-class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergeParametersBuilder>, RestorableView {
-
+class MergeOptionsPane extends VBox
+        implements TaskParametersBuildStep<MergeParametersBuilder>, RestorableView, ResettableView {
     private ComboBox<KeyStringValueItem<AcroFormPolicy>> acroForms = new ComboBox<>();
     private CheckBox blankIfOdd;
     private CheckBox footer;
@@ -83,7 +84,6 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
         acroForms.getItems().add(
                 keyValue(AcroFormPolicy.MERGE_RENAMING_EXISTING_FIELDS, i18n.i18n("Merge renaming existing fields")));
         acroForms.getItems().add(keyValue(AcroFormPolicy.DISCARD, i18n.i18n("Discard forms")));
-        acroForms.getSelectionModel().selectFirst();
         acroForms.setId("acroFormsCombo");
         options.add(new Label(i18n.i18n("Interactive forms (AcroForms):")), 0, 0);
         acroForms.setMaxWidth(Double.POSITIVE_INFINITY);
@@ -96,7 +96,7 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
                 keyValue(OutlinePolicy.ONE_ENTRY_EACH_DOC, i18n.i18n("Create one entry for each merged document")));
         outline.getItems().add(keyValue(OutlinePolicy.RETAIN_AS_ONE_ENTRY,
                 i18n.i18n("Retain bookmarks as one entry for each merged document")));
-        outline.getSelectionModel().selectFirst();
+
         outline.setId("outlineCombo");
         options.add(new Label(i18n.i18n("Bookmarks handling:")), 0, 1);
         outline.setMaxWidth(Double.POSITIVE_INFINITY);
@@ -106,7 +106,7 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
         toc.getItems().add(keyValue(ToCPolicy.NONE, i18n.i18n("Don't generate")));
         toc.getItems().add(keyValue(ToCPolicy.FILE_NAMES, i18n.i18n("Generate from file names")));
         toc.getItems().add(keyValue(ToCPolicy.DOC_TITLES, i18n.i18n("Generate from documents titles")));
-        toc.getSelectionModel().selectFirst();
+
         toc.setId("tocCombo");
         options.add(new Label(i18n.i18n("Table of contents:")), 0, 2);
         toc.setMaxWidth(Double.POSITIVE_INFINITY);
@@ -116,7 +116,18 @@ class MergeOptionsPane extends VBox implements TaskParametersBuildStep<MergePara
         options.getStyleClass().addAll(Style.GRID.css());
 
         getStyleClass().addAll(Style.CONTAINER.css());
+        resetView();
         getChildren().addAll(blankIfOdd, footer, normalize, options);
+    }
+
+    @Override
+    public void resetView() {
+        blankIfOdd.setSelected(false);
+        footer.setSelected(false);
+        normalize.setSelected(false);
+        acroForms.getSelectionModel().selectFirst();
+        outline.getSelectionModel().selectFirst();
+        toc.getSelectionModel().selectFirst();
     }
 
     @Override

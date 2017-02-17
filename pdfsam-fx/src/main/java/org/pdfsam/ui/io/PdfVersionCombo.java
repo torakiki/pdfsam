@@ -29,6 +29,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
+import org.pdfsam.ui.ResettableView;
 import org.pdfsam.ui.io.PdfVersionCombo.PdfVersionComboItem;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
@@ -44,7 +45,7 @@ import javafx.scene.control.ComboBox;
  * @author Andrea Vacondio
  * 
  */
-class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwned {
+class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwned, ResettableView {
 
     private String ownerModule = StringUtils.EMPTY;
     private ObservableList<PdfVersionComboItem> unfilteredItems = FXCollections.observableArrayList();
@@ -60,7 +61,7 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwn
         versionsFilter.requiredProperty().addListener((observable, oldVal, newVal) -> {
             setFilteredItems(newVal);
         });
-        initializeState();
+        resetView();
         eventStudio().addAnnotatedListeners(this);
     }
 
@@ -99,7 +100,8 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwn
         return this.ownerModule;
     }
 
-    void initializeState() {
+    @Override
+    public void resetView() {
         versionsFilter.reset();
         versionsFilter.addFilter(PdfVersion.VERSION_1_2);
     }
@@ -199,4 +201,5 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwn
         }
 
     }
+
 }

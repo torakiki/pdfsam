@@ -97,6 +97,16 @@ public class PdfVersionComboTest {
         assertEquals(PdfVersion.VERSION_1_5, victim.getSelectionModel().getSelectedItem().getVersion());
     }
 
+    @Test
+    public void reset() {
+        eventStudio().broadcast(new AddPdfVersionConstraintEvent(PdfVersion.VERSION_1_5), MODULE);
+        assertEquals(PdfVersion.VERSION_1_5, victim.getSelectionModel().getSelectedItem().getVersion());
+        assertEquals(3, victim.getItems().size());
+        victim.resetView();
+        assertEquals(5, victim.getItems().size());
+
+    }
+
     private boolean comboHasItem(PdfVersionCombo combo, PdfVersion version) {
         for (PdfVersionComboItem item : combo.getItems()) {
             if (item.getVersion().equals(version)) {

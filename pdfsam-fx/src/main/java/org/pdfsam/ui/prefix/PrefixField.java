@@ -21,6 +21,7 @@ package org.pdfsam.ui.prefix;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.ui.ResettableView;
 import org.sejda.model.prefix.Prefix;
 
 import javafx.scene.control.ContextMenu;
@@ -34,7 +35,7 @@ import javafx.scene.control.TextField;
  * @author Andrea Vacondio
  * 
  */
-public class PrefixField extends TextField {
+public class PrefixField extends TextField implements ResettableView {
 
     private Menu menu;
 
@@ -77,5 +78,10 @@ public class PrefixField extends TextField {
             setOnAction(e -> replaceSelection(PrefixMenuItem.this.prefix.getFriendlyName()));
         }
 
+    }
+
+    @Override
+    public void resetView() {
+        this.setText("PDFsam_");
     }
 }

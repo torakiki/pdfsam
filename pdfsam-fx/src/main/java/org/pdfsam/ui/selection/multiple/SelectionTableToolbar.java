@@ -30,16 +30,20 @@ import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.io.FileType;
-import org.pdfsam.ui.commons.ClearSelectionEvent;
+import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.pdfsam.ui.commons.RemoveSelectedEvent;
 import org.pdfsam.ui.io.FileChoosers;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper;
 import org.pdfsam.ui.module.ModuleOwnedButton;
 import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
 import org.pdfsam.ui.selection.multiple.move.MoveType;
+import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
+import org.sejda.eventstudio.annotation.EventStation;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.ToolBar;
 import javafx.scene.control.Tooltip;
 import javafx.stage.FileChooser;
@@ -128,16 +132,36 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
      * @author Andrea Vacondio
      * 
      */
-    static class ClearButton extends ModuleOwnedButton {
+    static class ClearButton extends SplitMenuButton implements ModuleOwned {
+
+        private String ownerModule = StringUtils.EMPTY;
+
         public ClearButton(String ownerModule) {
-            super(ownerModule);
+            this.ownerModule = defaultString(ownerModule);
+            getStyleClass().addAll(Style.BUTTON.css());
+            getStyleClass().add("pdfsam-split-button");
             setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Removes every document")));
             setText(DefaultI18nContext.getInstance().i18n("_Clear"));
             setOnAction(this::clear);
+
+            MenuItem clearAllSettings = new MenuItem();
+            clearAllSettings.setText(DefaultI18nContext.getInstance().i18n("C_lear all settings"));
+            clearAllSettings.setOnAction(this::clearAll);
+            getItems().add(clearAllSettings);
         }
 
         public void clear(ActionEvent event) {
-            eventStudio().broadcast(new ClearSelectionEvent(), getOwnerModule());
+            eventStudio().broadcast(new ClearModuleEvent(), getOwnerModule());
+        }
+
+        public void clearAll(ActionEvent event) {
+            eventStudio().broadcast(new ClearModuleEvent(true), getOwnerModule());
+        }
+
+        @Override
+        @EventStation
+        public String getOwnerModule() {
+            return ownerModule;
         }
     }
 

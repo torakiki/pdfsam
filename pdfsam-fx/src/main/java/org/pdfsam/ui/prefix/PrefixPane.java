@@ -30,6 +30,7 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.params.MultipleOutputTaskParametersBuilder;
 import org.pdfsam.support.params.TaskParametersBuildStep;
+import org.pdfsam.ui.ResettableView;
 import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.model.prefix.Prefix;
@@ -46,8 +47,7 @@ import javafx.scene.text.TextFlow;
  *
  */
 public class PrefixPane extends HBox
-        implements TaskParametersBuildStep<MultipleOutputTaskParametersBuilder<?>>, RestorableView {
-
+        implements TaskParametersBuildStep<MultipleOutputTaskParametersBuilder<?>>, RestorableView, ResettableView {
     private PrefixField field = new PrefixField();
 
     public PrefixPane() {
@@ -72,6 +72,11 @@ public class PrefixPane extends HBox
     }
 
     @Override
+    public void resetView() {
+        field.resetView();
+    }
+
+    @Override
     public void apply(MultipleOutputTaskParametersBuilder<?> builder, Consumer<String> onError) {
         builder.prefix(getText());
     }
@@ -85,4 +90,5 @@ public class PrefixPane extends HBox
     public void restoreStateFrom(Map<String, String> data) {
         field.setText(Optional.ofNullable(data.get(defaultString(getId()) + "prefix")).orElse(EMPTY));
     }
+
 }

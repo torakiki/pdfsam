@@ -19,11 +19,19 @@
 package org.pdfsam.ui.commons;
 
 /**
- * request the selection component to be cleared
+ * request to clear the module
  * 
  * @author Andrea Vacondio
  * 
  */
-public class ClearSelectionEvent {
-    // nothing
+public class ClearModuleEvent {
+    public final boolean clearEverything;
+
+    public ClearModuleEvent(boolean clearEverything) {
+        this.clearEverything = clearEverything;
+    }
+
+    public ClearModuleEvent() {
+        this.clearEverything = false;
+    }
 }

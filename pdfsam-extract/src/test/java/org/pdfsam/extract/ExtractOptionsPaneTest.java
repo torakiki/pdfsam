@@ -103,4 +103,13 @@ public class ExtractOptionsPaneTest extends GuiTest {
         assertEquals("100", field.getText());
     }
 
+    @Test
+    public void reset() throws Exception {
+        ExtractOptionsPane victim = find(".pdfsam-container");
+        click("#extractRanges").type('5').push(KeyCode.ENTER);
+        ValidableTextField field = (ValidableTextField) find("#extractRanges");
+        assertEquals("5", field.getText());
+        FXTestUtils.invokeAndWait(() -> victim.resetView(), 2);
+        assertEquals("", field.getText());
+    }
 }
