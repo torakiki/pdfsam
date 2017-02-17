@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2017-02-13 12:38+0100\n"
+"POT-Creation-Date: 2017-02-17 11:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -559,6 +559,9 @@ msgstr ""
 msgid "Destination file"
 msgstr ""
 
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
 msgid "No PDF document has been selected"
 msgstr ""
 
@@ -744,6 +747,9 @@ msgstr ""
 msgid "_Clear"
 msgstr ""
 
+msgid "C_lear all settings"
+msgstr ""
+
 msgid "Moves up selected documents"
 msgstr ""
 
@@ -774,6 +780,12 @@ msgid "Reverse"
 msgstr ""
 
 msgid "Drag and drop PDF files here"
+msgstr ""
+
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr ""
+
+msgid "No PDF found"
 msgstr ""
 
 msgid "The selected PDF document is invalid"
