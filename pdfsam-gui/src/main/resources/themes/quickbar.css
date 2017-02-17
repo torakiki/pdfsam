@@ -34,7 +34,7 @@
 	-fx-fill: -pdfsam-dark-text-color;
 }
 .quickbar-items{
-	-fx-spacing: 0.25em;
+	-fx-spacing: 0.416667em;
 	-fx-padding: 0.0 0.416667em 1.0em 0.0;
 }
 .quickbar-navigation-button, .quickbar-navigation-button:focused {
