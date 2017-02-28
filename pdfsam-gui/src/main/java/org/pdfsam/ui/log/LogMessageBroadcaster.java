@@ -18,13 +18,11 @@
  */
 package org.pdfsam.ui.log;
 
+import static java.util.Objects.nonNull;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
-import java.io.IOException;
-import java.io.StringWriter;
 import java.util.Scanner;
 
-import org.apache.commons.io.output.WriterOutputStream;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.LoggerFactory;
 
@@ -34,6 +32,7 @@ import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.AppenderBase;
+import ch.qos.logback.core.Layout;
 
 /**
  * A Logback appender appending log messages to a {@link LogListView}.
@@ -56,13 +55,12 @@ public class LogMessageBroadcaster extends AppenderBase<ILoggingEvent> {
 
     @Override
     public void append(ILoggingEvent event) {
-        StringWriter writer = new StringWriter();
-        try {
-            encoder.init(new WriterOutputStream(writer));
-            encoder.doEncode(event);
-            doAppendMessage(writer.toString(), event);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (!isStarted()) {
+            return;
+        }
+        Layout<ILoggingEvent> layout = encoder.getLayout();
+        if (nonNull(layout)) {
+            doAppendMessage(encoder.getLayout().doLayout(event), event);
         }
     }
 

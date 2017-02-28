@@ -26,8 +26,6 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
-import java.io.IOException;
-
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -73,7 +71,7 @@ public class LogMessageBroadcasterTest {
     }
 
     @Test
-    public void infoLog() throws IOException {
+    public void infoLog() {
         Listener<LogMessage> listener = mock(Listener.class);
         eventStudio().add(LogMessage.class, listener, "LogStage");
         LogMessageBroadcaster victim = injector.instance(LogMessageBroadcaster.class);
@@ -83,7 +81,6 @@ public class LogMessageBroadcasterTest {
         when(event.getFormattedMessage()).thenReturn("myMessage");
         victim.start();
         victim.append(event);
-        verify(encoder).doEncode(event);
         verify(listener).onEvent(any(LogMessage.class));
     }
 
