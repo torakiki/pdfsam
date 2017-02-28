@@ -2,19 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2016-12-09 10:29+0100\n"
-"PO-Revision-Date: 2016-09-30 08:21+0000\n"
-"Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
+"POT-Creation-Date: 2017-02-17 11:21+0100\n"
+"PO-Revision-Date: 2016-12-26 14:02+0000\n"
+"Last-Translator: Patriccollu <Patrick.Santa-Maria@laposte.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-12-13 14:52+0000\n"
-"X-Generator: Launchpad (build 18293)\n"
+"X-Launchpad-Export-Date: 2017-02-28 08:36+0000\n"
+"X-Generator: Launchpad (build 18329)\n"
 "Language: co\n"
 
 msgid "Subscribe to the official news feed"
-msgstr "Sottuscrive à i flussi di nutizie ufficiale"
+msgstr "Abbunassi à i flussi ufficiale di nutizie"
 
 msgid "Bug and feature requests"
 msgstr "Riferimentu di penseru è richiesta di migliuramentu"
@@ -48,6 +48,13 @@ msgstr "Abbandunà"
 
 msgid "Overwrite"
 msgstr "Rimpiazzà"
+
+msgid "PDFsam can try to overcome the failure"
+msgstr ""
+
+msgid ""
+"It may result in PDF files with partial or missing data, proceed anyway?"
+msgstr ""
 
 msgid "No"
 msgstr "Innò"
@@ -145,12 +152,6 @@ msgstr "Memoria massima {0}"
 msgid "Copy to clipboard"
 msgstr "Cupià ver di u preme'papei"
 
-msgid "Thanks to"
-msgstr "Ringraziamenti à"
-
-msgid "The open source projects making PDFsam possible"
-msgstr "I prughjetti 'open source' chì anu resu PDFsam pussibule"
-
 msgid "Support"
 msgstr "Assistenza"
 
@@ -161,7 +162,7 @@ msgid "Social"
 msgstr "Suciale"
 
 msgid "Premium features"
-msgstr ""
+msgstr "Funzioni premium"
 
 msgid "Manually selected"
 msgstr "Selezziunatu manualmente"
@@ -177,7 +178,7 @@ msgid "Appearance"
 msgstr "Aspettu"
 
 msgid "Behavior"
-msgstr "Cumportamentu"
+msgstr "Andatu"
 
 msgid "Workspace"
 msgstr "Spaziu di travagliu"
@@ -196,12 +197,14 @@ msgstr ""
 "versioni (rilanciu necessariu)"
 
 msgid "Check for news at startup"
-msgstr ""
+msgstr "Circà e nutizie à l'iniziu di u prugramma"
 
 msgid ""
 "Set whether the application should check for news availability on startup "
 "(restart needed)"
 msgstr ""
+"Definisce s'ellu ci vole à verificà à l'iniziu a dispunibulità di e nutizie "
+"(rilanciu necessariu)"
 
 msgid "Play alert sounds"
 msgstr "Sunà i soni d'alerta"
@@ -232,12 +235,14 @@ msgstr ""
 "fà una dunazione per sustene PDFsam"
 
 msgid "Show premium features"
-msgstr ""
+msgstr "Affissà e funzioni premium"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
 "description in the modules dashboard"
 msgstr ""
+"Definisce s'è l'appiecazione deve circà i funzioni premium è affissà a so "
+"discrizzione nant'à u tavulone di cummande"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr ""
@@ -289,7 +294,7 @@ msgid "Select a workspace"
 msgstr "Selezziunà un spaziu di travagliu"
 
 msgid "Default working directory:"
-msgstr "Cartulare di travaglu predefinitu :"
+msgstr "Cartulare predefinitu di travagliu :"
 
 msgid "Load default workspace at startup:"
 msgstr "Caricà u spaziu di travagliu predefinitu à l'iniziu :"
@@ -305,12 +310,6 @@ msgstr "Lingua :"
 
 msgid "Set your preferred language (restart needed)"
 msgstr "Definisce a lingua preferita (rilanciu necessariu)"
-
-msgid "Theme:"
-msgstr "Temu :"
-
-msgid "Set your preferred theme (restart needed)"
-msgstr "Definisce u temu preferitu (rilanciu necessariu)"
 
 msgid "Startup module:"
 msgstr "Mudullu d'iniziu :"
@@ -380,10 +379,10 @@ msgstr "Sparghje dapertuttu !"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
-msgstr "PDFsam {0} hè dispunibule in telecaricamentu"
+msgstr "PDFsam {0} hè dispunibule in scaricamentu"
 
 msgid "Download"
-msgstr "Telecaricà"
+msgstr "Scaricà"
 
 msgid "New version available"
 msgstr "Nova versione dispunibule"
@@ -399,6 +398,9 @@ msgstr "Apre cù"
 
 msgid "Select the task to perform on the following files"
 msgstr "Selezziunà a tacca à fà per sti schedarii"
+
+msgid "Task failed"
+msgstr ""
 
 msgid "Directory not empty"
 msgstr "Cartulare micca viotu"
@@ -428,22 +430,22 @@ msgid "Checking for updates"
 msgstr "Cuntrollu in corsu di i rinnovi"
 
 msgid "Unable to retrieve premium features description"
-msgstr ""
+msgstr "Impussibule di riacquistà a discrizzione di i funzioni premium"
 
 msgid "Fetching premium modules"
-msgstr ""
+msgstr "Ricerca di i mudulli premium"
 
 msgid "Unable to retrieve premium modules"
-msgstr ""
+msgstr "Impussibule di riacquistà i mudulli premium"
 
 msgid "Fetching latest news"
-msgstr "Acquistà l'ultime nutizie"
+msgstr "Ricerca di l'ultime nutizie"
 
 msgid "Unable to retrieve the latest news"
-msgstr "Impussibule d'acquistà l'ultime nutizie"
+msgstr "Impussibule di riacquistà l'ultime nutizie"
 
 msgid "Unable to retrieve latest news"
-msgstr "Impussibule d'acquistà d'ultime nutizie"
+msgstr "Impussibule di riacquistà d'ultime nutizie"
 
 msgid "Loading pdf documents"
 msgstr "Caricamentu di i ducumenti pdf"
@@ -579,15 +581,21 @@ msgid ""
 "Merge two or more PDF documents taking pages alternately in natural or "
 "reverse order."
 msgstr ""
+"Fusione di dui ducumenti PDF o più pigliendu e pagine alternatamente in "
+"ordine nurmale o à l'arritrosa."
 
 msgid "Destination file"
 msgstr "Schedariu di destinazione"
+
+msgid ""
+"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
 
 msgid "No PDF document has been selected"
 msgstr "Alcunu ducumentu PDF ùn hè statu selezziunatu"
 
 msgid "Select a positive integer number as pace"
-msgstr ""
+msgstr "Selezziunà un numeru interu pusitivu cum'è andatura"
 
 msgid "Completed"
 msgstr "Compiu"
@@ -692,6 +700,12 @@ msgstr ""
 msgid "Output PDF version:"
 msgstr "Versione PDF d'esciuta :"
 
+msgid "Show advanced settings"
+msgstr ""
+
+msgid "Hide advanced settings"
+msgstr ""
+
 #, java-format
 msgid "Version {0}"
 msgstr "Versione {0}"
@@ -768,6 +782,9 @@ msgstr "Caccià ogni ducumentu"
 msgid "_Clear"
 msgstr "_Squassà"
 
+msgid "C_lear all settings"
+msgstr ""
+
 msgid "Moves up selected documents"
 msgstr "Move insù i ducumenti selezziunati"
 
@@ -781,12 +798,14 @@ msgid "Move _Down"
 msgstr "Move in_ghjò"
 
 msgid "Pace"
-msgstr ""
+msgstr "Andatura"
 
 msgid ""
 "Double click to set the number of pages after which the task will switch to "
 "the next file"
 msgstr ""
+"Doppiu cliccu per definisce u numeru di pagine dopu quellu ci vole à scambià "
+"ver di u prossimu schedariu"
 
 msgid "Size"
 msgstr "Dimensione"
@@ -795,10 +814,16 @@ msgid "Modified"
 msgstr "Mudificatu"
 
 msgid "Reverse"
-msgstr ""
+msgstr "Arritrusà"
 
 msgid "Drag and drop PDF files here"
 msgstr "Sguillà è depone i schedarii PDF quì"
+
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr ""
+
+msgid "No PDF found"
+msgstr ""
 
 msgid "The selected PDF document is invalid"
 msgstr "U PDF selezziunatu hè inaccettevule"
@@ -820,6 +845,12 @@ msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr ""
 "Aghjunghje un bassu di pagina cù u nome di u schedariu chì cuntene sta "
 "pagina."
+
+msgid "Normalize pages size"
+msgstr ""
+
+msgid "Resizes all pages to have the same width as the first page."
+msgstr ""
 
 msgid "Merge fields"
 msgstr "Fusione di i campi"
@@ -925,12 +956,6 @@ msgstr "Stu ducumentu hè cifratu, cliccu per pruvede a parolla d'intrata."
 msgid "An error has occurred, click for more details."
 msgstr "Un sbagliu s'hè affacatu, cliccà quì per sapene di più."
 
-msgid "Squared green"
-msgstr "Verde quadrittatu"
-
-msgid "Squared cornflower"
-msgstr "Turchinellu quadrittatu"
-
 msgid "Roundish"
 msgstr "Ciociulu"
 
@@ -968,7 +993,7 @@ msgid "Extract"
 msgstr "Estrae"
 
 msgid "Extract pages from PDF documents."
-msgstr ""
+msgstr "Estrae pagine da ducumenti PDF."
 
 msgid "Extract settings"
 msgstr "Preferenze d'estrazzione"
@@ -1011,6 +1036,9 @@ msgstr "Girà e pagine di parechji ducumenti PDF."
 
 msgid "Rotate settings"
 msgstr "Preferenze di u girà"
+
+#~ msgid "Theme:"
+#~ msgstr "Temu :"
 
 #~ msgid "Never"
 #~ msgstr "Mai"

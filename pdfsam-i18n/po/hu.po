@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-12-09 10:29+0100\n"
+"POT-Creation-Date: 2017-02-17 11:21+0100\n"
 "PO-Revision-Date: 2016-10-28 12:22+0000\n"
 "Last-Translator: Mark <Unknown>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-12-13 14:52+0000\n"
-"X-Generator: Launchpad (build 18293)\n"
+"X-Launchpad-Export-Date: 2017-02-28 08:36+0000\n"
+"X-Generator: Launchpad (build 18329)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Feliratkozás a hivatalos hírforrásra"
@@ -52,6 +52,13 @@ msgstr "Mégse"
 
 msgid "Overwrite"
 msgstr "Felülírás"
+
+msgid "PDFsam can try to overcome the failure"
+msgstr ""
+
+msgid ""
+"It may result in PDF files with partial or missing data, proceed anyway?"
+msgstr ""
 
 msgid "No"
 msgstr "Nem"
@@ -148,12 +155,6 @@ msgstr "Legtöbb használt memória: {0}"
 
 msgid "Copy to clipboard"
 msgstr "Másolás a vágólapra"
-
-msgid "Thanks to"
-msgstr "Köszönet"
-
-msgid "The open source projects making PDFsam possible"
-msgstr "A nyílt forráskódú közösségnek, hogy lehetővé tették a PDFsamet"
 
 msgid "Support"
 msgstr "Támogatás"
@@ -303,12 +304,6 @@ msgstr "Nyelv:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Válassza ki a kívánt nyelvet (újraindítás szükséges)"
 
-msgid "Theme:"
-msgstr "Téma:"
-
-msgid "Set your preferred theme (restart needed)"
-msgstr "Válassza ki a kívánt témát (újraindítás szükséges)"
-
 msgid "Startup module:"
 msgstr "Induló modul:"
 
@@ -397,6 +392,9 @@ msgstr "Megnyitás ezzel"
 
 msgid "Select the task to perform on the following files"
 msgstr "Feladat kiválasztása amit végre fog hajtani a következő fájlokon"
+
+msgid "Task failed"
+msgstr ""
 
 msgid "Directory not empty"
 msgstr "A mappa nem üres"
@@ -581,6 +579,10 @@ msgstr ""
 msgid "Destination file"
 msgstr "Kimeneti fájl"
 
+msgid ""
+"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
 msgid "No PDF document has been selected"
 msgstr "Nincs kijelölve PDF dokumentum"
 
@@ -688,6 +690,12 @@ msgstr ""
 msgid "Output PDF version:"
 msgstr "Kimeneti PDF verzió:"
 
+msgid "Show advanced settings"
+msgstr ""
+
+msgid "Hide advanced settings"
+msgstr ""
+
 #, java-format
 msgid "Version {0}"
 msgstr "Verzió {0}"
@@ -763,6 +771,9 @@ msgstr "Minden dokumentum eltávolítása"
 msgid "_Clear"
 msgstr "Összes _törlése"
 
+msgid "C_lear all settings"
+msgstr ""
+
 msgid "Moves up selected documents"
 msgstr "Kijelölt dokumentumok mozgatás felfelé"
 
@@ -795,6 +806,12 @@ msgstr "Kijelölés megfordítása"
 msgid "Drag and drop PDF files here"
 msgstr "Fogja meg és ejtse ide a PDF fájlokat"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr ""
+
+msgid "No PDF found"
+msgstr ""
+
 msgid "The selected PDF document is invalid"
 msgstr "A kijelölt PDF érvénytelen"
 
@@ -813,6 +830,12 @@ msgstr "Lábléc hozzádása"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr "Lábléc hozzáadása a fájl nevével, amihez az oldal tartozik"
+
+msgid "Normalize pages size"
+msgstr ""
+
+msgid "Resizes all pages to have the same width as the first page."
+msgstr ""
 
 msgid "Merge fields"
 msgstr "Mezők egyesítése"
@@ -921,12 +944,6 @@ msgstr "A dokumentum titkosított, kattintson ide a jelszó megadásához."
 msgid "An error has occurred, click for more details."
 msgstr "Egy hiba lépett fel, kattintson a további részletekért."
 
-msgid "Squared green"
-msgstr "Zöld szögletes"
-
-msgid "Squared cornflower"
-msgstr "Búzavirág szögletes"
-
 msgid "Roundish"
 msgstr "Lekerekített"
 
@@ -1005,6 +1022,9 @@ msgstr "PDF dokumentum oldalainak elforgatása"
 
 msgid "Rotate settings"
 msgstr "Elforgatás beállításai"
+
+#~ msgid "Theme:"
+#~ msgstr "Téma:"
 
 #~ msgid "Destination folder"
 #~ msgstr "Célmappa"

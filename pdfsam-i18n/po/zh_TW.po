@@ -5,15 +5,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDFSam 3\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2016-12-09 10:29+0100\n"
+"POT-Creation-Date: 2017-02-17 11:21+0100\n"
 "PO-Revision-Date: 2016-02-25 14:36+0000\n"
 "Last-Translator: Jeff Huang <s8321414@yahoo.com.tw>\n"
 "Language-Team: Chinese (Taiwan) (zh_TW@li.org)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-12-13 14:52+0000\n"
-"X-Generator: Launchpad (build 18293)\n"
+"X-Launchpad-Export-Date: 2017-02-28 08:36+0000\n"
+"X-Generator: Launchpad (build 18329)\n"
 "Language: zh_TW\n"
 
 msgid "Subscribe to the official news feed"
@@ -51,6 +51,13 @@ msgstr "取消"
 
 msgid "Overwrite"
 msgstr "覆寫"
+
+msgid "PDFsam can try to overcome the failure"
+msgstr ""
+
+msgid ""
+"It may result in PDF files with partial or missing data, proceed anyway?"
+msgstr ""
 
 msgid "No"
 msgstr "否"
@@ -147,12 +154,6 @@ msgstr "記憶體上限 {0}"
 
 msgid "Copy to clipboard"
 msgstr "複製到剪貼簿"
-
-msgid "Thanks to"
-msgstr "致謝"
-
-msgid "The open source projects making PDFsam possible"
-msgstr "讓 PDFsam 得以實現的開源專案"
 
 msgid "Support"
 msgstr "支援"
@@ -292,12 +293,6 @@ msgstr "語言："
 msgid "Set your preferred language (restart needed)"
 msgstr "設定您偏好的語言（必須重新啟動程式）"
 
-msgid "Theme:"
-msgstr "佈景主題："
-
-msgid "Set your preferred theme (restart needed)"
-msgstr "設定您偏好的佈景主題（必須重新啟動程式）"
-
 msgid "Startup module:"
 msgstr "啟動的模組:"
 
@@ -379,6 +374,9 @@ msgid "Open with"
 msgstr ""
 
 msgid "Select the task to perform on the following files"
+msgstr ""
+
+msgid "Task failed"
 msgstr ""
 
 msgid "Directory not empty"
@@ -562,6 +560,10 @@ msgstr ""
 msgid "Destination file"
 msgstr "輸出檔"
 
+msgid ""
+"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
 msgid "No PDF document has been selected"
 msgstr "未選取 PDF 文件檔"
 
@@ -667,6 +669,12 @@ msgstr ""
 msgid "Output PDF version:"
 msgstr "輸出 PDF 版本："
 
+msgid "Show advanced settings"
+msgstr ""
+
+msgid "Hide advanced settings"
+msgstr ""
+
 #, java-format
 msgid "Version {0}"
 msgstr "版本 {0}"
@@ -741,6 +749,9 @@ msgstr "移除每個文件"
 msgid "_Clear"
 msgstr "清除 (_C)"
 
+msgid "C_lear all settings"
+msgstr ""
+
 msgid "Moves up selected documents"
 msgstr "將所選文件往上移"
 
@@ -773,6 +784,12 @@ msgstr "反轉"
 msgid "Drag and drop PDF files here"
 msgstr "請將 PDF 檔拖拉至此處"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr ""
+
+msgid "No PDF found"
+msgstr ""
+
 msgid "The selected PDF document is invalid"
 msgstr "選取的 PDF 文件無效"
 
@@ -788,6 +805,12 @@ msgid "Add a footer"
 msgstr ""
 
 msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr ""
+
+msgid "Normalize pages size"
+msgstr ""
+
+msgid "Resizes all pages to have the same width as the first page."
 msgstr ""
 
 msgid "Merge fields"
@@ -888,12 +911,6 @@ msgstr "本文件已加密，請點擊以輸入密碼。"
 msgid "An error has occurred, click for more details."
 msgstr "發生錯誤，點選以取得更多資訊"
 
-msgid "Squared green"
-msgstr "方形綠"
-
-msgid "Squared cornflower"
-msgstr "方形矢車菊"
-
 msgid "Roundish"
 msgstr "圓形"
 
@@ -974,6 +991,9 @@ msgstr "旋轉頁面設定"
 
 #~ msgid "Split odd pages"
 #~ msgstr "分割出奇數頁"
+
+#~ msgid "Theme:"
+#~ msgstr "佈景主題："
 
 #~ msgid "Output document pdf version:"
 #~ msgstr "輸出文件的 PDF 版本："

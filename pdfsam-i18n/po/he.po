@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-12-09 10:29+0100\n"
+"POT-Creation-Date: 2017-02-17 11:21+0100\n"
 "PO-Revision-Date: 2016-09-30 08:30+0000\n"
 "Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-12-13 14:52+0000\n"
-"X-Generator: Launchpad (build 18293)\n"
+"X-Launchpad-Export-Date: 2017-02-28 08:36+0000\n"
+"X-Generator: Launchpad (build 18329)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "הירשם לערוץ החדשות הרשמי"
@@ -52,6 +52,13 @@ msgstr "ביטול"
 
 msgid "Overwrite"
 msgstr "שכתב קובץ קיים"
+
+msgid "PDFsam can try to overcome the failure"
+msgstr ""
+
+msgid ""
+"It may result in PDF files with partial or missing data, proceed anyway?"
+msgstr ""
 
 msgid "No"
 msgstr "לא"
@@ -148,12 +155,6 @@ msgstr "זכרון מקסימלי {0}"
 
 msgid "Copy to clipboard"
 msgstr "העתק ללוח"
-
-msgid "Thanks to"
-msgstr "תודתנו נתונה ל:"
-
-msgid "The open source projects making PDFsam possible"
-msgstr "פרויקטי קוד פתוח שאיפשרו את בניית PDFsam"
 
 msgid "Support"
 msgstr "תמיכה"
@@ -293,12 +294,6 @@ msgstr "שפה:"
 msgid "Set your preferred language (restart needed)"
 msgstr "הגדרת השפה המועדפת עליך (נדרש אתחול)"
 
-msgid "Theme:"
-msgstr "ערכת נושא:"
-
-msgid "Set your preferred theme (restart needed)"
-msgstr "בחר את ערכת הנושא המועדפת (נדרש אתחול)"
-
 msgid "Startup module:"
 msgstr "רכיב האיתחול:"
 
@@ -383,6 +378,9 @@ msgstr "פתח באמצעות"
 
 msgid "Select the task to perform on the following files"
 msgstr "בחר את הפעולה לביצוע על הקבצים הבאים"
+
+msgid "Task failed"
+msgstr ""
 
 msgid "Directory not empty"
 msgstr "הספרייה לא ריקה"
@@ -565,6 +563,10 @@ msgstr "מזג שני מסמכי PDF או יותר, תוך לקיחת העמוד
 msgid "Destination file"
 msgstr "קובץ היעד"
 
+msgid ""
+"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
 msgid "No PDF document has been selected"
 msgstr "לא נבחר אף מסמך PDF"
 
@@ -670,6 +672,12 @@ msgstr "סמנו אם ברצונכם שלא לשמור את הסימניות מ�
 msgid "Output PDF version:"
 msgstr "גרסת PDF של הפלט:"
 
+msgid "Show advanced settings"
+msgstr ""
+
+msgid "Hide advanced settings"
+msgstr ""
+
 #, java-format
 msgid "Version {0}"
 msgstr "גירסה {0}"
@@ -746,6 +754,9 @@ msgstr "מסיר את כל המסמכים"
 msgid "_Clear"
 msgstr "_נקה"
 
+msgid "C_lear all settings"
+msgstr ""
+
 msgid "Moves up selected documents"
 msgstr "הזז למעלה את המסמכים השנבחרו"
 
@@ -779,6 +790,12 @@ msgstr "סדר הפוך"
 msgid "Drag and drop PDF files here"
 msgstr "גרור ושחרר קבצי PDF לכאן"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr ""
+
+msgid "No PDF found"
+msgstr ""
+
 msgid "The selected PDF document is invalid"
 msgstr "מסמך ה-PDF שנבחר אינו תקין"
 
@@ -796,6 +813,12 @@ msgstr "הוסף הערה בתחתית העמוד"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr "הוספת שם הקובץ בתחתית העמודים שלו"
+
+msgid "Normalize pages size"
+msgstr ""
+
+msgid "Resizes all pages to have the same width as the first page."
+msgstr ""
 
 msgid "Merge fields"
 msgstr "מזג את השדות"
@@ -898,12 +921,6 @@ msgstr "זהו מסמך מוצפן. לחצו על מנת לתת את הסיסמ�
 msgid "An error has occurred, click for more details."
 msgstr "ארעה שגיאה, לחצו לפרטים נוספים."
 
-msgid "Squared green"
-msgstr "רבוע ירוק"
-
-msgid "Squared cornflower"
-msgstr "רבוע קורנפלור"
-
 msgid "Roundish"
 msgstr "מעוגל"
 
@@ -994,6 +1011,9 @@ msgstr "הגדרות הסיבוב"
 
 #~ msgid "Output document pdf version:"
 #~ msgstr "גרסת ה־pdf של מסמך הפלט:"
+
+#~ msgid "Theme:"
+#~ msgstr "ערכת נושא:"
 
 #~ msgid "Never"
 #~ msgstr "לעולם לא"

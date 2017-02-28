@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-12-09 10:29+0100\n"
+"POT-Creation-Date: 2017-02-17 11:21+0100\n"
 "PO-Revision-Date: 2016-09-30 08:24+0000\n"
 "Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-12-13 14:52+0000\n"
-"X-Generator: Launchpad (build 18293)\n"
+"X-Launchpad-Export-Date: 2017-02-28 08:36+0000\n"
+"X-Generator: Launchpad (build 18329)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Suscribirse al canal de noticias oficial"
@@ -52,6 +52,13 @@ msgstr "Cancelar"
 
 msgid "Overwrite"
 msgstr "Sobrescribir"
+
+msgid "PDFsam can try to overcome the failure"
+msgstr ""
+
+msgid ""
+"It may result in PDF files with partial or missing data, proceed anyway?"
+msgstr ""
 
 msgid "No"
 msgstr "No"
@@ -149,12 +156,6 @@ msgstr "Máximo de memoria {0}"
 
 msgid "Copy to clipboard"
 msgstr "Copiar en portapapeles"
-
-msgid "Thanks to"
-msgstr "Agradecemos a"
-
-msgid "The open source projects making PDFsam possible"
-msgstr "Los proyectos de código abierto que hicieron a PDFsam posible"
 
 msgid "Support"
 msgstr "Asistencia"
@@ -308,14 +309,6 @@ msgstr "Idioma:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Seleccione su idioma preferido (se necesita reiniciar)"
 
-# F:\workspace_pdfsame_enanched\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:120
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:122
-msgid "Theme:"
-msgstr "Tema:"
-
-msgid "Set your preferred theme (restart needed)"
-msgstr "Seleccione su tema preferido (se necesita reiniciar)"
-
 msgid "Startup module:"
 msgstr "Módulo de arranque:"
 
@@ -403,6 +396,9 @@ msgstr "Abrir con"
 
 msgid "Select the task to perform on the following files"
 msgstr "Seleccione la tarea a realizar en los siguientes archivos"
+
+msgid "Task failed"
+msgstr ""
 
 msgid "Directory not empty"
 msgstr "La carpeta no está vacía"
@@ -589,6 +585,10 @@ msgstr ""
 msgid "Destination file"
 msgstr "Archivo de destino"
 
+msgid ""
+"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
 msgid "No PDF document has been selected"
 msgstr "No se seleccionó ningún documento PDF"
 
@@ -716,6 +716,12 @@ msgstr ""
 msgid "Output PDF version:"
 msgstr "Version PDF de salida:"
 
+msgid "Show advanced settings"
+msgstr ""
+
+msgid "Hide advanced settings"
+msgstr ""
+
 #, java-format
 msgid "Version {0}"
 msgstr "Versión {0}"
@@ -798,6 +804,9 @@ msgstr "Quita todos los documentos"
 msgid "_Clear"
 msgstr "_Vaciar"
 
+msgid "C_lear all settings"
+msgstr ""
+
 msgid "Moves up selected documents"
 msgstr "Mueve los documentos seleccionados hacia arriba"
 
@@ -832,6 +841,12 @@ msgstr "Invertir"
 msgid "Drag and drop PDF files here"
 msgstr "Arrastre y suelte los archivos PDF aquí"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr ""
+
+msgid "No PDF found"
+msgstr ""
+
 msgid "The selected PDF document is invalid"
 msgstr "El documento PDF seleccionado no es válido"
 
@@ -851,6 +866,12 @@ msgstr "Añadir pie de página"
 msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr ""
 "Añadir un pie de página con el nombre del fichero al que pertenece la página"
+
+msgid "Normalize pages size"
+msgstr ""
+
+msgid "Resizes all pages to have the same width as the first page."
+msgstr ""
 
 msgid "Merge fields"
 msgstr "Combinar campos"
@@ -955,12 +976,6 @@ msgstr "Este documento está cifrado. Pulse para proporcionar una contraseña."
 msgid "An error has occurred, click for more details."
 msgstr "Ocurrió un error, haga clic para mayor información."
 
-msgid "Squared green"
-msgstr "Cuadrado verde"
-
-msgid "Squared cornflower"
-msgstr "Cuadrado azul"
-
 msgid "Roundish"
 msgstr "Redondeado"
 
@@ -1042,6 +1057,11 @@ msgstr "Girar las páginas de varios documentos PDF."
 
 msgid "Rotate settings"
 msgstr "Configurar giro"
+
+# F:\workspace_pdfsame_enanched\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:120
+# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:122
+#~ msgid "Theme:"
+#~ msgstr "Tema:"
 
 #~ msgid "Never"
 #~ msgstr "Nunca"

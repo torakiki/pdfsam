@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-12-09 10:29+0100\n"
-"PO-Revision-Date: 2016-11-21 13:37+0000\n"
-"Last-Translator: André Marcelo Alvarenga <andrealvarenga@gmx.net>\n"
+"POT-Creation-Date: 2017-02-17 11:21+0100\n"
+"PO-Revision-Date: 2017-02-17 09:57+0000\n"
+"Last-Translator: Tiberio Melo <tiberio.melo@mpma.mp.br>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-12-13 14:52+0000\n"
-"X-Generator: Launchpad (build 18293)\n"
+"X-Launchpad-Export-Date: 2017-02-28 08:36+0000\n"
+"X-Generator: Launchpad (build 18329)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Inscreva-se no canal oficial de notícias"
@@ -52,6 +52,13 @@ msgstr "Cancelar"
 
 msgid "Overwrite"
 msgstr "Substituir"
+
+msgid "PDFsam can try to overcome the failure"
+msgstr ""
+
+msgid ""
+"It may result in PDF files with partial or missing data, proceed anyway?"
+msgstr ""
 
 msgid "No"
 msgstr "Não"
@@ -149,12 +156,6 @@ msgstr "Memória máxima {0}"
 
 msgid "Copy to clipboard"
 msgstr "Copiar para a área de transferência"
-
-msgid "Thanks to"
-msgstr "Agradecimentos a"
-
-msgid "The open source projects making PDFsam possible"
-msgstr "Os projetos de código aberto que tornaram o PDFsam possível"
 
 msgid "Support"
 msgstr "Suporte"
@@ -307,14 +308,6 @@ msgstr "Idioma:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Defina seu idioma preferido (é necessário reiniciar)"
 
-# F:\workspace_pdfsame_enanched\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:120
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:122
-msgid "Theme:"
-msgstr "Tema:"
-
-msgid "Set your preferred theme (restart needed)"
-msgstr "Defina seu tema preferido (é necessário reiniciar)"
-
 msgid "Startup module:"
 msgstr "Módulo de início:"
 
@@ -410,6 +403,9 @@ msgstr "Abrir com"
 
 msgid "Select the task to perform on the following files"
 msgstr "Selecione a tarefa a executar nos seguintes arquivos"
+
+msgid "Task failed"
+msgstr "Falha ao executar a tarefa"
 
 msgid "Directory not empty"
 msgstr "O diretório não está vazio"
@@ -596,11 +592,15 @@ msgstr ""
 msgid "Destination file"
 msgstr "Arquivo de destino"
 
+msgid ""
+"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
 msgid "No PDF document has been selected"
 msgstr "Nenhum documento PDF foi selecionado"
 
 msgid "Select a positive integer number as pace"
-msgstr ""
+msgstr "Selecione um número positivo como passo"
 
 msgid "Completed"
 msgstr "Concluído"
@@ -731,6 +731,12 @@ msgstr ""
 msgid "Output PDF version:"
 msgstr "Versão do PDF de saída:"
 
+msgid "Show advanced settings"
+msgstr "Mostrar configurações avançadas"
+
+msgid "Hide advanced settings"
+msgstr "Esconder configurações avançadas"
+
 #, java-format
 msgid "Version {0}"
 msgstr "Versão {0}"
@@ -811,6 +817,9 @@ msgstr "Remover todos os documentos"
 msgid "_Clear"
 msgstr "_Limpar"
 
+msgid "C_lear all settings"
+msgstr "L_impar todas as configurações"
+
 msgid "Moves up selected documents"
 msgstr "Mover para cima o(s) documento(s) selecionado(s)"
 
@@ -824,7 +833,7 @@ msgid "Move _Down"
 msgstr "Mover para baixo (_D)"
 
 msgid "Pace"
-msgstr ""
+msgstr "Passo"
 
 msgid ""
 "Double click to set the number of pages after which the task will switch to "
@@ -842,6 +851,12 @@ msgstr "Inverter"
 
 msgid "Drag and drop PDF files here"
 msgstr "Arraste e solte os arquivos em PDF aqui"
+
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr ""
+
+msgid "No PDF found"
+msgstr ""
 
 msgid "The selected PDF document is invalid"
 msgstr "O documento PDF selecionado é inválido"
@@ -861,6 +876,12 @@ msgstr "Adicionar um rodapé"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr "Adiciona um rodapé com o nome do arquivo ao qual a página pertencia."
+
+msgid "Normalize pages size"
+msgstr "Normaliza o tamanho das páginas"
+
+msgid "Resizes all pages to have the same width as the first page."
+msgstr "Redimensiona todas as páginas para a mesma largura da primeira"
 
 msgid "Merge fields"
 msgstr "Campos unidos"
@@ -967,12 +988,6 @@ msgstr "Este documento é criptografado, clique para fornecer uma senha."
 msgid "An error has occurred, click for more details."
 msgstr "Ocorreu um erro, clique para mais detalhes."
 
-msgid "Squared green"
-msgstr "Quadriculado verde"
-
-msgid "Squared cornflower"
-msgstr "Quadriculado com flor de milho"
-
 msgid "Roundish"
 msgstr "Arredondado"
 
@@ -1065,6 +1080,11 @@ msgstr "Configuração de rotação"
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
 #~ msgid "Split odd pages"
 #~ msgstr "Dividir a cada página impar"
+
+# F:\workspace_pdfsame_enanched\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:120
+# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:122
+#~ msgid "Theme:"
+#~ msgstr "Tema:"
 
 #~ msgid "Never"
 #~ msgstr "Jamais"

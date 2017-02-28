@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-12-09 10:29+0100\n"
-"PO-Revision-Date: 2016-10-26 11:01+0000\n"
-"Last-Translator: Alexander Gruber <Unknown>\n"
+"POT-Creation-Date: 2017-02-17 11:21+0100\n"
+"PO-Revision-Date: 2017-02-12 09:24+0000\n"
+"Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-12-13 14:52+0000\n"
-"X-Generator: Launchpad (build 18293)\n"
+"X-Launchpad-Export-Date: 2017-02-28 08:36+0000\n"
+"X-Generator: Launchpad (build 18329)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Offiziellen News-Feed abonnieren"
@@ -52,6 +52,13 @@ msgstr "Abbrechen"
 
 msgid "Overwrite"
 msgstr "Überschreiben"
+
+msgid "PDFsam can try to overcome the failure"
+msgstr ""
+
+msgid ""
+"It may result in PDF files with partial or missing data, proceed anyway?"
+msgstr ""
 
 msgid "No"
 msgstr "Nein"
@@ -148,12 +155,6 @@ msgstr "Maximaler Speicher {0}"
 
 msgid "Copy to clipboard"
 msgstr "In Zwischenablage kopieren"
-
-msgid "Thanks to"
-msgstr "Dank an:"
-
-msgid "The open source projects making PDFsam possible"
-msgstr "Die quelloffenen Projekte machen PDFsam möglich"
 
 msgid "Support"
 msgstr "Kundendienst"
@@ -312,12 +313,6 @@ msgstr "Sprache:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Bevorzugte Sprache einstellen (Neustart erforderlich)"
 
-msgid "Theme:"
-msgstr "Thema:"
-
-msgid "Set your preferred theme (restart needed)"
-msgstr "Bevorzugtes Thema einstellen (Neustart erforderlich)"
-
 msgid "Startup module:"
 msgstr "Startmodul:"
 
@@ -406,6 +401,9 @@ msgstr "Öffnen mit"
 
 msgid "Select the task to perform on the following files"
 msgstr "Aufgabe auf die folgenden Dateien anwenden"
+
+msgid "Task failed"
+msgstr ""
 
 msgid "Directory not empty"
 msgstr "Das Verzeichnis ist nicht leer"
@@ -590,6 +588,10 @@ msgstr ""
 msgid "Destination file"
 msgstr "Zieldatei"
 
+msgid ""
+"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
 msgid "No PDF document has been selected"
 msgstr "Es wurd kein PDF-Dokument ausgewählt"
 
@@ -699,6 +701,12 @@ msgstr ""
 msgid "Output PDF version:"
 msgstr "Ausgabe-PDF-Version:"
 
+msgid "Show advanced settings"
+msgstr ""
+
+msgid "Hide advanced settings"
+msgstr ""
+
 #, java-format
 msgid "Version {0}"
 msgstr "Version {0}"
@@ -775,6 +783,9 @@ msgstr "Entfernt alle Dokumente"
 msgid "_Clear"
 msgstr "_Löschen"
 
+msgid "C_lear all settings"
+msgstr ""
+
 msgid "Moves up selected documents"
 msgstr "Verschiebt ausgewählte Dokumente nach oben"
 
@@ -809,6 +820,12 @@ msgstr "Umkehren"
 msgid "Drag and drop PDF files here"
 msgstr "PDF-Datein hier ziehen und ablegen"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr ""
+
+msgid "No PDF found"
+msgstr ""
+
 msgid "The selected PDF document is invalid"
 msgstr "Das ausgewählte PDF-Dokument ist nicht gültig"
 
@@ -828,6 +845,12 @@ msgstr "Eine Fußzeile hinzufügen"
 msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr ""
 "Fügt eine Fußzeile mit dem Dateinamen des Dokuments auf der Seite ein"
+
+msgid "Normalize pages size"
+msgstr ""
+
+msgid "Resizes all pages to have the same width as the first page."
+msgstr ""
 
 msgid "Merge fields"
 msgstr "Felder verbinden"
@@ -936,12 +959,6 @@ msgstr ""
 msgid "An error has occurred, click for more details."
 msgstr "Ein Fehler wurde festgestellt, hier klicken um mehr zu erfahren."
 
-msgid "Squared green"
-msgstr "grün kariert"
-
-msgid "Squared cornflower"
-msgstr "kornblumenblau kariert"
-
 msgid "Roundish"
 msgstr "rundlich"
 
@@ -1022,6 +1039,9 @@ msgstr "Die Seiten mehrerer PDF-Dokumente drehen."
 
 msgid "Rotate settings"
 msgstr "Dreheneinstellungen"
+
+#~ msgid "Theme:"
+#~ msgstr "Thema:"
 
 #~ msgid "Never"
 #~ msgstr "Niemals"

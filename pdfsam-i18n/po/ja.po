@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-12-09 10:29+0100\n"
-"PO-Revision-Date: 2016-12-12 00:34+0000\n"
+"POT-Creation-Date: 2017-02-17 11:21+0100\n"
+"PO-Revision-Date: 2017-02-21 03:55+0000\n"
 "Last-Translator: Naofumi Fukue <naofum@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-12-13 14:52+0000\n"
-"X-Generator: Launchpad (build 18293)\n"
+"X-Launchpad-Export-Date: 2017-02-28 08:36+0000\n"
+"X-Generator: Launchpad (build 18329)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "公式ニュースフィードを購読する"
@@ -52,6 +52,13 @@ msgstr "キャンセル"
 
 msgid "Overwrite"
 msgstr "上書き"
+
+msgid "PDFsam can try to overcome the failure"
+msgstr "PDFsam は障害を克服しようとすることができます"
+
+msgid ""
+"It may result in PDF files with partial or missing data, proceed anyway?"
+msgstr "データの一部またはすべてが欠落した PDF ファイルが作成される可能性があります。続行しますか?"
 
 msgid "No"
 msgstr "いいえ"
@@ -148,12 +155,6 @@ msgstr "最大メモリー {0}"
 
 msgid "Copy to clipboard"
 msgstr "クリップボードにコピー"
-
-msgid "Thanks to"
-msgstr "謝辞"
-
-msgid "The open source projects making PDFsam possible"
-msgstr "PDFsam を提供するオープンソースプロジェクト"
 
 msgid "Support"
 msgstr "サポート"
@@ -293,12 +294,6 @@ msgstr "言語："
 msgid "Set your preferred language (restart needed)"
 msgstr "使用言語の設定（要リスタート）"
 
-msgid "Theme:"
-msgstr "テーマ:"
-
-msgid "Set your preferred theme (restart needed)"
-msgstr "お好みのテーマを設定（要リスタート）"
-
 msgid "Startup module:"
 msgstr "起動モジュール:"
 
@@ -381,6 +376,9 @@ msgstr "...で開く"
 
 msgid "Select the task to perform on the following files"
 msgstr "次のファイルに対して実行するタスクを選択"
+
+msgid "Task failed"
+msgstr "タスクが失敗しました"
 
 msgid "Directory not empty"
 msgstr "ディレクトリが空ではありません"
@@ -563,6 +561,10 @@ msgstr "通常または逆の順序で交互にページを取って、2 以上�
 msgid "Destination file"
 msgstr "出力先ファイル"
 
+msgid ""
+"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "ダブルクリックして、ミックスしたいページを設定します (例: 2 または 5-23 または 2,5-7,12-)"
+
 msgid "No PDF document has been selected"
 msgstr "PDF 文書が選択されていません"
 
@@ -668,6 +670,12 @@ msgstr "元の PDF 文書からブックマークを残したくない場合、�
 msgid "Output PDF version:"
 msgstr "出力 PDF バージョン:"
 
+msgid "Show advanced settings"
+msgstr "詳細設定を表示"
+
+msgid "Hide advanced settings"
+msgstr "詳細設定を非表示"
+
 #, java-format
 msgid "Version {0}"
 msgstr "バージョン {0}"
@@ -742,6 +750,9 @@ msgstr "すべての文書を削除"
 msgid "_Clear"
 msgstr "クリア(_C)"
 
+msgid "C_lear all settings"
+msgstr "全ての設定をクリア (_l)"
+
 msgid "Moves up selected documents"
 msgstr "選択した文書を上に移動"
 
@@ -774,6 +785,12 @@ msgstr "逆順"
 msgid "Drag and drop PDF files here"
 msgstr "ここに PDF ファイルをドラッグ＆ドロップします"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr "PDF ファイルまたは PDF ファイルを含むディレクトリーをドラッグ＆ドロップしてください"
+
+msgid "No PDF found"
+msgstr "PDF はありません"
+
 msgid "The selected PDF document is invalid"
 msgstr "選択した PDF 文書が正しくありません"
 
@@ -790,6 +807,12 @@ msgstr "フッターを追加"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr "ページが属するファイルの名前でページフッターを追加します。"
+
+msgid "Normalize pages size"
+msgstr "ページサイズを標準化する"
+
+msgid "Resizes all pages to have the same width as the first page."
+msgstr "最初のページと同じ幅になるようにすべてのページのサイズを変更します。"
 
 msgid "Merge fields"
 msgstr "フィールドをマージ"
@@ -890,12 +913,6 @@ msgstr "この文書は暗号化されています。クリックして、パス
 msgid "An error has occurred, click for more details."
 msgstr "エラーが発生しました。詳細はクリックしてください。"
 
-msgid "Squared green"
-msgstr "緑の四角"
-
-msgid "Squared cornflower"
-msgstr "ヤグルマギクの四角"
-
 msgid "Roundish"
 msgstr "丸み"
 
@@ -970,6 +987,9 @@ msgstr "複数の PDF 文書のページを回転させます。"
 
 msgid "Rotate settings"
 msgstr "回転の設定"
+
+#~ msgid "Theme:"
+#~ msgstr "テーマ:"
 
 #~ msgid "Split even pages"
 #~ msgstr "各奇数ページが先頭になるように分割する"

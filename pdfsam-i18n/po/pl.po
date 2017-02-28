@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-12-09 10:29+0100\n"
+"POT-Creation-Date: 2017-02-17 11:21+0100\n"
 "PO-Revision-Date: 2016-09-30 08:38+0000\n"
 "Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-12-13 14:52+0000\n"
-"X-Generator: Launchpad (build 18293)\n"
+"X-Launchpad-Export-Date: 2017-02-28 08:36+0000\n"
+"X-Generator: Launchpad (build 18329)\n"
 
 msgid "Name"
 msgstr "Nazwa"
@@ -55,6 +55,13 @@ msgstr "Anuluj"
 
 msgid "Overwrite"
 msgstr "Zastąp"
+
+msgid "PDFsam can try to overcome the failure"
+msgstr ""
+
+msgid ""
+"It may result in PDF files with partial or missing data, proceed anyway?"
+msgstr ""
 
 msgid "No"
 msgstr "Nie"
@@ -151,12 +158,6 @@ msgstr "Maksymalna wielkość pamięci {0}"
 
 msgid "Copy to clipboard"
 msgstr "Skopiuj do schowka"
-
-msgid "Thanks to"
-msgstr "Podziękowania dla"
-
-msgid "The open source projects making PDFsam possible"
-msgstr "Projekty Open Source umożliwiły powstanie PDFsam"
 
 msgid "Support"
 msgstr "Wsparcie"
@@ -306,12 +307,6 @@ msgstr "Język:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Ustaw preferowany język (wymagany restart)"
 
-msgid "Theme:"
-msgstr "Wystrój:"
-
-msgid "Set your preferred theme (restart needed)"
-msgstr "Ustaw preferowany motyw (wymagany restart)"
-
 msgid "Startup module:"
 msgstr "Moduł startowy:"
 
@@ -397,6 +392,9 @@ msgstr "Otwórz za pomocą"
 
 msgid "Select the task to perform on the following files"
 msgstr "Wybierz zadanie do wykonania na następujących plikach"
+
+msgid "Task failed"
+msgstr ""
 
 msgid "Directory not empty"
 msgstr "Katalog nie jest pusty"
@@ -582,6 +580,10 @@ msgstr ""
 msgid "Destination file"
 msgstr "Plik docelowy"
 
+msgid ""
+"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
 msgid "No PDF document has been selected"
 msgstr "Nie wybrano żadnego pliku PDF"
 
@@ -691,6 +693,12 @@ msgstr ""
 msgid "Output PDF version:"
 msgstr "Wyjściowa wersja PDF:"
 
+msgid "Show advanced settings"
+msgstr ""
+
+msgid "Hide advanced settings"
+msgstr ""
+
 #, java-format
 msgid "Version {0}"
 msgstr "Wersja {0}"
@@ -763,6 +771,9 @@ msgstr "Usuwa wszystkie dokumenty"
 msgid "_Clear"
 msgstr "Wyczyść"
 
+msgid "C_lear all settings"
+msgstr ""
+
 msgid "Moves up selected documents"
 msgstr "Przesuwa w górę wybrane dokumenty"
 
@@ -797,6 +808,12 @@ msgstr "Odwrócona"
 msgid "Drag and drop PDF files here"
 msgstr "Przeciągnij i upuść tu pliki PDF"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr ""
+
+msgid "No PDF found"
+msgstr ""
+
 msgid "The selected PDF document is invalid"
 msgstr "Wybrany PDF jest błędny"
 
@@ -815,6 +832,12 @@ msgstr "Dodaj stopkę"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr "Dodaje stopkę z nazwą pliku, z którego ta strona pochodzi."
+
+msgid "Normalize pages size"
+msgstr ""
+
+msgid "Resizes all pages to have the same width as the first page."
+msgstr ""
 
 msgid "Merge fields"
 msgstr "Scal pola"
@@ -922,12 +945,6 @@ msgstr "Ten dokument jest zaszyfrowany, kliknij, aby podać hasło."
 msgid "An error has occurred, click for more details."
 msgstr "Wystąpił błąd, kliknij po więcej szczegółów."
 
-msgid "Squared green"
-msgstr "Zielona krata"
-
-msgid "Squared cornflower"
-msgstr "Chabrowa krata"
-
 msgid "Roundish"
 msgstr "Zaokrąglony"
 
@@ -1012,6 +1029,9 @@ msgstr "Ustawienia obracania stron"
 
 #~ msgid "Split odd pages"
 #~ msgstr "Podziel strony nieparzyste"
+
+#~ msgid "Theme:"
+#~ msgstr "Wystrój:"
 
 #~ msgid "Destination folder"
 #~ msgstr "Folder docelowy"

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-09-30 10:43+0200\n"
-"PO-Revision-Date: 2016-07-06 12:09+0000\n"
+"POT-Creation-Date: 2017-02-17 11:21+0100\n"
+"PO-Revision-Date: 2016-11-16 09:12+0000\n"
 "Last-Translator: ZVV <vvzakharenkov@mail.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-10-30 09:56+0000\n"
-"X-Generator: Launchpad (build 18246)\n"
+"X-Launchpad-Export-Date: 2017-02-28 08:36+0000\n"
+"X-Generator: Launchpad (build 18329)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Подписаться на рассылку официальных новостей"
@@ -52,6 +52,13 @@ msgstr "Отмена"
 
 msgid "Overwrite"
 msgstr "Перезаписать"
+
+msgid "PDFsam can try to overcome the failure"
+msgstr ""
+
+msgid ""
+"It may result in PDF files with partial or missing data, proceed anyway?"
+msgstr ""
 
 msgid "No"
 msgstr "Нет"
@@ -149,12 +156,6 @@ msgstr "Максимум памяти {0}"
 msgid "Copy to clipboard"
 msgstr "Копировать в буфер"
 
-msgid "Thanks to"
-msgstr "Благодарности"
-
-msgid "The open source projects making PDFsam possible"
-msgstr "Проекты с открытым исходным кодом делают возможным PDFsam"
-
 msgid "Support"
 msgstr "Поддержка"
 
@@ -163,6 +164,9 @@ msgstr "Внести свой вклад"
 
 msgid "Social"
 msgstr "Общественный"
+
+msgid "Premium features"
+msgstr ""
 
 msgid "Manually selected"
 msgstr "Выбран вручную"
@@ -200,7 +204,8 @@ msgstr "Проверять наличие новостей при запуске
 msgid ""
 "Set whether the application should check for news availability on startup "
 "(restart needed)"
-msgstr "Установите нужно ли проверять наличие новостей при запуске (нужен перезапуск)"
+msgstr ""
+"Установите нужно ли проверять наличие новостей при запуске (нужен перезапуск)"
 
 msgid "Play alert sounds"
 msgstr "Воспроизводить звуковые предупреждения"
@@ -224,6 +229,14 @@ msgid ""
 "user to support PDFsam with a donation"
 msgstr ""
 
+msgid "Show premium features"
+msgstr ""
+
+msgid ""
+"Set whether the application should fetch and show premium features "
+"description in the modules dashboard"
+msgstr ""
+
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Использовать каталог выбранного PDF документа как выходной каталог"
 
@@ -232,7 +245,8 @@ msgstr ""
 "При выходе из программы, сохранять рабочую среду, используемую по умолчанию"
 
 msgid "If a default workspace is set, save it on application exit"
-msgstr "Сохранять рабочую среду, используемую по умолчанию, при выходе из приложения"
+msgstr ""
+"Сохранять рабочую среду, используемую по умолчанию, при выходе из приложения"
 
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Максимальное количество строк должно быть положительным числом"
@@ -287,12 +301,6 @@ msgstr "Язык:"
 
 msgid "Set your preferred language (restart needed)"
 msgstr "Выберите предпочтительный язык (требуется перезапуск)"
-
-msgid "Theme:"
-msgstr "Тема:"
-
-msgid "Set your preferred theme (restart needed)"
-msgstr "Выберите предпочитаемую тему (нужен перезапуск)"
 
 msgid "Startup module:"
 msgstr "Запуск модуля:"
@@ -385,6 +393,9 @@ msgstr "Открыть с помощью"
 msgid "Select the task to perform on the following files"
 msgstr "Выберите действие над следующими файлами"
 
+msgid "Task failed"
+msgstr ""
+
 msgid "Directory not empty"
 msgstr "Каталог не пуст"
 
@@ -411,6 +422,15 @@ msgstr "Не удается найти последнюю доступную в�
 
 msgid "Checking for updates"
 msgstr "Проверка обновлений"
+
+msgid "Unable to retrieve premium features description"
+msgstr ""
+
+msgid "Fetching premium modules"
+msgstr ""
+
+msgid "Unable to retrieve premium modules"
+msgstr ""
 
 msgid "Fetching latest news"
 msgstr "Выборка последних новостей"
@@ -555,11 +575,15 @@ msgid ""
 "Merge two or more PDF documents taking pages alternately in natural or "
 "reverse order."
 msgstr ""
-"Объединение двух или более PDF документов, принимая страницы поочередно в естественном или "
-"обратном порядке."
+"Объединение двух или более PDF документов, принимая страницы поочередно в "
+"естественном или обратном порядке."
 
 msgid "Destination file"
 msgstr "Файл назначения"
+
+msgid ""
+"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
 
 msgid "No PDF document has been selected"
 msgstr "Не выбрано PDF файла"
@@ -672,6 +696,12 @@ msgstr ""
 msgid "Output PDF version:"
 msgstr "Версия PDF при сохранении:"
 
+msgid "Show advanced settings"
+msgstr ""
+
+msgid "Hide advanced settings"
+msgstr ""
+
 #, java-format
 msgid "Version {0}"
 msgstr "Версия {0}"
@@ -750,6 +780,9 @@ msgstr "Убирает каждый документ"
 msgid "_Clear"
 msgstr "_Очистить"
 
+msgid "C_lear all settings"
+msgstr ""
+
 msgid "Moves up selected documents"
 msgstr "Сдвигает вверх отмеченные документы"
 
@@ -782,6 +815,12 @@ msgstr "В обратном порядке"
 msgid "Drag and drop PDF files here"
 msgstr "Перетащите PDF файлы сюда"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr ""
+
+msgid "No PDF found"
+msgstr ""
+
 msgid "The selected PDF document is invalid"
 msgstr "Выбранный PDF документ является неверным"
 
@@ -799,6 +838,12 @@ msgid "Add a footer"
 msgstr "Добавить нижний колонтитул"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr ""
+
+msgid "Normalize pages size"
+msgstr ""
+
+msgid "Resizes all pages to have the same width as the first page."
 msgstr ""
 
 msgid "Merge fields"
@@ -908,12 +953,6 @@ msgstr "Этот документ зашифрован, нажмите для в
 msgid "An error has occurred, click for more details."
 msgstr "Произошла ошибка, кликните для получения более подробной информации."
 
-msgid "Squared green"
-msgstr "Квадратный зеленый"
-
-msgid "Squared cornflower"
-msgstr "Квадратный василёк"
-
 msgid "Roundish"
 msgstr "Округлый"
 
@@ -952,9 +991,6 @@ msgstr "Извлечь страницы из PDF документа"
 msgid "Extract settings"
 msgstr "Извлечь настройки"
 
-msgid "Destination directory"
-msgstr "Каталог назначения"
-
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Страницы, которые нужно извлечь (например: 2 или 5-23 или 2,5-7,12-)"
 
@@ -967,7 +1003,8 @@ msgstr "Извлечь страницы:"
 msgid ""
 "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Кликните дважды, чтобы установить страницы, которые нужно повернуть(пример: 2 или 5-23 или 2,5-7,12-)"
+"Кликните дважды, чтобы установить страницы, которые нужно повернуть(пример: "
+"2 или 5-23 или 2,5-7,12-)"
 
 msgid "All pages"
 msgstr "Все страницы"
@@ -1004,6 +1041,9 @@ msgstr "Настройка вращения"
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
 #~ msgid "Split odd pages"
 #~ msgstr "Разбить по нечётным страницам"
+
+#~ msgid "Theme:"
+#~ msgstr "Тема:"
 
 #~ msgid "Never"
 #~ msgstr "Никогда"

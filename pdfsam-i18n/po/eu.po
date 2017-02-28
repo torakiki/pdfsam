@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-12-09 10:29+0100\n"
+"POT-Creation-Date: 2017-02-17 11:21+0100\n"
 "PO-Revision-Date: 2016-08-20 08:32+0000\n"
 "Last-Translator: gorkaazk <gorkaazkarate@gmail.com>\n"
 "Language-Team: Basque <eu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-12-13 14:52+0000\n"
-"X-Generator: Launchpad (build 18293)\n"
+"X-Launchpad-Export-Date: 2017-02-28 08:36+0000\n"
+"X-Generator: Launchpad (build 18329)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Harpidetu albisteen jario ofizialera"
@@ -52,6 +52,13 @@ msgstr "Utzi"
 
 msgid "Overwrite"
 msgstr "Gainidatzi"
+
+msgid "PDFsam can try to overcome the failure"
+msgstr ""
+
+msgid ""
+"It may result in PDF files with partial or missing data, proceed anyway?"
+msgstr ""
 
 msgid "No"
 msgstr "Ez"
@@ -148,12 +155,6 @@ msgstr "Gehienezko memoria {0}"
 
 msgid "Copy to clipboard"
 msgstr "Kopiatu arbelean"
-
-msgid "Thanks to"
-msgstr "Eskerrak"
-
-msgid "The open source projects making PDFsam possible"
-msgstr "PDFsam posible egiten duten kode irekiko proiektuak"
 
 msgid "Support"
 msgstr "Sostengua"
@@ -300,12 +301,6 @@ msgstr "Hizkuntza:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Ezarri zure gogoko hizkuntza (berrabiaraztea eskatzen du)"
 
-msgid "Theme:"
-msgstr "Gaia:"
-
-msgid "Set your preferred theme (restart needed)"
-msgstr "Ezarri zure gogoko gaia (berrabiaraztea eskatzen du)"
-
 msgid "Startup module:"
 msgstr "Abioko modulua:"
 
@@ -393,6 +388,9 @@ msgid "Open with"
 msgstr "Ireki honekin"
 
 msgid "Select the task to perform on the following files"
+msgstr ""
+
+msgid "Task failed"
 msgstr ""
 
 msgid "Directory not empty"
@@ -577,6 +575,10 @@ msgstr ""
 msgid "Destination file"
 msgstr "Helburuko fitxategia"
 
+msgid ""
+"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
 msgid "No PDF document has been selected"
 msgstr ""
 
@@ -684,6 +686,12 @@ msgstr ""
 msgid "Output PDF version:"
 msgstr ""
 
+msgid "Show advanced settings"
+msgstr ""
+
+msgid "Hide advanced settings"
+msgstr ""
+
 #, java-format
 msgid "Version {0}"
 msgstr "{0} bertsioa"
@@ -758,6 +766,9 @@ msgstr "Dokumentu guztiak kentzen ditu"
 msgid "_Clear"
 msgstr "_Garbitu"
 
+msgid "C_lear all settings"
+msgstr ""
+
 msgid "Moves up selected documents"
 msgstr "Hautatutako dokumentuak gora eramaten ditu"
 
@@ -790,6 +801,12 @@ msgstr "Alderantziz"
 msgid "Drag and drop PDF files here"
 msgstr "Arrastatu eta jaregin PDF fitxategiak hona"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr ""
+
+msgid "No PDF found"
+msgstr ""
+
 msgid "The selected PDF document is invalid"
 msgstr "Hautatutako PDF dokumentua baliogabea da"
 
@@ -807,6 +824,12 @@ msgid "Add a footer"
 msgstr ""
 
 msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr ""
+
+msgid "Normalize pages size"
+msgstr ""
+
+msgid "Resizes all pages to have the same width as the first page."
 msgstr ""
 
 msgid "Merge fields"
@@ -911,12 +934,6 @@ msgstr "Dokumentua zifratuta dago, klikatu pasahitza sartzeko."
 msgid "An error has occurred, click for more details."
 msgstr ""
 
-msgid "Squared green"
-msgstr "Karratu berdea"
-
-msgid "Squared cornflower"
-msgstr "Artalore karratua"
-
 msgid "Roundish"
 msgstr "Borobildua"
 
@@ -1000,6 +1017,9 @@ msgstr "Biraketaren ezarpenak"
 
 #~ msgid "Destination folder"
 #~ msgstr "Helburuko karpeta"
+
+#~ msgid "Theme:"
+#~ msgstr "Gaia:"
 
 #~ msgid "Would you like to overwrite it?"
 #~ msgstr "Gainidatzi nahi al duzu?"

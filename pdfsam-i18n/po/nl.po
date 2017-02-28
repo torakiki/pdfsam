@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-12-09 10:29+0100\n"
-"PO-Revision-Date: 2016-10-12 12:30+0000\n"
+"POT-Creation-Date: 2017-02-17 11:21+0100\n"
+"PO-Revision-Date: 2017-01-04 13:11+0000\n"
 "Last-Translator: Hendrik <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-12-13 14:52+0000\n"
-"X-Generator: Launchpad (build 18293)\n"
+"X-Launchpad-Export-Date: 2017-02-28 08:36+0000\n"
+"X-Generator: Launchpad (build 18329)\n"
 
 msgid "Subscribe to the official news feed"
 msgstr "Abonneren op de officiële nieuwsbrief"
@@ -52,6 +52,13 @@ msgstr "Annuleren"
 
 msgid "Overwrite"
 msgstr "Overschrijven"
+
+msgid "PDFsam can try to overcome the failure"
+msgstr ""
+
+msgid ""
+"It may result in PDF files with partial or missing data, proceed anyway?"
+msgstr ""
 
 msgid "No"
 msgstr "Nee"
@@ -149,12 +156,6 @@ msgstr "Max geheugen {0}"
 msgid "Copy to clipboard"
 msgstr "Kopieer naar klembord"
 
-msgid "Thanks to"
-msgstr "Met dank aan"
-
-msgid "The open source projects making PDFsam possible"
-msgstr "De open source projecten die PDFsam mogelijk maken"
-
 msgid "Support"
 msgstr "Ondersteuning"
 
@@ -165,7 +166,7 @@ msgid "Social"
 msgstr "Sociaal"
 
 msgid "Premium features"
-msgstr ""
+msgstr "Extra functies"
 
 msgid "Manually selected"
 msgstr "Handmatig geselecteerd"
@@ -235,12 +236,14 @@ msgstr ""
 "gevraagd om PDFsam te ondersteunen met een donatie"
 
 msgid "Show premium features"
-msgstr ""
+msgstr "Laat extra functies zien"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
 "description in the modules dashboard"
 msgstr ""
+"Stel in of extra functies (uit de betaalde versie) getoond moeten worden in "
+"het moduledashboard"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Gebruik de map van het geselecteerde PDF-document als uitvoermap"
@@ -311,14 +314,6 @@ msgstr "Taal:"
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:182
 msgid "Set your preferred language (restart needed)"
 msgstr "Stel uw voorkeurstaal in (herstart noodzakelijk)"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:122
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:113
-msgid "Theme:"
-msgstr "Thema:"
-
-msgid "Set your preferred theme (restart needed)"
-msgstr "Stel uw voorkeursthema in (herstart noodzakelijk)"
 
 msgid "Startup module:"
 msgstr "Opstartmodule:"
@@ -415,6 +410,9 @@ msgstr "Open met"
 msgid "Select the task to perform on the following files"
 msgstr "Selecteer de taak om uit te voeren op de volgende bestanden"
 
+msgid "Task failed"
+msgstr ""
+
 msgid "Directory not empty"
 msgstr "Map is niet leeg"
 
@@ -443,13 +441,13 @@ msgid "Checking for updates"
 msgstr "Controleren op updates"
 
 msgid "Unable to retrieve premium features description"
-msgstr ""
+msgstr "Beschrijvingen van extra functies zijn niet beschikbaar"
 
 msgid "Fetching premium modules"
-msgstr ""
+msgstr "Bezig met ophalen van extra functies"
 
 msgid "Unable to retrieve premium modules"
-msgstr ""
+msgstr "Extra functies kunnen niet opgehaald worden"
 
 msgid "Fetching latest news"
 msgstr "Bezig met ophalen van het laatste nieuws"
@@ -602,6 +600,10 @@ msgstr ""
 msgid "Destination file"
 msgstr "Bestemmingsbestand"
 
+msgid ""
+"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
 msgid "No PDF document has been selected"
 msgstr "Geen PDF-document geselecteerd"
 
@@ -737,6 +739,12 @@ msgstr ""
 msgid "Output PDF version:"
 msgstr "PDF-versie van het doelbestand:"
 
+msgid "Show advanced settings"
+msgstr ""
+
+msgid "Hide advanced settings"
+msgstr ""
+
 #, java-format
 msgid "Version {0}"
 msgstr "Versie {0}"
@@ -818,6 +826,9 @@ msgstr "Verwijderd elk document"
 msgid "_Clear"
 msgstr "_Leegmaken"
 
+msgid "C_lear all settings"
+msgstr ""
+
 msgid "Moves up selected documents"
 msgstr "Verplaatst geselecteerde bestanden omhoog"
 
@@ -852,6 +863,12 @@ msgstr "Omgekeerd"
 msgid "Drag and drop PDF files here"
 msgstr "Sleep PDF-bestanden hierheen"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr ""
+
+msgid "No PDF found"
+msgstr ""
+
 msgid "The selected PDF document is invalid"
 msgstr "Het geselecteerde PDF-document is ongeldig"
 
@@ -872,6 +889,12 @@ msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr ""
 "Voegt een voettekst toe met de naam van het bestand waartoe de pagina "
 "behoorde"
+
+msgid "Normalize pages size"
+msgstr ""
+
+msgid "Resizes all pages to have the same width as the first page."
+msgstr ""
 
 msgid "Merge fields"
 msgstr "Velden samenvoegen"
@@ -981,12 +1004,6 @@ msgstr "Dit document is versleuteld, klik om een wachtwoord in te geven."
 msgid "An error has occurred, click for more details."
 msgstr "Er is een fout opgetreden. Klik voor meer details."
 
-msgid "Squared green"
-msgstr "Groen kwadraat"
-
-msgid "Squared cornflower"
-msgstr "Korenbloem kwadraat"
-
 msgid "Roundish"
 msgstr "Rondachtig"
 
@@ -1073,6 +1090,11 @@ msgstr "Draai instellingen"
 # F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
 #~ msgid "Split odd pages"
 #~ msgstr "Splits oneven pagina's"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:122
+# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:113
+#~ msgid "Theme:"
+#~ msgstr "Thema:"
 
 #~ msgid "Never"
 #~ msgstr "Nooit"
