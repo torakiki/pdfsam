@@ -7,7 +7,7 @@
 	<!-- Changing only this doesn't qualify for an upgrade so the upgrade is not detected -->
 	<?define ProductLabelVersion="0" ?>
 	<!-- Change this -->
-	<?define ProductFullVersion="3.3.0.RELEASE" ?>
+	<?define ProductFullVersion="3.3.0" ?>
 
 	<!-- Static configuration options. -->
 	<?define ProductCode="*" ?>
