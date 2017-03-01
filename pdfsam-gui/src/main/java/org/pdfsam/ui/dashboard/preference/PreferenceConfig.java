@@ -116,7 +116,7 @@ public class PreferenceConfig {
     public PreferenceCheckBox savePwdInWorkspace(UserContext userContext) {
         PreferenceCheckBox savePwdInWorkspace = new PreferenceCheckBox(BooleanUserPreference.SAVE_PWD_IN_WORKSPACE,
                 DefaultI18nContext.getInstance().i18n("Store passwords when saving a workspace file"),
-                userContext.isPlaySounds(), userContext);
+                userContext.isSavePwdInWorkspaceFile(), userContext);
         savePwdInWorkspace.setId("savePwdInWorkspace");
         savePwdInWorkspace.setGraphic(helpIcon(DefaultI18nContext.getInstance().i18n(
                 "If an encrypted PDF document has been opened with a password, save the password in the workspace file")));
@@ -129,7 +129,8 @@ public class PreferenceConfig {
     @Named("donationNotification")
     public PreferenceCheckBox donationNotification(UserContext userContext) {
         PreferenceCheckBox donationNotification = new PreferenceCheckBox(BooleanUserPreference.DONATION_NOTIFICATION,
-                DefaultI18nContext.getInstance().i18n("Show donation window"), userContext.isPlaySounds(), userContext);
+                DefaultI18nContext.getInstance().i18n("Show donation window"), userContext.isDonationNotification(),
+                userContext);
         donationNotification.setId("donationNotification");
         donationNotification.setGraphic(helpIcon(DefaultI18nContext.getInstance().i18n(
                 "Turn on or off the notification appearing once in a while and asking the user to support PDFsam with a donation")));
@@ -142,7 +143,7 @@ public class PreferenceConfig {
     @Named("fetchPremiumModules")
     public PreferenceCheckBox fetchPremiumModules(UserContext userContext) {
         PreferenceCheckBox donationNotification = new PreferenceCheckBox(BooleanUserPreference.PREMIUM_MODULES,
-                DefaultI18nContext.getInstance().i18n("Show premium features"), userContext.isPlaySounds(),
+                DefaultI18nContext.getInstance().i18n("Show premium features"), userContext.isFetchPremiumModules(),
                 userContext);
         donationNotification.setId("fetchPremiumModules");
         donationNotification.setGraphic(helpIcon(DefaultI18nContext.getInstance().i18n(

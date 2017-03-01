@@ -45,8 +45,6 @@ public class PreferencePane extends HBox {
         left.setMinWidth(USE_PREF_SIZE);
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Appearance"), left);
         left.getChildren().add(appearence);
-        // addSectionTitle(DefaultI18nContext.getInstance().i18n("Thumbnails"), left);
-        // left.getChildren().add(thumbnails);
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Behavior"), left);
         left.getChildren().add(behavior);
         VBox right = new VBox(Style.DEFAULT_SPACING);

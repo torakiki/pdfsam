@@ -19,6 +19,7 @@
 package org.pdfsam.ui.dashboard.preference;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -69,7 +70,7 @@ public class PreferencePaneTest {
             UserContext userContext = mock(UserContext.class);
             when(userContext.isCheckForUpdates()).thenReturn(Boolean.TRUE);
             when(userContext.isCheckForNews()).thenReturn(Boolean.TRUE);
-            when(userContext.isPlaySounds()).thenReturn(Boolean.TRUE);
+            when(userContext.isPlaySounds()).thenReturn(Boolean.FALSE);
             when(userContext.isDonationNotification()).thenReturn(Boolean.TRUE);
             when(userContext.isFetchPremiumModules()).thenReturn(Boolean.TRUE);
             when(userContext.isUseSmartOutput()).thenReturn(Boolean.TRUE);
@@ -93,7 +94,7 @@ public class PreferencePaneTest {
                 .lookup("#startupModuleCombo");
         assertTrue(((PreferenceCheckBox) victim.lookup("#checkForUpdates")).isSelected());
         assertTrue(((PreferenceCheckBox) victim.lookup("#checkForNews")).isSelected());
-        assertTrue(((PreferenceCheckBox) victim.lookup("#playSounds")).isSelected());
+        assertFalse(((PreferenceCheckBox) victim.lookup("#playSounds")).isSelected());
         assertTrue(((PreferenceCheckBox) victim.lookup("#donationNotification")).isSelected());
         assertTrue(((PreferenceCheckBox) victim.lookup("#fetchPremiumModules")).isSelected());
         assertTrue(((PreferenceRadioButton) victim.lookup("#smartRadio")).isSelected());
