@@ -861,7 +861,7 @@ msgstr "Sayfa sayısı tekse bir boş sayfa ekle"
 msgid ""
 "Adds a blank page after each merged document if the document has an odd "
 "number of pages"
-msgstr "sayfa sayısı"
+msgstr "Dosyalar birleştirildikten sonra sayfa sayısı tekse, boş bir sayfa ekler"
 
 msgid "Add a footer"
 msgstr "Altbilgi ekle"
@@ -873,7 +873,7 @@ msgid "Normalize pages size"
 msgstr ""
 
 msgid "Resizes all pages to have the same width as the first page."
-msgstr ""
+msgstr "Tüm sayfaları birinci sayfa ile aynı genişliğe getir."
 
 msgid "Merge fields"
 msgstr ""
