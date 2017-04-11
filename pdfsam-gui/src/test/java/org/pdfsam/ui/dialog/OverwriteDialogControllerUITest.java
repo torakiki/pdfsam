@@ -41,8 +41,8 @@ import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.injector.Components;
 import org.sejda.injector.Injector;
 import org.sejda.injector.Provides;
-import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.ExistingOutputPolicy;
+import org.sejda.model.output.FileOrDirectoryTaskOutput;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.parameter.MergeParameters;
 import org.sejda.model.parameter.SimpleSplitParameters;
@@ -115,7 +115,7 @@ public class OverwriteDialogControllerUITest extends GuiTest {
         SimpleSplitParameters parameters = new SimpleSplitParameters(PredefinedSetOfPages.ALL_PAGES);
         parameters.setExistingOutputPolicy(ExistingOutputPolicy.FAIL);
         folder.newFile();
-        parameters.setOutput(new DirectoryTaskOutput(folder.getRoot()));
+        parameters.setOutput(FileOrDirectoryTaskOutput.directory(folder.getRoot()));
         Button button = find("show");
         button.setOnAction(a -> eventStudio().broadcast(new TaskExecutionRequestEvent("id", parameters)));
         click("show");
@@ -128,7 +128,7 @@ public class OverwriteDialogControllerUITest extends GuiTest {
         SimpleSplitParameters parameters = new SimpleSplitParameters(PredefinedSetOfPages.ALL_PAGES);
         parameters.setExistingOutputPolicy(ExistingOutputPolicy.FAIL);
         folder.newFile();
-        parameters.setOutput(new DirectoryTaskOutput(folder.getRoot()));
+        parameters.setOutput(FileOrDirectoryTaskOutput.directory(folder.getRoot()));
         Button button = find("show");
         button.setOnAction(a -> eventStudio().broadcast(new TaskExecutionRequestEvent("id", parameters)));
         click("show");

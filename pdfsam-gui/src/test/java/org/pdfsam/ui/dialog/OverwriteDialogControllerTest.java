@@ -38,8 +38,8 @@ import org.sejda.injector.Components;
 import org.sejda.injector.Injector;
 import org.sejda.injector.Provides;
 import org.sejda.model.exception.TaskOutputVisitException;
-import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.ExistingOutputPolicy;
+import org.sejda.model.output.FileOrDirectoryTaskOutput;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.parameter.MergeParameters;
 import org.sejda.model.parameter.SimpleSplitParameters;
@@ -108,7 +108,7 @@ public class OverwriteDialogControllerTest {
     public void directoryIsEmpty() {
         SimpleSplitParameters parameters = new SimpleSplitParameters(PredefinedSetOfPages.ALL_PAGES);
         parameters.setExistingOutputPolicy(ExistingOutputPolicy.FAIL);
-        DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
+        FileOrDirectoryTaskOutput output = mock(FileOrDirectoryTaskOutput.class);
         File file = mock(File.class);
         when(file.listFiles()).thenReturn(new File[0]);
         when(output.getDestination()).thenReturn(file);

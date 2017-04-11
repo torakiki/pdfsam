@@ -21,6 +21,7 @@ package org.pdfsam.ui.io;
 import static org.pdfsam.support.validation.Validators.and;
 import static org.pdfsam.support.validation.Validators.nonBlank;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.sejda.model.output.FileOrDirectoryTaskOutput.directory;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -32,8 +33,7 @@ import org.pdfsam.support.params.MultipleOutputTaskParametersBuilder;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.commons.NonExistingOutputDirectoryEvent;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
-import org.sejda.model.output.DirectoryTaskOutput;
-import org.sejda.model.parameter.base.MultipleOutputTaskParameters;
+import org.sejda.model.parameter.base.SingleOrMultipleOutputTaskParameters;
 
 /**
  * A {@link BrowsableDirectoryField} letting the user select a directory as output for a {@link MultipleOutputTaskParametersBuilder}.
@@ -49,7 +49,7 @@ public class BrowsableOutputDirectoryField extends BrowsableDirectoryField
     }
 
     @Override
-    public void apply(MultipleOutputTaskParametersBuilder<? extends MultipleOutputTaskParameters> builder,
+    public void apply(MultipleOutputTaskParametersBuilder<? extends SingleOrMultipleOutputTaskParameters> builder,
             Consumer<String> onError) {
         getTextField().validate();
         if (getTextField().getValidationState() == ValidationState.VALID) {
@@ -58,7 +58,7 @@ public class BrowsableOutputDirectoryField extends BrowsableDirectoryField
                 eventStudio().broadcast(new NonExistingOutputDirectoryEvent(output));
             }
             if (Files.isDirectory(output)) {
-                builder.output(new DirectoryTaskOutput(output.toFile()));
+                builder.output(directory(output.toFile()));
             } else {
                 onError.accept(DefaultI18nContext.getInstance().i18n("An existing output directory is required"));
             }

@@ -48,8 +48,8 @@ import org.pdfsam.support.params.SplitParametersBuilder;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.optimization.OptimizationPolicy;
-import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.ExistingOutputPolicy;
+import org.sejda.model.output.FileOrDirectoryTaskOutput;
 import org.sejda.model.parameter.SimpleSplitParameters;
 import org.sejda.model.pdf.PdfVersion;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
@@ -96,7 +96,7 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest extends GuiTest {
         FXTestUtils.invokeAndWait(() -> {
             SimpleSplitParametersBuilder builder = victim.getBuilder(onError);
             builder.compress(true);
-            DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
+            FileOrDirectoryTaskOutput output = mock(FileOrDirectoryTaskOutput.class);
             builder.output(output);
             builder.existingOutput(ExistingOutputPolicy.OVERWRITE);
             builder.prefix("prefix");
@@ -111,11 +111,12 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest extends GuiTest {
             assertThat(params.getPages(6), not(contains(2, 4, 6)));
             assertEquals("prefix", params.getOutputPrefix());
             assertEquals(output, params.getOutput());
-            assertEquals(source, params.getSource());
+            assertEquals(source, params.getSourceList().get(0));
             assertEquals(OptimizationPolicy.AUTO, params.getOptimizationPolicy());
             verify(onError, never()).accept(anyString());
-        } , 2);
+        }, 2);
     }
+
     @Test
     public void builderDisabledOptimization() throws Exception {
         SplitAfterPredefinedSetOfPagesRadioButton victim = find("#victim");
@@ -124,7 +125,7 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest extends GuiTest {
         FXTestUtils.invokeAndWait(() -> {
             SimpleSplitParametersBuilder builder = victim.getBuilder(onError);
             builder.compress(true);
-            DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
+            FileOrDirectoryTaskOutput output = mock(FileOrDirectoryTaskOutput.class);
             builder.output(output);
             builder.existingOutput(ExistingOutputPolicy.OVERWRITE);
             builder.prefix("prefix");
@@ -135,7 +136,7 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest extends GuiTest {
             SimpleSplitParameters params = builder.build();
             assertEquals(OptimizationPolicy.NO, params.getOptimizationPolicy());
             verify(onError, never()).accept(anyString());
-        } , 2);
+        }, 2);
         System.setProperty(SplitParametersBuilder.PDFSAM_DISABLE_SPLIT_OPTIMIZATION, Boolean.FALSE.toString());
     }
 

@@ -45,8 +45,8 @@ import org.sejda.eventstudio.annotation.EventStation;
 import org.sejda.model.exception.TaskOutputVisitException;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.output.DirectoryTaskOutput;
+import org.sejda.model.output.FileOrDirectoryTaskOutput;
 import org.sejda.model.output.FileTaskOutput;
-import org.sejda.model.output.StreamTaskOutput;
 import org.sejda.model.output.TaskOutputDispatcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -133,8 +133,9 @@ public class OpenButton extends SplitMenuButton implements TaskOutputDispatcher 
     }
 
     @Override
-    public void dispatch(StreamTaskOutput output) {
-        throw new IllegalArgumentException("Unsupported output type");
+    public void dispatch(FileOrDirectoryTaskOutput output) {
+        destination = output.getDestination();
+        setGraphic(GlyphsDude.createIcon(MaterialDesignIcon.FOLDER_OUTLINE, "1.6em"));
     }
 
     private class OpenWithMenuItem extends MenuItem {

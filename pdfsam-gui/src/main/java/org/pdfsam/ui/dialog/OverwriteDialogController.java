@@ -21,6 +21,8 @@ package org.pdfsam.ui.dialog;
 import static org.apache.commons.lang3.ArrayUtils.isNotEmpty;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
+import java.io.File;
+
 import javax.inject.Inject;
 import javax.inject.Provider;
 
@@ -32,8 +34,8 @@ import org.sejda.injector.Auto;
 import org.sejda.model.exception.TaskOutputVisitException;
 import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.ExistingOutputPolicy;
+import org.sejda.model.output.FileOrDirectoryTaskOutput;
 import org.sejda.model.output.FileTaskOutput;
-import org.sejda.model.output.StreamTaskOutput;
 import org.sejda.model.output.TaskOutputDispatcher;
 import org.sejda.model.parameter.base.AbstractParameters;
 import org.slf4j.Logger;
@@ -65,43 +67,20 @@ public class OverwriteDialogController {
                 event.getParameters().getOutput().accept(new TaskOutputDispatcher() {
 
                     @Override
-                    public void dispatch(StreamTaskOutput output) {
-                        // nothing to do
+                    public void dispatch(FileOrDirectoryTaskOutput output) {
+                        onDirectory(params, output.getDestination());
                     }
 
                     @Override
                     public void dispatch(DirectoryTaskOutput output) {
-                        if (isNotEmpty(output.getDestination().listFiles())) {
-                            if (!dialog.get().title(DefaultI18nContext.getInstance().i18n("Directory not empty"))
-                                    .messageTitle(DefaultI18nContext.getInstance()
-                                            .i18n("The selected directory is not empty"))
-                                    .messageContent(DefaultI18nContext.getInstance()
-                                            .i18n("Overwrite files with the same name as the generated ones?"))
-                                    .response()) {
-                                throw new BroadcastInterruptionException(
-                                        DefaultI18nContext.getInstance().i18n("Don't overwrite existing file"));
-                            }
-                            LOG.trace("Enabling overwrite of the existing output file");
-                            params.setExistingOutputPolicy(ExistingOutputPolicy.OVERWRITE);
-                        }
+                        onDirectory(params, output.getDestination());
                     }
 
                     @Override
                     public void dispatch(FileTaskOutput output) {
-                        if (output.getDestination().exists()) {
-                            if (!dialog.get().title(DefaultI18nContext.getInstance().i18n("Overwrite confirmation"))
-                                    .messageTitle(DefaultI18nContext.getInstance()
-                                            .i18n("A file with the given name already exists"))
-                                    .messageContent(
-                                            DefaultI18nContext.getInstance().i18n("Do you want to overwrite it?"))
-                                    .response()) {
-                                throw new BroadcastInterruptionException(
-                                        DefaultI18nContext.getInstance().i18n("Don't overwrite existing file"));
-                            }
-                            LOG.trace("Enabling overwrite of the existing output file");
-                            params.setExistingOutputPolicy(ExistingOutputPolicy.OVERWRITE);
-                        }
+                        onFile(params, output.getDestination());
                     }
+
                 });
             }
         } catch (TaskOutputVisitException e) {
@@ -110,4 +89,31 @@ public class OverwriteDialogController {
         }
     }
 
+    private void onDirectory(AbstractParameters params, File dir) {
+        if (isNotEmpty(dir.listFiles())) {
+            if (!dialog.get().title(DefaultI18nContext.getInstance().i18n("Directory not empty"))
+                    .messageTitle(DefaultI18nContext.getInstance().i18n("The selected directory is not empty"))
+                    .messageContent(DefaultI18nContext.getInstance()
+                            .i18n("Overwrite files with the same name as the generated ones?"))
+                    .response()) {
+                throw new BroadcastInterruptionException(
+                        DefaultI18nContext.getInstance().i18n("Don't overwrite existing file"));
+            }
+            LOG.trace("Enabling overwrite of the existing output file");
+            params.setExistingOutputPolicy(ExistingOutputPolicy.OVERWRITE);
+        }
+    }
+
+    private void onFile(AbstractParameters params, File file) {
+        if (file.exists()) {
+            if (!dialog.get().title(DefaultI18nContext.getInstance().i18n("Overwrite confirmation"))
+                    .messageTitle(DefaultI18nContext.getInstance().i18n("A file with the given name already exists"))
+                    .messageContent(DefaultI18nContext.getInstance().i18n("Do you want to overwrite it?")).response()) {
+                throw new BroadcastInterruptionException(
+                        DefaultI18nContext.getInstance().i18n("Don't overwrite existing file"));
+            }
+            LOG.trace("Enabling overwrite of the existing output file");
+            params.setExistingOutputPolicy(ExistingOutputPolicy.OVERWRITE);
+        }
+    }
 }

@@ -25,7 +25,6 @@ import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
-import java.io.OutputStream;
 import java.util.Arrays;
 
 import org.junit.Rule;
@@ -47,7 +46,6 @@ import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.FileTaskOutput;
-import org.sejda.model.output.StreamTaskOutput;
 import org.sejda.model.task.NotifiableTaskMetadata;
 import org.sejda.model.task.Task;
 
@@ -110,10 +108,14 @@ public class OpenButtonTest extends GuiTest {
         assertEquals(MaterialDesignIcon.FOLDER_OUTLINE.characterToString(), icon.getText());
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void streamDestination() {
+    @Test
+    public void fileOrDirDestination() throws Exception {
         OpenButton victim = find(".footer-open-button");
-        victim.dispatch(new StreamTaskOutput(mock(OutputStream.class)));
+        DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
+        FXTestUtils.invokeAndWait(() -> victim.dispatch(output), 1);
+        verify(output).getDestination();
+        Text icon = find(".glyph-icon");
+        assertEquals(MaterialDesignIcon.FOLDER_OUTLINE.characterToString(), icon.getText());
     }
 
     @Test

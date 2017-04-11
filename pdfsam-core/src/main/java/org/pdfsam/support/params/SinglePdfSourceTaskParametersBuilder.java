@@ -20,7 +20,7 @@ package org.pdfsam.support.params;
 
 import org.apache.commons.lang3.builder.Builder;
 import org.sejda.model.input.PdfFileSource;
-import org.sejda.model.parameter.base.SinglePdfSourceTaskParameters;
+import org.sejda.model.parameter.base.MultiplePdfSourceMultipleOutputParameters;
 
 /**
  * Builder for a SinglePdfSourceTaskParameters
@@ -29,6 +29,7 @@ import org.sejda.model.parameter.base.SinglePdfSourceTaskParameters;
  * @param <P>
  *            the type of parameters
  */
-public interface SinglePdfSourceTaskParametersBuilder<P extends SinglePdfSourceTaskParameters> extends Builder<P> {
+public interface SinglePdfSourceTaskParametersBuilder<P extends MultiplePdfSourceMultipleOutputParameters>
+        extends Builder<P> {
     void source(PdfFileSource source);
 }

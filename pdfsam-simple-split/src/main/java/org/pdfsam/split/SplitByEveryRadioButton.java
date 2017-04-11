@@ -107,7 +107,7 @@ public class SplitByEveryRadioButton extends RadioButton implements SplitParamet
             params.setVersion(getVersion());
             params.setOutput(getOutput());
             params.setOutputPrefix(getPrefix());
-            params.setSource(getSource());
+            params.addSource(getSource());
             params.setOptimizationPolicy(getOptimizationPolicy());
             params.discardOutline(isDiscardBookmarks());
             return params;

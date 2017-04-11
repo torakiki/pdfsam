@@ -22,7 +22,7 @@ import java.util.Set;
 
 import org.sejda.common.collection.NullSafeSet;
 import org.sejda.model.input.PdfFileSource;
-import org.sejda.model.output.DirectoryTaskOutput;
+import org.sejda.model.output.SingleOrMultipleTaskOutput;
 import org.sejda.model.parameter.base.MultiplePdfSourceMultipleOutputParameters;
 
 /**
@@ -36,7 +36,7 @@ public abstract class MultiplePdfSourceMultipleOutputParametersBuilder<P extends
         extends AbstractPdfOutputParametersBuilder<P> implements MultipleOutputTaskParametersBuilder<P> {
 
     private Set<PdfFileSource> inputs = new NullSafeSet<>();
-    private DirectoryTaskOutput output;
+    private SingleOrMultipleTaskOutput output;
     private String prefix;
 
     public void addSource(PdfFileSource input) {
@@ -49,11 +49,11 @@ public abstract class MultiplePdfSourceMultipleOutputParametersBuilder<P extends
     }
 
     @Override
-    public void output(DirectoryTaskOutput output) {
+    public void output(SingleOrMultipleTaskOutput output) {
         this.output = output;
     }
 
-    public DirectoryTaskOutput getOutput() {
+    public SingleOrMultipleTaskOutput getOutput() {
         return output;
     }
 

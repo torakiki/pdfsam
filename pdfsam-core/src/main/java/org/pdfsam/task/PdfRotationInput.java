@@ -52,7 +52,7 @@ public class PdfRotationInput implements PagesSelection {
     public final Rotation rotation;
     @Valid
     @NotEmpty
-    private final Set<PagesSelection> pageSelection = new NullSafeSet<PagesSelection>();
+    private final Set<PagesSelection> pageSelection = new NullSafeSet<>();
 
     /**
      * @param source
@@ -71,7 +71,7 @@ public class PdfRotationInput implements PagesSelection {
 
     @Override
     public Set<Integer> getPages(int totalNumberOfPage) {
-        Set<Integer> retSet = new NullSafeSet<Integer>();
+        Set<Integer> retSet = new NullSafeSet<>();
         for (PagesSelection selection : pageSelection) {
             retSet.addAll(selection.getPages(totalNumberOfPage));
         }

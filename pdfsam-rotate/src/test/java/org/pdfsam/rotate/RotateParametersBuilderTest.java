@@ -34,8 +34,8 @@ import org.junit.rules.TemporaryFolder;
 import org.pdfsam.task.BulkRotateParameters;
 import org.pdfsam.task.PdfRotationInput;
 import org.sejda.model.input.PdfFileSource;
-import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.ExistingOutputPolicy;
+import org.sejda.model.output.FileOrDirectoryTaskOutput;
 import org.sejda.model.pdf.PdfVersion;
 import org.sejda.model.pdf.page.PageRange;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
@@ -62,7 +62,7 @@ public class RotateParametersBuilderTest {
 
     @Test
     public void buildDefaultSelection() throws IOException {
-        DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
+        FileOrDirectoryTaskOutput output = mock(FileOrDirectoryTaskOutput.class);
         victim.output(output);
         File file = folder.newFile("my.pdf");
         PdfFileSource source = PdfFileSource.newInstanceNoPassword(file);
@@ -84,7 +84,7 @@ public class RotateParametersBuilderTest {
 
     @Test
     public void buildRanges() throws IOException {
-        DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
+        FileOrDirectoryTaskOutput output = mock(FileOrDirectoryTaskOutput.class);
         victim.output(output);
         File file = folder.newFile("my.pdf");
         PdfFileSource source = PdfFileSource.newInstanceNoPassword(file);
@@ -100,7 +100,7 @@ public class RotateParametersBuilderTest {
 
     @Test
     public void buildMultiple() throws IOException {
-        DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
+        FileOrDirectoryTaskOutput output = mock(FileOrDirectoryTaskOutput.class);
         victim.output(output);
         File file = folder.newFile("my.pdf");
         PdfFileSource source = PdfFileSource.newInstanceNoPassword(file);

@@ -27,9 +27,8 @@ import javax.validation.constraints.NotNull;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
-import org.sejda.model.output.MultipleTaskOutput;
-import org.sejda.model.parameter.base.AbstractPdfOutputParameters;
-import org.sejda.model.parameter.base.MultipleOutputTaskParameters;
+import org.sejda.model.output.SingleOrMultipleTaskOutput;
+import org.sejda.model.parameter.base.MultiplePdfSourceMultipleOutputParameters;
 import org.sejda.model.validation.constraint.NotEmpty;
 
 /**
@@ -38,12 +37,12 @@ import org.sejda.model.validation.constraint.NotEmpty;
  * @author Andrea Vacondio
  *
  */
-public class BulkRotateParameters extends AbstractPdfOutputParameters implements MultipleOutputTaskParameters {
+public class BulkRotateParameters extends MultiplePdfSourceMultipleOutputParameters {
 
     private String outputPrefix = "";
     @Valid
     @NotNull
-    private MultipleTaskOutput<?> output;
+    private SingleOrMultipleTaskOutput output;
     @NotEmpty
     @Valid
     private final Set<PdfRotationInput> inputSet = new HashSet<>();
@@ -70,12 +69,12 @@ public class BulkRotateParameters extends AbstractPdfOutputParameters implements
     }
 
     @Override
-    public MultipleTaskOutput<?> getOutput() {
+    public SingleOrMultipleTaskOutput getOutput() {
         return output;
     }
 
     @Override
-    public void setOutput(MultipleTaskOutput<?> output) {
+    public void setOutput(SingleOrMultipleTaskOutput output) {
         this.output = output;
     }
 

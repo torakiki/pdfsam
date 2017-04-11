@@ -19,7 +19,8 @@
 package org.pdfsam.support.params;
 
 import org.sejda.model.input.PdfFileSource;
-import org.sejda.model.output.DirectoryTaskOutput;
+import org.sejda.model.output.SingleOrMultipleTaskOutput;
+import org.sejda.model.parameter.base.MultiplePdfSourceMultipleOutputParameters;
 import org.sejda.model.parameter.base.SinglePdfSourceMultipleOutputParameters;
 
 /**
@@ -29,12 +30,12 @@ import org.sejda.model.parameter.base.SinglePdfSourceMultipleOutputParameters;
  * @param <P>
  *            type of the parameters the builder builds
  */
-public abstract class SinglePdfSourceMultipleOutputParametersBuilder<P extends SinglePdfSourceMultipleOutputParameters>
-        extends AbstractPdfOutputParametersBuilder<P> implements SinglePdfSourceTaskParametersBuilder<P>,
-        MultipleOutputTaskParametersBuilder<P> {
+public abstract class SinglePdfSourceMultipleOutputParametersBuilder<P extends MultiplePdfSourceMultipleOutputParameters>
+        extends AbstractPdfOutputParametersBuilder<P>
+        implements SinglePdfSourceTaskParametersBuilder<P>, MultipleOutputTaskParametersBuilder<P> {
 
     private PdfFileSource source;
-    private DirectoryTaskOutput output;
+    private SingleOrMultipleTaskOutput output;
     private String prefix;
 
     @Override
@@ -43,7 +44,7 @@ public abstract class SinglePdfSourceMultipleOutputParametersBuilder<P extends S
     }
 
     @Override
-    public void output(DirectoryTaskOutput output) {
+    public void output(SingleOrMultipleTaskOutput output) {
         this.output = output;
     }
 
@@ -56,7 +57,7 @@ public abstract class SinglePdfSourceMultipleOutputParametersBuilder<P extends S
         return source;
     }
 
-    protected DirectoryTaskOutput getOutput() {
+    protected SingleOrMultipleTaskOutput getOutput() {
         return output;
     }
 

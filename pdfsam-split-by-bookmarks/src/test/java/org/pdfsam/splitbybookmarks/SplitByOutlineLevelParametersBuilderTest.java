@@ -30,8 +30,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import org.sejda.model.input.PdfFileSource;
-import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.ExistingOutputPolicy;
+import org.sejda.model.output.FileOrDirectoryTaskOutput;
 import org.sejda.model.parameter.SplitByOutlineLevelParameters;
 import org.sejda.model.pdf.PdfVersion;
 
@@ -47,7 +47,7 @@ public class SplitByOutlineLevelParametersBuilderTest {
     public void build() throws IOException {
         SplitByOutlineLevelParametersBuilder victim = new SplitByOutlineLevelParametersBuilder();
         victim.compress(true);
-        DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
+        FileOrDirectoryTaskOutput output = mock(FileOrDirectoryTaskOutput.class);
         victim.output(output);
         victim.existingOutput(ExistingOutputPolicy.OVERWRITE);
         victim.level(2);
@@ -66,6 +66,6 @@ public class SplitByOutlineLevelParametersBuilderTest {
         assertEquals("regExp", params.getMatchingTitleRegEx());
         assertEquals("prefix", params.getOutputPrefix());
         assertEquals(output, params.getOutput());
-        assertEquals(source, params.getSource());
+        assertEquals(source, params.getSourceList().get(0));
     }
 }

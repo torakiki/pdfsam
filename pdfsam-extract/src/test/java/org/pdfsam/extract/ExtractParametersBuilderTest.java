@@ -31,8 +31,8 @@ import org.junit.rules.TemporaryFolder;
 import org.pdfsam.support.params.ConversionUtils;
 import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.optimization.OptimizationPolicy;
-import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.ExistingOutputPolicy;
+import org.sejda.model.output.FileOrDirectoryTaskOutput;
 import org.sejda.model.parameter.ExtractPagesParameters;
 import org.sejda.model.pdf.PdfVersion;
 import org.sejda.model.pdf.page.PageRange;
@@ -49,7 +49,7 @@ public class ExtractParametersBuilderTest {
     public void build() throws IOException {
         ExtractParametersBuilder victim = new ExtractParametersBuilder();
         victim.compress(true);
-        DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
+        FileOrDirectoryTaskOutput output = mock(FileOrDirectoryTaskOutput.class);
         victim.output(output);
         victim.existingOutput(ExistingOutputPolicy.OVERWRITE);
         victim.discardBookmarks(true);

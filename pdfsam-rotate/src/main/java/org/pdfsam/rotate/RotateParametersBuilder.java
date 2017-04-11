@@ -28,7 +28,7 @@ import org.pdfsam.task.BulkRotateParameters;
 import org.pdfsam.task.PdfRotationInput;
 import org.sejda.common.collection.NullSafeSet;
 import org.sejda.model.input.PdfSource;
-import org.sejda.model.output.DirectoryTaskOutput;
+import org.sejda.model.output.SingleOrMultipleTaskOutput;
 import org.sejda.model.pdf.page.PageRange;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
 import org.sejda.model.rotation.Rotation;
@@ -42,7 +42,7 @@ import org.sejda.model.rotation.Rotation;
 class RotateParametersBuilder extends AbstractPdfOutputParametersBuilder<BulkRotateParameters>
         implements MultipleOutputTaskParametersBuilder<BulkRotateParameters> {
 
-    private DirectoryTaskOutput output;
+    private SingleOrMultipleTaskOutput output;
     private String prefix;
     private Set<PdfRotationInput> inputs = new NullSafeSet<>();
     private Rotation rotation;
@@ -61,7 +61,7 @@ class RotateParametersBuilder extends AbstractPdfOutputParametersBuilder<BulkRot
     }
 
     @Override
-    public void output(DirectoryTaskOutput output) {
+    public void output(SingleOrMultipleTaskOutput output) {
         this.output = output;
     }
 
@@ -70,7 +70,7 @@ class RotateParametersBuilder extends AbstractPdfOutputParametersBuilder<BulkRot
         this.prefix = prefix;
     }
 
-    protected DirectoryTaskOutput getOutput() {
+    protected SingleOrMultipleTaskOutput getOutput() {
         return output;
     }
 

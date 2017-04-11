@@ -19,8 +19,9 @@
 package org.pdfsam.support.params;
 
 import org.apache.commons.lang3.builder.Builder;
-import org.sejda.model.output.DirectoryTaskOutput;
+import org.sejda.model.output.SingleOrMultipleTaskOutput;
 import org.sejda.model.parameter.base.MultipleOutputTaskParameters;
+import org.sejda.model.parameter.base.SingleOrMultipleOutputTaskParameters;
 
 /**
  * Builder for a {@link MultipleOutputTaskParameters}
@@ -30,9 +31,10 @@ import org.sejda.model.parameter.base.MultipleOutputTaskParameters;
  *            type of parameters built
  *
  */
-public interface MultipleOutputTaskParametersBuilder<P extends MultipleOutputTaskParameters> extends Builder<P> {
+public interface MultipleOutputTaskParametersBuilder<P extends SingleOrMultipleOutputTaskParameters>
+        extends Builder<P> {
 
     void prefix(String prefix);
 
-    void output(DirectoryTaskOutput output);
+    void output(SingleOrMultipleTaskOutput output);
 }

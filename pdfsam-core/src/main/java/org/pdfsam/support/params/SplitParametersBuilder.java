@@ -19,7 +19,7 @@
 package org.pdfsam.support.params;
 
 import org.sejda.model.optimization.OptimizationPolicy;
-import org.sejda.model.parameter.base.SinglePdfSourceMultipleOutputParameters;
+import org.sejda.model.parameter.base.MultiplePdfSourceMultipleOutputParameters;
 
 /**
  * Builder for split tasks parameters
@@ -27,7 +27,7 @@ import org.sejda.model.parameter.base.SinglePdfSourceMultipleOutputParameters;
  * @author Andrea Vacondio
  *
  */
-public abstract class SplitParametersBuilder<P extends SinglePdfSourceMultipleOutputParameters>
+public abstract class SplitParametersBuilder<P extends MultiplePdfSourceMultipleOutputParameters>
         extends SinglePdfSourceMultipleOutputParametersBuilder<P> {
 
     private OptimizationPolicy optimizationPolicy = OptimizationPolicy.AUTO;

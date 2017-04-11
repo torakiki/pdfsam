@@ -24,6 +24,7 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.params.SinglePdfSourceTaskParametersBuilder;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
+import org.sejda.model.parameter.base.MultiplePdfSourceMultipleOutputParameters;
 import org.sejda.model.parameter.base.SinglePdfSourceTaskParameters;
 
 /**
@@ -33,14 +34,14 @@ import org.sejda.model.parameter.base.SinglePdfSourceTaskParameters;
  *
  */
 public class TaskParametersBuilderSingleSelectionPane extends SingleSelectionPane implements
-        TaskParametersBuildStep<SinglePdfSourceTaskParametersBuilder<? extends SinglePdfSourceTaskParameters>> {
+        TaskParametersBuildStep<SinglePdfSourceTaskParametersBuilder<? extends MultiplePdfSourceMultipleOutputParameters>> {
 
     public TaskParametersBuilderSingleSelectionPane(String ownerModule) {
         super(ownerModule);
     }
 
     @Override
-    public void apply(SinglePdfSourceTaskParametersBuilder<? extends SinglePdfSourceTaskParameters> builder,
+    public void apply(SinglePdfSourceTaskParametersBuilder<? extends MultiplePdfSourceMultipleOutputParameters> builder,
             Consumer<String> onError) {
         getField().getTextField().validate();
         if (getField().getTextField().getValidationState() == ValidationState.VALID) {
