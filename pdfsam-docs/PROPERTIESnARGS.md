@@ -117,3 +117,6 @@ A list of properties that can be set during the silent installation of the PDFsa
 *description:* if not already set in the application preferences, tells PDFsam if it should fetch and show premium modules description in the modules dashboard.  
 *since:* 3.2.5  
 
+Environment variables
+=============
+On Windows system the executable `pdfsam.exe` tries to find the most appropriate Java installation available on the system. You can override this behaviour by setting an environment variable called `PDFSAM_JAVA_PATH` to the path of the JRE you want to use.
