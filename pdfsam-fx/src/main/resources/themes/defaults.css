@@ -401,6 +401,12 @@
     -fx-background-radius: 0.0, 0.0, 0.0;
 }
 /**
+ * Selection table
+ */
+ .selection-table{
+ 	-fx-min-height: 15.0em;
+ }
+/**
  * Selection table toolbar
  */
 .selection-tool-bar:horizontal {

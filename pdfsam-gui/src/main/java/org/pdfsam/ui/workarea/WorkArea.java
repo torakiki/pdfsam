@@ -35,8 +35,9 @@ import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 
 import javafx.animation.FadeTransition;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 /**
@@ -49,7 +50,7 @@ public class WorkArea extends BorderPane {
 
     private Map<String, Module> modules = new HashMap<>();
     private Optional<Module> current = Optional.empty();
-    private StackPane center = new StackPane();
+    private ScrollPane center = new ScrollPane();
     private FadeTransition fade = new FadeTransition(new Duration(300), center);
 
     @Inject
@@ -61,6 +62,9 @@ public class WorkArea extends BorderPane {
         }
         fade.setFromValue(0);
         fade.setToValue(1);
+        center.setHbarPolicy(ScrollBarPolicy.NEVER);
+        center.setFitToWidth(true);
+        center.setFitToHeight(true);
         setCenter(center);
         setLeft(new QuickbarPane(modulesButtons));
         eventStudio().addAnnotatedListeners(this);
@@ -72,7 +76,7 @@ public class WorkArea extends BorderPane {
             Module requested = modules.get(id);
             if (requested != null) {
                 current = Optional.of(requested);
-                center.getChildren().setAll(requested.modulePanel());
+                center.setContent(requested.modulePanel());
                 fade.play();
             }
         });

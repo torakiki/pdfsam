@@ -44,6 +44,7 @@ import org.sejda.eventstudio.Listener;
 import org.sejda.injector.Injector;
 import org.sejda.injector.Provides;
 
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
@@ -101,14 +102,14 @@ public class WorkAreaTest {
     @Test
     public void eventTitleIsSent() {
         WorkArea victim = injector.instance(WorkArea.class);
-        assertNull(victim.lookup("#modulePane"));
+        assertNull(((ScrollPane) victim.getCenter()).getContent());
         Listener<SetTitleEvent> listener = mock(Listener.class);
         eventStudio().add(SetTitleEvent.class, listener);
         victim.onSetActiveModule(SetActiveModuleRequest.activeteModule(DefaultPriorityTestModule.ID));
         ArgumentCaptor<SetTitleEvent> captor = ArgumentCaptor.forClass(SetTitleEvent.class);
         verify(listener).onEvent(captor.capture());
         assertEquals(injector.instance(TestModule.class).descriptor().getName(), captor.getValue().getTitle());
-        assertNotNull(victim.lookup("#modulePane"));
+        assertNotNull(((ScrollPane) victim.getCenter()).getContent());
     }
 
     @Test

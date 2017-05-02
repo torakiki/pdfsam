@@ -118,6 +118,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         Arrays.stream(columns).forEach(c -> getColumns().add(c.getTableColumn()));
         setColumnResizePolicy(CONSTRAINED_RESIZE_POLICY);
+        getStyleClass().add("selection-table");
         initDragAndDrop(canMove);
         getSelectionModel().getSelectedIndices().addListener((Change<? extends Integer> c) -> {
 
