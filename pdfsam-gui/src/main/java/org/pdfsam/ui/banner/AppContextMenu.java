@@ -18,9 +18,13 @@
  */
 package org.pdfsam.ui.banner;
 
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
+
 import javax.inject.Inject;
 
 import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.ui.dashboard.PreferencesDashboardItem;
+import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 
 import javafx.application.Platform;
 import javafx.scene.control.ContextMenu;
@@ -38,6 +42,9 @@ class AppContextMenu extends ContextMenu {
     AppContextMenu(WorkspaceMenu workspace, ModulesMenu modulesMenu) {
         MenuItem exit = new MenuItem(DefaultI18nContext.getInstance().i18n("E_xit"));
         exit.setOnAction(e -> Platform.exit());
-        getItems().addAll(workspace, modulesMenu, new SeparatorMenuItem(), exit);
+        MenuItem settings = new MenuItem(DefaultI18nContext.getInstance().i18n("_Settings"));
+        settings.setOnAction(
+                e -> eventStudio().broadcast(new SetActiveDashboardItemRequest(PreferencesDashboardItem.ID)));
+        getItems().addAll(workspace, modulesMenu, settings, new SeparatorMenuItem(), exit);
     }
 }

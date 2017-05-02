@@ -34,8 +34,9 @@ import javafx.scene.layout.Pane;
  *
  */
 @Auto
-class PreferencesDashboardItem implements DashboardItem {
+public class PreferencesDashboardItem implements DashboardItem {
 
+    public static final String ID = "SETTINGS";
     private PreferencePane pane;
 
     @Inject
@@ -45,7 +46,7 @@ class PreferencesDashboardItem implements DashboardItem {
 
     @Override
     public String id() {
-        return "SETTINGS";
+        return ID;
     }
 
     @Override

@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 20/ago/2014
+ * Created on 02 mag 2017
  * Copyright 2013-2014 by Andrea Vacondio (andrea.vacondio@gmail.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -29,9 +29,10 @@ import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
 import org.mockito.ArgumentCaptor;
+import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.test.DefaultPriorityTestModule;
-import org.pdfsam.ui.commons.SetActiveModuleRequest;
+import org.pdfsam.ui.dashboard.PreferencesDashboardItem;
+import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.sejda.eventstudio.Listener;
 import org.sejda.injector.Injector;
 
@@ -42,7 +43,7 @@ import javafx.scene.Parent;
  *
  */
 @Category(TestFX.class)
-public class ModulesMenuTest extends GuiTest {
+public class SettingsMenuTest extends GuiTest {
 
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
@@ -55,14 +56,13 @@ public class ModulesMenuTest extends GuiTest {
     }
 
     @Test
-    public void onSaveClick() {
-        DefaultPriorityTestModule module = injector.instance(DefaultPriorityTestModule.class);
-        Listener<SetActiveModuleRequest> listener = mock(Listener.class);
-        eventStudio().add(SetActiveModuleRequest.class, listener);
-        ArgumentCaptor<SetActiveModuleRequest> argument = ArgumentCaptor.forClass(SetActiveModuleRequest.class);
-        click(".button").click("#modulesMenu")
-                .click(module.descriptor().category.getDescription()).click(module.descriptor().getName());
+    public void onSettingsClick() {
+        Listener<SetActiveDashboardItemRequest> listener = mock(Listener.class);
+        eventStudio().add(SetActiveDashboardItemRequest.class, listener);
+        ArgumentCaptor<SetActiveDashboardItemRequest> argument = ArgumentCaptor
+                .forClass(SetActiveDashboardItemRequest.class);
+        click(".button").click(DefaultI18nContext.getInstance().i18n("_Settings"));
         verify(listener).onEvent(argument.capture());
-        assertEquals(module.id(), argument.getValue().getActiveModuleId().get());
+        assertEquals(PreferencesDashboardItem.ID, argument.getValue().getActiveItemId());
     }
 }
