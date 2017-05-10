@@ -23,8 +23,8 @@ import org.pdfsam.ui.support.Style;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -47,14 +47,13 @@ public class ConfirmationDialog extends Stage {
         initStyle(StageStyle.UTILITY);
         setResizable(false);
         this.dialogContent = new ConfirmationDialogContent(style.icon);
-        BorderPane containerPane = new BorderPane();
+        VBox containerPane = new VBox();
         containerPane.getStyleClass().addAll(Style.CONTAINER.css());
         containerPane.getStyleClass().addAll("-pdfsam-dialog", style.style);
-        containerPane.setCenter(dialogContent);
         HBox buttons = new HBox(buildPositiveButton(positiveButtonText, true),
                 buildCancelButton(negativeButtonText, false));
         buttons.getStyleClass().add("-pdfsam-dialog-buttons");
-        containerPane.setBottom(buttons);
+        containerPane.getChildren().addAll(dialogContent, buttons);
         Scene scene = new Scene(containerPane);
         scene.getStylesheets().addAll(styles.styles());
         setScene(scene);
