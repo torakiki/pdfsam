@@ -25,7 +25,6 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
 import java.util.function.Consumer;
 
 import org.apache.commons.lang3.ObjectUtils;
@@ -128,8 +127,7 @@ public class BrowsableFileField extends BrowsableField {
     }
 
     private void dragConsume(DragEvent e, Consumer<DragEvent> c) {
-        List<File> files = e.getDragboard().getFiles();
-        if (files != null && !files.isEmpty()) {
+        if (e.getDragboard().hasFiles()) {
             c.accept(e);
         }
         e.consume();

@@ -18,14 +18,26 @@
  */
 package org.pdfsam.ui.dashboard.modules;
 
+import static java.util.Arrays.stream;
 import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
+import java.io.File;
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
+
 import org.pdfsam.module.Module;
+import org.pdfsam.pdf.PdfDocumentDescriptor;
+import org.pdfsam.pdf.PdfLoadRequestEvent;
+import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.commons.UrlButton;
 
 import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.VBox;
 
 /**
@@ -37,10 +49,12 @@ import javafx.scene.layout.VBox;
 class ModulesDashboardTile extends DashboardTile {
 
     private VBox toolButtons = new VBox(5);
+    private String id;
 
     ModulesDashboardTile(Module module) {
         super(module.descriptor().getName(), module.descriptor().getDescription(), module.graphic());
-        setOnAction(e -> eventStudio().broadcast(activeteModule(module.id())));
+        this.id = module.id();
+        setOnAction(e -> eventStudio().broadcast(activeteModule(id)));
 
         module.descriptor().getSupportURL().ifPresent(url -> {
             UrlButton helpButton = UrlButton.urlButton(null, url, null, "pdfsam-toolbar-button");
@@ -49,5 +63,39 @@ class ModulesDashboardTile extends DashboardTile {
             toolButtons.getStyleClass().add("dashboard-modules-toolbar");
             addBottomPanel(toolButtons);
         });
+        setOnDragOver(e -> dragConsume(e, this.onDragOverConsumer()));
+        setOnDragDropped(e -> dragConsume(e, this.onDragDropped()));
+    }
+
+    private void dragConsume(DragEvent e, Consumer<DragEvent> c) {
+        if (e.getDragboard().hasFiles()) {
+            c.accept(e);
+        }
+        e.consume();
+    }
+
+    private Consumer<DragEvent> onDragOverConsumer() {
+        return (DragEvent e) -> e.acceptTransferModes(TransferMode.COPY_OR_MOVE);
+    }
+
+    private Consumer<DragEvent> onDragDropped() {
+        return (DragEvent e) -> {
+            final PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(id);
+            getFilesFromDragboard(e.getDragboard()).filter(f -> FileType.PDF.matches(f.getName()))
+                    .map(PdfDocumentDescriptor::newDescriptorNoPassword).forEach(loadEvent::add);
+            if (!loadEvent.getDocuments().isEmpty()) {
+                eventStudio().broadcast(activeteModule(id));
+                eventStudio().broadcast(loadEvent, id);
+            }
+            e.setDropCompleted(true);
+        };
+    }
+
+    private Stream<File> getFilesFromDragboard(Dragboard board) {
+        List<File> files = board.getFiles();
+        if (files.size() == 1 && files.get(0).isDirectory()) {
+            return stream(files.get(0).listFiles()).sorted();
+        }
+        return files.stream();
     }
 }
