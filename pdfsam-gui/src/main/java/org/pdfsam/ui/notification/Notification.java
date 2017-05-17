@@ -34,8 +34,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
 /**
@@ -44,7 +44,7 @@ import javafx.util.Duration;
  * @author Andrea Vacondio
  *
  */
-class Notification extends BorderPane {
+class Notification extends VBox {
 
     private FadeTransition fade = new FadeTransition(Duration.millis(500), this);
 
@@ -61,9 +61,7 @@ class Notification extends BorderPane {
         titleLabel.getStyleClass().add("notification-title");
         StackPane top = new StackPane(titleLabel, closeButton);
         top.setAlignment(Pos.TOP_RIGHT);
-        BorderPane.setAlignment(content, Pos.CENTER_LEFT);
-        setTop(top);
-        setCenter(content);
+        getChildren().addAll(top, content);
         setOpacity(0);
         setOnMouseEntered(e -> {
             fade.stop();
