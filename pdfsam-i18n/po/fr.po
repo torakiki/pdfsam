@@ -7,16 +7,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-02-17 11:21+0100\n"
-"PO-Revision-Date: 2016-09-30 08:25+0000\n"
-"Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
+"POT-Creation-Date: 2017-05-12 10:04+0200\n"
+"PO-Revision-Date: 2017-04-28 20:19+0000\n"
+"Last-Translator: Carolopolitain <david_chmfr@yahoo.fr>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-02-28 08:36+0000\n"
-"X-Generator: Launchpad (build 18329)\n"
+"X-Launchpad-Export-Date: 2017-05-17 14:00+0000\n"
+"X-Generator: Launchpad (build 18385)\n"
 "Language: fr\n"
+
+msgid "_Settings"
+msgstr ""
 
 msgid "Subscribe to the official news feed"
 msgstr "Souscrire au fil d’actualités officiel"
@@ -55,11 +58,13 @@ msgid "Overwrite"
 msgstr "Remplacer"
 
 msgid "PDFsam can try to overcome the failure"
-msgstr ""
+msgstr "PDFsam peut essayer de résoudre l'erreur"
 
 msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
 msgstr ""
+"Il est possible le le fichier PDF résultant soit partiel ou qu'il manque des "
+"données, continuer quand même ?"
 
 msgid "No"
 msgstr "Non"
@@ -167,7 +172,7 @@ msgid "Social"
 msgstr "Réseaux sociaux"
 
 msgid "Premium features"
-msgstr ""
+msgstr "Fonctionnalités premium"
 
 msgid "Manually selected"
 msgstr "Sélectionné manuellement"
@@ -202,12 +207,14 @@ msgstr ""
 "(redémarrage requis)"
 
 msgid "Check for news at startup"
-msgstr ""
+msgstr "Vérifier les actualités au démarrage"
 
 msgid ""
 "Set whether the application should check for news availability on startup "
 "(restart needed)"
 msgstr ""
+"Définir comment le programme doit vérifier les actualités au démarrage "
+"(redémarrage nécessaire)."
 
 msgid "Play alert sounds"
 msgstr "Jouer les notifications sonores"
@@ -217,6 +224,7 @@ msgstr "Activer ou désactiver les notifications sonores"
 
 msgid "Store passwords when saving a workspace file"
 msgstr ""
+"Enregistrer les mots de passe lorsque l'espace de travail est sauvegardé"
 
 msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
@@ -236,12 +244,14 @@ msgstr ""
 "demandant à l'utilisateur de soutenir PDFsam par un don"
 
 msgid "Show premium features"
-msgstr ""
+msgstr "Montrer les fonctionnalités premium"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
 "description in the modules dashboard"
 msgstr ""
+"Définir comment le programme doit chercher et afficher les fonctionnalités "
+"premium dans le tableau de bord des modules"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Utiliser le dossier du document PDF chargé comme dossier de sortie"
@@ -399,7 +409,7 @@ msgid "Select the task to perform on the following files"
 msgstr "Choisir une tâche à effectuer sur les fichiers suivants"
 
 msgid "Task failed"
-msgstr ""
+msgstr "La tâche a échoué"
 
 msgid "Directory not empty"
 msgstr "Dossier non vide"
@@ -429,13 +439,13 @@ msgid "Checking for updates"
 msgstr "Recherche de mises à jour…"
 
 msgid "Unable to retrieve premium features description"
-msgstr ""
+msgstr "Impossible de récupérer les descriptions des fonctionnalités premium"
 
 msgid "Fetching premium modules"
-msgstr ""
+msgstr "Chercher les modules premium"
 
 msgid "Unable to retrieve premium modules"
-msgstr ""
+msgstr "Impossible de récupérer les modules premium"
 
 msgid "Fetching latest news"
 msgstr "Récupération des dernières nouvelles"
@@ -590,6 +600,8 @@ msgstr "Fichier à créer"
 msgid ""
 "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Double-cliquez pour régler les pages que vous voulez mixer (ex : 2 ou 5-23 "
+"ou 2,5-7,12-)"
 
 msgid "No PDF document has been selected"
 msgstr "Aucun document PDF n'a été sélectionné"
@@ -714,10 +726,10 @@ msgid "Output PDF version:"
 msgstr "Version PDF de sortie :"
 
 msgid "Show advanced settings"
-msgstr ""
+msgstr "Afficher les paramètres avancés"
 
 msgid "Hide advanced settings"
-msgstr ""
+msgstr "Masquer les paramètres avancés"
 
 #, java-format
 msgid "Version {0}"
@@ -799,7 +811,7 @@ msgid "_Clear"
 msgstr "_Vider"
 
 msgid "C_lear all settings"
-msgstr ""
+msgstr "Effacer tous les réglages"
 
 msgid "Moves up selected documents"
 msgstr "Monter dans le tableau les documents sélectionnés"
@@ -837,9 +849,11 @@ msgstr "Glisser et déposer ici les fichiers PDF"
 
 msgid "Drag and drop PDF files or directories containing PDF files"
 msgstr ""
+"Glissez et déplacer les fichiers PDF ou les dossiers contentant les fichiers "
+"PDF"
 
 msgid "No PDF found"
-msgstr ""
+msgstr "Aucun PDF trouvé"
 
 msgid "The selected PDF document is invalid"
 msgstr "Le document PDF sélectionné n’est pas valide"
@@ -862,10 +876,12 @@ msgstr ""
 "Ajoute un pied de page avec le nom du fichier auquel la page appartient."
 
 msgid "Normalize pages size"
-msgstr ""
+msgstr "Normaliser la taille des pages"
 
 msgid "Resizes all pages to have the same width as the first page."
 msgstr ""
+"Redimensionner toutes les pages pour avoir la même largeur que la première "
+"page"
 
 msgid "Merge fields"
 msgstr "Fusionner les champs"

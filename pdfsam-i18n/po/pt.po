@@ -7,16 +7,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-02-17 11:21+0100\n"
-"PO-Revision-Date: 2017-02-02 23:53+0000\n"
+"POT-Creation-Date: 2017-05-12 10:04+0200\n"
+"PO-Revision-Date: 2017-03-02 15:38+0000\n"
 "Last-Translator: Sérgio Marques <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-02-28 08:36+0000\n"
-"X-Generator: Launchpad (build 18329)\n"
+"X-Launchpad-Export-Date: 2017-05-17 14:00+0000\n"
+"X-Generator: Launchpad (build 18385)\n"
 "Language: pt\n"
+
+msgid "_Settings"
+msgstr ""
 
 msgid "Subscribe to the official news feed"
 msgstr "Subscreva a fonte oficial de notícias"
@@ -55,11 +58,12 @@ msgid "Overwrite"
 msgstr "Substituir"
 
 msgid "PDFsam can try to overcome the failure"
-msgstr ""
+msgstr "O PDFSam pode tentar resolver esta falha"
 
 msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
 msgstr ""
+"No entanto, a resolução poderá gerar um documento danificado. Continuar?"
 
 msgid "No"
 msgstr "Não"
@@ -401,7 +405,7 @@ msgid "Select the task to perform on the following files"
 msgstr "Selecione a tarefa a executar nos ficheiros seguintes"
 
 msgid "Task failed"
-msgstr ""
+msgstr "Falha na tarefa"
 
 msgid "Directory not empty"
 msgstr "Diretótio não vazio"
@@ -590,6 +594,8 @@ msgstr "Ficheiro de destino"
 msgid ""
 "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Duplo clique para definir as páginas a misturar (ex. 2 ou 5-23 ou 2, 5-7, 12-"
+")"
 
 msgid "No PDF document has been selected"
 msgstr "Não selecionou um documento PDF"
@@ -701,10 +707,10 @@ msgid "Output PDF version:"
 msgstr "Versão de saída PDF:"
 
 msgid "Show advanced settings"
-msgstr ""
+msgstr "Mostrar definições avançadas"
 
 msgid "Hide advanced settings"
-msgstr ""
+msgstr "Ocultar definições avançadas"
 
 #, java-format
 msgid "Version {0}"
@@ -783,7 +789,7 @@ msgid "_Clear"
 msgstr "_Limpar"
 
 msgid "C_lear all settings"
-msgstr ""
+msgstr "_Limpar todas as definições"
 
 msgid "Moves up selected documents"
 msgstr "Mover documentos selecionados para cima"
@@ -820,10 +826,10 @@ msgid "Drag and drop PDF files here"
 msgstr "Arraste e largue aqui os ficheiros"
 
 msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr ""
+msgstr "Arraste e largue os ficheiros PDF ou os diretórios com os ficheiros"
 
 msgid "No PDF found"
-msgstr ""
+msgstr "PDF não encontrado"
 
 msgid "The selected PDF document is invalid"
 msgstr "O documento selecionado é inválido."
@@ -845,10 +851,10 @@ msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr "Adiciona um rodapé com o nome do ficheiro a que a página pertence."
 
 msgid "Normalize pages size"
-msgstr ""
+msgstr "Normalizar tamanho das páginas"
 
 msgid "Resizes all pages to have the same width as the first page."
-msgstr ""
+msgstr "Redimensionar todas as páginas para o tamanho da primeira."
 
 msgid "Merge fields"
 msgstr "Unir campos"

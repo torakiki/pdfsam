@@ -7,15 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-02-17 11:21+0100\n"
-"PO-Revision-Date: 2016-11-17 14:39+0000\n"
-"Last-Translator: AlephAlpha <alephalpha911@gmail.com>\n"
+"POT-Creation-Date: 2017-05-12 10:04+0200\n"
+"PO-Revision-Date: 2017-03-01 15:09+0000\n"
+"Last-Translator: SongL <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-02-28 08:36+0000\n"
-"X-Generator: Launchpad (build 18329)\n"
+"X-Launchpad-Export-Date: 2017-05-17 14:00+0000\n"
+"X-Generator: Launchpad (build 18385)\n"
+
+msgid "_Settings"
+msgstr ""
 
 msgid "Subscribe to the official news feed"
 msgstr "订阅官方新闻推送"
@@ -54,11 +57,11 @@ msgid "Overwrite"
 msgstr "覆盖"
 
 msgid "PDFsam can try to overcome the failure"
-msgstr ""
+msgstr "PDFsam可以尝试克服失败"
 
 msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
-msgstr ""
+msgstr "可能导致PDF文件丢失部分或全部数据。仍要继续吗？"
 
 msgid "No"
 msgstr "否"
@@ -89,7 +92,7 @@ msgid "Found modules jars {0}"
 msgstr "找到的jar安装包 {0}"
 
 msgid "Error finding modules paths"
-msgstr ""
+msgstr "寻找模块路径出错"
 
 msgid "No module has been found"
 msgstr "没有找到模块"
@@ -105,7 +108,7 @@ msgid "Closing PDFsam..."
 msgstr "正在关闭PDFsam..."
 
 msgid "_Modules"
-msgstr ""
+msgstr "模块(_M)"
 
 msgid "E_xit"
 msgstr "退出(_X)"
@@ -132,7 +135,7 @@ msgid "Select the workspace to load"
 msgstr ""
 
 msgid "What's new"
-msgstr ""
+msgstr "最新变动"
 
 msgid "Document details"
 msgstr "文档详情"
@@ -151,7 +154,7 @@ msgstr "环境"
 
 #, java-format
 msgid "Max memory {0}"
-msgstr ""
+msgstr "最大内存 {0}"
 
 msgid "Copy to clipboard"
 msgstr "复制到剪贴板"
@@ -163,7 +166,7 @@ msgid "Contribute"
 msgstr "贡献"
 
 msgid "Social"
-msgstr ""
+msgstr "社交"
 
 msgid "Premium features"
 msgstr ""
@@ -177,7 +180,7 @@ msgid ""
 msgstr "自动设置目标文件夹到选定的PDF文档目录"
 
 msgid "Appearance"
-msgstr ""
+msgstr "外观"
 
 msgid "Behavior"
 msgstr "行为"
@@ -197,7 +200,7 @@ msgid ""
 msgstr "设置是否启动程序时检查可用更新（需重启后生效）"
 
 msgid "Check for news at startup"
-msgstr ""
+msgstr "启动时检查新闻"
 
 msgid ""
 "Set whether the application should check for news availability on startup "
@@ -250,13 +253,13 @@ msgid "Generate high quality thumbnails (slower)"
 msgstr "生成高质量缩略图(较慢)"
 
 msgid "Size in px:"
-msgstr ""
+msgstr "大小（px）："
 
 msgid "Library used to generate thumbnails"
-msgstr ""
+msgstr "用来生成预览的库"
 
 msgid "Thumbnails creator:"
-msgstr ""
+msgstr "预览生成器"
 
 msgid "Clear usage statistics"
 msgstr "清除使用记录"
@@ -295,10 +298,10 @@ msgid "Set your preferred language (restart needed)"
 msgstr "设置首选语言（需要重新启动）"
 
 msgid "Startup module:"
-msgstr ""
+msgstr "启动时的模块"
 
 msgid "Set the module to open at application startup (restart needed)"
-msgstr ""
+msgstr "设置打开应用时的模块（需要重新启动）"
 
 msgid ""
 "Usage statistics are used to populate the modules quick bar on the left with "
@@ -306,7 +309,7 @@ msgid ""
 msgstr ""
 
 msgid "Check for updates now"
-msgstr ""
+msgstr "现在检查更新"
 
 msgid "Close"
 msgstr "关闭"
@@ -315,7 +318,7 @@ msgid "Settings"
 msgstr "设置"
 
 msgid "Modules"
-msgstr ""
+msgstr "模块"
 
 msgid "Log register"
 msgstr ""
@@ -333,14 +336,14 @@ msgid "Save log"
 msgstr "保存日志"
 
 msgid "Select where to save the log file"
-msgstr ""
+msgstr "选择保存日志文件的位置"
 
 msgid "Invalid parameters"
-msgstr ""
+msgstr "无效的参数"
 
 msgid ""
 "Input parameters are invalid, open the application messages for details."
-msgstr ""
+msgstr "输入参数无效，打开应用消息查看细节。"
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
@@ -942,50 +945,50 @@ msgid ""
 msgstr ""
 
 msgid "Extract"
-msgstr ""
+msgstr "提取"
 
 msgid "Extract pages from PDF documents."
-msgstr ""
+msgstr "从PDF文档中提取页面。"
 
 msgid "Extract settings"
-msgstr ""
+msgstr "提取设置"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "要提取的页面（如：2 或 5-23 或 2,5-7,12-）"
 
 msgid "Invalid page ranges"
-msgstr ""
+msgstr "无效页面范围"
 
 msgid "Extract pages:"
-msgstr ""
+msgstr "提取页面："
 
 msgid ""
 "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "双击以设置要旋转的页面（如：2 或 5-23 或 2,5-7,12-）"
 
 msgid "All pages"
-msgstr ""
+msgstr "全部页面"
 
 msgid "90 degrees clockwise"
-msgstr ""
+msgstr "顺时针旋转90度"
 
 msgid "180 degrees clockwise"
-msgstr ""
+msgstr "顺时针旋转180度"
 
 msgid "90 degrees counterclockwise"
-msgstr ""
+msgstr "逆时针旋转90度"
 
 msgid "Rotate "
-msgstr ""
+msgstr "旋转 "
 
 msgid "Rotate"
 msgstr "旋转"
 
 msgid "Rotate the pages of multiple PDF documents."
-msgstr ""
+msgstr "旋转多个PDF文档的页面"
 
 msgid "Rotate settings"
-msgstr ""
+msgstr "旋转设置"
 
 #~ msgid "Split even pages"
 #~ msgstr "拆分偶数页"

@@ -7,15 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-02-17 11:21+0100\n"
-"PO-Revision-Date: 2017-01-04 13:11+0000\n"
+"POT-Creation-Date: 2017-05-12 10:04+0200\n"
+"PO-Revision-Date: 2017-02-28 16:16+0000\n"
 "Last-Translator: Hendrik <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-02-28 08:36+0000\n"
-"X-Generator: Launchpad (build 18329)\n"
+"X-Launchpad-Export-Date: 2017-05-17 14:01+0000\n"
+"X-Generator: Launchpad (build 18385)\n"
+
+msgid "_Settings"
+msgstr ""
 
 msgid "Subscribe to the official news feed"
 msgstr "Abonneren op de officiële nieuwsbrief"
@@ -54,11 +57,12 @@ msgid "Overwrite"
 msgstr "Overschrijven"
 
 msgid "PDFsam can try to overcome the failure"
-msgstr ""
+msgstr "PDFsam kan proberen om over de fout heen te stappen"
 
 msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
 msgstr ""
+"Het kan PDF-bestanden opleveren waarin gegevens ontbreken. Toch doorgaan?"
 
 msgid "No"
 msgstr "Nee"
@@ -411,7 +415,7 @@ msgid "Select the task to perform on the following files"
 msgstr "Selecteer de taak om uit te voeren op de volgende bestanden"
 
 msgid "Task failed"
-msgstr ""
+msgstr "Taak is mislukt"
 
 msgid "Directory not empty"
 msgstr "Map is niet leeg"
@@ -603,6 +607,8 @@ msgstr "Bestemmingsbestand"
 msgid ""
 "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Dubbelklik om pagina's in te stellen die u wilt mixen (bijv. 2 of 5-23 of "
+"2,5-7,12-)"
 
 msgid "No PDF document has been selected"
 msgstr "Geen PDF-document geselecteerd"
@@ -740,10 +746,10 @@ msgid "Output PDF version:"
 msgstr "PDF-versie van het doelbestand:"
 
 msgid "Show advanced settings"
-msgstr ""
+msgstr "Toon geavanceerde instellingen"
 
 msgid "Hide advanced settings"
-msgstr ""
+msgstr "Verberg geavanceerde instellingen"
 
 #, java-format
 msgid "Version {0}"
@@ -827,7 +833,7 @@ msgid "_Clear"
 msgstr "_Leegmaken"
 
 msgid "C_lear all settings"
-msgstr ""
+msgstr "Wis alle instellingen"
 
 msgid "Moves up selected documents"
 msgstr "Verplaatst geselecteerde bestanden omhoog"
@@ -864,10 +870,10 @@ msgid "Drag and drop PDF files here"
 msgstr "Sleep PDF-bestanden hierheen"
 
 msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr ""
+msgstr "Sleep PDF-bestanden of mappen met PDF-bestanden en zet ze hier neer"
 
 msgid "No PDF found"
-msgstr ""
+msgstr "Geen PDF-bestand gevonden"
 
 msgid "The selected PDF document is invalid"
 msgstr "Het geselecteerde PDF-document is ongeldig"
@@ -891,10 +897,12 @@ msgstr ""
 "behoorde"
 
 msgid "Normalize pages size"
-msgstr ""
+msgstr "Normaliseer de paginagrootte"
 
 msgid "Resizes all pages to have the same width as the first page."
 msgstr ""
+"Past de grootte van alle pagina's aan, zodat ze dezelfde breedte hebben als "
+"de eerste pagina"
 
 msgid "Merge fields"
 msgstr "Velden samenvoegen"
