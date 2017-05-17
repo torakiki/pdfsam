@@ -22,7 +22,7 @@ Some [documentation](http://www.pdfsam.org/documentation/) and [FAQ](http://www.
 
 Build
 -------------------
-This is a [simple guide](pdfsam-docs/BUILDnRUN.md) that can help you building PDFsam Basic
+This is a [simple guide](https://github.com/torakiki/pdfsam/wiki/Build-and-run) that can help you building PDFsam Basic
 
 Contribute
 ------------------
@@ -34,7 +34,7 @@ If you want to contribute translating PDFsam to your language you can do it [her
 
 Tips and tweaks  
 ------------------
-A list of properties and arguments that can tweak PDFsam behavior can be found [here](pdfsam-docs/PROPERTIESnARGS.md) 
+A list of properties and arguments that can tweak PDFsam behavior can be found [here](https://github.com/torakiki/pdfsam/wiki/Properties-and-arguments) 
 
   [GNU Affero General Public License]: http://www.gnu.org/licenses/agpl-3.0.html
 
