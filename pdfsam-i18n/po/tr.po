@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-02-17 11:21+0100\n"
 "PO-Revision-Date: 2017-01-15 17:35+0000\n"
-"Last-Translator: Semih <Unknown>\n"
+"Last-Translator: Mustafa <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +21,7 @@ msgid "Subscribe to the official news feed"
 msgstr ""
 
 msgid "Bug and feature requests"
-msgstr ""
+msgstr "Hata ve yeni özellik istekleri"
 
 msgid "Play the \"get started\" video"
 msgstr "\"başla\" videosunu çal"
@@ -45,36 +45,36 @@ msgid "Like us on Facebook"
 msgstr "Bizi Facebook'da takip edin"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Panel"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Iptal"
 
 msgid "Overwrite"
-msgstr ""
+msgstr "Üstüne yaz"
 
 msgid "PDFsam can try to overcome the failure"
-msgstr ""
+msgstr "PDF sam bu hatanın üstesinden gelmeyi deneyebilir"
 
 msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
-msgstr ""
+msgstr "Bu işlem PDF dosyalarında veri kaybına yol açabilir, devam etmek istiyor musunuz?"
 
 msgid "No"
-msgstr ""
+msgstr "Hayır"
 
 msgid "Yes"
-msgstr ""
+msgstr "Evet"
 
 msgid "The selected output directory does not exist"
-msgstr ""
+msgstr "Dosyaların çıkartılacağı klasor bulunmamaktadır"
 
 msgid "Do you want to create it?"
-msgstr ""
+msgstr "Oluşturmak istermisiniz?"
 
 #, java-format
 msgid "Installing theme {0}."
-msgstr ""
+msgstr "Tema yükleniyor {0}"
 
 #, java-format
 msgid "Modules directory {0} does not exist"
@@ -132,7 +132,7 @@ msgid "Select the workspace to load"
 msgstr "Yüklemek için çalışma alanı seçin"
 
 msgid "What's new"
-msgstr ""
+msgstr "Yeni ne var"
 
 msgid "Document details"
 msgstr "Belge detayları"
@@ -155,7 +155,7 @@ msgid "Max memory {0}"
 msgstr "En fazla hafıza {0}"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Panoya kopyala"
 
 msgid "Support"
 msgstr "Destek"
@@ -195,15 +195,17 @@ msgstr "Başlangıçta güncellemeleri kontrol et"
 msgid ""
 "Set whether new version availability should be checked on startup (restart "
 "needed)"
-msgstr ""
+msgstr "Yeni sürüm kullanılabilirliğinin başlangıçta kontrol edilip "
+"edilmeyeceğini ayarlayın (yeniden başlatma gerekli)"
 
 msgid "Check for news at startup"
-msgstr ""
+msgstr "Başlangıçta haber olup olmadığını kontrol edin"
 
 msgid ""
 "Set whether the application should check for news availability on startup "
 "(restart needed)"
-msgstr ""
+msgstr "Uygulamanın başlangıçta haber olup olmadığını kontrol etmesini ayarlayın"
+"(yeniden başlatma gerekli)"
 
 msgid "Play alert sounds"
 msgstr "Hata sesi çal"
@@ -217,7 +219,8 @@ msgstr "Bir çalışma alanı kaydederken parolaları sakla"
 msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
 "password in the workspace file"
-msgstr ""
+msgstr "Şifreli bir PDF dokümanı şifre girilerek açıldığında, şifreyi"
+"çalışma ortamı dokümanına kaydet"
 
 msgid "Show donation window"
 msgstr "Bağış ekranını göster"
@@ -298,7 +301,7 @@ msgid "Set your preferred language (restart needed)"
 msgstr "Tercih ettiğiniz dili seçin (yeniden başlatmak gerekir)"
 
 msgid "Startup module:"
-msgstr ""
+msgstr "Başlangıç modülü"
 
 msgid "Set the module to open at application startup (restart needed)"
 msgstr ""
@@ -309,7 +312,7 @@ msgid ""
 msgstr ""
 
 msgid "Check for updates now"
-msgstr ""
+msgstr "Güncellemeleri denetle"
 
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:150
 msgid "Close"
@@ -371,7 +374,7 @@ msgid "PDFsam {0} is available for download"
 msgstr "PDFsam {0} yüklemek için uygun"
 
 msgid "Download"
-msgstr ""
+msgstr "İndir"
 
 msgid "New version available"
 msgstr "Yeni versiyon var"
@@ -380,37 +383,37 @@ msgid "Open"
 msgstr "Aç"
 
 msgid "Non existing directory"
-msgstr ""
+msgstr "Var olmayan dizin"
 
 msgid "Open with"
-msgstr ""
+msgstr "Birlikte aç"
 
 msgid "Select the task to perform on the following files"
-msgstr ""
+msgstr "Seçtiğiniz dosyalar üzerinde gerçekleştirilecek görevi seçiniz"
 
 msgid "Task failed"
-msgstr ""
+msgstr "Görev başarısız oldu"
 
 msgid "Directory not empty"
-msgstr ""
+msgstr "Dizin boş değil"
 
 msgid "The selected directory is not empty"
-msgstr ""
+msgstr "Seçili dizin boş değil"
 
 msgid "Overwrite files with the same name as the generated ones?"
-msgstr ""
+msgstr "Zaten varsa üzerine yaz"
 
 msgid "Don't overwrite existing file"
-msgstr ""
+msgstr "Üzerine yazma"
 
 msgid "Overwrite confirmation"
-msgstr ""
+msgstr "Üzerine yazma onayı"
 
 msgid "A file with the given name already exists"
-msgstr ""
+msgstr "Aynı isimde bir dosya zaten bulunmaktatır"
 
 msgid "Do you want to overwrite it?"
-msgstr ""
+msgstr "Üzerine yazmak istermisiniz"
 
 msgid "Unable to find the latest available version."
 msgstr "Son uygun sürüm bulunması olanaksız."
@@ -486,13 +489,13 @@ msgid "Invalid page numbers"
 msgstr "Geçersiz sayfa numarası"
 
 msgid "Only valid positive page numbers are allowed"
-msgstr ""
+msgstr "Sadece pozitif sayfa numaraları geçerlidir"
 
 msgid "Split"
 msgstr "Böl"
 
 msgid "Split a PDF document at the given page numbers."
-msgstr ""
+msgstr "PDF dokümanını verilen sayfa numarasına göre böl"
 
 msgid "Select or drag and drop the PDF you want to split"
 msgstr "Ayırmak istediğin PDF dosyalarını sürükle bırak ya da seç"
@@ -504,16 +507,16 @@ msgid "Split settings"
 msgstr "Ayırma ayarları"
 
 msgid "Output settings"
-msgstr ""
+msgstr "Çıktı ayarları"
 
 msgid "Every page"
-msgstr ""
+msgstr "Her sayfa"
 
 msgid "Even pages"
-msgstr ""
+msgstr "Çift sayfalar"
 
 msgid "Odd pages"
-msgstr ""
+msgstr "Tek sayfalar"
 
 msgid "Split the document after the given page numbers"
 msgstr ""
@@ -532,7 +535,7 @@ msgid "Invalid number of pages"
 msgstr "Geçersiz sayfa numarası"
 
 msgid "Split by size"
-msgstr ""
+msgstr "Büyüklüğe göre ayır"
 
 msgid "Split a PDF document in files of the given size (roughly)."
 msgstr ""
@@ -577,26 +580,26 @@ msgid ""
 msgstr ""
 
 msgid "No PDF document has been selected"
-msgstr ""
+msgstr "Bir PDF dosyası seçmediniz"
 
 msgid "Select a positive integer number as pace"
 msgstr ""
 
 msgid "Completed"
-msgstr ""
+msgstr "Tamamlandı"
 
 msgid "Failed"
-msgstr ""
+msgstr "Başarısız"
 
 #, java-format
 msgid "Running {0}%"
-msgstr ""
+msgstr "Çalışıyor {0}%"
 
 msgid "Running"
-msgstr ""
+msgstr "Çalışıyor"
 
 msgid "Requested"
-msgstr ""
+msgstr "İstekte bulunuldu"
 
 msgid "Select a file"
 msgstr "Bir dosya seçin"
@@ -646,14 +649,14 @@ msgid "Document properties"
 msgstr "Belge özellikleri"
 
 msgid "Loading..."
-msgstr ""
+msgstr "Açılıyor..."
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
 msgstr "Sayfa: {0}, PDF Sürümü: {1}"
 
 msgid "Show errors"
-msgstr ""
+msgstr "Hataları göster"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:542
 # F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:462
@@ -676,7 +679,7 @@ msgstr "Eğer zaten varsa üzerine yaz"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
-msgstr ""
+msgstr "çıktı dosyaları zaten varsa üzerine yazmak için işaretleyiniz."
 
 msgid "The selected file must exist. "
 msgstr "Seçilen dosya mevcut olmalı. "
@@ -713,7 +716,7 @@ msgid "Compress output file/files"
 msgstr "Çıktı dosyalarını sıkıştır"
 
 msgid "Discard bookmarks"
-msgstr ""
+msgstr "Yer imlerini göz ardı et"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -721,13 +724,13 @@ msgid ""
 msgstr ""
 
 msgid "Output PDF version:"
-msgstr ""
+msgstr "PDF çıktısı versiyonu"
 
 msgid "Show advanced settings"
-msgstr ""
+msgstr "Gelişmiş ayarları göster"
 
 msgid "Hide advanced settings"
-msgstr ""
+msgstr "Gelişmiş ayarları gizle"
 
 #, java-format
 msgid "Version {0}"
@@ -847,21 +850,21 @@ msgid "Drag and drop PDF files or directories containing PDF files"
 msgstr ""
 
 msgid "No PDF found"
-msgstr ""
+msgstr "PDF bulunamadı"
 
 msgid "The selected PDF document is invalid"
 msgstr "Seçili PDF belgesi geçersiz"
 
 msgid "Add a blank page if page number is odd"
-msgstr ""
+msgstr "Sayfa sayısı tekse bir boş sayfa ekle"
 
 msgid ""
 "Adds a blank page after each merged document if the document has an odd "
 "number of pages"
-msgstr ""
+msgstr "Dosyalar birleştirildikten sonra sayfa sayısı tekse, boş bir sayfa ekler"
 
 msgid "Add a footer"
-msgstr ""
+msgstr "Altbilgi ekle"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr ""
@@ -870,7 +873,7 @@ msgid "Normalize pages size"
 msgstr ""
 
 msgid "Resizes all pages to have the same width as the first page."
-msgstr ""
+msgstr "Tüm sayfaları birinci sayfa ile aynı genişliğe getir."
 
 msgid "Merge fields"
 msgstr ""
@@ -879,7 +882,7 @@ msgid "Merge renaming existing fields"
 msgstr ""
 
 msgid "Discard forms"
-msgstr ""
+msgstr "Formları gözardı et"
 
 msgid "Interactive forms (AcroForms):"
 msgstr ""
@@ -903,20 +906,20 @@ msgid "What to do in case one or more input documents contain bookmarks"
 msgstr ""
 
 msgid "Don't generate"
-msgstr ""
+msgstr "Oluşturma"
 
 msgid "Generate from file names"
-msgstr ""
+msgstr "Dosya adından oluştur"
 
 msgid "Generate from documents titles"
-msgstr ""
+msgstr "Dokümanların başlıklarından oluştur"
 
 msgid "Table of contents:"
-msgstr ""
+msgstr "İçindekiler:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
-msgstr ""
+msgstr "İçindekiler bölümü PDF dokümanına eklenecekse işaretleyin"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -965,19 +968,19 @@ msgid "Valid user password provided."
 msgstr "Geçerli kullanıcı parolası temin edildi."
 
 msgid "This document is encrypted, click to provide a password."
-msgstr ""
+msgstr "Bu dosya şifreli, şifre girmek için tıklayın"
 
 msgid "An error has occurred, click for more details."
-msgstr ""
+msgstr "Bir hata oluştu, ayrıtlar için tıklayınız"
 
 msgid "Roundish"
-msgstr ""
+msgstr "Yuvarlaksı"
 
 msgid "Invalid bookmarks level"
 msgstr ""
 
 msgid "Split by bookmarks"
-msgstr ""
+msgstr "İşaretlemelere göre ayır"
 
 msgid ""
 "Split a PDF document at bookmarked pages by specifying a bookmark level."
@@ -990,23 +993,23 @@ msgid "Split at this bookmark level:"
 msgstr ""
 
 msgid "Matching regular expression:"
-msgstr ""
+msgstr "Eşleşen kurallı ifade"
 
 msgid "A regular expression the bookmark text has to match"
-msgstr ""
+msgstr "İşaretli metnin ile eşleşen kurallı ifade"
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
 msgstr ""
 
 msgid "Extract"
-msgstr ""
+msgstr "Dışa aktar"
 
 msgid "Extract pages from PDF documents."
-msgstr ""
+msgstr "PDF dokümanından sayfaları dışa aktar"
 
 msgid "Extract settings"
-msgstr ""
+msgstr "Ayarları dışa aktar"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -1015,7 +1018,7 @@ msgid "Invalid page ranges"
 msgstr ""
 
 msgid "Extract pages:"
-msgstr ""
+msgstr "Sayfaları çıkar"
 
 msgid ""
 "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -1040,7 +1043,7 @@ msgid "Rotate"
 msgstr "Döndür"
 
 msgid "Rotate the pages of multiple PDF documents."
-msgstr ""
+msgstr "Birden fazla dokümanın sayfalarını döndür."
 
 msgid "Rotate settings"
 msgstr "Döndürme ayarları"
