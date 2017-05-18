@@ -90,7 +90,7 @@
 					<plugin>
 						<groupId>com.akathist.maven.plugins.launch4j</groupId>
 						<artifactId>launch4j-maven-plugin</artifactId>
-						<version>1.7.15</version>
+						<version>1.7.17</version>
 						<executions>
 							<execution>
 								<id>exe-creation</id>
@@ -224,7 +224,7 @@
 									<goal>jdeb</goal>
 								</goals>
 								<configuration>
-									<deb>[[buildDir]]/[[artifactId]]_[[version]]-1_all.[[extension]]</deb>
+									<deb>[[buildDir]]/pdfsam_[[version]]-1_all.[[extension]]</deb>
 									<dataSet>
 										<data>
 											<src>${project.build.directory}/assembled/bin/pdfsam.sh</src>
