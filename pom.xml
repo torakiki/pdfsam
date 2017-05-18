@@ -216,7 +216,7 @@
 		<logback.version>1.2.1</logback.version>
 		<jdepend.version>2.9.1</jdepend.version>
 		<hibernate-validator.version>4.2.0.Final</hibernate-validator.version>
-		<sejda.version>3.2.1</sejda.version>
+		<sejda.version>3.2.2</sejda.version>
 		<eventstudio.version>1.0.6</eventstudio.version>
 		<injector.version>1.0.2</injector.version>
 		<fontawesomefx.version>8.9</fontawesomefx.version>
