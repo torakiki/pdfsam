@@ -28,7 +28,8 @@ import javax.validation.constraints.NotNull;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.sejda.model.output.SingleOrMultipleTaskOutput;
-import org.sejda.model.parameter.base.MultiplePdfSourceMultipleOutputParameters;
+import org.sejda.model.parameter.base.AbstractPdfOutputParameters;
+import org.sejda.model.parameter.base.SingleOrMultipleOutputTaskParameters;
 import org.sejda.model.validation.constraint.NotEmpty;
 
 /**
@@ -37,15 +38,26 @@ import org.sejda.model.validation.constraint.NotEmpty;
  * @author Andrea Vacondio
  *
  */
-public class BulkRotateParameters extends MultiplePdfSourceMultipleOutputParameters {
+public class BulkRotateParameters extends AbstractPdfOutputParameters implements SingleOrMultipleOutputTaskParameters {
 
     private String outputPrefix = "";
-    @Valid
-    @NotNull
-    private SingleOrMultipleTaskOutput output;
+
     @NotEmpty
     @Valid
     private final Set<PdfRotationInput> inputSet = new HashSet<>();
+    @Valid
+    @NotNull
+    private SingleOrMultipleTaskOutput output;
+
+    @Override
+    public SingleOrMultipleTaskOutput getOutput() {
+        return output;
+    }
+
+    @Override
+    public void setOutput(SingleOrMultipleTaskOutput output) {
+        this.output = output;
+    }
 
     /**
      * @return an unmodifiable view of the inputSet
@@ -69,19 +81,8 @@ public class BulkRotateParameters extends MultiplePdfSourceMultipleOutputParamet
     }
 
     @Override
-    public SingleOrMultipleTaskOutput getOutput() {
-        return output;
-    }
-
-    @Override
-    public void setOutput(SingleOrMultipleTaskOutput output) {
-        this.output = output;
-    }
-
-    @Override
     public int hashCode() {
-        return new HashCodeBuilder().appendSuper(super.hashCode()).append(outputPrefix).append(output).append(inputSet)
-                .toHashCode();
+        return new HashCodeBuilder().appendSuper(super.hashCode()).append(outputPrefix).append(inputSet).toHashCode();
     }
 
     @Override
@@ -94,6 +95,6 @@ public class BulkRotateParameters extends MultiplePdfSourceMultipleOutputParamet
         }
         BulkRotateParameters params = (BulkRotateParameters) other;
         return new EqualsBuilder().appendSuper(super.equals(other)).append(outputPrefix, params.outputPrefix)
-                .append(inputSet, params.inputSet).append(output, params.output).isEquals();
+                .append(output, params.output).append(inputSet, params.inputSet).isEquals();
     }
 }
