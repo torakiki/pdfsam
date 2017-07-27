@@ -1,10 +1,10 @@
 PDFsam (PDF Split And Merge)
 ==============================
 
-[![Join the chat at https://gitter.im/PDFsam/Lobby](https://badges.gitter.im/PDFsam/Lobby.svg)](https://gitter.im/PDFsam/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Official SCM repository for PDFsam Basic, a free and open source, multi-platform software designed to split, merge and rotate PDF files.    
 [![Build Status](https://travis-ci.org/torakiki/pdfsam.png)](https://travis-ci.org/torakiki/pdfsam)
 [![License](http://img.shields.io/badge/license-AGPLv3-blue.svg)](http://www.gnu.org/licenses/agpl-3.0.html)
+[![Join the chat at https://gitter.im/PDFsam/Lobby](https://badges.gitter.im/PDFsam/Lobby.svg)](https://gitter.im/PDFsam/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Where
 -------------------
