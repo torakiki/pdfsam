@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-05-12 10:04+0200\n"
-"PO-Revision-Date: 2017-02-12 09:24+0000\n"
-"Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
+"PO-Revision-Date: 2017-07-30 18:15+0000\n"
+"Last-Translator: tobson <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-05-17 14:00+0000\n"
-"X-Generator: Launchpad (build 18385)\n"
+"X-Launchpad-Export-Date: 2017-08-30 08:21+0000\n"
+"X-Generator: Launchpad (build 18446)\n"
 
 msgid "_Settings"
-msgstr ""
+msgstr "_Einstellungen"
 
 msgid "Subscribe to the official news feed"
 msgstr "Offiziellen News-Feed abonnieren"
@@ -57,11 +57,13 @@ msgid "Overwrite"
 msgstr "Überschreiben"
 
 msgid "PDFsam can try to overcome the failure"
-msgstr ""
+msgstr "PDFsam kann versuchen den Fehlschlag zu überwinden"
 
 msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
 msgstr ""
+"Dieser Vorgang könnte darin resultieren, dass PDF-Dateien nicht alle Daten "
+"beinhalten. Trotzdem fortfahren?"
 
 msgid "No"
 msgstr "Nein"
@@ -406,7 +408,7 @@ msgid "Select the task to perform on the following files"
 msgstr "Aufgabe auf die folgenden Dateien anwenden"
 
 msgid "Task failed"
-msgstr ""
+msgstr "Aufgabe gescheitert"
 
 msgid "Directory not empty"
 msgstr "Das Verzeichnis ist nicht leer"
@@ -594,6 +596,8 @@ msgstr "Zieldatei"
 msgid ""
 "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Doppelklicken um die Seiten zu markieren, die vermischt werden sollen (z.b. "
+"2 oder 5-23 oder 2,5-7.12-)"
 
 msgid "No PDF document has been selected"
 msgstr "Es wurd kein PDF-Dokument ausgewählt"
@@ -705,10 +709,10 @@ msgid "Output PDF version:"
 msgstr "Ausgabe-PDF-Version:"
 
 msgid "Show advanced settings"
-msgstr ""
+msgstr "Erweiterte Einstellungen anzeigen"
 
 msgid "Hide advanced settings"
-msgstr ""
+msgstr "Erweiterte Einstellungen verbergen"
 
 #, java-format
 msgid "Version {0}"
@@ -787,7 +791,7 @@ msgid "_Clear"
 msgstr "_Löschen"
 
 msgid "C_lear all settings"
-msgstr ""
+msgstr "Alle Einstellngen _löschen"
 
 msgid "Moves up selected documents"
 msgstr "Verschiebt ausgewählte Dokumente nach oben"
@@ -825,9 +829,10 @@ msgstr "PDF-Datein hier ziehen und ablegen"
 
 msgid "Drag and drop PDF files or directories containing PDF files"
 msgstr ""
+"Dateien oder Verzeichnisse, die PDF-Dateien beinhalten ziehen und ablegen"
 
 msgid "No PDF found"
-msgstr ""
+msgstr "Kein PDF gefunden"
 
 msgid "The selected PDF document is invalid"
 msgstr "Das ausgewählte PDF-Dokument ist nicht gültig"
@@ -850,10 +855,10 @@ msgstr ""
 "Fügt eine Fußzeile mit dem Dateinamen des Dokuments auf der Seite ein"
 
 msgid "Normalize pages size"
-msgstr ""
+msgstr "Die Seitengrösse normalisieren"
 
 msgid "Resizes all pages to have the same width as the first page."
-msgstr ""
+msgstr "Alle Seiten skalieren, die gleich gross wie die erste Seite sind."
 
 msgid "Merge fields"
 msgstr "Felder verbinden"

@@ -72,6 +72,7 @@ public final class DefaultI18nContext implements I18nContext {
         supportedLocalesCache.add(new Locale("es"));
         supportedLocalesCache.add(new Locale("tr"));
         supportedLocalesCache.add(new Locale("uk"));
+        supportedLocalesCache.add(new Locale("fi"));
 
         SUPPORTED_LOCALES = Collections.unmodifiableSet(supportedLocalesCache);
     }
