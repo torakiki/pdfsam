@@ -1,6 +1,6 @@
 /*
  * Created on 20 giu 2016
- * Copyright 2015 by Andrea Vacondio (andrea.vacondio@gmail.com).
+ * Copyright 2017 by Sober Lemur S.a.s. (info@pdfsam.org).
  * This file is part of Sejda.
  *
  * Sejda is free software: you can redistribute it and/or modify

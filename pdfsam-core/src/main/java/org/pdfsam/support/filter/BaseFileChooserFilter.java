@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
  * Created on 03-Nov-2007
- * Copyright (C) 2006 by Andrea Vacondio.
+ * Copyright 2017 by Sober Lemur S.a.s..
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
