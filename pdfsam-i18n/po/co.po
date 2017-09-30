@@ -3,18 +3,18 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
 "POT-Creation-Date: 2017-05-12 10:04+0200\n"
-"PO-Revision-Date: 2016-12-26 14:02+0000\n"
+"PO-Revision-Date: 2017-09-10 15:13+0000\n"
 "Last-Translator: Patriccollu <Patrick.Santa-Maria@laposte.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-08-30 08:20+0000\n"
-"X-Generator: Launchpad (build 18446)\n"
+"X-Launchpad-Export-Date: 2017-09-30 08:41+0000\n"
+"X-Generator: Launchpad (build 18471)\n"
 "Language: co\n"
 
 msgid "_Settings"
-msgstr ""
+msgstr "_Preferenze"
 
 msgid "Subscribe to the official news feed"
 msgstr "Abbunassi à i flussi ufficiale di nutizie"
@@ -53,11 +53,11 @@ msgid "Overwrite"
 msgstr "Rimpiazzà"
 
 msgid "PDFsam can try to overcome the failure"
-msgstr ""
+msgstr "PDFsam pò pruvà di superchjà stu fiascu"
 
 msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
-msgstr ""
+msgstr "Quessu pò crea schedarii PDF cù dati assente, cuntinuà quantunque ?"
 
 msgid "No"
 msgstr "Innò"
@@ -403,7 +403,7 @@ msgid "Select the task to perform on the following files"
 msgstr "Selezziunà a tacca à fà per sti schedarii"
 
 msgid "Task failed"
-msgstr ""
+msgstr "Tacca fiasca"
 
 msgid "Directory not empty"
 msgstr "Cartulare micca viotu"
@@ -593,6 +593,8 @@ msgstr "Schedariu di destinazione"
 msgid ""
 "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Doppiu cliccu per definisce e pagine chì voi vulete mischià (i.e. : 2 o 5-23 "
+"o 2,5-7,12-)"
 
 msgid "No PDF document has been selected"
 msgstr "Alcunu ducumentu PDF ùn hè statu selezziunatu"
@@ -704,10 +706,10 @@ msgid "Output PDF version:"
 msgstr "Versione PDF d'esciuta :"
 
 msgid "Show advanced settings"
-msgstr ""
+msgstr "Affissà e preferenze d'espertu"
 
 msgid "Hide advanced settings"
-msgstr ""
+msgstr "Piattà e preferenze d'espertu"
 
 #, java-format
 msgid "Version {0}"
@@ -786,7 +788,7 @@ msgid "_Clear"
 msgstr "_Squassà"
 
 msgid "C_lear all settings"
-msgstr ""
+msgstr "S_quassà tutte e preferenze"
 
 msgid "Moves up selected documents"
 msgstr "Move insù i ducumenti selezziunati"
@@ -824,9 +826,10 @@ msgstr "Sguillà è depone i schedarii PDF quì"
 
 msgid "Drag and drop PDF files or directories containing PDF files"
 msgstr ""
+"Sguillà è depone schedarii PDF o cartulari chì cuntenenu schedarii PDF"
 
 msgid "No PDF found"
-msgstr ""
+msgstr "Alcunu PDF trovu"
 
 msgid "The selected PDF document is invalid"
 msgstr "U PDF selezziunatu hè inaccettevule"
@@ -850,10 +853,11 @@ msgstr ""
 "pagina."
 
 msgid "Normalize pages size"
-msgstr ""
+msgstr "Nurmalizà a dimensione di e pagine"
 
 msgid "Resizes all pages to have the same width as the first page."
 msgstr ""
+"Adattà a dimensione di tutte e pagine à a larghezza di a prima pagina."
 
 msgid "Merge fields"
 msgstr "Fusione di i campi"
