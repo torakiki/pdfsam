@@ -24,15 +24,16 @@ import static org.mockito.Mockito.verify;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
-
-import javafx.scene.input.ClipboardContent;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
+
+import javafx.scene.input.ClipboardContent;
 
 /**
  * @author Andrea Vacondio
@@ -58,6 +59,6 @@ public class ObjectCollectionWriterTest {
         content.add("item");
         File file = temp.newFile();
         ObjectCollectionWriter.writeContent(content).to(file);
-        assertTrue(FileUtils.readFileToString(file).contains("item"));
+        assertTrue(FileUtils.readFileToString(file, Charset.defaultCharset()).contains("item"));
     }
 }

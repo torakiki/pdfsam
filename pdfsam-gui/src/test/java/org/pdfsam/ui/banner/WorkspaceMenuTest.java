@@ -27,7 +27,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import java.io.File;
 import java.util.Arrays;
 
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -36,7 +35,6 @@ import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.RecentWorkspacesService;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
-import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.pdfsam.ui.workspace.WorkspaceLoadedEvent;
 import org.sejda.eventstudio.Listener;
 import org.sejda.injector.Injector;
@@ -57,25 +55,6 @@ public class WorkspaceMenuTest extends GuiTest {
     protected Parent getRootNode() {
         injector = Injector.start(new MenuConfig());
         return injector.instance(MenuButton.class);
-    }
-
-    @Test
-    @Ignore("need to find a way to test file chooser")
-    public void onSaveClick() {
-        Listener<SaveWorkspaceEvent> listener = mock(Listener.class);
-        eventStudio().add(SaveWorkspaceEvent.class, listener);
-        click(".button").click("#workspaceMenu").move("#loadWorkspace")
-                .click("#saveWorkspace");
-        verify(listener).onEvent(any());
-    }
-
-    @Test
-    @Ignore("need to find a way to test file chooser")
-    public void onLoadClick() {
-        Listener<LoadWorkspaceEvent> listener = mock(Listener.class);
-        eventStudio().add(LoadWorkspaceEvent.class, listener);
-        click(".button").click("#workspaceMenu").click("#loadWorkspace");
-        verify(listener).onEvent(any());
     }
 
     @Test
