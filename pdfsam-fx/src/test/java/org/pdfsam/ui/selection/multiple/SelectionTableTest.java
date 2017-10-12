@@ -269,6 +269,21 @@ public class SelectionTableTest extends GuiTest {
     }
 
     @Test
+    public void encryptedThrowsRequest() throws Exception {
+        PdfDocumentDescriptor firstItem = populate();
+        FXTestUtils.invokeAndWait(() -> {
+            firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
+            firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
+            firstItem.moveStatusTo(PdfDescriptorLoadingStatus.ENCRYPTED);
+        }, 2);
+        Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
+        eventStudio().add(PdfLoadRequestEvent.class, listener);
+        click(".glyph-icon");
+        type("pwd").click(DefaultI18nContext.getInstance().i18n("Unlock"));
+        verify(listener, times(2)).onEvent(any());
+    }
+
+    @Test
     public void clearSelectionByClick() throws Exception {
         populate();
         click("temp.pdf");
@@ -483,21 +498,6 @@ public class SelectionTableTest extends GuiTest {
         eventStudio().add(ShowStageRequest.class, listener, "LogStage");
         click(".glyph-icon");
         verify(listener).onEvent(any());
-    }
-
-    @Test
-    public void clickEncryptedThrowsRequest() throws Exception {
-        PdfDocumentDescriptor firstItem = populate();
-        FXTestUtils.invokeAndWait(() -> {
-            firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
-            firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
-            firstItem.moveStatusTo(PdfDescriptorLoadingStatus.ENCRYPTED);
-        }, 2);
-        Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
-        eventStudio().add(PdfLoadRequestEvent.class, listener);
-        click(".glyph-icon");
-        type("pwd").click(DefaultI18nContext.getInstance().i18n("Unlock"));
-        verify(listener, times(2)).onEvent(any());
     }
 
     @Test
