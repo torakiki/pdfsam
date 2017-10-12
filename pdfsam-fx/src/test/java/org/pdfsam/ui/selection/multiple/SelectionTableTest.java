@@ -397,6 +397,21 @@ public class SelectionTableTest extends GuiTest {
     }
 
     @Test
+    public void pageRangesForAllByContextMenu() throws Exception {
+        populate();
+        SelectionTable victim = find("#victim");
+        Optional<SelectionTableRowData> item = victim.getItems().stream()
+                .filter(i -> "temp.pdf".equals(i.descriptor().getFileName())).findFirst();
+        assertTrue(item.isPresent());
+        item.get().pageSelection.set("2-4");
+        rightClick("temp.pdf");
+        click(DefaultI18nContext.getInstance().i18n("Set as range for all"));
+        victim.getItems().stream().forEach(i -> {
+            assertEquals("2-4", i.pageSelection.get());
+        });
+    }
+
+    @Test
     public void setDestinationByContextMenu() throws Exception {
         HitTestListener<SetDestinationRequest> listener = new HitTestListener<>();
         eventStudio().add(SetDestinationRequest.class, listener, MODULE);
