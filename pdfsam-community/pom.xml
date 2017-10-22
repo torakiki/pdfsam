@@ -113,7 +113,7 @@
 										<fileVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.0</fileVersion>
 										<txtFileVersion>${project.version}</txtFileVersion>
 										<fileDescription>PDFsam Basic</fileDescription>
-										<copyright>Andrea Vacondio 2015</copyright>
+										<copyright>Sober Lemur S.a.s di Vacondio Andrea</copyright>
 										<productVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.0</productVersion>
 										<txtProductVersion>${project.version}</txtProductVersion>
 										<productName>PDF Split And Merge Basic Edition</productName>
