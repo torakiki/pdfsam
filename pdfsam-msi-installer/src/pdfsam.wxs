@@ -60,6 +60,9 @@
         <Property Id="JDK64_9_CURRENT_VERSION" Secure="yes">
             <RegistrySearch Id="JDK64_9_CURRENT_VERSION_REGSEARCH" Root="HKLM" Key="SOFTWARE\JavaSoft\JDK" Name="CurrentVersion" Type="raw" Win64="yes" />
         </Property>
+        <Property Id="J9">
+            JRE_9_CURRENT_VERSION OR JDK_9_CURRENT_VERSION OR JRE64_9_CURRENT_VERSION OR JDK64_9_CURRENT_VERSION
+        </Property>
         
         <!-- RemoveFolderEx requires that we "remember" the path for uninstall. This workaround is only required for the uninstall. -->
         <Property Id="APPLICATIONFOLDER" Secure="yes">

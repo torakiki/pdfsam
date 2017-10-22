@@ -23,34 +23,22 @@
                 </Control>
                 <Control Type="Text" Id="JavaInstalledText" Width="300" Hidden="yes" Height="40" X="50" Y="68" Text="!(loc.JavaFoundText)">
     				<Condition Action="show">
-    					JRE_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JDK_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JRE64_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JDK64_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" 
-    					OR 
-    					JRE_9_CURRENT_VERSION OR JDK_9_CURRENT_VERSION OR JRE64_9_CURRENT_VERSION OR JDK64_9_CURRENT_VERSION
+    					JRE_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JDK_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JRE64_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JDK64_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR J9
     				</Condition>
     			</Control>
                 <Control Type="Text" Id="JavaRequiredText" Width="300" Hidden="yes" Height="40" X="50" Y="68" Text="!(loc.JavaRequiredText)">
     				<Condition Action="show">
-    					NOT (
-    							JRE_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JDK_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JRE64_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JDK64_CURRENT_VERSION >= "$(var.RequiredJavaVersion" 
-    							OR 
-    							JRE_9_CURRENT_VERSION OR JDK_9_CURRENT_VERSION OR JRE64_9_CURRENT_VERSION OR JDK64_9_CURRENT_VERSION	
-    					)
+    					NOT (JRE_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JDK_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JRE64_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JDK64_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR J9)
     				</Condition>
     			</Control>
         		<Control Type="Bitmap" Id="JREOkIndicator" Width="22" Hidden="yes" Height="22" X="15" Y="64" FixedSize="yes" IconSize="32" Text="OkImage">
         			<Condition Action="show">
-        					JRE_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JDK_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JRE64_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JDK64_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" 
-        					OR 
-    						JRE_9_CURRENT_VERSION OR JDK_9_CURRENT_VERSION OR JRE64_9_CURRENT_VERSION OR JDK64_9_CURRENT_VERSION	
+        					JRE_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JDK_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JRE64_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JDK64_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR J9
         			</Condition>
         		</Control>
         		<Control Type="Bitmap" Id="JREKoIndicator" Width="22" Hidden="yes" Height="22" X="15" Y="70" FixedSize="yes" IconSize="32" Text="KoImage">
         			<Condition Action="show">
-    					NOT (
-    							JRE_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JDK_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JRE64_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JDK64_CURRENT_VERSION >= "$(var.RequiredJavaVersion" 
-    							OR 
-    							JRE_9_CURRENT_VERSION OR JDK_9_CURRENT_VERSION OR JRE64_9_CURRENT_VERSION OR JDK64_9_CURRENT_VERSION	
-    					)
+    					NOT (JRE_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JDK_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JRE64_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JDK64_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR J9)
     				</Condition>
         		</Control>
 
