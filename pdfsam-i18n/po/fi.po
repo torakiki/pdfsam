@@ -7,74 +7,652 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-05-12 10:04+0200\n"
+"POT-Creation-Date: 2017-10-12 12:35+0200\n"
 "PO-Revision-Date: 2017-08-30 14:10+0000\n"
 "Last-Translator: Sami Kuusisto <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-09-30 08:41+0000\n"
-"X-Generator: Launchpad (build 18471)\n"
+"X-Launchpad-Export-Date: 2017-10-23 10:28+0000\n"
+"X-Generator: Launchpad (build 18484)\n"
 
-msgid "_Settings"
-msgstr "_Asetukset"
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Poimittavat sivut (esim. 2 tai 5-23 tai 2,5-7,12-)"
 
-msgid "Subscribe to the official news feed"
-msgstr "Tilaa virallinen uutissyöte"
+msgid "Invalid page ranges"
+msgstr "Virheellisiä sivualueita"
 
-msgid "Bug and feature requests"
-msgstr "Bugit ja ominaisuuspyynnöt"
+msgid "Extract pages:"
+msgstr "Poimi sivut:"
 
-msgid "Play the \"get started\" video"
-msgstr "Toista \"Aloitusopas\" -video"
+msgid "Extract"
+msgstr "Poimi"
 
-msgid "Fork PDFsam on GitHub"
-msgstr "Fork PDFsam GitHubissa"
+msgid "Extract pages from PDF documents."
+msgstr "Poimi sivuja PDF-asiakirjoista."
 
-msgid "Translate"
-msgstr "Käännä"
+msgid "File names settings"
+msgstr "Tiedostonimiasetukset"
 
-msgid "Donate"
-msgstr "Lahjoita"
+msgid "Extract settings"
+msgstr "Poimimisasetukset"
 
-msgid "Follow us on Twitter"
-msgstr "Seuraa meitä Twitterissä"
+msgid "Output settings"
+msgstr "Kohdeasetukset"
 
-msgid "Follow us on Google Plus"
-msgstr "Seuraa meitä Google Plussassa"
+msgid "No PDF document has been selected"
+msgstr "PDF-asiakirjaa ei ole valittu"
 
-msgid "Like us on Facebook"
-msgstr "Tykkää meistä Facebookissa"
+msgid "Merge"
+msgstr "Yhdistä"
 
-msgid "Dashboard"
-msgstr "Hallintapaneeli"
+msgid "Merge together multiple PDF documents or subsections of them."
+msgstr "Yhdistä useita PDF-asiakirjoja tai niiden osia."
 
-msgid "Cancel"
-msgstr "Peruuta"
+msgid "Merge settings"
+msgstr "Yhdistämisasetukset"
 
-msgid "Overwrite"
-msgstr "Korvaa"
-
-msgid "PDFsam can try to overcome the failure"
-msgstr "PDFsam voi yrittää korjata virheen"
+msgid "Destination file"
+msgstr "Kohdetiedosto"
 
 msgid ""
-"It may result in PDF files with partial or missing data, proceed anyway?"
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Tämä voi aiheuttaa sen, että PDF-tiedostoista puuttuu tietoja, jatka silti?"
+"Kaksoisnapsauta asettaaksesi yhdistettävät sivut (esim. 2 tai 5-23 tai 2,5-"
+"7,12-)"
 
-msgid "No"
-msgstr "Ei"
+msgid "Add a blank page if page number is odd"
+msgstr "Lisää tyhjä sivu, jos sivunumero on pariton"
 
-msgid "Yes"
-msgstr "Kyllä"
+msgid ""
+"Adds a blank page after each merged document if the document has an odd "
+"number of pages"
+msgstr ""
+"Lisää tyhjän sivun jokaisen liitetyn asiakirjan perään, jos asiakirjassa on "
+"pariton määrä sivuja"
 
-msgid "The selected output directory does not exist"
-msgstr "Valittua kohdehakemistoa ei ole olemassa"
+msgid "Add a footer"
+msgstr "Lisää alatunniste"
 
-msgid "Do you want to create it?"
-msgstr "Haluatko luoda sen?"
+msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr ""
+"Lisää alatunnisteeseen tiedon, minkä nimiseen tiedostoon sivu kuului."
+
+msgid "Normalize pages size"
+msgstr "Normalisoi sivujen koot"
+
+msgid "Resizes all pages to have the same width as the first page."
+msgstr "Muuttaa kaikki sivut vastaamaan ensimmäisen sivun leveyttä."
+
+msgid "Merge fields"
+msgstr "Yhdistä kentät"
+
+msgid "Merge renaming existing fields"
+msgstr "Yhdistä uudelleennimeämällä olemassa olevat kentät"
+
+msgid "Discard forms"
+msgstr "Hylkää lomakkeet"
+
+msgid "Interactive forms (AcroForms):"
+msgstr "Interaktiiviset lomakkeet (AcroForms):"
+
+msgid "What to do in case one or more input documents contain Acro Forms"
+msgstr ""
+"Mitä tehdä, jos yksi tai useampi asiakirja sisältää AcroForm-lomakkeita"
+
+msgid "Retain bookmarks"
+msgstr "Säilytä kirjanmerkit"
+
+msgid "Discard bookmarks"
+msgstr "Hylkää kirjanmerkit"
+
+msgid "Create one entry for each merged document"
+msgstr "Luo yksi merkintä jokaista yhdistettyä asiakirjaa varten"
+
+msgid "Retain bookmarks as one entry for each merged document"
+msgstr ""
+"Säilytä kirjanmerkit yhtenä merkintänä jokaista yhdistettyä asiakirjaa varten"
+
+msgid "Bookmarks handling:"
+msgstr "Kirjanmerkkien käsittely:"
+
+msgid "What to do in case one or more input documents contain bookmarks"
+msgstr "Mitä tehdä, jos yksi tai useampi asiakirja sisältää kirjanmerkkejä"
+
+msgid "Don't generate"
+msgstr "Älä muodosta"
+
+msgid "Generate from file names"
+msgstr "Muodosta tiedostojen nimistä"
+
+msgid "Generate from documents titles"
+msgstr "Muodosta asiakirjojen otsikoista"
+
+msgid "Table of contents:"
+msgstr "Sisällysluettelo:"
+
+msgid ""
+"Set if a table of contents should be added to the generated PDF document"
+msgstr ""
+"Aseta, jos muodostettuun PDF-asiakirjaan pitäisi lisätä sisällysluettelo"
+
+msgid "Valid user password provided."
+msgstr "Toimiva käyttäjän salasana annettu."
+
+msgid "This document is encrypted, click to provide a password."
+msgstr "Tämä asiakirja on salattu, napsauta antaaksesi salasanan."
+
+msgid "An error has occurred, click for more details."
+msgstr "Tapahtui virhe, napsauta saadaksesi tietoja."
+
+msgid "Roundish"
+msgstr "Pyöreähkö"
+
+msgid "Directories"
+msgstr "Hakemistot"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "Virheellinen alue: {0}"
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+"Epäselvä sivualueen määrittely: {0}. Käytä seuraavia formaatteja: [n] tai "
+"[n1-n2] tai [-n] tai [n-]"
+
+#, java-format
+msgid "Invalid number: {0}."
+msgstr "Virheellinen numero: {0}."
+
+msgid "Error saving log file."
+msgstr "Virhe tallennettaessa lokitiedostoa."
+
+#, java-format
+msgid "File {0} saved."
+msgstr "Tiedosto {0} tallennettu."
+
+msgid "Split"
+msgstr "Jaa"
+
+msgid "Security"
+msgstr "Tietoturva"
+
+msgid "Other"
+msgstr "Muu"
+
+msgid "Split by every \"n\" pages"
+msgstr "Jaa joka \"n\" sivun välein"
+
+msgid "Number of pages"
+msgstr "Sivumäärä"
+
+msgid "Invalid number of pages"
+msgstr "Virheellinen sivumäärä"
+
+msgid "Split a PDF document at the given page numbers."
+msgstr "Jaa PDF-asiakirja annettujen sivunumeroiden kohdilta."
+
+msgid "Select or drag and drop the PDF you want to split"
+msgstr "Valitse tai raahaa ja pudota PDF, jonka haluat jakaa"
+
+msgid "Split settings"
+msgstr "Jakoasetukset"
+
+msgid "Every page"
+msgstr "Jokainen sivu"
+
+msgid "Even pages"
+msgstr "Parilliset sivut"
+
+msgid "Odd pages"
+msgstr "Parittomat sivut"
+
+msgid "Split the document after the given page numbers"
+msgstr "Jaa asiakirja annettujen sivunumeroiden jälkeen"
+
+msgid ""
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr ""
+"Jaa PDF joka \"n\":nnen sivun jälkeen ja luo \"n\" -sivuisia asiakirjoja"
+
+msgid "Split after"
+msgstr "Jaa jälkeen"
+
+msgid "No page selected"
+msgstr "Ei valittua sivua"
+
+msgid "Split after the following page numbers"
+msgstr "Jaa seuraavien sivunumeroiden jälkeen"
+
+msgid "Page numbers to split at (n1,n2,n3..)"
+msgstr "Jaettavat sivunumerot (n1,n2,n3,...)"
+
+msgid "Invalid page numbers"
+msgstr "Virheelliset sivunumerot"
+
+msgid "Only valid positive page numbers are allowed"
+msgstr "Ainoastaan positiiviset kokonaisluvut ovat sallittuja"
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Kaksoisnapsauta asettaaksesi kierrettävät sivut (esim. 2 tai 5-23 tai 2,5-"
+"7,12-)"
+
+msgid "Rotate"
+msgstr "Kierrä"
+
+msgid "Rotate the pages of multiple PDF documents."
+msgstr "Kierrä useiden PDF-asiakirjojen sivuja."
+
+msgid "Rotate settings"
+msgstr "Kiertoasetukset"
+
+msgid "All pages"
+msgstr "Kaikki sivut"
+
+msgid "90 degrees clockwise"
+msgstr "90 astetta myötäpäivään"
+
+msgid "180 degrees clockwise"
+msgstr "180 astetta myötäpäivään"
+
+msgid "90 degrees counterclockwise"
+msgstr "90 astetta vastapäivään"
+
+msgid "Rotate "
+msgstr "Kierrä "
+
+# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:150
+msgid "Close"
+msgstr "Sulje"
+
+msgid "Prefix for the generated files names"
+msgstr "Muodostettujen tiedostonimien etuliite"
+
+msgid "Add prefix"
+msgstr "Lisää etuliite"
+
+msgid "Generated PDF documents name prefix:"
+msgstr "Muodostettujen PDF-asiakirjojen nimen etuliite:"
+
+msgid "Prefix for the output files name."
+msgstr "Kohdetiedostojen nimien etuliite."
+
+msgid "Some special keywords are replaced with runtime values."
+msgstr "Jotkin erityiset avainsanat korvataan runtime-arvoilla."
+
+msgid "Right click to add these keywords."
+msgstr "Napsauta hiiren oikealla painikkeella lisätäksesi näitä avainsanoja."
+
+msgid "Reverse"
+msgstr "Käänteinen"
+
+msgid "Drag and drop PDF files here"
+msgstr "Raahaa ja pudota PDF-asiakirjoja tähän"
+
+msgid "Set destination"
+msgstr "Aseta kohde"
+
+msgid "Set as range for all"
+msgstr ""
+
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:273
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:317
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:266
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:311
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:269
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:314
+msgid "Remove"
+msgstr "Poista"
+
+msgid "Move to Top"
+msgstr "Siirrä ylimmäksi"
+
+msgid "Move Up"
+msgstr "Siirrä ylöspäin"
+
+msgid "Move Down"
+msgstr "Siirrä alaspäin"
+
+msgid "Move to Bottom"
+msgstr "Siirrä alimmaksi"
+
+msgid "Duplicate"
+msgstr "Monista"
+
+msgid "Document properties"
+msgstr "Asiakirjan ominaisuudet"
+
+msgid "Open"
+msgstr "Avaa"
+
+msgid "Open Folder"
+msgstr "Avaa kansio"
+
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr ""
+"Raahaa ja pudota PDF-tiedostoja tai hakemistoja, joissa on PDF-tiedostoja"
+
+msgid "No PDF found"
+msgstr "PDF-asiakirjoja ei löytynyt"
+
+msgid "Pace"
+msgstr "Vauhti"
+
+msgid ""
+"Double click to set the number of pages after which the task will switch to "
+"the next file"
+msgstr ""
+"Kaksoisnapsauta asettaaksesi sivumäärän, jonka jälkeen siirrytään seuraavaan "
+"tiedostoon"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:182
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:180
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:183
+msgid "Pages"
+msgstr "Sivut"
+
+msgid "Size"
+msgstr "Koko"
+
+msgid "Modified"
+msgstr "Muokattu"
+
+msgid "Add documents to the table"
+msgstr "Lisää asiakirjat taulukkoon"
+
+msgid "_Add"
+msgstr "_Lisää"
+
+msgid "Select pdf documents to load"
+msgstr "Valitse ladattavat PDF-asiakirjat"
+
+msgid "Removes selected documents"
+msgstr "Poistaa valitut asiakirjat"
+
+msgid "_Remove"
+msgstr "_Poista"
+
+msgid "Removes every document"
+msgstr "Poistaa kaikki asiakirjat"
+
+msgid "_Clear"
+msgstr "_Tyhjennä"
+
+msgid "C_lear all settings"
+msgstr "T_yhjennä kaikki asetukset"
+
+msgid "Moves up selected documents"
+msgstr "Siirtää valittuja asiakirjoja ylös"
+
+msgid "Move _Up"
+msgstr "Siirrä _ylös"
+
+msgid "Moves down selected documents"
+msgstr "Siirtää valittuja asiakirjoja alas"
+
+msgid "Move _Down"
+msgstr "Siirrä _alas"
+
+msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Kaksoisnapsauta asettaaksesi valitut sivut (esim. 2 tai 5-23 tai 2,5-7,12-)"
+
+msgid "Page ranges"
+msgstr "Sivualueet"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JInfoPanel.java:118
+# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:128
+msgid "Name"
+msgstr "Nimi"
+
+msgid "Enter the user password"
+msgstr "Syötä käyttäjän salasana"
+
+msgid "Unlock"
+msgstr "Avaa lukitus"
+
+msgid "The selected PDF document is invalid"
+msgstr "Valittu PDF-asiakirja on virheellinen"
+
+#, java-format
+msgid "Pages: {0}, PDF Version: {1}"
+msgstr "Sivut: {0}, PDF-versio: {1}"
+
+msgid "Loading..."
+msgstr "Ladataan..."
+
+msgid "Run"
+msgstr "Suorita"
+
+msgid "Invalid parameters"
+msgstr "Virheelliset parametrit"
+
+msgid "Requested"
+msgstr "Pyydetty"
+
+msgid "Completed"
+msgstr "Valmis"
+
+msgid "Failed"
+msgstr "Epäonnistui"
+
+msgid "Running"
+msgstr "Suoritetaan"
+
+#, java-format
+msgid "Running {0}%"
+msgstr "Suoritetaan {0} %"
+
+msgid "Show errors"
+msgstr "Näytä virheet"
+
+msgid "The selected PDF file is invalid"
+msgstr "Valittu PDF-tiedosto on virheellinen"
+
+msgid "Compress output file/files"
+msgstr "Pakkaa kohdetiedosto(t)"
+
+msgid ""
+"Tick the box if you don't want to retain any bookmark from the original PDF "
+"document"
+msgstr ""
+"Valitse laatikko, jollet halua säilyttää alkuperäisen PDF-asiakirjan "
+"kirjanmerkkejä"
+
+msgid "Output PDF version:"
+msgstr "Kohde-PDF:n versio:"
+
+msgid "Show advanced settings"
+msgstr "Näytä lisäasetukset"
+
+msgid "Hide advanced settings"
+msgstr "Piilota lisäasetukset"
+
+msgid "Select"
+msgstr "Valitse"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:394
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:421
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:448
+# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:175
+# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:340
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:430
+# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:150
+# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:177
+# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:244
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:164
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:304
+# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:233
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:434
+# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:163
+# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:300
+msgid "Browse"
+msgstr "Selaa"
+
+#, java-format
+msgid "Version {0}"
+msgstr "Versio {0}"
+
+msgid "Same as the input document"
+msgstr "Sama kuin lähdeasiakirja"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:452
+# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:315
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:434
+# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:249
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:279
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:438
+msgid "Overwrite if already exists"
+msgstr "Ylikirjoita, jos on jo olemassa"
+
+msgid ""
+"Tick the box if you want to overwrite the output files if they already exist."
+msgstr ""
+"Valitse laatikko, jos haluat ylikirjoittaa kohdetiedostot, jos ne ovat jo "
+"olemassa."
+
+msgid "Select a directory"
+msgstr "Valitse hakemisto"
+
+msgid "Select an existing directory"
+msgstr "Valitse olemassa oleva hakemisto"
+
+msgid "Select a file"
+msgstr "Valitse tiedosto"
+
+msgid "The selected file must exist. "
+msgstr "Valitun tiedoston pitää olla olemassa. "
+
+#, java-format
+msgid "Allowed extensions are {0}"
+msgstr "Sallitut tiedostopäätteet ovat {0}"
+
+msgid "An existing output directory is required"
+msgstr "Kohdehakemiston pitää olla olemassa"
+
+msgid "The output directory is required"
+msgstr "Kohdehakemisto vaaditaan"
+
+#, java-format
+msgid "PDF version required: {0}"
+msgstr "Vaadittu PDF-versio: {0}"
+
+msgid "Loading pdf documents"
+msgstr "Ladataan pdf-asiakirjoja"
+
+msgid "Documents loaded"
+msgstr "Asiakirjat ladattu"
+
+msgid "Checking for updates"
+msgstr "Tarkistetaan päivityksiä"
+
+#, java-format
+msgid "PDFsam {0} is available for download"
+msgstr "PDFsam {0} on ladattavissa"
+
+msgid "Unable to find the latest available version."
+msgstr "Viimeisimmän version haku ei onnistu."
+
+msgid "Fetching premium modules"
+msgstr "Noudetaan premium-moduuleja"
+
+msgid "Unable to retrieve premium modules"
+msgstr "Premium-moduulien nouto ei onnistu"
+
+msgid "Unable to retrieve premium features description"
+msgstr "Premium-ominaisuuksien kuvauksien hankinta ei onnistu"
+
+msgid "Requesting modules state"
+msgstr "Kysellään moduulien tilaa"
+
+msgid "Unable to save modules workspace"
+msgstr "Moduulien työtilaa tallennus ei onnistu"
+
+#, java-format
+msgid "Unable to save workspace to {0}"
+msgstr "Työtilan tallennus kohteeseen {0} ei onnistu"
+
+#, java-format
+msgid "Loading workspace from {0}"
+msgstr "Ladataan työtilaa kohteesta {0}"
+
+msgid "Workspace loaded"
+msgstr "Työtila ladattu"
+
+#, java-format
+msgid "Unable to load workspace from {0}"
+msgstr "Työtilan lataus kohteesta {0} ei onnistu"
+
+#, java-format
+msgid "Saving workspace data to {0}"
+msgstr "Tallennetaan työtilan tietoja kohteeseen {0}"
+
+msgid "Workspace saved"
+msgstr "Työtila tallennettu"
+
+msgid "Unable to retrieve latest news"
+msgstr "Viimeisimpien uutisten nouto ei onnistu"
+
+msgid "Fetching latest news"
+msgstr "Noudetaan viimeisimpiä uutisia"
+
+msgid "Unable to retrieve the latest news"
+msgstr "Viimeisimpien uutisten nouto ei onnistu"
+
+msgid "Invalid bookmarks level"
+msgstr "Virheellinen kirjanmerkkitaso"
+
+msgid "Split by bookmarks"
+msgstr "Jaa kirjanmerkkien mukaan"
+
+msgid ""
+"Split a PDF document at bookmarked pages by specifying a bookmark level."
+msgstr ""
+"Jaa PDF-asiakirja kirjanmerkittyjen sivujen mukaan määrittämällä "
+"kirjanmerkkitaso."
+
+msgid "Regular expression the bookmark has to match"
+msgstr "Säännöllinen lauseke, jota kirjanmerkin on vastattava"
+
+msgid "Split at this bookmark level:"
+msgstr "Jaa tällä kirjanmerkkitasolla:"
+
+msgid "Matching regular expression:"
+msgstr "Vastaa säännöllistä lauseketta:"
+
+msgid "A regular expression the bookmark text has to match"
+msgstr "Säännöllinen lauseke, jota kirjanmerkkitekstin on vastattava"
+
+msgid ""
+"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+"Esimerkki: .*Kappale.* -lauseke vastaa kirjanmerkkejä, joissa esiintyy sana "
+"\"Kappale\""
+
+msgid "Alternate Mix"
+msgstr "Vaihtoehtoinen yhdistely"
+
+msgid ""
+"Merge two or more PDF documents taking pages alternately in natural or "
+"reverse order."
+msgstr ""
+"Yhdistä kaksi tai useampia PDF-asiakirjoja luonnollisessa tai käänteisessä "
+"järjestyksessä."
+
+msgid ""
+"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Kaksoisnapsauta asettaaksesi sivut, jotka haluat yhdistää (esim. 2 tai 5-23 "
+"tai 2,5-7,12-)"
+
+msgid "Select a positive integer number as pace"
+msgstr "Valitse numeroksi positiivinen kokonaisluku"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -101,55 +679,20 @@ msgstr "Moduulia ei löydy"
 msgid "Unable to find modules location."
 msgstr "Moduulien sijaintia ei löydy"
 
-#, java-format
-msgid "Started in {0}"
-msgstr "Aloitettu {0}"
-
-msgid "Closing PDFsam..."
-msgstr "Suljetaan PDFsamia..."
-
-msgid "_Modules"
-msgstr "_Moduulit"
-
-msgid "E_xit"
-msgstr "_Poistu"
-
-msgid "Application messages"
-msgstr "Sovellusviestit"
-
-msgid "_Workspace"
-msgstr "_Työtila"
-
-msgid "_Load"
-msgstr "_Lataa"
-
-msgid "_Save"
-msgstr "_Tallenna"
-
-msgid "Recen_t"
-msgstr "_Viimeisimmät"
-
-msgid "Select the workspace file to save"
-msgstr "Valitse tallennettava työtilatiedosto"
-
-msgid "Select the workspace to load"
-msgstr "Valitse ladattava työtilatiedosto"
-
-msgid "What's new"
-msgstr "Mitä uutta"
-
 msgid "Document details"
 msgstr "Asiakirjan tiedot"
-
-msgid "Keywords"
-msgstr "Avainsanat"
 
 msgid "Summary"
 msgstr "Yhteenveto"
 
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\MainGUI.java:222
-msgid "About"
-msgstr "Tietoja"
+msgid "Keywords"
+msgstr "Avainsanat"
+
+msgid "Settings"
+msgstr "Asetukset"
+
+msgid "Subscribe to the official news feed"
+msgstr "Tilaa virallinen uutissyöte"
 
 msgid "Environment"
 msgstr "Ympäristö"
@@ -164,35 +707,53 @@ msgstr "Kopioi leikepöydälle"
 msgid "Support"
 msgstr "Tuki"
 
+msgid "Bug and feature requests"
+msgstr "Bugit ja ominaisuuspyynnöt"
+
+msgid "Play the \"get started\" video"
+msgstr "Toista \"Aloitusopas\" -video"
+
 msgid "Contribute"
 msgstr "Osallistu"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "Fork PDFsam GitHubissa"
+
+msgid "Translate"
+msgstr "Käännä"
+
+msgid "Donate"
+msgstr "Lahjoita"
 
 msgid "Social"
 msgstr "Sosiaalinen media"
 
-msgid "Premium features"
-msgstr "Premium-ominaisuudet"
+msgid "Follow us on Twitter"
+msgstr "Seuraa meitä Twitterissä"
 
-msgid "Manually selected"
-msgstr "Manuaalisesti valitut"
+msgid "Follow us on Google Plus"
+msgstr "Seuraa meitä Google Plussassa"
 
-msgid ""
-"Automatically set the destination directory to the selected PDF document "
-"directory"
-msgstr ""
-"Aseta kohdehakemisto automaattisesti valitus PDF-tiedoston hakemistoksi"
+msgid "Like us on Facebook"
+msgstr "Tykkää meistä Facebookissa"
 
-msgid "Appearance"
-msgstr "Ulkoasu"
+msgid "Modules"
+msgstr "Moduulit"
 
-msgid "Behavior"
-msgstr "Käyttäytyminen"
+msgid "Generate high quality thumbnails (slower)"
+msgstr "Muodosta korkealaatuiset pienoiskuvat (hitaampi)"
 
-msgid "Workspace"
-msgstr "Työtila"
+msgid "Size in px:"
+msgstr "Koko pikseleinä:"
 
-msgid "Output"
-msgstr "Kohde"
+msgid "Library used to generate thumbnails"
+msgstr "Pienoiskuvien muodostuksessa käytettävä kirjasto"
+
+msgid "Thumbnails creator:"
+msgstr "Pienoiskuvien luoja:"
+
+msgid "Dashboard"
+msgstr "Hallintapaneeli"
 
 msgid "Check for updates at startup"
 msgstr "Tarkista päivitykset käynnistyessä"
@@ -263,29 +824,38 @@ msgstr ""
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Rivien maksimimäärän pitää olla positiivinen numero"
 
-msgid "Generate high quality thumbnails (slower)"
-msgstr "Muodosta korkealaatuiset pienoiskuvat (hitaampi)"
+msgid "Log register rows:"
+msgstr "Lokirekisterin rivit:"
 
-msgid "Size in px:"
-msgstr "Koko pikseleinä:"
+msgid "Maximum number of rows displayed by the Log register"
+msgstr "Lokirekisterissä näytettävien rivien maksimimäärä"
 
-msgid "Library used to generate thumbnails"
-msgstr "Pienoiskuvien muodostuksessa käytettävä kirjasto"
+msgid "Manually selected"
+msgstr "Manuaalisesti valitut"
 
-msgid "Thumbnails creator:"
-msgstr "Pienoiskuvien luoja:"
+msgid ""
+"Automatically set the destination directory to the selected PDF document "
+"directory"
+msgstr ""
+"Aseta kohdehakemisto automaattisesti valitus PDF-tiedoston hakemistoksi"
 
-msgid "Clear usage statistics"
-msgstr "Tyhjennä käyttötilastot"
+msgid "Appearance"
+msgstr "Ulkoasu"
+
+msgid "Behavior"
+msgstr "Käyttäytyminen"
+
+msgid "Workspace"
+msgstr "Työtila"
+
+msgid "Output"
+msgstr "Kohde"
 
 msgid ""
 "Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Valitse hakemisto, johon asiakirjat oletuksena tallennetaan ja josta ne "
 "oletuksena ladataan"
-
-msgid "Select a directory"
-msgstr "Valitse hakemisto"
 
 msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
@@ -303,11 +873,11 @@ msgstr "Oletustyöhakemisto:"
 msgid "Load default workspace at startup:"
 msgstr "Lataa oletustyötila käynnistyksessä:"
 
-msgid "Log register rows:"
-msgstr "Lokirekisterin rivit:"
+msgid "Clear usage statistics"
+msgstr "Tyhjennä käyttötilastot"
 
-msgid "Maximum number of rows displayed by the Log register"
-msgstr "Lokirekisterissä näytettävien rivien maksimimäärä"
+msgid "Check for updates now"
+msgstr "Tarkista päivitykset nyt"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:125
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:116
@@ -331,18 +901,128 @@ msgstr ""
 "Käyttötilastoja käytetään vasemmalla olevan moduulien pikapalkin eniten ja "
 "viimeksi käytettyjen moduulien muodostamiseksi."
 
-msgid "Check for updates now"
-msgstr "Tarkista päivitykset nyt"
+msgid "Premium features"
+msgstr "Premium-ominaisuudet"
 
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:150
-msgid "Close"
-msgstr "Sulje"
+# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\MainGUI.java:222
+msgid "About"
+msgstr "Tietoja"
 
-msgid "Settings"
-msgstr "Asetukset"
+msgid ""
+"Input parameters are invalid, open the application messages for details."
+msgstr ""
+"Annetut parametrit ovat virheellisiä, avaa sovellusviestit nähdäksesi tiedot."
 
-msgid "Modules"
-msgstr "Moduulit"
+#, java-format
+msgid "You performed {0} tasks with PDFsam, did it help?"
+msgstr "Suoritit {0} tehtävää PDFsamilla, helpottiko se?"
+
+msgid "Give something back"
+msgstr "Anna jotakin takaisin"
+
+msgid "PDFsam worked hard!"
+msgstr "PDFsam työskenteli kovasti!"
+
+msgid "Spread the word!"
+msgstr "Levitä sanaa!"
+
+msgid "Download"
+msgstr "Lataa"
+
+msgid "New version available"
+msgstr "Uusi versio saatavissa"
+
+msgid "Open with"
+msgstr "Avaa sovelluksella"
+
+msgid "Select the task to perform on the following files"
+msgstr "Valitse seuraaville tiedostoille suoritettava tehtävä"
+
+msgid "Yes"
+msgstr "Kyllä"
+
+msgid "No"
+msgstr "Ei"
+
+msgid "Non existing directory"
+msgstr "Hakemistoa ei ole olemassa"
+
+msgid "The selected output directory does not exist"
+msgstr "Valittua kohdehakemistoa ei ole olemassa"
+
+msgid "Do you want to create it?"
+msgstr "Haluatko luoda sen?"
+
+msgid "Directory not empty"
+msgstr "Hakemisto ei ole tyhjä"
+
+msgid "The selected directory is not empty"
+msgstr "Valittu hakemisto ei ole tyhjä"
+
+msgid "Overwrite files with the same name as the generated ones?"
+msgstr "Ylikirjoita samalla nimellä olevat tiedostot?"
+
+msgid "Don't overwrite existing file"
+msgstr "Älä ylikirjoita olemassa olevia tiedostoja"
+
+msgid "Overwrite confirmation"
+msgstr "Ylikirjoitusvahvistus"
+
+msgid "A file with the given name already exists"
+msgstr "Annetulla nimellä oleva tiedosto on jo olemassa"
+
+msgid "Do you want to overwrite it?"
+msgstr "Haluatko ylikirjoittaa sen?"
+
+msgid "Task failed"
+msgstr "Tehtävä epäonnistui"
+
+msgid "PDFsam can try to overcome the failure"
+msgstr "PDFsam voi yrittää korjata virheen"
+
+msgid ""
+"It may result in PDF files with partial or missing data, proceed anyway?"
+msgstr ""
+"Tämä voi aiheuttaa sen, että PDF-tiedostoista puuttuu tietoja, jatka silti?"
+
+msgid "Overwrite"
+msgstr "Korvaa"
+
+msgid "Cancel"
+msgstr "Peruuta"
+
+msgid "What's new"
+msgstr "Mitä uutta"
+
+msgid "_Modules"
+msgstr "_Moduulit"
+
+msgid "E_xit"
+msgstr "_Poistu"
+
+msgid "_Settings"
+msgstr "_Asetukset"
+
+msgid "Application messages"
+msgstr "Sovellusviestit"
+
+msgid "_Workspace"
+msgstr "_Työtila"
+
+msgid "_Load"
+msgstr "_Lataa"
+
+msgid "_Save"
+msgstr "_Tallenna"
+
+msgid "Recen_t"
+msgstr "_Viimeisimmät"
+
+msgid "Select the workspace file to save"
+msgstr "Valitse tallennettava työtilatiedosto"
+
+msgid "Select the workspace to load"
+msgstr "Valitse ladattava työtilatiedosto"
 
 msgid "Log register"
 msgstr "Lokirekisteri"
@@ -370,192 +1050,24 @@ msgstr "Tallenna loki"
 msgid "Select where to save the log file"
 msgstr "Valitse lokitiedoston tallennussijainti"
 
-msgid "Invalid parameters"
-msgstr "Virheelliset parametrit"
-
-msgid ""
-"Input parameters are invalid, open the application messages for details."
-msgstr ""
-"Annetut parametrit ovat virheellisiä, avaa sovellusviestit nähdäksesi tiedot."
-
 #, java-format
-msgid "You performed {0} tasks with PDFsam, did it help?"
-msgstr "Suoritit {0} tehtävää PDFsamilla, helpottiko se?"
+msgid "Started in {0}"
+msgstr "Aloitettu {0}"
 
-msgid "Give something back"
-msgstr "Anna jotakin takaisin"
+msgid "Closing PDFsam..."
+msgstr "Suljetaan PDFsamia..."
 
-msgid "PDFsam worked hard!"
-msgstr "PDFsam työskenteli kovasti!"
+msgid "Megabytes"
+msgstr "Megatavua"
 
-msgid "Spread the word!"
-msgstr "Levitä sanaa!"
+msgid "MB"
+msgstr "Mt"
 
-#, java-format
-msgid "PDFsam {0} is available for download"
-msgstr "PDFsam {0} on ladattavissa"
+msgid "Kilobytes"
+msgstr "Kilotavua"
 
-msgid "Download"
-msgstr "Lataa"
-
-msgid "New version available"
-msgstr "Uusi versio saatavissa"
-
-msgid "Open"
-msgstr "Avaa"
-
-msgid "Non existing directory"
-msgstr "Hakemistoa ei ole olemassa"
-
-msgid "Open with"
-msgstr "Avaa sovelluksella"
-
-msgid "Select the task to perform on the following files"
-msgstr "Valitse seuraaville tiedostoille suoritettava tehtävä"
-
-msgid "Task failed"
-msgstr "Tehtävä epäonnistui"
-
-msgid "Directory not empty"
-msgstr "Hakemisto ei ole tyhjä"
-
-msgid "The selected directory is not empty"
-msgstr "Valittu hakemisto ei ole tyhjä"
-
-msgid "Overwrite files with the same name as the generated ones?"
-msgstr "Ylikirjoita samalla nimellä olevat tiedostot?"
-
-msgid "Don't overwrite existing file"
-msgstr "Älä ylikirjoita olemassa olevia tiedostoja"
-
-msgid "Overwrite confirmation"
-msgstr "Ylikirjoitusvahvistus"
-
-msgid "A file with the given name already exists"
-msgstr "Annetulla nimellä oleva tiedosto on jo olemassa"
-
-msgid "Do you want to overwrite it?"
-msgstr "Haluatko ylikirjoittaa sen?"
-
-msgid "Unable to find the latest available version."
-msgstr "Viimeisimmän version haku ei onnistu."
-
-msgid "Checking for updates"
-msgstr "Tarkistetaan päivityksiä"
-
-msgid "Unable to retrieve premium features description"
-msgstr "Premium-ominaisuuksien kuvauksien hankinta ei onnistu"
-
-msgid "Fetching premium modules"
-msgstr "Noudetaan premium-moduuleja"
-
-msgid "Unable to retrieve premium modules"
-msgstr "Premium-moduulien nouto ei onnistu"
-
-msgid "Fetching latest news"
-msgstr "Noudetaan viimeisimpiä uutisia"
-
-msgid "Unable to retrieve the latest news"
-msgstr "Viimeisimpien uutisten nouto ei onnistu"
-
-msgid "Unable to retrieve latest news"
-msgstr "Viimeisimpien uutisten nouto ei onnistu"
-
-msgid "Loading pdf documents"
-msgstr "Ladataan pdf-asiakirjoja"
-
-msgid "Documents loaded"
-msgstr "Asiakirjat ladattu"
-
-msgid "Requesting modules state"
-msgstr "Kysellään moduulien tilaa"
-
-msgid "Unable to save modules workspace"
-msgstr "Moduulien työtilaa tallennus ei onnistu"
-
-#, java-format
-msgid "Unable to save workspace to {0}"
-msgstr "Työtilan tallennus kohteeseen {0} ei onnistu"
-
-#, java-format
-msgid "Loading workspace from {0}"
-msgstr "Ladataan työtilaa kohteesta {0}"
-
-msgid "Workspace loaded"
-msgstr "Työtila ladattu"
-
-#, java-format
-msgid "Unable to load workspace from {0}"
-msgstr "Työtilan lataus kohteesta {0} ei onnistu"
-
-#, java-format
-msgid "Saving workspace data to {0}"
-msgstr "Tallennetaan työtilan tietoja kohteeseen {0}"
-
-msgid "Workspace saved"
-msgstr "Työtila tallennettu"
-
-msgid "Split after"
-msgstr "Jaa jälkeen"
-
-msgid "No page selected"
-msgstr "Ei valittua sivua"
-
-msgid "Split after the following page numbers"
-msgstr "Jaa seuraavien sivunumeroiden jälkeen"
-
-msgid "Page numbers to split at (n1,n2,n3..)"
-msgstr "Jaettavat sivunumerot (n1,n2,n3,...)"
-
-msgid "Invalid page numbers"
-msgstr "Virheelliset sivunumerot"
-
-msgid "Only valid positive page numbers are allowed"
-msgstr "Ainoastaan positiiviset kokonaisluvut ovat sallittuja"
-
-msgid "Split"
-msgstr "Jaa"
-
-msgid "Split a PDF document at the given page numbers."
-msgstr "Jaa PDF-asiakirja annettujen sivunumeroiden kohdilta."
-
-msgid "Select or drag and drop the PDF you want to split"
-msgstr "Valitse tai raahaa ja pudota PDF, jonka haluat jakaa"
-
-msgid "File names settings"
-msgstr "Tiedostonimiasetukset"
-
-msgid "Split settings"
-msgstr "Jakoasetukset"
-
-msgid "Output settings"
-msgstr "Kohdeasetukset"
-
-msgid "Every page"
-msgstr "Jokainen sivu"
-
-msgid "Even pages"
-msgstr "Parilliset sivut"
-
-msgid "Odd pages"
-msgstr "Parittomat sivut"
-
-msgid "Split the document after the given page numbers"
-msgstr "Jaa asiakirja annettujen sivunumeroiden jälkeen"
-
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
-msgstr ""
-"Jaa PDF joka \"n\":nnen sivun jälkeen ja luo \"n\" -sivuisia asiakirjoja"
-
-msgid "Split by every \"n\" pages"
-msgstr "Jaa joka \"n\" sivun välein"
-
-msgid "Number of pages"
-msgstr "Sivumäärä"
-
-msgid "Invalid number of pages"
-msgstr "Virheellinen sivumäärä"
+msgid "KB"
+msgstr "kt"
 
 msgid "Split by size"
 msgstr "Jaa koon mukaan"
@@ -574,515 +1086,6 @@ msgstr "Jaa tämän kokoisiksi:"
 
 msgid "Invalid split size"
 msgstr "Virheellinen jakamiskoko"
-
-msgid "Megabytes"
-msgstr "Megatavua"
-
-msgid "MB"
-msgstr "Mt"
-
-msgid "Kilobytes"
-msgstr "Kilotavua"
-
-msgid "KB"
-msgstr "kt"
-
-msgid "Alternate Mix"
-msgstr "Vaihtoehtoinen yhdistely"
-
-msgid ""
-"Merge two or more PDF documents taking pages alternately in natural or "
-"reverse order."
-msgstr ""
-"Yhdistä kaksi tai useampia PDF-asiakirjoja luonnollisessa tai käänteisessä "
-"järjestyksessä."
-
-msgid "Destination file"
-msgstr "Kohdetiedosto"
-
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Kaksoisnapsauta asettaaksesi sivut, jotka haluat yhdistää (esim. 2 tai 5-23 "
-"tai 2,5-7,12-)"
-
-msgid "No PDF document has been selected"
-msgstr "PDF-asiakirjaa ei ole valittu"
-
-msgid "Select a positive integer number as pace"
-msgstr "Valitse numeroksi positiivinen kokonaisluku"
-
-msgid "Completed"
-msgstr "Valmis"
-
-msgid "Failed"
-msgstr "Epäonnistui"
-
-#, java-format
-msgid "Running {0}%"
-msgstr "Suoritetaan {0} %"
-
-msgid "Running"
-msgstr "Suoritetaan"
-
-msgid "Requested"
-msgstr "Pyydetty"
-
-msgid "Select a file"
-msgstr "Valitse tiedosto"
-
-msgid "Unlock"
-msgstr "Avaa lukitus"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:273
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:317
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:266
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:311
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:269
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:314
-msgid "Remove"
-msgstr "Poista"
-
-msgid "Duplicate"
-msgstr "Monista"
-
-msgid "Move Down"
-msgstr "Siirrä alaspäin"
-
-msgid "Move to Bottom"
-msgstr "Siirrä alimmaksi"
-
-msgid "Move Up"
-msgstr "Siirrä ylöspäin"
-
-msgid "Move to Top"
-msgstr "Siirrä ylimmäksi"
-
-msgid "Set destination"
-msgstr "Aseta kohde"
-
-msgid "Open Folder"
-msgstr "Avaa kansio"
-
-msgid "Document properties"
-msgstr "Asiakirjan ominaisuudet"
-
-msgid "Loading..."
-msgstr "Ladataan..."
-
-#, java-format
-msgid "Pages: {0}, PDF Version: {1}"
-msgstr "Sivut: {0}, PDF-versio: {1}"
-
-msgid "Show errors"
-msgstr "Näytä virheet"
-
-msgid "Run"
-msgstr "Suorita"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:452
-# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:315
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:434
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:249
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:279
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:438
-msgid "Overwrite if already exists"
-msgstr "Ylikirjoita, jos on jo olemassa"
-
-msgid ""
-"Tick the box if you want to overwrite the output files if they already exist."
-msgstr ""
-"Valitse laatikko, jos haluat ylikirjoittaa kohdetiedostot, jos ne ovat jo "
-"olemassa."
-
-msgid "The selected file must exist. "
-msgstr "Valitun tiedoston pitää olla olemassa. "
-
-#, java-format
-msgid "Allowed extensions are {0}"
-msgstr "Sallitut tiedostopäätteet ovat {0}"
-
-msgid "Select"
-msgstr "Valitse"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:394
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:421
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:448
-# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:175
-# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:340
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:430
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:150
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:177
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:244
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:164
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:304
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:233
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:434
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:163
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:300
-msgid "Browse"
-msgstr "Selaa"
-
-msgid "The selected PDF file is invalid"
-msgstr "Valittu PDF-tiedosto on virheellinen"
-
-msgid "Compress output file/files"
-msgstr "Pakkaa kohdetiedosto(t)"
-
-msgid "Discard bookmarks"
-msgstr "Hylkää kirjanmerkit"
-
-msgid ""
-"Tick the box if you don't want to retain any bookmark from the original PDF "
-"document"
-msgstr ""
-"Valitse laatikko, jollet halua säilyttää alkuperäisen PDF-asiakirjan "
-"kirjanmerkkejä"
-
-msgid "Output PDF version:"
-msgstr "Kohde-PDF:n versio:"
-
-msgid "Show advanced settings"
-msgstr "Näytä lisäasetukset"
-
-msgid "Hide advanced settings"
-msgstr "Piilota lisäasetukset"
-
-#, java-format
-msgid "Version {0}"
-msgstr "Versio {0}"
-
-msgid "Same as the input document"
-msgstr "Sama kuin lähdeasiakirja"
-
-#, java-format
-msgid "PDF version required: {0}"
-msgstr "Vaadittu PDF-versio: {0}"
-
-msgid "Select an existing directory"
-msgstr "Valitse olemassa oleva hakemisto"
-
-msgid "An existing output directory is required"
-msgstr "Kohdehakemiston pitää olla olemassa"
-
-msgid "The output directory is required"
-msgstr "Kohdehakemisto vaaditaan"
-
-msgid "Generated PDF documents name prefix:"
-msgstr "Muodostettujen PDF-asiakirjojen nimen etuliite:"
-
-msgid "Prefix for the output files name."
-msgstr "Kohdetiedostojen nimien etuliite."
-
-msgid "Some special keywords are replaced with runtime values."
-msgstr "Jotkin erityiset avainsanat korvataan runtime-arvoilla."
-
-msgid "Right click to add these keywords."
-msgstr "Napsauta hiiren oikealla painikkeella lisätäksesi näitä avainsanoja."
-
-msgid "Prefix for the generated files names"
-msgstr "Muodostettujen tiedostonimien etuliite"
-
-msgid "Add prefix"
-msgstr "Lisää etuliite"
-
-msgid "Enter the user password"
-msgstr "Syötä käyttäjän salasana"
-
-msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Kaksoisnapsauta asettaaksesi valitut sivut (esim. 2 tai 5-23 tai 2,5-7,12-)"
-
-msgid "Page ranges"
-msgstr "Sivualueet"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:182
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:180
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:183
-msgid "Pages"
-msgstr "Sivut"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JInfoPanel.java:118
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:128
-msgid "Name"
-msgstr "Nimi"
-
-msgid "Add documents to the table"
-msgstr "Lisää asiakirjat taulukkoon"
-
-msgid "_Add"
-msgstr "_Lisää"
-
-msgid "Select pdf documents to load"
-msgstr "Valitse ladattavat PDF-asiakirjat"
-
-msgid "Removes selected documents"
-msgstr "Poistaa valitut asiakirjat"
-
-msgid "_Remove"
-msgstr "_Poista"
-
-msgid "Removes every document"
-msgstr "Poistaa kaikki asiakirjat"
-
-msgid "_Clear"
-msgstr "_Tyhjennä"
-
-msgid "C_lear all settings"
-msgstr "T_yhjennä kaikki asetukset"
-
-msgid "Moves up selected documents"
-msgstr "Siirtää valittuja asiakirjoja ylös"
-
-msgid "Move _Up"
-msgstr "Siirrä _ylös"
-
-msgid "Moves down selected documents"
-msgstr "Siirtää valittuja asiakirjoja alas"
-
-msgid "Move _Down"
-msgstr "Siirrä _alas"
-
-msgid "Pace"
-msgstr "Vauhti"
-
-msgid ""
-"Double click to set the number of pages after which the task will switch to "
-"the next file"
-msgstr ""
-"Kaksoisnapsauta asettaaksesi sivumäärän, jonka jälkeen siirrytään seuraavaan "
-"tiedostoon"
-
-msgid "Size"
-msgstr "Koko"
-
-msgid "Modified"
-msgstr "Muokattu"
-
-msgid "Reverse"
-msgstr "Käänteinen"
-
-msgid "Drag and drop PDF files here"
-msgstr "Raahaa ja pudota PDF-asiakirjoja tähän"
-
-msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr ""
-"Raahaa ja pudota PDF-tiedostoja tai hakemistoja, joissa on PDF-tiedostoja"
-
-msgid "No PDF found"
-msgstr "PDF-asiakirjoja ei löytynyt"
-
-msgid "The selected PDF document is invalid"
-msgstr "Valittu PDF-asiakirja on virheellinen"
-
-msgid "Add a blank page if page number is odd"
-msgstr "Lisää tyhjä sivu, jos sivunumero on pariton"
-
-msgid ""
-"Adds a blank page after each merged document if the document has an odd "
-"number of pages"
-msgstr ""
-"Lisää tyhjän sivun jokaisen liitetyn asiakirjan perään, jos asiakirjassa on "
-"pariton määrä sivuja"
-
-msgid "Add a footer"
-msgstr "Lisää alatunniste"
-
-msgid "Adds a page footer with the name of the file the page belonged to."
-msgstr ""
-"Lisää alatunnisteeseen tiedon, minkä nimiseen tiedostoon sivu kuului."
-
-msgid "Normalize pages size"
-msgstr "Normalisoi sivujen koot"
-
-msgid "Resizes all pages to have the same width as the first page."
-msgstr "Muuttaa kaikki sivut vastaamaan ensimmäisen sivun leveyttä."
-
-msgid "Merge fields"
-msgstr "Yhdistä kentät"
-
-msgid "Merge renaming existing fields"
-msgstr "Yhdistä uudelleennimeämällä olemassa olevat kentät"
-
-msgid "Discard forms"
-msgstr "Hylkää lomakkeet"
-
-msgid "Interactive forms (AcroForms):"
-msgstr "Interaktiiviset lomakkeet (AcroForms):"
-
-msgid "What to do in case one or more input documents contain Acro Forms"
-msgstr ""
-"Mitä tehdä, jos yksi tai useampi asiakirja sisältää AcroForm-lomakkeita"
-
-msgid "Retain bookmarks"
-msgstr "Säilytä kirjanmerkit"
-
-msgid "Create one entry for each merged document"
-msgstr "Luo yksi merkintä jokaista yhdistettyä asiakirjaa varten"
-
-msgid "Retain bookmarks as one entry for each merged document"
-msgstr ""
-"Säilytä kirjanmerkit yhtenä merkintänä jokaista yhdistettyä asiakirjaa varten"
-
-msgid "Bookmarks handling:"
-msgstr "Kirjanmerkkien käsittely:"
-
-msgid "What to do in case one or more input documents contain bookmarks"
-msgstr "Mitä tehdä, jos yksi tai useampi asiakirja sisältää kirjanmerkkejä"
-
-msgid "Don't generate"
-msgstr "Älä muodosta"
-
-msgid "Generate from file names"
-msgstr "Muodosta tiedostojen nimistä"
-
-msgid "Generate from documents titles"
-msgstr "Muodosta asiakirjojen otsikoista"
-
-msgid "Table of contents:"
-msgstr "Sisällysluettelo:"
-
-msgid ""
-"Set if a table of contents should be added to the generated PDF document"
-msgstr ""
-"Aseta, jos muodostettuun PDF-asiakirjaan pitäisi lisätä sisällysluettelo"
-
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Kaksoisnapsauta asettaaksesi yhdistettävät sivut (esim. 2 tai 5-23 tai 2,5-"
-"7,12-)"
-
-msgid "Merge"
-msgstr "Yhdistä"
-
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "Yhdistä useita PDF-asiakirjoja tai niiden osia."
-
-msgid "Merge settings"
-msgstr "Yhdistämisasetukset"
-
-msgid "Security"
-msgstr "Tietoturva"
-
-msgid "Other"
-msgstr "Muu"
-
-msgid "Error saving log file."
-msgstr "Virhe tallennettaessa lokitiedostoa."
-
-#, java-format
-msgid "File {0} saved."
-msgstr "Tiedosto {0} tallennettu."
-
-msgid "Directories"
-msgstr "Hakemistot"
-
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "Virheellinen alue: {0}"
-
-#, java-format
-msgid ""
-"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
-"or [-n] or [n-]"
-msgstr ""
-"Epäselvä sivualueen määrittely: {0}. Käytä seuraavia formaatteja: [n] tai "
-"[n1-n2] tai [-n] tai [n-]"
-
-#, java-format
-msgid "Invalid number: {0}."
-msgstr "Virheellinen numero: {0}."
-
-msgid "Valid user password provided."
-msgstr "Toimiva käyttäjän salasana annettu."
-
-msgid "This document is encrypted, click to provide a password."
-msgstr "Tämä asiakirja on salattu, napsauta antaaksesi salasanan."
-
-msgid "An error has occurred, click for more details."
-msgstr "Tapahtui virhe, napsauta saadaksesi tietoja."
-
-msgid "Roundish"
-msgstr "Pyöreähkö"
-
-msgid "Invalid bookmarks level"
-msgstr "Virheellinen kirjanmerkkitaso"
-
-msgid "Split by bookmarks"
-msgstr "Jaa kirjanmerkkien mukaan"
-
-msgid ""
-"Split a PDF document at bookmarked pages by specifying a bookmark level."
-msgstr ""
-"Jaa PDF-asiakirja kirjanmerkittyjen sivujen mukaan määrittämällä "
-"kirjanmerkkitaso."
-
-msgid "Regular expression the bookmark has to match"
-msgstr "Säännöllinen lauseke, jota kirjanmerkin on vastattava"
-
-msgid "Split at this bookmark level:"
-msgstr "Jaa tällä kirjanmerkkitasolla:"
-
-msgid "Matching regular expression:"
-msgstr "Vastaa säännöllistä lauseketta:"
-
-msgid "A regular expression the bookmark text has to match"
-msgstr "Säännöllinen lauseke, jota kirjanmerkkitekstin on vastattava"
-
-msgid ""
-"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
-msgstr ""
-"Esimerkki: .*Kappale.* -lauseke vastaa kirjanmerkkejä, joissa esiintyy sana "
-"\"Kappale\""
-
-msgid "Extract"
-msgstr "Poimi"
-
-msgid "Extract pages from PDF documents."
-msgstr "Poimi sivuja PDF-asiakirjoista."
-
-msgid "Extract settings"
-msgstr "Poimimisasetukset"
-
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Poimittavat sivut (esim. 2 tai 5-23 tai 2,5-7,12-)"
-
-msgid "Invalid page ranges"
-msgstr "Virheellisiä sivualueita"
-
-msgid "Extract pages:"
-msgstr "Poimi sivut:"
-
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Kaksoisnapsauta asettaaksesi kierrettävät sivut (esim. 2 tai 5-23 tai 2,5-"
-"7,12-)"
-
-msgid "All pages"
-msgstr "Kaikki sivut"
-
-msgid "90 degrees clockwise"
-msgstr "90 astetta myötäpäivään"
-
-msgid "180 degrees clockwise"
-msgstr "180 astetta myötäpäivään"
-
-msgid "90 degrees counterclockwise"
-msgstr "90 astetta vastapäivään"
-
-msgid "Rotate "
-msgstr "Kierrä "
-
-msgid "Rotate"
-msgstr "Kierrä"
-
-msgid "Rotate the pages of multiple PDF documents."
-msgstr "Kierrä useiden PDF-asiakirjojen sivuja."
-
-msgid "Rotate settings"
-msgstr "Kiertoasetukset"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:206
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:223

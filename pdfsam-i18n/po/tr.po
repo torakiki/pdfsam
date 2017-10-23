@@ -7,75 +7,639 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-05-12 10:04+0200\n"
+"POT-Creation-Date: 2017-10-12 12:35+0200\n"
 "PO-Revision-Date: 2017-05-17 13:57+0000\n"
 "Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-09-30 08:41+0000\n"
-"X-Generator: Launchpad (build 18471)\n"
+"X-Launchpad-Export-Date: 2017-10-23 10:28+0000\n"
+"X-Generator: Launchpad (build 18484)\n"
 
-msgid "_Settings"
-msgstr "_Ayarlar"
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
 
-msgid "Subscribe to the official news feed"
-msgstr "Resmi haber akışına abone ol"
+msgid "Invalid page ranges"
+msgstr ""
 
-msgid "Bug and feature requests"
-msgstr "Hata ve yeni özellik istekleri"
+msgid "Extract pages:"
+msgstr "Sayfaları çıkar"
 
-msgid "Play the \"get started\" video"
-msgstr "\"başla\" videosunu çal"
+msgid "Extract"
+msgstr "Dışa aktar"
 
-msgid "Fork PDFsam on GitHub"
-msgstr "PDFsam bir GitHub iştirakidir"
+msgid "Extract pages from PDF documents."
+msgstr "PDF dokümanından sayfaları dışa aktar"
 
-msgid "Translate"
-msgstr "Çevir"
+msgid "File names settings"
+msgstr "Dosya adı ayarları"
 
-msgid "Donate"
-msgstr "Bağış Yapın"
+msgid "Extract settings"
+msgstr "Ayarları dışa aktar"
 
-msgid "Follow us on Twitter"
-msgstr "Bizi Twitter'da takip edin"
+msgid "Output settings"
+msgstr "Çıktı ayarları"
 
-msgid "Follow us on Google Plus"
-msgstr "Bizi Google Plus'da takip edin"
+msgid "No PDF document has been selected"
+msgstr "Bir PDF dosyası seçmediniz"
 
-msgid "Like us on Facebook"
-msgstr "Bizi Facebook'da takip edin"
+msgid "Merge"
+msgstr "Birleştir"
 
-msgid "Dashboard"
-msgstr "Panel"
+msgid "Merge together multiple PDF documents or subsections of them."
+msgstr ""
 
-msgid "Cancel"
-msgstr "Iptal"
+msgid "Merge settings"
+msgstr "Birleştirme ayarları"
 
-msgid "Overwrite"
-msgstr "Üstüne yaz"
-
-msgid "PDFsam can try to overcome the failure"
-msgstr "PDF sam bu hatanın üstesinden gelmeyi deneyebilir"
+msgid "Destination file"
+msgstr "Hedef dosya"
 
 msgid ""
-"It may result in PDF files with partial or missing data, proceed anyway?"
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Bu işlem PDF dosyalarında veri kaybına yol açabilir, devam etmek istiyor "
-"musunuz?"
 
-msgid "No"
-msgstr "Hayır"
+msgid "Add a blank page if page number is odd"
+msgstr "Sayfa sayısı tekse bir boş sayfa ekle"
 
-msgid "Yes"
-msgstr "Evet"
+msgid ""
+"Adds a blank page after each merged document if the document has an odd "
+"number of pages"
+msgstr ""
+"Dosyalar birleştirildikten sonra sayfa sayısı tekse, boş bir sayfa ekler"
 
-msgid "The selected output directory does not exist"
-msgstr "Dosyaların çıkartılacağı klasor bulunmamaktadır"
+msgid "Add a footer"
+msgstr "Altbilgi ekle"
 
-msgid "Do you want to create it?"
-msgstr "Oluşturmak istermisiniz?"
+msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr ""
+
+msgid "Normalize pages size"
+msgstr ""
+
+msgid "Resizes all pages to have the same width as the first page."
+msgstr "Tüm sayfaları birinci sayfa ile aynı genişliğe getir."
+
+msgid "Merge fields"
+msgstr ""
+
+msgid "Merge renaming existing fields"
+msgstr ""
+
+msgid "Discard forms"
+msgstr "Formları gözardı et"
+
+msgid "Interactive forms (AcroForms):"
+msgstr ""
+
+msgid "What to do in case one or more input documents contain Acro Forms"
+msgstr ""
+
+msgid "Retain bookmarks"
+msgstr ""
+
+msgid "Discard bookmarks"
+msgstr "Yer imlerini göz ardı et"
+
+msgid "Create one entry for each merged document"
+msgstr ""
+
+msgid "Retain bookmarks as one entry for each merged document"
+msgstr ""
+
+msgid "Bookmarks handling:"
+msgstr ""
+
+msgid "What to do in case one or more input documents contain bookmarks"
+msgstr ""
+
+msgid "Don't generate"
+msgstr "Oluşturma"
+
+msgid "Generate from file names"
+msgstr "Dosya adından oluştur"
+
+msgid "Generate from documents titles"
+msgstr "Dokümanların başlıklarından oluştur"
+
+msgid "Table of contents:"
+msgstr "İçindekiler:"
+
+msgid ""
+"Set if a table of contents should be added to the generated PDF document"
+msgstr "İçindekiler bölümü PDF dokümanına eklenecekse işaretleyin"
+
+msgid "Valid user password provided."
+msgstr "Geçerli kullanıcı parolası temin edildi."
+
+msgid "This document is encrypted, click to provide a password."
+msgstr "Bu dosya şifreli, şifre girmek için tıklayın"
+
+msgid "An error has occurred, click for more details."
+msgstr "Bir hata oluştu, ayrıtlar için tıklayınız"
+
+msgid "Roundish"
+msgstr "Yuvarlaksı"
+
+msgid "Directories"
+msgstr "Dizinler"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "Geçersiz aralık: {0}."
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+
+#, java-format
+msgid "Invalid number: {0}."
+msgstr "Geçersiz numara: {0}."
+
+msgid "Error saving log file."
+msgstr "Kayıt dosyası kaydedilirken hata."
+
+#, java-format
+msgid "File {0} saved."
+msgstr "Dosya {0} kaydedildi."
+
+msgid "Split"
+msgstr "Böl"
+
+msgid "Security"
+msgstr "Güvenlik"
+
+msgid "Other"
+msgstr "Diğer"
+
+msgid "Split by every \"n\" pages"
+msgstr "Her \"n\" sayfada bir ayır"
+
+msgid "Number of pages"
+msgstr "Sayfa numaraları"
+
+msgid "Invalid number of pages"
+msgstr "Geçersiz sayfa numarası"
+
+msgid "Split a PDF document at the given page numbers."
+msgstr "PDF dokümanını verilen sayfa numarasına göre böl"
+
+msgid "Select or drag and drop the PDF you want to split"
+msgstr "Ayırmak istediğin PDF dosyalarını sürükle bırak ya da seç"
+
+msgid "Split settings"
+msgstr "Ayırma ayarları"
+
+msgid "Every page"
+msgstr "Her sayfa"
+
+msgid "Even pages"
+msgstr "Çift sayfalar"
+
+msgid "Odd pages"
+msgstr "Tek sayfalar"
+
+msgid "Split the document after the given page numbers"
+msgstr ""
+
+msgid ""
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr ""
+
+msgid "Split after"
+msgstr ""
+
+msgid "No page selected"
+msgstr ""
+
+msgid "Split after the following page numbers"
+msgstr ""
+
+msgid "Page numbers to split at (n1,n2,n3..)"
+msgstr ""
+
+msgid "Invalid page numbers"
+msgstr "Geçersiz sayfa numarası"
+
+msgid "Only valid positive page numbers are allowed"
+msgstr "Sadece pozitif sayfa numaraları geçerlidir"
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid "Rotate"
+msgstr "Döndür"
+
+msgid "Rotate the pages of multiple PDF documents."
+msgstr "Birden fazla dokümanın sayfalarını döndür."
+
+msgid "Rotate settings"
+msgstr "Döndürme ayarları"
+
+msgid "All pages"
+msgstr "Tüm sayfalar"
+
+msgid "90 degrees clockwise"
+msgstr "90 derece saat yönüne"
+
+msgid "180 degrees clockwise"
+msgstr "180 derece saat yönüne"
+
+msgid "90 degrees counterclockwise"
+msgstr ""
+
+msgid "Rotate "
+msgstr "Döndür "
+
+# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:150
+msgid "Close"
+msgstr "Kapat"
+
+msgid "Prefix for the generated files names"
+msgstr "Oluşturulan dosya adı için önek"
+
+msgid "Add prefix"
+msgstr "Önek ekle"
+
+msgid "Generated PDF documents name prefix:"
+msgstr ""
+
+msgid "Prefix for the output files name."
+msgstr "Çıktı dosyası adı için önek"
+
+msgid "Some special keywords are replaced with runtime values."
+msgstr ""
+
+msgid "Right click to add these keywords."
+msgstr "Bu anahtar kelimeleri eklemek için sağ tıklayın"
+
+msgid "Reverse"
+msgstr ""
+
+msgid "Drag and drop PDF files here"
+msgstr "Pdf dosyalarını buraya sürükle bırak"
+
+msgid "Set destination"
+msgstr "Hedef seç"
+
+msgid "Set as range for all"
+msgstr ""
+
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:273
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:317
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:266
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:311
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:269
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:314
+msgid "Remove"
+msgstr "Kaldır"
+
+msgid "Move to Top"
+msgstr "En Üste Taşı"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:273
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:320
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:276
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:323
+msgid "Move Up"
+msgstr "Yukarı Taşı"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:282
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:329
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:285
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:332
+msgid "Move Down"
+msgstr "Aşağı Taşı"
+
+msgid "Move to Bottom"
+msgstr "En Alta Taşı"
+
+msgid "Duplicate"
+msgstr ""
+
+msgid "Document properties"
+msgstr "Belge özellikleri"
+
+msgid "Open"
+msgstr "Aç"
+
+msgid "Open Folder"
+msgstr "Klasörü Aç"
+
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr ""
+
+msgid "No PDF found"
+msgstr "PDF bulunamadı"
+
+msgid "Pace"
+msgstr ""
+
+msgid ""
+"Double click to set the number of pages after which the task will switch to "
+"the next file"
+msgstr ""
+
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:182
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:180
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:183
+msgid "Pages"
+msgstr "Sayfalar"
+
+msgid "Size"
+msgstr "Boyut"
+
+msgid "Modified"
+msgstr "Değiştirildi"
+
+msgid "Add documents to the table"
+msgstr "Tabloya belge ekleyin"
+
+msgid "_Add"
+msgstr "_Ekle"
+
+msgid "Select pdf documents to load"
+msgstr "Yükelemek için pdf dosyası seçin"
+
+msgid "Removes selected documents"
+msgstr "Seçili belgeleri siler"
+
+msgid "_Remove"
+msgstr "_Sil"
+
+msgid "Removes every document"
+msgstr "Tüm belgeleri siler"
+
+msgid "_Clear"
+msgstr "_Temizle"
+
+msgid "C_lear all settings"
+msgstr ""
+
+msgid "Moves up selected documents"
+msgstr "Seçili belgeleri yukarı taşır"
+
+msgid "Move _Up"
+msgstr "_Yukarı Taşı"
+
+msgid "Moves down selected documents"
+msgstr "Seçili belgeleri aşağıtaşır"
+
+msgid "Move _Down"
+msgstr "_Aşağı Taşı"
+
+msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid "Page ranges"
+msgstr "Sayfa aralığı"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JInfoPanel.java:118
+# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:128
+msgid "Name"
+msgstr "Ad"
+
+msgid "Enter the user password"
+msgstr "Kullanıcı parolası girin"
+
+msgid "Unlock"
+msgstr "Kilidi aç"
+
+msgid "The selected PDF document is invalid"
+msgstr "Seçili PDF belgesi geçersiz"
+
+#, java-format
+msgid "Pages: {0}, PDF Version: {1}"
+msgstr "Sayfa: {0}, PDF Sürümü: {1}"
+
+msgid "Loading..."
+msgstr "Açılıyor..."
+
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:542
+# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:462
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:526
+# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:320
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:410
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:530
+# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:408
+msgid "Run"
+msgstr "Çalıştır"
+
+msgid "Invalid parameters"
+msgstr "Geçersiz parametreler"
+
+msgid "Requested"
+msgstr "İstekte bulunuldu"
+
+msgid "Completed"
+msgstr "Tamamlandı"
+
+msgid "Failed"
+msgstr "Başarısız"
+
+msgid "Running"
+msgstr "Çalışıyor"
+
+#, java-format
+msgid "Running {0}%"
+msgstr "Çalışıyor {0}%"
+
+msgid "Show errors"
+msgstr "Hataları göster"
+
+msgid "The selected PDF file is invalid"
+msgstr "Seçili Pdf dosyası geçersiz"
+
+msgid "Compress output file/files"
+msgstr "Çıktı dosyalarını sıkıştır"
+
+msgid ""
+"Tick the box if you don't want to retain any bookmark from the original PDF "
+"document"
+msgstr ""
+
+msgid "Output PDF version:"
+msgstr "PDF çıktısı versiyonu"
+
+msgid "Show advanced settings"
+msgstr "Gelişmiş ayarları göster"
+
+msgid "Hide advanced settings"
+msgstr "Gelişmiş ayarları gizle"
+
+msgid "Select"
+msgstr "Seç"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:394
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:421
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:448
+# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:175
+# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:340
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:430
+# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:150
+# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:177
+# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:244
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:164
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:304
+# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:233
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:434
+# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:163
+# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:300
+msgid "Browse"
+msgstr "Gözat"
+
+#, java-format
+msgid "Version {0}"
+msgstr "Sürüm {0}"
+
+msgid "Same as the input document"
+msgstr "Giriş belgesinin aynısı"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:452
+# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:315
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:434
+# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:249
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:279
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:438
+msgid "Overwrite if already exists"
+msgstr "Eğer zaten varsa üzerine yaz"
+
+msgid ""
+"Tick the box if you want to overwrite the output files if they already exist."
+msgstr "çıktı dosyaları zaten varsa üzerine yazmak için işaretleyiniz."
+
+msgid "Select a directory"
+msgstr "Bir dizin seçin"
+
+msgid "Select an existing directory"
+msgstr "Mevcut bir dizin seçin"
+
+msgid "Select a file"
+msgstr "Bir dosya seçin"
+
+msgid "The selected file must exist. "
+msgstr "Seçilen dosya mevcut olmalı. "
+
+#, java-format
+msgid "Allowed extensions are {0}"
+msgstr "İzin verilen eklentiler: {0}"
+
+msgid "An existing output directory is required"
+msgstr ""
+
+msgid "The output directory is required"
+msgstr ""
+
+#, java-format
+msgid "PDF version required: {0}"
+msgstr ""
+
+msgid "Loading pdf documents"
+msgstr ""
+
+msgid "Documents loaded"
+msgstr "Belgeler yükleniyor"
+
+msgid "Checking for updates"
+msgstr "Güncellemeler kontrol ediliyor"
+
+#, java-format
+msgid "PDFsam {0} is available for download"
+msgstr "PDFsam {0} yüklemek için uygun"
+
+msgid "Unable to find the latest available version."
+msgstr "Son uygun sürüm bulunması olanaksız."
+
+msgid "Fetching premium modules"
+msgstr ""
+
+msgid "Unable to retrieve premium modules"
+msgstr ""
+
+msgid "Unable to retrieve premium features description"
+msgstr ""
+
+msgid "Requesting modules state"
+msgstr ""
+
+msgid "Unable to save modules workspace"
+msgstr ""
+
+#, java-format
+msgid "Unable to save workspace to {0}"
+msgstr ""
+
+#, java-format
+msgid "Loading workspace from {0}"
+msgstr ""
+
+msgid "Workspace loaded"
+msgstr ""
+
+#, java-format
+msgid "Unable to load workspace from {0}"
+msgstr ""
+
+#, java-format
+msgid "Saving workspace data to {0}"
+msgstr ""
+
+msgid "Workspace saved"
+msgstr ""
+
+msgid "Unable to retrieve latest news"
+msgstr ""
+
+msgid "Fetching latest news"
+msgstr ""
+
+msgid "Unable to retrieve the latest news"
+msgstr ""
+
+msgid "Invalid bookmarks level"
+msgstr ""
+
+msgid "Split by bookmarks"
+msgstr "İşaretlemelere göre ayır"
+
+msgid ""
+"Split a PDF document at bookmarked pages by specifying a bookmark level."
+msgstr ""
+
+msgid "Regular expression the bookmark has to match"
+msgstr ""
+
+msgid "Split at this bookmark level:"
+msgstr ""
+
+msgid "Matching regular expression:"
+msgstr "Eşleşen kurallı ifade"
+
+msgid "A regular expression the bookmark text has to match"
+msgstr "İşaretli metnin ile eşleşen kurallı ifade"
+
+msgid ""
+"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+
+msgid "Alternate Mix"
+msgstr "Alternatif Karıştırma"
+
+msgid ""
+"Merge two or more PDF documents taking pages alternately in natural or "
+"reverse order."
+msgstr ""
+
+msgid ""
+"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid "Select a positive integer number as pace"
+msgstr ""
 
 #, java-format
 msgid "Installing theme {0}."
@@ -102,55 +666,20 @@ msgstr "Hiç modül bulunamadı"
 msgid "Unable to find modules location."
 msgstr "Modül konumu bulunması başarısız."
 
-#, java-format
-msgid "Started in {0}"
-msgstr "{0} içinde başladı"
-
-msgid "Closing PDFsam..."
-msgstr "PDFsam kapatılıyor..."
-
-msgid "_Modules"
-msgstr "_Modüller"
-
-msgid "E_xit"
-msgstr "_Çıkış"
-
-msgid "Application messages"
-msgstr "Uygulama mesajları"
-
-msgid "_Workspace"
-msgstr "_Çalışma Alanı"
-
-msgid "_Load"
-msgstr "_Yükle"
-
-msgid "_Save"
-msgstr "_Kaydet"
-
-msgid "Recen_t"
-msgstr "Gün_cel"
-
-msgid "Select the workspace file to save"
-msgstr "Kaydetmek için çalışma alanı seçin"
-
-msgid "Select the workspace to load"
-msgstr "Yüklemek için çalışma alanı seçin"
-
-msgid "What's new"
-msgstr "Yeni ne var"
-
 msgid "Document details"
 msgstr "Belge detayları"
-
-msgid "Keywords"
-msgstr "Anahtar kelimeler"
 
 msgid "Summary"
 msgstr "Özet"
 
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\MainGUI.java:222
-msgid "About"
-msgstr "Hakkında"
+msgid "Keywords"
+msgstr "Anahtar kelimeler"
+
+msgid "Settings"
+msgstr "Ayarlar"
+
+msgid "Subscribe to the official news feed"
+msgstr "Resmi haber akışına abone ol"
 
 msgid "Environment"
 msgstr "Ortam"
@@ -165,34 +694,53 @@ msgstr "Panoya kopyala"
 msgid "Support"
 msgstr "Destek"
 
+msgid "Bug and feature requests"
+msgstr "Hata ve yeni özellik istekleri"
+
+msgid "Play the \"get started\" video"
+msgstr "\"başla\" videosunu çal"
+
 msgid "Contribute"
 msgstr "Katkıda Bulunun"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "PDFsam bir GitHub iştirakidir"
+
+msgid "Translate"
+msgstr "Çevir"
+
+msgid "Donate"
+msgstr "Bağış Yapın"
 
 msgid "Social"
 msgstr "Sosyal"
 
-msgid "Premium features"
-msgstr "Premium özellikler"
+msgid "Follow us on Twitter"
+msgstr "Bizi Twitter'da takip edin"
 
-msgid "Manually selected"
-msgstr "El ile seçildi"
+msgid "Follow us on Google Plus"
+msgstr "Bizi Google Plus'da takip edin"
 
-msgid ""
-"Automatically set the destination directory to the selected PDF document "
-"directory"
-msgstr "Otomatik olarak seçili PDF belge dizinini hedef dizin olarak ayarla"
+msgid "Like us on Facebook"
+msgstr "Bizi Facebook'da takip edin"
 
-msgid "Appearance"
-msgstr "Görünüm"
+msgid "Modules"
+msgstr "Modüller"
 
-msgid "Behavior"
-msgstr "Davranış"
+msgid "Generate high quality thumbnails (slower)"
+msgstr "Yüksek kaliteli küçük resimler oluştur (yavaştır)"
 
-msgid "Workspace"
-msgstr "Çalışma Alanı"
+msgid "Size in px:"
+msgstr "Piksel boyutu:"
 
-msgid "Output"
-msgstr "Çıktı"
+msgid "Library used to generate thumbnails"
+msgstr ""
+
+msgid "Thumbnails creator:"
+msgstr "Küçük resim oluşturucu:"
+
+msgid "Dashboard"
+msgstr "Panel"
 
 msgid "Check for updates at startup"
 msgstr "Başlangıçta güncellemeleri kontrol et"
@@ -258,27 +806,35 @@ msgstr ""
 msgid "Maximum number of rows mast be a positive number"
 msgstr ""
 
-msgid "Generate high quality thumbnails (slower)"
-msgstr "Yüksek kaliteli küçük resimler oluştur (yavaştır)"
-
-msgid "Size in px:"
-msgstr "Piksel boyutu:"
-
-msgid "Library used to generate thumbnails"
+msgid "Log register rows:"
 msgstr ""
 
-msgid "Thumbnails creator:"
-msgstr "Küçük resim oluşturucu:"
+msgid "Maximum number of rows displayed by the Log register"
+msgstr ""
 
-msgid "Clear usage statistics"
-msgstr "Kullanım istatistiklerini sil"
+msgid "Manually selected"
+msgstr "El ile seçildi"
+
+msgid ""
+"Automatically set the destination directory to the selected PDF document "
+"directory"
+msgstr "Otomatik olarak seçili PDF belge dizinini hedef dizin olarak ayarla"
+
+msgid "Appearance"
+msgstr "Görünüm"
+
+msgid "Behavior"
+msgstr "Davranış"
+
+msgid "Workspace"
+msgstr "Çalışma Alanı"
+
+msgid "Output"
+msgstr "Çıktı"
 
 msgid ""
 "Select a directory where documents will be saved and loaded by default"
 msgstr "Dosyaların kaydedileceği ve öntanımlı olarak yükleneceği dizini seç"
-
-msgid "Select a directory"
-msgstr "Bir dizin seçin"
 
 msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
@@ -294,11 +850,11 @@ msgstr "Öntanımlı çalışma dizini:"
 msgid "Load default workspace at startup:"
 msgstr "Başlangıçta yüklenecek öntanımlı çalışma alanı:"
 
-msgid "Log register rows:"
-msgstr ""
+msgid "Clear usage statistics"
+msgstr "Kullanım istatistiklerini sil"
 
-msgid "Maximum number of rows displayed by the Log register"
-msgstr ""
+msgid "Check for updates now"
+msgstr "Güncellemeleri denetle"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:125
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:116
@@ -319,18 +875,129 @@ msgid ""
 "the most used and most recently used modules."
 msgstr ""
 
-msgid "Check for updates now"
-msgstr "Güncellemeleri denetle"
+msgid "Premium features"
+msgstr "Premium özellikler"
 
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:150
-msgid "Close"
-msgstr "Kapat"
+# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\MainGUI.java:222
+msgid "About"
+msgstr "Hakkında"
 
-msgid "Settings"
-msgstr "Ayarlar"
+msgid ""
+"Input parameters are invalid, open the application messages for details."
+msgstr ""
+"Girilen parametreler geçersiz, detaylar için program mesajlarını açın."
 
-msgid "Modules"
-msgstr "Modüller"
+#, java-format
+msgid "You performed {0} tasks with PDFsam, did it help?"
+msgstr ""
+
+msgid "Give something back"
+msgstr ""
+
+msgid "PDFsam worked hard!"
+msgstr ""
+
+msgid "Spread the word!"
+msgstr ""
+
+msgid "Download"
+msgstr "İndir"
+
+msgid "New version available"
+msgstr "Yeni versiyon var"
+
+msgid "Open with"
+msgstr "Birlikte aç"
+
+msgid "Select the task to perform on the following files"
+msgstr "Seçtiğiniz dosyalar üzerinde gerçekleştirilecek görevi seçiniz"
+
+msgid "Yes"
+msgstr "Evet"
+
+msgid "No"
+msgstr "Hayır"
+
+msgid "Non existing directory"
+msgstr "Var olmayan dizin"
+
+msgid "The selected output directory does not exist"
+msgstr "Dosyaların çıkartılacağı klasor bulunmamaktadır"
+
+msgid "Do you want to create it?"
+msgstr "Oluşturmak istermisiniz?"
+
+msgid "Directory not empty"
+msgstr "Dizin boş değil"
+
+msgid "The selected directory is not empty"
+msgstr "Seçili dizin boş değil"
+
+msgid "Overwrite files with the same name as the generated ones?"
+msgstr "Zaten varsa üzerine yaz"
+
+msgid "Don't overwrite existing file"
+msgstr "Üzerine yazma"
+
+msgid "Overwrite confirmation"
+msgstr "Üzerine yazma onayı"
+
+msgid "A file with the given name already exists"
+msgstr "Aynı isimde bir dosya zaten bulunmaktatır"
+
+msgid "Do you want to overwrite it?"
+msgstr "Üzerine yazmak istermisiniz"
+
+msgid "Task failed"
+msgstr "Görev başarısız oldu"
+
+msgid "PDFsam can try to overcome the failure"
+msgstr "PDF sam bu hatanın üstesinden gelmeyi deneyebilir"
+
+msgid ""
+"It may result in PDF files with partial or missing data, proceed anyway?"
+msgstr ""
+"Bu işlem PDF dosyalarında veri kaybına yol açabilir, devam etmek istiyor "
+"musunuz?"
+
+msgid "Overwrite"
+msgstr "Üstüne yaz"
+
+msgid "Cancel"
+msgstr "Iptal"
+
+msgid "What's new"
+msgstr "Yeni ne var"
+
+msgid "_Modules"
+msgstr "_Modüller"
+
+msgid "E_xit"
+msgstr "_Çıkış"
+
+msgid "_Settings"
+msgstr "_Ayarlar"
+
+msgid "Application messages"
+msgstr "Uygulama mesajları"
+
+msgid "_Workspace"
+msgstr "_Çalışma Alanı"
+
+msgid "_Load"
+msgstr "_Yükle"
+
+msgid "_Save"
+msgstr "_Kaydet"
+
+msgid "Recen_t"
+msgstr "Gün_cel"
+
+msgid "Select the workspace file to save"
+msgstr "Kaydetmek için çalışma alanı seçin"
+
+msgid "Select the workspace to load"
+msgstr "Yüklemek için çalışma alanı seçin"
 
 msgid "Log register"
 msgstr "Kayıt kaydı"
@@ -356,191 +1023,24 @@ msgstr "Kayıtları kaydet"
 msgid "Select where to save the log file"
 msgstr "Kayıt dosyasının nereye kaydedileceğini seç"
 
-msgid "Invalid parameters"
-msgstr "Geçersiz parametreler"
-
-msgid ""
-"Input parameters are invalid, open the application messages for details."
-msgstr ""
-"Girilen parametreler geçersiz, detaylar için program mesajlarını açın."
-
 #, java-format
-msgid "You performed {0} tasks with PDFsam, did it help?"
+msgid "Started in {0}"
+msgstr "{0} içinde başladı"
+
+msgid "Closing PDFsam..."
+msgstr "PDFsam kapatılıyor..."
+
+msgid "Megabytes"
 msgstr ""
 
-msgid "Give something back"
+msgid "MB"
 msgstr ""
 
-msgid "PDFsam worked hard!"
+msgid "Kilobytes"
 msgstr ""
 
-msgid "Spread the word!"
+msgid "KB"
 msgstr ""
-
-#, java-format
-msgid "PDFsam {0} is available for download"
-msgstr "PDFsam {0} yüklemek için uygun"
-
-msgid "Download"
-msgstr "İndir"
-
-msgid "New version available"
-msgstr "Yeni versiyon var"
-
-msgid "Open"
-msgstr "Aç"
-
-msgid "Non existing directory"
-msgstr "Var olmayan dizin"
-
-msgid "Open with"
-msgstr "Birlikte aç"
-
-msgid "Select the task to perform on the following files"
-msgstr "Seçtiğiniz dosyalar üzerinde gerçekleştirilecek görevi seçiniz"
-
-msgid "Task failed"
-msgstr "Görev başarısız oldu"
-
-msgid "Directory not empty"
-msgstr "Dizin boş değil"
-
-msgid "The selected directory is not empty"
-msgstr "Seçili dizin boş değil"
-
-msgid "Overwrite files with the same name as the generated ones?"
-msgstr "Zaten varsa üzerine yaz"
-
-msgid "Don't overwrite existing file"
-msgstr "Üzerine yazma"
-
-msgid "Overwrite confirmation"
-msgstr "Üzerine yazma onayı"
-
-msgid "A file with the given name already exists"
-msgstr "Aynı isimde bir dosya zaten bulunmaktatır"
-
-msgid "Do you want to overwrite it?"
-msgstr "Üzerine yazmak istermisiniz"
-
-msgid "Unable to find the latest available version."
-msgstr "Son uygun sürüm bulunması olanaksız."
-
-msgid "Checking for updates"
-msgstr "Güncellemeler kontrol ediliyor"
-
-msgid "Unable to retrieve premium features description"
-msgstr ""
-
-msgid "Fetching premium modules"
-msgstr ""
-
-msgid "Unable to retrieve premium modules"
-msgstr ""
-
-msgid "Fetching latest news"
-msgstr ""
-
-msgid "Unable to retrieve the latest news"
-msgstr ""
-
-msgid "Unable to retrieve latest news"
-msgstr ""
-
-msgid "Loading pdf documents"
-msgstr ""
-
-msgid "Documents loaded"
-msgstr "Belgeler yükleniyor"
-
-msgid "Requesting modules state"
-msgstr ""
-
-msgid "Unable to save modules workspace"
-msgstr ""
-
-#, java-format
-msgid "Unable to save workspace to {0}"
-msgstr ""
-
-#, java-format
-msgid "Loading workspace from {0}"
-msgstr ""
-
-msgid "Workspace loaded"
-msgstr ""
-
-#, java-format
-msgid "Unable to load workspace from {0}"
-msgstr ""
-
-#, java-format
-msgid "Saving workspace data to {0}"
-msgstr ""
-
-msgid "Workspace saved"
-msgstr ""
-
-msgid "Split after"
-msgstr ""
-
-msgid "No page selected"
-msgstr ""
-
-msgid "Split after the following page numbers"
-msgstr ""
-
-msgid "Page numbers to split at (n1,n2,n3..)"
-msgstr ""
-
-msgid "Invalid page numbers"
-msgstr "Geçersiz sayfa numarası"
-
-msgid "Only valid positive page numbers are allowed"
-msgstr "Sadece pozitif sayfa numaraları geçerlidir"
-
-msgid "Split"
-msgstr "Böl"
-
-msgid "Split a PDF document at the given page numbers."
-msgstr "PDF dokümanını verilen sayfa numarasına göre böl"
-
-msgid "Select or drag and drop the PDF you want to split"
-msgstr "Ayırmak istediğin PDF dosyalarını sürükle bırak ya da seç"
-
-msgid "File names settings"
-msgstr "Dosya adı ayarları"
-
-msgid "Split settings"
-msgstr "Ayırma ayarları"
-
-msgid "Output settings"
-msgstr "Çıktı ayarları"
-
-msgid "Every page"
-msgstr "Her sayfa"
-
-msgid "Even pages"
-msgstr "Çift sayfalar"
-
-msgid "Odd pages"
-msgstr "Tek sayfalar"
-
-msgid "Split the document after the given page numbers"
-msgstr ""
-
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
-msgstr ""
-
-msgid "Split by every \"n\" pages"
-msgstr "Her \"n\" sayfada bir ayır"
-
-msgid "Number of pages"
-msgstr "Sayfa numaraları"
-
-msgid "Invalid number of pages"
-msgstr "Geçersiz sayfa numarası"
 
 msgid "Split by size"
 msgstr "Büyüklüğe göre ayır"
@@ -559,503 +1059,6 @@ msgstr ""
 
 msgid "Invalid split size"
 msgstr "Geçersiz ayırma boyutu"
-
-msgid "Megabytes"
-msgstr ""
-
-msgid "MB"
-msgstr ""
-
-msgid "Kilobytes"
-msgstr ""
-
-msgid "KB"
-msgstr ""
-
-msgid "Alternate Mix"
-msgstr "Alternatif Karıştırma"
-
-msgid ""
-"Merge two or more PDF documents taking pages alternately in natural or "
-"reverse order."
-msgstr ""
-
-msgid "Destination file"
-msgstr "Hedef dosya"
-
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-
-msgid "No PDF document has been selected"
-msgstr "Bir PDF dosyası seçmediniz"
-
-msgid "Select a positive integer number as pace"
-msgstr ""
-
-msgid "Completed"
-msgstr "Tamamlandı"
-
-msgid "Failed"
-msgstr "Başarısız"
-
-#, java-format
-msgid "Running {0}%"
-msgstr "Çalışıyor {0}%"
-
-msgid "Running"
-msgstr "Çalışıyor"
-
-msgid "Requested"
-msgstr "İstekte bulunuldu"
-
-msgid "Select a file"
-msgstr "Bir dosya seçin"
-
-msgid "Unlock"
-msgstr "Kilidi aç"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:273
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:317
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:266
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:311
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:269
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:314
-msgid "Remove"
-msgstr "Kaldır"
-
-msgid "Duplicate"
-msgstr ""
-
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:282
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:329
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:285
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:332
-msgid "Move Down"
-msgstr "Aşağı Taşı"
-
-msgid "Move to Bottom"
-msgstr "En Alta Taşı"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:273
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:320
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:276
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:323
-msgid "Move Up"
-msgstr "Yukarı Taşı"
-
-msgid "Move to Top"
-msgstr "En Üste Taşı"
-
-msgid "Set destination"
-msgstr "Hedef seç"
-
-msgid "Open Folder"
-msgstr "Klasörü Aç"
-
-msgid "Document properties"
-msgstr "Belge özellikleri"
-
-msgid "Loading..."
-msgstr "Açılıyor..."
-
-#, java-format
-msgid "Pages: {0}, PDF Version: {1}"
-msgstr "Sayfa: {0}, PDF Sürümü: {1}"
-
-msgid "Show errors"
-msgstr "Hataları göster"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:542
-# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:462
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:526
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:320
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:410
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:530
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:408
-msgid "Run"
-msgstr "Çalıştır"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:452
-# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:315
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:434
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:249
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:279
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:438
-msgid "Overwrite if already exists"
-msgstr "Eğer zaten varsa üzerine yaz"
-
-msgid ""
-"Tick the box if you want to overwrite the output files if they already exist."
-msgstr "çıktı dosyaları zaten varsa üzerine yazmak için işaretleyiniz."
-
-msgid "The selected file must exist. "
-msgstr "Seçilen dosya mevcut olmalı. "
-
-#, java-format
-msgid "Allowed extensions are {0}"
-msgstr "İzin verilen eklentiler: {0}"
-
-msgid "Select"
-msgstr "Seç"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:394
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:421
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:448
-# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:175
-# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:340
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:430
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:150
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:177
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:244
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:164
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:304
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:233
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:434
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:163
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:300
-msgid "Browse"
-msgstr "Gözat"
-
-msgid "The selected PDF file is invalid"
-msgstr "Seçili Pdf dosyası geçersiz"
-
-msgid "Compress output file/files"
-msgstr "Çıktı dosyalarını sıkıştır"
-
-msgid "Discard bookmarks"
-msgstr "Yer imlerini göz ardı et"
-
-msgid ""
-"Tick the box if you don't want to retain any bookmark from the original PDF "
-"document"
-msgstr ""
-
-msgid "Output PDF version:"
-msgstr "PDF çıktısı versiyonu"
-
-msgid "Show advanced settings"
-msgstr "Gelişmiş ayarları göster"
-
-msgid "Hide advanced settings"
-msgstr "Gelişmiş ayarları gizle"
-
-#, java-format
-msgid "Version {0}"
-msgstr "Sürüm {0}"
-
-msgid "Same as the input document"
-msgstr "Giriş belgesinin aynısı"
-
-#, java-format
-msgid "PDF version required: {0}"
-msgstr ""
-
-msgid "Select an existing directory"
-msgstr "Mevcut bir dizin seçin"
-
-msgid "An existing output directory is required"
-msgstr ""
-
-msgid "The output directory is required"
-msgstr ""
-
-msgid "Generated PDF documents name prefix:"
-msgstr ""
-
-msgid "Prefix for the output files name."
-msgstr "Çıktı dosyası adı için önek"
-
-msgid "Some special keywords are replaced with runtime values."
-msgstr ""
-
-msgid "Right click to add these keywords."
-msgstr "Bu anahtar kelimeleri eklemek için sağ tıklayın"
-
-msgid "Prefix for the generated files names"
-msgstr "Oluşturulan dosya adı için önek"
-
-msgid "Add prefix"
-msgstr "Önek ekle"
-
-msgid "Enter the user password"
-msgstr "Kullanıcı parolası girin"
-
-msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-
-msgid "Page ranges"
-msgstr "Sayfa aralığı"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:182
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:180
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:183
-msgid "Pages"
-msgstr "Sayfalar"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JInfoPanel.java:118
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:128
-msgid "Name"
-msgstr "Ad"
-
-msgid "Add documents to the table"
-msgstr "Tabloya belge ekleyin"
-
-msgid "_Add"
-msgstr "_Ekle"
-
-msgid "Select pdf documents to load"
-msgstr "Yükelemek için pdf dosyası seçin"
-
-msgid "Removes selected documents"
-msgstr "Seçili belgeleri siler"
-
-msgid "_Remove"
-msgstr "_Sil"
-
-msgid "Removes every document"
-msgstr "Tüm belgeleri siler"
-
-msgid "_Clear"
-msgstr "_Temizle"
-
-msgid "C_lear all settings"
-msgstr ""
-
-msgid "Moves up selected documents"
-msgstr "Seçili belgeleri yukarı taşır"
-
-msgid "Move _Up"
-msgstr "_Yukarı Taşı"
-
-msgid "Moves down selected documents"
-msgstr "Seçili belgeleri aşağıtaşır"
-
-msgid "Move _Down"
-msgstr "_Aşağı Taşı"
-
-msgid "Pace"
-msgstr ""
-
-msgid ""
-"Double click to set the number of pages after which the task will switch to "
-"the next file"
-msgstr ""
-
-msgid "Size"
-msgstr "Boyut"
-
-msgid "Modified"
-msgstr "Değiştirildi"
-
-msgid "Reverse"
-msgstr ""
-
-msgid "Drag and drop PDF files here"
-msgstr "Pdf dosyalarını buraya sürükle bırak"
-
-msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr ""
-
-msgid "No PDF found"
-msgstr "PDF bulunamadı"
-
-msgid "The selected PDF document is invalid"
-msgstr "Seçili PDF belgesi geçersiz"
-
-msgid "Add a blank page if page number is odd"
-msgstr "Sayfa sayısı tekse bir boş sayfa ekle"
-
-msgid ""
-"Adds a blank page after each merged document if the document has an odd "
-"number of pages"
-msgstr ""
-"Dosyalar birleştirildikten sonra sayfa sayısı tekse, boş bir sayfa ekler"
-
-msgid "Add a footer"
-msgstr "Altbilgi ekle"
-
-msgid "Adds a page footer with the name of the file the page belonged to."
-msgstr ""
-
-msgid "Normalize pages size"
-msgstr ""
-
-msgid "Resizes all pages to have the same width as the first page."
-msgstr "Tüm sayfaları birinci sayfa ile aynı genişliğe getir."
-
-msgid "Merge fields"
-msgstr ""
-
-msgid "Merge renaming existing fields"
-msgstr ""
-
-msgid "Discard forms"
-msgstr "Formları gözardı et"
-
-msgid "Interactive forms (AcroForms):"
-msgstr ""
-
-msgid "What to do in case one or more input documents contain Acro Forms"
-msgstr ""
-
-msgid "Retain bookmarks"
-msgstr ""
-
-msgid "Create one entry for each merged document"
-msgstr ""
-
-msgid "Retain bookmarks as one entry for each merged document"
-msgstr ""
-
-msgid "Bookmarks handling:"
-msgstr ""
-
-msgid "What to do in case one or more input documents contain bookmarks"
-msgstr ""
-
-msgid "Don't generate"
-msgstr "Oluşturma"
-
-msgid "Generate from file names"
-msgstr "Dosya adından oluştur"
-
-msgid "Generate from documents titles"
-msgstr "Dokümanların başlıklarından oluştur"
-
-msgid "Table of contents:"
-msgstr "İçindekiler:"
-
-msgid ""
-"Set if a table of contents should be added to the generated PDF document"
-msgstr "İçindekiler bölümü PDF dokümanına eklenecekse işaretleyin"
-
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-
-msgid "Merge"
-msgstr "Birleştir"
-
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr ""
-
-msgid "Merge settings"
-msgstr "Birleştirme ayarları"
-
-msgid "Security"
-msgstr "Güvenlik"
-
-msgid "Other"
-msgstr "Diğer"
-
-msgid "Error saving log file."
-msgstr "Kayıt dosyası kaydedilirken hata."
-
-#, java-format
-msgid "File {0} saved."
-msgstr "Dosya {0} kaydedildi."
-
-msgid "Directories"
-msgstr "Dizinler"
-
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "Geçersiz aralık: {0}."
-
-#, java-format
-msgid ""
-"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
-"or [-n] or [n-]"
-msgstr ""
-
-#, java-format
-msgid "Invalid number: {0}."
-msgstr "Geçersiz numara: {0}."
-
-msgid "Valid user password provided."
-msgstr "Geçerli kullanıcı parolası temin edildi."
-
-msgid "This document is encrypted, click to provide a password."
-msgstr "Bu dosya şifreli, şifre girmek için tıklayın"
-
-msgid "An error has occurred, click for more details."
-msgstr "Bir hata oluştu, ayrıtlar için tıklayınız"
-
-msgid "Roundish"
-msgstr "Yuvarlaksı"
-
-msgid "Invalid bookmarks level"
-msgstr ""
-
-msgid "Split by bookmarks"
-msgstr "İşaretlemelere göre ayır"
-
-msgid ""
-"Split a PDF document at bookmarked pages by specifying a bookmark level."
-msgstr ""
-
-msgid "Regular expression the bookmark has to match"
-msgstr ""
-
-msgid "Split at this bookmark level:"
-msgstr ""
-
-msgid "Matching regular expression:"
-msgstr "Eşleşen kurallı ifade"
-
-msgid "A regular expression the bookmark text has to match"
-msgstr "İşaretli metnin ile eşleşen kurallı ifade"
-
-msgid ""
-"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
-msgstr ""
-
-msgid "Extract"
-msgstr "Dışa aktar"
-
-msgid "Extract pages from PDF documents."
-msgstr "PDF dokümanından sayfaları dışa aktar"
-
-msgid "Extract settings"
-msgstr "Ayarları dışa aktar"
-
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-
-msgid "Invalid page ranges"
-msgstr ""
-
-msgid "Extract pages:"
-msgstr "Sayfaları çıkar"
-
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-
-msgid "All pages"
-msgstr "Tüm sayfalar"
-
-msgid "90 degrees clockwise"
-msgstr "90 derece saat yönüne"
-
-msgid "180 degrees clockwise"
-msgstr "180 derece saat yönüne"
-
-msgid "90 degrees counterclockwise"
-msgstr ""
-
-msgid "Rotate "
-msgstr "Döndür "
-
-msgid "Rotate"
-msgstr "Döndür"
-
-msgid "Rotate the pages of multiple PDF documents."
-msgstr "Birden fazla dokümanın sayfalarını döndür."
-
-msgid "Rotate settings"
-msgstr "Döndürme ayarları"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:122
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:113
