@@ -117,6 +117,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         this.ownerModule = defaultString(ownerModule);
         setEditable(true);
         getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        getColumns().add(new IndexColumn());
         Arrays.stream(columns).forEach(c -> getColumns().add(c.getTableColumn()));
         setColumnResizePolicy(CONSTRAINED_RESIZE_POLICY);
         getStyleClass().add("selection-table");

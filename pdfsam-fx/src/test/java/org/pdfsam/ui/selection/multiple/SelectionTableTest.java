@@ -25,6 +25,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.loadui.testfx.Assertions.verifyThat;
+import static org.loadui.testfx.controls.Commons.hasText;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.timeout;
@@ -46,6 +47,7 @@ import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
+import org.loadui.testfx.exceptions.NoNodesFoundException;
 import org.loadui.testfx.utils.FXTestUtils;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.context.BooleanUserPreference;
@@ -254,6 +256,21 @@ public class SelectionTableTest extends GuiTest {
         data.put("victiminput.size", "0");
         FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
         assertTrue(victim.getItems().isEmpty());
+    }
+
+    @Test
+    public void indexColumn() throws Exception {
+        populate();
+        assertTrue(exists("1"));
+        assertTrue(exists("2"));
+        assertTrue(exists("3"));
+        assertTrue(exists("4"));
+    }
+
+    @Test(expected = NoNodesFoundException.class)
+    public void indexColumnNotExisting() throws Exception {
+        populate();
+        find(hasText("5"));
     }
 
     @Test
