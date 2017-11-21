@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-10-12 12:35+0200\n"
-"PO-Revision-Date: 2017-09-09 03:47+0000\n"
-"Last-Translator: vulpecula <Unknown>\n"
+"PO-Revision-Date: 2017-11-03 22:02+0000\n"
+"Last-Translator: Emilio Hernández Sandoval <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-10-23 10:28+0000\n"
-"X-Generator: Launchpad (build 18484)\n"
+"X-Launchpad-Export-Date: 2017-11-21 15:32+0000\n"
+"X-Generator: Launchpad (build 18505)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Páginas a extraer (ej: 2 o 5-23 o 2,5-7,12-)"
@@ -36,7 +36,7 @@ msgid "File names settings"
 msgstr "Configurar nombres de archivo"
 
 msgid "Extract settings"
-msgstr "Ajustes de estracción"
+msgstr "Ajustes de extracción"
 
 msgid "Output settings"
 msgstr "Ajustes de salida"
@@ -84,6 +84,8 @@ msgstr ""
 
 msgid "Resizes all pages to have the same width as the first page."
 msgstr ""
+"Redimensiona todas las páginas para que tengan el mismo ancho que la primera "
+"página."
 
 msgid "Merge fields"
 msgstr "Combinar campos"
@@ -344,9 +346,11 @@ msgstr "Abrir la carpeta"
 
 msgid "Drag and drop PDF files or directories containing PDF files"
 msgstr ""
+"Arrastre y suelte los archivos PDF o los directorios que contienen archivos "
+"PDF"
 
 msgid "No PDF found"
-msgstr ""
+msgstr "No se encontró ningún PDF"
 
 msgid "Pace"
 msgstr ""
@@ -408,6 +412,8 @@ msgstr "_Bajar"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Doble click para fijar las páginas seleccionadas (ejemplo: 2 o 5-23 o 2,5-"
+"7,12-)"
 
 msgid "Page ranges"
 msgstr "Intervalos de páginas"
@@ -481,10 +487,10 @@ msgid "Output PDF version:"
 msgstr "Version PDF de salida:"
 
 msgid "Show advanced settings"
-msgstr ""
+msgstr "Mostrar configuración avanzada"
 
 msgid "Hide advanced settings"
-msgstr ""
+msgstr "Ocultar configuraciones avanzadas"
 
 msgid "Select"
 msgstr "Seleccionar"
@@ -640,7 +646,7 @@ msgid ""
 msgstr ""
 
 msgid "Select a positive integer number as pace"
-msgstr ""
+msgstr "Seleccione un número entero positivo como paso"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -886,7 +892,7 @@ msgstr ""
 "la izquierda con los módulos más usados y usados recientemente."
 
 msgid "Premium features"
-msgstr ""
+msgstr "Características premium"
 
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\MainGUI.java:222
 msgid "About"
@@ -964,11 +970,13 @@ msgid "Task failed"
 msgstr "Tarea fracasada"
 
 msgid "PDFsam can try to overcome the failure"
-msgstr ""
+msgstr "PDFsam puede intentar reparar la falla"
 
 msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
 msgstr ""
+"Esto podría resultar en archivos PDF con datos parciales o perdidos. "
+"¿Proceder de cualquier modo?"
 
 msgid "Overwrite"
 msgstr "Sobrescribir"
