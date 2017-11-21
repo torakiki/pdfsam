@@ -77,7 +77,7 @@ public class OpenButtonTest extends GuiTest {
     }
 
     @Test
-    public void openClick() throws Exception {
+    public void openFileClick() throws Exception {
         File file = temp.newFile();
         FileTaskOutput output = new FileTaskOutput(file);
         TestListener listener = new TestListener(file);
@@ -86,6 +86,36 @@ public class OpenButtonTest extends GuiTest {
         FXTestUtils.invokeAndWait(() -> victim.dispatch(output), 1);
         click(victim);
         assertTrue(listener.isHit());
+        assertTrue(listener.equal);
+    }
+
+    @Test
+    public void openDirectoryClick() throws Exception {
+        File dir = temp.newFolder();
+        DirectoryTaskOutput output = new DirectoryTaskOutput(dir);
+        TestListener listener = new TestListener(dir);
+        OpenButton victim = find(".footer-open-button");
+        eventStudio().add(listener);
+        FXTestUtils.invokeAndWait(() -> victim.dispatch(output), 1);
+        click(victim);
+        assertTrue(listener.isHit());
+        assertTrue(listener.equal);
+    }
+
+    @Test
+    public void openSingleFileDirectoryDestinationClick() throws Exception {
+        File file = temp.newFile();
+        DirectoryTaskOutput output = new DirectoryTaskOutput(file.getParentFile());
+        TestListener listener = new TestListener(file);
+        OpenButton victim = find(".footer-open-button");
+        eventStudio().add(listener);
+        NotifiableTaskMetadata taskMetadata = new NotifiableTaskMetadata(mock(Task.class));
+        taskMetadata.addTaskOutput(file);
+        eventStudio().broadcast(new TaskExecutionCompletedEvent(12, taskMetadata), "moduleId");
+        FXTestUtils.invokeAndWait(() -> victim.dispatch(output), 1);
+        click(victim);
+        assertTrue(listener.isHit());
+        assertTrue(listener.equal);
     }
 
     @Test
@@ -140,6 +170,7 @@ public class OpenButtonTest extends GuiTest {
 
     private static class TestListener extends HitTestListener<OpenFileRequest> {
         private File destination;
+        boolean equal = false;
 
         private TestListener(File destination) {
             this.destination = destination;
@@ -148,7 +179,7 @@ public class OpenButtonTest extends GuiTest {
         @Override
         public void onEvent(OpenFileRequest event) {
             super.onEvent(event);
-            assertEquals(destination, event.getFile());
+            equal = destination.equals(event.getFile());
         }
     }
 

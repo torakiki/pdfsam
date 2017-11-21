@@ -83,9 +83,10 @@ public class OpenButton extends SplitMenuButton implements TaskOutputDispatcher 
         setPrefHeight(Double.MAX_VALUE);
         setVisible(false);
         setOnAction(e -> {
-            if (destination != null && destination.exists()) {
-                eventStudio().broadcast(new OpenFileRequest(destination));
+            if (latestOutput.size() != 1 || !openFile(latestOutput.get(0))) {
+                openFile(destination);
             }
+
         });
         eventStudio().add(TaskExecutionRequestEvent.class, e -> {
             if (e.getModuleId().equals(ownerModule)) {
@@ -100,6 +101,14 @@ public class OpenButton extends SplitMenuButton implements TaskOutputDispatcher 
             }
         }, -10, ReferenceStrength.STRONG);
         eventStudio().addAnnotatedListeners(this);
+    }
+
+    private boolean openFile(File file) {
+        if (file != null && file.exists()) {
+            eventStudio().broadcast(new OpenFileRequest(file));
+            return true;
+        }
+        return false;
     }
 
     public void initModules(Collection<Module> modules) {
