@@ -1,5 +1,5 @@
 @REM This file is part of the PDF Split And Merge Basic source code
-@REM Copyright 2015 by Andrea Vacondio (andrea.vacondio@gmail.com).
+@REM Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
 @REM
 @REM This program is free software: you can redistribute it and/or modify
 @REM it under the terms of the GNU Affero General Public License as
