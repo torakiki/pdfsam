@@ -19,6 +19,7 @@
 package org.pdfsam.ui.dashboard.about;
 
 import static org.pdfsam.ConfigurableProperty.COPYRIGHT;
+import static org.pdfsam.ConfigurableProperty.DOCUMENTATION_URL;
 import static org.pdfsam.ConfigurableProperty.DONATE_URL;
 import static org.pdfsam.ConfigurableProperty.FACEBOOK_URL;
 import static org.pdfsam.ConfigurableProperty.FEED_URL;
@@ -27,7 +28,6 @@ import static org.pdfsam.ConfigurableProperty.HOME_LABEL;
 import static org.pdfsam.ConfigurableProperty.HOME_URL;
 import static org.pdfsam.ConfigurableProperty.LICENSE_NAME;
 import static org.pdfsam.ConfigurableProperty.LICENSE_URL;
-import static org.pdfsam.ConfigurableProperty.QUICKSTART_URL;
 import static org.pdfsam.ConfigurableProperty.SCM_URL;
 import static org.pdfsam.ConfigurableProperty.SUPPORT_URL;
 import static org.pdfsam.ConfigurableProperty.TRACKER_URL;
@@ -100,8 +100,8 @@ public class AboutDashboardPane extends HBox {
                 DefaultI18nContext.getInstance().i18n("Bug and feature requests"), right);
         addHyperlink(FontAwesomeIcon.QUESTION_CIRCLE, pdfsam.property(SUPPORT_URL),
                 DefaultI18nContext.getInstance().i18n("Support"), right);
-        addHyperlink(FontAwesomeIcon.YOUTUBE_PLAY, pdfsam.property(QUICKSTART_URL),
-                DefaultI18nContext.getInstance().i18n("Play the \"get started\" video"), right);
+        addHyperlink(FontAwesomeIcon.BOOK, pdfsam.property(DOCUMENTATION_URL),
+                DefaultI18nContext.getInstance().i18n("Documentation"), right);
 
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Contribute"), right);
         addHyperlink(FontAwesomeIcon.GITHUB, pdfsam.property(SCM_URL),

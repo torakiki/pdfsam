@@ -69,22 +69,23 @@ public class AboutDashboardPaneTest extends GuiTest {
         Pdfsam pdfsam = mock(Pdfsam.class);
         when(pdfsam.name()).thenReturn("PDFsam");
         when(pdfsam.property(ConfigurableProperty.VERSION)).thenReturn("3.0.0");
-        when(pdfsam.property(ConfigurableProperty.HOME_URL)).thenReturn("http://www.pdfsam.org");
+        when(pdfsam.property(ConfigurableProperty.HOME_URL)).thenReturn("https://www.pdfsam.org");
         when(pdfsam.property(ConfigurableProperty.HOME_LABEL)).thenReturn("home");
-        when(pdfsam.property(ConfigurableProperty.FEED_URL)).thenReturn("http://www.pdfsam.org/feed/");
-        when(pdfsam.property(ConfigurableProperty.QUICKSTART_URL)).thenReturn("http://www.pdfsam.org/quickstart_video");
-        when(pdfsam.property(ConfigurableProperty.SUPPORT_URL)).thenReturn("http://www.pdfsam.org/support");
-        when(pdfsam.property(ConfigurableProperty.SCM_URL)).thenReturn("http://www.pdfsam.org/scm");
-        when(pdfsam.property(ConfigurableProperty.TRANSLATE_URL)).thenReturn("http://www.pdfsam.org/translate");
-        when(pdfsam.property(ConfigurableProperty.TWITTER_URL)).thenReturn("http://www.pdfsam.org/twitter");
-        when(pdfsam.property(ConfigurableProperty.DONATE_URL)).thenReturn("http://www.pdfsam.org/donate");
-        when(pdfsam.property(ConfigurableProperty.GPLUS_URL)).thenReturn("http://www.pdfsam.org/gplus");
-        when(pdfsam.property(ConfigurableProperty.FACEBOOK_URL)).thenReturn("http://www.pdfsam.org/facebook");
+        when(pdfsam.property(ConfigurableProperty.FEED_URL)).thenReturn("https://www.pdfsam.org/feed/");
+        when(pdfsam.property(ConfigurableProperty.DOCUMENTATION_URL))
+                .thenReturn("https://www.pdfsam.org/documentation");
+        when(pdfsam.property(ConfigurableProperty.SUPPORT_URL)).thenReturn("https://www.pdfsam.org/support");
+        when(pdfsam.property(ConfigurableProperty.SCM_URL)).thenReturn("https://www.pdfsam.org/scm");
+        when(pdfsam.property(ConfigurableProperty.TRANSLATE_URL)).thenReturn("https://www.pdfsam.org/translate");
+        when(pdfsam.property(ConfigurableProperty.TWITTER_URL)).thenReturn("https://www.pdfsam.org/twitter");
+        when(pdfsam.property(ConfigurableProperty.DONATE_URL)).thenReturn("https://www.pdfsam.org/donate");
+        when(pdfsam.property(ConfigurableProperty.GPLUS_URL)).thenReturn("https://www.pdfsam.org/gplus");
+        when(pdfsam.property(ConfigurableProperty.FACEBOOK_URL)).thenReturn("https://www.pdfsam.org/facebook");
         when(pdfsam.property(ConfigurableProperty.LICENSE_NAME)).thenReturn("agpl3");
         when(pdfsam.property(ConfigurableProperty.LICENSE_URL)).thenReturn("http://www.gnu.org/licenses/agpl-3.0.html");
-        when(pdfsam.property(ConfigurableProperty.TRACKER_URL)).thenReturn("http://www.pdfsam.org/issue_tracker");
-        when(pdfsam.property(ConfigurableProperty.THANKS_URL)).thenReturn("http://www.pdfsam.org/issue_tracker");
-        when(pdfsam.property(ConfigurableProperty.GPLUS_URL)).thenReturn("http://www.pdfsam.org/gplus");
+        when(pdfsam.property(ConfigurableProperty.TRACKER_URL)).thenReturn("https://www.pdfsam.org/issue_tracker");
+        when(pdfsam.property(ConfigurableProperty.THANKS_URL)).thenReturn("https://www.pdfsam.org/thanks_to");
+        when(pdfsam.property(ConfigurableProperty.GPLUS_URL)).thenReturn("https://www.pdfsam.org/gplus");
         return new AboutDashboardPane(pdfsam);
     }
 
@@ -92,21 +93,21 @@ public class AboutDashboardPaneTest extends GuiTest {
     public void clickHome() {
         click("home");
         verify(listener).onEvent(captor.capture());
-        assertEquals("http://www.pdfsam.org", captor.getValue().getUrl());
+        assertEquals("https://www.pdfsam.org", captor.getValue().getUrl());
     }
 
     @Test
     public void clickFeed() {
         click(DefaultI18nContext.getInstance().i18n("Subscribe to the official news feed"));
         verify(listener).onEvent(captor.capture());
-        assertEquals("http://www.pdfsam.org/feed/", captor.getValue().getUrl());
+        assertEquals("https://www.pdfsam.org/feed/", captor.getValue().getUrl());
     }
 
     @Test
     public void clickBugs() {
         click(DefaultI18nContext.getInstance().i18n("Bug and feature requests"));
         verify(listener).onEvent(captor.capture());
-        assertEquals("http://www.pdfsam.org/issue_tracker", captor.getValue().getUrl());
+        assertEquals("https://www.pdfsam.org/issue_tracker", captor.getValue().getUrl());
     }
 
     @Test
@@ -117,52 +118,52 @@ public class AboutDashboardPaneTest extends GuiTest {
     }
 
     @Test
-    public void clickQuickstart() {
-        click(DefaultI18nContext.getInstance().i18n("Play the \"get started\" video"));
+    public void clickDocumentation() {
+        click(DefaultI18nContext.getInstance().i18n("Documentation"));
         verify(listener, atLeastOnce()).onEvent(captor.capture());
-        assertEquals("http://www.pdfsam.org/quickstart_video", captor.getValue().getUrl());
+        assertEquals("https://www.pdfsam.org/documentation", captor.getValue().getUrl());
     }
 
     @Test
     public void clickScm() {
         click(DefaultI18nContext.getInstance().i18n("Fork PDFsam on GitHub"));
         verify(listener, atLeastOnce()).onEvent(captor.capture());
-        assertEquals("http://www.pdfsam.org/scm", captor.getValue().getUrl());
+        assertEquals("https://www.pdfsam.org/scm", captor.getValue().getUrl());
     }
 
     @Test
     public void clickTranslate() {
         click(DefaultI18nContext.getInstance().i18n("Translate"));
         verify(listener, atLeastOnce()).onEvent(captor.capture());
-        assertEquals("http://www.pdfsam.org/translate", captor.getValue().getUrl());
+        assertEquals("https://www.pdfsam.org/translate", captor.getValue().getUrl());
     }
 
     @Test
     public void clickDonate() {
         click(DefaultI18nContext.getInstance().i18n("Donate"));
         verify(listener, atLeastOnce()).onEvent(captor.capture());
-        assertEquals("http://www.pdfsam.org/donate", captor.getValue().getUrl());
+        assertEquals("https://www.pdfsam.org/donate", captor.getValue().getUrl());
     }
 
     @Test
     public void clickTwitter() {
         click(DefaultI18nContext.getInstance().i18n("Follow us on Twitter"));
         verify(listener, atLeastOnce()).onEvent(captor.capture());
-        assertEquals("http://www.pdfsam.org/twitter", captor.getValue().getUrl());
+        assertEquals("https://www.pdfsam.org/twitter", captor.getValue().getUrl());
     }
 
     @Test
     public void clickGPlus() {
         click(DefaultI18nContext.getInstance().i18n("Follow us on Google Plus"));
         verify(listener, atLeastOnce()).onEvent(captor.capture());
-        assertEquals("http://www.pdfsam.org/gplus", captor.getValue().getUrl());
+        assertEquals("https://www.pdfsam.org/gplus", captor.getValue().getUrl());
     }
 
     @Test
     public void clickFacebook() {
         click(DefaultI18nContext.getInstance().i18n("Like us on Facebook"));
         verify(listener, atLeastOnce()).onEvent(captor.capture());
-        assertEquals("http://www.pdfsam.org/facebook", captor.getValue().getUrl());
+        assertEquals("https://www.pdfsam.org/facebook", captor.getValue().getUrl());
     }
 
     @Test

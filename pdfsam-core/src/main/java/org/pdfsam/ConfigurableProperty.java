@@ -34,7 +34,7 @@ public enum ConfigurableProperty {
     THANKS_URL("pdfsam.thanks.url"),
     TRACKER_URL("pdfsam.tracker.url"),
     SUPPORT_URL("pdfsam.support.url"),
-    QUICKSTART_URL("pdfsam.quickstart.url"),
+    DOCUMENTATION_URL("pdfsam.documentation.url"),
     TWITTER_URL("pdfsam.twitter.url"),
     FACEBOOK_URL("pdfsam.facebook.url"),
     GPLUS_URL("pdfsam.gplus.url"),

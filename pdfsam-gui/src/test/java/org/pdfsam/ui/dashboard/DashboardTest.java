@@ -71,8 +71,8 @@ public class DashboardTest {
             when(pdfsam.property(ConfigurableProperty.HOME_URL)).thenReturn("http://www.pdfsam.org");
             when(pdfsam.property(ConfigurableProperty.HOME_LABEL)).thenReturn("home");
             when(pdfsam.property(ConfigurableProperty.FEED_URL)).thenReturn("http://www.pdfsam.org/feed/");
-            when(pdfsam.property(ConfigurableProperty.QUICKSTART_URL))
-                    .thenReturn("http://www.pdfsam.org/quickstart_video");
+            when(pdfsam.property(ConfigurableProperty.DOCUMENTATION_URL))
+                    .thenReturn("http://www.pdfsam.org/documentation");
             when(pdfsam.property(ConfigurableProperty.SUPPORT_URL)).thenReturn("http://www.pdfsam.org/support");
             when(pdfsam.property(ConfigurableProperty.SCM_URL)).thenReturn("http://www.pdfsam.org/scm");
             when(pdfsam.property(ConfigurableProperty.TRANSLATE_URL)).thenReturn("http://www.pdfsam.org/translate");
