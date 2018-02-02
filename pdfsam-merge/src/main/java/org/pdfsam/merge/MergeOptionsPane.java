@@ -83,6 +83,7 @@ class MergeOptionsPane extends VBox
         acroForms.getItems().add(keyValue(AcroFormPolicy.MERGE, i18n.i18n("Merge fields")));
         acroForms.getItems().add(
                 keyValue(AcroFormPolicy.MERGE_RENAMING_EXISTING_FIELDS, i18n.i18n("Merge renaming existing fields")));
+        acroForms.getItems().add(keyValue(AcroFormPolicy.FLATTEN, i18n.i18n("Flatten")));
         acroForms.getItems().add(keyValue(AcroFormPolicy.DISCARD, i18n.i18n("Discard forms")));
         acroForms.setId("acroFormsCombo");
         options.add(new Label(i18n.i18n("Interactive forms (AcroForms):")), 0, 0);

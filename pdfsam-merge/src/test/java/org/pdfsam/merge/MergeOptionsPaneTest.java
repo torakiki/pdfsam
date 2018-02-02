@@ -130,7 +130,7 @@ public class MergeOptionsPaneTest extends GuiTest {
     public void reset() throws Exception {
         ComboBox<KeyStringValueItem<OutlinePolicy>> outline = find("#outlineCombo");
         ComboBox<KeyStringValueItem<AcroFormPolicy>> forms = find("#acroFormsCombo");
-        ComboBox<KeyStringValueItem<AcroFormPolicy>> toc = find("#tocCombo");
+        ComboBox<KeyStringValueItem<ToCPolicy>> toc = find("#tocCombo");
         CheckBox blankIfOdd = find("#blankIfOddCheck");
         CheckBox footer = find("#footerCheck");
         CheckBox normalize = find("#normalizeCheck");
