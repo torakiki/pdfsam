@@ -21,6 +21,7 @@ package org.pdfsam.ui.banner;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.news.HideNewsPanelRequest;
 import org.pdfsam.news.ShowNewsPanelRequest;
 import org.pdfsam.ui.commons.Animations;
 import org.sejda.eventstudio.annotation.EventListener;
@@ -38,15 +39,25 @@ class NewsButton extends BannerButton {
 
     static final String UP_TO_DATE_CSS_CLASS = "news-not-up-to-date";
     private Timeline anim;
+    private Object action = ShowNewsPanelRequest.INSTANCE;
 
     NewsButton() {
         super(MaterialDesignIcon.NEWSPAPER);
-        setOnAction(e -> eventStudio().broadcast(ShowNewsPanelRequest.INSTANCE));
+        setOnAction(e -> {
+            eventStudio().broadcast(action);
+            action = switchAction();
+        });
         setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("What's new")));
         anim = Animations.shake(this);
         eventStudio().addAnnotatedListeners(this);
     }
 
+    private Object switchAction() {
+        if (action instanceof ShowNewsPanelRequest) {
+            return HideNewsPanelRequest.INSTANCE;
+        }
+        return ShowNewsPanelRequest.INSTANCE;
+    }
     /**
      * Sets the button in upToDate state or else, based on the input value
      * 
