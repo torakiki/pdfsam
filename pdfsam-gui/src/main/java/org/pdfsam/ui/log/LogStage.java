@@ -27,7 +27,7 @@ import javax.inject.Inject;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.commons.ClosePane;
-import org.pdfsam.ui.commons.HideOnEscapeHandler;
+import org.pdfsam.ui.commons.HideStageRequest;
 import org.pdfsam.ui.commons.ShowStageRequest;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
@@ -36,6 +36,8 @@ import org.sejda.injector.Auto;
 
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -56,10 +58,14 @@ public class LogStage extends Stage {
         BorderPane containerPane = new BorderPane();
         containerPane.getStyleClass().addAll(Style.CONTAINER.css());
         containerPane.setCenter(logPane);
-        containerPane.setBottom(new ClosePane());
+        containerPane.setBottom(new ClosePane((a) -> eventStudio().broadcast(HideStageRequest.INSTANCE, "LogStage")));
         Scene scene = new Scene(containerPane);
         scene.getStylesheets().addAll(styles.styles());
-        scene.setOnKeyReleased(new HideOnEscapeHandler(this));
+        scene.setOnKeyReleased(k -> {
+            if (this.isShowing() && new KeyCodeCombination(KeyCode.ESCAPE).match(k)) {
+                eventStudio().broadcast(HideStageRequest.INSTANCE, "LogStage");
+            }
+        });
         setScene(scene);
         setTitle(DefaultI18nContext.getInstance().i18n("Log register"));
         getIcons().addAll(logos);
@@ -76,5 +82,12 @@ public class LogStage extends Stage {
             show();
         }
         requestFocus();
+    }
+
+    @EventListener
+    void requestHide(HideStageRequest event) {
+        if (isShowing()) {
+            hide();
+        }
     }
 }

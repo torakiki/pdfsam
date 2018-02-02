@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 06/dic/2013
- * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
+ * Created on 02 feb 2018
+ * Copyright 2017 by Sober Lemur S.a.s di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -19,15 +19,15 @@
 package org.pdfsam.ui.commons;
 
 /**
- * Event to request a component to be shown
+ * request to hide a stage
  * 
  * @author Andrea Vacondio
- * 
+ *
  */
-public class ShowStageRequest {
-    public static final ShowStageRequest INSTANCE = new ShowStageRequest();
+public class HideStageRequest {
+    public static final HideStageRequest INSTANCE = new HideStageRequest();
 
-    private ShowStageRequest() {
+    private HideStageRequest() {
         // hide
     }
 }

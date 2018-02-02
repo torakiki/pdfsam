@@ -20,17 +20,15 @@ package org.pdfsam.ui.banner;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
+import org.pdfsam.test.HitTestListener;
+import org.pdfsam.ui.commons.HideStageRequest;
 import org.pdfsam.ui.commons.ShowStageRequest;
-import org.sejda.eventstudio.Listener;
 
 import javafx.scene.Parent;
 
@@ -47,10 +45,15 @@ public class LogButtonTest extends GuiTest {
 
     @Test
     public void onClick() {
-        Listener<ShowStageRequest> listener = mock(Listener.class);
+        HitTestListener<ShowStageRequest> listener = new HitTestListener<>();
+        HitTestListener<HideStageRequest> hideListener = new HitTestListener<>();
         eventStudio().add(ShowStageRequest.class, listener, "LogStage");
+        eventStudio().add(HideStageRequest.class, hideListener, "LogStage");
         click(".button");
-        verify(listener).onEvent(any());
+        assertTrue(listener.isHit());
+        assertFalse(hideListener.isHit());
+        click(".button");
+        assertTrue(hideListener.isHit());
     }
 
     @Test

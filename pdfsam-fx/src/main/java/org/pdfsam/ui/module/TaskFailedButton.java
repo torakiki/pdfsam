@@ -43,6 +43,6 @@ class TaskFailedButton extends Button {
         GlyphsDude.setIcon(this, FontAwesomeIcon.TIMES_CIRCLE, "1.6em");
         setMaxHeight(Double.MAX_VALUE);
         setPrefHeight(Double.MAX_VALUE);
-        setOnAction(e -> eventStudio().broadcast(new ShowStageRequest(), "LogStage"));
+        setOnAction(e -> eventStudio().broadcast(ShowStageRequest.INSTANCE, "LogStage"));
     }
 }

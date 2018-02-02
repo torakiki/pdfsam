@@ -18,7 +18,9 @@
  */
 package org.pdfsam.ui.commons;
 
+import static org.junit.Assert.assertTrue;
 import static org.loadui.testfx.Assertions.verifyThat;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.apache.commons.lang3.SystemUtils;
 import org.junit.Assume;
@@ -26,7 +28,9 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.loadui.testfx.GuiTest;
 import org.loadui.testfx.categories.TestFX;
+import org.pdfsam.test.HitTestListener;
 
+import javafx.application.Platform;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -44,9 +48,7 @@ public class ClosePaneTest extends GuiTest {
     @Override
     protected Parent getRootNode() {
         victimStage = new Stage();
-        ClosePane containerPane = new ClosePane();
-        Scene scene = new Scene(containerPane);
-        victimStage.setScene(scene);
+
         Button button = new Button("show");
         button.setOnAction(a -> victimStage.show());
         return button;
@@ -55,9 +57,27 @@ public class ClosePaneTest extends GuiTest {
     @Test
     public void hide() {
         Assume.assumeTrue(!SystemUtils.IS_OS_WINDOWS);
+        ClosePane containerPane = new ClosePane();
+        Scene scene = new Scene(containerPane);
+        Platform.runLater(()-> victimStage.setScene(scene));
         click("show");
         verifyThat(".pdfsam-container", (HBox n) -> n.getScene().getWindow().isShowing());
         click(".pdfsam-button");
         verifyThat(".pdfsam-container", (HBox n) -> !n.getScene().getWindow().isShowing());
+        Platform.runLater(() -> victimStage.close());
+    }
+
+    @Test
+    public void customAction() {
+        ClosePane containerPane = new ClosePane(k -> eventStudio().broadcast(HideStageRequest.INSTANCE));
+        Scene scene = new Scene(containerPane);
+        Platform.runLater(()-> victimStage.setScene(scene));
+        click("show");
+        verifyThat(".pdfsam-container", (HBox n) -> n.getScene().getWindow().isShowing());
+        HitTestListener<HideStageRequest> listener = new HitTestListener<>();
+        eventStudio().add(HideStageRequest.class, listener);
+        click(".pdfsam-button");
+        assertTrue(listener.isHit());
+        Platform.runLater(() -> victimStage.close());
     }
 }

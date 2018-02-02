@@ -162,7 +162,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
             if (descriptor.loadingStatus().getValue() == ENCRYPTED) {
                 showPasswordFieldPopup();
             } else if (descriptor.loadingStatus().getValue() == WITH_ERRORS) {
-                eventStudio().broadcast(new ShowStageRequest(), "LogStage");
+                eventStudio().broadcast(ShowStageRequest.INSTANCE, "LogStage");
             }
         });
         HBox.setMargin(encryptionIndicator, new Insets(0, 0, 0, 2));

@@ -18,9 +18,13 @@
  */
 package org.pdfsam.ui.commons;
 
+import static java.util.Optional.ofNullable;
+
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.support.Style;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
@@ -34,13 +38,19 @@ import javafx.scene.text.TextAlignment;
  */
 public class ClosePane extends HBox {
 
+    private final EventHandler<ActionEvent> defaultHandler = e -> this.getScene().getWindow().hide();
+
     public ClosePane() {
+        this(null);
+    }
+
+    public ClosePane(EventHandler<ActionEvent> handler) {
         setAlignment(Pos.CENTER_RIGHT);
         getStyleClass().addAll(Style.CONTAINER.css());
         Button closeButton = new Button(DefaultI18nContext.getInstance().i18n("Close"));
         closeButton.getStyleClass().addAll(Style.BUTTON.css());
         closeButton.setTextAlignment(TextAlignment.CENTER);
-        closeButton.setOnAction(e -> this.getScene().getWindow().hide());
+        closeButton.setOnAction(ofNullable(handler).orElse(defaultHandler));
         getChildren().add(closeButton);
     }
 }
