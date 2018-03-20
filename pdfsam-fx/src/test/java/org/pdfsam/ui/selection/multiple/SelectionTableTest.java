@@ -38,6 +38,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hamcrest.Matchers;
 import org.junit.After;
 import org.junit.Ignore;
@@ -69,6 +70,8 @@ import org.pdfsam.ui.selection.multiple.move.MoveType;
 import org.sejda.eventstudio.Listener;
 
 import javafx.scene.Parent;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.DataFormat;
 import javafx.scene.input.KeyCode;
 import javafx.scene.text.Text;
 
@@ -426,6 +429,19 @@ public class SelectionTableTest extends GuiTest {
         assertEquals(2, victim.getSelectionModel().getSelectedIndex());
         click(DefaultI18nContext.getInstance().i18n("Move to Top"));
         assertEquals(0, victim.getSelectionModel().getSelectedIndex());
+    }
+
+    @Test
+    public void copy() throws Exception {
+        FXTestUtils.invokeAndWait(() -> Clipboard.getSystemClipboard().clear(), 2);
+        populate();
+        rightClick("temp.pdf");
+        click(DefaultI18nContext.getInstance().i18n("Copy to clipboard"));
+        FXTestUtils
+                .invokeAndWait(
+                        () -> assertFalse(StringUtils
+                                .isEmpty(Clipboard.getSystemClipboard().getContent(DataFormat.PLAIN_TEXT).toString())),
+                        2);
     }
 
     @Test

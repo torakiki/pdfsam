@@ -22,6 +22,7 @@ import static java.util.Arrays.stream;
 import static java.util.Optional.of;
 import static java.util.Optional.ofNullable;
 import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.pdfsam.support.io.ObjectCollectionWriter.writeContent;
 import static org.pdfsam.ui.commons.SetDestinationRequest.requestDestination;
 import static org.pdfsam.ui.commons.SetDestinationRequest.requestFallbackDestination;
 import static org.pdfsam.ui.selection.multiple.SelectionChangedEvent.clearSelectionEvent;
@@ -84,6 +85,7 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
+import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DataFormat;
 import javafx.scene.input.DragEvent;
@@ -220,7 +222,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         }
         if (canDuplicate) {
             MenuItem duplicateItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Duplicate"),
-                    MaterialDesignIcon.CONTENT_COPY);
+                    MaterialIcon.WRAP_TEXT);
             duplicateItem.setOnAction(e -> eventStudio().broadcast(new DuplicateSelectedEvent(), getOwnerModule()));
             duplicateItem.setAccelerator(new KeyCodeCombination(KeyCode.DIGIT2, KeyCombination.ALT_DOWN));
 
@@ -232,6 +234,10 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     }
 
     private void initBottomSectionContextMenu(ContextMenu contextMenu) {
+
+        MenuItem copyItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Copy to clipboard"),
+                MaterialDesignIcon.CONTENT_COPY);
+        copyItem.setOnAction(e -> copySelectedToClipboard());
 
         MenuItem infoItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Document properties"),
                 MaterialDesignIcon.INFORMATION_OUTLINE);
@@ -248,14 +254,16 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         openFolderItem.setOnAction(e -> eventStudio().broadcast(
                 new OpenFileRequest(getSelectionModel().getSelectedItem().descriptor().getFile().getParentFile())));
 
+        copyItem.setAccelerator(new KeyCodeCombination(KeyCode.C, KeyCombination.SHORTCUT_DOWN));
         infoItem.setAccelerator(new KeyCodeCombination(KeyCode.P, KeyCombination.ALT_DOWN));
         openFileItem.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.SHORTCUT_DOWN));
         openFolderItem.setAccelerator(
                 new KeyCodeCombination(KeyCode.O, KeyCombination.SHORTCUT_DOWN, KeyCombination.ALT_DOWN));
 
-        contextMenu.getItems().addAll(new SeparatorMenuItem(), infoItem, openFileItem, openFolderItem);
+        contextMenu.getItems().addAll(new SeparatorMenuItem(), copyItem, infoItem, openFileItem, openFolderItem);
 
         selectionChangedConsumer = selectionChangedConsumer.andThen(e -> {
+            copyItem.setDisable(e.isClearSelection());
             infoItem.setDisable(!e.isSingleSelection());
             openFileItem.setDisable(!e.isSingleSelection());
             openFolderItem.setDisable(!e.isSingleSelection());
@@ -472,6 +480,15 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
                 passwordPopup.showFor(this, request.getPdfDescriptor(), anchorX, anchorY);
             }
         }
+    }
+
+    private void copySelectedToClipboard() {
+        ClipboardContent content = new ClipboardContent();
+        writeContent(getSelectionModel().getSelectedItems().stream().map(item -> {
+            return item.descriptor().getFile().getAbsolutePath() + ", " + item.descriptor().getFile().length() + ", "
+                    + item.descriptor().pages().getValue();
+        }).collect(Collectors.toList())).to(content);
+        Clipboard.getSystemClipboard().setContent(content);
     }
 
     @Override
