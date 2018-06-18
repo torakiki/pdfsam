@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2018-01-04 09:49+0100\n"
+"POT-Creation-Date: 2018-03-20 16:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,6 +84,9 @@ msgid "Merge fields"
 msgstr ""
 
 msgid "Merge renaming existing fields"
+msgstr ""
+
+msgid "Flatten"
 msgstr ""
 
 msgid "Discard forms"
@@ -302,6 +305,9 @@ msgid "Move to Bottom"
 msgstr ""
 
 msgid "Duplicate"
+msgstr ""
+
+msgid "Copy to clipboard"
 msgstr ""
 
 msgid "Document properties"
@@ -637,16 +643,13 @@ msgstr ""
 msgid "Max memory {0}"
 msgstr ""
 
-msgid "Copy to clipboard"
-msgstr ""
-
 msgid "Support"
 msgstr ""
 
 msgid "Bug and feature requests"
 msgstr ""
 
-msgid "Play the \"get started\" video"
+msgid "Documentation"
 msgstr ""
 
 msgid "Contribute"
@@ -988,7 +991,4 @@ msgid "Split at this size:"
 msgstr ""
 
 msgid "Invalid split size"
-msgstr ""
-
-msgid "Documentation"
 msgstr ""
