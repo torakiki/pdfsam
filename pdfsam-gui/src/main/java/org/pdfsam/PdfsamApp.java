@@ -200,6 +200,8 @@ public class PdfsamApp extends Application {
         mainScene.getStylesheets().addAll(styles.styles());
         mainScene.getAccelerators().put(new KeyCodeCombination(KeyCode.L, KeyCombination.SHORTCUT_DOWN),
                 () -> eventStudio().broadcast(ShowStageRequest.INSTANCE, "LogStage"));
+        mainScene.getAccelerators().put(new KeyCodeCombination(KeyCode.Q, KeyCombination.SHORTCUT_DOWN),
+                () -> Platform.exit());
         return mainScene;
     }
 

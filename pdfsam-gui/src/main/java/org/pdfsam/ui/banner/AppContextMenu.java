@@ -30,6 +30,9 @@ import javafx.application.Platform;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 
 /**
  * Context menu showing app functionalities. This is supposed to be activated by the menu button
@@ -42,6 +45,7 @@ class AppContextMenu extends ContextMenu {
     AppContextMenu(WorkspaceMenu workspace, ModulesMenu modulesMenu) {
         MenuItem exit = new MenuItem(DefaultI18nContext.getInstance().i18n("E_xit"));
         exit.setOnAction(e -> Platform.exit());
+        exit.setAccelerator(new KeyCodeCombination(KeyCode.Q, KeyCombination.SHORTCUT_DOWN));
         MenuItem settings = new MenuItem(DefaultI18nContext.getInstance().i18n("_Settings"));
         settings.setOnAction(
                 e -> eventStudio().broadcast(new SetActiveDashboardItemRequest(PreferencesDashboardItem.ID)));
