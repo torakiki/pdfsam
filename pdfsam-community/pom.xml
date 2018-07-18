@@ -30,7 +30,7 @@
 
 	<profiles>
 		<profile>
-			<id>release</id>
+			<id>basic-release</id>
 			<build>
 				<plugins>
 					<plugin>

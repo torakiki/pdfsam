@@ -18,13 +18,7 @@
 
 	<profiles>
 		<profile>
-			<id>enhanced</id>
-			<properties>
-				<pdfsam.package>ENHANCED</pdfsam.package>
-			</properties>
-		</profile>
-		<profile>
-			<id>release</id>
+			<id>basic-release</id>
 			<build>
 				<plugins>
 					<plugin>
