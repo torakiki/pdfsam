@@ -34,6 +34,7 @@ import org.pdfsam.ui.workspace.RestorableView;
 import javafx.css.PseudoClass;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.input.Clipboard;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 
@@ -47,7 +48,22 @@ abstract class BrowsableField extends HBox implements RestorableView {
     private static final PseudoClass SELECTED_PSEUDOCLASS_STATE = PseudoClass.getPseudoClass("selected");
 
     private Button browseButton;
-    private ValidableTextField textField = new ValidableTextField();
+    private ValidableTextField textField = new ValidableTextField() {
+
+        @Override
+        public void paste() {
+            Clipboard clipboard = Clipboard.getSystemClipboard();
+            if (clipboard.hasString()) {
+                String text = clipboard.getString();
+                if (text.length() > 2 && text.charAt(0) == '"' && text.charAt(text.length() - 1) == '"') {
+                    replaceSelection(text.substring(1, text.length() - 1));
+                } else {
+                    super.paste();
+                }
+            }
+        }
+
+    };
     private HBox validableContainer;
     private String browseWindowTitle = DefaultI18nContext.getInstance().i18n("Select");
 

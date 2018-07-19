@@ -39,8 +39,11 @@ import org.pdfsam.ui.support.Style;
 
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
+
 /**
  * @author Andrea Vacondio
  *
@@ -92,6 +95,36 @@ public class BrowsableDirectoryFieldUITest extends GuiTest {
     public void nullGraphicDoesntExplode() throws Exception {
         BrowsableDirectoryField victim = find(".victim-no-blank");
         FXTestUtils.invokeAndWait(() -> victim.setGraphic(null), 1);
+    }
+
+    @Test
+    public void copyPasteInQuotes() throws Exception {
+        FXTestUtils.invokeAndWait(() -> {
+            Clipboard clipboard = Clipboard.getSystemClipboard();
+            ClipboardContent content = new ClipboardContent();
+            content.putString("\"my path\"");
+            clipboard.setContent(content);
+        }, 1);
+
+        BrowsableDirectoryField victim = find(".victim-blank");
+        click(victim);
+        press(KeyCode.CONTROL, KeyCode.V).release(KeyCode.V, KeyCode.CONTROL);
+        verifyThat(victim, v -> v.getTextField().getText().equals("my path"));
+    }
+
+    @Test
+    public void copyPasteNoQuotes() throws Exception {
+        FXTestUtils.invokeAndWait(() -> {
+            Clipboard clipboard = Clipboard.getSystemClipboard();
+            ClipboardContent content = new ClipboardContent();
+            content.putString("my path");
+            clipboard.setContent(content);
+        }, 1);
+
+        BrowsableDirectoryField victim = find(".victim-blank");
+        click(victim);
+        press(KeyCode.CONTROL, KeyCode.V).release(KeyCode.V, KeyCode.CONTROL);
+        verifyThat(victim, v -> v.getTextField().getText().equals("my path"));
     }
 
     @Test
