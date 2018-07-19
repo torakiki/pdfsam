@@ -26,6 +26,7 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.nio.file.AccessDeniedException;
 import java.util.Collections;
 
 import org.junit.Before;
@@ -42,6 +43,7 @@ import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.update.UpdateAvailableEvent;
 import org.sejda.model.exception.InvalidTaskParametersException;
+import org.sejda.model.exception.TaskIOException;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 
@@ -107,6 +109,14 @@ public class NotificationsControllerTest {
     public void onInvalidParameters() {
         TaskExecutionFailedEvent event = new TaskExecutionFailedEvent(
                 new InvalidTaskParametersException("", Collections.emptyList()), null);
+        victim.onTaskFailed(event);
+        verify(container).addNotification(anyString(), any());
+    }
+
+    @Test
+    public void onAccessDenied() {
+        TaskExecutionFailedEvent event = new TaskExecutionFailedEvent(
+                new TaskIOException(new AccessDeniedException("the file")), null);
         victim.onTaskFailed(event);
         verify(container).addNotification(anyString(), any());
     }

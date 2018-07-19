@@ -21,10 +21,12 @@ package org.pdfsam.ui.notification;
 import static org.pdfsam.ui.commons.UrlButton.styledUrlButton;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
+import java.nio.file.AccessDeniedException;
 import java.security.SecureRandom;
 
 import javax.inject.Inject;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
 import org.pdfsam.context.UserContext;
@@ -96,6 +98,13 @@ public class NotificationsController {
                             DefaultI18nContext.getInstance()
                                     .i18n("Input parameters are invalid, open the application messages for details."),
                             NotificationType.ERROR));
+        }
+        Throwable root = ExceptionUtils.getRootCause(e.getFailingCause());
+        if (root instanceof AccessDeniedException) {
+            container.addNotification(DefaultI18nContext.getInstance().i18n("Access denied"),
+                    buildLabel(DefaultI18nContext.getInstance().i18n(
+                            "Unable to access \"{0}\", please make sure you have write permissions or open the application messages for details.",
+                            ((AccessDeniedException) root).getFile()), NotificationType.ERROR));
         }
     }
 
