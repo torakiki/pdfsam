@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2018-07-17 15:43+0200\n"
+"POT-Creation-Date: 2018-07-19 18:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -826,6 +826,15 @@ msgstr ""
 
 msgid ""
 "Input parameters are invalid, open the application messages for details."
+msgstr ""
+
+msgid "Access denied"
+msgstr ""
+
+#, java-format
+msgid ""
+"Unable to access \"{0}\", please make sure you have write permissions or "
+"open the application messages for details."
 msgstr ""
 
 #, java-format
