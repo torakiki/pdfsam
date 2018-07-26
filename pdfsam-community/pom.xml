@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<description>PDFsam App</description>
 	<url>http://www.pdfsam.org</url>
@@ -31,6 +33,9 @@
 	<profiles>
 		<profile>
 			<id>basic-release</id>
+			<properties>
+				<skip.dmg>false</skip.dmg>
+			</properties>
 			<build>
 				<plugins>
 					<plugin>
@@ -45,7 +50,8 @@
 								<configuration>
 									<createDependencyReducedPom>false</createDependencyReducedPom>
 									<transformers>
-										<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+										<transformer
+											implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 											<mainClass>org.pdfsam.community.App</mainClass>
 											<manifestEntries>
 												<Class-Path>etc/</Class-Path>
@@ -114,6 +120,7 @@
 										<txtFileVersion>${project.version}</txtFileVersion>
 										<fileDescription>PDFsam Basic</fileDescription>
 										<copyright>Sober Lemur S.a.s di Vacondio Andrea</copyright>
+										<companyName>Sober Lemur S.a.s di Vacondio Andrea</companyName>
 										<productVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.0</productVersion>
 										<txtProductVersion>${project.version}</txtProductVersion>
 										<productName>PDF Split And Merge Basic Edition</productName>
@@ -294,10 +301,123 @@
 				</plugins>
 			</build>
 		</profile>
+
+		<profile>
+			<id>dmg</id>
+			<activation>
+				<os>
+					<family>mac</family>
+				</os>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.6.0</version>
+						<executions>
+							<execution>
+								<id>package-dmg</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<configuration>
+									<executable>
+										javapackager
+									</executable>
+									<arguments>
+										<argument>-deploy</argument>
+										<argument>-native</argument>
+										<argument>dmg</argument>
+										<argument>-name</argument>
+										<argument>PDFsam Basic</argument>
+										<argument>-description</argument>
+										<argument>A free open source application to split and merge
+											PDF files</argument>
+										<argument>-title</argument>
+										<argument>PDFsam Basic</argument>
+										<argument>-vendor</argument>
+										<argument>Sober Lemur S.a.s. di Vacondio Andrea</argument>
+										<argument>-appclass</argument>
+										<argument>org.pdfsam.community.App</argument>
+										<argument>-outdir</argument>
+										<argument>${project.build.directory}</argument>
+										<argument>-outfile</argument>
+										<argument>pdfsam-${version}</argument>
+										<argument>-srcdir</argument>
+										<argument>${project.build.directory}/assembled</argument>
+										<argument>-srcfiles</argument>
+										<argument>${project.build.finalName}.jar</argument>
+										<argument>-srcfiles</argument>
+										<argument>LICENSE.txt</argument>
+										<argument>-srcfiles</argument>
+										<argument>etc/logback.xml </argument>
+										<argument>-BlicenseFile=LICENSE.txt</argument>
+										<argument>-BmainJar=${project.build.finalName}.jar</argument>
+										<argument>-BappVersion=${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</argument>
+										<argument>-Bicon=${project.basedir}/src/dmg/Icon.icns</argument>
+										<argument>-Bidentifier=org.pdfsam.community.App</argument>
+										<argument>-BuserJvmOptions=-Xmx=512m</argument>
+										<argument>-Bmac.category=Business</argument>
+										<argument>-Bmac.CFBundleIdentifier=org.pdfsam.basic</argument>
+										<argument>-Bmac.signing-key-developer-id-app=SOBER LEMUR SAS DI VACONDIO ANDREA</argument>
+										<argument>-Bclasspath=etc;${project.build.finalName}.jar</argument>
+										<argument>-v</argument>
+									</arguments>
+									<skip>${skip.dmg}</skip>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>com.coderplus.maven.plugins</groupId>
+						<artifactId>copy-rename-maven-plugin</artifactId>
+						<version>1.0</version>
+						<executions>
+							<execution>
+								<id>rename-dmg</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>copy</goal>
+								</goals>
+								<configuration>
+									<sourceFile>${project.build.directory}/bundles/PDFsam Basic-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.dmg</sourceFile>
+									<destinationFile>${project.build.directory}/pdfsam-${version}.dmg</destinationFile>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+						<plugin>
+							<groupId>org.codehaus.mojo</groupId>
+							<artifactId>build-helper-maven-plugin</artifactId>
+							<version>3.0.0</version>
+							<executions>
+								<execution>
+									<id>attach-dmg</id>
+									<phase>pre-integration-test</phase>
+									<goals>
+										<goal>attach-artifact</goal>
+									</goals>
+									<configuration>
+										<artifacts>
+											<artifact>
+												<file>${project.build.directory}/pdfsam-${version}.dmg</file>
+												<type>dmg</type>
+											</artifact>
+										</artifacts>
+									</configuration>
+								</execution>
+							</executions>
+						</plugin>
+				</plugins>
+			</build>
+		</profile>
 	</profiles>
 
 	<properties>
 		<pdfsam.package>COMMUNITY</pdfsam.package>
+		<skip.dmg>true</skip.dmg>
 	</properties>
 
 	<build>
