@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-10-12 12:35+0200\n"
-"PO-Revision-Date: 2017-02-20 21:40+0000\n"
-"Last-Translator: Damian Barnett <Unknown>\n"
+"POT-Creation-Date: 2018-07-19 18:31+0200\n"
+"PO-Revision-Date: 2018-07-25 22:09+0000\n"
+"Last-Translator: Andi Chandler <Unknown>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-11-21 15:32+0000\n"
-"X-Generator: Launchpad (build 18505)\n"
+"X-Launchpad-Export-Date: 2018-07-27 13:24+0000\n"
+"X-Generator: Launchpad (build 18737)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -88,6 +88,9 @@ msgstr "Merge fields"
 
 msgid "Merge renaming existing fields"
 msgstr "Merge renaming existing fields"
+
+msgid "Flatten"
+msgstr "Flatten"
 
 msgid "Discard forms"
 msgstr "Discard forms"
@@ -293,7 +296,7 @@ msgid "Set destination"
 msgstr "Set destination"
 
 msgid "Set as range for all"
-msgstr ""
+msgstr "Set as range for all"
 
 msgid "Remove"
 msgstr "Remove"
@@ -312,6 +315,9 @@ msgstr "Move to Bottom"
 
 msgid "Duplicate"
 msgstr "Duplicate"
+
+msgid "Copy to clipboard"
+msgstr "Copy to clipboard"
 
 msgid "Document properties"
 msgstr "Document properties"
@@ -369,7 +375,7 @@ msgid "_Clear"
 msgstr "_Clear"
 
 msgid "C_lear all settings"
-msgstr ""
+msgstr "C_lear all settings"
 
 msgid "Moves up selected documents"
 msgstr "Moves up selected documents"
@@ -657,17 +663,14 @@ msgstr "Environment"
 msgid "Max memory {0}"
 msgstr "Max memory {0}"
 
-msgid "Copy to clipboard"
-msgstr "Copy to clipboard"
-
 msgid "Support"
 msgstr "Support"
 
 msgid "Bug and feature requests"
 msgstr "Bug and feature requests"
 
-msgid "Play the \"get started\" video"
-msgstr "Play the \"get started\" video"
+msgid "Documentation"
+msgstr "Documentation"
 
 msgid "Contribute"
 msgstr "Contribute"
@@ -864,6 +867,17 @@ msgid ""
 msgstr ""
 "Input parameters are invalid, open the application messages for details."
 
+msgid "Access denied"
+msgstr "Access denied"
+
+#, java-format
+msgid ""
+"Unable to access \"{0}\", please make sure you have write permissions or "
+"open the application messages for details."
+msgstr ""
+"Unable to access \"{0}\", please make sure you have write permissions or "
+"open the application messages for details."
+
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
 msgstr "You performed {0} tasks with PDFsam, did it help?"
@@ -952,7 +966,7 @@ msgid "E_xit"
 msgstr "E_xit"
 
 msgid "_Settings"
-msgstr ""
+msgstr "_Settings"
 
 msgid "Application messages"
 msgstr "Application messages"

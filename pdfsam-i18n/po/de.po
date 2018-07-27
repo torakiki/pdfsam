@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-10-12 12:35+0200\n"
-"PO-Revision-Date: 2017-07-30 18:15+0000\n"
+"POT-Creation-Date: 2018-07-19 18:31+0200\n"
+"PO-Revision-Date: 2018-07-01 11:27+0000\n"
 "Last-Translator: tobson <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-11-21 15:32+0000\n"
-"X-Generator: Launchpad (build 18505)\n"
+"X-Launchpad-Export-Date: 2018-07-27 13:24+0000\n"
+"X-Generator: Launchpad (build 18737)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Seiten zum Extrahieren (z.B.: 2 oder 5-23 oder  2,5-7,12-)"
@@ -90,6 +90,9 @@ msgstr "Felder verbinden"
 
 msgid "Merge renaming existing fields"
 msgstr "Bereits bestehende Felder verbinden und umbenennen"
+
+msgid "Flatten"
+msgstr ""
 
 msgid "Discard forms"
 msgstr "Formular löschen"
@@ -318,6 +321,9 @@ msgstr "Ans Ende verschieben"
 
 msgid "Duplicate"
 msgstr "Verdoppeln"
+
+msgid "Copy to clipboard"
+msgstr "In Zwischenablage kopieren"
 
 msgid "Document properties"
 msgstr "Dokumenteigenschaften"
@@ -670,17 +676,14 @@ msgstr "Umgebung"
 msgid "Max memory {0}"
 msgstr "Maximaler Speicher {0}"
 
-msgid "Copy to clipboard"
-msgstr "In Zwischenablage kopieren"
-
 msgid "Support"
 msgstr "Kundendienst"
 
 msgid "Bug and feature requests"
 msgstr "Fehler- und Funktionsanfrage"
 
-msgid "Play the \"get started\" video"
-msgstr "Das »Get started«-Video abspielen"
+msgid "Documentation"
+msgstr "Dokumentation"
 
 msgid "Contribute"
 msgstr "Beitragen"
@@ -883,6 +886,15 @@ msgid ""
 msgstr ""
 "Eingabeparameter sind nicht gültig, bitte die Anwendungsmeldungen für "
 "Einzelheiten öffnen."
+
+msgid "Access denied"
+msgstr ""
+
+#, java-format
+msgid ""
+"Unable to access \"{0}\", please make sure you have write permissions or "
+"open the application messages for details."
+msgstr ""
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"

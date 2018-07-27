@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-10-12 12:35+0200\n"
-"PO-Revision-Date: 2017-10-12 12:37+0000\n"
+"POT-Creation-Date: 2018-07-19 18:31+0200\n"
+"PO-Revision-Date: 2018-07-26 18:40+0000\n"
 "Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-11-21 15:32+0000\n"
-"X-Generator: Launchpad (build 18505)\n"
+"X-Launchpad-Export-Date: 2018-07-27 13:24+0000\n"
+"X-Generator: Launchpad (build 18737)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Pagine da estrarre (es: 2 or 5-23 or 2,5-7,12-)"
@@ -91,6 +91,9 @@ msgstr "Unisci i campi"
 
 msgid "Merge renaming existing fields"
 msgstr "Unisci rinominando i campi"
+
+msgid "Flatten"
+msgstr "Appiattisci"
 
 msgid "Discard forms"
 msgstr "Scarta i form"
@@ -334,6 +337,9 @@ msgstr "Sposta in Fondo"
 
 msgid "Duplicate"
 msgstr "Duplica"
+
+msgid "Copy to clipboard"
+msgstr "Copia negli appunti"
 
 msgid "Document properties"
 msgstr "Proprietà documento"
@@ -730,17 +736,14 @@ msgstr "Ambiente"
 msgid "Max memory {0}"
 msgstr "Memoria massima {0}"
 
-msgid "Copy to clipboard"
-msgstr "Copia negli appunti"
-
 msgid "Support"
 msgstr "Supporto"
 
 msgid "Bug and feature requests"
 msgstr "Bug e richieste"
 
-msgid "Play the \"get started\" video"
-msgstr "Riproduci il video \"come iniziare\""
+msgid "Documentation"
+msgstr "Documentazione"
 
 msgid "Contribute"
 msgstr "Contribuisci"
@@ -942,6 +945,17 @@ msgid ""
 "Input parameters are invalid, open the application messages for details."
 msgstr ""
 "I parametri sono invalidi, aprire il pannello messaggio per dettagli."
+
+msgid "Access denied"
+msgstr "Accesso Negato"
+
+#, java-format
+msgid ""
+"Unable to access \"{0}\", please make sure you have write permissions or "
+"open the application messages for details."
+msgstr ""
+"Impossibile accedere a \"{0}\", assicurarsi di avere i permessi di scrittura "
+"o aprire i messaggi dell'applicazione per maggiori dettagli"
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"

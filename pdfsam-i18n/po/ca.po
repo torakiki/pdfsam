@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-10-12 12:35+0200\n"
-"PO-Revision-Date: 2015-02-08 02:49+0000\n"
-"Last-Translator: Adolfo Jayme <Unknown>\n"
+"POT-Creation-Date: 2018-07-19 18:31+0200\n"
+"PO-Revision-Date: 2018-02-22 11:04+0000\n"
+"Last-Translator: Joan Montané <Unknown>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-11-21 15:32+0000\n"
-"X-Generator: Launchpad (build 18505)\n"
+"X-Launchpad-Export-Date: 2018-07-27 13:24+0000\n"
+"X-Generator: Launchpad (build 18737)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -88,6 +88,9 @@ msgstr ""
 msgid "Merge renaming existing fields"
 msgstr ""
 
+msgid "Flatten"
+msgstr ""
+
 msgid "Discard forms"
 msgstr ""
 
@@ -144,7 +147,7 @@ msgid "Roundish"
 msgstr ""
 
 msgid "Directories"
-msgstr "Carpetes"
+msgstr "Directoris"
 
 #, java-format
 msgid "Invalid range: {0}."
@@ -177,13 +180,13 @@ msgid "Other"
 msgstr "Altres"
 
 msgid "Split by every \"n\" pages"
-msgstr ""
+msgstr "Divideix cada \"n\" pàgines"
 
 msgid "Number of pages"
 msgstr "Nombre de pàgines"
 
 msgid "Invalid number of pages"
-msgstr ""
+msgstr "El nombre de pàgines no és vàlid"
 
 msgid "Split a PDF document at the given page numbers."
 msgstr ""
@@ -195,13 +198,13 @@ msgid "Split settings"
 msgstr ""
 
 msgid "Every page"
-msgstr ""
+msgstr "Cada pàgina"
 
 msgid "Even pages"
-msgstr ""
+msgstr "Pàgines parells"
 
 msgid "Odd pages"
-msgstr ""
+msgstr "Pàgines senars"
 
 msgid "Split the document after the given page numbers"
 msgstr ""
@@ -242,16 +245,16 @@ msgid "Rotate settings"
 msgstr ""
 
 msgid "All pages"
-msgstr ""
+msgstr "Totes les pàgines"
 
 msgid "90 degrees clockwise"
-msgstr ""
+msgstr "90 graus en setit horari"
 
 msgid "180 degrees clockwise"
-msgstr ""
+msgstr "180 graus en setit horari"
 
 msgid "90 degrees counterclockwise"
-msgstr ""
+msgstr "90 graus en setit antihorari"
 
 msgid "Rotate "
 msgstr ""
@@ -263,7 +266,7 @@ msgid "Prefix for the generated files names"
 msgstr ""
 
 msgid "Add prefix"
-msgstr "Afegiu un prefix"
+msgstr "Afegeix un prefix"
 
 msgid "Generated PDF documents name prefix:"
 msgstr ""
@@ -307,6 +310,9 @@ msgstr ""
 msgid "Duplicate"
 msgstr ""
 
+msgid "Copy to clipboard"
+msgstr "Copia al porta-retalls"
+
 msgid "Document properties"
 msgstr "Propietats del document"
 
@@ -320,7 +326,7 @@ msgid "Drag and drop PDF files or directories containing PDF files"
 msgstr ""
 
 msgid "No PDF found"
-msgstr ""
+msgstr "No s'ha trobat cap PDF"
 
 msgid "Pace"
 msgstr ""
@@ -337,10 +343,10 @@ msgid "Size"
 msgstr "Mida"
 
 msgid "Modified"
-msgstr ""
+msgstr "Modificat"
 
 msgid "Add documents to the table"
-msgstr ""
+msgstr "Afegeix documents a la taula"
 
 msgid "_Add"
 msgstr "_Afegeix"
@@ -641,16 +647,13 @@ msgstr "Entorn"
 msgid "Max memory {0}"
 msgstr ""
 
-msgid "Copy to clipboard"
-msgstr "Copia al porta-retalls"
-
 msgid "Support"
 msgstr "Assistència"
 
 msgid "Bug and feature requests"
 msgstr ""
 
-msgid "Play the \"get started\" video"
+msgid "Documentation"
 msgstr ""
 
 msgid "Contribute"
@@ -830,6 +833,15 @@ msgstr "Quant a"
 
 msgid ""
 "Input parameters are invalid, open the application messages for details."
+msgstr ""
+
+msgid "Access denied"
+msgstr ""
+
+#, java-format
+msgid ""
+"Unable to access \"{0}\", please make sure you have write permissions or "
+"open the application messages for details."
 msgstr ""
 
 #, java-format

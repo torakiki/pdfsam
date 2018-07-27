@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-10-12 12:35+0200\n"
-"PO-Revision-Date: 2017-11-03 22:02+0000\n"
-"Last-Translator: Emilio Hernández Sandoval <Unknown>\n"
+"POT-Creation-Date: 2018-07-19 18:31+0200\n"
+"PO-Revision-Date: 2018-07-27 13:21+0000\n"
+"Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-11-21 15:32+0000\n"
-"X-Generator: Launchpad (build 18505)\n"
+"X-Launchpad-Export-Date: 2018-07-27 13:24+0000\n"
+"X-Generator: Launchpad (build 18737)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Páginas a extraer (ej: 2 o 5-23 o 2,5-7,12-)"
@@ -80,7 +80,7 @@ msgstr ""
 "Añadir un pie de página con el nombre del fichero al que pertenece la página"
 
 msgid "Normalize pages size"
-msgstr ""
+msgstr "Normalizar el tamaño de las páginas"
 
 msgid "Resizes all pages to have the same width as the first page."
 msgstr ""
@@ -92,6 +92,9 @@ msgstr "Combinar campos"
 
 msgid "Merge renaming existing fields"
 msgstr "Combinar campos restantes"
+
+msgid "Flatten"
+msgstr "Aplanar"
 
 msgid "Discard forms"
 msgstr "Descartar formularios"
@@ -335,6 +338,9 @@ msgstr "Mover al final"
 msgid "Duplicate"
 msgstr "Duplicado"
 
+msgid "Copy to clipboard"
+msgstr "Copiar en portapapeles"
+
 msgid "Document properties"
 msgstr "Propiedades del documento"
 
@@ -353,7 +359,7 @@ msgid "No PDF found"
 msgstr "No se encontró ningún PDF"
 
 msgid "Pace"
-msgstr ""
+msgstr "Paso"
 
 msgid ""
 "Double click to set the number of pages after which the task will switch to "
@@ -396,7 +402,7 @@ msgid "_Clear"
 msgstr "_Vaciar"
 
 msgid "C_lear all settings"
-msgstr ""
+msgstr "L_impiar todos los ajustes"
 
 msgid "Moves up selected documents"
 msgstr "Mueve los documentos seleccionados hacia arriba"
@@ -555,13 +561,13 @@ msgid "Unable to find the latest available version."
 msgstr "No se pudo encontrar la versión más reciente disponible."
 
 msgid "Fetching premium modules"
-msgstr ""
+msgstr "Obteniendo módulos premium"
 
 msgid "Unable to retrieve premium modules"
-msgstr ""
+msgstr "No ha sido posible recuperar los módulos premium"
 
 msgid "Unable to retrieve premium features description"
-msgstr ""
+msgstr "No ha sido posible recuperar la descripción de las opciones premium"
 
 msgid "Requesting modules state"
 msgstr "Solicitando el estado de los módulos"
@@ -644,6 +650,8 @@ msgstr ""
 msgid ""
 "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Haz doble clic para establecer las páginas que quieres mezclar (ejemplo: 2 o "
+"5-23 o 2,5-7,12-)"
 
 msgid "Select a positive integer number as pace"
 msgstr "Seleccione un número entero positivo como paso"
@@ -695,17 +703,14 @@ msgstr "Entorno"
 msgid "Max memory {0}"
 msgstr "Máximo de memoria {0}"
 
-msgid "Copy to clipboard"
-msgstr "Copiar en portapapeles"
-
 msgid "Support"
 msgstr "Asistencia"
 
 msgid "Bug and feature requests"
 msgstr "Informes de errores y solicitudes"
 
-msgid "Play the \"get started\" video"
-msgstr "Reproducir el vídeo «Primeros pasos»"
+msgid "Documentation"
+msgstr "Documentación"
 
 msgid "Contribute"
 msgstr "Contribuir"
@@ -766,6 +771,8 @@ msgid ""
 "Set whether the application should check for news availability on startup "
 "(restart needed)"
 msgstr ""
+"Especifique si la aplicación revisará la existencia de novedades en el "
+"arranque (se necesita reiniciar)"
 
 msgid "Play alert sounds"
 msgstr "Reproducir los sonidos de alerta"
@@ -903,6 +910,15 @@ msgid ""
 msgstr ""
 "Los parámetros de entrada no son válidos. Abra los mensajes de la aplicación "
 "para los detalles."
+
+msgid "Access denied"
+msgstr "Acceso denegado"
+
+#, java-format
+msgid ""
+"Unable to access \"{0}\", please make sure you have write permissions or "
+"open the application messages for details."
+msgstr ""
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"

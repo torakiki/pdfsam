@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-10-12 12:35+0200\n"
-"PO-Revision-Date: 2017-08-30 14:10+0000\n"
+"POT-Creation-Date: 2018-07-19 18:31+0200\n"
+"PO-Revision-Date: 2018-04-12 08:17+0000\n"
 "Last-Translator: Sami Kuusisto <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-11-21 15:32+0000\n"
-"X-Generator: Launchpad (build 18505)\n"
+"X-Launchpad-Export-Date: 2018-07-27 13:24+0000\n"
+"X-Generator: Launchpad (build 18737)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Poimittavat sivut (esim. 2 tai 5-23 tai 2,5-7,12-)"
@@ -90,6 +90,9 @@ msgstr "Yhdistä kentät"
 
 msgid "Merge renaming existing fields"
 msgstr "Yhdistä uudelleennimeämällä olemassa olevat kentät"
+
+msgid "Flatten"
+msgstr "Yhdistä tasot"
 
 msgid "Discard forms"
 msgstr "Hylkää lomakkeet"
@@ -299,7 +302,7 @@ msgid "Set destination"
 msgstr "Aseta kohde"
 
 msgid "Set as range for all"
-msgstr ""
+msgstr "Aseta rajoiksi kaikille"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:273
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:317
@@ -324,6 +327,9 @@ msgstr "Siirrä alimmaksi"
 
 msgid "Duplicate"
 msgstr "Monista"
+
+msgid "Copy to clipboard"
+msgstr "Kopioi leikepöydälle"
 
 msgid "Document properties"
 msgstr "Asiakirjan ominaisuudet"
@@ -701,17 +707,14 @@ msgstr "Ympäristö"
 msgid "Max memory {0}"
 msgstr "Maksimimuisti {0}"
 
-msgid "Copy to clipboard"
-msgstr "Kopioi leikepöydälle"
-
 msgid "Support"
 msgstr "Tuki"
 
 msgid "Bug and feature requests"
 msgstr "Bugit ja ominaisuuspyynnöt"
 
-msgid "Play the \"get started\" video"
-msgstr "Toista \"Aloitusopas\" -video"
+msgid "Documentation"
+msgstr "Dokumentaatio"
 
 msgid "Contribute"
 msgstr "Osallistu"
@@ -912,6 +915,15 @@ msgid ""
 "Input parameters are invalid, open the application messages for details."
 msgstr ""
 "Annetut parametrit ovat virheellisiä, avaa sovellusviestit nähdäksesi tiedot."
+
+msgid "Access denied"
+msgstr ""
+
+#, java-format
+msgid ""
+"Unable to access \"{0}\", please make sure you have write permissions or "
+"open the application messages for details."
+msgstr ""
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"

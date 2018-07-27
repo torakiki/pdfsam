@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-10-12 12:35+0200\n"
-"PO-Revision-Date: 2017-06-24 19:19+0000\n"
-"Last-Translator: Carolopolitain <david_chmfr@yahoo.fr>\n"
+"POT-Creation-Date: 2018-07-19 18:31+0200\n"
+"PO-Revision-Date: 2018-07-27 13:22+0000\n"
+"Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-11-21 15:32+0000\n"
-"X-Generator: Launchpad (build 18505)\n"
+"X-Launchpad-Export-Date: 2018-07-27 13:24+0000\n"
+"X-Generator: Launchpad (build 18737)\n"
 "Language: fr\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -93,6 +93,9 @@ msgstr "Fusionner les champs"
 
 msgid "Merge renaming existing fields"
 msgstr "Fusionner et renommer les champs existants"
+
+msgid "Flatten"
+msgstr "Aplatir"
 
 msgid "Discard forms"
 msgstr "Supprimer les formulaires"
@@ -331,6 +334,9 @@ msgstr "Mettre en dernier"
 
 msgid "Duplicate"
 msgstr "Dupliquer"
+
+msgid "Copy to clipboard"
+msgstr "Copier dans le presse-papier"
 
 msgid "Document properties"
 msgstr "Propriétés du document"
@@ -692,17 +698,14 @@ msgstr "Environnement"
 msgid "Max memory {0}"
 msgstr "Mémoire maxi. {0}"
 
-msgid "Copy to clipboard"
-msgstr "Copier dans le presse-papier"
-
 msgid "Support"
 msgstr "Assistance"
 
 msgid "Bug and feature requests"
 msgstr "Problèmes rencontrés et nouvelles caractéristiques souhaitées"
 
-msgid "Play the \"get started\" video"
-msgstr "Lancer la vidéo « pour démarrer »"
+msgid "Documentation"
+msgstr "Documentation"
 
 msgid "Contribute"
 msgstr "Contribution"
@@ -901,6 +904,15 @@ msgid ""
 msgstr ""
 "Les paramètres sont erronés, ouvrir les messages de l’application pour plus "
 "de détails."
+
+msgid "Access denied"
+msgstr "Accès refusé"
+
+#, java-format
+msgid ""
+"Unable to access \"{0}\", please make sure you have write permissions or "
+"open the application messages for details."
+msgstr ""
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"

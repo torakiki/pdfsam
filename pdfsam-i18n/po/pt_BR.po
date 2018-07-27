@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-10-12 12:35+0200\n"
-"PO-Revision-Date: 2017-02-17 09:57+0000\n"
-"Last-Translator: Tiberio Melo <tiberio_melo@yahoo.com.br>\n"
+"POT-Creation-Date: 2018-07-19 18:31+0200\n"
+"PO-Revision-Date: 2018-04-23 02:21+0000\n"
+"Last-Translator: André Marcelo Alvarenga <andrealvarenga@gmx.net>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-11-21 15:32+0000\n"
-"X-Generator: Launchpad (build 18505)\n"
+"X-Launchpad-Export-Date: 2018-07-27 13:24+0000\n"
+"X-Generator: Launchpad (build 18737)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Páginas para extrair (ex: 2 ou 5-23 ou 2,5-7,12-)"
@@ -89,6 +89,9 @@ msgstr "Campos unidos"
 
 msgid "Merge renaming existing fields"
 msgstr "Unir renomeando os campos existentes"
+
+msgid "Flatten"
+msgstr ""
 
 msgid "Discard forms"
 msgstr "Formulários descartados"
@@ -261,7 +264,7 @@ msgid "180 degrees clockwise"
 msgstr "180 graus no sentido horário"
 
 msgid "90 degrees counterclockwise"
-msgstr "90 graus anti-horário"
+msgstr "90 graus no sentido anti-horário"
 
 msgid "Rotate "
 msgstr "Rotacionar "
@@ -279,7 +282,7 @@ msgid "Generated PDF documents name prefix:"
 msgstr "Prefixo dos documentos PDF gerados:"
 
 msgid "Prefix for the output files name."
-msgstr "Prefixo para o arquivo gerado"
+msgstr "Prefixo para o arquivo gerado."
 
 msgid "Some special keywords are replaced with runtime values."
 msgstr ""
@@ -288,19 +291,19 @@ msgstr ""
 
 msgid "Right click to add these keywords."
 msgstr ""
-"Clique com o botão direito do mouse para adicionar estas palavras-chave"
+"Clique com o botão direito do mouse para adicionar estas palavras-chave."
 
 msgid "Reverse"
 msgstr "Inverter"
 
 msgid "Drag and drop PDF files here"
-msgstr "Arraste e solte os arquivos em PDF aqui"
+msgstr "Arraste e solte os arquivos PDF aqui"
 
 msgid "Set destination"
 msgstr "Definir destino"
 
 msgid "Set as range for all"
-msgstr ""
+msgstr "Escolha um intervalo para todos"
 
 # G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:252
 # G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:297
@@ -334,6 +337,9 @@ msgstr "Mover para a base"
 msgid "Duplicate"
 msgstr "Duplicado"
 
+msgid "Copy to clipboard"
+msgstr "Copiar para a área de transferência"
+
 msgid "Document properties"
 msgstr "Propriedades do documento"
 
@@ -344,10 +350,10 @@ msgid "Open Folder"
 msgstr "Abrir pasta"
 
 msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr ""
+msgstr "Arraste e solte os arquivos PDF ou o diretório contendo os mesmos"
 
 msgid "No PDF found"
-msgstr ""
+msgstr "PDF não encontrado"
 
 msgid "Pace"
 msgstr "Passo"
@@ -356,6 +362,8 @@ msgid ""
 "Double click to set the number of pages after which the task will switch to "
 "the next file"
 msgstr ""
+"Duplo clique para escolher o número de páginas após a tarefa irá mudar para "
+"o próximo arquivo"
 
 # G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:166
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:182
@@ -554,13 +562,15 @@ msgid "Unable to find the latest available version."
 msgstr "Não foi possível localizar a última versão disponível."
 
 msgid "Fetching premium modules"
-msgstr ""
+msgstr "Obtendo módulos premium"
 
 msgid "Unable to retrieve premium modules"
-msgstr ""
+msgstr "Não é possível recuperar os módulos premium"
 
 msgid "Unable to retrieve premium features description"
 msgstr ""
+"Não foi possível recuperar a descrição das características dos módulos "
+"premium"
 
 msgid "Requesting modules state"
 msgstr "Requisitando o estado do módulo"
@@ -603,12 +613,12 @@ msgid "Invalid bookmarks level"
 msgstr "Nível de marcadores de texto inválido"
 
 msgid "Split by bookmarks"
-msgstr "Divide por marcadores de texto"
+msgstr "Dividir por marcadores de texto"
 
 msgid ""
 "Split a PDF document at bookmarked pages by specifying a bookmark level."
 msgstr ""
-"Dividir um documento PDF nas páginas com marcadores de texto através da "
+"Divide um documento PDF nas páginas com marcadores de texto através da "
 "informação de um nível de marcação de texto."
 
 msgid "Regular expression the bookmark has to match"
@@ -642,6 +652,8 @@ msgstr ""
 msgid ""
 "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Duplo click para escolher as páginas para misturar (ex: 2 ou 5-23 ou 2,5-"
+"7,12-)"
 
 msgid "Select a positive integer number as pace"
 msgstr "Selecione um número positivo como passo"
@@ -693,23 +705,20 @@ msgstr "Ambiente"
 msgid "Max memory {0}"
 msgstr "Memória máxima {0}"
 
-msgid "Copy to clipboard"
-msgstr "Copiar para a área de transferência"
-
 msgid "Support"
 msgstr "Suporte"
 
 msgid "Bug and feature requests"
 msgstr "Informe de erros e pedidos de funcionalidades"
 
-msgid "Play the \"get started\" video"
-msgstr "Reproduzir o vídeo \"começando a utilizar\""
+msgid "Documentation"
+msgstr "Documentação"
 
 msgid "Contribute"
 msgstr "Contribuir"
 
 msgid "Fork PDFsam on GitHub"
-msgstr "Derive PDFsam no GitHub"
+msgstr "Crie um fork do PDFSam no GitHub"
 
 msgid "Translate"
 msgstr "Traduzir"
@@ -794,12 +803,14 @@ msgstr ""
 "usuário para apoiar o PDFsam com uma doação"
 
 msgid "Show premium features"
-msgstr ""
+msgstr "Mostrar recursos premium"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
 "description in the modules dashboard"
 msgstr ""
+"Set whether the application should fetch and show premium features "
+"description in the modules dashboard"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Usar como diretório de saída o mesmo do documento PDF selecionado"
@@ -889,7 +900,7 @@ msgstr ""
 "acesso rápido, à esquerda, com os módulos usados com maior frequência."
 
 msgid "Premium features"
-msgstr ""
+msgstr "Ferramentas premium"
 
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\MainGUI.java:222
 msgid "About"
@@ -900,6 +911,15 @@ msgid ""
 msgstr ""
 "Os parâmetro inseridos são inválidos, abra as mensagens do aplicativo para "
 "ver os detalhes."
+
+msgid "Access denied"
+msgstr ""
+
+#, java-format
+msgid ""
+"Unable to access \"{0}\", please make sure you have write permissions or "
+"open the application messages for details."
+msgstr ""
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
@@ -966,11 +986,13 @@ msgid "Task failed"
 msgstr "Falha ao executar a tarefa"
 
 msgid "PDFsam can try to overcome the failure"
-msgstr ""
+msgstr "PDFsam pode tentar recuperar da falha"
 
 msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
 msgstr ""
+"Isso pode resultar em arquivos PDF com dados parciais ou ausentes, "
+"prosseguir de qualquer maneira?"
 
 msgid "Overwrite"
 msgstr "Substituir"
@@ -988,7 +1010,7 @@ msgid "E_xit"
 msgstr "_Sair"
 
 msgid "_Settings"
-msgstr ""
+msgstr "_Configurações"
 
 msgid "Application messages"
 msgstr "Mensagens do aplicativo"

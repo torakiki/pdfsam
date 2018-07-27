@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-10-12 12:35+0200\n"
-"PO-Revision-Date: 2017-10-19 08:11+0000\n"
+"POT-Creation-Date: 2018-07-19 18:31+0200\n"
+"PO-Revision-Date: 2018-04-05 07:12+0000\n"
 "Last-Translator: Hendrik <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-11-21 15:32+0000\n"
-"X-Generator: Launchpad (build 18505)\n"
+"X-Launchpad-Export-Date: 2018-07-27 13:24+0000\n"
+"X-Generator: Launchpad (build 18737)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -94,6 +94,9 @@ msgstr "Velden samenvoegen"
 
 msgid "Merge renaming existing fields"
 msgstr "Samenvoegen van het hernoemen van bestaande velden"
+
+msgid "Flatten"
+msgstr "Afvlakken"
 
 msgid "Discard forms"
 msgstr "Formulieren wegdoen"
@@ -332,6 +335,9 @@ msgstr "Naar einde verplaatsen"
 
 msgid "Duplicate"
 msgstr "Dupliceer"
+
+msgid "Copy to clipboard"
+msgstr "Kopieer naar klembord"
 
 msgid "Document properties"
 msgstr "Document-eigenschappen"
@@ -706,17 +712,14 @@ msgstr "Omgeving"
 msgid "Max memory {0}"
 msgstr "Max geheugen {0}"
 
-msgid "Copy to clipboard"
-msgstr "Kopieer naar klembord"
-
 msgid "Support"
 msgstr "Ondersteuning"
 
 msgid "Bug and feature requests"
 msgstr "Bug en feature aanvragen"
 
-msgid "Play the \"get started\" video"
-msgstr "Speel de \"aan de slag\" video af"
+msgid "Documentation"
+msgstr "Documentatie"
 
 msgid "Contribute"
 msgstr "Bijdragen"
@@ -920,6 +923,15 @@ msgid ""
 "Input parameters are invalid, open the application messages for details."
 msgstr ""
 "Invoer parameters zijn ongeldig, open het programmaberichten voor details."
+
+msgid "Access denied"
+msgstr ""
+
+#, java-format
+msgid ""
+"Unable to access \"{0}\", please make sure you have write permissions or "
+"open the application messages for details."
+msgstr ""
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"

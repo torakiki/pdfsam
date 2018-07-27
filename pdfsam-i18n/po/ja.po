@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-10-12 12:35+0200\n"
-"PO-Revision-Date: 2017-11-11 08:38+0000\n"
-"Last-Translator: Naofumi Fukue <naofum@gmail.com>\n"
+"POT-Creation-Date: 2018-07-19 18:31+0200\n"
+"PO-Revision-Date: 2018-05-18 00:40+0000\n"
+"Last-Translator: TakahiroKudou <chloroplast8@hotmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-11-21 15:32+0000\n"
-"X-Generator: Launchpad (build 18505)\n"
+"X-Launchpad-Export-Date: 2018-07-27 13:24+0000\n"
+"X-Generator: Launchpad (build 18737)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "抽出するページ (例: 2 or 5-23 or 2,5-7,12-)"
@@ -85,6 +85,9 @@ msgstr "フィールドをマージ"
 
 msgid "Merge renaming existing fields"
 msgstr "既存のフィールドの名前を変更してマージ"
+
+msgid "Flatten"
+msgstr ""
 
 msgid "Discard forms"
 msgstr "フォームを破棄"
@@ -305,6 +308,9 @@ msgstr "一番下に移動"
 
 msgid "Duplicate"
 msgstr "複製"
+
+msgid "Copy to clipboard"
+msgstr "クリップボードにコピー"
 
 msgid "Document properties"
 msgstr "文書のプロパティ"
@@ -640,17 +646,14 @@ msgstr "環境"
 msgid "Max memory {0}"
 msgstr "最大メモリー {0}"
 
-msgid "Copy to clipboard"
-msgstr "クリップボードにコピー"
-
 msgid "Support"
 msgstr "サポート"
 
 msgid "Bug and feature requests"
 msgstr "バグと機能のリクエスト"
 
-msgid "Play the \"get started\" video"
-msgstr "\"始めましょう\" ビデオを再生"
+msgid "Documentation"
+msgstr "文書"
 
 msgid "Contribute"
 msgstr "貢献"
@@ -829,12 +832,21 @@ msgid ""
 "Input parameters are invalid, open the application messages for details."
 msgstr "入力パラメータが正しくありません。詳細については、アプリケーション メッセージを開いてください。"
 
+msgid "Access denied"
+msgstr ""
+
+#, java-format
+msgid ""
+"Unable to access \"{0}\", please make sure you have write permissions or "
+"open the application messages for details."
+msgstr ""
+
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
 msgstr "PDFsamで {0} のタスクを実行しました。役立ちましたか?"
 
 msgid "Give something back"
-msgstr "何か戻します"
+msgstr "何かお返しをする"
 
 msgid "PDFsam worked hard!"
 msgstr "PDFsam はがんばりました!"

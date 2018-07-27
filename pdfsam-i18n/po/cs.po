@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-10-12 12:35+0200\n"
+"POT-Creation-Date: 2018-07-19 18:31+0200\n"
 "PO-Revision-Date: 2017-07-14 09:00+0000\n"
 "Last-Translator: Marek Matula <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-11-21 15:32+0000\n"
-"X-Generator: Launchpad (build 18505)\n"
+"X-Launchpad-Export-Date: 2018-07-27 13:24+0000\n"
+"X-Generator: Launchpad (build 18737)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Stránky na extrakci (např. 2 nebo 5-23 nebo 2,5-7,12-)"
@@ -88,6 +88,9 @@ msgstr "Sloučit pole"
 
 msgid "Merge renaming existing fields"
 msgstr "Sloučit přejmenovaná existující pole"
+
+msgid "Flatten"
+msgstr ""
 
 msgid "Discard forms"
 msgstr "Zrušit formuláře"
@@ -315,6 +318,9 @@ msgstr "Přesunout zcela dolů"
 
 msgid "Duplicate"
 msgstr "Duplikovat"
+
+msgid "Copy to clipboard"
+msgstr "Zkopírovat do schránky."
 
 msgid "Document properties"
 msgstr "Vlastnosti dokumentu"
@@ -661,17 +667,14 @@ msgstr "Prostředí"
 msgid "Max memory {0}"
 msgstr "Maximální paměť {0}"
 
-msgid "Copy to clipboard"
-msgstr "Zkopírovat do schránky."
-
 msgid "Support"
 msgstr "Podpora"
 
 msgid "Bug and feature requests"
 msgstr "Chyby a návrhy"
 
-msgid "Play the \"get started\" video"
-msgstr "Přehrát úvodní video"
+msgid "Documentation"
+msgstr ""
 
 msgid "Contribute"
 msgstr "Přispět"
@@ -864,6 +867,15 @@ msgid ""
 "Input parameters are invalid, open the application messages for details."
 msgstr ""
 "Vstupní parametry jsou neplatné, pro více detailů otevřete zprávy aplikace"
+
+msgid "Access denied"
+msgstr ""
+
+#, java-format
+msgid ""
+"Unable to access \"{0}\", please make sure you have write permissions or "
+"open the application messages for details."
+msgstr ""
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"

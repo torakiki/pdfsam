@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2017-10-12 12:35+0200\n"
-"PO-Revision-Date: 2017-11-18 14:37+0000\n"
+"POT-Creation-Date: 2018-07-19 18:31+0200\n"
+"PO-Revision-Date: 2018-03-24 19:16+0000\n"
 "Last-Translator: Patriccollu <Patrick.Santa-Maria@laposte.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-11-21 15:32+0000\n"
-"X-Generator: Launchpad (build 18505)\n"
+"X-Launchpad-Export-Date: 2018-07-27 13:24+0000\n"
+"X-Generator: Launchpad (build 18737)\n"
 "Language: co\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -88,6 +88,9 @@ msgstr "Fusione di i campi"
 
 msgid "Merge renaming existing fields"
 msgstr "Fusione di i campi esistente"
+
+msgid "Flatten"
+msgstr "Appianisce"
 
 msgid "Discard forms"
 msgstr "Scaccià i furmularii"
@@ -194,7 +197,7 @@ msgid "Split a PDF document at the given page numbers."
 msgstr "Sparte un ducumentu PDF à un numeru di pagine indicatu."
 
 msgid "Select or drag and drop the PDF you want to split"
-msgstr "Selezziunà o sguillà è depone u PDF chì voi vulete sparte"
+msgstr "Selezziunà o sguillà è spone u PDF chì voi vulete sparte"
 
 msgid "Split settings"
 msgstr "Preferenze di spartimentu"
@@ -289,7 +292,7 @@ msgid "Reverse"
 msgstr "Arritrusà"
 
 msgid "Drag and drop PDF files here"
-msgstr "Sguillà è depone i schedarii PDF quì"
+msgstr "Sguillà è spone quì i schedarii PDF"
 
 msgid "Set destination"
 msgstr "Definisce a destinazione"
@@ -315,6 +318,9 @@ msgstr "Move à a Fine"
 msgid "Duplicate"
 msgstr "Duplicà"
 
+msgid "Copy to clipboard"
+msgstr "Cupià ver di u preme'papei"
+
 msgid "Document properties"
 msgstr "Pruprietà di u ducumentu"
 
@@ -326,7 +332,7 @@ msgstr "Apre un Sfugliaghju"
 
 msgid "Drag and drop PDF files or directories containing PDF files"
 msgstr ""
-"Sguillà è depone schedarii PDF o cartulari chì cuntenenu schedarii PDF"
+"Sguillà è spone schedarii PDF o cartulari chì cuntenenu schedarii PDF"
 
 msgid "No PDF found"
 msgstr "Alcunu PDF trovu"
@@ -666,17 +672,14 @@ msgstr "Ambiente"
 msgid "Max memory {0}"
 msgstr "Memoria massima {0}"
 
-msgid "Copy to clipboard"
-msgstr "Cupià ver di u preme'papei"
-
 msgid "Support"
 msgstr "Assistenza"
 
 msgid "Bug and feature requests"
 msgstr "Riferimentu di penseru è richiesta di migliuramentu"
 
-msgid "Play the \"get started\" video"
-msgstr "Fighjà a video \"cumu principià\""
+msgid "Documentation"
+msgstr "Ducumentazione"
 
 msgid "Contribute"
 msgstr "Cuntribuì"
@@ -880,6 +883,15 @@ msgid ""
 msgstr ""
 "I parametri d'intrata sò inaccettevule, truverete più di detaglii in i "
 "messaghji d'appiecazione."
+
+msgid "Access denied"
+msgstr ""
+
+#, java-format
+msgid ""
+"Unable to access \"{0}\", please make sure you have write permissions or "
+"open the application messages for details."
+msgstr ""
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"

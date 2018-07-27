@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-10-12 12:35+0200\n"
-"PO-Revision-Date: 2016-09-30 08:30+0000\n"
-"Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
+"POT-Creation-Date: 2018-07-19 18:31+0200\n"
+"PO-Revision-Date: 2018-05-22 09:27+0000\n"
+"Last-Translator: Yoel <Unknown>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-11-21 15:32+0000\n"
-"X-Generator: Launchpad (build 18505)\n"
+"X-Launchpad-Export-Date: 2018-07-27 13:24+0000\n"
+"X-Generator: Launchpad (build 18737)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "מספרי העמודים לבחירה (למשל: \"2\", \"5-23\" או \"-2,5-7,12\")"
@@ -88,6 +88,9 @@ msgstr "מזג את השדות"
 
 msgid "Merge renaming existing fields"
 msgstr "מזג עם שינוי שמות השדות הקיימים"
+
+msgid "Flatten"
+msgstr ""
 
 msgid "Discard forms"
 msgstr "מחק טפסים"
@@ -311,6 +314,9 @@ msgstr "העבר לסוף"
 msgid "Duplicate"
 msgstr "שכפול"
 
+msgid "Copy to clipboard"
+msgstr "העתק ללוח"
+
 msgid "Document properties"
 msgstr "מאפייני המסמך"
 
@@ -324,7 +330,7 @@ msgid "Drag and drop PDF files or directories containing PDF files"
 msgstr ""
 
 msgid "No PDF found"
-msgstr ""
+msgstr "לא נמצא PDF"
 
 msgid "Pace"
 msgstr "קצב ההתקדמות"
@@ -447,10 +453,10 @@ msgid "Output PDF version:"
 msgstr "גרסת PDF של הפלט:"
 
 msgid "Show advanced settings"
-msgstr ""
+msgstr "הצג הגדרות מתקדמות"
 
 msgid "Hide advanced settings"
-msgstr ""
+msgstr "הסתר הגדרות מתקדמות"
 
 msgid "Select"
 msgstr "בחרו"
@@ -599,6 +605,8 @@ msgstr "מזג שני מסמכי PDF או יותר, תוך לקיחת העמוד
 msgid ""
 "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"לחץ פעמיים כדי לקבוע איזה עמודים לארגן מחדש (לדוגמה 2 או 5-23 או 2,5-7 או (-"
+"2,5-7,12)"
 
 msgid "Select a positive integer number as pace"
 msgstr "בחרו מספר חיובי כקצב ההתקדמות"
@@ -650,17 +658,14 @@ msgstr "סביבה"
 msgid "Max memory {0}"
 msgstr "זכרון מקסימלי {0}"
 
-msgid "Copy to clipboard"
-msgstr "העתק ללוח"
-
 msgid "Support"
 msgstr "תמיכה"
 
 msgid "Bug and feature requests"
 msgstr "בקשות לשיפור ותיקוני באגים"
 
-msgid "Play the \"get started\" video"
-msgstr "הפעל את הוידאו 'הוראות למתחילים'"
+msgid "Documentation"
+msgstr ""
 
 msgid "Contribute"
 msgstr "לתרום"
@@ -840,6 +845,15 @@ msgstr "אודות"
 msgid ""
 "Input parameters are invalid, open the application messages for details."
 msgstr "פרמטרי הקלט אינם תקינים. מידע נוסף בהודעות התוכנית."
+
+msgid "Access denied"
+msgstr ""
+
+#, java-format
+msgid ""
+"Unable to access \"{0}\", please make sure you have write permissions or "
+"open the application messages for details."
+msgstr ""
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"

@@ -5,15 +5,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDFSam 3\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2017-10-12 12:35+0200\n"
-"PO-Revision-Date: 2017-05-17 07:17+0000\n"
-"Last-Translator: hanklu <Unknown>\n"
+"POT-Creation-Date: 2018-07-19 18:31+0200\n"
+"PO-Revision-Date: 2018-06-20 08:44+0000\n"
+"Last-Translator: ken su <Unknown>\n"
 "Language-Team: Chinese (Taiwan) (zh_TW@li.org)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-11-21 15:32+0000\n"
-"X-Generator: Launchpad (build 18505)\n"
+"X-Launchpad-Export-Date: 2018-07-27 13:24+0000\n"
+"X-Generator: Launchpad (build 18737)\n"
 "Language: zh_TW\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -26,7 +26,7 @@ msgid "Extract pages:"
 msgstr ""
 
 msgid "Extract"
-msgstr ""
+msgstr "擷取"
 
 msgid "Extract pages from PDF documents."
 msgstr ""
@@ -84,6 +84,9 @@ msgstr "合併欄位"
 
 msgid "Merge renaming existing fields"
 msgstr "合併並重新命名已存在的欄位"
+
+msgid "Flatten"
+msgstr ""
 
 msgid "Discard forms"
 msgstr "丟棄表單"
@@ -304,6 +307,9 @@ msgstr "移至最底"
 msgid "Duplicate"
 msgstr "複製"
 
+msgid "Copy to clipboard"
+msgstr "複製到剪貼簿"
+
 msgid "Document properties"
 msgstr "文件性質"
 
@@ -373,7 +379,7 @@ msgid "Move _Down"
 msgstr "下移 (_D)"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "雙擊滑鼠進行選擇頁面的設定(ex: 2 or 5-23 or 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "頁數範圍"
@@ -437,10 +443,10 @@ msgid "Output PDF version:"
 msgstr "輸出 PDF 版本："
 
 msgid "Show advanced settings"
-msgstr ""
+msgstr "顯示進階的設定"
 
 msgid "Hide advanced settings"
-msgstr ""
+msgstr "隱藏進階的設定"
 
 msgid "Select"
 msgstr "選擇"
@@ -638,17 +644,14 @@ msgstr "環境"
 msgid "Max memory {0}"
 msgstr "記憶體上限 {0}"
 
-msgid "Copy to clipboard"
-msgstr "複製到剪貼簿"
-
 msgid "Support"
 msgstr "支援"
 
 msgid "Bug and feature requests"
 msgstr "錯誤回報及功能需求"
 
-msgid "Play the \"get started\" video"
-msgstr "播放「快速入門」視訊"
+msgid "Documentation"
+msgstr ""
 
 msgid "Contribute"
 msgstr "貢獻"
@@ -827,6 +830,15 @@ msgid ""
 "Input parameters are invalid, open the application messages for details."
 msgstr "輸入的參數無效，請開啟應用程式訊息取得詳細的資訊。"
 
+msgid "Access denied"
+msgstr ""
+
+#, java-format
+msgid ""
+"Unable to access \"{0}\", please make sure you have write permissions or "
+"open the application messages for details."
+msgstr ""
+
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
 msgstr "您透過 PDFsam 完成 {0} 項工作, 這對您有幫助嗎?"
@@ -847,7 +859,7 @@ msgid "New version available"
 msgstr "有新版本可用"
 
 msgid "Open with"
-msgstr ""
+msgstr "開啟用..."
 
 msgid "Select the task to perform on the following files"
 msgstr ""

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-10-12 12:35+0200\n"
-"PO-Revision-Date: 2017-09-09 15:41+0000\n"
+"POT-Creation-Date: 2018-07-19 18:31+0200\n"
+"PO-Revision-Date: 2018-04-24 12:22+0000\n"
 "Last-Translator: Sérgio Marques <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-11-21 15:32+0000\n"
-"X-Generator: Launchpad (build 18505)\n"
+"X-Launchpad-Export-Date: 2018-07-27 13:24+0000\n"
+"X-Generator: Launchpad (build 18737)\n"
 "Language: pt\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -90,6 +90,9 @@ msgstr "Unir campos"
 
 msgid "Merge renaming existing fields"
 msgstr "Unir campos existentes"
+
+msgid "Flatten"
+msgstr "Alisar"
 
 msgid "Discard forms"
 msgstr "Descartar formulários"
@@ -172,7 +175,7 @@ msgstr "Erro ao gravar o ficheiro de registo."
 
 #, java-format
 msgid "File {0} saved."
-msgstr "Ficheiro {0} gravado."
+msgstr "Ficheiro {0} guardado."
 
 msgid "Split"
 msgstr "Separar"
@@ -296,7 +299,7 @@ msgid "Set destination"
 msgstr "Defina o destino"
 
 msgid "Set as range for all"
-msgstr ""
+msgstr "Definir como intervalo para tudo"
 
 msgid "Remove"
 msgstr "Remover"
@@ -315,6 +318,9 @@ msgstr "Mover para o fundo"
 
 msgid "Duplicate"
 msgstr "Duplicar"
+
+msgid "Copy to clipboard"
+msgstr "Copiar para a área de transferência"
 
 msgid "Document properties"
 msgstr "Propriedades do documento"
@@ -537,11 +543,11 @@ msgid "Requesting modules state"
 msgstr "Solicitando estado dos módulos"
 
 msgid "Unable to save modules workspace"
-msgstr "Não foi possível gravar a área de trabalho dos módulos"
+msgstr "Não foi possível guardar a área de trabalho de módulos"
 
 #, java-format
 msgid "Unable to save workspace to {0}"
-msgstr "Não foi possivel gravar o ambiente de trabalho para {0}"
+msgstr "Não foi possivel guardar a área de trabalho para {0}"
 
 #, java-format
 msgid "Loading workspace from {0}"
@@ -559,7 +565,7 @@ msgid "Saving workspace data to {0}"
 msgstr "A gravar dados da área de trabalho em {0}"
 
 msgid "Workspace saved"
-msgstr "Área de trabalho gravada"
+msgstr "Área de trabalho guardada"
 
 msgid "Unable to retrieve latest news"
 msgstr "Não foi possível obter as notícias recentes"
@@ -665,17 +671,14 @@ msgstr "Ambiente"
 msgid "Max memory {0}"
 msgstr "Memória máxima {0}"
 
-msgid "Copy to clipboard"
-msgstr "Copiar para a área de transferência"
-
 msgid "Support"
 msgstr "Suporte"
 
 msgid "Bug and feature requests"
 msgstr "Relatórios de erros e funções"
 
-msgid "Play the \"get started\" video"
-msgstr "Reproduzir o vídeo de iniciação"
+msgid "Documentation"
+msgstr "Documentação"
 
 msgid "Contribute"
 msgstr "Participar"
@@ -780,12 +783,11 @@ msgstr ""
 "Utilizar o diretório do documento selecionado como diretório de destino"
 
 msgid "Save default workspace on exit"
-msgstr "Gravar ambiente de trabalho pré-definido ao sair"
+msgstr "Guardar ambiente de trabalho padrão ao sair"
 
 msgid "If a default workspace is set, save it on application exit"
 msgstr ""
-"Se o ambiente de trabalho pré-definido está ativo, grava-o ao sair da "
-"aplicação"
+"Se o ambiente de trabalho padrão estiver ativo, guardar ao sair da aplicação"
 
 msgid "Maximum number of rows mast be a positive number"
 msgstr "O número máximo de linhas tem de ser positivo"
@@ -820,14 +822,13 @@ msgstr "Saída"
 
 msgid ""
 "Select a directory where documents will be saved and loaded by default"
-msgstr "Selecione o diretório para gravação e carregamento de documentos"
+msgstr "Selecione o diretório para guardar e carregar os documentos"
 
 msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
 "startup"
 msgstr ""
-"Selecione a área de trabalho gravada que será carregada automaticamente ao "
-"iniciar"
+"Selecione a área de trabalho que será carregada automaticamente ao iniciar"
 
 msgid "Select a workspace"
 msgstr "Selecione a área de trabalho"
@@ -848,7 +849,7 @@ msgid "Language:"
 msgstr "Idioma:"
 
 msgid "Set your preferred language (restart needed)"
-msgstr "Defina o seu idioma preferido (precisa reiniciar)"
+msgstr "Defina o seu idioma preferido (tem que reiniciar)"
 
 msgid "Startup module:"
 msgstr "Módulo de arranque:"
@@ -875,6 +876,15 @@ msgid ""
 msgstr ""
 "Os parâmetros de entrada não são válidos. Abra as mensagens da aplicação "
 "para detelhes."
+
+msgid "Access denied"
+msgstr ""
+
+#, java-format
+msgid ""
+"Unable to access \"{0}\", please make sure you have write permissions or "
+"open the application messages for details."
+msgstr ""
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
@@ -976,13 +986,13 @@ msgid "_Load"
 msgstr "_Carregar"
 
 msgid "_Save"
-msgstr "_Gravar"
+msgstr "_Guardar"
 
 msgid "Recen_t"
 msgstr "Recen_tes"
 
 msgid "Select the workspace file to save"
-msgstr "Selecione o ficheiro de área de trabalho para gravar"
+msgstr "Selecione o ficheiro de área de trabalho a guardar"
 
 msgid "Select the workspace to load"
 msgstr "Selecione o ficheiro de área de trabalho a carregar"
@@ -1000,10 +1010,10 @@ msgid "Select all"
 msgstr "Selecionar tudo"
 
 msgid "Save log"
-msgstr "Gravar registo"
+msgstr "Guardar registos"
 
 msgid "Select where to save the log file"
-msgstr "Selecione o local para gravar o registo"
+msgstr "Selecione o local para guardar os registos"
 
 #, java-format
 msgid "Started in {0}"
