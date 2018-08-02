@@ -6,6 +6,8 @@
 	    <Package Description="!(loc.ProductDescription)" Comments="!(loc.ProductComments)" InstallerVersion="200" InstallPrivileges="elevated" Compressed="yes" Id="*" />
 	    <Media Id="1" Cabinet="$(var.ProductCodeName).cab" EmbedCab="yes" />
 	    <PropertyRef Id="NETFRAMEWORK30"/>
+	    <PropertyRef Id="NETFRAMEWORK35"/>
+	    <PropertyRef Id="WIX_IS_NETFRAMEWORK_40_OR_LATER_INSTALLED"/>
 	    <Property Id="ARPHELPLINK" Value="!(loc.ProductHelpLink)" />
 	    <Property Id="ALLUSERS" Value="1" />
 	    <Property Id="ARPPRODUCTICON" Value="pdfsam.ico" />
@@ -31,7 +33,7 @@
 
         <InstallExecuteSequence>
             <Custom Action="SetCustomActionDataValue" Before="InstallFinalize"></Custom>
-            <Custom Action="CustomActions.AddLine" After="SetCustomActionDataValue">NETFRAMEWORK30</Custom>
+            <Custom Action="CustomActions.AddLine" After="SetCustomActionDataValue">NETFRAMEWORK30 OR NETFRAMEWORK35 OR WIX_IS_NETFRAMEWORK_40_OR_LATER_INSTALLED</Custom>
 			<Custom Action="LaunchBrowser" Before="InstallFinalize">NOT Installed AND (SKIPTHANKSPAGE = "No")</Custom>
         </InstallExecuteSequence>
 

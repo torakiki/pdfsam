@@ -38,7 +38,8 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CustomActions.cs" />
+    <Compile Include="CustomAction.cs" />
+    <Content Include="CustomAction.config" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Deployment.WindowsInstaller, Version=3.0.0.0, Culture=neutral, PublicKeyToken=ce35f76fcda82bad, processorArchitecture=MSIL">
