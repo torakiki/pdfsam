@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2018-07-19 18:31+0200\n"
-"PO-Revision-Date: 2017-03-01 15:09+0000\n"
+"PO-Revision-Date: 2018-07-31 23:14+0000\n"
 "Last-Translator: SongL <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-07-27 13:24+0000\n"
-"X-Generator: Launchpad (build 18737)\n"
+"X-Launchpad-Export-Date: 2018-08-10 09:20+0000\n"
+"X-Generator: Launchpad (build 18747)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "要提取的页面（如：2 或 5-23 或 2,5-7,12-）"
@@ -33,35 +33,35 @@ msgid "Extract pages from PDF documents."
 msgstr "从PDF文档中提取页面。"
 
 msgid "File names settings"
-msgstr ""
+msgstr "文件名设置"
 
 msgid "Extract settings"
 msgstr "提取设置"
 
 msgid "Output settings"
-msgstr ""
+msgstr "输出设置"
 
 msgid "No PDF document has been selected"
-msgstr ""
+msgstr "未选中PDF文档"
 
 msgid "Merge"
-msgstr ""
+msgstr "合并"
 
 msgid "Merge together multiple PDF documents or subsections of them."
-msgstr ""
+msgstr "合并多个PDF文档或者其部分"
 
 msgid "Merge settings"
-msgstr ""
+msgstr "合并设置"
 
 msgid "Destination file"
-msgstr ""
+msgstr "合并设置"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "双击设置要合并的页面 （比如：2 或 5-23 或 2,5-7, 12-）"
 
 msgid "Add a blank page if page number is odd"
-msgstr ""
+msgstr "如果页数为奇数则添加一个空白页"
 
 msgid ""
 "Adds a blank page after each merged document if the document has an odd "
@@ -69,16 +69,16 @@ msgid ""
 msgstr ""
 
 msgid "Add a footer"
-msgstr ""
+msgstr "添加脚标"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr ""
 
 msgid "Normalize pages size"
-msgstr ""
+msgstr "均一化页面大小"
 
 msgid "Resizes all pages to have the same width as the first page."
-msgstr ""
+msgstr "调整全部页面大小，与首页采用相同宽度。"
 
 msgid "Merge fields"
 msgstr ""
@@ -90,19 +90,19 @@ msgid "Flatten"
 msgstr ""
 
 msgid "Discard forms"
-msgstr ""
+msgstr "丢弃表单"
 
 msgid "Interactive forms (AcroForms):"
-msgstr ""
+msgstr "互动式表单（AcroForms）"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr ""
 
 msgid "Retain bookmarks"
-msgstr ""
+msgstr "保留书签"
 
 msgid "Discard bookmarks"
-msgstr ""
+msgstr "丢弃书签"
 
 msgid "Create one entry for each merged document"
 msgstr ""
@@ -117,20 +117,20 @@ msgid "What to do in case one or more input documents contain bookmarks"
 msgstr ""
 
 msgid "Don't generate"
-msgstr ""
+msgstr "不要生成"
 
 msgid "Generate from file names"
-msgstr ""
+msgstr "从文件名生成"
 
 msgid "Generate from documents titles"
-msgstr ""
+msgstr "从文档标题生成"
 
 msgid "Table of contents:"
-msgstr ""
+msgstr "目录"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
-msgstr ""
+msgstr "设置生成的PDF文档是否应包含目录"
 
 msgid "Valid user password provided."
 msgstr ""

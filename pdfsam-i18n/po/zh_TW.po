@@ -6,21 +6,21 @@ msgstr ""
 "Project-Id-Version: PDFSam 3\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
 "POT-Creation-Date: 2018-07-19 18:31+0200\n"
-"PO-Revision-Date: 2018-06-20 08:44+0000\n"
-"Last-Translator: ken su <Unknown>\n"
+"PO-Revision-Date: 2018-08-02 15:21+0000\n"
+"Last-Translator: wOOLaLa <Unknown>\n"
 "Language-Team: Chinese (Taiwan) (zh_TW@li.org)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-07-27 13:24+0000\n"
-"X-Generator: Launchpad (build 18737)\n"
+"X-Launchpad-Export-Date: 2018-08-10 09:20+0000\n"
+"X-Generator: Launchpad (build 18747)\n"
 "Language: zh_TW\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "擷取指定頁 (例如:  2 or 5-23 or 2,5-7,12-)"
 
 msgid "Invalid page ranges"
-msgstr ""
+msgstr "頁數範圍錯誤"
 
 msgid "Extract pages:"
 msgstr ""
@@ -29,22 +29,22 @@ msgid "Extract"
 msgstr "擷取"
 
 msgid "Extract pages from PDF documents."
-msgstr ""
+msgstr "從 PDF檔擷取指定頁"
 
 msgid "File names settings"
 msgstr "檔名設定"
 
 msgid "Extract settings"
-msgstr ""
+msgstr "擷取設定"
 
 msgid "Output settings"
-msgstr ""
+msgstr "輸出設定"
 
 msgid "No PDF document has been selected"
 msgstr "未選取 PDF 文件檔"
 
 msgid "Merge"
-msgstr "合併"
+msgstr "Merge（合併）"
 
 msgid "Merge together multiple PDF documents or subsections of them."
 msgstr "將多個 PDF 文件或是子章節合併。"
@@ -77,7 +77,7 @@ msgid "Normalize pages size"
 msgstr ""
 
 msgid "Resizes all pages to have the same width as the first page."
-msgstr ""
+msgstr "將所有的頁面寬度調整到跟第一頁相同"
 
 msgid "Merge fields"
 msgstr "合併欄位"
@@ -230,7 +230,7 @@ msgstr "只有有效的正數頁面數才可用"
 
 msgid ""
 "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "雙擊滑鼠進行頁面旋轉(例: 2 or 5-23 or 2,5-7,12-)"
 
 msgid "Rotate"
 msgstr "旋轉"
@@ -323,7 +323,7 @@ msgid "Drag and drop PDF files or directories containing PDF files"
 msgstr ""
 
 msgid "No PDF found"
-msgstr ""
+msgstr "找不到任何PDF檔案"
 
 msgid "Pace"
 msgstr ""
@@ -364,7 +364,7 @@ msgid "_Clear"
 msgstr "清除 (_C)"
 
 msgid "C_lear all settings"
-msgstr ""
+msgstr "清除所有設定"
 
 msgid "Moves up selected documents"
 msgstr "將所選文件往上移"
@@ -704,7 +704,7 @@ msgid ""
 msgstr "設定啟動時是否檢查有可用的新版本（必須重新啟動程式）"
 
 msgid "Check for news at startup"
-msgstr ""
+msgstr "啟動時檢查官方新聞"
 
 msgid ""
 "Set whether the application should check for news availability on startup "
@@ -723,7 +723,7 @@ msgstr ""
 msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
 "password in the workspace file"
-msgstr ""
+msgstr "當加密的PDF檔案被使用密碼開啟時，將密碼儲存於工作區"
 
 msgid "Show donation window"
 msgstr "顯示捐款視窗"
@@ -831,7 +831,7 @@ msgid ""
 msgstr "輸入的參數無效，請開啟應用程式訊息取得詳細的資訊。"
 
 msgid "Access denied"
-msgstr ""
+msgstr "拒絕存取"
 
 #, java-format
 msgid ""
@@ -926,7 +926,7 @@ msgid "E_xit"
 msgstr "關閉程式 (_x)"
 
 msgid "_Settings"
-msgstr ""
+msgstr "設定值(_S)"
 
 msgid "Application messages"
 msgstr "應用程式訊息"

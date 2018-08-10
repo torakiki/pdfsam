@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2018-07-19 18:31+0200\n"
-"PO-Revision-Date: 2018-07-27 13:21+0000\n"
-"Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
+"PO-Revision-Date: 2018-08-07 02:47+0000\n"
+"Last-Translator: Marcelo Pérez <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-07-27 13:24+0000\n"
-"X-Generator: Launchpad (build 18737)\n"
+"X-Launchpad-Export-Date: 2018-08-10 09:20+0000\n"
+"X-Generator: Launchpad (build 18747)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Páginas a extraer (ej: 2 o 5-23 o 2,5-7,12-)"
@@ -304,16 +304,10 @@ msgid "Set destination"
 msgstr "Fijar destino"
 
 msgid "Set as range for all"
-msgstr ""
+msgstr "Definir el rango total"
 
-# G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:252
-# G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:297
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:273
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:317
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:266
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:311
 msgid "Remove"
-msgstr "Eliminar"
+msgstr "Retirar"
 
 msgid "Move to Top"
 msgstr "Mover al principio"
