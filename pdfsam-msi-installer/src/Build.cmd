@@ -1,6 +1,6 @@
 @ECHO OFF
 
-SET PDFSAM_VERSION=3.3.6
+SET PDFSAM_VERSION=3.3.7
 
 REM Prevent compiling with outdated pdfsam.wixobj file if there is a error in candle.
 del /Q pdfsam.wixobj
