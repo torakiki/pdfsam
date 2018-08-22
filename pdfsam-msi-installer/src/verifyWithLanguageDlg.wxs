@@ -14,28 +14,32 @@
                     <Publish Event="SpawnDialog" Value="OutOfDiskDlg">(OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 1) OR (OutOfDiskSpace = 1 AND PROMPTROLLBACKCOST="F")</Publish>
 
                 		<Publish Property="LOCALE_CODE" Value="eu">LOCALE = "Basque"</Publish>
-          					<Publish Property="LOCALE_CODE" Value="bs">LOCALE = "Bosnian"</Publish>
-          					<Publish Property="LOCALE_CODE" Value="pt_BR">LOCALE = "Brazilian Portuguese"</Publish>
-          					<Publish Property="LOCALE_CODE" Value="ca">LOCALE = "Catalan"</Publish>
-                    <Publish Property="LOCALE_CODE" Value="zh_CN">LOCALE = "Simplified Chinese"</Publish>
-                    <Publish Property="LOCALE_CODE" Value="zh_TW">LOCALE = "Traditional Chinese"</Publish>
-                    <Publish Property="LOCALE_CODE" Value="co">LOCALE = "Corsican"</Publish>
-                    <Publish Property="LOCALE_CODE" Value="cs">LOCALE = "Czech"</Publish>
-          					<Publish Property="LOCALE_CODE" Value="da">LOCALE = "Danish"</Publish>
-          					<Publish Property="LOCALE_CODE" Value="nl">LOCALE = "Dutch"</Publish>
-          					<Publish Property="LOCALE_CODE" Value="en_GB">LOCALE = "English (UK)"</Publish>
-          					<Publish Property="LOCALE_CODE" Value="fr">LOCALE = "French"</Publish>
-          					<Publish Property="LOCALE_CODE" Value="de">LOCALE = "German"</Publish>
-          					<Publish Property="LOCALE_CODE" Value="hu">LOCALE = "Hungarian"</Publish>
-          					<Publish Property="LOCALE_CODE" Value="ja">LOCALE = "Japanese"</Publish>
-          					<Publish Property="LOCALE_CODE" Value="it">LOCALE = "Italian"</Publish>
-          					<Publish Property="LOCALE_CODE" Value="pt">LOCALE = "Portuguese"</Publish>
-          					<Publish Property="LOCALE_CODE" Value="ro">LOCALE = "Romanian"</Publish>
-          					<Publish Property="LOCALE_CODE" Value="ru">LOCALE = "Russian"</Publish>
-          					<Publish Property="LOCALE_CODE" Value="sk">LOCALE = "Slovak"</Publish>
-          					<Publish Property="LOCALE_CODE" Value="es">LOCALE = "Spanish"</Publish>
-          					<Publish Property="LOCALE_CODE" Value="tr">LOCALE = "Turkish"</Publish>
-          					<Publish Property="LOCALE_CODE" Value="uk">LOCALE = "Ukrainian"</Publish>
+          				<Publish Property="LOCALE_CODE" Value="bs">LOCALE = "Bosnian"</Publish>
+          				<Publish Property="LOCALE_CODE" Value="pt_BR">LOCALE = "Brazilian Portuguese"</Publish>
+          				<Publish Property="LOCALE_CODE" Value="ca">LOCALE = "Catalan"</Publish>
+                    	<Publish Property="LOCALE_CODE" Value="zh_CN">LOCALE = "Simplified Chinese"</Publish>
+                    	<Publish Property="LOCALE_CODE" Value="zh_TW">LOCALE = "Traditional Chinese"</Publish>
+                    	<Publish Property="LOCALE_CODE" Value="co">LOCALE = "Corsican"</Publish>
+                    	<Publish Property="LOCALE_CODE" Value="hr">LOCALE = "Croatian"</Publish>
+                    	<Publish Property="LOCALE_CODE" Value="cs">LOCALE = "Czech"</Publish>
+          				<Publish Property="LOCALE_CODE" Value="da">LOCALE = "Danish"</Publish>
+          				<Publish Property="LOCALE_CODE" Value="nl">LOCALE = "Dutch"</Publish>
+          				<Publish Property="LOCALE_CODE" Value="en_GB">LOCALE = "English (UK)"</Publish>
+          				<Publish Property="LOCALE_CODE" Value="fi">LOCALE = "Finnish"</Publish>
+          				<Publish Property="LOCALE_CODE" Value="fr">LOCALE = "French"</Publish>
+          				<Publish Property="LOCALE_CODE" Value="de">LOCALE = "German"</Publish>
+          				<Publish Property="LOCALE_CODE" Value="hu">LOCALE = "Hungarian"</Publish>
+          				<Publish Property="LOCALE_CODE" Value="ja">LOCALE = "Japanese"</Publish>
+          				<Publish Property="LOCALE_CODE" Value="it">LOCALE = "Italian"</Publish>
+          				<Publish Property="LOCALE_CODE" Value="pl">LOCALE = "Polish"</Publish>
+          				<Publish Property="LOCALE_CODE" Value="pt">LOCALE = "Portuguese"</Publish>
+          				<Publish Property="LOCALE_CODE" Value="ro">LOCALE = "Romanian"</Publish>
+          				<Publish Property="LOCALE_CODE" Value="ru">LOCALE = "Russian"</Publish>
+          				<Publish Property="LOCALE_CODE" Value="sk">LOCALE = "Slovak"</Publish>
+          				<Publish Property="LOCALE_CODE" Value="sl">LOCALE = "Slovenian"</Publish>
+          				<Publish Property="LOCALE_CODE" Value="es">LOCALE = "Spanish"</Publish>
+          				<Publish Property="LOCALE_CODE" Value="tr">LOCALE = "Turkish"</Publish>
+          				<Publish Property="LOCALE_CODE" Value="uk">LOCALE = "Ukrainian"</Publish>
                  </Control>
                 <Control Id="InstallNoShield" Type="PushButton" ElevationShield="no" X="212" Y="243" Width="80" Height="17" Default="yes" Hidden="yes" Disabled="yes" Text="!(loc.VerifyReadyDlgInstall)">
                     <Condition Action="show">NOT Installed AND NOT ALLUSERS</Condition>
@@ -126,28 +130,33 @@
                 </Control>
         				<Control Id="LanguageCombo" Type="ComboBox" Property="LOCALE" Width="107" Height="16" X="120" Y="68" Hidden="yes">
         					<ComboBox Property="LOCALE">
-                    <ListItem Value="Basque" />
+                    			<ListItem Value="Basque" />
         						<ListItem Value="Bosnian" />
         						<ListItem Value="Brazilian Portuguese" />
         						<ListItem Value="Catalan" />
+        						<ListItem Value="Corsican" />
+        						<ListItem Value="Croatian" />
         						<ListItem Value="Czech" />
         						<ListItem Value="Danish" />
         						<ListItem Value="Dutch" />
         						<ListItem Value="English (UK)" />
+        						<ListItem Value="Finnish" />
         						<ListItem Value="French" />
         						<ListItem Value="German" />
         						<ListItem Value="Japanese" />
         						<ListItem Value="Italian" />
+        						<ListItem Value="Polish" />
         						<ListItem Value="Portuguese" />
         						<ListItem Value="Romanian" />
         						<ListItem Value="Russian" />
         						<ListItem Value="Simplified Chinese" />
         						<ListItem Value="Slovak" />
+        						<ListItem Value="Slovenian" />
         						<ListItem Value="Spanish" />
         						<ListItem Value="Turkish" />
         						<ListItem Value="Ukrainian" />
         						<ListItem Value="Traditional Chinese" />
-                  </ComboBox>
+                  			</ComboBox>
         					<Condition Action="show">NOT Installed</Condition>
         				</Control>
                 <Control Id="ChangeTitle" Type="Text" X="15" Y="15" Width="300" Height="15" Transparent="yes" NoPrefix="yes" Hidden="yes" Text="!(loc.VerifyReadyDlgChangeTitle)">
