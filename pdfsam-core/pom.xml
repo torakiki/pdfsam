@@ -41,6 +41,7 @@
 		<dependency>
 			<groupId>de.jensd</groupId>
 			<artifactId>fontawesomefx-fontawesome</artifactId>
+			<version>2.2.0-9.1.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.sejda</groupId>
