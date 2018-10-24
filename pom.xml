@@ -130,6 +130,10 @@
 			<id>sejda</id>
 			<url>https://dl.bintray.com/sejdapdf/maven/</url>
 		</repository>
+		<repository>
+			<id>fontawesomfx</id>
+			<url>https://dl.bintray.com/jerady/maven/</url>
+		</repository>
 	</repositories>
 
 	<pluginRepositories>
