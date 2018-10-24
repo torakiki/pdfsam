@@ -40,7 +40,7 @@
 		</dependency>
 		<dependency>
 			<groupId>de.jensd</groupId>
-			<artifactId>fontawesomefx</artifactId>
+			<artifactId>fontawesomefx-fontawesome</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.sejda</groupId>
