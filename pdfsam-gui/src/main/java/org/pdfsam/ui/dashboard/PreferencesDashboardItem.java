@@ -24,8 +24,8 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.dashboard.preference.PreferencePane;
 import org.sejda.injector.Auto;
 
-import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
+import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
@@ -61,7 +61,7 @@ public class PreferencesDashboardItem implements DashboardItem {
 
     @Override
     public Node graphic() {
-        return GlyphsDude.createIcon(MaterialDesignIcon.SETTINGS, "26.0");
+        return MaterialDesignIconFactory.get().createIcon(MaterialDesignIcon.SETTINGS, "26.0");
     }
 
     @Override

@@ -28,8 +28,8 @@ import org.pdfsam.news.LatestNewsEvent;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 
-import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.utils.FontAwesomeIconFactory;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -52,7 +52,7 @@ public class NewsPanel extends VBox {
     public NewsPanel() {
         getStyleClass().add("news-panel");
         getStyleClass().addAll(Style.CONTAINER.css());
-        Button closeButton = GlyphsDude.createIconButton(FontAwesomeIcon.TIMES);
+        Button closeButton = FontAwesomeIconFactory.get().createIconButton(FontAwesomeIcon.TIMES);
         closeButton.getStyleClass().addAll("close-button");
         closeButton.setOnAction(e -> eventStudio().broadcast(HideNewsPanelRequest.INSTANCE));
         Label titleLabel = new Label(DefaultI18nContext.getInstance().i18n("What's new"));

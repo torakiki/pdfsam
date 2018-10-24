@@ -33,8 +33,8 @@ import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.commons.UrlButton;
 
-import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
+import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
@@ -58,7 +58,7 @@ class ModulesDashboardTile extends DashboardTile {
 
         module.descriptor().getSupportURL().ifPresent(url -> {
             UrlButton helpButton = UrlButton.urlButton(null, url, null, "pdfsam-toolbar-button");
-            helpButton.setGraphic(GlyphsDude.createIcon(MaterialDesignIcon.HELP_CIRCLE, "1.4em"));
+            helpButton.setGraphic(MaterialDesignIconFactory.get().createIcon(MaterialDesignIcon.HELP_CIRCLE, "1.4em"));
             toolButtons.getChildren().add(helpButton);
             toolButtons.getStyleClass().add("dashboard-modules-toolbar");
             addBottomPanel(toolButtons);

@@ -28,9 +28,10 @@ import org.pdfsam.news.NewsData;
 import org.pdfsam.ui.commons.OpenUrlRequest;
 import org.pdfsam.ui.commons.UrlButton;
 
-import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.utils.FontAwesomeIconFactory;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
+import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -53,7 +54,7 @@ public class News extends VBox {
         this.getStyleClass().add("news-box");
         TextFlow flow = new TextFlow();
         if (data.isImportant()) {
-            Text megaphone = GlyphsDude.createIcon(FontAwesomeIcon.BULLHORN, "1.2em");
+            Text megaphone = FontAwesomeIconFactory.get().createIcon(FontAwesomeIcon.BULLHORN, "1.2em");
             megaphone.getStyleClass().clear();
             megaphone.getStyleClass().add("news-box-title-important");
             flow.getChildren().addAll(megaphone, new Text(" "));
@@ -69,7 +70,8 @@ public class News extends VBox {
 
         flow.getChildren().addAll(titleText, contentText);
         flow.setTextAlignment(TextAlignment.JUSTIFY);
-        Label labelDate = new Label(FORMATTER.format(data.getDate()), GlyphsDude.createIcon(MaterialDesignIcon.CLOCK));
+        Label labelDate = new Label(FORMATTER.format(data.getDate()),
+                MaterialDesignIconFactory.get().createIcon(MaterialDesignIcon.CLOCK));
         labelDate.setPrefWidth(Integer.MAX_VALUE);
         HBox.setHgrow(labelDate, Priority.ALWAYS);
         HBox bottom = new HBox(labelDate);

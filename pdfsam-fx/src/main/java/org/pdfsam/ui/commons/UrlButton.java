@@ -26,7 +26,8 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import org.pdfsam.ui.support.Style;
 
 import de.jensd.fx.glyphs.GlyphIcons;
-import de.jensd.fx.glyphs.GlyphsDude;
+import de.jensd.fx.glyphs.GlyphsFactory;
+import de.jensd.fx.glyphs.fontawesome.utils.FontAwesomeIconFactory;
 import javafx.scene.control.Button;
 
 /**
@@ -72,7 +73,7 @@ public class UrlButton extends Button {
         UrlButton button = new UrlButton(text);
         button.setOnAction(e -> eventStudio().broadcast(new OpenUrlRequest(url)));
         if (nonNull(icon)) {
-            GlyphsDude.setIcon(button, icon);
+            FontAwesomeIconFactory.get().setIcon(button, icon);
         }
         if (nonNull(style) && style.length > 0) {
             button.getStyleClass().addAll(style);

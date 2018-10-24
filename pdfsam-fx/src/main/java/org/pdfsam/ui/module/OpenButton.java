@@ -51,9 +51,10 @@ import org.sejda.model.output.TaskOutputDispatcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.utils.FontAwesomeIconFactory;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
+import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitMenuButton;
 
@@ -132,19 +133,19 @@ public class OpenButton extends SplitMenuButton implements TaskOutputDispatcher 
     @Override
     public void dispatch(FileTaskOutput output) {
         destination = output.getDestination();
-        setGraphic(GlyphsDude.createIcon(FontAwesomeIcon.FILE_PDF_ALT, "1.6em"));
+        setGraphic(FontAwesomeIconFactory.get().createIcon(FontAwesomeIcon.FILE_PDF_ALT, "1.6em"));
     }
 
     @Override
     public void dispatch(DirectoryTaskOutput output) {
         destination = output.getDestination();
-        setGraphic(GlyphsDude.createIcon(MaterialDesignIcon.FOLDER_OUTLINE, "1.6em"));
+        setGraphic(MaterialDesignIconFactory.get().createIcon(MaterialDesignIcon.FOLDER_OUTLINE, "1.6em"));
     }
 
     @Override
     public void dispatch(FileOrDirectoryTaskOutput output) {
         destination = output.getDestination();
-        setGraphic(GlyphsDude.createIcon(MaterialDesignIcon.FOLDER_OUTLINE, "1.6em"));
+        setGraphic(MaterialDesignIconFactory.get().createIcon(MaterialDesignIcon.FOLDER_OUTLINE, "1.6em"));
     }
 
     private class OpenWithMenuItem extends MenuItem {

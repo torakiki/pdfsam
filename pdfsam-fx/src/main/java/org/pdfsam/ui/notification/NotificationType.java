@@ -18,9 +18,11 @@
  */
 package org.pdfsam.ui.notification;
 
-import de.jensd.fx.glyphs.GlyphsDude;
+import de.jensd.fx.glyphs.GlyphsFactory;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
+import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
+import de.jensd.fx.glyphs.fontawesome.utils.FontAwesomeIconFactory;
 import javafx.scene.Node;
 
 /**
@@ -33,7 +35,7 @@ public enum NotificationType {
     INFO {
         @Override
         public Node getGraphic() {
-            return GlyphsDude.createIcon(MaterialDesignIcon.INFORMATION, DEFAULT_ICON_SIZE);
+            return MaterialDesignIconFactory.get().createIcon(MaterialDesignIcon.INFORMATION, DEFAULT_ICON_SIZE);
         }
 
         @Override
@@ -44,7 +46,7 @@ public enum NotificationType {
     WARN {
         @Override
         public Node getGraphic() {
-            return GlyphsDude.createIcon(MaterialDesignIcon.ALERT, DEFAULT_ICON_SIZE);
+            return MaterialDesignIconFactory.get().createIcon(MaterialDesignIcon.ALERT, DEFAULT_ICON_SIZE);
         }
 
         @Override
@@ -55,7 +57,7 @@ public enum NotificationType {
     ERROR {
         @Override
         public Node getGraphic() {
-            return GlyphsDude.createIcon(MaterialDesignIcon.CLOSE_CIRCLE, DEFAULT_ICON_SIZE);
+            return MaterialDesignIconFactory.get().createIcon(MaterialDesignIcon.CLOSE_CIRCLE, DEFAULT_ICON_SIZE);
         }
 
         @Override
@@ -66,7 +68,7 @@ public enum NotificationType {
     GO_PRO {
         @Override
         public Node getGraphic() {
-            return GlyphsDude.createIcon(FontAwesomeIcon.HEART_ALT, DEFAULT_ICON_SIZE);
+            return FontAwesomeIconFactory.get().createIcon(FontAwesomeIcon.HEART_ALT, DEFAULT_ICON_SIZE);
         }
 
         @Override
@@ -77,7 +79,7 @@ public enum NotificationType {
     SHARE {
         @Override
         public Node getGraphic() {
-            return GlyphsDude.createIcon(FontAwesomeIcon.SHARE_ALT, DEFAULT_ICON_SIZE);
+            return FontAwesomeIconFactory.get().createIcon(FontAwesomeIcon.SHARE_ALT, DEFAULT_ICON_SIZE);
         }
 
         @Override

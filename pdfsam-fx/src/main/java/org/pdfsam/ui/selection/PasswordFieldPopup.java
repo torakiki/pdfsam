@@ -28,8 +28,8 @@ import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.ui.support.Style;
 
-import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.utils.FontAwesomeIconFactory;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -88,7 +88,7 @@ public class PasswordFieldPopup extends PopupControl implements ModuleOwned {
         public PasswordFieldPopupContent() {
             getStyleClass().setAll("pdfsam-input-password-content");
             passwordField.setPromptText(DefaultI18nContext.getInstance().i18n("Enter the user password"));
-            Button doneButton = GlyphsDude.createIconButton(FontAwesomeIcon.UNLOCK,
+            Button doneButton = FontAwesomeIconFactory.get().createIconButton(FontAwesomeIcon.UNLOCK,
                     DefaultI18nContext.getInstance().i18n("Unlock"));
             doneButton.getStyleClass().addAll(Style.BUTTON.css());
             doneButton.prefHeightProperty().bind(passwordField.heightProperty());

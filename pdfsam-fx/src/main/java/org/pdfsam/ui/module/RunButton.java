@@ -28,8 +28,9 @@ import org.sejda.injector.Prototype;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 
-import de.jensd.fx.glyphs.GlyphsDude;
+import de.jensd.fx.glyphs.GlyphsFactory;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
+import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
 import javafx.scene.control.Button;
 
 /**
@@ -44,7 +45,7 @@ public class RunButton extends Button {
     public RunButton() {
         getStyleClass().addAll(Style.FOOTER_BUTTON.css());
         setText(DefaultI18nContext.getInstance().i18n("Run"));
-        GlyphsDude.setIcon(this, MaterialDesignIcon.PLAY, "2.0em");
+        MaterialDesignIconFactory.get().setIcon(this, MaterialDesignIcon.PLAY, "2.0em");
         setMaxHeight(Double.MAX_VALUE);
         setPrefHeight(Double.MAX_VALUE);
         setDefaultButton(true);

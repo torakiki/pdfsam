@@ -91,5 +91,10 @@
 			<type>test-jar</type>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>de.jensd</groupId>
+			<artifactId>fontawesomefx-materialicons</artifactId>
+			<version>${fontawesomefx.version}</version>
+		</dependency>
 	</dependencies>
 </project>

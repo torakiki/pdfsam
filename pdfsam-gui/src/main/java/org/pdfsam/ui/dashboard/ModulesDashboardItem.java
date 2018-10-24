@@ -24,8 +24,8 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.dashboard.modules.ModulesDashboardPane;
 import org.sejda.injector.Auto;
 
-import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
+import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
@@ -62,7 +62,7 @@ class ModulesDashboardItem implements DashboardItem {
 
     @Override
     public Node graphic() {
-        return GlyphsDude.createIcon(MaterialDesignIcon.VIEW_MODULE, "26.0");
+        return MaterialDesignIconFactory.get().createIcon(MaterialDesignIcon.VIEW_MODULE, "26.0");
     }
 
     @Override

@@ -70,8 +70,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.jensd.fx.glyphs.GlyphIcons;
-import de.jensd.fx.glyphs.GlyphsDude;
+import de.jensd.fx.glyphs.GlyphsFactory;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
+import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
 import de.jensd.fx.glyphs.materialicons.MaterialIcon;
 import javafx.application.Platform;
 import javafx.collections.ListChangeListener.Change;
@@ -272,7 +273,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     private MenuItem createMenuItem(String text, GlyphIcons icon) {
         MenuItem item = new MenuItem(text);
-        GlyphsDude.setIcon(item, icon, "1.1em");
+        MaterialDesignIconFactory.get().setIcon(item, icon, "1.1em");
         item.setDisable(true);
         return item;
     }

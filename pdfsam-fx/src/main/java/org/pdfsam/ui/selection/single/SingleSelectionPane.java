@@ -60,9 +60,9 @@ import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
 
 import de.jensd.fx.glyphs.GlyphIcons;
-import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import de.jensd.fx.glyphs.materialicons.MaterialIcon;
+import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -303,7 +303,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
 
     private MenuItem createMenuItem(String text, GlyphIcons icon) {
         MenuItem item = new MenuItem(text);
-        GlyphsDude.setIcon(item, icon, "1.1em");
+        MaterialDesignIconFactory.get().setIcon(item, icon, "1.1em");
         item.setDisable(true);
         return item;
     }

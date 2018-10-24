@@ -58,5 +58,10 @@
 			<groupId>jdepend</groupId>
 			<artifactId>jdepend</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>de.jensd</groupId>
+			<artifactId>fontawesomefx-materialdesignfont</artifactId>
+			<version>${fontawesomefx.version}</version>
+		</dependency>
 	</dependencies>
 </project>

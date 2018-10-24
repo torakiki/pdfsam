@@ -48,7 +48,7 @@ public class StylesConfig {
         requireNotNull(theme, "Theme cannot be null");
         LOG.debug(DefaultI18nContext.getInstance().i18n("Installing theme {0}.", theme.friendlyName()));
         theme.styleSheets().stream().map(s -> this.getClass().getResource(s).toExternalForm()).forEach(styles::add);
-        styles.add(this.getClass().getResource(GlyphsStyle.DEFAULT.getStylePath()).toExternalForm());
+        //styles.add(this.getClass().getResource(GlyphsStyle.DEFAULT.getStylePath()).toExternalForm());
         if (!Platform.isSupported(ConditionalFeature.TRANSPARENT_WINDOW)) {
             styles.add(this.getClass().getResource("/themes/transparent-incapable.css").toExternalForm());
             LOG.info("Transparent windows not supported by the platform");
