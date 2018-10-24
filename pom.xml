@@ -249,7 +249,7 @@
 			</dependency>
 			<dependency>
 				<groupId>de.jensd</groupId>
-				<artifactId>fontawesomefx</artifactId>
+				<artifactId>fontawesomefx-fontawesome</artifactId>
 				<version>${fontawesomefx.version}</version>
 			</dependency>
 			<dependency>
