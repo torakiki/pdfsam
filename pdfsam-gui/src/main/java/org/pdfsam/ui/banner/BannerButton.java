@@ -18,8 +18,8 @@
  */
 package org.pdfsam.ui.banner;
 
-import de.jensd.fx.glyphs.GlyphIcons;
-import de.jensd.fx.glyphs.GlyphsDude;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
+import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
 import javafx.scene.control.Button;
 
 /**
@@ -29,8 +29,9 @@ import javafx.scene.control.Button;
  *
  */
 class BannerButton extends Button {
-    BannerButton(GlyphIcons icon) {
+
+    BannerButton(MaterialDesignIcon icon) {
         getStyleClass().addAll("pdfsam-toolbar-button");
-        setGraphic(GlyphsDude.createIcon(icon, "28.0"));
+        setGraphic(MaterialDesignIconFactory.get().createIcon(icon, "28.0"));
     }
 }

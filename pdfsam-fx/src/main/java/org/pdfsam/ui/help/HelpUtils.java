@@ -18,8 +18,8 @@
  */
 package org.pdfsam.ui.help;
 
-import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
+import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
 import javafx.geometry.Point2D;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
@@ -57,7 +57,7 @@ public final class HelpUtils {
     }
 
     private static Text helpIcon(HelpPopup popup) {
-        Text icon = GlyphsDude.createIcon(MaterialDesignIcon.HELP_CIRCLE, "1.1em");
+        Text icon = MaterialDesignIconFactory.get().createIcon(MaterialDesignIcon.HELP_CIRCLE, "1.1em");
         icon.setOnMouseEntered(e -> {
             Point2D p = icon.localToScreen(icon.getLayoutBounds().getMaxX(), icon.getLayoutBounds().getMaxY());
             popup.show(icon, p.getX(), p.getY());

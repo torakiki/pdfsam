@@ -27,8 +27,8 @@ import java.util.function.Consumer;
 
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 
-import de.jensd.fx.glyphs.GlyphIcons;
-import de.jensd.fx.glyphs.GlyphsDude;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.utils.FontAwesomeIconFactory;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Labeled;
 import javafx.scene.control.Tooltip;
@@ -51,9 +51,9 @@ public class LoadingStatusIndicatorUpdater implements Consumer<PdfDescriptorLoad
     @Override
     public void accept(PdfDescriptorLoadingStatus t) {
 
-        GlyphIcons icon = Optional.ofNullable(t).map(PdfDescriptorLoadingStatus::getIcon).orElse(null);
+        FontAwesomeIcon icon = Optional.ofNullable(t).map(PdfDescriptorLoadingStatus::getIcon).orElse(null);
         if (nonNull(icon)) {
-            GlyphsDude.setIcon(indicator, icon, ContentDisplay.CENTER);
+            FontAwesomeIconFactory.get().setIcon(indicator, icon, ContentDisplay.CENTER);
         } else {
             indicator.setGraphic(null);
         }

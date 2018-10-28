@@ -26,9 +26,7 @@ import java.util.Set;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 
-import de.jensd.fx.glyphs.GlyphIcons;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 
 /**
  * Possible loading status for a descriptor
@@ -38,7 +36,7 @@ import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
  */
 public enum PdfDescriptorLoadingStatus {
     INITIAL,
-    REQUESTED(MaterialDesignIcon.CLOCK, ""),
+    REQUESTED(FontAwesomeIcon.CLOCK_ALT, ""),
     LOADING(FontAwesomeIcon.ANGLE_RIGHT, ""),
     LOADED,
     LOADED_WITH_USER_PWD_DECRYPTION(FontAwesomeIcon.UNLOCK, DefaultI18nContext.getInstance().i18n(
@@ -57,19 +55,19 @@ public enum PdfDescriptorLoadingStatus {
     }
 
     private Set<PdfDescriptorLoadingStatus> validNext = new HashSet<>();
-    private GlyphIcons icon;
+    private FontAwesomeIcon icon;
     private String description;
 
     PdfDescriptorLoadingStatus() {
         this(null, "");
     }
 
-    PdfDescriptorLoadingStatus(GlyphIcons icon, String description) {
+    PdfDescriptorLoadingStatus(FontAwesomeIcon icon, String description) {
         this.icon = icon;
         this.description = defaultString(description);
     }
 
-    public GlyphIcons getIcon() {
+    public FontAwesomeIcon getIcon() {
         return icon;
     }
 

@@ -46,8 +46,8 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.commons.UrlButton;
 import org.pdfsam.ui.support.Style;
 
-import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.utils.FontAwesomeIconFactory;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.Clipboard;
@@ -70,7 +70,7 @@ public class AboutDashboardPane extends HBox {
         VBox left = new VBox(5);
         addSectionTitle(pdfsam.name(), left);
         Label copyright = new Label(pdfsam.property(COPYRIGHT));
-        GlyphsDude.setIcon(copyright, FontAwesomeIcon.COPYRIGHT);
+        FontAwesomeIconFactory.get().setIcon(copyright, FontAwesomeIcon.COPYRIGHT);
         left.getChildren().addAll(new Label(String.format("ver. %s", pdfsam.property(VERSION))), copyright);
         addHyperlink(null, pdfsam.property(LICENSE_URL), pdfsam.property(LICENSE_NAME), left);
         addHyperlink(FontAwesomeIcon.HOME, pdfsam.property(HOME_URL), pdfsam.property(HOME_LABEL), left);
@@ -85,7 +85,7 @@ public class AboutDashboardPane extends HBox {
         Label memory = new Label(DefaultI18nContext.getInstance().i18n("Max memory {0}",
                 FileUtils.byteCountToDisplaySize(Runtime.getRuntime().maxMemory())));
         Button copyButton = new Button(DefaultI18nContext.getInstance().i18n("Copy to clipboard"));
-        GlyphsDude.setIcon(copyButton, FontAwesomeIcon.COPY);
+        FontAwesomeIconFactory.get().setIcon(copyButton, FontAwesomeIcon.COPY);
         copyButton.getStyleClass().addAll(Style.BUTTON.css());
         copyButton.setId("copyEnvDetails");
         copyButton.setOnAction(a -> {

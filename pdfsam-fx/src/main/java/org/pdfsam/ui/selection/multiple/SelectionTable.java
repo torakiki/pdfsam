@@ -69,10 +69,8 @@ import org.sejda.eventstudio.annotation.EventStation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.jensd.fx.glyphs.GlyphIcons;
-import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
-import de.jensd.fx.glyphs.materialicons.MaterialIcon;
+import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
 import javafx.application.Platform;
 import javafx.collections.ListChangeListener.Change;
 import javafx.collections.ObservableList;
@@ -153,7 +151,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     private void initTopSectionContextMenu(ContextMenu contextMenu, boolean hasRanges) {
         MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set destination"),
-                MaterialIcon.FLIGHT_LAND);
+                MaterialDesignIcon.AIRPLANE_LANDING);
         setDestinationItem.setOnAction(e -> eventStudio().broadcast(
                 requestDestination(getSelectionModel().getSelectedItem().descriptor().getFile(), getOwnerModule()),
                 getOwnerModule()));
@@ -164,7 +162,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
         if (hasRanges) {
             MenuItem setPageRangesItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set as range for all"),
-                    MaterialIcon.TOC);
+                    MaterialDesignIcon.FORMAT_INDENT_INCREASE);
             setPageRangesItem.setOnAction(e -> eventStudio().broadcast(
                     new SetPageRangesRequest(getSelectionModel().getSelectedItem().pageSelection.get()),
                     getOwnerModule()));
@@ -222,7 +220,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         }
         if (canDuplicate) {
             MenuItem duplicateItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Duplicate"),
-                    MaterialIcon.WRAP_TEXT);
+                    MaterialDesignIcon.CONTENT_DUPLICATE);
             duplicateItem.setOnAction(e -> eventStudio().broadcast(new DuplicateSelectedEvent(), getOwnerModule()));
             duplicateItem.setAccelerator(new KeyCodeCombination(KeyCode.DIGIT2, KeyCombination.ALT_DOWN));
 
@@ -270,9 +268,9 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         });
     }
 
-    private MenuItem createMenuItem(String text, GlyphIcons icon) {
+    private MenuItem createMenuItem(String text, MaterialDesignIcon icon) {
         MenuItem item = new MenuItem(text);
-        GlyphsDude.setIcon(item, icon, "1.1em");
+        MaterialDesignIconFactory.get().setIcon(item, icon, "1.1em");
         item.setDisable(true);
         return item;
     }
