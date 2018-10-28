@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<description>PDFsam App</description>
-	<url>http://www.pdfsam.org</url>
+	<url>https://pdfsam.org</url>
 	<parent>
 		<groupId>org.pdfsam</groupId>
 		<artifactId>pdfsam-parent</artifactId>
@@ -341,7 +341,7 @@
 										<argument>-outdir</argument>
 										<argument>${project.build.directory}</argument>
 										<argument>-outfile</argument>
-										<argument>pdfsam-${version}</argument>
+										<argument>pdfsam-${project.version}</argument>
 										<argument>-srcdir</argument>
 										<argument>${project.build.directory}/assembled</argument>
 										<argument>-srcfiles</argument>
@@ -380,7 +380,7 @@
 								</goals>
 								<configuration>
 									<sourceFile>${project.build.directory}/bundles/PDFsam Basic-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.dmg</sourceFile>
-									<destinationFile>${project.build.directory}/pdfsam-${version}.dmg</destinationFile>
+									<destinationFile>${project.build.directory}/pdfsam-${project.version}.dmg</destinationFile>
 								</configuration>
 							</execution>
 						</executions>
@@ -399,7 +399,7 @@
 									<configuration>
 										<artifacts>
 											<artifact>
-												<file>${project.build.directory}/pdfsam-${version}.dmg</file>
+												<file>${project.build.directory}/pdfsam-${project.version}.dmg</file>
 												<type>dmg</type>
 											</artifact>
 										</artifacts>

@@ -80,6 +80,8 @@ public class AboutDashboardPane extends HBox {
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Environment"), left);
         Label runtime = new Label(String.format("%s %s", System.getProperty("java.runtime.name"),
                 System.getProperty("java.runtime.version")));
+        Label fx = new Label(String.format(DefaultI18nContext.getInstance().i18n("FX runtime version %s"),
+                System.getProperty("javafx.runtime.version")));
         Label memory = new Label(DefaultI18nContext.getInstance().i18n("Max memory {0}",
                 FileUtils.byteCountToDisplaySize(Runtime.getRuntime().maxMemory())));
         Button copyButton = new Button(DefaultI18nContext.getInstance().i18n("Copy to clipboard"));
@@ -92,7 +94,7 @@ public class AboutDashboardPane extends HBox {
                     .to(content);
             Clipboard.getSystemClipboard().setContent(content);
         });
-        left.getChildren().addAll(runtime, memory, copyButton);
+        left.getChildren().addAll(runtime, fx, memory, copyButton);
 
         VBox right = new VBox(5);
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Support"), right);
