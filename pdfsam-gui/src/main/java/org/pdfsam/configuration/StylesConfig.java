@@ -29,7 +29,6 @@ import org.pdfsam.ui.Theme;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.jensd.fx.glyphs.GlyphsStyle;
 import javafx.application.ConditionalFeature;
 import javafx.application.Platform;
 

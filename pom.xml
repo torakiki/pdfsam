@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.pdfsam</groupId>
 	<artifactId>pdfsam-parent</artifactId>
@@ -130,10 +132,6 @@
 			<id>sejda</id>
 			<url>https://dl.bintray.com/sejdapdf/maven/</url>
 		</repository>
-		<repository>
-			<id>fontawesomfx</id>
-			<url>https://dl.bintray.com/jerady/maven/</url>
-		</repository>
 	</repositories>
 
 	<pluginRepositories>
@@ -185,8 +183,8 @@
 				<configuration>
 					<reuseForks>false</reuseForks>
 					<additionalClasspathElements>
-                        <additionalClasspathElement>${java.home}/lib/ext/jfxrt.jar</additionalClasspathElement>
-                    </additionalClasspathElements>
+						<additionalClasspathElement>${java.home}/lib/ext/jfxrt.jar</additionalClasspathElement>
+					</additionalClasspathElements>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -228,7 +226,9 @@
 		<sejda.version>3.2.56</sejda.version>
 		<eventstudio.version>1.0.6</eventstudio.version>
 		<injector.version>1.0.2</injector.version>
-		<fontawesomefx.version>4.7.0-9.1.2</fontawesomefx.version>
+		<fontawesomefx.fontawesome.version>4.7.0-9.1.2</fontawesomefx.fontawesome.version>
+		<fontawesomefx.materialicons.version>2.2.0-9.1.2</fontawesomefx.materialicons.version>
+		<fontawesomefx.materialdesignfont.version>2.0.26-9.1.2</fontawesomefx.materialdesignfont.version>
 		<testfx.version>3.1.2</testfx.version>
 		<jackson-jr.version>2.8.6</jackson-jr.version>
 		<tempus.fugit.version>1.1</tempus.fugit.version>
@@ -250,7 +250,12 @@
 			<dependency>
 				<groupId>de.jensd</groupId>
 				<artifactId>fontawesomefx-fontawesome</artifactId>
-				<version>${fontawesomefx.version}</version>
+				<version>${fontawesomefx.fontawesome.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.jensd</groupId>
+				<artifactId>fontawesomefx-materialdesignfont</artifactId>
+				<version>${fontawesomefx.materialdesignfont.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.sejda</groupId>

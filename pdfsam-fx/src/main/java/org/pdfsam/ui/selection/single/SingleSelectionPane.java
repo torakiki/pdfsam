@@ -59,9 +59,7 @@ import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
 
-import de.jensd.fx.glyphs.GlyphIcons;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
-import de.jensd.fx.glyphs.materialicons.MaterialIcon;
 import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
@@ -271,7 +269,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
         removeSelected.setOnAction(e -> eventStudio().broadcast(new ClearModuleEvent(), getOwnerModule()));
 
         MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set destination"),
-                MaterialIcon.FLIGHT_LAND);
+                MaterialDesignIcon.AIRPLANE_LANDING);
         setDestinationItem.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.ALT_DOWN));
         setDestinationItem.setOnAction(e -> eventStudio()
                 .broadcast(requestDestination(descriptor.getFile(), getOwnerModule()), getOwnerModule()));
@@ -301,7 +299,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
                 .ifPresent(field::setTextFromFile);
     }
 
-    private MenuItem createMenuItem(String text, GlyphIcons icon) {
+    private MenuItem createMenuItem(String text, MaterialDesignIcon icon) {
         MenuItem item = new MenuItem(text);
         MaterialDesignIconFactory.get().setIcon(item, icon, "1.1em");
         item.setDisable(true);

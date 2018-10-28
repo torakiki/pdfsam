@@ -25,8 +25,7 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.pdfsam.ui.support.Style;
 
-import de.jensd.fx.glyphs.GlyphIcons;
-import de.jensd.fx.glyphs.GlyphsFactory;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.utils.FontAwesomeIconFactory;
 import javafx.scene.control.Button;
 
@@ -52,7 +51,7 @@ public class UrlButton extends Button {
      *            optional icon
      * @return
      */
-    public static final UrlButton styledUrlButton(String text, String url, GlyphIcons icon) {
+    public static final UrlButton styledUrlButton(String text, String url, FontAwesomeIcon icon) {
         return urlButton(text, url, icon, Style.BUTTON.css());
     }
 
@@ -68,7 +67,7 @@ public class UrlButton extends Button {
      *            optional style classes
      * @return
      */
-    public static final UrlButton urlButton(String text, String url, GlyphIcons icon, String... style) {
+    public static final UrlButton urlButton(String text, String url, FontAwesomeIcon icon, String... style) {
         require(isNotBlank(url), "URL cannot be blank");
         UrlButton button = new UrlButton(text);
         button.setOnAction(e -> eventStudio().broadcast(new OpenUrlRequest(url)));
