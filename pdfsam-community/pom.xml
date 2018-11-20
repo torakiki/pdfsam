@@ -356,6 +356,7 @@
 										<argument>-Bicon=${project.basedir}/src/dmg/Icon.icns</argument>
 										<argument>-Bidentifier=org.pdfsam.community.App</argument>
 										<argument>-BuserJvmOptions=-Xmx=512m</argument>
+										<argument>-BjvmProperties=org.pdfsam.disable.ui.restore=true</argument>
 										<argument>-Bmac.category=Business</argument>
 										<argument>-Bmac.CFBundleIdentifier=org.pdfsam.basic</argument>
 										<argument>-Bmac.signing-key-developer-id-app=SOBER LEMUR SAS DI VACONDIO ANDREA</argument>
