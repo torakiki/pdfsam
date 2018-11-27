@@ -80,7 +80,7 @@ public class AboutDashboardPane extends HBox {
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Environment"), left);
         Label runtime = new Label(String.format("%s %s", System.getProperty("java.runtime.name"),
                 System.getProperty("java.runtime.version")));
-        Label fx = new Label(String.format(DefaultI18nContext.getInstance().i18n("FX runtime version %s"),
+        Label fx = new Label(String.format(DefaultI18nContext.getInstance().i18n("JavaFX runtime version %s"),
                 System.getProperty("javafx.runtime.version")));
         Label memory = new Label(DefaultI18nContext.getInstance().i18n("Max memory {0}",
                 FileUtils.byteCountToDisplaySize(Runtime.getRuntime().maxMemory())));
