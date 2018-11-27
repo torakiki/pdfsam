@@ -61,10 +61,13 @@ class WorkspaceMenu extends Menu {
         MenuItem save = new MenuItem(DefaultI18nContext.getInstance().i18n("_Save"));
         save.setOnAction(e -> saveWorkspace());
         save.setId("saveWorkspace");
-        recent = new Menu(DefaultI18nContext.getInstance().i18n("Recen_t"));
+        recent = new Menu(DefaultI18nContext.getInstance().i18n("Recen_ts"));
         recent.setId("recentWorkspace");
         service.getRecentlyUsedWorkspaces().stream().map(WorkspaceMenuItem::new).forEach(recent.getItems()::add);
-        getItems().addAll(load, save, new SeparatorMenuItem(), recent);
+        MenuItem clear = new MenuItem(DefaultI18nContext.getInstance().i18n("_Clear recents"));
+        clear.setOnAction(e -> clearWorkspaces());
+        clear.setId("clearWorkspaces");
+        getItems().addAll(load, save, new SeparatorMenuItem(), recent, clear);
         eventStudio().addAnnotatedListeners(this);
     }
 
@@ -85,6 +88,11 @@ class WorkspaceMenu extends Menu {
         if (chosenFile != null) {
             eventStudio().broadcast(new LoadWorkspaceEvent(chosenFile));
         }
+    }
+
+    public void clearWorkspaces() {
+        service.clear();
+        recent.getItems().clear();
     }
 
     @EventListener
