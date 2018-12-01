@@ -26,10 +26,6 @@ import java.io.File;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.test.ClearEventStudioRule;
@@ -39,17 +35,20 @@ import org.sejda.injector.Injector;
 import org.sejda.injector.Prototype;
 import org.sejda.injector.Provides;
 import org.sejda.model.pdf.PdfMetadataKey;
+import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class InfoStageTest extends GuiTest {
+public class InfoStageTest extends ApplicationTest {
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
     private Injector injector;
@@ -71,23 +70,23 @@ public class InfoStageTest extends GuiTest {
     }
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         injector = Injector.start(new Config());
         Button button = new Button("show");
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(mock(File.class));
         descriptor.putInformation(PdfMetadataKey.KEYWORDS.getKey(), "test");
         button.setOnAction(e -> eventStudio().broadcast(new ShowPdfDescriptorRequest(descriptor)));
-        return button;
+        Scene scene = new Scene(new VBox(button));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
-    public void show() throws Exception {
-        click("show");
+    public void show() {
+        clickOn("show");
         InfoStage stage = injector.instance(InfoStage.class);
         assertTrue(stage.isShowing());
-        FXTestUtils.invokeAndWait(() -> {
-            stage.hide();
-        }, 2);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> stage.hide());
     }
 
 }

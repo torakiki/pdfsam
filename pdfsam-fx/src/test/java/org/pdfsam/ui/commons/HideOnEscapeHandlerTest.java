@@ -23,21 +23,30 @@ import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-import org.junit.Rule;
 import org.junit.Test;
-import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
+import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
 
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 
 /**
  * @author Andrea Vacondio
  *
  */
-public class HideOnEscapeHandlerTest {
-    @Rule
-    public InitializeAndApplyJavaFxThreadRule rule = new InitializeAndApplyJavaFxThreadRule();
+public class HideOnEscapeHandlerTest extends ApplicationTest {
+    private Scene scene;
+
+    @Override
+    public void start(Stage stage) {
+        scene = new Scene(new Label("me"));
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @Test(expected = IllegalArgumentException.class)
     public void nullArg() {
@@ -49,21 +58,17 @@ public class HideOnEscapeHandlerTest {
         Window window = spy(new Window() {
         });
         HideOnEscapeHandler victim = new HideOnEscapeHandler(window);
-        victim.handle(new KeyEvent(KeyEvent.KEY_RELEASED, KeyCode.A.toString(), "", KeyCode.A, false, false, false,
-                false));
+        victim.handle(
+                new KeyEvent(KeyEvent.KEY_RELEASED, KeyCode.A.toString(), "", KeyCode.A, false, false, false, false));
         verify(window, never()).hide();
     }
 
     @Test
     public void showingMatch() {
-        Window window = spy(new Window() {
-            {
-                show();
-            }
-        });
+        Window window = spy(window(scene));
         HideOnEscapeHandler victim = new HideOnEscapeHandler(window);
-        victim.handle(new KeyEvent(KeyEvent.KEY_RELEASED, KeyCode.ESCAPE.toString(), "", KeyCode.ESCAPE, false, false,
-                false, false));
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.handle(new KeyEvent(KeyEvent.KEY_RELEASED,
+                KeyCode.ESCAPE.toString(), "", KeyCode.ESCAPE, false, false, false, false)));
         verify(window, times(1)).hide();
     }
 

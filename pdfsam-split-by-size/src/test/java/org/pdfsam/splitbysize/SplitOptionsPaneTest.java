@@ -35,27 +35,25 @@ import java.util.function.Consumer;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.ui.commons.ValidableTextField;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCode;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class SplitOptionsPaneTest extends GuiTest {
+public class SplitOptionsPaneTest extends ApplicationTest {
 
     @Rule
     public ClearEventStudioRule clear = new ClearEventStudioRule();
     private SplitBySizeParametersBuilder builder;
     private Consumer<String> onError;
+    private SplitOptionsPane victim;
 
     @Before
     public void setUp() {
@@ -64,15 +62,17 @@ public class SplitOptionsPaneTest extends GuiTest {
     }
 
     @Override
-    protected Parent getRootNode() {
-        return new SplitOptionsPane();
+    public void start(Stage stage) {
+        victim = new SplitOptionsPane();
+        Scene scene = new Scene(victim);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void apply() {
-        SplitOptionsPane victim = find(".pdfsam-container");
-        click("#sizeField").type("30").push(KeyCode.ENTER);
-        click("#unit" + SizeUnit.MEGABYTE.symbol());
+        clickOn("#sizeField").write("30").push(KeyCode.ENTER);
+        clickOn("#unit" + SizeUnit.MEGABYTE.symbol());
         victim.apply(builder, onError);
         verify(onError, never()).accept(anyString());
         verify(builder).size(eq(30 * 1024 * 1024L));
@@ -80,8 +80,7 @@ public class SplitOptionsPaneTest extends GuiTest {
 
     @Test
     public void applyError() {
-        SplitOptionsPane victim = find(".pdfsam-container");
-        click("#sizeField").type("Chuck").push(KeyCode.ENTER);
+        clickOn("#sizeField").write("Chuck").push(KeyCode.ENTER);
         victim.apply(builder, onError);
         verify(onError).accept(anyString());
         verify(builder, never()).size(anyLong());
@@ -89,26 +88,24 @@ public class SplitOptionsPaneTest extends GuiTest {
 
     @Test
     public void saveState() {
-        SplitOptionsPane victim = find(".pdfsam-container");
-        click("#sizeField").type("3000").push(KeyCode.ENTER);
-        click("#unit" + SizeUnit.MEGABYTE.symbol());
+        clickOn("#sizeField").write("3000").push(KeyCode.ENTER);
+        clickOn("#unit" + SizeUnit.KILOBYTE.symbol());
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
         assertEquals("3000", data.get("size"));
-        assertTrue(Boolean.valueOf(data.get(SizeUnit.MEGABYTE.toString())));
-        assertFalse(Boolean.valueOf(data.get(SizeUnit.KILOBYTE.toString())));
+        assertFalse(Boolean.valueOf(data.get(SizeUnit.MEGABYTE.toString())));
+        assertTrue(Boolean.valueOf(data.get(SizeUnit.KILOBYTE.toString())));
     }
 
     @Test
-    public void restoreState() throws Exception {
-        SplitOptionsPane victim = find(".pdfsam-container");
-        SizeUnitRadio kilo = find("#unit" + SizeUnit.KILOBYTE.symbol());
-        SizeUnitRadio mega = find("#unit" + SizeUnit.MEGABYTE.symbol());
+    public void restoreState() {
+        SizeUnitRadio kilo = lookup("#unit" + SizeUnit.KILOBYTE.symbol()).queryAs(SizeUnitRadio.class);
+        SizeUnitRadio mega = lookup("#unit" + SizeUnit.MEGABYTE.symbol()).queryAs(SizeUnitRadio.class);
         Map<String, String> data = new HashMap<>();
         data.put("size", "100");
         data.put(SizeUnit.MEGABYTE.toString(), Boolean.TRUE.toString());
-        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
-        ValidableTextField field = find("#sizeField");
+        victim.restoreStateFrom(data);
+        TextInputControl field = lookup("#sizeField").queryTextInputControl();
         assertEquals("100", field.getText());
         assertTrue(mega.isSelected());
         assertFalse(kilo.isSelected());

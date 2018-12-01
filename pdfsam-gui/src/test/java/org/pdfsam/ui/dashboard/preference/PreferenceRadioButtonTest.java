@@ -23,31 +23,33 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.UserContext;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class PreferenceRadioButtonTest extends GuiTest {
+public class PreferenceRadioButtonTest extends ApplicationTest {
 
     private UserContext userContext = mock(UserContext.class);
 
     @Override
-    protected Parent getRootNode() {
-        return new PreferenceRadioButton(BooleanUserPreference.SMART_OUTPUT, "select", false, userContext);
+    public void start(Stage stage) {
+        Scene scene = new Scene(
+                new HBox(new PreferenceRadioButton(BooleanUserPreference.SMART_OUTPUT, "select", false, userContext)));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void preferenceSetOnClick() {
-        click("select");
+        clickOn("select");
         verify(userContext).setBooleanPreference(eq(BooleanUserPreference.SMART_OUTPUT), eq(Boolean.TRUE));
     }
 }

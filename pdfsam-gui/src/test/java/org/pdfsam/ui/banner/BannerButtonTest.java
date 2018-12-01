@@ -21,29 +21,29 @@ package org.pdfsam.ui.banner;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
+import org.testfx.framework.junit.ApplicationTest;
 
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import javafx.scene.Parent;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
+import javafx.scene.Scene;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class BannerButtonTest extends GuiTest {
+public class BannerButtonTest extends ApplicationTest {
 
     @Override
-    protected Parent getRootNode() {
-        return new BannerButton(FontAwesomeIcon.ADJUST);
+    public void start(Stage stage) {
+        Scene scene = new Scene(new BannerButton(MaterialDesignIcon.ACCESS_POINT));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void exists() {
-        Text icon = find(".glyph-icon");
-        assertEquals(FontAwesomeIcon.ADJUST.characterToString(), icon.getText());
+        Text icon = lookup(".glyph-icon").queryAs(Text.class);
+        assertEquals(MaterialDesignIcon.ACCESS_POINT.unicode(), icon.getText());
     }
 }

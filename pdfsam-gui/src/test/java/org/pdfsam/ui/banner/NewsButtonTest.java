@@ -28,23 +28,26 @@ import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.news.HideNewsPanelRequest;
 import org.pdfsam.news.ShowNewsPanelRequest;
 import org.sejda.eventstudio.Listener;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  */
-@Category(TestFX.class)
-public class NewsButtonTest extends GuiTest {
+public class NewsButtonTest extends ApplicationTest {
+    private NewsButton victim;
+
     @Override
-    protected Parent getRootNode() {
-        return new NewsButton();
+    public void start(Stage stage) {
+        victim = new NewsButton();
+        Scene scene = new Scene(victim);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
@@ -53,16 +56,15 @@ public class NewsButtonTest extends GuiTest {
         Listener<HideNewsPanelRequest> hideListener = mock(Listener.class);
         eventStudio().add(ShowNewsPanelRequest.class, listener);
         eventStudio().add(HideNewsPanelRequest.class, hideListener);
-        click(".button");
+        clickOn(".button");
         verify(listener).onEvent(eq(ShowNewsPanelRequest.INSTANCE));
         verify(hideListener, never()).onEvent(any());
-        click(".button");
+        clickOn(".button");
         verify(hideListener).onEvent(eq(HideNewsPanelRequest.INSTANCE));
     }
 
     @Test
     public void setUpToDate() {
-        NewsButton victim = find(".button");
         assertFalse(victim.getStyleClass().contains(NewsButton.UP_TO_DATE_CSS_CLASS));
         victim.setUpToDate(false);
         assertTrue(victim.getStyleClass().contains(NewsButton.UP_TO_DATE_CSS_CLASS));

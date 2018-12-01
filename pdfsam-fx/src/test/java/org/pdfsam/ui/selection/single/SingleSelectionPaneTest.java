@@ -40,11 +40,7 @@ import org.hamcrest.Matchers;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.DefaultUserContext;
@@ -63,36 +59,42 @@ import org.pdfsam.ui.commons.ShowStageRequest;
 import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.io.ChangedSelectedPdfVersionEvent;
 import org.sejda.eventstudio.Listener;
+import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
 
-import javafx.scene.Parent;
-import javafx.scene.control.Label;
+import javafx.scene.Scene;
+import javafx.scene.control.Labeled;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.input.KeyCode;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
 @SuppressWarnings("unchecked")
-public class SingleSelectionPaneTest extends GuiTest {
+public class SingleSelectionPaneTest extends ApplicationTest {
 
     private static final String MODULE = "MODULE";
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule(MODULE);
     @Rule
     public TemporaryFolder tmpFolder = new TemporaryFolder();
+    private SingleSelectionPane victim;
 
     @BeforeClass
     public static void setUp() {
         eventStudio().broadcast(new SetLocaleEvent(Locale.UK.toLanguageTag()));
+        System.setProperty("testfx.robot.write_sleep", "5");
     }
 
     @Override
-    protected Parent getRootNode() {
-        SingleSelectionPane victim = new SingleSelectionPane(MODULE);
+    public void start(Stage stage) {
+        victim = new SingleSelectionPane(MODULE);
         victim.setId("victim-selection-pane");
-        return victim;
+        Scene scene = new Scene(victim);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
@@ -108,15 +110,14 @@ public class SingleSelectionPaneTest extends GuiTest {
         HitTestListener<ShowPdfDescriptorRequest> listener = new HitTestListener<>();
         eventStudio().add(ShowPdfDescriptorRequest.class, listener);
         typePathAndValidate();
-        rightClick(".validable-container-field");
-        click(DefaultI18nContext.getInstance().i18n("Document properties"));
-        sleep(500);
+        rightClickOn(".validable-container-field");
+        clickOn(DefaultI18nContext.getInstance().i18n("Document properties"));
         assertTrue(listener.isHit());
     }
 
     @Test
     public void setDestinationMenuItem() throws Exception {
-        HitTestListener<SetDestinationRequest> listener = new HitTestListener<SetDestinationRequest>() {
+        var listener = new HitTestListener<SetDestinationRequest>() {
             @Override
             public void onEvent(SetDestinationRequest event) {
                 super.onEvent(event);
@@ -125,15 +126,14 @@ public class SingleSelectionPaneTest extends GuiTest {
         };
         eventStudio().add(SetDestinationRequest.class, listener, MODULE);
         typePathAndValidate();
-        rightClick(".validable-container-field");
-        click(DefaultI18nContext.getInstance().i18n("Set destination"));
+        rightClickOn(".validable-container-field");
+        clickOn(DefaultI18nContext.getInstance().i18n("Set destination"));
         assertTrue(listener.isHit());
     }
 
     @Test
     public void openFileMenuItem() throws Exception {
-        SingleSelectionPane victim = find("#victim-selection-pane");
-        HitTestListener<OpenFileRequest> listener = new HitTestListener<OpenFileRequest>() {
+        var listener = new HitTestListener<OpenFileRequest>() {
             @Override
             public void onEvent(OpenFileRequest event) {
                 super.onEvent(event);
@@ -142,15 +142,14 @@ public class SingleSelectionPaneTest extends GuiTest {
         };
         eventStudio().add(OpenFileRequest.class, listener);
         typePathAndValidate();
-        rightClick(".validable-container-field");
-        click(DefaultI18nContext.getInstance().i18n("Open"));
+        rightClickOn(".validable-container-field");
+        clickOn(DefaultI18nContext.getInstance().i18n("Open"));
         assertTrue(listener.isHit());
     }
 
     @Test
     public void openFolderMenuItem() throws Exception {
-        SingleSelectionPane victim = find("#victim-selection-pane");
-        HitTestListener<OpenFileRequest> listener = new HitTestListener<OpenFileRequest>() {
+        var listener = new HitTestListener<OpenFileRequest>() {
             @Override
             public void onEvent(OpenFileRequest event) {
                 super.onEvent(event);
@@ -159,24 +158,22 @@ public class SingleSelectionPaneTest extends GuiTest {
         };
         eventStudio().add(OpenFileRequest.class, listener);
         typePathAndValidate();
-        rightClick(".validable-container-field");
-        click(DefaultI18nContext.getInstance().i18n("Open Folder"));
+        rightClickOn(".validable-container-field");
+        clickOn(DefaultI18nContext.getInstance().i18n("Open Folder"));
         assertTrue(listener.isHit());
     }
 
     @Test
     public void removeMenuItem() throws Exception {
-        SingleSelectionPane victim = find("#victim-selection-pane");
         typePathAndValidate();
-        rightClick(".validable-container-field");
-        click(DefaultI18nContext.getInstance().i18n("Remove"));
+        rightClickOn(".validable-container-field");
+        clickOn(DefaultI18nContext.getInstance().i18n("Remove"));
         assertTrue(isEmpty(victim.getField().getTextField().getText()));
     }
 
     @Test
     public void additionalOnLoadedConsumer() throws Exception {
         HitConsumer<PdfDocumentDescriptor> consumer = new HitConsumer<>();
-        SingleSelectionPane victim = find("#victim-selection-pane");
         victim.addOnLoaded(consumer);
         moveToLoadedState(victim);
         assertTrue(consumer.isHit());
@@ -185,7 +182,6 @@ public class SingleSelectionPaneTest extends GuiTest {
     @Test
     public void additionalOnLoadedConsumerNotHit() throws Exception {
         HitConsumer<PdfDocumentDescriptor> consumer = new HitConsumer<>();
-        SingleSelectionPane victim = find("#victim-selection-pane");
         victim.addOnLoaded(consumer);
         moveToEncrytedState(victim);
         assertFalse(consumer.isHit());
@@ -195,7 +191,6 @@ public class SingleSelectionPaneTest extends GuiTest {
     public void onLoadedChangedSelectedPdfVersionEvent() throws Exception {
         Listener<ChangedSelectedPdfVersionEvent> listener = mock(Listener.class);
         eventStudio().add(ChangedSelectedPdfVersionEvent.class, listener, MODULE);
-        SingleSelectionPane victim = find("#victim-selection-pane");
         moveToLoadedState(victim);
         verify(listener).onEvent(any());
     }
@@ -204,7 +199,6 @@ public class SingleSelectionPaneTest extends GuiTest {
     public void onDecryptedChangedSelectedPdfVersionEvent() throws Exception {
         Listener<ChangedSelectedPdfVersionEvent> listener = mock(Listener.class);
         eventStudio().add(ChangedSelectedPdfVersionEvent.class, listener, MODULE);
-        SingleSelectionPane victim = find("#victim-selection-pane");
         moveToLoadedWithDecryption(victim);
         verify(listener).onEvent(any());
     }
@@ -214,7 +208,6 @@ public class SingleSelectionPaneTest extends GuiTest {
         Listener<SetDestinationRequest> listener = mock(Listener.class);
         ArgumentCaptor<SetDestinationRequest> captor = ArgumentCaptor.forClass(SetDestinationRequest.class);
         eventStudio().add(SetDestinationRequest.class, listener, MODULE);
-        SingleSelectionPane victim = find("#victim-selection-pane");
 
         moveToLoadedState(victim);
         verify(listener).onEvent(captor.capture());
@@ -226,16 +219,15 @@ public class SingleSelectionPaneTest extends GuiTest {
         Listener<SetDestinationRequest> listener = mock(Listener.class);
         ArgumentCaptor<SetDestinationRequest> captor = ArgumentCaptor.forClass(SetDestinationRequest.class);
         eventStudio().add(SetDestinationRequest.class, listener, MODULE);
-        SingleSelectionPane victim = find("#victim-selection-pane");
         moveToLoadedWithDecryption(victim);
         verify(listener).onEvent(captor.capture());
         assertTrue(captor.getValue().isFallback());
     }
 
     @Test
-    public void disableMenuOnInvalid() throws Exception {
+    public void disableMenuOnInvalid() {
         typePathAndValidate("/this/doesnt/exists");
-        ValidableTextField victim = find(".validable-container-field");
+        ValidableTextField victim = lookup(".validable-container-field").queryAs(ValidableTextField.class);
         victim.getContextMenu().getItems().parallelStream().filter(i -> !(i instanceof SeparatorMenuItem))
                 .filter(i -> !i.getText().equals(DefaultI18nContext.getInstance().i18n("Remove")))
                 .forEach(i -> assertTrue(i.getText(), i.isDisable()));
@@ -245,7 +237,7 @@ public class SingleSelectionPaneTest extends GuiTest {
     public void disableMenuOnSwitchToInvalid() throws Exception {
         typePathAndValidate();
         typePathAndValidate("/this/doesnt/exists");
-        ValidableTextField victim = find(".validable-container-field");
+        ValidableTextField victim = lookup(".validable-container-field").queryAs(ValidableTextField.class);
         victim.getContextMenu().getItems().parallelStream().filter(i -> !(i instanceof SeparatorMenuItem))
                 .filter(i -> !i.getText().equals(DefaultI18nContext.getInstance().i18n("Remove")))
                 .forEach(i -> assertTrue(i.isDisable()));
@@ -254,24 +246,22 @@ public class SingleSelectionPaneTest extends GuiTest {
     @Test
     public void loadingStateDetails() throws Exception {
         typePathAndValidate();
-        SingleSelectionPane victim = find("#victim-selection-pane");
-        FXTestUtils.invokeAndWait(() -> {
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
-        }, 2);
-        exists(DefaultI18nContext.getInstance().i18n("Loading..."));
+        });
+        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("Loading...")).tryQuery().isPresent());
     }
 
     @Test
     public void loadedDetails() throws Exception {
-        SingleSelectionPane victim = find("#victim-selection-pane");
         moveToLoadedState(victim);
-        exists(DefaultI18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}", "0", ""));
+        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}", "0", "")).tryQuery()
+                .isPresent());
     }
 
     @Test
     public void onSaveWorkspace() throws Exception {
-        SingleSelectionPane victim = find("#victim-selection-pane");
         moveToLoadedStateWithSpecialChars(victim);
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
@@ -282,7 +272,6 @@ public class SingleSelectionPaneTest extends GuiTest {
     @Test
     public void onSaveWorkspaceWithPwd() throws Exception {
         new DefaultUserContext().setBooleanPreference(BooleanUserPreference.SAVE_PWD_IN_WORKSPACE, true);
-        SingleSelectionPane victim = find("#victim-selection-pane");
         moveToLoadedWithDecryption(victim);
         victim.getPdfDocumentDescriptor().setPassword("pwd");
         Map<String, String> data = new HashMap<>();
@@ -294,7 +283,6 @@ public class SingleSelectionPaneTest extends GuiTest {
     @Test
     public void onSaveWorkspaceWithoutPwd() throws Exception {
         new DefaultUserContext().setBooleanPreference(BooleanUserPreference.SAVE_PWD_IN_WORKSPACE, false);
-        SingleSelectionPane victim = find("#victim-selection-pane");
         moveToLoadedWithDecryption(victim);
         victim.getPdfDocumentDescriptor().setPassword("pwd");
         Map<String, String> data = new HashMap<>();
@@ -305,22 +293,19 @@ public class SingleSelectionPaneTest extends GuiTest {
 
     @Test
     public void onSaveWorkspaceEmptyDescriptor() {
-        SingleSelectionPane victim = find("#victim-selection-pane");
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
         assertTrue(data.isEmpty());
     }
 
     @Test
-    public void restoreStateFrom() throws Exception {
-        SingleSelectionPane victim = find("#victim-selection-pane");
-        @SuppressWarnings("rawtypes")
+    public void restoreStateFrom() {
         Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequestEvent.class, listener);
         Map<String, String> data = new HashMap<>();
         data.put("victim-selection-paneinput", "chuck.pdf");
         data.put("victim-selection-paneinput.password", "pwd");
-        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals("chuck.pdf", victim.getField().getTextField().getText());
         assertEquals("pwd", victim.getPdfDocumentDescriptor().getPassword());
         verify(listener).onEvent(any());
@@ -328,68 +313,63 @@ public class SingleSelectionPaneTest extends GuiTest {
 
     @Test
     public void restoreStateFromEmpty() throws Exception {
-        SingleSelectionPane victim = find("#victim-selection-pane");
         moveToLoadedState(victim);
         Map<String, String> data = new HashMap<>();
-        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertTrue(isEmpty(victim.getField().getTextField().getText()));
     }
 
     @Test
     public void decryptedDetails() throws Exception {
-        SingleSelectionPane victim = find("#victim-selection-pane");
         moveToLoadedWithDecryption(victim);
-        exists(DefaultI18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}", "0", ""));
+        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}", "0", "")).tryQuery()
+                .isPresent());
     }
 
     @Test
     public void loadedDetailsSpecialChars() throws Exception {
-        SingleSelectionPane victim = find("#victim-selection-pane");
         moveToLoadedStateWithSpecialChars(victim);
-        exists(DefaultI18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}", "0", ""));
+        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}", "0", "")).tryQuery()
+                .isPresent());
     }
 
     @Test
     public void emptyDetailsOnSwithToInvalid() throws Exception {
-        SingleSelectionPane victim = find("#victim-selection-pane");
         moveToLoadedWithDecryption(victim);
         typePathAndValidate("/this/doesnt/exists");
-        Label details = find(".-pdfsam-selection-details");
+        Labeled details = lookup(".-pdfsam-selection-details").queryLabeled();
         assertTrue(isEmpty(details.getText()));
     }
 
     @Test
     public void clickWithErrorsShowsLogStage() throws Exception {
         typePathAndValidate();
-        SingleSelectionPane victim = find("#victim-selection-pane");
-        FXTestUtils.invokeAndWait(() -> {
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.WITH_ERRORS);
-        }, 2);
+        });
         Listener<ShowStageRequest> listener = mock(Listener.class);
         eventStudio().add(ShowStageRequest.class, listener, "LogStage");
-        click(".glyph-icon");
+        clickOn(".glyph-icon");
         verify(listener).onEvent(any());
     }
 
     @Test
     public void clickEncryptedThrowsRequest() throws Exception {
-        SingleSelectionPane victim = find("#victim-selection-pane");
         Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequestEvent.class, listener);
         moveToEncrytedState(victim);
-        click(".glyph-icon");
-        type("pwd").click(DefaultI18nContext.getInstance().i18n("Unlock"));
+        clickOn(".glyph-icon");
+        write("pwd").clickOn(DefaultI18nContext.getInstance().i18n("Unlock"));
         verify(listener, times(2)).onEvent(any());
     }
 
     @Test
     public void emptyStatusIndicatorOnSwithToInvalid() throws Exception {
-        SingleSelectionPane victim = find("#victim-selection-pane");
         moveToLoadedWithDecryption(victim);
         typePathAndValidate("/this/doesnt/exists");
-        Label encStatus = find(".encryption-status");
+        Labeled encStatus = lookup(".encryption-status").queryLabeled();
         assertTrue(isEmpty(encStatus.getText()));
     }
 
@@ -397,17 +377,16 @@ public class SingleSelectionPaneTest extends GuiTest {
     public void invalidatedDescriptorDoesntTriggerAnything() throws Exception {
         typePathAndValidate();
         typePathAndValidate("/this/doesnt/exists");
-        SingleSelectionPane victim = find("#victim-selection-pane");
-        FXTestUtils.invokeAndWait(() -> {
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADED);
-        }, 2);
-        Label details = find(".-pdfsam-selection-details");
+        });
+        Labeled details = lookup(".-pdfsam-selection-details").queryLabeled();
         assertTrue(isEmpty(details.getText()));
-        Label encStatus = find(".encryption-status");
+        Labeled encStatus = lookup(".encryption-status").queryLabeled();
         assertTrue(isEmpty(encStatus.getText()));
-        ValidableTextField field = find(".validable-container-field");
+        var field = lookup(".validable-container-field").queryAs(ValidableTextField.class);
         field.getContextMenu().getItems().parallelStream().filter(i -> !(i instanceof SeparatorMenuItem))
                 .filter(i -> !i.getText().equals(DefaultI18nContext.getInstance().i18n("Remove")))
                 .forEach(i -> assertTrue(i.isDisable()));
@@ -415,38 +394,38 @@ public class SingleSelectionPaneTest extends GuiTest {
 
     private void moveToLoadedState(SingleSelectionPane victim) throws Exception {
         typePathAndValidate();
-        FXTestUtils.invokeAndWait(() -> {
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADED);
-        }, 2);
+        });
     }
 
     private void moveToEncrytedState(SingleSelectionPane victim) throws Exception {
         typePathAndValidate();
-        FXTestUtils.invokeAndWait(() -> {
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.ENCRYPTED);
-        }, 2);
+        });
     }
 
     private void moveToLoadedWithDecryption(SingleSelectionPane victim) throws Exception {
         typePathAndValidate();
-        FXTestUtils.invokeAndWait(() -> {
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADED_WITH_USER_PWD_DECRYPTION);
-        }, 2);
+        });
     }
 
     private void moveToLoadedStateWithSpecialChars(SingleSelectionPane victim) throws Exception {
         typeSpecialPathAndValidate();
-        FXTestUtils.invokeAndWait(() -> {
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADED);
-        }, 2);
+        });
     }
 
     private void typeSpecialPathAndValidate() throws Exception {
@@ -459,10 +438,7 @@ public class SingleSelectionPaneTest extends GuiTest {
         typePathAndValidate(input.getAbsolutePath());
     }
 
-    private void typePathAndValidate(String path) throws Exception {
-        ValidableTextField field = find(".validable-container-field");
-        // TODO replace with typing when slash works
-        FXTestUtils.invokeAndWait(() -> field.setText(path), 2);
-        click(field).type(KeyCode.TAB);
+    private void typePathAndValidate(String path) {
+        clickOn(".validable-container-field").write(path).type(KeyCode.TAB);
     }
 }

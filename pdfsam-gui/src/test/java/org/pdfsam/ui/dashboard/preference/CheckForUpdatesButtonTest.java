@@ -25,37 +25,38 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.update.UpdateCheckRequest;
 import org.sejda.eventstudio.Listener;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class CheckForUpdatesButtonTest extends GuiTest {
+public class CheckForUpdatesButtonTest extends ApplicationTest {
 
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         CheckForUpdatesButton victim = new CheckForUpdatesButton();
         victim.setId("victim");
-        return victim;
+        Scene scene = new Scene(new HBox(victim));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void eventSent() {
         Listener<UpdateCheckRequest> listener = mock(Listener.class);
         eventStudio().add(UpdateCheckRequest.class, listener);
-        click("#victim");
+        clickOn("#victim");
         verify(listener).onEvent(any());
     }
 

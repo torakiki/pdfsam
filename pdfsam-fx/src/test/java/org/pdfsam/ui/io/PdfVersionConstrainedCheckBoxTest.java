@@ -24,38 +24,39 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.eventstudio.Listener;
 import org.sejda.model.pdf.PdfVersion;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class PdfVersionConstrainedCheckBoxTest extends GuiTest {
+public class PdfVersionConstrainedCheckBoxTest extends ApplicationTest {
 
     private static final String MODULE = "MODULE";
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule(MODULE);
+    private PdfVersionConstrainedCheckBox victim;
 
     @Override
-    protected Parent getRootNode() {
-        PdfVersionConstrainedCheckBox victim = new PdfVersionConstrainedCheckBox(PdfVersion.VERSION_1_4, MODULE);
-        victim.getStyleClass().add("victim");
-        return victim;
+    public void start(Stage stage) {
+        victim = new PdfVersionConstrainedCheckBox(PdfVersion.VERSION_1_4, MODULE);
+        Scene scene = new Scene(new HBox(victim));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void addConstraintOnSelect() {
         BasePdfVersionEventListener<AddPdfVersionConstraintEvent> listener = new BasePdfVersionEventListener<>();
         eventStudio().add(AddPdfVersionConstraintEvent.class, listener, MODULE);
-        click(".victim");
+        clickOn(victim);
         assertTrue(listener.hit);
     }
 
@@ -63,8 +64,7 @@ public class PdfVersionConstrainedCheckBoxTest extends GuiTest {
     public void removeConstraintOnDeselect() {
         BasePdfVersionEventListener<RemovePdfVersionConstraintEvent> listener = new BasePdfVersionEventListener<>();
         eventStudio().add(RemovePdfVersionConstraintEvent.class, listener, MODULE);
-        click(".victim");
-        click(".victim");
+        doubleClickOn(victim);
         assertTrue(listener.hit);
     }
 

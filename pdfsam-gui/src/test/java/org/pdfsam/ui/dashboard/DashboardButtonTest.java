@@ -27,38 +27,39 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.DefaultPriorityDashboardItem;
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.sejda.eventstudio.Listener;
+import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class DashboardButtonTest extends GuiTest {
+public class DashboardButtonTest extends ApplicationTest {
 
     @Rule
     public ClearEventStudioRule cleanStudio = new ClearEventStudioRule();
 
     @Override
-    protected Parent getRootNode() {
-        return new DashboardButton(new DefaultPriorityDashboardItem());
+    public void start(Stage stage) {
+        Scene scene = new Scene(new HBox(new DashboardButton(new DefaultPriorityDashboardItem())));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void onClick() {
         Listener<SetActiveDashboardItemRequest> listener = mock(Listener.class);
         eventStudio().add(SetActiveDashboardItemRequest.class, listener);
-        click(".quickbar-navigation-button");
+        clickOn(".quickbar-navigation-button");
         ArgumentCaptor<SetActiveDashboardItemRequest> captor = ArgumentCaptor
                 .forClass(SetActiveDashboardItemRequest.class);
         verify(listener).onEvent(captor.capture());
@@ -66,12 +67,12 @@ public class DashboardButtonTest extends GuiTest {
     }
 
     @Test
-    public void selectIf() throws Exception {
-        DashboardButton victim = find(".quickbar-navigation-button");
+    public void selectIf() {
+        DashboardButton victim = lookup(".quickbar-navigation-button").queryAs(DashboardButton.class);
         assertFalse(victim.isSelected());
         victim.selectIf("ImNotMatching");
         assertFalse(victim.isSelected());
-        FXTestUtils.invokeAndWait(() -> victim.selectIf(DefaultPriorityDashboardItem.ID), 1);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.selectIf(DefaultPriorityDashboardItem.ID));
         assertTrue(victim.isSelected());
     }
 

@@ -28,9 +28,6 @@ import java.util.Locale;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
@@ -39,20 +36,22 @@ import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.LocaleKeyValueItem;
 import org.sejda.eventstudio.Listener;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class PreferenceAppearencePaneTest extends GuiTest {
+public class PreferenceAppearencePaneTest extends ApplicationTest {
 
     private UserContext userContext = mock(UserContext.class);
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         Locale.setDefault(Locale.ENGLISH);
         PreferenceComboBox<LocaleKeyValueItem> localeCombo = new PreferenceComboBox<>(StringUserPreference.LOCALE,
                 userContext);
@@ -63,7 +62,9 @@ public class PreferenceAppearencePaneTest extends GuiTest {
         PreferenceAppearencePane victim = new PreferenceAppearencePane(localeCombo, startupModuleCombo,
                 clearStatsButton);
         victim.setId("victim");
-        return victim;
+        Scene scene = new Scene(new HBox(victim));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
@@ -71,7 +72,7 @@ public class PreferenceAppearencePaneTest extends GuiTest {
         Listener<SetLocaleEvent> listener = mock(Listener.class);
         eventStudio().add(SetLocaleEvent.class, listener);
         Locale first = DefaultI18nContext.SUPPORTED_LOCALES.stream().findFirst().get();
-        click("#localeCombo").click(StringUtils.capitalize(first.getDisplayName()));
+        clickOn("#localeCombo").clickOn(StringUtils.capitalize(first.getDisplayName()));
         ArgumentCaptor<SetLocaleEvent> captor = ArgumentCaptor.forClass(SetLocaleEvent.class);
         verify(listener).onEvent(captor.capture());
         assertEquals(first.toLanguageTag(), captor.getValue().getLocaleString());

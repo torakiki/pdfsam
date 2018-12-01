@@ -90,8 +90,18 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.loadui</groupId>
-			<artifactId>testFx</artifactId>
+			<groupId>org.testfx</groupId>
+			<artifactId>testfx-core</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.testfx</groupId>
+			<artifactId>testfx-junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-swing</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>

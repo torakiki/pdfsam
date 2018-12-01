@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.banner;
 
+import static org.junit.Assert.assertTrue;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.net.URISyntaxException;
@@ -26,34 +27,33 @@ import javax.inject.Named;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.event.SetTitleEvent;
 import org.sejda.injector.Injector;
 import org.sejda.injector.Prototype;
 import org.sejda.injector.Provides;
+import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class BannerPaneTest extends GuiTest {
+public class BannerPaneTest extends ApplicationTest {
     @Rule
     public ClearEventStudioRule cleanStudio = new ClearEventStudioRule();
-    private Injector injector;
 
     @Override
-    protected Parent getRootNode() {
-        injector = Injector.start(new MenuConfig(), new Config());
-        return injector.instance(BannerPane.class);
+    public void start(Stage stage) {
+        Injector injector = Injector.start(new MenuConfig(), new Config());
+        Scene scene = new Scene(injector.instance(BannerPane.class));
+        stage.setScene(scene);
+        stage.show();
     }
 
     static class Config {
@@ -94,9 +94,9 @@ public class BannerPaneTest extends GuiTest {
     }
 
     @Test
-    public void title() throws Exception {
-        FXTestUtils.invokeAndWait(() -> eventStudio().broadcast(new SetTitleEvent("title")), 1);
-        exists("@title");
+    public void title() {
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> eventStudio().broadcast(new SetTitleEvent("title")));
+        assertTrue(lookup("@title").tryQuery().isPresent());
     }
 
 }

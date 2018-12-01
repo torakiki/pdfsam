@@ -31,28 +31,26 @@ import java.util.function.Consumer;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.support.params.MultipleOutputTaskParametersBuilder;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
 @SuppressWarnings({ "rawtypes", "unchecked" })
-public class PrefixPaneTest extends GuiTest {
+public class PrefixPaneTest extends ApplicationTest {
 
     @Rule
     public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule();
 
     private MultipleOutputTaskParametersBuilder builder;
     private Consumer<String> onError;
+    private PrefixPane victim;
 
     @Before
     public void setUp() {
@@ -61,43 +59,40 @@ public class PrefixPaneTest extends GuiTest {
     }
 
     @Override
-    protected Parent getRootNode() {
-        PrefixPane victim = new PrefixPane();
+    public void start(Stage stage) {
+        victim = new PrefixPane();
         victim.setId("victim");
-        return victim;
+        Scene scene = new Scene(victim);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
-    public void apply() throws Exception {
-        PrefixPane victim = find(".pdfsam-container");
-        FXTestUtils.invokeAndWait(() -> victim.apply(builder, onError), 2);
+    public void apply() {
+        victim.apply(builder, onError);
         verify(onError, never()).accept(anyString());
         verify(builder).prefix("PDFsam_");
     }
 
     @Test
     public void saveState() {
-        PrefixPane victim = find(".pdfsam-container");
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
         assertEquals("PDFsam_", data.get("victimprefix"));
     }
 
     @Test
-    public void restoreState() throws Exception {
-        PrefixPane victim = find(".pdfsam-container");
+    public void restoreState() {
         Map<String, String> data = new HashMap<>();
         data.put("victimprefix", "Chuck");
-        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
+        victim.restoreStateFrom(data);
         assertEquals("Chuck", victim.getText());
     }
 
     @Test
-    public void reset() throws Exception {
-        click(p -> p instanceof PrefixField);
-        type("newPref");
-        PrefixPane victim = find(".pdfsam-container");
-        FXTestUtils.invokeAndWait(() -> victim.resetView(), 2);
+    public void reset() {
+        clickOn(p -> p instanceof PrefixField).write("newPref");
+        victim.resetView();
         assertEquals("PDFsam_", victim.getText());
     }
 }

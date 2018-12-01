@@ -25,48 +25,49 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.context.IntUserPreference;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.support.validation.Validators;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class PreferenceIntTextFieldTest extends GuiTest {
+public class PreferenceIntTextFieldTest extends ApplicationTest {
 
     private UserContext userContext = mock(UserContext.class);
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         PreferenceIntTextField victim = new PreferenceIntTextField(IntUserPreference.THUMBNAILS_SIZE, userContext,
                 Validators.positiveInteger());
         victim.setId("victim");
-        return victim;
+        Scene scene = new Scene(new HBox(victim));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void validValue() {
-        click("#victim").type("12").push(KeyCode.ENTER);
+        clickOn("#victim").write("12").push(KeyCode.ENTER);
         verify(userContext).setIntegerPreference(IntUserPreference.THUMBNAILS_SIZE, 12);
     }
 
     @Test
     public void invalidValue() {
-        click("#victim").type("ChuckNorris").push(KeyCode.ENTER);
+        clickOn("#victim").write("ChuckNorris").push(KeyCode.ENTER);
         verify(userContext, never()).setIntegerPreference(any(), anyInt());
     }
 
     @Test
     public void emptyValue() {
-        click("#victim").type("").push(KeyCode.ENTER);
+        clickOn("#victim").write("").push(KeyCode.ENTER);
         verify(userContext, never()).setIntegerPreference(any(), anyInt());
     }
 

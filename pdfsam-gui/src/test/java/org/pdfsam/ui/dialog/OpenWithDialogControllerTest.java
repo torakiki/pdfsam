@@ -28,26 +28,25 @@ import java.util.List;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.module.Module;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.test.HighPriorityTestModule;
 import org.pdfsam.ui.InputPdfArgumentsLoadRequest;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class OpenWithDialogControllerTest extends GuiTest {
+public class OpenWithDialogControllerTest extends ApplicationTest {
 
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
@@ -55,36 +54,37 @@ public class OpenWithDialogControllerTest extends GuiTest {
     private Module module2 = new DefaultPriorityTestModule();
     @Rule
     public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule(module1.id(), module2.id());
+    private Button button;
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         StylesConfig styles = mock(StylesConfig.class);
         List<Module> modulesMap = new ArrayList<>();
         modulesMap.add(module1);
         modulesMap.add(module2);
         new OpenWithDialogController(new OpenWithDialog(styles, modulesMap));
-        Button button = new Button("show");
-        return button;
+        button = new Button("show");
+        Scene scene = new Scene(new VBox(button));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void singleArg() throws IOException {
-        Button button = find("show");
         InputPdfArgumentsLoadRequest event = new InputPdfArgumentsLoadRequest();
         event.pdfs.add(Paths.get(folder.newFile().getAbsolutePath()));
         button.setOnAction(a -> eventStudio().broadcast(event));
-        click("show");
-        click(module2.descriptor().getName());
+        clickOn("show");
+        clickOn(module2.descriptor().getName());
     }
 
     @Test
     public void multipleArgs() throws IOException {
-        Button button = find("show");
         InputPdfArgumentsLoadRequest event = new InputPdfArgumentsLoadRequest();
         event.pdfs.add(Paths.get(folder.newFile().getAbsolutePath()));
         event.pdfs.add(Paths.get(folder.newFile().getAbsolutePath()));
         button.setOnAction(a -> eventStudio().broadcast(event));
-        click("show");
-        click(module1.descriptor().getName());
+        clickOn("show");
+        clickOn(module1.descriptor().getName());
     }
 }

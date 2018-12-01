@@ -25,33 +25,33 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.sejda.eventstudio.Listener;
 import org.sejda.injector.Injector;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class ModulesMenuTest extends GuiTest {
+public class ModulesMenuTest extends ApplicationTest {
 
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
     private Injector injector;
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         injector = Injector.start(new MenuConfig());
-        return injector.instance(MenuButton.class);
+        Scene scene = new Scene(injector.instance(MenuButton.class));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
@@ -60,8 +60,8 @@ public class ModulesMenuTest extends GuiTest {
         Listener<SetActiveModuleRequest> listener = mock(Listener.class);
         eventStudio().add(SetActiveModuleRequest.class, listener);
         ArgumentCaptor<SetActiveModuleRequest> argument = ArgumentCaptor.forClass(SetActiveModuleRequest.class);
-        click(".button").click("#modulesMenu")
-                .click(module.descriptor().category.getDescription()).click(module.descriptor().getName());
+        clickOn(".button").clickOn("#modulesMenu").clickOn(module.descriptor().category.getDescription())
+                .clickOn(module.descriptor().getName());
         verify(listener).onEvent(argument.capture());
         assertEquals(module.id(), argument.getValue().getActiveModuleId().get());
     }

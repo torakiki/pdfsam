@@ -255,12 +255,12 @@
 		<fontawesomefx.fontawesome.version>4.7.0-9.1.2</fontawesomefx.fontawesome.version>
 		<fontawesomefx.materialicons.version>2.2.0-9.1.2</fontawesomefx.materialicons.version>
 		<fontawesomefx.materialdesignfont.version>2.0.26-9.1.2</fontawesomefx.materialdesignfont.version>
-		<testfx.version>3.1.2</testfx.version>
+		<testfx.version>4.0.15-alpha</testfx.version>
 		<jackson-jr.version>2.8.6</jackson-jr.version>
 		<tempus.fugit.version>1.1</tempus.fugit.version>
 		<bouncycastle.version>1.60</bouncycastle.version>
 		<hamcrest.version>1.3</hamcrest.version>
-		<javafx.version>11</javafx.version>
+		<javafx.version>11.0.1</javafx.version>
 		<maven.build.timestamp.format>dd-MMM-yyyy</maven.build.timestamp.format>
 		<pdfsam.builddate>${maven.build.timestamp}</pdfsam.builddate>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -335,21 +335,33 @@
 				<version>${jackson-jr.version}</version>
 			</dependency>
 			<dependency>
+				<groupId>org.openjfx</groupId>
+				<artifactId>javafx-controls</artifactId>
+				<version>${javafx.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>jdepend</groupId>
 				<artifactId>jdepend</artifactId>
 				<version>${jdepend.version}</version>
 				<scope>test</scope>
 			</dependency>
 			<dependency>
-				<groupId>org.loadui</groupId>
-				<artifactId>testFx</artifactId>
+				<groupId>org.testfx</groupId>
+				<artifactId>testfx-core</artifactId>
+				<version>${testfx.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.testfx</groupId>
+				<artifactId>testfx-junit</artifactId>
 				<version>${testfx.version}</version>
 				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.openjfx</groupId>
-				<artifactId>javafx-controls</artifactId>
+				<artifactId>javafx-swing</artifactId>
 				<version>${javafx.version}</version>
+				<scope>test</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

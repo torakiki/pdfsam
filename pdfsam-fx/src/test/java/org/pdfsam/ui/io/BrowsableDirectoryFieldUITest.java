@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.io;
 
-import static org.loadui.testfx.Assertions.verifyThat;
+import static org.junit.Assert.assertTrue;
 import static org.pdfsam.support.validation.Validators.nonBlank;
 import static org.pdfsam.support.validation.Validators.positiveInteger;
 import static org.pdfsam.support.validation.Validators.validEmpty;
@@ -28,103 +28,104 @@ import java.util.Arrays;
 import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
+import org.testfx.api.FxAssert;
+import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class BrowsableDirectoryFieldUITest extends GuiTest {
+public class BrowsableDirectoryFieldUITest extends ApplicationTest {
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         BrowsableDirectoryField victimNoBlank = new BrowsableDirectoryField();
         victimNoBlank.getTextField().setValidator(nonBlank());
         victimNoBlank.getStyleClass().add("victim-no-blank");
         BrowsableDirectoryField victimBlank = new BrowsableDirectoryField();
         victimBlank.getTextField().setValidator(validEmpty(positiveInteger()));
         victimBlank.getStyleClass().add("victim-blank");
-        return new HBox(victimBlank, victimNoBlank);
+        Scene scene = new Scene(new HBox(victimBlank, victimNoBlank));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void validBlank() {
-        BrowsableDirectoryField victim = find(".victim-blank");
-        click(victim);
+        BrowsableDirectoryField victim = lookup(".victim-blank").queryAs(BrowsableDirectoryField.class);
+        clickOn(victim);
         type(KeyCode.TAB);
-        verifyThat(victim, v -> v.getTextField().getValidationState() == ValidationState.VALID);
+        FxAssert.verifyThat(victim, v -> v.getTextField().getValidationState() == ValidationState.VALID);
     }
 
     @Test
     public void invalidBlank() {
-        BrowsableDirectoryField victim = find(".victim-no-blank");
-        click(victim);
+        BrowsableDirectoryField victim = lookup(".victim-no-blank").queryAs(BrowsableDirectoryField.class);
+        clickOn(victim);
         type(KeyCode.TAB);
-        verifyThat(victim, v -> v.getTextField().getValidationState() == ValidationState.INVALID);
-        Arrays.stream(Style.INVALID.css()).forEach(c -> verifyThat(victim, v -> exists("." + c)));
+        FxAssert.verifyThat(victim, v -> v.getTextField().getValidationState() == ValidationState.INVALID);
+        Arrays.stream(Style.INVALID.css()).forEach(c -> assertTrue(lookup("." + c).tryQuery().isPresent()));
     }
 
     @Test
-    public void setGraphic() throws Exception {
+    public void setGraphic() {
         Label graphic = new Label("Chuck");
-        BrowsableDirectoryField victim = find(".victim-no-blank");
-        FXTestUtils.invokeAndWait(() -> victim.setGraphic(graphic), 1);
-        verifyThat(victim, v -> exists("Chuck"));
+        BrowsableDirectoryField victim = lookup(".victim-no-blank").queryAs(BrowsableDirectoryField.class);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.setGraphic(graphic));
+        assertTrue(lookup("Chuck").tryQuery().isPresent());
     }
 
     @Test
-    public void nullGraphicDoesntExplode() throws Exception {
-        BrowsableDirectoryField victim = find(".victim-no-blank");
-        FXTestUtils.invokeAndWait(() -> victim.setGraphic(null), 1);
+    public void nullGraphicDoesntExplode() {
+        BrowsableDirectoryField victim = lookup(".victim-no-blank").queryAs(BrowsableDirectoryField.class);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.setGraphic(null));
     }
 
     @Test
-    public void copyPasteInQuotes() throws Exception {
-        FXTestUtils.invokeAndWait(() -> {
+    public void copyPasteInQuotes() {
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             Clipboard clipboard = Clipboard.getSystemClipboard();
             ClipboardContent content = new ClipboardContent();
             content.putString("\"my path\"");
             clipboard.setContent(content);
-        }, 1);
+        });
 
-        BrowsableDirectoryField victim = find(".victim-blank");
-        click(victim);
+        BrowsableDirectoryField victim = lookup(".victim-blank").queryAs(BrowsableDirectoryField.class);
+        clickOn(victim);
         press(KeyCode.CONTROL, KeyCode.V).release(KeyCode.V, KeyCode.CONTROL);
-        verifyThat(victim, v -> v.getTextField().getText().equals("my path"));
+        FxAssert.verifyThat(victim, v -> v.getTextField().getText().equals("my path"));
     }
 
     @Test
-    public void copyPasteNoQuotes() throws Exception {
-        FXTestUtils.invokeAndWait(() -> {
+    public void copyPasteNoQuotes() {
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             Clipboard clipboard = Clipboard.getSystemClipboard();
             ClipboardContent content = new ClipboardContent();
             content.putString("my path");
             clipboard.setContent(content);
-        }, 1);
+        });
 
-        BrowsableDirectoryField victim = find(".victim-blank");
-        click(victim);
+        BrowsableDirectoryField victim = lookup(".victim-blank").queryAs(BrowsableDirectoryField.class);
+        clickOn(victim);
         press(KeyCode.CONTROL, KeyCode.V).release(KeyCode.V, KeyCode.CONTROL);
-        verifyThat(victim, v -> v.getTextField().getText().equals("my path"));
+        FxAssert.verifyThat(victim, v -> v.getTextField().getText().equals("my path"));
     }
 
     @Test

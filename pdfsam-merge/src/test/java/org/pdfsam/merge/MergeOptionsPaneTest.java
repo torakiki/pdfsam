@@ -34,32 +34,31 @@ import java.util.function.Consumer;
 import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.model.outline.OutlinePolicy;
 import org.sejda.model.pdf.form.AcroFormPolicy;
 import org.sejda.model.toc.ToCPolicy;
+import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class MergeOptionsPaneTest extends GuiTest {
+public class MergeOptionsPaneTest extends ApplicationTest {
 
     @ClassRule
     public static ClearEventStudioRule CLEAR_STUDIO = new ClearEventStudioRule();
 
     private MergeParametersBuilder builder;
     private Consumer<String> onError;
+    private MergeOptionsPane victim;
 
     @Before
     public void setUp() {
@@ -68,15 +67,17 @@ public class MergeOptionsPaneTest extends GuiTest {
     }
 
     @Override
-    protected Parent getRootNode() {
-        return new MergeOptionsPane();
+    public void start(Stage stage) {
+        victim = new MergeOptionsPane();
+        Scene scene = new Scene(victim);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
-    public void validSteps() throws Exception {
-        click("#blankIfOddCheck");
-        MergeOptionsPane victim = find(".pdfsam-container");
-        FXTestUtils.invokeAndWait(() -> victim.apply(builder, onError), 2);
+    public void validSteps() {
+        clickOn("#blankIfOddCheck");
+        victim.apply(builder, onError);
         verify(builder).outlinePolicy(eq(OutlinePolicy.RETAIN));
         verify(builder).blankPageIfOdd(true);
         verify(builder).footer(false);
@@ -88,9 +89,8 @@ public class MergeOptionsPaneTest extends GuiTest {
 
     @Test
     public void onSaveWorkspace() {
-        click("#blankIfOddCheck");
+        clickOn("#blankIfOddCheck");
         Map<String, String> data = new HashMap<>();
-        MergeOptionsPane victim = find(".pdfsam-container");
         victim.saveStateTo(data);
         assertEquals(OutlinePolicy.RETAIN.toString(), data.get("outline"));
         assertEquals(Boolean.TRUE.toString(), data.get("blankIfOdd"));
@@ -101,13 +101,13 @@ public class MergeOptionsPaneTest extends GuiTest {
     }
 
     @Test
-    public void restoreStateFrom() throws Exception {
-        ComboBox<KeyStringValueItem<OutlinePolicy>> outline = find("#outlineCombo");
-        ComboBox<KeyStringValueItem<AcroFormPolicy>> forms = find("#acroFormsCombo");
-        ComboBox<KeyStringValueItem<AcroFormPolicy>> toc = find("#tocCombo");
-        CheckBox blankIfOdd = find("#blankIfOddCheck");
-        CheckBox footer = find("#footerCheck");
-        CheckBox normalize = find("#normalizeCheck");
+    public void restoreStateFrom() {
+        ComboBox<KeyStringValueItem<OutlinePolicy>> outline = lookup("#outlineCombo").queryComboBox();
+        ComboBox<KeyStringValueItem<AcroFormPolicy>> forms = lookup("#acroFormsCombo").queryComboBox();
+        ComboBox<KeyStringValueItem<AcroFormPolicy>> toc = lookup("#tocCombo").queryComboBox();
+        CheckBox blankIfOdd = lookup("#blankIfOddCheck").queryAs(CheckBox.class);
+        CheckBox footer = lookup("#footerCheck").queryAs(CheckBox.class);
+        CheckBox normalize = lookup("#normalizeCheck").queryAs(CheckBox.class);
         Map<String, String> data = new HashMap<>();
         data.put("outline", OutlinePolicy.ONE_ENTRY_EACH_DOC.toString());
         data.put("acroForms", AcroFormPolicy.MERGE_RENAMING_EXISTING_FIELDS.toString());
@@ -115,8 +115,7 @@ public class MergeOptionsPaneTest extends GuiTest {
         data.put("footer", Boolean.TRUE.toString());
         data.put("normalize", Boolean.TRUE.toString());
         data.put("toc", ToCPolicy.DOC_TITLES.toString());
-        MergeOptionsPane victim = find(".pdfsam-container");
-        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals(OutlinePolicy.ONE_ENTRY_EACH_DOC, outline.getSelectionModel().getSelectedItem().getKey());
         assertEquals(AcroFormPolicy.MERGE_RENAMING_EXISTING_FIELDS,
                 forms.getSelectionModel().getSelectedItem().getKey());
@@ -127,13 +126,13 @@ public class MergeOptionsPaneTest extends GuiTest {
     }
 
     @Test
-    public void reset() throws Exception {
-        ComboBox<KeyStringValueItem<OutlinePolicy>> outline = find("#outlineCombo");
-        ComboBox<KeyStringValueItem<AcroFormPolicy>> forms = find("#acroFormsCombo");
-        ComboBox<KeyStringValueItem<ToCPolicy>> toc = find("#tocCombo");
-        CheckBox blankIfOdd = find("#blankIfOddCheck");
-        CheckBox footer = find("#footerCheck");
-        CheckBox normalize = find("#normalizeCheck");
+    public void reset() {
+        ComboBox<KeyStringValueItem<OutlinePolicy>> outline = lookup("#outlineCombo").queryComboBox();
+        ComboBox<KeyStringValueItem<AcroFormPolicy>> forms = lookup("#acroFormsCombo").queryComboBox();
+        ComboBox<KeyStringValueItem<ToCPolicy>> toc = lookup("#tocCombo").queryComboBox();
+        CheckBox blankIfOdd = lookup("#blankIfOddCheck").queryAs(CheckBox.class);
+        CheckBox footer = lookup("#footerCheck").queryAs(CheckBox.class);
+        CheckBox normalize = lookup("#normalizeCheck").queryAs(CheckBox.class);
         Map<String, String> data = new HashMap<>();
         data.put("outline", OutlinePolicy.ONE_ENTRY_EACH_DOC.toString());
         data.put("acroForms", AcroFormPolicy.MERGE_RENAMING_EXISTING_FIELDS.toString());
@@ -141,8 +140,7 @@ public class MergeOptionsPaneTest extends GuiTest {
         data.put("footer", Boolean.TRUE.toString());
         data.put("normalize", Boolean.TRUE.toString());
         data.put("toc", ToCPolicy.DOC_TITLES.toString());
-        MergeOptionsPane victim = find(".pdfsam-container");
-        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals(OutlinePolicy.ONE_ENTRY_EACH_DOC, outline.getSelectionModel().getSelectedItem().getKey());
         assertEquals(AcroFormPolicy.MERGE_RENAMING_EXISTING_FIELDS,
                 forms.getSelectionModel().getSelectedItem().getKey());
@@ -150,7 +148,7 @@ public class MergeOptionsPaneTest extends GuiTest {
         assertTrue(blankIfOdd.isSelected());
         assertTrue(footer.isSelected());
         assertTrue(normalize.isSelected());
-        FXTestUtils.invokeAndWait(() -> victim.resetView(), 2);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.resetView());
         assertEquals(OutlinePolicy.RETAIN, outline.getSelectionModel().getSelectedItem().getKey());
         assertEquals(AcroFormPolicy.MERGE, forms.getSelectionModel().getSelectedItem().getKey());
         assertEquals(ToCPolicy.NONE, toc.getSelectionModel().getSelectedItem().getKey());

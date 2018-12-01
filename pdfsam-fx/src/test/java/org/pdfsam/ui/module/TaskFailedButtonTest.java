@@ -23,37 +23,38 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.HitTestListener;
 import org.pdfsam.ui.commons.ShowStageRequest;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class TaskFailedButtonTest extends GuiTest {
+public class TaskFailedButtonTest extends ApplicationTest {
 
     @Rule
     public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule("LogStage");
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         TaskFailedButton button = new TaskFailedButton();
         button.setMaxHeight(30);
-        return button;
+        Scene scene = new Scene(new HBox(button));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void failButtonVisibleOnFailure() {
         HitTestListener<ShowStageRequest> hit = new HitTestListener<>();
         eventStudio().add(ShowStageRequest.class, hit, "LogStage");
-        click(".footer-failed-button");
+        clickOn(".footer-failed-button");
         assertTrue(hit.isHit());
     }
 }

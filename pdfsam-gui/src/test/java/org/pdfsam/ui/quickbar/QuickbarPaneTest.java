@@ -23,35 +23,35 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class QuickbarPaneTest extends GuiTest {
+public class QuickbarPaneTest extends ApplicationTest {
 
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         BaseQuickbarButtonsPane buttons = new BaseQuickbarButtonsPane();
         buttons.setId("buttons");
-        return new QuickbarPane(buttons);
+        Scene scene = new Scene(new QuickbarPane(buttons));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void click() {
-        BaseQuickbarButtonsPane buttons = find("#buttons");
+        BaseQuickbarButtonsPane buttons = lookup("#buttons").queryAs(BaseQuickbarButtonsPane.class);
         assertFalse(buttons.isDisplayText());
-        click(".quickbar-expand-button");
+        clickOn(".quickbar-expand-button");
         assertTrue(buttons.isDisplayText());
     }
 }

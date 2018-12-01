@@ -23,41 +23,42 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.UserContext;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.RadioButton;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class PreferenceOutputPaneTest extends GuiTest {
+public class PreferenceOutputPaneTest extends ApplicationTest {
     private UserContext userContext = mock(UserContext.class);
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         PreferenceRadioButton smartRadio = new PreferenceRadioButton(BooleanUserPreference.SMART_OUTPUT, "radio", false,
                 userContext);
         smartRadio.setId("smartRadio");
         PreferenceOutputPane victim = new PreferenceOutputPane(smartRadio);
         victim.setId("victim");
-        return victim;
+        Scene scene = new Scene(new HBox(victim));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void manualRadioIsSelected() {
-        assertTrue(((RadioButton) find("#manualRadio")).isSelected());
+        assertTrue(lookup("#manualRadio").queryAs(RadioButton.class).isSelected());
     }
 
     @Test
     public void clickManual() {
-        click("#smartRadio");
+        clickOn("#smartRadio");
         verify(userContext).setBooleanPreference(BooleanUserPreference.SMART_OUTPUT, true);
     }
 

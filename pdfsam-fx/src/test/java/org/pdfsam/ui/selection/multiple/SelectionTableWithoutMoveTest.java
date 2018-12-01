@@ -18,6 +18,8 @@
  */
 package org.pdfsam.ui.selection.multiple;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
@@ -25,26 +27,24 @@ import java.io.File;
 import org.junit.After;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
-import org.loadui.testfx.exceptions.NoNodesFoundException;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.matcher.control.TableViewMatchers;
+import org.testfx.util.WaitForAsyncUtils;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class SelectionTableWithoutMoveTest extends GuiTest {
+public class SelectionTableWithoutMoveTest extends ApplicationTest {
     private static final String MODULE = "MODULE";
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule(MODULE);
@@ -52,12 +52,15 @@ public class SelectionTableWithoutMoveTest extends GuiTest {
     public TemporaryFolder folder = new TemporaryFolder();
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) throws Exception {
         SelectionTable victim = new SelectionTable(MODULE, true, false,
                 new SelectionTableColumn<?>[] { new LoadingColumn(MODULE), FileColumn.NAME, LongColumn.SIZE,
                         IntColumn.PAGES, LongColumn.LAST_MODIFIED, new PageRangesColumn() });
         victim.setId("victim");
-        return victim;
+        populate();
+        Scene scene = new Scene(victim);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @After
@@ -65,32 +68,33 @@ public class SelectionTableWithoutMoveTest extends GuiTest {
         type(KeyCode.ESCAPE);
     }
 
-    @Test(expected = NoNodesFoundException.class)
-    public void moveDownIsMissing() throws Exception {
-        populate();
-        rightClick("temp.pdf");
-        find(DefaultI18nContext.getInstance().i18n("Move Down"));
+    @Test
+    public void moveDownIsMissing() {
+        rightClickOn(TableViewMatchers.hasTableCell("temp.pdf"));
+        assertFalse(lookup(DefaultI18nContext.getInstance().i18n("Move Down")).tryQuery().isPresent());
+        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("Set destination")).tryQuery().isPresent());
     }
 
-    @Test(expected = NoNodesFoundException.class)
-    public void moveUpIsMissing() throws Exception {
-        populate();
-        rightClick("temp.pdf");
-        find(DefaultI18nContext.getInstance().i18n("Move Up"));
+    @Test
+    public void moveUpIsMissing() {
+        rightClickOn(TableViewMatchers.hasTableCell("temp.pdf"));
+        assertFalse(lookup(DefaultI18nContext.getInstance().i18n("Move Up")).tryQuery().isPresent());
+        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("Set destination")).tryQuery().isPresent());
     }
 
-    @Test(expected = NoNodesFoundException.class)
-    public void moveBottomIsMissing() throws Exception {
-        populate();
-        rightClick("temp.pdf");
-        find(DefaultI18nContext.getInstance().i18n("Move to Bottom"));
+    @Test
+    public void moveBottomIsMissing() {
+        rightClickOn(TableViewMatchers.hasTableCell("temp.pdf"));
+        assertFalse(lookup(DefaultI18nContext.getInstance().i18n("Move to Bottom")).tryQuery().isPresent());
+        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("Set destination")).tryQuery().isPresent());
     }
 
-    @Test(expected = NoNodesFoundException.class)
-    public void moveTopIsMissing() throws Exception {
-        populate();
-        rightClick("temp.pdf");
-        find(DefaultI18nContext.getInstance().i18n("Move to Top"));
+    @Test
+    public void moveTopIsMissing() {
+        rightClickOn(TableViewMatchers.hasTableCell("temp.pdf"));
+        assertFalse(lookup(DefaultI18nContext.getInstance().i18n("Move to Top")).tryQuery().isPresent());
+        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("Set destination")).tryQuery().isPresent());
+
     }
 
     private PdfDocumentDescriptor populate() throws Exception {
@@ -98,9 +102,7 @@ public class SelectionTableWithoutMoveTest extends GuiTest {
         PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(MODULE);
         PdfDocumentDescriptor ret = PdfDocumentDescriptor.newDescriptorNoPassword(file);
         loadEvent.add(ret);
-        FXTestUtils.invokeAndWait(() -> {
-            eventStudio().broadcast(loadEvent, MODULE);
-        } , 2);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> eventStudio().broadcast(loadEvent, MODULE));
         return ret;
     }
 }

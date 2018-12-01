@@ -29,40 +29,40 @@ import java.util.Arrays;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.RecentWorkspacesService;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.WorkspaceLoadedEvent;
 import org.sejda.eventstudio.Listener;
 import org.sejda.injector.Injector;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class WorkspaceMenuTest extends GuiTest {
+public class WorkspaceMenuTest extends ApplicationTest {
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
     private Injector injector;
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         injector = Injector.start(new MenuConfig());
-        return injector.instance(MenuButton.class);
+        Scene scene = new Scene(injector.instance(MenuButton.class));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void onRecentWorkspace() {
         Listener<LoadWorkspaceEvent> listener = mock(Listener.class);
         eventStudio().add(LoadWorkspaceEvent.class, listener);
-        click(".button").click("#workspaceMenu").move("#loadWorkspace").move("#saveWorkspace")
-                .click("#recentWorkspace").click("Chuck");
+        clickOn(".button").clickOn("#workspaceMenu").moveTo("#loadWorkspace").moveTo("#saveWorkspace")
+                .clickOn("#recentWorkspace").clickOn("Chuck");
         verify(listener).onEvent(any());
     }
 
@@ -71,8 +71,8 @@ public class WorkspaceMenuTest extends GuiTest {
         RecentWorkspacesService service = injector.instance(RecentWorkspacesService.class);
         when(service.getRecentlyUsedWorkspaces()).thenReturn(Arrays.asList("Micheal"));
         eventStudio().broadcast(new WorkspaceLoadedEvent(mock(File.class)));
-        click(".button").click("#workspaceMenu").move("#loadWorkspace").move("#saveWorkspace")
-                .click("#recentWorkspace").click("Micheal");
+        clickOn(".button").clickOn("#workspaceMenu").moveTo("#loadWorkspace").moveTo("#saveWorkspace")
+                .clickOn("#recentWorkspace").clickOn("Micheal");
     }
 
     @Test
@@ -80,7 +80,7 @@ public class WorkspaceMenuTest extends GuiTest {
         RecentWorkspacesService service = injector.instance(RecentWorkspacesService.class);
         when(service.getRecentlyUsedWorkspaces()).thenReturn(Arrays.asList("I_have_underscores"));
         eventStudio().broadcast(new WorkspaceLoadedEvent(mock(File.class)));
-        click(".button").click("#workspaceMenu").move("#loadWorkspace").move("#saveWorkspace").click("#recentWorkspace")
-                .click("I_have_underscores");
+        clickOn(".button").clickOn("#workspaceMenu").moveTo("#loadWorkspace").moveTo("#saveWorkspace")
+                .clickOn("#recentWorkspace").clickOn("I_have_underscores");
     }
 }

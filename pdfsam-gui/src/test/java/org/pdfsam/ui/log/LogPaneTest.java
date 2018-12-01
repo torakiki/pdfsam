@@ -26,24 +26,22 @@ import static org.mockito.Mockito.when;
 
 import org.junit.ClassRule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.injector.Injector;
 import org.sejda.injector.Provides;
+import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.input.Clipboard;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class LogPaneTest extends GuiTest {
+public class LogPaneTest extends ApplicationTest {
 
     @ClassRule
     public static ClearEventStudioRule clearStudio = new ClearEventStudioRule();
@@ -72,34 +70,36 @@ public class LogPaneTest extends GuiTest {
     }
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         injector = Injector.start(new Config());
-        return injector.instance(LogPane.class);
+        Scene scene = new Scene(injector.instance(LogPane.class));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void clear() {
         LogListView view = injector.instance(LogListView.class);
         assertEquals(2, view.getItems().size());
-        rightClick("A message").click("#clearLogMenuItem");
+        rightClickOn("A message").clickOn("#clearLogMenuItem");
         assertEquals(0, view.getItems().size());
     }
 
     @Test
-    public void copy() throws Exception {
-        FXTestUtils.invokeAndWait(() -> {
+    public void copy() {
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             Clipboard.getSystemClipboard().clear();
             assertTrue(isBlank(Clipboard.getSystemClipboard().getString()));
-        }, 2);
-        click("A message").rightClick("A message").click("#copyLogMenuItem");
-        FXTestUtils.invokeAndWait(() -> assertTrue(Clipboard.getSystemClipboard().getString().contains("A message")),
-                1);
+        });
+        clickOn("A message").rightClickOn("A message").clickOn("#copyLogMenuItem");
+        WaitForAsyncUtils.waitForAsyncFx(2000,
+                () -> assertTrue(Clipboard.getSystemClipboard().getString().contains("A message")));
     }
 
     @Test
     public void selectAll() {
         LogListView view = injector.instance(LogListView.class);
-        rightClick("A message").click("#selectAllLogMenuItem");
+        rightClickOn("A message").clickOn("#selectAllLogMenuItem");
         assertEquals(2, view.getSelectionModel().getSelectedItems().size());
     }
 

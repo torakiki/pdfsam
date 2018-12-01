@@ -25,9 +25,6 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.test.ClearEventStudioRule;
@@ -35,24 +32,27 @@ import org.pdfsam.ui.dashboard.PreferencesDashboardItem;
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.sejda.eventstudio.Listener;
 import org.sejda.injector.Injector;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class SettingsMenuTest extends GuiTest {
+public class SettingsMenuTest extends ApplicationTest {
 
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
     private Injector injector;
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         injector = Injector.start(new MenuConfig());
-        return injector.instance(MenuButton.class);
+        Scene scene = new Scene(injector.instance(MenuButton.class));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
@@ -61,7 +61,7 @@ public class SettingsMenuTest extends GuiTest {
         eventStudio().add(SetActiveDashboardItemRequest.class, listener);
         ArgumentCaptor<SetActiveDashboardItemRequest> argument = ArgumentCaptor
                 .forClass(SetActiveDashboardItemRequest.class);
-        click(".button").click(DefaultI18nContext.getInstance().i18n("_Settings"));
+        clickOn(".button").clickOn(DefaultI18nContext.getInstance().i18n("_Settings"));
         verify(listener).onEvent(argument.capture());
         assertEquals(PreferencesDashboardItem.ID, argument.getValue().getActiveItemId());
     }

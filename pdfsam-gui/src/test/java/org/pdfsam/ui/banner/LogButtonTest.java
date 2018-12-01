@@ -23,24 +23,27 @@ import static org.junit.Assert.assertTrue;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.test.HitTestListener;
 import org.pdfsam.ui.commons.HideStageRequest;
 import org.pdfsam.ui.commons.ShowStageRequest;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class LogButtonTest extends GuiTest {
+public class LogButtonTest extends ApplicationTest {
+    private LogButton victim;
+
     @Override
-    protected Parent getRootNode() {
-        return new LogButton();
+    public void start(Stage stage) {
+        victim = new LogButton();
+        Scene scene = new Scene(victim);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
@@ -49,16 +52,15 @@ public class LogButtonTest extends GuiTest {
         HitTestListener<HideStageRequest> hideListener = new HitTestListener<>();
         eventStudio().add(ShowStageRequest.class, listener, "LogStage");
         eventStudio().add(HideStageRequest.class, hideListener, "LogStage");
-        click(".button");
+        clickOn(".button");
         assertTrue(listener.isHit());
         assertFalse(hideListener.isHit());
-        click(".button");
+        clickOn(".button");
         assertTrue(hideListener.isHit());
     }
 
     @Test
     public void setUpToDate() {
-        LogButton victim = find(".button");
         assertFalse(victim.getStyleClass().contains(LogButton.HAS_ERRORS_CSS_CLASS));
         victim.hasUnseenErrors(true);
         assertTrue(victim.getStyleClass().contains(LogButton.HAS_ERRORS_CSS_CLASS));

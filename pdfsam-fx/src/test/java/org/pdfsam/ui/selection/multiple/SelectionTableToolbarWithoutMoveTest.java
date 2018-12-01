@@ -18,43 +18,48 @@
  */
 package org.pdfsam.ui.selection.multiple;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
-import org.loadui.testfx.exceptions.NoNodesFoundException;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.ui.selection.multiple.SelectionTableToolbar.AddButton;
 import org.pdfsam.ui.selection.multiple.SelectionTableToolbar.MoveDownButton;
 import org.pdfsam.ui.selection.multiple.SelectionTableToolbar.MoveUpButton;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class SelectionTableToolbarWithoutMoveTest extends GuiTest {
+public class SelectionTableToolbarWithoutMoveTest extends ApplicationTest {
 
     private static final String MODULE = "MODULE";
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule(MODULE);
+    private SelectionTableToolbar victim;
 
     @Override
-    protected Parent getRootNode() {
-        SelectionTableToolbar victim = new SelectionTableToolbar(MODULE, false);
+    public void start(Stage stage) {
+        victim = new SelectionTableToolbar(MODULE, false);
         victim.setId("victim");
-        return victim;
+        Scene scene = new Scene(victim);
+        stage.setScene(scene);
+        stage.show();
     }
 
-    @Test(expected = NoNodesFoundException.class)
+    @Test
     public void moveDownIsMissing() {
-        find(b -> b instanceof MoveUpButton);
+        assertTrue(lookup(b -> b instanceof AddButton).tryQuery().isPresent());
+        assertTrue(lookup(b -> b instanceof MoveUpButton).tryQuery().isEmpty());
     }
 
-    @Test(expected = NoNodesFoundException.class)
+    @Test
     public void moveUpIsMissing() {
-        find(b -> b instanceof MoveDownButton);
+        assertTrue(lookup(b -> b instanceof AddButton).tryQuery().isPresent());
+        assertTrue(lookup(b -> b instanceof MoveDownButton).tryQuery().isEmpty());
     }
 }

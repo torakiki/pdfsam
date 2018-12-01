@@ -30,10 +30,7 @@ import java.util.List;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.module.Module;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
@@ -43,31 +40,36 @@ import org.pdfsam.ui.InputPdfArgumentsLoadRequest;
 import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.sejda.eventstudio.Listener;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class OpenWithDialogTest extends GuiTest {
+public class OpenWithDialogTest extends ApplicationTest {
 
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
     private Module module = new DefaultPriorityTestModule();
     @Rule
     public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule(module.id());
+    private Button button;
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         StylesConfig styles = mock(StylesConfig.class);
         List<Module> modulesMap = new ArrayList<>();
         modulesMap.add(module);
         new OpenWithDialogController(new OpenWithDialog(styles, modulesMap));
-        Button button = new Button("show");
-        return button;
+        button = new Button("show");
+        Scene scene = new Scene(new VBox(button));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
@@ -79,12 +81,11 @@ public class OpenWithDialogTest extends GuiTest {
         Listener<PdfLoadRequestEvent> loadRequestListener = mock(Listener.class);
         eventStudio().add(PdfLoadRequestEvent.class, loadRequestListener, module.id());
 
-        Button button = find("show");
         InputPdfArgumentsLoadRequest event = new InputPdfArgumentsLoadRequest();
         event.pdfs.add(Paths.get(folder.newFile().getAbsolutePath()));
         button.setOnAction(a -> eventStudio().broadcast(event));
-        click("show");
-        click(module.descriptor().getName());
+        clickOn("show");
+        clickOn(module.descriptor().getName());
         verify(clearListener).onEvent(any());
         verify(activeModuleListener).onEvent(any());
         verify(loadRequestListener).onEvent(any());

@@ -29,11 +29,7 @@ import java.util.Arrays;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.ModuleInputOutputType;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
@@ -48,32 +44,38 @@ import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.task.NotifiableTaskMetadata;
 import org.sejda.model.task.Task;
+import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class OpenButtonTest extends GuiTest {
+public class OpenButtonTest extends ApplicationTest {
 
     @Rule
     public ClearEventStudioRule cearEventStudio = new ClearEventStudioRule();
     @Rule
     public TemporaryFolder temp = new TemporaryFolder();
     private Module module = new DefaultPriorityTestModule();
+    private OpenButton victim;
 
     @Override
-    protected Parent getRootNode() {
-        OpenButton button = new OpenButton("moduleId", ModuleInputOutputType.SINGLE_PDF);
-        button.initModules(Arrays.asList(module));
-        button.setMaxHeight(30);
-        button.setVisible(true);
-        return button;
+    public void start(Stage stage) {
+        victim = new OpenButton("moduleId", ModuleInputOutputType.SINGLE_PDF);
+        victim.initModules(Arrays.asList(module));
+        victim.setMaxHeight(30);
+        victim.setVisible(true);
+        Scene scene = new Scene(new HBox(victim));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
@@ -81,10 +83,9 @@ public class OpenButtonTest extends GuiTest {
         File file = temp.newFile();
         FileTaskOutput output = new FileTaskOutput(file);
         TestListener listener = new TestListener(file);
-        OpenButton victim = find(".footer-open-button");
         eventStudio().add(listener);
-        FXTestUtils.invokeAndWait(() -> victim.dispatch(output), 1);
-        click(victim);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.dispatch(output));
+        clickOn(victim);
         assertTrue(listener.isHit());
         assertTrue(listener.equal);
     }
@@ -94,10 +95,9 @@ public class OpenButtonTest extends GuiTest {
         File dir = temp.newFolder();
         DirectoryTaskOutput output = new DirectoryTaskOutput(dir);
         TestListener listener = new TestListener(dir);
-        OpenButton victim = find(".footer-open-button");
         eventStudio().add(listener);
-        FXTestUtils.invokeAndWait(() -> victim.dispatch(output), 1);
-        click(victim);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.dispatch(output));
+        clickOn(victim);
         assertTrue(listener.isHit());
         assertTrue(listener.equal);
     }
@@ -107,45 +107,41 @@ public class OpenButtonTest extends GuiTest {
         File file = temp.newFile();
         DirectoryTaskOutput output = new DirectoryTaskOutput(file.getParentFile());
         TestListener listener = new TestListener(file);
-        OpenButton victim = find(".footer-open-button");
         eventStudio().add(listener);
         NotifiableTaskMetadata taskMetadata = new NotifiableTaskMetadata(mock(Task.class));
         taskMetadata.addTaskOutput(file);
         eventStudio().broadcast(new TaskExecutionCompletedEvent(12, taskMetadata), "moduleId");
-        FXTestUtils.invokeAndWait(() -> victim.dispatch(output), 1);
-        click(victim);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.dispatch(output));
+        clickOn(victim);
         assertTrue(listener.isHit());
         assertTrue(listener.equal);
     }
 
     @Test
-    public void fileDestination() throws Exception {
-        OpenButton victim = find(".footer-open-button");
+    public void fileDestination() {
         FileTaskOutput output = mock(FileTaskOutput.class);
-        FXTestUtils.invokeAndWait(() -> victim.dispatch(output), 1);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.dispatch(output));
         verify(output).getDestination();
-        Text icon = find(".glyph-icon");
-        assertEquals(FontAwesomeIcon.FILE_PDF_ALT.characterToString(), icon.getText());
+        Text icon = lookup(".glyph-icon").queryAs(Text.class);
+        assertEquals(FontAwesomeIcon.FILE_PDF_ALT.unicode(), icon.getText());
     }
 
     @Test
-    public void directoryDestination() throws Exception {
-        OpenButton victim = find(".footer-open-button");
+    public void directoryDestination() {
         DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
-        FXTestUtils.invokeAndWait(() -> victim.dispatch(output), 1);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.dispatch(output));
         verify(output).getDestination();
-        Text icon = find(".glyph-icon");
-        assertEquals(MaterialDesignIcon.FOLDER_OUTLINE.characterToString(), icon.getText());
+        Text icon = lookup(".glyph-icon").queryAs(Text.class);
+        assertEquals(MaterialDesignIcon.FOLDER_OUTLINE.unicode(), icon.getText());
     }
 
     @Test
-    public void fileOrDirDestination() throws Exception {
-        OpenButton victim = find(".footer-open-button");
+    public void fileOrDirDestination() {
         DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
-        FXTestUtils.invokeAndWait(() -> victim.dispatch(output), 1);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.dispatch(output));
         verify(output).getDestination();
-        Text icon = find(".glyph-icon");
-        assertEquals(MaterialDesignIcon.FOLDER_OUTLINE.characterToString(), icon.getText());
+        Text icon = lookup(".glyph-icon").queryAs(Text.class);
+        assertEquals(MaterialDesignIcon.FOLDER_OUTLINE.unicode(), icon.getText());
     }
 
     @Test
@@ -161,12 +157,11 @@ public class OpenButtonTest extends GuiTest {
         HitTestListener<SetActiveModuleRequest> active = new HitTestListener<>();
         eventStudio().add(SetActiveModuleRequest.class, active);
         eventStudio().broadcast(event, "moduleId");
-        click(".arrow-button").click(module.descriptor().getName());
+        clickOn(".arrow-button").clickOn(module.descriptor().getName());
         assertTrue(clear.isHit());
         assertTrue(active.isHit());
         assertTrue(load.isHit());
     }
-
 
     private static class TestListener extends HitTestListener<OpenFileRequest> {
         private File destination;

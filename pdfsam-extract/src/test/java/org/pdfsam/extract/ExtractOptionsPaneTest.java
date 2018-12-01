@@ -32,28 +32,27 @@ import java.util.function.Consumer;
 import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.commons.ValidableTextField;
+import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class ExtractOptionsPaneTest extends GuiTest {
+public class ExtractOptionsPaneTest extends ApplicationTest {
 
     @ClassRule
     public static ClearEventStudioRule CLEAR_STUDIO = new ClearEventStudioRule();
 
     private ExtractParametersBuilder builder;
     private Consumer<String> onError;
+    private ExtractOptionsPane victim;
 
     @Before
     public void setUp() {
@@ -62,14 +61,16 @@ public class ExtractOptionsPaneTest extends GuiTest {
     }
 
     @Override
-    protected Parent getRootNode() {
-        return new ExtractOptionsPane();
+    public void start(Stage stage) {
+        victim = new ExtractOptionsPane();
+        Scene scene = new Scene(victim);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void validSteps() {
-        ExtractOptionsPane victim = find(".pdfsam-container");
-        click("#extractRanges").type('5').push(KeyCode.ENTER);
+        clickOn("#extractRanges").type(KeyCode.DIGIT5).push(KeyCode.ENTER);
         victim.apply(builder, onError);
         verify(builder).ranges(anySet());
         verify(onError, never()).accept(anyString());
@@ -77,8 +78,7 @@ public class ExtractOptionsPaneTest extends GuiTest {
 
     @Test
     public void applyError() {
-        ExtractOptionsPane victim = find(".pdfsam-container");
-        click("#extractRanges").type("Chuck").push(KeyCode.ENTER);
+        clickOn("#extractRanges").write("Chuck").push(KeyCode.ENTER);
         victim.apply(builder, onError);
         verify(onError).accept(anyString());
         verify(builder, never()).ranges(anySet());
@@ -86,30 +86,27 @@ public class ExtractOptionsPaneTest extends GuiTest {
 
     @Test
     public void saveState() {
-        ExtractOptionsPane victim = find(".pdfsam-container");
-        click("#extractRanges").type("30-100").push(KeyCode.ENTER);
+        clickOn("#extractRanges").write("30-100").push(KeyCode.ENTER);
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
         assertEquals("30-100", data.get("pages"));
     }
 
     @Test
-    public void restoreState() throws Exception {
-        ExtractOptionsPane victim = find(".pdfsam-container");
+    public void restoreState() {
         Map<String, String> data = new HashMap<>();
         data.put("pages", "100");
-        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
-        ValidableTextField field = find("#extractRanges");
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
+        ValidableTextField field = lookup("#extractRanges").queryAs(ValidableTextField.class);
         assertEquals("100", field.getText());
     }
 
     @Test
-    public void reset() throws Exception {
-        ExtractOptionsPane victim = find(".pdfsam-container");
-        click("#extractRanges").type('5').push(KeyCode.ENTER);
-        ValidableTextField field = (ValidableTextField) find("#extractRanges");
+    public void reset() {
+        clickOn("#extractRanges").type(KeyCode.DIGIT5).push(KeyCode.ENTER);
+        ValidableTextField field = lookup("#extractRanges").queryAs(ValidableTextField.class);
         assertEquals("5", field.getText());
-        FXTestUtils.invokeAndWait(() -> victim.resetView(), 2);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.resetView());
         assertEquals("", field.getText());
     }
 }

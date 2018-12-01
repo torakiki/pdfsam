@@ -18,31 +18,35 @@
  */
 package org.pdfsam.ui.dialog;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
+import org.pdfsam.i18n.DefaultI18nContext;
+import org.testfx.framework.junit.ApplicationTest;
 
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class ConfirmationDialogContentTest extends GuiTest {
+public class ConfirmationDialogContentTest extends ApplicationTest {
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         ConfirmationDialogContent victim = new ConfirmationDialogContent(MaterialDesignIcon.ACCOUNT);
         victim.messageTitle("MessageTitle");
         victim.messageContent("MessageContent");
-        return victim;
+
+        Scene scene = new Scene(victim);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void contentIsShown() {
-        find("MessageTitle");
-        find("MessageContent");
+        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("MessageTitle")).tryQuery().isPresent());
+        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("MessageContent")).tryQuery().isPresent());
     }
 }

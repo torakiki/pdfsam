@@ -19,19 +19,20 @@
 package org.pdfsam.ui.selection.multiple;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
-import static org.loadui.testfx.Assertions.verifyThat;
-import static org.loadui.testfx.controls.Commons.hasText;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.testfx.api.FxAssert.verifyThat;
+import static org.testfx.matcher.control.TableViewMatchers.hasTableCell;
 
 import java.io.File;
 import java.util.HashMap;
@@ -41,15 +42,9 @@ import java.util.Optional;
 import org.apache.commons.lang3.StringUtils;
 import org.hamcrest.Matchers;
 import org.junit.After;
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
-import org.loadui.testfx.exceptions.NoNodesFoundException;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.DefaultUserContext;
@@ -68,32 +63,39 @@ import org.pdfsam.ui.commons.ShowStageRequest;
 import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
 import org.pdfsam.ui.selection.multiple.move.MoveType;
 import org.sejda.eventstudio.Listener;
+import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.DataFormat;
 import javafx.scene.input.KeyCode;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class SelectionTableTest extends GuiTest {
+public class SelectionTableTest extends ApplicationTest {
+
     private static final String MODULE = "MODULE";
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule(MODULE);
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
+    private SelectionTable victim;
+    private PdfDocumentDescriptor firstItem;
 
     @Override
-    protected Parent getRootNode() {
-        SelectionTable victim = new SelectionTable(MODULE, true, true,
-                new SelectionTableColumn<?>[] { new LoadingColumn(MODULE), FileColumn.NAME, LongColumn.SIZE,
-                        IntColumn.PAGES, LongColumn.LAST_MODIFIED, new PageRangesColumn() });
+    public void start(Stage stage) throws Exception {
+        victim = new SelectionTable(MODULE, true, true, new SelectionTableColumn<?>[] { new LoadingColumn(MODULE),
+                FileColumn.NAME, LongColumn.SIZE, IntColumn.PAGES, LongColumn.LAST_MODIFIED, new PageRangesColumn() });
         victim.setId("victim");
-        return victim;
+        firstItem = populate();
+        Scene scene = new Scene(victim);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @After
@@ -102,7 +104,7 @@ public class SelectionTableTest extends GuiTest {
     }
 
     @Test
-    public void fallbackRequest() throws Exception {
+    public void fallbackRequest() {
         HitTestListener<SetDestinationRequest> listener = new HitTestListener<SetDestinationRequest>() {
             @Override
             public void onEvent(SetDestinationRequest event) {
@@ -111,12 +113,11 @@ public class SelectionTableTest extends GuiTest {
             }
         };
         eventStudio().add(SetDestinationRequest.class, listener, MODULE);
-        populate();
         assertTrue(listener.isHit());
     }
 
     @Test
-    public void select() throws Exception {
+    public void select() {
         HitTestListener<SelectionChangedEvent> listener = new HitTestListener<SelectionChangedEvent>() {
             @Override
             public void onEvent(SelectionChangedEvent event) {
@@ -125,13 +126,12 @@ public class SelectionTableTest extends GuiTest {
             }
         };
         eventStudio().add(SelectionChangedEvent.class, listener, MODULE);
-        populate();
-        click("temp.pdf");
+        clickOn("temp.pdf");
         assertTrue(listener.isHit());
     }
 
     @Test
-    public void multipleSelect() throws Exception {
+    public void multipleSelect() {
         HitTestListener<SelectionChangedEvent> listener = new HitTestListener<SelectionChangedEvent>() {
             @Override
             public void onEvent(SelectionChangedEvent event) {
@@ -139,28 +139,23 @@ public class SelectionTableTest extends GuiTest {
                 assertFalse(event.isSingleSelection());
             }
         };
-        populate();
-        click("temp.pdf").press(KeyCode.CONTROL);
+        clickOn("temp.pdf").press(KeyCode.CONTROL);
         eventStudio().add(SelectionChangedEvent.class, listener, MODULE);
-        click("temp3.pdf");
+        clickOn("temp3.pdf");
         release(KeyCode.CONTROL);
         assertTrue(listener.isHit());
     }
 
     @Test
-    public void itemsAdded() throws Exception {
+    public void itemsAdded() {
         Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequestEvent.class, listener);
-        populate();
-        SelectionTable victim = find("#victim");
         assertEquals(4, victim.getItems().size());
         verify(listener).onEvent(any());
     }
 
     @Test
-    public void onSaveWorkspace() throws Exception {
-        SelectionTable victim = find("#victim");
-        populate();
+    public void onSaveWorkspace() {
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
         assertEquals("4", data.get("victiminput.size"));
@@ -172,7 +167,6 @@ public class SelectionTableTest extends GuiTest {
 
     @Test
     public void onSaveWorkspaceEmpty() {
-        SelectionTable victim = find("#victim");
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
         assertEquals("0", data.get("victiminput.size"));
@@ -180,42 +174,39 @@ public class SelectionTableTest extends GuiTest {
     }
 
     @Test
-    public void onSaveWorkspaceEncryptedPwdStored() throws Exception {
+    public void onSaveWorkspaceEncryptedPwdStored() {
         new DefaultUserContext().setBooleanPreference(BooleanUserPreference.SAVE_PWD_IN_WORKSPACE, true);
-        SelectionTable victim = find("#victim");
-        PdfDocumentDescriptor firstItem = populate();
-        FXTestUtils.invokeAndWait(() -> {
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.ENCRYPTED);
-        }, 2);
-        click(".glyph-icon");
-        type("pwd").click(DefaultI18nContext.getInstance().i18n("Unlock"));
+        });
+        WaitForAsyncUtils.waitForFxEvents();
+        clickOn(".glyph-icon");
+        write("pwd").clickOn(DefaultI18nContext.getInstance().i18n("Unlock"));
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
         assertEquals("pwd", data.get("victiminput.password.0"));
     }
 
     @Test
-    public void onSaveWorkspaceEncryptedNoPwdStored() throws Exception {
+    public void onSaveWorkspaceEncryptedNoPwdStored() {
         new DefaultUserContext().setBooleanPreference(BooleanUserPreference.SAVE_PWD_IN_WORKSPACE, false);
-        SelectionTable victim = find("#victim");
-        PdfDocumentDescriptor firstItem = populate();
-        FXTestUtils.invokeAndWait(() -> {
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.ENCRYPTED);
-        }, 2);
-        click(".glyph-icon");
-        type("pwd").click(DefaultI18nContext.getInstance().i18n("Unlock"));
+        });
+        WaitForAsyncUtils.waitForFxEvents();
+        clickOn(".glyph-icon");
+        write("pwd").clickOn(DefaultI18nContext.getInstance().i18n("Unlock"));
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
         assertTrue(isBlank(data.get("victiminput.password.0")));
     }
 
     @Test
-    public void restoreStateFrom() throws Exception {
-        SelectionTable victim = find("#victim");
+    public void restoreStateFrom() {
         Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequestEvent.class, listener);
         Map<String, String> data = new HashMap<>();
@@ -226,7 +217,7 @@ public class SelectionTableTest extends GuiTest {
         data.put("victiminput.step.0", "4");
         data.put("victiminput.reverse.0", "true");
         data.put("victiminput.1", "norris.pdf");
-        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals(2, victim.getItems().size());
         SelectionTableRowData first = victim.getItems().get(0);
         assertEquals("chuck.pdf", first.descriptor().getFileName());
@@ -243,76 +234,62 @@ public class SelectionTableTest extends GuiTest {
     }
 
     @Test
-    public void restoreStateFromEmpty() throws Exception {
-        SelectionTable victim = find("#victim");
-        populate();
+    public void restoreStateFromEmpty() {
         Map<String, String> data = new HashMap<>();
-        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertTrue(victim.getItems().isEmpty());
     }
 
     @Test
-    public void restoreStateFromSizeZero() throws Exception {
-        SelectionTable victim = find("#victim");
-        populate();
+    public void restoreStateFromSizeZero() {
         Map<String, String> data = new HashMap<>();
         data.put("victiminput.size", "0");
-        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertTrue(victim.getItems().isEmpty());
     }
 
     @Test
-    public void indexColumn() throws Exception {
-        populate();
-        assertTrue(exists("1"));
-        assertTrue(exists("2"));
-        assertTrue(exists("3"));
-        assertTrue(exists("4"));
-    }
-
-    @Test(expected = NoNodesFoundException.class)
-    public void indexColumnNotExisting() throws Exception {
-        populate();
-        find(hasText("5"));
+    public void indexColumn() {
+        verifyThat(victim, hasTableCell("1"));
+        verifyThat(victim, hasTableCell("2"));
+        verifyThat(victim, hasTableCell("3"));
+        verifyThat(victim, hasTableCell("4"));
+        verifyThat(victim, not(hasTableCell("5")));
     }
 
     @Test
-    public void clear() throws Exception {
-        populate();
-        click("temp.pdf");
-        SelectionTable victim = find("#victim");
+    public void clear() {
+        clickOn("temp.pdf");
         assertEquals(1, victim.getSelectionModel().getSelectedIndices().size());
-        FXTestUtils.invokeAndWait(() -> {
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             eventStudio().broadcast(new ClearModuleEvent(), MODULE);
-        }, 2);
+        });
         assertTrue(victim.getSelectionModel().getSelectedIndices().isEmpty());
     }
 
     @Test
-    public void encryptedThrowsRequest() throws Exception {
-        PdfDocumentDescriptor firstItem = populate();
-        FXTestUtils.invokeAndWait(() -> {
+    public void encryptedThrowsRequest() {
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.ENCRYPTED);
-        }, 2);
+        });
+        WaitForAsyncUtils.waitForFxEvents();
         Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequestEvent.class, listener);
-        click(".glyph-icon");
-        type("pwd").click(DefaultI18nContext.getInstance().i18n("Unlock"));
+        clickOn(".glyph-icon");
+        write("pwd").clickOn(DefaultI18nContext.getInstance().i18n("Unlock"));
         verify(listener, times(2)).onEvent(any());
     }
 
     @Test
-    public void clearSelectionByClick() throws Exception {
-        populate();
-        click("temp.pdf");
-        SelectionTable victim = find("#victim");
+    public void clearSelectionByclickOn() {
+        clickOn("temp.pdf");
         assertEquals(1, victim.getSelectionModel().getSelectedIndices().size());
         Listener<SelectionChangedEvent> listener = mock(Listener.class);
         ArgumentCaptor<SelectionChangedEvent> captor = ArgumentCaptor.forClass(SelectionChangedEvent.class);
         eventStudio().add(SelectionChangedEvent.class, listener, MODULE);
-        press(KeyCode.CONTROL).click("temp.pdf");
+        press(KeyCode.CONTROL).clickOn("temp.pdf");
         assertTrue(victim.getSelectionModel().getSelectedIndices().isEmpty());
         release(KeyCode.CONTROL);
         verify(listener).onEvent(captor.capture());
@@ -320,151 +297,124 @@ public class SelectionTableTest extends GuiTest {
     }
 
     @Test
-    public void removeByContextMenu() throws Exception {
-        populate();
-        rightClick("temp.pdf");
-        click(DefaultI18nContext.getInstance().i18n("Remove"));
-        SelectionTable victim = find("#victim");
+    public void removeByContextMenu() {
+        rightClickOn("temp.pdf");
+        clickOn(DefaultI18nContext.getInstance().i18n("Remove"));
         assertEquals(3, victim.getItems().size());
         assertEquals(1, victim.getSelectionModel().getSelectedIndices().size());
     }
 
     @Test
-    @Ignore("Fails on CI server")
-    // TODO
-    public void removeMultiple() throws Exception {
-        populate();
-        click("temp.pdf").press(KeyCode.CONTROL).click("temp3.pdf").release(KeyCode.CONTROL);
-        FXTestUtils.invokeAndWait(() -> {
+    public void removeMultiple() {
+        clickOn("temp.pdf").press(KeyCode.CONTROL).clickOn("temp3.pdf").release(KeyCode.CONTROL);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             eventStudio().broadcast(new RemoveSelectedEvent(), MODULE);
-        }, 2);
-        SelectionTable victim = find("#victim");
+        });
         assertEquals(2, victim.getItems().size());
         assertEquals(1, victim.getSelectionModel().getSelectedIndices().size());
     }
 
     @Test
-    public void removeRelease() throws Exception {
-        populate();
-        SelectionTable victim = find("#victim");
+    public void removeRelease() {
         Optional<SelectionTableRowData> item = victim.getItems().stream()
                 .filter(i -> "temp.pdf".equals(i.descriptor().getFileName())).findFirst();
         assertTrue(item.isPresent());
-        click("temp.pdf");
-        FXTestUtils.invokeAndWait(() -> {
+        clickOn("temp.pdf");
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             eventStudio().broadcast(new RemoveSelectedEvent(), MODULE);
-        }, 2);
+        });
         assertFalse(item.get().descriptor().hasReferences());
     }
 
     @Test
-    public void clearInvalidatesDuplicatedItems() throws Exception {
-        populate();
-        SelectionTable victim = find("#victim");
+    public void clearInvalidatesDuplicatedItems() {
         Optional<SelectionTableRowData> item = victim.getItems().stream()
                 .filter(i -> "temp.pdf".equals(i.descriptor().getFileName())).findFirst();
-        rightClick("temp.pdf");
-        click(DefaultI18nContext.getInstance().i18n("Duplicate"));
-        FXTestUtils.invokeAndWait(() -> {
+        rightClickOn("temp.pdf");
+        clickOn(DefaultI18nContext.getInstance().i18n("Duplicate"));
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             eventStudio().broadcast(new ClearModuleEvent(), MODULE);
-        }, 2);
+        });
         assertFalse(item.get().descriptor().hasReferences());
     }
 
     @Test
-    public void duplicate() throws Exception {
-        populate();
-        rightClick("temp.pdf");
-        click(DefaultI18nContext.getInstance().i18n("Duplicate"));
-        SelectionTable victim = find("#victim");
+    public void duplicate() {
+        rightClickOn("temp.pdf");
+        clickOn(DefaultI18nContext.getInstance().i18n("Duplicate"));
         assertEquals(2,
                 victim.getItems().stream().filter(i -> "temp.pdf".equals(i.descriptor().getFileName())).count());
     }
 
     @Test
-    public void moveSelected() throws Exception {
-        populate();
-        click("temp.pdf");
+    public void moveSelected() {
+        clickOn("temp.pdf");
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 0);
-        FXTestUtils.invokeAndWait(() -> {
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             eventStudio().broadcast(new MoveSelectedEvent(MoveType.DOWN), MODULE);
-        }, 2);
+        });
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 1);
     }
 
     @Test
-    public void moveDownByContextMenu() throws Exception {
-        populate();
-        rightClick("temp.pdf");
+    public void moveDownByContextMenu() {
+        rightClickOn("temp.pdf");
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 0);
-        click(DefaultI18nContext.getInstance().i18n("Move Down"));
+        clickOn(DefaultI18nContext.getInstance().i18n("Move Down"));
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 1);
     }
 
     @Test
-    public void moveBottomByContextMenu() throws Exception {
-        populate();
-        rightClick("temp.pdf");
-        SelectionTable victim = find("#victim");
+    public void moveBottomByContextMenu() {
+        rightClickOn("temp.pdf");
         assertEquals(0, victim.getSelectionModel().getSelectedIndex());
-        click(DefaultI18nContext.getInstance().i18n("Move to Bottom"));
+        clickOn(DefaultI18nContext.getInstance().i18n("Move to Bottom"));
         assertEquals(3, victim.getSelectionModel().getSelectedIndex());
     }
 
     @Test
-    public void moveUpByContextMenu() throws Exception {
-        populate();
-        rightClick("temp3.pdf");
-        SelectionTable victim = find("#victim");
+    public void moveUpByContextMenu() {
+        rightClickOn("temp3.pdf");
         assertEquals(2, victim.getSelectionModel().getSelectedIndex());
-        click(DefaultI18nContext.getInstance().i18n("Move Up"));
+        clickOn(DefaultI18nContext.getInstance().i18n("Move Up"));
         assertEquals(1, victim.getSelectionModel().getSelectedIndex());
     }
 
     @Test
-    public void moveTopByContextMenu() throws Exception {
-        populate();
-        rightClick("temp3.pdf");
-        SelectionTable victim = find("#victim");
+    public void moveTopByContextMenu() {
+        rightClickOn("temp3.pdf");
         assertEquals(2, victim.getSelectionModel().getSelectedIndex());
-        click(DefaultI18nContext.getInstance().i18n("Move to Top"));
+        clickOn(DefaultI18nContext.getInstance().i18n("Move to Top"));
         assertEquals(0, victim.getSelectionModel().getSelectedIndex());
     }
 
     @Test
-    public void copy() throws Exception {
-        FXTestUtils.invokeAndWait(() -> Clipboard.getSystemClipboard().clear(), 2);
-        populate();
-        rightClick("temp.pdf");
-        click(DefaultI18nContext.getInstance().i18n("Copy to clipboard"));
-        FXTestUtils
-                .invokeAndWait(
-                        () -> assertFalse(StringUtils
-                                .isEmpty(Clipboard.getSystemClipboard().getContent(DataFormat.PLAIN_TEXT).toString())),
-                        2);
+    public void copy() {
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> Clipboard.getSystemClipboard().clear());
+        rightClickOn("temp.pdf");
+        clickOn(DefaultI18nContext.getInstance().i18n("Copy to clipboard"));
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> assertFalse(
+                StringUtils.isEmpty(Clipboard.getSystemClipboard().getContent(DataFormat.PLAIN_TEXT).toString())));
     }
 
     @Test
-    public void pageRangesForAllByContextMenu() throws Exception {
-        populate();
-        SelectionTable victim = find("#victim");
+    public void pageRangesForAllByContextMenu() {
         Optional<SelectionTableRowData> item = victim.getItems().stream()
                 .filter(i -> "temp.pdf".equals(i.descriptor().getFileName())).findFirst();
         assertTrue(item.isPresent());
         item.get().pageSelection.set("2-4");
-        rightClick("temp.pdf");
-        click(DefaultI18nContext.getInstance().i18n("Set as range for all"));
+        rightClickOn("temp.pdf");
+        clickOn(DefaultI18nContext.getInstance().i18n("Set as range for all"));
         victim.getItems().stream().forEach(i -> {
             assertEquals("2-4", i.pageSelection.get());
         });
     }
 
     @Test
-    public void setDestinationByContextMenu() throws Exception {
+    public void setDestinationByContextMenu() {
         HitTestListener<SetDestinationRequest> listener = new HitTestListener<>();
         eventStudio().add(SetDestinationRequest.class, listener, MODULE);
-        populate();
-        rightClick("temp3.pdf");
+        rightClickOn("temp3.pdf");
         HitTestListener<SetDestinationRequest> notFallbackListener = new HitTestListener<SetDestinationRequest>() {
             @Override
             public void onEvent(SetDestinationRequest event) {
@@ -473,89 +423,86 @@ public class SelectionTableTest extends GuiTest {
             }
         };
         eventStudio().add(SetDestinationRequest.class, notFallbackListener, MODULE);
-        click(DefaultI18nContext.getInstance().i18n("Set destination"));
+        clickOn(DefaultI18nContext.getInstance().i18n("Set destination"));
         assertTrue(listener.isHit());
         assertTrue(notFallbackListener.isHit());
     }
 
     @Test
-    public void openByContextMenu() throws Exception {
+    public void openByContextMenu() {
         HitTestListener<OpenFileRequest> listener = new HitTestListener<>();
         eventStudio().add(OpenFileRequest.class, listener);
-        populate();
-        rightClick("temp3.pdf");
-        click(DefaultI18nContext.getInstance().i18n("Open"));
+        rightClickOn("temp3.pdf");
+        clickOn(DefaultI18nContext.getInstance().i18n("Open"));
         assertTrue(listener.isHit());
     }
 
     @Test
-    public void openFolderByContextMenu() throws Exception {
+    public void openFolderByContextMenu() {
         HitTestListener<OpenFileRequest> listener = new HitTestListener<>();
         eventStudio().add(OpenFileRequest.class, listener);
-        populate();
-        rightClick("temp3.pdf");
-        click(DefaultI18nContext.getInstance().i18n("Open Folder"));
+        rightClickOn("temp3.pdf");
+        clickOn(DefaultI18nContext.getInstance().i18n("Open Folder"));
         assertTrue(listener.isHit());
     }
 
     @Test
-    public void infoByContextMenu() throws Exception {
+    public void infoByContextMenu() {
         Listener<ShowPdfDescriptorRequest> listener = mock(Listener.class);
         eventStudio().add(ShowPdfDescriptorRequest.class, listener);
-        populate();
-        rightClick("temp3.pdf");
-        click(DefaultI18nContext.getInstance().i18n("Document properties"));
+        rightClickOn("temp3.pdf");
+        clickOn(DefaultI18nContext.getInstance().i18n("Document properties"));
         verify(listener, timeout(2000)).onEvent(any());
     }
 
     @Test
-    public void iconsAreShown() throws Exception {
-        PdfDocumentDescriptor firstItem = populate();
-        FXTestUtils.invokeAndWait(() -> firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED), 2);
-        Text icon = find(".glyph-icon");
-        assertEquals(PdfDescriptorLoadingStatus.REQUESTED.getIcon().characterToString(), icon.getText());
-        FXTestUtils.invokeAndWait(() -> firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING), 2);
-        icon = find(".glyph-icon");
-        assertEquals(PdfDescriptorLoadingStatus.LOADING.getIcon().characterToString(), icon.getText());
+    public void iconsAreShown() {
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED));
+        WaitForAsyncUtils.waitForFxEvents();
+        Text icon = lookup(".glyph-icon").queryAs(Text.class);
+        assertEquals(PdfDescriptorLoadingStatus.REQUESTED.getIcon().unicode(), icon.getText());
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING));
+        WaitForAsyncUtils.waitForFxEvents();
+        icon = lookup(".glyph-icon").queryAs(Text.class);
+        assertEquals(PdfDescriptorLoadingStatus.LOADING.getIcon().unicode(), icon.getText());
     }
 
     @Test
-    public void clickWithErrorsShowsLogStage() throws Exception {
-        PdfDocumentDescriptor firstItem = populate();
-        FXTestUtils.invokeAndWait(() -> {
+    public void clickWithErrorsShowsLogStage() {
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.WITH_ERRORS);
-        }, 2);
+        });
+        WaitForAsyncUtils.waitForFxEvents();
         Listener<ShowStageRequest> listener = mock(Listener.class);
         eventStudio().add(ShowStageRequest.class, listener, "LogStage");
-        click(".glyph-icon");
+        clickOn(".glyph-icon");
         verify(listener).onEvent(any());
     }
 
     @Test
-    public void logEventOnClick() throws Exception {
-        PdfDocumentDescriptor firstItem = populate();
-        FXTestUtils.invokeAndWait(() -> firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED), 2);
-        Text icon = find(".glyph-icon");
-        assertEquals(PdfDescriptorLoadingStatus.REQUESTED.getIcon().characterToString(), icon.getText());
-        FXTestUtils.invokeAndWait(() -> firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING), 2);
-        icon = find(".glyph-icon");
-        assertEquals(PdfDescriptorLoadingStatus.LOADING.getIcon().characterToString(), icon.getText());
+    public void logEventOnclickOn() {
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED));
+        WaitForAsyncUtils.waitForFxEvents();
+        Text icon = lookup(".glyph-icon").queryAs(Text.class);
+        assertEquals(PdfDescriptorLoadingStatus.REQUESTED.getIcon().unicode(), icon.getText());
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> firstItem.moveStatusTo(PdfDescriptorLoadingStatus.LOADING));
+        WaitForAsyncUtils.waitForFxEvents();
+        icon = lookup(".glyph-icon").queryAs(Text.class);
+        assertEquals(PdfDescriptorLoadingStatus.LOADING.getIcon().unicode(), icon.getText());
     }
 
     @Test
-    @Ignore("Fails on Travis")
-    public void editCommitOnFocusLost() throws Exception {
-        populate();
-        SelectionTable victim = find("#victim");
+    public void editCommitOnFocusLost() {
         Optional<SelectionTableRowData> item = victim.getItems().stream()
                 .filter(i -> "temp.pdf".equals(i.descriptor().getFileName())).findFirst();
         assertTrue(item.isPresent());
         item.get().pageSelection.set("2");
-        Thread.sleep(1000);
-        click("2").type(KeyCode.ENTER, KeyCode.DIGIT5);
-        click("temp4.pdf");
+        WaitForAsyncUtils.waitForFxEvents();
+        clickOn("2").type(KeyCode.ENTER, KeyCode.DIGIT5);
+        clickOn("temp4.pdf");
+        WaitForAsyncUtils.waitForFxEvents();
         assertEquals(item.get().pageSelection.get(), "5");
     }
 
@@ -570,9 +517,9 @@ public class SelectionTableTest extends GuiTest {
         loadEvent.add(PdfDocumentDescriptor.newDescriptorNoPassword(file2));
         loadEvent.add(PdfDocumentDescriptor.newDescriptorNoPassword(file3));
         loadEvent.add(PdfDocumentDescriptor.newDescriptorNoPassword(file4));
-        FXTestUtils.invokeAndWait(() -> {
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             eventStudio().broadcast(loadEvent, MODULE);
-        }, 2);
+        });
         return ret;
     }
 }

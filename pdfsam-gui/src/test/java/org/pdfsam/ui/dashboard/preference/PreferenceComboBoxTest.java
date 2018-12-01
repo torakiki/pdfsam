@@ -24,36 +24,37 @@ import static org.mockito.Mockito.verify;
 import static org.pdfsam.support.KeyStringValueItem.keyValue;
 
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.support.KeyStringValueItem;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class PreferenceComboBoxTest extends GuiTest {
+public class PreferenceComboBoxTest extends ApplicationTest {
 
     private UserContext userContext = mock(UserContext.class);
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         PreferenceComboBox<KeyStringValueItem<String>> victim = new PreferenceComboBox<>(StringUserPreference.LOCALE,
                 userContext);
         victim.setId("victim");
         victim.getItems().addAll(keyValue("key1", "value1"), keyValue("key2", "value2"), keyValue("key3", "value3"));
-        return victim;
+        Scene scene = new Scene(new HBox(victim));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void preferenceSetOnClick() {
-        click("#victim").click("value2");
+        clickOn("#victim").clickOn("value2");
         verify(userContext).setStringPreference(eq(StringUserPreference.LOCALE), eq("key2"));
     }
 

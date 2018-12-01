@@ -19,28 +19,19 @@
 package org.pdfsam;
 
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.ui.SetLatestStageStatusRequest;
 import org.pdfsam.ui.StageService;
 import org.pdfsam.ui.StageStatus;
-import org.sejda.eventstudio.Listener;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -48,8 +39,7 @@ import javafx.stage.Stage;
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class WindowStatusControllerTest extends GuiTest {
+public class WindowStatusControllerTest extends ApplicationTest {
     @Rule
     public ClearEventStudioRule eventStudioRule = new ClearEventStudioRule();
 
@@ -58,53 +48,34 @@ public class WindowStatusControllerTest extends GuiTest {
     private Stage victimStage;
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         victimStage = new Stage();
-        VBox containerPane = new VBox();
-        Scene scene = new Scene(containerPane);
-        victimStage.setScene(scene);
+        victimStage.setScene(new Scene(new VBox()));
+
         service = mock(StageService.class);
         victim = new WindowStatusController(service);
         Button button = new Button("show");
         button.setOnAction(a -> victimStage.show());
-        return button;
+        Scene scene = new Scene(new HBox(button));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
-    @Ignore("It fails on CI server with xvfb")
-    public void storeOnClose() throws Exception {
+    public void defaultOnNullStatus() {
         when(service.getLatestStatus()).thenReturn(StageStatus.NULL);
-        Listener<SetLatestStageStatusRequest> listener = mock(Listener.class);
-        eventStudio().add(SetLatestStageStatusRequest.class, listener);
-        FXTestUtils.invokeAndWait(() -> {
-            victim.setStage(victimStage);
-        }, 2);
-        click("show").sleep(200);
-        closeCurrentWindow();
-        verify(listener).onEvent(any());
-    }
-
-    @Test
-    public void defaultOnNullStatus() throws Exception {
-        when(service.getLatestStatus()).thenReturn(StageStatus.NULL);
-        FXTestUtils.invokeAndWait(() -> {
-            victim.setStage(victimStage);
-        }, 2);
-        click("show").sleep(200);
+        victim.setStage(victimStage);
+        clickOn("show").sleep(200);
         assertTrue(victimStage.isMaximized());
-        closeCurrentWindow();
     }
 
     @Test
-    public void defaultOnDisableRestore() throws Exception {
+    public void defaultOnDisableRestore() {
         when(service.getLatestStatus()).thenReturn(new StageStatus(10, 10, 10, 10));
         System.setProperty(WindowStatusController.PDFSAM_DISABLE_UI_RESTORE, Boolean.TRUE.toString());
-        FXTestUtils.invokeAndWait(() -> {
-            victim.setStage(victimStage);
-        }, 2);
-        click("show").sleep(200);
+        victim.setStage(victimStage);
+        clickOn("show").sleep(200);
         assertTrue(victimStage.isMaximized());
-        closeCurrentWindow();
         System.setProperty(WindowStatusController.PDFSAM_DISABLE_UI_RESTORE, Boolean.FALSE.toString());
     }
 }
