@@ -10,9 +10,9 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-	<artifactId>pdfsam-community</artifactId>
+	<artifactId>pdfsam-basic</artifactId>
 	<packaging>jar</packaging>
-	<name>PDFsam Community Edition application</name>
+	<name>PDFsam Basic Edition application</name>
 
 	<issueManagement>
 		<system>GitHub</system>
@@ -337,7 +337,7 @@
 										<argument>-vendor</argument>
 										<argument>Sober Lemur S.a.s. di Vacondio Andrea</argument>
 										<argument>-appclass</argument>
-										<argument>org.pdfsam.community.App</argument>
+										<argument>org.pdfsam.basic.App</argument>
 										<argument>-outdir</argument>
 										<argument>${project.build.directory}</argument>
 										<argument>-outfile</argument>
@@ -354,7 +354,7 @@
 										<argument>-BmainJar=${project.build.finalName}.jar</argument>
 										<argument>-BappVersion=${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</argument>
 										<argument>-Bicon=${project.basedir}/src/dmg/Icon.icns</argument>
-										<argument>-Bidentifier=org.pdfsam.community.App</argument>
+										<argument>-Bidentifier=org.pdfsam.basic.App</argument>
 										<argument>-BuserJvmOptions=-Xmx=512m</argument>
 										<argument>-BjvmProperties=org.pdfsam.disable.ui.restore=true</argument>
 										<argument>-Bmac.category=Business</argument>
@@ -452,7 +452,7 @@
 					<additionalClasspathElements>
 						<additionalClasspathElement>src/main/etc-dev</additionalClasspathElement>
 					</additionalClasspathElements>
-					<mainClass>org.pdfsam.community.App</mainClass>
+					<mainClass>org.pdfsam.basic.App</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>

@@ -112,7 +112,7 @@
 	</profiles>
 
 	<modules>
-		<module>pdfsam-community</module>
+		<module>pdfsam-basic</module>
 		<module>pdfsam-gui</module>
 		<module>pdfsam-i18n</module>
 		<module>pdfsam-core</module>
@@ -218,11 +218,6 @@
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-shade-plugin</artifactId>
-					<version>3.2.0</version>
-				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>appassembler-maven-plugin</artifactId>

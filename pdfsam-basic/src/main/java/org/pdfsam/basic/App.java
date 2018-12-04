@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.community;
+package org.pdfsam.basic;
 
 import org.pdfsam.PdfsamApp;
 import org.sejda.injector.Injector;
@@ -24,14 +24,14 @@ import org.sejda.injector.Injector;
 import javafx.application.Application;
 
 /**
- * PDFsam Community Edition App
+ * PDFsam Basic Edition App
  * 
  * @author Andrea Vacondio
  *
  */
 public class App {
     public static void main(String[] args) {
-        Injector.addConfig(new PdfsamCommunityConfig(), new org.pdfsam.alternatemix.AlternateMixModule.ModuleConfig(),
+        Injector.addConfig(new PdfsamBasicConfig(), new org.pdfsam.alternatemix.AlternateMixModule.ModuleConfig(),
                 new org.pdfsam.extract.ExtractModule.ModuleConfig(), new org.pdfsam.merge.MergeModule.ModuleConfig(),
                 new org.pdfsam.rotate.RotateModule.ModuleConfig(), new org.pdfsam.split.SplitModule.ModuleConfig(),
                 new org.pdfsam.splitbybookmarks.SplitByBookmarksModule.ModuleConfig(),

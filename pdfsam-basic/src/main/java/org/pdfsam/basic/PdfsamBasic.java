@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.community;
+package org.pdfsam.basic;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.pdfsam.support.RequireUtils.requireNotBlank;
@@ -32,12 +32,12 @@ import org.pdfsam.Pdfsam;
  * @author Andrea Vacondio
  *
  */
-public class PdfsamCommunity implements Pdfsam {
+public class PdfsamBasic implements Pdfsam {
     private Properties properties = new Properties();
     private String name;
     private String shortName;
 
-    public PdfsamCommunity(String name, String shortName) throws IOException {
+    public PdfsamBasic(String name, String shortName) throws IOException {
         requireNotBlank(name, "Application name cannot be blank");
         requireNotBlank(shortName, "Application short name cannot be blank");
         this.name = name;

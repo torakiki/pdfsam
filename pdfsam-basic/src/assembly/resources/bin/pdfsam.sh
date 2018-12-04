@@ -114,5 +114,5 @@ exec "$JAVACMD" $JAVA_OPTS -Xmx256M \
   -Dbasedir="$BASEDIR" \
   -Dprism.text=t2k \
   -Dprism.lcdtext=false \
-  org.pdfsam.community.App \
+  org.pdfsam.basic.App \
   "$@"

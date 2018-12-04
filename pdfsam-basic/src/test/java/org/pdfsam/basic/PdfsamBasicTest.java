@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.community;
+package org.pdfsam.basic;
 
 import static org.junit.Assert.assertEquals;
 
@@ -24,21 +24,22 @@ import java.io.IOException;
 
 import org.junit.Test;
 import org.pdfsam.ConfigurableProperty;
+import org.pdfsam.basic.PdfsamBasic;
 
-public class PdfsamCommunityTest {
+public class PdfsamBasicTest {
     @Test(expected = IllegalArgumentException.class)
     public void blankName() throws IOException {
-        new PdfsamCommunity(" ", "something");
+        new PdfsamBasic(" ", "something");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void blankShortName() throws IOException {
-        new PdfsamCommunity("Something", " ");
+        new PdfsamBasic("Something", " ");
     }
 
     @Test
     public void property() throws IOException {
-        PdfsamCommunity pdfsam = new PdfsamCommunity("name", "short");
+        PdfsamBasic pdfsam = new PdfsamBasic("name", "short");
         assertEquals("1.0.0", pdfsam.property(ConfigurableProperty.VERSION));
         assertEquals("Chuck", pdfsam.property(ConfigurableProperty.FEED_URL, "Chuck"));
     }

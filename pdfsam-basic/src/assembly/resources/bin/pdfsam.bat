@@ -75,7 +75,7 @@ if NOT "%CLASSPATH_PREFIX%" == "" set CLASSPATH=%CLASSPATH_PREFIX%;%CLASSPATH%
 @REM Reaching here means variables are defined and arguments have been captured
 :endInit
 
-%JAVACMD% %JAVA_OPTS% -Xmx256M -classpath %CLASSPATH% -Dapp.name="pdfsam-basic" -Dprism.text=t2k -Dprism.lcdtext=false -splash:"%BASEDIR%"\resources\splash.gif -Dapp.home="%BASEDIR%" -Dbasedir="%BASEDIR%" org.pdfsam.community.App %CMD_LINE_ARGS%
+%JAVACMD% %JAVA_OPTS% -Xmx256M -classpath %CLASSPATH% -Dapp.name="pdfsam-basic" -Dprism.text=t2k -Dprism.lcdtext=false -splash:"%BASEDIR%"\resources\splash.gif -Dapp.home="%BASEDIR%" -Dbasedir="%BASEDIR%" org.pdfsam.basic.App %CMD_LINE_ARGS%
 if %ERRORLEVEL% NEQ 0 goto error
 goto end
 

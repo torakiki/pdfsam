@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.community;
+package org.pdfsam.basic;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -33,62 +33,62 @@ import org.sejda.injector.Provides;
 import javafx.scene.image.Image;
 
 /**
- * Configuration for PDFsam Community Edition
+ * Configuration for PDFsam Basic Edition
  * 
  * @author Andrea Vacondio
  * 
  */
-public class PdfsamCommunityConfig {
+public class PdfsamBasicConfig {
 
     public Image logo16() {
-        return new Image(this.getClass().getResourceAsStream("/images/community/16x16.png"));
+        return new Image(this.getClass().getResourceAsStream("/images/basic/16x16.png"));
     }
 
     public Image logo24() {
-        return new Image(this.getClass().getResourceAsStream("/images/community/24x24.png"));
+        return new Image(this.getClass().getResourceAsStream("/images/basic/24x24.png"));
     }
 
     @Provides
     @Named("logo32")
     @Prototype
     public Image logo32() {
-        return new Image(this.getClass().getResourceAsStream("/images/community/32x32.png"));
+        return new Image(this.getClass().getResourceAsStream("/images/basic/32x32.png"));
     }
 
     @Provides
     @Named("logo48")
     @Prototype
     public Image logo48() {
-        return new Image(this.getClass().getResourceAsStream("/images/community/48x48.png"));
+        return new Image(this.getClass().getResourceAsStream("/images/basic/48x48.png"));
     }
 
     public Image logo64() {
-        return new Image(this.getClass().getResourceAsStream("/images/community/64x64.png"));
+        return new Image(this.getClass().getResourceAsStream("/images/basic/64x64.png"));
     }
 
     public Image logo96() {
-        return new Image(this.getClass().getResourceAsStream("/images/community/96x96.png"));
+        return new Image(this.getClass().getResourceAsStream("/images/basic/96x96.png"));
     }
 
     @Provides
     @Named("logo128")
     @Prototype
     public Image logo128() {
-        return new Image(this.getClass().getResourceAsStream("/images/community/128x128.png"));
+        return new Image(this.getClass().getResourceAsStream("/images/basic/128x128.png"));
     }
 
     public Image logo256() {
-        return new Image(this.getClass().getResourceAsStream("/images/community/256x256.png"));
+        return new Image(this.getClass().getResourceAsStream("/images/basic/256x256.png"));
     }
 
     public Image logo512() {
-        return new Image(this.getClass().getResourceAsStream("/images/community/512x512.png"));
+        return new Image(this.getClass().getResourceAsStream("/images/basic/512x512.png"));
     }
 
     @Provides
     @Auto
     public Pdfsam pdfsam() throws IOException {
-        return new PdfsamCommunity("PDF Split and Merge Basic Edition", "PDFsam Basic");
+        return new PdfsamBasic("PDF Split and Merge Basic Edition", "PDFsam Basic");
     }
 
     @Provides
