@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<description>PDFsam App</description>
 	<url>https://pdfsam.org</url>
@@ -31,6 +33,11 @@
 	<profiles>
 		<profile>
 			<id>basic-release</id>
+			<activation>
+				<property>
+					<name>release</name>
+				</property>
+			</activation>
 			<properties>
 				<skip.dmg>false</skip.dmg>
 			</properties>
@@ -38,44 +45,154 @@
 				<plugins>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-shade-plugin</artifactId>
+						<artifactId>maven-jar-plugin</artifactId>
+						<version>3.1.0</version>
+						<configuration>
+							<archive>
+								<manifest>
+									<addClasspath>true</addClasspath>
+									<classpathPrefix>lib/</classpathPrefix>
+									<mainClass>
+										org.pdfsam.basic.App
+									</mainClass>
+								</manifest>
+								<manifestEntries>
+									<Automatic-Module-Name>org.pdfsam.basic</Automatic-Module-Name>
+									<SplashScreen-Image>images/community/splash.gif</SplashScreen-Image>
+								</manifestEntries>
+								<addMavenDescriptor>false</addMavenDescriptor>
+								<!-- <manifestEntries> <Class-Path>etc/</Class-Path> </manifestEntries> -->
+							</archive>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<version>3.1.1</version>
 						<executions>
 							<execution>
-								<phase>package</phase>
+								<id>copy-dependencies</id>
+								<phase>prepare-package</phase>
 								<goals>
-									<goal>shade</goal>
+									<goal>copy-dependencies</goal>
 								</goals>
 								<configuration>
-									<createDependencyReducedPom>false</createDependencyReducedPom>
-									<transformers>
-										<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-											<mainClass>org.pdfsam.community.App</mainClass>
-											<manifestEntries>
-												<Class-Path>etc/</Class-Path>
-												<SplashScreen-Image>images/community/splash.gif</SplashScreen-Image>
-											</manifestEntries>
-										</transformer>
-									</transformers>
-									<filters>
-										<filter>
-											<artifact>*:*</artifact>
-											<excludes>
-												<exclude>META-INF/*.SF</exclude>
-												<exclude>META-INF/*.DSA</exclude>
-												<exclude>META-INF/*.RSA</exclude>
-												<exclude>META-INF/NOTICE*</exclude>
-												<exclude>META-INF/notice*</exclude>
-												<exclude>META-INF/LICENSE*</exclude>
-												<exclude>META-INF/license*</exclude>
-												<exclude>META-INF/DEPENDENCIES*</exclude>
-												<exclude>license/*</exclude>
-											</excludes>
-										</filter>
-									</filters>
+									<outputDirectory>${project.build.directory}/assembled/lib</outputDirectory>
+									<includeScope>compile</includeScope>
 								</configuration>
 							</execution>
 						</executions>
 					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-resources-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>copy-resources</id>
+								<phase>package</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.build.directory}/assembled</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${basedir}</directory>
+											<includes>
+												<include>
+													LICENSE.txt
+												</include>
+											</includes>
+										</resource>
+										<resource>
+											<directory>${basedir}/doc</directory>
+											<targetPath>${project.build.directory}/assembled/doc</targetPath>
+										</resource>
+										<resource>
+											<directory>${basedir}/src/main/resources/images/basic</directory>
+											<targetPath>${project.build.directory}/assembled/resources</targetPath>
+											<includes>
+												<include>
+													splash.gif
+												</include>
+											</includes>
+										</resource>
+										<resource>
+											<directory>${project.build.directory}</directory>
+											<targetPath>${project.build.directory}/assembled</targetPath>
+											<includes>
+												<include>
+													${project.build.finalName}.jar
+												</include>
+											</includes>
+										</resource>
+										<resource>
+											<targetPath>${project.build.directory}/assembled/bin</targetPath>
+											<directory>${basedir}/src/assembly/resources/bin</directory>
+											<filtering>true</filtering>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.8</version>
+						<executions>
+							<execution>
+								<id>fix-permissions</id>
+								<phase>package</phase>
+								<configuration>
+									<target>
+										<chmod file="${project.build.directory}/assembled/lib"
+											perm="644" includes="**/*.*" />
+										<chmod dir="${project.build.directory}/assembled/bin"
+											perm="755" includes="**/*.sh" />
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>pdfsam-assembly</id>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+								<configuration>
+									<finalName>pdfsam-${project.version}-${os.detected.name}</finalName>
+									<appendAssemblyId>false</appendAssemblyId>
+									<descriptors>
+										<descriptor>src/assembly/bin.xml</descriptor>
+									</descriptors>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>win</id>
+			<activation>
+				<os>
+					<family>windows</family>
+				</os>
+				<property>
+					<name>release</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>build-helper-maven-plugin</artifactId>
@@ -83,7 +200,7 @@
 						<executions>
 							<execution>
 								<id>parse-version</id>
-								<phase>package</phase>
+								<phase>prepare-package</phase>
 								<goals>
 									<goal>parse-version</goal>
 								</goals>
@@ -93,17 +210,17 @@
 					<plugin>
 						<groupId>com.akathist.maven.plugins.launch4j</groupId>
 						<artifactId>launch4j-maven-plugin</artifactId>
-						<version>1.7.21</version>
+						<version>1.7.24</version>
 						<executions>
 							<execution>
 								<id>exe-creation</id>
-								<phase>package</phase>
+								<phase>prepare-package</phase>
 								<goals>
 									<goal>launch4j</goal>
 								</goals>
 								<configuration>
 									<headerType>gui</headerType>
-									<outfile>${project.build.directory}/pdfsam.exe</outfile>
+									<outfile>${project.build.directory}/assembled/pdfsam.exe</outfile>
 									<jar>${project.build.finalName}.jar</jar>
 									<dontWrapJar>true</dontWrapJar>
 									<icon>src/assembly/resources/pdfsam.ico</icon>
@@ -136,35 +253,14 @@
 						<artifactId>maven-resources-plugin</artifactId>
 						<executions>
 							<execution>
-								<id>copy-resources</id>
-								<phase>package</phase>
+								<id>copy-win-resources</id>
+								<phase>prepare-package</phase>
 								<goals>
 									<goal>copy-resources</goal>
 								</goals>
 								<configuration>
 									<outputDirectory>${project.build.directory}/assembled</outputDirectory>
 									<resources>
-										<resource>
-											<directory>${basedir}</directory>
-											<includes>
-												<include>
-													LICENSE.txt
-												</include>
-											</includes>
-										</resource>
-										<resource>
-											<directory>${basedir}/doc</directory>
-											<targetPath>${project.build.directory}/assembled/doc</targetPath>
-										</resource>
-										<resource>
-											<directory>${basedir}/src/main/resources/images/community</directory>
-											<targetPath>${project.build.directory}/assembled/resources</targetPath>
-											<includes>
-												<include>
-													splash.gif
-												</include>
-											</includes>
-										</resource>
 										<resource>
 											<directory>${basedir}/src/assembly/resources</directory>
 											<includes>
@@ -173,50 +269,27 @@
 												</include>
 											</includes>
 										</resource>
-										<resource>
-											<directory>${project.build.directory}</directory>
-											<includes>
-												<include>
-													pdfsam.exe
-												</include>
-												<include>
-													${project.build.finalName}.${project.packaging}
-												</include>
-											</includes>
-										</resource>
-										<resource>
-											<targetPath>${project.build.directory}/assembled/bin</targetPath>
-											<directory>${basedir}/src/assembly/resources/bin</directory>
-											<filtering>true</filtering>
-										</resource>
-										<resource>
-											<targetPath>${project.build.directory}/assembled/etc</targetPath>
-											<directory>${basedir}/src/main/etc</directory>
-											<filtering>false</filtering>
-										</resource>
 									</resources>
 								</configuration>
 							</execution>
 						</executions>
 					</plugin>
-					<plugin>
-						<artifactId>maven-assembly-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>pdfsam-assembly</id>
-								<phase>package</phase>
-								<goals>
-									<goal>single</goal>
-								</goals>
-								<configuration>
-									<finalName>pdfsam-${project.version}</finalName>
-									<descriptors>
-										<descriptor>src/assembly/bin.xml</descriptor>
-									</descriptors>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>deb</id>
+			<activation>
+				<os>
+					<family>linux</family>
+				</os>
+				<property>
+					<name>release</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
 					<plugin>
 						<artifactId>jdeb</artifactId>
 						<groupId>org.vafer</groupId>
@@ -298,7 +371,6 @@
 				</plugins>
 			</build>
 		</profile>
-
 		<profile>
 			<id>dmg</id>
 			<activation>
@@ -315,7 +387,7 @@
 						<executions>
 							<execution>
 								<id>package-dmg</id>
-								<phase>pre-integration-test</phase>
+								<phase>package</phase>
 								<goals>
 									<goal>exec</goal>
 								</goals>
@@ -359,7 +431,8 @@
 										<argument>-BjvmProperties=org.pdfsam.disable.ui.restore=true</argument>
 										<argument>-Bmac.category=Business</argument>
 										<argument>-Bmac.CFBundleIdentifier=org.pdfsam.basic</argument>
-										<argument>-Bmac.signing-key-developer-id-app=SOBER LEMUR SAS DI VACONDIO ANDREA</argument>
+										<argument>-Bmac.signing-key-developer-id-app=SOBER LEMUR SAS
+											DI VACONDIO ANDREA</argument>
 										<argument>-Bclasspath=etc;${project.build.finalName}.jar</argument>
 										<argument>-v</argument>
 									</arguments>
@@ -380,45 +453,52 @@
 									<goal>copy</goal>
 								</goals>
 								<configuration>
-									<sourceFile>${project.build.directory}/bundles/PDFsam Basic-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.dmg</sourceFile>
+									<sourceFile>${project.build.directory}/bundles/PDFsam
+										Basic-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.dmg</sourceFile>
 									<destinationFile>${project.build.directory}/pdfsam-${project.version}.dmg</destinationFile>
 								</configuration>
 							</execution>
 						</executions>
 					</plugin>
-						<plugin>
-							<groupId>org.codehaus.mojo</groupId>
-							<artifactId>build-helper-maven-plugin</artifactId>
-							<version>3.0.0</version>
-							<executions>
-								<execution>
-									<id>attach-dmg</id>
-									<phase>pre-integration-test</phase>
-									<goals>
-										<goal>attach-artifact</goal>
-									</goals>
-									<configuration>
-										<artifacts>
-											<artifact>
-												<file>${project.build.directory}/pdfsam-${project.version}.dmg</file>
-												<type>dmg</type>
-											</artifact>
-										</artifacts>
-									</configuration>
-								</execution>
-							</executions>
-						</plugin>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>build-helper-maven-plugin</artifactId>
+						<version>3.0.0</version>
+						<executions>
+							<execution>
+								<id>attach-dmg</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>attach-artifact</goal>
+								</goals>
+								<configuration>
+									<artifacts>
+										<artifact>
+											<file>${project.build.directory}/pdfsam-${project.version}.dmg</file>
+											<type>dmg</type>
+										</artifact>
+									</artifacts>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
 				</plugins>
 			</build>
 		</profile>
 	</profiles>
 
 	<properties>
-		<pdfsam.package>COMMUNITY</pdfsam.package>
 		<skip.dmg>true</skip.dmg>
 	</properties>
 
 	<build>
+		<extensions>
+			<extension>
+				<groupId>kr.motd.maven</groupId>
+				<artifactId>os-maven-plugin</artifactId>
+				<version>1.6.1</version>
+			</extension>
+		</extensions>
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>

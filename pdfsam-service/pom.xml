@@ -56,8 +56,12 @@
 					<artifactId>bcmail-jdk15</artifactId>
 				</exclusion>
 				<exclusion>
-					<artifactId>poi-ooxml</artifactId>
 					<groupId>org.apache.poi</groupId>
+					<artifactId>poi-ooxml</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>commons-csv</artifactId>
 				</exclusion>
 				<exclusion>
 					<artifactId>sejda-image-writers</artifactId>
