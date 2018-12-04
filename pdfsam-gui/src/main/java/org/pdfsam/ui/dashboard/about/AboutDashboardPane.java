@@ -23,7 +23,6 @@ import static org.pdfsam.ConfigurableProperty.DOCUMENTATION_URL;
 import static org.pdfsam.ConfigurableProperty.DONATE_URL;
 import static org.pdfsam.ConfigurableProperty.FACEBOOK_URL;
 import static org.pdfsam.ConfigurableProperty.FEED_URL;
-import static org.pdfsam.ConfigurableProperty.GPLUS_URL;
 import static org.pdfsam.ConfigurableProperty.HOME_LABEL;
 import static org.pdfsam.ConfigurableProperty.HOME_URL;
 import static org.pdfsam.ConfigurableProperty.LICENSE_NAME;
@@ -116,8 +115,6 @@ public class AboutDashboardPane extends HBox {
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Social"), right);
         addHyperlink(FontAwesomeIcon.TWITTER_SQUARE, pdfsam.property(TWITTER_URL),
                 DefaultI18nContext.getInstance().i18n("Follow us on Twitter"), right);
-        addHyperlink(FontAwesomeIcon.GOOGLE_PLUS_SQUARE, pdfsam.property(GPLUS_URL),
-                DefaultI18nContext.getInstance().i18n("Follow us on Google Plus"), right);
         addHyperlink(FontAwesomeIcon.FACEBOOK_SQUARE, pdfsam.property(FACEBOOK_URL),
                 DefaultI18nContext.getInstance().i18n("Like us on Facebook"), right);
         getChildren().addAll(left, right);

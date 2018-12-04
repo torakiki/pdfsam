@@ -72,7 +72,6 @@ public class NotificationsControllerTest {
         when(pdfsam.property(ConfigurableProperty.DONATE_URL)).thenReturn("http://www.pdfsam.org");
         when(pdfsam.property(ConfigurableProperty.TWEETER_SHARE_URL)).thenReturn("http://www.pdfsam.org");
         when(pdfsam.property(ConfigurableProperty.FACEBOOK_SHARE_URL)).thenReturn("http://www.pdfsam.org");
-        when(pdfsam.property(ConfigurableProperty.GPLUS_SHARE_URL)).thenReturn("http://www.pdfsam.org");
         when(context.isDonationNotification()).thenReturn(true);
         victim = new NotificationsController(container, service, pdfsam, context);
     }

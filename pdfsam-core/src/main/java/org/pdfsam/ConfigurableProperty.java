@@ -37,13 +37,11 @@ public enum ConfigurableProperty {
     DOCUMENTATION_URL("pdfsam.documentation.url"),
     TWITTER_URL("pdfsam.twitter.url"),
     FACEBOOK_URL("pdfsam.facebook.url"),
-    GPLUS_URL("pdfsam.gplus.url"),
     TRANSLATE_URL("pdfsam.translate.url"),
     SCM_URL("pdfsam.scm.url"),
     DONATE_URL("pdfsam.donate.url"),
     TWEETER_SHARE_URL("pdfsam.tweeter.share.url"),
     FACEBOOK_SHARE_URL("pdfsam.facebook.share.url"),
-    GPLUS_SHARE_URL("pdfsam.gplus.share.url"),
     NEWS_URL("pdfsam.news.url"),
     PREMIUM_MODULES_URL("pdfsam.premium.modules.url"),
     DOWNLOAD_URL("pdfsam.download.url");

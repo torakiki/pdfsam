@@ -78,14 +78,12 @@ public class DashboardTest {
             when(pdfsam.property(ConfigurableProperty.TRANSLATE_URL)).thenReturn("http://www.pdfsam.org/translate");
             when(pdfsam.property(ConfigurableProperty.TWITTER_URL)).thenReturn("http://www.pdfsam.org/twitter");
             when(pdfsam.property(ConfigurableProperty.DONATE_URL)).thenReturn("http://www.pdfsam.org/donate");
-            when(pdfsam.property(ConfigurableProperty.GPLUS_URL)).thenReturn("http://www.pdfsam.org/gplus");
             when(pdfsam.property(ConfigurableProperty.FACEBOOK_URL)).thenReturn("http://www.pdfsam.org/facebook");
             when(pdfsam.property(ConfigurableProperty.LICENSE_NAME)).thenReturn("agpl3");
             when(pdfsam.property(ConfigurableProperty.LICENSE_URL))
                     .thenReturn("http://www.gnu.org/licenses/agpl-3.0.html");
             when(pdfsam.property(ConfigurableProperty.TRACKER_URL)).thenReturn("http://www.pdfsam.org/issue_tracker");
             when(pdfsam.property(ConfigurableProperty.THANKS_URL)).thenReturn("http://www.pdfsam.org/issue_tracker");
-            when(pdfsam.property(ConfigurableProperty.GPLUS_URL)).thenReturn("http://www.pdfsam.org/gplus");
             AboutDashboardPane about = new AboutDashboardPane(pdfsam);
             about.setId("aboutPane");
             return about;

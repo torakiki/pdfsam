@@ -138,8 +138,6 @@ public class NotificationsController {
                 buildLabel(DefaultI18nContext.getInstance().i18n("You performed {0} tasks with PDFsam, did it help?",
                         Long.toString(usages)), NotificationType.SHARE),
                 new HBox(3, spacer,
-                        styledUrlButton(null, pdfsam.property(ConfigurableProperty.GPLUS_SHARE_URL),
-                                FontAwesomeIcon.GOOGLE_PLUS),
                         styledUrlButton(null, pdfsam.property(ConfigurableProperty.FACEBOOK_SHARE_URL),
                                 FontAwesomeIcon.FACEBOOK),
                         styledUrlButton(DefaultI18nContext.getInstance().i18n("Spread the word!"),

@@ -77,13 +77,11 @@ public class AboutDashboardPaneTest extends ApplicationTest {
         when(pdfsam.property(ConfigurableProperty.TRANSLATE_URL)).thenReturn("https://www.pdfsam.org/translate");
         when(pdfsam.property(ConfigurableProperty.TWITTER_URL)).thenReturn("https://www.pdfsam.org/twitter");
         when(pdfsam.property(ConfigurableProperty.DONATE_URL)).thenReturn("https://www.pdfsam.org/donate");
-        when(pdfsam.property(ConfigurableProperty.GPLUS_URL)).thenReturn("https://www.pdfsam.org/gplus");
         when(pdfsam.property(ConfigurableProperty.FACEBOOK_URL)).thenReturn("https://www.pdfsam.org/facebook");
         when(pdfsam.property(ConfigurableProperty.LICENSE_NAME)).thenReturn("agpl3");
         when(pdfsam.property(ConfigurableProperty.LICENSE_URL)).thenReturn("http://www.gnu.org/licenses/agpl-3.0.html");
         when(pdfsam.property(ConfigurableProperty.TRACKER_URL)).thenReturn("https://www.pdfsam.org/issue_tracker");
         when(pdfsam.property(ConfigurableProperty.THANKS_URL)).thenReturn("https://www.pdfsam.org/thanks_to");
-        when(pdfsam.property(ConfigurableProperty.GPLUS_URL)).thenReturn("https://www.pdfsam.org/gplus");
         Scene scene = new Scene(new AboutDashboardPane(pdfsam));
         stage.setScene(scene);
         stage.show();
