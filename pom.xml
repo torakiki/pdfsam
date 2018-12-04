@@ -11,6 +11,10 @@
 	<description>A free open source desktop application to split and merge pdf documents</description>
 	<url>https://pdfsam.org</url>
 
+	<organization>
+		<name>Sober Lemur S.a.s. di Vacondio Andrea</name>
+	</organization>
+
 	<scm>
 		<connection>scm:git:git@github.com:torakiki/pdfsam.git</connection>
 		<developerConnection>scm:git:git@github.com:torakiki/pdfsam.git</developerConnection>
@@ -55,7 +59,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-javadoc-plugin</artifactId>
-						<version>2.10.3</version>
+						<version>3.0.1</version>
 						<executions>
 							<execution>
 								<id>attach-javadocs</id>
@@ -64,6 +68,11 @@
 								</goals>
 							</execution>
 						</executions>
+						<configuration>
+							<additionalOptions>
+								<additionalOption>-Xdoclint:none</additionalOption>
+							</additionalOptions>
+						</configuration>
 					</plugin>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
@@ -73,7 +82,6 @@
 							<tagNameFormat>v@{project.version}</tagNameFormat>
 							<allowTimestampedSnapshots>true</allowTimestampedSnapshots>
 							<autoVersionSubmodules>true</autoVersionSubmodules>
-							<releaseProfiles>release</releaseProfiles>
 							<preparationGoals>clean install</preparationGoals>
 							<localCheckout>true</localCheckout>
 							<goals>package</goals>
@@ -96,7 +104,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-dependency-plugin</artifactId>
-						<version>2.10</version>
+						<version>3.1.1</version>
 					</plugin>
 				</plugins>
 			</build>
@@ -181,7 +189,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.0</version>
 				<configuration>
-					<release>8</release>
+					<release>11</release>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -205,13 +213,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.22.1</version>
-				<configuration>
-					<reuseForks>false</reuseForks>
-					<additionalClasspathElements>
-						<additionalClasspathElement>${java.home}/lib/ext/jfxrt.jar</additionalClasspathElement>
-					</additionalClasspathElements>
-				</configuration>
+				<version>3.0.0-M1</version>
 			</plugin>
 		</plugins>
 		<pluginManagement>
