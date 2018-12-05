@@ -18,6 +18,8 @@
  */
 package org.pdfsam.ui.banner;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -69,10 +71,10 @@ public class WorkspaceMenuTest extends ApplicationTest {
     @Test
     public void recentIsUpdated() {
         RecentWorkspacesService service = injector.instance(RecentWorkspacesService.class);
-        when(service.getRecentlyUsedWorkspaces()).thenReturn(Arrays.asList("Micheal"));
+        when(service.getRecentlyUsedWorkspaces()).thenReturn(Arrays.asList("Michael"));
         eventStudio().broadcast(new WorkspaceLoadedEvent(mock(File.class)));
         clickOn(".button").clickOn("#workspaceMenu").moveTo("#loadWorkspace").moveTo("#saveWorkspace")
-                .clickOn("#recentWorkspace").clickOn("Micheal");
+                .clickOn("#recentWorkspace").clickOn("Michael");
     }
 
     @Test
@@ -82,5 +84,18 @@ public class WorkspaceMenuTest extends ApplicationTest {
         eventStudio().broadcast(new WorkspaceLoadedEvent(mock(File.class)));
         clickOn(".button").clickOn("#workspaceMenu").moveTo("#loadWorkspace").moveTo("#saveWorkspace")
                 .clickOn("#recentWorkspace").clickOn("I_have_underscores");
+    }
+
+    @Test
+    public void recentIsClear() {
+        RecentWorkspacesService service = injector.instance(RecentWorkspacesService.class);
+        when(service.getRecentlyUsedWorkspaces()).thenReturn(Arrays.asList("Michael"));
+        eventStudio().broadcast(new WorkspaceLoadedEvent(mock(File.class)));
+        assertTrue(clickOn(".button").clickOn("#workspaceMenu").moveTo("#loadWorkspace").moveTo("#saveWorkspace")
+                .clickOn("#recentWorkspace").lookup("Michael").tryQuery().isPresent());
+        clickOn(".button").clickOn("#workspaceMenu").moveTo("#loadWorkspace").moveTo("#saveWorkspace")
+                .clickOn("#clearWorkspaces");
+        assertFalse(clickOn(".button").clickOn("#workspaceMenu").moveTo("#loadWorkspace").moveTo("#saveWorkspace")
+                .clickOn("#recentWorkspace").lookup("Michael").tryQuery().isPresent());
     }
 }
