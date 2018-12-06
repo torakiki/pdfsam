@@ -79,6 +79,8 @@ public class AboutDashboardPane extends HBox {
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Environment"), left);
         Label runtime = new Label(String.format("%s %s", System.getProperty("java.runtime.name"),
                 System.getProperty("java.runtime.version")));
+        Label runtimePath = new Label(String.format(DefaultI18nContext.getInstance().i18n("Java runtime path: %s"),
+                System.getProperty("java.home")));
         Label fx = new Label(String.format(DefaultI18nContext.getInstance().i18n("JavaFX runtime version %s"),
                 System.getProperty("javafx.runtime.version")));
         Label memory = new Label(DefaultI18nContext.getInstance().i18n("Max memory {0}",
@@ -93,7 +95,7 @@ public class AboutDashboardPane extends HBox {
                     .to(content);
             Clipboard.getSystemClipboard().setContent(content);
         });
-        left.getChildren().addAll(runtime, fx, memory, copyButton);
+        left.getChildren().addAll(runtime, runtimePath, fx, memory, copyButton);
 
         VBox right = new VBox(5);
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Support"), right);

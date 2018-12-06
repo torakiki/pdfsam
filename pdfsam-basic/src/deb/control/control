@@ -3,7 +3,6 @@ Version: [[version]]-1
 Section: utils
 Priority: optional
 Architecture: all
-Homepage: http://www.pdfsam.org
-Depends: openjfx, openjdk-8-jre | java8-runtime
+Homepage: https://pdfsam.org
 Maintainer: Andrea Vacondio <info@pdfsam.org>
-Description: Open source desktop application to split, merge, rotate and mix PDF files.
+Description: Open source desktop application to split, merge, rotate, extract pages and mix PDF files.

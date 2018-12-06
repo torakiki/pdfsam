@@ -46,7 +46,6 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-jar-plugin</artifactId>
-						<version>3.1.0</version>
 						<configuration>
 							<archive>
 								<manifest>
@@ -66,9 +65,36 @@
 						</configuration>
 					</plugin>
 					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>jlink</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<configuration>
+									<executable>jlink</executable>
+									<toolchain>jdk</toolchain>
+									<arguments>
+										<argument>--add-modules</argument>
+										<argument>java.base,java.datatransfer,java.logging,java.naming,java.sql,java.desktop,java.xml,java.scripting,jdk.unsupported,java.prefs</argument>
+										<argument>--output</argument>
+										<argument>${project.build.directory}/assembled/runtime</argument>
+										<argument>--compress</argument>
+										<argument>2</argument>
+										<argument>--no-header-files</argument>
+										<argument>--no-man-pages</argument>
+										<argument>--strip-debug</argument>
+									</arguments>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-dependency-plugin</artifactId>
-						<version>3.1.1</version>
 						<executions>
 							<execution>
 								<id>copy-dependencies</id>
@@ -139,7 +165,6 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-antrun-plugin</artifactId>
-						<version>1.8</version>
 						<executions>
 							<execution>
 								<id>fix-permissions</id>
@@ -150,6 +175,9 @@
 											perm="644" includes="**/*.*" />
 										<chmod dir="${project.build.directory}/assembled/bin"
 											perm="755" includes="**/*.sh" />
+										<chmod
+											dir="${project.build.directory}/assembled/runtime/bin"
+											perm="755" includes="**/*.*" />
 									</target>
 								</configuration>
 								<goals>
@@ -196,7 +224,6 @@
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>build-helper-maven-plugin</artifactId>
-						<version>1.9.1</version>
 						<executions>
 							<execution>
 								<id>parse-version</id>
@@ -226,8 +253,8 @@
 									<icon>src/assembly/resources/pdfsam.ico</icon>
 									<errTitle>Cannot find Java Runtime Environment</errTitle>
 									<jre>
-										<path>%PDFSAM_JAVA_PATH%</path>
-										<minVersion>1.8.0</minVersion>
+										<path>runtime</path>
+										<minVersion>11</minVersion>
 									</jre>
 									<versionInfo>
 										<fileVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.0</fileVersion>
@@ -293,7 +320,7 @@
 					<plugin>
 						<artifactId>jdeb</artifactId>
 						<groupId>org.vafer</groupId>
-						<version>1.5</version>
+						<version>1.7</version>
 						<executions>
 							<execution>
 								<phase>package</phase>
@@ -352,17 +379,7 @@
 											<src>${project.basedir}/src/deb/icon.svg</src>
 											<dst>/opt/pdfsam-basic/icon.svg</dst>
 											<type>file</type>
-										</data>
-										<data>
-											<src>doc</src>
-											<type>directory</type>
-											<mapper>
-												<type>perm</type>
-												<prefix>/opt/pdfsam-basic/doc</prefix>
-												<filemode>644</filemode>
-												<dirmode>755</dirmode>
-											</mapper>
-										</data>
+										</data>										
 									</dataSet>
 								</configuration>
 							</execution>
@@ -381,9 +398,31 @@
 			<build>
 				<plugins>
 					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-clean-plugin</artifactId>
+						<executions>
+							<execution>
+								<!-- javapackager creates the runtime with jlink so we remove the 
+									one created for the zip packaging -->
+								<id>clean-runtime</id>
+								<phase>package</phase>
+								<configuration>
+									<filesets>
+										<fileset>
+											<directory>${project.build.directory}/assembled/runtime</directory>
+											<includes>
+												<include>**</include>
+											</includes>
+											<followSymlinks>false</followSymlinks>
+										</fileset>
+									</filesets>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>exec-maven-plugin</artifactId>
-						<version>1.6.0</version>
 						<executions>
 							<execution>
 								<id>package-dmg</id>
@@ -402,26 +441,21 @@
 										<argument>-name</argument>
 										<argument>PDFsam Basic</argument>
 										<argument>-description</argument>
-										<argument>A free open source application to split and merge
+										<argument>A free open source application to split, merge,
+											extract pages and mix
 											PDF files</argument>
 										<argument>-title</argument>
 										<argument>PDFsam Basic</argument>
 										<argument>-vendor</argument>
 										<argument>Sober Lemur S.a.s. di Vacondio Andrea</argument>
-										<argument>-appclass</argument>
-										<argument>org.pdfsam.basic.App</argument>
+										<argument>--add-modules</argument>
+										<argument>java.base,java.datatransfer,java.logging,java.naming,java.sql,java.desktop,java.xml,java.scripting,jdk.unsupported,java.prefs</argument>
 										<argument>-outdir</argument>
 										<argument>${project.build.directory}</argument>
 										<argument>-outfile</argument>
 										<argument>pdfsam-${project.version}</argument>
 										<argument>-srcdir</argument>
 										<argument>${project.build.directory}/assembled</argument>
-										<argument>-srcfiles</argument>
-										<argument>${project.build.finalName}.jar</argument>
-										<argument>-srcfiles</argument>
-										<argument>LICENSE.txt</argument>
-										<argument>-srcfiles</argument>
-										<argument>etc/logback.xml </argument>
 										<argument>-BlicenseFile=LICENSE.txt</argument>
 										<argument>-BmainJar=${project.build.finalName}.jar</argument>
 										<argument>-BappVersion=${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</argument>
@@ -461,9 +495,9 @@
 						</executions>
 					</plugin>
 					<plugin>
+						<!-- this is needed to sign the artifact -->
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>build-helper-maven-plugin</artifactId>
-						<version>3.0.0</version>
 						<executions>
 							<execution>
 								<id>attach-dmg</id>
@@ -515,27 +549,6 @@
 				</excludes>
 			</resource>
 		</resources>
-		<plugins>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.3.2</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>java</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<includeProjectDependencies>true</includeProjectDependencies>
-					<additionalClasspathElements>
-						<additionalClasspathElement>src/main/etc-dev</additionalClasspathElement>
-					</additionalClasspathElements>
-					<mainClass>org.pdfsam.basic.App</mainClass>
-				</configuration>
-			</plugin>
-		</plugins>
 	</build>
 
 	<dependencies>

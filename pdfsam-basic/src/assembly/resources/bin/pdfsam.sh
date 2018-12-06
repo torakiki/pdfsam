@@ -31,6 +31,17 @@ done
 
 PRGDIR=`dirname "$PRG"`
 BASEDIR=`cd "$PRGDIR/.." >/dev/null; pwd`
+RUNTIME="$BASEDIR"/runtime
+
+if [ -z "$PDFSAM_JAVA_PATH" ]; then
+  	# the rutime is supplied
+	if [ -d "$RUNTIME" ]; then
+	  JAVA_HOME="$RUNTIME"
+	fi
+else
+  JAVA_HOME="$PDFSAM_JAVA_PATH"
+fi
+
 
 # OS specific support.  $var _must_ be set to either true or false.
 cygwin=false;
@@ -62,7 +73,6 @@ fi
 # For Cygwin, ensure paths are in UNIX format before anything is touched
 if $cygwin ; then
   [ -n "$JAVA_HOME" ] && JAVA_HOME=`cygpath --unix "$JAVA_HOME"`
-  [ -n "$CLASSPATH" ] && CLASSPATH=`cygpath --path --unix "$CLASSPATH"`
 fi
 
 # If a specific java binary isn't specified search for the standard 'java' binary
@@ -85,31 +95,18 @@ if [ ! -x "$JAVACMD" ] ; then
   exit 1
 fi
 
-CLASSPATH="$BASEDIR"/etc:"$BASEDIR"/${project.build.finalName}.${project.packaging}
-
-ENDORSED_DIR=
-if [ -n "$ENDORSED_DIR" ] ; then
-  CLASSPATH=$BASEDIR/$ENDORSED_DIR/*:$CLASSPATH
-fi
-
-if [ -n "$CLASSPATH_PREFIX" ] ; then
-  CLASSPATH=$CLASSPATH_PREFIX:$CLASSPATH
-fi
+JAR_ARG="$BASEDIR"/${project.build.finalName}.${project.packaging}
 
 # For Cygwin, switch paths to Windows format before running java
 if $cygwin; then
-  [ -n "$CLASSPATH" ] && CLASSPATH=`cygpath --path --windows "$CLASSPATH"`
   [ -n "$JAVA_HOME" ] && JAVA_HOME=`cygpath --path --windows "$JAVA_HOME"`
-  [ -n "$HOME" ] && HOME=`cygpath --path --windows "$HOME"`
   [ -n "$BASEDIR" ] && BASEDIR=`cygpath --path --windows "$BASEDIR"`
 fi
 
-exec "$JAVACMD" $JAVA_OPTS -Xmx256M \
-  -classpath "$CLASSPATH" \
+exec "$JAVACMD" -jar "$JAR_ARG" $JAVA_OPTS -Xmx512M \
   -Dapp.name="pdfsam-basic" \
   -splash:"$BASEDIR"/resources/splash.gif \
   -Dapp.pid="$$" \
-  -Dapp.repo="$REPO" \
   -Dapp.home="$BASEDIR" \
   -Dbasedir="$BASEDIR" \
   -Dprism.text=t2k \

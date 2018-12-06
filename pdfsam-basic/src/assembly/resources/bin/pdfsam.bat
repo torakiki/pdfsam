@@ -62,20 +62,24 @@ goto repoSetup
 set BASEDIR=%~dp0\..
 
 :repoSetup
+set RUNTIME="%BASEDIR%"\runtime\
+
+if "%PDFSAM_JAVA_PATH%" == "" (
+    if exist "%RUNTIME%" (
+        set JAVACMD="%RUNTIME%"\bin\java
+    )
+) else (
+	set JAVACMD="%PDFSAM_JAVA_PATH%"\bin\java
+)
 
 if "%JAVACMD%"=="" set JAVACMD=java
 
-set CLASSPATH="%BASEDIR%"\etc;"%BASEDIR%"\${project.build.finalName}.${project.packaging}
-
-set ENDORSED_DIR=
-if NOT "%ENDORSED_DIR%" == "" set CLASSPATH="%BASEDIR%"\%ENDORSED_DIR%\*;%CLASSPATH%
-
-if NOT "%CLASSPATH_PREFIX%" == "" set CLASSPATH=%CLASSPATH_PREFIX%;%CLASSPATH%
+set JAR_ARG="%BASEDIR%"\${project.build.finalName}.${project.packaging}
 
 @REM Reaching here means variables are defined and arguments have been captured
 :endInit
 
-%JAVACMD% %JAVA_OPTS% -Xmx256M -classpath %CLASSPATH% -Dapp.name="pdfsam-basic" -Dprism.text=t2k -Dprism.lcdtext=false -splash:"%BASEDIR%"\resources\splash.gif -Dapp.home="%BASEDIR%" -Dbasedir="%BASEDIR%" org.pdfsam.basic.App %CMD_LINE_ARGS%
+%JAVACMD% -jar "%JAR_ARG%" %JAVA_OPTS% -Xmx512M -Dapp.name="pdfsam-basic" -Dprism.text=t2k -Dprism.lcdtext=false -splash:"%BASEDIR%"\resources\splash.gif -Dapp.home="%BASEDIR%" -Dbasedir="%BASEDIR%" org.pdfsam.basic.App %CMD_LINE_ARGS%
 if %ERRORLEVEL% NEQ 0 goto error
 goto end
 
