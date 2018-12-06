@@ -255,6 +255,7 @@
 		<bouncycastle.version>1.60</bouncycastle.version>
 		<hamcrest.version>1.3</hamcrest.version>
 		<javafx.version>11.0.1</javafx.version>
+		<monocle.version>jdk-11+26</monocle.version>
 		<maven.build.timestamp.format>dd-MMM-yyyy</maven.build.timestamp.format>
 		<pdfsam.builddate>${maven.build.timestamp}</pdfsam.builddate>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -355,6 +356,12 @@
 				<groupId>org.openjfx</groupId>
 				<artifactId>javafx-swing</artifactId>
 				<version>${javafx.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.testfx</groupId>
+				<artifactId>openjfx-monocle</artifactId>
+				<version>${monocle.version}</version>
 				<scope>test</scope>
 			</dependency>
 		</dependencies>

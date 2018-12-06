@@ -29,6 +29,7 @@
 	-pdfsam-shadow-effect: dropshadow(gaussian, rgba(0.0, 0.0, 0.0, 0.2), 6.0, 0.0, 0.0, 4.0);
 	-pdfsam-hover-shadow-effect: dropshadow(gaussian, rgba(0.0, 0.0, 0.0, 0.3), 8.0, 0.0, 0.0, 6.0);
 	-pdfsam-armed-shadow-effect: dropshadow(gaussian, rgba(0.0, 0.0, 0.0, 0.2), 10.0, 0.0, 0.0, 10.0);
+	-icons-color: gray;
 }
 .label, .text, .button {
 	-fx-text-fill: -pdfsam-dark-text-color;
@@ -87,6 +88,11 @@
 	-fx-graphic-text-gap: 0.833333em;
 	-fx-content-display: RIGHT;
 }
+
+.glyph-icon{
+    -fx-fill: -icons-color;
+}
+
 /**
  * footer for pane
  */

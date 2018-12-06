@@ -100,6 +100,11 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.testfx</groupId>
+			<artifactId>openjfx-monocle</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-swing</artifactId>
 			<scope>test</scope>
