@@ -94,25 +94,28 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest extends ApplicationTe
         clickOn("#combo").clickOn("Odd pages");
         final File file = folder.newFile("my.pdf");
         SimpleSplitParametersBuilder builder = victim.getBuilder(onError);
-        builder.compress(true);
-        FileOrDirectoryTaskOutput output = mock(FileOrDirectoryTaskOutput.class);
-        builder.output(output);
-        builder.existingOutput(ExistingOutputPolicy.OVERWRITE);
-        builder.prefix("prefix");
-        PdfFileSource source = PdfFileSource.newInstanceNoPassword(file);
-        builder.source(source);
-        builder.version(PdfVersion.VERSION_1_7);
-        SimpleSplitParameters params = builder.build();
-        assertTrue(params.isCompress());
-        assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
-        assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
-        assertThat(params.getPages(6), contains(1, 3, 5));
-        assertThat(params.getPages(6), not(contains(2, 4, 6)));
-        assertEquals("prefix", params.getOutputPrefix());
-        assertEquals(output, params.getOutput());
-        assertEquals(source, params.getSourceList().get(0));
-        assertEquals(OptimizationPolicy.AUTO, params.getOptimizationPolicy());
-        verify(onError, never()).accept(anyString());
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
+            builder.compress(true);
+            FileOrDirectoryTaskOutput output = mock(FileOrDirectoryTaskOutput.class);
+            builder.output(output);
+            builder.existingOutput(ExistingOutputPolicy.OVERWRITE);
+            builder.prefix("prefix");
+            PdfFileSource source = PdfFileSource.newInstanceNoPassword(file);
+            builder.source(source);
+            builder.version(PdfVersion.VERSION_1_7);
+            SimpleSplitParameters params = builder.build();
+            assertTrue(params.isCompress());
+            assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
+            assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
+            assertThat(params.getPages(6), contains(1, 3, 5));
+            assertThat(params.getPages(6), not(contains(2, 4, 6)));
+            assertEquals("prefix", params.getOutputPrefix());
+            assertEquals(output, params.getOutput());
+            assertEquals(source, params.getSourceList().get(0));
+            assertEquals(OptimizationPolicy.AUTO, params.getOptimizationPolicy());
+            verify(onError, never()).accept(anyString());
+        });
+
     }
 
     @Test
@@ -142,17 +145,21 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest extends ApplicationTe
         clickOn(victim);
         clickOn("#combo").clickOn("Odd pages");
         Map<String, String> data = new HashMap<>();
-        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.saveStateTo(data));
-        assertTrue(Boolean.valueOf(data.get("splitAfterPredefined")));
-        assertEquals(PredefinedSetOfPages.ODD_PAGES.toString(), data.get("splitAfterPredefined.combo"));
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
+            victim.saveStateTo(data);
+            assertTrue(Boolean.valueOf(data.get("splitAfterPredefined")));
+            assertEquals(PredefinedSetOfPages.ODD_PAGES.toString(), data.get("splitAfterPredefined.combo"));
+        });
     }
 
     @Test
     public void saveStateNotSelected() {
         Map<String, String> data = new HashMap<>();
-        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.saveStateTo(data));
-        assertFalse(Boolean.valueOf(data.get("splitAfterPredefined")));
-        assertEquals(PredefinedSetOfPages.ALL_PAGES.toString(), data.get("splitAfterPredefined.combo"));
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
+            victim.saveStateTo(data);
+            assertFalse(Boolean.valueOf(data.get("splitAfterPredefined")));
+            assertEquals(PredefinedSetOfPages.ALL_PAGES.toString(), data.get("splitAfterPredefined.combo"));
+        });
     }
 
     @Test
