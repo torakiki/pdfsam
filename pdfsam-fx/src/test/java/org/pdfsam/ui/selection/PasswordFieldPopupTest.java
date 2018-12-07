@@ -25,11 +25,14 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.eventstudio.Listener;
 import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -69,11 +72,13 @@ public class PasswordFieldPopupTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void pwdSentOnButtonPressed() {
         clickOn("press");
         Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequestEvent.class, listener);
         write("myPwd").clickOn(".pdfsam-button");
+        WaitForAsyncUtils.waitForFxEvents();
         verify(listener).onEvent(any());
         verify(pdfDescriptor).setPassword("myPwd");
 

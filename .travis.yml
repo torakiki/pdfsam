@@ -3,28 +3,28 @@ sudo: false
 
 matrix:
   include:
-    # Ubuntu Linux (trusty) / Oracle JDK 8 / Headed (AWT Robot)
+    # Ubuntu Linux (trusty) / Open DK 11 / Headed (AWT Robot)
     - os: linux
       dist: trusty
       jdk: openjdk11
       env:
         - _JAVA_OPTIONS="-Dtestfx.robot=awt"
-    # Ubuntu Linux (trusty) / Oracle JDK 8 / Headed (Glass Robot) / HiDPI
+    # Ubuntu Linux (trusty) / Open DK 11 / Headed (Glass Robot) / HiDPI
     - os: linux
       dist: trusty
       jdk: openjdk11
       env:
         - _JAVA_OPTIONS="-Dtestfx.robot=glass -Dglass.gtk.uiScale=2.0"
-    # Ubuntu Linux (trusty) / Oracle JDK 8 / Headless
+    # Ubuntu Linux (trusty) / Open DK 11 / Headless
     - os: linux
       dist: trusty
       jdk: openjdk11
       env:
         - _JAVA_OPTIONS="-Djava.awt.headless=true -Dtestfx.robot=glass -Dtestfx.headless=true -Dprism.order=sw"
-    # macOS / Oracle JDK 8 / Headless
+    # macOS / JDK11 / Headless
     - os: osx
-      osx_image: xcode9.4
-      jdk: openjdk11
+      osx_image: xcode10.1
+      jdk: oraclejdk11
       env:
         - _JAVA_OPTIONS="-Djava.awt.headless=true -Dtestfx.robot=glass -Dtestfx.headless=true -Dprism.order=sw -Dprism.verbose=true"
     # Headed macOS is not currently possible on Travis.

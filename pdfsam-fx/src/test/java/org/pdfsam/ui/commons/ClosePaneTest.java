@@ -23,8 +23,11 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import static org.testfx.api.FxAssert.verifyThat;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.test.HitTestListener;
 import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
 
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -55,17 +58,20 @@ public class ClosePaneTest extends ApplicationTest {
         Scene scene = new Scene(containerPane);
         Platform.runLater(() -> victimStage.setScene(scene));
         clickOn("show");
+        WaitForAsyncUtils.waitForFxEvents();
         assertTrue(robotContext().getWindowFinder().listWindows().size() > 1);
         clickOn(".pdfsam-button");
         assertTrue(robotContext().getWindowFinder().listWindows().size() == 1);
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void customAction() {
         ClosePane containerPane = new ClosePane(k -> eventStudio().broadcast(HideStageRequest.INSTANCE));
         Scene scene = new Scene(containerPane);
         Platform.runLater(() -> victimStage.setScene(scene));
         clickOn("show");
+        WaitForAsyncUtils.waitForFxEvents();
         verifyThat(".pdfsam-container", (HBox n) -> n.getScene().getWindow().isShowing());
         HitTestListener<HideStageRequest> listener = new HitTestListener<>();
         eventStudio().add(HideStageRequest.class, listener);
