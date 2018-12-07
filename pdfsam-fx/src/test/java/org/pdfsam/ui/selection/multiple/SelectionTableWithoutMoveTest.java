@@ -27,7 +27,9 @@ import java.io.File;
 import org.junit.After;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
@@ -69,6 +71,7 @@ public class SelectionTableWithoutMoveTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void moveDownIsMissing() {
         rightClickOn(TableViewMatchers.hasTableCell("temp.pdf"));
         assertFalse(lookup(DefaultI18nContext.getInstance().i18n("Move Down")).tryQuery().isPresent());
@@ -76,6 +79,7 @@ public class SelectionTableWithoutMoveTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void moveUpIsMissing() {
         rightClickOn(TableViewMatchers.hasTableCell("temp.pdf"));
         assertFalse(lookup(DefaultI18nContext.getInstance().i18n("Move Up")).tryQuery().isPresent());
@@ -83,6 +87,7 @@ public class SelectionTableWithoutMoveTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void moveBottomIsMissing() {
         rightClickOn(TableViewMatchers.hasTableCell("temp.pdf"));
         assertFalse(lookup(DefaultI18nContext.getInstance().i18n("Move to Bottom")).tryQuery().isPresent());
@@ -90,6 +95,7 @@ public class SelectionTableWithoutMoveTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void moveTopIsMissing() {
         rightClickOn(TableViewMatchers.hasTableCell("temp.pdf"));
         assertFalse(lookup(DefaultI18nContext.getInstance().i18n("Move to Top")).tryQuery().isPresent());

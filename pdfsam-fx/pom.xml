@@ -17,13 +17,19 @@
 
 	<profiles>
 		<profile>
-			<id>fastTests</id>
+			<activation>
+				<property>
+					<name>env.TRAVIS</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<id>no-headless-failing-tests</id>
 			<build>
 				<plugins>
 					<plugin>
 						<artifactId>maven-surefire-plugin</artifactId>
 						<configuration>
-							<excludedGroups>org.loadui.testfx.categories.TestFX</excludedGroups>
+							<excludedGroups>org.pdfsam.NoHeadless</excludedGroups>
 						</configuration>
 					</plugin>
 				</plugins>

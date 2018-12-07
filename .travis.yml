@@ -30,5 +30,9 @@ matrix:
     # Headed macOS is not currently possible on Travis.
     
 before_install:
-  - if [[ "${TRAVIS_OS_NAME}" == linux ]]; then export DISPLAY=:99.0; sh -e /etc/init.d/xvfb start; fi
+  - if [[ "${TRAVIS_OS_NAME}" == linux ]]; then 
+      export DISPLAY=:99.0; sh -e /etc/init.d/xvfb start; 
+    elif [[ "${TRAVIS_OS_NAME}" == osx ]]; then
+      brew update && brew install gettext && brew link --force gettext;
+    fi
 

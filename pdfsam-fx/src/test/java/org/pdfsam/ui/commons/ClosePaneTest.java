@@ -27,7 +27,6 @@ import org.junit.experimental.categories.Category;
 import org.pdfsam.NoHeadless;
 import org.pdfsam.test.HitTestListener;
 import org.testfx.framework.junit.ApplicationTest;
-import org.testfx.util.WaitForAsyncUtils;
 
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -53,12 +52,12 @@ public class ClosePaneTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void hide() {
         ClosePane containerPane = new ClosePane();
         Scene scene = new Scene(containerPane);
         Platform.runLater(() -> victimStage.setScene(scene));
         clickOn("show");
-        WaitForAsyncUtils.waitForFxEvents();
         assertTrue(robotContext().getWindowFinder().listWindows().size() > 1);
         clickOn(".pdfsam-button");
         assertTrue(robotContext().getWindowFinder().listWindows().size() == 1);
@@ -71,7 +70,6 @@ public class ClosePaneTest extends ApplicationTest {
         Scene scene = new Scene(containerPane);
         Platform.runLater(() -> victimStage.setScene(scene));
         clickOn("show");
-        WaitForAsyncUtils.waitForFxEvents();
         verifyThat(".pdfsam-container", (HBox n) -> n.getScene().getWindow().isShowing());
         HitTestListener<HideStageRequest> listener = new HitTestListener<>();
         eventStudio().add(HideStageRequest.class, listener);

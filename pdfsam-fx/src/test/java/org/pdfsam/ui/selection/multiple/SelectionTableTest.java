@@ -44,8 +44,10 @@ import org.hamcrest.Matchers;
 import org.junit.After;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
 import org.mockito.ArgumentCaptor;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
@@ -166,6 +168,7 @@ public class SelectionTableTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void onSaveWorkspaceEmpty() {
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
@@ -174,6 +177,7 @@ public class SelectionTableTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void onSaveWorkspaceEncryptedPwdStored() {
         new DefaultUserContext().setBooleanPreference(BooleanUserPreference.SAVE_PWD_IN_WORKSPACE, true);
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
@@ -206,6 +210,7 @@ public class SelectionTableTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void restoreStateFrom() {
         Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequestEvent.class, listener);
@@ -268,6 +273,7 @@ public class SelectionTableTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void encryptedThrowsRequest() {
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
@@ -297,6 +303,7 @@ public class SelectionTableTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void removeByContextMenu() {
         rightClickOn("temp.pdf");
         clickOn(DefaultI18nContext.getInstance().i18n("Remove"));
@@ -327,6 +334,7 @@ public class SelectionTableTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void clearInvalidatesDuplicatedItems() {
         Optional<SelectionTableRowData> item = victim.getItems().stream()
                 .filter(i -> "temp.pdf".equals(i.descriptor().getFileName())).findFirst();
@@ -339,6 +347,7 @@ public class SelectionTableTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void duplicate() {
         rightClickOn("temp.pdf");
         clickOn(DefaultI18nContext.getInstance().i18n("Duplicate"));
@@ -357,6 +366,7 @@ public class SelectionTableTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void moveDownByContextMenu() {
         rightClickOn("temp.pdf");
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 0);
@@ -365,6 +375,7 @@ public class SelectionTableTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void moveBottomByContextMenu() {
         rightClickOn("temp.pdf");
         assertEquals(0, victim.getSelectionModel().getSelectedIndex());
@@ -373,6 +384,7 @@ public class SelectionTableTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void moveUpByContextMenu() {
         rightClickOn("temp3.pdf");
         assertEquals(2, victim.getSelectionModel().getSelectedIndex());
@@ -381,6 +393,7 @@ public class SelectionTableTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void moveTopByContextMenu() {
         rightClickOn("temp3.pdf");
         assertEquals(2, victim.getSelectionModel().getSelectedIndex());
@@ -389,6 +402,7 @@ public class SelectionTableTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void copy() {
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> Clipboard.getSystemClipboard().clear());
         rightClickOn("temp.pdf");
@@ -398,6 +412,7 @@ public class SelectionTableTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void pageRangesForAllByContextMenu() {
         Optional<SelectionTableRowData> item = victim.getItems().stream()
                 .filter(i -> "temp.pdf".equals(i.descriptor().getFileName())).findFirst();
@@ -411,6 +426,7 @@ public class SelectionTableTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void setDestinationByContextMenu() {
         HitTestListener<SetDestinationRequest> listener = new HitTestListener<>();
         eventStudio().add(SetDestinationRequest.class, listener, MODULE);
@@ -429,6 +445,7 @@ public class SelectionTableTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void openByContextMenu() {
         HitTestListener<OpenFileRequest> listener = new HitTestListener<>();
         eventStudio().add(OpenFileRequest.class, listener);
@@ -438,6 +455,7 @@ public class SelectionTableTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void openFolderByContextMenu() {
         HitTestListener<OpenFileRequest> listener = new HitTestListener<>();
         eventStudio().add(OpenFileRequest.class, listener);
@@ -447,6 +465,7 @@ public class SelectionTableTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void infoByContextMenu() {
         Listener<ShowPdfDescriptorRequest> listener = mock(Listener.class);
         eventStudio().add(ShowPdfDescriptorRequest.class, listener);
@@ -494,6 +513,7 @@ public class SelectionTableTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void editCommitOnFocusLost() {
         Optional<SelectionTableRowData> item = victim.getItems().stream()
                 .filter(i -> "temp.pdf".equals(i.descriptor().getFileName())).findFirst();

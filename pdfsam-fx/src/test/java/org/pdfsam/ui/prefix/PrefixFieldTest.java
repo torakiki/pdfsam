@@ -23,6 +23,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.model.prefix.Prefix;
 import org.testfx.framework.junit.ApplicationTest;
@@ -52,12 +54,15 @@ public class PrefixFieldTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void contextMenuAddsText() {
         rightClickOn(victim).clickOn("#addPrefixMenu").clickOn(Prefix.BASENAME.getFriendlyName());
+        WaitForAsyncUtils.waitForFxEvents();
         assertTrue(victim.getText().contains(Prefix.BASENAME.getFriendlyName()));
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void contextMenuReplacesText() {
         clickOn(victim).type(KeyCode.HOME).push(KeyCode.SHIFT, KeyCode.END);
         rightClickOn(victim);
@@ -69,6 +74,7 @@ public class PrefixFieldTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void prefixMenuItemIsAdded() {
         victim.addMenuItemFor(Prefix.BOOKMARK);
         rightClickOn(victim).clickOn("#addPrefixMenu").clickOn(Prefix.BOOKMARK.getFriendlyName());

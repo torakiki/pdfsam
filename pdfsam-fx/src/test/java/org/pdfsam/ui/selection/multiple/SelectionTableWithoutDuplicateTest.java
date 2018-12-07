@@ -27,7 +27,9 @@ import java.io.File;
 import org.junit.After;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
@@ -69,6 +71,7 @@ public class SelectionTableWithoutDuplicateTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void duplicateIsMissing() {
         rightClickOn(TableViewMatchers.hasTableCell("temp.pdf"));
         assertFalse(lookup(DefaultI18nContext.getInstance().i18n("Duplicate")).tryQuery().isPresent());

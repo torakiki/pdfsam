@@ -40,8 +40,10 @@ import org.hamcrest.Matchers;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
 import org.mockito.ArgumentCaptor;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
@@ -106,6 +108,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void infoMenuItem() throws Exception {
         HitTestListener<ShowPdfDescriptorRequest> listener = new HitTestListener<>();
         eventStudio().add(ShowPdfDescriptorRequest.class, listener);
@@ -116,6 +119,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void setDestinationMenuItem() throws Exception {
         var listener = new HitTestListener<SetDestinationRequest>() {
             @Override
@@ -132,6 +136,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void openFileMenuItem() throws Exception {
         var listener = new HitTestListener<OpenFileRequest>() {
             @Override
@@ -148,6 +153,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void openFolderMenuItem() throws Exception {
         var listener = new HitTestListener<OpenFileRequest>() {
             @Override
@@ -164,6 +170,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void removeMenuItem() throws Exception {
         typePathAndValidate();
         rightClickOn(".validable-container-field");
@@ -356,6 +363,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void clickEncryptedThrowsRequest() throws Exception {
         Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequestEvent.class, listener);

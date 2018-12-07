@@ -29,7 +29,9 @@ import java.util.Arrays;
 
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.ModuleInputOutputType;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
@@ -145,6 +147,7 @@ public class OpenButtonTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void sendToModuleClick() throws Exception {
         File file = temp.newFile();
         NotifiableTaskMetadata taskMetadata = new NotifiableTaskMetadata(mock(Task.class));
