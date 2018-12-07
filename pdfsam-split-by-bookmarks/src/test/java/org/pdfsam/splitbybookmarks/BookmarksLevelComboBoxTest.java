@@ -39,6 +39,8 @@ import java.util.function.Consumer;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
@@ -77,6 +79,7 @@ public class BookmarksLevelComboBoxTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void validateOnChange() {
         victim.setValidBookmarkLevels(new TreeSet<>(Arrays.asList(300)));
         victim.setValidBookmarkLevels(validLevels);
@@ -150,6 +153,7 @@ public class BookmarksLevelComboBoxTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void saveState() {
         victim.setValidBookmarkLevels(validLevels);
         clickOn(victim).push(KeyCode.ALT, KeyCode.DOWN).clickOn("2");
