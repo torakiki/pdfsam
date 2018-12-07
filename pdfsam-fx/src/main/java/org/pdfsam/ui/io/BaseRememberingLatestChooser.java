@@ -30,7 +30,7 @@ import org.sejda.eventstudio.annotation.EventListener;
  */
 public abstract class BaseRememberingLatestChooser {
 
-    abstract void setInitialDirectory(File value);
+    public abstract void setInitialDirectory(File value);
 
     @EventListener
     public void doSetInitialDir(SetLatestDirectoryEvent event) {

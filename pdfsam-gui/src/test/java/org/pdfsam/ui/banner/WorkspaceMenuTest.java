@@ -87,7 +87,7 @@ public class WorkspaceMenuTest extends ApplicationTest {
     }
 
     @Test
-    public void recentIsClear() {
+    public void recentIsCleared() {
         RecentWorkspacesService service = injector.instance(RecentWorkspacesService.class);
         when(service.getRecentlyUsedWorkspaces()).thenReturn(Arrays.asList("Michael"));
         eventStudio().broadcast(new WorkspaceLoadedEvent(mock(File.class)));
