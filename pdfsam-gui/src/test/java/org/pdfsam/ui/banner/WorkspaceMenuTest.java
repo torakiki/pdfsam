@@ -31,6 +31,8 @@ import java.util.Arrays;
 
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.RecentWorkspacesService;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
@@ -46,6 +48,7 @@ import javafx.stage.Stage;
  * @author Andrea Vacondio
  *
  */
+@Category(NoHeadless.class)
 public class WorkspaceMenuTest extends ApplicationTest {
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();

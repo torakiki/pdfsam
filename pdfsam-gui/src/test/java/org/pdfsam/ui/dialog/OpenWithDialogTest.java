@@ -30,7 +30,9 @@ import java.util.List;
 
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.module.Module;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
@@ -73,6 +75,7 @@ public class OpenWithDialogTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void singleArg() throws IOException {
         Listener<ClearModuleEvent> clearListener = mock(Listener.class);
         eventStudio().add(ClearModuleEvent.class, clearListener, module.id());

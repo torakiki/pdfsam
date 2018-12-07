@@ -28,7 +28,9 @@ import java.util.Locale;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.mockito.ArgumentCaptor;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
@@ -68,6 +70,7 @@ public class PreferenceAppearencePaneTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void eventSentOnLocaleChange() {
         Listener<SetLocaleEvent> listener = mock(Listener.class);
         eventStudio().add(SetLocaleEvent.class, listener);

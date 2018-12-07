@@ -3,12 +3,6 @@ sudo: false
 
 matrix:
   include:
-    # Ubuntu Linux (trusty) / Open DK 11 / Headed (AWT Robot)
-    - os: linux
-      dist: trusty
-      jdk: openjdk11
-      env:
-        - _JAVA_OPTIONS="-Dtestfx.robot=awt"
     # Ubuntu Linux (trusty) / Open DK 11 / Headed (Glass Robot) / HiDPI
     - os: linux
       dist: trusty

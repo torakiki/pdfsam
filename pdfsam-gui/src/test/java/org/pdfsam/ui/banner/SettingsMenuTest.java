@@ -25,7 +25,9 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.mockito.ArgumentCaptor;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.dashboard.PreferencesDashboardItem;
@@ -56,6 +58,7 @@ public class SettingsMenuTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void onSettingsClick() {
         Listener<SetActiveDashboardItemRequest> listener = mock(Listener.class);
         eventStudio().add(SetActiveDashboardItemRequest.class, listener);

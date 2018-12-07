@@ -25,7 +25,9 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.mockito.ArgumentCaptor;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
@@ -55,6 +57,7 @@ public class ModulesMenuTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void onSaveClick() {
         DefaultPriorityTestModule module = injector.instance(DefaultPriorityTestModule.class);
         Listener<SetActiveModuleRequest> listener = mock(Listener.class);

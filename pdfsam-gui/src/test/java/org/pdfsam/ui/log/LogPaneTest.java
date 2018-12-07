@@ -26,6 +26,8 @@ import static org.mockito.Mockito.when;
 
 import org.junit.ClassRule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.injector.Injector;
@@ -78,6 +80,7 @@ public class LogPaneTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void clear() {
         LogListView view = injector.instance(LogListView.class);
         assertEquals(2, view.getItems().size());
@@ -86,6 +89,7 @@ public class LogPaneTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void copy() {
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             Clipboard.getSystemClipboard().clear();
@@ -97,6 +101,7 @@ public class LogPaneTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void selectAll() {
         LogListView view = injector.instance(LogListView.class);
         rightClickOn("A message").clickOn("#selectAllLogMenuItem");

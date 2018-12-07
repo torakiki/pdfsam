@@ -151,13 +151,6 @@ public class AboutDashboardPaneTest extends ApplicationTest {
     }
 
     @Test
-    public void clickGPlus() {
-        clickOn(DefaultI18nContext.getInstance().i18n("Follow us on Google Plus"));
-        verify(listener, atLeastOnce()).onEvent(captor.capture());
-        assertEquals("https://www.pdfsam.org/gplus", captor.getValue().getUrl());
-    }
-
-    @Test
     public void clickFacebook() {
         clickOn(DefaultI18nContext.getInstance().i18n("Like us on Facebook"));
         verify(listener, atLeastOnce()).onEvent(captor.capture());

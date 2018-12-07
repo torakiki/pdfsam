@@ -24,6 +24,8 @@ import static org.mockito.Mockito.verify;
 import static org.pdfsam.support.KeyStringValueItem.keyValue;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.support.KeyStringValueItem;
@@ -53,6 +55,7 @@ public class PreferenceComboBoxTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void preferenceSetOnClick() {
         clickOn("#victim").clickOn("value2");
         verify(userContext).setStringPreference(eq(StringUserPreference.LOCALE), eq("key2"));

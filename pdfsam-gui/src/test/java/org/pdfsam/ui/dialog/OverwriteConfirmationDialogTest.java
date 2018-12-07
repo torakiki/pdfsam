@@ -29,6 +29,8 @@ import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
@@ -78,6 +80,7 @@ public class OverwriteConfirmationDialogTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void cancel() {
         this.overwrite = true;
         clickOn("show");
