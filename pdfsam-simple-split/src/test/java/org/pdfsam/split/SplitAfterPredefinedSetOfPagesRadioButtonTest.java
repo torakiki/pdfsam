@@ -119,19 +119,21 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest extends ApplicationTe
     public void builderDisabledOptimization() throws Exception {
         clickOn("#combo").clickOn("Odd pages");
         final File file = folder.newFile("my.pdf");
-        SimpleSplitParametersBuilder builder = victim.getBuilder(onError);
-        builder.compress(true);
-        FileOrDirectoryTaskOutput output = mock(FileOrDirectoryTaskOutput.class);
-        builder.output(output);
-        builder.existingOutput(ExistingOutputPolicy.OVERWRITE);
-        builder.prefix("prefix");
-        PdfFileSource source = PdfFileSource.newInstanceNoPassword(file);
-        builder.source(source);
-        builder.version(PdfVersion.VERSION_1_7);
-        System.setProperty(SplitParametersBuilder.PDFSAM_DISABLE_SPLIT_OPTIMIZATION, Boolean.TRUE.toString());
-        SimpleSplitParameters params = builder.build();
-        assertEquals(OptimizationPolicy.NO, params.getOptimizationPolicy());
-        verify(onError, never()).accept(anyString());
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
+            SimpleSplitParametersBuilder builder = victim.getBuilder(onError);
+            builder.compress(true);
+            FileOrDirectoryTaskOutput output = mock(FileOrDirectoryTaskOutput.class);
+            builder.output(output);
+            builder.existingOutput(ExistingOutputPolicy.OVERWRITE);
+            builder.prefix("prefix");
+            PdfFileSource source = PdfFileSource.newInstanceNoPassword(file);
+            builder.source(source);
+            builder.version(PdfVersion.VERSION_1_7);
+            System.setProperty(SplitParametersBuilder.PDFSAM_DISABLE_SPLIT_OPTIMIZATION, Boolean.TRUE.toString());
+            SimpleSplitParameters params = builder.build();
+            assertEquals(OptimizationPolicy.NO, params.getOptimizationPolicy());
+            verify(onError, never()).accept(anyString());
+        });
         System.setProperty(SplitParametersBuilder.PDFSAM_DISABLE_SPLIT_OPTIMIZATION, Boolean.FALSE.toString());
     }
 
@@ -140,7 +142,7 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest extends ApplicationTe
         clickOn(victim);
         clickOn("#combo").clickOn("Odd pages");
         Map<String, String> data = new HashMap<>();
-        victim.saveStateTo(data);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.saveStateTo(data));
         assertTrue(Boolean.valueOf(data.get("splitAfterPredefined")));
         assertEquals(PredefinedSetOfPages.ODD_PAGES.toString(), data.get("splitAfterPredefined.combo"));
     }
@@ -148,7 +150,7 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest extends ApplicationTe
     @Test
     public void saveStateNotSelected() {
         Map<String, String> data = new HashMap<>();
-        victim.saveStateTo(data);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.saveStateTo(data));
         assertFalse(Boolean.valueOf(data.get("splitAfterPredefined")));
         assertEquals(PredefinedSetOfPages.ALL_PAGES.toString(), data.get("splitAfterPredefined.combo"));
     }
