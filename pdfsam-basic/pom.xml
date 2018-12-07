@@ -379,7 +379,7 @@
 											<src>${project.basedir}/src/deb/icon.svg</src>
 											<dst>/opt/pdfsam-basic/icon.svg</dst>
 											<type>file</type>
-										</data>										
+										</data>
 									</dataSet>
 								</configuration>
 							</execution>
@@ -394,6 +394,9 @@
 				<os>
 					<family>mac</family>
 				</os>
+				<property>
+					<name>release</name>
+				</property>
 			</activation>
 			<build>
 				<plugins>
