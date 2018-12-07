@@ -37,7 +37,9 @@ import java.util.function.Consumer;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.split.SplitAfterPredefinedSetOfPagesRadioButton.SimpleSplitParametersBuilder;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.params.SplitParametersBuilder;
@@ -90,6 +92,7 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest extends ApplicationTe
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void builder() throws Exception {
         clickOn("#combo").clickOn("Odd pages");
         final File file = folder.newFile("my.pdf");
@@ -141,6 +144,7 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest extends ApplicationTe
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void saveStateSelected() {
         clickOn(victim);
         clickOn("#combo").clickOn("Odd pages");
