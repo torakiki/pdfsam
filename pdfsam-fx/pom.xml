@@ -15,28 +15,6 @@
 	<packaging>jar</packaging>
 	<name>PDFsam JavaFx views</name>
 
-	<profiles>
-		<profile>
-			<activation>
-				<property>
-					<name>env.TRAVIS</name>
-					<value>true</value>
-				</property>
-			</activation>
-			<id>no-headless-failing-tests</id>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-surefire-plugin</artifactId>
-						<configuration>
-							<excludedGroups>org.pdfsam.NoHeadless</excludedGroups>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.commons</groupId>

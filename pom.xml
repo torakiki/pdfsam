@@ -24,6 +24,25 @@
 
 	<profiles>
 		<profile>
+			<activation>
+				<property>
+					<name>env.TRAVIS</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<id>no-headless-failing-tests</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<configuration>
+							<excludedGroups>org.pdfsam.NoHeadless</excludedGroups>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
 			<id>toolchain</id>
 			<activation>
 				<jdk>(,11)</jdk>
