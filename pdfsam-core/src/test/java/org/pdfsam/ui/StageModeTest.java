@@ -24,6 +24,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 
 import javafx.scene.Scene;
@@ -34,6 +36,7 @@ import javafx.stage.Stage;
  * @author Andrea Vacondio
  *
  */
+@Category(NoHeadless.class)
 public class StageModeTest {
     @Rule
     public InitializeAndApplyJavaFxThreadRule javaFxThread = new InitializeAndApplyJavaFxThreadRule();
