@@ -79,7 +79,7 @@ set JAR_ARG="%BASEDIR%"\${project.build.finalName}.${project.packaging}
 @REM Reaching here means variables are defined and arguments have been captured
 :endInit
 
-%JAVACMD% -jar "%JAR_ARG%" %JAVA_OPTS% -Xmx512M -Dapp.name="pdfsam-basic" -Dprism.text=t2k -Dprism.lcdtext=false -splash:"%BASEDIR%"\resources\splash.gif -Dapp.home="%BASEDIR%" -Dbasedir="%BASEDIR%" org.pdfsam.basic.App %CMD_LINE_ARGS%
+%JAVACMD% -jar "%JAR_ARG%" %JAVA_OPTS% -Xmx512M -Dapp.name="pdfsam-basic" -Dprism.lcdtext=false -splash:"%BASEDIR%"\resources\splash.gif -Dapp.home="%BASEDIR%" -Dbasedir="%BASEDIR%" org.pdfsam.basic.App %CMD_LINE_ARGS%
 if %ERRORLEVEL% NEQ 0 goto error
 goto end
 

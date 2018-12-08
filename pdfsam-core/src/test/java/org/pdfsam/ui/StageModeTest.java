@@ -21,11 +21,14 @@ package org.pdfsam.ui;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import javafx.stage.Stage;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
+
+import javafx.scene.Scene;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
@@ -38,6 +41,8 @@ public class StageModeTest {
     @Test
     public void valueForMaximized() {
         Stage stage = new Stage();
+        Scene scene = new Scene(new HBox());
+        stage.setScene(scene);
         stage.setMaximized(true);
         assertEquals(StageMode.MAXIMIZED, StageMode.valueFor(stage));
     }
@@ -45,6 +50,8 @@ public class StageModeTest {
     @Test
     public void valueForDefault() {
         Stage stage = new Stage();
+        Scene scene = new Scene(new HBox());
+        stage.setScene(scene);
         stage.setMaximized(false);
         stage.setIconified(false);
         assertEquals(StageMode.DEFAULT, StageMode.valueFor(stage));
@@ -53,6 +60,8 @@ public class StageModeTest {
     @Test
     public void restoreDefault() {
         Stage stage = new Stage();
+        Scene scene = new Scene(new HBox());
+        stage.setScene(scene);
         StageMode.DEFAULT.restore(stage);
         assertFalse(stage.isIconified());
         assertFalse(stage.isMaximized());
@@ -61,6 +70,8 @@ public class StageModeTest {
     @Test
     public void restoreMaximized() {
         Stage stage = new Stage();
+        Scene scene = new Scene(new HBox());
+        stage.setScene(scene);
         StageMode.MAXIMIZED.restore(stage);
         assertFalse(stage.isIconified());
         assertTrue(stage.isMaximized());

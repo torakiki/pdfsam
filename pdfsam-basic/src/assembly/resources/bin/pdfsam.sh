@@ -109,7 +109,6 @@ exec "$JAVACMD" -jar "$JAR_ARG" $JAVA_OPTS -Xmx512M \
   -Dapp.pid="$$" \
   -Dapp.home="$BASEDIR" \
   -Dbasedir="$BASEDIR" \
-  -Dprism.text=t2k \
   -Dprism.lcdtext=false \
   org.pdfsam.basic.App \
   "$@"
