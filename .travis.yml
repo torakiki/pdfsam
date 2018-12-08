@@ -15,13 +15,6 @@ matrix:
       jdk: openjdk11
       env:
         - _JAVA_OPTIONS="-Djava.awt.headless=true -Dtestfx.robot=glass -Dtestfx.headless=true -Dprism.order=sw"
-    # macOS / JDK11 / Headless
-    - os: osx
-      osx_image: xcode10.1
-      jdk: oraclejdk11
-      env:
-        - _JAVA_OPTIONS="-Djava.awt.headless=true -Dtestfx.robot=glass -Dtestfx.headless=true -Dprism.order=sw -Dprism.verbose=true"
-    # Headed macOS is not currently possible on Travis.
     
 before_install:
   - if [[ "${TRAVIS_OS_NAME}" == linux ]]; then 
