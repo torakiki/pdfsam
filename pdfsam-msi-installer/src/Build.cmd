@@ -1,6 +1,6 @@
 @ECHO OFF
 
-SET PDFSAM_VERSION=3.3.7
+SET PDFSAM_VERSION=4.0.0
 
 REM Prevent compiling with outdated pdfsam.wixobj file if there is a error in candle.
 del /Q pdfsam.wixobj
@@ -12,7 +12,7 @@ del /Q harvestedFiles.wxs
 del /Q harvestedFiles.wixobj
 
 REM harvest the files
-"%WIX%bin\heat.exe" dir -ag -cg "AllFiles" -ke -sfrag -srd -sreg -out harvestedFiles.wxs
+"%WIX%bin\heat.exe" dir "../pdfsam-basic/target/assembled" -ag -cg "AllFiles" -ke -sfrag -srd -sreg -out harvestedFiles.wxs
 REM Build the MSI
 "%WIX%bin\candle.exe" pdfsam.wxs requirementsDlg.wxs featuresTree.wxs verifyWithLanguageDlg.wxs exitDlg.wxs -ext WixUIExtension -ext WixUtilExtension -ext WixNetFxExtension
 
