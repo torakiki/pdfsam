@@ -14,7 +14,7 @@
 @REM You should have received a copy of the GNU Affero General Public License
 @REM along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-@echo off
+@echo on
 
 set ERROR_CODE=0
 
@@ -59,27 +59,27 @@ set SAVE_DIR=
 goto repoSetup
 
 :WinNTGetScriptDir
-set BASEDIR=%~dp0\..
+for %%i in ("%~dp0..") do set "BASEDIR=%%~fi"
 
 :repoSetup
-set RUNTIME="%BASEDIR%"\runtime\
+set "RUNTIME=%BASEDIR%\runtime"
 
-if "%PDFSAM_JAVA_PATH%" == "" (
-    if exist "%RUNTIME%" (
-        set JAVACMD="%RUNTIME%"\bin\java
-    )
+if DEFINED PDFSAM_JAVA_PATH (
+	set "JAVACMD=%PDFSAM_JAVA_PATH%\bin\java"
 ) else (
-	set JAVACMD="%PDFSAM_JAVA_PATH%"\bin\java
+	if exist "%RUNTIME%" (
+        set "JAVACMD=%RUNTIME%\bin\java"
+    )
 )
 
 if "%JAVACMD%"=="" set JAVACMD=java
 
-set JAR_ARG="%BASEDIR%"\${project.build.finalName}.${project.packaging}
+set "JAR_ARG=%BASEDIR%\${project.build.finalName}.${project.packaging}"
 
 @REM Reaching here means variables are defined and arguments have been captured
 :endInit
 
-%JAVACMD% -jar "%JAR_ARG%" %JAVA_OPTS% -Xmx512M -Dapp.name="pdfsam-basic" -Dprism.lcdtext=false -splash:"%BASEDIR%"\resources\splash.gif -Dapp.home="%BASEDIR%" -Dbasedir="%BASEDIR%" org.pdfsam.basic.App %CMD_LINE_ARGS%
+"%JAVACMD%" -jar "%JAR_ARG%" %JAVA_OPTS% -Xmx512M -Dapp.name="pdfsam-basic" -Dprism.lcdtext=false -splash:"%BASEDIR%"\resources\splash.gif -Dapp.home="%BASEDIR%" -Dbasedir="%BASEDIR%" org.pdfsam.basic.App %CMD_LINE_ARGS%
 if %ERRORLEVEL% NEQ 0 goto error
 goto end
 
