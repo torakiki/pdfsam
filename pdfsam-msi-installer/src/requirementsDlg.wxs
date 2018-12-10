@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  	<?define RequiredJavaVersion="1.8" ?>
     <Fragment>
 		    <Binary Id="KoImage" SourceFile="resources/ko.bmp" />
 		    <Binary Id="OkImage" SourceFile="resources/ok.bmp" />
@@ -12,49 +11,29 @@
                 <Control Id="Description" Type="Text" X="25" Y="23" Width="340" Height="15" Transparent="yes" NoPrefix="yes" Text="!(loc.RequirementsDlgDescription)" />
                 <Control Id="Title" Type="Text" X="15" Y="6" Width="200" Height="15" Transparent="yes" NoPrefix="yes" Text="!(loc.RequirementsDlgTitle)" />
 
-        				<Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="!(loc.WixUIBack)">
-        					<Publish Event="NewDialog" Value="LicenseAgreementDlg">1</Publish>
-        				</Control>
-        				<Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="!(loc.WixUINext)">
-        					<Publish Event="NewDialog" Value="CustomizeDlg">1</Publish>
-        				</Control>
+   				<Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="!(loc.WixUIBack)">
+   					<Publish Event="NewDialog" Value="LicenseAgreementDlg">1</Publish>
+   				</Control>
+   				<Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="!(loc.WixUINext)">
+   					<Publish Event="NewDialog" Value="CustomizeDlg">1</Publish>
+   				</Control>
                 <Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes" Text="!(loc.WixUICancel)">
                     <Publish Event="SpawnDialog" Value="CancelDlg">1</Publish>
                 </Control>
-                <Control Type="Text" Id="JavaInstalledText" Width="300" Hidden="yes" Height="40" X="50" Y="68" Text="!(loc.JavaFoundText)">
-    				<Condition Action="show">
-    					JRE_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JDK_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JRE64_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JDK64_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR J9
-    				</Condition>
-    			</Control>
-                <Control Type="Text" Id="JavaRequiredText" Width="300" Hidden="yes" Height="40" X="50" Y="68" Text="!(loc.JavaRequiredText)">
-    				<Condition Action="show">
-    					NOT (JRE_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JDK_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JRE64_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JDK64_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR J9)
-    				</Condition>
-    			</Control>
-        		<Control Type="Bitmap" Id="JREOkIndicator" Width="22" Hidden="yes" Height="22" X="15" Y="64" FixedSize="yes" IconSize="32" Text="OkImage">
-        			<Condition Action="show">
-        					JRE_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JDK_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JRE64_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JDK64_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR J9
-        			</Condition>
-        		</Control>
-        		<Control Type="Bitmap" Id="JREKoIndicator" Width="22" Hidden="yes" Height="22" X="15" Y="70" FixedSize="yes" IconSize="32" Text="KoImage">
-        			<Condition Action="show">
-    					NOT (JRE_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JDK_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JRE64_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR JDK64_CURRENT_VERSION >= "$(var.RequiredJavaVersion)" OR J9)
-    				</Condition>
-        		</Control>
-
-        				<Control Type="Bitmap" Id="NSISKoIndicator" Width="22" Hidden="yes" Height="22" X="15" Y="125" FixedSize="yes" IconSize="32" Text="KoImage">
-        					<Condition Action="show">PRE_MSI_SETUP_INSTALLLOCATION_ALLUSERS OR PRE_MSI_SETUP_INSTALLLOCATION_USER</Condition>
-        				</Control>
+                
+   				<Control Type="Bitmap" Id="NSISKoIndicator" Width="22" Hidden="yes" Height="22" X="15" Y="125" FixedSize="yes" IconSize="32" Text="KoImage">
+   					<Condition Action="show">PRE_MSI_SETUP_INSTALLLOCATION_ALLUSERS OR PRE_MSI_SETUP_INSTALLLOCATION_USER</Condition>
+   				</Control>
                 <Control Type="Text" Id="PreviousNSISFound" Width="300" Hidden="yes" Height="20" X="50" Y="124" Text="!(loc.NSISFoundText)">
-    					    <Condition Action="show">PRE_MSI_SETUP_INSTALLLOCATION_ALLUSERS OR PRE_MSI_SETUP_INSTALLLOCATION_USER</Condition>
-    				    </Control>
+				    <Condition Action="show">PRE_MSI_SETUP_INSTALLLOCATION_ALLUSERS OR PRE_MSI_SETUP_INSTALLLOCATION_USER</Condition>
+			    </Control>
                 <Control Type="Text" Id="NSISAllUsersFound" Width="300" Hidden="yes" Height="20" X="50" Y="145" Text="[PRE_MSI_SETUP_INSTALLLOCATION_ALLUSERS]" Property="PRE_MSI_SETUP_INSTALLLOCATION_ALLUSERS">
-    					    <Condition Action="show">PRE_MSI_SETUP_INSTALLLOCATION_ALLUSERS</Condition>
+				    <Condition Action="show">PRE_MSI_SETUP_INSTALLLOCATION_ALLUSERS</Condition>
                 </Control>
                 <Control Type="Text" Id="NSISUserFound" Width="300" Hidden="yes" Height="20" X="50" Y="166" Text="[PRE_MSI_SETUP_INSTALLLOCATION_USER]" Property="PRE_MSI_SETUP_INSTALLLOCATION_USER">
-    					    <Condition Action="show">PRE_MSI_SETUP_INSTALLLOCATION_USER</Condition>
-    				    </Control>
-			       </Dialog>
+				    <Condition Action="show">PRE_MSI_SETUP_INSTALLLOCATION_USER</Condition>
+			    </Control>
+	       </Dialog>
         </UI>
     </Fragment>
 </Wix>

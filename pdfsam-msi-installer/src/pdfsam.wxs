@@ -27,7 +27,7 @@
 		
 		<MajorUpgrade DowngradeErrorMessage="A newer version of PDFsam Basic is already installed. Setup will now exit." />
 
-		<Property Id="WixShellExecTarget" Value="http://www.pdfsam.org/thanks"/>
+		<Property Id="WixShellExecTarget" Value="https://pdfsam.org/thanks"/>
 		<CustomAction Id="LaunchBrowser" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" Execute="immediate" Return="ignore"/>
 		<CustomAction Id="LaunchApplication" Directory="APPLICATIONFOLDER" ExeCommand='[APPLICATIONFOLDER]pdfsam.exe' Execute="immediate" Return="asyncNoWait"/>
 
@@ -37,35 +37,6 @@
 			<Custom Action="LaunchBrowser" Before="InstallFinalize">NOT Installed AND (SKIPTHANKSPAGE = "No")</Custom>
         </InstallExecuteSequence>
 
-        <!-- Check some requirements ONLY on "install", but not on change or uninstall. -->
-        <Property Id="JRE_CURRENT_VERSION" Secure="yes">
-            <RegistrySearch Id="JRE_CURRENT_VERSION_REGSEARCH" Root="HKLM" Key="SOFTWARE\JavaSoft\Java Runtime Environment" Name="CurrentVersion" Type="raw" Win64="no" />
-        </Property>
-        <Property Id="JRE64_CURRENT_VERSION" Secure="yes">
-            <RegistrySearch Id="JRE64_CURRENT_VERSION_REGSEARCH" Root="HKLM" Key="SOFTWARE\JavaSoft\Java Runtime Environment" Name="CurrentVersion" Type="raw" Win64="yes" />
-        </Property>
-        <Property Id="JRE_9_CURRENT_VERSION" Secure="yes">
-            <RegistrySearch Id="JRE_9_CURRENT_VERSION_REGSEARCH" Root="HKLM" Key="SOFTWARE\JavaSoft\JRE" Name="CurrentVersion" Type="raw" Win64="no" />
-        </Property>
-        <Property Id="JRE64_9_CURRENT_VERSION" Secure="yes">
-            <RegistrySearch Id="JRE64_9_CURRENT_VERSION_REGSEARCH" Root="HKLM" Key="SOFTWARE\JavaSoft\JRE" Name="CurrentVersion" Type="raw" Win64="yes" />
-        </Property>
-        <Property Id="JDK_CURRENT_VERSION" Secure="yes">
-            <RegistrySearch Id="JDK_CURRENT_VERSION_REGSEARCH" Root="HKLM" Key="SOFTWARE\JavaSoft\Java Development Kit" Name="CurrentVersion" Type="raw" Win64="no" />
-        </Property>
-        <Property Id="JDK64_CURRENT_VERSION" Secure="yes">
-            <RegistrySearch Id="JDK64_CURRENT_VERSION_REGSEARCH" Root="HKLM" Key="SOFTWARE\JavaSoft\Java Development Kit" Name="CurrentVersion" Type="raw" Win64="yes" />
-        </Property>
-		<Property Id="JDK_9_CURRENT_VERSION" Secure="yes">
-            <RegistrySearch Id="JDK_9_CURRENT_VERSION_REGSEARCH" Root="HKLM" Key="SOFTWARE\JavaSoft\JDK" Name="CurrentVersion" Type="raw" Win64="no" />
-        </Property>
-        <Property Id="JDK64_9_CURRENT_VERSION" Secure="yes">
-            <RegistrySearch Id="JDK64_9_CURRENT_VERSION_REGSEARCH" Root="HKLM" Key="SOFTWARE\JavaSoft\JDK" Name="CurrentVersion" Type="raw" Win64="yes" />
-        </Property>
-        <Property Id="J9">
-            JRE_9_CURRENT_VERSION OR JDK_9_CURRENT_VERSION OR JRE64_9_CURRENT_VERSION OR JDK64_9_CURRENT_VERSION
-        </Property>
-        
         <!-- RemoveFolderEx requires that we "remember" the path for uninstall. This workaround is only required for the uninstall. -->
         <Property Id="APPLICATIONFOLDER" Secure="yes">
             <RegistrySearch Id="APPLICATIONFOLDER_REGSEARCH" Root="HKLM" Key="SOFTWARE\$(var.ProductName)" Name="Path" Type="raw" Win64="no" />
@@ -88,138 +59,9 @@
 	  		</Directory>
             <Directory Id="$(var.PlatformProgramFilesFolder)" Name="PFiles" ComponentGuidGenerationSeed="{d0d99ae7-c01f-41d6-83d5-a1b7ee8b39bf}">
                 <Directory Id="APPLICATIONFOLDER" Name="$(var.ProductName)">
-                    <Component Id="pdfsam_community_current.jar" Guid="*">
-                        <File Id="pdfsam_community_current.jar" Name="pdfsam-community-$(var.ProductFullVersion).jar" Source="input\pdfsam-community-$(var.ProductFullVersion).jar" KeyPath="yes" />
+                    <Component Id="pdfsam_version_reg" Guid="*">
                         <RegistryValue Root="HKLM" Key="SOFTWARE\$(var.ProductName)" Name="Version" Type="string" Value="$(var.ProductVersion)" />
                     </Component>
-                    <Component Id="pdfsam.l4j.ini" Guid="*">
-                        <File Id="pdfsam.l4j.ini" Name="pdfsam.l4j.ini" Source="input\pdfsam.l4j.ini" KeyPath="yes" />
-                    </Component>
-                    <Component Id="pdfsam.exe" Guid="*">
-                        <File Id="pdfsam.exe" Name="pdfsam.exe" Source="input\pdfsam.exe" KeyPath="yes" />
-                    </Component>
-                    <Component Id="LICENSE.txt" Guid="*">
-                        <File Id="LICENSE.txt" Name="LICENSE.txt" Source="input\LICENSE.txt" KeyPath="yes" />
-                    </Component>
-                    <Directory Id="bin" Name="bin">
-                        <Component Id="pdfsam.bat" Guid="*">
-                            <File Id="pdfsam.bat" Name="pdfsam.bat" Source="input\bin\pdfsam.bat" KeyPath="yes" />
-                        </Component>
-                        <Component Id="pdfsam.sh" Guid="*">
-                            <File Id="pdfsam.sh" Name="pdfsam.sh" Source="input\bin\pdfsam.sh" KeyPath="yes" />
-                        </Component>
-                    </Directory>
-                    <Directory Id="resources" Name="resources">
-                        <Component Id="splash.gif" Guid="*">
-                            <File Id="splash.gif" Name="splash.gif" Source="input\resources\splash.gif" KeyPath="yes" />
-                        </Component>
-                    </Directory>
-                    <Directory Id="etc" Name="etc">
-                        <Component Id="logback.xml" Guid="*">
-                            <File Id="logback.xml" Name="logback.xml" Source="input\etc\logback.xml" KeyPath="yes" />
-                        </Component>
-                    </Directory>
-                    <Directory Id="doc" Name="doc">
-                    	<Directory Id="third_party" Name="third-party">
-	                    	<Directory Id="bouncy_castle" Name="bouncy-castle">
-		                    	<Component Id="bouncy_castle_LICENSE" Guid="*">
-							    	<File Id="bouncy_castle_LICENSE_txt" Name="LICENSE.txt" Source="input\doc\third-party\bouncy-castle\LICENSE.txt" KeyPath="yes" />
-							    </Component>
-	                    	</Directory>
-	                    	<Directory Id="commons_io" Name="commons-io">
-		                    	<Component Id="commons_io_LICENSE" Guid="*">
-							    	<File Id="commons_io_LICENSE_txt" Name="LICENSE.txt" Source="input\doc\third-party\commons-io\LICENSE.txt" KeyPath="yes" />
-							    </Component>
-		                    	<Component Id="commons_io_NOTICE" Guid="*">
-							    	<File Id="commons_io_NOTICE_txt" Name="NOTICE.txt" Source="input\doc\third-party\commons-io\NOTICE.txt" KeyPath="yes" />
-							    </Component>
-	                    	</Directory>
-	                    	<Directory Id="commons_lang" Name="commons-lang">
-		                    	<Component Id="commons_lang_LICENSE" Guid="*">
-							    	<File Id="commons_lang_LICENSE_txt" Name="LICENSE.txt" Source="input\doc\third-party\commons-lang\LICENSE.txt" KeyPath="yes" />
-							    </Component>
-		                    	<Component Id="commons_lang_NOTICE" Guid="*">
-							    	<File Id="commons_lang_NOTICE_txt" Name="NOTICE.txt" Source="input\doc\third-party\commons-lang\NOTICE.txt" KeyPath="yes" />
-							    </Component>
-	                    	</Directory>
-	                    	<Directory Id="event_studio" Name="event-studio">
-		                    	<Component Id="event_studio_LICENSE" Guid="*">
-							    	<File Id="event_studio_LICENSE_txt" Name="LICENSE.txt" Source="input\doc\third-party\event-studio\LICENSE.txt" KeyPath="yes" />
-							    </Component>
-	                    	</Directory>
-	                    	<Directory Id="fontbox" Name="fontbox">
-		                    	<Component Id="fontbox_LICENSE" Guid="*">
-							    	<File Id="fontbox_LICENSE_txt" Name="LICENSE.txt" Source="input\doc\third-party\fontbox\LICENSE.txt" KeyPath="yes" />
-							    </Component>
-		                    	<Component Id="fontbox_NOTICE" Guid="*">
-							    	<File Id="fontbox_NOTICE_txt" Name="NOTICE.txt" Source="input\doc\third-party\fontbox\NOTICE.txt" KeyPath="yes" />
-							    </Component>
-	                    	</Directory>
-	                    	<Directory Id="fontawesomeFx" Name="fontawesomeFx">
-		                    	<Component Id="fontawesomeFx_LICENSE" Guid="*">
-							    	<File Id="fontawesomeFx_LICENSE_txt" Name="LICENSE.txt" Source="input\doc\third-party\fontawesomeFx\LICENSE.txt" KeyPath="yes" />
-							    </Component>
-	                    	</Directory>
-	                    	<Directory Id="gettext_commons" Name="gettext-commons">
-		                    	<Component Id="gettext_LICENSE" Guid="*">
-							    	<File Id="gettext_LICENSE_txt" Name="LICENSE.txt" Source="input\doc\third-party\gettext-commons\LICENSE.txt" KeyPath="yes" />
-							    </Component>
-	                    	</Directory>
-	                    	<Directory Id="hibernate_validator" Name="hibernate-validator">
-		                    	<Component Id="hibernate_validator_LICENSE" Guid="*">
-							    	<File Id="hibernate_validator_LICENSE_txt" Name="LICENSE.txt" Source="input\doc\third-party\hibernate-validator\LICENSE.txt" KeyPath="yes" />
-							    </Component>
-	                    	</Directory>
-	                    	<Directory Id="inject" Name="inject">
-		                    	<Component Id="inject_LICENSE" Guid="*">
-							    	<File Id="inject_LICENSE_txt" Name="LICENSE.txt" Source="input\doc\third-party\inject\LICENSE.txt" KeyPath="yes" />
-							    </Component>
-	                    	</Directory>
-	                    	<Directory Id="jackson" Name="jackson">
-		                    	<Component Id="jackson_LICENSE" Guid="*">
-							    	<File Id="jackson_LICENSE_txt" Name="LICENSE.txt" Source="input\doc\third-party\jackson\LICENSE.txt" KeyPath="yes" />
-							    </Component>
-		                    	<Component Id="jackson_NOTICE" Guid="*">
-							    	<File Id="jackson_NOTICE_txt" Name="NOTICE.txt" Source="input\doc\third-party\jackson\NOTICE.txt" KeyPath="yes" />
-							    </Component>
-	                    	</Directory>
-	                    	<Directory Id="logback" Name="logback">
-		                    	<Component Id="logback_LICENSE" Guid="*">
-							    	<File Id="logback_LICENSE_txt" Name="LICENSE.txt" Source="input\doc\third-party\logback\LICENSE.txt" KeyPath="yes" />
-							    </Component>
-	                    	</Directory>
-	                    	<Directory Id="sambox" Name="sambox">
-		                    	<Component Id="sambox_LICENSE" Guid="*">
-							    	<File Id="sambox_LICENSE_txt" Name="LICENSE.txt" Source="input\doc\third-party\sambox\LICENSE.txt" KeyPath="yes" />
-							    </Component>
-	                    	</Directory>
-	                    	<Directory Id="sejda" Name="sejda">
-		                    	<Component Id="sejda_LICENSE" Guid="*">
-							    	<File Id="sejda_LICENSE_txt" Name="LICENSE.txt" Source="input\doc\third-party\sejda\LICENSE.txt" KeyPath="yes" />
-							    </Component>
-	                    	</Directory>
-	                    	<Directory Id="sejda_injector" Name="sejda-injector">
-		                    	<Component Id="sejda_injector_LICENSE" Guid="*">
-							    	<File Id="sejda_injector_LICENSE_txt" Name="LICENSE.txt" Source="input\doc\third-party\sejda-injector\LICENSE.txt" KeyPath="yes" />
-							    </Component>
-	                    	</Directory>
-	                    	<Directory Id="sejda_io" Name="sejda-io">
-		                    	<Component Id="sejda_io_LICENSE" Guid="*">
-							    	<File Id="sejda_io_LICENSE_txt" Name="LICENSE.txt" Source="input\doc\third-party\sejda-io\LICENSE.txt" KeyPath="yes" />
-							    </Component>
-	                    	</Directory>
-	                    	<Directory Id="slf4j" Name="slf4j">
-		                    	<Component Id="slf4j_LICENSE" Guid="*">
-							    	<File Id="slf4j_LICENSE_txt" Name="LICENSE.txt" Source="input\doc\third-party\slf4j\LICENSE.txt" KeyPath="yes" />
-							    </Component>
-	                    	</Directory>
-	                    	<Directory Id="validation_api" Name="validation-api">
-		                    	<Component Id="validation_api_LICENSE" Guid="*">
-							    	<File Id="validation_api_LICENSE_txt" Name="LICENSE.txt" Source="input\doc\third-party\validation-api\LICENSE.txt" KeyPath="yes" />
-							    </Component>
-	                    	</Directory>
-                    	</Directory>
-                    </Directory>                    
                 </Directory>
             </Directory>
             <Directory Id="ProgramMenuFolder">
@@ -250,30 +92,6 @@
 		       	<RegistryValue Root="HKCU" Key="Software\$(var.ProductName)" Name="DesktopShortcutInstalled" Type="integer" Value="1" KeyPath="yes"/>
 		    </Component>
 	   	</DirectoryRef>
-   
-        <ComponentGroup Id="Docs">
-        	<ComponentRef Id="bouncy_castle_LICENSE" />
-        	<ComponentRef Id="commons_io_LICENSE" />
-        	<ComponentRef Id="commons_io_NOTICE" />
-        	<ComponentRef Id="commons_lang_LICENSE" />
-        	<ComponentRef Id="commons_lang_NOTICE" />
-        	<ComponentRef Id="event_studio_LICENSE" />
-        	<ComponentRef Id="fontawesomeFx_LICENSE" />
-        	<ComponentRef Id="fontbox_NOTICE" />
-        	<ComponentRef Id="fontbox_LICENSE" />
-        	<ComponentRef Id="gettext_LICENSE" />
-        	<ComponentRef Id="hibernate_validator_LICENSE" />
-        	<ComponentRef Id="inject_LICENSE" />
-        	<ComponentRef Id="jackson_LICENSE" />
-        	<ComponentRef Id="jackson_NOTICE" />
-        	<ComponentRef Id="logback_LICENSE" />
-        	<ComponentRef Id="sambox_LICENSE" />
-        	<ComponentRef Id="sejda_LICENSE" />
-        	<ComponentRef Id="sejda_injector_LICENSE" />
-        	<ComponentRef Id="sejda_io_LICENSE" />
-        	<ComponentRef Id="slf4j_LICENSE" />
-        	<ComponentRef Id="validation_api_LICENSE" />
-		</ComponentGroup>
 					    	
 	    <Component Id="FileAssociations" Guid="09b5be81-2bb4-470b-a2b1-737e152308a3" Directory="APPLICATIONFOLDER" KeyPath="yes">
 			<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\$(var.ProgId)" Value="!(loc.ProductName)" Type="string" />
@@ -303,16 +121,9 @@
     		
         <Feature Id="MainAppFeature" ConfigurableDirectory="APPLICATIONFOLDER" Title="!(loc.ProductName)" Level="1" Absent="disallow" Display="expand" AllowAdvertise="no" InstallDefault="local" Description="!(loc.ProductNameDescription)">
             <ComponentRef Id="CleanupMainApplicationFolder" />
-            <ComponentRef Id="pdfsam_community_current.jar" />
-            <ComponentRef Id="pdfsam.l4j.ini" />
-            <ComponentRef Id="pdfsam.exe" />
-            <ComponentRef Id="LICENSE.txt" />
-            <ComponentRef Id="pdfsam.bat" />
-            <ComponentRef Id="pdfsam.sh" />
-            <ComponentGroupRef Id="Docs" />
-            <ComponentRef Id="splash.gif" />
-            <ComponentRef Id="logback.xml" />
+            <ComponentRef Id="pdfsam_version_reg" />
             <ComponentRef Id="StartMenuShortcuts" />
+             <ComponentGroupRef Id="AllFiles" />
         </Feature>
         <Feature Id="AddContextMenu" Title="Context menu shortcuts" Description="!(loc.ContextMenuDescription)" Level="1">
             <ComponentRef Id="FileAssociations" />

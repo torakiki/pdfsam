@@ -8,7 +8,11 @@ del /Q requirementsDlg.wixobj
 del /Q featuresTree.wixobj
 del /Q verifyWithLanguageDlg.wixobj
 del /Q exitDlg.wixobj
+del /Q harvestedFiles.wxs
+del /Q harvestedFiles.wixobj
 
+REM harvest the files
+"%WIX%bin\heat.exe" dir -ag -cg "AllFiles" -ke -sfrag -srd -sreg -out harvestedFiles.wxs
 REM Build the MSI
 "%WIX%bin\candle.exe" pdfsam.wxs requirementsDlg.wxs featuresTree.wxs verifyWithLanguageDlg.wxs exitDlg.wxs -ext WixUIExtension -ext WixUtilExtension -ext WixNetFxExtension
 
