@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 27/mar/2014
- * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
+ * Created on 10 dic 2018
+ * Copyright 2017 by Sober Lemur S.a.s di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,22 +16,12 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.configuration;
-
-import java.nio.file.Path;
-import java.util.function.Predicate;
+package org.pdfsam;
 
 /**
- * Filter that checks if the given {@link Path} is a jar file.
- * 
  * @author Andrea Vacondio
  *
  */
-class JarSignatureFilter implements Predicate<Path> {
-
-    @Override
-    public boolean test(Path p) {
-        return p != null && p.toString().toLowerCase().endsWith(".jar");
-    }
+public class NoWindows {
 
 }

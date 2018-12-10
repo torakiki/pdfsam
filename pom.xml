@@ -43,6 +43,24 @@
 			</build>
 		</profile>
 		<profile>
+			<activation>
+				<os>
+					<family>Windows</family>
+				</os>
+			</activation>
+			<id>no-windows-failing-tests</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<configuration>
+							<excludedGroups>org.pdfsam.NoWindows</excludedGroups>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
 			<id>toolchain</id>
 			<activation>
 				<jdk>(,11)</jdk>

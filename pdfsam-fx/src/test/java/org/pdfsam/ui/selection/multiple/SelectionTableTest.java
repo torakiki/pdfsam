@@ -49,6 +49,7 @@ import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.NoHeadless;
+import org.pdfsam.NoWindows;
 import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
@@ -477,6 +478,7 @@ public class SelectionTableTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoWindows.class)
     public void iconsAreShown() {
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED));
         WaitForAsyncUtils.waitForFxEvents();
