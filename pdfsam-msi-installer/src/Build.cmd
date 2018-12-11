@@ -28,4 +28,4 @@ del /Q exitDlg.wixobj
 del /Q harvestedFiles.wixobj
 del /Q harvestedFiles.wxs
 
-IF EXIST "output\pdfsam-%PDFSAM_VERSION%.msi" "signtool.exe" sign /t http://timestamp.verisign.com/scripts/timstamp.dll /a /d "PDFsam Basic" "output\pdfsam-%PDFSAM_VERSION%.msi"
+IF EXIST "../target\pdfsam-%PDFSAM_VERSION%.msi" "signtool.exe" sign /t http://timestamp.verisign.com/scripts/timstamp.dll /a /d "PDFsam Basic" "../target\pdfsam-%PDFSAM_VERSION%.msi"

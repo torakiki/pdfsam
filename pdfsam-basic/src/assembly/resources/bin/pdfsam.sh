@@ -105,7 +105,6 @@ fi
 
 exec "$JAVACMD" -jar "$JAR_ARG" $JAVA_OPTS -Xmx512M \
   -Dapp.name="pdfsam-basic" \
-  -splash:"$BASEDIR"/resources/splash.gif \
   -Dapp.pid="$$" \
   -Dapp.home="$BASEDIR" \
   -Dbasedir="$BASEDIR" \

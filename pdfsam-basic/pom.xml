@@ -57,7 +57,7 @@
 								</manifest>
 								<manifestEntries>
 									<Automatic-Module-Name>org.pdfsam.basic</Automatic-Module-Name>
-									<SplashScreen-Image>images/community/splash.gif</SplashScreen-Image>
+									<SplashScreen-Image>images/basic/splash.gif</SplashScreen-Image>
 								</manifestEntries>
 								<addMavenDescriptor>false</addMavenDescriptor>
 								<!-- <manifestEntries> <Class-Path>etc/</Class-Path> </manifestEntries> -->
@@ -133,15 +133,6 @@
 										<resource>
 											<directory>${basedir}/doc</directory>
 											<targetPath>${project.build.directory}/assembled/doc</targetPath>
-										</resource>
-										<resource>
-											<directory>${basedir}/src/main/resources/images/basic</directory>
-											<targetPath>${project.build.directory}/assembled/resources</targetPath>
-											<includes>
-												<include>
-													splash.gif
-												</include>
-											</includes>
 										</resource>
 										<resource>
 											<directory>${project.build.directory}</directory>
