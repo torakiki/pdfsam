@@ -45,6 +45,7 @@ import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
 import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -158,7 +159,7 @@ public class BookmarksLevelComboBoxTest extends ApplicationTest {
         victim.setValidBookmarkLevels(validLevels);
         clickOn(victim).push(KeyCode.ALT, KeyCode.DOWN).clickOn("2");
         Map<String, String> data = new HashMap<>();
-        victim.saveStateTo(data);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.saveStateTo(data));
         assertEquals("2,3,4,5,6,7,10", data.get("levelCombo.levels"));
         assertEquals("2", data.get("levelCombo.selected"));
     }
@@ -167,7 +168,7 @@ public class BookmarksLevelComboBoxTest extends ApplicationTest {
     public void saveStateEmptySelection() {
         victim.setValidBookmarkLevels(validLevels);
         Map<String, String> data = new HashMap<>();
-        victim.saveStateTo(data);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.saveStateTo(data));
         assertEquals("", data.get("levelCombo.selected"));
     }
 
@@ -177,7 +178,7 @@ public class BookmarksLevelComboBoxTest extends ApplicationTest {
         Map<String, String> data = new HashMap<>();
         data.put("levelCombo.levels", "2,3,5,6,7,10");
         data.put("levelCombo.selected", "2");
-        victim.restoreStateFrom(data);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals("2", victim.getValue());
         assertThat(victim.getItems(), hasItems("2", "3", "5", "6", "7", "10"));
     }
@@ -188,7 +189,7 @@ public class BookmarksLevelComboBoxTest extends ApplicationTest {
         Map<String, String> data = new HashMap<>();
         data.put("levelCombo.max", "3");
         data.put("levelCombo.selected", "2");
-        victim.restoreStateFrom(data);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals("2", victim.getValue());
         assertThat(victim.getItems(), hasItems("1", "2", "3"));
     }
@@ -198,7 +199,7 @@ public class BookmarksLevelComboBoxTest extends ApplicationTest {
         victim.setValidBookmarkLevels(validLevels);
         Map<String, String> data = new HashMap<>();
         data.put("levelCombo.selected", "");
-        victim.restoreStateFrom(data);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals("", victim.getValue());
     }
 
@@ -207,7 +208,7 @@ public class BookmarksLevelComboBoxTest extends ApplicationTest {
         victim.setValidBookmarkLevels(validLevels);
         Map<String, String> data = new HashMap<>();
         data.put("levelCombo.selected", null);
-        victim.restoreStateFrom(data);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals("", victim.getValue());
     }
 }
