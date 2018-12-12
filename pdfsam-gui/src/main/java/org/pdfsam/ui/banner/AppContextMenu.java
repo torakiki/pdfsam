@@ -46,9 +46,14 @@ class AppContextMenu extends ContextMenu {
         MenuItem exit = new MenuItem(DefaultI18nContext.getInstance().i18n("E_xit"));
         exit.setOnAction(e -> Platform.exit());
         exit.setAccelerator(new KeyCodeCombination(KeyCode.Q, KeyCombination.SHORTCUT_DOWN));
-        MenuItem settings = new MenuItem(DefaultI18nContext.getInstance().i18n("_Settings"));
-        settings.setOnAction(
-                e -> eventStudio().broadcast(new SetActiveDashboardItemRequest(PreferencesDashboardItem.ID)));
-        getItems().addAll(workspace, modulesMenu, settings, new SeparatorMenuItem(), exit);
+        getItems().addAll(workspace, modulesMenu);
+        if (!Boolean.getBoolean(PreferencesDashboardItem.PDFSAM_DISABLE_SETTINGS)) {
+            MenuItem settings = new MenuItem(DefaultI18nContext.getInstance().i18n("_Settings"));
+            settings.setOnAction(
+                    e -> eventStudio().broadcast(new SetActiveDashboardItemRequest(PreferencesDashboardItem.ID)));
+            getItems().add(settings);
+        }
+
+        getItems().addAll(new SeparatorMenuItem(), exit);
     }
 }

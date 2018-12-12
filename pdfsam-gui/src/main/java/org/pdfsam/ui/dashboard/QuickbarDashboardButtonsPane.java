@@ -41,8 +41,8 @@ class QuickbarDashboardButtonsPane extends BaseQuickbarButtonsPane {
 
     @Inject
     QuickbarDashboardButtonsPane(List<DashboardItem> items) {
-        items.stream().sorted((a, b) -> a.priority() - b.priority()).map(DashboardButton::new)
-                .forEach(currentButton -> {
+        items.stream().filter(i -> !i.disabled()).sorted((a, b) -> a.priority() - b.priority())
+                .map(DashboardButton::new).forEach(currentButton -> {
                     currentButton.displayTextProperty().bind(displayTextProperty());
                     getChildren().add(currentButton);
                     buttons.add(currentButton);
