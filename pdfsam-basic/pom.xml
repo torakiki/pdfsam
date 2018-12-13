@@ -44,6 +44,19 @@
 			<build>
 				<plugins>
 					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>build-helper-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>parse-version</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>parse-version</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-jar-plugin</artifactId>
 						<configuration>
@@ -213,19 +226,6 @@
 			<build>
 				<plugins>
 					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>build-helper-maven-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>parse-version</id>
-								<phase>prepare-package</phase>
-								<goals>
-									<goal>parse-version</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
 						<groupId>com.akathist.maven.plugins.launch4j</groupId>
 						<artifactId>launch4j-maven-plugin</artifactId>
 						<version>1.7.24</version>
@@ -392,24 +392,25 @@
 			<build>
 				<plugins>
 					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-clean-plugin</artifactId>
+						<!-- javapackager creates its own jlinked runtime, we delete the one 
+							we created -->
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
 						<executions>
 							<execution>
-								<!-- javapackager creates the runtime with jlink so we remove the 
-									one created for the zip packaging -->
-								<id>clean-runtime</id>
-								<phase>package</phase>
+								<id>delete-runtime</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
 								<configuration>
-									<filesets>
-										<fileset>
-											<directory>${project.build.directory}/assembled/runtime</directory>
-											<includes>
-												<include>**</include>
-											</includes>
-											<followSymlinks>false</followSymlinks>
-										</fileset>
-									</filesets>
+									<executable>
+										rm
+									</executable>
+									<arguments>
+										<argument>-R</argument>
+										<argument>${project.build.directory}/assembled/runtime</argument>
+									</arguments>
 								</configuration>
 							</execution>
 						</executions>
@@ -420,49 +421,54 @@
 						<executions>
 							<execution>
 								<id>package-dmg</id>
-								<phase>package</phase>
+								<phase>pre-integration-test</phase>
 								<goals>
 									<goal>exec</goal>
 								</goals>
 								<configuration>
 									<executable>
-										javapackager
+										jpackager
 									</executable>
 									<arguments>
-										<argument>-deploy</argument>
-										<argument>-native</argument>
+										<argument>create-installer</argument>
 										<argument>dmg</argument>
-										<argument>-name</argument>
+										<argument>--name</argument>
 										<argument>PDFsam Basic</argument>
-										<argument>-description</argument>
-										<argument>A free open source application to split, merge,
-											extract pages and mix
-											PDF files</argument>
-										<argument>-title</argument>
-										<argument>PDFsam Basic</argument>
-										<argument>-vendor</argument>
+										<argument>--description</argument>
+										<argument>A free open source application to split, merge, extract pages and mix PDF files</argument>
+										<argument>--version</argument>
+										<argument>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</argument>
+										<argument>--vendor</argument>
 										<argument>Sober Lemur S.a.s. di Vacondio Andrea</argument>
 										<argument>--add-modules</argument>
 										<argument>java.base,java.datatransfer,java.logging,java.naming,java.sql,java.desktop,java.xml,java.scripting,jdk.unsupported,java.prefs</argument>
-										<argument>-outdir</argument>
+										<argument>-o</argument>
 										<argument>${project.build.directory}</argument>
-										<argument>-outfile</argument>
-										<argument>pdfsam-${project.version}</argument>
-										<argument>-srcdir</argument>
+										<argument>-i</argument>
 										<argument>${project.build.directory}/assembled</argument>
-										<argument>-BlicenseFile=LICENSE.txt</argument>
-										<argument>-BmainJar=${project.build.finalName}.jar</argument>
-										<argument>-BappVersion=${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</argument>
-										<argument>-Bicon=${project.basedir}/src/dmg/Icon.icns</argument>
-										<argument>-Bidentifier=org.pdfsam.basic.App</argument>
-										<argument>-BuserJvmOptions=-Xmx=512m</argument>
-										<argument>-BjvmProperties=org.pdfsam.disable.ui.restore=true</argument>
-										<argument>-Bmac.category=Business</argument>
-										<argument>-Bmac.CFBundleIdentifier=org.pdfsam.basic</argument>
-										<argument>-Bmac.signing-key-developer-id-app=SOBER LEMUR SAS
-											DI VACONDIO ANDREA</argument>
-										<argument>-Bclasspath=etc;${project.build.finalName}.jar</argument>
-										<argument>-v</argument>
+										<argument>-c</argument>
+										<argument>org.pdfsam.basic.App</argument>
+										<argument>--license-file</argument>
+										<argument>LICENSE.txt</argument>
+										<argument>-j</argument>
+										<argument>${project.build.finalName}.jar</argument>
+										<argument>--icon</argument>
+										<argument>${project.basedir}/src/dmg/Icon.icns</argument>
+										<argument>--identifier</argument>
+										<argument>org.pdfsam.basic</argument>
+										<argument>--user-jvm-args</argument>
+										<argument>-Xmx=512m</argument>
+										<argument>-a</argument>
+										<argument>-Dorg.pdfsam.disable.ui.restore=true</argument>
+										<argument>--category</argument>
+										<argument>Business</argument>
+										<argument>--mac-bundle-identifier</argument>
+										<argument>org.pdfsam.basic</argument>
+										<argument>--mac-bundle-name</argument>
+										<argument>PDFsam Basic</argument>
+										<argument>--mac-signing-keychain</argument>
+										<argument>SOBER LEMUR SAS DI VACONDIO ANDREA</argument>
+										<argument>--verbose</argument>
 									</arguments>
 									<skip>${skip.dmg}</skip>
 								</configuration>
