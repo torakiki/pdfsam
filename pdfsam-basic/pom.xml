@@ -482,13 +482,12 @@
 						<executions>
 							<execution>
 								<id>rename-dmg</id>
-								<phase>pre-integration-test</phase>
+								<phase>integration-test</phase>
 								<goals>
 									<goal>copy</goal>
 								</goals>
 								<configuration>
-									<sourceFile>${project.build.directory}/bundles/PDFsam
-										Basic-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.dmg</sourceFile>
+									<sourceFile>${project.build.directory}/PDFsam Basic-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.dmg</sourceFile>
 									<destinationFile>${project.build.directory}/pdfsam-${project.version}.dmg</destinationFile>
 								</configuration>
 							</execution>
@@ -501,7 +500,7 @@
 						<executions>
 							<execution>
 								<id>attach-dmg</id>
-								<phase>pre-integration-test</phase>
+								<phase>post-integration-test</phase>
 								<goals>
 									<goal>attach-artifact</goal>
 								</goals>
