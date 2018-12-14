@@ -287,25 +287,8 @@
 												</include>
 											</includes>
 										</resource>
-									</resources>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-resources-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>copy-wix-script</id>
-								<phase>package</phase>
-								<goals>
-									<goal>copy-resources</goal>
-								</goals>
-								<configuration>
-									<outputDirectory>${project.build.directory}/msi</outputDirectory>
-									<resources>
 										<resource>
+											<targetPath>${project.build.directory}/msi</targetPath>
 											<directory>${basedir}/src/msi</directory>
 											<filtering>true</filtering>
 										</resource>
@@ -442,7 +425,7 @@
 				</plugins>
 			</build>
 		</profile>
-		
+
 		<profile>
 			<id>dmg</id>
 			<activation>
