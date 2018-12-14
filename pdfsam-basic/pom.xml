@@ -127,7 +127,7 @@
 						<artifactId>maven-resources-plugin</artifactId>
 						<executions>
 							<execution>
-								<id>copy-resources</id>
+								<id>copy-to-assembled</id>
 								<phase>package</phase>
 								<goals>
 									<goal>copy-resources</goal>
@@ -392,26 +392,43 @@
 			<build>
 				<plugins>
 					<plugin>
-						<!-- javapackager creates its own jlinked runtime, we delete the one 
-							we created -->
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>exec-maven-plugin</artifactId>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-resources-plugin</artifactId>
 						<executions>
 							<execution>
-								<id>delete-runtime</id>
-								<phase>pre-integration-test</phase>
+								<id>copy-dmg-script</id>
+								<phase>package</phase>
 								<goals>
-									<goal>exec</goal>
+									<goal>copy-resources</goal>
 								</goals>
 								<configuration>
-									<executable>
-										rm
-									</executable>
-									<arguments>
-										<argument>-R</argument>
-										<argument>${project.build.directory}/assembled/runtime</argument>
-									</arguments>
+									<outputDirectory>${project.build.directory}/dmg</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${basedir}/src/dmg</directory>
+											<filtering>true</filtering>
+										</resource>
+									</resources>
 								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>fix-dmg-script-permissions</id>
+								<phase>pre-integration-test</phase>
+								<configuration>
+									<target>
+										<chmod dir="${project.build.directory}/dmg" perm="755"
+											includes="*.sh" />
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
 							</execution>
 						</executions>
 					</plugin>
@@ -421,80 +438,21 @@
 						<executions>
 							<execution>
 								<id>package-dmg</id>
-								<phase>pre-integration-test</phase>
+								<phase>integration-test</phase>
 								<goals>
 									<goal>exec</goal>
 								</goals>
 								<configuration>
 									<executable>
-										jpackager
+										${project.build.directory}/dmg/package_dmg.sh
 									</executable>
-									<arguments>
-										<argument>create-installer</argument>
-										<argument>dmg</argument>
-										<argument>--name</argument>
-										<argument>PDFsam Basic</argument>
-										<argument>--description</argument>
-										<argument>A free open source application to split, merge, extract pages and mix PDF files</argument>
-										<argument>--version</argument>
-										<argument>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</argument>
-										<argument>--vendor</argument>
-										<argument>Sober Lemur S.a.s. di Vacondio Andrea</argument>
-										<argument>--add-modules</argument>
-										<argument>java.base,java.datatransfer,java.logging,java.naming,java.sql,java.desktop,java.xml,java.scripting,jdk.unsupported,java.prefs</argument>
-										<argument>-o</argument>
-										<argument>${project.build.directory}</argument>
-										<argument>-i</argument>
-										<argument>${project.build.directory}/assembled</argument>
-										<argument>-c</argument>
-										<argument>org.pdfsam.basic.App</argument>
-										<argument>--license-file</argument>
-										<argument>LICENSE.txt</argument>
-										<argument>-j</argument>
-										<argument>${project.build.finalName}.jar</argument>
-										<argument>--icon</argument>
-										<argument>${project.basedir}/src/dmg/Icon.icns</argument>
-										<argument>--identifier</argument>
-										<argument>org.pdfsam.basic</argument>
-										<argument>--user-jvm-args</argument>
-										<argument>-Xmx=512m</argument>
-										<argument>-a</argument>
-										<argument>-Dorg.pdfsam.disable.ui.restore=true</argument>
-										<argument>--category</argument>
-										<argument>Business</argument>
-										<argument>--mac-bundle-identifier</argument>
-										<argument>org.pdfsam.basic</argument>
-										<argument>--mac-bundle-name</argument>
-										<argument>PDFsam Basic</argument>
-										<argument>--mac-signing-keychain</argument>
-										<argument>SOBER LEMUR SAS DI VACONDIO ANDREA</argument>
-										<argument>--verbose</argument>
-									</arguments>
-									<skip>${skip.dmg}</skip>
 								</configuration>
 							</execution>
 						</executions>
 					</plugin>
+
 					<plugin>
-						<groupId>com.coderplus.maven.plugins</groupId>
-						<artifactId>copy-rename-maven-plugin</artifactId>
-						<version>1.0</version>
-						<executions>
-							<execution>
-								<id>rename-dmg</id>
-								<phase>integration-test</phase>
-								<goals>
-									<goal>copy</goal>
-								</goals>
-								<configuration>
-									<sourceFile>${project.build.directory}/PDFsam Basic-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.dmg</sourceFile>
-									<destinationFile>${project.build.directory}/pdfsam-${project.version}.dmg</destinationFile>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<!-- this is needed to sign the artifact -->
+						<!-- this is needed to create a detached signature of the artifact -->
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>build-helper-maven-plugin</artifactId>
 						<executions>
