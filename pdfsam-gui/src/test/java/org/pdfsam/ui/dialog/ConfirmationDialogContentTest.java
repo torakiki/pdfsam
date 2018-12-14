@@ -21,7 +21,6 @@ package org.pdfsam.ui.dialog;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
-import org.pdfsam.i18n.DefaultI18nContext;
 import org.testfx.framework.junit.ApplicationTest;
 
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
@@ -46,7 +45,7 @@ public class ConfirmationDialogContentTest extends ApplicationTest {
 
     @Test
     public void contentIsShown() {
-        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("MessageTitle")).tryQuery().isPresent());
-        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("MessageContent")).tryQuery().isPresent());
+        assertTrue(lookup("MessageTitle").tryQuery().isPresent());
+        assertTrue(lookup("MessageContent").tryQuery().isPresent());
     }
 }
