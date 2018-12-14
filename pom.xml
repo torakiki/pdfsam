@@ -145,7 +145,6 @@
 		<module>pdfsam-rotate</module>
 		<module>pdfsam-extract</module>
 		<module>pdfsam-docs</module>
-		<module>pdfsam-msi-installer</module>
 	</modules>
 
 	<developers>

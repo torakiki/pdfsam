@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Include>
 	<!-- Values required to change for a new release: -->
-	<?define ProductMajorVersion="4" ?>
-	<?define ProductMinorVersion="0" ?>
-	<?define ProductPatchVersion="0" ?>
+	<?define ProductMajorVersion="${parsedVersion.majorVersion}" ?>
+	<?define ProductMinorVersion="${parsedVersion.minorVersion}" ?>
+	<?define ProductPatchVersion="${parsedVersion.incrementalVersion}" ?>
 	<!-- Changing only this doesn't qualify for an upgrade so the upgrade is not detected -->
 	<?define ProductLabelVersion="0" ?>
 	<!-- Change this -->
-	<?define ProductFullVersion="4.0.0" ?>
+	<?define ProductFullVersion="${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}" ?>
 
 	<!-- Static configuration options. -->
 	<?define ProductCode="*" ?>

@@ -17,7 +17,6 @@
           <DialogRef Id="ProgressDlg" />
           <DialogRef Id="ResumeDlg" />
           <DialogRef Id="UserExit" />
-	      <DialogRef Id="RequirementsDlg" />
 	      <DialogRef Id="VerifyWithLanguageDlg" />
 
 	      <UIRef Id="WixUI_ErrorProgressText" />

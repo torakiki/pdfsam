@@ -13,11 +13,6 @@
 	<String Id="PDFSplitandMerge">PDFsam Basic</String>
 	<String Id="NewerVersionInstalled">Newer version of PDFsam Basic is already installed.</String>
 	<String Id="VerifyWithLanguageReadyDlgInstallText">Select the language:</String>
-	<String Id="RequirementsDlg_Title">[ProductName] Setup</String>
-	<String Id="RequirementsDlgBannerBitmap">WixUI_Bmp_Banner</String>
-	<String Id="RequirementsDlgDescription">Please verify all system requirements</String>
-	<String Id="RequirementsDlgTitle">{\WixUI_Font_Title}Installation requirements</String>
-	<String Id="NSISFoundText">A previous installation has been found, please  uninstall it before you continue. Found at the following location:</String>
 	<String Id="LaunchPDFsam">Launch PDFsam Basic</String>
 	<String Id="StartMenuShortcuts">Start menu shortcuts</String>
 	<String Id="StartMenuShortcutsDesc">Install start menu shortcuts</String>
