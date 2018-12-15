@@ -291,6 +291,17 @@
 											<targetPath>${project.build.directory}/msi</targetPath>
 											<directory>${basedir}/src/msi</directory>
 											<filtering>true</filtering>
+											<exclude>*.dll</exclude>
+											<include>*.*</include>
+										</resource>
+										<resource>
+											<targetPath>${project.build.directory}/msi</targetPath>
+											<directory>${basedir}/src/msi</directory>
+											<include>*.dll</include>
+										</resource>
+										<resource>
+											<targetPath>${project.build.directory}/msi/resources</targetPath>
+											<directory>${basedir}/src/msi/resources</directory>
 										</resource>
 									</resources>
 								</configuration>
@@ -303,7 +314,7 @@
 						<executions>
 							<execution>
 								<id>package-msi</id>
-								<phase>package</phase>
+								<phase>pre-integration-test</phase>
 								<goals>
 									<goal>exec</goal>
 								</goals>
@@ -322,8 +333,8 @@
 						<artifactId>build-helper-maven-plugin</artifactId>
 						<executions>
 							<execution>
-								<id>attach-dmg</id>
-								<phase>pre-integration-test</phase>
+								<id>attach-msi</id>
+								<phase>post-integration-test</phase>
 								<goals>
 									<goal>attach-artifact</goal>
 								</goals>
