@@ -32,6 +32,18 @@
 
 	<profiles>
 		<profile>
+			<id>no-splash</id>
+			<activation>
+				<os>
+					<family>mac</family>
+				</os>
+			</activation>
+			<!-- see https://bugs.openjdk.java.net/browse/JDK-8166942 -->
+			<properties>
+				<splash></splash>
+			</properties>
+		</profile>
+		<profile>
 			<id>basic-release</id>
 			<activation>
 				<property>
@@ -70,7 +82,7 @@
 								</manifest>
 								<manifestEntries>
 									<Automatic-Module-Name>org.pdfsam.basic</Automatic-Module-Name>
-									<SplashScreen-Image>images/basic/splash.gif</SplashScreen-Image>
+									<SplashScreen-Image>${splash}</SplashScreen-Image>
 								</manifestEntries>
 								<addMavenDescriptor>false</addMavenDescriptor>
 								<!-- <manifestEntries> <Class-Path>etc/</Class-Path> </manifestEntries> -->
@@ -465,6 +477,11 @@
 										<resource>
 											<directory>${basedir}/src/dmg</directory>
 											<filtering>true</filtering>
+											<include>*.sh</include>
+										</resource>
+										<resource>
+											<directory>${basedir}/src/dmg</directory>
+											<include>*.icns</include>
 										</resource>
 									</resources>
 								</configuration>
@@ -537,6 +554,7 @@
 
 	<properties>
 		<skip.dmg>true</skip.dmg>
+		<splash>images/basic/splash.gif</splash>
 	</properties>
 
 	<build>
