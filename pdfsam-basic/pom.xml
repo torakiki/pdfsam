@@ -32,16 +32,70 @@
 
 	<profiles>
 		<profile>
-			<id>no-splash</id>
+			<id>splash-non-mac</id>
+			<activation>
+				<os>
+					<family>!mac</family>
+				</os>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-jar-plugin</artifactId>
+						<configuration>
+							<archive>
+								<manifest>
+									<addClasspath>true</addClasspath>
+									<classpathPrefix>lib/</classpathPrefix>
+									<mainClass>
+										org.pdfsam.basic.App
+									</mainClass>
+								</manifest>
+								<manifestEntries>
+									<Built-By>Andrea Vacondio</Built-By>
+									<Automatic-Module-Name>org.pdfsam.basic</Automatic-Module-Name>
+									<SplashScreen-Image>images/basic/splash.gif</SplashScreen-Image>
+								</manifestEntries>
+								<addMavenDescriptor>false</addMavenDescriptor>
+							</archive>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>no-splash-on-mac</id>
 			<activation>
 				<os>
 					<family>mac</family>
 				</os>
 			</activation>
-			<!-- see https://bugs.openjdk.java.net/browse/JDK-8166942 -->
-			<properties>
-				<splash></splash>
-			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-jar-plugin</artifactId>
+						<configuration>
+							<archive>
+								<manifest>
+									<addClasspath>true</addClasspath>
+									<classpathPrefix>lib/</classpathPrefix>
+									<mainClass>
+										org.pdfsam.basic.App
+									</mainClass>
+								</manifest>
+								<!-- see https://bugs.openjdk.java.net/browse/JDK-8166942 -->
+								<manifestEntries>
+									<Built-By>Andrea Vacondio</Built-By>
+									<Automatic-Module-Name>org.pdfsam.basic</Automatic-Module-Name>
+								</manifestEntries>
+								<addMavenDescriptor>false</addMavenDescriptor>
+							</archive>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
 		</profile>
 		<profile>
 			<id>basic-release</id>
@@ -67,27 +121,6 @@
 								</goals>
 							</execution>
 						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-jar-plugin</artifactId>
-						<configuration>
-							<archive>
-								<manifest>
-									<addClasspath>true</addClasspath>
-									<classpathPrefix>lib/</classpathPrefix>
-									<mainClass>
-										org.pdfsam.basic.App
-									</mainClass>
-								</manifest>
-								<manifestEntries>
-									<Automatic-Module-Name>org.pdfsam.basic</Automatic-Module-Name>
-									<SplashScreen-Image>${splash}</SplashScreen-Image>
-								</manifestEntries>
-								<addMavenDescriptor>false</addMavenDescriptor>
-								<!-- <manifestEntries> <Class-Path>etc/</Class-Path> </manifestEntries> -->
-							</archive>
-						</configuration>
 					</plugin>
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
@@ -366,7 +399,7 @@
 		</profile>
 
 		<profile>
-			<id>deb</id>
+			<id>linux</id>
 			<activation>
 				<os>
 					<family>linux</family>
@@ -450,7 +483,7 @@
 		</profile>
 
 		<profile>
-			<id>dmg</id>
+			<id>mac</id>
 			<activation>
 				<os>
 					<family>mac</family>
@@ -554,7 +587,6 @@
 
 	<properties>
 		<skip.dmg>true</skip.dmg>
-		<splash>images/basic/splash.gif</splash>
 	</properties>
 
 	<build>
