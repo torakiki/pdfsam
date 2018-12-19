@@ -104,9 +104,6 @@
 					<name>release</name>
 				</property>
 			</activation>
-			<properties>
-				<skip.dmg>false</skip.dmg>
-			</properties>
 			<build>
 				<plugins>
 					<plugin>
@@ -584,10 +581,6 @@
 			</build>
 		</profile>
 	</profiles>
-
-	<properties>
-		<skip.dmg>true</skip.dmg>
-	</properties>
 
 	<build>
 		<extensions>
