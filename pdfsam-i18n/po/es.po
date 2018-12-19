@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-07-19 18:31+0200\n"
-"PO-Revision-Date: 2018-08-07 02:47+0000\n"
-"Last-Translator: Marcelo Pérez <Unknown>\n"
+"POT-Creation-Date: 2018-12-13 22:12+0100\n"
+"PO-Revision-Date: 2018-12-16 16:53+0000\n"
+"Last-Translator: rodroes <rodroes@hotmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-08-10 09:20+0000\n"
-"X-Generator: Launchpad (build 18747)\n"
+"X-Launchpad-Export-Date: 2018-12-19 10:28+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Páginas a extraer (ej: 2 o 5-23 o 2,5-7,12-)"
@@ -250,10 +250,10 @@ msgid "Rotate"
 msgstr "Rotar"
 
 msgid "Rotate the pages of multiple PDF documents."
-msgstr "Girar las páginas de varios documentos PDF."
+msgstr "Rotar las páginas de varios documentos PDF"
 
 msgid "Rotate settings"
-msgstr "Configurar giro"
+msgstr "Ajustes de rotación"
 
 msgid "All pages"
 msgstr "Todas las páginas"
@@ -268,7 +268,7 @@ msgid "90 degrees counterclockwise"
 msgstr "90 grados en sentido anti-horario"
 
 msgid "Rotate "
-msgstr "Girar "
+msgstr "Rotar/girar "
 
 msgid "Close"
 msgstr "Cerrar"
@@ -654,27 +654,6 @@ msgstr "Seleccione un número entero positivo como paso"
 msgid "Installing theme {0}."
 msgstr "Instalando el tema {0}."
 
-#, java-format
-msgid "Modules directory {0} does not exist"
-msgstr "La carpeta de módulos «{0}» no existe"
-
-#, java-format
-msgid "Loading modules from {0}"
-msgstr "Cargando módulos desde «{0}»"
-
-#, java-format
-msgid "Found modules jars {0}"
-msgstr "Se encontraron los archivos JAR del módulo {0}"
-
-msgid "Error finding modules paths"
-msgstr "Ocurrió un error al hallar las rutas del módulo"
-
-msgid "No module has been found"
-msgstr "No se encontró ningún módulo"
-
-msgid "Unable to find modules location."
-msgstr "No se encontró la ubicación del módulo."
-
 msgid "Document details"
 msgstr "Detalles del documento"
 
@@ -692,6 +671,12 @@ msgstr "Suscribirse al canal de noticias oficial"
 
 msgid "Environment"
 msgstr "Entorno"
+
+msgid "Java runtime path: %s"
+msgstr "Ruta de entorno Java: %s"
+
+msgid "JavaFX runtime version %s"
+msgstr "version de entorno JavaFX%s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -723,9 +708,6 @@ msgstr "Social"
 
 msgid "Follow us on Twitter"
 msgstr "Síganos en Twitter"
-
-msgid "Follow us on Google Plus"
-msgstr "Síganos en Google+"
 
 msgid "Like us on Facebook"
 msgstr "Síganos en Facebook"
@@ -775,7 +757,7 @@ msgid "Turn on or off alert sounds"
 msgstr "Encender o apagar los sonidos de alerta"
 
 msgid "Store passwords when saving a workspace file"
-msgstr "Guarde contraseñas cuando salvar el archivo de espacio de trabajo"
+msgstr "Guardar contraseñas al guardar archivo de espacio de trabajo"
 
 msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
@@ -801,6 +783,8 @@ msgid ""
 "Set whether the application should fetch and show premium features "
 "description in the modules dashboard"
 msgstr ""
+"Establezca si la aplicación debería recuperar y mostrar la descripción de "
+"las funciones premium en el panel de módulos"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Usar la carpeta del archivo PDF seleccionado como carpeta de salida"
@@ -913,6 +897,8 @@ msgid ""
 "Unable to access \"{0}\", please make sure you have write permissions or "
 "open the application messages for details."
 msgstr ""
+"No se puede acceder a \"{0}\", por favor asegúrese de tener permisos de "
+"escritura o abra los mensajes de la aplicación para más detalles."
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
@@ -1018,8 +1004,11 @@ msgstr "_Cargar"
 msgid "_Save"
 msgstr "_Guardar"
 
-msgid "Recen_t"
-msgstr "Recien_tes"
+msgid "Recen_ts"
+msgstr "Recientes"
+
+msgid "_Clear recents"
+msgstr "_Limpiar recientes"
 
 msgid "Select the workspace file to save"
 msgstr "Seleccione el archivo de espacio de trabajo que guardar"

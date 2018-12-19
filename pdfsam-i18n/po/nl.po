@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-07-19 18:31+0200\n"
-"PO-Revision-Date: 2018-08-10 06:52+0000\n"
-"Last-Translator: Arjen de Jong <Unknown>\n"
+"POT-Creation-Date: 2018-12-13 22:12+0100\n"
+"PO-Revision-Date: 2018-08-16 09:33+0000\n"
+"Last-Translator: Hendrik <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-08-10 09:20+0000\n"
-"X-Generator: Launchpad (build 18747)\n"
+"X-Launchpad-Export-Date: 2018-12-19 10:28+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -669,27 +669,6 @@ msgstr "Selecteer een positief geheel getal als stap"
 msgid "Installing theme {0}."
 msgstr "Bezig met het installeren van thema {0}."
 
-#, java-format
-msgid "Modules directory {0} does not exist"
-msgstr "Map met modules {0} bestaat niet."
-
-#, java-format
-msgid "Loading modules from {0}"
-msgstr "Modules laden van {0}"
-
-#, java-format
-msgid "Found modules jars {0}"
-msgstr "Module JARs gevonden {0}"
-
-msgid "Error finding modules paths"
-msgstr "Fout bij het zoeken van modulepaden"
-
-msgid "No module has been found"
-msgstr "Geen module gevonden"
-
-msgid "Unable to find modules location."
-msgstr "Kan locatie van modules niet vinden"
-
 msgid "Document details"
 msgstr "Bestandseigenschappen"
 
@@ -707,6 +686,12 @@ msgstr "Abonneren op de officiële nieuwsbrief"
 
 msgid "Environment"
 msgstr "Omgeving"
+
+msgid "Java runtime path: %s"
+msgstr ""
+
+msgid "JavaFX runtime version %s"
+msgstr ""
 
 #, java-format
 msgid "Max memory {0}"
@@ -738,9 +723,6 @@ msgstr "Sociaal"
 
 msgid "Follow us on Twitter"
 msgstr "Volg ons op Twitter"
-
-msgid "Follow us on Google Plus"
-msgstr "Volg ons op Google+"
 
 msgid "Like us on Facebook"
 msgstr "Vind ons leuk op Facebook"
@@ -932,6 +914,8 @@ msgid ""
 "Unable to access \"{0}\", please make sure you have write permissions or "
 "open the application messages for details."
 msgstr ""
+"Toegang tot \"{0}\" onmogelijk. Controleer of u schrijfrechten hebt of open "
+"de berichten voor meer informatie."
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
@@ -1035,8 +1019,11 @@ msgstr "_Laden"
 msgid "_Save"
 msgstr "_Opslaan"
 
-msgid "Recen_t"
-msgstr "_Recent"
+msgid "Recen_ts"
+msgstr ""
+
+msgid "_Clear recents"
+msgstr ""
 
 msgid "Select the workspace file to save"
 msgstr "Selecteer het werkomgevingsbestand dat moet worden opgeslagen"

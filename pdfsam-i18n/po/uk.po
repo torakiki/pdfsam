@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-07-19 18:31+0200\n"
+"POT-Creation-Date: 2018-12-13 22:12+0100\n"
 "PO-Revision-Date: 2017-12-27 01:49+0000\n"
 "Last-Translator: odisseus <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-08-10 09:20+0000\n"
-"X-Generator: Launchpad (build 18747)\n"
+"X-Launchpad-Export-Date: 2018-12-19 10:28+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Витягнути такі сторінки (приклад: 2 або 5-23 або 2,5-7,12-)"
@@ -626,27 +626,6 @@ msgstr ""
 msgid "Installing theme {0}."
 msgstr "Встановлено тему {0}"
 
-#, java-format
-msgid "Modules directory {0} does not exist"
-msgstr "Каталог модулів {0} не існує"
-
-#, java-format
-msgid "Loading modules from {0}"
-msgstr "Завантажую модулі з {0}"
-
-#, java-format
-msgid "Found modules jars {0}"
-msgstr "Знайдено {0} jars модулів"
-
-msgid "Error finding modules paths"
-msgstr "Помилка виявлення шляхів модулів"
-
-msgid "No module has been found"
-msgstr "Не знайдено жодного модуля"
-
-msgid "Unable to find modules location."
-msgstr "Неможливо знайти місце розташування модулів."
-
 msgid "Document details"
 msgstr "Властивості документа"
 
@@ -664,6 +643,12 @@ msgstr "Підписатися на офіційний канал новин"
 
 msgid "Environment"
 msgstr "Середовище"
+
+msgid "Java runtime path: %s"
+msgstr ""
+
+msgid "JavaFX runtime version %s"
+msgstr ""
 
 #, java-format
 msgid "Max memory {0}"
@@ -695,9 +680,6 @@ msgstr "Соціальні мережі"
 
 msgid "Follow us on Twitter"
 msgstr "Фоловити нас на Twitter"
-
-msgid "Follow us on Google Plus"
-msgstr "Позначити нас на Google Plus"
 
 msgid "Like us on Facebook"
 msgstr "Сподобати на Facebook"
@@ -982,8 +964,11 @@ msgstr "_Завантажити"
 msgid "_Save"
 msgstr "_Зберегти"
 
-msgid "Recen_t"
-msgstr "_Останні файли"
+msgid "Recen_ts"
+msgstr ""
+
+msgid "_Clear recents"
+msgstr ""
 
 msgid "Select the workspace file to save"
 msgstr "Обрати файл Робочого простору для збереження"

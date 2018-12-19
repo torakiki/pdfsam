@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-07-19 18:31+0200\n"
+"POT-Creation-Date: 2018-12-13 22:12+0100\n"
 "PO-Revision-Date: 2017-04-10 16:20+0000\n"
 "Last-Translator: Manic <Unknown>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-08-10 09:20+0000\n"
-"X-Generator: Launchpad (build 18747)\n"
+"X-Launchpad-Export-Date: 2018-12-19 10:28+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -613,27 +613,6 @@ msgstr ""
 msgid "Installing theme {0}."
 msgstr "Instalacija teme {0}."
 
-#, java-format
-msgid "Modules directory {0} does not exist"
-msgstr "Mapa modula {0} ne postoji"
-
-#, java-format
-msgid "Loading modules from {0}"
-msgstr "Učitavam module iz {0}"
-
-#, java-format
-msgid "Found modules jars {0}"
-msgstr "Pronađeni moduli jars {0}"
-
-msgid "Error finding modules paths"
-msgstr "Pogreška pronalaska putanje modula"
-
-msgid "No module has been found"
-msgstr "Nijedan modul nije pronađen"
-
-msgid "Unable to find modules location."
-msgstr "Nije moguće pronaći lokaciju modula."
-
 msgid "Document details"
 msgstr "Detalji dokumenta"
 
@@ -651,6 +630,12 @@ msgstr "Pretplati se na novosti"
 
 msgid "Environment"
 msgstr "Okružje"
+
+msgid "Java runtime path: %s"
+msgstr ""
+
+msgid "JavaFX runtime version %s"
+msgstr ""
 
 #, java-format
 msgid "Max memory {0}"
@@ -682,9 +667,6 @@ msgstr "Društvene mreže"
 
 msgid "Follow us on Twitter"
 msgstr "Prati nas na Twitter-u"
-
-msgid "Follow us on Google Plus"
-msgstr "Prati nas na Google Plus"
 
 msgid "Like us on Facebook"
 msgstr "Lajkaj nas na Facebook-u"
@@ -965,8 +947,11 @@ msgstr "_Učitaj"
 msgid "_Save"
 msgstr "_Spremi"
 
-msgid "Recen_t"
-msgstr "Nedavn_i"
+msgid "Recen_ts"
+msgstr ""
+
+msgid "_Clear recents"
+msgstr ""
 
 msgid "Select the workspace file to save"
 msgstr "Odaberi datoteku  radne površine za spremanje"

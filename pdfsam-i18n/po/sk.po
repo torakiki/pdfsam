@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-07-19 18:31+0200\n"
-"PO-Revision-Date: 2018-08-05 22:47+0000\n"
+"POT-Creation-Date: 2018-12-13 22:12+0100\n"
+"PO-Revision-Date: 2018-12-13 21:45+0000\n"
 "Last-Translator: Marcel Lipovsky <Unknown>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-08-10 09:20+0000\n"
-"X-Generator: Launchpad (build 18747)\n"
+"X-Launchpad-Export-Date: 2018-12-19 10:28+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Stránky na extrakciu (napr. 2 alebo 5-23 alebo 2,5-7,12-)"
@@ -627,27 +627,6 @@ msgstr "Pre krokovanie vyberte celé kladné číslo"
 msgid "Installing theme {0}."
 msgstr "Inštalujem tému {0}."
 
-#, java-format
-msgid "Modules directory {0} does not exist"
-msgstr "Priečinok modulov {0} neexistuje"
-
-#, java-format
-msgid "Loading modules from {0}"
-msgstr "Načítavam moduly z {0}"
-
-#, java-format
-msgid "Found modules jars {0}"
-msgstr "Boli nájdené archívy modulov {0}"
-
-msgid "Error finding modules paths"
-msgstr "Chyba pri hľadaní cesty k modulom"
-
-msgid "No module has been found"
-msgstr "Neboli nájdené žiadne moduly"
-
-msgid "Unable to find modules location."
-msgstr "Umiestnenie ´pre moduly nebolo možné nájsť"
-
 msgid "Document details"
 msgstr "Detaily dokumentu"
 
@@ -665,6 +644,12 @@ msgstr "Odoberať oficiálne novinky"
 
 msgid "Environment"
 msgstr "Prostredie"
+
+msgid "Java runtime path: %s"
+msgstr "Cesta k Java runtime: %s"
+
+msgid "JavaFX runtime version %s"
+msgstr "JavaFX runtime verzia %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -696,9 +681,6 @@ msgstr "Sociálne siete"
 
 msgid "Follow us on Twitter"
 msgstr "Sledujte nás na Twitteri"
-
-msgid "Follow us on Google Plus"
-msgstr "Sledujte nás na Google+"
 
 msgid "Like us on Facebook"
 msgstr "Likenite nás na facebooku"
@@ -988,8 +970,11 @@ msgstr "_Načítať"
 msgid "_Save"
 msgstr "_Uložiť"
 
-msgid "Recen_t"
-msgstr "Ne_dávne"
+msgid "Recen_ts"
+msgstr "Nedávno použi_té"
+
+msgid "_Clear recents"
+msgstr "_Vyčistiť nedávno použité"
 
 msgid "Select the workspace file to save"
 msgstr "Vyberte pracovný priestor pre uloženie"

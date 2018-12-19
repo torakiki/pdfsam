@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-07-19 18:31+0200\n"
+"POT-Creation-Date: 2018-12-13 22:12+0100\n"
 "PO-Revision-Date: 2017-12-07 09:33+0000\n"
 "Last-Translator: Norbert Kovacs <Unknown>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-08-10 09:20+0000\n"
-"X-Generator: Launchpad (build 18747)\n"
+"X-Launchpad-Export-Date: 2018-12-19 10:28+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Oldalak kiszedése (pl.: 2 vagy 5-23 vagy 2,5-7,12-)"
@@ -630,27 +630,6 @@ msgstr "Válassz egy pozitív egész számot tempónak"
 msgid "Installing theme {0}."
 msgstr "{0} téma telepítése"
 
-#, java-format
-msgid "Modules directory {0} does not exist"
-msgstr "A következő modulmappa nem létezik: {0}"
-
-#, java-format
-msgid "Loading modules from {0}"
-msgstr "Modulok betöltése innen: {0}"
-
-#, java-format
-msgid "Found modules jars {0}"
-msgstr "Jar modulok megtalálva: {0}"
-
-msgid "Error finding modules paths"
-msgstr "Hiba a modulok helyének keresése közben"
-
-msgid "No module has been found"
-msgstr "Nem található modul"
-
-msgid "Unable to find modules location."
-msgstr "Nem sikerült megtalálni a modulok helyét."
-
 msgid "Document details"
 msgstr "Dokumentum részletei"
 
@@ -668,6 +647,12 @@ msgstr "Feliratkozás a hivatalos hírforrásra"
 
 msgid "Environment"
 msgstr "Környezet"
+
+msgid "Java runtime path: %s"
+msgstr ""
+
+msgid "JavaFX runtime version %s"
+msgstr ""
 
 #, java-format
 msgid "Max memory {0}"
@@ -699,9 +684,6 @@ msgstr "Közösségi szolgáltatások"
 
 msgid "Follow us on Twitter"
 msgstr "Kövessen a Twitteren"
-
-msgid "Follow us on Google Plus"
-msgstr "Kövessen Google Pluson"
 
 msgid "Like us on Facebook"
 msgstr "Kedveljen a Facebookon"
@@ -988,8 +970,11 @@ msgstr "_Betöltés"
 msgid "_Save"
 msgstr "M_entés"
 
-msgid "Recen_t"
-msgstr "_Legutóbbiak"
+msgid "Recen_ts"
+msgstr ""
+
+msgid "_Clear recents"
+msgstr ""
 
 msgid "Select the workspace file to save"
 msgstr "Válassza ki a mentendő munkaterületet"

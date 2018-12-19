@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-07-19 18:31+0200\n"
-"PO-Revision-Date: 2016-09-30 08:38+0000\n"
-"Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
+"POT-Creation-Date: 2018-12-13 22:12+0100\n"
+"PO-Revision-Date: 2018-12-13 12:10+0000\n"
+"Last-Translator: Maciej Śliwa <Unknown>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-08-10 09:20+0000\n"
-"X-Generator: Launchpad (build 18747)\n"
+"X-Launchpad-Export-Date: 2018-12-19 10:28+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 
 msgid "Name"
 msgstr "Nazwa"
@@ -85,7 +85,7 @@ msgid "Normalize pages size"
 msgstr ""
 
 msgid "Resizes all pages to have the same width as the first page."
-msgstr ""
+msgstr "Dostosuj rozmiar stron do szerokości pierwszej strony."
 
 msgid "Merge fields"
 msgstr "Scal pola"
@@ -94,7 +94,7 @@ msgid "Merge renaming existing fields"
 msgstr "Scal zmieniając nazwy istniejących już pól"
 
 msgid "Flatten"
-msgstr ""
+msgstr "Spłaszcz"
 
 msgid "Discard forms"
 msgstr "Anuluj formularz"
@@ -337,10 +337,10 @@ msgid "Open Folder"
 msgstr "Otwórz katalog"
 
 msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr ""
+msgstr "Przeciągnij i upuść plik PDF lub folder zawierający plik PDF"
 
 msgid "No PDF found"
-msgstr ""
+msgstr "Nie znaleziono pliku PDF"
 
 msgid "Pace"
 msgstr "Krok"
@@ -461,10 +461,10 @@ msgid "Output PDF version:"
 msgstr "Wyjściowa wersja PDF:"
 
 msgid "Show advanced settings"
-msgstr ""
+msgstr "Pokaż zaawansowane ustawienia"
 
 msgid "Hide advanced settings"
-msgstr ""
+msgstr "Ukryj zaawansowane ustawienia"
 
 msgid "Select"
 msgstr "Wybierz"
@@ -625,27 +625,6 @@ msgstr "Jako krok wybierz dodatnią liczbę całkowitą"
 msgid "Installing theme {0}."
 msgstr "Instalacja motywu {0}."
 
-#, java-format
-msgid "Modules directory {0} does not exist"
-msgstr "Katalog modułu {0} nie istnieje"
-
-#, java-format
-msgid "Loading modules from {0}"
-msgstr "Ładowanie modułów z {0}"
-
-#, java-format
-msgid "Found modules jars {0}"
-msgstr "Znaleziono archiwa modułów {0}"
-
-msgid "Error finding modules paths"
-msgstr "Nie znaleziono ścieżki do katalogu z modułami"
-
-msgid "No module has been found"
-msgstr "Nie znaleziono modułu"
-
-msgid "Unable to find modules location."
-msgstr "Nie znaleziono lokalizacji modułów."
-
 msgid "Document details"
 msgstr "Szczegóły dokumentu"
 
@@ -664,6 +643,12 @@ msgstr "Zasubskrybuj oficjalny kanał informacyjny"
 msgid "Environment"
 msgstr "Środowisko"
 
+msgid "Java runtime path: %s"
+msgstr ""
+
+msgid "JavaFX runtime version %s"
+msgstr ""
+
 #, java-format
 msgid "Max memory {0}"
 msgstr "Maksymalna wielkość pamięci {0}"
@@ -675,7 +660,7 @@ msgid "Bug and feature requests"
 msgstr "Książka życzeń i zażaleń"
 
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentacja"
 
 msgid "Contribute"
 msgstr "Współpraca"
@@ -694,9 +679,6 @@ msgstr "Serwisy społecznościowe"
 
 msgid "Follow us on Twitter"
 msgstr "Śledź nas na Twitterze"
-
-msgid "Follow us on Google Plus"
-msgstr "Dołącz do nas na Google Plus"
 
 msgid "Like us on Facebook"
 msgstr "Polub nas na Facebooku"
@@ -730,7 +712,7 @@ msgstr ""
 "restart)"
 
 msgid "Check for news at startup"
-msgstr ""
+msgstr "Sprawdź nowości na starcie"
 
 msgid ""
 "Set whether the application should check for news availability on startup "
@@ -763,7 +745,7 @@ msgstr ""
 "Włącz lub wyłącz komunikat pytający użytkownika o wsparcie finansowe PDFsam"
 
 msgid "Show premium features"
-msgstr ""
+msgstr "Pokaż opcje premium"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
@@ -977,8 +959,11 @@ msgstr "Wczytaj"
 msgid "_Save"
 msgstr "Zapisz"
 
-msgid "Recen_t"
-msgstr "Ostatnio otwierane"
+msgid "Recen_ts"
+msgstr ""
+
+msgid "_Clear recents"
+msgstr ""
 
 msgid "Select the workspace file to save"
 msgstr "Wybierz obszar roboczy, aby zapisać plik"

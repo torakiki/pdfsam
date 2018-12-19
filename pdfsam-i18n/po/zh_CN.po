@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-07-19 18:31+0200\n"
-"PO-Revision-Date: 2018-07-31 23:14+0000\n"
-"Last-Translator: SongL <Unknown>\n"
+"POT-Creation-Date: 2018-12-13 22:12+0100\n"
+"PO-Revision-Date: 2018-12-13 21:04+0000\n"
+"Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-08-10 09:20+0000\n"
-"X-Generator: Launchpad (build 18747)\n"
+"X-Launchpad-Export-Date: 2018-12-19 10:28+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "要提取的页面（如：2 或 5-23 或 2,5-7,12-）"
@@ -72,7 +72,7 @@ msgid "Add a footer"
 msgstr "添加脚标"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
-msgstr "将页面所属文件的文件名添加到页脚。"
+msgstr "使用页面所属文件之文件名作为页脚添加。"
 
 msgid "Normalize pages size"
 msgstr "均一化页面大小"
@@ -136,10 +136,10 @@ msgid "Valid user password provided."
 msgstr "密码正确。"
 
 msgid "This document is encrypted, click to provide a password."
-msgstr "这是个加密文档，点击提供密码。"
+msgstr "该文档已加密，请输入密码。"
 
 msgid "An error has occurred, click for more details."
-msgstr "遇到一个错误，点击获取详情。"
+msgstr "发生错误，请点击查看详情。"
 
 msgid "Roundish"
 msgstr ""
@@ -149,20 +149,20 @@ msgstr "目录"
 
 #, java-format
 msgid "Invalid range: {0}."
-msgstr "无效范围：{0}。"
+msgstr "无效范围： {0}。"
 
 #, java-format
 msgid ""
 "Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
 "or [-n] or [n-]"
-msgstr "不准确的页面范围定义：{0}。使用下列格式：[n] 或 [n1-n2] 或 [-n] 或 [n-]"
+msgstr "页面范围设定不明确： {0}。请使用如下格式： [n] 或 [n1-n2] 或 [-n] 或 [n-]"
 
 #, java-format
 msgid "Invalid number: {0}."
-msgstr "无效数字：{0}。"
+msgstr "无效数字：{0}"
 
 msgid "Error saving log file."
-msgstr "保存日志文件错误。"
+msgstr "日志文件保存出错。"
 
 #, java-format
 msgid "File {0} saved."
@@ -479,7 +479,7 @@ msgid "Select a file"
 msgstr "选择一个文件"
 
 msgid "The selected file must exist. "
-msgstr "选择的文件必须存在。"
+msgstr "选择的文件必须存在。 "
 
 #, java-format
 msgid "Allowed extensions are {0}"
@@ -602,27 +602,6 @@ msgstr ""
 msgid "Installing theme {0}."
 msgstr "正在安装主题{0}."
 
-#, java-format
-msgid "Modules directory {0} does not exist"
-msgstr "模块目录{0}不存在"
-
-#, java-format
-msgid "Loading modules from {0}"
-msgstr "从{0}加载模块"
-
-#, java-format
-msgid "Found modules jars {0}"
-msgstr "找到的jar安装包 {0}"
-
-msgid "Error finding modules paths"
-msgstr "寻找模块路径出错"
-
-msgid "No module has been found"
-msgstr "没有找到模块"
-
-msgid "Unable to find modules location."
-msgstr "找不到模块路径"
-
 msgid "Document details"
 msgstr "文档详情"
 
@@ -640,6 +619,12 @@ msgstr "订阅官方新闻推送"
 
 msgid "Environment"
 msgstr "环境"
+
+msgid "Java runtime path: %s"
+msgstr ""
+
+msgid "JavaFX runtime version %s"
+msgstr ""
 
 #, java-format
 msgid "Max memory {0}"
@@ -671,9 +656,6 @@ msgstr "社交"
 
 msgid "Follow us on Twitter"
 msgstr "在Twitter上关注我们"
-
-msgid "Follow us on Google Plus"
-msgstr "在Google+上关注我们"
 
 msgid "Like us on Facebook"
 msgstr "在脸书上关注我们"
@@ -941,8 +923,11 @@ msgstr "载入(_L)"
 msgid "_Save"
 msgstr "保存(_S)"
 
-msgid "Recen_t"
-msgstr "最近的(_t)"
+msgid "Recen_ts"
+msgstr ""
+
+msgid "_Clear recents"
+msgstr ""
 
 msgid "Select the workspace file to save"
 msgstr "保存工作区文件"

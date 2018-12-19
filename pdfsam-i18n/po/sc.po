@@ -1,16 +1,16 @@
-# Estonian translation for pdfsam
-# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
+# Sardinian translation for pdfsam
+# Copyright (c) 2018 Rosetta Contributors and Canonical Ltd 2018
 # This file is distributed under the same license as the pdfsam package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2018-12-13 22:12+0100\n"
-"PO-Revision-Date: 2016-06-28 14:29+0000\n"
-"Last-Translator: Joonas Tamm <joonas.tamm@gmail.com>\n"
-"Language-Team: Estonian <et@li.org>\n"
+"PO-Revision-Date: 2018-09-21 13:45+0000\n"
+"Last-Translator: LM <Unknown>\n"
+"Language-Team: Sardinian <sc@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,7 +21,7 @@ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 
 msgid "Invalid page ranges"
-msgstr ""
+msgstr "Intervallos de pàginas non vàlidos"
 
 msgid "Extract pages:"
 msgstr ""
@@ -33,7 +33,7 @@ msgid "Extract pages from PDF documents."
 msgstr ""
 
 msgid "File names settings"
-msgstr ""
+msgstr "Impostatziones nùmenes documentos"
 
 msgid "Extract settings"
 msgstr ""
@@ -42,45 +42,51 @@ msgid "Output settings"
 msgstr ""
 
 msgid "No PDF document has been selected"
-msgstr ""
+msgstr "Perunu documentu PDF est istadu isseberadu"
 
 msgid "Merge"
-msgstr ""
+msgstr "Auni"
 
 msgid "Merge together multiple PDF documents or subsections of them."
-msgstr ""
+msgstr "Auni prus documentos PDF o cantos de cussos"
 
 msgid "Merge settings"
-msgstr ""
+msgstr "Impostatziones de unione"
 
 msgid "Destination file"
-msgstr ""
+msgstr "Documentu de destinatzione"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Topelt klikk sättimaks lehekülgi, mida soovid ühendada (näiteks: 2 või 5-23 "
-"või 2,5-7,12-)"
+"Incarca duas bortas pro impostare sas pàginas chi cheres aunire (es: 2 or 5-"
+"23 or 2,5-7,12-)"
 
 msgid "Add a blank page if page number is odd"
-msgstr ""
+msgstr "Annanghe una pàgina bòida se su nùmeru de sas pàginas est dìspari"
 
 msgid ""
 "Adds a blank page after each merged document if the document has an odd "
 "number of pages"
 msgstr ""
+"Annanghet una pàgina bòida a pustis de cada documentu unidu si su documentu "
+"tenet unu nùmeru dìspari de pàginas"
 
 msgid "Add a footer"
-msgstr ""
+msgstr "Annanghe unu pede de pàgina"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr ""
+"Annanghet unu pede de pàgina cun su nùmene de su documentu a su cale sa "
+"pàgina aparteniat"
 
 msgid "Normalize pages size"
-msgstr ""
+msgstr "Normaliza sa mannària de sas pàginas"
 
 msgid "Resizes all pages to have the same width as the first page."
 msgstr ""
+"Mudat sa mannària de totu sas pàgina pro fàghere in modu chi tèngiant sa "
+"matessi largària de sa prima pàgina"
 
 msgid "Merge fields"
 msgstr ""
@@ -101,10 +107,10 @@ msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr ""
 
 msgid "Retain bookmarks"
-msgstr ""
+msgstr "Mantene sos sinnalibros"
 
 msgid "Discard bookmarks"
-msgstr ""
+msgstr "Boga sos sinnalibros"
 
 msgid "Create one entry for each merged document"
 msgstr ""
@@ -141,7 +147,7 @@ msgid "This document is encrypted, click to provide a password."
 msgstr ""
 
 msgid "An error has occurred, click for more details."
-msgstr ""
+msgstr "B'est istadu un'errore, incarca pro àteras informatziones."
 
 msgid "Roundish"
 msgstr ""
@@ -171,7 +177,7 @@ msgid "File {0} saved."
 msgstr ""
 
 msgid "Split"
-msgstr "Tükelda"
+msgstr ""
 
 msgid "Security"
 msgstr ""
@@ -183,7 +189,7 @@ msgid "Split by every \"n\" pages"
 msgstr ""
 
 msgid "Number of pages"
-msgstr "Lehekülgede arv"
+msgstr ""
 
 msgid "Invalid number of pages"
 msgstr ""
@@ -236,7 +242,7 @@ msgid ""
 msgstr ""
 
 msgid "Rotate"
-msgstr "Pööra"
+msgstr ""
 
 msgid "Rotate the pages of multiple PDF documents."
 msgstr ""
@@ -260,13 +266,13 @@ msgid "Rotate "
 msgstr ""
 
 msgid "Close"
-msgstr "Sulge"
+msgstr ""
 
 msgid "Prefix for the generated files names"
 msgstr ""
 
 msgid "Add prefix"
-msgstr "Lisa prefiks"
+msgstr ""
 
 msgid "Generated PDF documents name prefix:"
 msgstr ""
@@ -293,16 +299,16 @@ msgid "Set as range for all"
 msgstr ""
 
 msgid "Remove"
-msgstr "Eemalda"
+msgstr ""
 
 msgid "Move to Top"
 msgstr ""
 
 msgid "Move Up"
-msgstr "Nihuta üles"
+msgstr ""
 
 msgid "Move Down"
-msgstr "Nihuta alla"
+msgstr ""
 
 msgid "Move to Bottom"
 msgstr ""
@@ -311,10 +317,10 @@ msgid "Duplicate"
 msgstr ""
 
 msgid "Copy to clipboard"
-msgstr "Kopeeri lõikelauale"
+msgstr ""
 
 msgid "Document properties"
-msgstr "Dokumendi atribuudid"
+msgstr ""
 
 msgid "Open"
 msgstr ""
@@ -337,7 +343,7 @@ msgid ""
 msgstr ""
 
 msgid "Pages"
-msgstr "Leheküljed"
+msgstr ""
 
 msgid "Size"
 msgstr ""
@@ -388,7 +394,7 @@ msgid "Page ranges"
 msgstr ""
 
 msgid "Name"
-msgstr "Nimi"
+msgstr ""
 
 msgid "Enter the user password"
 msgstr ""
@@ -407,7 +413,7 @@ msgid "Loading..."
 msgstr ""
 
 msgid "Run"
-msgstr "Käivita"
+msgstr ""
 
 msgid "Invalid parameters"
 msgstr ""
@@ -435,7 +441,7 @@ msgid "The selected PDF file is invalid"
 msgstr ""
 
 msgid "Compress output file/files"
-msgstr "Väljundfaili(de) pakkimine"
+msgstr ""
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -455,7 +461,7 @@ msgid "Select"
 msgstr ""
 
 msgid "Browse"
-msgstr "Sirvi"
+msgstr ""
 
 #, java-format
 msgid "Version {0}"
@@ -465,14 +471,14 @@ msgid "Same as the input document"
 msgstr ""
 
 msgid "Overwrite if already exists"
-msgstr "Kirjuta üle, kui eksisteerib"
+msgstr ""
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
 msgstr ""
 
 msgid "Select a directory"
-msgstr "Vali kataloog"
+msgstr ""
 
 msgid "Select an existing directory"
 msgstr ""
@@ -586,7 +592,7 @@ msgid ""
 msgstr ""
 
 msgid "Alternate Mix"
-msgstr "Alternatiivne segu"
+msgstr ""
 
 msgid ""
 "Merge two or more PDF documents taking pages alternately in natural or "
@@ -602,25 +608,25 @@ msgstr ""
 
 #, java-format
 msgid "Installing theme {0}."
-msgstr "Installeerimias teemat {0}."
+msgstr ""
 
 msgid "Document details"
-msgstr "Dokumentide üksikasjad"
+msgstr ""
 
 msgid "Summary"
-msgstr "Kokkuvõte"
+msgstr ""
 
 msgid "Keywords"
-msgstr "Märksõnad"
+msgstr ""
 
 msgid "Settings"
-msgstr "Sätted"
+msgstr ""
 
 msgid "Subscribe to the official news feed"
 msgstr ""
 
 msgid "Environment"
-msgstr "Keskkond"
+msgstr ""
 
 msgid "Java runtime path: %s"
 msgstr ""
@@ -633,31 +639,31 @@ msgid "Max memory {0}"
 msgstr ""
 
 msgid "Support"
-msgstr "Kasutajatugi"
+msgstr ""
 
 msgid "Bug and feature requests"
-msgstr "Tõrgete ja funktsioonide päringud"
+msgstr ""
 
 msgid "Documentation"
 msgstr ""
 
 msgid "Contribute"
-msgstr "Toeta"
+msgstr ""
 
 msgid "Fork PDFsam on GitHub"
 msgstr ""
 
 msgid "Translate"
-msgstr "Tõlgi"
+msgstr ""
 
 msgid "Donate"
-msgstr "Anneta"
+msgstr ""
 
 msgid "Social"
-msgstr "Sotsiaalne"
+msgstr ""
 
 msgid "Follow us on Twitter"
-msgstr "Jälgi meid Twitteris"
+msgstr ""
 
 msgid "Like us on Facebook"
 msgstr ""
@@ -672,16 +678,16 @@ msgid "Size in px:"
 msgstr ""
 
 msgid "Library used to generate thumbnails"
-msgstr "Eelvaadete genereerimiseks kasutatud teek"
+msgstr ""
 
 msgid "Thumbnails creator:"
-msgstr "Eelvaadete looja:"
+msgstr ""
 
 msgid "Dashboard"
-msgstr "Töölaud"
+msgstr ""
 
 msgid "Check for updates at startup"
-msgstr "Kontrolli käivitamisel uuendusi"
+msgstr ""
 
 msgid ""
 "Set whether new version availability should be checked on startup (restart "
@@ -697,10 +703,10 @@ msgid ""
 msgstr ""
 
 msgid "Play alert sounds"
-msgstr "Mängi hoiatushelisid"
+msgstr ""
 
 msgid "Turn on or off alert sounds"
-msgstr "Lülita hoiatushelid sisse või välja"
+msgstr ""
 
 msgid "Store passwords when saving a workspace file"
 msgstr ""
@@ -727,16 +733,16 @@ msgid ""
 msgstr ""
 
 msgid "Use the selected PDF document directory as output directory"
-msgstr "Kasuta valitud PDF dokumendi kataloogi väljundkataloogina"
+msgstr ""
 
 msgid "Save default workspace on exit"
-msgstr "Salvesta sulgemisel vaikimisi töölaud"
+msgstr ""
 
 msgid "If a default workspace is set, save it on application exit"
 msgstr ""
 
 msgid "Maximum number of rows mast be a positive number"
-msgstr "Maksimaalne ridade arv peab olema positiivne number"
+msgstr ""
 
 msgid "Log register rows:"
 msgstr ""
@@ -745,7 +751,7 @@ msgid "Maximum number of rows displayed by the Log register"
 msgstr ""
 
 msgid "Manually selected"
-msgstr "Käsitsi valitud"
+msgstr ""
 
 msgid ""
 "Automatically set the destination directory to the selected PDF document "
@@ -753,35 +759,34 @@ msgid ""
 msgstr ""
 
 msgid "Appearance"
-msgstr "Välimus"
+msgstr ""
 
 msgid "Behavior"
-msgstr "Käitumine"
+msgstr ""
 
 msgid "Workspace"
-msgstr "Töölaud"
+msgstr ""
 
 msgid "Output"
-msgstr "Väljund"
+msgstr ""
 
 msgid ""
 "Select a directory where documents will be saved and loaded by default"
-msgstr "Vali vaikimisi kataloog, kust dokumendid loetakse ja salvestatakse"
+msgstr ""
 
 msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
 "startup"
 msgstr ""
-"Vali eelnevalt salvestatud kataloog, mis laetakse automaatselt käivitamisel"
 
 msgid "Select a workspace"
-msgstr "Vali töölaud"
+msgstr ""
 
 msgid "Default working directory:"
-msgstr "Vaikimisi töökataloog:"
+msgstr ""
 
 msgid "Load default workspace at startup:"
-msgstr "Lae vaikimisi töölaud käivitamisel:"
+msgstr ""
 
 msgid "Clear usage statistics"
 msgstr ""
@@ -790,13 +795,13 @@ msgid "Check for updates now"
 msgstr ""
 
 msgid "Language:"
-msgstr "Keel:"
+msgstr ""
 
 msgid "Set your preferred language (restart needed)"
-msgstr "Seadista eelistatud keel (taaskäivitus vajalik)"
+msgstr ""
 
 msgid "Startup module:"
-msgstr "Käivitusmoodul:"
+msgstr ""
 
 msgid "Set the module to open at application startup (restart needed)"
 msgstr ""
@@ -810,7 +815,7 @@ msgid "Premium features"
 msgstr ""
 
 msgid "About"
-msgstr "Teave"
+msgstr ""
 
 msgid ""
 "Input parameters are invalid, open the application messages for details."
@@ -851,19 +856,19 @@ msgid "Select the task to perform on the following files"
 msgstr ""
 
 msgid "Yes"
-msgstr "Jah"
+msgstr ""
 
 msgid "No"
-msgstr "Ei"
+msgstr ""
 
 msgid "Non existing directory"
 msgstr ""
 
 msgid "The selected output directory does not exist"
-msgstr "Valitud väljundkataloog ei eksisteeri"
+msgstr ""
 
 msgid "Do you want to create it?"
-msgstr "Kas soovid selle luua?"
+msgstr ""
 
 msgid "Directory not empty"
 msgstr ""
@@ -897,16 +902,16 @@ msgid ""
 msgstr ""
 
 msgid "Overwrite"
-msgstr "Kirjuta Üle"
+msgstr ""
 
 msgid "Cancel"
-msgstr "Katkesta"
+msgstr ""
 
 msgid "What's new"
-msgstr "Mis on uut"
+msgstr ""
 
 msgid "_Modules"
-msgstr "_Moodulid"
+msgstr ""
 
 msgid "E_xit"
 msgstr ""
@@ -915,16 +920,16 @@ msgid "_Settings"
 msgstr ""
 
 msgid "Application messages"
-msgstr "Rakenduse sõnumid"
+msgstr ""
 
 msgid "_Workspace"
 msgstr ""
 
 msgid "_Load"
-msgstr "_Laadi"
+msgstr ""
 
 msgid "_Save"
-msgstr "_Salvesta"
+msgstr ""
 
 msgid "Recen_ts"
 msgstr ""
@@ -933,35 +938,35 @@ msgid "_Clear recents"
 msgstr ""
 
 msgid "Select the workspace file to save"
-msgstr "Vali töölaua fail mida salvestada"
+msgstr ""
 
 msgid "Select the workspace to load"
-msgstr "Vali töölaud mida laadida"
+msgstr ""
 
 msgid "Log register"
 msgstr ""
 
 msgid "Copy"
-msgstr "Kopeeri"
+msgstr ""
 
 msgid "Clear"
-msgstr "Puhasta"
+msgstr ""
 
 msgid "Select all"
-msgstr "Vali kõik"
+msgstr ""
 
 msgid "Save log"
-msgstr "Salvesta logi"
+msgstr ""
 
 msgid "Select where to save the log file"
 msgstr ""
 
 #, java-format
 msgid "Started in {0}"
-msgstr "Alustatud {0}"
+msgstr ""
 
 msgid "Closing PDFsam..."
-msgstr "Sulgemas PDFsam-i..."
+msgstr ""
 
 msgid "Megabytes"
 msgstr ""
@@ -991,28 +996,4 @@ msgid "Split at this size:"
 msgstr ""
 
 msgid "Invalid split size"
-msgstr "Vigane tükeldamise suurus"
-
-#~ msgid "Split even pages"
-#~ msgstr "Tükelda paaris leheküljed"
-
-#~ msgid "Split odd pages"
-#~ msgstr "Tükelda paaritud leheküljed"
-
-#~ msgid "Destination folder"
-#~ msgstr "Sihtkataloog"
-
-#~ msgid "Output document pdf version:"
-#~ msgstr "Väljunddokumendi pdf versioon:"
-
-#~ msgid "Theme:"
-#~ msgstr "Teema:"
-
-#~ msgid "Never"
-#~ msgstr "Mitte kunagi"
-
-#~ msgid "Would you like to overwrite it?"
-#~ msgstr "Kas sa soovid selle üle kirjutada?"
-
-#~ msgid "Unable to get latest available version"
-#~ msgstr "Viga värskeima saadaoleva versiooni hankimisel"
+msgstr ""

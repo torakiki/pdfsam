@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-07-19 18:31+0200\n"
+"POT-Creation-Date: 2018-12-13 22:12+0100\n"
 "PO-Revision-Date: 2014-03-03 14:12+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-08-10 09:20+0000\n"
-"X-Generator: Launchpad (build 18747)\n"
+"X-Launchpad-Export-Date: 2018-12-19 10:28+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -604,27 +604,6 @@ msgstr ""
 msgid "Installing theme {0}."
 msgstr ""
 
-#, java-format
-msgid "Modules directory {0} does not exist"
-msgstr ""
-
-#, java-format
-msgid "Loading modules from {0}"
-msgstr ""
-
-#, java-format
-msgid "Found modules jars {0}"
-msgstr ""
-
-msgid "Error finding modules paths"
-msgstr ""
-
-msgid "No module has been found"
-msgstr ""
-
-msgid "Unable to find modules location."
-msgstr ""
-
 msgid "Document details"
 msgstr ""
 
@@ -641,6 +620,12 @@ msgid "Subscribe to the official news feed"
 msgstr ""
 
 msgid "Environment"
+msgstr ""
+
+msgid "Java runtime path: %s"
+msgstr ""
+
+msgid "JavaFX runtime version %s"
 msgstr ""
 
 #, java-format
@@ -672,9 +657,6 @@ msgid "Social"
 msgstr ""
 
 msgid "Follow us on Twitter"
-msgstr ""
-
-msgid "Follow us on Google Plus"
 msgstr ""
 
 msgid "Like us on Facebook"
@@ -945,7 +927,10 @@ msgstr ""
 msgid "_Save"
 msgstr ""
 
-msgid "Recen_t"
+msgid "Recen_ts"
+msgstr ""
+
+msgid "_Clear recents"
 msgstr ""
 
 msgid "Select the workspace file to save"
