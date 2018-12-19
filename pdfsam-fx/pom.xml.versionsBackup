@@ -3,18 +3,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<description>PDFsam merge module</description>
-	<url>https://pdfsam.org/mergepdf/</url>
+	<description>Reusable JavaFX components to be used in PDFsam modules</description>
 	<parent>
 		<groupId>org.pdfsam</groupId>
 		<artifactId>pdfsam-parent</artifactId>
-		<version>4.0.0-SNAPSHOT</version>
+		<version>3.3.8-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-	<artifactId>pdfsam-merge</artifactId>
+	<artifactId>pdfsam-fx</artifactId>
 	<packaging>jar</packaging>
-	<name>PDFsam merge module</name>
+	<name>PDFsam JavaFx views</name>
 
 	<dependencies>
 		<dependency>
@@ -30,14 +29,31 @@
 			<artifactId>sejda-model</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.sejda</groupId>
+			<artifactId>eventstudio</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.jensd</groupId>
+			<artifactId>fontawesomefx-fontawesome</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.jensd</groupId>
+			<artifactId>fontawesomefx-materialdesignfont</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.pdfsam</groupId>
-			<artifactId>pdfsam-fx</artifactId>
+			<artifactId>pdfsam-i18n</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.pdfsam</groupId>
 			<artifactId>pdfsam-core</artifactId>
 			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.sejda</groupId>
@@ -52,13 +68,6 @@
 			<artifactId>javafx-controls</artifactId>
 		</dependency>
 		<!-- test dependencies -->
-		<dependency>
-			<groupId>org.pdfsam</groupId>
-			<artifactId>pdfsam-core</artifactId>
-			<version>${project.version}</version>
-			<type>test-jar</type>
-			<scope>test</scope>
-		</dependency>
 		<dependency>
 			<groupId>jdepend</groupId>
 			<artifactId>jdepend</artifactId>
@@ -82,6 +91,13 @@
 		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-swing</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.pdfsam</groupId>
+			<artifactId>pdfsam-core</artifactId>
+			<version>${project.version}</version>
+			<type>test-jar</type>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

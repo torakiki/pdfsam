@@ -3,70 +3,74 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<description>PDFsam alternate mix module</description>
+	<description>Core pdfsam library</description>
 	<parent>
 		<groupId>org.pdfsam</groupId>
 		<artifactId>pdfsam-parent</artifactId>
-		<version>4.0.0-SNAPSHOT</version>
+		<version>3.3.8-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-	<artifactId>pdfsam-alternate-mix</artifactId>
+	<artifactId>pdfsam-core</artifactId>
 	<packaging>jar</packaging>
-	<name>PDFsam alternate mix module</name>
+	<name>PDFsam core</name>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>test-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
+			<groupId>org.pdfsam</groupId>
+			<artifactId>pdfsam-i18n</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>de.jensd</groupId>
+			<artifactId>fontawesomefx-fontawesome</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.sejda</groupId>
 			<artifactId>sejda-model</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.pdfsam</groupId>
-			<artifactId>pdfsam-fx</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.pdfsam</groupId>
-			<artifactId>pdfsam-core</artifactId>
-			<version>${project.version}</version>
+			<groupId>org.sejda</groupId>
+			<artifactId>sejda-conversion</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.sejda</groupId>
-			<artifactId>sejda-injector</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.inject</groupId>
-			<artifactId>javax.inject</artifactId>
+			<artifactId>eventstudio</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-controls</artifactId>
 		</dependency>
-		<!-- test dependencies -->
-		<dependency>
-			<groupId>org.pdfsam</groupId>
-			<artifactId>pdfsam-core</artifactId>
-			<version>${project.version}</version>
-			<type>test-jar</type>
-			<scope>test</scope>
-		</dependency>
 		<dependency>
 			<groupId>jdepend</groupId>
 			<artifactId>jdepend</artifactId>
-			<scope>test</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx-swing -->
 		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-swing</artifactId>
+			<version>${javafx.version}</version>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 </project>

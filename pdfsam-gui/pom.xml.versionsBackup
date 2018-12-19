@@ -3,17 +3,33 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<description>Reusable JavaFX components to be used in PDFsam modules</description>
+	<description>PDFsam App</description>
 	<parent>
 		<groupId>org.pdfsam</groupId>
 		<artifactId>pdfsam-parent</artifactId>
-		<version>4.0.0-SNAPSHOT</version>
+		<version>3.3.8-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-	<artifactId>pdfsam-fx</artifactId>
+	<artifactId>pdfsam-gui</artifactId>
 	<packaging>jar</packaging>
-	<name>PDFsam JavaFx views</name>
+	<name>PDFsam desktop client application</name>
+
+	<profiles>
+		<profile>
+			<id>fastTests</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<configuration>
+							<excludedGroups>org.loadui.testfx.categories.TestFX</excludedGroups>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 	<dependencies>
 		<dependency>
@@ -33,14 +49,6 @@
 			<artifactId>eventstudio</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>de.jensd</groupId>
-			<artifactId>fontawesomefx-fontawesome</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>de.jensd</groupId>
-			<artifactId>fontawesomefx-materialdesignfont</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.pdfsam</groupId>
 			<artifactId>pdfsam-i18n</artifactId>
 			<version>${project.version}</version>
@@ -51,9 +59,14 @@
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>${logback.version}</version>
+			<groupId>org.pdfsam</groupId>
+			<artifactId>pdfsam-fx</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.pdfsam</groupId>
+			<artifactId>pdfsam-service</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.sejda</groupId>
@@ -64,8 +77,66 @@
 			<artifactId>javax.inject</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>de.jensd</groupId>
+			<artifactId>fontawesomefx-fontawesome</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.jensd</groupId>
+			<artifactId>fontawesomefx-materialdesignfont</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.pdfsam</groupId>
+			<artifactId>pdfsam-merge</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.pdfsam</groupId>
+			<artifactId>pdfsam-simple-split</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.pdfsam</groupId>
+			<artifactId>pdfsam-split-by-size</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.pdfsam</groupId>
+			<artifactId>pdfsam-split-by-bookmarks</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.pdfsam</groupId>
+			<artifactId>pdfsam-alternate-mix</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.pdfsam</groupId>
+			<artifactId>pdfsam-rotate</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.pdfsam</groupId>
+			<artifactId>pdfsam-extract</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-controls</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-media</artifactId>
+			<version>${javafx.version}</version>
 		</dependency>
 		<!-- test dependencies -->
 		<dependency>
