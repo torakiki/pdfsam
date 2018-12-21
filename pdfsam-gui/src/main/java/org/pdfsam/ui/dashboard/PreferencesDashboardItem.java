@@ -36,7 +36,8 @@ import javafx.scene.layout.Pane;
 @Auto
 public class PreferencesDashboardItem implements DashboardItem {
 
-    public static final String PDFSAM_DISABLE_SETTINGS = "org.pdfsam.settings.panel";
+    public static final String PDFSAM_DISABLE_SETTINGS_DEPRECATED = "org.pdfsam.settings.panel";
+    public static final String PDFSAM_DISABLE_SETTINGS = "org.pdfsam.disable.settings.panel";
 
     public static final String ID = "SETTINGS";
     private PreferencePane pane;
@@ -73,6 +74,6 @@ public class PreferencesDashboardItem implements DashboardItem {
 
     @Override
     public boolean disabled() {
-        return Boolean.getBoolean(PDFSAM_DISABLE_SETTINGS);
+        return Boolean.getBoolean(PDFSAM_DISABLE_SETTINGS_DEPRECATED) || Boolean.getBoolean(PDFSAM_DISABLE_SETTINGS);
     }
 }
