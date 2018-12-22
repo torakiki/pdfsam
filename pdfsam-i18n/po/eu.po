@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-07-19 18:31+0200\n"
-"PO-Revision-Date: 2016-08-20 08:32+0000\n"
-"Last-Translator: gorkaazk <gorkaazkarate@gmail.com>\n"
+"POT-Creation-Date: 2018-12-13 22:12+0100\n"
+"PO-Revision-Date: 2018-09-28 08:55+0000\n"
+"Last-Translator: Haritza Zubillaga <Unknown>\n"
 "Language-Team: Basque <eu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-08-10 09:20+0000\n"
-"X-Generator: Launchpad (build 18747)\n"
+"X-Launchpad-Export-Date: 2018-12-19 10:28+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -610,27 +610,6 @@ msgstr ""
 msgid "Installing theme {0}."
 msgstr "Gaia instalatzen {0}"
 
-#, java-format
-msgid "Modules directory {0} does not exist"
-msgstr "Moduluen direktorioa {0} ez da existitzen"
-
-#, java-format
-msgid "Loading modules from {0}"
-msgstr "{0}(e)tik moduluak kargatzen"
-
-#, java-format
-msgid "Found modules jars {0}"
-msgstr "Moduluen jar-ak aurkitu dira {0}"
-
-msgid "Error finding modules paths"
-msgstr "Errorea moduluen bideak bilatzean"
-
-msgid "No module has been found"
-msgstr "Ez da modulurik aurkitu"
-
-msgid "Unable to find modules location."
-msgstr "Ezin izan da moduluen kokapena aurkitu."
-
 msgid "Document details"
 msgstr "Dokumentuaren xehetasunak"
 
@@ -648,6 +627,12 @@ msgstr "Harpidetu albisteen jario ofizialera"
 
 msgid "Environment"
 msgstr "Ingurunea"
+
+msgid "Java runtime path: %s"
+msgstr ""
+
+msgid "JavaFX runtime version %s"
+msgstr ""
 
 #, java-format
 msgid "Max memory {0}"
@@ -679,9 +664,6 @@ msgstr "Sare sozialak"
 
 msgid "Follow us on Twitter"
 msgstr "Jarraitu Twitter-en"
-
-msgid "Follow us on Google Plus"
-msgstr "Jarraitu Google Plus-en"
 
 msgid "Like us on Facebook"
 msgstr "Atsegindu Facebook-en"
@@ -737,12 +719,14 @@ msgid ""
 msgstr ""
 
 msgid "Show donation window"
-msgstr ""
+msgstr "Erakutsi dohaintza leihoa"
 
 msgid ""
 "Turn on or off the notification appearing once in a while and asking the "
 "user to support PDFsam with a donation"
 msgstr ""
+"Piztu edo itzali noizean behin agertzen diren jakinarazpenak erabiltzaileari "
+"PDFsam dirua emanez laguntzeko eskatuz"
 
 msgid "Show premium features"
 msgstr ""
@@ -751,16 +735,18 @@ msgid ""
 "Set whether the application should fetch and show premium features "
 "description in the modules dashboard"
 msgstr ""
+"Ezarri aplikazioak funtzio bereziak jaso eta erakutsi beharko lituzkeen "
+"moduluen panelean"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr ""
 "Erabili hautatutako PDF dokumentuaren direktorioa irteerako direktorio bezala"
 
 msgid "Save default workspace on exit"
-msgstr "Gorde lehenetsitako lanekoa area irteterakoan"
+msgstr "Gorde lehentsitako lanerako area irteterakoan"
 
 msgid "If a default workspace is set, save it on application exit"
-msgstr ""
+msgstr "Lehenetsitako area bat ezarri bada, gorde aplikaziotik irtetean"
 
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Gehienezko errenkada kopuruak zenbaki positiboa izan behar du"
@@ -962,8 +948,11 @@ msgstr "_Kargatu"
 msgid "_Save"
 msgstr "_Gorde"
 
-msgid "Recen_t"
-msgstr "_Azkenak"
+msgid "Recen_ts"
+msgstr ""
+
+msgid "_Clear recents"
+msgstr ""
 
 msgid "Select the workspace file to save"
 msgstr "Hautatu laneko area fitxategia gordetzeko"

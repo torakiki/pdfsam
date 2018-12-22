@@ -24,8 +24,8 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.dashboard.preference.PreferencePane;
 import org.sejda.injector.Auto;
 
-import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
+import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
@@ -35,6 +35,9 @@ import javafx.scene.layout.Pane;
  */
 @Auto
 public class PreferencesDashboardItem implements DashboardItem {
+
+    public static final String PDFSAM_DISABLE_SETTINGS_DEPRECATED = "org.pdfsam.settings.panel";
+    public static final String PDFSAM_DISABLE_SETTINGS = "org.pdfsam.disable.settings.panel";
 
     public static final String ID = "SETTINGS";
     private PreferencePane pane;
@@ -61,7 +64,7 @@ public class PreferencesDashboardItem implements DashboardItem {
 
     @Override
     public Node graphic() {
-        return GlyphsDude.createIcon(MaterialDesignIcon.SETTINGS, "26.0");
+        return MaterialDesignIconFactory.get().createIcon(MaterialDesignIcon.SETTINGS, "26.0");
     }
 
     @Override
@@ -69,4 +72,8 @@ public class PreferencesDashboardItem implements DashboardItem {
         return -5;
     }
 
+    @Override
+    public boolean disabled() {
+        return Boolean.getBoolean(PDFSAM_DISABLE_SETTINGS_DEPRECATED) || Boolean.getBoolean(PDFSAM_DISABLE_SETTINGS);
+    }
 }

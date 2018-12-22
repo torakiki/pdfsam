@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-07-19 18:31+0200\n"
+"POT-Creation-Date: 2018-12-13 22:12+0100\n"
 "PO-Revision-Date: 2017-12-01 21:58+0000\n"
 "Last-Translator: Janez Gačnik <Unknown>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-08-10 09:20+0000\n"
-"X-Generator: Launchpad (build 18747)\n"
+"X-Launchpad-Export-Date: 2018-12-19 10:28+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Strani za izvlačenje (npr. 2 ali 5-23 ali 2,5-7,12-)"
@@ -625,27 +625,6 @@ msgstr "Za korak izberite celo število"
 msgid "Installing theme {0}."
 msgstr "Nameščanje teme {0}."
 
-#, java-format
-msgid "Modules directory {0} does not exist"
-msgstr "Modulava mapa {0} ne obstoja"
-
-#, java-format
-msgid "Loading modules from {0}"
-msgstr "Nalaganje modulov iz {0}"
-
-#, java-format
-msgid "Found modules jars {0}"
-msgstr "Najdeni JAR-i modulov  {0}"
-
-msgid "Error finding modules paths"
-msgstr "Napaka pri izkanje poti modulov"
-
-msgid "No module has been found"
-msgstr "Nobenega modula ni bilo mogoče najti"
-
-msgid "Unable to find modules location."
-msgstr "Ni mogoče najti mesta modula"
-
 msgid "Document details"
 msgstr "Podrobnosti dokumenta"
 
@@ -663,6 +642,12 @@ msgstr "Naročite se na uradni spletni vir"
 
 msgid "Environment"
 msgstr "Okolje"
+
+msgid "Java runtime path: %s"
+msgstr ""
+
+msgid "JavaFX runtime version %s"
+msgstr ""
 
 #, java-format
 msgid "Max memory {0}"
@@ -694,9 +679,6 @@ msgstr "Družbeno"
 
 msgid "Follow us on Twitter"
 msgstr "Sledite na Twitterju"
-
-msgid "Follow us on Google Plus"
-msgstr "Sledite na Google Plusu"
 
 msgid "Like us on Facebook"
 msgstr "Všečkajte na Facebooku"
@@ -983,8 +965,11 @@ msgstr "Na_loži"
 msgid "_Save"
 msgstr "_Shrani"
 
-msgid "Recen_t"
-msgstr "Neda_vno"
+msgid "Recen_ts"
+msgstr ""
+
+msgid "_Clear recents"
+msgstr ""
 
 msgid "Select the workspace file to save"
 msgstr "Izberite datoteko delovne površine, ki jo želite shraniti"

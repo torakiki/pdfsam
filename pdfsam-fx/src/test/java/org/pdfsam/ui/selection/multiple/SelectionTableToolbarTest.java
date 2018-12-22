@@ -29,10 +29,8 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.mockito.ArgumentCaptor;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.HitTestListener;
 import org.pdfsam.ui.commons.ClearModuleEvent;
@@ -43,42 +41,48 @@ import org.pdfsam.ui.selection.multiple.SelectionTableToolbar.MoveUpButton;
 import org.pdfsam.ui.selection.multiple.SelectionTableToolbar.RemoveButton;
 import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
 import org.sejda.eventstudio.Listener;
+import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
 
 import javafx.scene.Node;
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class SelectionTableToolbarTest extends GuiTest {
+public class SelectionTableToolbarTest extends ApplicationTest {
 
     private static final String MODULE = "MODULE";
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule(MODULE);
+    private SelectionTableToolbar victim;
 
     @Override
-    protected Parent getRootNode() {
-        SelectionTableToolbar victim = new SelectionTableToolbar(MODULE, true);
+    public void start(Stage stage) {
+        victim = new SelectionTableToolbar(MODULE, true);
         victim.setId("victim");
-        return victim;
+        Scene scene = new Scene(victim);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void clear() {
         HitTestListener<ClearModuleEvent> listener = new HitTestListener<>();
         eventStudio().add(ClearModuleEvent.class, listener, MODULE);
-        click(b -> b instanceof ClearButton);
+        clickOn(b -> b instanceof ClearButton);
         assertTrue(listener.isHit());
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void clearAllSettings() {
         Listener<ClearModuleEvent> listener = mock(Listener.class);
         ArgumentCaptor<ClearModuleEvent> captor = ArgumentCaptor.forClass(ClearModuleEvent.class);
         eventStudio().add(ClearModuleEvent.class, listener, MODULE);
-        click(".arrow-button").click(".menu-item");
+        clickOn(".arrow-button").clickOn(".menu-item");
         verify(listener).onEvent(captor.capture());
         assertTrue(captor.getValue().clearEverything);
     }
@@ -89,38 +93,39 @@ public class SelectionTableToolbarTest extends GuiTest {
     }
 
     @Test
-    public void remove() throws Exception {
+    public void remove() {
         HitTestListener<RemoveSelectedEvent> listener = new HitTestListener<>();
         eventStudio().add(RemoveSelectedEvent.class, listener, MODULE);
-        Node victim = find(b -> b instanceof RemoveButton);
+        Node victim = lookup(b -> b instanceof RemoveButton).query();
         enableByFiringSelectionChange(victim);
-        click(victim);
+        clickOn(victim);
         assertTrue(listener.isHit());
     }
 
     @Test
-    public void moveUp() throws Exception {
+    public void moveUp() {
         HitTestListener<MoveSelectedEvent> listener = new HitTestListener<>();
         eventStudio().add(MoveSelectedEvent.class, listener, MODULE);
-        Node victim = find(b -> b instanceof MoveUpButton);
+        Node victim = lookup(b -> b instanceof MoveUpButton).query();
         enableByFiringSelectionChange(victim);
-        click(victim);
+        clickOn(victim);
         assertTrue(listener.isHit());
     }
 
     @Test
-    public void moveDown() throws Exception {
+    public void moveDown() {
         HitTestListener<MoveSelectedEvent> listener = new HitTestListener<>();
         eventStudio().add(MoveSelectedEvent.class, listener, MODULE);
-        Node victim = find(b -> b instanceof MoveDownButton);
+        Node victim = lookup(b -> b instanceof MoveDownButton).query();
         enableByFiringSelectionChange(victim);
-        click(victim);
+        clickOn(victim);
         assertTrue(listener.isHit());
     }
 
-    private void enableByFiringSelectionChange(Node victim) throws Exception {
+    private void enableByFiringSelectionChange(Node victim) {
         assertTrue(victim.isDisabled());
-        FXTestUtils.invokeAndWait(() -> eventStudio().broadcast(select(asList(2, 3)).ofTotalRows(5), MODULE), 1);
+        WaitForAsyncUtils.waitForAsyncFx(2000,
+                () -> eventStudio().broadcast(select(asList(2, 3)).ofTotalRows(5), MODULE));
         assertFalse(victim.isDisabled());
     }
 }

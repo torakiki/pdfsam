@@ -5,15 +5,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDFSam 3\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2018-07-19 18:31+0200\n"
+"POT-Creation-Date: 2018-12-13 22:12+0100\n"
 "PO-Revision-Date: 2018-08-02 15:21+0000\n"
 "Last-Translator: wOOLaLa <Unknown>\n"
 "Language-Team: Chinese (Taiwan) (zh_TW@li.org)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-08-10 09:20+0000\n"
-"X-Generator: Launchpad (build 18747)\n"
+"X-Launchpad-Export-Date: 2018-12-19 10:28+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 "Language: zh_TW\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -601,27 +601,6 @@ msgstr ""
 msgid "Installing theme {0}."
 msgstr "佈景主題 {0} 安裝中"
 
-#, java-format
-msgid "Modules directory {0} does not exist"
-msgstr "模組目錄 {0} 不存在"
-
-#, java-format
-msgid "Loading modules from {0}"
-msgstr "正從 {0} 載入模組"
-
-#, java-format
-msgid "Found modules jars {0}"
-msgstr "找到模組 jar 檔 {0}"
-
-msgid "Error finding modules paths"
-msgstr "尋找模組路徑時發生錯誤"
-
-msgid "No module has been found"
-msgstr "找不到模組"
-
-msgid "Unable to find modules location."
-msgstr "找不到模組位置。"
-
 msgid "Document details"
 msgstr "文件詳細內容"
 
@@ -639,6 +618,12 @@ msgstr "訂閱官方新聞來源"
 
 msgid "Environment"
 msgstr "環境"
+
+msgid "Java runtime path: %s"
+msgstr ""
+
+msgid "JavaFX runtime version %s"
+msgstr ""
 
 #, java-format
 msgid "Max memory {0}"
@@ -670,9 +655,6 @@ msgstr "社群"
 
 msgid "Follow us on Twitter"
 msgstr "在推特上關注我們"
-
-msgid "Follow us on Google Plus"
-msgstr "在 Google Plus 上追蹤我們"
 
 msgid "Like us on Facebook"
 msgstr "在臉書上幫我們按讚"
@@ -940,8 +922,11 @@ msgstr "載入 (_L)"
 msgid "_Save"
 msgstr "儲存 (_S)"
 
-msgid "Recen_t"
-msgstr "檔案紀錄 (_t)"
+msgid "Recen_ts"
+msgstr ""
+
+msgid "_Clear recents"
+msgstr ""
 
 msgid "Select the workspace file to save"
 msgstr "選取要存檔的工作區"

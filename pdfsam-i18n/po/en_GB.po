@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-07-19 18:31+0200\n"
+"POT-Creation-Date: 2018-12-13 22:12+0100\n"
 "PO-Revision-Date: 2018-07-25 22:09+0000\n"
 "Last-Translator: Andi Chandler <Unknown>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-08-10 09:20+0000\n"
-"X-Generator: Launchpad (build 18747)\n"
+"X-Launchpad-Export-Date: 2018-12-19 10:28+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -620,27 +620,6 @@ msgstr "Select a positive integer number as pace"
 msgid "Installing theme {0}."
 msgstr "Installing theme {0}."
 
-#, java-format
-msgid "Modules directory {0} does not exist"
-msgstr "Modules directory {0} does not exist"
-
-#, java-format
-msgid "Loading modules from {0}"
-msgstr "Loading modules from {0}"
-
-#, java-format
-msgid "Found modules jars {0}"
-msgstr "Found modules jars {0}"
-
-msgid "Error finding modules paths"
-msgstr "Error finding modules paths"
-
-msgid "No module has been found"
-msgstr "No module has been found"
-
-msgid "Unable to find modules location."
-msgstr "Unable to find modules location."
-
 msgid "Document details"
 msgstr "Document details"
 
@@ -658,6 +637,12 @@ msgstr "Subscribe to the official news feed"
 
 msgid "Environment"
 msgstr "Environment"
+
+msgid "Java runtime path: %s"
+msgstr ""
+
+msgid "JavaFX runtime version %s"
+msgstr ""
 
 #, java-format
 msgid "Max memory {0}"
@@ -689,9 +674,6 @@ msgstr "Social"
 
 msgid "Follow us on Twitter"
 msgstr "Follow us on Twitter"
-
-msgid "Follow us on Google Plus"
-msgstr "Follow us on Google Plus"
 
 msgid "Like us on Facebook"
 msgstr "Like us on Facebook"
@@ -980,8 +962,11 @@ msgstr "_Load"
 msgid "_Save"
 msgstr "_Save"
 
-msgid "Recen_t"
-msgstr "Recen_t"
+msgid "Recen_ts"
+msgstr ""
+
+msgid "_Clear recents"
+msgstr ""
 
 msgid "Select the workspace file to save"
 msgstr "Select the workspace file to save"

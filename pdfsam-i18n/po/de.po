@@ -7,30 +7,30 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-07-19 18:31+0200\n"
-"PO-Revision-Date: 2018-07-01 11:27+0000\n"
-"Last-Translator: tobson <Unknown>\n"
+"POT-Creation-Date: 2018-12-13 22:12+0100\n"
+"PO-Revision-Date: 2018-12-15 15:04+0000\n"
+"Last-Translator: Stephan Woidowski <swoidowski@t-online.de>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-08-10 09:20+0000\n"
-"X-Generator: Launchpad (build 18747)\n"
+"X-Launchpad-Export-Date: 2018-12-19 10:28+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Seiten zum Extrahieren (z.B.: 2 oder 5-23 oder  2,5-7,12-)"
+msgstr "Seiten zum Extrahieren (z. B.: 2 oder 5-23 oder  2,5-7,12-)"
 
 msgid "Invalid page ranges"
 msgstr "Ungültige Seitenbereiche"
 
 msgid "Extract pages:"
-msgstr "Seiten extrahieren"
+msgstr "Seiten extrahieren:"
 
 msgid "Extract"
 msgstr "Extrahieren"
 
 msgid "Extract pages from PDF documents."
-msgstr "Extrahiere Seiten aus dem PDF-Dokument"
+msgstr "Seiten aus PDF-Dokumenten extrahieren"
 
 msgid "File names settings"
 msgstr "Dateinameneinstellungen"
@@ -42,13 +42,13 @@ msgid "Output settings"
 msgstr "Ausgabeeinstellungen"
 
 msgid "No PDF document has been selected"
-msgstr "Es wurd kein PDF-Dokument ausgewählt"
+msgstr "Es wurde kein PDF-Dokument ausgewählt"
 
 msgid "Merge"
 msgstr "Zusammenführen"
 
 msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "Mehrere PDF-Dokumente verbinden (oder deren Teilbereiche)."
+msgstr "Mehrere PDF-Dokumente oder deren Teilbereiche zusammenführen."
 
 msgid "Merge settings"
 msgstr "Zusammenführeneinstellungen"
@@ -59,8 +59,8 @@ msgstr "Zieldatei"
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Doppelklicken um die Seiten für das Zusammenführen festzulegen (z.B: 2 oder "
-"5-23 oder 2,5-7,12-)"
+"Doppelklicken, um die Seiten für das Zusammenführen festzulegen (z. B.: 2 "
+"oder 5-23 oder 2,5-7,12-)"
 
 msgid "Add a blank page if page number is odd"
 msgstr "Leerseite einfügen, wenn Seitenzahl ungerade ist"
@@ -80,10 +80,10 @@ msgstr ""
 "Fügt eine Fußzeile mit dem Dateinamen des Dokuments auf der Seite ein"
 
 msgid "Normalize pages size"
-msgstr "Die Seitengrösse normalisieren"
+msgstr "Seitengröße normalisieren"
 
 msgid "Resizes all pages to have the same width as the first page."
-msgstr "Alle Seiten skalieren, die gleich gross wie die erste Seite sind."
+msgstr "Alle Seiten skalieren, die gleich groß wie die erste Seite sind."
 
 msgid "Merge fields"
 msgstr "Felder verbinden"
@@ -92,7 +92,7 @@ msgid "Merge renaming existing fields"
 msgstr "Bereits bestehende Felder verbinden und umbenennen"
 
 msgid "Flatten"
-msgstr ""
+msgstr "Einebnen"
 
 msgid "Discard forms"
 msgstr "Formular löschen"
@@ -138,7 +138,7 @@ msgstr "Inhaltsverzeichnis:"
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr ""
-"Auswählen, wenn ein Inhaltsverzeichnis dem generierten PDF Dokument "
+"Festlegen, wenn ein Inhaltsverzeichnis dem erstellten PDF-Dokument "
 "hinzugefügt werden soll"
 
 msgid "Valid user password provided."
@@ -224,7 +224,7 @@ msgid ""
 msgstr "Das PDF alle »n« Seiten und Dokumente mit je »n« Seiten erstellen"
 
 msgid "Split after"
-msgstr "Trenne nach"
+msgstr "Trennen nach"
 
 msgid "No page selected"
 msgstr "Keine Seite ausgewählt"
@@ -296,13 +296,13 @@ msgid "Reverse"
 msgstr "Umkehren"
 
 msgid "Drag and drop PDF files here"
-msgstr "PDF-Datein hier ziehen und ablegen"
+msgstr "PDF-Dateien durch Ziehen und Ablegen hier einfügen"
 
 msgid "Set destination"
 msgstr "Zielverzeichnis festlegen"
 
 msgid "Set as range for all"
-msgstr ""
+msgstr "Als Bereich für alles festlegen"
 
 msgid "Remove"
 msgstr "Entfernen"
@@ -535,13 +535,13 @@ msgid "Unable to find the latest available version."
 msgstr "Neueste Version nicht gefunden."
 
 msgid "Fetching premium modules"
-msgstr "Hole Premium-Module"
+msgstr "Premiummodule werden abgerufen"
 
 msgid "Unable to retrieve premium modules"
-msgstr "Kann die Premium-Module nicht laden"
+msgstr "Premiummodule können nicht geladen werden"
 
 msgid "Unable to retrieve premium features description"
-msgstr "Kann die Beschreibung der Premium-Features nicht laden"
+msgstr "Beschreibung der Premiumfunktionen kann nicht geladen werden"
 
 msgid "Requesting modules state"
 msgstr "Module werden abgefragt"
@@ -617,42 +617,21 @@ msgid ""
 "Merge two or more PDF documents taking pages alternately in natural or "
 "reverse order."
 msgstr ""
-"Verschmelze zwei oder mehr PDF-Dokumente entweder in der natürlichen oder in "
-"umgekehrter Reihenfolge."
+"Zwei oder mehr PDF-Dokumente zusammenführen, entweder in der natürlichen "
+"oder in umgekehrter Reihenfolge."
 
 msgid ""
 "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Doppelklicken um die Seiten zu markieren, die vermischt werden sollen (z.b. "
-"2 oder 5-23 oder 2,5-7.12-)"
+"Doppelklicken, um Seiten zum Mischen festzulegen (z. B.: 2 oder 5-23 oder "
+"2,5-7.12-)"
 
 msgid "Select a positive integer number as pace"
-msgstr "Wähle einen positiven Integerwert als Geschwindigkeit"
+msgstr "Eine positive Ganzzahl als Geschwindigkeit auswählen"
 
 #, java-format
 msgid "Installing theme {0}."
 msgstr "Thema {0} wird installiert."
-
-#, java-format
-msgid "Modules directory {0} does not exist"
-msgstr "Modulverzeichnis {0} besteht nicht"
-
-#, java-format
-msgid "Loading modules from {0}"
-msgstr "Module von {0} werden geladen"
-
-#, java-format
-msgid "Found modules jars {0}"
-msgstr "Modul-jars {0} gefunden"
-
-msgid "Error finding modules paths"
-msgstr "Fehler beim Finden der Modulpfade"
-
-msgid "No module has been found"
-msgstr "Es wurden keine Module gefunden"
-
-msgid "Unable to find modules location."
-msgstr "Speicherstelle für Module nicht gefunden"
 
 msgid "Document details"
 msgstr "Dokumentdetails"
@@ -671,6 +650,12 @@ msgstr "Offiziellen News-Feed abonnieren"
 
 msgid "Environment"
 msgstr "Umgebung"
+
+msgid "Java runtime path: %s"
+msgstr "Java-Laufzeit Pfad: %s"
+
+msgid "JavaFX runtime version %s"
+msgstr "JavaFX-Laufzeitversion %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -702,9 +687,6 @@ msgstr "Sozial"
 
 msgid "Follow us on Twitter"
 msgstr "Uns auf Twitter folgen"
-
-msgid "Follow us on Google Plus"
-msgstr "Uns auf Google+ folgen"
 
 msgid "Like us on Facebook"
 msgstr "Uns auf Facebook mögen"
@@ -755,14 +737,14 @@ msgid "Turn on or off alert sounds"
 msgstr "Warnklänge an- oder ausschalten"
 
 msgid "Store passwords when saving a workspace file"
-msgstr "Passwort speichern, wenn Projektdatei gespeichert wird"
+msgstr "Passwort speichern, wenn Arbeitsbereichsdatei gespeichert wird"
 
 msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
 "password in the workspace file"
 msgstr ""
-"Wenn ein verschlüsseltes PDF-Dokument mit einem Passwort geöffnet wurde, "
-"speichere das Passwort in der Arbeitsbank-Datei"
+"Wenn ein verschlüsseltes PDF-Dokument mit einem Passwort geöffnet wurde, das "
+"Passwort in der Arbeitsbereichsdatei speichern"
 
 msgid "Show donation window"
 msgstr "Spendenfenster anzeigen"
@@ -775,25 +757,25 @@ msgstr ""
 "PDFsam fragt, ein- oder ausschalten"
 
 msgid "Show premium features"
-msgstr "Zeige Premium-Features"
+msgstr "Premiumfunktionen anzeigen"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
 "description in the modules dashboard"
 msgstr ""
-"Festlegen, ob die Anwendung die Beschreibung der Premium-Features im "
-"Dashboard des Moduls anzeigen soll"
+"Festlegen, ob die Anwendung die Beschreibung der Premiumfunktionen in der "
+"Übersicht des Moduls anzeigen soll"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr ""
 "Verzeichnis des ausgewählten PDF-Dokumentes als Ausgabeverzeichnis benutzen"
 
 msgid "Save default workspace on exit"
-msgstr "Standard-Workspace beim Schließen speichern"
+msgstr "Vorgabearbeitsbereich beim Schließen speichern"
 
 msgid "If a default workspace is set, save it on application exit"
 msgstr ""
-"Wenn ein Standard-Workspace ausgewählt ist, diesen beim Schließen speichern"
+"Wenn ein Vorgabearbeitsbereich ausgewählt ist, diesen beim Beenden speichern"
 
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Maximale Zeilenanzahl muss eine positive Zahl sein"
@@ -829,7 +811,7 @@ msgstr "Ausgabe"
 msgid ""
 "Select a directory where documents will be saved and loaded by default"
 msgstr ""
-"Bitte ein Verzeichnis auswählen, in dem Dokumente standardmäßig gespeichert "
+"Bitte ein Verzeichnis auswählen, in dem Dokumente als Vorgabe gespeichert "
 "und geladen werden sollen"
 
 msgid ""
@@ -843,10 +825,10 @@ msgid "Select a workspace"
 msgstr "Arbeitsbereich auswählen"
 
 msgid "Default working directory:"
-msgstr "Standardarbeitsverzeichnis:"
+msgstr "Vorgabearbeitsverzeichnis:"
 
 msgid "Load default workspace at startup:"
-msgstr "Standardarbeitsbereich beim Start laden:"
+msgstr "Vorgabearbeitsbereich beim Start laden:"
 
 msgid "Clear usage statistics"
 msgstr "Benutzungsstatistik löschen"
@@ -888,13 +870,15 @@ msgstr ""
 "Einzelheiten öffnen."
 
 msgid "Access denied"
-msgstr ""
+msgstr "Zugriff verweigert"
 
 #, java-format
 msgid ""
 "Unable to access \"{0}\", please make sure you have write permissions or "
 "open the application messages for details."
 msgstr ""
+"Kein Zugriff auf »{0}« möglich. Bitte stellen Sie sicher, dass Sie "
+"Schreibrechte haben oder öffnen Sie die Anwendungsmeldungen für Details."
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
@@ -931,7 +915,7 @@ msgid "Non existing directory"
 msgstr "Nicht existierendes Verzeichnis"
 
 msgid "The selected output directory does not exist"
-msgstr "Das gewählte Ausgabeverzeichnis existiert nicht"
+msgstr "Das ausgewählte Ausgabeverzeichnis ist nicht vorhanden"
 
 msgid "Do you want to create it?"
 msgstr "Wollen Sie es erstellen?"
@@ -999,8 +983,11 @@ msgstr "_Laden"
 msgid "_Save"
 msgstr "_Speichern"
 
-msgid "Recen_t"
-msgstr "Le_tzte"
+msgid "Recen_ts"
+msgstr "Neuzugänge"
+
+msgid "_Clear recents"
+msgstr "_Entferne Neuzugänge"
 
 msgid "Select the workspace file to save"
 msgstr "Zu speichernde Arbeitsbereichsdatei auswählen"

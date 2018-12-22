@@ -18,36 +18,35 @@
  */
 package org.pdfsam.ui.io;
 
-import static org.loadui.testfx.Assertions.verifyThat;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
+import org.testfx.api.FxAssert;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class BrowsableFileFieldUITest extends GuiTest {
+public class BrowsableFileFieldUITest extends ApplicationTest {
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         BrowsableFileField victimBlank = new BrowsableFileField(FileType.PDF, OpenType.OPEN);
         victimBlank.enforceValidation(false, true);
         victimBlank.getStyleClass().add("victim-blank");
@@ -55,23 +54,25 @@ public class BrowsableFileFieldUITest extends GuiTest {
         BrowsableFileField victimNoBlank = new BrowsableFileField(FileType.PDF, OpenType.OPEN);
         victimNoBlank.enforceValidation(false, false);
         victimNoBlank.getStyleClass().add("victim-no-blank");
-        return new HBox(victimBlank, victimNoBlank);
+        Scene scene = new Scene(new HBox(victimBlank, victimNoBlank));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void validBlank() {
-        BrowsableFileField victim = find(".victim-blank");
-        click(victim);
+        BrowsableFileField victim = lookup(".victim-blank").queryAs(BrowsableFileField.class);
+        clickOn(victim);
         type(KeyCode.TAB);
-        verifyThat(victim, v -> v.getTextField().getValidationState() == ValidationState.VALID);
+        FxAssert.verifyThat(victim, v -> v.getTextField().getValidationState() == ValidationState.VALID);
     }
 
     @Test
     public void invalidBlank() {
-        BrowsableFileField victim = find(".victim-no-blank");
-        click(victim);
+        BrowsableFileField victim = lookup(".victim-no-blank").queryAs(BrowsableFileField.class);
+        clickOn(victim);
         type(KeyCode.TAB);
-        verifyThat(victim, v -> v.getTextField().getValidationState() == ValidationState.INVALID);
-        Arrays.stream(Style.INVALID.css()).forEach(c -> verifyThat(victim, v -> exists("." + c)));
+        FxAssert.verifyThat(victim, v -> v.getTextField().getValidationState() == ValidationState.INVALID);
+        Arrays.stream(Style.INVALID.css()).forEach(c -> assertTrue(lookup("." + c).tryQuery().isPresent()));
     }
 }

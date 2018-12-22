@@ -20,73 +20,70 @@ package org.pdfsam.ui.commons;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.loadui.testfx.Assertions.verifyThat;
+import static org.testfx.api.FxAssert.verifyThat;
 
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.ui.help.HelpUtils;
+import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class RadioButtonDrivenTextFieldsPaneTest extends GuiTest {
+public class RadioButtonDrivenTextFieldsPaneTest extends ApplicationTest {
 
     private ToggleGroup group = new ToggleGroup();
+    private RadioButtonDrivenTextFieldsPane victim;
 
     @Override
-    protected Parent getRootNode() {
-        RadioButtonDrivenTextFieldsPane victim = new RadioButtonDrivenTextFieldsPane(group);
+    public void start(Stage stage) {
+        victim = new RadioButtonDrivenTextFieldsPane(group);
         RadioButton radio = new RadioButton("RADIO");
         TextField field = new TextField();
         field.getStyleClass().add("FIELD");
         field.setText("FIELD");
         victim.addRow(radio, field, HelpUtils.helpIcon("Help"));
         victim.setId("victim");
-        return victim;
+        Scene scene = new Scene(victim);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void nullRadio() throws Exception {
-        RadioButtonDrivenTextFieldsPane victim = find("#victim");
-        FXTestUtils.invokeAndWait(() -> victim.addRow(null, new TextField(), HelpUtils.helpIcon("Help")), 2);
+    public void nullRadio() {
+        victim.addRow(null, new TextField(), HelpUtils.helpIcon("Help"));
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void nullField() throws Exception {
-        RadioButtonDrivenTextFieldsPane victim = find("#victim");
-        FXTestUtils.invokeAndWait(() -> victim.addRow(new RadioButton(), null, HelpUtils.helpIcon("Help")), 2);
+    public void nullField() {
+        victim.addRow(new RadioButton(), null, HelpUtils.helpIcon("Help"));
     }
 
     @Test
-    public void nullHelp() throws Exception {
-        RadioButtonDrivenTextFieldsPane victim = find("#victim");
-        FXTestUtils.invokeAndWait(() -> victim.addRow(new RadioButton(), new TextField(), null), 2);
+    public void nullHelp() {
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.addRow(new RadioButton(), new TextField(), null));
     }
 
     @Test
     public void addRow() {
-        RadioButton radio = find("RADIO");
-        TextField field = find(".FIELD");
+        RadioButton radio = lookup("RADIO").queryAs(RadioButton.class);
+        TextField field = lookup(".FIELD").queryAs(TextField.class);
         assertEquals(group, radio.getToggleGroup());
         assertTrue(field.isDisable());
     }
 
     @Test
     public void focusedField() {
-        RadioButton radio = find("RADIO");
-        TextField field = find(".FIELD");
-        click(radio);
-        type("Chuck");
+        RadioButton radio = lookup("RADIO").queryAs(RadioButton.class);
+        TextField field = lookup(".FIELD").queryAs(TextField.class);
+        clickOn(radio).write("Chuck");
         verifyThat(field, (f) -> "Chuck".equals(f.getText()));
     }
 }

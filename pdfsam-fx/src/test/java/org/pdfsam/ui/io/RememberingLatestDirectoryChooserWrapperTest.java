@@ -18,41 +18,44 @@
  */
 package org.pdfsam.ui.io;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
 @Ignore
-@Category(TestFX.class)
-public class RememberingLatestDirectoryChooserWrapperTest extends GuiTest {
+public class RememberingLatestDirectoryChooserWrapperTest extends ApplicationTest {
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
 
-    @Test
-    public void hasTitle() {
-        click(".aButton");
-        sleep(1000);
-        // TODO
-    }
-
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         RememberingLatestDirectoryChooserWrapper victim = new RememberingLatestDirectoryChooserWrapper();
         victim.setTitle("Browse folders");
         Button button = new Button("Click me");
         button.getStyleClass().add("aButton");
         button.setOnAction(e -> victim.showDialog(button.getScene().getWindow()));
-        return button;
+        Scene scene = new Scene(new HBox(button));
+        stage.setScene(scene);
+        stage.show();
     }
+
+    @Test
+    public void hasTitle() {
+        clickOn(".aButton");
+        assertTrue(window("Browse folders") != null);
+    }
+
 }

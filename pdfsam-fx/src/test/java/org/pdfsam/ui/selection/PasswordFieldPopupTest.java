@@ -26,53 +26,57 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.eventstudio.Listener;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class PasswordFieldPopupTest extends GuiTest {
+public class PasswordFieldPopupTest extends ApplicationTest {
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule("LogStage");
     private PdfDocumentDescriptor pdfDescriptor;
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         pdfDescriptor = mock(PdfDocumentDescriptor.class);
         Button button = new Button("press");
         PasswordFieldPopup victim = new PasswordFieldPopup("module");
         victim.setId("victim");
         button.setOnAction(e -> victim.showFor(button, pdfDescriptor, 0, 0));
-        return button;
+        Scene scene = new Scene(new HBox(button));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void pwdSentOnEnterKey() {
-        click("press");
+        clickOn("press");
         Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequestEvent.class, listener);
-        type("myPwd").type(KeyCode.ENTER);
+        write("myPwd").type(KeyCode.ENTER);
         verify(listener).onEvent(any());
         verify(pdfDescriptor).setPassword("myPwd");
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void pwdSentOnButtonPressed() {
-        click("press");
+        clickOn("press");
         Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequestEvent.class, listener);
-        type("myPwd").click(".pdfsam-button");
+        write("myPwd").clickOn(".pdfsam-button");
         verify(listener).onEvent(any());
         verify(pdfDescriptor).setPassword("myPwd");
 

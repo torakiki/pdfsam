@@ -29,10 +29,7 @@ import java.util.Locale;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
@@ -47,20 +44,23 @@ import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.parameter.MergeParameters;
 import org.sejda.model.parameter.SimpleSplitParameters;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class OverwriteDialogControllerUITest extends GuiTest {
+public class OverwriteDialogControllerUITest extends ApplicationTest {
     @Rule
     public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule();
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
+    private Button button;
 
     @BeforeClass
     public static void setUp() {
@@ -68,10 +68,12 @@ public class OverwriteDialogControllerUITest extends GuiTest {
     }
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         Injector.start(new Config());
-        Button button = new Button("show");
-        return button;
+        button = new Button("show");
+        Scene scene = new Scene(new VBox(button));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Components({ OverwriteDialogController.class })
@@ -90,10 +92,9 @@ public class OverwriteDialogControllerUITest extends GuiTest {
         parameters.setExistingOutputPolicy(ExistingOutputPolicy.FAIL);
         File file = folder.newFile();
         parameters.setOutput(new FileTaskOutput(file));
-        Button button = find("show");
         button.setOnAction(a -> eventStudio().broadcast(new TaskExecutionRequestEvent("id", parameters)));
-        click("show");
-        click(DefaultI18nContext.getInstance().i18n("Cancel"));
+        clickOn(button);
+        clickOn(DefaultI18nContext.getInstance().i18n("Cancel"));
         assertEquals(ExistingOutputPolicy.FAIL, parameters.getExistingOutputPolicy());
     }
 
@@ -103,10 +104,9 @@ public class OverwriteDialogControllerUITest extends GuiTest {
         parameters.setExistingOutputPolicy(ExistingOutputPolicy.FAIL);
         File file = folder.newFile();
         parameters.setOutput(new FileTaskOutput(file));
-        Button button = find("show");
         button.setOnAction(a -> eventStudio().broadcast(new TaskExecutionRequestEvent("id", parameters)));
-        click("show");
-        click(DefaultI18nContext.getInstance().i18n("Overwrite"));
+        clickOn(button);
+        clickOn(DefaultI18nContext.getInstance().i18n("Overwrite"));
         assertEquals(ExistingOutputPolicy.OVERWRITE, parameters.getExistingOutputPolicy());
     }
 
@@ -116,10 +116,9 @@ public class OverwriteDialogControllerUITest extends GuiTest {
         parameters.setExistingOutputPolicy(ExistingOutputPolicy.FAIL);
         folder.newFile();
         parameters.setOutput(FileOrDirectoryTaskOutput.directory(folder.getRoot()));
-        Button button = find("show");
         button.setOnAction(a -> eventStudio().broadcast(new TaskExecutionRequestEvent("id", parameters)));
-        click("show");
-        click(DefaultI18nContext.getInstance().i18n("Cancel"));
+        clickOn(button);
+        clickOn(DefaultI18nContext.getInstance().i18n("Cancel"));
         assertEquals(ExistingOutputPolicy.FAIL, parameters.getExistingOutputPolicy());
     }
 
@@ -129,10 +128,9 @@ public class OverwriteDialogControllerUITest extends GuiTest {
         parameters.setExistingOutputPolicy(ExistingOutputPolicy.FAIL);
         folder.newFile();
         parameters.setOutput(FileOrDirectoryTaskOutput.directory(folder.getRoot()));
-        Button button = find("show");
         button.setOnAction(a -> eventStudio().broadcast(new TaskExecutionRequestEvent("id", parameters)));
-        click("show");
-        click(DefaultI18nContext.getInstance().i18n("Overwrite"));
+        clickOn(button);
+        clickOn(DefaultI18nContext.getInstance().i18n("Overwrite"));
         assertEquals(ExistingOutputPolicy.OVERWRITE, parameters.getExistingOutputPolicy());
     }
 }

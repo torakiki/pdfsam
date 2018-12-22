@@ -20,36 +20,36 @@ package org.pdfsam.ui.commons;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.loadui.testfx.Assertions.verifyThat;
+import static org.testfx.api.FxAssert.verifyThat;
 
 import java.util.Arrays;
 
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class ValidableTextFieldTest extends GuiTest {
+public class ValidableTextFieldTest extends ApplicationTest {
     private ValidableTextField victim;
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         victim = new ValidableTextField();
         victim.setErrorMessage("Roundhouse kick!");
-        return new HBox(victim, new Button("BUTTON"));
+        Scene scene = new Scene(new HBox(victim, new Button("BUTTON")));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -62,7 +62,7 @@ public class ValidableTextFieldTest extends GuiTest {
         victim.setErrorMessage("");
         victim.setValidator(Validators.nonBlank());
         assertEquals(ValidationState.NOT_VALIDATED, victim.getValidationState());
-        click(victim);
+        clickOn(victim);
         // focus lost
         push(KeyCode.TAB);
         verifyThat(victim, (v) -> ValidationState.INVALID == v.getValidationState());
@@ -72,7 +72,7 @@ public class ValidableTextFieldTest extends GuiTest {
     public void invalidCssApplied() {
         victim.setValidator(Validators.nonBlank());
         victim.setEnableInvalidStyle(true);
-        click(victim);
+        clickOn(victim);
         // focus lost
         push(KeyCode.TAB);
         verifyThat(victim, (v) -> v.getStyleClass().containsAll(Arrays.asList(Style.INVALID.css())));
@@ -81,7 +81,7 @@ public class ValidableTextFieldTest extends GuiTest {
     @Test
     public void invalidCssNotApplied() {
         victim.setEnableInvalidStyle(false);
-        click(victim);
+        clickOn(victim);
         // focus lost
         push(KeyCode.TAB);
         verifyThat(victim, (v) -> !v.getStyleClass().containsAll(Arrays.asList(Style.INVALID.css())));
@@ -91,7 +91,7 @@ public class ValidableTextFieldTest extends GuiTest {
     public void validateOnEnter() {
         victim.setValidator(Validators.nonBlank());
         victim.setOnEnterValidation(true);
-        click(victim);
+        clickOn(victim);
         // focus lost
         push(KeyCode.ENTER);
         verifyThat(victim, (v) -> ValidationState.INVALID == v.getValidationState());
@@ -100,7 +100,7 @@ public class ValidableTextFieldTest extends GuiTest {
     @Test
     public void dontValidateOnEnter() {
         victim.setOnEnterValidation(false);
-        click(victim);
+        clickOn(victim);
         // focus lost
         push(KeyCode.ENTER);
         verifyThat(victim, (v) -> ValidationState.NOT_VALIDATED == v.getValidationState());
@@ -109,12 +109,10 @@ public class ValidableTextFieldTest extends GuiTest {
     @Test
     public void tooltip() {
         victim.setValidator(Validators.nonBlank());
-        click(victim);
+        clickOn(victim);
         // focus lost
         push(KeyCode.TAB);
         sleep(500);
-        assertTrue(getWindows().size() > 1);
-        // wait the tooltip to disappear
-        sleep(4500);
+        assertTrue(robotContext().getWindowFinder().listWindows().size() > 1);
     }
 }

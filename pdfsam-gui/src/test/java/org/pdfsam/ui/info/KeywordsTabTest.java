@@ -30,13 +30,13 @@ import java.io.File;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeJavaFxThreadRule;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.sejda.model.pdf.PdfMetadataKey;
+import org.testfx.util.WaitForAsyncUtils;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -54,7 +54,7 @@ public class KeywordsTabTest {
     public InitializeJavaFxThreadRule javaFxThread = new InitializeJavaFxThreadRule();
 
     @Test
-    public void showRequest() throws Exception {
+    public void showRequest() {
         KeywordsTab victim = new KeywordsTab();
         Labeled keywords = (Labeled) ((ScrollPane) victim.getContent()).getContent().lookup(".info-property-value");
         assertNotNull(keywords);
@@ -62,19 +62,19 @@ public class KeywordsTabTest {
         keywords.textProperty().addListener(listener);
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(mock(File.class));
         descriptor.putInformation(PdfMetadataKey.KEYWORDS.getKey(), "test");
-        FXTestUtils.invokeAndWait(() -> victim.requestShow(new ShowPdfDescriptorRequest(descriptor)), 1);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.requestShow(new ShowPdfDescriptorRequest(descriptor)));
         verify(listener, timeout(2000).times(1)).changed(any(ObservableValue.class), anyString(), eq("test"));
     }
 
     @Test
-    public void onLoad() throws Exception {
+    public void onLoad() {
         KeywordsTab victim = new KeywordsTab();
         Labeled keywords = (Labeled) ((ScrollPane) victim.getContent()).getContent().lookup(".info-property-value");
         assertNotNull(keywords);
         ChangeListener<? super String> listener = mock(ChangeListener.class);
         keywords.textProperty().addListener(listener);
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(mock(File.class));
-        FXTestUtils.invokeAndWait(() -> victim.requestShow(new ShowPdfDescriptorRequest(descriptor)), 1);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.requestShow(new ShowPdfDescriptorRequest(descriptor)));
         descriptor.putInformation(PdfMetadataKey.KEYWORDS.getKey(), "test");
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);

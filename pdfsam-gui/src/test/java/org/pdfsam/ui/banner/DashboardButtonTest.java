@@ -24,32 +24,33 @@ import static org.mockito.Mockito.verify;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.sejda.eventstudio.Listener;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class DashboardButtonTest extends GuiTest {
+public class DashboardButtonTest extends ApplicationTest {
 
     @Override
-    protected Parent getRootNode() {
-        return new DashboardButton("itemId");
+    public void start(Stage stage) {
+        DashboardButton victim = new DashboardButton("itemId");
+        Scene scene = new Scene(victim);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void testClick() {
         Listener<SetActiveDashboardItemRequest> listener = mock(Listener.class);
         eventStudio().add(SetActiveDashboardItemRequest.class, listener);
-        click(".button");
+        clickOn(".button");
         ArgumentCaptor<SetActiveDashboardItemRequest> argument = ArgumentCaptor
                 .forClass(SetActiveDashboardItemRequest.class);
         verify(listener).onEvent(argument.capture());

@@ -22,8 +22,8 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.test.InitializeJavaFxThreadRule;
+import org.testfx.util.WaitForAsyncUtils;
 
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -38,20 +38,20 @@ public class NotificationsContainerTest {
     public InitializeJavaFxThreadRule javaFxThread = new InitializeJavaFxThreadRule();
 
     @Test
-    public void addNotification() throws Exception {
+    public void addNotification() {
         NotificationsContainer victim = new NotificationsContainer();
         HBox node = new HBox(new Label("Chuck"));
         node.setId("chuck");
         victim.addNotification("myTitle", node);
-        FXTestUtils.invokeAndWait(() -> assertNotNull(victim.lookup("#chuck")), 1);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> assertNotNull(victim.lookup("#chuck")));
     }
 
     @Test
-    public void addStickyNotification() throws Exception {
+    public void addStickyNotification() {
         NotificationsContainer victim = new NotificationsContainer();
         Label node = new Label("Chuck");
         node.setId("chuck");
         victim.addStickyNotification("myTitle", node);
-        FXTestUtils.invokeAndWait(() -> assertNotNull(victim.lookup("#chuck")), 1);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> assertNotNull(victim.lookup("#chuck")));
     }
 }

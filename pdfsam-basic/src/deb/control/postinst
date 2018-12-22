@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -e
+
+if [ "$1" = "configure" ]; then
+    find /opt/pdfsam-basic -type d -exec chmod 755 {} ';'
+    find /opt/pdfsam-basic -type f -exec chmod 644 {} ';'
+    chmod 755 /opt/pdfsam-basic/runtime/bin/java
+    chmod 755 /opt/pdfsam-basic/bin/pdfsam-basic
+fi
+
+exit 0

@@ -51,16 +51,14 @@ public class LoadingStatusIndicatorUpdaterTest {
     @Test
     public void textAndTooltip() {
         victim.accept(PdfDescriptorLoadingStatus.ENCRYPTED);
-        assertEquals(PdfDescriptorLoadingStatus.ENCRYPTED.getIcon().characterToString(),
-                ((Text) labeled.getGraphic()).getText());
+        assertEquals(PdfDescriptorLoadingStatus.ENCRYPTED.getIcon().unicode(), ((Text) labeled.getGraphic()).getText());
         assertNotNull(labeled.getTooltip());
     }
 
     @Test
     public void textAndNoTooltip() {
         victim.accept(PdfDescriptorLoadingStatus.LOADING);
-        assertEquals(PdfDescriptorLoadingStatus.LOADING.getIcon().characterToString(),
-                ((Text) labeled.getGraphic()).getText());
+        assertEquals(PdfDescriptorLoadingStatus.LOADING.getIcon().unicode(), ((Text) labeled.getGraphic()).getText());
         assertNull(labeled.getTooltip());
     }
 

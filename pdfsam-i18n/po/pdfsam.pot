@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2018-07-19 18:31+0200\n"
+"POT-Creation-Date: 2018-12-13 22:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -600,27 +600,6 @@ msgstr ""
 msgid "Installing theme {0}."
 msgstr ""
 
-#, java-format
-msgid "Modules directory {0} does not exist"
-msgstr ""
-
-#, java-format
-msgid "Loading modules from {0}"
-msgstr ""
-
-#, java-format
-msgid "Found modules jars {0}"
-msgstr ""
-
-msgid "Error finding modules paths"
-msgstr ""
-
-msgid "No module has been found"
-msgstr ""
-
-msgid "Unable to find modules location."
-msgstr ""
-
 msgid "Document details"
 msgstr ""
 
@@ -637,6 +616,12 @@ msgid "Subscribe to the official news feed"
 msgstr ""
 
 msgid "Environment"
+msgstr ""
+
+msgid "Java runtime path: %s"
+msgstr ""
+
+msgid "JavaFX runtime version %s"
 msgstr ""
 
 #, java-format
@@ -668,9 +653,6 @@ msgid "Social"
 msgstr ""
 
 msgid "Follow us on Twitter"
-msgstr ""
-
-msgid "Follow us on Google Plus"
 msgstr ""
 
 msgid "Like us on Facebook"
@@ -938,7 +920,10 @@ msgstr ""
 msgid "_Save"
 msgstr ""
 
-msgid "Recen_t"
+msgid "Recen_ts"
+msgstr ""
+
+msgid "_Clear recents"
 msgstr ""
 
 msgid "Select the workspace file to save"

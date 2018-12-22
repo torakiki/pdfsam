@@ -5,29 +5,13 @@
 	<parent>
 		<groupId>org.pdfsam</groupId>
 		<artifactId>pdfsam-parent</artifactId>
-		<version>3.3.8-SNAPSHOT</version>
+		<version>4.0.1-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<artifactId>pdfsam-fx</artifactId>
 	<packaging>jar</packaging>
 	<name>PDFsam JavaFx views</name>
-
-	<profiles>
-		<profile>
-			<id>fastTests</id>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-surefire-plugin</artifactId>
-						<configuration>
-							<excludedGroups>org.loadui.testfx.categories.TestFX</excludedGroups>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
 
 	<dependencies>
 		<dependency>
@@ -48,7 +32,11 @@
 		</dependency>
 		<dependency>
 			<groupId>de.jensd</groupId>
-			<artifactId>fontawesomefx</artifactId>
+			<artifactId>fontawesomefx-fontawesome</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.jensd</groupId>
+			<artifactId>fontawesomefx-materialdesignfont</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.pdfsam</groupId>
@@ -72,7 +60,11 @@
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
-		</dependency>		
+		</dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-controls</artifactId>
+		</dependency>
 		<!-- test dependencies -->
 		<dependency>
 			<groupId>jdepend</groupId>
@@ -80,8 +72,23 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.loadui</groupId>
-			<artifactId>testFx</artifactId>
+			<groupId>org.testfx</groupId>
+			<artifactId>testfx-core</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.testfx</groupId>
+			<artifactId>testfx-junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.testfx</groupId>
+			<artifactId>openjfx-monocle</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-swing</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>

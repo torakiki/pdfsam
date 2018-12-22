@@ -25,27 +25,32 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.eventstudio.Listener;
+import org.testfx.framework.junit.ApplicationTest;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-@SuppressWarnings({ "unchecked", "unused" })
-public class UrlButtonTest extends GuiTest {
+public class UrlButtonTest extends ApplicationTest {
 
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
     private static final String URL = "http://www.example.com";
+
+    @Override
+    public void start(Stage stage) {
+        Scene scene = new Scene(new HBox(UrlButton.styledUrlButton("Chuck", URL, null)));
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @Test(expected = IllegalArgumentException.class)
     public void nullUrl() {
@@ -61,15 +66,10 @@ public class UrlButtonTest extends GuiTest {
     public void eventSent() {
         Listener<OpenUrlRequest> listener = mock(Listener.class);
         eventStudio().add(OpenUrlRequest.class, listener);
-        click(".pdfsam-button");
+        clickOn(".pdfsam-button");
         ArgumentCaptor<OpenUrlRequest> captor = ArgumentCaptor.forClass(OpenUrlRequest.class);
         verify(listener).onEvent(captor.capture());
         assertEquals(URL, captor.getValue().getUrl());
-    }
-
-    @Override
-    protected Parent getRootNode() {
-        return UrlButton.styledUrlButton("Chuck", URL, null);
     }
 
 }

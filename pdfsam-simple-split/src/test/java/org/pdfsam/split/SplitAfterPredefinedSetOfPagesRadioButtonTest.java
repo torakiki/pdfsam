@@ -39,9 +39,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
-import org.loadui.testfx.utils.FXTestUtils;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.split.SplitAfterPredefinedSetOfPagesRadioButton.SimpleSplitParametersBuilder;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.params.SplitParametersBuilder;
@@ -53,23 +51,26 @@ import org.sejda.model.output.FileOrDirectoryTaskOutput;
 import org.sejda.model.parameter.SimpleSplitParameters;
 import org.sejda.model.pdf.PdfVersion;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
+import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class SplitAfterPredefinedSetOfPagesRadioButtonTest extends GuiTest {
+public class SplitAfterPredefinedSetOfPagesRadioButtonTest extends ApplicationTest {
 
     @Rule
     public ClearEventStudioRule clear = new ClearEventStudioRule();
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
     private Consumer<String> onError;
+    private SplitAfterPredefinedSetOfPagesRadioButton victim;
 
     @Before
     public void setUp() {
@@ -77,24 +78,26 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest extends GuiTest {
     }
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         ComboBox<KeyStringValueItem<PredefinedSetOfPages>> combo = new ComboBox<>();
         combo.setId("combo");
         combo.getItems().add(KeyStringValueItem.keyValue(PredefinedSetOfPages.ALL_PAGES, "Every page"));
         combo.getItems().add(KeyStringValueItem.keyValue(PredefinedSetOfPages.EVEN_PAGES, "Even pages"));
         combo.getItems().add(KeyStringValueItem.keyValue(PredefinedSetOfPages.ODD_PAGES, "Odd pages"));
-        SplitAfterPredefinedSetOfPagesRadioButton victim = new SplitAfterPredefinedSetOfPagesRadioButton(combo);
+        victim = new SplitAfterPredefinedSetOfPagesRadioButton(combo);
         victim.setId("victim");
-        return new HBox(victim, combo);
+        Scene scene = new Scene(new HBox(victim, combo));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void builder() throws Exception {
-        SplitAfterPredefinedSetOfPagesRadioButton victim = find("#victim");
-        click("#combo").click("Odd pages");
+        clickOn("#combo").clickOn("Odd pages");
         final File file = folder.newFile("my.pdf");
-        FXTestUtils.invokeAndWait(() -> {
-            SimpleSplitParametersBuilder builder = victim.getBuilder(onError);
+        SimpleSplitParametersBuilder builder = victim.getBuilder(onError);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             builder.compress(true);
             FileOrDirectoryTaskOutput output = mock(FileOrDirectoryTaskOutput.class);
             builder.output(output);
@@ -114,15 +117,15 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest extends GuiTest {
             assertEquals(source, params.getSourceList().get(0));
             assertEquals(OptimizationPolicy.AUTO, params.getOptimizationPolicy());
             verify(onError, never()).accept(anyString());
-        }, 2);
+        });
+
     }
 
     @Test
     public void builderDisabledOptimization() throws Exception {
-        SplitAfterPredefinedSetOfPagesRadioButton victim = find("#victim");
-        click("#combo").click("Odd pages");
+        clickOn("#combo").clickOn("Odd pages");
         final File file = folder.newFile("my.pdf");
-        FXTestUtils.invokeAndWait(() -> {
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             SimpleSplitParametersBuilder builder = victim.getBuilder(onError);
             builder.compress(true);
             FileOrDirectoryTaskOutput output = mock(FileOrDirectoryTaskOutput.class);
@@ -136,38 +139,40 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest extends GuiTest {
             SimpleSplitParameters params = builder.build();
             assertEquals(OptimizationPolicy.NO, params.getOptimizationPolicy());
             verify(onError, never()).accept(anyString());
-        }, 2);
+        });
         System.setProperty(SplitParametersBuilder.PDFSAM_DISABLE_SPLIT_OPTIMIZATION, Boolean.FALSE.toString());
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void saveStateSelected() {
-        SplitAfterPredefinedSetOfPagesRadioButton victim = find("#victim");
-        click(victim);
-        click("#combo").click("Odd pages");
+        clickOn(victim);
+        clickOn("#combo").clickOn("Odd pages");
         Map<String, String> data = new HashMap<>();
-        victim.saveStateTo(data);
-        assertTrue(Boolean.valueOf(data.get("splitAfterPredefined")));
-        assertEquals(PredefinedSetOfPages.ODD_PAGES.toString(), data.get("splitAfterPredefined.combo"));
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
+            victim.saveStateTo(data);
+            assertTrue(Boolean.valueOf(data.get("splitAfterPredefined")));
+            assertEquals(PredefinedSetOfPages.ODD_PAGES.toString(), data.get("splitAfterPredefined.combo"));
+        });
     }
 
     @Test
     public void saveStateNotSelected() {
-        SplitAfterPredefinedSetOfPagesRadioButton victim = find("#victim");
         Map<String, String> data = new HashMap<>();
-        victim.saveStateTo(data);
-        assertFalse(Boolean.valueOf(data.get("splitAfterPredefined")));
-        assertEquals(PredefinedSetOfPages.ALL_PAGES.toString(), data.get("splitAfterPredefined.combo"));
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
+            victim.saveStateTo(data);
+            assertFalse(Boolean.valueOf(data.get("splitAfterPredefined")));
+            assertEquals(PredefinedSetOfPages.ALL_PAGES.toString(), data.get("splitAfterPredefined.combo"));
+        });
     }
 
     @Test
-    public void restoreState() throws Exception {
-        SplitAfterPredefinedSetOfPagesRadioButton victim = find("#victim");
-        ComboBox<KeyStringValueItem<PredefinedSetOfPages>> combo = find("#combo");
+    public void restoreState() {
+        ComboBox<KeyStringValueItem<PredefinedSetOfPages>> combo = lookup("#combo").queryComboBox();
         Map<String, String> data = new HashMap<>();
         data.put("splitAfterPredefined", Boolean.TRUE.toString());
         data.put("splitAfterPredefined.combo", PredefinedSetOfPages.EVEN_PAGES.toString());
-        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertTrue(victim.isSelected());
         assertEquals(PredefinedSetOfPages.EVEN_PAGES, combo.getSelectionModel().getSelectedItem().getKey());
     }

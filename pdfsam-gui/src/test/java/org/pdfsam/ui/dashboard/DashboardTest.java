@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.dashboard;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
@@ -26,7 +27,9 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
-import org.junit.Before;
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
@@ -42,6 +45,9 @@ import org.sejda.injector.Components;
 import org.sejda.injector.Injector;
 import org.sejda.injector.Provides;
 
+import javafx.scene.Node;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 /**
@@ -53,13 +59,6 @@ public class DashboardTest {
     public static ClearEventStudioRule STUDIO_RULE = new ClearEventStudioRule();
     @Rule
     public InitializeAndApplyJavaFxThreadRule javaFxThread = new InitializeAndApplyJavaFxThreadRule();
-
-    private Injector injector;
-
-    @Before
-    public void setUp() {
-        injector = Injector.start(new Config());
-    }
 
     @Components({ AboutDashboadItem.class })
     static class Config {
@@ -78,14 +77,12 @@ public class DashboardTest {
             when(pdfsam.property(ConfigurableProperty.TRANSLATE_URL)).thenReturn("http://www.pdfsam.org/translate");
             when(pdfsam.property(ConfigurableProperty.TWITTER_URL)).thenReturn("http://www.pdfsam.org/twitter");
             when(pdfsam.property(ConfigurableProperty.DONATE_URL)).thenReturn("http://www.pdfsam.org/donate");
-            when(pdfsam.property(ConfigurableProperty.GPLUS_URL)).thenReturn("http://www.pdfsam.org/gplus");
             when(pdfsam.property(ConfigurableProperty.FACEBOOK_URL)).thenReturn("http://www.pdfsam.org/facebook");
             when(pdfsam.property(ConfigurableProperty.LICENSE_NAME)).thenReturn("agpl3");
             when(pdfsam.property(ConfigurableProperty.LICENSE_URL))
                     .thenReturn("http://www.gnu.org/licenses/agpl-3.0.html");
             when(pdfsam.property(ConfigurableProperty.TRACKER_URL)).thenReturn("http://www.pdfsam.org/issue_tracker");
             when(pdfsam.property(ConfigurableProperty.THANKS_URL)).thenReturn("http://www.pdfsam.org/issue_tracker");
-            when(pdfsam.property(ConfigurableProperty.GPLUS_URL)).thenReturn("http://www.pdfsam.org/gplus");
             AboutDashboardPane about = new AboutDashboardPane(pdfsam);
             about.setId("aboutPane");
             return about;
@@ -93,22 +90,105 @@ public class DashboardTest {
 
     }
 
+    static class DisabledItem implements DashboardItem {
+
+        @Override
+        public int priority() {
+            return 0;
+        }
+
+        @Override
+        public Pane pane() {
+            return new HBox();
+        }
+
+        @Override
+        public String name() {
+            return "disabled";
+        }
+
+        @Override
+        public String id() {
+            return "disabled";
+        }
+
+        @Override
+        public Node graphic() {
+            return null;
+        }
+
+        @Override
+        public boolean disabled() {
+            return true;
+        }
+    }
+
+    static class EnabledItem implements DashboardItem {
+
+        @Override
+        public int priority() {
+            return 0;
+        }
+
+        @Override
+        public Pane pane() {
+            return new HBox();
+        }
+
+        @Override
+        public String name() {
+            return "enabled";
+        }
+
+        @Override
+        public String id() {
+            return "enabled";
+        }
+
+        @Override
+        public Node graphic() {
+            return null;
+        }
+    }
+
+    @Test
+    public void allItemsArePicked() {
+        Injector.addConfig(new Config());
+        Injector.add(EnabledItem.class);
+        try (Injector injector = Injector.start()) {
+            Dashboard victim = injector.instance(Dashboard.class);
+            assertEquals(2, victim.getChildren().size());
+        }
+    }
+
+    @Test
+    public void disabledItemsAreNotPicked() {
+        List<DashboardItem> items = Arrays.asList(new EnabledItem(), new DisabledItem());
+        Dashboard victim = new Dashboard(items, new QuickbarDashboardButtonsPane(items));
+        assertTrue(victim.hasItem("enabled"));
+        assertFalse(victim.hasItem("disabled"));
+    }
+
     @Test
     public void wrongModuleDoesntBoom() {
-        Dashboard victim = injector.instance(Dashboard.class);
-        victim.onSetActiveDashboardItem(new SetActiveDashboardItemRequest("chuck norris"));
+        try (Injector injector = Injector.start(new Config())) {
+            Dashboard victim = injector.instance(Dashboard.class);
+            victim.onSetActiveDashboardItem(new SetActiveDashboardItemRequest("chuck norris"));
+        }
     }
 
     @Test
     public void eventIsSent() {
-        Dashboard victim = injector.instance(Dashboard.class);
-        assertTrue(((StackPane) victim.getCenter()).getChildren().isEmpty());
-        Listener<SetTitleEvent> listener = mock(Listener.class);
-        eventStudio().add(SetTitleEvent.class, listener);
-        victim.onSetActiveDashboardItem(
-                new SetActiveDashboardItemRequest(injector.instance(AboutDashboadItem.class).id()));
-        verify(listener).onEvent(any());
-        assertFalse(((StackPane) victim.getCenter()).getChildren().isEmpty());
+        try (Injector injector = Injector.start(new Config())) {
+            Dashboard victim = injector.instance(Dashboard.class);
+            assertTrue(((StackPane) victim.getCenter()).getChildren().isEmpty());
+            Listener<SetTitleEvent> listener = mock(Listener.class);
+            eventStudio().add(SetTitleEvent.class, listener);
+            victim.onSetActiveDashboardItem(
+                    new SetActiveDashboardItemRequest(injector.instance(AboutDashboadItem.class).id()));
+            verify(listener).onEvent(any());
+            assertFalse(((StackPane) victim.getCenter()).getChildren().isEmpty());
+        }
     }
 
 }

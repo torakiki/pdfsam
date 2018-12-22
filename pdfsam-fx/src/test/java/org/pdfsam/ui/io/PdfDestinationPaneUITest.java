@@ -30,12 +30,8 @@ import java.util.function.Consumer;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
 import org.junit.runner.RunWith;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.pdfsam.context.UserContext;
@@ -45,18 +41,20 @@ import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.io.PdfDestinationPane.DestinationPanelFields;
 import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.parameter.base.AbstractPdfOutputParameters;
+import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
 
 import javafx.scene.Node;
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
 @RunWith(MockitoJUnitRunner.class)
-public class PdfDestinationPaneUITest extends GuiTest {
+public class PdfDestinationPaneUITest extends ApplicationTest {
     private static final String MODULE = "MODULE";
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule(MODULE);
@@ -69,19 +67,20 @@ public class PdfDestinationPaneUITest extends GuiTest {
     private Consumer<String> onError;
     @Mock
     private UserContext userContext;
+    private PdfDestinationPane victim;
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         BrowsablePdfInputField destination = new BrowsablePdfInputField();
-        PdfDestinationPane victim = new PdfDestinationPane(destination, MODULE, userContext, true,
+        victim = new PdfDestinationPane(destination, MODULE, userContext, true,
                 DestinationPanelFields.DISCARD_BOOKMARKS);
-        victim.getStyleClass().add("victim");
-        return victim;
+        Scene scene = new Scene(victim);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void applyDefault() {
-        PdfDestinationPane victim = find(".victim");
         victim.apply(builder, onError);
         verify(builder).compress(true);
         verify(builder).discardBookmarks(false);
@@ -90,17 +89,15 @@ public class PdfDestinationPaneUITest extends GuiTest {
 
     @Test
     public void applyCompress() {
-        PdfDestinationPane victim = find(".victim");
-        click(n -> n instanceof PdfVersionConstrainedCheckBox);
+        clickOn(n -> n instanceof PdfVersionConstrainedCheckBox);
         victim.apply(builder, onError);
         verify(builder).compress(false);
     }
 
     @Test
     public void applyClickAll() {
-        PdfDestinationPane victim = find(".victim");
-        Set<Node> nodes = findAll(n -> n instanceof CheckBox, victim);
-        nodes.forEach(n -> click(n));
+        Set<Node> nodes = lookup(n -> n instanceof CheckBox).queryAll();
+        nodes.forEach(n -> clickOn(n));
         victim.apply(builder, onError);
         verify(builder).compress(false);
         verify(builder).existingOutput(ExistingOutputPolicy.OVERWRITE);
@@ -108,16 +105,15 @@ public class PdfDestinationPaneUITest extends GuiTest {
     }
 
     @Test
-    public void reset() throws Exception {
-        PdfDestinationPane victim = find(".victim");
-        click(".validable-container-field").type("Chuck");
-        Set<Node> nodes = findAll(n -> n instanceof CheckBox, victim);
-        nodes.forEach(n -> click(n));
-        FXTestUtils.invokeAndWait(() -> victim.resetView(), 2);
-        assertEquals("", ((ValidableTextField) find(".validable-container-field")).getText());
+    public void reset() {
+        clickOn(".validable-container-field").write("Chuck");
+        Set<Node> nodes = lookup(n -> n instanceof CheckBox).queryAll();
+        nodes.forEach(n -> clickOn(n));
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.resetView());
+        assertEquals("", lookup(".validable-container-field").queryAs(ValidableTextField.class).getText());
         assertFalse(victim.overwrite().isSelected());
-        assertFalse(((CheckBox) find("#discardBookmarksField")).isSelected());
-        assertTrue(((CheckBox) find("#compressField")).isSelected());
+        assertFalse(lookup("#discardBookmarksField").queryAs(CheckBox.class).isSelected());
+        assertTrue(lookup("#compressField").queryAs(CheckBox.class).isSelected());
 
     }
 }

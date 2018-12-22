@@ -18,6 +18,9 @@
  */
 package org.pdfsam.ui.selection.multiple;
 
+import org.pdfsam.support.ObservableAtomicReference;
+
+import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.util.Callback;
@@ -42,7 +45,7 @@ public class IndexColumn extends TableColumn<SelectionTableRowData, Object> {
                     @Override
                     public TableCell<SelectionTableRowData, Object> call(
                             TableColumn<SelectionTableRowData, Object> param) {
-                        return new TableCell<SelectionTableRowData, Object>() {
+                        return new TableCell<>() {
                             @Override
                             public void updateItem(Object item, boolean empty) {
                                 super.updateItem(item, empty);
@@ -53,6 +56,15 @@ public class IndexColumn extends TableColumn<SelectionTableRowData, Object> {
                                 }
                             }
                         };
+                    }
+                });
+
+        setCellValueFactory(
+                new Callback<TableColumn.CellDataFeatures<SelectionTableRowData, Object>, ObservableValue<Object>>() {
+
+                    @Override
+                    public ObservableValue<Object> call(CellDataFeatures<SelectionTableRowData, Object> param) {
+                        return new ObservableAtomicReference<>(new Object());
                     }
                 });
     }

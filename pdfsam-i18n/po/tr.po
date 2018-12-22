@@ -7,21 +7,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-07-19 18:31+0200\n"
-"PO-Revision-Date: 2017-05-17 13:57+0000\n"
-"Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
+"POT-Creation-Date: 2018-12-13 22:12+0100\n"
+"PO-Revision-Date: 2018-10-22 09:22+0000\n"
+"Last-Translator: Gokay Puskulcu <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-08-10 09:20+0000\n"
-"X-Generator: Launchpad (build 18747)\n"
+"X-Launchpad-Export-Date: 2018-12-19 10:28+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "Dışa aktarılacak sayfalar"
 
 msgid "Invalid page ranges"
-msgstr ""
+msgstr "Geçersiz sayfa aralığı"
 
 msgid "Extract pages:"
 msgstr "Sayfaları çıkar"
@@ -42,13 +42,13 @@ msgid "Output settings"
 msgstr "Çıktı ayarları"
 
 msgid "No PDF document has been selected"
-msgstr "Bir PDF dosyası seçmediniz"
+msgstr "Hiçbir PDF dosyası seçmediniz"
 
 msgid "Merge"
 msgstr "Birleştir"
 
 msgid "Merge together multiple PDF documents or subsections of them."
-msgstr ""
+msgstr "Birden çok PDF dosyasının tümünü veya alt kısımlarını birleştirme"
 
 msgid "Merge settings"
 msgstr "Birleştirme ayarları"
@@ -59,6 +59,8 @@ msgstr "Hedef dosya"
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Birleştirmek istediğiniz sayfaları tanımlamak için çift tıklayınız (örn: 2 "
+"veya 5-23 veya 2,5,7,12-)"
 
 msgid "Add a blank page if page number is odd"
 msgstr "Sayfa sayısı tekse bir boş sayfa ekle"
@@ -67,7 +69,8 @@ msgid ""
 "Adds a blank page after each merged document if the document has an odd "
 "number of pages"
 msgstr ""
-"Dosyalar birleştirildikten sonra sayfa sayısı tekse, boş bir sayfa ekler"
+"Dosyaları birleştirirken, dosyanın sayfa sayısı tek ise, dosya sonuna boş "
+"bir sayfa ekler"
 
 msgid "Add a footer"
 msgstr "Altbilgi ekle"
@@ -651,27 +654,6 @@ msgstr ""
 msgid "Installing theme {0}."
 msgstr "Tema yükleniyor {0}"
 
-#, java-format
-msgid "Modules directory {0} does not exist"
-msgstr "Modül dizini {0} mevcut değil"
-
-#, java-format
-msgid "Loading modules from {0}"
-msgstr "{0} konumundan modüller yükleniyor"
-
-#, java-format
-msgid "Found modules jars {0}"
-msgstr "{0} jar modülleri bulundu"
-
-msgid "Error finding modules paths"
-msgstr "Modül yolu bulunurken hata"
-
-msgid "No module has been found"
-msgstr "Hiç modül bulunamadı"
-
-msgid "Unable to find modules location."
-msgstr "Modül konumu bulunması başarısız."
-
 msgid "Document details"
 msgstr "Belge detayları"
 
@@ -689,6 +671,12 @@ msgstr "Resmi haber akışına abone ol"
 
 msgid "Environment"
 msgstr "Ortam"
+
+msgid "Java runtime path: %s"
+msgstr ""
+
+msgid "JavaFX runtime version %s"
+msgstr ""
 
 #, java-format
 msgid "Max memory {0}"
@@ -720,9 +708,6 @@ msgstr "Sosyal"
 
 msgid "Follow us on Twitter"
 msgstr "Bizi Twitter'da takip edin"
-
-msgid "Follow us on Google Plus"
-msgstr "Bizi Google Plus'da takip edin"
 
 msgid "Like us on Facebook"
 msgstr "Bizi Facebook'da takip edin"
@@ -1002,8 +987,11 @@ msgstr "_Yükle"
 msgid "_Save"
 msgstr "_Kaydet"
 
-msgid "Recen_t"
-msgstr "Gün_cel"
+msgid "Recen_ts"
+msgstr ""
+
+msgid "_Clear recents"
+msgstr ""
 
 msgid "Select the workspace file to save"
 msgstr "Kaydetmek için çalışma alanı seçin"

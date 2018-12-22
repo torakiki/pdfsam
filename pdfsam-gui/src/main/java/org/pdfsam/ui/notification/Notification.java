@@ -25,8 +25,8 @@ import java.util.UUID;
 
 import org.pdfsam.ui.support.Style;
 
-import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.utils.FontAwesomeIconFactory;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -53,7 +53,7 @@ class Notification extends VBox {
         getStyleClass().add("notification");
         getStyleClass().addAll(Style.CONTAINER.css());
         setId(UUID.randomUUID().toString());
-        Button closeButton = GlyphsDude.createIconButton(FontAwesomeIcon.TIMES);
+        Button closeButton = FontAwesomeIconFactory.get().createIconButton(FontAwesomeIcon.TIMES);
         closeButton.getStyleClass().addAll("close-button");
         closeButton.setOnAction(e -> eventStudio().broadcast(new RemoveNotificationRequestEvent(getId())));
         Label titleLabel = new Label(title);

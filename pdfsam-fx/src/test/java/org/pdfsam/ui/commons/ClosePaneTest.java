@@ -19,19 +19,16 @@
 package org.pdfsam.ui.commons;
 
 import static org.junit.Assert.assertTrue;
-import static org.loadui.testfx.Assertions.verifyThat;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.testfx.api.FxAssert.verifyThat;
 
-import org.apache.commons.lang3.SystemUtils;
-import org.junit.Assume;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.test.HitTestListener;
+import org.testfx.framework.junit.ApplicationTest;
 
 import javafx.application.Platform;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
@@ -41,43 +38,42 @@ import javafx.stage.Stage;
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class ClosePaneTest extends GuiTest {
+public class ClosePaneTest extends ApplicationTest {
     private Stage victimStage;
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         victimStage = new Stage();
-
         Button button = new Button("show");
         button.setOnAction(a -> victimStage.show());
-        return button;
+        Scene scene = new Scene(new HBox(button));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void hide() {
-        Assume.assumeTrue(!SystemUtils.IS_OS_WINDOWS);
         ClosePane containerPane = new ClosePane();
         Scene scene = new Scene(containerPane);
-        Platform.runLater(()-> victimStage.setScene(scene));
-        click("show");
-        verifyThat(".pdfsam-container", (HBox n) -> n.getScene().getWindow().isShowing());
-        click(".pdfsam-button");
-        verifyThat(".pdfsam-container", (HBox n) -> !n.getScene().getWindow().isShowing());
-        Platform.runLater(() -> victimStage.close());
+        Platform.runLater(() -> victimStage.setScene(scene));
+        clickOn("show");
+        assertTrue(robotContext().getWindowFinder().listWindows().size() > 1);
+        clickOn(".pdfsam-button");
+        assertTrue(robotContext().getWindowFinder().listWindows().size() == 1);
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void customAction() {
         ClosePane containerPane = new ClosePane(k -> eventStudio().broadcast(HideStageRequest.INSTANCE));
         Scene scene = new Scene(containerPane);
-        Platform.runLater(()-> victimStage.setScene(scene));
-        click("show");
+        Platform.runLater(() -> victimStage.setScene(scene));
+        clickOn("show");
         verifyThat(".pdfsam-container", (HBox n) -> n.getScene().getWindow().isShowing());
         HitTestListener<HideStageRequest> listener = new HitTestListener<>();
         eventStudio().add(HideStageRequest.class, listener);
-        click(".pdfsam-button");
+        clickOn(".pdfsam-button");
         assertTrue(listener.isHit());
-        Platform.runLater(() -> victimStage.close());
     }
 }

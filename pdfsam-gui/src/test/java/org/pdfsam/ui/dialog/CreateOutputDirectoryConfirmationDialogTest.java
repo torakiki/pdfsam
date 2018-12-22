@@ -27,30 +27,30 @@ import java.util.Locale;
 
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.input.KeyCode;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class CreateOutputDirectoryConfirmationDialogTest extends GuiTest {
+public class CreateOutputDirectoryConfirmationDialogTest extends ApplicationTest {
     private boolean confirm = false;
 
     @ClassRule
     public static ClearEventStudioRule CLEAR_STUDIO = new ClearEventStudioRule();
+    private Button button;
 
     @BeforeClass
     public static void setUp() {
@@ -58,55 +58,39 @@ public class CreateOutputDirectoryConfirmationDialogTest extends GuiTest {
     }
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         StylesConfig styles = mock(StylesConfig.class);
         CreateOutputDirectoryConfirmationDialog victim = new CreateOutputDirectoryConfirmationDialog(styles);
-        Button button = new Button("show");
+        button = new Button("show");
         button.setOnAction(a -> confirm = victim.response());
-        return button;
+        Scene scene = new Scene(new VBox(button));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void contentIsShown() {
-        click("show");
-        find(DefaultI18nContext.getInstance().i18n("The selected output directory does not exist"));
-        find(DefaultI18nContext.getInstance().i18n("Do you want to create it?"));
-        click(DefaultI18nContext.getInstance().i18n("No"));
+        clickOn(button);
+        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("The selected output directory does not exist"))
+                .tryQuery().isPresent());
+        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("Do you want to create it?")).tryQuery().isPresent());
+        clickOn(DefaultI18nContext.getInstance().i18n("No"));
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void cancel() {
         this.confirm = true;
-        click("show");
-        click(DefaultI18nContext.getInstance().i18n("No"));
-        assertFalse(this.confirm);
-    }
-
-    @Test
-    @Ignore
-    // TODO focus issue on Linux
-    public void cancelOnEsc() {
-        this.confirm = true;
-        click("show");
-        type(KeyCode.ESCAPE);
+        clickOn(button);
+        clickOn(DefaultI18nContext.getInstance().i18n("No"));
         assertFalse(this.confirm);
     }
 
     @Test
     public void overwrite() {
         this.confirm = false;
-        click("show");
-        click(DefaultI18nContext.getInstance().i18n("Yes"));
-        assertTrue(this.confirm);
-    }
-
-    @Test
-    @Ignore
-    // TODO focus issue on Linux
-    public void overwriteOnEnter() {
-        this.confirm = false;
-        click("show");
-        type(KeyCode.ENTER);
+        clickOn(button);
+        clickOn(DefaultI18nContext.getInstance().i18n("Yes"));
         assertTrue(this.confirm);
     }
 

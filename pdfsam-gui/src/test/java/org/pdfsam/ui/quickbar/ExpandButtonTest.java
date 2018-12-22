@@ -23,34 +23,34 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
+import org.testfx.framework.junit.ApplicationTest;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ToggleButton;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class ExpandButtonTest extends GuiTest {
+public class ExpandButtonTest extends ApplicationTest {
 
     @Override
-    protected Parent getRootNode() {
-        return new ExpandButton();
+    public void start(Stage stage) {
+        Scene scene = new Scene(new ExpandButton());
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void changeGraphic() {
-        ToggleButton toggle = find(".quickbar-expand-toggle");
+        ToggleButton toggle = lookup(".quickbar-expand-toggle").queryAs(ToggleButton.class);
         ChangeListener<? super Node> listener = mock(ChangeListener.class);
         toggle.graphicProperty().addListener(listener);
-        click(".quickbar-expand-toggle");
+        clickOn(".quickbar-expand-toggle");
         verify(listener).changed(any(ObservableValue.class), any(Node.class), any(Node.class));
     }
 }

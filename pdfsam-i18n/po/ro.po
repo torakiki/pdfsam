@@ -7,48 +7,48 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-07-19 18:31+0200\n"
-"PO-Revision-Date: 2016-10-06 21:42+0000\n"
-"Last-Translator: Mihnea Mihai <Unknown>\n"
+"POT-Creation-Date: 2018-12-13 22:12+0100\n"
+"PO-Revision-Date: 2018-08-24 07:18+0000\n"
+"Last-Translator: Vlad Daniel <Unknown>\n"
 "Language-Team: Romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-08-10 09:20+0000\n"
-"X-Generator: Launchpad (build 18747)\n"
+"X-Launchpad-Export-Date: 2018-12-19 10:28+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "Pagini de extras (ex: 2 sau 5-23 sau 2,5-7,12-)"
 
 msgid "Invalid page ranges"
-msgstr ""
+msgstr "Intervalul paginilor este greşit"
 
 msgid "Extract pages:"
-msgstr ""
+msgstr "Extrage pagini:"
 
 msgid "Extract"
-msgstr ""
+msgstr "Extrage"
 
 msgid "Extract pages from PDF documents."
-msgstr ""
+msgstr "Extrage pagini din documente PDF"
 
 msgid "File names settings"
 msgstr "Configurări denumiri fișier"
 
 msgid "Extract settings"
-msgstr ""
+msgstr "Setări extragere"
 
 msgid "Output settings"
-msgstr ""
+msgstr "Setări iesire"
 
 msgid "No PDF document has been selected"
-msgstr ""
+msgstr "Nu a fost selectat nici un document PDF"
 
 msgid "Merge"
 msgstr "Combinare"
 
 msgid "Merge together multiple PDF documents or subsections of them."
-msgstr ""
+msgstr "Uneşte mai multe documente PDF sau subsecţiuni din acestea."
 
 msgid "Merge settings"
 msgstr "Configurări combinare"
@@ -77,30 +77,35 @@ msgstr ""
 
 msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr ""
+"Adauga un paragraf la baza paginii cu numele fisierului din care a facut "
+"parte pagina."
 
 msgid "Normalize pages size"
-msgstr ""
+msgstr "Normalizeaza marimea paginilor"
 
 msgid "Resizes all pages to have the same width as the first page."
 msgstr ""
+"Redimensionează toate paginile ca să aibă aceiaşi lăţime ca prima pagină."
 
 msgid "Merge fields"
-msgstr ""
+msgstr "Uneşte câmpurile"
 
 msgid "Merge renaming existing fields"
-msgstr ""
+msgstr "Uneşte redenumind câmpurile existente"
 
 msgid "Flatten"
-msgstr ""
+msgstr "Aplatizează"
 
 msgid "Discard forms"
-msgstr ""
+msgstr "Renunţă la formulare"
 
 msgid "Interactive forms (AcroForms):"
-msgstr ""
+msgstr "Formulare interactive"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr ""
+"Ce să faci in cazul in care unul sau mai multe documente introduse conţine "
+"formulare interactive"
 
 msgid "Retain bookmarks"
 msgstr "Reține semnele de carte"
@@ -112,29 +117,31 @@ msgid "Create one entry for each merged document"
 msgstr "Creează o intrare pentru fiecare document combinat"
 
 msgid "Retain bookmarks as one entry for each merged document"
-msgstr ""
+msgstr "Reţine semnele de carte ca şi o intrare pentru fiecare document unit"
 
 msgid "Bookmarks handling:"
-msgstr ""
+msgstr "Manipularea semnelor de carte"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr ""
+"Ce să faci în cazul în care unul sau mai multe documente introduse conţine "
+"semne de carte"
 
 msgid "Don't generate"
-msgstr ""
+msgstr "Nu genera"
 
 msgid "Generate from file names"
-msgstr ""
+msgstr "Generează din numele fişierului"
 
 msgid "Generate from documents titles"
-msgstr ""
+msgstr "Generează din titlurile documentelor"
 
 msgid "Table of contents:"
-msgstr ""
+msgstr "Cuprins"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
-msgstr ""
+msgstr "Setează dacă ar trebui adăugat un cuprins la documentul PDF generat"
 
 msgid "Valid user password provided."
 msgstr "S-a furnizat o parolă utilizator validă."
@@ -143,27 +150,29 @@ msgid "This document is encrypted, click to provide a password."
 msgstr "Acest document este criptat, apăsați pentru a furniza o parolă."
 
 msgid "An error has occurred, click for more details."
-msgstr ""
+msgstr "A intervenit o eroare, clic pentru mai multe detalii."
 
 msgid "Roundish"
-msgstr ""
+msgstr "Rotunjită"
 
 msgid "Directories"
 msgstr "Directoare"
 
 #, java-format
 msgid "Invalid range: {0}."
-msgstr "Interval nevalid: {0}."
+msgstr "Interval invalid: {0}."
 
 #, java-format
 msgid ""
 "Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
 "or [-n] or [n-]"
 msgstr ""
+"Definiţie ambiguă a intervalului paginilor: {0}. Folosiţi următoarele "
+"formate: [n] sau [n1-n2] sau [-n] sau [n-]"
 
 #, java-format
 msgid "Invalid number: {0}."
-msgstr "Număr nevalid: {0}."
+msgstr "Număr invalid: {0}."
 
 msgid "Error saving log file."
 msgstr "Eroare la salvarea fișierului jurnal."
@@ -191,7 +200,7 @@ msgid "Invalid number of pages"
 msgstr "Număr de pagini nevalid"
 
 msgid "Split a PDF document at the given page numbers."
-msgstr ""
+msgstr "Despică un document PDF la numerele de pagini date."
 
 msgid "Select or drag and drop the PDF you want to split"
 msgstr ""
@@ -215,6 +224,8 @@ msgstr "Împarte documentul după numărul de pagini dat"
 msgid ""
 "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
+"Despică PDF-ul la fiecare \"n\" pagini creând documente cu \"n\" pagini "
+"fiecare"
 
 msgid "Split after"
 msgstr "Împarte după"
@@ -232,11 +243,13 @@ msgid "Invalid page numbers"
 msgstr "Numere de pagină nevalide"
 
 msgid "Only valid positive page numbers are allowed"
-msgstr ""
+msgstr "Doar numere de pagini pozitive valide sunt permise"
 
 msgid ""
 "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Dublu clic pentru a seta paginile care vrei să le roteşti (ex: 2 sau 5-23 "
+"sau 2,5-7,12-)"
 
 msgid "Rotate"
 msgstr "Rotește"
@@ -257,7 +270,7 @@ msgid "180 degrees clockwise"
 msgstr "180 de grade în sens orar"
 
 msgid "90 degrees counterclockwise"
-msgstr ""
+msgstr "90 de grade in sensul invers al acelor de ceas"
 
 msgid "Rotate "
 msgstr "Rotește "
@@ -272,7 +285,7 @@ msgid "Add prefix"
 msgstr "Adaugă prefix"
 
 msgid "Generated PDF documents name prefix:"
-msgstr ""
+msgstr "Prefixul numelui documentelor PDF generate:"
 
 msgid "Prefix for the output files name."
 msgstr "Prefix pentru denumirea fișierului de ieșire."
@@ -293,7 +306,7 @@ msgid "Set destination"
 msgstr "Configurați destinația"
 
 msgid "Set as range for all"
-msgstr ""
+msgstr "Setează un interval pentru toate"
 
 msgid "Remove"
 msgstr "Elimină"
@@ -329,10 +342,10 @@ msgid "Drag and drop PDF files or directories containing PDF files"
 msgstr ""
 
 msgid "No PDF found"
-msgstr ""
+msgstr "Nici un PDF găsit"
 
 msgid "Pace"
-msgstr ""
+msgstr "Pasul"
 
 msgid ""
 "Double click to set the number of pages after which the task will switch to "
@@ -607,27 +620,6 @@ msgstr ""
 msgid "Installing theme {0}."
 msgstr "Se instalează tematica {0}."
 
-#, java-format
-msgid "Modules directory {0} does not exist"
-msgstr "Directorul modulelor {0} nu există"
-
-#, java-format
-msgid "Loading modules from {0}"
-msgstr "Se încarcă module de la {0}"
-
-#, java-format
-msgid "Found modules jars {0}"
-msgstr "S-au găsit module jars {0}"
-
-msgid "Error finding modules paths"
-msgstr "Eroare la găsirea căilor modulelor"
-
-msgid "No module has been found"
-msgstr "Nu a fost găsit nici un modul"
-
-msgid "Unable to find modules location."
-msgstr "Nu se poate găsi locația modulelor."
-
 msgid "Document details"
 msgstr "Detalii document"
 
@@ -641,10 +633,16 @@ msgid "Settings"
 msgstr "Configurări"
 
 msgid "Subscribe to the official news feed"
-msgstr "Subscrieți la fluxul de știri oficial"
+msgstr "Abonați-vă la fluxul oficial de știri"
 
 msgid "Environment"
 msgstr "Mediu"
+
+msgid "Java runtime path: %s"
+msgstr ""
+
+msgid "JavaFX runtime version %s"
+msgstr ""
 
 #, java-format
 msgid "Max memory {0}"
@@ -676,9 +674,6 @@ msgstr "Social"
 
 msgid "Follow us on Twitter"
 msgstr "Urmăriți-ne pe Twitter"
-
-msgid "Follow us on Google Plus"
-msgstr "Urmăriți-ne pe Google Plus"
 
 msgid "Like us on Facebook"
 msgstr "Apreciați-ne pe Facebook"
@@ -891,7 +886,7 @@ msgid "Non existing directory"
 msgstr ""
 
 msgid "The selected output directory does not exist"
-msgstr ""
+msgstr "Dosarul țintă selectat nu există"
 
 msgid "Do you want to create it?"
 msgstr "Doriți să îl creați?"
@@ -957,8 +952,11 @@ msgstr "Î_ncărcare"
 msgid "_Save"
 msgstr "_Salvează"
 
-msgid "Recen_t"
-msgstr "Recen_t"
+msgid "Recen_ts"
+msgstr ""
+
+msgid "_Clear recents"
+msgstr ""
 
 msgid "Select the workspace file to save"
 msgstr "Selectați fișierul spațiu de lucru de salvat"

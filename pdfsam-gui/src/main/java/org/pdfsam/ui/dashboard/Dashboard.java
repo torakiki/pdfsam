@@ -52,7 +52,7 @@ public class Dashboard extends BorderPane {
     public Dashboard(List<DashboardItem> itemsList, QuickbarDashboardButtonsPane dashboardButtons) {
         getStyleClass().addAll(Style.CONTAINER.css());
         setId("pdfsam-dashboard");
-        itemsList.stream().forEach(i -> items.put(i.id(), new DashboardItemPane(i)));
+        itemsList.stream().filter(i -> !i.disabled()).forEach(i -> items.put(i.id(), new DashboardItemPane(i)));
         fade.setFromValue(0);
         fade.setToValue(1);
         setCenter(center);
@@ -70,4 +70,7 @@ public class Dashboard extends BorderPane {
         }
     }
 
+    public boolean hasItem(String id) {
+        return items.containsKey(id);
+    }
 }

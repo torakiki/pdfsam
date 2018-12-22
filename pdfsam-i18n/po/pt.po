@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-07-19 18:31+0200\n"
-"PO-Revision-Date: 2018-04-24 12:22+0000\n"
-"Last-Translator: Sérgio Marques <Unknown>\n"
+"POT-Creation-Date: 2018-12-13 22:12+0100\n"
+"PO-Revision-Date: 2018-08-13 16:50+0000\n"
+"Last-Translator: António Campos <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-08-10 09:20+0000\n"
-"X-Generator: Launchpad (build 18747)\n"
+"X-Launchpad-Export-Date: 2018-12-19 10:28+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 "Language: pt\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -628,27 +628,6 @@ msgstr "Selecione um número inteiro positivo como cadência"
 msgid "Installing theme {0}."
 msgstr "A instalar o tema {0}."
 
-#, java-format
-msgid "Modules directory {0} does not exist"
-msgstr "O diretório de módulos {0} não existe."
-
-#, java-format
-msgid "Loading modules from {0}"
-msgstr "A carregar módulos de {0}"
-
-#, java-format
-msgid "Found modules jars {0}"
-msgstr "Módulos jar encontrados {0}"
-
-msgid "Error finding modules paths"
-msgstr "Erro ao localizar caminho dos módulos."
-
-msgid "No module has been found"
-msgstr "Não foram encontrados módulos."
-
-msgid "Unable to find modules location."
-msgstr "Localização de módulos não encontrada."
-
 msgid "Document details"
 msgstr "Detalhes do documento"
 
@@ -666,6 +645,12 @@ msgstr "Subscreva a fonte oficial de notícias"
 
 msgid "Environment"
 msgstr "Ambiente"
+
+msgid "Java runtime path: %s"
+msgstr ""
+
+msgid "JavaFX runtime version %s"
+msgstr ""
 
 #, java-format
 msgid "Max memory {0}"
@@ -697,9 +682,6 @@ msgstr "Redes sociais"
 
 msgid "Follow us on Twitter"
 msgstr "Siga-nos no Twitter"
-
-msgid "Follow us on Google Plus"
-msgstr "Siga-nos no Google Plus"
 
 msgid "Like us on Facebook"
 msgstr "Gosto no Facebook"
@@ -878,13 +860,15 @@ msgstr ""
 "para detelhes."
 
 msgid "Access denied"
-msgstr ""
+msgstr "Acesso negado"
 
 #, java-format
 msgid ""
 "Unable to access \"{0}\", please make sure you have write permissions or "
 "open the application messages for details."
 msgstr ""
+"Não foi possível aceder a \"{0}\", por favor confirme que tem permissão de "
+"escrita ou abra a mensagem para mais detalhes."
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
@@ -988,8 +972,11 @@ msgstr "_Carregar"
 msgid "_Save"
 msgstr "_Guardar"
 
-msgid "Recen_t"
-msgstr "Recen_tes"
+msgid "Recen_ts"
+msgstr ""
+
+msgid "_Clear recents"
+msgstr ""
 
 msgid "Select the workspace file to save"
 msgstr "Selecione o ficheiro de área de trabalho a guardar"

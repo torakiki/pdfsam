@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-07-19 18:31+0200\n"
-"PO-Revision-Date: 2018-04-12 08:17+0000\n"
+"POT-Creation-Date: 2018-12-13 22:12+0100\n"
+"PO-Revision-Date: 2018-10-24 12:06+0000\n"
 "Last-Translator: Sami Kuusisto <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-08-10 09:20+0000\n"
-"X-Generator: Launchpad (build 18747)\n"
+"X-Launchpad-Export-Date: 2018-12-19 10:28+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Poimittavat sivut (esim. 2 tai 5-23 tai 2,5-7,12-)"
@@ -664,27 +664,6 @@ msgstr "Valitse numeroksi positiivinen kokonaisluku"
 msgid "Installing theme {0}."
 msgstr "Asennetaan teemaa {0}."
 
-#, java-format
-msgid "Modules directory {0} does not exist"
-msgstr "Moduulihakemistoa {0} ei ole olemassa"
-
-#, java-format
-msgid "Loading modules from {0}"
-msgstr "Ladataan moduuleita sijainnista {0}"
-
-#, java-format
-msgid "Found modules jars {0}"
-msgstr "Löydetyt moduuli jar-paketit {0}"
-
-msgid "Error finding modules paths"
-msgstr "Moduulipolkua ei löydy"
-
-msgid "No module has been found"
-msgstr "Moduulia ei löydy"
-
-msgid "Unable to find modules location."
-msgstr "Moduulien sijaintia ei löydy"
-
 msgid "Document details"
 msgstr "Asiakirjan tiedot"
 
@@ -702,6 +681,12 @@ msgstr "Tilaa virallinen uutissyöte"
 
 msgid "Environment"
 msgstr "Ympäristö"
+
+msgid "Java runtime path: %s"
+msgstr ""
+
+msgid "JavaFX runtime version %s"
+msgstr ""
 
 #, java-format
 msgid "Max memory {0}"
@@ -733,9 +718,6 @@ msgstr "Sosiaalinen media"
 
 msgid "Follow us on Twitter"
 msgstr "Seuraa meitä Twitterissä"
-
-msgid "Follow us on Google Plus"
-msgstr "Seuraa meitä Google Plussassa"
 
 msgid "Like us on Facebook"
 msgstr "Tykkää meistä Facebookissa"
@@ -917,13 +899,15 @@ msgstr ""
 "Annetut parametrit ovat virheellisiä, avaa sovellusviestit nähdäksesi tiedot."
 
 msgid "Access denied"
-msgstr ""
+msgstr "Pääsy kielletty"
 
 #, java-format
 msgid ""
 "Unable to access \"{0}\", please make sure you have write permissions or "
 "open the application messages for details."
 msgstr ""
+"Kohteeseen \"{0}\" pääsy kielletty. Varmista, että sinulla on "
+"kirjoitusoikeudet tai avaa sovellusviestit saadaksesi lisätietoa."
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
@@ -1027,8 +1011,11 @@ msgstr "_Lataa"
 msgid "_Save"
 msgstr "_Tallenna"
 
-msgid "Recen_t"
-msgstr "_Viimeisimmät"
+msgid "Recen_ts"
+msgstr ""
+
+msgid "_Clear recents"
+msgstr ""
 
 msgid "Select the workspace file to save"
 msgstr "Valitse tallennettava työtilatiedosto"

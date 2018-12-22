@@ -29,48 +29,41 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
 import org.sejda.model.rotation.Rotation;
+import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class RotateOptionsPaneTest extends GuiTest {
+public class RotateOptionsPaneTest extends ApplicationTest {
 
     @ClassRule
     public static ClearEventStudioRule CLEAR_STUDIO = new ClearEventStudioRule();
-
-    private RotateParametersBuilder builder;
-    private Consumer<String> onError;
-
-    @Before
-    public void setUp() {
-        builder = mock(RotateParametersBuilder.class);
-        onError = mock(Consumer.class);
-    }
+    private RotateOptionsPane victim;
 
     @Override
-    protected Parent getRootNode() {
-        return new RotateOptionsPane();
+    public void start(Stage stage) {
+        victim = new RotateOptionsPane();
+        Scene scene = new Scene(victim);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void validSteps() {
-        RotateOptionsPane victim = find(".pdfsam-container");
+        RotateParametersBuilder builder = mock(RotateParametersBuilder.class);
+        Consumer<String> onError = mock(Consumer.class);
         victim.apply(builder, onError);
         verify(builder).rotation(eq(Rotation.DEGREES_90));
         verify(builder).rotationType(eq(PredefinedSetOfPages.ALL_PAGES));
@@ -80,37 +73,34 @@ public class RotateOptionsPaneTest extends GuiTest {
     @Test
     public void onSaveWorkspace() {
         Map<String, String> data = new HashMap<>();
-        RotateOptionsPane victim = find(".pdfsam-container");
         victim.saveStateTo(data);
         assertEquals(Rotation.DEGREES_90.toString(), data.get("rotation"));
         assertEquals(PredefinedSetOfPages.ALL_PAGES.toString(), data.get("rotationType"));
     }
 
     @Test
-    public void restoreStateFrom() throws Exception {
-        ComboBox<KeyStringValueItem<PredefinedSetOfPages>> rotationType = find("#rotationType");
-        ComboBox<KeyStringValueItem<Rotation>> rotation = find("#rotation");
+    public void restoreStateFrom() {
+        ComboBox<KeyStringValueItem<PredefinedSetOfPages>> rotationType = lookup("#rotationType").queryComboBox();
+        ComboBox<KeyStringValueItem<Rotation>> rotation = lookup("#rotation").queryComboBox();
         Map<String, String> data = new HashMap<>();
         data.put("rotation", Rotation.DEGREES_270.toString());
         data.put("rotationType", PredefinedSetOfPages.EVEN_PAGES.toString());
-        RotateOptionsPane victim = find(".pdfsam-container");
-        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals(Rotation.DEGREES_270, rotation.getSelectionModel().getSelectedItem().getKey());
         assertEquals(PredefinedSetOfPages.EVEN_PAGES, rotationType.getSelectionModel().getSelectedItem().getKey());
     }
 
     @Test
-    public void reset() throws Exception {
-        ComboBox<KeyStringValueItem<PredefinedSetOfPages>> rotationType = find("#rotationType");
-        ComboBox<KeyStringValueItem<Rotation>> rotation = find("#rotation");
+    public void reset() {
+        ComboBox<KeyStringValueItem<PredefinedSetOfPages>> rotationType = lookup("#rotationType").queryComboBox();
+        ComboBox<KeyStringValueItem<Rotation>> rotation = lookup("#rotation").queryComboBox();
         Map<String, String> data = new HashMap<>();
         data.put("rotation", Rotation.DEGREES_270.toString());
         data.put("rotationType", PredefinedSetOfPages.EVEN_PAGES.toString());
-        RotateOptionsPane victim = find(".pdfsam-container");
-        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals(Rotation.DEGREES_270, rotation.getSelectionModel().getSelectedItem().getKey());
         assertEquals(PredefinedSetOfPages.EVEN_PAGES, rotationType.getSelectionModel().getSelectedItem().getKey());
-        FXTestUtils.invokeAndWait(() -> victim.resetView(), 2);
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.resetView());
         assertEquals(Rotation.DEGREES_90, rotation.getSelectionModel().getSelectedItem().getKey());
         assertEquals(PredefinedSetOfPages.ALL_PAGES, rotationType.getSelectionModel().getSelectedItem().getKey());
     }

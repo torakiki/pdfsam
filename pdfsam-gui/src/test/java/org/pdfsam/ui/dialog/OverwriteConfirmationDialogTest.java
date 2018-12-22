@@ -30,23 +30,24 @@ import org.junit.ClassRule;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class OverwriteConfirmationDialogTest extends GuiTest {
+public class OverwriteConfirmationDialogTest extends ApplicationTest {
 
     private boolean overwrite = false;
 
@@ -59,36 +60,39 @@ public class OverwriteConfirmationDialogTest extends GuiTest {
     }
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         StylesConfig styles = mock(StylesConfig.class);
         OverwriteConfirmationDialog victim = new OverwriteConfirmationDialog(styles);
         Button button = new Button("show");
         button.setOnAction(a -> overwrite = victim.title("Title").messageTitle("MessageTitle")
                 .messageContent("MessageContent").response());
-        return button;
+        Scene scene = new Scene(new VBox(button));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void contentIsShown() {
-        click("show");
-        find("MessageTitle");
-        find("MessageContent");
-        click(DefaultI18nContext.getInstance().i18n("Cancel"));
+        clickOn("show");
+        assertTrue(lookup("MessageTitle").tryQuery().isPresent());
+        assertTrue(lookup("MessageContent").tryQuery().isPresent());
+        clickOn(DefaultI18nContext.getInstance().i18n("Cancel"));
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void cancel() {
         this.overwrite = true;
-        click("show");
-        click(DefaultI18nContext.getInstance().i18n("Cancel"));
+        clickOn("show");
+        clickOn(DefaultI18nContext.getInstance().i18n("Cancel"));
         assertFalse(this.overwrite);
     }
 
     @Test
     public void overwrite() {
         this.overwrite = false;
-        click("show");
-        click(DefaultI18nContext.getInstance().i18n("Overwrite"));
+        clickOn("show");
+        clickOn(DefaultI18nContext.getInstance().i18n("Overwrite"));
         assertTrue(this.overwrite);
     }
 
@@ -96,7 +100,7 @@ public class OverwriteConfirmationDialogTest extends GuiTest {
     @Ignore
     public void esc() {
         this.overwrite = true;
-        click("show");
+        clickOn("show");
         push(KeyCode.ESCAPE);
         assertFalse(this.overwrite);
     }

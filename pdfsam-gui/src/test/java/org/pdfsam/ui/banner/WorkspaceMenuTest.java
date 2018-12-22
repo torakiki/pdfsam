@@ -18,6 +18,8 @@
  */
 package org.pdfsam.ui.banner;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -30,49 +32,52 @@ import java.util.Arrays;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.RecentWorkspacesService;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.WorkspaceLoadedEvent;
 import org.sejda.eventstudio.Listener;
 import org.sejda.injector.Injector;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class WorkspaceMenuTest extends GuiTest {
+@Category(NoHeadless.class)
+public class WorkspaceMenuTest extends ApplicationTest {
     @Rule
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule();
     private Injector injector;
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         injector = Injector.start(new MenuConfig());
-        return injector.instance(MenuButton.class);
+        Scene scene = new Scene(injector.instance(MenuButton.class));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void onRecentWorkspace() {
         Listener<LoadWorkspaceEvent> listener = mock(Listener.class);
         eventStudio().add(LoadWorkspaceEvent.class, listener);
-        click(".button").click("#workspaceMenu").move("#loadWorkspace").move("#saveWorkspace")
-                .click("#recentWorkspace").click("Chuck");
+        clickOn(".button").clickOn("#workspaceMenu").moveTo("#loadWorkspace").moveTo("#saveWorkspace")
+                .clickOn("#recentWorkspace").clickOn("Chuck");
         verify(listener).onEvent(any());
     }
 
     @Test
     public void recentIsUpdated() {
         RecentWorkspacesService service = injector.instance(RecentWorkspacesService.class);
-        when(service.getRecentlyUsedWorkspaces()).thenReturn(Arrays.asList("Micheal"));
+        when(service.getRecentlyUsedWorkspaces()).thenReturn(Arrays.asList("Michael"));
         eventStudio().broadcast(new WorkspaceLoadedEvent(mock(File.class)));
-        click(".button").click("#workspaceMenu").move("#loadWorkspace").move("#saveWorkspace")
-                .click("#recentWorkspace").click("Micheal");
+        clickOn(".button").clickOn("#workspaceMenu").moveTo("#loadWorkspace").moveTo("#saveWorkspace")
+                .clickOn("#recentWorkspace").clickOn("Michael");
     }
 
     @Test
@@ -80,7 +85,20 @@ public class WorkspaceMenuTest extends GuiTest {
         RecentWorkspacesService service = injector.instance(RecentWorkspacesService.class);
         when(service.getRecentlyUsedWorkspaces()).thenReturn(Arrays.asList("I_have_underscores"));
         eventStudio().broadcast(new WorkspaceLoadedEvent(mock(File.class)));
-        click(".button").click("#workspaceMenu").move("#loadWorkspace").move("#saveWorkspace").click("#recentWorkspace")
-                .click("I_have_underscores");
+        clickOn(".button").clickOn("#workspaceMenu").moveTo("#loadWorkspace").moveTo("#saveWorkspace")
+                .clickOn("#recentWorkspace").clickOn("I_have_underscores");
+    }
+
+    @Test
+    public void recentIsCleared() {
+        RecentWorkspacesService service = injector.instance(RecentWorkspacesService.class);
+        when(service.getRecentlyUsedWorkspaces()).thenReturn(Arrays.asList("Michael"));
+        eventStudio().broadcast(new WorkspaceLoadedEvent(mock(File.class)));
+        assertTrue(clickOn(".button").clickOn("#workspaceMenu").moveTo("#loadWorkspace").moveTo("#saveWorkspace")
+                .clickOn("#recentWorkspace").lookup("Michael").tryQuery().isPresent());
+        clickOn(".button").clickOn("#workspaceMenu").moveTo("#loadWorkspace").moveTo("#saveWorkspace")
+                .clickOn("#clearWorkspaces");
+        assertFalse(clickOn(".button").clickOn("#workspaceMenu").moveTo("#loadWorkspace").moveTo("#saveWorkspace")
+                .clickOn("#recentWorkspace").lookup("Michael").tryQuery().isPresent());
     }
 }

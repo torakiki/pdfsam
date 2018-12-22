@@ -25,38 +25,38 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.junit.ClassRule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.sejda.eventstudio.Listener;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class ModuleButtonTest extends GuiTest {
+public class ModuleButtonTest extends ApplicationTest {
 
     @ClassRule
     public static ClearEventStudioRule STUDIO = new ClearEventStudioRule();
     private DefaultPriorityTestModule module = new DefaultPriorityTestModule();
 
     @Override
-    protected Parent getRootNode() {
-        return new ModuleButton(module);
+    public void start(Stage stage) {
+        Scene scene = new Scene(new ModuleButton(module));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void onClick() {
         Listener<SetActiveModuleRequest> listener = mock(Listener.class);
         eventStudio().add(SetActiveModuleRequest.class, listener);
-        click(module.descriptor().getName());
+        clickOn(module.descriptor().getName());
         ArgumentCaptor<SetActiveModuleRequest> captor = ArgumentCaptor.forClass(SetActiveModuleRequest.class);
         verify(listener).onEvent(captor.capture());
         assertEquals(module.id(), captor.getValue().getActiveModuleId().get());

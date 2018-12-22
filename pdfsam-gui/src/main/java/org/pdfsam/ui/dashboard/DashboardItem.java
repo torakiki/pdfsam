@@ -44,4 +44,11 @@ public interface DashboardItem {
      */
     int priority();
 
+    /**
+     * @return true if this item has been disabled
+     */
+    default boolean disabled() {
+        return false;
+    }
+
 }

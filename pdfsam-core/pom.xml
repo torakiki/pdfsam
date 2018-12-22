@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.pdfsam</groupId>
 		<artifactId>pdfsam-parent</artifactId>
-		<version>3.3.8-SNAPSHOT</version>
+		<version>4.0.1-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
@@ -40,7 +40,7 @@
 		</dependency>
 		<dependency>
 			<groupId>de.jensd</groupId>
-			<artifactId>fontawesomefx</artifactId>
+			<artifactId>fontawesomefx-fontawesome</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.sejda</groupId>
@@ -55,8 +55,20 @@
 			<artifactId>eventstudio</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-controls</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>jdepend</groupId>
 			<artifactId>jdepend</artifactId>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx-swing -->
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-swing</artifactId>
+			<version>${javafx.version}</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 </project>

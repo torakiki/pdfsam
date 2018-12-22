@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-07-19 18:31+0200\n"
-"PO-Revision-Date: 2018-07-28 07:55+0000\n"
-"Last-Translator: didus <didus69@gmail.com>\n"
+"POT-Creation-Date: 2018-12-13 22:12+0100\n"
+"PO-Revision-Date: 2018-10-22 09:04+0000\n"
+"Last-Translator: João Pedro Ribeiro <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-08-10 09:20+0000\n"
-"X-Generator: Launchpad (build 18747)\n"
+"X-Launchpad-Export-Date: 2018-12-19 10:28+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 "Language: fr\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -37,7 +37,7 @@ msgid "File names settings"
 msgstr "Nom des fichiers"
 
 msgid "Extract settings"
-msgstr "Extraire les paramètres"
+msgstr "Paramètres d’extraction"
 
 msgid "Output settings"
 msgstr "Paramètres de sortie"
@@ -118,7 +118,7 @@ msgstr "Créer un signet par document fusionné"
 
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr ""
-"Conserver les favoris en tant qu'une entrée pour chaque document fusionné"
+"Conserver les signets en tant qu'une entrée pour chaque document fusionné"
 
 msgid "Bookmarks handling:"
 msgstr "Gestion des signets :"
@@ -137,7 +137,7 @@ msgid "Generate from documents titles"
 msgstr "Générer depuis les titres des documents"
 
 msgid "Table of contents:"
-msgstr "Table des matières"
+msgstr "Table des matières:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
@@ -146,13 +146,13 @@ msgstr ""
 "PDF généré"
 
 msgid "Valid user password provided."
-msgstr "Mot de passe d’ouverture correct"
+msgstr "Mot de passe d'utilisateur valide."
 
 msgid "This document is encrypted, click to provide a password."
 msgstr "Ce document est protégé, cliquer pour fournir le mot de passe."
 
 msgid "An error has occurred, click for more details."
-msgstr "Une erreur s'est produite, cliquez pour pour plus de détails"
+msgstr "Une erreur s'est produite, cliquez pour plus de détails."
 
 msgid "Roundish"
 msgstr "Arrondi"
@@ -184,7 +184,7 @@ msgid "File {0} saved."
 msgstr "Fichier {0} enregistré."
 
 msgid "Split"
-msgstr "Découpage"
+msgstr "Découper"
 
 msgid "Security"
 msgstr "Sécurité"
@@ -655,27 +655,6 @@ msgstr "Choisir un chiffre pour indiquer la vitesse"
 msgid "Installing theme {0}."
 msgstr "Installation du thème {0}."
 
-#, java-format
-msgid "Modules directory {0} does not exist"
-msgstr "Le répertoire des modules {0} n’existe pas"
-
-#, java-format
-msgid "Loading modules from {0}"
-msgstr "Chargement des modules depuis {0}"
-
-#, java-format
-msgid "Found modules jars {0}"
-msgstr "Fichiers de modules JAR {0} trouvés"
-
-msgid "Error finding modules paths"
-msgstr "Erreur de détection des chemins des modules"
-
-msgid "No module has been found"
-msgstr "Aucun module trouvé"
-
-msgid "Unable to find modules location."
-msgstr "Localisation de modules impossible"
-
 msgid "Document details"
 msgstr "Détails du document"
 
@@ -693,6 +672,12 @@ msgstr "Souscrire au fil d’actualités officiel"
 
 msgid "Environment"
 msgstr "Environnement"
+
+msgid "Java runtime path: %s"
+msgstr ""
+
+msgid "JavaFX runtime version %s"
+msgstr ""
 
 #, java-format
 msgid "Max memory {0}"
@@ -724,9 +709,6 @@ msgstr "Réseaux sociaux"
 
 msgid "Follow us on Twitter"
 msgstr "Suivez-nous sur Twitter"
-
-msgid "Follow us on Google Plus"
-msgstr "Suivez-nous sur Google+"
 
 msgid "Like us on Facebook"
 msgstr "Suivez-nous sur Facebook"
@@ -1017,8 +999,11 @@ msgstr "_Charger"
 msgid "_Save"
 msgstr "_Enregistrer"
 
-msgid "Recen_t"
-msgstr "_Récent"
+msgid "Recen_ts"
+msgstr ""
+
+msgid "_Clear recents"
+msgstr ""
 
 msgid "Select the workspace file to save"
 msgstr "Sélectionner le fichier de sauvegarde de l'espace de travail"

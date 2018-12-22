@@ -24,54 +24,60 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.model.prefix.Prefix;
+import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class PrefixFieldTest extends GuiTest {
+public class PrefixFieldTest extends ApplicationTest {
 
     @Rule
     public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule();
+    private PrefixField victim;
 
     @Override
-    protected Parent getRootNode() {
-        PrefixField victim = new PrefixField();
-        victim.getStyleClass().add("victim");
-        return victim;
+    public void start(Stage stage) {
+        victim = new PrefixField();
+        Scene scene = new Scene(new HBox(victim));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void contextMenuAddsText() {
-        PrefixField victim = find(".victim");
-        rightClick(victim).click("#addPrefixMenu").click(Prefix.BASENAME.getFriendlyName());
+        rightClickOn(victim).clickOn("#addPrefixMenu").clickOn(Prefix.BASENAME.getFriendlyName());
+        WaitForAsyncUtils.waitForFxEvents();
         assertTrue(victim.getText().contains(Prefix.BASENAME.getFriendlyName()));
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void contextMenuReplacesText() {
-        PrefixField victim = find(".victim");
-        click(victim).type(KeyCode.HOME).push(KeyCode.SHIFT, KeyCode.END);
-        rightClick(victim);
+        clickOn(victim).type(KeyCode.HOME).push(KeyCode.SHIFT, KeyCode.END);
+        rightClickOn(victim);
         moveBy(5, 5);
-        click();
-        click(Prefix.BASENAME.getFriendlyName());
+        clickOn();
+        clickOn(Prefix.BASENAME.getFriendlyName());
+        WaitForAsyncUtils.waitForFxEvents();
         assertEquals(Prefix.BASENAME.getFriendlyName(), victim.getText());
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void prefixMenuItemIsAdded() {
-        PrefixField victim = find(".victim");
         victim.addMenuItemFor(Prefix.BOOKMARK);
-        rightClick(victim).click("#addPrefixMenu").click(Prefix.BOOKMARK.getFriendlyName());
+        rightClickOn(victim).clickOn("#addPrefixMenu").clickOn(Prefix.BOOKMARK.getFriendlyName());
         assertTrue(victim.getText().contains(Prefix.BOOKMARK.getFriendlyName()));
     }
 }

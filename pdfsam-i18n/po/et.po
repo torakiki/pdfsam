@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-07-19 18:31+0200\n"
+"POT-Creation-Date: 2018-12-13 22:12+0100\n"
 "PO-Revision-Date: 2016-06-28 14:29+0000\n"
 "Last-Translator: Joonas Tamm <joonas.tamm@gmail.com>\n"
 "Language-Team: Estonian <et@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-08-10 09:20+0000\n"
-"X-Generator: Launchpad (build 18747)\n"
+"X-Launchpad-Export-Date: 2018-12-19 10:28+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -604,27 +604,6 @@ msgstr ""
 msgid "Installing theme {0}."
 msgstr "Installeerimias teemat {0}."
 
-#, java-format
-msgid "Modules directory {0} does not exist"
-msgstr "Moodulite kataloogi {0} ei eksisteeri"
-
-#, java-format
-msgid "Loading modules from {0}"
-msgstr ""
-
-#, java-format
-msgid "Found modules jars {0}"
-msgstr ""
-
-msgid "Error finding modules paths"
-msgstr "Viga moodulite asukohtade leidmisel"
-
-msgid "No module has been found"
-msgstr "Ühtegi moodulit ei leitud"
-
-msgid "Unable to find modules location."
-msgstr "Pole suuteline leidma moodulite asukohta."
-
 msgid "Document details"
 msgstr "Dokumentide üksikasjad"
 
@@ -642,6 +621,12 @@ msgstr ""
 
 msgid "Environment"
 msgstr "Keskkond"
+
+msgid "Java runtime path: %s"
+msgstr ""
+
+msgid "JavaFX runtime version %s"
+msgstr ""
 
 #, java-format
 msgid "Max memory {0}"
@@ -673,9 +658,6 @@ msgstr "Sotsiaalne"
 
 msgid "Follow us on Twitter"
 msgstr "Jälgi meid Twitteris"
-
-msgid "Follow us on Google Plus"
-msgstr "Jälgi meid Google Plus-is"
 
 msgid "Like us on Facebook"
 msgstr ""
@@ -944,7 +926,10 @@ msgstr "_Laadi"
 msgid "_Save"
 msgstr "_Salvesta"
 
-msgid "Recen_t"
+msgid "Recen_ts"
+msgstr ""
+
+msgid "_Clear recents"
 msgstr ""
 
 msgid "Select the workspace file to save"

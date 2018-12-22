@@ -29,22 +29,23 @@ import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class LenientExecutionConfirmationDialogTest extends GuiTest {
+public class LenientExecutionConfirmationDialogTest extends ApplicationTest {
     private boolean confirm = false;
 
     @ClassRule
@@ -56,36 +57,41 @@ public class LenientExecutionConfirmationDialogTest extends GuiTest {
     }
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         StylesConfig styles = mock(StylesConfig.class);
         LenientExecutionConfirmationDialog victim = new LenientExecutionConfirmationDialog(styles);
         Button button = new Button("show");
         button.setOnAction(a -> confirm = victim.response());
-        return button;
+        Scene scene = new Scene(new VBox(button));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void contentIsShown() {
-        click("show");
-        find(DefaultI18nContext.getInstance().i18n("PDFsam can try to overcome the failure"));
-        find(DefaultI18nContext.getInstance()
-                .i18n("It may result in PDF files with partial or missing data, proceed anyway?"));
-        click(DefaultI18nContext.getInstance().i18n("No"));
+        clickOn("show");
+        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("PDFsam can try to overcome the failure")).tryQuery()
+                .isPresent());
+        assertTrue(lookup(DefaultI18nContext.getInstance()
+                .i18n("It may result in PDF files with partial or missing data, proceed anyway?")).tryQuery()
+                        .isPresent());
+        clickOn(DefaultI18nContext.getInstance().i18n("No"));
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void no() {
         this.confirm = true;
-        click("show");
-        click(DefaultI18nContext.getInstance().i18n("No"));
+        clickOn("show");
+        clickOn(DefaultI18nContext.getInstance().i18n("No"));
         assertFalse(this.confirm);
     }
 
     @Test
     public void yes() {
         this.confirm = false;
-        click("show");
-        click(DefaultI18nContext.getInstance().i18n("Yes"));
+        clickOn("show");
+        clickOn(DefaultI18nContext.getInstance().i18n("Yes"));
         assertTrue(this.confirm);
     }
 }

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-07-19 18:31+0200\n"
+"POT-Creation-Date: 2018-12-13 22:12+0100\n"
 "PO-Revision-Date: 2015-10-19 10:42+0000\n"
 "Last-Translator: Wolloloo <vidartf@gmail.com>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-08-10 09:20+0000\n"
-"X-Generator: Launchpad (build 18747)\n"
+"X-Launchpad-Export-Date: 2018-12-19 10:28+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -604,27 +604,6 @@ msgstr ""
 msgid "Installing theme {0}."
 msgstr "Installerer tema {0}"
 
-#, java-format
-msgid "Modules directory {0} does not exist"
-msgstr "Modulmappe {0} finnes ikke"
-
-#, java-format
-msgid "Loading modules from {0}"
-msgstr "Laster moduler fra {0}"
-
-#, java-format
-msgid "Found modules jars {0}"
-msgstr ""
-
-msgid "Error finding modules paths"
-msgstr ""
-
-msgid "No module has been found"
-msgstr "Ingen modul ble funnet"
-
-msgid "Unable to find modules location."
-msgstr "Klarte ikke å finne modulplassering"
-
 msgid "Document details"
 msgstr "Dokumentdetaljer"
 
@@ -641,6 +620,12 @@ msgid "Subscribe to the official news feed"
 msgstr "Abonner på det offisielle nyhetsbrevet"
 
 msgid "Environment"
+msgstr ""
+
+msgid "Java runtime path: %s"
+msgstr ""
+
+msgid "JavaFX runtime version %s"
 msgstr ""
 
 #, java-format
@@ -673,9 +658,6 @@ msgstr "Sosialt"
 
 msgid "Follow us on Twitter"
 msgstr "Følg oss på Twitter"
-
-msgid "Follow us on Google Plus"
-msgstr "Følg oss på Google Plus"
 
 msgid "Like us on Facebook"
 msgstr "Lik oss på Facebook"
@@ -948,8 +930,11 @@ msgstr "Å_pne"
 msgid "_Save"
 msgstr "_Lagre"
 
-msgid "Recen_t"
-msgstr "_Nylig"
+msgid "Recen_ts"
+msgstr ""
+
+msgid "_Clear recents"
+msgstr ""
 
 msgid "Select the workspace file to save"
 msgstr "Velg fil fra arbeidsområde for lagring"

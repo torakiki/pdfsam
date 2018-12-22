@@ -36,11 +36,7 @@ import java.util.function.Consumer;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.split.SplitAfterRadioButton.SplitByPageParametersBuilder;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.commons.ValidableTextField;
@@ -50,23 +46,25 @@ import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.output.FileOrDirectoryTaskOutput;
 import org.sejda.model.parameter.SplitByPagesParameters;
 import org.sejda.model.pdf.PdfVersion;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class SplitAfterRadioButtonTest extends GuiTest {
+public class SplitAfterRadioButtonTest extends ApplicationTest {
 
     @Rule
     public ClearEventStudioRule clear = new ClearEventStudioRule();
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
     private Consumer<String> onError;
+    private SplitAfterRadioButton victim;
 
     @Before
     public void setUp() {
@@ -74,98 +72,95 @@ public class SplitAfterRadioButtonTest extends GuiTest {
     }
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         ValidableTextField field = new ValidableTextField();
         field.setId("field");
-        SplitAfterRadioButton victim = new SplitAfterRadioButton(field);
+        victim = new SplitAfterRadioButton(field);
         victim.setId("victim");
-        return new HBox(victim, field);
+        Scene scene = new Scene(new HBox(victim, field));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void valid() {
-        ValidableTextField field = find("#field");
+        ValidableTextField field = lookup("#field").queryAs(ValidableTextField.class);
         assertEquals(ValidationState.NOT_VALIDATED, field.getValidationState());
-        click(field).type("2,4,10").push(KeyCode.ENTER);
+        clickOn(field).write("2,4,10").push(KeyCode.ENTER);
         assertEquals(ValidationState.VALID, field.getValidationState());
     }
 
     @Test
     public void validWhiteSpace() {
-        ValidableTextField field = find("#field");
+        ValidableTextField field = lookup("#field").queryAs(ValidableTextField.class);
         assertEquals(ValidationState.NOT_VALIDATED, field.getValidationState());
-        click(field).type("2, 4 ,10").push(KeyCode.ENTER);
+        clickOn(field).write("2, 4 ,10").push(KeyCode.ENTER);
         assertEquals(ValidationState.VALID, field.getValidationState());
     }
 
     @Test
     public void invalid() {
-        ValidableTextField field = find("#field");
+        ValidableTextField field = lookup("#field").queryAs(ValidableTextField.class);
         assertEquals(ValidationState.NOT_VALIDATED, field.getValidationState());
-        click(field).type("Chuck").push(KeyCode.ENTER);
+        clickOn(field).write("Chuck").push(KeyCode.ENTER);
         assertEquals(ValidationState.INVALID, field.getValidationState());
     }
 
     @Test
     public void invalidZero() {
-        ValidableTextField field = find("#field");
+        ValidableTextField field = lookup("#field").queryAs(ValidableTextField.class);
         assertEquals(ValidationState.NOT_VALIDATED, field.getValidationState());
-        click(field).type("0").push(KeyCode.ENTER);
+        clickOn(field).write("0").push(KeyCode.ENTER);
         assertEquals(ValidationState.INVALID, field.getValidationState());
     }
 
     @Test
     public void invalidContainsZero() {
-        ValidableTextField field = find("#field");
+        ValidableTextField field = lookup("#field").queryAs(ValidableTextField.class);
         assertEquals(ValidationState.NOT_VALIDATED, field.getValidationState());
-        click(field).type("14,0").push(KeyCode.ENTER);
+        clickOn(field).write("14,0").push(KeyCode.ENTER);
         assertEquals(ValidationState.INVALID, field.getValidationState());
     }
 
     @Test
-    public void invalidBuilder() throws Exception {
-        ValidableTextField field = find("#field");
-        SplitAfterRadioButton victim = find("#victim");
+    public void invalidBuilder() {
+        ValidableTextField field = lookup("#field").queryAs(ValidableTextField.class);
         assertEquals(ValidationState.NOT_VALIDATED, field.getValidationState());
-        click(field).type("Chuck").push(KeyCode.ENTER);
-        FXTestUtils.invokeAndWait(() -> victim.getBuilder(onError), 1);
+        clickOn(field).write("Chuck").push(KeyCode.ENTER);
+        victim.getBuilder(onError);
         verify(onError).accept(anyString());
     }
 
     @Test
     public void builder() throws Exception {
-        ValidableTextField field = find("#field");
-        SplitAfterRadioButton victim = find("#victim");
+        ValidableTextField field = lookup("#field").queryAs(ValidableTextField.class);
         assertEquals(ValidationState.NOT_VALIDATED, field.getValidationState());
-        click(field).type("1,10").push(KeyCode.ENTER);
+        clickOn(field).write("1,10").push(KeyCode.ENTER);
         final File file = folder.newFile("my.pdf");
-        FXTestUtils.invokeAndWait(() -> {
-            SplitByPageParametersBuilder builder = victim.getBuilder(onError);
-            builder.compress(true);
-            FileOrDirectoryTaskOutput output = mock(FileOrDirectoryTaskOutput.class);
-            builder.output(output);
-            builder.existingOutput(ExistingOutputPolicy.OVERWRITE);
-            builder.prefix("prefix");
-            PdfFileSource source = PdfFileSource.newInstanceNoPassword(file);
-            builder.source(source);
-            builder.version(PdfVersion.VERSION_1_7);
-            SplitByPagesParameters params = builder.build();
-            assertTrue(params.isCompress());
-            assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
-            assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
-            assertThat(params.getPages(20), contains(1, 10));
-            assertEquals("prefix", params.getOutputPrefix());
-            assertEquals(output, params.getOutput());
-            assertEquals(source, params.getSourceList().get(0));
-            verify(onError, never()).accept(anyString());
-        }, 2);
+        SplitByPageParametersBuilder builder = victim.getBuilder(onError);
+        builder.compress(true);
+        FileOrDirectoryTaskOutput output = mock(FileOrDirectoryTaskOutput.class);
+        builder.output(output);
+        builder.existingOutput(ExistingOutputPolicy.OVERWRITE);
+        builder.prefix("prefix");
+        PdfFileSource source = PdfFileSource.newInstanceNoPassword(file);
+        builder.source(source);
+        builder.version(PdfVersion.VERSION_1_7);
+        SplitByPagesParameters params = builder.build();
+        assertTrue(params.isCompress());
+        assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
+        assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
+        assertThat(params.getPages(20), contains(1, 10));
+        assertEquals("prefix", params.getOutputPrefix());
+        assertEquals(output, params.getOutput());
+        assertEquals(source, params.getSourceList().get(0));
+        verify(onError, never()).accept(anyString());
     }
 
     @Test
     public void saveStateSelected() {
-        SplitAfterRadioButton victim = find("#victim");
-        click(victim);
-        click("#field").type("chuck");
+        clickOn(victim);
+        clickOn("#field").write("chuck");
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
         assertTrue(Boolean.valueOf(data.get("splitAfter")));
@@ -174,7 +169,6 @@ public class SplitAfterRadioButtonTest extends GuiTest {
 
     @Test
     public void saveStateNotSelected() {
-        SplitAfterRadioButton victim = find("#victim");
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
         assertFalse(Boolean.valueOf(data.get("splitAfter")));
@@ -182,13 +176,12 @@ public class SplitAfterRadioButtonTest extends GuiTest {
     }
 
     @Test
-    public void restoreState() throws Exception {
-        SplitAfterRadioButton victim = find("#victim");
-        ValidableTextField field = find("#field");
+    public void restoreState() {
+        ValidableTextField field = lookup("#field").queryAs(ValidableTextField.class);
         Map<String, String> data = new HashMap<>();
         data.put("splitAfter", Boolean.TRUE.toString());
         data.put("splitAfter.field", "chuck");
-        FXTestUtils.invokeAndWait(() -> victim.restoreStateFrom(data), 2);
+        victim.restoreStateFrom(data);
         assertTrue(victim.isSelected());
         assertEquals("chuck", field.getText());
     }

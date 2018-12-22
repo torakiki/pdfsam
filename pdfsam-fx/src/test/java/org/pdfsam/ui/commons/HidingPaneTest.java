@@ -18,34 +18,34 @@
  */
 package org.pdfsam.ui.commons;
 
-import static org.loadui.testfx.Assertions.verifyThat;
+import static org.testfx.api.FxAssert.verifyThat;
 
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class HidingPaneTest extends GuiTest {
+public class HidingPaneTest extends ApplicationTest {
 
     private HidingPane victim;
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         victim = new HidingPane();
-        return victim;
+        Scene scene = new Scene(victim);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void hide() {
         verifyThat(victim, (v) -> v.isVisible());
-        click(".pdfsam-button");
+        clickOn(".pdfsam-button");
         verifyThat(victim, (v) -> !v.isVisible());
     }
 

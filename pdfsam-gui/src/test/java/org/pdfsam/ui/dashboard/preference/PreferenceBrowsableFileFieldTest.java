@@ -27,37 +27,36 @@ import java.io.File;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.support.io.FileType;
-import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class PreferenceBrowsableFileFieldTest extends GuiTest {
+public class PreferenceBrowsableFileFieldTest extends ApplicationTest {
 
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
     private UserContext userContext = mock(UserContext.class);
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         PreferenceBrowsableFileField victim = new PreferenceBrowsableFileField(StringUserPreference.WORKING_PATH,
                 FileType.PDF, OpenType.OPEN, userContext);
         victim.setId("victim");
-        return victim;
+        Scene scene = new Scene(new HBox(victim));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
@@ -75,22 +74,19 @@ public class PreferenceBrowsableFileFieldTest extends GuiTest {
     }
 
     @Test
-    public void emptyValue() throws Exception {
+    public void emptyValue() {
         typePathAndValidate("");
         verify(userContext).setStringPreference(StringUserPreference.WORKING_PATH, "");
     }
 
     @Test
-    public void blankValue() throws Exception {
+    public void blankValue() {
         typePathAndValidate("  ");
         verify(userContext, never()).setStringPreference(any(), any());
     }
 
-    private void typePathAndValidate(String path) throws Exception {
-        ValidableTextField field = find(".validable-container-field");
-        // TODO replace with typing when slash works
-        FXTestUtils.invokeAndWait(() -> field.setText(path), 2);
-        click(field).type(KeyCode.TAB);
+    private void typePathAndValidate(String path) {
+        clickOn(".validable-container-field").write(path).push(KeyCode.TAB);
     }
 
 }

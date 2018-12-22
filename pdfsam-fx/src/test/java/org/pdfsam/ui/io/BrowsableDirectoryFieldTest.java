@@ -20,7 +20,6 @@ package org.pdfsam.ui.io;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.junit.Assert.assertEquals;
-import static org.loadui.testfx.Assertions.verifyThat;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,6 +28,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
+import org.testfx.api.FxAssert;
 
 /**
  * @author Andrea Vacondio
@@ -52,7 +52,7 @@ public class BrowsableDirectoryFieldTest {
     public void setTextFromNullFile() {
         BrowsableDirectoryField victim = new BrowsableDirectoryField();
         victim.setTextFromFile(null);
-        verifyThat(victim, v -> isBlank(v.getTextField().getText()));
+        FxAssert.verifyThat(victim, v -> isBlank(v.getTextField().getText()));
     }
 
     @Test

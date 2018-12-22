@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="en-us" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+	<String Id="ProductLanguage">1033</String>
+	<String Id="ProductName">PDFsam Basic</String>
+	<String Id="ProductDescription">A free open source tool to manipulate PDF documents</String>
+	<String Id="ProductNameDescription">Basic version of PDFsam, a free open source tool to manipulate PDF documents</String>
+	<String Id="ContextMenuDescription">Context menu shortcuts</String>
+	<String Id="ProductComments">PDF Split And Merge Basic Edition</String>
+	<String Id="ProductHelpLink">https://pdfsam.org/</String>
+	<String Id="i18n">en_GB</String>
+	<String Id="PDFSamWeb">PDFsam on the Web</String>
+	<String Id="PDFSamWebLink">https://pdfsam.org/</String>
+	<String Id="PDFSplitandMerge">PDFsam Basic</String>
+	<String Id="NewerVersionInstalled">Newer version of PDFsam Basic is already installed.</String>
+	<String Id="VerifyWithLanguageReadyDlgInstallText">Select the language:</String>
+	<String Id="LaunchPDFsam">Launch PDFsam Basic</String>
+	<String Id="StartMenuShortcuts">Start menu shortcuts</String>
+	<String Id="StartMenuShortcutsDesc">Install start menu shortcuts</String>
+	<String Id="DesktopShortcut">Desktop shortcut</String>
+	<String Id="DesktopShortcutDesc">Add a desktop shortcut to start PDFsam Basic</String>	
+</WixLocalization>

@@ -33,10 +33,7 @@ import java.util.Locale;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.categories.TestFX;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
@@ -49,21 +46,24 @@ import org.sejda.injector.Provides;
 import org.sejda.model.exception.TaskNonLenientExecutionException;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 import org.sejda.model.parameter.base.AbstractParameters;
+import org.testfx.framework.junit.ApplicationTest;
 
-import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@Category(TestFX.class)
-public class LenientTaskExecutionDialogControllerTest extends GuiTest {
+public class LenientTaskExecutionDialogControllerTest extends ApplicationTest {
     @Rule
     public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule();
 
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
+    private Button button;
 
     @BeforeClass
     public static void setUp() {
@@ -71,10 +71,12 @@ public class LenientTaskExecutionDialogControllerTest extends GuiTest {
     }
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         Injector.start(new Config());
-        Button button = new Button("show");
-        return button;
+        button = new Button("show");
+        Scene scene = new Scene(new VBox(button));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Components({ LenientTaskExecutionDialogController.class })
@@ -92,20 +94,18 @@ public class LenientTaskExecutionDialogControllerTest extends GuiTest {
         TaskExecutionRequestEvent request = mock(TaskExecutionRequestEvent.class);
         eventStudio().broadcast(request);
         TaskExecutionFailedEvent failure = new TaskExecutionFailedEvent(new IOException(), null);
-        Button button = find("show");
         button.setOnAction(a -> eventStudio().broadcast(failure));
-        click("show");
-        assertFalse(getWindows().size() > 1);
+        clickOn("show");
+        assertFalse(robotContext().getWindowFinder().listWindows().size() > 1);
     }
 
     @Test
     public void negativeNoLatestTest() {
         TaskExecutionFailedEvent failure = new TaskExecutionFailedEvent(
                 new TaskNonLenientExecutionException(new IOException()), null);
-        Button button = find("show");
         button.setOnAction(a -> eventStudio().broadcast(failure));
-        click("show");
-        assertFalse(getWindows().size() > 1);
+        clickOn("show");
+        assertFalse(robotContext().getWindowFinder().listWindows().size() > 1);
     }
 
     @Test
@@ -117,11 +117,10 @@ public class LenientTaskExecutionDialogControllerTest extends GuiTest {
         eventStudio().add(TaskExecutionRequestEvent.class, listener);
         TaskExecutionFailedEvent failure = new TaskExecutionFailedEvent(
                 new TaskNonLenientExecutionException(new IOException()), null);
-        Button button = find("show");
         button.setOnAction(a -> eventStudio().broadcast(failure));
-        click("show");
-        assertTrue(getWindows().size() > 1);
-        click(DefaultI18nContext.getInstance().i18n("No"));
+        clickOn("show");
+        assertTrue(robotContext().getWindowFinder().listWindows().size() > 1);
+        clickOn(DefaultI18nContext.getInstance().i18n("No"));
         verify(params, never()).setLenient(anyBoolean());
         verify(listener, never()).onEvent(any());
     }
@@ -135,11 +134,10 @@ public class LenientTaskExecutionDialogControllerTest extends GuiTest {
         eventStudio().add(TaskExecutionRequestEvent.class, listener);
         TaskExecutionFailedEvent failure = new TaskExecutionFailedEvent(
                 new TaskNonLenientExecutionException(new IOException()), null);
-        Button button = find("show");
         button.setOnAction(a -> eventStudio().broadcast(failure));
-        click("show");
-        assertTrue(getWindows().size() > 1);
-        click(DefaultI18nContext.getInstance().i18n("Yes"));
+        clickOn("show");
+        assertTrue(robotContext().getWindowFinder().listWindows().size() > 1);
+        clickOn(DefaultI18nContext.getInstance().i18n("Yes"));
         verify(params).setLenient(true);
         verify(listener).onEvent(request);
     }

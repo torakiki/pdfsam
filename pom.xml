@@ -4,10 +4,14 @@
 	<groupId>org.pdfsam</groupId>
 	<artifactId>pdfsam-parent</artifactId>
 	<packaging>pom</packaging>
-	<version>3.3.8-SNAPSHOT</version>
+	<version>4.0.1-SNAPSHOT</version>
 	<name>PDFsam</name>
 	<description>A free open source desktop application to split and merge pdf documents</description>
-	<url>http://www.pdfsam.org</url>
+	<url>https://pdfsam.org</url>
+
+	<organization>
+		<name>Sober Lemur S.a.s. di Vacondio Andrea</name>
+	</organization>
 
 	<scm>
 		<connection>scm:git:git@github.com:torakiki/pdfsam.git</connection>
@@ -18,31 +22,88 @@
 
 	<profiles>
 		<profile>
-			<id>basic-release</id>
+			<activation>
+				<property>
+					<name>env.TRAVIS</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<id>no-headless-failing-tests</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<configuration>
+							<excludedGroups>org.pdfsam.NoHeadless</excludedGroups>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<activation>
+				<os>
+					<family>Windows</family>
+				</os>
+			</activation>
+			<id>no-windows-failing-tests</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<configuration>
+							<excludedGroups>org.pdfsam.NoWindows</excludedGroups>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>toolchain</id>
+			<activation>
+				<jdk>(,11)</jdk>
+			</activation>
 			<build>
 				<plugins>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-javadoc-plugin</artifactId>
-						<version>2.10.3</version>
+						<artifactId>maven-toolchains-plugin</artifactId>
+						<version>1.1</version>
 						<executions>
 							<execution>
-								<id>attach-javadocs</id>
 								<goals>
-									<goal>jar</goal>
+									<goal>toolchain</goal>
 								</goals>
 							</execution>
 						</executions>
+						<configuration>
+							<toolchains>
+								<jdk>
+									<version>11</version>
+								</jdk>
+							</toolchains>
+						</configuration>
 					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>basic-release</id>
+			<activation>
+				<property>
+					<name>release</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-release-plugin</artifactId>
-						<version>2.5.2</version>
+						<version>2.5.3</version>
 						<configuration>
 							<tagNameFormat>v@{project.version}</tagNameFormat>
 							<allowTimestampedSnapshots>true</allowTimestampedSnapshots>
 							<autoVersionSubmodules>true</autoVersionSubmodules>
-							<releaseProfiles>release</releaseProfiles>
 							<preparationGoals>clean install</preparationGoals>
 							<localCheckout>true</localCheckout>
 							<goals>package</goals>
@@ -62,18 +123,13 @@
 							</execution>
 						</executions>
 					</plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-dependency-plugin</artifactId>
-						<version>2.10</version>
-					</plugin>
 				</plugins>
 			</build>
 		</profile>
 	</profiles>
 
 	<modules>
-		<module>pdfsam-community</module>
+		<module>pdfsam-basic</module>
 		<module>pdfsam-gui</module>
 		<module>pdfsam-i18n</module>
 		<module>pdfsam-core</module>
@@ -87,7 +143,6 @@
 		<module>pdfsam-rotate</module>
 		<module>pdfsam-extract</module>
 		<module>pdfsam-docs</module>
-		<module>pdfsam-msi-installer</module>
 	</modules>
 
 	<developers>
@@ -148,23 +203,20 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.3</version>
+				<version>3.8.0</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-					<debug>true</debug>
-					<debuglevel>lines,vars,source</debuglevel>
+					<release>11</release>
 				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.6</version>
+				<version>3.1.0</version>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>2.4</version>
+				<version>3.0.1</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -177,36 +229,45 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.20.1</version>
-				<configuration>
-					<reuseForks>false</reuseForks>
-					<additionalClasspathElements>
-                        <additionalClasspathElement>${java.home}/lib/ext/jfxrt.jar</additionalClasspathElement>
-                    </additionalClasspathElements>
-				</configuration>
+				<version>3.0.0-M1</version>
 			</plugin>
 		</plugins>
 		<pluginManagement>
 			<plugins>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-shade-plugin</artifactId>
-					<version>2.4.1</version>
-				</plugin>
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>appassembler-maven-plugin</artifactId>
-					<version>1.10</version>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.1.0</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-resources-plugin</artifactId>
-					<version>2.7</version>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>3.1.1</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-assembly-plugin</artifactId>
-					<version>2.5.5</version>
+					<version>3.1.0</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>3.1.0</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>exec-maven-plugin</artifactId>
+					<version>1.5.0</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>1.8</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>3.0.0</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -221,15 +282,19 @@
 		<logback.version>1.2.3</logback.version>
 		<jdepend.version>2.9.1</jdepend.version>
 		<hibernate-validator.version>4.2.0.Final</hibernate-validator.version>
-		<sejda.version>3.2.56</sejda.version>
+		<sejda.version>3.2.66</sejda.version>
 		<eventstudio.version>1.0.6</eventstudio.version>
 		<injector.version>1.0.2</injector.version>
-		<fontawesomefx.version>8.9</fontawesomefx.version>
-		<testfx.version>3.1.2</testfx.version>
-		<jackson-jr.version>2.8.6</jackson-jr.version>
+		<fontawesomefx.fontawesome.version>4.7.0-9.1.2</fontawesomefx.fontawesome.version>
+		<fontawesomefx.materialicons.version>2.2.0-9.1.2</fontawesomefx.materialicons.version>
+		<fontawesomefx.materialdesignfont.version>2.0.26-9.1.2</fontawesomefx.materialdesignfont.version>
+		<testfx.version>4.0.15-alpha</testfx.version>
+		<jackson-jr.version>2.9.7</jackson-jr.version>
 		<tempus.fugit.version>1.1</tempus.fugit.version>
 		<bouncycastle.version>1.60</bouncycastle.version>
 		<hamcrest.version>1.3</hamcrest.version>
+		<javafx.version>11.0.1</javafx.version>
+		<monocle.version>jdk-11+26</monocle.version>
 		<maven.build.timestamp.format>dd-MMM-yyyy</maven.build.timestamp.format>
 		<pdfsam.builddate>${maven.build.timestamp}</pdfsam.builddate>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -245,8 +310,13 @@
 			</dependency>
 			<dependency>
 				<groupId>de.jensd</groupId>
-				<artifactId>fontawesomefx</artifactId>
-				<version>${fontawesomefx.version}</version>
+				<artifactId>fontawesomefx-fontawesome</artifactId>
+				<version>${fontawesomefx.fontawesome.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.jensd</groupId>
+				<artifactId>fontawesomefx-materialdesignfont</artifactId>
+				<version>${fontawesomefx.materialdesignfont.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.sejda</groupId>
@@ -299,15 +369,38 @@
 				<version>${jackson-jr.version}</version>
 			</dependency>
 			<dependency>
+				<groupId>org.openjfx</groupId>
+				<artifactId>javafx-controls</artifactId>
+				<version>${javafx.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>jdepend</groupId>
 				<artifactId>jdepend</artifactId>
 				<version>${jdepend.version}</version>
 				<scope>test</scope>
 			</dependency>
 			<dependency>
-				<groupId>org.loadui</groupId>
-				<artifactId>testFx</artifactId>
+				<groupId>org.testfx</groupId>
+				<artifactId>testfx-core</artifactId>
 				<version>${testfx.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.testfx</groupId>
+				<artifactId>testfx-junit</artifactId>
+				<version>${testfx.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.openjfx</groupId>
+				<artifactId>javafx-swing</artifactId>
+				<version>${javafx.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.testfx</groupId>
+				<artifactId>openjfx-monocle</artifactId>
+				<version>${monocle.version}</version>
 				<scope>test</scope>
 			</dependency>
 		</dependencies>

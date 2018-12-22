@@ -21,6 +21,7 @@ package org.pdfsam.ui.banner;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
+import java.util.Optional;
 
 import javax.inject.Inject;
 
@@ -49,6 +50,7 @@ class WorkspaceMenu extends Menu {
 
     private RecentWorkspacesService service;
     private Menu recent;
+    private Optional<File> latestWorkspaceLoaded = Optional.empty();
 
     @Inject
     public WorkspaceMenu(RecentWorkspacesService service) {
@@ -61,17 +63,25 @@ class WorkspaceMenu extends Menu {
         MenuItem save = new MenuItem(DefaultI18nContext.getInstance().i18n("_Save"));
         save.setOnAction(e -> saveWorkspace());
         save.setId("saveWorkspace");
-        recent = new Menu(DefaultI18nContext.getInstance().i18n("Recen_t"));
+        recent = new Menu(DefaultI18nContext.getInstance().i18n("Recen_ts"));
         recent.setId("recentWorkspace");
         service.getRecentlyUsedWorkspaces().stream().map(WorkspaceMenuItem::new).forEach(recent.getItems()::add);
-        getItems().addAll(load, save, new SeparatorMenuItem(), recent);
+        MenuItem clear = new MenuItem(DefaultI18nContext.getInstance().i18n("_Clear recents"));
+        clear.setOnAction(e -> clearWorkspaces());
+        clear.setId("clearWorkspaces");
+        getItems().addAll(load, save, new SeparatorMenuItem(), recent, clear);
         eventStudio().addAnnotatedListeners(this);
     }
 
     public void saveWorkspace() {
         RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(FileType.JSON,
                 DefaultI18nContext.getInstance().i18n("Select the workspace file to save"));
-        fileChooser.setInitialFileName("PDFsam_workspace.json");
+
+        latestWorkspaceLoaded.ifPresentOrElse(f -> {
+            fileChooser.setInitialDirectory(f.getParentFile());
+            fileChooser.setInitialFileName(f.getName());
+        }, () -> fileChooser.setInitialFileName("PDFsam_workspace.json"));
+
         File chosenFile = fileChooser.showDialog(OpenType.SAVE);
         if (chosenFile != null) {
             eventStudio().broadcast(new SaveWorkspaceEvent(chosenFile));
@@ -87,9 +97,15 @@ class WorkspaceMenu extends Menu {
         }
     }
 
+    public void clearWorkspaces() {
+        service.clear();
+        recent.getItems().clear();
+    }
+
     @EventListener
     public void onWorkspaceLoaded(WorkspaceLoadedEvent e) {
         recent.getItems().clear();
         service.getRecentlyUsedWorkspaces().stream().map(WorkspaceMenuItem::new).forEach(recent.getItems()::add);
+        latestWorkspaceLoaded = Optional.of(e.workspace());
     }
 }

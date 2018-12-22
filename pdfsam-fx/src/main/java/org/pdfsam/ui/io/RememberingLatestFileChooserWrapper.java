@@ -46,7 +46,7 @@ public class RememberingLatestFileChooserWrapper extends BaseRememberingLatestCh
     }
 
     @Override
-    final void setInitialDirectory(File value) {
+    public final void setInitialDirectory(File value) {
         wrapped.setInitialDirectory(value);
     }
 

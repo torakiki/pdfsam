@@ -22,40 +22,35 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.verify;
 
-import org.junit.After;
 import org.junit.Test;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.utils.FXTestUtils;
 import org.sejda.injector.Injector;
+import org.testfx.framework.junit.ApplicationTest;
 
 import javafx.geometry.Side;
-import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
  *
  */
 
-public class MenuButtonTest extends GuiTest {
+public class MenuButtonTest extends ApplicationTest {
 
     private Injector injector;
 
     @Override
-    protected Parent getRootNode() {
+    public void start(Stage stage) {
         injector = Injector.start(new MenuConfig());
-        return injector.instance(MenuButton.class);
-    }
-
-    @After
-    public void tearDown() throws Exception {
-        AppContextMenu menu = injector.instance(AppContextMenu.class);
-        FXTestUtils.invokeAndWait(() -> menu.hide(), 1);
+        Scene scene = new Scene(injector.instance(MenuButton.class));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Test
     public void onClick() {
         AppContextMenu menu = injector.instance(AppContextMenu.class);
-        click(".button");
+        clickOn(".button");
         verify(menu).show(any(), eq(Side.BOTTOM), eq(0d), eq(0d));
     }
 }
