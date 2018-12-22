@@ -49,10 +49,10 @@ public interface SelectionTableColumn<T> extends TableColumnProvider<T> {
      * @return the cell factory used to create the {@link TableCell}
      */
     default Callback<TableColumn<SelectionTableRowData, T>, TableCell<SelectionTableRowData, T>> cellFactory() {
-        return new Callback<TableColumn<SelectionTableRowData, T>, TableCell<SelectionTableRowData, T>>() {
+        return new Callback<>() {
             @Override
             public TableCell<SelectionTableRowData, T> call(TableColumn<SelectionTableRowData, T> param) {
-                return new TableCell<SelectionTableRowData, T>() {
+                return new TableCell<>() {
                     @Override
                     public void updateItem(final T item, boolean empty) {
                         super.updateItem(item, empty);
@@ -77,7 +77,7 @@ public interface SelectionTableColumn<T> extends TableColumnProvider<T> {
      * @return the cell value factory used to extract data from the data model
      */
     default Callback<CellDataFeatures<SelectionTableRowData, T>, ObservableValue<T>> cellValueFactory() {
-        return new Callback<CellDataFeatures<SelectionTableRowData, T>, ObservableValue<T>>() {
+        return new Callback<>() {
             @Override
             public ObservableValue<T> call(CellDataFeatures<SelectionTableRowData, T> param) {
                 if (param.getValue() != null) {

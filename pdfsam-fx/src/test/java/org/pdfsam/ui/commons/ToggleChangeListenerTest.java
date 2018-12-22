@@ -28,7 +28,7 @@ import javafx.beans.value.ObservableValue;
  */
 public class ToggleChangeListenerTest {
 
-    private ToggleChangeListener<String> victim = new ToggleChangeListener<String>() {
+    private ToggleChangeListener<String> victim = new ToggleChangeListener<>() {
         @Override
         public void onChanged(ObservableValue<? extends String> observable, String oldValue, String newValue) {
             throw new RuntimeException("test");

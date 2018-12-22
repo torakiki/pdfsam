@@ -57,10 +57,10 @@ public enum FileColumn implements SelectionTableColumn<File> {
 
         @Override
         public Callback<TableColumn<SelectionTableRowData, File>, TableCell<SelectionTableRowData, File>> cellFactory() {
-            return new Callback<TableColumn<SelectionTableRowData, File>, TableCell<SelectionTableRowData, File>>() {
+            return new Callback<>() {
                 @Override
                 public TableCell<SelectionTableRowData, File> call(TableColumn<SelectionTableRowData, File> param) {
-                    return new TableCell<SelectionTableRowData, File>() {
+                    return new TableCell<>() {
                         @Override
                         public void updateItem(final File item, boolean empty) {
                             super.updateItem(item, empty);

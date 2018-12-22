@@ -110,7 +110,7 @@ public class SelectionTableTest extends ApplicationTest {
 
     @Test
     public void fallbackRequest() {
-        HitTestListener<SetDestinationRequest> listener = new HitTestListener<SetDestinationRequest>() {
+        HitTestListener<SetDestinationRequest> listener = new HitTestListener<>() {
             @Override
             public void onEvent(SetDestinationRequest event) {
                 super.onEvent(event);
@@ -123,7 +123,7 @@ public class SelectionTableTest extends ApplicationTest {
 
     @Test
     public void select() {
-        HitTestListener<SelectionChangedEvent> listener = new HitTestListener<SelectionChangedEvent>() {
+        HitTestListener<SelectionChangedEvent> listener = new HitTestListener<>() {
             @Override
             public void onEvent(SelectionChangedEvent event) {
                 super.onEvent(event);
@@ -137,7 +137,7 @@ public class SelectionTableTest extends ApplicationTest {
 
     @Test
     public void multipleSelect() {
-        HitTestListener<SelectionChangedEvent> listener = new HitTestListener<SelectionChangedEvent>() {
+        HitTestListener<SelectionChangedEvent> listener = new HitTestListener<>() {
             @Override
             public void onEvent(SelectionChangedEvent event) {
                 super.onEvent(event);
@@ -434,7 +434,7 @@ public class SelectionTableTest extends ApplicationTest {
         HitTestListener<SetDestinationRequest> listener = new HitTestListener<>();
         eventStudio().add(SetDestinationRequest.class, listener, MODULE);
         rightClickOn("temp3.pdf");
-        HitTestListener<SetDestinationRequest> notFallbackListener = new HitTestListener<SetDestinationRequest>() {
+        HitTestListener<SetDestinationRequest> notFallbackListener = new HitTestListener<>() {
             @Override
             public void onEvent(SetDestinationRequest event) {
                 super.onEvent(event);

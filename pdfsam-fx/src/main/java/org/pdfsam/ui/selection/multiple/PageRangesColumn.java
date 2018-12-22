@@ -82,7 +82,7 @@ public class PageRangesColumn implements SelectionTableColumn<String> {
 
     @Override
     public Callback<TableColumn<SelectionTableRowData, String>, TableCell<SelectionTableRowData, String>> cellFactory() {
-        return new Callback<TableColumn<SelectionTableRowData, String>, TableCell<SelectionTableRowData, String>>() {
+        return new Callback<>() {
             @Override
             public TableCell<SelectionTableRowData, String> call(TableColumn<SelectionTableRowData, String> param) {
                 return new TooltippedTextFieldTableCell(tooltipMessage);

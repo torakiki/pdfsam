@@ -115,7 +115,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
         }
     };
 
-    private Consumer<PdfDocumentDescriptor> encryptionIndicatorUpdate = new Consumer<PdfDocumentDescriptor>() {
+    private Consumer<PdfDocumentDescriptor> encryptionIndicatorUpdate = new Consumer<>() {
         private LoadingStatusIndicatorUpdater updater = new LoadingStatusIndicatorUpdater(encryptionIndicator);
 
         @Override
@@ -136,7 +136,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
         }
     };
 
-    private ToggleChangeListener<? super ValidationState> onValidState = new ToggleChangeListener<ValidationState>() {
+    private ToggleChangeListener<? super ValidationState> onValidState = new ToggleChangeListener<>() {
 
         @Override
         public void onChanged(ObservableValue<? extends ValidationState> observable, ValidationState oldValue,

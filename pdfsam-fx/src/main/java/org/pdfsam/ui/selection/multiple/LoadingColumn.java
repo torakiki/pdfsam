@@ -77,7 +77,7 @@ public class LoadingColumn implements SelectionTableColumn<PdfDescriptorLoadingS
 
     @Override
     public Callback<TableColumn<SelectionTableRowData, PdfDescriptorLoadingStatus>, TableCell<SelectionTableRowData, PdfDescriptorLoadingStatus>> cellFactory() {
-        return new Callback<TableColumn<SelectionTableRowData, PdfDescriptorLoadingStatus>, TableCell<SelectionTableRowData, PdfDescriptorLoadingStatus>>() {
+        return new Callback<>() {
             @Override
             public TableCell<SelectionTableRowData, PdfDescriptorLoadingStatus> call(
                     TableColumn<SelectionTableRowData, PdfDescriptorLoadingStatus> param) {
