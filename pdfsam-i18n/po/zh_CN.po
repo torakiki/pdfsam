@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2018-12-13 22:12+0100\n"
 "PO-Revision-Date: 2018-12-13 21:04+0000\n"
-"Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
+"Last-Translator: Teachoc <Teachoc@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -81,10 +81,10 @@ msgid "Resizes all pages to have the same width as the first page."
 msgstr "调整全部页面大小，与首页采用相同宽度。"
 
 msgid "Merge fields"
-msgstr ""
+msgstr "合并域"
 
 msgid "Merge renaming existing fields"
-msgstr ""
+msgstr "合并并重命名已存在的域"
 
 msgid "Flatten"
 msgstr ""
@@ -105,10 +105,10 @@ msgid "Discard bookmarks"
 msgstr "丢弃书签"
 
 msgid "Create one entry for each merged document"
-msgstr ""
+msgstr "为每一个合并的文档创建一个条目"
 
 msgid "Retain bookmarks as one entry for each merged document"
-msgstr ""
+msgstr "将每一个合并的文档中的书签保留为一个条目"
 
 msgid "Bookmarks handling:"
 msgstr "书签处理："
@@ -327,7 +327,7 @@ msgid "No PDF found"
 msgstr "未找到PDF"
 
 msgid "Pace"
-msgstr "每回处理页数"
+msgstr "步进"
 
 msgid ""
 "Double click to set the number of pages after which the task will switch to "
@@ -558,30 +558,30 @@ msgid "Unable to retrieve the latest news"
 msgstr "无法获取最近新闻"
 
 msgid "Invalid bookmarks level"
-msgstr ""
+msgstr "无效书签等级"
 
 msgid "Split by bookmarks"
 msgstr "按书签分割"
 
 msgid ""
 "Split a PDF document at bookmarked pages by specifying a bookmark level."
-msgstr ""
+msgstr "分割PDF文档在特定的书签等级书签标记的页面。"
 
 msgid "Regular expression the bookmark has to match"
-msgstr ""
+msgstr "使用正则表达式匹配书签"
 
 msgid "Split at this bookmark level:"
-msgstr ""
+msgstr "在此书签等级分割："
 
 msgid "Matching regular expression:"
-msgstr ""
+msgstr "匹配正则表达式："
 
 msgid "A regular expression the bookmark text has to match"
-msgstr ""
+msgstr "书签文本需要匹配的正则表达式"
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
-msgstr ""
+msgstr "例如：使用 .*Chapter.* 匹配包含\"Chapter\"的书签"
 
 msgid "Alternate Mix"
 msgstr "交替混合"
@@ -589,14 +589,14 @@ msgstr "交替混合"
 msgid ""
 "Merge two or more PDF documents taking pages alternately in natural or "
 "reverse order."
-msgstr ""
+msgstr "合并两个或多个PDF文档是页面顺序或逆序交替"
 
 msgid ""
 "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "双击设置你想要混合的页面（例如：2 或 5-23 或 2,5-7,12-）"
 
 msgid "Select a positive integer number as pace"
-msgstr ""
+msgstr "选择一个正数作为步进"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -621,10 +621,10 @@ msgid "Environment"
 msgstr "环境"
 
 msgid "Java runtime path: %s"
-msgstr ""
+msgstr "Java runtime 路径: %s"
 
 msgid "JavaFX runtime version %s"
-msgstr ""
+msgstr "JavaFX runtime 版本 %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -714,7 +714,7 @@ msgstr "显示捐赠窗口"
 msgid ""
 "Turn on or off the notification appearing once in a while and asking the "
 "user to support PDFsam with a donation"
-msgstr ""
+msgstr "打开或关闭偶尔询问用户捐赠支持PDFsam的通知"
 
 msgid "Show premium features"
 msgstr "显示高级版特性"
@@ -722,7 +722,7 @@ msgstr "显示高级版特性"
 msgid ""
 "Set whether the application should fetch and show premium features "
 "description in the modules dashboard"
-msgstr ""
+msgstr "设置应用是否在模块界面拉取和显示高级版特性"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "使用当前PDF文档所在的目录作为输出目录"
@@ -801,7 +801,7 @@ msgstr "设置打开应用时的模块（需要重新启动）"
 msgid ""
 "Usage statistics are used to populate the modules quick bar on the left with "
 "the most used and most recently used modules."
-msgstr ""
+msgstr "使用情况被用来排列左侧快速访问栏最常用和最近使用的模块"
 
 msgid "Premium features"
 msgstr "高级版特性"
@@ -924,10 +924,10 @@ msgid "_Save"
 msgstr "保存(_S)"
 
 msgid "Recen_ts"
-msgstr ""
+msgstr "最近使用(_t)"
 
 msgid "_Clear recents"
-msgstr ""
+msgstr "清除最近使用(_C)"
 
 msgid "Select the workspace file to save"
 msgstr "保存工作区文件"
