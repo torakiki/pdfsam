@@ -71,6 +71,7 @@ import org.sejda.injector.Injector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
 import javafx.application.Application;
 import javafx.application.HostServices;
@@ -104,11 +105,12 @@ public class PdfsamApp extends Application {
     @Override
     public void init() {
         STOPWATCH.start();
+        rawParameters = getParameters().getRaw();
+        verboseIfRequired();
         startLogAppender();
         System.setProperty(PDDocumentHandler.SAMBOX_USE_ASYNC_WRITER, Boolean.TRUE.toString());
         System.setProperty(Sejda.UNETHICAL_READ_PROPERTY_NAME, Boolean.TRUE.toString());
         LOG.info("Starting PDFsam");
-        rawParameters = getParameters().getRaw();
         clean = rawParameters.contains("--clean") || rawParameters.contains("-clean") || rawParameters.contains("-c");
         cleanUserContextIfNeeded(userContext);
         String localeString = userContext.getLocale();
@@ -124,6 +126,16 @@ public class PdfsamApp extends Application {
             } catch (InvalidPathException e) {
                 LOG.warn("Unable to set initial directory, default path is invalid.", e);
             }
+        }
+    }
+
+    private void verboseIfRequired() {
+        if (rawParameters.contains("--verbose") || rawParameters.contains("-verbose") || rawParameters.contains("-v")) {
+            ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("org.sejda")).setLevel(Level.DEBUG);
+            ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("org.sejda.sambox")).setLevel(Level.DEBUG);
+            ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("org.pdfsam")).setLevel(Level.DEBUG);
+            ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("org.sejda.eventstudio")).setLevel(Level.INFO);
+            LOG.info("Enabled verbose logging");
         }
     }
 
