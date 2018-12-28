@@ -17,7 +17,7 @@ if %ERRORLEVEL% NEQ 0 goto error
 ECHO "Files harvested"
 
 REM Build the MSI
-"%WIX%bin\candle.exe" pdfsam.wxs featuresTree.wxs verifyWithLanguageDlg.wxs exitDlg.wxs harvestedFiles.wxs -ext WixUIExtension -ext WixUtilExtension -ext WixNetFxExtension
+"%WIX%bin\candle.exe" pdfsam.wxs featuresTree.wxs verifyWithLanguageDlg.wxs exitDlg.wxs harvestedFiles.wxs -ext WixUIExtension -ext WixUtilExtension -ext WixNetFxExtension -arch x64
 if %ERRORLEVEL% NEQ 0 goto error
 ECHO "candle run ok"
 

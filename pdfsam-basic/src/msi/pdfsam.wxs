@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
     	<?include $(sys.CURRENTDIR)pdfsamVariables.wxi ?>
-	  	<?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
+	  	<?define PlatformProgramFilesFolder = "ProgramFiles64Folder" ?>
 	    <Product Id="$(var.ProductCode)" Name="$(var.ProductName)" Language="$(var.ProductLanguage)" Version="$(var.ProductVersion)" Manufacturer="$(var.ProductManufacturer)" UpgradeCode="$(var.ProductUpgradeCode)">
 	    <Package Description="!(loc.ProductDescription)" Comments="!(loc.ProductComments)" InstallerVersion="200" InstallPrivileges="elevated" Compressed="yes" Id="*" />
 	    <Media Id="1" Cabinet="$(var.ProductCodeName).cab" EmbedCab="yes" />
