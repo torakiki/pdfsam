@@ -33,7 +33,7 @@ PRGDIR=`dirname "$PRG"`
 BASEDIR=`cd "$PRGDIR/.." >/dev/null; pwd`
 RUNTIME="$BASEDIR"/runtime
 
-if [ -z "$PDFSAM_JAVA_PATH" ]; then
+if [ ! -d "$PDFSAM_JAVA_PATH" ]; then
   	# the rutime is supplied
 	if [ -d "$RUNTIME" ]; then
 	  JAVA_HOME="$RUNTIME"

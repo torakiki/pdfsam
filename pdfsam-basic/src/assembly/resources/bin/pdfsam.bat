@@ -64,7 +64,7 @@ for %%i in ("%~dp0..") do set "BASEDIR=%%~fi"
 :repoSetup
 set "RUNTIME=%BASEDIR%\runtime"
 
-if DEFINED PDFSAM_JAVA_PATH (
+if exist "%PDFSAM_JAVA_PATH%" (
 	set "JAVACMD=%PDFSAM_JAVA_PATH%\bin\java"
 ) else (
 	if exist "%RUNTIME%" (
