@@ -56,6 +56,7 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
+import org.pdfsam.support.EncryptionUtils;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.HitTestListener;
 import org.pdfsam.ui.commons.ClearModuleEvent;
@@ -193,7 +194,7 @@ public class SelectionTableTest extends ApplicationTest {
         write("pwd").clickOn(DefaultI18nContext.getInstance().i18n("Unlock"));
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
-        assertEquals("pwd", data.get("victiminput.password.0"));
+        assertEquals(EncryptionUtils.encrypt("pwd"), data.get("victiminput.password.enc0"));
     }
 
     @Test
@@ -209,7 +210,23 @@ public class SelectionTableTest extends ApplicationTest {
         write("pwd").clickOn(DefaultI18nContext.getInstance().i18n("Unlock"));
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
+        assertTrue(isBlank(data.get("victiminput.password.enc0")));
         assertTrue(isBlank(data.get("victiminput.password.0")));
+    }
+
+    @Test
+    public void restoreStateFromPwdBackwardCompatible() {
+        eventStudio().clear();
+        Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
+        eventStudio().add(PdfLoadRequestEvent.class, listener);
+        Map<String, String> data = new HashMap<>();
+        data.put("victiminput.size", "1");
+        data.put("victiminput.0", "chuck.pdf");
+        data.put("victiminput.password.0", "pwd");
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
+        assertEquals(1, victim.getItems().size());
+        SelectionTableRowData first = victim.getItems().get(0);
+        assertEquals("pwd", first.descriptor().getPassword());
     }
 
     @Test
@@ -220,7 +237,7 @@ public class SelectionTableTest extends ApplicationTest {
         Map<String, String> data = new HashMap<>();
         data.put("victiminput.size", "2");
         data.put("victiminput.0", "chuck.pdf");
-        data.put("victiminput.password.0", "pwd");
+        data.put("victiminput.password.enc0", EncryptionUtils.encrypt("pwd"));
         data.put("victiminput.range.0", "1-10");
         data.put("victiminput.step.0", "4");
         data.put("victiminput.reverse.0", "true");

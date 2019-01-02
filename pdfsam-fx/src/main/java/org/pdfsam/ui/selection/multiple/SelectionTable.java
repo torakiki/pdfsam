@@ -22,6 +22,7 @@ import static java.util.Arrays.stream;
 import static java.util.Optional.of;
 import static java.util.Optional.ofNullable;
 import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.pdfsam.support.EncryptionUtils.encrypt;
 import static org.pdfsam.support.io.ObjectCollectionWriter.writeContent;
 import static org.pdfsam.ui.commons.SetDestinationRequest.requestDestination;
 import static org.pdfsam.ui.commons.SetDestinationRequest.requestFallbackDestination;
@@ -50,6 +51,7 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
+import org.pdfsam.support.EncryptionUtils;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.pdfsam.ui.commons.OpenFileRequest;
@@ -497,7 +499,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
             String id = defaultString(getId());
             data.put(id + "input." + i, current.descriptor().getFile().getAbsolutePath());
             if (new DefaultUserContext().isSavePwdInWorkspaceFile()) {
-                data.put(id + "input.password." + i, current.descriptor().getPassword());
+                data.put(id + "input.password.enc" + i, encrypt(current.descriptor().getPassword()));
             }
             data.put(id + "input.range." + i, defaultString(current.pageSelection.get()));
             data.put(id + "input.step." + i, defaultString(current.pace.get()));
@@ -516,7 +518,8 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
                 String id = defaultString(getId());
                 Optional.ofNullable(data.get(id + "input." + i)).ifPresent(f -> {
                     PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptor(new File(f),
-                            data.get(id + "input.password." + i));
+                            ofNullable(data.get(id + "input.password.enc" + i)).map(EncryptionUtils::decrypt)
+                                    .orElseGet(() -> data.get(defaultString(getId()) + "input.password." + i)));
                     loadEvent.add(descriptor);
                     SelectionTableRowData row = new SelectionTableRowData(descriptor);
                     row.pageSelection.set(data.get(id + "input.range." + i));

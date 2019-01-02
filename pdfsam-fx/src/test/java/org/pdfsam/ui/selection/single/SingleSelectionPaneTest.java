@@ -51,6 +51,7 @@ import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
+import org.pdfsam.support.EncryptionUtils;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.HitConsumer;
 import org.pdfsam.test.HitTestListener;
@@ -283,7 +284,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
         victim.getPdfDocumentDescriptor().setPassword("pwd");
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
-        assertEquals("pwd", data.get("victim-selection-paneinput.password"));
+        assertEquals(EncryptionUtils.encrypt("pwd"), data.get("victim-selection-paneinput.password.enc"));
         assertThat(data.get("victim-selection-paneinput"), Matchers.endsWith("chuck.pdf"));
     }
 
@@ -295,6 +296,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
         assertTrue(isBlank(data.get("victim-selection-paneinput.password")));
+        assertTrue(isBlank(data.get("victim-selection-paneinput.password.enc")));
         assertThat(data.get("victim-selection-paneinput"), Matchers.endsWith("chuck.pdf"));
     }
 
@@ -306,12 +308,25 @@ public class SingleSelectionPaneTest extends ApplicationTest {
     }
 
     @Test
-    public void restoreStateFrom() {
+    public void restoreStateFromPwdBackwardCompatible() {
         Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequestEvent.class, listener);
         Map<String, String> data = new HashMap<>();
         data.put("victim-selection-paneinput", "chuck.pdf");
         data.put("victim-selection-paneinput.password", "pwd");
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
+        assertEquals("chuck.pdf", victim.getField().getTextField().getText());
+        assertEquals("pwd", victim.getPdfDocumentDescriptor().getPassword());
+        verify(listener).onEvent(any());
+    }
+
+    @Test
+    public void restoreStateFrom() {
+        Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
+        eventStudio().add(PdfLoadRequestEvent.class, listener);
+        Map<String, String> data = new HashMap<>();
+        data.put("victim-selection-paneinput", "chuck.pdf");
+        data.put("victim-selection-paneinput.password.enc", EncryptionUtils.encrypt("pwd"));
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals("chuck.pdf", victim.getField().getTextField().getText());
         assertEquals("pwd", victim.getPdfDocumentDescriptor().getPassword());

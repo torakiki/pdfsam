@@ -19,6 +19,7 @@
 package org.pdfsam.ui.selection.single;
 
 import static java.util.Objects.nonNull;
+import static java.util.Optional.ofNullable;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
@@ -26,6 +27,7 @@ import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.ENCRYPTED;
 import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.WITH_ERRORS;
 import static org.pdfsam.pdf.PdfDocumentDescriptor.newDescriptor;
 import static org.pdfsam.pdf.PdfDocumentDescriptor.newDescriptorNoPassword;
+import static org.pdfsam.support.EncryptionUtils.encrypt;
 import static org.pdfsam.ui.commons.SetDestinationRequest.requestDestination;
 import static org.pdfsam.ui.commons.SetDestinationRequest.requestFallbackDestination;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
@@ -43,6 +45,7 @@ import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfDocumentDescriptorProvider;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
+import org.pdfsam.support.EncryptionUtils;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.pdfsam.ui.commons.OpenFileRequest;
@@ -233,7 +236,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
         if (descriptor != null) {
             data.put(defaultString(getId()) + "input", descriptor.getFile().getAbsolutePath());
             if (new DefaultUserContext().isSavePwdInWorkspaceFile()) {
-                data.put(defaultString(getId()) + "input.password", descriptor.getPassword());
+                data.put(defaultString(getId()) + "input.password.enc", encrypt(descriptor.getPassword()));
             }
         }
     }
@@ -245,7 +248,9 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
             onValidState.disabled(true);
             getField().getTextField().setText(f);
             onValidState.disabled(false);
-            initializeFor(newDescriptor(new File(f), data.get(defaultString(getId()) + "input.password")));
+            initializeFor(newDescriptor(new File(f),
+                    ofNullable(data.get(defaultString(getId()) + "input.password.enc")).map(EncryptionUtils::decrypt)
+                            .orElseGet(() -> data.get(defaultString(getId()) + "input.password"))));
         });
     }
 
