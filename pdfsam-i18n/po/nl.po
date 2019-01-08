@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2018-12-13 22:12+0100\n"
-"PO-Revision-Date: 2018-08-16 09:33+0000\n"
+"PO-Revision-Date: 2019-01-03 08:37+0000\n"
 "Last-Translator: Hendrik <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-19 10:28+0000\n"
-"X-Generator: Launchpad (build 18843)\n"
+"X-Launchpad-Export-Date: 2019-01-08 14:12+0000\n"
+"X-Generator: Launchpad (build 18847)\n"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -688,10 +688,10 @@ msgid "Environment"
 msgstr "Omgeving"
 
 msgid "Java runtime path: %s"
-msgstr ""
+msgstr "Java-runtime pad: %s"
 
 msgid "JavaFX runtime version %s"
-msgstr ""
+msgstr "JavaFX-runtime versie %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -1020,10 +1020,10 @@ msgid "_Save"
 msgstr "_Opslaan"
 
 msgid "Recen_ts"
-msgstr ""
+msgstr "Recen_t"
 
 msgid "_Clear recents"
-msgstr ""
+msgstr "Wis re_cent"
 
 msgid "Select the workspace file to save"
 msgstr "Selecteer het werkomgevingsbestand dat moet worden opgeslagen"
