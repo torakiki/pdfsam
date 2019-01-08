@@ -50,7 +50,7 @@ class WorkspaceMenu extends Menu {
 
     private RecentWorkspacesService service;
     private Menu recent;
-    private Optional<File> latestWorkspaceLoaded = Optional.empty();
+    private Optional<File> latestWorkspace = Optional.empty();
 
     @Inject
     public WorkspaceMenu(RecentWorkspacesService service) {
@@ -77,13 +77,14 @@ class WorkspaceMenu extends Menu {
         RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(FileType.JSON,
                 DefaultI18nContext.getInstance().i18n("Select the workspace file to save"));
 
-        latestWorkspaceLoaded.ifPresentOrElse(f -> {
+        latestWorkspace.ifPresentOrElse(f -> {
             fileChooser.setInitialDirectory(f.getParentFile());
             fileChooser.setInitialFileName(f.getName());
         }, () -> fileChooser.setInitialFileName("PDFsam_workspace.json"));
 
         File chosenFile = fileChooser.showDialog(OpenType.SAVE);
         if (chosenFile != null) {
+            latestWorkspace = Optional.of(chosenFile);
             eventStudio().broadcast(new SaveWorkspaceEvent(chosenFile));
         }
     }
@@ -91,6 +92,10 @@ class WorkspaceMenu extends Menu {
     public void loadWorkspace() {
         RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(FileType.JSON,
                 DefaultI18nContext.getInstance().i18n("Select the workspace to load"));
+        latestWorkspace.ifPresent(f -> {
+            fileChooser.setInitialDirectory(f.getParentFile());
+            fileChooser.setInitialFileName(f.getName());
+        });
         File chosenFile = fileChooser.showDialog(OpenType.OPEN);
         if (chosenFile != null) {
             eventStudio().broadcast(new LoadWorkspaceEvent(chosenFile));
@@ -106,6 +111,6 @@ class WorkspaceMenu extends Menu {
     public void onWorkspaceLoaded(WorkspaceLoadedEvent e) {
         recent.getItems().clear();
         service.getRecentlyUsedWorkspaces().stream().map(WorkspaceMenuItem::new).forEach(recent.getItems()::add);
-        latestWorkspaceLoaded = Optional.of(e.workspace());
+        latestWorkspace = Optional.of(e.workspace());
     }
 }
