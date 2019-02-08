@@ -13,8 +13,11 @@
    height="512"
    id="svg3863"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
-   sodipodi:docname="icon.svg">
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="basic.svg"
+   inkscape:export-filename="/home/torakiki/repos/pdfsam/pdfsam-docs/graphics/basic.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
   <defs
      id="defs3865" />
   <sodipodi:namedview
@@ -25,15 +28,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="222.38132"
+     inkscape:cx="-519.04726"
      inkscape:cy="140.39976"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1366"
-     inkscape:window-height="692"
+     inkscape:window-width="1920"
+     inkscape:window-height="994"
      inkscape:window-x="0"
-     inkscape:window-y="24"
+     inkscape:window-y="27"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata3868">
@@ -52,19 +55,16 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-540.36218)">
-    <path
-       sodipodi:type="arc"
+    <circle
        style="fill:#ffffff;fill-opacity:1;stroke:none"
        id="path3827"
-       sodipodi:cx="-242.94168"
-       sodipodi:cy="383.32227"
-       sodipodi:rx="76.266518"
-       sodipodi:ry="76.266518"
-       d="m -166.67516,383.32227 a 76.266518,76.266518 0 1 1 -152.53304,0 76.266518,76.266518 0 1 1 152.53304,0 z"
-       transform="matrix(3.3566499,0,0,3.3566499,1071.4702,-490.31646)" />
+       transform="matrix(3.3566499,0,0,3.3566499,1071.4702,-490.31646)"
+       cx="-242.94168"
+       cy="383.32227"
+       r="76.266518" />
     <g
        id="g4193"
-       transform="matrix(7.9349013,0,0,-7.9349013,-1016.4255,470.62757)">
+       transform="matrix(7.8527983,0,0,-7.9003074,-1005.5886,474.5878)">
       <path
          id="path94-4-8"
          style="fill:#009245;fill-opacity:1;fill-rule:nonzero;stroke:none"
