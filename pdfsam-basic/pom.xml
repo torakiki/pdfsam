@@ -416,10 +416,11 @@
 									<dataSet>
 										<data>
 											<src>${project.build.directory}/assembled/bin/pdfsam.sh</src>
-											<dst>/opt/pdfsam-basic/bin/pdfsam-basic</dst>
+											<dst>pdfsam-basic</dst>
 											<type>file</type>
 											<mapper>
 												<type>perm</type>
+												<prefix>/opt/pdfsam-basic/bin</prefix>
 												<filemode>755</filemode>
 											</mapper>
 										</data>
