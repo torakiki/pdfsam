@@ -378,7 +378,7 @@
 									<artifacts>
 										<artifact>
 											<file>${project.build.directory}/pdfsam-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.msi</file>
-											<type>dmg</type>
+											<type>msi</type>
 										</artifact>
 									</artifacts>
 								</configuration>
