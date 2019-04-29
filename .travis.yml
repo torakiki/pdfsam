@@ -5,13 +5,13 @@ matrix:
   include:
     # Ubuntu Linux (trusty) / Open DK 11 / Headed (Glass Robot) / HiDPI
     - os: linux
-      dist: trusty
+      dist: xenial
       jdk: openjdk11
       env:
         - _JAVA_OPTIONS="-Dtestfx.robot=glass -Dglass.gtk.uiScale=2.0"
     # Ubuntu Linux (trusty) / Open DK 11 / Headless
     - os: linux
-      dist: trusty
+      dist: xenial
       jdk: openjdk11
       env:
         - _JAVA_OPTIONS="-Djava.awt.headless=true -Dtestfx.robot=glass -Dtestfx.headless=true -Dprism.order=sw"
