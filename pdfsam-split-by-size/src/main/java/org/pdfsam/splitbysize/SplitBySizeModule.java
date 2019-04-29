@@ -134,6 +134,7 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
                 prefix);
         prefix.addMenuItemFor(Prefix.CURRENTPAGE);
         prefix.addMenuItemFor(Prefix.FILENUMBER);
+        prefix.addMenuItemFor("[TOTAL_FILESNUMBER]");
 
         pane.getChildren().addAll(selectionPane,
                 Views.titledPane(DefaultI18nContext.getInstance().i18n("Split settings"), splitOptions),

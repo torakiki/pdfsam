@@ -128,6 +128,7 @@ public class RotateModule extends BaseTaskExecutionModule {
         TitledPane prefixTitled = Views.titledPane(DefaultI18nContext.getInstance().i18n("File names settings"),
                 prefix);
         prefix.addMenuItemFor(Prefix.FILENUMBER);
+        prefix.addMenuItemFor("[TOTAL_FILESNUMBER]");
 
         TitledPane options = Views.titledPane(DefaultI18nContext.getInstance().i18n("Rotate settings"), rotateOptions);
 

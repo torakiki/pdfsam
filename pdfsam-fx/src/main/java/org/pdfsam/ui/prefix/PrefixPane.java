@@ -67,6 +67,10 @@ public class PrefixPane extends HBox
         field.addMenuItemFor(prefixes);
     }
 
+    public void addMenuItemFor(String... prefixes) {
+        field.addMenuItemFor(prefixes);
+    }
+
     public final String getText() {
         return field.getText();
     }

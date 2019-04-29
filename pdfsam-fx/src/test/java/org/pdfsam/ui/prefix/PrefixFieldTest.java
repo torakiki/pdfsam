@@ -80,4 +80,12 @@ public class PrefixFieldTest extends ApplicationTest {
         rightClickOn(victim).clickOn("#addPrefixMenu").clickOn(Prefix.BOOKMARK.getFriendlyName());
         assertTrue(victim.getText().contains(Prefix.BOOKMARK.getFriendlyName()));
     }
+
+    @Test
+    @Category(NoHeadless.class)
+    public void prefixMenuItemIsAddedString() {
+        victim.addMenuItemFor("Chuck");
+        rightClickOn(victim).clickOn("#addPrefixMenu").clickOn("Chuck");
+        assertTrue(victim.getText().contains("Chuck"));
+    }
 }

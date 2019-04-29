@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.prefix;
 
+import static java.util.Optional.ofNullable;
 import static org.pdfsam.support.RequireUtils.requireNotNull;
 
 import org.pdfsam.i18n.DefaultI18nContext;
@@ -62,6 +63,17 @@ public class PrefixField extends TextField implements ResettableView {
     }
 
     /**
+     * Adds a {@link MenuItem} for the given prefixes to the context menu. By default {@link Prefix#TIMESTAMP} and {@link Prefix#BASENAME} are always there, adding them again will
+     * 
+     * @param prefixes
+     */
+    public void addMenuItemFor(String... prefixes) {
+        for (String current : prefixes) {
+            this.menu.getItems().add(new PrefixMenuItem(current));
+        }
+    }
+
+    /**
      * Menu item adding a Sejda prefix to the {@link TextField}, possibly replacing current selection.
      * 
      * @author Andrea Vacondio
@@ -69,13 +81,16 @@ public class PrefixField extends TextField implements ResettableView {
      */
     private final class PrefixMenuItem extends MenuItem {
 
-        private Prefix prefix;
-
         private PrefixMenuItem(Prefix prefix) {
+            this(ofNullable(prefix).map(Prefix::getFriendlyName)
+                    .orElseThrow(() -> new IllegalArgumentException("Prefix cannot be null")));
+        }
+
+        private PrefixMenuItem(String prefix) {
             requireNotNull(prefix, "Prefix cannot be null");
-            this.prefix = prefix;
-            setText(prefix.getFriendlyName());
-            setOnAction(e -> replaceSelection(PrefixMenuItem.this.prefix.getFriendlyName()));
+            setText(prefix);
+            setOnAction(e -> replaceSelection(prefix));
+            this.setMnemonicParsing(false);
         }
 
     }
