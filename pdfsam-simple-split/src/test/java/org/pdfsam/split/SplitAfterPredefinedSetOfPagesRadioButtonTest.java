@@ -178,6 +178,7 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest extends ApplicationTe
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void reset() {
         clickOn(victim);
         clickOn("#combo").clickOn("Odd pages");
