@@ -18,7 +18,10 @@
  */
 package org.pdfsam.splitbybookmarks;
 
+import static org.hamcrest.Matchers.hasItems;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
@@ -37,6 +40,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
 
 import javafx.scene.Scene;
 import javafx.scene.control.TextInputControl;
@@ -136,5 +140,23 @@ public class SplitOptionsPaneTest extends ApplicationTest {
         BookmarksLevelComboBox levelCombo = lookup("#bookmarksLevel").queryAs(BookmarksLevelComboBox.class);
         assertEquals(6, levelCombo.getItems().size());
         assertEquals("2", levelCombo.getSelectionModel().getSelectedItem());
+    }
+
+    @Test
+    public void reset() {
+        BookmarksLevelComboBox combo = lookup("#bookmarksLevel").queryAs(BookmarksLevelComboBox.class);
+        combo.setValidBookmarkLevels(validLevels);
+        clickOn("#bookmarksLevel").type(KeyCode.DIGIT3).push(KeyCode.ENTER);
+        clickOn("#bookmarksRegexp").write("Chuck");
+        victim.setValidBookmarkLevels(validLevels);
+        clickOn(combo).type(KeyCode.DIGIT3).push(KeyCode.ENTER);
+        assertEquals("3", combo.getValue());
+        assertThat(combo.getItems(), hasItems("2", "3", "4", "5", "6", "7", "10"));
+        TextInputControl field = lookup("#bookmarksRegexp").queryTextInputControl();
+        assertEquals("Chuck", field.getText());
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.resetView());
+        assertEquals(null, combo.getValue());
+        assertTrue(combo.getItems().isEmpty());
+        assertEquals("", field.getText());
     }
 }

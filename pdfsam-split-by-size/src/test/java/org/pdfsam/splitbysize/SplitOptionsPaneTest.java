@@ -37,6 +37,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
 
 import javafx.scene.Scene;
 import javafx.scene.control.TextInputControl;
@@ -108,6 +109,19 @@ public class SplitOptionsPaneTest extends ApplicationTest {
         TextInputControl field = lookup("#sizeField").queryTextInputControl();
         assertEquals("100", field.getText());
         assertTrue(mega.isSelected());
+        assertFalse(kilo.isSelected());
+    }
+
+    @Test
+    public void reset() {
+        SizeUnitRadio kilo = lookup("#unit" + SizeUnit.KILOBYTE.symbol()).queryAs(SizeUnitRadio.class);
+        clickOn("#sizeField").write("100").push(KeyCode.ENTER);
+        clickOn("#unit" + SizeUnit.KILOBYTE.symbol());
+        TextInputControl field = lookup("#sizeField").queryTextInputControl();
+        assertEquals("100", field.getText());
+        assertTrue(kilo.isSelected());
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.resetView());
+        assertEquals("", field.getText());
         assertFalse(kilo.isSelected());
     }
 }

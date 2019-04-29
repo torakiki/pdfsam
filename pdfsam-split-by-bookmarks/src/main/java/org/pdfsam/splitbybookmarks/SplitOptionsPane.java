@@ -31,6 +31,7 @@ import java.util.function.Consumer;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.params.TaskParametersBuildStep;
+import org.pdfsam.ui.ResettableView;
 import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.workspace.RestorableView;
 
@@ -49,7 +50,7 @@ import javafx.scene.text.TextFlow;
  *
  */
 class SplitOptionsPane extends VBox
-        implements TaskParametersBuildStep<SplitByOutlineLevelParametersBuilder>, RestorableView {
+        implements TaskParametersBuildStep<SplitByOutlineLevelParametersBuilder>, RestorableView, ResettableView {
 
     private BookmarksLevelComboBox levelCombo = new BookmarksLevelComboBox();
     private TextField regexpField = new TextField();
@@ -63,8 +64,8 @@ class SplitOptionsPane extends VBox
         regexpField.setPromptText(ctx.i18n("Regular expression the bookmark has to match"));
         regexpField.setPrefWidth(350);
         getChildren().addAll(createLine(new Label(ctx.i18n("Split at this bookmark level:")), levelCombo),
-                createLine(new Label(ctx.i18n("Matching regular expression:")), regexpField,
-                        helpIcon(new TextFlow(new Text(ctx.i18n("A regular expression the bookmark text has to match")
+                createLine(new Label(ctx.i18n("Matching regular expression:")), regexpField, helpIcon(new TextFlow(
+                        new Text(ctx.i18n("A regular expression the bookmark text has to match")
                                 + System.lineSeparator()),
                         new Text(ctx.i18n(
                                 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""))))));
@@ -79,6 +80,12 @@ class SplitOptionsPane extends VBox
         item.getStyleClass().addAll(Style.VITEM.css());
         item.getStyleClass().addAll(Style.HCONTAINER.css());
         return item;
+    }
+
+    @Override
+    public void resetView() {
+        regexpField.clear();
+        levelCombo.resetView();
     }
 
     @Override

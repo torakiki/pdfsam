@@ -47,6 +47,7 @@ import org.sejda.model.output.FileOrDirectoryTaskOutput;
 import org.sejda.model.parameter.SplitByEveryXPagesParameters;
 import org.sejda.model.pdf.PdfVersion;
 import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
 
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
@@ -169,5 +170,14 @@ public class SplitByEveryRadioButtonTest extends ApplicationTest {
         victim.restoreStateFrom(data);
         assertTrue(victim.isSelected());
         assertEquals("chuck", field.getText());
+    }
+
+    @Test
+    public void reset() {
+        ValidableTextField field = lookup("#field").queryAs(ValidableTextField.class);
+        clickOn(field).type(KeyCode.DIGIT3).push(KeyCode.ENTER);
+        assertEquals("3", field.getText());
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.resetView());
+        assertEquals("", field.getText());
     }
 }

@@ -29,6 +29,7 @@ import java.util.function.Consumer;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.support.validation.Validators;
+import org.pdfsam.ui.ResettableView;
 import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
@@ -44,7 +45,8 @@ import javafx.scene.layout.HBox;
  * @author Andrea Vacondio
  *
  */
-class SplitOptionsPane extends HBox implements TaskParametersBuildStep<SplitBySizeParametersBuilder>, RestorableView {
+class SplitOptionsPane extends HBox
+        implements TaskParametersBuildStep<SplitBySizeParametersBuilder>, RestorableView, ResettableView {
 
     private final ValidableTextField field = new ValidableTextField();
     private ToggleGroup group = new ToggleGroup();
@@ -70,8 +72,8 @@ class SplitOptionsPane extends HBox implements TaskParametersBuildStep<SplitBySi
     public void apply(SplitBySizeParametersBuilder builder, Consumer<String> onError) {
         this.field.validate();
         if (this.field.getValidationState() == ValidationState.VALID) {
-            builder.size(((SizeUnitRadio) group.getSelectedToggle()).unit().toBytes(
-                    Integer.valueOf(this.field.getText())));
+            builder.size(
+                    ((SizeUnitRadio) group.getSelectedToggle()).unit().toBytes(Integer.valueOf(this.field.getText())));
         } else {
             onError.accept(DefaultI18nContext.getInstance().i18n("Invalid split size"));
         }
@@ -93,4 +95,9 @@ class SplitOptionsPane extends HBox implements TaskParametersBuildStep<SplitBySi
         }).forEach(s -> s.restoreStateFrom(data));
     }
 
+    @Override
+    public void resetView() {
+        field.clear();
+        group.getToggles().stream().findFirst().ifPresent(t -> t.setSelected(true));
+    }
 }

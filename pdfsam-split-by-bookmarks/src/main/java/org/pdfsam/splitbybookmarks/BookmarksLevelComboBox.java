@@ -31,6 +31,7 @@ import java.util.stream.IntStream;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.support.validation.Validators;
+import org.pdfsam.ui.ResettableView;
 import org.pdfsam.ui.support.FXValidationSupport;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
@@ -46,7 +47,7 @@ import javafx.scene.control.ComboBox;
  *
  */
 class BookmarksLevelComboBox extends ComboBox<String>
-        implements TaskParametersBuildStep<SplitByOutlineLevelParametersBuilder>, RestorableView {
+        implements TaskParametersBuildStep<SplitByOutlineLevelParametersBuilder>, RestorableView, ResettableView {
     private final FXValidationSupport<String> validationSupport = new FXValidationSupport<>();
 
     BookmarksLevelComboBox() {
@@ -95,6 +96,12 @@ class BookmarksLevelComboBox extends ComboBox<String>
      */
     public void validate() {
         validationSupport.validate(getValue());
+    }
+
+    @Override
+    public void resetView() {
+        getItems().clear();
+        getEditor().clear();
     }
 
     @Override

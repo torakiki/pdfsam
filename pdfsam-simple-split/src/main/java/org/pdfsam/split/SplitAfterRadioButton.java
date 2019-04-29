@@ -29,6 +29,7 @@ import java.util.function.Consumer;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.params.SplitParametersBuilder;
 import org.pdfsam.support.validation.Validators;
+import org.pdfsam.ui.ResettableView;
 import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.workspace.RestorableView;
@@ -43,7 +44,8 @@ import javafx.scene.control.RadioButton;
  * @author Andrea Vacondio
  *
  */
-class SplitAfterRadioButton extends RadioButton implements SplitParametersBuilderCreator, RestorableView {
+class SplitAfterRadioButton extends RadioButton
+        implements SplitParametersBuilderCreator, RestorableView, ResettableView {
 
     private final ValidableTextField field;
 
@@ -79,6 +81,11 @@ class SplitAfterRadioButton extends RadioButton implements SplitParametersBuilde
     public void restoreStateFrom(Map<String, String> data) {
         Optional.ofNullable(data.get("splitAfter")).map(Boolean::valueOf).ifPresent(this::setSelected);
         field.setText(Optional.ofNullable(data.get("splitAfter.field")).orElse(EMPTY));
+    }
+
+    @Override
+    public void resetView() {
+        field.clear();
     }
 
     /**

@@ -22,6 +22,7 @@ import static org.hamcrest.Matchers.hasItems;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
@@ -181,6 +182,17 @@ public class BookmarksLevelComboBoxTest extends ApplicationTest {
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals("2", victim.getValue());
         assertThat(victim.getItems(), hasItems("2", "3", "5", "6", "7", "10"));
+    }
+
+    @Test
+    public void reset() {
+        victim.setValidBookmarkLevels(validLevels);
+        clickOn(victim).type(KeyCode.DIGIT3).push(KeyCode.ENTER);
+        assertEquals("3", victim.getValue());
+        assertThat(victim.getItems(), hasItems("2", "3", "4", "5", "6", "7", "10"));
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.resetView());
+        assertEquals(null, victim.getValue());
+        assertTrue(victim.getItems().isEmpty());
     }
 
     @Test

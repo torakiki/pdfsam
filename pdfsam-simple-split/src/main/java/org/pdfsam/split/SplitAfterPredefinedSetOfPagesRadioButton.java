@@ -27,6 +27,7 @@ import java.util.function.Consumer;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.params.SplitParametersBuilder;
+import org.pdfsam.ui.ResettableView;
 import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.model.parameter.SimpleSplitParameters;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
@@ -41,13 +42,18 @@ import javafx.scene.control.RadioButton;
  *
  */
 class SplitAfterPredefinedSetOfPagesRadioButton extends RadioButton
-        implements SplitParametersBuilderCreator, RestorableView {
+        implements SplitParametersBuilderCreator, RestorableView, ResettableView {
 
     private ComboBox<KeyStringValueItem<PredefinedSetOfPages>> combo;
 
     public SplitAfterPredefinedSetOfPagesRadioButton(ComboBox<KeyStringValueItem<PredefinedSetOfPages>> combo) {
         super(DefaultI18nContext.getInstance().i18n("Split after"));
         this.combo = combo;
+        combo.getSelectionModel().selectFirst();
+    }
+
+    @Override
+    public void resetView() {
         combo.getSelectionModel().selectFirst();
     }
 

@@ -170,7 +170,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
         field.setGraphic(encryptionIndicator);
         field.getStyleClass().add("single-selection-top");
         HBox.setHgrow(field, Priority.ALWAYS);
-        getChildren().addAll(field, details);
+        getChildren().addAll(new SingleSelectionPaneToolbar(ownerModule), field, details);
         field.getTextField().validProperty().addListener(onValidState);
         initContextMenu();
         eventStudio().addAnnotatedListeners(this);
@@ -294,7 +294,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
 
     @EventListener
     public void onClearSelected(ClearModuleEvent event) {
-        field.getTextField().setText("");
+        field.getTextField().clear();
         disableRemoveMenuItemIfNeeded();
     }
 

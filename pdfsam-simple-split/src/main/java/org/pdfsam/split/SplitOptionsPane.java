@@ -26,6 +26,7 @@ import java.util.function.Consumer;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
+import org.pdfsam.ui.ResettableView;
 import org.pdfsam.ui.commons.RadioButtonDrivenTextFieldsPane;
 import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.Style;
@@ -43,7 +44,7 @@ import javafx.scene.layout.VBox;
  * @author Andrea Vacondio
  *
  */
-class SplitOptionsPane extends VBox implements SplitParametersBuilderCreator, RestorableView {
+class SplitOptionsPane extends VBox implements SplitParametersBuilderCreator, RestorableView, ResettableView {
 
     private ToggleGroup group = new ToggleGroup();
     private SplitAfterPredefinedSetOfPagesRadioButton splitAfterPredefined;
@@ -103,5 +104,13 @@ class SplitOptionsPane extends VBox implements SplitParametersBuilderCreator, Re
         splitAfterPredefined.restoreStateFrom(data);
         splitAfter.restoreStateFrom(data);
         splitByEvery.restoreStateFrom(data);
+    }
+
+    @Override
+    public void resetView() {
+        splitAfterPredefined.resetView();
+        splitAfter.resetView();
+        splitByEvery.resetView();
+        splitAfterPredefined.setSelected(true);
     }
 }

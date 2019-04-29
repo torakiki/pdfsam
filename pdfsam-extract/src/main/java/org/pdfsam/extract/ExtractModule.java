@@ -158,6 +158,7 @@ public class ExtractModule extends BaseTaskExecutionModule {
             destinationPane.resetView();
         }
     }
+
     @Override
     public Node graphic() {
         return new ImageView("extract.png");

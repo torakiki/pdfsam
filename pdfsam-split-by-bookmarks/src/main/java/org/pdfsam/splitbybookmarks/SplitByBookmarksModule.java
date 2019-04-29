@@ -35,6 +35,7 @@ import org.pdfsam.module.ModuleDescriptor;
 import org.pdfsam.module.ModuleInputOutputType;
 import org.pdfsam.module.ModulePriority;
 import org.pdfsam.module.RequiredPdfData;
+import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.pdfsam.ui.io.BrowsableOutputDirectoryField;
 import org.pdfsam.ui.io.PdfDestinationPane;
 import org.pdfsam.ui.module.BaseTaskExecutionModule;
@@ -44,6 +45,7 @@ import org.pdfsam.ui.module.RunButton;
 import org.pdfsam.ui.prefix.PrefixPane;
 import org.pdfsam.ui.selection.single.TaskParametersBuilderSingleSelectionPane;
 import org.pdfsam.ui.support.Views;
+import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
 import org.sejda.injector.Auto;
 import org.sejda.injector.Components;
@@ -150,6 +152,15 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
     @EventStation
     public String id() {
         return MODULE_ID;
+    }
+
+    @EventListener
+    public void onClearModule(ClearModuleEvent e) {
+        if (e.clearEverything) {
+            splitOptions.resetView();
+            prefix.resetView();
+            destinationPane.resetView();
+        }
     }
 
     @Override

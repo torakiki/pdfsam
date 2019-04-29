@@ -176,4 +176,14 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest extends ApplicationTe
         assertTrue(victim.isSelected());
         assertEquals(PredefinedSetOfPages.EVEN_PAGES, combo.getSelectionModel().getSelectedItem().getKey());
     }
+
+    @Test
+    public void reset() {
+        clickOn(victim);
+        clickOn("#combo").clickOn("Odd pages");
+        ComboBox<KeyStringValueItem<PredefinedSetOfPages>> combo = lookup("#combo").queryComboBox();
+        assertEquals(PredefinedSetOfPages.ODD_PAGES, combo.getSelectionModel().getSelectedItem().getKey());
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.resetView());
+        assertEquals(PredefinedSetOfPages.ALL_PAGES, combo.getSelectionModel().getSelectedItem().getKey());
+    }
 }

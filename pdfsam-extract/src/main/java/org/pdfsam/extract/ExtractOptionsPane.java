@@ -98,6 +98,6 @@ class ExtractOptionsPane extends HBox
 
     @Override
     public void resetView() {
-        this.field.setText("");
+        this.field.clear();
     }
 }
