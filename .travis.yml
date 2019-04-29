@@ -3,23 +3,20 @@ sudo: false
 
 matrix:
   include:
-    # Ubuntu Linux (trusty) / Open DK 11 / Headed (Glass Robot) / HiDPI
+    # Ubuntu Linux (xenial) / Open DK 11 / Headed (Glass Robot) / HiDPI
     - os: linux
       dist: xenial
+      services:
+        - xvfb
       jdk: openjdk11
       env:
         - _JAVA_OPTIONS="-Dtestfx.robot=glass -Dglass.gtk.uiScale=2.0"
     # Ubuntu Linux (trusty) / Open DK 11 / Headless
     - os: linux
       dist: xenial
+      services:
+        - xvfb
       jdk: openjdk11
       env:
         - _JAVA_OPTIONS="-Djava.awt.headless=true -Dtestfx.robot=glass -Dtestfx.headless=true -Dprism.order=sw"
     
-before_install:
-  - if [[ "${TRAVIS_OS_NAME}" == linux ]]; then 
-      export DISPLAY=:99.0; sh -e /etc/init.d/xvfb start; 
-    elif [[ "${TRAVIS_OS_NAME}" == osx ]]; then
-      brew update && brew install gettext && brew link --force gettext;
-    fi
-
