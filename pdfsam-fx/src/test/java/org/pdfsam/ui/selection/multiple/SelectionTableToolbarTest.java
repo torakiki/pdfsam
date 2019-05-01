@@ -46,6 +46,7 @@ import org.testfx.util.WaitForAsyncUtils;
 
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.SplitMenuButton;
 import javafx.stage.Stage;
 
 /**
@@ -82,7 +83,12 @@ public class SelectionTableToolbarTest extends ApplicationTest {
         Listener<ClearModuleEvent> listener = mock(Listener.class);
         ArgumentCaptor<ClearModuleEvent> captor = ArgumentCaptor.forClass(ClearModuleEvent.class);
         eventStudio().add(ClearModuleEvent.class, listener, MODULE);
-        clickOn(".arrow-button").clickOn(".menu-item");
+        SplitMenuButton btn = lookup("#clear-button").queryAs(SplitMenuButton.class);
+        for (Node child : btn.getChildrenUnmodifiable()) {
+            if (child.getStyleClass().contains("arrow-button")) {
+                clickOn(child).clickOn(".menu-item");
+            }
+        }
         verify(listener).onEvent(captor.capture());
         assertTrue(captor.getValue().clearEverything);
     }

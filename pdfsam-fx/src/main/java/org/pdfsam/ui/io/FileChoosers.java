@@ -18,6 +18,9 @@
  */
 package org.pdfsam.ui.io;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 import org.pdfsam.support.io.FileType;
 
 /**
@@ -40,8 +43,9 @@ public final class FileChoosers {
      * @param title
      * @return a shared instance of {@link javafx.stage.FileChooser} with the given title.
      */
-    public static RememberingLatestFileChooserWrapper getFileChooser(FileType filter, String title) {
-        FILE_INSTANCE.getExtensionFilters().setAll(filter.getFilter());
+    public static RememberingLatestFileChooserWrapper getFileChooser(String title, FileType... filters) {
+        FILE_INSTANCE.getExtensionFilters()
+                .setAll(Arrays.stream(filters).map(FileType::getFilter).collect(Collectors.toList()));
         FILE_INSTANCE.setInitialFileName("");
         FILE_INSTANCE.setTitle(title);
         return FILE_INSTANCE;

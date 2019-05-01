@@ -59,9 +59,8 @@ public class BrowsableFileField extends BrowsableField {
         this.fileType = ObjectUtils.defaultIfNull(fileType, FileType.ALL);
         this.openType = ObjectUtils.defaultIfNull(openType, OpenType.OPEN);
         if (FileType.ALL != fileType) {
-            getTextField().setPromptText(
-                    String.format("%s: %s", DefaultI18nContext.getInstance().i18n("Select a file"), fileType
-                            .getFilter().getExtensions()));
+            getTextField().setPromptText(String.format("%s: %s", DefaultI18nContext.getInstance().i18n("Select a file"),
+                    fileType.getFilter().getExtensions()));
         } else {
             getTextField().setPromptText(DefaultI18nContext.getInstance().i18n("Select a file"));
         }
@@ -85,8 +84,9 @@ public class BrowsableFileField extends BrowsableField {
     }
 
     private String buildErrorMessage(boolean selectedFileMustExists) {
-        String errorMessage = selectedFileMustExists ? DefaultI18nContext.getInstance().i18n(
-                "The selected file must exist. ") : "";
+        String errorMessage = selectedFileMustExists
+                ? DefaultI18nContext.getInstance().i18n("The selected file must exist. ")
+                : "";
         if (FileType.ALL != fileType) {
             errorMessage += DefaultI18nContext.getInstance().i18n("Allowed extensions are {0}",
                     fileType.getFilter().getExtensions().toString());
@@ -104,8 +104,8 @@ public class BrowsableFileField extends BrowsableField {
 
         @Override
         public void handle(ActionEvent event) {
-            RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(fileType,
-                    getBrowseWindowTitle());
+            RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(getBrowseWindowTitle(),
+                    fileType);
             String currentSelection = getTextField().getText();
             if (isNotBlank(currentSelection)) {
                 Path path = Paths.get(currentSelection);

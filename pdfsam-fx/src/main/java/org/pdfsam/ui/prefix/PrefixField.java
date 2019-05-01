@@ -19,7 +19,7 @@
 package org.pdfsam.ui.prefix;
 
 import static java.util.Optional.ofNullable;
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.pdfsam.support.RequireUtils.requireNotBlank;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.ResettableView;
@@ -87,7 +87,7 @@ public class PrefixField extends TextField implements ResettableView {
         }
 
         private PrefixMenuItem(String prefix) {
-            requireNotNull(prefix, "Prefix cannot be null");
+            requireNotBlank(prefix, "Prefix cannot be blank");
             setText(prefix);
             setOnAction(e -> replaceSelection(prefix));
             this.setMnemonicParsing(false);

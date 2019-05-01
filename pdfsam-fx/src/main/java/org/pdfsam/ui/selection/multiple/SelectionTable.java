@@ -50,6 +50,7 @@ import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
+import org.pdfsam.pdf.PdfFilesListLoadRequest;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.EncryptionUtils;
 import org.pdfsam.support.io.FileType;
@@ -386,23 +387,29 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     private Consumer<DragEvent> onDragDropped() {
         return (DragEvent e) -> {
-            final PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
-            getFilesFromDragboard(e.getDragboard()).filter(f -> FileType.PDF.matches(f.getName()))
-                    .map(PdfDocumentDescriptor::newDescriptorNoPassword).forEach(loadEvent::add);
-            if (!loadEvent.getDocuments().isEmpty()) {
-                eventStudio().broadcast(loadEvent, getOwnerModule());
+            List<File> files = e.getDragboard().getFiles();
+            // not a PDF maybe a csv or txt containing the list
+            if (files.size() == 1 && !files.get(0).isDirectory()
+                    && (FileType.TXT.matches(files.get(0).getName()) || FileType.CSV.matches(files.get(0).getName()))) {
+                eventStudio().broadcast(new PdfFilesListLoadRequest(getOwnerModule(), files.get(0).toPath()));
             } else {
-                eventStudio().broadcast(new AddNotificationRequestEvent(NotificationType.WARN,
-                        DefaultI18nContext.getInstance()
-                                .i18n("Drag and drop PDF files or directories containing PDF files"),
-                        DefaultI18nContext.getInstance().i18n("No PDF found")));
+                final PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
+                getFiles(files).filter(f -> FileType.PDF.matches(f.getName()))
+                        .map(PdfDocumentDescriptor::newDescriptorNoPassword).forEach(loadEvent::add);
+                if (!loadEvent.getDocuments().isEmpty()) {
+                    eventStudio().broadcast(loadEvent, getOwnerModule());
+                } else {
+                    eventStudio().broadcast(new AddNotificationRequestEvent(NotificationType.WARN,
+                            DefaultI18nContext.getInstance()
+                                    .i18n("Drag and drop PDF files or directories containing PDF files"),
+                            DefaultI18nContext.getInstance().i18n("No PDF found")));
+                }
             }
             e.setDropCompleted(true);
         };
     }
 
-    private Stream<File> getFilesFromDragboard(Dragboard board) {
-        List<File> files = board.getFiles();
+    private Stream<File> getFiles(List<File> files) {
         if (files.size() == 1 && files.get(0).isDirectory()) {
             return stream(files.get(0).listFiles()).sorted();
         }

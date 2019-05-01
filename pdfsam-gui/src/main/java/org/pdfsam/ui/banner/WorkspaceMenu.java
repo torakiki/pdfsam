@@ -74,8 +74,8 @@ class WorkspaceMenu extends Menu {
     }
 
     public void saveWorkspace() {
-        RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(FileType.JSON,
-                DefaultI18nContext.getInstance().i18n("Select the workspace file to save"));
+        RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(
+                DefaultI18nContext.getInstance().i18n("Select the workspace file to save"), FileType.JSON);
 
         latestWorkspace.ifPresentOrElse(f -> {
             fileChooser.setInitialDirectory(f.getParentFile());
@@ -90,8 +90,8 @@ class WorkspaceMenu extends Menu {
     }
 
     public void loadWorkspace() {
-        RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(FileType.JSON,
-                DefaultI18nContext.getInstance().i18n("Select the workspace to load"));
+        RememberingLatestFileChooserWrapper fileChooser = FileChoosers
+                .getFileChooser(DefaultI18nContext.getInstance().i18n("Select the workspace to load"), FileType.JSON);
         latestWorkspace.ifPresent(f -> {
             fileChooser.setInitialDirectory(f.getParentFile());
             fileChooser.setInitialFileName(f.getName());

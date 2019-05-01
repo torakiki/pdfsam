@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.selection.multiple;
 
+import static java.util.Objects.nonNull;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
@@ -28,12 +29,14 @@ import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
+import org.pdfsam.pdf.PdfFilesListLoadRequest;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.pdfsam.ui.commons.RemoveSelectedEvent;
 import org.pdfsam.ui.io.FileChoosers;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper;
+import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 import org.pdfsam.ui.module.ModuleOwnedButton;
 import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
 import org.pdfsam.ui.selection.multiple.move.MoveType;
@@ -78,24 +81,49 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
      * @author Andrea Vacondio
      * 
      */
-    static class AddButton extends ModuleOwnedButton {
+    static class AddButton extends SplitMenuButton implements ModuleOwned {
+
+        private String ownerModule = StringUtils.EMPTY;
 
         public AddButton(String ownerModule) {
-            super(ownerModule);
+            this.ownerModule = defaultString(ownerModule);
+            getStyleClass().addAll(Style.BUTTON.css());
+            getStyleClass().add("pdfsam-split-button");
             setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Add documents to the table")));
             setText(DefaultI18nContext.getInstance().i18n("_Add"));
             setOnAction(this::loadDocuments);
+
+            MenuItem fromList = new MenuItem();
+            fromList.setText(DefaultI18nContext.getInstance().i18n("PDF list from _text/csv file"));
+            fromList.setOnAction(this::loadList);
+            getItems().add(fromList);
         }
 
         public void loadDocuments(ActionEvent event) {
-            RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(FileType.PDF,
-                    DefaultI18nContext.getInstance().i18n("Select pdf documents to load"));
+            RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(
+                    DefaultI18nContext.getInstance().i18n("Select pdf documents to load"), FileType.PDF);
             List<File> chosenFiles = fileChooser.showOpenMultipleDialog(this.getScene().getWindow());
             if (chosenFiles != null && !chosenFiles.isEmpty()) {
                 PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
                 chosenFiles.stream().map(PdfDocumentDescriptor::newDescriptorNoPassword).forEach(loadEvent::add);
                 eventStudio().broadcast(loadEvent, getOwnerModule());
             }
+        }
+
+        public void loadList(ActionEvent event) {
+            RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(
+                    DefaultI18nContext.getInstance().i18n("Select a text or CSV file to load"), FileType.CSV,
+                    FileType.TXT);
+            File chosenFile = fileChooser.showDialog(this.getScene().getWindow(), OpenType.OPEN);
+            if (nonNull(chosenFile)) {
+                eventStudio().broadcast(new PdfFilesListLoadRequest(getOwnerModule(), chosenFile.toPath()));
+            }
+        }
+
+        @Override
+        @EventStation
+        public String getOwnerModule() {
+            return ownerModule;
         }
     }
 
@@ -137,6 +165,7 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
         private String ownerModule = StringUtils.EMPTY;
 
         public ClearButton(String ownerModule) {
+            setId("clear-button");
             this.ownerModule = defaultString(ownerModule);
             getStyleClass().addAll(Style.BUTTON.css());
             getStyleClass().add("pdfsam-split-button");
