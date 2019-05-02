@@ -40,12 +40,6 @@ public enum PremiumProduct {
             return new ImageView("images/enhanced32.png");
         }
     },
-    SEJDA {
-        @Override
-        public Node graphic() {
-            return new ImageView("images/sejda32.png");
-        }
-    },
     OTHER;
 
     public Node graphic() {
