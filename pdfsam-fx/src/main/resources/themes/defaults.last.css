@@ -28,11 +28,17 @@
 /**
  * Browse button
  */
-.browse-button {
+.browse-button, .browse-button:default, .browse-button:focused {
 	-fx-padding: 0.0 1.166666em 0.0 1.166666em;
 	-fx-alignment: center;
 }
 .browsable-field{
 	-fx-alignment: center-left;
 	-fx-spacing: 0.416667em;
+}
+/**
+* Toolbar button
+**/
+.toolbar-button, .toolbar-button:default, .toolbar-button:focused {
+	-fx-padding: 0.5em 1em 0.5em 1em;
 }

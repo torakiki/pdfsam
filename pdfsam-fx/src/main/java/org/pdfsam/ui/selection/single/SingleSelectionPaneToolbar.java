@@ -25,10 +25,15 @@ import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.ui.commons.ClearModuleEvent;
-import org.pdfsam.ui.module.ModuleOwnedButton;
+import org.pdfsam.ui.selection.ToolbarButton;
 
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
+import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
+import javafx.scene.control.Tooltip;
+import javafx.stage.FileChooser;
 
 /**
  * Toolbar for the single selection panel
@@ -40,17 +45,35 @@ class SingleSelectionPaneToolbar extends ToolBar implements ModuleOwned {
 
     private String ownerModule = StringUtils.EMPTY;
 
-    public SingleSelectionPaneToolbar(String ownerModule) {
+    public SingleSelectionPaneToolbar(Button selectButton, String ownerModule) {
         this.ownerModule = defaultString(ownerModule);
-        getItems().addAll(new ClearButton(ownerModule));
+        getItems().addAll(selectButton, new ClearButton(ownerModule));
         getStyleClass().add("selection-tool-bar");
     }
 
-    static class ClearButton extends ModuleOwnedButton {
+    /**
+     * Button to request the load of a pdf document selected using a {@link FileChooser}
+     * 
+     * @author Andrea Vacondio
+     * 
+     */
+    public static class SelectButton extends ToolbarButton {
+
+        public SelectButton(String ownerModule) {
+            super(ownerModule);
+            setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Select the PDF file")));
+            setText(DefaultI18nContext.getInstance().i18n("_Select PDF"));
+        }
+    }
+
+    static class ClearButton extends ToolbarButton {
 
         public ClearButton(String ownerModule) {
             super(ownerModule);
-            setText(DefaultI18nContext.getInstance().i18n("C_lear all settings"));
+            setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Clear all settings")));
+            MaterialDesignIconFactory.get().setIcon(this, MaterialDesignIcon.DELETE, "1.5em");
+            setStyle("-fx-padding-top: 0.25em;");
+            setStyle("-fx-padding: 0.25em 1em 0.25em 1em;");
             setOnAction(this::clearAll);
             eventStudio().addAnnotatedListeners(this);
         }

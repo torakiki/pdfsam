@@ -68,16 +68,21 @@ abstract class BrowsableField extends HBox implements RestorableView {
     private String browseWindowTitle = DefaultI18nContext.getInstance().i18n("Select");
 
     public BrowsableField() {
+        this(new Button(DefaultI18nContext.getInstance().i18n("Browse")));
+        browseButton.getStyleClass().addAll(Style.BROWSE_BUTTON.css());
+        browseButton.prefHeightProperty().bind(validableContainer.heightProperty());
+        browseButton.setMaxHeight(USE_PREF_SIZE);
+        browseButton.setMinHeight(USE_PREF_SIZE);
+        getChildren().add(browseButton);
+    }
+
+    public BrowsableField(Button browseButton) {
+        this.browseButton = browseButton;
         HBox.setHgrow(textField, Priority.ALWAYS);
         this.getStyleClass().add("browsable-field");
         validableContainer = new HBox(textField);
         validableContainer.getStyleClass().add("validable-container");
         textField.getStyleClass().add("validable-container-field");
-        browseButton = new Button(DefaultI18nContext.getInstance().i18n("Browse"));
-        browseButton.getStyleClass().addAll(Style.BROWSE_BUTTON.css());
-        browseButton.prefHeightProperty().bind(validableContainer.heightProperty());
-        browseButton.setMaxHeight(USE_PREF_SIZE);
-        browseButton.setMinHeight(USE_PREF_SIZE);
         HBox.setHgrow(validableContainer, Priority.ALWAYS);
         textField.validProperty().addListener((o, oldValue, newValue) -> {
             if (newValue == ValidationState.INVALID) {
@@ -88,7 +93,7 @@ abstract class BrowsableField extends HBox implements RestorableView {
         });
         textField.focusedProperty().addListener(
                 (o, oldVal, newVal) -> validableContainer.pseudoClassStateChanged(SELECTED_PSEUDOCLASS_STATE, newVal));
-        getChildren().addAll(validableContainer, browseButton);
+        getChildren().add(validableContainer);
     }
 
     /**

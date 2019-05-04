@@ -244,6 +244,12 @@
 	-fx-background-color: -pdfsam-armed-button-color;
     -fx-opacity: 0.85;
 }
+.toolbar-splitbutton, .toolbar-splitbutton:default, .toolbar-splitbutton:focused {
+	-fx-padding: 0.0 0.0 0.0 0.5em;
+}
+.toolbar-splitbutton > .label, .toolbar-splitbutton:focused > .label {
+	-fx-padding: 0.5em 0.5em 0.5em 0.5em; 
+}
 /**
  * Checkbox
  */

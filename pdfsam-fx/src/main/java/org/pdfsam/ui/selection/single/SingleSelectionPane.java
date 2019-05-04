@@ -57,6 +57,7 @@ import org.pdfsam.ui.io.ChangedSelectedPdfVersionEvent;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 import org.pdfsam.ui.selection.LoadingStatusIndicatorUpdater;
 import org.pdfsam.ui.selection.PasswordFieldPopup;
+import org.pdfsam.ui.selection.single.SingleSelectionPaneToolbar.SelectButton;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.eventstudio.annotation.EventListener;
@@ -93,7 +94,7 @@ import javafx.stage.Window;
 public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumentDescriptorProvider, RestorableView {
 
     private String ownerModule = StringUtils.EMPTY;
-    private BrowsableFileField field = new BrowsableFileField(FileType.PDF, OpenType.OPEN);
+    private BrowsableFileField field;
     private Label details = new Label();
     private PdfDocumentDescriptor descriptor;
     private PasswordFieldPopup passwordPopup;
@@ -156,6 +157,8 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
         this.getStyleClass().add("single-selection-pane");
         this.ownerModule = defaultString(ownerModule);
         this.details.getStyleClass().add("-pdfsam-selection-details");
+        SelectButton selectButton = new SelectButton(getOwnerModule());
+        field = new BrowsableFileField(FileType.PDF, OpenType.OPEN, selectButton);
         field.enforceValidation(true, false);
         passwordPopup = new PasswordFieldPopup(this.ownerModule);
         encryptionIndicator.getStyleClass().addAll("encryption-status");
@@ -170,7 +173,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
         field.setGraphic(encryptionIndicator);
         field.getStyleClass().add("single-selection-top");
         HBox.setHgrow(field, Priority.ALWAYS);
-        getChildren().addAll(new SingleSelectionPaneToolbar(ownerModule), field, details);
+        getChildren().addAll(new SingleSelectionPaneToolbar(selectButton, getOwnerModule()), field, details);
         field.getTextField().validProperty().addListener(onValidState);
         initContextMenu();
         eventStudio().addAnnotatedListeners(this);

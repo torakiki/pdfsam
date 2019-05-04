@@ -36,6 +36,7 @@ import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.TransferMode;
 
@@ -48,11 +49,20 @@ import javafx.scene.input.TransferMode;
  */
 public class BrowsableFileField extends BrowsableField {
 
-    private final FileType fileType;
-    private final OpenType openType;
+    private FileType fileType = FileType.ALL;
+    private OpenType openType = OpenType.OPEN;
     private BrowseEventHandler handler = new BrowseEventHandler();
 
     public BrowsableFileField(FileType fileType, OpenType openType) {
+        this.init(fileType, openType);
+    }
+
+    public BrowsableFileField(FileType fileType, OpenType openType, Button browseButton) {
+        super(browseButton);
+        this.init(fileType, openType);
+    }
+
+    private void init(FileType fileType, OpenType openType) {
         setBrowseWindowTitle(DefaultI18nContext.getInstance().i18n("Select a file"));
         getBrowseButton().setOnAction(handler);
         getTextField().setOnAction(handler);
@@ -67,7 +77,6 @@ public class BrowsableFileField extends BrowsableField {
         setOnDragOver(e -> dragConsume(e, this.onDragOverConsumer()));
         setOnDragDropped(e -> dragConsume(e, this.onDragDropped()));
     }
-
     /**
      * Configure validation for the field
      * 

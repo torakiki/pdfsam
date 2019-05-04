@@ -37,7 +37,7 @@ import org.pdfsam.ui.commons.RemoveSelectedEvent;
 import org.pdfsam.ui.io.FileChoosers;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
-import org.pdfsam.ui.module.ModuleOwnedButton;
+import org.pdfsam.ui.selection.ToolbarButton;
 import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
 import org.pdfsam.ui.selection.multiple.move.MoveType;
 import org.pdfsam.ui.support.Style;
@@ -88,7 +88,7 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
         public AddButton(String ownerModule) {
             this.ownerModule = defaultString(ownerModule);
             getStyleClass().addAll(Style.BUTTON.css());
-            getStyleClass().add("pdfsam-split-button");
+            getStyleClass().addAll("pdfsam-split-button", "toolbar-splitbutton");
             setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Add documents to the table")));
             setText(DefaultI18nContext.getInstance().i18n("_Add"));
             setOnAction(this::loadDocuments);
@@ -133,7 +133,7 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
      * @author Andrea Vacondio
      * 
      */
-    static class RemoveButton extends ModuleOwnedButton {
+    static class RemoveButton extends ToolbarButton {
 
         public RemoveButton(String ownerModule) {
             super(ownerModule);
@@ -168,7 +168,7 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
             setId("clear-button");
             this.ownerModule = defaultString(ownerModule);
             getStyleClass().addAll(Style.BUTTON.css());
-            getStyleClass().add("pdfsam-split-button");
+            getStyleClass().addAll("pdfsam-split-button", "toolbar-splitbutton");
             setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Removes every document")));
             setText(DefaultI18nContext.getInstance().i18n("_Clear"));
             setOnAction(this::clear);
@@ -200,7 +200,7 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
      * @author Andrea Vacondio
      * 
      */
-    private static class BaseMoveSelectedButton extends ModuleOwnedButton {
+    private static class BaseMoveSelectedButton extends ToolbarButton {
 
         private MoveType type;
 
