@@ -65,6 +65,7 @@ import org.sejda.eventstudio.Listener;
 import org.testfx.framework.junit.ApplicationTest;
 import org.testfx.util.WaitForAsyncUtils;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.scene.Scene;
 import javafx.scene.control.Labeled;
 import javafx.scene.control.SeparatorMenuItem;
@@ -373,7 +374,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
         });
         Listener<ShowStageRequest> listener = mock(Listener.class);
         eventStudio().add(ShowStageRequest.class, listener, "LogStage");
-        clickOn(".glyph-icon");
+        clickOn(FontAwesomeIcon.WARNING.unicode());
         verify(listener).onEvent(any());
     }
 
@@ -383,7 +384,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
         Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequestEvent.class, listener);
         moveToEncrytedState(victim);
-        clickOn(".glyph-icon");
+        clickOn(FontAwesomeIcon.LOCK.unicode());
         write("pwd").clickOn(DefaultI18nContext.getInstance().i18n("Unlock"));
         verify(listener, times(2)).onEvent(any());
     }
