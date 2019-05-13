@@ -87,7 +87,7 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned, 
         version = new PdfVersionCombo(ownerModule);
         compress = new PdfVersionConstrainedCheckBox(PdfVersion.VERSION_1_5, ownerModule);
         compress.setText(DefaultI18nContext.getInstance().i18n("Compress output file/files"));
-        compress.setSelected(true);
+        compress.setSelected(userContext.isCompressionEnabled());
         compress.setId("compressField");
         compress.getStyleClass().addAll(Style.VITEM.css());
 

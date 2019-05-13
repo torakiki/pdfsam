@@ -113,6 +113,11 @@ public final class DefaultUserContext implements UserContext {
     }
 
     @Override
+    public boolean isCompressionEnabled() {
+        return prefs.getBoolean(BooleanUserPreference.PDF_COMPRESSION_ENABLED.toString(), Boolean.TRUE);
+    }
+
+    @Override
     public boolean isSavePwdInWorkspaceFile() {
         return prefs.getBoolean(BooleanUserPreference.SAVE_PWD_IN_WORKSPACE.toString(), Boolean.FALSE);
     }

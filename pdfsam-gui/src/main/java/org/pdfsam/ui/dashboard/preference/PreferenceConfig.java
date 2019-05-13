@@ -100,6 +100,20 @@ public class PreferenceConfig {
     }
 
     @Provides
+    @Named("compressionEnabled")
+    public PreferenceCheckBox compressionEnabled(UserContext userContext) {
+        PreferenceCheckBox compressionEnabled = new PreferenceCheckBox(BooleanUserPreference.PDF_COMPRESSION_ENABLED,
+                DefaultI18nContext.getInstance().i18n("Enabled PDF compression"), userContext.isCompressionEnabled(),
+                userContext);
+        compressionEnabled.setId("compressionEnabled");
+        compressionEnabled.setGraphic(helpIcon(DefaultI18nContext.getInstance()
+                .i18n("Set whether \"Compress output file\" should be enabled by default")));
+        compressionEnabled.getStyleClass().addAll(Style.WITH_HELP.css());
+        compressionEnabled.getStyleClass().add("spaced-vitem");
+        return compressionEnabled;
+    }
+
+    @Provides
     @Named("playSounds")
     public PreferenceCheckBox playSounds(UserContext userContext) {
         PreferenceCheckBox playSounds = new PreferenceCheckBox(BooleanUserPreference.PLAY_SOUNDS,

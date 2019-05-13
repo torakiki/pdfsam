@@ -67,6 +67,11 @@ public interface UserContext {
     boolean isCheckForNews();
 
     /**
+     * @return if the output PDF file compression settings should be enabled by default
+     */
+    boolean isCompressionEnabled();
+
+    /**
      * @return true if documents password should be saved when saving a workspace
      */
     boolean isSavePwdInWorkspaceFile();

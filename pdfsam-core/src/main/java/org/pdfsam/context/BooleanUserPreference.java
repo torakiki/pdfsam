@@ -27,6 +27,7 @@ package org.pdfsam.context;
 public enum BooleanUserPreference {
     CHECK_UPDATES,
     CHECK_FOR_NEWS,
+    PDF_COMPRESSION_ENABLED,
     PLAY_SOUNDS,
     DONATION_NOTIFICATION,
     PREMIUM_MODULES,

@@ -44,7 +44,10 @@ public class PreferenceOutputPaneTest extends ApplicationTest {
         PreferenceRadioButton smartRadio = new PreferenceRadioButton(BooleanUserPreference.SMART_OUTPUT, "radio", false,
                 userContext);
         smartRadio.setId("smartRadio");
-        PreferenceOutputPane victim = new PreferenceOutputPane(smartRadio);
+        PreferenceCheckBox compressionEnabled = new PreferenceCheckBox(BooleanUserPreference.PDF_COMPRESSION_ENABLED,
+                "compression", true, userContext);
+        compressionEnabled.setId("compressionEnabled");
+        PreferenceOutputPane victim = new PreferenceOutputPane(smartRadio, compressionEnabled);
         victim.setId("victim");
         Scene scene = new Scene(new HBox(victim));
         stage.setScene(scene);
@@ -57,7 +60,13 @@ public class PreferenceOutputPaneTest extends ApplicationTest {
     }
 
     @Test
-    public void clickManual() {
+    public void clickCompression() {
+        clickOn("#compressionEnabled");
+        verify(userContext).setBooleanPreference(BooleanUserPreference.PDF_COMPRESSION_ENABLED, false);
+    }
+
+    @Test
+    public void clickSmart() {
         clickOn("#smartRadio");
         verify(userContext).setBooleanPreference(BooleanUserPreference.SMART_OUTPUT, true);
     }

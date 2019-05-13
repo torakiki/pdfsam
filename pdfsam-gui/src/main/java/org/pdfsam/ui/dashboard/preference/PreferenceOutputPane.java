@@ -41,7 +41,8 @@ import javafx.scene.layout.VBox;
 class PreferenceOutputPane extends VBox {
 
     @Inject
-    public PreferenceOutputPane(@Named("smartRadio") PreferenceRadioButton smartRadio) {
+    public PreferenceOutputPane(@Named("smartRadio") PreferenceRadioButton smartRadio,
+            @Named("compressionEnabled") PreferenceCheckBox compressionEnabled) {
         I18nContext i18n = DefaultI18nContext.getInstance();
         ToggleGroup group = new ToggleGroup();
 
@@ -60,7 +61,7 @@ class PreferenceOutputPane extends VBox {
             group.selectToggle(manualRadio);
         }
 
-        getChildren().addAll(manualRadio, smartRadio);
+        getChildren().addAll(manualRadio, smartRadio, compressionEnabled);
         getStyleClass().addAll(Style.CONTAINER.css());
     }
 }

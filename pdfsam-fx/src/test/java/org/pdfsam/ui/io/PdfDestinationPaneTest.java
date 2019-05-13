@@ -71,6 +71,7 @@ public class PdfDestinationPaneTest {
     public void setUp() {
         destination = spy(new BrowsableDirectoryField());
         when(userContext.isUseSmartOutput()).thenReturn(Boolean.FALSE);
+        when(userContext.isCompressionEnabled()).thenReturn(Boolean.TRUE);
         victim = new PdfDestinationPane(destination, MODULE, userContext);
     }
 
