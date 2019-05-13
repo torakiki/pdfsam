@@ -58,9 +58,13 @@ public class UpdatesController {
     public void checkForUpdates(UpdateCheckRequest event) {
         LOG.debug(DefaultI18nContext.getInstance().i18n("Checking for updates"));
         CompletableFuture.supplyAsync(service::getLatestVersion).thenAccept(current -> {
-            if (isNotBlank(current) && !pdfsam.property(VERSION).equals(current)) {
-                LOG.info(DefaultI18nContext.getInstance().i18n("PDFsam {0} is available for download", current));
-                eventStudio().broadcast(new UpdateAvailableEvent(current));
+            if (isNotBlank(current)) {
+                if (!pdfsam.property(VERSION).equals(current)) {
+                    LOG.info(DefaultI18nContext.getInstance().i18n("PDFsam {0} is available for download", current));
+                    eventStudio().broadcast(new UpdateAvailableEvent(current));
+                } else if (event.nofityNoUpdates) {
+                    eventStudio().broadcast(new NoUpdateAvailable());
+                }
             }
         }).whenComplete((r, e) -> {
             if (nonNull(e)) {

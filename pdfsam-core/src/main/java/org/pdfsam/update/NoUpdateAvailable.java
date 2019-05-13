@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 12/dic/2014
- * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
+ * Created on 13 mag 2019
+ * Copyright 2017 by Sober Lemur S.a.s di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -16,29 +16,12 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.dashboard.preference;
-
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
-
-import org.pdfsam.i18n.DefaultI18nContext;
-import org.pdfsam.ui.support.Style;
-import org.pdfsam.update.UpdateCheckRequest;
-import org.sejda.injector.Prototype;
-
-import javafx.scene.control.Button;
+package org.pdfsam.update;
 
 /**
- * Button requesting a check for update
- * 
  * @author Andrea Vacondio
  *
  */
-@Prototype
-class CheckForUpdatesButton extends Button {
-
-    CheckForUpdatesButton() {
-        super(DefaultI18nContext.getInstance().i18n("Check for updates now"));
-        getStyleClass().addAll(Style.BUTTON.css());
-        setOnAction(e -> eventStudio().broadcast(new UpdateCheckRequest(true)));
-    }
+public class NoUpdateAvailable {
+    // nothing
 }

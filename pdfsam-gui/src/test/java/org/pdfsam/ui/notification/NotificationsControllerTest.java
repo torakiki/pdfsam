@@ -41,6 +41,7 @@ import org.pdfsam.news.NewImportantNewsEvent;
 import org.pdfsam.news.NewsData;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
+import org.pdfsam.update.NoUpdateAvailable;
 import org.pdfsam.update.UpdateAvailableEvent;
 import org.sejda.model.exception.InvalidTaskParametersException;
 import org.sejda.model.exception.TaskIOException;
@@ -95,6 +96,13 @@ public class NotificationsControllerTest {
         UpdateAvailableEvent event = new UpdateAvailableEvent("new version");
         victim.onUpdateAvailable(event);
         verify(container).addStickyNotification(anyString(), any());
+    }
+
+    @Test
+    public void onNoUpdateAvailable() {
+        NoUpdateAvailable event = new NoUpdateAvailable();
+        victim.onNoUpdateAvailable(event);
+        verify(container).addNotification(anyString(), any());
     }
 
     @Test

@@ -49,11 +49,13 @@ public class UpdatesControllerTest {
     private UpdatesController victim;
     private UpdateService service;
     private Listener<UpdateAvailableEvent> listener;
+    private Listener<NoUpdateAvailable> noUpdatesListener;
 
     @Before
     public void setUp() {
         service = mock(UpdateService.class);
         listener = mock(Listener.class);
+        noUpdatesListener = mock(Listener.class);
         Pdfsam pdfsam = mock(Pdfsam.class);
         when(pdfsam.property(ConfigurableProperty.VERSION)).thenReturn("3.0.0.M1");
         victim = new UpdatesController(service, pdfsam);
@@ -69,12 +71,34 @@ public class UpdatesControllerTest {
     }
 
     @Test
+    public void pasitiveCheckForUpdatesNotifyNoUpdates() {
+        when(service.getLatestVersion()).thenReturn("3.0.0");
+        eventStudio().add(UpdateAvailableEvent.class, listener);
+        eventStudio().add(NoUpdateAvailable.class, noUpdatesListener);
+        victim.checkForUpdates(new UpdateCheckRequest(true));
+        verify(service, timeout(1000).times(1)).getLatestVersion();
+        verify(listener, timeout(1000).times(1)).onEvent(any(UpdateAvailableEvent.class));
+        verify(noUpdatesListener, after(1000).never()).onEvent(any(NoUpdateAvailable.class));
+    }
+
+    @Test
     public void negativeCheckForUpdates() {
         when(service.getLatestVersion()).thenReturn("3.0.0.M1");
         eventStudio().add(UpdateAvailableEvent.class, listener);
         victim.checkForUpdates(UpdateCheckRequest.INSTANCE);
         verify(service, timeout(1000).times(1)).getLatestVersion();
         verify(listener, after(1000).never()).onEvent(any(UpdateAvailableEvent.class));
+    }
+
+    @Test
+    public void negativeCheckForUpdatesNotifyNoUpdates() {
+        when(service.getLatestVersion()).thenReturn("3.0.0.M1");
+        eventStudio().add(UpdateAvailableEvent.class, listener);
+        eventStudio().add(NoUpdateAvailable.class, noUpdatesListener);
+        victim.checkForUpdates(new UpdateCheckRequest(true));
+        verify(service, timeout(1000).times(1)).getLatestVersion();
+        verify(listener, after(1000).never()).onEvent(any(UpdateAvailableEvent.class));
+        verify(noUpdatesListener, timeout(1000).times(1)).onEvent(any(NoUpdateAvailable.class));
     }
 
     @Test

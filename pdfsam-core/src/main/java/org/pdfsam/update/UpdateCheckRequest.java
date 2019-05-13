@@ -27,7 +27,16 @@ package org.pdfsam.update;
 public class UpdateCheckRequest {
     public static final UpdateCheckRequest INSTANCE = new UpdateCheckRequest();
 
-    private UpdateCheckRequest() {
-        // hide
+    /**
+     * tells if response to this request should notify about No updates available
+     */
+    public final boolean nofityNoUpdates;
+
+    public UpdateCheckRequest() {
+        this.nofityNoUpdates = false;
+    }
+
+    public UpdateCheckRequest(boolean nofityNoUpdates) {
+        this.nofityNoUpdates = nofityNoUpdates;
     }
 }
