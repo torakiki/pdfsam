@@ -1,16 +1,16 @@
-# Esperanto translation for pdfsam
-# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# Arabic translation for pdfsam
+# Copyright (c) 2019 Rosetta Contributors and Canonical Ltd 2019
 # This file is distributed under the same license as the pdfsam package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2019-05-13 18:52+0200\n"
-"PO-Revision-Date: 2014-10-07 01:17+0000\n"
-"Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
-"Language-Team: Esperanto <eo@li.org>\n"
+"PO-Revision-Date: 2019-03-19 22:13+0000\n"
+"Last-Translator: khorchani <Unknown>\n"
+"Language-Team: Arabic <ar@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,7 +21,7 @@ msgid "No PDF document has been selected"
 msgstr ""
 
 msgid "Extract"
-msgstr ""
+msgstr "اقتبس"
 
 msgid "Extract pages from PDF documents."
 msgstr ""
@@ -36,13 +36,13 @@ msgid "Output settings"
 msgstr ""
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "الصفحات التي سيتم اقتباسها (مثال : 2 او 5-ْ23 او 2, 5-7 , 12 -)"
 
 msgid "Invalid page ranges"
 msgstr ""
 
 msgid "Extract pages:"
-msgstr ""
+msgstr "اقتبس الصفحات :"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -80,7 +80,7 @@ msgid "Premium features"
 msgstr ""
 
 msgid "Close"
-msgstr ""
+msgstr "إغلاق"
 
 msgid "Modules"
 msgstr ""
@@ -351,7 +351,7 @@ msgid "Summary"
 msgstr ""
 
 msgid "Keywords"
-msgstr ""
+msgstr "كلمات مفتاحية"
 
 msgid "Document details"
 msgstr ""
@@ -717,7 +717,7 @@ msgid "No page selected"
 msgstr ""
 
 msgid "Split"
-msgstr "Dividi"
+msgstr "تقسيم"
 
 msgid "Split a PDF document at the given page numbers."
 msgstr ""
@@ -853,7 +853,7 @@ msgid "Split at this size:"
 msgstr ""
 
 msgid "Invalid split size"
-msgstr ""
+msgstr "حجم تقسيم غير صالح"
 
 msgid "Alternate Mix"
 msgstr ""
@@ -893,7 +893,7 @@ msgid ""
 msgstr ""
 
 msgid "Rotate"
-msgstr ""
+msgstr "دوران"
 
 msgid "Rotate the pages of multiple PDF documents."
 msgstr ""
@@ -975,7 +975,7 @@ msgid ""
 msgstr ""
 
 msgid "Merge"
-msgstr ""
+msgstr "دمج"
 
 msgid "Merge together multiple PDF documents or subsections of them."
 msgstr ""
@@ -993,16 +993,16 @@ msgid "An error has occurred, click for more details."
 msgstr ""
 
 msgid "Security"
-msgstr "Sekureco"
+msgstr ""
 
 msgid "Other"
-msgstr "Aliaj"
+msgstr ""
 
 msgid "Roundish"
 msgstr ""
 
 msgid "Directories"
-msgstr "Dosierujoj"
+msgstr ""
 
 msgid "Error saving log file."
 msgstr ""
@@ -1025,5 +1025,11 @@ msgstr ""
 msgid "Invalid number: {0}."
 msgstr ""
 
-#~ msgid "Would you like to overwrite it?"
-#~ msgstr "Ĉu vi deziras anstataŭigi ĝin?"
+#~ msgid "Split odd pages"
+#~ msgstr "تقسيم الصفحات الفردية"
+
+#~ msgid "Split even pages"
+#~ msgstr "تقسيم الصحات الزوجية"
+
+#~ msgid "Destination folder"
+#~ msgstr "المجلد الوجهة"

@@ -7,24 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-12-13 22:12+0100\n"
+"POT-Creation-Date: 2019-05-13 18:52+0200\n"
 "PO-Revision-Date: 2016-12-10 18:17+0000\n"
 "Last-Translator: George Melidis <melidis@gmail.com>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-01-08 14:12+0000\n"
-"X-Generator: Launchpad (build 18847)\n"
+"X-Launchpad-Export-Date: 2019-05-16 13:56+0000\n"
+"X-Generator: Launchpad (build 18962)\n"
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Σελίδες προς εξαγωγή  (π.χ.: 2 ή 5-23 ή 2,5-7,12-)"
-
-msgid "Invalid page ranges"
-msgstr "Μη έγκυρο εύρος σελίδων"
-
-msgid "Extract pages:"
-msgstr "Εξαγωγή σελίδων:"
+msgid "No PDF document has been selected"
+msgstr "Δεν έχει επιλεγεί κάποιο έγγραφο PDF"
 
 msgid "Extract"
 msgstr "Εξαγωγή"
@@ -41,20 +35,974 @@ msgstr "Εξαγωγή ρυθμίσεων"
 msgid "Output settings"
 msgstr "Ρυθμίσεις εξόδου"
 
-msgid "No PDF document has been selected"
-msgstr "Δεν έχει επιλεγεί κάποιο έγγραφο PDF"
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Σελίδες προς εξαγωγή  (π.χ.: 2 ή 5-23 ή 2,5-7,12-)"
 
-msgid "Merge"
-msgstr "Συγχώνευση"
+msgid "Invalid page ranges"
+msgstr "Μη έγκυρο εύρος σελίδων"
 
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "Συγχώνευσε πολλαπλά έγγραφα PDF ή επιμέρους τομείς αυτών."
+msgid "Extract pages:"
+msgstr "Εξαγωγή σελίδων:"
 
-msgid "Merge settings"
-msgstr "Ρυθμίσεις συγχώνευσης"
+#, java-format
+msgid "Installing theme {0}."
+msgstr "Εγκατάσταση θέματος {0}."
+
+#, java-format
+msgid "Started in {0}"
+msgstr "Εκκίνηση σε {0}"
+
+msgid "Closing PDFsam..."
+msgstr "Τερματισμός PDFsam..."
+
+msgid "Log register"
+msgstr "Αρχεία καταγραφής"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\LogPanel.java:99
+msgid "Copy"
+msgstr "Αντιγραφή"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:284
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:294
+# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\LogPanel.java:105
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:297
+msgid "Clear"
+msgstr "Καθαρισμός"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\LogPanel.java:112
+msgid "Select all"
+msgstr "Επιλογή όλων"
+
+msgid "Save log"
+msgstr "Αποθήκευση αρχείου καταγραφής"
+
+msgid "Select where to save the log file"
+msgstr "Επιλογή χώρου αποθήκευσης του αρχείου"
+
+# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\MainGUI.java:222
+msgid "About"
+msgstr "Σχετικά"
+
+msgid "Premium features"
+msgstr "Premium χαρακτηριστικά"
+
+# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:150
+msgid "Close"
+msgstr "Κλείσιμο"
+
+msgid "Modules"
+msgstr "Αρθρώματα/Modules"
+
+msgid "Subscribe to the official news feed"
+msgstr "Εγγραφείτε στην επίσημη ροή ειδήσεων"
+
+msgid "Environment"
+msgstr "Περιβάλλον"
+
+msgid "Java runtime path: %s"
+msgstr ""
+
+msgid "JavaFX runtime version %s"
+msgstr ""
+
+#, java-format
+msgid "Max memory {0}"
+msgstr "Μέγιστη μνήμη {0}"
+
+msgid "Copy to clipboard"
+msgstr "Αντιγραφή στο πρόχειρο"
+
+msgid "Support"
+msgstr "Υποστήριξη"
+
+msgid "Bug and feature requests"
+msgstr "Αιτήσεις σφαλμάτων και λειτουργιών"
+
+msgid "Documentation"
+msgstr ""
+
+msgid "Contribute"
+msgstr "Συνεισφέρετε"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "Κάντε fork το PDFsam στο GitHub"
+
+msgid "Translate"
+msgstr "Μετάφραση"
+
+msgid "Donate"
+msgstr "Κάντε Δωρεά"
+
+msgid "Social"
+msgstr "Κοινωνικά"
+
+msgid "Follow us on Twitter"
+msgstr "Ακολουθήστε μας στο Twitter"
+
+msgid "Like us on Facebook"
+msgstr "Κάντε μας like στο Facebook"
+
+msgid "Log register rows:"
+msgstr "Γραμμές εγγραφής αρχείων καταγραφής"
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr "Μέγιστος αριθμός γραμμών καταγράφηκε από τα αρχεία καταγραφής"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:125
+# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:116
+msgid "Language:"
+msgstr "Γλώσσα:"
+
+msgid "Set your preferred language (restart needed)"
+msgstr "Ορισμός γλώσσας επιλογής (απαιτείται επανεκκίνηση)"
+
+msgid "Startup module:"
+msgstr "Άρθρωμα εκκίνησης / Startup module"
+
+msgid "Set the module to open at application startup (restart needed)"
+msgstr ""
+"Ορισμός αρθρώματος/module προς άνοιγμα κατά την εκκίνηση της εφαρμογής "
+"(απαιτείται επανεκκίνηση)"
+
+msgid ""
+"Usage statistics are used to populate the modules quick bar on the left with "
+"the most used and most recently used modules."
+msgstr ""
+"Τα στατιστικά χρήσης χρησιμοποιούνται για να ενημερώσουν την μπάρα "
+"συντομεύσεων αρθρωμάτων (modules) στα αριστερά με τα περισσότερο και πιο "
+"πρόσφατα χρησιμοποιημένα αρθρώματα."
+
+msgid "Manually selected"
+msgstr "Χειροκίνητη επιλογή"
+
+msgid ""
+"Automatically set the destination directory to the selected PDF document "
+"directory"
+msgstr ""
+"Αυτόματα όρισε τον κατάλογο προορισμού στον επιλεγμένο κατάλογο των αρχείων "
+"PDF"
+
+msgid "Clear usage statistics"
+msgstr "Καθαρισμός στατιστικών χρήσης"
+
+msgid "Appearance"
+msgstr "Εμφάνιση"
+
+msgid "Behavior"
+msgstr "Συμπεριφορά"
+
+msgid "Workspace"
+msgstr "Χώρος εργασίας"
+
+msgid "Output"
+msgstr "Αποτέλεσμα"
+
+msgid "Check for updates now"
+msgstr "Έλεγχος ενημερώσεων τώρα"
+
+msgid ""
+"Select a directory where documents will be saved and loaded by default"
+msgstr "Επιλογή φακέλου προεπιλεγμένης αποθήκευσης και φόρτωσης των εγγράφων"
+
+msgid "Select a directory"
+msgstr "Επιλογή καταλόγου"
+
+msgid ""
+"Select a previously saved workspace that will be automatically loaded at "
+"startup"
+msgstr ""
+"Επιλογή αποθηκευμένου χώρου εργασίας ώστε να γίνεται αυτόματη φόρτωση κατά "
+"την εκκίνηση"
+
+msgid "Select a workspace"
+msgstr "Επιλογή χώρου εργασίας"
+
+msgid "Default working directory:"
+msgstr "Προεπιλεγμένος κατάλογος εργασίας"
+
+msgid "Load default workspace at startup:"
+msgstr "Φόρτωση προεπιλεγμένου χώρου εργασίας κατά την εκκίνηση"
+
+msgid "Dashboard"
+msgstr "Πίνακας Αναφορών"
+
+msgid "Check for updates at startup"
+msgstr "Έλεγχος για αναβαθμίσεις κατά την εκκίνηση"
+
+msgid ""
+"Set whether new version availability should be checked on startup (restart "
+"needed)"
+msgstr ""
+"Ορίστε εάν επιθυμείτε να γίνεται έλεγχος διαθεσιμότητας νέας έκδοσης κατά "
+"την εκκίνηση (απαιτείται επανεκκίνηση)"
+
+msgid "Check for news at startup"
+msgstr "Ελέγξτε για τις ειδήσεις κατά την εκκίνηση"
+
+msgid ""
+"Set whether the application should check for news availability on startup "
+"(restart needed)"
+msgstr ""
+"Ορίστε εάν η εφαρμογή θα πρέπει να ελέγχει για τη διαθεσιμότητα ειδήσεων "
+"κατά την εκκίνηση (απαιτείται επανεκκίνηση )"
+
+msgid "Enabled PDF compression"
+msgstr ""
+
+msgid "Set whether \"Compress output file\" should be enabled by default"
+msgstr ""
+
+msgid "Play alert sounds"
+msgstr "Αναπαραγωγή ήχων συναγερμού"
+
+msgid "Turn on or off alert sounds"
+msgstr "Ενεργοποίηση ή απενεργοποίηση ήχων συναγερμού"
+
+msgid "Store passwords when saving a workspace file"
+msgstr "Αποθήκευση των κωδικών κατά την αποθήκευση του αρχείου εργασιών"
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
+"Εάν ένα κρυπτογραφημένο PDF έγγραφο έχει ανοιχτεί με χρήση κωδικού, "
+"αποθήκευσε τον κωδικό στο αρχείο εργασίας"
+
+msgid "Show donation window"
+msgstr "Εμφάνιση παραθύρου δωρεάς"
+
+msgid ""
+"Turn on or off the notification appearing once in a while and asking the "
+"user to support PDFsam with a donation"
+msgstr ""
+"Ενεργοποίηση ή απενεργοποίηση της ειδοποίησης που εμφανίζεται κάθε τόσο "
+"ζητώντας από τον χρήστη να υποστηρίξει το PDFsam με κάποια δωρεά"
+
+msgid "Show premium features"
+msgstr "Εμφάνιση premium χαρακτηριστικών"
+
+msgid ""
+"Set whether the application should fetch and show premium features "
+"description in the modules dashboard"
+msgstr ""
+"Ορίστε εάν η εφαρμογή θα πρέπει να ανακτά και να προβάλει περιγραφή premium "
+"χαρακτηριστικών στο ταμπλό"
+
+msgid "Use the selected PDF document directory as output directory"
+msgstr "Ορίστε τον επιλεγμένο κατάλογο εγγράφων PDF ώς κατάλογο εξόδου"
+
+msgid "Save default workspace on exit"
+msgstr "Αποθήκευση προεπιλεγμένου χώρου εργασίας κατά την έξοδο"
+
+msgid "If a default workspace is set, save it on application exit"
+msgstr ""
+"Αν ένας προεπιλεγμένος χώρος εργασίας έχει οριστεί, αποθηκεύεται κατά την "
+"έξοδο από την εφαρμογή"
+
+msgid "Maximum number of rows mast be a positive number"
+msgstr "Ο μέγιστος αριθμός γραμμών πρέπει να είναι θετικός αριθμός"
+
+msgid "Generate high quality thumbnails (slower)"
+msgstr ""
+"Δημιουργία καλύτερης ποιότητας μικρογραφιών (απαιτεί περισσότερο χρόνο)"
+
+msgid "Size in px:"
+msgstr "Μέγεθος σε εικονοστοιχεία/pixels"
+
+msgid "Library used to generate thumbnails"
+msgstr "Απαιτούμενη βιβλιοθήκη για την δημιουργία μικρογραφιών"
+
+msgid "Thumbnails creator:"
+msgstr "Δημιουργός μικρογραφιών"
+
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+msgid "What's new"
+msgstr "Τι νέο υπάρχει"
+
+msgid "Open with"
+msgstr "Άνοιγμα με"
+
+msgid "Select the task to perform on the following files"
+msgstr "Επιλογή της επίδρασης στα επόμενα αρχεία"
+
+msgid "Overwrite"
+msgstr "Αντικατάσταση"
+
+msgid "Cancel"
+msgstr "Άκυρο"
+
+msgid "Directory not empty"
+msgstr "Ο κατάλογος δεν είναι κενός"
+
+msgid "The selected directory is not empty"
+msgstr "Ο επιλεγμένος κατάλογος δεν είναι κενός"
+
+msgid "Overwrite files with the same name as the generated ones?"
+msgstr "Επανεγγραφή αρχείων ίδιου ονόματος με αυτά που δημιουργήθηκαν;"
+
+msgid "Don't overwrite existing file"
+msgstr "Μην επανεγγράφετε ήδη υπάρχον αρχείο"
+
+msgid "Overwrite confirmation"
+msgstr "Επιβεβαίωση επανεγγραφής"
+
+msgid "A file with the given name already exists"
+msgstr "Υπάρχει ήδη ένα αρχείο με το ίδιο όνομα"
+
+msgid "Do you want to overwrite it?"
+msgstr "Θέλετε να το αντικαταστήσετε;"
+
+msgid "Yes"
+msgstr "Ναι"
+
+msgid "No"
+msgstr "Όχι"
+
+msgid "Non existing directory"
+msgstr "Ο κατάλογος δεν υπάρχει"
+
+msgid "The selected output directory does not exist"
+msgstr "Ο επιλεγμένος κατάλογος εξόδου δεν υπάρχει"
+
+msgid "Do you want to create it?"
+msgstr "Θέλετε να δημιουργηθεί;"
+
+msgid "Task failed"
+msgstr ""
+
+msgid "PDFsam can try to overcome the failure"
+msgstr ""
+
+msgid ""
+"It may result in PDF files with partial or missing data, proceed anyway?"
+msgstr ""
+
+msgid "Summary"
+msgstr "Σύνοψη"
+
+msgid "Keywords"
+msgstr "Λέξεις κλειδιά"
+
+msgid "Document details"
+msgstr "Λεπτομέρειες εγγράφου"
+
+msgid "Invalid parameters"
+msgstr "Μη έγκυρες παραμέτροι"
+
+msgid ""
+"Input parameters are invalid, open the application messages for details."
+msgstr ""
+"Μη έγκυρες παράμετροι εισόδου, ανοίξτε το μήνυμα της εφαρμογής για "
+"λεπτομέρειες"
+
+msgid "Access denied"
+msgstr ""
+
+#, java-format
+msgid ""
+"Unable to access \"{0}\", please make sure you have write permissions or "
+"open the application messages for details."
+msgstr ""
+
+#, java-format
+msgid "You performed {0} tasks with PDFsam, did it help?"
+msgstr "Εκτελέσατε {0} εργασίες με το PDFsam, σας βοήθησε;"
+
+msgid "Give something back"
+msgstr "Επιστρέψτε κάποιο δεδομένο"
+
+msgid "PDFsam worked hard!"
+msgstr "Το PDFsam δούλεψε σκληρά!"
+
+msgid "Spread the word!"
+msgstr "Διαδώστε το!"
+
+#, java-format
+msgid "PDFsam {0} is available for download"
+msgstr "Το PDFsam {0} είναι διαθέσιμο για λήψη"
+
+msgid "Download"
+msgstr "Λήψη"
+
+msgid "New version available"
+msgstr "Νέα έκδοση διαθέσιμη"
+
+msgid "You are running the latest version of PDFsam Basic"
+msgstr ""
+
+msgid "No update"
+msgstr ""
+
+msgid "Open"
+msgstr "Άνοιγμα"
+
+msgid "E_xit"
+msgstr "Έξοδος"
+
+msgid "_Settings"
+msgstr ""
+
+msgid "Application messages"
+msgstr "Μηνύματα εφαρμογής"
+
+msgid "_Modules"
+msgstr "_Modules"
+
+msgid "_Workspace"
+msgstr "Χώρος εργασίας"
+
+msgid "_Load"
+msgstr "Άνοιγμα"
+
+msgid "_Save"
+msgstr "Αποθήκευση"
+
+msgid "Recen_ts"
+msgstr ""
+
+msgid "_Clear recents"
+msgstr ""
+
+msgid "Select the workspace file to save"
+msgstr "Επιλέξτε το αρχείο χώρου εργασίας για να το αποθηκεύσετε"
+
+msgid "Select the workspace to load"
+msgstr "Επιλέξτε το αρχείο χώρου εργασίας για να το ανοίξετε"
+
+msgid "Split by bookmarks"
+msgstr "Διαχωρισμός βάσει σελιδοδεικτών"
+
+msgid ""
+"Split a PDF document at bookmarked pages by specifying a bookmark level."
+msgstr ""
+"Διαχωρίστε ένα έγγραφο PDF σε σελίδες που αποτελούν σελιδοδείκτες ορίζοντας "
+"ένα επίπεδο σελιδοδεικτών."
+
+msgid "Select or drag and drop the PDF you want to split"
+msgstr ""
+"Επιλέξτε ή μεταφέρετε και αποθέστε το αρχείο PDF που επιθυμείτε να "
+"διαχωρίσετε"
+
+msgid "Split settings"
+msgstr "Ρυθμίσεις διαχωρισμού"
+
+msgid "Regular expression the bookmark has to match"
+msgstr "Συνήθης έκφραση που πρέπει να ταιριάξει ο σελιδοδείκτης"
+
+msgid "Split at this bookmark level:"
+msgstr "Διαχωρισμός στο συγκεκριμένο επίπεδο σελιδοδεικτών:"
+
+msgid "Matching regular expression:"
+msgstr "Ταίριασμα κανονικών εκφράσεων"
+
+msgid "A regular expression the bookmark text has to match"
+msgstr ""
+"Μια κανονική έκφραση που το  κείμενο του σελιδοδείκτη πρέπει να ταιριάξει"
+
+msgid ""
+"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+"Παράδειγμα: χρήση .*Κεφάλαιο.* να βρεθούν σελιδοδείκτες που περιέχουν την "
+"λέξη \"Κεφάλαιο\""
+
+msgid "Invalid bookmarks level"
+msgstr "Μη έγκυρο επίπεδο σελιδοδεικτών"
+
+msgid "Show errors"
+msgstr "Εμφάνιση σφαλμάτων"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:542
+# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:462
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:526
+# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:320
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:410
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:530
+# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:408
+msgid "Run"
+msgstr "Εκτέλεση"
+
+msgid "Requested"
+msgstr "Αιτήθηκε"
+
+msgid "Completed"
+msgstr "Ολοκληρώθηκε"
+
+msgid "Failed"
+msgstr "Απέτυχε"
+
+msgid "Running"
+msgstr "Σε Εξέλιξη"
+
+#, java-format
+msgid "Running {0}%"
+msgstr "Εκτελείται {0}%"
+
+msgid "The selected PDF document is invalid"
+msgstr "Το συγκεκριμένο έγγραφο PDF είναι μη έγκυρο"
+
+msgid "Select the PDF file"
+msgstr ""
+
+msgid "_Select PDF"
+msgstr ""
+
+msgid "Clear all settings"
+msgstr ""
+
+#, java-format
+msgid "Pages: {0}, PDF Version: {1}"
+msgstr "Σελίδες: {0}, Έκδοση PDF: {1}"
+
+msgid "Loading..."
+msgstr "Φόρτωση..."
+
+msgid "Document properties"
+msgstr "Ιδιότητες εγγράφου"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:273
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:317
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:266
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:311
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:269
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:314
+msgid "Remove"
+msgstr "Απομάκρυνση"
+
+msgid "Set destination"
+msgstr "Ορισμός προορισμού"
+
+msgid "Open Folder"
+msgstr "Άνοιγμα Φακέλου"
+
+msgid "Enter the user password"
+msgstr "Εισάγετε τον κωδικό χρήστη"
+
+msgid "Unlock"
+msgstr "Ξεκλείδωμα"
+
+msgid "Drag and drop PDF files here"
+msgstr "Μεταφέρετε και αποθέσατε αρχεία PDF εδώ"
+
+msgid "Set as range for all"
+msgstr ""
+
+msgid "Move to Top"
+msgstr "Μετακίνηση στην αρχή"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:273
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:320
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:276
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:323
+msgid "Move Up"
+msgstr "Μετακίνηση προς τα πάνω"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:282
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:329
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:285
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:332
+msgid "Move Down"
+msgstr "Μετακίνηση προς τα κάτω"
+
+msgid "Move to Bottom"
+msgstr "Μετακίνηση στο τέλος"
+
+msgid "Duplicate"
+msgstr "Δημιουργία αντίγραφου"
+
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr ""
+
+msgid "No PDF found"
+msgstr ""
+
+msgid "Size"
+msgstr "Μέγεθος"
+
+msgid "Modified"
+msgstr "Τροποποιήθηκε"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JInfoPanel.java:118
+# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:128
+msgid "Name"
+msgstr "'Όνομα"
+
+msgid "Add documents to the table"
+msgstr "Προσθέστε έγγραφα στον πίνακα"
+
+msgid "_Add"
+msgstr "_Προσθήκη"
+
+msgid "PDF list from _text/csv file"
+msgstr ""
+
+msgid "Select pdf documents to load"
+msgstr "Επιλέξτε έγγραφα PDF προς φόρτωση"
+
+msgid "Select a text or CSV file to load"
+msgstr ""
+
+msgid "Removes selected documents"
+msgstr "Αφαιρεί επιλεγμένα έγγραφα"
+
+msgid "_Remove"
+msgstr "_Απομάκρυνση"
+
+msgid "Removes every document"
+msgstr "Απομακρύνει κάθε έγγραφο"
+
+msgid "_Clear"
+msgstr "_Εκκαθάριση"
+
+msgid "C_lear all settings"
+msgstr ""
+
+msgid "Moves up selected documents"
+msgstr "Μετακινεί προς τα επάνω επιλεγμένα έγγραφα"
+
+msgid "Move _Up"
+msgstr "Μετακίνηση _Επάνω"
+
+msgid "Moves down selected documents"
+msgstr "Μετακινεί προς τα κάτω επιλεγμένα έγγραφα"
+
+msgid "Move _Down"
+msgstr "Μετακίνηση _Κάτω"
+
+msgid "Pace"
+msgstr "Βήμα"
+
+msgid ""
+"Double click to set the number of pages after which the task will switch to "
+"the next file"
+msgstr ""
+"Κάντε διπλό κλικ για να ορίσετε τον αριθμό των σελίδων μετά από το οποίο η "
+"διεργασία θα μεταβεί στο επόμενο αρχείο"
+
+msgid "Reverse"
+msgstr "Αντιστροφή"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:182
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:180
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:183
+msgid "Pages"
+msgstr "Σελίδες"
+
+msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Διπλό κλικ για να ορίσετε επιλεγμένες σελίδες (π.χ.:  2 ή  5-23 ή 2,5-7,12-)"
+
+msgid "Page ranges"
+msgstr "Εύρος σελίδων"
+
+msgid "The selected PDF file is invalid"
+msgstr "Το επιλεγμένο αρχείο PDF δεν είναι έγκυρο"
+
+msgid "Select a file"
+msgstr "Επιλέξτε ένα αρχείο"
+
+msgid "The selected file must exist. "
+msgstr "Το επιλεγμένο αρχείο πρέπει να υπάρχει. "
+
+#, java-format
+msgid "Allowed extensions are {0}"
+msgstr "Επιτρεπόμενες προεκτάσεις είναι {0}"
+
+msgid "Compress output file/files"
+msgstr "Συμπίεση αρχείου/αρχείων εξόδου"
+
+msgid "Discard bookmarks"
+msgstr "Απόρριψη σελιδοδεικτών"
+
+msgid ""
+"Tick the box if you don't want to retain any bookmark from the original PDF "
+"document"
+msgstr ""
+"Τσεκάρετε το κουτί αν δεν επιθυμείτε να διατηρήσετε κάποιον σελιδοδείκτη από "
+"το αρχικό έγγραφο PDF."
+
+msgid "Output PDF version:"
+msgstr "Έκδοση εξαγώγιμου αρχείου PDF"
+
+msgid "Show advanced settings"
+msgstr ""
+
+msgid "Hide advanced settings"
+msgstr ""
+
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:452
+# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:315
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:434
+# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:249
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:279
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:438
+msgid "Overwrite if already exists"
+msgstr "Αντικατάσταση αν ήδη υπάρχει"
+
+msgid ""
+"Tick the box if you want to overwrite the output files if they already exist."
+msgstr ""
+"Τσεκάρετε το κουτί αν επιθυμείτε να γίνει επανεγγραφή των αρχείων που "
+"εξάγετε σε περίπτωση που ήδη υπάρχουν."
+
+#, java-format
+msgid "Version {0}"
+msgstr "Έκδοση {0}"
+
+msgid "Same as the input document"
+msgstr "Το ίδιο όπως και το έγγραφο εισόδου"
+
+msgid "An existing output directory is required"
+msgstr "Απαιτείται ένας ήδη υπάρχων κατάλογος εξόδου"
+
+msgid "The output directory is required"
+msgstr "Απαιτείται ο κατάλογος εξόδου"
+
+msgid "Select an existing directory"
+msgstr "Επιλέξτε έναν υπάρχων κατάλογο"
+
+msgid "Select"
+msgstr "Επιλογή"
+
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:394
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:421
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:448
+# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:175
+# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:340
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:430
+# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:150
+# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:177
+# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:244
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:164
+# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:304
+# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:233
+# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:434
+# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:163
+# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:300
+msgid "Browse"
+msgstr "Αναζήτηση"
+
+#, java-format
+msgid "PDF version required: {0}"
+msgstr "Απαιτούμενη έκδοση PDF: {0}"
+
+msgid "Prefix for the generated files names"
+msgstr "Πρόθεμα για τα παραγόμενα ονόματα αρχείων"
+
+msgid "Add prefix"
+msgstr "Προσθήκη προθέματος"
+
+msgid "Generated PDF documents name prefix:"
+msgstr "Πρόθεμα ονόματος των παραγόμενων εγγράφων PDF:"
+
+msgid "Prefix for the output files name."
+msgstr "Πρόθεμα για τα εξαγόμενα ονόματα αρχείων."
+
+msgid "Some special keywords are replaced with runtime values."
+msgstr "Μερικοί ειδικοί χαρακτήρες αντικαθίστανται με τιμές εκτέλεσης."
+
+msgid "Right click to add these keywords."
+msgstr "Κάντε δεξί κλικ για να προσθέσετε αυτές τις λέξεις-κλειδιά."
+
+msgid "Split after"
+msgstr "Διαχώρισε μετά"
+
+msgid "No page selected"
+msgstr "Καμμία επιλογή σελίδας"
+
+msgid "Split"
+msgstr "Χώρισμα"
+
+msgid "Split a PDF document at the given page numbers."
+msgstr "Διαχώρισε ένα έγγραφο PDF στους συγκεκριμένους αριθμούς σελίδων"
+
+msgid "Every page"
+msgstr "Κάθε σελίδα"
+
+msgid "Even pages"
+msgstr "Σελίδες αριθμημένες με άρτιο αριθμό"
+
+msgid "Odd pages"
+msgstr "Σελίδες αριθμημένες με περιττό αριθμό"
+
+msgid "Split the document after the given page numbers"
+msgstr "Διαχώρισε το έγγραφο μετά από τους δοθέντες αριθμούς σελίδων"
+
+msgid ""
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr ""
+"Διαχωρίζει το PDF κάθε \"n\" σελίδες δημιουργώντας επιμέρους έγγραφα με "
+"\"n\" σελίδες το καθένα"
+
+msgid "Split after the following page numbers"
+msgstr "Διαχώρισε μετά τους εξής αριθμούς σελίδων"
+
+msgid "Page numbers to split at (n1,n2,n3..)"
+msgstr ""
+"Οι αριθμοί σελίδων στις οποίες θα υπάρξει διαχωρισμός είναι (n1,n2,n3)"
+
+msgid "Invalid page numbers"
+msgstr "Μη έγκυροι αριθμοί σελίδων"
+
+msgid "Only valid positive page numbers are allowed"
+msgstr "Μόνο έγκυροι θετικοί αριθμοί σελίδων επιτρέπονται"
+
+msgid "Split by every \"n\" pages"
+msgstr "Διαχώρισε κάθε \"n\" σελίδες"
+
+msgid "Number of pages"
+msgstr "Αριθμός σελίδων"
+
+msgid "Invalid number of pages"
+msgstr "Μη έγκυρος αριθμός σελίδων"
+
+msgid "Checking for updates"
+msgstr "Έλεγχος ενημερώσεων"
+
+msgid "Unable to find the latest available version."
+msgstr "Αδύνατη η εύρεση της τελευταίας διαθέσιμης έκδοσης"
+
+#, java-format
+msgid "Unable to find any valid PDF file in the list: {0}"
+msgstr ""
+
+#, java-format
+msgid "Unable to load PDF list file from {0}"
+msgstr ""
+
+msgid "Loading pdf documents"
+msgstr "Φόρτωση εγγράφων pdf"
+
+msgid "Documents loaded"
+msgstr "Φόρτωση εγγράφων επιτυχής"
+
+msgid "Unable to retrieve premium features description"
+msgstr "Αδυναμία ανάκτησης κορυφαίων χαρακτηριστικών περιγραφής"
+
+msgid "Fetching premium modules"
+msgstr "Ανάκτηση κορυφαίων"
+
+msgid "Unable to retrieve premium modules"
+msgstr "Αδυναμία ανάκτησης"
+
+msgid "Unable to retrieve latest news"
+msgstr "Αδύνατη η ανάκτηση τελευταίων νέων"
+
+msgid "Fetching latest news"
+msgstr "Ανάκτηση τελευταίων νέων"
+
+msgid "Unable to retrieve the latest news"
+msgstr "Αδύνατη η ανάκτηση των τελευταίων νέων"
+
+#, java-format
+msgid "Saving workspace data to {0}"
+msgstr "Αποθήκευση δεδομένων χώρου εργασίας στο {0}"
+
+msgid "Workspace saved"
+msgstr "Αποθήκευση χώρου εργασίας"
+
+msgid "Requesting modules state"
+msgstr "Κατάσταση των ζητούμενων αρθρωμάτων/modules"
+
+msgid "Unable to save modules workspace"
+msgstr "Αδύνατη η αποθήκευση του χώρου εργασίας αρθρωμάτων"
+
+#, java-format
+msgid "Unable to save workspace to {0}"
+msgstr "Αδύνατη η αποθήκευση του χώρου εργασίας στο {0}"
+
+#, java-format
+msgid "Loading workspace from {0}"
+msgstr "Φόρτωση του χώρου εργασίας από το {0}"
+
+msgid "Workspace loaded"
+msgstr "Φόρτωση χώρου εργασίας επιτυχής"
+
+#, java-format
+msgid "Unable to load workspace from {0}"
+msgstr "Αδύνατη η φόρτωση χώρου εργασίας από το {0}"
+
+msgid "Split by size"
+msgstr "Διαχωρισμός βάσει μεγέθους"
+
+msgid "Split a PDF document in files of the given size (roughly)."
+msgstr ""
+"Διαχώρισε ένα PDF έγγραφο σε αρχεία του δοθέντος μεγέθους (κατά προσέγγιση)."
+
+msgid "Megabytes"
+msgstr "Megabytes"
+
+msgid "MB"
+msgstr "MB"
+
+msgid "Kilobytes"
+msgstr "Kilobytes"
+
+msgid "KB"
+msgstr "ΚΒ"
+
+msgid "Set the size to split at"
+msgstr "Ορίστε το μέγεθος στο οποίο θα υπάρξει διαχωρισμός"
+
+msgid "Size must be a number"
+msgstr "Το μέγεθος πρέπει να είναι ένας αριθμός"
+
+msgid "Split at this size:"
+msgstr "Διαχώρισε σε αυτό το μέγεθος"
+
+msgid "Invalid split size"
+msgstr "Μη έγκυρο μέγεθος διαχωρισμού"
+
+msgid "Alternate Mix"
+msgstr "Εναλλακτική μείξη"
+
+msgid ""
+"Merge two or more PDF documents taking pages alternately in natural or "
+"reverse order."
+msgstr ""
+"Ένωση δύο ή περισσότερων αρχείων PDF, λαμβάνοντας σελίδες με την κανονική ή "
+"αντίστροφη σειρά"
 
 msgid "Destination file"
 msgstr "Αρχειο προορισμου"
+
+msgid ""
+"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid "Select a positive integer number as pace"
+msgstr "Επιλέξτε έναν θετικό ακέραιο αριθμό για ρυθμό"
+
+msgid "All pages"
+msgstr "Όλες οι σελίδες"
+
+msgid "90 degrees clockwise"
+msgstr "90 μοίρες κατά την φορά των δεικτών του ρολογιού"
+
+msgid "180 degrees clockwise"
+msgstr "180 μοίρες κατά την φορά των δεικτών του ρολογιού"
+
+msgid "90 degrees counterclockwise"
+msgstr "90 μοίρες αντίστροφα από την φορά των δεικτών του ρολογιού"
+
+msgid "Rotate "
+msgstr "Περιστροφή "
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Διπλό κλικ για να ορίσετε σελίδες που θέλετε να περιστρέψετε (π.χ.:  2 ή  5-"
+"23 ή 2,5-7,12-)"
+
+msgid "Rotate"
+msgstr "Περιστροφή"
+
+msgid "Rotate the pages of multiple PDF documents."
+msgstr "Περιστρέψτε τις σελίδες πολλαπλών εγγράφων PDF."
+
+msgid "Rotate settings"
+msgstr "Ανακύκλιση ρυθμίσεων"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -108,9 +1056,6 @@ msgstr ""
 msgid "Retain bookmarks"
 msgstr "Διατήρηση σελιδοδεικτών"
 
-msgid "Discard bookmarks"
-msgstr "Απόρριψη σελιδοδεικτών"
-
 msgid "Create one entry for each merged document"
 msgstr "Δημιούργησε μία είσοδο για κάθε συγχωνευμένο έγγραφο"
 
@@ -144,6 +1089,15 @@ msgstr ""
 "Ορίστε εάν επιθυμείτε να προστεθεί πίνακας περιεχομένων στο έγγραφο PDF που "
 "θα παραχθεί"
 
+msgid "Merge"
+msgstr "Συγχώνευση"
+
+msgid "Merge together multiple PDF documents or subsections of them."
+msgstr "Συγχώνευσε πολλαπλά έγγραφα PDF ή επιμέρους τομείς αυτών."
+
+msgid "Merge settings"
+msgstr "Ρυθμίσεις συγχώνευσης"
+
 msgid "Valid user password provided."
 msgstr "Καταχωρήθηκε έγκυρος κωδικός χρήστη."
 
@@ -156,11 +1110,24 @@ msgid "An error has occurred, click for more details."
 msgstr ""
 "Κάποιο σφάλμα παρουσιάστηκε, κάντε κλικ για περισσότερες λεπτομέρειες."
 
+msgid "Security"
+msgstr "Ασφάλεια"
+
+msgid "Other"
+msgstr "Άλλο"
+
 msgid "Roundish"
 msgstr "Στρογγυλεμένο"
 
 msgid "Directories"
 msgstr "Κατάλογοι"
+
+msgid "Error saving log file."
+msgstr "Σφάλμα κατά την αποθήκευση του αρχείου καταγραφής."
+
+#, java-format
+msgid "File {0} saved."
+msgstr "Αρχείο {0} αποθηκεύτηκε."
 
 #, java-format
 msgid "Invalid range: {0}."
@@ -177,938 +1144,6 @@ msgstr ""
 #, java-format
 msgid "Invalid number: {0}."
 msgstr "Μη έγκυρος αριθμός: {0}."
-
-msgid "Error saving log file."
-msgstr "Σφάλμα κατά την αποθήκευση του αρχείου καταγραφής."
-
-#, java-format
-msgid "File {0} saved."
-msgstr "Αρχείο {0} αποθηκεύτηκε."
-
-msgid "Split"
-msgstr "Χώρισμα"
-
-msgid "Security"
-msgstr "Ασφάλεια"
-
-msgid "Other"
-msgstr "Άλλο"
-
-msgid "Split by every \"n\" pages"
-msgstr "Διαχώρισε κάθε \"n\" σελίδες"
-
-msgid "Number of pages"
-msgstr "Αριθμός σελίδων"
-
-msgid "Invalid number of pages"
-msgstr "Μη έγκυρος αριθμός σελίδων"
-
-msgid "Split a PDF document at the given page numbers."
-msgstr "Διαχώρισε ένα έγγραφο PDF στους συγκεκριμένους αριθμούς σελίδων"
-
-msgid "Select or drag and drop the PDF you want to split"
-msgstr ""
-"Επιλέξτε ή μεταφέρετε και αποθέστε το αρχείο PDF που επιθυμείτε να "
-"διαχωρίσετε"
-
-msgid "Split settings"
-msgstr "Ρυθμίσεις διαχωρισμού"
-
-msgid "Every page"
-msgstr "Κάθε σελίδα"
-
-msgid "Even pages"
-msgstr "Σελίδες αριθμημένες με άρτιο αριθμό"
-
-msgid "Odd pages"
-msgstr "Σελίδες αριθμημένες με περιττό αριθμό"
-
-msgid "Split the document after the given page numbers"
-msgstr "Διαχώρισε το έγγραφο μετά από τους δοθέντες αριθμούς σελίδων"
-
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
-msgstr ""
-"Διαχωρίζει το PDF κάθε \"n\" σελίδες δημιουργώντας επιμέρους έγγραφα με "
-"\"n\" σελίδες το καθένα"
-
-msgid "Split after"
-msgstr "Διαχώρισε μετά"
-
-msgid "No page selected"
-msgstr "Καμμία επιλογή σελίδας"
-
-msgid "Split after the following page numbers"
-msgstr "Διαχώρισε μετά τους εξής αριθμούς σελίδων"
-
-msgid "Page numbers to split at (n1,n2,n3..)"
-msgstr ""
-"Οι αριθμοί σελίδων στις οποίες θα υπάρξει διαχωρισμός είναι (n1,n2,n3)"
-
-msgid "Invalid page numbers"
-msgstr "Μη έγκυροι αριθμοί σελίδων"
-
-msgid "Only valid positive page numbers are allowed"
-msgstr "Μόνο έγκυροι θετικοί αριθμοί σελίδων επιτρέπονται"
-
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Διπλό κλικ για να ορίσετε σελίδες που θέλετε να περιστρέψετε (π.χ.:  2 ή  5-"
-"23 ή 2,5-7,12-)"
-
-msgid "Rotate"
-msgstr "Περιστροφή"
-
-msgid "Rotate the pages of multiple PDF documents."
-msgstr "Περιστρέψτε τις σελίδες πολλαπλών εγγράφων PDF."
-
-msgid "Rotate settings"
-msgstr "Ανακύκλιση ρυθμίσεων"
-
-msgid "All pages"
-msgstr "Όλες οι σελίδες"
-
-msgid "90 degrees clockwise"
-msgstr "90 μοίρες κατά την φορά των δεικτών του ρολογιού"
-
-msgid "180 degrees clockwise"
-msgstr "180 μοίρες κατά την φορά των δεικτών του ρολογιού"
-
-msgid "90 degrees counterclockwise"
-msgstr "90 μοίρες αντίστροφα από την φορά των δεικτών του ρολογιού"
-
-msgid "Rotate "
-msgstr "Περιστροφή "
-
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:150
-msgid "Close"
-msgstr "Κλείσιμο"
-
-msgid "Prefix for the generated files names"
-msgstr "Πρόθεμα για τα παραγόμενα ονόματα αρχείων"
-
-msgid "Add prefix"
-msgstr "Προσθήκη προθέματος"
-
-msgid "Generated PDF documents name prefix:"
-msgstr "Πρόθεμα ονόματος των παραγόμενων εγγράφων PDF:"
-
-msgid "Prefix for the output files name."
-msgstr "Πρόθεμα για τα εξαγόμενα ονόματα αρχείων."
-
-msgid "Some special keywords are replaced with runtime values."
-msgstr "Μερικοί ειδικοί χαρακτήρες αντικαθίστανται με τιμές εκτέλεσης."
-
-msgid "Right click to add these keywords."
-msgstr "Κάντε δεξί κλικ για να προσθέσετε αυτές τις λέξεις-κλειδιά."
-
-msgid "Reverse"
-msgstr "Αντιστροφή"
-
-msgid "Drag and drop PDF files here"
-msgstr "Μεταφέρετε και αποθέσατε αρχεία PDF εδώ"
-
-msgid "Set destination"
-msgstr "Ορισμός προορισμού"
-
-msgid "Set as range for all"
-msgstr ""
-
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:273
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:317
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:266
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:311
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:269
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:314
-msgid "Remove"
-msgstr "Απομάκρυνση"
-
-msgid "Move to Top"
-msgstr "Μετακίνηση στην αρχή"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:273
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:320
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:276
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:323
-msgid "Move Up"
-msgstr "Μετακίνηση προς τα πάνω"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:282
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:329
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:285
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:332
-msgid "Move Down"
-msgstr "Μετακίνηση προς τα κάτω"
-
-msgid "Move to Bottom"
-msgstr "Μετακίνηση στο τέλος"
-
-msgid "Duplicate"
-msgstr "Δημιουργία αντίγραφου"
-
-msgid "Copy to clipboard"
-msgstr "Αντιγραφή στο πρόχειρο"
-
-msgid "Document properties"
-msgstr "Ιδιότητες εγγράφου"
-
-msgid "Open"
-msgstr "Άνοιγμα"
-
-msgid "Open Folder"
-msgstr "Άνοιγμα Φακέλου"
-
-msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr ""
-
-msgid "No PDF found"
-msgstr ""
-
-msgid "Pace"
-msgstr "Βήμα"
-
-msgid ""
-"Double click to set the number of pages after which the task will switch to "
-"the next file"
-msgstr ""
-"Κάντε διπλό κλικ για να ορίσετε τον αριθμό των σελίδων μετά από το οποίο η "
-"διεργασία θα μεταβεί στο επόμενο αρχείο"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:182
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:180
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:183
-msgid "Pages"
-msgstr "Σελίδες"
-
-msgid "Size"
-msgstr "Μέγεθος"
-
-msgid "Modified"
-msgstr "Τροποποιήθηκε"
-
-msgid "Add documents to the table"
-msgstr "Προσθέστε έγγραφα στον πίνακα"
-
-msgid "_Add"
-msgstr "_Προσθήκη"
-
-msgid "Select pdf documents to load"
-msgstr "Επιλέξτε έγγραφα PDF προς φόρτωση"
-
-msgid "Removes selected documents"
-msgstr "Αφαιρεί επιλεγμένα έγγραφα"
-
-msgid "_Remove"
-msgstr "_Απομάκρυνση"
-
-msgid "Removes every document"
-msgstr "Απομακρύνει κάθε έγγραφο"
-
-msgid "_Clear"
-msgstr "_Εκκαθάριση"
-
-msgid "C_lear all settings"
-msgstr ""
-
-msgid "Moves up selected documents"
-msgstr "Μετακινεί προς τα επάνω επιλεγμένα έγγραφα"
-
-msgid "Move _Up"
-msgstr "Μετακίνηση _Επάνω"
-
-msgid "Moves down selected documents"
-msgstr "Μετακινεί προς τα κάτω επιλεγμένα έγγραφα"
-
-msgid "Move _Down"
-msgstr "Μετακίνηση _Κάτω"
-
-msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Διπλό κλικ για να ορίσετε επιλεγμένες σελίδες (π.χ.:  2 ή  5-23 ή 2,5-7,12-)"
-
-msgid "Page ranges"
-msgstr "Εύρος σελίδων"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JInfoPanel.java:118
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:128
-msgid "Name"
-msgstr "'Όνομα"
-
-msgid "Enter the user password"
-msgstr "Εισάγετε τον κωδικό χρήστη"
-
-msgid "Unlock"
-msgstr "Ξεκλείδωμα"
-
-msgid "The selected PDF document is invalid"
-msgstr "Το συγκεκριμένο έγγραφο PDF είναι μη έγκυρο"
-
-#, java-format
-msgid "Pages: {0}, PDF Version: {1}"
-msgstr "Σελίδες: {0}, Έκδοση PDF: {1}"
-
-msgid "Loading..."
-msgstr "Φόρτωση..."
-
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:542
-# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:462
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:526
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:320
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:410
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:530
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:408
-msgid "Run"
-msgstr "Εκτέλεση"
-
-msgid "Invalid parameters"
-msgstr "Μη έγκυρες παραμέτροι"
-
-msgid "Requested"
-msgstr "Αιτήθηκε"
-
-msgid "Completed"
-msgstr "Ολοκληρώθηκε"
-
-msgid "Failed"
-msgstr "Απέτυχε"
-
-msgid "Running"
-msgstr "Σε Εξέλιξη"
-
-#, java-format
-msgid "Running {0}%"
-msgstr "Εκτελείται {0}%"
-
-msgid "Show errors"
-msgstr "Εμφάνιση σφαλμάτων"
-
-msgid "The selected PDF file is invalid"
-msgstr "Το επιλεγμένο αρχείο PDF δεν είναι έγκυρο"
-
-msgid "Compress output file/files"
-msgstr "Συμπίεση αρχείου/αρχείων εξόδου"
-
-msgid ""
-"Tick the box if you don't want to retain any bookmark from the original PDF "
-"document"
-msgstr ""
-"Τσεκάρετε το κουτί αν δεν επιθυμείτε να διατηρήσετε κάποιον σελιδοδείκτη από "
-"το αρχικό έγγραφο PDF."
-
-msgid "Output PDF version:"
-msgstr "Έκδοση εξαγώγιμου αρχείου PDF"
-
-msgid "Show advanced settings"
-msgstr ""
-
-msgid "Hide advanced settings"
-msgstr ""
-
-msgid "Select"
-msgstr "Επιλογή"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:394
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:421
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:448
-# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:175
-# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:340
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:430
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:150
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:177
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:244
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:164
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:304
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:233
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:434
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:163
-# F:\workspace_pdfsam_basic\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:300
-msgid "Browse"
-msgstr "Αναζήτηση"
-
-#, java-format
-msgid "Version {0}"
-msgstr "Έκδοση {0}"
-
-msgid "Same as the input document"
-msgstr "Το ίδιο όπως και το έγγραφο εισόδου"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:452
-# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:315
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:434
-# F:\workspace_pdfsam_enhanced\pdfsam-mix\it\pdfsam\plugin\mix\GUI\MixMainGUI.java:249
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:279
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:438
-msgid "Overwrite if already exists"
-msgstr "Αντικατάσταση αν ήδη υπάρχει"
-
-msgid ""
-"Tick the box if you want to overwrite the output files if they already exist."
-msgstr ""
-"Τσεκάρετε το κουτί αν επιθυμείτε να γίνει επανεγγραφή των αρχείων που "
-"εξάγετε σε περίπτωση που ήδη υπάρχουν."
-
-msgid "Select a directory"
-msgstr "Επιλογή καταλόγου"
-
-msgid "Select an existing directory"
-msgstr "Επιλέξτε έναν υπάρχων κατάλογο"
-
-msgid "Select a file"
-msgstr "Επιλέξτε ένα αρχείο"
-
-msgid "The selected file must exist. "
-msgstr "Το επιλεγμένο αρχείο πρέπει να υπάρχει. "
-
-#, java-format
-msgid "Allowed extensions are {0}"
-msgstr "Επιτρεπόμενες προεκτάσεις είναι {0}"
-
-msgid "An existing output directory is required"
-msgstr "Απαιτείται ένας ήδη υπάρχων κατάλογος εξόδου"
-
-msgid "The output directory is required"
-msgstr "Απαιτείται ο κατάλογος εξόδου"
-
-#, java-format
-msgid "PDF version required: {0}"
-msgstr "Απαιτούμενη έκδοση PDF: {0}"
-
-msgid "Loading pdf documents"
-msgstr "Φόρτωση εγγράφων pdf"
-
-msgid "Documents loaded"
-msgstr "Φόρτωση εγγράφων επιτυχής"
-
-msgid "Checking for updates"
-msgstr "Έλεγχος ενημερώσεων"
-
-#, java-format
-msgid "PDFsam {0} is available for download"
-msgstr "Το PDFsam {0} είναι διαθέσιμο για λήψη"
-
-msgid "Unable to find the latest available version."
-msgstr "Αδύνατη η εύρεση της τελευταίας διαθέσιμης έκδοσης"
-
-msgid "Fetching premium modules"
-msgstr "Ανάκτηση κορυφαίων"
-
-msgid "Unable to retrieve premium modules"
-msgstr "Αδυναμία ανάκτησης"
-
-msgid "Unable to retrieve premium features description"
-msgstr "Αδυναμία ανάκτησης κορυφαίων χαρακτηριστικών περιγραφής"
-
-msgid "Requesting modules state"
-msgstr "Κατάσταση των ζητούμενων αρθρωμάτων/modules"
-
-msgid "Unable to save modules workspace"
-msgstr "Αδύνατη η αποθήκευση του χώρου εργασίας αρθρωμάτων"
-
-#, java-format
-msgid "Unable to save workspace to {0}"
-msgstr "Αδύνατη η αποθήκευση του χώρου εργασίας στο {0}"
-
-#, java-format
-msgid "Loading workspace from {0}"
-msgstr "Φόρτωση του χώρου εργασίας από το {0}"
-
-msgid "Workspace loaded"
-msgstr "Φόρτωση χώρου εργασίας επιτυχής"
-
-#, java-format
-msgid "Unable to load workspace from {0}"
-msgstr "Αδύνατη η φόρτωση χώρου εργασίας από το {0}"
-
-#, java-format
-msgid "Saving workspace data to {0}"
-msgstr "Αποθήκευση δεδομένων χώρου εργασίας στο {0}"
-
-msgid "Workspace saved"
-msgstr "Αποθήκευση χώρου εργασίας"
-
-msgid "Unable to retrieve latest news"
-msgstr "Αδύνατη η ανάκτηση τελευταίων νέων"
-
-msgid "Fetching latest news"
-msgstr "Ανάκτηση τελευταίων νέων"
-
-msgid "Unable to retrieve the latest news"
-msgstr "Αδύνατη η ανάκτηση των τελευταίων νέων"
-
-msgid "Invalid bookmarks level"
-msgstr "Μη έγκυρο επίπεδο σελιδοδεικτών"
-
-msgid "Split by bookmarks"
-msgstr "Διαχωρισμός βάσει σελιδοδεικτών"
-
-msgid ""
-"Split a PDF document at bookmarked pages by specifying a bookmark level."
-msgstr ""
-"Διαχωρίστε ένα έγγραφο PDF σε σελίδες που αποτελούν σελιδοδείκτες ορίζοντας "
-"ένα επίπεδο σελιδοδεικτών."
-
-msgid "Regular expression the bookmark has to match"
-msgstr "Συνήθης έκφραση που πρέπει να ταιριάξει ο σελιδοδείκτης"
-
-msgid "Split at this bookmark level:"
-msgstr "Διαχωρισμός στο συγκεκριμένο επίπεδο σελιδοδεικτών:"
-
-msgid "Matching regular expression:"
-msgstr "Ταίριασμα κανονικών εκφράσεων"
-
-msgid "A regular expression the bookmark text has to match"
-msgstr ""
-"Μια κανονική έκφραση που το  κείμενο του σελιδοδείκτη πρέπει να ταιριάξει"
-
-msgid ""
-"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
-msgstr ""
-"Παράδειγμα: χρήση .*Κεφάλαιο.* να βρεθούν σελιδοδείκτες που περιέχουν την "
-"λέξη \"Κεφάλαιο\""
-
-msgid "Alternate Mix"
-msgstr "Εναλλακτική μείξη"
-
-msgid ""
-"Merge two or more PDF documents taking pages alternately in natural or "
-"reverse order."
-msgstr ""
-"Ένωση δύο ή περισσότερων αρχείων PDF, λαμβάνοντας σελίδες με την κανονική ή "
-"αντίστροφη σειρά"
-
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-
-msgid "Select a positive integer number as pace"
-msgstr "Επιλέξτε έναν θετικό ακέραιο αριθμό για ρυθμό"
-
-#, java-format
-msgid "Installing theme {0}."
-msgstr "Εγκατάσταση θέματος {0}."
-
-msgid "Document details"
-msgstr "Λεπτομέρειες εγγράφου"
-
-msgid "Summary"
-msgstr "Σύνοψη"
-
-msgid "Keywords"
-msgstr "Λέξεις κλειδιά"
-
-msgid "Settings"
-msgstr "Ρυθμίσεις"
-
-msgid "Subscribe to the official news feed"
-msgstr "Εγγραφείτε στην επίσημη ροή ειδήσεων"
-
-msgid "Environment"
-msgstr "Περιβάλλον"
-
-msgid "Java runtime path: %s"
-msgstr ""
-
-msgid "JavaFX runtime version %s"
-msgstr ""
-
-#, java-format
-msgid "Max memory {0}"
-msgstr "Μέγιστη μνήμη {0}"
-
-msgid "Support"
-msgstr "Υποστήριξη"
-
-msgid "Bug and feature requests"
-msgstr "Αιτήσεις σφαλμάτων και λειτουργιών"
-
-msgid "Documentation"
-msgstr ""
-
-msgid "Contribute"
-msgstr "Συνεισφέρετε"
-
-msgid "Fork PDFsam on GitHub"
-msgstr "Κάντε fork το PDFsam στο GitHub"
-
-msgid "Translate"
-msgstr "Μετάφραση"
-
-msgid "Donate"
-msgstr "Κάντε Δωρεά"
-
-msgid "Social"
-msgstr "Κοινωνικά"
-
-msgid "Follow us on Twitter"
-msgstr "Ακολουθήστε μας στο Twitter"
-
-msgid "Like us on Facebook"
-msgstr "Κάντε μας like στο Facebook"
-
-msgid "Modules"
-msgstr "Αρθρώματα/Modules"
-
-msgid "Generate high quality thumbnails (slower)"
-msgstr ""
-"Δημιουργία καλύτερης ποιότητας μικρογραφιών (απαιτεί περισσότερο χρόνο)"
-
-msgid "Size in px:"
-msgstr "Μέγεθος σε εικονοστοιχεία/pixels"
-
-msgid "Library used to generate thumbnails"
-msgstr "Απαιτούμενη βιβλιοθήκη για την δημιουργία μικρογραφιών"
-
-msgid "Thumbnails creator:"
-msgstr "Δημιουργός μικρογραφιών"
-
-msgid "Dashboard"
-msgstr "Πίνακας Αναφορών"
-
-msgid "Check for updates at startup"
-msgstr "Έλεγχος για αναβαθμίσεις κατά την εκκίνηση"
-
-msgid ""
-"Set whether new version availability should be checked on startup (restart "
-"needed)"
-msgstr ""
-"Ορίστε εάν επιθυμείτε να γίνεται έλεγχος διαθεσιμότητας νέας έκδοσης κατά "
-"την εκκίνηση (απαιτείται επανεκκίνηση)"
-
-msgid "Check for news at startup"
-msgstr "Ελέγξτε για τις ειδήσεις κατά την εκκίνηση"
-
-msgid ""
-"Set whether the application should check for news availability on startup "
-"(restart needed)"
-msgstr ""
-"Ορίστε εάν η εφαρμογή θα πρέπει να ελέγχει για τη διαθεσιμότητα ειδήσεων "
-"κατά την εκκίνηση (απαιτείται επανεκκίνηση )"
-
-msgid "Play alert sounds"
-msgstr "Αναπαραγωγή ήχων συναγερμού"
-
-msgid "Turn on or off alert sounds"
-msgstr "Ενεργοποίηση ή απενεργοποίηση ήχων συναγερμού"
-
-msgid "Store passwords when saving a workspace file"
-msgstr "Αποθήκευση των κωδικών κατά την αποθήκευση του αρχείου εργασιών"
-
-msgid ""
-"If an encrypted PDF document has been opened with a password, save the "
-"password in the workspace file"
-msgstr ""
-"Εάν ένα κρυπτογραφημένο PDF έγγραφο έχει ανοιχτεί με χρήση κωδικού, "
-"αποθήκευσε τον κωδικό στο αρχείο εργασίας"
-
-msgid "Show donation window"
-msgstr "Εμφάνιση παραθύρου δωρεάς"
-
-msgid ""
-"Turn on or off the notification appearing once in a while and asking the "
-"user to support PDFsam with a donation"
-msgstr ""
-"Ενεργοποίηση ή απενεργοποίηση της ειδοποίησης που εμφανίζεται κάθε τόσο "
-"ζητώντας από τον χρήστη να υποστηρίξει το PDFsam με κάποια δωρεά"
-
-msgid "Show premium features"
-msgstr "Εμφάνιση premium χαρακτηριστικών"
-
-msgid ""
-"Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
-msgstr ""
-"Ορίστε εάν η εφαρμογή θα πρέπει να ανακτά και να προβάλει περιγραφή premium "
-"χαρακτηριστικών στο ταμπλό"
-
-msgid "Use the selected PDF document directory as output directory"
-msgstr "Ορίστε τον επιλεγμένο κατάλογο εγγράφων PDF ώς κατάλογο εξόδου"
-
-msgid "Save default workspace on exit"
-msgstr "Αποθήκευση προεπιλεγμένου χώρου εργασίας κατά την έξοδο"
-
-msgid "If a default workspace is set, save it on application exit"
-msgstr ""
-"Αν ένας προεπιλεγμένος χώρος εργασίας έχει οριστεί, αποθηκεύεται κατά την "
-"έξοδο από την εφαρμογή"
-
-msgid "Maximum number of rows mast be a positive number"
-msgstr "Ο μέγιστος αριθμός γραμμών πρέπει να είναι θετικός αριθμός"
-
-msgid "Log register rows:"
-msgstr "Γραμμές εγγραφής αρχείων καταγραφής"
-
-msgid "Maximum number of rows displayed by the Log register"
-msgstr "Μέγιστος αριθμός γραμμών καταγράφηκε από τα αρχεία καταγραφής"
-
-msgid "Manually selected"
-msgstr "Χειροκίνητη επιλογή"
-
-msgid ""
-"Automatically set the destination directory to the selected PDF document "
-"directory"
-msgstr ""
-"Αυτόματα όρισε τον κατάλογο προορισμού στον επιλεγμένο κατάλογο των αρχείων "
-"PDF"
-
-msgid "Appearance"
-msgstr "Εμφάνιση"
-
-msgid "Behavior"
-msgstr "Συμπεριφορά"
-
-msgid "Workspace"
-msgstr "Χώρος εργασίας"
-
-msgid "Output"
-msgstr "Αποτέλεσμα"
-
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
-msgstr "Επιλογή φακέλου προεπιλεγμένης αποθήκευσης και φόρτωσης των εγγράφων"
-
-msgid ""
-"Select a previously saved workspace that will be automatically loaded at "
-"startup"
-msgstr ""
-"Επιλογή αποθηκευμένου χώρου εργασίας ώστε να γίνεται αυτόματη φόρτωση κατά "
-"την εκκίνηση"
-
-msgid "Select a workspace"
-msgstr "Επιλογή χώρου εργασίας"
-
-msgid "Default working directory:"
-msgstr "Προεπιλεγμένος κατάλογος εργασίας"
-
-msgid "Load default workspace at startup:"
-msgstr "Φόρτωση προεπιλεγμένου χώρου εργασίας κατά την εκκίνηση"
-
-msgid "Clear usage statistics"
-msgstr "Καθαρισμός στατιστικών χρήσης"
-
-msgid "Check for updates now"
-msgstr "Έλεγχος ενημερώσεων τώρα"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:125
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:116
-msgid "Language:"
-msgstr "Γλώσσα:"
-
-msgid "Set your preferred language (restart needed)"
-msgstr "Ορισμός γλώσσας επιλογής (απαιτείται επανεκκίνηση)"
-
-msgid "Startup module:"
-msgstr "Άρθρωμα εκκίνησης / Startup module"
-
-msgid "Set the module to open at application startup (restart needed)"
-msgstr ""
-"Ορισμός αρθρώματος/module προς άνοιγμα κατά την εκκίνηση της εφαρμογής "
-"(απαιτείται επανεκκίνηση)"
-
-msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
-msgstr ""
-"Τα στατιστικά χρήσης χρησιμοποιούνται για να ενημερώσουν την μπάρα "
-"συντομεύσεων αρθρωμάτων (modules) στα αριστερά με τα περισσότερο και πιο "
-"πρόσφατα χρησιμοποιημένα αρθρώματα."
-
-msgid "Premium features"
-msgstr "Premium χαρακτηριστικά"
-
-# F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\MainGUI.java:222
-msgid "About"
-msgstr "Σχετικά"
-
-msgid ""
-"Input parameters are invalid, open the application messages for details."
-msgstr ""
-"Μη έγκυρες παράμετροι εισόδου, ανοίξτε το μήνυμα της εφαρμογής για "
-"λεπτομέρειες"
-
-msgid "Access denied"
-msgstr ""
-
-#, java-format
-msgid ""
-"Unable to access \"{0}\", please make sure you have write permissions or "
-"open the application messages for details."
-msgstr ""
-
-#, java-format
-msgid "You performed {0} tasks with PDFsam, did it help?"
-msgstr "Εκτελέσατε {0} εργασίες με το PDFsam, σας βοήθησε;"
-
-msgid "Give something back"
-msgstr "Επιστρέψτε κάποιο δεδομένο"
-
-msgid "PDFsam worked hard!"
-msgstr "Το PDFsam δούλεψε σκληρά!"
-
-msgid "Spread the word!"
-msgstr "Διαδώστε το!"
-
-msgid "Download"
-msgstr "Λήψη"
-
-msgid "New version available"
-msgstr "Νέα έκδοση διαθέσιμη"
-
-msgid "Open with"
-msgstr "Άνοιγμα με"
-
-msgid "Select the task to perform on the following files"
-msgstr "Επιλογή της επίδρασης στα επόμενα αρχεία"
-
-msgid "Yes"
-msgstr "Ναι"
-
-msgid "No"
-msgstr "Όχι"
-
-msgid "Non existing directory"
-msgstr "Ο κατάλογος δεν υπάρχει"
-
-msgid "The selected output directory does not exist"
-msgstr "Ο επιλεγμένος κατάλογος εξόδου δεν υπάρχει"
-
-msgid "Do you want to create it?"
-msgstr "Θέλετε να δημιουργηθεί;"
-
-msgid "Directory not empty"
-msgstr "Ο κατάλογος δεν είναι κενός"
-
-msgid "The selected directory is not empty"
-msgstr "Ο επιλεγμένος κατάλογος δεν είναι κενός"
-
-msgid "Overwrite files with the same name as the generated ones?"
-msgstr "Επανεγγραφή αρχείων ίδιου ονόματος με αυτά που δημιουργήθηκαν;"
-
-msgid "Don't overwrite existing file"
-msgstr "Μην επανεγγράφετε ήδη υπάρχον αρχείο"
-
-msgid "Overwrite confirmation"
-msgstr "Επιβεβαίωση επανεγγραφής"
-
-msgid "A file with the given name already exists"
-msgstr "Υπάρχει ήδη ένα αρχείο με το ίδιο όνομα"
-
-msgid "Do you want to overwrite it?"
-msgstr "Θέλετε να το αντικαταστήσετε;"
-
-msgid "Task failed"
-msgstr ""
-
-msgid "PDFsam can try to overcome the failure"
-msgstr ""
-
-msgid ""
-"It may result in PDF files with partial or missing data, proceed anyway?"
-msgstr ""
-
-msgid "Overwrite"
-msgstr "Αντικατάσταση"
-
-msgid "Cancel"
-msgstr "Άκυρο"
-
-msgid "What's new"
-msgstr "Τι νέο υπάρχει"
-
-msgid "_Modules"
-msgstr "_Modules"
-
-msgid "E_xit"
-msgstr "Έξοδος"
-
-msgid "_Settings"
-msgstr ""
-
-msgid "Application messages"
-msgstr "Μηνύματα εφαρμογής"
-
-msgid "_Workspace"
-msgstr "Χώρος εργασίας"
-
-msgid "_Load"
-msgstr "Άνοιγμα"
-
-msgid "_Save"
-msgstr "Αποθήκευση"
-
-msgid "Recen_ts"
-msgstr ""
-
-msgid "_Clear recents"
-msgstr ""
-
-msgid "Select the workspace file to save"
-msgstr "Επιλέξτε το αρχείο χώρου εργασίας για να το αποθηκεύσετε"
-
-msgid "Select the workspace to load"
-msgstr "Επιλέξτε το αρχείο χώρου εργασίας για να το ανοίξετε"
-
-msgid "Log register"
-msgstr "Αρχεία καταγραφής"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\LogPanel.java:99
-msgid "Copy"
-msgstr "Αντιγραφή"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:284
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:294
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\LogPanel.java:105
-# F:\workspace_pdfsam_basic\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:297
-msgid "Clear"
-msgstr "Καθαρισμός"
-
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\LogPanel.java:112
-msgid "Select all"
-msgstr "Επιλογή όλων"
-
-msgid "Save log"
-msgstr "Αποθήκευση αρχείου καταγραφής"
-
-msgid "Select where to save the log file"
-msgstr "Επιλογή χώρου αποθήκευσης του αρχείου"
-
-#, java-format
-msgid "Started in {0}"
-msgstr "Εκκίνηση σε {0}"
-
-msgid "Closing PDFsam..."
-msgstr "Τερματισμός PDFsam..."
-
-msgid "Megabytes"
-msgstr "Megabytes"
-
-msgid "MB"
-msgstr "MB"
-
-msgid "Kilobytes"
-msgstr "Kilobytes"
-
-msgid "KB"
-msgstr "ΚΒ"
-
-msgid "Split by size"
-msgstr "Διαχωρισμός βάσει μεγέθους"
-
-msgid "Split a PDF document in files of the given size (roughly)."
-msgstr ""
-"Διαχώρισε ένα PDF έγγραφο σε αρχεία του δοθέντος μεγέθους (κατά προσέγγιση)."
-
-msgid "Set the size to split at"
-msgstr "Ορίστε το μέγεθος στο οποίο θα υπάρξει διαχωρισμός"
-
-msgid "Size must be a number"
-msgstr "Το μέγεθος πρέπει να είναι ένας αριθμός"
-
-msgid "Split at this size:"
-msgstr "Διαχώρισε σε αυτό το μέγεθος"
-
-msgid "Invalid split size"
-msgstr "Μη έγκυρο μέγεθος διαχωρισμού"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:122
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:113
