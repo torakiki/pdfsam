@@ -79,6 +79,8 @@ public class AboutDashboardPane extends HBox {
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Environment"), left);
         Label runtime = new Label(String.format("%s %s", System.getProperty("java.runtime.name"),
                 System.getProperty("java.runtime.version")));
+        Label vendor = new Label(
+                String.format(DefaultI18nContext.getInstance().i18n("Vendor: %s"), System.getProperty("java.vendor")));
         Label runtimePath = new Label(String.format(DefaultI18nContext.getInstance().i18n("Java runtime path: %s"),
                 System.getProperty("java.home")));
         Label fx = new Label(String.format(DefaultI18nContext.getInstance().i18n("JavaFX runtime version %s"),
@@ -91,11 +93,11 @@ public class AboutDashboardPane extends HBox {
         copyButton.setId("copyEnvDetails");
         copyButton.setOnAction(a -> {
             ClipboardContent content = new ClipboardContent();
-            writeContent(Arrays.asList(pdfsam.name(), pdfsam.property(VERSION), runtime.getText(), memory.getText()))
-                    .to(content);
+            writeContent(Arrays.asList(pdfsam.name(), pdfsam.property(VERSION), runtime.getText(), vendor.getText(),
+                    runtimePath.getText(), fx.getText(), memory.getText())).to(content);
             Clipboard.getSystemClipboard().setContent(content);
         });
-        left.getChildren().addAll(runtime, runtimePath, fx, memory, copyButton);
+        left.getChildren().addAll(runtime, vendor, runtimePath, fx, memory, copyButton);
 
         VBox right = new VBox(5);
         addSectionTitle(DefaultI18nContext.getInstance().i18n("Support"), right);
