@@ -27,8 +27,6 @@ import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.pdfsam.ui.selection.ToolbarButton;
 
-import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
-import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
@@ -70,10 +68,8 @@ class SingleSelectionPaneToolbar extends ToolBar implements ModuleOwned {
 
         public ClearButton(String ownerModule) {
             super(ownerModule);
+            setText(DefaultI18nContext.getInstance().i18n("_Clear"));
             setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Clear all settings")));
-            MaterialDesignIconFactory.get().setIcon(this, MaterialDesignIcon.DELETE, "1.5em");
-            setStyle("-fx-padding-top: 0.25em;");
-            setStyle("-fx-padding: 0.25em 1em 0.25em 1em;");
             setOnAction(this::clearAll);
             eventStudio().addAnnotatedListeners(this);
         }

@@ -40,5 +40,5 @@
 * Toolbar button
 **/
 .toolbar-button, .toolbar-button:default, .toolbar-button:focused {
-	-fx-padding: 0.5em 1em 0.5em 1em;
+	-fx-padding: 0.5em 1em 0.5em 1em !important;
 }
