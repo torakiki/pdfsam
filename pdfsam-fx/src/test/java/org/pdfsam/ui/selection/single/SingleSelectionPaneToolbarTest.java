@@ -25,7 +25,9 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.mockito.ArgumentCaptor;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.pdfsam.ui.selection.single.SingleSelectionPaneToolbar.ClearButton;
@@ -57,6 +59,7 @@ public class SingleSelectionPaneToolbarTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void clear() {
         Listener<ClearModuleEvent> listener = mock(Listener.class);
         ArgumentCaptor<ClearModuleEvent> captor = ArgumentCaptor.forClass(ClearModuleEvent.class);
