@@ -19,6 +19,7 @@
 package org.pdfsam.news;
 
 import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.pdfsam.support.io.NetUtils.urlToStream;
 
 import java.io.IOException;
 import java.net.URL;
@@ -61,7 +62,7 @@ public class DefaultNewsService implements NewsService {
     public List<NewsData> getLatestNews() {
         try {
             return JSON.std.with(Feature.READ_ONLY, true).listOfFrom(NewsData.class,
-                    new URL(pdfsam.property(ConfigurableProperty.NEWS_URL)));
+                    urlToStream(new URL(pdfsam.property(ConfigurableProperty.NEWS_URL))));
         } catch (IOException e) {
             LOG.warn(DefaultI18nContext.getInstance().i18n("Unable to retrieve latest news"), e);
         }
