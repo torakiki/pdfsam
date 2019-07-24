@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLConnection;
 import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
@@ -43,28 +44,31 @@ public class NetUtils {
      */
     public static InputStream urlToStream(URL url) throws IOException {
         Map<String, Integer> visited = new HashMap<>();
-        
+
         while (true) {
 
             if (visited.compute(url.toExternalForm(), (key, count) -> isNull(count) ? 1 : count++) > 3) {
                 throw new IOException("Too many redirects");
             }
 
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            URLConnection conn = url.openConnection();
+            if (conn instanceof HttpURLConnection) {
+                HttpURLConnection connection = (HttpURLConnection) conn;
 
-            connection.setConnectTimeout(15000);
-            connection.setReadTimeout(15000);
-            connection.setInstanceFollowRedirects(false); // Make the logic below easier to detect redirections
-            connection.setRequestProperty("User-Agent", "Mozilla/5.0 (PDFsam Basic)");
+                connection.setConnectTimeout(15000);
+                connection.setReadTimeout(15000);
+                connection.setInstanceFollowRedirects(false); // Make the logic below easier to detect redirections
+                connection.setRequestProperty("User-Agent", "Mozilla/5.0 (PDFsam Basic)");
 
-            switch (connection.getResponseCode()) {
-            case HttpURLConnection.HTTP_MOVED_PERM:
-            case HttpURLConnection.HTTP_MOVED_TEMP:
-                String location = connection.getHeaderField("Location");
-                location = URLDecoder.decode(location, "UTF-8");
-                url = new URL(url, location); // Deal with relative URLs
-                connection.disconnect();
-                continue;
+                switch (connection.getResponseCode()) {
+                case HttpURLConnection.HTTP_MOVED_PERM:
+                case HttpURLConnection.HTTP_MOVED_TEMP:
+                    String location = connection.getHeaderField("Location");
+                    location = URLDecoder.decode(location, "UTF-8");
+                    url = new URL(url, location); // Deal with relative URLs
+                    connection.disconnect();
+                    continue;
+                }
             }
             break;
         }
