@@ -20,22 +20,21 @@ package org.pdfsam.ui.io;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasProperty;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Matchers.argThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
+import static org.mockito.hamcrest.MockitoHamcrest.argThat;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.function.Consumer;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
 import org.pdfsam.support.params.SinglePdfSourceTaskParametersBuilder;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 
@@ -43,17 +42,21 @@ import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
  * @author Andrea Vacondio
  *
  */
-@RunWith(MockitoJUnitRunner.class)
 public class BrowsablePdfInputFieldTest {
 
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
     @Rule
     public InitializeAndApplyJavaFxThreadRule fxThread = new InitializeAndApplyJavaFxThreadRule();
-    @Mock
+
     private SinglePdfSourceTaskParametersBuilder<?> builder;
-    @Mock
     private Consumer<String> onError;
+
+    @Before
+    public void setUp() {
+        onError = mock(Consumer.class);
+        builder = mock(SinglePdfSourceTaskParametersBuilder.class);
+    }
 
     @Test
     public void valid() throws IOException {

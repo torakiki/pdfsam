@@ -24,6 +24,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -51,13 +52,13 @@ public class JsonWorkspaceServiceTest {
     @Test
     public void saveWorkspace() throws IOException {
         File file = folder.newFile();
-        assertFalse(FileUtils.readLines(file).size() > 0);
+        assertFalse(FileUtils.readLines(file, StandardCharsets.UTF_8).size() > 0);
         Map<String, Map<String, String>> data = new HashMap<>();
         Map<String, String> moduleData = new HashMap<>();
         moduleData.put("key", "value");
         data.put("module", moduleData);
         victim.saveWorkspace(data, file);
-        assertTrue(FileUtils.readLines(file).size() > 0);
+        assertTrue(FileUtils.readLines(file, StandardCharsets.UTF_8).size() > 0);
     }
 
     @Test(expected = RuntimeException.class)

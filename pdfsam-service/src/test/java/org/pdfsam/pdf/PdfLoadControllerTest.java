@@ -19,9 +19,9 @@
 package org.pdfsam.pdf;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyCollectionOf;
-import static org.mockito.Matchers.eq;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyCollection;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.after;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.timeout;
@@ -76,8 +76,7 @@ public class PdfLoadControllerTest {
         victim.request(event);
         verify(first).moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
         verify(second).moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
-        verify(loadService, timeout(1000).times(1)).load(anyCollectionOf(PdfDocumentDescriptor.class),
-                eq(RequiredPdfData.DEFAULT));
+        verify(loadService, timeout(1000).times(1)).load(anyCollection(), eq(RequiredPdfData.DEFAULT));
     }
 
     @Test

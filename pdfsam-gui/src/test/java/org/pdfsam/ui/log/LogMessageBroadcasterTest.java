@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.log;
 
-import static org.mockito.Matchers.any;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.timeout;
@@ -75,7 +75,7 @@ public class LogMessageBroadcasterTest {
         Listener<LogMessage> listener = mock(Listener.class);
         eventStudio().add(LogMessage.class, listener, "LogStage");
         LogMessageBroadcaster victim = injector.instance(LogMessageBroadcaster.class);
-        PatternLayoutEncoder encoder = injector.instance(PatternLayoutEncoder.class);
+        injector.instance(PatternLayoutEncoder.class);
         ILoggingEvent event = mock(ILoggingEvent.class);
         when(event.getLevel()).thenReturn(Level.INFO);
         when(event.getFormattedMessage()).thenReturn("myMessage");

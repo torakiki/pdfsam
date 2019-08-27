@@ -22,13 +22,13 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.sejda.model.parameter.base.AbstractParameters;
-
 /**
  * @author Andrea Vacondio
  * 
  */
-@RunWith(value = org.mockito.runners.MockitoJUnitRunner.class)
+@RunWith(value = MockitoJUnitRunner.class)
 public class TaskExecutionRequestEventTest {
     @Mock
     private AbstractParameters params;
