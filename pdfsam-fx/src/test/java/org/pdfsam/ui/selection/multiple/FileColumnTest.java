@@ -21,6 +21,7 @@ package org.pdfsam.ui.selection.multiple;
 import static org.hamcrest.Matchers.isEmptyString;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -56,10 +57,12 @@ public class FileColumnTest {
 
     @Test
     public void comparator() {
-        File file1 = mock(File.class);
-        when(file1.getName()).thenReturn("1_name");
-        File file2 = mock(File.class);
-        when(file2.getName()).thenReturn("2_name");
-        assertEquals(-1, FileColumn.NAME.comparator().compare(file1, file2));
+        assertTrue(FileColumn.NAME.comparator().compare(new File("1192name.pdf"), new File("chuck.norris")) < 0);
+        assertTrue(FileColumn.NAME.comparator().compare(new File("chuck.norris"), new File("1192name.pdf")) > 0);
+        assertTrue(FileColumn.NAME.comparator().compare(new File("a.pdf"), new File("b.pdf")) < 0);
+        assertTrue(FileColumn.NAME.comparator().compare(new File("b.pdf"), new File("a.pdf")) > 0);
+        assertTrue(FileColumn.NAME.comparator().compare(new File("a.pdf"), new File("a.pdf")) == 0);
+        assertEquals(-1, FileColumn.NAME.comparator().compare(new File("1_name"), new File("2_name")));
+        assertEquals(-1, FileColumn.NAME.comparator().compare(new File("001_name"), new File("1_name")));
     }
 }
