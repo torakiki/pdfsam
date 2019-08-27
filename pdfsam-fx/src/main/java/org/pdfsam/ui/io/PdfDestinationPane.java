@@ -143,6 +143,7 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned, 
     public void resetView() {
         super.resetView();
         version.resetView();
+        compress.setSelected(false);
         compress.setSelected(true);
         discardBookmarks.ifPresent(c -> c.setSelected(false));
     }
@@ -180,6 +181,14 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned, 
         });
         ofNullable(data.get("version")).map(PdfVersion::valueOf).map(DefaultPdfVersionComboItem::new)
                 .ifPresent(v -> this.version.getSelectionModel().select(v));
+    }
+
+    PdfVersionCombo getVersion() {
+        return version;
+    }
+
+    PdfVersionConstrainedCheckBox getCompress() {
+        return compress;
     }
 
     public static enum DestinationPanelFields {

@@ -19,11 +19,16 @@
 package org.pdfsam.ui.io;
 
 import static org.apache.commons.lang3.StringUtils.isNotEmpty;
+import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Matchers.any;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
@@ -33,25 +38,24 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.ui.commons.SetDestinationRequest;
+import org.pdfsam.ui.io.PdfVersionCombo.PdfVersionComboItem;
 import org.sejda.model.pdf.PdfVersion;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@RunWith(MockitoJUnitRunner.class)
 public class PdfDestinationPaneTest {
 
     private static final String MODULE = "MODULE";
@@ -61,7 +65,6 @@ public class PdfDestinationPaneTest {
     public ClearEventStudioRule clearStudio = new ClearEventStudioRule(MODULE);
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
-    @Mock
     private UserContext userContext;
 
     private BrowsableDirectoryField destination;
@@ -69,6 +72,7 @@ public class PdfDestinationPaneTest {
 
     @Before
     public void setUp() {
+        userContext = mock(UserContext.class);
         destination = spy(new BrowsableDirectoryField());
         when(userContext.isUseSmartOutput()).thenReturn(Boolean.FALSE);
         when(userContext.isCompressionEnabled()).thenReturn(Boolean.TRUE);
@@ -109,7 +113,11 @@ public class PdfDestinationPaneTest {
         victim.resetView();
         assertEquals("", destination.getTextField().getText());
         assertFalse(victim.overwrite().isSelected());
-
+        Set<PdfVersion> available = victim.getVersion().getItems().stream().map(PdfVersionComboItem::getVersion)
+                .collect(Collectors.toSet());
+        assertThat(available, allOf(
+                containsInAnyOrder(PdfVersion.VERSION_1_5, PdfVersion.VERSION_1_6, PdfVersion.VERSION_1_7),
+                not(containsInAnyOrder(PdfVersion.VERSION_1_2, PdfVersion.VERSION_1_3, PdfVersion.VERSION_1_4))));
     }
 
     @Test
