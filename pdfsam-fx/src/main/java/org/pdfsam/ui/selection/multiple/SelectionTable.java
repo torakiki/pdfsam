@@ -18,7 +18,6 @@
  */
 package org.pdfsam.ui.selection.multiple;
 
-import static java.util.Arrays.stream;
 import static java.util.Optional.of;
 import static java.util.Optional.ofNullable;
 import static org.apache.commons.lang3.StringUtils.defaultString;
@@ -43,24 +42,20 @@ import java.util.TreeSet;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
+import org.pdfsam.pdf.MultipleFilesDroppedEvent;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
-import org.pdfsam.pdf.PdfFilesListLoadRequest;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.support.EncryptionUtils;
-import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.pdfsam.ui.commons.OpenFileRequest;
 import org.pdfsam.ui.commons.RemoveSelectedEvent;
 import org.pdfsam.ui.commons.SetPageRangesRequest;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
-import org.pdfsam.ui.notification.AddNotificationRequestEvent;
-import org.pdfsam.ui.notification.NotificationType;
 import org.pdfsam.ui.selection.PasswordFieldPopup;
 import org.pdfsam.ui.selection.ShowPasswordFieldPopupRequest;
 import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
@@ -387,33 +382,9 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     private Consumer<DragEvent> onDragDropped() {
         return (DragEvent e) -> {
-            List<File> files = e.getDragboard().getFiles();
-            // not a PDF maybe a csv or txt containing the list
-            if (files.size() == 1 && !files.get(0).isDirectory()
-                    && (FileType.TXT.matches(files.get(0).getName()) || FileType.CSV.matches(files.get(0).getName()))) {
-                eventStudio().broadcast(new PdfFilesListLoadRequest(getOwnerModule(), files.get(0).toPath()));
-            } else {
-                final PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
-                getFiles(files).filter(f -> FileType.PDF.matches(f.getName()))
-                        .map(PdfDocumentDescriptor::newDescriptorNoPassword).forEach(loadEvent::add);
-                if (!loadEvent.getDocuments().isEmpty()) {
-                    eventStudio().broadcast(loadEvent, getOwnerModule());
-                } else {
-                    eventStudio().broadcast(new AddNotificationRequestEvent(NotificationType.WARN,
-                            DefaultI18nContext.getInstance()
-                                    .i18n("Drag and drop PDF files or directories containing PDF files"),
-                            DefaultI18nContext.getInstance().i18n("No PDF found")));
-                }
-            }
+            eventStudio().broadcast(new MultipleFilesDroppedEvent(ownerModule, e.getDragboard().getFiles()));
             e.setDropCompleted(true);
         };
-    }
-
-    private Stream<File> getFiles(List<File> files) {
-        if (files.size() == 1 && files.get(0).isDirectory()) {
-            return stream(files.get(0).listFiles()).sorted();
-        }
-        return files.stream();
     }
 
     @Override

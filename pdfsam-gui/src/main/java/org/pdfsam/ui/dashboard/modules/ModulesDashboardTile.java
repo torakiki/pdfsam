@@ -18,25 +18,24 @@
  */
 package org.pdfsam.ui.dashboard.modules;
 
-import static java.util.Arrays.stream;
 import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.stream.Stream;
+import java.util.function.Function;
 
 import org.pdfsam.module.Module;
-import org.pdfsam.pdf.PdfDocumentDescriptor;
-import org.pdfsam.pdf.PdfLoadRequestEvent;
-import org.pdfsam.support.io.FileType;
+import org.pdfsam.module.ModuleInputOutputType;
+import org.pdfsam.pdf.BaseFilesDroppedEvent;
+import org.pdfsam.pdf.MultipleFilesDroppedEvent;
+import org.pdfsam.pdf.SingleFileDroppedEvent;
 import org.pdfsam.ui.commons.UrlButton;
 
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
 import javafx.scene.input.DragEvent;
-import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.VBox;
 
@@ -64,7 +63,13 @@ class ModulesDashboardTile extends DashboardTile {
             addBottomPanel(toolButtons);
         });
         setOnDragOver(e -> dragConsume(e, this.onDragOverConsumer()));
-        setOnDragDropped(e -> dragConsume(e, this.onDragDropped()));
+        if (module.descriptor().hasInputType(ModuleInputOutputType.MULTIPLE_PDF)) {
+            setOnDragDropped(
+                    e -> dragConsume(e, this.onDragDropped((files -> new MultipleFilesDroppedEvent(id, files)))));
+        } else if (module.descriptor().hasInputType(ModuleInputOutputType.SINGLE_PDF)) {
+            setOnDragDropped(e -> dragConsume(e, this.onDragDropped((files -> new SingleFileDroppedEvent(id, files)))));
+        }
+
     }
 
     private void dragConsume(DragEvent e, Consumer<DragEvent> c) {
@@ -78,24 +83,11 @@ class ModulesDashboardTile extends DashboardTile {
         return (DragEvent e) -> e.acceptTransferModes(TransferMode.COPY_OR_MOVE);
     }
 
-    private Consumer<DragEvent> onDragDropped() {
+    private Consumer<DragEvent> onDragDropped(Function<List<File>, ? extends BaseFilesDroppedEvent> provider) {
         return (DragEvent e) -> {
-            final PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(id);
-            getFilesFromDragboard(e.getDragboard()).filter(f -> FileType.PDF.matches(f.getName()))
-                    .map(PdfDocumentDescriptor::newDescriptorNoPassword).forEach(loadEvent::add);
-            if (!loadEvent.getDocuments().isEmpty()) {
-                eventStudio().broadcast(activeteModule(id));
-                eventStudio().broadcast(loadEvent, id);
-            }
+            eventStudio().broadcast(activeteModule(id));
+            eventStudio().broadcast(provider.apply(e.getDragboard().getFiles()));
             e.setDropCompleted(true);
         };
-    }
-
-    private Stream<File> getFilesFromDragboard(Dragboard board) {
-        List<File> files = board.getFiles();
-        if (files.size() == 1 && files.get(0).isDirectory()) {
-            return stream(files.get(0).listFiles()).sorted();
-        }
-        return files.stream();
     }
 }
