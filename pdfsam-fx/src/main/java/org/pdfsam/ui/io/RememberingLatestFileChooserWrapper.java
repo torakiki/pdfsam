@@ -18,9 +18,11 @@
  */
 package org.pdfsam.ui.io;
 
+import static java.util.Optional.ofNullable;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
+import java.nio.file.Files;
 import java.util.List;
 
 import javafx.collections.ObservableList;
@@ -55,11 +57,19 @@ public class RememberingLatestFileChooserWrapper extends BaseRememberingLatestCh
     }
 
     public List<File> showOpenMultipleDialog(Window ownerWindow) {
+        sanitizeInitialDirectory();
         List<File> selected = wrapped.showOpenMultipleDialog(ownerWindow);
         if (selected != null && !selected.isEmpty()) {
             notifyNewLatestDirectory(selected.get(0));
         }
         return selected;
+    }
+
+    private void sanitizeInitialDirectory() {
+        if (ofNullable(wrapped.getInitialDirectory()).map(File::toPath).filter(f -> !Files.isDirectory(f))
+                .isPresent()) {
+            wrapped.setInitialDirectory(null);
+        }
     }
 
     /**
@@ -84,9 +94,11 @@ public class RememberingLatestFileChooserWrapper extends BaseRememberingLatestCh
         File selected = null;
         switch (type) {
         case SAVE:
+            sanitizeInitialDirectory();
             selected = wrapped.showSaveDialog(ownerWindow);
             break;
         default:
+            sanitizeInitialDirectory();
             selected = wrapped.showOpenDialog(ownerWindow);
         }
         notifyNewLatestDirectory(selected);

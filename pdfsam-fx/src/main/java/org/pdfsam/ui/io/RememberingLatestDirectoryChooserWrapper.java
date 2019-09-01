@@ -18,9 +18,11 @@
  */
 package org.pdfsam.ui.io;
 
+import static java.util.Optional.ofNullable;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
+import java.nio.file.Files;
 
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Window;
@@ -48,6 +50,10 @@ class RememberingLatestDirectoryChooserWrapper extends BaseRememberingLatestChoo
     }
 
     public File showDialog(Window ownerWindow) {
+        if (ofNullable(wrapped.getInitialDirectory()).map(File::toPath).filter(f -> !Files.isDirectory(f))
+                .isPresent()) {
+            wrapped.setInitialDirectory(null);
+        }
         File selected = wrapped.showDialog(ownerWindow);
         if (selected != null && selected.isDirectory()) {
             eventStudio().broadcast(new SetLatestDirectoryEvent(selected));
