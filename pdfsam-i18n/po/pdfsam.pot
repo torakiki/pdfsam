@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2019-05-17 11:23+0200\n"
+"POT-Creation-Date: 2019-08-31 19:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -288,6 +288,12 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr ""
+
+msgid "No PDF found"
+msgstr ""
+
 msgid "What's new"
 msgstr ""
 
@@ -337,6 +343,15 @@ msgid "The selected output directory does not exist"
 msgstr ""
 
 msgid "Do you want to create it?"
+msgstr ""
+
+msgid "Subdirectories"
+msgstr ""
+
+msgid "Subdirectories have been found"
+msgstr ""
+
+msgid "Do you want to add PDF files found in subdirectories?"
 msgstr ""
 
 msgid "Task failed"
@@ -502,6 +517,9 @@ msgstr ""
 msgid "_Select PDF"
 msgstr ""
 
+msgid "_Clear"
+msgstr ""
+
 msgid "Clear all settings"
 msgstr ""
 
@@ -551,12 +569,6 @@ msgstr ""
 msgid "Duplicate"
 msgstr ""
 
-msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr ""
-
-msgid "No PDF found"
-msgstr ""
-
 msgid "Size"
 msgstr ""
 
@@ -588,9 +600,6 @@ msgid "_Remove"
 msgstr ""
 
 msgid "Removes every document"
-msgstr ""
-
-msgid "_Clear"
 msgstr ""
 
 msgid "C_lear all settings"
