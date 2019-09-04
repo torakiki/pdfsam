@@ -177,6 +177,14 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
+		<repository>
+			<id>jcentral</id>
+			<url>http://jcenter.bintray.com</url>
+		</repository>
+		<repository>
+			<id>sejda</id>
+			<url>https://dl.bintray.com/sejdapdf/maven/</url>
+		</repository>
 	</repositories>
 
 	<pluginRepositories>
