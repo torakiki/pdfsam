@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-05-13 18:52+0200\n"
-"PO-Revision-Date: 2018-10-11 10:27+0000\n"
-"Last-Translator: Andrey <Unknown>\n"
+"POT-Creation-Date: 2019-08-31 19:08+0200\n"
+"PO-Revision-Date: 2019-06-15 06:12+0000\n"
+"Last-Translator: Michael <m1@tut.by>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-05-16 13:56+0000\n"
-"X-Generator: Launchpad (build 18962)\n"
+"X-Launchpad-Export-Date: 2019-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 19044)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Не выбран файл PDF"
@@ -95,11 +95,14 @@ msgstr "Подписаться на рассылку официальных но
 msgid "Environment"
 msgstr "Окружение"
 
+msgid "Vendor: %s"
+msgstr "Поставщик: %s"
+
 msgid "Java runtime path: %s"
-msgstr ""
+msgstr "Расположение среды выполнения Java: %s"
 
 msgid "JavaFX runtime version %s"
-msgstr ""
+msgstr "Среда выполенния JavaFX версия %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -235,10 +238,10 @@ msgstr ""
 "Установите нужно ли проверять наличие новостей при запуске (нужен перезапуск)"
 
 msgid "Enabled PDF compression"
-msgstr ""
+msgstr "Сжатие файлов включено"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr ""
+msgstr "Должно ли \"Сжатие выходных файлов\" быть включено по умолчанию"
 
 msgid "Play alert sounds"
 msgstr "Воспроизводить звуковые предупреждения"
@@ -303,6 +306,12 @@ msgstr "Создатель эскизов:"
 msgid "Settings"
 msgstr "Настройки"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr "Перетащите файлы PDF или каталоги с ними"
+
+msgid "No PDF found"
+msgstr "Один или несколько файлов PDF не найдены"
+
 msgid "What's new"
 msgstr "Что нового"
 
@@ -353,6 +362,15 @@ msgstr "Выбранный выходной каталог не существу
 
 msgid "Do you want to create it?"
 msgstr "Желаете создать?"
+
+msgid "Subdirectories"
+msgstr ""
+
+msgid "Subdirectories have been found"
+msgstr ""
+
+msgid "Do you want to add PDF files found in subdirectories?"
+msgstr ""
 
 msgid "Task failed"
 msgstr "Ошибка выполнения задания"
@@ -417,10 +435,10 @@ msgid "New version available"
 msgstr "Новая версия доступна!"
 
 msgid "You are running the latest version of PDFsam Basic"
-msgstr ""
+msgstr "У Вас установлена последняя версия PDFsam Basic"
 
 msgid "No update"
-msgstr ""
+msgstr "Обновлений нет"
 
 msgid "Open"
 msgstr "Открыть"
@@ -447,10 +465,10 @@ msgid "_Save"
 msgstr "_Сохранить"
 
 msgid "Recen_ts"
-msgstr ""
+msgstr "Недавние"
 
 msgid "_Clear recents"
-msgstr ""
+msgstr "Очистить недавние"
 
 msgid "Select the workspace file to save"
 msgstr "Выберите файл рабочего профиля для сохранения"
@@ -518,13 +536,16 @@ msgid "The selected PDF document is invalid"
 msgstr "Выбранный PDF документ является неверным"
 
 msgid "Select the PDF file"
-msgstr ""
+msgstr "Выберите файл PDF"
 
 msgid "_Select PDF"
-msgstr ""
+msgstr "Выберите PDF"
+
+msgid "_Clear"
+msgstr "_Очистить"
 
 msgid "Clear all settings"
-msgstr ""
+msgstr "Очистить все настройки"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -578,12 +599,6 @@ msgstr "Переместить в конец"
 msgid "Duplicate"
 msgstr "Дублировать"
 
-msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr "Перетащите файлы PDF или каталоги с ними"
-
-msgid "No PDF found"
-msgstr "Один или несколько файлов PDF не найдены"
-
 msgid "Size"
 msgstr "Размер"
 
@@ -600,13 +615,15 @@ msgid "_Add"
 msgstr "_Добавить"
 
 msgid "PDF list from _text/csv file"
-msgstr ""
+msgstr "Список PDF из текстового файла"
 
 msgid "Select pdf documents to load"
 msgstr "Выберите PDF документы для загрузки"
 
 msgid "Select a text or CSV file to load"
 msgstr ""
+"Выберите для загрузки текстовый файл или файл со сзначениями, разделенными "
+"запятыми"
 
 msgid "Removes selected documents"
 msgstr "Убирает отмеченные документы"
@@ -616,9 +633,6 @@ msgstr "_Удалить"
 
 msgid "Removes every document"
 msgstr "Убирает каждый документ"
-
-msgid "_Clear"
-msgstr "_Очистить"
 
 msgid "C_lear all settings"
 msgstr "С_тереть все настройки"
@@ -802,11 +816,11 @@ msgstr "Не удается найти последнюю доступную в�
 
 #, java-format
 msgid "Unable to find any valid PDF file in the list: {0}"
-msgstr ""
+msgstr "Нет ни одного правильного PDF файла в списке: {0}"
 
 #, java-format
 msgid "Unable to load PDF list file from {0}"
-msgstr ""
+msgstr "Невозможно загрузить файл с PDF списком из {0}"
 
 msgid "Loading pdf documents"
 msgstr "Загрузка документов PDF"

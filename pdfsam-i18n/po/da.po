@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-05-13 18:52+0200\n"
-"PO-Revision-Date: 2019-01-22 19:01+0000\n"
-"Last-Translator: Joe Hansen <Unknown>\n"
+"POT-Creation-Date: 2019-08-31 19:08+0200\n"
+"PO-Revision-Date: 2019-08-09 07:43+0000\n"
+"Last-Translator: Jimmy Teilmann <jimmy.teilmann@gmail.com>\n"
 "Language-Team: Danish <da@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-05-16 13:56+0000\n"
-"X-Generator: Launchpad (build 18962)\n"
+"X-Launchpad-Export-Date: 2019-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 19044)\n"
 "Language: da\n"
 
 msgid "No PDF document has been selected"
@@ -91,6 +91,9 @@ msgstr "Abonner på det officielle nyhedsfeed"
 
 msgid "Environment"
 msgstr "Miljø"
+
+msgid "Vendor: %s"
+msgstr "Sælger: %s"
 
 msgid "Java runtime path: %s"
 msgstr "Javakørselstidssti: %s"
@@ -233,10 +236,10 @@ msgstr ""
 "(genstart påkrævet)"
 
 msgid "Enabled PDF compression"
-msgstr ""
+msgstr "PDF kompression slået til"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr ""
+msgstr "Vælg om \"Komprimer output fil\" skal være standard/default"
 
 msgid "Play alert sounds"
 msgstr "Afspil advarselslyd"
@@ -303,6 +306,12 @@ msgstr "System til generering af miniaturer:"
 msgid "Settings"
 msgstr "Indstillinger"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr "Træk og slip PDF-filer eller mapper indeholdende PDF-filer"
+
+msgid "No PDF found"
+msgstr "Ingen PDF fundet"
+
 msgid "What's new"
 msgstr "Hvad er nyt"
 
@@ -353,6 +362,15 @@ msgstr "Den angivne outputmappe eksisterer ikke"
 
 msgid "Do you want to create it?"
 msgstr "Ønsker du at oprette den?"
+
+msgid "Subdirectories"
+msgstr ""
+
+msgid "Subdirectories have been found"
+msgstr ""
+
+msgid "Do you want to add PDF files found in subdirectories?"
+msgstr ""
 
 msgid "Task failed"
 msgstr "Opgave mislykkedes"
@@ -419,10 +437,10 @@ msgid "New version available"
 msgstr "Ny version tilgængelig"
 
 msgid "You are running the latest version of PDFsam Basic"
-msgstr ""
+msgstr "Du bruger den seneste version af PDFsam Basic"
 
 msgid "No update"
-msgstr ""
+msgstr "Ingen opdatering"
 
 msgid "Open"
 msgstr "Åbn"
@@ -522,13 +540,16 @@ msgid "The selected PDF document is invalid"
 msgstr "Det valgte PDF-dokument er ugyldigt"
 
 msgid "Select the PDF file"
-msgstr ""
+msgstr "Vælg PDF fil"
 
 msgid "_Select PDF"
-msgstr ""
+msgstr "_Vælg PDF"
+
+msgid "_Clear"
+msgstr "_Ryd"
 
 msgid "Clear all settings"
-msgstr ""
+msgstr "Ryd alle indstillinger"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -576,12 +597,6 @@ msgstr "Flyt til bunden"
 msgid "Duplicate"
 msgstr "Dupliker"
 
-msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr "Træk og slip PDF-filer eller mapper indeholdende PDF-filer"
-
-msgid "No PDF found"
-msgstr "Ingen PDF fundet"
-
 msgid "Size"
 msgstr "Størrelse"
 
@@ -598,13 +613,13 @@ msgid "_Add"
 msgstr "_Tilføj"
 
 msgid "PDF list from _text/csv file"
-msgstr ""
+msgstr "PDF liste fra  _text/csv fil"
 
 msgid "Select pdf documents to load"
 msgstr "Vælg PDF-dokumenter, der skal indlæses"
 
 msgid "Select a text or CSV file to load"
-msgstr ""
+msgstr "Vælg en tekst eller CSV fil"
 
 msgid "Removes selected documents"
 msgstr "Fjerner valgte dokumenter"
@@ -614,9 +629,6 @@ msgstr "_Fjern"
 
 msgid "Removes every document"
 msgstr "Fjerner hvert dokument"
-
-msgid "_Clear"
-msgstr "_Ryd"
 
 msgid "C_lear all settings"
 msgstr "_Ryd alle indstillinger"
@@ -802,11 +814,11 @@ msgstr "Kunne ikke finde den nyeste version."
 
 #, java-format
 msgid "Unable to find any valid PDF file in the list: {0}"
-msgstr ""
+msgstr "Kan ikke finde valid PDF fil i listen: {0}"
 
 #, java-format
 msgid "Unable to load PDF list file from {0}"
-msgstr ""
+msgstr "Kan ikke læse PDF list fil fra {0}"
 
 msgid "Loading pdf documents"
 msgstr "Indlæser PDF-dokumenter"

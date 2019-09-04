@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-05-13 18:52+0200\n"
-"PO-Revision-Date: 2019-05-15 13:03+0000\n"
+"POT-Creation-Date: 2019-08-31 19:08+0200\n"
+"PO-Revision-Date: 2019-09-01 09:33+0000\n"
 "Last-Translator: Naofumi Fukue <naofum@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-05-16 13:56+0000\n"
-"X-Generator: Launchpad (build 18962)\n"
+"X-Launchpad-Export-Date: 2019-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 19044)\n"
 
 msgid "No PDF document has been selected"
 msgstr "PDF 文書が選択されていません"
@@ -90,6 +90,9 @@ msgstr "公式ニュースフィードを購読する"
 
 msgid "Environment"
 msgstr "環境"
+
+msgid "Vendor: %s"
+msgstr "ベンダー: %s"
 
 msgid "Java runtime path: %s"
 msgstr "Java ランタイムパス: %s"
@@ -286,6 +289,12 @@ msgstr "サムネイル作成:"
 msgid "Settings"
 msgstr "設定"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr "PDF ファイルまたは PDF ファイルを含むディレクトリーをドラッグ＆ドロップしてください"
+
+msgid "No PDF found"
+msgstr "PDF はありません"
+
 msgid "What's new"
 msgstr "新着情報"
 
@@ -336,6 +345,15 @@ msgstr "選択した出力ディレクトリは存在しません"
 
 msgid "Do you want to create it?"
 msgstr "作成しますか?"
+
+msgid "Subdirectories"
+msgstr "サブディレクトリ―"
+
+msgid "Subdirectories have been found"
+msgstr "サブディレクトリ―が見つかりました"
+
+msgid "Do you want to add PDF files found in subdirectories?"
+msgstr "サブディレクトリ―に見つかったPDFファイルを追加しますか?"
 
 msgid "Task failed"
 msgstr "タスクが失敗しました"
@@ -500,6 +518,9 @@ msgstr "PDF ファイルを選択"
 msgid "_Select PDF"
 msgstr "PDF を選択(_S)"
 
+msgid "_Clear"
+msgstr "クリア(_C)"
+
 msgid "Clear all settings"
 msgstr "すべての設定をクリア"
 
@@ -549,12 +570,6 @@ msgstr "一番下に移動"
 msgid "Duplicate"
 msgstr "複製"
 
-msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr "PDF ファイルまたは PDF ファイルを含むディレクトリーをドラッグ＆ドロップしてください"
-
-msgid "No PDF found"
-msgstr "PDF はありません"
-
 msgid "Size"
 msgstr "サイズ"
 
@@ -587,9 +602,6 @@ msgstr "削除(_R)"
 
 msgid "Removes every document"
 msgstr "すべての文書を削除"
-
-msgid "_Clear"
-msgstr "クリア(_C)"
 
 msgid "C_lear all settings"
 msgstr "全ての設定をクリア (_l)"

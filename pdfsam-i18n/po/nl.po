@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-05-13 18:52+0200\n"
-"PO-Revision-Date: 2019-05-09 08:33+0000\n"
-"Last-Translator: Hendrik <Unknown>\n"
+"POT-Creation-Date: 2019-08-31 19:08+0200\n"
+"PO-Revision-Date: 2019-07-23 10:08+0000\n"
+"Last-Translator: Mike Smessaert <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-05-16 13:56+0000\n"
-"X-Generator: Launchpad (build 18962)\n"
+"X-Launchpad-Export-Date: 2019-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 19044)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Geen PDF-document geselecteerd"
@@ -98,6 +98,9 @@ msgstr "Abonneren op de officiële nieuwsbrief"
 
 msgid "Environment"
 msgstr "Omgeving"
+
+msgid "Vendor: %s"
+msgstr ""
 
 msgid "Java runtime path: %s"
 msgstr "Java-runtime pad: %s"
@@ -319,6 +322,12 @@ msgstr "Thumbnails-maker:"
 msgid "Settings"
 msgstr "Instellingen"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr "Sleep PDF-bestanden of mappen met PDF-bestanden en zet ze hier neer"
+
+msgid "No PDF found"
+msgstr "Geen PDF-bestand gevonden"
+
 msgid "What's new"
 msgstr "Wat is er nieuw"
 
@@ -369,6 +378,15 @@ msgstr "De geselecteerde uitvoermap bestaat niet"
 
 msgid "Do you want to create it?"
 msgstr "Wil je die maken?"
+
+msgid "Subdirectories"
+msgstr ""
+
+msgid "Subdirectories have been found"
+msgstr ""
+
+msgid "Do you want to add PDF files found in subdirectories?"
+msgstr ""
 
 msgid "Task failed"
 msgstr "Taak is mislukt"
@@ -436,7 +454,7 @@ msgid "You are running the latest version of PDFsam Basic"
 msgstr ""
 
 msgid "No update"
-msgstr ""
+msgstr "Geen update"
 
 msgid "Open"
 msgstr "Open"
@@ -472,7 +490,7 @@ msgid "Select the workspace file to save"
 msgstr "Selecteer het werkomgevingsbestand dat moet worden opgeslagen"
 
 msgid "Select the workspace to load"
-msgstr "Selecteer de werkomgeving die moet worden geladen"
+msgstr "Selecteer het bestand om te openen."
 
 msgid "Split by bookmarks"
 msgstr "Splits bij bladwijzers"
@@ -546,6 +564,9 @@ msgstr "Selecteer het PDF-bestand"
 msgid "_Select PDF"
 msgstr "_Selecteer PDF"
 
+msgid "_Clear"
+msgstr "_Leegmaken"
+
 msgid "Clear all settings"
 msgstr "Wis alle instellingen"
 
@@ -601,12 +622,6 @@ msgstr "Naar einde verplaatsen"
 msgid "Duplicate"
 msgstr "Dupliceer"
 
-msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr "Sleep PDF-bestanden of mappen met PDF-bestanden en zet ze hier neer"
-
-msgid "No PDF found"
-msgstr "Geen PDF-bestand gevonden"
-
 msgid "Size"
 msgstr "Grootte"
 
@@ -641,9 +656,6 @@ msgstr "_Verwijderen"
 
 msgid "Removes every document"
 msgstr "Verwijderd elk document"
-
-msgid "_Clear"
-msgstr "_Leegmaken"
 
 msgid "C_lear all settings"
 msgstr "Wis alle instellingen"

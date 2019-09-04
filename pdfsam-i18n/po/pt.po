@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-05-13 18:52+0200\n"
-"PO-Revision-Date: 2019-05-16 13:53+0000\n"
-"Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
+"POT-Creation-Date: 2019-08-31 19:08+0200\n"
+"PO-Revision-Date: 2019-07-30 16:48+0000\n"
+"Last-Translator: Sérgio Marques <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-05-16 13:56+0000\n"
-"X-Generator: Launchpad (build 18962)\n"
+"X-Launchpad-Export-Date: 2019-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 19044)\n"
 "Language: pt\n"
 
 msgid "No PDF document has been selected"
@@ -91,6 +91,9 @@ msgstr "Subscreva a fonte oficial de notícias"
 
 msgid "Environment"
 msgstr "Ambiente"
+
+msgid "Vendor: %s"
+msgstr "Fabricante: %s"
 
 msgid "Java runtime path: %s"
 msgstr "Caminho do executável Java: %s"
@@ -239,6 +242,8 @@ msgstr "Compressão de PDF habilitado"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
+"Define se a opção \"Comprimir ficheiro de saída\" deve estar ativada por "
+"definição"
 
 msgid "Play alert sounds"
 msgstr "Tocar sons de alerta"
@@ -305,6 +310,12 @@ msgstr "Criador de miniaturas:"
 msgid "Settings"
 msgstr "Definições"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr "Arraste e largue os ficheiros PDF ou os diretórios com os ficheiros"
+
+msgid "No PDF found"
+msgstr "PDF não encontrado"
+
 msgid "What's new"
 msgstr "Novidades"
 
@@ -355,6 +366,15 @@ msgstr "O diretório de destino não existe"
 
 msgid "Do you want to create it?"
 msgstr "Deseja criar o diretório agora?"
+
+msgid "Subdirectories"
+msgstr ""
+
+msgid "Subdirectories have been found"
+msgstr ""
+
+msgid "Do you want to add PDF files found in subdirectories?"
+msgstr ""
 
 msgid "Task failed"
 msgstr "Falha na tarefa"
@@ -420,7 +440,7 @@ msgid "New version available"
 msgstr "Nova versão disponível"
 
 msgid "You are running the latest version of PDFsam Basic"
-msgstr ""
+msgstr "Está a executar a versão mais recente de PDFsam Basic"
 
 msgid "No update"
 msgstr "Sem atualizações"
@@ -527,8 +547,11 @@ msgstr "Selecione o arquivo PDF"
 msgid "_Select PDF"
 msgstr "_Selecione PDF"
 
+msgid "_Clear"
+msgstr "_Limpar"
+
 msgid "Clear all settings"
-msgstr ""
+msgstr "Repor todas as definições"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -576,12 +599,6 @@ msgstr "Mover para o fundo"
 msgid "Duplicate"
 msgstr "Duplicar"
 
-msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr "Arraste e largue os ficheiros PDF ou os diretórios com os ficheiros"
-
-msgid "No PDF found"
-msgstr "PDF não encontrado"
-
 msgid "Size"
 msgstr "Tamanho"
 
@@ -598,13 +615,13 @@ msgid "_Add"
 msgstr "_Adicionar"
 
 msgid "PDF list from _text/csv file"
-msgstr ""
+msgstr "Lista de PDF com base em ficheiro de _texto/CSV"
 
 msgid "Select pdf documents to load"
 msgstr "Selecione os documentos a carregar"
 
 msgid "Select a text or CSV file to load"
-msgstr ""
+msgstr "Selecione o ficheiro de texto ou CSV a carregar"
 
 msgid "Removes selected documents"
 msgstr "Remover documentos selecionados"
@@ -614,9 +631,6 @@ msgstr "_Remover"
 
 msgid "Removes every document"
 msgstr "Remover cada documento"
-
-msgid "_Clear"
-msgstr "_Limpar"
 
 msgid "C_lear all settings"
 msgstr "_Limpar todas as definições"
@@ -803,11 +817,11 @@ msgstr "Não foi possível localizar a versão mais recente."
 
 #, java-format
 msgid "Unable to find any valid PDF file in the list: {0}"
-msgstr ""
+msgstr "Não foi possível encontrar um ficheiro válido na lista: {0}"
 
 #, java-format
 msgid "Unable to load PDF list file from {0}"
-msgstr ""
+msgstr "Não foi possível carregar um ficheiro válido na lista: {0}"
 
 msgid "Loading pdf documents"
 msgstr "A carregar documentos PDF"

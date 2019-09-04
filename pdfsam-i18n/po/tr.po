@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-05-13 18:52+0200\n"
-"PO-Revision-Date: 2019-01-18 10:00+0000\n"
-"Last-Translator: Hakan Islamoglu <Unknown>\n"
+"POT-Creation-Date: 2019-08-31 19:08+0200\n"
+"PO-Revision-Date: 2019-06-04 10:03+0000\n"
+"Last-Translator: Uygar Demir Koç <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-05-16 13:56+0000\n"
-"X-Generator: Launchpad (build 18962)\n"
+"X-Launchpad-Export-Date: 2019-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 19044)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Hiçbir PDF dosyası seçmediniz"
@@ -36,7 +36,7 @@ msgid "Output settings"
 msgstr "Çıktı ayarları"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Dışa aktarılacak sayfalar"
+msgstr "Dışa aktarılacak sayfalar (örnek: 2 veya 5-23 veya 2,7-7,12-)"
 
 msgid "Invalid page ranges"
 msgstr "Geçersiz sayfa aralığı"
@@ -46,7 +46,7 @@ msgstr "Sayfaları çıkar"
 
 #, java-format
 msgid "Installing theme {0}."
-msgstr "Tema yükleniyor {0}"
+msgstr "{0} teması yükleniyor."
 
 #, java-format
 msgid "Started in {0}"
@@ -56,7 +56,7 @@ msgid "Closing PDFsam..."
 msgstr "PDFsam kapatılıyor..."
 
 msgid "Log register"
-msgstr "Kayıt kaydı"
+msgstr "Günlük kaydı"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\LogPanel.java:99
 msgid "Copy"
@@ -73,11 +73,13 @@ msgstr "Temizle"
 msgid "Select all"
 msgstr "Tümünü seç"
 
+# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\ButtonsBar.java:117
+# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\LogPanel.java:121
 msgid "Save log"
-msgstr "Kayıtları kaydet"
+msgstr "Günlüğü kaydet"
 
 msgid "Select where to save the log file"
-msgstr "Kayıt dosyasının nereye kaydedileceğini seç"
+msgstr "Günlük dosyasının nereye kaydedileceğini seçin"
 
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\MainGUI.java:222
 msgid "About"
@@ -98,6 +100,9 @@ msgstr "Resmi haber akışına abone ol"
 
 msgid "Environment"
 msgstr "Ortam"
+
+msgid "Vendor: %s"
+msgstr ""
 
 msgid "Java runtime path: %s"
 msgstr "Java uygulamasının (runtime) konumu:"
@@ -143,10 +148,10 @@ msgid "Like us on Facebook"
 msgstr "Bizi Facebook'da takip edin"
 
 msgid "Log register rows:"
-msgstr ""
+msgstr "Günlük kayıt satırları:"
 
 msgid "Maximum number of rows displayed by the Log register"
-msgstr ""
+msgstr "Günlük kaydı tarafından görüntülenen maksimum kayıt sayısı"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:125
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:116
@@ -161,6 +166,8 @@ msgstr "Başlangıç modülü"
 
 msgid "Set the module to open at application startup (restart needed)"
 msgstr ""
+"Modülü uygulama başlangıcında açılacak şekilde ayarlayın (yeniden başlatma "
+"gerektirir)"
 
 msgid ""
 "Usage statistics are used to populate the modules quick bar on the left with "
@@ -238,10 +245,12 @@ msgstr ""
 "ayarlayın(yeniden başlatma gerekli)"
 
 msgid "Enabled PDF compression"
-msgstr ""
+msgstr "PDF sıkıştırma etkinleştirildi"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
+"\"Çıktı dosyasını sıkıştır\"ın varsayılan olarak etkin olup olmayacağını "
+"ayarlayın"
 
 msgid "Play alert sounds"
 msgstr "Hata sesi çal"
@@ -302,6 +311,14 @@ msgstr "Küçük resim oluşturucu:"
 msgid "Settings"
 msgstr "Ayarlar"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr ""
+"PDF dosyalarını ya da PDF dosyalarını içeren klasörleri buraya sürükleyip "
+"bırakın"
+
+msgid "No PDF found"
+msgstr "PDF bulunamadı"
+
 msgid "What's new"
 msgstr "Yeni ne var"
 
@@ -352,6 +369,15 @@ msgstr "Dosyaların çıkartılacağı klasor bulunmamaktadır"
 
 msgid "Do you want to create it?"
 msgstr "Oluşturmak istermisiniz?"
+
+msgid "Subdirectories"
+msgstr ""
+
+msgid "Subdirectories have been found"
+msgstr ""
+
+msgid "Do you want to add PDF files found in subdirectories?"
+msgstr ""
 
 msgid "Task failed"
 msgstr "Görev başarısız oldu"
@@ -526,6 +552,9 @@ msgstr ""
 msgid "_Select PDF"
 msgstr ""
 
+msgid "_Clear"
+msgstr "_Temizle"
+
 msgid "Clear all settings"
 msgstr ""
 
@@ -589,14 +618,6 @@ msgstr "En Alta Taşı"
 msgid "Duplicate"
 msgstr "Çoğalt"
 
-msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr ""
-"PDF dosyalarını ya da PDF dosyalarını içeren klasörleri buraya sürükleyip "
-"bırakın"
-
-msgid "No PDF found"
-msgstr "PDF bulunamadı"
-
 msgid "Size"
 msgstr "Boyut"
 
@@ -631,9 +652,6 @@ msgstr "_Sil"
 
 msgid "Removes every document"
 msgstr "Tüm belgeleri siler"
-
-msgid "_Clear"
-msgstr "_Temizle"
 
 msgid "C_lear all settings"
 msgstr "Bütün ayarları sıfırla"

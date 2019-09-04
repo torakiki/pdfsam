@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-05-13 18:52+0200\n"
+"POT-Creation-Date: 2019-08-31 19:08+0200\n"
 "PO-Revision-Date: 2018-05-22 09:27+0000\n"
 "Last-Translator: Yoel <Unknown>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-05-16 13:56+0000\n"
-"X-Generator: Launchpad (build 18962)\n"
+"X-Launchpad-Export-Date: 2019-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 19044)\n"
 
 msgid "No PDF document has been selected"
 msgstr "לא נבחר אף מסמך PDF"
@@ -90,6 +90,9 @@ msgstr "הירשם לערוץ החדשות הרשמי"
 
 msgid "Environment"
 msgstr "סביבה"
+
+msgid "Vendor: %s"
+msgstr ""
 
 msgid "Java runtime path: %s"
 msgstr ""
@@ -288,6 +291,12 @@ msgstr "יצירת תמונות מוקטנות:"
 msgid "Settings"
 msgstr "הגדרות"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr ""
+
+msgid "No PDF found"
+msgstr "לא נמצא PDF"
+
 msgid "What's new"
 msgstr "מה חדש"
 
@@ -338,6 +347,15 @@ msgstr "תיקיית הפלט שצויינה לא קיימת"
 
 msgid "Do you want to create it?"
 msgstr "האם ברצונך ליצור אותה?"
+
+msgid "Subdirectories"
+msgstr ""
+
+msgid "Subdirectories have been found"
+msgstr ""
+
+msgid "Do you want to add PDF files found in subdirectories?"
+msgstr ""
 
 msgid "Task failed"
 msgstr ""
@@ -504,6 +522,9 @@ msgstr ""
 msgid "_Select PDF"
 msgstr ""
 
+msgid "_Clear"
+msgstr "_נקה"
+
 msgid "Clear all settings"
 msgstr ""
 
@@ -553,12 +574,6 @@ msgstr "העבר לסוף"
 msgid "Duplicate"
 msgstr "שכפול"
 
-msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr ""
-
-msgid "No PDF found"
-msgstr "לא נמצא PDF"
-
 msgid "Size"
 msgstr "גודל"
 
@@ -591,9 +606,6 @@ msgstr "הס_ר"
 
 msgid "Removes every document"
 msgstr "מסיר את כל המסמכים"
-
-msgid "_Clear"
-msgstr "_נקה"
 
 msgid "C_lear all settings"
 msgstr ""

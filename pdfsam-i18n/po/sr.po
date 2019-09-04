@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-05-13 18:52+0200\n"
+"POT-Creation-Date: 2019-08-31 19:08+0200\n"
 "PO-Revision-Date: 2014-03-03 14:12+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Serbian <sr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-05-16 13:56+0000\n"
-"X-Generator: Launchpad (build 18962)\n"
+"X-Launchpad-Export-Date: 2019-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 19044)\n"
 
 msgid "No PDF document has been selected"
 msgstr ""
@@ -89,6 +89,9 @@ msgid "Subscribe to the official news feed"
 msgstr ""
 
 msgid "Environment"
+msgstr ""
+
+msgid "Vendor: %s"
 msgstr ""
 
 msgid "Java runtime path: %s"
@@ -287,6 +290,12 @@ msgstr ""
 msgid "Settings"
 msgstr "Поставке"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr ""
+
+msgid "No PDF found"
+msgstr ""
+
 msgid "What's new"
 msgstr ""
 
@@ -336,6 +345,15 @@ msgid "The selected output directory does not exist"
 msgstr ""
 
 msgid "Do you want to create it?"
+msgstr ""
+
+msgid "Subdirectories"
+msgstr ""
+
+msgid "Subdirectories have been found"
+msgstr ""
+
+msgid "Do you want to add PDF files found in subdirectories?"
 msgstr ""
 
 msgid "Task failed"
@@ -501,6 +519,9 @@ msgstr ""
 msgid "_Select PDF"
 msgstr ""
 
+msgid "_Clear"
+msgstr ""
+
 msgid "Clear all settings"
 msgstr ""
 
@@ -550,12 +571,6 @@ msgstr ""
 msgid "Duplicate"
 msgstr ""
 
-msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr ""
-
-msgid "No PDF found"
-msgstr ""
-
 msgid "Size"
 msgstr ""
 
@@ -587,9 +602,6 @@ msgid "_Remove"
 msgstr ""
 
 msgid "Removes every document"
-msgstr ""
-
-msgid "_Clear"
 msgstr ""
 
 msgid "C_lear all settings"

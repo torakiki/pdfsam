@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-05-13 18:52+0200\n"
+"POT-Creation-Date: 2019-08-31 19:08+0200\n"
 "PO-Revision-Date: 2017-12-27 01:49+0000\n"
 "Last-Translator: odisseus <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-05-16 13:56+0000\n"
-"X-Generator: Launchpad (build 18962)\n"
+"X-Launchpad-Export-Date: 2019-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 19044)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Не обрано жодного документа PDF"
@@ -90,6 +90,9 @@ msgstr "Підписатися на офіційний канал новин"
 
 msgid "Environment"
 msgstr "Середовище"
+
+msgid "Vendor: %s"
+msgstr ""
 
 msgid "Java runtime path: %s"
 msgstr ""
@@ -301,6 +304,12 @@ msgstr "Створювач мініатюр:"
 msgid "Settings"
 msgstr "Параметри"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr "Перетягуйте файли PDF або теки з файлами PDF"
+
+msgid "No PDF found"
+msgstr "Не знайдено жодного файла PDF"
+
 msgid "What's new"
 msgstr "Що нового"
 
@@ -351,6 +360,15 @@ msgstr "Обраний вихідний каталог не існує"
 
 msgid "Do you want to create it?"
 msgstr "Ви хочете створити його?"
+
+msgid "Subdirectories"
+msgstr ""
+
+msgid "Subdirectories have been found"
+msgstr ""
+
+msgid "Do you want to add PDF files found in subdirectories?"
+msgstr ""
 
 msgid "Task failed"
 msgstr "Не вдалося виконати завдання"
@@ -521,6 +539,9 @@ msgstr ""
 msgid "_Select PDF"
 msgstr ""
 
+msgid "_Clear"
+msgstr "_Очистити"
+
 msgid "Clear all settings"
 msgstr ""
 
@@ -570,12 +591,6 @@ msgstr "Перемістити вниз"
 msgid "Duplicate"
 msgstr "Дублювати"
 
-msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr "Перетягуйте файли PDF або теки з файлами PDF"
-
-msgid "No PDF found"
-msgstr "Не знайдено жодного файла PDF"
-
 msgid "Size"
 msgstr "Розмір"
 
@@ -608,9 +623,6 @@ msgstr "_Вилучити"
 
 msgid "Removes every document"
 msgstr "Вилучити всі документи"
-
-msgid "_Clear"
-msgstr "_Очистити"
 
 msgid "C_lear all settings"
 msgstr ""

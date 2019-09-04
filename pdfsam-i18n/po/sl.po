@@ -7,18 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-05-13 18:52+0200\n"
-"PO-Revision-Date: 2017-12-01 21:58+0000\n"
+"POT-Creation-Date: 2019-08-31 19:08+0200\n"
+"PO-Revision-Date: 2019-08-10 11:11+0000\n"
 "Last-Translator: Janez Gačnik <Unknown>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-05-16 13:56+0000\n"
-"X-Generator: Launchpad (build 18962)\n"
+"X-Launchpad-Export-Date: 2019-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 19044)\n"
 
 msgid "No PDF document has been selected"
-msgstr "Nobena datoteka PDF ni bila izbrana"
+msgstr "Izbrana ni bila nobena datoteka PDF"
 
 msgid "Extract"
 msgstr "Izvleci"
@@ -91,15 +91,18 @@ msgstr "Naročite se na uradni spletni vir"
 msgid "Environment"
 msgstr "Okolje"
 
+msgid "Vendor: %s"
+msgstr "Prodajalec: %s"
+
 msgid "Java runtime path: %s"
-msgstr ""
+msgstr "Javina izvajalna pot:  %s"
 
 msgid "JavaFX runtime version %s"
-msgstr ""
+msgstr "Izvajalna različica %s JaveFX"
 
 #, java-format
 msgid "Max memory {0}"
-msgstr "Njvečji spomin {0}"
+msgstr "Največji spomin {0}"
 
 msgid "Copy to clipboard"
 msgstr "Kopiraj v odložišče"
@@ -111,7 +114,7 @@ msgid "Bug and feature requests"
 msgstr "Hrošči in zahteve po zmogljivostih"
 
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentacija"
 
 msgid "Contribute"
 msgstr "Prispevajte"
@@ -166,7 +169,7 @@ msgstr "Ročno izbrano"
 msgid ""
 "Automatically set the destination directory to the selected PDF document "
 "directory"
-msgstr "Samodejno nastavi mapo izbranga dokumenta PDF za ciljno mapo"
+msgstr "Samodejno nastavi mapo izbranega dokumenta PDF za ciljno mapo"
 
 msgid "Clear usage statistics"
 msgstr "Počisti statistiko uporabe"
@@ -233,13 +236,15 @@ msgstr ""
 "(potreben ponovni zagon)"
 
 msgid "Enabled PDF compression"
-msgstr ""
+msgstr "Stiskanje PDF-ja omogočeno"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
+"Omogočite, če želite da je nastavitev \"Stisni izhodne datoteke\" privzeto "
+"omogočena"
 
 msgid "Play alert sounds"
-msgstr "Opozorilni ton"
+msgstr "Predvajaj opozorilne zvoke"
 
 msgid "Turn on or off alert sounds"
 msgstr "Vklop/izklop opozorilnega zvoka"
@@ -251,7 +256,7 @@ msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
 "password in the workspace file"
 msgstr ""
-"Če je bil žifriran dokument PDF odprt z geslom, geslo shrani v datoteko "
+"Če je bil šifriran dokument PDF odprt z geslom, geslo shrani v datoteko "
 "delovne površine"
 
 msgid "Show donation window"
@@ -271,7 +276,7 @@ msgid ""
 "Set whether the application should fetch and show premium features "
 "description in the modules dashboard"
 msgstr ""
-"Nastavite, ali želite, da program pridobi in prikaže opise doplačljivih "
+"Nastavite, če želite, da program pridobi in prikaže opise doplačljivih "
 "zmogljivosti na delovni površini modulov"
 
 msgid "Use the selected PDF document directory as output directory"
@@ -302,6 +307,12 @@ msgstr "Ustvarjalnik sličic:"
 msgid "Settings"
 msgstr "Nastavitve"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr "Primi in povleci datoteke PDF ali mape, ki jih vsebujejo"
+
+msgid "No PDF found"
+msgstr "Nobenega PDF ni bilo mogoče najti"
+
 msgid "What's new"
 msgstr "Kaj je novega"
 
@@ -327,7 +338,7 @@ msgid "Overwrite files with the same name as the generated ones?"
 msgstr "Želite prepisati datoteke z imenom enakim ustvarjenemu?"
 
 msgid "Don't overwrite existing file"
-msgstr "Ne prepiši obstoječih datotek"
+msgstr "Ne prepiši obstoječe datoteke"
 
 msgid "Overwrite confirmation"
 msgstr "Potrditev prepisa"
@@ -353,11 +364,20 @@ msgstr "Izbrana izhodna mapa ne obstoja"
 msgid "Do you want to create it?"
 msgstr "Ali jo želite ustvariti?"
 
+msgid "Subdirectories"
+msgstr ""
+
+msgid "Subdirectories have been found"
+msgstr ""
+
+msgid "Do you want to add PDF files found in subdirectories?"
+msgstr ""
+
 msgid "Task failed"
-msgstr "Naloga je spodletela"
+msgstr "Opravilo spodletelo"
 
 msgid "PDFsam can try to overcome the failure"
-msgstr "PDFsam lahko poskusi premagati okvaro"
+msgstr "PDFsam lahko poskusi obvladati okvaro"
 
 msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
@@ -383,20 +403,22 @@ msgstr ""
 "Vnešeni parametri so neveljeavni. Za podrobnosti odprite sporočila programa."
 
 msgid "Access denied"
-msgstr ""
+msgstr "Zavrnjen dostop"
 
 #, java-format
 msgid ""
 "Unable to access \"{0}\", please make sure you have write permissions or "
 "open the application messages for details."
 msgstr ""
+"Ni mogoče dostopati do \"{0}\". Prepričajte se, da imate dovoljenje za "
+"pisanje ali za podrobnosti odprite sporočila programa."
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
 msgstr "S PDFsam ste izvršili {0} opravil. Vam je bil v pomoč?"
 
 msgid "Give something back"
-msgstr "Vrnite nekaj"
+msgstr "Povrnite kaj"
 
 msgid "PDFsam worked hard!"
 msgstr "PDFsam se je nagaral!"
@@ -415,10 +437,10 @@ msgid "New version available"
 msgstr "Nova različica je na voljo"
 
 msgid "You are running the latest version of PDFsam Basic"
-msgstr ""
+msgstr "Izvaja se najnovejša različica PDFsam Basic"
 
 msgid "No update"
-msgstr ""
+msgstr "Ni posodobitve"
 
 msgid "Open"
 msgstr "Odpri"
@@ -445,10 +467,10 @@ msgid "_Save"
 msgstr "_Shrani"
 
 msgid "Recen_ts"
-msgstr ""
+msgstr "Ne_davno"
 
 msgid "_Clear recents"
-msgstr ""
+msgstr "Počisti n_edavne"
 
 msgid "Select the workspace file to save"
 msgstr "Izberite datoteko delovne površine, ki jo želite shraniti"
@@ -516,13 +538,16 @@ msgid "The selected PDF document is invalid"
 msgstr "Izbrani dokument PDF ni veljaven"
 
 msgid "Select the PDF file"
-msgstr ""
+msgstr "Izberite datoteko PDF"
 
 msgid "_Select PDF"
-msgstr ""
+msgstr "_Izberite PDF"
+
+msgid "_Clear"
+msgstr "_Počisti"
 
 msgid "Clear all settings"
-msgstr ""
+msgstr "Počisti vse nastavitve"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -570,12 +595,6 @@ msgstr "Premakni na dno"
 msgid "Duplicate"
 msgstr "Podvoji"
 
-msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr "Primi in povleci datoteke PDF ali mape, ki jih vsebujejo"
-
-msgid "No PDF found"
-msgstr "Nobenega PDF ni bilo mogoče najti"
-
 msgid "Size"
 msgstr "Velikost"
 
@@ -592,13 +611,13 @@ msgid "_Add"
 msgstr "Dod_aj"
 
 msgid "PDF list from _text/csv file"
-msgstr ""
+msgstr "Seznam PDFjev iz _besedilne/csv datoteke"
 
 msgid "Select pdf documents to load"
 msgstr "Izberite dokumente pdf za nalaganje"
 
 msgid "Select a text or CSV file to load"
-msgstr ""
+msgstr "Izberite besedilno ali CSV datoteko, ki jo želite naložiti"
 
 msgid "Removes selected documents"
 msgstr "Odstrani izbrane dokumente"
@@ -608,9 +627,6 @@ msgstr "Odst_rani"
 
 msgid "Removes every document"
 msgstr "Odstrani vsak dokument"
-
-msgid "_Clear"
-msgstr "_Počisti"
 
 msgid "C_lear all settings"
 msgstr "P_očisti vse nastavitve"
@@ -622,7 +638,7 @@ msgid "Move _Up"
 msgstr "Premakni navz_gor"
 
 msgid "Moves down selected documents"
-msgstr "Izbrane dokumente premakne navzdor"
+msgstr "Izbrane dokumente premakne navzdol"
 
 msgid "Move _Down"
 msgstr "Premakni navz_dol"
@@ -673,7 +689,7 @@ msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
 "document"
 msgstr ""
-"Okljukajte kvadratek, če ne želite ohraniti zaznamkov in izvirne datoteke PDF"
+"Okljukajte kvadratek, če ne želite ohraniti zaznamkov izvirne datoteke PDF"
 
 msgid "Output PDF version:"
 msgstr "Različica izhodnega PDF"
@@ -724,7 +740,7 @@ msgid "Add prefix"
 msgstr "Dodaj predpono"
 
 msgid "Generated PDF documents name prefix:"
-msgstr "Predpona ustvarjenega poimenovanja dokumenta PDF:"
+msgstr "Predpona poimenovanja ustvarjenega dokumenta PDF:"
 
 msgid "Prefix for the output files name."
 msgstr "Predpona za poimenovanje izhodnih datotek."
@@ -749,7 +765,7 @@ msgid "Split a PDF document at the given page numbers."
 msgstr "Razcepi dokument PDF na določenih straneh."
 
 msgid "Every page"
-msgstr "Vsako stren"
+msgstr "Vsako stran"
 
 msgid "Even pages"
 msgstr "Sode strani"
@@ -794,11 +810,11 @@ msgstr "Zadnje razpoložljive različice ni mogoče najti."
 
 #, java-format
 msgid "Unable to find any valid PDF file in the list: {0}"
-msgstr ""
+msgstr "S seznama : {0} ni mogoče najti nobene veljavne datoteke PDF"
 
 #, java-format
 msgid "Unable to load PDF list file from {0}"
-msgstr ""
+msgstr "Iz {0} ni mogoče naložiti datoteke s seznamom PDF-jev"
 
 msgid "Loading pdf documents"
 msgstr "Nalaganje dokumentov PDF"
@@ -917,28 +933,28 @@ msgid "90 degrees counterclockwise"
 msgstr "90 stopnij v nasprotni smeri urinega kazalca"
 
 msgid "Rotate "
-msgstr "Zavrti "
+msgstr "Zasukaj "
 
 msgid ""
 "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Dvokliknite za določitev strani, ki jih želite zavrteti (ex: 2 or 5-23 or "
+"Dvokliknite za določitev strani, ki jih želite zasukati (npr.: 2 or 5-23 or "
 "2,5-7,12-)"
 
 msgid "Rotate"
-msgstr "Zavrti"
+msgstr "Zasukaj"
 
 msgid "Rotate the pages of multiple PDF documents."
-msgstr "Zavrti strani večim dokumentom PDF"
+msgstr "Zasukaj strani večim dokumentom PDF"
 
 msgid "Rotate settings"
-msgstr "Nastavitve vrtenja"
+msgstr "Nastavitve sukanja"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Dvoklikni, da določiš strani, ki jih želiš združiti (npr.: 2 ali 5-23 ali "
-"2,5-7,12-)"
+"Dvokliknite, da določite strani, ki jih želite združiti (npr.: 2 ali 5-23 "
+"ali 2,5-7,12-)"
 
 msgid "Add a blank page if page number is odd"
 msgstr "Dodaj prazno stran, če je število strani liho"
@@ -969,7 +985,7 @@ msgid "Merge renaming existing fields"
 msgstr "Med združevanjem preimenuj polja"
 
 msgid "Flatten"
-msgstr ""
+msgstr "Splošči"
 
 msgid "Discard forms"
 msgstr "Zavrzi obrazce"
@@ -1045,7 +1061,7 @@ msgid "Directories"
 msgstr "Mape"
 
 msgid "Error saving log file."
-msgstr "Napaka pri shranjevanju datoteke."
+msgstr "Napaka pri shranjevanju dnevniške datoteke."
 
 #, java-format
 msgid "File {0} saved."

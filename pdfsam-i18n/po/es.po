@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-05-13 18:52+0200\n"
-"PO-Revision-Date: 2019-05-14 22:11+0000\n"
-"Last-Translator: Francisco Campos <Unknown>\n"
+"POT-Creation-Date: 2019-08-31 19:08+0200\n"
+"PO-Revision-Date: 2019-07-14 14:45+0000\n"
+"Last-Translator: rodroes <rodroes@hotmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-05-16 13:56+0000\n"
-"X-Generator: Launchpad (build 18962)\n"
+"X-Launchpad-Export-Date: 2019-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 19044)\n"
 
 msgid "No PDF document has been selected"
 msgstr "No se seleccionó ningún documento PDF"
@@ -91,6 +91,9 @@ msgstr "Suscribirse al canal de noticias oficial"
 
 msgid "Environment"
 msgstr "Entorno"
+
+msgid "Vendor: %s"
+msgstr "Vendedor: %s"
 
 msgid "Java runtime path: %s"
 msgstr "Ruta de entorno Java: %s"
@@ -310,6 +313,14 @@ msgstr "Creador de las miniaturas:"
 msgid "Settings"
 msgstr "Configuración"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr ""
+"Arrastre y suelte los archivos PDF o los directorios que contienen archivos "
+"PDF"
+
+msgid "No PDF found"
+msgstr "No se encontró ningún PDF"
+
 msgid "What's new"
 msgstr "Novedades"
 
@@ -361,6 +372,15 @@ msgstr "La carpeta destino seleccionada no existe"
 
 msgid "Do you want to create it?"
 msgstr "Quiere crearla?"
+
+msgid "Subdirectories"
+msgstr ""
+
+msgid "Subdirectories have been found"
+msgstr ""
+
+msgid "Do you want to add PDF files found in subdirectories?"
+msgstr ""
 
 msgid "Task failed"
 msgstr "Tarea fracasada"
@@ -542,6 +562,9 @@ msgstr "Seleccione el archivo PDF"
 msgid "_Select PDF"
 msgstr "_Seleccione PDF"
 
+msgid "_Clear"
+msgstr "_Vaciar"
+
 msgid "Clear all settings"
 msgstr "Limpiadas todas las configuraciones"
 
@@ -599,14 +622,6 @@ msgstr "Mover al final"
 msgid "Duplicate"
 msgstr "Duplicado"
 
-msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr ""
-"Arrastre y suelte los archivos PDF o los directorios que contienen archivos "
-"PDF"
-
-msgid "No PDF found"
-msgstr "No se encontró ningún PDF"
-
 msgid "Size"
 msgstr "Tamaño"
 
@@ -641,9 +656,6 @@ msgstr "_Quitar"
 
 msgid "Removes every document"
 msgstr "Quita todos los documentos"
-
-msgid "_Clear"
-msgstr "_Vaciar"
 
 msgid "C_lear all settings"
 msgstr "L_impiar todos los ajustes"

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-05-13 18:52+0200\n"
+"POT-Creation-Date: 2019-08-31 19:08+0200\n"
 "PO-Revision-Date: 2019-03-12 10:33+0000\n"
 "Last-Translator: SongL <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-05-16 13:56+0000\n"
-"X-Generator: Launchpad (build 18962)\n"
+"X-Launchpad-Export-Date: 2019-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 19044)\n"
 
 msgid "No PDF document has been selected"
 msgstr "未选中PDF文档"
@@ -90,6 +90,9 @@ msgstr "订阅官方新闻推送"
 
 msgid "Environment"
 msgstr "环境"
+
+msgid "Vendor: %s"
+msgstr ""
 
 msgid "Java runtime path: %s"
 msgstr "Java runtime 路径: %s"
@@ -286,6 +289,12 @@ msgstr "预览生成器"
 msgid "Settings"
 msgstr "设置"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr "拖拽PDF文件或包含PDF文件的文件夹"
+
+msgid "No PDF found"
+msgstr "未找到PDF"
+
 msgid "What's new"
 msgstr "最新变动"
 
@@ -336,6 +345,15 @@ msgstr "已选的输出目录不存在"
 
 msgid "Do you want to create it?"
 msgstr "您想要创建它吗？"
+
+msgid "Subdirectories"
+msgstr ""
+
+msgid "Subdirectories have been found"
+msgstr ""
+
+msgid "Do you want to add PDF files found in subdirectories?"
+msgstr ""
 
 msgid "Task failed"
 msgstr "任务失败"
@@ -500,6 +518,9 @@ msgstr ""
 msgid "_Select PDF"
 msgstr ""
 
+msgid "_Clear"
+msgstr "清空(_C)"
+
 msgid "Clear all settings"
 msgstr ""
 
@@ -549,12 +570,6 @@ msgstr "移到底部"
 msgid "Duplicate"
 msgstr "重复"
 
-msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr "拖拽PDF文件或包含PDF文件的文件夹"
-
-msgid "No PDF found"
-msgstr "未找到PDF"
-
 msgid "Size"
 msgstr "大小"
 
@@ -587,9 +602,6 @@ msgstr "移除(_R)"
 
 msgid "Removes every document"
 msgstr "移除所有文档"
-
-msgid "_Clear"
-msgstr "清空(_C)"
 
 msgid "C_lear all settings"
 msgstr "清空所有设置(_l)"

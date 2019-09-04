@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-05-13 18:52+0200\n"
+"POT-Creation-Date: 2019-08-31 19:08+0200\n"
 "PO-Revision-Date: 2016-12-10 18:17+0000\n"
 "Last-Translator: George Melidis <melidis@gmail.com>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-05-16 13:56+0000\n"
-"X-Generator: Launchpad (build 18962)\n"
+"X-Launchpad-Export-Date: 2019-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 19044)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Δεν έχει επιλεγεί κάποιο έγγραφο PDF"
@@ -98,6 +98,9 @@ msgstr "Εγγραφείτε στην επίσημη ροή ειδήσεων"
 
 msgid "Environment"
 msgstr "Περιβάλλον"
+
+msgid "Vendor: %s"
+msgstr ""
 
 msgid "Java runtime path: %s"
 msgstr ""
@@ -318,6 +321,12 @@ msgstr "Δημιουργός μικρογραφιών"
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr ""
+
+msgid "No PDF found"
+msgstr ""
+
 msgid "What's new"
 msgstr "Τι νέο υπάρχει"
 
@@ -368,6 +377,15 @@ msgstr "Ο επιλεγμένος κατάλογος εξόδου δεν υπά�
 
 msgid "Do you want to create it?"
 msgstr "Θέλετε να δημιουργηθεί;"
+
+msgid "Subdirectories"
+msgstr ""
+
+msgid "Subdirectories have been found"
+msgstr ""
+
+msgid "Do you want to add PDF files found in subdirectories?"
+msgstr ""
 
 msgid "Task failed"
 msgstr ""
@@ -548,6 +566,9 @@ msgstr ""
 msgid "_Select PDF"
 msgstr ""
 
+msgid "_Clear"
+msgstr "_Εκκαθάριση"
+
 msgid "Clear all settings"
 msgstr ""
 
@@ -611,12 +632,6 @@ msgstr "Μετακίνηση στο τέλος"
 msgid "Duplicate"
 msgstr "Δημιουργία αντίγραφου"
 
-msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr ""
-
-msgid "No PDF found"
-msgstr ""
-
 msgid "Size"
 msgstr "Μέγεθος"
 
@@ -651,9 +666,6 @@ msgstr "_Απομάκρυνση"
 
 msgid "Removes every document"
 msgstr "Απομακρύνει κάθε έγγραφο"
-
-msgid "_Clear"
-msgstr "_Εκκαθάριση"
 
 msgid "C_lear all settings"
 msgstr ""

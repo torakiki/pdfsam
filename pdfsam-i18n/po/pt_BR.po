@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-05-13 18:52+0200\n"
-"PO-Revision-Date: 2019-02-01 17:16+0000\n"
-"Last-Translator: Rui Melo <Unknown>\n"
+"POT-Creation-Date: 2019-08-31 19:08+0200\n"
+"PO-Revision-Date: 2019-06-18 18:00+0000\n"
+"Last-Translator: Georgia Zielinski <Unknown>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-05-16 13:56+0000\n"
-"X-Generator: Launchpad (build 18962)\n"
+"X-Launchpad-Export-Date: 2019-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 19044)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Nenhum documento PDF foi selecionado"
@@ -99,6 +99,9 @@ msgstr "Inscreva-se no canal oficial de notícias"
 
 msgid "Environment"
 msgstr "Ambiente"
+
+msgid "Vendor: %s"
+msgstr "Fornecedor: %s"
 
 msgid "Java runtime path: %s"
 msgstr "A pasta do Java é %s"
@@ -245,10 +248,11 @@ msgstr ""
 "iniciar (precisa reiniciar)"
 
 msgid "Enabled PDF compression"
-msgstr ""
+msgstr "Permitida a compressão de PDF."
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
+"Selecionar caso \"Comprimir arquivo de saída\" deva ser permitido por padrão."
 
 msgid "Play alert sounds"
 msgstr "Tocar alertas sonoros"
@@ -313,6 +317,12 @@ msgstr "Gerador de miniaturas:"
 msgid "Settings"
 msgstr "Configurações"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr "Arraste e solte os arquivos PDF ou o diretório contendo os mesmos"
+
+msgid "No PDF found"
+msgstr "PDF não encontrado"
+
 msgid "What's new"
 msgstr "O que há de novo"
 
@@ -363,6 +373,15 @@ msgstr "O diretório de saída selecionado não existe"
 
 msgid "Do you want to create it?"
 msgstr "Deseja criá-lo?"
+
+msgid "Subdirectories"
+msgstr ""
+
+msgid "Subdirectories have been found"
+msgstr ""
+
+msgid "Do you want to add PDF files found in subdirectories?"
+msgstr ""
 
 msgid "Task failed"
 msgstr "Falha ao executar a tarefa"
@@ -427,10 +446,10 @@ msgid "New version available"
 msgstr "Uma nova versão está disponível"
 
 msgid "You are running the latest version of PDFsam Basic"
-msgstr ""
+msgstr "Você está utilizando a última versão de PDFsam Basic."
 
 msgid "No update"
-msgstr ""
+msgstr "Nenhuma atualização"
 
 msgid "Open"
 msgstr "Abrir"
@@ -536,13 +555,16 @@ msgid "The selected PDF document is invalid"
 msgstr "O documento PDF selecionado é inválido"
 
 msgid "Select the PDF file"
-msgstr ""
+msgstr "Selecione o arquivo PDF."
 
 msgid "_Select PDF"
-msgstr ""
+msgstr "_Selecionar PDF"
+
+msgid "_Clear"
+msgstr "_Limpar"
 
 msgid "Clear all settings"
-msgstr ""
+msgstr "Limpar todas configurações"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -604,12 +626,6 @@ msgstr "Mover para a base"
 msgid "Duplicate"
 msgstr "Duplicado"
 
-msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr "Arraste e solte os arquivos PDF ou o diretório contendo os mesmos"
-
-msgid "No PDF found"
-msgstr "PDF não encontrado"
-
 msgid "Size"
 msgstr "Tamanho"
 
@@ -632,7 +648,7 @@ msgid "Select pdf documents to load"
 msgstr "Selecione os documentos PDF que deseja carregar"
 
 msgid "Select a text or CSV file to load"
-msgstr ""
+msgstr "Selecione um texto ou arquivo CSV para carregar"
 
 msgid "Removes selected documents"
 msgstr "Remove os documentos selecionados"
@@ -642,9 +658,6 @@ msgstr "_Remover"
 
 msgid "Removes every document"
 msgstr "Remover todos os documentos"
-
-msgid "_Clear"
-msgstr "_Limpar"
 
 msgid "C_lear all settings"
 msgstr "L_impar todas as configurações"
@@ -841,11 +854,11 @@ msgstr "Não foi possível localizar a última versão disponível."
 
 #, java-format
 msgid "Unable to find any valid PDF file in the list: {0}"
-msgstr ""
+msgstr "Incapaz de encontrar algum PDF válido na lista: {0}"
 
 #, java-format
 msgid "Unable to load PDF list file from {0}"
-msgstr ""
+msgstr "Incapaz de encontrar algum PDF na lista: {0}"
 
 msgid "Loading pdf documents"
 msgstr "Carregando os arquivos em PDF"

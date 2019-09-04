@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-05-13 18:52+0200\n"
+"POT-Creation-Date: 2019-08-31 19:08+0200\n"
 "PO-Revision-Date: 2019-05-16 13:50+0000\n"
 "Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-05-16 13:56+0000\n"
-"X-Generator: Launchpad (build 18962)\n"
+"X-Launchpad-Export-Date: 2019-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 19044)\n"
 "Language: fr\n"
 
 msgid "No PDF document has been selected"
@@ -95,6 +95,9 @@ msgstr "Souscrire au fil d’actualités officiel"
 
 msgid "Environment"
 msgstr "Environnement"
+
+msgid "Vendor: %s"
+msgstr ""
 
 msgid "Java runtime path: %s"
 msgstr "chemin d'accès à Java runtime : %s"
@@ -310,6 +313,14 @@ msgstr "Générateur de miniatures :"
 msgid "Settings"
 msgstr "Réglages"
 
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr ""
+"Glissez et déplacer les fichiers PDF ou les dossiers contentant les fichiers "
+"PDF"
+
+msgid "No PDF found"
+msgstr "Aucun PDF trouvé"
+
 msgid "What's new"
 msgstr "Quoi de neuf"
 
@@ -360,6 +371,15 @@ msgstr "Le répertoire de sortie n'existe pas"
 
 msgid "Do you want to create it?"
 msgstr "Voulez-vous le créer ?"
+
+msgid "Subdirectories"
+msgstr ""
+
+msgid "Subdirectories have been found"
+msgstr ""
+
+msgid "Do you want to add PDF files found in subdirectories?"
+msgstr ""
 
 msgid "Task failed"
 msgstr "La tâche a échoué"
@@ -538,6 +558,9 @@ msgstr "Choisir un fichier PDF"
 msgid "_Select PDF"
 msgstr "_Sélectionnez PDF"
 
+msgid "_Clear"
+msgstr "_Vider"
+
 msgid "Clear all settings"
 msgstr ""
 
@@ -595,14 +618,6 @@ msgstr "Mettre en dernier"
 msgid "Duplicate"
 msgstr "Dupliquer"
 
-msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr ""
-"Glissez et déplacer les fichiers PDF ou les dossiers contentant les fichiers "
-"PDF"
-
-msgid "No PDF found"
-msgstr "Aucun PDF trouvé"
-
 msgid "Size"
 msgstr "Taille"
 
@@ -637,9 +652,6 @@ msgstr "_Supprimer"
 
 msgid "Removes every document"
 msgstr "Supprimer du tableau tous les documents"
-
-msgid "_Clear"
-msgstr "_Vider"
 
 msgid "C_lear all settings"
 msgstr "Effacer tous les réglages"
