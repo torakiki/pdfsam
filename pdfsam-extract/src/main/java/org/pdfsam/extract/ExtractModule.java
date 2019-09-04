@@ -78,7 +78,7 @@ public class ExtractModule extends BaseTaskExecutionModule {
             .inputTypes(ModuleInputOutputType.MULTIPLE_PDF, ModuleInputOutputType.SINGLE_PDF)
             .name(DefaultI18nContext.getInstance().i18n("Extract"))
             .description(DefaultI18nContext.getInstance().i18n("Extract pages from PDF documents."))
-            .priority(ModulePriority.DEFAULT.getPriority()).supportURL("http://www.pdfsam.org/pdf-extract-pages")
+            .priority(ModulePriority.DEFAULT.getPriority()).supportURL("https://pdfsam.org/pdf-extract-pages/")
             .build();
 
     @Inject

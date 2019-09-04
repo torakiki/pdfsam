@@ -75,7 +75,7 @@ public class RotateModule extends BaseTaskExecutionModule {
             .inputTypes(ModuleInputOutputType.MULTIPLE_PDF, ModuleInputOutputType.SINGLE_PDF)
             .name(DefaultI18nContext.getInstance().i18n("Rotate"))
             .description(DefaultI18nContext.getInstance().i18n("Rotate the pages of multiple PDF documents."))
-            .priority(ModulePriority.DEFAULT.getPriority()).supportURL("http://www.pdfsam.org/rotate-pdf").build();
+            .priority(ModulePriority.DEFAULT.getPriority()).supportURL("https://pdfsam.org/rotate-pdf/").build();
 
     @Inject
     public RotateModule(@Named(MODULE_ID + "field") BrowsableOutputDirectoryField destinationDirectoryField,

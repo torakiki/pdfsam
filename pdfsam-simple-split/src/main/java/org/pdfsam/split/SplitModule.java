@@ -79,7 +79,7 @@ public class SplitModule extends BaseTaskExecutionModule {
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT)
             .inputTypes(ModuleInputOutputType.SINGLE_PDF).name(DefaultI18nContext.getInstance().i18n("Split"))
             .description(DefaultI18nContext.getInstance().i18n("Split a PDF document at the given page numbers."))
-            .priority(ModulePriority.HIGH.getPriority()).supportURL("http://www.pdfsam.org/pdf-split").build();
+            .priority(ModulePriority.HIGH.getPriority()).supportURL("https://pdfsam.org/pdf-split/").build();
 
     @Inject
     public SplitModule(@Named(MODULE_ID + "field") BrowsableOutputDirectoryField destinationDirectoryField,

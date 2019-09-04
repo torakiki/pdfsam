@@ -71,7 +71,7 @@ public class MergeModule extends BaseTaskExecutionModule {
             .inputTypes(ModuleInputOutputType.MULTIPLE_PDF).name(DefaultI18nContext.getInstance().i18n("Merge"))
             .description(DefaultI18nContext.getInstance()
                     .i18n("Merge together multiple PDF documents or subsections of them."))
-            .priority(ModulePriority.HIGH.getPriority()).supportURL("http://www.pdfsam.org/pdf-merge").build();
+            .priority(ModulePriority.HIGH.getPriority()).supportURL("https://pdfsam.org/pdf-merge/").build();
 
     @Inject
     public MergeModule(@Named(MODULE_ID + "field") BrowsablePdfOutputField destinationFileField,

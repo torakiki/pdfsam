@@ -78,7 +78,7 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
             .inputTypes(ModuleInputOutputType.SINGLE_PDF).name(DefaultI18nContext.getInstance().i18n("Split by size"))
             .description(
                     DefaultI18nContext.getInstance().i18n("Split a PDF document in files of the given size (roughly)."))
-            .priority(ModulePriority.LOW.getPriority()).supportURL("http://www.pdfsam.org/pdf-split-by-size").build();
+            .priority(ModulePriority.LOW.getPriority()).supportURL("https://pdfsam.org/pdf-split/").build();
 
     @Inject
     public SplitBySizeModule(@Named(MODULE_ID + "field") BrowsableOutputDirectoryField destinationDirectoryField,

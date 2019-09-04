@@ -80,7 +80,7 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
             .name(DefaultI18nContext.getInstance().i18n("Split by bookmarks"))
             .description(DefaultI18nContext.getInstance()
                     .i18n("Split a PDF document at bookmarked pages by specifying a bookmark level."))
-            .priority(ModulePriority.DEFAULT.getPriority()).supportURL("http://www.pdfsam.org/pdf-split-by-bookmark")
+            .priority(ModulePriority.DEFAULT.getPriority()).supportURL("https://pdfsam.org/pdf-split/")
             .build();
 
     @Inject
