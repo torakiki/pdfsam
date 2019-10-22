@@ -279,6 +279,9 @@
 									<dontWrapJar>true</dontWrapJar>
 									<icon>src/assembly/resources/pdfsam.ico</icon>
 									<errTitle>Cannot find Java Runtime Environment</errTitle>
+									<vars>
+										<var>PATH=%EXEDIR%\runtime</var>
+									</vars>
 									<jre>
 										<path>runtime</path>
 										<minVersion>11</minVersion>
