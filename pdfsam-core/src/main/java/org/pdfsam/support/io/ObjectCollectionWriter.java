@@ -26,11 +26,11 @@ import java.io.StringWriter;
 import java.nio.file.Files;
 import java.util.Collection;
 
-import javafx.scene.input.ClipboardContent;
-
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javafx.scene.input.ClipboardContent;
 
 /**
  * Component allowing to fluently write {@link Collection} of {@link Object} content to a {@link File} or {@link ClipboardContent}.

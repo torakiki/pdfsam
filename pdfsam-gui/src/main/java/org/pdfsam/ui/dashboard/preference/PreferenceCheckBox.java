@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.UserContext;
@@ -40,8 +40,8 @@ class PreferenceCheckBox extends CheckBox {
 
     PreferenceCheckBox(BooleanUserPreference preference, String label, boolean selected, UserContext userContext) {
         super(label);
-        requireNotNull(preference, "Preference cannot be null");
-        requireNotNull(userContext, "UserContext cannot be null");
+        requireNotNullArg(preference, "Preference cannot be null");
+        requireNotNullArg(userContext, "UserContext cannot be null");
         setSelected(selected);
         this.preference = preference;
         selectedProperty().addListener((ov, oldVal, newVal) -> {

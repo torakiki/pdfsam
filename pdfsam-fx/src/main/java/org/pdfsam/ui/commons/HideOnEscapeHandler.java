@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.commons;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
@@ -39,7 +39,7 @@ public class HideOnEscapeHandler implements EventHandler<KeyEvent> {
     private Window window;
 
     public HideOnEscapeHandler(Window window) {
-        requireNotNull(window, "Window cannot be null");
+        requireNotNullArg(window, "Window cannot be null");
         this.window = window;
     }
 

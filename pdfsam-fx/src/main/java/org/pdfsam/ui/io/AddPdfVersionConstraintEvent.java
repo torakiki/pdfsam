@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.io;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import org.sejda.model.pdf.PdfVersion;
 
@@ -32,6 +32,6 @@ class AddPdfVersionConstraintEvent extends BasePdfVersionEvent {
 
     public AddPdfVersionConstraintEvent(PdfVersion pdfVersion) {
         super(pdfVersion);
-        requireNotNull(pdfVersion, "Unable to create a pdf version event on a null pdf version");
+        requireNotNullArg(pdfVersion, "Unable to create a pdf version event on a null pdf version");
     }
 }

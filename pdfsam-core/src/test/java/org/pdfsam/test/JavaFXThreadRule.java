@@ -21,11 +21,11 @@ package org.pdfsam.test;
 import java.util.Optional;
 import java.util.concurrent.CountDownLatch;
 
-import javafx.application.Platform;
-
 import org.junit.rules.TestRule;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
+
+import javafx.application.Platform;
 
 /**
  * rule to run test methods in the JavaFX thread

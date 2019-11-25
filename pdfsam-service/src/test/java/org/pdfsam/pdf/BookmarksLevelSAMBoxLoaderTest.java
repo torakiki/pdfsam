@@ -22,6 +22,7 @@ import static org.hamcrest.Matchers.hasItems;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.sejda.commons.util.IOUtils.closeQuietly;
 
 import java.io.IOException;
 import java.util.Set;
@@ -32,7 +33,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import org.mockito.ArgumentCaptor;
-import org.sejda.common.ComponentsUtility;
 import org.sejda.io.SeekableSources;
 import org.sejda.sambox.input.PDFParser;
 import org.sejda.sambox.pdmodel.PDDocument;
@@ -57,7 +57,7 @@ public class BookmarksLevelSAMBoxLoaderTest {
 
     @After
     public void tearDown() {
-        ComponentsUtility.nullSafeCloseQuietly(document);
+        closeQuietly(document);
     }
 
     @Test

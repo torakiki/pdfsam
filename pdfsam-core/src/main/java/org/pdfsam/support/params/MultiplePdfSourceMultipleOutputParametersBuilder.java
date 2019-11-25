@@ -20,7 +20,7 @@ package org.pdfsam.support.params;
 
 import java.util.Set;
 
-import org.sejda.common.collection.NullSafeSet;
+import org.sejda.commons.collection.NullSafeSet;
 import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.output.SingleOrMultipleTaskOutput;
 import org.sejda.model.parameter.base.MultiplePdfSourceMultipleOutputParameters;

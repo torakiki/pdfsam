@@ -25,7 +25,7 @@ import java.util.Collections;
 import java.util.Set;
 
 import org.pdfsam.i18n.DefaultI18nContext;
-import org.sejda.common.collection.NullSafeSet;
+import org.sejda.commons.collection.NullSafeSet;
 import org.sejda.conversion.exception.ConversionException;
 import org.sejda.model.pdf.page.PageRange;
 

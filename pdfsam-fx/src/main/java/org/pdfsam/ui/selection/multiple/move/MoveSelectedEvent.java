@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.selection.multiple.move;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 /**
  * Notifies that selected elements in the selection table should be moved
@@ -31,7 +31,7 @@ public class MoveSelectedEvent {
     private MoveType type;
 
     public MoveSelectedEvent(MoveType type) {
-        requireNotNull(type, "Type cannot be null");
+        requireNotNullArg(type, "Type cannot be null");
         this.type = type;
     }
 

@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
@@ -41,8 +41,8 @@ public class PreferenceComboBox<T extends KeyValueItem<String, String>> extends 
     private StringUserPreference preference;
 
     public PreferenceComboBox(StringUserPreference preference, UserContext userContext) {
-        requireNotNull(preference, "Preference cannot be null");
-        requireNotNull(userContext, "UserContext cannot be null");
+        requireNotNullArg(preference, "Preference cannot be null");
+        requireNotNullArg(userContext, "UserContext cannot be null");
         this.preference = preference;
         valueProperty().addListener((observable, oldValue, newValue) -> {
             userContext.setStringPreference(PreferenceComboBox.this.preference, newValue.getKey());

@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.support;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import org.pdfsam.support.validation.Validator;
 import org.slf4j.Logger;
@@ -58,7 +58,7 @@ public class FXValidationSupport<T> {
     }
 
     public void setValidator(Validator<T> validator) {
-        requireNotNull(validator, "Validator cannot be null");
+        requireNotNullArg(validator, "Validator cannot be null");
         this.validator = validator;
         makeNotValidated();
     }

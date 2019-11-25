@@ -21,7 +21,7 @@ package org.pdfsam.premium;
 import java.util.Collections;
 import java.util.List;
 
-import org.pdfsam.support.RequireUtils;
+import org.sejda.commons.util.RequireUtils;
 
 /**
  * Response to a fetch premium modules request
@@ -33,7 +33,7 @@ public class PremiumModulesEvent {
     public final List<PremiumModule> premiumModules;
 
     public PremiumModulesEvent(List<PremiumModule> premiumModules) {
-        RequireUtils.requireNotNull(premiumModules, "Premium modules cannot be null");
+        RequireUtils.requireNotNullArg(premiumModules, "Premium modules cannot be null");
         this.premiumModules = Collections.unmodifiableList(premiumModules);
     }
 }

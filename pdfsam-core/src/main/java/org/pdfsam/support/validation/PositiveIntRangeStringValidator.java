@@ -18,7 +18,7 @@
  */
 package org.pdfsam.support.validation;
 
-import static org.pdfsam.support.RequireUtils.require;
+import static org.sejda.commons.util.RequireUtils.requireArg;
 
 /**
  * Validates that the input string is a valid positive integer in the given range
@@ -32,7 +32,7 @@ class PositiveIntRangeStringValidator extends PositiveIntegerStringValidator {
     private int lower = Integer.MIN_VALUE;
 
     public PositiveIntRangeStringValidator(int lower, int upper) {
-        require(lower > 0 && upper > 0,
+        requireArg(lower > 0 && upper > 0,
                 "Lower and upper limit cannot be negative numbers, lower=" + lower + " upper=" + upper);
         this.upper = upper;
         this.lower = lower;

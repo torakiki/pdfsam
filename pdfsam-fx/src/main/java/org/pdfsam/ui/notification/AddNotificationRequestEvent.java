@@ -18,8 +18,8 @@
  */
 package org.pdfsam.ui.notification;
 
-import static org.pdfsam.support.RequireUtils.requireNotBlank;
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotBlank;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 /**
  * Request for a notification to be shown
@@ -33,7 +33,7 @@ public class AddNotificationRequestEvent {
     public final String title;
 
     public AddNotificationRequestEvent(NotificationType type, String message, String title) {
-        requireNotNull(type, "Notification type cannot be null");
+        requireNotNullArg(type, "Notification type cannot be null");
         requireNotBlank(message, "Notification message cannot be blank");
         this.type = type;
         this.message = message;

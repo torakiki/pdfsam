@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.notification;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.UUID;
@@ -49,7 +49,7 @@ class Notification extends VBox {
     private FadeTransition fade = new FadeTransition(Duration.millis(500), this);
 
     Notification(String title, Node content) {
-        requireNotNull(content, "Notification content cannot be blank");
+        requireNotNullArg(content, "Notification content cannot be blank");
         getStyleClass().add("notification");
         getStyleClass().addAll(Style.CONTAINER.css());
         setId(UUID.randomUUID().toString());

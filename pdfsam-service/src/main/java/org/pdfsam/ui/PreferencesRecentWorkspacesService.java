@@ -22,7 +22,7 @@ import static java.util.Collections.reverse;
 import static java.util.Collections.unmodifiableList;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
@@ -36,7 +36,7 @@ import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
 import org.pdfsam.ShutdownEvent;
-import org.pdfsam.support.LRUMap;
+import org.sejda.commons.collection.LRUMap;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -77,7 +77,7 @@ class PreferencesRecentWorkspacesService implements RecentWorkspacesService {
 
     @Override
     public void addWorkspaceLastUsed(File workspace) {
-        requireNotNull(workspace, "Null workspace is not allowed");
+        requireNotNullArg(workspace, "Null workspace is not allowed");
         cache.put(workspace.getAbsolutePath(), Long.toString(Instant.now().toEpochMilli()));
         LOG.trace("Added recently used workspace {}", workspace.getAbsolutePath());
     }

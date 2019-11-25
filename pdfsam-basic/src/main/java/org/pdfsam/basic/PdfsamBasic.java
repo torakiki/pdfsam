@@ -19,7 +19,7 @@
 package org.pdfsam.basic;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
-import static org.pdfsam.support.RequireUtils.requireNotBlank;
+import static org.sejda.commons.util.RequireUtils.requireNotBlank;
 
 import java.io.IOException;
 import java.io.InputStream;

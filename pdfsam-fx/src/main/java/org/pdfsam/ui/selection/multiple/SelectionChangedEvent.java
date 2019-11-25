@@ -18,9 +18,9 @@
  */
 package org.pdfsam.ui.selection.multiple;
 
-import static org.pdfsam.support.RequireUtils.require;
-import static org.pdfsam.support.RequireUtils.requireNotNull;
-import static org.pdfsam.support.RequireUtils.requireState;
+import static org.sejda.commons.util.RequireUtils.requireArg;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
+import static org.sejda.commons.util.RequireUtils.requireState;
 
 import java.util.Collection;
 
@@ -40,7 +40,7 @@ final class SelectionChangedEvent {
     private int totalRows = 0;
 
     private SelectionChangedEvent(Collection<? extends Integer> selected) {
-        requireNotNull(selected, "Input selection cannot be null");
+        requireNotNullArg(selected, "Input selection cannot be null");
         selected.forEach(i -> {
             bottom = Math.max(i, bottom);
             top = Math.min(i, top);
@@ -115,7 +115,7 @@ final class SelectionChangedEvent {
      * @return the event where the total number of rows available has been set
      */
     public SelectionChangedEvent ofTotalRows(int totalNumberOfRows) {
-        require(totalNumberOfRows >= 0, "Cannot select rows if no row is available");
+        requireArg(totalNumberOfRows >= 0, "Cannot select rows if no row is available");
         this.totalRows = totalNumberOfRows;
         return this;
     }

@@ -18,7 +18,7 @@
  */
 package org.pdfsam.splitbysize;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import java.util.Map;
 import java.util.Optional;
@@ -37,7 +37,7 @@ class SizeUnitRadio extends RadioButton implements RestorableView {
     private SizeUnit unit;
 
     public SizeUnitRadio(SizeUnit unit) {
-        requireNotNull(unit, "Unit cannot be null");
+        requireNotNullArg(unit, "Unit cannot be null");
         this.unit = unit;
         this.setText(unit.friendlyName());
         this.setId("unit" + unit.symbol());

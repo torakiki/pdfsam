@@ -18,8 +18,8 @@
  */
 package org.pdfsam.news;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
 import static org.pdfsam.support.io.NetUtils.urlToStream;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import java.io.IOException;
 import java.net.URL;
@@ -54,7 +54,7 @@ public class DefaultNewsService implements NewsService {
 
     @Inject
     DefaultNewsService(Pdfsam pdfsam) {
-        requireNotNull(pdfsam, "Application info cannot be null");
+        requireNotNullArg(pdfsam, "Application info cannot be null");
         this.pdfsam = pdfsam;
     }
 

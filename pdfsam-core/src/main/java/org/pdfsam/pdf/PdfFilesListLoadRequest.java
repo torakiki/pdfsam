@@ -18,8 +18,8 @@
  */
 package org.pdfsam.pdf;
 
-import static org.pdfsam.support.RequireUtils.requireNotBlank;
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotBlank;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import java.nio.file.Path;
 
@@ -36,7 +36,7 @@ public class PdfFilesListLoadRequest implements ModuleOwned {
 
     public PdfFilesListLoadRequest(String ownerModule, Path list) {
         requireNotBlank(ownerModule, "Owner module cannot be blank");
-        requireNotNull(list, "List file cannot be null");
+        requireNotNullArg(list, "List file cannot be null");
         this.ownerModule = ownerModule;
         this.list = list;
     }

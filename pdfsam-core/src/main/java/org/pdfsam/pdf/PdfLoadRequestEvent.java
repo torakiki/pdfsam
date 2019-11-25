@@ -18,7 +18,7 @@
  */
 package org.pdfsam.pdf;
 
-import static org.pdfsam.support.RequireUtils.requireNotBlank;
+import static org.sejda.commons.util.RequireUtils.requireNotBlank;
 
 import java.util.Collection;
 import java.util.Collections;

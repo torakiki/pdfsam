@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.io;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import java.io.File;
 
@@ -33,7 +33,7 @@ public class SetLatestDirectoryEvent {
     private File latest;
 
     public SetLatestDirectoryEvent(File latest) {
-        requireNotNull(latest, "Latest directory cannot be null");
+        requireNotNullArg(latest, "Latest directory cannot be null");
         this.latest = latest;
     }
 

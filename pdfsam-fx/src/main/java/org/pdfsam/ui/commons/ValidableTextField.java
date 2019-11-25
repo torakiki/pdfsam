@@ -19,8 +19,8 @@
 package org.pdfsam.ui.commons;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.pdfsam.support.RequireUtils.require;
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotBlank;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import org.pdfsam.support.validation.Validator;
 import org.pdfsam.ui.support.FXValidationSupport;
@@ -128,7 +128,7 @@ public class ValidableTextField extends TextField {
      * @see org.pdfsam.ui.support.FXValidationSupport#setValidator(org.pdfsam.support.validation.Validator)
      */
     public void setValidator(Validator<String> validator) {
-        requireNotNull(validator, "Validator cannot be null for ValidableTextField");
+        requireNotNullArg(validator, "Validator cannot be null for ValidableTextField");
         validationSupport.setValidator(validator);
     }
 
@@ -156,7 +156,7 @@ public class ValidableTextField extends TextField {
         private Timeline hideTimer = new Timeline();
 
         private ErrorTooltipManager(String message) {
-            require(isNotBlank(message), "Tooltip message cannot be blank");
+            requireNotBlank(message, "Tooltip message cannot be blank");
             this.tooltip = new Tooltip(message);
             this.tooltip.getStyleClass().add(ERROR_TOOLTIP_CLASS);
             hideTimer.getKeyFrames().add(new KeyFrame(new Duration(5000)));

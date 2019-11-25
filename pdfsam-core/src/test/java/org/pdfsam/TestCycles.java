@@ -22,14 +22,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import jdepend.framework.JDepend;
-import jdepend.framework.JavaPackage;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import jdepend.framework.JDepend;
+import jdepend.framework.JavaPackage;
 
 /**
  * Unit test to test against cycles.

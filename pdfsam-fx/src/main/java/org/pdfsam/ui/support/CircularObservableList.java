@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.support;
 
-import static org.pdfsam.support.RequireUtils.require;
+import static org.sejda.commons.util.RequireUtils.requireArg;
 
 import java.util.Collection;
 import java.util.LinkedList;
@@ -41,7 +41,7 @@ public class CircularObservableList<E> extends ModifiableObservableListBase<E> {
     }
 
     public void setMaxCapacity(int maxCapacity) {
-        require(maxCapacity > 0, "Max capacity must be a positive value");
+        requireArg(maxCapacity > 0, "Max capacity must be a positive value");
         this.maxCapacity = maxCapacity;
         houseKeep();
     }

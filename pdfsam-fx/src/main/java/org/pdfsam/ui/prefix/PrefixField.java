@@ -19,7 +19,7 @@
 package org.pdfsam.ui.prefix;
 
 import static java.util.Optional.ofNullable;
-import static org.pdfsam.support.RequireUtils.requireNotBlank;
+import static org.sejda.commons.util.RequireUtils.requireNotBlank;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.ResettableView;

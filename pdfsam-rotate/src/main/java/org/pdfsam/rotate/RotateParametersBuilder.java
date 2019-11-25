@@ -26,7 +26,7 @@ import org.pdfsam.support.params.AbstractPdfOutputParametersBuilder;
 import org.pdfsam.support.params.MultipleOutputTaskParametersBuilder;
 import org.pdfsam.task.BulkRotateParameters;
 import org.pdfsam.task.PdfRotationInput;
-import org.sejda.common.collection.NullSafeSet;
+import org.sejda.commons.collection.NullSafeSet;
 import org.sejda.model.input.PdfSource;
 import org.sejda.model.output.SingleOrMultipleTaskOutput;
 import org.sejda.model.pdf.page.PageRange;

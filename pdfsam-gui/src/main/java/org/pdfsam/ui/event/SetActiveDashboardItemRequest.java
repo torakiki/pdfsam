@@ -18,8 +18,7 @@
  */
 package org.pdfsam.ui.event;
 
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.pdfsam.support.RequireUtils.require;
+import static org.sejda.commons.util.RequireUtils.requireNotBlank;
 
 /**
  * Event to request to set active the given dashboard item
@@ -31,7 +30,7 @@ public class SetActiveDashboardItemRequest {
     private String id;
 
     public SetActiveDashboardItemRequest(String id) {
-        require(isNotBlank(id), "Cannot set active an empty item");
+        requireNotBlank(id, "Cannot set active an empty item");
         this.id = id;
     }
 

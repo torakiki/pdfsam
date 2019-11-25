@@ -23,7 +23,6 @@ import static org.mockito.Mockito.mock;
 import java.nio.file.Path;
 
 import org.junit.Test;
-import org.pdfsam.pdf.PdfFilesListLoadRequest;
 
 /**
  * @author Andrea Vacondio

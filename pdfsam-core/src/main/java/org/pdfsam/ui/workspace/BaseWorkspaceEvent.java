@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.workspace;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import java.io.File;
 
@@ -32,7 +32,7 @@ abstract class BaseWorkspaceEvent {
     private File workspace;
 
     public BaseWorkspaceEvent(File workspace) {
-        requireNotNull(workspace, "Workspace file cannot be null");
+        requireNotNullArg(workspace, "Workspace file cannot be null");
         this.workspace = workspace;
     }
 

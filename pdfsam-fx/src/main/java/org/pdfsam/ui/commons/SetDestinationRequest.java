@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.commons;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import java.io.File;
 
@@ -53,7 +53,7 @@ public class SetDestinationRequest {
      * @return a request to set the destination for the task to the given file
      */
     public static SetDestinationRequest requestDestination(File footprint, String module) {
-        requireNotNull(footprint, "Footprint file cannot be null");
+        requireNotNullArg(footprint, "Footprint file cannot be null");
         return new SetDestinationRequest(new File(footprint.getParent(), String.format("PDFsam_%s.pdf", module)), false);
     }
 
@@ -64,7 +64,7 @@ public class SetDestinationRequest {
      * @return a request to set the destination as fallback for the task to the given file
      */
     public static SetDestinationRequest requestFallbackDestination(File footprint, String module) {
-        requireNotNull(footprint, "Footprint file cannot be null");
+        requireNotNullArg(footprint, "Footprint file cannot be null");
         return new SetDestinationRequest(new File(footprint.getParent(), String.format("PDFsam_%s.pdf", module)), true);
     }
 }
