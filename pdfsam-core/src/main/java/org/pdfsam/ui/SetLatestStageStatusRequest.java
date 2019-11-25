@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 /**
  * Event to request to set the latest stage status
@@ -30,7 +30,7 @@ public class SetLatestStageStatusRequest {
     private StageStatus status;
 
     public SetLatestStageStatusRequest(StageStatus status) {
-        requireNotNull(status, "Stage status cannot be null");
+        requireNotNullArg(status, "Stage status cannot be null");
         this.status = status;
     }
 

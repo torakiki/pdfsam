@@ -18,8 +18,8 @@
  */
 package org.pdfsam.ui.io;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
 import static org.pdfsam.ui.help.HelpUtils.helpIcon;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.ResettableView;
@@ -41,7 +41,7 @@ class DestinationPane extends VBox implements ResettableView {
 
     public DestinationPane(BrowsableField destination) {
         super(Style.DEFAULT_SPACING);
-        requireNotNull(destination, "Destination field cannot be null");
+        requireNotNullArg(destination, "Destination field cannot be null");
         this.destination = destination;
         overwrite.setSelected(false);
         overwrite.setGraphic(helpIcon(DefaultI18nContext.getInstance()

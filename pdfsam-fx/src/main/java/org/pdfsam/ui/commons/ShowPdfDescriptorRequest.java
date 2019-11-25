@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.commons;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 
@@ -32,7 +32,7 @@ public class ShowPdfDescriptorRequest {
     private PdfDocumentDescriptor descriptor;
 
     public ShowPdfDescriptorRequest(PdfDocumentDescriptor descriptor) {
-        requireNotNull(descriptor, "Cannot display a null pdf descriptor");
+        requireNotNullArg(descriptor, "Cannot display a null pdf descriptor");
         this.descriptor = descriptor;
     }
 

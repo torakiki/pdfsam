@@ -21,7 +21,7 @@ package org.pdfsam.pdf;
 import static java.util.Objects.nonNull;
 import static java.util.Optional.ofNullable;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import java.io.File;
 import java.util.Collections;
@@ -56,7 +56,7 @@ public class PdfDocumentDescriptor {
     private SortedSet<Integer> validBookmarksLevels = Collections.emptySortedSet();
 
     private PdfDocumentDescriptor(File file, String password) {
-        requireNotNull(file, "Input file is mandatory");
+        requireNotNullArg(file, "Input file is mandatory");
         this.file = file;
         this.password = password;
     }

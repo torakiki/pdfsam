@@ -23,7 +23,7 @@ import static java.util.Optional.empty;
 import static java.util.Optional.ofNullable;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isBlank;
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 import static org.pdfsam.ui.help.HelpUtils.helpIcon;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
@@ -79,7 +79,7 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned, 
             boolean expandAdvanced, DestinationPanelFields... optionalFields) {
         super(destination);
         destination.setId(ownerModule + ".destination");
-        requireNotNull(userContext, "UserContext cannot be null");
+        requireNotNullArg(userContext, "UserContext cannot be null");
         this.userContext = userContext;
         this.ownerModule = defaultString(ownerModule);
         VBox advancedPanel = new VBox();

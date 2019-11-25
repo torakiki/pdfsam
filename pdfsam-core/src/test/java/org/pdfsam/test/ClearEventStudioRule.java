@@ -24,7 +24,7 @@ import java.util.Arrays;
 import java.util.Set;
 
 import org.junit.rules.ExternalResource;
-import org.sejda.common.collection.NullSafeSet;
+import org.sejda.commons.collection.NullSafeSet;
 
 /**
  * Rule that makes sure that event studio listeners are cleared after each test

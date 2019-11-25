@@ -19,7 +19,7 @@
 package org.pdfsam.support.validation;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.pdfsam.support.RequireUtils.requireNotBlank;
+import static org.sejda.commons.util.RequireUtils.requireNotBlank;
 
 import java.util.regex.Pattern;
 

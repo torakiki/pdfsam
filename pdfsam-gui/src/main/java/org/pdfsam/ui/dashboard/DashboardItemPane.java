@@ -18,8 +18,8 @@
  */
 package org.pdfsam.ui.dashboard;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
 import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteCurrentModule;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.pdfsam.i18n.DefaultI18nContext;
@@ -50,7 +50,7 @@ class DashboardItemPane extends BorderPane {
     };
 
     DashboardItemPane(DashboardItem item) {
-        requireNotNull(item, "Dashboard item cannot be null");
+        requireNotNullArg(item, "Dashboard item cannot be null");
         this.item = item;
         this.item.pane().getStyleClass().addAll(Style.DEAULT_CONTAINER.css());
         this.item.pane().getStyleClass().addAll(Style.CONTAINER.css());

@@ -18,9 +18,8 @@
  */
 package org.pdfsam.module;
 
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.pdfsam.support.RequireUtils.require;
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotBlank;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 /**
  * Builder for the {@link ModuleDescriptor}
@@ -86,9 +85,9 @@ public final class ModuleDescriptorBuilder {
     }
 
     public ModuleDescriptor build() {
-        requireNotNull(category, "Module category cannot be null");
-        require(isNotBlank(name), "Module name cannot be blank");
-        require(isNotBlank(description), "Module description cannot be blank");
+        requireNotNullArg(category, "Module category cannot be null");
+        requireNotBlank(name, "Module name cannot be blank");
+        requireNotBlank(description, "Module description cannot be blank");
         return new ModuleDescriptor(category, name, description, priority, supportURL, inputTypes);
     }
 }

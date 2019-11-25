@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.commons;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import java.nio.file.Path;
 
@@ -33,7 +33,7 @@ public class NonExistingOutputDirectoryEvent {
     public final Path outputDirectory;
 
     public NonExistingOutputDirectoryEvent(Path outputDirectory) {
-        requireNotNull(outputDirectory, "Cannot create a null output directory");
+        requireNotNullArg(outputDirectory, "Cannot create a null output directory");
         this.outputDirectory = outputDirectory;
     }
 }

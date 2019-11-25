@@ -19,7 +19,7 @@
 package org.pdfsam.ui.io;
 
 import static java.util.Objects.nonNull;
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Arrays;
@@ -134,7 +134,7 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwn
         private PdfVersion version;
 
         public DefaultPdfVersionComboItem(PdfVersion version) {
-            requireNotNull(version, "PDF version cannot be null");
+            requireNotNullArg(version, "PDF version cannot be null");
             this.version = version;
         }
 

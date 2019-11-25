@@ -18,7 +18,7 @@
  */
 package org.pdfsam.configuration;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -44,7 +44,7 @@ public class StylesConfig {
     private List<String> styles = new ArrayList<>();
 
     public StylesConfig(Theme theme) {
-        requireNotNull(theme, "Theme cannot be null");
+        requireNotNullArg(theme, "Theme cannot be null");
         LOG.debug(DefaultI18nContext.getInstance().i18n("Installing theme {0}.", theme.friendlyName()));
         theme.styleSheets().stream().map(s -> this.getClass().getResource(s).toExternalForm()).forEach(styles::add);
         //styles.add(this.getClass().getResource(GlyphsStyle.DEFAULT.getStylePath()).toExternalForm());

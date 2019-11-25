@@ -18,8 +18,7 @@
  */
 package org.pdfsam.ui.commons;
 
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.pdfsam.support.RequireUtils.require;
+import static org.sejda.commons.util.RequireUtils.requireNotBlank;
 
 import java.util.Optional;
 
@@ -45,7 +44,7 @@ public final class SetActiveModuleRequest {
      * @return an event to tell the content pane to activate the module with the given id in the Workarea panel.
      */
     public static SetActiveModuleRequest activeteModule(String id) {
-        require(isNotBlank(id), "Module id cannot be null");
+        requireNotBlank(id, "Module id cannot be null");
         return new SetActiveModuleRequest(id);
     }
 

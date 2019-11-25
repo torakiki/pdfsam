@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.log;
 
-import static org.pdfsam.support.RequireUtils.requireNotBlank;
+import static org.sejda.commons.util.RequireUtils.requireNotBlank;
 
 import org.apache.commons.lang3.ObjectUtils;
 

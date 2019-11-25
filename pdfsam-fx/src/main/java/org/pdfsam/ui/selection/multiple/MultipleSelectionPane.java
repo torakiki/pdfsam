@@ -19,7 +19,7 @@
 package org.pdfsam.ui.selection.multiple;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.pdfsam.support.RequireUtils.require;
+import static org.sejda.commons.util.RequireUtils.requireArg;
 
 import java.util.Map;
 
@@ -43,7 +43,7 @@ public class MultipleSelectionPane extends BorderPane implements ModuleOwned, Re
 
     public MultipleSelectionPane(String ownerModule, boolean canDuplicate, boolean canMove,
             TableColumnProvider<?>... columns) {
-        require(columns.length > 0, "No column has been selected");
+        requireArg(columns.length > 0, "No column has been selected");
         this.ownerModule = defaultString(ownerModule);
         setTop(new SelectionTableToolbar(ownerModule, canMove));
         table = new SelectionTable(ownerModule, canDuplicate, canMove, columns);

@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
@@ -37,8 +37,8 @@ class PreferenceBrowsableFileField extends BrowsableFileField {
     PreferenceBrowsableFileField(StringUserPreference preference, FileType type, OpenType openType,
             UserContext userContext) {
         super(type, openType);
-        requireNotNull(preference, "Preference cannot be null");
-        requireNotNull(userContext, "UserContext cannot be null");
+        requireNotNullArg(preference, "Preference cannot be null");
+        requireNotNullArg(userContext, "UserContext cannot be null");
         enforceValidation(true, true);
         getTextField().validProperty().addListener(
                 new PreferenceSetterOnValidState(preference, getTextField(), userContext));

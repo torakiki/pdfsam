@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
@@ -43,8 +43,8 @@ class PreferenceSetterOnValidState implements ChangeListener<ValidationState> {
     private UserContext userContext;
 
     PreferenceSetterOnValidState(StringUserPreference preference, ValidableTextField textField, UserContext userContext) {
-        requireNotNull(preference, "Preference cannot be null");
-        requireNotNull(textField, "TextField cannot be null");
+        requireNotNullArg(preference, "Preference cannot be null");
+        requireNotNullArg(textField, "TextField cannot be null");
         this.textField = textField;
         this.preference = preference;
         this.userContext = userContext;

@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.commons;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import java.io.File;
 
@@ -33,7 +33,7 @@ public class OpenFileRequest {
     private File file;
 
     public OpenFileRequest(File file) {
-        requireNotNull(file, "Cannot open an empty file.");
+        requireNotNullArg(file, "Cannot open an empty file.");
         this.file = file;
     }
 

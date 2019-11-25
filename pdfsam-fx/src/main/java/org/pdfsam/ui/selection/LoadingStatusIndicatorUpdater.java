@@ -20,7 +20,7 @@ package org.pdfsam.ui.selection;
 
 import static java.util.Objects.nonNull;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -44,7 +44,7 @@ public class LoadingStatusIndicatorUpdater implements Consumer<PdfDescriptorLoad
     private Labeled indicator;
 
     public LoadingStatusIndicatorUpdater(Labeled indicator) {
-        requireNotNull(indicator, "Cannot set loading status on a null indicator");
+        requireNotNullArg(indicator, "Cannot set loading status on a null indicator");
         this.indicator = indicator;
     }
 

@@ -19,7 +19,7 @@
 package org.pdfsam.ui.selection.multiple;
 
 import static java.util.Objects.nonNull;
-import static org.pdfsam.support.RequireUtils.requireNotBlank;
+import static org.sejda.commons.util.RequireUtils.requireNotBlank;
 
 import javafx.event.Event;
 import javafx.scene.control.ContentDisplay;

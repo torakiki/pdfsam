@@ -19,7 +19,7 @@
 package org.pdfsam.ui.commons;
 
 import static java.util.Objects.nonNull;
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import org.pdfsam.ui.support.Style;
 
@@ -48,8 +48,8 @@ public class RadioButtonDrivenTextFieldsPane extends GridPane {
     }
 
     public void addRow(RadioButton radio, Region field, Text helpIcon) {
-        requireNotNull(radio, "Cannot add a null radio");
-        requireNotNull(field, "Cannot add a null field");
+        requireNotNullArg(radio, "Cannot add a null radio");
+        requireNotNullArg(field, "Cannot add a null field");
         GridPane.setValignment(radio, VPos.BOTTOM);
         GridPane.setValignment(field, VPos.BOTTOM);
         GridPane.setHalignment(radio, HPos.LEFT);

@@ -18,7 +18,7 @@
  */
 package org.pdfsam.support.validation;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import org.pdfsam.support.io.FileType;
 
@@ -34,7 +34,7 @@ class FileTypeValidator extends FileValidator {
     private boolean mustExist = true;
 
     public FileTypeValidator(FileType type, boolean mustExist) {
-        requireNotNull(type, "FileType cannot be null");
+        requireNotNullArg(type, "FileType cannot be null");
         this.type = type;
         this.mustExist = mustExist;
     }

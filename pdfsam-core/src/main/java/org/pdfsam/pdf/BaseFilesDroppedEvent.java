@@ -19,7 +19,7 @@
 package org.pdfsam.pdf;
 
 import static java.util.Optional.ofNullable;
-import static org.pdfsam.support.RequireUtils.requireNotBlank;
+import static org.sejda.commons.util.RequireUtils.requireNotBlank;
 
 import java.io.File;
 import java.util.Collections;

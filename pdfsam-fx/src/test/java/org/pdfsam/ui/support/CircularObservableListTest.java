@@ -25,7 +25,6 @@ import static org.junit.Assert.assertTrue;
 import java.util.Arrays;
 
 import org.junit.Test;
-import org.pdfsam.support.CircularLinkedList;
 
 /**
  * @author Andrea Vacondio
@@ -34,7 +33,7 @@ import org.pdfsam.support.CircularLinkedList;
 public class CircularObservableListTest {
     @Test(expected = IllegalArgumentException.class)
     public void wrongCapacity() {
-        new CircularLinkedList<>(0);
+        new CircularObservableList<>(0);
     }
 
     @Test

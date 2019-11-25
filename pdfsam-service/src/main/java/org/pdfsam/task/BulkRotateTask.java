@@ -18,7 +18,7 @@
  */
 package org.pdfsam.task;
 
-import static org.sejda.common.ComponentsUtility.nullSafeCloseQuietly;
+import static org.sejda.commons.util.IOUtils.closeQuietly;
 import static org.sejda.core.notification.dsl.ApplicationEventsNotifier.notifyEvent;
 import static org.sejda.core.support.io.IOUtils.createTemporaryBuffer;
 import static org.sejda.core.support.io.model.FileOutput.file;
@@ -86,13 +86,13 @@ public class BulkRotateTask extends BaseTask<BulkRotateParameters> {
 
                 documentHandler.setVersionOnPDDocument(parameters.getVersion());
                 documentHandler.setCompress(parameters.isCompress());
-                documentHandler.savePDDocument(tmpFile);
+                documentHandler.savePDDocument(tmpFile, parameters.getOutput().getEncryptionAtRestPolicy());
 
                 String outName = nameGenerator(parameters.getOutputPrefix())
                         .generate(nameRequest().originalName(input.source.getName()).fileNumber(currentStep));
                 outputWriter.addOutput(file(tmpFile).name(outName));
             } finally {
-                nullSafeCloseQuietly(documentHandler);
+                closeQuietly(documentHandler);
             }
 
             notifyEvent(executionContext().notifiableTaskMetadata()).stepsCompleted(currentStep).outOf(totalSteps);
@@ -104,6 +104,6 @@ public class BulkRotateTask extends BaseTask<BulkRotateParameters> {
 
     @Override
     public void after() {
-        nullSafeCloseQuietly(documentHandler);
+        closeQuietly(documentHandler);
     }
 }

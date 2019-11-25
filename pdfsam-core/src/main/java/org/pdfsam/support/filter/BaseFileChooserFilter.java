@@ -22,7 +22,7 @@ import java.io.File;
 
 import javax.swing.filechooser.FileFilter;
 
-import org.pdfsam.support.RequireUtils;
+import org.sejda.commons.util.RequireUtils;
 
 /**
  * Base implementation for a Filter to be used in the file chooser component.
@@ -35,7 +35,7 @@ public class BaseFileChooserFilter extends FileFilter implements java.io.FileFil
     private FileFilterType type;
 
     public BaseFileChooserFilter(FileFilterType type) {
-        RequireUtils.requireNotNull(type, "File filter type cannot be null");
+        RequireUtils.requireNotNullArg(type, "File filter type cannot be null");
         this.type = type;
     }
 

@@ -18,6 +18,9 @@
  */
 package org.pdfsam.support;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
 import java.io.IOException;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -32,9 +35,6 @@ import org.junit.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 
 /**
  * @author Andrea Vacondio

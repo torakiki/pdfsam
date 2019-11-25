@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.notification;
 
-import static org.pdfsam.support.RequireUtils.requireNotBlank;
+import static org.sejda.commons.util.RequireUtils.requireNotBlank;
 
 /**
  * Request for a notification to be removed/hidden

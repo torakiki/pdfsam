@@ -19,7 +19,7 @@
 package org.pdfsam.support;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
-import static org.pdfsam.support.RequireUtils.require;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -37,7 +37,7 @@ public class KeyStringValueItem<K> implements KeyValueItem<K, String> {
     private String value;
 
     protected KeyStringValueItem(K key, String value) {
-        require(key != null, "Key cannot be null");
+        requireNotNullArg(key, "Key cannot be null");
         this.key = key;
         this.value = value;
     }

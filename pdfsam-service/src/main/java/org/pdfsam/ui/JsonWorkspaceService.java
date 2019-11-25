@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui;
 
-import static org.pdfsam.support.RequireUtils.requireNotNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -42,7 +42,7 @@ class JsonWorkspaceService implements WorkspaceService {
 
     @Override
     public void saveWorkspace(Map<String, Map<String, String>> data, File destination) {
-        requireNotNull(destination, "Destination file cannot be null");
+        requireNotNullArg(destination, "Destination file cannot be null");
         LOG.debug(DefaultI18nContext.getInstance().i18n("Saving workspace data to {0}", destination.getAbsolutePath()));
         try {
             JSON.std.with(JSON.Feature.PRETTY_PRINT_OUTPUT).without(JSON.Feature.WRITE_NULL_PROPERTIES)
@@ -57,7 +57,7 @@ class JsonWorkspaceService implements WorkspaceService {
     @Override
     @SuppressWarnings("unchecked")
     public Map<String, Map<String, String>> loadWorkspace(File workspace) {
-        requireNotNull(workspace, "Workspace file cannot be null");
+        requireNotNullArg(workspace, "Workspace file cannot be null");
         Map<String, Map<String, String>> data = Collections.emptyMap();
         try (FileInputStream stream = new FileInputStream(workspace)) {
             data = (Map) JSON.std.mapFrom(stream);

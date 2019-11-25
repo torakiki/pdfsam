@@ -19,8 +19,7 @@
 package org.pdfsam.ui.commons;
 
 import static java.util.Objects.nonNull;
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.pdfsam.support.RequireUtils.require;
+import static org.sejda.commons.util.RequireUtils.requireNotBlank;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.pdfsam.ui.support.Style;
@@ -68,7 +67,7 @@ public class UrlButton extends Button {
      * @return
      */
     public static final UrlButton urlButton(String text, String url, FontAwesomeIcon icon, String... style) {
-        require(isNotBlank(url), "URL cannot be blank");
+        requireNotBlank(url, "URL cannot be blank");
         UrlButton button = new UrlButton(text);
         button.setOnAction(e -> eventStudio().broadcast(new OpenUrlRequest(url)));
         if (nonNull(icon)) {
