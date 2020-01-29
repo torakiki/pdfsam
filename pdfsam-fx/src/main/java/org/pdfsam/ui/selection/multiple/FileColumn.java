@@ -22,6 +22,7 @@ import java.io.File;
 import java.util.Comparator;
 
 import org.pdfsam.i18n.DefaultI18nContext;
+import org.sejda.commons.util.NumericalSortFilenameComparator;
 
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
