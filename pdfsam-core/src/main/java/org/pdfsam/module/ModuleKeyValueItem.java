@@ -31,5 +31,4 @@ public class ModuleKeyValueItem extends KeyStringValueItem<String> {
     public ModuleKeyValueItem(Module module) {
         super(module.id(), module.descriptor().getName());
     }
-
 }

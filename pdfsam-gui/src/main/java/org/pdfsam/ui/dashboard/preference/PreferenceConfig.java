@@ -23,6 +23,7 @@ import static org.pdfsam.support.KeyStringValueItem.keyValue;
 import static org.pdfsam.ui.help.HelpUtils.helpIcon;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
+import java.util.Comparator;
 import java.util.List;
 
 import javax.inject.Named;
@@ -66,7 +67,8 @@ public class PreferenceConfig {
                 StringUserPreference.STARTUP_MODULE, userContext);
         startupModuleCombo.setId("startupModuleCombo");
         startupModuleCombo.getItems().add(keyValue("", DefaultI18nContext.getInstance().i18n("Dashboard")));
-        modules.stream().map(ModuleKeyValueItem::new).forEach(startupModuleCombo.getItems()::add);
+        modules.stream().map(ModuleKeyValueItem::new).sorted(Comparator.comparing(ModuleKeyValueItem::getValue))
+                .forEach(startupModuleCombo.getItems()::add);
         startupModuleCombo.setValue(keyEmptyValue(userContext.getStartupModule()));
         return startupModuleCombo;
     }
