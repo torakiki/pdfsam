@@ -212,4 +212,23 @@ public class DefaultUserContextTest {
         victim.setIntegerPreference(IntUserPreference.LOGVIEW_ROWS_NUMBER, 20);
         assertEquals(20, victim.getNumberOfLogRows());
     }
+
+    @Test
+    public void getDefaultPrefix() {
+        victim.setDefaultPrefix("module", "banana");
+        assertEquals("banana", victim.getDefaultPrefix("module"));
+        assertEquals("PDFsam_", victim.getDefaultPrefix("module_2"));
+        victim.setDefaultPrefix("module", "");
+        assertEquals("", victim.getDefaultPrefix("module"));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void getDefaultPrefixEmptyModule() {
+        victim.getDefaultPrefix(" ");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void getDefaultPrefixNullModule() {
+        victim.getDefaultPrefix(null);
+    }
 }

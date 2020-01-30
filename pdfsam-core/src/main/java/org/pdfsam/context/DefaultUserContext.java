@@ -18,6 +18,8 @@
  */
 package org.pdfsam.context;
 
+import static org.sejda.commons.util.RequireUtils.requireNotBlank;
+
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
@@ -125,6 +127,18 @@ public final class DefaultUserContext implements UserContext {
     @Override
     public String getLocale() {
         return prefs.get(StringUserPreference.LOCALE.toString(), System.getProperty(LOCALE_PROP));
+    }
+
+    @Override
+    public String getDefaultPrefix(String module) {
+        requireNotBlank(module, "Expected a module name");
+        return prefs.node(module).get(StringUserPreference.DEFAULT_PREFIX.toString(), "PDFsam_");
+    }
+
+    @Override
+    public void setDefaultPrefix(String module, String value) {
+        requireNotBlank(module, "Expected a module name");
+        prefs.node(module).put(StringUserPreference.DEFAULT_PREFIX.toString(), value);
     }
 
     @Override

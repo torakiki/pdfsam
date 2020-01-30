@@ -72,21 +72,22 @@ public class ExtractModule extends BaseTaskExecutionModule {
     private ExtractOptionsPane extractOptions = new ExtractOptionsPane();
     private BrowsableOutputDirectoryField destinationDirectoryField;
     private PdfDestinationPane destinationPane;
-    private PrefixPane prefix = new PrefixPane();
+    private PrefixPane prefix;
 
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT)
             .inputTypes(ModuleInputOutputType.MULTIPLE_PDF, ModuleInputOutputType.SINGLE_PDF)
             .name(DefaultI18nContext.getInstance().i18n("Extract"))
             .description(DefaultI18nContext.getInstance().i18n("Extract pages from PDF documents."))
-            .priority(ModulePriority.DEFAULT.getPriority()).supportURL("https://pdfsam.org/pdf-extract-pages/")
-            .build();
+            .priority(ModulePriority.DEFAULT.getPriority()).supportURL("https://pdfsam.org/pdf-extract-pages/").build();
 
     @Inject
     public ExtractModule(@Named(MODULE_ID + "field") BrowsableOutputDirectoryField destinationDirectoryField,
-            @Named(MODULE_ID + "pane") PdfDestinationPane destinationPane, @Named(MODULE_ID + "footer") Footer footer) {
+            @Named(MODULE_ID + "pane") PdfDestinationPane destinationPane, @Named(MODULE_ID + "footer") Footer footer,
+            @Named(MODULE_ID + "prefix") PrefixPane prefix) {
         super(footer);
         this.destinationDirectoryField = destinationDirectoryField;
         this.destinationPane = destinationPane;
+        this.prefix = prefix;
         initModuleSettingsPanel(settingPanel());
     }
 
@@ -190,6 +191,12 @@ public class ExtractModule extends BaseTaskExecutionModule {
         @Named(MODULE_ID + "openButton")
         public OpenButton openButton() {
             return new OpenButton(MODULE_ID, ModuleInputOutputType.MULTIPLE_PDF);
+        }
+
+        @Provides
+        @Named(MODULE_ID + "prefix")
+        public PrefixPane prefixPane(UserContext userContext) {
+            return new PrefixPane(MODULE_ID, userContext);
         }
     }
 

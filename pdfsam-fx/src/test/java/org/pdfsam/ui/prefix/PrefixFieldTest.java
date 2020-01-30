@@ -44,13 +44,25 @@ public class PrefixFieldTest extends ApplicationTest {
     @Rule
     public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule();
     private PrefixField victim;
+    private PrefixField secondVictim;
 
     @Override
     public void start(Stage stage) {
-        victim = new PrefixField();
-        Scene scene = new Scene(new HBox(victim));
+        victim = new PrefixField(null);
+        secondVictim = new PrefixField("ChuckNorris");
+        Scene scene = new Scene(new HBox(victim, secondVictim));
         stage.setScene(scene);
         stage.show();
+    }
+
+    @Test
+    public void defaultValue() {
+        assertEquals("PDFsam_", victim.getText());
+    }
+
+    @Test
+    public void placeHolderValue() {
+        assertEquals("ChuckNorris", secondVictim.getText());
     }
 
     @Test

@@ -23,6 +23,7 @@ import static org.sejda.commons.util.RequireUtils.requireNotBlank;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.ResettableView;
+import org.sejda.commons.util.StringUtils;
 import org.sejda.model.prefix.Prefix;
 
 import javafx.scene.control.ContextMenu;
@@ -40,8 +41,12 @@ public class PrefixField extends TextField implements ResettableView {
 
     private Menu menu;
 
-    public PrefixField() {
-        super("PDFsam_");
+    /**
+     * @param placeholder
+     *            default value for the text field. If null or empty a fallback is used
+     */
+    public PrefixField(String placeholder) {
+        super(ofNullable(placeholder).filter(StringUtils::isNotEmpty).orElse("PDFsam_"));
         this.setPromptText(DefaultI18nContext.getInstance().i18n("Prefix for the generated files names"));
         this.menu = new Menu(DefaultI18nContext.getInstance().i18n("Add prefix"));
         this.menu.setId("addPrefixMenu");

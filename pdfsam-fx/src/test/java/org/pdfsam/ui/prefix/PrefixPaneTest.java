@@ -19,10 +19,13 @@
 package org.pdfsam.ui.prefix;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.anyString;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,8 +34,11 @@ import java.util.function.Consumer;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.pdfsam.context.UserContext;
+import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.support.params.MultipleOutputTaskParametersBuilder;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.sejda.model.parameter.base.AbstractParameters;
 import org.testfx.framework.junit.ApplicationTest;
 
 import javafx.scene.Scene;
@@ -51,6 +57,7 @@ public class PrefixPaneTest extends ApplicationTest {
     private MultipleOutputTaskParametersBuilder builder;
     private Consumer<String> onError;
     private PrefixPane victim;
+    private UserContext userContext;
 
     @Before
     public void setUp() {
@@ -60,7 +67,8 @@ public class PrefixPaneTest extends ApplicationTest {
 
     @Override
     public void start(Stage stage) {
-        victim = new PrefixPane();
+        userContext = mock(UserContext.class);
+        victim = new PrefixPane("module", userContext);
         victim.setId("victim");
         Scene scene = new Scene(victim);
         stage.setScene(scene);
@@ -79,6 +87,21 @@ public class PrefixPaneTest extends ApplicationTest {
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
         assertEquals("PDFsam_", data.get("victimprefix"));
+    }
+
+    @Test
+    public void saveFieldValue() {
+        clickOn("PDFsam_").write("ChuckNorris");
+        eventStudio().broadcast(new TaskExecutionRequestEvent("module", mock(AbstractParameters.class)));
+        verify(userContext).setDefaultPrefix(eq("module"), 
+                eq("PDFsam_ChuckNorris"));
+    }
+
+    @Test
+    public void restoredFieldValue() {
+        when(userContext.getDefaultPrefix(anyString())).thenReturn("Roundkick");
+        PrefixPane pref = new PrefixPane("module", userContext);
+        assertEquals("Roundkick", pref.getText());
     }
 
     @Test

@@ -97,6 +97,20 @@ public interface UserContext {
     String getStartupModule();
 
     /**
+     * @param module
+     * @return the value of the default prefix for the given module
+     */
+    String getDefaultPrefix(String module);
+
+    /**
+     * Sets the default value for the prefix of a given module
+     * 
+     * @param module
+     * @param value
+     */
+    void setDefaultPrefix(String module, String value);
+
+    /**
      * Clear user preferences
      */
     void clear();

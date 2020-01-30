@@ -73,7 +73,7 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
     private BrowsableOutputDirectoryField destinationDirectoryField;
     private PdfDestinationPane destinationPane;
     private SplitOptionsPane splitOptions = new SplitOptionsPane();
-    private PrefixPane prefix = new PrefixPane();
+    private PrefixPane prefix;
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT)
             .inputTypes(ModuleInputOutputType.SINGLE_PDF).name(DefaultI18nContext.getInstance().i18n("Split by size"))
             .description(
@@ -82,13 +82,15 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
 
     @Inject
     public SplitBySizeModule(@Named(MODULE_ID + "field") BrowsableOutputDirectoryField destinationDirectoryField,
-            @Named(MODULE_ID + "pane") PdfDestinationPane destinationPane, @Named(MODULE_ID + "footer") Footer footer) {
+            @Named(MODULE_ID + "pane") PdfDestinationPane destinationPane, @Named(MODULE_ID + "footer") Footer footer,
+            @Named(MODULE_ID + "prefix") PrefixPane prefix) {
         super(footer);
         this.destinationDirectoryField = destinationDirectoryField;
         this.destinationPane = destinationPane;
         this.selectionPane = new TaskParametersBuilderSingleSelectionPane(id());
         this.selectionPane.setPromptText(
                 DefaultI18nContext.getInstance().i18n("Select or drag and drop the PDF you want to split"));
+        this.prefix = prefix;
         initModuleSettingsPanel(settingPanel());
     }
 
@@ -192,6 +194,12 @@ public class SplitBySizeModule extends BaseTaskExecutionModule {
         @Named(MODULE_ID + "openButton")
         public OpenButton openButton() {
             return new OpenButton(MODULE_ID, ModuleInputOutputType.MULTIPLE_PDF);
+        }
+
+        @Provides
+        @Named(MODULE_ID + "prefix")
+        public PrefixPane prefixPane(UserContext userContext) {
+            return new PrefixPane(MODULE_ID, userContext);
         }
     }
 }
