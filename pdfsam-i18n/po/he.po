@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-08-31 19:08+0200\n"
-"PO-Revision-Date: 2018-05-22 09:27+0000\n"
-"Last-Translator: Yoel <Unknown>\n"
+"POT-Creation-Date: 2020-01-29 14:48+0100\n"
+"PO-Revision-Date: 2020-02-02 14:15+0000\n"
+"Last-Translator: shalom hadad <Unknown>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-22 09:36+0000\n"
-"X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
+"X-Launchpad-Export-Date: 2020-02-03 08:56+0000\n"
+"X-Generator: Launchpad (build 0a62c17273454a1313f81a74a2198ec30b44c7b6)\n"
 
 msgid "No PDF document has been selected"
 msgstr "לא נבחר אף מסמך PDF"
@@ -77,7 +77,7 @@ msgid "About"
 msgstr "אודות"
 
 msgid "Premium features"
-msgstr ""
+msgstr "יכולות פרימיום"
 
 msgid "Close"
 msgstr "סגירה"
@@ -92,13 +92,13 @@ msgid "Environment"
 msgstr "סביבה"
 
 msgid "Vendor: %s"
-msgstr ""
+msgstr "ספק: %s"
 
 msgid "Java runtime path: %s"
-msgstr ""
+msgstr "נתיב זמן ריצה של ג'אוה: %s"
 
 msgid "JavaFX runtime version %s"
-msgstr ""
+msgstr "גרסת JavaFX runtime: %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -114,13 +114,13 @@ msgid "Bug and feature requests"
 msgstr "בקשות לשיפור ותיקוני באגים"
 
 msgid "Documentation"
-msgstr ""
+msgstr "תיעוד"
 
 msgid "Contribute"
 msgstr "לתרום"
 
 msgid "Fork PDFsam on GitHub"
-msgstr ""
+msgstr "פתח fork של PDFsam בגיטהאב"
 
 msgid "Translate"
 msgstr "תרגם"
@@ -221,18 +221,18 @@ msgid ""
 msgstr "האם לבדוק זמינות של גרסה חדשה בזמן ההפעלה (נדרש אתחול מחדש)"
 
 msgid "Check for news at startup"
-msgstr ""
+msgstr "בדוק עדכונים בהפעלה"
 
 msgid ""
 "Set whether the application should check for news availability on startup "
 "(restart needed)"
-msgstr ""
+msgstr "קבע האם היישום יבדוק אם קיימים עדכונים בהפעלה (נדרשת הפעלה מחדש)"
 
 msgid "Enabled PDF compression"
-msgstr ""
+msgstr "הפעל דחיסת PDF"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr ""
+msgstr "קבע האם \"דחיסת קובץ פלט\" יופעל כברירת מחדל"
 
 msgid "Play alert sounds"
 msgstr "נגינת צלילי התרעה"
@@ -257,12 +257,12 @@ msgid ""
 msgstr "הצג או הסתר את החלון שמופיע מדי פעם ומבקש תרומה לתמיכה ב PDFsam"
 
 msgid "Show premium features"
-msgstr ""
+msgstr "הצג אפשרויות של משתמשי פרימיום"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
 "description in the modules dashboard"
-msgstr ""
+msgstr "קבע האם היישום יוריד ויציג תיאור יכולות למשתמשי פרימיום בחלון הראשי"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "השתמש בתיקיה של מסמך ה PDF הנבחר כתיקית הפלט"
@@ -292,7 +292,7 @@ msgid "Settings"
 msgstr "הגדרות"
 
 msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr ""
+msgstr "גרור ושחרר קבצי PDF או תיקיות המכילות קבצי PDF"
 
 msgid "No PDF found"
 msgstr "לא נמצא PDF"
@@ -349,23 +349,23 @@ msgid "Do you want to create it?"
 msgstr "האם ברצונך ליצור אותה?"
 
 msgid "Subdirectories"
-msgstr ""
+msgstr "תיקיות משנה"
 
 msgid "Subdirectories have been found"
-msgstr ""
+msgstr "נמצאו תיקיות משנה"
 
 msgid "Do you want to add PDF files found in subdirectories?"
-msgstr ""
+msgstr "האם אתה רוצה להוסיף קבצי PDF שנמצאו בתיקיות המשנה?"
 
 msgid "Task failed"
-msgstr ""
+msgstr "משימה נכשלה"
 
 msgid "PDFsam can try to overcome the failure"
-msgstr ""
+msgstr "PDFSAM יכול לנסות להתמודד עם הבעיה"
 
 msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
-msgstr ""
+msgstr "תוכן זה עלול להיות מוצג חלקית או חסר בקבצי PDF, להמשיך בכל זאת?"
 
 msgid "Summary"
 msgstr "סיכום"
@@ -384,13 +384,15 @@ msgid ""
 msgstr "פרמטרי הקלט אינם תקינים. מידע נוסף בהודעות התוכנית."
 
 msgid "Access denied"
-msgstr ""
+msgstr "הגישה נדחתה"
 
 #, java-format
 msgid ""
 "Unable to access \"{0}\", please make sure you have write permissions or "
 "open the application messages for details."
 msgstr ""
+"לא ניתן לגשת אל \"{0}\", אנא וודא שיש לך הרשאות כתיבה ליעד, או פתח את התראות "
+"היישום לפרטים."
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
@@ -416,10 +418,10 @@ msgid "New version available"
 msgstr "גרסה חדשה זמינה"
 
 msgid "You are running the latest version of PDFsam Basic"
-msgstr ""
+msgstr "אתה מריץ את הגרסא האחרונה של PDFsam Basic"
 
 msgid "No update"
-msgstr ""
+msgstr "אין עדכונים"
 
 msgid "Open"
 msgstr "פתח"
@@ -428,7 +430,7 @@ msgid "E_xit"
 msgstr "י_ציאה"
 
 msgid "_Settings"
-msgstr ""
+msgstr "_הגדרות"
 
 msgid "Application messages"
 msgstr "הודעות התוכנית"
@@ -446,10 +448,10 @@ msgid "_Save"
 msgstr "_שמור"
 
 msgid "Recen_ts"
-msgstr ""
+msgstr "_נוכחי"
 
 msgid "_Clear recents"
-msgstr ""
+msgstr "נקה רשימה"
 
 msgid "Select the workspace file to save"
 msgstr "בחירת סביבת העבודה לשמירה"
@@ -517,16 +519,16 @@ msgid "The selected PDF document is invalid"
 msgstr "מסמך ה-PDF שנבחר אינו תקין"
 
 msgid "Select the PDF file"
-msgstr ""
+msgstr "בחר קובץ PDF"
 
 msgid "_Select PDF"
-msgstr ""
+msgstr "_בחר קובץ PDF"
 
 msgid "_Clear"
 msgstr "_נקה"
 
 msgid "Clear all settings"
-msgstr ""
+msgstr "אפס את כל ההגדרות"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -557,7 +559,7 @@ msgid "Drag and drop PDF files here"
 msgstr "גרור ושחרר קבצי PDF לכאן"
 
 msgid "Set as range for all"
-msgstr ""
+msgstr "הגדר טווח עבור הכל"
 
 msgid "Move to Top"
 msgstr "העבר להתחלה"
@@ -590,13 +592,13 @@ msgid "_Add"
 msgstr "הוס_ף"
 
 msgid "PDF list from _text/csv file"
-msgstr ""
+msgstr "רשימת PDF מקובץ _טקסט\\csv"
 
 msgid "Select pdf documents to load"
 msgstr "בחרו את מסמכי ה-PDF לטעינה"
 
 msgid "Select a text or CSV file to load"
-msgstr ""
+msgstr "בחר קובץ טקסט או CSV לטעינה"
 
 msgid "Removes selected documents"
 msgstr "הסר את המסמכים שנבחרו"
@@ -608,7 +610,7 @@ msgid "Removes every document"
 msgstr "מסיר את כל המסמכים"
 
 msgid "C_lear all settings"
-msgstr ""
+msgstr "נקה הגדרות"
 
 msgid "Moves up selected documents"
 msgstr "הזז למעלה את המסמכים השנבחרו"
@@ -786,11 +788,11 @@ msgstr "אי אפשר למצוא את הגירסה הזמינה האחרונה"
 
 #, java-format
 msgid "Unable to find any valid PDF file in the list: {0}"
-msgstr ""
+msgstr "לא ניתן למצוא קובץ PDF ברשימה {0}"
 
 #, java-format
 msgid "Unable to load PDF list file from {0}"
-msgstr ""
+msgstr "לא ניתן לטעון רשימת קבצי PDF מהיעד {0}"
 
 msgid "Loading pdf documents"
 msgstr "טוען מסמכי PDF"
@@ -799,13 +801,13 @@ msgid "Documents loaded"
 msgstr "המסמכים נטענו"
 
 msgid "Unable to retrieve premium features description"
-msgstr ""
+msgstr "לא ניתן לאחזר תיאור יכולות פרימיום"
 
 msgid "Fetching premium modules"
-msgstr ""
+msgstr "קבל יכולות פרימיום"
 
 msgid "Unable to retrieve premium modules"
-msgstr ""
+msgstr "לא ניתן לאחזר מודלי פרימיום"
 
 msgid "Unable to retrieve latest news"
 msgstr "אי אפשר להביא את חדשות אחרונות"
@@ -946,10 +948,10 @@ msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr "הוספת שם הקובץ בתחתית העמודים שלו"
 
 msgid "Normalize pages size"
-msgstr ""
+msgstr "יישר את גודל העמודים"
 
 msgid "Resizes all pages to have the same width as the first page."
-msgstr ""
+msgstr "שנה את גודל העמודים בהתאם לגודל העמוד הראשון"
 
 msgid "Merge fields"
 msgstr "מזג את השדות"
@@ -958,7 +960,7 @@ msgid "Merge renaming existing fields"
 msgstr "מזג עם שינוי שמות השדות הקיימים"
 
 msgid "Flatten"
-msgstr ""
+msgstr "השטחה"
 
 msgid "Discard forms"
 msgstr "מחק טפסים"
@@ -1008,6 +1010,10 @@ msgstr "מזג מספר מסמכי PDF או חלקים שלהם"
 
 msgid "Merge settings"
 msgstr "הגדרות מיזוג"
+
+#, java-format
+msgid "File \"{0}\" does not exist or is invalid"
+msgstr "הקובץ \"{0}\" לא קיים או חסר"
 
 msgid "Valid user password provided."
 msgstr "התקבלה סיסמת משתמש חוקית."

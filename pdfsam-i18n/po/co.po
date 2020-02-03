@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2019-08-31 19:08+0200\n"
-"PO-Revision-Date: 2019-05-26 10:59+0000\n"
+"POT-Creation-Date: 2020-01-29 14:48+0100\n"
+"PO-Revision-Date: 2019-10-25 16:54+0000\n"
 "Last-Translator: Patriccollu <Patrick.Santa-Maria@laposte.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-22 09:36+0000\n"
-"X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
+"X-Launchpad-Export-Date: 2020-02-03 08:56+0000\n"
+"X-Generator: Launchpad (build 0a62c17273454a1313f81a74a2198ec30b44c7b6)\n"
 "Language: co\n"
 
 msgid "No PDF document has been selected"
@@ -370,13 +370,14 @@ msgid "Do you want to create it?"
 msgstr "Vulete creallu ?"
 
 msgid "Subdirectories"
-msgstr ""
+msgstr "Sottu-cartulari"
 
 msgid "Subdirectories have been found"
-msgstr ""
+msgstr "Sottu-cartulari sò stati trovi"
 
 msgid "Do you want to add PDF files found in subdirectories?"
 msgstr ""
+"Vulete aghjunghje i schedarii PDF chì si trovanu in i sottu-cartulari ?"
 
 msgid "Task failed"
 msgstr "Tacca fiasca"
@@ -1051,6 +1052,10 @@ msgstr "Fusione di parechji ducumenti PDF o parti d’elli."
 
 msgid "Merge settings"
 msgstr "Preferenze di fusione"
+
+#, java-format
+msgid "File \"{0}\" does not exist or is invalid"
+msgstr ""
 
 msgid "Valid user password provided."
 msgstr "A parolla d’intrata d’utilizatore pruvista hè accettevule."

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-08-31 19:08+0200\n"
-"PO-Revision-Date: 2019-06-18 18:00+0000\n"
-"Last-Translator: Georgia Zielinski <Unknown>\n"
+"POT-Creation-Date: 2020-01-29 14:48+0100\n"
+"PO-Revision-Date: 2020-01-09 11:49+0000\n"
+"Last-Translator: Tiberio Melo <tiberio_melo@yahoo.com.br>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-22 09:36+0000\n"
-"X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
+"X-Launchpad-Export-Date: 2020-02-03 08:56+0000\n"
+"X-Generator: Launchpad (build 0a62c17273454a1313f81a74a2198ec30b44c7b6)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Nenhum documento PDF foi selecionado"
@@ -375,13 +375,13 @@ msgid "Do you want to create it?"
 msgstr "Deseja criá-lo?"
 
 msgid "Subdirectories"
-msgstr ""
+msgstr "Subdiretórios"
 
 msgid "Subdirectories have been found"
-msgstr ""
+msgstr "Subdiretórios foram encontrados"
 
 msgid "Do you want to add PDF files found in subdirectories?"
-msgstr ""
+msgstr "Deseja adicionar arquivos PDF encontrados nos subdiretórios?"
 
 msgid "Task failed"
 msgstr "Falha ao executar a tarefa"
@@ -642,7 +642,7 @@ msgid "_Add"
 msgstr "_Adicionar"
 
 msgid "PDF list from _text/csv file"
-msgstr ""
+msgstr "Lista de PDF de um arquivo _text/csv"
 
 msgid "Select pdf documents to load"
 msgstr "Selecione os documentos PDF que deseja carregar"
@@ -1085,6 +1085,10 @@ msgstr "Mesclar vários documentos PDF, ou subseções deles, em um documento."
 
 msgid "Merge settings"
 msgstr "Configurações para mesclar"
+
+#, java-format
+msgid "File \"{0}\" does not exist or is invalid"
+msgstr ""
 
 msgid "Valid user password provided."
 msgstr "Senha válida fornecida."

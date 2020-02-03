@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-08-31 19:08+0200\n"
-"PO-Revision-Date: 2017-12-27 01:49+0000\n"
-"Last-Translator: odisseus <Unknown>\n"
+"POT-Creation-Date: 2020-01-29 14:48+0100\n"
+"PO-Revision-Date: 2019-12-06 20:43+0000\n"
+"Last-Translator: wrossin <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-22 09:36+0000\n"
-"X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
+"X-Launchpad-Export-Date: 2020-02-03 08:56+0000\n"
+"X-Generator: Launchpad (build 0a62c17273454a1313f81a74a2198ec30b44c7b6)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Не обрано жодного документа PDF"
@@ -95,10 +95,10 @@ msgid "Vendor: %s"
 msgstr ""
 
 msgid "Java runtime path: %s"
-msgstr ""
+msgstr "Розташування середовища Java: %s"
 
 msgid "JavaFX runtime version %s"
-msgstr ""
+msgstr "Середовище виконання JavaFX версія %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -242,10 +242,11 @@ msgstr ""
 "перезапуск)"
 
 msgid "Enabled PDF compression"
-msgstr ""
+msgstr "Стискання PDF файлів увімкнено"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
+"Чи потрібно аби \"Стискання вихідних файлів\" було увімкнено за замовчуванням"
 
 msgid "Play alert sounds"
 msgstr "Відтворювати звуки повідомлення"
@@ -282,9 +283,13 @@ msgstr "Використовувати  каталог обраного PDF до
 
 msgid "Save default workspace on exit"
 msgstr ""
+"Зберегти робочий профіль, який використовується за замовчуванням, при виході "
+"з програми"
 
 msgid "If a default workspace is set, save it on application exit"
 msgstr ""
+"Якщо вибрано робочий профіль, який використовується за замовчуванням, при "
+"виході з програми збережіть його"
 
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Максимальна кількість рядків має бути позитивним числом"
@@ -431,7 +436,7 @@ msgid "New version available"
 msgstr "Доступна нова версія"
 
 msgid "You are running the latest version of PDFsam Basic"
-msgstr ""
+msgstr "Ви використовуєте оновлену версію PDFsam Basic"
 
 msgid "No update"
 msgstr ""
@@ -461,10 +466,10 @@ msgid "_Save"
 msgstr "_Зберегти"
 
 msgid "Recen_ts"
-msgstr ""
+msgstr "Нещодавні"
 
 msgid "_Clear recents"
-msgstr ""
+msgstr "Очистити нещодавні"
 
 msgid "Select the workspace file to save"
 msgstr "Обрати файл Робочого простору для збереження"
@@ -534,16 +539,16 @@ msgid "The selected PDF document is invalid"
 msgstr "Обраний PDF документ є поганим"
 
 msgid "Select the PDF file"
-msgstr ""
+msgstr "Виберіть файл PDF"
 
 msgid "_Select PDF"
-msgstr ""
+msgstr "Виберіть PDF"
 
 msgid "_Clear"
 msgstr "_Очистити"
 
 msgid "Clear all settings"
-msgstr ""
+msgstr "Очистіть усі налаштування"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -574,7 +579,7 @@ msgid "Drag and drop PDF files here"
 msgstr "Перетягніть PDF файл сюди"
 
 msgid "Set as range for all"
-msgstr ""
+msgstr "Укажіть інтервал для усіх"
 
 msgid "Move to Top"
 msgstr "Перемістити нагору"
@@ -607,13 +612,13 @@ msgid "_Add"
 msgstr "_Додати"
 
 msgid "PDF list from _text/csv file"
-msgstr ""
+msgstr "Список PDF з _text/csv файлу"
 
 msgid "Select pdf documents to load"
 msgstr "Виберіть документи PDF, які треба заванажити"
 
 msgid "Select a text or CSV file to load"
-msgstr ""
+msgstr "Виберіть текстовий або CSV файл для завантаження"
 
 msgid "Removes selected documents"
 msgstr "Видалити обрані документи"
@@ -1033,6 +1038,10 @@ msgstr ""
 
 msgid "Merge settings"
 msgstr "Налаштування об'єднання"
+
+#, java-format
+msgid "File \"{0}\" does not exist or is invalid"
+msgstr ""
 
 msgid "Valid user password provided."
 msgstr "Вірний пароль користувача надано."

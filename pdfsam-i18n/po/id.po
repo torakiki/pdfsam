@@ -7,56 +7,56 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-08-31 19:08+0200\n"
-"PO-Revision-Date: 2017-09-27 08:56+0000\n"
-"Last-Translator: Bram Setiadi <Unknown>\n"
+"POT-Creation-Date: 2020-01-29 14:48+0100\n"
+"PO-Revision-Date: 2019-10-24 13:50+0000\n"
+"Last-Translator: Rengga Prakoso Nugroho <Unknown>\n"
 "Language-Team: Indonesian <id@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-22 09:36+0000\n"
-"X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
+"X-Launchpad-Export-Date: 2020-02-03 08:56+0000\n"
+"X-Generator: Launchpad (build 0a62c17273454a1313f81a74a2198ec30b44c7b6)\n"
 
 msgid "No PDF document has been selected"
-msgstr ""
+msgstr "Tidak ada dokumen terpilih"
 
 msgid "Extract"
-msgstr ""
+msgstr "Ekstrak"
 
 msgid "Extract pages from PDF documents."
-msgstr ""
+msgstr "Ekstrak halaman dari dokumen PDF."
 
 msgid "File names settings"
-msgstr ""
+msgstr "Pengaturan penamaan file"
 
 msgid "Extract settings"
-msgstr ""
+msgstr "Pengaturan ekstrak"
 
 msgid "Output settings"
-msgstr ""
+msgstr "Pengaturan hasil output"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "Halaman yang akan diekstrak (ex: 2 or 5-23 or 2,5-7,12-)"
 
 msgid "Invalid page ranges"
-msgstr ""
+msgstr "Rentang halaman tidak valid"
 
 msgid "Extract pages:"
-msgstr ""
+msgstr "Ekstrak halaman:"
 
 #, java-format
 msgid "Installing theme {0}."
-msgstr ""
+msgstr "Memasang tema{0}"
 
 #, java-format
 msgid "Started in {0}"
 msgstr ""
 
 msgid "Closing PDFsam..."
-msgstr ""
+msgstr "Menutup PDFsam..."
 
 msgid "Log register"
-msgstr ""
+msgstr "Masuk/Daftar"
 
 msgid "Copy"
 msgstr "Salin"
@@ -71,53 +71,53 @@ msgid "Save log"
 msgstr "Simpan catatan"
 
 msgid "Select where to save the log file"
-msgstr ""
+msgstr "Pilih dimana file log akan disimpan"
 
 msgid "About"
 msgstr "Tentang"
 
 msgid "Premium features"
-msgstr ""
+msgstr "Fitur premium"
 
 msgid "Close"
 msgstr "Tutup"
 
 msgid "Modules"
-msgstr ""
+msgstr "Modul"
 
 msgid "Subscribe to the official news feed"
-msgstr ""
+msgstr "Berlangganan untuk pemberitahuan resmi"
 
 msgid "Environment"
 msgstr ""
 
 msgid "Vendor: %s"
-msgstr ""
+msgstr "Penyedia: %s"
 
 msgid "Java runtime path: %s"
-msgstr ""
+msgstr "Direktori Java runtime: %s"
 
 msgid "JavaFX runtime version %s"
-msgstr ""
+msgstr "Versi JavaFX runtime %s"
 
 #, java-format
 msgid "Max memory {0}"
-msgstr ""
+msgstr "Memori maksimal {0}"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Salin ke papan klip"
 
 msgid "Support"
-msgstr ""
+msgstr "Dukungan"
 
 msgid "Bug and feature requests"
-msgstr ""
+msgstr "Laporan bug dan permintaan fitur"
 
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentasi"
 
 msgid "Contribute"
-msgstr ""
+msgstr "Berkontribusi"
 
 msgid "Fork PDFsam on GitHub"
 msgstr ""
@@ -129,7 +129,7 @@ msgid "Donate"
 msgstr "Donasi"
 
 msgid "Social"
-msgstr ""
+msgstr "Sosial"
 
 msgid "Follow us on Twitter"
 msgstr "Ikuti kami di Twitter"
@@ -305,7 +305,7 @@ msgid "Select the task to perform on the following files"
 msgstr ""
 
 msgid "Overwrite"
-msgstr ""
+msgstr "Timpa"
 
 msgid "Cancel"
 msgstr "Batalkan"
@@ -993,6 +993,10 @@ msgid "Merge together multiple PDF documents or subsections of them."
 msgstr ""
 
 msgid "Merge settings"
+msgstr ""
+
+#, java-format
+msgid "File \"{0}\" does not exist or is invalid"
 msgstr ""
 
 msgid "Valid user password provided."

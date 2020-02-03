@@ -7,123 +7,123 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-08-31 19:08+0200\n"
-"PO-Revision-Date: 2016-03-21 08:28+0000\n"
-"Last-Translator: hyunggi hong <hghong@dongah21.co.kr>\n"
+"POT-Creation-Date: 2020-01-29 14:48+0100\n"
+"PO-Revision-Date: 2019-12-11 01:49+0000\n"
+"Last-Translator: Yang Hee Jong <Unknown>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-22 09:36+0000\n"
-"X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
+"X-Launchpad-Export-Date: 2020-02-03 08:56+0000\n"
+"X-Generator: Launchpad (build 0a62c17273454a1313f81a74a2198ec30b44c7b6)\n"
 
 msgid "No PDF document has been selected"
-msgstr ""
+msgstr "선택된 PDF 문서가 없습니다."
 
 msgid "Extract"
-msgstr ""
+msgstr "추출하기"
 
 msgid "Extract pages from PDF documents."
-msgstr ""
+msgstr "PDF 문서에서 페이지 추출"
 
 msgid "File names settings"
-msgstr ""
+msgstr "파일 이름 설정"
 
 msgid "Extract settings"
-msgstr ""
+msgstr "추출 설정"
 
 msgid "Output settings"
-msgstr ""
+msgstr "출력 설정"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "특정 페이지 추출"
 
 msgid "Invalid page ranges"
-msgstr ""
+msgstr "잘못된 페이지 범위"
 
 msgid "Extract pages:"
-msgstr ""
+msgstr "페이지 추출:"
 
 #, java-format
 msgid "Installing theme {0}."
-msgstr ""
+msgstr "설치하는 중 {0}"
 
 #, java-format
 msgid "Started in {0}"
-msgstr ""
+msgstr "{0} 에서 시작 됨."
 
 msgid "Closing PDFsam..."
-msgstr ""
+msgstr "PDFsam 닫는 중."
 
 msgid "Log register"
-msgstr ""
+msgstr "로그 기록"
 
 msgid "Copy"
-msgstr "복사"
+msgstr "복사하기"
 
 msgid "Clear"
-msgstr ""
+msgstr "지우기"
 
 msgid "Select all"
-msgstr ""
+msgstr "전체 선택"
 
 msgid "Save log"
-msgstr ""
+msgstr "로그 저장하기"
 
 msgid "Select where to save the log file"
-msgstr ""
+msgstr "로그파일 저장위치 선택하기"
 
 msgid "About"
 msgstr "프로그램 정보"
 
 msgid "Premium features"
-msgstr ""
+msgstr "프리미엄 기능"
 
 msgid "Close"
 msgstr "닫기"
 
 msgid "Modules"
-msgstr ""
+msgstr "도구"
 
 msgid "Subscribe to the official news feed"
 msgstr "공식 뉴스피드 구독하기"
 
 msgid "Environment"
-msgstr ""
+msgstr "환경 설정"
 
 msgid "Vendor: %s"
-msgstr ""
+msgstr "공급 업체:"
 
 msgid "Java runtime path: %s"
-msgstr ""
+msgstr "Java 런타임 경로:"
 
 msgid "JavaFX runtime version %s"
-msgstr ""
+msgstr "JavaFX 런타임 버전"
 
 #, java-format
 msgid "Max memory {0}"
-msgstr ""
+msgstr "최대 메모리 {0}"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "클립보드에 복사"
 
 msgid "Support"
-msgstr ""
+msgstr "지원"
 
 msgid "Bug and feature requests"
 msgstr "버그 및 기능 요청"
 
 msgid "Documentation"
-msgstr ""
+msgstr "문서"
 
 msgid "Contribute"
-msgstr ""
+msgstr "기여"
 
 msgid "Fork PDFsam on GitHub"
-msgstr "GitHub 에서 PDFsam 개발하기"
+msgstr "GitHub에서 PDFsam 복제"
 
 msgid "Translate"
-msgstr ""
+msgstr "번역"
 
 msgid "Donate"
 msgstr "기부하기"
@@ -138,10 +138,10 @@ msgid "Like us on Facebook"
 msgstr "페이스북 좋아요하기"
 
 msgid "Log register rows:"
-msgstr ""
+msgstr "저장된 로그 열:"
 
 msgid "Maximum number of rows displayed by the Log register"
-msgstr ""
+msgstr "기록된 로그가 표시되는 최대 행 수"
 
 msgid "Language:"
 msgstr "언어："
@@ -150,10 +150,10 @@ msgid "Set your preferred language (restart needed)"
 msgstr "언어 설정 (재시작 필요)"
 
 msgid "Startup module:"
-msgstr ""
+msgstr "시작 모듈:"
 
 msgid "Set the module to open at application startup (restart needed)"
-msgstr ""
+msgstr "응용 프로그램 시작시 모듈을 열도록 설정 (재시작 필요)"
 
 msgid ""
 "Usage statistics are used to populate the modules quick bar on the left with "
@@ -161,51 +161,51 @@ msgid ""
 msgstr ""
 
 msgid "Manually selected"
-msgstr ""
+msgstr "수동 선택"
 
 msgid ""
 "Automatically set the destination directory to the selected PDF document "
 "directory"
-msgstr ""
+msgstr "선택한 PDF 문서 디렉토리를 대상 디렉토리로 자동 설정"
 
 msgid "Clear usage statistics"
-msgstr ""
+msgstr "사용 통계 지우기"
 
 msgid "Appearance"
-msgstr ""
+msgstr "꾸미기"
 
 msgid "Behavior"
-msgstr ""
+msgstr "작동 방식"
 
 msgid "Workspace"
-msgstr ""
+msgstr "작업 공간"
 
 msgid "Output"
 msgstr "내보내기"
 
 msgid "Check for updates now"
-msgstr ""
+msgstr "업데이트 확인하기"
 
 msgid ""
 "Select a directory where documents will be saved and loaded by default"
-msgstr ""
+msgstr "문서를 저장하고 불러올 기본 디렉토리를 선택합니다"
 
 msgid "Select a directory"
-msgstr ""
+msgstr "디렉토리 선택"
 
 msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
 "startup"
-msgstr ""
+msgstr "시작시 자동으로 불러올 이전 작업 공간을 선택합니다"
 
 msgid "Select a workspace"
-msgstr ""
+msgstr "작업 공간 선택"
 
 msgid "Default working directory:"
-msgstr ""
+msgstr "기본 작업 폴더"
 
 msgid "Load default workspace at startup:"
-msgstr ""
+msgstr "시작시 기본 폴더 불러오기"
 
 msgid "Dashboard"
 msgstr "대시보드"
@@ -993,6 +993,10 @@ msgid "Merge together multiple PDF documents or subsections of them."
 msgstr ""
 
 msgid "Merge settings"
+msgstr ""
+
+#, java-format
+msgid "File \"{0}\" does not exist or is invalid"
 msgstr ""
 
 msgid "Valid user password provided."

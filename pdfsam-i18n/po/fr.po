@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-08-31 19:08+0200\n"
-"PO-Revision-Date: 2019-05-16 13:50+0000\n"
-"Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
+"POT-Creation-Date: 2020-01-29 14:48+0100\n"
+"PO-Revision-Date: 2019-10-26 22:03+0000\n"
+"Last-Translator: Éfrit <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-22 09:36+0000\n"
-"X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
+"X-Launchpad-Export-Date: 2020-02-03 08:56+0000\n"
+"X-Generator: Launchpad (build 0a62c17273454a1313f81a74a2198ec30b44c7b6)\n"
 "Language: fr\n"
 
 msgid "No PDF document has been selected"
@@ -97,7 +97,7 @@ msgid "Environment"
 msgstr "Environnement"
 
 msgid "Vendor: %s"
-msgstr ""
+msgstr "Fournisseur : %s"
 
 msgid "Java runtime path: %s"
 msgstr "chemin d'accès à Java runtime : %s"
@@ -243,10 +243,11 @@ msgstr ""
 "(redémarrage nécessaire)."
 
 msgid "Enabled PDF compression"
-msgstr ""
+msgstr "Activer la compression PDF"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
+"Défini si la compression du fichier de sortie doit être activée par défaut"
 
 msgid "Play alert sounds"
 msgstr "Jouer les notifications sonores"
@@ -373,13 +374,14 @@ msgid "Do you want to create it?"
 msgstr "Voulez-vous le créer ?"
 
 msgid "Subdirectories"
-msgstr ""
+msgstr "Sous-dossiers"
 
 msgid "Subdirectories have been found"
-msgstr ""
+msgstr "Les sous-dossiers ont été trouvés"
 
 msgid "Do you want to add PDF files found in subdirectories?"
 msgstr ""
+"Voulez-vous ajouter les fichiers PDF trouvés dans les sous-dossiers ?"
 
 msgid "Task failed"
 msgstr "La tâche a échoué"
@@ -419,6 +421,9 @@ msgid ""
 "Unable to access \"{0}\", please make sure you have write permissions or "
 "open the application messages for details."
 msgstr ""
+"Impossible d’accéder à « {0} », veuillez vous assurer d’avoir les droits "
+"d’écriture ou consulter les messages de l’application pour plus "
+"d’information."
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
@@ -444,7 +449,7 @@ msgid "New version available"
 msgstr "Nouvelle version disponible"
 
 msgid "You are running the latest version of PDFsam Basic"
-msgstr ""
+msgstr "Vous avez la dernière version de PDFsam Basic"
 
 msgid "No update"
 msgstr "Aucune mise à jour"
@@ -474,10 +479,10 @@ msgid "_Save"
 msgstr "_Enregistrer"
 
 msgid "Recen_ts"
-msgstr ""
+msgstr "Récen_ts"
 
 msgid "_Clear recents"
-msgstr ""
+msgstr "_Effacer l’historique des fichiers récents"
 
 msgid "Select the workspace file to save"
 msgstr "Sélectionner le fichier de sauvegarde de l'espace de travail"
@@ -562,7 +567,7 @@ msgid "_Clear"
 msgstr "_Vider"
 
 msgid "Clear all settings"
-msgstr ""
+msgstr "Effacer tous les paramètres"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -1073,6 +1078,10 @@ msgstr "Fusionner plusieurs documents PDF ou leurs paragraphes."
 
 msgid "Merge settings"
 msgstr "Paramètres de fusion"
+
+#, java-format
+msgid "File \"{0}\" does not exist or is invalid"
+msgstr ""
 
 msgid "Valid user password provided."
 msgstr "Mot de passe d'utilisateur valide."
