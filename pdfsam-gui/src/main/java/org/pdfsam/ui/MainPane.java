@@ -20,8 +20,8 @@ package org.pdfsam.ui;
 
 import javax.inject.Inject;
 
+import org.pdfsam.injector.Auto;
 import org.pdfsam.ui.banner.BannerPane;
-import org.sejda.injector.Auto;
 
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;

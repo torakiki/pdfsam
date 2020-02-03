@@ -26,9 +26,9 @@ import javax.inject.Named;
 
 import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
-import org.sejda.injector.Auto;
-import org.sejda.injector.Prototype;
-import org.sejda.injector.Provides;
+import org.pdfsam.injector.Auto;
+import org.pdfsam.injector.Prototype;
+import org.pdfsam.injector.Provides;
 
 import javafx.scene.image.Image;
 

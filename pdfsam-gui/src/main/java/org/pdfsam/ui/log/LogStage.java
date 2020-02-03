@@ -26,13 +26,13 @@ import javax.inject.Inject;
 
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.injector.Auto;
 import org.pdfsam.ui.commons.ClosePane;
 import org.pdfsam.ui.commons.HideStageRequest;
 import org.pdfsam.ui.commons.ShowStageRequest;
 import org.pdfsam.ui.support.Style;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.annotation.EventStation;
-import org.sejda.injector.Auto;
 
 import javafx.scene.Scene;
 import javafx.scene.image.Image;

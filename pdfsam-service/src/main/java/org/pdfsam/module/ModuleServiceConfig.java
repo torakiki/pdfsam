@@ -20,8 +20,8 @@ package org.pdfsam.module;
 
 import java.util.List;
 
-import org.sejda.injector.Components;
-import org.sejda.injector.Provides;
+import org.pdfsam.injector.Components;
+import org.pdfsam.injector.Provides;
 
 /**
  * @author Andrea Vacondio

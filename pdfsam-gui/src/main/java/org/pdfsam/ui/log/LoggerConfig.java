@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.log;
 
-import org.sejda.injector.Components;
+import org.pdfsam.injector.Components;
 
 /**
  * @author Andrea Vacondio

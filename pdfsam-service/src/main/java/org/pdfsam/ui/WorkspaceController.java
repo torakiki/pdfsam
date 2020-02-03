@@ -28,12 +28,12 @@ import java.util.concurrent.ExecutionException;
 import javax.inject.Inject;
 
 import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.injector.Auto;
 import org.pdfsam.module.Module;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.pdfsam.ui.workspace.WorkspaceLoadedEvent;
 import org.sejda.eventstudio.annotation.EventListener;
-import org.sejda.injector.Auto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

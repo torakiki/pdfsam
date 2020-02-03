@@ -29,11 +29,11 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.pdfsam.injector.Injector;
+import org.pdfsam.injector.Provides;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeJavaFxThreadRule;
 import org.sejda.eventstudio.Listener;
-import org.sejda.injector.Injector;
-import org.sejda.injector.Provides;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.encoder.PatternLayoutEncoder;

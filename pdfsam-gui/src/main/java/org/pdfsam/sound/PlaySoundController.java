@@ -25,8 +25,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.UserContext;
+import org.pdfsam.injector.Auto;
 import org.sejda.eventstudio.annotation.EventListener;
-import org.sejda.injector.Auto;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 

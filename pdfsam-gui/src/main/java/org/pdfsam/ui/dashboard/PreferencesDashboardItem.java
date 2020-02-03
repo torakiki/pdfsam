@@ -21,8 +21,8 @@ package org.pdfsam.ui.dashboard;
 import javax.inject.Inject;
 
 import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.injector.Auto;
 import org.pdfsam.ui.dashboard.preference.PreferencePane;
-import org.sejda.injector.Auto;
 
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;

@@ -36,11 +36,11 @@ import org.junit.rules.TemporaryFolder;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
+import org.pdfsam.injector.Components;
+import org.pdfsam.injector.Injector;
+import org.pdfsam.injector.Provides;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.commons.NonExistingOutputDirectoryEvent;
-import org.sejda.injector.Components;
-import org.sejda.injector.Injector;
-import org.sejda.injector.Provides;
 import org.testfx.framework.junit.ApplicationTest;
 
 import javafx.scene.Scene;

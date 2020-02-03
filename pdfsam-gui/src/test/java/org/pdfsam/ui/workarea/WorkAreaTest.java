@@ -33,6 +33,8 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
+import org.pdfsam.injector.Injector;
+import org.pdfsam.injector.Provides;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.UsageService;
 import org.pdfsam.test.ClearEventStudioRule;
@@ -41,8 +43,6 @@ import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.pdfsam.ui.event.SetTitleEvent;
 import org.sejda.eventstudio.Listener;
-import org.sejda.injector.Injector;
-import org.sejda.injector.Provides;
 
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;

@@ -21,9 +21,9 @@ package org.pdfsam.ui.dashboard.preference;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.injector.Prototype;
 import org.pdfsam.ui.support.Style;
 import org.pdfsam.update.UpdateCheckRequest;
-import org.sejda.injector.Prototype;
 
 import javafx.scene.control.Button;
 

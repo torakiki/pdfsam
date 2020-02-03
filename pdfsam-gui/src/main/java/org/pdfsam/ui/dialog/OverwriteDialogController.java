@@ -27,10 +27,10 @@ import javax.inject.Inject;
 import javax.inject.Provider;
 
 import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.injector.Auto;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.eventstudio.exception.BroadcastInterruptionException;
-import org.sejda.injector.Auto;
 import org.sejda.model.exception.TaskOutputVisitException;
 import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.ExistingOutputPolicy;

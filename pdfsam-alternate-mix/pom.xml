@@ -37,8 +37,8 @@
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.sejda</groupId>
-			<artifactId>sejda-injector</artifactId>
+			<groupId>org.pdfsam</groupId>
+			<artifactId>pdfsam-injector</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>javax.inject</groupId>

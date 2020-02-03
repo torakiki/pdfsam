@@ -23,6 +23,10 @@ import javax.inject.Named;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.UserContext;
+import org.pdfsam.injector.Auto;
+import org.pdfsam.injector.Components;
+import org.pdfsam.injector.Prototype;
+import org.pdfsam.injector.Provides;
 import org.pdfsam.sound.PlaySoundController;
 import org.pdfsam.ui.MainPane;
 import org.pdfsam.ui.Theme;
@@ -34,10 +38,6 @@ import org.pdfsam.ui.dnd.MultipleFilesDropController;
 import org.pdfsam.ui.dnd.SingleFileDropController;
 import org.pdfsam.ui.info.InfoStageController;
 import org.pdfsam.ui.notification.NotificationsController;
-import org.sejda.injector.Auto;
-import org.sejda.injector.Components;
-import org.sejda.injector.Prototype;
-import org.sejda.injector.Provides;
 
 import javafx.scene.image.ImageView;
 

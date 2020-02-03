@@ -18,9 +18,9 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
-import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 import static org.pdfsam.support.validation.Validators.existingDirectory;
 import static org.pdfsam.support.validation.Validators.validEmpty;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;

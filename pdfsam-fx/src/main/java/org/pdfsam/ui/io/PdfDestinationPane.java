@@ -23,8 +23,8 @@ import static java.util.Optional.empty;
 import static java.util.Optional.ofNullable;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isBlank;
-import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 import static org.pdfsam.ui.help.HelpUtils.helpIcon;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Map;

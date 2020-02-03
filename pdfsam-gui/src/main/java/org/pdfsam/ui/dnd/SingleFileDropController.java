@@ -24,12 +24,12 @@ import java.io.File;
 
 import javax.inject.Inject;
 
+import org.pdfsam.injector.Auto;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.pdf.SingleFileDroppedEvent;
 import org.pdfsam.support.io.FileType;
 import org.sejda.eventstudio.annotation.EventListener;
-import org.sejda.injector.Auto;
 
 /**
  * Controller for single file drop event

@@ -24,10 +24,10 @@ import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
 
+import org.pdfsam.injector.Prototype;
+import org.pdfsam.injector.Provides;
 import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.ui.RecentWorkspacesService;
-import org.sejda.injector.Prototype;
-import org.sejda.injector.Provides;
 
 /**
  * @author Andrea Vacondio

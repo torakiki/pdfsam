@@ -19,8 +19,8 @@
 package org.pdfsam.ui.io;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 import static org.pdfsam.ui.help.HelpUtils.helpIcon;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import org.apache.commons.lang3.StringUtils;

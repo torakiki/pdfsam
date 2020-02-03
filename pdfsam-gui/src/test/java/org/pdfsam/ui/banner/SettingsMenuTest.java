@@ -29,11 +29,11 @@ import org.junit.experimental.categories.Category;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.NoHeadless;
 import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.injector.Injector;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.dashboard.PreferencesDashboardItem;
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.sejda.eventstudio.Listener;
-import org.sejda.injector.Injector;
 import org.testfx.framework.junit.ApplicationTest;
 
 import javafx.scene.Scene;

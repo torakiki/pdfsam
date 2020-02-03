@@ -18,12 +18,12 @@
  */
 package org.pdfsam.ui.banner;
 
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.eq;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Test;
-import org.sejda.injector.Injector;
+import org.pdfsam.injector.Injector;
 import org.testfx.framework.junit.ApplicationTest;
 
 import javafx.geometry.Side;

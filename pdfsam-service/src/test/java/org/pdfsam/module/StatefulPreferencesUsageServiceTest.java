@@ -34,9 +34,9 @@ import javax.inject.Named;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.pdfsam.injector.Injector;
+import org.pdfsam.injector.Provides;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.sejda.injector.Injector;
-import org.sejda.injector.Provides;
 
 /**
  * @author Andrea Vacondio

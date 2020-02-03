@@ -22,9 +22,9 @@ import java.util.Optional;
 
 import javax.inject.Inject;
 
+import org.pdfsam.injector.Auto;
 import org.pdfsam.ui.StageService;
 import org.pdfsam.ui.StageStatus;
-import org.sejda.injector.Auto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

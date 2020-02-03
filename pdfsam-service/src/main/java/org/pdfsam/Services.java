@@ -18,6 +18,7 @@
  */
 package org.pdfsam;
 
+import org.pdfsam.injector.Injector;
 import org.pdfsam.module.ModuleServiceConfig;
 import org.pdfsam.news.NewsServiceConfig;
 import org.pdfsam.pdf.PdfServiceConfig;
@@ -25,7 +26,6 @@ import org.pdfsam.premium.PremiumServiceConfig;
 import org.pdfsam.task.TaskExecutionServiceConfig;
 import org.pdfsam.ui.UIServiceConfig;
 import org.pdfsam.update.UpdateServiceConfig;
-import org.sejda.injector.Injector;
 
 /**
  * @author Andrea Vacondio

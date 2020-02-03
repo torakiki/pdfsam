@@ -33,6 +33,7 @@ import org.pdfsam.context.IntUserPreference;
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.injector.Provides;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.ModuleKeyValueItem;
 import org.pdfsam.support.KeyStringValueItem;
@@ -43,7 +44,6 @@ import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 import org.pdfsam.ui.log.MaxLogRowsChangedEvent;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
-import org.sejda.injector.Provides;
 
 /**
  * Configuration for the PDFsam preferences components

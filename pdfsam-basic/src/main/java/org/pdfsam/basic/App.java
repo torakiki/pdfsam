@@ -19,7 +19,7 @@
 package org.pdfsam.basic;
 
 import org.pdfsam.PdfsamApp;
-import org.sejda.injector.Injector;
+import org.pdfsam.injector.Injector;
 
 import javafx.application.Application;
 

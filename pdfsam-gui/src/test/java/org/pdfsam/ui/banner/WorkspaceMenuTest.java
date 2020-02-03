@@ -20,7 +20,7 @@ package org.pdfsam.ui.banner;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Matchers.any;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -33,12 +33,12 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.pdfsam.NoHeadless;
+import org.pdfsam.injector.Injector;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.RecentWorkspacesService;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.WorkspaceLoadedEvent;
 import org.sejda.eventstudio.Listener;
-import org.sejda.injector.Injector;
 import org.testfx.framework.junit.ApplicationTest;
 
 import javafx.scene.Scene;

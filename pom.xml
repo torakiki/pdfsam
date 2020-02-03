@@ -285,7 +285,7 @@
 		<sejda.version>4.0.1</sejda.version>
 		<sejda.commons.version>1.1.4</sejda.commons.version>
 		<eventstudio.version>1.0.6</eventstudio.version>
-		<injector.version>1.0.2</injector.version>
+		<injector.version>2.0.0</injector.version>
 		<fontawesomefx.fontawesome.version>4.7.0-9.1.2</fontawesomefx.fontawesome.version>
 		<fontawesomefx.materialicons.version>2.2.0-9.1.2</fontawesomefx.materialicons.version>
 		<fontawesomefx.materialdesignfont.version>2.0.26-9.1.2</fontawesomefx.materialdesignfont.version>
@@ -355,8 +355,8 @@
 				<version>${sejda.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.sejda</groupId>
-				<artifactId>sejda-injector</artifactId>
+				<groupId>org.pdfsam</groupId>
+				<artifactId>pdfsam-injector</artifactId>
 				<version>${injector.version}</version>
 			</dependency>
 			<dependency>

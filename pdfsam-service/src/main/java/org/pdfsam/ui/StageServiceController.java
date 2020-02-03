@@ -22,9 +22,9 @@ import static org.sejda.eventstudio.StaticStudio.eventStudio;
 
 import javax.inject.Inject;
 
+import org.pdfsam.injector.Auto;
 import org.pdfsam.module.ClearUsageController;
 import org.sejda.eventstudio.annotation.EventListener;
-import org.sejda.injector.Auto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -24,9 +24,9 @@ import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.io.IOException;
 
+import org.pdfsam.injector.Auto;
 import org.pdfsam.ui.commons.OpenFileRequest;
 import org.sejda.eventstudio.annotation.EventListener;
-import org.sejda.injector.Auto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

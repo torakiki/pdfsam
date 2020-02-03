@@ -18,10 +18,10 @@
  */
 package org.pdfsam.task;
 
+import org.pdfsam.injector.Components;
+import org.pdfsam.injector.Provides;
 import org.sejda.core.service.DefaultTaskExecutionService;
 import org.sejda.core.service.TaskExecutionService;
-import org.sejda.injector.Components;
-import org.sejda.injector.Provides;
 
 /**
  * @author Andrea Vacondio

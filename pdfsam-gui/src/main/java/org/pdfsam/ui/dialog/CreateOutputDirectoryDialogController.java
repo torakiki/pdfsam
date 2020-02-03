@@ -26,9 +26,9 @@ import java.nio.file.Files;
 import javax.inject.Inject;
 import javax.inject.Provider;
 
+import org.pdfsam.injector.Auto;
 import org.pdfsam.ui.commons.NonExistingOutputDirectoryEvent;
 import org.sejda.eventstudio.annotation.EventListener;
-import org.sejda.injector.Auto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -41,6 +41,7 @@ import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
+import org.pdfsam.injector.Injector;
 import org.pdfsam.module.Module;
 import org.pdfsam.news.FetchLatestNewsRequest;
 import org.pdfsam.news.NewsService;
@@ -67,7 +68,6 @@ import org.pdfsam.update.UpdateCheckRequest;
 import org.sejda.core.Sejda;
 import org.sejda.eventstudio.annotation.EventListener;
 import org.sejda.impl.sambox.component.PDDocumentHandler;
-import org.sejda.injector.Injector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

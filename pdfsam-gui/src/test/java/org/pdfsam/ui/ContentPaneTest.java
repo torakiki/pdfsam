@@ -27,6 +27,8 @@ import javax.inject.Named;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.pdfsam.injector.Injector;
+import org.pdfsam.injector.Provides;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.UsageService;
 import org.pdfsam.test.ClearEventStudioRule;
@@ -38,8 +40,6 @@ import org.pdfsam.ui.dashboard.Dashboard;
 import org.pdfsam.ui.dashboard.DashboardItem;
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.pdfsam.ui.workarea.WorkArea;
-import org.sejda.injector.Injector;
-import org.sejda.injector.Provides;
 
 /**
  * @author Andrea Vacondio
