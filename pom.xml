@@ -153,51 +153,6 @@
 		</developer>
 	</developers>
 
-	<repositories>
-		<repository>
-			<id>jboss</id>
-			<url>https://repository.jboss.org/nexus/content/repositories/public/</url>
-		</repository>
-		<repository>
-			<id>springsource-repo</id>
-			<name>SpringSource Repository</name>
-			<url>http://repo.spring.io/release</url>
-		</repository>
-		<repository>
-			<id>pdfbox-snapshot</id>
-			<url>http://repository.apache.org/snapshots/</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>sonatype-snapshot</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>jcentral</id>
-			<url>http://jcenter.bintray.com</url>
-		</repository>
-		<repository>
-			<id>sejda</id>
-			<url>https://dl.bintray.com/sejdapdf/maven/</url>
-		</repository>
-	</repositories>
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>central</id>
-			<name>bintray-plugins</name>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-			<url>http://jcenter.bintray.com</url>
-		</pluginRepository>
-	</pluginRepositories>
-
 	<build>
 		<plugins>
 			<plugin>
