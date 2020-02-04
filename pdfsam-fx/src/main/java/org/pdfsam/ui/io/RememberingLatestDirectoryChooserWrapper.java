@@ -19,7 +19,7 @@
 package org.pdfsam.ui.io;
 
 import static java.util.Optional.ofNullable;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 import java.nio.file.Files;

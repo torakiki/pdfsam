@@ -49,8 +49,8 @@ import org.pdfsam.ui.module.RunButton;
 import org.pdfsam.ui.prefix.PrefixPane;
 import org.pdfsam.ui.selection.single.TaskParametersBuilderSingleSelectionPane;
 import org.pdfsam.ui.support.Views;
-import org.sejda.eventstudio.annotation.EventListener;
-import org.sejda.eventstudio.annotation.EventStation;
+import org.pdfsam.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventStation;
 import org.sejda.model.parameter.AbstractSplitByPageParameters;
 import org.sejda.model.prefix.Prefix;
 

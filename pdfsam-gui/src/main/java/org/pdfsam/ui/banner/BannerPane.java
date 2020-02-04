@@ -19,13 +19,13 @@
 package org.pdfsam.ui.banner;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.ui.event.SetTitleEvent;
-import org.sejda.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventListener;
 
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;

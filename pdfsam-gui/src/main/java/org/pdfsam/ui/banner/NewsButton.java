@@ -18,13 +18,13 @@
  */
 package org.pdfsam.ui.banner;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.news.HideNewsPanelRequest;
 import org.pdfsam.news.ShowNewsPanelRequest;
 import org.pdfsam.ui.commons.Animations;
-import org.sejda.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventListener;
 
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import javafx.animation.Timeline;

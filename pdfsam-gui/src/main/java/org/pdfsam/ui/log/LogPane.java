@@ -19,7 +19,7 @@
 package org.pdfsam.ui.log;
 
 import static org.pdfsam.support.io.ObjectCollectionWriter.writeContent;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 import java.util.Collection;

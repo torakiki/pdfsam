@@ -21,7 +21,7 @@ package org.pdfsam.task;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.verify;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -34,7 +34,7 @@ import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeJavaFxThreadRule;
 import org.sejda.core.notification.context.GlobalNotificationContext;
 import org.sejda.core.service.TaskExecutionService;
-import org.sejda.eventstudio.Listener;
+import org.pdfsam.eventstudio.Listener;
 import org.sejda.model.notification.event.TaskExecutionStartedEvent;
 import org.sejda.model.parameter.base.AbstractParameters;
 

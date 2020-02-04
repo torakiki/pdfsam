@@ -18,7 +18,7 @@
  */
 package org.pdfsam.test;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Arrays;
 import java.util.Set;

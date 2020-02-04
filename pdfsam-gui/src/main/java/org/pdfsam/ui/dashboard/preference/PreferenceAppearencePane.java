@@ -19,7 +19,7 @@
 package org.pdfsam.ui.dashboard.preference;
 
 import static org.pdfsam.ui.help.HelpUtils.helpIcon;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Comparator;
 import java.util.Locale;

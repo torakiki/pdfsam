@@ -24,7 +24,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 import java.util.Arrays;
@@ -38,7 +38,7 @@ import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.RecentWorkspacesService;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.WorkspaceLoadedEvent;
-import org.sejda.eventstudio.Listener;
+import org.pdfsam.eventstudio.Listener;
 import org.testfx.framework.junit.ApplicationTest;
 
 import javafx.scene.Scene;

@@ -19,7 +19,7 @@
 package org.pdfsam.ui.commons;
 
 import static org.junit.Assert.assertTrue;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.testfx.api.FxAssert.verifyThat;
 
 import org.junit.Test;

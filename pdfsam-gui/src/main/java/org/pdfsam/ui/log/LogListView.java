@@ -20,13 +20,13 @@ package org.pdfsam.ui.log;
 
 import static java.util.Objects.nonNull;
 import static java.util.Optional.ofNullable;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import javax.inject.Inject;
 
 import org.pdfsam.context.UserContext;
 import org.pdfsam.ui.support.CircularObservableList;
-import org.sejda.eventstudio.Listener;
+import org.pdfsam.eventstudio.Listener;
 
 import javafx.application.Platform;
 import javafx.scene.Scene;

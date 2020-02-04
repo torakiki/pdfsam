@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.dashboard.modules;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import org.pdfsam.premium.PremiumModule;
 import org.pdfsam.ui.commons.OpenUrlRequest;

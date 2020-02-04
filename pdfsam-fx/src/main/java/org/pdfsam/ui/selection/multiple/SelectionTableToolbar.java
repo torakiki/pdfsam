@@ -20,7 +20,7 @@ package org.pdfsam.ui.selection.multiple;
 
 import static java.util.Objects.nonNull;
 import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 import java.util.List;
@@ -41,8 +41,8 @@ import org.pdfsam.ui.selection.ToolbarButton;
 import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
 import org.pdfsam.ui.selection.multiple.move.MoveType;
 import org.pdfsam.ui.support.Style;
-import org.sejda.eventstudio.annotation.EventListener;
-import org.sejda.eventstudio.annotation.EventStation;
+import org.pdfsam.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventStation;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.MenuItem;

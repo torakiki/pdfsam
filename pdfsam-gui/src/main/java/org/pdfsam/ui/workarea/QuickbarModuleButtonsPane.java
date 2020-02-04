@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.workarea;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -27,7 +27,7 @@ import javax.inject.Inject;
 
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.pdfsam.ui.quickbar.BaseQuickbarButtonsPane;
-import org.sejda.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventListener;
 
 /**
  * Panel showing buttons to access the most used and most recently used modules

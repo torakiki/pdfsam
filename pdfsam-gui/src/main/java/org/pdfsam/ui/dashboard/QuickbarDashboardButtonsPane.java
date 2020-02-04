@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.dashboard;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ import javax.inject.Inject;
 
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.pdfsam.ui.quickbar.BaseQuickbarButtonsPane;
-import org.sejda.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventListener;
 
 /**
  * Panel containing buttons to access the dashboard items

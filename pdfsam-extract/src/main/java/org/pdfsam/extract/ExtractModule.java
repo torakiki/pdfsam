@@ -46,8 +46,8 @@ import org.pdfsam.ui.module.OpenButton;
 import org.pdfsam.ui.module.RunButton;
 import org.pdfsam.ui.prefix.PrefixPane;
 import org.pdfsam.ui.support.Views;
-import org.sejda.eventstudio.annotation.EventListener;
-import org.sejda.eventstudio.annotation.EventStation;
+import org.pdfsam.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventStation;
 import org.sejda.model.prefix.Prefix;
 
 import javafx.geometry.Pos;

@@ -19,7 +19,7 @@
 package org.pdfsam.ui.news;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;

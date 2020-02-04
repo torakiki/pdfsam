@@ -23,7 +23,7 @@ import static java.util.Collections.unmodifiableList;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 import java.time.Instant;
@@ -37,7 +37,7 @@ import java.util.prefs.Preferences;
 
 import org.pdfsam.ShutdownEvent;
 import org.sejda.commons.collection.LRUMap;
-import org.sejda.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

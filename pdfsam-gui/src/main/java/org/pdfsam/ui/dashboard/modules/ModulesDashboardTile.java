@@ -19,7 +19,7 @@
 package org.pdfsam.ui.dashboard.modules;
 
 import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 import java.util.List;

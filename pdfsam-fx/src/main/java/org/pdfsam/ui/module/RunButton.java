@@ -18,13 +18,13 @@
  */
 package org.pdfsam.ui.module;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.injector.Prototype;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.ui.support.Style;
-import org.sejda.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventListener;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 

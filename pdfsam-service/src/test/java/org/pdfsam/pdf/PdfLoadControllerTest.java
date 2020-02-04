@@ -26,7 +26,7 @@ import static org.mockito.Mockito.after;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.verify;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 import java.io.IOException;
@@ -45,7 +45,7 @@ import org.pdfsam.module.Module;
 import org.pdfsam.module.RequiredPdfData;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.DefaultPriorityTestModule;
-import org.sejda.eventstudio.Listener;
+import org.pdfsam.eventstudio.Listener;
 
 /**
  * @author Andrea Vacondio

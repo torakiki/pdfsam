@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.log;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.List;
 
@@ -31,8 +31,8 @@ import org.pdfsam.ui.commons.ClosePane;
 import org.pdfsam.ui.commons.HideStageRequest;
 import org.pdfsam.ui.commons.ShowStageRequest;
 import org.pdfsam.ui.support.Style;
-import org.sejda.eventstudio.annotation.EventListener;
-import org.sejda.eventstudio.annotation.EventStation;
+import org.pdfsam.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventStation;
 
 import javafx.scene.Scene;
 import javafx.scene.image.Image;

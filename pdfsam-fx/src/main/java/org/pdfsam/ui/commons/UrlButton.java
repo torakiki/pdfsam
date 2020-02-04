@@ -20,7 +20,7 @@ package org.pdfsam.ui.commons;
 
 import static java.util.Objects.nonNull;
 import static org.sejda.commons.util.RequireUtils.requireNotBlank;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import org.pdfsam.ui.support.Style;
 

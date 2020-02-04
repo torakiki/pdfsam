@@ -239,7 +239,7 @@
 		<hibernate-validator.version>4.2.0.Final</hibernate-validator.version>
 		<sejda.version>4.0.1</sejda.version>
 		<sejda.commons.version>1.1.4</sejda.commons.version>
-		<eventstudio.version>1.0.6</eventstudio.version>
+		<eventstudio.version>2.0.0</eventstudio.version>
 		<injector.version>2.0.0</injector.version>
 		<fontawesomefx.fontawesome.version>4.7.0-9.1.2</fontawesomefx.fontawesome.version>
 		<fontawesomefx.materialicons.version>2.2.0-9.1.2</fontawesomefx.materialicons.version>
@@ -275,7 +275,7 @@
 				<version>${fontawesomefx.materialdesignfont.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.sejda</groupId>
+				<groupId>org.pdfsam</groupId>
 				<artifactId>eventstudio</artifactId>
 				<version>${eventstudio.version}</version>
 			</dependency>

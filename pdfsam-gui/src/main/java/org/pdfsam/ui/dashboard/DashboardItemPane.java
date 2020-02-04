@@ -20,13 +20,13 @@ package org.pdfsam.ui.dashboard;
 
 import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteCurrentModule;
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.pdfsam.ui.support.Style;
-import org.sejda.eventstudio.Listener;
-import org.sejda.eventstudio.ReferenceStrength;
+import org.pdfsam.eventstudio.Listener;
+import org.pdfsam.eventstudio.ReferenceStrength;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;

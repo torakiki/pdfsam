@@ -20,7 +20,7 @@ package org.pdfsam.ui.io;
 
 import static org.pdfsam.support.validation.Validators.and;
 import static org.pdfsam.support.validation.Validators.nonBlank;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.sejda.model.output.FileOrDirectoryTaskOutput.directory;
 
 import java.nio.file.Files;

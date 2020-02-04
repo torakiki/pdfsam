@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.info;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 import java.text.DateFormat;
@@ -29,7 +29,7 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
-import org.sejda.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventListener;
 import org.sejda.model.pdf.PdfMetadataKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

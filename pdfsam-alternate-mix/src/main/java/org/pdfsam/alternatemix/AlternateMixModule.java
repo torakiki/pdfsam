@@ -43,8 +43,8 @@ import org.pdfsam.ui.module.Footer;
 import org.pdfsam.ui.module.OpenButton;
 import org.pdfsam.ui.module.RunButton;
 import org.pdfsam.ui.support.Views;
-import org.sejda.eventstudio.annotation.EventListener;
-import org.sejda.eventstudio.annotation.EventStation;
+import org.pdfsam.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventStation;
 
 import javafx.geometry.Pos;
 import javafx.scene.Node;

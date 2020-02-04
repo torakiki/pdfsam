@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.news;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.stream.Collectors;
 
@@ -26,7 +26,7 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.news.HideNewsPanelRequest;
 import org.pdfsam.news.LatestNewsEvent;
 import org.pdfsam.ui.support.Style;
-import org.sejda.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventListener;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.utils.FontAwesomeIconFactory;

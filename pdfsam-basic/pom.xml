@@ -611,7 +611,7 @@
 			<artifactId>commons-lang3</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.sejda</groupId>
+			<groupId>org.pdfsam</groupId>
 			<artifactId>eventstudio</artifactId>
 		</dependency>
 		<dependency>

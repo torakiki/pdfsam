@@ -21,7 +21,7 @@ package org.pdfsam.ui.selection.multiple;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.ENCRYPTED;
 import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.WITH_ERRORS;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Comparator;
 

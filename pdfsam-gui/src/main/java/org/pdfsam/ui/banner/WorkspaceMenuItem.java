@@ -19,7 +19,7 @@
 package org.pdfsam.ui.banner;
 
 import static org.sejda.commons.util.RequireUtils.requireNotBlank;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 

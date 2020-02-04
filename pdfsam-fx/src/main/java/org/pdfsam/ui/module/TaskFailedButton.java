@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.module;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.ui.commons.ShowStageRequest;

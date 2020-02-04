@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.dashboard;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.HashMap;
 import java.util.List;
@@ -30,7 +30,7 @@ import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.pdfsam.ui.event.SetTitleEvent;
 import org.pdfsam.ui.quickbar.QuickbarPane;
 import org.pdfsam.ui.support.Style;
-import org.sejda.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventListener;
 
 import javafx.animation.FadeTransition;
 import javafx.scene.layout.BorderPane;

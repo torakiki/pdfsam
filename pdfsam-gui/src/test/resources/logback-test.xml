@@ -8,7 +8,7 @@
 	</appender>
 
 	<logger name="org.sejda" level="WARN" />	
-	<logger name="org.sejda.eventstudio" level="ERROR" />
+	<logger name="org.pdfsam.eventstudio" level="ERROR" />
 	<logger name="org.pdfsam.injector" level="ERROR" />
 	<logger name="org.pdfsam" level="WARN" />
 	<logger name="org.hibernate" level="WARN" />

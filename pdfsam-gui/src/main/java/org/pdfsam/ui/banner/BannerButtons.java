@@ -18,12 +18,12 @@
  */
 package org.pdfsam.ui.banner;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import javax.inject.Inject;
 
 import org.pdfsam.news.LatestNewsEvent;
-import org.sejda.eventstudio.ReferenceStrength;
+import org.pdfsam.eventstudio.ReferenceStrength;
 
 import javafx.application.Platform;
 import javafx.scene.layout.HBox;

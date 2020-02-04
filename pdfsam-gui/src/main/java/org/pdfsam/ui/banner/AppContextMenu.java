@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.banner;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import javax.inject.Inject;
 

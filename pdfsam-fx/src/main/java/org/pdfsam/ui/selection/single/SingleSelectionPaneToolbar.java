@@ -19,7 +19,7 @@
 package org.pdfsam.ui.selection.single;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.i18n.DefaultI18nContext;

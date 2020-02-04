@@ -19,7 +19,7 @@
 package org.pdfsam.pdf;
 
 import static java.util.Objects.nonNull;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.HashMap;
 import java.util.List;
@@ -34,7 +34,7 @@ import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.RequiredPdfData;
-import org.sejda.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

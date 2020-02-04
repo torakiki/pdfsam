@@ -19,7 +19,7 @@
 package org.pdfsam.ui.dashboard;
 
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.pdfsam.ui.quickbar.BaseQuickbarButton;

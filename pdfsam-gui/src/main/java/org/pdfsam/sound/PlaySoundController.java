@@ -19,14 +19,14 @@
 package org.pdfsam.sound;
 
 import static org.sejda.commons.util.RequireUtils.requireNotBlank;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.context.UserContext;
 import org.pdfsam.injector.Auto;
-import org.sejda.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventListener;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 

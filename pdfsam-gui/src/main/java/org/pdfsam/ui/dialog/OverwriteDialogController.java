@@ -19,7 +19,7 @@
 package org.pdfsam.ui.dialog;
 
 import static org.apache.commons.lang3.ArrayUtils.isNotEmpty;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 
@@ -29,8 +29,8 @@ import javax.inject.Provider;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.module.TaskExecutionRequestEvent;
-import org.sejda.eventstudio.annotation.EventListener;
-import org.sejda.eventstudio.exception.BroadcastInterruptionException;
+import org.pdfsam.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.exception.BroadcastInterruptionException;
 import org.sejda.model.exception.TaskOutputVisitException;
 import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.ExistingOutputPolicy;

@@ -25,7 +25,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Arrays;
 import java.util.List;
@@ -43,7 +43,7 @@ import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.ui.dashboard.about.AboutDashboardPane;
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 import org.pdfsam.ui.event.SetTitleEvent;
-import org.sejda.eventstudio.Listener;
+import org.pdfsam.eventstudio.Listener;
 
 import javafx.scene.Node;
 import javafx.scene.layout.HBox;

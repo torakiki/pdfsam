@@ -21,7 +21,7 @@ package org.pdfsam.ui.dialog;
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toList;
 import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.nio.file.Path;
 import java.util.List;

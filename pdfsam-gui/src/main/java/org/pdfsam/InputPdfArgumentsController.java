@@ -19,7 +19,7 @@
 package org.pdfsam;
 
 import static java.util.Objects.nonNull;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;

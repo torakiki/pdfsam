@@ -19,7 +19,7 @@
 package org.pdfsam.ui.module;
 
 import static org.junit.Assert.assertTrue;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import org.junit.Rule;
 import org.junit.Test;

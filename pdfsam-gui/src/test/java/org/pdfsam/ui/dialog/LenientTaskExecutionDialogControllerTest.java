@@ -25,7 +25,7 @@ import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.io.IOException;
 import java.util.Locale;
@@ -42,7 +42,7 @@ import org.pdfsam.injector.Injector;
 import org.pdfsam.injector.Provides;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.sejda.eventstudio.Listener;
+import org.pdfsam.eventstudio.Listener;
 import org.sejda.model.exception.TaskNonLenientExecutionException;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 import org.sejda.model.parameter.base.AbstractParameters;

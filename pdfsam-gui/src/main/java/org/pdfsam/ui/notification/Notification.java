@@ -19,7 +19,7 @@
 package org.pdfsam.ui.notification;
 
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.UUID;
 

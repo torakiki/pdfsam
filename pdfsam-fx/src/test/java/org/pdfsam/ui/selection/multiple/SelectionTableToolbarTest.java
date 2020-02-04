@@ -24,7 +24,7 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.pdfsam.ui.selection.multiple.SelectionChangedEvent.select;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -40,7 +40,7 @@ import org.pdfsam.ui.selection.multiple.SelectionTableToolbar.MoveDownButton;
 import org.pdfsam.ui.selection.multiple.SelectionTableToolbar.MoveUpButton;
 import org.pdfsam.ui.selection.multiple.SelectionTableToolbar.RemoveButton;
 import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
-import org.sejda.eventstudio.Listener;
+import org.pdfsam.eventstudio.Listener;
 import org.testfx.framework.junit.ApplicationTest;
 import org.testfx.util.WaitForAsyncUtils;
 

@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.module;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.function.Consumer;
 
@@ -31,8 +31,8 @@ import org.pdfsam.ui.notification.NotificationType;
 import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
-import org.sejda.eventstudio.annotation.EventListener;
-import org.sejda.eventstudio.annotation.EventStation;
+import org.pdfsam.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventStation;
 import org.sejda.model.parameter.base.AbstractParameters;
 
 import javafx.application.Platform;

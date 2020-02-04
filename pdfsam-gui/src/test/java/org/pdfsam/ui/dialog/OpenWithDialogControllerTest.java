@@ -19,7 +19,7 @@
 package org.pdfsam.ui.dialog;
 
 import static org.mockito.Mockito.mock;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.io.IOException;
 import java.nio.file.Paths;

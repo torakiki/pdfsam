@@ -30,7 +30,7 @@ import static org.pdfsam.pdf.PdfDocumentDescriptor.newDescriptorNoPassword;
 import static org.pdfsam.support.EncryptionUtils.encrypt;
 import static org.pdfsam.ui.commons.SetDestinationRequest.requestDestination;
 import static org.pdfsam.ui.commons.SetDestinationRequest.requestFallbackDestination;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 import java.util.Map;
@@ -60,8 +60,8 @@ import org.pdfsam.ui.selection.PasswordFieldPopup;
 import org.pdfsam.ui.selection.single.SingleSelectionPaneToolbar.SelectButton;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.workspace.RestorableView;
-import org.sejda.eventstudio.annotation.EventListener;
-import org.sejda.eventstudio.annotation.EventStation;
+import org.pdfsam.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventStation;
 
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;

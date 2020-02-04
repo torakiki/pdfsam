@@ -20,7 +20,7 @@ package org.pdfsam.ui.io;
 
 import java.io.File;
 
-import org.sejda.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventListener;
 
 /**
  * Base class for a chooser that remembers the latest working directory

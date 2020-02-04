@@ -21,7 +21,7 @@ package org.pdfsam.ui.prefix;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.ui.help.HelpUtils.helpIcon;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Map;
 import java.util.Optional;

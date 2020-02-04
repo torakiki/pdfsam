@@ -19,13 +19,13 @@
 package org.pdfsam.ui.dialog;
 
 import static java.util.Objects.nonNull;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import javax.inject.Inject;
 
 import org.pdfsam.injector.Auto;
 import org.pdfsam.ui.InputPdfArgumentsLoadRequest;
-import org.sejda.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventListener;
 
 /**
  * Controller receiving notifications of input PDF files as application arguments and asking the user which module should be used to open them

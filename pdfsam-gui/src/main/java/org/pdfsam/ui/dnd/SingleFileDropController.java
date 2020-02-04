@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.dnd;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 
@@ -29,7 +29,7 @@ import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.pdf.SingleFileDroppedEvent;
 import org.pdfsam.support.io.FileType;
-import org.sejda.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventListener;
 
 /**
  * Controller for single file drop event

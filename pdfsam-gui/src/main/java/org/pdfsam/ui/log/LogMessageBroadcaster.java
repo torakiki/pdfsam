@@ -19,7 +19,7 @@
 package org.pdfsam.ui.log;
 
 import static java.util.Objects.nonNull;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Scanner;
 

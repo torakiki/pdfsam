@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.dashboard.modules;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ import javax.inject.Inject;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.Module;
 import org.pdfsam.premium.PremiumModulesEvent;
-import org.sejda.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventListener;
 
 import javafx.application.Platform;
 import javafx.scene.control.Label;

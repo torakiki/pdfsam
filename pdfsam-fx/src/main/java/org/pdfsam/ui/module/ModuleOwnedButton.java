@@ -23,7 +23,7 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.ui.support.Style;
-import org.sejda.eventstudio.annotation.EventStation;
+import org.pdfsam.eventstudio.annotation.EventStation;
 
 import javafx.scene.control.Button;
 

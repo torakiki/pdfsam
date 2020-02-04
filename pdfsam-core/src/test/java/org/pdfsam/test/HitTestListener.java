@@ -18,7 +18,7 @@
  */
 package org.pdfsam.test;
 
-import org.sejda.eventstudio.Listener;
+import org.pdfsam.eventstudio.Listener;
 
 /**
  * Test listener to verify an event has been fired

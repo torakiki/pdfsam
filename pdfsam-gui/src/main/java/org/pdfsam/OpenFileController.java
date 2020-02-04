@@ -18,7 +18,7 @@
  */
 package org.pdfsam;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.awt.Desktop;
 import java.awt.EventQueue;
@@ -26,7 +26,7 @@ import java.io.IOException;
 
 import org.pdfsam.injector.Auto;
 import org.pdfsam.ui.commons.OpenFileRequest;
-import org.sejda.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

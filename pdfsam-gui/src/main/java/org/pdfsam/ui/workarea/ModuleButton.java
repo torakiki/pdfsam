@@ -20,7 +20,7 @@ package org.pdfsam.ui.workarea;
 
 import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import org.pdfsam.module.Module;
 import org.pdfsam.ui.quickbar.BaseQuickbarButton;

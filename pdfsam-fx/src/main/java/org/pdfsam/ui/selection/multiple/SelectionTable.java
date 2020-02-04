@@ -27,7 +27,7 @@ import static org.pdfsam.ui.commons.SetDestinationRequest.requestDestination;
 import static org.pdfsam.ui.commons.SetDestinationRequest.requestFallbackDestination;
 import static org.pdfsam.ui.selection.multiple.SelectionChangedEvent.clearSelectionEvent;
 import static org.pdfsam.ui.selection.multiple.SelectionChangedEvent.select;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -62,8 +62,8 @@ import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
 import org.pdfsam.ui.selection.multiple.move.MoveType;
 import org.pdfsam.ui.selection.multiple.move.SelectionAndFocus;
 import org.pdfsam.ui.workspace.RestorableView;
-import org.sejda.eventstudio.annotation.EventListener;
-import org.sejda.eventstudio.annotation.EventStation;
+import org.pdfsam.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventStation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

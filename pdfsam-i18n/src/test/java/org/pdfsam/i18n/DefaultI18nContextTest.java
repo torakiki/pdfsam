@@ -19,7 +19,7 @@
 package org.pdfsam.i18n;
 
 import static org.junit.Assert.assertEquals;
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Locale;
 

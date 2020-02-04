@@ -18,14 +18,14 @@
  */
 package org.pdfsam.ui.info;
 
-import static org.sejda.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import javax.inject.Inject;
 import javax.inject.Provider;
 
 import org.pdfsam.injector.Auto;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
-import org.sejda.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventListener;
 
 /**
  * Controller displaying the InfoStage when required
