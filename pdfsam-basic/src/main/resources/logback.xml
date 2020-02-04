@@ -23,7 +23,7 @@
 
 	<logger name="org.sejda" level="INFO" />
 	<logger name="org.sejda.eventstudio" level="ERROR" />	
-	<logger name="org.sejda.injector" level="WARN" />
+	<logger name="org.pdfsam.injector" level="WARN" />
 	<logger name="org.sejda.sambox" level="INFO" />
 	<logger name="org.pdfsam" level="INFO" />
 	<logger name="org.hibernate" level="WARN" />
