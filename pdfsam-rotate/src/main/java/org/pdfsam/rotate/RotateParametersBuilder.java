@@ -20,7 +20,13 @@ package org.pdfsam.rotate;
 
 import static java.util.Objects.isNull;
 
+import java.sql.Array;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Map;
 import java.util.Set;
+import java.util.function.Consumer;
 
 import org.pdfsam.support.params.AbstractPdfOutputParametersBuilder;
 import org.pdfsam.support.params.MultipleOutputTaskParametersBuilder;
@@ -52,7 +58,48 @@ class RotateParametersBuilder extends AbstractPdfOutputParametersBuilder<BulkRot
         if (isNull(pageSelection) || pageSelection.isEmpty()) {
             this.inputs.add(new PdfRotationInput(source, rotation, predefinedRotationType));
         } else {
-            this.inputs.add(new PdfRotationInput(source, rotation, pageSelection.stream().toArray(PageRange[]::new)));
+        	/*
+        	 * START: Sanket M 8th March 2020 - PDFSam merge change request - #ps3
+        	 * Create page Range array
+        	 */
+        	// OLD CODE: this.inputs.add(new PdfRotationInput(source, rotation, pageSelection.stream().toArray(PageRange[]::new)));
+        	ArrayList<PageRange> tempPageArray1 = new ArrayList<PageRange>();
+        	if(predefinedRotationType == predefinedRotationType.EVEN_PAGES) {
+        		pageSelection.forEach(new Consumer<PageRange>() {
+					
+					@Override
+					public void accept(PageRange t) {
+						for(int i = t.getStart(); i <= t.getEnd(); i++) {
+							if(i%2 == 0) {
+								tempPageArray1.add(new PageRange(i,i));
+							}
+						}
+					}
+        		});
+        		
+        		this.inputs.add(new PdfRotationInput(source, rotation, tempPageArray1.toArray(PageRange[]::new)));
+        	}
+        	if(predefinedRotationType == predefinedRotationType.ODD_PAGES) {
+        		pageSelection.forEach(new Consumer<PageRange>() {
+					
+					@Override
+					public void accept(PageRange t) {
+						for(int i = t.getStart(); i <= t.getEnd(); i++) {
+							if(i%2 != 0) {
+								tempPageArray1.add(new PageRange(i,i));
+							}
+						}
+					}
+        		});
+        		
+        		this.inputs.add(new PdfRotationInput(source, rotation, tempPageArray1.toArray(PageRange[]::new)));
+        	}
+        	if(predefinedRotationType == predefinedRotationType.ALL_PAGES) {
+        		this.inputs.add(new PdfRotationInput(source, rotation, pageSelection.stream().toArray(PageRange[]::new)));
+        	}
+        	/*
+        	 * END 
+        	 */
         }
     }
 
