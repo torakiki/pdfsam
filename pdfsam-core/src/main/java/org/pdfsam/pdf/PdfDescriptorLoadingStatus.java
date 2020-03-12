@@ -19,12 +19,11 @@
 package org.pdfsam.pdf;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.pdfsam.i18n.DefaultI18nContext.getInstance;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-
-import org.pdfsam.i18n.DefaultI18nContext;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 
@@ -39,32 +38,37 @@ public enum PdfDescriptorLoadingStatus {
     REQUESTED(FontAwesomeIcon.CLOCK_ALT, ""),
     LOADING(FontAwesomeIcon.ANGLE_RIGHT, ""),
     LOADED,
-    LOADED_WITH_USER_PWD_DECRYPTION(FontAwesomeIcon.UNLOCK, DefaultI18nContext.getInstance().i18n(
-            "Valid user password provided.")),
-    ENCRYPTED(FontAwesomeIcon.LOCK, DefaultI18nContext.getInstance().i18n(
-            "This document is encrypted, click to provide a password.")),
-    WITH_ERRORS(FontAwesomeIcon.WARNING, DefaultI18nContext.getInstance()
-            .i18n("An error has occurred, click for more details."));
+    LOADED_WITH_USER_PWD_DECRYPTION(FontAwesomeIcon.UNLOCK, getInstance()
+            .i18n("Valid user password provided.")),
+    ENCRYPTED(FontAwesomeIcon.LOCK, getInstance()
+            .i18n("This document is encrypted, click to provide a password."), "with-warnings"),
+    WITH_ERRORS(FontAwesomeIcon.WARNING, getInstance()
+            .i18n("An error has occurred, click for more details."), "with-errors");
 
     static {
         INITIAL.setValidDestinationStatus(REQUESTED, WITH_ERRORS);
         ENCRYPTED.setValidDestinationStatus(REQUESTED, WITH_ERRORS);
         LOADING.setValidDestinationStatus(LOADED, LOADED_WITH_USER_PWD_DECRYPTION, ENCRYPTED, WITH_ERRORS);
         REQUESTED.setValidDestinationStatus(LOADING, WITH_ERRORS);
-        WITH_ERRORS.setValidDestinationStatus(REQUESTED, WITH_ERRORS);
     }
 
     private Set<PdfDescriptorLoadingStatus> validNext = new HashSet<>();
     private FontAwesomeIcon icon;
     private String description;
+    private String style;
 
     PdfDescriptorLoadingStatus() {
         this(null, "");
     }
 
     PdfDescriptorLoadingStatus(FontAwesomeIcon icon, String description) {
+        this(icon, description, "");
+    }
+
+    PdfDescriptorLoadingStatus(FontAwesomeIcon icon, String description, String style) {
         this.icon = icon;
         this.description = defaultString(description);
+        this.style = defaultString(style);
     }
 
     public FontAwesomeIcon getIcon() {
@@ -73,6 +77,10 @@ public enum PdfDescriptorLoadingStatus {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getStyle() {
+        return style;
     }
 
     private void setValidDestinationStatus(PdfDescriptorLoadingStatus... canMoveTo) {

@@ -22,10 +22,12 @@ import static java.util.Objects.nonNull;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
+import java.util.Arrays;
 import java.util.Optional;
 import java.util.function.Consumer;
 
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
+import org.sejda.commons.util.StringUtils;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.utils.FontAwesomeIconFactory;
@@ -57,7 +59,12 @@ public class LoadingStatusIndicatorUpdater implements Consumer<PdfDescriptorLoad
         } else {
             indicator.setGraphic(null);
         }
-        if (t != null && isNotBlank(t.getDescription())) {
+        Arrays.stream(PdfDescriptorLoadingStatus.values()).map(PdfDescriptorLoadingStatus::getStyle)
+                .filter(StringUtils::isNotEmpty).forEach(indicator.getStyleClass()::remove);
+        if (nonNull(t) && isNotBlank(t.getStyle())) {
+            indicator.getStyleClass().add(t.getStyle());
+        }
+        if (nonNull(t) && isNotBlank(t.getDescription())) {
             indicator.setTooltip(new Tooltip(t.getDescription()));
         } else {
             indicator.setTooltip(null);

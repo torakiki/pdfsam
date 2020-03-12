@@ -88,9 +88,11 @@
 	-fx-graphic-text-gap: 0.833333em;
 	-fx-content-display: RIGHT;
 }
-
 .glyph-icon{
     -fx-fill: -icons-color;
+}
+.with-errors > .glyph-icon, .with-warnings > .glyph-icon{
+    -fx-fill: -pdfsam-error-color;
 }
 
 /**

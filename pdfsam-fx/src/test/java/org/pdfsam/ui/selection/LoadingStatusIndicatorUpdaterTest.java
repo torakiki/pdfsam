@@ -19,8 +19,10 @@
 package org.pdfsam.ui.selection;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -49,10 +51,19 @@ public class LoadingStatusIndicatorUpdaterTest {
     }
 
     @Test
-    public void textAndTooltip() {
+    public void textAndTooltipAndStyle() {
         victim.accept(PdfDescriptorLoadingStatus.ENCRYPTED);
         assertEquals(PdfDescriptorLoadingStatus.ENCRYPTED.getIcon().unicode(), ((Text) labeled.getGraphic()).getText());
+        assertTrue(labeled.getStyleClass().contains(PdfDescriptorLoadingStatus.ENCRYPTED.getStyle()));
         assertNotNull(labeled.getTooltip());
+    }
+
+    @Test
+    public void styleIsRemoved() {
+        victim.accept(PdfDescriptorLoadingStatus.ENCRYPTED);
+        assertTrue(labeled.getStyleClass().contains(PdfDescriptorLoadingStatus.ENCRYPTED.getStyle()));
+        victim.accept(PdfDescriptorLoadingStatus.REQUESTED);
+        assertFalse(labeled.getStyleClass().contains(PdfDescriptorLoadingStatus.ENCRYPTED.getStyle()));
     }
 
     @Test
