@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<description>PDFsam App</description>
 	<url>https://pdfsam.org</url>
@@ -96,11 +98,14 @@
 			</build>
 		</profile>
 		<profile>
-			<id>basic-release</id>
+			<id>basic-release-non-mac</id>
 			<activation>
 				<property>
 					<name>release</name>
 				</property>
+				<os>
+					<family>!mac</family>
+				</os>
 			</activation>
 			<build>
 				<plugins>
@@ -129,7 +134,6 @@
 								</goals>
 								<configuration>
 									<executable>jlink</executable>
-									<toolchain>jdk</toolchain>
 									<arguments>
 										<argument>--add-modules</argument>
 										<argument>java.base,java.datatransfer,java.logging,java.naming,java.sql,java.desktop,java.xml,java.scripting,jdk.unsupported,java.prefs</argument>
@@ -162,6 +166,112 @@
 							</execution>
 						</executions>
 					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>basic-release-mac</id>
+			<activation>
+				<property>
+					<name>release</name>
+				</property>
+				<os>
+					<family>mac</family>
+				</os>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>build-helper-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>parse-version</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>parse-version</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-toolchains-plugin</artifactId>
+						<version>3.0.0</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>toolchain</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<toolchains>
+								<paths>
+									<id>zulu-jlink</id>
+								</paths>
+							</toolchains>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<extensions>true</extensions>
+						<executions>
+							<execution>
+								<id>jlink</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<configuration>
+									<toolchain>paths</toolchain>
+									<executable>jlink</executable>
+									<arguments>
+										<argument>--add-modules</argument>
+										<argument>java.base,java.datatransfer,java.logging,java.naming,java.sql,java.desktop,java.xml,java.scripting,jdk.unsupported,java.prefs,javafx.base,javafx.graphics,javafx.controls,javafx.media</argument>
+										<argument>--output</argument>
+										<argument>${project.build.directory}/runtime</argument>
+										<argument>--compress</argument>
+										<argument>2</argument>
+										<argument>--no-header-files</argument>
+										<argument>--no-man-pages</argument>
+										<argument>--strip-debug</argument>
+									</arguments>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>copy-dependencies</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>copy-dependencies</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.build.directory}/assembled/lib</outputDirectory>
+									<includeScope>compile</includeScope>
+									<excludeGroupIds>org.openjfx</excludeGroupIds>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>basic-release-all</id>
+			<activation>
+				<property>
+					<name>release</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-resources-plugin</artifactId>
@@ -215,9 +325,13 @@
 								<phase>package</phase>
 								<configuration>
 									<target>
-										<chmod file="${project.build.directory}/assembled/lib" perm="644" includes="**/*.*" />
-										<chmod dir="${project.build.directory}/assembled/bin" perm="755" includes="**/*.sh" />
-										<chmod dir="${project.build.directory}/assembled/runtime/bin" perm="755" includes="**/*.*" />
+										<chmod file="${project.build.directory}/assembled/lib"
+											perm="644" includes="**/*.*" />
+										<chmod dir="${project.build.directory}/assembled/bin"
+											perm="755" includes="**/*.sh" />
+										<chmod
+											dir="${project.build.directory}/assembled/runtime/bin"
+											perm="755" includes="**/*.*" />
 									</target>
 								</configuration>
 								<goals>
@@ -509,7 +623,10 @@
 										</resource>
 										<resource>
 											<directory>${basedir}/src/dmg</directory>
-											<include>*.icns</include>
+											<includes>
+												<include>*.icns</include>
+												<include>*.plist</include>
+											</includes>
 										</resource>
 									</resources>
 								</configuration>
@@ -525,7 +642,8 @@
 								<phase>pre-integration-test</phase>
 								<configuration>
 									<target>
-										<chmod dir="${project.build.directory}/dmg" perm="755" includes="*.sh" />
+										<chmod dir="${project.build.directory}/dmg" perm="755"
+											includes="*.sh" />
 									</target>
 								</configuration>
 								<goals>
