@@ -195,25 +195,6 @@
 						</executions>
 					</plugin>
 					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-toolchains-plugin</artifactId>
-						<version>3.0.0</version>
-						<executions>
-							<execution>
-								<goals>
-									<goal>toolchain</goal>
-								</goals>
-							</execution>
-						</executions>
-						<configuration>
-							<toolchains>
-								<paths>
-									<id>zulu-jlink</id>
-								</paths>
-							</toolchains>
-						</configuration>
-					</plugin>
-					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>exec-maven-plugin</artifactId>
 						<extensions>true</extensions>
@@ -225,9 +206,11 @@
 									<goal>exec</goal>
 								</goals>
 								<configuration>
-									<toolchain>paths</toolchain>
+									<longModulepath>false</longModulepath>
 									<executable>jlink</executable>
 									<arguments>
+										<argument>--module-path</argument>
+										<argument>${env.FX_HOME}:mods</argument>
 										<argument>--add-modules</argument>
 										<argument>java.base,java.datatransfer,java.logging,java.naming,java.sql,java.desktop,java.xml,java.scripting,jdk.unsupported,java.prefs,javafx.base,javafx.graphics,javafx.controls,javafx.media</argument>
 										<argument>--output</argument>
