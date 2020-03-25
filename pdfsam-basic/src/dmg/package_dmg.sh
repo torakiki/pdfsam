@@ -49,8 +49,6 @@ find "${project.build.directory}/PDFsam Basic.app/Contents/" -type f \( -name "*
 -exec codesign --verify -vvv {} \; || exit 1
 echo "Signed and verified jars and dylibs"
 
-
-
 codesign --force --deep --timestamp --entitlements "${project.build.directory}/dmg/entitlements.mac.plist" \
 --options runtime -vvv --sign "Developer ID Application: Andrea Vacondio" "${project.build.directory}/PDFsam Basic.app" || exit 1
 codesign --verify -vvv "${project.build.directory}/PDFsam Basic.app" || exit 1
@@ -69,5 +67,8 @@ echo "dmg signed"
 xcrun altool --notarize-app --primary-bundle-id org.pdfsam.basic --username $APPLEID --password $APPLEIDPASS --file "${project.build.directory}/pdfsam-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.dmg" || exit 1
 echo "dmg notarized"
 
+xcrun stapler staple "${project.build.directory}/pdfsam-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.dmg" || exit 1
+xcrun stapler validate "${project.build.directory}/pdfsam-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.dmg" || exit 1
+echo "dmg stapled"
 
 
