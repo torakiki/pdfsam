@@ -214,7 +214,7 @@
 										<argument>--add-modules</argument>
 										<argument>java.base,java.datatransfer,java.logging,java.naming,java.sql,java.desktop,java.xml,java.scripting,jdk.unsupported,java.prefs,javafx.base,javafx.graphics,javafx.controls,javafx.media</argument>
 										<argument>--output</argument>
-										<argument>${project.build.directory}/runtime</argument>
+										<argument>${project.build.directory}/assembled/runtime</argument>
 										<argument>--compress</argument>
 										<argument>2</argument>
 										<argument>--no-header-files</argument>
@@ -609,6 +609,7 @@
 											<includes>
 												<include>*.icns</include>
 												<include>*.plist</include>
+												<include>**/*</include>
 											</includes>
 										</resource>
 									</resources>

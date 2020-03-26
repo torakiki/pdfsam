@@ -26,9 +26,9 @@ echo "Removed bin scripts"
 $JAVA_HOME_14/bin/jpackage --runtime-image "${project.build.directory}/runtime/"  --type app-image \
 --input "${project.build.directory}/assembled/" --main-class org.pdfsam.basic.App --icon "${project.build.directory}/dmg/Icon.icns" --name "PDFsam Basic" \
 --description "A free open source application to split, merge, extract pages and mix PDF files" --main-jar "${project.build.finalName}.jar" \
---app-version "${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}" --vendor "Sober Lemur S.a.s. di Vacondio Andrea" \
+--app-version "${project.version}" --vendor "Sober Lemur S.a.s. di Vacondio Andrea" \
 --dest "${project.build.directory}" --copyright "2020 Sober Lemur S.a.s. di Vacondio Andrea" --java-options "-Dorg.pdfsam.disable.ui.restore=true" \
---mac-package-identifier org.pdfsam.basic  --verbose || exit 1
+--mac-package-identifier org.pdfsam.basic  --resource-dir "${project.build.directory}/dmg/resources" --verbose || exit 1
 echo "App image created"
 
 codesign --force --deep --timestamp --entitlements "${project.build.directory}/dmg/entitlements.mac.plist" \
@@ -55,20 +55,24 @@ codesign --verify -vvv "${project.build.directory}/PDFsam Basic.app" || exit 1
 echo "Signed and verified App"
 
 $JAVA_HOME_14/bin/jpackage --name "pdfsam" --mac-package-identifier org.pdfsam.basic  --mac-sign --mac-signing-key-user-name "Andrea Vacondio" \
---app-version "${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}" --mac-package-name "PDFsam Basic" \
+--app-version "${project.version}" --mac-package-name "PDFsam Basic" \
 --app-image "${project.build.directory}/PDFsam Basic.app" --license-file "${project.build.directory}/assembled/LICENSE.txt" --dest "${project.build.directory}" \
---icon "${project.build.directory}/dmg/Icon.icns" || exit 1
+--resource-dir "${project.build.directory}/dmg/resources" --name "PDFsam Basic" --verbose || exit 1
 echo "dmg created"
 
+mv "${project.build.directory}/PDFsam Basic-${project.version}.dmg" "${project.build.directory}/pdfsam-${project.version}.dmg" || exit 1
+echo "dmg renamed"
+
 codesign --force --deep --timestamp --entitlements "${project.build.directory}/dmg/entitlements.mac.plist" --options runtime \
--vvv --sign "Developer ID Application: Andrea Vacondio" "${project.build.directory}/pdfsam-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.dmg" || exit 1
+-vvv --sign "Developer ID Application: Andrea Vacondio" "${project.build.directory}/pdfsam-${project.version}.dmg" || exit 1
 echo "dmg signed"
 
-xcrun altool --notarize-app --primary-bundle-id org.pdfsam.basic --username $APPLEID --password $APPLEIDPASS --file "${project.build.directory}/pdfsam-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.dmg" || exit 1
+xcrun altool --notarize-app --primary-bundle-id org.pdfsam.basic --username $APPLEID --password $APPLEIDPASS --file "${project.build.directory}/pdfsam-${project.version}.dmg" || exit 1
 echo "dmg notarized"
 
-xcrun stapler staple "${project.build.directory}/pdfsam-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.dmg" || exit 1
-xcrun stapler validate "${project.build.directory}/pdfsam-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.dmg" || exit 1
+#stapling takes some time and it fails when run right after the notarization, we should probably wait few minutes
+#xcrun stapler staple "${project.build.directory}/pdfsam-${project.version}.dmg" || exit 1
+#xcrun stapler validate "${project.build.directory}/pdfsam-${project.version}.dmg" || exit 1
 echo "dmg stapled"
 
 
