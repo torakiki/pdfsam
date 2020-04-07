@@ -16,7 +16,7 @@ PDFsam Basic is open source under the [GNU Affero General Public License] since 
 
 Requirements
 -------------------
-PDFsam Basic is written using the JavaFX. Version 4 is released as a self-contained application and includes a jlinked OpenJDK 11 runtime while version 3 requires a Java Runtime Environment 8 with JavaFx installed in order to run.
+PDFsam Basic is written using JavaFX. Version 4 is released as a self-contained application and includes a jlinked OpenJDK 11 runtime while version 3 requires a Java Runtime Environment 8 with JavaFx installed in order to run.
 
 Documentation
 -------------------
