@@ -21,13 +21,13 @@ package org.pdfsam.ui.selection.multiple;
 import static java.util.Optional.of;
 import static java.util.Optional.ofNullable;
 import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.support.EncryptionUtils.encrypt;
 import static org.pdfsam.support.io.ObjectCollectionWriter.writeContent;
 import static org.pdfsam.ui.commons.SetDestinationRequest.requestDestination;
 import static org.pdfsam.ui.commons.SetDestinationRequest.requestFallbackDestination;
 import static org.pdfsam.ui.selection.multiple.SelectionChangedEvent.clearSelectionEvent;
 import static org.pdfsam.ui.selection.multiple.SelectionChangedEvent.select;
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -45,6 +45,8 @@ import java.util.stream.IntStream;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultUserContext;
+import org.pdfsam.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventStation;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.MultipleFilesDroppedEvent;
@@ -62,8 +64,6 @@ import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
 import org.pdfsam.ui.selection.multiple.move.MoveType;
 import org.pdfsam.ui.selection.multiple.move.SelectionAndFocus;
 import org.pdfsam.ui.workspace.RestorableView;
-import org.pdfsam.eventstudio.annotation.EventListener;
-import org.pdfsam.eventstudio.annotation.EventStation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -436,7 +436,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
             LOG.trace("Changing selection to {}", newSelection);
             getSelectionModel().selectIndices(newSelection.getRow(), newSelection.getRows());
             getFocusModel().focus(newSelection.getFocus());
-            scrollTo(newSelection.getFocus());
+            scrollTo(Math.max(newSelection.getRow() - 1, 0));
         }
     }
 
