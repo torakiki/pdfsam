@@ -24,7 +24,6 @@ import java.io.IOException;
 
 import org.junit.Test;
 import org.pdfsam.ConfigurableProperty;
-import org.pdfsam.basic.PdfsamBasic;
 
 public class PdfsamBasicTest {
     @Test(expected = IllegalArgumentException.class)
