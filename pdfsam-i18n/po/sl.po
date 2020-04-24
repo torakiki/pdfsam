@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-01-29 14:48+0100\n"
-"PO-Revision-Date: 2019-08-10 11:11+0000\n"
+"PO-Revision-Date: 2020-04-12 11:18+0000\n"
 "Last-Translator: Janez Gačnik <Unknown>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-02-03 08:56+0000\n"
-"X-Generator: Launchpad (build 0a62c17273454a1313f81a74a2198ec30b44c7b6)\n"
+"X-Launchpad-Export-Date: 2020-04-24 08:00+0000\n"
+"X-Generator: Launchpad (build 486bbbd6cb608f8eb468ed0d08689a349dfabe49)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Izbrana ni bila nobena datoteka PDF"
@@ -365,13 +365,13 @@ msgid "Do you want to create it?"
 msgstr "Ali jo želite ustvariti?"
 
 msgid "Subdirectories"
-msgstr ""
+msgstr "Podmape"
 
 msgid "Subdirectories have been found"
-msgstr ""
+msgstr "Odkrite podmape"
 
 msgid "Do you want to add PDF files found in subdirectories?"
-msgstr ""
+msgstr "Ali želite dodati datoteke PDF iz podmap?"
 
 msgid "Task failed"
 msgstr "Opravilo spodletelo"
@@ -701,7 +701,7 @@ msgid "Hide advanced settings"
 msgstr "Skrij napredne nastavitve"
 
 msgid "Overwrite if already exists"
-msgstr "Prepipiši, če že obstaja"
+msgstr "Prepiši, če že obstaja"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
@@ -1041,7 +1041,7 @@ msgstr "Nastavitve združevanja"
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
-msgstr ""
+msgstr "Datoteka \"{0}\" ne obstaja ali pa je neveljavna"
 
 msgid "Valid user password provided."
 msgstr "Vnešeno veljavno uporabniško geslo."
