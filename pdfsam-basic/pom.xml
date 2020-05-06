@@ -376,6 +376,7 @@
 									<jre>
 										<path>runtime</path>
 										<minVersion>11</minVersion>
+										<bundledJre64Bit>true</bundledJre64Bit>
 									</jre>
 									<versionInfo>
 										<fileVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.0</fileVersion>
