@@ -21,8 +21,8 @@ package org.pdfsam;
 import static java.util.Objects.nonNull;
 import static java.util.Optional.ofNullable;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
 
 import java.awt.SplashScreen;
 import java.io.File;
@@ -39,6 +39,7 @@ import org.apache.commons.lang3.time.StopWatch;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.UserContext;
+import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.injector.Injector;
@@ -66,7 +67,6 @@ import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.pdfsam.update.UpdateCheckRequest;
 import org.sejda.core.Sejda;
-import org.pdfsam.eventstudio.annotation.EventListener;
 import org.sejda.impl.sambox.component.PDDocumentHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -133,7 +133,7 @@ public class PdfsamApp extends Application {
         if (rawParameters.contains("--verbose") || rawParameters.contains("-verbose") || rawParameters.contains("-v")) {
             ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("org.sejda")).setLevel(Level.DEBUG);
             ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("org.sejda.sambox")).setLevel(Level.DEBUG);
-            ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("org.pdfsam")).setLevel(Level.DEBUG);
+            ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("org.pdfsam")).setLevel(Level.TRACE);
             ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("org.pdfsam.eventstudio")).setLevel(Level.INFO);
             LOG.info("Enabled verbose logging");
         }
