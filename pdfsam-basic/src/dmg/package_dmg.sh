@@ -27,7 +27,7 @@ $JAVA_HOME_14/bin/jpackage --runtime-image "${project.build.directory}/runtime/"
 --input "${project.build.directory}/assembled/" --main-class org.pdfsam.basic.App --icon "${project.build.directory}/dmg/Icon.icns" --name "PDFsam Basic" \
 --description "A free open source application to split, merge, extract pages and mix PDF files" --main-jar "${project.build.finalName}.jar" \
 --app-version "${project.version}" --vendor "Sober Lemur S.a.s. di Vacondio Andrea" \
---dest "${project.build.directory}" --copyright "2020 Sober Lemur S.a.s. di Vacondio Andrea" --java-options "-Dorg.pdfsam.disable.ui.restore=true" \
+--dest "${project.build.directory}" --copyright "2020 Sober Lemur S.a.s. di Vacondio Andrea" \
 --mac-package-identifier org.pdfsam.basic  --resource-dir "${project.build.directory}/dmg/resources" --verbose || exit 1
 echo "App image created"
 

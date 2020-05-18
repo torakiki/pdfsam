@@ -73,7 +73,6 @@ class WindowStatusController {
         stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
         stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 4);
         stage.setMaximized(true);
-
     }
 
     private void restore(StageStatus latestStatus) {
