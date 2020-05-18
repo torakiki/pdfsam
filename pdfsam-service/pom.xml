@@ -46,22 +46,6 @@
 			<artifactId>sejda-sambox</artifactId>
 			<exclusions>
 				<exclusion>
-					<groupId>org.bouncycastle</groupId>
-					<artifactId>bcprov-jdk15</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.bouncycastle</groupId>
-					<artifactId>bcmail-jdk15</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.apache.poi</groupId>
-					<artifactId>poi-ooxml</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.apache.commons</groupId>
-					<artifactId>commons-csv</artifactId>
-				</exclusion>
-				<exclusion>
 					<artifactId>sejda-image-writers</artifactId>
 					<groupId>org.sejda</groupId>
 				</exclusion>
