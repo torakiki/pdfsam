@@ -33,11 +33,10 @@ import org.mockito.ArgumentCaptor;
 import org.pdfsam.NoHeadless;
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.eventstudio.Listener;
 import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.LocaleKeyValueItem;
-import org.pdfsam.eventstudio.Listener;
 import org.testfx.framework.junit.ApplicationTest;
 
 import javafx.scene.Scene;
@@ -74,11 +73,12 @@ public class PreferenceAppearencePaneTest extends ApplicationTest {
     public void eventSentOnLocaleChange() {
         Listener<SetLocaleEvent> listener = mock(Listener.class);
         eventStudio().add(SetLocaleEvent.class, listener);
-        Locale first = DefaultI18nContext.SUPPORTED_LOCALES.stream().findFirst().get();
-        clickOn("#localeCombo").clickOn(StringUtils.capitalize(first.getDisplayName()));
+        PreferenceComboBox<LocaleKeyValueItem> localeCombo = lookup("#localeCombo").queryAs(PreferenceComboBox.class);
+        LocaleKeyValueItem first = localeCombo.getItems().get(0);
+        clickOn("#localeCombo").sleep(1000).clickOn(StringUtils.capitalize(first.getValue()));
         ArgumentCaptor<SetLocaleEvent> captor = ArgumentCaptor.forClass(SetLocaleEvent.class);
         verify(listener).onEvent(captor.capture());
-        assertEquals(first.toLanguageTag(), captor.getValue().getLocaleString());
-        verify(userContext).setStringPreference(eq(StringUserPreference.LOCALE), eq(first.toLanguageTag()));
+        assertEquals(first.getKey(), captor.getValue().getLocaleString());
+        verify(userContext).setStringPreference(eq(StringUserPreference.LOCALE), eq(first.getKey()));
     }
 }

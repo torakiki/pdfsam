@@ -18,10 +18,9 @@
  */
 package org.pdfsam.i18n;
 
+import static java.util.Objects.isNull;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
-import java.util.Collections;
-import java.util.LinkedHashSet;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
@@ -42,48 +41,17 @@ import org.xnap.commons.i18n.I18nFactory;
 public final class DefaultI18nContext implements I18nContext {
 
     private static final Logger LOG = LoggerFactory.getLogger(DefaultI18nContext.class);
-    public static final Set<Locale> SUPPORTED_LOCALES;
 
-    static {
-        Set<Locale> supportedLocalesCache = new LinkedHashSet<>();
-        supportedLocalesCache.add(new Locale("eu"));
-        supportedLocalesCache.add(new Locale("bs"));
-        supportedLocalesCache.add(new Locale("pt", "BR"));
-        supportedLocalesCache.add(Locale.SIMPLIFIED_CHINESE);
-        supportedLocalesCache.add(Locale.TRADITIONAL_CHINESE);
-        supportedLocalesCache.add(new Locale("co"));
-        supportedLocalesCache.add(new Locale("hr"));
-        supportedLocalesCache.add(new Locale("cs"));
-        supportedLocalesCache.add(new Locale("da"));
-        supportedLocalesCache.add(new Locale("nl"));
-        supportedLocalesCache.add(Locale.UK);
-        supportedLocalesCache.add(Locale.FRENCH);
-        supportedLocalesCache.add(Locale.GERMAN);
-        supportedLocalesCache.add(new Locale("he"));
-        supportedLocalesCache.add(new Locale("hu"));
-        supportedLocalesCache.add(new Locale("el"));
-        supportedLocalesCache.add(Locale.JAPANESE);
-        supportedLocalesCache.add(Locale.ITALIAN);
-        supportedLocalesCache.add(new Locale("pl"));
-        supportedLocalesCache.add(new Locale("pt"));
-        supportedLocalesCache.add(new Locale("ro"));
-        supportedLocalesCache.add(new Locale("ru"));
-        supportedLocalesCache.add(new Locale("sk"));
-        supportedLocalesCache.add(new Locale("sl"));
-        supportedLocalesCache.add(new Locale("sv"));
-        supportedLocalesCache.add(new Locale("es"));
-        supportedLocalesCache.add(new Locale("tr"));
-        supportedLocalesCache.add(new Locale("uk"));
-        supportedLocalesCache.add(new Locale("fi"));
-
-        SUPPORTED_LOCALES = Collections.unmodifiableSet(supportedLocalesCache);
-    }
+    private final Set<Locale> supportedLocales = Set.of(new Locale("eu"), new Locale("bs"), new Locale("pt", "BR"),
+            Locale.SIMPLIFIED_CHINESE, Locale.TRADITIONAL_CHINESE, new Locale("co"), new Locale("hr"), new Locale("cs"),
+            new Locale("da"), new Locale("nl"), Locale.UK, Locale.FRENCH, Locale.GERMAN, new Locale("he"),
+            new Locale("hu"), new Locale("el"), Locale.JAPANESE, Locale.ITALIAN, new Locale("pl"), new Locale("pt"),
+            new Locale("ro"), new Locale("ru"), new Locale("sk"), new Locale("sl"), new Locale("sv"), new Locale("es"),
+            new Locale("tr"), new Locale("uk"), new Locale("fi"));
 
     private I18n i18n;
 
     DefaultI18nContext() {
-        Locale.setDefault(getBestLocale());
-        refreshBundles();
         eventStudio().addAnnotatedListeners(this);
     }
 
@@ -98,18 +66,19 @@ public final class DefaultI18nContext implements I18nContext {
         String localeString = e.getLocaleString();
         if (StringUtils.isNotBlank(localeString)) {
             LOG.trace("Setting default locale to {}", localeString);
-            Optional.ofNullable(Locale.forLanguageTag(localeString)).filter(SUPPORTED_LOCALES::contains)
+            Optional.ofNullable(Locale.forLanguageTag(localeString)).filter(supportedLocales::contains)
                     .ifPresent(Locale::setDefault);
             refreshBundles();
         }
     }
 
     Locale getBestLocale() {
-        if (SUPPORTED_LOCALES.contains(Locale.getDefault())) {
+        if (supportedLocales.contains(Locale.getDefault())) {
+            LOG.trace("Using best matching locale: {}", Locale.getDefault());
             return Locale.getDefault();
         }
         Locale onlyLanguage = new Locale(Locale.getDefault().getLanguage());
-        if (SUPPORTED_LOCALES.contains(onlyLanguage)) {
+        if (supportedLocales.contains(onlyLanguage)) {
             LOG.trace("Using supported locale closest to default {}", onlyLanguage);
             return onlyLanguage;
         }
@@ -126,17 +95,32 @@ public final class DefaultI18nContext implements I18nContext {
 
     @Override
     public String i18n(String input) {
+        initBundleIfRequired();
         return i18n.tr(input);
     }
 
     @Override
     public String i18n(String input, String value) {
+        initBundleIfRequired();
         return i18n.tr(input, value);
     }
 
     @Override
     public String i18n(String input, String value0, String value1) {
+        initBundleIfRequired();
         return i18n.tr(input, value0, value1);
+    }
+
+    void initBundleIfRequired() {
+        if (isNull(i18n)) {
+            Locale.setDefault(getBestLocale());
+            refreshBundles();
+        }
+    }
+
+    @Override
+    public Set<Locale> getSupportedLocales() {
+        return supportedLocales;
     }
 
     /**

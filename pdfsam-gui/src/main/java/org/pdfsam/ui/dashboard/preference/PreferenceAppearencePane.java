@@ -18,8 +18,8 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
-import static org.pdfsam.ui.help.HelpUtils.helpIcon;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.ui.help.HelpUtils.helpIcon;
 
 import java.util.Comparator;
 import java.util.Locale;
@@ -51,7 +51,9 @@ class PreferenceAppearencePane extends GridPane {
             ClearStatisticsButton clearStatsButton) {
         I18nContext i18n = DefaultI18nContext.getInstance();
         add(new Label(i18n.i18n("Language:")), 0, 0);
-        DefaultI18nContext.SUPPORTED_LOCALES.stream().sorted(Comparator.comparing(Locale::getDisplayName))
+        i18n.getSupportedLocales().stream().sorted(
+                Comparator
+                .comparing(Locale::getDisplayName))
                 .map(LocaleKeyValueItem::new).forEach(localeCombo.getItems()::add);
 
         localeCombo.setValue(new LocaleKeyValueItem(Locale.getDefault()));
