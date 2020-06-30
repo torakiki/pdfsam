@@ -35,7 +35,7 @@ import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeJavaFxThreadRule;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
-import org.sejda.model.pdf.PdfMetadataKey;
+import org.sejda.model.pdf.PdfMetadataFields;
 import org.testfx.util.WaitForAsyncUtils;
 
 import javafx.beans.value.ChangeListener;
@@ -61,7 +61,7 @@ public class KeywordsTabTest {
         ChangeListener<? super String> listener = mock(ChangeListener.class);
         keywords.textProperty().addListener(listener);
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(mock(File.class));
-        descriptor.putInformation(PdfMetadataKey.KEYWORDS.getKey(), "test");
+        descriptor.putInformation(PdfMetadataFields.KEYWORDS, "test");
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.requestShow(new ShowPdfDescriptorRequest(descriptor)));
         verify(listener, timeout(2000).times(1)).changed(any(ObservableValue.class), anyString(), eq("test"));
     }
@@ -75,7 +75,7 @@ public class KeywordsTabTest {
         keywords.textProperty().addListener(listener);
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(mock(File.class));
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.requestShow(new ShowPdfDescriptorRequest(descriptor)));
-        descriptor.putInformation(PdfMetadataKey.KEYWORDS.getKey(), "test");
+        descriptor.putInformation(PdfMetadataFields.KEYWORDS, "test");
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
         descriptor.moveStatusTo(PdfDescriptorLoadingStatus.LOADED);

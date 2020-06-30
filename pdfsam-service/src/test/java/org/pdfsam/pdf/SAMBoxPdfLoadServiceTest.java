@@ -38,15 +38,15 @@ import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import org.pdfsam.module.RequiredPdfData;
 import org.pdfsam.test.InitializeJavaFxThreadRule;
-import org.sejda.model.pdf.PdfMetadataKey;
+import org.sejda.model.pdf.PdfMetadataFields;
 
 /**
  * @author Andrea Vacondio
  *
  */
 public class SAMBoxPdfLoadServiceTest {
-    private SAMBoxPdfLoadService victim = new SAMBoxPdfLoadService(Arrays.asList(new PdfLoader[] {
-            new DefaultSAMBoxLoader(), new BookmarksLevelSAMBoxLoader() }));
+    private SAMBoxPdfLoadService victim = new SAMBoxPdfLoadService(
+            Arrays.asList(new PdfLoader[] { new DefaultSAMBoxLoader(), new BookmarksLevelSAMBoxLoader() }));
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
     @Rule
@@ -72,8 +72,8 @@ public class SAMBoxPdfLoadServiceTest {
         waitOrTimeout(() -> PdfDescriptorLoadingStatus.LOADED == descriptor.loadingStatus().getValue(),
                 timeout(seconds(2)));
         assertEquals(2, item.pages().getValue().intValue());
-        assertEquals("Me", item.getInformation(PdfMetadataKey.AUTHOR.getKey()));
-        assertEquals("test", item.getInformation(PdfMetadataKey.KEYWORDS.getKey()));
+        assertEquals("Me", item.getInformation(PdfMetadataFields.AUTHOR));
+        assertEquals("test", item.getInformation(PdfMetadataFields.KEYWORDS));
     }
 
     @Test

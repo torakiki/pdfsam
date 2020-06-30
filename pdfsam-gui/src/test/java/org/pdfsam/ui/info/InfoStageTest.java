@@ -34,7 +34,7 @@ import org.pdfsam.injector.Provides;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
-import org.sejda.model.pdf.PdfMetadataKey;
+import org.sejda.model.pdf.PdfMetadataFields;
 import org.testfx.framework.junit.ApplicationTest;
 import org.testfx.util.WaitForAsyncUtils;
 
@@ -74,7 +74,7 @@ public class InfoStageTest extends ApplicationTest {
         injector = Injector.start(new Config());
         Button button = new Button("show");
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(mock(File.class));
-        descriptor.putInformation(PdfMetadataKey.KEYWORDS.getKey(), "test");
+        descriptor.putInformation(PdfMetadataFields.KEYWORDS, "test");
         button.setOnAction(e -> eventStudio().broadcast(new ShowPdfDescriptorRequest(descriptor)));
         Scene scene = new Scene(new VBox(button));
         stage.setScene(scene);

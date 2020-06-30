@@ -25,12 +25,12 @@ import java.text.DateFormat;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.time.FastDateFormat;
+import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
-import org.pdfsam.eventstudio.annotation.EventListener;
-import org.sejda.model.pdf.PdfMetadataKey;
+import org.sejda.model.pdf.PdfMetadataFields;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -110,10 +110,10 @@ class SummaryTab extends BaseInfoTab implements ChangeListener<PdfDescriptorLoad
         version.setText(current.getVersionString());
         pages.setText(Integer.toString(current.pages().getValue()));
         created.setText(current.getInformation("FormattedCreationDate"));
-        title.setText(current.getInformation(PdfMetadataKey.TITLE.getKey()));
-        author.setText(current.getInformation(PdfMetadataKey.AUTHOR.getKey()));
-        creator.setText(current.getInformation(PdfMetadataKey.CREATOR.getKey()));
-        subject.setText(current.getInformation(PdfMetadataKey.SUBJECT.getKey()));
+        title.setText(current.getInformation(PdfMetadataFields.TITLE));
+        author.setText(current.getInformation(PdfMetadataFields.AUTHOR));
+        creator.setText(current.getInformation(PdfMetadataFields.CREATOR));
+        subject.setText(current.getInformation(PdfMetadataFields.SUBJECT));
         producer.setText(current.getInformation("Producer"));
     }
 

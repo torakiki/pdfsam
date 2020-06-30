@@ -30,7 +30,7 @@ import java.util.GregorianCalendar;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.sejda.model.pdf.PdfMetadataKey;
+import org.sejda.model.pdf.PdfMetadataFields;
 import org.sejda.model.pdf.PdfVersion;
 import org.sejda.sambox.pdmodel.PDDocument;
 import org.sejda.sambox.pdmodel.PDDocumentInformation;
@@ -62,12 +62,12 @@ public class DefaultSAMBoxLoaderTest {
         new DefaultSAMBoxLoader().accept(document, descriptor);
         assertEquals(2, descriptor.pages().getValue().intValue());
         assertEquals(PdfVersion.VERSION_1_4, descriptor.getVersion());
-        assertEquals("Chuck Norris", descriptor.getInformation(PdfMetadataKey.AUTHOR.getKey()));
-        assertEquals("Roundhause", descriptor.getInformation(PdfMetadataKey.SUBJECT.getKey()));
+        assertEquals("Chuck Norris", descriptor.getInformation(PdfMetadataFields.AUTHOR));
+        assertEquals("Roundhause", descriptor.getInformation(PdfMetadataFields.SUBJECT));
         assertNotNull(descriptor.getInformation("FormattedCreationDate"));
-        assertTrue(isEmpty(descriptor.getInformation(PdfMetadataKey.KEYWORDS.getKey())));
-        assertTrue(isEmpty(descriptor.getInformation(PdfMetadataKey.CREATOR.getKey())));
-        assertTrue(isEmpty(descriptor.getInformation(PdfMetadataKey.TITLE.getKey())));
+        assertTrue(isEmpty(descriptor.getInformation(PdfMetadataFields.KEYWORDS)));
+        assertTrue(isEmpty(descriptor.getInformation(PdfMetadataFields.CREATOR)));
+        assertTrue(isEmpty(descriptor.getInformation(PdfMetadataFields.TITLE)));
     }
 
 }

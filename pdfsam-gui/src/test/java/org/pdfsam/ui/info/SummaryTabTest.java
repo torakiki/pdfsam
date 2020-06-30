@@ -45,7 +45,7 @@ import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeJavaFxThreadRule;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
-import org.sejda.model.pdf.PdfMetadataKey;
+import org.sejda.model.pdf.PdfMetadataFields;
 import org.sejda.model.pdf.PdfVersion;
 import org.testfx.util.WaitForAsyncUtils;
 
@@ -111,10 +111,10 @@ public class SummaryTabTest {
     }
 
     private void fillDescriptor(PdfDocumentDescriptor descriptor) {
-        descriptor.putInformation(PdfMetadataKey.TITLE.getKey(), "test.title");
-        descriptor.putInformation(PdfMetadataKey.AUTHOR.getKey(), "test.author");
-        descriptor.putInformation(PdfMetadataKey.CREATOR.getKey(), "test.creator");
-        descriptor.putInformation(PdfMetadataKey.SUBJECT.getKey(), "test.subject");
+        descriptor.putInformation(PdfMetadataFields.TITLE, "test.title");
+        descriptor.putInformation(PdfMetadataFields.AUTHOR, "test.author");
+        descriptor.putInformation(PdfMetadataFields.CREATOR, "test.creator");
+        descriptor.putInformation(PdfMetadataFields.SUBJECT, "test.subject");
         descriptor.putInformation("Producer", "test.producer");
         descriptor.putInformation("FormattedCreationDate", "test.creationDate");
         descriptor.pages(2);

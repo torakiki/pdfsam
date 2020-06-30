@@ -23,7 +23,7 @@ import java.util.Optional;
 
 import org.apache.commons.lang3.time.FastDateFormat;
 import org.pdfsam.module.RequiredPdfData;
-import org.sejda.model.pdf.PdfMetadataKey;
+import org.sejda.model.pdf.PdfMetadataFields;
 import org.sejda.model.pdf.PdfVersion;
 import org.sejda.sambox.pdmodel.PDDocument;
 import org.sejda.sambox.pdmodel.PDDocumentInformation;
@@ -43,11 +43,11 @@ class DefaultSAMBoxLoader implements PdfLoader<PDDocument> {
         descriptor.pages(document.getNumberOfPages());
         descriptor.setVersion(getVersion(document.getVersion()));
         PDDocumentInformation info = document.getDocumentInformation();
-        descriptor.putInformation(PdfMetadataKey.TITLE.getKey(), info.getTitle());
-        descriptor.putInformation(PdfMetadataKey.AUTHOR.getKey(), info.getAuthor());
-        descriptor.putInformation(PdfMetadataKey.CREATOR.getKey(), info.getCreator());
-        descriptor.putInformation(PdfMetadataKey.SUBJECT.getKey(), info.getSubject());
-        descriptor.putInformation(PdfMetadataKey.KEYWORDS.getKey(), info.getKeywords());
+        descriptor.putInformation(PdfMetadataFields.TITLE, info.getTitle());
+        descriptor.putInformation(PdfMetadataFields.AUTHOR, info.getAuthor());
+        descriptor.putInformation(PdfMetadataFields.CREATOR, info.getCreator());
+        descriptor.putInformation(PdfMetadataFields.SUBJECT, info.getSubject());
+        descriptor.putInformation(PdfMetadataFields.KEYWORDS, info.getKeywords());
         descriptor.putInformation("Producer", info.getProducer());
         Optional.ofNullable(info.getCreationDate()).map(FORMATTER::format)
                 .ifPresent(c -> descriptor.putInformation("FormattedCreationDate", c));

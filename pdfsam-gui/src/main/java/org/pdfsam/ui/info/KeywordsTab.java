@@ -20,12 +20,12 @@ package org.pdfsam.ui.info;
 
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
+import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
-import org.pdfsam.eventstudio.annotation.EventListener;
-import org.sejda.model.pdf.PdfMetadataKey;
+import org.sejda.model.pdf.PdfMetadataFields;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -70,7 +70,7 @@ class KeywordsTab extends Tab implements ChangeListener<PdfDescriptorLoadingStat
             current = event.getDescriptor();
             current.loadingStatus().addListener(new WeakChangeListener<>(this));
         }
-        keywords.setText(event.getDescriptor().getInformation(PdfMetadataKey.KEYWORDS.getKey()));
+        keywords.setText(event.getDescriptor().getInformation(PdfMetadataFields.KEYWORDS));
     }
 
     @Override
@@ -78,7 +78,7 @@ class KeywordsTab extends Tab implements ChangeListener<PdfDescriptorLoadingStat
             PdfDescriptorLoadingStatus oldValue, PdfDescriptorLoadingStatus newValue) {
         if (newValue == PdfDescriptorLoadingStatus.LOADED) {
             LOG.trace("Descriptor loaded, updating keywords tab");
-            Platform.runLater(() -> keywords.setText(current.getInformation(PdfMetadataKey.KEYWORDS.getKey())));
+            Platform.runLater(() -> keywords.setText(current.getInformation(PdfMetadataFields.KEYWORDS)));
         }
 
     }
