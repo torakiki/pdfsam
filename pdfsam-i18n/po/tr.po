@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-01-29 14:48+0100\n"
-"PO-Revision-Date: 2019-06-04 10:03+0000\n"
-"Last-Translator: Uygar Demir Koç <Unknown>\n"
+"PO-Revision-Date: 2020-07-19 10:23+0000\n"
+"Last-Translator: Hakan Islamoglu <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-02-03 08:56+0000\n"
-"X-Generator: Launchpad (build 0a62c17273454a1313f81a74a2198ec30b44c7b6)\n"
+"X-Launchpad-Export-Date: 2020-07-20 08:36+0000\n"
+"X-Generator: Launchpad (build 4809fcb62f445aaa3ae919f7f6c3cc7d156ea57a)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Hiçbir PDF dosyası seçmediniz"
@@ -102,7 +102,7 @@ msgid "Environment"
 msgstr "Ortam"
 
 msgid "Vendor: %s"
-msgstr ""
+msgstr "Sağlayıcı: %s"
 
 msgid "Java runtime path: %s"
 msgstr "Java uygulamasının (runtime) konumu:"
@@ -173,6 +173,8 @@ msgid ""
 "Usage statistics are used to populate the modules quick bar on the left with "
 "the most used and most recently used modules."
 msgstr ""
+"Kullanım istatistikleri sol taraftaki modüller hızlı erişimi çubuğunu en çok "
+"kullanılan ve en son kullanılan modüllerle doldurmak için kullanılmaktadır."
 
 msgid "Manually selected"
 msgstr "El ile seçildi"
@@ -275,26 +277,30 @@ msgid ""
 "Turn on or off the notification appearing once in a while and asking the "
 "user to support PDFsam with a donation"
 msgstr ""
+"Ara sıra görünerek kullanıcılardan PDFsam'ı bir bağışla desteklemelerini "
+"isteyen bildirimi açın veya kapatın."
 
 msgid "Show premium features"
-msgstr ""
+msgstr "Premium özellikleri göster"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
 "description in the modules dashboard"
 msgstr ""
+"Uygulamanın modül panelinde premium özelliklerin açıklamalarını gösterip "
+"göstermeyeceğini belirler"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Seçili PDF belgesinin dizinini çıktı dizini olarak kullan"
 
 msgid "Save default workspace on exit"
-msgstr ""
+msgstr "Çıkışta varsayılan çalışma alanını kaydet"
 
 msgid "If a default workspace is set, save it on application exit"
-msgstr ""
+msgstr "Eğer varsayılan bir çalışma alanı belirlenmişse çıkışta onu kaydet"
 
 msgid "Maximum number of rows mast be a positive number"
-msgstr ""
+msgstr "En fazla satır sayısı pozitif bir sayı olmalıdır"
 
 msgid "Generate high quality thumbnails (slower)"
 msgstr "Yüksek kaliteli küçük resimler oluştur (yavaştır)"
@@ -303,7 +309,7 @@ msgid "Size in px:"
 msgstr "Piksel boyutu:"
 
 msgid "Library used to generate thumbnails"
-msgstr ""
+msgstr "Ön izlemeleri oluşturmakta kullanılan kütüphane"
 
 msgid "Thumbnails creator:"
 msgstr "Küçük resim oluşturucu:"
@@ -371,13 +377,14 @@ msgid "Do you want to create it?"
 msgstr "Oluşturmak istermisiniz?"
 
 msgid "Subdirectories"
-msgstr ""
+msgstr "Alt dizinler"
 
 msgid "Subdirectories have been found"
-msgstr ""
+msgstr "Alt dizinler bulundu"
 
 msgid "Do you want to add PDF files found in subdirectories?"
 msgstr ""
+"Alt dizinlerin içinde bulunan PDF dosyalarının eklenmesini ister misiniz?"
 
 msgid "Task failed"
 msgstr "Görev başarısız oldu"
@@ -416,19 +423,21 @@ msgid ""
 "Unable to access \"{0}\", please make sure you have write permissions or "
 "open the application messages for details."
 msgstr ""
+"\"{0}\"'a/e erişilemedi, lütfen yazma hakkınız olduğundan emin olun veya "
+"ayrıntılar için uygulama mesajlarını açın."
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
-msgstr ""
+msgstr "PDFsam ile {0} görev yerine getirdiniz. Faydası oldu mu?"
 
 msgid "Give something back"
-msgstr ""
+msgstr "Karşılığında bir şey verin."
 
 msgid "PDFsam worked hard!"
-msgstr ""
+msgstr "PDFsam çok çalıştı!"
 
 msgid "Spread the word!"
-msgstr ""
+msgstr "Haberi yay!"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -441,10 +450,10 @@ msgid "New version available"
 msgstr "Yeni versiyon var"
 
 msgid "You are running the latest version of PDFsam Basic"
-msgstr ""
+msgstr "PDFsam Basic'in en son sürümünü çalıştırıyorsunuz"
 
 msgid "No update"
-msgstr ""
+msgstr "Güncelleme yok"
 
 msgid "Open"
 msgstr "Aç"
@@ -471,10 +480,10 @@ msgid "_Save"
 msgstr "_Kaydet"
 
 msgid "Recen_ts"
-msgstr ""
+msgstr "Son kullanılanlar"
 
 msgid "_Clear recents"
-msgstr ""
+msgstr "_Son kullanılanları temizle"
 
 msgid "Select the workspace file to save"
 msgstr "Kaydetmek için çalışma alanı seçin"
@@ -488,6 +497,8 @@ msgstr "İşaretlemelere göre ayır"
 msgid ""
 "Split a PDF document at bookmarked pages by specifying a bookmark level."
 msgstr ""
+"Bir yer imi seviyesi belirterek yer imi ile işaretlenmiş sayfalarda PDF "
+"dökümanını bölünmesi sağlayın."
 
 msgid "Select or drag and drop the PDF you want to split"
 msgstr "Ayırmak istediğin PDF dosyalarını sürükle bırak ya da seç"
@@ -496,10 +507,10 @@ msgid "Split settings"
 msgstr "Ayırma ayarları"
 
 msgid "Regular expression the bookmark has to match"
-msgstr ""
+msgstr "Yer iminin eşleşmesi gereken kurallı ifade"
 
 msgid "Split at this bookmark level:"
-msgstr ""
+msgstr "Bu yer imi seviyesinde böl"
 
 msgid "Matching regular expression:"
 msgstr "Eşleşen kurallı ifade"
@@ -510,9 +521,11 @@ msgstr "İşaretli metnin ile eşleşen kurallı ifade"
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
 msgstr ""
+"Örnek: \"Bölüm\" kelimesini içeren yer imleriyle eşleşmek için .*Bölüm.* "
+"yazın"
 
 msgid "Invalid bookmarks level"
-msgstr ""
+msgstr "Geçersiz yer imi seviyesi"
 
 msgid "Show errors"
 msgstr "Hataları göster"
@@ -547,16 +560,16 @@ msgid "The selected PDF document is invalid"
 msgstr "Seçili PDF belgesi geçersiz"
 
 msgid "Select the PDF file"
-msgstr ""
+msgstr "PDF dosyasını seçin"
 
 msgid "_Select PDF"
-msgstr ""
+msgstr "_PDF seç"
 
 msgid "_Clear"
 msgstr "_Temizle"
 
 msgid "Clear all settings"
-msgstr ""
+msgstr "Tüm ayarları sıfırla"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -593,7 +606,7 @@ msgid "Drag and drop PDF files here"
 msgstr "Pdf dosyalarını buraya sürükle bırak"
 
 msgid "Set as range for all"
-msgstr ""
+msgstr "Tümü için aralık olarak belirle"
 
 msgid "Move to Top"
 msgstr "En Üste Taşı"
@@ -636,13 +649,13 @@ msgid "_Add"
 msgstr "_Ekle"
 
 msgid "PDF list from _text/csv file"
-msgstr ""
+msgstr "_text/csv dosyasından PDF listesi"
 
 msgid "Select pdf documents to load"
 msgstr "Yükelemek için pdf dosyası seçin"
 
 msgid "Select a text or CSV file to load"
-msgstr ""
+msgstr "Yüklemek için bir metin veya CSV dosyası seçin"
 
 msgid "Removes selected documents"
 msgstr "Seçili belgeleri siler"
@@ -669,12 +682,14 @@ msgid "Move _Down"
 msgstr "_Aşağı Taşı"
 
 msgid "Pace"
-msgstr ""
+msgstr "Hız"
 
 msgid ""
 "Double click to set the number of pages after which the task will switch to "
 "the next file"
 msgstr ""
+"Görevin kaç sayfadan sonra bir sonraki dosyaya geçeceğini ayarlamak için "
+"çift tıklayın"
 
 msgid "Reverse"
 msgstr "Tersine çevir"
@@ -687,6 +702,8 @@ msgstr "Sayfalar"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Seçili sayfaları (örn: 2 veya 5-23 veya 2,5-7,12-) belirtmek için çift "
+"tıklayın"
 
 msgid "Page ranges"
 msgstr "Sayfa aralığı"
@@ -714,6 +731,8 @@ msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
 "document"
 msgstr ""
+"Eğer orijinal PDF dökümanındaki yer imlerinden hiçbirini saklamak "
+"istemiyorsanız kutuyu işaretleyin"
 
 msgid "Output PDF version:"
 msgstr "PDF çıktısı versiyonu"
@@ -745,7 +764,7 @@ msgid "Same as the input document"
 msgstr "Giriş belgesinin aynısı"
 
 msgid "An existing output directory is required"
-msgstr ""
+msgstr "Var olan bir çıktı dizinine ihtiyaç var"
 
 msgid "The output directory is required"
 msgstr "Çıktı klasörü belirtilmelidir"
@@ -776,7 +795,7 @@ msgstr "Gözat"
 
 #, java-format
 msgid "PDF version required: {0}"
-msgstr ""
+msgstr "İhtiyaç duyulan PDF sürümü: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "Oluşturulan dosya adı için önek"
@@ -785,13 +804,13 @@ msgid "Add prefix"
 msgstr "Önek ekle"
 
 msgid "Generated PDF documents name prefix:"
-msgstr ""
+msgstr "Oluşturulan PDF dökümanlarına eklenecek ön ad:"
 
 msgid "Prefix for the output files name."
 msgstr "Çıktı dosyası adı için önek"
 
 msgid "Some special keywords are replaced with runtime values."
-msgstr ""
+msgstr "Bazı özel kelimeler çalışma zamanı değerleri ile değiştirildi."
 
 msgid "Right click to add these keywords."
 msgstr "Bu anahtar kelimeleri eklemek için sağ tıklayın"
@@ -823,12 +842,14 @@ msgstr "Dokümanı belirtilen sayfa numaralarının ardından bölümle"
 msgid ""
 "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
+"PDF'yi her \"n\" sayfada bölerek her biri \"n\" safyadan oluşan dökümanlar "
+"oluşturur"
 
 msgid "Split after the following page numbers"
-msgstr ""
+msgstr "Takip eden sayılardan sonra böl"
 
 msgid "Page numbers to split at (n1,n2,n3..)"
-msgstr ""
+msgstr "Bölmenin gerçekleşeceği sayfa sayıları (sayı1,sayı2,sayı3...)"
 
 msgid "Invalid page numbers"
 msgstr "Geçersiz sayfa numarası"
@@ -853,11 +874,11 @@ msgstr "Son uygun sürüm bulunması olanaksız."
 
 #, java-format
 msgid "Unable to find any valid PDF file in the list: {0}"
-msgstr ""
+msgstr "Listede geçerli bir PDF dosyası bulunamadı: {0}"
 
 #, java-format
 msgid "Unable to load PDF list file from {0}"
-msgstr ""
+msgstr "Dosyadan PDF listesi yüklenemedi {0}"
 
 msgid "Loading pdf documents"
 msgstr "PDF dokümanları yükleniyor"
@@ -866,13 +887,13 @@ msgid "Documents loaded"
 msgstr "Belgeler yükleniyor"
 
 msgid "Unable to retrieve premium features description"
-msgstr ""
+msgstr "Premium özelliklerin açıklamaları alınamadı"
 
 msgid "Fetching premium modules"
-msgstr ""
+msgstr "Premium modüller alınıyor"
 
 msgid "Unable to retrieve premium modules"
-msgstr ""
+msgstr "Premium modüller getirilemedi"
 
 msgid "Unable to retrieve latest news"
 msgstr "En son haberler alınamadı"
@@ -885,40 +906,42 @@ msgstr "En son haberler alınamadı"
 
 #, java-format
 msgid "Saving workspace data to {0}"
-msgstr ""
+msgstr "Çalışma alanı verileri {0} konumuna kaydediliyor."
 
 msgid "Workspace saved"
-msgstr ""
+msgstr "Çalışma alanı kaydedildi"
 
 msgid "Requesting modules state"
-msgstr ""
+msgstr "Modül durumu isteniyor"
 
 msgid "Unable to save modules workspace"
-msgstr ""
+msgstr "Modül çalışma alanı kaydedilemedi"
 
 #, java-format
 msgid "Unable to save workspace to {0}"
-msgstr ""
+msgstr "Çalışma alanı {0} konumuna kaydedilemedi"
 
 #, java-format
 msgid "Loading workspace from {0}"
-msgstr ""
+msgstr "{0} konumundan çalışma alanı yükleniyor"
 
 msgid "Workspace loaded"
-msgstr ""
+msgstr "Çalışma alanı yüklendi"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
-msgstr ""
+msgstr "{0} konumundan çalışma alanı yüklenemedi"
 
 msgid "Split by size"
 msgstr "Büyüklüğe göre ayır"
 
 msgid "Split a PDF document in files of the given size (roughly)."
 msgstr ""
+"Belirtilen bir boyuta (yaklaşık olarak) ulaşıldığında PDF dökümanını "
+"parçalara böler."
 
 msgid "Megabytes"
-msgstr ""
+msgstr "Megabayt"
 
 msgid "MB"
 msgstr "MB"
@@ -930,10 +953,10 @@ msgid "KB"
 msgstr "KB"
 
 msgid "Set the size to split at"
-msgstr ""
+msgstr "Bölümleme yapılacak boyutu belirle"
 
 msgid "Size must be a number"
-msgstr ""
+msgstr "Boyut bir sayı olmalıdır"
 
 msgid "Split at this size:"
 msgstr "Bu boyuta ulaşınca böl:"
@@ -948,6 +971,8 @@ msgid ""
 "Merge two or more PDF documents taking pages alternately in natural or "
 "reverse order."
 msgstr ""
+"İki veya daha fazla PDf dökümanını her birinden sayfaları düz ya da ters "
+"sırayla alarak birleştir."
 
 msgid "Destination file"
 msgstr "Hedef dosya"
@@ -955,9 +980,11 @@ msgstr "Hedef dosya"
 msgid ""
 "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Karıştırma istediğiniz sayfaları (örn: 2 veya 5-23 veya 2,5-7,12-) belirtmek "
+"için çift tıklayın"
 
 msgid "Select a positive integer number as pace"
-msgstr ""
+msgstr "Hız olarak pozitif bir tam sayı seçiniz"
 
 msgid "All pages"
 msgstr "Tüm sayfalar"
@@ -977,6 +1004,8 @@ msgstr "Döndür "
 msgid ""
 "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Döndürmek istediğiniz sayfaları (örn: 2 veya 5-23 veya 2,5-7,12-) belirtmek "
+"için çift tıklayın"
 
 msgid "Rotate"
 msgstr "Döndür"
@@ -1007,10 +1036,10 @@ msgid "Add a footer"
 msgstr "Altbilgi ekle"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
-msgstr ""
+msgstr "Sayfanın ait olduğu dosyanın adını içeren bir altbilgi ekler"
 
 msgid "Normalize pages size"
-msgstr ""
+msgstr "Sayfa boyutlarını normalleştir"
 
 msgid "Resizes all pages to have the same width as the first page."
 msgstr "Tüm sayfaları birinci sayfa ile aynı genişliğe getir."
@@ -1019,7 +1048,7 @@ msgid "Merge fields"
 msgstr "Alanları birleştir"
 
 msgid "Merge renaming existing fields"
-msgstr ""
+msgstr "Var olan alanları yeniden adlandırarak birleştir"
 
 msgid "Flatten"
 msgstr "Düzleştir"
@@ -1043,12 +1072,14 @@ msgstr "Birleştirilen dokümanlardan herbiri için bir girdi oluştur"
 
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr ""
+"Birleştirilen her dökümana ait bir girdi olacak şekilde yer imlerini koru"
 
 msgid "Bookmarks handling:"
-msgstr ""
+msgstr "Yer imleri yönetimi"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr ""
+"Bir ya da daha fazla dökümanda yer imleri bulunması durumda yapılacaklar"
 
 msgid "Don't generate"
 msgstr "Oluşturma"
@@ -1070,14 +1101,14 @@ msgid "Merge"
 msgstr "Birleştir"
 
 msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "Birden çok PDF dosyasının tümünü veya alt kısımlarını birleştirme"
+msgstr "Birden çok PDF dosyasının tümünü veya belirli bölümlerini birleştir."
 
 msgid "Merge settings"
 msgstr "Birleştirme ayarları"
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
-msgstr ""
+msgstr "\"{0}\" adlı dosya yok ya da geçersiz"
 
 msgid "Valid user password provided."
 msgstr "Geçerli kullanıcı parolası temin edildi."
@@ -1095,7 +1126,7 @@ msgid "Other"
 msgstr "Diğer"
 
 msgid "Roundish"
-msgstr "Yuvarlaksı"
+msgstr "Yuvarlağımsı"
 
 msgid "Directories"
 msgstr "Dizinler"

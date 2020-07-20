@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-01-29 14:48+0100\n"
-"PO-Revision-Date: 2019-09-12 09:49+0000\n"
+"PO-Revision-Date: 2020-05-21 22:37+0000\n"
 "Last-Translator: Sérgio Marques <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-02-03 08:56+0000\n"
-"X-Generator: Launchpad (build 0a62c17273454a1313f81a74a2198ec30b44c7b6)\n"
+"X-Launchpad-Export-Date: 2020-07-20 08:36+0000\n"
+"X-Generator: Launchpad (build 4809fcb62f445aaa3ae919f7f6c3cc7d156ea57a)\n"
 "Language: pt\n"
 
 msgid "No PDF document has been selected"
@@ -238,7 +238,7 @@ msgstr ""
 "reiniciar)"
 
 msgid "Enabled PDF compression"
-msgstr "Compressão de PDF habilitado"
+msgstr "Compressão de PDF ativada"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
@@ -332,7 +332,7 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 msgid "Directory not empty"
-msgstr "Diretótio não vazio"
+msgstr "Diretório não vazio"
 
 msgid "The selected directory is not empty"
 msgstr "O diretório selecionado não está vazio."
@@ -347,7 +347,7 @@ msgid "Overwrite confirmation"
 msgstr "Confirmação de substituição"
 
 msgid "A file with the given name already exists"
-msgstr "Já existe um fichiro com este nome."
+msgstr "Já existe um ficheiro com este nome."
 
 msgid "Do you want to overwrite it?"
 msgstr "Gostaria de o substituir?"
@@ -403,18 +403,18 @@ msgid ""
 "Input parameters are invalid, open the application messages for details."
 msgstr ""
 "Os parâmetros de entrada não são válidos. Abra as mensagens da aplicação "
-"para detelhes."
+"para detalhes."
 
 msgid "Access denied"
-msgstr "Acesso negado"
+msgstr "Acesso recusado"
 
 #, java-format
 msgid ""
 "Unable to access \"{0}\", please make sure you have write permissions or "
 "open the application messages for details."
 msgstr ""
-"Não foi possível aceder a \"{0}\", por favor confirme que tem permissão de "
-"escrita ou abra a mensagem para mais detalhes."
+"Não foi possível aceder a \"{0}\". Verifique se tem permissão de escrita ou "
+"abra as mensagens da aplicação para mais detalhes."
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
@@ -862,7 +862,7 @@ msgstr "Não foi possível guardar a área de trabalho de módulos"
 
 #, java-format
 msgid "Unable to save workspace to {0}"
-msgstr "Não foi possivel guardar a área de trabalho para {0}"
+msgstr "Não foi possível guardar a área de trabalho para {0}"
 
 #, java-format
 msgid "Loading workspace from {0}"
@@ -1046,13 +1046,13 @@ msgstr "Definições de união"
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
-msgstr ""
+msgstr "\"{0}\" não existe ou é inválido"
 
 msgid "Valid user password provided."
 msgstr "Senha de utilizador inválida"
 
 msgid "This document is encrypted, click to provide a password."
-msgstr "Este docmento está encriptado. Clique para escrever a senha."
+msgstr "Este documento está cifrado. Clique para introduzir a palavra-passe."
 
 msgid "An error has occurred, click for more details."
 msgstr "Ocorreu um erro. Clique para ver os detalhes."

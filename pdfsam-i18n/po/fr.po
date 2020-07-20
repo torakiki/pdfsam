@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-01-29 14:48+0100\n"
-"PO-Revision-Date: 2019-10-26 22:03+0000\n"
-"Last-Translator: Éfrit <Unknown>\n"
+"PO-Revision-Date: 2020-05-11 20:09+0000\n"
+"Last-Translator: Jean-Marc <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-02-03 08:56+0000\n"
-"X-Generator: Launchpad (build 0a62c17273454a1313f81a74a2198ec30b44c7b6)\n"
+"X-Launchpad-Export-Date: 2020-07-20 08:36+0000\n"
+"X-Generator: Launchpad (build 4809fcb62f445aaa3ae919f7f6c3cc7d156ea57a)\n"
 "Language: fr\n"
 
 msgid "No PDF document has been selected"
@@ -743,7 +743,7 @@ msgstr ""
 
 #, java-format
 msgid "Version {0}"
-msgstr "version {0}"
+msgstr "Version {0}"
 
 msgid "Same as the input document"
 msgstr "celle du fichier source"
@@ -1081,7 +1081,7 @@ msgstr "Paramètres de fusion"
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
-msgstr ""
+msgstr "Le fichier « {0} » est non valide ou n'existe pas"
 
 msgid "Valid user password provided."
 msgstr "Mot de passe d'utilisateur valide."

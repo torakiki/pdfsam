@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-01-29 14:48+0100\n"
-"PO-Revision-Date: 2019-07-23 10:08+0000\n"
-"Last-Translator: Mike Smessaert <Unknown>\n"
+"PO-Revision-Date: 2020-06-03 08:57+0000\n"
+"Last-Translator: Hendrik <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-02-03 08:56+0000\n"
-"X-Generator: Launchpad (build 0a62c17273454a1313f81a74a2198ec30b44c7b6)\n"
+"X-Launchpad-Export-Date: 2020-07-20 08:36+0000\n"
+"X-Generator: Launchpad (build 4809fcb62f445aaa3ae919f7f6c3cc7d156ea57a)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Geen PDF-document geselecteerd"
@@ -100,7 +100,7 @@ msgid "Environment"
 msgstr "Omgeving"
 
 msgid "Vendor: %s"
-msgstr ""
+msgstr "Verkoper"
 
 msgid "Java runtime path: %s"
 msgstr "Java-runtime pad: %s"
@@ -252,10 +252,10 @@ msgstr ""
 "beschikbaar is (opnieuw opstarten vereist)"
 
 msgid "Enabled PDF compression"
-msgstr ""
+msgstr "PDF-compressie ingeschakeld"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr ""
+msgstr "Stel in of \"Comprimeer bestand\" standaard moet worden ingeschakeld"
 
 msgid "Play alert sounds"
 msgstr "Speel waarschuwingsgeluiden af"
@@ -380,13 +380,13 @@ msgid "Do you want to create it?"
 msgstr "Wil je die maken?"
 
 msgid "Subdirectories"
-msgstr ""
+msgstr "Submappen"
 
 msgid "Subdirectories have been found"
-msgstr ""
+msgstr "Er zijn submappen gevonden"
 
 msgid "Do you want to add PDF files found in subdirectories?"
-msgstr ""
+msgstr "Wil je PDF-bestanden toevoegen die zijn gevonden in submappen?"
 
 msgid "Task failed"
 msgstr "Taak is mislukt"
@@ -451,7 +451,7 @@ msgid "New version available"
 msgstr "Nieuwe versie beschikbaar"
 
 msgid "You are running the latest version of PDFsam Basic"
-msgstr ""
+msgstr "Je gebruikt de nieuwste versie van PDFsam Basic al."
 
 msgid "No update"
 msgstr "Geen update"
@@ -1099,7 +1099,7 @@ msgstr "Samenvoeginstellingen"
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
-msgstr ""
+msgstr "Bestand \"{0}\" bestaat niet of is ongeldig"
 
 msgid "Valid user password provided."
 msgstr "Valide gebruikerswachtwoord ingegeven."

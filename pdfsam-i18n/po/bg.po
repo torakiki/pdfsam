@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-01-29 14:48+0100\n"
-"PO-Revision-Date: 2019-11-29 20:16+0000\n"
-"Last-Translator: Bogdan Marinov <daggerstab@gmail.com>\n"
+"PO-Revision-Date: 2020-06-01 12:15+0000\n"
+"Last-Translator: Krasimir Nedelchev <k.nedelchev@mail.bg>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-02-03 08:56+0000\n"
-"X-Generator: Launchpad (build 0a62c17273454a1313f81a74a2198ec30b44c7b6)\n"
+"X-Launchpad-Export-Date: 2020-07-20 08:36+0000\n"
+"X-Generator: Launchpad (build 4809fcb62f445aaa3ae919f7f6c3cc7d156ea57a)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Няма избран PDF документ"
@@ -74,16 +74,16 @@ msgid "Select where to save the log file"
 msgstr ""
 
 msgid "About"
-msgstr "За програмата"
+msgstr "Относно"
 
 msgid "Premium features"
 msgstr "Платени функции"
 
 msgid "Close"
-msgstr ""
+msgstr "Затвори"
 
 msgid "Modules"
-msgstr ""
+msgstr "Модули"
 
 msgid "Subscribe to the official news feed"
 msgstr ""
@@ -92,23 +92,23 @@ msgid "Environment"
 msgstr ""
 
 msgid "Vendor: %s"
-msgstr ""
+msgstr "Доставчик: %s"
 
 msgid "Java runtime path: %s"
-msgstr ""
+msgstr "Път към Java инсталация: %s"
 
 msgid "JavaFX runtime version %s"
-msgstr ""
+msgstr "Java FX версия %s"
 
 #, java-format
 msgid "Max memory {0}"
-msgstr ""
+msgstr "Максимална памет {0}"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Копиране в буферната памет"
 
 msgid "Support"
-msgstr ""
+msgstr "Поддръжка"
 
 msgid "Bug and feature requests"
 msgstr ""
@@ -117,31 +117,31 @@ msgid "Documentation"
 msgstr "Документация"
 
 msgid "Contribute"
-msgstr "Допринасяне"
+msgstr "Съдействие"
 
 msgid "Fork PDFsam on GitHub"
 msgstr ""
 
 msgid "Translate"
-msgstr "Превеждане"
+msgstr "Превод"
 
 msgid "Donate"
-msgstr "Дарение"
+msgstr "Дарете"
 
 msgid "Social"
-msgstr "Социални мрежи"
+msgstr "Социални"
 
 msgid "Follow us on Twitter"
-msgstr ""
+msgstr "Последвайте ни в Twitter"
 
 msgid "Like us on Facebook"
-msgstr ""
+msgstr "Харейсайте ни във Facebook"
 
 msgid "Log register rows:"
 msgstr ""
 
 msgid "Maximum number of rows displayed by the Log register"
-msgstr ""
+msgstr "Максимален брой редове показвани в дневника"
 
 msgid "Language:"
 msgstr "Език:"
@@ -178,30 +178,30 @@ msgid "Appearance"
 msgstr "Външен вид"
 
 msgid "Behavior"
-msgstr ""
+msgstr "Режим"
 
 msgid "Workspace"
-msgstr ""
+msgstr "Работно пространство"
 
 msgid "Output"
-msgstr ""
+msgstr "Изходни данни"
 
 msgid "Check for updates now"
-msgstr ""
+msgstr "Проверка за обновления"
 
 msgid ""
 "Select a directory where documents will be saved and loaded by default"
-msgstr ""
-"Изберете директория, където документите се запазват и зареждат по "
-"подразбиране"
+msgstr "Изберете директория по подразбиране за запис и четене"
 
 msgid "Select a directory"
-msgstr ""
+msgstr "Изберете папка"
 
 msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
 "startup"
 msgstr ""
+"Изберете предварително запазено работно пространство за  автоматично "
+"зареждане"
 
 msgid "Select a workspace"
 msgstr ""
