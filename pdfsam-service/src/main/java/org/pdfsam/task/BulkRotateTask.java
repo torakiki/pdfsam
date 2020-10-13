@@ -67,7 +67,6 @@ public class BulkRotateTask extends BaseTask<BulkRotateParameters> {
         int currentStep = 0;
 
         for (PdfRotationInput input : parameters.getInputSet()) {
-            executionContext().assertTaskNotCancelled();
             currentStep++;
             LOG.debug("Opening {}", input.source);
             try {
@@ -80,7 +79,6 @@ public class BulkRotateTask extends BaseTask<BulkRotateParameters> {
 
                 PdfRotator rotator = new PdfRotator(documentHandler.getUnderlyingPDDocument());
                 for (Integer page : input.getPages(documentHandler.getNumberOfPages())) {
-                    executionContext().assertTaskNotCancelled();
                     rotator.rotate(page, input.rotation);
                 }
 
