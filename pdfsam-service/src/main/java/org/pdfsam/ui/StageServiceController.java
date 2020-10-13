@@ -22,9 +22,8 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import javax.inject.Inject;
 
-import org.pdfsam.injector.Auto;
-import org.pdfsam.module.ClearUsageController;
 import org.pdfsam.eventstudio.annotation.EventListener;
+import org.pdfsam.injector.Auto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,7 +35,7 @@ import org.slf4j.LoggerFactory;
  */
 @Auto
 public class StageServiceController {
-    private static final Logger LOG = LoggerFactory.getLogger(ClearUsageController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(StageServiceController.class);
 
     private StageService service;
 

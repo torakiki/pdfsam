@@ -48,7 +48,7 @@ class DefaultStageService implements StageService {
             node.put(STAGE_STATUS_KEY, JSON.std.asString(status));
             LOG.trace("Stage status saved {}", status);
         } catch (IOException e) {
-            LOG.error("Unable to increment modules usage statistics", e);
+            LOG.error("Unable to save Stage status", e);
         }
     }
 
