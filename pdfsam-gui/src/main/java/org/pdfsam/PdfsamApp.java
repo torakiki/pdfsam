@@ -76,12 +76,14 @@ import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
 import javafx.application.Application;
 import javafx.application.HostServices;
 import javafx.application.Platform;
+import javafx.event.Event;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -163,6 +165,7 @@ public class PdfsamApp extends Application {
         initActiveModule();
         loadWorkspaceIfRequired();
         initOpenButtons();
+        escapeMnemonicsOnFocusLost(primaryStage);
         primaryStage.show();
 
         requestCheckForUpdateIfRequired();
@@ -249,6 +252,23 @@ public class PdfsamApp extends Application {
         if (injector.instance(UserContext.class).isCheckForNews()) {
             eventStudio().broadcast(FetchLatestNewsRequest.INSTANCE);
         }
+    }
+
+    /**
+     * This is a workaround for https://bugs.openjdk.java.net/browse/JDK-8238731
+     * 
+     * We fire an ESC key pressed event when the windows looses focus to clear all the mnemonics. Not sure all the edge cases are taken into account, I guess we'll see if some user
+     * reports something.
+     * 
+     * @param primaryStage
+     */
+    private void escapeMnemonicsOnFocusLost(Stage primaryStage) {
+        primaryStage.focusedProperty().addListener((obs, oldVal, newVal) -> {
+            if (!newVal) {
+                Event.fireEvent(primaryStage.getScene(), new KeyEvent(KeyEvent.KEY_PRESSED, KeyEvent.CHAR_UNDEFINED,
+                        KeyCode.ESCAPE.getName(), KeyCode.ESCAPE, false, false, false, false));
+            }
+        });
     }
 
     @EventListener
