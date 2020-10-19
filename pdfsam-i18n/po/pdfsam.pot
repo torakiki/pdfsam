@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2020-01-29 14:48+0100\n"
+"POT-Creation-Date: 2020-10-19 14:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -303,19 +303,25 @@ msgstr ""
 msgid "Select the task to perform on the following files"
 msgstr ""
 
-msgid "Overwrite"
-msgstr ""
-
-msgid "Cancel"
-msgstr ""
-
 msgid "Directory not empty"
 msgstr ""
 
 msgid "The selected directory is not empty"
 msgstr ""
 
-msgid "Overwrite files with the same name as the generated ones?"
+msgid "What would you like to do in case of files with the same name?"
+msgstr ""
+
+msgid "Overwrite"
+msgstr ""
+
+msgid "Rename"
+msgstr ""
+
+msgid "Skip"
+msgstr ""
+
+msgid "Cancel"
 msgstr ""
 
 msgid "Don't overwrite existing file"
@@ -327,7 +333,7 @@ msgstr ""
 msgid "A file with the given name already exists"
 msgstr ""
 
-msgid "Do you want to overwrite it?"
+msgid "What would you like to do?"
 msgstr ""
 
 msgid "Yes"
