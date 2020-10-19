@@ -20,11 +20,11 @@ package org.pdfsam.ui.module;
 
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
+import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.injector.Prototype;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.ui.support.Style;
-import org.pdfsam.eventstudio.annotation.EventListener;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 
@@ -42,7 +42,7 @@ import javafx.scene.control.Button;
 public class RunButton extends Button {
 
     public RunButton() {
-        getStyleClass().addAll(Style.FOOTER_BUTTON.css());
+        getStyleClass().addAll(Style.RUN_BUTTON.css());
         setText(DefaultI18nContext.getInstance().i18n("Run"));
         MaterialDesignIconFactory.get().setIcon(this, MaterialDesignIcon.PLAY, "2.0em");
         setMaxHeight(Double.MAX_VALUE);

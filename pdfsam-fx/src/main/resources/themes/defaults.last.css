@@ -42,3 +42,19 @@
 .toolbar-button, .toolbar-button:default, .toolbar-button:focused {
 	-fx-padding: 0.5em 1em 0.5em 1em !important;
 }
+/**
+* Run Button
+*/
+.run-button, .run-button:default, .run-button:focused {
+	-fx-background-color: -pdfsam-box-border-color, #FFFFFF;
+    -fx-background-insets: 0, 0.5;
+    -fx-font-weight: bold;
+}
+.run-button:focused {
+    -fx-background-color: -pdfsam-box-border-color, #FFFFFF;
+    -fx-background-insets: 0.0, 1.0;
+}
+.run-button > .glyph-icon  {
+    -fx-effect: null;
+    -fx-fill: -pdfsam-theme-color;
+}

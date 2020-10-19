@@ -28,6 +28,7 @@ public enum Style {
     BUTTON("pdfsam-button"),
     BROWSE_BUTTON("pdfsam-button", "browse-button"),
     FOOTER_BUTTON("pdfsam-button", "footer-button"),
+    RUN_BUTTON("pdfsam-button", "footer-button", "run-button"),
     TOOLBAR_BUTTON("toolbar-button"),
     TITLED_PANE("titled-pane"),
     DEAULT_CONTAINER("default-container"),
