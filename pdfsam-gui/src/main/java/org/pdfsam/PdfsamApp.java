@@ -68,6 +68,7 @@ import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.pdfsam.update.UpdateCheckRequest;
 import org.sejda.core.Sejda;
+import org.sejda.core.support.io.IOUtils;
 import org.sejda.impl.sambox.component.PDDocumentHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -113,6 +114,7 @@ public class PdfsamApp extends Application {
         startLogAppender();
         System.setProperty(PDDocumentHandler.SAMBOX_USE_ASYNC_WRITER, Boolean.TRUE.toString());
         System.setProperty(Sejda.UNETHICAL_READ_PROPERTY_NAME, Boolean.TRUE.toString());
+        System.setProperty(IOUtils.TMP_BUFFER_PREFIX_PROPERTY_NAME, "pdfsam");
         LOG.info("Starting PDFsam");
         clean = rawParameters.contains("--clean") || rawParameters.contains("-clean") || rawParameters.contains("-c");
         cleanUserContextIfNeeded(userContext);
