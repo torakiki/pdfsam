@@ -70,6 +70,17 @@ public class OverwriteConfirmationDialog extends Stage {
         initOwner(owner);
     }
 
+    /**
+     * Reset the dialog result and buttons bar
+     * 
+     * @return
+     */
+    OverwriteConfirmationDialog init() {
+        this.response = empty();
+        this.buttons.getChildren().clear();
+        return this;
+    }
+
     OverwriteConfirmationDialog title(String title) {
         setTitle(title);
         return this;

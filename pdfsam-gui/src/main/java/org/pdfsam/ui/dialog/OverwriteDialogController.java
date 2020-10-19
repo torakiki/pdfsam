@@ -93,7 +93,7 @@ public class OverwriteDialogController {
     private void onDirectory(AbstractParameters params, File dir) {
         if (isNotEmpty(dir.listFiles())) {
             I18nContext i18n = DefaultI18nContext.getInstance();
-            OverwriteConfirmationDialog dlg = dialog.get();
+            OverwriteConfirmationDialog dlg = dialog.get().init();
             ExistingOutputPolicy response = dlg.title(i18n.i18n(
                     "Directory not empty"))
                     .messageTitle(i18n.i18n("The selected directory is not empty"))
@@ -113,7 +113,7 @@ public class OverwriteDialogController {
     private void onFile(AbstractParameters params, File file) {
         if (file.exists()) {
             I18nContext i18n = DefaultI18nContext.getInstance();
-            OverwriteConfirmationDialog dlg = dialog.get();
+            OverwriteConfirmationDialog dlg = dialog.get().init();
             ExistingOutputPolicy response = dlg.title(i18n.i18n(
                     "Overwrite confirmation"))
                     .messageTitle(i18n.i18n("A file with the given name already exists"))
