@@ -25,7 +25,11 @@ using System.IO;
                     File.AppendAllText(path, "-Dorg.pdfsam.default.play.sounds=" + session.CustomActionData["sounds"] + Environment.NewLine);
                     session.Log("Added -Dorg.pdfsam.default.play.sounds=" + session.CustomActionData["sounds"]);                     
                     File.AppendAllText(path, "-Dorg.pdfsam.default.fetch.premium.modules=" + session.CustomActionData["premium"] + Environment.NewLine);
-                    session.Log("Added -Dorg.pdfsam.default.fetch.premium.modules=" + session.CustomActionData["premium"]);                     
+                    session.Log("Added -Dorg.pdfsam.default.fetch.premium.modules=" + session.CustomActionData["premium"]);
+                    File.AppendAllText(path, "-Dorg.pdfsam.default.compression=" + session.CustomActionData["compression"] + Environment.NewLine);
+                    session.Log("Added -Dorg.pdfsam.default.compression=" + session.CustomActionData["compression"]);
+                    File.AppendAllText(path, "-Dorg.pdfsam.default.output.overwrite=" + session.CustomActionData["overwrite"] + Environment.NewLine);
+                    session.Log("Added -Dorg.pdfsam.default.output.overwrite=" + session.CustomActionData["overwrite"]);                      
                 }else   
                 {
                     session.Log("Unable to find l4j ini file");
