@@ -26,11 +26,12 @@ import java.io.File;
 import javax.inject.Inject;
 import javax.inject.Provider;
 
-import org.pdfsam.i18n.DefaultI18nContext;
-import org.pdfsam.injector.Auto;
-import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.eventstudio.exception.BroadcastInterruptionException;
+import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
+import org.pdfsam.injector.Auto;
+import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.sejda.model.exception.TaskOutputVisitException;
 import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.ExistingOutputPolicy;
@@ -91,29 +92,39 @@ public class OverwriteDialogController {
 
     private void onDirectory(AbstractParameters params, File dir) {
         if (isNotEmpty(dir.listFiles())) {
-            if (!dialog.get().title(DefaultI18nContext.getInstance().i18n("Directory not empty"))
-                    .messageTitle(DefaultI18nContext.getInstance().i18n("The selected directory is not empty"))
-                    .messageContent(DefaultI18nContext.getInstance()
-                            .i18n("Overwrite files with the same name as the generated ones?"))
-                    .response()) {
-                throw new BroadcastInterruptionException(
-                        DefaultI18nContext.getInstance().i18n("Don't overwrite existing file"));
-            }
-            LOG.trace("Enabling overwrite of the existing output file");
-            params.setExistingOutputPolicy(ExistingOutputPolicy.OVERWRITE);
+            I18nContext i18n = DefaultI18nContext.getInstance();
+            OverwriteConfirmationDialog dlg = dialog.get();
+            ExistingOutputPolicy response = dlg.title(i18n.i18n(
+                    "Directory not empty"))
+                    .messageTitle(i18n.i18n("The selected directory is not empty"))
+                    .messageContent(i18n.i18n("What would you like to do in case of files with the same name?"))
+                    .buttons(dlg.defaultButton(i18n.i18n("Overwrite"), ExistingOutputPolicy.OVERWRITE),
+                            dlg.button(i18n.i18n("Rename"), ExistingOutputPolicy.RENAME),
+                            dlg.button(i18n.i18n("Skip"), ExistingOutputPolicy.SKIP),
+                            dlg.cancelButton(i18n.i18n("Cancel")))
+                    .response()
+                    .orElseThrow(() -> new BroadcastInterruptionException(i18n.i18n("Don't overwrite existing file")));
+
+            LOG.trace("Setting existing output policy to {}", response);
+            params.setExistingOutputPolicy(response);
         }
     }
 
     private void onFile(AbstractParameters params, File file) {
         if (file.exists()) {
-            if (!dialog.get().title(DefaultI18nContext.getInstance().i18n("Overwrite confirmation"))
-                    .messageTitle(DefaultI18nContext.getInstance().i18n("A file with the given name already exists"))
-                    .messageContent(DefaultI18nContext.getInstance().i18n("Do you want to overwrite it?")).response()) {
-                throw new BroadcastInterruptionException(
-                        DefaultI18nContext.getInstance().i18n("Don't overwrite existing file"));
-            }
-            LOG.trace("Enabling overwrite of the existing output file");
-            params.setExistingOutputPolicy(ExistingOutputPolicy.OVERWRITE);
+            I18nContext i18n = DefaultI18nContext.getInstance();
+            OverwriteConfirmationDialog dlg = dialog.get();
+            ExistingOutputPolicy response = dlg.title(i18n.i18n(
+                    "Overwrite confirmation"))
+                    .messageTitle(i18n.i18n("A file with the given name already exists"))
+                    .messageContent(i18n.i18n("What would you like to do?"))
+                    .buttons(dlg.defaultButton(i18n.i18n("Overwrite"), ExistingOutputPolicy.OVERWRITE),
+                            dlg.button(i18n.i18n("Rename"), ExistingOutputPolicy.RENAME), dlg.cancelButton(i18n.i18n(
+                                    "Cancel")))
+                    .response()
+                    .orElseThrow(() -> new BroadcastInterruptionException(i18n.i18n("Don't overwrite existing file")));
+            LOG.trace("Setting existing output policy to {}", response);
+            params.setExistingOutputPolicy(response);
         }
     }
 }

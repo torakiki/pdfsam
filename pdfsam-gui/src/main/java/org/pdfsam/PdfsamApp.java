@@ -58,6 +58,7 @@ import org.pdfsam.ui.dashboard.DashboardConfig;
 import org.pdfsam.ui.dashboard.preference.PreferenceConfig;
 import org.pdfsam.ui.dialog.ConfirmationDialog;
 import org.pdfsam.ui.dialog.OpenWithDialog;
+import org.pdfsam.ui.dialog.OverwriteConfirmationDialog;
 import org.pdfsam.ui.io.SetLatestDirectoryEvent;
 import org.pdfsam.ui.log.LogMessageBroadcaster;
 import org.pdfsam.ui.log.LoggerConfig;
@@ -293,6 +294,7 @@ public class PdfsamApp extends Application {
 
     private void initDialogsOwner(Stage primaryStage) {
         injector.instancesOfType(ConfirmationDialog.class).stream().forEach(d -> d.setOwner(primaryStage));
+        injector.instancesOfType(OverwriteConfirmationDialog.class).stream().forEach(d -> d.setOwner(primaryStage));
         injector.instance(OpenWithDialog.class).setOwner(primaryStage);
     }
 

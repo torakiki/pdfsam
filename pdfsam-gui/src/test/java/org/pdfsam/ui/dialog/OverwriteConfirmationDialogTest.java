@@ -18,16 +18,17 @@
  */
 package org.pdfsam.ui.dialog;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Locale;
+import java.util.Optional;
 
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.pdfsam.NoHeadless;
@@ -35,6 +36,7 @@ import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.sejda.model.output.ExistingOutputPolicy;
 import org.testfx.framework.junit.ApplicationTest;
 
 import javafx.scene.Scene;
@@ -49,7 +51,7 @@ import javafx.stage.Stage;
  */
 public class OverwriteConfirmationDialogTest extends ApplicationTest {
 
-    private boolean overwrite = false;
+    private Optional<ExistingOutputPolicy> response = Optional.empty();
 
     @ClassRule
     public static ClearEventStudioRule CLEAR_STUDIO = new ClearEventStudioRule();
@@ -64,8 +66,12 @@ public class OverwriteConfirmationDialogTest extends ApplicationTest {
         StylesConfig styles = mock(StylesConfig.class);
         OverwriteConfirmationDialog victim = new OverwriteConfirmationDialog(styles);
         Button button = new Button("show");
-        button.setOnAction(a -> overwrite = victim.title("Title").messageTitle("MessageTitle")
-                .messageContent("MessageContent").response());
+        button.setOnAction(a -> response = victim.title("Title").messageTitle("MessageTitle")
+                .messageContent("MessageContent")
+                .buttons(victim.defaultButton("Overwrite", ExistingOutputPolicy.OVERWRITE),
+                        victim.button("Rename", ExistingOutputPolicy.RENAME),
+                        victim.button("Skip", ExistingOutputPolicy.SKIP), victim.cancelButton("Cancel"))
+                .response());
         Scene scene = new Scene(new VBox(button));
         stage.setScene(scene);
         stage.show();
@@ -82,27 +88,45 @@ public class OverwriteConfirmationDialogTest extends ApplicationTest {
     @Test
     @Category(NoHeadless.class)
     public void cancel() {
-        this.overwrite = true;
+        response = Optional.empty();
         clickOn("show");
         clickOn(DefaultI18nContext.getInstance().i18n("Cancel"));
-        assertFalse(this.overwrite);
+        assertTrue(response.isEmpty());
     }
 
     @Test
     public void overwrite() {
-        this.overwrite = false;
+        response = Optional.empty();
         clickOn("show");
-        clickOn(DefaultI18nContext.getInstance().i18n("Overwrite"));
-        assertTrue(this.overwrite);
+        clickOn("Overwrite");
+        assertFalse(response.isEmpty());
+        assertEquals(ExistingOutputPolicy.OVERWRITE, response.get());
     }
 
     @Test
-    @Ignore
+    public void skip() {
+        response = Optional.empty();
+        clickOn("show");
+        clickOn("Skip");
+        assertFalse(response.isEmpty());
+        assertEquals(ExistingOutputPolicy.SKIP, response.get());
+    }
+
+    @Test
+    public void rename() {
+        response = Optional.empty();
+        clickOn("show");
+        clickOn("Rename");
+        assertFalse(response.isEmpty());
+        assertEquals(ExistingOutputPolicy.RENAME, response.get());
+    }
+
+    @Test
     public void esc() {
-        this.overwrite = true;
+        response = Optional.empty();
         clickOn("show");
         push(KeyCode.ESCAPE);
-        assertFalse(this.overwrite);
+        assertTrue(response.isEmpty());
     }
 
 }

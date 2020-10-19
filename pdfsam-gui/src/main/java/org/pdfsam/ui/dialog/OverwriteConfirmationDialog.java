@@ -18,10 +18,25 @@
  */
 package org.pdfsam.ui.dialog;
 
+import static java.util.Optional.empty;
+import static java.util.Optional.ofNullable;
+
+import java.util.Optional;
+
 import javax.inject.Inject;
 
 import org.pdfsam.configuration.StylesConfig;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.ui.support.Style;
+import org.sejda.model.output.ExistingOutputPolicy;
+
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.stage.Window;
 
 /**
  * Dialog asking the user to confirm for the output file overwrite
@@ -29,12 +44,77 @@ import org.pdfsam.i18n.DefaultI18nContext;
  * @author Andrea Vacondio
  *
  */
-public class OverwriteConfirmationDialog extends ConfirmationDialog {
+public class OverwriteConfirmationDialog extends Stage {
+
+    private ConfirmationDialogContent dialogContent;
+    private Optional<ExistingOutputPolicy> response = empty();
+    private HBox buttons = new HBox();
 
     @Inject
     public OverwriteConfirmationDialog(StylesConfig styles) {
-        super(styles, DialogStyle.WARNING, DefaultI18nContext.getInstance().i18n("Overwrite"),
-                DefaultI18nContext.getInstance().i18n("Cancel"));
+        initModality(Modality.WINDOW_MODAL);
+        initStyle(StageStyle.UTILITY);
+        setResizable(false);
+        this.dialogContent = new ConfirmationDialogContent(DialogStyle.WARNING.icon);
+        VBox containerPane = new VBox();
+        containerPane.getStyleClass().addAll(Style.CONTAINER.css());
+        containerPane.getStyleClass().addAll("-pdfsam-dialog", DialogStyle.WARNING.style);
+        buttons.getStyleClass().add("-pdfsam-dialog-buttons");
+        containerPane.getChildren().addAll(dialogContent, buttons);
+        Scene scene = new Scene(containerPane);
+        scene.getStylesheets().addAll(styles.styles());
+        setScene(scene);
+    }
+
+    public void setOwner(Window owner) {
+        initOwner(owner);
+    }
+
+    OverwriteConfirmationDialog title(String title) {
+        setTitle(title);
+        return this;
+    }
+
+    OverwriteConfirmationDialog messageTitle(String title) {
+        dialogContent.messageTitle(title);
+        return this;
+    }
+
+    OverwriteConfirmationDialog messageContent(String title) {
+        dialogContent.messageContent(title);
+        return this;
+    }
+
+    OverwriteConfirmationDialog buttons(Button... buttons) {
+        this.buttons.getChildren().setAll(buttons);
+        return this;
+    }
+
+    public Optional<ExistingOutputPolicy> response() {
+        showAndWait();
+        return response;
+    }
+
+    public Button button(String text, ExistingOutputPolicy response) {
+        Button button = new Button(text);
+        button.getStyleClass().addAll(Style.BUTTON.css());
+        button.setOnAction(e -> {
+            this.response = ofNullable(response);
+            hide();
+        });
+        return button;
+    }
+
+    public Button defaultButton(String text, ExistingOutputPolicy response) {
+        Button button = button(text, response);
+        button.setDefaultButton(true);
+        return button;
+    }
+
+    public Button cancelButton(String text) {
+        Button button = button(text, null);
+        button.setCancelButton(true);
+        return button;
     }
 
 }
