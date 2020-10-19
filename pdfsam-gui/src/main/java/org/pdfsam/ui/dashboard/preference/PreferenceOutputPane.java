@@ -42,7 +42,8 @@ class PreferenceOutputPane extends VBox {
 
     @Inject
     public PreferenceOutputPane(@Named("smartRadio") PreferenceRadioButton smartRadio,
-            @Named("compressionEnabled") PreferenceCheckBox compressionEnabled) {
+            @Named("compressionEnabled") PreferenceCheckBox compressionEnabled,
+            @Named("overwriteOutput") PreferenceCheckBox overwriteOutput) {
         I18nContext i18n = DefaultI18nContext.getInstance();
         ToggleGroup group = new ToggleGroup();
 
@@ -61,7 +62,7 @@ class PreferenceOutputPane extends VBox {
             group.selectToggle(manualRadio);
         }
 
-        getChildren().addAll(manualRadio, smartRadio, compressionEnabled);
+        getChildren().addAll(manualRadio, smartRadio, compressionEnabled, overwriteOutput);
         getStyleClass().addAll(Style.CONTAINER.css());
     }
 }

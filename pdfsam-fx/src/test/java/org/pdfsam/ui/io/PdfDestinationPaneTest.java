@@ -19,13 +19,13 @@
 package org.pdfsam.ui.io;
 
 import static org.apache.commons.lang3.StringUtils.isNotEmpty;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
@@ -76,6 +76,7 @@ public class PdfDestinationPaneTest {
         destination = spy(new BrowsableDirectoryField());
         when(userContext.isUseSmartOutput()).thenReturn(Boolean.FALSE);
         when(userContext.isCompressionEnabled()).thenReturn(Boolean.TRUE);
+        when(userContext.isOverwriteOutput()).thenReturn(Boolean.TRUE);
         victim = new PdfDestinationPane(destination, MODULE, userContext);
     }
 
@@ -109,13 +110,14 @@ public class PdfDestinationPaneTest {
     @Test
     public void reset() {
         destination.getTextField().setText("ChuckNorris");
-        victim.overwrite().setSelected(true);
+        victim.overwrite().setSelected(false);
         victim.resetView();
         assertEquals("", destination.getTextField().getText());
-        assertFalse(victim.overwrite().isSelected());
+        assertTrue(victim.overwrite().isSelected());
         Set<PdfVersion> available = victim.getVersion().getItems().stream().map(PdfVersionComboItem::getVersion)
                 .collect(Collectors.toSet());
-        assertThat(available, allOf(
+        assertThat(available,
+                allOf(
                 containsInAnyOrder(PdfVersion.VERSION_1_5, PdfVersion.VERSION_1_6, PdfVersion.VERSION_1_7),
                 not(containsInAnyOrder(PdfVersion.VERSION_1_2, PdfVersion.VERSION_1_3, PdfVersion.VERSION_1_4))));
     }

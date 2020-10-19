@@ -72,6 +72,12 @@ public interface UserContext {
     boolean isCompressionEnabled();
 
     /**
+     * 
+     * @return if the overwrite output checkbox should be flagged by default
+     */
+    boolean isOverwriteOutput();
+
+    /**
      * @return true if documents password should be saved when saving a workspace
      */
     boolean isSavePwdInWorkspaceFile();

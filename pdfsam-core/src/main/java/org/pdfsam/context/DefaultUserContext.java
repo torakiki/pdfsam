@@ -38,6 +38,8 @@ public final class DefaultUserContext implements UserContext {
     private static final Logger LOG = LoggerFactory.getLogger(DefaultUserContext.class);
 
     static final String CHECK_FOR_UPDATES_PROP = "org.pdfsam.default.checkforupdate";
+    static final String PDF_COMPRESSION_PROP = "org.pdfsam.default.compression";
+    static final String OVERWRITE_OUTPUT_PROP = "org.pdfsam.default.output.overwrite";
     static final String CHECK_FOR_NEWS_PROP = "org.pdfsam.default.checkfornews";
     static final String DONATE_NOTIFICATION_PROP = "org.pdfsam.default.donate.notification";
     static final String PLAY_SOUNDS_PROP = "org.pdfsam.default.play.sounds";
@@ -116,7 +118,14 @@ public final class DefaultUserContext implements UserContext {
 
     @Override
     public boolean isCompressionEnabled() {
-        return prefs.getBoolean(BooleanUserPreference.PDF_COMPRESSION_ENABLED.toString(), Boolean.TRUE);
+        return prefs.getBoolean(BooleanUserPreference.PDF_COMPRESSION_ENABLED.toString(),
+                Boolean.valueOf(System.getProperty(PDF_COMPRESSION_PROP, Boolean.TRUE.toString())));
+    }
+
+    @Override
+    public boolean isOverwriteOutput() {
+        return prefs.getBoolean(BooleanUserPreference.OVERWRITE_OUTPUT.toString(),
+                Boolean.valueOf(System.getProperty(OVERWRITE_OUTPUT_PROP, Boolean.FALSE.toString())));
     }
 
     @Override

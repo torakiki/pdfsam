@@ -47,7 +47,10 @@ public class PreferenceOutputPaneTest extends ApplicationTest {
         PreferenceCheckBox compressionEnabled = new PreferenceCheckBox(BooleanUserPreference.PDF_COMPRESSION_ENABLED,
                 "compression", true, userContext);
         compressionEnabled.setId("compressionEnabled");
-        PreferenceOutputPane victim = new PreferenceOutputPane(smartRadio, compressionEnabled);
+        PreferenceCheckBox overwriteOutput = new PreferenceCheckBox(BooleanUserPreference.OVERWRITE_OUTPUT, "overwrite",
+                false, userContext);
+        overwriteOutput.setId("overwriteOutput");
+        PreferenceOutputPane victim = new PreferenceOutputPane(smartRadio, compressionEnabled, overwriteOutput);
         victim.setId("victim");
         Scene scene = new Scene(new HBox(victim));
         stage.setScene(scene);
@@ -69,6 +72,12 @@ public class PreferenceOutputPaneTest extends ApplicationTest {
     public void clickSmart() {
         clickOn("#smartRadio");
         verify(userContext).setBooleanPreference(BooleanUserPreference.SMART_OUTPUT, true);
+    }
+
+    @Test
+    public void clickOverwrite() {
+        clickOn("#overwriteOutput");
+        verify(userContext).setBooleanPreference(BooleanUserPreference.OVERWRITE_OUTPUT, true);
     }
 
 }

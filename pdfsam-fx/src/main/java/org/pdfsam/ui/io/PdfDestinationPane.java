@@ -23,9 +23,9 @@ import static java.util.Optional.empty;
 import static java.util.Optional.ofNullable;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.ui.help.HelpUtils.helpIcon;
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Map;
 import java.util.Optional;
@@ -33,6 +33,8 @@ import java.util.function.Consumer;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.UserContext;
+import org.pdfsam.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventStation;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.support.params.AbstractPdfOutputParametersBuilder;
@@ -43,8 +45,6 @@ import org.pdfsam.ui.io.PdfVersionCombo.DefaultPdfVersionComboItem;
 import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.support.Views;
 import org.pdfsam.ui.workspace.RestorableView;
-import org.pdfsam.eventstudio.annotation.EventListener;
-import org.pdfsam.eventstudio.annotation.EventStation;
 import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.parameter.base.AbstractPdfOutputParameters;
 import org.sejda.model.pdf.PdfVersion;
@@ -79,6 +79,7 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned, 
             boolean expandAdvanced, DestinationPanelFields... optionalFields) {
         super(destination);
         destination.setId(ownerModule + ".destination");
+        overwrite().setSelected(userContext.isOverwriteOutput());
         requireNotNullArg(userContext, "UserContext cannot be null");
         this.userContext = userContext;
         this.ownerModule = defaultString(ownerModule);
@@ -144,7 +145,8 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned, 
         super.resetView();
         version.resetView();
         compress.setSelected(false);
-        compress.setSelected(true);
+        compress.setSelected(userContext.isCompressionEnabled());
+        overwrite().setSelected(userContext.isOverwriteOutput());
         discardBookmarks.ifPresent(c -> c.setSelected(false));
     }
 

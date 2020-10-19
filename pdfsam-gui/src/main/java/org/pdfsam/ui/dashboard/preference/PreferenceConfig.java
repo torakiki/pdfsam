@@ -18,10 +18,10 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.support.KeyStringValueItem.keyEmptyValue;
 import static org.pdfsam.support.KeyStringValueItem.keyValue;
 import static org.pdfsam.ui.help.HelpUtils.helpIcon;
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Comparator;
 import java.util.List;
@@ -113,6 +113,19 @@ public class PreferenceConfig {
         compressionEnabled.getStyleClass().addAll(Style.WITH_HELP.css());
         compressionEnabled.getStyleClass().add("spaced-vitem");
         return compressionEnabled;
+    }
+
+    @Provides
+    @Named("overwriteOutput")
+    public PreferenceCheckBox overwriteOutput(UserContext userContext) {
+        PreferenceCheckBox overwriteOutput = new PreferenceCheckBox(BooleanUserPreference.OVERWRITE_OUTPUT,
+                DefaultI18nContext.getInstance().i18n("Overwrite files"), userContext.isOverwriteOutput(), userContext);
+        overwriteOutput.setId("overwriteOutput");
+        overwriteOutput.setGraphic(helpIcon(DefaultI18nContext.getInstance()
+                .i18n("Set whether \"Overwrite if already exists\" should be enabled by default")));
+        overwriteOutput.getStyleClass().addAll(Style.WITH_HELP.css());
+        overwriteOutput.getStyleClass().add("spaced-vitem");
+        return overwriteOutput;
     }
 
     @Provides

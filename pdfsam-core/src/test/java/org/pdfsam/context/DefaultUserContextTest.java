@@ -114,6 +114,40 @@ public class DefaultUserContextTest {
     }
 
     @Test
+    public void isCompressionEnabled() {
+        victim.setBooleanPreference(BooleanUserPreference.PDF_COMPRESSION_ENABLED, true);
+        assertTrue(victim.isCompressionEnabled());
+        victim.setBooleanPreference(BooleanUserPreference.PDF_COMPRESSION_ENABLED, false);
+        assertFalse(victim.isCompressionEnabled());
+    }
+
+    @Test
+    public void isCompressionEnabledSystemDefault() {
+        System.setProperty(DefaultUserContext.PDF_COMPRESSION_PROP, "false");
+        assertFalse(victim.isCompressionEnabled());
+        victim.setBooleanPreference(BooleanUserPreference.PDF_COMPRESSION_ENABLED, true);
+        assertTrue(victim.isCompressionEnabled());
+        System.clearProperty(DefaultUserContext.PDF_COMPRESSION_PROP);
+    }
+
+    @Test
+    public void isOverwriteOutput() {
+        victim.setBooleanPreference(BooleanUserPreference.OVERWRITE_OUTPUT, true);
+        assertTrue(victim.isOverwriteOutput());
+        victim.setBooleanPreference(BooleanUserPreference.OVERWRITE_OUTPUT, false);
+        assertFalse(victim.isOverwriteOutput());
+    }
+
+    @Test
+    public void isOverwriteOutputSystemDefault() {
+        System.setProperty(DefaultUserContext.OVERWRITE_OUTPUT_PROP, "true");
+        assertTrue(victim.isOverwriteOutput());
+        victim.setBooleanPreference(BooleanUserPreference.OVERWRITE_OUTPUT, false);
+        assertFalse(victim.isOverwriteOutput());
+        System.clearProperty(DefaultUserContext.OVERWRITE_OUTPUT_PROP);
+    }
+
+    @Test
     public void isPlaySoundsSystemDefault() {
         System.setProperty(DefaultUserContext.PLAY_SOUNDS_PROP, "false");
         assertFalse(victim.isPlaySounds());
