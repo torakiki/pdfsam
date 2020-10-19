@@ -98,7 +98,7 @@ public class BrowsableFileField extends BrowsableField {
                 : "";
         if (FileType.ALL != fileType) {
             errorMessage += DefaultI18nContext.getInstance().i18n("Allowed extensions are {0}",
-                    fileType.getFilter().getExtensions().toString());
+                    fileType.getFilter().getDescription());
         }
         return trim(errorMessage);
     }
