@@ -20,8 +20,8 @@ package org.pdfsam.ui.dialog;
 
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toList;
-import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
 
 import java.nio.file.Path;
 import java.util.List;
@@ -117,7 +117,7 @@ public class OpenWithDialog extends Stage {
                 });
 
                 current.setOnAction((e) -> {
-                    eventStudio().broadcast(new ClearModuleEvent(), m.id());
+                    eventStudio().broadcast(new ClearModuleEvent(m.id()), m.id());
                     eventStudio().broadcast(activeteModule(m.id()));
                     hide();
                     PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(m.id());

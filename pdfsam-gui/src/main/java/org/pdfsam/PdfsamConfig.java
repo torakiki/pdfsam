@@ -30,6 +30,7 @@ import org.pdfsam.injector.Provides;
 import org.pdfsam.sound.PlaySoundController;
 import org.pdfsam.ui.MainPane;
 import org.pdfsam.ui.Theme;
+import org.pdfsam.ui.dialog.ClearModuleConfirmationDialogController;
 import org.pdfsam.ui.dialog.CreateOutputDirectoryDialogController;
 import org.pdfsam.ui.dialog.LenientTaskExecutionDialogController;
 import org.pdfsam.ui.dialog.OpenWithDialogController;
@@ -48,7 +49,8 @@ import javafx.scene.image.ImageView;
 @Components({ OpenFileController.class, WindowStatusController.class, PlaySoundController.class, MainPane.class,
         NotificationsController.class, InfoStageController.class, OpenWithDialogController.class,
         OverwriteDialogController.class, CreateOutputDirectoryDialogController.class,
-        LenientTaskExecutionDialogController.class, MultipleFilesDropController.class, SingleFileDropController.class })
+        ClearModuleConfirmationDialogController.class, LenientTaskExecutionDialogController.class,
+        MultipleFilesDropController.class, SingleFileDropController.class })
 public class PdfsamConfig {
 
     @Provides

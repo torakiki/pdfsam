@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.dialog;
 
+import static org.junit.Assert.assertFalse;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -32,8 +33,10 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
+import org.mockito.ArgumentCaptor;
 import org.pdfsam.NoHeadless;
 import org.pdfsam.configuration.StylesConfig;
+import org.pdfsam.eventstudio.Listener;
 import org.pdfsam.module.Module;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
@@ -41,7 +44,6 @@ import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.ui.InputPdfArgumentsLoadRequest;
 import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
-import org.pdfsam.eventstudio.Listener;
 import org.testfx.framework.junit.ApplicationTest;
 
 import javafx.scene.Scene;
@@ -89,7 +91,9 @@ public class OpenWithDialogTest extends ApplicationTest {
         button.setOnAction(a -> eventStudio().broadcast(event));
         clickOn("show");
         clickOn(module.descriptor().getName());
-        verify(clearListener).onEvent(any());
+        ArgumentCaptor<ClearModuleEvent> captor = ArgumentCaptor.forClass(ClearModuleEvent.class);
+        verify(clearListener).onEvent(captor.capture());
+        assertFalse(captor.getValue().askConfirmation);
         verify(activeModuleListener).onEvent(any());
         verify(loadRequestListener).onEvent(any());
     }

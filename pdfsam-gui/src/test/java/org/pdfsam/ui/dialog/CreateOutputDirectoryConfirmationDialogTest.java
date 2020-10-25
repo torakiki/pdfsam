@@ -21,7 +21,6 @@ package org.pdfsam.ui.dialog;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Locale;
 
@@ -54,7 +53,7 @@ public class CreateOutputDirectoryConfirmationDialogTest extends ApplicationTest
 
     @BeforeClass
     public static void setUp() {
-        eventStudio().broadcast(new SetLocaleEvent(Locale.UK.toLanguageTag()));
+        ((DefaultI18nContext) DefaultI18nContext.getInstance()).refresh(new SetLocaleEvent(Locale.UK.toLanguageTag()));
     }
 
     @Override

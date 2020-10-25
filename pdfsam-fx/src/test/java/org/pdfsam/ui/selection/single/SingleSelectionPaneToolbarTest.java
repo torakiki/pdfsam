@@ -28,10 +28,10 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.NoHeadless;
+import org.pdfsam.eventstudio.Listener;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.pdfsam.ui.selection.single.SingleSelectionPaneToolbar.ClearButton;
-import org.pdfsam.eventstudio.Listener;
 import org.testfx.framework.junit.ApplicationTest;
 
 import javafx.scene.Scene;
@@ -63,7 +63,7 @@ public class SingleSelectionPaneToolbarTest extends ApplicationTest {
     public void clear() {
         Listener<ClearModuleEvent> listener = mock(Listener.class);
         ArgumentCaptor<ClearModuleEvent> captor = ArgumentCaptor.forClass(ClearModuleEvent.class);
-        eventStudio().add(ClearModuleEvent.class, listener, MODULE);
+        eventStudio().add(ClearModuleEvent.class, listener);
         clickOn(b -> b instanceof ClearButton);
         verify(listener).onEvent(captor.capture());
         assertTrue(captor.getValue().clearEverything);

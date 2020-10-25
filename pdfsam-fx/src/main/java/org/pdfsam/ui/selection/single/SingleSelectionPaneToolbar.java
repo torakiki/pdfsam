@@ -75,7 +75,7 @@ class SingleSelectionPaneToolbar extends ToolBar implements ModuleOwned {
         }
 
         public void clearAll(ActionEvent event) {
-            eventStudio().broadcast(new ClearModuleEvent(true), getOwnerModule());
+            eventStudio().broadcast(new ClearModuleEvent(getOwnerModule(), true, true));
         }
     }
 

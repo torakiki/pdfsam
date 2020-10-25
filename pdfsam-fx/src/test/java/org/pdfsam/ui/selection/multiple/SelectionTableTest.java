@@ -25,7 +25,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Matchers.any;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.times;
@@ -52,6 +52,7 @@ import org.pdfsam.NoHeadless;
 import org.pdfsam.NoWindows;
 import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.DefaultUserContext;
+import org.pdfsam.eventstudio.Listener;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
@@ -67,7 +68,6 @@ import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
 import org.pdfsam.ui.commons.ShowStageRequest;
 import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
 import org.pdfsam.ui.selection.multiple.move.MoveType;
-import org.pdfsam.eventstudio.Listener;
 import org.testfx.framework.junit.ApplicationTest;
 import org.testfx.util.WaitForAsyncUtils;
 
@@ -287,7 +287,7 @@ public class SelectionTableTest extends ApplicationTest {
         clickOn("temp.pdf");
         assertEquals(1, victim.getSelectionModel().getSelectedIndices().size());
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
-            eventStudio().broadcast(new ClearModuleEvent(), MODULE);
+            eventStudio().broadcast(new ClearModuleEvent(MODULE), MODULE);
         });
         assertTrue(victim.getSelectionModel().getSelectedIndices().isEmpty());
     }
@@ -361,7 +361,7 @@ public class SelectionTableTest extends ApplicationTest {
         rightClickOn("temp.pdf");
         clickOn(DefaultI18nContext.getInstance().i18n("Duplicate"));
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
-            eventStudio().broadcast(new ClearModuleEvent(), MODULE);
+            eventStudio().broadcast(new ClearModuleEvent(MODULE), MODULE);
         });
         assertFalse(item.get().descriptor().hasReferences());
     }

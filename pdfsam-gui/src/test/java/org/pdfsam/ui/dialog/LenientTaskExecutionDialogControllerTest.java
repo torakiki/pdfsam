@@ -35,6 +35,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import org.pdfsam.configuration.StylesConfig;
+import org.pdfsam.eventstudio.Listener;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.injector.Components;
@@ -42,7 +43,6 @@ import org.pdfsam.injector.Injector;
 import org.pdfsam.injector.Provides;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.eventstudio.Listener;
 import org.sejda.model.exception.TaskNonLenientExecutionException;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 import org.sejda.model.parameter.base.AbstractParameters;
@@ -67,7 +67,7 @@ public class LenientTaskExecutionDialogControllerTest extends ApplicationTest {
 
     @BeforeClass
     public static void setUp() {
-        eventStudio().broadcast(new SetLocaleEvent(Locale.UK.toLanguageTag()));
+        ((DefaultI18nContext) DefaultI18nContext.getInstance()).refresh(new SetLocaleEvent(Locale.UK.toLanguageTag()));
     }
 
     @Override

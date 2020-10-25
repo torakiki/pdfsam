@@ -21,8 +21,8 @@ package org.pdfsam.ui.module;
 import static java.util.Objects.isNull;
 import static java.util.Objects.requireNonNull;
 import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -30,6 +30,9 @@ import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
+import org.pdfsam.eventstudio.ReferenceStrength;
+import org.pdfsam.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventStation;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.ModuleInputOutputType;
@@ -39,9 +42,6 @@ import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.pdfsam.ui.commons.OpenFileRequest;
 import org.pdfsam.ui.support.Style;
-import org.pdfsam.eventstudio.ReferenceStrength;
-import org.pdfsam.eventstudio.annotation.EventListener;
-import org.pdfsam.eventstudio.annotation.EventStation;
 import org.sejda.model.exception.TaskOutputVisitException;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.output.DirectoryTaskOutput;
@@ -153,7 +153,7 @@ public class OpenButton extends SplitMenuButton implements TaskOutputDispatcher 
         private OpenWithMenuItem(Module module) {
             setText(module.descriptor().getName());
             setOnAction((e) -> {
-                eventStudio().broadcast(new ClearModuleEvent(), module.id());
+                eventStudio().broadcast(new ClearModuleEvent(module.id()), module.id());
                 eventStudio().broadcast(activeteModule(module.id()));
                 PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(module.id());
                 latestOutput.stream().map(PdfDocumentDescriptor::newDescriptorNoPassword).forEach(loadEvent::add);

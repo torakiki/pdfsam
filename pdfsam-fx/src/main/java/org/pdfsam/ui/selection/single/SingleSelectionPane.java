@@ -23,6 +23,7 @@ import static java.util.Optional.ofNullable;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.ENCRYPTED;
 import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.WITH_ERRORS;
 import static org.pdfsam.pdf.PdfDocumentDescriptor.newDescriptor;
@@ -30,7 +31,6 @@ import static org.pdfsam.pdf.PdfDocumentDescriptor.newDescriptorNoPassword;
 import static org.pdfsam.support.EncryptionUtils.encrypt;
 import static org.pdfsam.ui.commons.SetDestinationRequest.requestDestination;
 import static org.pdfsam.ui.commons.SetDestinationRequest.requestFallbackDestination;
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
 import java.util.Map;
@@ -39,6 +39,8 @@ import java.util.function.Consumer;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultUserContext;
+import org.pdfsam.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventStation;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
@@ -60,8 +62,6 @@ import org.pdfsam.ui.selection.PasswordFieldPopup;
 import org.pdfsam.ui.selection.single.SingleSelectionPaneToolbar.SelectButton;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.workspace.RestorableView;
-import org.pdfsam.eventstudio.annotation.EventListener;
-import org.pdfsam.eventstudio.annotation.EventStation;
 
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
@@ -274,7 +274,8 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
                 e -> Platform.runLater(() -> eventStudio().broadcast(new ShowPdfDescriptorRequest(descriptor))));
 
         removeSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Remove"), MaterialDesignIcon.MINUS);
-        removeSelected.setOnAction(e -> eventStudio().broadcast(new ClearModuleEvent(), getOwnerModule()));
+        removeSelected.setOnAction(
+                e -> eventStudio().broadcast(new ClearModuleEvent(getOwnerModule()), getOwnerModule()));
 
         MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set destination"),
                 MaterialDesignIcon.AIRPLANE_LANDING);

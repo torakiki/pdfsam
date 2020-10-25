@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 09 feb 2017
- * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
+ * Created on 25 ott 2020
+ * Copyright 2019 by Sober Lemur S.a.s di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -21,18 +21,23 @@ package org.pdfsam.ui.dialog;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Locale;
 
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
+import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.pdfsam.NoHeadless;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
+import org.pdfsam.injector.Components;
+import org.pdfsam.injector.Injector;
+import org.pdfsam.injector.Provides;
 import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.test.HitTestListener;
+import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.testfx.framework.junit.ApplicationTest;
 
 import javafx.scene.Scene;
@@ -44,11 +49,14 @@ import javafx.stage.Stage;
  * @author Andrea Vacondio
  *
  */
-public class LenientExecutionConfirmationDialogTest extends ApplicationTest {
-    private boolean confirm = false;
-
+public class ClearModuleConfirmationDialogControllerTest extends ApplicationTest {
+    @Rule
+    public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule();
     @ClassRule
     public static ClearEventStudioRule CLEAR_STUDIO = new ClearEventStudioRule();
+
+    private Button button;
+    private HitTestListener<ClearModuleEvent> listener;
 
     @BeforeClass
     public static void setUp() {
@@ -57,40 +65,47 @@ public class LenientExecutionConfirmationDialogTest extends ApplicationTest {
 
     @Override
     public void start(Stage stage) {
-        StylesConfig styles = mock(StylesConfig.class);
-        LenientExecutionConfirmationDialog victim = new LenientExecutionConfirmationDialog(styles);
-        Button button = new Button("show");
-        button.setOnAction(a -> confirm = victim.response());
+        Injector.start(new Config());
+        button = new Button("show");
         Scene scene = new Scene(new VBox(button));
         stage.setScene(scene);
         stage.show();
+        listener = new HitTestListener<ClearModuleEvent>();
+    }
+
+    @Components({ ClearModuleConfirmationDialogController.class })
+    static class Config {
+
+        @Provides
+        StylesConfig style() {
+            return mock(StylesConfig.class);
+        }
+
     }
 
     @Test
-    public void contentIsShown() {
+    public void negativeTest() {
+        button.setOnAction(a -> eventStudio().broadcast(new ClearModuleEvent("module", true, true)));
+        eventStudio().add(ClearModuleEvent.class, listener, "module");
         clickOn("show");
-        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("PDFsam can try to overcome the failure")).tryQuery()
-                .isPresent());
-        assertTrue(lookup(DefaultI18nContext.getInstance()
-                .i18n("It may result in PDF files with partial or missing data, proceed anyway?")).tryQuery()
-                        .isPresent());
         clickOn(DefaultI18nContext.getInstance().i18n("No"));
+        assertFalse(listener.isHit());
     }
 
     @Test
-    @Category(NoHeadless.class)
-    public void no() {
-        this.confirm = true;
+    public void noAskConfirmation() {
+        button.setOnAction(a -> eventStudio().broadcast(new ClearModuleEvent("module", true, false)));
+        eventStudio().add(ClearModuleEvent.class, listener, "module");
         clickOn("show");
-        clickOn(DefaultI18nContext.getInstance().i18n("No"));
-        assertFalse(this.confirm);
+        assertTrue(listener.isHit());
     }
 
     @Test
-    public void yes() {
-        this.confirm = false;
+    public void positiveTest() {
+        button.setOnAction(a -> eventStudio().broadcast(new ClearModuleEvent("module", true, true)));
+        eventStudio().add(ClearModuleEvent.class, listener, "module");
         clickOn("show");
         clickOn(DefaultI18nContext.getInstance().i18n("Yes"));
-        assertTrue(this.confirm);
+        assertTrue(listener.isHit());
     }
 }

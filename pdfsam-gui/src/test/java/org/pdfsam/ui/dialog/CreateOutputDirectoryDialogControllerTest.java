@@ -62,7 +62,7 @@ public class CreateOutputDirectoryDialogControllerTest extends ApplicationTest {
 
     @BeforeClass
     public static void setUp() {
-        eventStudio().broadcast(new SetLocaleEvent(Locale.UK.toLanguageTag()));
+        ((DefaultI18nContext) DefaultI18nContext.getInstance()).refresh(new SetLocaleEvent(Locale.UK.toLanguageTag()));
     }
 
     @Override

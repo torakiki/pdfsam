@@ -18,20 +18,33 @@
  */
 package org.pdfsam.ui.commons;
 
+import org.apache.commons.lang3.StringUtils;
+import org.pdfsam.module.ModuleOwned;
+
 /**
  * request to clear the module
  * 
  * @author Andrea Vacondio
  * 
  */
-public class ClearModuleEvent {
-    public final boolean clearEverything;
+public class ClearModuleEvent implements ModuleOwned {
 
-    public ClearModuleEvent(boolean clearEverything) {
+    private String ownerModule = StringUtils.EMPTY;
+    public final boolean clearEverything;
+    public final boolean askConfirmation;
+
+    public ClearModuleEvent(String ownerModule, boolean clearEverything, boolean askConfirmation) {
+        this.ownerModule = ownerModule;
         this.clearEverything = clearEverything;
+        this.askConfirmation = askConfirmation;
     }
 
-    public ClearModuleEvent() {
-        this.clearEverything = false;
+    public ClearModuleEvent(String ownerModule) {
+        this(ownerModule, false, false);
+    }
+
+    @Override
+    public String getOwnerModule() {
+        return ownerModule;
     }
 }

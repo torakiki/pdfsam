@@ -26,6 +26,8 @@ import java.io.File;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
+import org.pdfsam.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventStation;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
@@ -41,8 +43,6 @@ import org.pdfsam.ui.selection.ToolbarButton;
 import org.pdfsam.ui.selection.multiple.move.MoveSelectedEvent;
 import org.pdfsam.ui.selection.multiple.move.MoveType;
 import org.pdfsam.ui.support.Style;
-import org.pdfsam.eventstudio.annotation.EventListener;
-import org.pdfsam.eventstudio.annotation.EventStation;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.MenuItem;
@@ -180,11 +180,11 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
         }
 
         public void clear(ActionEvent event) {
-            eventStudio().broadcast(new ClearModuleEvent(), getOwnerModule());
+            eventStudio().broadcast(new ClearModuleEvent(getOwnerModule(), false, true));
         }
 
         public void clearAll(ActionEvent event) {
-            eventStudio().broadcast(new ClearModuleEvent(true), getOwnerModule());
+            eventStudio().broadcast(new ClearModuleEvent(getOwnerModule(), true, true));
         }
 
         @Override
