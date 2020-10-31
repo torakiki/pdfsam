@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-01-29 14:48+0100\n"
-"PO-Revision-Date: 2020-01-09 11:49+0000\n"
-"Last-Translator: Tiberio Melo <tiberio_melo@yahoo.com.br>\n"
+"POT-Creation-Date: 2020-10-25 18:34+0100\n"
+"PO-Revision-Date: 2020-02-28 13:35+0000\n"
+"Last-Translator: André Marcelo Alvarenga <andrealvarenga@gmx.net>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-02-03 08:56+0000\n"
-"X-Generator: Launchpad (build 0a62c17273454a1313f81a74a2198ec30b44c7b6)\n"
+"X-Launchpad-Export-Date: 2020-10-31 15:16+0000\n"
+"X-Generator: Launchpad (build 96ff31b88b65a0d0ea73b89333fe7c4a2669d8fb)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Nenhum documento PDF foi selecionado"
@@ -248,11 +248,18 @@ msgstr ""
 "iniciar (precisa reiniciar)"
 
 msgid "Enabled PDF compression"
-msgstr "Permitida a compressão de PDF."
+msgstr "Ativar a compressão de PDF"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
 "Selecionar caso \"Comprimir arquivo de saída\" deva ser permitido por padrão."
+
+msgid "Overwrite files"
+msgstr ""
+
+msgid ""
+"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgstr ""
 
 msgid "Play alert sounds"
 msgstr "Tocar alertas sonoros"
@@ -326,17 +333,29 @@ msgstr "PDF não encontrado"
 msgid "What's new"
 msgstr "O que há de novo"
 
+msgid "Yes"
+msgstr "Sim"
+
+msgid "No"
+msgstr "Não"
+
+msgid "Confirm clearing"
+msgstr ""
+
+msgid "Do you confirm?"
+msgstr ""
+
+msgid "Clear the module settings"
+msgstr ""
+
+msgid "Clear the selection table"
+msgstr ""
+
 msgid "Open with"
 msgstr "Abrir com"
 
 msgid "Select the task to perform on the following files"
 msgstr "Selecione a tarefa a executar nos seguintes arquivos"
-
-msgid "Overwrite"
-msgstr "Substituir"
-
-msgid "Cancel"
-msgstr "Cancelar"
 
 msgid "Directory not empty"
 msgstr "O diretório não está vazio"
@@ -344,8 +363,20 @@ msgstr "O diretório não está vazio"
 msgid "The selected directory is not empty"
 msgstr "O diretório selecionado não está vazio"
 
-msgid "Overwrite files with the same name as the generated ones?"
-msgstr "Sobrescrever arquivos com o mesmo nome dos gerados?"
+msgid "What would you like to do in case of files with the same name?"
+msgstr ""
+
+msgid "Overwrite"
+msgstr "Substituir"
+
+msgid "Rename"
+msgstr ""
+
+msgid "Skip"
+msgstr ""
+
+msgid "Cancel"
+msgstr "Cancelar"
 
 msgid "Don't overwrite existing file"
 msgstr "Não substituir o arquivo existente"
@@ -356,14 +387,8 @@ msgstr "Confirmar substituição"
 msgid "A file with the given name already exists"
 msgstr "Já existe um arquivo com o mesmo nome"
 
-msgid "Do you want to overwrite it?"
-msgstr "Deseja substituí-lo?"
-
-msgid "Yes"
-msgstr "Sim"
-
-msgid "No"
-msgstr "Não"
+msgid "What would you like to do?"
+msgstr ""
 
 msgid "Non existing directory"
 msgstr "Diretório inexistente"
@@ -732,7 +757,7 @@ msgid "Show advanced settings"
 msgstr "Mostrar configurações avançadas"
 
 msgid "Hide advanced settings"
-msgstr "Esconder configurações avançadas"
+msgstr "Ocultar as configurações avançadas"
 
 # G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:399
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:452
@@ -754,7 +779,7 @@ msgid "Version {0}"
 msgstr "Versão {0}"
 
 msgid "Same as the input document"
-msgstr "O mesmo do documento de entrada"
+msgstr "A mesma do documento de entrada"
 
 msgid "An existing output directory is required"
 msgstr "Um diretório de saída existente é requerido"
@@ -1020,7 +1045,7 @@ msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr "Adiciona um rodapé com o nome do arquivo ao qual a página pertencia."
 
 msgid "Normalize pages size"
-msgstr "Normaliza o tamanho das páginas"
+msgstr "Normalizar o tamanho das páginas"
 
 msgid "Resizes all pages to have the same width as the first page."
 msgstr "Redimensiona todas as páginas para a mesma largura da primeira"
@@ -1088,7 +1113,7 @@ msgstr "Configurações para mesclar"
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
-msgstr ""
+msgstr "A arquivo \"{0}\" não existe ou é inválido"
 
 msgid "Valid user password provided."
 msgstr "Senha válida fornecida."

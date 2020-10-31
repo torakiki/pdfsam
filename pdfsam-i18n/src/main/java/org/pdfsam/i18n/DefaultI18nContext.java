@@ -42,12 +42,12 @@ public final class DefaultI18nContext implements I18nContext {
 
     private static final Logger LOG = LoggerFactory.getLogger(DefaultI18nContext.class);
 
-    private final Set<Locale> supportedLocales = Set.of(new Locale("eu"), new Locale("bs"), new Locale("pt", "BR"),
-            Locale.SIMPLIFIED_CHINESE, Locale.TRADITIONAL_CHINESE, new Locale("co"), new Locale("hr"), new Locale("cs"),
-            new Locale("da"), new Locale("nl"), Locale.UK, Locale.FRENCH, Locale.GERMAN, new Locale("he"),
-            new Locale("hu"), new Locale("el"), Locale.JAPANESE, Locale.ITALIAN, new Locale("pl"), new Locale("pt"),
-            new Locale("ro"), new Locale("ru"), new Locale("sk"), new Locale("sl"), new Locale("sv"), new Locale("es"),
-            new Locale("tr"), new Locale("uk"), new Locale("fi"));
+    private final Set<Locale> supportedLocales = Set.of(new Locale("af"), new Locale("eu"), new Locale("bs"),
+            new Locale("pt", "BR"), Locale.SIMPLIFIED_CHINESE, Locale.TRADITIONAL_CHINESE, new Locale("co"),
+            new Locale("hr"), new Locale("cs"), new Locale("da"), new Locale("nl"), Locale.UK, Locale.FRENCH,
+            Locale.GERMAN, new Locale("he"), new Locale("hu"), new Locale("el"), Locale.JAPANESE, Locale.ITALIAN,
+            new Locale("pl"), new Locale("pt"), new Locale("ro"), new Locale("ru"), new Locale("sk"), new Locale("sl"),
+            new Locale("sv"), new Locale("es"), new Locale("tr"), new Locale("uk"), new Locale("fi"));
 
     private I18n i18n;
 

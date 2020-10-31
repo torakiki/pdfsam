@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2020-01-29 14:48+0100\n"
-"PO-Revision-Date: 2019-10-25 16:54+0000\n"
+"POT-Creation-Date: 2020-10-25 18:34+0100\n"
+"PO-Revision-Date: 2020-10-29 18:39+0000\n"
 "Last-Translator: Patriccollu <Patrick.Santa-Maria@laposte.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-02-03 08:56+0000\n"
-"X-Generator: Launchpad (build 0a62c17273454a1313f81a74a2198ec30b44c7b6)\n"
+"X-Launchpad-Export-Date: 2020-10-31 15:16+0000\n"
+"X-Generator: Launchpad (build 96ff31b88b65a0d0ea73b89333fe7c4a2669d8fb)\n"
 "Language: co\n"
 
 msgid "No PDF document has been selected"
@@ -243,6 +243,15 @@ msgstr ""
 "Definisce s’è a cumpressione di schedarii d’esciuta deve esse attivata cum’è "
 "preferenze predefinita"
 
+msgid "Overwrite files"
+msgstr "Rimpiazzà i schedarii"
+
+msgid ""
+"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgstr ""
+"Definisce s’è l’ozzione « Rimpiazzallu s’ellu esiste dighjà » deve esse "
+"attivata cum’è preferenze predefinita"
+
 msgid "Play alert sounds"
 msgstr "Sunà i soni d’alerta"
 
@@ -321,17 +330,29 @@ msgstr "Alcunu PDF trovu"
 msgid "What's new"
 msgstr "Ciò chì hè novu"
 
+msgid "Yes"
+msgstr "Iè"
+
+msgid "No"
+msgstr "Innò"
+
+msgid "Confirm clearing"
+msgstr "Cunfirmà a squassatura"
+
+msgid "Do you confirm?"
+msgstr "Cunfirmate ?"
+
+msgid "Clear the module settings"
+msgstr "Squassà e preferenze di u modulu"
+
+msgid "Clear the selection table"
+msgstr "Squassà u tavulone di selezzione"
+
 msgid "Open with"
 msgstr "Apre cù"
 
 msgid "Select the task to perform on the following files"
 msgstr "Selezziunà a tacca à fà per sti schedarii"
-
-msgid "Overwrite"
-msgstr "Rimpiazzà"
-
-msgid "Cancel"
-msgstr "Abbandunà"
 
 msgid "Directory not empty"
 msgstr "Cartulare micca viotu"
@@ -339,8 +360,20 @@ msgstr "Cartulare micca viotu"
 msgid "The selected directory is not empty"
 msgstr "U cartulare selezziunatu ùn hè micca viotu"
 
-msgid "Overwrite files with the same name as the generated ones?"
-msgstr "Rimpiazzà i schedarii cù u litessu nome s’elli esistenu dighjà ?"
+msgid "What would you like to do in case of files with the same name?"
+msgstr "Chì vulete fà in casu di schedarii cù u listessu nome ?"
+
+msgid "Overwrite"
+msgstr "Rimpiazzà"
+
+msgid "Rename"
+msgstr "Rinumà"
+
+msgid "Skip"
+msgstr "Ignurà"
+
+msgid "Cancel"
+msgstr "Abbandunà"
 
 msgid "Don't overwrite existing file"
 msgstr "Ùn rimpiazzate micca i schedarii chì esistenu"
@@ -351,14 +384,8 @@ msgstr "Cunfirmazione di rimpiazzamentu"
 msgid "A file with the given name already exists"
 msgstr "Un schedariu cù u litessu nome esiste dighjà"
 
-msgid "Do you want to overwrite it?"
-msgstr "Vulete rimpiazzallu ?"
-
-msgid "Yes"
-msgstr "Iè"
-
-msgid "No"
-msgstr "Innò"
+msgid "What would you like to do?"
+msgstr "Chì vulete fà ?"
 
 msgid "Non existing directory"
 msgstr "Cartulare inesistente"
@@ -613,7 +640,7 @@ msgid "Name"
 msgstr "Nome"
 
 msgid "Add documents to the table"
-msgstr "Aghjunghje i ducumenti à a tavula"
+msgstr "Aghjunghje i ducumenti à u tavulone"
 
 msgid "_Add"
 msgstr "_Aghjunghje"
@@ -658,8 +685,8 @@ msgid ""
 "Double click to set the number of pages after which the task will switch to "
 "the next file"
 msgstr ""
-"Doppiu cliccu per definisce u numeru di pagine dopu quellu ci vole à scambià "
-"ver di u prossimu schedariu"
+"Doppiu cliccu per definisce u numeru di pagine è dopu si passa à u prossimu "
+"schedariu"
 
 msgid "Reverse"
 msgstr "Arritrusà"
@@ -1055,7 +1082,7 @@ msgstr "Preferenze di fusione"
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
-msgstr ""
+msgstr "U schedariu « {0} » ùn esiste micca o hè inaccettevule"
 
 msgid "Valid user password provided."
 msgstr "A parolla d’intrata d’utilizatore pruvista hè accettevule."

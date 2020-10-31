@@ -1,24 +1,21 @@
-# Sardinian translation for pdfsam
-# Copyright (c) 2018 Rosetta Contributors and Canonical Ltd 2018
-# This file is distributed under the same license as the pdfsam package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
-#
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: pdfsam\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: info@pdfsam.org\n"
 "POT-Creation-Date: 2020-10-25 18:34+0100\n"
-"PO-Revision-Date: 2018-09-21 13:45+0000\n"
-"Last-Translator: LM <Unknown>\n"
-"Language-Team: Sardinian <sc@li.org>\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2020-10-31 15:16+0000\n"
 "X-Generator: Launchpad (build 96ff31b88b65a0d0ea73b89333fe7c4a2669d8fb)\n"
+"Language: \n"
 
 msgid "No PDF document has been selected"
-msgstr "Perunu documentu PDF est istadu isseberadu"
+msgstr ""
 
 msgid "Extract"
 msgstr ""
@@ -27,7 +24,7 @@ msgid "Extract pages from PDF documents."
 msgstr ""
 
 msgid "File names settings"
-msgstr "Impostatziones nùmenes documentos"
+msgstr ""
 
 msgid "Extract settings"
 msgstr ""
@@ -39,7 +36,7 @@ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 
 msgid "Invalid page ranges"
-msgstr "Intervallos de pàginas non vàlidos"
+msgstr ""
 
 msgid "Extract pages:"
 msgstr ""
@@ -680,7 +677,7 @@ msgid "Compress output file/files"
 msgstr ""
 
 msgid "Discard bookmarks"
-msgstr "Boga sos sinnalibros"
+msgstr ""
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -901,7 +898,7 @@ msgid ""
 msgstr ""
 
 msgid "Destination file"
-msgstr "Documentu de destinatzione"
+msgstr ""
 
 msgid ""
 "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -941,34 +938,26 @@ msgstr ""
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Incarca duas bortas pro impostare sas pàginas chi cheres aunire (es: 2 or 5-"
-"23 or 2,5-7,12-)"
 
 msgid "Add a blank page if page number is odd"
-msgstr "Annanghe una pàgina bòida se su nùmeru de sas pàginas est dìspari"
+msgstr ""
 
 msgid ""
 "Adds a blank page after each merged document if the document has an odd "
 "number of pages"
 msgstr ""
-"Annanghet una pàgina bòida a pustis de cada documentu unidu si su documentu "
-"tenet unu nùmeru dìspari de pàginas"
 
 msgid "Add a footer"
-msgstr "Annanghe unu pede de pàgina"
+msgstr ""
 
 msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr ""
-"Annanghet unu pede de pàgina cun su nùmene de su documentu a su cale sa "
-"pàgina aparteniat"
 
 msgid "Normalize pages size"
-msgstr "Normaliza sa mannària de sas pàginas"
+msgstr ""
 
 msgid "Resizes all pages to have the same width as the first page."
 msgstr ""
-"Mudat sa mannària de totu sas pàgina pro fàghere in modu chi tèngiant sa "
-"matessi largària de sa prima pàgina"
 
 msgid "Merge fields"
 msgstr ""
@@ -989,7 +978,7 @@ msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr ""
 
 msgid "Retain bookmarks"
-msgstr "Mantene sos sinnalibros"
+msgstr ""
 
 msgid "Create one entry for each merged document"
 msgstr ""
@@ -1020,13 +1009,13 @@ msgid ""
 msgstr ""
 
 msgid "Merge"
-msgstr "Auni"
+msgstr ""
 
 msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "Auni prus documentos PDF o cantos de cussos"
+msgstr ""
 
 msgid "Merge settings"
-msgstr "Impostatziones de unione"
+msgstr ""
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
@@ -1039,7 +1028,7 @@ msgid "This document is encrypted, click to provide a password."
 msgstr ""
 
 msgid "An error has occurred, click for more details."
-msgstr "B'est istadu un'errore, incarca pro àteras informatziones."
+msgstr ""
 
 msgid "Security"
 msgstr ""

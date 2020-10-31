@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-01-29 14:48+0100\n"
+"POT-Creation-Date: 2020-10-25 18:34+0100\n"
 "PO-Revision-Date: 2019-12-06 20:43+0000\n"
-"Last-Translator: wrossin <Unknown>\n"
+"Last-Translator: mubuk <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-02-03 08:56+0000\n"
-"X-Generator: Launchpad (build 0a62c17273454a1313f81a74a2198ec30b44c7b6)\n"
+"X-Launchpad-Export-Date: 2020-10-31 15:16+0000\n"
+"X-Generator: Launchpad (build 96ff31b88b65a0d0ea73b89333fe7c4a2669d8fb)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Не обрано жодного документа PDF"
@@ -248,6 +248,13 @@ msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
 "Чи потрібно аби \"Стискання вихідних файлів\" було увімкнено за замовчуванням"
 
+msgid "Overwrite files"
+msgstr ""
+
+msgid ""
+"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgstr ""
+
 msgid "Play alert sounds"
 msgstr "Відтворювати звуки повідомлення"
 
@@ -318,17 +325,29 @@ msgstr "Не знайдено жодного файла PDF"
 msgid "What's new"
 msgstr "Що нового"
 
+msgid "Yes"
+msgstr "Так"
+
+msgid "No"
+msgstr "Ні"
+
+msgid "Confirm clearing"
+msgstr ""
+
+msgid "Do you confirm?"
+msgstr ""
+
+msgid "Clear the module settings"
+msgstr ""
+
+msgid "Clear the selection table"
+msgstr ""
+
 msgid "Open with"
 msgstr "Відкрити за допомогою"
 
 msgid "Select the task to perform on the following files"
 msgstr ""
-
-msgid "Overwrite"
-msgstr "Перезаписати"
-
-msgid "Cancel"
-msgstr "Скасувати"
 
 msgid "Directory not empty"
 msgstr "Каталог не порожній"
@@ -336,8 +355,20 @@ msgstr "Каталог не порожній"
 msgid "The selected directory is not empty"
 msgstr "Обраний каталог не порожній"
 
-msgid "Overwrite files with the same name as the generated ones?"
-msgstr "Зберегти нові файли під тим же ім'ям, що і старі?"
+msgid "What would you like to do in case of files with the same name?"
+msgstr ""
+
+msgid "Overwrite"
+msgstr "Перезаписати"
+
+msgid "Rename"
+msgstr ""
+
+msgid "Skip"
+msgstr ""
+
+msgid "Cancel"
+msgstr "Скасувати"
 
 msgid "Don't overwrite existing file"
 msgstr "Не перезаписувати існуючий файл"
@@ -348,14 +379,8 @@ msgstr "Підтвердження перезапису"
 msgid "A file with the given name already exists"
 msgstr "Файл із такою назвою вже існує"
 
-msgid "Do you want to overwrite it?"
-msgstr "Хочете його перезаписати?"
-
-msgid "Yes"
-msgstr "Так"
-
-msgid "No"
-msgstr "Ні"
+msgid "What would you like to do?"
+msgstr ""
 
 msgid "Non existing directory"
 msgstr "Неіснуючий каталог"

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-01-29 14:48+0100\n"
+"POT-Creation-Date: 2020-10-25 18:34+0100\n"
 "PO-Revision-Date: 2020-02-02 14:15+0000\n"
 "Last-Translator: shalom hadad <Unknown>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-02-03 08:56+0000\n"
-"X-Generator: Launchpad (build 0a62c17273454a1313f81a74a2198ec30b44c7b6)\n"
+"X-Launchpad-Export-Date: 2020-10-31 15:16+0000\n"
+"X-Generator: Launchpad (build 96ff31b88b65a0d0ea73b89333fe7c4a2669d8fb)\n"
 
 msgid "No PDF document has been selected"
 msgstr "לא נבחר אף מסמך PDF"
@@ -234,6 +234,13 @@ msgstr "הפעל דחיסת PDF"
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr "קבע האם \"דחיסת קובץ פלט\" יופעל כברירת מחדל"
 
+msgid "Overwrite files"
+msgstr ""
+
+msgid ""
+"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgstr ""
+
 msgid "Play alert sounds"
 msgstr "נגינת צלילי התרעה"
 
@@ -300,17 +307,29 @@ msgstr "לא נמצא PDF"
 msgid "What's new"
 msgstr "מה חדש"
 
+msgid "Yes"
+msgstr "כן"
+
+msgid "No"
+msgstr "לא"
+
+msgid "Confirm clearing"
+msgstr ""
+
+msgid "Do you confirm?"
+msgstr ""
+
+msgid "Clear the module settings"
+msgstr ""
+
+msgid "Clear the selection table"
+msgstr ""
+
 msgid "Open with"
 msgstr "פתח באמצעות"
 
 msgid "Select the task to perform on the following files"
 msgstr "בחר את הפעולה לביצוע על הקבצים הבאים"
-
-msgid "Overwrite"
-msgstr "שכתב קובץ קיים"
-
-msgid "Cancel"
-msgstr "ביטול"
 
 msgid "Directory not empty"
 msgstr "הספרייה לא ריקה"
@@ -318,8 +337,20 @@ msgstr "הספרייה לא ריקה"
 msgid "The selected directory is not empty"
 msgstr "הספריה שנבחרה לא ריקה"
 
-msgid "Overwrite files with the same name as the generated ones?"
-msgstr "לדרוס קבצים בעלי שם זהה לקבצים הנוצרים?"
+msgid "What would you like to do in case of files with the same name?"
+msgstr ""
+
+msgid "Overwrite"
+msgstr "שכתב קובץ קיים"
+
+msgid "Rename"
+msgstr ""
+
+msgid "Skip"
+msgstr ""
+
+msgid "Cancel"
+msgstr "ביטול"
 
 msgid "Don't overwrite existing file"
 msgstr "אל תדרוס קבצים קיימים"
@@ -330,14 +361,8 @@ msgstr "אישור דריסה"
 msgid "A file with the given name already exists"
 msgstr "קובץ בעל שם זה כבר קיים"
 
-msgid "Do you want to overwrite it?"
-msgstr "האם לדרוס אותו?"
-
-msgid "Yes"
-msgstr "כן"
-
-msgid "No"
-msgstr "לא"
+msgid "What would you like to do?"
+msgstr ""
 
 msgid "Non existing directory"
 msgstr "תיקייה לא קיימת"

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-01-29 14:48+0100\n"
-"PO-Revision-Date: 2020-07-19 10:23+0000\n"
+"POT-Creation-Date: 2020-10-25 18:34+0100\n"
+"PO-Revision-Date: 2020-07-21 06:32+0000\n"
 "Last-Translator: Hakan Islamoglu <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-07-20 08:36+0000\n"
-"X-Generator: Launchpad (build 4809fcb62f445aaa3ae919f7f6c3cc7d156ea57a)\n"
+"X-Launchpad-Export-Date: 2020-10-31 15:16+0000\n"
+"X-Generator: Launchpad (build 96ff31b88b65a0d0ea73b89333fe7c4a2669d8fb)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Hiçbir PDF dosyası seçmediniz"
@@ -130,7 +130,7 @@ msgid "Contribute"
 msgstr "Katkıda Bulunun"
 
 msgid "Fork PDFsam on GitHub"
-msgstr "PDFsam bir GitHub iştirakidir"
+msgstr "GitHub'da PDFsam kodunu çatallandır"
 
 msgid "Translate"
 msgstr "Çevir"
@@ -254,6 +254,13 @@ msgstr ""
 "\"Çıktı dosyasını sıkıştır\"ın varsayılan olarak etkin olup olmayacağını "
 "ayarlayın"
 
+msgid "Overwrite files"
+msgstr ""
+
+msgid ""
+"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgstr ""
+
 msgid "Play alert sounds"
 msgstr "Hata sesi çal"
 
@@ -328,17 +335,29 @@ msgstr "PDF bulunamadı"
 msgid "What's new"
 msgstr "Yeni ne var"
 
+msgid "Yes"
+msgstr "Evet"
+
+msgid "No"
+msgstr "Hayır"
+
+msgid "Confirm clearing"
+msgstr ""
+
+msgid "Do you confirm?"
+msgstr ""
+
+msgid "Clear the module settings"
+msgstr ""
+
+msgid "Clear the selection table"
+msgstr ""
+
 msgid "Open with"
 msgstr "Birlikte aç"
 
 msgid "Select the task to perform on the following files"
 msgstr "Seçtiğiniz dosyalar üzerinde gerçekleştirilecek görevi seçiniz"
-
-msgid "Overwrite"
-msgstr "Üstüne yaz"
-
-msgid "Cancel"
-msgstr "Iptal"
 
 msgid "Directory not empty"
 msgstr "Dizin boş değil"
@@ -346,8 +365,20 @@ msgstr "Dizin boş değil"
 msgid "The selected directory is not empty"
 msgstr "Seçili dizin boş değil"
 
-msgid "Overwrite files with the same name as the generated ones?"
-msgstr "Zaten varsa üzerine yaz"
+msgid "What would you like to do in case of files with the same name?"
+msgstr ""
+
+msgid "Overwrite"
+msgstr "Üstüne yaz"
+
+msgid "Rename"
+msgstr ""
+
+msgid "Skip"
+msgstr ""
+
+msgid "Cancel"
+msgstr "Iptal"
 
 msgid "Don't overwrite existing file"
 msgstr "Üzerine yazma"
@@ -358,14 +389,8 @@ msgstr "Üzerine yazma onayı"
 msgid "A file with the given name already exists"
 msgstr "Aynı isimde bir dosya zaten bulunmaktatır"
 
-msgid "Do you want to overwrite it?"
-msgstr "Üzerine yazmak istermisiniz"
-
-msgid "Yes"
-msgstr "Evet"
-
-msgid "No"
-msgstr "Hayır"
+msgid "What would you like to do?"
+msgstr ""
 
 msgid "Non existing directory"
 msgstr "Var olmayan dizin"
@@ -516,7 +541,7 @@ msgid "Matching regular expression:"
 msgstr "Eşleşen kurallı ifade"
 
 msgid "A regular expression the bookmark text has to match"
-msgstr "İşaretli metnin ile eşleşen kurallı ifade"
+msgstr "Yer iminin eşlemesi gereken kurallı bir ifade"
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
@@ -603,7 +628,7 @@ msgid "Unlock"
 msgstr "Kilidi aç"
 
 msgid "Drag and drop PDF files here"
-msgstr "Pdf dosyalarını buraya sürükle bırak"
+msgstr "PDF dosyalarını buraya sürükle bırak"
 
 msgid "Set as range for all"
 msgstr "Tümü için aralık olarak belirle"
@@ -709,7 +734,7 @@ msgid "Page ranges"
 msgstr "Sayfa aralığı"
 
 msgid "The selected PDF file is invalid"
-msgstr "Seçili Pdf dosyası geçersiz"
+msgstr "Seçili PDF dosyası geçersiz"
 
 msgid "Select a file"
 msgstr "Bir dosya seçin"
@@ -971,7 +996,7 @@ msgid ""
 "Merge two or more PDF documents taking pages alternately in natural or "
 "reverse order."
 msgstr ""
-"İki veya daha fazla PDf dökümanını her birinden sayfaları düz ya da ters "
+"İki veya daha fazla PDF dokümanını her birinden sayfaları düz ya da ters "
 "sırayla alarak birleştir."
 
 msgid "Destination file"
@@ -996,7 +1021,7 @@ msgid "180 degrees clockwise"
 msgstr "180 derece saat yönüne"
 
 msgid "90 degrees counterclockwise"
-msgstr "Saat yönünde 90 derece"
+msgstr "90 derece saat yönünün tersine"
 
 msgid "Rotate "
 msgstr "Döndür "

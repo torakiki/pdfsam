@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-01-29 14:48+0100\n"
-"PO-Revision-Date: 2019-08-09 07:43+0000\n"
-"Last-Translator: Jimmy Teilmann <jimmy.teilmann@gmail.com>\n"
+"POT-Creation-Date: 2020-10-25 18:34+0100\n"
+"PO-Revision-Date: 2020-10-27 08:14+0000\n"
+"Last-Translator: Heino Nørlund <no@rumpole.dk>\n"
 "Language-Team: Danish <da@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-02-03 08:56+0000\n"
-"X-Generator: Launchpad (build 0a62c17273454a1313f81a74a2198ec30b44c7b6)\n"
+"X-Launchpad-Export-Date: 2020-10-31 15:16+0000\n"
+"X-Generator: Launchpad (build 96ff31b88b65a0d0ea73b89333fe7c4a2669d8fb)\n"
 "Language: da\n"
 
 msgid "No PDF document has been selected"
@@ -241,6 +241,13 @@ msgstr "PDF kompression slået til"
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr "Vælg om \"Komprimer output fil\" skal være standard/default"
 
+msgid "Overwrite files"
+msgstr "Overskriv filer"
+
+msgid ""
+"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgstr "Sæt \"Overskriv, hvis filnavn allerede eksisterer\" som standard"
+
 msgid "Play alert sounds"
 msgstr "Afspil advarselslyd"
 
@@ -315,17 +322,29 @@ msgstr "Ingen PDF fundet"
 msgid "What's new"
 msgstr "Hvad er nyt"
 
+msgid "Yes"
+msgstr "Ja"
+
+msgid "No"
+msgstr "Nej"
+
+msgid "Confirm clearing"
+msgstr ""
+
+msgid "Do you confirm?"
+msgstr ""
+
+msgid "Clear the module settings"
+msgstr ""
+
+msgid "Clear the selection table"
+msgstr ""
+
 msgid "Open with"
 msgstr "Åbn med"
 
 msgid "Select the task to perform on the following files"
 msgstr "Vælg handlingen, der skal foretages med de følgende filer"
-
-msgid "Overwrite"
-msgstr "Overskriv"
-
-msgid "Cancel"
-msgstr "Fortryd"
 
 msgid "Directory not empty"
 msgstr "Mappe ikke tom"
@@ -333,8 +352,20 @@ msgstr "Mappe ikke tom"
 msgid "The selected directory is not empty"
 msgstr "Den valgte mappe er ikke tom"
 
-msgid "Overwrite files with the same name as the generated ones?"
-msgstr "Overskriv filer med samme navn som dem, der genereres?"
+msgid "What would you like to do in case of files with the same name?"
+msgstr "Hvad skal der ske, hvis filnavne allerede eksistere?"
+
+msgid "Overwrite"
+msgstr "Overskriv"
+
+msgid "Rename"
+msgstr "Omdøb"
+
+msgid "Skip"
+msgstr "Spring over"
+
+msgid "Cancel"
+msgstr "Fortryd"
 
 msgid "Don't overwrite existing file"
 msgstr "Overskriv ikke eksisterende fil"
@@ -345,14 +376,8 @@ msgstr "Bekræft overskrivning"
 msgid "A file with the given name already exists"
 msgstr "Der findes allerede en fil med det angivne navn"
 
-msgid "Do you want to overwrite it?"
-msgstr "Ønsker du at overskrive den?"
-
-msgid "Yes"
-msgstr "Ja"
-
-msgid "No"
-msgstr "Nej"
+msgid "What would you like to do?"
+msgstr "Hvad ønsker du at gøre?"
 
 msgid "Non existing directory"
 msgstr "Ikke-eksisterende mappe"
@@ -364,13 +389,13 @@ msgid "Do you want to create it?"
 msgstr "Ønsker du at oprette den?"
 
 msgid "Subdirectories"
-msgstr ""
+msgstr "Underkataloger"
 
 msgid "Subdirectories have been found"
-msgstr ""
+msgstr "Der er fundet underkataloger"
 
 msgid "Do you want to add PDF files found in subdirectories?"
-msgstr ""
+msgstr "Skal PDF filer fra underkatalogerne tilføjes?"
 
 msgid "Task failed"
 msgstr "Opgave mislykkedes"
@@ -1044,7 +1069,7 @@ msgstr "Indstillinger for fletning"
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
-msgstr ""
+msgstr "File \"{0}\" eksisterer ikke eller er ugyldig"
 
 msgid "Valid user password provided."
 msgstr "Gyldig adgangskode anvendt."

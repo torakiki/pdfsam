@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-01-29 14:48+0100\n"
-"PO-Revision-Date: 2020-04-04 13:46+0000\n"
-"Last-Translator: tobson <Unknown>\n"
+"POT-Creation-Date: 2020-10-25 18:34+0100\n"
+"PO-Revision-Date: 2020-10-29 19:59+0000\n"
+"Last-Translator: Kiki <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-04-24 08:00+0000\n"
-"X-Generator: Launchpad (build 486bbbd6cb608f8eb468ed0d08689a349dfabe49)\n"
+"X-Launchpad-Export-Date: 2020-10-31 15:16+0000\n"
+"X-Generator: Launchpad (build 96ff31b88b65a0d0ea73b89333fe7c4a2669d8fb)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Es wurde kein PDF-Dokument ausgewählt"
@@ -248,6 +248,14 @@ msgstr ""
 "Legen Sie fest, ob \"Ausgabedatei komprimieren\" standardmäßig aktiviert "
 "sein soll."
 
+msgid "Overwrite files"
+msgstr "Dateien überschreiben"
+
+msgid ""
+"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgstr ""
+"Soll das Überschreiben existierender Dateien standardmäßig aktiviert werden?"
+
 msgid "Play alert sounds"
 msgstr "Warnklänge abspielen"
 
@@ -324,17 +332,29 @@ msgstr "Kein PDF gefunden"
 msgid "What's new"
 msgstr "Was ist neu?"
 
+msgid "Yes"
+msgstr "Ja"
+
+msgid "No"
+msgstr "Nein"
+
+msgid "Confirm clearing"
+msgstr ""
+
+msgid "Do you confirm?"
+msgstr "Bestätigen?"
+
+msgid "Clear the module settings"
+msgstr "Einstellungen für das Modul zurücksetzen?"
+
+msgid "Clear the selection table"
+msgstr "Dateiliste leeren"
+
 msgid "Open with"
 msgstr "Öffnen mit"
 
 msgid "Select the task to perform on the following files"
 msgstr "Aufgabe auf die folgenden Dateien anwenden"
-
-msgid "Overwrite"
-msgstr "Überschreiben"
-
-msgid "Cancel"
-msgstr "Abbrechen"
 
 msgid "Directory not empty"
 msgstr "Das Verzeichnis ist nicht leer"
@@ -342,8 +362,20 @@ msgstr "Das Verzeichnis ist nicht leer"
 msgid "The selected directory is not empty"
 msgstr "Das ausgewählte Verzeichnis ist nicht leer"
 
-msgid "Overwrite files with the same name as the generated ones?"
-msgstr "Dateien mit dem selben Namen, wie bei den erstellten, überschreiben?"
+msgid "What would you like to do in case of files with the same name?"
+msgstr "Wie wollen Sie existierende Dateien mit demselben Namen behandeln?"
+
+msgid "Overwrite"
+msgstr "Überschreiben"
+
+msgid "Rename"
+msgstr "Umbenennen"
+
+msgid "Skip"
+msgstr "Überspringen"
+
+msgid "Cancel"
+msgstr "Abbrechen"
 
 msgid "Don't overwrite existing file"
 msgstr "Bestehende Datein nicht überschreiben"
@@ -354,14 +386,8 @@ msgstr "Überschreiben wird bestätigt"
 msgid "A file with the given name already exists"
 msgstr "Eine Datei mit diesem Namen besteht bereits"
 
-msgid "Do you want to overwrite it?"
-msgstr "Wollen Sie überschreiben?"
-
-msgid "Yes"
-msgstr "Ja"
-
-msgid "No"
-msgstr "Nein"
+msgid "What would you like to do?"
+msgstr "Was würden Sie gerne tun?"
 
 msgid "Non existing directory"
 msgstr "Nicht existierendes Verzeichnis"

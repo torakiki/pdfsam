@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-01-29 14:48+0100\n"
+"POT-Creation-Date: 2020-10-25 18:34+0100\n"
 "PO-Revision-Date: 2018-08-24 07:18+0000\n"
 "Last-Translator: Vlad Daniel <Unknown>\n"
 "Language-Team: Romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-02-03 08:56+0000\n"
-"X-Generator: Launchpad (build 0a62c17273454a1313f81a74a2198ec30b44c7b6)\n"
+"X-Launchpad-Export-Date: 2020-10-31 15:16+0000\n"
+"X-Generator: Launchpad (build 96ff31b88b65a0d0ea73b89333fe7c4a2669d8fb)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Nu a fost selectat nici un document PDF"
@@ -240,6 +240,13 @@ msgstr ""
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
 
+msgid "Overwrite files"
+msgstr ""
+
+msgid ""
+"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgstr ""
+
 msgid "Play alert sounds"
 msgstr "Redare sunete de alertă"
 
@@ -307,17 +314,29 @@ msgstr "Nici un PDF găsit"
 msgid "What's new"
 msgstr "Ce este nou"
 
+msgid "Yes"
+msgstr "Da"
+
+msgid "No"
+msgstr "Nu"
+
+msgid "Confirm clearing"
+msgstr ""
+
+msgid "Do you confirm?"
+msgstr ""
+
+msgid "Clear the module settings"
+msgstr ""
+
+msgid "Clear the selection table"
+msgstr ""
+
 msgid "Open with"
 msgstr ""
 
 msgid "Select the task to perform on the following files"
 msgstr ""
-
-msgid "Overwrite"
-msgstr "Suprascrie"
-
-msgid "Cancel"
-msgstr "Anulează"
 
 msgid "Directory not empty"
 msgstr "Directorul nu este gol"
@@ -325,8 +344,20 @@ msgstr "Directorul nu este gol"
 msgid "The selected directory is not empty"
 msgstr "Directorul selectat nu este gol"
 
-msgid "Overwrite files with the same name as the generated ones?"
-msgstr "Se suprascriu fișierele cu același nume ca cele generate?"
+msgid "What would you like to do in case of files with the same name?"
+msgstr ""
+
+msgid "Overwrite"
+msgstr "Suprascrie"
+
+msgid "Rename"
+msgstr ""
+
+msgid "Skip"
+msgstr ""
+
+msgid "Cancel"
+msgstr "Anulează"
 
 msgid "Don't overwrite existing file"
 msgstr "Nu suprascrie fișierele existente"
@@ -337,14 +368,8 @@ msgstr "Confirmare suprascriere"
 msgid "A file with the given name already exists"
 msgstr "Există deja un fișier cu numele dat"
 
-msgid "Do you want to overwrite it?"
-msgstr "Doriți să fie suprascris?"
-
-msgid "Yes"
-msgstr "Da"
-
-msgid "No"
-msgstr "Nu"
+msgid "What would you like to do?"
+msgstr ""
 
 msgid "Non existing directory"
 msgstr ""

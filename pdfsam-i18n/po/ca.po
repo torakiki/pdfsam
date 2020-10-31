@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-01-29 14:48+0100\n"
-"PO-Revision-Date: 2019-02-18 20:04+0000\n"
-"Last-Translator: David Surroca Estrada <Unknown>\n"
+"POT-Creation-Date: 2020-10-25 18:34+0100\n"
+"PO-Revision-Date: 2020-10-21 14:15+0000\n"
+"Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-02-03 08:56+0000\n"
-"X-Generator: Launchpad (build 0a62c17273454a1313f81a74a2198ec30b44c7b6)\n"
+"X-Launchpad-Export-Date: 2020-10-31 15:16+0000\n"
+"X-Generator: Launchpad (build 96ff31b88b65a0d0ea73b89333fe7c4a2669d8fb)\n"
 
 msgid "No PDF document has been selected"
 msgstr "No heu seleccionat cap document PDF"
@@ -39,7 +39,7 @@ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Pàgines a extreure (p. ex: 2 o 5-23 o 2,5-7,12-)"
 
 msgid "Invalid page ranges"
-msgstr "El rang de pàgines no és vàlid"
+msgstr "Els intervals de pàgines no són vàlids"
 
 msgid "Extract pages:"
 msgstr "Extreu pàgines:"
@@ -53,10 +53,10 @@ msgid "Started in {0}"
 msgstr ""
 
 msgid "Closing PDFsam..."
-msgstr ""
+msgstr "Tancant PDFsam..."
 
 msgid "Log register"
-msgstr ""
+msgstr "Registre d'events"
 
 msgid "Copy"
 msgstr "Copia"
@@ -71,13 +71,13 @@ msgid "Save log"
 msgstr "Desa el registre"
 
 msgid "Select where to save the log file"
-msgstr ""
+msgstr "Escull on vols desar el registre"
 
 msgid "About"
 msgstr "Quant a"
 
 msgid "Premium features"
-msgstr ""
+msgstr "Característiques Premium"
 
 msgid "Close"
 msgstr "Tanca"
@@ -86,23 +86,23 @@ msgid "Modules"
 msgstr "Mòduls"
 
 msgid "Subscribe to the official news feed"
-msgstr ""
+msgstr "Subscriu-te a les notícies oficials"
 
 msgid "Environment"
 msgstr "Entorn"
 
 msgid "Vendor: %s"
-msgstr ""
+msgstr "Fabricant: %s"
 
 msgid "Java runtime path: %s"
-msgstr ""
+msgstr "Ruta del Java runtime: %s"
 
 msgid "JavaFX runtime version %s"
-msgstr ""
+msgstr "Versió %s del JavaFX runtime"
 
 #, java-format
 msgid "Max memory {0}"
-msgstr ""
+msgstr "Memòria màxima {0}"
 
 msgid "Copy to clipboard"
 msgstr "Copia al porta-retalls"
@@ -114,10 +114,10 @@ msgid "Bug and feature requests"
 msgstr ""
 
 msgid "Documentation"
-msgstr ""
+msgstr "Documentació"
 
 msgid "Contribute"
-msgstr ""
+msgstr "Contribuïu-hi"
 
 msgid "Fork PDFsam on GitHub"
 msgstr ""
@@ -126,16 +126,16 @@ msgid "Translate"
 msgstr "Traduïu"
 
 msgid "Donate"
-msgstr ""
+msgstr "Feu una donació"
 
 msgid "Social"
-msgstr ""
+msgstr "Social"
 
 msgid "Follow us on Twitter"
-msgstr ""
+msgstr "Seguiu-nos a Twitter"
 
 msgid "Like us on Facebook"
-msgstr ""
+msgstr "Feu un m'agrada al Facebook"
 
 msgid "Log register rows:"
 msgstr ""
@@ -234,6 +234,13 @@ msgstr ""
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
 
+msgid "Overwrite files"
+msgstr ""
+
+msgid ""
+"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgstr ""
+
 msgid "Play alert sounds"
 msgstr "Reprodueix sons d'alerta"
 
@@ -300,16 +307,28 @@ msgstr "No s'ha trobat cap PDF"
 msgid "What's new"
 msgstr ""
 
+msgid "Yes"
+msgstr "Sí"
+
+msgid "No"
+msgstr "No"
+
+msgid "Confirm clearing"
+msgstr ""
+
+msgid "Do you confirm?"
+msgstr ""
+
+msgid "Clear the module settings"
+msgstr ""
+
+msgid "Clear the selection table"
+msgstr ""
+
 msgid "Open with"
 msgstr ""
 
 msgid "Select the task to perform on the following files"
-msgstr ""
-
-msgid "Overwrite"
-msgstr ""
-
-msgid "Cancel"
 msgstr ""
 
 msgid "Directory not empty"
@@ -318,7 +337,19 @@ msgstr ""
 msgid "The selected directory is not empty"
 msgstr ""
 
-msgid "Overwrite files with the same name as the generated ones?"
+msgid "What would you like to do in case of files with the same name?"
+msgstr ""
+
+msgid "Overwrite"
+msgstr ""
+
+msgid "Rename"
+msgstr ""
+
+msgid "Skip"
+msgstr ""
+
+msgid "Cancel"
 msgstr ""
 
 msgid "Don't overwrite existing file"
@@ -330,14 +361,8 @@ msgstr ""
 msgid "A file with the given name already exists"
 msgstr ""
 
-msgid "Do you want to overwrite it?"
+msgid "What would you like to do?"
 msgstr ""
-
-msgid "Yes"
-msgstr "Sí"
-
-msgid "No"
-msgstr "No"
 
 msgid "Non existing directory"
 msgstr ""

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-01-29 14:48+0100\n"
-"PO-Revision-Date: 2019-06-15 06:12+0000\n"
-"Last-Translator: Michael <m1@tut.by>\n"
+"POT-Creation-Date: 2020-10-25 18:34+0100\n"
+"PO-Revision-Date: 2020-02-15 08:53+0000\n"
+"Last-Translator: Aleksey Kabanov <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-02-03 08:56+0000\n"
-"X-Generator: Launchpad (build 0a62c17273454a1313f81a74a2198ec30b44c7b6)\n"
+"X-Launchpad-Export-Date: 2020-10-31 15:16+0000\n"
+"X-Generator: Launchpad (build 96ff31b88b65a0d0ea73b89333fe7c4a2669d8fb)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Не выбран файл PDF"
@@ -243,6 +243,13 @@ msgstr "Сжатие файлов включено"
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr "Должно ли \"Сжатие выходных файлов\" быть включено по умолчанию"
 
+msgid "Overwrite files"
+msgstr ""
+
+msgid ""
+"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgstr ""
+
 msgid "Play alert sounds"
 msgstr "Воспроизводить звуковые предупреждения"
 
@@ -315,17 +322,29 @@ msgstr "Один или несколько файлов PDF не найдены"
 msgid "What's new"
 msgstr "Что нового"
 
+msgid "Yes"
+msgstr "Да"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "Confirm clearing"
+msgstr ""
+
+msgid "Do you confirm?"
+msgstr ""
+
+msgid "Clear the module settings"
+msgstr ""
+
+msgid "Clear the selection table"
+msgstr ""
+
 msgid "Open with"
 msgstr "Открыть с помощью"
 
 msgid "Select the task to perform on the following files"
 msgstr "Выберите действие над следующими файлами"
-
-msgid "Overwrite"
-msgstr "Перезаписать"
-
-msgid "Cancel"
-msgstr "Отмена"
 
 msgid "Directory not empty"
 msgstr "Каталог не пуст"
@@ -333,8 +352,20 @@ msgstr "Каталог не пуст"
 msgid "The selected directory is not empty"
 msgstr "Выбранный каталог не пуст"
 
-msgid "Overwrite files with the same name as the generated ones?"
-msgstr "Переписать файлы с тем же именем, что и сгенерированный из них?"
+msgid "What would you like to do in case of files with the same name?"
+msgstr ""
+
+msgid "Overwrite"
+msgstr "Перезаписать"
+
+msgid "Rename"
+msgstr ""
+
+msgid "Skip"
+msgstr ""
+
+msgid "Cancel"
+msgstr "Отмена"
 
 msgid "Don't overwrite existing file"
 msgstr "Не перезаписывать существующий файл"
@@ -345,14 +376,8 @@ msgstr "Подтверждение перезаписи"
 msgid "A file with the given name already exists"
 msgstr "Файл с заданным именем уже существует"
 
-msgid "Do you want to overwrite it?"
-msgstr "Хотите перезаписать его?"
-
-msgid "Yes"
-msgstr "Да"
-
-msgid "No"
-msgstr "Нет"
+msgid "What would you like to do?"
+msgstr ""
 
 msgid "Non existing directory"
 msgstr "Несуществующий каталог"
@@ -364,13 +389,13 @@ msgid "Do you want to create it?"
 msgstr "Желаете создать?"
 
 msgid "Subdirectories"
-msgstr ""
+msgstr "Подкаталоги"
 
 msgid "Subdirectories have been found"
-msgstr ""
+msgstr "Найдены подкаталоги"
 
 msgid "Do you want to add PDF files found in subdirectories?"
-msgstr ""
+msgstr "Добавить файлы PDF, найденные в подкаталогах?"
 
 msgid "Task failed"
 msgstr "Ошибка выполнения задания"

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-01-29 14:48+0100\n"
-"PO-Revision-Date: 2020-06-01 12:15+0000\n"
-"Last-Translator: Krasimir Nedelchev <k.nedelchev@mail.bg>\n"
+"POT-Creation-Date: 2020-10-25 18:34+0100\n"
+"PO-Revision-Date: 2020-09-17 07:18+0000\n"
+"Last-Translator: i ivanov <Unknown>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-07-20 08:36+0000\n"
-"X-Generator: Launchpad (build 4809fcb62f445aaa3ae919f7f6c3cc7d156ea57a)\n"
+"X-Launchpad-Export-Date: 2020-10-31 15:16+0000\n"
+"X-Generator: Launchpad (build 96ff31b88b65a0d0ea73b89333fe7c4a2669d8fb)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Няма избран PDF документ"
@@ -46,17 +46,17 @@ msgstr "Страници за извличане:"
 
 #, java-format
 msgid "Installing theme {0}."
-msgstr ""
+msgstr "Инсталиране на тема {0}"
 
 #, java-format
 msgid "Started in {0}"
-msgstr ""
+msgstr "Начало в {0}"
 
 msgid "Closing PDFsam..."
-msgstr ""
+msgstr "Приключване..."
 
 msgid "Log register"
-msgstr ""
+msgstr "Регистър"
 
 msgid "Copy"
 msgstr "Копиране"
@@ -71,7 +71,7 @@ msgid "Save log"
 msgstr "Запазване на лога"
 
 msgid "Select where to save the log file"
-msgstr ""
+msgstr "Посочете място за запис на дневника"
 
 msgid "About"
 msgstr "Относно"
@@ -86,10 +86,10 @@ msgid "Modules"
 msgstr "Модули"
 
 msgid "Subscribe to the official news feed"
-msgstr ""
+msgstr "Абонамент за новини"
 
 msgid "Environment"
-msgstr ""
+msgstr "Среда"
 
 msgid "Vendor: %s"
 msgstr "Доставчик: %s"
@@ -111,7 +111,7 @@ msgid "Support"
 msgstr "Поддръжка"
 
 msgid "Bug and feature requests"
-msgstr ""
+msgstr "Заяви  функция/бъг"
 
 msgid "Documentation"
 msgstr "Документация"
@@ -120,7 +120,7 @@ msgid "Contribute"
 msgstr "Съдействие"
 
 msgid "Fork PDFsam on GitHub"
-msgstr ""
+msgstr "следи PDFsam в GitHub"
 
 msgid "Translate"
 msgstr "Превод"
@@ -138,7 +138,7 @@ msgid "Like us on Facebook"
 msgstr "Харейсайте ни във Facebook"
 
 msgid "Log register rows:"
-msgstr ""
+msgstr "Редове от дневника:"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr "Максимален брой редове показвани в дневника"
@@ -164,12 +164,12 @@ msgstr ""
 "отляво с най-често и най-скоро използваните модули."
 
 msgid "Manually selected"
-msgstr ""
+msgstr "Селектирани"
 
 msgid ""
 "Automatically set the destination directory to the selected PDF document "
 "directory"
-msgstr ""
+msgstr "Автоматично избиране за запис директорията на избрания PDF документ"
 
 msgid "Clear usage statistics"
 msgstr "Изчист. данни за употреба"
@@ -204,13 +204,13 @@ msgstr ""
 "зареждане"
 
 msgid "Select a workspace"
-msgstr ""
+msgstr "Изберете работно пространство"
 
 msgid "Default working directory:"
 msgstr "Работна директория по подразбиране"
 
 msgid "Load default workspace at startup:"
-msgstr ""
+msgstr "Зареди работното пространство при стартиране"
 
 msgid "Dashboard"
 msgstr "Табло"
@@ -225,7 +225,7 @@ msgstr ""
 "Задава дали да се проверява за нови версии при стартиране (изисква рестарт)"
 
 msgid "Check for news at startup"
-msgstr ""
+msgstr "Проверка за актуализации при стартиране"
 
 msgid ""
 "Set whether the application should check for news availability on startup "
@@ -236,6 +236,13 @@ msgid "Enabled PDF compression"
 msgstr "Включване на PDF компресиране"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
+msgstr ""
+
+msgid "Overwrite files"
+msgstr ""
+
+msgid ""
+"Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
 
 msgid "Play alert sounds"
@@ -308,16 +315,28 @@ msgstr ""
 msgid "What's new"
 msgstr ""
 
+msgid "Yes"
+msgstr "Да"
+
+msgid "No"
+msgstr "Не"
+
+msgid "Confirm clearing"
+msgstr ""
+
+msgid "Do you confirm?"
+msgstr ""
+
+msgid "Clear the module settings"
+msgstr ""
+
+msgid "Clear the selection table"
+msgstr ""
+
 msgid "Open with"
 msgstr ""
 
 msgid "Select the task to perform on the following files"
-msgstr ""
-
-msgid "Overwrite"
-msgstr ""
-
-msgid "Cancel"
 msgstr ""
 
 msgid "Directory not empty"
@@ -326,7 +345,19 @@ msgstr ""
 msgid "The selected directory is not empty"
 msgstr ""
 
-msgid "Overwrite files with the same name as the generated ones?"
+msgid "What would you like to do in case of files with the same name?"
+msgstr ""
+
+msgid "Overwrite"
+msgstr ""
+
+msgid "Rename"
+msgstr ""
+
+msgid "Skip"
+msgstr ""
+
+msgid "Cancel"
 msgstr ""
 
 msgid "Don't overwrite existing file"
@@ -338,14 +369,8 @@ msgstr ""
 msgid "A file with the given name already exists"
 msgstr ""
 
-msgid "Do you want to overwrite it?"
+msgid "What would you like to do?"
 msgstr ""
-
-msgid "Yes"
-msgstr "Да"
-
-msgid "No"
-msgstr "Не"
 
 msgid "Non existing directory"
 msgstr ""
@@ -376,23 +401,23 @@ msgid ""
 msgstr ""
 
 msgid "Summary"
-msgstr ""
+msgstr "обобщение"
 
 msgid "Keywords"
-msgstr ""
+msgstr "Ключови думи"
 
 msgid "Document details"
 msgstr ""
 
 msgid "Invalid parameters"
-msgstr ""
+msgstr "Невалидни параметри"
 
 msgid ""
 "Input parameters are invalid, open the application messages for details."
 msgstr ""
 
 msgid "Access denied"
-msgstr ""
+msgstr "Достъпът е отказан"
 
 #, java-format
 msgid ""
@@ -430,28 +455,28 @@ msgid "No update"
 msgstr "Няма обновявания"
 
 msgid "Open"
-msgstr ""
+msgstr "Отвoри"
 
 msgid "E_xit"
-msgstr ""
+msgstr "Изход"
 
 msgid "_Settings"
-msgstr ""
+msgstr "Настройки"
 
 msgid "Application messages"
 msgstr ""
 
 msgid "_Modules"
-msgstr ""
+msgstr "Модули"
 
 msgid "_Workspace"
 msgstr ""
 
 msgid "_Load"
-msgstr ""
+msgstr "Зареждане"
 
 msgid "_Save"
-msgstr ""
+msgstr "Запис"
 
 msgid "Recen_ts"
 msgstr ""
@@ -510,13 +535,13 @@ msgid "Requested"
 msgstr ""
 
 msgid "Completed"
-msgstr ""
+msgstr "Завършено"
 
 msgid "Failed"
-msgstr ""
+msgstr "Неуспешно"
 
 msgid "Running"
-msgstr ""
+msgstr "Изпълняване"
 
 #, java-format
 msgid "Running {0}%"
@@ -532,7 +557,7 @@ msgid "_Select PDF"
 msgstr ""
 
 msgid "_Clear"
-msgstr ""
+msgstr "_Изчисти"
 
 msgid "Clear all settings"
 msgstr ""
@@ -551,16 +576,16 @@ msgid "Remove"
 msgstr "Премахване"
 
 msgid "Set destination"
-msgstr ""
+msgstr "Задайте дестинация"
 
 msgid "Open Folder"
-msgstr ""
+msgstr "Отваряне на папка"
 
 msgid "Enter the user password"
 msgstr ""
 
 msgid "Unlock"
-msgstr ""
+msgstr "Отключване"
 
 msgid "Drag and drop PDF files here"
 msgstr "Завлачете и пуснете тук PDF файловете"
@@ -581,7 +606,7 @@ msgid "Move to Bottom"
 msgstr ""
 
 msgid "Duplicate"
-msgstr ""
+msgstr "Дублиране"
 
 msgid "Size"
 msgstr "Размер"
@@ -596,7 +621,7 @@ msgid "Add documents to the table"
 msgstr ""
 
 msgid "_Add"
-msgstr ""
+msgstr "_Добавяне"
 
 msgid "PDF list from _text/csv file"
 msgstr ""
@@ -611,7 +636,7 @@ msgid "Removes selected documents"
 msgstr ""
 
 msgid "_Remove"
-msgstr ""
+msgstr "_Премахване"
 
 msgid "Removes every document"
 msgstr ""
@@ -623,13 +648,13 @@ msgid "Moves up selected documents"
 msgstr ""
 
 msgid "Move _Up"
-msgstr ""
+msgstr "Премести на_горе"
 
 msgid "Moves down selected documents"
 msgstr ""
 
 msgid "Move _Down"
-msgstr ""
+msgstr "Премести на_долу"
 
 msgid "Pace"
 msgstr ""
@@ -640,7 +665,7 @@ msgid ""
 msgstr ""
 
 msgid "Reverse"
-msgstr ""
+msgstr "Обръщане"
 
 msgid "Pages"
 msgstr "Страници"
@@ -655,7 +680,7 @@ msgid "The selected PDF file is invalid"
 msgstr ""
 
 msgid "Select a file"
-msgstr ""
+msgstr "Избор на файл"
 
 msgid "The selected file must exist. "
 msgstr "Избраният файл трябва да съществува. "
@@ -709,7 +734,7 @@ msgid "Select an existing directory"
 msgstr ""
 
 msgid "Select"
-msgstr ""
+msgstr "Избор"
 
 msgid "Browse"
 msgstr "Разглеждане"
@@ -788,7 +813,7 @@ msgid "Invalid number of pages"
 msgstr "Недопустим брой страници"
 
 msgid "Checking for updates"
-msgstr ""
+msgstr "Проверка за актуализации"
 
 msgid "Unable to find the latest available version."
 msgstr ""
@@ -967,7 +992,7 @@ msgid "Merge renaming existing fields"
 msgstr ""
 
 msgid "Flatten"
-msgstr ""
+msgstr "Изглаждане"
 
 msgid "Discard forms"
 msgstr ""
@@ -1034,16 +1059,16 @@ msgid "An error has occurred, click for more details."
 msgstr ""
 
 msgid "Security"
-msgstr ""
+msgstr "Защита"
 
 msgid "Other"
-msgstr ""
+msgstr "Друго"
 
 msgid "Roundish"
 msgstr ""
 
 msgid "Directories"
-msgstr ""
+msgstr "Папки"
 
 msgid "Error saving log file."
 msgstr ""

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-01-29 14:48+0100\n"
+"POT-Creation-Date: 2020-10-25 18:34+0100\n"
 "PO-Revision-Date: 2019-05-16 07:12+0000\n"
 "Last-Translator: Sami Kuusisto <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-02-03 08:56+0000\n"
-"X-Generator: Launchpad (build 0a62c17273454a1313f81a74a2198ec30b44c7b6)\n"
+"X-Launchpad-Export-Date: 2020-10-31 15:16+0000\n"
+"X-Generator: Launchpad (build 96ff31b88b65a0d0ea73b89333fe7c4a2669d8fb)\n"
 
 msgid "No PDF document has been selected"
 msgstr "PDF-asiakirjaa ei ole valittu"
@@ -256,6 +256,13 @@ msgstr "PDF-pakkaus käytössä"
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr "Valitse, onko \"Pakkaa kohdetiedosto(t)\" oletuksena käytössä"
 
+msgid "Overwrite files"
+msgstr ""
+
+msgid ""
+"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgstr ""
+
 msgid "Play alert sounds"
 msgstr "Toista varoitusäänet"
 
@@ -330,17 +337,29 @@ msgstr "PDF-asiakirjoja ei löytynyt"
 msgid "What's new"
 msgstr "Mitä uutta"
 
+msgid "Yes"
+msgstr "Kyllä"
+
+msgid "No"
+msgstr "Ei"
+
+msgid "Confirm clearing"
+msgstr ""
+
+msgid "Do you confirm?"
+msgstr ""
+
+msgid "Clear the module settings"
+msgstr ""
+
+msgid "Clear the selection table"
+msgstr ""
+
 msgid "Open with"
 msgstr "Avaa sovelluksella"
 
 msgid "Select the task to perform on the following files"
 msgstr "Valitse seuraaville tiedostoille suoritettava tehtävä"
-
-msgid "Overwrite"
-msgstr "Korvaa"
-
-msgid "Cancel"
-msgstr "Peruuta"
 
 msgid "Directory not empty"
 msgstr "Hakemisto ei ole tyhjä"
@@ -348,8 +367,20 @@ msgstr "Hakemisto ei ole tyhjä"
 msgid "The selected directory is not empty"
 msgstr "Valittu hakemisto ei ole tyhjä"
 
-msgid "Overwrite files with the same name as the generated ones?"
-msgstr "Ylikirjoita samalla nimellä olevat tiedostot?"
+msgid "What would you like to do in case of files with the same name?"
+msgstr ""
+
+msgid "Overwrite"
+msgstr "Korvaa"
+
+msgid "Rename"
+msgstr ""
+
+msgid "Skip"
+msgstr ""
+
+msgid "Cancel"
+msgstr "Peruuta"
 
 msgid "Don't overwrite existing file"
 msgstr "Älä ylikirjoita olemassa olevia tiedostoja"
@@ -360,14 +391,8 @@ msgstr "Ylikirjoitusvahvistus"
 msgid "A file with the given name already exists"
 msgstr "Annetulla nimellä oleva tiedosto on jo olemassa"
 
-msgid "Do you want to overwrite it?"
-msgstr "Haluatko ylikirjoittaa sen?"
-
-msgid "Yes"
-msgstr "Kyllä"
-
-msgid "No"
-msgstr "Ei"
+msgid "What would you like to do?"
+msgstr ""
 
 msgid "Non existing directory"
 msgstr "Hakemistoa ei ole olemassa"
