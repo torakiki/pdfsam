@@ -47,6 +47,7 @@ import org.pdfsam.module.Module;
 import org.pdfsam.news.FetchLatestNewsRequest;
 import org.pdfsam.news.NewsService;
 import org.pdfsam.premium.FetchPremiumModulesRequest;
+import org.pdfsam.service.Services;
 import org.pdfsam.ui.MainPane;
 import org.pdfsam.ui.SetLatestStageStatusRequest;
 import org.pdfsam.ui.StageMode;
