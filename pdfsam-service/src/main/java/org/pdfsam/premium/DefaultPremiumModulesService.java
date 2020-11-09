@@ -55,7 +55,8 @@ public class DefaultPremiumModulesService implements PremiumModulesService {
     @Override
     public List<PremiumModule> getPremiumModules() {
         try {
-            return JSON.std.with(Feature.READ_ONLY, true).listOfFrom(PremiumModule.class,
+            return JSON.std.without(Feature.USE_FIELDS).with(Feature.READ_ONLY, true).listOfFrom(
+                    PremiumModule.class,
                     urlToStream(new URL(pdfsam.property(ConfigurableProperty.PREMIUM_MODULES_URL))));
         } catch (IOException e) {
             LOG.warn(DefaultI18nContext.getInstance().i18n("Unable to retrieve premium features description"), e);

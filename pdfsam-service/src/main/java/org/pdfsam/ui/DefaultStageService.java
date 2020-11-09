@@ -28,6 +28,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.jr.ob.JSON;
+import com.fasterxml.jackson.jr.ob.JSON.Feature;
 
 /**
  * Default implementation of a {@link StageService} using {@link Preferences}.
@@ -45,7 +46,7 @@ class DefaultStageService implements StageService {
     public void save(StageStatus status) {
         Preferences node = Preferences.userRoot().node(STAGE_PATH);
         try {
-            node.put(STAGE_STATUS_KEY, JSON.std.asString(status));
+            node.put(STAGE_STATUS_KEY, JSON.std.without(Feature.USE_FIELDS).asString(status));
             LOG.trace("Stage status saved {}", status);
         } catch (IOException e) {
             LOG.error("Unable to save Stage status", e);
@@ -58,7 +59,7 @@ class DefaultStageService implements StageService {
         try {
             String statusString = node.get(STAGE_STATUS_KEY, "");
             if (isNotBlank(statusString)) {
-                return JSON.std.beanFrom(StageStatus.class, statusString);
+                return JSON.std.without(Feature.USE_FIELDS).beanFrom(StageStatus.class, statusString);
             }
         } catch (IOException e) {
             LOG.error("Unable to get latest stage status", e);

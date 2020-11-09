@@ -61,7 +61,8 @@ public class DefaultNewsService implements NewsService {
     @Override
     public List<NewsData> getLatestNews() {
         try {
-            return JSON.std.with(Feature.READ_ONLY, true).listOfFrom(NewsData.class,
+            return JSON.std.without(Feature.USE_FIELDS).with(Feature.READ_ONLY, true)
+                    .listOfFrom(NewsData.class,
                     urlToStream(new URL(pdfsam.property(ConfigurableProperty.NEWS_URL))));
         } catch (IOException e) {
             LOG.warn(DefaultI18nContext.getInstance().i18n("Unable to retrieve latest news"), e);

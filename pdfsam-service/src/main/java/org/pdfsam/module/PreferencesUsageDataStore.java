@@ -35,6 +35,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.jr.ob.JSON;
+import com.fasterxml.jackson.jr.ob.JSON.Feature;
 
 /**
  * @author Andrea Vacondio
@@ -55,9 +56,11 @@ class PreferencesUsageDataStore {
         String json = node.get(MODULE_USAGE_KEY, "");
         try {
             if (isNotBlank(json)) {
-                node.put(MODULE_USAGE_KEY, JSON.std.asString(JSON.std.beanFrom(ModuleUsage.class, json).inc()));
+                node.put(MODULE_USAGE_KEY, JSON.std
+                        .asString(JSON.std.without(Feature.USE_FIELDS).beanFrom(ModuleUsage.class, json).inc()));
             } else {
-                node.put(MODULE_USAGE_KEY, JSON.std.asString(ModuleUsage.fistUsage(moduleId)));
+                node.put(MODULE_USAGE_KEY,
+                        JSON.std.without(Feature.USE_FIELDS).asString(ModuleUsage.fistUsage(moduleId)));
             }
             LOG.trace("Usage incremented for module {}", moduleId);
         } catch (IOException e) {
@@ -74,7 +77,7 @@ class PreferencesUsageDataStore {
             List<String> jsons = Arrays.stream(prefs.childrenNames()).parallel().map(name -> prefs.node(name))
                     .map(node -> node.get(MODULE_USAGE_KEY, "")).filter(json -> isNotBlank(json)).collect(toList());
             for (String json : jsons) {
-                retList.add(JSON.std.beanFrom(ModuleUsage.class, json));
+                retList.add(JSON.std.without(Feature.USE_FIELDS).beanFrom(ModuleUsage.class, json));
             }
         } catch (BackingStoreException | IOException e) {
             LOG.error("Unable to get modules usage statistics", e);

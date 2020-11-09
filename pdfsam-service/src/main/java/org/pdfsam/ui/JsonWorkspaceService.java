@@ -30,6 +30,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.jr.ob.JSON;
+import com.fasterxml.jackson.jr.ob.JSON.Feature;
 
 /**
  * Implementation of the workspace service where data is stored and loaded in json format
@@ -45,7 +46,8 @@ class JsonWorkspaceService implements WorkspaceService {
         requireNotNullArg(destination, "Destination file cannot be null");
         LOG.debug(DefaultI18nContext.getInstance().i18n("Saving workspace data to {0}", destination.getAbsolutePath()));
         try {
-            JSON.std.with(JSON.Feature.PRETTY_PRINT_OUTPUT).without(JSON.Feature.WRITE_NULL_PROPERTIES)
+            JSON.std.without(Feature.USE_FIELDS).with(JSON.Feature.PRETTY_PRINT_OUTPUT).without(
+                    JSON.Feature.WRITE_NULL_PROPERTIES)
                     .write(data, destination);
             LOG.info(DefaultI18nContext.getInstance().i18n("Workspace saved"));
         } catch (Exception e) {
@@ -60,7 +62,7 @@ class JsonWorkspaceService implements WorkspaceService {
         requireNotNullArg(workspace, "Workspace file cannot be null");
         Map<String, Map<String, String>> data = Collections.emptyMap();
         try (FileInputStream stream = new FileInputStream(workspace)) {
-            data = (Map) JSON.std.mapFrom(stream);
+            data = (Map) JSON.std.without(Feature.USE_FIELDS).mapFrom(stream);
         } catch (Exception e) {
             // make it unchecked
             throw new RuntimeException(e);
