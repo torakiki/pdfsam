@@ -51,6 +51,7 @@ public class DefaultNewsService implements NewsService {
     private static final String LATEST_NEWS_ID = "latest.news.id";
     private static final String LATEST_IMPORTANT_NEWS_ID = "latest.important.news.id";
     private Pdfsam pdfsam;
+    private JSON jackson = new JSON().without(Feature.USE_FIELDS).with(Feature.READ_ONLY, true);
 
     @Inject
     DefaultNewsService(Pdfsam pdfsam) {
@@ -61,7 +62,7 @@ public class DefaultNewsService implements NewsService {
     @Override
     public List<NewsData> getLatestNews() {
         try {
-            return JSON.std.without(Feature.USE_FIELDS).with(Feature.READ_ONLY, true)
+            return jackson
                     .listOfFrom(NewsData.class,
                     urlToStream(new URL(pdfsam.property(ConfigurableProperty.NEWS_URL))));
         } catch (IOException e) {

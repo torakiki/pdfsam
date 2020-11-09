@@ -41,12 +41,13 @@ class DefaultStageService implements StageService {
     private static final Logger LOG = LoggerFactory.getLogger(DefaultStageService.class);
     static final String STAGE_PATH = "/org/pdfsam/stage";
     static final String STAGE_STATUS_KEY = "stage.status";
+    private JSON jackson = new JSON().without(Feature.USE_FIELDS);
 
     @Override
     public void save(StageStatus status) {
         Preferences node = Preferences.userRoot().node(STAGE_PATH);
         try {
-            node.put(STAGE_STATUS_KEY, JSON.std.without(Feature.USE_FIELDS).asString(status));
+            node.put(STAGE_STATUS_KEY, jackson.asString(status));
             LOG.trace("Stage status saved {}", status);
         } catch (IOException e) {
             LOG.error("Unable to save Stage status", e);
@@ -59,7 +60,7 @@ class DefaultStageService implements StageService {
         try {
             String statusString = node.get(STAGE_STATUS_KEY, "");
             if (isNotBlank(statusString)) {
-                return JSON.std.without(Feature.USE_FIELDS).beanFrom(StageStatus.class, statusString);
+                return jackson.beanFrom(StageStatus.class, statusString);
             }
         } catch (IOException e) {
             LOG.error("Unable to get latest stage status", e);

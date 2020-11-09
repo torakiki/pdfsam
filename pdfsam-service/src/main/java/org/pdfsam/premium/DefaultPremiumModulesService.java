@@ -45,6 +45,7 @@ public class DefaultPremiumModulesService implements PremiumModulesService {
 
     private static final Logger LOG = LoggerFactory.getLogger(DefaultPremiumModulesService.class);
     private Pdfsam pdfsam;
+    private JSON jackson = new JSON().without(Feature.USE_FIELDS).with(Feature.READ_ONLY, true);
 
     @Inject
     DefaultPremiumModulesService(Pdfsam pdfsam) {
@@ -55,7 +56,7 @@ public class DefaultPremiumModulesService implements PremiumModulesService {
     @Override
     public List<PremiumModule> getPremiumModules() {
         try {
-            return JSON.std.without(Feature.USE_FIELDS).with(Feature.READ_ONLY, true).listOfFrom(
+            return jackson.listOfFrom(
                     PremiumModule.class,
                     urlToStream(new URL(pdfsam.property(ConfigurableProperty.PREMIUM_MODULES_URL))));
         } catch (IOException e) {

@@ -46,6 +46,7 @@ class PreferencesUsageDataStore {
     static final String USAGE_PATH = "/org/pdfsam/modules/usage";
     static final String MODULE_USAGE_KEY = "module.usage";
     static final String TASKS_EXECUTED_KEY = "tasks.executed";
+    private JSON jackson = new JSON().without(Feature.USE_FIELDS);
 
     public PreferencesUsageDataStore() {
         eventStudio().addAnnotatedListeners(this);
@@ -56,11 +57,9 @@ class PreferencesUsageDataStore {
         String json = node.get(MODULE_USAGE_KEY, "");
         try {
             if (isNotBlank(json)) {
-                node.put(MODULE_USAGE_KEY, JSON.std
-                        .asString(JSON.std.without(Feature.USE_FIELDS).beanFrom(ModuleUsage.class, json).inc()));
+                node.put(MODULE_USAGE_KEY, jackson.asString(jackson.beanFrom(ModuleUsage.class, json).inc()));
             } else {
-                node.put(MODULE_USAGE_KEY,
-                        JSON.std.without(Feature.USE_FIELDS).asString(ModuleUsage.fistUsage(moduleId)));
+                node.put(MODULE_USAGE_KEY, jackson.asString(ModuleUsage.fistUsage(moduleId)));
             }
             LOG.trace("Usage incremented for module {}", moduleId);
         } catch (IOException e) {
@@ -77,7 +76,7 @@ class PreferencesUsageDataStore {
             List<String> jsons = Arrays.stream(prefs.childrenNames()).parallel().map(name -> prefs.node(name))
                     .map(node -> node.get(MODULE_USAGE_KEY, "")).filter(json -> isNotBlank(json)).collect(toList());
             for (String json : jsons) {
-                retList.add(JSON.std.without(Feature.USE_FIELDS).beanFrom(ModuleUsage.class, json));
+                retList.add(jackson.beanFrom(ModuleUsage.class, json));
             }
         } catch (BackingStoreException | IOException e) {
             LOG.error("Unable to get modules usage statistics", e);

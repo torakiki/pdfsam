@@ -40,15 +40,15 @@ import com.fasterxml.jackson.jr.ob.JSON.Feature;
  */
 class JsonWorkspaceService implements WorkspaceService {
     private static final Logger LOG = LoggerFactory.getLogger(JsonWorkspaceService.class);
+    private JSON jackson = new JSON().without(Feature.USE_FIELDS).with(JSON.Feature.PRETTY_PRINT_OUTPUT)
+            .without(JSON.Feature.WRITE_NULL_PROPERTIES);
 
     @Override
     public void saveWorkspace(Map<String, Map<String, String>> data, File destination) {
         requireNotNullArg(destination, "Destination file cannot be null");
         LOG.debug(DefaultI18nContext.getInstance().i18n("Saving workspace data to {0}", destination.getAbsolutePath()));
         try {
-            JSON.std.without(Feature.USE_FIELDS).with(JSON.Feature.PRETTY_PRINT_OUTPUT).without(
-                    JSON.Feature.WRITE_NULL_PROPERTIES)
-                    .write(data, destination);
+            jackson.write(data, destination);
             LOG.info(DefaultI18nContext.getInstance().i18n("Workspace saved"));
         } catch (Exception e) {
             // make it unchecked
@@ -62,7 +62,7 @@ class JsonWorkspaceService implements WorkspaceService {
         requireNotNullArg(workspace, "Workspace file cannot be null");
         Map<String, Map<String, String>> data = Collections.emptyMap();
         try (FileInputStream stream = new FileInputStream(workspace)) {
-            data = (Map) JSON.std.without(Feature.USE_FIELDS).mapFrom(stream);
+            data = (Map) jackson.mapFrom(stream);
         } catch (Exception e) {
             // make it unchecked
             throw new RuntimeException(e);
