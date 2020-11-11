@@ -18,9 +18,9 @@
  */
 package org.pdfsam.pdf;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasItems;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
@@ -66,5 +66,17 @@ public class PdfListParserTest {
         List<File> parsed = new PdfListParser().apply(list);
         assertEquals(3, parsed.size());
         assertThat(parsed, hasItems(file1, file2, file3));
+    }
+
+    @Test
+    public void filePathsAreTrimmed() throws IOException {
+        File file1 = tmp.newFile("file1.pdf");
+        List<String> lines = new ArrayList<>();
+        lines.add("  " + file1.getAbsolutePath() + "  ");
+        Path list = tmp.newFile().toPath();
+        Files.write(list, lines);
+        List<File> parsed = new PdfListParser().apply(list);
+        assertEquals(1, parsed.size());
+        assertThat(parsed, hasItems(file1));
     }
 }

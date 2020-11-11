@@ -56,7 +56,8 @@ class PdfListParser implements Function<Path, List<File>> {
                     return items[0];
                 }
                 return "";
-            }).filter(s -> s.toUpperCase().endsWith("PDF")).map(Paths::get).filter(Files::exists)
+            }).map(String::trim).filter(s -> s.toUpperCase().endsWith("PDF")).map(Paths::get)
+                    .filter(Files::exists)
                     .filter(not(Files::isDirectory)).map(Path::toFile).collect(toList());
         } catch (IOException e) {
             throw new RuntimeException(e);
