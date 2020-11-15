@@ -83,6 +83,11 @@ public interface UserContext {
     boolean isSavePwdInWorkspaceFile();
 
     /**
+     * @return true if a confirmation should be asked when the user hit the Clear button
+     */
+    boolean isAskClearConfirmation();
+
+    /**
      * @return if workspace should be saved on application exit
      */
     boolean isSaveWorkspaceOnExit();

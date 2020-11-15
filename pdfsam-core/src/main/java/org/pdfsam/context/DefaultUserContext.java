@@ -90,6 +90,11 @@ public final class DefaultUserContext implements UserContext {
     }
 
     @Override
+    public boolean isAskClearConfirmation() {
+        return prefs.getBoolean(BooleanUserPreference.CLEAR_CONFIRMATION.toString(), Boolean.TRUE);
+    }
+
+    @Override
     public boolean isSaveWorkspaceOnExit() {
         return prefs.getBoolean(BooleanUserPreference.SAVE_WORKSPACE_ON_EXIT.toString(), Boolean.FALSE);
     }

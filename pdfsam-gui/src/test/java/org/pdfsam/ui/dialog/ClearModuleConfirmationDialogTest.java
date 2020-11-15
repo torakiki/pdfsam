@@ -21,6 +21,7 @@ package org.pdfsam.ui.dialog;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Locale;
@@ -31,6 +32,7 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.pdfsam.NoHeadless;
 import org.pdfsam.configuration.StylesConfig;
+import org.pdfsam.context.UserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.test.ClearEventStudioRule;
@@ -53,7 +55,7 @@ public class ClearModuleConfirmationDialogTest extends ApplicationTest {
     public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule();
     private Button button;
     private HitTestListener<ClearModuleEvent> listener;
-
+    private UserContext context;
     @BeforeClass
     public static void setUp() {
         ((DefaultI18nContext) DefaultI18nContext.getInstance()).refresh(new SetLocaleEvent(Locale.UK.toLanguageTag()));
@@ -63,9 +65,11 @@ public class ClearModuleConfirmationDialogTest extends ApplicationTest {
     public void start(Stage stage) {
         listener = new HitTestListener<ClearModuleEvent>();
         StylesConfig styles = mock(StylesConfig.class);
+        context = mock(UserContext.class);
+        when(context.isAskClearConfirmation()).thenReturn(Boolean.TRUE);
         ClearModuleConfirmationDialog victim = new ClearModuleConfirmationDialog(styles);
         button = new Button("show");
-        new ClearModuleConfirmationDialogController(() -> new ClearModuleConfirmationDialog(styles));
+        new ClearModuleConfirmationDialogController(() -> new ClearModuleConfirmationDialog(styles), context);
         Scene scene = new Scene(new VBox(button));
         stage.setScene(scene);
         stage.show();

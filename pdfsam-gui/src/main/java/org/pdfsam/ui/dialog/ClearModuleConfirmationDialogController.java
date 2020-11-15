@@ -23,6 +23,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import javax.inject.Inject;
 import javax.inject.Provider;
 
+import org.pdfsam.context.UserContext;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.ui.commons.ClearModuleEvent;
@@ -35,16 +36,20 @@ import org.pdfsam.ui.commons.ClearModuleEvent;
 public class ClearModuleConfirmationDialogController {
 
     private Provider<ClearModuleConfirmationDialog> dialog;
+    private UserContext userContext;
 
     @Inject
-    public ClearModuleConfirmationDialogController(Provider<ClearModuleConfirmationDialog> dialog) {
+    public ClearModuleConfirmationDialogController(Provider<ClearModuleConfirmationDialog> dialog,
+            UserContext userContext) {
         this.dialog = dialog;
+        this.userContext = userContext;
         eventStudio().addAnnotatedListeners(this);
     }
 
     @EventListener
     public void request(ClearModuleEvent event) {
-        if (!event.askConfirmation || dialog.get().clearEverything(event.clearEverything).response()) {
+        if (!userContext.isAskClearConfirmation() || !event.askConfirmation
+                || dialog.get().clearEverything(event.clearEverything).response()) {
             eventStudio().broadcast(event, event.getOwnerModule());
         }
     }

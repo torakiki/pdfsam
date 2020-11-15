@@ -45,7 +45,8 @@ class PreferenceBehaviorPane extends GridPane {
             @Named("fetchPremiumModules") PreferenceCheckBox fetchPremiumModules,
             CheckForUpdatesButton checkForUpdatesNow,
             @Named("logViewRowsNumber") PreferenceIntTextField logViewRowsNumber,
-            @Named("checkForNews") PreferenceCheckBox checkForNews) {
+            @Named("checkForNews") PreferenceCheckBox checkForNews,
+            @Named("clearConfirmation") PreferenceCheckBox clearConfirmation) {
 
         add(new Label(DefaultI18nContext.getInstance().i18n("Log register rows:")), 0, 1);
         setFillWidth(logViewRowsNumber, true);
@@ -58,7 +59,8 @@ class PreferenceBehaviorPane extends GridPane {
         add(donationNotification, 0, 3, 3, 1);
         add(checkForNews, 0, 4, 3, 1);
         add(fetchPremiumModules, 0, 5, 3, 1);
-        add(new VBox(checkForUpdates, checkForUpdatesNow), 0, 6, 3, 1);
+        add(clearConfirmation, 0, 6, 3, 1);
+        add(new VBox(checkForUpdates, checkForUpdatesNow), 0, 7, 3, 1);
 
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.GRID.css());

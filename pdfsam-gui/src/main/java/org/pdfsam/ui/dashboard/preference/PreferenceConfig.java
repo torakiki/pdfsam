@@ -171,15 +171,29 @@ public class PreferenceConfig {
     @Provides
     @Named("fetchPremiumModules")
     public PreferenceCheckBox fetchPremiumModules(UserContext userContext) {
-        PreferenceCheckBox donationNotification = new PreferenceCheckBox(BooleanUserPreference.PREMIUM_MODULES,
+        PreferenceCheckBox fetchPremiumModules = new PreferenceCheckBox(BooleanUserPreference.PREMIUM_MODULES,
                 DefaultI18nContext.getInstance().i18n("Show premium features"), userContext.isFetchPremiumModules(),
                 userContext);
-        donationNotification.setId("fetchPremiumModules");
-        donationNotification.setGraphic(helpIcon(DefaultI18nContext.getInstance().i18n(
+        fetchPremiumModules.setId("fetchPremiumModules");
+        fetchPremiumModules.setGraphic(helpIcon(DefaultI18nContext.getInstance().i18n(
                 "Set whether the application should fetch and show premium features description in the modules dashboard")));
-        donationNotification.getStyleClass().addAll(Style.WITH_HELP.css());
-        donationNotification.getStyleClass().add("spaced-vitem");
-        return donationNotification;
+        fetchPremiumModules.getStyleClass().addAll(Style.WITH_HELP.css());
+        fetchPremiumModules.getStyleClass().add("spaced-vitem");
+        return fetchPremiumModules;
+    }
+
+    @Provides
+    @Named("clearConfirmation")
+    public PreferenceCheckBox clearConfirmation(UserContext userContext) {
+        PreferenceCheckBox clearConfirmation = new PreferenceCheckBox(BooleanUserPreference.CLEAR_CONFIRMATION,
+                DefaultI18nContext.getInstance().i18n("Ask for a confirmation when clearing the selection table"),
+                userContext.isAskClearConfirmation(), userContext);
+        clearConfirmation.setId("clearConfirmation");
+        clearConfirmation.setGraphic(helpIcon(DefaultI18nContext.getInstance()
+                .i18n("Set whether the application should ask for a confirmation when clearing the selection table")));
+        clearConfirmation.getStyleClass().addAll(Style.WITH_HELP.css());
+        clearConfirmation.getStyleClass().add("spaced-vitem");
+        return clearConfirmation;
     }
 
     @Provides

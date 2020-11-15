@@ -21,6 +21,7 @@ package org.pdfsam.ui.dialog;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.Locale;
@@ -30,11 +31,9 @@ import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
 import org.pdfsam.configuration.StylesConfig;
+import org.pdfsam.context.UserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
-import org.pdfsam.injector.Components;
-import org.pdfsam.injector.Injector;
-import org.pdfsam.injector.Provides;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.HitTestListener;
 import org.pdfsam.ui.commons.ClearModuleEvent;
@@ -57,6 +56,7 @@ public class ClearModuleConfirmationDialogControllerTest extends ApplicationTest
 
     private Button button;
     private HitTestListener<ClearModuleEvent> listener;
+    private UserContext context;
 
     @BeforeClass
     public static void setUp() {
@@ -65,22 +65,16 @@ public class ClearModuleConfirmationDialogControllerTest extends ApplicationTest
 
     @Override
     public void start(Stage stage) {
-        Injector.start(new Config());
+        StylesConfig styles = mock(StylesConfig.class);
+        context = mock(UserContext.class);
+        when(context.isAskClearConfirmation()).thenReturn(Boolean.TRUE);
+        ClearModuleConfirmationDialog victim = new ClearModuleConfirmationDialog(styles);
         button = new Button("show");
+        new ClearModuleConfirmationDialogController(() -> new ClearModuleConfirmationDialog(styles), context);
         Scene scene = new Scene(new VBox(button));
         stage.setScene(scene);
         stage.show();
         listener = new HitTestListener<ClearModuleEvent>();
-    }
-
-    @Components({ ClearModuleConfirmationDialogController.class })
-    static class Config {
-
-        @Provides
-        StylesConfig style() {
-            return mock(StylesConfig.class);
-        }
-
     }
 
     @Test
@@ -94,6 +88,7 @@ public class ClearModuleConfirmationDialogControllerTest extends ApplicationTest
 
     @Test
     public void noAskConfirmation() {
+        when(context.isAskClearConfirmation()).thenReturn(Boolean.TRUE);
         button.setOnAction(a -> eventStudio().broadcast(new ClearModuleEvent("module", true, false)));
         eventStudio().add(ClearModuleEvent.class, listener, "module");
         clickOn("show");
@@ -101,7 +96,17 @@ public class ClearModuleConfirmationDialogControllerTest extends ApplicationTest
     }
 
     @Test
+    public void noAskConfirmationPreference() {
+        when(context.isAskClearConfirmation()).thenReturn(Boolean.FALSE);
+        button.setOnAction(a -> eventStudio().broadcast(new ClearModuleEvent("module", true, true)));
+        eventStudio().add(ClearModuleEvent.class, listener, "module");
+        clickOn("show");
+        assertTrue(listener.isHit());
+    }
+
+    @Test
     public void positiveTest() {
+        when(context.isAskClearConfirmation()).thenReturn(Boolean.TRUE);
         button.setOnAction(a -> eventStudio().broadcast(new ClearModuleEvent("module", true, true)));
         eventStudio().add(ClearModuleEvent.class, listener, "module");
         clickOn("show");

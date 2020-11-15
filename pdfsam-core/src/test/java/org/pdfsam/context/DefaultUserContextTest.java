@@ -106,6 +106,15 @@ public class DefaultUserContextTest {
     }
 
     @Test
+    public void isAskClearConfirmation() {
+        assertTrue(victim.isAskClearConfirmation());
+        victim.setBooleanPreference(BooleanUserPreference.CLEAR_CONFIRMATION, false);
+        assertFalse(victim.isAskClearConfirmation());
+        victim.setBooleanPreference(BooleanUserPreference.CLEAR_CONFIRMATION, true);
+        assertTrue(victim.isAskClearConfirmation());
+    }
+
+    @Test
     public void isAskPlaySounds() {
         victim.setBooleanPreference(BooleanUserPreference.PLAY_SOUNDS, true);
         assertTrue(victim.isPlaySounds());
