@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-10-25 18:34+0100\n"
-"PO-Revision-Date: 2020-10-21 14:15+0000\n"
-"Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
+"POT-Creation-Date: 2020-11-15 12:38+0100\n"
+"PO-Revision-Date: 2020-11-07 17:05+0000\n"
+"Last-Translator: David Surroca Estrada <Unknown>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-10-31 15:16+0000\n"
-"X-Generator: Launchpad (build 96ff31b88b65a0d0ea73b89333fe7c4a2669d8fb)\n"
+"X-Launchpad-Export-Date: 2020-11-19 20:56+0000\n"
+"X-Generator: Launchpad (build c35ff22711d15549e2303ae18ae521fd91f6bf00)\n"
 
 msgid "No PDF document has been selected"
 msgstr "No heu seleccionat cap document PDF"
@@ -111,7 +111,7 @@ msgid "Support"
 msgstr "Assistència"
 
 msgid "Bug and feature requests"
-msgstr ""
+msgstr "Errors i sol·licitud de característiques"
 
 msgid "Documentation"
 msgstr "Documentació"
@@ -150,7 +150,7 @@ msgid "Set your preferred language (restart needed)"
 msgstr "Definiu el vostre llenguatge preferit (cal reiniciar)"
 
 msgid "Startup module:"
-msgstr ""
+msgstr "Mòdul d'inici:"
 
 msgid "Set the module to open at application startup (restart needed)"
 msgstr ""
@@ -161,7 +161,7 @@ msgid ""
 msgstr ""
 
 msgid "Manually selected"
-msgstr ""
+msgstr "Seleccionat manualment"
 
 msgid ""
 "Automatically set the destination directory to the selected PDF document "
@@ -169,10 +169,10 @@ msgid ""
 msgstr ""
 
 msgid "Clear usage statistics"
-msgstr ""
+msgstr "Neteja les estadístiques d'ús"
 
 msgid "Appearance"
-msgstr ""
+msgstr "Aparença"
 
 msgid "Behavior"
 msgstr "Comportament"
@@ -184,7 +184,7 @@ msgid "Output"
 msgstr "Sortida"
 
 msgid "Check for updates now"
-msgstr ""
+msgstr "Comprova si hi ha actualitzacions"
 
 msgid ""
 "Select a directory where documents will be saved and loaded by default"
@@ -193,7 +193,7 @@ msgstr ""
 "predeterminada"
 
 msgid "Select a directory"
-msgstr ""
+msgstr "Seleccioneu un directori"
 
 msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
@@ -201,16 +201,16 @@ msgid ""
 msgstr ""
 
 msgid "Select a workspace"
-msgstr ""
+msgstr "Seleccioneu un espai de treball"
 
 msgid "Default working directory:"
 msgstr "Directori de treball predeterminat:"
 
 msgid "Load default workspace at startup:"
-msgstr ""
+msgstr "Carrega l'espai de treball  per defecte a l'inici"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Tauler"
 
 msgid "Check for updates at startup"
 msgstr "Verifica les actualitzacions en iniciar"
@@ -221,7 +221,7 @@ msgid ""
 msgstr ""
 
 msgid "Check for news at startup"
-msgstr ""
+msgstr "Comprova si hi ha notícies a l'inici"
 
 msgid ""
 "Set whether the application should check for news availability on startup "
@@ -269,6 +269,14 @@ msgstr ""
 msgid ""
 "Set whether the application should fetch and show premium features "
 "description in the modules dashboard"
+msgstr ""
+
+msgid "Ask for a confirmation when clearing the selection table"
+msgstr ""
+
+msgid ""
+"Set whether the application should ask for a confirmation when clearing the "
+"selection table"
 msgstr ""
 
 msgid "Use the selected PDF document directory as output directory"

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-10-25 18:34+0100\n"
-"PO-Revision-Date: 2020-01-30 13:10+0000\n"
+"POT-Creation-Date: 2020-11-15 12:38+0100\n"
+"PO-Revision-Date: 2020-11-13 00:02+0000\n"
 "Last-Translator: Marcel Lipovsky <Unknown>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-10-31 15:16+0000\n"
-"X-Generator: Launchpad (build 96ff31b88b65a0d0ea73b89333fe7c4a2669d8fb)\n"
+"X-Launchpad-Export-Date: 2020-11-19 20:56+0000\n"
+"X-Generator: Launchpad (build c35ff22711d15549e2303ae18ae521fd91f6bf00)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Nebol vybraný žiadny PDF dokument"
@@ -242,11 +242,11 @@ msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr "Zvoľte predvolené nastavenie pre kompreciu výstupného súboru."
 
 msgid "Overwrite files"
-msgstr ""
+msgstr "Prepísať súbory"
 
 msgid ""
 "Set whether \"Overwrite if already exists\" should be enabled by default"
-msgstr ""
+msgstr "Nastaviť, či má byť predvolene povolené „Prepísať, ak už existuje“"
 
 msgid "Play alert sounds"
 msgstr "Prehrávať upozorňujúce zvuky"
@@ -283,6 +283,14 @@ msgid ""
 msgstr ""
 "Nastavte, či má aplikácia na paneli modulov načítať a zobraziť popis "
 "prémiových funkcií"
+
+msgid "Ask for a confirmation when clearing the selection table"
+msgstr ""
+
+msgid ""
+"Set whether the application should ask for a confirmation when clearing the "
+"selection table"
+msgstr ""
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Použiť priečinok PDF dokumentu ako výstupný vriečinok"
@@ -328,16 +336,16 @@ msgid "No"
 msgstr "Nie"
 
 msgid "Confirm clearing"
-msgstr ""
+msgstr "Potvrďte vymazanie"
 
 msgid "Do you confirm?"
-msgstr ""
+msgstr "Potvrdzujete?"
 
 msgid "Clear the module settings"
-msgstr ""
+msgstr "Vymazať nastavenia modulu"
 
 msgid "Clear the selection table"
-msgstr ""
+msgstr "Vymazať tabuľku výberu"
 
 msgid "Open with"
 msgstr "Otvoriť pomocou"
@@ -352,16 +360,16 @@ msgid "The selected directory is not empty"
 msgstr "Zvolený priečinok nie je prázdny"
 
 msgid "What would you like to do in case of files with the same name?"
-msgstr ""
+msgstr "Čo chcete urobiť v prípade súborov s rovnakým názvom?"
 
 msgid "Overwrite"
 msgstr "Prepísať"
 
 msgid "Rename"
-msgstr ""
+msgstr "Premenovať"
 
 msgid "Skip"
-msgstr ""
+msgstr "Vynechať"
 
 msgid "Cancel"
 msgstr "Zrušiť"
@@ -376,7 +384,7 @@ msgid "A file with the given name already exists"
 msgstr "Súbor so zvoleným názvom uz existuje"
 
 msgid "What would you like to do?"
-msgstr ""
+msgstr "Čo chcete urobiť?"
 
 msgid "Non existing directory"
 msgstr "Neexistujúci priečinok"

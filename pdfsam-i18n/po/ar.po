@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-10-25 18:34+0100\n"
-"PO-Revision-Date: 2019-06-12 17:04+0000\n"
-"Last-Translator: Adel KHINECH <Unknown>\n"
+"POT-Creation-Date: 2020-11-15 12:38+0100\n"
+"PO-Revision-Date: 2020-11-08 22:32+0000\n"
+"Last-Translator: Abraheem <Unknown>\n"
 "Language-Team: Arabic <ar@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-10-31 15:16+0000\n"
-"X-Generator: Launchpad (build 96ff31b88b65a0d0ea73b89333fe7c4a2669d8fb)\n"
+"X-Launchpad-Export-Date: 2020-11-19 20:56+0000\n"
+"X-Generator: Launchpad (build c35ff22711d15549e2303ae18ae521fd91f6bf00)\n"
 
 msgid "No PDF document has been selected"
 msgstr "لم يتم تحديد أي وثيقة PDF"
@@ -62,10 +62,10 @@ msgid "Copy"
 msgstr "نسخ"
 
 msgid "Clear"
-msgstr "تفريغ الخانات"
+msgstr "إزالة"
 
 msgid "Select all"
-msgstr "تحديد الكل"
+msgstr "اختر الكلّ"
 
 msgid "Save log"
 msgstr "احفظ السجلّ"
@@ -83,13 +83,13 @@ msgid "Close"
 msgstr "إغلاق"
 
 msgid "Modules"
-msgstr ""
+msgstr "وحدات"
 
 msgid "Subscribe to the official news feed"
-msgstr ""
+msgstr "اشترك في قناة الاخبار الرسمية"
 
 msgid "Environment"
-msgstr ""
+msgstr "محيط"
 
 msgid "Vendor: %s"
 msgstr ""
@@ -102,13 +102,13 @@ msgstr ""
 
 #, java-format
 msgid "Max memory {0}"
-msgstr ""
+msgstr "اقصى الذاكرة {0}"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "نسخ إلى الحافظة"
 
 msgid "Support"
-msgstr ""
+msgstr "دعم"
 
 msgid "Bug and feature requests"
 msgstr ""
@@ -267,6 +267,14 @@ msgstr ""
 msgid ""
 "Set whether the application should fetch and show premium features "
 "description in the modules dashboard"
+msgstr ""
+
+msgid "Ask for a confirmation when clearing the selection table"
+msgstr ""
+
+msgid ""
+"Set whether the application should ask for a confirmation when clearing the "
+"selection table"
 msgstr ""
 
 msgid "Use the selected PDF document directory as output directory"
