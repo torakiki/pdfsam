@@ -79,7 +79,7 @@ public enum FileColumn implements SelectionTableColumn<File> {
 
         @Override
         public Comparator<File> comparator() {
-            return new NumericalSortFilenameComparator().thenComparing(f -> f.getName().toLowerCase());
+            return new NumericalSortFilenameComparator();
         }
     }
 }
