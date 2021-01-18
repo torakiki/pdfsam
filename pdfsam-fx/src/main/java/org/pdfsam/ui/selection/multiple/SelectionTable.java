@@ -344,7 +344,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
                                 dropIndex = toDropNewIndex + 1;
                             }
                         }
-
+                        getSortOrder().clear();
                         getItems().addAll(dropIndex, toMove);
                         e.setDropCompleted(true);
                         getSelectionModel().clearSelection();
@@ -397,6 +397,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     public void onLoadDocumentsRequest(PdfLoadRequestEvent loadEvent) {
         getItems()
                 .addAll(loadEvent.getDocuments().stream().map(SelectionTableRowData::new).collect(Collectors.toList()));
+        this.sort();
         loadEvent.getDocuments().stream().findFirst().ifPresent(f -> eventStudio()
                 .broadcast(requestFallbackDestination(f.getFile(), getOwnerModule()), getOwnerModule()));
         eventStudio().broadcast(loadEvent);
@@ -406,6 +407,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     public void onDuplicate(final DuplicateSelectedEvent event) {
         LOG.trace("Duplicating selected items");
         getSelectionModel().getSelectedItems().forEach(i -> getItems().add(i.duplicate()));
+        this.sort();
     }
 
     @EventListener
