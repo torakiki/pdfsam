@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<description>PDFsam App</description>
 	<url>https://pdfsam.org</url>
@@ -306,9 +308,13 @@
 								<phase>package</phase>
 								<configuration>
 									<target>
-										<chmod file="${project.build.directory}/assembled/lib" perm="644" includes="**/*.*" />
-										<chmod dir="${project.build.directory}/assembled/bin" perm="755" includes="**/*.sh" />
-										<chmod dir="${project.build.directory}/assembled/runtime/bin" perm="755" includes="**/*.*" />
+										<chmod file="${project.build.directory}/assembled/lib"
+											perm="644" includes="**/*.*" />
+										<chmod dir="${project.build.directory}/assembled/bin"
+											perm="755" includes="**/*.sh" />
+										<chmod
+											dir="${project.build.directory}/assembled/runtime/bin"
+											perm="755" includes="**/*.*" />
 									</target>
 								</configuration>
 								<goals>
@@ -330,7 +336,7 @@
 									<finalName>pdfsam-${project.version}-${os.detected.name}</finalName>
 									<appendAssemblyId>false</appendAssemblyId>
 									<descriptors>
-										<descriptor>src/assembly/bin.xml</descriptor>
+										<descriptor>src/assembly/portable.xml</descriptor>
 									</descriptors>
 								</configuration>
 							</execution>
@@ -497,6 +503,20 @@
 			<build>
 				<plugins>
 					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>pdfsam-assembly</id>
+								<phase>package</phase>
+								<configuration>
+									<descriptors>
+										<descriptor>src/assembly/portable-linux.xml</descriptor>
+									</descriptors>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
 						<artifactId>jdeb</artifactId>
 						<groupId>org.vafer</groupId>
 						<version>1.7</version>
@@ -621,7 +641,8 @@
 								<phase>pre-integration-test</phase>
 								<configuration>
 									<target>
-										<chmod dir="${project.build.directory}/dmg" perm="755" includes="*.sh" />
+										<chmod dir="${project.build.directory}/dmg" perm="755"
+											includes="*.sh" />
 									</target>
 								</configuration>
 								<goals>
