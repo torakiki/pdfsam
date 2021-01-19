@@ -84,12 +84,13 @@ public class SelectionChangedEventTest {
 
     @Test
     public void cantMoveBottom() {
-        assertFalse(select(asList(0, 3)).ofTotalRows(5).canMove(MoveType.BOTTOM));
+        assertFalse(select(asList(2, 4)).ofTotalRows(5).canMove(MoveType.BOTTOM));
         assertFalse(select(asList(4)).ofTotalRows(5).canMove(MoveType.BOTTOM));
     }
 
     @Test
     public void canMoveBottom() {
+        assertTrue(select(asList(0, 3)).ofTotalRows(5).canMove(MoveType.BOTTOM));
         assertTrue(select(asList(2)).ofTotalRows(5).canMove(MoveType.BOTTOM));
     }
 
@@ -111,6 +112,7 @@ public class SelectionChangedEventTest {
 
     @Test
     public void canMoveTop() {
+        assertTrue(select(asList(1, 3)).ofTotalRows(5).canMove(MoveType.TOP));
         assertTrue(select(asList(3)).ofTotalRows(5).canMove(MoveType.TOP));
     }
 }

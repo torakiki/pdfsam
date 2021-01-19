@@ -18,9 +18,10 @@
  */
 package org.pdfsam.ui.selection.multiple.move;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -61,16 +62,32 @@ public class MoveTypeTest {
     }
 
     @Test
+    public void moveTopContinuosMultipleSelection() {
+        Integer[] indices = new Integer[] { 2, 3 };
+        SelectionAndFocus selection = MoveType.TOP.move(indices, items, 2);
+        assertThat(items, contains(third, fourth, first, second));
+        assertEquals(0, selection.getFocus());
+        assertEquals(0, selection.getRow());
+        assertArrayEquals(new int[] { 1 }, selection.getRows());
+    }
+
+    @Test
     public void moveTopMultipleSelection() {
-        Integer[] indices = new Integer[] { 0, 1 };
-        assertEquals(SelectionAndFocus.NULL, MoveType.TOP.move(indices, items, -1));
+        Integer[] indices = new Integer[] { 1, 3 };
+        SelectionAndFocus selection = MoveType.TOP.move(indices, items, 3);
+        assertThat(items, contains(second, fourth, first, third));
+        assertEquals(1, selection.getFocus());
+        assertEquals(0, selection.getRow());
+        assertArrayEquals(new int[] { 1 }, selection.getRows());
     }
 
     @Test
     public void moveTop() {
         Integer[] indices = new Integer[] { 1 };
-        MoveType.TOP.move(indices, items, -1);
+        SelectionAndFocus selection = MoveType.TOP.move(indices, items, -1);
         assertEquals(second, items.get(0));
+        assertEquals(-1, selection.getFocus());
+        assertEquals(0, selection.getRow());
     }
 
     @Test
@@ -80,9 +97,23 @@ public class MoveTypeTest {
     }
 
     @Test
+    public void moveBottomContinuosMultipleSelection() {
+        Integer[] indices = new Integer[] { 1, 2 };
+        SelectionAndFocus selection = MoveType.BOTTOM.move(indices, items, 1);
+        assertThat(items, contains(first, fourth, second, third));
+        assertEquals(2, selection.getFocus());
+        assertEquals(2, selection.getRow());
+        assertArrayEquals(new int[] { 3 }, selection.getRows());
+    }
+
+    @Test
     public void moveBottomMultipleSelection() {
-        Integer[] indices = new Integer[] { 0, 1 };
-        assertEquals(SelectionAndFocus.NULL, MoveType.BOTTOM.move(indices, items, -1));
+        Integer[] indices = new Integer[] { 0, 2 };
+        SelectionAndFocus selection = MoveType.BOTTOM.move(indices, items, 2);
+        assertThat(items, contains(second, fourth, first, third));
+        assertEquals(3, selection.getFocus());
+        assertEquals(2, selection.getRow());
+        assertArrayEquals(new int[] { 3 }, selection.getRows());
     }
 
     @Test
@@ -115,8 +146,11 @@ public class MoveTypeTest {
     @Test
     public void moveUpMultipleSelection() {
         Integer[] indices = new Integer[] { 1, 3 };
-        MoveType.UP.move(indices, items, -1);
+        SelectionAndFocus selection = MoveType.UP.move(indices, items, 3);
         assertThat(items, contains(second, first, fourth, third));
+        assertEquals(2, selection.getFocus());
+        assertEquals(0, selection.getRow());
+        assertArrayEquals(new int[] { 2 }, selection.getRows());
     }
 
     @Test
@@ -142,8 +176,11 @@ public class MoveTypeTest {
     @Test
     public void moveDownMultipleSelection() {
         Integer[] indices = new Integer[] { 0, 2 };
-        MoveType.DOWN.move(indices, items, -1);
+        SelectionAndFocus selection = MoveType.DOWN.move(indices, items, 0);
         assertThat(items, contains(second, first, fourth, third));
+        assertEquals(1, selection.getFocus());
+        assertEquals(3, selection.getRow());
+        assertArrayEquals(new int[] { 1 }, selection.getRows());
     }
 
     @Test

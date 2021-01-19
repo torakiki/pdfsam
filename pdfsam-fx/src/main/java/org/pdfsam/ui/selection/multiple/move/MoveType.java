@@ -18,10 +18,14 @@
  */
 package org.pdfsam.ui.selection.multiple.move;
 
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
+
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.LinkedList;
 
 import org.apache.commons.lang3.ArrayUtils;
+import org.pdfsam.support.KeyValueItem;
 
 import javafx.collections.ObservableList;
 
@@ -35,10 +39,21 @@ public enum MoveType {
     TOP {
         @Override
         public <T> SelectionAndFocus move(Integer[] selected, ObservableList<T> items, int focused) {
-            if (isSingleSelection(selected, items) && isNotFirst(selected)) {
-                T item = items.remove(selected[0].intValue());
-                items.add(0, item);
-                return new SingleSelectionAndFocus(0);
+            if (isSubselection(selected, items)) {
+                MultipleSelectionAndFocus newSelection = new MultipleSelectionAndFocus(focused);
+                Arrays.parallelSort(selected, Collections.reverseOrder(Integer::compare));
+                if (isNotFirst(selected)) {
+                    LinkedList<IntKeyValueItem<T>> toMove = new LinkedList<>();
+                    Arrays.stream(selected)
+                            .forEach(i -> toMove.push(new IntKeyValueItem<>(i, items.remove(i.intValue()))));
+                    int addIdx = 0;
+                    for (IntKeyValueItem<T> current : toMove) {
+                        items.add(addIdx, current.getValue());
+                        newSelection.moveTo(current.getKey(), addIdx);
+                        addIdx++;
+                    }
+                    return newSelection;
+                }
             }
             return SelectionAndFocus.NULL;
         }
@@ -80,10 +95,19 @@ public enum MoveType {
     BOTTOM {
         @Override
         public <T> SelectionAndFocus move(Integer[] selected, ObservableList<T> items, int focused) {
-            if (isSingleSelection(selected, items) && isNotLast(selected, items)) {
-                T item = items.remove(selected[0].intValue());
-                items.add(items.size(), item);
-                return new SingleSelectionAndFocus(items.size() - 1);
+            if (isSubselection(selected, items)) {
+                MultipleSelectionAndFocus newSelection = new MultipleSelectionAndFocus(focused);
+                Arrays.parallelSort(selected, Collections.reverseOrder(Integer::compare));
+                if (isNotLast(selected, items)) {
+                    LinkedList<IntKeyValueItem<T>> toMove = new LinkedList<>();
+                    Arrays.stream(selected)
+                            .forEach(i -> toMove.push(new IntKeyValueItem<>(i, items.remove(i.intValue()))));
+                    toMove.stream().forEach(i -> {
+                        items.add(i.getValue());
+                        newSelection.moveTo(i.getKey(), items.size() - 1);
+                    });
+                    return newSelection;
+                }
             }
             return SelectionAndFocus.NULL;
         }
@@ -115,5 +139,35 @@ public enum MoveType {
      * @return a new SelectionAndFocus holding the new coordinates for focus and selection
      */
     public abstract <T> SelectionAndFocus move(Integer[] indicesToMove, ObservableList<T> items, int focused);
+
+    /**
+     * Helper class to hold information about the original index of a row
+     * 
+     * @author Andrea Vacondio
+     *
+     * @param <V>
+     */
+    private static class IntKeyValueItem<V> implements KeyValueItem<Integer, V> {
+
+        private Integer key;
+        private V value;
+
+        private IntKeyValueItem(Integer key, V value) {
+            requireNotNullArg(key, "Key cannot be null");
+            this.key = key;
+            this.value = value;
+        }
+
+        @Override
+        public Integer getKey() {
+            return key;
+        }
+
+        @Override
+        public V getValue() {
+            return value;
+        }
+
+    }
 
 }

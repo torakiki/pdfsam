@@ -64,4 +64,15 @@ public class MultipleSelectionAndFocusTest {
         victim.moveDown(5);
         assertEquals(6, victim.getFocus());
     }
+
+    @Test
+    public void moveTo() {
+        MultipleSelectionAndFocus victim = new MultipleSelectionAndFocus(4);
+        victim.moveTo(4, 10);
+        victim.moveTo(6, 11);
+        victim.moveTo(8, 12);
+        assertEquals(10, victim.getFocus());
+        assertEquals(10, victim.getRow());
+        assertArrayEquals(new int[] { 11, 12 }, victim.getRows());
+    }
 }

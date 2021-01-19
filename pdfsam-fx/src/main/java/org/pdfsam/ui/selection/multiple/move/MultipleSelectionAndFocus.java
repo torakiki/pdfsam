@@ -41,7 +41,7 @@ class MultipleSelectionAndFocus implements SelectionAndFocus {
         this.originalFocus = originalFocus;
     }
 
-    private void move(int row, int newRow) {
+    void moveTo(int row, int newRow) {
         if (focus == -1 && originalFocus == row) {
             focus = newRow;
         }
@@ -54,12 +54,12 @@ class MultipleSelectionAndFocus implements SelectionAndFocus {
 
     void moveUp(int row) {
         int newRow = row - 1;
-        move(row, newRow);
+        moveTo(row, newRow);
     }
 
     void moveDown(int row) {
         int newRow = row + 1;
-        move(row, newRow);
+        moveTo(row, newRow);
     }
 
     @Override

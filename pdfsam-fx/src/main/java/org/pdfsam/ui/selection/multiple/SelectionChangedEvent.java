@@ -81,11 +81,11 @@ final class SelectionChangedEvent {
         }
         switch (type) {
         case BOTTOM:
-            return isSingleSelection() && bottom < totalRows - 1;
+            return bottom < totalRows - 1;
         case DOWN:
             return bottom < totalRows - 1;
         case TOP:
-            return isSingleSelection() && top > 0;
+            return top > 0;
         default:
             return top > 0;
         }
