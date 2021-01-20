@@ -24,10 +24,14 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
+import java.util.Locale;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
+import org.pdfsam.i18n.SetLocaleEvent;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 
 /**
@@ -35,6 +39,11 @@ import org.pdfsam.pdf.PdfDocumentDescriptor;
  *
  */
 public class FileColumnTest {
+    @BeforeClass
+    public static void setUpClass() {
+        eventStudio().broadcast(new SetLocaleEvent(Locale.UK.toLanguageTag()));
+    }
+
     @Test
     public void getObservableValue() {
         File file = mock(File.class);
@@ -57,11 +66,13 @@ public class FileColumnTest {
 
     @Test
     public void comparator() {
+        assertTrue(FileColumn.NAME.comparator().compare(new File("_a.pdf"), new File("0.pdf")) < 0);
         assertTrue(FileColumn.NAME.comparator().compare(new File("1192name.pdf"), new File("chuck.norris")) < 0);
         assertTrue(FileColumn.NAME.comparator().compare(new File("chuck.norris"), new File("1192name.pdf")) > 0);
         assertTrue(FileColumn.NAME.comparator().compare(new File("a.pdf"), new File("b.pdf")) < 0);
         assertTrue(FileColumn.NAME.comparator().compare(new File("b.pdf"), new File("a.pdf")) > 0);
         assertTrue(FileColumn.NAME.comparator().compare(new File("a.pdf"), new File("a.pdf")) == 0);
+        assertTrue(FileColumn.NAME.comparator().compare(new File("A.pdf"), new File("b.pdf")) < 0);
         assertEquals(-1, FileColumn.NAME.comparator().compare(new File("1_name"), new File("2_name")));
         assertEquals(-1, FileColumn.NAME.comparator().compare(new File("001_name"), new File("1_name")));
     }
