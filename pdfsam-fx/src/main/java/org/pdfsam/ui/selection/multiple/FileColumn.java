@@ -19,6 +19,7 @@
 package org.pdfsam.ui.selection.multiple;
 
 import java.io.File;
+import java.text.Collator;
 import java.util.Comparator;
 
 import org.pdfsam.i18n.DefaultI18nContext;
@@ -79,7 +80,7 @@ public enum FileColumn implements SelectionTableColumn<File> {
 
         @Override
         public Comparator<File> comparator() {
-            return new NumericalSortFilenameComparator();
+            return new NumericalSortFilenameComparator(Comparator.comparing(File::getName, Collator.getInstance()));
         }
     }
 }
