@@ -23,6 +23,8 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import java.util.function.Consumer;
 
 import org.apache.commons.lang3.builder.Builder;
+import org.pdfsam.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventStation;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.TaskExecutionRequestEvent;
@@ -31,8 +33,6 @@ import org.pdfsam.ui.notification.NotificationType;
 import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
-import org.pdfsam.eventstudio.annotation.EventListener;
-import org.pdfsam.eventstudio.annotation.EventStation;
 import org.sejda.model.parameter.base.AbstractParameters;
 
 import javafx.application.Platform;
@@ -81,6 +81,11 @@ public abstract class BaseTaskExecutionModule implements Module {
     @EventListener
     public final void restoreState(LoadWorkspaceEvent event) {
         Platform.runLater(() -> onLoadWorkspace(event.getData(id())));
+    }
+
+    @EventListener
+    public void onRunButtonAccelerator(RunButtonTriggerRequest request) {
+        footer.runButton().fire();
     }
 
     /**

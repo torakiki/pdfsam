@@ -27,12 +27,13 @@ import java.util.Optional;
 
 import javax.inject.Inject;
 
+import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.module.Module;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.pdfsam.ui.event.SetTitleEvent;
+import org.pdfsam.ui.module.RunButtonTriggerRequest;
 import org.pdfsam.ui.quickbar.QuickbarPane;
 import org.pdfsam.ui.support.Style;
-import org.pdfsam.eventstudio.annotation.EventListener;
 
 import javafx.animation.FadeTransition;
 import javafx.scene.control.ScrollPane;
@@ -81,5 +82,12 @@ public class WorkArea extends BorderPane {
             }
         });
         eventStudio().broadcast(new SetTitleEvent(current.map(m -> m.descriptor().getName()).orElse("")));
+    }
+
+    @EventListener
+    public void onRunButtonAccelerator(RunButtonTriggerRequest request) {
+        if (this.isVisible()) {
+            current.ifPresent(m -> eventStudio().broadcast(request, m.id()));
+        }
     }
 }

@@ -24,6 +24,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
@@ -33,6 +34,8 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
+import org.mockito.ArgumentMatchers;
+import org.pdfsam.eventstudio.Listener;
 import org.pdfsam.injector.Injector;
 import org.pdfsam.injector.Provides;
 import org.pdfsam.module.Module;
@@ -42,7 +45,7 @@ import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.pdfsam.ui.event.SetTitleEvent;
-import org.pdfsam.eventstudio.Listener;
+import org.pdfsam.ui.module.RunButtonTriggerRequest;
 
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
@@ -110,6 +113,30 @@ public class WorkAreaTest {
         verify(listener).onEvent(captor.capture());
         assertEquals(injector.instance(TestModule.class).descriptor().getName(), captor.getValue().getTitle());
         assertNotNull(((ScrollPane) victim.getCenter()).getContent());
+    }
+
+    @Test
+    public void runRequestIsSent() {
+        WorkArea victim = injector.instance(WorkArea.class);
+        assertNull(((ScrollPane) victim.getCenter()).getContent());
+        victim.onSetActiveModule(SetActiveModuleRequest.activeteModule(DefaultPriorityTestModule.ID));
+        victim.setVisible(true);
+        Listener<RunButtonTriggerRequest> listener = mock(Listener.class);
+        eventStudio().add(RunButtonTriggerRequest.class, listener, DefaultPriorityTestModule.ID);
+        victim.onRunButtonAccelerator(RunButtonTriggerRequest.INSTANCE);
+        verify(listener).onEvent(ArgumentMatchers.any());
+    }
+
+    @Test
+    public void runRequestIsNotSentIfNotVisible() {
+        WorkArea victim = injector.instance(WorkArea.class);
+        assertNull(((ScrollPane) victim.getCenter()).getContent());
+        victim.onSetActiveModule(SetActiveModuleRequest.activeteModule(DefaultPriorityTestModule.ID));
+        victim.setVisible(false);
+        Listener<RunButtonTriggerRequest> listener = mock(Listener.class);
+        eventStudio().add(RunButtonTriggerRequest.class, listener, DefaultPriorityTestModule.ID);
+        victim.onRunButtonAccelerator(RunButtonTriggerRequest.INSTANCE);
+        verify(listener, never()).onEvent(ArgumentMatchers.any());
     }
 
     @Test

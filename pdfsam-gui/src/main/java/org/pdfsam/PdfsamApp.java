@@ -64,6 +64,7 @@ import org.pdfsam.ui.io.SetLatestDirectoryEvent;
 import org.pdfsam.ui.log.LogMessageBroadcaster;
 import org.pdfsam.ui.log.LoggerConfig;
 import org.pdfsam.ui.module.OpenButton;
+import org.pdfsam.ui.module.RunButtonTriggerRequest;
 import org.pdfsam.ui.notification.NotificationsContainer;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
@@ -221,6 +222,8 @@ public class PdfsamApp extends Application {
                 () -> eventStudio().broadcast(ShowStageRequest.INSTANCE, "LogStage"));
         mainScene.getAccelerators().put(new KeyCodeCombination(KeyCode.Q, KeyCombination.SHORTCUT_DOWN),
                 () -> Platform.exit());
+        mainScene.getAccelerators().put(new KeyCodeCombination(KeyCode.X, KeyCombination.SHORTCUT_DOWN),
+                () -> eventStudio().broadcast(RunButtonTriggerRequest.INSTANCE));
         return mainScene;
     }
 
