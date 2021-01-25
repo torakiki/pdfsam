@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-11-15 12:38+0100\n"
-"PO-Revision-Date: 2020-11-08 22:32+0000\n"
-"Last-Translator: Abraheem <Unknown>\n"
+"PO-Revision-Date: 2020-11-22 20:37+0000\n"
+"Last-Translator: Şakir ŞAMLIOĞLU <Unknown>\n"
 "Language-Team: Arabic <ar@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-11-19 20:56+0000\n"
-"X-Generator: Launchpad (build c35ff22711d15549e2303ae18ae521fd91f6bf00)\n"
+"X-Launchpad-Export-Date: 2021-01-25 09:04+0000\n"
+"X-Generator: Launchpad (build 2d1d5e352f0d063d660df2300e31f66bed027fa5)\n"
 
 msgid "No PDF document has been selected"
 msgstr "لم يتم تحديد أي وثيقة PDF"
@@ -71,7 +71,7 @@ msgid "Save log"
 msgstr "احفظ السجلّ"
 
 msgid "Select where to save the log file"
-msgstr ""
+msgstr "حدد أين تريد حفظ الملفات"
 
 msgid "About"
 msgstr "عَنْ التطبيق"
@@ -111,31 +111,31 @@ msgid "Support"
 msgstr "دعم"
 
 msgid "Bug and feature requests"
-msgstr ""
+msgstr "طلبات الأخطاء والميزات"
 
 msgid "Documentation"
-msgstr ""
+msgstr "التّوثيق"
 
 msgid "Contribute"
-msgstr ""
+msgstr "مساهمة"
 
 msgid "Fork PDFsam on GitHub"
 msgstr ""
 
 msgid "Translate"
-msgstr ""
+msgstr "ترجمة"
 
 msgid "Donate"
-msgstr ""
+msgstr "تبرّع"
 
 msgid "Social"
 msgstr ""
 
 msgid "Follow us on Twitter"
-msgstr ""
+msgstr "تابعنا عبر التويتر"
 
 msgid "Like us on Facebook"
-msgstr ""
+msgstr "اعجب بصفحتنا على الفيسبوك"
 
 msgid "Log register rows:"
 msgstr ""
@@ -144,10 +144,10 @@ msgid "Maximum number of rows displayed by the Log register"
 msgstr ""
 
 msgid "Language:"
-msgstr ""
+msgstr "اللُّغة:"
 
 msgid "Set your preferred language (restart needed)"
-msgstr ""
+msgstr "حدد تفضيلات اللغة (يحتاج إعادة تشغيل)"
 
 msgid "Startup module:"
 msgstr ""

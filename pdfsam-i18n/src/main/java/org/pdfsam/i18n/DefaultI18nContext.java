@@ -47,7 +47,8 @@ public final class DefaultI18nContext implements I18nContext {
             new Locale("hr"), new Locale("cs"), new Locale("da"), new Locale("nl"), Locale.UK, Locale.FRENCH,
             Locale.GERMAN, new Locale("he"), new Locale("hu"), new Locale("el"), Locale.JAPANESE, Locale.ITALIAN,
             new Locale("pl"), new Locale("pt"), new Locale("ro"), new Locale("ru"), new Locale("sk"), new Locale("sl"),
-            new Locale("sv"), new Locale("es"), new Locale("tr"), new Locale("uk"), new Locale("fi"));
+            new Locale("sr"), new Locale("sv"), new Locale("es"), new Locale("tr"), new Locale("uk"), new Locale("fi"),
+            new Locale("ko"));
 
     private I18n i18n;
 

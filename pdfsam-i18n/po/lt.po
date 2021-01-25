@@ -1,16 +1,16 @@
-# Norwegian Bokmal translation for pdfsam
-# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# Lithuanian translation for pdfsam
+# Copyright (c) 2020 Rosetta Contributors and Canonical Ltd 2020
 # This file is distributed under the same license as the pdfsam package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-11-15 12:38+0100\n"
-"PO-Revision-Date: 2015-10-19 10:42+0000\n"
-"Last-Translator: Wolloloo <vidartf@gmail.com>\n"
-"Language-Team: Norwegian Bokmal <nb@li.org>\n"
+"PO-Revision-Date: 2020-11-03 14:02+0000\n"
+"Last-Translator: Moo <hazap@hotmail.com>\n"
+"Language-Team: Lithuanian <lt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,78 +18,78 @@ msgstr ""
 "X-Generator: Launchpad (build 2d1d5e352f0d063d660df2300e31f66bed027fa5)\n"
 
 msgid "No PDF document has been selected"
-msgstr ""
+msgstr "Nepasirinktas joks PDF dokumentas"
 
 msgid "Extract"
-msgstr ""
+msgstr "Išskleisti"
 
 msgid "Extract pages from PDF documents."
-msgstr ""
+msgstr "Išskleisti puslapius iš PDF dokumentų."
 
 msgid "File names settings"
 msgstr ""
 
 msgid "Extract settings"
-msgstr ""
+msgstr "Išskleidimo nustatymai"
 
 msgid "Output settings"
 msgstr ""
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "Puslapiai, kuriuos išskleisti (pvz.: 2 arba 5-23 arba 2,5-7,12-)"
 
 msgid "Invalid page ranges"
-msgstr ""
+msgstr "Neteisingas puslapių rėžis"
 
 msgid "Extract pages:"
-msgstr ""
+msgstr "Išskleisti puslapius:"
 
 #, java-format
 msgid "Installing theme {0}."
-msgstr "Installerer tema {0}"
+msgstr "Įdiegiamas apipavidalinimas {0}."
 
 #, java-format
 msgid "Started in {0}"
-msgstr "Startet i {0}"
+msgstr ""
 
 msgid "Closing PDFsam..."
-msgstr "Lukker PDFsam..."
+msgstr "Užveriama PDFsam..."
 
 msgid "Log register"
-msgstr "Loggregister"
+msgstr ""
 
 msgid "Copy"
-msgstr "Kopier"
+msgstr "Kopijuoti"
 
 msgid "Clear"
-msgstr "Tøm"
+msgstr "Išvalyti"
 
 msgid "Select all"
-msgstr "Merk alt"
+msgstr "Pažymėti viską"
 
 msgid "Save log"
-msgstr "Lagre logg"
+msgstr "Įrašyti žurnalą"
 
 msgid "Select where to save the log file"
-msgstr "Velg hvor loggfil skal lagres"
+msgstr "Pasirinkite kur įrašyti žurnalo failą"
 
 msgid "About"
-msgstr "Om"
+msgstr "Apie"
 
 msgid "Premium features"
-msgstr ""
+msgstr "Premium ypatybės"
 
 msgid "Close"
-msgstr "Lukk"
+msgstr "Užverti"
 
 msgid "Modules"
-msgstr "Moduler"
+msgstr "Moduliai"
 
 msgid "Subscribe to the official news feed"
-msgstr "Abonner på det offisielle nyhetsbrevet"
+msgstr "Prenumeruoti oficialių naujienų kanalą"
 
 msgid "Environment"
-msgstr ""
+msgstr "Aplinka"
 
 msgid "Vendor: %s"
 msgstr ""
@@ -102,68 +102,66 @@ msgstr ""
 
 #, java-format
 msgid "Max memory {0}"
-msgstr "Maks minne {0}"
-
-msgid "Copy to clipboard"
-msgstr "Kopier til utklippstavle"
-
-msgid "Support"
-msgstr "Støtte"
-
-msgid "Bug and feature requests"
-msgstr "Feilmeldinger og forslag til nye egenskaper"
-
-msgid "Documentation"
 msgstr ""
 
+msgid "Copy to clipboard"
+msgstr "Kopijuoti į iškarpinę"
+
+msgid "Support"
+msgstr "Palaikymas"
+
+msgid "Bug and feature requests"
+msgstr ""
+
+msgid "Documentation"
+msgstr "Dokumentacija"
+
 msgid "Contribute"
-msgstr "Bidra"
+msgstr "Talkinimas"
 
 msgid "Fork PDFsam on GitHub"
 msgstr ""
 
 msgid "Translate"
-msgstr "Oversett"
+msgstr "Išversti"
 
 msgid "Donate"
-msgstr "Donér"
+msgstr "Paaukoti"
 
 msgid "Social"
-msgstr "Sosialt"
+msgstr "Socialiniai tinklai"
 
 msgid "Follow us on Twitter"
-msgstr "Følg oss på Twitter"
+msgstr "Sekite mus Twitter puslapyje"
 
 msgid "Like us on Facebook"
-msgstr "Lik oss på Facebook"
+msgstr ""
 
 msgid "Log register rows:"
-msgstr "Rader i loggregisteret:"
+msgstr ""
 
 msgid "Maximum number of rows displayed by the Log register"
-msgstr "Maksimalt antall rader vist av loggregisteret"
+msgstr ""
 
 msgid "Language:"
-msgstr "Språk:"
+msgstr "Kalba:"
 
 msgid "Set your preferred language (restart needed)"
-msgstr "Velg ditt foretrekkende språk (krever omstart)"
+msgstr "Nustatyti Jūsų mėgstamą kalbą (reikės paleisti programą iš naujo)"
 
 msgid "Startup module:"
-msgstr "Oppstartsmodul:"
+msgstr ""
 
 msgid "Set the module to open at application startup (restart needed)"
-msgstr "Sett modulen som åpnes ved programstart (omstart nødvendig)"
+msgstr ""
 
 msgid ""
 "Usage statistics are used to populate the modules quick bar on the left with "
 "the most used and most recently used modules."
 msgstr ""
-"Brukstatistikk blir brukt til å fylle modul hurtigtilgangsområdet til "
-"venstre med de mest og nyest brukte modulene."
 
 msgid "Manually selected"
-msgstr "Valgt manuelt"
+msgstr ""
 
 msgid ""
 "Automatically set the destination directory to the selected PDF document "
@@ -174,54 +172,53 @@ msgid "Clear usage statistics"
 msgstr ""
 
 msgid "Appearance"
-msgstr "Utseende"
+msgstr "Išvaizda"
 
 msgid "Behavior"
-msgstr "Oppførsel"
+msgstr "Elgsena"
 
 msgid "Workspace"
-msgstr "Arbeidsområde"
+msgstr "Darbo sritis"
 
 msgid "Output"
-msgstr "Resultat"
+msgstr ""
 
 msgid "Check for updates now"
-msgstr "Sjekk for oppdateringer nå"
+msgstr ""
 
 msgid ""
 "Select a directory where documents will be saved and loaded by default"
-msgstr "Velg en mappe hvor dokumenter blir lagret og innlest som standard"
+msgstr ""
+"Pasirinkti aplanką, kuriame pagal nutylėjimą bus saugomi ir įkeliami "
+"dokumentai"
 
 msgid "Select a directory"
-msgstr "Velg en mappe"
+msgstr ""
 
 msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
 "startup"
 msgstr ""
-"Velg et tidligere lagret arbeidsområde som blir innlest automatisk ved "
-"oppstart"
 
 msgid "Select a workspace"
-msgstr "Velg et arbeidsområde"
-
-msgid "Default working directory:"
-msgstr "Standard arbeidsmappe:"
-
-msgid "Load default workspace at startup:"
-msgstr "Les standard arbeidsområde ved oppstart:"
-
-msgid "Dashboard"
 msgstr ""
 
+msgid "Default working directory:"
+msgstr "Numatytasis darbinis katalogas:"
+
+msgid "Load default workspace at startup:"
+msgstr ""
+
+msgid "Dashboard"
+msgstr "Skydelis"
+
 msgid "Check for updates at startup"
-msgstr "Se etter oppdateringer ved oppstart"
+msgstr "Paleidžiant tikrinti ar yra atnaujinimų"
 
 msgid ""
 "Set whether new version availability should be checked on startup (restart "
 "needed)"
 msgstr ""
-"Angi om det skal søkes etter ny versjon ved oppstart (omstart nødvendig)"
 
 msgid "Check for news at startup"
 msgstr ""
@@ -238,17 +235,17 @@ msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
 
 msgid "Overwrite files"
-msgstr ""
+msgstr "Perrašyti failus"
 
 msgid ""
 "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
 
 msgid "Play alert sounds"
-msgstr "Spill av alarmlyder"
+msgstr "Naudoti įspėjamuosius garsus"
 
 msgid "Turn on or off alert sounds"
-msgstr "Slå alarmlyder på eller av"
+msgstr "Įjungti ar išjungti įspėjamuosius garsus"
 
 msgid "Store passwords when saving a workspace file"
 msgstr ""
@@ -259,7 +256,7 @@ msgid ""
 msgstr ""
 
 msgid "Show donation window"
-msgstr ""
+msgstr "Rodyti paaukojimo langą"
 
 msgid ""
 "Turn on or off the notification appearing once in a while and asking the "
@@ -267,7 +264,7 @@ msgid ""
 msgstr ""
 
 msgid "Show premium features"
-msgstr ""
+msgstr "Rodyti premium ypatybes"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
@@ -292,22 +289,22 @@ msgid "If a default workspace is set, save it on application exit"
 msgstr ""
 
 msgid "Maximum number of rows mast be a positive number"
-msgstr "Det maksimale antallet rader må være et positivt tall"
+msgstr ""
 
 msgid "Generate high quality thumbnails (slower)"
-msgstr "Generer høykvalitets miniatyrbilder (tregere)"
+msgstr ""
 
 msgid "Size in px:"
-msgstr "Størrelse i px:"
+msgstr ""
 
 msgid "Library used to generate thumbnails"
-msgstr "Bibliotek brukt til å generere minibilder"
+msgstr ""
 
 msgid "Thumbnails creator:"
-msgstr "Minibilder laget av:"
+msgstr ""
 
 msgid "Settings"
-msgstr "Innstillinger"
+msgstr "Nustatymai"
 
 msgid "Drag and drop PDF files or directories containing PDF files"
 msgstr ""
@@ -319,10 +316,10 @@ msgid "What's new"
 msgstr ""
 
 msgid "Yes"
-msgstr "Ja"
+msgstr "Taip"
 
 msgid "No"
-msgstr ""
+msgstr "Ne"
 
 msgid "Confirm clearing"
 msgstr ""
@@ -343,16 +340,16 @@ msgid "Select the task to perform on the following files"
 msgstr ""
 
 msgid "Directory not empty"
-msgstr "Mappa er ikke tom"
+msgstr ""
 
 msgid "The selected directory is not empty"
-msgstr "Den valgte mappa er ikke tom"
+msgstr ""
 
 msgid "What would you like to do in case of files with the same name?"
 msgstr ""
 
 msgid "Overwrite"
-msgstr "Erstatt"
+msgstr ""
 
 msgid "Rename"
 msgstr ""
@@ -361,16 +358,16 @@ msgid "Skip"
 msgstr ""
 
 msgid "Cancel"
-msgstr "Avbryt"
+msgstr ""
 
 msgid "Don't overwrite existing file"
-msgstr "Ikke erstatt eksisterende fil"
+msgstr ""
 
 msgid "Overwrite confirmation"
 msgstr ""
 
 msgid "A file with the given name already exists"
-msgstr "En fil med det navnet eksisterer allerede"
+msgstr ""
 
 msgid "What would you like to do?"
 msgstr ""
@@ -404,16 +401,16 @@ msgid ""
 msgstr ""
 
 msgid "Summary"
-msgstr "Oppsummering"
+msgstr ""
 
 msgid "Keywords"
-msgstr "Nøkkelord"
+msgstr "Raktiniai žodžiai"
 
 msgid "Document details"
-msgstr "Dokumentdetaljer"
+msgstr ""
 
 msgid "Invalid parameters"
-msgstr "Ugyldige parametere"
+msgstr ""
 
 msgid ""
 "Input parameters are invalid, open the application messages for details."
@@ -433,7 +430,7 @@ msgid "You performed {0} tasks with PDFsam, did it help?"
 msgstr ""
 
 msgid "Give something back"
-msgstr "Gi noe tilbake"
+msgstr ""
 
 msgid "PDFsam worked hard!"
 msgstr ""
@@ -443,13 +440,13 @@ msgstr ""
 
 #, java-format
 msgid "PDFsam {0} is available for download"
-msgstr "PDFsam {0} er tilgjengelig for nedlasting"
+msgstr ""
 
 msgid "Download"
-msgstr "Last ned"
+msgstr ""
 
 msgid "New version available"
-msgstr "Ny versjon tilgjengelig"
+msgstr ""
 
 msgid "You are running the latest version of PDFsam Basic"
 msgstr ""
@@ -458,7 +455,7 @@ msgid "No update"
 msgstr ""
 
 msgid "Open"
-msgstr "Åpne"
+msgstr "Atverti"
 
 msgid "E_xit"
 msgstr ""
@@ -467,19 +464,19 @@ msgid "_Settings"
 msgstr ""
 
 msgid "Application messages"
-msgstr "Programmeldinger"
+msgstr ""
 
 msgid "_Modules"
-msgstr "_Moduler"
+msgstr ""
 
 msgid "_Workspace"
-msgstr "_Arbeidsområde"
+msgstr ""
 
 msgid "_Load"
-msgstr "Å_pne"
+msgstr ""
 
 msgid "_Save"
-msgstr "_Lagre"
+msgstr ""
 
 msgid "Recen_ts"
 msgstr ""
@@ -488,10 +485,10 @@ msgid "_Clear recents"
 msgstr ""
 
 msgid "Select the workspace file to save"
-msgstr "Velg fil fra arbeidsområde for lagring"
+msgstr ""
 
 msgid "Select the workspace to load"
-msgstr "Velg arbeidområde du vil åpne"
+msgstr ""
 
 msgid "Split by bookmarks"
 msgstr ""
@@ -529,7 +526,7 @@ msgid "Show errors"
 msgstr ""
 
 msgid "Run"
-msgstr "Kjør"
+msgstr "Vykdyti"
 
 msgid "Requested"
 msgstr ""
@@ -570,13 +567,13 @@ msgid "Loading..."
 msgstr ""
 
 msgid "Document properties"
-msgstr "Dokumentegenskaper"
+msgstr "Dokumento savybės"
 
 msgid "Remove"
-msgstr "Fjern"
+msgstr "Pašalinti"
 
 msgid "Set destination"
-msgstr ""
+msgstr "Išsaugoti kaip"
 
 msgid "Open Folder"
 msgstr ""
@@ -597,10 +594,10 @@ msgid "Move to Top"
 msgstr ""
 
 msgid "Move Up"
-msgstr "Flytt opp"
+msgstr "Perkelti aukštyn"
 
 msgid "Move Down"
-msgstr "Flytt ned"
+msgstr "Perkelti žemyn"
 
 msgid "Move to Bottom"
 msgstr ""
@@ -615,7 +612,7 @@ msgid "Modified"
 msgstr ""
 
 msgid "Name"
-msgstr "Navn"
+msgstr "Pavadinimas"
 
 msgid "Add documents to the table"
 msgstr ""
@@ -665,10 +662,10 @@ msgid ""
 msgstr ""
 
 msgid "Reverse"
-msgstr ""
+msgstr "Atvirkščiai"
 
 msgid "Pages"
-msgstr "Sider"
+msgstr "Puslapiai"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -690,7 +687,7 @@ msgid "Allowed extensions are {0}"
 msgstr ""
 
 msgid "Compress output file/files"
-msgstr "Komprimer utfil(er)"
+msgstr "Suspausti rezultato failą/failus"
 
 msgid "Discard bookmarks"
 msgstr ""
@@ -710,7 +707,7 @@ msgid "Hide advanced settings"
 msgstr ""
 
 msgid "Overwrite if already exists"
-msgstr "Overskriv dersom det allerede eksisterer"
+msgstr "Perrašyti failą, jei toks jau egzistuoja:"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
@@ -736,7 +733,7 @@ msgid "Select"
 msgstr ""
 
 msgid "Browse"
-msgstr "Bla igjennom"
+msgstr "Naršyti"
 
 #, java-format
 msgid "PDF version required: {0}"
@@ -746,7 +743,7 @@ msgid "Prefix for the generated files names"
 msgstr ""
 
 msgid "Add prefix"
-msgstr "Legg til prefiks"
+msgstr "Pridėti priešdėlį"
 
 msgid "Generated PDF documents name prefix:"
 msgstr ""
@@ -767,7 +764,7 @@ msgid "No page selected"
 msgstr ""
 
 msgid "Split"
-msgstr "Del opp"
+msgstr "Skaidyti"
 
 msgid "Split a PDF document at the given page numbers."
 msgstr ""
@@ -804,7 +801,7 @@ msgid "Split by every \"n\" pages"
 msgstr ""
 
 msgid "Number of pages"
-msgstr "Antall sider"
+msgstr "Puslapių skaičius"
 
 msgid "Invalid number of pages"
 msgstr ""
@@ -903,10 +900,10 @@ msgid "Split at this size:"
 msgstr ""
 
 msgid "Invalid split size"
-msgstr "Ugyldig delstørrelse"
+msgstr "Neteisingas skaidymo dydis"
 
 msgid "Alternate Mix"
-msgstr "Alternativ Mix"
+msgstr "Alternate mix"
 
 msgid ""
 "Merge two or more PDF documents taking pages alternately in natural or "
@@ -943,7 +940,7 @@ msgid ""
 msgstr ""
 
 msgid "Rotate"
-msgstr "Rotér"
+msgstr "Pasukti"
 
 msgid "Rotate the pages of multiple PDF documents."
 msgstr ""
@@ -954,8 +951,8 @@ msgstr ""
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Dobbeltklikk for å velge sider du vil slå sammen (f.eks.: 2 eller 5-23 eller "
-"2,5-7,12 -)"
+"Dukart spustelėkite kad pažymėtumėte puslapius, kuriuos norite sujungti "
+"(pvz., 2 arba 5-23 arba 2,5-7,12-"
 
 msgid "Add a blank page if page number is odd"
 msgstr ""
@@ -1082,19 +1079,35 @@ msgid "Invalid number: {0}."
 msgstr ""
 
 #~ msgid "Split even pages"
-#~ msgstr "Del partall-sider"
+#~ msgstr "Atskirti lyginius puslapius"
 
 #~ msgid "Split odd pages"
-#~ msgstr "Del oddetall-sider"
+#~ msgstr "Atskirti nelyginius puslapius"
 
 #~ msgid "Destination folder"
-#~ msgstr "Destinasjonsmappe"
+#~ msgstr "Paskirties aplankas"
+
+#~ msgid "Output document pdf version:"
+#~ msgstr "Rezultato dokumento pdf versija:"
 
 #~ msgid "Theme:"
 #~ msgstr "Tema:"
 
-#~ msgid "Never"
-#~ msgstr "Aldri"
+#~ msgid "Unable to get latest available version"
+#~ msgstr "Nepavyko gauti naujausios išleistos versijos"
 
-#~ msgid "Output document pdf version:"
-#~ msgstr "Pdf-versjon for ferdig dokument:"
+#~ msgid "Never"
+#~ msgstr "Niekada"
+
+#~ msgid ""
+#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" is "
+#~ "selected"
+#~ msgstr ""
+#~ "Rodyti dialogo langą prašant vartotojo patvirtinimo kai pasirinktas "
+#~ "\"perrašyti\""
+
+#~ msgid "Ask for confirmation when overwrite checkbox is selected"
+#~ msgstr "Prašyti patvirtinimo kai pažymėtas punktas \"perrašyti\""
+
+#~ msgid "Would you like to overwrite it?"
+#~ msgstr "Ar norite jį perrašyti?"

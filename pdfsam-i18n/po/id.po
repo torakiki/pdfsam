@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-11-15 12:38+0100\n"
-"PO-Revision-Date: 2019-10-24 13:50+0000\n"
-"Last-Translator: Rengga Prakoso Nugroho <Unknown>\n"
+"PO-Revision-Date: 2021-01-03 11:53+0000\n"
+"Last-Translator: Waluyo Adi Siswanto <Unknown>\n"
 "Language-Team: Indonesian <id@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-11-19 20:56+0000\n"
-"X-Generator: Launchpad (build c35ff22711d15549e2303ae18ae521fd91f6bf00)\n"
+"X-Launchpad-Export-Date: 2021-01-25 09:04+0000\n"
+"X-Generator: Launchpad (build 2d1d5e352f0d063d660df2300e31f66bed027fa5)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Tidak ada dokumen terpilih"
@@ -50,7 +50,7 @@ msgstr "Memasang tema{0}"
 
 #, java-format
 msgid "Started in {0}"
-msgstr ""
+msgstr "Dimulai dari {0}"
 
 msgid "Closing PDFsam..."
 msgstr "Menutup PDFsam..."
@@ -89,7 +89,7 @@ msgid "Subscribe to the official news feed"
 msgstr "Berlangganan untuk pemberitahuan resmi"
 
 msgid "Environment"
-msgstr ""
+msgstr "Lingkungan"
 
 msgid "Vendor: %s"
 msgstr "Penyedia: %s"
@@ -120,7 +120,7 @@ msgid "Contribute"
 msgstr "Berkontribusi"
 
 msgid "Fork PDFsam on GitHub"
-msgstr ""
+msgstr "Ambil PDFsam di GitHub"
 
 msgid "Translate"
 msgstr "Terjemahkan"
@@ -138,115 +138,124 @@ msgid "Like us on Facebook"
 msgstr "Sukai kami di Facebook"
 
 msgid "Log register rows:"
-msgstr ""
+msgstr "Baris daftar catatan:"
 
 msgid "Maximum number of rows displayed by the Log register"
-msgstr ""
+msgstr "Jumlah baris maksimum yang ditampilkan oleh daftar Catatan"
 
 msgid "Language:"
 msgstr "Bahasa:"
 
 msgid "Set your preferred language (restart needed)"
-msgstr ""
+msgstr "Pilih bahasa yang diinginkan (memerlukan jalan ulang)"
 
 msgid "Startup module:"
-msgstr ""
+msgstr "Modul awal:"
 
 msgid "Set the module to open at application startup (restart needed)"
-msgstr ""
+msgstr "Ubah modul dibuka ketika mulai dijalankan (memerlukan jalan ulang)"
 
 msgid ""
 "Usage statistics are used to populate the modules quick bar on the left with "
 "the most used and most recently used modules."
 msgstr ""
+"Statistik pengguna ditampilkan modul di kotak cepat kiri dengan informasi "
+"modul yang paling sering dan terakhir digunakan."
 
 msgid "Manually selected"
-msgstr ""
+msgstr "Dipilih manual"
 
 msgid ""
 "Automatically set the destination directory to the selected PDF document "
 "directory"
 msgstr ""
+"Secara otomatis memilih direktori tujuan untuk dokumen PDF yang dipilih"
 
 msgid "Clear usage statistics"
-msgstr ""
+msgstr "Bersihkan statistik pengguna"
 
 msgid "Appearance"
-msgstr ""
+msgstr "Tampilan"
 
 msgid "Behavior"
-msgstr ""
+msgstr "Perilaku"
 
 msgid "Workspace"
-msgstr ""
+msgstr "Area kerja"
 
 msgid "Output"
-msgstr ""
+msgstr "Keluaran"
 
 msgid "Check for updates now"
-msgstr ""
+msgstr "Periksa pembaruan sekarang"
 
 msgid ""
 "Select a directory where documents will be saved and loaded by default"
-msgstr ""
+msgstr "Pilih direktori bawaan tempat dokumen akan disimpan dan dimuat"
 
 msgid "Select a directory"
-msgstr ""
+msgstr "Pilih direktori"
 
 msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
 "startup"
 msgstr ""
+"Pilih area kerja yang dipilih sebelumnya yang akan dimuat otomatis ketika "
+"dijalankan"
 
 msgid "Select a workspace"
-msgstr ""
+msgstr "Pilih area kerja"
 
 msgid "Default working directory:"
-msgstr ""
+msgstr "Direktori kerja bawaan:"
 
 msgid "Load default workspace at startup:"
-msgstr ""
+msgstr "Muat area kerja bawwan ketika dijalankan:"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Dasbor"
 
 msgid "Check for updates at startup"
-msgstr ""
+msgstr "Periksa pembaruan ketika dijalankan"
 
 msgid ""
 "Set whether new version availability should be checked on startup (restart "
 "needed)"
 msgstr ""
+"Pilih periksa apakah tersedia versi baru ketika dijalankan (perlu dijalankan "
+"ulang)"
 
 msgid "Check for news at startup"
-msgstr ""
+msgstr "Periksa berita ketika dijalankan"
 
 msgid ""
 "Set whether the application should check for news availability on startup "
 "(restart needed)"
 msgstr ""
+"Pilih periksa apakah ada berita baru ketika dijalankan (perlu dijalankan "
+"ulang)"
 
 msgid "Enabled PDF compression"
-msgstr ""
+msgstr "Aktifkan pemampatan PDF"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr ""
+msgstr "Pilih apakah \"Berkas output mampat\" dijadikan bawaan"
 
 msgid "Overwrite files"
-msgstr ""
+msgstr "Menindih berkas"
 
 msgid ""
 "Set whether \"Overwrite if already exists\" should be enabled by default"
-msgstr ""
+msgstr "Pilih apakah \"Menindih jika berkas sama\" diaktifkan secara bawaan"
 
 msgid "Play alert sounds"
-msgstr ""
+msgstr "Membunyikan suara peringatan"
 
 msgid "Turn on or off alert sounds"
-msgstr ""
+msgstr "Pilih suara peringatan hidup atau mati"
 
 msgid "Store passwords when saving a workspace file"
-msgstr ""
+msgstr "Simpan katasandi ketika menyimpan berkas area kerja"
 
 msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
@@ -254,7 +263,7 @@ msgid ""
 msgstr ""
 
 msgid "Show donation window"
-msgstr ""
+msgstr "Tampilkan jendela donasi"
 
 msgid ""
 "Turn on or off the notification appearing once in a while and asking the "
@@ -983,13 +992,13 @@ msgid "Discard forms"
 msgstr ""
 
 msgid "Interactive forms (AcroForms):"
-msgstr ""
+msgstr "Borang ineraktif (AcroForms):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr ""
 
 msgid "Retain bookmarks"
-msgstr ""
+msgstr "Jaga tandabuku"
 
 msgid "Create one entry for each merged document"
 msgstr ""
@@ -998,7 +1007,7 @@ msgid "Retain bookmarks as one entry for each merged document"
 msgstr ""
 
 msgid "Bookmarks handling:"
-msgstr ""
+msgstr "Pengaturan tandabuku"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr ""
@@ -1013,66 +1022,68 @@ msgid "Generate from documents titles"
 msgstr ""
 
 msgid "Table of contents:"
-msgstr ""
+msgstr "Daftar isi:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr ""
 
 msgid "Merge"
-msgstr ""
+msgstr "Gabung"
 
 msgid "Merge together multiple PDF documents or subsections of them."
 msgstr ""
 
 msgid "Merge settings"
-msgstr ""
+msgstr "Pengaturan gabung"
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
-msgstr ""
+msgstr "Berkas \"{0}\" tidak ada atau tidak valid"
 
 msgid "Valid user password provided."
-msgstr ""
+msgstr "Katasandi pengguna yang valid diterima"
 
 msgid "This document is encrypted, click to provide a password."
-msgstr ""
+msgstr "Dokumen ini dienkripsi, klik untuk memasukkan katasandi"
 
 msgid "An error has occurred, click for more details."
-msgstr ""
+msgstr "Terjadi kesalahan, klik untuk informasi lanjut."
 
 msgid "Security"
-msgstr ""
+msgstr "Keamanan"
 
 msgid "Other"
-msgstr ""
+msgstr "Lainnya"
 
 msgid "Roundish"
-msgstr ""
+msgstr "Bulat"
 
 msgid "Directories"
-msgstr ""
+msgstr "Direktori"
 
 msgid "Error saving log file."
-msgstr ""
+msgstr "Kesalahan menyimpan berkas catatan"
 
 #, java-format
 msgid "File {0} saved."
-msgstr ""
+msgstr "Berkas {0} disimpan."
 
 #, java-format
 msgid "Invalid range: {0}."
-msgstr ""
+msgstr "Rentang tidak valid: {0}."
 
 #, java-format
 msgid ""
 "Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
 "or [-n] or [n-]"
 msgstr ""
+"Definisi rentang halaman tidak dimengerti: {0}. Gunakan format ini: [n] atau "
+"[n1-n2] atau [-n] or [n-]"
 
 #, java-format
 msgid "Invalid number: {0}."
-msgstr ""
+msgstr "Anglka tidak valid: {0}."
 
 #~ msgid "Split even pages"
 #~ msgstr "Pisahkan halaman bernomor genap"

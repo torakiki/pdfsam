@@ -1,16 +1,16 @@
-# Norwegian Bokmal translation for pdfsam
-# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# Santali translation for pdfsam
+# Copyright (c) 2020 Rosetta Contributors and Canonical Ltd 2020
 # This file is distributed under the same license as the pdfsam package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-11-15 12:38+0100\n"
-"PO-Revision-Date: 2015-10-19 10:42+0000\n"
-"Last-Translator: Wolloloo <vidartf@gmail.com>\n"
-"Language-Team: Norwegian Bokmal <nb@li.org>\n"
+"PO-Revision-Date: 2020-10-27 06:25+0000\n"
+"Last-Translator: Prasanta Hembram <Unknown>\n"
+"Language-Team: Santali <sat@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,19 +18,19 @@ msgstr ""
 "X-Generator: Launchpad (build 2d1d5e352f0d063d660df2300e31f66bed027fa5)\n"
 
 msgid "No PDF document has been selected"
-msgstr ""
+msgstr "ᱚᱠᱟ ᱦᱚᱸ PDF ᱰᱚᱠᱭᱩᱢᱮᱸᱴ ᱵᱟᱝ ᱪᱚᱭᱚᱱ ᱟᱠᱟᱱᱟ"
 
 msgid "Extract"
-msgstr ""
+msgstr "ᱚᱰᱚᱠ"
 
 msgid "Extract pages from PDF documents."
-msgstr ""
+msgstr "PDF ᱫᱚᱠᱭᱩᱢᱮᱸᱴ ᱠᱷᱚᱱ ᱥᱟᱦᱴᱟ ᱚᱰᱚᱠ ᱢᱮᱸ ᱾"
 
 msgid "File names settings"
-msgstr ""
+msgstr "ᱨᱮᱫ ᱧᱩᱛᱩᱢ ᱥᱟᱡᱟᱣᱠᱚ"
 
 msgid "Extract settings"
-msgstr ""
+msgstr "ᱚᱱᱟ ᱥᱟᱡᱟᱣ ᱠᱚ"
 
 msgid "Output settings"
 msgstr ""
@@ -46,47 +46,47 @@ msgstr ""
 
 #, java-format
 msgid "Installing theme {0}."
-msgstr "Installerer tema {0}"
+msgstr ""
 
 #, java-format
 msgid "Started in {0}"
-msgstr "Startet i {0}"
+msgstr "{0} ᱨᱮ ᱮᱦᱚᱵ ᱮᱱᱟ"
 
 msgid "Closing PDFsam..."
-msgstr "Lukker PDFsam..."
+msgstr ""
 
 msgid "Log register"
-msgstr "Loggregister"
+msgstr ""
 
 msgid "Copy"
-msgstr "Kopier"
+msgstr ""
 
 msgid "Clear"
-msgstr "Tøm"
+msgstr ""
 
 msgid "Select all"
-msgstr "Merk alt"
+msgstr ""
 
 msgid "Save log"
-msgstr "Lagre logg"
+msgstr ""
 
 msgid "Select where to save the log file"
-msgstr "Velg hvor loggfil skal lagres"
+msgstr ""
 
 msgid "About"
-msgstr "Om"
+msgstr ""
 
 msgid "Premium features"
 msgstr ""
 
 msgid "Close"
-msgstr "Lukk"
+msgstr ""
 
 msgid "Modules"
-msgstr "Moduler"
+msgstr ""
 
 msgid "Subscribe to the official news feed"
-msgstr "Abonner på det offisielle nyhetsbrevet"
+msgstr ""
 
 msgid "Environment"
 msgstr ""
@@ -102,68 +102,66 @@ msgstr ""
 
 #, java-format
 msgid "Max memory {0}"
-msgstr "Maks minne {0}"
+msgstr ""
 
 msgid "Copy to clipboard"
-msgstr "Kopier til utklippstavle"
+msgstr ""
 
 msgid "Support"
-msgstr "Støtte"
+msgstr ""
 
 msgid "Bug and feature requests"
-msgstr "Feilmeldinger og forslag til nye egenskaper"
+msgstr ""
 
 msgid "Documentation"
 msgstr ""
 
 msgid "Contribute"
-msgstr "Bidra"
+msgstr ""
 
 msgid "Fork PDFsam on GitHub"
 msgstr ""
 
 msgid "Translate"
-msgstr "Oversett"
+msgstr ""
 
 msgid "Donate"
-msgstr "Donér"
+msgstr ""
 
 msgid "Social"
-msgstr "Sosialt"
+msgstr ""
 
 msgid "Follow us on Twitter"
-msgstr "Følg oss på Twitter"
+msgstr ""
 
 msgid "Like us on Facebook"
-msgstr "Lik oss på Facebook"
+msgstr ""
 
 msgid "Log register rows:"
-msgstr "Rader i loggregisteret:"
+msgstr ""
 
 msgid "Maximum number of rows displayed by the Log register"
-msgstr "Maksimalt antall rader vist av loggregisteret"
+msgstr ""
 
 msgid "Language:"
-msgstr "Språk:"
+msgstr ""
 
 msgid "Set your preferred language (restart needed)"
-msgstr "Velg ditt foretrekkende språk (krever omstart)"
+msgstr ""
 
 msgid "Startup module:"
-msgstr "Oppstartsmodul:"
+msgstr ""
 
 msgid "Set the module to open at application startup (restart needed)"
-msgstr "Sett modulen som åpnes ved programstart (omstart nødvendig)"
+msgstr ""
 
 msgid ""
 "Usage statistics are used to populate the modules quick bar on the left with "
 "the most used and most recently used modules."
 msgstr ""
-"Brukstatistikk blir brukt til å fylle modul hurtigtilgangsområdet til "
-"venstre med de mest og nyest brukte modulene."
 
 msgid "Manually selected"
-msgstr "Valgt manuelt"
+msgstr ""
 
 msgid ""
 "Automatically set the destination directory to the selected PDF document "
@@ -174,54 +172,51 @@ msgid "Clear usage statistics"
 msgstr ""
 
 msgid "Appearance"
-msgstr "Utseende"
+msgstr ""
 
 msgid "Behavior"
-msgstr "Oppførsel"
+msgstr ""
 
 msgid "Workspace"
-msgstr "Arbeidsområde"
+msgstr ""
 
 msgid "Output"
-msgstr "Resultat"
+msgstr ""
 
 msgid "Check for updates now"
-msgstr "Sjekk for oppdateringer nå"
+msgstr ""
 
 msgid ""
 "Select a directory where documents will be saved and loaded by default"
-msgstr "Velg en mappe hvor dokumenter blir lagret og innlest som standard"
+msgstr ""
 
 msgid "Select a directory"
-msgstr "Velg en mappe"
+msgstr ""
 
 msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
 "startup"
 msgstr ""
-"Velg et tidligere lagret arbeidsområde som blir innlest automatisk ved "
-"oppstart"
 
 msgid "Select a workspace"
-msgstr "Velg et arbeidsområde"
+msgstr ""
 
 msgid "Default working directory:"
-msgstr "Standard arbeidsmappe:"
+msgstr ""
 
 msgid "Load default workspace at startup:"
-msgstr "Les standard arbeidsområde ved oppstart:"
+msgstr ""
 
 msgid "Dashboard"
 msgstr ""
 
 msgid "Check for updates at startup"
-msgstr "Se etter oppdateringer ved oppstart"
+msgstr ""
 
 msgid ""
 "Set whether new version availability should be checked on startup (restart "
 "needed)"
 msgstr ""
-"Angi om det skal søkes etter ny versjon ved oppstart (omstart nødvendig)"
 
 msgid "Check for news at startup"
 msgstr ""
@@ -245,10 +240,10 @@ msgid ""
 msgstr ""
 
 msgid "Play alert sounds"
-msgstr "Spill av alarmlyder"
+msgstr ""
 
 msgid "Turn on or off alert sounds"
-msgstr "Slå alarmlyder på eller av"
+msgstr ""
 
 msgid "Store passwords when saving a workspace file"
 msgstr ""
@@ -292,22 +287,22 @@ msgid "If a default workspace is set, save it on application exit"
 msgstr ""
 
 msgid "Maximum number of rows mast be a positive number"
-msgstr "Det maksimale antallet rader må være et positivt tall"
+msgstr ""
 
 msgid "Generate high quality thumbnails (slower)"
-msgstr "Generer høykvalitets miniatyrbilder (tregere)"
+msgstr ""
 
 msgid "Size in px:"
-msgstr "Størrelse i px:"
+msgstr ""
 
 msgid "Library used to generate thumbnails"
-msgstr "Bibliotek brukt til å generere minibilder"
+msgstr ""
 
 msgid "Thumbnails creator:"
-msgstr "Minibilder laget av:"
+msgstr ""
 
 msgid "Settings"
-msgstr "Innstillinger"
+msgstr ""
 
 msgid "Drag and drop PDF files or directories containing PDF files"
 msgstr ""
@@ -319,7 +314,7 @@ msgid "What's new"
 msgstr ""
 
 msgid "Yes"
-msgstr "Ja"
+msgstr ""
 
 msgid "No"
 msgstr ""
@@ -343,16 +338,16 @@ msgid "Select the task to perform on the following files"
 msgstr ""
 
 msgid "Directory not empty"
-msgstr "Mappa er ikke tom"
+msgstr ""
 
 msgid "The selected directory is not empty"
-msgstr "Den valgte mappa er ikke tom"
+msgstr ""
 
 msgid "What would you like to do in case of files with the same name?"
 msgstr ""
 
 msgid "Overwrite"
-msgstr "Erstatt"
+msgstr ""
 
 msgid "Rename"
 msgstr ""
@@ -361,16 +356,16 @@ msgid "Skip"
 msgstr ""
 
 msgid "Cancel"
-msgstr "Avbryt"
+msgstr ""
 
 msgid "Don't overwrite existing file"
-msgstr "Ikke erstatt eksisterende fil"
+msgstr ""
 
 msgid "Overwrite confirmation"
 msgstr ""
 
 msgid "A file with the given name already exists"
-msgstr "En fil med det navnet eksisterer allerede"
+msgstr ""
 
 msgid "What would you like to do?"
 msgstr ""
@@ -404,16 +399,16 @@ msgid ""
 msgstr ""
 
 msgid "Summary"
-msgstr "Oppsummering"
+msgstr ""
 
 msgid "Keywords"
-msgstr "Nøkkelord"
+msgstr ""
 
 msgid "Document details"
-msgstr "Dokumentdetaljer"
+msgstr ""
 
 msgid "Invalid parameters"
-msgstr "Ugyldige parametere"
+msgstr ""
 
 msgid ""
 "Input parameters are invalid, open the application messages for details."
@@ -433,7 +428,7 @@ msgid "You performed {0} tasks with PDFsam, did it help?"
 msgstr ""
 
 msgid "Give something back"
-msgstr "Gi noe tilbake"
+msgstr ""
 
 msgid "PDFsam worked hard!"
 msgstr ""
@@ -443,13 +438,13 @@ msgstr ""
 
 #, java-format
 msgid "PDFsam {0} is available for download"
-msgstr "PDFsam {0} er tilgjengelig for nedlasting"
+msgstr ""
 
 msgid "Download"
-msgstr "Last ned"
+msgstr ""
 
 msgid "New version available"
-msgstr "Ny versjon tilgjengelig"
+msgstr ""
 
 msgid "You are running the latest version of PDFsam Basic"
 msgstr ""
@@ -458,7 +453,7 @@ msgid "No update"
 msgstr ""
 
 msgid "Open"
-msgstr "Åpne"
+msgstr ""
 
 msgid "E_xit"
 msgstr ""
@@ -467,19 +462,19 @@ msgid "_Settings"
 msgstr ""
 
 msgid "Application messages"
-msgstr "Programmeldinger"
+msgstr ""
 
 msgid "_Modules"
-msgstr "_Moduler"
+msgstr ""
 
 msgid "_Workspace"
-msgstr "_Arbeidsområde"
+msgstr ""
 
 msgid "_Load"
-msgstr "Å_pne"
+msgstr ""
 
 msgid "_Save"
-msgstr "_Lagre"
+msgstr ""
 
 msgid "Recen_ts"
 msgstr ""
@@ -488,10 +483,10 @@ msgid "_Clear recents"
 msgstr ""
 
 msgid "Select the workspace file to save"
-msgstr "Velg fil fra arbeidsområde for lagring"
+msgstr ""
 
 msgid "Select the workspace to load"
-msgstr "Velg arbeidområde du vil åpne"
+msgstr ""
 
 msgid "Split by bookmarks"
 msgstr ""
@@ -529,7 +524,7 @@ msgid "Show errors"
 msgstr ""
 
 msgid "Run"
-msgstr "Kjør"
+msgstr ""
 
 msgid "Requested"
 msgstr ""
@@ -570,10 +565,10 @@ msgid "Loading..."
 msgstr ""
 
 msgid "Document properties"
-msgstr "Dokumentegenskaper"
+msgstr ""
 
 msgid "Remove"
-msgstr "Fjern"
+msgstr ""
 
 msgid "Set destination"
 msgstr ""
@@ -597,10 +592,10 @@ msgid "Move to Top"
 msgstr ""
 
 msgid "Move Up"
-msgstr "Flytt opp"
+msgstr ""
 
 msgid "Move Down"
-msgstr "Flytt ned"
+msgstr ""
 
 msgid "Move to Bottom"
 msgstr ""
@@ -615,7 +610,7 @@ msgid "Modified"
 msgstr ""
 
 msgid "Name"
-msgstr "Navn"
+msgstr ""
 
 msgid "Add documents to the table"
 msgstr ""
@@ -668,7 +663,7 @@ msgid "Reverse"
 msgstr ""
 
 msgid "Pages"
-msgstr "Sider"
+msgstr ""
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -690,7 +685,7 @@ msgid "Allowed extensions are {0}"
 msgstr ""
 
 msgid "Compress output file/files"
-msgstr "Komprimer utfil(er)"
+msgstr ""
 
 msgid "Discard bookmarks"
 msgstr ""
@@ -710,7 +705,7 @@ msgid "Hide advanced settings"
 msgstr ""
 
 msgid "Overwrite if already exists"
-msgstr "Overskriv dersom det allerede eksisterer"
+msgstr ""
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
@@ -736,7 +731,7 @@ msgid "Select"
 msgstr ""
 
 msgid "Browse"
-msgstr "Bla igjennom"
+msgstr ""
 
 #, java-format
 msgid "PDF version required: {0}"
@@ -746,7 +741,7 @@ msgid "Prefix for the generated files names"
 msgstr ""
 
 msgid "Add prefix"
-msgstr "Legg til prefiks"
+msgstr ""
 
 msgid "Generated PDF documents name prefix:"
 msgstr ""
@@ -767,7 +762,7 @@ msgid "No page selected"
 msgstr ""
 
 msgid "Split"
-msgstr "Del opp"
+msgstr ""
 
 msgid "Split a PDF document at the given page numbers."
 msgstr ""
@@ -804,7 +799,7 @@ msgid "Split by every \"n\" pages"
 msgstr ""
 
 msgid "Number of pages"
-msgstr "Antall sider"
+msgstr ""
 
 msgid "Invalid number of pages"
 msgstr ""
@@ -903,10 +898,10 @@ msgid "Split at this size:"
 msgstr ""
 
 msgid "Invalid split size"
-msgstr "Ugyldig delstørrelse"
+msgstr ""
 
 msgid "Alternate Mix"
-msgstr "Alternativ Mix"
+msgstr ""
 
 msgid ""
 "Merge two or more PDF documents taking pages alternately in natural or "
@@ -943,7 +938,7 @@ msgid ""
 msgstr ""
 
 msgid "Rotate"
-msgstr "Rotér"
+msgstr ""
 
 msgid "Rotate the pages of multiple PDF documents."
 msgstr ""
@@ -954,8 +949,6 @@ msgstr ""
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Dobbeltklikk for å velge sider du vil slå sammen (f.eks.: 2 eller 5-23 eller "
-"2,5-7,12 -)"
 
 msgid "Add a blank page if page number is odd"
 msgstr ""
@@ -1080,21 +1073,3 @@ msgstr ""
 #, java-format
 msgid "Invalid number: {0}."
 msgstr ""
-
-#~ msgid "Split even pages"
-#~ msgstr "Del partall-sider"
-
-#~ msgid "Split odd pages"
-#~ msgstr "Del oddetall-sider"
-
-#~ msgid "Destination folder"
-#~ msgstr "Destinasjonsmappe"
-
-#~ msgid "Theme:"
-#~ msgstr "Tema:"
-
-#~ msgid "Never"
-#~ msgstr "Aldri"
-
-#~ msgid "Output document pdf version:"
-#~ msgstr "Pdf-versjon for ferdig dokument:"
