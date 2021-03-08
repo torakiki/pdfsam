@@ -8,45 +8,45 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-11-15 12:38+0100\n"
-"PO-Revision-Date: 2016-04-02 09:37+0000\n"
-"Last-Translator: adzpire <adz_pire@hotmail.com>\n"
+"PO-Revision-Date: 2021-02-04 09:31+0000\n"
+"Last-Translator: kn2296 <Unknown>\n"
 "Language-Team: Thai <th@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-01-25 09:04+0000\n"
-"X-Generator: Launchpad (build 2d1d5e352f0d063d660df2300e31f66bed027fa5)\n"
+"X-Launchpad-Export-Date: 2021-03-08 09:20+0000\n"
+"X-Generator: Launchpad (build fc09074b06b3b9178bd28175bdab646b3b5abfce)\n"
 
 msgid "No PDF document has been selected"
-msgstr ""
+msgstr "ไม่ได้เลือกเอกสาร PDF"
 
 msgid "Extract"
-msgstr ""
+msgstr "แตกไฟล์"
 
 msgid "Extract pages from PDF documents."
-msgstr ""
+msgstr "แยกหน้าจากเอกสาร PDF."
 
 msgid "File names settings"
-msgstr ""
+msgstr "การตั้งค่าชื่อไฟล์"
 
 msgid "Extract settings"
-msgstr ""
+msgstr "แยกการตั้งค่า"
 
 msgid "Output settings"
-msgstr ""
+msgstr "การตั้งค่าเอาต์พุต"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "หน้าที่จะแยก (เช่น 2 หรือ 5-23 หรือ 2,5-7,12-)"
 
 msgid "Invalid page ranges"
-msgstr ""
+msgstr "ช่วงของหน้าไม่ถูกต้อง"
 
 msgid "Extract pages:"
-msgstr ""
+msgstr "แยกหน้า:"
 
 #, java-format
 msgid "Installing theme {0}."
-msgstr "ติดตั้ง ธีม {0}."
+msgstr "การติดตั้งธีม {0}."
 
 #, java-format
 msgid "Started in {0}"
@@ -56,7 +56,7 @@ msgid "Closing PDFsam..."
 msgstr "กำลังปิด PDFsam..."
 
 msgid "Log register"
-msgstr ""
+msgstr "เข้าสู่ระบบลงทะเบียน"
 
 msgid "Copy"
 msgstr "คัดลอก"
@@ -71,19 +71,19 @@ msgid "Save log"
 msgstr "บันทึกปูม"
 
 msgid "Select where to save the log file"
-msgstr ""
+msgstr "เลือกตำแหน่งที่จะบันทึกไฟล์บันทึก"
 
 msgid "About"
 msgstr "เกี่ยวกับ"
 
 msgid "Premium features"
-msgstr ""
+msgstr "คุณสมบัติระดับพรีเมียม"
 
 msgid "Close"
-msgstr ""
+msgstr "ปิด"
 
 msgid "Modules"
-msgstr ""
+msgstr "โมดูล"
 
 msgid "Subscribe to the official news feed"
 msgstr "รับข่าวจาก official"
@@ -92,17 +92,17 @@ msgid "Environment"
 msgstr "แสดงสภาพแวดล้อม"
 
 msgid "Vendor: %s"
-msgstr ""
+msgstr "ผู้ขาย: %s"
 
 msgid "Java runtime path: %s"
-msgstr ""
+msgstr "Java runtime path: %s"
 
 msgid "JavaFX runtime version %s"
-msgstr ""
+msgstr "JavaFX runtime version %s"
 
 #, java-format
 msgid "Max memory {0}"
-msgstr ""
+msgstr "หน่วยความจำสูงสุด {0}"
 
 msgid "Copy to clipboard"
 msgstr "คัดลอกไปยังคลิปบอร์ด"
@@ -114,10 +114,10 @@ msgid "Bug and feature requests"
 msgstr "แจ้ง Bug และ feature"
 
 msgid "Documentation"
-msgstr ""
+msgstr "เอกสารประกอบ"
 
 msgid "Contribute"
-msgstr ""
+msgstr "มีส่วนร่วม"
 
 msgid "Fork PDFsam on GitHub"
 msgstr "Fork PDFsam on GitHub"
@@ -138,10 +138,10 @@ msgid "Like us on Facebook"
 msgstr "Like ใน Facebook"
 
 msgid "Log register rows:"
-msgstr ""
+msgstr "เข้าสู่ระบบลงทะเบียนแถว:"
 
 msgid "Maximum number of rows displayed by the Log register"
-msgstr ""
+msgstr "จำนวนแถวสูงสุดที่แสดงโดย Log register"
 
 msgid "Language:"
 msgstr "ภาษา:"
@@ -150,15 +150,17 @@ msgid "Set your preferred language (restart needed)"
 msgstr "ตั้งค่าภาษาที่ต้องการ (ต้องเรียกใช้งานโปรแกรมใหม่)"
 
 msgid "Startup module:"
-msgstr ""
+msgstr "โมดูลเริ่มต้น:"
 
 msgid "Set the module to open at application startup (restart needed)"
-msgstr ""
+msgstr "ตั้งค่าโมดูลให้เปิดเมื่อเริ่มต้นแอปพลิเคชัน (จำเป็นต้องรีสตาร์ท)"
 
 msgid ""
 "Usage statistics are used to populate the modules quick bar on the left with "
 "the most used and most recently used modules."
 msgstr ""
+"สถิติการใช้งานใช้เพื่อเติมข้อมูลในแถบด่วนของโมดูลทางด้านซ้ายด้วยโมดูลที่ใช้มา"
+"กที่สุดและใช้ล่าสุด"
 
 msgid "Manually selected"
 msgstr "เลือกเอง"
@@ -169,7 +171,7 @@ msgid ""
 msgstr "เลือก directory  เป้าหมายเป็นที่เดียวกับไฟล์ PDF"
 
 msgid "Clear usage statistics"
-msgstr ""
+msgstr "ล้างสถิติการใช้งาน"
 
 msgid "Appearance"
 msgstr "หน้าตาระบบ"
@@ -184,28 +186,29 @@ msgid "Output"
 msgstr "ผลลัพธ์"
 
 msgid "Check for updates now"
-msgstr ""
+msgstr "ตรวจสอบการอัปเดตทันที"
 
 msgid ""
 "Select a directory where documents will be saved and loaded by default"
 msgstr "เลือกที่เก็บปริยายสำหรับเอาไว้บันทึกและโหลดไฟล์"
 
 msgid "Select a directory"
-msgstr ""
+msgstr "เลือกไดเร็กทอรี"
 
 msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
 "startup"
 msgstr ""
+"เลือกพื้นที่ทำงานที่บันทึกไว้ก่อนหน้านี้ซึ่งจะโหลดโดยอัตโนมัติเมื่อเริ่มต้น"
 
 msgid "Select a workspace"
-msgstr ""
+msgstr "เลือกพื้นที่ทำงาน"
 
 msgid "Default working directory:"
 msgstr "ห้องทำงานปริยาย"
 
 msgid "Load default workspace at startup:"
-msgstr ""
+msgstr "โหลดพื้นที่ทำงานเริ่มต้นเมื่อเริ่มต้น:"
 
 msgid "Dashboard"
 msgstr "แดชบอร์ด"
@@ -217,27 +220,31 @@ msgid ""
 "Set whether new version availability should be checked on startup (restart "
 "needed)"
 msgstr ""
+"ตั้งค่าว่าควรตรวจสอบความพร้อมใช้งานเวอร์ชันใหม่เมื่อเริ่มต้นระบบ "
+"(จำเป็นต้องรีสตาร์ท)"
 
 msgid "Check for news at startup"
-msgstr ""
+msgstr "ตรวจสอบข่าวสารเมื่อเริ่มต้น"
 
 msgid ""
 "Set whether the application should check for news availability on startup "
 "(restart needed)"
 msgstr ""
+"ตั้งค่าว่าแอปพลิเคชันควรตรวจสอบความพร้อมของข่าวสารเมื่อเริ่มต้นระบบ "
+"(จำเป็นต้องรีสตาร์ท)"
 
 msgid "Enabled PDF compression"
-msgstr ""
+msgstr "เปิดใช้งานการบีบอัด PDF"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr ""
+msgstr "ตั้งค่าว่าควรเปิดใช้งาน \"บีบอัดไฟล์เอาต์พุต\" โดยค่าเริ่มต้น"
 
 msgid "Overwrite files"
-msgstr ""
+msgstr "เขียนทับไฟล์"
 
 msgid ""
 "Set whether \"Overwrite if already exists\" should be enabled by default"
-msgstr ""
+msgstr "ตั้งค่าว่าควรเปิดใช้งาน \"เขียนทับหากมีอยู่แล้ว\" โดยค่าเริ่มต้น"
 
 msgid "Play alert sounds"
 msgstr "เล่นเสียงเตือน"
@@ -246,12 +253,14 @@ msgid "Turn on or off alert sounds"
 msgstr "เปิดหรือปิดเสียงเตือน"
 
 msgid "Store passwords when saving a workspace file"
-msgstr ""
+msgstr "จัดเก็บรหัสผ่านเมื่อบันทึกไฟล์พื้นที่ทำงาน"
 
 msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
 "password in the workspace file"
 msgstr ""
+"หากเอกสาร PDF "
+"ที่เข้ารหัสถูกเปิดด้วยรหัสผ่านให้บันทึกรหัสผ่านในไฟล์พื้นที่ทำงาน"
 
 msgid "Show donation window"
 msgstr "แสดงหน้าบริจาค"
@@ -260,55 +269,59 @@ msgid ""
 "Turn on or off the notification appearing once in a while and asking the "
 "user to support PDFsam with a donation"
 msgstr ""
+"เปิดหรือปิดการแจ้งเตือนที่ปรากฏเป็นครั้งคราวและขอให้ผู้ใช้สนับสนุน PDFsam "
+"ด้วยการบริจาค"
 
 msgid "Show premium features"
-msgstr ""
+msgstr "แสดงคุณสมบัติพิเศษ"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
 "description in the modules dashboard"
 msgstr ""
+"ตั้งค่าว่าจะให้แอปพลิเคชันดึงข้อมูลและแสดงคำอธิบายคุณลักษณะพิเศษในแผงควบคุมโม"
+"ดูลหรือไม่"
 
 msgid "Ask for a confirmation when clearing the selection table"
-msgstr ""
+msgstr "ขอคำยืนยันเมื่อล้างตารางการเลือก"
 
 msgid ""
 "Set whether the application should ask for a confirmation when clearing the "
 "selection table"
-msgstr ""
+msgstr "ตั้งค่าว่าแอปพลิเคชันควรขอคำยืนยันหรือไม่เมื่อล้างตารางการเลือก"
 
 msgid "Use the selected PDF document directory as output directory"
-msgstr ""
+msgstr "ใช้ไดเร็กทอรีเอกสาร PDF ที่เลือกเป็นไดเร็กทอรีเอาต์พุต"
 
 msgid "Save default workspace on exit"
-msgstr ""
+msgstr "บันทึกพื้นที่ทำงานเริ่มต้นเมื่อออก"
 
 msgid "If a default workspace is set, save it on application exit"
-msgstr ""
+msgstr "หากมีการตั้งค่าพื้นที่ทำงานเริ่มต้นให้บันทึกเมื่อออกจากแอปพลิเคชัน"
 
 msgid "Maximum number of rows mast be a positive number"
-msgstr ""
+msgstr "จำนวนเสาสูงสุดของแถวเป็นจำนวนบวก"
 
 msgid "Generate high quality thumbnails (slower)"
-msgstr ""
+msgstr "สร้างภาพขนาดย่อคุณภาพสูง (ช้ากว่า)"
 
 msgid "Size in px:"
-msgstr ""
+msgstr "ขนาดเป็น px:"
 
 msgid "Library used to generate thumbnails"
-msgstr ""
+msgstr "ไลบรารีที่ใช้ในการสร้างภาพขนาดย่อ"
 
 msgid "Thumbnails creator:"
-msgstr ""
+msgstr "ผู้สร้างภาพขนาดย่อ:"
 
 msgid "Settings"
 msgstr "การตั้งค่า"
 
 msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr ""
+msgstr "ลากและวางไฟล์ PDF หรือไดเรกทอรีที่มีไฟล์ PDF"
 
 msgid "No PDF found"
-msgstr ""
+msgstr "ไม่พบ PDF"
 
 msgid "What's new"
 msgstr "มีอะไรใหม่"
@@ -320,58 +333,58 @@ msgid "No"
 msgstr "ไม่"
 
 msgid "Confirm clearing"
-msgstr ""
+msgstr "Confirm clearing"
 
 msgid "Do you confirm?"
-msgstr ""
+msgstr "คุณยืนยัน?"
 
 msgid "Clear the module settings"
-msgstr ""
+msgstr "ล้างการตั้งค่าโมดูล"
 
 msgid "Clear the selection table"
-msgstr ""
+msgstr "ล้างตารางการเลือก"
 
 msgid "Open with"
-msgstr ""
+msgstr "เปิดด้วย"
 
 msgid "Select the task to perform on the following files"
-msgstr ""
+msgstr "เลือกงานที่จะดำเนินการกับไฟล์ต่อไปนี้"
 
 msgid "Directory not empty"
-msgstr ""
+msgstr "ไดเรกทอรีไม่ว่างเปล่า"
 
 msgid "The selected directory is not empty"
-msgstr ""
+msgstr "ไดเร็กทอรีที่เลือกไม่ว่างเปล่า"
 
 msgid "What would you like to do in case of files with the same name?"
-msgstr ""
+msgstr "คุณต้องการทำอะไรในกรณีของไฟล์ที่มีชื่อเดียวกัน"
 
 msgid "Overwrite"
 msgstr "แทนที่"
 
 msgid "Rename"
-msgstr ""
+msgstr "เปลี่ยนชื่อ"
 
 msgid "Skip"
-msgstr ""
+msgstr "ข้าม"
 
 msgid "Cancel"
 msgstr "ยกเลิก"
 
 msgid "Don't overwrite existing file"
-msgstr ""
+msgstr "อย่าเขียนทับไฟล์ที่มีอยู่"
 
 msgid "Overwrite confirmation"
-msgstr ""
+msgstr "ยืนยันการเขียนทับ"
 
 msgid "A file with the given name already exists"
-msgstr ""
+msgstr "มีไฟล์ชื่อนี้อยู่แล้ว"
 
 msgid "What would you like to do?"
-msgstr ""
+msgstr "คุณต้องการจะทำอะไร?"
 
 msgid "Non existing directory"
-msgstr ""
+msgstr "ไม่มีไดเรกทอรีที่มีอยู่"
 
 msgid "The selected output directory does not exist"
 msgstr "directory ที่เลิอกไม่มีอยู่"
@@ -380,23 +393,24 @@ msgid "Do you want to create it?"
 msgstr "ต้องการสร้าง?"
 
 msgid "Subdirectories"
-msgstr ""
+msgstr "ไดเรกทอรีย่อย"
 
 msgid "Subdirectories have been found"
-msgstr ""
+msgstr "พบไดเร็กทอรีย่อยแล้ว"
 
 msgid "Do you want to add PDF files found in subdirectories?"
-msgstr ""
+msgstr "คุณต้องการเพิ่มไฟล์ PDF ที่พบในไดเรกทอรีย่อยหรือไม่?"
 
 msgid "Task failed"
-msgstr ""
+msgstr "งานล้มเหลว"
 
 msgid "PDFsam can try to overcome the failure"
-msgstr ""
+msgstr "PDFsam สามารถพยายามเอาชนะความล้มเหลว"
 
 msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
 msgstr ""
+"อาจส่งผลให้ไฟล์ PDF มีข้อมูลบางส่วนหรือขาดหายไปดำเนินการต่อไปหรือไม่?"
 
 msgid "Summary"
 msgstr "สรุป"
@@ -408,27 +422,30 @@ msgid "Document details"
 msgstr "รายละเอียดเอกสาร"
 
 msgid "Invalid parameters"
-msgstr ""
+msgstr "พารามิเตอร์ไม่ถูกต้อง"
 
 msgid ""
 "Input parameters are invalid, open the application messages for details."
-msgstr ""
+msgstr "พารามิเตอร์อินพุตไม่ถูกต้องเปิดข้อความแอปพลิเคชันเพื่อดูรายละเอียด"
 
 msgid "Access denied"
-msgstr ""
+msgstr "ถูกปฏิเสธการเข้าใช้งาน"
 
 #, java-format
 msgid ""
 "Unable to access \"{0}\", please make sure you have write permissions or "
 "open the application messages for details."
 msgstr ""
+"ไม่สามารถเข้าถึง \"{0}\" "
+"โปรดตรวจสอบว่าคุณมีสิทธิ์ในการเขียนหรือเปิดดูรายละเอียดในข้อความของแอปพลิเคชั"
+"น"
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
-msgstr ""
+msgstr "คุณดำเนินการ {0} งานด้วย PDFsam มันช่วยได้ไหม"
 
 msgid "Give something back"
-msgstr ""
+msgstr "ให้บางสิ่งกลับมา"
 
 msgid "PDFsam worked hard!"
 msgstr ""
@@ -441,7 +458,7 @@ msgid "PDFsam {0} is available for download"
 msgstr ""
 
 msgid "Download"
-msgstr ""
+msgstr "ดาวน์โหลด"
 
 msgid "New version available"
 msgstr ""
@@ -450,16 +467,16 @@ msgid "You are running the latest version of PDFsam Basic"
 msgstr ""
 
 msgid "No update"
-msgstr ""
+msgstr "ไม่มีการอัปเดต"
 
 msgid "Open"
-msgstr ""
+msgstr "เปิด"
 
 msgid "E_xit"
-msgstr ""
+msgstr "_ออก"
 
 msgid "_Settings"
-msgstr ""
+msgstr "_ตั้งค่า"
 
 msgid "Application messages"
 msgstr "ข้อความ"
@@ -474,7 +491,7 @@ msgid "_Load"
 msgstr ""
 
 msgid "_Save"
-msgstr ""
+msgstr "_บันทึก"
 
 msgid "Recen_ts"
 msgstr ""
@@ -521,7 +538,7 @@ msgid "Invalid bookmarks level"
 msgstr ""
 
 msgid "Show errors"
-msgstr ""
+msgstr "แสดงข้อผิดพลาดต่าง ๆ"
 
 msgid "Run"
 msgstr "เรียกใช้งาน"
@@ -533,10 +550,10 @@ msgid "Completed"
 msgstr ""
 
 msgid "Failed"
-msgstr ""
+msgstr "ล้มเหลว"
 
 msgid "Running"
-msgstr ""
+msgstr "กำลังทำงาน"
 
 #, java-format
 msgid "Running {0}%"
@@ -552,7 +569,7 @@ msgid "_Select PDF"
 msgstr ""
 
 msgid "_Clear"
-msgstr ""
+msgstr "_ล้าง"
 
 msgid "Clear all settings"
 msgstr ""
@@ -562,7 +579,7 @@ msgid "Pages: {0}, PDF Version: {1}"
 msgstr ""
 
 msgid "Loading..."
-msgstr ""
+msgstr "กำลังทำการโหลด..."
 
 msgid "Document properties"
 msgstr ""
@@ -571,25 +588,25 @@ msgid "Remove"
 msgstr "ลบออก"
 
 msgid "Set destination"
-msgstr ""
+msgstr "กำหนดปลายทาง"
 
 msgid "Open Folder"
-msgstr ""
+msgstr "เปิดโฟลเดอร์"
 
 msgid "Enter the user password"
-msgstr ""
+msgstr "ป้อนรหัสผ่านผู้ใช้"
 
 msgid "Unlock"
-msgstr ""
+msgstr "ปลดล็อก"
 
 msgid "Drag and drop PDF files here"
-msgstr ""
+msgstr "ลากและวางไฟล์ PDF ที่นี่"
 
 msgid "Set as range for all"
-msgstr ""
+msgstr "กำหนดเป็นช่วงสำหรับทั้งหมด"
 
 msgid "Move to Top"
-msgstr ""
+msgstr "ย้ายไปด้านบน"
 
 msgid "Move Up"
 msgstr "เลื่อนขึ้น"
@@ -598,122 +615,123 @@ msgid "Move Down"
 msgstr "เลื่อนลง"
 
 msgid "Move to Bottom"
-msgstr ""
+msgstr "ย้ายไปด้านล่าง"
 
 msgid "Duplicate"
-msgstr ""
+msgstr "ทำซ้ำ"
 
 msgid "Size"
-msgstr ""
+msgstr "ขนาด"
 
 msgid "Modified"
-msgstr ""
+msgstr "ถูกแก้ไข"
 
 msgid "Name"
 msgstr "ชื่อ"
 
 msgid "Add documents to the table"
-msgstr ""
+msgstr "เพิ่มเอกสารลงในตาราง"
 
 msgid "_Add"
-msgstr ""
+msgstr "_เพิ่ม"
 
 msgid "PDF list from _text/csv file"
-msgstr ""
+msgstr "รายการ PDF จากไฟล์ _text / csv"
 
 msgid "Select pdf documents to load"
-msgstr ""
+msgstr "เลือกเอกสาร pdf ที่จะโหลด"
 
 msgid "Select a text or CSV file to load"
-msgstr ""
+msgstr "เลือกข้อความหรือไฟล์ CSV ที่จะโหลด"
 
 msgid "Removes selected documents"
-msgstr ""
+msgstr "ลบเอกสารที่เลือก"
 
 msgid "_Remove"
-msgstr ""
+msgstr "เอาออก"
 
 msgid "Removes every document"
-msgstr ""
+msgstr "ลบเอกสารทุกฉบับ"
 
 msgid "C_lear all settings"
-msgstr ""
+msgstr "C_lear การตั้งค่าทั้งหมด"
 
 msgid "Moves up selected documents"
-msgstr ""
+msgstr "ย้ายเอกสารที่เลือกขึ้น"
 
 msgid "Move _Up"
-msgstr ""
+msgstr "ขยับขึ้น"
 
 msgid "Moves down selected documents"
-msgstr ""
+msgstr "ย้ายเอกสารที่เลือกลง"
 
 msgid "Move _Down"
-msgstr ""
+msgstr "เลื่อน_ลง"
 
 msgid "Pace"
-msgstr ""
+msgstr "ก้าว"
 
 msgid ""
 "Double click to set the number of pages after which the task will switch to "
 "the next file"
-msgstr ""
+msgstr "ดับเบิลคลิกเพื่อกำหนดจำนวนหน้าหลังจากนั้นงานจะเปลี่ยนไปยังไฟล์ถัดไป"
 
 msgid "Reverse"
-msgstr ""
+msgstr "ย้อนกลับ"
 
 msgid "Pages"
 msgstr "หน้า"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"ดับเบิลคลิกเพื่อตั้งค่าหน้าที่เลือก (เช่น 2 หรือ 5-23 หรือ 2,5-7,12-)"
 
 msgid "Page ranges"
-msgstr ""
+msgstr "ช่วงหน้า"
 
 msgid "The selected PDF file is invalid"
-msgstr ""
+msgstr "ไฟล์ PDF ที่เลือกไม่ถูกต้อง"
 
 msgid "Select a file"
-msgstr ""
+msgstr "เลือกไฟล์"
 
 msgid "The selected file must exist. "
-msgstr ""
+msgstr "ไฟล์ที่เลือกต้องมีอยู่ "
 
 #, java-format
 msgid "Allowed extensions are {0}"
-msgstr ""
+msgstr "ส่วนขยายที่อนุญาตคือ {0}"
 
 msgid "Compress output file/files"
 msgstr "บีบอัดไฟล์ที่ทำเสร็จแล้ว"
 
 msgid "Discard bookmarks"
-msgstr ""
+msgstr "ยกเลิกบุ๊กมาร์ก"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
 "document"
-msgstr ""
+msgstr "เลือกช่องนี้หากคุณไม่ต้องการคงที่คั่นหน้าไว้จากเอกสาร PDF ต้นฉบับ"
 
 msgid "Output PDF version:"
-msgstr ""
+msgstr "เวอร์ชัน PDF เอาต์พุต:"
 
 msgid "Show advanced settings"
-msgstr ""
+msgstr "แสดงการตั้งค่าขั้นสูง"
 
 msgid "Hide advanced settings"
-msgstr ""
+msgstr "ซ่อนการตั้งค่าขั้นสูง"
 
 msgid "Overwrite if already exists"
 msgstr "เขียนทับไฟล์เดิม"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
-msgstr ""
+msgstr "ทำเครื่องหมายในช่องหากคุณต้องการเขียนทับไฟล์เอาต์พุตหากมีอยู่แล้ว"
 
 #, java-format
 msgid "Version {0}"
-msgstr ""
+msgstr "Version {0}"
 
 msgid "Same as the input document"
 msgstr ""

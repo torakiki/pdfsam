@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-11-15 12:38+0100\n"
-"PO-Revision-Date: 2020-02-07 12:28+0000\n"
+"PO-Revision-Date: 2021-02-27 04:23+0000\n"
 "Last-Translator: Naofumi Fukue <naofum@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-01-25 09:04+0000\n"
-"X-Generator: Launchpad (build 2d1d5e352f0d063d660df2300e31f66bed027fa5)\n"
+"X-Launchpad-Export-Date: 2021-03-08 09:20+0000\n"
+"X-Generator: Launchpad (build fc09074b06b3b9178bd28175bdab646b3b5abfce)\n"
 
 msgid "No PDF document has been selected"
 msgstr "PDF 文書が選択されていません"
@@ -233,11 +233,11 @@ msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr "\"出力ファイルを圧縮する\" をデフォルトで有効にするかどうか"
 
 msgid "Overwrite files"
-msgstr ""
+msgstr "ファイルを上書きする"
 
 msgid ""
 "Set whether \"Overwrite if already exists\" should be enabled by default"
-msgstr ""
+msgstr "\"すでに存在する場合は上書きする\" をデフォルトにするかどうかを設定します"
 
 msgid "Play alert sounds"
 msgstr "警告サウンドを再生"
@@ -270,12 +270,12 @@ msgid ""
 msgstr "プレミアム機能の説明を、アプリケーションが取得して、モジュールのダッシュボードに表示するかどうかを設定します"
 
 msgid "Ask for a confirmation when clearing the selection table"
-msgstr ""
+msgstr "選択テーブルをクリアするときに確認する"
 
 msgid ""
 "Set whether the application should ask for a confirmation when clearing the "
 "selection table"
-msgstr ""
+msgstr "選択テーブルをクリアするときに、アプリケーションが確認するかどうかを設定します"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "出力ディレクトリとして選択した PDF 文書ディレクトリを使用する"
@@ -320,16 +320,16 @@ msgid "No"
 msgstr "いいえ"
 
 msgid "Confirm clearing"
-msgstr ""
+msgstr "クリアの確認"
 
 msgid "Do you confirm?"
-msgstr ""
+msgstr "よろしいですか?"
 
 msgid "Clear the module settings"
-msgstr ""
+msgstr "モジュール設定をクリア"
 
 msgid "Clear the selection table"
-msgstr ""
+msgstr "選択テーブルをクリア"
 
 msgid "Open with"
 msgstr "...で開く"
@@ -344,16 +344,16 @@ msgid "The selected directory is not empty"
 msgstr "選択したディレクトリが空ではありません"
 
 msgid "What would you like to do in case of files with the same name?"
-msgstr ""
+msgstr "ファイル名が同じ場合はどうしますか?"
 
 msgid "Overwrite"
 msgstr "上書き"
 
 msgid "Rename"
-msgstr ""
+msgstr "名前を変更"
 
 msgid "Skip"
-msgstr ""
+msgstr "スキップ"
 
 msgid "Cancel"
 msgstr "キャンセル"
@@ -368,7 +368,7 @@ msgid "A file with the given name already exists"
 msgstr "指定した名前のファイルは既に存在します"
 
 msgid "What would you like to do?"
-msgstr ""
+msgstr "何をしますか？"
 
 msgid "Non existing directory"
 msgstr "存在しないディレクトリ"

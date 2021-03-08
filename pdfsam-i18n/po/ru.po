@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-11-15 12:38+0100\n"
-"PO-Revision-Date: 2020-02-15 08:53+0000\n"
-"Last-Translator: Aleksey Kabanov <Unknown>\n"
+"PO-Revision-Date: 2021-02-13 16:03+0000\n"
+"Last-Translator: Alexander <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-01-25 09:04+0000\n"
-"X-Generator: Launchpad (build 2d1d5e352f0d063d660df2300e31f66bed027fa5)\n"
+"X-Launchpad-Export-Date: 2021-03-08 09:20+0000\n"
+"X-Generator: Launchpad (build fc09074b06b3b9178bd28175bdab646b3b5abfce)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Не выбран файл PDF"
@@ -244,11 +244,12 @@ msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr "Должно ли \"Сжатие выходных файлов\" быть включено по умолчанию"
 
 msgid "Overwrite files"
-msgstr ""
+msgstr "Перезаписать файлы"
 
 msgid ""
 "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
+"Установить включенным по умолчанию \"Перезаписать, если уже существует\"."
 
 msgid "Play alert sounds"
 msgstr "Воспроизводить звуковые предупреждения"
@@ -285,12 +286,14 @@ msgstr ""
 "панели модулей"
 
 msgid "Ask for a confirmation when clearing the selection table"
-msgstr ""
+msgstr "Запрашивать подтверждение, при очистке выбранной таблицы"
 
 msgid ""
 "Set whether the application should ask for a confirmation when clearing the "
 "selection table"
 msgstr ""
+"Установите, будет ли приложение запрашивать подтверждение при очистке "
+"выбранной таблицы"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Использовать каталог выбранного PDF документа как выходной каталог"
@@ -337,16 +340,16 @@ msgid "No"
 msgstr "Нет"
 
 msgid "Confirm clearing"
-msgstr ""
+msgstr "Подтвердить очистку"
 
 msgid "Do you confirm?"
-msgstr ""
+msgstr "Действительно подтверждаете ?"
 
 msgid "Clear the module settings"
-msgstr ""
+msgstr "Очистить настройки модуля"
 
 msgid "Clear the selection table"
-msgstr ""
+msgstr "Очистить выбранную таблицу"
 
 msgid "Open with"
 msgstr "Открыть с помощью"
@@ -361,16 +364,16 @@ msgid "The selected directory is not empty"
 msgstr "Выбранный каталог не пуст"
 
 msgid "What would you like to do in case of files with the same name?"
-msgstr ""
+msgstr "Что Вы хотите сделать с файлами с одинаковыми именами ?"
 
 msgid "Overwrite"
 msgstr "Перезаписать"
 
 msgid "Rename"
-msgstr ""
+msgstr "Переименовать"
 
 msgid "Skip"
-msgstr ""
+msgstr "Пропустить"
 
 msgid "Cancel"
 msgstr "Отмена"
@@ -385,7 +388,7 @@ msgid "A file with the given name already exists"
 msgstr "Файл с заданным именем уже существует"
 
 msgid "What would you like to do?"
-msgstr ""
+msgstr "Что вы хотите сделать?"
 
 msgid "Non existing directory"
 msgstr "Несуществующий каталог"
@@ -1083,7 +1086,7 @@ msgstr "Настройки объединения"
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
-msgstr ""
+msgstr "Файл \"{0}\" не существует, либо не удается его прочитать."
 
 msgid "Valid user password provided."
 msgstr "Правильный пароль введён."
