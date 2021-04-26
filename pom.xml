@@ -232,7 +232,7 @@
 		<junit.version>4.13.1</junit.version>
 		<slf4j.version>1.7.30</slf4j.version>
 		<commons.lang.version>3.9</commons.lang.version>
-		<commons.io.version>2.6</commons.io.version>
+		<commons.io.version>2.7</commons.io.version>
 		<mockito.version>3.8.0</mockito.version>
 		<logback.version>1.2.3</logback.version>
 		<jdepend.version>2.9.1</jdepend.version>
