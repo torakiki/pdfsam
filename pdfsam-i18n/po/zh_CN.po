@@ -906,7 +906,7 @@ msgstr "交替混合"
 msgid ""
 "Merge two or more PDF documents taking pages alternately in natural or "
 "reverse order."
-msgstr "合并两个或多个PDF文档是页面顺序或逆序交替"
+msgstr "合并两个或多个PDF文档时页面顺序或逆序交替"
 
 msgid "Destination file"
 msgstr "合并设置"
