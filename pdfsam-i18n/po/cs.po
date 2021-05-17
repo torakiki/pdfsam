@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-11-15 12:38+0100\n"
-"PO-Revision-Date: 2019-03-21 09:48+0000\n"
-"Last-Translator: Pavel Borecki <Unknown>\n"
+"PO-Revision-Date: 2021-05-16 17:23+0000\n"
+"Last-Translator: Tomas Herza <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-23 11:36+0000\n"
-"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
+"X-Launchpad-Export-Date: 2021-05-17 09:52+0000\n"
+"X-Generator: Launchpad (build 5321c3f40fa4d4b847f4e47fb766e7b95ed5036c)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Nebylo vybráno žádné PDF"
@@ -92,7 +92,7 @@ msgid "Environment"
 msgstr "Prostředí"
 
 msgid "Vendor: %s"
-msgstr ""
+msgstr "Prodejce: %s"
 
 msgid "Java runtime path: %s"
 msgstr "Popis umístění běhového prostředí java: %s"
@@ -235,17 +235,21 @@ msgid ""
 msgstr "Nastavit kontrolu novinek po spuštění aplikace (vyžaduje restart)"
 
 msgid "Enabled PDF compression"
-msgstr ""
+msgstr "Komprese PDF zapnuta"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
+"Nastavte, zda má být ve výchozím nastavení povolena možnost „Komprimovat "
+"výstupní soubor“"
 
 msgid "Overwrite files"
-msgstr ""
+msgstr "Přepsat existující soubory"
 
 msgid ""
 "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
+"Nastavte, zda má být ve výchozím nastavení povoleno „Přepsat, pokud již "
+"existuje“"
 
 msgid "Play alert sounds"
 msgstr "Přehrávat upozornění"
@@ -284,12 +288,13 @@ msgstr ""
 "prémiových funkcí."
 
 msgid "Ask for a confirmation when clearing the selection table"
-msgstr ""
+msgstr "Vyžadovat potvrzení před smazáním tabulky výběru"
 
 msgid ""
 "Set whether the application should ask for a confirmation when clearing the "
 "selection table"
 msgstr ""
+"Nastavte, zda má aplikace vyžadovat potvrzení před smazáním tabulky výběru"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Použít adresář PDF dokumentů jako výstupní adresář"
@@ -334,16 +339,16 @@ msgid "No"
 msgstr "Ne"
 
 msgid "Confirm clearing"
-msgstr ""
+msgstr "Potvrďte smazání"
 
 msgid "Do you confirm?"
-msgstr ""
+msgstr "Souhlasíte"
 
 msgid "Clear the module settings"
-msgstr ""
+msgstr "Smazat nastavení modulu"
 
 msgid "Clear the selection table"
-msgstr ""
+msgstr "Vymazat tabulku výběru"
 
 msgid "Open with"
 msgstr "Otevřít v"
@@ -358,16 +363,16 @@ msgid "The selected directory is not empty"
 msgstr "Zvolený adresář není prázdný"
 
 msgid "What would you like to do in case of files with the same name?"
-msgstr ""
+msgstr "Co chcete udělat v případě existence souborů se stejným názvem?"
 
 msgid "Overwrite"
 msgstr "Přepsat"
 
 msgid "Rename"
-msgstr ""
+msgstr "Přejmenovat"
 
 msgid "Skip"
-msgstr ""
+msgstr "Vynechat"
 
 msgid "Cancel"
 msgstr "Zrušit"
@@ -382,7 +387,7 @@ msgid "A file with the given name already exists"
 msgstr "Soubor se zvoleným názvem již existuje"
 
 msgid "What would you like to do?"
-msgstr ""
+msgstr "Co si přejete udělat?"
 
 msgid "Non existing directory"
 msgstr "Neexistující adresář"
@@ -394,13 +399,13 @@ msgid "Do you want to create it?"
 msgstr "Přejete si ji vytvořit?"
 
 msgid "Subdirectories"
-msgstr ""
+msgstr "Podadresáře"
 
 msgid "Subdirectories have been found"
-msgstr ""
+msgstr "Byly nalezeny podadresáře"
 
 msgid "Do you want to add PDF files found in subdirectories?"
-msgstr ""
+msgstr "Chcete přidat PDF soubory z podadresářů?"
 
 msgid "Task failed"
 msgstr "Úloha selhala"
@@ -466,10 +471,10 @@ msgid "New version available"
 msgstr "Nová verze je k dispozici"
 
 msgid "You are running the latest version of PDFsam Basic"
-msgstr ""
+msgstr "Používáte nejnovější verzi PDFsam Basic."
 
 msgid "No update"
-msgstr ""
+msgstr "Žádná aktualizace"
 
 msgid "Open"
 msgstr "Otevřít"
@@ -567,16 +572,16 @@ msgid "The selected PDF document is invalid"
 msgstr "Vybrané PDF není v pořádku."
 
 msgid "Select the PDF file"
-msgstr ""
+msgstr "Vyberte PDF soubor"
 
 msgid "_Select PDF"
-msgstr ""
+msgstr "Vyberte PDF"
 
 msgid "_Clear"
 msgstr "_Vyčistit"
 
 msgid "Clear all settings"
-msgstr ""
+msgstr "Smazat všechna nastavení"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -640,13 +645,13 @@ msgid "_Add"
 msgstr "Přid_at"
 
 msgid "PDF list from _text/csv file"
-msgstr ""
+msgstr "Seznam PDF souborů z textového/csv souboru"
 
 msgid "Select pdf documents to load"
 msgstr "Vyberte PDF k načtení"
 
 msgid "Select a text or CSV file to load"
-msgstr ""
+msgstr "Vyberte textový/csv soubor se seznamem souborů pro načtení"
 
 msgid "Removes selected documents"
 msgstr "Odebrat vybrané dokumenty"
@@ -839,11 +844,11 @@ msgstr "Nepodařilo se najít poslední dostupnou verzi."
 
 #, java-format
 msgid "Unable to find any valid PDF file in the list: {0}"
-msgstr ""
+msgstr "V seznamu: {0} nebylo možné najít validní soubor PDF"
 
 #, java-format
 msgid "Unable to load PDF list file from {0}"
-msgstr ""
+msgstr "Nebylo možné načíst seznam PDF souborů z {0}"
 
 msgid "Loading pdf documents"
 msgstr "Načítám PDF dokumenty"
@@ -1069,7 +1074,7 @@ msgstr "Nastavení slučování"
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
-msgstr ""
+msgstr "Soubor \"{0}\" neexistuje, nebo je neplatný."
 
 msgid "Valid user password provided."
 msgstr "Bylo zadáno platné uživatelské heslo."
