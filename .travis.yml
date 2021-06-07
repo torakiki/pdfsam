@@ -1,6 +1,8 @@
 language: java
 sudo: false
-
+cache:
+  directories:
+  - $HOME/.m2
 matrix:
   include:
     # Ubuntu Linux (xenial) / Open DK 11 / Headed (Glass Robot) / HiDPI
