@@ -231,8 +231,8 @@
 	<properties>
 		<junit.version>4.13.1</junit.version>
 		<slf4j.version>1.7.30</slf4j.version>
-		<commons.lang.version>3.9</commons.lang.version>
-		<commons.io.version>2.8.0</commons.io.version>
+		<commons.lang.version>3.12.0</commons.lang.version>
+		<commons.io.version>2.11.0</commons.io.version>
 		<mockito.version>3.8.0</mockito.version>
 		<logback.version>1.2.3</logback.version>
 		<jdepend.version>2.9.1</jdepend.version>
@@ -245,11 +245,11 @@
 		<fontawesomefx.materialicons.version>2.2.0-9.1.2</fontawesomefx.materialicons.version>
 		<fontawesomefx.materialdesignfont.version>2.0.26-9.1.2</fontawesomefx.materialdesignfont.version>
 		<testfx.version>4.0.15-alpha</testfx.version>
-		<jackson-jr.version>2.12.3</jackson-jr.version>
+		<jackson-jr.version>2.12.4</jackson-jr.version>
 		<tempus.fugit.version>1.1</tempus.fugit.version>
-		<bouncycastle.version>1.68</bouncycastle.version>
+		<bouncycastle.version>1.69</bouncycastle.version>
 		<hamcrest.version>1.3</hamcrest.version>
-		<javafx.version>15.0.1</javafx.version>
+		<javafx.version>16</javafx.version>
 		<monocle.version>jdk-12.0.1+2</monocle.version>
 		<maven.build.timestamp.format>dd-MMM-yyyy</maven.build.timestamp.format>
 		<pdfsam.builddate>${maven.build.timestamp}</pdfsam.builddate>
