@@ -6,18 +6,18 @@ msgstr ""
 "Project-Id-Version: PDFSam 3\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
 "POT-Creation-Date: 2020-11-15 12:38+0100\n"
-"PO-Revision-Date: 2020-11-05 04:13+0000\n"
-"Last-Translator: Teddy Quentin Chung <Unknown>\n"
+"PO-Revision-Date: 2021-07-07 05:36+0000\n"
+"Last-Translator: Koji Chao <Unknown>\n"
 "Language-Team: Chinese (Taiwan) (zh_TW@li.org)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-23 11:36+0000\n"
-"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
+"X-Launchpad-Export-Date: 2021-07-26 09:36+0000\n"
+"X-Generator: Launchpad (build 20124175fa98fcb4b43973265a1561174418f4bd)\n"
 "Language: zh_TW\n"
 
 msgid "No PDF document has been selected"
-msgstr "未有選取 PDF 文件檔"
+msgstr "尚未選取 PDF 文件檔"
 
 msgid "Extract"
 msgstr "擷取"
@@ -91,13 +91,13 @@ msgid "Environment"
 msgstr "環境"
 
 msgid "Vendor: %s"
-msgstr ""
+msgstr "供應商: %s"
 
 msgid "Java runtime path: %s"
-msgstr ""
+msgstr "Java runtime path: %s"
 
 msgid "JavaFX runtime version %s"
-msgstr ""
+msgstr "JavaFX runtime version %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -223,20 +223,20 @@ msgstr "啟動時檢查官方新聞"
 msgid ""
 "Set whether the application should check for news availability on startup "
 "(restart needed)"
-msgstr ""
+msgstr "設定否要在啟動時檢查新聞可用性（需要重新啟動）"
 
 msgid "Enabled PDF compression"
 msgstr "啟用PDF壓縮"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr ""
+msgstr "設定是否預設啟用「壓縮輸出文件」"
 
 msgid "Overwrite files"
 msgstr "覆蓋文件"
 
 msgid ""
 "Set whether \"Overwrite if already exists\" should be enabled by default"
-msgstr ""
+msgstr "設定是否預設啟用「如果已經存在則覆蓋」"
 
 msgid "Play alert sounds"
 msgstr "播放警示音效"
@@ -245,7 +245,7 @@ msgid "Turn on or off alert sounds"
 msgstr "開啟或關閉警示音效"
 
 msgid "Store passwords when saving a workspace file"
-msgstr ""
+msgstr "保存工作區文件時儲存密碼"
 
 msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
@@ -261,20 +261,20 @@ msgid ""
 msgstr "打開或是關閉每過一段時間就會出現的，詢問使用者是否會以捐款支援 PDFsam 的通知"
 
 msgid "Show premium features"
-msgstr ""
+msgstr "顯示付費功能"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
 "description in the modules dashboard"
-msgstr ""
+msgstr "顯示付費版功能"
 
 msgid "Ask for a confirmation when clearing the selection table"
-msgstr ""
+msgstr "當清除選擇表格時要求確認"
 
 msgid ""
 "Set whether the application should ask for a confirmation when clearing the "
 "selection table"
-msgstr ""
+msgstr "設定應用程式在清除選擇表格時，是否應要求確認"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "使用選取的 PDF 文件目錄作為輸出目錄"
@@ -304,7 +304,7 @@ msgid "Settings"
 msgstr "設定"
 
 msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr ""
+msgstr "拖放 PDF 檔案或包含 PDF 檔案的目錄"
 
 msgid "No PDF found"
 msgstr "找不到任何PDF檔案"
@@ -319,22 +319,22 @@ msgid "No"
 msgstr "否"
 
 msgid "Confirm clearing"
-msgstr ""
+msgstr "確認清除"
 
 msgid "Do you confirm?"
-msgstr ""
+msgstr "你確定嗎？"
 
 msgid "Clear the module settings"
-msgstr ""
+msgstr "清除模組設定"
 
 msgid "Clear the selection table"
-msgstr ""
+msgstr "清除選擇表格"
 
 msgid "Open with"
-msgstr "開啟用..."
+msgstr "以...開啟"
 
 msgid "Select the task to perform on the following files"
-msgstr ""
+msgstr "選擇要對以下檔案執行的任務"
 
 msgid "Directory not empty"
 msgstr "目錄不是空的"
@@ -343,16 +343,16 @@ msgid "The selected directory is not empty"
 msgstr "選取的目錄不是空的"
 
 msgid "What would you like to do in case of files with the same name?"
-msgstr ""
+msgstr "如果已存在相同名稱的檔案，您想怎麼處理？"
 
 msgid "Overwrite"
 msgstr "覆寫"
 
 msgid "Rename"
-msgstr ""
+msgstr "重新命名"
 
 msgid "Skip"
-msgstr ""
+msgstr "略過"
 
 msgid "Cancel"
 msgstr "取消"
@@ -367,7 +367,7 @@ msgid "A file with the given name already exists"
 msgstr "已存在相同名稱的檔案"
 
 msgid "What would you like to do?"
-msgstr ""
+msgstr "請問您想做什麼？"
 
 msgid "Non existing directory"
 msgstr "不存在的目錄"
@@ -379,23 +379,23 @@ msgid "Do you want to create it?"
 msgstr "您想要建立它嗎？"
 
 msgid "Subdirectories"
-msgstr ""
+msgstr "子目錄"
 
 msgid "Subdirectories have been found"
-msgstr ""
+msgstr "已找到子目錄"
 
 msgid "Do you want to add PDF files found in subdirectories?"
-msgstr ""
+msgstr "你要把PDF檔加入已找到的子目錄嗎？"
 
 msgid "Task failed"
-msgstr ""
+msgstr "任務失敗"
 
 msgid "PDFsam can try to overcome the failure"
 msgstr "PDFsam 可以嘗試克服此錯誤"
 
 msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
-msgstr ""
+msgstr "這可能會導致 PDF 檔案的資料不完整或丟失，仍要繼續嗎？"
 
 msgid "Summary"
 msgstr "摘要"
@@ -414,13 +414,13 @@ msgid ""
 msgstr "輸入的參數無效，請開啟應用程式訊息取得詳細的資訊。"
 
 msgid "Access denied"
-msgstr "拒絕存取"
+msgstr "存取被拒"
 
 #, java-format
 msgid ""
 "Unable to access \"{0}\", please make sure you have write permissions or "
 "open the application messages for details."
-msgstr ""
+msgstr "無法取得“{0}”，請確保您具有寫入權限，或打開應用程序消息以了解詳細資訊。"
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
@@ -446,10 +446,10 @@ msgid "New version available"
 msgstr "有新版本可用"
 
 msgid "You are running the latest version of PDFsam Basic"
-msgstr ""
+msgstr "你正在執行最新版的 PDFsam Basic"
 
 msgid "No update"
-msgstr ""
+msgstr "沒有更新"
 
 msgid "Open"
 msgstr "開啟"
@@ -458,7 +458,7 @@ msgid "E_xit"
 msgstr "關閉程式 (_x)"
 
 msgid "_Settings"
-msgstr "設定值(_S)"
+msgstr "設定(_S)"
 
 msgid "Application messages"
 msgstr "應用程式訊息"
@@ -476,10 +476,10 @@ msgid "_Save"
 msgstr "儲存 (_S)"
 
 msgid "Recen_ts"
-msgstr ""
+msgstr "最近使用 (_t)"
 
 msgid "_Clear recents"
-msgstr ""
+msgstr "清除最近使用 (_C)"
 
 msgid "Select the workspace file to save"
 msgstr "選取要存檔的工作區"
@@ -545,16 +545,16 @@ msgid "The selected PDF document is invalid"
 msgstr "選取的 PDF 文件無效"
 
 msgid "Select the PDF file"
-msgstr ""
+msgstr "選擇 PDF 檔案"
 
 msgid "_Select PDF"
-msgstr ""
+msgstr "選擇 PDF 檔案 (_S)"
 
 msgid "_Clear"
 msgstr "清除 (_C)"
 
 msgid "Clear all settings"
-msgstr ""
+msgstr "清除所有設定"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -582,22 +582,22 @@ msgid "Unlock"
 msgstr "解鎖"
 
 msgid "Drag and drop PDF files here"
-msgstr "請將 PDF 檔拖拉至此處"
+msgstr "請將 PDF 檔拖放至此處"
 
 msgid "Set as range for all"
-msgstr ""
+msgstr "設定為所有範圍"
 
 msgid "Move to Top"
-msgstr "移至最頂"
+msgstr "移至頂端"
 
 msgid "Move Up"
-msgstr "往上移"
+msgstr "上移"
 
 msgid "Move Down"
-msgstr "往下移"
+msgstr "下移"
 
 msgid "Move to Bottom"
-msgstr "移至最底"
+msgstr "移至底端"
 
 msgid "Duplicate"
 msgstr "複製"
@@ -624,7 +624,7 @@ msgid "Select pdf documents to load"
 msgstr "請選擇要載入的 PDF 文件"
 
 msgid "Select a text or CSV file to load"
-msgstr ""
+msgstr "選擇文字或CSV檔案以讀取"
 
 msgid "Removes selected documents"
 msgstr "移除所選的文件"
@@ -665,7 +665,7 @@ msgid "Pages"
 msgstr "頁數"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "雙擊滑鼠進行選擇頁面的設定(ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "雙擊滑鼠進行選擇頁面的設定(例: 2 或 5-23 或 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "頁數範圍"
@@ -692,7 +692,7 @@ msgstr "捨棄書籤"
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
 "document"
-msgstr ""
+msgstr "如果您不想保留原始 PDF 文件中的任何書籤，請勾選此框"
 
 msgid "Output PDF version:"
 msgstr "輸出 PDF 版本："
@@ -708,7 +708,7 @@ msgstr "覆寫已存在的檔案"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
-msgstr "若您寫要在覆寫已經存在的同名輸出檔的話，請勾選此框。"
+msgstr "若您要覆寫已經存在的同名輸出檔的話，請勾選此框。"
 
 #, java-format
 msgid "Version {0}"
@@ -804,18 +804,18 @@ msgid "Invalid number of pages"
 msgstr "無效的頁數"
 
 msgid "Checking for updates"
-msgstr "檢查更新"
+msgstr "檢查更新中"
 
 msgid "Unable to find the latest available version."
 msgstr "無法找到最新的可用版本。"
 
 #, java-format
 msgid "Unable to find any valid PDF file in the list: {0}"
-msgstr ""
+msgstr "在: {0}列表中找不到任何有效的 PDF 文件"
 
 #, java-format
 msgid "Unable to load PDF list file from {0}"
-msgstr ""
+msgstr "無法從 : {0} 讀取 PDF 列表檔案"
 
 msgid "Loading pdf documents"
 msgstr "載入 PDF 文件"
@@ -824,13 +824,13 @@ msgid "Documents loaded"
 msgstr "文件已載入"
 
 msgid "Unable to retrieve premium features description"
-msgstr ""
+msgstr "無法檢索高級功能說明"
 
 msgid "Fetching premium modules"
-msgstr ""
+msgstr "獲取高級模組"
 
 msgid "Unable to retrieve premium modules"
-msgstr ""
+msgstr "無法檢索高級模組"
 
 msgid "Unable to retrieve latest news"
 msgstr "無法擷取最新新聞"
@@ -839,7 +839,7 @@ msgid "Fetching latest news"
 msgstr "正在擷取最新消息"
 
 msgid "Unable to retrieve the latest news"
-msgstr "無法擷取最新新聞"
+msgstr "無法擷取最新消息"
 
 #, java-format
 msgid "Saving workspace data to {0}"
@@ -905,17 +905,17 @@ msgstr "交替合併"
 msgid ""
 "Merge two or more PDF documents taking pages alternately in natural or "
 "reverse order."
-msgstr ""
+msgstr "以自然或相反的順序合併兩個或多個 PDF 文件。"
 
 msgid "Destination file"
-msgstr "輸出檔"
+msgstr "目的檔案"
 
 msgid ""
 "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "點兩下以設定你要混和的頁面 (例: 2 或 5-23 或 2,5-7,12-)"
 
 msgid "Select a positive integer number as pace"
-msgstr ""
+msgstr "選擇一個正整數作為步幅"
 
 msgid "All pages"
 msgstr "所有頁面"
@@ -958,13 +958,13 @@ msgid ""
 msgstr "在每個奇數頁的被合併文件後新增一空白頁"
 
 msgid "Add a footer"
-msgstr ""
+msgstr "新增頁腳"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
-msgstr ""
+msgstr "加入帶有檔案名稱的頁腳。"
 
 msgid "Normalize pages size"
-msgstr ""
+msgstr "標準化頁面大小"
 
 msgid "Resizes all pages to have the same width as the first page."
 msgstr "將所有的頁面寬度調整到跟第一頁相同"
@@ -976,7 +976,7 @@ msgid "Merge renaming existing fields"
 msgstr "合併並重新命名已存在的欄位"
 
 msgid "Flatten"
-msgstr ""
+msgstr "影像平面化"
 
 msgid "Discard forms"
 msgstr "丟棄表單"
@@ -1029,7 +1029,7 @@ msgstr "合併設定"
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
-msgstr ""
+msgstr "檔案 \"{0}\" 不存在或無效"
 
 msgid "Valid user password provided."
 msgstr "已輸入有效的使用者密碼。"

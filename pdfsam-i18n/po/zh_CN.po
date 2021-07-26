@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-11-15 12:38+0100\n"
-"PO-Revision-Date: 2021-03-26 07:49+0000\n"
-"Last-Translator: XiaosiqiYang <Unknown>\n"
+"PO-Revision-Date: 2021-06-13 02:18+0000\n"
+"Last-Translator: aLLexK <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-23 11:36+0000\n"
-"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
+"X-Launchpad-Export-Date: 2021-07-26 09:36+0000\n"
+"X-Generator: Launchpad (build 20124175fa98fcb4b43973265a1561174418f4bd)\n"
 
 msgid "No PDF document has been selected"
 msgstr "未选中PDF文档"
@@ -227,17 +227,17 @@ msgid ""
 msgstr "设置是否启动程序时检查新闻可用性（需重启后生效）"
 
 msgid "Enabled PDF compression"
-msgstr ""
+msgstr "启用PDF压缩"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr ""
+msgstr "设置是否默认启用“压缩输出文件”功能"
 
 msgid "Overwrite files"
-msgstr ""
+msgstr "覆盖文件"
 
 msgid ""
 "Set whether \"Overwrite if already exists\" should be enabled by default"
-msgstr ""
+msgstr "设置是否默认启用“覆盖已有文件”功能"
 
 msgid "Play alert sounds"
 msgstr "播放提示音"
@@ -270,12 +270,12 @@ msgid ""
 msgstr "设置应用是否在模块界面拉取和显示高级版特性"
 
 msgid "Ask for a confirmation when clearing the selection table"
-msgstr ""
+msgstr "清除选择表时要求确认"
 
 msgid ""
 "Set whether the application should ask for a confirmation when clearing the "
 "selection table"
-msgstr ""
+msgstr "设置应用程序在清除选择表时是否要求确认"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "使用当前PDF文档所在的目录作为输出目录"
@@ -320,16 +320,16 @@ msgid "No"
 msgstr "否"
 
 msgid "Confirm clearing"
-msgstr ""
+msgstr "确认清除"
 
 msgid "Do you confirm?"
-msgstr ""
+msgstr "您是否确定？"
 
 msgid "Clear the module settings"
-msgstr ""
+msgstr "清除模块设置"
 
 msgid "Clear the selection table"
-msgstr ""
+msgstr "清除选择表"
 
 msgid "Open with"
 msgstr "打开方式"
@@ -344,16 +344,16 @@ msgid "The selected directory is not empty"
 msgstr "选择的目录不为空"
 
 msgid "What would you like to do in case of files with the same name?"
-msgstr ""
+msgstr "如何处理有相同文件名的文件？"
 
 msgid "Overwrite"
 msgstr "覆盖"
 
 msgid "Rename"
-msgstr ""
+msgstr "重命名"
 
 msgid "Skip"
-msgstr ""
+msgstr "跳过"
 
 msgid "Cancel"
 msgstr "取消"
@@ -368,7 +368,7 @@ msgid "A file with the given name already exists"
 msgstr "同名文件已存在"
 
 msgid "What would you like to do?"
-msgstr ""
+msgstr "你想做什么?"
 
 msgid "Non existing directory"
 msgstr "不存在的目录"
@@ -380,13 +380,13 @@ msgid "Do you want to create it?"
 msgstr "您想要创建它吗？"
 
 msgid "Subdirectories"
-msgstr ""
+msgstr "子目录"
 
 msgid "Subdirectories have been found"
-msgstr ""
+msgstr "已找到子目录"
 
 msgid "Do you want to add PDF files found in subdirectories?"
-msgstr ""
+msgstr "你想添加子目录中找到的PDF文件吗？"
 
 msgid "Task failed"
 msgstr "任务失败"
@@ -447,7 +447,7 @@ msgid "New version available"
 msgstr "新版本可用"
 
 msgid "You are running the latest version of PDFsam Basic"
-msgstr ""
+msgstr "你现在运行的PDFsam Basic软件是最新版本"
 
 msgid "No update"
 msgstr "无更新"
@@ -619,13 +619,13 @@ msgid "_Add"
 msgstr "添加(_A)"
 
 msgid "PDF list from _text/csv file"
-msgstr ""
+msgstr "来自 _text/csv文件的PDF列表"
 
 msgid "Select pdf documents to load"
 msgstr "加载PDF文档"
 
 msgid "Select a text or CSV file to load"
-msgstr ""
+msgstr "选择要加载的文本或CSV文件"
 
 msgid "Removes selected documents"
 msgstr "移除选中文档"
@@ -812,11 +812,11 @@ msgstr "无法获取最新版本。"
 
 #, java-format
 msgid "Unable to find any valid PDF file in the list: {0}"
-msgstr ""
+msgstr "无法在列表{0}中找到任何有效的PDF文件"
 
 #, java-format
 msgid "Unable to load PDF list file from {0}"
-msgstr ""
+msgstr "无法从{0}加载PDF列表文件"
 
 msgid "Loading pdf documents"
 msgstr "加载PDF文档"
@@ -962,7 +962,7 @@ msgid "Add a footer"
 msgstr "添加脚标"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
-msgstr "使用页面所属文件之文件名作为页脚添加。"
+msgstr "将页面所属文件的文件名添加到页脚。"
 
 msgid "Normalize pages size"
 msgstr "均一化页面大小"
@@ -1030,7 +1030,7 @@ msgstr "合并设置"
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
-msgstr ""
+msgstr "文件\"{0}\"不存在或无效"
 
 msgid "Valid user password provided."
 msgstr "密码正确。"
@@ -1054,7 +1054,7 @@ msgid "Directories"
 msgstr "目录"
 
 msgid "Error saving log file."
-msgstr "日志文件保存出错。"
+msgstr "保存日志文件错误。"
 
 #, java-format
 msgid "File {0} saved."
@@ -1068,7 +1068,7 @@ msgstr "无效范围： {0}。"
 msgid ""
 "Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
 "or [-n] or [n-]"
-msgstr "页面范围设定不明确： {0}。请使用如下格式： [n] 或 [n1-n2] 或 [-n] 或 [n-]"
+msgstr "不准确的页面范围定义：{0}。使用下列格式：[n] 或 [n1-n2] 或 [-n] 或 [n-]"
 
 #, java-format
 msgid "Invalid number: {0}."

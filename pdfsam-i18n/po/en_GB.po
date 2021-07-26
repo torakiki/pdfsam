@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-11-15 12:38+0100\n"
-"PO-Revision-Date: 2020-08-17 13:44+0000\n"
-"Last-Translator: Stephan Woidowski <swoidowski@t-online.de>\n"
+"PO-Revision-Date: 2021-06-14 20:44+0000\n"
+"Last-Translator: Andi Chandler <Unknown>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-23 11:36+0000\n"
-"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
+"X-Launchpad-Export-Date: 2021-07-26 09:36+0000\n"
+"X-Generator: Launchpad (build 20124175fa98fcb4b43973265a1561174418f4bd)\n"
 
 msgid "No PDF document has been selected"
 msgstr "No PDF document has been selected"
@@ -244,11 +244,12 @@ msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr "Set whether \"Compress output file\" should be enabled by default"
 
 msgid "Overwrite files"
-msgstr ""
+msgstr "Overwrite files"
 
 msgid ""
 "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
+"Set whether \"Overwrite if already exists\" should be enabled by default"
 
 msgid "Play alert sounds"
 msgstr "Play alert sounds"
@@ -287,12 +288,14 @@ msgstr ""
 "descriptions in the modules dashboard"
 
 msgid "Ask for a confirmation when clearing the selection table"
-msgstr ""
+msgstr "Ask for a confirmation when clearing the selection table"
 
 msgid ""
 "Set whether the application should ask for a confirmation when clearing the "
 "selection table"
 msgstr ""
+"Set whether the application should ask for a confirmation when clearing the "
+"selection table"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Use the selected PDF document directory as output directory"
@@ -337,16 +340,16 @@ msgid "No"
 msgstr "No"
 
 msgid "Confirm clearing"
-msgstr ""
+msgstr "Confirm clearing"
 
 msgid "Do you confirm?"
-msgstr ""
+msgstr "Do you confirm?"
 
 msgid "Clear the module settings"
-msgstr ""
+msgstr "Clear the module settings"
 
 msgid "Clear the selection table"
-msgstr ""
+msgstr "Clear the selection table"
 
 msgid "Open with"
 msgstr "Open with"
@@ -361,16 +364,16 @@ msgid "The selected directory is not empty"
 msgstr "The selected directory is not empty"
 
 msgid "What would you like to do in case of files with the same name?"
-msgstr ""
+msgstr "What would you like to do in case of files with the same name?"
 
 msgid "Overwrite"
 msgstr "Overwrite"
 
 msgid "Rename"
-msgstr ""
+msgstr "Rename"
 
 msgid "Skip"
-msgstr ""
+msgstr "Skip"
 
 msgid "Cancel"
 msgstr "Cancel"
@@ -385,7 +388,7 @@ msgid "A file with the given name already exists"
 msgstr "A file with the given name already exists"
 
 msgid "What would you like to do?"
-msgstr ""
+msgstr "What would you like to do?"
 
 msgid "Non existing directory"
 msgstr "Non existing directory"
