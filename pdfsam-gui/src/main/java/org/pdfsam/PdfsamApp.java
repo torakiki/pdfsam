@@ -100,7 +100,7 @@ import javafx.stage.Stage;
 public class PdfsamApp extends Application {
     private static final Logger LOG = LoggerFactory.getLogger(PdfsamApp.class);
 
-    private static StopWatch STOPWATCH = new StopWatch();
+    private static final StopWatch STOPWATCH = new StopWatch();
     private Stage primaryStage;
     private UserContext userContext = new DefaultUserContext();
     private List<String> rawParameters;
