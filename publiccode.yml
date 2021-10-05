@@ -1,0 +1,158 @@
+# This repository adheres to the publiccode.yml standard by including this 
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '0.2'
+applicationSuite: PDFsam
+categories:
+  - document-management
+description:
+  it:
+    documentation: 'https://pdfsam.org/pdfsam-basic/'
+    features:
+      - PDF merge
+      - PDF split
+      - PDF rotate
+      - PDF extract
+    genericName: PDFsam Basic
+    longDescription: |
+      ### PDF merge
+
+
+      Merge is the most used PDFsam Basic module and lets you combine PDF files
+      together
+
+
+      ##### Page ranges
+
+
+      Input PDF files can be merged completely or  partially. A page selection
+      can be set in the form of comma separated  page intervals (Ex. 1-10, 14,
+      25-) letting you specify what pages you  want to merge for every input PDF
+      file                        
+
+
+      ##### Bookmarks
+
+
+      Set what to do with the bookmarks of the  merged PDF files. You can merge
+      them together, discard them to keep the  resulting file smaller or create
+      a new bookmarks tree with one entry for  every merged PDF
+      file                        
+
+
+      ##### AcroForms
+
+
+      Set what to do with AcroForms when they are  found in the input PDF file.
+      You can discard them but also merge them  into a new form or even merge
+      them renaming fields with name clashes                         
+
+
+      ##### Table of contents
+
+
+      Add a table of contents at the beginning of  the generated PDF. A list of
+      clickable entries will let you easily  navigate through the merged PDF
+      files
+
+
+      ### PDF split
+
+
+      ##### Split at predefined pages
+
+
+      The selected PDF file can be split after  every page, generating a new
+      document for every page in the original  file, or after every even or odd
+      page                        
+
+
+      ##### Split specifying pages
+
+
+      Specify the page numbers where you want to  break your document. You can
+      even tell PDFsam to split the PDF every _n_ pages                        
+
+
+      ### PDF Split by size
+
+
+      Divide PDF files into smaller ones of a given size (roughly)
+
+
+      ### PDF Split by bookmarks
+
+
+      Select the outline (bookmarks) level you  want to split at and your
+      PDFfile will be divided at every page pointed  by the bookmarks at the
+      selected level
+
+
+      ### PDF mix
+
+
+      The PDF mix module lets you  merge two or more PDF files taking pages
+      alternately from each input  file, in straight or reverse order. The
+      perfect match for your  single-sided scans
+
+
+      ### Rotate PDF
+
+
+      The PDF Rotate module lets  you rotate PDF files by simply selecting the
+      files you want to rotate  and apply a rotation of 90, 180 or 270 degrees
+      to all or some of their  pages
+
+
+      ### Extract pages
+
+
+      The Extract module lets you  extract pages from PDF files. Single pages or
+      page ranges can be  selected to create a new PDF file containing only the
+      pages you need
+    shortDescription: |-
+      PDFsam Basic, a free, open source, multi-platform software designed to
+      split, merge, extract pages, mix and rotate PDF files.
+developmentStatus: stable
+inputTypes:
+  - application/pdf
+intendedAudience:
+  scope:
+    - government
+    - education
+it:
+  conforme:
+    gdpr: false
+    lineeGuidaDesign: false
+    misureMinimeSicurezza: false
+    modelloInteroperabilita: false
+  countryExtensionVersion: '0.2'
+  piattaforme:
+    anpr: false
+    cie: false
+    pagopa: false
+    spid: false
+landingURL: 'https://pdfsam.org'
+legal:
+  license: AGPL-3.0-or-later
+  mainCopyrightOwner: Sober Lemus S.a.s.
+  repoOwner: '@torakiki'
+localisation:
+  availableLanguages:
+    - it
+    - en
+  localisationReady: false
+maintenance:
+  type: none
+name: PDFsam Basic
+outputTypes:
+  - application/pdf
+platforms:
+  - windows
+  - mac
+  - linux
+releaseDate: '2021-03-08'
+softwareType: standalone/desktop
+softwareVersion: v4.2.3
+url: 'https://github.com/torakiki/pdfsam'
