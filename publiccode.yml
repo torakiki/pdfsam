@@ -8,112 +8,115 @@ categories:
   - document-management
 description:
   it:
-    documentation: 'https://pdfsam.org/pdfsam-basic/'
+    documentation: 'https://pdfsam.org/it/pdfsam-basic/'
     features:
-      - PDF merge
-      - PDF split
-      - PDF rotate
-      - PDF extract
+      - Unisci PDF
+      - Dividi PDF
+      - Ruota PDF
+      - Estrai pagine dai PDF
+      - Miscela i PDF
     genericName: PDFsam Basic
     longDescription: |
-      ### PDF merge
+      # Unisci PDF
 
 
-      Merge is the most used PDFsam Basic module and lets you combine PDF files
-      together
+      Unisci è il modulo di PDFsam Basic più utilizzato e consente di combinare
+      file PDF
 
 
-      ##### Page ranges
+      ### Intervalli di pagine
 
 
-      Input PDF files can be merged completely or  partially. A page selection
-      can be set in the form of comma separated  page intervals (Ex. 1-10, 14,
-      25-) letting you specify what pages you  want to merge for every input PDF
-      file                        
+      ##### I file PDF di input possono essere uniti completamente o
 
 
-      ##### Bookmarks
+      parzialmente. Una selezione di pagina può essere impostata sotto forma di
+      intervalli di pagine separate da virgola (Es. 1-10, 14, 25-) che ti
+      permettono di specificare quali pagine vuoi unire per ogni file PDF di
+      input.
 
 
-      Set what to do with the bookmarks of the  merged PDF files. You can merge
-      them together, discard them to keep the  resulting file smaller or create
-      a new bookmarks tree with one entry for  every merged PDF
-      file                        
+      ### Segnalibri
 
 
-      ##### AcroForms
+      Imposta cosa fare con i segnalibri dei file PDF uniti. Puoi unirli
+      insieme, scartarli per mantenere il file risultante più piccolo o creare
+      un nuovo albero dei segnalibri con una voce per ogni file PDF unito.
 
 
-      Set what to do with AcroForms when they are  found in the input PDF file.
-      You can discard them but also merge them  into a new form or even merge
-      them renaming fields with name clashes                         
+      ### AcroForms
 
 
-      ##### Table of contents
+      Imposta cosa fare con gli AcroForms quando vengono trovati nel file PDF di
+      input. Puoi scartarli ma anche unirli in un nuovo form o persino unirli
+      rinominando i campi in caso di conflitti di nome.
 
 
-      Add a table of contents at the beginning of  the generated PDF. A list of
-      clickable entries will let you easily  navigate through the merged PDF
-      files
+      ### Sommario
 
 
-      ### PDF split
+      Aggiungi un sommario all'inizio del PDF generato. Un elenco di voci
+      cliccabili ti consente di navigare facilmente tra i file PDF uniti.
 
 
-      ##### Split at predefined pages
+      # Dividi PDF
 
 
-      The selected PDF file can be split after  every page, generating a new
-      document for every page in the original  file, or after every even or odd
-      page                        
+      ### Dividi a pagine predefinite
 
 
-      ##### Split specifying pages
+      Il file PDF selezionato può essere diviso dopo ogni pagina, generando un
+      nuovo documento per ogni pagina del file originale o dopo ogni pagina pari
+      o dispari.
 
 
-      Specify the page numbers where you want to  break your document. You can
-      even tell PDFsam to split the PDF every _n_ pages                        
+      ### Dividi pagine specifiche
 
 
-      ### PDF Split by size
+      Specificare i numeri di pagina in cui si desidera interrompere il
+      documento. Puoi persino dire a PDFsam di dividere il PDF ogni \_n \_
+      pagine.
 
 
-      Divide PDF files into smaller ones of a given size (roughly)
+      ### Dividi i PDF per dimensione
 
 
-      ### PDF Split by bookmarks
+      Dividere i file PDF in file più piccoli di una determinata dimensione
+      (approssimativamente)
 
 
-      Select the outline (bookmarks) level you  want to split at and your
-      PDFfile will be divided at every page pointed  by the bookmarks at the
-      selected level
+      ### Dividi i PDF per segnalibro
 
 
-      ### PDF mix
+      Seleziona il livello di segnalibri che vuoi dividere e il tuo file PDF
+      sarà diviso in ogni pagina indicata dai segnalibri al livello selezionato
 
 
-      The PDF mix module lets you  merge two or more PDF files taking pages
-      alternately from each input  file, in straight or reverse order. The
-      perfect match for your  single-sided scans
+      ### Miscela i PDF
 
 
-      ### Rotate PDF
+      Il modulo di mix PDF ti consente di unire due o più file PDF prendendo
+      pagine alternativamente da ciascun file di input, in ordine diretto o
+      inverso. La combinazione perfetta per le tue scansioni su un solo lato
 
 
-      The PDF Rotate module lets  you rotate PDF files by simply selecting the
-      files you want to rotate  and apply a rotation of 90, 180 or 270 degrees
-      to all or some of their  pages
+      ### Ruota i PDF
 
 
-      ### Extract pages
+      Il modulo PDF Rotate ti consente di ruotare i file PDF semplicemente
+      selezionando i file che vuoi ruotare e applicando una rotazione di 90, 180
+      o 270 gradi a tutte o alcune delle loro pagine
 
 
-      The Extract module lets you  extract pages from PDF files. Single pages or
-      page ranges can be  selected to create a new PDF file containing only the
-      pages you need
+      ### Estrai pagine
+
+
+      Il modulo Estrai ti consente di estrarre pagine da file PDF. È possibile
+      selezionare pagine singole o intervalli di pagine per creare un nuovo file
+      PDF contenente solo le pagine necessarie
     shortDescription: |-
-      PDFsam Basic, a free, open source, multi-platform software designed to
-      split, merge, extract pages, mix and rotate PDF files.
+      PDFsam Basic, un software gratuito, open source, multipiattaforma
+      progettato per dividere, unire, estrarre pagine, mixare e ruotare file PDF
 developmentStatus: stable
 inputTypes:
   - application/pdf
@@ -123,7 +126,7 @@ intendedAudience:
     - education
 it:
   conforme:
-    gdpr: false
+    gdpr: true
     lineeGuidaDesign: false
     misureMinimeSicurezza: false
     modelloInteroperabilita: false
@@ -142,9 +145,17 @@ localisation:
   availableLanguages:
     - it
     - en
-  localisationReady: false
+    - es
+    - fr
+    - de
+  localisationReady: true
+logo: |-
+  https://raw.githubusercontent.com/torakiki/pdfsam/master/pdfsam-docs/graphics/basic.svg
 maintenance:
-  type: none
+  contacts:
+    - email: support@pdfsam.org
+      name: Andrea Vacondio
+  type: internal
 name: PDFsam Basic
 outputTypes:
   - application/pdf
@@ -152,7 +163,7 @@ platforms:
   - windows
   - mac
   - linux
-releaseDate: '2021-03-08'
+releaseDate: '2021-09-30'
 softwareType: standalone/desktop
-softwareVersion: v4.2.3
+softwareVersion: v4.2.7
 url: 'https://github.com/torakiki/pdfsam'
