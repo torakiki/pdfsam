@@ -128,7 +128,7 @@ msgid "Contribute"
 msgstr "Bijdragen"
 
 msgid "Fork PDFsam on GitHub"
-msgstr "Fork PFDsam op GitHub"
+msgstr "Fork PDFsam op GitHub"
 
 msgid "Translate"
 msgstr "Vertalen"
