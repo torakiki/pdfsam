@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-11-15 12:38+0100\n"
-"PO-Revision-Date: 2019-01-15 21:00+0000\n"
+"PO-Revision-Date: 2021-09-04 12:49+0000\n"
 "Last-Translator: Hrach <Unknown>\n"
 "Language-Team: Armenian <hy@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-07-26 09:36+0000\n"
-"X-Generator: Launchpad (build 20124175fa98fcb4b43973265a1561174418f4bd)\n"
+"X-Launchpad-Export-Date: 2021-11-04 14:24+0000\n"
+"X-Generator: Launchpad (build 5439e27e4f7141f37a9bb9ba92c8383a4ccbff8f)\n"
 
 msgid "No PDF document has been selected"
 msgstr ""
@@ -53,16 +53,16 @@ msgid "Started in {0}"
 msgstr ""
 
 msgid "Closing PDFsam..."
-msgstr ""
+msgstr "PDFsam-ը փակվում է․․․"
 
 msgid "Log register"
 msgstr ""
 
 msgid "Copy"
-msgstr ""
+msgstr "Պատճենել"
 
 msgid "Clear"
-msgstr ""
+msgstr "Մաքրել"
 
 msgid "Select all"
 msgstr ""
@@ -74,47 +74,47 @@ msgid "Select where to save the log file"
 msgstr ""
 
 msgid "About"
-msgstr ""
+msgstr "Ծրագրի մասին"
 
 msgid "Premium features"
-msgstr ""
+msgstr "Պրեմիում ֆունկցիաներ"
 
 msgid "Close"
-msgstr ""
+msgstr "Փակել"
 
 msgid "Modules"
-msgstr ""
+msgstr "Մոդուլներ"
 
 msgid "Subscribe to the official news feed"
-msgstr ""
+msgstr "Բաժանորդագրվել պաշտոնական լուրերին"
 
 msgid "Environment"
-msgstr ""
+msgstr "Շրջակա միջավայր"
 
 msgid "Vendor: %s"
-msgstr ""
+msgstr "Մշակող․ %s"
 
 msgid "Java runtime path: %s"
-msgstr ""
+msgstr "Java runtime ուղին․ %s"
 
 msgid "JavaFX runtime version %s"
-msgstr ""
+msgstr "JavaFX runtime տարբերակ %s"
 
 #, java-format
 msgid "Max memory {0}"
 msgstr ""
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Պատճենել պահունակում"
 
 msgid "Support"
-msgstr ""
+msgstr "Աջակցում"
 
 msgid "Bug and feature requests"
 msgstr ""
 
 msgid "Documentation"
-msgstr ""
+msgstr "Փաստաթղթեր"
 
 msgid "Contribute"
 msgstr ""
@@ -123,19 +123,19 @@ msgid "Fork PDFsam on GitHub"
 msgstr ""
 
 msgid "Translate"
-msgstr ""
+msgstr "Թարգմանել"
 
 msgid "Donate"
-msgstr ""
+msgstr "Նվիրաբերել"
 
 msgid "Social"
-msgstr ""
+msgstr "Սոցիալական"
 
 msgid "Follow us on Twitter"
-msgstr ""
+msgstr "Հետևեք մեզ Թվիթերում"
 
 msgid "Like us on Facebook"
-msgstr ""
+msgstr "Հավանեք մեզ Ֆեյբուքում"
 
 msgid "Log register rows:"
 msgstr ""
@@ -144,13 +144,13 @@ msgid "Maximum number of rows displayed by the Log register"
 msgstr ""
 
 msgid "Language:"
-msgstr ""
+msgstr "Լեզու․"
 
 msgid "Set your preferred language (restart needed)"
 msgstr ""
 
 msgid "Startup module:"
-msgstr ""
+msgstr "Մեկնարկի մոդուլը․"
 
 msgid "Set the module to open at application startup (restart needed)"
 msgstr ""
@@ -161,7 +161,7 @@ msgid ""
 msgstr ""
 
 msgid "Manually selected"
-msgstr ""
+msgstr "Ձեռքով ընտրվել է"
 
 msgid ""
 "Automatically set the destination directory to the selected PDF document "
@@ -169,29 +169,29 @@ msgid ""
 msgstr ""
 
 msgid "Clear usage statistics"
-msgstr ""
+msgstr "Մաքրել օգտագործման պատմութ․"
 
 msgid "Appearance"
-msgstr ""
+msgstr "Արտաքին տեսք"
 
 msgid "Behavior"
-msgstr ""
+msgstr "Վարքագիծ"
 
 msgid "Workspace"
-msgstr ""
+msgstr "Աշխատատարածք"
 
 msgid "Output"
-msgstr ""
+msgstr "Ելքային"
 
 msgid "Check for updates now"
-msgstr ""
+msgstr "Ստուգել թարմացումները"
 
 msgid ""
 "Select a directory where documents will be saved and loaded by default"
 msgstr ""
 
 msgid "Select a directory"
-msgstr ""
+msgstr "Ընտրել պանակ"
 
 msgid ""
 "Select a previously saved workspace that will be automatically loaded at "

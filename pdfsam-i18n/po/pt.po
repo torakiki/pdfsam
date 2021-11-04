@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-11-15 12:38+0100\n"
-"PO-Revision-Date: 2021-03-24 16:33+0000\n"
+"PO-Revision-Date: 2021-08-31 13:11+0000\n"
 "Last-Translator: Sérgio Marques <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-07-26 09:36+0000\n"
-"X-Generator: Launchpad (build 20124175fa98fcb4b43973265a1561174418f4bd)\n"
+"X-Launchpad-Export-Date: 2021-11-04 14:24+0000\n"
+"X-Generator: Launchpad (build 5439e27e4f7141f37a9bb9ba92c8383a4ccbff8f)\n"
 "Language: pt\n"
 
 msgid "No PDF document has been selected"
@@ -289,14 +289,12 @@ msgstr ""
 "Premium no painel de controlo de módulos."
 
 msgid "Ask for a confirmation when clearing the selection table"
-msgstr "Pedir uma confirmação na limpeza da tabela de selecção"
+msgstr "Pedir confirmação ao limpar a seleção"
 
 msgid ""
 "Set whether the application should ask for a confirmation when clearing the "
 "selection table"
-msgstr ""
-"Definir se a aplicação deve pedir uma confirmação na limpeza da tabela de "
-"selecção"
+msgstr "Define se a aplicação pede uma confirmação ao limpar a seleção"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr ""
@@ -343,16 +341,16 @@ msgid "No"
 msgstr "Não"
 
 msgid "Confirm clearing"
-msgstr "Confirme que apagou."
+msgstr "Confirmação de eliminação"
 
 msgid "Do you confirm?"
-msgstr "Você confirma?"
+msgstr "Confirma eliminação?"
 
 msgid "Clear the module settings"
-msgstr "Apagar as definições do módulo."
+msgstr "Limpar definições do módulo"
 
 msgid "Clear the selection table"
-msgstr "Apagar a tabela de seleção."
+msgstr "Limpar seleção"
 
 msgid "Open with"
 msgstr "Abrir com"
@@ -462,7 +460,7 @@ msgid "PDFsam worked hard!"
 msgstr "O PDFsam dá muito trabalho!"
 
 msgid "Spread the word!"
-msgstr "Espalha a palavra!"
+msgstr "Espalhe a palavra!"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -571,7 +569,7 @@ msgstr "Execução"
 
 #, java-format
 msgid "Running {0}%"
-msgstr "A trabalhar {0}%"
+msgstr "A executar {0}%"
 
 msgid "The selected PDF document is invalid"
 msgstr "O documento selecionado é inválido."

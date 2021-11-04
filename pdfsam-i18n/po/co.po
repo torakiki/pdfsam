@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
 "POT-Creation-Date: 2020-11-15 12:38+0100\n"
-"PO-Revision-Date: 2020-11-17 00:16+0000\n"
+"PO-Revision-Date: 2021-10-13 17:43+0000\n"
 "Last-Translator: Patriccollu <Patrick.Santa-Maria@laposte.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-07-26 09:36+0000\n"
-"X-Generator: Launchpad (build 20124175fa98fcb4b43973265a1561174418f4bd)\n"
+"X-Launchpad-Export-Date: 2021-11-04 14:24+0000\n"
+"X-Generator: Launchpad (build 5439e27e4f7141f37a9bb9ba92c8383a4ccbff8f)\n"
 "Language: co\n"
 
 msgid "No PDF document has been selected"
@@ -32,13 +32,13 @@ msgid "Output settings"
 msgstr "Preferenze d’esciuta"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Pagine à estrae (p.i. : 2 o 5-23 o 2,5-7,12-)"
+msgstr "Pagine à estrae (p.i. : 2 o 5-23 o 2,5-7,12-)"
 
 msgid "Invalid page ranges"
-msgstr "Stese di pagina micca accettevule"
+msgstr "Serie di pagina micca accettevule"
 
 msgid "Extract pages:"
-msgstr "Estrae e pagine :"
+msgstr "Estrae e pagine :"
 
 #, java-format
 msgid "Installing theme {0}."
@@ -88,10 +88,10 @@ msgid "Environment"
 msgstr "Ambiente"
 
 msgid "Vendor: %s"
-msgstr "Vinditore : %s"
+msgstr "Vinditore : %s"
 
 msgid "Java runtime path: %s"
-msgstr "Passeghju Java runtime : %s"
+msgstr "Passeghju Java runtime : %s"
 
 msgid "JavaFX runtime version %s"
 msgstr "Versione runtime JavaFX %s"
@@ -134,19 +134,19 @@ msgid "Like us on Facebook"
 msgstr "Ditecci « Mi Piace » nant’à Facebook"
 
 msgid "Log register rows:"
-msgstr "Linee di u registradore di ghjurnale :"
+msgstr "Linee di u registradore di ghjurnale :"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr "U numeru massimu di linee affissate da u registradore di ghjurnale"
 
 msgid "Language:"
-msgstr "Lingua :"
+msgstr "Lingua :"
 
 msgid "Set your preferred language (restart needed)"
 msgstr "Definisce a lingua preferita (rilanciu necessariu)"
 
 msgid "Startup module:"
-msgstr "Mudullu d’iniziu :"
+msgstr "Mudullu d’iniziu :"
 
 msgid "Set the module to open at application startup (restart needed)"
 msgstr ""
@@ -207,13 +207,13 @@ msgid "Select a workspace"
 msgstr "Selezziunà un spaziu di travagliu"
 
 msgid "Default working directory:"
-msgstr "Cartulare predefinitu di travagliu :"
+msgstr "Cartulare predefinitu di travagliu :"
 
 msgid "Load default workspace at startup:"
-msgstr "Caricà u spaziu di travagliu predefinitu à l’iniziu :"
+msgstr "Caricà u spaziu di travagliu predefinitu à l’iniziu :"
 
 msgid "Dashboard"
-msgstr "Tavulone di cumande"
+msgstr "Tavula di cundutta"
 
 msgid "Check for updates at startup"
 msgstr "Circà i rinnovi à l’iniziu di u prugramma"
@@ -260,15 +260,15 @@ msgstr "Attivà o nò i soni d’alerta"
 
 msgid "Store passwords when saving a workspace file"
 msgstr ""
-"Arregistrà e parolle d’intrata à l’arregistramentu d’un schedariu di spaziu "
+"Arregistrà e parolle d’intesa à l’arregistramentu d’un schedariu di spaziu "
 "di travagliu"
 
 msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
 "password in the workspace file"
 msgstr ""
-"S’è un ducumentu PDF cifratu hè statu apertu cù una parolla d’intrata, "
-"arregistrà a parolla d’intrata in u spaziu di travagliu"
+"S’è un ducumentu PDF cifratu hè statu apertu cù una parolla d’intesa, "
+"arregistrà a parolla d’intesa in u spaziu di travagliu"
 
 msgid "Show donation window"
 msgstr "Affissà a finestra di dunazione"
@@ -288,18 +288,17 @@ msgid ""
 "description in the modules dashboard"
 msgstr ""
 "Definisce s’è l’appiecazione deve circà i funzioni premium è affissà a so "
-"discrizzione nant’à u tavulone di cumande"
+"discrizzione nant’à a tavula di cundutta"
 
 msgid "Ask for a confirmation when clearing the selection table"
-msgstr ""
-"Dumandà una cunfirmazione à a squassatura di u tavulone di selezzione"
+msgstr "Dumandà una cunfirmazione quandu si viota a tavula di selezzione"
 
 msgid ""
 "Set whether the application should ask for a confirmation when clearing the "
 "selection table"
 msgstr ""
-"Definisce s’è l’appiecazione deve dumandà una cunfirmazione à a squassatura "
-"di u tavulone di selezzione"
+"Definisce s’è l’appiecazione deve dumandà una cunfirmazione quandu si viota "
+"a tavula di selezzione"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr ""
@@ -317,16 +316,16 @@ msgid "Maximum number of rows mast be a positive number"
 msgstr "U numeru massimu di linee deve esse un numeru pusitivu"
 
 msgid "Generate high quality thumbnails (slower)"
-msgstr "Creazione d’imaghjinuccie d’alta qualità (più pianu)"
+msgstr "Ingenerazione di vignette d’alta qualità (più pianu)"
 
 msgid "Size in px:"
-msgstr "Dimensione in px :"
+msgstr "Dimensione in px :"
 
 msgid "Library used to generate thumbnails"
-msgstr "Bibliuteca impiegata per arregistrà l’imaghjinuccie"
+msgstr "Bibliuteca impiegata per ingenerà e vignette"
 
 msgid "Thumbnails creator:"
-msgstr "Creatore di l’imaghjinuccie :"
+msgstr "Creatore di e vignette :"
 
 msgid "Settings"
 msgstr "Preferenze"
@@ -351,13 +350,13 @@ msgid "Confirm clearing"
 msgstr "Cunfirmà a squassatura"
 
 msgid "Do you confirm?"
-msgstr "Cunfirmate ?"
+msgstr "Cunfirmate ?"
 
 msgid "Clear the module settings"
-msgstr "Squassà e preferenze di u modulu"
+msgstr "Viutà e preferenze di u modulu"
 
 msgid "Clear the selection table"
-msgstr "Squassà u tavulone di selezzione"
+msgstr "Viutà a tavula di selezzione"
 
 msgid "Open with"
 msgstr "Apre cù"
@@ -372,7 +371,7 @@ msgid "The selected directory is not empty"
 msgstr "U cartulare selezziunatu ùn hè micca viotu"
 
 msgid "What would you like to do in case of files with the same name?"
-msgstr "Chì vulete fà in casu di schedarii cù u listessu nome ?"
+msgstr "Chì vulete fà in casu di schedarii cù u listessu nome ?"
 
 msgid "Overwrite"
 msgstr "Rimpiazzà"
@@ -396,7 +395,7 @@ msgid "A file with the given name already exists"
 msgstr "Un schedariu cù u litessu nome esiste dighjà"
 
 msgid "What would you like to do?"
-msgstr "Chì vulete fà ?"
+msgstr "Chì vulete fà ?"
 
 msgid "Non existing directory"
 msgstr "Cartulare inesistente"
@@ -405,7 +404,7 @@ msgid "The selected output directory does not exist"
 msgstr "U cartulare d’esciuta selezziunatu ùn esiste micca"
 
 msgid "Do you want to create it?"
-msgstr "Vulete creallu ?"
+msgstr "Vulete creallu ?"
 
 msgid "Subdirectories"
 msgstr "Sottu-cartulari"
@@ -415,7 +414,7 @@ msgstr "Sottu-cartulari sò stati trovi"
 
 msgid "Do you want to add PDF files found in subdirectories?"
 msgstr ""
-"Vulete aghjunghje i schedarii PDF chì si trovanu in i sottu-cartulari ?"
+"Vulete aghjunghje i schedarii PDF chì si trovanu in i sottu-cartulari ?"
 
 msgid "Task failed"
 msgstr "Tacca fiasca"
@@ -425,7 +424,7 @@ msgstr "PDFsam pò pruvà di superchjà stu fiascu"
 
 msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
-msgstr "Quessu pò crea schedarii PDF cù dati assente, cuntinuà quantunque ?"
+msgstr "Quessu pò crea schedarii PDF cù dati assente, cuntinuà quantunque ?"
 
 msgid "Summary"
 msgstr "Riassuntu"
@@ -459,16 +458,16 @@ msgstr ""
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
-msgstr "Avete compiu {0} tacche cù PDFsam, vi hà aiutatu ?"
+msgstr "Avete compiu {0} tacche cù PDFsam, vi hà aiutatu ?"
 
 msgid "Give something back"
 msgstr "Dà qualcosa"
 
 msgid "PDFsam worked hard!"
-msgstr "PDFsam hà travagliatu bè !"
+msgstr "PDFsam hà travagliatu bè !"
 
 msgid "Spread the word!"
-msgstr "Sparghje dapertuttu !"
+msgstr "Sparghje dapertuttu !"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -541,10 +540,10 @@ msgid "Regular expression the bookmark has to match"
 msgstr "Espressione regulare à chì l’indetta deve currisponde"
 
 msgid "Split at this bookmark level:"
-msgstr "Sparte à stu livellu d’indetta :"
+msgstr "Sparte à stu livellu d’indetta :"
 
 msgid "Matching regular expression:"
-msgstr "L’espressione regulare currisponde :"
+msgstr "L’espressione regulare currisponde :"
 
 msgid "A regular expression the bookmark text has to match"
 msgstr "Un espressione regulare à chì u testu di l’indetta deve currisponde"
@@ -552,7 +551,7 @@ msgstr "Un espressione regulare à chì u testu di l’indetta deve currisponde"
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
 msgstr ""
-"Esempiu : impiegate .*Capitulu.* per currisponde à l’indette chì cuntenenu a "
+"Esempiu : impiegate .*Capitulu.* per currisponde à l’indette chì cuntenenu a "
 "parolla « Capitulu »"
 
 msgid "Invalid bookmarks level"
@@ -578,7 +577,7 @@ msgstr "In funzione"
 
 #, java-format
 msgid "Running {0}%"
-msgstr "Operazione in corsu : {0}%"
+msgstr "Operazione in corsu : {0}%"
 
 msgid "The selected PDF document is invalid"
 msgstr "U PDF selezziunatu hè inaccettevule"
@@ -597,7 +596,7 @@ msgstr "Squassà tutte e preferenze"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
-msgstr "Pagine : {0}, Version PDF : {1}"
+msgstr "Pagine : {0}, Version PDF : {1}"
 
 msgid "Loading..."
 msgstr "Caricamentu…"
@@ -615,7 +614,7 @@ msgid "Open Folder"
 msgstr "Apre un Sfugliaghju"
 
 msgid "Enter the user password"
-msgstr "Scrivite a parolla d’intrata di l’utilizatore"
+msgstr "Scrivite a parolla d’intesa di l’utilizatore"
 
 msgid "Unlock"
 msgstr "Sblucchà"
@@ -624,7 +623,7 @@ msgid "Drag and drop PDF files here"
 msgstr "Sguillà è dipone quì i schedarii PDF"
 
 msgid "Set as range for all"
-msgstr "Definisce cum’è una stesa per tutti"
+msgstr "Definisce cum’è una seria per tuttu"
 
 msgid "Move to Top"
 msgstr "Move à u Principiu"
@@ -651,7 +650,7 @@ msgid "Name"
 msgstr "Nome"
 
 msgid "Add documents to the table"
-msgstr "Aghjunghje i ducumenti à u tavulone"
+msgstr "Aghjunghje i ducumenti à a tavula"
 
 msgid "_Add"
 msgstr "_Aghjunghje"
@@ -707,11 +706,11 @@ msgstr "Pagine"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Doppiu cliccu per definisce e pagine selezziunate (p.i. : 2 o 5-23 o 2,5-"
+"Doppiu cliccu per definisce e pagine selezziunate (p.i. : 2 o 5-23 o 2,5-"
 "7,12-)"
 
 msgid "Page ranges"
-msgstr "Stese di pagina"
+msgstr "Serie di pagina"
 
 msgid "The selected PDF file is invalid"
 msgstr "U schedariu PDF selezziunatu hè inaccettevule"
@@ -737,10 +736,10 @@ msgid ""
 "document"
 msgstr ""
 "Marcà l’alveola s’è ùn vulete ritene alcuna indetta da u ducumentu PDF "
-"d’urigine"
+"d’origine"
 
 msgid "Output PDF version:"
-msgstr "Versione PDF d’esciuta :"
+msgstr "Versione PDF d’esciuta :"
 
 msgid "Show advanced settings"
 msgstr "Affissà e preferenze d’espertu"
@@ -781,16 +780,16 @@ msgstr "Sfuglià"
 
 #, java-format
 msgid "PDF version required: {0}"
-msgstr "Versione PDF richiesta : {0}"
+msgstr "Versione PDF richiesta : {0}"
 
 msgid "Prefix for the generated files names"
-msgstr "Prefissu per i nomi di ducumenti creati"
+msgstr "Prefissu per i nomi di schedarii ingenerati"
 
 msgid "Add prefix"
 msgstr "Aghjunghje un prefissu"
 
 msgid "Generated PDF documents name prefix:"
-msgstr "Prefissu di u nome di ducumenti PDF creati :"
+msgstr "Prefissu di nome di i ducumenti PDF ingenerati :"
 
 msgid "Prefix for the output files name."
 msgstr "Prefissu per i nomi di schedarii d’esciuta."
@@ -859,7 +858,7 @@ msgstr "Impussibule di truvà l’ultima versione dispunibule."
 
 #, java-format
 msgid "Unable to find any valid PDF file in the list: {0}"
-msgstr "Impussibule di truvà un schedariu PDF accettevule in a lista : {0}"
+msgstr "Impussibule di truvà un schedariu PDF accettevule in a lista : {0}"
 
 #, java-format
 msgid "Unable to load PDF list file from {0}"
@@ -943,7 +942,7 @@ msgid "Size must be a number"
 msgstr "A dimensione deve esse un numeru"
 
 msgid "Split at this size:"
-msgstr "Sparte à sta dimensione :"
+msgstr "Sparte à sta dimensione :"
 
 msgid "Invalid split size"
 msgstr "Dimensione per sparte ùn hè micca accettevule"
@@ -964,7 +963,7 @@ msgstr "Schedariu di destinazione"
 msgid ""
 "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Doppiu cliccu per definisce e pagine chì voi vulete mischià (i.e. : 2 o 5-23 "
+"Doppiu cliccu per definisce e pagine chì voi vulete mischià (i.e. : 2 o 5-23 "
 "o 2,5-7,12-)"
 
 msgid "Select a positive integer number as pace"
@@ -988,7 +987,7 @@ msgstr "Girà "
 msgid ""
 "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Doppiu cliccu per definisce e pagine ch’ellu ci vole à girà (p.i. : 2 o 5-23 "
+"Doppiu cliccu per definisce e pagine ch’ellu ci vole à girà (p.i. : 2 o 5-23 "
 "o 2,5-7,12-)"
 
 msgid "Rotate"
@@ -1003,7 +1002,7 @@ msgstr "Preferenze di u girà"
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Doppiu cliccu per definisce e pagine di a fusione (p.i. : 2 o 5-23 o 2,5-"
+"Doppiu cliccu per definisce e pagine di a fusione (p.i. : 2 o 5-23 o 2,5-"
 "7,12-)"
 
 msgid "Add a blank page if page number is odd"
@@ -1044,10 +1043,10 @@ msgid "Discard forms"
 msgstr "Scaccià i furmularii"
 
 msgid "Interactive forms (AcroForms):"
-msgstr "Furmularii interrattivi (AcroForms) :"
+msgstr "Furmularii interrattivi (AcroForms) :"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
-msgstr "Chì fà quandu unu ducumentu d’urigine, o più, cuntene Acro Forms"
+msgstr "Chì fà quandu unu ducumentu d’origine, o più, cuntene Acro Forms"
 
 msgid "Retain bookmarks"
 msgstr "Ritene l’indette"
@@ -1059,28 +1058,28 @@ msgid "Retain bookmarks as one entry for each merged document"
 msgstr "Ritene l’indette cum’è un’entrata per ogni ducumentu di a fusione"
 
 msgid "Bookmarks handling:"
-msgstr "Trattamentu di l’indette :"
+msgstr "Trattamentu di l’indette :"
 
 msgid "What to do in case one or more input documents contain bookmarks"
-msgstr "Chì fà quandu unu ducumentu d’urigine, o più, cuntene indette"
+msgstr "Chì fà quandu unu ducumentu d’origine, o più, cuntene indette"
 
 msgid "Don't generate"
-msgstr "Ùn creà nunda"
+msgstr "Ùn ingenerà nunda"
 
 msgid "Generate from file names"
-msgstr "Creà da i nomi di schedariu"
+msgstr "Ingenerà da i nomi di schedariu"
 
 msgid "Generate from documents titles"
-msgstr "Creà da i tituli di i ducumenti"
+msgstr "Ingenerà da i tituli di i ducumenti"
 
 msgid "Table of contents:"
-msgstr "Tavula di cuntenutu :"
+msgstr "Tavula di cuntenutu :"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr ""
 "Definisce s’è una tavula di cuntenutu deve esse aghjunta à u ducumentu PDF "
-"creatu"
+"ingeneratu"
 
 msgid "Merge"
 msgstr "Fusione"
@@ -1093,13 +1092,13 @@ msgstr "Preferenze di fusione"
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
-msgstr "U schedariu « {0} » ùn esiste micca o hè inaccettevule"
+msgstr "U schedariu « {0} » ùn esiste micca o hè inaccettevule"
 
 msgid "Valid user password provided."
-msgstr "A parolla d’intrata d’utilizatore pruvista hè accettevule."
+msgstr "A parolla d’intesa d’utilizatore pruvista hè accettevule."
 
 msgid "This document is encrypted, click to provide a password."
-msgstr "Stu ducumentu hè cifratu, cliccu per pruvede a parolla d’intrata."
+msgstr "Stu ducumentu hè cifratu, cliccu per pruvede a parolla d’intesa."
 
 msgid "An error has occurred, click for more details."
 msgstr "Un sbagliu s’hè affacatu, cliccà quì per sapene di più."
@@ -1125,19 +1124,19 @@ msgstr "Schedariu {0} arregistratu."
 
 #, java-format
 msgid "Invalid range: {0}."
-msgstr "Stesa inaccettevule : {0}."
+msgstr "Seria inaccettevule : {0}."
 
 #, java-format
 msgid ""
 "Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
 "or [-n] or [n-]"
 msgstr ""
-"Definizione ambigua di stesa di pagina : {0}. Impiegà ste forme : [n] o [n1-"
-"n2] o [-n] o [n-]"
+"Definizione ambigua di seria di pagina : {0}. Impiegate ste forme : [n] o "
+"[n1-n2] o [-n] o [n-]"
 
 #, java-format
 msgid "Invalid number: {0}."
-msgstr "Numeru inaccettevule : {0}."
+msgstr "Numeru inaccettevule : {0}."
 
 #~ msgid "Theme:"
 #~ msgstr "Temu :"

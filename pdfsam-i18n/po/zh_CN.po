@@ -8,20 +8,20 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-11-15 12:38+0100\n"
-"PO-Revision-Date: 2021-06-13 02:18+0000\n"
-"Last-Translator: aLLexK <Unknown>\n"
+"PO-Revision-Date: 2021-10-06 04:48+0000\n"
+"Last-Translator: Yang Yulin <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-07-26 09:36+0000\n"
-"X-Generator: Launchpad (build 20124175fa98fcb4b43973265a1561174418f4bd)\n"
+"X-Launchpad-Export-Date: 2021-11-04 14:24+0000\n"
+"X-Generator: Launchpad (build 5439e27e4f7141f37a9bb9ba92c8383a4ccbff8f)\n"
 
 msgid "No PDF document has been selected"
 msgstr "未选中PDF文档"
 
 msgid "Extract"
-msgstr "提取"
+msgstr "提取(_E)"
 
 msgid "Extract pages from PDF documents."
 msgstr "从PDF文档中提取页面。"
@@ -59,13 +59,13 @@ msgid "Log register"
 msgstr "日志记录器"
 
 msgid "Copy"
-msgstr "复制"
+msgstr "复制(_C)"
 
 msgid "Clear"
-msgstr "清空"
+msgstr "清空(_C)"
 
 msgid "Select all"
-msgstr "全选"
+msgstr "全选(_A)"
 
 msgid "Save log"
 msgstr "保存日志"
@@ -74,13 +74,13 @@ msgid "Select where to save the log file"
 msgstr "选择保存日志文件的位置"
 
 msgid "About"
-msgstr "关于"
+msgstr "关于(_A)"
 
 msgid "Premium features"
 msgstr "高级版特性"
 
 msgid "Close"
-msgstr "关闭"
+msgstr "关闭(_C)"
 
 msgid "Modules"
 msgstr "模块"
@@ -95,10 +95,10 @@ msgid "Vendor: %s"
 msgstr "厂商：%s"
 
 msgid "Java runtime path: %s"
-msgstr "Java runtime 路径: %s"
+msgstr "Java运行时路径: %s"
 
 msgid "JavaFX runtime version %s"
-msgstr "JavaFX runtime 版本 %s"
+msgstr "JavaFX运行时版本 %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -114,7 +114,7 @@ msgid "Bug and feature requests"
 msgstr "错误和功能需求"
 
 msgid "Documentation"
-msgstr "文档"
+msgstr "文档(_D)"
 
 msgid "Contribute"
 msgstr "贡献"
@@ -126,16 +126,16 @@ msgid "Translate"
 msgstr "翻译"
 
 msgid "Donate"
-msgstr "捐赠"
+msgstr "捐赠(_D)"
 
 msgid "Social"
-msgstr "社交"
+msgstr "社交媒体(_S)"
 
 msgid "Follow us on Twitter"
-msgstr "在Twitter上关注我们"
+msgstr "在Twitter上关注我们(_T)"
 
 msgid "Like us on Facebook"
-msgstr "在脸书上关注我们"
+msgstr "在脸书上关注我们(_F)"
 
 msgid "Log register rows:"
 msgstr "日志记录器行数"
@@ -144,7 +144,7 @@ msgid "Maximum number of rows displayed by the Log register"
 msgstr "日志记录器显示的最大行数"
 
 msgid "Language:"
-msgstr "语言："
+msgstr "语言/Language："
 
 msgid "Set your preferred language (restart needed)"
 msgstr "设置首选语言（需要重新启动）"
