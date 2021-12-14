@@ -32,7 +32,9 @@ import java.util.Locale;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
@@ -95,6 +97,7 @@ public class CreateOutputDirectoryDialogControllerTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void positiveTest() throws IOException {
         Path file = Paths.get(folder.newFolder().getAbsolutePath());
         button.setOnAction(a -> eventStudio().broadcast(new NonExistingOutputDirectoryEvent(file)));

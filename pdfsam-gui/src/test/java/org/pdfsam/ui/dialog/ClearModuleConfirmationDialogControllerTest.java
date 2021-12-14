@@ -30,6 +30,8 @@ import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
@@ -105,6 +107,7 @@ public class ClearModuleConfirmationDialogControllerTest extends ApplicationTest
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void positiveTest() {
         when(context.isAskClearConfirmation()).thenReturn(Boolean.TRUE);
         button.setOnAction(a -> eventStudio().broadcast(new ClearModuleEvent("module", true, true)));

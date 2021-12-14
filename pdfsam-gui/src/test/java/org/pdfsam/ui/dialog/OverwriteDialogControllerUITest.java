@@ -29,7 +29,9 @@ import java.util.Locale;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.SetLocaleEvent;
@@ -99,6 +101,7 @@ public class OverwriteDialogControllerUITest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void overwriteOnFileExists() throws IOException {
         MergeParameters parameters = new MergeParameters();
         parameters.setExistingOutputPolicy(ExistingOutputPolicy.FAIL);
@@ -111,6 +114,7 @@ public class OverwriteDialogControllerUITest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void cancelOnNotEmptyDir() throws IOException {
         SimpleSplitParameters parameters = new SimpleSplitParameters(PredefinedSetOfPages.ALL_PAGES);
         parameters.setExistingOutputPolicy(ExistingOutputPolicy.FAIL);

@@ -33,7 +33,9 @@ import java.util.Locale;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
+import org.pdfsam.NoHeadless;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.eventstudio.Listener;
 import org.pdfsam.i18n.DefaultI18nContext;
@@ -126,6 +128,7 @@ public class LenientTaskExecutionDialogControllerTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void positiveTest() {
         AbstractParameters params = mock(AbstractParameters.class);
         TaskExecutionRequestEvent request = new TaskExecutionRequestEvent("id", params);

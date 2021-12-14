@@ -94,6 +94,7 @@ public class OverwriteConfirmationDialogTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void overwrite() {
         response = Optional.empty();
         clickOn("show");

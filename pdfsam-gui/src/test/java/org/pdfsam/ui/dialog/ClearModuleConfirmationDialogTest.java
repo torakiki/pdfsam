@@ -104,6 +104,7 @@ public class ClearModuleConfirmationDialogTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void yes() {
         button.setOnAction(a -> eventStudio().broadcast(new ClearModuleEvent("module", false, true)));
         eventStudio().add(ClearModuleEvent.class, listener, "module");

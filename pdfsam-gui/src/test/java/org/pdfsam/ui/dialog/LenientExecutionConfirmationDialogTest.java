@@ -87,6 +87,7 @@ public class LenientExecutionConfirmationDialogTest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void yes() {
         this.confirm = false;
         clickOn("show");

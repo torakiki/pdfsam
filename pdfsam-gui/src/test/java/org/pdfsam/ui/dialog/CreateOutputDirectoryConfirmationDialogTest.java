@@ -86,6 +86,7 @@ public class CreateOutputDirectoryConfirmationDialogTest extends ApplicationTest
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void overwrite() {
         this.confirm = false;
         clickOn(button);
