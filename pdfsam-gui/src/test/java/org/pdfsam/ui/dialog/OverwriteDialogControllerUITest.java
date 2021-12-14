@@ -127,6 +127,7 @@ public class OverwriteDialogControllerUITest extends ApplicationTest {
     }
 
     @Test
+    @Category(NoHeadless.class)
     public void overwriteOnNotEmptyDir() throws IOException {
         SimpleSplitParameters parameters = new SimpleSplitParameters(PredefinedSetOfPages.ALL_PAGES);
         parameters.setExistingOutputPolicy(ExistingOutputPolicy.FAIL);
