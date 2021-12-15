@@ -355,7 +355,7 @@
 					<plugin>
 						<groupId>com.akathist.maven.plugins.launch4j</groupId>
 						<artifactId>launch4j-maven-plugin</artifactId>
-						<version>1.7.25</version>
+						<version>2.1.2</version>
 						<executions>
 							<execution>
 								<id>exe-creation</id>
@@ -513,7 +513,7 @@
 					<plugin>
 						<artifactId>jdeb</artifactId>
 						<groupId>org.vafer</groupId>
-						<version>1.7</version>
+						<version>1.10</version>
 						<executions>
 							<execution>
 								<phase>package</phase>
@@ -694,7 +694,7 @@
 			<extension>
 				<groupId>kr.motd.maven</groupId>
 				<artifactId>os-maven-plugin</artifactId>
-				<version>1.6.1</version>
+				<version>1.7.0</version>
 			</extension>
 		</extensions>
 		<resources>

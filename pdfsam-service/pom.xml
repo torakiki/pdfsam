@@ -54,12 +54,10 @@
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
 			<artifactId>bcprov-jdk15on</artifactId>
-			<version>${bouncycastle.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
 			<artifactId>bcmail-jdk15on</artifactId>
-			<version>${bouncycastle.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -80,11 +78,6 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.jr</groupId>
 			<artifactId>jackson-jr-objects</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.sejda</groupId>
-			<artifactId>sambox</artifactId>
-			<version>${sambox.version}</version>
 		</dependency>
 		<!-- test dependencies -->
 		<dependency>
