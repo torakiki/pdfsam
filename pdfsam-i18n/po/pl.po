@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-11-15 12:38+0100\n"
-"PO-Revision-Date: 2020-11-09 15:11+0000\n"
-"Last-Translator: Anna <Unknown>\n"
+"PO-Revision-Date: 2021-12-18 12:52+0000\n"
+"Last-Translator: Stanisław <Unknown>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-07-26 09:36+0000\n"
-"X-Generator: Launchpad (build 20124175fa98fcb4b43973265a1561174418f4bd)\n"
+"X-Launchpad-Export-Date: 2021-12-20 08:16+0000\n"
+"X-Generator: Launchpad (build adb364d6a74a28e7b95d51cd30446ec16160de6c)\n"
 
 msgid "Name"
 msgstr "Nazwa"
@@ -33,7 +33,7 @@ msgid "File names settings"
 msgstr "Ustawienia nazw plików"
 
 msgid "Extract settings"
-msgstr "Ustawienia wyboru fragmentu"
+msgstr "Ustawienia wyodrębniania"
 
 msgid "Output settings"
 msgstr "Ustawienia wyjściowe"
@@ -71,7 +71,7 @@ msgid "Select all"
 msgstr "Wybierz wszystkie"
 
 msgid "Save log"
-msgstr "Zapisz log"
+msgstr "Zapisz dziennik"
 
 msgid "Select where to save the log file"
 msgstr "Wybierz, gdzie chcesz zapisać plik dziennika"
@@ -114,7 +114,7 @@ msgid "Support"
 msgstr "Wsparcie"
 
 msgid "Bug and feature requests"
-msgstr "Książka życzeń i zażaleń"
+msgstr "Zgłoszenia błędów i funkcji"
 
 msgid "Documentation"
 msgstr "Dokumentacja"
@@ -129,7 +129,7 @@ msgid "Translate"
 msgstr "Tłumaczenie"
 
 msgid "Donate"
-msgstr "Wspomóż projekt"
+msgstr "Darowizna"
 
 msgid "Social"
 msgstr "Serwisy społecznościowe"
@@ -141,7 +141,7 @@ msgid "Like us on Facebook"
 msgstr "Polub nas na Facebooku"
 
 msgid "Log register rows:"
-msgstr "Wiersze dziennika:"
+msgstr "Wiersze rejestru dziennika:"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr "Maksymalna liczba wierszy wyświetlana w dzienniku"
@@ -276,7 +276,8 @@ msgid ""
 "Turn on or off the notification appearing once in a while and asking the "
 "user to support PDFsam with a donation"
 msgstr ""
-"Włącz lub wyłącz komunikat pytający użytkownika o wsparcie finansowe PDFsam"
+"Włączenie lub wyłączenie powiadomienia pojawiającego się raz na jakiś czas i "
+"proszącego użytkownika o wsparcie PDFsam darowizną"
 
 msgid "Show premium features"
 msgstr "Pokaż opcje premium"
@@ -285,16 +286,18 @@ msgid ""
 "Set whether the application should fetch and show premium features "
 "description in the modules dashboard"
 msgstr ""
-"Zaznacz, jeśli aplikacja ma pobierać i wyświetlać funkcje Premium w głównym "
-"menu"
+"Ustaw, czy aplikacja ma pobierać i wyświetlać opis funkcji premium na "
+"pulpicie nawigacyjnym modułów"
 
 msgid "Ask for a confirmation when clearing the selection table"
-msgstr ""
+msgstr "Pytaj o potwierdzenie podczas czyszczenia tabeli wyboru"
 
 msgid ""
 "Set whether the application should ask for a confirmation when clearing the "
 "selection table"
 msgstr ""
+"Ustaw, czy aplikacja ma pytać o potwierdzenie podczas czyszczenia tabeli "
+"wyboru"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Użyj katalogu wybranego dokumentu PDF jako katalogu wyjściowego"
@@ -326,7 +329,7 @@ msgid "Settings"
 msgstr "Ustawienia"
 
 msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr "Przeciągnij i upuść plik PDF lub folder zawierający plik PDF"
+msgstr "Przeciągnij i upuść pliki PDF lub katalogi zawierające pliki PDF"
 
 msgid "No PDF found"
 msgstr "Nie znaleziono pliku PDF"
@@ -368,7 +371,7 @@ msgid "What would you like to do in case of files with the same name?"
 msgstr "Co chciałbyś zrobić w przypadku plików o tej samej nazwie?"
 
 msgid "Overwrite"
-msgstr "Zastąp"
+msgstr "Nadpisz"
 
 msgid "Rename"
 msgstr "Zmień nazwę"
@@ -380,10 +383,10 @@ msgid "Cancel"
 msgstr "Anuluj"
 
 msgid "Don't overwrite existing file"
-msgstr "Nie zastępuj istniejącego pliku"
+msgstr "Nie nadpisuj istniejącego pliku"
 
 msgid "Overwrite confirmation"
-msgstr "Potwierdzanie nadpisywania"
+msgstr "Potwierdź nadpisanie"
 
 msgid "A file with the given name already exists"
 msgstr "Plik o podanej nazwie już istnieje"
@@ -515,15 +518,14 @@ msgid "Select the workspace to load"
 msgstr "Wybierz obszar roboczy do załadowania"
 
 msgid "Split by bookmarks"
-msgstr "Rozdzielanie według zakładek"
+msgstr "Podziel według zakładek"
 
 msgid ""
 "Split a PDF document at bookmarked pages by specifying a bookmark level."
 msgstr "Podziel PDF według zakładek, określając ich poziom."
 
 msgid "Select or drag and drop the PDF you want to split"
-msgstr ""
-"Wybierz lub przeciągnij i upuść plik PDF, który chcesz rozdzielić na strony"
+msgstr "Wybierz lub przeciągnij i upuść PDF, który chcesz podzielić"
 
 msgid "Split settings"
 msgstr "Ustawienia dzielenia"
@@ -535,7 +537,7 @@ msgid "Split at this bookmark level:"
 msgstr "Podziel na tym poziomie zakładek:"
 
 msgid "Matching regular expression:"
-msgstr "Zgodne z wyrażeniem regularnym:"
+msgstr "Dopasowywanie wyrażeń regularnych:"
 
 msgid "A regular expression the bookmark text has to match"
 msgstr "Wyrażenie regularne musi być zgodne z tekstem zakładki"
@@ -572,7 +574,7 @@ msgid "Running {0}%"
 msgstr "Uruchomione {0}%"
 
 msgid "The selected PDF document is invalid"
-msgstr "Wybrany PDF jest błędny"
+msgstr "Wybrany dokument PDF jest nieprawidłowy"
 
 msgid "Select the PDF file"
 msgstr "Wybierz plik PDF"
@@ -621,10 +623,10 @@ msgid "Move to Top"
 msgstr "Przesuń na górę"
 
 msgid "Move Up"
-msgstr "Przenieś do góry"
+msgstr "Przesuń do góry"
 
 msgid "Move Down"
-msgstr "Przesuń niżej"
+msgstr ""
 
 msgid "Move to Bottom"
 msgstr "Przesuń na dół"
@@ -675,10 +677,10 @@ msgid "Moves down selected documents"
 msgstr "Przesuwa w dół wybrane dokumenty"
 
 msgid "Move _Down"
-msgstr "W dół"
+msgstr "Przesuń w _dół"
 
 msgid "Pace"
-msgstr "Krok"
+msgstr "Tempo"
 
 msgid ""
 "Double click to set the number of pages after which the task will switch to "
@@ -688,10 +690,10 @@ msgstr ""
 "następnego pliku"
 
 msgid "Reverse"
-msgstr "Odwrócona"
+msgstr "Odwracanie"
 
 msgid "Pages"
-msgstr "Ilość stron"
+msgstr "Strony"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Kliknij dwukrotnie, aby wybrać strony (np. 2 lub 5-23 lub 2,5-7,12-)"
@@ -716,7 +718,7 @@ msgid "Compress output file/files"
 msgstr "Kompresuj plik/pliki wyjściowe"
 
 msgid "Discard bookmarks"
-msgstr "Usuń zakładki"
+msgstr "Odrzuć zakładki"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -748,7 +750,7 @@ msgid "Version {0}"
 msgstr "Wersja {0}"
 
 msgid "Same as the input document"
-msgstr "Taka sama jak dokumentu wejściowego"
+msgstr "Taki sam jak dokument wejściowy"
 
 msgid "An existing output directory is required"
 msgstr "Wymagany jest istniejący katalog wyjściowy"
@@ -795,13 +797,13 @@ msgid "No page selected"
 msgstr "Nie wybrano strony"
 
 msgid "Split"
-msgstr "Rozdzielanie"
+msgstr "Podział"
 
 msgid "Split a PDF document at the given page numbers."
 msgstr "Podziel dokument PDF według podanych numerów stron."
 
 msgid "Every page"
-msgstr "Każdej stronie"
+msgstr ""
 
 msgid "Even pages"
 msgstr "Parzyste strony"
@@ -870,10 +872,10 @@ msgid "Unable to retrieve latest news"
 msgstr "Nie można odnaleźć najnowszych informacji"
 
 msgid "Fetching latest news"
-msgstr "Pobieranie aktualności"
+msgstr "Pobieranie najnowszych wiadomości"
 
 msgid "Unable to retrieve the latest news"
-msgstr "Nie można odnaleźć najnowszych informacji"
+msgstr "Nie można pobrać najnowszych wiadomości"
 
 #, java-format
 msgid "Saving workspace data to {0}"
@@ -904,7 +906,7 @@ msgid "Unable to load workspace from {0}"
 msgstr "Nie można załadować obszaru roboczego z {0}"
 
 msgid "Split by size"
-msgstr "Rozdzielanie według wielkości"
+msgstr "Podział według rozmiaru"
 
 msgid "Split a PDF document in files of the given size (roughly)."
 msgstr ""
@@ -923,13 +925,13 @@ msgid "KB"
 msgstr "KB"
 
 msgid "Set the size to split at"
-msgstr "Ustaw rozmiar podziału"
+msgstr "Ustaw rozmiar do podziału na"
 
 msgid "Size must be a number"
 msgstr "Rozmiar musi być liczbą"
 
 msgid "Split at this size:"
-msgstr "Podziel na tej wielkości:"
+msgstr "Podziel w tym rozmiarze:"
 
 msgid "Invalid split size"
 msgstr "Błędny rozmiar dzielenia"
@@ -954,7 +956,7 @@ msgstr ""
 "23 lub 2,5-7,12-)"
 
 msgid "Select a positive integer number as pace"
-msgstr "Jako krok wybierz dodatnią liczbę całkowitą"
+msgstr "Wybierz dodatnią liczbę całkowitą jako tempo"
 
 msgid "All pages"
 msgstr "Wszystkie strony"
@@ -1024,7 +1026,7 @@ msgid "Flatten"
 msgstr "Spłaszcz"
 
 msgid "Discard forms"
-msgstr "Anuluj formularz"
+msgstr "Odrzuć formularze"
 
 msgid "Interactive forms (AcroForms):"
 msgstr "Formularze interaktywne (AcroForms):"
