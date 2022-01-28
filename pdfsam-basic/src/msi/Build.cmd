@@ -11,6 +11,10 @@ del /Q exitDlg.wixobj
 del /Q harvestedFiles.wxs
 del /Q harvestedFiles.wixobj
 
+IF EXIST "${project.build.directory}/assembled/pdfsam.exe" "signtool.exe" sign /fd sha256 /tr http://sha256timestamp.ws.symantec.com/sha256/timestamp /a /d "PDFsam Basic Launcher" "${project.build.directory}/assembled/pdfsam.exe"
+if %ERRORLEVEL% NEQ 0 goto error
+ECHO "Launcher signed"
+
 REM harvest the files
 "%WIX%bin\heat.exe" dir "${project.build.directory}/assembled" -ag -cg "AllFiles" -ke -sfrag -srd -sreg -dr APPLICATIONFOLDER -out harvestedFiles.wxs
 if %ERRORLEVEL% NEQ 0 goto error
