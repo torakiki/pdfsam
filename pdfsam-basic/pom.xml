@@ -142,6 +142,7 @@
 										<argument>--no-header-files</argument>
 										<argument>--no-man-pages</argument>
 										<argument>--strip-debug</argument>
+										<argument>--vm=client</argument>
 									</arguments>
 								</configuration>
 							</execution>
@@ -207,8 +208,6 @@
 									<longModulepath>false</longModulepath>
 									<executable>jlink</executable>
 									<arguments>
-										<argument>--module-path</argument>
-										<argument>${env.FX_HOME}:mods</argument>
 										<argument>--add-modules</argument>
 										<argument>java.base,java.datatransfer,java.logging,java.naming,java.sql,java.desktop,java.xml,java.scripting,jdk.unsupported,java.prefs,javafx.base,javafx.graphics,javafx.controls,javafx.media</argument>
 										<argument>--output</argument>
@@ -218,6 +217,7 @@
 										<argument>--no-header-files</argument>
 										<argument>--no-man-pages</argument>
 										<argument>--strip-debug</argument>
+										<argument>--vm=client</argument>
 									</arguments>
 								</configuration>
 							</execution>
