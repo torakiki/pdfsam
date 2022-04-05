@@ -21,6 +21,7 @@ package org.pdfsam.ui.dashboard;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -41,7 +42,7 @@ class QuickbarDashboardButtonsPane extends BaseQuickbarButtonsPane {
 
     @Inject
     QuickbarDashboardButtonsPane(List<DashboardItem> items) {
-        items.stream().filter(i -> !i.disabled()).sorted((a, b) -> a.priority() - b.priority())
+        items.stream().filter(i -> !i.disabled()).sorted(Comparator.comparingInt(DashboardItem::priority))
                 .map(DashboardButton::new).forEach(currentButton -> {
                     currentButton.displayTextProperty().bind(displayTextProperty());
                     getChildren().add(currentButton);

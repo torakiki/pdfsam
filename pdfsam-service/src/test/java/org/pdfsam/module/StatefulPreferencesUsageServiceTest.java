@@ -100,25 +100,4 @@ public class StatefulPreferencesUsageServiceTest {
         injector.instance(StatefulPreferencesUsageService.class).getTotalUsage();
         verify(injector.instance(PreferencesUsageDataStore.class)).getTotalUsage();
     }
-
-    @Test
-    public void getMostUsed() {
-        List<ModuleUsage> usages = Arrays.asList(
-                new ModuleUsage[] { fistUsage("IDontExist"), fistUsage("module1"), fistUsage("module2").inc() });
-        when(injector.instance(PreferencesUsageDataStore.class).getUsages()).thenReturn(usages);
-        List<Module> mostUsed = injector.instance(StatefulPreferencesUsageService.class).getMostUsed();
-        assertEquals(2, mostUsed.size());
-        assertEquals("module2", mostUsed.get(0).id());
-    }
-
-    @Test
-    public void getMostRecentlyUsed() {
-        List<ModuleUsage> usages = Arrays
-                .asList(new ModuleUsage[] { usage("IDontExist", 1), usage("module1", 2), usage("module2", 3) });
-        when(injector.instance(PreferencesUsageDataStore.class).getUsages()).thenReturn(usages);
-        List<Module> mostUsed = injector.instance(StatefulPreferencesUsageService.class).getMostRecentlyUsed();
-        assertEquals(2, mostUsed.size());
-        assertEquals("module2", mostUsed.get(0).id());
-    }
-
 }

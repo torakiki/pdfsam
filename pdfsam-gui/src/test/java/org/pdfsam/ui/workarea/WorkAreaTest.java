@@ -82,7 +82,7 @@ public class WorkAreaTest {
 
         @Provides
         public QuickbarModuleButtonsProvider provider(UsageService service, List<Module> modules) {
-            return new QuickbarModuleButtonsProvider(service, modules);
+            return new QuickbarModuleButtonsProvider( modules);
         }
 
         @Provides

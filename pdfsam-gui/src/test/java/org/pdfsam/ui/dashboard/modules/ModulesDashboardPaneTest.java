@@ -24,6 +24,7 @@ import java.util.Arrays;
 
 import org.junit.Rule;
 import org.junit.Test;
+import org.pdfsam.test.AdditionalDefaultPriorityTestModule;
 import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.test.HighPriorityTestModule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
@@ -43,7 +44,7 @@ public class ModulesDashboardPaneTest {
 
     @Test
     public void priorityOrder() {
-        ModulesDashboardPane victim = new ModulesDashboardPane(Arrays.asList(new LowPriorityTestModule(),
+        ModulesDashboardPane victim = new ModulesDashboardPane(Arrays.asList(new AdditionalDefaultPriorityTestModule(), new LowPriorityTestModule(),
                 new HighPriorityTestModule(), new DefaultPriorityTestModule()));
         Node title = victim.getChildren().stream().findFirst()
                 .orElseThrow(() -> new NullPointerException("Unable to find the expected node"))

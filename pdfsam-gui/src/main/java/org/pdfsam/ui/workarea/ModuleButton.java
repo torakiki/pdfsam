@@ -49,5 +49,4 @@ class ModuleButton extends BaseQuickbarButton {
     String moduleId() {
         return module.id();
     }
-
 }

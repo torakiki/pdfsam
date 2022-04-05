@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
+import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.ShutdownEvent;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
@@ -46,7 +47,7 @@ class PreferencesUsageDataStore {
     static final String USAGE_PATH = "/org/pdfsam/modules/usage";
     static final String MODULE_USAGE_KEY = "module.usage";
     static final String TASKS_EXECUTED_KEY = "tasks.executed";
-    private JSON jackson = new JSON().without(Feature.USE_FIELDS);
+    private final JSON jackson = new JSON().without(Feature.USE_FIELDS);
 
     public PreferencesUsageDataStore() {
         eventStudio().addAnnotatedListeners(this);
@@ -73,8 +74,8 @@ class PreferencesUsageDataStore {
         Preferences prefs = Preferences.userRoot().node(USAGE_PATH);
         List<ModuleUsage> retList = new ArrayList<>();
         try {
-            List<String> jsons = Arrays.stream(prefs.childrenNames()).parallel().map(name -> prefs.node(name))
-                    .map(node -> node.get(MODULE_USAGE_KEY, "")).filter(json -> isNotBlank(json)).collect(toList());
+            List<String> jsons = Arrays.stream(prefs.childrenNames()).parallel().map(prefs::node)
+                                       .map(node -> node.get(MODULE_USAGE_KEY, "")).filter(StringUtils::isNotBlank).collect(toList());
             for (String json : jsons) {
                 retList.add(jackson.beanFrom(ModuleUsage.class, json));
             }

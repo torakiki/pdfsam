@@ -30,7 +30,7 @@ import org.pdfsam.injector.Provides;
 @Components({ ClearUsageController.class })
 public class ModuleServiceConfig {
     @Provides
-    UsageService usageService(List<Module> modules, PreferencesUsageDataStore dataStore) {
-        return new StatefulPreferencesUsageService(modules, dataStore);
+    UsageService usageService(PreferencesUsageDataStore dataStore) {
+        return new StatefulPreferencesUsageService(dataStore);
     }
 }

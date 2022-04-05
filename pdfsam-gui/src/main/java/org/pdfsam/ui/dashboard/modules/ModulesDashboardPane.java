@@ -20,6 +20,7 @@ package org.pdfsam.ui.dashboard.modules;
 
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
+import java.util.Comparator;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -47,7 +48,8 @@ public class ModulesDashboardPane extends VBox {
         FlowPane modulesPane = new FlowPane();
         getStyleClass().addAll("dashboard-container");
         modulesPane.getStyleClass().add("dashboard-modules");
-        modules.stream().sorted((a, b) -> a.descriptor().getPriority() - b.descriptor().getPriority())
+        Comparator<Module> compareByPrio = Comparator.comparingInt(m-> m.descriptor().getPriority());
+        modules.stream().sorted(compareByPrio.thenComparing(m-> m.descriptor().getName()))
                 .map(ModulesDashboardTile::new).forEach(modulesPane.getChildren()::add);
         this.getChildren().add(modulesPane);
         eventStudio().addAnnotatedListeners(this);

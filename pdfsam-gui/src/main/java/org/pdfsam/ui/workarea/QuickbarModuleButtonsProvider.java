@@ -19,6 +19,7 @@
 package org.pdfsam.ui.workarea;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -34,51 +35,17 @@ import org.pdfsam.module.UsageService;
  *
  */
 class QuickbarModuleButtonsProvider {
-    private static final int RECENT_MODULES = 3;
-    private static final int MAX_MODULES = 8;
 
-    private UsageService service;
     private List<Module> modules;
 
     @Inject
-    QuickbarModuleButtonsProvider(UsageService service, List<Module> modules) {
-        this.service = service;
+    QuickbarModuleButtonsProvider(List<Module> modules) {
         this.modules = new ArrayList<>(modules);
-        this.modules.sort((a, b) -> Integer.compare(a.descriptor().getPriority(), b.descriptor().getPriority()));
+        Comparator<Module> compareByPrio = Comparator.comparingInt(m-> m.descriptor().getPriority());
+        this.modules.sort(compareByPrio.thenComparing(m-> m.descriptor().getName()));
     }
 
     public List<ModuleButton> buttons() {
-        Set<Module> collected = new LinkedHashSet<>();
-        fillWithMostRecentlyUsed(collected);
-        fillWithMostUsed(collected);
-        fillWithPrioritized(collected);
-        return collected.stream().map(ModuleButton::new).collect(Collectors.toList());
-    }
-
-    private void fillWithMostUsed(Set<Module> collected) {
-        for (Module current : service.getMostUsed()) {
-            if (collected.size() >= MAX_MODULES) {
-                break;
-            }
-            collected.add(current);
-        }
-    }
-
-    private void fillWithMostRecentlyUsed(Set<Module> collected) {
-        for (Module current : service.getMostRecentlyUsed()) {
-            if (collected.size() >= RECENT_MODULES) {
-                break;
-            }
-            collected.add(current);
-        }
-    }
-
-    private void fillWithPrioritized(Set<Module> collected) {
-        for (Module current : modules) {
-            if (collected.size() >= MAX_MODULES) {
-                break;
-            }
-            collected.add(current);
-        }
+        return this.modules.stream().map(ModuleButton::new).collect(Collectors.toList());
     }
 }
