@@ -37,8 +37,8 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
-import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.eventstudio.Listener;
+import org.pdfsam.test.ClearEventStudioRule;
 
 /**
  * @author Andrea Vacondio

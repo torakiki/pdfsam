@@ -20,15 +20,12 @@ package org.pdfsam.ui.workarea;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
 import org.pdfsam.module.Module;
-import org.pdfsam.module.UsageService;
 
 /**
  * @author Andrea Vacondio

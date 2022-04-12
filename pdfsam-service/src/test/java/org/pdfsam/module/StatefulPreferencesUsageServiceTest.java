@@ -18,16 +18,10 @@
  */
 package org.pdfsam.module;
 
-import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
-import static org.pdfsam.module.ModuleUsage.fistUsage;
-import static org.pdfsam.module.ModuleUsage.usage;
-
-import java.util.Arrays;
-import java.util.List;
 
 import javax.inject.Named;
 

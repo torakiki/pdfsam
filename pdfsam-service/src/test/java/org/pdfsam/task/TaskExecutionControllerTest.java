@@ -27,6 +27,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.pdfsam.eventstudio.Listener;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.module.UsageService;
 import org.pdfsam.task.TaskExecutionController.TaskEventBroadcaster;
@@ -34,7 +35,6 @@ import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeJavaFxThreadRule;
 import org.sejda.core.notification.context.GlobalNotificationContext;
 import org.sejda.core.service.TaskExecutionService;
-import org.pdfsam.eventstudio.Listener;
 import org.sejda.model.notification.event.TaskExecutionStartedEvent;
 import org.sejda.model.parameter.base.AbstractParameters;
 

@@ -40,13 +40,13 @@ import java.util.concurrent.ExecutionException;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.pdfsam.eventstudio.Listener;
 import org.pdfsam.module.Module;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.pdfsam.ui.workspace.WorkspaceLoadedEvent;
-import org.pdfsam.eventstudio.Listener;
 
 /**
  * @author Andrea Vacondio

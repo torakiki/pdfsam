@@ -41,11 +41,11 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import org.mockito.ArgumentCaptor;
+import org.pdfsam.eventstudio.Listener;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.RequiredPdfData;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.DefaultPriorityTestModule;
-import org.pdfsam.eventstudio.Listener;
 
 /**
  * @author Andrea Vacondio

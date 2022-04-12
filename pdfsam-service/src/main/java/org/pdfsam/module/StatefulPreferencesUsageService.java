@@ -18,12 +18,7 @@
  */
 package org.pdfsam.module;
 
-import static java.util.stream.Collectors.toList;
-
-import java.util.List;
-import java.util.Map;
 import java.util.prefs.Preferences;
-import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 

@@ -28,9 +28,9 @@ import java.util.concurrent.CompletableFuture;
 import javax.inject.Inject;
 
 import org.pdfsam.Pdfsam;
+import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.injector.Auto;
-import org.pdfsam.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

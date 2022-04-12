@@ -18,8 +18,6 @@
  */
 package org.pdfsam.module;
 
-import java.util.List;
-
 import org.pdfsam.injector.Components;
 import org.pdfsam.injector.Provides;
 

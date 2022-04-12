@@ -18,24 +18,16 @@
  */
 package org.pdfsam.ui.workarea;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.hamcrest.MatcherAssert;
-import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.pdfsam.module.Module;
-import org.pdfsam.module.UsageService;
 import org.pdfsam.test.AdditionalDefaultPriorityTestModule;
 import org.pdfsam.test.DefaultPriorityTestModule;
 import org.pdfsam.test.HighPriorityTestModule;

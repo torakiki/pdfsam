@@ -18,8 +18,6 @@
  */
 package org.pdfsam.module;
 
-import java.util.List;
-
 /**
  * Service providing modules usage related functionalities
  * 

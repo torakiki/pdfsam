@@ -22,8 +22,8 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import javax.inject.Inject;
 
-import org.pdfsam.injector.Auto;
 import org.pdfsam.eventstudio.annotation.EventListener;
+import org.pdfsam.injector.Auto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

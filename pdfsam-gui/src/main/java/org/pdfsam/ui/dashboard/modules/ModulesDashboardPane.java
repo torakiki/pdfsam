@@ -27,6 +27,7 @@ import javax.inject.Inject;
 
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.module.Module;
+import org.pdfsam.premium.PremiumModule;
 import org.pdfsam.premium.PremiumModulesEvent;
 import org.pdfsam.eventstudio.annotation.EventListener;
 
@@ -62,8 +63,8 @@ public class ModulesDashboardPane extends VBox {
             premiumTile.getStyleClass().add("modules-tile-title");
             FlowPane modulesPane = new FlowPane();
             modulesPane.getStyleClass().add("dashboard-modules");
-            e.premiumModules.stream().sorted((a, b) -> a.getId() - b.getId()).map(PremiumModuleTile::new)
-                    .forEach(modulesPane.getChildren()::add);
+            e.premiumModules.stream().sorted(Comparator.comparingInt(PremiumModule::getId)).map(PremiumModuleTile::new)
+                            .forEach(modulesPane.getChildren()::add);
             Platform.runLater(() -> this.getChildren().addAll(premiumTile, modulesPane));
         }
     }

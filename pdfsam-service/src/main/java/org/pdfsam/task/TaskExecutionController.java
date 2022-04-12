@@ -28,12 +28,12 @@ import javax.inject.Inject;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.ShutdownEvent;
+import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.module.UsageService;
 import org.sejda.core.notification.context.GlobalNotificationContext;
 import org.sejda.core.service.TaskExecutionService;
-import org.pdfsam.eventstudio.annotation.EventListener;
 import org.sejda.model.notification.event.AbstractNotificationEvent;
 import org.sejda.model.notification.event.PercentageOfWorkDoneChangedEvent;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;

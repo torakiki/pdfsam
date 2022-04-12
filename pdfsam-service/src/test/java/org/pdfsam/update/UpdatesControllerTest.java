@@ -31,9 +31,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
+import org.pdfsam.eventstudio.Listener;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeJavaFxThreadRule;
-import org.pdfsam.eventstudio.Listener;
 
 /**
  * @author Andrea Vacondio

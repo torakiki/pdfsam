@@ -30,11 +30,11 @@ import java.util.concurrent.Executors;
 import javax.inject.Inject;
 
 import org.pdfsam.ShutdownEvent;
+import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.RequiredPdfData;
-import org.pdfsam.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
