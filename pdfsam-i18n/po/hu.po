@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-11-15 12:38+0100\n"
-"PO-Revision-Date: 2017-12-07 09:33+0000\n"
-"Last-Translator: Norbert Kovacs <Unknown>\n"
+"PO-Revision-Date: 2022-01-25 12:38+0000\n"
+"Last-Translator: Botfai Tibor <Unknown>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-07-26 09:36+0000\n"
-"X-Generator: Launchpad (build 20124175fa98fcb4b43973265a1561174418f4bd)\n"
+"X-Launchpad-Export-Date: 2022-04-12 06:48+0000\n"
+"X-Generator: Launchpad (build 4c58cf79c82ce3fbd42288b21369cc838fb5b9e0)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Nincs kijelölve PDF dokumentum"
@@ -92,13 +92,13 @@ msgid "Environment"
 msgstr "Környezet"
 
 msgid "Vendor: %s"
-msgstr ""
+msgstr "Szállító: %s"
 
 msgid "Java runtime path: %s"
-msgstr ""
+msgstr "Java runtime helye: %s"
 
 msgid "JavaFX runtime version %s"
-msgstr ""
+msgstr "JavaFX runtime verzió %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -114,7 +114,7 @@ msgid "Bug and feature requests"
 msgstr "Hiba vagy hiányzó funkció jelentése"
 
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentáció"
 
 msgid "Contribute"
 msgstr "Hozzájárulás"
@@ -233,17 +233,21 @@ msgstr ""
 "(újraindítás szükséges)"
 
 msgid "Enabled PDF compression"
-msgstr ""
+msgstr "PDF tömörítés engedélyezése"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
+"Állítsa be, hogy a \"Kimeneti fájl tömörítése\" alapértelmezésben "
+"engedélyezve legyen-e"
 
 msgid "Overwrite files"
-msgstr ""
+msgstr "Fájlok felülírása"
 
 msgid ""
 "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
+"Állítsa be, hogy a \"Írja felül, ha már létezik\" alapértelmezésben "
+"engedélyezve legyen-e"
 
 msgid "Play alert sounds"
 msgstr "Figyelmeztető hangok lejátszása"
@@ -282,12 +286,14 @@ msgstr ""
 "vezérlőpultján"
 
 msgid "Ask for a confirmation when clearing the selection table"
-msgstr ""
+msgstr "Kérjen megerősítést a kiválasztási táblázat törlésekor"
 
 msgid ""
 "Set whether the application should ask for a confirmation when clearing the "
 "selection table"
 msgstr ""
+"Állítsa be, hogy az alkalmazás kérjen-e megerősítést a kiválasztási táblázat "
+"törlésekor"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Használja a kiválasztott PDF mappáját kimeneti mappaként"
@@ -334,16 +340,16 @@ msgid "No"
 msgstr "Nem"
 
 msgid "Confirm clearing"
-msgstr ""
+msgstr "Erősítse meg a törlést"
 
 msgid "Do you confirm?"
-msgstr ""
+msgstr "Megerősíti?"
 
 msgid "Clear the module settings"
-msgstr ""
+msgstr "Törölje a modul beállításait"
 
 msgid "Clear the selection table"
-msgstr ""
+msgstr "Törölje a kiválasztási táblázatot"
 
 msgid "Open with"
 msgstr "Megnyitás ezzel"
@@ -358,16 +364,16 @@ msgid "The selected directory is not empty"
 msgstr "A kiválasztott mappa nem üres"
 
 msgid "What would you like to do in case of files with the same name?"
-msgstr ""
+msgstr "Mit szeretne tenni azonos nevű fájlok esetén?"
 
 msgid "Overwrite"
 msgstr "Felülírás"
 
 msgid "Rename"
-msgstr ""
+msgstr "Átnevezés"
 
 msgid "Skip"
-msgstr ""
+msgstr "Kihagyás"
 
 msgid "Cancel"
 msgstr "Mégse"
@@ -382,7 +388,7 @@ msgid "A file with the given name already exists"
 msgstr "Egy fájl már létezik a megadott névvel"
 
 msgid "What would you like to do?"
-msgstr ""
+msgstr "Mit szeretne tenni?"
 
 msgid "Non existing directory"
 msgstr "Nem létező könyvtár"
@@ -394,13 +400,13 @@ msgid "Do you want to create it?"
 msgstr "Létre akarod hozni?"
 
 msgid "Subdirectories"
-msgstr ""
+msgstr "Alkönyvtárak"
 
 msgid "Subdirectories have been found"
-msgstr ""
+msgstr "Alkönyvtárak találhatók"
 
 msgid "Do you want to add PDF files found in subdirectories?"
-msgstr ""
+msgstr "Szeretné hozzáadni az alkönyvtárban található PDF fájlokat?"
 
 msgid "Task failed"
 msgstr "Fekadat sikertelen"
@@ -432,13 +438,15 @@ msgstr ""
 "alkalmazás üzeneteket."
 
 msgid "Access denied"
-msgstr ""
+msgstr "A hozzáférés megtagadva"
 
 #, java-format
 msgid ""
 "Unable to access \"{0}\", please make sure you have write permissions or "
 "open the application messages for details."
 msgstr ""
+"Nem férhet hozzá a(z) \"{0}\" fájlhoz. Győződjön meg arról, hogy rendelkezik "
+"írási jogosultsággal vagy nyissa meg az alkalmazás üzeneteit a részletekért."
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
@@ -466,10 +474,10 @@ msgid "New version available"
 msgstr "Új verzió érhető el"
 
 msgid "You are running the latest version of PDFsam Basic"
-msgstr ""
+msgstr "Ön a PDFsam Basic legújabb verzióját használja"
 
 msgid "No update"
-msgstr ""
+msgstr "Nincs frissítés"
 
 msgid "Open"
 msgstr "Megnyitás"
@@ -496,10 +504,10 @@ msgid "_Save"
 msgstr "M_entés"
 
 msgid "Recen_ts"
-msgstr ""
+msgstr "_Friss"
 
 msgid "_Clear recents"
-msgstr ""
+msgstr "_Legutóbbiak törlése"
 
 msgid "Select the workspace file to save"
 msgstr "Válassza ki a mentendő munkaterületet"
@@ -569,16 +577,16 @@ msgid "The selected PDF document is invalid"
 msgstr "A kijelölt PDF érvénytelen"
 
 msgid "Select the PDF file"
-msgstr ""
+msgstr "Válassza ki a PDF fájlt"
 
 msgid "_Select PDF"
-msgstr ""
+msgstr "_Válassza ki a PDF-et"
 
 msgid "_Clear"
 msgstr "Összes _törlése"
 
 msgid "Clear all settings"
-msgstr ""
+msgstr "Törölje az összes beállítást"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -642,13 +650,13 @@ msgid "_Add"
 msgstr "_Hozzáadás"
 
 msgid "PDF list from _text/csv file"
-msgstr ""
+msgstr "PDF lista _text/csv fájlból"
 
 msgid "Select pdf documents to load"
 msgstr "Betöltendő PDF kiválasztása"
 
 msgid "Select a text or CSV file to load"
-msgstr ""
+msgstr "Válassza ki a betöltendő szöveg- vagy CSV-fájlt"
 
 msgid "Removes selected documents"
 msgstr "Kijelölt dokumentumok eltávolítása"
@@ -842,11 +850,11 @@ msgstr "Nem sikerült megtalálni a legutolsó verziót."
 
 #, java-format
 msgid "Unable to find any valid PDF file in the list: {0}"
-msgstr ""
+msgstr "Nem található érvényes PDF fájl a listában: {0}"
 
 #, java-format
 msgid "Unable to load PDF list file from {0}"
-msgstr ""
+msgstr "Nem sikerült betölteni a PDF listafájlt innen: {0}"
 
 msgid "Loading pdf documents"
 msgstr "PDF dokumentumok betöltése"
@@ -1017,7 +1025,7 @@ msgid "Merge renaming existing fields"
 msgstr "Létező mezők átnevezésének egyesítése"
 
 msgid "Flatten"
-msgstr ""
+msgstr "Simítás"
 
 msgid "Discard forms"
 msgstr "Űrlapok elvetése"
@@ -1075,7 +1083,7 @@ msgstr "Egyesítés beállításai"
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
-msgstr ""
+msgstr "A(z) \"{0}\" fájl nem létezik vagy érvénytelen"
 
 msgid "Valid user password provided."
 msgstr "Érvényes felhasználó jelszó"
