@@ -8,55 +8,55 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-11-15 12:38+0100\n"
-"PO-Revision-Date: 2018-09-28 08:55+0000\n"
-"Last-Translator: Haritza Zubillaga <Unknown>\n"
+"PO-Revision-Date: 2022-06-21 05:34+0000\n"
+"Last-Translator: Asier Sarasua Garmendia <Unknown>\n"
 "Language-Team: Basque <eu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-07-26 09:36+0000\n"
-"X-Generator: Launchpad (build 20124175fa98fcb4b43973265a1561174418f4bd)\n"
+"X-Launchpad-Export-Date: 2022-06-24 13:16+0000\n"
+"X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
 
 msgid "No PDF document has been selected"
-msgstr ""
+msgstr "Ez da PDF dokumenturik hautatu"
 
 msgid "Extract"
-msgstr ""
+msgstr "Erauzi"
 
 msgid "Extract pages from PDF documents."
-msgstr ""
+msgstr "Erauzi orriak PDF dokumentuetatik."
 
 msgid "File names settings"
 msgstr "Fitxategi-izenen ezarpenak"
 
 msgid "Extract settings"
-msgstr ""
+msgstr "Erauzketa-ezarpenak"
 
 msgid "Output settings"
-msgstr ""
+msgstr "Irteera-ezarpenak"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "Erauziko diren orriak (adibidea: 2 edo 5-23 edo 2,5-7,12-)"
 
 msgid "Invalid page ranges"
-msgstr ""
+msgstr "Orri-barruti baliogabeak"
 
 msgid "Extract pages:"
-msgstr ""
+msgstr "Erauzi honako orriak:"
 
 #, java-format
 msgid "Installing theme {0}."
-msgstr "Gaia instalatzen {0}"
+msgstr "{0} gaia instalatzen."
 
 #, java-format
 msgid "Started in {0}"
-msgstr "{0}(e)n hasia"
+msgstr "{0} orrian hasita"
 
 msgid "Closing PDFsam..."
 msgstr "PDFsam ixten..."
 
 msgid "Log register"
-msgstr "Log erregistroa"
+msgstr "Erregistroa"
 
 msgid "Copy"
 msgstr "Kopiatu"
@@ -65,19 +65,19 @@ msgid "Clear"
 msgstr "Garbitu"
 
 msgid "Select all"
-msgstr "Hautatu guztiak"
+msgstr "Hautatu dena"
 
 msgid "Save log"
 msgstr "Gorde erregistroa"
 
 msgid "Select where to save the log file"
-msgstr "Hautatu non gorde behar den log fitxategia"
+msgstr "Hautatu non gordeko den erregistro-fitxategia"
 
 msgid "About"
 msgstr "Honi buruz"
 
 msgid "Premium features"
-msgstr ""
+msgstr "Premium eginbideak"
 
 msgid "Close"
 msgstr "Itxi"
@@ -92,13 +92,13 @@ msgid "Environment"
 msgstr "Ingurunea"
 
 msgid "Vendor: %s"
-msgstr ""
+msgstr "Saltzailea: %s"
 
 msgid "Java runtime path: %s"
-msgstr ""
+msgstr "Java exekuzio-garaiaren bide-izena: %s"
 
 msgid "JavaFX runtime version %s"
-msgstr ""
+msgstr "JavaFX exekuzio-garaiaren bertsioa: %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -114,7 +114,7 @@ msgid "Bug and feature requests"
 msgstr "Erroreak eta ezaugarrien eskaerak"
 
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentazioa"
 
 msgid "Contribute"
 msgstr "Lagundu"
@@ -229,7 +229,7 @@ msgstr ""
 "(berrabiaraztea eskatzen du)"
 
 msgid "Check for news at startup"
-msgstr ""
+msgstr "Begiratu albisterik dagoen abioan"
 
 msgid ""
 "Set whether the application should check for news availability on startup "
@@ -237,13 +237,13 @@ msgid ""
 msgstr ""
 
 msgid "Enabled PDF compression"
-msgstr ""
+msgstr "Gaitu PDF konpresioa"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
 
 msgid "Overwrite files"
-msgstr ""
+msgstr "Gainidatzi fitxategiak"
 
 msgid ""
 "Set whether \"Overwrite if already exists\" should be enabled by default"
@@ -256,7 +256,7 @@ msgid "Turn on or off alert sounds"
 msgstr "Gaitu edo desgaitu alerta soinuak"
 
 msgid "Store passwords when saving a workspace file"
-msgstr ""
+msgstr "Biltegiratu pasahitzak laneko areako fitxategi bat gordetzean"
 
 msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
@@ -274,7 +274,7 @@ msgstr ""
 "PDFsam dirua emanez laguntzeko eskatuz"
 
 msgid "Show premium features"
-msgstr ""
+msgstr "Erakutsi premium eginbideak"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
@@ -284,7 +284,7 @@ msgstr ""
 "moduluen panelean"
 
 msgid "Ask for a confirmation when clearing the selection table"
-msgstr ""
+msgstr "Eskatu baieztapena hautapen-taula garbitzerakoan"
 
 msgid ""
 "Set whether the application should ask for a confirmation when clearing the "
@@ -321,9 +321,11 @@ msgstr "Ezarpenak"
 
 msgid "Drag and drop PDF files or directories containing PDF files"
 msgstr ""
+"Arrastatu eta jaregin PDF fitxategiak edo PDF fitxategiz betetako "
+"direktorioak"
 
 msgid "No PDF found"
-msgstr ""
+msgstr "Ez da PDFrik aurkitu"
 
 msgid "What's new"
 msgstr "Zer berri?"
@@ -335,22 +337,22 @@ msgid "No"
 msgstr "Ez"
 
 msgid "Confirm clearing"
-msgstr ""
+msgstr "Baieztatu garbitzea"
 
 msgid "Do you confirm?"
-msgstr ""
+msgstr "Baieztatzen duzu?"
 
 msgid "Clear the module settings"
-msgstr ""
+msgstr "Garbitu modulu-ezarpenak"
 
 msgid "Clear the selection table"
-msgstr ""
+msgstr "Garbitu hautapen-taula"
 
 msgid "Open with"
 msgstr "Ireki honekin"
 
 msgid "Select the task to perform on the following files"
-msgstr ""
+msgstr "Hautatu zein zeregin gauzatuko den hurrengo fitxategietan"
 
 msgid "Directory not empty"
 msgstr "Direktorioa ez dago hutsik"
@@ -365,10 +367,10 @@ msgid "Overwrite"
 msgstr "Gainidatzi"
 
 msgid "Rename"
-msgstr ""
+msgstr "Aldatu izena"
 
 msgid "Skip"
-msgstr ""
+msgstr "Saltatu"
 
 msgid "Cancel"
 msgstr "Utzi"
@@ -383,7 +385,7 @@ msgid "A file with the given name already exists"
 msgstr "Izen bera duen fitxategi bat existitzen da"
 
 msgid "What would you like to do?"
-msgstr ""
+msgstr "Zer egin nahi duzu?"
 
 msgid "Non existing directory"
 msgstr "Karpeta ez da existitzen"
@@ -395,16 +397,17 @@ msgid "Do you want to create it?"
 msgstr "Horrelakorik sortu nahi duzu?"
 
 msgid "Subdirectories"
-msgstr ""
+msgstr "Azpidirektorioak"
 
 msgid "Subdirectories have been found"
-msgstr ""
+msgstr "Azpidirektorioak aurkitu dira"
 
 msgid "Do you want to add PDF files found in subdirectories?"
 msgstr ""
+"Azpidirektorioetan aurkitutako PDF fitxategiak gehitu nahi al dituzu?"
 
 msgid "Task failed"
-msgstr ""
+msgstr "Zereginak huts egin du"
 
 msgid "PDFsam can try to overcome the failure"
 msgstr ""
@@ -432,7 +435,7 @@ msgstr ""
 "xehetasunetarako"
 
 msgid "Access denied"
-msgstr ""
+msgstr "Sarbidea ukatu da"
 
 #, java-format
 msgid ""
@@ -464,10 +467,10 @@ msgid "New version available"
 msgstr "Bertsio berria eskuragarri dago"
 
 msgid "You are running the latest version of PDFsam Basic"
-msgstr ""
+msgstr "PDFsam Basic aplikazioaren bertsio berriena exekutatzen ari zara"
 
 msgid "No update"
-msgstr ""
+msgstr "Ez dago eguneraketarik"
 
 msgid "Open"
 msgstr "Ireki"
@@ -476,7 +479,7 @@ msgid "E_xit"
 msgstr "I_rten"
 
 msgid "_Settings"
-msgstr ""
+msgstr "_Ezarpenak"
 
 msgid "Application messages"
 msgstr "Aplikazioaren mezuak"
@@ -494,10 +497,10 @@ msgid "_Save"
 msgstr "_Gorde"
 
 msgid "Recen_ts"
-msgstr ""
+msgstr "A_zkenak"
 
 msgid "_Clear recents"
-msgstr ""
+msgstr "_Garbitu azkenak"
 
 msgid "Select the workspace file to save"
 msgstr "Hautatu laneko area fitxategia gordetzeko"
@@ -511,6 +514,8 @@ msgstr "Zatitu laster-marken arabera"
 msgid ""
 "Split a PDF document at bookmarked pages by specifying a bookmark level."
 msgstr ""
+"Zatitu PDF dokumentu bat laster-markak dauden orrietatik, laster-marken "
+"maila bat adierazita."
 
 msgid "Select or drag and drop the PDF you want to split"
 msgstr "Hautatu edo arrastatu eta jaregin zatitu nahi duzun PDFa"
@@ -563,16 +568,16 @@ msgid "The selected PDF document is invalid"
 msgstr "Hautatutako PDF dokumentua baliogabea da"
 
 msgid "Select the PDF file"
-msgstr ""
+msgstr "Hautatu PDF fitxategia"
 
 msgid "_Select PDF"
-msgstr ""
+msgstr "_Hautatu PDFa"
 
 msgid "_Clear"
 msgstr "_Garbitu"
 
 msgid "Clear all settings"
-msgstr ""
+msgstr "Garbitu ezarpen guztiak"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -716,10 +721,10 @@ msgid "Output PDF version:"
 msgstr ""
 
 msgid "Show advanced settings"
-msgstr ""
+msgstr "Erakutsi ezarpen aurreratuak"
 
 msgid "Hide advanced settings"
-msgstr ""
+msgstr "Ezkutatu ezarpen aurreratuak"
 
 msgid "Overwrite if already exists"
 msgstr "Gainidatzi dagoeneko existitzen bada"
@@ -738,10 +743,10 @@ msgid "Same as the input document"
 msgstr "Sarrerako dokumentuaren berdina"
 
 msgid "An existing output directory is required"
-msgstr ""
+msgstr "Lehendik dagoen irteerako direktorio bat behar da"
 
 msgid "The output directory is required"
-msgstr ""
+msgstr "Irteerako direktorio bat behar da"
 
 msgid "Select an existing directory"
 msgstr "Hautatu existitzen den direktorio bat"
@@ -754,7 +759,7 @@ msgstr "Nabigatu"
 
 #, java-format
 msgid "PDF version required: {0}"
-msgstr ""
+msgstr "Beharrezko PDF bertsioa: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "Sortutako fitxategi-izenen aurrizkia"
@@ -844,22 +849,22 @@ msgid "Documents loaded"
 msgstr "Dokumentuak kargatuta"
 
 msgid "Unable to retrieve premium features description"
-msgstr ""
+msgstr "Ezin dira premium eginbideen deskribapenak eskuratu"
 
 msgid "Fetching premium modules"
-msgstr ""
+msgstr "Premium moduluak eskuratzen"
 
 msgid "Unable to retrieve premium modules"
-msgstr ""
+msgstr "Ezin dira premium moduluak eskuratu"
 
 msgid "Unable to retrieve latest news"
-msgstr ""
+msgstr "Ezin dira azken albisteak eskuratu"
 
 msgid "Fetching latest news"
 msgstr "Azken albisteak eskuratzen"
 
 msgid "Unable to retrieve the latest news"
-msgstr ""
+msgstr "Ezin dira azken albisteak eskuratu"
 
 #, java-format
 msgid "Saving workspace data to {0}"
@@ -948,7 +953,7 @@ msgid "180 degrees clockwise"
 msgstr "180 gradu eskuinera"
 
 msgid "90 degrees counterclockwise"
-msgstr ""
+msgstr "90 gradu erlojuaren orratzen noranzkoaren aurka"
 
 msgid "Rotate "
 msgstr "Biratu "
@@ -983,13 +988,13 @@ msgstr ""
 "dokumentuak orri kopuru bakoitia badu"
 
 msgid "Add a footer"
-msgstr ""
+msgstr "Gehitu orri-oina"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr ""
 
 msgid "Normalize pages size"
-msgstr ""
+msgstr "Normalizatu orrien tamaina"
 
 msgid "Resizes all pages to have the same width as the first page."
 msgstr ""

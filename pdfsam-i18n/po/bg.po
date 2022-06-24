@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-11-15 12:38+0100\n"
-"PO-Revision-Date: 2020-09-17 07:18+0000\n"
-"Last-Translator: i ivanov <Unknown>\n"
+"PO-Revision-Date: 2022-05-21 01:41+0000\n"
+"Last-Translator: pl <Unknown>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-07-26 09:36+0000\n"
-"X-Generator: Launchpad (build 20124175fa98fcb4b43973265a1561174418f4bd)\n"
+"X-Launchpad-Export-Date: 2022-06-24 13:16+0000\n"
+"X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
 
 msgid "No PDF document has been selected"
-msgstr "Няма избран PDF документ"
+msgstr "Няма избран pdf документ"
 
 msgid "Extract"
 msgstr "Извличане"
@@ -231,19 +231,24 @@ msgid ""
 "Set whether the application should check for news availability on startup "
 "(restart needed)"
 msgstr ""
+"Приложението да проверява ли за новини от сайта при стартиране (настройката "
+"изисква рестарт)"
 
 msgid "Enabled PDF compression"
 msgstr "Включване на PDF компресиране"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
+"Компресирането на изходните файлове да бъде установено по подразбиране"
 
 msgid "Overwrite files"
-msgstr ""
+msgstr "Презаписване на файловете"
 
 msgid ""
 "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
+"Включете опцията, ако искате презаписването на съществуващи файлове да се "
+"извършва по подразбиране."
 
 msgid "Play alert sounds"
 msgstr "Звукови предупреждения"
@@ -252,12 +257,14 @@ msgid "Turn on or off alert sounds"
 msgstr "Включване/изключване на предупредителни звуци"
 
 msgid "Store passwords when saving a workspace file"
-msgstr ""
+msgstr "Запис на паролите заедно с работоното пространство"
 
 msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
 "password in the workspace file"
 msgstr ""
+"Запазване на паролата за отваряне на шифрован pdf във файла на работното "
+"пространство"
 
 msgid "Show donation window"
 msgstr "Показване на прозореца за дарения"
@@ -280,48 +287,54 @@ msgstr ""
 "таблото с модулите"
 
 msgid "Ask for a confirmation when clearing the selection table"
-msgstr ""
+msgstr "Питане за потвърждение при изтриване на таблицата"
 
 msgid ""
 "Set whether the application should ask for a confirmation when clearing the "
 "selection table"
 msgstr ""
+"Включете опцията, ако искате приложението да пита преди изтриване на "
+"таблицата за избор"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr ""
+"Използване на папката на избрания pdf документ като изходна папка за "
+"програмата"
 
 msgid "Save default workspace on exit"
-msgstr ""
+msgstr "Запазване на работната среда при изход"
 
 msgid "If a default workspace is set, save it on application exit"
 msgstr ""
+"При изход от програмата да се запазва работното пространство, ако е "
+"създадено."
 
 msgid "Maximum number of rows mast be a positive number"
-msgstr ""
+msgstr "Максималният брой редове трябва да е положително число"
 
 msgid "Generate high quality thumbnails (slower)"
-msgstr ""
+msgstr "Генериране на HD миниатюри (бавно)"
 
 msgid "Size in px:"
-msgstr ""
+msgstr "Размер в пиксели:"
 
 msgid "Library used to generate thumbnails"
-msgstr ""
+msgstr "Библиотека за създаване на миниатюри"
 
 msgid "Thumbnails creator:"
-msgstr ""
+msgstr "Автор на миниатюри:"
 
 msgid "Settings"
 msgstr "Настройки"
 
 msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr ""
+msgstr "Провлачете с мишката pdf файлове или цели папки"
 
 msgid "No PDF found"
-msgstr ""
+msgstr "Няма открит PDF"
 
 msgid "What's new"
-msgstr ""
+msgstr "Какво ново"
 
 msgid "Yes"
 msgstr "Да"
@@ -330,83 +343,84 @@ msgid "No"
 msgstr "Не"
 
 msgid "Confirm clearing"
-msgstr ""
+msgstr "Потвърдете изчистването"
 
 msgid "Do you confirm?"
-msgstr ""
+msgstr "Потвърждавате ли?"
 
 msgid "Clear the module settings"
-msgstr ""
+msgstr "Изчистване на настройките на модула"
 
 msgid "Clear the selection table"
-msgstr ""
+msgstr "Изчистване на избраната таблица"
 
 msgid "Open with"
-msgstr ""
+msgstr "Отваряне с"
 
 msgid "Select the task to perform on the following files"
-msgstr ""
+msgstr "Изберете задачата, която да се приложи към следните файлове"
 
 msgid "Directory not empty"
-msgstr ""
+msgstr "Папката не е празна"
 
 msgid "The selected directory is not empty"
-msgstr ""
+msgstr "Избраната папка не е празна"
 
 msgid "What would you like to do in case of files with the same name?"
-msgstr ""
+msgstr "Какво да се прави ако има файлове с еднакви имена?"
 
 msgid "Overwrite"
-msgstr ""
+msgstr "Презаписване"
 
 msgid "Rename"
-msgstr ""
+msgstr "Преименуване"
 
 msgid "Skip"
-msgstr ""
+msgstr "Пропускане"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Отказ"
 
 msgid "Don't overwrite existing file"
-msgstr ""
+msgstr "Да не се празписва върху съществуващи файлове"
 
 msgid "Overwrite confirmation"
-msgstr ""
+msgstr "Потвърждение за презапис"
 
 msgid "A file with the given name already exists"
-msgstr ""
+msgstr "Файл с това име вече съществува"
 
 msgid "What would you like to do?"
-msgstr ""
+msgstr "Какво искате да направите?"
 
 msgid "Non existing directory"
-msgstr ""
+msgstr "Несъществуваща папка"
 
 msgid "The selected output directory does not exist"
-msgstr ""
+msgstr "Избраната изходна папка не съществува"
 
 msgid "Do you want to create it?"
-msgstr ""
+msgstr "Искате ли да бъде създадена?"
 
 msgid "Subdirectories"
-msgstr ""
+msgstr "Поддиректории"
 
 msgid "Subdirectories have been found"
-msgstr ""
+msgstr "Има намерени поддиректо"
 
 msgid "Do you want to add PDF files found in subdirectories?"
-msgstr ""
+msgstr "Искате ли да добавите pdf файлове от под-директориите?"
 
 msgid "Task failed"
-msgstr ""
+msgstr "Задачата пропадна"
 
 msgid "PDFsam can try to overcome the failure"
-msgstr ""
+msgstr "PDFsam ще опита да оправи проблема"
 
 msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
 msgstr ""
+"Това е възможно да доведе до pdf файлове с липсващи данни. Продължаване?"
 
 msgid "Summary"
 msgstr "обобщение"
@@ -415,7 +429,7 @@ msgid "Keywords"
 msgstr "Ключови думи"
 
 msgid "Document details"
-msgstr ""
+msgstr "Подробности за документа"
 
 msgid "Invalid parameters"
 msgstr "Невалидни параметри"
@@ -423,6 +437,8 @@ msgstr "Невалидни параметри"
 msgid ""
 "Input parameters are invalid, open the application messages for details."
 msgstr ""
+"Входните параметри са невалидни, вижте съобщенията от приложението за "
+"подробности."
 
 msgid "Access denied"
 msgstr "Достъпът е отказан"
@@ -432,19 +448,21 @@ msgid ""
 "Unable to access \"{0}\", please make sure you have write permissions or "
 "open the application messages for details."
 msgstr ""
+"Невъзможен е достъпът до \"{0}\", моля вижте дали имате разрешения за запис "
+"или проверете съобщенията на приложението за подробности."
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
-msgstr ""
+msgstr "Ползва ли сте {0} пъти PDFsam, беше ли ви тази програма от полза?"
 
 msgid "Give something back"
-msgstr ""
+msgstr "Дайте нещо"
 
 msgid "PDFsam worked hard!"
 msgstr "PDFsam се потруди здраво!"
 
 msgid "Spread the word!"
-msgstr ""
+msgstr "Разкажете за нас!"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -472,13 +490,13 @@ msgid "_Settings"
 msgstr "Настройки"
 
 msgid "Application messages"
-msgstr ""
+msgstr "Съобщения на приложението"
 
 msgid "_Modules"
 msgstr "Модули"
 
 msgid "_Workspace"
-msgstr ""
+msgstr "_Работно пространство"
 
 msgid "_Load"
 msgstr "Зареждане"
@@ -487,16 +505,16 @@ msgid "_Save"
 msgstr "Запис"
 
 msgid "Recen_ts"
-msgstr ""
+msgstr "После_дни"
 
 msgid "_Clear recents"
-msgstr ""
+msgstr "Из_чистване на последните"
 
 msgid "Select the workspace file to save"
-msgstr ""
+msgstr "Изберете файл за работното пространство"
 
 msgid "Select the workspace to load"
-msgstr ""
+msgstr "Изберете работно пространство"
 
 msgid "Split by bookmarks"
 msgstr "Разделяне по отбелязки"
@@ -509,9 +527,10 @@ msgstr ""
 
 msgid "Select or drag and drop the PDF you want to split"
 msgstr ""
+"Изберете и провлачете с мишката pdf файловете, които искате да разделите"
 
 msgid "Split settings"
-msgstr ""
+msgstr "Настройки за разделяне"
 
 msgid "Regular expression the bookmark has to match"
 msgstr "Регулярен израз който да разпознава отбелязката"
@@ -520,7 +539,7 @@ msgid "Split at this bookmark level:"
 msgstr "Разделяне при това ниво на отбелязки:"
 
 msgid "Matching regular expression:"
-msgstr ""
+msgstr "REGEX израз:"
 
 msgid "A regular expression the bookmark text has to match"
 msgstr "Текстът на отбелязките трябва да отговаря на този регулярен израз."
@@ -531,16 +550,16 @@ msgstr ""
 "Пример: изразът .*Глава.* намира отбелязките, съдържащи думата \"Глава\""
 
 msgid "Invalid bookmarks level"
-msgstr ""
+msgstr "Невалидно ниво на отметки"
 
 msgid "Show errors"
-msgstr ""
+msgstr "Показване на грешки"
 
 msgid "Run"
 msgstr "Стартирай"
 
 msgid "Requested"
-msgstr ""
+msgstr "Поискан"
 
 msgid "Completed"
 msgstr "Завършено"
@@ -553,22 +572,22 @@ msgstr "Изпълняване"
 
 #, java-format
 msgid "Running {0}%"
-msgstr ""
+msgstr "Готово на {0}%"
 
 msgid "The selected PDF document is invalid"
-msgstr ""
+msgstr "Избраният PDF документ е невалиден"
 
 msgid "Select the PDF file"
-msgstr ""
+msgstr "Изберете PDF файл"
 
 msgid "_Select PDF"
-msgstr ""
+msgstr "_Избор на pdf"
 
 msgid "_Clear"
 msgstr "_Изчисти"
 
 msgid "Clear all settings"
-msgstr ""
+msgstr "Изчистване на всички настройки"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -578,7 +597,7 @@ msgid "Loading..."
 msgstr "Зарежда се..."
 
 msgid "Document properties"
-msgstr ""
+msgstr "Свойства на документа"
 
 msgid "Remove"
 msgstr "Премахване"
@@ -590,7 +609,7 @@ msgid "Open Folder"
 msgstr "Отваряне на папка"
 
 msgid "Enter the user password"
-msgstr ""
+msgstr "Въведете парола"
 
 msgid "Unlock"
 msgstr "Отключване"
@@ -599,10 +618,10 @@ msgid "Drag and drop PDF files here"
 msgstr "Завлачете и пуснете тук PDF файловете"
 
 msgid "Set as range for all"
-msgstr ""
+msgstr "Задайте обхвата за всички"
 
 msgid "Move to Top"
-msgstr ""
+msgstr "Премести нагоре"
 
 msgid "Move Up"
 msgstr "Премести нагоре"
@@ -611,7 +630,7 @@ msgid "Move Down"
 msgstr "Премести надолу"
 
 msgid "Move to Bottom"
-msgstr ""
+msgstr "Премести надолу"
 
 msgid "Duplicate"
 msgstr "Дублиране"
@@ -626,51 +645,53 @@ msgid "Name"
 msgstr "Име"
 
 msgid "Add documents to the table"
-msgstr ""
+msgstr "Добавяне на документи в таблицата"
 
 msgid "_Add"
 msgstr "_Добавяне"
 
 msgid "PDF list from _text/csv file"
-msgstr ""
+msgstr "Списък с pdf файлове от текстов файл (txt или csv)"
 
 msgid "Select pdf documents to load"
-msgstr ""
+msgstr "Изберете pdf файловете които да се заредят"
 
 msgid "Select a text or CSV file to load"
-msgstr ""
+msgstr "Изберете текстов или csv файл за зареждане"
 
 msgid "Removes selected documents"
-msgstr ""
+msgstr "Премахване на избраните документи"
 
 msgid "_Remove"
 msgstr "_Премахване"
 
 msgid "Removes every document"
-msgstr ""
+msgstr "Премахване на всички документи"
 
 msgid "C_lear all settings"
-msgstr ""
+msgstr "Изчистване на всички настройки"
 
 msgid "Moves up selected documents"
-msgstr ""
+msgstr "Преместване нагоре на избраните документи"
 
 msgid "Move _Up"
 msgstr "Премести на_горе"
 
 msgid "Moves down selected documents"
-msgstr ""
+msgstr "Преместване надолу на избраните документи"
 
 msgid "Move _Down"
 msgstr "Премести на_долу"
 
 msgid "Pace"
-msgstr ""
+msgstr "Скорост"
 
 msgid ""
 "Double click to set the number of pages after which the task will switch to "
 "the next file"
 msgstr ""
+"Кликнете двойно за да зададете брой страници, след които процесът ще премине "
+"към следващия файл."
 
 msgid "Reverse"
 msgstr "Обръщане"
@@ -680,12 +701,13 @@ msgstr "Страници"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Кликнете два пъти за да изберете страниците (напр: 2 или 5-23 или 2,5-7,12-)"
 
 msgid "Page ranges"
-msgstr ""
+msgstr "Обхват страници"
 
 msgid "The selected PDF file is invalid"
-msgstr ""
+msgstr "Избраният pdf файл не е валиден"
 
 msgid "Select a file"
 msgstr "Избор на файл"
@@ -710,7 +732,7 @@ msgstr ""
 "В случай че не искате да запазите отбелязките от оригиналния PDF документ"
 
 msgid "Output PDF version:"
-msgstr ""
+msgstr "Версия на изходния pdf:"
 
 msgid "Show advanced settings"
 msgstr "Показване на допълнителни настройки"
@@ -723,7 +745,7 @@ msgstr "Презапис ако съществува"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
-msgstr ""
+msgstr "Кликнете кутийката, ако искате да се презаписват изходните файлове."
 
 #, java-format
 msgid "Version {0}"
@@ -733,13 +755,13 @@ msgid "Same as the input document"
 msgstr "Същата като на входния документ"
 
 msgid "An existing output directory is required"
-msgstr ""
+msgstr "Изисква се изходната папка да съществува"
 
 msgid "The output directory is required"
-msgstr ""
+msgstr "Изисква се папка за изходните документи"
 
 msgid "Select an existing directory"
-msgstr ""
+msgstr "Изберете съществуваща папка"
 
 msgid "Select"
 msgstr "Избор"
@@ -749,7 +771,7 @@ msgstr "Разглеждане"
 
 #, java-format
 msgid "PDF version required: {0}"
-msgstr ""
+msgstr "Изисква се версия на pdf {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "Представка за имената на създаваните файлове"
@@ -824,67 +846,67 @@ msgid "Checking for updates"
 msgstr "Проверка за актуализации"
 
 msgid "Unable to find the latest available version."
-msgstr ""
+msgstr "Невъзможна е проверката за последна версия."
 
 #, java-format
 msgid "Unable to find any valid PDF file in the list: {0}"
-msgstr ""
+msgstr "Невъзможно е откриването на валиден pdf файл този списък: {0}"
 
 #, java-format
 msgid "Unable to load PDF list file from {0}"
-msgstr ""
+msgstr "Неуспешно зареждането на списък с pdf файлове от {0}"
 
 msgid "Loading pdf documents"
-msgstr ""
+msgstr "Зареждане на pdf документи"
 
 msgid "Documents loaded"
-msgstr ""
+msgstr "Документите бяха заредени"
 
 msgid "Unable to retrieve premium features description"
-msgstr ""
+msgstr "Невъзможно е изтеглянето на описанието за платените функции"
 
 msgid "Fetching premium modules"
-msgstr ""
+msgstr "Извличане на премиум модулите"
 
 msgid "Unable to retrieve premium modules"
-msgstr ""
+msgstr "Невъзможно е изтеглянето на платените модули"
 
 msgid "Unable to retrieve latest news"
-msgstr ""
+msgstr "Невъзможно е изтеглянето на последните новини"
 
 msgid "Fetching latest news"
-msgstr ""
+msgstr "Извличане на последните новини"
 
 msgid "Unable to retrieve the latest news"
-msgstr ""
+msgstr "Невъзможно е извличането на последните новини"
 
 #, java-format
 msgid "Saving workspace data to {0}"
-msgstr ""
+msgstr "Запазване на работното пространство в {0}"
 
 msgid "Workspace saved"
-msgstr ""
+msgstr "Работното пространство е запазено"
 
 msgid "Requesting modules state"
-msgstr ""
+msgstr "Изискване състоянието на модулите"
 
 msgid "Unable to save modules workspace"
-msgstr ""
+msgstr "Невъзможно е запазването на работното пространство на модулите"
 
 #, java-format
 msgid "Unable to save workspace to {0}"
-msgstr ""
+msgstr "Невъзможно е запазването на работното пространство  в {0}"
 
 #, java-format
 msgid "Loading workspace from {0}"
-msgstr ""
+msgstr "Зареждане на работното пространство от {0}"
 
 msgid "Workspace loaded"
-msgstr ""
+msgstr "Работното пространство е заредено"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
-msgstr ""
+msgstr "Невъзможно е зареждането на работното пространство от {0}"
 
 msgid "Split by size"
 msgstr "Разделяне по размер"
@@ -927,17 +949,19 @@ msgstr ""
 "страница, в нормален или обратен ред."
 
 msgid "Destination file"
-msgstr ""
+msgstr "Изходен файл"
 
 msgid ""
 "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Кликнете двойно за да зададете кои страници искате да миксирате (напр.2 или "
+"5-23 или 2,5-7,12-)"
 
 msgid "Select a positive integer number as pace"
-msgstr ""
+msgstr "Задайте положително цяло число за скорост"
 
 msgid "All pages"
-msgstr ""
+msgstr "Всички страници"
 
 msgid "90 degrees clockwise"
 msgstr "90 градуса по часовниковата"
@@ -964,11 +988,13 @@ msgid "Rotate the pages of multiple PDF documents."
 msgstr "Завъртане на страници в множество PDF документи."
 
 msgid "Rotate settings"
-msgstr ""
+msgstr "Настройки за завъртането"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Кликнете 2 пъти за да зададете страниците, които искате да обедините (напр. "
+"2 или 5-23 или 2, 5-7, 12-)"
 
 msgid "Add a blank page if page number is odd"
 msgstr "Добавяне на празна страница след нечетен брой"
@@ -994,22 +1020,23 @@ msgid "Resizes all pages to have the same width as the first page."
 msgstr "Променяне на всички страници до размера на първата страница."
 
 msgid "Merge fields"
-msgstr ""
+msgstr "Обединяване на полета"
 
 msgid "Merge renaming existing fields"
-msgstr ""
+msgstr "Обединяване на останалите съществуващи полета"
 
 msgid "Flatten"
 msgstr "Изглаждане"
 
 msgid "Discard forms"
-msgstr ""
+msgstr "Отхвърляне на формите"
 
 msgid "Interactive forms (AcroForms):"
-msgstr ""
+msgstr "Интерактивни форми (AcroForms):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr ""
+"Какво да се прави в случай, че един или повече документи съдържат Acro форми"
 
 msgid "Retain bookmarks"
 msgstr "Запазване на отбелязките"
@@ -1055,16 +1082,16 @@ msgstr "Настройки на сливането"
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
-msgstr ""
+msgstr "Файлът \"{0}\" не съществува или е невалиден"
 
 msgid "Valid user password provided."
-msgstr ""
+msgstr "Предоставена е валидна потребителска парола."
 
 msgid "This document is encrypted, click to provide a password."
-msgstr ""
+msgstr "Този документ е шифрован, кликнете за да въведете парола."
 
 msgid "An error has occurred, click for more details."
-msgstr ""
+msgstr "Възникна грешка, кликнете за повече подробности."
 
 msgid "Security"
 msgstr "Защита"
@@ -1073,17 +1100,17 @@ msgid "Other"
 msgstr "Друго"
 
 msgid "Roundish"
-msgstr ""
+msgstr "Закръглено"
 
 msgid "Directories"
 msgstr "Папки"
 
 msgid "Error saving log file."
-msgstr ""
+msgstr "Грешка при запазването на лог-файла."
 
 #, java-format
 msgid "File {0} saved."
-msgstr ""
+msgstr "Файлът {0} е записан."
 
 #, java-format
 msgid "Invalid range: {0}."
@@ -1099,7 +1126,7 @@ msgstr ""
 
 #, java-format
 msgid "Invalid number: {0}."
-msgstr ""
+msgstr "Невалидно число: {0}."
 
 #~ msgid "Split even pages"
 #~ msgstr "Раздели четните страници"
