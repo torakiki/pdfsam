@@ -70,6 +70,7 @@ public class BulkRotateTask extends BaseTask<BulkRotateParameters> {
             currentStep++;
             LOG.debug("Opening {}", input.source);
             try {
+                executionContext().notifiableTaskMetadata().setCurrentSource(input.source);
                 documentHandler = input.source.open(documentLoader);
                 documentHandler.getPermissions().ensurePermission(PdfAccessPermission.ASSEMBLE);
                 documentHandler.setCreatorOnPDDocument();
@@ -81,7 +82,6 @@ public class BulkRotateTask extends BaseTask<BulkRotateParameters> {
                 for (Integer page : input.getPages(documentHandler.getNumberOfPages())) {
                     rotator.rotate(page, input.rotation);
                 }
-
                 documentHandler.setVersionOnPDDocument(parameters.getVersion());
                 documentHandler.setCompress(parameters.isCompress());
                 documentHandler.savePDDocument(tmpFile, parameters.getOutput().getEncryptionAtRestPolicy());
@@ -95,6 +95,7 @@ public class BulkRotateTask extends BaseTask<BulkRotateParameters> {
 
             notifyEvent(executionContext().notifiableTaskMetadata()).stepsCompleted(currentStep).outOf(totalSteps);
         }
+        executionContext().notifiableTaskMetadata().clearCurrentSource();
 
         parameters.getOutput().accept(outputWriter);
         LOG.debug("Input documents rotated and written to {}", parameters.getOutput());
