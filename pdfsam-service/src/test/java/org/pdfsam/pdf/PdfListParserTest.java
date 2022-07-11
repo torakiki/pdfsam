@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 1 mag 2019
  * Copyright 2017 by Sober Lemur S.a.s di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -36,7 +36,6 @@ import org.junit.rules.TemporaryFolder;
 
 /**
  * @author Andrea Vacondio
- *
  */
 public class PdfListParserTest {
 
@@ -69,6 +68,80 @@ public class PdfListParserTest {
     }
 
     @Test
+    public void filenameWithQuotes() throws IOException {
+        File file1 = tmp.newFile("file\"with quotes.pdf");
+        Path list = tmp.newFile().toPath();
+        List<String> lines = new ArrayList<>();
+        lines.add("\"" + file1.getAbsolutePath() + "\",something,something else");
+        Files.write(list, lines);
+        List<File> parsed = new PdfListParser().apply(list);
+        assertEquals(1, parsed.size());
+        assertThat(parsed, hasItems(file1));
+    }
+
+    @Test
+    public void filenameWithQuotesWithoutWrappingQuotes() throws IOException {
+        File file1 = tmp.newFile("file\"with quotes.pdf");
+        Path list = tmp.newFile().toPath();
+        List<String> lines = new ArrayList<>();
+        lines.add("I don't exist");
+        lines.add("   ");
+        lines.add(file1.getAbsolutePath() + ",something,something else");
+        Files.write(list, lines);
+        List<File> parsed = new PdfListParser().apply(list);
+        assertEquals(1, parsed.size());
+    }
+
+    @Test
+    public void filenameWithCommas() throws IOException {
+        File file1 = tmp.newFile("file , with commas.pdf");
+        Path list = tmp.newFile().toPath();
+        List<String> lines = new ArrayList<>();
+        lines.add("\"" + file1.getAbsolutePath() + "\",something,something else");
+        Files.write(list, lines);
+        List<File> parsed = new PdfListParser().apply(list);
+        assertEquals(1, parsed.size());
+        assertThat(parsed, hasItems(file1));
+    }
+
+    @Test
+    public void filenameWithCommasWithoutQuotes() throws IOException {
+        File file1 = tmp.newFile("file , with commas.pdf");
+        Path list = tmp.newFile().toPath();
+        List<String> lines = new ArrayList<>();
+        lines.add("I don't exist");
+        lines.add(file1.getAbsolutePath() + ",something,something else");
+        Files.write(list, lines);
+        List<File> parsed = new PdfListParser().apply(list);
+        assertEquals(0, parsed.size());
+    }
+
+    @Test
+    public void filenameWithQuotesAndCommas() throws IOException {
+        File file1 = tmp.newFile("file , with commas\" and \".pdf");
+        Path list = tmp.newFile().toPath();
+        List<String> lines = new ArrayList<>();
+        lines.add("I don't exist");
+        lines.add("\"" + file1.getAbsolutePath() + "\",something,something else");
+        Files.write(list, lines);
+        List<File> parsed = new PdfListParser().apply(list);
+        assertEquals(1, parsed.size());
+        assertThat(parsed, hasItems(file1));
+    }
+
+    @Test
+    public void filenameWithQuotesAndCommasWithoutWrappingQuotes() throws IOException {
+        File file1 = tmp.newFile("file , with commas\" and \".pdf");
+        Path list = tmp.newFile().toPath();
+        List<String> lines = new ArrayList<>();
+        lines.add("I don't exist");
+        lines.add(file1.getAbsolutePath() + ",something,something else");
+        Files.write(list, lines);
+        List<File> parsed = new PdfListParser().apply(list);
+        assertEquals(0, parsed.size());
+    }
+
+    @Test
     public void filePathsAreTrimmed() throws IOException {
         File file1 = tmp.newFile("file1.pdf");
         List<String> lines = new ArrayList<>();
@@ -78,5 +151,18 @@ public class PdfListParserTest {
         List<File> parsed = new PdfListParser().apply(list);
         assertEquals(1, parsed.size());
         assertThat(parsed, hasItems(file1));
+    }
+
+
+    @Test
+    public void weiredLinesDontBlowUp() throws IOException {
+        List<String> lines = new ArrayList<>();
+        lines.add("     ");
+        lines.add("\"\"\"");
+        lines.add("\",,\"");
+        Path list = tmp.newFile().toPath();
+        Files.write(list, lines);
+        List<File> parsed = new PdfListParser().apply(list);
+        assertEquals(0, parsed.size());
     }
 }
