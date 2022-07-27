@@ -253,8 +253,7 @@
 		<logback.version>1.2.11</logback.version>
 		<jdepend.version>2.9.1</jdepend.version>
 		<hibernate-validator.version>4.2.0.Final</hibernate-validator.version>
-		<sejda.version>4.3.13</sejda.version>
-		<sambox.version>2.4.24</sambox.version>
+		<sejda.version>4.3.14</sejda.version>
 		<sejda.commons.version>1.1.7</sejda.commons.version>
 		<eventstudio.version>3.0.4</eventstudio.version>
 		<injector.version>2.0.0</injector.version>
@@ -325,11 +324,6 @@
 				<groupId>org.sejda</groupId>
 				<artifactId>sejda-sambox</artifactId>
 				<version>${sejda.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.sejda</groupId>
-				<artifactId>sambox</artifactId>
-				<version>${sambox.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.pdfsam</groupId>
