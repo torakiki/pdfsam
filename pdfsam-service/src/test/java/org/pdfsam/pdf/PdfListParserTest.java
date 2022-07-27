@@ -25,6 +25,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -65,6 +66,20 @@ public class PdfListParserTest {
         List<File> parsed = new PdfListParser().apply(list);
         assertEquals(3, parsed.size());
         assertThat(parsed, hasItems(file1, file2, file3));
+    }
+
+    @Test
+    public void applyNonUTFCharset() throws IOException {
+        File file1 = tmp.newFile("file1è.pdf");
+        File file2 = tmp.newFile("file2à.PDF");
+        Path list = tmp.newFile().toPath();
+        List<String> lines = new ArrayList<>();
+        lines.add(file1.getAbsolutePath());
+        lines.add(file2.getAbsolutePath() + ",");
+        Files.write(list, lines, StandardCharsets.ISO_8859_1);
+        List<File> parsed = new PdfListParser().apply(list);
+        assertEquals(2, parsed.size());
+        assertThat(parsed, hasItems(file1, file2));
     }
 
     @Test
@@ -152,7 +167,6 @@ public class PdfListParserTest {
         assertEquals(1, parsed.size());
         assertThat(parsed, hasItems(file1));
     }
-
 
     @Test
     public void weiredLinesDontBlowUp() throws IOException {

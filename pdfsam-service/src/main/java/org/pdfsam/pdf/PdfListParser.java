@@ -24,20 +24,29 @@ import static java.util.stream.Collectors.toList;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.function.Function;
+import java.util.stream.Stream;
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Andrea Vacondio
  */
 class PdfListParser implements Function<Path, List<File>> {
+    private static final Logger LOG = LoggerFactory.getLogger(PdfListParser.class);
 
     /**
      * Given a Path to text/csv file, it parses is returning a list of PDF files contained in the parsed file
@@ -50,13 +59,20 @@ class PdfListParser implements Function<Path, List<File>> {
         if (isNull(listFile)) {
             return Collections.emptyList();
         }
-        try {
-            return Files.lines(listFile).filter(StringUtils::isNoneBlank).map(PdfListParser::parseLine)
-                    .map(String::trim).filter(s -> s.toUpperCase().endsWith("PDF")).map(Paths::get)
-                    .filter(Files::exists).filter(not(Files::isDirectory)).map(Path::toFile).collect(toList());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        List<Charset> charsets = List.of(StandardCharsets.UTF_8, StandardCharsets.ISO_8859_1, Charset.defaultCharset());
+        for (Charset charset : charsets) {
+            try {
+                return Files.lines(listFile, charset).filter(StringUtils::isNoneBlank).map(PdfListParser::parseLine)
+                        .map(String::trim).filter(s -> s.toUpperCase().endsWith("PDF")).map(Paths::get)
+                        .filter(Files::exists).filter(not(Files::isDirectory)).map(Path::toFile).collect(toList());
+            } catch (UncheckedIOException e) {
+                LOG.warn("Unable to read lines from " + listFile + " using charset " + charset, e);
+            } catch (IOException e) {
+                throw new UncheckedIOException(e);
+            }
         }
+        throw new RuntimeException("Unable to read lines from " + listFile);
+
     }
 
     private static String parseLine(String line) {
