@@ -29,20 +29,6 @@
 		</dependency>
 		<dependency>
 			<groupId>org.sejda</groupId>
-			<artifactId>sejda-core</artifactId>
-			<version>${sejda.version}</version>
-			<type>test-jar</type>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.sejda</groupId>
-			<artifactId>sejda-model</artifactId>
-			<version>${sejda.version}</version>
-			<type>test-jar</type>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.sejda</groupId>
 			<artifactId>sejda-sambox</artifactId>
 			<exclusions>
 				<exclusion>
@@ -72,19 +58,14 @@
 			<artifactId>pdfsam-injector</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>javax.inject</groupId>
-			<artifactId>javax.inject</artifactId>
+			<groupId>jakarta.inject</groupId>
+			<artifactId>jakarta.inject-api</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.jr</groupId>
 			<artifactId>jackson-jr-objects</artifactId>
 		</dependency>
 		<!-- test dependencies -->
-		<dependency>
-			<groupId>jdepend</groupId>
-			<artifactId>jdepend</artifactId>
-			<scope>test</scope>
-		</dependency>
 		<dependency>
 			<groupId>org.pdfsam</groupId>
 			<artifactId>pdfsam-core</artifactId>

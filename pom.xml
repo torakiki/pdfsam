@@ -17,7 +17,7 @@
 		<connection>scm:git:git@github.com:torakiki/pdfsam.git</connection>
 		<developerConnection>scm:git:git@github.com:torakiki/pdfsam.git</developerConnection>
 		<url>scm:git:git@github.com:torakiki/pdfsam.git</url>
-		<tag>v4.3.3</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<profiles>
@@ -61,7 +61,7 @@
 		<profile>
 			<id>toolchain</id>
 			<activation>
-				<jdk>(,11)</jdk>
+				<jdk>(,17)</jdk>
 			</activation>
 			<build>
 				<plugins>
@@ -78,7 +78,7 @@
 						<configuration>
 							<toolchains>
 								<jdk>
-									<version>11</version>
+									<version>17</version>
 								</jdk>
 							</toolchains>
 						</configuration>
@@ -139,6 +139,7 @@
 		<module>pdfsam-alternate-mix</module>
 		<module>pdfsam-rotate</module>
 		<module>pdfsam-extract</module>
+		<module>pdfsam-persistence</module>
 		<module>pdfsam-docs</module>
 	</modules>
 
@@ -156,7 +157,7 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<release>11</release>
+					<release>17</release>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -178,47 +179,47 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.8.1</version>
+					<version>3.10.1</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-jar-plugin</artifactId>
-					<version>3.2.0</version>
+					<version>3.2.2</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-resources-plugin</artifactId>
-					<version>3.2.0</version>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-dependency-plugin</artifactId>
-					<version>3.2.0</version>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-assembly-plugin</artifactId>
 					<version>3.3.0</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>3.3.0</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>3.4.2</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-clean-plugin</artifactId>
-					<version>3.1.0</version>
+					<version>3.2.0</version>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>exec-maven-plugin</artifactId>
-					<version>3.0.0</version>
+					<version>3.1.0</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-source-plugin</artifactId>
-					<version>3.2.0</version>
+					<version>3.2.1</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-antrun-plugin</artifactId>
-					<version>3.0.0</version>
+					<version>3.1.0</version>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
@@ -228,45 +229,50 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-toolchains-plugin</artifactId>
-					<version>3.0.0</version>
+					<version>3.1.0</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
-					<version>3.0.0-M5</version>
+					<version>3.0.0-M7</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-release-plugin</artifactId>
-					<version>3.0.0-M4</version>
+					<version>3.0.0-M6</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
 
 	<properties>
-		<junit.version>4.13.2</junit.version>
-		<slf4j.version>1.7.36</slf4j.version>
+		<junit.version>5.9.0</junit.version>
+		<junit.pioneer.version>1.7.1</junit.pioneer.version>
+		<archunit.version>0.23.1</archunit.version>
+		<slf4j.version>2.0.0</slf4j.version>
 		<commons.lang.version>3.12.0</commons.lang.version>
 		<commons.io.version>2.11.0</commons.io.version>
-		<mockito.version>4.6.1</mockito.version>
-		<logback.version>1.2.11</logback.version>
-		<jdepend.version>2.9.1</jdepend.version>
-		<hibernate-validator.version>4.2.0.Final</hibernate-validator.version>
-		<sejda.version>4.3.14</sejda.version>
-		<sejda.commons.version>1.1.7</sejda.commons.version>
+		<mockito.version>4.8.0</mockito.version>
+		<logback.version>1.4.0</logback.version>
+		<tinylog.version>2.5.0</tinylog.version>
+		<hibernate-validator.version>7.0.5.Final</hibernate-validator.version>
+		<sejda.version>5.0.0.M1</sejda.version>
+		<sejda.commons.version>2.0.0</sejda.commons.version>
 		<eventstudio.version>3.0.4</eventstudio.version>
-		<injector.version>2.0.0</injector.version>
+		<injector.version>3.0.0</injector.version>
+		<rxjava.version>3.1.5</rxjava.version>
 		<fontawesomefx.fontawesome.version>4.7.0-9.1.2</fontawesomefx.fontawesome.version>
 		<fontawesomefx.materialicons.version>2.2.0-9.1.2</fontawesomefx.materialicons.version>
 		<fontawesomefx.materialdesignfont.version>2.0.26-9.1.2</fontawesomefx.materialdesignfont.version>
-		<testfx.version>4.0.15-alpha</testfx.version>
-		<jackson-jr.version>2.13.3</jackson-jr.version>
-		<tempus.fugit.version>1.1</tempus.fugit.version>
+		<testfx.version>4.0.16-alpha</testfx.version>
+		<jackson.version>2.13.4</jackson.version>
 		<bouncycastle.version>1.71</bouncycastle.version>
-		<hamcrest.version>1.3</hamcrest.version>
-		<javafx.version>17.0.2</javafx.version>
-		<monocle.version>jdk-12.0.1+2</monocle.version>
+		<assertj.version>3.19.0</assertj.version>
+		<javafx.version>18.0.2</javafx.version>
+		<jakarta-el.version>4.0.2</jakarta-el.version>
+		<jakarta.inject.version>2.0.0</jakarta.inject.version>
+		<validation.api.version>3.0.2</validation.api.version>
+		<awaitility.version>4.2.0</awaitility.version>
 		<maven.build.timestamp.format>dd-MMM-yyyy</maven.build.timestamp.format>
 		<pdfsam.builddate>${maven.build.timestamp}</pdfsam.builddate>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -275,6 +281,23 @@
 
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>com.fasterxml.jackson</groupId>
+				<artifactId>jackson-bom</artifactId>
+				<version>${jackson.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+			<dependency>
+				<groupId>jakarta.validation</groupId>
+				<artifactId>jakarta.validation-api</artifactId>
+				<version>${validation.api.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.glassfish</groupId>
+				<artifactId>jakarta.el</artifactId>
+				<version>${jakarta-el.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-validator</artifactId>
@@ -331,18 +354,13 @@
 				<version>${injector.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>javax.inject</groupId>
-				<artifactId>javax.inject</artifactId>
-				<version>1</version>
-			</dependency>
-			<dependency>
-				<groupId>com.fasterxml.jackson.jr</groupId>
-				<artifactId>jackson-jr-objects</artifactId>
-				<version>${jackson-jr.version}</version>
+				<groupId>org.openjfx</groupId>
+				<artifactId>javafx-controls</artifactId>
+				<version>${javafx.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.openjfx</groupId>
-				<artifactId>javafx-controls</artifactId>
+				<artifactId>javafx-graphics</artifactId>
 				<version>${javafx.version}</version>
 			</dependency>
 			<dependency>
@@ -356,9 +374,38 @@
 				<version>${bouncycastle.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>jdepend</groupId>
-				<artifactId>jdepend</artifactId>
-				<version>${jdepend.version}</version>
+				<groupId>jakarta.inject</groupId>
+				<artifactId>jakarta.inject-api</artifactId>
+				<version>${jakarta.inject.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.reactivex.rxjava3</groupId>
+				<artifactId>rxjava</artifactId>
+				<version>${rxjava.version}</version>
+			</dependency>
+			<!-- test -->
+			<dependency>
+				<groupId>org.tinylog</groupId>
+				<artifactId>slf4j-tinylog</artifactId>
+				<version>${tinylog.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.tinylog</groupId>
+				<artifactId>tinylog-impl</artifactId>
+				<version>${tinylog.version}</version>
+				<scope>test</scope>
+				<exclusions>
+					<exclusion>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>animal-sniffer-annotations</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>com.tngtech.archunit</groupId>
+				<artifactId>archunit-junit5</artifactId>
+				<version>${archunit.version}</version>
 				<scope>test</scope>
 			</dependency>
 			<dependency>
@@ -369,7 +416,7 @@
 			</dependency>
 			<dependency>
 				<groupId>org.testfx</groupId>
-				<artifactId>testfx-junit</artifactId>
+				<artifactId>testfx-junit5</artifactId>
 				<version>${testfx.version}</version>
 				<scope>test</scope>
 			</dependency>
@@ -380,10 +427,17 @@
 				<scope>test</scope>
 			</dependency>
 			<dependency>
-				<groupId>org.testfx</groupId>
-				<artifactId>openjfx-monocle</artifactId>
-				<version>${monocle.version}</version>
+				<groupId>org.awaitility</groupId>
+				<artifactId>awaitility</artifactId>
+				<version>${awaitility.version}</version>
 				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.junit</groupId>
+				<artifactId>junit-bom</artifactId>
+				<version>${junit.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -401,15 +455,8 @@
 		</dependency>
 		<!-- test depts -->
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>${logback.version}</version>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -419,15 +466,21 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.hamcrest</groupId>
-			<artifactId>hamcrest-all</artifactId>
-			<version>${hamcrest.version}</version>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>${assertj.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.google.code.tempus-fugit</groupId>
-			<artifactId>tempus-fugit</artifactId>
-			<version>${tempus.fugit.version}</version>
+			<groupId>org.junit-pioneer</groupId>
+			<artifactId>junit-pioneer</artifactId>
+			<version>${junit.pioneer.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.tngtech.archunit</groupId>
+			<artifactId>archunit-junit5</artifactId>
+			<version>${archunit.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

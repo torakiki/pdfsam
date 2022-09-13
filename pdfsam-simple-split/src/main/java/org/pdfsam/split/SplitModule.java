@@ -25,9 +25,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import org.apache.commons.lang3.builder.Builder;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.i18n.DefaultI18nContext;

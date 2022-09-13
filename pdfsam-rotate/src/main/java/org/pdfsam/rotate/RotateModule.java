@@ -26,6 +26,7 @@ import java.util.function.Consumer;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import jakarta.inject.Named;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.injector.Auto;

@@ -58,8 +58,8 @@
 			<artifactId>pdfsam-injector</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>javax.inject</groupId>
-			<artifactId>javax.inject</artifactId>
+			<groupId>jakarta.inject</groupId>
+			<artifactId>jakarta.inject-api</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.openjfx</groupId>
@@ -67,23 +67,13 @@
 		</dependency>
 		<!-- test dependencies -->
 		<dependency>
-			<groupId>jdepend</groupId>
-			<artifactId>jdepend</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.testfx</groupId>
 			<artifactId>testfx-core</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.testfx</groupId>
-			<artifactId>testfx-junit</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.testfx</groupId>
-			<artifactId>openjfx-monocle</artifactId>
+			<artifactId>testfx-junit5</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>

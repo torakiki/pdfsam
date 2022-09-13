@@ -58,10 +58,6 @@
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-controls</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>jdepend</groupId>
-			<artifactId>jdepend</artifactId>
-		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx-swing -->
 		<dependency>
 			<groupId>org.openjfx</groupId>

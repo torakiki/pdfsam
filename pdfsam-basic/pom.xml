@@ -745,14 +745,8 @@
 			<artifactId>pdfsam-injector</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>javax.inject</groupId>
-			<artifactId>javax.inject</artifactId>
-		</dependency>
-		<!-- test dependencies -->
-		<dependency>
-			<groupId>jdepend</groupId>
-			<artifactId>jdepend</artifactId>
-			<scope>test</scope>
+			<groupId>jakarta.inject</groupId>
+			<artifactId>jakarta.inject-api</artifactId>
 		</dependency>
 	</dependencies>
 </project>
