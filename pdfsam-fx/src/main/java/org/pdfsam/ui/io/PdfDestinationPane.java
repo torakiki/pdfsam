@@ -35,7 +35,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.eventstudio.annotation.EventStation;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.support.params.AbstractPdfOutputParametersBuilder;
 import org.pdfsam.support.params.TaskParametersBuildStep;
@@ -87,35 +87,35 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned, 
         advancedPanel.getStyleClass().addAll(Style.CONTAINER.css());
         version = new PdfVersionCombo(ownerModule);
         compress = new PdfVersionConstrainedCheckBox(PdfVersion.VERSION_1_5, ownerModule);
-        compress.setText(DefaultI18nContext.getInstance().i18n("Compress output file/files"));
+        compress.setText(I18nContext.getInstance().i18n("Compress output file/files"));
         compress.setSelected(userContext.isCompressionEnabled());
         compress.setId("compressField");
         compress.getStyleClass().addAll(Style.VITEM.css());
 
         if (asList(optionalFields).contains(DestinationPanelFields.DISCARD_BOOKMARKS)) {
-            CheckBox discardBookmarksField = new CheckBox(DefaultI18nContext.getInstance().i18n("Discard bookmarks"));
-            discardBookmarksField.setGraphic(helpIcon(DefaultI18nContext.getInstance()
+            CheckBox discardBookmarksField = new CheckBox(I18nContext.getInstance().i18n("Discard bookmarks"));
+            discardBookmarksField.setGraphic(helpIcon(I18nContext.getInstance()
                     .i18n("Tick the box if you don't want to retain any bookmark from the original PDF document")));
             discardBookmarksField.getStyleClass().addAll(Style.WITH_HELP.css());
             discardBookmarksField.getStyleClass().addAll(Style.VITEM.css());
             discardBookmarksField.setId("discardBookmarksField");
             discardBookmarks = Optional.of(discardBookmarksField);
         }
-        HBox versionPane = new HBox(new Label(DefaultI18nContext.getInstance().i18n("Output PDF version:")), version);
+        HBox versionPane = new HBox(new Label(I18nContext.getInstance().i18n("Output PDF version:")), version);
         versionPane.getStyleClass().addAll(Style.VITEM.css());
         versionPane.getStyleClass().addAll(Style.HCONTAINER.css());
         advancedPanel.getChildren().add(compress);
         discardBookmarks.ifPresent(advancedPanel.getChildren()::add);
         advancedPanel.getChildren().add(versionPane);
-        TitledPane titledAdvanced = Views.titledPane(DefaultI18nContext.getInstance().i18n("Show advanced settings"),
+        TitledPane titledAdvanced = Views.titledPane(I18nContext.getInstance().i18n("Show advanced settings"),
                 advancedPanel);
         titledAdvanced.getStyleClass().add("advanced-destination-pane");
         titledAdvanced.setExpanded(expandAdvanced);
         titledAdvanced.expandedProperty().addListener((o, oldval, newVal) -> {
             if (newVal) {
-                titledAdvanced.setText(DefaultI18nContext.getInstance().i18n("Hide advanced settings"));
+                titledAdvanced.setText(I18nContext.getInstance().i18n("Hide advanced settings"));
             } else {
-                titledAdvanced.setText(DefaultI18nContext.getInstance().i18n("Show advanced settings"));
+                titledAdvanced.setText(I18nContext.getInstance().i18n("Show advanced settings"));
             }
         });
         getChildren().add(titledAdvanced);

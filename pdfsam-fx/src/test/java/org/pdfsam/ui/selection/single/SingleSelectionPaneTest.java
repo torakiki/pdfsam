@@ -46,8 +46,8 @@ import org.mockito.ArgumentCaptor;
 import org.pdfsam.NoHeadless;
 import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.DefaultUserContext;
-import org.pdfsam.i18n.DefaultI18nContext;
-import org.pdfsam.i18n.SetLocaleEvent;
+import org.pdfsam.i18n.I18nContext;
+import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
@@ -88,7 +88,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
 
     @BeforeClass
     public static void setUp() {
-        eventStudio().broadcast(new SetLocaleEvent(Locale.UK.toLanguageTag()));
+        eventStudio().broadcast(new SetLocaleRequest(Locale.UK.toLanguageTag()));
         System.setProperty("testfx.robot.write_sleep", "5");
     }
 
@@ -116,7 +116,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
         eventStudio().add(ShowPdfDescriptorRequest.class, listener);
         typePathAndValidate();
         rightClickOn(".validable-container-field");
-        clickOn(DefaultI18nContext.getInstance().i18n("Document properties"));
+        clickOn(I18nContext.getInstance().i18n("Document properties"));
         assertTrue(listener.isHit());
     }
 
@@ -133,7 +133,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
         eventStudio().add(SetDestinationRequest.class, listener, MODULE);
         typePathAndValidate();
         rightClickOn(".validable-container-field");
-        clickOn(DefaultI18nContext.getInstance().i18n("Set destination"));
+        clickOn(I18nContext.getInstance().i18n("Set destination"));
         assertTrue(listener.isHit());
     }
 
@@ -150,7 +150,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
         eventStudio().add(OpenFileRequest.class, listener);
         typePathAndValidate();
         rightClickOn(".validable-container-field");
-        clickOn(DefaultI18nContext.getInstance().i18n("Open"));
+        clickOn(I18nContext.getInstance().i18n("Open"));
         assertTrue(listener.isHit());
     }
 
@@ -167,7 +167,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
         eventStudio().add(OpenFileRequest.class, listener);
         typePathAndValidate();
         rightClickOn(".validable-container-field");
-        clickOn(DefaultI18nContext.getInstance().i18n("Open Folder"));
+        clickOn(I18nContext.getInstance().i18n("Open Folder"));
         assertTrue(listener.isHit());
     }
 
@@ -176,7 +176,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
     public void removeMenuItem() throws Exception {
         typePathAndValidate();
         rightClickOn(".validable-container-field");
-        clickOn(DefaultI18nContext.getInstance().i18n("Remove"));
+        clickOn(I18nContext.getInstance().i18n("Remove"));
         assertTrue(isEmpty(victim.getField().getTextField().getText()));
     }
 
@@ -238,7 +238,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
         typePathAndValidate("/this/doesnt/exists");
         ValidableTextField victim = lookup(".validable-container-field").queryAs(ValidableTextField.class);
         victim.getContextMenu().getItems().parallelStream().filter(i -> !(i instanceof SeparatorMenuItem))
-                .filter(i -> !i.getText().equals(DefaultI18nContext.getInstance().i18n("Remove")))
+                .filter(i -> !i.getText().equals(I18nContext.getInstance().i18n("Remove")))
                 .forEach(i -> assertTrue(i.getText(), i.isDisable()));
     }
 
@@ -248,7 +248,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
         typePathAndValidate("/this/doesnt/exists");
         ValidableTextField victim = lookup(".validable-container-field").queryAs(ValidableTextField.class);
         victim.getContextMenu().getItems().parallelStream().filter(i -> !(i instanceof SeparatorMenuItem))
-                .filter(i -> !i.getText().equals(DefaultI18nContext.getInstance().i18n("Remove")))
+                .filter(i -> !i.getText().equals(I18nContext.getInstance().i18n("Remove")))
                 .forEach(i -> assertTrue(i.isDisable()));
     }
 
@@ -259,13 +259,13 @@ public class SingleSelectionPaneTest extends ApplicationTest {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
         });
-        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("Loading...")).tryQuery().isPresent());
+        assertTrue(lookup(I18nContext.getInstance().i18n("Loading...")).tryQuery().isPresent());
     }
 
     @Test
     public void loadedDetails() throws Exception {
         moveToLoadedState(victim);
-        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}", "0", "")).tryQuery()
+        assertTrue(lookup(I18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}", "0", "")).tryQuery()
                 .isPresent());
     }
 
@@ -345,14 +345,14 @@ public class SingleSelectionPaneTest extends ApplicationTest {
     @Test
     public void decryptedDetails() throws Exception {
         moveToLoadedWithDecryption(victim);
-        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}", "0", "")).tryQuery()
+        assertTrue(lookup(I18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}", "0", "")).tryQuery()
                 .isPresent());
     }
 
     @Test
     public void loadedDetailsSpecialChars() throws Exception {
         moveToLoadedStateWithSpecialChars(victim);
-        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}", "0", "")).tryQuery()
+        assertTrue(lookup(I18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}", "0", "")).tryQuery()
                 .isPresent());
     }
 
@@ -385,7 +385,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
         eventStudio().add(PdfLoadRequestEvent.class, listener);
         moveToEncrytedState(victim);
         clickOn(FontAwesomeIcon.LOCK.unicode());
-        write("pwd").clickOn(DefaultI18nContext.getInstance().i18n("Unlock"));
+        write("pwd").clickOn(I18nContext.getInstance().i18n("Unlock"));
         verify(listener, times(2)).onEvent(any());
     }
 
@@ -412,7 +412,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
         assertTrue(isEmpty(encStatus.getText()));
         var field = lookup(".validable-container-field").queryAs(ValidableTextField.class);
         field.getContextMenu().getItems().parallelStream().filter(i -> !(i instanceof SeparatorMenuItem))
-                .filter(i -> !i.getText().equals(DefaultI18nContext.getInstance().i18n("Remove")))
+                .filter(i -> !i.getText().equals(I18nContext.getInstance().i18n("Remove")))
                 .forEach(i -> assertTrue(i.isDisable()));
     }
 

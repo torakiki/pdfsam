@@ -21,7 +21,7 @@ package org.pdfsam.ui.info;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import org.pdfsam.eventstudio.annotation.EventListener;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
@@ -52,7 +52,7 @@ class KeywordsTab extends Tab implements ChangeListener<PdfDescriptorLoadingStat
     KeywordsTab() {
         VBox content = new VBox();
         content.getStyleClass().add("info-props");
-        setText(DefaultI18nContext.getInstance().i18n("Keywords"));
+        setText(I18nContext.getInstance().i18n("Keywords"));
         setClosable(false);
         keywords.setWrapText(true);
         keywords.getStyleClass().add("info-property-value");

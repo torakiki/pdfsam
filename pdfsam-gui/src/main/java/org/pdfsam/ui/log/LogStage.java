@@ -25,7 +25,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.pdfsam.configuration.StylesConfig;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.ui.commons.ClosePane;
 import org.pdfsam.ui.commons.HideStageRequest;
@@ -67,7 +67,7 @@ public class LogStage extends Stage {
             }
         });
         setScene(scene);
-        setTitle(DefaultI18nContext.getInstance().i18n("Log register"));
+        setTitle(I18nContext.getInstance().i18n("Log register"));
         getIcons().addAll(logos);
         setMaximized(true);
         eventStudio().addAnnotatedListeners(this);

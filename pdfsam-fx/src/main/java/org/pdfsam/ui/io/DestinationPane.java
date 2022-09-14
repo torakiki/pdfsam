@@ -21,7 +21,7 @@ package org.pdfsam.ui.io;
 import static org.pdfsam.ui.help.HelpUtils.helpIcon;
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.ui.ResettableView;
 import org.pdfsam.ui.support.Style;
 
@@ -36,7 +36,7 @@ import javafx.scene.layout.VBox;
  */
 class DestinationPane extends VBox implements ResettableView {
 
-    private CheckBox overwrite = new CheckBox(DefaultI18nContext.getInstance().i18n("Overwrite if already exists"));
+    private CheckBox overwrite = new CheckBox(I18nContext.getInstance().i18n("Overwrite if already exists"));
     private BrowsableField destination;
 
     public DestinationPane(BrowsableField destination) {
@@ -44,7 +44,7 @@ class DestinationPane extends VBox implements ResettableView {
         requireNotNullArg(destination, "Destination field cannot be null");
         this.destination = destination;
         overwrite.setSelected(false);
-        overwrite.setGraphic(helpIcon(DefaultI18nContext.getInstance()
+        overwrite.setGraphic(helpIcon(I18nContext.getInstance()
                 .i18n("Tick the box if you want to overwrite the output files if they already exist.")));
         overwrite.getStyleClass().addAll(Style.WITH_HELP.css());
 

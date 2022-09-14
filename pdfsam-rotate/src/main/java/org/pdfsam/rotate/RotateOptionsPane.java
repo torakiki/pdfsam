@@ -26,7 +26,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.ResettableView;
@@ -54,25 +54,25 @@ class RotateOptionsPane extends HBox
     RotateOptionsPane() {
         super(Style.DEFAULT_SPACING);
         this.rotationType.getItems()
-                .add(keyValue(PredefinedSetOfPages.ALL_PAGES, DefaultI18nContext.getInstance().i18n("All pages")));
+                .add(keyValue(PredefinedSetOfPages.ALL_PAGES, I18nContext.getInstance().i18n("All pages")));
         this.rotationType.getItems()
-                .add(keyValue(PredefinedSetOfPages.EVEN_PAGES, DefaultI18nContext.getInstance().i18n("Even pages")));
+                .add(keyValue(PredefinedSetOfPages.EVEN_PAGES, I18nContext.getInstance().i18n("Even pages")));
         this.rotationType.getItems()
-                .add(keyValue(PredefinedSetOfPages.ODD_PAGES, DefaultI18nContext.getInstance().i18n("Odd pages")));
+                .add(keyValue(PredefinedSetOfPages.ODD_PAGES, I18nContext.getInstance().i18n("Odd pages")));
         this.rotationType.setId("rotationType");
 
         this.rotation.getItems()
-                .add(keyValue(Rotation.DEGREES_90, DefaultI18nContext.getInstance().i18n("90 degrees clockwise")));
+                .add(keyValue(Rotation.DEGREES_90, I18nContext.getInstance().i18n("90 degrees clockwise")));
         this.rotation.getItems()
-                .add(keyValue(Rotation.DEGREES_180, DefaultI18nContext.getInstance().i18n("180 degrees clockwise")));
+                .add(keyValue(Rotation.DEGREES_180, I18nContext.getInstance().i18n("180 degrees clockwise")));
         this.rotation.getItems().add(
-                keyValue(Rotation.DEGREES_270, DefaultI18nContext.getInstance().i18n("90 degrees counterclockwise")));
+                keyValue(Rotation.DEGREES_270, I18nContext.getInstance().i18n("90 degrees counterclockwise")));
         this.rotation.setId("rotation");
 
         getStyleClass().addAll(Style.HCONTAINER.css());
         getStyleClass().addAll(Style.CONTAINER.css());
         resetView();
-        getChildren().addAll(new Label(DefaultI18nContext.getInstance().i18n("Rotate ")), this.rotationType,
+        getChildren().addAll(new Label(I18nContext.getInstance().i18n("Rotate ")), this.rotationType,
                 this.rotation);
     }
 

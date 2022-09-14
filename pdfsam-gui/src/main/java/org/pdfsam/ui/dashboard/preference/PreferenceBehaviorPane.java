@@ -23,7 +23,7 @@ import static org.pdfsam.ui.help.HelpUtils.helpIcon;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.ui.support.Style;
 
 import javafx.scene.control.Label;
@@ -48,11 +48,11 @@ class PreferenceBehaviorPane extends GridPane {
             @Named("checkForNews") PreferenceCheckBox checkForNews,
             @Named("clearConfirmation") PreferenceCheckBox clearConfirmation) {
 
-        add(new Label(DefaultI18nContext.getInstance().i18n("Log register rows:")), 0, 1);
+        add(new Label(I18nContext.getInstance().i18n("Log register rows:")), 0, 1);
         setFillWidth(logViewRowsNumber, true);
         logViewRowsNumber.setMaxWidth(Double.POSITIVE_INFINITY);
         add(logViewRowsNumber, 1, 1);
-        add(helpIcon(DefaultI18nContext.getInstance().i18n("Maximum number of rows displayed by the Log register")), 2,
+        add(helpIcon(I18nContext.getInstance().i18n("Maximum number of rows displayed by the Log register")), 2,
                 1);
 
         add(playSounds, 0, 2, 3, 1);

@@ -30,7 +30,7 @@ import javax.inject.Inject;
 
 import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -60,7 +60,7 @@ public class DefaultPremiumModulesService implements PremiumModulesService {
                     PremiumModule.class,
                     urlToStream(new URL(pdfsam.property(ConfigurableProperty.PREMIUM_MODULES_URL))));
         } catch (IOException e) {
-            LOG.warn(DefaultI18nContext.getInstance().i18n("Unable to retrieve premium features description"), e);
+            LOG.warn(I18nContext.getInstance().i18n("Unable to retrieve premium features description"), e);
         }
         return Collections.emptyList();
     }

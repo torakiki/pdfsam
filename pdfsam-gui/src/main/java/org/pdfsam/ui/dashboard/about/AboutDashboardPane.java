@@ -41,7 +41,7 @@ import javax.inject.Inject;
 
 import org.apache.commons.io.FileUtils;
 import org.pdfsam.Pdfsam;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.ui.commons.UrlButton;
 import org.pdfsam.ui.support.Style;
 
@@ -74,20 +74,20 @@ public class AboutDashboardPane extends HBox {
         addHyperlink(null, pdfsam.property(LICENSE_URL), pdfsam.property(LICENSE_NAME), left);
         addHyperlink(FontAwesomeIcon.HOME, pdfsam.property(HOME_URL), pdfsam.property(HOME_LABEL), left);
         addHyperlink(FontAwesomeIcon.RSS_SQUARE, pdfsam.property(FEED_URL),
-                DefaultI18nContext.getInstance().i18n("Subscribe to the official news feed"), left);
+                I18nContext.getInstance().i18n("Subscribe to the official news feed"), left);
 
-        addSectionTitle(DefaultI18nContext.getInstance().i18n("Environment"), left);
+        addSectionTitle(I18nContext.getInstance().i18n("Environment"), left);
         Label runtime = new Label(String.format("%s %s", System.getProperty("java.runtime.name"),
                 System.getProperty("java.runtime.version")));
         Label vendor = new Label(
-                String.format(DefaultI18nContext.getInstance().i18n("Vendor: %s"), System.getProperty("java.vendor")));
-        Label runtimePath = new Label(String.format(DefaultI18nContext.getInstance().i18n("Java runtime path: %s"),
+                String.format(I18nContext.getInstance().i18n("Vendor: %s"), System.getProperty("java.vendor")));
+        Label runtimePath = new Label(String.format(I18nContext.getInstance().i18n("Java runtime path: %s"),
                 System.getProperty("java.home")));
-        Label fx = new Label(String.format(DefaultI18nContext.getInstance().i18n("JavaFX runtime version %s"),
+        Label fx = new Label(String.format(I18nContext.getInstance().i18n("JavaFX runtime version %s"),
                 System.getProperty("javafx.runtime.version")));
-        Label memory = new Label(DefaultI18nContext.getInstance().i18n("Max memory {0}",
+        Label memory = new Label(I18nContext.getInstance().i18n("Max memory {0}",
                 FileUtils.byteCountToDisplaySize(Runtime.getRuntime().maxMemory())));
-        Button copyButton = new Button(DefaultI18nContext.getInstance().i18n("Copy to clipboard"));
+        Button copyButton = new Button(I18nContext.getInstance().i18n("Copy to clipboard"));
         FontAwesomeIconFactory.get().setIcon(copyButton, FontAwesomeIcon.COPY);
         copyButton.getStyleClass().addAll(Style.BUTTON.css());
         copyButton.setId("copyEnvDetails");
@@ -100,27 +100,27 @@ public class AboutDashboardPane extends HBox {
         left.getChildren().addAll(runtime, vendor, runtimePath, fx, memory, copyButton);
 
         VBox right = new VBox(5);
-        addSectionTitle(DefaultI18nContext.getInstance().i18n("Support"), right);
+        addSectionTitle(I18nContext.getInstance().i18n("Support"), right);
         addHyperlink(FontAwesomeIcon.BUG, pdfsam.property(TRACKER_URL),
-                DefaultI18nContext.getInstance().i18n("Bug and feature requests"), right);
+                I18nContext.getInstance().i18n("Bug and feature requests"), right);
         addHyperlink(FontAwesomeIcon.QUESTION_CIRCLE, pdfsam.property(SUPPORT_URL),
-                DefaultI18nContext.getInstance().i18n("Support"), right);
+                I18nContext.getInstance().i18n("Support"), right);
         addHyperlink(FontAwesomeIcon.BOOK, pdfsam.property(DOCUMENTATION_URL),
-                DefaultI18nContext.getInstance().i18n("Documentation"), right);
+                I18nContext.getInstance().i18n("Documentation"), right);
 
-        addSectionTitle(DefaultI18nContext.getInstance().i18n("Contribute"), right);
+        addSectionTitle(I18nContext.getInstance().i18n("Contribute"), right);
         addHyperlink(FontAwesomeIcon.GITHUB, pdfsam.property(SCM_URL),
-                DefaultI18nContext.getInstance().i18n("Fork PDFsam on GitHub"), right);
+                I18nContext.getInstance().i18n("Fork PDFsam on GitHub"), right);
         addHyperlink(FontAwesomeIcon.FLAG_ALT, pdfsam.property(TRANSLATE_URL),
-                DefaultI18nContext.getInstance().i18n("Translate"), right);
+                I18nContext.getInstance().i18n("Translate"), right);
         addHyperlink(FontAwesomeIcon.DOLLAR, pdfsam.property(DONATE_URL),
-                DefaultI18nContext.getInstance().i18n("Donate"), right);
+                I18nContext.getInstance().i18n("Donate"), right);
 
-        addSectionTitle(DefaultI18nContext.getInstance().i18n("Social"), right);
+        addSectionTitle(I18nContext.getInstance().i18n("Social"), right);
         addHyperlink(FontAwesomeIcon.TWITTER_SQUARE, pdfsam.property(TWITTER_URL),
-                DefaultI18nContext.getInstance().i18n("Follow us on Twitter"), right);
+                I18nContext.getInstance().i18n("Follow us on Twitter"), right);
         addHyperlink(FontAwesomeIcon.FACEBOOK_SQUARE, pdfsam.property(FACEBOOK_URL),
-                DefaultI18nContext.getInstance().i18n("Like us on Facebook"), right);
+                I18nContext.getInstance().i18n("Like us on Facebook"), right);
         getChildren().addAll(left, right);
     }
 

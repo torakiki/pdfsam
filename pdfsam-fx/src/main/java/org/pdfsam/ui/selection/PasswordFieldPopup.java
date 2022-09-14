@@ -22,7 +22,7 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
@@ -87,9 +87,9 @@ public class PasswordFieldPopup extends PopupControl implements ModuleOwned {
 
         public PasswordFieldPopupContent() {
             getStyleClass().setAll("pdfsam-input-password-content");
-            passwordField.setPromptText(DefaultI18nContext.getInstance().i18n("Enter the user password"));
+            passwordField.setPromptText(I18nContext.getInstance().i18n("Enter the user password"));
             Button doneButton = FontAwesomeIconFactory.get().createIconButton(FontAwesomeIcon.UNLOCK,
-                    DefaultI18nContext.getInstance().i18n("Unlock"));
+                    I18nContext.getInstance().i18n("Unlock"));
             doneButton.getStyleClass().addAll(Style.BUTTON.css());
             doneButton.prefHeightProperty().bind(passwordField.heightProperty());
             doneButton.setMaxHeight(USE_PREF_SIZE);

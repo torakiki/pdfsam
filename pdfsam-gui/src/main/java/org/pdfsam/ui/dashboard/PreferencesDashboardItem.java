@@ -20,7 +20,7 @@ package org.pdfsam.ui.dashboard;
 
 import javax.inject.Inject;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.ui.dashboard.preference.PreferencePane;
 
@@ -54,7 +54,7 @@ public class PreferencesDashboardItem implements DashboardItem {
 
     @Override
     public String name() {
-        return DefaultI18nContext.getInstance().i18n("Settings");
+        return I18nContext.getInstance().i18n("Settings");
     }
 
     @Override

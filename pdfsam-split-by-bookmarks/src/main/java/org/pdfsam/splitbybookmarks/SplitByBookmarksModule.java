@@ -30,7 +30,7 @@ import javax.inject.Named;
 import jakarta.inject.Named;
 import org.apache.commons.lang3.builder.Builder;
 import org.pdfsam.context.UserContext;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.injector.Components;
 import org.pdfsam.injector.Provides;
@@ -78,8 +78,8 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
     private PrefixPane prefix;
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT)
             .inputTypes(ModuleInputOutputType.SINGLE_PDF)
-            .name(DefaultI18nContext.getInstance().i18n("Split by bookmarks"))
-            .description(DefaultI18nContext.getInstance()
+            .name(I18nContext.getInstance().i18n("Split by bookmarks"))
+            .description(I18nContext.getInstance()
                     .i18n("Split a PDF document at bookmarked pages by specifying a bookmark level."))
             .priority(ModulePriority.DEFAULT.getPriority()).supportURL("https://pdfsam.org/pdf-split/")
             .build();
@@ -93,7 +93,7 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
         this.destinationPane = destinationPane;
         this.selectionPane = new TaskParametersBuilderSingleSelectionPane(id());
         this.selectionPane.setPromptText(
-                DefaultI18nContext.getInstance().i18n("Select or drag and drop the PDF you want to split"));
+                I18nContext.getInstance().i18n("Select or drag and drop the PDF you want to split"));
         this.selectionPane.addOnLoaded(d -> splitOptions.setValidBookmarkLevels(d.getValidBookmarksLevels()));
         this.prefix = prefix;
         initModuleSettingsPanel(settingPanel());
@@ -137,7 +137,7 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
         VBox pane = new VBox();
         pane.setAlignment(Pos.TOP_CENTER);
 
-        TitledPane prefixTitled = Views.titledPane(DefaultI18nContext.getInstance().i18n("File names settings"),
+        TitledPane prefixTitled = Views.titledPane(I18nContext.getInstance().i18n("File names settings"),
                 prefix);
         prefix.addMenuItemFor(Prefix.CURRENTPAGE);
         prefix.addMenuItemFor(Prefix.FILENUMBER);
@@ -146,8 +146,8 @@ public class SplitByBookmarksModule extends BaseTaskExecutionModule {
         prefix.addMenuItemFor("[TOTAL_FILESNUMBER]");
 
         pane.getChildren().addAll(selectionPane,
-                Views.titledPane(DefaultI18nContext.getInstance().i18n("Split settings"), splitOptions),
-                Views.titledPane(DefaultI18nContext.getInstance().i18n("Output settings"), destinationPane),
+                Views.titledPane(I18nContext.getInstance().i18n("Split settings"), splitOptions),
+                Views.titledPane(I18nContext.getInstance().i18n("Output settings"), destinationPane),
                 prefixTitled);
         return pane;
     }

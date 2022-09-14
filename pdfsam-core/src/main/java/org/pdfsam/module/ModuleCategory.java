@@ -18,7 +18,7 @@
  */
 package org.pdfsam.module;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 
 /**
  * The category for a module
@@ -27,10 +27,10 @@ import org.pdfsam.i18n.DefaultI18nContext;
  * 
  */
 public enum ModuleCategory {
-    SPLIT(DefaultI18nContext.getInstance().i18n("Split")),
-    MERGE(DefaultI18nContext.getInstance().i18n("Merge")),
-    SECURITY(DefaultI18nContext.getInstance().i18n("Security")),
-    OTHER(DefaultI18nContext.getInstance().i18n("Other"));
+    SPLIT(I18nContext.getInstance().i18n("Split")),
+    MERGE(I18nContext.getInstance().i18n("Merge")),
+    SECURITY(I18nContext.getInstance().i18n("Security")),
+    OTHER(I18nContext.getInstance().i18n("Other"));
 
     private String description;
 

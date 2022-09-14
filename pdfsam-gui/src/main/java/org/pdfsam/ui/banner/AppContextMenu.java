@@ -22,7 +22,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import javax.inject.Inject;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.ui.dashboard.PreferencesDashboardItem;
 import org.pdfsam.ui.event.SetActiveDashboardItemRequest;
 
@@ -43,13 +43,13 @@ import javafx.scene.input.KeyCombination;
 class AppContextMenu extends ContextMenu {
     @Inject
     AppContextMenu(WorkspaceMenu workspace, ModulesMenu modulesMenu) {
-        MenuItem exit = new MenuItem(DefaultI18nContext.getInstance().i18n("E_xit"));
+        MenuItem exit = new MenuItem(I18nContext.getInstance().i18n("E_xit"));
         exit.setOnAction(e -> Platform.exit());
         exit.setAccelerator(new KeyCodeCombination(KeyCode.Q, KeyCombination.SHORTCUT_DOWN));
         getItems().addAll(workspace, modulesMenu);
         if (!Boolean.getBoolean(PreferencesDashboardItem.PDFSAM_DISABLE_SETTINGS_DEPRECATED)
                 && !Boolean.getBoolean(PreferencesDashboardItem.PDFSAM_DISABLE_SETTINGS)) {
-            MenuItem settings = new MenuItem(DefaultI18nContext.getInstance().i18n("_Settings"));
+            MenuItem settings = new MenuItem(I18nContext.getInstance().i18n("_Settings"));
             settings.setOnAction(
                     e -> eventStudio().broadcast(new SetActiveDashboardItemRequest(PreferencesDashboardItem.ID)));
             getItems().add(settings);

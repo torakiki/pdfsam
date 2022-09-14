@@ -34,7 +34,7 @@ import org.pdfsam.NoHeadless;
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.eventstudio.Listener;
-import org.pdfsam.i18n.SetLocaleEvent;
+import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.LocaleKeyValueItem;
 import org.testfx.framework.junit.ApplicationTest;
@@ -71,12 +71,12 @@ public class PreferenceAppearencePaneTest extends ApplicationTest {
     @Test
     @Category(NoHeadless.class)
     public void eventSentOnLocaleChange() {
-        Listener<SetLocaleEvent> listener = mock(Listener.class);
-        eventStudio().add(SetLocaleEvent.class, listener);
+        Listener<SetLocaleRequest> listener = mock(Listener.class);
+        eventStudio().add(SetLocaleRequest.class, listener);
         PreferenceComboBox<LocaleKeyValueItem> localeCombo = lookup("#localeCombo").queryAs(PreferenceComboBox.class);
         LocaleKeyValueItem first = localeCombo.getItems().get(0);
         clickOn("#localeCombo").sleep(1000).clickOn(StringUtils.capitalize(first.getValue()));
-        ArgumentCaptor<SetLocaleEvent> captor = ArgumentCaptor.forClass(SetLocaleEvent.class);
+        ArgumentCaptor<SetLocaleRequest> captor = ArgumentCaptor.forClass(SetLocaleRequest.class);
         verify(listener).onEvent(captor.capture());
         assertEquals(first.getKey(), captor.getValue().getLocaleString());
         verify(userContext).setStringPreference(eq(StringUserPreference.LOCALE), eq(first.getKey()));

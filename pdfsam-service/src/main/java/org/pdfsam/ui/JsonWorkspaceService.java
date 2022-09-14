@@ -25,7 +25,7 @@ import java.io.FileInputStream;
 import java.util.Collections;
 import java.util.Map;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,10 +46,10 @@ class JsonWorkspaceService implements WorkspaceService {
     @Override
     public void saveWorkspace(Map<String, Map<String, String>> data, File destination) {
         requireNotNullArg(destination, "Destination file cannot be null");
-        LOG.debug(DefaultI18nContext.getInstance().i18n("Saving workspace data to {0}", destination.getAbsolutePath()));
+        LOG.debug(I18nContext.getInstance().i18n("Saving workspace data to {0}", destination.getAbsolutePath()));
         try {
             jackson.write(data, destination);
-            LOG.info(DefaultI18nContext.getInstance().i18n("Workspace saved"));
+            LOG.info(I18nContext.getInstance().i18n("Workspace saved"));
         } catch (Exception e) {
             // make it unchecked
             throw new RuntimeException(e);

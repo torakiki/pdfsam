@@ -22,7 +22,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.stream.Collectors;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.news.HideNewsPanelRequest;
 import org.pdfsam.news.LatestNewsEvent;
 import org.pdfsam.ui.support.Style;
@@ -55,7 +55,7 @@ public class NewsPanel extends VBox {
         Button closeButton = FontAwesomeIconFactory.get().createIconButton(FontAwesomeIcon.TIMES);
         closeButton.getStyleClass().addAll("close-button");
         closeButton.setOnAction(e -> eventStudio().broadcast(HideNewsPanelRequest.INSTANCE));
-        Label titleLabel = new Label(DefaultI18nContext.getInstance().i18n("What's new"));
+        Label titleLabel = new Label(I18nContext.getInstance().i18n("What's new"));
         titleLabel.setPrefWidth(Integer.MAX_VALUE);
         titleLabel.getStyleClass().add("news-panel-title");
 

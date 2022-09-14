@@ -28,7 +28,6 @@ import javax.inject.Provider;
 
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.eventstudio.exception.BroadcastInterruptionException;
-import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.module.TaskExecutionRequestEvent;
@@ -92,7 +91,7 @@ public class OverwriteDialogController {
 
     private void onDirectory(AbstractParameters params, File dir) {
         if (isNotEmpty(dir.listFiles())) {
-            I18nContext i18n = DefaultI18nContext.getInstance();
+            I18nContext i18n = I18nContext.getInstance();
             OverwriteConfirmationDialog dlg = dialog.get().init();
             ExistingOutputPolicy response = dlg.title(i18n.i18n(
                     "Directory not empty"))
@@ -112,7 +111,7 @@ public class OverwriteDialogController {
 
     private void onFile(AbstractParameters params, File file) {
         if (file.exists()) {
-            I18nContext i18n = DefaultI18nContext.getInstance();
+            I18nContext i18n = I18nContext.getInstance();
             OverwriteConfirmationDialog dlg = dialog.get().init();
             ExistingOutputPolicy response = dlg.title(i18n.i18n(
                     "Overwrite confirmation"))

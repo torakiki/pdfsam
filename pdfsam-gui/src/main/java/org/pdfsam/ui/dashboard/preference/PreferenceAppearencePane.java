@@ -27,9 +27,8 @@ import java.util.Locale;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.i18n.SetLocaleEvent;
+import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.LocaleKeyValueItem;
 import org.pdfsam.ui.support.Style;
@@ -49,16 +48,14 @@ class PreferenceAppearencePane extends GridPane {
     public PreferenceAppearencePane(@Named("localeCombo") PreferenceComboBox<LocaleKeyValueItem> localeCombo,
             @Named("startupModuleCombo") PreferenceComboBox<KeyStringValueItem<String>> startupModuleCombo,
             ClearStatisticsButton clearStatsButton) {
-        I18nContext i18n = DefaultI18nContext.getInstance();
+        I18nContext i18n = I18nContext.getInstance();
         add(new Label(i18n.i18n("Language:")), 0, 0);
-        i18n.getSupportedLocales().stream().sorted(
-                Comparator
-                .comparing(Locale::getDisplayName))
+        i18n.getSupported().stream().sorted(Comparator.comparing(Locale::getDisplayName))
                 .map(LocaleKeyValueItem::new).forEach(localeCombo.getItems()::add);
 
         localeCombo.setValue(new LocaleKeyValueItem(Locale.getDefault()));
         localeCombo.valueProperty().addListener(
-                (observable, oldValue, newValue) -> eventStudio().broadcast(new SetLocaleEvent(newValue.getKey())));
+                (observable, oldValue, newValue) -> eventStudio().broadcast(new SetLocaleRequest(newValue.getKey())));
         localeCombo.setMaxWidth(Double.POSITIVE_INFINITY);
         setFillWidth(localeCombo, true);
         add(localeCombo, 1, 0);

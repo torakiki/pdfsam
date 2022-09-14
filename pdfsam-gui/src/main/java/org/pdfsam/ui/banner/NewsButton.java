@@ -20,7 +20,7 @@ package org.pdfsam.ui.banner;
 
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.news.HideNewsPanelRequest;
 import org.pdfsam.news.ShowNewsPanelRequest;
 import org.pdfsam.ui.commons.Animations;
@@ -47,7 +47,7 @@ class NewsButton extends BannerButton {
             eventStudio().broadcast(action);
             action = switchAction();
         });
-        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("What's new")));
+        setTooltip(new Tooltip(I18nContext.getInstance().i18n("What's new")));
         anim = Animations.shake(this);
         eventStudio().addAnnotatedListeners(this);
     }

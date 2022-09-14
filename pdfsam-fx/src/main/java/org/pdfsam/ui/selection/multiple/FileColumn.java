@@ -22,7 +22,7 @@ import java.io.File;
 import java.text.Collator;
 import java.util.Comparator;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.sejda.commons.util.NumericalSortFilenameComparator;
 
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -44,7 +44,7 @@ public enum FileColumn implements SelectionTableColumn<File> {
 
         @Override
         public String getColumnTitle() {
-            return DefaultI18nContext.getInstance().i18n("Name");
+            return I18nContext.getInstance().i18n("Name");
         }
 
         @Override

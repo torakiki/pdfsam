@@ -29,7 +29,6 @@ import java.util.function.Consumer;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.UserContext;
-import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.module.TaskExecutionRequestEvent;
@@ -62,8 +61,8 @@ public class PrefixPane extends HBox implements TaskParametersBuildStep<Multiple
         this.field = new PrefixField(userContext.getDefaultPrefix(this.ownerModule));
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.HCONTAINER.css());
-        I18nContext ctx = DefaultI18nContext.getInstance();
-        getChildren().addAll(new Label(DefaultI18nContext.getInstance().i18n("Generated PDF documents name prefix:")),
+        I18nContext ctx = I18nContext.getInstance();
+        getChildren().addAll(new Label(I18nContext.getInstance().i18n("Generated PDF documents name prefix:")),
                 field,
                         helpIcon(new TextFlow(
                                 new Text(ctx.i18n("Prefix for the output files name.") + System.lineSeparator()),

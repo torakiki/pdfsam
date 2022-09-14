@@ -21,7 +21,7 @@ package org.pdfsam.ui.module;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import org.pdfsam.eventstudio.annotation.EventListener;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Prototype;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.ui.support.Style;
@@ -43,7 +43,7 @@ public class RunButton extends Button {
 
     public RunButton() {
         getStyleClass().addAll(Style.RUN_BUTTON.css());
-        setText(DefaultI18nContext.getInstance().i18n("Run"));
+        setText(I18nContext.getInstance().i18n("Run"));
         MaterialDesignIconFactory.get().setIcon(this, MaterialDesignIcon.PLAY, "2.0em");
         setMaxHeight(Double.MAX_VALUE);
         setPrefHeight(Double.MAX_VALUE);

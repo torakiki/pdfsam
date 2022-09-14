@@ -27,7 +27,7 @@ import java.util.Arrays;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.ui.ResettableView;
 import org.pdfsam.ui.io.PdfVersionCombo.PdfVersionComboItem;
@@ -150,7 +150,7 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwn
 
         @Override
         public String toString() {
-            return DefaultI18nContext.getInstance().i18n("Version {0}", version.getVersionString());
+            return I18nContext.getInstance().i18n("Version {0}", version.getVersionString());
         }
 
         @Override
@@ -197,7 +197,7 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwn
 
         @Override
         public String toString() {
-            return DefaultI18nContext.getInstance().i18n("Same as the input document");
+            return I18nContext.getInstance().i18n("Same as the input document");
         }
 
     }

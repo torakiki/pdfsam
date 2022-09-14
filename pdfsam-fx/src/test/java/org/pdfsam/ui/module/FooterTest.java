@@ -33,8 +33,8 @@ import java.util.Locale;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.pdfsam.i18n.DefaultI18nContext;
-import org.pdfsam.i18n.SetLocaleEvent;
+import org.pdfsam.i18n.I18nContext;
+import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.module.ModuleInputOutputType;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
@@ -66,7 +66,7 @@ public class FooterTest {
 
     @Before
     public void setUp() {
-        eventStudio().broadcast(new SetLocaleEvent(Locale.UK.toLanguageTag()));
+        eventStudio().broadcast(new SetLocaleRequest(Locale.UK.toLanguageTag()));
         OpenButton button = new OpenButton(MODULE_ID, ModuleInputOutputType.SINGLE_PDF);
         victim = new Footer(new RunButton(), button, MODULE_ID);
     }
@@ -84,7 +84,7 @@ public class FooterTest {
         victim.onTaskCompleted(event);
         assertFalse(victim.lookup(".footer-failed-button").isVisible());
         assertTrue(victim.lookup(".footer-open-button").isVisible());
-        assertEquals(DefaultI18nContext.getInstance().i18n("Completed"),
+        assertEquals(I18nContext.getInstance().i18n("Completed"),
                 ((Labeled) victim.lookup(".status-label")).getText());
         assertEquals(1, ((ProgressBar) victim.lookup(".pdfsam-footer-bar")).getProgress(), 0.01);
     }
@@ -95,7 +95,7 @@ public class FooterTest {
         victim.onTaskFailed(event);
         assertTrue(victim.lookup(".footer-failed-button").isVisible());
         assertFalse(victim.lookup(".footer-open-button").isVisible());
-        assertEquals(DefaultI18nContext.getInstance().i18n("Failed"),
+        assertEquals(I18nContext.getInstance().i18n("Failed"),
                 ((Labeled) victim.lookup(".status-label")).getText());
         assertEquals(0, ((ProgressBar) victim.lookup(".pdfsam-footer-bar")).getProgress(), 0.01);
     }
@@ -107,7 +107,7 @@ public class FooterTest {
         victim.onProgress(event);
         assertFalse(victim.lookup(".footer-failed-button").isVisible());
         assertFalse(victim.lookup(".footer-open-button").isVisible());
-        assertEquals(DefaultI18nContext.getInstance().i18n("Running {0}%", "50"),
+        assertEquals(I18nContext.getInstance().i18n("Running {0}%", "50"),
                 ((Labeled) victim.lookup(".status-label")).getText());
         assertEquals(0.5, ((ProgressBar) victim.lookup(".pdfsam-footer-bar")).getProgress(), 0.01);
     }
@@ -120,7 +120,7 @@ public class FooterTest {
         victim.onProgress(event);
         assertFalse(victim.lookup(".footer-failed-button").isVisible());
         assertFalse(victim.lookup(".footer-open-button").isVisible());
-        assertEquals(DefaultI18nContext.getInstance().i18n("Running"),
+        assertEquals(I18nContext.getInstance().i18n("Running"),
                 ((Labeled) victim.lookup(".status-label")).getText());
         assertTrue(((ProgressBar) victim.lookup(".pdfsam-footer-bar")).isIndeterminate());
     }
@@ -135,7 +135,7 @@ public class FooterTest {
         assertFalse(victim.lookup(".footer-failed-button").isVisible());
         assertFalse(victim.lookup(".footer-open-button").isVisible());
         assertTrue(victim.lookup(".status-label").isVisible());
-        assertEquals(DefaultI18nContext.getInstance().i18n("Requested"),
+        assertEquals(I18nContext.getInstance().i18n("Requested"),
                 ((Labeled) victim.lookup(".status-label")).getText());
         assertEquals(0, ((ProgressBar) victim.lookup(".pdfsam-footer-bar")).getProgress(), 0.01);
         verify(output).accept(any());

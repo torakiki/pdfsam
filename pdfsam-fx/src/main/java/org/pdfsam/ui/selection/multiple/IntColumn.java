@@ -21,7 +21,7 @@ package org.pdfsam.ui.selection.multiple;
 import java.util.Comparator;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 
 import javafx.beans.value.ObservableValue;
 
@@ -35,7 +35,7 @@ public enum IntColumn implements SelectionTableColumn<Integer> {
     PAGES {
         @Override
         public String getColumnTitle() {
-            return DefaultI18nContext.getInstance().i18n("Pages");
+            return I18nContext.getInstance().i18n("Pages");
         }
 
         @Override

@@ -20,7 +20,7 @@ package org.pdfsam.ui.io;
 
 import java.util.function.Consumer;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.support.params.SinglePdfSourceTaskParametersBuilder;
 import org.pdfsam.support.params.TaskParametersBuildStep;
@@ -48,7 +48,7 @@ public class BrowsablePdfInputField extends BrowsableFileField
         if (getTextField().getValidationState() == ValidationState.VALID) {
             builder.source(new PdfFileSourceAdapter(getTextField().getText()).getPdfFileSource());
         } else {
-            onError.accept(DefaultI18nContext.getInstance().i18n("The selected PDF file is invalid"));
+            onError.accept(I18nContext.getInstance().i18n("The selected PDF file is invalid"));
         }
     }
 }

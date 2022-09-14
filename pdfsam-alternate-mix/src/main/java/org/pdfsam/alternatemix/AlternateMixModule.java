@@ -28,7 +28,7 @@ import javax.inject.Named;
 
 import jakarta.inject.Named;
 import org.pdfsam.context.UserContext;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.injector.Components;
 import org.pdfsam.injector.Provides;
@@ -68,8 +68,8 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
     private BrowsablePdfOutputField destinationFileField;
     private PdfDestinationPane destinationPane;
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.MERGE)
-            .inputTypes(ModuleInputOutputType.MULTIPLE_PDF).name(DefaultI18nContext.getInstance().i18n("Alternate Mix"))
-            .description(DefaultI18nContext.getInstance()
+            .inputTypes(ModuleInputOutputType.MULTIPLE_PDF).name(I18nContext.getInstance().i18n("Alternate Mix"))
+            .description(I18nContext.getInstance()
                     .i18n("Merge two or more PDF documents taking pages alternately in natural or reverse order."))
             .priority(ModulePriority.DEFAULT.getPriority()).supportURL("https://pdfsam.org/mix-pdf/").build();
 
@@ -122,7 +122,7 @@ public class AlternateMixModule extends BaseTaskExecutionModule {
         VBox.setVgrow(selectionPane, Priority.ALWAYS);
 
         pane.getChildren().addAll(selectionPane,
-                Views.titledPane(DefaultI18nContext.getInstance().i18n("Destination file"), destinationPane));
+                Views.titledPane(I18nContext.getInstance().i18n("Destination file"), destinationPane));
         return pane;
     }
 

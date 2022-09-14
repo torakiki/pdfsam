@@ -32,7 +32,7 @@ import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.IntUserPreference;
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Provides;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.ModuleKeyValueItem;
@@ -66,7 +66,7 @@ public class PreferenceConfig {
         PreferenceComboBox<KeyStringValueItem<String>> startupModuleCombo = new PreferenceComboBox<>(
                 StringUserPreference.STARTUP_MODULE, userContext);
         startupModuleCombo.setId("startupModuleCombo");
-        startupModuleCombo.getItems().add(keyValue("", DefaultI18nContext.getInstance().i18n("Dashboard")));
+        startupModuleCombo.getItems().add(keyValue("", I18nContext.getInstance().i18n("Dashboard")));
         modules.stream().map(ModuleKeyValueItem::new).sorted(Comparator.comparing(ModuleKeyValueItem::getValue))
                 .forEach(startupModuleCombo.getItems()::add);
         startupModuleCombo.setValue(keyEmptyValue(userContext.getStartupModule()));
@@ -77,10 +77,10 @@ public class PreferenceConfig {
     @Named("checkForUpdates")
     public PreferenceCheckBox checkForUpdates(UserContext userContext) {
         PreferenceCheckBox checkForUpdates = new PreferenceCheckBox(BooleanUserPreference.CHECK_UPDATES,
-                DefaultI18nContext.getInstance().i18n("Check for updates at startup"), userContext.isCheckForUpdates(),
+                I18nContext.getInstance().i18n("Check for updates at startup"), userContext.isCheckForUpdates(),
                 userContext);
         checkForUpdates.setId("checkForUpdates");
-        checkForUpdates.setGraphic(helpIcon(DefaultI18nContext.getInstance()
+        checkForUpdates.setGraphic(helpIcon(I18nContext.getInstance()
                 .i18n("Set whether new version availability should be checked on startup (restart needed)")));
         checkForUpdates.getStyleClass().addAll(Style.WITH_HELP.css());
         checkForUpdates.getStyleClass().add("spaced-vitem");
@@ -91,10 +91,10 @@ public class PreferenceConfig {
     @Named("checkForNews")
     public PreferenceCheckBox checkForNews(UserContext userContext) {
         PreferenceCheckBox checkForNews = new PreferenceCheckBox(BooleanUserPreference.CHECK_FOR_NEWS,
-                DefaultI18nContext.getInstance().i18n("Check for news at startup"), userContext.isCheckForNews(),
+                I18nContext.getInstance().i18n("Check for news at startup"), userContext.isCheckForNews(),
                 userContext);
         checkForNews.setId("checkForNews");
-        checkForNews.setGraphic(helpIcon(DefaultI18nContext.getInstance()
+        checkForNews.setGraphic(helpIcon(I18nContext.getInstance()
                 .i18n("Set whether the application should check for news availability on startup (restart needed)")));
         checkForNews.getStyleClass().addAll(Style.WITH_HELP.css());
         checkForNews.getStyleClass().add("spaced-vitem");
@@ -105,10 +105,10 @@ public class PreferenceConfig {
     @Named("compressionEnabled")
     public PreferenceCheckBox compressionEnabled(UserContext userContext) {
         PreferenceCheckBox compressionEnabled = new PreferenceCheckBox(BooleanUserPreference.PDF_COMPRESSION_ENABLED,
-                DefaultI18nContext.getInstance().i18n("Enabled PDF compression"), userContext.isCompressionEnabled(),
+                I18nContext.getInstance().i18n("Enabled PDF compression"), userContext.isCompressionEnabled(),
                 userContext);
         compressionEnabled.setId("compressionEnabled");
-        compressionEnabled.setGraphic(helpIcon(DefaultI18nContext.getInstance()
+        compressionEnabled.setGraphic(helpIcon(I18nContext.getInstance()
                 .i18n("Set whether \"Compress output file\" should be enabled by default")));
         compressionEnabled.getStyleClass().addAll(Style.WITH_HELP.css());
         compressionEnabled.getStyleClass().add("spaced-vitem");
@@ -119,9 +119,9 @@ public class PreferenceConfig {
     @Named("overwriteOutput")
     public PreferenceCheckBox overwriteOutput(UserContext userContext) {
         PreferenceCheckBox overwriteOutput = new PreferenceCheckBox(BooleanUserPreference.OVERWRITE_OUTPUT,
-                DefaultI18nContext.getInstance().i18n("Overwrite files"), userContext.isOverwriteOutput(), userContext);
+                I18nContext.getInstance().i18n("Overwrite files"), userContext.isOverwriteOutput(), userContext);
         overwriteOutput.setId("overwriteOutput");
-        overwriteOutput.setGraphic(helpIcon(DefaultI18nContext.getInstance()
+        overwriteOutput.setGraphic(helpIcon(I18nContext.getInstance()
                 .i18n("Set whether \"Overwrite if already exists\" should be enabled by default")));
         overwriteOutput.getStyleClass().addAll(Style.WITH_HELP.css());
         overwriteOutput.getStyleClass().add("spaced-vitem");
@@ -132,9 +132,9 @@ public class PreferenceConfig {
     @Named("playSounds")
     public PreferenceCheckBox playSounds(UserContext userContext) {
         PreferenceCheckBox playSounds = new PreferenceCheckBox(BooleanUserPreference.PLAY_SOUNDS,
-                DefaultI18nContext.getInstance().i18n("Play alert sounds"), userContext.isPlaySounds(), userContext);
+                I18nContext.getInstance().i18n("Play alert sounds"), userContext.isPlaySounds(), userContext);
         playSounds.setId("playSounds");
-        playSounds.setGraphic(helpIcon(DefaultI18nContext.getInstance().i18n("Turn on or off alert sounds")));
+        playSounds.setGraphic(helpIcon(I18nContext.getInstance().i18n("Turn on or off alert sounds")));
         playSounds.getStyleClass().addAll(Style.WITH_HELP.css());
         playSounds.getStyleClass().add("spaced-vitem");
         return playSounds;
@@ -144,10 +144,10 @@ public class PreferenceConfig {
     @Named("savePwdInWorkspace")
     public PreferenceCheckBox savePwdInWorkspace(UserContext userContext) {
         PreferenceCheckBox savePwdInWorkspace = new PreferenceCheckBox(BooleanUserPreference.SAVE_PWD_IN_WORKSPACE,
-                DefaultI18nContext.getInstance().i18n("Store passwords when saving a workspace file"),
+                I18nContext.getInstance().i18n("Store passwords when saving a workspace file"),
                 userContext.isSavePwdInWorkspaceFile(), userContext);
         savePwdInWorkspace.setId("savePwdInWorkspace");
-        savePwdInWorkspace.setGraphic(helpIcon(DefaultI18nContext.getInstance().i18n(
+        savePwdInWorkspace.setGraphic(helpIcon(I18nContext.getInstance().i18n(
                 "If an encrypted PDF document has been opened with a password, save the password in the workspace file")));
         savePwdInWorkspace.getStyleClass().addAll(Style.WITH_HELP.css());
         savePwdInWorkspace.getStyleClass().add("spaced-vitem");
@@ -158,10 +158,10 @@ public class PreferenceConfig {
     @Named("donationNotification")
     public PreferenceCheckBox donationNotification(UserContext userContext) {
         PreferenceCheckBox donationNotification = new PreferenceCheckBox(BooleanUserPreference.DONATION_NOTIFICATION,
-                DefaultI18nContext.getInstance().i18n("Show donation window"), userContext.isDonationNotification(),
+                I18nContext.getInstance().i18n("Show donation window"), userContext.isDonationNotification(),
                 userContext);
         donationNotification.setId("donationNotification");
-        donationNotification.setGraphic(helpIcon(DefaultI18nContext.getInstance().i18n(
+        donationNotification.setGraphic(helpIcon(I18nContext.getInstance().i18n(
                 "Turn on or off the notification appearing once in a while and asking the user to support PDFsam with a donation")));
         donationNotification.getStyleClass().addAll(Style.WITH_HELP.css());
         donationNotification.getStyleClass().add("spaced-vitem");
@@ -172,10 +172,10 @@ public class PreferenceConfig {
     @Named("fetchPremiumModules")
     public PreferenceCheckBox fetchPremiumModules(UserContext userContext) {
         PreferenceCheckBox fetchPremiumModules = new PreferenceCheckBox(BooleanUserPreference.PREMIUM_MODULES,
-                DefaultI18nContext.getInstance().i18n("Show premium features"), userContext.isFetchPremiumModules(),
+                I18nContext.getInstance().i18n("Show premium features"), userContext.isFetchPremiumModules(),
                 userContext);
         fetchPremiumModules.setId("fetchPremiumModules");
-        fetchPremiumModules.setGraphic(helpIcon(DefaultI18nContext.getInstance().i18n(
+        fetchPremiumModules.setGraphic(helpIcon(I18nContext.getInstance().i18n(
                 "Set whether the application should fetch and show premium features description in the modules dashboard")));
         fetchPremiumModules.getStyleClass().addAll(Style.WITH_HELP.css());
         fetchPremiumModules.getStyleClass().add("spaced-vitem");
@@ -186,10 +186,10 @@ public class PreferenceConfig {
     @Named("clearConfirmation")
     public PreferenceCheckBox clearConfirmation(UserContext userContext) {
         PreferenceCheckBox clearConfirmation = new PreferenceCheckBox(BooleanUserPreference.CLEAR_CONFIRMATION,
-                DefaultI18nContext.getInstance().i18n("Ask for a confirmation when clearing the selection table"),
+                I18nContext.getInstance().i18n("Ask for a confirmation when clearing the selection table"),
                 userContext.isAskClearConfirmation(), userContext);
         clearConfirmation.setId("clearConfirmation");
-        clearConfirmation.setGraphic(helpIcon(DefaultI18nContext.getInstance()
+        clearConfirmation.setGraphic(helpIcon(I18nContext.getInstance()
                 .i18n("Set whether the application should ask for a confirmation when clearing the selection table")));
         clearConfirmation.getStyleClass().addAll(Style.WITH_HELP.css());
         clearConfirmation.getStyleClass().add("spaced-vitem");
@@ -200,7 +200,7 @@ public class PreferenceConfig {
     @Named("smartRadio")
     public PreferenceRadioButton smartRadio(UserContext userContext) {
         PreferenceRadioButton smartRadio = new PreferenceRadioButton(BooleanUserPreference.SMART_OUTPUT,
-                DefaultI18nContext.getInstance().i18n("Use the selected PDF document directory as output directory"),
+                I18nContext.getInstance().i18n("Use the selected PDF document directory as output directory"),
                 userContext.isUseSmartOutput(), userContext);
         smartRadio.setId("smartRadio");
         return smartRadio;
@@ -232,11 +232,11 @@ public class PreferenceConfig {
     @Named("saveWorkspaceOnExit")
     public PreferenceCheckBox saveWorkspaceOnExit(UserContext userContext) {
         PreferenceCheckBox saveWorkspaceOnExit = new PreferenceCheckBox(BooleanUserPreference.SAVE_WORKSPACE_ON_EXIT,
-                DefaultI18nContext.getInstance().i18n("Save default workspace on exit"),
+                I18nContext.getInstance().i18n("Save default workspace on exit"),
                 userContext.isSaveWorkspaceOnExit(), userContext);
         saveWorkspaceOnExit.setId("saveWorkspaceOnExit");
         saveWorkspaceOnExit.setGraphic(helpIcon(
-                DefaultI18nContext.getInstance().i18n("If a default workspace is set, save it on application exit")));
+                I18nContext.getInstance().i18n("If a default workspace is set, save it on application exit")));
         saveWorkspaceOnExit.getStyleClass().addAll(Style.WITH_HELP.css());
         saveWorkspaceOnExit.getStyleClass().add("spaced-vitem");
         return saveWorkspaceOnExit;
@@ -249,7 +249,7 @@ public class PreferenceConfig {
                 userContext, Validators.positiveInteger());
         logRowsNumber.setText(Integer.toString(userContext.getNumberOfLogRows()));
         logRowsNumber.setErrorMessage(
-                DefaultI18nContext.getInstance().i18n("Maximum number of rows mast be a positive number"));
+                I18nContext.getInstance().i18n("Maximum number of rows mast be a positive number"));
         logRowsNumber.setId("logViewRowsNumber");
         logRowsNumber.validProperty().addListener((o, oldVal, newVal) -> {
             if (newVal == ValidationState.VALID) {

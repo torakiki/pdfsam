@@ -33,7 +33,7 @@ import java.util.TreeSet;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.ObservableAtomicReference;
 import org.sejda.conversion.exception.ConversionException;
 import org.sejda.model.input.PdfFileSource;
@@ -72,7 +72,7 @@ public class PdfDocumentDescriptor {
             return PdfFileSource.newInstanceWithPassword(file, password);
         } catch (IllegalArgumentException e) {
             throw new ConversionException(
-                    DefaultI18nContext.getInstance().i18n("File \"{0}\" does not exist or is invalid", file.getName()),
+                    I18nContext.getInstance().i18n("File \"{0}\" does not exist or is invalid", file.getName()),
                     e);
         }
     }

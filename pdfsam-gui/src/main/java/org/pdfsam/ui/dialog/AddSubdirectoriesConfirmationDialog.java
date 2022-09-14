@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.dialog;
 
-import static org.pdfsam.i18n.DefaultI18nContext.getInstance;
+import static org.pdfsam.i18n.I18nContext.getInstance;
 
 import javax.inject.Inject;
 

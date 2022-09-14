@@ -33,8 +33,8 @@ import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
 import org.pdfsam.NoHeadless;
 import org.pdfsam.configuration.StylesConfig;
-import org.pdfsam.i18n.DefaultI18nContext;
-import org.pdfsam.i18n.SetLocaleEvent;
+import org.pdfsam.i18n.I18nContext;
+import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.injector.Components;
 import org.pdfsam.injector.Injector;
 import org.pdfsam.injector.Provides;
@@ -66,7 +66,8 @@ public class OverwriteDialogControllerUITest extends ApplicationTest {
 
     @BeforeClass
     public static void setUp() {
-        ((DefaultI18nContext) DefaultI18nContext.getInstance()).refresh(new SetLocaleEvent(Locale.UK.toLanguageTag()));
+        ((I18nContext) I18nContext.getInstance()).refresh(
+                new SetLocaleRequest(Locale.UK.toLanguageTag()));
     }
 
     @Override
@@ -96,7 +97,7 @@ public class OverwriteDialogControllerUITest extends ApplicationTest {
         parameters.setOutput(new FileTaskOutput(file));
         button.setOnAction(a -> eventStudio().broadcast(new TaskExecutionRequestEvent("id", parameters)));
         clickOn(button);
-        clickOn(DefaultI18nContext.getInstance().i18n("Cancel"));
+        clickOn(I18nContext.getInstance().i18n("Cancel"));
         assertEquals(ExistingOutputPolicy.FAIL, parameters.getExistingOutputPolicy());
     }
 
@@ -109,7 +110,7 @@ public class OverwriteDialogControllerUITest extends ApplicationTest {
         parameters.setOutput(new FileTaskOutput(file));
         button.setOnAction(a -> eventStudio().broadcast(new TaskExecutionRequestEvent("id", parameters)));
         clickOn(button);
-        clickOn(DefaultI18nContext.getInstance().i18n("Overwrite"));
+        clickOn(I18nContext.getInstance().i18n("Overwrite"));
         assertEquals(ExistingOutputPolicy.OVERWRITE, parameters.getExistingOutputPolicy());
     }
 
@@ -122,7 +123,7 @@ public class OverwriteDialogControllerUITest extends ApplicationTest {
         parameters.setOutput(FileOrDirectoryTaskOutput.directory(folder.getRoot()));
         button.setOnAction(a -> eventStudio().broadcast(new TaskExecutionRequestEvent("id", parameters)));
         clickOn(button);
-        clickOn(DefaultI18nContext.getInstance().i18n("Cancel"));
+        clickOn(I18nContext.getInstance().i18n("Cancel"));
         assertEquals(ExistingOutputPolicy.FAIL, parameters.getExistingOutputPolicy());
     }
 
@@ -135,7 +136,7 @@ public class OverwriteDialogControllerUITest extends ApplicationTest {
         parameters.setOutput(FileOrDirectoryTaskOutput.directory(folder.getRoot()));
         button.setOnAction(a -> eventStudio().broadcast(new TaskExecutionRequestEvent("id", parameters)));
         clickOn(button);
-        clickOn(DefaultI18nContext.getInstance().i18n("Overwrite"));
+        clickOn(I18nContext.getInstance().i18n("Overwrite"));
         assertEquals(ExistingOutputPolicy.OVERWRITE, parameters.getExistingOutputPolicy());
     }
 }

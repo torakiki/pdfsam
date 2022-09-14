@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.params.SplitParametersBuilder;
 import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.ResettableView;
@@ -48,13 +48,13 @@ public class SplitByEveryRadioButton extends RadioButton
     private final ValidableTextField field;
 
     public SplitByEveryRadioButton(ValidableTextField field) {
-        super(DefaultI18nContext.getInstance().i18n("Split by every \"n\" pages"));
+        super(I18nContext.getInstance().i18n("Split by every \"n\" pages"));
         this.field = field;
         this.field.setOnEnterValidation(true);
         this.field.setEnableInvalidStyle(true);
-        this.field.setPromptText(DefaultI18nContext.getInstance().i18n("Number of pages"));
+        this.field.setPromptText(I18nContext.getInstance().i18n("Number of pages"));
         this.field.setValidator(Validators.positiveInteger());
-        this.field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Invalid number of pages"));
+        this.field.setErrorMessage(I18nContext.getInstance().i18n("Invalid number of pages"));
     }
 
     @Override
@@ -63,7 +63,7 @@ public class SplitByEveryRadioButton extends RadioButton
         if (this.field.getValidationState() == ValidationState.VALID) {
             return new SplitByEveryXPagesParametersBuilder(Integer.parseInt(this.field.getText()));
         }
-        onError.accept(DefaultI18nContext.getInstance().i18n("Invalid number of pages"));
+        onError.accept(I18nContext.getInstance().i18n("Invalid number of pages"));
         return null;
     }
 

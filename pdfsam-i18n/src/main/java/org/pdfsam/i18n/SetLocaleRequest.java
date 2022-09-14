@@ -18,26 +18,17 @@
  */
 package org.pdfsam.i18n;
 
-import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.sejda.commons.util.RequireUtils.requireNotBlank;
 
 /**
- * Event to notify that the application Locale should be changed
- * 
- * @author Andrea Vacondio
+ * Request to set a locale to a given IETF BCP 47 language tag string
  *
+ * @author Andrea Vacondio
  */
-public class SetLocaleEvent {
-    private String localeString;
+public record SetLocaleRequest(String languageTag) {
 
-    public SetLocaleEvent(String localeString) {
-        if (isBlank(localeString)) {
-            throw new IllegalArgumentException("Locale string cannot be blank");
-        }
-        this.localeString = localeString;
-    }
-
-    public String getLocaleString() {
-        return localeString;
+    public SetLocaleRequest {
+        requireNotBlank(languageTag, "Locale string cannot be blank");
     }
 
 }

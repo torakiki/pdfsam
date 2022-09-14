@@ -22,7 +22,7 @@ import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteCurrentModule
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.pdfsam.ui.support.Style;
 import org.pdfsam.eventstudio.Listener;
@@ -69,7 +69,7 @@ class DashboardItemPane extends BorderPane {
     }
 
     private HBox buildFooter() {
-        Button closeButton = new Button(DefaultI18nContext.getInstance().i18n("Close"));
+        Button closeButton = new Button(I18nContext.getInstance().i18n("Close"));
         closeButton.getStyleClass().addAll(Style.BUTTON.css());
         closeButton.setTextAlignment(TextAlignment.CENTER);
         closeButton.setOnAction(e -> eventStudio().broadcast(activeteCurrentModule()));

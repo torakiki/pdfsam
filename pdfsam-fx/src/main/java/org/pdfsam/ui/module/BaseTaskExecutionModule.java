@@ -25,7 +25,7 @@ import java.util.function.Consumer;
 import org.apache.commons.lang3.builder.Builder;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.eventstudio.annotation.EventStation;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.ui.notification.AddNotificationRequestEvent;
@@ -64,7 +64,7 @@ public abstract class BaseTaskExecutionModule implements Module {
             ErrorTracker errorTracker = new ErrorTracker();
             Builder<? extends AbstractParameters> builder = getBuilder(errorTracker
                     .andThen(s -> eventStudio().broadcast(new AddNotificationRequestEvent(NotificationType.ERROR, s,
-                            DefaultI18nContext.getInstance().i18n("Invalid parameters")))));
+                            I18nContext.getInstance().i18n("Invalid parameters")))));
             if (!errorTracker.errorOnBuild) {
                 eventStudio().broadcast(new TaskExecutionRequestEvent(id(), builder.build()));
             }

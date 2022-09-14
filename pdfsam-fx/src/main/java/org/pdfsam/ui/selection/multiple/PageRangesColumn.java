@@ -24,7 +24,7 @@ import static org.apache.commons.lang3.StringUtils.isNoneBlank;
 
 import java.util.Comparator;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TableCell;
@@ -38,7 +38,7 @@ import javafx.util.Callback;
  * 
  */
 public class PageRangesColumn implements SelectionTableColumn<String> {
-    private String tooltipMessage = DefaultI18nContext.getInstance()
+    private String tooltipMessage = I18nContext.getInstance()
             .i18n("Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)");
 
     public PageRangesColumn() {
@@ -53,7 +53,7 @@ public class PageRangesColumn implements SelectionTableColumn<String> {
 
     @Override
     public String getColumnTitle() {
-        return DefaultI18nContext.getInstance().i18n("Page ranges");
+        return I18nContext.getInstance().i18n("Page ranges");
     }
 
     @Override

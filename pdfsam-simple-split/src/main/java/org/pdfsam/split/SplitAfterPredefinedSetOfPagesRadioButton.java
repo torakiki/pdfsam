@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.params.SplitParametersBuilder;
 import org.pdfsam.ui.ResettableView;
@@ -47,7 +47,7 @@ class SplitAfterPredefinedSetOfPagesRadioButton extends RadioButton
     private ComboBox<KeyStringValueItem<PredefinedSetOfPages>> combo;
 
     public SplitAfterPredefinedSetOfPagesRadioButton(ComboBox<KeyStringValueItem<PredefinedSetOfPages>> combo) {
-        super(DefaultI18nContext.getInstance().i18n("Split after"));
+        super(I18nContext.getInstance().i18n("Split after"));
         this.combo = combo;
         combo.getSelectionModel().selectFirst();
     }
@@ -63,7 +63,7 @@ class SplitAfterPredefinedSetOfPagesRadioButton extends RadioButton
         if (selected != null) {
             return new SimpleSplitParametersBuilder(selected.getKey());
         }
-        onError.accept(DefaultI18nContext.getInstance().i18n("No page selected"));
+        onError.accept(I18nContext.getInstance().i18n("No page selected"));
         return null;
     }
 

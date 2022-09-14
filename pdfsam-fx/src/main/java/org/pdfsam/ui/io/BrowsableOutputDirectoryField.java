@@ -28,7 +28,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.function.Consumer;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.params.MultipleOutputTaskParametersBuilder;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.commons.NonExistingOutputDirectoryEvent;
@@ -60,10 +60,10 @@ public class BrowsableOutputDirectoryField extends BrowsableDirectoryField
             if (Files.isDirectory(output)) {
                 builder.output(directory(output.toFile()));
             } else {
-                onError.accept(DefaultI18nContext.getInstance().i18n("An existing output directory is required"));
+                onError.accept(I18nContext.getInstance().i18n("An existing output directory is required"));
             }
         } else {
-            onError.accept(DefaultI18nContext.getInstance().i18n("The output directory is required"));
+            onError.accept(I18nContext.getInstance().i18n("The output directory is required"));
         }
     }
 }

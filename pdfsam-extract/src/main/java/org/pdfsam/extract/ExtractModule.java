@@ -30,7 +30,7 @@ import javax.inject.Named;
 
 import jakarta.inject.Named;
 import org.pdfsam.context.UserContext;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.injector.Components;
 import org.pdfsam.injector.Provides;
@@ -77,8 +77,8 @@ public class ExtractModule extends BaseTaskExecutionModule {
 
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT)
             .inputTypes(ModuleInputOutputType.MULTIPLE_PDF, ModuleInputOutputType.SINGLE_PDF)
-            .name(DefaultI18nContext.getInstance().i18n("Extract"))
-            .description(DefaultI18nContext.getInstance().i18n("Extract pages from PDF documents."))
+            .name(I18nContext.getInstance().i18n("Extract"))
+            .description(I18nContext.getInstance().i18n("Extract pages from PDF documents."))
             .priority(ModulePriority.DEFAULT.getPriority()).supportURL("https://pdfsam.org/pdf-extract-pages/").build();
 
     @Inject
@@ -136,14 +136,14 @@ public class ExtractModule extends BaseTaskExecutionModule {
         pane.setAlignment(Pos.TOP_CENTER);
         VBox.setVgrow(selectionPane, Priority.ALWAYS);
 
-        TitledPane prefixTitled = Views.titledPane(DefaultI18nContext.getInstance().i18n("File names settings"),
+        TitledPane prefixTitled = Views.titledPane(I18nContext.getInstance().i18n("File names settings"),
                 prefix);
         prefix.addMenuItemFor(Prefix.FILENUMBER);
         prefix.addMenuItemFor("[TOTAL_FILESNUMBER]");
 
         pane.getChildren().addAll(selectionPane,
-                titledPane(DefaultI18nContext.getInstance().i18n("Extract settings"), extractOptions),
-                titledPane(DefaultI18nContext.getInstance().i18n("Output settings"), destinationPane), prefixTitled);
+                titledPane(I18nContext.getInstance().i18n("Extract settings"), extractOptions),
+                titledPane(I18nContext.getInstance().i18n("Output settings"), destinationPane), prefixTitled);
         return pane;
     }
 

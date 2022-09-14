@@ -26,7 +26,7 @@ import java.io.StringWriter;
 import java.nio.file.Files;
 import java.util.Collection;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -61,9 +61,9 @@ public final class ObjectCollectionWriter implements OngoingWrite {
                 writer.append(defaultLineSeparator(item.toString()));
             }
         } catch (Exception e) {
-            LOG.error(DefaultI18nContext.getInstance().i18n("Error saving log file."), e);
+            LOG.error(I18nContext.getInstance().i18n("Error saving log file."), e);
         }
-        LOG.info(DefaultI18nContext.getInstance().i18n("File {0} saved.", file.getAbsolutePath()));
+        LOG.info(I18nContext.getInstance().i18n("File {0} saved.", file.getAbsolutePath()));
     }
 
     @Override
@@ -74,7 +74,7 @@ public final class ObjectCollectionWriter implements OngoingWrite {
             }
             clipboard.putString(writer.toString());
         } catch (Exception e) {
-            LOG.error(DefaultI18nContext.getInstance().i18n("Error saving log file."), e);
+            LOG.error(I18nContext.getInstance().i18n("Error saving log file."), e);
         }
     }
 

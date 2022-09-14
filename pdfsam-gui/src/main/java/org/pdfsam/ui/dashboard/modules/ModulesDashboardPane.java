@@ -25,7 +25,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.module.Module;
 import org.pdfsam.premium.PremiumModule;
 import org.pdfsam.premium.PremiumModulesEvent;
@@ -59,7 +59,7 @@ public class ModulesDashboardPane extends VBox {
     @EventListener
     public void onPremiumModules(PremiumModulesEvent e) {
         if (!e.premiumModules.isEmpty()) {
-            Label premiumTile = new Label(DefaultI18nContext.getInstance().i18n("Premium features"));
+            Label premiumTile = new Label(I18nContext.getInstance().i18n("Premium features"));
             premiumTile.getStyleClass().add("modules-tile-title");
             FlowPane modulesPane = new FlowPane();
             modulesPane.getStyleClass().add("dashboard-modules");

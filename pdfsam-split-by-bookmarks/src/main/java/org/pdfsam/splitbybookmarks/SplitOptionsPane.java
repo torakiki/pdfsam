@@ -28,7 +28,6 @@ import java.util.Optional;
 import java.util.SortedSet;
 import java.util.function.Consumer;
 
-import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.ResettableView;
@@ -58,7 +57,7 @@ class SplitOptionsPane extends VBox
     SplitOptionsPane() {
         super(Style.DEFAULT_SPACING);
         getStyleClass().addAll(Style.CONTAINER.css());
-        I18nContext ctx = DefaultI18nContext.getInstance();
+        I18nContext ctx = I18nContext.getInstance();
         levelCombo.setId("bookmarksLevel");
         regexpField.setId("bookmarksRegexp");
         regexpField.setPromptText(ctx.i18n("Regular expression the bookmark has to match"));

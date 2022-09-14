@@ -23,7 +23,7 @@ import java.util.Comparator;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.time.FastDateFormat;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.value.ObservableValue;
@@ -39,7 +39,7 @@ public enum LongColumn implements SelectionTableColumn<Number> {
     SIZE {
         @Override
         public String getColumnTitle() {
-            return DefaultI18nContext.getInstance().i18n("Size");
+            return I18nContext.getInstance().i18n("Size");
         }
 
         @Override
@@ -61,7 +61,7 @@ public enum LongColumn implements SelectionTableColumn<Number> {
 
         @Override
         public String getColumnTitle() {
-            return DefaultI18nContext.getInstance().i18n("Modified");
+            return I18nContext.getInstance().i18n("Modified");
         }
 
         @Override

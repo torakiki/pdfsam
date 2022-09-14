@@ -21,7 +21,7 @@ package org.pdfsam.ui.dialog;
 import javax.inject.Inject;
 
 import org.pdfsam.configuration.StylesConfig;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 
 /**
  * Dialog asking the user if he wants to execute the task leniently
@@ -32,11 +32,11 @@ import org.pdfsam.i18n.DefaultI18nContext;
 public class LenientExecutionConfirmationDialog extends ConfirmationDialog {
     @Inject
     public LenientExecutionConfirmationDialog(StylesConfig styles) {
-        super(styles, DialogStyle.QUESTION, DefaultI18nContext.getInstance().i18n("Yes"),
-                DefaultI18nContext.getInstance().i18n("No"));
-        this.title(DefaultI18nContext.getInstance().i18n("Task failed"))
-                .messageTitle(DefaultI18nContext.getInstance().i18n("PDFsam can try to overcome the failure"))
-                .messageContent(DefaultI18nContext.getInstance()
+        super(styles, DialogStyle.QUESTION, I18nContext.getInstance().i18n("Yes"),
+                I18nContext.getInstance().i18n("No"));
+        this.title(I18nContext.getInstance().i18n("Task failed"))
+                .messageTitle(I18nContext.getInstance().i18n("PDFsam can try to overcome the failure"))
+                .messageContent(I18nContext.getInstance()
                         .i18n("It may result in PDF files with partial or missing data, proceed anyway?"));
     }
 }

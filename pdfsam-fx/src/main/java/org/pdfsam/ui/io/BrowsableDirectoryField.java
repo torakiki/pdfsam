@@ -27,7 +27,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.function.Consumer;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -45,9 +45,9 @@ public class BrowsableDirectoryField extends BrowsableField {
     private BrowseEventHandler handler = new BrowseEventHandler();
 
     public BrowsableDirectoryField() {
-        setBrowseWindowTitle(DefaultI18nContext.getInstance().i18n("Select a directory"));
-        getTextField().setErrorMessage(DefaultI18nContext.getInstance().i18n("Select an existing directory"));
-        getTextField().setPromptText(DefaultI18nContext.getInstance().i18n("Select a directory"));
+        setBrowseWindowTitle(I18nContext.getInstance().i18n("Select a directory"));
+        getTextField().setErrorMessage(I18nContext.getInstance().i18n("Select an existing directory"));
+        getTextField().setPromptText(I18nContext.getInstance().i18n("Select a directory"));
         getBrowseButton().setOnAction(handler);
         getTextField().setOnAction(handler);
         setOnDragOver(e -> dragConsume(e, this.onDragOverConsumer()));

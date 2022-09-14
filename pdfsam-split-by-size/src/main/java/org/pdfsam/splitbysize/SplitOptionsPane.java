@@ -26,7 +26,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.ResettableView;
@@ -54,13 +54,13 @@ class SplitOptionsPane extends HBox
     SplitOptionsPane() {
         this.field.setOnEnterValidation(true);
         this.field.setEnableInvalidStyle(true);
-        this.field.setPromptText(DefaultI18nContext.getInstance().i18n("Set the size to split at"));
+        this.field.setPromptText(I18nContext.getInstance().i18n("Set the size to split at"));
         this.field.setValidator(Validators.positiveInteger());
-        this.field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Size must be a number"));
+        this.field.setErrorMessage(I18nContext.getInstance().i18n("Size must be a number"));
         this.field.setId("sizeField");
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.HCONTAINER.css());
-        getChildren().addAll(new Label(DefaultI18nContext.getInstance().i18n("Split at this size:")), this.field);
+        getChildren().addAll(new Label(I18nContext.getInstance().i18n("Split at this size:")), this.field);
         Arrays.stream(SizeUnit.values()).map(SizeUnitRadio::new).forEach(r -> {
             r.setToggleGroup(group);
             getChildren().add(r);
@@ -75,7 +75,7 @@ class SplitOptionsPane extends HBox
             builder.size(
                     ((SizeUnitRadio) group.getSelectedToggle()).unit().toBytes(Integer.valueOf(this.field.getText())));
         } else {
-            onError.accept(DefaultI18nContext.getInstance().i18n("Invalid split size"));
+            onError.accept(I18nContext.getInstance().i18n("Invalid split size"));
         }
     }
 

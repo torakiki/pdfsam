@@ -24,7 +24,6 @@ import static org.pdfsam.ui.help.HelpUtils.helpIcon;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.ui.support.Style;
 
@@ -44,7 +43,7 @@ class PreferenceOutputPane extends VBox {
     public PreferenceOutputPane(@Named("smartRadio") PreferenceRadioButton smartRadio,
             @Named("compressionEnabled") PreferenceCheckBox compressionEnabled,
             @Named("overwriteOutput") PreferenceCheckBox overwriteOutput) {
-        I18nContext i18n = DefaultI18nContext.getInstance();
+        I18nContext i18n = I18nContext.getInstance();
         ToggleGroup group = new ToggleGroup();
 
         RadioButton manualRadio = new RadioButton(i18n.i18n("Manually selected"));
@@ -54,7 +53,7 @@ class PreferenceOutputPane extends VBox {
 
         smartRadio.getStyleClass().addAll(Style.VITEM.css());
         smartRadio.setToggleGroup(group);
-        smartRadio.setGraphic(helpIcon(DefaultI18nContext.getInstance()
+        smartRadio.setGraphic(helpIcon(I18nContext.getInstance()
                 .i18n("Automatically set the destination directory to the selected PDF document directory")));
         smartRadio.getStyleClass().addAll(Style.WITH_HELP.css());
 

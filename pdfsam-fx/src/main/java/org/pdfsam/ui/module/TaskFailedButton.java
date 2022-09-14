@@ -20,7 +20,7 @@ package org.pdfsam.ui.module;
 
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.ui.commons.ShowStageRequest;
 import org.pdfsam.ui.support.Style;
 
@@ -39,7 +39,7 @@ class TaskFailedButton extends Button {
     public TaskFailedButton() {
         getStyleClass().addAll(Style.FOOTER_BUTTON.css());
         getStyleClass().add("footer-failed-button");
-        setText(DefaultI18nContext.getInstance().i18n("Show errors"));
+        setText(I18nContext.getInstance().i18n("Show errors"));
         FontAwesomeIconFactory.get().setIcon(this, FontAwesomeIcon.TIMES_CIRCLE, "1.6em");
         setMaxHeight(Double.MAX_VALUE);
         setPrefHeight(Double.MAX_VALUE);

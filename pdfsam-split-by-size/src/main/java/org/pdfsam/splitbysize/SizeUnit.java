@@ -18,7 +18,7 @@
  */
 package org.pdfsam.splitbysize;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 
 /**
  * Unit of measure of the size to split at
@@ -27,13 +27,13 @@ import org.pdfsam.i18n.DefaultI18nContext;
  *
  */
 public enum SizeUnit {
-    MEGABYTE(DefaultI18nContext.getInstance().i18n("Megabytes"), DefaultI18nContext.getInstance().i18n("MB")) {
+    MEGABYTE(I18nContext.getInstance().i18n("Megabytes"), I18nContext.getInstance().i18n("MB")) {
         @Override
         public long toBytes(int raw) {
             return KILOBYTE.toBytes(raw) * 1024;
         }
     },
-    KILOBYTE(DefaultI18nContext.getInstance().i18n("Kilobytes"), DefaultI18nContext.getInstance().i18n("KB")) {
+    KILOBYTE(I18nContext.getInstance().i18n("Kilobytes"), I18nContext.getInstance().i18n("KB")) {
         @Override
         public long toBytes(int raw) {
             return raw * 1024;

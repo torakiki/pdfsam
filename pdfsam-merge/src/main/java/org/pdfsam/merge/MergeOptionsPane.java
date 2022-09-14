@@ -27,7 +27,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.params.TaskParametersBuildStep;
@@ -61,7 +60,7 @@ class MergeOptionsPane extends VBox
 
     MergeOptionsPane() {
         super(5);
-        I18nContext i18n = DefaultI18nContext.getInstance();
+        I18nContext i18n = I18nContext.getInstance();
         blankIfOdd = new CheckBox(i18n.i18n("Add a blank page if page number is odd"));
         blankIfOdd.setGraphic(helpIcon(
                 i18n.i18n("Adds a blank page after each merged document if the document has an odd number of pages")));

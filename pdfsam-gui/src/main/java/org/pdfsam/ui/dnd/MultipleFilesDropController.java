@@ -31,7 +31,7 @@ import java.util.stream.Stream;
 import javax.inject.Inject;
 import javax.inject.Provider;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.pdf.MultipleFilesDroppedEvent;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
@@ -78,9 +78,9 @@ public class MultipleFilesDropController {
                 eventStudio().broadcast(loadEvent, event.getOwnerModule());
             } else {
                 eventStudio().broadcast(new AddNotificationRequestEvent(NotificationType.WARN,
-                        DefaultI18nContext.getInstance()
+                        I18nContext.getInstance()
                                 .i18n("Drag and drop PDF files or directories containing PDF files"),
-                        DefaultI18nContext.getInstance().i18n("No PDF found")));
+                        I18nContext.getInstance().i18n("No PDF found")));
             }
         }
     }

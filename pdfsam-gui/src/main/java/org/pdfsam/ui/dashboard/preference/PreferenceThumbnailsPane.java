@@ -21,7 +21,6 @@ package org.pdfsam.ui.dashboard.preference;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.ui.support.Style;
@@ -44,7 +43,7 @@ class PreferenceThumbnailsPane extends VBox {
             @Named("thumbnailsCombo") PreferenceComboBox<KeyStringValueItem<String>> thumbnailsCombo,
             @Named("highQualityThumbnails") PreferenceCheckBox highQualityThumbnails,
             @Named("thumbnailsSize") PreferenceIntTextField thumbSize) {
-        I18nContext i18n = DefaultI18nContext.getInstance();
+        I18nContext i18n = I18nContext.getInstance();
 
         highQualityThumbnails.setTooltip(new Tooltip(i18n.i18n("Generate high quality thumbnails (slower)")));
         highQualityThumbnails.getStyleClass().add("spaced-vitem");

@@ -20,7 +20,7 @@ package org.pdfsam.ui.commons;
 
 import static java.util.Optional.ofNullable;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.ui.support.Style;
 
 import javafx.event.ActionEvent;
@@ -47,7 +47,7 @@ public class ClosePane extends HBox {
     public ClosePane(EventHandler<ActionEvent> handler) {
         setAlignment(Pos.CENTER_RIGHT);
         getStyleClass().addAll(Style.CONTAINER.css());
-        Button closeButton = new Button(DefaultI18nContext.getInstance().i18n("Close"));
+        Button closeButton = new Button(I18nContext.getInstance().i18n("Close"));
         closeButton.getStyleClass().addAll(Style.BUTTON.css());
         closeButton.setTextAlignment(TextAlignment.CENTER);
         closeButton.setOnAction(ofNullable(handler).orElse(defaultHandler));

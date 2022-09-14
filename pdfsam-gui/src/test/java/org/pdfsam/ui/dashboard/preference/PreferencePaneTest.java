@@ -32,8 +32,8 @@ import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Test;
 import org.pdfsam.context.UserContext;
-import org.pdfsam.i18n.DefaultI18nContext;
-import org.pdfsam.i18n.SetLocaleEvent;
+import org.pdfsam.i18n.I18nContext;
+import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.injector.Injector;
 import org.pdfsam.injector.Provides;
 import org.pdfsam.module.Module;
@@ -56,7 +56,7 @@ public class PreferencePaneTest {
 
     @BeforeClass
     public static void setUpClass() {
-        eventStudio().broadcast(new SetLocaleEvent(Locale.UK.toLanguageTag()));
+        eventStudio().broadcast(new SetLocaleRequest(Locale.UK.toLanguageTag()));
     }
 
     @Before
@@ -102,7 +102,7 @@ public class PreferencePaneTest {
                 ((PreferenceBrowsableFileField) victim.lookup("#workspace")).getTextField().getText());
         assertEquals("/my/path",
                 ((PreferenceBrowsableDirectoryField) victim.lookup("#workingDirectory")).getTextField().getText());
-        assertEquals(DefaultI18nContext.getInstance().i18n("Dashboard"),
+        assertEquals(I18nContext.getInstance().i18n("Dashboard"),
                 startupModuleCombo.getSelectionModel().getSelectedItem().getValue());
     }
 

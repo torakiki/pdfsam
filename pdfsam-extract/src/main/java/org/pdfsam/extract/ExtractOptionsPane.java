@@ -27,7 +27,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.params.ConversionUtils;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.ResettableView;
@@ -55,7 +55,7 @@ class ExtractOptionsPane extends HBox
         this.field.setOnEnterValidation(true);
         this.field.setEnableInvalidStyle(true);
         this.field
-                .setPromptText(DefaultI18nContext.getInstance().i18n("Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"));
+                .setPromptText(I18nContext.getInstance().i18n("Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"));
         this.field.setValidator(v -> {
             try {
                 return !toPageRangeSet(this.field.getText()).isEmpty();
@@ -63,12 +63,12 @@ class ExtractOptionsPane extends HBox
                 return false;
             }
         });
-        this.field.setErrorMessage(DefaultI18nContext.getInstance().i18n("Invalid page ranges"));
+        this.field.setErrorMessage(I18nContext.getInstance().i18n("Invalid page ranges"));
         this.field.setId("extractRanges");
         this.field.setPrefWidth(350);
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.HCONTAINER.css());
-        getChildren().addAll(new Label(DefaultI18nContext.getInstance().i18n("Extract pages:")), this.field,
+        getChildren().addAll(new Label(I18nContext.getInstance().i18n("Extract pages:")), this.field,
                 helpIcon("Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-)"));
     }
 
@@ -82,7 +82,7 @@ class ExtractOptionsPane extends HBox
                 onError.accept(e.getMessage());
             }
         } else {
-            onError.accept(DefaultI18nContext.getInstance().i18n("Invalid page ranges"));
+            onError.accept(I18nContext.getInstance().i18n("Invalid page ranges"));
         }
     }
 

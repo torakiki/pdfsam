@@ -20,7 +20,7 @@ package org.pdfsam.ui.selection.single;
 
 import java.util.function.Consumer;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.params.SinglePdfSourceTaskParametersBuilder;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
@@ -47,7 +47,7 @@ public class TaskParametersBuilderSingleSelectionPane extends SingleSelectionPan
         if (getField().getTextField().getValidationState() == ValidationState.VALID) {
             builder.source(getPdfDocumentDescriptor().toPdfFileSource());
         } else {
-            onError.accept(DefaultI18nContext.getInstance().i18n("The selected PDF document is invalid"));
+            onError.accept(I18nContext.getInstance().i18n("The selected PDF document is invalid"));
         }
     }
 }

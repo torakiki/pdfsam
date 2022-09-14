@@ -19,7 +19,7 @@
 package org.pdfsam.pdf;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.pdfsam.i18n.DefaultI18nContext.getInstance;
+import static org.pdfsam.i18n.I18nContext.getInstance;
 
 import java.util.Arrays;
 import java.util.HashSet;

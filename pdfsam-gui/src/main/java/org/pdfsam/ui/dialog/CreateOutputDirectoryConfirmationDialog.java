@@ -21,7 +21,7 @@ package org.pdfsam.ui.dialog;
 import javax.inject.Inject;
 
 import org.pdfsam.configuration.StylesConfig;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 
 /**
  * Dialog asking the user if he wants to create a non existing output directory
@@ -32,11 +32,11 @@ public class CreateOutputDirectoryConfirmationDialog extends ConfirmationDialog 
 
     @Inject
     public CreateOutputDirectoryConfirmationDialog(StylesConfig styles) {
-        super(styles, DialogStyle.QUESTION, DefaultI18nContext.getInstance().i18n("Yes"),
-                DefaultI18nContext.getInstance().i18n("No"));
-        this.title(DefaultI18nContext.getInstance().i18n("Non existing directory"))
-                .messageTitle(DefaultI18nContext.getInstance().i18n("The selected output directory does not exist"))
-                .messageContent(DefaultI18nContext.getInstance().i18n("Do you want to create it?"));
+        super(styles, DialogStyle.QUESTION, I18nContext.getInstance().i18n("Yes"),
+                I18nContext.getInstance().i18n("No"));
+        this.title(I18nContext.getInstance().i18n("Non existing directory"))
+                .messageTitle(I18nContext.getInstance().i18n("The selected output directory does not exist"))
+                .messageContent(I18nContext.getInstance().i18n("Do you want to create it?"));
     }
 
 }

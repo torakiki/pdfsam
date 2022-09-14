@@ -26,7 +26,7 @@ import java.util.concurrent.CompletableFuture;
 import javax.inject.Inject;
 
 import org.pdfsam.eventstudio.annotation.EventListener;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Auto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,14 +48,14 @@ public class PremiumModulesController {
 
     @EventListener
     public void fetchPremium(FetchPremiumModulesRequest event) {
-        LOG.debug(DefaultI18nContext.getInstance().i18n("Fetching premium modules"));
+        LOG.debug(I18nContext.getInstance().i18n("Fetching premium modules"));
         CompletableFuture.supplyAsync(service::getPremiumModules).thenAcceptAsync(premiumModules -> {
             if (nonNull(premiumModules) && !premiumModules.isEmpty()) {
                 eventStudio().broadcast(new PremiumModulesEvent(premiumModules));
             }
         }).whenComplete((r, e) -> {
             if (nonNull(e)) {
-                LOG.warn(DefaultI18nContext.getInstance().i18n("Unable to retrieve premium modules"), e);
+                LOG.warn(I18nContext.getInstance().i18n("Unable to retrieve premium modules"), e);
             }
         });
     }

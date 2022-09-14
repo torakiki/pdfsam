@@ -30,7 +30,7 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
 import org.pdfsam.NoHeadless;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
@@ -74,32 +74,32 @@ public class SelectionTableWithoutMoveTest extends ApplicationTest {
     @Category(NoHeadless.class)
     public void moveDownIsMissing() {
         rightClickOn(TableViewMatchers.hasTableCell("temp.pdf"));
-        assertFalse(lookup(DefaultI18nContext.getInstance().i18n("Move Down")).tryQuery().isPresent());
-        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("Set destination")).tryQuery().isPresent());
+        assertFalse(lookup(I18nContext.getInstance().i18n("Move Down")).tryQuery().isPresent());
+        assertTrue(lookup(I18nContext.getInstance().i18n("Set destination")).tryQuery().isPresent());
     }
 
     @Test
     @Category(NoHeadless.class)
     public void moveUpIsMissing() {
         rightClickOn(TableViewMatchers.hasTableCell("temp.pdf"));
-        assertFalse(lookup(DefaultI18nContext.getInstance().i18n("Move Up")).tryQuery().isPresent());
-        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("Set destination")).tryQuery().isPresent());
+        assertFalse(lookup(I18nContext.getInstance().i18n("Move Up")).tryQuery().isPresent());
+        assertTrue(lookup(I18nContext.getInstance().i18n("Set destination")).tryQuery().isPresent());
     }
 
     @Test
     @Category(NoHeadless.class)
     public void moveBottomIsMissing() {
         rightClickOn(TableViewMatchers.hasTableCell("temp.pdf"));
-        assertFalse(lookup(DefaultI18nContext.getInstance().i18n("Move to Bottom")).tryQuery().isPresent());
-        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("Set destination")).tryQuery().isPresent());
+        assertFalse(lookup(I18nContext.getInstance().i18n("Move to Bottom")).tryQuery().isPresent());
+        assertTrue(lookup(I18nContext.getInstance().i18n("Set destination")).tryQuery().isPresent());
     }
 
     @Test
     @Category(NoHeadless.class)
     public void moveTopIsMissing() {
         rightClickOn(TableViewMatchers.hasTableCell("temp.pdf"));
-        assertFalse(lookup(DefaultI18nContext.getInstance().i18n("Move to Top")).tryQuery().isPresent());
-        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("Set destination")).tryQuery().isPresent());
+        assertFalse(lookup(I18nContext.getInstance().i18n("Move to Top")).tryQuery().isPresent());
+        assertTrue(lookup(I18nContext.getInstance().i18n("Set destination")).tryQuery().isPresent());
 
     }
 

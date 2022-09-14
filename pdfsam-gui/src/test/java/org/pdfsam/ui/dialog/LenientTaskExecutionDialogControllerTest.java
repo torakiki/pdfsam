@@ -38,8 +38,8 @@ import org.junit.rules.TemporaryFolder;
 import org.pdfsam.NoHeadless;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.eventstudio.Listener;
-import org.pdfsam.i18n.DefaultI18nContext;
-import org.pdfsam.i18n.SetLocaleEvent;
+import org.pdfsam.i18n.I18nContext;
+import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.injector.Components;
 import org.pdfsam.injector.Injector;
 import org.pdfsam.injector.Provides;
@@ -69,7 +69,8 @@ public class LenientTaskExecutionDialogControllerTest extends ApplicationTest {
 
     @BeforeClass
     public static void setUp() {
-        ((DefaultI18nContext) DefaultI18nContext.getInstance()).refresh(new SetLocaleEvent(Locale.UK.toLanguageTag()));
+        ((I18nContext) I18nContext.getInstance()).refresh(
+                new SetLocaleRequest(Locale.UK.toLanguageTag()));
     }
 
     @Override
@@ -122,7 +123,7 @@ public class LenientTaskExecutionDialogControllerTest extends ApplicationTest {
         button.setOnAction(a -> eventStudio().broadcast(failure));
         clickOn("show");
         assertTrue(robotContext().getWindowFinder().listWindows().size() > 1);
-        clickOn(DefaultI18nContext.getInstance().i18n("No"));
+        clickOn(I18nContext.getInstance().i18n("No"));
         verify(params, never()).setLenient(anyBoolean());
         verify(listener, never()).onEvent(any());
     }
@@ -140,7 +141,7 @@ public class LenientTaskExecutionDialogControllerTest extends ApplicationTest {
         button.setOnAction(a -> eventStudio().broadcast(failure));
         clickOn("show");
         assertTrue(robotContext().getWindowFinder().listWindows().size() > 1);
-        clickOn(DefaultI18nContext.getInstance().i18n("Yes"));
+        clickOn(I18nContext.getInstance().i18n("Yes"));
         verify(params).setLenient(true);
         verify(listener).onEvent(request);
     }

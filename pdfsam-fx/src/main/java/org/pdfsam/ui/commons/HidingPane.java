@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.commons;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.ui.support.Style;
 
 import javafx.geometry.Pos;
@@ -36,7 +36,7 @@ import javafx.scene.text.TextAlignment;
 public class HidingPane extends BorderPane {
 
     public HidingPane() {
-        Button closeButton = new Button(DefaultI18nContext.getInstance().i18n("Close"));
+        Button closeButton = new Button(I18nContext.getInstance().i18n("Close"));
         closeButton.getStyleClass().addAll(Style.BUTTON.css());
         closeButton.setTextAlignment(TextAlignment.CENTER);
         closeButton.setOnAction(e -> this.setVisible(false));

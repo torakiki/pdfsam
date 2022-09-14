@@ -1,57 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<description>Internationalization for PDFsam</description>
-	<parent>
-		<groupId>org.pdfsam</groupId>
-		<artifactId>pdfsam-parent</artifactId>
-		<version>5.0.0-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath>
-	</parent>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <description>Internationalization for PDFsam</description>
+    <parent>
+        <groupId>org.pdfsam</groupId>
+        <artifactId>pdfsam-parent</artifactId>
+        <version>5.0.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
 
-	<artifactId>pdfsam-i18n</artifactId>
-	<packaging>jar</packaging>
-	<name>PDFsam i18n</name>
+    <artifactId>pdfsam-i18n</artifactId>
+    <packaging>jar</packaging>
+    <name>PDFsam i18n</name>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>com.googlecode.gettext-commons</groupId>
-				<artifactId>gettext-maven-plugin</artifactId>
-				<version>1.2.4</version>
-				<configuration>
-					<keysFile>pdfsam.pot</keysFile>
-					<poDirectory>po</poDirectory>
-					<targetBundle>org.pdfsam.i18n.Messages</targetBundle>
-					<outputFormat>properties</outputFormat>
-				</configuration>
-				<executions>					
-					<execution>
-						<id>gettext-dist</id>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>dist</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.googlecode.gettext-commons</groupId>
+                <artifactId>gettext-maven-plugin</artifactId>
+                <version>1.2.4</version>
+                <configuration>
+                    <keysFile>pdfsam.pot</keysFile>
+                    <poDirectory>po</poDirectory>
+                    <targetBundle>org.pdfsam.i18n.Messages</targetBundle>
+                    <outputFormat>properties</outputFormat>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>gettext-dist</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>dist</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.pdfsam</groupId>
-			<artifactId>eventstudio</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.googlecode.gettext-commons</groupId>
-			<artifactId>gettext-commons</artifactId>
-			<version>0.9.8</version>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>org.pdfsam</groupId>
+            <artifactId>eventstudio</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.reactivex.rxjava3</groupId>
+            <artifactId>rxjava</artifactId>
+        </dependency>
+        <!-- test dependencies -->
+        <dependency>
+            <groupId>com.tngtech.archunit</groupId>
+            <artifactId>archunit-junit5</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.tinylog</groupId>
+            <artifactId>slf4j-tinylog</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.tinylog</groupId>
+            <artifactId>tinylog-impl</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
 </project>

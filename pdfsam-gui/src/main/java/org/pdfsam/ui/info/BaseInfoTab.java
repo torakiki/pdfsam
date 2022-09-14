@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.info;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
@@ -58,7 +58,7 @@ class BaseInfoTab extends Tab {
     }
 
     protected static Label createTitleLabel(String text) {
-        Label ret = new Label(DefaultI18nContext.getInstance().i18n(text) + ":");
+        Label ret = new Label(I18nContext.getInstance().i18n(text) + ":");
         ret.getStyleClass().add("info-property");
         GridPane.setHalignment(ret, HPos.RIGHT);
         GridPane.setValignment(ret, VPos.TOP);

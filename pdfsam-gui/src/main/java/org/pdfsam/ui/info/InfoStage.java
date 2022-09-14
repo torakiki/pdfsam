@@ -23,7 +23,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.pdfsam.configuration.StylesConfig;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.ui.commons.ClosePane;
 import org.pdfsam.ui.commons.HideOnEscapeHandler;
 import org.pdfsam.ui.support.Style;
@@ -51,7 +51,7 @@ class InfoStage extends Stage {
         scene.getStylesheets().addAll(styles.styles());
         scene.setOnKeyReleased(new HideOnEscapeHandler(this));
         setScene(scene);
-        setTitle(DefaultI18nContext.getInstance().i18n("Document details"));
+        setTitle(I18nContext.getInstance().i18n("Document details"));
         getIcons().addAll(logos);
         setMaximized(true);
     }

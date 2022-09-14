@@ -20,7 +20,7 @@ package org.pdfsam.ui.dashboard.preference;
 
 import javax.inject.Inject;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.ui.support.Style;
 
 import javafx.scene.control.Label;
@@ -43,15 +43,15 @@ public class PreferencePane extends HBox {
         getStyleClass().add("dashboard-container");
         VBox left = new VBox(Style.DEFAULT_SPACING);
         left.setMinWidth(USE_PREF_SIZE);
-        addSectionTitle(DefaultI18nContext.getInstance().i18n("Appearance"), left);
+        addSectionTitle(I18nContext.getInstance().i18n("Appearance"), left);
         left.getChildren().add(appearence);
-        addSectionTitle(DefaultI18nContext.getInstance().i18n("Behavior"), left);
+        addSectionTitle(I18nContext.getInstance().i18n("Behavior"), left);
         left.getChildren().add(behavior);
         VBox right = new VBox(Style.DEFAULT_SPACING);
         HBox.setHgrow(right, Priority.ALWAYS);
-        addSectionTitle(DefaultI18nContext.getInstance().i18n("Workspace"), right);
+        addSectionTitle(I18nContext.getInstance().i18n("Workspace"), right);
         right.getChildren().add(workspace);
-        addSectionTitle(DefaultI18nContext.getInstance().i18n("Output"), right);
+        addSectionTitle(I18nContext.getInstance().i18n("Output"), right);
         right.getChildren().add(output);
         getChildren().addAll(left, right);
     }

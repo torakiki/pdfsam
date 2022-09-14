@@ -27,7 +27,7 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.ModuleCategory;
 
@@ -44,7 +44,7 @@ class ModulesMenu extends Menu {
 
     @Inject
     public ModulesMenu(List<Module> modules) {
-        super(DefaultI18nContext.getInstance().i18n("_Modules"));
+        super(I18nContext.getInstance().i18n("_Modules"));
         setId("modulesMenu");
         Map<ModuleCategory, Menu> moduleSubmenus = new HashMap<>();
         for (final Module currentModule : modules) {

@@ -31,7 +31,7 @@ import java.util.Locale;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.pdfsam.i18n.SetLocaleEvent;
+import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 
 /**
@@ -41,7 +41,7 @@ import org.pdfsam.pdf.PdfDocumentDescriptor;
 public class FileColumnTest {
     @BeforeClass
     public static void setUpClass() {
-        eventStudio().broadcast(new SetLocaleEvent(Locale.UK.toLanguageTag()));
+        eventStudio().broadcast(new SetLocaleRequest(Locale.UK.toLanguageTag()));
     }
 
     @Test

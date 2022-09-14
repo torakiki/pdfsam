@@ -32,8 +32,8 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.pdfsam.NoHeadless;
 import org.pdfsam.configuration.StylesConfig;
-import org.pdfsam.i18n.DefaultI18nContext;
-import org.pdfsam.i18n.SetLocaleEvent;
+import org.pdfsam.i18n.I18nContext;
+import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.model.output.ExistingOutputPolicy;
 import org.testfx.framework.junit.ApplicationTest;
@@ -57,7 +57,8 @@ public class OverwriteConfirmationDialogTest extends ApplicationTest {
 
     @BeforeClass
     public static void setUp() {
-        ((DefaultI18nContext) DefaultI18nContext.getInstance()).refresh(new SetLocaleEvent(Locale.UK.toLanguageTag()));
+        ((I18nContext) I18nContext.getInstance()).refresh(
+                new SetLocaleRequest(Locale.UK.toLanguageTag()));
     }
 
     @Override
@@ -81,7 +82,7 @@ public class OverwriteConfirmationDialogTest extends ApplicationTest {
         clickOn("show");
         assertTrue(lookup("MessageTitle").tryQuery().isPresent());
         assertTrue(lookup("MessageContent").tryQuery().isPresent());
-        clickOn(DefaultI18nContext.getInstance().i18n("Cancel"));
+        clickOn(I18nContext.getInstance().i18n("Cancel"));
     }
 
     @Test
@@ -89,7 +90,7 @@ public class OverwriteConfirmationDialogTest extends ApplicationTest {
     public void cancel() {
         response = Optional.empty();
         clickOn("show");
-        clickOn(DefaultI18nContext.getInstance().i18n("Cancel"));
+        clickOn(I18nContext.getInstance().i18n("Cancel"));
         assertTrue(response.isEmpty());
     }
 

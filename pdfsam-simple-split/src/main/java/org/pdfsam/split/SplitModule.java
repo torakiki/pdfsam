@@ -29,7 +29,7 @@ import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import org.apache.commons.lang3.builder.Builder;
 import org.pdfsam.context.UserContext;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.injector.Components;
 import org.pdfsam.injector.Provides;
@@ -76,8 +76,8 @@ public class SplitModule extends BaseTaskExecutionModule {
     private SplitOptionsPane splitOptions = new SplitOptionsPane();
     private PrefixPane prefix;
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.SPLIT)
-            .inputTypes(ModuleInputOutputType.SINGLE_PDF).name(DefaultI18nContext.getInstance().i18n("Split"))
-            .description(DefaultI18nContext.getInstance().i18n("Split a PDF document at the given page numbers."))
+            .inputTypes(ModuleInputOutputType.SINGLE_PDF).name(I18nContext.getInstance().i18n("Split"))
+            .description(I18nContext.getInstance().i18n("Split a PDF document at the given page numbers."))
             .priority(ModulePriority.HIGH.getPriority()).supportURL("https://pdfsam.org/pdf-split/").build();
 
     @Inject
@@ -89,7 +89,7 @@ public class SplitModule extends BaseTaskExecutionModule {
         this.destinationPane = destinationPane;
         this.selectionPane = new TaskParametersBuilderSingleSelectionPane(id());
         this.selectionPane.setPromptText(
-                DefaultI18nContext.getInstance().i18n("Select or drag and drop the PDF you want to split"));
+                I18nContext.getInstance().i18n("Select or drag and drop the PDF you want to split"));
         this.selectionPane.addOnLoaded(d -> splitOptions.setMaxPages(d.pages().getValue()));
         this.prefix = prefix;
         initModuleSettingsPanel(settingPanel());
@@ -135,15 +135,15 @@ public class SplitModule extends BaseTaskExecutionModule {
         VBox pane = new VBox();
         pane.setAlignment(Pos.TOP_CENTER);
 
-        TitledPane prefixTitled = Views.titledPane(DefaultI18nContext.getInstance().i18n("File names settings"),
+        TitledPane prefixTitled = Views.titledPane(I18nContext.getInstance().i18n("File names settings"),
                 prefix);
         prefix.addMenuItemFor(Prefix.CURRENTPAGE);
         prefix.addMenuItemFor(Prefix.FILENUMBER);
         prefix.addMenuItemFor("[TOTAL_FILESNUMBER]");
 
         pane.getChildren().addAll(selectionPane,
-                Views.titledPane(DefaultI18nContext.getInstance().i18n("Split settings"), splitOptions),
-                Views.titledPane(DefaultI18nContext.getInstance().i18n("Output settings"), destinationPane),
+                Views.titledPane(I18nContext.getInstance().i18n("Split settings"), splitOptions),
+                Views.titledPane(I18nContext.getInstance().i18n("Output settings"), destinationPane),
                 prefixTitled);
         return pane;
     }

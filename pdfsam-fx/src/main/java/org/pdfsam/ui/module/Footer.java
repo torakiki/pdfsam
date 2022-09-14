@@ -24,7 +24,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import java.math.BigDecimal;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.eventstudio.annotation.EventListener;
@@ -81,7 +81,7 @@ public class Footer extends HBox implements ModuleOwned {
                 failed.setVisible(false);
                 openButton.setVisible(false);
                 statusLabel.setVisible(true);
-                statusLabel.setText(DefaultI18nContext.getInstance().i18n("Requested"));
+                statusLabel.setText(I18nContext.getInstance().i18n("Requested"));
                 bar.setProgress(0);
             }
         });
@@ -106,7 +106,7 @@ public class Footer extends HBox implements ModuleOwned {
     public void onTaskCompleted(TaskExecutionCompletedEvent event) {
         failed.setVisible(false);
         openButton.setVisible(true);
-        statusLabel.setText(DefaultI18nContext.getInstance().i18n("Completed"));
+        statusLabel.setText(I18nContext.getInstance().i18n("Completed"));
         bar.setProgress(1);
     }
 
@@ -114,17 +114,17 @@ public class Footer extends HBox implements ModuleOwned {
     public void onTaskFailed(TaskExecutionFailedEvent event) {
         openButton.setVisible(false);
         failed.setVisible(true);
-        statusLabel.setText(DefaultI18nContext.getInstance().i18n("Failed"));
+        statusLabel.setText(I18nContext.getInstance().i18n("Failed"));
     }
 
     @EventListener
     public void onProgress(PercentageOfWorkDoneChangedEvent event) {
-        statusLabel.setText(DefaultI18nContext.getInstance().i18n("Running"));
+        statusLabel.setText(I18nContext.getInstance().i18n("Running"));
         if (event.isUndetermined()) {
             bar.setProgress(ProgressIndicator.INDETERMINATE_PROGRESS);
         } else {
             bar.setProgress(event.getPercentage().divide(new BigDecimal(100)).doubleValue());
-            statusLabel.setText(DefaultI18nContext.getInstance().i18n("Running {0}%",
+            statusLabel.setText(I18nContext.getInstance().i18n("Running {0}%",
                     Integer.toString(event.getPercentage().intValue())));
         }
     }

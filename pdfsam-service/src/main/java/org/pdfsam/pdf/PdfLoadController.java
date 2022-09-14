@@ -31,7 +31,7 @@ import javax.inject.Inject;
 
 import org.pdfsam.ShutdownEvent;
 import org.pdfsam.eventstudio.annotation.EventListener;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.RequiredPdfData;
@@ -87,13 +87,13 @@ public class PdfLoadController {
                     new PdfListParser().apply(event.list).stream().map(PdfDocumentDescriptor::newDescriptorNoPassword)
                             .forEach(loadEvent::add);
                     if (loadEvent.getDocuments().isEmpty()) {
-                        LOG.error(DefaultI18nContext.getInstance()
+                        LOG.error(I18nContext.getInstance()
                                 .i18n("Unable to find any valid PDF file in the list: {0}", event.list.toString()));
                     } else {
                         eventStudio().broadcast(loadEvent, event.getOwnerModule());
                     }
                 } catch (Exception e) {
-                    LOG.error(DefaultI18nContext.getInstance().i18n("Unable to load PDF list file from {0}",
+                    LOG.error(I18nContext.getInstance().i18n("Unable to load PDF list file from {0}",
                             event.list.toString()), e);
                 }
             });

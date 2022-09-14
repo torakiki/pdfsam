@@ -24,7 +24,6 @@ import static org.pdfsam.ui.help.HelpUtils.helpIcon;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
@@ -47,7 +46,7 @@ class PreferenceWorkspacePane extends VBox {
             @Named("workspace") PreferenceBrowsableFileField workspace,
             @Named("saveWorkspaceOnExit") PreferenceCheckBox saveWorkspaceOnExit,
             @Named("savePwdInWorkspace") PreferenceCheckBox savePwdInWorkspace) {
-        I18nContext i18n = DefaultI18nContext.getInstance();
+        I18nContext i18n = I18nContext.getInstance();
         workingDirectory.getTextField()
                 .setPromptText(i18n.i18n("Select a directory where documents will be saved and loaded by default"));
         workingDirectory.setBrowseWindowTitle(i18n.i18n("Select a directory"));

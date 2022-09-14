@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.selection.multiple;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TableColumn;
@@ -35,7 +35,7 @@ import javafx.util.Callback;
 public class ReverseColumn implements TableColumnProvider<Boolean> {
 
     public String getColumnTitle() {
-        return DefaultI18nContext.getInstance().i18n("Reverse");
+        return I18nContext.getInstance().i18n("Reverse");
     }
 
     @Override

@@ -24,7 +24,7 @@ import static org.sejda.conversion.AdapterUtils.splitAndTrim;
 import java.util.Collections;
 import java.util.Set;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.sejda.commons.collection.NullSafeSet;
 import org.sejda.conversion.exception.ConversionException;
 import org.sejda.model.pdf.page.PageRange;
@@ -50,7 +50,7 @@ public final class ConversionUtils {
                 PageRange range = toPageRange(current);
                 if (range.getEnd() < range.getStart()) {
                     throw new ConversionException(
-                            DefaultI18nContext.getInstance().i18n("Invalid range: {0}.", range.toString()));
+                            I18nContext.getInstance().i18n("Invalid range: {0}.", range.toString()));
                 }
                 pageRangeSet.add(range);
             }
@@ -62,7 +62,7 @@ public final class ConversionUtils {
     private static PageRange toPageRange(String value) throws ConversionException {
         String[] limits = splitAndTrim(value, "-");
         if (limits.length > 2) {
-            throw new ConversionException(DefaultI18nContext.getInstance().i18n(
+            throw new ConversionException(I18nContext.getInstance().i18n(
                     "Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] or [-n] or [n-]",
                     value));
         }
@@ -83,7 +83,7 @@ public final class ConversionUtils {
         try {
             return Integer.parseInt(value.trim());
         } catch (NumberFormatException nfe) {
-            throw new ConversionException(DefaultI18nContext.getInstance().i18n("Invalid number: {0}.", value));
+            throw new ConversionException(I18nContext.getInstance().i18n("Invalid number: {0}.", value));
         }
     }
 }

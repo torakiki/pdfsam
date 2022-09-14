@@ -23,7 +23,7 @@ import static org.apache.commons.lang3.StringUtils.trim;
 import java.util.Objects;
 import java.util.function.Consumer;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.selection.multiple.FileColumn;
 import org.pdfsam.ui.selection.multiple.IntColumn;
@@ -50,7 +50,7 @@ public class RotateSelectionPane extends MultipleSelectionPane
     public RotateSelectionPane(String ownerModule) {
         super(ownerModule, false, false,
                 new SelectionTableColumn<?>[] { new LoadingColumn(ownerModule), FileColumn.NAME, LongColumn.SIZE,
-                        IntColumn.PAGES, LongColumn.LAST_MODIFIED, new PageRangesColumn(DefaultI18nContext.getInstance()
+                        IntColumn.PAGES, LongColumn.LAST_MODIFIED, new PageRangesColumn(I18nContext.getInstance()
                                 .i18n("Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)")) });
     }
 
@@ -60,7 +60,7 @@ public class RotateSelectionPane extends MultipleSelectionPane
             table().getItems().stream().filter(s -> !Objects.equals("0", trim(s.pageSelection.get())))
                     .forEach(i -> builder.addInput(i.descriptor().toPdfFileSource(), i.toPageRangeSet()));
             if (!builder.hasInput()) {
-                onError.accept(DefaultI18nContext.getInstance().i18n("No PDF document has been selected"));
+                onError.accept(I18nContext.getInstance().i18n("No PDF document has been selected"));
             }
         } catch (ConversionException e) {
             LOG.error(e.getMessage());

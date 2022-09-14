@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.module.RequiredPdfData;
 import org.sejda.io.BufferedSeekableSource;
 import org.sejda.io.FileChannelSeekableSource;
@@ -69,7 +69,7 @@ class SAMBoxPdfLoadService implements PdfLoadService {
 
     @Override
     public void load(Collection<? extends PdfDocumentDescriptor> toLoad, RequiredPdfData... requires) {
-        LOG.debug(DefaultI18nContext.getInstance().i18n("Loading pdf documents"));
+        LOG.debug(I18nContext.getInstance().i18n("Loading pdf documents"));
         BiConsumer<PDDocument, PdfDocumentDescriptor> consumer = Arrays.stream(requires).map(consumers::get)
                 .reduce(STARTER, (r, d) -> r.andThen(d)).andThen(FINISHER);
 
@@ -93,7 +93,7 @@ class SAMBoxPdfLoadService implements PdfLoadService {
                 LOG.trace("Skipping invalidated document {}", current.getFileName());
             }
         }
-        LOG.debug(DefaultI18nContext.getInstance().i18n("Documents loaded"));
+        LOG.debug(I18nContext.getInstance().i18n("Documents loaded"));
     }
 
     private static void fxMoveStatusTo(PdfDocumentDescriptor descriptor, PdfDescriptorLoadingStatus status) {

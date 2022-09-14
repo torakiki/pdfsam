@@ -28,7 +28,7 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.support.validation.Validators;
 import org.pdfsam.ui.ResettableView;
@@ -110,7 +110,7 @@ class BookmarksLevelComboBox extends ComboBox<String>
         if (validationSupport.validationStateProperty().get() == ValidationState.VALID) {
             builder.level(Integer.parseInt(getValue()));
         } else {
-            onError.accept(DefaultI18nContext.getInstance().i18n("Invalid bookmarks level"));
+            onError.accept(I18nContext.getInstance().i18n("Invalid bookmarks level"));
         }
     }
 

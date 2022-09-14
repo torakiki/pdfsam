@@ -30,8 +30,8 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.pdfsam.NoHeadless;
 import org.pdfsam.configuration.StylesConfig;
-import org.pdfsam.i18n.DefaultI18nContext;
-import org.pdfsam.i18n.SetLocaleEvent;
+import org.pdfsam.i18n.I18nContext;
+import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.testfx.framework.junit.ApplicationTest;
 
@@ -52,7 +52,8 @@ public class LenientExecutionConfirmationDialogTest extends ApplicationTest {
 
     @BeforeClass
     public static void setUp() {
-        ((DefaultI18nContext) DefaultI18nContext.getInstance()).refresh(new SetLocaleEvent(Locale.UK.toLanguageTag()));
+        ((I18nContext) I18nContext.getInstance()).refresh(
+                new SetLocaleRequest(Locale.UK.toLanguageTag()));
     }
 
     @Override
@@ -69,12 +70,12 @@ public class LenientExecutionConfirmationDialogTest extends ApplicationTest {
     @Test
     public void contentIsShown() {
         clickOn("show");
-        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("PDFsam can try to overcome the failure")).tryQuery()
+        assertTrue(lookup(I18nContext.getInstance().i18n("PDFsam can try to overcome the failure")).tryQuery()
                 .isPresent());
-        assertTrue(lookup(DefaultI18nContext.getInstance()
+        assertTrue(lookup(I18nContext.getInstance()
                 .i18n("It may result in PDF files with partial or missing data, proceed anyway?")).tryQuery()
                         .isPresent());
-        clickOn(DefaultI18nContext.getInstance().i18n("No"));
+        clickOn(I18nContext.getInstance().i18n("No"));
     }
 
     @Test
@@ -82,7 +83,7 @@ public class LenientExecutionConfirmationDialogTest extends ApplicationTest {
     public void no() {
         this.confirm = true;
         clickOn("show");
-        clickOn(DefaultI18nContext.getInstance().i18n("No"));
+        clickOn(I18nContext.getInstance().i18n("No"));
         assertFalse(this.confirm);
     }
 
@@ -91,7 +92,7 @@ public class LenientExecutionConfirmationDialogTest extends ApplicationTest {
     public void yes() {
         this.confirm = false;
         clickOn("show");
-        clickOn(DefaultI18nContext.getInstance().i18n("Yes"));
+        clickOn(I18nContext.getInstance().i18n("Yes"));
         assertTrue(this.confirm);
     }
 }

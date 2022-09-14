@@ -30,7 +30,7 @@ import java.util.Optional;
 import javax.inject.Inject;
 
 import org.pdfsam.configuration.StylesConfig;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.module.Module;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
@@ -69,7 +69,7 @@ public class OpenWithDialog extends Stage {
         initModality(Modality.WINDOW_MODAL);
         initStyle(StageStyle.UTILITY);
         setResizable(false);
-        setTitle(DefaultI18nContext.getInstance().i18n("Open with"));
+        setTitle(I18nContext.getInstance().i18n("Open with"));
 
         this.modules = modules.stream().sorted(comparing(m -> m.descriptor().getName())).collect(toList());
 
@@ -102,7 +102,7 @@ public class OpenWithDialog extends Stage {
     OpenWithDialog initFor(InputPdfArgumentsLoadRequest event) {
 
         this.messageTitle
-                .setText(DefaultI18nContext.getInstance().i18n("Select the task to perform on the following files"));
+                .setText(I18nContext.getInstance().i18n("Select the task to perform on the following files"));
         filesList
                 .setItems(FXCollections.observableArrayList(event.pdfs.stream().map(Path::toString).collect(toList())));
         modules.forEach(m -> {

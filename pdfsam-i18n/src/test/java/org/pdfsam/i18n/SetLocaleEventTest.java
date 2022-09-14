@@ -18,30 +18,29 @@
  */
 package org.pdfsam.i18n;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * @author Andrea Vacondio
  *
  */
-@SuppressWarnings("unused")
 public class SetLocaleEventTest {
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void nullArg() {
-        new SetLocaleEvent(null);
+        assertThrows(IllegalArgumentException.class, () -> new SetLocaleRequest(null));
     }
 
-
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void blankArg() {
-        new SetLocaleEvent("");
+        assertThrows(IllegalArgumentException.class, () -> new SetLocaleRequest("  "));
     }
 
     @Test
     public void notNullArg() {
-        SetLocaleEvent victim = new SetLocaleEvent("ChuckNorris");
-        assertEquals("ChuckNorris", victim.getLocaleString());
+        SetLocaleRequest victim = new SetLocaleRequest("ChuckNorris");
+        assertEquals("ChuckNorris", victim.languageTag());
     }
 }

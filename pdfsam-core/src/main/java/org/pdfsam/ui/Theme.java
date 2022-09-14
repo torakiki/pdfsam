@@ -21,7 +21,7 @@ package org.pdfsam.ui;
 import java.util.Arrays;
 import java.util.List;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 
 /**
  * Themes available for the user to configure
@@ -42,7 +42,7 @@ public enum Theme {
 
         @Override
         public String friendlyName() {
-            return DefaultI18nContext.getInstance().i18n("Roundish");
+            return I18nContext.getInstance().i18n("Roundish");
         }
     };
 

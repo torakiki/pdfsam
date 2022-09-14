@@ -18,12 +18,12 @@
  */
 package org.pdfsam.ui.dialog;
 
-import static org.pdfsam.i18n.DefaultI18nContext.getInstance;
+import static org.pdfsam.i18n.I18nContext.getInstance;
 
 import javax.inject.Inject;
 
 import org.pdfsam.configuration.StylesConfig;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 
 /**
  * Dialog asking for a confirmation before clearing all settings
@@ -34,9 +34,9 @@ import org.pdfsam.i18n.DefaultI18nContext;
 public class ClearModuleConfirmationDialog extends ConfirmationDialog {
     @Inject
     public ClearModuleConfirmationDialog(StylesConfig styles) {
-        super(styles, DialogStyle.QUESTION, DefaultI18nContext.getInstance().i18n("Yes"),
-                DefaultI18nContext.getInstance().i18n("No"));
-        this.title(DefaultI18nContext.getInstance().i18n("Confirm clearing"))
+        super(styles, DialogStyle.QUESTION, I18nContext.getInstance().i18n("Yes"),
+                I18nContext.getInstance().i18n("No"));
+        this.title(I18nContext.getInstance().i18n("Confirm clearing"))
                 .messageContent(getInstance().i18n("Do you confirm?"));
     }
 

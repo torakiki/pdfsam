@@ -30,7 +30,7 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
 import org.pdfsam.context.UserContext;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.module.UsageService;
 import org.pdfsam.news.NewImportantNewsEvent;
@@ -94,16 +94,16 @@ public class NotificationsController {
     @EventListener
     public void onTaskFailed(TaskExecutionFailedEvent e) {
         if (e.getFailingCause() instanceof InvalidTaskParametersException) {
-            container.addNotification(DefaultI18nContext.getInstance().i18n("Invalid parameters"),
+            container.addNotification(I18nContext.getInstance().i18n("Invalid parameters"),
                     buildLabel(
-                            DefaultI18nContext.getInstance()
+                            I18nContext.getInstance()
                                     .i18n("Input parameters are invalid, open the application messages for details."),
                             NotificationType.ERROR));
         }
         Throwable root = ExceptionUtils.getRootCause(e.getFailingCause());
         if (root instanceof AccessDeniedException) {
-            container.addNotification(DefaultI18nContext.getInstance().i18n("Access denied"),
-                    buildLabel(DefaultI18nContext.getInstance().i18n(
+            container.addNotification(I18nContext.getInstance().i18n("Access denied"),
+                    buildLabel(I18nContext.getInstance().i18n(
                             "Unable to access \"{0}\", please make sure you have write permissions or open the application messages for details.",
                             ((AccessDeniedException) root).getFile()), NotificationType.ERROR));
         }
@@ -123,29 +123,29 @@ public class NotificationsController {
 
     private void addDonationNotification(long usages) {
         VBox content = new VBox(3,
-                buildLabel(DefaultI18nContext.getInstance().i18n("You performed {0} tasks with PDFsam, did it help?",
+                buildLabel(I18nContext.getInstance().i18n("You performed {0} tasks with PDFsam, did it help?",
                         Long.toString(usages)), NotificationType.GO_PRO),
-                styledUrlButton(DefaultI18nContext.getInstance().i18n("Give something back"),
+                styledUrlButton(I18nContext.getInstance().i18n("Give something back"),
                         pdfsam.property(ConfigurableProperty.DONATE_URL), null));
         content.setAlignment(Pos.TOP_RIGHT);
 
-        container.addStickyNotification(DefaultI18nContext.getInstance().i18n("PDFsam worked hard!"), content);
+        container.addStickyNotification(I18nContext.getInstance().i18n("PDFsam worked hard!"), content);
     }
 
     private void addShareNotification(long usages) {
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
         VBox content = new VBox(3,
-                buildLabel(DefaultI18nContext.getInstance().i18n("You performed {0} tasks with PDFsam, did it help?",
+                buildLabel(I18nContext.getInstance().i18n("You performed {0} tasks with PDFsam, did it help?",
                         Long.toString(usages)), NotificationType.SHARE),
                 new HBox(3, spacer,
                         styledUrlButton(null, pdfsam.property(ConfigurableProperty.FACEBOOK_SHARE_URL),
                                 FontAwesomeIcon.FACEBOOK),
-                        styledUrlButton(DefaultI18nContext.getInstance().i18n("Spread the word!"),
+                        styledUrlButton(I18nContext.getInstance().i18n("Spread the word!"),
                                 pdfsam.property(ConfigurableProperty.TWEETER_SHARE_URL), FontAwesomeIcon.TWITTER)));
         content.setAlignment(Pos.TOP_RIGHT);
 
-        container.addStickyNotification(DefaultI18nContext.getInstance().i18n("PDFsam worked hard!"), content);
+        container.addStickyNotification(I18nContext.getInstance().i18n("PDFsam worked hard!"), content);
     }
 
     @EventListener
@@ -156,29 +156,29 @@ public class NotificationsController {
     @EventListener
     public void onUpdateAvailable(UpdateAvailableEvent event) {
         VBox content = new VBox(3,
-                buildLabel(DefaultI18nContext.getInstance().i18n("PDFsam {0} is available for download",
+                buildLabel(I18nContext.getInstance().i18n("PDFsam {0} is available for download",
                         event.availableVersion), NotificationType.INFO),
-                styledUrlButton(DefaultI18nContext.getInstance().i18n("Download"),
+                styledUrlButton(I18nContext.getInstance().i18n("Download"),
                         pdfsam.property(ConfigurableProperty.DOWNLOAD_URL), null));
         content.setAlignment(Pos.TOP_RIGHT);
 
-        container.addStickyNotification(DefaultI18nContext.getInstance().i18n("New version available"), content);
+        container.addStickyNotification(I18nContext.getInstance().i18n("New version available"), content);
     }
 
     @EventListener
     public void onNoUpdateAvailable(NoUpdateAvailable event) {
         VBox content = new VBox(3, buildLabel(
-                DefaultI18nContext.getInstance().i18n("You are running the latest version of PDFsam Basic"),
+                I18nContext.getInstance().i18n("You are running the latest version of PDFsam Basic"),
                 NotificationType.INFO));
         content.setAlignment(Pos.TOP_RIGHT);
 
-        container.addNotification(DefaultI18nContext.getInstance().i18n("No update"), content);
+        container.addNotification(I18nContext.getInstance().i18n("No update"), content);
     }
 
     @EventListener
     public void onNewImportantNews(NewImportantNewsEvent event) {
         VBox content = new VBox(3, buildLabel(event.news.getContent(), null), styledUrlButton(
-                DefaultI18nContext.getInstance().i18n("Open"), event.news.getLink(), FontAwesomeIcon.EXTERNAL_LINK));
+                I18nContext.getInstance().i18n("Open"), event.news.getLink(), FontAwesomeIcon.EXTERNAL_LINK));
         content.setAlignment(Pos.TOP_RIGHT);
 
         container.addStickyNotification(event.news.getTitle(), content);

@@ -23,7 +23,7 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
 
 import java.util.Comparator;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TableCell;
@@ -44,7 +44,7 @@ public class PaceColumn implements SelectionTableColumn<String> {
 
     @Override
     public String getColumnTitle() {
-        return DefaultI18nContext.getInstance().i18n("Pace");
+        return I18nContext.getInstance().i18n("Pace");
     }
 
     @Override
@@ -76,7 +76,7 @@ public class PaceColumn implements SelectionTableColumn<String> {
         return new Callback<>() {
             @Override
             public TableCell<SelectionTableRowData, String> call(TableColumn<SelectionTableRowData, String> param) {
-                return new TooltippedTextFieldTableCell(DefaultI18nContext.getInstance().i18n(
+                return new TooltippedTextFieldTableCell(I18nContext.getInstance().i18n(
                         "Double click to set the number of pages after which the task will switch to the next file"));
             }
         };

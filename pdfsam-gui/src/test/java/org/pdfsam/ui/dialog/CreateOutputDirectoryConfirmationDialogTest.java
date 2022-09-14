@@ -30,8 +30,8 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.pdfsam.NoHeadless;
 import org.pdfsam.configuration.StylesConfig;
-import org.pdfsam.i18n.DefaultI18nContext;
-import org.pdfsam.i18n.SetLocaleEvent;
+import org.pdfsam.i18n.I18nContext;
+import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.testfx.framework.junit.ApplicationTest;
 
@@ -53,7 +53,8 @@ public class CreateOutputDirectoryConfirmationDialogTest extends ApplicationTest
 
     @BeforeClass
     public static void setUp() {
-        ((DefaultI18nContext) DefaultI18nContext.getInstance()).refresh(new SetLocaleEvent(Locale.UK.toLanguageTag()));
+        ((I18nContext) I18nContext.getInstance()).refresh(
+                new SetLocaleRequest(Locale.UK.toLanguageTag()));
     }
 
     @Override
@@ -70,10 +71,10 @@ public class CreateOutputDirectoryConfirmationDialogTest extends ApplicationTest
     @Test
     public void contentIsShown() {
         clickOn(button);
-        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("The selected output directory does not exist"))
+        assertTrue(lookup(I18nContext.getInstance().i18n("The selected output directory does not exist"))
                 .tryQuery().isPresent());
-        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("Do you want to create it?")).tryQuery().isPresent());
-        clickOn(DefaultI18nContext.getInstance().i18n("No"));
+        assertTrue(lookup(I18nContext.getInstance().i18n("Do you want to create it?")).tryQuery().isPresent());
+        clickOn(I18nContext.getInstance().i18n("No"));
     }
 
     @Test
@@ -81,7 +82,7 @@ public class CreateOutputDirectoryConfirmationDialogTest extends ApplicationTest
     public void cancel() {
         this.confirm = true;
         clickOn(button);
-        clickOn(DefaultI18nContext.getInstance().i18n("No"));
+        clickOn(I18nContext.getInstance().i18n("No"));
         assertFalse(this.confirm);
     }
 
@@ -90,7 +91,7 @@ public class CreateOutputDirectoryConfirmationDialogTest extends ApplicationTest
     public void overwrite() {
         this.confirm = false;
         clickOn(button);
-        clickOn(DefaultI18nContext.getInstance().i18n("Yes"));
+        clickOn(I18nContext.getInstance().i18n("Yes"));
         assertTrue(this.confirm);
     }
 

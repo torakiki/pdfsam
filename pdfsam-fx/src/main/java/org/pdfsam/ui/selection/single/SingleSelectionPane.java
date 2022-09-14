@@ -41,7 +41,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.eventstudio.annotation.EventStation;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
@@ -110,10 +110,10 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
         PdfDescriptorLoadingStatus status = d.loadingStatus().getValue();
         if (status == PdfDescriptorLoadingStatus.LOADED
                 || status == PdfDescriptorLoadingStatus.LOADED_WITH_USER_PWD_DECRYPTION) {
-            details.setText(DefaultI18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}",
+            details.setText(I18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}",
                     Integer.toString(d.pages().getValue()), d.getVersionString()));
         } else if (status == PdfDescriptorLoadingStatus.LOADING) {
-            details.setText(DefaultI18nContext.getInstance().i18n("Loading..."));
+            details.setText(I18nContext.getInstance().i18n("Loading..."));
         } else {
             details.setText("");
         }
@@ -267,27 +267,27 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
     }
 
     private void initContextMenu() {
-        MenuItem infoItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Document properties"),
+        MenuItem infoItem = createMenuItem(I18nContext.getInstance().i18n("Document properties"),
                 MaterialDesignIcon.INFORMATION_OUTLINE);
         infoItem.setAccelerator(new KeyCodeCombination(KeyCode.P, KeyCombination.ALT_DOWN));
         infoItem.setOnAction(
                 e -> Platform.runLater(() -> eventStudio().broadcast(new ShowPdfDescriptorRequest(descriptor))));
 
-        removeSelected = createMenuItem(DefaultI18nContext.getInstance().i18n("Remove"), MaterialDesignIcon.MINUS);
+        removeSelected = createMenuItem(I18nContext.getInstance().i18n("Remove"), MaterialDesignIcon.MINUS);
         removeSelected.setOnAction(
                 e -> eventStudio().broadcast(new ClearModuleEvent(getOwnerModule()), getOwnerModule()));
 
-        MenuItem setDestinationItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Set destination"),
+        MenuItem setDestinationItem = createMenuItem(I18nContext.getInstance().i18n("Set destination"),
                 MaterialDesignIcon.AIRPLANE_LANDING);
         setDestinationItem.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.ALT_DOWN));
         setDestinationItem.setOnAction(e -> eventStudio()
                 .broadcast(requestDestination(descriptor.getFile(), getOwnerModule()), getOwnerModule()));
 
-        MenuItem openFileItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open"),
+        MenuItem openFileItem = createMenuItem(I18nContext.getInstance().i18n("Open"),
                 MaterialDesignIcon.FILE_PDF_BOX);
         openFileItem.setOnAction(e -> eventStudio().broadcast(new OpenFileRequest(descriptor.getFile())));
 
-        MenuItem openFolderItem = createMenuItem(DefaultI18nContext.getInstance().i18n("Open Folder"),
+        MenuItem openFolderItem = createMenuItem(I18nContext.getInstance().i18n("Open Folder"),
                 MaterialDesignIcon.FOLDER_OUTLINE);
         openFolderItem
                 .setOnAction(e -> eventStudio().broadcast(new OpenFileRequest(descriptor.getFile().getParentFile())));

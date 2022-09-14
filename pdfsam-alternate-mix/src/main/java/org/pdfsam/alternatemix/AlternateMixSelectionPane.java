@@ -22,7 +22,7 @@ import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
 
 import java.util.function.Consumer;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.selection.multiple.FileColumn;
 import org.pdfsam.ui.selection.multiple.IntColumn;
@@ -47,7 +47,7 @@ public class AlternateMixSelectionPane extends MultipleSelectionPane
         super(ownerModule, true, true,
                 new TableColumnProvider<?>[] { new LoadingColumn(ownerModule), FileColumn.NAME, LongColumn.SIZE,
                         IntColumn.PAGES, LongColumn.LAST_MODIFIED,
-                        new PageRangesColumn(DefaultI18nContext.getInstance()
+                        new PageRangesColumn(I18nContext.getInstance()
                                 .i18n("Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)")),
                         new PaceColumn(), new ReverseColumn() });
     }
@@ -55,7 +55,7 @@ public class AlternateMixSelectionPane extends MultipleSelectionPane
     @Override
     public void apply(AlternateMixParametersBuilder builder, Consumer<String> onError) {
         if (table().getItems().isEmpty()) {
-            onError.accept(DefaultI18nContext.getInstance().i18n("No PDF document has been selected"));
+            onError.accept(I18nContext.getInstance().i18n("No PDF document has been selected"));
         } else {
             for (SelectionTableRowData row : table().getItems()) {
                 String step = defaultIfBlank(row.pace.get(), "1").trim();
@@ -65,7 +65,7 @@ public class AlternateMixSelectionPane extends MultipleSelectionPane
                     input.addAllPageRanges(row.toPageRangeSet());
                     builder.addInput(input);
                 } else {
-                    onError.accept(DefaultI18nContext.getInstance().i18n("Select a positive integer number as pace"));
+                    onError.accept(I18nContext.getInstance().i18n("Select a positive integer number as pace"));
                     break;
                 }
             }

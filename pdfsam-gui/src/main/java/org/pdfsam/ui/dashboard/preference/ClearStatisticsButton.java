@@ -20,7 +20,7 @@ package org.pdfsam.ui.dashboard.preference;
 
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Prototype;
 import org.pdfsam.module.ClearUsageRequestEvent;
 import org.pdfsam.ui.support.Style;
@@ -37,7 +37,7 @@ import javafx.scene.control.Button;
 class ClearStatisticsButton extends Button {
 
     ClearStatisticsButton() {
-        super(DefaultI18nContext.getInstance().i18n("Clear usage statistics"));
+        super(I18nContext.getInstance().i18n("Clear usage statistics"));
         getStyleClass().addAll(Style.BUTTON.css());
         setOnAction(e -> eventStudio().broadcast(new ClearUsageRequestEvent()));
     }

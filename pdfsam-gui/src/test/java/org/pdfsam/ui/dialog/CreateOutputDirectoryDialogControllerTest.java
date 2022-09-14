@@ -36,8 +36,8 @@ import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
 import org.pdfsam.NoHeadless;
 import org.pdfsam.configuration.StylesConfig;
-import org.pdfsam.i18n.DefaultI18nContext;
-import org.pdfsam.i18n.SetLocaleEvent;
+import org.pdfsam.i18n.I18nContext;
+import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.injector.Components;
 import org.pdfsam.injector.Injector;
 import org.pdfsam.injector.Provides;
@@ -64,7 +64,8 @@ public class CreateOutputDirectoryDialogControllerTest extends ApplicationTest {
 
     @BeforeClass
     public static void setUp() {
-        ((DefaultI18nContext) DefaultI18nContext.getInstance()).refresh(new SetLocaleEvent(Locale.UK.toLanguageTag()));
+        ((I18nContext) I18nContext.getInstance()).refresh(
+                new SetLocaleRequest(Locale.UK.toLanguageTag()));
     }
 
     @Override
@@ -92,7 +93,7 @@ public class CreateOutputDirectoryDialogControllerTest extends ApplicationTest {
         button.setOnAction(a -> eventStudio().broadcast(new NonExistingOutputDirectoryEvent(file)));
         folder.delete();
         clickOn("show");
-        clickOn(DefaultI18nContext.getInstance().i18n("No"));
+        clickOn(I18nContext.getInstance().i18n("No"));
         assertFalse(Files.exists(file));
     }
 
@@ -103,7 +104,7 @@ public class CreateOutputDirectoryDialogControllerTest extends ApplicationTest {
         button.setOnAction(a -> eventStudio().broadcast(new NonExistingOutputDirectoryEvent(file)));
         folder.delete();
         clickOn("show");
-        clickOn(DefaultI18nContext.getInstance().i18n("Yes"));
+        clickOn(I18nContext.getInstance().i18n("Yes"));
         assertTrue(Files.exists(file));
     }
 }

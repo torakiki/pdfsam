@@ -28,7 +28,7 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.NoHeadless;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Injector;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.dashboard.PreferencesDashboardItem;
@@ -64,7 +64,7 @@ public class SettingsMenuTest extends ApplicationTest {
         eventStudio().add(SetActiveDashboardItemRequest.class, listener);
         ArgumentCaptor<SetActiveDashboardItemRequest> argument = ArgumentCaptor
                 .forClass(SetActiveDashboardItemRequest.class);
-        clickOn(".button").clickOn(DefaultI18nContext.getInstance().i18n("_Settings"));
+        clickOn(".button").clickOn(I18nContext.getInstance().i18n("_Settings"));
         verify(listener).onEvent(argument.capture());
         assertEquals(PreferencesDashboardItem.ID, argument.getValue().getActiveItemId());
     }

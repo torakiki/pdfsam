@@ -33,7 +33,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.eventstudio.ReferenceStrength;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.eventstudio.annotation.EventStation;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.module.Module;
 import org.pdfsam.module.ModuleInputOutputType;
 import org.pdfsam.module.TaskExecutionRequestEvent;
@@ -79,7 +79,7 @@ public class OpenButton extends SplitMenuButton implements TaskOutputDispatcher 
         setId(ownerModule + ".openButton");
         getStyleClass().addAll(Style.BUTTON.css());
         getStyleClass().addAll("pdfsam-split-button", "footer-open-button");
-        setText(DefaultI18nContext.getInstance().i18n("Open"));
+        setText(I18nContext.getInstance().i18n("Open"));
         setMaxHeight(Double.MAX_VALUE);
         setPrefHeight(Double.MAX_VALUE);
         setVisible(false);

@@ -20,7 +20,7 @@ package org.pdfsam.ui.banner;
 
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.ui.commons.Animations;
 import org.pdfsam.ui.commons.HideStageRequest;
 import org.pdfsam.ui.commons.ShowStageRequest;
@@ -47,7 +47,7 @@ class LogButton extends BannerButton {
     LogButton() {
         super(MaterialDesignIcon.COMMENT_ALERT_OUTLINE);
         setOnAction(e -> eventStudio().broadcast(action, "LogStage"));
-        setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Application messages")));
+        setTooltip(new Tooltip(I18nContext.getInstance().i18n("Application messages")));
         anim = Animations.shake(this);
         eventStudio().addAnnotatedListeners(this);
     }

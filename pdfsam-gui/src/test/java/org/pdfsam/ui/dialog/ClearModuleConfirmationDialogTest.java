@@ -33,8 +33,8 @@ import org.junit.experimental.categories.Category;
 import org.pdfsam.NoHeadless;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.context.UserContext;
-import org.pdfsam.i18n.DefaultI18nContext;
-import org.pdfsam.i18n.SetLocaleEvent;
+import org.pdfsam.i18n.I18nContext;
+import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.HitTestListener;
 import org.pdfsam.ui.commons.ClearModuleEvent;
@@ -58,7 +58,8 @@ public class ClearModuleConfirmationDialogTest extends ApplicationTest {
     private UserContext context;
     @BeforeClass
     public static void setUp() {
-        ((DefaultI18nContext) DefaultI18nContext.getInstance()).refresh(new SetLocaleEvent(Locale.UK.toLanguageTag()));
+        ((I18nContext) I18nContext.getInstance()).refresh(
+                new SetLocaleRequest(Locale.UK.toLanguageTag()));
     }
 
     @Override
@@ -79,18 +80,18 @@ public class ClearModuleConfirmationDialogTest extends ApplicationTest {
     public void contentIsShownClearEverything() {
         button.setOnAction(a -> eventStudio().broadcast(new ClearModuleEvent("module", true, true)));
         clickOn("show");
-        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("Clear the module settings")).tryQuery().isPresent());
-        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("Do you confirm?")).tryQuery().isPresent());
-        clickOn(DefaultI18nContext.getInstance().i18n("No"));
+        assertTrue(lookup(I18nContext.getInstance().i18n("Clear the module settings")).tryQuery().isPresent());
+        assertTrue(lookup(I18nContext.getInstance().i18n("Do you confirm?")).tryQuery().isPresent());
+        clickOn(I18nContext.getInstance().i18n("No"));
     }
 
     @Test
     public void contentIsShownDontClearEverything() {
         button.setOnAction(a -> eventStudio().broadcast(new ClearModuleEvent("module", false, true)));
         clickOn("show");
-        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("Clear the selection table")).tryQuery().isPresent());
-        assertTrue(lookup(DefaultI18nContext.getInstance().i18n("Do you confirm?")).tryQuery().isPresent());
-        clickOn(DefaultI18nContext.getInstance().i18n("No"));
+        assertTrue(lookup(I18nContext.getInstance().i18n("Clear the selection table")).tryQuery().isPresent());
+        assertTrue(lookup(I18nContext.getInstance().i18n("Do you confirm?")).tryQuery().isPresent());
+        clickOn(I18nContext.getInstance().i18n("No"));
     }
 
     @Test
@@ -99,7 +100,7 @@ public class ClearModuleConfirmationDialogTest extends ApplicationTest {
         button.setOnAction(a -> eventStudio().broadcast(new ClearModuleEvent("module", false, true)));
         eventStudio().add(ClearModuleEvent.class, listener, "module");
         clickOn("show");
-        clickOn(DefaultI18nContext.getInstance().i18n("No"));
+        clickOn(I18nContext.getInstance().i18n("No"));
         assertFalse(listener.isHit());
     }
 
@@ -109,7 +110,7 @@ public class ClearModuleConfirmationDialogTest extends ApplicationTest {
         button.setOnAction(a -> eventStudio().broadcast(new ClearModuleEvent("module", false, true)));
         eventStudio().add(ClearModuleEvent.class, listener, "module");
         clickOn("show");
-        clickOn(DefaultI18nContext.getInstance().i18n("Yes"));
+        clickOn(I18nContext.getInstance().i18n("Yes"));
         assertTrue(listener.isHit());
     }
 

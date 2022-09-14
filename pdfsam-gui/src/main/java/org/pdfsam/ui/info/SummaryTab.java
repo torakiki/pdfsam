@@ -26,7 +26,7 @@ import java.text.DateFormat;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.time.FastDateFormat;
 import org.pdfsam.eventstudio.annotation.EventListener;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
@@ -64,7 +64,7 @@ class SummaryTab extends BaseInfoTab implements ChangeListener<PdfDescriptorLoad
     private PdfDocumentDescriptor current;
 
     SummaryTab() {
-        setText(DefaultI18nContext.getInstance().i18n("Summary"));
+        setText(I18nContext.getInstance().i18n("Summary"));
         grid().add(createTitleLabel("File"), 0, 0);
         grid().add(fileLabel, 1, 0);
         grid().add(createTitleLabel("Size"), 0, 1);

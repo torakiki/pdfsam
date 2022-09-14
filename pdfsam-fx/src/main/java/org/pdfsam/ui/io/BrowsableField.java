@@ -25,7 +25,7 @@ import java.io.File;
 import java.util.Map;
 import java.util.Optional;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
@@ -65,10 +65,10 @@ abstract class BrowsableField extends HBox implements RestorableView {
 
     };
     private HBox validableContainer;
-    private String browseWindowTitle = DefaultI18nContext.getInstance().i18n("Select");
+    private String browseWindowTitle = I18nContext.getInstance().i18n("Select");
 
     public BrowsableField() {
-        this(new Button(DefaultI18nContext.getInstance().i18n("Browse")));
+        this(new Button(I18nContext.getInstance().i18n("Browse")));
         browseButton.getStyleClass().addAll(Style.BROWSE_BUTTON.css());
         browseButton.prefHeightProperty().bind(validableContainer.heightProperty());
         browseButton.setMaxHeight(USE_PREF_SIZE);

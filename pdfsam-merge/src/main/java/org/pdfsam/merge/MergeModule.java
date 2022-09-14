@@ -29,7 +29,7 @@ import javax.inject.Named;
 
 import jakarta.inject.Named;
 import org.pdfsam.context.UserContext;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.injector.Components;
 import org.pdfsam.injector.Provides;
@@ -69,8 +69,8 @@ public class MergeModule extends BaseTaskExecutionModule {
     private BrowsablePdfOutputField destinationFileField;
     private PdfDestinationPane destinationPane;
     private ModuleDescriptor descriptor = builder().category(ModuleCategory.MERGE)
-            .inputTypes(ModuleInputOutputType.MULTIPLE_PDF).name(DefaultI18nContext.getInstance().i18n("Merge"))
-            .description(DefaultI18nContext.getInstance()
+            .inputTypes(ModuleInputOutputType.MULTIPLE_PDF).name(I18nContext.getInstance().i18n("Merge"))
+            .description(I18nContext.getInstance()
                     .i18n("Merge together multiple PDF documents or subsections of them."))
             .priority(ModulePriority.HIGH.getPriority()).supportURL("https://pdfsam.org/pdf-merge/").build();
 
@@ -120,8 +120,8 @@ public class MergeModule extends BaseTaskExecutionModule {
         VBox.setVgrow(selectionPane, Priority.ALWAYS);
 
         pane.getChildren().addAll(selectionPane,
-                titledPane(DefaultI18nContext.getInstance().i18n("Merge settings"), mergeOptions),
-                titledPane(DefaultI18nContext.getInstance().i18n("Destination file"), destinationPane));
+                titledPane(I18nContext.getInstance().i18n("Merge settings"), mergeOptions),
+                titledPane(I18nContext.getInstance().i18n("Destination file"), destinationPane));
         return pane;
     }
 

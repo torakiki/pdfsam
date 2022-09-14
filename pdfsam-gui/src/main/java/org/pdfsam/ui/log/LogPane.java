@@ -26,7 +26,6 @@ import java.util.Collection;
 
 import javax.inject.Inject;
 
-import org.pdfsam.i18n.DefaultI18nContext;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.io.FileChoosers;
@@ -61,7 +60,7 @@ public class LogPane extends BorderPane {
         getStyleClass().addAll(Style.CONTAINER.css());
         setCenter(this.logView);
 
-        I18nContext i18n = DefaultI18nContext.getInstance();
+        I18nContext i18n = I18nContext.getInstance();
         MenuItem copyItem = new MenuItem(i18n.i18n("Copy"));
         copyItem.setId("copyLogMenuItem");
         copyItem.setAccelerator(new KeyCodeCombination(KeyCode.C, KeyCombination.SHORTCUT_DOWN));
@@ -112,7 +111,7 @@ public class LogPane extends BorderPane {
 
     public void saveLog() {
         RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(
-                DefaultI18nContext.getInstance().i18n("Select where to save the log file"), FileType.LOG);
+                I18nContext.getInstance().i18n("Select where to save the log file"), FileType.LOG);
         fileChooser.setInitialFileName("PDFsam.log");
         File chosenFile = fileChooser.showDialog(this.getScene().getWindow(), OpenType.SAVE);
         if (chosenFile != null) {

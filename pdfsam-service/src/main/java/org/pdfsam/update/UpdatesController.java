@@ -29,7 +29,7 @@ import javax.inject.Inject;
 
 import org.pdfsam.Pdfsam;
 import org.pdfsam.eventstudio.annotation.EventListener;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Auto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -56,11 +56,11 @@ public class UpdatesController {
 
     @EventListener
     public void checkForUpdates(UpdateCheckRequest event) {
-        LOG.debug(DefaultI18nContext.getInstance().i18n("Checking for updates"));
+        LOG.debug(I18nContext.getInstance().i18n("Checking for updates"));
         CompletableFuture.supplyAsync(service::getLatestVersion).thenAccept(current -> {
             if (isNotBlank(current)) {
                 if (!pdfsam.property(VERSION).equals(current)) {
-                    LOG.info(DefaultI18nContext.getInstance().i18n("PDFsam {0} is available for download", current));
+                    LOG.info(I18nContext.getInstance().i18n("PDFsam {0} is available for download", current));
                     eventStudio().broadcast(new UpdateAvailableEvent(current));
                 } else if (event.nofityNoUpdates) {
                     eventStudio().broadcast(new NoUpdateAvailable());
@@ -68,7 +68,7 @@ public class UpdatesController {
             }
         }).whenComplete((r, e) -> {
             if (nonNull(e)) {
-                LOG.warn(DefaultI18nContext.getInstance().i18n("Unable to find the latest available version."), e);
+                LOG.warn(I18nContext.getInstance().i18n("Unable to find the latest available version."), e);
             }
         });
     }

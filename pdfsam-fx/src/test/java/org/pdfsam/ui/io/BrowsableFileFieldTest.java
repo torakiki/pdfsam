@@ -30,8 +30,8 @@ import java.util.Map;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
-import org.pdfsam.i18n.DefaultI18nContext;
-import org.pdfsam.i18n.SetLocaleEvent;
+import org.pdfsam.i18n.I18nContext;
+import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
@@ -49,9 +49,9 @@ public class BrowsableFileFieldTest {
 
     @Test
     public void defaultPromptText() {
-        eventStudio().broadcast(new SetLocaleEvent(Locale.UK.toLanguageTag()));
+        eventStudio().broadcast(new SetLocaleRequest(Locale.UK.toLanguageTag()));
         BrowsableFileField victim = new BrowsableFileField(FileType.ALL, OpenType.OPEN);
-        assertEquals(DefaultI18nContext.getInstance().i18n("Select a file"), victim.getTextField().getPromptText());
+        assertEquals(I18nContext.getInstance().i18n("Select a file"), victim.getTextField().getPromptText());
     }
 
     @Test

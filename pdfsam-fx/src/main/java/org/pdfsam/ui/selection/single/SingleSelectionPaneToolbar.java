@@ -22,7 +22,7 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.pdfsam.ui.selection.ToolbarButton;
@@ -59,8 +59,8 @@ class SingleSelectionPaneToolbar extends ToolBar implements ModuleOwned {
 
         public SelectButton(String ownerModule) {
             super(ownerModule);
-            setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Select the PDF file")));
-            setText(DefaultI18nContext.getInstance().i18n("_Select PDF"));
+            setTooltip(new Tooltip(I18nContext.getInstance().i18n("Select the PDF file")));
+            setText(I18nContext.getInstance().i18n("_Select PDF"));
         }
     }
 
@@ -68,8 +68,8 @@ class SingleSelectionPaneToolbar extends ToolBar implements ModuleOwned {
 
         public ClearButton(String ownerModule) {
             super(ownerModule);
-            setText(DefaultI18nContext.getInstance().i18n("_Clear"));
-            setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Clear all settings")));
+            setText(I18nContext.getInstance().i18n("_Clear"));
+            setTooltip(new Tooltip(I18nContext.getInstance().i18n("Clear all settings")));
             setOnAction(this::clearAll);
             eventStudio().addAnnotatedListeners(this);
         }

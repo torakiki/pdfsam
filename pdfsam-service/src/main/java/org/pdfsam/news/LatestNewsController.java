@@ -26,7 +26,7 @@ import java.util.concurrent.CompletableFuture;
 import javax.inject.Inject;
 
 import org.pdfsam.eventstudio.annotation.EventListener;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Auto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,7 +51,7 @@ public class LatestNewsController {
 
     @EventListener
     public void fetchLatestNews(FetchLatestNewsRequest event) {
-        LOG.debug(DefaultI18nContext.getInstance().i18n("Fetching latest news"));
+        LOG.debug(I18nContext.getInstance().i18n("Fetching latest news"));
         CompletableFuture.supplyAsync(service::getLatestNews).thenAcceptAsync(news -> {
             if (nonNull(news) && !news.isEmpty()) {
                 currentLatest = news.get(0).getId();
@@ -64,7 +64,7 @@ public class LatestNewsController {
             }
         }).whenComplete((r, e) -> {
             if (nonNull(e)) {
-                LOG.warn(DefaultI18nContext.getInstance().i18n("Unable to retrieve the latest news"), e);
+                LOG.warn(I18nContext.getInstance().i18n("Unable to retrieve the latest news"), e);
             }
         });
     }

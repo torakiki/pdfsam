@@ -28,7 +28,7 @@ import java.nio.file.Paths;
 import java.util.function.Consumer;
 
 import org.apache.commons.lang3.ObjectUtils;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.support.validation.Validator;
 import org.pdfsam.support.validation.Validators;
@@ -63,16 +63,16 @@ public class BrowsableFileField extends BrowsableField {
     }
 
     private void init(FileType fileType, OpenType openType) {
-        setBrowseWindowTitle(DefaultI18nContext.getInstance().i18n("Select a file"));
+        setBrowseWindowTitle(I18nContext.getInstance().i18n("Select a file"));
         getBrowseButton().setOnAction(handler);
         getTextField().setOnAction(handler);
         this.fileType = ObjectUtils.defaultIfNull(fileType, FileType.ALL);
         this.openType = ObjectUtils.defaultIfNull(openType, OpenType.OPEN);
         if (FileType.ALL != fileType) {
-            getTextField().setPromptText(String.format("%s: %s", DefaultI18nContext.getInstance().i18n("Select a file"),
+            getTextField().setPromptText(String.format("%s: %s", I18nContext.getInstance().i18n("Select a file"),
                     fileType.getFilter().getExtensions()));
         } else {
-            getTextField().setPromptText(DefaultI18nContext.getInstance().i18n("Select a file"));
+            getTextField().setPromptText(I18nContext.getInstance().i18n("Select a file"));
         }
         setOnDragOver(e -> dragConsume(e, this.onDragOverConsumer()));
         setOnDragDropped(e -> dragConsume(e, this.onDragDropped()));
@@ -94,10 +94,10 @@ public class BrowsableFileField extends BrowsableField {
 
     private String buildErrorMessage(boolean selectedFileMustExists) {
         String errorMessage = selectedFileMustExists
-                ? DefaultI18nContext.getInstance().i18n("The selected file must exist. ")
+                ? I18nContext.getInstance().i18n("The selected file must exist. ")
                 : "";
         if (FileType.ALL != fileType) {
-            errorMessage += DefaultI18nContext.getInstance().i18n("Allowed extensions are {0}",
+            errorMessage += I18nContext.getInstance().i18n("Allowed extensions are {0}",
                     fileType.getFilter().getDescription());
         }
         return trim(errorMessage);

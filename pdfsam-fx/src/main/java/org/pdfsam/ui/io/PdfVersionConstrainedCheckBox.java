@@ -24,7 +24,7 @@ import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.ui.support.Style;
 import org.sejda.model.pdf.PdfVersion;
@@ -45,7 +45,7 @@ class PdfVersionConstrainedCheckBox extends CheckBox implements ModuleOwned {
         requireNotNullArg(constraint, "PdfVersion cannot be null");
         this.ownerModule = defaultString(ownerModule);
         this.constraint = constraint;
-        this.setGraphic(helpIcon(DefaultI18nContext.getInstance().i18n("PDF version required: {0}",
+        this.setGraphic(helpIcon(I18nContext.getInstance().i18n("PDF version required: {0}",
                 this.constraint.getVersionString())));
         this.getStyleClass().addAll(Style.WITH_HELP.css());
 

@@ -40,8 +40,8 @@ import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.context.DefaultUserContext;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.eventstudio.annotation.EventListener;
-import org.pdfsam.i18n.DefaultI18nContext;
-import org.pdfsam.i18n.SetLocaleEvent;
+import org.pdfsam.i18n.I18nContext;
+import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.injector.Injector;
 import org.pdfsam.module.Module;
 import org.pdfsam.news.FetchLatestNewsRequest;
@@ -122,7 +122,7 @@ public class PdfsamApp extends Application {
         cleanUserContextIfNeeded(userContext);
         String localeString = userContext.getLocale();
         if (isNotBlank(localeString)) {
-            eventStudio().broadcast(new SetLocaleEvent(localeString));
+            eventStudio().broadcast(new SetLocaleRequest(localeString));
         }
         String defaultworkingPath = userContext.getDefaultWorkingPath();
         if (isNotBlank(defaultworkingPath)) {
@@ -178,7 +178,7 @@ public class PdfsamApp extends Application {
         eventStudio().addAnnotatedListeners(this);
         closeSplash();
         STOPWATCH.stop();
-        LOG.info(DefaultI18nContext.getInstance().i18n("Started in {0}",
+        LOG.info(I18nContext.getInstance().i18n("Started in {0}",
                 DurationFormatUtils.formatDurationWords(STOPWATCH.getTime(), true, true)));
         new InputPdfArgumentsController().accept(rawParameters);
     }
@@ -229,7 +229,7 @@ public class PdfsamApp extends Application {
 
     @Override
     public void stop() {
-        LOG.info(DefaultI18nContext.getInstance().i18n("Closing PDFsam..."));
+        LOG.info(I18nContext.getInstance().i18n("Closing PDFsam..."));
         if (nonNull(primaryStage)) {
             StageStatus status = new StageStatus(this.primaryStage.getX(), this.primaryStage.getY(),
                     this.primaryStage.getWidth(), this.primaryStage.getHeight());

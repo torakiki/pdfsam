@@ -33,7 +33,7 @@ import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.commons.OpenUrlRequest;
 import org.pdfsam.eventstudio.Listener;
@@ -96,14 +96,14 @@ public class AboutDashboardPaneTest extends ApplicationTest {
 
     @Test
     public void clickFeed() {
-        clickOn(DefaultI18nContext.getInstance().i18n("Subscribe to the official news feed"));
+        clickOn(I18nContext.getInstance().i18n("Subscribe to the official news feed"));
         verify(listener).onEvent(captor.capture());
         assertEquals("https://www.pdfsam.org/feed/", captor.getValue().getUrl());
     }
 
     @Test
     public void clickBugs() {
-        clickOn(DefaultI18nContext.getInstance().i18n("Bug and feature requests"));
+        clickOn(I18nContext.getInstance().i18n("Bug and feature requests"));
         verify(listener).onEvent(captor.capture());
         assertEquals("https://www.pdfsam.org/issue_tracker", captor.getValue().getUrl());
     }
@@ -117,42 +117,42 @@ public class AboutDashboardPaneTest extends ApplicationTest {
 
     @Test
     public void clickDocumentation() {
-        clickOn(DefaultI18nContext.getInstance().i18n("Documentation"));
+        clickOn(I18nContext.getInstance().i18n("Documentation"));
         verify(listener, atLeastOnce()).onEvent(captor.capture());
         assertEquals("https://www.pdfsam.org/documentation", captor.getValue().getUrl());
     }
 
     @Test
     public void clickScm() {
-        clickOn(DefaultI18nContext.getInstance().i18n("Fork PDFsam on GitHub"));
+        clickOn(I18nContext.getInstance().i18n("Fork PDFsam on GitHub"));
         verify(listener, atLeastOnce()).onEvent(captor.capture());
         assertEquals("https://www.pdfsam.org/scm", captor.getValue().getUrl());
     }
 
     @Test
     public void clickTranslate() {
-        clickOn(DefaultI18nContext.getInstance().i18n("Translate"));
+        clickOn(I18nContext.getInstance().i18n("Translate"));
         verify(listener, atLeastOnce()).onEvent(captor.capture());
         assertEquals("https://www.pdfsam.org/translate", captor.getValue().getUrl());
     }
 
     @Test
     public void clickDonate() {
-        clickOn(DefaultI18nContext.getInstance().i18n("Donate"));
+        clickOn(I18nContext.getInstance().i18n("Donate"));
         verify(listener, atLeastOnce()).onEvent(captor.capture());
         assertEquals("https://www.pdfsam.org/donate", captor.getValue().getUrl());
     }
 
     @Test
     public void clickTwitter() {
-        clickOn(DefaultI18nContext.getInstance().i18n("Follow us on Twitter"));
+        clickOn(I18nContext.getInstance().i18n("Follow us on Twitter"));
         verify(listener, atLeastOnce()).onEvent(captor.capture());
         assertEquals("https://www.pdfsam.org/twitter", captor.getValue().getUrl());
     }
 
     @Test
     public void clickFacebook() {
-        clickOn(DefaultI18nContext.getInstance().i18n("Like us on Facebook"));
+        clickOn(I18nContext.getInstance().i18n("Like us on Facebook"));
         verify(listener, atLeastOnce()).onEvent(captor.capture());
         assertEquals("https://www.pdfsam.org/facebook", captor.getValue().getUrl());
     }

@@ -21,7 +21,7 @@ package org.pdfsam.ui.io;
 import java.io.File;
 import java.util.function.Consumer;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.support.params.SingleOutputTaskParametersBuilder;
 import org.pdfsam.support.params.TaskParametersBuildStep;
@@ -50,7 +50,7 @@ public class BrowsablePdfOutputField extends BrowsableFileField implements
         if (getTextField().getValidationState() == ValidationState.VALID) {
             builder.output(new FileTaskOutput(new File(getTextField().getText())));
         } else {
-            onError.accept(DefaultI18nContext.getInstance().i18n("The selected PDF file is invalid"));
+            onError.accept(I18nContext.getInstance().i18n("The selected PDF file is invalid"));
         }
     }
 

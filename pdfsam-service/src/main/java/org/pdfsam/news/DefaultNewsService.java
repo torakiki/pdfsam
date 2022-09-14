@@ -32,7 +32,7 @@ import javax.inject.Inject;
 
 import org.pdfsam.ConfigurableProperty;
 import org.pdfsam.Pdfsam;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -66,7 +66,7 @@ public class DefaultNewsService implements NewsService {
                     .listOfFrom(NewsData.class,
                     urlToStream(new URL(pdfsam.property(ConfigurableProperty.NEWS_URL))));
         } catch (IOException e) {
-            LOG.warn(DefaultI18nContext.getInstance().i18n("Unable to retrieve latest news"), e);
+            LOG.warn(I18nContext.getInstance().i18n("Unable to retrieve latest news"), e);
         }
         return Collections.emptyList();
     }

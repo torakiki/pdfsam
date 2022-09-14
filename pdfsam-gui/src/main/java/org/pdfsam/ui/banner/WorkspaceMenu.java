@@ -25,7 +25,7 @@ import java.util.Optional;
 
 import javax.inject.Inject;
 
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.support.io.FileType;
 import org.pdfsam.ui.RecentWorkspacesService;
 import org.pdfsam.ui.io.FileChoosers;
@@ -54,19 +54,19 @@ class WorkspaceMenu extends Menu {
 
     @Inject
     public WorkspaceMenu(RecentWorkspacesService service) {
-        super(DefaultI18nContext.getInstance().i18n("_Workspace"));
+        super(I18nContext.getInstance().i18n("_Workspace"));
         this.service = service;
         setId("workspaceMenu");
-        MenuItem load = new MenuItem(DefaultI18nContext.getInstance().i18n("_Load"));
+        MenuItem load = new MenuItem(I18nContext.getInstance().i18n("_Load"));
         load.setId("loadWorkspace");
         load.setOnAction(e -> loadWorkspace());
-        MenuItem save = new MenuItem(DefaultI18nContext.getInstance().i18n("_Save"));
+        MenuItem save = new MenuItem(I18nContext.getInstance().i18n("_Save"));
         save.setOnAction(e -> saveWorkspace());
         save.setId("saveWorkspace");
-        recent = new Menu(DefaultI18nContext.getInstance().i18n("Recen_ts"));
+        recent = new Menu(I18nContext.getInstance().i18n("Recen_ts"));
         recent.setId("recentWorkspace");
         service.getRecentlyUsedWorkspaces().stream().map(WorkspaceMenuItem::new).forEach(recent.getItems()::add);
-        MenuItem clear = new MenuItem(DefaultI18nContext.getInstance().i18n("_Clear recents"));
+        MenuItem clear = new MenuItem(I18nContext.getInstance().i18n("_Clear recents"));
         clear.setOnAction(e -> clearWorkspaces());
         clear.setId("clearWorkspaces");
         getItems().addAll(load, save, new SeparatorMenuItem(), recent, clear);
@@ -75,7 +75,7 @@ class WorkspaceMenu extends Menu {
 
     public void saveWorkspace() {
         RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(
-                DefaultI18nContext.getInstance().i18n("Select the workspace file to save"), FileType.JSON);
+                I18nContext.getInstance().i18n("Select the workspace file to save"), FileType.JSON);
 
         latestWorkspace.ifPresentOrElse(f -> {
             fileChooser.setInitialDirectory(f.getParentFile());
@@ -91,7 +91,7 @@ class WorkspaceMenu extends Menu {
 
     public void loadWorkspace() {
         RememberingLatestFileChooserWrapper fileChooser = FileChoosers
-                .getFileChooser(DefaultI18nContext.getInstance().i18n("Select the workspace to load"), FileType.JSON);
+                .getFileChooser(I18nContext.getInstance().i18n("Select the workspace to load"), FileType.JSON);
         latestWorkspace.ifPresent(f -> {
             fileChooser.setInitialDirectory(f.getParentFile());
             fileChooser.setInitialFileName(f.getName());

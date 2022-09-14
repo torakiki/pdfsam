@@ -28,7 +28,7 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.eventstudio.annotation.EventStation;
-import org.pdfsam.i18n.DefaultI18nContext;
+import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.module.ModuleOwned;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfFilesListLoadRequest;
@@ -89,19 +89,19 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
             this.ownerModule = defaultString(ownerModule);
             getStyleClass().addAll(Style.BUTTON.css());
             getStyleClass().addAll("pdfsam-split-button", "toolbar-splitbutton");
-            setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Add documents to the table")));
-            setText(DefaultI18nContext.getInstance().i18n("_Add"));
+            setTooltip(new Tooltip(I18nContext.getInstance().i18n("Add documents to the table")));
+            setText(I18nContext.getInstance().i18n("_Add"));
             setOnAction(this::loadDocuments);
 
             MenuItem fromList = new MenuItem();
-            fromList.setText(DefaultI18nContext.getInstance().i18n("PDF list from _text/csv file"));
+            fromList.setText(I18nContext.getInstance().i18n("PDF list from _text/csv file"));
             fromList.setOnAction(this::loadList);
             getItems().add(fromList);
         }
 
         public void loadDocuments(ActionEvent event) {
             RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(
-                    DefaultI18nContext.getInstance().i18n("Select pdf documents to load"), FileType.PDF);
+                    I18nContext.getInstance().i18n("Select pdf documents to load"), FileType.PDF);
             List<File> chosenFiles = fileChooser.showOpenMultipleDialog(this.getScene().getWindow());
             if (chosenFiles != null && !chosenFiles.isEmpty()) {
                 PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
@@ -112,7 +112,7 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
 
         public void loadList(ActionEvent event) {
             RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(
-                    DefaultI18nContext.getInstance().i18n("Select a text or CSV file to load"), FileType.CSV,
+                    I18nContext.getInstance().i18n("Select a text or CSV file to load"), FileType.CSV,
                     FileType.TXT);
             File chosenFile = fileChooser.showDialog(this.getScene().getWindow(), OpenType.OPEN);
             if (nonNull(chosenFile)) {
@@ -137,8 +137,8 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
 
         public RemoveButton(String ownerModule) {
             super(ownerModule);
-            setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Removes selected documents")));
-            setText(DefaultI18nContext.getInstance().i18n("_Remove"));
+            setTooltip(new Tooltip(I18nContext.getInstance().i18n("Removes selected documents")));
+            setText(I18nContext.getInstance().i18n("_Remove"));
             setOnAction(this::removeSelected);
             setDisable(true);
             eventStudio().addAnnotatedListeners(this);
@@ -169,12 +169,12 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
             this.ownerModule = defaultString(ownerModule);
             getStyleClass().addAll(Style.BUTTON.css());
             getStyleClass().addAll("pdfsam-split-button", "toolbar-splitbutton");
-            setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Removes every document")));
-            setText(DefaultI18nContext.getInstance().i18n("_Clear"));
+            setTooltip(new Tooltip(I18nContext.getInstance().i18n("Removes every document")));
+            setText(I18nContext.getInstance().i18n("_Clear"));
             setOnAction(this::clear);
 
             MenuItem clearAllSettings = new MenuItem();
-            clearAllSettings.setText(DefaultI18nContext.getInstance().i18n("C_lear all settings"));
+            clearAllSettings.setText(I18nContext.getInstance().i18n("C_lear all settings"));
             clearAllSettings.setOnAction(this::clearAll);
             getItems().add(clearAllSettings);
         }
@@ -226,8 +226,8 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
 
         public MoveUpButton(String ownerModule) {
             super(ownerModule, MoveType.UP);
-            setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Moves up selected documents")));
-            setText(DefaultI18nContext.getInstance().i18n("Move _Up"));
+            setTooltip(new Tooltip(I18nContext.getInstance().i18n("Moves up selected documents")));
+            setText(I18nContext.getInstance().i18n("Move _Up"));
         }
     }
 
@@ -235,8 +235,8 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
 
         public MoveDownButton(String ownerModule) {
             super(ownerModule, MoveType.DOWN);
-            setTooltip(new Tooltip(DefaultI18nContext.getInstance().i18n("Moves down selected documents")));
-            setText(DefaultI18nContext.getInstance().i18n("Move _Down"));
+            setTooltip(new Tooltip(I18nContext.getInstance().i18n("Moves down selected documents")));
+            setText(I18nContext.getInstance().i18n("Move _Down"));
         }
     }
 }
