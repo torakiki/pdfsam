@@ -12,10 +12,21 @@
 
     <artifactId>pdfsam-i18n</artifactId>
     <packaging>jar</packaging>
-    <name>PDFsam i18n</name>
+    <name>PDFsam internationalization</name>
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Automatic-Module-Name>org.pdfsam.i18n</Automatic-Module-Name>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>com.googlecode.gettext-commons</groupId>
                 <artifactId>gettext-maven-plugin</artifactId>
