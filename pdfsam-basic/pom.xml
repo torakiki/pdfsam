@@ -133,7 +133,7 @@
 								<configuration>
 									<executable>jlink</executable>
 									<arguments>
-										<argument>--add-modules</argument>
+										<argument>--add-tools</argument>
 										<argument>java.base,java.datatransfer,java.logging,java.naming,java.sql,java.desktop,java.xml,java.scripting,jdk.unsupported,java.prefs</argument>
 										<argument>--output</argument>
 										<argument>${project.build.directory}/assembled/runtime</argument>
@@ -208,7 +208,7 @@
 									<longModulepath>false</longModulepath>
 									<executable>jlink</executable>
 									<arguments>
-										<argument>--add-modules</argument>
+										<argument>--add-tools</argument>
 										<argument>java.base,java.datatransfer,java.logging,java.naming,java.sql,java.desktop,java.xml,java.scripting,jdk.unsupported,java.prefs,javafx.base,javafx.graphics,javafx.controls,javafx.media</argument>
 										<argument>--output</argument>
 										<argument>${project.build.directory}/assembled/runtime</argument>

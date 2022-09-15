@@ -19,9 +19,16 @@
 package org.pdfsam.basic;
 
 import org.pdfsam.PdfsamApp;
+import org.pdfsam.alternatemix.AlternateMixTool;
+import org.pdfsam.extract.ExtractTool;
 import org.pdfsam.injector.Injector;
 
 import javafx.application.Application;
+import org.pdfsam.merge.MergeTool;
+import org.pdfsam.rotate.RotateTool;
+import org.pdfsam.split.SplitTool;
+import org.pdfsam.splitbybookmarks.SplitByBookmarksTool;
+import org.pdfsam.splitbysize.SplitBySizeTool;
 
 /**
  * PDFsam Basic Edition App
@@ -31,11 +38,11 @@ import javafx.application.Application;
  */
 public class App {
     public static void main(String[] args) {
-        Injector.addConfig(new PdfsamBasicConfig(), new org.pdfsam.alternatemix.AlternateMixModule.ModuleConfig(),
-                new org.pdfsam.extract.ExtractModule.ModuleConfig(), new org.pdfsam.merge.MergeModule.ModuleConfig(),
-                new org.pdfsam.rotate.RotateModule.ModuleConfig(), new org.pdfsam.split.SplitModule.ModuleConfig(),
-                new org.pdfsam.splitbybookmarks.SplitByBookmarksModule.ModuleConfig(),
-                new org.pdfsam.splitbysize.SplitBySizeModule.ModuleConfig());
+        Injector.addConfig(new PdfsamBasicConfig(), new AlternateMixTool.ModuleConfig(),
+                new ExtractTool.ModuleConfig(), new MergeTool.ModuleConfig(),
+                new RotateTool.ModuleConfig(), new SplitTool.ModuleConfig(),
+                new SplitByBookmarksTool.ModuleConfig(),
+                new SplitBySizeTool.ModuleConfig());
         Application.launch(PdfsamApp.class, args);
     }
 

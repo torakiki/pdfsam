@@ -18,10 +18,10 @@
  */
 package org.pdfsam.ui.dashboard.modules;
 
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
-
 import org.pdfsam.premium.PremiumModule;
-import org.pdfsam.ui.commons.OpenUrlRequest;
+import org.pdfsam.ui.commons.NativeOpenUrlRequest;
+
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 /**
  * A tile showing premium modules info
@@ -33,6 +33,6 @@ public class PremiumModuleTile extends DashboardTile {
 
     PremiumModuleTile(PremiumModule module) {
         super(module.getName(), module.getDescription(), module.getProduct().graphic());
-        setOnAction(e -> eventStudio().broadcast(new OpenUrlRequest(module.getUrl())));
+        setOnAction(e -> eventStudio().broadcast(new NativeOpenUrlRequest(module.getUrl())));
     }
 }

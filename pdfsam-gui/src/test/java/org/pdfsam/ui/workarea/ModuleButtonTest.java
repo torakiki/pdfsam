@@ -27,7 +27,7 @@ import org.junit.ClassRule;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.test.DefaultPriorityTestModule;
+import org.pdfsam.test.DefaultPriorityTestTool;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.pdfsam.eventstudio.Listener;
 import org.testfx.framework.junit.ApplicationTest;
@@ -43,7 +43,7 @@ public class ModuleButtonTest extends ApplicationTest {
 
     @ClassRule
     public static ClearEventStudioRule STUDIO = new ClearEventStudioRule();
-    private DefaultPriorityTestModule module = new DefaultPriorityTestModule();
+    private DefaultPriorityTestTool module = new DefaultPriorityTestTool();
 
     @Override
     public void start(Stage stage) {

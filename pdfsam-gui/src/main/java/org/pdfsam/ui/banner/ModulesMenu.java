@@ -28,8 +28,8 @@ import java.util.Map;
 import javax.inject.Inject;
 
 import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.module.Module;
-import org.pdfsam.module.ModuleCategory;
+import org.pdfsam.module.Tool;
+import org.pdfsam.module.ToolCategory;
 
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
@@ -43,19 +43,19 @@ import javafx.scene.control.MenuItem;
 class ModulesMenu extends Menu {
 
     @Inject
-    public ModulesMenu(List<Module> modules) {
+    public ModulesMenu(List<Tool> tools) {
         super(I18nContext.getInstance().i18n("_Modules"));
         setId("modulesMenu");
-        Map<ModuleCategory, Menu> moduleSubmenus = new HashMap<>();
-        for (final Module currentModule : modules) {
-            ModuleCategory category = currentModule.descriptor().category;
+        Map<ToolCategory, Menu> moduleSubmenus = new HashMap<>();
+        for (final Tool currentTool : tools) {
+            ToolCategory category = currentTool.descriptor().category;
             Menu currentMenu = moduleSubmenus.get(category);
             if (currentMenu == null) {
                 currentMenu = new Menu(category.getDescription());
                 moduleSubmenus.put(category, currentMenu);
             }
-            MenuItem moduleMenu = new MenuItem(currentModule.descriptor().getName());
-            moduleMenu.setOnAction(e -> eventStudio().broadcast(activeteModule(currentModule.id())));
+            MenuItem moduleMenu = new MenuItem(currentTool.descriptor().getName());
+            moduleMenu.setOnAction(e -> eventStudio().broadcast(activeteModule(currentTool.id())));
             currentMenu.getItems().add(moduleMenu);
         }
         getItems().addAll(moduleSubmenus.values());

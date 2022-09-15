@@ -145,16 +145,16 @@ msgstr "Lingua :"
 msgid "Set your preferred language (restart needed)"
 msgstr "Definisce a lingua preferita (rilanciu necessariu)"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "Mudullu d’iniziu :"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
 "Definisce u mudullu à apre à l’iniziu di l’appiecazione (rilanciu necessariu)"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr ""
 "E statistiche d’usu sò impiegate per nutrisce a barra di mudulli à manu "
 "manca cù i mudulli i più impiegati è i più impiegati da pocu tempu."
@@ -285,7 +285,7 @@ msgstr "Affissà e funzioni premium"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr ""
 "Definisce s’è l’appiecazione deve circà i funzioni premium è affissà a so "
 "discrizzione nant’à a tavula di cundutta"
@@ -352,7 +352,7 @@ msgstr "Cunfirmà a squassatura"
 msgid "Do you confirm?"
 msgstr "Cunfirmate ?"
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr "Viutà e preferenze di u modulu"
 
 msgid "Clear the selection table"
@@ -873,10 +873,10 @@ msgstr "Ducumenti caricati"
 msgid "Unable to retrieve premium features description"
 msgstr "Impussibule di riacquistà a discrizzione di i funzioni premium"
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr "Ricerca di i mudulli premium"
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr "Impussibule di riacquistà i mudulli premium"
 
 msgid "Unable to retrieve latest news"
@@ -895,10 +895,10 @@ msgstr "Arregistramentu di u spaziu di travagliu ver di {0}"
 msgid "Workspace saved"
 msgstr "Spaziu di travagliu arregistratu"
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr "Richiesta di u statu di i mudulli"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "Impussibule d’arregistrà u spaziu di travagliu di i mudulli"
 
 #, java-format

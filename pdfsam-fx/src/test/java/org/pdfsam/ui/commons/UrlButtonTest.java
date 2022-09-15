@@ -18,22 +18,21 @@
  */
 package org.pdfsam.ui.commons;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
-
-import org.junit.Rule;
-import org.junit.Test;
-import org.mockito.ArgumentCaptor;
-import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.eventstudio.Listener;
-import org.testfx.framework.junit.ApplicationTest;
-
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import org.junit.Rule;
+import org.junit.Test;
+import org.mockito.ArgumentCaptor;
+import org.pdfsam.eventstudio.Listener;
+import org.pdfsam.test.ClearEventStudioRule;
+import org.testfx.framework.junit.ApplicationTest;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 /**
  * @author Andrea Vacondio
@@ -64,10 +63,10 @@ public class UrlButtonTest extends ApplicationTest {
 
     @Test
     public void eventSent() {
-        Listener<OpenUrlRequest> listener = mock(Listener.class);
-        eventStudio().add(OpenUrlRequest.class, listener);
+        Listener<NativeOpenUrlRequest> listener = mock(Listener.class);
+        eventStudio().add(NativeOpenUrlRequest.class, listener);
         clickOn(".pdfsam-button");
-        ArgumentCaptor<OpenUrlRequest> captor = ArgumentCaptor.forClass(OpenUrlRequest.class);
+        ArgumentCaptor<NativeOpenUrlRequest> captor = ArgumentCaptor.forClass(NativeOpenUrlRequest.class);
         verify(listener).onEvent(captor.capture());
         assertEquals(URL, captor.getValue().getUrl());
     }

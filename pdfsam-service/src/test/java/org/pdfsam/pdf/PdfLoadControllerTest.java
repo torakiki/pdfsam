@@ -42,10 +42,10 @@ import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.eventstudio.Listener;
-import org.pdfsam.module.Module;
+import org.pdfsam.module.Tool;
 import org.pdfsam.module.RequiredPdfData;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.test.DefaultPriorityTestModule;
+import org.pdfsam.test.DefaultPriorityTestTool;
 
 /**
  * @author Andrea Vacondio
@@ -63,12 +63,12 @@ public class PdfLoadControllerTest {
     @Before
     public void setUp() {
         loadService = mock(PdfLoadService.class);
-        victim = new PdfLoadController(Arrays.asList(new Module[] { new DefaultPriorityTestModule() }), loadService);
+        victim = new PdfLoadController(Arrays.asList(new Tool[] { new DefaultPriorityTestTool() }), loadService);
     }
 
     @Test
     public void request() {
-        PdfLoadRequestEvent event = new PdfLoadRequestEvent(DefaultPriorityTestModule.ID);
+        PdfLoadRequestEvent event = new PdfLoadRequestEvent(DefaultPriorityTestTool.ID);
         PdfDocumentDescriptor first = mock(PdfDocumentDescriptor.class);
         PdfDocumentDescriptor second = mock(PdfDocumentDescriptor.class);
         event.add(first);
@@ -85,9 +85,9 @@ public class PdfLoadControllerTest {
         List<String> lines = new ArrayList<>();
         lines.add("I don't exist");
         Files.write(list, lines);
-        PdfFilesListLoadRequest event = new PdfFilesListLoadRequest(DefaultPriorityTestModule.ID, list);
+        PdfFilesListLoadRequest event = new PdfFilesListLoadRequest(DefaultPriorityTestTool.ID, list);
         Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
-        eventStudio().add(PdfLoadRequestEvent.class, listener, DefaultPriorityTestModule.ID);
+        eventStudio().add(PdfLoadRequestEvent.class, listener, DefaultPriorityTestTool.ID);
         victim.request(event);
         verify(listener, after(1000).never()).onEvent(any());
     }
@@ -99,9 +99,9 @@ public class PdfLoadControllerTest {
         List<String> lines = new ArrayList<>();
         lines.add(file1.getAbsolutePath());
         Files.write(list, lines);
-        PdfFilesListLoadRequest event = new PdfFilesListLoadRequest(DefaultPriorityTestModule.ID, list);
+        PdfFilesListLoadRequest event = new PdfFilesListLoadRequest(DefaultPriorityTestTool.ID, list);
         Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
-        eventStudio().add(PdfLoadRequestEvent.class, listener, DefaultPriorityTestModule.ID);
+        eventStudio().add(PdfLoadRequestEvent.class, listener, DefaultPriorityTestTool.ID);
         victim.request(event);
         ArgumentCaptor<PdfLoadRequestEvent> captor = ArgumentCaptor.forClass(PdfLoadRequestEvent.class);
         verify(listener, timeout(60000).times(1)).onEvent(captor.capture());

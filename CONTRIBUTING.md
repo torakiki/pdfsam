@@ -16,7 +16,7 @@ Code contribution
 ----------
  - We need you to sign [our CLA].
  - Before starting to write large amounts of code talk to us. Open an issue or send us an email, we can discuss together how to proceed.
- - We are very strict with the code style. Code format and templates for the Eclipse IDE are included in the pdfsam-docs module as well as the checkstyle plugin configuration, use them.
+ - We are very strict with the code style. Code format and templates for the Eclipse IDE are included in the pdfsam-docs tool as well as the checkstyle plugin configuration, use them.
  - Include unit tests to cover your feature or bugfix.
  
  [our CLA]: https://github.com/torakiki/pdfsam-CLAs 

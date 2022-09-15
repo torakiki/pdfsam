@@ -159,20 +159,20 @@ msgstr "Γλώσσα:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Ορισμός γλώσσας επιλογής (απαιτείται επανεκκίνηση)"
 
-msgid "Startup module:"
-msgstr "Άρθρωμα εκκίνησης / Startup module"
+msgid "Startup tool:"
+msgstr "Άρθρωμα εκκίνησης / Startup tool"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
-"Ορισμός αρθρώματος/module προς άνοιγμα κατά την εκκίνηση της εφαρμογής "
+"Ορισμός αρθρώματος/tool προς άνοιγμα κατά την εκκίνηση της εφαρμογής "
 "(απαιτείται επανεκκίνηση)"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr ""
 "Τα στατιστικά χρήσης χρησιμοποιούνται για να ενημερώσουν την μπάρα "
-"συντομεύσεων αρθρωμάτων (modules) στα αριστερά με τα περισσότερο και πιο "
+"συντομεύσεων αρθρωμάτων (tools) στα αριστερά με τα περισσότερο και πιο "
 "πρόσφατα χρησιμοποιημένα αρθρώματα."
 
 msgid "Manually selected"
@@ -293,7 +293,7 @@ msgstr "Εμφάνιση premium χαρακτηριστικών"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr ""
 "Ορίστε εάν η εφαρμογή θα πρέπει να ανακτά και να προβάλει περιγραφή premium "
 "χαρακτηριστικών στο ταμπλό"
@@ -357,7 +357,7 @@ msgstr ""
 msgid "Do you confirm?"
 msgstr ""
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr ""
 
 msgid "Clear the selection table"
@@ -925,10 +925,10 @@ msgstr "Φόρτωση εγγράφων επιτυχής"
 msgid "Unable to retrieve premium features description"
 msgstr "Αδυναμία ανάκτησης κορυφαίων χαρακτηριστικών περιγραφής"
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr "Ανάκτηση κορυφαίων"
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr "Αδυναμία ανάκτησης"
 
 msgid "Unable to retrieve latest news"
@@ -947,10 +947,10 @@ msgstr "Αποθήκευση δεδομένων χώρου εργασίας στ
 msgid "Workspace saved"
 msgstr "Αποθήκευση χώρου εργασίας"
 
-msgid "Requesting modules state"
-msgstr "Κατάσταση των ζητούμενων αρθρωμάτων/modules"
+msgid "Requesting tools state"
+msgstr "Κατάσταση των ζητούμενων αρθρωμάτων/tools"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "Αδύνατη η αποθήκευση του χώρου εργασίας αρθρωμάτων"
 
 #, java-format

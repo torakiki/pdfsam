@@ -37,10 +37,10 @@ import org.mockito.ArgumentCaptor;
 import org.pdfsam.NoHeadless;
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.eventstudio.Listener;
-import org.pdfsam.module.Module;
+import org.pdfsam.module.Tool;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.test.DefaultPriorityTestModule;
+import org.pdfsam.test.DefaultPriorityTestTool;
 import org.pdfsam.ui.InputPdfArgumentsLoadRequest;
 import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
@@ -59,16 +59,16 @@ public class OpenWithDialogTest extends ApplicationTest {
 
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
-    private Module module = new DefaultPriorityTestModule();
+    private Tool tool = new DefaultPriorityTestTool();
     @Rule
-    public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule(module.id());
+    public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule(tool.id());
     private Button button;
 
     @Override
     public void start(Stage stage) {
         StylesConfig styles = mock(StylesConfig.class);
-        List<Module> modulesMap = new ArrayList<>();
-        modulesMap.add(module);
+        List<Tool> modulesMap = new ArrayList<>();
+        modulesMap.add(tool);
         new OpenWithDialogController(new OpenWithDialog(styles, modulesMap));
         button = new Button("show");
         Scene scene = new Scene(new VBox(button));
@@ -80,17 +80,17 @@ public class OpenWithDialogTest extends ApplicationTest {
     @Category(NoHeadless.class)
     public void singleArg() throws IOException {
         Listener<ClearModuleEvent> clearListener = mock(Listener.class);
-        eventStudio().add(ClearModuleEvent.class, clearListener, module.id());
+        eventStudio().add(ClearModuleEvent.class, clearListener, tool.id());
         Listener<SetActiveModuleRequest> activeModuleListener = mock(Listener.class);
         eventStudio().add(SetActiveModuleRequest.class, activeModuleListener);
         Listener<PdfLoadRequestEvent> loadRequestListener = mock(Listener.class);
-        eventStudio().add(PdfLoadRequestEvent.class, loadRequestListener, module.id());
+        eventStudio().add(PdfLoadRequestEvent.class, loadRequestListener, tool.id());
 
         InputPdfArgumentsLoadRequest event = new InputPdfArgumentsLoadRequest();
         event.pdfs.add(Paths.get(folder.newFile().getAbsolutePath()));
         button.setOnAction(a -> eventStudio().broadcast(event));
         clickOn("show");
-        clickOn(module.descriptor().getName());
+        clickOn(tool.descriptor().getName());
         ArgumentCaptor<ClearModuleEvent> captor = ArgumentCaptor.forClass(ClearModuleEvent.class);
         verify(clearListener).onEvent(captor.capture());
         assertFalse(captor.getValue().askConfirmation);

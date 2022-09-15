@@ -30,7 +30,7 @@ import javax.inject.Inject;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Auto;
-import org.pdfsam.module.Module;
+import org.pdfsam.module.Tool;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.pdfsam.ui.workspace.WorkspaceLoadedEvent;
@@ -47,13 +47,13 @@ import org.slf4j.LoggerFactory;
 public class WorkspaceController {
     private static final Logger LOG = LoggerFactory.getLogger(WorkspaceController.class);
 
-    private List<Module> modules;
+    private List<Tool> tools;
     private WorkspaceService service;
     private RecentWorkspacesService recentWorkspace;
 
     @Inject
-    WorkspaceController(List<Module> modules, WorkspaceService service, RecentWorkspacesService recentWorkspace) {
-        this.modules = modules;
+    WorkspaceController(List<Tool> tools, WorkspaceService service, RecentWorkspacesService recentWorkspace) {
+        this.tools = tools;
         this.service = service;
         this.recentWorkspace = recentWorkspace;
         eventStudio().addAnnotatedListeners(this);
@@ -63,7 +63,7 @@ public class WorkspaceController {
     public void saveWorkspace(SaveWorkspaceEvent event) {
         LOG.debug(I18nContext.getInstance().i18n("Requesting modules state"));
         CompletableFuture<Void> future = CompletableFuture
-                .allOf(modules.stream()
+                .allOf(tools.stream()
                         .map(m -> CompletableFuture.runAsync(() -> eventStudio().broadcast(event, m.id())))
                         .toArray(CompletableFuture[]::new))
                 .thenRun(() -> service.saveWorkspace(event.getData(), event.workspace())).whenComplete((r, e) -> {
@@ -87,7 +87,7 @@ public class WorkspaceController {
         return CompletableFuture.supplyAsync(() -> service.loadWorkspace(event.workspace())).thenCompose((data) -> {
             if (!data.isEmpty()) {
                 event.setData(data);
-                return CompletableFuture.allOf(modules.stream()
+                return CompletableFuture.allOf(tools.stream()
                         .map(m -> CompletableFuture.runAsync(() -> eventStudio().broadcast(event, m.id())))
                         .toArray(CompletableFuture[]::new)).thenRun(() -> {
                             recentWorkspace.addWorkspaceLastUsed(event.workspace());

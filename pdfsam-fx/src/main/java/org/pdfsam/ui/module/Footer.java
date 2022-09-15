@@ -25,7 +25,7 @@ import java.math.BigDecimal;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.module.ModuleOwned;
+import org.pdfsam.module.ToolBound;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.eventstudio.annotation.EventStation;
@@ -44,11 +44,10 @@ import javafx.scene.layout.VBox;
 
 /**
  * Horizontal buttons panel shown in the footer
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
-public class Footer extends HBox implements ModuleOwned {
+public class Footer extends HBox implements ToolBound {
 
     private ProgressBar bar = new ProgressBar(0);
     private Label statusLabel = new Label();
@@ -98,7 +97,7 @@ public class Footer extends HBox implements ModuleOwned {
 
     @Override
     @EventStation
-    public String getOwnerModule() {
+    public String toolBinding() {
         return ownerModule;
     }
 

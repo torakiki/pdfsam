@@ -18,24 +18,14 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
-import static org.pdfsam.support.KeyStringValueItem.keyEmptyValue;
-import static org.pdfsam.support.KeyStringValueItem.keyValue;
-import static org.pdfsam.ui.help.HelpUtils.helpIcon;
-
-import java.util.Comparator;
-import java.util.List;
-
-import javax.inject.Named;
-
 import org.pdfsam.context.BooleanUserPreference;
 import org.pdfsam.context.IntUserPreference;
 import org.pdfsam.context.StringUserPreference;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Provides;
-import org.pdfsam.module.Module;
-import org.pdfsam.module.ModuleKeyValueItem;
+import org.pdfsam.module.Tool;
+import org.pdfsam.module.ToolIdNamePair;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.support.LocaleKeyValueItem;
 import org.pdfsam.support.io.FileType;
@@ -44,6 +34,14 @@ import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 import org.pdfsam.ui.log.MaxLogRowsChangedEvent;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
+
+import javax.inject.Named;
+import java.util.Comparator;
+import java.util.List;
+
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.support.KeyStringValueItem.keyEmptyValue;
+import static org.pdfsam.support.KeyStringValueItem.keyValue;
 
 /**
  * Configuration for the PDFsam preferences components
@@ -61,13 +59,13 @@ public class PreferenceConfig {
 
     @Provides
     @Named("startupModuleCombo")
-    public PreferenceComboBox<KeyStringValueItem<String>> startupModuleCombo(List<Module> modules,
+    public PreferenceComboBox<KeyStringValueItem<String>> startupModuleCombo(List<Tool> tools,
             UserContext userContext) {
         PreferenceComboBox<KeyStringValueItem<String>> startupModuleCombo = new PreferenceComboBox<>(
                 StringUserPreference.STARTUP_MODULE, userContext);
         startupModuleCombo.setId("startupModuleCombo");
         startupModuleCombo.getItems().add(keyValue("", I18nContext.getInstance().i18n("Dashboard")));
-        modules.stream().map(ModuleKeyValueItem::new).sorted(Comparator.comparing(ModuleKeyValueItem::getValue))
+        tools.stream().map(ToolIdNamePair::new).sorted(Comparator.comparing(ToolIdNamePair::getValue))
                 .forEach(startupModuleCombo.getItems()::add);
         startupModuleCombo.setValue(keyEmptyValue(userContext.getStartupModule()));
         return startupModuleCombo;

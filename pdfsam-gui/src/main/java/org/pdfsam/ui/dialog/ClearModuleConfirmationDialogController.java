@@ -50,7 +50,7 @@ public class ClearModuleConfirmationDialogController {
     public void request(ClearModuleEvent event) {
         if (!userContext.isAskClearConfirmation() || !event.askConfirmation
                 || dialog.get().clearEverything(event.clearEverything).response()) {
-            eventStudio().broadcast(event, event.getOwnerModule());
+            eventStudio().broadcast(event, event.toolBinding());
         }
     }
 }

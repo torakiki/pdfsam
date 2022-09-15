@@ -18,26 +18,25 @@
  */
 package org.pdfsam.ui.dashboard.modules;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
-
-import org.junit.Rule;
-import org.junit.Test;
-import org.mockito.ArgumentCaptor;
-import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.test.DefaultPriorityTestModule;
-import org.pdfsam.ui.commons.OpenUrlRequest;
-import org.pdfsam.ui.commons.SetActiveModuleRequest;
-import org.pdfsam.eventstudio.Listener;
-import org.testfx.api.FxAssert;
-import org.testfx.framework.junit.ApplicationTest;
-
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
+import org.junit.Rule;
+import org.junit.Test;
+import org.mockito.ArgumentCaptor;
+import org.pdfsam.eventstudio.Listener;
+import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.test.DefaultPriorityTestTool;
+import org.pdfsam.ui.commons.NativeOpenUrlRequest;
+import org.pdfsam.ui.commons.SetActiveModuleRequest;
+import org.testfx.api.FxAssert;
+import org.testfx.framework.junit.ApplicationTest;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 /**
  * @author Andrea Vacondio
@@ -50,7 +49,7 @@ public class ModulesDashboardTileTest extends ApplicationTest {
 
     @Override
     public void start(Stage stage) {
-        Scene scene = new Scene(new ModulesDashboardTile(new DefaultPriorityTestModule()));
+        Scene scene = new Scene(new ModulesDashboardTile(new DefaultPriorityTestTool()));
         stage.setScene(scene);
         stage.show();
     }
@@ -64,14 +63,14 @@ public class ModulesDashboardTileTest extends ApplicationTest {
         release(MouseButton.PRIMARY);
         ArgumentCaptor<SetActiveModuleRequest> captor = ArgumentCaptor.forClass(SetActiveModuleRequest.class);
         verify(listener).onEvent(captor.capture());
-        assertEquals(DefaultPriorityTestModule.ID, captor.getValue().getActiveModuleId().get());
+        assertEquals(DefaultPriorityTestTool.ID, captor.getValue().getActiveModuleId().get());
     }
 
     @Test
     public void supportVideoClick() {
-        Listener<OpenUrlRequest> openUrlListener = mock(Listener.class);
-        eventStudio().add(OpenUrlRequest.class, openUrlListener);
-        ArgumentCaptor<OpenUrlRequest> openUrlCaptor = ArgumentCaptor.forClass(OpenUrlRequest.class);
+        Listener<NativeOpenUrlRequest> openUrlListener = mock(Listener.class);
+        eventStudio().add(NativeOpenUrlRequest.class, openUrlListener);
+        ArgumentCaptor<NativeOpenUrlRequest> openUrlCaptor = ArgumentCaptor.forClass(NativeOpenUrlRequest.class);
         clickOn(MaterialDesignIcon.HELP_CIRCLE.unicode());
         verify(openUrlListener).onEvent(openUrlCaptor.capture());
         assertEquals("http://www.chucknorrisfacts.com/", openUrlCaptor.getValue().getUrl());

@@ -127,6 +127,7 @@
 
 	<modules>
 		<module>pdfsam-basic</module>
+		<module>pdfsam-model</module>
 		<module>pdfsam-gui</module>
 		<module>pdfsam-i18n</module>
 		<module>pdfsam-core</module>

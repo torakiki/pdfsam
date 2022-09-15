@@ -69,13 +69,13 @@ public class MultipleFilesDropController {
         if (event.files.size() == 1 && !event.files.get(0).isDirectory()
                 && (FileType.TXT.matches(event.files.get(0).getName())
                         || FileType.CSV.matches(event.files.get(0).getName()))) {
-            eventStudio().broadcast(new PdfFilesListLoadRequest(event.getOwnerModule(), event.files.get(0).toPath()));
+            eventStudio().broadcast(new PdfFilesListLoadRequest(event.toolBinding(), event.files.get(0).toPath()));
         } else {
-            final PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(event.getOwnerModule());
+            final PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(event.toolBinding());
             getFiles(event.files).filter(f -> FileType.PDF.matches(f.getName()))
                     .map(PdfDocumentDescriptor::newDescriptorNoPassword).forEach(loadEvent::add);
             if (!loadEvent.getDocuments().isEmpty()) {
-                eventStudio().broadcast(loadEvent, event.getOwnerModule());
+                eventStudio().broadcast(loadEvent, event.toolBinding());
             } else {
                 eventStudio().broadcast(new AddNotificationRequestEvent(NotificationType.WARN,
                         I18nContext.getInstance()

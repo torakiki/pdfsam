@@ -154,17 +154,17 @@ msgstr "Langue :"
 msgid "Set your preferred language (restart needed)"
 msgstr "Choisir la langue préférée (redémarrage nécessaire)"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "Au démarrage :"
 
-msgid "Set the module to open at application startup (restart needed)"
-msgstr "Choisir le module à afficher au démarrage (redémarrage nécessaire)"
+msgid "Set the tool to open at application startup (restart needed)"
+msgstr "Choisir le tool à afficher au démarrage (redémarrage nécessaire)"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr ""
-"Les données d'utilisations servent à agencer la barre des modules (à gauche) "
+"Les données d'utilisations servent à agencer la barre des tools (à gauche) "
 "suivant leur utilisation fréquente ou récente."
 
 msgid "Manually selected"
@@ -288,10 +288,10 @@ msgstr "Montrer les fonctionnalités premium"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr ""
 "Définir comment le programme doit chercher et afficher les fonctionnalités "
-"premium dans le tableau de bord des modules"
+"premium dans le tableau de bord des tools"
 
 msgid "Ask for a confirmation when clearing the selection table"
 msgstr "Demander une confirmation avant d'effacer la table de sélection"
@@ -354,8 +354,8 @@ msgstr "Confirmez la suppression"
 msgid "Do you confirm?"
 msgstr "Confirmez-vous ?"
 
-msgid "Clear the module settings"
-msgstr "Effacer les paramètres du module"
+msgid "Clear the tool settings"
+msgstr "Effacer les paramètres du tool"
 
 msgid "Clear the selection table"
 msgstr "Effacer le tableau de sélection"
@@ -894,11 +894,11 @@ msgstr "Documents chargés"
 msgid "Unable to retrieve premium features description"
 msgstr "Impossible de récupérer les descriptions des fonctionnalités premium"
 
-msgid "Fetching premium modules"
-msgstr "Chercher les modules premium"
+msgid "Fetching premium tools"
+msgstr "Chercher les tools premium"
 
-msgid "Unable to retrieve premium modules"
-msgstr "Impossible de récupérer les modules premium"
+msgid "Unable to retrieve premium tools"
+msgstr "Impossible de récupérer les tools premium"
 
 msgid "Unable to retrieve latest news"
 msgstr "Impossible de récupérer les dernières nouvelles"
@@ -916,10 +916,10 @@ msgstr "Enregistrement des données de l''espace de travail sur {0}"
 msgid "Workspace saved"
 msgstr "Espace de travail sauvegardé"
 
-msgid "Requesting modules state"
-msgstr "Requête de l'état des modules"
+msgid "Requesting tools state"
+msgstr "Requête de l'état des tools"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "Enregistrement de l'espace de travail impossible"
 
 #, java-format

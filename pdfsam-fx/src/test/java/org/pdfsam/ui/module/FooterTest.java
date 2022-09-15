@@ -18,25 +18,15 @@
  */
 package org.pdfsam.ui.module;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
-
-import java.math.BigDecimal;
-import java.util.Locale;
-
+import javafx.scene.control.Labeled;
+import javafx.scene.control.ProgressBar;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.i18n.SetLocaleRequest;
-import org.pdfsam.module.ModuleInputOutputType;
 import org.pdfsam.module.TaskExecutionRequestEvent;
+import org.pdfsam.module.ToolInputOutputType;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.sejda.model.exception.TaskOutputVisitException;
@@ -48,8 +38,17 @@ import org.sejda.model.output.TaskOutput;
 import org.sejda.model.parameter.base.AbstractParameters;
 import org.sejda.model.task.NotifiableTaskMetadata;
 
-import javafx.scene.control.Labeled;
-import javafx.scene.control.ProgressBar;
+import java.math.BigDecimal;
+import java.util.Locale;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 /**
  * @author Andrea Vacondio
@@ -67,7 +66,7 @@ public class FooterTest {
     @Before
     public void setUp() {
         eventStudio().broadcast(new SetLocaleRequest(Locale.UK.toLanguageTag()));
-        OpenButton button = new OpenButton(MODULE_ID, ModuleInputOutputType.SINGLE_PDF);
+        OpenButton button = new OpenButton(MODULE_ID, ToolInputOutputType.SINGLE_PDF);
         victim = new Footer(new RunButton(), button, MODULE_ID);
     }
 

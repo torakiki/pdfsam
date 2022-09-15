@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.3//EN" "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
+<!DOCTYPE tool PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.3//EN" "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
 
 <!--
     This configuration file was written by the eclipse-cs plugin configuration editor
@@ -8,118 +8,118 @@
     Checkstyle-Configuration: pdfsam
     Description: none
 -->
-<module name="Checker">
+<tool name="Checker">
   <property name="severity" value="warning"/>
-  <module name="TreeWalker">
-    <module name="FileContentsHolder"/>
-    <module name="AvoidStarImport"/>
-    <module name="BooleanExpressionComplexity">
+  <tool name="TreeWalker">
+    <tool name="FileContentsHolder"/>
+    <tool name="AvoidStarImport"/>
+    <tool name="BooleanExpressionComplexity">
       <property name="severity" value="error"/>
-    </module>
-    <module name="ClassDataAbstractionCoupling">
+    </tool>
+    <tool name="ClassDataAbstractionCoupling">
       <property name="severity" value="error"/>
-    </module>
-    <module name="ClassFanOutComplexity">
+    </tool>
+    <tool name="ClassFanOutComplexity">
       <property name="severity" value="error"/>
-    </module>
-    <module name="ConstantName">
+    </tool>
+    <tool name="ConstantName">
       <property name="severity" value="error"/>
-    </module>
-    <module name="CyclomaticComplexity">
+    </tool>
+    <tool name="CyclomaticComplexity">
       <property name="severity" value="error"/>
       <property name="max" value="7"/>
-    </module>
-    <module name="DefaultComesLast">
+    </tool>
+    <tool name="DefaultComesLast">
       <property name="severity" value="error"/>
-    </module>
-    <module name="EmptyStatement"/>
-    <module name="EqualsHashCode">
+    </tool>
+    <tool name="EmptyStatement"/>
+    <tool name="EqualsHashCode">
       <property name="severity" value="error"/>
-    </module>
-    <module name="FinalClass">
+    </tool>
+    <tool name="FinalClass">
       <property name="severity" value="error"/>
-    </module>
-    <module name="HiddenField">
+    </tool>
+    <tool name="HiddenField">
       <property name="severity" value="error"/>
       <property name="tokens" value="VARIABLE_DEF"/>
       <property name="ignoreConstructorParameter" value="true"/>
       <property name="ignoreSetter" value="true"/>
       <property name="ignoreAbstractMethods" value="true"/>
-    </module>
-    <module name="HideUtilityClassConstructor">
+    </tool>
+    <tool name="HideUtilityClassConstructor">
       <property name="severity" value="error"/>
-    </module>
-    <module name="IllegalThrows">
+    </tool>
+    <tool name="IllegalThrows">
       <property name="severity" value="error"/>
-    </module>
-    <module name="InnerAssignment">
+    </tool>
+    <tool name="InnerAssignment">
       <property name="severity" value="error"/>
-    </module>
-    <module name="JavadocMethod">
+    </tool>
+    <tool name="JavadocMethod">
       <property name="severity" value="error"/>
       <property name="excludeScope" value="private"/>
-    </module>
-    <module name="JavadocType">
+    </tool>
+    <tool name="JavadocType">
       <property name="severity" value="error"/>
       <property name="authorFormat" value=".+"/>
-    </module>
-    <module name="JavaNCSS"/>
-    <module name="AnonInnerLength">
+    </tool>
+    <tool name="JavaNCSS"/>
+    <tool name="AnonInnerLength">
       <property name="severity" value="error"/>
-    </module>
-    <module name="LocalFinalVariableName">
+    </tool>
+    <tool name="LocalFinalVariableName">
       <property name="severity" value="error"/>
-    </module>
-    <module name="LocalVariableName">
+    </tool>
+    <tool name="LocalVariableName">
       <property name="severity" value="error"/>
-    </module>
-    <module name="MagicNumber"/>
-    <module name="MemberName">
+    </tool>
+    <tool name="MagicNumber"/>
+    <tool name="MemberName">
       <property name="severity" value="error"/>
-    </module>
-    <module name="MethodName">
+    </tool>
+    <tool name="MethodName">
       <property name="severity" value="error"/>
-    </module>
-    <module name="ModifierOrder"/>
-    <module name="PackageName">
+    </tool>
+    <tool name="ModifierOrder"/>
+    <tool name="PackageName">
       <property name="severity" value="error"/>
-    </module>
-    <module name="ParameterAssignment">
+    </tool>
+    <tool name="ParameterAssignment">
       <property name="severity" value="error"/>
-    </module>
-    <module name="ParameterName">
+    </tool>
+    <tool name="ParameterName">
       <property name="severity" value="error"/>
-    </module>
-    <module name="RedundantModifier"/>
-    <module name="RedundantThrows"/>
-    <module name="SimplifyBooleanExpression"/>
-    <module name="SimplifyBooleanReturn"/>
-    <module name="StaticVariableName">
+    </tool>
+    <tool name="RedundantModifier"/>
+    <tool name="RedundantThrows"/>
+    <tool name="SimplifyBooleanExpression"/>
+    <tool name="SimplifyBooleanReturn"/>
+    <tool name="StaticVariableName">
       <property name="severity" value="error"/>
-    </module>
-    <module name="StringLiteralEquality">
+    </tool>
+    <tool name="StringLiteralEquality">
       <property name="severity" value="error"/>
-    </module>
-    <module name="UnusedImports">
+    </tool>
+    <tool name="UnusedImports">
       <property name="severity" value="error"/>
-    </module>
-    <module name="VisibilityModifier">
+    </tool>
+    <tool name="VisibilityModifier">
       <property name="severity" value="error"/>
-    </module>
-    <module name="EmptyBlock"/>
-    <module name="RightCurly"/>
-  </module>
-  <module name="FileTabCharacter">
+    </tool>
+    <tool name="EmptyBlock"/>
+    <tool name="RightCurly"/>
+  </tool>
+  <tool name="FileTabCharacter">
     <property name="severity" value="error"/>
     <property name="fileExtensions" value="java"/>
-  </module>
-  <module name="StrictDuplicateCode">
+  </tool>
+  <tool name="StrictDuplicateCode">
     <property name="severity" value="ignore"/>
     <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
-  </module>
-  <module name="SuppressionCommentFilter"/>
-  <module name="FileLength"/>
-  <module name="SuppressionFilter">
+  </tool>
+  <tool name="SuppressionCommentFilter"/>
+  <tool name="FileLength"/>
+  <tool name="SuppressionFilter">
     <property name="file" value="/media/torakiki/LACIE/pdfsam-repo/pdfsam/pdfsam-parent/development/eclipse/checkstyle plugin/suppression.xml"/>
-  </module>
-</module>
+  </tool>
+</tool>

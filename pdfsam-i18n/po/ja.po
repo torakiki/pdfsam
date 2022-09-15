@@ -149,15 +149,15 @@ msgstr "言語："
 msgid "Set your preferred language (restart needed)"
 msgstr "使用言語の設定（要リスタート）"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "起動モジュール:"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr "アプリケーションの起動時に開くモジュールを設定します（要リスタート）"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr "クイックバーの左に、最もよく使用された、そして最近使用したモジュールを設定するために利用状況が使用されます。"
 
 msgid "Manually selected"
@@ -266,7 +266,7 @@ msgstr "プレミアム機能を表示する"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr "プレミアム機能の説明を、アプリケーションが取得して、モジュールのダッシュボードに表示するかどうかを設定します"
 
 msgid "Ask for a confirmation when clearing the selection table"
@@ -325,7 +325,7 @@ msgstr "クリアの確認"
 msgid "Do you confirm?"
 msgstr "よろしいですか?"
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr "モジュール設定をクリア"
 
 msgid "Clear the selection table"
@@ -827,10 +827,10 @@ msgstr "文書を読み込みました"
 msgid "Unable to retrieve premium features description"
 msgstr "プレミアム機能の説明を取得できません"
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr "プレミアムモジュールの取得中"
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr "プレミアムモジュールを取得できません"
 
 msgid "Unable to retrieve latest news"
@@ -849,10 +849,10 @@ msgstr "{0} にワークスペースのデータを保存しています"
 msgid "Workspace saved"
 msgstr "ワークスペースを保存しました"
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr "モジュールの状態を要求中"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "モジュールのワークスペースを保存できません"
 
 #, java-format

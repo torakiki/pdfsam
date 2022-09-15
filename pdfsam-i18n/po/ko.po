@@ -149,15 +149,15 @@ msgstr "언어："
 msgid "Set your preferred language (restart needed)"
 msgstr "언어 설정 (재시작 필요)"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "시작 모듈:"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr "응용 프로그램 시작시 모듈을 열도록 설정하기 (재시작 필요)"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr ""
 
 msgid "Manually selected"
@@ -266,7 +266,7 @@ msgstr "유료 기능(premium features) 보이기"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr ""
 
 msgid "Ask for a confirmation when clearing the selection table"
@@ -325,7 +325,7 @@ msgstr ""
 msgid "Do you confirm?"
 msgstr ""
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr ""
 
 msgid "Clear the selection table"
@@ -827,10 +827,10 @@ msgstr "PDF문서를 불어왔습니다."
 msgid "Unable to retrieve premium features description"
 msgstr "프리미엄 기능 설명을 검색할 수 없습니다."
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr "프리미엄 모듈을 가지고 오는 중"
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr "프리미엄 모듈을 가져올 수 없습니다."
 
 msgid "Unable to retrieve latest news"
@@ -849,10 +849,10 @@ msgstr ""
 msgid "Workspace saved"
 msgstr "작업 공간이 저장됨."
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr "모듈의 상태를 요청중"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "모듈의 작업 공간을 저장할 수 없습니다."
 
 #, java-format

@@ -26,7 +26,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import java.util.Comparator;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.module.ModuleOwned;
+import org.pdfsam.module.ToolBound;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.ui.commons.ShowStageRequest;
@@ -43,11 +43,10 @@ import javafx.util.Callback;
 
 /**
  * Definition of the {@link PdfDescriptorLoadingStatus} column of the selection table
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
-public class LoadingColumn implements SelectionTableColumn<PdfDescriptorLoadingStatus>, ModuleOwned {
+public class LoadingColumn implements SelectionTableColumn<PdfDescriptorLoadingStatus>, ToolBound {
     private static final Logger LOG = LoggerFactory.getLogger(LoadingColumn.class);
     private String ownerModule = StringUtils.EMPTY;
 
@@ -56,7 +55,7 @@ public class LoadingColumn implements SelectionTableColumn<PdfDescriptorLoadingS
     }
 
     @Override
-    public String getOwnerModule() {
+    public String toolBinding() {
         return ownerModule;
     }
 
@@ -119,9 +118,8 @@ public class LoadingColumn implements SelectionTableColumn<PdfDescriptorLoadingS
                     MouseEvent.MOUSE_CLICKED,
                     e -> {
                         if (getItem() == ENCRYPTED) {
-                            eventStudio().broadcast(
-                                    new ShowPasswordFieldPopupRequest(getPdfDocumentDescriptor(), this),
-                                    getOwnerModule());
+                            eventStudio().broadcast(new ShowPasswordFieldPopupRequest(getPdfDocumentDescriptor(), this),
+                                    toolBinding());
                         } else if (getItem() == WITH_ERRORS) {
                             eventStudio().broadcast(ShowStageRequest.INSTANCE, "LogStage");
                         }

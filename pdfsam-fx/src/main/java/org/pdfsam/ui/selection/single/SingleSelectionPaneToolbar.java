@@ -23,7 +23,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.module.ModuleOwned;
+import org.pdfsam.module.ToolBound;
 import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.pdfsam.ui.selection.ToolbarButton;
 
@@ -35,11 +35,10 @@ import javafx.stage.FileChooser;
 
 /**
  * Toolbar for the single selection panel
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
-class SingleSelectionPaneToolbar extends ToolBar implements ModuleOwned {
+class SingleSelectionPaneToolbar extends ToolBar implements ToolBound {
 
     private String ownerModule = StringUtils.EMPTY;
 
@@ -75,12 +74,12 @@ class SingleSelectionPaneToolbar extends ToolBar implements ModuleOwned {
         }
 
         public void clearAll(ActionEvent event) {
-            eventStudio().broadcast(new ClearModuleEvent(getOwnerModule(), true, true));
+            eventStudio().broadcast(new ClearModuleEvent(toolBinding(), true, true));
         }
     }
 
     @Override
-    public String getOwnerModule() {
+    public String toolBinding() {
         return ownerModule;
     }
 

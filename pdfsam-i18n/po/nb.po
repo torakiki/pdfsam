@@ -149,15 +149,15 @@ msgstr "Språk:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Velg ditt foretrekkende språk (krever omstart)"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "Oppstartsmodul:"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr "Sett modulen som åpnes ved programstart (omstart nødvendig)"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr ""
 "Brukstatistikk blir brukt til å fylle modul hurtigtilgangsområdet til "
 "venstre med de mest og nyest brukte modulene."
@@ -276,7 +276,7 @@ msgstr "Vis premium funksjoner"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr ""
 "Velg om programmet skal hente og vise premium funksjonsbeskrivelser i "
 "modulområde"
@@ -340,7 +340,7 @@ msgstr "Bekreft sletting"
 msgid "Do you confirm?"
 msgstr "Bekrefte?"
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr "Slett modulinnstillinger"
 
 msgid "Clear the selection table"
@@ -852,10 +852,10 @@ msgstr "Dokumenter lastet"
 msgid "Unable to retrieve premium features description"
 msgstr "Klarte ikke å hente premium funksjonsbeskrivelser"
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr "Henter premium moduler"
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr "Klarte ikke å hente premium moduler"
 
 msgid "Unable to retrieve latest news"
@@ -874,10 +874,10 @@ msgstr "Lagrer arbeidsområde til {0}"
 msgid "Workspace saved"
 msgstr "Arbeidsområde lagret"
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr "Etterspør modul status"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "Klarte ikke å lagre modularbeidsområde"
 
 #, java-format

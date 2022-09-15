@@ -25,7 +25,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.module.ModuleOwned;
+import org.pdfsam.module.ToolBound;
 import org.pdfsam.ui.support.Style;
 import org.sejda.model.pdf.PdfVersion;
 
@@ -33,11 +33,10 @@ import javafx.scene.control.CheckBox;
 
 /**
  * A checkbox that, when ticked, informs other component that a constraint on the output pdf document version has to be enforced.
- * 
+ *
  * @author Andrea Vacondio
- * 
  */
-class PdfVersionConstrainedCheckBox extends CheckBox implements ModuleOwned {
+class PdfVersionConstrainedCheckBox extends CheckBox implements ToolBound {
     private PdfVersion constraint;
     private String ownerModule = StringUtils.EMPTY;
 
@@ -45,8 +44,8 @@ class PdfVersionConstrainedCheckBox extends CheckBox implements ModuleOwned {
         requireNotNullArg(constraint, "PdfVersion cannot be null");
         this.ownerModule = defaultString(ownerModule);
         this.constraint = constraint;
-        this.setGraphic(helpIcon(I18nContext.getInstance().i18n("PDF version required: {0}",
-                this.constraint.getVersionString())));
+        this.setGraphic(helpIcon(
+                I18nContext.getInstance().i18n("PDF version required: {0}", this.constraint.getVersionString())));
         this.getStyleClass().addAll(Style.WITH_HELP.css());
 
         selectedProperty().addListener((o, oldVal, newVal) -> {
@@ -59,7 +58,7 @@ class PdfVersionConstrainedCheckBox extends CheckBox implements ModuleOwned {
     }
 
     @Override
-    public String getOwnerModule() {
+    public String toolBinding() {
         return ownerModule;
     }
 }

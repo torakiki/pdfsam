@@ -36,14 +36,14 @@ public class ModuleOwnedButtonTest {
 
     @Test
     public void nullArg() {
-        ModuleOwnedButton victim = new ModuleOwnedButton(null);
-        assertNotNull(victim.getOwnerModule());
-        assertEquals(StringUtils.EMPTY, victim.getOwnerModule());
+        ToolBoundButton victim = new ToolBoundButton(null);
+        assertNotNull(victim.toolBinding());
+        assertEquals(StringUtils.EMPTY, victim.toolBinding());
     }
 
     @Test
     public void notNullArg() {
-        ModuleOwnedButton victim = new ModuleOwnedButton("Chuck");
-        assertEquals("Chuck", victim.getOwnerModule());
+        ToolBoundButton victim = new ToolBoundButton("Chuck");
+        assertEquals("Chuck", victim.toolBinding());
     }
 }

@@ -21,7 +21,7 @@ package org.pdfsam.module;
 import static org.sejda.commons.util.RequireUtils.requireNotBlank;
 
 /**
- * Helper class used to bind {@link Module}s and their usage statistics
+ * Helper class used to bind {@link Tool}s and their usage statistics
  * 
  * @author Andrea Vacondio
  *

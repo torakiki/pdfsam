@@ -148,15 +148,15 @@ msgstr "語言："
 msgid "Set your preferred language (restart needed)"
 msgstr "設定您偏好的語言（必須重新啟動程式）"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "啟動的模組:"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr "設定啟動時會自動開啟的模組(必須重新啟動)"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr "使用統計會被用於填充在左側的快速列最常使用模組與最近使用模組。"
 
 msgid "Manually selected"
@@ -265,7 +265,7 @@ msgstr "顯示付費功能"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr "顯示付費版功能"
 
 msgid "Ask for a confirmation when clearing the selection table"
@@ -324,7 +324,7 @@ msgstr "確認清除"
 msgid "Do you confirm?"
 msgstr "你確定嗎？"
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr "清除模組設定"
 
 msgid "Clear the selection table"
@@ -826,10 +826,10 @@ msgstr "文件已載入"
 msgid "Unable to retrieve premium features description"
 msgstr "無法檢索高級功能說明"
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr "獲取高級模組"
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr "無法檢索高級模組"
 
 msgid "Unable to retrieve latest news"
@@ -848,10 +848,10 @@ msgstr "正在將工作區資料存入 {0}"
 msgid "Workspace saved"
 msgstr "工作區儲存完畢"
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr "確認模組狀態"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "無法儲存模組工作區"
 
 #, java-format

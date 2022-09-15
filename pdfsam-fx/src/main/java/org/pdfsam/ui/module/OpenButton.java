@@ -18,29 +18,24 @@
  */
 package org.pdfsam.ui.module;
 
-import static java.util.Objects.isNull;
-import static java.util.Objects.requireNonNull;
-import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
-import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.utils.FontAwesomeIconFactory;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
+import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SplitMenuButton;
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.eventstudio.ReferenceStrength;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.eventstudio.annotation.EventStation;
 import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.module.Module;
-import org.pdfsam.module.ModuleInputOutputType;
 import org.pdfsam.module.TaskExecutionRequestEvent;
+import org.pdfsam.module.Tool;
+import org.pdfsam.module.ToolInputOutputType;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.ui.commons.ClearModuleEvent;
-import org.pdfsam.ui.commons.OpenFileRequest;
+import org.pdfsam.ui.commons.NativeOpenFileRequest;
 import org.pdfsam.ui.support.Style;
 import org.sejda.model.exception.TaskOutputVisitException;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
@@ -51,12 +46,16 @@ import org.sejda.model.output.TaskOutputDispatcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import de.jensd.fx.glyphs.fontawesome.utils.FontAwesomeIconFactory;
-import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
-import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SplitMenuButton;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import static java.util.Objects.isNull;
+import static java.util.Objects.requireNonNull;
+import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
 
 /**
  * Button to open the latest manipulation result
@@ -70,9 +69,9 @@ public class OpenButton extends SplitMenuButton implements TaskOutputDispatcher 
     private String ownerModule = StringUtils.EMPTY;
     private File destination;
     private List<File> latestOutput = new ArrayList<>();
-    private ModuleInputOutputType outputType;
+    private ToolInputOutputType outputType;
 
-    public OpenButton(String ownerModule, ModuleInputOutputType outputType) {
+    public OpenButton(String ownerModule, ToolInputOutputType outputType) {
         requireNonNull(outputType);
         this.outputType = outputType;
         this.ownerModule = defaultString(ownerModule);
@@ -106,14 +105,14 @@ public class OpenButton extends SplitMenuButton implements TaskOutputDispatcher 
 
     private boolean openFile(File file) {
         if (file != null && file.exists()) {
-            eventStudio().broadcast(new OpenFileRequest(file));
+            eventStudio().broadcast(new NativeOpenFileRequest(file));
             return true;
         }
         return false;
     }
 
-    public void initModules(Collection<Module> modules) {
-        modules.forEach(m -> {
+    public void initModules(Collection<Tool> tools) {
+        tools.forEach(m -> {
             if (m.descriptor().hasInputType(outputType)) {
                 getItems().add(new OpenWithMenuItem(m));
             }
@@ -150,14 +149,14 @@ public class OpenButton extends SplitMenuButton implements TaskOutputDispatcher 
 
     private class OpenWithMenuItem extends MenuItem {
 
-        private OpenWithMenuItem(Module module) {
-            setText(module.descriptor().getName());
+        private OpenWithMenuItem(Tool tool) {
+            setText(tool.descriptor().getName());
             setOnAction((e) -> {
-                eventStudio().broadcast(new ClearModuleEvent(module.id()), module.id());
-                eventStudio().broadcast(activeteModule(module.id()));
-                PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(module.id());
+                eventStudio().broadcast(new ClearModuleEvent(tool.id()), tool.id());
+                eventStudio().broadcast(activeteModule(tool.id()));
+                PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(tool.id());
                 latestOutput.stream().map(PdfDocumentDescriptor::newDescriptorNoPassword).forEach(loadEvent::add);
-                eventStudio().broadcast(loadEvent, module.id());
+                eventStudio().broadcast(loadEvent, tool.id());
             });
         }
     }

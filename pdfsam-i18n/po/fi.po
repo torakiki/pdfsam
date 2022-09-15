@@ -161,16 +161,16 @@ msgstr "Kieli:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Valitse kieli (uudelleenkäynnistys tarvitaan)"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "Käynnistysmoduuli:"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
 "Aseta käynnistyksessä avattava moduuli (uudelleenkäynnistys tarvitaan)"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr ""
 "Käyttötilastoja käytetään vasemmalla olevan moduulien pikapalkin eniten ja "
 "viimeksi käytettyjen moduulien muodostamiseksi."
@@ -294,7 +294,7 @@ msgstr "Näytä premium-ominaisuudet"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr ""
 "Kytke sovelluksen premium-ominaisuuksia hakeva ja niitä moduulien "
 "hallintapaneelissa näyttävä toiminto päälle tai pois päältä"
@@ -357,7 +357,7 @@ msgstr ""
 msgid "Do you confirm?"
 msgstr ""
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr ""
 
 msgid "Clear the selection table"
@@ -907,10 +907,10 @@ msgstr "Asiakirjat ladattu"
 msgid "Unable to retrieve premium features description"
 msgstr "Premium-ominaisuuksien kuvauksien hankinta ei onnistu"
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr "Noudetaan premium-moduuleja"
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr "Premium-moduulien nouto ei onnistu"
 
 msgid "Unable to retrieve latest news"
@@ -929,10 +929,10 @@ msgstr "Tallennetaan työtilan tietoja kohteeseen {0}"
 msgid "Workspace saved"
 msgstr "Työtila tallennettu"
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr "Kysellään moduulien tilaa"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "Moduulien työtilaa tallennus ei onnistu"
 
 #, java-format

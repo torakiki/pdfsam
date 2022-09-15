@@ -18,14 +18,13 @@
  */
 package org.pdfsam.ui.selection;
 
-import org.pdfsam.ui.module.ModuleOwnedButton;
+import org.pdfsam.ui.module.ToolBoundButton;
 import org.pdfsam.ui.support.Style;
 
 /**
  * @author Andrea Vacondio
- *
  */
-public class ToolbarButton extends ModuleOwnedButton {
+public class ToolbarButton extends ToolBoundButton {
 
     public ToolbarButton(String ownerModule) {
         super(ownerModule);

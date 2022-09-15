@@ -19,15 +19,14 @@
 package org.pdfsam.ui.commons;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.module.ModuleOwned;
+import org.pdfsam.module.ToolBound;
 
 /**
  * request to clear the module
- * 
+ *
  * @author Andrea Vacondio
- * 
  */
-public class ClearModuleEvent implements ModuleOwned {
+public class ClearModuleEvent implements ToolBound {
 
     private String ownerModule = StringUtils.EMPTY;
     public final boolean clearEverything;
@@ -44,7 +43,7 @@ public class ClearModuleEvent implements ModuleOwned {
     }
 
     @Override
-    public String getOwnerModule() {
+    public String toolBinding() {
         return ownerModule;
     }
 }

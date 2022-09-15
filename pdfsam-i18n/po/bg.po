@@ -149,16 +149,16 @@ msgstr "Език:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Задаване на предпочитан език (изисква рестарт)"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "Начален модул:"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
 "Задаване кой модул се отваря при стартиране на програмата (изисква рестарт)"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr ""
 "Данните за употребата се използват за запълване на лентата за бърз достъп "
 "отляво с най-често и най-скоро използваните модули."
@@ -281,7 +281,7 @@ msgstr "Показване на платени функции"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr ""
 "Задава дали приложението да изтегля и показва описания на платени функции в "
 "таблото с модулите"
@@ -348,7 +348,7 @@ msgstr "Потвърдете изчистването"
 msgid "Do you confirm?"
 msgstr "Потвърждавате ли?"
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr "Изчистване на настройките на модула"
 
 msgid "Clear the selection table"
@@ -865,10 +865,10 @@ msgstr "Документите бяха заредени"
 msgid "Unable to retrieve premium features description"
 msgstr "Невъзможно е изтеглянето на описанието за платените функции"
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr "Извличане на премиум модулите"
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr "Невъзможно е изтеглянето на платените модули"
 
 msgid "Unable to retrieve latest news"
@@ -887,10 +887,10 @@ msgstr "Запазване на работното пространство в {
 msgid "Workspace saved"
 msgstr "Работното пространство е запазено"
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr "Изискване състоянието на модулите"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "Невъзможно е запазването на работното пространство на модулите"
 
 #, java-format

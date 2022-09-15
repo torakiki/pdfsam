@@ -18,17 +18,17 @@
  */
 package org.pdfsam;
 
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
+import org.pdfsam.eventstudio.annotation.EventListener;
+import org.pdfsam.injector.Auto;
+import org.pdfsam.ui.commons.NativeOpenFileRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.io.IOException;
 
-import org.pdfsam.injector.Auto;
-import org.pdfsam.ui.commons.OpenFileRequest;
-import org.pdfsam.eventstudio.annotation.EventListener;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 /**
  * Controller receiving requests to open a file with the default system application
@@ -45,11 +45,11 @@ class OpenFileController {
     }
 
     @EventListener
-    public void openPath(OpenFileRequest event) {
+    public void openPath(NativeOpenFileRequest event) {
         EventQueue.invokeLater(() -> doOpen(event));
     }
 
-    private void doOpen(OpenFileRequest event) {
+    private void doOpen(NativeOpenFileRequest event) {
         if (Desktop.isDesktopSupported()) {
             try {
                 Desktop.getDesktop().open(event.getFile());

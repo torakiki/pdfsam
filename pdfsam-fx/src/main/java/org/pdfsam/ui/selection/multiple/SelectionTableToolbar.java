@@ -29,7 +29,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.eventstudio.annotation.EventStation;
 import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.module.ModuleOwned;
+import org.pdfsam.module.ToolBound;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfFilesListLoadRequest;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
@@ -53,11 +53,10 @@ import javafx.stage.FileChooser;
 
 /**
  * Toolbar for the selection table
- * 
+ *
  * @author Andrea Vacondio
- * 
  */
-class SelectionTableToolbar extends ToolBar implements ModuleOwned {
+class SelectionTableToolbar extends ToolBar implements ToolBound {
 
     private String ownerModule = StringUtils.EMPTY;
 
@@ -71,17 +70,17 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
     }
 
     @Override
-    public String getOwnerModule() {
+    public String toolBinding() {
         return ownerModule;
     }
 
     /**
      * Button to request the load of the pdf documents selected using a {@link FileChooser}
-     * 
+     *
      * @author Andrea Vacondio
-     * 
+     *
      */
-    static class AddButton extends SplitMenuButton implements ModuleOwned {
+    static class AddButton extends SplitMenuButton implements ToolBound {
 
         private String ownerModule = StringUtils.EMPTY;
 
@@ -104,9 +103,9 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
                     I18nContext.getInstance().i18n("Select pdf documents to load"), FileType.PDF);
             List<File> chosenFiles = fileChooser.showOpenMultipleDialog(this.getScene().getWindow());
             if (chosenFiles != null && !chosenFiles.isEmpty()) {
-                PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
+                PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(toolBinding());
                 chosenFiles.stream().map(PdfDocumentDescriptor::newDescriptorNoPassword).forEach(loadEvent::add);
-                eventStudio().broadcast(loadEvent, getOwnerModule());
+                eventStudio().broadcast(loadEvent, toolBinding());
             }
         }
 
@@ -116,13 +115,13 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
                     FileType.TXT);
             File chosenFile = fileChooser.showDialog(this.getScene().getWindow(), OpenType.OPEN);
             if (nonNull(chosenFile)) {
-                eventStudio().broadcast(new PdfFilesListLoadRequest(getOwnerModule(), chosenFile.toPath()));
+                eventStudio().broadcast(new PdfFilesListLoadRequest(toolBinding(), chosenFile.toPath()));
             }
         }
 
         @Override
         @EventStation
-        public String getOwnerModule() {
+        public String toolBinding() {
             return ownerModule;
         }
     }
@@ -145,7 +144,7 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
         }
 
         public void removeSelected(ActionEvent event) {
-            eventStudio().broadcast(new RemoveSelectedEvent(), getOwnerModule());
+            eventStudio().broadcast(new RemoveSelectedEvent(), toolBinding());
         }
 
         @EventListener
@@ -156,11 +155,11 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
 
     /**
      * Button to request the selection table to clear its data
-     * 
+     *
      * @author Andrea Vacondio
-     * 
+     *
      */
-    static class ClearButton extends SplitMenuButton implements ModuleOwned {
+    static class ClearButton extends SplitMenuButton implements ToolBound {
 
         private String ownerModule = StringUtils.EMPTY;
 
@@ -180,16 +179,16 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
         }
 
         public void clear(ActionEvent event) {
-            eventStudio().broadcast(new ClearModuleEvent(getOwnerModule(), false, true));
+            eventStudio().broadcast(new ClearModuleEvent(toolBinding(), false, true));
         }
 
         public void clearAll(ActionEvent event) {
-            eventStudio().broadcast(new ClearModuleEvent(getOwnerModule(), true, true));
+            eventStudio().broadcast(new ClearModuleEvent(toolBinding(), true, true));
         }
 
         @Override
         @EventStation
-        public String getOwnerModule() {
+        public String toolBinding() {
             return ownerModule;
         }
     }
@@ -213,7 +212,7 @@ class SelectionTableToolbar extends ToolBar implements ModuleOwned {
         }
 
         public void moveOnClick(ActionEvent event) {
-            eventStudio().broadcast(new MoveSelectedEvent(type), getOwnerModule());
+            eventStudio().broadcast(new MoveSelectedEvent(type), toolBinding());
         }
 
         @EventListener

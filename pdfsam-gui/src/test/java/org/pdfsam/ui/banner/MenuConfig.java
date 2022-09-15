@@ -26,7 +26,7 @@ import java.util.Arrays;
 
 import org.pdfsam.injector.Prototype;
 import org.pdfsam.injector.Provides;
-import org.pdfsam.test.DefaultPriorityTestModule;
+import org.pdfsam.test.DefaultPriorityTestTool;
 import org.pdfsam.ui.RecentWorkspacesService;
 
 /**
@@ -52,12 +52,12 @@ public class MenuConfig {
 
     @Provides
     public ModulesMenu modulesMenu() {
-        return new ModulesMenu(Arrays.asList(new DefaultPriorityTestModule()));
+        return new ModulesMenu(Arrays.asList(new DefaultPriorityTestTool()));
     }
 
     @Provides
-    public DefaultPriorityTestModule module() {
-        return new DefaultPriorityTestModule();
+    public DefaultPriorityTestTool module() {
+        return new DefaultPriorityTestTool();
     }
 
     @Provides

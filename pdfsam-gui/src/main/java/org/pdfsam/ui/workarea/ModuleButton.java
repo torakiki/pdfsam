@@ -22,7 +22,7 @@ import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
-import org.pdfsam.module.Module;
+import org.pdfsam.module.Tool;
 import org.pdfsam.ui.quickbar.BaseQuickbarButton;
 
 import javafx.scene.control.Tooltip;
@@ -35,18 +35,18 @@ import javafx.scene.control.Tooltip;
  */
 class ModuleButton extends BaseQuickbarButton {
 
-    private Module module;
+    private Tool tool;
 
-    ModuleButton(Module module) {
-        requireNotNullArg(module, "Module cannot be null");
-        this.module = module;
-        setGraphic(this.module.graphic());
-        setText(this.module.descriptor().getName());
-        setOnAction(e -> eventStudio().broadcast(activeteModule(ModuleButton.this.module.id())));
-        setTooltip(new Tooltip(this.module.descriptor().getDescription()));
+    ModuleButton(Tool tool) {
+        requireNotNullArg(tool, "Module cannot be null");
+        this.tool = tool;
+        setGraphic(this.tool.graphic());
+        setText(this.tool.descriptor().getName());
+        setOnAction(e -> eventStudio().broadcast(activeteModule(ModuleButton.this.tool.id())));
+        setTooltip(new Tooltip(this.tool.descriptor().getDescription()));
     }
 
     String moduleId() {
-        return module.id();
+        return tool.id();
     }
 }

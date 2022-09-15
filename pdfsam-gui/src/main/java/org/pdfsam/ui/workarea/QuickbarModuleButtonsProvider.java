@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
-import org.pdfsam.module.Module;
+import org.pdfsam.module.Tool;
 
 /**
  * @author Andrea Vacondio
@@ -33,16 +33,16 @@ import org.pdfsam.module.Module;
  */
 class QuickbarModuleButtonsProvider {
 
-    private List<Module> modules;
+    private List<Tool> tools;
 
     @Inject
-    QuickbarModuleButtonsProvider(List<Module> modules) {
-        this.modules = new ArrayList<>(modules);
-        Comparator<Module> compareByPrio = Comparator.comparingInt(m-> m.descriptor().getPriority());
-        this.modules.sort(compareByPrio.thenComparing(m-> m.descriptor().getName()));
+    QuickbarModuleButtonsProvider(List<Tool> tools) {
+        this.tools = new ArrayList<>(tools);
+        Comparator<Tool> compareByPrio = Comparator.comparingInt(m-> m.descriptor().getPriority());
+        this.tools.sort(compareByPrio.thenComparing(m-> m.descriptor().getName()));
     }
 
     public List<ModuleButton> buttons() {
-        return this.modules.stream().map(ModuleButton::new).collect(Collectors.toList());
+        return this.tools.stream().map(ModuleButton::new).collect(Collectors.toList());
     }
 }

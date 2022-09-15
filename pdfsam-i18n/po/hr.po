@@ -151,17 +151,17 @@ msgstr "Jezik:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Postavi preferirani jezik (ponovo pokreni program)"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "Početni modul:"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
 "Postavi modul koji se otvara prilikom pokretanja programa (ponovo pokreni "
 "program)"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr ""
 "Statistika korištenja služi za postavljanje najčešće korištenih i zadnje "
 "korištenih modula u lijevoj traci za brzo biranje modula."
@@ -282,7 +282,7 @@ msgstr "Prikaži premium funkcije"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr "Da li dohvatiti i prikazati opis premium funkcija u ploči modula"
 
 msgid "Ask for a confirmation when clearing the selection table"
@@ -343,7 +343,7 @@ msgstr "Potvrdi brisanje"
 msgid "Do you confirm?"
 msgstr "Potvrditi?"
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr "Izbriši postavke modula"
 
 msgid "Clear the selection table"
@@ -859,11 +859,11 @@ msgstr "Dokumenti su učitani"
 msgid "Unable to retrieve premium features description"
 msgstr "Nije moguće dohvatiti opise premium funkcija"
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr "Dohvaćanje premium modula"
 
-msgid "Unable to retrieve premium modules"
-msgstr "Nije moguće dohvatiti premium module"
+msgid "Unable to retrieve premium tools"
+msgstr "Nije moguće dohvatiti premium tool"
 
 msgid "Unable to retrieve latest news"
 msgstr "Nije moguće dohvatiti najnovije novosti"
@@ -881,10 +881,10 @@ msgstr "Spremanje podataka radnog prostora u {0}"
 msgid "Workspace saved"
 msgstr "Radni prostor je spremljen"
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr "Traženje stanja modula"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "Nije moguće spremiti radni prostor modula"
 
 #, java-format

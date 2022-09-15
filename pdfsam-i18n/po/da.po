@@ -150,16 +150,16 @@ msgstr "Sprog:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Sæt dit ønskede sprog (genstart nødvendig)"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "Modul ved start:"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
 "Vælg modulet, der skal åbnes ved programmets start (genstart påkrævet)"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr ""
 "Statistikker bruges til at indsætte de senest og oftest anvendte moduler i "
 "moduloversigten i venstre side."
@@ -279,7 +279,7 @@ msgstr "Vis premiumfunktioner"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr ""
 "Angiv om programmet skal hente og vise premiumfunktionernes beskrivelse i "
 "modulernes instrumentbræt"
@@ -344,7 +344,7 @@ msgstr "Bekræft rydning"
 msgid "Do you confirm?"
 msgstr "Vil du bekræfte?"
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr "Ryd modul indstillinger"
 
 msgid "Clear the selection table"
@@ -864,10 +864,10 @@ msgstr "Dokumenter indlæst"
 msgid "Unable to retrieve premium features description"
 msgstr "Kunne ikke hente premiumfunktionernes beskrivelse"
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr "Henter premiummoduler"
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr "Kunne ikke hente premiummoduler"
 
 msgid "Unable to retrieve latest news"
@@ -886,10 +886,10 @@ msgstr "Gemmer data om arbejdsområde til {0}"
 msgid "Workspace saved"
 msgstr "Arbejdsområde gemt"
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr "indhenter status fra moduler"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "Arbejdsområdet for moduler kunne ikke gemmes"
 
 #, java-format

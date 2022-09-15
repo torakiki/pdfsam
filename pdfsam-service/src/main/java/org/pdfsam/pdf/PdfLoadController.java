@@ -33,7 +33,7 @@ import org.pdfsam.ShutdownEvent;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Auto;
-import org.pdfsam.module.Module;
+import org.pdfsam.module.Tool;
 import org.pdfsam.module.RequiredPdfData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,9 +54,9 @@ public class PdfLoadController {
     private Map<String, RequiredPdfData[]> requiredLoadData = new HashMap<>();
 
     @Inject
-    public PdfLoadController(List<Module> modules, PdfLoadService loadService) {
+    public PdfLoadController(List<Tool> tools, PdfLoadService loadService) {
         this.loadService = loadService;
-        modules.forEach(m -> requiredLoadData.put(m.id(), m.requires()));
+        tools.forEach(m -> requiredLoadData.put(m.id(), m.requires()));
         eventStudio().addAnnotatedListeners(this);
     }
 
@@ -69,7 +69,7 @@ public class PdfLoadController {
     public void request(PdfLoadRequestEvent event) {
         LOG.trace("PDF load request received");
         event.getDocuments().forEach(i -> i.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED));
-        executor.execute(() -> loadService.load(event.getDocuments(), requiredLoadData.get(event.getOwnerModule())));
+        executor.execute(() -> loadService.load(event.getDocuments(), requiredLoadData.get(event.toolBinding())));
     }
 
     /**
@@ -83,14 +83,14 @@ public class PdfLoadController {
         if (nonNull(event.list)) {
             executor.execute(() -> {
                 try {
-                    PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(event.getOwnerModule());
+                    PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(event.toolBinding());
                     new PdfListParser().apply(event.list).stream().map(PdfDocumentDescriptor::newDescriptorNoPassword)
                             .forEach(loadEvent::add);
                     if (loadEvent.getDocuments().isEmpty()) {
                         LOG.error(I18nContext.getInstance()
                                 .i18n("Unable to find any valid PDF file in the list: {0}", event.list.toString()));
                     } else {
-                        eventStudio().broadcast(loadEvent, event.getOwnerModule());
+                        eventStudio().broadcast(loadEvent, event.toolBinding());
                     }
                 } catch (Exception e) {
                     LOG.error(I18nContext.getInstance().i18n("Unable to load PDF list file from {0}",

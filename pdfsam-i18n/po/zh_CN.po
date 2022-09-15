@@ -149,15 +149,15 @@ msgstr "语言/Language："
 msgid "Set your preferred language (restart needed)"
 msgstr "设置首选语言（需要重新启动）"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "启动时的模块"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr "设置打开应用时的模块（需要重新启动）"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr "使用情况被用来排列左侧快速访问栏最常用和最近使用的模块"
 
 msgid "Manually selected"
@@ -266,7 +266,7 @@ msgstr "显示高级版特性"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr "设置应用是否在模块界面拉取和显示高级版特性"
 
 msgid "Ask for a confirmation when clearing the selection table"
@@ -325,7 +325,7 @@ msgstr "确认清除"
 msgid "Do you confirm?"
 msgstr "您是否确定？"
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr "清除模块设置"
 
 msgid "Clear the selection table"
@@ -827,10 +827,10 @@ msgstr "文档已加载"
 msgid "Unable to retrieve premium features description"
 msgstr "无法检索高级版特性描述"
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr "拉取高级版模块"
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr "无法检索高级版模块"
 
 msgid "Unable to retrieve latest news"
@@ -849,10 +849,10 @@ msgstr "保存工作区数据到{0}"
 msgid "Workspace saved"
 msgstr "工作区已保存"
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr "请求高级版状态"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "无法保存模块工作区"
 
 #, java-format

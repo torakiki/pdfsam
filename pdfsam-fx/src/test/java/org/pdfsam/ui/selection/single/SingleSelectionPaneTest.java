@@ -18,6 +18,46 @@
  */
 package org.pdfsam.ui.selection.single;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.scene.Scene;
+import javafx.scene.control.Labeled;
+import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.input.KeyCode;
+import javafx.stage.Stage;
+import org.hamcrest.Matchers;
+import org.junit.BeforeClass;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.junit.rules.TemporaryFolder;
+import org.mockito.ArgumentCaptor;
+import org.pdfsam.NoHeadless;
+import org.pdfsam.context.BooleanUserPreference;
+import org.pdfsam.context.DefaultUserContext;
+import org.pdfsam.eventstudio.Listener;
+import org.pdfsam.i18n.I18nContext;
+import org.pdfsam.i18n.SetLocaleRequest;
+import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
+import org.pdfsam.pdf.PdfDocumentDescriptor;
+import org.pdfsam.pdf.PdfLoadRequestEvent;
+import org.pdfsam.support.EncryptionUtils;
+import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.test.HitConsumer;
+import org.pdfsam.test.HitTestListener;
+import org.pdfsam.ui.commons.NativeOpenFileRequest;
+import org.pdfsam.ui.commons.SetDestinationRequest;
+import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
+import org.pdfsam.ui.commons.ShowStageRequest;
+import org.pdfsam.ui.commons.ValidableTextField;
+import org.pdfsam.ui.io.ChangedSelectedPdfVersionEvent;
+import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
+
+import java.io.File;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 import static org.junit.Assert.assertEquals;
@@ -30,47 +70,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
-
-import java.io.File;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-
-import org.hamcrest.Matchers;
-import org.junit.BeforeClass;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.rules.TemporaryFolder;
-import org.mockito.ArgumentCaptor;
-import org.pdfsam.NoHeadless;
-import org.pdfsam.context.BooleanUserPreference;
-import org.pdfsam.context.DefaultUserContext;
-import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.i18n.SetLocaleRequest;
-import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
-import org.pdfsam.pdf.PdfDocumentDescriptor;
-import org.pdfsam.pdf.PdfLoadRequestEvent;
-import org.pdfsam.support.EncryptionUtils;
-import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.test.HitConsumer;
-import org.pdfsam.test.HitTestListener;
-import org.pdfsam.ui.commons.OpenFileRequest;
-import org.pdfsam.ui.commons.SetDestinationRequest;
-import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
-import org.pdfsam.ui.commons.ShowStageRequest;
-import org.pdfsam.ui.commons.ValidableTextField;
-import org.pdfsam.ui.io.ChangedSelectedPdfVersionEvent;
-import org.pdfsam.eventstudio.Listener;
-import org.testfx.framework.junit.ApplicationTest;
-import org.testfx.util.WaitForAsyncUtils;
-
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import javafx.scene.Scene;
-import javafx.scene.control.Labeled;
-import javafx.scene.control.SeparatorMenuItem;
-import javafx.scene.input.KeyCode;
-import javafx.stage.Stage;
 
 /**
  * @author Andrea Vacondio
@@ -140,14 +139,14 @@ public class SingleSelectionPaneTest extends ApplicationTest {
     @Test
     @Category(NoHeadless.class)
     public void openFileMenuItem() throws Exception {
-        var listener = new HitTestListener<OpenFileRequest>() {
+        var listener = new HitTestListener<NativeOpenFileRequest>() {
             @Override
-            public void onEvent(OpenFileRequest event) {
+            public void onEvent(NativeOpenFileRequest event) {
                 super.onEvent(event);
                 assertEquals(victim.getPdfDocumentDescriptor().getFile(), event.getFile());
             }
         };
-        eventStudio().add(OpenFileRequest.class, listener);
+        eventStudio().add(NativeOpenFileRequest.class, listener);
         typePathAndValidate();
         rightClickOn(".validable-container-field");
         clickOn(I18nContext.getInstance().i18n("Open"));
@@ -157,14 +156,14 @@ public class SingleSelectionPaneTest extends ApplicationTest {
     @Test
     @Category(NoHeadless.class)
     public void openFolderMenuItem() throws Exception {
-        var listener = new HitTestListener<OpenFileRequest>() {
+        var listener = new HitTestListener<NativeOpenFileRequest>() {
             @Override
-            public void onEvent(OpenFileRequest event) {
+            public void onEvent(NativeOpenFileRequest event) {
                 super.onEvent(event);
                 assertEquals(victim.getPdfDocumentDescriptor().getFile().getParentFile(), event.getFile());
             }
         };
-        eventStudio().add(OpenFileRequest.class, listener);
+        eventStudio().add(NativeOpenFileRequest.class, listener);
         typePathAndValidate();
         rightClickOn(".validable-container-field");
         clickOn(I18nContext.getInstance().i18n("Open Folder"));

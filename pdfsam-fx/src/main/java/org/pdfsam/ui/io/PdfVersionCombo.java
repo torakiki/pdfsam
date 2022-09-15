@@ -28,7 +28,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.module.ModuleOwned;
+import org.pdfsam.module.ToolBound;
 import org.pdfsam.ui.ResettableView;
 import org.pdfsam.ui.io.PdfVersionCombo.PdfVersionComboItem;
 import org.pdfsam.eventstudio.annotation.EventListener;
@@ -41,11 +41,10 @@ import javafx.scene.control.ComboBox;
 
 /**
  * Combo box to let the user select the pdf version of the generated output documents
- * 
+ *
  * @author Andrea Vacondio
- * 
  */
-class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwned, ResettableView {
+class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ToolBound, ResettableView {
 
     private String ownerModule = StringUtils.EMPTY;
     private ObservableList<PdfVersionComboItem> unfilteredItems = FXCollections.observableArrayList();
@@ -96,7 +95,7 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ModuleOwn
 
     @Override
     @EventStation
-    public String getOwnerModule() {
+    public String toolBinding() {
         return this.ownerModule;
     }
 

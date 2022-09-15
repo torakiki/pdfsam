@@ -18,15 +18,14 @@
  */
 package org.pdfsam.ui.commons;
 
-import static java.util.Objects.nonNull;
-import static org.sejda.commons.util.RequireUtils.requireNotBlank;
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
-
-import org.pdfsam.ui.support.Style;
-
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.utils.FontAwesomeIconFactory;
 import javafx.scene.control.Button;
+import org.pdfsam.ui.support.Style;
+
+import static java.util.Objects.nonNull;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
+import static org.sejda.commons.util.RequireUtils.requireNotBlank;
 
 /**
  * Button opening the default browser to the configured url when pressed
@@ -69,7 +68,7 @@ public class UrlButton extends Button {
     public static final UrlButton urlButton(String text, String url, FontAwesomeIcon icon, String... style) {
         requireNotBlank(url, "URL cannot be blank");
         UrlButton button = new UrlButton(text);
-        button.setOnAction(e -> eventStudio().broadcast(new OpenUrlRequest(url)));
+        button.setOnAction(e -> eventStudio().broadcast(new NativeOpenUrlRequest(url)));
         if (nonNull(icon)) {
             FontAwesomeIconFactory.get().setIcon(button, icon);
         }

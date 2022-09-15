@@ -153,16 +153,16 @@ msgstr "Язык:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Выберите предпочтительный язык (требуется перезапуск)"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "Запуск модуля:"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
 "Выберите модуль, открываемый при запуске приложения (нужен перезапуск)"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr ""
 "Статистика использования применяется для заполнения панели быстрого доступа "
 "модулей (слева) с часто используемыми и недавно использованными модулями."
@@ -280,7 +280,7 @@ msgstr "Показать дополнительные возможности"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr ""
 "Разрешить приложению показывать описания дополнительных возможностей в "
 "панели модулей"
@@ -345,7 +345,7 @@ msgstr "Подтвердить очистку"
 msgid "Do you confirm?"
 msgstr "Действительно подтверждаете ?"
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr "Очистить настройки модуля"
 
 msgid "Clear the selection table"
@@ -867,10 +867,10 @@ msgstr "Документы загружены"
 msgid "Unable to retrieve premium features description"
 msgstr "Невозможно получить описание дполнительных модулей"
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr "Получить дополнительные модули"
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr "Невозможно найти дополнительные модули"
 
 msgid "Unable to retrieve latest news"
@@ -889,10 +889,10 @@ msgstr "Сохранение данных рабочей области в {0}"
 msgid "Workspace saved"
 msgstr "Рабочий профиль сохранен"
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr "Опрос состояния модулей"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "Невозможно сохранить рабочую область модулей"
 
 #, java-format

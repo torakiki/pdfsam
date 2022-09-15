@@ -150,16 +150,16 @@ msgstr "Idioma:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Seleccione su idioma preferido (se necesita reiniciar)"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "Módulo de arranque:"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
 "Defina el módulo que abrir al iniciar la aplicación (se necesita reiniciar)"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr ""
 "Las estadísticas de uso son usadas para llenar la barra rápida de módulos a "
 "la izquierda con los módulos más usados y usados recientemente."
@@ -287,7 +287,7 @@ msgstr "Indique características premium"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr ""
 "Establezca si la aplicación debería recuperar y mostrar la descripción de "
 "las funciones premium en el panel de módulos"
@@ -354,7 +354,7 @@ msgstr "Confirmar limpieza"
 msgid "Do you confirm?"
 msgstr "¿Confirmas?"
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr "Limpiar configuración de modulo"
 
 msgid "Clear the selection table"
@@ -897,10 +897,10 @@ msgstr "Documentos cargados"
 msgid "Unable to retrieve premium features description"
 msgstr "No ha sido posible recuperar la descripción de las opciones premium"
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr "Obteniendo módulos premium"
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr "No ha sido posible recuperar los módulos premium"
 
 msgid "Unable to retrieve latest news"
@@ -919,10 +919,10 @@ msgstr "Guardando datos de espacio de trabajo en {0}"
 msgid "Workspace saved"
 msgstr "Espacio de trabajo guardado"
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr "Solicitando el estado de los módulos"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "Imposible guardar los módulos del espacio de trabajo"
 
 #, java-format

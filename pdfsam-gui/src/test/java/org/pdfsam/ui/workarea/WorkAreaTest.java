@@ -38,10 +38,10 @@ import org.mockito.ArgumentMatchers;
 import org.pdfsam.eventstudio.Listener;
 import org.pdfsam.injector.Injector;
 import org.pdfsam.injector.Provides;
-import org.pdfsam.module.Module;
+import org.pdfsam.module.Tool;
 import org.pdfsam.module.UsageService;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.test.DefaultPriorityTestModule;
+import org.pdfsam.test.DefaultPriorityTestTool;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.pdfsam.ui.event.SetTitleEvent;
@@ -71,8 +71,8 @@ public class WorkAreaTest {
     static class Config {
 
         @Provides
-        public Module module() {
-            return new TestModule();
+        public Tool module() {
+            return new TestTool();
         }
 
         @Provides
@@ -81,8 +81,8 @@ public class WorkAreaTest {
         }
 
         @Provides
-        public QuickbarModuleButtonsProvider provider(UsageService service, List<Module> modules) {
-            return new QuickbarModuleButtonsProvider( modules);
+        public QuickbarModuleButtonsProvider provider(UsageService service, List<Tool> tools) {
+            return new QuickbarModuleButtonsProvider(tools);
         }
 
         @Provides
@@ -91,8 +91,8 @@ public class WorkAreaTest {
         }
 
         @Provides
-        public WorkArea victim(List<Module> modules, QuickbarModuleButtonsPane pane) {
-            return new WorkArea(modules, pane);
+        public WorkArea victim(List<Tool> tools, QuickbarModuleButtonsPane pane) {
+            return new WorkArea(tools, pane);
         }
     }
 
@@ -108,10 +108,10 @@ public class WorkAreaTest {
         assertNull(((ScrollPane) victim.getCenter()).getContent());
         Listener<SetTitleEvent> listener = mock(Listener.class);
         eventStudio().add(SetTitleEvent.class, listener);
-        victim.onSetActiveModule(SetActiveModuleRequest.activeteModule(DefaultPriorityTestModule.ID));
+        victim.onSetActiveModule(SetActiveModuleRequest.activeteModule(DefaultPriorityTestTool.ID));
         ArgumentCaptor<SetTitleEvent> captor = ArgumentCaptor.forClass(SetTitleEvent.class);
         verify(listener).onEvent(captor.capture());
-        assertEquals(injector.instance(TestModule.class).descriptor().getName(), captor.getValue().getTitle());
+        assertEquals(injector.instance(TestTool.class).descriptor().getName(), captor.getValue().getTitle());
         assertNotNull(((ScrollPane) victim.getCenter()).getContent());
     }
 
@@ -119,10 +119,10 @@ public class WorkAreaTest {
     public void runRequestIsSent() {
         WorkArea victim = injector.instance(WorkArea.class);
         assertNull(((ScrollPane) victim.getCenter()).getContent());
-        victim.onSetActiveModule(SetActiveModuleRequest.activeteModule(DefaultPriorityTestModule.ID));
+        victim.onSetActiveModule(SetActiveModuleRequest.activeteModule(DefaultPriorityTestTool.ID));
         victim.setVisible(true);
         Listener<RunButtonTriggerRequest> listener = mock(Listener.class);
-        eventStudio().add(RunButtonTriggerRequest.class, listener, DefaultPriorityTestModule.ID);
+        eventStudio().add(RunButtonTriggerRequest.class, listener, DefaultPriorityTestTool.ID);
         victim.onRunButtonAccelerator(RunButtonTriggerRequest.INSTANCE);
         verify(listener).onEvent(ArgumentMatchers.any());
     }
@@ -131,10 +131,10 @@ public class WorkAreaTest {
     public void runRequestIsNotSentIfNotVisible() {
         WorkArea victim = injector.instance(WorkArea.class);
         assertNull(((ScrollPane) victim.getCenter()).getContent());
-        victim.onSetActiveModule(SetActiveModuleRequest.activeteModule(DefaultPriorityTestModule.ID));
+        victim.onSetActiveModule(SetActiveModuleRequest.activeteModule(DefaultPriorityTestTool.ID));
         victim.setVisible(false);
         Listener<RunButtonTriggerRequest> listener = mock(Listener.class);
-        eventStudio().add(RunButtonTriggerRequest.class, listener, DefaultPriorityTestModule.ID);
+        eventStudio().add(RunButtonTriggerRequest.class, listener, DefaultPriorityTestTool.ID);
         victim.onRunButtonAccelerator(RunButtonTriggerRequest.INSTANCE);
         verify(listener, never()).onEvent(ArgumentMatchers.any());
     }
@@ -153,17 +153,17 @@ public class WorkAreaTest {
     @Test
     public void previousEventTitleIsSent() {
         WorkArea victim = injector.instance(WorkArea.class);
-        victim.onSetActiveModule(SetActiveModuleRequest.activeteModule(DefaultPriorityTestModule.ID));
+        victim.onSetActiveModule(SetActiveModuleRequest.activeteModule(DefaultPriorityTestTool.ID));
         eventStudio().clear();
         Listener<SetTitleEvent> listener = mock(Listener.class);
         eventStudio().add(SetTitleEvent.class, listener);
         victim.onSetActiveModule(SetActiveModuleRequest.activeteCurrentModule());
         ArgumentCaptor<SetTitleEvent> captor = ArgumentCaptor.forClass(SetTitleEvent.class);
         verify(listener).onEvent(captor.capture());
-        assertEquals(injector.instance(TestModule.class).descriptor().getName(), captor.getValue().getTitle());
+        assertEquals(injector.instance(TestTool.class).descriptor().getName(), captor.getValue().getTitle());
     }
 
-    public static class TestModule extends DefaultPriorityTestModule {
+    public static class TestTool extends DefaultPriorityTestTool {
         @Override
         public Pane modulePanel() {
             HBox panel = new HBox();

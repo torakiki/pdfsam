@@ -152,15 +152,15 @@ msgstr "Język:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Ustaw preferowany język (wymagany restart)"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "Moduł startowy:"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr "Wybierz moduł otwierany przy starcie (wymagany restart)"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr ""
 "Statystyki użytkowania są wykorzystywane do wyświetlania na pasku postępu po "
 "lewej stronie najczęściej używanych i ostatnio używanych modułów."
@@ -284,7 +284,7 @@ msgstr "Pokaż opcje premium"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr ""
 "Ustaw, czy aplikacja ma pobierać i wyświetlać opis funkcji premium na "
 "pulpicie nawigacyjnym modułów"
@@ -349,7 +349,7 @@ msgstr "Potwierdź wyczyszczenie"
 msgid "Do you confirm?"
 msgstr "Czy potwierdzasz?"
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr "Wyczyść ustawienia modułu"
 
 msgid "Clear the selection table"
@@ -862,10 +862,10 @@ msgstr "Dokumenty załadowane"
 msgid "Unable to retrieve premium features description"
 msgstr "Nie powiodło się pobranie opisu funkcji Premium"
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr "Pobieranie modułów Premium"
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr "Nie powiodło się pobranie modułów Premium"
 
 msgid "Unable to retrieve latest news"
@@ -884,10 +884,10 @@ msgstr "Zapisywanie danych w obszarze roboczym {0}"
 msgid "Workspace saved"
 msgstr "Obszar roboczy zapisany"
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr "Pobieranie stanu modułów"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "Nie można zapisać obszaru roboczego modułu"
 
 #, java-format

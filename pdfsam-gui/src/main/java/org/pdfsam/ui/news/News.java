@@ -18,16 +18,6 @@
  */
 package org.pdfsam.ui.news;
 
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
-
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
-
-import org.pdfsam.news.NewsData;
-import org.pdfsam.ui.commons.OpenUrlRequest;
-import org.pdfsam.ui.commons.UrlButton;
-
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.utils.FontAwesomeIconFactory;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
@@ -41,6 +31,15 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
+import org.pdfsam.news.NewsData;
+import org.pdfsam.ui.commons.NativeOpenUrlRequest;
+import org.pdfsam.ui.commons.UrlButton;
+
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 /**
  * Panel showing one piece of news
@@ -61,7 +60,7 @@ public class News extends VBox {
         }
 
         Text titleText = new Text(data.getTitle() + System.lineSeparator());
-        titleText.setOnMouseClicked(e -> eventStudio().broadcast(new OpenUrlRequest(data.getLink())));
+        titleText.setOnMouseClicked(e -> eventStudio().broadcast(new NativeOpenUrlRequest(data.getLink())));
         titleText.getStyleClass().add("news-box-title");
 
         Text contentText = new Text(data.getContent());

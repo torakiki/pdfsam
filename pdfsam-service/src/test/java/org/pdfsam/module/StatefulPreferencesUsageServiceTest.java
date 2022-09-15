@@ -18,13 +18,6 @@
  */
 package org.pdfsam.module;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import static org.pdfsam.module.ModuleDescriptorBuilder.builder;
-
-import javax.inject.Named;
-
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -32,9 +25,15 @@ import org.pdfsam.injector.Injector;
 import org.pdfsam.injector.Provides;
 import org.pdfsam.test.ClearEventStudioRule;
 
+import javax.inject.Named;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.pdfsam.module.ToolDescriptorBuilder.builder;
+
 /**
  * @author Andrea Vacondio
- *
  */
 public class StatefulPreferencesUsageServiceTest {
 
@@ -56,24 +55,26 @@ public class StatefulPreferencesUsageServiceTest {
 
         @Provides
         @Named("module1")
-        public Module module1() {
-            Module module = mock(Module.class);
-            when(module.id()).thenReturn("module1");
-            ModuleDescriptor descriptor = builder().name("module1").description("desc").category(ModuleCategory.SPLIT)
-                    .priority(ModulePriority.DEFAULT).build();
-            when(module.descriptor()).thenReturn(descriptor);
-            return module;
+        public Tool module1() {
+            Tool tool = mock(Tool.class);
+            when(tool.id()).thenReturn("module1");
+            ToolDescriptor descriptor = builder().name("module1").description("desc").category(ToolCategory.SPLIT)
+                    .priority(ToolPriority.DEFAULT)
+                    .build();
+            when(tool.descriptor()).thenReturn(descriptor);
+            return tool;
         }
 
         @Provides
         @Named("module2")
-        public Module module2() {
-            Module module = mock(Module.class);
-            when(module.id()).thenReturn("module2");
-            ModuleDescriptor descriptor = builder().name("module2").description("desc").category(ModuleCategory.MERGE)
-                    .priority(ModulePriority.HIGH).build();
-            when(module.descriptor()).thenReturn(descriptor);
-            return module;
+        public Tool module2() {
+            Tool tool = mock(Tool.class);
+            when(tool.id()).thenReturn("module2");
+            ToolDescriptor descriptor = builder().name("module2").description("desc").category(ToolCategory.MERGE)
+                    .priority(ToolPriority.HIGH)
+                    .build();
+            when(tool.descriptor()).thenReturn(descriptor);
+            return tool;
         }
     }
 

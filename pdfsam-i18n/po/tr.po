@@ -161,17 +161,17 @@ msgstr "Dil:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Tercih ettiğiniz dili seçin (yeniden başlatmak gerekir)"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "Başlangıç modülü"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
 "Modülü uygulama başlangıcında açılacak şekilde ayarlayın (yeniden başlatma "
 "gerektirir)"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr ""
 "Kullanım istatistikleri sol taraftaki modüller hızlı erişimi çubuğunu en çok "
 "kullanılan ve en son kullanılan modüllerle doldurmak için kullanılmaktadır."
@@ -294,7 +294,7 @@ msgstr "Premium özellikleri göster"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr ""
 "Uygulamanın modül panelinde premium özelliklerin açıklamalarını gösterip "
 "göstermeyeceğini belirler"
@@ -357,7 +357,7 @@ msgstr "Temizliği onayla"
 msgid "Do you confirm?"
 msgstr "Onaylıyor musun?"
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr "Modül ayarlarını temizle"
 
 msgid "Clear the selection table"
@@ -924,10 +924,10 @@ msgstr "Belgeler yükleniyor"
 msgid "Unable to retrieve premium features description"
 msgstr "Premium özelliklerin açıklamaları alınamadı"
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr "Premium modüller alınıyor"
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr "Premium modüller getirilemedi"
 
 msgid "Unable to retrieve latest news"
@@ -946,10 +946,10 @@ msgstr "Çalışma alanı verileri {0} konumuna kaydediliyor."
 msgid "Workspace saved"
 msgstr "Çalışma alanı kaydedildi"
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr "Modül durumu isteniyor"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "Modül çalışma alanı kaydedilemedi"
 
 #, java-format

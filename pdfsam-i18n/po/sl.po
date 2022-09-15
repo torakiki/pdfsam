@@ -149,16 +149,16 @@ msgstr "Jezik:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Izberi prednostni jezik (potreben ponovni zagon)"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "Zagonski modul:"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
 "Določite modul, ki se bo odprl ob zagonu programa (potreben ponovni zagon)"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr ""
 "Statistika uporabe služi popolnitvi priročne vrstice na levi strani z "
 "najpogosteje in  nazadnje uporabljenimi moduli."
@@ -282,7 +282,7 @@ msgstr "Prikaži doplačljive zmogljivosti"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr ""
 "Nastavite, če želite, da program pridobi in prikaže opise doplačljivih "
 "zmogljivosti na delovni površini modulov"
@@ -344,7 +344,7 @@ msgstr ""
 msgid "Do you confirm?"
 msgstr ""
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr ""
 
 msgid "Clear the selection table"
@@ -860,10 +860,10 @@ msgstr "Dokumenti naloženi"
 msgid "Unable to retrieve premium features description"
 msgstr "Opisov doplačljivih zmožnosti ni bilo mogoče pridobiti"
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr "Pridobivanje doplačljivih modulov"
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr "Doplačljivih modulov ni bilo mogoče pridobiti"
 
 msgid "Unable to retrieve latest news"
@@ -882,10 +882,10 @@ msgstr "Shranjevanje podatkov o delovni površini v {0}"
 msgid "Workspace saved"
 msgstr "Delovna površina shranjena"
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr "Zahtevanje poročila o stanju modulov"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "Delovne površine modula ni mogoče shraniti"
 
 #, java-format

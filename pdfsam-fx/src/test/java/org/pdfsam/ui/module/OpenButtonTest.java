@@ -18,28 +18,25 @@
  */
 package org.pdfsam.ui.module;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
-
-import java.io.File;
-import java.util.Arrays;
-
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
+import javafx.scene.Scene;
+import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.rules.TemporaryFolder;
 import org.pdfsam.NoHeadless;
-import org.pdfsam.module.Module;
-import org.pdfsam.module.ModuleInputOutputType;
+import org.pdfsam.module.Tool;
+import org.pdfsam.module.ToolInputOutputType;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.test.DefaultPriorityTestModule;
+import org.pdfsam.test.DefaultPriorityTestTool;
 import org.pdfsam.test.HitTestListener;
 import org.pdfsam.ui.commons.ClearModuleEvent;
-import org.pdfsam.ui.commons.OpenFileRequest;
+import org.pdfsam.ui.commons.NativeOpenFileRequest;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.output.DirectoryTaskOutput;
@@ -49,12 +46,14 @@ import org.sejda.model.task.Task;
 import org.testfx.framework.junit.ApplicationTest;
 import org.testfx.util.WaitForAsyncUtils;
 
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
-import javafx.scene.Scene;
-import javafx.scene.layout.HBox;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
+import java.io.File;
+import java.util.Arrays;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 /**
  * @author Andrea Vacondio
@@ -66,13 +65,13 @@ public class OpenButtonTest extends ApplicationTest {
     public ClearEventStudioRule cearEventStudio = new ClearEventStudioRule();
     @Rule
     public TemporaryFolder temp = new TemporaryFolder();
-    private Module module = new DefaultPriorityTestModule();
+    private Tool tool = new DefaultPriorityTestTool();
     private OpenButton victim;
 
     @Override
     public void start(Stage stage) {
-        victim = new OpenButton("moduleId", ModuleInputOutputType.SINGLE_PDF);
-        victim.initModules(Arrays.asList(module));
+        victim = new OpenButton("moduleId", ToolInputOutputType.SINGLE_PDF);
+        victim.initModules(Arrays.asList(tool));
         victim.setMaxHeight(30);
         victim.setVisible(true);
         Scene scene = new Scene(new HBox(victim));
@@ -154,19 +153,19 @@ public class OpenButtonTest extends ApplicationTest {
         taskMetadata.addTaskOutput(file);
         TaskExecutionCompletedEvent event = new TaskExecutionCompletedEvent(10, taskMetadata);
         HitTestListener<ClearModuleEvent> clear = new HitTestListener<>();
-        eventStudio().add(ClearModuleEvent.class, clear, module.id());
+        eventStudio().add(ClearModuleEvent.class, clear, tool.id());
         HitTestListener<PdfLoadRequestEvent> load = new HitTestListener<>();
-        eventStudio().add(PdfLoadRequestEvent.class, load, module.id());
+        eventStudio().add(PdfLoadRequestEvent.class, load, tool.id());
         HitTestListener<SetActiveModuleRequest> active = new HitTestListener<>();
         eventStudio().add(SetActiveModuleRequest.class, active);
         eventStudio().broadcast(event, "moduleId");
-        clickOn(".arrow-button").clickOn(module.descriptor().getName());
+        clickOn(".arrow-button").clickOn(tool.descriptor().getName());
         assertTrue(clear.isHit());
         assertTrue(active.isHit());
         assertTrue(load.isHit());
     }
 
-    private static class TestListener extends HitTestListener<OpenFileRequest> {
+    private static class TestListener extends HitTestListener<NativeOpenFileRequest> {
         private File destination;
         boolean equal = false;
 
@@ -175,7 +174,7 @@ public class OpenButtonTest extends ApplicationTest {
         }
 
         @Override
-        public void onEvent(OpenFileRequest event) {
+        public void onEvent(NativeOpenFileRequest event) {
             super.onEvent(event);
             equal = destination.equals(event.getFile());
         }

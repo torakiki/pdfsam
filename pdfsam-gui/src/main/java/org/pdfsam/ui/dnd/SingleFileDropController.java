@@ -50,9 +50,9 @@ public class SingleFileDropController {
 
         event.files.stream().filter(f -> FileType.PDF.matches(f.getName())).filter(File::isFile)
                 .map(PdfDocumentDescriptor::newDescriptorNoPassword).findFirst().ifPresent(file -> {
-                    PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(event.getOwnerModule());
+                    PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(event.toolBinding());
                     loadEvent.add(file);
-                    eventStudio().broadcast(loadEvent, event.getOwnerModule());
+                    eventStudio().broadcast(loadEvent, event.toolBinding());
                 });
     }
 

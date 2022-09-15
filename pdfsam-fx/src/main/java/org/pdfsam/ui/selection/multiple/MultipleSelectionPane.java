@@ -24,7 +24,7 @@ import static org.sejda.commons.util.RequireUtils.requireArg;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.module.ModuleOwned;
+import org.pdfsam.module.ToolBound;
 import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.model.parameter.base.TaskParameters;
 
@@ -33,10 +33,10 @@ import javafx.scene.layout.BorderPane;
 /**
  * Panel holding the selection table and its toolbar. It is constructed specifying the columns for the selection table and it participates to the {@link TaskParameters} build
  * process
- * 
+ *
  * @author Andrea Vacondio
  */
-public class MultipleSelectionPane extends BorderPane implements ModuleOwned, RestorableView {
+public class MultipleSelectionPane extends BorderPane implements ToolBound, RestorableView {
 
     private String ownerModule = StringUtils.EMPTY;
     private SelectionTable table;
@@ -51,7 +51,7 @@ public class MultipleSelectionPane extends BorderPane implements ModuleOwned, Re
     }
 
     @Override
-    public String getOwnerModule() {
+    public String toolBinding() {
         return ownerModule;
     }
 

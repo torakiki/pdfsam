@@ -29,11 +29,11 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.pdfsam.injector.Injector;
 import org.pdfsam.injector.Provides;
-import org.pdfsam.module.Module;
+import org.pdfsam.module.Tool;
 import org.pdfsam.module.UsageService;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.DefaultPriorityDashboardItem;
-import org.pdfsam.test.DefaultPriorityTestModule;
+import org.pdfsam.test.DefaultPriorityTestTool;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.pdfsam.ui.dashboard.Dashboard;
@@ -64,8 +64,8 @@ public class ContentPaneTest {
         }
 
         @Provides
-        public Module module() {
-            return new DefaultPriorityTestModule();
+        public Tool module() {
+            return new DefaultPriorityTestTool();
         }
 
         @Provides

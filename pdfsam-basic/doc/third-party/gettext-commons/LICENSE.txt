@@ -135,7 +135,7 @@ included without limitation in the term "modification".)
 
   "Source code" for a work means the preferred form of the work for
 making modifications to it.  For a library, complete source code means
-all the source code for all modules it contains, plus any associated
+all the source code for all tools it contains, plus any associated
 interface definition files, plus the scripts used to control compilation
 and installation of the library.
 

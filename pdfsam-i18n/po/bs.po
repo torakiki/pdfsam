@@ -149,15 +149,15 @@ msgstr "Jezik:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Podesite svoj preferirani jezik (potreban je restart)"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr ""
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr ""
 
 msgid "Manually selected"
@@ -268,7 +268,7 @@ msgstr ""
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr ""
 
 msgid "Ask for a confirmation when clearing the selection table"
@@ -327,7 +327,7 @@ msgstr ""
 msgid "Do you confirm?"
 msgstr ""
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr ""
 
 msgid "Clear the selection table"
@@ -829,10 +829,10 @@ msgstr ""
 msgid "Unable to retrieve premium features description"
 msgstr ""
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr ""
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr ""
 
 msgid "Unable to retrieve latest news"
@@ -851,10 +851,10 @@ msgstr ""
 msgid "Workspace saved"
 msgstr ""
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr ""
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr ""
 
 #, java-format

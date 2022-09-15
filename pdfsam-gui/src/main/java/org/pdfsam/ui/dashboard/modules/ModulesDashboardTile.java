@@ -18,44 +18,42 @@
  */
 package org.pdfsam.ui.dashboard.modules;
 
-import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
+import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.TransferMode;
+import javafx.scene.layout.VBox;
+import org.pdfsam.module.Tool;
+import org.pdfsam.module.ToolInputOutputType;
+import org.pdfsam.pdf.BaseFilesDroppedEvent;
+import org.pdfsam.pdf.MultipleFilesDroppedEvent;
+import org.pdfsam.pdf.SingleFileDroppedEvent;
+import org.pdfsam.ui.commons.UrlButton;
 
 import java.io.File;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import org.pdfsam.module.Module;
-import org.pdfsam.module.ModuleInputOutputType;
-import org.pdfsam.pdf.BaseFilesDroppedEvent;
-import org.pdfsam.pdf.MultipleFilesDroppedEvent;
-import org.pdfsam.pdf.SingleFileDroppedEvent;
-import org.pdfsam.ui.commons.UrlButton;
-
-import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
-import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.TransferMode;
-import javafx.scene.layout.VBox;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
 
 /**
- * Tile for the dashboard modules pane. It displays details about the {@link Module} and by clicking it the module will be opened in the Workarea.
- * 
- * @author Andrea Vacondio
+ * Tile for the dashboard modules pane. It displays details about the {@link Tool} and by clicking it the module will be opened in the Workarea.
  *
+ * @author Andrea Vacondio
  */
 class ModulesDashboardTile extends DashboardTile {
 
     private VBox toolButtons = new VBox(5);
     private String id;
 
-    ModulesDashboardTile(Module module) {
-        super(module.descriptor().getName(), module.descriptor().getDescription(), module.graphic());
-        this.id = module.id();
+    ModulesDashboardTile(Tool tool) {
+        super(tool.descriptor().getName(), tool.descriptor().getDescription(), tool.graphic());
+        this.id = tool.id();
         setOnAction(e -> eventStudio().broadcast(activeteModule(id)));
 
-        module.descriptor().getSupportURL().ifPresent(url -> {
+        tool.descriptor().getSupportURL().ifPresent(url -> {
             UrlButton helpButton = UrlButton.urlButton(null, url, null, "pdfsam-toolbar-button");
             helpButton.setGraphic(MaterialDesignIconFactory.get().createIcon(MaterialDesignIcon.HELP_CIRCLE, "1.4em"));
             toolButtons.getChildren().add(helpButton);
@@ -63,10 +61,10 @@ class ModulesDashboardTile extends DashboardTile {
             addBottomPanel(toolButtons);
         });
         setOnDragOver(e -> dragConsume(e, this.onDragOverConsumer()));
-        if (module.descriptor().hasInputType(ModuleInputOutputType.MULTIPLE_PDF)) {
+        if (tool.descriptor().hasInputType(ToolInputOutputType.MULTIPLE_PDF)) {
             setOnDragDropped(
                     e -> dragConsume(e, this.onDragDropped((files -> new MultipleFilesDroppedEvent(id, files)))));
-        } else if (module.descriptor().hasInputType(ModuleInputOutputType.SINGLE_PDF)) {
+        } else if (tool.descriptor().hasInputType(ToolInputOutputType.SINGLE_PDF)) {
             setOnDragDropped(e -> dragConsume(e, this.onDragDropped((files -> new SingleFileDroppedEvent(id, files)))));
         }
 

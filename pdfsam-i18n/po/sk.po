@@ -149,15 +149,15 @@ msgstr "Jazyk:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Nastavte vami preferovaný jazyk (potrebný reštart)"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "Východzí modul"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr "Modul, ktorý sa zobrazí po spustení aplikácie. (potrebuje reštart)"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr ""
 "Štatistiky používania sa využívajú pre naplnenie panelu pre rýchly prístup "
 "(vľavo) k najčastešie používaným a novým modulom."
@@ -279,7 +279,7 @@ msgstr "Zobraziť prémiové funkcie"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr ""
 "Nastavte, či má aplikácia na paneli modulov načítať a zobraziť popis "
 "prémiových funkcií"
@@ -342,7 +342,7 @@ msgstr "Potvrďte vymazanie"
 msgid "Do you confirm?"
 msgstr "Potvrdzujete?"
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr "Vymazať nastavenia modulu"
 
 msgid "Clear the selection table"
@@ -860,10 +860,10 @@ msgstr "Dokumenty sú načítané"
 msgid "Unable to retrieve premium features description"
 msgstr "Nepodarilo sa získať popis prémiových funkcií."
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr "Načítavanie prémiových modulov"
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr "Prémiové moduly sa nepodarilo načítať"
 
 msgid "Unable to retrieve latest news"
@@ -882,10 +882,10 @@ msgstr "Ukladám dáta pracovného priestoru do {0}"
 msgid "Workspace saved"
 msgstr "Pracovný priestor bol uložený"
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr "Zisťovanie stavu modulov"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "Pracovný priestor modulov nebolo možné uložiť"
 
 #, java-format

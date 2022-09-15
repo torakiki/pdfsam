@@ -31,7 +31,7 @@ import javax.inject.Inject;
 
 import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.module.Module;
+import org.pdfsam.module.Tool;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.ui.InputPdfArgumentsLoadRequest;
@@ -62,16 +62,16 @@ public class OpenWithDialog extends Stage {
     private Label messageTitle = new Label();
     private HBox buttons = new HBox(5);
     private ListView<String> filesList = new ListView<>();
-    private List<Module> modules;
+    private List<Tool> tools;
 
     @Inject
-    public OpenWithDialog(StylesConfig styles, List<Module> modules) {
+    public OpenWithDialog(StylesConfig styles, List<Tool> tools) {
         initModality(Modality.WINDOW_MODAL);
         initStyle(StageStyle.UTILITY);
         setResizable(false);
         setTitle(I18nContext.getInstance().i18n("Open with"));
 
-        this.modules = modules.stream().sorted(comparing(m -> m.descriptor().getName())).collect(toList());
+        this.tools = tools.stream().sorted(comparing(m -> m.descriptor().getName())).collect(toList());
 
         messageTitle.getStyleClass().add("-pdfsam-open-with-dialog-title");
 
@@ -105,7 +105,7 @@ public class OpenWithDialog extends Stage {
                 .setText(I18nContext.getInstance().i18n("Select the task to perform on the following files"));
         filesList
                 .setItems(FXCollections.observableArrayList(event.pdfs.stream().map(Path::toString).collect(toList())));
-        modules.forEach(m -> {
+        tools.forEach(m -> {
             if (m.descriptor().hasInputType(event.requiredInputTyle())) {
                 Button current = new Button(m.descriptor().getName());
                 current.getStyleClass().addAll(Style.FOOTER_BUTTON.css());

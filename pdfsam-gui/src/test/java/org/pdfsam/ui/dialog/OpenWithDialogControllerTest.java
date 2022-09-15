@@ -30,10 +30,10 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import org.pdfsam.configuration.StylesConfig;
-import org.pdfsam.module.Module;
+import org.pdfsam.module.Tool;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.test.DefaultPriorityTestModule;
-import org.pdfsam.test.HighPriorityTestModule;
+import org.pdfsam.test.DefaultPriorityTestTool;
+import org.pdfsam.test.HighPriorityTestTool;
 import org.pdfsam.ui.InputPdfArgumentsLoadRequest;
 import org.testfx.framework.junit.ApplicationTest;
 
@@ -50,18 +50,18 @@ public class OpenWithDialogControllerTest extends ApplicationTest {
 
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
-    private Module module1 = new HighPriorityTestModule();
-    private Module module2 = new DefaultPriorityTestModule();
+    private Tool tool1 = new HighPriorityTestTool();
+    private Tool tool2 = new DefaultPriorityTestTool();
     @Rule
-    public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule(module1.id(), module2.id());
+    public ClearEventStudioRule clearEventStudio = new ClearEventStudioRule(tool1.id(), tool2.id());
     private Button button;
 
     @Override
     public void start(Stage stage) {
         StylesConfig styles = mock(StylesConfig.class);
-        List<Module> modulesMap = new ArrayList<>();
-        modulesMap.add(module1);
-        modulesMap.add(module2);
+        List<Tool> modulesMap = new ArrayList<>();
+        modulesMap.add(tool1);
+        modulesMap.add(tool2);
         new OpenWithDialogController(new OpenWithDialog(styles, modulesMap));
         button = new Button("show");
         Scene scene = new Scene(new VBox(button));
@@ -75,7 +75,7 @@ public class OpenWithDialogControllerTest extends ApplicationTest {
         event.pdfs.add(Paths.get(folder.newFile().getAbsolutePath()));
         button.setOnAction(a -> eventStudio().broadcast(event));
         clickOn("show");
-        clickOn(module2.descriptor().getName());
+        clickOn(tool2.descriptor().getName());
     }
 
     @Test
@@ -85,6 +85,6 @@ public class OpenWithDialogControllerTest extends ApplicationTest {
         event.pdfs.add(Paths.get(folder.newFile().getAbsolutePath()));
         button.setOnAction(a -> eventStudio().broadcast(event));
         clickOn("show");
-        clickOn(module1.descriptor().getName());
+        clickOn(tool1.descriptor().getName());
     }
 }

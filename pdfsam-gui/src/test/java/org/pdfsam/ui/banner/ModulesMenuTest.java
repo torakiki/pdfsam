@@ -30,7 +30,7 @@ import org.mockito.ArgumentCaptor;
 import org.pdfsam.NoHeadless;
 import org.pdfsam.injector.Injector;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.test.DefaultPriorityTestModule;
+import org.pdfsam.test.DefaultPriorityTestTool;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.pdfsam.eventstudio.Listener;
 import org.testfx.framework.junit.ApplicationTest;
@@ -59,7 +59,7 @@ public class ModulesMenuTest extends ApplicationTest {
     @Test
     @Category(NoHeadless.class)
     public void onSaveClick() {
-        DefaultPriorityTestModule module = injector.instance(DefaultPriorityTestModule.class);
+        DefaultPriorityTestTool module = injector.instance(DefaultPriorityTestTool.class);
         Listener<SetActiveModuleRequest> listener = mock(Listener.class);
         eventStudio().add(SetActiveModuleRequest.class, listener);
         ArgumentCaptor<SetActiveModuleRequest> argument = ArgumentCaptor.forClass(SetActiveModuleRequest.class);

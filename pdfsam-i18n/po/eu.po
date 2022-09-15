@@ -149,17 +149,17 @@ msgstr "Hizkuntza:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Ezarri zure gogoko hizkuntza (berrabiaraztea eskatzen du)"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "Abioko modulua:"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
 "Ezarri aplikazioa abiatzean ireki beharreko modulua (berrabiaraztea eskatzen "
 "du)"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr ""
 "Erabilera estatistikak ezkerreko moduluen laster-barran azkena erabilitako "
 "moduluak eta erabilienak bistaratzeko erabiltzen dira."
@@ -278,7 +278,7 @@ msgstr "Erakutsi premium eginbideak"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr ""
 "Ezarri aplikazioak funtzio bereziak jaso eta erakutsi beharko lituzkeen "
 "moduluen panelean"
@@ -342,7 +342,7 @@ msgstr "Baieztatu garbitzea"
 msgid "Do you confirm?"
 msgstr "Baieztatzen duzu?"
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr "Garbitu modulu-ezarpenak"
 
 msgid "Clear the selection table"
@@ -851,10 +851,10 @@ msgstr "Dokumentuak kargatuta"
 msgid "Unable to retrieve premium features description"
 msgstr "Ezin dira premium eginbideen deskribapenak eskuratu"
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr "Premium moduluak eskuratzen"
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr "Ezin dira premium moduluak eskuratu"
 
 msgid "Unable to retrieve latest news"
@@ -873,10 +873,10 @@ msgstr "Laneko arearen datuak {0}(e)n gordetzen"
 msgid "Workspace saved"
 msgstr "Laneko area gordeta"
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr "Moduluen egoera eskatzen"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "Ezin izan da moduluen laneko area gorde"
 
 #, java-format

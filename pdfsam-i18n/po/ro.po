@@ -149,20 +149,20 @@ msgstr "Limbă:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Configurați limba preferată (trebuie repornit)"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "Modul de pornire:"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
 "Configurează modulul să se deschidă la pornirea aplicației (trebuie repornit)"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr ""
 "Statisticile de utilizare sunt folosite pentru popularea barei de acces "
 "rapid cu butoane corespunzătoare celor mai recente și celor mai des "
-"utilizate module."
+"utilizate tool."
 
 msgid "Manually selected"
 msgstr "Selectate manual"
@@ -279,7 +279,7 @@ msgstr "Arată caracteristicile premium"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr ""
 
 msgid "Ask for a confirmation when clearing the selection table"
@@ -340,7 +340,7 @@ msgstr "Confirmă curățarea"
 msgid "Do you confirm?"
 msgstr "Confirmi?"
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr ""
 
 msgid "Clear the selection table"
@@ -847,10 +847,10 @@ msgstr "Documentele s-au încărcat"
 msgid "Unable to retrieve premium features description"
 msgstr ""
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr ""
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr ""
 
 msgid "Unable to retrieve latest news"
@@ -869,10 +869,10 @@ msgstr "Se salvează datele spațiului de lucru la {0}"
 msgid "Workspace saved"
 msgstr "Spațiul de lucru s-a salvat"
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr "Se solicită starea modulelor"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "Nu se pot salva modulele spațiului de lucru"
 
 #, java-format

@@ -149,17 +149,17 @@ msgstr "Мова:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Встановити основною мовою (необхідно перезапуск програми)"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "Модулі при запуску:"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
 "Встановіть модуль, який буде відкрито при запуску програми (потрібен "
 "перезапуск)"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr ""
 "Статистика роботи з програмою використовуються для заповнення панелі модулів "
 "(розташована зліва) з найбільш часто використовуваних  та нещодавно "
@@ -282,7 +282,7 @@ msgstr "Показувати платні функції"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr ""
 
 msgid "Ask for a confirmation when clearing the selection table"
@@ -345,7 +345,7 @@ msgstr ""
 msgid "Do you confirm?"
 msgstr ""
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr ""
 
 msgid "Clear the selection table"
@@ -859,10 +859,10 @@ msgstr "Документи завантажені"
 msgid "Unable to retrieve premium features description"
 msgstr "Не вдалося завантажити опис платних функцій"
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr "Завантажую платні модулі"
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr "Не вдалося завантажити платні модулі"
 
 msgid "Unable to retrieve latest news"
@@ -881,10 +881,10 @@ msgstr "Збереження даних робочого простору в {0}
 msgid "Workspace saved"
 msgstr "Робочій простір збережено"
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr "Запит стану модулів"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "Неможливо зберегти модулі робочого простору"
 
 #, java-format

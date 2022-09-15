@@ -36,7 +36,7 @@ import org.pdfsam.context.UserContext;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.eventstudio.annotation.EventStation;
 import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.module.ModuleOwned;
+import org.pdfsam.module.ToolBound;
 import org.pdfsam.support.params.AbstractPdfOutputParametersBuilder;
 import org.pdfsam.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.ResettableView;
@@ -57,11 +57,10 @@ import javafx.scene.layout.VBox;
 
 /**
  * Panel letting the user select an output destination for generated Pdf document/s.
- * 
+ *
  * @author Andrea Vacondio
- * 
  */
-public class PdfDestinationPane extends DestinationPane implements ModuleOwned, RestorableView, ResettableView,
+public class PdfDestinationPane extends DestinationPane implements ToolBound, RestorableView, ResettableView,
         TaskParametersBuildStep<AbstractPdfOutputParametersBuilder<? extends AbstractPdfOutputParameters>> {
 
     private PdfVersionCombo version;
@@ -128,7 +127,7 @@ public class PdfDestinationPane extends DestinationPane implements ModuleOwned, 
 
     @Override
     @EventStation
-    public String getOwnerModule() {
+    public String toolBinding() {
         return ownerModule;
     }
 

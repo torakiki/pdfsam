@@ -36,10 +36,10 @@ import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.injector.Injector;
 import org.pdfsam.injector.Provides;
-import org.pdfsam.module.Module;
+import org.pdfsam.module.Tool;
 import org.pdfsam.support.KeyStringValueItem;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.test.HighPriorityTestModule;
+import org.pdfsam.test.HighPriorityTestTool;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 
 /**
@@ -81,8 +81,8 @@ public class PreferencePaneTest {
         }
 
         @Provides
-        public Module aModule() {
-            return new HighPriorityTestModule();
+        public Tool aModule() {
+            return new HighPriorityTestTool();
         }
     }
 

@@ -149,17 +149,17 @@ msgstr "Језик:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Подесите жељени језик (потребно је поновно покретање)"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "Почетни модул:"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
 "Поставите модул који ће се отворити приликом покретања програма (потребно је "
 "поновно покретање)"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr ""
 "Статистика коришћења се користи за попуњавање брзе траке модула на левој "
 "страни најкоришћенијим и недавно коришћеним модулима."
@@ -287,7 +287,7 @@ msgstr "Прикажи премијум функције"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr ""
 "Изаберите да ли програм треба да довуче и прикаже опис премијум функција у "
 "полазној табли модула"
@@ -353,7 +353,7 @@ msgstr "Потврдите чишћење"
 msgid "Do you confirm?"
 msgstr "Да ли потврђујете?"
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr "Очисти поставке модула"
 
 msgid "Clear the selection table"
@@ -871,10 +871,10 @@ msgstr "Документа су учитана"
 msgid "Unable to retrieve premium features description"
 msgstr "Не могу да довучем опис премијум функција"
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr "Довлачим премијум модуле"
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr "Не могу да довучем премијум модуле"
 
 msgid "Unable to retrieve latest news"
@@ -893,10 +893,10 @@ msgstr "Чувам податке радног простора у „{0}“"
 msgid "Workspace saved"
 msgstr "Радни простор је сачуван"
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr "Захтевам стња модула"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "Не могу да сачувам радни простор модула"
 
 #, java-format

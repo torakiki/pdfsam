@@ -18,27 +18,13 @@
  */
 package org.pdfsam.ui.selection.multiple;
 
-import static org.apache.commons.lang3.StringUtils.isBlank;
-import static org.hamcrest.Matchers.not;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.timeout;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
-import static org.testfx.api.FxAssert.verifyThat;
-import static org.testfx.matcher.control.TableViewMatchers.hasTableCell;
-
-import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-
+import javafx.collections.FXCollections;
+import javafx.scene.Scene;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.DataFormat;
+import javafx.scene.input.KeyCode;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import org.apache.commons.lang3.StringUtils;
 import org.hamcrest.Matchers;
 import org.junit.After;
@@ -61,7 +47,7 @@ import org.pdfsam.support.EncryptionUtils;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.HitTestListener;
 import org.pdfsam.ui.commons.ClearModuleEvent;
-import org.pdfsam.ui.commons.OpenFileRequest;
+import org.pdfsam.ui.commons.NativeOpenFileRequest;
 import org.pdfsam.ui.commons.RemoveSelectedEvent;
 import org.pdfsam.ui.commons.SetDestinationRequest;
 import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
@@ -71,13 +57,26 @@ import org.pdfsam.ui.selection.multiple.move.MoveType;
 import org.testfx.framework.junit.ApplicationTest;
 import org.testfx.util.WaitForAsyncUtils;
 
-import javafx.collections.FXCollections;
-import javafx.scene.Scene;
-import javafx.scene.input.Clipboard;
-import javafx.scene.input.DataFormat;
-import javafx.scene.input.KeyCode;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+
+import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.hamcrest.Matchers.not;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.timeout;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
+import static org.testfx.api.FxAssert.verifyThat;
+import static org.testfx.matcher.control.TableViewMatchers.hasTableCell;
 
 /**
  * @author Andrea Vacondio
@@ -467,8 +466,8 @@ public class SelectionTableTest extends ApplicationTest {
     @Test
     @Category(NoHeadless.class)
     public void openByContextMenu() {
-        HitTestListener<OpenFileRequest> listener = new HitTestListener<>();
-        eventStudio().add(OpenFileRequest.class, listener);
+        HitTestListener<NativeOpenFileRequest> listener = new HitTestListener<>();
+        eventStudio().add(NativeOpenFileRequest.class, listener);
         rightClickOn("temp3.pdf");
         clickOn(I18nContext.getInstance().i18n("Open"));
         assertTrue(listener.isHit());
@@ -477,8 +476,8 @@ public class SelectionTableTest extends ApplicationTest {
     @Test
     @Category(NoHeadless.class)
     public void openFolderByContextMenu() {
-        HitTestListener<OpenFileRequest> listener = new HitTestListener<>();
-        eventStudio().add(OpenFileRequest.class, listener);
+        HitTestListener<NativeOpenFileRequest> listener = new HitTestListener<>();
+        eventStudio().add(NativeOpenFileRequest.class, listener);
         rightClickOn("temp3.pdf");
         clickOn(I18nContext.getInstance().i18n("Open Folder"));
         assertTrue(listener.isHit());

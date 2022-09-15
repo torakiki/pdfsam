@@ -18,51 +18,6 @@
  */
 package org.pdfsam.ui.selection.single;
 
-import static java.util.Objects.nonNull;
-import static java.util.Optional.ofNullable;
-import static org.apache.commons.lang3.StringUtils.EMPTY;
-import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.apache.commons.lang3.StringUtils.isEmpty;
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
-import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.ENCRYPTED;
-import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.WITH_ERRORS;
-import static org.pdfsam.pdf.PdfDocumentDescriptor.newDescriptor;
-import static org.pdfsam.pdf.PdfDocumentDescriptor.newDescriptorNoPassword;
-import static org.pdfsam.support.EncryptionUtils.encrypt;
-import static org.pdfsam.ui.commons.SetDestinationRequest.requestDestination;
-import static org.pdfsam.ui.commons.SetDestinationRequest.requestFallbackDestination;
-
-import java.io.File;
-import java.util.Map;
-import java.util.Optional;
-import java.util.function.Consumer;
-
-import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.context.DefaultUserContext;
-import org.pdfsam.eventstudio.annotation.EventListener;
-import org.pdfsam.eventstudio.annotation.EventStation;
-import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.module.ModuleOwned;
-import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
-import org.pdfsam.pdf.PdfDocumentDescriptor;
-import org.pdfsam.pdf.PdfDocumentDescriptorProvider;
-import org.pdfsam.pdf.PdfLoadRequestEvent;
-import org.pdfsam.support.EncryptionUtils;
-import org.pdfsam.support.io.FileType;
-import org.pdfsam.ui.commons.ClearModuleEvent;
-import org.pdfsam.ui.commons.OpenFileRequest;
-import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
-import org.pdfsam.ui.commons.ShowStageRequest;
-import org.pdfsam.ui.commons.ToggleChangeListener;
-import org.pdfsam.ui.io.BrowsableFileField;
-import org.pdfsam.ui.io.ChangedSelectedPdfVersionEvent;
-import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
-import org.pdfsam.ui.selection.LoadingStatusIndicatorUpdater;
-import org.pdfsam.ui.selection.PasswordFieldPopup;
-import org.pdfsam.ui.selection.single.SingleSelectionPaneToolbar.SelectButton;
-import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
-import org.pdfsam.ui.workspace.RestorableView;
-
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
 import javafx.application.Platform;
@@ -84,14 +39,57 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Window;
+import org.apache.commons.lang3.StringUtils;
+import org.pdfsam.context.DefaultUserContext;
+import org.pdfsam.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventStation;
+import org.pdfsam.i18n.I18nContext;
+import org.pdfsam.module.ToolBound;
+import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
+import org.pdfsam.pdf.PdfDocumentDescriptor;
+import org.pdfsam.pdf.PdfDocumentDescriptorProvider;
+import org.pdfsam.pdf.PdfLoadRequestEvent;
+import org.pdfsam.support.EncryptionUtils;
+import org.pdfsam.support.io.FileType;
+import org.pdfsam.ui.commons.ClearModuleEvent;
+import org.pdfsam.ui.commons.NativeOpenFileRequest;
+import org.pdfsam.ui.commons.ShowPdfDescriptorRequest;
+import org.pdfsam.ui.commons.ShowStageRequest;
+import org.pdfsam.ui.commons.ToggleChangeListener;
+import org.pdfsam.ui.io.BrowsableFileField;
+import org.pdfsam.ui.io.ChangedSelectedPdfVersionEvent;
+import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
+import org.pdfsam.ui.selection.LoadingStatusIndicatorUpdater;
+import org.pdfsam.ui.selection.PasswordFieldPopup;
+import org.pdfsam.ui.selection.single.SingleSelectionPaneToolbar.SelectButton;
+import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
+import org.pdfsam.ui.workspace.RestorableView;
+
+import java.io.File;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Consumer;
+
+import static java.util.Objects.nonNull;
+import static java.util.Optional.ofNullable;
+import static org.apache.commons.lang3.StringUtils.EMPTY;
+import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.apache.commons.lang3.StringUtils.isEmpty;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.ENCRYPTED;
+import static org.pdfsam.pdf.PdfDescriptorLoadingStatus.WITH_ERRORS;
+import static org.pdfsam.pdf.PdfDocumentDescriptor.newDescriptor;
+import static org.pdfsam.pdf.PdfDocumentDescriptor.newDescriptorNoPassword;
+import static org.pdfsam.support.EncryptionUtils.encrypt;
+import static org.pdfsam.ui.commons.SetDestinationRequest.requestDestination;
+import static org.pdfsam.ui.commons.SetDestinationRequest.requestFallbackDestination;
 
 /**
  * Panel letting the user select a single input PDF document
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
-public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumentDescriptorProvider, RestorableView {
+public class SingleSelectionPane extends VBox implements ToolBound, PdfDocumentDescriptorProvider, RestorableView {
 
     private String ownerModule = StringUtils.EMPTY;
     private BrowsableFileField field;
@@ -102,8 +100,8 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
     private MenuItem removeSelected;
 
     private Consumer<PdfDocumentDescriptor> onLoaded = d -> {
-        eventStudio().broadcast(requestFallbackDestination(d.getFile(), getOwnerModule()), getOwnerModule());
-        eventStudio().broadcast(new ChangedSelectedPdfVersionEvent(d.getVersion()), getOwnerModule());
+        eventStudio().broadcast(requestFallbackDestination(d.getFile(), toolBinding()), toolBinding());
+        eventStudio().broadcast(new ChangedSelectedPdfVersionEvent(d.getVersion()), toolBinding());
     };
 
     private Consumer<PdfDocumentDescriptor> detailsUpdate = d -> {
@@ -157,7 +155,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
         this.getStyleClass().add("single-selection-pane");
         this.ownerModule = defaultString(ownerModule);
         this.details.getStyleClass().add("-pdfsam-selection-details");
-        SelectButton selectButton = new SelectButton(getOwnerModule());
+        SelectButton selectButton = new SelectButton(toolBinding());
         field = new BrowsableFileField(FileType.PDF, OpenType.OPEN, selectButton);
         field.enforceValidation(true, false);
         passwordPopup = new PasswordFieldPopup(this.ownerModule);
@@ -173,7 +171,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
         field.setGraphic(encryptionIndicator);
         field.getStyleClass().add("single-selection-top");
         HBox.setHgrow(field, Priority.ALWAYS);
-        getChildren().addAll(new SingleSelectionPaneToolbar(selectButton, getOwnerModule()), field, details);
+        getChildren().addAll(new SingleSelectionPaneToolbar(selectButton, toolBinding()), field, details);
         field.getTextField().validProperty().addListener(onValidState);
         initContextMenu();
         eventStudio().addAnnotatedListeners(this);
@@ -181,7 +179,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
 
     private void initializeFor(PdfDocumentDescriptor docDescriptor) {
         invalidateDescriptor();
-        PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
+        PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(toolBinding());
         descriptor = docDescriptor;
         descriptor.loadingStatus().addListener(new WeakChangeListener<>(onLoadingStatusChange));
         setContextMenuDisable(false);
@@ -274,26 +272,25 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
                 e -> Platform.runLater(() -> eventStudio().broadcast(new ShowPdfDescriptorRequest(descriptor))));
 
         removeSelected = createMenuItem(I18nContext.getInstance().i18n("Remove"), MaterialDesignIcon.MINUS);
-        removeSelected.setOnAction(
-                e -> eventStudio().broadcast(new ClearModuleEvent(getOwnerModule()), getOwnerModule()));
+        removeSelected.setOnAction(e -> eventStudio().broadcast(new ClearModuleEvent(toolBinding()), toolBinding()));
 
         MenuItem setDestinationItem = createMenuItem(I18nContext.getInstance().i18n("Set destination"),
                 MaterialDesignIcon.AIRPLANE_LANDING);
         setDestinationItem.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.ALT_DOWN));
-        setDestinationItem.setOnAction(e -> eventStudio()
-                .broadcast(requestDestination(descriptor.getFile(), getOwnerModule()), getOwnerModule()));
+        setDestinationItem.setOnAction(
+                e -> eventStudio().broadcast(requestDestination(descriptor.getFile(), toolBinding()), toolBinding()));
 
-        MenuItem openFileItem = createMenuItem(I18nContext.getInstance().i18n("Open"),
-                MaterialDesignIcon.FILE_PDF_BOX);
-        openFileItem.setOnAction(e -> eventStudio().broadcast(new OpenFileRequest(descriptor.getFile())));
+        MenuItem openFileItem = createMenuItem(I18nContext.getInstance().i18n("Open"), MaterialDesignIcon.FILE_PDF_BOX);
+        openFileItem.setOnAction(e -> eventStudio().broadcast(new NativeOpenFileRequest(descriptor.getFile())));
 
         MenuItem openFolderItem = createMenuItem(I18nContext.getInstance().i18n("Open Folder"),
                 MaterialDesignIcon.FOLDER_OUTLINE);
-        openFolderItem
-                .setOnAction(e -> eventStudio().broadcast(new OpenFileRequest(descriptor.getFile().getParentFile())));
+        openFolderItem.setOnAction(
+                e -> eventStudio().broadcast(new NativeOpenFileRequest(descriptor.getFile().getParentFile())));
 
-        field.getTextField().setContextMenu(new ContextMenu(setDestinationItem, new SeparatorMenuItem(), removeSelected,
-                new SeparatorMenuItem(), infoItem, openFileItem, openFolderItem));
+        field.getTextField().setContextMenu(
+                new ContextMenu(setDestinationItem, new SeparatorMenuItem(), removeSelected, new SeparatorMenuItem(),
+                        infoItem, openFileItem, openFolderItem));
     }
 
     @EventListener
@@ -317,7 +314,7 @@ public class SingleSelectionPane extends VBox implements ModuleOwned, PdfDocumen
 
     @Override
     @EventStation
-    public String getOwnerModule() {
+    public String toolBinding() {
         return ownerModule;
     }
 

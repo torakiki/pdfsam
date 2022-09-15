@@ -23,7 +23,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.module.ModuleOwned;
+import org.pdfsam.module.ToolBound;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.ui.support.Style;
@@ -39,11 +39,10 @@ import javafx.scene.layout.HBox;
 
 /**
  * A popup displaying a password field to let the user input a document password
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
-public class PasswordFieldPopup extends PopupControl implements ModuleOwned {
+public class PasswordFieldPopup extends PopupControl implements ToolBound {
     private String ownerModule = StringUtils.EMPTY;
     private PasswordFieldPopupContent content = new PasswordFieldPopupContent();
     private PdfDocumentDescriptor pdfDescriptor;
@@ -58,7 +57,7 @@ public class PasswordFieldPopup extends PopupControl implements ModuleOwned {
     }
 
     @Override
-    public String getOwnerModule() {
+    public String toolBinding() {
         return ownerModule;
     }
 
@@ -102,7 +101,7 @@ public class PasswordFieldPopup extends PopupControl implements ModuleOwned {
         public void requestLoad() {
             if (pdfDescriptor != null) {
                 pdfDescriptor.setPassword(passwordField.getText());
-                PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(getOwnerModule());
+                PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(toolBinding());
                 loadEvent.add(pdfDescriptor);
                 eventStudio().broadcast(loadEvent);
             }

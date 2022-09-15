@@ -149,15 +149,15 @@ msgstr "Nyelv:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Válassza ki a kívánt nyelvet (újraindítás szükséges)"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "Induló modul:"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr "A modul indulása az alkalmazással együtt (újraindítás szükséges)"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr ""
 "A használati statisztikák alapján kerülnek a baloldali gyorsindítóra a "
 "leggyakrabban, illetve a legutóbb használt modulok."
@@ -280,7 +280,7 @@ msgstr "Mutasd a prémium funkciókat"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr ""
 "Beállítja, hogy a prémium funkciók leírása megjelenjen-e a modulok "
 "vezérlőpultján"
@@ -345,7 +345,7 @@ msgstr "Erősítse meg a törlést"
 msgid "Do you confirm?"
 msgstr "Megerősíti?"
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr "Törölje a modul beállításait"
 
 msgid "Clear the selection table"
@@ -865,10 +865,10 @@ msgstr "Dokumentumok betöltve"
 msgid "Unable to retrieve premium features description"
 msgstr "Prémium funkciók leírásának lekérése sikertelen"
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr "Prémium modulok lekérése"
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr "Prémium modulok lekérése sikertelen"
 
 msgid "Unable to retrieve latest news"
@@ -887,10 +887,10 @@ msgstr "Munkaterület adatainak mentése ide: {0}"
 msgid "Workspace saved"
 msgstr "Munkaterület elmentve"
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr "Modul állapotának lekérése"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "Nem sikerült a modulok munkaterületének mentése"
 
 #, java-format

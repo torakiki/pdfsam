@@ -18,21 +18,21 @@
  */
 package org.pdfsam;
 
-import static java.util.Objects.nonNull;
-import static java.util.Optional.ofNullable;
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
-import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
-
-import java.awt.SplashScreen;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.InvalidPathException;
-import java.nio.file.Paths;
-import java.util.List;
-import java.util.Optional;
-
+import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
+import javafx.application.Application;
+import javafx.application.HostServices;
+import javafx.application.Platform;
+import javafx.event.Event;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.apache.commons.lang3.time.StopWatch;
@@ -43,7 +43,7 @@ import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.injector.Injector;
-import org.pdfsam.module.Module;
+import org.pdfsam.module.Tool;
 import org.pdfsam.news.FetchLatestNewsRequest;
 import org.pdfsam.news.NewsService;
 import org.pdfsam.premium.FetchPremiumModulesRequest;
@@ -53,7 +53,7 @@ import org.pdfsam.ui.SetLatestStageStatusRequest;
 import org.pdfsam.ui.StageMode;
 import org.pdfsam.ui.StageService;
 import org.pdfsam.ui.StageStatus;
-import org.pdfsam.ui.commons.OpenUrlRequest;
+import org.pdfsam.ui.commons.NativeOpenUrlRequest;
 import org.pdfsam.ui.commons.ShowStageRequest;
 import org.pdfsam.ui.dashboard.DashboardConfig;
 import org.pdfsam.ui.dashboard.preference.PreferenceConfig;
@@ -75,21 +75,20 @@ import org.sejda.impl.sambox.component.PDDocumentHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ch.qos.logback.classic.Level;
-import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
-import javafx.application.Application;
-import javafx.application.HostServices;
-import javafx.application.Platform;
-import javafx.event.Event;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCodeCombination;
-import javafx.scene.input.KeyCombination;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
+import java.awt.SplashScreen;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Optional;
+
+import static java.util.Objects.nonNull;
+import static java.util.Optional.ofNullable;
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
 
 /**
  * PDFsam application
@@ -178,8 +177,9 @@ public class PdfsamApp extends Application {
         eventStudio().addAnnotatedListeners(this);
         closeSplash();
         STOPWATCH.stop();
-        LOG.info(I18nContext.getInstance().i18n("Started in {0}",
-                DurationFormatUtils.formatDurationWords(STOPWATCH.getTime(), true, true)));
+        eventStudio().broadcast(new StartupEvent());
+        LOG.info(I18nContext.getInstance()
+                .i18n("Started in {0}", DurationFormatUtils.formatDurationWords(STOPWATCH.getTime(), true, true)));
         new InputPdfArgumentsController().accept(rawParameters);
     }
 
@@ -279,7 +279,7 @@ public class PdfsamApp extends Application {
     }
 
     @EventListener
-    public void openUrl(OpenUrlRequest event) {
+    public void openUrl(NativeOpenUrlRequest event) {
         HostServices services = getHostServices();
         if (nonNull(services)) {
             try {
@@ -317,10 +317,10 @@ public class PdfsamApp extends Application {
     }
 
     private void initOpenButtons() {
-        List<Module> modules = injector.instancesOfType(Module.class);
+        List<Tool> tools = injector.instancesOfType(Tool.class);
         List<OpenButton> openButtons = injector.instancesOfType(OpenButton.class);
         for (OpenButton button : openButtons) {
-            button.initModules(modules);
+            button.initModules(tools);
         }
     }
 

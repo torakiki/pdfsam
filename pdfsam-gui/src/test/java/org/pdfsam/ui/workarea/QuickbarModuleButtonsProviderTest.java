@@ -27,12 +27,12 @@ import java.util.stream.Collectors;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.pdfsam.module.Module;
-import org.pdfsam.test.AdditionalDefaultPriorityTestModule;
-import org.pdfsam.test.DefaultPriorityTestModule;
-import org.pdfsam.test.HighPriorityTestModule;
+import org.pdfsam.module.Tool;
+import org.pdfsam.test.AdditionalDefaultPriorityTestTool;
+import org.pdfsam.test.DefaultPriorityTestTool;
+import org.pdfsam.test.HighPriorityTestTool;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
-import org.pdfsam.test.LowPriorityTestModule;
+import org.pdfsam.test.LowPriorityTestTool;
 
 /**
  * @author Andrea Vacondio
@@ -41,16 +41,16 @@ public class QuickbarModuleButtonsProviderTest {
     @Rule
     public InitializeAndApplyJavaFxThreadRule javaFxThread = new InitializeAndApplyJavaFxThreadRule();
 
-    private LowPriorityTestModule lowPrio = new LowPriorityTestModule();
-    private DefaultPriorityTestModule defaultPrio = new DefaultPriorityTestModule();
-    private AdditionalDefaultPriorityTestModule additionalDefaultPrio = new AdditionalDefaultPriorityTestModule();
-    private HighPriorityTestModule highPrio = new HighPriorityTestModule();
-    private List<Module> modules = Arrays.asList(defaultPrio, highPrio, lowPrio, additionalDefaultPrio);
+    private LowPriorityTestTool lowPrio = new LowPriorityTestTool();
+    private DefaultPriorityTestTool defaultPrio = new DefaultPriorityTestTool();
+    private AdditionalDefaultPriorityTestTool additionalDefaultPrio = new AdditionalDefaultPriorityTestTool();
+    private HighPriorityTestTool highPrio = new HighPriorityTestTool();
+    private List<Tool> tools = Arrays.asList(defaultPrio, highPrio, lowPrio, additionalDefaultPrio);
     private QuickbarModuleButtonsProvider victim;
 
     @Before
     public void setUp() {
-        victim = new QuickbarModuleButtonsProvider(modules);
+        victim = new QuickbarModuleButtonsProvider(tools);
     }
 
     @Test

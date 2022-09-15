@@ -18,6 +18,22 @@
  */
 package org.pdfsam.ui.dashboard.about;
 
+import javafx.scene.Scene;
+import javafx.scene.input.Clipboard;
+import javafx.stage.Stage;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+import org.mockito.ArgumentCaptor;
+import org.pdfsam.ConfigurableProperty;
+import org.pdfsam.Pdfsam;
+import org.pdfsam.eventstudio.Listener;
+import org.pdfsam.i18n.I18nContext;
+import org.pdfsam.test.ClearEventStudioRule;
+import org.pdfsam.ui.commons.NativeOpenUrlRequest;
+import org.testfx.framework.junit.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
+
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -27,39 +43,21 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.mockito.ArgumentCaptor;
-import org.pdfsam.ConfigurableProperty;
-import org.pdfsam.Pdfsam;
-import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.ui.commons.OpenUrlRequest;
-import org.pdfsam.eventstudio.Listener;
-import org.testfx.framework.junit.ApplicationTest;
-import org.testfx.util.WaitForAsyncUtils;
-
-import javafx.scene.Scene;
-import javafx.scene.input.Clipboard;
-import javafx.stage.Stage;
-
 /**
  * @author Andrea Vacondio
- *
  */
 public class AboutDashboardPaneTest extends ApplicationTest {
 
     @Rule
     public ClearEventStudioRule cleanStudio = new ClearEventStudioRule();
-    private Listener<OpenUrlRequest> listener;
-    private ArgumentCaptor<OpenUrlRequest> captor;
+    private Listener<NativeOpenUrlRequest> listener;
+    private ArgumentCaptor<NativeOpenUrlRequest> captor;
 
     @Before
     public void setUp() {
         listener = mock(Listener.class);
-        eventStudio().add(OpenUrlRequest.class, listener);
-        captor = ArgumentCaptor.forClass(OpenUrlRequest.class);
+        eventStudio().add(NativeOpenUrlRequest.class, listener);
+        captor = ArgumentCaptor.forClass(NativeOpenUrlRequest.class);
     }
 
     @Override

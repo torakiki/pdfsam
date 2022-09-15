@@ -41,9 +41,9 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.pdfsam.eventstudio.Listener;
-import org.pdfsam.module.Module;
+import org.pdfsam.module.Tool;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.test.DefaultPriorityTestModule;
+import org.pdfsam.test.DefaultPriorityTestTool;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.pdfsam.ui.workspace.WorkspaceLoadedEvent;
@@ -65,17 +65,17 @@ public class WorkspaceControllerTest {
     @Before
     public void setUp() {
         file = mock(File.class);
-        List<Module> modules = new ArrayList<>();
-        modules.add(new DefaultPriorityTestModule());
+        List<Tool> tools = new ArrayList<>();
+        tools.add(new DefaultPriorityTestTool());
         service = mock(WorkspaceService.class);
         recentWorkspaces = mock(RecentWorkspacesService.class);
-        victim = new WorkspaceController(modules, service, recentWorkspaces);
+        victim = new WorkspaceController(tools, service, recentWorkspaces);
     }
 
     @Test
     public void saveWorkspace() {
         Listener<SaveWorkspaceEvent> listener = mock(Listener.class);
-        eventStudio().add(SaveWorkspaceEvent.class, listener, DefaultPriorityTestModule.ID);
+        eventStudio().add(SaveWorkspaceEvent.class, listener, DefaultPriorityTestTool.ID);
         victim.saveWorkspace(new SaveWorkspaceEvent(file, true));
         verify(listener).onEvent(any());
         verify(service).saveWorkspace(anyMap(), eq(file));
@@ -84,7 +84,7 @@ public class WorkspaceControllerTest {
     @Test
     public void saveWorkspaceWithException() {
         Listener<SaveWorkspaceEvent> listener = mock(Listener.class);
-        eventStudio().add(SaveWorkspaceEvent.class, listener, DefaultPriorityTestModule.ID);
+        eventStudio().add(SaveWorkspaceEvent.class, listener, DefaultPriorityTestTool.ID);
         SaveWorkspaceEvent event = new SaveWorkspaceEvent(file, true);
         doThrow(new RuntimeException("mock")).when(listener).onEvent(event);
         victim.saveWorkspace(event);
@@ -93,7 +93,7 @@ public class WorkspaceControllerTest {
     @Test
     public void loadEmptyWorkspace() throws InterruptedException, ExecutionException {
         Listener<LoadWorkspaceEvent> listener = mock(Listener.class);
-        eventStudio().add(LoadWorkspaceEvent.class, listener, DefaultPriorityTestModule.ID);
+        eventStudio().add(LoadWorkspaceEvent.class, listener, DefaultPriorityTestTool.ID);
         when(service.loadWorkspace(any())).thenReturn(Collections.emptyMap());
         CompletableFuture<Void> future = victim.loadWorspace(new LoadWorkspaceEvent(file));
         future.get();
@@ -103,7 +103,7 @@ public class WorkspaceControllerTest {
     @Test(expected = ExecutionException.class)
     public void loadWorkspaceWithException() throws InterruptedException, ExecutionException {
         Listener<LoadWorkspaceEvent> listener = mock(Listener.class);
-        eventStudio().add(LoadWorkspaceEvent.class, listener, DefaultPriorityTestModule.ID);
+        eventStudio().add(LoadWorkspaceEvent.class, listener, DefaultPriorityTestTool.ID);
         when(service.loadWorkspace(eq(file))).thenThrow(new RuntimeException("mock"));
         CompletableFuture<Void> future = victim.loadWorspace(new LoadWorkspaceEvent(file));
         future.get();
@@ -112,7 +112,7 @@ public class WorkspaceControllerTest {
     @Test
     public void loadWorkspace() throws InterruptedException, ExecutionException {
         Listener<LoadWorkspaceEvent> listener = mock(Listener.class);
-        eventStudio().add(LoadWorkspaceEvent.class, listener, DefaultPriorityTestModule.ID);
+        eventStudio().add(LoadWorkspaceEvent.class, listener, DefaultPriorityTestTool.ID);
         Listener<WorkspaceLoadedEvent> loadedListener = mock(Listener.class);
         eventStudio().add(WorkspaceLoadedEvent.class, loadedListener);
         Map<String, Map<String, String>> data = new HashMap<>();

@@ -149,17 +149,17 @@ msgstr "Bahasa:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Tetapkan bahasa pilihan anda (mula semula diperlukan)"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "Modul permulaan"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
 "Tetapkan modul untuk dibuka ketika permulaan aplikasi (mula semula "
 "diperlukan)"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr ""
 "Statistik penggunaan digunakan untuk mengisi palang pantas modul di sebelah "
 "kiri dengan modul-modul paling banyak dan terkini digunakan."
@@ -287,7 +287,7 @@ msgstr "Tunjuk ciri-ciri premium"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr ""
 "Tetapkan sama ada aplikasi patut tunjuk keterangan ciri-ciri premium dalam "
 "papan pemuk modul"
@@ -352,7 +352,7 @@ msgstr "Sahkan pengosongan"
 msgid "Do you confirm?"
 msgstr "Anda pasti?"
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr "Kosongkan tetapan modul"
 
 msgid "Clear the selection table"
@@ -869,10 +869,10 @@ msgstr "Dokumen dimuatkan"
 msgid "Unable to retrieve premium features description"
 msgstr "Tidak memperoleh keterangan ciri-ciri premium"
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr "Mendapatkan modul-modul premium"
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr "Tidak boleh mendapatkan modul-modul premium"
 
 msgid "Unable to retrieve latest news"
@@ -891,10 +891,10 @@ msgstr "Menyimpan data ruang kerja ke {0}"
 msgid "Workspace saved"
 msgstr "Ruang kerj disimpan"
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr "Meminta keadaan modul-modul"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "Tidak boleh menyimpan ruang kerja modul"
 
 #, java-format

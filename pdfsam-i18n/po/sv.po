@@ -155,15 +155,15 @@ msgstr "Språk:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Välj språk du föredrar (omstart krävs)"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "Startmodul:"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr "Välj modul att öppna vid applikationsstart (omstart krävs)"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr ""
 "Användarstatistik används för att fylla modulernas snabbstartrad till "
 "vänster med de vanligast och senast använda modulerna"
@@ -282,7 +282,7 @@ msgstr "Visa premiumfunktioner"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr ""
 "Ställ in om applikationen ska hämta och visa premiumfunktioners beskrivning "
 "i modulernas instrumentpanel"
@@ -343,7 +343,7 @@ msgstr ""
 msgid "Do you confirm?"
 msgstr ""
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr ""
 
 msgid "Clear the selection table"
@@ -899,10 +899,10 @@ msgstr "Dokument laddade"
 msgid "Unable to retrieve premium features description"
 msgstr "Kunde inte hämta beskrivningar för premiumfunktioner"
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr "Hämtar premiummoduler"
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr "Kunde inte hämta premiummoduler"
 
 msgid "Unable to retrieve latest news"
@@ -921,10 +921,10 @@ msgstr "Sparar arbetsytedata till {0}"
 msgid "Workspace saved"
 msgstr "Arbetsyta sparad"
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr "Begär modulers tillstånd"
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr "Kunde inte spara modulers arbetsyta"
 
 #, java-format

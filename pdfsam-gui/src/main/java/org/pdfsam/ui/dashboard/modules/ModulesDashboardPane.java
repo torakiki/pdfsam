@@ -26,7 +26,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.module.Module;
+import org.pdfsam.module.Tool;
 import org.pdfsam.premium.PremiumModule;
 import org.pdfsam.premium.PremiumModulesEvent;
 import org.pdfsam.eventstudio.annotation.EventListener;
@@ -45,12 +45,12 @@ import javafx.scene.layout.VBox;
 public class ModulesDashboardPane extends VBox {
 
     @Inject
-    public ModulesDashboardPane(List<Module> modules) {
+    public ModulesDashboardPane(List<Tool> tools) {
         FlowPane modulesPane = new FlowPane();
         getStyleClass().addAll("dashboard-container");
         modulesPane.getStyleClass().add("dashboard-modules");
-        Comparator<Module> compareByPrio = Comparator.comparingInt(m-> m.descriptor().getPriority());
-        modules.stream().sorted(compareByPrio.thenComparing(m-> m.descriptor().getName()))
+        Comparator<Tool> compareByPrio = Comparator.comparingInt(m-> m.descriptor().getPriority());
+        tools.stream().sorted(compareByPrio.thenComparing(m-> m.descriptor().getName()))
                 .map(ModulesDashboardTile::new).forEach(modulesPane.getChildren()::add);
         this.getChildren().add(modulesPane);
         eventStudio().addAnnotatedListeners(this);

@@ -30,7 +30,7 @@ import java.util.function.Consumer;
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.module.ModuleOwned;
+import org.pdfsam.module.ToolBound;
 import org.pdfsam.module.TaskExecutionRequestEvent;
 import org.pdfsam.support.params.MultipleOutputTaskParametersBuilder;
 import org.pdfsam.support.params.TaskParametersBuildStep;
@@ -46,12 +46,12 @@ import javafx.scene.text.TextFlow;
 
 /**
  * Panel with a text field to set the prefix for a task
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
-public class PrefixPane extends HBox implements TaskParametersBuildStep<MultipleOutputTaskParametersBuilder<?>>,
-        RestorableView, ResettableView, ModuleOwned {
+public class PrefixPane extends HBox
+        implements TaskParametersBuildStep<MultipleOutputTaskParametersBuilder<?>>, RestorableView, ResettableView,
+        ToolBound {
     private PrefixField field;
 
     private String ownerModule = StringUtils.EMPTY;
@@ -94,7 +94,7 @@ public class PrefixPane extends HBox implements TaskParametersBuildStep<Multiple
     }
 
     @Override
-    public String getOwnerModule() {
+    public String toolBinding() {
         return ownerModule;
     }
 

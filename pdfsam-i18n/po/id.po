@@ -149,15 +149,15 @@ msgstr "Bahasa:"
 msgid "Set your preferred language (restart needed)"
 msgstr "Pilih bahasa yang diinginkan (memerlukan jalan ulang)"
 
-msgid "Startup module:"
+msgid "Startup tool:"
 msgstr "Modul awal:"
 
-msgid "Set the module to open at application startup (restart needed)"
+msgid "Set the tool to open at application startup (restart needed)"
 msgstr "Ubah modul dibuka ketika mulai dijalankan (memerlukan jalan ulang)"
 
 msgid ""
-"Usage statistics are used to populate the modules quick bar on the left with "
-"the most used and most recently used modules."
+"Usage statistics are used to populate the tools quick bar on the left with "
+"the most used and most recently used tools."
 msgstr ""
 "Statistik pengguna ditampilkan modul di kotak cepat kiri dengan informasi "
 "modul yang paling sering dan terakhir digunakan."
@@ -275,7 +275,7 @@ msgstr ""
 
 msgid ""
 "Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"description in the tools dashboard"
 msgstr ""
 
 msgid "Ask for a confirmation when clearing the selection table"
@@ -334,7 +334,7 @@ msgstr ""
 msgid "Do you confirm?"
 msgstr ""
 
-msgid "Clear the module settings"
+msgid "Clear the tool settings"
 msgstr ""
 
 msgid "Clear the selection table"
@@ -836,10 +836,10 @@ msgstr ""
 msgid "Unable to retrieve premium features description"
 msgstr ""
 
-msgid "Fetching premium modules"
+msgid "Fetching premium tools"
 msgstr ""
 
-msgid "Unable to retrieve premium modules"
+msgid "Unable to retrieve premium tools"
 msgstr ""
 
 msgid "Unable to retrieve latest news"
@@ -858,10 +858,10 @@ msgstr ""
 msgid "Workspace saved"
 msgstr ""
 
-msgid "Requesting modules state"
+msgid "Requesting tools state"
 msgstr ""
 
-msgid "Unable to save modules workspace"
+msgid "Unable to save tools workspace"
 msgstr ""
 
 #, java-format

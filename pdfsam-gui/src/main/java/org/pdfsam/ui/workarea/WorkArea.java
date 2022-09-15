@@ -28,7 +28,7 @@ import java.util.Optional;
 import javax.inject.Inject;
 
 import org.pdfsam.eventstudio.annotation.EventListener;
-import org.pdfsam.module.Module;
+import org.pdfsam.module.Tool;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.pdfsam.ui.event.SetTitleEvent;
 import org.pdfsam.ui.module.RunButtonTriggerRequest;
@@ -49,17 +49,17 @@ import javafx.util.Duration;
  */
 public class WorkArea extends BorderPane {
 
-    private Map<String, Module> modules = new HashMap<>();
-    private Optional<Module> current = Optional.empty();
+    private Map<String, Tool> modules = new HashMap<>();
+    private Optional<Tool> current = Optional.empty();
     private ScrollPane center = new ScrollPane();
     private FadeTransition fade = new FadeTransition(new Duration(300), center);
 
     @Inject
-    public WorkArea(List<Module> modules, QuickbarModuleButtonsPane modulesButtons) {
+    public WorkArea(List<Tool> tools, QuickbarModuleButtonsPane modulesButtons) {
         getStyleClass().addAll(Style.CONTAINER.css());
         setId("work-area");
-        for (Module module : modules) {
-            this.modules.put(module.id(), module);
+        for (Tool tool : tools) {
+            this.modules.put(tool.id(), tool);
         }
         fade.setFromValue(0);
         fade.setToValue(1);
@@ -74,7 +74,7 @@ public class WorkArea extends BorderPane {
     @EventListener
     public void onSetActiveModule(SetActiveModuleRequest request) {
         request.getActiveModuleId().ifPresent(id -> {
-            Module requested = modules.get(id);
+            Tool requested = modules.get(id);
             if (requested != null) {
                 current = Optional.of(requested);
                 center.setContent(requested.modulePanel());
