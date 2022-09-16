@@ -16,17 +16,11 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with Sejda.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.task;
+package org.pdfsam.model.task;
 
-import static java.util.Objects.requireNonNull;
-import static java.util.Optional.ofNullable;
-
-import java.util.Arrays;
-import java.util.Set;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -35,11 +29,16 @@ import org.sejda.model.input.PdfSource;
 import org.sejda.model.pdf.page.PagesSelection;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
 import org.sejda.model.rotation.Rotation;
-import org.sejda.model.validation.constraint.NotEmpty;
+
+import java.util.Arrays;
+import java.util.Set;
+
+import static java.util.Objects.requireNonNull;
+import static java.util.Optional.ofNullable;
 
 /**
  * Input source for a rotation task
- * 
+ *
  * @author Andrea Vacondio
  */
 public class PdfRotationInput implements PagesSelection {
@@ -57,8 +56,7 @@ public class PdfRotationInput implements PagesSelection {
     /**
      * @param source
      * @param rotation
-     * @param pages
-     *            the pages selection to apply the rotation. If no page selection is specified, all pages are rotated
+     * @param pages    the pages selection to apply the rotation. If no page selection is specified, all pages are rotated
      */
     public PdfRotationInput(PdfSource<?> source, Rotation rotation, PagesSelection... pages) {
         requireNonNull(rotation, "A rotation is expected");
@@ -71,11 +69,9 @@ public class PdfRotationInput implements PagesSelection {
 
     @Override
     public Set<Integer> getPages(int totalNumberOfPage) {
-        Set<Integer> retSet = new NullSafeSet<>();
-        for (PagesSelection selection : pageSelection) {
-            retSet.addAll(selection.getPages(totalNumberOfPage));
-        }
-        return retSet;
+        Set<Integer> set = new NullSafeSet<>();
+        pageSelection.stream().flatMap(s -> s.getPages(totalNumberOfPage).stream()).forEach(set::add);
+        return set;
     }
 
     @Override

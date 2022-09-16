@@ -53,9 +53,10 @@
             <artifactId>javafx-controls</artifactId>
         </dependency>
         <dependency>
-            <groupId>de.jensd</groupId>
-            <artifactId>fontawesomefx-fontawesome</artifactId>
+            <groupId>org.kordamp.ikonli</groupId>
+            <artifactId>ikonli-unicons-pack</artifactId>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-swing -->
         <dependency>
             <groupId>org.openjfx</groupId>
@@ -70,6 +71,11 @@
         <dependency>
             <groupId>org.tinylog</groupId>
             <artifactId>tinylog-impl</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.sejda</groupId>
+            <artifactId>sejda-tests</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>

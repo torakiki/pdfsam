@@ -16,14 +16,14 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with Sejda.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.task;
+package org.pdfsam.model.task;
 
-import static org.mockito.Mockito.mock;
-
-import org.junit.Test;
-import org.pdfsam.TestUtils;
+import org.junit.jupiter.api.Test;
 import org.sejda.model.input.PdfSource;
 import org.sejda.model.rotation.Rotation;
+import org.sejda.tests.TestUtils;
+
+import static org.mockito.Mockito.mock;
 
 /**
  * @author Andrea Vacondio

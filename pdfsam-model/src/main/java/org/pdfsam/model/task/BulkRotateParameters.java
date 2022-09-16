@@ -16,21 +16,20 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with Sejda.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.task;
+package org.pdfsam.model.task;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.sejda.model.output.SingleOrMultipleTaskOutput;
 import org.sejda.model.parameter.base.AbstractPdfOutputParameters;
 import org.sejda.model.parameter.base.SingleOrMultipleOutputTaskParameters;
-import org.sejda.model.validation.constraint.NotEmpty;
+
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Parameters to perform rotations to a multiple input PDF sources.

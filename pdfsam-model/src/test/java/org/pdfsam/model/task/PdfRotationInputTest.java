@@ -16,20 +16,21 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with Sejda.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.task;
+package org.pdfsam.model.task;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-
-import java.util.Set;
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.sejda.model.input.PdfSource;
 import org.sejda.model.pdf.page.PageRange;
 import org.sejda.model.pdf.page.PagesSelection;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
 import org.sejda.model.rotation.Rotation;
+
+import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
 
 /**
  * @author Andrea Vacondio
@@ -37,14 +38,14 @@ import org.sejda.model.rotation.Rotation;
  */
 public class PdfRotationInputTest {
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void nullSource() {
-        new PdfRotationInput(null, Rotation.DEGREES_180);
+        assertThrows(NullPointerException.class, () -> new PdfRotationInput(null, Rotation.DEGREES_180));
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void nullRotation() {
-        new PdfRotationInput(mock(PdfSource.class), null);
+        assertThrows(NullPointerException.class, () -> new PdfRotationInput(mock(PdfSource.class), null));
     }
 
     @Test

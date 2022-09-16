@@ -18,7 +18,8 @@
  */
 package org.pdfsam.model.pdf;
 
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import org.kordamp.ikonli.Ikon;
+import org.kordamp.ikonli.unicons.UniconsLine;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -31,17 +32,16 @@ import static org.pdfsam.i18n.I18nContext.i18n;
  * Possible loading status for a descriptor
  *
  * @author Andrea Vacondio
- *
  */
 public enum PdfDescriptorLoadingStatus {
     INITIAL,
-    REQUESTED(FontAwesomeIcon.CLOCK_ALT, ""),
-    LOADING(FontAwesomeIcon.ANGLE_RIGHT, ""),
+    REQUESTED(UniconsLine.CLOCK, ""),
+    LOADING(UniconsLine.ANGLE_RIGHT, ""),
     LOADED,
-    LOADED_WITH_USER_PWD_DECRYPTION(FontAwesomeIcon.UNLOCK, i18n().tr("Valid user password provided.")),
-    ENCRYPTED(FontAwesomeIcon.LOCK, i18n().tr("This document is encrypted, click to provide a password."),
-            "with-warnings"),
-    WITH_ERRORS(FontAwesomeIcon.WARNING, i18n().tr("An error has occurred, click for more details."), "with-errors");
+    LOADED_WITH_USER_PWD_DECRYPTION(UniconsLine.UNLOCK, i18n().tr("Valid user password provided.")),
+    ENCRYPTED(UniconsLine.LOCK, i18n().tr("This document is encrypted, click to provide a password."), "with-warnings"),
+    WITH_ERRORS(UniconsLine.EXCLAMATION_CIRCLE, i18n().tr("An error has occurred, click for more details."),
+            "with-errors");
 
     static {
         INITIAL.setValidDestinationStatus(REQUESTED, WITH_ERRORS);
@@ -51,7 +51,7 @@ public enum PdfDescriptorLoadingStatus {
     }
 
     private Set<PdfDescriptorLoadingStatus> validNext = new HashSet<>();
-    private FontAwesomeIcon icon;
+    private Ikon icon;
     private String description;
     private String style;
 
@@ -59,17 +59,17 @@ public enum PdfDescriptorLoadingStatus {
         this(null, "");
     }
 
-    PdfDescriptorLoadingStatus(FontAwesomeIcon icon, String description) {
+    PdfDescriptorLoadingStatus(Ikon icon, String description) {
         this(icon, description, "");
     }
 
-    PdfDescriptorLoadingStatus(FontAwesomeIcon icon, String description, String style) {
+    PdfDescriptorLoadingStatus(Ikon icon, String description, String style) {
         this.icon = icon;
         this.description = defaultString(description);
         this.style = defaultString(style);
     }
 
-    public FontAwesomeIcon getIcon() {
+    public Ikon getIcon() {
         return icon;
     }
 

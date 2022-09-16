@@ -18,15 +18,15 @@
  */
 package org.pdfsam.support.validation;
 
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.apache.commons.lang3.StringUtils.isNotEmpty;
+import org.pdfsam.support.io.FileType;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Set;
 
-import org.pdfsam.support.io.FileType;
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 
 /**
  * Provides Factory methods to create validators
@@ -123,7 +123,7 @@ public final class Validators {
 
     /**
      * @param validator
-     * @return a new instance of the a validator that considers empty string as valid, it delegates otherwise
+     * @return a new instance of the validator that considers empty string as valid, it delegates otherwise
      */
     public static Validator<String> validEmpty(Validator<String> validator) {
         return v -> {
@@ -143,7 +143,7 @@ public final class Validators {
     }
 
     /**
-     * @param validator
+     * @param validators
      * @return a new instance of a validator that returns true if all the given validators return true
      */
     public static Validator<String> and(Validator<String>... validators) {
