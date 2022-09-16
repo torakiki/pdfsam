@@ -21,8 +21,8 @@ module org.pdfsam.model {
     requires org.apache.commons.lang3;
     requires org.pdfsam.i18n;
     requires org.sejda.conversion;
-    requires org.kordamp.ikonli.unicons;
-
+    
+    requires transitive org.kordamp.ikonli.unicons;
     requires transitive org.kordamp.ikonli.core;
     requires transitive jakarta.validation;
     requires transitive javafx.base;
