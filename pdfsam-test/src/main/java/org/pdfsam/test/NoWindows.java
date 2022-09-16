@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 17/lug/2014
- * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
+ * Created on 10 dic 2018
+ * Copyright 2017 by Sober Lemur S.a.s di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -18,15 +18,10 @@
  */
 package org.pdfsam.test;
 
-
 /**
- * Rule to provide JavaFX thread initialization and run test methods in the JavaFX thread
- * 
  * @author Andrea Vacondio
  *
  */
-public class InitializeAndApplyJavaFxThreadRule extends JavaFXThreadRule {
-    static {
-        new JavaFXInitlializer().init();
-    }
+public class NoWindows {
+
 }

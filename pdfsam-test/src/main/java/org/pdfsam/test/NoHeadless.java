@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 18/ago/2014
- * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
+ * Created on 6 dic 2018
+ * Copyright 2017 by Sober Lemur S.a.s di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
@@ -18,23 +18,10 @@
  */
 package org.pdfsam.test;
 
-import org.junit.rules.TestRule;
-import org.junit.runner.Description;
-import org.junit.runners.model.Statement;
-
 /**
  * @author Andrea Vacondio
  *
  */
-public class InitializeJavaFxThreadRule implements TestRule {
-
-    static {
-        new JavaFXInitlializer().init();
-    }
-
-    @Override
-    public Statement apply(Statement base, Description description) {
-        return base;
-    }
+public class NoHeadless {
 
 }

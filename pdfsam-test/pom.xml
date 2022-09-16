@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <description>PDFsam Basic model</description>
+    <description>PDFsam Basic test utilities</description>
     <parent>
         <groupId>org.pdfsam</groupId>
         <artifactId>pdfsam-parent</artifactId>
@@ -10,9 +10,9 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>pdfsam-model</artifactId>
+    <artifactId>pdfsam-test</artifactId>
     <packaging>jar</packaging>
-    <name>PDFsam model</name>
+    <name>PDFsam test</name>
 
     <build>
         <plugins>
@@ -22,7 +22,7 @@
                 <configuration>
                     <archive>
                         <manifestEntries>
-                            <Automatic-Module-Name>org.pdfsam.model</Automatic-Module-Name>
+                            <Automatic-Module-Name>org.pdfsam.test</Automatic-Module-Name>
                         </manifestEntries>
                     </archive>
                 </configuration>
@@ -33,35 +33,27 @@
     <dependencies>
         <dependency>
             <groupId>org.pdfsam</groupId>
-            <artifactId>pdfsam-i18n</artifactId>
+            <artifactId>pdfsam-model</artifactId>
             <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.sejda</groupId>
-            <artifactId>sejda-model</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.sejda</groupId>
-            <artifactId>sejda-conversion</artifactId>
         </dependency>
         <dependency>
             <groupId>org.pdfsam</groupId>
             <artifactId>eventstudio</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.kordamp.ikonli</groupId>
-            <artifactId>ikonli-unicons-pack</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>compile</scope>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-swing -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-swing</artifactId>
-            <scope>test</scope>
+            <scope>compile</scope>
         </dependency>
+
     </dependencies>
 </project>

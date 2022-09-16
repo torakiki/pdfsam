@@ -1,6 +1,6 @@
 /* 
  * This file is part of the PDF Split And Merge source code
- * Created on 20/ago/2014
+ * Created on 27/ago/2014
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -20,27 +20,25 @@ package org.pdfsam.test;
 
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
-import org.pdfsam.module.Tool;
-import org.pdfsam.module.ToolCategory;
-import org.pdfsam.module.ToolDescriptor;
-import org.pdfsam.module.ToolInputOutputType;
-import org.pdfsam.module.ToolPriority;
+import org.pdfsam.model.tool.Tool;
+import org.pdfsam.model.tool.ToolCategory;
+import org.pdfsam.model.tool.ToolDescriptor;
+import org.pdfsam.model.tool.ToolPriority;
 
 import java.util.Map;
 
-import static org.pdfsam.module.ToolDescriptorBuilder.builder;
+import static org.pdfsam.model.tool.ToolDescriptorBuilder.builder;
 
 /**
- * A test module to use in tests
+ * A test module to use in unit tests
  *
  * @author Andrea Vacondio
  */
-public class DefaultPriorityTestTool implements Tool {
-    public static final String ID = "test.module";
+public class LowPriorityTestTool implements Tool {
+    public static final String ID = "low.test.module";
 
-    private ToolDescriptor descriptor = builder().category(ToolCategory.MERGE).description("Test module")
-            .inputTypes(ToolInputOutputType.SINGLE_PDF).name("TestModule").priority(ToolPriority.DEFAULT)
-            .supportURL("http://www.chucknorrisfacts.com/")
+    private ToolDescriptor descriptor = builder().category(ToolCategory.SPLIT).description("Low priority test module")
+            .name("LowPriorityTestModule").priority(ToolPriority.LOW)
             .build();
 
     @Override
@@ -72,5 +70,4 @@ public class DefaultPriorityTestTool implements Tool {
     public void onLoadWorkspace(Map<String, String> data) {
         // nothing
     }
-
 }

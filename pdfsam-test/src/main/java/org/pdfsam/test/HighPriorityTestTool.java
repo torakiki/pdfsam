@@ -20,15 +20,15 @@ package org.pdfsam.test;
 
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
-import org.pdfsam.module.Tool;
-import org.pdfsam.module.ToolCategory;
-import org.pdfsam.module.ToolDescriptor;
-import org.pdfsam.module.ToolInputOutputType;
-import org.pdfsam.module.ToolPriority;
+import org.pdfsam.model.tool.Tool;
+import org.pdfsam.model.tool.ToolCategory;
+import org.pdfsam.model.tool.ToolDescriptor;
+import org.pdfsam.model.tool.ToolInputOutputType;
+import org.pdfsam.model.tool.ToolPriority;
 
 import java.util.Map;
 
-import static org.pdfsam.module.ToolDescriptorBuilder.builder;
+import static org.pdfsam.model.tool.ToolDescriptorBuilder.builder;
 
 /**
  * @author Andrea Vacondio

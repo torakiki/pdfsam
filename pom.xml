@@ -141,6 +141,8 @@
 		<module>pdfsam-rotate</module>
 		<module>pdfsam-extract</module>
 		<module>pdfsam-persistence</module>
+        <module>pdfsam-themes</module>
+        <module>pdfsam-test</module>
 		<module>pdfsam-docs</module>
 	</modules>
 
@@ -294,8 +296,8 @@
 				<groupId>org.kordamp.ikonli</groupId>
 				<artifactId>ikonli-bom</artifactId>
 				<version>${ikonli.version}</version>
-				<type>pom</type>
 				<scope>import</scope>
+				<type>pom</type>
 			</dependency>
 			<dependency>
 				<groupId>jakarta.validation</groupId>
@@ -394,30 +396,6 @@
 			</dependency>
 			<!-- test -->
 			<dependency>
-				<groupId>org.tinylog</groupId>
-				<artifactId>slf4j-tinylog</artifactId>
-				<version>${tinylog.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.tinylog</groupId>
-				<artifactId>tinylog-impl</artifactId>
-				<version>${tinylog.version}</version>
-				<scope>test</scope>
-				<exclusions>
-					<exclusion>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>animal-sniffer-annotations</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-			<dependency>
-				<groupId>com.tngtech.archunit</groupId>
-				<artifactId>archunit-junit5</artifactId>
-				<version>${archunit.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
 				<groupId>org.testfx</groupId>
 				<artifactId>testfx-core</artifactId>
 				<version>${testfx.version}</version>
@@ -448,12 +426,6 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-			<dependency>
-				<groupId>org.sejda</groupId>
-				<artifactId>sejda-tests</artifactId>
-				<version>${sejda.version}</version>
-				<scope>test</scope>
-			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -469,6 +441,12 @@
 			<version>${sejda.commons.version}</version>
 		</dependency>
 		<!-- test depts -->
+		<dependency>
+			<groupId>org.sejda</groupId>
+			<artifactId>sejda-tests</artifactId>
+			<version>${sejda.version}</version>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
@@ -497,6 +475,24 @@
 			<artifactId>archunit-junit5</artifactId>
 			<version>${archunit.version}</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.tinylog</groupId>
+			<artifactId>slf4j-tinylog</artifactId>
+			<version>${tinylog.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.tinylog</groupId>
+			<artifactId>tinylog-impl</artifactId>
+			<version>${tinylog.version}</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>animal-sniffer-annotations</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 </project>
