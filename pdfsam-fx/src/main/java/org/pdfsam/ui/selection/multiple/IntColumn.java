@@ -35,7 +35,7 @@ public enum IntColumn implements SelectionTableColumn<Integer> {
     PAGES {
         @Override
         public String getColumnTitle() {
-            return I18nContext.getInstance().i18n("Pages");
+            return i18n().tr("Pages");
         }
 
         @Override

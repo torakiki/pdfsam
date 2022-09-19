@@ -37,7 +37,7 @@ import javafx.scene.control.Button;
 class CheckForUpdatesButton extends Button {
 
     CheckForUpdatesButton() {
-        super(I18nContext.getInstance().i18n("Check for updates now"));
+        super(i18n().tr("Check for updates now"));
         getStyleClass().addAll(Style.BUTTON.css());
         setOnAction(e -> eventStudio().broadcast(new UpdateCheckRequest(true)));
     }

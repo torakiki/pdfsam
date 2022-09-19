@@ -44,7 +44,7 @@ class ModulesMenu extends Menu {
 
     @Inject
     public ModulesMenu(List<Tool> tools) {
-        super(I18nContext.getInstance().i18n("_Modules"));
+        super(i18n().tr("_Modules"));
         setId("modulesMenu");
         Map<ToolCategory, Menu> moduleSubmenus = new HashMap<>();
         for (final Tool currentTool : tools) {

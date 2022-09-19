@@ -80,7 +80,7 @@ public class Footer extends HBox implements ToolBound {
                 failed.setVisible(false);
                 openButton.setVisible(false);
                 statusLabel.setVisible(true);
-                statusLabel.setText(I18nContext.getInstance().i18n("Requested"));
+                statusLabel.setText(i18n().tr("Requested"));
                 bar.setProgress(0);
             }
         });
@@ -105,7 +105,7 @@ public class Footer extends HBox implements ToolBound {
     public void onTaskCompleted(TaskExecutionCompletedEvent event) {
         failed.setVisible(false);
         openButton.setVisible(true);
-        statusLabel.setText(I18nContext.getInstance().i18n("Completed"));
+        statusLabel.setText(i18n().tr("Completed"));
         bar.setProgress(1);
     }
 
@@ -113,18 +113,17 @@ public class Footer extends HBox implements ToolBound {
     public void onTaskFailed(TaskExecutionFailedEvent event) {
         openButton.setVisible(false);
         failed.setVisible(true);
-        statusLabel.setText(I18nContext.getInstance().i18n("Failed"));
+        statusLabel.setText(i18n().tr("Failed"));
     }
 
     @EventListener
     public void onProgress(PercentageOfWorkDoneChangedEvent event) {
-        statusLabel.setText(I18nContext.getInstance().i18n("Running"));
+        statusLabel.setText(i18n().tr("Running"));
         if (event.isUndetermined()) {
             bar.setProgress(ProgressIndicator.INDETERMINATE_PROGRESS);
         } else {
             bar.setProgress(event.getPercentage().divide(new BigDecimal(100)).doubleValue());
-            statusLabel.setText(I18nContext.getInstance().i18n("Running {0}%",
-                    Integer.toString(event.getPercentage().intValue())));
+            statusLabel.setText(i18n().tr("Running {0}%", Integer.toString(event.getPercentage().intValue())));
         }
     }
 }

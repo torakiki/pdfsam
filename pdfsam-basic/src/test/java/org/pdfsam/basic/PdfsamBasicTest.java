@@ -23,7 +23,7 @@ import static org.junit.Assert.assertEquals;
 import java.io.IOException;
 
 import org.junit.Test;
-import org.pdfsam.ConfigurableProperty;
+import org.pdfsam.BrandableProperty;
 
 public class PdfsamBasicTest {
     @Test(expected = IllegalArgumentException.class)
@@ -39,7 +39,7 @@ public class PdfsamBasicTest {
     @Test
     public void property() throws IOException {
         PdfsamBasic pdfsam = new PdfsamBasic("name", "short");
-        assertEquals("1.0.0", pdfsam.property(ConfigurableProperty.VERSION));
-        assertEquals("Chuck", pdfsam.property(ConfigurableProperty.FEED_URL, "Chuck"));
+        assertEquals("1.0.0", pdfsam.property(BrandableProperty.VERSION));
+        assertEquals("Chuck", pdfsam.property(BrandableProperty.FEED_URL, "Chuck"));
     }
 }

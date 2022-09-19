@@ -47,7 +47,7 @@ class NewsButton extends BannerButton {
             eventStudio().broadcast(action);
             action = switchAction();
         });
-        setTooltip(new Tooltip(I18nContext.getInstance().i18n("What's new")));
+        setTooltip(new Tooltip(i18n().tr("What's new")));
         anim = Animations.shake(this);
         eventStudio().addAnnotatedListeners(this);
     }

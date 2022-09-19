@@ -74,8 +74,8 @@ public class SplitTool extends BaseTaskExecutionTool {
     private SplitOptionsPane splitOptions = new SplitOptionsPane();
     private PrefixPane prefix;
     private ToolDescriptor descriptor = builder().category(ToolCategory.SPLIT)
-            .inputTypes(ToolInputOutputType.SINGLE_PDF).name(I18nContext.getInstance().i18n("Split"))
-            .description(I18nContext.getInstance().i18n("Split a PDF document at the given page numbers."))
+            .inputTypes(ToolInputOutputType.SINGLE_PDF).name(i18n().tr("Split"))
+            .description(i18n().tr("Split a PDF document at the given page numbers."))
             .priority(ToolPriority.HIGH.getPriority()).supportURL("https://pdfsam.org/pdf-split/")
             .build();
 
@@ -87,8 +87,7 @@ public class SplitTool extends BaseTaskExecutionTool {
         this.destinationDirectoryField = destinationDirectoryField;
         this.destinationPane = destinationPane;
         this.selectionPane = new TaskParametersBuilderSingleSelectionPane(id());
-        this.selectionPane.setPromptText(
-                I18nContext.getInstance().i18n("Select or drag and drop the PDF you want to split"));
+        this.selectionPane.setPromptText(i18n().tr("Select or drag and drop the PDF you want to split"));
         this.selectionPane.addOnLoaded(d -> splitOptions.setMaxPages(d.pages().getValue()));
         this.prefix = prefix;
         initModuleSettingsPanel(settingPanel());
@@ -134,16 +133,13 @@ public class SplitTool extends BaseTaskExecutionTool {
         VBox pane = new VBox();
         pane.setAlignment(Pos.TOP_CENTER);
 
-        TitledPane prefixTitled = Views.titledPane(I18nContext.getInstance().i18n("File names settings"),
-                prefix);
+        TitledPane prefixTitled = Views.titledPane(i18n().tr("File names settings"), prefix);
         prefix.addMenuItemFor(Prefix.CURRENTPAGE);
         prefix.addMenuItemFor(Prefix.FILENUMBER);
         prefix.addMenuItemFor("[TOTAL_FILESNUMBER]");
 
-        pane.getChildren().addAll(selectionPane,
-                Views.titledPane(I18nContext.getInstance().i18n("Split settings"), splitOptions),
-                Views.titledPane(I18nContext.getInstance().i18n("Output settings"), destinationPane),
-                prefixTitled);
+        pane.getChildren().addAll(selectionPane, Views.titledPane(i18n().tr("Split settings"), splitOptions),
+                Views.titledPane(i18n().tr("Output settings"), destinationPane), prefixTitled);
         return pane;
     }
 

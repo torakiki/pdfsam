@@ -93,7 +93,7 @@ public class CreateOutputDirectoryDialogControllerTest extends ApplicationTest {
         button.setOnAction(a -> eventStudio().broadcast(new NonExistingOutputDirectoryEvent(file)));
         folder.delete();
         clickOn("show");
-        clickOn(I18nContext.getInstance().i18n("No"));
+        clickOn(i18n().tr("No"));
         assertFalse(Files.exists(file));
     }
 
@@ -104,7 +104,7 @@ public class CreateOutputDirectoryDialogControllerTest extends ApplicationTest {
         button.setOnAction(a -> eventStudio().broadcast(new NonExistingOutputDirectoryEvent(file)));
         folder.delete();
         clickOn("show");
-        clickOn(I18nContext.getInstance().i18n("Yes"));
+        clickOn(i18n().tr("Yes"));
         assertTrue(Files.exists(file));
     }
 }

@@ -47,7 +47,7 @@ class LogButton extends BannerButton {
     LogButton() {
         super(MaterialDesignIcon.COMMENT_ALERT_OUTLINE);
         setOnAction(e -> eventStudio().broadcast(action, "LogStage"));
-        setTooltip(new Tooltip(I18nContext.getInstance().i18n("Application messages")));
+        setTooltip(new Tooltip(i18n().tr("Application messages")));
         anim = Animations.shake(this);
         eventStudio().addAnnotatedListeners(this);
     }

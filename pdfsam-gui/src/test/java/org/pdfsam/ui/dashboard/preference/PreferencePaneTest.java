@@ -102,8 +102,7 @@ public class PreferencePaneTest {
                 ((PreferenceBrowsableFileField) victim.lookup("#workspace")).getTextField().getText());
         assertEquals("/my/path",
                 ((PreferenceBrowsableDirectoryField) victim.lookup("#workingDirectory")).getTextField().getText());
-        assertEquals(I18nContext.getInstance().i18n("Dashboard"),
-                startupModuleCombo.getSelectionModel().getSelectedItem().getValue());
+        assertEquals(i18n().tr("Dashboard"), startupModuleCombo.getSelectionModel().getSelectedItem().getValue());
     }
 
 }

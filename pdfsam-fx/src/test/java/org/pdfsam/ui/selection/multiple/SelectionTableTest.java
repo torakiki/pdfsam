@@ -190,7 +190,7 @@ public class SelectionTableTest extends ApplicationTest {
         });
         WaitForAsyncUtils.waitForFxEvents();
         clickOn(".glyph-icon");
-        write("pwd").clickOn(I18nContext.getInstance().i18n("Unlock"));
+        write("pwd").clickOn(i18n().tr("Unlock"));
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
         assertEquals(EncryptionUtils.encrypt("pwd"), data.get("victiminput.password.enc0"));
@@ -206,7 +206,7 @@ public class SelectionTableTest extends ApplicationTest {
         });
         WaitForAsyncUtils.waitForFxEvents();
         clickOn(".glyph-icon");
-        write("pwd").clickOn(I18nContext.getInstance().i18n("Unlock"));
+        write("pwd").clickOn(i18n().tr("Unlock"));
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
         assertTrue(isBlank(data.get("victiminput.password.enc0")));
@@ -303,7 +303,7 @@ public class SelectionTableTest extends ApplicationTest {
         Listener<PdfLoadRequestEvent> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequestEvent.class, listener);
         clickOn(".glyph-icon");
-        write("pwd").clickOn(I18nContext.getInstance().i18n("Unlock"));
+        write("pwd").clickOn(i18n().tr("Unlock"));
         verify(listener, times(2)).onEvent(any());
     }
 
@@ -325,7 +325,7 @@ public class SelectionTableTest extends ApplicationTest {
     @Category(NoHeadless.class)
     public void removeByContextMenu() {
         rightClickOn("temp.pdf");
-        clickOn(I18nContext.getInstance().i18n("Remove"));
+        clickOn(i18n().tr("Remove"));
         assertEquals(3, victim.getItems().size());
         assertEquals(1, victim.getSelectionModel().getSelectedIndices().size());
     }
@@ -358,7 +358,7 @@ public class SelectionTableTest extends ApplicationTest {
         Optional<SelectionTableRowData> item = victim.getItems().stream()
                 .filter(i -> "temp.pdf".equals(i.descriptor().getFileName())).findFirst();
         rightClickOn("temp.pdf");
-        clickOn(I18nContext.getInstance().i18n("Duplicate"));
+        clickOn(i18n().tr("Duplicate"));
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             eventStudio().broadcast(new ClearModuleEvent(MODULE), MODULE);
         });
@@ -369,7 +369,7 @@ public class SelectionTableTest extends ApplicationTest {
     @Category(NoHeadless.class)
     public void duplicate() {
         rightClickOn("temp.pdf");
-        clickOn(I18nContext.getInstance().i18n("Duplicate"));
+        clickOn(i18n().tr("Duplicate"));
         assertEquals(2,
                 victim.getItems().stream().filter(i -> "temp.pdf".equals(i.descriptor().getFileName())).count());
     }
@@ -389,7 +389,7 @@ public class SelectionTableTest extends ApplicationTest {
     public void moveDownByContextMenu() {
         rightClickOn("temp.pdf");
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 0);
-        clickOn(I18nContext.getInstance().i18n("Move Down"));
+        clickOn(i18n().tr("Move Down"));
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 1);
     }
 
@@ -398,7 +398,7 @@ public class SelectionTableTest extends ApplicationTest {
     public void moveBottomByContextMenu() {
         rightClickOn("temp.pdf");
         assertEquals(0, victim.getSelectionModel().getSelectedIndex());
-        clickOn(I18nContext.getInstance().i18n("Move to Bottom"));
+        clickOn(i18n().tr("Move to Bottom"));
         assertEquals(3, victim.getSelectionModel().getSelectedIndex());
     }
 
@@ -407,7 +407,7 @@ public class SelectionTableTest extends ApplicationTest {
     public void moveUpByContextMenu() {
         rightClickOn("temp3.pdf");
         assertEquals(2, victim.getSelectionModel().getSelectedIndex());
-        clickOn(I18nContext.getInstance().i18n("Move Up"));
+        clickOn(i18n().tr("Move Up"));
         assertEquals(1, victim.getSelectionModel().getSelectedIndex());
     }
 
@@ -416,7 +416,7 @@ public class SelectionTableTest extends ApplicationTest {
     public void moveTopByContextMenu() {
         rightClickOn("temp3.pdf");
         assertEquals(2, victim.getSelectionModel().getSelectedIndex());
-        clickOn(I18nContext.getInstance().i18n("Move to Top"));
+        clickOn(i18n().tr("Move to Top"));
         assertEquals(0, victim.getSelectionModel().getSelectedIndex());
     }
 
@@ -425,7 +425,7 @@ public class SelectionTableTest extends ApplicationTest {
     public void copy() {
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> Clipboard.getSystemClipboard().clear());
         rightClickOn("temp.pdf");
-        clickOn(I18nContext.getInstance().i18n("Copy to clipboard"));
+        clickOn(i18n().tr("Copy to clipboard"));
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> assertFalse(
                 StringUtils.isEmpty(Clipboard.getSystemClipboard().getContent(DataFormat.PLAIN_TEXT).toString())));
     }
@@ -438,7 +438,7 @@ public class SelectionTableTest extends ApplicationTest {
         assertTrue(item.isPresent());
         item.get().pageSelection.set("2-4");
         rightClickOn("temp.pdf");
-        clickOn(I18nContext.getInstance().i18n("Set as range for all"));
+        clickOn(i18n().tr("Set as range for all"));
         victim.getItems().stream().forEach(i -> {
             assertEquals("2-4", i.pageSelection.get());
         });
@@ -458,7 +458,7 @@ public class SelectionTableTest extends ApplicationTest {
             }
         };
         eventStudio().add(SetDestinationRequest.class, notFallbackListener, MODULE);
-        clickOn(I18nContext.getInstance().i18n("Set destination"));
+        clickOn(i18n().tr("Set destination"));
         assertTrue(listener.isHit());
         assertTrue(notFallbackListener.isHit());
     }
@@ -469,7 +469,7 @@ public class SelectionTableTest extends ApplicationTest {
         HitTestListener<NativeOpenFileRequest> listener = new HitTestListener<>();
         eventStudio().add(NativeOpenFileRequest.class, listener);
         rightClickOn("temp3.pdf");
-        clickOn(I18nContext.getInstance().i18n("Open"));
+        clickOn(i18n().tr("Open"));
         assertTrue(listener.isHit());
     }
 
@@ -479,7 +479,7 @@ public class SelectionTableTest extends ApplicationTest {
         HitTestListener<NativeOpenFileRequest> listener = new HitTestListener<>();
         eventStudio().add(NativeOpenFileRequest.class, listener);
         rightClickOn("temp3.pdf");
-        clickOn(I18nContext.getInstance().i18n("Open Folder"));
+        clickOn(i18n().tr("Open Folder"));
         assertTrue(listener.isHit());
     }
 
@@ -489,7 +489,7 @@ public class SelectionTableTest extends ApplicationTest {
         Listener<ShowPdfDescriptorRequest> listener = mock(Listener.class);
         eventStudio().add(ShowPdfDescriptorRequest.class, listener);
         rightClickOn("temp3.pdf");
-        clickOn(I18nContext.getInstance().i18n("Document properties"));
+        clickOn(i18n().tr("Document properties"));
         verify(listener, timeout(2000)).onEvent(any());
     }
 

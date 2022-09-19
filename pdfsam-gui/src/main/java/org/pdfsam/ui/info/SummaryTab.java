@@ -64,7 +64,7 @@ class SummaryTab extends BaseInfoTab implements ChangeListener<PdfDescriptorLoad
     private PdfDocumentDescriptor current;
 
     SummaryTab() {
-        setText(I18nContext.getInstance().i18n("Summary"));
+        setText(i18n().tr("Summary"));
         grid().add(createTitleLabel("File"), 0, 0);
         grid().add(fileLabel, 1, 0);
         grid().add(createTitleLabel("Size"), 0, 1);

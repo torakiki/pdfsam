@@ -47,7 +47,7 @@ class SplitAfterPredefinedSetOfPagesRadioButton extends RadioButton
     private ComboBox<KeyStringValueItem<PredefinedSetOfPages>> combo;
 
     public SplitAfterPredefinedSetOfPagesRadioButton(ComboBox<KeyStringValueItem<PredefinedSetOfPages>> combo) {
-        super(I18nContext.getInstance().i18n("Split after"));
+        super(i18n().tr("Split after"));
         this.combo = combo;
         combo.getSelectionModel().selectFirst();
     }
@@ -63,7 +63,7 @@ class SplitAfterPredefinedSetOfPagesRadioButton extends RadioButton
         if (selected != null) {
             return new SimpleSplitParametersBuilder(selected.getKey());
         }
-        onError.accept(I18nContext.getInstance().i18n("No page selected"));
+        onError.accept(i18n().tr("No page selected"));
         return null;
     }
 

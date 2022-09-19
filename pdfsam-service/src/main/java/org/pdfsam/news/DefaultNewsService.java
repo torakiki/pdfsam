@@ -30,8 +30,8 @@ import java.util.prefs.Preferences;
 
 import javax.inject.Inject;
 
-import org.pdfsam.ConfigurableProperty;
-import org.pdfsam.Pdfsam;
+import org.pdfsam.AppBrand;
+import org.pdfsam.BrandableProperty;
 import org.pdfsam.i18n.I18nContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,23 +50,22 @@ public class DefaultNewsService implements NewsService {
     private static final String NEWS_PATH = "/org/pdfsam/user/news";
     private static final String LATEST_NEWS_ID = "latest.news.id";
     private static final String LATEST_IMPORTANT_NEWS_ID = "latest.important.news.id";
-    private Pdfsam pdfsam;
+    private AppBrand appBrand;
     private JSON jackson = new JSON().without(Feature.USE_FIELDS).with(Feature.READ_ONLY, true);
 
     @Inject
-    DefaultNewsService(Pdfsam pdfsam) {
-        requireNotNullArg(pdfsam, "Application info cannot be null");
-        this.pdfsam = pdfsam;
+    DefaultNewsService(AppBrand appBrand) {
+        requireNotNullArg(appBrand, "Application info cannot be null");
+        this.appBrand = appBrand;
     }
 
     @Override
     public List<NewsData> getLatestNews() {
         try {
-            return jackson
-                    .listOfFrom(NewsData.class,
-                    urlToStream(new URL(pdfsam.property(ConfigurableProperty.NEWS_URL))));
+            return jackson.listOfFrom(NewsData.class,
+                    urlToStream(new URL(appBrand.property(BrandableProperty.NEWS_URL))));
         } catch (IOException e) {
-            LOG.warn(I18nContext.getInstance().i18n("Unable to retrieve latest news"), e);
+            LOG.warn(i18n().tr("Unable to retrieve latest news"), e);
         }
         return Collections.emptyList();
     }

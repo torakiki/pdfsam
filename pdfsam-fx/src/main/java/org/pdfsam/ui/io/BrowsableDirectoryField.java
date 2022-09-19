@@ -45,9 +45,9 @@ public class BrowsableDirectoryField extends BrowsableField {
     private BrowseEventHandler handler = new BrowseEventHandler();
 
     public BrowsableDirectoryField() {
-        setBrowseWindowTitle(I18nContext.getInstance().i18n("Select a directory"));
-        getTextField().setErrorMessage(I18nContext.getInstance().i18n("Select an existing directory"));
-        getTextField().setPromptText(I18nContext.getInstance().i18n("Select a directory"));
+        setBrowseWindowTitle(i18n().tr("Select a directory"));
+        getTextField().setErrorMessage(i18n().tr("Select an existing directory"));
+        getTextField().setPromptText(i18n().tr("Select a directory"));
         getBrowseButton().setOnAction(handler);
         getTextField().setOnAction(handler);
         setOnDragOver(e -> dragConsume(e, this.onDragOverConsumer()));

@@ -29,8 +29,8 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.pdfsam.ConfigurableProperty;
-import org.pdfsam.Pdfsam;
+import org.pdfsam.AppBrand;
+import org.pdfsam.BrandableProperty;
 import org.pdfsam.eventstudio.Listener;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeJavaFxThreadRule;
@@ -56,9 +56,9 @@ public class UpdatesControllerTest {
         service = mock(UpdateService.class);
         listener = mock(Listener.class);
         noUpdatesListener = mock(Listener.class);
-        Pdfsam pdfsam = mock(Pdfsam.class);
-        when(pdfsam.property(ConfigurableProperty.VERSION)).thenReturn("3.0.0.M1");
-        victim = new UpdatesController(service, pdfsam);
+        AppBrand appBrand = mock(AppBrand.class);
+        when(appBrand.property(BrandableProperty.VERSION)).thenReturn("3.0.0.M1");
+        victim = new UpdatesController(service, appBrand);
     }
 
     @Test

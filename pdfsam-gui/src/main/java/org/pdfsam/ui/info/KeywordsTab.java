@@ -52,7 +52,7 @@ class KeywordsTab extends Tab implements ChangeListener<PdfDescriptorLoadingStat
     KeywordsTab() {
         VBox content = new VBox();
         content.getStyleClass().add("info-props");
-        setText(I18nContext.getInstance().i18n("Keywords"));
+        setText(i18n().tr("Keywords"));
         setClosable(false);
         keywords.setWrapText(true);
         keywords.getStyleClass().add("info-property-value");

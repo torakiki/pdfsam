@@ -36,7 +36,7 @@ import javafx.scene.layout.VBox;
  */
 class DestinationPane extends VBox implements ResettableView {
 
-    private CheckBox overwrite = new CheckBox(I18nContext.getInstance().i18n("Overwrite if already exists"));
+    private CheckBox overwrite = new CheckBox(i18n().tr("Overwrite if already exists"));
     private BrowsableField destination;
 
     public DestinationPane(BrowsableField destination) {

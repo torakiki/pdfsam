@@ -78,9 +78,8 @@ public class MultipleFilesDropController {
                 eventStudio().broadcast(loadEvent, event.toolBinding());
             } else {
                 eventStudio().broadcast(new AddNotificationRequestEvent(NotificationType.WARN,
-                        I18nContext.getInstance()
-                                .i18n("Drag and drop PDF files or directories containing PDF files"),
-                        I18nContext.getInstance().i18n("No PDF found")));
+                        I18nContext.getInstance().i18n("Drag and drop PDF files or directories containing PDF files"),
+                        i18n().tr("No PDF found")));
             }
         }
     }

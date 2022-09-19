@@ -74,32 +74,32 @@ public class SelectionTableWithoutMoveTest extends ApplicationTest {
     @Category(NoHeadless.class)
     public void moveDownIsMissing() {
         rightClickOn(TableViewMatchers.hasTableCell("temp.pdf"));
-        assertFalse(lookup(I18nContext.getInstance().i18n("Move Down")).tryQuery().isPresent());
-        assertTrue(lookup(I18nContext.getInstance().i18n("Set destination")).tryQuery().isPresent());
+        assertFalse(lookup(i18n().tr("Move Down")).tryQuery().isPresent());
+        assertTrue(lookup(i18n().tr("Set destination")).tryQuery().isPresent());
     }
 
     @Test
     @Category(NoHeadless.class)
     public void moveUpIsMissing() {
         rightClickOn(TableViewMatchers.hasTableCell("temp.pdf"));
-        assertFalse(lookup(I18nContext.getInstance().i18n("Move Up")).tryQuery().isPresent());
-        assertTrue(lookup(I18nContext.getInstance().i18n("Set destination")).tryQuery().isPresent());
+        assertFalse(lookup(i18n().tr("Move Up")).tryQuery().isPresent());
+        assertTrue(lookup(i18n().tr("Set destination")).tryQuery().isPresent());
     }
 
     @Test
     @Category(NoHeadless.class)
     public void moveBottomIsMissing() {
         rightClickOn(TableViewMatchers.hasTableCell("temp.pdf"));
-        assertFalse(lookup(I18nContext.getInstance().i18n("Move to Bottom")).tryQuery().isPresent());
-        assertTrue(lookup(I18nContext.getInstance().i18n("Set destination")).tryQuery().isPresent());
+        assertFalse(lookup(i18n().tr("Move to Bottom")).tryQuery().isPresent());
+        assertTrue(lookup(i18n().tr("Set destination")).tryQuery().isPresent());
     }
 
     @Test
     @Category(NoHeadless.class)
     public void moveTopIsMissing() {
         rightClickOn(TableViewMatchers.hasTableCell("temp.pdf"));
-        assertFalse(lookup(I18nContext.getInstance().i18n("Move to Top")).tryQuery().isPresent());
-        assertTrue(lookup(I18nContext.getInstance().i18n("Set destination")).tryQuery().isPresent());
+        assertFalse(lookup(i18n().tr("Move to Top")).tryQuery().isPresent());
+        assertTrue(lookup(i18n().tr("Set destination")).tryQuery().isPresent());
 
     }
 

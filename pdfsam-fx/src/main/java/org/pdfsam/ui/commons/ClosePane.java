@@ -47,7 +47,7 @@ public class ClosePane extends HBox {
     public ClosePane(EventHandler<ActionEvent> handler) {
         setAlignment(Pos.CENTER_RIGHT);
         getStyleClass().addAll(Style.CONTAINER.css());
-        Button closeButton = new Button(I18nContext.getInstance().i18n("Close"));
+        Button closeButton = new Button(i18n().tr("Close"));
         closeButton.getStyleClass().addAll(Style.BUTTON.css());
         closeButton.setTextAlignment(TextAlignment.CENTER);
         closeButton.setOnAction(ofNullable(handler).orElse(defaultHandler));

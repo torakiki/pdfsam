@@ -85,7 +85,7 @@ public class ClearModuleConfirmationDialogControllerTest extends ApplicationTest
         button.setOnAction(a -> eventStudio().broadcast(new ClearModuleEvent("module", true, true)));
         eventStudio().add(ClearModuleEvent.class, listener, "module");
         clickOn("show");
-        clickOn(I18nContext.getInstance().i18n("No"));
+        clickOn(i18n().tr("No"));
         assertFalse(listener.isHit());
     }
 
@@ -114,7 +114,7 @@ public class ClearModuleConfirmationDialogControllerTest extends ApplicationTest
         button.setOnAction(a -> eventStudio().broadcast(new ClearModuleEvent("module", true, true)));
         eventStudio().add(ClearModuleEvent.class, listener, "module");
         clickOn("show");
-        clickOn(I18nContext.getInstance().i18n("Yes"));
+        clickOn(i18n().tr("Yes"));
         assertTrue(listener.isHit());
     }
 }

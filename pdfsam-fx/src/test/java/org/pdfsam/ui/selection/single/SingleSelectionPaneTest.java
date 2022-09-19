@@ -115,7 +115,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
         eventStudio().add(ShowPdfDescriptorRequest.class, listener);
         typePathAndValidate();
         rightClickOn(".validable-container-field");
-        clickOn(I18nContext.getInstance().i18n("Document properties"));
+        clickOn(i18n().tr("Document properties"));
         assertTrue(listener.isHit());
     }
 
@@ -132,7 +132,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
         eventStudio().add(SetDestinationRequest.class, listener, MODULE);
         typePathAndValidate();
         rightClickOn(".validable-container-field");
-        clickOn(I18nContext.getInstance().i18n("Set destination"));
+        clickOn(i18n().tr("Set destination"));
         assertTrue(listener.isHit());
     }
 
@@ -149,7 +149,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
         eventStudio().add(NativeOpenFileRequest.class, listener);
         typePathAndValidate();
         rightClickOn(".validable-container-field");
-        clickOn(I18nContext.getInstance().i18n("Open"));
+        clickOn(i18n().tr("Open"));
         assertTrue(listener.isHit());
     }
 
@@ -166,7 +166,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
         eventStudio().add(NativeOpenFileRequest.class, listener);
         typePathAndValidate();
         rightClickOn(".validable-container-field");
-        clickOn(I18nContext.getInstance().i18n("Open Folder"));
+        clickOn(i18n().tr("Open Folder"));
         assertTrue(listener.isHit());
     }
 
@@ -175,7 +175,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
     public void removeMenuItem() throws Exception {
         typePathAndValidate();
         rightClickOn(".validable-container-field");
-        clickOn(I18nContext.getInstance().i18n("Remove"));
+        clickOn(i18n().tr("Remove"));
         assertTrue(isEmpty(victim.getField().getTextField().getText()));
     }
 
@@ -237,7 +237,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
         typePathAndValidate("/this/doesnt/exists");
         ValidableTextField victim = lookup(".validable-container-field").queryAs(ValidableTextField.class);
         victim.getContextMenu().getItems().parallelStream().filter(i -> !(i instanceof SeparatorMenuItem))
-                .filter(i -> !i.getText().equals(I18nContext.getInstance().i18n("Remove")))
+                .filter(i -> !i.getText().equals(i18n().tr("Remove")))
                 .forEach(i -> assertTrue(i.getText(), i.isDisable()));
     }
 
@@ -247,7 +247,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
         typePathAndValidate("/this/doesnt/exists");
         ValidableTextField victim = lookup(".validable-container-field").queryAs(ValidableTextField.class);
         victim.getContextMenu().getItems().parallelStream().filter(i -> !(i instanceof SeparatorMenuItem))
-                .filter(i -> !i.getText().equals(I18nContext.getInstance().i18n("Remove")))
+                .filter(i -> !i.getText().equals(i18n().tr("Remove")))
                 .forEach(i -> assertTrue(i.isDisable()));
     }
 
@@ -258,14 +258,13 @@ public class SingleSelectionPaneTest extends ApplicationTest {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
         });
-        assertTrue(lookup(I18nContext.getInstance().i18n("Loading...")).tryQuery().isPresent());
+        assertTrue(lookup(i18n().tr("Loading...")).tryQuery().isPresent());
     }
 
     @Test
     public void loadedDetails() throws Exception {
         moveToLoadedState(victim);
-        assertTrue(lookup(I18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}", "0", "")).tryQuery()
-                .isPresent());
+        assertTrue(lookup(i18n().tr("Pages: {0}, PDF Version: {1}", "0", "")).tryQuery().isPresent());
     }
 
     @Test
@@ -344,15 +343,13 @@ public class SingleSelectionPaneTest extends ApplicationTest {
     @Test
     public void decryptedDetails() throws Exception {
         moveToLoadedWithDecryption(victim);
-        assertTrue(lookup(I18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}", "0", "")).tryQuery()
-                .isPresent());
+        assertTrue(lookup(i18n().tr("Pages: {0}, PDF Version: {1}", "0", "")).tryQuery().isPresent());
     }
 
     @Test
     public void loadedDetailsSpecialChars() throws Exception {
         moveToLoadedStateWithSpecialChars(victim);
-        assertTrue(lookup(I18nContext.getInstance().i18n("Pages: {0}, PDF Version: {1}", "0", "")).tryQuery()
-                .isPresent());
+        assertTrue(lookup(i18n().tr("Pages: {0}, PDF Version: {1}", "0", "")).tryQuery().isPresent());
     }
 
     @Test
@@ -384,7 +381,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
         eventStudio().add(PdfLoadRequestEvent.class, listener);
         moveToEncrytedState(victim);
         clickOn(FontAwesomeIcon.LOCK.unicode());
-        write("pwd").clickOn(I18nContext.getInstance().i18n("Unlock"));
+        write("pwd").clickOn(i18n().tr("Unlock"));
         verify(listener, times(2)).onEvent(any());
     }
 
@@ -411,7 +408,7 @@ public class SingleSelectionPaneTest extends ApplicationTest {
         assertTrue(isEmpty(encStatus.getText()));
         var field = lookup(".validable-container-field").queryAs(ValidableTextField.class);
         field.getContextMenu().getItems().parallelStream().filter(i -> !(i instanceof SeparatorMenuItem))
-                .filter(i -> !i.getText().equals(I18nContext.getInstance().i18n("Remove")))
+                .filter(i -> !i.getText().equals(i18n().tr("Remove")))
                 .forEach(i -> assertTrue(i.isDisable()));
     }
 

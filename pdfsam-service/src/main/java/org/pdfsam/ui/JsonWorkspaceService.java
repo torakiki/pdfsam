@@ -46,10 +46,10 @@ class JsonWorkspaceService implements WorkspaceService {
     @Override
     public void saveWorkspace(Map<String, Map<String, String>> data, File destination) {
         requireNotNullArg(destination, "Destination file cannot be null");
-        LOG.debug(I18nContext.getInstance().i18n("Saving workspace data to {0}", destination.getAbsolutePath()));
+        LOG.debug(i18n().tr("Saving workspace data to {0}", destination.getAbsolutePath()));
         try {
             jackson.write(data, destination);
-            LOG.info(I18nContext.getInstance().i18n("Workspace saved"));
+            LOG.info(i18n().tr("Workspace saved"));
         } catch (Exception e) {
             // make it unchecked
             throw new RuntimeException(e);

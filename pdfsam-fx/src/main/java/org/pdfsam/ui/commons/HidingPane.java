@@ -18,25 +18,24 @@
  */
 package org.pdfsam.ui.commons;
 
-import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.ui.support.Style;
-
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.TextAlignment;
+import org.pdfsam.ui.support.Style;
+
+import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * {@link BorderPane} where the bottom area is occupied by a panel providing a "Close" button that hides the hiding panel
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
 public class HidingPane extends BorderPane {
 
     public HidingPane() {
-        Button closeButton = new Button(I18nContext.getInstance().i18n("Close"));
+        Button closeButton = new Button(i18n().tr("Close"));
         closeButton.getStyleClass().addAll(Style.BUTTON.css());
         closeButton.setTextAlignment(TextAlignment.CENTER);
         closeButton.setOnAction(e -> this.setVisible(false));

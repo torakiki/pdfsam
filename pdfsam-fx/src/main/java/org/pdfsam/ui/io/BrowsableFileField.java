@@ -63,16 +63,16 @@ public class BrowsableFileField extends BrowsableField {
     }
 
     private void init(FileType fileType, OpenType openType) {
-        setBrowseWindowTitle(I18nContext.getInstance().i18n("Select a file"));
+        setBrowseWindowTitle(i18n().tr("Select a file"));
         getBrowseButton().setOnAction(handler);
         getTextField().setOnAction(handler);
         this.fileType = ObjectUtils.defaultIfNull(fileType, FileType.ALL);
         this.openType = ObjectUtils.defaultIfNull(openType, OpenType.OPEN);
         if (FileType.ALL != fileType) {
-            getTextField().setPromptText(String.format("%s: %s", I18nContext.getInstance().i18n("Select a file"),
-                    fileType.getFilter().getExtensions()));
+            getTextField().setPromptText(
+                    String.format("%s: %s", i18n().tr("Select a file"), fileType.getFilter().getExtensions()));
         } else {
-            getTextField().setPromptText(I18nContext.getInstance().i18n("Select a file"));
+            getTextField().setPromptText(i18n().tr("Select a file"));
         }
         setOnDragOver(e -> dragConsume(e, this.onDragOverConsumer()));
         setOnDragDropped(e -> dragConsume(e, this.onDragDropped()));
@@ -93,12 +93,9 @@ public class BrowsableFileField extends BrowsableField {
     }
 
     private String buildErrorMessage(boolean selectedFileMustExists) {
-        String errorMessage = selectedFileMustExists
-                ? I18nContext.getInstance().i18n("The selected file must exist. ")
-                : "";
+        String errorMessage = selectedFileMustExists ? i18n().tr("The selected file must exist. ") : "";
         if (FileType.ALL != fileType) {
-            errorMessage += I18nContext.getInstance().i18n("Allowed extensions are {0}",
-                    fileType.getFilter().getDescription());
+            errorMessage += i18n().tr("Allowed extensions are {0}", fileType.getFilter().getDescription());
         }
         return trim(errorMessage);
     }

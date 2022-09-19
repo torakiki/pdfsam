@@ -161,7 +161,7 @@ public class PdfsamApp extends Application {
         cleanIfRequired();
         primaryStage.setScene(initScene());
         primaryStage.getIcons().addAll(injector.instancesOfType(Image.class));
-        primaryStage.setTitle(injector.instance(Pdfsam.class).name());
+        primaryStage.setTitle(injector.instance(AppBrand.class).name());
         primaryStage.setOnCloseRequest(e -> Platform.exit());
         requestPremiumModulesDescriptionIfRequired();
         initWindowsStatusController(primaryStage);
@@ -190,8 +190,8 @@ public class PdfsamApp extends Application {
     }
 
     private void initSejda() {
-        Pdfsam pdfsam = injector.instance(Pdfsam.class);
-        Sejda.CREATOR = pdfsam.shortName() + " v" + pdfsam.property(ConfigurableProperty.VERSION);
+        AppBrand appBrand = injector.instance(AppBrand.class);
+        Sejda.CREATOR = appBrand.shortName() + " v" + appBrand.property(BrandableProperty.VERSION);
     }
 
     private void startLogAppender() {
@@ -229,7 +229,7 @@ public class PdfsamApp extends Application {
 
     @Override
     public void stop() {
-        LOG.info(I18nContext.getInstance().i18n("Closing PDFsam..."));
+        LOG.info(i18n().tr("Closing PDFsam..."));
         if (nonNull(primaryStage)) {
             StageStatus status = new StageStatus(this.primaryStage.getX(), this.primaryStage.getY(),
                     this.primaryStage.getWidth(), this.primaryStage.getHeight());

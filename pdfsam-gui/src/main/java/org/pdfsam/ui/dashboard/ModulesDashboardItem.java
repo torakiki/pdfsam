@@ -52,7 +52,7 @@ class ModulesDashboardItem implements DashboardItem {
 
     @Override
     public String name() {
-        return I18nContext.getInstance().i18n("Modules");
+        return i18n().tr("Modules");
     }
 
     @Override

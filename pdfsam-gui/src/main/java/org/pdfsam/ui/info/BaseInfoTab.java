@@ -58,7 +58,7 @@ class BaseInfoTab extends Tab {
     }
 
     protected static Label createTitleLabel(String text) {
-        Label ret = new Label(I18nContext.getInstance().i18n(text) + ":");
+        Label ret = new Label(i18n().tr(text) + ":");
         ret.getStyleClass().add("info-property");
         GridPane.setHalignment(ret, HPos.RIGHT);
         GridPane.setValignment(ret, VPos.TOP);

@@ -69,7 +69,7 @@ class SAMBoxPdfLoadService implements PdfLoadService {
 
     @Override
     public void load(Collection<? extends PdfDocumentDescriptor> toLoad, RequiredPdfData... requires) {
-        LOG.debug(I18nContext.getInstance().i18n("Loading pdf documents"));
+        LOG.debug(i18n().tr("Loading pdf documents"));
         BiConsumer<PDDocument, PdfDocumentDescriptor> consumer = Arrays.stream(requires).map(consumers::get)
                 .reduce(STARTER, (r, d) -> r.andThen(d)).andThen(FINISHER);
 
@@ -93,7 +93,7 @@ class SAMBoxPdfLoadService implements PdfLoadService {
                 LOG.trace("Skipping invalidated document {}", current.getFileName());
             }
         }
-        LOG.debug(I18nContext.getInstance().i18n("Documents loaded"));
+        LOG.debug(i18n().tr("Documents loaded"));
     }
 
     private static void fxMoveStatusTo(PdfDocumentDescriptor descriptor, PdfDescriptorLoadingStatus status) {

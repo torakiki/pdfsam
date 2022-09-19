@@ -51,7 +51,7 @@ public class BrowsableFileFieldTest {
     public void defaultPromptText() {
         eventStudio().broadcast(new SetLocaleRequest(Locale.UK.toLanguageTag()));
         BrowsableFileField victim = new BrowsableFileField(FileType.ALL, OpenType.OPEN);
-        assertEquals(I18nContext.getInstance().i18n("Select a file"), victim.getTextField().getPromptText());
+        assertEquals(i18n().tr("Select a file"), victim.getTextField().getPromptText());
     }
 
     @Test

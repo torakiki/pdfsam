@@ -20,14 +20,14 @@ package org.pdfsam.update;
 
 import static java.util.Objects.nonNull;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.pdfsam.ConfigurableProperty.VERSION;
+import static org.pdfsam.BrandableProperty.VERSION;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.util.concurrent.CompletableFuture;
 
 import javax.inject.Inject;
 
-import org.pdfsam.Pdfsam;
+import org.pdfsam.AppBrand;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Auto;
@@ -44,23 +44,23 @@ import org.slf4j.LoggerFactory;
 public class UpdatesController {
     private static final Logger LOG = LoggerFactory.getLogger(UpdatesController.class);
 
-    private Pdfsam pdfsam;
+    private AppBrand appBrand;
     private UpdateService service;
 
     @Inject
-    UpdatesController(UpdateService service, Pdfsam pdfsam) {
+    UpdatesController(UpdateService service, AppBrand appBrand) {
         this.service = service;
-        this.pdfsam = pdfsam;
+        this.appBrand = appBrand;
         eventStudio().addAnnotatedListeners(this);
     }
 
     @EventListener
     public void checkForUpdates(UpdateCheckRequest event) {
-        LOG.debug(I18nContext.getInstance().i18n("Checking for updates"));
+        LOG.debug(i18n().tr("Checking for updates"));
         CompletableFuture.supplyAsync(service::getLatestVersion).thenAccept(current -> {
             if (isNotBlank(current)) {
-                if (!pdfsam.property(VERSION).equals(current)) {
-                    LOG.info(I18nContext.getInstance().i18n("PDFsam {0} is available for download", current));
+                if (!appBrand.property(VERSION).equals(current)) {
+                    LOG.info(i18n().tr("PDFsam {0} is available for download", current));
                     eventStudio().broadcast(new UpdateAvailableEvent(current));
                 } else if (event.nofityNoUpdates) {
                     eventStudio().broadcast(new NoUpdateAvailable());
@@ -68,7 +68,7 @@ public class UpdatesController {
             }
         }).whenComplete((r, e) -> {
             if (nonNull(e)) {
-                LOG.warn(I18nContext.getInstance().i18n("Unable to find the latest available version."), e);
+                LOG.warn(i18n().tr("Unable to find the latest available version."), e);
             }
         });
     }

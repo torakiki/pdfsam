@@ -43,13 +43,13 @@ import javafx.scene.input.KeyCombination;
 class AppContextMenu extends ContextMenu {
     @Inject
     AppContextMenu(WorkspaceMenu workspace, ModulesMenu modulesMenu) {
-        MenuItem exit = new MenuItem(I18nContext.getInstance().i18n("E_xit"));
+        MenuItem exit = new MenuItem(i18n().tr("E_xit"));
         exit.setOnAction(e -> Platform.exit());
         exit.setAccelerator(new KeyCodeCombination(KeyCode.Q, KeyCombination.SHORTCUT_DOWN));
         getItems().addAll(workspace, modulesMenu);
         if (!Boolean.getBoolean(PreferencesDashboardItem.PDFSAM_DISABLE_SETTINGS_DEPRECATED)
                 && !Boolean.getBoolean(PreferencesDashboardItem.PDFSAM_DISABLE_SETTINGS)) {
-            MenuItem settings = new MenuItem(I18nContext.getInstance().i18n("_Settings"));
+            MenuItem settings = new MenuItem(i18n().tr("_Settings"));
             settings.setOnAction(
                     e -> eventStudio().broadcast(new SetActiveDashboardItemRequest(PreferencesDashboardItem.ID)));
             getItems().add(settings);

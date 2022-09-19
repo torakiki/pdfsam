@@ -18,21 +18,21 @@
  */
 package org.pdfsam.ui.dashboard.about;
 
-import static org.pdfsam.ConfigurableProperty.COPYRIGHT;
-import static org.pdfsam.ConfigurableProperty.DOCUMENTATION_URL;
-import static org.pdfsam.ConfigurableProperty.DONATE_URL;
-import static org.pdfsam.ConfigurableProperty.FACEBOOK_URL;
-import static org.pdfsam.ConfigurableProperty.FEED_URL;
-import static org.pdfsam.ConfigurableProperty.HOME_LABEL;
-import static org.pdfsam.ConfigurableProperty.HOME_URL;
-import static org.pdfsam.ConfigurableProperty.LICENSE_NAME;
-import static org.pdfsam.ConfigurableProperty.LICENSE_URL;
-import static org.pdfsam.ConfigurableProperty.SCM_URL;
-import static org.pdfsam.ConfigurableProperty.SUPPORT_URL;
-import static org.pdfsam.ConfigurableProperty.TRACKER_URL;
-import static org.pdfsam.ConfigurableProperty.TRANSLATE_URL;
-import static org.pdfsam.ConfigurableProperty.TWITTER_URL;
-import static org.pdfsam.ConfigurableProperty.VERSION;
+import static org.pdfsam.BrandableProperty.COPYRIGHT;
+import static org.pdfsam.BrandableProperty.DOCUMENTATION_URL;
+import static org.pdfsam.BrandableProperty.DONATE_URL;
+import static org.pdfsam.BrandableProperty.FACEBOOK_URL;
+import static org.pdfsam.BrandableProperty.FEED_URL;
+import static org.pdfsam.BrandableProperty.HOME_LABEL;
+import static org.pdfsam.BrandableProperty.HOME_URL;
+import static org.pdfsam.BrandableProperty.LICENSE_NAME;
+import static org.pdfsam.BrandableProperty.LICENSE_URL;
+import static org.pdfsam.BrandableProperty.SCM_URL;
+import static org.pdfsam.BrandableProperty.SUPPORT_URL;
+import static org.pdfsam.BrandableProperty.TRACKER_URL;
+import static org.pdfsam.BrandableProperty.TRANSLATE_URL;
+import static org.pdfsam.BrandableProperty.TWITTER_URL;
+import static org.pdfsam.BrandableProperty.VERSION;
 import static org.pdfsam.support.io.ObjectCollectionWriter.writeContent;
 
 import java.util.Arrays;
@@ -40,7 +40,7 @@ import java.util.Arrays;
 import javax.inject.Inject;
 
 import org.apache.commons.io.FileUtils;
-import org.pdfsam.Pdfsam;
+import org.pdfsam.AppBrand;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.ui.commons.UrlButton;
 import org.pdfsam.ui.support.Style;
@@ -64,63 +64,56 @@ import javafx.scene.layout.VBox;
 public class AboutDashboardPane extends HBox {
 
     @Inject
-    public AboutDashboardPane(Pdfsam pdfsam) {
+    public AboutDashboardPane(AppBrand appBrand) {
         getStyleClass().add("dashboard-container");
         VBox left = new VBox(5);
-        addSectionTitle(pdfsam.name(), left);
-        Label copyright = new Label(pdfsam.property(COPYRIGHT));
+        addSectionTitle(appBrand.name(), left);
+        Label copyright = new Label(appBrand.property(COPYRIGHT));
         FontAwesomeIconFactory.get().setIcon(copyright, FontAwesomeIcon.COPYRIGHT);
-        left.getChildren().addAll(new Label(String.format("ver. %s", pdfsam.property(VERSION))), copyright);
-        addHyperlink(null, pdfsam.property(LICENSE_URL), pdfsam.property(LICENSE_NAME), left);
-        addHyperlink(FontAwesomeIcon.HOME, pdfsam.property(HOME_URL), pdfsam.property(HOME_LABEL), left);
-        addHyperlink(FontAwesomeIcon.RSS_SQUARE, pdfsam.property(FEED_URL),
-                I18nContext.getInstance().i18n("Subscribe to the official news feed"), left);
+        left.getChildren().addAll(new Label(String.format("ver. %s", appBrand.property(VERSION))), copyright);
+        addHyperlink(null, appBrand.property(LICENSE_URL), appBrand.property(LICENSE_NAME), left);
+        addHyperlink(FontAwesomeIcon.HOME, appBrand.property(HOME_URL), appBrand.property(HOME_LABEL), left);
+        addHyperlink(FontAwesomeIcon.RSS_SQUARE, appBrand.property(FEED_URL),
+                i18n().tr("Subscribe to the official news feed"), left);
 
-        addSectionTitle(I18nContext.getInstance().i18n("Environment"), left);
+        addSectionTitle(i18n().tr("Environment"), left);
         Label runtime = new Label(String.format("%s %s", System.getProperty("java.runtime.name"),
                 System.getProperty("java.runtime.version")));
-        Label vendor = new Label(
-                String.format(I18nContext.getInstance().i18n("Vendor: %s"), System.getProperty("java.vendor")));
-        Label runtimePath = new Label(String.format(I18nContext.getInstance().i18n("Java runtime path: %s"),
-                System.getProperty("java.home")));
-        Label fx = new Label(String.format(I18nContext.getInstance().i18n("JavaFX runtime version %s"),
-                System.getProperty("javafx.runtime.version")));
-        Label memory = new Label(I18nContext.getInstance().i18n("Max memory {0}",
-                FileUtils.byteCountToDisplaySize(Runtime.getRuntime().maxMemory())));
-        Button copyButton = new Button(I18nContext.getInstance().i18n("Copy to clipboard"));
+        Label vendor = new Label(String.format(i18n().tr("Vendor: %s"), System.getProperty("java.vendor")));
+        Label runtimePath = new Label(
+                String.format(i18n().tr("Java runtime path: %s"), System.getProperty("java.home")));
+        Label fx = new Label(
+                String.format(i18n().tr("JavaFX runtime version %s"), System.getProperty("javafx.runtime.version")));
+        Label memory = new Label(
+                i18n().tr("Max memory {0}", FileUtils.byteCountToDisplaySize(Runtime.getRuntime().maxMemory())));
+        Button copyButton = new Button(i18n().tr("Copy to clipboard"));
         FontAwesomeIconFactory.get().setIcon(copyButton, FontAwesomeIcon.COPY);
         copyButton.getStyleClass().addAll(Style.BUTTON.css());
         copyButton.setId("copyEnvDetails");
         copyButton.setOnAction(a -> {
             ClipboardContent content = new ClipboardContent();
-            writeContent(Arrays.asList(pdfsam.name(), pdfsam.property(VERSION), runtime.getText(), vendor.getText(),
+            writeContent(Arrays.asList(appBrand.name(), appBrand.property(VERSION), runtime.getText(), vendor.getText(),
                     runtimePath.getText(), fx.getText(), memory.getText())).to(content);
             Clipboard.getSystemClipboard().setContent(content);
         });
         left.getChildren().addAll(runtime, vendor, runtimePath, fx, memory, copyButton);
 
         VBox right = new VBox(5);
-        addSectionTitle(I18nContext.getInstance().i18n("Support"), right);
-        addHyperlink(FontAwesomeIcon.BUG, pdfsam.property(TRACKER_URL),
-                I18nContext.getInstance().i18n("Bug and feature requests"), right);
-        addHyperlink(FontAwesomeIcon.QUESTION_CIRCLE, pdfsam.property(SUPPORT_URL),
-                I18nContext.getInstance().i18n("Support"), right);
-        addHyperlink(FontAwesomeIcon.BOOK, pdfsam.property(DOCUMENTATION_URL),
-                I18nContext.getInstance().i18n("Documentation"), right);
+        addSectionTitle(i18n().tr("Support"), right);
+        addHyperlink(FontAwesomeIcon.BUG, appBrand.property(TRACKER_URL), i18n().tr("Bug and feature requests"), right);
+        addHyperlink(FontAwesomeIcon.QUESTION_CIRCLE, appBrand.property(SUPPORT_URL), i18n().tr("Support"), right);
+        addHyperlink(FontAwesomeIcon.BOOK, appBrand.property(DOCUMENTATION_URL), i18n().tr("Documentation"), right);
 
-        addSectionTitle(I18nContext.getInstance().i18n("Contribute"), right);
-        addHyperlink(FontAwesomeIcon.GITHUB, pdfsam.property(SCM_URL),
-                I18nContext.getInstance().i18n("Fork PDFsam on GitHub"), right);
-        addHyperlink(FontAwesomeIcon.FLAG_ALT, pdfsam.property(TRANSLATE_URL),
-                I18nContext.getInstance().i18n("Translate"), right);
-        addHyperlink(FontAwesomeIcon.DOLLAR, pdfsam.property(DONATE_URL),
-                I18nContext.getInstance().i18n("Donate"), right);
+        addSectionTitle(i18n().tr("Contribute"), right);
+        addHyperlink(FontAwesomeIcon.GITHUB, appBrand.property(SCM_URL), i18n().tr("Fork PDFsam on GitHub"), right);
+        addHyperlink(FontAwesomeIcon.FLAG_ALT, appBrand.property(TRANSLATE_URL), i18n().tr("Translate"), right);
+        addHyperlink(FontAwesomeIcon.DOLLAR, appBrand.property(DONATE_URL), i18n().tr("Donate"), right);
 
-        addSectionTitle(I18nContext.getInstance().i18n("Social"), right);
-        addHyperlink(FontAwesomeIcon.TWITTER_SQUARE, pdfsam.property(TWITTER_URL),
-                I18nContext.getInstance().i18n("Follow us on Twitter"), right);
-        addHyperlink(FontAwesomeIcon.FACEBOOK_SQUARE, pdfsam.property(FACEBOOK_URL),
-                I18nContext.getInstance().i18n("Like us on Facebook"), right);
+        addSectionTitle(i18n().tr("Social"), right);
+        addHyperlink(FontAwesomeIcon.TWITTER_SQUARE, appBrand.property(TWITTER_URL), i18n().tr("Follow us on Twitter"),
+                right);
+        addHyperlink(FontAwesomeIcon.FACEBOOK_SQUARE, appBrand.property(FACEBOOK_URL), i18n().tr("Like us on Facebook"),
+                right);
         getChildren().addAll(left, right);
     }
 

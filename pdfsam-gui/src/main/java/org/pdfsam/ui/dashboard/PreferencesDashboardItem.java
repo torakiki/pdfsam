@@ -54,7 +54,7 @@ public class PreferencesDashboardItem implements DashboardItem {
 
     @Override
     public String name() {
-        return I18nContext.getInstance().i18n("Settings");
+        return i18n().tr("Settings");
     }
 
     @Override

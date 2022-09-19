@@ -18,12 +18,14 @@
  */
 package org.pdfsam.extract;
 
-import java.util.Set;
-
 import org.pdfsam.support.params.MultiplePdfSourceMultipleOutputParametersBuilder;
 import org.sejda.model.optimization.OptimizationPolicy;
 import org.sejda.model.parameter.ExtractPagesParameters;
 import org.sejda.model.pdf.page.PageRange;
+
+import java.util.Set;
+
+import static org.pdfsam.ConfigurableSystemProperty.PDFSAM_DISABLE_SPLIT_OPTIMIZATION;
 
 /**
  * Builder for {@link ExtractPagesParameters}

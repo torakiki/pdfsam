@@ -60,10 +60,10 @@ public class BrowsableOutputDirectoryField extends BrowsableDirectoryField
             if (Files.isDirectory(output)) {
                 builder.output(directory(output.toFile()));
             } else {
-                onError.accept(I18nContext.getInstance().i18n("An existing output directory is required"));
+                onError.accept(i18n().tr("An existing output directory is required"));
             }
         } else {
-            onError.accept(I18nContext.getInstance().i18n("The output directory is required"));
+            onError.accept(i18n().tr("The output directory is required"));
         }
     }
 }

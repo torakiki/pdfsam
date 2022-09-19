@@ -51,7 +51,7 @@ public class LatestNewsController {
 
     @EventListener
     public void fetchLatestNews(FetchLatestNewsRequest event) {
-        LOG.debug(I18nContext.getInstance().i18n("Fetching latest news"));
+        LOG.debug(i18n().tr("Fetching latest news"));
         CompletableFuture.supplyAsync(service::getLatestNews).thenAcceptAsync(news -> {
             if (nonNull(news) && !news.isEmpty()) {
                 currentLatest = news.get(0).getId();
@@ -64,7 +64,7 @@ public class LatestNewsController {
             }
         }).whenComplete((r, e) -> {
             if (nonNull(e)) {
-                LOG.warn(I18nContext.getInstance().i18n("Unable to retrieve the latest news"), e);
+                LOG.warn(i18n().tr("Unable to retrieve the latest news"), e);
             }
         });
     }

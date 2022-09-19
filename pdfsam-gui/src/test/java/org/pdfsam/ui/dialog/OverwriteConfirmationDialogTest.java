@@ -82,7 +82,7 @@ public class OverwriteConfirmationDialogTest extends ApplicationTest {
         clickOn("show");
         assertTrue(lookup("MessageTitle").tryQuery().isPresent());
         assertTrue(lookup("MessageContent").tryQuery().isPresent());
-        clickOn(I18nContext.getInstance().i18n("Cancel"));
+        clickOn(i18n().tr("Cancel"));
     }
 
     @Test
@@ -90,7 +90,7 @@ public class OverwriteConfirmationDialogTest extends ApplicationTest {
     public void cancel() {
         response = Optional.empty();
         clickOn("show");
-        clickOn(I18nContext.getInstance().i18n("Cancel"));
+        clickOn(i18n().tr("Cancel"));
         assertTrue(response.isEmpty());
     }
 

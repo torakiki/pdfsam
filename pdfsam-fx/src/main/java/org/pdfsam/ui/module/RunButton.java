@@ -43,7 +43,7 @@ public class RunButton extends Button {
 
     public RunButton() {
         getStyleClass().addAll(Style.RUN_BUTTON.css());
-        setText(I18nContext.getInstance().i18n("Run"));
+        setText(i18n().tr("Run"));
         MaterialDesignIconFactory.get().setIcon(this, MaterialDesignIcon.PLAY, "2.0em");
         setMaxHeight(Double.MAX_VALUE);
         setPrefHeight(Double.MAX_VALUE);

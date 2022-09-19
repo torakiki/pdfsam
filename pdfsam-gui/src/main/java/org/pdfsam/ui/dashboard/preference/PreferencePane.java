@@ -43,15 +43,15 @@ public class PreferencePane extends HBox {
         getStyleClass().add("dashboard-container");
         VBox left = new VBox(Style.DEFAULT_SPACING);
         left.setMinWidth(USE_PREF_SIZE);
-        addSectionTitle(I18nContext.getInstance().i18n("Appearance"), left);
+        addSectionTitle(i18n().tr("Appearance"), left);
         left.getChildren().add(appearence);
-        addSectionTitle(I18nContext.getInstance().i18n("Behavior"), left);
+        addSectionTitle(i18n().tr("Behavior"), left);
         left.getChildren().add(behavior);
         VBox right = new VBox(Style.DEFAULT_SPACING);
         HBox.setHgrow(right, Priority.ALWAYS);
-        addSectionTitle(I18nContext.getInstance().i18n("Workspace"), right);
+        addSectionTitle(i18n().tr("Workspace"), right);
         right.getChildren().add(workspace);
-        addSectionTitle(I18nContext.getInstance().i18n("Output"), right);
+        addSectionTitle(i18n().tr("Output"), right);
         right.getChildren().add(output);
         getChildren().addAll(left, right);
     }

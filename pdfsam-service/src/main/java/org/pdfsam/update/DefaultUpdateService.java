@@ -58,7 +58,7 @@ class DefaultUpdateService implements UpdateService {
             }
             return JSON.std.mapFrom(jsonSource).getOrDefault(CURRENT_VERSION_KEY, "").toString();
         } catch (IOException e) {
-            LOG.warn(I18nContext.getInstance().i18n("Unable to find the latest available version."), e);
+            LOG.warn(i18n().tr("Unable to find the latest available version."), e);
         }
         return EMPTY;
     }

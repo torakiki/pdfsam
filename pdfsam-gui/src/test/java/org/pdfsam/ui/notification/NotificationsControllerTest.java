@@ -33,8 +33,8 @@ import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
-import org.pdfsam.ConfigurableProperty;
-import org.pdfsam.Pdfsam;
+import org.pdfsam.BrandableProperty;
+import org.pdfsam.AppBrand;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.module.UsageService;
 import org.pdfsam.news.NewImportantNewsEvent;
@@ -67,14 +67,14 @@ public class NotificationsControllerTest {
     public void setUp() {
         service = mock(UsageService.class);
         container = mock(NotificationsContainer.class);
-        Pdfsam pdfsam = mock(Pdfsam.class);
+        AppBrand appBrand = mock(AppBrand.class);
         context = mock(UserContext.class);
-        when(pdfsam.property(ConfigurableProperty.DOWNLOAD_URL)).thenReturn("http://www.pdfsam.org");
-        when(pdfsam.property(ConfigurableProperty.DONATE_URL)).thenReturn("http://www.pdfsam.org");
-        when(pdfsam.property(ConfigurableProperty.TWEETER_SHARE_URL)).thenReturn("http://www.pdfsam.org");
-        when(pdfsam.property(ConfigurableProperty.FACEBOOK_SHARE_URL)).thenReturn("http://www.pdfsam.org");
+        when(appBrand.property(BrandableProperty.DOWNLOAD_URL)).thenReturn("http://www.pdfsam.org");
+        when(appBrand.property(BrandableProperty.DONATE_URL)).thenReturn("http://www.pdfsam.org");
+        when(appBrand.property(BrandableProperty.TWEETER_SHARE_URL)).thenReturn("http://www.pdfsam.org");
+        when(appBrand.property(BrandableProperty.FACEBOOK_SHARE_URL)).thenReturn("http://www.pdfsam.org");
         when(context.isDonationNotification()).thenReturn(true);
-        victim = new NotificationsController(container, service, pdfsam, context);
+        victim = new NotificationsController(container, service, appBrand, context);
     }
 
     @Test

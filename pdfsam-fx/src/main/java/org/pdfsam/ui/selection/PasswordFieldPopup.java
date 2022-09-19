@@ -86,9 +86,9 @@ public class PasswordFieldPopup extends PopupControl implements ToolBound {
 
         public PasswordFieldPopupContent() {
             getStyleClass().setAll("pdfsam-input-password-content");
-            passwordField.setPromptText(I18nContext.getInstance().i18n("Enter the user password"));
-            Button doneButton = FontAwesomeIconFactory.get().createIconButton(FontAwesomeIcon.UNLOCK,
-                    I18nContext.getInstance().i18n("Unlock"));
+            passwordField.setPromptText(i18n().tr("Enter the user password"));
+            Button doneButton = FontAwesomeIconFactory.get()
+                    .createIconButton(FontAwesomeIcon.UNLOCK, i18n().tr("Unlock"));
             doneButton.getStyleClass().addAll(Style.BUTTON.css());
             doneButton.prefHeightProperty().bind(passwordField.heightProperty());
             doneButton.setMaxHeight(USE_PREF_SIZE);

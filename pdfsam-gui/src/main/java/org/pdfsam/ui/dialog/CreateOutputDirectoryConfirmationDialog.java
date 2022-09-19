@@ -32,11 +32,10 @@ public class CreateOutputDirectoryConfirmationDialog extends ConfirmationDialog 
 
     @Inject
     public CreateOutputDirectoryConfirmationDialog(StylesConfig styles) {
-        super(styles, DialogStyle.QUESTION, I18nContext.getInstance().i18n("Yes"),
-                I18nContext.getInstance().i18n("No"));
-        this.title(I18nContext.getInstance().i18n("Non existing directory"))
-                .messageTitle(I18nContext.getInstance().i18n("The selected output directory does not exist"))
-                .messageContent(I18nContext.getInstance().i18n("Do you want to create it?"));
+        super(styles, DialogStyle.QUESTION, i18n().tr("Yes"), i18n().tr("No"));
+        this.title(i18n().tr("Non existing directory"))
+                .messageTitle(i18n().tr("The selected output directory does not exist"))
+                .messageContent(i18n().tr("Do you want to create it?"));
     }
 
 }

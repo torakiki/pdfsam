@@ -72,9 +72,8 @@ public class ExtractTool extends BaseTaskExecutionTool {
     private PrefixPane prefix;
 
     private ToolDescriptor descriptor = builder().category(ToolCategory.SPLIT)
-            .inputTypes(ToolInputOutputType.MULTIPLE_PDF, ToolInputOutputType.SINGLE_PDF)
-            .name(I18nContext.getInstance().i18n("Extract"))
-            .description(I18nContext.getInstance().i18n("Extract pages from PDF documents."))
+            .inputTypes(ToolInputOutputType.MULTIPLE_PDF, ToolInputOutputType.SINGLE_PDF).name(i18n().tr("Extract"))
+            .description(i18n().tr("Extract pages from PDF documents."))
             .priority(ToolPriority.DEFAULT.getPriority()).supportURL("https://pdfsam.org/pdf-extract-pages/")
             .build();
 
@@ -133,14 +132,12 @@ public class ExtractTool extends BaseTaskExecutionTool {
         pane.setAlignment(Pos.TOP_CENTER);
         VBox.setVgrow(selectionPane, Priority.ALWAYS);
 
-        TitledPane prefixTitled = Views.titledPane(I18nContext.getInstance().i18n("File names settings"),
-                prefix);
+        TitledPane prefixTitled = Views.titledPane(i18n().tr("File names settings"), prefix);
         prefix.addMenuItemFor(Prefix.FILENUMBER);
         prefix.addMenuItemFor("[TOTAL_FILESNUMBER]");
 
-        pane.getChildren().addAll(selectionPane,
-                titledPane(I18nContext.getInstance().i18n("Extract settings"), extractOptions),
-                titledPane(I18nContext.getInstance().i18n("Output settings"), destinationPane), prefixTitled);
+        pane.getChildren().addAll(selectionPane, titledPane(i18n().tr("Extract settings"), extractOptions),
+                titledPane(i18n().tr("Output settings"), destinationPane), prefixTitled);
         return pane;
     }
 

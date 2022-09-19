@@ -51,7 +51,7 @@ class InfoStage extends Stage {
         scene.getStylesheets().addAll(styles.styles());
         scene.setOnKeyReleased(new HideOnEscapeHandler(this));
         setScene(scene);
-        setTitle(I18nContext.getInstance().i18n("Document details"));
+        setTitle(i18n().tr("Document details"));
         getIcons().addAll(logos);
         setMaximized(true);
     }

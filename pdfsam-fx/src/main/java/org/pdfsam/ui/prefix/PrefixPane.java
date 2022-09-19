@@ -62,12 +62,9 @@ public class PrefixPane extends HBox
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.HCONTAINER.css());
         I18nContext ctx = I18nContext.getInstance();
-        getChildren().addAll(new Label(I18nContext.getInstance().i18n("Generated PDF documents name prefix:")),
-                field,
-                        helpIcon(new TextFlow(
-                                new Text(ctx.i18n("Prefix for the output files name.") + System.lineSeparator()),
-                                new Text(ctx.i18n("Some special keywords are replaced with runtime values.")
-                                        + System.lineSeparator()),
+        getChildren().addAll(new Label(i18n().tr("Generated PDF documents name prefix:")), field, helpIcon(
+                new TextFlow(new Text(ctx.i18n("Prefix for the output files name.") + System.lineSeparator()), new Text(
+                        ctx.i18n("Some special keywords are replaced with runtime values.") + System.lineSeparator()),
                         new Text(ctx.i18n("Right click to add these keywords.")))));
         eventStudio().add(TaskExecutionRequestEvent.class, e -> {
             if (ownerModule.equals(e.getModuleId())) {

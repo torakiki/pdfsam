@@ -104,7 +104,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
             "application/x-java-table-selection-list");
 
     private String ownerModule = StringUtils.EMPTY;
-    private Label placeHolder = new Label(I18nContext.getInstance().i18n("Drag and drop PDF files here"));
+    private Label placeHolder = new Label(i18n().tr("Drag and drop PDF files here"));
     private PasswordFieldPopup passwordPopup;
     private Consumer<SelectionChangedEvent> selectionChangedConsumer;
 
@@ -146,8 +146,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     }
 
     private void initTopSectionContextMenu(ContextMenu contextMenu, boolean hasRanges) {
-        MenuItem setDestinationItem = createMenuItem(I18nContext.getInstance().i18n("Set destination"),
-                MaterialDesignIcon.AIRPLANE_LANDING);
+        MenuItem setDestinationItem = createMenuItem(i18n().tr("Set destination"), MaterialDesignIcon.AIRPLANE_LANDING);
         setDestinationItem.setOnAction(e -> eventStudio().broadcast(
                 requestDestination(getSelectionModel().getSelectedItem().descriptor().getFile(), toolBinding()),
                 toolBinding()));
@@ -157,7 +156,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         contextMenu.getItems().add(setDestinationItem);
 
         if (hasRanges) {
-            MenuItem setPageRangesItem = createMenuItem(I18nContext.getInstance().i18n("Set as range for all"),
+            MenuItem setPageRangesItem = createMenuItem(i18n().tr("Set as range for all"),
                     MaterialDesignIcon.FORMAT_INDENT_INCREASE);
             setPageRangesItem.setOnAction(e -> eventStudio().broadcast(
                     new SetPageRangesRequest(getSelectionModel().getSelectedItem().pageSelection.get()),
@@ -172,29 +171,25 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     private void initItemsSectionContextMenu(ContextMenu contextMenu, boolean canDuplicate, boolean canMove) {
 
-        MenuItem removeSelected = createMenuItem(I18nContext.getInstance().i18n("Remove"),
-                MaterialDesignIcon.MINUS);
+        MenuItem removeSelected = createMenuItem(i18n().tr("Remove"), MaterialDesignIcon.MINUS);
         removeSelected.setOnAction(e -> eventStudio().broadcast(new RemoveSelectedEvent(), toolBinding()));
         removeSelected.setAccelerator(new KeyCodeCombination(KeyCode.DELETE));
         contextMenu.getItems().add(removeSelected);
         selectionChangedConsumer = selectionChangedConsumer
                 .andThen(e -> removeSelected.setDisable(e.isClearSelection()));
         if (canMove) {
-            MenuItem moveTopSelected = createMenuItem(I18nContext.getInstance().i18n("Move to Top"),
-                    MaterialDesignIcon.CHEVRON_DOUBLE_UP);
+            MenuItem moveTopSelected = createMenuItem(i18n().tr("Move to Top"), MaterialDesignIcon.CHEVRON_DOUBLE_UP);
             moveTopSelected.setOnAction(
                     e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.TOP), toolBinding()));
 
-            MenuItem moveUpSelected = createMenuItem(I18nContext.getInstance().i18n("Move Up"),
-                    MaterialDesignIcon.CHEVRON_UP);
+            MenuItem moveUpSelected = createMenuItem(i18n().tr("Move Up"), MaterialDesignIcon.CHEVRON_UP);
             moveUpSelected.setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.UP), toolBinding()));
 
-            MenuItem moveDownSelected = createMenuItem(I18nContext.getInstance().i18n("Move Down"),
-                    MaterialDesignIcon.CHEVRON_DOWN);
+            MenuItem moveDownSelected = createMenuItem(i18n().tr("Move Down"), MaterialDesignIcon.CHEVRON_DOWN);
             moveDownSelected.setOnAction(
                     e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.DOWN), toolBinding()));
 
-            MenuItem moveBottomSelected = createMenuItem(I18nContext.getInstance().i18n("Move to Bottom"),
+            MenuItem moveBottomSelected = createMenuItem(i18n().tr("Move to Bottom"),
                     MaterialDesignIcon.CHEVRON_DOUBLE_DOWN);
             moveBottomSelected.setOnAction(
                     e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.BOTTOM), toolBinding()));
@@ -214,8 +209,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
             });
         }
         if (canDuplicate) {
-            MenuItem duplicateItem = createMenuItem(I18nContext.getInstance().i18n("Duplicate"),
-                    MaterialDesignIcon.CONTENT_DUPLICATE);
+            MenuItem duplicateItem = createMenuItem(i18n().tr("Duplicate"), MaterialDesignIcon.CONTENT_DUPLICATE);
             duplicateItem.setOnAction(e -> eventStudio().broadcast(new DuplicateSelectedEvent(), toolBinding()));
             duplicateItem.setAccelerator(new KeyCodeCombination(KeyCode.DIGIT2, KeyCombination.ALT_DOWN));
 
@@ -228,21 +222,18 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     private void initBottomSectionContextMenu(ContextMenu contextMenu) {
 
-        MenuItem copyItem = createMenuItem(I18nContext.getInstance().i18n("Copy to clipboard"),
-                MaterialDesignIcon.CONTENT_COPY);
+        MenuItem copyItem = createMenuItem(i18n().tr("Copy to clipboard"), MaterialDesignIcon.CONTENT_COPY);
         copyItem.setOnAction(e -> copySelectedToClipboard());
 
-        MenuItem infoItem = createMenuItem(I18nContext.getInstance().i18n("Document properties"),
-                MaterialDesignIcon.INFORMATION_OUTLINE);
+        MenuItem infoItem = createMenuItem(i18n().tr("Document properties"), MaterialDesignIcon.INFORMATION_OUTLINE);
         infoItem.setOnAction(e -> Platform.runLater(() -> eventStudio().broadcast(
                 new ShowPdfDescriptorRequest(getSelectionModel().getSelectedItem().descriptor()))));
 
-        MenuItem openFileItem = createMenuItem(I18nContext.getInstance().i18n("Open"), MaterialDesignIcon.FILE_PDF_BOX);
+        MenuItem openFileItem = createMenuItem(i18n().tr("Open"), MaterialDesignIcon.FILE_PDF_BOX);
         openFileItem.setOnAction(e -> eventStudio().broadcast(
                 new NativeOpenFileRequest(getSelectionModel().getSelectedItem().descriptor().getFile())));
 
-        MenuItem openFolderItem = createMenuItem(I18nContext.getInstance().i18n("Open Folder"),
-                MaterialDesignIcon.FOLDER_OUTLINE);
+        MenuItem openFolderItem = createMenuItem(i18n().tr("Open Folder"), MaterialDesignIcon.FOLDER_OUTLINE);
         openFolderItem.setOnAction(e -> eventStudio().broadcast(new NativeOpenFileRequest(
                 getSelectionModel().getSelectedItem().descriptor().getFile().getParentFile())));
 

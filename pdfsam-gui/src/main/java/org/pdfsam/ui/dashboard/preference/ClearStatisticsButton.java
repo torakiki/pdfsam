@@ -37,7 +37,7 @@ import javafx.scene.control.Button;
 class ClearStatisticsButton extends Button {
 
     ClearStatisticsButton() {
-        super(I18nContext.getInstance().i18n("Clear usage statistics"));
+        super(i18n().tr("Clear usage statistics"));
         getStyleClass().addAll(Style.BUTTON.css());
         setOnAction(e -> eventStudio().broadcast(new ClearUsageRequestEvent()));
     }

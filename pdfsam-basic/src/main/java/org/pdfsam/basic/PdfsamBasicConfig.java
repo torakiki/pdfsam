@@ -24,8 +24,8 @@ import java.net.URL;
 
 import javax.inject.Named;
 
-import org.pdfsam.ConfigurableProperty;
-import org.pdfsam.Pdfsam;
+import org.pdfsam.AppBrand;
+import org.pdfsam.BrandableProperty;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.injector.Prototype;
 import org.pdfsam.injector.Provides;
@@ -87,14 +87,14 @@ public class PdfsamBasicConfig {
 
     @Provides
     @Auto
-    public Pdfsam pdfsam() throws IOException {
+    public AppBrand pdfsam() throws IOException {
         return new PdfsamBasic("PDF Split and Merge Basic Edition", "PDFsam Basic");
     }
 
     @Provides
     @Named("updatesUrl")
-    public Object updatesUrl(Pdfsam pdfsam) throws MalformedURLException {
+    public Object updatesUrl(AppBrand appBrand) throws MalformedURLException {
         return new URL(String.format("http://www.pdfsam.org/current-version?c=%s",
-                pdfsam.property(ConfigurableProperty.VERSION)));
+                appBrand.property(BrandableProperty.VERSION)));
     }
 }

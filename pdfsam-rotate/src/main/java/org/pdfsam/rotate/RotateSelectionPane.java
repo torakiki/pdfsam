@@ -60,7 +60,7 @@ public class RotateSelectionPane extends MultipleSelectionPane
             table().getItems().stream().filter(s -> !Objects.equals("0", trim(s.pageSelection.get())))
                     .forEach(i -> builder.addInput(i.descriptor().toPdfFileSource(), i.toPageRangeSet()));
             if (!builder.hasInput()) {
-                onError.accept(I18nContext.getInstance().i18n("No PDF document has been selected"));
+                onError.accept(i18n().tr("No PDF document has been selected"));
             }
         } catch (ConversionException e) {
             LOG.error(e.getMessage());

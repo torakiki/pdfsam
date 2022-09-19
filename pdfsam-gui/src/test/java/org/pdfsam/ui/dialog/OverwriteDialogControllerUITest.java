@@ -97,7 +97,7 @@ public class OverwriteDialogControllerUITest extends ApplicationTest {
         parameters.setOutput(new FileTaskOutput(file));
         button.setOnAction(a -> eventStudio().broadcast(new TaskExecutionRequestEvent("id", parameters)));
         clickOn(button);
-        clickOn(I18nContext.getInstance().i18n("Cancel"));
+        clickOn(i18n().tr("Cancel"));
         assertEquals(ExistingOutputPolicy.FAIL, parameters.getExistingOutputPolicy());
     }
 
@@ -110,7 +110,7 @@ public class OverwriteDialogControllerUITest extends ApplicationTest {
         parameters.setOutput(new FileTaskOutput(file));
         button.setOnAction(a -> eventStudio().broadcast(new TaskExecutionRequestEvent("id", parameters)));
         clickOn(button);
-        clickOn(I18nContext.getInstance().i18n("Overwrite"));
+        clickOn(i18n().tr("Overwrite"));
         assertEquals(ExistingOutputPolicy.OVERWRITE, parameters.getExistingOutputPolicy());
     }
 
@@ -123,7 +123,7 @@ public class OverwriteDialogControllerUITest extends ApplicationTest {
         parameters.setOutput(FileOrDirectoryTaskOutput.directory(folder.getRoot()));
         button.setOnAction(a -> eventStudio().broadcast(new TaskExecutionRequestEvent("id", parameters)));
         clickOn(button);
-        clickOn(I18nContext.getInstance().i18n("Cancel"));
+        clickOn(i18n().tr("Cancel"));
         assertEquals(ExistingOutputPolicy.FAIL, parameters.getExistingOutputPolicy());
     }
 
@@ -136,7 +136,7 @@ public class OverwriteDialogControllerUITest extends ApplicationTest {
         parameters.setOutput(FileOrDirectoryTaskOutput.directory(folder.getRoot()));
         button.setOnAction(a -> eventStudio().broadcast(new TaskExecutionRequestEvent("id", parameters)));
         clickOn(button);
-        clickOn(I18nContext.getInstance().i18n("Overwrite"));
+        clickOn(i18n().tr("Overwrite"));
         assertEquals(ExistingOutputPolicy.OVERWRITE, parameters.getExistingOutputPolicy());
     }
 }

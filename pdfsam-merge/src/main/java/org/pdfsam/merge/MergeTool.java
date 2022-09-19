@@ -65,8 +65,8 @@ public class MergeTool extends BaseTaskExecutionTool {
     private BrowsablePdfOutputField destinationFileField;
     private PdfDestinationPane destinationPane;
     private ToolDescriptor descriptor = builder().category(ToolCategory.MERGE)
-            .inputTypes(ToolInputOutputType.MULTIPLE_PDF).name(I18nContext.getInstance().i18n("Merge")).description(
-                    I18nContext.getInstance().i18n("Merge together multiple PDF documents or subsections of them."))
+            .inputTypes(ToolInputOutputType.MULTIPLE_PDF).name(i18n().tr("Merge"))
+            .description(i18n().tr("Merge together multiple PDF documents or subsections of them."))
             .priority(ToolPriority.HIGH.getPriority()).supportURL("https://pdfsam.org/pdf-merge/")
             .build();
 
@@ -115,9 +115,8 @@ public class MergeTool extends BaseTaskExecutionTool {
         pane.setAlignment(Pos.TOP_CENTER);
         VBox.setVgrow(selectionPane, Priority.ALWAYS);
 
-        pane.getChildren().addAll(selectionPane,
-                titledPane(I18nContext.getInstance().i18n("Merge settings"), mergeOptions),
-                titledPane(I18nContext.getInstance().i18n("Destination file"), destinationPane));
+        pane.getChildren().addAll(selectionPane, titledPane(i18n().tr("Merge settings"), mergeOptions),
+                titledPane(i18n().tr("Destination file"), destinationPane));
         return pane;
     }
 

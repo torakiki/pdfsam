@@ -45,7 +45,7 @@ public class StylesConfig {
 
     public StylesConfig(Theme theme) {
         requireNotNullArg(theme, "Theme cannot be null");
-        LOG.debug(I18nContext.getInstance().i18n("Installing theme {0}.", theme.friendlyName()));
+        LOG.debug(i18n().tr("Installing theme {0}.", theme.friendlyName()));
         theme.styleSheets().stream().map(s -> this.getClass().getResource(s).toExternalForm()).forEach(styles::add);
         //styles.add(this.getClass().getResource(GlyphsStyle.DEFAULT.getStylePath()).toExternalForm());
         if (!Platform.isSupported(ConditionalFeature.TRANSPARENT_WINDOW)) {

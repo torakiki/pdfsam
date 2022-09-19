@@ -27,8 +27,8 @@ import java.security.SecureRandom;
 import javax.inject.Inject;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.pdfsam.ConfigurableProperty;
-import org.pdfsam.Pdfsam;
+import org.pdfsam.AppBrand;
+import org.pdfsam.BrandableProperty;
 import org.pdfsam.context.UserContext;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Auto;
@@ -62,16 +62,16 @@ public class NotificationsController {
 
     private NotificationsContainer container;
     private UsageService service;
-    private Pdfsam pdfsam;
+    private AppBrand appBrand;
     private UserContext userContext;
     private SecureRandom random = new SecureRandom();
 
     @Inject
-    NotificationsController(NotificationsContainer container, UsageService service, Pdfsam pdfsam,
+    NotificationsController(NotificationsContainer container, UsageService service, AppBrand appBrand,
             UserContext userContext) {
         this.container = container;
         this.service = service;
-        this.pdfsam = pdfsam;
+        this.appBrand = appBrand;
         this.userContext = userContext;
         eventStudio().addAnnotatedListeners(this);
     }
@@ -94,18 +94,15 @@ public class NotificationsController {
     @EventListener
     public void onTaskFailed(TaskExecutionFailedEvent e) {
         if (e.getFailingCause() instanceof InvalidTaskParametersException) {
-            container.addNotification(I18nContext.getInstance().i18n("Invalid parameters"),
-                    buildLabel(
-                            I18nContext.getInstance()
-                                    .i18n("Input parameters are invalid, open the application messages for details."),
-                            NotificationType.ERROR));
+            container.addNotification(i18n().tr("Invalid parameters"), buildLabel(I18nContext.getInstance()
+                            .i18n("Input parameters are invalid, open the application messages for details."),
+                    NotificationType.ERROR));
         }
         Throwable root = ExceptionUtils.getRootCause(e.getFailingCause());
         if (root instanceof AccessDeniedException) {
-            container.addNotification(I18nContext.getInstance().i18n("Access denied"),
-                    buildLabel(I18nContext.getInstance().i18n(
-                            "Unable to access \"{0}\", please make sure you have write permissions or open the application messages for details.",
-                            ((AccessDeniedException) root).getFile()), NotificationType.ERROR));
+            container.addNotification(i18n().tr("Access denied"), buildLabel(i18n().tr(
+                    "Unable to access \"{0}\", please make sure you have write permissions or open the application messages for details.",
+                    ((AccessDeniedException) root).getFile()), NotificationType.ERROR));
         }
     }
 
@@ -123,29 +120,28 @@ public class NotificationsController {
 
     private void addDonationNotification(long usages) {
         VBox content = new VBox(3,
-                buildLabel(I18nContext.getInstance().i18n("You performed {0} tasks with PDFsam, did it help?",
-                        Long.toString(usages)), NotificationType.GO_PRO),
-                styledUrlButton(I18nContext.getInstance().i18n("Give something back"),
-                        pdfsam.property(ConfigurableProperty.DONATE_URL), null));
+                buildLabel(i18n().tr("You performed {0} tasks with PDFsam, did it help?", Long.toString(usages)),
+                        NotificationType.GO_PRO),
+                styledUrlButton(i18n().tr("Give something back"), appBrand.property(BrandableProperty.DONATE_URL),
+                        null));
         content.setAlignment(Pos.TOP_RIGHT);
 
-        container.addStickyNotification(I18nContext.getInstance().i18n("PDFsam worked hard!"), content);
+        container.addStickyNotification(i18n().tr("PDFsam worked hard!"), content);
     }
 
     private void addShareNotification(long usages) {
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
         VBox content = new VBox(3,
-                buildLabel(I18nContext.getInstance().i18n("You performed {0} tasks with PDFsam, did it help?",
-                        Long.toString(usages)), NotificationType.SHARE),
-                new HBox(3, spacer,
-                        styledUrlButton(null, pdfsam.property(ConfigurableProperty.FACEBOOK_SHARE_URL),
-                                FontAwesomeIcon.FACEBOOK),
-                        styledUrlButton(I18nContext.getInstance().i18n("Spread the word!"),
-                                pdfsam.property(ConfigurableProperty.TWEETER_SHARE_URL), FontAwesomeIcon.TWITTER)));
+                buildLabel(i18n().tr("You performed {0} tasks with PDFsam, did it help?", Long.toString(usages)),
+                        NotificationType.SHARE), new HBox(3, spacer,
+                styledUrlButton(null, appBrand.property(BrandableProperty.FACEBOOK_SHARE_URL),
+                        FontAwesomeIcon.FACEBOOK),
+                styledUrlButton(i18n().tr("Spread the word!"), appBrand.property(BrandableProperty.TWEETER_SHARE_URL),
+                        FontAwesomeIcon.TWITTER)));
         content.setAlignment(Pos.TOP_RIGHT);
 
-        container.addStickyNotification(I18nContext.getInstance().i18n("PDFsam worked hard!"), content);
+        container.addStickyNotification(i18n().tr("PDFsam worked hard!"), content);
     }
 
     @EventListener
@@ -155,30 +151,27 @@ public class NotificationsController {
 
     @EventListener
     public void onUpdateAvailable(UpdateAvailableEvent event) {
-        VBox content = new VBox(3,
-                buildLabel(I18nContext.getInstance().i18n("PDFsam {0} is available for download",
-                        event.availableVersion), NotificationType.INFO),
-                styledUrlButton(I18nContext.getInstance().i18n("Download"),
-                        pdfsam.property(ConfigurableProperty.DOWNLOAD_URL), null));
+        VBox content = new VBox(3, buildLabel(i18n().tr("PDFsam {0} is available for download", event.availableVersion),
+                NotificationType.INFO),
+                styledUrlButton(i18n().tr("Download"), appBrand.property(BrandableProperty.DOWNLOAD_URL), null));
         content.setAlignment(Pos.TOP_RIGHT);
 
-        container.addStickyNotification(I18nContext.getInstance().i18n("New version available"), content);
+        container.addStickyNotification(i18n().tr("New version available"), content);
     }
 
     @EventListener
     public void onNoUpdateAvailable(NoUpdateAvailable event) {
-        VBox content = new VBox(3, buildLabel(
-                I18nContext.getInstance().i18n("You are running the latest version of PDFsam Basic"),
-                NotificationType.INFO));
+        VBox content = new VBox(3,
+                buildLabel(i18n().tr("You are running the latest version of PDFsam Basic"), NotificationType.INFO));
         content.setAlignment(Pos.TOP_RIGHT);
 
-        container.addNotification(I18nContext.getInstance().i18n("No update"), content);
+        container.addNotification(i18n().tr("No update"), content);
     }
 
     @EventListener
     public void onNewImportantNews(NewImportantNewsEvent event) {
-        VBox content = new VBox(3, buildLabel(event.news.getContent(), null), styledUrlButton(
-                I18nContext.getInstance().i18n("Open"), event.news.getLink(), FontAwesomeIcon.EXTERNAL_LINK));
+        VBox content = new VBox(3, buildLabel(event.news.getContent(), null),
+                styledUrlButton(i18n().tr("Open"), event.news.getLink(), FontAwesomeIcon.EXTERNAL_LINK));
         content.setAlignment(Pos.TOP_RIGHT);
 
         container.addStickyNotification(event.news.getTitle(), content);

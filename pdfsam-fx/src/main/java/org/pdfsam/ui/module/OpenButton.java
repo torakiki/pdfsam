@@ -78,7 +78,7 @@ public class OpenButton extends SplitMenuButton implements TaskOutputDispatcher 
         setId(ownerModule + ".openButton");
         getStyleClass().addAll(Style.BUTTON.css());
         getStyleClass().addAll("pdfsam-split-button", "footer-open-button");
-        setText(I18nContext.getInstance().i18n("Open"));
+        setText(i18n().tr("Open"));
         setMaxHeight(Double.MAX_VALUE);
         setPrefHeight(Double.MAX_VALUE);
         setVisible(false);

@@ -53,7 +53,7 @@ public class PageRangesColumn implements SelectionTableColumn<String> {
 
     @Override
     public String getColumnTitle() {
-        return I18nContext.getInstance().i18n("Page ranges");
+        return i18n().tr("Page ranges");
     }
 
     @Override

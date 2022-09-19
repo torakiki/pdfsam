@@ -18,24 +18,23 @@
  */
 package org.pdfsam.premium;
 
-import static org.pdfsam.support.io.NetUtils.urlToStream;
-import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
+import com.fasterxml.jackson.jr.ob.JSON;
+import com.fasterxml.jackson.jr.ob.JSON.Feature;
+import org.pdfsam.AppBrand;
+import org.pdfsam.BrandableProperty;
+import org.pdfsam.i18n.I18nContext;
+import org.pdfsam.model.premium.PremiumModule;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import javax.inject.Inject;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Collections;
 import java.util.List;
 
-import javax.inject.Inject;
-
-import org.pdfsam.ConfigurableProperty;
-import org.pdfsam.Pdfsam;
-import org.pdfsam.i18n.I18nContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.fasterxml.jackson.jr.ob.JSON;
-import com.fasterxml.jackson.jr.ob.JSON.Feature;
+import static org.pdfsam.support.io.NetUtils.urlToStream;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 /**
  * @author Andrea Vacondio
@@ -44,23 +43,22 @@ import com.fasterxml.jackson.jr.ob.JSON.Feature;
 public class DefaultPremiumModulesService implements PremiumModulesService {
 
     private static final Logger LOG = LoggerFactory.getLogger(DefaultPremiumModulesService.class);
-    private Pdfsam pdfsam;
+    private AppBrand appBrand;
     private JSON jackson = new JSON().without(Feature.USE_FIELDS).with(Feature.READ_ONLY, true);
 
     @Inject
-    DefaultPremiumModulesService(Pdfsam pdfsam) {
-        requireNotNullArg(pdfsam, "Application info cannot be null");
-        this.pdfsam = pdfsam;
+    DefaultPremiumModulesService(AppBrand appBrand) {
+        requireNotNullArg(appBrand, "Application info cannot be null");
+        this.appBrand = appBrand;
     }
 
     @Override
     public List<PremiumModule> getPremiumModules() {
         try {
-            return jackson.listOfFrom(
-                    PremiumModule.class,
-                    urlToStream(new URL(pdfsam.property(ConfigurableProperty.PREMIUM_MODULES_URL))));
+            return jackson.listOfFrom(PremiumModule.class,
+                    urlToStream(new URL(appBrand.property(BrandableProperty.PREMIUM_TOOLS_URL))));
         } catch (IOException e) {
-            LOG.warn(I18nContext.getInstance().i18n("Unable to retrieve premium features description"), e);
+            LOG.warn(i18n().tr("Unable to retrieve premium features description"), e);
         }
         return Collections.emptyList();
     }

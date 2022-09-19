@@ -54,19 +54,19 @@ class WorkspaceMenu extends Menu {
 
     @Inject
     public WorkspaceMenu(RecentWorkspacesService service) {
-        super(I18nContext.getInstance().i18n("_Workspace"));
+        super(i18n().tr("_Workspace"));
         this.service = service;
         setId("workspaceMenu");
-        MenuItem load = new MenuItem(I18nContext.getInstance().i18n("_Load"));
+        MenuItem load = new MenuItem(i18n().tr("_Load"));
         load.setId("loadWorkspace");
         load.setOnAction(e -> loadWorkspace());
-        MenuItem save = new MenuItem(I18nContext.getInstance().i18n("_Save"));
+        MenuItem save = new MenuItem(i18n().tr("_Save"));
         save.setOnAction(e -> saveWorkspace());
         save.setId("saveWorkspace");
-        recent = new Menu(I18nContext.getInstance().i18n("Recen_ts"));
+        recent = new Menu(i18n().tr("Recen_ts"));
         recent.setId("recentWorkspace");
         service.getRecentlyUsedWorkspaces().stream().map(WorkspaceMenuItem::new).forEach(recent.getItems()::add);
-        MenuItem clear = new MenuItem(I18nContext.getInstance().i18n("_Clear recents"));
+        MenuItem clear = new MenuItem(i18n().tr("_Clear recents"));
         clear.setOnAction(e -> clearWorkspaces());
         clear.setId("clearWorkspaces");
         getItems().addAll(load, save, new SeparatorMenuItem(), recent, clear);
@@ -75,7 +75,7 @@ class WorkspaceMenu extends Menu {
 
     public void saveWorkspace() {
         RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(
-                I18nContext.getInstance().i18n("Select the workspace file to save"), FileType.JSON);
+                i18n().tr("Select the workspace file to save"), FileType.JSON);
 
         latestWorkspace.ifPresentOrElse(f -> {
             fileChooser.setInitialDirectory(f.getParentFile());
@@ -90,8 +90,8 @@ class WorkspaceMenu extends Menu {
     }
 
     public void loadWorkspace() {
-        RememberingLatestFileChooserWrapper fileChooser = FileChoosers
-                .getFileChooser(I18nContext.getInstance().i18n("Select the workspace to load"), FileType.JSON);
+        RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(
+                i18n().tr("Select the workspace to load"), FileType.JSON);
         latestWorkspace.ifPresent(f -> {
             fileChooser.setInitialDirectory(f.getParentFile());
             fileChooser.setInitialFileName(f.getName());

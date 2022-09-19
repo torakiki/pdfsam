@@ -67,7 +67,7 @@ public class LogStage extends Stage {
             }
         });
         setScene(scene);
-        setTitle(I18nContext.getInstance().i18n("Log register"));
+        setTitle(i18n().tr("Log register"));
         getIcons().addAll(logos);
         setMaximized(true);
         eventStudio().addAnnotatedListeners(this);

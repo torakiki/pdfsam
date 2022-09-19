@@ -149,7 +149,7 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ToolBound
 
         @Override
         public String toString() {
-            return I18nContext.getInstance().i18n("Version {0}", version.getVersionString());
+            return i18n().tr("Version {0}", version.getVersionString());
         }
 
         @Override
@@ -196,7 +196,7 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ToolBound
 
         @Override
         public String toString() {
-            return I18nContext.getInstance().i18n("Same as the input document");
+            return i18n().tr("Same as the input document");
         }
 
     }

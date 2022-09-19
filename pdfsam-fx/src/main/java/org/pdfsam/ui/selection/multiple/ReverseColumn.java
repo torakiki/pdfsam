@@ -35,7 +35,7 @@ import javafx.util.Callback;
 public class ReverseColumn implements TableColumnProvider<Boolean> {
 
     public String getColumnTitle() {
-        return I18nContext.getInstance().i18n("Reverse");
+        return i18n().tr("Reverse");
     }
 
     @Override

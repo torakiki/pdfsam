@@ -54,12 +54,12 @@ class SplitOptionsPane extends VBox implements SplitParametersBuilderCreator, Re
     SplitOptionsPane() {
         super(Style.DEFAULT_SPACING);
         ComboBox<KeyStringValueItem<PredefinedSetOfPages>> predefinedCombo = new ComboBox<>();
-        predefinedCombo.getItems().add(KeyStringValueItem.keyValue(PredefinedSetOfPages.ALL_PAGES,
-                I18nContext.getInstance().i18n("Every page")));
-        predefinedCombo.getItems().add(KeyStringValueItem.keyValue(PredefinedSetOfPages.EVEN_PAGES,
-                I18nContext.getInstance().i18n("Even pages")));
-        predefinedCombo.getItems().add(KeyStringValueItem.keyValue(PredefinedSetOfPages.ODD_PAGES,
-                I18nContext.getInstance().i18n("Odd pages")));
+        predefinedCombo.getItems()
+                .add(KeyStringValueItem.keyValue(PredefinedSetOfPages.ALL_PAGES, i18n().tr("Every page")));
+        predefinedCombo.getItems()
+                .add(KeyStringValueItem.keyValue(PredefinedSetOfPages.EVEN_PAGES, i18n().tr("Even pages")));
+        predefinedCombo.getItems()
+                .add(KeyStringValueItem.keyValue(PredefinedSetOfPages.ODD_PAGES, i18n().tr("Odd pages")));
         splitAfterPredefined = new SplitAfterPredefinedSetOfPagesRadioButton(predefinedCombo);
         ValidableTextField splitAfterField = new ValidableTextField();
         splitAfter = new SplitAfterRadioButton(splitAfterField);
@@ -71,9 +71,9 @@ class SplitOptionsPane extends VBox implements SplitParametersBuilderCreator, Re
         splitAfter.setToggleGroup(group);
         splitByEvery.setToggleGroup(group);
         grid.addRow(splitAfterPredefined, predefinedCombo,
-                helpIcon(I18nContext.getInstance().i18n("Split the document after the given page numbers")));
+                helpIcon(i18n().tr("Split the document after the given page numbers")));
         grid.addRow(splitAfter, splitAfterField,
-                helpIcon(I18nContext.getInstance().i18n("Split the document after the given page numbers")));
+                helpIcon(i18n().tr("Split the document after the given page numbers")));
         grid.addRow(splitByEvery, splitByEveryField, helpIcon(I18nContext.getInstance()
                 .i18n("Splits the PDF every \"n\" pages creating documents of \"n\" pages each")));
         splitAfterPredefined.setSelected(true);

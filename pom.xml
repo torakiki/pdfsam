@@ -262,7 +262,7 @@
 		<sejda.version>5.0.0.M1</sejda.version>
 		<sejda.commons.version>2.0.0</sejda.commons.version>
 		<eventstudio.version>3.0.4</eventstudio.version>
-		<injector.version>3.0.0</injector.version>
+		<injector.version>4.0.0</injector.version>
 		<rxjava.version>3.1.5</rxjava.version>
 		<fontawesomefx.fontawesome.version>4.7.0-9.1.2</fontawesomefx.fontawesome.version>
 		<fontawesomefx.materialicons.version>2.2.0-9.1.2</fontawesomefx.materialicons.version>
@@ -274,7 +274,7 @@
 		<assertj.version>3.19.0</assertj.version>
 		<javafx.version>18.0.2</javafx.version>
 		<jakarta-el.version>4.0.2</jakarta-el.version>
-		<jakarta.inject.version>2.0.0</jakarta.inject.version>
+		<jakarta.inject.version>2.0.1</jakarta.inject.version>
 		<validation.api.version>3.0.2</validation.api.version>
 		<awaitility.version>4.2.0</awaitility.version>
 		<maven.build.timestamp.format>dd-MMM-yyyy</maven.build.timestamp.format>

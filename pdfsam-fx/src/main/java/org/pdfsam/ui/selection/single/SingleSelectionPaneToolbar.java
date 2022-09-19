@@ -58,8 +58,8 @@ class SingleSelectionPaneToolbar extends ToolBar implements ToolBound {
 
         public SelectButton(String ownerModule) {
             super(ownerModule);
-            setTooltip(new Tooltip(I18nContext.getInstance().i18n("Select the PDF file")));
-            setText(I18nContext.getInstance().i18n("_Select PDF"));
+            setTooltip(new Tooltip(i18n().tr("Select the PDF file")));
+            setText(i18n().tr("_Select PDF"));
         }
     }
 
@@ -67,8 +67,8 @@ class SingleSelectionPaneToolbar extends ToolBar implements ToolBound {
 
         public ClearButton(String ownerModule) {
             super(ownerModule);
-            setText(I18nContext.getInstance().i18n("_Clear"));
-            setTooltip(new Tooltip(I18nContext.getInstance().i18n("Clear all settings")));
+            setText(i18n().tr("_Clear"));
+            setTooltip(new Tooltip(i18n().tr("Clear all settings")));
             setOnAction(this::clearAll);
             eventStudio().addAnnotatedListeners(this);
         }

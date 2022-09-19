@@ -18,20 +18,22 @@
  */
 package org.pdfsam.premium;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
-import java.io.File;
-import java.util.List;
-
 import org.apache.commons.io.FileUtils;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
-import org.pdfsam.ConfigurableProperty;
-import org.pdfsam.Pdfsam;
+import org.pdfsam.AppBrand;
+import org.pdfsam.BrandableProperty;
+import org.pdfsam.model.premium.PremiumModule;
+import org.pdfsam.model.premium.PremiumProduct;
+
+import java.io.File;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * @author Andrea Vacondio
@@ -43,19 +45,19 @@ public class DefaultPremiumModulesServiceTest {
     public TemporaryFolder folder = new TemporaryFolder();
 
     private DefaultPremiumModulesService victim;
-    private Pdfsam pdfsam;
+    private AppBrand appBrand;
 
     @Before
     public void setUp() {
-        pdfsam = mock(Pdfsam.class);
-        victim = new DefaultPremiumModulesService(pdfsam);
+        appBrand = mock(AppBrand.class);
+        victim = new DefaultPremiumModulesService(appBrand);
     }
 
     @Test
     public void testGetLatestNews() throws Exception {
         File file = folder.newFile();
         FileUtils.copyInputStreamToFile(getClass().getResourceAsStream("/test_premium_modules.json"), file);
-        when(pdfsam.property(ConfigurableProperty.PREMIUM_MODULES_URL)).thenReturn(file.toURI().toString());
+        when(appBrand.property(BrandableProperty.PREMIUM_TOOLS_URL)).thenReturn(file.toURI().toString());
         List<PremiumModule> modules = victim.getPremiumModules();
         assertEquals(1, modules.size());
         assertEquals("module-name", modules.get(0).getName());

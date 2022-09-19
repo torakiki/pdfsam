@@ -53,27 +53,20 @@ class RotateOptionsPane extends HBox
 
     RotateOptionsPane() {
         super(Style.DEFAULT_SPACING);
-        this.rotationType.getItems()
-                .add(keyValue(PredefinedSetOfPages.ALL_PAGES, I18nContext.getInstance().i18n("All pages")));
-        this.rotationType.getItems()
-                .add(keyValue(PredefinedSetOfPages.EVEN_PAGES, I18nContext.getInstance().i18n("Even pages")));
-        this.rotationType.getItems()
-                .add(keyValue(PredefinedSetOfPages.ODD_PAGES, I18nContext.getInstance().i18n("Odd pages")));
+        this.rotationType.getItems().add(keyValue(PredefinedSetOfPages.ALL_PAGES, i18n().tr("All pages")));
+        this.rotationType.getItems().add(keyValue(PredefinedSetOfPages.EVEN_PAGES, i18n().tr("Even pages")));
+        this.rotationType.getItems().add(keyValue(PredefinedSetOfPages.ODD_PAGES, i18n().tr("Odd pages")));
         this.rotationType.setId("rotationType");
 
-        this.rotation.getItems()
-                .add(keyValue(Rotation.DEGREES_90, I18nContext.getInstance().i18n("90 degrees clockwise")));
-        this.rotation.getItems()
-                .add(keyValue(Rotation.DEGREES_180, I18nContext.getInstance().i18n("180 degrees clockwise")));
-        this.rotation.getItems().add(
-                keyValue(Rotation.DEGREES_270, I18nContext.getInstance().i18n("90 degrees counterclockwise")));
+        this.rotation.getItems().add(keyValue(Rotation.DEGREES_90, i18n().tr("90 degrees clockwise")));
+        this.rotation.getItems().add(keyValue(Rotation.DEGREES_180, i18n().tr("180 degrees clockwise")));
+        this.rotation.getItems().add(keyValue(Rotation.DEGREES_270, i18n().tr("90 degrees counterclockwise")));
         this.rotation.setId("rotation");
 
         getStyleClass().addAll(Style.HCONTAINER.css());
         getStyleClass().addAll(Style.CONTAINER.css());
         resetView();
-        getChildren().addAll(new Label(I18nContext.getInstance().i18n("Rotate ")), this.rotationType,
-                this.rotation);
+        getChildren().addAll(new Label(i18n().tr("Rotate ")), this.rotationType, this.rotation);
     }
 
     @Override

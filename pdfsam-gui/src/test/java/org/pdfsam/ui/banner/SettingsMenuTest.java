@@ -64,7 +64,7 @@ public class SettingsMenuTest extends ApplicationTest {
         eventStudio().add(SetActiveDashboardItemRequest.class, listener);
         ArgumentCaptor<SetActiveDashboardItemRequest> argument = ArgumentCaptor
                 .forClass(SetActiveDashboardItemRequest.class);
-        clickOn(".button").clickOn(I18nContext.getInstance().i18n("_Settings"));
+        clickOn(".button").clickOn(i18n().tr("_Settings"));
         verify(listener).onEvent(argument.capture());
         assertEquals(PreferencesDashboardItem.ID, argument.getValue().getActiveItemId());
     }

@@ -39,7 +39,7 @@ class TaskFailedButton extends Button {
     public TaskFailedButton() {
         getStyleClass().addAll(Style.FOOTER_BUTTON.css());
         getStyleClass().add("footer-failed-button");
-        setText(I18nContext.getInstance().i18n("Show errors"));
+        setText(i18n().tr("Show errors"));
         FontAwesomeIconFactory.get().setIcon(this, FontAwesomeIcon.TIMES_CIRCLE, "1.6em");
         setMaxHeight(Double.MAX_VALUE);
         setPrefHeight(Double.MAX_VALUE);

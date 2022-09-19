@@ -80,18 +80,18 @@ public class ClearModuleConfirmationDialogTest extends ApplicationTest {
     public void contentIsShownClearEverything() {
         button.setOnAction(a -> eventStudio().broadcast(new ClearModuleEvent("module", true, true)));
         clickOn("show");
-        assertTrue(lookup(I18nContext.getInstance().i18n("Clear the module settings")).tryQuery().isPresent());
-        assertTrue(lookup(I18nContext.getInstance().i18n("Do you confirm?")).tryQuery().isPresent());
-        clickOn(I18nContext.getInstance().i18n("No"));
+        assertTrue(lookup(i18n().tr("Clear the module settings")).tryQuery().isPresent());
+        assertTrue(lookup(i18n().tr("Do you confirm?")).tryQuery().isPresent());
+        clickOn(i18n().tr("No"));
     }
 
     @Test
     public void contentIsShownDontClearEverything() {
         button.setOnAction(a -> eventStudio().broadcast(new ClearModuleEvent("module", false, true)));
         clickOn("show");
-        assertTrue(lookup(I18nContext.getInstance().i18n("Clear the selection table")).tryQuery().isPresent());
-        assertTrue(lookup(I18nContext.getInstance().i18n("Do you confirm?")).tryQuery().isPresent());
-        clickOn(I18nContext.getInstance().i18n("No"));
+        assertTrue(lookup(i18n().tr("Clear the selection table")).tryQuery().isPresent());
+        assertTrue(lookup(i18n().tr("Do you confirm?")).tryQuery().isPresent());
+        clickOn(i18n().tr("No"));
     }
 
     @Test
@@ -100,7 +100,7 @@ public class ClearModuleConfirmationDialogTest extends ApplicationTest {
         button.setOnAction(a -> eventStudio().broadcast(new ClearModuleEvent("module", false, true)));
         eventStudio().add(ClearModuleEvent.class, listener, "module");
         clickOn("show");
-        clickOn(I18nContext.getInstance().i18n("No"));
+        clickOn(i18n().tr("No"));
         assertFalse(listener.isHit());
     }
 
@@ -110,7 +110,7 @@ public class ClearModuleConfirmationDialogTest extends ApplicationTest {
         button.setOnAction(a -> eventStudio().broadcast(new ClearModuleEvent("module", false, true)));
         eventStudio().add(ClearModuleEvent.class, listener, "module");
         clickOn("show");
-        clickOn(I18nContext.getInstance().i18n("Yes"));
+        clickOn(i18n().tr("Yes"));
         assertTrue(listener.isHit());
     }
 

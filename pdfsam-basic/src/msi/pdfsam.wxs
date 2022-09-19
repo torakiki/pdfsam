@@ -108,7 +108,7 @@
         	<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\.pdf\OpenWithProgIds" Name="$(var.ProgId)" Value="" Type="string" />
   			<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\.pdf\OpenWithList\pdfsam.exe" Value="" Type="string" />
   			<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\Applications\pdfsam.exe\SupportedTypes" Name=".pdf" Value="" Type="string" />
-        	<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\$(var.ProgId)\shell\open\command" Value="&quot;[APPLICATIONFOLDER]pdfsam.exe&quot; &quot;%1&quot;" Type="string" />           
+        	<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\$(var.ProgId)\shell\open\command" Value="&quot;[APPLICATIONFOLDER]pdfsam.exe&quot; &quot;%1&quot;" Type="string" />
          	<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\$(var.ProgId)\shell\open" Name="FriendlyAppName" Value="$(var.ProductName)" Type="string" />
 
             <RegistryValue Root="HKLM" Key="SOFTWARE\$(var.ProductName)\Capabilities" Name="ApplicationIcon" Value="[APPLICATIONFOLDER]pdfsam.exe,0" Type="string" />

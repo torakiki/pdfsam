@@ -39,7 +39,7 @@ public enum LongColumn implements SelectionTableColumn<Number> {
     SIZE {
         @Override
         public String getColumnTitle() {
-            return I18nContext.getInstance().i18n("Size");
+            return i18n().tr("Size");
         }
 
         @Override
@@ -61,7 +61,7 @@ public enum LongColumn implements SelectionTableColumn<Number> {
 
         @Override
         public String getColumnTitle() {
-            return I18nContext.getInstance().i18n("Modified");
+            return i18n().tr("Modified");
         }
 
         @Override

@@ -32,10 +32,8 @@ import org.pdfsam.i18n.I18nContext;
 public class LenientExecutionConfirmationDialog extends ConfirmationDialog {
     @Inject
     public LenientExecutionConfirmationDialog(StylesConfig styles) {
-        super(styles, DialogStyle.QUESTION, I18nContext.getInstance().i18n("Yes"),
-                I18nContext.getInstance().i18n("No"));
-        this.title(I18nContext.getInstance().i18n("Task failed"))
-                .messageTitle(I18nContext.getInstance().i18n("PDFsam can try to overcome the failure"))
+        super(styles, DialogStyle.QUESTION, i18n().tr("Yes"), i18n().tr("No"));
+        this.title(i18n().tr("Task failed")).messageTitle(i18n().tr("PDFsam can try to overcome the failure"))
                 .messageContent(I18nContext.getInstance()
                         .i18n("It may result in PDF files with partial or missing data, proceed anyway?"));
     }

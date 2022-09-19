@@ -44,7 +44,7 @@ public enum FileColumn implements SelectionTableColumn<File> {
 
         @Override
         public String getColumnTitle() {
-            return I18nContext.getInstance().i18n("Name");
+            return i18n().tr("Name");
         }
 
         @Override

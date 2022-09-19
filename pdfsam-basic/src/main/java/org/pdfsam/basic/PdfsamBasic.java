@@ -25,14 +25,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import org.pdfsam.ConfigurableProperty;
-import org.pdfsam.Pdfsam;
+import org.pdfsam.BrandableProperty;
+import org.pdfsam.AppBrand;
 
 /**
  * @author Andrea Vacondio
  *
  */
-public class PdfsamBasic implements Pdfsam {
+public class PdfsamBasic implements AppBrand {
     private Properties properties = new Properties();
     private String name;
     private String shortName;
@@ -58,12 +58,12 @@ public class PdfsamBasic implements Pdfsam {
     }
 
     @Override
-    public String property(ConfigurableProperty prop, String defaultValue) {
+    public String property(BrandableProperty prop, String defaultValue) {
         return properties.getProperty(prop.prop, defaultValue);
     }
 
     @Override
-    public String property(ConfigurableProperty prop) {
+    public String property(BrandableProperty prop) {
         return properties.getProperty(prop.prop, EMPTY);
     }
 }

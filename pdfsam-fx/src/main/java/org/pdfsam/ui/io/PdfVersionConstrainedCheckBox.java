@@ -44,8 +44,7 @@ class PdfVersionConstrainedCheckBox extends CheckBox implements ToolBound {
         requireNotNullArg(constraint, "PdfVersion cannot be null");
         this.ownerModule = defaultString(ownerModule);
         this.constraint = constraint;
-        this.setGraphic(helpIcon(
-                I18nContext.getInstance().i18n("PDF version required: {0}", this.constraint.getVersionString())));
+        this.setGraphic(helpIcon(i18n().tr("PDF version required: {0}", this.constraint.getVersionString())));
         this.getStyleClass().addAll(Style.WITH_HELP.css());
 
         selectedProperty().addListener((o, oldVal, newVal) -> {

@@ -61,45 +61,43 @@ public class WorkspaceController {
 
     @EventListener
     public void saveWorkspace(SaveWorkspaceEvent event) {
-        LOG.debug(I18nContext.getInstance().i18n("Requesting modules state"));
+        LOG.debug(i18n().tr("Requesting modules state"));
         CompletableFuture<Void> future = CompletableFuture
                 .allOf(tools.stream()
                         .map(m -> CompletableFuture.runAsync(() -> eventStudio().broadcast(event, m.id())))
                         .toArray(CompletableFuture[]::new))
                 .thenRun(() -> service.saveWorkspace(event.getData(), event.workspace())).whenComplete((r, e) -> {
                     if (nonNull(e)) {
-                        LOG.error(I18nContext.getInstance().i18n("Unable to save modules workspace"), e);
+                        LOG.error(i18n().tr("Unable to save modules workspace"), e);
                     }
                 });
         if (event.awaitCompletion) {
             try {
                 future.get();
             } catch (InterruptedException | ExecutionException e) {
-                LOG.error(I18nContext.getInstance().i18n("Unable to save workspace to {0}",
-                        event.workspace().getName()), e);
+                LOG.error(i18n().tr("Unable to save workspace to {0}", event.workspace().getName()), e);
             }
         }
     }
 
     @EventListener
     public CompletableFuture<Void> loadWorspace(LoadWorkspaceEvent event) {
-        LOG.debug(I18nContext.getInstance().i18n("Loading workspace from {0}", event.workspace().getName()));
+        LOG.debug(i18n().tr("Loading workspace from {0}", event.workspace().getName()));
         return CompletableFuture.supplyAsync(() -> service.loadWorkspace(event.workspace())).thenCompose((data) -> {
             if (!data.isEmpty()) {
                 event.setData(data);
                 return CompletableFuture.allOf(tools.stream()
                         .map(m -> CompletableFuture.runAsync(() -> eventStudio().broadcast(event, m.id())))
                         .toArray(CompletableFuture[]::new)).thenRun(() -> {
-                            recentWorkspace.addWorkspaceLastUsed(event.workspace());
-                            eventStudio().broadcast(new WorkspaceLoadedEvent(event.workspace()));
-                            LOG.info(I18nContext.getInstance().i18n("Workspace loaded"));
-                        });
+                    recentWorkspace.addWorkspaceLastUsed(event.workspace());
+                    eventStudio().broadcast(new WorkspaceLoadedEvent(event.workspace()));
+                    LOG.info(i18n().tr("Workspace loaded"));
+                });
             }
             return CompletableFuture.completedFuture(null);
         }).whenComplete((r, e) -> {
             if (nonNull(e)) {
-                LOG.error(I18nContext.getInstance().i18n("Unable to load workspace from {0}",
-                        event.workspace().getName()), e);
+                LOG.error(i18n().tr("Unable to load workspace from {0}", event.workspace().getName()), e);
             }
         });
 

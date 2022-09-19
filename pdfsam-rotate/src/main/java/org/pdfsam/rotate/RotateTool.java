@@ -69,9 +69,8 @@ public class RotateTool extends BaseTaskExecutionTool {
     private PdfDestinationPane destinationPane;
     private PrefixPane prefix;
     private ToolDescriptor descriptor = builder().category(ToolCategory.OTHER)
-            .inputTypes(ToolInputOutputType.MULTIPLE_PDF, ToolInputOutputType.SINGLE_PDF)
-            .name(I18nContext.getInstance().i18n("Rotate"))
-            .description(I18nContext.getInstance().i18n("Rotate the pages of multiple PDF documents."))
+            .inputTypes(ToolInputOutputType.MULTIPLE_PDF, ToolInputOutputType.SINGLE_PDF).name(i18n().tr("Rotate"))
+            .description(i18n().tr("Rotate the pages of multiple PDF documents."))
             .priority(ToolPriority.DEFAULT.getPriority()).supportURL("https://pdfsam.org/rotate-pdf/")
             .build();
 
@@ -125,16 +124,15 @@ public class RotateTool extends BaseTaskExecutionTool {
         pane.setAlignment(Pos.TOP_CENTER);
         VBox.setVgrow(selectionPane, Priority.ALWAYS);
 
-        TitledPane prefixTitled = Views.titledPane(I18nContext.getInstance().i18n("File names settings"),
-                prefix);
+        TitledPane prefixTitled = Views.titledPane(i18n().tr("File names settings"), prefix);
         prefix.addMenuItemFor(Prefix.FILENUMBER);
         prefix.addMenuItemFor("[TOTAL_FILESNUMBER]");
 
-        TitledPane options = Views.titledPane(I18nContext.getInstance().i18n("Rotate settings"), rotateOptions);
+        TitledPane options = Views.titledPane(i18n().tr("Rotate settings"), rotateOptions);
 
-        pane.getChildren().addAll(selectionPane, options,
-                Views.titledPane(I18nContext.getInstance().i18n("Output settings"), destinationPane),
-                prefixTitled);
+        pane.getChildren()
+                .addAll(selectionPane, options, Views.titledPane(i18n().tr("Output settings"), destinationPane),
+                        prefixTitled);
         return pane;
     }
 

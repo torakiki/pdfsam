@@ -44,7 +44,7 @@ public class PaceColumn implements SelectionTableColumn<String> {
 
     @Override
     public String getColumnTitle() {
-        return I18nContext.getInstance().i18n("Pace");
+        return i18n().tr("Pace");
     }
 
     @Override
@@ -76,7 +76,7 @@ public class PaceColumn implements SelectionTableColumn<String> {
         return new Callback<>() {
             @Override
             public TableCell<SelectionTableRowData, String> call(TableColumn<SelectionTableRowData, String> param) {
-                return new TooltippedTextFieldTableCell(I18nContext.getInstance().i18n(
+                return new TooltippedTextFieldTableCell(i18n().tr(
                         "Double click to set the number of pages after which the task will switch to the next file"));
             }
         };

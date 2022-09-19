@@ -34,10 +34,8 @@ import org.pdfsam.i18n.I18nContext;
 public class ClearModuleConfirmationDialog extends ConfirmationDialog {
     @Inject
     public ClearModuleConfirmationDialog(StylesConfig styles) {
-        super(styles, DialogStyle.QUESTION, I18nContext.getInstance().i18n("Yes"),
-                I18nContext.getInstance().i18n("No"));
-        this.title(I18nContext.getInstance().i18n("Confirm clearing"))
-                .messageContent(getInstance().i18n("Do you confirm?"));
+        super(styles, DialogStyle.QUESTION, i18n().tr("Yes"), i18n().tr("No"));
+        this.title(i18n().tr("Confirm clearing")).messageContent(getInstance().i18n("Do you confirm?"));
     }
 
     /**

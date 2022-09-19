@@ -64,7 +64,7 @@ public class AlternateMixTool extends BaseTaskExecutionTool {
     private BrowsablePdfOutputField destinationFileField;
     private PdfDestinationPane destinationPane;
     private ToolDescriptor descriptor = builder().category(ToolCategory.MERGE)
-            .inputTypes(ToolInputOutputType.MULTIPLE_PDF).name(I18nContext.getInstance().i18n("Alternate Mix"))
+            .inputTypes(ToolInputOutputType.MULTIPLE_PDF).name(i18n().tr("Alternate Mix"))
             .description(I18nContext.getInstance()
                     .i18n("Merge two or more PDF documents taking pages alternately in natural or reverse order."))
             .priority(ToolPriority.DEFAULT.getPriority()).supportURL("https://pdfsam.org/mix-pdf/")
@@ -118,8 +118,7 @@ public class AlternateMixTool extends BaseTaskExecutionTool {
         pane.setAlignment(Pos.TOP_CENTER);
         VBox.setVgrow(selectionPane, Priority.ALWAYS);
 
-        pane.getChildren().addAll(selectionPane,
-                Views.titledPane(I18nContext.getInstance().i18n("Destination file"), destinationPane));
+        pane.getChildren().addAll(selectionPane, Views.titledPane(i18n().tr("Destination file"), destinationPane));
         return pane;
     }
 

@@ -55,7 +55,7 @@ public class NewsPanel extends VBox {
         Button closeButton = FontAwesomeIconFactory.get().createIconButton(FontAwesomeIcon.TIMES);
         closeButton.getStyleClass().addAll("close-button");
         closeButton.setOnAction(e -> eventStudio().broadcast(HideNewsPanelRequest.INSTANCE));
-        Label titleLabel = new Label(I18nContext.getInstance().i18n("What's new"));
+        Label titleLabel = new Label(i18n().tr("What's new"));
         titleLabel.setPrefWidth(Integer.MAX_VALUE);
         titleLabel.getStyleClass().add("news-panel-title");
 

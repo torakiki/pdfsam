@@ -111,7 +111,7 @@ public class LogPane extends BorderPane {
 
     public void saveLog() {
         RememberingLatestFileChooserWrapper fileChooser = FileChoosers.getFileChooser(
-                I18nContext.getInstance().i18n("Select where to save the log file"), FileType.LOG);
+                i18n().tr("Select where to save the log file"), FileType.LOG);
         fileChooser.setInitialFileName("PDFsam.log");
         File chosenFile = fileChooser.showDialog(this.getScene().getWindow(), OpenType.SAVE);
         if (chosenFile != null) {

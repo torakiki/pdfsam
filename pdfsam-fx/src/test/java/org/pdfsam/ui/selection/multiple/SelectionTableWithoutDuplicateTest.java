@@ -74,8 +74,8 @@ public class SelectionTableWithoutDuplicateTest extends ApplicationTest {
     @Category(NoHeadless.class)
     public void duplicateIsMissing() {
         rightClickOn(TableViewMatchers.hasTableCell("temp.pdf"));
-        assertFalse(lookup(I18nContext.getInstance().i18n("Duplicate")).tryQuery().isPresent());
-        assertTrue(lookup(I18nContext.getInstance().i18n("Set destination")).tryQuery().isPresent());
+        assertFalse(lookup(i18n().tr("Duplicate")).tryQuery().isPresent());
+        assertTrue(lookup(i18n().tr("Set destination")).tryQuery().isPresent());
     }
 
     private PdfDocumentDescriptor populate() throws Exception {

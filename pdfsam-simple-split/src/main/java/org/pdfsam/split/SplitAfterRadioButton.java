@@ -50,13 +50,13 @@ class SplitAfterRadioButton extends RadioButton
     private final ValidableTextField field;
 
     public SplitAfterRadioButton(ValidableTextField field) {
-        super(I18nContext.getInstance().i18n("Split after the following page numbers"));
+        super(i18n().tr("Split after the following page numbers"));
         this.field = field;
         this.field.setOnEnterValidation(true);
         this.field.setEnableInvalidStyle(true);
-        this.field.setPromptText(I18nContext.getInstance().i18n("Page numbers to split at (n1,n2,n3..)"));
+        this.field.setPromptText(i18n().tr("Page numbers to split at (n1,n2,n3..)"));
         this.field.setValidator(Validators.regexMatching("^([1-9]\\d*(\\s*,\\s*)?)+$"));
-        this.field.setErrorMessage(I18nContext.getInstance().i18n("Invalid page numbers"));
+        this.field.setErrorMessage(i18n().tr("Invalid page numbers"));
     }
 
     @Override
@@ -65,7 +65,7 @@ class SplitAfterRadioButton extends RadioButton
         if (this.field.getValidationState() == ValidationState.VALID) {
             return new SplitByPageParametersBuilder(new PageNumbersListAdapter(this.field.getText()).getPageNumbers());
         }
-        onError.accept(I18nContext.getInstance().i18n("Only valid positive page numbers are allowed"));
+        onError.accept(i18n().tr("Only valid positive page numbers are allowed"));
         return null;
     }
 

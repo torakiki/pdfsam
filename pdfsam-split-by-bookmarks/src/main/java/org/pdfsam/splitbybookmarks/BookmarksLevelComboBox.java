@@ -110,7 +110,7 @@ class BookmarksLevelComboBox extends ComboBox<String>
         if (validationSupport.validationStateProperty().get() == ValidationState.VALID) {
             builder.level(Integer.parseInt(getValue()));
         } else {
-            onError.accept(I18nContext.getInstance().i18n("Invalid bookmarks level"));
+            onError.accept(i18n().tr("Invalid bookmarks level"));
         }
     }
 

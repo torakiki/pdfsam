@@ -47,7 +47,7 @@ public class TaskParametersBuilderSingleSelectionPane extends SingleSelectionPan
         if (getField().getTextField().getValidationState() == ValidationState.VALID) {
             builder.source(getPdfDocumentDescriptor().toPdfFileSource());
         } else {
-            onError.accept(I18nContext.getInstance().i18n("The selected PDF document is invalid"));
+            onError.accept(i18n().tr("The selected PDF document is invalid"));
         }
     }
 }

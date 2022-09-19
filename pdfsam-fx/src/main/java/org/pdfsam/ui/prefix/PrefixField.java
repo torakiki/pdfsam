@@ -18,18 +18,17 @@
  */
 package org.pdfsam.ui.prefix;
 
-import static java.util.Optional.ofNullable;
-import static org.sejda.commons.util.RequireUtils.requireNotBlank;
-
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.ui.ResettableView;
 import org.sejda.commons.util.StringUtils;
 import org.sejda.model.prefix.Prefix;
 
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
+import static java.util.Optional.ofNullable;
+import static org.sejda.commons.util.RequireUtils.requireNotBlank;
 
 /**
  * Text field providing PDFsam complex prefix functionalities (context menu to automatically set prefix values)
@@ -47,12 +46,13 @@ public class PrefixField extends TextField implements ResettableView {
      */
     public PrefixField(String placeholder) {
         super(ofNullable(placeholder).filter(StringUtils::isNotEmpty).orElse("PDFsam_"));
-        this.setPromptText(I18nContext.getInstance().i18n("Prefix for the generated files names"));
-        this.menu = new Menu(I18nContext.getInstance().i18n("Add prefix"));
+        this.setPromptText(i18n().tr("Prefix for the generated files names"));
+        this.menu = new Menu(i18n().tr("Add prefix"));
         this.menu.setId("addPrefixMenu");
         this.menu.getItems().addAll(new PrefixMenuItem(Prefix.TIMESTAMP), new PrefixMenuItem(Prefix.BASENAME));
         this.setContextMenu(new ContextMenu(this.menu));
         setPrefWidth(300);
+        //TODO?   prefs.node(module).put(StringUserPreference.DEFAULT_PREFIX.toString(), value);
     }
 
     /**

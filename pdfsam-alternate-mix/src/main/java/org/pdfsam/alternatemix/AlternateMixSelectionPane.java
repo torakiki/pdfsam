@@ -55,7 +55,7 @@ public class AlternateMixSelectionPane extends MultipleSelectionPane
     @Override
     public void apply(AlternateMixParametersBuilder builder, Consumer<String> onError) {
         if (table().getItems().isEmpty()) {
-            onError.accept(I18nContext.getInstance().i18n("No PDF document has been selected"));
+            onError.accept(i18n().tr("No PDF document has been selected"));
         } else {
             for (SelectionTableRowData row : table().getItems()) {
                 String step = defaultIfBlank(row.pace.get(), "1").trim();
@@ -65,7 +65,7 @@ public class AlternateMixSelectionPane extends MultipleSelectionPane
                     input.addAllPageRanges(row.toPageRangeSet());
                     builder.addInput(input);
                 } else {
-                    onError.accept(I18nContext.getInstance().i18n("Select a positive integer number as pace"));
+                    onError.accept(i18n().tr("Select a positive integer number as pace"));
                     break;
                 }
             }

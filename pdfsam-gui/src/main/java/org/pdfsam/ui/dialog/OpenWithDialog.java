@@ -69,7 +69,7 @@ public class OpenWithDialog extends Stage {
         initModality(Modality.WINDOW_MODAL);
         initStyle(StageStyle.UTILITY);
         setResizable(false);
-        setTitle(I18nContext.getInstance().i18n("Open with"));
+        setTitle(i18n().tr("Open with"));
 
         this.tools = tools.stream().sorted(comparing(m -> m.descriptor().getName())).collect(toList());
 
@@ -101,10 +101,9 @@ public class OpenWithDialog extends Stage {
 
     OpenWithDialog initFor(InputPdfArgumentsLoadRequest event) {
 
-        this.messageTitle
-                .setText(I18nContext.getInstance().i18n("Select the task to perform on the following files"));
-        filesList
-                .setItems(FXCollections.observableArrayList(event.pdfs.stream().map(Path::toString).collect(toList())));
+        this.messageTitle.setText(i18n().tr("Select the task to perform on the following files"));
+        filesList.setItems(
+                FXCollections.observableArrayList(event.pdfs.stream().map(Path::toString).collect(toList())));
         tools.forEach(m -> {
             if (m.descriptor().hasInputType(event.requiredInputTyle())) {
                 Button current = new Button(m.descriptor().getName());

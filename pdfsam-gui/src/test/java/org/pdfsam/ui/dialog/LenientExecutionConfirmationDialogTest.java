@@ -70,12 +70,11 @@ public class LenientExecutionConfirmationDialogTest extends ApplicationTest {
     @Test
     public void contentIsShown() {
         clickOn("show");
-        assertTrue(lookup(I18nContext.getInstance().i18n("PDFsam can try to overcome the failure")).tryQuery()
-                .isPresent());
+        assertTrue(lookup(i18n().tr("PDFsam can try to overcome the failure")).tryQuery().isPresent());
         assertTrue(lookup(I18nContext.getInstance()
                 .i18n("It may result in PDF files with partial or missing data, proceed anyway?")).tryQuery()
-                        .isPresent());
-        clickOn(I18nContext.getInstance().i18n("No"));
+                .isPresent());
+        clickOn(i18n().tr("No"));
     }
 
     @Test
@@ -83,7 +82,7 @@ public class LenientExecutionConfirmationDialogTest extends ApplicationTest {
     public void no() {
         this.confirm = true;
         clickOn("show");
-        clickOn(I18nContext.getInstance().i18n("No"));
+        clickOn(i18n().tr("No"));
         assertFalse(this.confirm);
     }
 
@@ -92,7 +91,7 @@ public class LenientExecutionConfirmationDialogTest extends ApplicationTest {
     public void yes() {
         this.confirm = false;
         clickOn("show");
-        clickOn(I18nContext.getInstance().i18n("Yes"));
+        clickOn(i18n().tr("Yes"));
         assertTrue(this.confirm);
     }
 }

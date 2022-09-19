@@ -32,8 +32,8 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
-import org.pdfsam.ConfigurableProperty;
-import org.pdfsam.Pdfsam;
+import org.pdfsam.AppBrand;
+import org.pdfsam.BrandableProperty;
 
 /**
  * @author Andrea Vacondio
@@ -45,12 +45,12 @@ public class DefaultNewsServiceTest {
     public TemporaryFolder folder = new TemporaryFolder();
 
     private DefaultNewsService victim;
-    private Pdfsam pdfsam;
+    private AppBrand appBrand;
 
     @Before
     public void setUp() {
-        pdfsam = mock(Pdfsam.class);
-        victim = new DefaultNewsService(pdfsam);
+        appBrand = mock(AppBrand.class);
+        victim = new DefaultNewsService(appBrand);
     }
 
     @Test
@@ -81,7 +81,7 @@ public class DefaultNewsServiceTest {
     public void testGetLatestNews() throws Exception {
         File file = folder.newFile();
         FileUtils.copyInputStreamToFile(getClass().getResourceAsStream("/test_news.json"), file);
-        when(pdfsam.property(ConfigurableProperty.NEWS_URL)).thenReturn(file.toURI().toString());
+        when(appBrand.property(BrandableProperty.NEWS_URL)).thenReturn(file.toURI().toString());
         List<NewsData> news = victim.getLatestNews();
         assertEquals(1, news.size());
         assertEquals("news-title", news.get(0).getTitle());

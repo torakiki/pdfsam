@@ -59,7 +59,7 @@ public class ModulesDashboardPane extends VBox {
     @EventListener
     public void onPremiumModules(PremiumModulesEvent e) {
         if (!e.premiumModules.isEmpty()) {
-            Label premiumTile = new Label(I18nContext.getInstance().i18n("Premium features"));
+            Label premiumTile = new Label(i18n().tr("Premium features"));
             premiumTile.getStyleClass().add("modules-tile-title");
             FlowPane modulesPane = new FlowPane();
             modulesPane.getStyleClass().add("dashboard-modules");

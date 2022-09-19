@@ -48,13 +48,13 @@ public class SplitByEveryRadioButton extends RadioButton
     private final ValidableTextField field;
 
     public SplitByEveryRadioButton(ValidableTextField field) {
-        super(I18nContext.getInstance().i18n("Split by every \"n\" pages"));
+        super(i18n().tr("Split by every \"n\" pages"));
         this.field = field;
         this.field.setOnEnterValidation(true);
         this.field.setEnableInvalidStyle(true);
-        this.field.setPromptText(I18nContext.getInstance().i18n("Number of pages"));
+        this.field.setPromptText(i18n().tr("Number of pages"));
         this.field.setValidator(Validators.positiveInteger());
-        this.field.setErrorMessage(I18nContext.getInstance().i18n("Invalid number of pages"));
+        this.field.setErrorMessage(i18n().tr("Invalid number of pages"));
     }
 
     @Override
@@ -63,7 +63,7 @@ public class SplitByEveryRadioButton extends RadioButton
         if (this.field.getValidationState() == ValidationState.VALID) {
             return new SplitByEveryXPagesParametersBuilder(Integer.parseInt(this.field.getText()));
         }
-        onError.accept(I18nContext.getInstance().i18n("Invalid number of pages"));
+        onError.accept(i18n().tr("Invalid number of pages"));
         return null;
     }
 

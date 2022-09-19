@@ -65,10 +65,10 @@ abstract class BrowsableField extends HBox implements RestorableView {
 
     };
     private HBox validableContainer;
-    private String browseWindowTitle = I18nContext.getInstance().i18n("Select");
+    private String browseWindowTitle = i18n().tr("Select");
 
     public BrowsableField() {
-        this(new Button(I18nContext.getInstance().i18n("Browse")));
+        this(new Button(i18n().tr("Browse")));
         browseButton.getStyleClass().addAll(Style.BROWSE_BUTTON.css());
         browseButton.prefHeightProperty().bind(validableContainer.heightProperty());
         browseButton.setMaxHeight(USE_PREF_SIZE);

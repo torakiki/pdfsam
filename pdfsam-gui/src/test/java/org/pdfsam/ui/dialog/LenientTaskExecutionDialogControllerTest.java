@@ -123,7 +123,7 @@ public class LenientTaskExecutionDialogControllerTest extends ApplicationTest {
         button.setOnAction(a -> eventStudio().broadcast(failure));
         clickOn("show");
         assertTrue(robotContext().getWindowFinder().listWindows().size() > 1);
-        clickOn(I18nContext.getInstance().i18n("No"));
+        clickOn(i18n().tr("No"));
         verify(params, never()).setLenient(anyBoolean());
         verify(listener, never()).onEvent(any());
     }
@@ -141,7 +141,7 @@ public class LenientTaskExecutionDialogControllerTest extends ApplicationTest {
         button.setOnAction(a -> eventStudio().broadcast(failure));
         clickOn("show");
         assertTrue(robotContext().getWindowFinder().listWindows().size() > 1);
-        clickOn(I18nContext.getInstance().i18n("Yes"));
+        clickOn(i18n().tr("Yes"));
         verify(params).setLenient(true);
         verify(listener).onEvent(request);
     }

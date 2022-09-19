@@ -93,8 +93,7 @@ public class PdfLoadController {
                         eventStudio().broadcast(loadEvent, event.toolBinding());
                     }
                 } catch (Exception e) {
-                    LOG.error(I18nContext.getInstance().i18n("Unable to load PDF list file from {0}",
-                            event.list.toString()), e);
+                    LOG.error(i18n().tr("Unable to load PDF list file from {0}", event.list.toString()), e);
                 }
             });
         }

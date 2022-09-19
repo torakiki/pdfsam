@@ -33,8 +33,8 @@ import java.util.List;
 import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
-import org.pdfsam.ConfigurableProperty;
-import org.pdfsam.Pdfsam;
+import org.pdfsam.AppBrand;
+import org.pdfsam.BrandableProperty;
 import org.pdfsam.injector.Components;
 import org.pdfsam.injector.Injector;
 import org.pdfsam.injector.Provides;
@@ -64,26 +64,26 @@ public class DashboardTest {
     static class Config {
         @Provides
         public AboutDashboardPane aboutPane() {
-            Pdfsam pdfsam = mock(Pdfsam.class);
-            when(pdfsam.name()).thenReturn("PDFsam");
-            when(pdfsam.property(ConfigurableProperty.VERSION)).thenReturn("3.0.0");
-            when(pdfsam.property(ConfigurableProperty.HOME_URL)).thenReturn("http://www.pdfsam.org");
-            when(pdfsam.property(ConfigurableProperty.HOME_LABEL)).thenReturn("home");
-            when(pdfsam.property(ConfigurableProperty.FEED_URL)).thenReturn("http://www.pdfsam.org/feed/");
-            when(pdfsam.property(ConfigurableProperty.DOCUMENTATION_URL))
+            AppBrand appBrand = mock(AppBrand.class);
+            when(appBrand.name()).thenReturn("PDFsam");
+            when(appBrand.property(BrandableProperty.VERSION)).thenReturn("3.0.0");
+            when(appBrand.property(BrandableProperty.HOME_URL)).thenReturn("http://www.pdfsam.org");
+            when(appBrand.property(BrandableProperty.HOME_LABEL)).thenReturn("home");
+            when(appBrand.property(BrandableProperty.FEED_URL)).thenReturn("http://www.pdfsam.org/feed/");
+            when(appBrand.property(BrandableProperty.DOCUMENTATION_URL))
                     .thenReturn("http://www.pdfsam.org/documentation");
-            when(pdfsam.property(ConfigurableProperty.SUPPORT_URL)).thenReturn("http://www.pdfsam.org/support");
-            when(pdfsam.property(ConfigurableProperty.SCM_URL)).thenReturn("http://www.pdfsam.org/scm");
-            when(pdfsam.property(ConfigurableProperty.TRANSLATE_URL)).thenReturn("http://www.pdfsam.org/translate");
-            when(pdfsam.property(ConfigurableProperty.TWITTER_URL)).thenReturn("http://www.pdfsam.org/twitter");
-            when(pdfsam.property(ConfigurableProperty.DONATE_URL)).thenReturn("http://www.pdfsam.org/donate");
-            when(pdfsam.property(ConfigurableProperty.FACEBOOK_URL)).thenReturn("http://www.pdfsam.org/facebook");
-            when(pdfsam.property(ConfigurableProperty.LICENSE_NAME)).thenReturn("agpl3");
-            when(pdfsam.property(ConfigurableProperty.LICENSE_URL))
+            when(appBrand.property(BrandableProperty.SUPPORT_URL)).thenReturn("http://www.pdfsam.org/support");
+            when(appBrand.property(BrandableProperty.SCM_URL)).thenReturn("http://www.pdfsam.org/scm");
+            when(appBrand.property(BrandableProperty.TRANSLATE_URL)).thenReturn("http://www.pdfsam.org/translate");
+            when(appBrand.property(BrandableProperty.TWITTER_URL)).thenReturn("http://www.pdfsam.org/twitter");
+            when(appBrand.property(BrandableProperty.DONATE_URL)).thenReturn("http://www.pdfsam.org/donate");
+            when(appBrand.property(BrandableProperty.FACEBOOK_URL)).thenReturn("http://www.pdfsam.org/facebook");
+            when(appBrand.property(BrandableProperty.LICENSE_NAME)).thenReturn("agpl3");
+            when(appBrand.property(BrandableProperty.LICENSE_URL))
                     .thenReturn("http://www.gnu.org/licenses/agpl-3.0.html");
-            when(pdfsam.property(ConfigurableProperty.TRACKER_URL)).thenReturn("http://www.pdfsam.org/issue_tracker");
-            when(pdfsam.property(ConfigurableProperty.THANKS_URL)).thenReturn("http://www.pdfsam.org/issue_tracker");
-            AboutDashboardPane about = new AboutDashboardPane(pdfsam);
+            when(appBrand.property(BrandableProperty.TRACKER_URL)).thenReturn("http://www.pdfsam.org/issue_tracker");
+            when(appBrand.property(BrandableProperty.THANKS_URL)).thenReturn("http://www.pdfsam.org/issue_tracker");
+            AboutDashboardPane about = new AboutDashboardPane(appBrand);
             about.setId("aboutPane");
             return about;
         }

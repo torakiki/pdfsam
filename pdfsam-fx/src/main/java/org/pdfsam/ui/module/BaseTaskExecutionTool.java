@@ -62,9 +62,9 @@ public abstract class BaseTaskExecutionTool implements Tool {
 
         footer.runButton().setOnAction(event -> {
             ErrorTracker errorTracker = new ErrorTracker();
-            Builder<? extends AbstractParameters> builder = getBuilder(errorTracker
-                    .andThen(s -> eventStudio().broadcast(new AddNotificationRequestEvent(NotificationType.ERROR, s,
-                            I18nContext.getInstance().i18n("Invalid parameters")))));
+            Builder<? extends AbstractParameters> builder = getBuilder(errorTracker.andThen(
+                    s -> eventStudio().broadcast(new AddNotificationRequestEvent(NotificationType.ERROR, s,
+                            i18n().tr("Invalid parameters")))));
             if (!errorTracker.errorOnBuild) {
                 eventStudio().broadcast(new TaskExecutionRequestEvent(id(), builder.build()));
             }

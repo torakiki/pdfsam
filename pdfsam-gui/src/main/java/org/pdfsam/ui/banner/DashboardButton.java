@@ -40,6 +40,6 @@ class DashboardButton extends BannerButton {
     DashboardButton(@Named("defaultDashboardItemId") String defaultDasboardItem) {
         super(MaterialDesignIcon.HOME);
         setOnAction(e -> eventStudio().broadcast(new SetActiveDashboardItemRequest(defaultDasboardItem)));
-        setTooltip(new Tooltip(I18nContext.getInstance().i18n("Dashboard")));
+        setTooltip(new Tooltip(i18n().tr("Dashboard")));
     }
 }

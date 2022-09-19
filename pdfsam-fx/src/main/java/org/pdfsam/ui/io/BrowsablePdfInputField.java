@@ -48,7 +48,7 @@ public class BrowsablePdfInputField extends BrowsableFileField
         if (getTextField().getValidationState() == ValidationState.VALID) {
             builder.source(new PdfFileSourceAdapter(getTextField().getText()).getPdfFileSource());
         } else {
-            onError.accept(I18nContext.getInstance().i18n("The selected PDF file is invalid"));
+            onError.accept(i18n().tr("The selected PDF file is invalid"));
         }
     }
 }

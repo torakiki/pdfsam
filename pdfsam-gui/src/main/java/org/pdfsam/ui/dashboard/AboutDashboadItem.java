@@ -18,16 +18,15 @@
  */
 package org.pdfsam.ui.dashboard;
 
-import javax.inject.Inject;
-
-import org.pdfsam.i18n.I18nContext;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
+import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
+import jakarta.inject.Inject;
+import javafx.scene.Node;
+import javafx.scene.layout.Pane;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.ui.dashboard.about.AboutDashboardPane;
 
-import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
-import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
-import javafx.scene.Node;
-import javafx.scene.layout.Pane;
+import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * About item for the dashboard
@@ -52,7 +51,7 @@ class AboutDashboadItem implements DashboardItem {
 
     @Override
     public String name() {
-        return I18nContext.getInstance().i18n("About");
+        return i18n().tr("About");
     }
 
     @Override
