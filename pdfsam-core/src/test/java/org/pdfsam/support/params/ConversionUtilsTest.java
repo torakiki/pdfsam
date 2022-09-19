@@ -18,14 +18,15 @@
  */
 package org.pdfsam.support.params;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
+import org.sejda.conversion.exception.ConversionException;
+import org.sejda.model.pdf.page.PageRange;
 
 import java.util.Set;
 
-import org.junit.Test;
-import org.sejda.conversion.exception.ConversionException;
-import org.sejda.model.pdf.page.PageRange;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Andrea Vacondio
@@ -33,19 +34,19 @@ import org.sejda.model.pdf.page.PageRange;
  */
 public class ConversionUtilsTest {
 
-    @Test(expected = ConversionException.class)
+    @Test
     public void invalid() {
-        ConversionUtils.toPageRangeSet("Chuck Norris");
+        assertThrows(ConversionException.class, () -> ConversionUtils.toPageRangeSet("Chuck Norris"));
     }
 
-    @Test(expected = ConversionException.class)
+    @Test
     public void invalidRange() {
-        ConversionUtils.toPageRangeSet("1-2-3");
+        assertThrows(ConversionException.class, () -> ConversionUtils.toPageRangeSet("1-2-3"));
     }
 
-    @Test(expected = ConversionException.class)
+    @Test
     public void endLower() {
-        ConversionUtils.toPageRangeSet("10-5");
+        assertThrows(ConversionException.class, () -> ConversionUtils.toPageRangeSet("10-5"));
     }
 
     @Test

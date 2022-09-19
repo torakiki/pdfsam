@@ -18,7 +18,7 @@
  */
 package org.pdfsam.support.validation;
 
-import org.pdfsam.support.io.FileType;
+import org.pdfsam.model.io.FileType;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;

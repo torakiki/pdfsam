@@ -31,7 +31,6 @@ import org.sejda.model.parameter.base.AbstractParameters;
  */
 public abstract class AbstractParametersBuilder<P extends AbstractParameters> implements Builder<P> {
 
-    public static final String PDFSAM_DISABLE_SPLIT_OPTIMIZATION = "org.pdfsam.disable.split.optimization";
     private ExistingOutputPolicy existingOutput = ExistingOutputPolicy.RENAME;
 
     public void existingOutput(ExistingOutputPolicy existingOutput) {

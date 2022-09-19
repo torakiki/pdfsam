@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<description>Core pdfsam library</description>
+	<description>Core PDFsam library</description>
 	<parent>
 		<groupId>org.pdfsam</groupId>
 		<artifactId>pdfsam-parent</artifactId>
@@ -18,52 +18,45 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<executions>
-					<execution>
-						<goals>
-							<goal>test-jar</goal>
-						</goals>
-					</execution>
-				</executions>
+				<configuration>
+					<archive>
+						<manifestEntries>
+							<Automatic-Module-Name>org.pdfsam.core</Automatic-Module-Name>
+						</manifestEntries>
+					</archive>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+
 	<dependencies>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>org.pdfsam</groupId>
 			<artifactId>pdfsam-i18n</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>de.jensd</groupId>
-			<artifactId>fontawesomefx-fontawesome</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.sejda</groupId>
-			<artifactId>sejda-model</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.sejda</groupId>
-			<artifactId>sejda-conversion</artifactId>
+			<groupId>org.pdfsam</groupId>
+			<artifactId>pdfsam-model</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.pdfsam</groupId>
-			<artifactId>eventstudio</artifactId>
+			<artifactId>pdfsam-persistence</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.openjfx</groupId>
-			<artifactId>javafx-controls</artifactId>
+			<groupId>org.pdfsam</groupId>
+			<artifactId>pdfsam-themes</artifactId>
+			<version>${project.version}</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx-swing -->
 		<dependency>
-			<groupId>org.openjfx</groupId>
-			<artifactId>javafx-swing</artifactId>
-			<scope>test</scope>
+			<groupId>org.pdfsam</groupId>
+			<artifactId>pdfsam-injector</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>io.reactivex.rxjava3</groupId>
+			<artifactId>rxjava</artifactId>
+		</dependency>
 	</dependencies>
 </project>

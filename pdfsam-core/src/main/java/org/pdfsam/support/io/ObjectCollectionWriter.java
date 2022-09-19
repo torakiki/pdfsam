@@ -18,7 +18,9 @@
  */
 package org.pdfsam.support.io;
 
-import static org.apache.commons.lang3.StringUtils.trimToEmpty;
+import javafx.scene.input.ClipboardContent;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -26,11 +28,8 @@ import java.io.StringWriter;
 import java.nio.file.Files;
 import java.util.Collection;
 
-import org.pdfsam.i18n.I18nContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import javafx.scene.input.ClipboardContent;
+import static org.apache.commons.lang3.StringUtils.trimToEmpty;
+import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * Component allowing to fluently write {@link Collection} of {@link Object} content to a {@link File} or {@link ClipboardContent}.
@@ -61,9 +60,9 @@ public final class ObjectCollectionWriter implements OngoingWrite {
                 writer.append(defaultLineSeparator(item.toString()));
             }
         } catch (Exception e) {
-            LOG.error(I18nContext.getInstance().i18n("Error saving log file."), e);
+            LOG.error(i18n().tr("Error saving log file."), e);
         }
-        LOG.info(I18nContext.getInstance().i18n("File {0} saved.", file.getAbsolutePath()));
+        LOG.info(i18n().tr("File {0} saved.", file.getAbsolutePath()));
     }
 
     @Override
@@ -74,7 +73,7 @@ public final class ObjectCollectionWriter implements OngoingWrite {
             }
             clipboard.putString(writer.toString());
         } catch (Exception e) {
-            LOG.error(I18nContext.getInstance().i18n("Error saving log file."), e);
+            LOG.error(i18n().tr("Error saving log file."), e);
         }
     }
 

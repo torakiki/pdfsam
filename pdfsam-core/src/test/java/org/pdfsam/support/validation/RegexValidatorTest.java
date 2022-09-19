@@ -18,8 +18,10 @@
  */
 package org.pdfsam.support.validation;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Andrea Vacondio
@@ -30,18 +32,18 @@ public class RegexValidatorTest {
 
     @Test
     public void testNegative() {
-        Assert.assertFalse(victim.isValid("dsdsa"));
+        assertFalse(victim.isValid("dsdsa"));
     }
 
     @Test
     public void testPositive() {
-        Assert.assertTrue(victim.isValid("2"));
-        Assert.assertTrue(victim.isValid("2,3,4"));
+        assertTrue(victim.isValid("2"));
+        assertTrue(victim.isValid("2,3,4"));
     }
 
     @Test
     public void testAllowBlank() {
-        Assert.assertFalse(victim.isValid(""));
-        Assert.assertTrue(Validators.validEmpty(victim).isValid(""));
+        assertFalse(victim.isValid(""));
+        assertTrue(Validators.validEmpty(victim).isValid(""));
     }
 }

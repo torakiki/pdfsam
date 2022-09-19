@@ -20,10 +20,12 @@ package org.pdfsam;
 
 /**
  * Possible configurable properties
- * 
+ *
  * @author Andrea Vacondio
  */
-public enum ConfigurableProperty {
+public enum BrandableProperty {
+    NAME("pdfsam.name"),
+    SHORT_NAME("pdfsam.shortname"),
     HOME_URL("pdfsam.home.url"),
     HOME_LABEL("pdfsam.home.label"),
     VERSION("pdfsam.version"),
@@ -43,12 +45,12 @@ public enum ConfigurableProperty {
     TWEETER_SHARE_URL("pdfsam.tweeter.share.url"),
     FACEBOOK_SHARE_URL("pdfsam.facebook.share.url"),
     NEWS_URL("pdfsam.news.url"),
-    PREMIUM_MODULES_URL("pdfsam.premium.modules.url"),
+    PREMIUM_TOOLS_URL("pdfsam.premium.modules.url"),
     DOWNLOAD_URL("pdfsam.download.url");
 
     public final String prop;
 
-    private ConfigurableProperty(String prop) {
+    private BrandableProperty(String prop) {
         this.prop = prop;
     }
 }

@@ -18,9 +18,9 @@
  */
 package org.pdfsam.support.validation;
 
-import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
+import org.pdfsam.model.io.FileType;
 
-import org.pdfsam.support.io.FileType;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 /**
  * Validates that a given file path is existing and of the expected type

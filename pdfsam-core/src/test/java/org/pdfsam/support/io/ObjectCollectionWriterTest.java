@@ -18,22 +18,22 @@
  */
 package org.pdfsam.support.io;
 
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import javafx.scene.input.ClipboardContent;
+import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.io.FileUtils;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
-
-import javafx.scene.input.ClipboardContent;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 /**
  * @author Andrea Vacondio
@@ -41,8 +41,6 @@ import javafx.scene.input.ClipboardContent;
  */
 public class ObjectCollectionWriterTest {
 
-    @Rule
-    public TemporaryFolder temp = new TemporaryFolder();
 
     @Test
     public void clipboard() {
@@ -54,10 +52,10 @@ public class ObjectCollectionWriterTest {
     }
 
     @Test
-    public void file() throws IOException {
+    public void file(@TempDir Path folder) throws IOException {
         List<String> content = new ArrayList<>();
         content.add("item");
-        File file = temp.newFile();
+        File file = Files.createTempFile(folder, null, null).toFile();
         ObjectCollectionWriter.writeContent(content).to(file);
         assertTrue(FileUtils.readFileToString(file, Charset.defaultCharset()).contains("item"));
     }

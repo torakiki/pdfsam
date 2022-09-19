@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 12/dic/2011
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -18,44 +18,23 @@
  */
 package org.pdfsam;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import jdepend.framework.JDepend;
-import jdepend.framework.JavaPackage;
+import com.tngtech.archunit.core.importer.ImportOption;
+import com.tngtech.archunit.junit.AnalyzeClasses;
+import com.tngtech.archunit.junit.ArchTest;
+import com.tngtech.archunit.lang.ArchRule;
+import com.tngtech.archunit.library.dependencies.SlicesRuleDefinition;
 
 /**
  * Unit test to test against cycles.
- * 
+ *
  * @author Andrea Vacondio
  * @see http://www.softwarepoets.org/2009/04/unit-tests-to-check-against-cyclic.html
  */
+@AnalyzeClasses(packages = "org.pdfsam", importOptions = { ImportOption.DoNotIncludeTests.class })
 public class TestCycles {
 
-    private static final Logger LOG = LoggerFactory.getLogger(TestCycles.class);
+    @ArchTest
+    public static final ArchRule myRule = SlicesRuleDefinition.slices().matching("org.pdfsam.(*)..").should()
+            .beFreeOfCycles();
 
-    private JDepend jdepend = new JDepend();
-    private Collection<? extends Object> packages = new ArrayList<>();
-
-    @Before
-    public void setUp() throws IOException {
-        jdepend.addDirectory("target/classes");
-        packages = jdepend.analyze();
-    }
-
-    @Test
-    public void cycleTest() {
-        for (Object p : packages) {
-            JavaPackage pack1 = (JavaPackage) p;
-            Assert.assertFalse(pack1.getName() + " failed.", pack1.containsCycle());
-            LOG.debug(String.format("%s analyzed for cycles.", pack1.getName()));
-        }
-    }
 }

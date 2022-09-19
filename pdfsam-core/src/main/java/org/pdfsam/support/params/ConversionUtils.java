@@ -18,16 +18,17 @@
  */
 package org.pdfsam.support.params;
 
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.sejda.conversion.AdapterUtils.splitAndTrim;
-
-import java.util.Collections;
-import java.util.Set;
-
 import org.pdfsam.i18n.I18nContext;
 import org.sejda.commons.collection.NullSafeSet;
 import org.sejda.conversion.exception.ConversionException;
 import org.sejda.model.pdf.page.PageRange;
+
+import java.util.Collections;
+import java.util.Set;
+
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.pdfsam.i18n.I18nContext.i18n;
+import static org.sejda.conversion.AdapterUtils.splitAndTrim;
 
 /**
  * @author Andrea Vacondio
@@ -49,8 +50,7 @@ public final class ConversionUtils {
             for (String current : tokens) {
                 PageRange range = toPageRange(current);
                 if (range.getEnd() < range.getStart()) {
-                    throw new ConversionException(
-                            I18nContext.getInstance().i18n("Invalid range: {0}.", range.toString()));
+                    throw new ConversionException(i18n().tr("Invalid range: {0}.", range.toString()));
                 }
                 pageRangeSet.add(range);
             }
@@ -62,7 +62,7 @@ public final class ConversionUtils {
     private static PageRange toPageRange(String value) throws ConversionException {
         String[] limits = splitAndTrim(value, "-");
         if (limits.length > 2) {
-            throw new ConversionException(I18nContext.getInstance().i18n(
+            throw new ConversionException(i18n().tr(
                     "Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] or [-n] or [n-]",
                     value));
         }
@@ -83,7 +83,7 @@ public final class ConversionUtils {
         try {
             return Integer.parseInt(value.trim());
         } catch (NumberFormatException nfe) {
-            throw new ConversionException(I18nContext.getInstance().i18n("Invalid number: {0}.", value));
+            throw new ConversionException(i18n().tr("Invalid number: {0}.", value));
         }
     }
 }

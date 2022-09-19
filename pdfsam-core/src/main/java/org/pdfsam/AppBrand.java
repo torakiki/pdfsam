@@ -20,33 +20,21 @@ package org.pdfsam;
 
 /**
  * Information about the current running version of PDFsam
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
-public interface Pdfsam {
-
-    /**
-     * @return application name
-     */
-    String name();
-
-    /**
-     * @return application short name
-     */
-    String shortName();
+public interface AppBrand {
 
     /**
      * @param prop
      * @param defaultValue
      * @return a configurable property value
      */
-    public String property(ConfigurableProperty prop, String defaultValue);
+    String property(BrandableProperty prop, String defaultValue);
 
     /**
      * @param prop
-     * @param defaultValue
      * @return a configurable property value or blank if no value is available
      */
-    public String property(ConfigurableProperty prop);
+    String property(BrandableProperty prop);
 }

@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
- * Created on 12/dic/2011
- * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
+ * Created on 18/09/22
+ * Copyright 2022 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -18,13 +18,13 @@
  */
 package org.pdfsam.context;
 
+import java.util.Optional;
+
 /**
- * Possible {@link Integer} preferences.
- * 
+ * A settings change event with the property changed and the new value
+ *
  * @author Andrea Vacondio
- * 
  */
-public enum IntUserPreference {
-    THUMBNAILS_SIZE,
-    LOGVIEW_ROWS_NUMBER
+public record PersistentPropertyChange<T>(PersistentProperty<T> property, Optional<T> value) {
+
 }

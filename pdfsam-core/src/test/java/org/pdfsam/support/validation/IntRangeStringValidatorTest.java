@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 16/nov/2012
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -18,14 +18,14 @@
  */
 package org.pdfsam.support.validation;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Andrea Vacondio
- * 
  */
 public class IntRangeStringValidatorTest {
     private Validator<String> victim = Validators.positiveIntRange(1, 5);
@@ -40,14 +40,14 @@ public class IntRangeStringValidatorTest {
         assertFalse(victim.isValid("dsdsa"));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void invalidLower() {
-        Validators.positiveIntRange(0, 5);
+        assertThrows(IllegalArgumentException.class, () -> Validators.positiveIntRange(0, 5));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void invalidUpper() {
-        Validators.positiveIntRange(1, 0);
+        assertThrows(IllegalArgumentException.class, () -> Validators.positiveIntRange(1, 0));
     }
 
     @Test

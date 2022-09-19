@@ -18,12 +18,14 @@
  */
 package org.pdfsam.support.validation;
 
+import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Andrea Vacondio
@@ -34,20 +36,20 @@ public class FileValidatorTest {
 
     @Test
     public void testNegative() {
-        Assert.assertFalse(victim.isValid("/Chuck/Norris"));
+        assertFalse(victim.isValid("/Chuck/Norris"));
     }
 
     @Test
     public void testPositive() throws IOException {
         Path test = Files.createTempFile("tmp", "test");
-        Assert.assertTrue(victim.isValid(test.toAbsolutePath().toString()));
+        assertTrue(victim.isValid(test.toAbsolutePath().toString()));
         Files.delete(test);
     }
 
     @Test
     public void testAllowBlank() {
-        Assert.assertFalse(victim.isValid(""));
-        Assert.assertTrue(Validators.validEmpty(victim).isValid(""));
+        assertFalse(victim.isValid(""));
+        assertTrue(Validators.validEmpty(victim).isValid(""));
     }
 
 }

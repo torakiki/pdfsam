@@ -21,6 +21,8 @@ package org.pdfsam.support.params;
 import org.sejda.model.optimization.OptimizationPolicy;
 import org.sejda.model.parameter.base.MultiplePdfSourceMultipleOutputParameters;
 
+import static org.pdfsam.ConfigurableSystemProperty.PDFSAM_DISABLE_SPLIT_OPTIMIZATION;
+
 /**
  * Builder for split tasks parameters
  * 
