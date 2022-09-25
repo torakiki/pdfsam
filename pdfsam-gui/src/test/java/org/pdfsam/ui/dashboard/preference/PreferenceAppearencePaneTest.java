@@ -31,12 +31,12 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.NoHeadless;
-import org.pdfsam.context.StringUserPreference;
-import org.pdfsam.context.UserContext;
+import org.pdfsam.core.context.StringUserPreference;
+import org.pdfsam.core.context.UserContext;
 import org.pdfsam.eventstudio.Listener;
 import org.pdfsam.i18n.SetLocaleRequest;
-import org.pdfsam.support.KeyStringValueItem;
-import org.pdfsam.support.LocaleKeyValueItem;
+import org.pdfsam.core.support.KeyStringValueItem;
+import org.pdfsam.core.support.LocaleKeyValueItem;
 import org.testfx.framework.junit.ApplicationTest;
 
 import javafx.scene.Scene;

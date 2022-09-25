@@ -25,21 +25,19 @@ import javafx.scene.layout.VBox;
 import org.apache.commons.lang3.builder.Builder;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.eventstudio.annotation.EventStation;
-import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.module.TaskExecutionRequestEvent;
-import org.pdfsam.module.Tool;
+import org.pdfsam.model.tool.TaskExecutionRequest;
+import org.pdfsam.model.tool.Tool;
+import org.pdfsam.model.ui.workspace.LoadWorkspaceResponse;
+import org.pdfsam.model.ui.workspace.SaveWorkspaceRequest;
 import org.pdfsam.ui.notification.AddNotificationRequestEvent;
 import org.pdfsam.ui.notification.NotificationType;
 import org.pdfsam.ui.support.Style;
-import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
-import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.sejda.model.parameter.base.AbstractParameters;
 
-import java.util.HashMap;
 import java.util.function.Consumer;
 
-import static java.util.Optional.ofNullable;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * Base class for a {@link Tool}. Modules are automatically scanned for event listener annotations and have their {@link EventStation} set to their {@link #id()}.
@@ -66,7 +64,7 @@ public abstract class BaseTaskExecutionTool implements Tool {
                     s -> eventStudio().broadcast(new AddNotificationRequestEvent(NotificationType.ERROR, s,
                             i18n().tr("Invalid parameters")))));
             if (!errorTracker.errorOnBuild) {
-                eventStudio().broadcast(new TaskExecutionRequestEvent(id(), builder.build()));
+                eventStudio().broadcast(new TaskExecutionRequest(id(), builder.build()));
             }
         });
         modulePanel.setCenter(panel);
@@ -74,12 +72,12 @@ public abstract class BaseTaskExecutionTool implements Tool {
     }
 
     @EventListener
-    public final void saveStateData(SaveWorkspaceEvent event) {
-        onSaveWorkspace(ofNullable(event.getDataForTool(id())).orElseGet(HashMap::new));
+    public final void saveStateData(SaveWorkspaceRequest event) {
+        onSaveWorkspace(event.getData(id()));
     }
 
     @EventListener
-    public final void restoreState(LoadWorkspaceEvent event) {
+    public final void restoreState(LoadWorkspaceResponse event) {
         Platform.runLater(() -> onLoadWorkspace(event.getData(id())));
     }
 

@@ -23,7 +23,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import javax.inject.Inject;
 import javax.inject.Provider;
 
-import org.pdfsam.context.UserContext;
+import org.pdfsam.core.context.UserContext;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.ui.commons.ClearModuleEvent;

@@ -18,15 +18,12 @@
  */
 package org.pdfsam.persistence;
 
-import java.io.IOException;
-
 /**
  * Exception thrown by persistence layer.
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
-public class PersistenceException extends IOException {
+public class PersistenceException extends RuntimeException {
 
     private static final long serialVersionUID = 4205785256638672842L;
 

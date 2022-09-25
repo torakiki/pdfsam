@@ -24,7 +24,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import javax.inject.Inject;
 
-import org.pdfsam.context.UserContext;
+import org.pdfsam.core.context.UserContext;
 import org.pdfsam.ui.support.CircularObservableList;
 import org.pdfsam.eventstudio.Listener;
 

@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.pdfsam.module.Tool;
+import org.pdfsam.tool.Tool;
 import org.pdfsam.test.AdditionalDefaultPriorityTestTool;
 import org.pdfsam.test.DefaultPriorityTestTool;
 import org.pdfsam.test.HighPriorityTestTool;

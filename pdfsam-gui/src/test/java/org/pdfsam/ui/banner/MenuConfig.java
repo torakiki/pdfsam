@@ -27,7 +27,7 @@ import java.util.Arrays;
 import org.pdfsam.injector.Prototype;
 import org.pdfsam.injector.Provides;
 import org.pdfsam.test.DefaultPriorityTestTool;
-import org.pdfsam.ui.RecentWorkspacesService;
+import org.pdfsam.service.ui.RecentWorkspacesService;
 
 /**
  * @author Andrea Vacondio

@@ -21,14 +21,14 @@ package org.pdfsam.ui.dashboard.preference;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import static org.pdfsam.support.KeyStringValueItem.keyValue;
+import static org.pdfsam.core.support.KeyStringValueItem.keyValue;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.pdfsam.NoHeadless;
-import org.pdfsam.context.StringUserPreference;
-import org.pdfsam.context.UserContext;
-import org.pdfsam.support.KeyStringValueItem;
+import org.pdfsam.core.context.StringUserPreference;
+import org.pdfsam.core.context.UserContext;
+import org.pdfsam.core.support.KeyStringValueItem;
 import org.testfx.framework.junit.ApplicationTest;
 
 import javafx.scene.Scene;

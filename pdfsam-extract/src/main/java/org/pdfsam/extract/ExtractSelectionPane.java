@@ -20,8 +20,7 @@ package org.pdfsam.extract;
 
 import java.util.function.Consumer;
 
-import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.support.params.TaskParametersBuildStep;
+import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.selection.multiple.FileColumn;
 import org.pdfsam.ui.selection.multiple.IntColumn;
 import org.pdfsam.ui.selection.multiple.LoadingColumn;

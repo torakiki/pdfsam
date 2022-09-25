@@ -34,7 +34,7 @@ import org.pdfsam.configuration.StylesConfig;
 import org.pdfsam.injector.Components;
 import org.pdfsam.injector.Injector;
 import org.pdfsam.injector.Provides;
-import org.pdfsam.module.TaskExecutionRequestEvent;
+import org.pdfsam.tool.TaskExecutionRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.sejda.model.exception.TaskOutputVisitException;

@@ -21,10 +21,9 @@ package org.pdfsam.ui.io;
 import java.io.File;
 import java.util.function.Consumer;
 
-import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.support.io.FileType;
-import org.pdfsam.support.params.SingleOutputTaskParametersBuilder;
-import org.pdfsam.support.params.TaskParametersBuildStep;
+import org.pdfsam.core.support.io.FileType;
+import org.pdfsam.core.support.params.SingleOutputTaskParametersBuilder;
+import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.sejda.model.output.FileTaskOutput;

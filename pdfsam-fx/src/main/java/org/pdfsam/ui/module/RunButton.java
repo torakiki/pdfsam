@@ -21,9 +21,8 @@ package org.pdfsam.ui.module;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import org.pdfsam.eventstudio.annotation.EventListener;
-import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Prototype;
-import org.pdfsam.module.TaskExecutionRequestEvent;
+import org.pdfsam.tool.TaskExecutionRequestEvent;
 import org.pdfsam.ui.support.Style;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;

@@ -19,55 +19,40 @@
 package org.pdfsam.model.ui.workspace;
 
 import java.io.File;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import static org.apache.commons.lang3.StringUtils.defaultString;
+import static java.util.Optional.ofNullable;
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 /**
- * Event sent to notify that the user asked to save the workspace. Modules will populate the data map with their state in the form of key/value strings.
+ * Request to save the workspace. Tools will populate the data map with their state in the form of key/value strings.
  *
  * @author Andrea Vacondio
  */
-public class SaveWorkspaceRequest {
-    private Map<String, Map<String, String>> data = new ConcurrentHashMap<>();
-    private final boolean awaitCompletion;
-    private final File workspace;
+public record SaveWorkspaceRequest(File workspace, boolean awaitCompletion, Map<String, Map<String, String>> data) {
+    public SaveWorkspaceRequest(File workspace, boolean awaitCompletion, Map<String, Map<String, String>> data) {
+        requireNotNullArg(workspace, "Workspace file cannot be null");
+        this.workspace = workspace;
+        this.data = ofNullable(data).orElseGet(HashMap::new);
+        this.awaitCompletion = awaitCompletion;
+    }
 
     public SaveWorkspaceRequest(File workspace) {
         this(workspace, false);
     }
 
     public SaveWorkspaceRequest(File workspace, boolean awaitCompletion) {
-        requireNotNullArg(workspace, "Workspace file cannot be null");
-        this.workspace = workspace;
-        this.awaitCompletion = awaitCompletion;
-    }
-
-    /**
-     * @return an unmodifiable view of the map
-     */
-    public Map<String, Map<String, String>> getData() {
-        return Collections.unmodifiableMap(data);
-    }
-
-    /**
-     * Adds the give key/value pair to the given tool
-     */
-    public void addValue(String tool, String key, String value) {
-        requireNotNullArg(key, "Destination file cannot be null");
-        getDataForTool(tool).put(key, defaultString(value));
+        this(workspace, awaitCompletion, new ConcurrentHashMap<>());
     }
 
     /**
      * @param tool
-     * @return a Map containing data for the module or an empty one
+     * @return a Map containing data for the tool or an empty one
      */
-    public Map<String, String> getDataForTool(String tool) {
-        return data.computeIfAbsent(tool, (k) -> new HashMap<>());
+    public Map<String, String> getData(String tool) {
+        return this.data.computeIfAbsent(tool, (k) -> new HashMap<>());
     }
 
 }

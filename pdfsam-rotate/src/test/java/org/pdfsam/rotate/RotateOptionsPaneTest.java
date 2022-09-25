@@ -31,7 +31,7 @@ import java.util.function.Consumer;
 
 import org.junit.ClassRule;
 import org.junit.Test;
-import org.pdfsam.support.KeyStringValueItem;
+import org.pdfsam.core.support.KeyStringValueItem;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
 import org.sejda.model.rotation.Rotation;

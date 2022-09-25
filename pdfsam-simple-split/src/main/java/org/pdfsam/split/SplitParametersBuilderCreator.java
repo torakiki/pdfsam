@@ -20,7 +20,7 @@ package org.pdfsam.split;
 
 import java.util.function.Consumer;
 
-import org.pdfsam.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
+import org.pdfsam.core.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
 import org.sejda.model.parameter.AbstractSplitByPageParameters;
 
 /**

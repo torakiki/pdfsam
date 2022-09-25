@@ -19,7 +19,7 @@
 package org.pdfsam.ui.commons;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.module.ToolBound;
+import org.pdfsam.tool.ToolBound;
 
 /**
  * request to clear the module

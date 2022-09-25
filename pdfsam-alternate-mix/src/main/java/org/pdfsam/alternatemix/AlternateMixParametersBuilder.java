@@ -20,8 +20,8 @@ package org.pdfsam.alternatemix;
 
 import java.util.Set;
 
-import org.pdfsam.support.params.AbstractPdfOutputParametersBuilder;
-import org.pdfsam.support.params.SingleOutputTaskParametersBuilder;
+import org.pdfsam.core.support.params.AbstractPdfOutputParametersBuilder;
+import org.pdfsam.core.support.params.SingleOutputTaskParametersBuilder;
 import org.sejda.commons.collection.NullSafeSet;
 import org.sejda.model.input.PdfMixInput;
 import org.sejda.model.output.FileTaskOutput;

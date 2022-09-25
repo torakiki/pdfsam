@@ -35,7 +35,7 @@ import org.junit.experimental.categories.Category;
 import org.pdfsam.NoHeadless;
 import org.pdfsam.injector.Injector;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.ui.RecentWorkspacesService;
+import org.pdfsam.service.ui.RecentWorkspacesService;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.ui.workspace.WorkspaceLoadedEvent;
 import org.pdfsam.eventstudio.Listener;

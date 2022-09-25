@@ -24,9 +24,8 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import java.math.BigDecimal;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.module.ToolBound;
-import org.pdfsam.module.TaskExecutionRequestEvent;
+import org.pdfsam.tool.ToolBound;
+import org.pdfsam.tool.TaskExecutionRequestEvent;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.eventstudio.annotation.EventStation;
 import org.sejda.model.notification.event.PercentageOfWorkDoneChangedEvent;

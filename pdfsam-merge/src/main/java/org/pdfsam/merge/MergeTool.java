@@ -24,17 +24,16 @@ import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
-import org.pdfsam.context.UserContext;
+import org.pdfsam.core.context.UserContext;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.eventstudio.annotation.EventStation;
-import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.injector.Components;
 import org.pdfsam.injector.Provides;
-import org.pdfsam.module.ToolCategory;
-import org.pdfsam.module.ToolDescriptor;
-import org.pdfsam.module.ToolInputOutputType;
-import org.pdfsam.module.ToolPriority;
+import org.pdfsam.tool.ToolCategory;
+import org.pdfsam.tool.ToolDescriptor;
+import org.pdfsam.tool.ToolInputOutputType;
+import org.pdfsam.tool.ToolPriority;
 import org.pdfsam.ui.commons.ClearModuleEvent;
 import org.pdfsam.ui.io.BrowsablePdfOutputField;
 import org.pdfsam.ui.io.PdfDestinationPane;
@@ -47,7 +46,7 @@ import javax.inject.Inject;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import static org.pdfsam.module.ToolDescriptorBuilder.builder;
+import static org.pdfsam.tool.ToolDescriptorBuilder.builder;
 import static org.pdfsam.ui.support.Views.titledPane;
 
 /**

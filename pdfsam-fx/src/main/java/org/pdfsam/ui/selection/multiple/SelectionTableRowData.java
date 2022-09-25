@@ -22,7 +22,7 @@ import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
-import org.pdfsam.support.params.ConversionUtils;
+import org.pdfsam.core.support.params.ConversionUtils;
 import org.sejda.conversion.exception.ConversionException;
 import org.sejda.model.pdf.page.PageRange;
 

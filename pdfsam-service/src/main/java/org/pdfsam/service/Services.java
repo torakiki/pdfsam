@@ -19,13 +19,13 @@
 package org.pdfsam.service;
 
 import org.pdfsam.injector.Injector;
-import org.pdfsam.module.ModuleServiceConfig;
-import org.pdfsam.news.NewsServiceConfig;
-import org.pdfsam.pdf.PdfServiceConfig;
-import org.pdfsam.premium.PremiumServiceConfig;
-import org.pdfsam.task.TaskExecutionServiceConfig;
-import org.pdfsam.ui.UIServiceConfig;
-import org.pdfsam.update.UpdateServiceConfig;
+import org.pdfsam.service.news.NewsServiceConfig;
+import org.pdfsam.service.pdf.PdfServiceConfig;
+import org.pdfsam.service.premium.PremiumServiceConfig;
+import org.pdfsam.service.task.TaskExecutionServiceConfig;
+import org.pdfsam.service.tool.ModuleServiceConfig;
+import org.pdfsam.service.ui.UIServiceConfig;
+import org.pdfsam.service.update.UpdateServiceConfig;
 
 /**
  * @author Andrea Vacondio
@@ -36,7 +36,8 @@ public class Services {
      * Adds configurations to the injector to create all the instances necessary to have the services up and running
      */
     public static void initServices() {
-        Injector.addConfig(new UpdateServiceConfig(), new UIServiceConfig(), new TaskExecutionServiceConfig(),
-                new PdfServiceConfig(), new NewsServiceConfig(), new ModuleServiceConfig(), new PremiumServiceConfig());
+        Injector.addConfig(new ServicesConfig(), new UpdateServiceConfig(), new UIServiceConfig(),
+                new TaskExecutionServiceConfig(), new PdfServiceConfig(), new NewsServiceConfig(),
+                new ModuleServiceConfig(), new PremiumServiceConfig());
     }
 }

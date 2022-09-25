@@ -27,7 +27,7 @@ import com.tngtech.archunit.library.dependencies.SlicesRuleDefinition;
 /**
  * @author Andrea Vacondio
  */
-@AnalyzeClasses(packages = "org.pdfsam", importOptions = { ImportOption.DoNotIncludeTests.class })
+@AnalyzeClasses(packages = "org.pdfsam.i18n", importOptions = { ImportOption.DoNotIncludeTests.class })
 public class TestCycles {
 
     @ArchTest

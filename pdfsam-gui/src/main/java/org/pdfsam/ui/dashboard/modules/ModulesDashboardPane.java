@@ -25,8 +25,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.module.Tool;
+import org.pdfsam.tool.Tool;
 import org.pdfsam.premium.PremiumModule;
 import org.pdfsam.premium.PremiumModulesEvent;
 import org.pdfsam.eventstudio.annotation.EventListener;

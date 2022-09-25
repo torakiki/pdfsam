@@ -33,7 +33,7 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.pdfsam.NoHeadless;
 import org.pdfsam.configuration.StylesConfig;
-import org.pdfsam.context.UserContext;
+import org.pdfsam.core.context.UserContext;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.test.ClearEventStudioRule;

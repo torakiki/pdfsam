@@ -26,7 +26,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Test;
-import org.pdfsam.support.validation.Validators;
+import org.pdfsam.core.support.validation.Validators;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 
 import javafx.beans.value.ChangeListener;

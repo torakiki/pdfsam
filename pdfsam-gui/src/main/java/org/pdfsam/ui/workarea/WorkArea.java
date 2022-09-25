@@ -28,7 +28,7 @@ import java.util.Optional;
 import javax.inject.Inject;
 
 import org.pdfsam.eventstudio.annotation.EventListener;
-import org.pdfsam.module.Tool;
+import org.pdfsam.tool.Tool;
 import org.pdfsam.ui.commons.SetActiveModuleRequest;
 import org.pdfsam.ui.event.SetTitleEvent;
 import org.pdfsam.ui.module.RunButtonTriggerRequest;

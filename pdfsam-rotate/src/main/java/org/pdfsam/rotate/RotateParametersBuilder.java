@@ -22,8 +22,8 @@ import static java.util.Objects.isNull;
 
 import java.util.Set;
 
-import org.pdfsam.support.params.AbstractPdfOutputParametersBuilder;
-import org.pdfsam.support.params.MultipleOutputTaskParametersBuilder;
+import org.pdfsam.core.support.params.AbstractPdfOutputParametersBuilder;
+import org.pdfsam.core.support.params.MultipleOutputTaskParametersBuilder;
 import org.pdfsam.task.BulkRotateParameters;
 import org.pdfsam.task.PdfRotationInput;
 import org.sejda.commons.collection.NullSafeSet;

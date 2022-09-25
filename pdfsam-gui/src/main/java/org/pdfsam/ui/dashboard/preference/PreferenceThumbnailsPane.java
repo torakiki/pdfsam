@@ -22,7 +22,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.support.KeyStringValueItem;
+import org.pdfsam.core.support.KeyStringValueItem;
 import org.pdfsam.ui.support.Style;
 
 import javafx.scene.control.Label;

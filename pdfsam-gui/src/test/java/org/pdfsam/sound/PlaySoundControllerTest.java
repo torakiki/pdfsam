@@ -26,7 +26,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.pdfsam.context.UserContext;
+import org.pdfsam.core.context.UserContext;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;

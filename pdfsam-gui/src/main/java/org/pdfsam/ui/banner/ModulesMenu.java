@@ -27,9 +27,8 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.module.Tool;
-import org.pdfsam.module.ToolCategory;
+import org.pdfsam.tool.Tool;
+import org.pdfsam.tool.ToolCategory;
 
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;

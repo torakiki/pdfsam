@@ -25,8 +25,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import org.pdfsam.BrandableProperty;
-import org.pdfsam.AppBrand;
+import org.pdfsam.core.BrandableProperty;
+import org.pdfsam.core.AppBrand;
 
 /**
  * @author Andrea Vacondio

@@ -20,7 +20,7 @@ package org.pdfsam.ui.support;
 
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
-import org.pdfsam.support.validation.Validator;
+import org.pdfsam.core.support.validation.Validator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

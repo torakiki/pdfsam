@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.selection.multiple;
 
-import org.pdfsam.support.ObservableAtomicReference;
+import org.pdfsam.core.support.ObservableAtomicReference;
 
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TableCell;

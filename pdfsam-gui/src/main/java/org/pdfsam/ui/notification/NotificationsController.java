@@ -27,12 +27,12 @@ import java.security.SecureRandom;
 import javax.inject.Inject;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.pdfsam.AppBrand;
-import org.pdfsam.BrandableProperty;
-import org.pdfsam.context.UserContext;
+import org.pdfsam.core.AppBrand;
+import org.pdfsam.core.BrandableProperty;
+import org.pdfsam.core.context.UserContext;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Auto;
-import org.pdfsam.module.UsageService;
+import org.pdfsam.service.tool.UsageService;
 import org.pdfsam.news.NewImportantNewsEvent;
 import org.pdfsam.update.NoUpdateAvailable;
 import org.pdfsam.update.UpdateAvailableEvent;

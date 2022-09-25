@@ -26,6 +26,8 @@ import static java.util.Objects.requireNonNull;
  * @author Andrea Vacondio
  */
 public record StageStatus(double x, double y, double width, double height, StageMode mode) {
+    public static StageStatus NULL = new StageStatus(0, 0, 0, 0);
+
     public StageStatus {
         requireNonNull(mode);
     }
@@ -34,7 +36,4 @@ public record StageStatus(double x, double y, double width, double height, Stage
         this(x, y, width, height, StageMode.DEFAULT);
     }
 
-    public StageStatus() {
-        this(0, 0, 0, 0);
-    }
 }

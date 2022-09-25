@@ -18,7 +18,7 @@
  */
 package org.pdfsam.ui.log;
 
-import static org.pdfsam.support.io.ObjectCollectionWriter.writeContent;
+import static org.pdfsam.core.support.io.ObjectCollectionWriter.writeContent;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import java.io.File;
@@ -27,7 +27,7 @@ import java.util.Collection;
 import javax.inject.Inject;
 
 import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.support.io.FileType;
+import org.pdfsam.core.support.io.FileType;
 import org.pdfsam.ui.io.FileChoosers;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;

@@ -18,89 +18,165 @@
  */
 package org.pdfsam.persistence;
 
-import static java.util.Objects.nonNull;
-import static java.util.Optional.empty;
-import static java.util.Optional.ofNullable;
-import static org.sejda.commons.util.RequireUtils.requireNotBlank;
-import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.util.Optional;
+import java.util.function.Supplier;
+import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import static java.util.Objects.nonNull;
+import static java.util.Optional.ofNullable;
+import static org.sejda.commons.util.RequireUtils.requireNotBlank;
 
 /**
- * A DAO providing basic CRUD functionalities for {@link String} keys and <T> values.
+ * A DAO providing basic CRUD functionalities for {@link String} keys and {@link String} values.
  *
  * @author Andrea Vacondio
- *
- * @param <T>
- *            the type of the persisted values
  */
-public class PreferencesRepository<T> implements Repository<T>{
+public class PreferencesRepository implements Repository {
 
-    private final ObjectMapper mapper;
-    private final Class<T> clazz;
-    private final StringPreferencesRepository repo;
+    private static final Logger LOG = LoggerFactory.getLogger(PreferencesRepository.class);
 
-    public PreferencesRepository(String path, ObjectMapper mapper, Class<T> clazz) {
-        requireNotNullArg(mapper, "Mapper cannot be null");
-        requireNotNullArg(clazz, "Type class cannot be null");
-        this.repo = new StringPreferencesRepository(path);
-        this.mapper = mapper;
-        this.clazz = clazz;
+    final String path;
+
+    public PreferencesRepository(String path) {
+        requireNotBlank(path, "Preferences path cannot be blank");
+        this.path = path;
     }
 
-    /**
-     * @param key
-     * @return the stored value or an empty optional
-     * @throws PersistenceException
-     *             if this node (or an ancestor) has been removed or if key contains the null control character, code point U+0000.
-     * @see Preferences#get(String, String)
-     */
-    public Optional<T> get(String key) throws PersistenceException {
+    @Override
+    public int getInt(String key, int defaultValue) {
         try {
-            var value = this.repo.get(key);
-            if (value.isPresent()) {
-                return ofNullable(mapper.readValue(value.get(), clazz));
-            }
-        } catch (IOException e) {
-            throw new PersistenceException(String.format("Unable to get entity: [key '%s']", key), e);
+            return Preferences.userRoot().node(path).getInt(key, defaultValue);
+        } catch (IllegalStateException | IllegalArgumentException e) {
+            throw new PersistenceException(String.format("Unable to get value: [key '%s']", key), e);
         }
-        return empty();
     }
 
-    /**
-     * Saves to the persistence layer the given value.
-     *
-     * @param key
-     * @param entity
-     *            the entity to persist. Can be null.
-     * @throws PersistenceException
-     *             if this node (or an ancestor) has been removed or if key contains the null control character, code point U+0000.
-     * @see Preferences#put(String, String)
-     */
-    public void save(String key, T entity) throws PersistenceException {
-        // fast fail
+    @Override
+    public long getLong(String key, long defaultValue) {
+        try {
+            return Preferences.userRoot().node(path).getLong(key, defaultValue);
+        } catch (IllegalStateException | IllegalArgumentException e) {
+            throw new PersistenceException(String.format("Unable to get value: [key '%s']", key), e);
+        }
+    }
+
+    @Override
+    public String getString(String key, Supplier<String> supplier) {
         requireNotBlank(key, "Key cannot be blank");
         try {
-            if (nonNull(entity)) {
-                this.repo.save(key, mapper.writeValueAsString(entity));
-            } else {
-                this.repo.delete(key);
-            }
-        } catch (IOException e) {
-            throw new PersistenceException(String.format("Unable to store entity: [key '%s', entity '%s']", key, entity), e);
+            return ofNullable(Preferences.userRoot().node(path).get(key, null)).orElseGet(supplier);
+        } catch (IllegalStateException | IllegalArgumentException e) {
+            throw new PersistenceException(String.format("Unable to get value: [key '%s']", key), e);
         }
     }
 
-    public void delete(String key) throws PersistenceException {
-        this.repo.delete(key);
+    @Override
+    public boolean getBoolean(String key, boolean defaultValue) {
+        try {
+            return Preferences.userRoot().node(path).getBoolean(key, defaultValue);
+        } catch (IllegalStateException | IllegalArgumentException e) {
+            throw new PersistenceException(String.format("Unable to get value: [key '%s']", key), e);
+        }
     }
 
-    public void clean() throws PersistenceException {
-        this.repo.clean();
+    @Override
+    public void saveInt(String key, int value) {
+        requireNotBlank(key, "Key cannot be blank");
+        try {
+            Preferences.userRoot().node(path).putInt(key, value);
+            LOG.trace("Saved entity [key '{}', value '{}']", key, value);
+        } catch (IllegalStateException | IllegalArgumentException e) {
+            throw new PersistenceException(String.format("Unable to store value: [key '%s', value '%s']", key, value),
+                    e);
+        }
+    }
+
+    @Override
+    public void saveLong(String key, long value) {
+        requireNotBlank(key, "Key cannot be blank");
+        try {
+            Preferences.userRoot().node(path).putLong(key, value);
+            LOG.trace("Saved entity [key '{}', value '{}']", key, value);
+        } catch (IllegalStateException | IllegalArgumentException e) {
+            throw new PersistenceException(String.format("Unable to store value: [key '%s', value '%s']", key, value),
+                    e);
+        }
+    }
+
+    @Override
+    public void saveString(String key, String value) {
+        requireNotBlank(key, "Key cannot be blank");
+        try {
+            if (nonNull(value)) {
+                Preferences.userRoot().node(path).put(key, value);
+                LOG.trace("Saved entity [key '{}', value '{}']", key, value);
+            } else {
+                delete(key);
+            }
+        } catch (IllegalStateException | IllegalArgumentException e) {
+            throw new PersistenceException(String.format("Unable to store value: [key '%s', value '%s']", key, value),
+                    e);
+        }
+    }
+
+    @Override
+    public void saveBoolean(String key, boolean value) {
+        requireNotBlank(key, "Key cannot be blank");
+        try {
+            Preferences.userRoot().node(path).putBoolean(key, value);
+            LOG.trace("Saved entity [key '{}', value '{}']", key, value);
+        } catch (IllegalStateException | IllegalArgumentException e) {
+            throw new PersistenceException(String.format("Unable to store value: [key '%s', value '%s']", key, value),
+                    e);
+        }
+    }
+
+    @Override
+    public String[] keys() {
+        try {
+            return Preferences.userRoot().node(path).keys();
+        } catch (IllegalStateException | BackingStoreException e) {
+            throw new PersistenceException("Unable to retrieve key values", e);
+        }
+    }
+
+    /**
+     * deletes the value corresponding to the given key
+     *
+     * @param key
+     * @throws PersistenceException if this node (or an ancestor) has been removed or if key contains the null control character, code point U+0000.
+     * @see Preferences#remove(String)
+     */
+    @Override
+    public void delete(String key) {
+        requireNotBlank(key, "Key cannot be blank");
+        try {
+            Preferences.userRoot().node(path).remove(key);
+            LOG.trace("Deleted entity key '{}'", key);
+        } catch (IllegalStateException | IllegalArgumentException e) {
+            throw new PersistenceException(String.format("Unable to delete value: [key '%s']", key), e);
+        }
+    }
+
+    /**
+     * Removes all the persisted values and keys for this repository
+     *
+     * @throws PersistenceException if this operation cannot be completed due to a failure in the backing store, or inability to communicate with it orif this node (or an ancestor) has already been
+     *                              removed with the removeNode() method.
+     * @see Preferences#removeNode()
+     */
+    @Override
+    public void clean() {
+        var prefs = Preferences.userRoot().node(path);
+        try {
+            prefs.removeNode();
+            prefs.flush();
+        } catch (IllegalStateException | BackingStoreException e) {
+            throw new PersistenceException(String.format("Unable to clear preferences: [path '%s']", path), e);
+        }
     }
 
 }

@@ -24,7 +24,7 @@ import java.util.Arrays;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.pdfsam.support.io.FileType;
+import org.pdfsam.core.support.io.FileType;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;

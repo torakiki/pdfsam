@@ -20,9 +20,8 @@ package org.pdfsam.ui.selection.single;
 
 import java.util.function.Consumer;
 
-import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.support.params.SinglePdfSourceTaskParametersBuilder;
-import org.pdfsam.support.params.TaskParametersBuildStep;
+import org.pdfsam.core.support.params.SinglePdfSourceTaskParametersBuilder;
+import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.sejda.model.parameter.base.MultiplePdfSourceMultipleOutputParameters;
 import org.sejda.model.parameter.base.SinglePdfSourceTaskParameters;

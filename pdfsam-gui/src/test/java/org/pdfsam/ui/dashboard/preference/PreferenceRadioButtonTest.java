@@ -23,8 +23,8 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Test;
-import org.pdfsam.context.BooleanUserPreference;
-import org.pdfsam.context.UserContext;
+import org.pdfsam.core.context.BooleanUserPreference;
+import org.pdfsam.core.context.UserContext;
 import org.testfx.framework.junit.ApplicationTest;
 
 import javafx.scene.Scene;

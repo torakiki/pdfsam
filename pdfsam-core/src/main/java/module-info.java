@@ -33,10 +33,10 @@ module org.pdfsam.core {
     requires transitive org.sejda.conversion;
     requires transitive org.sejda.model;
 
-    exports org.pdfsam;
-    exports org.pdfsam.context;
-    exports org.pdfsam.support;
-    exports org.pdfsam.support.io;
-    exports org.pdfsam.support.params;
-    exports org.pdfsam.support.validation;
+    exports org.pdfsam.core;
+    exports org.pdfsam.core.context;
+    exports org.pdfsam.core.support;
+    exports org.pdfsam.core.support.io;
+    exports org.pdfsam.core.support.params;
+    exports org.pdfsam.core.support.validation;
 }

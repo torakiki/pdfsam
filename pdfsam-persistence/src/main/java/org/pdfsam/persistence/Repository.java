@@ -18,43 +18,103 @@
  */
 package org.pdfsam.persistence;
 
-import java.util.Optional;
+import java.util.function.Supplier;
 
 /**
- * A DAO providing basic CRUD functionalities for {@link String} keys and <T> values.
+ * A DAO providing basic CRUD functionalities for {@link String} keys and values.
  *
  * @author Andrea Vacondio
  */
-public interface Repository<T> {
+public interface Repository {
 
     /**
-     * @param key
-     * @return the entity corresponding to the given key or an empty {@link Optional}
-     * @throws PersistenceException
+     * @return the stored value converted to Integer or the provided default
      */
-    Optional<T> get(String key) throws PersistenceException;
+    int getInt(String key, int defaultValue);
 
     /**
-     * Saves to the persistence layer the given entity.
+     * @return the stored value converted to Integer or the default provided by the given {@link Supplier}
+     */
+    default int getInt(String key, Supplier<Integer> supplier) {
+        return this.getInt(key, supplier.get());
+    }
+
+    /**
+     * @return the stored value converted to Long or the provided default
+     */
+    long getLong(String key, long defaultValue);
+
+    /**
+     * @return the stored value converted to Long or the default provided by the given {@link Supplier}
+     */
+    default long getLong(String key, Supplier<Long> supplier) {
+        return this.getLong(key, supplier.get());
+    }
+
+    /**
+     * @return the stored value converted to String or the provided default
+     */
+    default String getString(String key, String defaultValue) {
+        return this.getString(key, () -> defaultValue);
+    }
+
+    /**
+     * @return the stored value converted to String or the default provided by the given {@link Supplier}
+     */
+    String getString(String key, Supplier<String> supplier);
+
+    /**
+     * @return the stored value converted to boolean or the provided default
+     */
+    boolean getBoolean(String key, boolean defaultValue);
+
+    /**
+     * @return the stored value converted to boolean or the default provided by the given {@link Supplier}
+     */
+    default boolean getBoolean(String key, Supplier<Boolean> supplier) {
+        return this.getBoolean(key, supplier.get());
+    }
+
+    /**
+     * @throws PersistenceException if there is an error storing the value
+     */
+    void saveInt(String key, int value);
+
+    /**
+     * @throws PersistenceException if there is an error storing the value
+     */
+    void saveLong(String key, long value);
+
+    /**
+     * Saves to the persistence layer the given value.
      *
-     * @param key
-     * @param entity the entity to save. Can be null.
-     * @throws PersistenceException if there is an error serializing or storing the entity
+     * @param value the String to save. A null value will delete the existing persisted value.
+     * @throws PersistenceException if there is an error storing the value
      */
-    void save(String key, T entity) throws PersistenceException;
+    void saveString(String key, String value);
 
     /**
-     * Deletes the entity corresponding to the given key
-     *
-     * @param key
-     * @throws PersistenceException
+     * @throws PersistenceException if there is an error storing the value
      */
-    void delete(String key) throws PersistenceException;
+    void saveBoolean(String key, boolean value);
+
+    /**
+     * @return the array of keys stored in this repository
+     * @throws PersistenceException if there is an error with the backing store
+     */
+    String[] keys();
+
+    /**
+     * Deletes the value corresponding to the given key
+     *
+     * @throws PersistenceException if there is an error deleting the value
+     */
+    void delete(String key);
 
     /**
      * Removes all the persisted values and keys for this repository
      *
      * @throws PersistenceException if this operation cannot be completed
      */
-    void clean() throws PersistenceException;
+    void clean();
 }

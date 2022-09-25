@@ -25,7 +25,7 @@ import static org.mockito.Mockito.when;
 import org.junit.Rule;
 import org.junit.Test;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.ui.StageService;
+import org.pdfsam.service.ui.StageService;
 import org.pdfsam.ui.StageStatus;
 import org.testfx.framework.junit.ApplicationTest;
 

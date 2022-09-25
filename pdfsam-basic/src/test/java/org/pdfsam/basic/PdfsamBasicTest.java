@@ -23,7 +23,7 @@ import static org.junit.Assert.assertEquals;
 import java.io.IOException;
 
 import org.junit.Test;
-import org.pdfsam.BrandableProperty;
+import org.pdfsam.core.BrandableProperty;
 
 public class PdfsamBasicTest {
     @Test(expected = IllegalArgumentException.class)

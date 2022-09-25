@@ -21,8 +21,8 @@ package org.pdfsam;
 import javax.inject.Named;
 
 import org.pdfsam.configuration.StylesConfig;
-import org.pdfsam.context.DefaultUserContext;
-import org.pdfsam.context.UserContext;
+import org.pdfsam.core.context.DefaultUserContext;
+import org.pdfsam.core.context.UserContext;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.injector.Components;
 import org.pdfsam.injector.Prototype;

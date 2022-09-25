@@ -18,30 +18,29 @@
  */
 package org.pdfsam.ui.dashboard.about;
 
-import static org.pdfsam.BrandableProperty.COPYRIGHT;
-import static org.pdfsam.BrandableProperty.DOCUMENTATION_URL;
-import static org.pdfsam.BrandableProperty.DONATE_URL;
-import static org.pdfsam.BrandableProperty.FACEBOOK_URL;
-import static org.pdfsam.BrandableProperty.FEED_URL;
-import static org.pdfsam.BrandableProperty.HOME_LABEL;
-import static org.pdfsam.BrandableProperty.HOME_URL;
-import static org.pdfsam.BrandableProperty.LICENSE_NAME;
-import static org.pdfsam.BrandableProperty.LICENSE_URL;
-import static org.pdfsam.BrandableProperty.SCM_URL;
-import static org.pdfsam.BrandableProperty.SUPPORT_URL;
-import static org.pdfsam.BrandableProperty.TRACKER_URL;
-import static org.pdfsam.BrandableProperty.TRANSLATE_URL;
-import static org.pdfsam.BrandableProperty.TWITTER_URL;
-import static org.pdfsam.BrandableProperty.VERSION;
-import static org.pdfsam.support.io.ObjectCollectionWriter.writeContent;
+import static org.pdfsam.core.BrandableProperty.COPYRIGHT;
+import static org.pdfsam.core.BrandableProperty.DOCUMENTATION_URL;
+import static org.pdfsam.core.BrandableProperty.DONATE_URL;
+import static org.pdfsam.core.BrandableProperty.FACEBOOK_URL;
+import static org.pdfsam.core.BrandableProperty.FEED_URL;
+import static org.pdfsam.core.BrandableProperty.HOME_LABEL;
+import static org.pdfsam.core.BrandableProperty.HOME_URL;
+import static org.pdfsam.core.BrandableProperty.LICENSE_NAME;
+import static org.pdfsam.core.BrandableProperty.LICENSE_URL;
+import static org.pdfsam.core.BrandableProperty.SCM_URL;
+import static org.pdfsam.core.BrandableProperty.SUPPORT_URL;
+import static org.pdfsam.core.BrandableProperty.TRACKER_URL;
+import static org.pdfsam.core.BrandableProperty.TRANSLATE_URL;
+import static org.pdfsam.core.BrandableProperty.TWITTER_URL;
+import static org.pdfsam.core.BrandableProperty.VERSION;
+import static org.pdfsam.core.support.io.ObjectCollectionWriter.writeContent;
 
 import java.util.Arrays;
 
 import javax.inject.Inject;
 
 import org.apache.commons.io.FileUtils;
-import org.pdfsam.AppBrand;
-import org.pdfsam.i18n.I18nContext;
+import org.pdfsam.core.AppBrand;
 import org.pdfsam.ui.commons.UrlButton;
 import org.pdfsam.ui.support.Style;
 

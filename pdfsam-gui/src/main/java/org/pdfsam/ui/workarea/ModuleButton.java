@@ -22,7 +22,7 @@ import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
-import org.pdfsam.module.Tool;
+import org.pdfsam.tool.Tool;
 import org.pdfsam.ui.quickbar.BaseQuickbarButton;
 
 import javafx.scene.control.Tooltip;

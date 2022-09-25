@@ -30,8 +30,7 @@ import java.util.Optional;
 import javax.inject.Inject;
 
 import org.pdfsam.configuration.StylesConfig;
-import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.module.Tool;
+import org.pdfsam.tool.Tool;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.ui.InputPdfArgumentsLoadRequest;

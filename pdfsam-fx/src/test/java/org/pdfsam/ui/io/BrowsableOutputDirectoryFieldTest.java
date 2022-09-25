@@ -37,7 +37,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
-import org.pdfsam.support.params.MultipleOutputTaskParametersBuilder;
+import org.pdfsam.core.support.params.MultipleOutputTaskParametersBuilder;
 import org.pdfsam.test.HitTestListener;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.pdfsam.ui.commons.NonExistingOutputDirectoryEvent;

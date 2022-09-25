@@ -25,9 +25,9 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Test;
-import org.pdfsam.context.IntUserPreference;
-import org.pdfsam.context.UserContext;
-import org.pdfsam.support.validation.Validators;
+import org.pdfsam.core.context.IntUserPreference;
+import org.pdfsam.core.context.UserContext;
+import org.pdfsam.core.support.validation.Validators;
 import org.testfx.framework.junit.ApplicationTest;
 
 import javafx.scene.Scene;

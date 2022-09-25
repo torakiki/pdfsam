@@ -28,7 +28,7 @@ import org.pdfsam.injector.Auto;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.pdf.SingleFileDroppedEvent;
-import org.pdfsam.support.io.FileType;
+import org.pdfsam.core.support.io.FileType;
 import org.pdfsam.eventstudio.annotation.EventListener;
 
 /**

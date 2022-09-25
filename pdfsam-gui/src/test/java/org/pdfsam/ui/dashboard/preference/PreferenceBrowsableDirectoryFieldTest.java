@@ -28,8 +28,8 @@ import java.io.File;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
-import org.pdfsam.context.StringUserPreference;
-import org.pdfsam.context.UserContext;
+import org.pdfsam.core.context.StringUserPreference;
+import org.pdfsam.core.context.UserContext;
 import org.testfx.framework.junit.ApplicationTest;
 
 import javafx.scene.Scene;

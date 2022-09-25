@@ -22,8 +22,7 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.module.ToolBound;
+import org.pdfsam.tool.ToolBound;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
 import org.pdfsam.ui.support.Style;

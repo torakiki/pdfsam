@@ -24,8 +24,7 @@ import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.module.ToolBound;
+import org.pdfsam.tool.ToolBound;
 import org.pdfsam.ui.support.Style;
 import org.sejda.model.pdf.PdfVersion;
 

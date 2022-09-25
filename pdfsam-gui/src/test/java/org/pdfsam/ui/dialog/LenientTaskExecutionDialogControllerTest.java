@@ -43,7 +43,7 @@ import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.injector.Components;
 import org.pdfsam.injector.Injector;
 import org.pdfsam.injector.Provides;
-import org.pdfsam.module.TaskExecutionRequestEvent;
+import org.pdfsam.tool.TaskExecutionRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.sejda.model.exception.TaskNonLenientExecutionException;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;

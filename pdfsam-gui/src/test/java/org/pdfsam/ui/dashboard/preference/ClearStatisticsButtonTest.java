@@ -25,7 +25,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.pdfsam.module.ClearUsageRequestEvent;
+import org.pdfsam.tool.ClearUsageRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.eventstudio.Listener;
 import org.testfx.framework.junit.ApplicationTest;

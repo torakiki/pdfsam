@@ -35,7 +35,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
-import org.pdfsam.support.params.SinglePdfSourceTaskParametersBuilder;
+import org.pdfsam.core.support.params.SinglePdfSourceTaskParametersBuilder;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 
 /**

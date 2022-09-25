@@ -19,9 +19,9 @@
 package org.pdfsam.ui.io;
 
 import static org.junit.Assert.assertTrue;
-import static org.pdfsam.support.validation.Validators.nonBlank;
-import static org.pdfsam.support.validation.Validators.positiveInteger;
-import static org.pdfsam.support.validation.Validators.validEmpty;
+import static org.pdfsam.core.support.validation.Validators.nonBlank;
+import static org.pdfsam.core.support.validation.Validators.positiveInteger;
+import static org.pdfsam.core.support.validation.Validators.validEmpty;
 
 import java.util.Arrays;
 

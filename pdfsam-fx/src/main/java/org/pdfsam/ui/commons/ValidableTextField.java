@@ -22,7 +22,7 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.sejda.commons.util.RequireUtils.requireNotBlank;
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
-import org.pdfsam.support.validation.Validator;
+import org.pdfsam.core.support.validation.Validator;
 import org.pdfsam.ui.support.FXValidationSupport;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.support.Style;
@@ -125,7 +125,7 @@ public class ValidableTextField extends TextField {
      * Sets the validator for this field. It doesn't trigger a validation.
      * 
      * @param validator
-     * @see org.pdfsam.ui.support.FXValidationSupport#setValidator(org.pdfsam.support.validation.Validator)
+     * @see org.pdfsam.ui.support.FXValidationSupport#setValidator(org.pdfsam.core.support.validation.Validator)
      */
     public void setValidator(Validator<String> validator) {
         requireNotNullArg(validator, "Validator cannot be null for ValidableTextField");

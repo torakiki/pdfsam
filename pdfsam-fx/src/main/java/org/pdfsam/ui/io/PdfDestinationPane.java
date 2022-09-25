@@ -32,13 +32,13 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.context.UserContext;
+import org.pdfsam.core.context.UserContext;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.eventstudio.annotation.EventStation;
 import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.module.ToolBound;
-import org.pdfsam.support.params.AbstractPdfOutputParametersBuilder;
-import org.pdfsam.support.params.TaskParametersBuildStep;
+import org.pdfsam.tool.ToolBound;
+import org.pdfsam.core.support.params.AbstractPdfOutputParametersBuilder;
+import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.ResettableView;
 import org.pdfsam.ui.commons.SetDestinationRequest;
 import org.pdfsam.ui.io.PdfVersionCombo.DefaultPdfVersionComboItem;

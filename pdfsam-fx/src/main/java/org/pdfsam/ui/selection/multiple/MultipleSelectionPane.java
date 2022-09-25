@@ -24,7 +24,7 @@ import static org.sejda.commons.util.RequireUtils.requireArg;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.module.ToolBound;
+import org.pdfsam.tool.ToolBound;
 import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.model.parameter.base.TaskParameters;
 

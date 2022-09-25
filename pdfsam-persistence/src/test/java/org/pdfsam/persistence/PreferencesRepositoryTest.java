@@ -18,42 +18,28 @@
  */
 package org.pdfsam.persistence;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
-
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.databind.json.JsonMapper;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Andrea Vacondio
- *
  */
 public class PreferencesRepositoryTest {
-    private static PreferencesRepository<Entity> victim;
+
+    private static PreferencesRepository victim;
 
     @BeforeAll
     public static void setUp() {
-        var mapper = JsonMapper.builder()
-                               .enable(DeserializationFeature.FAIL_ON_NUMBERS_FOR_ENUMS)
-                               .disable(SerializationFeature.WRITE_DATE_TIMESTAMPS_AS_NANOSECONDS)
-                               .visibility(PropertyAccessor.FIELD, Visibility.ANY)
-                               .configure(MapperFeature.CAN_OVERRIDE_ACCESS_MODIFIERS, false)
-                               .serializationInclusion(Include.ALWAYS)
-                               .build();
-        victim = new PreferencesRepository<>("/test/org/pdfsam/entity", mapper, Entity.class);
+        victim = new PreferencesRepository("/test/org/pdfsam/string");
     }
 
     @AfterAll
@@ -63,102 +49,90 @@ public class PreferencesRepositoryTest {
 
     @Test
     public void blankPath() {
-        assertThrows(IllegalArgumentException.class, () -> new PreferencesRepository<>(" ", mock(ObjectMapper.class), Entity.class));
+        assertThrows(IllegalArgumentException.class, () -> new PreferencesRepository("  "));
     }
 
     @Test
     public void nullPath() {
-        assertThrows(IllegalArgumentException.class, () -> new PreferencesRepository<>(null, mock(ObjectMapper.class), Entity.class));
-    }
-
-    @Test
-    public void nullMapper() {
-        assertThrows(IllegalArgumentException.class, () -> new PreferencesRepository<>("/node/path", null, Entity.class));
-    }
-
-    @Test
-    public void nullClass() {
-        assertThrows(IllegalArgumentException.class, () -> new PreferencesRepository<>("/node/path", mock(ObjectMapper.class), null));
+        assertThrows(IllegalArgumentException.class, () -> new PreferencesRepository(null));
     }
 
     @Test
     @DisplayName("Saving the NUL character throws an exception")
-    public void negativeSave() {
-        assertThrows(PersistenceException.class, () -> victim.save("key3" + Character.toString('\0'), new Entity("chuck", 3)));
+    public void negativesaveString() {
+        assertThrows(PersistenceException.class, () -> victim.saveString("key3", Character.toString('\0')));
     }
 
     @Test
     public void saveBlankKey() {
-        assertThrows(IllegalArgumentException.class, () -> victim.save("  ", new Entity("chuck", 3)));
+        assertThrows(IllegalArgumentException.class, () -> victim.saveString("  ", "value"));
     }
 
     @Test
     public void saveNullKey() {
-        assertThrows(IllegalArgumentException.class, () -> victim.save(null, new Entity("chuck", 3)));
+        assertThrows(IllegalArgumentException.class, () -> victim.saveString(null, "value"));
     }
 
     @Test
     @DisplayName("Positive scenario for Save")
-    public void positiveSave() throws PersistenceException {
-        var segal = new Entity("Steven", 5);
-        victim.save("key1", segal);
-        assertEquals(segal, victim.get("key1")
-                                  .get());
+    public void positivesaveString() throws PersistenceException {
+        victim.saveString("key1", "value");
+        assertEquals("value", victim.getString("key1", (String) null));
     }
 
     @Test
     @DisplayName("Save a null value to replace an existing one")
     public void saveNullExisting() throws PersistenceException {
-        var chuck = new Entity("Chuck", 5);
-        victim.save("key2", chuck);
-        assertEquals(chuck, victim.get("key2")
-                                  .get());
-        victim.save("key2", null);
-        assertTrue(victim.get("key2")
-                         .isEmpty());
+        victim.saveString("key2", "value");
+        assertEquals("value", victim.getString("key2", (String) null));
+        victim.saveString("key2", null);
+        assertNull(victim.getString("key2", (String) null));
     }
 
     @Test
     @DisplayName("Save a null value to a non existing key")
     public void saveNullNonExisting() throws PersistenceException {
-        assertTrue(victim.get("key3")
-                         .isEmpty());
-        victim.save("key3", null);
-        assertTrue(victim.get("key3")
-                         .isEmpty());
+        assertNull(victim.getString("key3", (String) null));
+        victim.saveString("key3", null);
+        assertNull(victim.getString("key3", (String) null));
     }
 
     @Test
     @DisplayName("Positive scenario for Get")
     public void positiveGet() throws PersistenceException {
-        var chuck = new Entity("Chuck", 5);
-        victim.save("key4", chuck);
-        assertEquals(chuck, victim.get("key4")
-                                  .get());
+        victim.saveString("key4", "value");
+        assertEquals("value", victim.getString("key4", (String) null));
+    }
+
+    @Test
+    @DisplayName("Default value for Get")
+    public void getDefault() throws PersistenceException {
+        victim.delete("key5");
+        assertEquals("Chuck", victim.getString("key5", "Chuck"));
     }
 
     @Test
     @DisplayName("Non exsting key returns empty")
     public void defaultGet() throws PersistenceException {
-        victim.delete("key5");
-        assertTrue(victim.get("key5")
-                         .isEmpty());
+        victim.delete("key6");
+        assertNull(victim.getString("key6", (String) null));
     }
 
     @Test
     public void getBlankKey() {
-        assertThrows(IllegalArgumentException.class, () -> victim.get("  "));
+        assertThrows(IllegalArgumentException.class, () -> victim.getString("  ", (String) null));
     }
 
     @Test
     public void getNullKey() {
-        assertThrows(IllegalArgumentException.class, () -> victim.get(null));
+        assertThrows(IllegalArgumentException.class, () -> victim.getString(null, "value"));
     }
 
     @Test
     @DisplayName("Getting the NUL character throws an exception")
     public void negativeGet() {
-        assertThrows(PersistenceException.class, () -> victim.get("key6" + Character.toString('\0')));
+        assertThrows(PersistenceException.class,
+                () -> victim.getString("key7" + Character.toString('\0'), (String) null));
     }
 
     @Test
@@ -174,39 +148,79 @@ public class PreferencesRepositoryTest {
     @Test
     @DisplayName("Deleting a key containing the NUL character throws an exception")
     public void negativeDelete() {
-        assertThrows(PersistenceException.class, () -> victim.delete("key7" + Character.toString('\0')));
+        assertThrows(PersistenceException.class, () -> victim.delete("key8" + Character.toString('\0')));
     }
 
     @Test
     @DisplayName("Positive scenario for Delete")
     public void positiveDelete() throws PersistenceException {
-        var jcvd = new Entity("JC", 2);
-        victim.save("key8", jcvd);
-        assertEquals(jcvd, victim.get("key8")
-                                 .get());
-        victim.delete("key8");
-        assertTrue(victim.get("key8")
-                         .isEmpty());
+        victim.saveString("key9", "value");
+        assertEquals("value", victim.getString("key9", (String) null));
+        victim.delete("key9");
+        assertNull(victim.getString("key9", () -> null));
     }
 
     @Test
     @DisplayName("Positive scenario for Clean")
     public void positiveClean() throws PersistenceException {
-        var jcvd = new Entity("JC", 2);
-        var steven = new Entity("Steven", 22);
-        victim.save("key8", jcvd);
-        victim.save("key9", steven);
-        assertEquals(jcvd, victim.get("key8")
-                                 .get());
-        assertEquals(steven, victim.get("key9")
-                                   .get());
+        victim.saveString("key10", "value");
+        victim.saveString("key11", "value");
+        assertEquals("value", victim.getString("key10", (String) null));
+        assertEquals("value", victim.getString("key11", () -> null));
         victim.clean();
-        assertTrue(victim.get("key8")
-                         .isEmpty());
-        assertTrue(victim.get("key9")
-                         .isEmpty());
+        assertNull(victim.getString("key10", (String) null));
+        assertNull(victim.getString("key11", () -> null));
     }
 
-    public static record Entity(String name, Integer roundkicks) {
+    @Test
+    @DisplayName("Positive scenario for GetInt")
+    public void positiveGetInt() throws PersistenceException {
+        victim.saveInt("key13", 25);
+        assertEquals(25, victim.getInt("key13", -1));
+    }
+
+    @Test
+    @DisplayName("Default value for GetInt")
+    public void defaultGetInt() throws PersistenceException {
+        victim.clean();
+        assertEquals(-1, victim.getInt("key14", -1));
+    }
+
+    @Test
+    @DisplayName("Positive scenario for GetLong")
+    public void positiveGetLong() throws PersistenceException {
+        victim.saveLong("keyL4", 25);
+        assertEquals(25, victim.getLong("keyL4", -1));
+    }
+
+    @Test
+    @DisplayName("Default value for GetLong")
+    public void defaultGetLong() throws PersistenceException {
+        victim.clean();
+        assertEquals(-1, victim.getLong("keyL2", -1));
+    }
+
+    @Test
+    @DisplayName("Positive scenario for GetBoolean")
+    public void positiveGetBoolean() throws PersistenceException {
+        victim.saveBoolean("keyb1", true);
+        assertTrue(victim.getBoolean("keyb1", false));
+    }
+
+    @Test
+    @DisplayName("Default value for GetBoolean")
+    public void defaultGetBoolean() throws PersistenceException {
+        victim.clean();
+        assertFalse(victim.getBoolean("keyb2", () -> false));
+    }
+
+    @Test
+    public void keys() throws PersistenceException {
+        victim.clean();
+        victim.saveString("key14", "value");
+        victim.saveString("key15", "value");
+        var keys = victim.keys();
+        assertThat(keys).hasSize(2);
+        assertThat(keys).containsOnly("key14", "key15");
     }
 }

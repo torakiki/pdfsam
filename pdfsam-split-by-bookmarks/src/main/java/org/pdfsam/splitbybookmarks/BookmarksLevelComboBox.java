@@ -28,9 +28,8 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.support.params.TaskParametersBuildStep;
-import org.pdfsam.support.validation.Validators;
+import org.pdfsam.core.support.params.TaskParametersBuildStep;
+import org.pdfsam.core.support.validation.Validators;
 import org.pdfsam.ui.ResettableView;
 import org.pdfsam.ui.support.FXValidationSupport;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;

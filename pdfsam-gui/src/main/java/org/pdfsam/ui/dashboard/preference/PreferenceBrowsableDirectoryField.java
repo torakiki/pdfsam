@@ -18,12 +18,12 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
-import static org.pdfsam.support.validation.Validators.existingDirectory;
-import static org.pdfsam.support.validation.Validators.validEmpty;
+import static org.pdfsam.core.support.validation.Validators.existingDirectory;
+import static org.pdfsam.core.support.validation.Validators.validEmpty;
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
-import org.pdfsam.context.StringUserPreference;
-import org.pdfsam.context.UserContext;
+import org.pdfsam.core.context.StringUserPreference;
+import org.pdfsam.core.context.UserContext;
 import org.pdfsam.ui.io.BrowsableDirectoryField;
 
 /**

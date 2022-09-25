@@ -18,9 +18,9 @@
  */
 package org.pdfsam.ui.dashboard.preference;
 
-import org.pdfsam.context.IntUserPreference;
-import org.pdfsam.context.UserContext;
-import org.pdfsam.support.validation.Validator;
+import org.pdfsam.core.context.IntUserPreference;
+import org.pdfsam.core.context.UserContext;
+import org.pdfsam.core.support.validation.Validator;
 import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.slf4j.Logger;

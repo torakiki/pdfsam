@@ -25,7 +25,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 
 import org.apache.commons.lang3.ArrayUtils;
-import org.pdfsam.support.KeyValueItem;
+import org.pdfsam.core.support.KeyValueItem;
 
 import javafx.collections.ObservableList;
 

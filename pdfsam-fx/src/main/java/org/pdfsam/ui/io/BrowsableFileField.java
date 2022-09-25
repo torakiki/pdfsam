@@ -28,10 +28,9 @@ import java.nio.file.Paths;
 import java.util.function.Consumer;
 
 import org.apache.commons.lang3.ObjectUtils;
-import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.support.io.FileType;
-import org.pdfsam.support.validation.Validator;
-import org.pdfsam.support.validation.Validators;
+import org.pdfsam.core.support.io.FileType;
+import org.pdfsam.core.support.validation.Validator;
+import org.pdfsam.core.support.validation.Validators;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 
 import javafx.event.ActionEvent;

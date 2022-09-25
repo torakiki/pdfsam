@@ -20,10 +20,9 @@ package org.pdfsam.ui.io;
 
 import java.util.function.Consumer;
 
-import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.support.io.FileType;
-import org.pdfsam.support.params.SinglePdfSourceTaskParametersBuilder;
-import org.pdfsam.support.params.TaskParametersBuildStep;
+import org.pdfsam.core.support.io.FileType;
+import org.pdfsam.core.support.params.SinglePdfSourceTaskParametersBuilder;
+import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.sejda.conversion.PdfFileSourceAdapter;

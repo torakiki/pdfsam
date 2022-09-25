@@ -26,7 +26,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.function.Consumer;
 
-import org.pdfsam.support.io.FileType;
+import org.pdfsam.core.support.io.FileType;
 import org.pdfsam.ui.InputPdfArgumentsLoadRequest;
 
 /**

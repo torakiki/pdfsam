@@ -18,6 +18,7 @@
  */
 package org.pdfsam.model.news;
 
+import java.beans.ConstructorProperties;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -26,8 +27,11 @@ import java.time.format.DateTimeFormatter;
  *
  * @author Andrea Vacondio
  */
-public record NewsData(int id, String title, String content, String link, LocalDate date, boolean important) {
-    public NewsData(int id, String title, String content, String link, String date, boolean important) {
-        this(id, title, content, link, LocalDate.parse(date, DateTimeFormatter.BASIC_ISO_DATE), important);
+public record NewsData(int id, String title, String content, LocalDate date, String link, boolean important) {
+
+    //@ConstructorProperties used by jackson to know the constructor params names
+    @ConstructorProperties({ "id", "title", "content", "date", "link", "important" })
+    public NewsData(int id, String title, String content, String date, String link, boolean important) {
+        this(id, title, content, LocalDate.parse(date, DateTimeFormatter.BASIC_ISO_DATE), link, important);
     }
 }

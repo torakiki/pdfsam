@@ -18,19 +18,17 @@
  */
 package org.pdfsam;
 
-import java.util.Optional;
-
-import javax.inject.Inject;
-
-import org.pdfsam.injector.Auto;
-import org.pdfsam.ui.StageService;
-import org.pdfsam.ui.StageStatus;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import javafx.geometry.Rectangle2D;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import org.pdfsam.injector.Auto;
+import org.pdfsam.model.ui.StageStatus;
+import org.pdfsam.service.ui.StageService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.inject.Inject;
+import java.util.Optional;
 
 /**
  * Controller for the Window status

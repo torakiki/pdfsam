@@ -37,7 +37,7 @@ import org.pdfsam.pdf.MultipleFilesDroppedEvent;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.pdf.PdfFilesListLoadRequest;
 import org.pdfsam.pdf.PdfLoadRequestEvent;
-import org.pdfsam.support.io.FileType;
+import org.pdfsam.core.support.io.FileType;
 import org.pdfsam.ui.dialog.AddSubdirectoriesConfirmationDialog;
 import org.pdfsam.ui.notification.AddNotificationRequestEvent;
 import org.pdfsam.ui.notification.NotificationType;

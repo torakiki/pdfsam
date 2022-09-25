@@ -20,9 +20,8 @@ package org.pdfsam.ui.dashboard.preference;
 
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
-import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Prototype;
-import org.pdfsam.module.ClearUsageRequestEvent;
+import org.pdfsam.tool.ClearUsageRequestEvent;
 import org.pdfsam.ui.support.Style;
 
 import javafx.scene.control.Button;

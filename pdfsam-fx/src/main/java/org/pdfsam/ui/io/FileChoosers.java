@@ -21,7 +21,7 @@ package org.pdfsam.ui.io;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-import org.pdfsam.support.io.FileType;
+import org.pdfsam.core.support.io.FileType;
 
 /**
  * Contains a single instance of {@link javafx.stage.FileChooser} and provides static methods to get and configure the instance

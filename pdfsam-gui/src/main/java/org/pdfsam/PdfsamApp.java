@@ -37,21 +37,26 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.apache.commons.lang3.time.StopWatch;
 import org.pdfsam.configuration.StylesConfig;
-import org.pdfsam.context.DefaultUserContext;
-import org.pdfsam.context.UserContext;
+import org.pdfsam.core.AppBrand;
+import org.pdfsam.core.BrandableProperty;
+import org.pdfsam.core.context.DefaultUserContext;
+import org.pdfsam.core.context.UserContext;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.injector.Injector;
-import org.pdfsam.module.Tool;
+import org.pdfsam.model.lifecycle.ShutdownEvent;
+import org.pdfsam.model.lifecycle.StartupEvent;
+import org.pdfsam.model.ui.workspace.SaveWorkspaceRequest;
 import org.pdfsam.news.FetchLatestNewsRequest;
-import org.pdfsam.news.NewsService;
+import org.pdfsam.service.news.NewsService;
 import org.pdfsam.premium.FetchPremiumModulesRequest;
 import org.pdfsam.service.Services;
+import org.pdfsam.tool.Tool;
 import org.pdfsam.ui.MainPane;
 import org.pdfsam.ui.SetLatestStageStatusRequest;
 import org.pdfsam.ui.StageMode;
-import org.pdfsam.ui.StageService;
+import org.pdfsam.service.ui.StageService;
 import org.pdfsam.ui.StageStatus;
 import org.pdfsam.ui.commons.NativeOpenUrlRequest;
 import org.pdfsam.ui.commons.ShowStageRequest;
@@ -67,7 +72,6 @@ import org.pdfsam.ui.module.OpenButton;
 import org.pdfsam.ui.module.RunButtonTriggerRequest;
 import org.pdfsam.ui.notification.NotificationsContainer;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
-import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.pdfsam.update.UpdateCheckRequest;
 import org.sejda.core.Sejda;
 import org.sejda.core.support.io.IOUtils;
@@ -342,7 +346,7 @@ public class PdfsamApp extends Application {
         if (userContext.isSaveWorkspaceOnExit()) {
             String workspace = userContext.getDefaultWorkspacePath();
             if (isNotBlank(workspace) && Files.exists(Paths.get(workspace))) {
-                eventStudio().broadcast(new SaveWorkspaceEvent(new File(workspace), true));
+                eventStudio().broadcast(new SaveWorkspaceRequest(new File(workspace), true));
             }
         }
     }

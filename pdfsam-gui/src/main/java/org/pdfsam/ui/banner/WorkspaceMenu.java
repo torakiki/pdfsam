@@ -18,27 +18,24 @@
  */
 package org.pdfsam.ui.banner;
 
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
-
-import java.io.File;
-import java.util.Optional;
-
-import javax.inject.Inject;
-
-import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.support.io.FileType;
-import org.pdfsam.ui.RecentWorkspacesService;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SeparatorMenuItem;
+import org.pdfsam.eventstudio.annotation.EventListener;
+import org.pdfsam.model.ui.workspace.SaveWorkspaceRequest;
+import org.pdfsam.core.support.io.FileType;
+import org.pdfsam.service.ui.RecentWorkspacesService;
 import org.pdfsam.ui.io.FileChoosers;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
-import org.pdfsam.ui.workspace.SaveWorkspaceEvent;
 import org.pdfsam.ui.workspace.WorkspaceLoadedEvent;
-import org.pdfsam.eventstudio.annotation.EventListener;
 
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SeparatorMenuItem;
+import javax.inject.Inject;
+import java.io.File;
+import java.util.Optional;
+
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 /**
  * Menu displaying workspace related items
@@ -85,7 +82,7 @@ class WorkspaceMenu extends Menu {
         File chosenFile = fileChooser.showDialog(OpenType.SAVE);
         if (chosenFile != null) {
             latestWorkspace = Optional.of(chosenFile);
-            eventStudio().broadcast(new SaveWorkspaceEvent(chosenFile));
+            eventStudio().broadcast(new SaveWorkspaceRequest(chosenFile));
         }
     }
 

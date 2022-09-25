@@ -18,19 +18,14 @@
  */
 package org.pdfsam.basic;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import javax.inject.Named;
-
-import org.pdfsam.AppBrand;
-import org.pdfsam.BrandableProperty;
+import javafx.scene.image.Image;
+import org.pdfsam.core.AppBrand;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.injector.Prototype;
 import org.pdfsam.injector.Provides;
 
-import javafx.scene.image.Image;
+import javax.inject.Named;
+import java.io.IOException;
 
 /**
  * Configuration for PDFsam Basic Edition
@@ -89,12 +84,5 @@ public class PdfsamBasicConfig {
     @Auto
     public AppBrand pdfsam() throws IOException {
         return new PdfsamBasic("PDF Split and Merge Basic Edition", "PDFsam Basic");
-    }
-
-    @Provides
-    @Named("updatesUrl")
-    public Object updatesUrl(AppBrand appBrand) throws MalformedURLException {
-        return new URL(String.format("http://www.pdfsam.org/current-version?c=%s",
-                appBrand.property(BrandableProperty.VERSION)));
     }
 }

@@ -20,8 +20,8 @@ package org.pdfsam.ui.dashboard.preference;
 
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
-import org.pdfsam.context.StringUserPreference;
-import org.pdfsam.context.UserContext;
+import org.pdfsam.core.context.StringUserPreference;
+import org.pdfsam.core.context.UserContext;
 import org.pdfsam.ui.commons.ValidableTextField;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.slf4j.Logger;

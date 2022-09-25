@@ -25,7 +25,7 @@ import javax.inject.Inject;
 import javax.inject.Provider;
 
 import org.pdfsam.injector.Auto;
-import org.pdfsam.module.TaskExecutionRequestEvent;
+import org.pdfsam.tool.TaskExecutionRequestEvent;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.sejda.model.exception.TaskNonLenientExecutionException;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;

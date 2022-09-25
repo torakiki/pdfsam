@@ -30,7 +30,7 @@ import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.eventstudio.exception.BroadcastInterruptionException;
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Auto;
-import org.pdfsam.module.TaskExecutionRequestEvent;
+import org.pdfsam.tool.TaskExecutionRequestEvent;
 import org.sejda.model.exception.TaskOutputVisitException;
 import org.sejda.model.output.DirectoryTaskOutput;
 import org.sejda.model.output.ExistingOutputPolicy;

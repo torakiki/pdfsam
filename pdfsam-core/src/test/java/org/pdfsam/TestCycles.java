@@ -28,9 +28,8 @@ import com.tngtech.archunit.library.dependencies.SlicesRuleDefinition;
  * Unit test to test against cycles.
  *
  * @author Andrea Vacondio
- * @see http://www.softwarepoets.org/2009/04/unit-tests-to-check-against-cyclic.html
  */
-@AnalyzeClasses(packages = "org.pdfsam", importOptions = { ImportOption.DoNotIncludeTests.class })
+@AnalyzeClasses(packages = "org.pdfsam.core", importOptions = { ImportOption.DoNotIncludeTests.class })
 public class TestCycles {
 
     @ArchTest

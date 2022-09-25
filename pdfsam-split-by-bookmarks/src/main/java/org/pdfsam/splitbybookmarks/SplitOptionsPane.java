@@ -29,7 +29,7 @@ import java.util.SortedSet;
 import java.util.function.Consumer;
 
 import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.support.params.TaskParametersBuildStep;
+import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.ResettableView;
 import org.pdfsam.ui.support.Style;
 import org.pdfsam.ui.workspace.RestorableView;

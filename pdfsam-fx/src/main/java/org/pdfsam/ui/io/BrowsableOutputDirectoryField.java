@@ -18,8 +18,8 @@
  */
 package org.pdfsam.ui.io;
 
-import static org.pdfsam.support.validation.Validators.and;
-import static org.pdfsam.support.validation.Validators.nonBlank;
+import static org.pdfsam.core.support.validation.Validators.and;
+import static org.pdfsam.core.support.validation.Validators.nonBlank;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.sejda.model.output.FileOrDirectoryTaskOutput.directory;
 
@@ -28,9 +28,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.function.Consumer;
 
-import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.support.params.MultipleOutputTaskParametersBuilder;
-import org.pdfsam.support.params.TaskParametersBuildStep;
+import org.pdfsam.core.support.params.MultipleOutputTaskParametersBuilder;
+import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.commons.NonExistingOutputDirectoryEvent;
 import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
 import org.sejda.model.parameter.base.SingleOrMultipleOutputTaskParameters;

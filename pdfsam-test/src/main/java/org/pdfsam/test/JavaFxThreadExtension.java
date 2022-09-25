@@ -19,12 +19,10 @@ package org.pdfsam.test;
  */
 
 import javafx.application.Platform;
-import javafx.embed.swing.JFXPanel;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.InvocationInterceptor;
 import org.junit.jupiter.api.extension.ReflectiveInvocationContext;
 
-import javax.swing.SwingUtilities;
 import java.lang.reflect.Method;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicReference;
@@ -34,13 +32,7 @@ import static java.util.Objects.nonNull;
 /**
  * @author Andrea Vacondio
  */
-public class JavaFxThreadExtension implements InvocationInterceptor {
-
-    static {
-        System.out.println("Initializing JavaFX thread");
-        SwingUtilities.invokeLater(JFXPanel::new);
-        System.out.println("JavaFX initialized");
-    }
+public class JavaFxThreadExtension extends JavaFxThreadInitializeExtension implements InvocationInterceptor {
 
     @Override
     public void interceptBeforeAllMethod(Invocation<Void> invocation,

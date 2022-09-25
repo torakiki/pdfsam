@@ -26,7 +26,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import java.util.Comparator;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.module.ToolBound;
+import org.pdfsam.tool.ToolBound;
 import org.pdfsam.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.pdf.PdfDocumentDescriptor;
 import org.pdfsam.ui.commons.ShowStageRequest;

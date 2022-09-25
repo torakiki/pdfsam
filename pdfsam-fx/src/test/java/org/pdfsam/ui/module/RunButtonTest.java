@@ -26,7 +26,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.pdfsam.module.TaskExecutionRequestEvent;
+import org.pdfsam.tool.TaskExecutionRequestEvent;
 import org.pdfsam.test.ClearEventStudioRule;
 import org.pdfsam.test.InitializeAndApplyJavaFxThreadRule;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;

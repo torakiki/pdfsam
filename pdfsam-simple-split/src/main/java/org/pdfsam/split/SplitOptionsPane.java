@@ -24,8 +24,8 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 import org.pdfsam.i18n.I18nContext;
-import org.pdfsam.support.KeyStringValueItem;
-import org.pdfsam.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
+import org.pdfsam.core.support.KeyStringValueItem;
+import org.pdfsam.core.support.params.SinglePdfSourceMultipleOutputParametersBuilder;
 import org.pdfsam.ui.ResettableView;
 import org.pdfsam.ui.commons.RadioButtonDrivenTextFieldsPane;
 import org.pdfsam.ui.commons.ValidableTextField;

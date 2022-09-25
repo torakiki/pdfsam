@@ -20,9 +20,9 @@ package org.pdfsam.ui.dashboard.preference;
 
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
-import org.pdfsam.context.StringUserPreference;
-import org.pdfsam.context.UserContext;
-import org.pdfsam.support.io.FileType;
+import org.pdfsam.core.context.StringUserPreference;
+import org.pdfsam.core.context.UserContext;
+import org.pdfsam.core.support.io.FileType;
 import org.pdfsam.ui.io.BrowsableFileField;
 import org.pdfsam.ui.io.RememberingLatestFileChooserWrapper.OpenType;
 

@@ -21,8 +21,8 @@ package org.pdfsam.ui.module;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
 import org.apache.commons.lang3.StringUtils;
-import org.pdfsam.module.ToolBound;
-import org.pdfsam.module.Tool;
+import org.pdfsam.tool.ToolBound;
+import org.pdfsam.tool.Tool;
 import org.pdfsam.ui.support.Style;
 import org.pdfsam.eventstudio.annotation.EventStation;
 

@@ -20,8 +20,8 @@ package org.pdfsam.ui.dashboard.preference;
 
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
-import org.pdfsam.context.BooleanUserPreference;
-import org.pdfsam.context.UserContext;
+import org.pdfsam.core.context.BooleanUserPreference;
+import org.pdfsam.core.context.UserContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

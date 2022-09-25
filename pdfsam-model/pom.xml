@@ -56,7 +56,6 @@
             <groupId>org.kordamp.ikonli</groupId>
             <artifactId>ikonli-unicons-pack</artifactId>
         </dependency>
-
         <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-swing -->
         <dependency>
             <groupId>org.openjfx</groupId>
