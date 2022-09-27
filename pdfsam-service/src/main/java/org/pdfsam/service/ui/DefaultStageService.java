@@ -26,10 +26,8 @@ import org.pdfsam.persistence.PersistenceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.prefs.Preferences;
-
 /**
- * Default implementation of a {@link StageService} using {@link Preferences}.
+ * Default implementation of a {@link StageService}
  *
  * @author Andrea Vacondio
  */

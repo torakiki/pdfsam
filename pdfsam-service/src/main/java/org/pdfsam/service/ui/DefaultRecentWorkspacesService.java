@@ -33,7 +33,6 @@ import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.prefs.Preferences;
 
 import static java.util.Collections.reverseOrder;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
@@ -42,7 +41,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 /**
- * Implementation of the {@link RecentWorkspacesService} using the {@link Preferences} framework.
+ * Default implementation of the {@link RecentWorkspacesService}.
  *
  * @author Andrea Vacondio
  */

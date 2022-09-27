@@ -33,7 +33,7 @@ import org.junit.jupiter.api.io.TempDir;
 import org.pdfsam.core.AppBrand;
 import org.pdfsam.core.BrandableProperty;
 import org.pdfsam.test.ClearEventStudioExtension;
-import org.pdfsam.test.JavaFxThreadExtension;
+import org.pdfsam.test.JavaFxThreadInitializeExtension;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -47,7 +47,7 @@ import static org.mockito.Mockito.when;
 /**
  * @author Andrea Vacondio
  */
-@ExtendWith({ ClearEventStudioExtension.class, JavaFxThreadExtension.class })
+@ExtendWith({ ClearEventStudioExtension.class, JavaFxThreadInitializeExtension.class })
 public class DefaultUpdateServiceTest {
 
     private DefaultUpdateService victim;
