@@ -132,7 +132,7 @@
 		<module>pdfsam-i18n</module>
 		<module>pdfsam-core</module>
 		<module>pdfsam-service</module>
-		<module>pdfsam-fx</module>
+		<module>pdfsam-ui-components</module>
 		<module>pdfsam-merge</module>
 		<module>pdfsam-simple-split</module>
 		<module>pdfsam-split-by-size</module>
