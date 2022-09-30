@@ -21,7 +21,7 @@ package org.pdfsam.merge;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.pdfsam.core.support.KeyStringValueItem.keyEmptyValue;
 import static org.pdfsam.core.support.KeyStringValueItem.keyValue;
-import static org.pdfsam.ui.help.HelpUtils.helpIcon;
+import static org.pdfsam.ui.components.help.HelpUtils.helpIcon;
 
 import java.util.Map;
 import java.util.Optional;
@@ -31,7 +31,7 @@ import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.core.support.KeyStringValueItem;
 import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.ResettableView;
-import org.pdfsam.ui.support.Style;
+import org.pdfsam.ui.components.support.Style;
 import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.model.outline.OutlinePolicy;
 import org.sejda.model.pdf.form.AcroFormPolicy;

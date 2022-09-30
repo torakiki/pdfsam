@@ -28,7 +28,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.pdfsam</groupId>
-			<artifactId>pdfsam-fx</artifactId>
+			<artifactId>pdfsam-ui-components</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>

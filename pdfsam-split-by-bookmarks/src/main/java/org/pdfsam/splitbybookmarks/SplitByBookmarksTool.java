@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 07/apr/2014
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -32,21 +32,22 @@ import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.injector.Components;
 import org.pdfsam.injector.Provides;
+import org.pdfsam.persistence.PreferencesRepository;
 import org.pdfsam.tool.RequiredPdfData;
 import org.pdfsam.tool.ToolCategory;
 import org.pdfsam.tool.ToolDescriptor;
 import org.pdfsam.tool.ToolInputOutputType;
 import org.pdfsam.tool.ToolPriority;
 import org.pdfsam.ui.commons.ClearModuleEvent;
-import org.pdfsam.ui.io.BrowsableOutputDirectoryField;
-import org.pdfsam.ui.io.PdfDestinationPane;
-import org.pdfsam.ui.module.BaseTaskExecutionTool;
-import org.pdfsam.ui.module.Footer;
-import org.pdfsam.ui.module.OpenButton;
-import org.pdfsam.ui.module.RunButton;
-import org.pdfsam.ui.prefix.PrefixPane;
-import org.pdfsam.ui.selection.single.TaskParametersBuilderSingleSelectionPane;
-import org.pdfsam.ui.support.Views;
+import org.pdfsam.ui.components.io.BrowsableOutputDirectoryField;
+import org.pdfsam.ui.components.io.PdfDestinationPane;
+import org.pdfsam.ui.components.prefix.PrefixPane;
+import org.pdfsam.ui.components.selection.single.TaskParametersBuilderSingleSelectionPane;
+import org.pdfsam.ui.components.support.Views;
+import org.pdfsam.ui.components.tool.BaseTaskExecutionTool;
+import org.pdfsam.ui.components.tool.Footer;
+import org.pdfsam.ui.components.tool.OpenButton;
+import org.pdfsam.ui.components.tool.RunButton;
 import org.sejda.model.parameter.SplitByOutlineLevelParameters;
 import org.sejda.model.prefix.Prefix;
 
@@ -55,7 +56,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 import static org.pdfsam.tool.ToolDescriptorBuilder.builder;
-import static org.pdfsam.ui.io.PdfDestinationPane.DestinationPanelFields.DISCARD_BOOKMARKS;
+import static org.pdfsam.ui.components.io.PdfDestinationPane.DestinationPanelFields.DISCARD_BOOKMARKS;
 
 /**
  * Module to split a given PDF document based on bookmarks levels
@@ -73,9 +74,9 @@ public class SplitByBookmarksTool extends BaseTaskExecutionTool {
     private SplitOptionsPane splitOptions = new SplitOptionsPane();
     private PrefixPane prefix;
     private ToolDescriptor descriptor = builder().category(ToolCategory.SPLIT)
-            .inputTypes(ToolInputOutputType.SINGLE_PDF).name(i18n().tr("Split by bookmarks"))
-            .description(I18nContext.getInstance()
-                    .i18n("Split a PDF document at bookmarked pages by specifying a bookmark level."))
+            .inputTypes(ToolInputOutputType.SINGLE_PDF).name(i18n().tr("Split by bookmarks")).description(
+                    I18nContext.getInstance()
+                            .i18n("Split a PDF document at bookmarked pages by specifying a bookmark level."))
             .priority(ToolPriority.DEFAULT.getPriority()).supportURL("https://pdfsam.org/pdf-split/")
             .build();
 
@@ -199,8 +200,8 @@ public class SplitByBookmarksTool extends BaseTaskExecutionTool {
 
         @Provides
         @Named(MODULE_ID + "prefix")
-        public PrefixPane prefixPane(UserContext userContext) {
-            return new PrefixPane(MODULE_ID, userContext);
+        public PrefixPane prefixPane() {
+            return new PrefixPane(MODULE_ID, new PreferencesRepository("/org/pdfsam/user/conf/" + MODULE_ID));
         }
     }
 }

@@ -35,37 +35,37 @@ import static org.mockito.Mockito.mock;
  */
 public class FilesOpenRequestTest {
 
-        @Test
-        @DisplayName("Constructor with blank tool binding String")
-        void blankToolBinding() {
-                var e = assertThrows(IllegalArgumentException.class,
-                        () -> new FilesOpenRequest("", false, Either.right(Collections.emptyList()), FileType.PDF));
-                assertThat(e).hasMessageContaining("Bound tool id cannot be blank");
-        }
+    @Test
+    @DisplayName("Constructor with blank tool binding String")
+    void blankToolBinding() {
+        var e = assertThrows(IllegalArgumentException.class,
+                () -> new FilesOpenRequest("", false, Either.right(Collections.emptyList()), FileType.PDF));
+        assertThat(e).hasMessageContaining("Bound tool id cannot be blank");
+    }
 
-        @Test
-        @DisplayName("Construct with null files")
-        void nullFiles() {
-                var e = assertThrows(NullPointerException.class,
-                        () -> new FilesOpenRequest("binding", false, null, FileType.PDF, FileType.CSV));
-                assertThat(e).hasMessageContaining("Dropped files cannot be null");
+    @Test
+    @DisplayName("Construct with null files")
+    void nullFiles() {
+        var e = assertThrows(NullPointerException.class,
+                () -> new FilesOpenRequest("binding", false, null, FileType.PDF, FileType.CSV));
+        assertThat(e).hasMessageContaining("Dropped files cannot be null");
 
-        }
+    }
 
-        @Test
-        @DisplayName("Construct with empty file types")
-        void emptyFileTypes() {
-                var e = assertThrows(IllegalArgumentException.class,
-                        () -> new FilesOpenRequest("binding", false, Either.left(List.of(mock(File.class)))));
-                assertThat(e).hasMessageContaining("No file type supported");
-        }
+    @Test
+    @DisplayName("Construct with empty file types")
+    void emptyFileTypes() {
+        var e = assertThrows(IllegalArgumentException.class,
+                () -> new FilesOpenRequest("binding", false, Either.left(List.of(mock(File.class)))));
+        assertThat(e).hasMessageContaining("No file type supported");
+    }
 
-        @Test
-        @DisplayName("Construct with null files types")
-        void nullFileTypes() {
-                Exception e = assertThrows(IllegalArgumentException.class,
-                        () -> new FilesOpenRequest("binding", false, Either.left(List.of(mock(File.class))), null));
-                assertThat(e).hasMessageContaining("No file type supported");
-        }
+    @Test
+    @DisplayName("Construct with null files types")
+    void nullFileTypes() {
+        Exception e = assertThrows(IllegalArgumentException.class,
+                () -> new FilesOpenRequest("binding", false, Either.left(List.of(mock(File.class))), null));
+        assertThat(e).hasMessageContaining("No file type supported");
+    }
 
 }

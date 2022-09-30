@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 07/apr/2014
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -31,19 +31,20 @@ import org.pdfsam.eventstudio.annotation.EventStation;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.injector.Components;
 import org.pdfsam.injector.Provides;
+import org.pdfsam.persistence.PreferencesRepository;
 import org.pdfsam.tool.ToolCategory;
 import org.pdfsam.tool.ToolDescriptor;
 import org.pdfsam.tool.ToolInputOutputType;
 import org.pdfsam.tool.ToolPriority;
 import org.pdfsam.ui.commons.ClearModuleEvent;
-import org.pdfsam.ui.io.BrowsableOutputDirectoryField;
-import org.pdfsam.ui.io.PdfDestinationPane;
-import org.pdfsam.ui.module.BaseTaskExecutionTool;
-import org.pdfsam.ui.module.Footer;
-import org.pdfsam.ui.module.OpenButton;
-import org.pdfsam.ui.module.RunButton;
-import org.pdfsam.ui.prefix.PrefixPane;
-import org.pdfsam.ui.support.Views;
+import org.pdfsam.ui.components.io.BrowsableOutputDirectoryField;
+import org.pdfsam.ui.components.io.PdfDestinationPane;
+import org.pdfsam.ui.components.prefix.PrefixPane;
+import org.pdfsam.ui.components.support.Views;
+import org.pdfsam.ui.components.tool.BaseTaskExecutionTool;
+import org.pdfsam.ui.components.tool.Footer;
+import org.pdfsam.ui.components.tool.OpenButton;
+import org.pdfsam.ui.components.tool.RunButton;
 import org.sejda.model.prefix.Prefix;
 
 import javax.inject.Inject;
@@ -184,8 +185,8 @@ public class RotateTool extends BaseTaskExecutionTool {
 
         @Provides
         @Named(MODULE_ID + "prefix")
-        public PrefixPane prefixPane(UserContext userContext) {
-            return new PrefixPane(MODULE_ID, userContext);
+        public PrefixPane prefixPane() {
+            return new PrefixPane(MODULE_ID, new PreferencesRepository("/org/pdfsam/user/conf/" + MODULE_ID));
         }
     }
 

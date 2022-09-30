@@ -43,8 +43,8 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.pdfsam.NoHeadless;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
-import org.pdfsam.ui.support.Style;
+import org.pdfsam.ui.components.support.FXValidationSupport.ValidationState;
+import org.pdfsam.ui.components.support.Style;
 import org.testfx.framework.junit.ApplicationTest;
 import org.testfx.util.WaitForAsyncUtils;
 

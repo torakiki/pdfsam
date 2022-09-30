@@ -57,11 +57,13 @@
 			<groupId>org.sejda</groupId>
 			<artifactId>sejda-sambox</artifactId>
 		</dependency>
+		<!-- TODO remove once released -->
 		<dependency>
 			<groupId>org.sejda</groupId>
 			<artifactId>sambox</artifactId>
 			<version>3.0.0.M4-SNAPSHOT</version>
 		</dependency>
+		<!-- /TODO -->
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
 			<artifactId>bcprov-jdk18on</artifactId>

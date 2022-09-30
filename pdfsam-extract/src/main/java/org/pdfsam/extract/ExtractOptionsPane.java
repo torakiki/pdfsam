@@ -21,7 +21,7 @@ package org.pdfsam.extract;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.core.support.params.ConversionUtils.toPageRangeSet;
-import static org.pdfsam.ui.help.HelpUtils.helpIcon;
+import static org.pdfsam.ui.components.help.HelpUtils.helpIcon;
 
 import java.util.Map;
 import java.util.Optional;
@@ -30,9 +30,9 @@ import java.util.function.Consumer;
 import org.pdfsam.core.support.params.ConversionUtils;
 import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.ResettableView;
-import org.pdfsam.ui.commons.ValidableTextField;
-import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
-import org.pdfsam.ui.support.Style;
+import org.pdfsam.ui.components.commons.ValidableTextField;
+import org.pdfsam.ui.components.support.FXValidationSupport.ValidationState;
+import org.pdfsam.ui.components.support.Style;
 import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.conversion.exception.ConversionException;
 

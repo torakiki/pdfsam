@@ -21,12 +21,12 @@ package org.pdfsam.extract;
 import java.util.function.Consumer;
 
 import org.pdfsam.core.support.params.TaskParametersBuildStep;
-import org.pdfsam.ui.selection.multiple.FileColumn;
-import org.pdfsam.ui.selection.multiple.IntColumn;
-import org.pdfsam.ui.selection.multiple.LoadingColumn;
-import org.pdfsam.ui.selection.multiple.LongColumn;
-import org.pdfsam.ui.selection.multiple.MultipleSelectionPane;
-import org.pdfsam.ui.selection.multiple.SelectionTableColumn;
+import org.pdfsam.ui.components.selection.multiple.FileColumn;
+import org.pdfsam.ui.components.selection.multiple.IntColumn;
+import org.pdfsam.ui.components.selection.multiple.LoadingColumn;
+import org.pdfsam.ui.components.selection.multiple.LongColumn;
+import org.pdfsam.ui.components.selection.multiple.MultipleSelectionPane;
+import org.pdfsam.ui.components.selection.multiple.SelectionTableColumn;
 import org.sejda.conversion.exception.ConversionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -35,19 +35,19 @@ import org.pdfsam.tool.ToolDescriptor;
 import org.pdfsam.tool.ToolInputOutputType;
 import org.pdfsam.tool.ToolPriority;
 import org.pdfsam.ui.commons.ClearModuleEvent;
-import org.pdfsam.ui.io.BrowsablePdfOutputField;
-import org.pdfsam.ui.io.PdfDestinationPane;
-import org.pdfsam.ui.module.BaseTaskExecutionTool;
-import org.pdfsam.ui.module.Footer;
-import org.pdfsam.ui.module.OpenButton;
-import org.pdfsam.ui.module.RunButton;
+import org.pdfsam.ui.components.io.BrowsablePdfOutputField;
+import org.pdfsam.ui.components.io.PdfDestinationPane;
+import org.pdfsam.ui.components.tool.BaseTaskExecutionTool;
+import org.pdfsam.ui.components.tool.Footer;
+import org.pdfsam.ui.components.tool.OpenButton;
+import org.pdfsam.ui.components.tool.RunButton;
 
 import javax.inject.Inject;
 import java.util.Map;
 import java.util.function.Consumer;
 
 import static org.pdfsam.tool.ToolDescriptorBuilder.builder;
-import static org.pdfsam.ui.support.Views.titledPane;
+import static org.pdfsam.ui.components.support.Views.titledPane;
 
 /**
  * Merge module to let the user merge together multiple pdf documents

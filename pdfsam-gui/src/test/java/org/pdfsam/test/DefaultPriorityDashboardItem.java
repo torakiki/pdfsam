@@ -18,7 +18,7 @@
  */
 package org.pdfsam.test;
 
-import org.pdfsam.ui.dashboard.DashboardItem;
+import org.pdfsam.ui.components.dashboard.DashboardItem;
 
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;

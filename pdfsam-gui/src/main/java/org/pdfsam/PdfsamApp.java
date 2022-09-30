@@ -47,30 +47,30 @@ import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.injector.Injector;
 import org.pdfsam.model.lifecycle.ShutdownEvent;
 import org.pdfsam.model.lifecycle.StartupEvent;
+import org.pdfsam.model.ui.ShowStageRequest;
 import org.pdfsam.model.ui.workspace.SaveWorkspaceRequest;
 import org.pdfsam.news.FetchLatestNewsRequest;
-import org.pdfsam.service.news.NewsService;
 import org.pdfsam.premium.FetchPremiumModulesRequest;
 import org.pdfsam.service.Services;
+import org.pdfsam.service.news.NewsService;
+import org.pdfsam.service.ui.StageService;
 import org.pdfsam.tool.Tool;
-import org.pdfsam.ui.MainPane;
+import org.pdfsam.ui.components.MainPane;
 import org.pdfsam.ui.SetLatestStageStatusRequest;
 import org.pdfsam.ui.StageMode;
-import org.pdfsam.service.ui.StageService;
 import org.pdfsam.ui.StageStatus;
 import org.pdfsam.ui.commons.NativeOpenUrlRequest;
-import org.pdfsam.ui.commons.ShowStageRequest;
-import org.pdfsam.ui.dashboard.DashboardConfig;
-import org.pdfsam.ui.dashboard.preference.PreferenceConfig;
-import org.pdfsam.ui.dialog.ConfirmationDialog;
-import org.pdfsam.ui.dialog.OpenWithDialog;
-import org.pdfsam.ui.dialog.OverwriteConfirmationDialog;
+import org.pdfsam.ui.components.dashboard.DashboardConfig;
+import org.pdfsam.ui.components.dashboard.preference.PreferenceConfig;
+import org.pdfsam.ui.components.dialog.ConfirmationDialog;
+import org.pdfsam.ui.components.dialog.OpenWithDialog;
+import org.pdfsam.ui.components.dialog.OverwriteConfirmationDialog;
 import org.pdfsam.ui.io.SetLatestDirectoryEvent;
-import org.pdfsam.ui.log.LogMessageBroadcaster;
-import org.pdfsam.ui.log.LoggerConfig;
-import org.pdfsam.ui.module.OpenButton;
-import org.pdfsam.ui.module.RunButtonTriggerRequest;
-import org.pdfsam.ui.notification.NotificationsContainer;
+import org.pdfsam.ui.components.log.LogMessageBroadcaster;
+import org.pdfsam.ui.components.log.LoggerConfig;
+import org.pdfsam.ui.components.tool.OpenButton;
+import org.pdfsam.ui.components.tool.RunButtonTriggerRequest;
+import org.pdfsam.ui.components.notification.NotificationsContainer;
 import org.pdfsam.ui.workspace.LoadWorkspaceEvent;
 import org.pdfsam.update.UpdateCheckRequest;
 import org.sejda.core.Sejda;
@@ -92,7 +92,7 @@ import static java.util.Objects.nonNull;
 import static java.util.Optional.ofNullable;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
-import static org.pdfsam.ui.commons.SetActiveModuleRequest.activeteModule;
+import static org.pdfsam.model.ui.SetActiveToolRequest.activeteModule;
 
 /**
  * PDFsam application
@@ -131,6 +131,7 @@ public class PdfsamApp extends Application {
         if (isNotBlank(defaultworkingPath)) {
             try {
                 if (Files.isDirectory(Paths.get(defaultworkingPath))) {
+                    //TODO app().runtimestate
                     eventStudio().broadcast(new SetLatestDirectoryEvent(new File(defaultworkingPath)));
                 }
             } catch (InvalidPathException e) {

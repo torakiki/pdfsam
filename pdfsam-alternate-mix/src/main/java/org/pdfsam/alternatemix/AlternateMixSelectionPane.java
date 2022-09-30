@@ -24,16 +24,16 @@ import java.util.function.Consumer;
 
 import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.core.support.params.TaskParametersBuildStep;
-import org.pdfsam.ui.selection.multiple.FileColumn;
-import org.pdfsam.ui.selection.multiple.IntColumn;
-import org.pdfsam.ui.selection.multiple.LoadingColumn;
-import org.pdfsam.ui.selection.multiple.LongColumn;
-import org.pdfsam.ui.selection.multiple.MultipleSelectionPane;
-import org.pdfsam.ui.selection.multiple.PaceColumn;
-import org.pdfsam.ui.selection.multiple.PageRangesColumn;
-import org.pdfsam.ui.selection.multiple.ReverseColumn;
-import org.pdfsam.ui.selection.multiple.SelectionTableRowData;
-import org.pdfsam.ui.selection.multiple.TableColumnProvider;
+import org.pdfsam.ui.components.selection.multiple.FileColumn;
+import org.pdfsam.ui.components.selection.multiple.IntColumn;
+import org.pdfsam.ui.components.selection.multiple.LoadingColumn;
+import org.pdfsam.ui.components.selection.multiple.LongColumn;
+import org.pdfsam.ui.components.selection.multiple.MultipleSelectionPane;
+import org.pdfsam.ui.components.selection.multiple.PaceColumn;
+import org.pdfsam.ui.components.selection.multiple.PageRangesColumn;
+import org.pdfsam.ui.components.selection.multiple.ReverseColumn;
+import org.pdfsam.ui.components.selection.multiple.SelectionTableRowData;
+import org.pdfsam.ui.components.selection.multiple.TableColumnProvider;
 import org.sejda.model.input.PdfMixInput;
 
 /**

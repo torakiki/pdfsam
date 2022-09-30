@@ -33,7 +33,7 @@ import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;
 import org.pdfsam.test.ClearEventStudioRule;
-import org.pdfsam.ui.commons.ValidableTextField;
+import org.pdfsam.ui.components.commons.ValidableTextField;
 import org.testfx.framework.junit.ApplicationTest;
 import org.testfx.util.WaitForAsyncUtils;
 

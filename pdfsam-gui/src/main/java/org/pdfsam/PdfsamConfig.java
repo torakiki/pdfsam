@@ -28,17 +28,17 @@ import org.pdfsam.injector.Components;
 import org.pdfsam.injector.Prototype;
 import org.pdfsam.injector.Provides;
 import org.pdfsam.sound.PlaySoundController;
-import org.pdfsam.ui.MainPane;
+import org.pdfsam.ui.components.MainPane;
 import org.pdfsam.ui.Theme;
-import org.pdfsam.ui.dialog.ClearModuleConfirmationDialogController;
-import org.pdfsam.ui.dialog.CreateOutputDirectoryDialogController;
-import org.pdfsam.ui.dialog.LenientTaskExecutionDialogController;
-import org.pdfsam.ui.dialog.OpenWithDialogController;
-import org.pdfsam.ui.dialog.OverwriteDialogController;
-import org.pdfsam.ui.dnd.MultipleFilesDropController;
-import org.pdfsam.ui.dnd.SingleFileDropController;
-import org.pdfsam.ui.info.InfoStageController;
-import org.pdfsam.ui.notification.NotificationsController;
+import org.pdfsam.ui.components.dialog.ClearModuleConfirmationDialogController;
+import org.pdfsam.ui.components.dialog.CreateOutputDirectoryDialogController;
+import org.pdfsam.ui.components.dialog.LenientTaskExecutionDialogController;
+import org.pdfsam.ui.components.dialog.OpenWithDialogController;
+import org.pdfsam.ui.components.dialog.OverwriteDialogController;
+import org.pdfsam.ui.components.dnd.MultipleFilesDropController;
+import org.pdfsam.ui.components.dnd.SingleFileDropController;
+import org.pdfsam.ui.components.info.InfoStageController;
+import org.pdfsam.ui.components.notification.NotificationsController;
 
 import javafx.scene.image.ImageView;
 

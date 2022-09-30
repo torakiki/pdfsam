@@ -31,9 +31,9 @@ import java.util.stream.IntStream;
 import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.core.support.validation.Validators;
 import org.pdfsam.ui.ResettableView;
-import org.pdfsam.ui.support.FXValidationSupport;
-import org.pdfsam.ui.support.FXValidationSupport.ValidationState;
-import org.pdfsam.ui.support.Style;
+import org.pdfsam.ui.components.support.FXValidationSupport;
+import org.pdfsam.ui.components.support.FXValidationSupport.ValidationState;
+import org.pdfsam.ui.components.support.Style;
 import org.pdfsam.ui.workspace.RestorableView;
 
 import javafx.beans.property.ReadOnlyObjectProperty;

@@ -34,7 +34,7 @@
 					<plugin>
 						<artifactId>maven-surefire-plugin</artifactId>
 						<configuration>
-							<excludedGroups>org.pdfsam.NoHeadless</excludedGroups>
+							<excludedGroups>NoHeadless</excludedGroups>
 						</configuration>
 					</plugin>
 				</plugins>
@@ -272,6 +272,7 @@
 		<jackson.version>2.13.4</jackson.version>
 		<bouncycastle.version>1.71</bouncycastle.version>
 		<assertj.version>3.19.0</assertj.version>
+		<hamcrest.version>2.2</hamcrest.version>
 		<javafx.version>18.0.2</javafx.version>
 		<jakarta-el.version>4.0.2</jakarta-el.version>
 		<jakarta.inject.version>2.0.1</jakarta.inject.version>
@@ -463,6 +464,12 @@
 			<artifactId>assertj-core</artifactId>
 			<version>${assertj.version}</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-core</artifactId>
+			<version>${hamcrest.version}</version>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.junit-pioneer</groupId>

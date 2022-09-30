@@ -29,7 +29,7 @@ import java.util.function.Consumer;
 import org.pdfsam.core.support.KeyStringValueItem;
 import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.ui.ResettableView;
-import org.pdfsam.ui.support.Style;
+import org.pdfsam.ui.components.support.Style;
 import org.pdfsam.ui.workspace.RestorableView;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
 import org.sejda.model.rotation.Rotation;

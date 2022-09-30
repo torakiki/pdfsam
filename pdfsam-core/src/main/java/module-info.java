@@ -34,6 +34,7 @@ module org.pdfsam.core {
     requires transitive org.sejda.model;
 
     exports org.pdfsam.core;
+    exports org.pdfsam.core.io;
     exports org.pdfsam.core.context;
     exports org.pdfsam.core.support;
     exports org.pdfsam.core.support.io;
