@@ -40,4 +40,5 @@ module org.pdfsam.core {
     exports org.pdfsam.core.support.io;
     exports org.pdfsam.core.support.params;
     exports org.pdfsam.core.support.validation;
+    uses org.pdfsam.model.tool.Tool;
 }

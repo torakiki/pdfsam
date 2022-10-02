@@ -27,7 +27,7 @@ import org.mockito.Mockito;
 import org.pdfsam.core.context.BooleanPersistentProperty;
 import org.pdfsam.model.ui.SetDestinationRequest;
 import org.pdfsam.test.ClearEventStudioExtension;
-import org.pdfsam.test.JavaFxThreadExtension;
+import org.pdfsam.test.JavaFxThreadInitializeExtension;
 import org.pdfsam.ui.components.io.PdfVersionCombo.PdfVersionComboItem;
 import org.sejda.model.pdf.PdfVersion;
 
@@ -54,28 +54,28 @@ import static org.pdfsam.core.context.ApplicationContext.app;
 /**
  * @author Andrea Vacondio
  */
-@ExtendWith({ JavaFxThreadExtension.class })
+@ExtendWith({ JavaFxThreadInitializeExtension.class })
 public class PdfDestinationPaneTest {
 
-    private static final String MODULE = "MODULE";
+    private static final String TOOL = "TOOL";
     @RegisterExtension
-    public ClearEventStudioExtension clearStudio = new ClearEventStudioExtension(MODULE);
+    public ClearEventStudioExtension clearStudio = new ClearEventStudioExtension(TOOL);
     private BrowsableDirectoryField destination;
     private PdfDestinationPane victim;
 
     @BeforeEach
     public void setUp() {
-        destination = Mockito.spy(new BrowsableDirectoryField());
+        destination = Mockito.spy(BrowsableDirectoryField.class);
         app().persistentSettings().set(BooleanPersistentProperty.PDF_COMPRESSION_ENABLED, true);
         app().persistentSettings().set(BooleanPersistentProperty.OVERWRITE_OUTPUT, true);
         app().persistentSettings().set(BooleanPersistentProperty.SMART_OUTPUT, false);
-        victim = new PdfDestinationPane(destination, MODULE);
+        victim = new PdfDestinationPane(destination, TOOL);
     }
 
     @Test
     public void setDestination(@TempDir Path folder) throws IOException {
         File footprint = Files.createFile(folder.resolve("test.pdf")).toFile();
-        SetDestinationRequest event = SetDestinationRequest.requestDestination(footprint, MODULE);
+        SetDestinationRequest event = SetDestinationRequest.requestDestination(footprint, TOOL);
         victim.setDestination(event);
         verify(destination).setTextFromFile(event.footprint());
     }
@@ -85,7 +85,7 @@ public class PdfDestinationPaneTest {
         destination.getTextField().setText("");
         app().persistentSettings().set(BooleanPersistentProperty.SMART_OUTPUT, true);
         File footprint = Files.createFile(folder.resolve("test.pdf")).toFile();
-        SetDestinationRequest event = SetDestinationRequest.requestFallbackDestination(footprint, MODULE);
+        SetDestinationRequest event = SetDestinationRequest.requestFallbackDestination(footprint, TOOL);
         victim.setDestination(event);
         verify(destination).setTextFromFile(event.footprint());
     }
@@ -94,7 +94,7 @@ public class PdfDestinationPaneTest {
     public void dontSetFallbackDestinationIfFilled(@TempDir Path folder) throws IOException {
         destination.getTextField().setText("ChuckNorris");
         File footprint = Files.createFile(folder.resolve("test.pdf")).toFile();
-        SetDestinationRequest event = SetDestinationRequest.requestDestination(footprint, MODULE);
+        SetDestinationRequest event = SetDestinationRequest.requestDestination(footprint, TOOL);
         victim.setDestination(event);
         verify(destination).setTextFromFile(event.footprint());
     }
@@ -115,7 +115,7 @@ public class PdfDestinationPaneTest {
     @Test
     public void dontSetFallbackDestinationIfNoSmartOutput(@TempDir Path folder) throws IOException {
         File footprint = Files.createFile(folder.resolve("test.pdf")).toFile();
-        SetDestinationRequest event = SetDestinationRequest.requestFallbackDestination(footprint, MODULE);
+        SetDestinationRequest event = SetDestinationRequest.requestFallbackDestination(footprint, TOOL);
         victim.setDestination(event);
         verify(destination, never()).setTextFromFile(any(File.class));
         verify(destination, never()).setTextFromFile(any(Path.class));
