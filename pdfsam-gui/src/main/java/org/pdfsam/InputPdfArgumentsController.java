@@ -18,16 +18,16 @@
  */
 package org.pdfsam;
 
-import static java.util.Objects.nonNull;
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
+import org.pdfsam.model.io.FileType;
+import org.pdfsam.model.ui.InputPdfArgumentsLoadRequest;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.function.Consumer;
 
-import org.pdfsam.core.support.io.FileType;
-import org.pdfsam.ui.InputPdfArgumentsLoadRequest;
+import static java.util.Objects.nonNull;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 /**
  * Component that gets cli input arguments and, if some PDF file is found among them, sends a request to handle them
@@ -43,9 +43,9 @@ class InputPdfArgumentsController implements Consumer<List<String>> {
             InputPdfArgumentsLoadRequest event = new InputPdfArgumentsLoadRequest();
 
             pdfs.stream().filter(s -> !s.startsWith("-")).filter(FileType.PDF::matches).map(Paths::get)
-                    .filter(Files::isReadable).forEach(event.pdfs::add);
+                    .filter(Files::isReadable).forEach(event.pdfs()::add);
 
-            if (!event.pdfs.isEmpty()) {
+            if (!event.pdfs().isEmpty()) {
                 eventStudio().broadcast(event);
             }
         }

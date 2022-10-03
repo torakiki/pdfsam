@@ -26,8 +26,6 @@ import org.pdfsam.model.tool.ToolDescriptor;
 import org.pdfsam.model.tool.ToolInputOutputType;
 import org.pdfsam.model.tool.ToolPriority;
 
-import java.util.Map;
-
 import static org.pdfsam.model.tool.ToolDescriptorBuilder.builder;
 
 /**
@@ -54,7 +52,7 @@ public class DefaultPriorityTestTool implements Tool {
     }
 
     @Override
-    public Pane modulePanel() {
+    public Pane panel() {
         return null;
     }
 
@@ -63,14 +61,5 @@ public class DefaultPriorityTestTool implements Tool {
         return null;
     }
 
-    @Override
-    public void onSaveWorkspace(Map<String, String> data) {
-        // nothing
-    }
-
-    @Override
-    public void onLoadWorkspace(Map<String, String> data) {
-        // nothing
-    }
 
 }

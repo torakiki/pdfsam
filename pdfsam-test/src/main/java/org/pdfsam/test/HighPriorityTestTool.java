@@ -26,8 +26,6 @@ import org.pdfsam.model.tool.ToolDescriptor;
 import org.pdfsam.model.tool.ToolInputOutputType;
 import org.pdfsam.model.tool.ToolPriority;
 
-import java.util.Map;
-
 import static org.pdfsam.model.tool.ToolDescriptorBuilder.builder;
 
 /**
@@ -36,9 +34,8 @@ import static org.pdfsam.model.tool.ToolDescriptorBuilder.builder;
 public class HighPriorityTestTool implements Tool {
     public static final String ID = "high.test.module";
 
-    private ToolDescriptor descriptor = builder().category(ToolCategory.SECURITY)
-            .description("High priority test module").name("HighPriorityTestModule").priority(ToolPriority.HIGH)
-            .inputTypes(ToolInputOutputType.MULTIPLE_PDF)
+    private ToolDescriptor descriptor = builder().category(ToolCategory.EDIT).description("High priority test module")
+            .name("HighPriorityTestModule").priority(ToolPriority.HIGH).inputTypes(ToolInputOutputType.MULTIPLE_PDF)
             .build();
 
     @Override
@@ -52,22 +49,12 @@ public class HighPriorityTestTool implements Tool {
     }
 
     @Override
-    public Pane modulePanel() {
+    public Pane panel() {
         return null;
     }
 
     @Override
     public Node graphic() {
         return null;
-    }
-
-    @Override
-    public void onSaveWorkspace(Map<String, String> data) {
-        // nothing
-    }
-
-    @Override
-    public void onLoadWorkspace(Map<String, String> data) {
-        // nothing
     }
 }

@@ -18,17 +18,16 @@
  */
 package org.pdfsam.basic;
 
-import org.pdfsam.PdfsamApp;
-import org.pdfsam.alternatemix.AlternateMixTool;
-import org.pdfsam.extract.ExtractTool;
-import org.pdfsam.injector.Injector;
-
 import javafx.application.Application;
-import org.pdfsam.merge.MergeTool;
-import org.pdfsam.rotate.RotateTool;
-import org.pdfsam.split.SplitTool;
-import org.pdfsam.splitbybookmarks.SplitByBookmarksTool;
-import org.pdfsam.splitbysize.SplitBySizeTool;
+import org.pdfsam.PdfsamApp;
+import org.pdfsam.injector.Injector;
+import org.pdfsam.tools.alternatemix.AlternateMixTool;
+import org.pdfsam.tools.extract.ExtractTool;
+import org.pdfsam.tools.merge.MergeTool;
+import org.pdfsam.tools.rotate.RotateTool;
+import org.pdfsam.tools.split.SplitTool;
+import org.pdfsam.tools.splitbybookmarks.SplitByBookmarksTool;
+import org.pdfsam.tools.splitbysize.SplitBySizeTool;
 
 /**
  * PDFsam Basic Edition App

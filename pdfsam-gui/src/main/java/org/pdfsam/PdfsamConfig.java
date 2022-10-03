@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 08 nov 2016
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -18,18 +18,16 @@
  */
 package org.pdfsam;
 
-import javax.inject.Named;
-
+import jakarta.inject.Named;
+import javafx.scene.image.ImageView;
 import org.pdfsam.configuration.StylesConfig;
-import org.pdfsam.core.context.DefaultUserContext;
-import org.pdfsam.core.context.UserContext;
-import org.pdfsam.injector.Auto;
 import org.pdfsam.injector.Components;
 import org.pdfsam.injector.Prototype;
 import org.pdfsam.injector.Provides;
+import org.pdfsam.io.NativeOpenFileController;
 import org.pdfsam.sound.PlaySoundController;
-import org.pdfsam.ui.components.MainPane;
 import org.pdfsam.ui.Theme;
+import org.pdfsam.ui.components.MainPane;
 import org.pdfsam.ui.components.dialog.ClearModuleConfirmationDialogController;
 import org.pdfsam.ui.components.dialog.CreateOutputDirectoryDialogController;
 import org.pdfsam.ui.components.dialog.LenientTaskExecutionDialogController;
@@ -40,13 +38,10 @@ import org.pdfsam.ui.components.dnd.SingleFileDropController;
 import org.pdfsam.ui.components.info.InfoStageController;
 import org.pdfsam.ui.components.notification.NotificationsController;
 
-import javafx.scene.image.ImageView;
-
 /**
  * @author Andrea Vacondio
- *
  */
-@Components({ OpenFileController.class, WindowStatusController.class, PlaySoundController.class, MainPane.class,
+@Components({ NativeOpenFileController.class, WindowStatusController.class, PlaySoundController.class, MainPane.class,
         NotificationsController.class, InfoStageController.class, OpenWithDialogController.class,
         OverwriteDialogController.class, CreateOutputDirectoryDialogController.class,
         ClearModuleConfirmationDialogController.class, LenientTaskExecutionDialogController.class,
@@ -69,12 +64,6 @@ public class PdfsamConfig {
     @Prototype
     public ImageView payoff() {
         return new ImageView(this.getClass().getResource("/images/payoff.png").toExternalForm());
-    }
-
-    @Provides
-    @Auto
-    public UserContext userContext() {
-        return new DefaultUserContext();
     }
 
     @Provides

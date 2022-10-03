@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 08/ott/2014
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -18,6 +18,7 @@
  */
 package org.pdfsam;
 
+import jakarta.inject.Inject;
 import javafx.geometry.Rectangle2D;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -27,14 +28,12 @@ import org.pdfsam.service.ui.StageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.inject.Inject;
 import java.util.Optional;
 
 /**
  * Controller for the Window status
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
 @Auto
 class WindowStatusController {
@@ -74,13 +73,13 @@ class WindowStatusController {
     }
 
     private void restore(StageStatus latestStatus) {
-        stage.setX(latestStatus.getX());
-        stage.setY(latestStatus.getY());
-        stage.setWidth(latestStatus.getWidth());
-        stage.setHeight(latestStatus.getHeight());
+        stage.setX(latestStatus.x());
+        stage.setY(latestStatus.y());
+        stage.setWidth(latestStatus.width());
+        stage.setHeight(latestStatus.height());
 
         if (isNotMac()) {
-            latestStatus.getMode().restore(stage);
+            latestStatus.mode().restore(stage);
         }
     }
 
@@ -89,7 +88,6 @@ class WindowStatusController {
     }
 
     private boolean hasAvailableScreen(StageStatus status) {
-        return !Screen.getScreensForRectangle(status.getX(), status.getY(), status.getWidth(), status.getHeight())
-                .isEmpty();
+        return !Screen.getScreensForRectangle(status.x(), status.y(), status.width(), status.height()).isEmpty();
     }
 }

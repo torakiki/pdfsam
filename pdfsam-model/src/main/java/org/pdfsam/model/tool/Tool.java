@@ -21,8 +21,6 @@ package org.pdfsam.model.tool;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
-import java.util.Map;
-
 /**
  * A PDFsam Basic tool.
  *
@@ -43,26 +41,12 @@ public interface Tool {
     /**
      * @return the module panel.
      */
-    Pane modulePanel();
+    Pane panel();
 
     /**
      * @return the graphic node for this {@link Tool}.
      */
     Node graphic();
-
-    /**
-     * Request to add the tool state to the given data map in a ChainOfResponsibility fashion.
-     *
-     * @param data
-     */
-    void onSaveWorkspace(Map<String, String> data);
-
-    /**
-     * Request to restore the module state using the provided data.
-     * 
-     * @param data
-     */
-    void onLoadWorkspace(Map<String, String> data);
 
     /**
      * @return an array containing the required PDF data for this module. Each module can specify data it requires from the PDF document and the PDF load service can use this array

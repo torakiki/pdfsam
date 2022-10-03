@@ -30,7 +30,13 @@
 	-pdfsam-hover-shadow-effect: dropshadow(gaussian, rgba(0.0, 0.0, 0.0, 0.3), 8.0, 0.0, 0.0, 6.0);
 	-pdfsam-armed-shadow-effect: dropshadow(gaussian, rgba(0.0, 0.0, 0.0, 0.2), 10.0, 0.0, 0.0, 10.0);
 	-icons-color: gray;
+	-merge-category-color: #b39ddb;
+	-split-category-color: #ef9a9a;
+	-convert-category-color: #ffcc80;
+	-others-category-color: #4db6ac;
 }
+
+
 .label, .text, .button {
 	-fx-text-fill: -pdfsam-dark-text-color;
 }

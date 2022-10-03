@@ -133,16 +133,16 @@
 		<module>pdfsam-core</module>
 		<module>pdfsam-service</module>
 		<module>pdfsam-ui-components</module>
-		<module>pdfsam-merge</module>
-		<module>pdfsam-simple-split</module>
-		<module>pdfsam-split-by-size</module>
-		<module>pdfsam-split-by-bookmarks</module>
-		<module>pdfsam-alternate-mix</module>
-		<module>pdfsam-rotate</module>
-		<module>pdfsam-extract</module>
 		<module>pdfsam-persistence</module>
-        <module>pdfsam-themes</module>
-        <module>pdfsam-test</module>
+		<module>pdfsam-themes</module>
+		<module>pdfsam-tools/pdfsam-merge</module>
+		<module>pdfsam-tools/pdfsam-simple-split</module>
+		<module>pdfsam-tools/pdfsam-split-by-size</module>
+		<module>pdfsam-tools/pdfsam-split-by-bookmarks</module>
+		<module>pdfsam-tools/pdfsam-alternate-mix</module>
+		<module>pdfsam-tools/pdfsam-rotate</module>
+		<module>pdfsam-tools/pdfsam-extract</module>
+		<module>pdfsam-test</module>
 		<module>pdfsam-docs</module>
 	</modules>
 

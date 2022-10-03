@@ -27,4 +27,5 @@ module org.pdfsam.themes {
     provides Theme with Light, Dark;
 
     opens themes.light;
+    opens themes.dark;
 }

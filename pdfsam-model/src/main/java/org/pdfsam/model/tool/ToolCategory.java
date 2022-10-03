@@ -18,7 +18,7 @@
  */
 package org.pdfsam.model.tool;
 
-import org.pdfsam.i18n.I18nContext;
+import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * The category for a tool
@@ -26,19 +26,33 @@ import org.pdfsam.i18n.I18nContext;
  * @author Andrea Vacondio
  */
 public enum ToolCategory {
-    SPLIT(I18nContext.i18n().tr("Split")),
-    MERGE(I18nContext.i18n().tr("Merge")),
-    SECURITY(I18nContext.i18n().tr("Security")),
-    OTHER(I18nContext.i18n().tr("Other"));
+    SPLIT(i18n().tr("Split tools"), "category-split"),
+
+    MERGE(i18n().tr("Merge tools"), "category-merge"),
+
+    CONVERT(i18n().tr("Convert tools"), "category-convert"),
+
+    EDIT(i18n().tr("Edit tools"), "category-edit"),
+
+    OTHER(i18n().tr("Other tools"), "category-other");
 
     private String description;
+    private String styleClass;
 
-    ToolCategory(String description) {
+    private ToolCategory(String description, String styleClass) {
         this.description = description;
+        this.styleClass = styleClass;
     }
 
     public String getDescription() {
         return description;
+    }
+
+    /**
+     * @return the style class for this category
+     */
+    public String styleClass() {
+        return styleClass;
     }
 
 }

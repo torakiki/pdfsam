@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 30 ago 2019
  * Copyright 2019 by Sober Lemur S.a.s di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -18,22 +18,21 @@
  */
 package org.pdfsam.ui.components.dnd;
 
-import org.pdfsam.core.support.io.FileType;
+import jakarta.inject.Inject;
+import jakarta.inject.Provider;
 import org.pdfsam.eventstudio.annotation.EventListener;
-import org.pdfsam.i18n.I18nContext;
 import org.pdfsam.injector.Auto;
-import org.pdfsam.pdf.MultipleFilesDroppedEvent;
-import org.pdfsam.pdf.PdfDocumentDescriptor;
-import org.pdfsam.pdf.PdfFilesListLoadRequest;
-import org.pdfsam.pdf.PdfLoadRequestEvent;
+import org.pdfsam.model.io.FileType;
+import org.pdfsam.model.pdf.PdfDocumentDescriptor;
+import org.pdfsam.model.pdf.PdfFilesListLoadRequest;
+import org.pdfsam.model.pdf.PdfLoadRequest;
+import org.pdfsam.model.ui.dnd.MultipleFilesDroppedEvent;
 import org.pdfsam.ui.components.dialog.AddSubdirectoriesConfirmationDialog;
 import org.pdfsam.ui.components.notification.AddNotificationRequest;
 import org.pdfsam.ui.components.notification.NotificationType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.inject.Inject;
-import javax.inject.Provider;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -43,10 +42,11 @@ import java.util.stream.Stream;
 
 import static java.util.Arrays.stream;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * Controller responding to a files drop event
- * 
+ *
  * @author Andrea Vacondio
  */
 @Auto
@@ -65,19 +65,19 @@ public class MultipleFilesDropController {
     @EventListener
     public void request(MultipleFilesDroppedEvent event) {
         // not a PDF maybe a csv or txt containing the list
-        if (event.files.size() == 1 && !event.files.get(0).isDirectory()
-                && (FileType.TXT.matches(event.files.get(0).getName())
-                        || FileType.CSV.matches(event.files.get(0).getName()))) {
-            eventStudio().broadcast(new PdfFilesListLoadRequest(event.toolBinding(), event.files.get(0).toPath()));
+        if (event.files().size() == 1 && !event.files().get(0).isDirectory() && (
+                FileType.TXT.matches(event.files().get(0).getName()) || FileType.CSV.matches(
+                        event.files().get(0).getName()))) {
+            eventStudio().broadcast(new PdfFilesListLoadRequest(event.toolBinding(), event.files().get(0).toPath()));
         } else {
-            final PdfLoadRequestEvent loadEvent = new PdfLoadRequestEvent(event.toolBinding());
-            getFiles(event.files).filter(f -> FileType.PDF.matches(f.getName()))
+            final PdfLoadRequest loadEvent = new PdfLoadRequest(event.toolBinding());
+            getFiles(event.files()).filter(f -> FileType.PDF.matches(f.getName()))
                     .map(PdfDocumentDescriptor::newDescriptorNoPassword).forEach(loadEvent::add);
             if (!loadEvent.getDocuments().isEmpty()) {
                 eventStudio().broadcast(loadEvent, event.toolBinding());
             } else {
                 eventStudio().broadcast(new AddNotificationRequest(NotificationType.WARN,
-                        I18nContext.getInstance().i18n("Drag and drop PDF files or directories containing PDF files"),
+                        i18n().tr("Drag and drop PDF files or directories containing PDF files"),
                         i18n().tr("No PDF found")));
             }
         }
