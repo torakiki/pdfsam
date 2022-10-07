@@ -21,6 +21,9 @@ package org.pdfsam.core.context;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.subjects.BehaviorSubject;
 import io.reactivex.rxjava3.subjects.ReplaySubject;
+import javafx.application.ConditionalFeature;
+import javafx.application.Platform;
+import javafx.scene.Scene;
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.model.tool.Tool;
 import org.pdfsam.theme.Theme;
@@ -47,14 +50,12 @@ import static java.util.stream.Collectors.toMap;
  *
  * @author Andrea Vacondio
  */
-public final class ApplicationRuntimeState implements AutoCloseable {
+public class ApplicationRuntimeState implements AutoCloseable {
 
     private static final Logger LOG = LoggerFactory.getLogger(ApplicationRuntimeState.class);
 
     private final BehaviorSubject<Optional<Path>> workingPath = BehaviorSubject.createDefault(empty());
-    private final BehaviorSubject<Optional<Tool>> activeTool = BehaviorSubject.createDefault(empty());
     private final ReplaySubject<Theme> theme = ReplaySubject.create(1);
-
     private CompletableFuture<Map<String, Tool>> tools;
 
     ApplicationRuntimeState() {
@@ -95,22 +96,6 @@ public final class ApplicationRuntimeState implements AutoCloseable {
     }
 
     /**
-     * Sets the tool currently active
-     *
-     * @param tool
-     */
-    public void activeTool(Tool tool) {
-        activeTool.onNext(ofNullable(tool));
-    }
-
-    /**
-     * @return the current active tool
-     */
-    public Observable<Optional<Tool>> activeTool() {
-        return activeTool.hide();
-    }
-
-    /**
      * @return the available tools
      */
     public Map<String, Tool> tools() {
@@ -136,10 +121,23 @@ public final class ApplicationRuntimeState implements AutoCloseable {
         ofNullable(theme).ifPresent(this.theme::onNext);
     }
 
+    /**
+     * Subscribes the given scene to theme changes
+     *
+     * @param scene
+     */
+    public void subscribeThemedScene(Scene scene) {
+        this.theme.subscribe(t -> {
+            scene.getStylesheets().setAll(t.stylesheets());
+            if (!Platform.isSupported(ConditionalFeature.TRANSPARENT_WINDOW)) {
+                scene.getStylesheets().addAll(t.transparentIncapableStylesheets());
+            }
+        });
+    }
+
     @Override
     public void close() {
         workingPath.onComplete();
-        activeTool.onComplete();
         theme.onComplete();
     }
 }

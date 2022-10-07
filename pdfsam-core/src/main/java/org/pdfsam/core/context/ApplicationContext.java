@@ -22,12 +22,13 @@ import org.pdfsam.injector.Injector;
 import org.pdfsam.persistence.PreferencesRepository;
 
 import java.io.Closeable;
+import java.util.List;
 import java.util.Optional;
 
 /**
  * @author Andrea Vacondio
  */
-public final class ApplicationContext implements Closeable {
+public class ApplicationContext implements Closeable {
 
     private static final ApplicationContext CONTEXT = new ApplicationContext();
 
@@ -78,6 +79,11 @@ public final class ApplicationContext implements Closeable {
                 .instance(type);
     }
 
+    public <T> List<T> instancesOfType(Class<T> type) {
+        return injector.orElseThrow(() -> new IllegalStateException("Injector not set for this application"))
+                .instancesOfType(type);
+    }
+
     public void clean() {
         persistentSettings.clean();
     }
@@ -88,4 +94,5 @@ public final class ApplicationContext implements Closeable {
         runtimeState.close();
         persistentSettings.close();
     }
+
 }

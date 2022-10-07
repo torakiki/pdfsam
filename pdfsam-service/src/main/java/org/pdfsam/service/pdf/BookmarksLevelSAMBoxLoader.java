@@ -25,11 +25,10 @@ import org.sejda.sambox.pdmodel.PDDocument;
 
 /**
  * Loader populating the descriptor with bookmarks related data.
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
-class BookmarksLevelSAMBoxLoader implements PdfLoader<PDDocument> {
+public class BookmarksLevelSAMBoxLoader implements PdfLoader<PDDocument> {
 
     @Override
     public void accept(PDDocument document, PdfDocumentDescriptor descriptor) {

@@ -178,14 +178,14 @@ public class ApplicationPersistentSettingsTest {
     @DisplayName("Get integer value")
     public void getInteger() throws PersistenceException {
         when(repo.getInt(anyString(), any(Supplier.class))).thenReturn(14);
-        assertEquals(14, victim.get(IntegerPersistentProperty.LOGVIEW_ROWS_NUMBER).get());
+        assertEquals(14, victim.get(IntegerPersistentProperty.LOGVIEW_ROWS_NUMBER));
     }
 
     @Test
     @DisplayName("Failing repo get integer value")
     public void negativeGetInteger() throws PersistenceException {
         doThrow(PersistenceException.class).when(repo).getInt(anyString(), any(Supplier.class));
-        assertEquals(200, victim.get(IntegerPersistentProperty.LOGVIEW_ROWS_NUMBER).get());
+        assertEquals(200, victim.get(IntegerPersistentProperty.LOGVIEW_ROWS_NUMBER));
     }
 
     @Test
@@ -197,14 +197,14 @@ public class ApplicationPersistentSettingsTest {
     @DisplayName("Get boolean value")
     public void getBoolean() throws PersistenceException {
         when(repo.getBoolean(anyString(), any(Supplier.class))).thenReturn(false);
-        assertFalse(victim.get(BooleanPersistentProperty.CLEAR_CONFIRMATION).get());
+        assertFalse(victim.get(BooleanPersistentProperty.CLEAR_CONFIRMATION));
     }
 
     @Test
     @DisplayName("Failing repo get boolean value")
     public void negativeGetBoolean() throws PersistenceException {
         when(repo.getBoolean(anyString(), any(Supplier.class))).thenThrow(PersistenceException.class);
-        assertTrue(victim.get(BooleanPersistentProperty.CLEAR_CONFIRMATION).get());
+        assertTrue(victim.get(BooleanPersistentProperty.CLEAR_CONFIRMATION));
     }
 
     @Test

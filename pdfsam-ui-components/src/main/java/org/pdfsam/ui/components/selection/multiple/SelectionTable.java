@@ -54,7 +54,7 @@ import org.pdfsam.model.pdf.PdfLoadRequest;
 import org.pdfsam.model.tool.ClearToolRequest;
 import org.pdfsam.model.tool.ToolBound;
 import org.pdfsam.model.ui.ShowPdfDescriptorRequest;
-import org.pdfsam.model.ui.dnd.MultipleFilesDroppedEvent;
+import org.pdfsam.model.ui.dnd.FilesDroppedEvent;
 import org.pdfsam.model.ui.workspace.RestorableView;
 import org.pdfsam.ui.components.selection.PasswordFieldPopup;
 import org.pdfsam.ui.components.selection.RemoveSelectedEvent;
@@ -369,7 +369,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     private Consumer<DragEvent> onDragDropped() {
         return (DragEvent e) -> {
-            eventStudio().broadcast(new MultipleFilesDroppedEvent(toolBinding, e.getDragboard().getFiles()));
+            eventStudio().broadcast(new FilesDroppedEvent(toolBinding, true, e.getDragboard().getFiles()));
             e.setDropCompleted(true);
         };
     }
@@ -464,7 +464,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
             SelectionTableRowData current = getItems().get(i);
             String id = defaultString(getId());
             data.put(id + "input." + i, current.descriptor().getFile().getAbsolutePath());
-            if (app().persistentSettings().get(BooleanPersistentProperty.SAVE_PWD_IN_WORKSPACE).orElse(false)) {
+            if (app().persistentSettings().get(BooleanPersistentProperty.SAVE_PWD_IN_WORKSPACE)) {
                 data.put(id + "input.password.enc" + i, encrypt(current.descriptor().getPassword()));
             }
             data.put(id + "input.range." + i, defaultString(current.pageSelection.get()));

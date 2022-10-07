@@ -19,11 +19,9 @@
 package org.pdfsam.core.support.io;
 
 import javafx.scene.input.ClipboardContent;
-import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -55,8 +53,8 @@ public class ObjectCollectionWriterTest {
     public void file(@TempDir Path folder) throws IOException {
         List<String> content = new ArrayList<>();
         content.add("item");
-        File file = Files.createTempFile(folder, null, null).toFile();
+        var file = Files.createTempFile(folder, null, null);
         ObjectCollectionWriter.writeContent(content).to(file);
-        assertTrue(FileUtils.readFileToString(file, Charset.defaultCharset()).contains("item"));
+        assertTrue(Files.readString(file, Charset.defaultCharset()).contains("item"));
     }
 }

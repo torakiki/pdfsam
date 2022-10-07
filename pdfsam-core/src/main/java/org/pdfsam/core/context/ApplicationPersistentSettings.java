@@ -37,7 +37,7 @@ import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
  *
  * @author Andrea Vacondio
  */
-public final class ApplicationPersistentSettings implements AutoCloseable {
+public class ApplicationPersistentSettings implements AutoCloseable {
 
     private static final Logger LOG = LoggerFactory.getLogger(ApplicationPersistentSettings.class);
 
@@ -68,28 +68,28 @@ public final class ApplicationPersistentSettings implements AutoCloseable {
      * @param prop
      * @return the value of the given {@link IntegerPersistentProperty} or the default associated value
      */
-    public Optional<Integer> get(IntegerPersistentProperty prop) {
+    public int get(IntegerPersistentProperty prop) {
         requireNotNullArg(prop, "Cannot get value for a null property");
         try {
-            return ofNullable(this.repo.getInt(prop.key(), prop.defaultSupplier()));
+            return this.repo.getInt(prop.key(), prop.defaultSupplier());
         } catch (PersistenceException e) {
             LOG.error("Unable to get persistent property: " + prop, e);
         }
-        return ofNullable(prop.defaultSupplier().get());
+        return prop.defaultSupplier().get();
     }
 
     /**
      * @param prop
      * @return the value of the given {@link BooleanPersistentProperty} or the default associated value
      */
-    public Optional<Boolean> get(BooleanPersistentProperty prop) {
+    public boolean get(BooleanPersistentProperty prop) {
         requireNotNullArg(prop, "Cannot get value for a null property");
         try {
-            return ofNullable(this.repo.getBoolean(prop.key(), prop.defaultSupplier()));
+            return this.repo.getBoolean(prop.key(), prop.defaultSupplier());
         } catch (NumberFormatException | PersistenceException e) {
             LOG.error("Unable to get persistent property: " + prop, e);
         }
-        return ofNullable(prop.defaultSupplier().get());
+        return prop.defaultSupplier().get();
     }
 
     /**

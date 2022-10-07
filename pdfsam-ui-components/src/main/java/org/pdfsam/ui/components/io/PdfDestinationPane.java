@@ -52,7 +52,6 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.i18n.I18nContext.i18n;
-import static org.pdfsam.ui.components.help.HelpUtils.helpIcon;
 
 /**
  * Panel letting the user select an output destination for generated Pdf document/s.
@@ -76,16 +75,14 @@ public class PdfDestinationPane extends DestinationPane implements ToolBound, Re
             DestinationPanelFields... optionalFields) {
         super(destination);
         destination.setId(toolBinding + ".destination");
-        overwrite().setSelected(
-                app().persistentSettings().get(BooleanPersistentProperty.OVERWRITE_OUTPUT).orElse(false));
+        overwrite().setSelected(app().persistentSettings().get(BooleanPersistentProperty.OVERWRITE_OUTPUT));
         this.toolBinding = defaultString(toolBinding);
         VBox advancedPanel = new VBox();
         advancedPanel.getStyleClass().addAll(Style.CONTAINER.css());
         version = new PdfVersionCombo(toolBinding);
         compress = new PdfVersionConstrainedCheckBox(PdfVersion.VERSION_1_5, toolBinding);
         compress.setText(i18n().tr("Compress output file/files"));
-        compress.setSelected(
-                app().persistentSettings().get(BooleanPersistentProperty.PDF_COMPRESSION_ENABLED).orElse(false));
+        compress.setSelected(app().persistentSettings().get(BooleanPersistentProperty.PDF_COMPRESSION_ENABLED));
         compress.setId("compressField");
         compress.getStyleClass().addAll(Style.VITEM.css());
 
@@ -131,7 +128,7 @@ public class PdfDestinationPane extends DestinationPane implements ToolBound, Re
     @EventListener
     public void setDestination(SetDestinationRequest event) {
         if (!event.fallback() || (isBlank(destination().getTextField().getText()) && app().persistentSettings()
-                .get(BooleanPersistentProperty.SMART_OUTPUT).orElse(false))) {
+                .get(BooleanPersistentProperty.SMART_OUTPUT))) {
             destination().setTextFromFile(event.footprint());
         }
     }
@@ -141,10 +138,8 @@ public class PdfDestinationPane extends DestinationPane implements ToolBound, Re
         super.resetView();
         version.resetView();
         compress.setSelected(false);
-        compress.setSelected(
-                app().persistentSettings().get(BooleanPersistentProperty.PDF_COMPRESSION_ENABLED).orElse(false));
-        overwrite().setSelected(
-                app().persistentSettings().get(BooleanPersistentProperty.OVERWRITE_OUTPUT).orElse(false));
+        compress.setSelected(app().persistentSettings().get(BooleanPersistentProperty.PDF_COMPRESSION_ENABLED));
+        overwrite().setSelected(app().persistentSettings().get(BooleanPersistentProperty.OVERWRITE_OUTPUT));
         discardBookmarks.ifPresent(c -> c.setSelected(false));
     }
 

@@ -26,6 +26,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.StringWriter;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Collection;
 
 import static org.apache.commons.lang3.StringUtils.trimToEmpty;
@@ -54,15 +55,15 @@ public final class ObjectCollectionWriter implements OngoingWrite {
     }
 
     @Override
-    public void to(File file) {
-        try (BufferedWriter writer = Files.newBufferedWriter(file.toPath())) {
+    public void to(Path file) {
+        try (BufferedWriter writer = Files.newBufferedWriter(file)) {
             for (Object item : content) {
                 writer.append(defaultLineSeparator(item.toString()));
             }
         } catch (Exception e) {
             LOG.error(i18n().tr("Error saving log file."), e);
         }
-        LOG.info(i18n().tr("File {0} saved.", file.getAbsolutePath()));
+        LOG.info(i18n().tr("File {0} saved.", file.toString()));
     }
 
     @Override

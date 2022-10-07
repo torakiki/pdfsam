@@ -45,7 +45,7 @@ import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
  *
  * @author Andrea Vacondio
  */
-class DefaultRecentWorkspacesService implements RecentWorkspacesService {
+public class DefaultRecentWorkspacesService implements RecentWorkspacesService {
 
     private static final Logger LOG = LoggerFactory.getLogger(DefaultRecentWorkspacesService.class);
 

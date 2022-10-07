@@ -1,0 +1,93 @@
+/* 
+ * This file is part of the PDF Split And Merge source code
+ * Created on 25 nov 2016
+ * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as 
+ * published by the Free Software Foundation, either version 3 of the 
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+package org.pdfsam.gui.components.dashboard.tools;
+
+import javafx.beans.property.ReadOnlyBooleanProperty;
+import javafx.beans.property.ReadOnlyBooleanWrapper;
+import javafx.css.PseudoClass;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+
+import static java.util.Objects.nonNull;
+
+/**
+ * Base class for a dashboard tile
+ * 
+ * @author Andrea Vacondio
+ *
+ */
+class DashboardTile extends VBox {
+    private static final PseudoClass ARMED_PSEUDOCLASS_STATE = PseudoClass.getPseudoClass("armed");
+
+    private Button button = new Button();
+
+    public DashboardTile(String title, String description, Node graphic) {
+        getStyleClass().addAll("dashboard-modules-tile");
+        Label titleLabel = new Label(title);
+        titleLabel.getStyleClass().add("dashboard-modules-tile-title");
+        if (nonNull(graphic)) {
+            titleLabel.setGraphic(graphic);
+        }
+        Label textLabel = new Label(description);
+        textLabel.getStyleClass().add("dashboard-modules-tile-text");
+        textLabel.setMinHeight(USE_PREF_SIZE);
+        VBox topTile = new VBox(5);
+        topTile.getChildren().addAll(titleLabel, textLabel);
+
+        button.getStyleClass().add("dashboard-modules-invisible-button");
+        button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+
+        armed.bind(button.armedProperty());
+        getChildren().addAll(new StackPane(topTile, button));
+        setMaxHeight(USE_PREF_SIZE);
+        setMinHeight(USE_PREF_SIZE);
+    }
+
+    /**
+     * Property telling if the region (acting as a button) is armed
+     */
+    ReadOnlyBooleanWrapper armed = new ReadOnlyBooleanWrapper(false) {
+        @Override
+        protected void invalidated() {
+            pseudoClassStateChanged(ARMED_PSEUDOCLASS_STATE, get());
+        }
+    };
+
+    public final ReadOnlyBooleanProperty armedProperty() {
+        return armed.getReadOnlyProperty();
+    }
+
+    public final boolean isArmed() {
+        return armed.get();
+    }
+
+    public final void setOnAction(EventHandler<ActionEvent> eventHandler) {
+        button.setOnAction(eventHandler);
+    }
+
+    void addBottomPanel(Region pane) {
+        getChildren().add(pane);
+    }
+}

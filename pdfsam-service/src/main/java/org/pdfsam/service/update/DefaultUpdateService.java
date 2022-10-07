@@ -37,7 +37,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
  *
  * @author Andrea Vacondio
  */
-class DefaultUpdateService implements UpdateService {
+public class DefaultUpdateService implements UpdateService {
     private static final Logger LOG = LoggerFactory.getLogger(DefaultUpdateService.class);
     private static final String CURRENT_VERSION_KEY = "currentVersion";
 

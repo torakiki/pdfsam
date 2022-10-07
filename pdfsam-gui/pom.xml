@@ -11,23 +11,35 @@
 
 	<artifactId>pdfsam-gui</artifactId>
 	<packaging>jar</packaging>
-	<name>PDFsam desktop client application</name>
+	<name>PDFsam GUI</name>
 
-	<profiles>
-		<profile>
-			<id>fastTests</id>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-surefire-plugin</artifactId>
-						<configuration>
-							<excludedGroups>org.loadui.testfx.categories.TestFX</excludedGroups>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifestEntries>
+							<Automatic-Module-Name>org.pdfsam.gui</Automatic-Module-Name>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<argLine>
+						--add-exports javafx.base/com.sun.javafx.logging=ALL-UNNAMED
+						--add-exports javafx.base/com.sun.javafx.beans=ALL-UNNAMED
+						--add-exports javafx.graphics/com.sun.javafx.application=ALL-UNNAMED
+						--add-exports javafx.graphics/com.sun.javafx.embed=ALL-UNNAMED
+					</argLine>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 	<dependencies>
 		<dependency>
@@ -85,14 +97,6 @@
 			<artifactId>jakarta.inject-api</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>de.jensd</groupId>
-			<artifactId>fontawesomefx-fontawesome</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>de.jensd</groupId>
-			<artifactId>fontawesomefx-materialdesignfont</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.pdfsam</groupId>
 			<artifactId>pdfsam-merge</artifactId>
 			<version>${project.version}</version>
@@ -146,6 +150,18 @@
 			<artifactId>javafx-media</artifactId>
 			<version>${javafx.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.kordamp.ikonli</groupId>
+			<artifactId>ikonli-unicons-pack</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.kordamp.ikonli</groupId>
+			<artifactId>ikonli-boxicons-pack</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.kordamp.ikonli</groupId>
+			<artifactId>ikonli-javafx</artifactId>
+		</dependency>
 		<!-- test dependencies -->
 		<dependency>
 			<groupId>org.testfx</groupId>
@@ -158,15 +174,14 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.openjfx</groupId>
-			<artifactId>javafx-swing</artifactId>
+			<groupId>org.pdfsam</groupId>
+			<artifactId>pdfsam-test</artifactId>
+			<version>${project.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.pdfsam</groupId>
-			<artifactId>pdfsam-core</artifactId>
-			<version>${project.version}</version>
-			<type>test-jar</type>
+			<groupId>org.awaitility</groupId>
+			<artifactId>awaitility</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

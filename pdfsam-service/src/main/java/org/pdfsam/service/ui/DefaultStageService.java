@@ -31,7 +31,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author Andrea Vacondio
  */
-class DefaultStageService implements StageService {
+public class DefaultStageService implements StageService {
 
     private static final Logger LOG = LoggerFactory.getLogger(DefaultStageService.class);
     static final String STAGE_STATUS_KEY = "stage.status";

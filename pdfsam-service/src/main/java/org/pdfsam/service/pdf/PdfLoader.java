@@ -25,12 +25,11 @@ import java.util.function.BiConsumer;
 
 /**
  * A {@link PdfLoader} is responsible for populating a {@link PdfDocumentDescriptor} with some data read from a source.
- * 
+ *
+ * @param <T> type of the source
  * @author Andrea Vacondio
- * @param <T>
- *            type of the source
  */
-interface PdfLoader<T> extends BiConsumer<T, PdfDocumentDescriptor> {
+public interface PdfLoader<T> extends BiConsumer<T, PdfDocumentDescriptor> {
 
     /**
      * @return the {@link RequiredPdfData} associated with this loader.

@@ -21,7 +21,6 @@ package org.pdfsam.model.ui;
 import org.pdfsam.model.tool.ToolInputOutputType;
 
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,10 +29,6 @@ import java.util.List;
  * @author Andrea Vacondio
  */
 public record InputPdfArgumentsLoadRequest(List<Path> pdfs) {
-    public InputPdfArgumentsLoadRequest() {
-        this(new ArrayList<>());
-    }
-
     public ToolInputOutputType requiredInputType() {
         return pdfs.size() > 1 ? ToolInputOutputType.MULTIPLE_PDF : ToolInputOutputType.SINGLE_PDF;
     }

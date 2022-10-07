@@ -18,15 +18,14 @@
  */
 package org.pdfsam.basic;
 
-import static org.apache.commons.lang3.StringUtils.EMPTY;
-import static org.sejda.commons.util.RequireUtils.requireNotBlank;
+import org.pdfsam.core.AppBrand;
+import org.pdfsam.core.BrandableProperty;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import org.pdfsam.core.BrandableProperty;
-import org.pdfsam.core.AppBrand;
+import static org.apache.commons.lang3.StringUtils.EMPTY;
 
 /**
  * @author Andrea Vacondio
@@ -34,27 +33,11 @@ import org.pdfsam.core.AppBrand;
  */
 public class PdfsamBasic implements AppBrand {
     private Properties properties = new Properties();
-    private String name;
-    private String shortName;
 
-    public PdfsamBasic(String name, String shortName) throws IOException {
-        requireNotBlank(name, "Application name cannot be blank");
-        requireNotBlank(shortName, "Application short name cannot be blank");
-        this.name = name;
-        this.shortName = shortName;
+    public PdfsamBasic() throws IOException {
         try (InputStream stream = this.getClass().getResourceAsStream("/pdfsam.properties")) {
             properties.load(stream);
         }
-    }
-
-    @Override
-    public String name() {
-        return name;
-    }
-
-    @Override
-    public String shortName() {
-        return shortName;
     }
 
     @Override

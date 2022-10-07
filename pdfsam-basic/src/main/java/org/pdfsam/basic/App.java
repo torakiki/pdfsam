@@ -19,7 +19,7 @@
 package org.pdfsam.basic;
 
 import javafx.application.Application;
-import org.pdfsam.PdfsamApp;
+import org.pdfsam.gui.PdfsamApp;
 import org.pdfsam.injector.Injector;
 import org.pdfsam.tools.alternatemix.AlternateMixTool;
 import org.pdfsam.tools.extract.ExtractTool;

@@ -28,26 +28,26 @@ import org.slf4j.LoggerFactory;
 /**
  * @author Andrea Vacondio
  */
-class DefaultUsageService implements UsageService {
+public class DefaultUsageService implements UsageService {
 
     private static final Logger LOG = LoggerFactory.getLogger(DefaultUsageService.class);
-    static final String MODULE_USAGE_KEY = "module.usage";
+    static final String TOOL_USAGE_KEY = "module.usage";
     static final String TASKS_EXECUTED_KEY = "tasks.executed";
-    private final DefaultEntityRepository<ModuleUsage> repo;
+    private final DefaultEntityRepository<ToolUsage> repo;
 
     @Inject
-    DefaultUsageService(@Named("usageRepository") DefaultEntityRepository<ModuleUsage> repo) {
+    DefaultUsageService(@Named("usageRepository") DefaultEntityRepository<ToolUsage> repo) {
         this.repo = repo;
     }
 
     @Override
     public void incrementUsageFor(String moduleId) {
         try {
-            var usage = repo.get(MODULE_USAGE_KEY, new ModuleUsage(moduleId)).inc();
-            repo.save(MODULE_USAGE_KEY, usage);
-            LOG.trace("Usage incremented for module {}", moduleId);
+            var usage = repo.get(TOOL_USAGE_KEY, new ToolUsage(moduleId)).inc();
+            repo.save(TOOL_USAGE_KEY, usage);
+            LOG.trace("Usage incremented for tool {}", moduleId);
         } catch (PersistenceException e) {
-            LOG.error("Unable to increment modules usage statistics", e);
+            LOG.error("Unable to increment tools usage statistics", e);
         } finally {
             incrementTotalUsage();
         }

@@ -43,6 +43,11 @@ public class Light implements Theme {
     }
 
     @Override
+    public List<String> transparentIncapableStylesheets() {
+        return List.of("/themes/light/transparent-incapable.css");
+    }
+
+    @Override
     public String name() {
         return i18n().tr("Light");
     }

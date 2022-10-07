@@ -18,13 +18,13 @@
  */
 package org.pdfsam.basic;
 
+import jakarta.inject.Named;
 import javafx.scene.image.Image;
 import org.pdfsam.core.AppBrand;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.injector.Prototype;
 import org.pdfsam.injector.Provides;
 
-import javax.inject.Named;
 import java.io.IOException;
 
 /**
@@ -83,6 +83,6 @@ public class PdfsamBasicConfig {
     @Provides
     @Auto
     public AppBrand pdfsam() throws IOException {
-        return new PdfsamBasic("PDF Split and Merge Basic Edition", "PDFsam Basic");
+        return new PdfsamBasic();
     }
 }

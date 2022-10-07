@@ -36,7 +36,7 @@ import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
  *
  * @author Andrea Vacondio
  */
-class DefaultWorkspaceService implements WorkspaceService {
+public class DefaultWorkspaceService implements WorkspaceService {
     private static final Logger LOG = LoggerFactory.getLogger(DefaultWorkspaceService.class);
     private final ObjectMapper objectMapper;
 

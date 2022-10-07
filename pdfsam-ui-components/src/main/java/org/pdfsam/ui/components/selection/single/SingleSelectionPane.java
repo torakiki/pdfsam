@@ -237,7 +237,7 @@ public class SingleSelectionPane extends VBox implements ToolBound, PdfDocumentD
     public void saveStateTo(Map<String, String> data) {
         if (descriptor != null) {
             data.put(defaultString(getId()) + "input", descriptor.getFile().getAbsolutePath());
-            if (app().persistentSettings().get(BooleanPersistentProperty.SAVE_PWD_IN_WORKSPACE).orElse(false)) {
+            if (app().persistentSettings().get(BooleanPersistentProperty.SAVE_PWD_IN_WORKSPACE)) {
                 data.put(defaultString(getId()) + "input.password.enc", encrypt(descriptor.getPassword()));
             }
         }

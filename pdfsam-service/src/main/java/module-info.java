@@ -39,7 +39,6 @@ module org.pdfsam.service {
     requires transitive org.sejda.model;
     requires static org.sejda.core.writer;
 
-    exports org.pdfsam.service;
     exports org.pdfsam.service.news;
     exports org.pdfsam.service.pdf;
     exports org.pdfsam.service.premium;

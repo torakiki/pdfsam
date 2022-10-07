@@ -20,9 +20,9 @@ package org.pdfsam.model.pdf;
 
 import org.pdfsam.model.tool.BaseToolBound;
 
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.List;
 
 /**
  * Request the app to load one or many pdf documents
@@ -30,7 +30,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  * @author Andrea Vacondio
  */
 public class PdfLoadRequest extends BaseToolBound {
-    private Collection<PdfDocumentDescriptor> documents = new ConcurrentLinkedQueue<>();
+    private List<PdfDocumentDescriptor> documents = new ArrayList<>();
 
     public PdfLoadRequest(String toolId) {
         super(toolId);
@@ -40,11 +40,7 @@ public class PdfLoadRequest extends BaseToolBound {
         return documents.add(e);
     }
 
-    public boolean addAll(Collection<PdfDocumentDescriptor> c) {
-        return documents.addAll(c);
-    }
-
-    public Collection<PdfDocumentDescriptor> getDocuments() {
-        return Collections.unmodifiableCollection(documents);
+    public List<PdfDocumentDescriptor> getDocuments() {
+        return Collections.unmodifiableList(documents);
     }
 }

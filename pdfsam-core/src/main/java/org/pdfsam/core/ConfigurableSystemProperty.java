@@ -34,6 +34,9 @@ public class ConfigurableSystemProperty {
     public static final String LOCALE_PROP = "org.pdfsam.default.locale";
     public static final String THEME_PROP = "org.pdfsam.default.theme";
     public static final String PDFSAM_DISABLE_SPLIT_OPTIMIZATION = "org.pdfsam.disable.split.optimization";
+    public static final String PDFSAM_DISABLE_UI_RESTORE = "org.pdfsam.disable.ui.restore";
+    public static final String PDFSAM_DISABLE_SETTINGS_DEPRECATED = "org.pdfsam.settings.panel";
+    public static final String PDFSAM_DISABLE_SETTINGS = "org.pdfsam.disable.settings.panel";
 
     private ConfigurableSystemProperty() {
         //NOOP

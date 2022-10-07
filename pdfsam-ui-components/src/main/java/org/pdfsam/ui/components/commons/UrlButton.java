@@ -19,7 +19,6 @@
 package org.pdfsam.ui.components.commons;
 
 import javafx.scene.control.Button;
-import javafx.scene.control.ContentDisplay;
 import org.kordamp.ikonli.Ikon;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.pdfsam.model.io.NativeOpenUrlRequest;
@@ -55,7 +54,7 @@ public class UrlButton extends Button {
 
     /**
      * Factory method to create an {@link UrlButton}
-     * 
+     *
      * @param text
      *            optional button text
      * @param url
@@ -63,15 +62,13 @@ public class UrlButton extends Button {
      *            optional icon
      * @param style
      *            optional style classes
-     * @return
      */
-    public static final UrlButton urlButton(String text, String url, Ikon icon, String... style) {
+    public static UrlButton urlButton(String text, String url, Ikon icon, String... style) {
         requireNotBlank(url, "URL cannot be blank");
         UrlButton button = new UrlButton(text);
         button.setOnAction(e -> eventStudio().broadcast(new NativeOpenUrlRequest(url)));
         if (nonNull(icon)) {
             button.setGraphic(FontIcon.of(icon));
-            button.setContentDisplay(ContentDisplay.LEFT);
         }
         if (nonNull(style) && style.length > 0) {
             button.getStyleClass().addAll(style);

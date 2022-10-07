@@ -72,8 +72,7 @@ public class OpenButtonTest {
 
     @Start
     public void start(Stage stage) {
-        victim = new OpenButton("moduleId", ToolInputOutputType.SINGLE_PDF);
-        victim.initModules(Collections.singletonList(tool));
+        victim = new OpenButton("moduleId", ToolInputOutputType.SINGLE_PDF, Collections.singletonList(tool));
         victim.setMaxHeight(30);
         victim.setVisible(true);
         Scene scene = new Scene(new HBox(victim));

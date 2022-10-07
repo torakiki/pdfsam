@@ -18,6 +18,7 @@ package org.pdfsam.theme;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.pdfsam.i18n.I18nContext.i18n;
@@ -27,6 +28,8 @@ import static org.pdfsam.i18n.I18nContext.i18n;
  */
 public class Dark implements Theme {
 
+    private Light parent = new Light();
+
     @Override
     public String id() {
         return "KDJ4FJ49D46H09JV1";
@@ -34,7 +37,14 @@ public class Dark implements Theme {
 
     @Override
     public List<String> stylesheets() {
-        return List.of("/themes/dark/theme.css");
+        var styles = new ArrayList<>(parent.stylesheets());
+        styles.add("/themes/dark/theme.css");
+        return styles;
+    }
+
+    @Override
+    public List<String> transparentIncapableStylesheets() {
+        return parent.transparentIncapableStylesheets();
     }
 
     @Override

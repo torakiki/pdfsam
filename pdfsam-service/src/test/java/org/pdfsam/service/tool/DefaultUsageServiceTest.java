@@ -30,8 +30,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.pdfsam.persistence.DefaultEntityRepository;
-import org.pdfsam.service.tool.DefaultUsageService;
-import org.pdfsam.service.tool.ModuleUsage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -51,7 +49,7 @@ public class DefaultUsageServiceTest {
                 .serializationInclusion(JsonInclude.Include.NON_EMPTY)
                 .build();
         this.victim = new DefaultUsageService(
-                new DefaultEntityRepository<ModuleUsage>("/test/org/pdfsam/moduleusage", mapper, ModuleUsage.class));
+                new DefaultEntityRepository<ToolUsage>("/test/org/pdfsam/moduleusage", mapper, ToolUsage.class));
     }
 
     @AfterEach

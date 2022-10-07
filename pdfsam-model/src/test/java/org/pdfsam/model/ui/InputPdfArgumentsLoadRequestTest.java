@@ -23,6 +23,7 @@ import org.junit.jupiter.api.io.TempDir;
 import org.pdfsam.model.tool.ToolInputOutputType;
 
 import java.nio.file.Path;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -31,13 +32,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 public class InputPdfArgumentsLoadRequestTest {
 
-    private InputPdfArgumentsLoadRequest victim = new InputPdfArgumentsLoadRequest();
+    @Test
+    public void requiredInputTypeSingle(@TempDir Path folder) {
+        var victim = new InputPdfArgumentsLoadRequest(List.of(folder.resolve("test.pdf")));
+        assertEquals(ToolInputOutputType.SINGLE_PDF, victim.requiredInputType());
+    }
 
     @Test
-    public void requiredInputTyle(@TempDir Path folder) throws Exception {
-        victim.pdfs().add(folder.resolve("test.pdf"));
-        assertEquals(ToolInputOutputType.SINGLE_PDF, victim.requiredInputType());
-        victim.pdfs().add(folder.resolve("another test.pdf"));
+    public void requiredInputTypeMultiple(@TempDir Path folder) {
+        var victim = new InputPdfArgumentsLoadRequest(
+                List.of(folder.resolve("test.pdf"), folder.resolve("another test.pdf")));
         assertEquals(ToolInputOutputType.MULTIPLE_PDF, victim.requiredInputType());
     }
 

@@ -36,6 +36,11 @@ public interface Theme {
     List<String> stylesheets();
 
     /**
+     * @return a collection of stylesheets paths to be loaded if the platform is transparent incapable
+     */
+    List<String> transparentIncapableStylesheets();
+
+    /**
      * @return The theme name
      */
     String name();

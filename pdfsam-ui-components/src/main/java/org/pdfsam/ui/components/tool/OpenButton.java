@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 21/mar/2014
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -20,7 +20,6 @@ package org.pdfsam.ui.components.tool;
 
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitMenuButton;
-import org.apache.commons.lang3.StringUtils;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.kordamp.ikonli.unicons.UniconsLine;
 import org.pdfsam.eventstudio.ReferenceStrength;
@@ -52,24 +51,28 @@ import java.util.List;
 import static java.util.Objects.isNull;
 import static java.util.Objects.requireNonNull;
 import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * Button to open the latest manipulation result
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
 public class OpenButton extends SplitMenuButton implements TaskOutputDispatcher {
 
     private static final Logger LOG = LoggerFactory.getLogger(OpenButton.class);
-    private String ownerModule = StringUtils.EMPTY;
+    private String ownerModule;
     private File destination;
     private List<File> latestOutput = new ArrayList<>();
     private ToolInputOutputType outputType;
 
-    public OpenButton(String ownerModule, ToolInputOutputType outputType) {
+    public OpenButton(String ownerTool, ToolInputOutputType outputType) {
+        this(ownerTool, outputType, app().runtimeState().tools().values());
+    }
+
+    OpenButton(String ownerModule, ToolInputOutputType outputType, Collection<Tool> tools) {
         requireNonNull(outputType);
         this.outputType = outputType;
         this.ownerModule = defaultString(ownerModule);
@@ -98,6 +101,11 @@ public class OpenButton extends SplitMenuButton implements TaskOutputDispatcher 
                 }
             }
         }, -10, ReferenceStrength.STRONG);
+        tools.forEach(m -> {
+            if (m.descriptor().hasInputType(outputType)) {
+                getItems().add(new OpenWithMenuItem(m));
+            }
+        });
         eventStudio().addAnnotatedListeners(this);
     }
 
@@ -107,14 +115,6 @@ public class OpenButton extends SplitMenuButton implements TaskOutputDispatcher 
             return true;
         }
         return false;
-    }
-
-    public void initModules(Collection<Tool> tools) {
-        tools.forEach(m -> {
-            if (m.descriptor().hasInputType(outputType)) {
-                getItems().add(new OpenWithMenuItem(m));
-            }
-        });
     }
 
     @EventStation

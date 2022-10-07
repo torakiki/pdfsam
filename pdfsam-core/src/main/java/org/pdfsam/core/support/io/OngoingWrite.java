@@ -18,9 +18,9 @@
  */
 package org.pdfsam.core.support.io;
 
-import java.io.File;
-
 import javafx.scene.input.ClipboardContent;
+
+import java.nio.file.Path;
 
 /**
  * Fluent interface to select the destination of a text write.
@@ -32,10 +32,10 @@ public interface OngoingWrite {
 
     /**
      * Where the content will be written.
-     * 
+     *
      * @param file
      */
-    void to(File file);
+    void to(Path file);
 
     /**
      * Where the content will be written.

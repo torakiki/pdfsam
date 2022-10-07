@@ -26,7 +26,6 @@ import static org.sejda.commons.util.RequireUtils.requireNotBlank;
  * @author Andrea Vacondio
  */
 public record SetActiveToolRequest(String id) {
-    public static final SetActiveToolRequest TOOLS_HOME = new SetActiveToolRequest("home");
     public static final SetActiveToolRequest CURRENT_TOOL = new SetActiveToolRequest("current");
 
     public SetActiveToolRequest {

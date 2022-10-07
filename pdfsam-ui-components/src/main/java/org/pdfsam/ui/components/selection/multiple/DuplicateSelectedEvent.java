@@ -20,9 +20,8 @@ package org.pdfsam.ui.components.selection.multiple;
 
 /**
  * Event sent to notify that the table selection should be duplicated
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
 class DuplicateSelectedEvent {
     // nothing

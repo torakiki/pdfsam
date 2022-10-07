@@ -19,13 +19,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
-import org.pdfsam.model.tool.Tool;
 
 import java.nio.file.Path;
 
 import static java.util.Optional.empty;
 import static java.util.Optional.of;
-import static org.mockito.Mockito.mock;
 
 /**
  * @author Andrea Vacondio
@@ -92,35 +90,15 @@ public class ApplicationRuntimeStateTest {
         testListener.assertValuesOnly(empty(), of(tempDir), empty());
     }
 
-    @Test
-    @DisplayName("Active tool notified")
-    public void positiveActiveTool() {
-        var testListener = victim.activeTool().test();
-        var tool = mock(Tool.class);
-        victim.activeTool(tool);
-        testListener.assertValuesOnly(empty(), of(tool));
-    }
 
-    @Test
-    @DisplayName("Null active tool")
-    public void nullActiveTool() {
-        var testListener = victim.activeTool().test();
-        var tool = mock(Tool.class);
-        victim.activeTool(tool);
-        victim.activeTool(null);
-        testListener.assertValuesOnly(empty(), of(tool), empty());
-    }
 
     @Test
     public void close() {
-        var testListenerActiveTool = victim.activeTool().test();
         var testListenerTheme = victim.theme().test();
         var testListenerWorkingPath = victim.workingPath().test();
         victim.close();
-        testListenerActiveTool.assertComplete();
         testListenerTheme.assertComplete();
         testListenerWorkingPath.assertComplete();
-
     }
 
 }

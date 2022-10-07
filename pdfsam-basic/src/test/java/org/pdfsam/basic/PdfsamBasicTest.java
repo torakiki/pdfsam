@@ -18,27 +18,18 @@
  */
 package org.pdfsam.basic;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+import org.pdfsam.core.BrandableProperty;
 
 import java.io.IOException;
 
-import org.junit.Test;
-import org.pdfsam.core.BrandableProperty;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PdfsamBasicTest {
-    @Test(expected = IllegalArgumentException.class)
-    public void blankName() throws IOException {
-        new PdfsamBasic(" ", "something");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void blankShortName() throws IOException {
-        new PdfsamBasic("Something", " ");
-    }
 
     @Test
     public void property() throws IOException {
-        PdfsamBasic pdfsam = new PdfsamBasic("name", "short");
+        PdfsamBasic pdfsam = new PdfsamBasic();
         assertEquals("1.0.0", pdfsam.property(BrandableProperty.VERSION));
         assertEquals("Chuck", pdfsam.property(BrandableProperty.FEED_URL, "Chuck"));
     }

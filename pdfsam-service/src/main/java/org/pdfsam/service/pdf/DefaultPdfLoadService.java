@@ -47,7 +47,7 @@ import static org.pdfsam.model.pdf.PdfDescriptorLoadingStatus.WITH_ERRORS;
 /**
  * @author Andrea Vacondio
  */
-class DefaultPdfLoadService implements PdfLoadService {
+public class DefaultPdfLoadService implements PdfLoadService {
     private static final Logger LOG = LoggerFactory.getLogger(DefaultPdfLoadService.class);
     private final Map<RequiredPdfData, BiConsumer<PDDocument, PdfDocumentDescriptor>> consumers = new HashMap<>();
 

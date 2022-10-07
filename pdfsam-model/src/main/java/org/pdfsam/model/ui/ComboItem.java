@@ -18,14 +18,63 @@ package org.pdfsam.model.ui;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.Locale;
+import java.util.Objects;
+
 /**
  * A combo item with description
  *
  * @author Andrea Vacondio
  */
-public record ComboItem<T>(T key, String description) {
+public class ComboItem<T> {
+
+    private final T key;
+    private final String description;
+
+    public ComboItem(T key, String description) {
+        this.key = key;
+        this.description = description;
+    }
+
+    public T key() {
+        return key;
+    }
+
+    public String description() {
+        return description;
+    }
+
     @Override
     public String toString() {
         return description;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(key);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) {
+            return true;
+        }
+        if (!(other instanceof ComboItem item)) {
+            return false;
+        }
+        return Objects.equals(key, item.key());
+    }
+
+    public static ComboItem<String> fromLocale(Locale locale) {
+        return new ComboItem<>(locale.toLanguageTag(), StringUtils.capitalize(locale.getDisplayName()));
+    }
+
+    /**
+     * Factory method for an item with no text representation
+     */
+    public static <K> ComboItem<K> keyWithEmptyValue(K key) {
+        return new ComboItem<>(key, "");
     }
 }
