@@ -23,19 +23,17 @@ import javafx.stage.Stage;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentCaptor;
-import org.pdfsam.eventstudio.Listener;
 import org.pdfsam.gui.components.dashboard.PreferencesDashboardItem;
 import org.pdfsam.injector.Injector;
 import org.pdfsam.model.ui.SetActiveDashboardItemRequest;
 import org.pdfsam.test.ClearEventStudioExtension;
+import org.pdfsam.test.HitTestListener;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.i18n.I18nContext.i18n;
 
@@ -59,12 +57,15 @@ public class SettingsMenuTest {
     @Test
     @Tag("NoHeadless")
     public void onSettingsClick() {
-        Listener<SetActiveDashboardItemRequest> listener = mock(Listener.class);
+        HitTestListener<SetActiveDashboardItemRequest> listener = new HitTestListener<>() {
+            @Override
+            public void onEvent(SetActiveDashboardItemRequest event) {
+                super.onEvent(event);
+                assertEquals(PreferencesDashboardItem.ID, event.id());
+            }
+        };
         eventStudio().add(SetActiveDashboardItemRequest.class, listener);
-        ArgumentCaptor<SetActiveDashboardItemRequest> argument = ArgumentCaptor.forClass(
-                SetActiveDashboardItemRequest.class);
         robot.clickOn(".button").clickOn(i18n().tr("_Settings"));
-        verify(listener).onEvent(argument.capture());
-        assertEquals(PreferencesDashboardItem.ID, argument.getValue().id());
+        assertTrue(listener.isHit());
     }
 }

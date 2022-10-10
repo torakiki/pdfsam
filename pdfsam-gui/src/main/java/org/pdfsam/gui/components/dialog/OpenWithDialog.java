@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 10 ago 2016
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -41,6 +41,7 @@ import org.pdfsam.ui.components.commons.HideOnEscapeHandler;
 import org.pdfsam.ui.components.support.Style;
 
 import java.nio.file.Path;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,7 +53,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * Dialog asking the user which module he wants to use to open one or more PDF files received as input arguments from the application
- * 
+ *
  * @author Andrea Vacondio
  */
 public class OpenWithDialog extends Stage {
@@ -63,7 +64,11 @@ public class OpenWithDialog extends Stage {
     private List<Tool> tools;
 
     @Inject
-    public OpenWithDialog(List<Tool> tools, @Named("primaryStage") Stage stage) {
+    public OpenWithDialog(@Named("primaryStage") Stage stage) {
+        this(app().runtimeState().tools().values(), stage);
+    }
+
+    OpenWithDialog(Collection<Tool> tools, @Named("primaryStage") Stage stage) {
         initModality(Modality.WINDOW_MODAL);
         initStyle(StageStyle.UTILITY);
         setResizable(false);

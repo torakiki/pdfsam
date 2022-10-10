@@ -26,7 +26,6 @@ import org.pdfsam.test.DefaultPriorityTestTool;
 import java.util.List;
 
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.when;
 
 /**
@@ -41,7 +40,7 @@ public class MenuConfig {
 
     @Provides
     public AppContextMenu menu(WorkspaceMenu workspaceMenu, ToolsMenu toolsMenu) {
-        return spy(new AppContextMenu(workspaceMenu, toolsMenu));
+        return new AppContextMenu(workspaceMenu, toolsMenu);
     }
 
     @Provides

@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java: ['17', '18']
+        java: ['17', '19']
     name: JDK ${{ matrix.java }}
 
     steps:

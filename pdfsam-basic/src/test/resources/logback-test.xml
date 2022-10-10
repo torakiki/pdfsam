@@ -2,7 +2,7 @@
 
 	<!-- appender logging everything to STDOUT -->
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-		<filter class="org.pdfsam.ui.components.log.UpToInfoFilter" />
+		<filter class="org.pdfsam.gui.components.log.UpToInfoFilter" />
 		<encoder>
 			<pattern>%-5level %d{HH:mm:ss.SSS} %c{5}[%thread] %msg%n</pattern>
 		</encoder>

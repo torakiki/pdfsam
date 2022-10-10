@@ -23,19 +23,17 @@ import javafx.stage.Stage;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentCaptor;
-import org.pdfsam.eventstudio.Listener;
 import org.pdfsam.injector.Injector;
 import org.pdfsam.model.ui.SetActiveToolRequest;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.test.DefaultPriorityTestTool;
+import org.pdfsam.test.HitTestListener;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 /**
@@ -57,14 +55,18 @@ public class ToolsMenuTest {
 
     @Test
     @Tag("NoHeadless")
-    public void onSaveClick() {
-        DefaultPriorityTestTool module = injector.instance(DefaultPriorityTestTool.class);
-        Listener<SetActiveToolRequest> listener = mock(Listener.class);
+    public void toolClick() {
+        DefaultPriorityTestTool tool = injector.instance(DefaultPriorityTestTool.class);
+        HitTestListener<SetActiveToolRequest> listener = new HitTestListener<>() {
+            @Override
+            public void onEvent(SetActiveToolRequest event) {
+                super.onEvent(event);
+                assertEquals(tool.id(), event.id());
+            }
+        };
         eventStudio().add(SetActiveToolRequest.class, listener);
-        ArgumentCaptor<SetActiveToolRequest> argument = ArgumentCaptor.forClass(SetActiveToolRequest.class);
-        robot.clickOn(".button").clickOn("#toolsMenu").clickOn(module.descriptor().category().getDescription())
-                .clickOn(module.descriptor().name());
-        verify(listener).onEvent(argument.capture());
-        assertEquals(module.id(), argument.getValue().id());
+        robot.clickOn(".button").clickOn("#toolsMenu").clickOn(tool.descriptor().category().getDescription())
+                .clickOn(tool.descriptor().name());
+        assertTrue(listener.isHit());
     }
 }

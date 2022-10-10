@@ -18,19 +18,20 @@
  */
 package org.pdfsam.gui.components.banner;
 
-import javafx.geometry.Side;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.pdfsam.injector.Injector;
+import org.pdfsam.model.ui.SetActiveToolRequest;
+import org.pdfsam.test.DefaultPriorityTestTool;
+import org.pdfsam.test.HitTestListener;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.verify;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 /**
  * @author Andrea Vacondio
@@ -52,8 +53,11 @@ public class MenuButtonTest {
 
     @Test
     public void onClick() throws InterruptedException {
-        var menu = injector.instance(AppContextMenu.class);
-        robot.clickOn(".button");
-        verify(menu).show(any(), eq(Side.BOTTOM), eq(0d), eq(0d));
+        var tool = injector.instance(DefaultPriorityTestTool.class);
+        HitTestListener<SetActiveToolRequest> listener = new HitTestListener<>();
+        eventStudio().add(SetActiveToolRequest.class, listener);
+        robot.clickOn(".button").clickOn("#toolsMenu").clickOn(tool.descriptor().category().getDescription())
+                .clickOn(tool.descriptor().name());
+        assertTrue(listener.isHit());
     }
 }

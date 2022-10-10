@@ -58,7 +58,7 @@ public class InfoStageTest {
         @Provides
         @Prototype
         public Image payoff() {
-            return new Image(this.getClass().getResourceAsStream("/images/payoff.png"));
+            return new Image(this.getClass().getResourceAsStream("/org/pdfsam/gui/images/payoff.png"));
         }
 
     }

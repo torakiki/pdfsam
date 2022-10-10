@@ -45,7 +45,7 @@ public enum BrandableProperty {
     TWEETER_SHARE_URL("pdfsam.tweeter.share.url"),
     FACEBOOK_SHARE_URL("pdfsam.facebook.share.url"),
     NEWS_URL("pdfsam.news.url"),
-    PREMIUM_TOOLS_URL("pdfsam.premium.modules.url"),
+    PREMIUM_TOOLS_URL("pdfsam.premium.tools.url"),
     DOWNLOAD_URL("pdfsam.download.url"),
     CURRENT_VERSION_URL("pdfsam.current.version.url");
 

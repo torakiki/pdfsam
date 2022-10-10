@@ -25,12 +25,12 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.io.TempDir;
-import org.pdfsam.eventstudio.Listener;
 import org.pdfsam.injector.Injector;
 import org.pdfsam.model.ui.workspace.LoadWorkspaceRequest;
 import org.pdfsam.model.ui.workspace.WorkspaceLoadedEvent;
 import org.pdfsam.service.ui.RecentWorkspacesService;
 import org.pdfsam.test.ClearEventStudioExtension;
+import org.pdfsam.test.HitTestListener;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
@@ -40,9 +40,6 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
@@ -71,11 +68,11 @@ public class WorkspaceMenuTest {
 
     @Test
     public void onRecentWorkspace() {
-        Listener<LoadWorkspaceRequest> listener = mock(Listener.class);
+        HitTestListener<LoadWorkspaceRequest> listener = new HitTestListener<>();
         eventStudio().add(LoadWorkspaceRequest.class, listener);
-        robot.clickOn(".button").clickOn("#workspaceMenu").moveTo("#loadWorkspace")
-                .moveTo("#saveWorkspace").clickOn("#recentWorkspace").clickOn("Chuck");
-        verify(listener).onEvent(any());
+        robot.clickOn(".button").clickOn("#workspaceMenu").moveTo("#loadWorkspace").moveTo("#saveWorkspace")
+                .clickOn("#recentWorkspace").clickOn("Chuck");
+        assertTrue(listener.isHit());
     }
 
     @Test

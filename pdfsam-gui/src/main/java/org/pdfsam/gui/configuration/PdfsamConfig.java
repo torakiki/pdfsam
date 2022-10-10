@@ -71,18 +71,18 @@ public class PdfsamConfig {
     @Provides
     @Named("errorSound")
     public String error() {
-        return this.getClass().getResource("/sounds/error_sound.wav").toExternalForm();
+        return this.getClass().getResource("/org/pdfsam/gui/sounds/error_sound.wav").toExternalForm();
     }
 
     @Provides
     @Named("okSound")
     public String ok() {
-        return this.getClass().getResource("/sounds/ok_sound.wav").toExternalForm();
+        return this.getClass().getResource("/org/pdfsam/gui/sounds/ok_sound.wav").toExternalForm();
     }
 
     @Provides
     @Prototype
     public ImageView payoff() {
-        return new ImageView(this.getClass().getResource("/images/payoff.png").toExternalForm());
+        return new ImageView(this.getClass().getResource("/org/pdfsam/gui/images/payoff.png").toExternalForm());
     }
 }

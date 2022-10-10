@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 13/giu/2013
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -31,13 +31,14 @@ import org.pdfsam.model.tool.Tool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import static java.util.Objects.nonNull;
+import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.i18n.I18nContext.i18n;
 
@@ -56,7 +57,11 @@ public class PdfLoadController {
     private Map<String, RequiredPdfData[]> requiredLoadData = new HashMap<>();
 
     @Inject
-    public PdfLoadController(List<Tool> tools, PdfLoadService loadService) {
+    public PdfLoadController(PdfLoadService loadService) {
+        this(app().runtimeState().tools().values(), loadService);
+    }
+
+    PdfLoadController(Collection<Tool> tools, PdfLoadService loadService) {
         this.loadService = loadService;
         tools.forEach(m -> requiredLoadData.put(m.id(), m.requires()));
         eventStudio().addAnnotatedListeners(this);
@@ -76,7 +81,7 @@ public class PdfLoadController {
 
     /**
      * Request to load a text/csv file containing a list of PDF
-     * 
+     *
      * @param event
      */
     @EventListener

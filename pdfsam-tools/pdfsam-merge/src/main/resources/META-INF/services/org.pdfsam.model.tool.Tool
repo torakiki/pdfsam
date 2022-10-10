@@ -1,0 +1,1 @@
+org.pdfsam.tools.merge.MergeTool

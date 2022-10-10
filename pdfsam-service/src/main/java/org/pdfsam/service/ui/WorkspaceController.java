@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 04/dic/2014
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -29,11 +29,12 @@ import org.pdfsam.model.ui.workspace.WorkspaceLoadedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.List;
+import java.util.Collection;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 import static java.util.Objects.nonNull;
+import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.i18n.I18nContext.i18n;
 
@@ -46,12 +47,16 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 public class WorkspaceController {
     private static final Logger LOG = LoggerFactory.getLogger(WorkspaceController.class);
 
-    private List<Tool> tools;
+    private Collection<Tool> tools;
     private WorkspaceService service;
     private RecentWorkspacesService recentWorkspace;
 
     @Inject
-    WorkspaceController(List<Tool> tools, WorkspaceService service, RecentWorkspacesService recentWorkspace) {
+    WorkspaceController(WorkspaceService service, RecentWorkspacesService recentWorkspace) {
+        this(app().runtimeState().tools().values(), service, recentWorkspace);
+    }
+
+    WorkspaceController(Collection<Tool> tools, WorkspaceService service, RecentWorkspacesService recentWorkspace) {
         this.tools = tools;
         this.service = service;
         this.recentWorkspace = recentWorkspace;
