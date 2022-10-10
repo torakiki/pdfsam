@@ -47,6 +47,11 @@ module org.pdfsam.service {
     exports org.pdfsam.service.ui;
     exports org.pdfsam.service.update;
 
-    opens org.pdfsam.service.ui to org.pdfsam.eventstudio, com.fasterxml.jackson.databind;
-    opens org.pdfsam.service.tool to com.fasterxml.jackson.databind;
+    opens org.pdfsam.service.ui to org.pdfsam.eventstudio, com.fasterxml.jackson.databind, org.pdfsam.injector;
+    opens org.pdfsam.service.tool to com.fasterxml.jackson.databind, org.pdfsam.injector;
+    opens org.pdfsam.service.premium to org.pdfsam.injector;
+    opens org.pdfsam.service.news to org.pdfsam.injector;
+    opens org.pdfsam.service.update to org.pdfsam.injector;
+    opens org.pdfsam.service.task to org.pdfsam.injector;
+    opens org.pdfsam.service.pdf to org.pdfsam.injector;
 }
