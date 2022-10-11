@@ -32,7 +32,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  *
  */
 public class FileValidatorTest {
-    private Validator<String> victim = Validators.existingFile();
+    private final Validator<String> victim = Validators.existingFile();
 
     @Test
     public void testNegative() {

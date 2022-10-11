@@ -22,7 +22,6 @@ import org.pdfsam.tools.split.SplitTool;
 module org.pdfsam.tools.split {
     exports org.pdfsam.tools.split;
 
-    requires org.slf4j;
     requires org.pdfsam.core;
     requires org.pdfsam.ui.components;
     requires org.pdfsam.i18n;

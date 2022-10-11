@@ -33,7 +33,7 @@ import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
  */
 class SizeUnitRadio extends RadioButton implements RestorableView {
 
-    private SizeUnit unit;
+    private final SizeUnit unit;
 
     public SizeUnitRadio(SizeUnit unit) {
         requireNotNullArg(unit, "Unit cannot be null");

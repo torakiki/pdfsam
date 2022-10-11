@@ -48,11 +48,11 @@ import static org.pdfsam.tools.splitbysize.SplitBySizeTool.TOOL_ID;
  */
 public class SplitBySizeTollPanel extends BaseToolPanel {
 
-    private TaskParametersBuilderSingleSelectionPane selectionPane;
-    private BrowsableOutputDirectoryField destinationDirectoryField;
-    private PdfDestinationPane destinationPane;
-    private SplitOptionsPane splitOptions = new SplitOptionsPane();
-    private PrefixPane prefix;
+    private final TaskParametersBuilderSingleSelectionPane selectionPane;
+    private final BrowsableOutputDirectoryField destinationDirectoryField;
+    private final PdfDestinationPane destinationPane;
+    private final SplitOptionsPane splitOptions = new SplitOptionsPane();
+    private final PrefixPane prefix;
 
     @Inject
     public SplitBySizeTollPanel(@Named(TOOL_ID + "field") BrowsableOutputDirectoryField destinationDirectoryField,

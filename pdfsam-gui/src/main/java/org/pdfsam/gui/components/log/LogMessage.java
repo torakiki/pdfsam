@@ -24,32 +24,20 @@ import static org.sejda.commons.util.RequireUtils.requireNotBlank;
 
 /**
  * Model for a Log message
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
-class LogMessage {
+record LogMessage(String message, LogLevel level) {
 
-    private String message;
-    private LogLevel level;
-
-    public LogMessage(String message, LogLevel level) {
+    LogMessage(String message, LogLevel level) {
         requireNotBlank(message, "Cannot create an empty log message");
         this.message = message;
         this.level = ObjectUtils.defaultIfNull(level, LogLevel.INFO);
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public LogLevel getLevel() {
-        return level;
-    }
-
     @Override
     public String toString() {
-        return getMessage();
+        return message();
     }
 
 }

@@ -36,7 +36,7 @@ import static org.pdfsam.model.tool.ToolDescriptorBuilder.builder;
 public class DefaultPriorityTestTool implements Tool {
     public static final String ID = "test.module";
 
-    private ToolDescriptor descriptor = builder().category(ToolCategory.MERGE).description("Test module")
+    private final ToolDescriptor descriptor = builder().category(ToolCategory.MERGE).description("Test module")
             .inputTypes(ToolInputOutputType.SINGLE_PDF).name("TestModule").priority(ToolPriority.DEFAULT)
             .supportURL("http://www.chucknorrisfacts.com/")
             .build();

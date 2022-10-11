@@ -19,7 +19,7 @@
 package org.pdfsam.gui.configuration;
 
 import jakarta.inject.Named;
-import org.pdfsam.gui.components.dashboard.AboutDashboadItem;
+import org.pdfsam.gui.components.dashboard.AboutDashboardItem;
 import org.pdfsam.gui.components.dashboard.PreferencesDashboardItem;
 import org.pdfsam.gui.components.dashboard.ToolsDashboardItem;
 import org.pdfsam.injector.Components;
@@ -29,7 +29,7 @@ import org.pdfsam.injector.Provides;
  * @author Andrea Vacondio
  *
  */
-@Components({ AboutDashboadItem.class, PreferencesDashboardItem.class, ToolsDashboardItem.class })
+@Components({ AboutDashboardItem.class, PreferencesDashboardItem.class, ToolsDashboardItem.class })
 public class DashboardConfig {
 
     @Provides

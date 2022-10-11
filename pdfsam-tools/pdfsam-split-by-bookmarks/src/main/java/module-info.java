@@ -21,7 +21,6 @@ import org.pdfsam.tools.splitbybookmarks.SplitByBookmarksTool;
  */module org.pdfsam.tools.splitbybookmarks {
     exports org.pdfsam.tools.splitbybookmarks;
 
-    requires org.slf4j;
     requires org.pdfsam.core;
     requires org.pdfsam.ui.components;
     requires org.pdfsam.i18n;

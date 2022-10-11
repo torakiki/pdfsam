@@ -43,9 +43,9 @@ public enum Style {
     WITH_HELP("with-help");
 
     public static final int DEFAULT_SPACING = 5;
-    private String[] classes;
+    private final String[] classes;
 
-    private Style(String... classes) {
+    Style(String... classes) {
         this.classes = classes;
     }
 

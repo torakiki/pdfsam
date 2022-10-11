@@ -47,11 +47,11 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
  */
 public class WorkArea extends BorderPane {
 
-    private Map<String, Tool> modules = new HashMap<>();
+    private final Map<String, Tool> modules = new HashMap<>();
     private Optional<Tool> current = Optional.empty();
-    private ScrollPane center = new ScrollPane();
-    private FadeTransition fade = new FadeTransition(new Duration(300), center);
-    private Map<String, Tool> tools;
+    private final ScrollPane center = new ScrollPane();
+    private final FadeTransition fade = new FadeTransition(new Duration(300), center);
+    private final Map<String, Tool> tools;
 
     @Inject
     public WorkArea(QuickbarToolButtonsPane toolButtons) {

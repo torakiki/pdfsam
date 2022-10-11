@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
  *
  */
 public class AlwaysInvalidStringTest {
-    private Validator<String> victim = Validators.alwaysFalse();
+    private final Validator<String> victim = Validators.alwaysFalse();
 
     @Test
     public void negative() {

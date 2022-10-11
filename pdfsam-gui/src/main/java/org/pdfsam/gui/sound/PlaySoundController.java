@@ -38,8 +38,8 @@ import static org.sejda.commons.util.RequireUtils.requireNotBlank;
  */
 @Auto
 public class PlaySoundController {
-    private String okSoundURI;
-    private String errorSoundURI;
+    private final String okSoundURI;
+    private final String errorSoundURI;
 
     @Inject
     public PlaySoundController(@Named("okSound") String okSoundURI, @Named("errorSound") String errorSoundURI) {

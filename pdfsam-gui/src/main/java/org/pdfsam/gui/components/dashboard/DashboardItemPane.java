@@ -41,8 +41,8 @@ import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
  */
 class DashboardItemPane extends BorderPane {
 
-    private DashboardItem item;
-    private Listener<SetActiveToolRequest> enableFooterListener = e -> {
+    private final DashboardItem item;
+    private final Listener<SetActiveToolRequest> enableFooterListener = e -> {
         unregister();
         setBottom(buildFooter());
     };

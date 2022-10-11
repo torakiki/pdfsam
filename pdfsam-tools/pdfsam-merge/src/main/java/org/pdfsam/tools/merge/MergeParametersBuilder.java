@@ -39,7 +39,7 @@ import java.util.Set;
 class MergeParametersBuilder extends AbstractPdfOutputParametersBuilder<MergeParameters>
         implements SingleOutputTaskParametersBuilder<MergeParameters> {
 
-    private Set<PdfMergeInput> inputs = new NullSafeSet<>();
+    private final Set<PdfMergeInput> inputs = new NullSafeSet<>();
     private OutlinePolicy outlinePolicy = OutlinePolicy.RETAIN;
     private boolean blankIfOdd;
     private boolean footer;

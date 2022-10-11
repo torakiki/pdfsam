@@ -52,7 +52,7 @@ public class MenuButtonTest {
     }
 
     @Test
-    public void onClick() throws InterruptedException {
+    public void onClick() {
         var tool = injector.instance(DefaultPriorityTestTool.class);
         HitTestListener<SetActiveToolRequest> listener = new HitTestListener<>();
         eventStudio().add(SetActiveToolRequest.class, listener);

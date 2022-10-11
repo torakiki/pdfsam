@@ -18,17 +18,16 @@
  */
 package org.pdfsam.ui.components.commons;
 
-import static javafx.animation.Interpolator.EASE_BOTH;
-
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.scene.Node;
 import javafx.util.Duration;
 
+import static javafx.animation.Interpolator.EASE_BOTH;
+
 /**
  * @author Andrea Vacondio
- *
  */
 public final class Animations {
     private Animations() {
@@ -36,11 +35,9 @@ public final class Animations {
     }
 
     /**
-     * creates a shake animation. This is based on https://github.com/fxexperience/code/blob/master/FXExperienceControls/src/com/fxexperience/javafx/animation/TadaTransition.java
-     * and http://daneden.github.io/animate.css/
-     * 
-     * @param node
-     * @return
+     * creates a shake animation. This is based on <a href="https://github.com/fxexperience/code/blob/master/FXExperienceControls/src/com/fxexperience/javafx/animation/TadaTransition.java">.<a href="..</a>
+     * ">* and http://daneden.gith</a>ub.io/animate.css/
+     *
      */
     public static Timeline shake(Node node) {
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(2500)),

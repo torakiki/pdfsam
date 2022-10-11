@@ -30,7 +30,7 @@ import static org.pdfsam.core.support.validation.Validators.validEmpty;
  * 
  */
 public class BlankStringDecoratorTest {
-    private Validator<String> victim = validEmpty(positiveInteger());
+    private final Validator<String> victim = validEmpty(positiveInteger());
 
     @Test
     public void negative() {

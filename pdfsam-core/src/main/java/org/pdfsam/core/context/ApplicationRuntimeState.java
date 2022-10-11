@@ -56,7 +56,7 @@ public class ApplicationRuntimeState implements AutoCloseable {
 
     private final BehaviorSubject<Optional<Path>> workingPath = BehaviorSubject.createDefault(empty());
     private final ReplaySubject<Theme> theme = ReplaySubject.create(1);
-    private CompletableFuture<Map<String, Tool>> tools;
+    private final CompletableFuture<Map<String, Tool>> tools;
 
     ApplicationRuntimeState() {
         this.tools = CompletableFuture.supplyAsync(
@@ -80,7 +80,7 @@ public class ApplicationRuntimeState implements AutoCloseable {
     /**
      * Sets the current working path for the application
      *
-     * @param path the current working directory or the path.parent in case of regular file. A null value clears the current working path
+     * @param path the current working directory or the parent in case of regular file. A null value clears the current working path
      */
     public void workingPath(Path path) {
         workingPath.onNext(ofNullable(path).map(p -> {

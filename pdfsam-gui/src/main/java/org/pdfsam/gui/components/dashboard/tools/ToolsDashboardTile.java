@@ -44,8 +44,8 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
  */
 class ToolsDashboardTile extends DashboardTile {
 
-    private VBox toolButtons = new VBox(5);
-    private String id;
+    private final VBox toolButtons = new VBox(5);
+    private final String id;
 
     ToolsDashboardTile(Tool tool) {
         super(tool.descriptor().name(), tool.descriptor().description(), tool.graphic());

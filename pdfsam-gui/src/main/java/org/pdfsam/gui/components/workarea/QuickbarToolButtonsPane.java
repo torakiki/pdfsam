@@ -39,7 +39,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
  */
 class QuickbarToolButtonsPane extends BaseQuickbarButtonsPane {
 
-    private Set<ToolButton> buttons = new HashSet<>();
+    private final Set<ToolButton> buttons = new HashSet<>();
 
     @Inject
     QuickbarToolButtonsPane() {

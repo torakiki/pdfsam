@@ -44,10 +44,10 @@ import static org.pdfsam.ui.components.help.HelpUtils.helpIcon;
  */
 class SplitOptionsPane extends VBox implements SplitParametersBuilderCreator, RestorableView, ResettableView {
 
-    private ToggleGroup group = new ToggleGroup();
-    private SplitAfterPredefinedSetOfPagesRadioButton splitAfterPredefined;
-    private SplitAfterRadioButton splitAfter;
-    private SplitByEveryRadioButton splitByEvery;
+    private final ToggleGroup group = new ToggleGroup();
+    private final SplitAfterPredefinedSetOfPagesRadioButton splitAfterPredefined;
+    private final SplitAfterRadioButton splitAfter;
+    private final SplitByEveryRadioButton splitByEvery;
 
     SplitOptionsPane() {
         super(Style.DEFAULT_SPACING);

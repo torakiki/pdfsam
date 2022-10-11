@@ -229,7 +229,7 @@ public class PdfsamApp extends Application {
     }
 
     /**
-     * This is a workaround for https://bugs.openjdk.java.net/browse/JDK-8238731
+     * This is a workaround for <a href="https://bugs.openjdk.java.net/browse/JDK-8238731">...</a>
      * <p>
      * We fire an ESC key pressed event when the windows looses focus to clear all the mnemonics. Not sure all the edge cases are taken into account, I guess we'll see if some user
      * reports something.

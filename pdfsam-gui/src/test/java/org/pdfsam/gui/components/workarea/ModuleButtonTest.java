@@ -44,7 +44,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 @ExtendWith({ ApplicationExtension.class, ClearEventStudioExtension.class })
 public class ModuleButtonTest   {
 
-    private DefaultPriorityTestTool module = new DefaultPriorityTestTool();
+    private final DefaultPriorityTestTool module = new DefaultPriorityTestTool();
     private FxRobot robot;
 
     @Start

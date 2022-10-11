@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 class PositiveIntegerValidatorTest {
 
-    private PositiveIntegerValidator victim = new PositiveIntegerValidator();
+    private final PositiveIntegerValidator victim = new PositiveIntegerValidator();
 
     @Test
     public void testNegative() {

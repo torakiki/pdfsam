@@ -37,7 +37,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
  */
 class QuickbarDashboardButtonsPane extends BaseQuickbarButtonsPane {
 
-    private List<DashboardButton> buttons = new ArrayList<>();
+    private final List<DashboardButton> buttons = new ArrayList<>();
 
     @Inject
     QuickbarDashboardButtonsPane(List<DashboardItem> items) {

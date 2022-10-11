@@ -56,7 +56,7 @@ public class SplitOptionsPaneTest {
 
     private SplitByOutlineLevelParametersBuilder builder;
     private Consumer<String> onError;
-    private SortedSet<Integer> validLevels = new TreeSet<>(Arrays.asList(2, 3, 4, 5, 6, 7, 10));
+    private final SortedSet<Integer> validLevels = new TreeSet<>(Arrays.asList(2, 3, 4, 5, 6, 7, 10));
     private SplitOptionsPane victim;
     private FxRobot robot;
 

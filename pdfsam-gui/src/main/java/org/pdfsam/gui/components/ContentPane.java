@@ -45,11 +45,11 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
  */
 public class ContentPane extends HBox {
 
-    private WorkArea modules;
-    private Dashboard dashboard;
-    private VBox newsContainer;
-    private FadeTransition fadeIn;
-    private FadeTransition fadeOut;
+    private final WorkArea modules;
+    private final Dashboard dashboard;
+    private final VBox newsContainer;
+    private final FadeTransition fadeIn;
+    private final FadeTransition fadeOut;
 
     @Inject
     public ContentPane(WorkArea modules, Dashboard dashboard, NewsPanel news,
@@ -68,9 +68,7 @@ public class ContentPane extends HBox {
         fadeOut = new FadeTransition(new Duration(300), newsContainer);
         fadeOut.setFromValue(1);
         fadeOut.setToValue(0);
-        fadeOut.setOnFinished(e -> {
-            newsContainer.setVisible(false);
-        });
+        fadeOut.setOnFinished(e -> newsContainer.setVisible(false));
         getChildren().addAll(stack, newsContainer);
         eventStudio().addAnnotatedListeners(this);
         eventStudio().broadcast(new SetActiveDashboardItemRequest(defaultDasboardItem));

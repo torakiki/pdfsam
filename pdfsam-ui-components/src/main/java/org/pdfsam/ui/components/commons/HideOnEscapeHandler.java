@@ -36,7 +36,7 @@ import javafx.stage.Window;
 public class HideOnEscapeHandler implements EventHandler<KeyEvent> {
 
     private static final KeyCombination ESCAPE_COMBO = new KeyCodeCombination(KeyCode.ESCAPE);
-    private Window window;
+    private final Window window;
 
     public HideOnEscapeHandler(Window window) {
         requireNotNullArg(window, "Window cannot be null");

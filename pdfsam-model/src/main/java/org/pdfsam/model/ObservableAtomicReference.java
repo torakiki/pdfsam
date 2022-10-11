@@ -30,7 +30,7 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class ObservableAtomicReference<T> extends ObservableValueBase<T> {
 
-    private AtomicReference<T> value = new AtomicReference<>();
+    private final AtomicReference<T> value = new AtomicReference<>();
 
     public ObservableAtomicReference(T initialValue) {
         this.value.set(initialValue);

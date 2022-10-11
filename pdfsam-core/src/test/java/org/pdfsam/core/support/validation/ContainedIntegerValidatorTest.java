@@ -31,7 +31,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  *
  */
 public class ContainedIntegerValidatorTest {
-    private Validator<String> victim = Validators.containedInteger(new HashSet<>(Arrays.asList(-2, 5, 6)));
+    private final Validator<String> victim = Validators.containedInteger(new HashSet<>(Arrays.asList(-2, 5, 6)));
 
     @Test
     public void testNotContained() {

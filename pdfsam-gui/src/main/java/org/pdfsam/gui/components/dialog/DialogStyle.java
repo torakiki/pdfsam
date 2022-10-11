@@ -32,7 +32,7 @@ public enum DialogStyle {
     public final String style;
     public final Ikon icon;
 
-    private DialogStyle(String style, Ikon icon) {
+    DialogStyle(String style, Ikon icon) {
         this.style = style;
         this.icon = icon;
     }

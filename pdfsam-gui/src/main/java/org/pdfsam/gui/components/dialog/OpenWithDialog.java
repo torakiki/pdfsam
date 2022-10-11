@@ -58,10 +58,10 @@ import static org.pdfsam.i18n.I18nContext.i18n;
  */
 public class OpenWithDialog extends Stage {
 
-    private Label messageTitle = new Label();
-    private HBox buttons = new HBox(5);
-    private ListView<String> filesList = new ListView<>();
-    private List<Tool> tools;
+    private final Label messageTitle = new Label();
+    private final HBox buttons = new HBox(5);
+    private final ListView<String> filesList = new ListView<>();
+    private final List<Tool> tools;
 
     @Inject
     public OpenWithDialog(@Named("primaryStage") Stage stage) {

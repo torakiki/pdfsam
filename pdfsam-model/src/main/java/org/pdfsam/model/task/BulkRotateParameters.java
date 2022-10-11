@@ -89,10 +89,9 @@ public class BulkRotateParameters extends AbstractPdfOutputParameters implements
         if (this == other) {
             return true;
         }
-        if (!(other instanceof BulkRotateParameters)) {
+        if (!(other instanceof BulkRotateParameters params)) {
             return false;
         }
-        BulkRotateParameters params = (BulkRotateParameters) other;
         return new EqualsBuilder().appendSuper(super.equals(other)).append(outputPrefix, params.outputPrefix)
                 .append(output, params.output).append(inputSet, params.inputSet).isEquals();
     }

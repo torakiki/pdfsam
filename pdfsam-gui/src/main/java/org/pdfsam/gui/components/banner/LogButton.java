@@ -40,7 +40,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 class LogButton extends BannerButton {
 
     static final String HAS_ERRORS_CSS_CLASS = "log-has-errors";
-    private Timeline anim;
+    private final Timeline anim;
     private Object action = ShowStageRequest.INSTANCE;
 
     LogButton() {

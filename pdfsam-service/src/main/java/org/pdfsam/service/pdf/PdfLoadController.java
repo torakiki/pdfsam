@@ -52,9 +52,9 @@ public class PdfLoadController {
 
     private static final Logger LOG = LoggerFactory.getLogger(PdfLoadController.class);
 
-    private PdfLoadService loadService;
-    private ExecutorService executor = Executors.newSingleThreadExecutor();
-    private Map<String, RequiredPdfData[]> requiredLoadData = new HashMap<>();
+    private final PdfLoadService loadService;
+    private final ExecutorService executor = Executors.newSingleThreadExecutor();
+    private final Map<String, RequiredPdfData[]> requiredLoadData = new HashMap<>();
 
     @Inject
     public PdfLoadController(PdfLoadService loadService) {

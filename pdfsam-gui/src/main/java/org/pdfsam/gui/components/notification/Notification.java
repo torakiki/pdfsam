@@ -45,7 +45,7 @@ import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
  */
 class Notification extends VBox {
 
-    private FadeTransition fade = new FadeTransition(Duration.millis(500), this);
+    private final FadeTransition fade = new FadeTransition(Duration.millis(500), this);
 
     Notification(String title, Node content) {
         requireNotNullArg(content, "Notification content cannot be blank");

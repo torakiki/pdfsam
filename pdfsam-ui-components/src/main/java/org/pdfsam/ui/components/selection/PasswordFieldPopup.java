@@ -43,7 +43,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
  */
 public class PasswordFieldPopup extends PopupControl implements ToolBound {
     private String toolBinding = StringUtils.EMPTY;
-    private PasswordFieldPopupContent content = new PasswordFieldPopupContent();
+    private final PasswordFieldPopupContent content = new PasswordFieldPopupContent();
     private PdfDocumentDescriptor pdfDescriptor;
 
     public PasswordFieldPopup(String toolBinding) {
@@ -81,7 +81,7 @@ public class PasswordFieldPopup extends PopupControl implements ToolBound {
      *
      */
     private class PasswordFieldPopupContent extends HBox {
-        private PasswordField passwordField = new PasswordField();
+        private final PasswordField passwordField = new PasswordField();
 
         public PasswordFieldPopupContent() {
             getStyleClass().setAll("pdfsam-input-password-content");

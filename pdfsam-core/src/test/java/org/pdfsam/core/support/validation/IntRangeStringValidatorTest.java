@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @author Andrea Vacondio
  */
 public class IntRangeStringValidatorTest {
-    private Validator<String> victim = Validators.positiveIntRange(1, 5);
+    private final Validator<String> victim = Validators.positiveIntRange(1, 5);
 
     @Test
     public void negative() {

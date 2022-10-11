@@ -32,7 +32,7 @@ import static org.apache.commons.lang3.StringUtils.EMPTY;
  *
  */
 public class PdfsamBasic implements AppBrand {
-    private Properties properties = new Properties();
+    private final Properties properties = new Properties();
 
     public PdfsamBasic() throws IOException {
         try (InputStream stream = this.getClass().getResourceAsStream("/pdfsam.properties")) {

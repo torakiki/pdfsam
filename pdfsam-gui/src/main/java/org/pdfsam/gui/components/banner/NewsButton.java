@@ -37,7 +37,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 class NewsButton extends BannerButton {
 
     static final String UP_TO_DATE_CSS_CLASS = "news-not-up-to-date";
-    private Timeline anim;
+    private final Timeline anim;
     private Object action = ShowNewsPanelRequest.INSTANCE;
 
     NewsButton() {

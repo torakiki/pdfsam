@@ -45,7 +45,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
  */
 class KeywordsTab extends Tab implements ChangeListener<PdfDescriptorLoadingStatus> {
     private static final Logger LOG = LoggerFactory.getLogger(KeywordsTab.class);
-    private Label keywords = new Label();
+    private final Label keywords = new Label();
     private PdfDocumentDescriptor current;
 
     KeywordsTab() {

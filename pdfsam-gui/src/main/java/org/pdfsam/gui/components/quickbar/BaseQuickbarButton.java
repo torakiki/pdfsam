@@ -48,7 +48,7 @@ public class BaseQuickbarButton extends Button {
         });
     }
 
-    private BooleanProperty displayText = new SimpleBooleanProperty(false) {
+    private final BooleanProperty displayText = new SimpleBooleanProperty(false) {
         @Override
         protected void invalidated() {
             if (get()) {
@@ -76,7 +76,7 @@ public class BaseQuickbarButton extends Button {
     /**
      * Property telling if the button is selected
      */
-    private BooleanProperty selected = new SimpleBooleanProperty(false) {
+    private final BooleanProperty selected = new SimpleBooleanProperty(false) {
         @Override
         protected void invalidated() {
             pseudoClassStateChanged(SELECTED_PSEUDOCLASS_STATE, get());

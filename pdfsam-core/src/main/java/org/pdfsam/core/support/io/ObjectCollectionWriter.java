@@ -44,13 +44,13 @@ public final class ObjectCollectionWriter implements OngoingWrite {
 
     private static final Logger LOG = LoggerFactory.getLogger(ObjectCollectionWriter.class);
 
-    private Collection<? extends Object> content;
+    private final Collection<?> content;
 
-    private ObjectCollectionWriter(Collection<? extends Object> content) {
+    private ObjectCollectionWriter(Collection<?> content) {
         this.content = content;
     }
 
-    public static OngoingWrite writeContent(Collection<? extends Object> content) {
+    public static OngoingWrite writeContent(Collection<?> content) {
         return new ObjectCollectionWriter(content);
     }
 

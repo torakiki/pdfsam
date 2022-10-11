@@ -51,7 +51,7 @@ public enum BrandableProperty {
 
     public final String prop;
 
-    private BrandableProperty(String prop) {
+    BrandableProperty(String prop) {
         this.prop = prop;
     }
 }

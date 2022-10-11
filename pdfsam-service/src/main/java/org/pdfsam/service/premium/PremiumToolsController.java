@@ -39,7 +39,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 public class PremiumToolsController {
     private static final Logger LOG = LoggerFactory.getLogger(PremiumToolsController.class);
 
-    private PremiumToolsService service;
+    private final PremiumToolsService service;
 
     @Inject
     PremiumToolsController(PremiumToolsService service) {

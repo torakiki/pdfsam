@@ -49,7 +49,6 @@ import java.util.Collection;
 import java.util.List;
 
 import static java.util.Objects.isNull;
-import static java.util.Objects.requireNonNull;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
@@ -63,18 +62,15 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 public class OpenButton extends SplitMenuButton implements TaskOutputDispatcher {
 
     private static final Logger LOG = LoggerFactory.getLogger(OpenButton.class);
-    private String ownerModule;
+    private final String ownerModule;
     private File destination;
-    private List<File> latestOutput = new ArrayList<>();
-    private ToolInputOutputType outputType;
+    private final List<File> latestOutput = new ArrayList<>();
 
     public OpenButton(String ownerTool, ToolInputOutputType outputType) {
         this(ownerTool, outputType, app().runtimeState().tools().values());
     }
 
     OpenButton(String ownerModule, ToolInputOutputType outputType, Collection<Tool> tools) {
-        requireNonNull(outputType);
-        this.outputType = outputType;
         this.ownerModule = defaultString(ownerModule);
         setId(ownerModule + ".openButton");
         getStyleClass().addAll(Style.BUTTON.css());

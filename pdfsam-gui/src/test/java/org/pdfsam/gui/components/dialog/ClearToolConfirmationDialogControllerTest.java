@@ -62,8 +62,8 @@ public class ClearToolConfirmationDialogControllerTest {
     public static ClearEventStudioExtension extension = new ClearEventStudioExtension(TOOL);
     private Button button;
     private HitTestListener<ClearToolRequest> listener;
-    private ApplicationContext appContext = mock(ApplicationContext.class);
-    private ApplicationPersistentSettings persistentSettings = mock(ApplicationPersistentSettings.class);
+    private final ApplicationContext appContext = mock(ApplicationContext.class);
+    private final ApplicationPersistentSettings persistentSettings = mock(ApplicationPersistentSettings.class);
     private FxRobot robot;
 
     @BeforeAll

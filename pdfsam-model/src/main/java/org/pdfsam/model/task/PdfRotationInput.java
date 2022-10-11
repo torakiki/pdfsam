@@ -31,6 +31,7 @@ import org.sejda.model.pdf.page.PredefinedSetOfPages;
 import org.sejda.model.rotation.Rotation;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 
 import static java.util.Objects.requireNonNull;
@@ -64,7 +65,7 @@ public class PdfRotationInput implements PagesSelection {
         this.source = source;
         this.rotation = rotation;
         this.pageSelection.addAll(ofNullable(pages).filter(p -> p.length > 0).map(Arrays::asList)
-                .orElseGet(() -> Arrays.asList(PredefinedSetOfPages.ALL_PAGES)));
+                .orElseGet(() -> List.of(PredefinedSetOfPages.ALL_PAGES)));
     }
 
     @Override
@@ -90,10 +91,9 @@ public class PdfRotationInput implements PagesSelection {
         if (this == other) {
             return true;
         }
-        if (!(other instanceof PdfRotationInput)) {
+        if (!(other instanceof PdfRotationInput input)) {
             return false;
         }
-        PdfRotationInput input = (PdfRotationInput) other;
         return new EqualsBuilder().append(source, input.source).append(rotation, input.rotation)
                 .append(pageSelection, input.pageSelection).isEquals();
     }

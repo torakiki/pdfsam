@@ -93,11 +93,11 @@ import static org.pdfsam.model.ui.SetDestinationRequest.requestFallbackDestinati
 public class SingleSelectionPane extends VBox implements ToolBound, PdfDocumentDescriptorProvider, RestorableView {
 
     private String ownerModule = StringUtils.EMPTY;
-    private BrowsableFileField field;
-    private Label details = new Label();
+    private final BrowsableFileField field;
+    private final Label details = new Label();
     private PdfDocumentDescriptor descriptor;
-    private PasswordFieldPopup passwordPopup;
-    private Label encryptionIndicator = new Label();
+    private final PasswordFieldPopup passwordPopup;
+    private final Label encryptionIndicator = new Label();
     private MenuItem removeSelected;
 
     private Consumer<PdfDocumentDescriptor> onLoaded = d -> {
@@ -105,7 +105,7 @@ public class SingleSelectionPane extends VBox implements ToolBound, PdfDocumentD
         eventStudio().broadcast(new ChangedSelectedPdfVersionEvent(d.getVersion()), toolBinding());
     };
 
-    private Consumer<PdfDocumentDescriptor> detailsUpdate = d -> {
+    private final Consumer<PdfDocumentDescriptor> detailsUpdate = d -> {
         PdfDescriptorLoadingStatus status = d.loadingStatus().getValue();
         if (status == PdfDescriptorLoadingStatus.LOADED
                 || status == PdfDescriptorLoadingStatus.LOADED_WITH_USER_PWD_DECRYPTION) {
@@ -118,8 +118,8 @@ public class SingleSelectionPane extends VBox implements ToolBound, PdfDocumentD
         }
     };
 
-    private Consumer<PdfDocumentDescriptor> encryptionIndicatorUpdate = new Consumer<>() {
-        private LoadingStatusIndicatorUpdater updater = new LoadingStatusIndicatorUpdater(encryptionIndicator);
+    private final Consumer<PdfDocumentDescriptor> encryptionIndicatorUpdate = new Consumer<>() {
+        private final LoadingStatusIndicatorUpdater updater = new LoadingStatusIndicatorUpdater(encryptionIndicator);
 
         @Override
         public void accept(PdfDocumentDescriptor t) {
@@ -127,7 +127,7 @@ public class SingleSelectionPane extends VBox implements ToolBound, PdfDocumentD
         }
     };
 
-    private ChangeListener<PdfDescriptorLoadingStatus> onLoadingStatusChange = (o, oldVal, newVal) -> {
+    private final ChangeListener<PdfDescriptorLoadingStatus> onLoadingStatusChange = (o, oldVal, newVal) -> {
         if (descriptor != null & descriptor.hasReferences()) {
             encryptionIndicatorUpdate.andThen(detailsUpdate).andThen(d -> {
                 PdfDescriptorLoadingStatus status = d.loadingStatus().getValue();
@@ -139,7 +139,7 @@ public class SingleSelectionPane extends VBox implements ToolBound, PdfDocumentD
         }
     };
 
-    private ToggleChangeListener<? super FXValidationSupport.ValidationState> onValidState = new ToggleChangeListener<>() {
+    private final ToggleChangeListener<? super FXValidationSupport.ValidationState> onValidState = new ToggleChangeListener<>() {
 
         @Override
         public void onChanged(ObservableValue<? extends FXValidationSupport.ValidationState> observable, FXValidationSupport.ValidationState oldValue,

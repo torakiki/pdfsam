@@ -61,10 +61,10 @@ public class NotificationsController {
 
     private static final int TIMES_BEFORE_DONATION_NOTICE = 5;
 
-    private NotificationsContainer container;
-    private UsageService service;
-    private AppBrand appBrand;
-    private SecureRandom random = new SecureRandom();
+    private final NotificationsContainer container;
+    private final UsageService service;
+    private final AppBrand appBrand;
+    private final SecureRandom random = new SecureRandom();
 
     @Inject
     NotificationsController(NotificationsContainer container, UsageService service, AppBrand appBrand) {

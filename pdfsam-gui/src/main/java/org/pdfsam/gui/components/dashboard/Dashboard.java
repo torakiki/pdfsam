@@ -42,9 +42,9 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
  */
 public class Dashboard extends BorderPane {
 
-    private Map<String, DashboardItemPane> items = new HashMap<>();
-    private StackPane center = new StackPane();
-    private FadeTransition fade = new FadeTransition(new Duration(300), center);
+    private final Map<String, DashboardItemPane> items = new HashMap<>();
+    private final StackPane center = new StackPane();
+    private final FadeTransition fade = new FadeTransition(new Duration(300), center);
 
     @Inject
     public Dashboard(List<DashboardItem> itemsList, QuickbarDashboardButtonsPane dashboardButtons) {

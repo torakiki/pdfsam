@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  *
  */
 public class RegexValidatorTest {
-    private Validator<String> victim = Validators.regexMatching("^([0-9]+,?)+$");
+    private final Validator<String> victim = Validators.regexMatching("^([0-9]+,?)+$");
 
     @Test
     public void testNegative() {

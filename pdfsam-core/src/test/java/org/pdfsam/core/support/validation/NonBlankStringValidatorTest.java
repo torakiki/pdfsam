@@ -29,7 +29,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 public class NonBlankStringValidatorTest {
 
-    private Validator<String> victim = Validators.nonBlank();
+    private final Validator<String> victim = Validators.nonBlank();
 
     @Test
     public void testNegative() {

@@ -36,10 +36,10 @@ public enum ToolCategory {
 
     OTHER(i18n().tr("Other tools"), "category-other");
 
-    private String description;
-    private String styleClass;
+    private final String description;
+    private final String styleClass;
 
-    private ToolCategory(String description, String styleClass) {
+    ToolCategory(String description, String styleClass) {
         this.description = description;
         this.styleClass = styleClass;
     }

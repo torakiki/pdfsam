@@ -42,7 +42,7 @@ import static org.testfx.api.FxAssert.verifyThat;
 @ExtendWith(ApplicationExtension.class)
 public class RadioButtonDrivenTextFieldsPaneTest {
 
-    private ToggleGroup group = new ToggleGroup();
+    private final ToggleGroup group = new ToggleGroup();
     private RadioButtonDrivenTextFieldsPane victim;
 
     @Start

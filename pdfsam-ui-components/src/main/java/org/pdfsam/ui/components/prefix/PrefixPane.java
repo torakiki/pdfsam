@@ -51,7 +51,7 @@ import static org.pdfsam.ui.components.help.HelpUtils.helpIcon;
 public class PrefixPane extends HBox
         implements TaskParametersBuildStep<MultipleOutputTaskParametersBuilder<?>>, RestorableView, ResettableView,
         ToolBound {
-    private PrefixField field;
+    private final PrefixField field;
 
     private String toolBinding = StringUtils.EMPTY;
 

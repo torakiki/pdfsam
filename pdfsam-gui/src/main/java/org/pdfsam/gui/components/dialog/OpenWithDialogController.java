@@ -34,7 +34,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 @Auto
 public class OpenWithDialogController {
 
-    private OpenWithDialog dialog;
+    private final OpenWithDialog dialog;
 
     @Inject
     public OpenWithDialogController(OpenWithDialog dialog) {

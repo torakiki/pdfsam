@@ -47,9 +47,9 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 public class WorkspaceController {
     private static final Logger LOG = LoggerFactory.getLogger(WorkspaceController.class);
 
-    private Collection<Tool> tools;
-    private WorkspaceService service;
-    private RecentWorkspacesService recentWorkspace;
+    private final Collection<Tool> tools;
+    private final WorkspaceService service;
+    private final RecentWorkspacesService recentWorkspace;
 
     @Inject
     WorkspaceController(WorkspaceService service, RecentWorkspacesService recentWorkspace) {

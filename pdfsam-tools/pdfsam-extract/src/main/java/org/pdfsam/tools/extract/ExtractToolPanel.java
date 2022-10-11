@@ -49,9 +49,9 @@ public class ExtractToolPanel extends BaseToolPanel {
 
     private final ExtractSelectionPane selectionPane = new ExtractSelectionPane(TOOL_ID);
     private final ExtractOptionsPane extractOptions = new ExtractOptionsPane();
-    private BrowsableOutputDirectoryField destinationDirectoryField;
-    private PdfDestinationPane destinationPane;
-    private PrefixPane prefix;
+    private final BrowsableOutputDirectoryField destinationDirectoryField;
+    private final PdfDestinationPane destinationPane;
+    private final PrefixPane prefix;
 
     @Inject
     public ExtractToolPanel(@Named(TOOL_ID + "field") BrowsableOutputDirectoryField destinationDirectoryField,

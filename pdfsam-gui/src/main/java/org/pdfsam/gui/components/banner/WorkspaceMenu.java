@@ -45,8 +45,8 @@ import static org.pdfsam.i18n.I18nContext.i18n;
  */
 class WorkspaceMenu extends Menu {
 
-    private RecentWorkspacesService service;
-    private Menu recent;
+    private final RecentWorkspacesService service;
+    private final Menu recent;
     private Optional<Path> latestWorkspace = Optional.empty();
 
     @Inject
@@ -91,9 +91,7 @@ class WorkspaceMenu extends Menu {
             fileChooser.setInitialDirectory(f.getParent());
             fileChooser.setInitialFileName(f.getFileName().toString());
         });
-        ofNullable(fileChooser.showOpenSingleDialog(null)).ifPresent(p -> {
-            eventStudio().broadcast(new LoadWorkspaceRequest(p.toFile()));
-        });
+        ofNullable(fileChooser.showOpenSingleDialog(null)).ifPresent(p -> eventStudio().broadcast(new LoadWorkspaceRequest(p.toFile())));
     }
 
     public void clearWorkspaces() {

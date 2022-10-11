@@ -52,7 +52,7 @@ public class ExtractSelectionPane extends MultipleSelectionPane
     @Override
     public void apply(ExtractParametersBuilder builder, Consumer<String> onError) {
         try {
-            table().getItems().stream().forEach(i -> builder.addSource(i.descriptor().toPdfFileSource()));
+            table().getItems().forEach(i -> builder.addSource(i.descriptor().toPdfFileSource()));
             if (!builder.hasInput()) {
                 onError.accept(i18n().tr("No PDF document has been selected"));
             }

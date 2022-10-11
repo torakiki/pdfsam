@@ -45,7 +45,7 @@ public enum IntColumn implements SelectionTableColumn<Integer> {
 
         @Override
         public String getTextValue(Integer item) {
-            if (item != null && item.intValue() > 0) {
+            if (item != null && item > 0) {
                 return item.toString();
             }
             return StringUtils.EMPTY;
@@ -55,5 +55,5 @@ public enum IntColumn implements SelectionTableColumn<Integer> {
         public Comparator<Integer> comparator() {
             return Comparator.naturalOrder();
         }
-    };
+    }
 }

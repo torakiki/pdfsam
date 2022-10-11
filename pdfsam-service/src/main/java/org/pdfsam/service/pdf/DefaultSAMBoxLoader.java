@@ -36,7 +36,7 @@ import java.util.Optional;
  */
 public class DefaultSAMBoxLoader implements PdfLoader<PDDocument> {
 
-    private static FastDateFormat FORMATTER = FastDateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.MEDIUM);
+    private static final FastDateFormat FORMATTER = FastDateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.MEDIUM);
 
     @Override
     public void accept(PDDocument document, PdfDocumentDescriptor descriptor) {

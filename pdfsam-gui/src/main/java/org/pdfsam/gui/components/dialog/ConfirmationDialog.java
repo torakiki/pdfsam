@@ -36,7 +36,7 @@ import static org.pdfsam.core.context.ApplicationContext.app;
  */
 public class ConfirmationDialog extends Stage {
 
-    private ConfirmationDialogContent dialogContent;
+    private final ConfirmationDialogContent dialogContent;
     private boolean response = false;
 
     public ConfirmationDialog(DialogStyle style, Stage owner, String positiveButtonText, String negativeButtonText) {

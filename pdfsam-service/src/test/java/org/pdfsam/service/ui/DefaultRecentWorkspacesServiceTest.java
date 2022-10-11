@@ -95,7 +95,7 @@ public class DefaultRecentWorkspacesServiceTest {
     }
 
     @Test
-    public void addWorkspace(@TempDir Path folder) throws IOException, InterruptedException {
+    public void addWorkspace(@TempDir Path folder) throws IOException {
         var file = Files.createTempFile(folder, null, ".json").toFile();
         victim.addWorkspaceLastUsed(file);
         assertThat(victim.getRecentlyUsedWorkspaces()).containsExactly(file.getAbsolutePath());

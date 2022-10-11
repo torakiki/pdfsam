@@ -30,7 +30,7 @@ import java.util.List;
  * @author Andrea Vacondio
  */
 public class PdfLoadRequest extends BaseToolBound {
-    private List<PdfDocumentDescriptor> documents = new ArrayList<>();
+    private final List<PdfDocumentDescriptor> documents = new ArrayList<>();
 
     public PdfLoadRequest(String toolId) {
         super(toolId);

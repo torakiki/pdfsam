@@ -18,12 +18,12 @@
  */
 package org.pdfsam.ui.components.support;
 
-import static org.sejda.commons.util.RequireUtils.requireArg;
+import javafx.collections.ModifiableObservableListBase;
 
 import java.util.Collection;
 import java.util.LinkedList;
 
-import javafx.collections.ModifiableObservableListBase;
+import static org.sejda.commons.util.RequireUtils.requireArg;
 
 /**
  * A {@link ModifiableObservableListBase} with size constraints. When at maxCapacity and an element is added, the eldest element is removed.
@@ -32,7 +32,7 @@ import javafx.collections.ModifiableObservableListBase;
  *
  */
 public class CircularObservableList<E> extends ModifiableObservableListBase<E> {
-    private LinkedList<E> wrapped;
+    private final LinkedList<E> wrapped;
     private int maxCapacity;
 
     public CircularObservableList(int maxCapacity) {
@@ -61,7 +61,7 @@ public class CircularObservableList<E> extends ModifiableObservableListBase<E> {
 
     @Override
     public boolean addAll(int index, Collection<? extends E> c) {
-        boolean retVal = false;
+        boolean retVal;
         try {
             beginChange();
             retVal = wrapped.addAll(index, c);

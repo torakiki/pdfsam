@@ -31,7 +31,7 @@ import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
  *
  */
 class DashboardButton extends BaseQuickbarButton {
-    private DashboardItem item;
+    private final DashboardItem item;
 
     DashboardButton(DashboardItem item) {
         requireNotNullArg(item, "Dashboard item cannot be null");

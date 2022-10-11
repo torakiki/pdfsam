@@ -26,5 +26,5 @@ package org.pdfsam.model.tool;
 public enum ToolInputOutputType {
     MULTIPLE_PDF,
     SINGLE_PDF,
-    OTHER;
+    OTHER
 }

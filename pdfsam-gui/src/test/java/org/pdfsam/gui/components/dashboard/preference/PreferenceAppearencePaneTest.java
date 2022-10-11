@@ -51,8 +51,8 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 @ExtendWith({ ApplicationExtension.class })
 public class PreferenceAppearencePaneTest {
 
-    private ApplicationContext appContext = mock(ApplicationContext.class);
-    private ApplicationPersistentSettings persistentSettings = mock(ApplicationPersistentSettings.class);
+    private final ApplicationContext appContext = mock(ApplicationContext.class);
+    private final ApplicationPersistentSettings persistentSettings = mock(ApplicationPersistentSettings.class);
     private FxRobot robot;
 
     @Start

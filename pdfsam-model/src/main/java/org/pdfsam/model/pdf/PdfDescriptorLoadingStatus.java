@@ -50,10 +50,10 @@ public enum PdfDescriptorLoadingStatus {
         REQUESTED.setValidDestinationStatus(LOADING, WITH_ERRORS);
     }
 
-    private Set<PdfDescriptorLoadingStatus> validNext = new HashSet<>();
-    private Ikon icon;
-    private String description;
-    private String style;
+    private final Set<PdfDescriptorLoadingStatus> validNext = new HashSet<>();
+    private final Ikon icon;
+    private final String description;
+    private final String style;
 
     PdfDescriptorLoadingStatus() {
         this(null, "");
@@ -82,7 +82,7 @@ public enum PdfDescriptorLoadingStatus {
     }
 
     private void setValidDestinationStatus(PdfDescriptorLoadingStatus... canMoveTo) {
-        Arrays.stream(canMoveTo).forEach(validNext::add);
+        validNext.addAll(Arrays.asList(canMoveTo));
     }
 
     /**

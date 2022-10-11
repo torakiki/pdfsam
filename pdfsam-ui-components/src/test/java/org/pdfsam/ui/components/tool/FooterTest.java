@@ -105,7 +105,7 @@ public class FooterTest {
         assertFalse(victim.lookup(".footer-failed-button").isVisible());
         assertFalse(victim.lookup(".footer-open-button").isVisible());
         assertEquals(i18n().tr("Running {0}%", "50"), ((Labeled) victim.lookup(".status-label")).getText());
-        assertEquals(0.5, ((ProgressBar) victim.lookup(".pdfsam-footer-bar")).getProgress(), 0.01);
+        assertEquals(1, ((ProgressBar) victim.lookup(".pdfsam-footer-bar")).getProgress(), 0.01);
     }
 
     @Test

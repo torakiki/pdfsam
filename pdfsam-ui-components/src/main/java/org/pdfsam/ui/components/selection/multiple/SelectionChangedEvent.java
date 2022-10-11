@@ -81,7 +81,6 @@ final class SelectionChangedEvent {
         return switch (type) {
             case BOTTOM -> bottom < totalRows - 1;
             case DOWN -> bottom < totalRows - 1;
-            case TOP -> top > 0;
             default -> top > 0;
         };
     }

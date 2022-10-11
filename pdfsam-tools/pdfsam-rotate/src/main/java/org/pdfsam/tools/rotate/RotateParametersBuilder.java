@@ -44,7 +44,7 @@ class RotateParametersBuilder extends AbstractPdfOutputParametersBuilder<BulkRot
 
     private SingleOrMultipleTaskOutput output;
     private String prefix;
-    private Set<PdfRotationInput> inputs = new NullSafeSet<>();
+    private final Set<PdfRotationInput> inputs = new NullSafeSet<>();
     private Rotation rotation;
     private PredefinedSetOfPages predefinedRotationType;
 
@@ -52,7 +52,7 @@ class RotateParametersBuilder extends AbstractPdfOutputParametersBuilder<BulkRot
         if (isNull(pageSelection) || pageSelection.isEmpty()) {
             this.inputs.add(new PdfRotationInput(source, rotation, predefinedRotationType));
         } else {
-            this.inputs.add(new PdfRotationInput(source, rotation, pageSelection.stream().toArray(PageRange[]::new)));
+            this.inputs.add(new PdfRotationInput(source, rotation, pageSelection.toArray(PageRange[]::new)));
         }
     }
 

@@ -50,8 +50,8 @@ import static org.pdfsam.ui.components.help.HelpUtils.helpIcon;
 class SplitOptionsPane extends VBox
         implements TaskParametersBuildStep<SplitByOutlineLevelParametersBuilder>, RestorableView, ResettableView {
 
-    private BookmarksLevelComboBox levelCombo = new BookmarksLevelComboBox();
-    private TextField regexpField = new TextField();
+    private final BookmarksLevelComboBox levelCombo = new BookmarksLevelComboBox();
+    private final TextField regexpField = new TextField();
 
     SplitOptionsPane() {
         super(Style.DEFAULT_SPACING);

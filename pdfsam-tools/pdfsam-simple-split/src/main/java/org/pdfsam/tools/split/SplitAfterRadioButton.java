@@ -95,7 +95,7 @@ class SplitAfterRadioButton extends RadioButton
      */
     static class SplitByPageParametersBuilder extends SplitParametersBuilder<SplitByPagesParameters> {
 
-        private List<Integer> pages;
+        private final List<Integer> pages;
 
         SplitByPageParametersBuilder(List<Integer> pages) {
             this.pages = pages;

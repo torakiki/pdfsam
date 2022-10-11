@@ -43,9 +43,9 @@ import static org.pdfsam.tools.alternatemix.AlternateMixTool.TOOL_ID;
  */
 public class AlternateMixToolPanel extends BaseToolPanel {
 
-    private AlternateMixSelectionPane selectionPane = new AlternateMixSelectionPane(TOOL_ID);
-    private BrowsablePdfOutputField destinationFileField;
-    private PdfDestinationPane destinationPane;
+    private final AlternateMixSelectionPane selectionPane = new AlternateMixSelectionPane(TOOL_ID);
+    private final BrowsablePdfOutputField destinationFileField;
+    private final PdfDestinationPane destinationPane;
 
     @Inject
     public AlternateMixToolPanel(@Named(TOOL_ID + "field") BrowsablePdfOutputField destinationFileField,

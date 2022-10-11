@@ -37,9 +37,9 @@ public enum FileType {
     XML("(*.xml)", "*.xml", "*.XML"),
     JSON("(*.json)", "*.json", "*.JSON"),
     HTML("(*.html, *.htm)", "*.htm", "*.html", "*.HTM", "*.HTML");
-    private ExtensionFilter filter;
+    private final ExtensionFilter filter;
 
-    private FileType(String description, String... extensions) {
+    FileType(String description, String... extensions) {
         this.filter = new ExtensionFilter(description, extensions);
     }
 

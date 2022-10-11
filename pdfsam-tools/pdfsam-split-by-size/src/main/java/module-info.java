@@ -20,7 +20,6 @@ import org.pdfsam.tools.splitbysize.SplitBySizeTool;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */module org.pdfsam.tools.splitbysize {
     exports org.pdfsam.tools.splitbysize;
-    requires org.slf4j;
     requires org.pdfsam.core;
     requires org.pdfsam.ui.components;
     requires org.pdfsam.i18n;

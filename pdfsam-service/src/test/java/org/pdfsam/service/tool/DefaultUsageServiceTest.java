@@ -49,7 +49,7 @@ public class DefaultUsageServiceTest {
                 .serializationInclusion(JsonInclude.Include.NON_EMPTY)
                 .build();
         this.victim = new DefaultUsageService(
-                new DefaultEntityRepository<ToolUsage>("/test/org/pdfsam/moduleusage", mapper, ToolUsage.class));
+                new DefaultEntityRepository<>("/test/org/pdfsam/moduleusage", mapper, ToolUsage.class));
     }
 
     @AfterEach

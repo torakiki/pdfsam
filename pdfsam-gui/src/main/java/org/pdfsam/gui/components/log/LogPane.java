@@ -48,7 +48,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
  */
 public class LogPane extends BorderPane {
 
-    private LogListView logView;
+    private final LogListView logView;
 
     @Inject
     public LogPane(LogListView view) {

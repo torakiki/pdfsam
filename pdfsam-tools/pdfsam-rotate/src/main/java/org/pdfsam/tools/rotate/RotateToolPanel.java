@@ -45,11 +45,11 @@ import static org.pdfsam.tools.rotate.RotateTool.TOOL_ID;
  * @author Andrea Vacondio
  */
 public class RotateToolPanel extends BaseToolPanel {
-    private RotateSelectionPane selectionPane = new RotateSelectionPane(TOOL_ID);
-    private RotateOptionsPane rotateOptions = new RotateOptionsPane();
-    private BrowsableOutputDirectoryField destinationDirectoryField;
-    private PdfDestinationPane destinationPane;
-    private PrefixPane prefix;
+    private final RotateSelectionPane selectionPane = new RotateSelectionPane(TOOL_ID);
+    private final RotateOptionsPane rotateOptions = new RotateOptionsPane();
+    private final BrowsableOutputDirectoryField destinationDirectoryField;
+    private final PdfDestinationPane destinationPane;
+    private final PrefixPane prefix;
 
     @Inject
     public RotateToolPanel(@Named(TOOL_ID + "field") BrowsableOutputDirectoryField destinationDirectoryField,

@@ -28,7 +28,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
  */
 public class Dark implements Theme {
 
-    private Light parent = new Light();
+    private final Light parent = new Light();
 
     @Override
     public String id() {

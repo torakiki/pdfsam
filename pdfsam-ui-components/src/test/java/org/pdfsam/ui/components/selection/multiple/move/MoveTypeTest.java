@@ -62,7 +62,7 @@ public class MoveTypeTest {
         SelectionAndFocus selection = MoveType.TOP.move(indices, items, 2);
         assertThat(items).containsExactly(third, fourth, first, second);
         assertEquals(0, selection.getFocus());
-        assertEquals(0, selection.getRow());
+        assertEquals(0, selection.row());
         assertArrayEquals(new int[] { 1 }, selection.getRows());
     }
 
@@ -72,7 +72,7 @@ public class MoveTypeTest {
         SelectionAndFocus selection = MoveType.TOP.move(indices, items, 3);
         assertThat(items).containsExactly(second, fourth, first, third);
         assertEquals(1, selection.getFocus());
-        assertEquals(0, selection.getRow());
+        assertEquals(0, selection.row());
         assertArrayEquals(new int[] { 1 }, selection.getRows());
     }
 
@@ -82,7 +82,7 @@ public class MoveTypeTest {
         SelectionAndFocus selection = MoveType.TOP.move(indices, items, -1);
         assertEquals(second, items.get(0));
         assertEquals(-1, selection.getFocus());
-        assertEquals(0, selection.getRow());
+        assertEquals(0, selection.row());
     }
 
     @Test
@@ -97,7 +97,7 @@ public class MoveTypeTest {
         SelectionAndFocus selection = MoveType.BOTTOM.move(indices, items, 1);
         assertThat(items).containsExactly(first, fourth, second, third);
         assertEquals(2, selection.getFocus());
-        assertEquals(2, selection.getRow());
+        assertEquals(2, selection.row());
         assertArrayEquals(new int[] { 3 }, selection.getRows());
     }
 
@@ -107,7 +107,7 @@ public class MoveTypeTest {
         SelectionAndFocus selection = MoveType.BOTTOM.move(indices, items, 2);
         assertThat(items).containsExactly(second, fourth, first, third);
         assertEquals(3, selection.getFocus());
-        assertEquals(2, selection.getRow());
+        assertEquals(2, selection.row());
         assertArrayEquals(new int[] { 3 }, selection.getRows());
     }
 
@@ -144,7 +144,7 @@ public class MoveTypeTest {
         SelectionAndFocus selection = MoveType.UP.move(indices, items, 3);
         assertThat(items).containsExactly(second, first, fourth, third);
         assertEquals(2, selection.getFocus());
-        assertEquals(0, selection.getRow());
+        assertEquals(0, selection.row());
         assertArrayEquals(new int[] { 2 }, selection.getRows());
     }
 
@@ -174,7 +174,7 @@ public class MoveTypeTest {
         SelectionAndFocus selection = MoveType.DOWN.move(indices, items, 0);
         assertThat(items).containsExactly(second, first, fourth, third);
         assertEquals(1, selection.getFocus());
-        assertEquals(3, selection.getRow());
+        assertEquals(3, selection.row());
         assertArrayEquals(new int[] { 1 }, selection.getRows());
     }
 

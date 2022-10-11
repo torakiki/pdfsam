@@ -38,7 +38,7 @@ import static org.sejda.commons.util.RequireUtils.requireArg;
 public class MultipleSelectionPane extends BorderPane implements ToolBound, RestorableView {
 
     private String toolBinding = StringUtils.EMPTY;
-    private SelectionTable table;
+    private final SelectionTable table;
 
     public MultipleSelectionPane(String toolBinding, boolean canDuplicate, boolean canMove,
             TableColumnProvider<?>... columns) {

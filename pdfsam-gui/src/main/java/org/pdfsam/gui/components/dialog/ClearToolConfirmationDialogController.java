@@ -35,7 +35,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 @Auto
 public class ClearToolConfirmationDialogController {
 
-    private Provider<ClearToolConfirmationDialog> dialog;
+    private final Provider<ClearToolConfirmationDialog> dialog;
 
     @Inject
     public ClearToolConfirmationDialogController(Provider<ClearToolConfirmationDialog> dialog) {

@@ -32,7 +32,7 @@ import java.util.TreeSet;
  * @author Andrea Vacondio
  */
 class PdfVersionFilter {
-    private SortedSet<PdfVersion> filters = new TreeSet<>(Comparator.comparingDouble(PdfVersion::getVersion));
+    private final SortedSet<PdfVersion> filters = new TreeSet<>(Comparator.comparingDouble(PdfVersion::getVersion));
     private final ReadOnlyObjectWrapper<PdfVersion> required = new ReadOnlyObjectWrapper<>();
 
     PdfVersionFilter() {

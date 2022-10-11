@@ -77,7 +77,7 @@ public class BrowsableDirectoryFieldTest {
     }
 
     @Test
-    public void setTextFromDirectoryPath(@TempDir Path folder) throws IOException {
+    public void setTextFromDirectoryPath(@TempDir Path folder) {
         var victim = new BrowsableDirectoryField();
         victim.setTextFromFile(folder);
         assertEquals(folder.toAbsolutePath().toString(), victim.getTextField().getText());

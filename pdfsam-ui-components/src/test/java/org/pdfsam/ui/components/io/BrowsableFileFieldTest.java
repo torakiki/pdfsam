@@ -159,7 +159,7 @@ public class BrowsableFileFieldTest {
     }
 
     @Test
-    public void saveState(@TempDir Path folder) throws IOException {
+    public void saveState(@TempDir Path folder) {
         var victim = new BrowsableFileField(FileType.PDF, OpenType.SAVE);
         victim.setId("fieldId");
         victim.enforceValidation(true, true);

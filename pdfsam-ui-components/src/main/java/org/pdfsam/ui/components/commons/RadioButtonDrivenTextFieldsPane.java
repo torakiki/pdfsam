@@ -40,7 +40,7 @@ import javafx.scene.text.Text;
 public class RadioButtonDrivenTextFieldsPane extends GridPane {
 
     private int rows = 0;
-    private ToggleGroup group;
+    private final ToggleGroup group;
 
     public RadioButtonDrivenTextFieldsPane(ToggleGroup group) {
         this.group = group;

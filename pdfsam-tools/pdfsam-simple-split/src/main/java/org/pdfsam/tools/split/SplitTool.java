@@ -53,7 +53,7 @@ public class SplitTool implements Tool {
 
     static final String TOOL_ID = "split.simple";
 
-    private ToolDescriptor descriptor = builder().category(ToolCategory.SPLIT)
+    private final ToolDescriptor descriptor = builder().category(ToolCategory.SPLIT)
             .inputTypes(ToolInputOutputType.SINGLE_PDF).name(i18n().tr("Split"))
             .description(i18n().tr("Split a PDF document at the given page numbers."))
             .priority(ToolPriority.HIGH.getPriority()).supportURL("https://pdfsam.org/pdf-split/")

@@ -30,17 +30,16 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * About item for the dashboard
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
 @Auto
-public class AboutDashboadItem implements DashboardItem {
+public class AboutDashboardItem implements DashboardItem {
 
-    private AboutDashboardPane pane;
+    private final AboutDashboardPane pane;
 
     @Inject
-    AboutDashboadItem(AboutDashboardPane pane) {
+    AboutDashboardItem(AboutDashboardPane pane) {
         this.pane = pane;
     }
 

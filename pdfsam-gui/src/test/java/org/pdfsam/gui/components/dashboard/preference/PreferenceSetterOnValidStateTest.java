@@ -38,8 +38,8 @@ import static org.mockito.Mockito.when;
 @ExtendWith({ JavaFxThreadExtension.class })
 public class PreferenceSetterOnValidStateTest {
 
-    private ApplicationContext appContext = mock(ApplicationContext.class);
-    private ApplicationPersistentSettings persistentSettings = mock(ApplicationPersistentSettings.class);
+    private final ApplicationContext appContext = mock(ApplicationContext.class);
+    private final ApplicationPersistentSettings persistentSettings = mock(ApplicationPersistentSettings.class);
 
     @BeforeEach
     public void setUp() {

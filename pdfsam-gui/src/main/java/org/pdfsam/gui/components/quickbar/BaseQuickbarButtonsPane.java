@@ -37,7 +37,7 @@ public class BaseQuickbarButtonsPane extends VBox {
     /**
      * Property telling if the buttons labels should be visible
      */
-    private BooleanProperty displayText = new SimpleBooleanProperty(false);
+    private final BooleanProperty displayText = new SimpleBooleanProperty(false);
 
     public final void setDisplayText(boolean value) {
         displayTextProperty().set(value);

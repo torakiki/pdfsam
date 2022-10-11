@@ -75,7 +75,7 @@ public class InputPdfArgumentsControllerTest {
 
     @Test
     public void onNonExisting() {
-        new InputPdfArgumentsConsumer().accept(Arrays.asList("/chuck/norris.pdf"));
+        new InputPdfArgumentsConsumer().accept(List.of("/chuck/norris.pdf"));
         verify(listener, never()).onEvent(any());
     }
 

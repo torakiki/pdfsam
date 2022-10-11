@@ -32,7 +32,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  *
  */
 public class DirectoryValidatorTest {
-    private Validator<String> victim = Validators.existingDirectory();
+    private final Validator<String> victim = Validators.existingDirectory();
 
     @Test
     public void testNegative() {

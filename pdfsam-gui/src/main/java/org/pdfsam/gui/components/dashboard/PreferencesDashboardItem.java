@@ -39,7 +39,7 @@ public class PreferencesDashboardItem implements DashboardItem {
 
 
     public static final String ID = "SETTINGS";
-    private PreferencePane pane;
+    private final PreferencePane pane;
 
     @Inject
     PreferencesDashboardItem(PreferencePane pane) {

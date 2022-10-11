@@ -71,7 +71,7 @@ public class DefaultPdfLoadService implements PdfLoadService {
     public void load(Collection<? extends PdfDocumentDescriptor> toLoad, RequiredPdfData... requires) {
         LOG.debug(i18n().tr("Loading pdf documents"));
         BiConsumer<PDDocument, PdfDocumentDescriptor> consumer = Arrays.stream(requires).map(consumers::get)
-                .reduce(STARTER, (r, d) -> r.andThen(d)).andThen(FINISHER);
+                .reduce(STARTER, BiConsumer::andThen).andThen(FINISHER);
 
         for (PdfDocumentDescriptor current : toLoad) {
             if (current.hasReferences()) {

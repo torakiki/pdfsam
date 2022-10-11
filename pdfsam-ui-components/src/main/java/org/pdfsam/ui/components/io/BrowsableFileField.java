@@ -41,7 +41,7 @@ import static org.apache.commons.lang3.StringUtils.trim;
 import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
- * Component letting the user select a File of an expected type. By default no validation is enforced and the filetype is used only in the file chooser but the component provides a
+ * Component letting the user select a File of an expected type. By default, no validation is enforced and the filetype is used only in the file chooser but the component provides a
  * method to initialize validation.
  *
  * @author Andrea Vacondio
@@ -50,7 +50,7 @@ public class BrowsableFileField extends BrowsableField {
 
     private FileType fileType = FileType.ALL;
     private OpenType openType = OpenType.OPEN;
-    private BrowseEventHandler handler = new BrowseEventHandler();
+    private final BrowseEventHandler handler = new BrowseEventHandler();
 
     public BrowsableFileField(FileType fileType, OpenType openType) {
         this.init(fileType, openType);

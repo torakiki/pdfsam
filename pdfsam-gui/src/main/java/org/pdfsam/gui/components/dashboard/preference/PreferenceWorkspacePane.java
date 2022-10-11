@@ -59,10 +59,8 @@ class PreferenceWorkspacePane extends VBox {
                 i18n().tr("Select a previously saved workspace that will be automatically loaded at startup")));
         HBox.setHgrow(workspace, Priority.ALWAYS);
         workspaceDirPane.getStyleClass().add("with-help-hcontainer");
-        workspace.getTextField().validProperty().addListener((o, oldVal, newVal) -> {
-            saveWorkspaceOnExit.setDisable(
-                    isBlank(workspace.getTextField().getText()) || newVal != FXValidationSupport.ValidationState.VALID);
-        });
+        workspace.getTextField().validProperty().addListener((o, oldVal, newVal) -> saveWorkspaceOnExit.setDisable(
+                isBlank(workspace.getTextField().getText()) || newVal != FXValidationSupport.ValidationState.VALID));
         workspace.getTextField().validate();
         getChildren().addAll(new Label(i18n().tr("Default working directory:")), workigDirPane,
                 new Label(i18n().tr("Load default workspace at startup:")), workspaceDirPane, saveWorkspaceOnExit,

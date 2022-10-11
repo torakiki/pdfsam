@@ -34,7 +34,7 @@ import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
  */
 class ToolButton extends BaseQuickbarButton implements ToolBound {
 
-    private Tool tool;
+    private final Tool tool;
 
     ToolButton(Tool tool) {
         requireNotNullArg(tool, "Module cannot be null");

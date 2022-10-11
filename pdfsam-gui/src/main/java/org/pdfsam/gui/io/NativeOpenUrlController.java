@@ -37,7 +37,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 @Auto
 public class NativeOpenUrlController {
     private static final Logger LOG = LoggerFactory.getLogger(NativeOpenUrlController.class);
-    private HostServices services;
+    private final HostServices services;
 
     @Inject
     public NativeOpenUrlController(HostServices services) {

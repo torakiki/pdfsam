@@ -49,7 +49,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 public class OverwriteDialogController {
     private static final Logger LOG = LoggerFactory.getLogger(OverwriteDialogController.class);
 
-    private Provider<OverwriteConfirmationDialog> dialog;
+    private final Provider<OverwriteConfirmationDialog> dialog;
 
     @Inject
     public OverwriteDialogController(Provider<OverwriteConfirmationDialog> dialog) {

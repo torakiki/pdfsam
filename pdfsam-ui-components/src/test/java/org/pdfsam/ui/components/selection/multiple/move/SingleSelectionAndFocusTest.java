@@ -38,7 +38,7 @@ public class SingleSelectionAndFocusTest {
     public void positive() {
         SingleSelectionAndFocus victim = new SingleSelectionAndFocus(10);
         assertEquals(10, victim.getFocus());
-        assertEquals(10, victim.getRow());
+        assertEquals(10, victim.row());
         assertEquals(0, victim.getRows().length);
     }
 }

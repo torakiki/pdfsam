@@ -24,8 +24,6 @@ import org.pdfsam.core.context.IntegerPersistentProperty;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.test.JavaFxThreadInitializeExtension;
 
-import java.util.concurrent.TimeoutException;
-
 import static java.time.Duration.ofSeconds;
 import static org.awaitility.Awaitility.await;
 import static org.pdfsam.core.context.ApplicationContext.app;
@@ -46,13 +44,12 @@ public class LogListViewTest {
         victim.onEvent(new LogMessage("testMessage", LogLevel.WARN));
         victim.onEvent(new LogMessage("anotherTestMessage", LogLevel.INFO));
         await().atMost(ofSeconds(2)).until(() -> victim.getItems().size() == 2);
-        await().atMost(ofSeconds(2)).until(()->victim.getItems().get(0).getMessage(), "testMessage"::equals);
-        await().atMost(ofSeconds(2)).until(()->victim.getItems().get(1).getMessage(), "anotherTestMessage"::equals);
+        await().atMost(ofSeconds(2)).until(() -> victim.getItems().get(0).message(), "testMessage"::equals);
+        await().atMost(ofSeconds(2)).until(() -> victim.getItems().get(1).message(), "anotherTestMessage"::equals);
     }
 
-
     @Test
-    public void appendSizeConstraint() throws InterruptedException, TimeoutException {
+    public void appendSizeConstraint() {
         app().persistentSettings().set(IntegerPersistentProperty.LOGVIEW_ROWS_NUMBER, 2);
         LogListView victim = new LogListView();
         victim.onEvent(new LogMessage("testMessage", LogLevel.WARN));
@@ -60,12 +57,12 @@ public class LogListViewTest {
         victim.onEvent(new LogMessage("anotherTestMessage2", LogLevel.INFO));
         victim.onEvent(new LogMessage("anotherTestMessage3", LogLevel.INFO));
         await().atMost(ofSeconds(2)).until(() -> victim.getItems().size() == 2);
-        await().atMost(ofSeconds(2)).until(()->victim.getItems().get(0).getMessage(), "anotherTestMessage2"::equals);
-        await().atMost(ofSeconds(2)).until(()->victim.getItems().get(1).getMessage(), "anotherTestMessage3"::equals);
+        await().atMost(ofSeconds(2)).until(() -> victim.getItems().get(0).message(), "anotherTestMessage2"::equals);
+        await().atMost(ofSeconds(2)).until(() -> victim.getItems().get(1).message(), "anotherTestMessage3"::equals);
     }
 
     @Test
-    public void maxNumberOfLogRowsChanged() throws InterruptedException, TimeoutException {
+    public void maxNumberOfLogRowsChanged() {
         app().persistentSettings().set(IntegerPersistentProperty.LOGVIEW_ROWS_NUMBER, 5);
         LogListView victim = new LogListView();
         victim.onEvent(new LogMessage("testMessage", LogLevel.WARN));
@@ -77,7 +74,7 @@ public class LogListViewTest {
         app().persistentSettings().set(IntegerPersistentProperty.LOGVIEW_ROWS_NUMBER, 2);
         eventStudio().broadcast(new MaxLogRowsChangedEvent());
         await().atMost(ofSeconds(2)).until(() -> victim.getItems().size() == 2);
-        await().atMost(ofSeconds(2)).until(()->victim.getItems().get(0).getMessage(), "anotherTestMessage3"::equals);
-        await().atMost(ofSeconds(2)).until(()->victim.getItems().get(1).getMessage(), "anotherTestMessage4"::equals);
+        await().atMost(ofSeconds(2)).until(() -> victim.getItems().get(0).message(), "anotherTestMessage3"::equals);
+        await().atMost(ofSeconds(2)).until(() -> victim.getItems().get(1).message(), "anotherTestMessage4"::equals);
     }
 }

@@ -62,7 +62,7 @@ import static org.mockito.Mockito.verify;
 public class BookmarksLevelComboBoxTest {
     private SplitByOutlineLevelParametersBuilder builder;
     private Consumer<String> onError;
-    private SortedSet<Integer> validLevels = new TreeSet<>(Arrays.asList(2, 3, 4, 5, 6, 7, 10));
+    private final SortedSet<Integer> validLevels = new TreeSet<>(Arrays.asList(2, 3, 4, 5, 6, 7, 10));
     private BookmarksLevelComboBox victim;
     private FxRobot robot;
 

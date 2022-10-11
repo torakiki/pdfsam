@@ -18,6 +18,8 @@
  */
 package org.pdfsam.persistence;
 
+import java.io.Serial;
+
 /**
  * Exception thrown by persistence layer.
  *
@@ -25,6 +27,7 @@ package org.pdfsam.persistence;
  */
 public class PersistenceException extends RuntimeException {
 
+    @Serial
     private static final long serialVersionUID = 4205785256638672842L;
 
     public PersistenceException(String message, Throwable cause) {

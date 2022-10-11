@@ -51,7 +51,7 @@ public class DefaultRecentWorkspacesService implements RecentWorkspacesService {
 
     static final int MAX_CAPACITY = 5;
     private final PreferencesRepository repo;
-    private Map<String, String> cache = new LRUMap<>(MAX_CAPACITY);
+    private final Map<String, String> cache = new LRUMap<>(MAX_CAPACITY);
 
     @Inject
     public DefaultRecentWorkspacesService(@Named("recentWorkspacesRepository") PreferencesRepository repo) {

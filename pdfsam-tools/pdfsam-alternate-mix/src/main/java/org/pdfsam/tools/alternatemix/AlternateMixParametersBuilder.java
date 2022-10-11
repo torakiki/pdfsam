@@ -37,7 +37,7 @@ class AlternateMixParametersBuilder extends AbstractPdfOutputParametersBuilder<A
         implements SingleOutputTaskParametersBuilder<AlternateMixMultipleInputParameters> {
 
     private FileTaskOutput output;
-    private Set<PdfMixInput> inputs = new NullSafeSet<>();
+    private final Set<PdfMixInput> inputs = new NullSafeSet<>();
 
     @Override
     public void output(FileTaskOutput output) {

@@ -35,7 +35,7 @@ import org.sejda.model.parameter.base.MultiplePdfSourceMultipleOutputParameters;
 public abstract class MultiplePdfSourceMultipleOutputParametersBuilder<P extends MultiplePdfSourceMultipleOutputParameters>
         extends AbstractPdfOutputParametersBuilder<P> implements MultipleOutputTaskParametersBuilder<P> {
 
-    private Set<PdfFileSource> inputs = new NullSafeSet<>();
+    private final Set<PdfFileSource> inputs = new NullSafeSet<>();
     private SingleOrMultipleTaskOutput output;
     private String prefix;
 

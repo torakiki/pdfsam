@@ -105,7 +105,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     private String toolBinding = StringUtils.EMPTY;
     private final Label placeHolder = new Label(i18n().tr("Drag and drop PDF files here"));
-    private PasswordFieldPopup passwordPopup;
+    private final PasswordFieldPopup passwordPopup;
     private Consumer<SelectionChangedEvent> selectionChangedConsumer;
 
     public SelectionTable(String toolBinding, boolean canDuplicateItems, boolean canMove,
@@ -317,7 +317,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
                         List<Integer> dragged = (List<Integer>) e.getDragboard()
                                 .getContent(DND_TABLE_SELECTION_MIME_TYPE);
                         List<SelectionTableRowData> toMove = dragged.stream().map(getItems()::get)
-                                .filter(Objects::nonNull).collect(Collectors.toList());
+                                .filter(Objects::nonNull).toList();
                         getItems().removeAll(toMove);
 
                         int dropIndex = getItems().size();
@@ -416,21 +416,21 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     public void onMoveSelected(final MoveSelectedEvent event) {
         getSortOrder().clear();
         ObservableList<Integer> selectedIndices = getSelectionModel().getSelectedIndices();
-        Integer[] selected = selectedIndices.toArray(new Integer[selectedIndices.size()]);
+        Integer[] selected = selectedIndices.toArray(new Integer[0]);
         int focus = getFocusModel().getFocusedIndex();
         getSelectionModel().clearSelection();
         SelectionAndFocus newSelection = event.type().move(selected, getItems(), focus);
         if (!SelectionAndFocus.NULL.equals(newSelection)) {
             LOG.trace("Changing selection to {}", newSelection);
-            getSelectionModel().selectIndices(newSelection.getRow(), newSelection.getRows());
+            getSelectionModel().selectIndices(newSelection.row(), newSelection.getRows());
             getFocusModel().focus(newSelection.getFocus());
-            scrollTo(Math.max(newSelection.getRow() - 1, 0));
+            scrollTo(Math.max(newSelection.row() - 1, 0));
         }
     }
 
     @EventListener
     public void onSetPageRanges(SetPageRangesRequest event) {
-        getItems().stream().forEach(i -> i.pageSelection.set(event.range()));
+        getItems().forEach(i -> i.pageSelection.set(event.range()));
     }
 
     @EventListener
@@ -450,10 +450,9 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     private void copySelectedToClipboard() {
         ClipboardContent content = new ClipboardContent();
-        writeContent(getSelectionModel().getSelectedItems().stream().map(item -> {
-            return item.descriptor().getFile().getAbsolutePath() + ", " + item.descriptor().getFile().length() + ", "
-                    + item.descriptor().pages().getValue();
-        }).collect(Collectors.toList())).to(content);
+        writeContent(getSelectionModel().getSelectedItems().stream()
+                .map(item -> item.descriptor().getFile().getAbsolutePath() + ", " + item.descriptor().getFile().length()
+                        + ", " + item.descriptor().pages().getValue()).collect(Collectors.toList())).to(content);
         Clipboard.getSystemClipboard().setContent(content);
     }
 

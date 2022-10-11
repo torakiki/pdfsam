@@ -55,7 +55,7 @@ public class SplitByBookmarksTool implements Tool {
     static final String TOOL_ID = "split.bybookmarks";
 
 
-    private ToolDescriptor descriptor = builder().category(ToolCategory.SPLIT)
+    private final ToolDescriptor descriptor = builder().category(ToolCategory.SPLIT)
             .inputTypes(ToolInputOutputType.SINGLE_PDF).name(i18n().tr("Split by bookmarks")).description(
                     i18n().tr("Split a PDF document at bookmarked pages by specifying a bookmark level."))
             .priority(ToolPriority.DEFAULT.getPriority()).supportURL("https://pdfsam.org/pdf-split/")

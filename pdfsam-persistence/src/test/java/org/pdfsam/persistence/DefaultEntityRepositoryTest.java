@@ -84,8 +84,7 @@ public class DefaultEntityRepositoryTest {
     @Test
     @DisplayName("Saving the NUL character throws an exception")
     public void negativeSave() {
-        assertThrows(PersistenceException.class,
-                () -> victim.save("key3" + Character.toString('\0'), new Entity("chuck", 3)));
+        assertThrows(PersistenceException.class, () -> victim.save("key3" + '\0', new Entity("chuck", 3)));
     }
 
     @Test
@@ -160,7 +159,7 @@ public class DefaultEntityRepositoryTest {
     @Test
     @DisplayName("Getting the NUL character throws an exception")
     public void negativeGet() {
-        assertThrows(PersistenceException.class, () -> victim.get("key6" + Character.toString('\0')));
+        assertThrows(PersistenceException.class, () -> victim.get("key6" + '\0'));
     }
 
     @Test
@@ -176,7 +175,7 @@ public class DefaultEntityRepositoryTest {
     @Test
     @DisplayName("Deleting a key containing the NUL character throws an exception")
     public void negativeDelete() {
-        assertThrows(PersistenceException.class, () -> victim.delete("key7" + Character.toString('\0')));
+        assertThrows(PersistenceException.class, () -> victim.delete("key7" + '\0'));
     }
 
     @Test
@@ -203,6 +202,6 @@ public class DefaultEntityRepositoryTest {
         assertTrue(victim.get("key9").isEmpty());
     }
 
-    public static record Entity(String name, Integer roundkicks) {
+    public record Entity(String name, Integer roundkicks) {
     }
 }

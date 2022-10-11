@@ -37,8 +37,6 @@ import static org.pdfsam.i18n.I18nContext.i18n;
  */
 public class ClosePane extends HBox {
 
-    private final EventHandler<ActionEvent> defaultHandler = e -> this.getScene().getWindow().hide();
-
     public ClosePane() {
         this(null);
     }
@@ -49,7 +47,7 @@ public class ClosePane extends HBox {
         Button closeButton = new Button(i18n().tr("Close"));
         closeButton.getStyleClass().addAll(Style.BUTTON.css());
         closeButton.setTextAlignment(TextAlignment.CENTER);
-        closeButton.setOnAction(ofNullable(handler).orElse(defaultHandler));
+        closeButton.setOnAction(ofNullable(handler).orElse(e -> this.getScene().getWindow().hide()));
         getChildren().add(closeButton);
     }
 }

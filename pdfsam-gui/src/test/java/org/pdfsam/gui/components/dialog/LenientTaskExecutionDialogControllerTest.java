@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.components.dialog;
+package org.pdfsam.gui.components.dialog;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -27,8 +27,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.pdfsam.eventstudio.Listener;
-import org.pdfsam.gui.components.dialog.LenientExecutionConfirmationDialog;
-import org.pdfsam.gui.components.dialog.LenientTaskExecutionDialogController;
 import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.model.tool.TaskExecutionRequest;
 import org.pdfsam.test.ClearEventStudioExtension;

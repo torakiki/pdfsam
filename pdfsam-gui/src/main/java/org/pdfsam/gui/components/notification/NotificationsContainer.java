@@ -73,8 +73,8 @@ public class NotificationsContainer extends VBox {
 
     void removeNotification(String id) {
         Node toRemove = lookup(String.format("#%s", id));
-        if (toRemove != null && toRemove instanceof Notification) {
-            ((Notification) toRemove).fadeAway();
+        if (toRemove instanceof Notification notification) {
+            notification.fadeAway();
         }
     }
 

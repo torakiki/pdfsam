@@ -31,7 +31,7 @@ import java.util.regex.Pattern;
  */
 class RegexValidator implements Validator<String> {
 
-    private Pattern pattern;
+    private final Pattern pattern;
 
     public RegexValidator(String regex) {
         requireNotBlank(regex, "Regex cannot be blank");

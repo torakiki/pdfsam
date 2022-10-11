@@ -35,7 +35,7 @@ class MultipleSelectionAndFocus implements SelectionAndFocus {
     private int focus = -1;
     private int originalFocus = -1;
     private int row = -1;
-    private Set<Integer> rows = new HashSet<>();
+    private final Set<Integer> rows = new HashSet<>();
 
     MultipleSelectionAndFocus(int originalFocus) {
         this.originalFocus = originalFocus;
@@ -68,14 +68,14 @@ class MultipleSelectionAndFocus implements SelectionAndFocus {
     }
 
     @Override
-    public int getRow() {
+    public int row() {
         return row;
     }
 
     @Override
     public int[] getRows() {
         // TODO this sucks
-        return ArrayUtils.toPrimitive(rows.toArray(new Integer[rows.size()]));
+        return ArrayUtils.toPrimitive(rows.toArray(new Integer[0]));
     }
 
     @Override

@@ -43,7 +43,7 @@ public enum SizeUnit {
     private final String name;
     private final String symbol;
 
-    private SizeUnit(String name, String symbol) {
+    SizeUnit(String name, String symbol) {
         this.name = name;
         this.symbol = symbol;
     }

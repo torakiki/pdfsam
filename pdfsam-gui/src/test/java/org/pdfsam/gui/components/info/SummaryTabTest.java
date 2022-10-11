@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 21/ago/2014
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -40,7 +40,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
-import static org.hamcrest.Matchers.isIn;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.collection.IsIn.in;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
@@ -52,14 +53,13 @@ import static org.mockito.hamcrest.MockitoHamcrest.argThat;
 
 /**
  * @author Andrea Vacondio
- *
  */
 public class SummaryTabTest {
-    private static FastDateFormat FORMATTER = FastDateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.MEDIUM);
-
+    private static final FastDateFormat FORMATTER = FastDateFormat.getDateTimeInstance(DateFormat.FULL,
+            DateFormat.MEDIUM);
 
     @Test
-    public void showRequest() throws Exception {
+    public void showRequest() {
         SummaryTab victim = new SummaryTab();
         Set<Node> properties = ((ScrollPane) victim.getContent()).getContent().lookupAll(".info-property-value");
         assertNotNull(properties);
@@ -72,7 +72,7 @@ public class SummaryTabTest {
     }
 
     @Test
-    public void onLoad() throws Exception {
+    public void onLoad() {
         SummaryTab victim = new SummaryTab();
         Set<Node> properties = ((ScrollPane) victim.getContent()).getContent().lookupAll(".info-property-value");
         assertNotNull(properties);
@@ -108,12 +108,13 @@ public class SummaryTabTest {
         descriptor.setVersion(PdfVersion.VERSION_1_5);
     }
 
-    private void assertInfoIsDisplayed(List<ChangeListener<? super String>> listeners, PdfDocumentDescriptor descriptor) {
+    private void assertInfoIsDisplayed(List<ChangeListener<? super String>> listeners,
+            PdfDocumentDescriptor descriptor) {
         File file = descriptor.getFile();
-        List<String> values = Arrays.asList("test.producer", file.getAbsolutePath(), descriptor.getVersionString(),
-                "2", "test.creationDate", "test.title", "test.author", "test.creator", "test.subject",
+        List<String> values = Arrays.asList("test.producer", file.getAbsolutePath(), descriptor.getVersionString(), "2",
+                "test.creationDate", "test.title", "test.author", "test.creator", "test.subject",
                 FileUtils.byteCountToDisplaySize(file.length()), FORMATTER.format(file.lastModified()));
         listeners.forEach(l -> verify(l, timeout(2000).times(1)).changed(any(ObservableValue.class), anyString(),
-                argThat(isIn(values))));
+                argThat(is(in(values)))));
     }
 }

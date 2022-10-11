@@ -31,7 +31,7 @@ public class LogMessageTest {
     @Test
     public void defaultLevel() {
         LogMessage victim = new LogMessage("message", null);
-        assertEquals(LogLevel.INFO, victim.getLevel());
+        assertEquals(LogLevel.INFO, victim.level());
     }
 
     @Test

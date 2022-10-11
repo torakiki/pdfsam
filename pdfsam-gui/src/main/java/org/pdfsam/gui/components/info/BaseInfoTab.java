@@ -36,7 +36,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
  *
  */
 class BaseInfoTab extends Tab {
-    private GridPane grid = new GridPane();
+    private final GridPane grid = new GridPane();
 
     BaseInfoTab() {
         setClosable(false);

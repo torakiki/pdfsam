@@ -24,7 +24,6 @@ import org.junit.jupiter.api.Test;
 import org.sejda.model.pdf.PdfVersion;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
@@ -49,7 +48,7 @@ public class PdfVersionFilterTest {
         victim.addFilter(PdfVersion.VERSION_1_4);
         assertEquals(PdfVersion.VERSION_1_4, victim.requiredProperty().get());
         victim.removeFilter(PdfVersion.VERSION_1_4);
-        assertNotEquals(10, victim.requiredProperty().get());
+        assertEquals(PdfVersion.VERSION_1_0, victim.requiredProperty().get());
     }
 
     @Test

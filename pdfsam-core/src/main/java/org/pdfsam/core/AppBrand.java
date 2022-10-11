@@ -26,14 +26,11 @@ package org.pdfsam.core;
 public interface AppBrand {
 
     /**
-     * @param prop
-     * @param defaultValue
-     * @return a configurable property value
+     * @return a configurable property value or the default one
      */
     String property(BrandableProperty prop, String defaultValue);
 
     /**
-     * @param prop
      * @return a configurable property value or blank if no value is available
      */
     String property(BrandableProperty prop);

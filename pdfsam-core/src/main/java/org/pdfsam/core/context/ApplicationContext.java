@@ -65,7 +65,6 @@ public class ApplicationContext implements Closeable {
     /**
      * Sets the injector
      *
-     * @param injector
      */
     public void injector(Injector injector) {
         this.injector = Optional.ofNullable(injector);

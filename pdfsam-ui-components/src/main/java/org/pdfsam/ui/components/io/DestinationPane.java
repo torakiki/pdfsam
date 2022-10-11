@@ -25,7 +25,6 @@ import org.pdfsam.ui.components.help.HelpUtils;
 import org.pdfsam.ui.components.support.Style;
 
 import static org.pdfsam.i18n.I18nContext.i18n;
-import static org.pdfsam.ui.components.help.HelpUtils.helpIcon;
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 /**
@@ -36,8 +35,8 @@ import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
  */
 class DestinationPane extends VBox implements ResettableView {
 
-    private CheckBox overwrite = new CheckBox(i18n().tr("Overwrite if already exists"));
-    private BrowsableField destination;
+    private final CheckBox overwrite = new CheckBox(i18n().tr("Overwrite if already exists"));
+    private final BrowsableField destination;
 
     public DestinationPane(BrowsableField destination) {
         super(Style.DEFAULT_SPACING);

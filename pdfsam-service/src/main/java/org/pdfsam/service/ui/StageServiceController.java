@@ -37,7 +37,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 public class StageServiceController {
     private static final Logger LOG = LoggerFactory.getLogger(StageServiceController.class);
 
-    private StageService service;
+    private final StageService service;
 
     @Inject
     public StageServiceController(StageService service) {

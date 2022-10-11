@@ -42,13 +42,13 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 import static org.sejda.commons.util.RequireUtils.requireNotBlank;
 
 /**
- * Base class for a {@link Tool}. Tools are automatically scanned for event listener annotations and have their {@link EventStation} set to their {@link #id()}.
+ * Base class for a {@link Tool}. Tools are automatically scanned for event listener annotations and have their {@link EventStation} set to their {@link #toolBinding()}.
  *
  * @author Andrea Vacondio
  */
 public abstract class BaseToolPanel extends BorderPane implements ToolBound {
 
-    private Footer footer;
+    private final Footer footer;
     private final String toolId;
 
     public BaseToolPanel(String toolId, Footer footer) {

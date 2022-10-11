@@ -38,8 +38,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @ExtendWith(JavaFxThreadInitializeExtension.class)
 public class LoadingStatusIndicatorUpdaterTest {
 
-    private Label labeled = new Label();
-    private LoadingStatusIndicatorUpdater victim = new LoadingStatusIndicatorUpdater(labeled);
+    private final Label labeled = new Label();
+    private final LoadingStatusIndicatorUpdater victim = new LoadingStatusIndicatorUpdater(labeled);
 
     @BeforeEach
     public void setUp() {

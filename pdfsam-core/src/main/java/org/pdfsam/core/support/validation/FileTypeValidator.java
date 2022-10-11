@@ -30,7 +30,7 @@ import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
  */
 class FileTypeValidator extends FileValidator {
 
-    private FileType type;
+    private final FileType type;
     private boolean mustExist = true;
 
     public FileTypeValidator(FileType type, boolean mustExist) {

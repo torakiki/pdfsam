@@ -22,26 +22,17 @@ import static org.sejda.commons.util.RequireUtils.requireNotNegative;
 
 /**
  * Single selection where the item selected is the one with focus
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
-class SingleSelectionAndFocus implements SelectionAndFocus {
+record SingleSelectionAndFocus(int row) implements SelectionAndFocus {
 
-    private int row;
-
-    SingleSelectionAndFocus(int row) {
+    SingleSelectionAndFocus {
         requireNotNegative(row);
-        this.row = row;
     }
 
     @Override
     public int getFocus() {
-        return row;
-    }
-
-    @Override
-    public int getRow() {
         return row;
     }
 

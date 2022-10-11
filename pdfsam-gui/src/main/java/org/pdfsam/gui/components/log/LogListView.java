@@ -62,8 +62,8 @@ class LogListView extends ListView<LogMessage> implements Listener<LogMessage> {
                 getStyleClass().remove(current.style());
             }
             if (nonNull(item)) {
-                setText(item.getMessage());
-                getStyleClass().add(item.getLevel().style());
+                setText(item.message());
+                getStyleClass().add(item.level().style());
             } else {
                 setText("");
             }

@@ -287,9 +287,8 @@ public class SelectionTableTest {
     public void clear() {
         robot.clickOn("temp.pdf");
         assertEquals(1, victim.getSelectionModel().getSelectedIndices().size());
-        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
-            eventStudio().broadcast(new ClearToolRequest(MODULE, false, false), MODULE);
-        });
+        WaitForAsyncUtils.waitForAsyncFx(2000,
+                () -> eventStudio().broadcast(new ClearToolRequest(MODULE, false, false), MODULE));
         assertTrue(victim.getSelectionModel().getSelectedIndices().isEmpty());
     }
 
@@ -335,9 +334,7 @@ public class SelectionTableTest {
     @Test
     public void removeMultiple() {
         robot.clickOn("temp.pdf").press(KeyCode.CONTROL).clickOn("temp3.pdf").release(KeyCode.CONTROL);
-        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
-            eventStudio().broadcast(new RemoveSelectedEvent(), MODULE);
-        });
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> eventStudio().broadcast(new RemoveSelectedEvent(), MODULE));
         assertEquals(2, victim.getItems().size());
         assertEquals(1, victim.getSelectionModel().getSelectedIndices().size());
     }
@@ -348,9 +345,7 @@ public class SelectionTableTest {
                 .filter(i -> "temp.pdf".equals(i.descriptor().getFileName())).findFirst();
         assertTrue(item.isPresent());
         robot.clickOn("temp.pdf");
-        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
-            eventStudio().broadcast(new RemoveSelectedEvent(), MODULE);
-        });
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> eventStudio().broadcast(new RemoveSelectedEvent(), MODULE));
         assertFalse(item.get().descriptor().hasReferences());
     }
 
@@ -361,9 +356,8 @@ public class SelectionTableTest {
                 .filter(i -> "temp.pdf".equals(i.descriptor().getFileName())).findFirst();
         robot.rightClickOn("temp.pdf");
         robot.clickOn(i18n().tr("Duplicate"));
-        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
-            eventStudio().broadcast(new ClearToolRequest(MODULE, false, false), MODULE);
-        });
+        WaitForAsyncUtils.waitForAsyncFx(2000,
+                () -> eventStudio().broadcast(new ClearToolRequest(MODULE, false, false), MODULE));
         assertFalse(item.get().descriptor().hasReferences());
     }
 
@@ -380,9 +374,8 @@ public class SelectionTableTest {
     public void moveSelected() {
         robot.clickOn("temp.pdf");
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 0);
-        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
-            eventStudio().broadcast(new MoveSelectedEvent(MoveType.DOWN), MODULE);
-        });
+        WaitForAsyncUtils.waitForAsyncFx(2000,
+                () -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.DOWN), MODULE));
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 1);
     }
 
@@ -441,9 +434,7 @@ public class SelectionTableTest {
         item.get().pageSelection.set("2-4");
         robot.rightClickOn("temp.pdf");
         robot.clickOn(i18n().tr("Set as range for all"));
-        victim.getItems().stream().forEach(i -> {
-            assertEquals("2-4", i.pageSelection.get());
-        });
+        victim.getItems().forEach(i -> assertEquals("2-4", i.pageSelection.get()));
     }
 
     @Test
@@ -560,9 +551,7 @@ public class SelectionTableTest {
         loadEvent.add(PdfDocumentDescriptor.newDescriptorNoPassword(file2));
         loadEvent.add(PdfDocumentDescriptor.newDescriptorNoPassword(file3));
         loadEvent.add(PdfDocumentDescriptor.newDescriptorNoPassword(file4));
-        WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
-            eventStudio().broadcast(loadEvent, MODULE);
-        });
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> eventStudio().broadcast(loadEvent, MODULE));
         return ret;
     }
 }

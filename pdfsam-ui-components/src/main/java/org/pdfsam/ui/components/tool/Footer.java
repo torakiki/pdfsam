@@ -26,7 +26,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.eventstudio.annotation.EventStation;
 import org.pdfsam.model.tool.TaskExecutionRequest;
@@ -36,6 +35,7 @@ import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
@@ -48,12 +48,12 @@ import static org.pdfsam.i18n.I18nContext.i18n;
  */
 public class Footer extends HBox implements ToolBound {
 
-    private ProgressBar bar = new ProgressBar(0);
-    private Label statusLabel = new Label();
-    private TaskFailedButton failed = new TaskFailedButton();
-    private OpenButton openButton;
-    private RunButton runButton;
-    private String ownerModule = StringUtils.EMPTY;
+    private final ProgressBar bar = new ProgressBar(0);
+    private final Label statusLabel = new Label();
+    private final TaskFailedButton failed = new TaskFailedButton();
+    private final OpenButton openButton;
+    private final RunButton runButton;
+    private String ownerModule;
 
     public Footer(RunButton runButton, OpenButton openButton, String ownerModule) {
         this.ownerModule = defaultString(ownerModule);
@@ -121,7 +121,7 @@ public class Footer extends HBox implements ToolBound {
         if (event.isUndetermined()) {
             bar.setProgress(ProgressIndicator.INDETERMINATE_PROGRESS);
         } else {
-            bar.setProgress(event.getPercentage().divide(new BigDecimal(100)).doubleValue());
+            bar.setProgress(event.getPercentage().divide(new BigDecimal(100), RoundingMode.HALF_UP).doubleValue());
             statusLabel.setText(i18n().tr("Running {0}%", Integer.toString(event.getPercentage().intValue())));
         }
     }

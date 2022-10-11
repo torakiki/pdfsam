@@ -68,13 +68,7 @@ public class LoadingColumn extends BaseToolBound implements SelectionTableColumn
 
     @Override
     public Callback<TableColumn<SelectionTableRowData, PdfDescriptorLoadingStatus>, TableCell<SelectionTableRowData, PdfDescriptorLoadingStatus>> cellFactory() {
-        return new Callback<>() {
-            @Override
-            public TableCell<SelectionTableRowData, PdfDescriptorLoadingStatus> call(
-                    TableColumn<SelectionTableRowData, PdfDescriptorLoadingStatus> param) {
-                return new LoadingStatusCell();
-            }
-        };
+        return param -> new LoadingStatusCell();
     }
 
     @Override
@@ -102,7 +96,7 @@ public class LoadingColumn extends BaseToolBound implements SelectionTableColumn
      */
     private class LoadingStatusCell extends TableCell<SelectionTableRowData, PdfDescriptorLoadingStatus> {
 
-        private LoadingStatusIndicatorUpdater updater;
+        private final LoadingStatusIndicatorUpdater updater;
 
         LoadingStatusCell() {
             getStyleClass().addAll("encryption-status");

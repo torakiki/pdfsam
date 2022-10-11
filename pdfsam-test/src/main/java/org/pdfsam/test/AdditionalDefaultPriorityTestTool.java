@@ -30,7 +30,7 @@ public class AdditionalDefaultPriorityTestTool implements Tool {
 
     public static final String ID = "additional.test.module";
 
-    private ToolDescriptor descriptor = builder().category(ToolCategory.MERGE).description("Test module")
+    private final ToolDescriptor descriptor = builder().category(ToolCategory.MERGE).description("Test module")
             .inputTypes(ToolInputOutputType.SINGLE_PDF).name("ATestModule").priority(ToolPriority.DEFAULT)
             .supportURL("http://www.chucknorrisfacts.com/")
             .build();

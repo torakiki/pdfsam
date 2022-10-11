@@ -36,12 +36,10 @@ import static org.pdfsam.core.context.ApplicationContext.app;
  * @author Andrea Vacondio
  */
 public class DirectoryChooserWithWorkingDirectory {
-    private DirectoryChooser wrapped = new DirectoryChooser();
+    private final DirectoryChooser wrapped = new DirectoryChooser();
 
     DirectoryChooserWithWorkingDirectory() {
-        app().runtimeState().workingPath().subscribe(p -> {
-            wrapped.setInitialDirectory(p.map(Path::toFile).orElse(null));
-        });
+        app().runtimeState().workingPath().subscribe(p -> wrapped.setInitialDirectory(p.map(Path::toFile).orElse(null)));
     }
 
     final void setTitle(String value) {

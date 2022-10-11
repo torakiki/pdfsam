@@ -46,8 +46,8 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 public class UpdatesController {
     private static final Logger LOG = LoggerFactory.getLogger(UpdatesController.class);
 
-    private AppBrand appBrand;
-    private UpdateService service;
+    private final AppBrand appBrand;
+    private final UpdateService service;
 
     @Inject
     UpdatesController(UpdateService service, AppBrand appBrand) {

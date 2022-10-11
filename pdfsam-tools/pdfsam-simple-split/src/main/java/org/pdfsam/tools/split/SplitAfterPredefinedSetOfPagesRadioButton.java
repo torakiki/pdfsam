@@ -42,7 +42,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 class SplitAfterPredefinedSetOfPagesRadioButton extends RadioButton
         implements SplitParametersBuilderCreator, RestorableView, ResettableView {
 
-    private ComboBox<ComboItem<PredefinedSetOfPages>> combo;
+    private final ComboBox<ComboItem<PredefinedSetOfPages>> combo;
 
     public SplitAfterPredefinedSetOfPagesRadioButton(ComboBox<ComboItem<PredefinedSetOfPages>> combo) {
         super(i18n().tr("Split after"));
@@ -92,7 +92,7 @@ class SplitAfterPredefinedSetOfPagesRadioButton extends RadioButton
      */
     static class SimpleSplitParametersBuilder extends SplitParametersBuilder<SimpleSplitParameters> {
 
-        private PredefinedSetOfPages pages;
+        private final PredefinedSetOfPages pages;
 
         SimpleSplitParametersBuilder(PredefinedSetOfPages pages) {
             this.pages = pages;

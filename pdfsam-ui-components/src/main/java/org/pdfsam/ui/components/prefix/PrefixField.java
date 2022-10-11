@@ -38,7 +38,7 @@ import static org.sejda.commons.util.RequireUtils.requireNotBlank;
  */
 public class PrefixField extends TextField implements ResettableView {
 
-    private Menu menu;
+    private final Menu menu;
 
     /**
      * @param placeholder

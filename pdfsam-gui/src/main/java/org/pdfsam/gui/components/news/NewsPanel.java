@@ -42,8 +42,8 @@ import static org.pdfsam.i18n.I18nContext.i18n;
  * @author Andrea Vacondio
  */
 public class NewsPanel extends VBox {
-    private VBox newsPanel = new VBox();
-    ScrollPane scroll = new ScrollPane(newsPanel);
+    private final VBox newsPanel = new VBox();
+    final ScrollPane scroll = new ScrollPane(newsPanel);
 
     public NewsPanel() {
         getStyleClass().add("news-panel");

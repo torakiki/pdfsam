@@ -54,7 +54,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 @ExtendWith({ JavaFxThreadExtension.class, ClearEventStudioExtension.class })
 public class DashboardTest {
 
-    @Components({ AboutDashboadItem.class })
+    @Components({ AboutDashboardItem.class })
     static class Config {
         @Provides
         public AboutDashboardPane aboutPane() {
@@ -180,7 +180,7 @@ public class DashboardTest {
             Listener<SetTitleRequest> listener = mock(Listener.class);
             eventStudio().add(SetTitleRequest.class, listener);
             victim.onSetActiveDashboardItem(
-                    new SetActiveDashboardItemRequest(injector.instance(AboutDashboadItem.class).id()));
+                    new SetActiveDashboardItemRequest(injector.instance(AboutDashboardItem.class).id()));
             verify(listener).onEvent(any());
             assertFalse(((StackPane) victim.getCenter()).getChildren().isEmpty());
         }

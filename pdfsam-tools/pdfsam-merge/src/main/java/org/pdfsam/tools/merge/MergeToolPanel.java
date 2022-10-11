@@ -42,10 +42,10 @@ import static org.pdfsam.ui.components.support.Views.titledPane;
  * @author Andrea Vacondio
  */
 public class MergeToolPanel extends BaseToolPanel {
-    private MergeSelectionPane selectionPane = new MergeSelectionPane(TOOL_ID);
-    private MergeOptionsPane mergeOptions = new MergeOptionsPane();
-    private BrowsablePdfOutputField destinationFileField;
-    private PdfDestinationPane destinationPane;
+    private final MergeSelectionPane selectionPane = new MergeSelectionPane(TOOL_ID);
+    private final MergeOptionsPane mergeOptions = new MergeOptionsPane();
+    private final BrowsablePdfOutputField destinationFileField;
+    private final PdfDestinationPane destinationPane;
 
     @Inject
     public MergeToolPanel(@Named(TOOL_ID + "field") BrowsablePdfOutputField destinationFileField,

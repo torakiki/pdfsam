@@ -18,6 +18,7 @@
  */
 package org.pdfsam.core.support.validation;
 
+import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.model.io.FileType;
 
 import java.nio.file.Files;
@@ -51,7 +52,7 @@ public final class Validators {
      * @return a new instance of a validator checking for a on blank input string
      */
     public static Validator<String> nonBlank() {
-        return v -> isNotBlank(v);
+        return StringUtils::isNotBlank;
     }
 
     /**

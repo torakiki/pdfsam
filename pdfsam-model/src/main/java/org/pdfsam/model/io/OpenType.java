@@ -23,5 +23,5 @@ package org.pdfsam.model.io;
  */
 public enum OpenType {
     SAVE,
-    OPEN;
+    OPEN
 }

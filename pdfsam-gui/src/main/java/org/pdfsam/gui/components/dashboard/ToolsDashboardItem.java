@@ -36,7 +36,7 @@ public class ToolsDashboardItem implements DashboardItem {
 
     public static final String ID = "TOOLS";
 
-    private ToolsDashboardPane pane;
+    private final ToolsDashboardPane pane;
 
     @Inject
     ToolsDashboardItem(ToolsDashboardPane pane) {

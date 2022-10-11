@@ -43,9 +43,9 @@ import static org.pdfsam.core.context.ApplicationContext.app;
  */
 public class OverwriteConfirmationDialog extends Stage {
 
-    private ConfirmationDialogContent dialogContent;
+    private final ConfirmationDialogContent dialogContent;
     private Optional<ExistingOutputPolicy> response = empty();
-    private HBox buttons = new HBox();
+    private final HBox buttons = new HBox();
 
     @Inject
     public OverwriteConfirmationDialog(@Named("primaryStage") Stage stage) {

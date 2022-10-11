@@ -122,9 +122,7 @@ class BookmarksLevelComboBox extends ComboBox<String>
     @Override
     public void restoreStateFrom(Map<String, String> data) {
         getSelectionModel().selectFirst();
-        ofNullable(data.get("levelCombo.max")).map(Integer::valueOf).ifPresent(max -> {
-            IntStream.rangeClosed(1, max).mapToObj(Integer::toString).forEach(getItems()::add);
-        });
+        ofNullable(data.get("levelCombo.max")).map(Integer::valueOf).ifPresent(max -> IntStream.rangeClosed(1, max).mapToObj(Integer::toString).forEach(getItems()::add));
         Arrays.stream(ofNullable(data.get("levelCombo.levels")).map(l -> l.split(",")).orElse(new String[0]))
                 .forEach(getItems()::add);
         setValue(ofNullable(data.get("levelCombo.selected")).orElse(""));

@@ -61,8 +61,8 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 public class PdfDestinationPane extends DestinationPane implements ToolBound, RestorableView, ResettableView,
         TaskParametersBuildStep<AbstractPdfOutputParametersBuilder<? extends AbstractPdfOutputParameters>> {
 
-    private PdfVersionCombo version;
-    private PdfVersionConstrainedCheckBox compress;
+    private final PdfVersionCombo version;
+    private final PdfVersionConstrainedCheckBox compress;
     private Optional<CheckBox> discardBookmarks = empty();
     private String toolBinding = StringUtils.EMPTY;
 
@@ -151,9 +151,7 @@ public class PdfDestinationPane extends DestinationPane implements ToolBound, Re
             builder.existingOutput(ExistingOutputPolicy.OVERWRITE);
         }
         builder.version(version.getSelectionModel().getSelectedItem().getVersion());
-        discardBookmarks.ifPresent(d -> {
-            builder.discardBookmarks(d.isSelected());
-        });
+        discardBookmarks.ifPresent(d -> builder.discardBookmarks(d.isSelected()));
     }
 
     @Override
@@ -182,7 +180,7 @@ public class PdfDestinationPane extends DestinationPane implements ToolBound, Re
         return compress;
     }
 
-    public static enum DestinationPanelFields {
-        DISCARD_BOOKMARKS;
+    public enum DestinationPanelFields {
+        DISCARD_BOOKMARKS
     }
 }

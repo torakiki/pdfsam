@@ -25,5 +25,5 @@ package org.pdfsam.model.tool;
  */
 public enum RequiredPdfData {
     DEFAULT,
-    BOOMARKS;
+    BOOMARKS
 }

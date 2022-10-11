@@ -30,7 +30,7 @@ import java.util.Set;
  *
  */
 public class ContainedIntegerValidator implements Validator<String> {
-    private Set<Integer> valid = new HashSet<>();
+    private final Set<Integer> valid = new HashSet<>();
 
     public ContainedIntegerValidator(Set<Integer> validValues) {
         ofNullable(validValues).map(valid::addAll);

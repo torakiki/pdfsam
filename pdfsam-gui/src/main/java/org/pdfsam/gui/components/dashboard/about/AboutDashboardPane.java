@@ -56,10 +56,9 @@ import static org.pdfsam.core.support.io.ObjectCollectionWriter.writeContent;
 import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
- * Panel displaying PDFsam logo and About panel informations
- * 
+ * Panel displaying PDFsam logo and About panel information
+ *
  * @author Andrea Vacondio
- * 
  */
 public class AboutDashboardPane extends HBox {
 

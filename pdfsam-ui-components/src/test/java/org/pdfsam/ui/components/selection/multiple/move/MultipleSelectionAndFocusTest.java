@@ -35,7 +35,7 @@ public class MultipleSelectionAndFocusTest {
         victim.moveUp(4);
         victim.moveUp(5);
         assertEquals(-1, victim.getFocus());
-        assertEquals(3, victim.getRow());
+        assertEquals(3, victim.row());
         assertArrayEquals(new int[] { 4 }, victim.getRows());
     }
 
@@ -53,7 +53,7 @@ public class MultipleSelectionAndFocusTest {
         victim.moveDown(6);
         victim.moveDown(5);
         assertEquals(-1, victim.getFocus());
-        assertEquals(7, victim.getRow());
+        assertEquals(7, victim.row());
         assertArrayEquals(new int[] { 6 }, victim.getRows());
     }
 
@@ -72,7 +72,7 @@ public class MultipleSelectionAndFocusTest {
         victim.moveTo(6, 11);
         victim.moveTo(8, 12);
         assertEquals(10, victim.getFocus());
-        assertEquals(10, victim.getRow());
+        assertEquals(10, victim.row());
         assertArrayEquals(new int[] { 11, 12 }, victim.getRows());
     }
 }

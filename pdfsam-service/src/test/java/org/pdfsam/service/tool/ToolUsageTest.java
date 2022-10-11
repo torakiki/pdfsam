@@ -30,7 +30,7 @@ import static org.hamcrest.Matchers.greaterThan;
 public class ToolUsageTest {
 
     @Test
-    public void lastSeenIsUpdated() throws InterruptedException {
+    public void lastSeenIsUpdated() {
         var victim = new ToolUsage("ChuckNorris");
         victim.inc();
         long lastSeen = victim.getLastSeen();

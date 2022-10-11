@@ -31,9 +31,9 @@ import javafx.scene.shape.SVGPath;
  * 
  */
 class ExpandButton extends HBox {
-    private ToggleButton toggle = new ToggleButton();
-    private SVGPath expand = new SVGPath();
-    private SVGPath collapse = new SVGPath();
+    private final ToggleButton toggle = new ToggleButton();
+    private final SVGPath expand = new SVGPath();
+    private final SVGPath collapse = new SVGPath();
 
     public ExpandButton() {
         getStyleClass().add("quickbar-expand-button");

@@ -57,7 +57,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 @ExtendWith({ ApplicationExtension.class })
 public class OpenWithDialogTest {
 
-    private Tool tool = new DefaultPriorityTestTool();
+    private final Tool tool = new DefaultPriorityTestTool();
     @RegisterExtension
     public ClearEventStudioExtension clearEventStudio = new ClearEventStudioExtension(tool.id());
     private Button button;

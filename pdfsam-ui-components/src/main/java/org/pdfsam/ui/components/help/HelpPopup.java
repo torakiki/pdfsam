@@ -33,7 +33,7 @@ import javafx.stage.Screen;
  *
  */
 public class HelpPopup extends PopupControl {
-    private Region content;
+    private final Region content;
 
     public HelpPopup(String message) {
         this(new TextFlow(new Text(message)));

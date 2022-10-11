@@ -48,14 +48,14 @@ import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
  */
 public class PdfDocumentDescriptor {
 
-    private ObservableAtomicReference<PdfDescriptorLoadingStatus> loadingStatus = new ObservableAtomicReference<>(
+    private final ObservableAtomicReference<PdfDescriptorLoadingStatus> loadingStatus = new ObservableAtomicReference<>(
             PdfDescriptorLoadingStatus.INITIAL);
-    private AtomicInteger references = new AtomicInteger(1);
-    private ObservableAtomicReference<Integer> pages = new ObservableAtomicReference<>(0);
+    private final AtomicInteger references = new AtomicInteger(1);
+    private final ObservableAtomicReference<Integer> pages = new ObservableAtomicReference<>(0);
     private String password;
-    private File file;
+    private final File file;
     private PdfVersion version;
-    private Map<String, String> metadata = new HashMap<>();
+    private final Map<String, String> metadata = new HashMap<>();
     private SortedSet<Integer> validBookmarksLevels = Collections.emptySortedSet();
 
     private PdfDocumentDescriptor(File file, String password) {
@@ -146,7 +146,7 @@ public class PdfDocumentDescriptor {
     public void setValidBookmarksLevels(Set<Integer> levels) {
         this.validBookmarksLevels = new TreeSet<>();
         if (nonNull(levels)) {
-            levels.stream().forEach(this.validBookmarksLevels::add);
+            this.validBookmarksLevels.addAll(levels);
         }
     }
 

@@ -148,11 +148,11 @@ public class ValidableTextField extends TextField {
 
         private static final String ERROR_TOOLTIP_CLASS = "error-tooltip";
 
-        private Tooltip tooltip;
+        private final Tooltip tooltip;
         private boolean active = false;
 
-        private Timeline activationTimer = new Timeline();
-        private Timeline hideTimer = new Timeline();
+        private final Timeline activationTimer = new Timeline();
+        private final Timeline hideTimer = new Timeline();
 
         private ErrorTooltipManager(String message) {
             requireNotBlank(message, "Tooltip message cannot be blank");

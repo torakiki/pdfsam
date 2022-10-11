@@ -41,7 +41,7 @@ import static java.util.Objects.nonNull;
 class DashboardTile extends VBox {
     private static final PseudoClass ARMED_PSEUDOCLASS_STATE = PseudoClass.getPseudoClass("armed");
 
-    private Button button = new Button();
+    private final Button button = new Button();
 
     public DashboardTile(String title, String description, Node graphic) {
         getStyleClass().addAll("dashboard-modules-tile");

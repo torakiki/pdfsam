@@ -47,19 +47,19 @@ import static org.pdfsam.i18n.I18nContext.i18n;
  */
 class SummaryTab extends BaseInfoTab implements ChangeListener<PdfDescriptorLoadingStatus> {
     private static final Logger LOG = LoggerFactory.getLogger(SummaryTab.class);
-    private static FastDateFormat FORMATTER = FastDateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.MEDIUM);
+    private static final FastDateFormat FORMATTER = FastDateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.MEDIUM);
 
-    private Label fileLabel = createValueLabel();
-    private Label size = createValueLabel();
-    private Label version = createValueLabel();
-    private Label created = createValueLabel();
-    private Label modified = createValueLabel();
-    private Label pages = createValueLabel();
-    private Label title = createValueLabel();
-    private Label author = createValueLabel();
-    private Label creator = createValueLabel();
-    private Label producer = createValueLabel();
-    private Label subject = createValueLabel();
+    private final Label fileLabel = createValueLabel();
+    private final Label size = createValueLabel();
+    private final Label version = createValueLabel();
+    private final Label created = createValueLabel();
+    private final Label modified = createValueLabel();
+    private final Label pages = createValueLabel();
+    private final Label title = createValueLabel();
+    private final Label author = createValueLabel();
+    private final Label creator = createValueLabel();
+    private final Label producer = createValueLabel();
+    private final Label subject = createValueLabel();
     private PdfDocumentDescriptor current;
 
     SummaryTab() {

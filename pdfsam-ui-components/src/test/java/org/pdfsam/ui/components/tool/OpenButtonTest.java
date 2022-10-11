@@ -67,9 +67,9 @@ public class OpenButtonTest {
     @RegisterExtension
     static ClearEventStudioExtension staticExtension = new ClearEventStudioExtension("moduleId");
 
-    private Tool tool = new DefaultPriorityTestTool();
+    private final Tool tool = new DefaultPriorityTestTool();
     private OpenButton victim;
-
+    private FxRobot robot;
     @Start
     public void start(Stage stage) {
         victim = new OpenButton("moduleId", ToolInputOutputType.SINGLE_PDF, Collections.singletonList(tool));
@@ -81,7 +81,7 @@ public class OpenButtonTest {
     }
 
     @Test
-    public void openFileClick(@TempDir Path folder, FxRobot robot) throws Exception {
+    public void openFileClick(@TempDir Path folder) throws Exception {
         File file = Files.createTempFile(folder, null, null).toFile();
         FileTaskOutput output = new FileTaskOutput(file);
         TestListener listener = new TestListener(file);
@@ -93,7 +93,7 @@ public class OpenButtonTest {
     }
 
     @Test
-    public void openDirectoryClick(@TempDir Path folder, FxRobot robot) throws Exception {
+    public void openDirectoryClick(@TempDir Path folder) throws Exception {
         File dir = Files.createTempDirectory(folder, null).toFile();
         DirectoryTaskOutput output = new DirectoryTaskOutput(dir);
         TestListener listener = new TestListener(dir);
@@ -105,7 +105,7 @@ public class OpenButtonTest {
     }
 
     @Test
-    public void openSingleFileDirectoryDestinationClick(@TempDir Path folder, FxRobot robot) throws Exception {
+    public void openSingleFileDirectoryDestinationClick(@TempDir Path folder) throws Exception {
         File file = Files.createTempFile(folder, null, null).toFile();
         DirectoryTaskOutput output = new DirectoryTaskOutput(file.getParentFile());
         TestListener listener = new TestListener(file);
@@ -120,7 +120,7 @@ public class OpenButtonTest {
     }
 
     @Test
-    public void fileDestination(FxRobot robot) {
+    public void fileDestination() {
         FileTaskOutput output = mock(FileTaskOutput.class);
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.dispatch(output));
         verify(output).getDestination();
@@ -129,7 +129,7 @@ public class OpenButtonTest {
     }
 
     @Test
-    public void directoryDestination(FxRobot robot) {
+    public void directoryDestination() {
         DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.dispatch(output));
         verify(output).getDestination();
@@ -138,7 +138,7 @@ public class OpenButtonTest {
     }
 
     @Test
-    public void fileOrDirDestination(FxRobot robot) {
+    public void fileOrDirDestination() {
         DirectoryTaskOutput output = mock(DirectoryTaskOutput.class);
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.dispatch(output));
         verify(output).getDestination();
@@ -148,7 +148,7 @@ public class OpenButtonTest {
 
     @Test
     @Tag("NoHeadless")
-    public void sendToModuleClick(@TempDir Path folder, FxRobot robot) throws Exception {
+    public void sendToModuleClick(@TempDir Path folder) throws Exception {
         File file = Files.createTempFile(folder, null, null).toFile();
         NotifiableTaskMetadata taskMetadata = new NotifiableTaskMetadata(mock(Task.class));
         taskMetadata.addTaskOutput(file);
@@ -167,7 +167,7 @@ public class OpenButtonTest {
     }
 
     private static class TestListener extends HitTestListener<NativeOpenFileRequest> {
-        private File destination;
+        private final File destination;
         boolean equal = false;
 
         private TestListener(File destination) {

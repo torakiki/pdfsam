@@ -42,7 +42,7 @@ public class CreateOutputDirectoryDialogController {
 
     private static final Logger LOG = LoggerFactory.getLogger(CreateOutputDirectoryDialogController.class);
 
-    private Provider<CreateOutputDirectoryConfirmationDialog> dialog;
+    private final Provider<CreateOutputDirectoryConfirmationDialog> dialog;
 
     @Inject
     public CreateOutputDirectoryDialogController(Provider<CreateOutputDirectoryConfirmationDialog> dialog) {

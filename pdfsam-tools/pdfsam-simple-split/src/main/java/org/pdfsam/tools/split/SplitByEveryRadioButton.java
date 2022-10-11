@@ -99,7 +99,7 @@ public class SplitByEveryRadioButton extends RadioButton
      */
     static class SplitByEveryXPagesParametersBuilder extends SplitParametersBuilder<SplitByEveryXPagesParameters> {
 
-        private int step;
+        private final int step;
 
         SplitByEveryXPagesParametersBuilder(int step) {
             this.step = step;

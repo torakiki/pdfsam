@@ -48,11 +48,11 @@ import static org.pdfsam.tools.splitbybookmarks.SplitByBookmarksTool.TOOL_ID;
  */
 public class SplitByBookmarksToolPanel extends BaseToolPanel {
 
-    private TaskParametersBuilderSingleSelectionPane selectionPane;
-    private BrowsableOutputDirectoryField destinationDirectoryField;
-    private PdfDestinationPane destinationPane;
-    private SplitOptionsPane splitOptions = new SplitOptionsPane();
-    private PrefixPane prefix;
+    private final TaskParametersBuilderSingleSelectionPane selectionPane;
+    private final BrowsableOutputDirectoryField destinationDirectoryField;
+    private final PdfDestinationPane destinationPane;
+    private final SplitOptionsPane splitOptions = new SplitOptionsPane();
+    private final PrefixPane prefix;
 
     @Inject
     public SplitByBookmarksToolPanel(@Named(TOOL_ID + "field") BrowsableOutputDirectoryField destinationDirectoryField,

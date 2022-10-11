@@ -34,7 +34,7 @@ import static org.pdfsam.model.tool.ToolDescriptorBuilder.builder;
 public class HighPriorityTestTool implements Tool {
     public static final String ID = "high.test.module";
 
-    private ToolDescriptor descriptor = builder().category(ToolCategory.EDIT).description("High priority test module")
+    private final ToolDescriptor descriptor = builder().category(ToolCategory.EDIT).description("High priority test module")
             .name("HighPriorityTestModule").priority(ToolPriority.HIGH).inputTypes(ToolInputOutputType.MULTIPLE_PDF)
             .build();
 

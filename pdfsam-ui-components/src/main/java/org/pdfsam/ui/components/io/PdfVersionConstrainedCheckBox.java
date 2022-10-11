@@ -30,7 +30,6 @@ import org.sejda.model.pdf.PdfVersion;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.i18n.I18nContext.i18n;
-import static org.pdfsam.ui.components.help.HelpUtils.helpIcon;
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 /**
@@ -39,7 +38,7 @@ import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
  * @author Andrea Vacondio
  */
 class PdfVersionConstrainedCheckBox extends CheckBox implements ToolBound {
-    private PdfVersion constraint;
+    private final PdfVersion constraint;
     private String toolBinding = StringUtils.EMPTY;
 
     public PdfVersionConstrainedCheckBox(PdfVersion constraint, String toolBinding) {

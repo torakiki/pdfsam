@@ -55,7 +55,7 @@ public class FilesDropController {
 
     private static final Logger LOG = LoggerFactory.getLogger(FilesDropController.class);
 
-    private Provider<AddSubdirectoriesConfirmationDialog> dialog;
+    private final Provider<AddSubdirectoriesConfirmationDialog> dialog;
 
     @Inject
     public FilesDropController(Provider<AddSubdirectoriesConfirmationDialog> dialog) {

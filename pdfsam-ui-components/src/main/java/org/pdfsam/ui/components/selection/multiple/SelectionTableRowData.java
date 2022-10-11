@@ -36,7 +36,7 @@ import java.util.Set;
  */
 public final class SelectionTableRowData {
 
-    private PdfDocumentDescriptor descriptor;
+    private final PdfDocumentDescriptor descriptor;
 
     public final SimpleStringProperty pageSelection = new SimpleStringProperty(StringUtils.EMPTY);
     public final SimpleStringProperty pace = new SimpleStringProperty("1");

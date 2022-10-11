@@ -48,7 +48,7 @@ class SplitOptionsPane extends HBox
         implements TaskParametersBuildStep<SplitBySizeParametersBuilder>, RestorableView, ResettableView {
 
     private final ValidableTextField field = new ValidableTextField();
-    private ToggleGroup group = new ToggleGroup();
+    private final ToggleGroup group = new ToggleGroup();
 
     SplitOptionsPane() {
         this.field.setOnEnterValidation(true);
@@ -81,9 +81,7 @@ class SplitOptionsPane extends HBox
     @Override
     public void saveStateTo(Map<String, String> data) {
         data.put("size", defaultString(field.getText()));
-        group.getToggles().stream().map(t -> {
-            return (SizeUnitRadio) t;
-        }).forEach(s -> s.saveStateTo(data));
+        group.getToggles().stream().map(t -> (SizeUnitRadio) t).forEach(s -> s.saveStateTo(data));
     }
 
     @Override

@@ -27,7 +27,7 @@ public enum ToolPriority {
     LOW(10),
     DEFAULT(0),
     HIGH(-10);
-    private int priority;
+    private final int priority;
 
     ToolPriority(int priority) {
         this.priority = priority;

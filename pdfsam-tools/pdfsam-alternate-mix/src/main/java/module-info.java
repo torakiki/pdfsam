@@ -28,7 +28,6 @@ module org.pdfsam.tools.alternatemix {
     requires transitive org.pdfsam.model;
     requires jakarta.inject;
     requires javafx.graphics;
-    requires javafx.controls;
     requires org.pdfsam.eventstudio;
     requires org.pdfsam.injector;
     requires org.kordamp.ikonli.javafx;

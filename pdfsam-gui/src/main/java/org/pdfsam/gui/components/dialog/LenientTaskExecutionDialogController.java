@@ -42,7 +42,7 @@ public class LenientTaskExecutionDialogController {
     private static final Logger LOG = LoggerFactory.getLogger(LenientTaskExecutionDialogController.class);
 
     private TaskExecutionRequest latest;
-    private Provider<LenientExecutionConfirmationDialog> dialog;
+    private final Provider<LenientExecutionConfirmationDialog> dialog;
 
     @Inject
     public LenientTaskExecutionDialogController(Provider<LenientExecutionConfirmationDialog> dialog) {

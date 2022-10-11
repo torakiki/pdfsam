@@ -29,7 +29,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 public class IntegerStringValidatorTest {
 
-    private Validator<String> victim = Validators.positiveInteger();
+    private final Validator<String> victim = Validators.positiveInteger();
 
     @Test
     public void testNegative() {

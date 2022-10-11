@@ -53,7 +53,7 @@ public class ExtractTool implements Tool {
 
     static final String TOOL_ID = "extract";
 
-    private ToolDescriptor descriptor = builder().category(ToolCategory.SPLIT)
+    private final ToolDescriptor descriptor = builder().category(ToolCategory.SPLIT)
             .inputTypes(ToolInputOutputType.MULTIPLE_PDF, ToolInputOutputType.SINGLE_PDF).name(i18n().tr("Extract"))
             .description(i18n().tr("Extract pages from PDF documents.")).priority(ToolPriority.DEFAULT.getPriority())
             .supportURL("https://pdfsam.org/pdf-extract-pages/")

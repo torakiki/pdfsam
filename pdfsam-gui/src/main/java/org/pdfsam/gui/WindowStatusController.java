@@ -42,7 +42,7 @@ public class WindowStatusController {
     private static final Logger LOG = LoggerFactory.getLogger(WindowStatusController.class);
 
     private Stage stage;
-    private StageService service;
+    private final StageService service;
 
     @Inject
     WindowStatusController(StageService service) {

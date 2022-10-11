@@ -50,7 +50,7 @@ public class DefaultStageServiceTest {
                 .serializationInclusion(JsonInclude.Include.NON_EMPTY)
                 .build();
         this.victim = new DefaultStageService(
-                new DefaultEntityRepository<StageStatus>("/test/org/pdfsam/stageservice", mapper, StageStatus.class));
+                new DefaultEntityRepository<>("/test/org/pdfsam/stageservice", mapper, StageStatus.class));
     }
 
     @AfterEach

@@ -51,9 +51,9 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 public class TaskExecutionController {
     private static final Logger LOG = LoggerFactory.getLogger(TaskExecutionController.class);
 
-    private TaskExecutionService executionService;
-    private UsageService usageService;
-    private ExecutorService executor = Executors.newSingleThreadExecutor();
+    private final TaskExecutionService executionService;
+    private final UsageService usageService;
+    private final ExecutorService executor = Executors.newSingleThreadExecutor();
     private String currentModule = StringUtils.EMPTY;
 
     @Inject
@@ -61,14 +61,12 @@ public class TaskExecutionController {
         this.executionService = executionService;
         this.usageService = usageService;
         eventStudio().addAnnotatedListeners(this);
-        GlobalNotificationContext.getContext().addListener(TaskExecutionFailedEvent.class,
-                new TaskEventBroadcaster<TaskExecutionFailedEvent>());
-        GlobalNotificationContext.getContext().addListener(TaskExecutionStartedEvent.class,
-                new TaskEventBroadcaster<TaskExecutionStartedEvent>());
+        GlobalNotificationContext.getContext().addListener(TaskExecutionFailedEvent.class, new TaskEventBroadcaster<>());
+        GlobalNotificationContext.getContext().addListener(TaskExecutionStartedEvent.class, new TaskEventBroadcaster<>());
         GlobalNotificationContext.getContext().addListener(TaskExecutionCompletedEvent.class,
-                new TaskEventBroadcaster<TaskExecutionCompletedEvent>());
+                new TaskEventBroadcaster<>());
         GlobalNotificationContext.getContext().addListener(PercentageOfWorkDoneChangedEvent.class,
-                new TaskEventBroadcaster<PercentageOfWorkDoneChangedEvent>());
+                new TaskEventBroadcaster<>());
     }
 
     /**

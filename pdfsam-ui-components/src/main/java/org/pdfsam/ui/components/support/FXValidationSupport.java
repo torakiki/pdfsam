@@ -38,7 +38,7 @@ public class FXValidationSupport<T> {
 
     private static final Logger LOG = LoggerFactory.getLogger(FXValidationSupport.class);
 
-    private ReadOnlyObjectWrapper<ValidationState> validationState = new ReadOnlyObjectWrapper<>(
+    private final ReadOnlyObjectWrapper<ValidationState> validationState = new ReadOnlyObjectWrapper<>(
             ValidationState.NOT_VALIDATED);
     private Validator<T> validator = input -> true;
 
@@ -68,13 +68,12 @@ public class FXValidationSupport<T> {
 
     /**
      * Possible validation states
-     * 
+     *
      * @author Andrea Vacondio
-     * 
      */
-    public static enum ValidationState {
+    public enum ValidationState {
         VALID,
         INVALID,
-        NOT_VALIDATED;
+        NOT_VALIDATED
     }
 }

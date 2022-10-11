@@ -43,12 +43,11 @@ import static org.pdfsam.i18n.I18nContext.i18n;
  */
 public class BrowsableDirectoryField extends BrowsableField {
 
-    private BrowseEventHandler handler = new BrowseEventHandler();
-
     public BrowsableDirectoryField() {
         setBrowseWindowTitle(i18n().tr("Select a directory"));
         getTextField().setErrorMessage(i18n().tr("Select an existing directory"));
         getTextField().setPromptText(i18n().tr("Select a directory"));
+        var handler = new BrowseEventHandler();
         getBrowseButton().setOnAction(handler);
         getTextField().setOnAction(handler);
         setOnDragOver(e -> dragConsume(e, this.onDragOverConsumer()));

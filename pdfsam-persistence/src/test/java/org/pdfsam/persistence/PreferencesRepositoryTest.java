@@ -131,8 +131,7 @@ public class PreferencesRepositoryTest {
     @Test
     @DisplayName("Getting the NUL character throws an exception")
     public void negativeGet() {
-        assertThrows(PersistenceException.class,
-                () -> victim.getString("key7" + Character.toString('\0'), (String) null));
+        assertThrows(PersistenceException.class, () -> victim.getString("key7" + '\0', (String) null));
     }
 
     @Test
@@ -148,7 +147,7 @@ public class PreferencesRepositoryTest {
     @Test
     @DisplayName("Deleting a key containing the NUL character throws an exception")
     public void negativeDelete() {
-        assertThrows(PersistenceException.class, () -> victim.delete("key8" + Character.toString('\0')));
+        assertThrows(PersistenceException.class, () -> victim.delete("key8" + '\0'));
     }
 
     @Test

@@ -97,7 +97,7 @@ public class WorkspaceControllerTest {
     }
 
     @Test
-    public void loadWorkspaceWithException() throws InterruptedException, ExecutionException {
+    public void loadWorkspaceWithException() {
         Listener<LoadWorkspaceRequest> listener = mock(Listener.class);
         eventStudio().add(LoadWorkspaceRequest.class, listener, DefaultPriorityTestTool.ID);
         when(service.loadWorkspace(eq(file))).thenThrow(new RuntimeException("mock"));

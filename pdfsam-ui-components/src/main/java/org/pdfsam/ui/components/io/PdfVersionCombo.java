@@ -50,9 +50,9 @@ import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ToolBound, ResettableView {
 
     private String toolBinding = StringUtils.EMPTY;
-    private ObservableList<PdfVersionComboItem> unfilteredItems = FXCollections.observableArrayList();
-    private PdfVersionFilter versionsFilter = new PdfVersionFilter();
-    private SameAsSourceComboItem sameAsSource = new SameAsSourceComboItem();
+    private final ObservableList<PdfVersionComboItem> unfilteredItems = FXCollections.observableArrayList();
+    private final PdfVersionFilter versionsFilter = new PdfVersionFilter();
+    private final SameAsSourceComboItem sameAsSource = new SameAsSourceComboItem();
 
     public PdfVersionCombo(String toolBinding) {
         this.toolBinding = toolBinding;
@@ -60,9 +60,7 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ToolBound
         Arrays.stream(PdfVersion.values()).filter(v -> v.getVersion() > PdfVersion.VERSION_1_2.getVersion())
                 .map(DefaultPdfVersionComboItem::new).forEach(unfilteredItems::add);
 
-        versionsFilter.requiredProperty().addListener((observable, oldVal, newVal) -> {
-            setFilteredItems(newVal);
-        });
+        versionsFilter.requiredProperty().addListener((observable, oldVal, newVal) -> setFilteredItems(newVal));
         resetView();
         eventStudio().addAnnotatedListeners(this);
     }
@@ -132,7 +130,7 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ToolBound
      */
     static class DefaultPdfVersionComboItem implements PdfVersionComboItem {
 
-        private PdfVersion version;
+        private final PdfVersion version;
 
         public DefaultPdfVersionComboItem(PdfVersion version) {
             requireNotNullArg(version, "PDF version cannot be null");

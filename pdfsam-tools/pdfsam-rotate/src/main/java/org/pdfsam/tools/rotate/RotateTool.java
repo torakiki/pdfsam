@@ -52,7 +52,7 @@ public class RotateTool implements Tool {
 
     static final String TOOL_ID = "rotate";
 
-    private ToolDescriptor descriptor = builder().category(ToolCategory.OTHER)
+    private final ToolDescriptor descriptor = builder().category(ToolCategory.OTHER)
             .inputTypes(ToolInputOutputType.MULTIPLE_PDF, ToolInputOutputType.SINGLE_PDF).name(i18n().tr("Rotate"))
             .description(i18n().tr("Rotate the pages of multiple PDF documents."))
             .priority(ToolPriority.DEFAULT.getPriority()).supportURL("https://pdfsam.org/rotate-pdf/")

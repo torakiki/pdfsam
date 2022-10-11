@@ -18,9 +18,6 @@
  */
 package org.pdfsam.ui.components.selection.multiple;
 
-import static java.util.Objects.nonNull;
-import static org.sejda.commons.util.RequireUtils.requireNotBlank;
-
 import javafx.event.Event;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.TableCell;
@@ -35,19 +32,22 @@ import javafx.scene.input.KeyEvent;
 import javafx.util.StringConverter;
 import javafx.util.converter.DefaultStringConverter;
 
+import static java.util.Objects.nonNull;
+import static org.sejda.commons.util.RequireUtils.requireNotBlank;
+
 /**
- * Editable cell showing a tooltip. This is based on https://gist.github.com/james-d/be5bbd6255a4640a5357 to overcome the 4 years old
- * https://bugs.openjdk.java.net/browse/JDK-8089514
- * 
+ * Editable cell showing a tooltip. This is based on <a href="https://gist.github.com/james-d/be5bbd6255a4640a5357">...</a> to overcome the 4 years old
+ * <a href="https://bugs.openjdk.java.net/browse/JDK-8089514">...</a>
+ *
  * @author Andrea Vacondio
  */
 class TooltippedTextFieldTableCell extends TableCell<SelectionTableRowData, String> {
 
-    private Tooltip tooltip = new Tooltip();
+    private final Tooltip tooltip = new Tooltip();
 
     private final TextField textField = new TextField();
 
-    private StringConverter<String> converter = new DefaultStringConverter();
+    private final StringConverter<String> converter = new DefaultStringConverter();
 
     @Override
     public void updateItem(String item, boolean empty) {
@@ -73,9 +73,7 @@ class TooltippedTextFieldTableCell extends TableCell<SelectionTableRowData, Stri
         setGraphic(textField);
         setContentDisplay(ContentDisplay.TEXT_ONLY);
 
-        textField.setOnAction(evt -> {
-            commitEdit(this.converter.fromString(textField.getText()));
-        });
+        textField.setOnAction(evt -> commitEdit(this.converter.fromString(textField.getText())));
         textField.focusedProperty().addListener((obs, wasFocused, isNowFocused) -> {
             if (!isNowFocused) {
                 commitEdit(this.converter.fromString(textField.getText()));

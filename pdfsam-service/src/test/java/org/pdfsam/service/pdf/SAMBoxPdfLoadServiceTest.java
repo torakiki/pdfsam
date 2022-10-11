@@ -45,7 +45,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 @ExtendWith({ ClearEventStudioExtension.class, JavaFxThreadInitializeExtension.class })
 public class SAMBoxPdfLoadServiceTest {
-    private DefaultPdfLoadService victim = new DefaultPdfLoadService(
+    private final DefaultPdfLoadService victim = new DefaultPdfLoadService(
             Arrays.asList(new PdfLoader[] { new DefaultSAMBoxLoader(), new BookmarksLevelSAMBoxLoader() }));
 
     @Test
@@ -84,7 +84,7 @@ public class SAMBoxPdfLoadServiceTest {
     }
 
     @Test
-    public void encNoPwd(@TempDir Path folder) throws IOException, InterruptedException, TimeoutException {
+    public void encNoPwd(@TempDir Path folder) throws IOException {
         var testFile = folder.resolve("PDFsamTest.pdf");
         Files.copy(getClass().getResourceAsStream("/enc_test_pdfsam.pdf"), testFile);
         var descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(testFile.toFile());
@@ -101,7 +101,7 @@ public class SAMBoxPdfLoadServiceTest {
     }
 
     @Test
-    public void encWithPwd(@TempDir Path folder) throws IOException, InterruptedException, TimeoutException {
+    public void encWithPwd(@TempDir Path folder) throws IOException {
         var testFile = folder.resolve("PDFsamTest.pdf");
         Files.copy(getClass().getResourceAsStream("/enc_test_pdfsam.pdf"), testFile);
         var descriptor = PdfDocumentDescriptor.newDescriptor(testFile.toFile(), "test");
@@ -119,7 +119,7 @@ public class SAMBoxPdfLoadServiceTest {
     }
 
     @Test
-    public void invalidate(@TempDir Path folder) throws IOException, InterruptedException, TimeoutException {
+    public void invalidate(@TempDir Path folder) throws IOException {
         var testFile = folder.resolve("PDFsamTest.pdf");
         Files.copy(getClass().getResourceAsStream("/test_pdfsam.pdf"), testFile);
         var descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(testFile.toFile());

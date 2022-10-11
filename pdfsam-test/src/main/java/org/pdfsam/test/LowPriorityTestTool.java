@@ -35,7 +35,7 @@ import static org.pdfsam.model.tool.ToolDescriptorBuilder.builder;
 public class LowPriorityTestTool implements Tool {
     public static final String ID = "low.test.module";
 
-    private ToolDescriptor descriptor = builder().category(ToolCategory.SPLIT).description("Low priority test module")
+    private final ToolDescriptor descriptor = builder().category(ToolCategory.SPLIT).description("Low priority test module")
             .name("LowPriorityTestModule").priority(ToolPriority.LOW)
             .build();
 

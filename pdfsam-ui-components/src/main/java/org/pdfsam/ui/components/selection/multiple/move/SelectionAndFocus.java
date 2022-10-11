@@ -34,7 +34,7 @@ public interface SelectionAndFocus {
         }
 
         @Override
-        public int getRow() {
+        public int row() {
             return -1;
         }
 
@@ -52,7 +52,7 @@ public interface SelectionAndFocus {
     /**
      * @return the index of selected item
      */
-    int getRow();
+    int row();
 
     /**
      * @return the index of additional selected items in case of multi selection

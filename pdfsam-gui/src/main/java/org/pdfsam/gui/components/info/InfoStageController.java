@@ -35,7 +35,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 @Auto
 public class InfoStageController {
 
-    private Provider<InfoStage> stageProvider;
+    private final Provider<InfoStage> stageProvider;
 
     @Inject
     InfoStageController(Provider<InfoStage> stageProvider) {

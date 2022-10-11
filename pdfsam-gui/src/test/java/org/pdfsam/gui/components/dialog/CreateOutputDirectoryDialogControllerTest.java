@@ -70,7 +70,7 @@ public class CreateOutputDirectoryDialogControllerTest {
 
 
     @Test
-    public void negativeTest(@TempDir Path folder) throws IOException {
+    public void negativeTest(@TempDir Path folder) {
         Path file = folder.resolve("folder");
         button.setOnAction(a -> eventStudio().broadcast(new NonExistingOutputDirectoryEvent(file)));
         robot.clickOn("show");
@@ -80,7 +80,7 @@ public class CreateOutputDirectoryDialogControllerTest {
 
     @Test
     @Tag("NoHeadless")
-    public void positiveTest(@TempDir Path folder) throws IOException {
+    public void positiveTest(@TempDir Path folder) {
         Path file = folder.resolve("folder");
         button.setOnAction(a -> eventStudio().broadcast(new NonExistingOutputDirectoryEvent(file)));
         robot.clickOn("show");

@@ -41,15 +41,14 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * {@link ValidableTextField} with attached a browse button to let the user select a file
- * 
+ *
  * @author Andrea Vacondio
- * 
  */
 abstract class BrowsableField extends HBox implements RestorableView {
     private static final PseudoClass SELECTED_PSEUDOCLASS_STATE = PseudoClass.getPseudoClass("selected");
 
-    private Button browseButton;
-    private ValidableTextField textField = new ValidableTextField() {
+    private final Button browseButton;
+    private final ValidableTextField textField = new ValidableTextField() {
 
         @Override
         public void paste() {
@@ -65,7 +64,7 @@ abstract class BrowsableField extends HBox implements RestorableView {
         }
 
     };
-    private HBox validableContainer;
+    private final HBox validableContainer;
     private String browseWindowTitle = i18n().tr("Select");
 
     public BrowsableField() {

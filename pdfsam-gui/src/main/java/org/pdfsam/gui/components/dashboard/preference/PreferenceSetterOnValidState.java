@@ -37,9 +37,9 @@ class PreferenceSetterOnValidState implements ChangeListener<FXValidationSupport
 
     private static final Logger LOG = LoggerFactory.getLogger(PreferenceBrowsableFileField.class);
 
-    private StringPersistentProperty property;
-    private ValidableTextField textField;
-    private ApplicationContext context;
+    private final StringPersistentProperty property;
+    private final ValidableTextField textField;
+    private final ApplicationContext context;
 
     PreferenceSetterOnValidState(StringPersistentProperty property, ValidableTextField textField,
             ApplicationContext context) {

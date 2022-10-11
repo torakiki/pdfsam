@@ -191,7 +191,7 @@ class SelectionTableToolbar extends ToolBar implements ToolBound {
      */
     private static class BaseMoveSelectedButton extends ToolbarButton {
 
-        private MoveType type;
+        private final MoveType type;
 
         public BaseMoveSelectedButton(String ownerModule, MoveType type) {
             super(ownerModule);
