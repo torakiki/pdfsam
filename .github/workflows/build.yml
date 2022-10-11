@@ -19,6 +19,6 @@ jobs:
         distribution: 'temurin'
         cache: 'maven'
     - name: Build with Maven
-      uses: GabrielBB/xvfb-action@v1
+      uses: GabrielBB/xvfb-action@v1.6
       with:
         run: mvn --batch-mode --update-snapshots verify
