@@ -40,6 +40,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @author Andrea Vacondio
  */
 @ExtendWith({ ApplicationExtension.class, ClearEventStudioExtension.class })
+@Tag("NoHeadless")
 public class LogPaneTest {
 
     private Injector injector;
@@ -70,7 +71,6 @@ public class LogPaneTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void clear() {
         LogListView view = injector.instance(LogListView.class);
         assertEquals(2, view.getItems().size());
@@ -79,7 +79,6 @@ public class LogPaneTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void copy() {
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             Clipboard.getSystemClipboard().clear();
@@ -91,7 +90,6 @@ public class LogPaneTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void selectAll() {
         LogListView view = injector.instance(LogListView.class);
         robot.rightClickOn("A message").clickOn("#selectAllLogMenuItem");

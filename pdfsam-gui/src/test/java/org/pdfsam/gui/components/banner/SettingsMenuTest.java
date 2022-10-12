@@ -20,7 +20,6 @@ package org.pdfsam.gui.components.banner;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.pdfsam.gui.components.dashboard.PreferencesDashboardItem;
@@ -55,7 +54,6 @@ public class SettingsMenuTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void onSettingsClick() {
         HitTestListener<SetActiveDashboardItemRequest> listener = new HitTestListener<>() {
             @Override

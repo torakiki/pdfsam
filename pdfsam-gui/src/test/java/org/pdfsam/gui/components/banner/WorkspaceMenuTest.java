@@ -46,7 +46,6 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 /**
  * @author Andrea Vacondio
  */
-@Tag("NoHeadless")
 @ExtendWith({ ApplicationExtension.class, ClearEventStudioExtension.class })
 public class WorkspaceMenuTest {
     private Injector injector;

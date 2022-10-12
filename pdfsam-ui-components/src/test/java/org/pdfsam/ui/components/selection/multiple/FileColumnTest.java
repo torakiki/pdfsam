@@ -31,7 +31,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * @author Andrea Vacondio
@@ -40,7 +40,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 public class FileColumnTest {
     @BeforeAll
     public static void setUpClass() {
-        eventStudio().broadcast(new SetLocaleRequest(Locale.UK.toLanguageTag()));
+        i18n().setLocale(new SetLocaleRequest(Locale.UK.toLanguageTag()));
     }
 
     @Test

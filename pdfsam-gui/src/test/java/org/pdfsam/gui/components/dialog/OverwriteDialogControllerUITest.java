@@ -23,7 +23,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.io.TempDir;
@@ -63,7 +62,7 @@ public class OverwriteDialogControllerUITest {
 
     @BeforeAll
     public static void setUp() {
-        eventStudio().broadcast(new SetLocaleRequest(Locale.UK.toLanguageTag()));
+        i18n().setLocale(new SetLocaleRequest(Locale.UK.toLanguageTag()));
     }
 
     @Start
@@ -88,7 +87,6 @@ public class OverwriteDialogControllerUITest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void overwriteOnFileExists() throws IOException {
         MergeParameters parameters = new MergeParameters();
         parameters.setExistingOutputPolicy(ExistingOutputPolicy.FAIL);
@@ -101,7 +99,6 @@ public class OverwriteDialogControllerUITest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void cancelOnNotEmptyDir() throws IOException {
         SimpleSplitParameters parameters = new SimpleSplitParameters(PredefinedSetOfPages.ALL_PAGES);
         parameters.setExistingOutputPolicy(ExistingOutputPolicy.FAIL);
@@ -114,7 +111,6 @@ public class OverwriteDialogControllerUITest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void overwriteOnNotEmptyDir() throws IOException {
         SimpleSplitParameters parameters = new SimpleSplitParameters(PredefinedSetOfPages.ALL_PAGES);
         parameters.setExistingOutputPolicy(ExistingOutputPolicy.FAIL);

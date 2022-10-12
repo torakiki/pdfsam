@@ -65,7 +65,7 @@ public class FooterTest {
 
     @BeforeEach
     public void setUp() {
-        eventStudio().broadcast(new SetLocaleRequest(Locale.UK.toLanguageTag()));
+        i18n().setLocale(new SetLocaleRequest(Locale.UK.toLanguageTag()));
         OpenButton button = new OpenButton(TOOL_ID, ToolInputOutputType.SINGLE_PDF);
         victim = new Footer(new RunButton(), button, TOOL_ID);
     }

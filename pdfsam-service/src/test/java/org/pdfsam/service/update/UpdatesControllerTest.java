@@ -28,7 +28,6 @@ import org.pdfsam.model.update.NoUpdateAvailable;
 import org.pdfsam.model.update.UpdateAvailableEvent;
 import org.pdfsam.model.update.UpdateCheckRequest;
 import org.pdfsam.test.ClearEventStudioExtension;
-import org.pdfsam.test.JavaFxThreadInitializeExtension;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.after;
@@ -41,7 +40,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 /**
  * @author Andrea Vacondio
  */
-@ExtendWith({ ClearEventStudioExtension.class, JavaFxThreadInitializeExtension.class })
+@ExtendWith({ ClearEventStudioExtension.class })
 public class UpdatesControllerTest {
 
     private UpdatesController victim;

@@ -48,6 +48,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
  * @author Andrea Vacondio
  */
 @ExtendWith(ApplicationExtension.class)
+@Tag("NoHeadless")
 public class SelectionTableWithoutMoveTest {
     private static final String MODULE = "MODULE";
     @RegisterExtension
@@ -75,7 +76,6 @@ public class SelectionTableWithoutMoveTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void moveDownIsMissing() {
         robot.rightClickOn(TableViewMatchers.hasTableCell("temp.pdf"));
         assertFalse(robot.lookup(i18n().tr("Move Down")).tryQuery().isPresent());
@@ -83,7 +83,6 @@ public class SelectionTableWithoutMoveTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void moveUpIsMissing() {
         robot.rightClickOn(TableViewMatchers.hasTableCell("temp.pdf"));
         assertFalse(robot.lookup(i18n().tr("Move Up")).tryQuery().isPresent());
@@ -91,7 +90,6 @@ public class SelectionTableWithoutMoveTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void moveBottomIsMissing() {
         robot.rightClickOn(TableViewMatchers.hasTableCell("temp.pdf"));
         assertFalse(robot.lookup(i18n().tr("Move to Bottom")).tryQuery().isPresent());
@@ -99,7 +97,6 @@ public class SelectionTableWithoutMoveTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void moveTopIsMissing() {
         robot.rightClickOn(TableViewMatchers.hasTableCell("temp.pdf"));
         assertFalse(robot.lookup(i18n().tr("Move to Top")).tryQuery().isPresent());

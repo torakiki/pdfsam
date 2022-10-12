@@ -23,7 +23,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.pdfsam.eventstudio.Listener;
@@ -61,7 +60,7 @@ public class LenientTaskExecutionDialogControllerTest {
 
     @BeforeAll
     public static void setUp() {
-        eventStudio().broadcast(new SetLocaleRequest(Locale.UK.toLanguageTag()));
+        i18n().setLocale(new SetLocaleRequest(Locale.UK.toLanguageTag()));
     }
 
     @Start
@@ -111,7 +110,6 @@ public class LenientTaskExecutionDialogControllerTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void positiveTest() {
         AbstractParameters params = mock(AbstractParameters.class);
         var request = new TaskExecutionRequest("id", params);

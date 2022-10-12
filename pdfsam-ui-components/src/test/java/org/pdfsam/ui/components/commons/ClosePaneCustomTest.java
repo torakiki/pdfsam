@@ -46,7 +46,6 @@ public class ClosePaneCustomTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void customAction(FxRobot robot) {
         HitTestListener<HideStageRequest> listener = new HitTestListener<>();
         eventStudio().add(HideStageRequest.class, listener);

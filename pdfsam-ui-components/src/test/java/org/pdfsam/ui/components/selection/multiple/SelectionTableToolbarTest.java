@@ -79,7 +79,6 @@ public class SelectionTableToolbarTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void clearAllSettings(FxRobot robot) {
         Listener<ClearToolRequest> listener = mock(Listener.class);
         ArgumentCaptor<ClearToolRequest> captor = ArgumentCaptor.forClass(ClearToolRequest.class);

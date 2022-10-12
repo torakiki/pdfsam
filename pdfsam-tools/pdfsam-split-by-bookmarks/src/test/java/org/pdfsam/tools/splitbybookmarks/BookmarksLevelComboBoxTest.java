@@ -81,7 +81,6 @@ public class BookmarksLevelComboBoxTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void validateOnChange() {
         victim.setValidBookmarkLevels(new TreeSet<>(List.of(300)));
         victim.setValidBookmarkLevels(validLevels);
@@ -155,7 +154,6 @@ public class BookmarksLevelComboBoxTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void saveState() {
         victim.setValidBookmarkLevels(validLevels);
         robot.clickOn(victim).push(KeyCode.ALT, KeyCode.DOWN).clickOn("2");

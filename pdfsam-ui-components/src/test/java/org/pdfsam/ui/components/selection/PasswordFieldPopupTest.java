@@ -72,7 +72,6 @@ public class PasswordFieldPopupTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void pwdSentOnButtonPressed(FxRobot robot) {
         robot.clickOn("press");
         Listener<PdfLoadRequest> listener = mock(Listener.class);

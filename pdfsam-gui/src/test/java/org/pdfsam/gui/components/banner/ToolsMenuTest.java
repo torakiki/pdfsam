@@ -54,7 +54,6 @@ public class ToolsMenuTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void toolClick() {
         DefaultPriorityTestTool tool = injector.instance(DefaultPriorityTestTool.class);
         HitTestListener<SetActiveToolRequest> listener = new HitTestListener<>() {

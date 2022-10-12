@@ -23,7 +23,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.pdfsam.i18n.SetLocaleRequest;
@@ -36,7 +35,6 @@ import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
@@ -49,7 +47,7 @@ public class LenientExecutionConfirmationDialogTest {
 
     @BeforeAll
     public static void setUp() {
-        eventStudio().broadcast(new SetLocaleRequest(Locale.UK.toLanguageTag()));
+        i18n().setLocale(new SetLocaleRequest(Locale.UK.toLanguageTag()));
     }
 
     @Start
@@ -72,7 +70,6 @@ public class LenientExecutionConfirmationDialogTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void no() {
         this.confirm = true;
         robot.clickOn("show");
@@ -81,7 +78,6 @@ public class LenientExecutionConfirmationDialogTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void yes() {
         this.confirm = false;
         robot.clickOn("show");

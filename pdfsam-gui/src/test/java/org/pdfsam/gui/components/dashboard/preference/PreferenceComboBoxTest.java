@@ -62,7 +62,6 @@ public class PreferenceComboBoxTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void preferenceSetOnClick() {
         robot.clickOn("#victim").clickOn("value2");
         verify(persistentSettings).set(eq(StringPersistentProperty.LOCALE), eq("key2"));

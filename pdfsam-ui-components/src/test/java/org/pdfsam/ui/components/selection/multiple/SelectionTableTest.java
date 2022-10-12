@@ -27,6 +27,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -37,6 +38,7 @@ import org.mockito.ArgumentCaptor;
 import org.pdfsam.core.context.BooleanPersistentProperty;
 import org.pdfsam.core.support.EncryptionUtils;
 import org.pdfsam.eventstudio.Listener;
+import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.model.io.NativeOpenFileRequest;
 import org.pdfsam.model.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.model.pdf.PdfDocumentDescriptor;
@@ -59,6 +61,7 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
 
@@ -92,6 +95,11 @@ public class SelectionTableTest {
     private FxRobot robot;
     private SelectionTable victim;
     private PdfDocumentDescriptor firstItem;
+
+    @BeforeAll
+    public static void setUp() {
+        i18n().setLocale(new SetLocaleRequest(Locale.UK.toLanguageTag()));
+    }
 
     @Start
     public void start(Stage stage) throws Exception {
@@ -138,6 +146,7 @@ public class SelectionTableTest {
     }
 
     @Test
+    @Tag("NoHeadless")
     public void multipleSelect() {
         HitTestListener<SelectionChangedEvent> listener = new HitTestListener<>() {
             @Override
@@ -182,7 +191,6 @@ public class SelectionTableTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void onSaveWorkspaceEncryptedPwdStored() {
         app().persistentSettings().set(BooleanPersistentProperty.SAVE_PWD_IN_WORKSPACE, true);
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
@@ -293,7 +301,6 @@ public class SelectionTableTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void encryptedThrowsRequest() {
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED);
@@ -309,6 +316,7 @@ public class SelectionTableTest {
     }
 
     @Test
+    @Tag("NoHeadless")
     public void clearSelectionByclickOn() {
         robot.clickOn("temp.pdf");
         assertEquals(1, victim.getSelectionModel().getSelectedIndices().size());
@@ -332,6 +340,7 @@ public class SelectionTableTest {
     }
 
     @Test
+    @Tag("NoHeadless")
     public void removeMultiple() {
         robot.clickOn("temp.pdf").press(KeyCode.CONTROL).clickOn("temp3.pdf").release(KeyCode.CONTROL);
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> eventStudio().broadcast(new RemoveSelectedEvent(), MODULE));
@@ -487,7 +496,6 @@ public class SelectionTableTest {
     }
 
     @Test
-    @Tag("NoWindows")
     public void iconsAreShown() {
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> firstItem.moveStatusTo(PdfDescriptorLoadingStatus.REQUESTED));
         WaitForAsyncUtils.waitForFxEvents();
@@ -526,7 +534,6 @@ public class SelectionTableTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     @Disabled("TODO")
     public void editCommitOnFocusLost() {
         Optional<SelectionTableRowData> item = victim.getItems().stream()

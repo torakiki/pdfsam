@@ -40,7 +40,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.pdfsam.core.context.ApplicationContext.app;
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
@@ -52,7 +51,7 @@ public class PreferencePaneTest {
 
     @BeforeAll
     public static void setUpClass() {
-        eventStudio().broadcast(new SetLocaleRequest(Locale.UK.toLanguageTag()));
+        i18n().setLocale(new SetLocaleRequest(Locale.UK.toLanguageTag()));
         app().persistentSettings().set(BooleanPersistentProperty.CHECK_UPDATES, Boolean.TRUE);
         app().persistentSettings().set(BooleanPersistentProperty.CHECK_FOR_NEWS, Boolean.TRUE);
         app().persistentSettings().set(BooleanPersistentProperty.PLAY_SOUNDS, Boolean.FALSE);

@@ -23,7 +23,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.io.TempDir;
@@ -34,7 +33,6 @@ import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Locale;
@@ -56,7 +54,7 @@ public class CreateOutputDirectoryDialogControllerTest {
 
     @BeforeAll
     public static void setUp() {
-        eventStudio().broadcast(new SetLocaleRequest(Locale.UK.toLanguageTag()));
+        i18n().setLocale(new SetLocaleRequest(Locale.UK.toLanguageTag()));
     }
 
     @Start
@@ -79,7 +77,6 @@ public class CreateOutputDirectoryDialogControllerTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void positiveTest(@TempDir Path folder) {
         Path file = folder.resolve("folder");
         button.setOnAction(a -> eventStudio().broadcast(new NonExistingOutputDirectoryEvent(file)));

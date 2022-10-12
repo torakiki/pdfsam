@@ -89,7 +89,6 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void builder() throws Exception {
         robot.clickOn("#combo").clickOn("Odd pages");
         var file = Files.createTempFile(folder, null, ".pdf").toFile();
@@ -141,7 +140,6 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void saveStateSelected() {
         robot.clickOn(victim);
         robot.clickOn("#combo").clickOn("Odd pages");
@@ -175,7 +173,6 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void reset() {
         robot.clickOn(victim);
         robot.clickOn("#combo").clickOn("Odd pages");

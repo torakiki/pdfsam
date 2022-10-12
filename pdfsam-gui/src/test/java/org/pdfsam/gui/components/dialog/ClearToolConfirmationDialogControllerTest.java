@@ -25,7 +25,6 @@ import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -68,7 +67,7 @@ public class ClearToolConfirmationDialogControllerTest {
 
     @BeforeAll
     public static void setUp() {
-        eventStudio().broadcast(new SetLocaleRequest(Locale.UK.toLanguageTag()));
+        i18n().setLocale(new SetLocaleRequest(Locale.UK.toLanguageTag()));
     }
 
     @Start
@@ -111,7 +110,6 @@ public class ClearToolConfirmationDialogControllerTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void positiveTest() {
         button.setOnAction(a -> eventStudio().broadcast(new ClearToolRequest(TOOL, true, true)));
         eventStudio().add(ClearToolRequest.class, listener, TOOL);

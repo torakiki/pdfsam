@@ -90,7 +90,7 @@ public class SingleSelectionPaneTest {
 
     @BeforeAll
     public static void setUp() {
-        eventStudio().broadcast(new SetLocaleRequest(Locale.UK.toLanguageTag()));
+        i18n().setLocale(new SetLocaleRequest(Locale.UK.toLanguageTag()));
         System.setProperty("testfx.robot.write_sleep", "5");
     }
 
@@ -377,7 +377,6 @@ public class SingleSelectionPaneTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void clickEncryptedThrowsRequest() throws Exception {
         Listener<PdfLoadRequest> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequest.class, listener);

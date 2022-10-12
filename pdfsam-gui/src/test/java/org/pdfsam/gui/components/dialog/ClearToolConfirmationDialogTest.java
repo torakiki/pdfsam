@@ -24,7 +24,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.pdfsam.core.context.BooleanPersistentProperty;
@@ -55,7 +54,7 @@ public class ClearToolConfirmationDialogTest {
 
     @BeforeAll
     public static void setUp() {
-        eventStudio().broadcast(new SetLocaleRequest(Locale.UK.toLanguageTag()));
+        i18n().setLocale(new SetLocaleRequest(Locale.UK.toLanguageTag()));
     }
 
     @AfterAll
@@ -93,7 +92,6 @@ public class ClearToolConfirmationDialogTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void no() {
         button.setOnAction(a -> eventStudio().broadcast(new ClearToolRequest("module", false, true)));
         eventStudio().add(ClearToolRequest.class, listener, "module");
@@ -103,7 +101,6 @@ public class ClearToolConfirmationDialogTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void yes() {
         button.setOnAction(a -> eventStudio().broadcast(new ClearToolRequest("module", false, true)));
         eventStudio().add(ClearToolRequest.class, listener, "module");

@@ -44,7 +44,6 @@ public class ClosePaneTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void hide(FxRobot robot) {
         assertEquals(1, robot.listWindows().size());
         robot.clickOn(".pdfsam-button");

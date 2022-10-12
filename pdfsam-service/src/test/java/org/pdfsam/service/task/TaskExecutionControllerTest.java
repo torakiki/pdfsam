@@ -24,10 +24,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.pdfsam.eventstudio.Listener;
 import org.pdfsam.model.tool.TaskExecutionRequest;
-import org.pdfsam.service.task.TaskExecutionController;
 import org.pdfsam.service.task.TaskExecutionController.TaskEventBroadcaster;
-import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.service.tool.UsageService;
+import org.pdfsam.test.ClearEventStudioExtension;
+import org.pdfsam.test.JavaFxThreadInitializeExtension;
 import org.sejda.core.notification.context.GlobalNotificationContext;
 import org.sejda.core.service.TaskExecutionService;
 import org.sejda.model.notification.event.TaskExecutionStartedEvent;
@@ -42,7 +42,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
  * @author Andrea Vacondio
  *
  */
-@ExtendWith(ClearEventStudioExtension.class)
+@ExtendWith({ ClearEventStudioExtension.class, JavaFxThreadInitializeExtension.class })
 public class TaskExecutionControllerTest {
 
     private TaskExecutionService executionService;

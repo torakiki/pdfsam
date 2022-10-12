@@ -35,6 +35,8 @@
 						--add-exports javafx.base/com.sun.javafx.beans=ALL-UNNAMED
 						--add-exports javafx.graphics/com.sun.javafx.application=ALL-UNNAMED
 						--add-exports javafx.graphics/com.sun.javafx.embed=ALL-UNNAMED
+						--add-exports javafx.graphics/com.sun.glass.ui.delegate=ALL-UNNAMED
+						--add-opens javafx.graphics/com.sun.glass.ui=ALL-UNNAMED
 					</argLine>
 				</configuration>
 			</plugin>

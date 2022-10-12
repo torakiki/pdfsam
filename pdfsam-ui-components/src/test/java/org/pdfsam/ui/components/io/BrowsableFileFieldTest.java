@@ -36,7 +36,6 @@ import java.util.Locale;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
@@ -47,7 +46,7 @@ public class BrowsableFileFieldTest {
 
     @Test
     public void defaultPromptText() {
-        eventStudio().broadcast(new SetLocaleRequest(Locale.UK.toLanguageTag()));
+        i18n().setLocale(new SetLocaleRequest(Locale.UK.toLanguageTag()));
         var victim = new BrowsableFileField(FileType.ALL, OpenType.OPEN);
         assertEquals(i18n().tr("Select a file"), victim.getTextField().getPromptText());
     }

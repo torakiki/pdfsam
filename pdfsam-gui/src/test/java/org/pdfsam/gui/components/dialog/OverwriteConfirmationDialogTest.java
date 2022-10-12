@@ -74,7 +74,6 @@ public class OverwriteConfirmationDialogTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void cancel() {
         response = Optional.empty();
         robot.clickOn("show");
@@ -83,7 +82,6 @@ public class OverwriteConfirmationDialogTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void overwrite() {
         response = Optional.empty();
         robot.clickOn("show");
@@ -93,7 +91,6 @@ public class OverwriteConfirmationDialogTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void skip() {
         response = Optional.empty();
         robot.clickOn("show");
@@ -103,7 +100,6 @@ public class OverwriteConfirmationDialogTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void rename() {
         response = Optional.empty();
         robot.clickOn("show");

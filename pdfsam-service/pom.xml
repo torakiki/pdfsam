@@ -33,6 +33,7 @@
 					<argLine>
 						--add-exports javafx.base/com.sun.javafx.logging=ALL-UNNAMED
 						--add-exports javafx.graphics/com.sun.javafx.application=ALL-UNNAMED
+						--add-exports javafx.graphics/com.sun.javafx.embed=ALL-UNNAMED
 					</argLine>
 				</configuration>
 			</plugin>
@@ -61,7 +62,7 @@
 		<dependency>
 			<groupId>org.sejda</groupId>
 			<artifactId>sambox</artifactId>
-			<version>3.0.0.M4-SNAPSHOT</version>
+			<version>3.0.0.M4</version>
 		</dependency>
 		<!-- /TODO -->
 		<dependency>

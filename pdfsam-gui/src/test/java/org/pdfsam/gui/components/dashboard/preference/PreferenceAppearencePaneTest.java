@@ -70,7 +70,6 @@ public class PreferenceAppearencePaneTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void eventSentOnLocaleChange() {
         Listener<SetLocaleRequest> listener = mock(Listener.class);
         eventStudio().add(SetLocaleRequest.class, listener);

@@ -73,7 +73,6 @@ public class OpenWithDialogTest {
     }
 
     @Test
-    @Tag("NoHeadless")
     public void singleArg(@TempDir Path folder) throws IOException {
         Listener<ClearToolRequest> clearListener = mock(Listener.class);
         eventStudio().add(ClearToolRequest.class, clearListener, tool.id());
