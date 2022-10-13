@@ -43,6 +43,7 @@ module org.pdfsam.model {
     exports org.pdfsam.model.update;
     exports org.pdfsam.model.ui.dnd;
 
+    opens org.pdfsam.model.images;
     opens org.pdfsam.model.ui to com.fasterxml.jackson.databind;
     opens org.pdfsam.model.premium to com.fasterxml.jackson.databind;
     opens org.pdfsam.model.news to com.fasterxml.jackson.databind;

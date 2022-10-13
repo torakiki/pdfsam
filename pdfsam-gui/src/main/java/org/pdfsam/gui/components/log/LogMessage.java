@@ -20,8 +20,6 @@ package org.pdfsam.gui.components.log;
 
 import org.apache.commons.lang3.ObjectUtils;
 
-import static org.sejda.commons.util.RequireUtils.requireNotBlank;
-
 /**
  * Model for a Log message
  *
@@ -30,7 +28,6 @@ import static org.sejda.commons.util.RequireUtils.requireNotBlank;
 record LogMessage(String message, LogLevel level) {
 
     LogMessage(String message, LogLevel level) {
-        requireNotBlank(message, "Cannot create an empty log message");
         this.message = message;
         this.level = ObjectUtils.defaultIfNull(level, LogLevel.INFO);
     }

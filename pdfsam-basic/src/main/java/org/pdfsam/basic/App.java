@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 22/ott/2014
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -29,19 +29,25 @@ import org.pdfsam.tools.split.SplitTool;
 import org.pdfsam.tools.splitbybookmarks.SplitByBookmarksTool;
 import org.pdfsam.tools.splitbysize.SplitBySizeTool;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 /**
  * PDFsam Basic Edition App
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
 public class App {
+
     public static void main(String[] args) {
-        Injector.addConfig(new PdfsamBasicConfig(), new AlternateMixTool.ModuleConfig(),
-                new ExtractTool.ModuleConfig(), new MergeTool.ModuleConfig(),
-                new RotateTool.ModuleConfig(), new SplitTool.ModuleConfig(),
-                new SplitByBookmarksTool.ModuleConfig(),
-                new SplitBySizeTool.ModuleConfig());
+        if (Arrays.stream(args).filter(Objects::nonNull).map(String::toLowerCase)
+                .anyMatch(s -> "--verbose".equals(s) || "-verbose".equals(s) || "-v".equals(s))) {
+            System.setProperty("tinylog.configuration", "tinylog-verbose.properties");
+        }
+
+        Injector.addConfig(new PdfsamBasicConfig(), new AlternateMixTool.ModuleConfig(), new ExtractTool.ModuleConfig(),
+                new MergeTool.ModuleConfig(), new RotateTool.ModuleConfig(), new SplitTool.ModuleConfig(),
+                new SplitByBookmarksTool.ModuleConfig(), new SplitBySizeTool.ModuleConfig());
         Application.launch(PdfsamApp.class, args);
     }
 

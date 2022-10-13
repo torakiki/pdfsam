@@ -400,6 +400,21 @@
 				<artifactId>rxjava</artifactId>
 				<version>${rxjava.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.tinylog</groupId>
+				<artifactId>slf4j-tinylog</artifactId>
+				<version>${tinylog.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.tinylog</groupId>
+				<artifactId>tinylog-impl</artifactId>
+				<version>${tinylog.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.tinylog</groupId>
+				<artifactId>tinylog-api</artifactId>
+				<version>${tinylog.version}</version>
+			</dependency>
 			<!-- test -->
 			<dependency>
 				<groupId>org.testfx</groupId>

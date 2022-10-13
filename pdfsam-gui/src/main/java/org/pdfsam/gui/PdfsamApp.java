@@ -18,8 +18,6 @@
  */
 package org.pdfsam.gui;
 
-import ch.qos.logback.classic.Level;
-import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.Event;
@@ -41,7 +39,6 @@ import org.pdfsam.core.context.BooleanPersistentProperty;
 import org.pdfsam.core.context.StringPersistentProperty;
 import org.pdfsam.gui.components.MainPane;
 import org.pdfsam.gui.components.dashboard.preference.PreferenceConfig;
-import org.pdfsam.gui.components.log.LogMessageBroadcaster;
 import org.pdfsam.gui.components.notification.NotificationsContainer;
 import org.pdfsam.gui.configuration.DashboardConfig;
 import org.pdfsam.gui.configuration.PdfsamConfig;
@@ -94,15 +91,12 @@ public class PdfsamApp extends Application {
     private Stage primaryStage;
     private List<String> rawParameters;
     private boolean clean;
-    private LogMessageBroadcaster broadcaster;
 
     @Override
     public void init() {
         STOPWATCH.start();
         Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger());
         rawParameters = getParameters().getRaw();
-        verboseIfRequired();
-        startLogAppender();
         System.setProperty(PDDocumentHandler.SAMBOX_USE_ASYNC_WRITER, Boolean.TRUE.toString());
         System.setProperty(Sejda.UNETHICAL_READ_PROPERTY_NAME, Boolean.TRUE.toString());
         System.setProperty(IOUtils.TMP_BUFFER_PREFIX_PROPERTY_NAME, "pdfsam");
@@ -117,23 +111,6 @@ public class PdfsamApp extends Application {
         var workingPath = app().persistentSettings().get(StringPersistentProperty.WORKING_PATH)
                 .filter(StringUtils::isNotBlank).map(Paths::get).filter(Files::isDirectory).orElse(null);
         app().runtimeState().workingPath(workingPath);
-    }
-
-    private void verboseIfRequired() {
-        if (rawParameters.contains("--verbose") || rawParameters.contains("-verbose") || rawParameters.contains("-v")) {
-            ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("org.sejda")).setLevel(Level.DEBUG);
-            ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("org.sejda.sambox")).setLevel(Level.DEBUG);
-            ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("org.pdfsam")).setLevel(Level.TRACE);
-            ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("org.pdfsam.eventstudio")).setLevel(Level.INFO);
-            LOG.info("Enabled verbose logging");
-        }
-    }
-
-    private void startLogAppender() {
-        PatternLayoutEncoder encoder = new PatternLayoutEncoder();
-        encoder.setPattern("%-5level %nopex [%d{HH:mm:ss}]: %msg%n%xThrowable{50}");
-        broadcaster = new LogMessageBroadcaster(encoder);
-        broadcaster.start();
     }
 
     @Override

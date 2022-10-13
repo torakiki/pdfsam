@@ -1,3 +1,4 @@
+import org.pdfsam.gui.components.log.BroadcastingWriter;
 
 /*
  * This file is part of the PDF Split And Merge source code
@@ -37,8 +38,8 @@ module org.pdfsam.gui {
     requires org.sejda.impl.sambox;
     requires org.slf4j;
 
-    requires transitive ch.qos.logback.classic;
-    requires transitive ch.qos.logback.core;
+    requires transitive org.tinylog.impl;
+    requires transitive org.tinylog.api;
     requires transitive com.fasterxml.jackson.databind;
     requires transitive jakarta.inject;
     requires transitive javafx.base;
@@ -54,6 +55,7 @@ module org.pdfsam.gui {
     requires transitive org.sejda.model;
 
     exports org.pdfsam.gui;
+    exports org.pdfsam.gui.components.log;
 
     opens org.pdfsam.gui to org.pdfsam.injector;
     opens org.pdfsam.gui.components to org.pdfsam.injector, org.pdfsam.eventstudio;
@@ -75,4 +77,6 @@ module org.pdfsam.gui {
 
     uses org.pdfsam.theme.Theme;
     uses org.pdfsam.model.tool.Tool;
+    provides org.tinylog.writers.Writer with BroadcastingWriter;
+
 }

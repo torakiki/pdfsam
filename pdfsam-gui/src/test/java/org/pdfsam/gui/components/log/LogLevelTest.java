@@ -18,8 +18,8 @@
  */
 package org.pdfsam.gui.components.log;
 
-import ch.qos.logback.classic.Level;
 import org.junit.jupiter.api.Test;
+import org.tinylog.Level;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -31,10 +31,10 @@ public class LogLevelTest {
 
     @Test
     public void toLogLevel() {
-        assertEquals(LogLevel.ERROR, LogLevel.toLogLevel(Level.ERROR_INT));
-        assertEquals(LogLevel.WARN, LogLevel.toLogLevel(Level.WARN_INT));
-        assertEquals(LogLevel.INFO, LogLevel.toLogLevel(Level.INFO_INT));
-        assertEquals(LogLevel.INFO, LogLevel.toLogLevel(Level.DEBUG_INT));
-        assertEquals(LogLevel.INFO, LogLevel.toLogLevel(Level.TRACE_INT));
+        assertEquals(LogLevel.ERROR, LogLevel.toLogLevel(Level.ERROR));
+        assertEquals(LogLevel.WARN, LogLevel.toLogLevel(Level.WARN));
+        assertEquals(LogLevel.INFO, LogLevel.toLogLevel(Level.INFO));
+        assertEquals(LogLevel.INFO, LogLevel.toLogLevel(Level.DEBUG));
+        assertEquals(LogLevel.INFO, LogLevel.toLogLevel(Level.TRACE));
     }
 }
