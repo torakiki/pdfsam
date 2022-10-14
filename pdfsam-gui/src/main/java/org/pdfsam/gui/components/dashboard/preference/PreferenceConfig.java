@@ -22,6 +22,7 @@ import jakarta.inject.Named;
 import org.pdfsam.core.context.StringPersistentProperty;
 import org.pdfsam.core.support.validation.Validators;
 import org.pdfsam.gui.components.log.MaxLogRowsChangedEvent;
+import org.pdfsam.gui.theme.Themes;
 import org.pdfsam.injector.Provides;
 import org.pdfsam.model.io.FileType;
 import org.pdfsam.model.io.OpenType;
@@ -30,6 +31,7 @@ import org.pdfsam.ui.components.support.FXValidationSupport;
 import org.pdfsam.ui.components.support.Style;
 
 import static java.util.Comparator.comparing;
+import static java.util.Optional.ofNullable;
 import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.core.context.BooleanPersistentProperty.CHECK_FOR_NEWS;
 import static org.pdfsam.core.context.BooleanPersistentProperty.CHECK_UPDATES;
@@ -44,6 +46,7 @@ import static org.pdfsam.core.context.BooleanPersistentProperty.SAVE_WORKSPACE_O
 import static org.pdfsam.core.context.BooleanPersistentProperty.SMART_OUTPUT;
 import static org.pdfsam.core.context.IntegerPersistentProperty.LOGVIEW_ROWS_NUMBER;
 import static org.pdfsam.core.context.StringPersistentProperty.STARTUP_MODULE;
+import static org.pdfsam.core.context.StringPersistentProperty.THEME;
 import static org.pdfsam.core.context.StringPersistentProperty.WORKING_PATH;
 import static org.pdfsam.core.context.StringPersistentProperty.WORKSPACE_PATH;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
@@ -66,7 +69,7 @@ public class PreferenceConfig {
 
     @Provides
     @Named("startupToolCombo")
-    public PreferenceComboBox<ComboItem<String>> startupModuleCombo() {
+    public PreferenceComboBox<ComboItem<String>> startupToolCombo() {
         PreferenceComboBox<ComboItem<String>> startupToolCombo = new PreferenceComboBox<>(STARTUP_MODULE);
         startupToolCombo.setId("startupModuleCombo");
         startupToolCombo.getItems().add(new ComboItem<>("", i18n().tr("Dashboard")));
@@ -74,6 +77,22 @@ public class PreferenceConfig {
                 .sorted(comparing(ComboItem::description)).forEach(startupToolCombo.getItems()::add);
         startupToolCombo.setValue(keyWithEmptyValue(app().persistentSettings().get(STARTUP_MODULE).orElse("")));
         return startupToolCombo;
+    }
+
+    @Provides
+    @Named("themeCombo")
+    public PreferenceComboBox<ComboItem<String>> themeCombo() {
+        PreferenceComboBox<ComboItem<String>> themeCombo = new PreferenceComboBox<>(THEME);
+        themeCombo.setId("themeCombo");
+        Themes.themes().entrySet().stream().map(entry -> new ComboItem<>(entry.getKey(), entry.getValue().name()))
+                .forEach(themeCombo.getItems()::add);
+        app().runtimeState().theme().take(1).subscribe(t -> {
+            themeCombo.setValue(new ComboItem<>(t.id(), t.name()));
+            themeCombo.valueProperty().addListener(
+                    (observable, oldVal, newVal) -> ofNullable(Themes.get(newVal.key())).ifPresent(
+                            theme -> app().runtimeState().theme(theme)));
+        });
+        return themeCombo;
     }
 
     @Provides

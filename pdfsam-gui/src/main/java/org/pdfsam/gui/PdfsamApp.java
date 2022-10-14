@@ -76,6 +76,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.pdfsam.core.context.ApplicationContext.app;
+import static org.pdfsam.core.context.StringPersistentProperty.THEME;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.i18n.I18nContext.i18n;
 
@@ -189,7 +190,7 @@ public class PdfsamApp extends Application {
 
     private void initTheme(Scene scene) {
         app().runtimeState().subscribeThemedScene(scene);
-        var theme = app().persistentSettings().get(StringPersistentProperty.THEME).orElse(null);
+        var theme = app().persistentSettings().get(THEME).orElse(null);
         app().runtimeState().theme(Themes.getOrDefault(theme));
     }
 

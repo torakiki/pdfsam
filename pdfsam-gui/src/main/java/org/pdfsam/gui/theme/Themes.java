@@ -18,7 +18,6 @@ package org.pdfsam.gui.theme;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.theme.Theme;
 
 import java.util.Collections;
@@ -26,6 +25,7 @@ import java.util.ServiceLoader;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+import static java.util.Objects.nonNull;
 import static java.util.Optional.ofNullable;
 import static java.util.function.Function.identity;
 import static java.util.stream.Collectors.toMap;
@@ -40,15 +40,23 @@ public class Themes {
             .map(ServiceLoader.Provider::get).collect(toMap(Theme::id, identity(), (a, b) -> a, TreeMap::new));
 
     /**
-     * @param id
+     * @param id the theme id
      * @return the theme with the given id or a default theme if no theme with the given id is found
-     * @throws IllegalStateException if no theme is found
+     * @throws IllegalStateException if no theme is available
      */
     public static Theme getOrDefault(String id) {
-        if (StringUtils.isNotBlank(id)) {
-            return ofNullable(THEMES.get(id)).orElseGet(Themes::defaultTheme);
+        return ofNullable(get(id)).orElseGet(Themes::defaultTheme);
+    }
+
+    /**
+     * @param id the theme id
+     * @return the theme with the given id or null
+     */
+    public static Theme get(String id) {
+        if (nonNull(id)) {
+            return THEMES.get(id);
         }
-        return defaultTheme();
+        return null;
     }
 
     //TODO replace with some logic to at least detect light/dark theme and provide a sensible default

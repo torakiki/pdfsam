@@ -22,7 +22,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import org.apache.commons.lang3.StringUtils;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -62,7 +61,8 @@ public class PreferenceAppearencePaneTest {
         var localeCombo = new PreferenceComboBox<>(StringPersistentProperty.LOCALE, appContext);
         localeCombo.setId("localeCombo");
         var startupModuleCombo = new PreferenceComboBox<>(StringPersistentProperty.STARTUP_MODULE, appContext);
-        PreferenceAppearencePane victim = new PreferenceAppearencePane(localeCombo, startupModuleCombo);
+        var themeCombo = new PreferenceComboBox<>(StringPersistentProperty.THEME, appContext);
+        PreferenceAppearencePane victim = new PreferenceAppearencePane(localeCombo, startupModuleCombo, themeCombo);
         victim.setId("victim");
         Scene scene = new Scene(new HBox(victim));
         stage.setScene(scene);

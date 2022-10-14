@@ -42,7 +42,8 @@ class PreferenceAppearencePane extends GridPane {
 
     @Inject
     public PreferenceAppearencePane(@Named("localeCombo") PreferenceComboBox<ComboItem<String>> localeCombo,
-            @Named("startupToolCombo") PreferenceComboBox<ComboItem<String>> startupTool) {
+            @Named("startupToolCombo") PreferenceComboBox<ComboItem<String>> startupTool,
+            @Named("themeCombo") PreferenceComboBox<ComboItem<String>> themeCombo) {
         add(new Label(i18n().tr("Language:")), 0, 0);
         i18n().getSupported().stream().map(ComboItem::fromLocale).sorted(Comparator.comparing(ComboItem::description))
                 .forEach(localeCombo.getItems()::add);
@@ -60,6 +61,12 @@ class PreferenceAppearencePane extends GridPane {
         setFillWidth(startupTool, true);
         add(startupTool, 1, 1);
         add(helpIcon(i18n().tr("Set the tool to open at application startup (restart needed)")), 2, 1);
+
+        add(new Label(i18n().tr("Theme:")), 0, 2);
+        themeCombo.setMaxWidth(Double.POSITIVE_INFINITY);
+        setFillWidth(themeCombo, true);
+        add(themeCombo, 1, 2);
+        add(helpIcon(i18n().tr("Set the application theme")), 2, 2);
 
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.GRID.css());
