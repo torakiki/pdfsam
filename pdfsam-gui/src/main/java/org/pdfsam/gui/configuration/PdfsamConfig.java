@@ -83,6 +83,6 @@ public class PdfsamConfig {
     @Provides
     @Prototype
     public ImageView payoff() {
-        return new ImageView(this.getClass().getResource("/org/pdfsam/gui/images/payoff.png").toExternalForm());
+        return new ImageView(this.getClass().getResource("/org/pdfsam/gui/images/logo.png").toExternalForm());
     }
 }
