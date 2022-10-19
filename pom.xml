@@ -253,7 +253,7 @@
 		<logback.version>1.2.11</logback.version>
 		<jdepend.version>2.9.1</jdepend.version>
 		<hibernate-validator.version>4.2.0.Final</hibernate-validator.version>
-		<sejda.version>4.3.14</sejda.version>
+		<sejda.version>4.3.17</sejda.version>
 		<sejda.commons.version>1.1.7</sejda.commons.version>
 		<eventstudio.version>3.0.4</eventstudio.version>
 		<injector.version>2.0.0</injector.version>
@@ -263,7 +263,7 @@
 		<testfx.version>4.0.15-alpha</testfx.version>
 		<jackson-jr.version>2.13.3</jackson-jr.version>
 		<tempus.fugit.version>1.1</tempus.fugit.version>
-		<bouncycastle.version>1.71</bouncycastle.version>
+		<bouncycastle.version>1.72</bouncycastle.version>
 		<hamcrest.version>1.3</hamcrest.version>
 		<javafx.version>17.0.2</javafx.version>
 		<monocle.version>jdk-12.0.1+2</monocle.version>
