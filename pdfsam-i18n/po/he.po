@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-11-15 12:38+0100\n"
-"PO-Revision-Date: 2020-02-02 14:15+0000\n"
-"Last-Translator: shalom hadad <Unknown>\n"
+"PO-Revision-Date: 2022-08-01 19:07+0000\n"
+"Last-Translator: NAT <Unknown>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-07-26 09:36+0000\n"
-"X-Generator: Launchpad (build 20124175fa98fcb4b43973265a1561174418f4bd)\n"
+"X-Launchpad-Export-Date: 2022-10-19 07:04+0000\n"
+"X-Generator: Launchpad (build 083267bcef06a439af1c3ee2507b2333659521d4)\n"
 
 msgid "No PDF document has been selected"
 msgstr "לא נבחר אף מסמך PDF"
@@ -235,11 +235,11 @@ msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr "קבע האם \"דחיסת קובץ פלט\" יופעל כברירת מחדל"
 
 msgid "Overwrite files"
-msgstr ""
+msgstr "החלף קבצים"
 
 msgid ""
 "Set whether \"Overwrite if already exists\" should be enabled by default"
-msgstr ""
+msgstr "החלף אם כבר קיים"
 
 msgid "Play alert sounds"
 msgstr "נגינת צלילי התרעה"
@@ -272,12 +272,12 @@ msgid ""
 msgstr "קבע האם היישום יוריד ויציג תיאור יכולות למשתמשי פרימיום בחלון הראשי"
 
 msgid "Ask for a confirmation when clearing the selection table"
-msgstr ""
+msgstr "בקשו אישור בזמן ניקוי טבלת הבחירה"
 
 msgid ""
 "Set whether the application should ask for a confirmation when clearing the "
 "selection table"
-msgstr ""
+msgstr "הגדר"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "השתמש בתיקיה של מסמך ה PDF הנבחר כתיקית הפלט"
@@ -322,16 +322,16 @@ msgid "No"
 msgstr "לא"
 
 msgid "Confirm clearing"
-msgstr ""
+msgstr "אשר את הסליקה"
 
 msgid "Do you confirm?"
-msgstr ""
+msgstr "האם אתה מאשר"
 
 msgid "Clear the module settings"
-msgstr ""
+msgstr "נקה את הגדרות המודול"
 
 msgid "Clear the selection table"
-msgstr ""
+msgstr "נקה את טבלת הבחירה"
 
 msgid "Open with"
 msgstr "פתח באמצעות"
@@ -346,16 +346,16 @@ msgid "The selected directory is not empty"
 msgstr "הספריה שנבחרה לא ריקה"
 
 msgid "What would you like to do in case of files with the same name?"
-msgstr ""
+msgstr "יש כבר קובץ בשם הזה מה תרצו לעשות?"
 
 msgid "Overwrite"
 msgstr "שכתב קובץ קיים"
 
 msgid "Rename"
-msgstr ""
+msgstr "שינוי שם"
 
 msgid "Skip"
-msgstr ""
+msgstr "דלג"
 
 msgid "Cancel"
 msgstr "ביטול"
@@ -370,7 +370,7 @@ msgid "A file with the given name already exists"
 msgstr "קובץ בעל שם זה כבר קיים"
 
 msgid "What would you like to do?"
-msgstr ""
+msgstr "מה תרצה לעשות?"
 
 msgid "Non existing directory"
 msgstr "תיקייה לא קיימת"
