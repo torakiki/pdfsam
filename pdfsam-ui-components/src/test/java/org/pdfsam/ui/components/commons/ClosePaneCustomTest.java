@@ -20,7 +20,6 @@ package org.pdfsam.ui.components.commons;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.pdfsam.model.ui.HideStageRequest;
@@ -49,7 +48,7 @@ public class ClosePaneCustomTest {
     public void customAction(FxRobot robot) {
         HitTestListener<HideStageRequest> listener = new HitTestListener<>();
         eventStudio().add(HideStageRequest.class, listener);
-        robot.clickOn(".pdfsam-button");
+        robot.clickOn(".btn");
         assertTrue(listener.isHit());
     }
 }

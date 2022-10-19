@@ -1,13 +1,24 @@
 .context-menu {
-	 -fx-background-color: -pdfsam-box-border-color, -pdfsam-tooltipbg-color;
+    -fx-background-color: -pdfsam-border-color, -pdfsam-tooltip-background-color;
     -fx-background-insets: 0.0, 0.5;
-    -fx-background-radius: 3.0;
-	-fx-effect: -pdfsam-shadow-effect;
+    -fx-background-radius: 4.0;
+    -fx-effect: -pdfsam-default-shadow-effect;
     -fx-padding: 0.333333em 0.333333em 0.333333em 0.333333em;
 }
+
+.menu-item {
+    -fx-background-radius: 4.0;
+}
+
 .menu-item:focused {
-     -fx-background-color: -pdfsam-flat-bg-color;
+    -fx-background-color: -pdfsam-menu-hover-color;
 }
+
 .menu > .right-container > .arrow, .menu:focused > .right-container > .arrow {
-    -fx-background-color: -pdfsam-dark-text-color;
+    -fx-background-color: -default-font-color;
 }
+
+.context-menu .separator:horizontal {
+    -fx-padding: 3 0;
+}
+

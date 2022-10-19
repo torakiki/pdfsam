@@ -38,8 +38,8 @@ public class DashboardItemPaneTest {
     @Test
     public void footerIsAdded() {
         var victim = new DashboardItemPane(new DefaultPriorityDashboardItem());
-        assertNull(victim.lookup(".pdfsam-button"));
+        assertNull(victim.lookup(".btn"));
         eventStudio().broadcast(new SetActiveToolRequest("any"));
-        assertNotNull(victim.lookup(".pdfsam-button"));
+        assertNotNull(victim.lookup(".btn"));
     }
 }

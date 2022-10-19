@@ -44,7 +44,7 @@ class LogButton extends BannerButton {
     private Object action = ShowStageRequest.INSTANCE;
 
     LogButton() {
-        super(UniconsLine.COMMENT_EXCLAMATION);
+        super(UniconsLine.EXCLAMATION_CIRCLE);
         setOnAction(e -> eventStudio().broadcast(action, "LogStage"));
         setTooltip(new Tooltip(i18n().tr("Application messages")));
         anim = Animations.shake(this);

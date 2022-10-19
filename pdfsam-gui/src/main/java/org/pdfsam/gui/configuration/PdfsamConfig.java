@@ -34,6 +34,7 @@ import org.pdfsam.gui.components.info.InfoStageController;
 import org.pdfsam.gui.components.log.LogStage;
 import org.pdfsam.gui.components.notification.NotificationsController;
 import org.pdfsam.gui.io.NativeOpenFileController;
+import org.pdfsam.gui.io.NativeOpenUrlController;
 import org.pdfsam.gui.sound.PlaySoundController;
 import org.pdfsam.injector.Components;
 import org.pdfsam.injector.Prototype;
@@ -42,9 +43,9 @@ import org.pdfsam.injector.Provides;
 /**
  * @author Andrea Vacondio
  */
-@Components({ NativeOpenFileController.class, WindowStatusController.class, PlaySoundController.class, MainPane.class,
-        NotificationsController.class, InfoStageController.class, OpenWithDialogController.class,
-        OverwriteDialogController.class, CreateOutputDirectoryDialogController.class,
+@Components({ NativeOpenFileController.class, NativeOpenUrlController.class, WindowStatusController.class,
+        PlaySoundController.class, MainPane.class, NotificationsController.class, InfoStageController.class,
+        OpenWithDialogController.class, OverwriteDialogController.class, CreateOutputDirectoryDialogController.class,
         ClearToolConfirmationDialogController.class, LenientTaskExecutionDialogController.class,
         FilesDropController.class, LogStage.class })
 public class PdfsamConfig {

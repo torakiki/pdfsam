@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 30/apr/2014
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -19,7 +19,6 @@
 package org.pdfsam.gui.components.notification;
 
 import jakarta.inject.Inject;
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -52,9 +51,8 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * Component dealing with events that require a visual notification
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
 @Auto
 public class NotificationsController {
@@ -105,7 +103,7 @@ public class NotificationsController {
     }
 
     @EventListener
-    public void onTaskCompleted(@SuppressWarnings("unused") TaskExecutionCompletedEvent e) {
+    public void onTaskCompleted(TaskExecutionCompletedEvent e) {
         long usages = service.getTotalUsages();
         if ((usages % TIMES_BEFORE_DONATION_NOTICE) == 0 && app().persistentSettings()
                 .get(BooleanPersistentProperty.DONATION_NOTIFICATION)) {
@@ -118,12 +116,11 @@ public class NotificationsController {
     }
 
     private void addDonationNotification(long usages) {
-        VBox content = new VBox(3,
+        var content = new VBox(
                 buildLabel(i18n().tr("You performed {0} tasks with PDFsam, did it help?", Long.toString(usages)),
-                        NotificationType.GO_PRO),
-                UrlButton.styledUrlButton(i18n().tr("Give something back"), appBrand.property(BrandableProperty.DONATE_URL),
-                        null));
-        content.setAlignment(Pos.TOP_RIGHT);
+                        NotificationType.SUPPORT), UrlButton.styledUrlButton(i18n().tr("Give something back"),
+                appBrand.property(BrandableProperty.DONATE_URL), null));
+        content.getStyleClass().add("notification-container");
 
         container.addStickyNotification(i18n().tr("PDFsam worked hard!"), content);
     }
@@ -131,13 +128,13 @@ public class NotificationsController {
     private void addShareNotification(long usages) {
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
-        VBox content = new VBox(3,
+        var content = new VBox(
                 buildLabel(i18n().tr("You performed {0} tasks with PDFsam, did it help?", Long.toString(usages)),
                         NotificationType.SHARE), new HBox(3, spacer,
                 UrlButton.styledUrlButton(null, appBrand.property(BrandableProperty.FACEBOOK_SHARE_URL),
                         UniconsLine.FACEBOOK), UrlButton.styledUrlButton(i18n().tr("Spread the word!"),
                 appBrand.property(BrandableProperty.TWEETER_SHARE_URL), UniconsLine.TWITTER)));
-        content.setAlignment(Pos.TOP_RIGHT);
+        content.getStyleClass().add("notification-container");
 
         container.addStickyNotification(i18n().tr("PDFsam worked hard!"), content);
     }
@@ -149,30 +146,29 @@ public class NotificationsController {
 
     @EventListener
     public void onUpdateAvailable(UpdateAvailableEvent event) {
-        VBox content = new VBox(3,
-                buildLabel(i18n().tr("PDFsam {0} is available for download", event.availableVersion()),
-                        NotificationType.INFO),
+        var content = new VBox(buildLabel(i18n().tr("PDFsam {0} is available for download", event.availableVersion()),
+                NotificationType.INFO),
                 UrlButton.styledUrlButton(i18n().tr("Download"), appBrand.property(BrandableProperty.DOWNLOAD_URL),
                         null));
-        content.setAlignment(Pos.TOP_RIGHT);
+        content.getStyleClass().add("notification-container");
 
         container.addStickyNotification(i18n().tr("New version available"), content);
     }
 
     @EventListener
     public void onNoUpdateAvailable(NoUpdateAvailable event) {
-        VBox content = new VBox(3,
+        var content = new VBox(
                 buildLabel(i18n().tr("You are running the latest version of PDFsam Basic"), NotificationType.INFO));
-        content.setAlignment(Pos.TOP_RIGHT);
+        content.getStyleClass().add("notification-container");
 
         container.addNotification(i18n().tr("No update"), content);
     }
 
     @EventListener
     public void onNewImportantNews(NewImportantNewsEvent event) {
-        VBox content = new VBox(3, buildLabel(event.news().content(), null),
+        var content = new VBox(buildLabel(event.news().content(), null),
                 UrlButton.styledUrlButton(i18n().tr("Open"), event.news().link(), UniconsLine.EXTERNAL_LINK_ALT));
-        content.setAlignment(Pos.TOP_RIGHT);
+        content.getStyleClass().add("notification-container");
 
         container.addStickyNotification(event.news().title(), content);
     }

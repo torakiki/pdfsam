@@ -20,7 +20,6 @@ package org.pdfsam.gui.components.banner;
 
 import jakarta.inject.Inject;
 import javafx.application.Platform;
-import javafx.scene.control.MenuButton;
 import javafx.scene.layout.HBox;
 import org.pdfsam.eventstudio.ReferenceStrength;
 import org.pdfsam.model.news.LatestNewsResponse;

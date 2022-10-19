@@ -21,6 +21,7 @@ package org.pdfsam.ui.components.notification;
 import javafx.scene.Node;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.kordamp.ikonli.unicons.UniconsLine;
+import org.kordamp.ikonli.unicons.UniconsSolid;
 
 /**
  * Type of notifications
@@ -31,7 +32,7 @@ public enum NotificationType {
     INFO {
         @Override
         public Node getGraphic() {
-            return FontIcon.of(UniconsLine.INFO_CIRCLE, DEFAULT_ICON_SIZE);
+            return FontIcon.of(UniconsLine.INFO_CIRCLE);
         }
 
         @Override
@@ -42,7 +43,7 @@ public enum NotificationType {
     WARN {
         @Override
         public Node getGraphic() {
-            return FontIcon.of(UniconsLine.EXCLAMATION_TRIANGLE, DEFAULT_ICON_SIZE);
+            return FontIcon.of(UniconsSolid.EXCLAMATION_TRIANGLE);
         }
 
         @Override
@@ -53,7 +54,7 @@ public enum NotificationType {
     ERROR {
         @Override
         public Node getGraphic() {
-            return FontIcon.of(UniconsLine.TIMES_CIRCLE, DEFAULT_ICON_SIZE);
+            return FontIcon.of(UniconsSolid.TIMES_CIRCLE);
         }
 
         @Override
@@ -61,10 +62,10 @@ public enum NotificationType {
             return "notification-error";
         }
     },
-    GO_PRO {
+    SUPPORT {
         @Override
         public Node getGraphic() {
-            return FontIcon.of(UniconsLine.HEART_SIGN, DEFAULT_ICON_SIZE);
+            return FontIcon.of(UniconsLine.HEART_SIGN);
         }
 
         @Override
@@ -75,7 +76,7 @@ public enum NotificationType {
     SHARE {
         @Override
         public Node getGraphic() {
-            return FontIcon.of(UniconsLine.SHARE_ALT, DEFAULT_ICON_SIZE);
+            return FontIcon.of(UniconsLine.SHARE_ALT);
         }
 
         @Override
@@ -83,8 +84,6 @@ public enum NotificationType {
             return "";
         }
     };
-
-    private static final int DEFAULT_ICON_SIZE = 32;
 
     public abstract Node getGraphic();
 

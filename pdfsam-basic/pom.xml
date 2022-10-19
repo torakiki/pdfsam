@@ -759,5 +759,12 @@
 			<groupId>jakarta.inject</groupId>
 			<artifactId>jakarta.inject-api</artifactId>
 		</dependency>
+		<!-- TODO remove this-->
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-swing</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<!-- /TODO -->
 	</dependencies>
 </project>

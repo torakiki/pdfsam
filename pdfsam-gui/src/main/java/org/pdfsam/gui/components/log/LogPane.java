@@ -31,7 +31,6 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
 import org.pdfsam.core.io.Choosers;
 import org.pdfsam.model.io.FileType;
-import org.pdfsam.ui.components.support.Style;
 
 import java.util.Collection;
 import java.util.Objects;
@@ -53,7 +52,7 @@ public class LogPane extends BorderPane {
     @Inject
     public LogPane(LogListView view) {
         this.logView = view;
-        getStyleClass().addAll(Style.CONTAINER.css());
+        getStyleClass().add("logs-pane");
         setCenter(this.logView);
 
         MenuItem copyItem = new MenuItem(i18n().tr("Copy"));

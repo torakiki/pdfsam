@@ -74,8 +74,7 @@ public class News extends VBox {
         bottom.setAlignment(Pos.CENTER_LEFT);
         bottom.getStyleClass().add("news-box-footer");
         if (isNotBlank(data.link())) {
-            Button link = UrlButton.urlButton(null, data.link(), UniconsLine.EXTERNAL_LINK_ALT,
-                    "pdfsam-toolbar-button");
+            Button link = UrlButton.urlButton(null, data.link(), UniconsLine.EXTERNAL_LINK_ALT, "news-btn");
             bottom.getChildren().add(link);
         }
         getChildren().addAll(flow, bottom);

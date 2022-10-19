@@ -1,43 +1,50 @@
 /**
  * News
  */
- .news-container{
-	-fx-padding: 1.166666em, 0.5em, 1.166666em, 0.5em;
+.news-container {
+    -fx-padding: 1.166666em, 0.5em, 1.166666em, 0.5em;
 }
+
 .scrollable-news {
-	-fx-background-color: -pdfsam-tooltipbg-color;
+    -fx-background-color: -pdfsam-newspane-background-color;
     -fx-background-insets: 0.0;
 }
-.news-panel{
-	-fx-background-color: -pdfsam-box-border-color, -pdfsam-pane-bg;
-    -fx-background-insets: 0.0, 0.4;
-    -fx-background-radius: 3.0;
-	-fx-effect: -pdfsam-shadow-effect;
-	-fx-max-width: 25em;
+
+.news-panel {
+    -fx-background-color: -pdfsam-border-color, -pdfsam-newspane-background-color;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 6.0;
+    -fx-effect: -pdfsam-default-shadow-effect;
+    -fx-max-width: 25em;
     -fx-spacing: 0.416667em;
 }
+
 .news-panel-title {
-	-fx-font-size: 1.25em;
+    -fx-font-size: 1.25em;
     -fx-font-weight: bold;
-   	-fx-alignment: center;
-   	-fx-padding: 0.0 0.0 0.25em;
+    -fx-alignment: center;
+    -fx-padding: 0.0 0.0 0.25em;
 }
+
 .news-box-title {
     -fx-font-weight: bold;
-    -fx-fill: -pdfsam-dark-text-color;
+    -fx-fill: -default-font-color;
     -fx-wrap-text: true;
     -fx-padding: 0.0 0.0 0.166667em;
 }
+
 .news-box-title:hover {
     -fx-underline: true;
     -fx-cursor: hand;
 }
+
 .news-box-title-important {
-	-fx-fill: -pdfsam-theme-color;	
+    -fx-fill: -pdfsam-theme-color;
 }
+
 .news-box {
-	-fx-background-color: -fx-box-border, -pdfsam-tooltipbg-color;
-    -fx-background-insets: 0.0, 0.4 0.0 0.0 0.0;
+    -fx-background-color: -pdfsam-newspane-background-color;
+    -fx-background-insets: 0.0;
     -fx-background-radius: 0.0;
     -fx-padding: 0.416667em;
 }
@@ -47,10 +54,26 @@
 }
 
 .news-content {
-	-fx-fill: -pdfsam-dark-text-color;
-	-fx-wrap-text: true;
+    -fx-wrap-text: true;
+    -fx-fill: -default-font-color;
 }
 
-.news-not-up-to-date > .glyph-icon  {
-    -fx-fill: -pdfsam-theme-color;
+.news-not-up-to-date > .ikonli-font-icon {
+    -fx-text-fill: -pdfsam-theme-color;
+}
+
+.news-btn {
+    -fx-background-color: -pdfsam-newspane-background-color;
+}
+
+.news-btn:hover {
+    -fx-background-color: -btn-color;
+}
+
+.news-btn:focused {
+    -fx-background-color: -pdfsam-focus-color, -pdfsam-header-background-color;
+}
+
+.news-btn:focused:hover {
+    -fx-background-color: -pdfsam-focus-color, -btn-color;
 }

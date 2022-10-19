@@ -35,7 +35,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 class DashboardButton extends BannerButton {
     @Inject
     DashboardButton(@Named("defaultDashboardItemId") String defaultDasboardItem) {
-        super(UniconsLine.HOME);
+        super(UniconsLine.HOME_ALT);
         setOnAction(e -> eventStudio().broadcast(new SetActiveDashboardItemRequest(defaultDasboardItem)));
         setTooltip(new Tooltip(i18n().tr("Dashboard")));
     }

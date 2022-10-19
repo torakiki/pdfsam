@@ -21,6 +21,7 @@ package org.pdfsam.gui.components.banner;
 import javafx.scene.control.Button;
 import org.kordamp.ikonli.Ikon;
 import org.kordamp.ikonli.javafx.FontIcon;
+import org.pdfsam.ui.components.support.Style;
 
 /**
  * Base class for a banner button
@@ -30,7 +31,7 @@ import org.kordamp.ikonli.javafx.FontIcon;
 class BannerButton extends Button {
 
     BannerButton(Ikon icon) {
-        getStyleClass().addAll("pdfsam-toolbar-button");
+        getStyleClass().addAll(Style.BANNER_BUTTON.css());
         setGraphic(FontIcon.of(icon));
     }
 }

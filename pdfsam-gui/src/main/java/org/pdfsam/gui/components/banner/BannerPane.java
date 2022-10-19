@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 01/nov/2013
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -40,10 +40,9 @@ public class BannerPane extends HBox {
         HBox.setHgrow(buttons, Priority.ALWAYS);
         HBox logoView = new HBox();
         logoView.getStyleClass().add("pdfsam-logo");
-        logoView.getChildren().addAll(new ImageView(logo), payoff);
+        logoView.getChildren().addAll(payoff);
         getChildren().addAll(logoView, buttons);
         eventStudio().addAnnotatedListeners(this);
     }
-
 
 }

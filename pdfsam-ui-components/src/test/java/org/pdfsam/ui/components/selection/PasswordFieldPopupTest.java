@@ -23,7 +23,6 @@ import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -76,7 +75,7 @@ public class PasswordFieldPopupTest {
         robot.clickOn("press");
         Listener<PdfLoadRequest> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequest.class, listener);
-        robot.write("myPwd").clickOn(".pdfsam-button");
+        robot.write("myPwd").clickOn(".btn");
         verify(listener).onEvent(any());
         verify(pdfDescriptor).setPassword("myPwd");
 

@@ -2,7 +2,7 @@
  * Progress panel
  */
 .footer-pane {
-	-fx-background-color: -pdfsam-defaultbg-color;
+	-fx-background-color: -default-background-color;
 	-fx-background-insets: 0.0;
     -fx-background-radius: 0.0;
 	-fx-spacing: 0.25em;

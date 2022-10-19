@@ -58,6 +58,7 @@ public class ContentPane extends HBox {
         this.dashboard = dashboard;
         this.newsContainer = new VBox(news);
         this.newsContainer.getStyleClass().add("news-container");
+        this.setId("pdfsam-content-pane");
         StackPane stack = new StackPane(modules, dashboard);
         setHgrow(stack, Priority.ALWAYS);
         newsContainer.managedProperty().bind(newsContainer.visibleProperty());

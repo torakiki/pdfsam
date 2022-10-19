@@ -67,7 +67,7 @@ public class UrlButtonTest {
     public void eventSent(FxRobot robot) {
         Listener<NativeOpenUrlRequest> listener = mock(Listener.class);
         eventStudio().add(NativeOpenUrlRequest.class, listener);
-        robot.clickOn(".pdfsam-button");
+        robot.clickOn(".btn");
         ArgumentCaptor<NativeOpenUrlRequest> captor = ArgumentCaptor.forClass(NativeOpenUrlRequest.class);
         verify(listener).onEvent(captor.capture());
         assertEquals(URL, captor.getValue().url());

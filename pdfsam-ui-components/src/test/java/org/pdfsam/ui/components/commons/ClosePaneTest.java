@@ -20,7 +20,6 @@ package org.pdfsam.ui.components.commons;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.api.FxRobot;
@@ -46,7 +45,7 @@ public class ClosePaneTest {
     @Test
     public void hide(FxRobot robot) {
         assertEquals(1, robot.listWindows().size());
-        robot.clickOn(".pdfsam-button");
+        robot.clickOn(".btn");
         assertEquals(0, robot.listWindows().size());
     }
 

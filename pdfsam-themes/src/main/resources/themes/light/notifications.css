@@ -1,54 +1,61 @@
 /**
  * Notifications
  */
-.notifications{
-	-fx-background-color: transparent;
+.notifications {
+    -fx-background-color: transparent;
     -fx-background-insets: 0.0;
     -fx-background-radius: 0.0;
-    -fx-alignment: bottom-center; 
+    -fx-alignment: bottom-center;
     -fx-translate-y: -42.0;
     -fx-spacing: 0.416667em;
     -fx-max-width: 28.333333em;
     -fx-min-width: 28.333333em
 }
+
 .notification {
-	-fx-background-color: -pdfsam-box-border-color, -pdfsam-pane-bg;
+    -fx-background-color: -pdfsam-box-border-color, -pdfsam-pane-bg;
     -fx-background-insets: 0.0, 0.4;
-    -fx-background-radius: 3.0;
-	-fx-effect: -pdfsam-shadow-effect;
-	-fx-max-width: 26.666666em; 
+    -fx-background-radius: 6.0;
+    -fx-effect: -pdfsam-default-shadow-effect;
+    -fx-max-width: 26.666666em;
     -fx-min-width: 26.666666em;
 }
 
-.notification-title{
-	-fx-font-size: 1.25em;
+.notification-title {
+    -fx-font-size: 1.25em;
     -fx-font-weight: bold;
     -fx-alignment: center-left;
     -fx-padding: 0.25em 0.666667em 0.333333em 0;
+    -fx-wrap-text: true;
 }
 
-.notification-text{
-	-fx-font-size: 1.1em;
-	-fx-wrap-text: true;
-	-fx-graphic-text-gap: 8.0px;
+.notification-container {
+    -fx-spacing: 1em;
+    -fx-alignment: center-left;
 }
 
-.notification-error > .glyph-icon {
-    -fx-effect: null;
-    -fx-fill: -pdfsam-error-color;
+.notification-text {
+    -fx-font-size: 1.1em;
+    -fx-wrap-text: true;
+    -fx-graphic-text-gap: 8.0px;
 }
 
-.notification-warn > .glyph-icon  {
-    -fx-effect: null;
-    -fx-fill: #EEAD69;
+.notification-text > .ikonli-font-icon {
+    -fx-font-size: 3em;
 }
 
-.notification-info > .glyph-icon  {
-    -fx-effect: null;
-    -fx-fill: -pdfsam-info-color;
+.notification-error > .ikonli-font-icon {
+    -fx-fill: -error-color;
 }
 
-.notification-pro  > .glyph-icon {
-    -fx-effect: null;
-    -fx-fill: -pdfsam-theme-color;
+.notification-warn > .ikonli-font-icon {
+    -fx-fill: -warning-color;
+}
+
+.notification-info > .ikonli-font-icon {
+    -fx-fill: -info-color;
+}
+
+.notification-pro > .ikonli-font-icon {
+    -fx-fill: -success-color;
 }

@@ -2,12 +2,12 @@
  * Quickbar
  */
 .quickbar {
-	-fx-background-color: -pdfsam-defaultbg-color;
+	-fx-background-color: -default-background-color;
    	-fx-background-insets: 0.0;
     -fx-padding: 1.0em 0.0 1.0em 0.0;
 } 
 .quickbar-buttons {
-	-fx-background-color: -pdfsam-defaultbg-color;
+	-fx-background-color: -default-background-color;
 	-fx-background-insets: 0.0;
    	-fx-padding: 0.0 0.0 0.0 0.25em;
 }
@@ -16,11 +16,11 @@
 	-fx-alignment: top-right;
 }
 .quickbar-expand-toggle {
-	-fx-background-color:  -pdfsam-defaultbg-color;
+	-fx-background-color:  -default-background-color;
     -fx-background-insets:  0.0;
 }
 .quickbar-expand-toggle:focused {
-	-fx-background-color: -pdfsam-focus-border-color, -pdfsam-defaultbg-color;
+	-fx-background-color: -pdfsam-focus-border-color, -default-background-color;
     -fx-background-insets: 0.0, 0.5;
 }
 .quickbar-expand-toggle:armed, .quickbar-expand-toggle:hover {
@@ -38,7 +38,7 @@
 	-fx-padding: 0.0 0.416667em 1.0em 0.0;
 }
 .quickbar-navigation-button, .quickbar-navigation-button:focused {
-	-fx-background-color:  -pdfsam-defaultbg-color;
+	-fx-background-color:  -default-background-color;
     -fx-background-insets:  0.0;
     -fx-background-radius: 3.0;
     -fx-padding: 0.416667em 0.833333em 0.416667em 0.833333em;
@@ -47,7 +47,7 @@
     -fx-min-height: 3.333333em;
 }
 .quickbar-navigation-button:focused {
-	-fx-background-color: -pdfsam-focus-border-color, -pdfsam-defaultbg-color;
+	-fx-background-color: -pdfsam-focus-border-color, -default-background-color;
     -fx-background-insets: 0.0, 0.5;
 }
 .quickbar-navigation-button:hover{

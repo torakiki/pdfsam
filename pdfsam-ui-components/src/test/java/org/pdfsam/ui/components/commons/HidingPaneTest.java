@@ -49,7 +49,7 @@ public class HidingPaneTest {
     @Test
     public void hide(FxRobot robot) {
         verifyThat(victim, isVisible());
-        robot.clickOn(".pdfsam-button");
+        robot.clickOn(".btn");
         verifyThat(victim, isInvisible());
     }
 
