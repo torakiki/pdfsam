@@ -1,8 +1,8 @@
 .context-menu {
     -fx-background-color: -pdfsam-border-color, -pdfsam-tooltip-background-color;
     -fx-background-insets: 0.0, 0.5;
-    -fx-background-radius: 4.0;
-    -fx-effect: -pdfsam-default-shadow-effect;
+    -fx-background-radius: 6.0;
+    -fx-effect: -pdfsam-shadow-effect;
     -fx-padding: 0.333333em 0.333333em 0.333333em 0.333333em;
 }
 

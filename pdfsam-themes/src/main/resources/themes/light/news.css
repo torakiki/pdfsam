@@ -14,7 +14,7 @@
     -fx-background-color: -pdfsam-border-color, -pdfsam-newspane-background-color;
     -fx-background-insets: 0.0;
     -fx-background-radius: 6.0;
-    -fx-effect: -pdfsam-default-shadow-effect;
+    -fx-effect: -pdfsam-shadow-effect;
     -fx-max-width: 25em;
     -fx-spacing: 0.416667em;
 }

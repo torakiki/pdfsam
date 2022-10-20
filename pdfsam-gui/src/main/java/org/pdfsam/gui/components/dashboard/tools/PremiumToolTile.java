@@ -30,8 +30,8 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
  */
 public class PremiumToolTile extends DashboardTile {
 
-    PremiumToolTile(PremiumTool module) {
-        super(module.name(), module.description(), module.product().graphic());
-        setOnAction(e -> eventStudio().broadcast(new NativeOpenUrlRequest(module.url())));
+    PremiumToolTile(PremiumTool tool) {
+        super(tool.name(), tool.description(), tool.product().graphic(), tool.product().styleClass());
+        setOnAction(e -> eventStudio().broadcast(new NativeOpenUrlRequest(tool.url())));
     }
 }

@@ -18,14 +18,13 @@
  */
 package org.pdfsam.gui.components.dashboard.tools;
 
-import javafx.beans.property.ReadOnlyBooleanProperty;
-import javafx.beans.property.ReadOnlyBooleanWrapper;
 import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -34,60 +33,57 @@ import static java.util.Objects.nonNull;
 
 /**
  * Base class for a dashboard tile
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
-class DashboardTile extends VBox {
-    private static final PseudoClass ARMED_PSEUDOCLASS_STATE = PseudoClass.getPseudoClass("armed");
+class DashboardTile extends StackPane {
+    private static final PseudoClass PSEUDO_CLASS_ARMED = PseudoClass.getPseudoClass("armed");
+    private static final PseudoClass PSEUDO_CLASS_SELECTED = PseudoClass.getPseudoClass("selected");
 
-    private final Button button = new Button();
+    private final Button invisibleButton = new Button();
 
-    public DashboardTile(String title, String description, Node graphic) {
-        getStyleClass().addAll("dashboard-modules-tile");
-        Label titleLabel = new Label(title);
-        titleLabel.getStyleClass().add("dashboard-modules-tile-title");
+    public DashboardTile(String title, String description, Node graphic, String categoryClass) {
+        getStyleClass().addAll("dashboard-tools-tile");
+        var top = new Label(title);
+        top.getStyleClass().add("title");
         if (nonNull(graphic)) {
-            titleLabel.setGraphic(graphic);
+            top.setGraphic(graphic);
         }
-        Label textLabel = new Label(description);
-        textLabel.getStyleClass().add("dashboard-modules-tile-text");
-        textLabel.setMinHeight(USE_PREF_SIZE);
-        VBox topTile = new VBox(5);
-        topTile.getChildren().addAll(titleLabel, textLabel);
+        var bottom = new Label(description);
+        bottom.getStyleClass().add("description");
+        var vbox = new VBox(top, bottom);
+        vbox.getStyleClass().add("right");
 
-        button.getStyleClass().add("dashboard-modules-invisible-button");
-        button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        invisibleButton.getStyleClass().add("dashboard-tools-invisible-button");
+        invisibleButton.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 
-        armed.bind(button.armedProperty());
-        getChildren().addAll(new StackPane(topTile, button));
-        setMaxHeight(USE_PREF_SIZE);
-        setMinHeight(USE_PREF_SIZE);
-    }
+        var categoryMark = new Region();
+        categoryMark.getStyleClass().addAll("category-mark", categoryClass);
+        categoryMark.prefHeightProperty().bind(vbox.heightProperty());
 
-    /**
-     * Property telling if the region (acting as a button) is armed
-     */
-    ReadOnlyBooleanWrapper armed = new ReadOnlyBooleanWrapper(false) {
-        @Override
-        protected void invalidated() {
-            pseudoClassStateChanged(ARMED_PSEUDOCLASS_STATE, get());
-        }
-    };
+        var hbox = new HBox(categoryMark, vbox);
+        invisibleButton.prefHeightProperty().bind(hbox.heightProperty());
+        invisibleButton.prefWidthProperty().bind(hbox.widthProperty());
+        invisibleButton.setFocusTraversable(true);
+        invisibleButton.focusedProperty().addListener((v, o, n) -> {
+            pseudoClassStateChanged(PSEUDO_CLASS_SELECTED, n);
+        });
+        invisibleButton.armedProperty().addListener((v, o, n) -> {
+            pseudoClassStateChanged(PSEUDO_CLASS_ARMED, n);
+        });
 
-    public final ReadOnlyBooleanProperty armedProperty() {
-        return armed.getReadOnlyProperty();
+        this.getChildren().addAll(hbox, invisibleButton);
     }
 
     public final boolean isArmed() {
-        return armed.get();
+        return invisibleButton.armedProperty().get();
     }
 
     public final void setOnAction(EventHandler<ActionEvent> eventHandler) {
-        button.setOnAction(eventHandler);
+        invisibleButton.setOnAction(eventHandler);
     }
 
     void addBottomPanel(Region pane) {
-        getChildren().add(pane);
+        //   getChildren().add(pane);
     }
 }

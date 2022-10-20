@@ -45,7 +45,7 @@ public class ToolsDashboardPaneTest {
                         new HighPriorityTestTool(), new DefaultPriorityTestTool()));
         Node title = victim.getChildren().stream().findFirst()
                 .orElseThrow(() -> new NullPointerException("Unable to find the expected node"))
-                .lookup(".dashboard-modules-tile-title");
+                .lookup(".dashboard-tools-tile-title");
         assertEquals("HighPriorityTestModule", ((Labeled) title).getText());
     }
 }

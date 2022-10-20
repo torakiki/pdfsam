@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 23 nov 2016
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -21,28 +21,35 @@ package org.pdfsam.model.premium;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 
+import static java.util.Optional.ofNullable;
+
 /**
  * Types of premium products
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
 public enum PremiumProduct {
-    VISUAL {
-        @Override
-        public Node graphic() {
-            return new ImageView("/org/pdfsam/model/images/visual32.png");
-        }
-    },
-    ENHANCED {
-        @Override
-        public Node graphic() {
-            return new ImageView("/org/pdfsam/model/images/enhanced32.png");
-        }
-    },
-    OTHER;
+
+    VISUAL("/org/pdfsam/model/images/visual32.png", "visual-category"),
+    ENHANCED("/org/pdfsam/model/images/enhanced32.png", "enhanced-category"),
+    OTHER(null, "other");
+
+    private final String imageUrl;
+    private final String styleClass;
+
+    PremiumProduct(String imageUrl, String styleClass) {
+        this.imageUrl = imageUrl;
+        this.styleClass = styleClass;
+    }
 
     public Node graphic() {
-        return null;
+        return ofNullable(imageUrl).map(ImageView::new).orElse(null);
+    }
+
+    /**
+     * @return the style class for this category
+     */
+    public String styleClass() {
+        return styleClass;
     }
 }

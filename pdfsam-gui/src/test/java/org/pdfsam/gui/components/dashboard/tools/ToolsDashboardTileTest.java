@@ -59,8 +59,8 @@ public class ToolsDashboardTileTest {
     public void activateOnClick() {
         Listener<SetActiveToolRequest> listener = mock(Listener.class);
         eventStudio().add(SetActiveToolRequest.class, listener);
-        robot.moveTo(".dashboard-modules-invisible-button").press(MouseButton.PRIMARY);
-        FxAssert.verifyThat(".dashboard-modules-tile", (ToolsDashboardTile v) -> v.isArmed());
+        robot.moveTo(".dashboard-tools-invisible-button").press(MouseButton.PRIMARY);
+        FxAssert.verifyThat(".dashboard-tools-tile", (ToolsDashboardTile v) -> v.isArmed());
         robot.release(MouseButton.PRIMARY);
         ArgumentCaptor<SetActiveToolRequest> captor = ArgumentCaptor.forClass(SetActiveToolRequest.class);
         verify(listener).onEvent(captor.capture());

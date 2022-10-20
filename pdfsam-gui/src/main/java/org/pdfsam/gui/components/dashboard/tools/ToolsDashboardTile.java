@@ -48,7 +48,8 @@ class ToolsDashboardTile extends DashboardTile {
     private final String id;
 
     ToolsDashboardTile(Tool tool) {
-        super(tool.descriptor().name(), tool.descriptor().description(), tool.graphic());
+        super(tool.descriptor().name(), tool.descriptor().description(), tool.graphic(),
+                tool.descriptor().category().styleClass());
         this.id = tool.id();
         setOnAction(e -> eventStudio().broadcast(new SetActiveToolRequest(id)));
 
