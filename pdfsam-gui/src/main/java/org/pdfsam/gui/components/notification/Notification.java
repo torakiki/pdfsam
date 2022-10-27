@@ -52,7 +52,7 @@ class Notification extends VBox {
         getStyleClass().add("notification");
         getStyleClass().addAll(Style.CONTAINER.css());
         setId(UUID.randomUUID().toString());
-        Button closeButton = new Button("", FontIcon.of(UniconsLine.TIMES));
+        var closeButton = new Button("", FontIcon.of(UniconsLine.TIMES));
         closeButton.getStyleClass().addAll("close-button");
         closeButton.setOnAction(e -> eventStudio().broadcast(new RemoveNotificationRequest(getId())));
         Label titleLabel = new Label(title);

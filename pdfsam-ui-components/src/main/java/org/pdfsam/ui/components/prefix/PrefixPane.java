@@ -18,8 +18,10 @@
  */
 package org.pdfsam.ui.components.prefix;
 
+import javafx.geometry.HPos;
+import javafx.geometry.VPos;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import org.apache.commons.lang3.StringUtils;
@@ -48,7 +50,7 @@ import static org.pdfsam.ui.components.help.HelpUtils.helpIcon;
  *
  * @author Andrea Vacondio
  */
-public class PrefixPane extends HBox
+public class PrefixPane extends GridPane
         implements TaskParametersBuildStep<MultipleOutputTaskParametersBuilder<?>>, RestorableView, ResettableView,
         ToolBound {
     private final PrefixField field;
@@ -59,11 +61,21 @@ public class PrefixPane extends HBox
         this.toolBinding = defaultString(toolBinding);
         this.field = new PrefixField(repository.getString("DEFAULT_PREFIX", "PDFsam_"));
         getStyleClass().addAll(Style.CONTAINER.css());
-        getStyleClass().addAll(Style.HCONTAINER.css());
-        getChildren().addAll(new Label(i18n().tr("Generated PDF documents name prefix:")), field, helpIcon(
+        getStyleClass().addAll(Style.GRID.css());
+        var label = new Label(i18n().tr("Generated PDF documents name prefix:"));
+        GridPane.setValignment(label, VPos.BOTTOM);
+        GridPane.setHalignment(label, HPos.LEFT);
+        add(label, 0, 0);
+        GridPane.setValignment(field, VPos.BOTTOM);
+        GridPane.setHalignment(field, HPos.LEFT);
+        add(field, 1, 0);
+        var helpIcon = helpIcon(
                 new TextFlow(new Text(i18n().tr("Prefix for the output files name.") + System.lineSeparator()),
                         new Text(i18n().tr("Some special keywords are replaced with runtime values.")
-                                + System.lineSeparator()), new Text(i18n().tr("Right click to add these keywords.")))));
+                                + System.lineSeparator()), new Text(i18n().tr("Right click to add these keywords."))));
+        GridPane.setValignment(helpIcon, VPos.CENTER);
+        add(helpIcon, 2, 0);
+
         eventStudio().add(TaskExecutionRequest.class, e -> {
             if (toolBinding.equals(e.toolId())) {
                 repository.saveString("DEFAULT_PREFIX", field.getText());

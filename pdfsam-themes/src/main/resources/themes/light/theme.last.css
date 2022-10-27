@@ -1,60 +1,78 @@
 /**
  * Advanced destination pane
  */
-.advanced-destination-pane{
- 	-fx-effect: none; 
-	-fx-background-color: -advanced_bg;
-    -fx-background-insets: 0.0; 
-} 
+.advanced-destination-pane {
+    -fx-effect: none;
+    -fx-background-color: -advanced_background-color;
+    -fx-background-insets: 0.0;
+}
+
 .advanced-destination-pane > .title {
-	-fx-background-color: -advanced_bg;
+    -fx-background-color: -advanced_background-color;
 }
+
 .advanced-destination-pane > *.content {
-	-fx-background-color: -advanced_bg;
-	-fx-background-insets: 0.0;
+    -fx-background-color: -advanced_background-color;
+    -fx-background-insets: 0.0;
 }
+
 /**
  * Footer button
  */
 .footer-button, .footer-button:default, .footer-button:focused {
     -fx-padding: 0.166667em 1.333333em 0.166667em 1.0em;
 }
+
 .footer-open-button, .footer-open-button:default, .footer-open-button:focused {
-	-fx-padding: 0.0 0.0 0.0 1.0em;
+    -fx-padding: 0.0 0.0 0.0 1.0em;
 }
+
 .footer-open-button > .label, .footer-open-button:focused > .label {
-	-fx-padding: 0.0 0.5em 0.0 0.5em; 
+    -fx-padding: 0.0 0.5em 0.0 0.5em;
 }
+
 /**
  * Browse button
  */
 .browse-button, .browse-button:default, .browse-button:focused {
-	-fx-padding: 0.0 1.166666em 0.0 1.166666em;
-	-fx-alignment: center;
+    -fx-padding: 0.0 1.166666em 0.0 1.166666em;
+    -fx-alignment: center;
 }
-.browsable-field{
-	-fx-alignment: center-left;
-	-fx-spacing: 0.416667em;
+
+.browsable-field {
+    -fx-alignment: center-left;
+    -fx-spacing: 0.416667em;
 }
+
 /**
 * Toolbar button
 **/
 .toolbar-button, .toolbar-button:default, .toolbar-button:focused {
-	-fx-padding: 0.5em 1em 0.5em 1em !important;
+    -fx-padding: 0.5em 1em 0.5em 1em !important;
 }
+
 /**
 * Run Button
 */
 .run-button, .run-button:default, .run-button:focused {
-	-fx-background-color: -pdfsam-box-border-color, #FFFFFF;
-    -fx-background-insets: 0, 0.5;
+    -fx-background-color: -run-btn-color;
+    -fx-background-insets: 0;
     -fx-font-weight: bold;
+    -fx-font-color: -run-btn-font-color;
 }
+
+.run-button:hover {
+    -fx-background-color: -run-btn-color-hover;
+}
+
 .run-button:focused {
-    -fx-background-color: -pdfsam-box-border-color, #FFFFFF;
+    -fx-background-color: -run-btn-focus-border-color, -run-btn-color;
     -fx-background-insets: 0.0, 1.0;
 }
-.run-button > .glyph-icon  {
-    -fx-effect: null;
-    -fx-fill: -pdfsam-theme-color;
+
+.run-button:focused:hover {
+    -fx-background-color: -run-btn-focus-border-color-hover, -run-btn-color-hover;
+    -fx-background-insets: 0.0, 1.0;
 }
+
+

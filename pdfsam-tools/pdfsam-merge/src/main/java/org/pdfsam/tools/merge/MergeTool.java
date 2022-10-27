@@ -73,7 +73,7 @@ public class MergeTool implements Tool {
 
     @Override
     public Node graphic() {
-        var icon = new FontIcon(UniconsLine.ROTATE_360);
+        var icon = new FontIcon(UniconsLine.FILES_LANDSCAPES_ALT);
         icon.getStyleClass().addAll(this.descriptor().category().styleClass(), "tool-icon");
         return icon;
     }

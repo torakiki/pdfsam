@@ -32,6 +32,7 @@ import org.kordamp.ikonli.unicons.UniconsLine;
 import org.pdfsam.model.io.NativeOpenUrlRequest;
 import org.pdfsam.model.news.NewsData;
 import org.pdfsam.ui.components.commons.UrlButton;
+import org.pdfsam.ui.components.support.Style;
 
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
@@ -74,7 +75,8 @@ public class News extends VBox {
         bottom.setAlignment(Pos.CENTER_LEFT);
         bottom.getStyleClass().add("news-box-footer");
         if (isNotBlank(data.link())) {
-            Button link = UrlButton.urlButton(null, data.link(), UniconsLine.EXTERNAL_LINK_ALT, "news-btn");
+            Button link = UrlButton.urlButton(null, data.link(), UniconsLine.EXTERNAL_LINK_ALT,
+                    Style.NEWS_BUTTON.css());
             bottom.getChildren().add(link);
         }
         getChildren().addAll(flow, bottom);

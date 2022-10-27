@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 25 nov 2016
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -21,6 +21,8 @@ package org.pdfsam.gui.components.dashboard.tools;
 import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -84,6 +86,8 @@ class DashboardTile extends StackPane {
     }
 
     void addBottomPanel(Region pane) {
-        //   getChildren().add(pane);
+        StackPane.setAlignment(pane, Pos.BOTTOM_RIGHT);
+        StackPane.setMargin(pane, new Insets(10));
+        getChildren().add(pane);
     }
 }

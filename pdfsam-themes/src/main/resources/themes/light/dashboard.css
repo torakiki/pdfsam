@@ -20,17 +20,21 @@
 }
 
 .dashboard-modules {
-    -fx-hgap: 1.0em;
-    -fx-vgap: 1.0em;
+    -fx-hgap: 2.0em;
+    -fx-vgap: 1.5em;
     -fx-column-halignment: left;
     -fx-row-valignment: top;
     -fx-orientation: horizontal;
 }
 
 .dashboard-tools-tile {
-    -fx-background-color: -tool-tile-background-color;
+    -fx-background-color: -tool-tile-color;
     -fx-background-radius: 12.0;
     -fx-max-width: 22.0em;
+}
+
+.dashboard-tools-tile:disabled {
+    -fx-opacity: 0.3;
 }
 
 .dashboard-tools-invisible-button, .dashboard-tools-invisible-button:hover, .dashboard-tools-invisible-button:armed {
@@ -44,7 +48,6 @@
     -fx-padding: 1.25em 1em 1.25em 0.833333em;
 }
 
-
 .dashboard-tools-tile .category-mark {
     -fx-background-radius: 12 0 0 12;
     -fx-max-width: 12;
@@ -57,15 +60,14 @@
 
 .dashboard-tools-tile:armed {
     -fx-effect: none;
-    -fx-background-color: derive(-tool-tile-background-color, 30%);
+    -fx-background-color: -tool-tile-armed-color;
 }
 
 
 .dashboard-tools-tile .right > .title {
     -fx-font-size: 1.25em;
     -fx-font-weight: bold;
-    -fx-graphic-text-gap: 0.666667em;
-    -fx-padding: 0.5em 0.0 0.333333em 0.0;
+    -fx-padding-bottom: 0.3em;
     -fx-wrap-text: true;
 }
 
@@ -76,11 +78,20 @@
 }
 
 .tool-icon {
-    -fx-icon-size: 20px;
+    -fx-icon-size: 24px;
 }
 
-.dashboard-modules-toolbar {
-    -fx-alignment: center-right;
+.dashboard-tools-toolbar {
+    -fx-alignment: bottom-right;
 }
+
+.dashboard-tools-toolbar-button {
+    -fx-background-color: transparent;
+}
+
+.dashboard-tools-toolbar-button:hover {
+    -fx-background-color: -tool-tile-hover-color;
+}
+
 
 

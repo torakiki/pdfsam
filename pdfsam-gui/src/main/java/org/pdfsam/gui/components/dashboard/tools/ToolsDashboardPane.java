@@ -30,7 +30,9 @@ import org.pdfsam.model.tool.Tool;
 
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.Map;
 
+import static java.util.stream.Collectors.groupingBy;
 import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.i18n.I18nContext.i18n;
@@ -48,13 +50,18 @@ public class ToolsDashboardPane extends VBox {
     }
 
     ToolsDashboardPane(Collection<Tool> tools) {
-        FlowPane toolsPane = new FlowPane();
         getStyleClass().addAll("dashboard-container");
-        toolsPane.getStyleClass().add("dashboard-modules");
-        Comparator<Tool> compareByPrio = Comparator.comparingInt(m -> m.descriptor().priority());
-        tools.stream().sorted(compareByPrio.thenComparing(m -> m.descriptor().name())).map(ToolsDashboardTile::new)
-                .forEach(toolsPane.getChildren()::add);
-        this.getChildren().add(toolsPane);
+        tools.stream().collect(groupingBy(t -> t.descriptor().category())).entrySet().stream()
+                .sorted(Map.Entry.comparingByKey()).forEach(entry -> {
+                    var toolCategory = new Label(entry.getKey().getDescription());
+                    toolCategory.getStyleClass().add("modules-tile-title");
+                    this.getChildren().add(toolCategory);
+                    var toolsPane = new FlowPane();
+                    toolsPane.getStyleClass().add("dashboard-modules");
+                    entry.getValue().stream().sorted(Comparator.comparing(t -> t.descriptor().name()))
+                            .map(ToolsDashboardTile::new).forEach(toolsPane.getChildren()::add);
+                    this.getChildren().add(toolsPane);
+                });
         eventStudio().addAnnotatedListeners(this);
     }
 

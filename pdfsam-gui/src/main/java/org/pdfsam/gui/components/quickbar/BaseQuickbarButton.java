@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 02/mag/2014
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -24,28 +24,21 @@ import javafx.css.PseudoClass;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
-
-import java.util.Objects;
-
+import org.pdfsam.ui.components.support.Style;
 
 /**
  * Base class for a quickbar button that can be selected and have its text displayed
- * 
+ *
  * @author Andrea Vacondio
  */
 public class BaseQuickbarButton extends Button {
     private static final PseudoClass SELECTED_PSEUDOCLASS_STATE = PseudoClass.getPseudoClass("selected");
 
     public BaseQuickbarButton() {
-        getStyleClass().addAll("quickbar-navigation-button");
+        getStyleClass().addAll(Style.QUICKBAR_BUTTON.css());
         setMaxWidth(Double.MAX_VALUE);
         setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
         setAlignment(Pos.CENTER);
-        graphicProperty().addListener((o, oldVal, newVal) -> {
-            if (Objects.nonNull(newVal)) {
-                newVal.getStyleClass().add("quickbar-navigation-button-graphic");
-            }
-        });
     }
 
     private final BooleanProperty displayText = new SimpleBooleanProperty(false) {

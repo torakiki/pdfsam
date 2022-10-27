@@ -57,9 +57,11 @@ public final class HelpUtils {
 
     private static Text helpIcon(HelpPopup popup) {
         var icon = FontIcon.of(UniconsLine.QUESTION_CIRCLE);
+        icon.getStyleClass().add("help-icon");
         icon.setOnMouseEntered(e -> {
             Point2D p = icon.localToScreen(icon.getLayoutBounds().getMaxX(), icon.getLayoutBounds().getMaxY());
             popup.show(icon, p.getX(), p.getY());
+            e.consume();
         });
         icon.setOnMouseExited(e -> popup.hide());
         return icon;

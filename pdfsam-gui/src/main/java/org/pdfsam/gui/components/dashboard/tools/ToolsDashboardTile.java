@@ -20,7 +20,6 @@ package org.pdfsam.gui.components.dashboard.tools;
 
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.TransferMode;
-import javafx.scene.layout.VBox;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.kordamp.ikonli.unicons.UniconsLine;
 import org.pdfsam.model.tool.Tool;
@@ -44,7 +43,6 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
  */
 class ToolsDashboardTile extends DashboardTile {
 
-    private final VBox toolButtons = new VBox(5);
     private final String id;
 
     ToolsDashboardTile(Tool tool) {
@@ -54,11 +52,9 @@ class ToolsDashboardTile extends DashboardTile {
         setOnAction(e -> eventStudio().broadcast(new SetActiveToolRequest(id)));
 
         ofNullable(tool.descriptor().supportUrl()).ifPresent(url -> {
-            UrlButton helpButton = UrlButton.urlButton(null, url, null, "pdfsam-toolbar-button");
+            var helpButton = UrlButton.urlButton(null, url, null, "btn", "dashboard-tools-toolbar-button");
             helpButton.setGraphic(FontIcon.of(UniconsLine.QUESTION_CIRCLE, 18));
-            toolButtons.getChildren().add(helpButton);
-            toolButtons.getStyleClass().add("dashboard-modules-toolbar");
-            addBottomPanel(toolButtons);
+            addBottomPanel(helpButton);
         });
         setOnDragOver(e -> dragConsume(e, this.onDragOverConsumer()));
         setOnDragDropped(e -> dragConsume(e, this.onDragDropped(

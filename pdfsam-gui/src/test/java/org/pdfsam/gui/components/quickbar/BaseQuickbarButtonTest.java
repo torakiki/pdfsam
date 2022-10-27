@@ -59,9 +59,9 @@ public class BaseQuickbarButtonTest {
     public void graphicClass() {
         BaseQuickbarButton victim = new BaseQuickbarButton();
         Label graphic = new Label();
-        assertFalse(graphic.getStyleClass().contains("quickbar-navigation-button-graphic"));
+        assertFalse(graphic.getStyleClass().contains("ikonli-font-icon"));
         victim.setGraphic(graphic);
-        assertTrue(graphic.getStyleClass().contains("quickbar-navigation-button-graphic"));
+        assertTrue(graphic.getStyleClass().contains("ikonli-font-icon"));
     }
 
     @Test

@@ -70,7 +70,7 @@ abstract class BrowsableField extends HBox implements RestorableView {
     public BrowsableField() {
         this(new Button(i18n().tr("Browse")));
         browseButton.getStyleClass().addAll(Style.BROWSE_BUTTON.css());
-        browseButton.prefHeightProperty().bind(validableContainer.heightProperty());
+        browseButton.prefHeightProperty().bind(textField.heightProperty());
         browseButton.setMaxHeight(USE_PREF_SIZE);
         browseButton.setMinHeight(USE_PREF_SIZE);
         getChildren().add(browseButton);

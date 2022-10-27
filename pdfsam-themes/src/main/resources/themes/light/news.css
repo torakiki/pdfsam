@@ -6,17 +6,21 @@
 }
 
 .scrollable-news {
-    -fx-background-color: -pdfsam-newspane-background-color;
+    -fx-background-color: -newspane-background-color;
     -fx-background-insets: 0.0;
 }
 
 .news-panel {
-    -fx-background-color: -pdfsam-border-color, -pdfsam-newspane-background-color;
+    -fx-background-color: -pdfsam-border-color, -newspane-background-color;
     -fx-background-insets: 0.0;
     -fx-background-radius: 6.0;
     -fx-effect: -pdfsam-shadow-effect;
     -fx-max-width: 25em;
     -fx-spacing: 0.416667em;
+}
+
+.news-panel-content {
+    -fx-spacing: 0.75em;
 }
 
 .news-panel-title {
@@ -43,7 +47,7 @@
 }
 
 .news-box {
-    -fx-background-color: -pdfsam-newspane-background-color;
+    -fx-background-color: -newspane-background-color;
     -fx-background-insets: 0.0;
     -fx-background-radius: 0.0;
     -fx-padding: 0.416667em;
@@ -63,17 +67,21 @@
 }
 
 .news-btn {
-    -fx-background-color: -pdfsam-newspane-background-color;
+    -fx-background-color: -newspane-btn-color;
+}
+
+.news-btn .ikonli-font-icon {
+    -fx-font-size: 1em;
 }
 
 .news-btn:hover {
-    -fx-background-color: -btn-color;
+    -fx-background-color: -newspane-btn-color-hover;
 }
 
 .news-btn:focused {
-    -fx-background-color: -pdfsam-focus-color, -pdfsam-header-background-color;
+    -fx-background-color: -newspane-btn-focus-color, -newspane-btn-color;
 }
 
 .news-btn:focused:hover {
-    -fx-background-color: -pdfsam-focus-color, -btn-color;
+    -fx-background-color: -newspane-btn-focus-color-hover, -newspane-btn-color-hover;
 }

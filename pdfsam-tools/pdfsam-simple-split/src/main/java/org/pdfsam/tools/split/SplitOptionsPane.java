@@ -60,7 +60,7 @@ class SplitOptionsPane extends VBox implements SplitParametersBuilderCreator, Re
         splitAfter = new SplitAfterRadioButton(splitAfterField);
         ValidableTextField splitByEveryField = new ValidableTextField();
         splitByEvery = new SplitByEveryRadioButton(splitByEveryField);
-        RadioButtonDrivenTextFieldsPane grid = new RadioButtonDrivenTextFieldsPane(group);
+        var grid = new RadioButtonDrivenTextFieldsPane(group);
 
         splitAfterPredefined.setToggleGroup(group);
         splitAfter.setToggleGroup(group);

@@ -2,79 +2,51 @@
  * Quickbar
  */
 .quickbar {
-	-fx-background-color: -default-background-color;
-   	-fx-background-insets: 0.0;
-    -fx-padding: 1.0em 0.0 1.0em 0.0;
-} 
-.quickbar-buttons {
-	-fx-background-color: -default-background-color;
-	-fx-background-insets: 0.0;
-   	-fx-padding: 0.0 0.0 0.0 0.25em;
-}
-.quickbar-expand-button {
-	-fx-padding: 0.0 0.0 0.5em 0.0;
-	-fx-alignment: top-right;
-}
-.quickbar-expand-toggle {
-	-fx-background-color:  -default-background-color;
-    -fx-background-insets:  0.0;
-}
-.quickbar-expand-toggle:focused {
-	-fx-background-color: -pdfsam-focus-border-color, -default-background-color;
-    -fx-background-insets: 0.0, 0.5;
-}
-.quickbar-expand-toggle:armed, .quickbar-expand-toggle:hover {
-    -fx-background-color: -pdfsam-hover-color;
-    -fx-background-insets:  0.0;
-}
-.quickbar-expand-toggle:armed{
-    -fx-opacity: 0.85;
-}
-.quickbar-button-arrow {
-	-fx-fill: -pdfsam-dark-text-color;
-}
-.quickbar-items{
-	-fx-spacing: 0.416667em;
-	-fx-padding: 0.0 0.416667em 1.0em 0.0;
-}
-.quickbar-navigation-button, .quickbar-navigation-button:focused {
-	-fx-background-color:  -default-background-color;
-    -fx-background-insets:  0.0;
-    -fx-background-radius: 3.0;
-    -fx-padding: 0.416667em 0.833333em 0.416667em 0.833333em;
-    -fx-min-width: 4.166666em;
-    -fx-max-height: 3.333333em;
-    -fx-min-height: 3.333333em;
-}
-.quickbar-navigation-button:focused {
-	-fx-background-color: -pdfsam-focus-border-color, -default-background-color;
-    -fx-background-insets: 0.0, 0.5;
-}
-.quickbar-navigation-button:hover{
-	-fx-background-color: -pdfsam-box-border-color, -pdfsam-flat-bg-color;
-    -fx-background-insets: 0.0, 0.3;
-    -fx-translate-y: -1.0;
-    -fx-effect: -pdfsam-shadow-effect;	
-}
-.quickbar-navigation-button:armed {
-   -fx-background-color: -pdfsam-armed-button-color;
+    -fx-background-color: -quickbar-background-color;
     -fx-background-insets: 0.0;
-    -fx-translate-y: -2.0;
-    -fx-effect: -pdfsam-hover-shadow-effect;
+    -fx-padding: 1.0em 0.0 1.0em 0.0;
 }
-.quickbar-navigation-button:selected{
-	-fx-background-color: -pdfsam-box-border-color, -pdfsam-flat-bg-color;
-    -fx-background-insets: 0.0, 0.3;
+
+.quickbar-buttons {
+    -fx-background-color: -quickbar-background-color;
+    -fx-background-insets: 0.0;
+    -fx-padding: 0.0 0.0 0.0 0.25em;
 }
-.quickbar-navigation-button:disabled {
-    -fx-opacity: 1.0;
+
+.quickbar-expand-button {
+    -fx-padding: 0.0 0.0 0.5em 0.0;
+    -fx-alignment: top-right;
+    -fx-background-radius: 6px;
 }
-.quickbar-navigation-button .quickbar-navigation-button-graphic{
-	-fx-opacity: 0.85;
+
+.quickbar-expand-toggle, .quickbar-button {
+    -fx-background-color: -quickbar-background-color;
 }
-.quickbar-navigation-button:disabled .quickbar-navigation-button-graphic{
-    -fx-opacity: 0.4;
+
+.quickbar-expand-toggle:hover, .quickbar-button:hover {
+    -fx-background-color: -quickbar-btn-color-hover;
 }
-.quickbar-navigation-button:hover .quickbar-navigation-button-graphic{
-	-fx-opacity: 1.0;
+
+.quickbar-expand-toggle:focused, .quickbar-button:focused {
+    -fx-background-color: -quickbar-btn-focus-color, -quickbar-btn-color;
+}
+
+.quickbar-expand-toggle:focused:hover, .quickbar-button:focused:hover {
+    -fx-background-color: -quickbar-btn-focus-color-hover, -quickbar-btn-color-hover;
+}
+
+.quickbar-button-arrow {
+    -fx-fill: -quickbar-arrow-color;
+}
+
+.quickbar-items {
+    -fx-spacing: 0.5em;
+    -fx-padding: 0.0 0.5em 1.0em 0.0;
+}
+
+.quickbar-button {
+    -fx-background-radius: 10px;
+    -fx-background-insets: 0.0;
+    -fx-padding: 0.416667em 0.666667em 0.416667em 0.666667em;
+    -fx-min-width: 4em;
 }

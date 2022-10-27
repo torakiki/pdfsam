@@ -1,5 +1,5 @@
 .context-menu {
-    -fx-background-color: -pdfsam-border-color, -pdfsam-tooltip-background-color;
+    -fx-background-color: -menu-border-color, -menu-background-color;
     -fx-background-insets: 0.0, 0.5;
     -fx-background-radius: 6.0;
     -fx-effect: -pdfsam-shadow-effect;
@@ -11,11 +11,11 @@
 }
 
 .menu-item:focused {
-    -fx-background-color: -pdfsam-menu-hover-color;
+    -fx-background-color: -menu-hover-color;
 }
 
 .menu > .right-container > .arrow, .menu:focused > .right-container > .arrow {
-    -fx-background-color: -default-font-color;
+    -fx-background-color: -menu-arrow-color;
 }
 
 .context-menu .separator:horizontal {

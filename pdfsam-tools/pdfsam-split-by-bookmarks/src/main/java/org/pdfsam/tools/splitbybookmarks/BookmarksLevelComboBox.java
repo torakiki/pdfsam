@@ -60,16 +60,7 @@ class BookmarksLevelComboBox extends ComboBox<String>
                 getEditor().getStyleClass().removeAll(Style.INVALID.css());
             }
         });
-        getEditor().focusedProperty().addListener((obs, old, isFocused) -> {
-            //TODO verify this
-            // workaround for https://bugs.openjdk.java.net/browse/JDK-8136838
-            if (!isFocused) {
-                String newVal = getEditor().getText();
-                if (nonNull(newVal) && !newVal.equals(getValue())) {
-                    setValue(newVal);
-                }
-            }
-        });
+      
     }
 
     public void setValidBookmarkLevels(SortedSet<Integer> levels) {

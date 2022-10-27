@@ -47,7 +47,7 @@ class QuickbarToolButtonsPane extends BaseQuickbarButtonsPane {
     }
 
     QuickbarToolButtonsPane(Collection<Tool> tools) {
-        Comparator<Tool> comparator = Comparator.comparingInt(t -> t.descriptor().priority());
+        Comparator<Tool> comparator = Comparator.comparing(t -> t.descriptor().category());
         tools.stream().sorted(comparator.thenComparing(m -> m.descriptor().name())).map(ToolButton::new).forEach(b -> {
             b.displayTextProperty().bind(displayTextProperty());
             getChildren().add(b);
@@ -58,7 +58,7 @@ class QuickbarToolButtonsPane extends BaseQuickbarButtonsPane {
 
     @EventListener
     public void onSetCurrentModuleRequest(SetActiveToolRequest r) {
-        buttons.stream().filter(b -> b.toolBinding().equals(r.id())).findFirst().ifPresent(b -> b.setSelected(true));
+        buttons.forEach(b -> b.setSelected(r.id().equals(b.toolBinding())));
     }
 
 }

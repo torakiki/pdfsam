@@ -20,8 +20,10 @@ package org.pdfsam.gui.components.dashboard.preference;
 
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import javafx.geometry.HPos;
+import javafx.geometry.VPos;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import org.pdfsam.ui.components.support.FXValidationSupport;
@@ -47,18 +49,34 @@ class PreferenceWorkspacePane extends VBox {
         workingDirectory.getTextField()
                 .setPromptText(i18n().tr("Select a directory where documents will be saved and loaded by default"));
         workingDirectory.setBrowseWindowTitle(i18n().tr("Select a directory"));
-        HBox workigDirPane = new HBox(workingDirectory,
-                helpIcon(i18n().tr("Select a directory where documents will be saved and loaded by default")));
-        HBox.setHgrow(workingDirectory, Priority.ALWAYS);
-        workigDirPane.getStyleClass().add("with-help-hcontainer");
+        var workigDirPane = new GridPane();
+        workigDirPane.getStyleClass().addAll(Style.GRID.css());
+        workigDirPane.getStyleClass().addAll(Style.VITEM.css());
+        GridPane.setValignment(workingDirectory, VPos.BOTTOM);
+        GridPane.setHalignment(workingDirectory, HPos.LEFT);
+        GridPane.setHgrow(workingDirectory, Priority.ALWAYS);
+        workigDirPane.add(workingDirectory, 0, 0);
+        var workingDirLabel = helpIcon(
+                i18n().tr("Select a directory where documents will be saved and loaded by default"));
+        GridPane.setValignment(workingDirLabel, VPos.CENTER);
+        workigDirPane.add(workingDirLabel, 1, 0);
 
         workspace.getTextField().setPromptText(
                 i18n().tr("Select a previously saved workspace that will be automatically loaded at startup"));
         workspace.setBrowseWindowTitle(i18n().tr("Select a workspace"));
-        HBox workspaceDirPane = new HBox(workspace, helpIcon(
-                i18n().tr("Select a previously saved workspace that will be automatically loaded at startup")));
-        HBox.setHgrow(workspace, Priority.ALWAYS);
-        workspaceDirPane.getStyleClass().add("with-help-hcontainer");
+
+        var workspaceDirPane = new GridPane();
+        workspaceDirPane.getStyleClass().addAll(Style.GRID.css());
+        workspaceDirPane.getStyleClass().addAll(Style.VITEM.css());
+        GridPane.setValignment(workspace, VPos.BOTTOM);
+        GridPane.setHalignment(workspace, HPos.LEFT);
+        GridPane.setHgrow(workspace, Priority.ALWAYS);
+        workspaceDirPane.add(workspace, 0, 0);
+        var workspaceDirLabel = helpIcon(
+                i18n().tr("Select a previously saved workspace that will be automatically loaded at startup"));
+        GridPane.setValignment(workspaceDirLabel, VPos.CENTER);
+        workspaceDirPane.add(workspaceDirLabel, 1, 0);
+
         workspace.getTextField().validProperty().addListener((o, oldVal, newVal) -> saveWorkspaceOnExit.setDisable(
                 isBlank(workspace.getTextField().getText()) || newVal != FXValidationSupport.ValidationState.VALID));
         workspace.getTextField().validate();

@@ -101,8 +101,8 @@ public class PdfDestinationPane extends DestinationPane implements ToolBound, Re
         advancedPanel.getChildren().add(compress);
         discardBookmarks.ifPresent(advancedPanel.getChildren()::add);
         advancedPanel.getChildren().add(versionPane);
-        TitledPane titledAdvanced = Views.titledPane(i18n().tr("Show advanced settings"), advancedPanel);
-        titledAdvanced.getStyleClass().add("advanced-destination-pane");
+        TitledPane titledAdvanced = Views.titledPane(i18n().tr("Show advanced settings"), advancedPanel,
+                "advanced-destination-pane");
         titledAdvanced.setExpanded(expandAdvanced);
         titledAdvanced.expandedProperty().addListener((o, oldval, newVal) -> {
             if (newVal) {

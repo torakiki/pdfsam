@@ -48,6 +48,7 @@ public class NewsPanel extends VBox {
     public NewsPanel() {
         getStyleClass().add("news-panel");
         getStyleClass().addAll(Style.CONTAINER.css());
+        newsPanel.getStyleClass().add("news-panel-content");
         Button closeButton = new Button("", FontIcon.of(UniconsLine.TIMES));
         closeButton.getStyleClass().addAll("close-button");
         closeButton.setOnAction(e -> eventStudio().broadcast(HideNewsPanelRequest.INSTANCE));

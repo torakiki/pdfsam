@@ -59,7 +59,7 @@ public class DashboardButtonTest {
     public void onClick() {
         Listener<SetActiveDashboardItemRequest> listener = mock(Listener.class);
         eventStudio().add(SetActiveDashboardItemRequest.class, listener);
-        robot.clickOn(".quickbar-navigation-button");
+        robot.clickOn(".quickbar-button");
         ArgumentCaptor<SetActiveDashboardItemRequest> captor = ArgumentCaptor.forClass(
                 SetActiveDashboardItemRequest.class);
         verify(listener).onEvent(captor.capture());
@@ -68,7 +68,7 @@ public class DashboardButtonTest {
 
     @Test
     public void selectIf() {
-        DashboardButton victim = robot.lookup(".quickbar-navigation-button").queryAs(DashboardButton.class);
+        DashboardButton victim = robot.lookup(".quickbar-button").queryAs(DashboardButton.class);
         assertFalse(victim.isSelected());
         victim.selectIf("ImNotMatching");
         assertFalse(victim.isSelected());

@@ -1,90 +1,128 @@
 /**
  * Combo
  */
-.combo-box-base{
-	-fx-background-color: -pdfsam-box-border-color, -pdfsam-flat-bg-color;
-    -fx-background-insets: 0.0, 0.4;
-    -fx-background-radius: 3.0;	
+.combo-box-base:hover > .arrow-button {
+    -fx-background-color: -fx-text-box-border, -grey-5;
+    -fx-background-insets: 0.0, 1.0;
+    -fx-background-radius: 0.0, 0.0;
+}
+
+.pdfsam-titled-pane .combo-box-base {
+    -fx-background-color: -combo-color-titled;
+}
+
+.combo-box-base, .advanced-destination-pane .combo-box-base {
+    -fx-background-color: -combo-color;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 0.5em;
     -fx-padding: 0.0;
 }
-.combo-box-base > .arrow-button {
-   -fx-background-color: -pdfsam-box-border-color, -pdfsam-flat-bg-color;
-   -fx-background-insets: 0.0, 0.4 0.4 0.4 0.0;
-   -fx-background-radius: 3.0, 3.0;
+
+.pdfsam-titled-pane .combo-box-base > .arrow-button {
+    -fx-background-color: -combo-color-titled;
 }
-.combo-box-base:focused {
-	-fx-background-color: -pdfsam-focus-border-color, -pdfsam-flat-bg-color;
+
+.combo-box-base > .arrow-button, .advanced-destination-pane .combo-box-base > .arrow-button {
+    -fx-background-color: -combo-color;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 0.0 0.5em 0.5em 0.0;
+}
+
+.pdfsam-titled-pane .combo-box-base:focused {
+    -fx-background-color: -combo-focus-border-color-titled, -combo-color-titled;
+}
+
+.combo-box-base:focused, .advanced-destination-pane .combo-box-base:focused {
+    -fx-background-color: -combo-focus-border-color, -combo-color;
     -fx-background-insets: 0.0, 1.0;
 }
-.combo-box-base:focused > .arrow-button, .combo-box-base:hover > .arrow-button{
-   -fx-background-color: transparent;
-   -fx-background-insets: 0.0;
-   -fx-background-radius: 3.0;
-}
-.combo-box-base:hover {
-   -fx-background-color: -pdfsam-box-border-color, -pdfsam-flat-bg-color;
-   -fx-background-insets: 0.0, 0.4 0.4 0.4 0.0;
-   -fx-background-radius: 3.0, 3.0;
-   -fx-effect: -pdfsam-hover-shadow-effect;
-   -fx-translate-y: -1.0;
-}
-.combo-box-base:armed > .arrow-button{
-   -fx-background-color: -pdfsam-armed-button-color;
-   -fx-background-insets: 0.0;
-   -fx-background-radius: 3.0;	
-}
-.combo-box-base:armed {
-   -fx-background-color: -pdfsam-armed-button-color;
-   -fx-background-insets: 0.0;
-   -fx-background-radius: 3.0;	   
-   -fx-effect: -pdfsam-hover-shadow-effect;
-   -fx-translate-y: -2.0;
-}
-.combo-box-popup > .list-view {
-   -fx-background-color: -pdfsam-box-border-color, -pdfsam-tooltipbg-color;
-   -fx-background-insets: 0.0, 0.5;
-   -fx-background-radius: 3.0;
-   -fx-effect: -pdfsam-hover-shadow-effect;
-   -fx-translate-y: 2.0;
-   -fx-padding: 0.333333em 0.166667em 0.166667em 0.166667em;
-}
-.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:hover {
-    -fx-background-color: -pdfsam-flat-bg-color;
-}
-.combo-box-popup  > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected,
-.combo-box-popup  > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected:hover {
-    -fx-background-color: -pdfsam-box-border-color;
+
+.combo-box-base:focused > .arrow-button, .combo-box-base:hover > .arrow-button, .pdfsam-titled-pane .combo-box-base:focused > .arrow-button, .pdfsam-titled-pane .combo-box-base:hover > .arrow-button {
+    -fx-background-color: transparent;
     -fx-background-insets: 0.0;
+    -fx-background-radius: 0.0 0.5em 0.5em 0.0;
 }
-.combo-box-base:editable > .arrow-button{
-   -fx-background-color: -pdfsam-box-border-color, -pdfsam-flat-bg-color;
-   -fx-background-insets: 0.0, 0.4;
-   -fx-background-radius: 0.0 3.0 3.0 0;
+
+.pdfsam-titled-pane .combo-box-base:hover {
+    -fx-background-color: -combo-color-hover-titled;
 }
-.combo-box-base:focused:editable > .arrow-button{
-   -fx-background-color: -pdfsam-focus-border-color, -pdfsam-flat-bg-color;
-   -fx-background-insets: 0.0, 0.4;
-   -fx-background-radius: 0.0 3.0 3.0 0;
+
+.combo-box-base:hover, .advanced-destination-pane .combo-box-base:hover {
+    -fx-background-color: -combo-color-hover;
 }
-.combo-box-base:editable:contains-focus  > .arrow-button{
-  -fx-background-color: -pdfsam-box-border-color, -pdfsam-flat-bg-color;
-  -fx-background-insets: 0.0, 0.4;
-  -fx-background-radius: 0.0 3.0 3.0 0;
-  -fx-effect: none;
+
+.combo-box-base:armed > .arrow-button {
+    -fx-opacity: 0.7;
+    -fx-effect: none;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 0.0 0.5em 0.5em 0.0;
 }
-.combo-box-base:hover:editable > .arrow-button{
-   -fx-background-color: -pdfsam-box-border-color, -pdfsam-flat-bg-color;
-   -fx-background-insets: 0.0, 0.4;
-   -fx-background-radius: 0 3.0 3.0 0;
+
+.combo-box-base:armed {
+    -fx-opacity: 0.7;
+    -fx-effect: none;
 }
-.combo-box-base:armed:editable > .arrow-button{
-   -fx-background-color: -pdfsam-armed-button-color;
-   -fx-background-insets: 0.0;
-   -fx-background-radius: 3.0;   
+
+.combo-box-popup > .list-view {
+    -fx-translate-y: 2.0;
+    -fx-background-color: -menu-border-color, -menu-background-color;
+    -fx-background-insets: 0.0, 0.5;
+    -fx-background-radius: 6.0;
+    -fx-effect: -pdfsam-shadow-effect;
+    -fx-padding: 0.333333em 0.333333em 0.333333em 0.333333em;
+}
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
+    -fx-padding: 4 0 4 5;
+    -fx-background-insets: 0.0, 1.0 0 1.0 0;
+    -fx-background-radius: 4.0;
+}
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:hover {
+    -fx-background-color: -menu-background-color, -combo-color-hover;
+}
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected,
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected:hover {
+    -fx-background-color: -menu-background-color, -combo-selected-color;
+    -fx-background-insets: 0.0, 1.0 0 1.0 0;
+}
+
+.combo-box-base:editable > .arrow-button {
+    -fx-background-color: -pdfsam-border-color, -combo-color;
+    -fx-background-insets: 0.0, 0.4;
+    -fx-background-radius: 0.0 0.5em 0.5em 0;
+}
+
+.combo-box-base:focused:editable > .arrow-button {
+    -fx-background-color: -pdfsam-focus-border-color, -combo-color;
+    -fx-background-insets: 0.0, 0.4;
+    -fx-background-radius: 0.0 0.5em 0.5em 0;
+}
+
+.combo-box-base:editable:contains-focus > .arrow-button {
+    -fx-background-color: -pdfsam-border-color, -combo-color;
+    -fx-background-insets: 0.0, 0.4;
+    -fx-background-radius: 0.0 0.5em 0.5em 0;
+    -fx-effect: none;
+}
+
+.combo-box-base:hover:editable > .arrow-button {
+    -fx-background-color: -pdfsam-border-color, -combo-color;
+    -fx-background-insets: 0.0, 0.4;
+    -fx-background-radius: 0 0.5em 0.5em 0;
+}
+
+.combo-box-base:armed:editable > .arrow-button {
+    -fx-background-color: -pdfsam-armed-button-color;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 0.5em;
 }
 
 .combo-box-base:hover:editable {
 }
+
 .combo-box-base:editable > .text-field {
+    -fx-background-radius: 0.5em 0 0 0.5em;
 }
 

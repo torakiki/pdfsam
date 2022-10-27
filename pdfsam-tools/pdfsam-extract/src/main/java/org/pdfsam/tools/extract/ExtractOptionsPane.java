@@ -18,8 +18,10 @@
  */
 package org.pdfsam.tools.extract;
 
+import javafx.geometry.HPos;
+import javafx.geometry.VPos;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.GridPane;
 import org.pdfsam.core.support.params.ConversionUtils;
 import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.model.ui.ResettableView;
@@ -41,11 +43,10 @@ import static org.pdfsam.ui.components.help.HelpUtils.helpIcon;
 
 /**
  * Panel for the Extract options
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
-class ExtractOptionsPane extends HBox
+class ExtractOptionsPane extends GridPane
         implements TaskParametersBuildStep<ExtractParametersBuilder>, RestorableView, ResettableView {
 
     private final ValidableTextField field = new ValidableTextField();
@@ -65,9 +66,17 @@ class ExtractOptionsPane extends HBox
         this.field.setId("extractRanges");
         this.field.setPrefWidth(350);
         getStyleClass().addAll(Style.CONTAINER.css());
-        getStyleClass().addAll(Style.HCONTAINER.css());
-        getChildren().addAll(new Label(i18n().tr("Extract pages:")), this.field,
-                helpIcon("Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-)"));
+        getStyleClass().addAll(Style.GRID.css());
+        var label = new Label(i18n().tr("Extract pages:"));
+        GridPane.setValignment(label, VPos.BOTTOM);
+        GridPane.setHalignment(label, HPos.LEFT);
+        add(label, 0, 0);
+        GridPane.setValignment(field, VPos.BOTTOM);
+        GridPane.setHalignment(field, HPos.LEFT);
+        add(field, 1, 0);
+        var helpIcon = helpIcon("Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-)");
+        GridPane.setValignment(helpIcon, VPos.CENTER);
+        add(helpIcon, 2, 0);
     }
 
     @Override

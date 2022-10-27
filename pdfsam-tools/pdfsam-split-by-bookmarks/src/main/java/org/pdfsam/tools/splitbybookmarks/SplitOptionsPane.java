@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 08/apr/2014
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -18,11 +18,13 @@
  */
 package org.pdfsam.tools.splitbybookmarks;
 
+import javafx.geometry.HPos;
+import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import org.pdfsam.core.support.params.TaskParametersBuildStep;
@@ -43,29 +45,42 @@ import static org.pdfsam.ui.components.help.HelpUtils.helpIcon;
 
 /**
  * Panel for the Split options
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
-class SplitOptionsPane extends VBox
+class SplitOptionsPane extends GridPane
         implements TaskParametersBuildStep<SplitByOutlineLevelParametersBuilder>, RestorableView, ResettableView {
 
     private final BookmarksLevelComboBox levelCombo = new BookmarksLevelComboBox();
     private final TextField regexpField = new TextField();
 
     SplitOptionsPane() {
-        super(Style.DEFAULT_SPACING);
         getStyleClass().addAll(Style.CONTAINER.css());
+        getStyleClass().addAll(Style.GRID.css());
         levelCombo.setId("bookmarksLevel");
         regexpField.setId("bookmarksRegexp");
         regexpField.setPromptText(i18n().tr("Regular expression the bookmark has to match"));
         regexpField.setPrefWidth(350);
-        getChildren().addAll(createLine(new Label(i18n().tr("Split at this bookmark level:")), levelCombo),
-                createLine(new Label(i18n().tr("Matching regular expression:")), regexpField, helpIcon(new TextFlow(
-                        new Text(i18n().tr("A regular expression the bookmark text has to match")
-                                + System.lineSeparator()),
-                        new Text(i18n().tr(
-                                "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""))))));
+        var label = new Label(i18n().tr("Split at this bookmark level:"));
+        GridPane.setValignment(label, VPos.BOTTOM);
+        GridPane.setHalignment(label, HPos.LEFT);
+        add(label, 0, 0);
+        GridPane.setValignment(levelCombo, VPos.BOTTOM);
+        GridPane.setHalignment(levelCombo, HPos.LEFT);
+        add(levelCombo, 1, 0, 2, 1);
+        var regexLabel = new Label(i18n().tr("Matching regular expression:"));
+        GridPane.setValignment(regexLabel, VPos.BOTTOM);
+        GridPane.setHalignment(regexLabel, HPos.LEFT);
+        add(regexLabel, 0, 1);
+        GridPane.setValignment(regexpField, VPos.BOTTOM);
+        GridPane.setHalignment(regexpField, HPos.LEFT);
+        add(regexpField, 1, 1);
+        var helpIcon = helpIcon(new TextFlow(
+                new Text(i18n().tr("A regular expression the bookmark text has to match") + System.lineSeparator()),
+                new Text(i18n().tr("Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""))));
+        GridPane.setValignment(helpIcon, VPos.CENTER);
+        GridPane.setHalignment(helpIcon, HPos.LEFT);
+        add(helpIcon, 2, 1);
     }
 
     void setValidBookmarkLevels(SortedSet<Integer> levels) {

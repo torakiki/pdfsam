@@ -104,7 +104,7 @@ public class PreferenceConfig {
         checkForUpdates.setGraphic(helpIcon(
                 i18n().tr("Set whether new version availability should be checked on startup (restart needed)")));
         checkForUpdates.getStyleClass().addAll(Style.WITH_HELP.css());
-        checkForUpdates.getStyleClass().add("spaced-vitem");
+        checkForUpdates.getStyleClass().addAll(Style.VITEM.css());
         return checkForUpdates;
     }
 
@@ -117,7 +117,7 @@ public class PreferenceConfig {
         checkForNews.setGraphic(helpIcon(i18n().tr(
                 "Set whether the application should check for news availability on startup (restart needed)")));
         checkForNews.getStyleClass().addAll(Style.WITH_HELP.css());
-        checkForNews.getStyleClass().add("spaced-vitem");
+        checkForNews.getStyleClass().addAll(Style.VITEM.css());
         return checkForNews;
     }
 
@@ -130,7 +130,7 @@ public class PreferenceConfig {
         compressionEnabled.setGraphic(
                 helpIcon(i18n().tr("Set whether \"Compress output file\" should be enabled by default")));
         compressionEnabled.getStyleClass().addAll(Style.WITH_HELP.css());
-        compressionEnabled.getStyleClass().add("spaced-vitem");
+        compressionEnabled.getStyleClass().addAll(Style.VITEM.css());
         return compressionEnabled;
     }
 
@@ -143,7 +143,7 @@ public class PreferenceConfig {
         overwriteOutput.setGraphic(
                 helpIcon(i18n().tr("Set whether \"Overwrite if already exists\" should be enabled by default")));
         overwriteOutput.getStyleClass().addAll(Style.WITH_HELP.css());
-        overwriteOutput.getStyleClass().add("spaced-vitem");
+        overwriteOutput.getStyleClass().addAll(Style.VITEM.css());
         return overwriteOutput;
     }
 
@@ -155,7 +155,7 @@ public class PreferenceConfig {
         playSounds.setId("playSounds");
         playSounds.setGraphic(helpIcon(i18n().tr("Turn on or off alert sounds")));
         playSounds.getStyleClass().addAll(Style.WITH_HELP.css());
-        playSounds.getStyleClass().add("spaced-vitem");
+        playSounds.getStyleClass().addAll(Style.VITEM.css());
         return playSounds;
     }
 
@@ -169,7 +169,7 @@ public class PreferenceConfig {
         savePwdInWorkspace.setGraphic(helpIcon(i18n().tr(
                 "If an encrypted PDF document has been opened with a password, save the password in the workspace file")));
         savePwdInWorkspace.getStyleClass().addAll(Style.WITH_HELP.css());
-        savePwdInWorkspace.getStyleClass().add("spaced-vitem");
+        savePwdInWorkspace.getStyleClass().addAll(Style.VITEM.css());
         return savePwdInWorkspace;
     }
 
@@ -182,7 +182,7 @@ public class PreferenceConfig {
         donationNotification.setGraphic(helpIcon(i18n().tr(
                 "Turn on or off the notification appearing once in a while and asking the user to support PDFsam with a donation")));
         donationNotification.getStyleClass().addAll(Style.WITH_HELP.css());
-        donationNotification.getStyleClass().add("spaced-vitem");
+        donationNotification.getStyleClass().addAll(Style.VITEM.css());
         return donationNotification;
     }
 
@@ -195,7 +195,7 @@ public class PreferenceConfig {
         fetchPremiumModules.setGraphic(helpIcon(i18n().tr(
                 "Set whether the application should fetch and show premium features description in the modules dashboard")));
         fetchPremiumModules.getStyleClass().addAll(Style.WITH_HELP.css());
-        fetchPremiumModules.getStyleClass().add("spaced-vitem");
+        fetchPremiumModules.getStyleClass().addAll(Style.VITEM.css());
         return fetchPremiumModules;
     }
 
@@ -209,7 +209,7 @@ public class PreferenceConfig {
         clearConfirmation.setGraphic(helpIcon(i18n().tr(
                 "Set whether the application should ask for a confirmation when clearing the selection table")));
         clearConfirmation.getStyleClass().addAll(Style.WITH_HELP.css());
-        clearConfirmation.getStyleClass().add("spaced-vitem");
+        clearConfirmation.getStyleClass().addAll(Style.VITEM.css());
         return clearConfirmation;
     }
 
@@ -229,7 +229,6 @@ public class PreferenceConfig {
         PreferenceBrowsableDirectoryField workingDirectory = new PreferenceBrowsableDirectoryField(WORKING_PATH);
         workingDirectory.getTextField().setText(app().persistentSettings().get(WORKING_PATH).orElse(""));
         workingDirectory.setId("workingDirectory");
-        workingDirectory.getStyleClass().add("spaced-vitem");
         return workingDirectory;
     }
 
@@ -240,7 +239,6 @@ public class PreferenceConfig {
                 OpenType.OPEN);
         workspace.getTextField().setText(app().persistentSettings().get(WORKSPACE_PATH).orElse(""));
         workspace.setId("workspace");
-        workspace.getStyleClass().add("spaced-vitem");
         return workspace;
     }
 

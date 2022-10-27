@@ -1,0 +1,128 @@
+.root {
+    -grey-1: #F9F9F9;
+    -grey-2: #FCFCFC;
+    -grey-3: #F1F1F1;
+    -grey-4: #E1E1E1;
+    -grey-5: #C6C6C6;
+    -grey-6: #B2B2B2;
+    -default-primary: #009245;
+    -warning-color: #ffe082;
+    -error-color: #ef5350;
+    -info-color: #556ee6;
+    -success-color: #009245;
+
+    /** general defaults**/
+    -default-background-color: white;
+    -default-dark-background: -grey-3;
+    -default-dark-background-hover: derive(-default-dark-background, -20%);
+    -fx-background: -default-background-color;
+    -default-font-color: #1C1C1C;
+    -pdfsam-focus-color: -grey-4;
+    -pdfsam-focus-color-hover: derive(-pdfsam-focus-color, -10%);
+    -pdfsam-shadow-effect: dropshadow(three-pass-box, rgba(51, 77, 136, 0.2), 30, 0, 0, 10);
+    -pdfsam-hover-shadow-effect: dropshadow(three-pass-box, rgba(51, 77, 136, 0.5), 30, 0, 0, 10);
+    -pdfsam-border-color: derive(-grey-5, -20%);
+    -fx-focus-color: -grey-4;
+    -fx-text-box-border: -grey-4;
+    -fx-control-inner-background: white;
+
+    /** buttons **/
+    -btn-color: -default-dark-background;
+    -btn-color-hover: derive(-btn-color, -10%);
+    -btn-icon-color: -default-font-color;
+    -btn-default-color: -default-primary;
+    -btn-focus-border-color: -pdfsam-focus-color;
+    -btn-focus-border-color-hover: -pdfsam-focus-color-hover;
+    -btn-selected-color: -grey-4;
+    -btn-selected-border-color: -grey-6;
+
+    /** titled panel buttons **/
+    -btn-color-titled: white;
+    -btn-color-hover-titled: -grey-4;
+    -btn-focus-border-color-titled: -grey-5;
+    -btn-focus-border-color-hover-titled: derive(-btn-focus-border-color-titled, -10%);
+
+    /** run button **/
+    -run-btn-color: -default-primary;
+    -run-btn-color-hover: derive(-run-btn-color, -10%);
+    -run-btn-focus-border-color: white;
+    -run-btn-focus-border-color-hover: derive(-pdfsam-focus-color, -10%);
+    -run-btn-font-color: white;
+
+    /** combo **/
+    -combo-color: -default-dark-background;
+    -combo-color-hover: derive(-combo-color, -10%);
+    -combo-focus-border-color: -pdfsam-focus-color;
+    -combo-focus-border-color-hover: -pdfsam-focus-color-hover;
+    -combo-selected-color: derive(-combo-color-hover, -10%);
+
+    /** titled panel combos **/
+    -combo-color-titled: white;
+    -combo-color-hover-titled: -grey-4;
+    -combo-focus-border-color-titled: -grey-5;
+    -combo-focus-border-color-hover-titled: derive(-btn-focus-border-color-titled, -10%);
+
+    /** header **/
+    -header-background-color: -grey-1;
+    -header-border-color: -grey-4;
+    -header-button-color: -grey-1;
+    -header-button-color-hover: derive(-header-button-color, -10%);
+    -header-button-focus-color: -grey-2;
+    -header-button-focus-color-hover: derive(-header-button-focus-color, -10%);
+
+    /** dashboard **/
+    -tool-tile-color: -default-dark-background;
+    -tool-tile-armed-color: derive(-default-dark-background, 30%);
+    -tool-tile-hover-color: -default-dark-background-hover;
+
+    /** menu **/
+    -menu-hover-color: derive(-btn-color, -10%);
+    -menu-arrow-color: -default-font-color;
+    -menu-border-color: -pdfsam-border-color;
+    -menu-background-color: -tooltip-background-color;
+
+    /** news **/
+    -newspane-background-color: -default-background-color;
+    -newspane-btn-color: -default-background-color;
+    -newspane-btn-color-hover: derive(-default-background-color, -10%);
+    -newspane-btn-focus-color: -pdfsam-focus-color;
+    -newspane-btn-focus-color-hover: derive(-pdfsam-focus-color, -10%);
+
+    /** log panel **/
+    -logpane-background-color: -default-background-color;
+    -logpane-border-color: -pdfsam-border-color;
+
+    /** notifications */
+    -notification-border-color: -grey-4;
+    -notification-color: -default-background-color;
+
+    /** quickbar **/
+    -quickbar-background-color: -default-background-color;
+    -quickbar-btn-color: -default-background-color;
+    -quickbar-btn-color-hover: derive(-default-background-color, -10%);
+    -quickbar-btn-focus-color: -pdfsam-focus-color;
+    -quickbar-btn-focus-color-hover: derive(-pdfsam-focus-color, -10%);
+    -quickbar-arrow-color: -default-font-color;
+
+    /** tooltip **/
+    -tooltip-background-color: white;
+    -tooltip-font-color: -default-font-color;
+    -tooltip-border-color: -grey-5;
+
+    /** footer **/
+    -status-label-color: -default-dark-background;
+    -progress-bar-color: -grey-5;
+    -progress-bar-progress-color: -default-primary;
+
+    /** tools options **/
+    -tool-options-pane-color: -default-dark-background;
+    -advanced_background-color: -default-background-color;
+
+    /** fields **/
+    -text-field-color: -grey-2;
+    -text-field-focus-color: -default-primary;
+
+    /** checkbox **/
+    -checkbox-selected-color: -default-primary;
+    -checkbox-focus-color: -default-primary;
+}
