@@ -43,7 +43,7 @@
 }
 
 .news-box-title-important {
-    -fx-fill: -pdfsam-theme-color;
+    -fx-fill: -default-primary;
 }
 
 .news-box {
@@ -63,7 +63,7 @@
 }
 
 .news-not-up-to-date > .ikonli-font-icon {
-    -fx-text-fill: -pdfsam-theme-color;
+    -fx-text-fill: -default-primary;
 }
 
 .news-btn {

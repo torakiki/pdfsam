@@ -1,48 +1,60 @@
-.-pdfsam-dialog{
-	-fx-background-color: -pdfsam-pwdpopupbg-color;
-	-fx-background-radius: 5.0;
-	-fx-background-insets: 0.0;
-	-fx-max-width: 37.5em;
+.-pdfsam-dialog {
+    -fx-background-color: -default-popup-background;
+    -fx-background-radius: 5.0;
+    -fx-background-insets: 0.0;
+    -fx-max-width: 37.5em;
 }
-.-pdfsam-dialog-buttons{
-	-fx-spacing: 1.0em;
-	-fx-padding: 0.583333em;
-	-fx-alignment: bottom-center;
+
+.-pdfsam-dialog-buttons {
+    -fx-spacing: 1.0em;
+    -fx-padding: 0.583333em;
+    -fx-alignment: bottom-center;
 }
-.-pdfsam-dialog-content{
-	-fx-spacing: 1.0em;
-	-fx-alignment: top-left ;
+
+.-pdfsam-dialog-content {
+    -fx-spacing: 1.0em;
+    -fx-alignment: top-left;
 }
+
 .-pdfsam-dialog-messages {
-	-fx-spacing: 0.25em;
-	-fx-alignment: top-left;
+    -fx-spacing: 0.25em;
+    -fx-alignment: top-left;
 }
-.-pdfsam-dialog-title, .-pdfsam-open-with-dialog-title{
-	-fx-font-size: 1.25em;
+
+.-pdfsam-dialog-title, .-pdfsam-open-with-dialog-title {
+    -fx-font-size: 1.25em;
     -fx-font-weight: bold;
-	-fx-wrap-text: true;    
+    -fx-wrap-text: true;
 }
-.-pdfsam-dialog-message{
-	-fx-wrap-text: true;    
+
+.-pdfsam-dialog-message {
+    -fx-wrap-text: true;
 }
-.-pdfsam-warning-dialog .glyph-icon, .-pdfsam-warning-dialog .glyph-icon:hover{
-    -fx-fill: #EEAD69;
+
+.-pdfsam-warning-dialog .ikonli-font-icon {
+    -fx-text-fill: -warning-color !important;
+    -fx-icon-color: -warning-color !important;
     -fx-min-width: 3.833333em;
 }
-.-pdfsam-question-dialog .glyph-icon, .-pdfsam-question-dialog .glyph-icon:hover{
-	-fx-fill: -pdfsam-theme-color;
+
+.-pdfsam-question-dialog .ikonli-font-icon {
+    -fx-text-fill: -success-color !important;
+    -fx-icon-color: -success-color !important;
     -fx-min-width: 3.833333em;
 }
+
 .-pdfsam-open-with-container {
-	-fx-spacing: 1.0em;
-	-fx-alignment: top-center;
-	-fx-padding: 1.333333em;
-} 
-.-pdfsam-open-with-dialog-title{
-	-fx-padding: 0.0 0.0 0.416667em 0.0;
+    -fx-spacing: 1.0em;
+    -fx-alignment: top-center;
+    -fx-padding: 1.333333em;
 }
-.-pdfsam-open-with-dialog{
-	-fx-background-color: -pdfsam-pwdpopupbg-color;
-	-fx-background-radius: 5.0;
-	-fx-background-insets: 0.0;
+
+.-pdfsam-open-with-dialog-title {
+    -fx-padding: 0.0 0.0 0.416667em 0.0;
+}
+
+.-pdfsam-open-with-dialog {
+    -fx-background-color: -default-popup-background;
+    -fx-background-radius: 5.0;
+    -fx-background-insets: 0.0;
 }

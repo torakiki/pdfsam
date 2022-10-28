@@ -95,13 +95,13 @@
 }
 
 .combo-box-base:focused:editable > .arrow-button {
-    -fx-background-color: -pdfsam-focus-border-color, -combo-color;
+    -fx-background-color: -pdfsam-focus-color, -combo-color;
     -fx-background-insets: 0.0, 0.4;
     -fx-background-radius: 0.0 0.5em 0.5em 0;
 }
 
 .combo-box-base:editable:contains-focus > .arrow-button {
-    -fx-background-color: -pdfsam-border-color, -combo-color;
+    -fx-background-color: -combo-focus-border-color, -combo-color;
     -fx-background-insets: 0.0, 0.4;
     -fx-background-radius: 0.0 0.5em 0.5em 0;
     -fx-effect: none;
@@ -114,7 +114,7 @@
 }
 
 .combo-box-base:armed:editable > .arrow-button {
-    -fx-background-color: -pdfsam-armed-button-color;
+    -fx-background-color: -btn-selected-color;
     -fx-background-insets: 0.0;
     -fx-background-radius: 0.5em;
 }

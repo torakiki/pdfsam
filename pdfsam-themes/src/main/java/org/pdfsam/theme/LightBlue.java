@@ -1,6 +1,7 @@
+package org.pdfsam.theme;
 /*
  * This file is part of the PDF Split And Merge source code
- * Created on 16/09/22
+ * Created on 28/10/22
  * Copyright 2022 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -17,8 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.pdfsam.theme;
-
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.pdfsam.i18n.I18nContext.i18n;
@@ -26,21 +26,18 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 /**
  * @author Andrea Vacondio
  */
-public class Light implements Theme {
+public class LightBlue extends Light {
 
     @Override
     public String id() {
-        return "AS876FDS7RB3";
+        return "KLDJHGH3N21A1Z";
     }
 
     @Override
     public List<String> stylesheets() {
-        return List.of("/themes/light/colors.css", "/themes/light/theme.css", "/themes/light/tooltip.css",
-                "/themes/light/progress.css", "/themes/light/pdfsam.css", "/themes/light/news.css",
-                "/themes/light/dialogs.css", "/themes/light/combo.css", "/themes/light/progress.css",
-                "/themes/light/banner.css", "/themes/light/quickbar.css", "/themes/light/notifications.css",
-                "/themes/light/dashboard.css", "/themes/light/menu.css", "/themes/light/table.css",
-                "/themes/light/theme.last.css");
+        var css = new ArrayList<>(super.stylesheets());
+        css.add("/themes/lightblue/colors.css");
+        return css;
     }
 
     @Override
@@ -50,7 +47,7 @@ public class Light implements Theme {
 
     @Override
     public String name() {
-        return i18n().tr("Light with green");
+        return i18n().tr("Light with blue");
     }
 
 }

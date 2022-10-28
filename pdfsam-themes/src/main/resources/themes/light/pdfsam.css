@@ -6,6 +6,18 @@
     -fx-padding: 0 0.5em 0.0 0.5em;
 }
 
+.list-view {
+    -fx-background-color: -pdfsam-border-color, -fx-control-inner-background;
+    -fx-background-insets: 0.0, 0.4;
+    -fx-background-radius: 3;
+}
+
+.list-view:focused {
+    -fx-background-color: derive(-pdfsam-border-color, -30%), -fx-control-inner-background;
+    -fx-background-insets: 0.0, 0.4;
+    -fx-background-radius: 3;
+}
+
 /**
  * Log
  */
@@ -48,7 +60,7 @@
  * Info pane
  */
 .info-props {
-    -fx-background-color: -pdfsam-box-border-color, -pdfsam-pane-bg;
+    -fx-background-color: -infopane-border-color, -infopane-background-color;
     -fx-background-insets: 0.0, 0.4;
     -fx-background-radius: 0.25em, 0.25em;
     -fx-padding: 1.25em;
@@ -57,7 +69,7 @@
 }
 
 .info-property-value, .info-property {
-    -fx-background-color: #FFFFFF;
+    -fx-background-color: -infopane-background-color;
     -fx-background-insets: 0.0;
     -fx-border-radius: 0.0;
 }
@@ -70,16 +82,16 @@
  * Tab pane
  */
 .tab-pane > .tab-header-area > .headers-region > .tab:left {
-    -fx-background-color: -default-background-color, -pdfsam-box-border-color, -pdfsam-pane-bg;
+    -fx-background-color: -default-background-color, -pdfsam-border-color, -default-background-color;
     -fx-background-insets: 0.0, 1.0, 1.4;
-    -fx-background-radius: 3.0, 3.0, 3.0;
+    -fx-background-radius: 4.0, 4.0, 4.0;
     -fx-opacity: 0.8;
 }
 
 .tab-pane > .tab-header-area > .headers-region > .tab:selected {
-    -fx-background-color: -default-background-color, -pdfsam-theme-color, -pdfsam-pane-bg;
+    -fx-background-color: -default-background-color, -default-primary, -default-background-color;
     -fx-background-insets: 0.0, 1.0, 1.4;
-    -fx-background-radius: 3.0, 3.0, 3.0;
+    -fx-background-radius: 4.0, 4.0, 4.0;
     -fx-effect: -pdfsam-shadow-effect;
     -fx-opacity: 1.0;
 }

@@ -1,5 +1,6 @@
 import org.pdfsam.theme.Dark;
 import org.pdfsam.theme.Light;
+import org.pdfsam.theme.LightBlue;
 import org.pdfsam.theme.Theme;
 
 /*
@@ -24,8 +25,9 @@ module org.pdfsam.themes {
     exports org.pdfsam.theme;
 
     requires org.pdfsam.i18n;
-    provides Theme with Light, Dark;
+    provides Theme with Light, Dark, LightBlue;
 
     opens themes.light;
     opens themes.dark;
+    opens themes.lightblue;
 }

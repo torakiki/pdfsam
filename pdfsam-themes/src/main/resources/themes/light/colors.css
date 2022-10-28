@@ -6,10 +6,17 @@
     -grey-5: #C6C6C6;
     -grey-6: #B2B2B2;
     -default-primary: #009245;
-    -warning-color: #ffe082;
+    -warning-color: #EEAD69;
     -error-color: #ef5350;
     -info-color: #556ee6;
     -success-color: #009245;
+    -share-color: #6CAfEE;
+    -category-merge-color: #b39ddb;
+    -category-split-color: #ef9a9a;
+    -category-convert-color: #ffcc80;
+    -category-others-color: #4db6ac;
+    -category-visual-color: #1e92aa;
+    -category-enhanced-color: #FBB03C;
 
     /** general defaults**/
     -default-background-color: white;
@@ -17,20 +24,28 @@
     -default-dark-background-hover: derive(-default-dark-background, -20%);
     -fx-background: -default-background-color;
     -default-font-color: #1C1C1C;
+    -fx-text-base-color: -default-font-color;
     -pdfsam-focus-color: -grey-4;
     -pdfsam-focus-color-hover: derive(-pdfsam-focus-color, -10%);
     -pdfsam-shadow-effect: dropshadow(three-pass-box, rgba(51, 77, 136, 0.2), 30, 0, 0, 10);
     -pdfsam-hover-shadow-effect: dropshadow(three-pass-box, rgba(51, 77, 136, 0.5), 30, 0, 0, 10);
     -pdfsam-border-color: derive(-grey-5, -20%);
     -fx-focus-color: -grey-4;
+    -fx-accent: -fx-focus-color;
     -fx-text-box-border: -grey-4;
+    -fx-font-smoothing-type: gray;
     -fx-control-inner-background: white;
+    -default-popup-background: white;
 
     /** buttons **/
     -btn-color: -default-dark-background;
     -btn-color-hover: derive(-btn-color, -10%);
     -btn-icon-color: -default-font-color;
     -btn-default-color: -default-primary;
+    -btn-default-color-hover: derive(-btn-default-color, -10%);
+    -btn-default-focus-border-color: white;
+    -btn-default-focus-border-color-hover: white;
+    -btn-default-font-color: white;
     -btn-focus-border-color: -pdfsam-focus-color;
     -btn-focus-border-color-hover: -pdfsam-focus-color-hover;
     -btn-selected-color: -grey-4;
@@ -46,7 +61,7 @@
     -run-btn-color: -default-primary;
     -run-btn-color-hover: derive(-run-btn-color, -10%);
     -run-btn-focus-border-color: white;
-    -run-btn-focus-border-color-hover: derive(-pdfsam-focus-color, -10%);
+    -run-btn-focus-border-color-hover: white;
     -run-btn-font-color: white;
 
     /** combo **/
@@ -92,6 +107,10 @@
     -logpane-background-color: -default-background-color;
     -logpane-border-color: -pdfsam-border-color;
 
+    /** info panel **/
+    -infopane-background-color: -default-background-color;
+    -infopane-border-color: -pdfsam-border-color;
+
     /** notifications */
     -notification-border-color: -grey-4;
     -notification-color: -default-background-color;
@@ -125,4 +144,11 @@
     /** checkbox **/
     -checkbox-selected-color: -default-primary;
     -checkbox-focus-color: -default-primary;
+
+    /** tableview **/
+    -table-even-background-color: white;
+    -table-odd-background-color: -grey-2;
+    -table-border-color: derive(-table-odd-background-color, -10%);
+    -table-columne-header-color: derive(-table-odd-background-color, -3%);
+    -table-selected-background-color: derive(-table-odd-background-color, -15%);
 }

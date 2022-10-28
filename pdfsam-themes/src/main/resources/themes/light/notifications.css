@@ -13,7 +13,7 @@
 }
 
 .notification {
-    -fx-background-color: -notification-border-color,  -notification-color;
+    -fx-background-color: -notification-border-color, -notification-color;
     -fx-background-insets: 0.0, 0.4;
     -fx-background-radius: 8.0;
     -fx-effect: -pdfsam-shadow-effect;
@@ -58,4 +58,8 @@
 
 .notification-pro > .ikonli-font-icon {
     -fx-fill: -success-color;
+}
+
+notification-share > .ikonli-font-icon {
+    -fx-fill: -share-color;
 }

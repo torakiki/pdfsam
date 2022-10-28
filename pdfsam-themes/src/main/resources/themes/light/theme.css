@@ -1,35 +1,4 @@
-.root {
-
-
-    -pdfsam-hover-color: #D4D4D4;
-
-
-    -pdfsam-flat-bg-color: #EEEEEE;
-    -pdfsam-pwdpopupbg-color: rgba(255.0, 255.0, 255.0, 0.9);
-
-    -fx-focus-color: derive(lightslategray, 90.0%);
-    -fx-accent: -fx-focus-color;
-    -fx-highlight-text-fill: -default-font-color;
-
-    -fx-font-smoothing-type: gray;
-    -pdfsam-progress-color: #C8C8C8;
-    -pdfsam-focus-border-color: rgba(0.0, 0.0, 0.0, 0.2);
-    -pdfsam-theme-color: #009245;
-    -pdfsam-armed-button-color: derive(-pdfsam-flat-bg-color, -18.0%);
-    -pdfsam-pane-bg: #FFFFFF;
-    -pdfsam-box-border-color: derive(-pdfsam-flat-bg-color, -10.0%);
-
-    -icons-color: gray;
-    -category-merge-color: #b39ddb;
-    -category-split-color: #ef9a9a;
-    -category-convert-color: #ffcc80;
-    -category-others-color: #4db6ac;
-    -category-visual-color: #1e92aa;
-    -category-enhanced-color: #FBB03C;
-}
-
-
-.label, .text, .button {
+.label, .text, .button, .text-input {
     -fx-text-fill: -default-font-color;
 }
 
@@ -162,6 +131,10 @@
     -fx-background-radius: 4.0;
 }
 
+.text-input:disabled {
+    -fx-prompt-text-fill: -default-font-color;
+}
+
 /**
  * ValidableContainer
  */
@@ -195,6 +168,7 @@
     -fx-background-radius: 4.0
 }
 
+
 /**
 btn
  */
@@ -224,17 +198,18 @@ btn
 
 .btn:default {
     -fx-background-color: -btn-default-color;
-    -fx-text-fill: #FFFFFF !important;
-    -fx-icon-color: #FFFFFF !important
+    -fx-text-fill: -btn-default-font-color !important;
+    -fx-icon-color: -btn-default-font-color !important;
+    -fx-background-insets: 0;
 }
 
 .btn:default .ikonli-font-icon {
-    -fx-text-fill: #FFFFFF !important;
-    -fx-icon-color: #FFFFFF !important;
+    -fx-text-fill: -btn-default-font-color !important;
+    -fx-icon-color: -btn-default-font-color !important;
 }
 
 .btn:default:hover {
-    -fx-background-color: derive(-btn-default-color, -30%);
+    -fx-background-color: -btn-default-color-hover;
 }
 
 .btn:focused {
@@ -247,12 +222,15 @@ btn
 }
 
 .btn:default:focused {
-    -fx-background-color: -btn-default-color, #FFFFFF, -btn-default-color;
-    -fx-background-insets: 0.0, 1.0, 2.0;
+    -fx-background-color: -btn-default-color, -btn-default-focus-border-color, -btn-default-color !important;
+    -fx-background-insets: 0.0, 1.0, 2.0 !important;
+    -fx-background-radius: 0.5em;
 }
 
 .btn:default:focused:hover {
-    -fx-background-color: derive(-btn-default-color, -30%), #FFFFFF, derive(-btn-default-color, -30%);
+    -fx-background-color: -btn-default-color-hover, -btn-default-focus-border-color-hover, -btn-default-color-hover !important;
+    -fx-background-insets: 0.0, 1.0, 2.0 !important;
+    -fx-background-radius: 0.5em;
 }
 
 .btn:armed {
@@ -280,7 +258,7 @@ btn
 }
 
 .pdfsam-split-button > .label, .pdfsam-split-button:focused > .label {
-    -fx-text-fill: -fx-text-base-color;
+    -fx-text-fill: -default-font-color;
     -fx-background-color: transparent;
     -fx-background-insets: 0.0;
     -fx-background-radius: 0.0;
@@ -384,7 +362,8 @@ btn
     -fx-background-color: -tool-options-pane-color;
     -fx-background-radius: 12.0;
 }
-.pdfsam-titled-pane *:disabled{
+
+.pdfsam-titled-pane *:disabled {
     -fx-opacity: 0.6;
 }
 
@@ -404,7 +383,7 @@ btn
 }
 
 .pdfsam-titled-pane:focused > .title > .arrow-button > .arrow {
-    -fx-background-color: -pdfsam-theme-color;
+    -fx-background-color: -default-primary;
 }
 
 .pdfsam-titled-pane .btn {
@@ -463,34 +442,6 @@ btn
 }
 
 /**
- * Table view
- */
-.table-view {
-    -fx-background-color: -pdfsam-border-color, -fx-control-inner-background;
-    -fx-background-insets: 0.0, 0.4;
-    -fx-background-radius: 3.0;
-}
-
-.table-view:focused {
-    -fx-background-color: -pdfsam-focus-color, -fx-control-inner-background;
-    -fx-background-insets: 0.0, 1.0;
-    -fx-background-radius: 3.0, 3.0;
-}
-
-.table-view .column-header {
-    -fx-background-color: -pdfsam-border-color, -fx-control-inner-background;
-    -fx-background-insets: 0.0, 0.0 1.0 1.0 0.0;
-    -fx-background-radius: 0.0, 0.0;
-    -fx-font-weight: bold;
-}
-
-.table-view:focused {
-    -fx-background-color: -pdfsam-focus-color, -fx-text-box-border, -fx-control-inner-background;
-    -fx-background-insets: -1.8, 0.0, 1.0;
-    -fx-background-radius: 0.0, 0.0, 0.0;
-}
-
-/**
  * Selection table
  */
 .selection-table {
@@ -531,12 +482,12 @@ btn
  * Password popup
  */
 .pdfsam-input-password {
-    -fx-background-color: -pdfsam-border-color, -default-background-color;
-    -fx-background-insets: 0.0, 0.4;
-    -fx-background-radius: 4.0;
+    -fx-background-color: -default-background-color;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 6.0;
     -fx-border-color: -pdfsam-border-color;
     -fx-border-width: 1.0;
-    -fx-border-radius: 0.25em;
+    -fx-border-radius: 6.0;
     -fx-padding: 0.833333em;
     -fx-spacing: 0.416667em;
     -fx-effect: -pdfsam-shadow-effect;
@@ -558,12 +509,14 @@ btn
     -fx-font-size: 1.666667em;
 }
 
-.close-button:hover > .glyph-icon {
-    -fx-fill: derive(-fx-text-base-color, 70.0%);
+.close-button:hover > .ikonli-font-icon {
+    -fx-text-fill: derive(-default-font-color, 70.0%) !important;
+    -fx-icon-color: derive(-default-font-color, 70.0%) !important;
 }
 
-.close-button:armed > .glyph-icon {
-    -fx-fill: derive(-fx-text-base-color, 30.0%);
+.close-button:armed > .ikonli-font-icon {
+    -fx-text-fill: derive(-default-font-color, 30.0%) !important;
+    -fx-icon-color: derive(-default-font-color, 30.0%) !important;
 }
 
 /* Selected rows */

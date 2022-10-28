@@ -59,6 +59,7 @@
     -fx-background-insets: 0;
     -fx-font-weight: bold;
     -fx-font-color: -run-btn-font-color;
+    -fx-background-radius: 0.5em;
 }
 
 .run-button:hover {
@@ -66,13 +67,15 @@
 }
 
 .run-button:focused {
-    -fx-background-color: -run-btn-focus-border-color, -run-btn-color;
-    -fx-background-insets: 0.0, 1.0;
+    -fx-background-color: -run-btn-color, -run-btn-focus-border-color, -run-btn-color !important;
+    -fx-background-insets: 0.0, 1.0, 2.0 !important;
+    -fx-background-radius: 0.5em;
 }
 
 .run-button:focused:hover {
-    -fx-background-color: -run-btn-focus-border-color-hover, -run-btn-color-hover;
-    -fx-background-insets: 0.0, 1.0;
+    -fx-background-color: -run-btn-color-hover, -run-btn-focus-border-color-hover, -run-btn-color-hover !important;
+    -fx-background-insets: 0.0, 1.0, 2.0 !important;
+    -fx-background-radius: 0.5em;
 }
 
 

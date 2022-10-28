@@ -18,14 +18,6 @@
  */
 package org.pdfsam.ui.components.commons;
 
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.sejda.commons.util.RequireUtils.requireNotBlank;
-import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
-
-import org.pdfsam.core.support.validation.Validator;
-import org.pdfsam.ui.components.support.FXValidationSupport;
-import org.pdfsam.ui.components.support.Style;
-
 import javafx.animation.Animation.Status;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -39,6 +31,13 @@ import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.stage.Window;
 import javafx.util.Duration;
+import org.pdfsam.core.support.validation.Validator;
+import org.pdfsam.ui.components.support.FXValidationSupport;
+import org.pdfsam.ui.components.support.Style;
+
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.sejda.commons.util.RequireUtils.requireNotBlank;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 /**
  * {@link TextField} triggering validation when Enter key is pressed or when focus is lost. A {@link FXValidationSupport.ValidationState} property is exposed to bind to the validation state. Default
@@ -101,8 +100,6 @@ public class ValidableTextField extends TextField {
 
     /**
      * Set the error message to display as a tooltip if the status is invalid
-     * 
-     * @param message
      */
     public void setErrorMessage(String message) {
         if (isNotBlank(message)) {
@@ -191,8 +188,8 @@ public class ValidableTextField extends TextField {
 
         private Point2D getDisplayCoordiantes(Window owner, Scene scene) {
             Point2D nodeCoord = ValidableTextField.this.localToScene(0.0, ValidableTextField.this.getHeight());
-            double anchorX = Math.round(owner.getX() + scene.getX() + nodeCoord.getX() + 2);
-            double anchorY = Math.round(owner.getY() + scene.getY() + nodeCoord.getY() - 2);
+            double anchorX = Math.round(owner.getX() + scene.getX() + nodeCoord.getX());
+            double anchorY = Math.round(owner.getY() + scene.getY() + nodeCoord.getY() + 1);
             return new Point2D(anchorX, anchorY);
         }
     }
