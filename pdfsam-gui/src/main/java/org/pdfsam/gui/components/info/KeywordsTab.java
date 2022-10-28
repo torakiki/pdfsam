@@ -79,6 +79,5 @@ class KeywordsTab extends Tab implements ChangeListener<PdfDescriptorLoadingStat
             LOG.trace("Descriptor loaded, updating keywords tab");
             Platform.runLater(() -> keywords.setText(current.getInformation(PdfMetadataFields.KEYWORDS)));
         }
-
     }
 }

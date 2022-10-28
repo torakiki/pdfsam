@@ -54,6 +54,7 @@ import org.pdfsam.model.pdf.PdfLoadRequest;
 import org.pdfsam.model.tool.ClearToolRequest;
 import org.pdfsam.model.tool.ToolBound;
 import org.pdfsam.model.ui.ShowPdfDescriptorRequest;
+import org.pdfsam.model.ui.ShowStageRequest;
 import org.pdfsam.model.ui.dnd.FilesDroppedEvent;
 import org.pdfsam.model.ui.workspace.RestorableView;
 import org.pdfsam.ui.components.selection.PasswordFieldPopup;
@@ -125,7 +126,8 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
                 eventStudio().broadcast(SelectionChangedEvent.clearSelectionEvent(), toolBinding);
                 LOG.trace("Selection cleared for {}", toolBinding);
             } else {
-                SelectionChangedEvent newSelectionEvent = SelectionChangedEvent.select(selected).ofTotalRows(getItems().size());
+                SelectionChangedEvent newSelectionEvent = SelectionChangedEvent.select(selected)
+                        .ofTotalRows(getItems().size());
                 eventStudio().broadcast(newSelectionEvent, toolBinding);
                 LOG.trace("{} for {}", newSelectionEvent, toolBinding);
             }
@@ -225,8 +227,10 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         copyItem.setOnAction(e -> copySelectedToClipboard());
 
         MenuItem infoItem = createMenuItem(i18n().tr("Document properties"), UniconsLine.INFO_CIRCLE);
-        infoItem.setOnAction(e -> Platform.runLater(() -> eventStudio().broadcast(
-                new ShowPdfDescriptorRequest(getSelectionModel().getSelectedItem().descriptor()))));
+        infoItem.setOnAction(e -> Platform.runLater(() -> {
+            eventStudio().broadcast(ShowStageRequest.INSTANCE, "InfoStage");
+            eventStudio().broadcast(new ShowPdfDescriptorRequest(getSelectionModel().getSelectedItem().descriptor()));
+        }));
 
         MenuItem openFileItem = createMenuItem(i18n().tr("Open"), UniconsLine.FILE_ALT);
         openFileItem.setOnAction(e -> eventStudio().broadcast(

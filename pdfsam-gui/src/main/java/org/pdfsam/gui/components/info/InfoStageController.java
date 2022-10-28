@@ -21,19 +21,22 @@ package org.pdfsam.gui.components.info;
 import jakarta.inject.Inject;
 import jakarta.inject.Provider;
 import org.pdfsam.eventstudio.annotation.EventListener;
+import org.pdfsam.eventstudio.annotation.EventStation;
 import org.pdfsam.injector.Auto;
-import org.pdfsam.model.ui.ShowPdfDescriptorRequest;
+import org.pdfsam.model.ui.ShowStageRequest;
 
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 /**
  * Controller displaying the InfoStage when required
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
 @Auto
 public class InfoStageController {
+
+    @EventStation
+    public static final String INFOSTAGE_EVENTSTATION = "InfoStage";
 
     private final Provider<InfoStage> stageProvider;
 
@@ -41,11 +44,12 @@ public class InfoStageController {
     InfoStageController(Provider<InfoStage> stageProvider) {
         this.stageProvider = stageProvider;
         eventStudio().addAnnotatedListeners(this);
+
     }
 
-    @EventListener(priority = Integer.MAX_VALUE)
+    @EventListener(priority = Integer.MIN_VALUE)
     @SuppressWarnings("unused")
-    void requestShow(ShowPdfDescriptorRequest event) {
+    void requestShow(ShowStageRequest event) {
         InfoStage stage = stageProvider.get();
         if (!stage.isShowing()) {
             stage.centerOnScreen();

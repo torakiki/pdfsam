@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 16/mag/2014
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -128,7 +128,7 @@ public class SingleSelectionPane extends VBox implements ToolBound, PdfDocumentD
     };
 
     private final ChangeListener<PdfDescriptorLoadingStatus> onLoadingStatusChange = (o, oldVal, newVal) -> {
-        if (descriptor != null & descriptor.hasReferences()) {
+        if (descriptor != null && descriptor.hasReferences()) {
             encryptionIndicatorUpdate.andThen(detailsUpdate).andThen(d -> {
                 PdfDescriptorLoadingStatus status = d.loadingStatus().getValue();
                 if (status == PdfDescriptorLoadingStatus.LOADED
@@ -142,8 +142,8 @@ public class SingleSelectionPane extends VBox implements ToolBound, PdfDocumentD
     private final ToggleChangeListener<? super FXValidationSupport.ValidationState> onValidState = new ToggleChangeListener<>() {
 
         @Override
-        public void onChanged(ObservableValue<? extends FXValidationSupport.ValidationState> observable, FXValidationSupport.ValidationState oldValue,
-                FXValidationSupport.ValidationState newVal) {
+        public void onChanged(ObservableValue<? extends FXValidationSupport.ValidationState> observable,
+                FXValidationSupport.ValidationState oldValue, FXValidationSupport.ValidationState newVal) {
             if (newVal == FXValidationSupport.ValidationState.VALID) {
                 initializeFor(newDescriptorNoPassword(new File(field.getTextField().getText())));
             } else {
@@ -156,7 +156,8 @@ public class SingleSelectionPane extends VBox implements ToolBound, PdfDocumentD
         this.getStyleClass().add("single-selection-pane");
         this.ownerModule = defaultString(ownerModule);
         this.details.getStyleClass().add("-pdfsam-selection-details");
-        SingleSelectionPaneToolbar.SelectButton selectButton = new SingleSelectionPaneToolbar.SelectButton(toolBinding());
+        SingleSelectionPaneToolbar.SelectButton selectButton = new SingleSelectionPaneToolbar.SelectButton(
+                toolBinding());
         field = new BrowsableFileField(FileType.PDF, OpenType.OPEN, selectButton);
         field.enforceValidation(true, false);
         passwordPopup = new PasswordFieldPopup(this.ownerModule);
@@ -258,8 +259,6 @@ public class SingleSelectionPane extends VBox implements ToolBound, PdfDocumentD
 
     /**
      * to perform when the document is loaded
-     * 
-     * @param onDescriptorLoaded
      */
     public void addOnLoaded(Consumer<PdfDocumentDescriptor> onDescriptorLoaded) {
         this.onLoaded = onDescriptorLoaded.andThen(this.onLoaded);
@@ -268,8 +267,10 @@ public class SingleSelectionPane extends VBox implements ToolBound, PdfDocumentD
     private void initContextMenu() {
         MenuItem infoItem = createMenuItem(i18n().tr("Document properties"), UniconsLine.INFO_CIRCLE);
         infoItem.setAccelerator(new KeyCodeCombination(KeyCode.P, KeyCombination.ALT_DOWN));
-        infoItem.setOnAction(
-                e -> Platform.runLater(() -> eventStudio().broadcast(new ShowPdfDescriptorRequest(descriptor))));
+        infoItem.setOnAction(e -> Platform.runLater(() -> {
+            eventStudio().broadcast(ShowStageRequest.INSTANCE, "InfoStage");
+            eventStudio().broadcast(new ShowPdfDescriptorRequest(descriptor));
+        }));
 
         removeSelected = createMenuItem(i18n().tr("Remove"), UniconsLine.MINUS);
         removeSelected.setOnAction(
