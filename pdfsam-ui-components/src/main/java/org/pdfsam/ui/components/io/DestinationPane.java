@@ -21,10 +21,10 @@ package org.pdfsam.ui.components.io;
 import javafx.scene.control.CheckBox;
 import javafx.scene.layout.VBox;
 import org.pdfsam.model.ui.ResettableView;
-import org.pdfsam.ui.components.help.HelpUtils;
 import org.pdfsam.ui.components.support.Style;
 
 import static org.pdfsam.i18n.I18nContext.i18n;
+import static org.pdfsam.ui.components.support.Views.helpIcon;
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 /**
@@ -44,7 +44,7 @@ class DestinationPane extends VBox implements ResettableView {
         this.destination = destination;
         overwrite.setSelected(false);
         overwrite.setGraphic(
-                HelpUtils.helpIcon(i18n().tr("Tick the box if you want to overwrite the output files if they already exist.")));
+                helpIcon(i18n().tr("Tick the box if you want to overwrite the output files if they already exist.")));
         overwrite.getStyleClass().addAll(Style.WITH_HELP.css());
 
        // destination.getStyleClass().addAll(Style.VITEM.css());

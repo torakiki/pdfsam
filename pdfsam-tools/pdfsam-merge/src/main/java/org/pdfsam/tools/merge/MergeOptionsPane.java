@@ -38,7 +38,7 @@ import java.util.function.Consumer;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.pdfsam.i18n.I18nContext.i18n;
-import static org.pdfsam.ui.components.help.HelpUtils.helpIcon;
+import static org.pdfsam.ui.components.support.Views.helpIcon;
 
 /**
  * Panel for the Merge options

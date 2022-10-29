@@ -25,8 +25,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.model.ui.ResettableView;
 import org.pdfsam.model.ui.workspace.RestorableView;
@@ -41,7 +39,7 @@ import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.i18n.I18nContext.i18n;
-import static org.pdfsam.ui.components.help.HelpUtils.helpIcon;
+import static org.pdfsam.ui.components.support.Views.helpIcon;
 
 /**
  * Panel for the Split options
@@ -75,9 +73,11 @@ class SplitOptionsPane extends GridPane
         GridPane.setValignment(regexpField, VPos.BOTTOM);
         GridPane.setHalignment(regexpField, HPos.LEFT);
         add(regexpField, 1, 1);
-        var helpIcon = helpIcon(new TextFlow(
-                new Text(i18n().tr("A regular expression the bookmark text has to match") + System.lineSeparator()),
-                new Text(i18n().tr("Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""))));
+        var helpIcon = helpIcon("""
+                %s
+                %s
+                """.formatted(i18n().tr("A regular expression the bookmark text has to match"),
+                i18n().tr("Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\"")));
         GridPane.setValignment(helpIcon, VPos.CENTER);
         GridPane.setHalignment(helpIcon, HPos.LEFT);
         add(helpIcon, 2, 1);

@@ -38,7 +38,6 @@ module org.pdfsam.ui.components {
     requires transitive org.sejda.model;
 
     exports org.pdfsam.ui.components.commons;
-    exports org.pdfsam.ui.components.help;
     exports org.pdfsam.ui.components.io;
     exports org.pdfsam.ui.components.notification;
     exports org.pdfsam.ui.components.prefix;

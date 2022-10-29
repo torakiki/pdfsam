@@ -33,7 +33,6 @@ import org.pdfsam.model.tool.ToolBound;
 import org.pdfsam.model.ui.ResettableView;
 import org.pdfsam.model.ui.SetDestinationRequest;
 import org.pdfsam.model.ui.workspace.RestorableView;
-import org.pdfsam.ui.components.help.HelpUtils;
 import org.pdfsam.ui.components.support.Style;
 import org.pdfsam.ui.components.support.Views;
 import org.sejda.model.output.ExistingOutputPolicy;
@@ -52,6 +51,7 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.i18n.I18nContext.i18n;
+import static org.pdfsam.ui.components.support.Views.helpIcon;
 
 /**
  * Panel letting the user select an output destination for generated Pdf document/s.
@@ -88,7 +88,7 @@ public class PdfDestinationPane extends DestinationPane implements ToolBound, Re
 
         if (asList(optionalFields).contains(DestinationPanelFields.DISCARD_BOOKMARKS)) {
             CheckBox discardBookmarksField = new CheckBox(i18n().tr("Discard bookmarks"));
-            discardBookmarksField.setGraphic(HelpUtils.helpIcon(
+            discardBookmarksField.setGraphic(helpIcon(
                     i18n().tr("Tick the box if you don't want to retain any bookmark from the original PDF document")));
             discardBookmarksField.getStyleClass().addAll(Style.WITH_HELP.css());
             discardBookmarksField.getStyleClass().addAll(Style.VITEM.css());

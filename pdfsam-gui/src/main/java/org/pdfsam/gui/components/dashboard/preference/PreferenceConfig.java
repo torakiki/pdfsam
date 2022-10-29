@@ -30,6 +30,8 @@ import org.pdfsam.model.ui.ComboItem;
 import org.pdfsam.ui.components.support.FXValidationSupport;
 import org.pdfsam.ui.components.support.Style;
 
+import java.util.Comparator;
+
 import static java.util.Comparator.comparing;
 import static java.util.Optional.ofNullable;
 import static org.pdfsam.core.context.ApplicationContext.app;
@@ -52,7 +54,7 @@ import static org.pdfsam.core.context.StringPersistentProperty.WORKSPACE_PATH;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.i18n.I18nContext.i18n;
 import static org.pdfsam.model.ui.ComboItem.keyWithEmptyValue;
-import static org.pdfsam.ui.components.help.HelpUtils.helpIcon;
+import static org.pdfsam.ui.components.support.Views.helpIcon;
 
 /**
  * Configuration for the PDFsam preferences components
@@ -84,7 +86,8 @@ public class PreferenceConfig {
     public PreferenceComboBox<ComboItem<String>> themeCombo() {
         PreferenceComboBox<ComboItem<String>> themeCombo = new PreferenceComboBox<>(THEME);
         themeCombo.setId("themeCombo");
-        Themes.themes().entrySet().stream().map(entry -> new ComboItem<>(entry.getKey(), entry.getValue().name()))
+        Themes.themes().entrySet().stream().sorted(Comparator.comparing(e -> e.getValue().name()))
+                .map(entry -> new ComboItem<>(entry.getKey(), entry.getValue().name()))
                 .forEach(themeCombo.getItems()::add);
         app().runtimeState().theme().take(1).subscribe(t -> {
             themeCombo.setValue(new ComboItem<>(t.id(), t.name()));

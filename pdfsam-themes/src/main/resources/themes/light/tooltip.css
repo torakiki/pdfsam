@@ -6,23 +6,7 @@
     -fx-background-insets: 0.0, 1;
     -fx-background-radius: 6.0;
     -fx-text-fill: -tooltip-font-color;
-    -fx-font-size: 0.916667em;
-    -fx-effect: -pdfsam-shadow-effect;
-}
-
-.pdfsam-help-popup {
-    -fx-background-color: -tooltip-border-color,  -tooltip-background-color;
-    -fx-background-insets: 0.0, 1.0;
-    -fx-background-radius: 6.0;
-    -fx-text-fill: -tooltip-font-color;
-    -fx-padding: 0.666667em;
-    -fx-spacing: 0.333333em;
-    -fx-font-size: 0.75em;
-    -fx-effect: -pdfsam-shadow-effect;
-}
-
-.pdfsam-help-popup .text {
-    -fx-fill: -tooltip-font-color;
+    -fx-font-size: 12;
 }
 
 /**

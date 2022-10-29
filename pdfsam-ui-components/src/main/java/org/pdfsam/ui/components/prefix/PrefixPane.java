@@ -22,8 +22,6 @@ import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.core.support.params.MultipleOutputTaskParametersBuilder;
 import org.pdfsam.core.support.params.TaskParametersBuildStep;
@@ -43,7 +41,7 @@ import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.i18n.I18nContext.i18n;
-import static org.pdfsam.ui.components.help.HelpUtils.helpIcon;
+import static org.pdfsam.ui.components.support.Views.helpIcon;
 
 /**
  * Panel with a text field to set the prefix for a task
@@ -69,10 +67,13 @@ public class PrefixPane extends GridPane
         GridPane.setValignment(field, VPos.BOTTOM);
         GridPane.setHalignment(field, HPos.LEFT);
         add(field, 1, 0);
-        var helpIcon = helpIcon(
-                new TextFlow(new Text(i18n().tr("Prefix for the output files name.") + System.lineSeparator()),
-                        new Text(i18n().tr("Some special keywords are replaced with runtime values.")
-                                + System.lineSeparator()), new Text(i18n().tr("Right click to add these keywords."))));
+        var helpIcon = helpIcon("""
+                %s
+                %s
+                %s
+                """.formatted(i18n().tr("Prefix for the output files name."),
+                i18n().tr("Some special keywords are replaced with runtime values."),
+                i18n().tr("Right click to add these keywords.")));
         GridPane.setValignment(helpIcon, VPos.CENTER);
         add(helpIcon, 2, 0);
 

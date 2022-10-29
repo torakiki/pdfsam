@@ -23,13 +23,13 @@ import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.model.tool.ToolBound;
 import org.pdfsam.model.ui.AddPdfVersionConstraintEvent;
 import org.pdfsam.model.ui.RemovePdfVersionConstraintEvent;
-import org.pdfsam.ui.components.help.HelpUtils;
 import org.pdfsam.ui.components.support.Style;
 import org.sejda.model.pdf.PdfVersion;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.i18n.I18nContext.i18n;
+import static org.pdfsam.ui.components.support.Views.helpIcon;
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 /**
@@ -45,7 +45,7 @@ class PdfVersionConstrainedCheckBox extends CheckBox implements ToolBound {
         requireNotNullArg(constraint, "PdfVersion cannot be null");
         this.toolBinding = defaultString(toolBinding);
         this.constraint = constraint;
-        this.setGraphic(HelpUtils.helpIcon(i18n().tr("PDF version required: {0}", this.constraint.getVersionString())));
+        this.setGraphic(helpIcon(i18n().tr("PDF version required: {0}", this.constraint.getVersionString())));
         this.getStyleClass().addAll(Style.WITH_HELP.css());
 
         selectedProperty().addListener((o, oldVal, newVal) -> {

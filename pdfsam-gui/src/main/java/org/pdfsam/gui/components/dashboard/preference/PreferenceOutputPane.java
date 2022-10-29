@@ -27,7 +27,7 @@ import org.pdfsam.ui.components.support.Style;
 
 import static java.util.Objects.isNull;
 import static org.pdfsam.i18n.I18nContext.i18n;
-import static org.pdfsam.ui.components.help.HelpUtils.helpIcon;
+import static org.pdfsam.ui.components.support.Views.helpIcon;
 
 /**
  * Preference pane displaying the output section

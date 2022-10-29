@@ -25,7 +25,6 @@ import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.pdfsam.ui.components.help.HelpUtils;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
@@ -34,8 +33,8 @@ import org.testfx.util.WaitForAsyncUtils;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.pdfsam.ui.components.support.Views.helpIcon;
 import static org.testfx.api.FxAssert.verifyThat;
-
 /**
  * @author Andrea Vacondio
  */
@@ -52,7 +51,7 @@ public class RadioButtonDrivenTextFieldsPaneTest {
         TextField field = new TextField();
         field.getStyleClass().add("FIELD");
         field.setText("FIELD");
-        victim.addRow(radio, field, HelpUtils.helpIcon("Help"));
+        victim.addRow(radio, field, helpIcon("Help"));
         victim.setId("victim");
         Scene scene = new Scene(victim);
         stage.setScene(scene);
@@ -61,14 +60,12 @@ public class RadioButtonDrivenTextFieldsPaneTest {
 
     @Test
     public void nullRadio() {
-        assertThrows(IllegalArgumentException.class,
-                () -> victim.addRow(null, new TextField(), HelpUtils.helpIcon("Help")));
+        assertThrows(IllegalArgumentException.class, () -> victim.addRow(null, new TextField(), helpIcon("Help")));
     }
 
     @Test
     public void nullField() {
-        assertThrows(IllegalArgumentException.class,
-                () -> victim.addRow(new RadioButton(), null, HelpUtils.helpIcon("Help")));
+        assertThrows(IllegalArgumentException.class, () -> victim.addRow(new RadioButton(), null, helpIcon("Help")));
 
     }
 

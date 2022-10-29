@@ -35,7 +35,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 import static org.pdfsam.i18n.I18nContext.i18n;
-import static org.pdfsam.ui.components.help.HelpUtils.helpIcon;
+import static org.pdfsam.ui.components.support.Views.helpIcon;
 
 /**
  * Panel for the Split options

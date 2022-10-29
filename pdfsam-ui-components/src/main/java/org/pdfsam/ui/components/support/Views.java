@@ -20,7 +20,12 @@ package org.pdfsam.ui.components.support;
 
 import javafx.scene.Node;
 import javafx.scene.control.TitledPane;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.Region;
+import javafx.scene.text.Text;
+import javafx.util.Duration;
+import org.kordamp.ikonli.javafx.FontIcon;
+import org.kordamp.ikonli.unicons.UniconsLine;
 
 import static org.pdfsam.ui.components.support.Style.TITLED_PANE;
 
@@ -48,5 +53,22 @@ public final class Views {
         pane.getStyleClass().addAll(styleClass);
         pane.setMinHeight(Region.USE_PREF_SIZE);
         return pane;
+    }
+
+    /**
+     * Creates an help icon that shows a popup with the given message
+     *
+     * @param text
+     * @return the help icon
+     */
+    public static Text helpIcon(String text) {
+        var tooltip = new Tooltip(text);
+        var icon = FontIcon.of(UniconsLine.QUESTION_CIRCLE);
+        icon.getStyleClass().add("help-icon");
+        tooltip.setHideDelay(Duration.millis(100));
+        tooltip.setShowDelay(Duration.millis(0));
+        tooltip.setShowDuration(Duration.seconds(10));
+        Tooltip.install(icon, tooltip);
+        return icon;
     }
 }
