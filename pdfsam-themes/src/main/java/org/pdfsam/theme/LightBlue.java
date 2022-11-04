@@ -41,11 +41,6 @@ public class LightBlue extends Light {
     }
 
     @Override
-    public List<String> transparentIncapableStylesheets() {
-        return List.of("/themes/light/transparent-incapable.css");
-    }
-
-    @Override
     public String name() {
         return i18n().tr("Light with blue");
     }

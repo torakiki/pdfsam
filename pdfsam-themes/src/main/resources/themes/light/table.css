@@ -1,13 +1,6 @@
 /**
  * Table view
  */
-.table-row-cell {
-    -fx-background-color: -table-border-color, -table-even-background-color;
-}
-.table-row-cell:odd {
-    -fx-background-color: -table-border-color, -table-odd-background-color;
-}
-
 .table-view {
     -fx-background-color: -pdfsam-border-color, -fx-control-inner-background;
     -fx-background-insets: 0.0, 0.4;
@@ -27,11 +20,30 @@
     -fx-font-weight: bold;
 }
 
-.table-view > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled:selected,
-.table-view > .virtual-flow > .clipped-container > .sheet > .table-row-cell .table-cell:selected,
-.table-view:focused > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled:selected,
-.table-view:focused > .virtual-flow > .clipped-container > .sheet > .table-row-cell .table-cell:selected{
+.table-view:focused > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled:selected {
     -fx-background: -table-selected-background-color;
-    -fx-background-color: -table-border-color, -table-selected-background-color;
+    -fx-cell-focus-inner-border: -table-selected-background-color;
+    -fx-background-insets: 0;
 }
+
+.table-view > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled:selected {
+    -fx-background: -fx-selection-bar-non-focused;
+    -fx-background-insets: 0;
+}
+
+.table-row-cell {
+    -fx-background: -table-even-background-color;
+    -fx-table-cell-border-color: -table-border-color;
+    -fx-background-insets: 0;
+}
+
+.table-row-cell:odd {
+    -fx-background: -table-odd-background-color;
+}
+
+.table-view .arrow,
+.tree-table-view .arrow {
+    -fx-background-color: -default-arrow-color;
+}
+
 

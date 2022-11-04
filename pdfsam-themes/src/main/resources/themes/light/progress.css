@@ -16,7 +16,7 @@
 	-fx-spacing: 0.416667em;
 }
 .progress-pane .status-label {
-	-fx-background-color:  -status-label-color;
+	-fx-background-color: -status-label-color;
 	-fx-background-radius: 4.0;
 	-fx-padding: 0 0.833333em;
 	-fx-font-size: 0.833333em;

@@ -37,7 +37,7 @@ module org.pdfsam.gui {
     requires org.sejda.core;
     requires org.sejda.impl.sambox;
     requires org.slf4j;
-
+    requires fr.brouillard.oss.cssfx;
     requires transitive org.tinylog.impl;
     requires transitive org.tinylog.api;
     requires transitive com.fasterxml.jackson.databind;

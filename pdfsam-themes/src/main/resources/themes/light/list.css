@@ -1,0 +1,27 @@
+.list-view {
+    -fx-background-color: -pdfsam-border-color, -fx-control-inner-background;
+    -fx-background-insets: 0.0, 0.4;
+    -fx-background-radius: 3;
+}
+
+.list-view:focused {
+    -fx-background-color: derive(-pdfsam-border-color, -30%), -fx-control-inner-background;
+    -fx-background-insets: 0.0, 0.4;
+    -fx-background-radius: 3;
+}
+
+.list-view:focused > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected {
+    -fx-background: -list-selected-background-color;
+}
+
+.list-cell {
+    -fx-background: -list-even-background-color;
+}
+
+.list-cell:filled:selected {
+    -fx-background: -fx-selection-bar-non-focused;
+}
+
+.list-cell:odd {
+    -fx-background: -list-odd-background-color;
+}

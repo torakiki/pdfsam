@@ -10,6 +10,10 @@
     -fx-background-insets: 0.0;
 }
 
+.scrollable-news .viewport{
+    -fx-background-color: -newspane-background-color;
+}
+
 .news-panel {
     -fx-background-color: -pdfsam-border-color, -newspane-background-color;
     -fx-background-insets: 0.0;
@@ -43,7 +47,7 @@
 }
 
 .news-box-title-important {
-    -fx-fill: -default-primary;
+    -fx-fill: -news-important-color;
 }
 
 .news-box {
@@ -78,10 +82,10 @@
     -fx-background-color: -newspane-btn-color-hover;
 }
 
-.news-btn:focused {
+.news-btn:focus-visible {
     -fx-background-color: -newspane-btn-focus-color, -newspane-btn-color;
 }
 
-.news-btn:focused:hover {
+.news-btn:focus-visible:hover {
     -fx-background-color: -newspane-btn-focus-color-hover, -newspane-btn-color-hover;
 }

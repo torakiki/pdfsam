@@ -23,6 +23,7 @@ import org.pdfsam.persistence.PreferencesRepository;
 
 import java.io.Closeable;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -33,12 +34,12 @@ public class ApplicationContext implements Closeable {
     private static final ApplicationContext CONTEXT = new ApplicationContext();
 
     private final ApplicationPersistentSettings persistentSettings;
-    private final ApplicationRuntimeState runtimeState;
+    private ApplicationRuntimeState runtimeState;
     private Optional<Injector> injector = Optional.empty();
 
     private ApplicationContext() {
         this.persistentSettings = new ApplicationPersistentSettings(new PreferencesRepository("/org/pdfsam/user/conf"));
-        this.runtimeState = new ApplicationRuntimeState();
+
     }
 
     /**
@@ -59,12 +60,16 @@ public class ApplicationContext implements Closeable {
      * @return the application runtime state
      */
     public ApplicationRuntimeState runtimeState() {
+        synchronized (this) {
+            if (Objects.isNull(this.runtimeState)) {
+                this.runtimeState = new ApplicationRuntimeState();
+            }
+        }
         return this.runtimeState;
     }
 
     /**
      * Sets the injector
-     *
      */
     public void injector(Injector injector) {
         this.injector = Optional.ofNullable(injector);

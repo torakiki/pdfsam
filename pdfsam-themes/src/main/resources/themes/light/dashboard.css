@@ -29,7 +29,7 @@
 
 .dashboard-tools-tile {
     -fx-background-color: -tool-tile-color;
-    -fx-background-radius: 12.0;
+    -fx-background-radius: 1em;
     -fx-max-width: 22.0em;
 }
 
@@ -41,7 +41,7 @@
     -fx-cursor: hand;
     -fx-background-color: transparent;
     -fx-background-insets: 0.0;
-    -fx-background-radius: 12.0;
+    -fx-background-radius: 1em;
 }
 
 .dashboard-tools-tile .right {
@@ -49,7 +49,7 @@
 }
 
 .dashboard-tools-tile .category-mark {
-    -fx-background-radius: 12 0 0 12;
+    -fx-background-radius: 1em 0 0 1em;
     -fx-max-width: 12;
     -fx-min-width: 12;
 }
@@ -86,11 +86,19 @@
 }
 
 .dashboard-tools-toolbar-button {
-    -fx-background-color: transparent;
+    -fx-background-color: -tool-tile-btn-color;
 }
 
 .dashboard-tools-toolbar-button:hover {
-    -fx-background-color: -tool-tile-hover-color;
+    -fx-background-color: -tool-tile-btn-color-hover;
+}
+
+.dashboard-tools-toolbar-button:focus-visible {
+    -fx-background-color: -tool-tile-btn-focus-border-color, -tool-tile-btn-color;
+}
+
+.dashboard-tools-toolbar-button:focus-visible:hover {
+    -fx-background-color: -tool-tile-btn-focus-border-color-hover, -tool-tile-btn-color-hover;
 }
 
 

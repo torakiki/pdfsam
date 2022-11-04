@@ -27,11 +27,11 @@
     -fx-background-color: -quickbar-btn-color-hover;
 }
 
-.quickbar-expand-toggle:focused, .quickbar-button:focused {
+.quickbar-expand-toggle:focus-visible, .quickbar-button:focus-visible {
     -fx-background-color: -quickbar-btn-focus-color, -quickbar-btn-color;
 }
 
-.quickbar-expand-toggle:focused:hover, .quickbar-button:focused:hover {
+.quickbar-expand-toggle:focus-visible:hover, .quickbar-button:focus-visible:hover {
     -fx-background-color: -quickbar-btn-focus-color-hover, -quickbar-btn-color-hover;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .quickbar-button {
-    -fx-background-radius: 10px;
+    -fx-background-radius: 0.666667em, 0.666667em, 0.666667em !important;
     -fx-background-insets: 0.0;
     -fx-padding: 0.416667em 0.666667em 0.416667em 0.666667em;
     -fx-min-width: 4em;

@@ -23,18 +23,18 @@
     -fx-padding: 0.166667em 1.333333em 0.166667em 1.0em;
 }
 
-.footer-open-button, .footer-open-button:default, .footer-open-button:focused {
+.footer-open-button, .footer-open-button:default, .footer-open-button:focus-visible {
     -fx-padding: 0.0 0.0 0.0 1.0em;
 }
 
-.footer-open-button > .label, .footer-open-button:focused > .label {
+.footer-open-button > .label, .footer-open-button:focus-visible > .label {
     -fx-padding: 0.0 0.5em 0.0 0.5em;
 }
 
 /**
  * Browse button
  */
-.browse-button, .browse-button:default, .browse-button:focused {
+.browse-button, .browse-button:default, .browse-button:focus-visible {
     -fx-padding: 0.0 1.166666em 0.0 1.166666em;
     -fx-alignment: center;
 }
@@ -54,7 +54,7 @@
 /**
 * Run Button
 */
-.run-button, .run-button:default, .run-button:focused {
+.run-button, .run-button:default, .run-button:focus-visible {
     -fx-background-color: -run-btn-color;
     -fx-background-insets: 0;
     -fx-font-weight: bold;
@@ -66,13 +66,13 @@
     -fx-background-color: -run-btn-color-hover;
 }
 
-.run-button:focused {
+.run-button:focus-visible {
     -fx-background-color: -run-btn-color, -run-btn-focus-border-color, -run-btn-color !important;
     -fx-background-insets: 0.0, 1.0, 2.0 !important;
     -fx-background-radius: 0.5em;
 }
 
-.run-button:focused:hover {
+.run-button:focus-visible:hover {
     -fx-background-color: -run-btn-color-hover, -run-btn-focus-border-color-hover, -run-btn-color-hover !important;
     -fx-background-insets: 0.0, 1.0, 2.0 !important;
     -fx-background-radius: 0.5em;

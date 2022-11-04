@@ -1,6 +1,6 @@
 .root {
     -grey-1: #F9F9F9;
-    -grey-2: #FCFCFC;
+    -grey-2: #F7F7F7;
     -grey-3: #F1F1F1;
     -grey-4: #E1E1E1;
     -grey-5: #C6C6C6;
@@ -24,15 +24,16 @@
     -default-dark-background-hover: derive(-default-dark-background, -20%);
     -fx-background: -default-background-color;
     -default-font-color: #1C1C1C;
+    -default-arrow-color: -default-font-color;
     -fx-text-base-color: -default-font-color;
     -pdfsam-focus-color: -grey-4;
     -pdfsam-focus-color-hover: derive(-pdfsam-focus-color, -10%);
     -pdfsam-shadow-effect: dropshadow(three-pass-box, rgba(51, 77, 136, 0.2), 30, 0, 0, 10);
-    -pdfsam-hover-shadow-effect: dropshadow(three-pass-box, rgba(51, 77, 136, 0.5), 30, 0, 0, 10);
     -pdfsam-border-color: derive(-grey-5, -20%);
     -fx-focus-color: -grey-4;
     -fx-accent: -fx-focus-color;
     -fx-text-box-border: -grey-4;
+    -fx-table-cell-border-color: -grey-4;
     -fx-font-smoothing-type: gray;
     -fx-control-inner-background: white;
     -default-popup-background: white;
@@ -80,7 +81,7 @@
     /** header **/
     -header-background-color: -grey-1;
     -header-border-color: -grey-4;
-    -header-button-color: -grey-1;
+    -header-button-color: -header-background-color;
     -header-button-color-hover: derive(-header-button-color, -10%);
     -header-button-focus-color: -grey-2;
     -header-button-focus-color-hover: derive(-header-button-focus-color, -10%);
@@ -88,7 +89,10 @@
     /** dashboard **/
     -tool-tile-color: -default-dark-background;
     -tool-tile-armed-color: derive(-default-dark-background, 30%);
-    -tool-tile-hover-color: -default-dark-background-hover;
+    -tool-tile-btn-color: transparent;
+    -tool-tile-btn-color-hover: -default-dark-background-hover;
+    -tool-tile-btn-focus-border-color: -pdfsam-focus-color;
+    -tool-tile-btn-focus-border-color-hover: -pdfsam-focus-color-hover;
 
     /** menu **/
     -menu-hover-color: derive(-btn-color, -10%);
@@ -99,9 +103,10 @@
     /** news **/
     -newspane-background-color: -default-background-color;
     -newspane-btn-color: -default-background-color;
-    -newspane-btn-color-hover: derive(-default-background-color, -10%);
+    -newspane-btn-color-hover: derive(-newspane-btn-color, -10%);
     -newspane-btn-focus-color: -pdfsam-focus-color;
-    -newspane-btn-focus-color-hover: derive(-pdfsam-focus-color, -10%);
+    -newspane-btn-focus-color-hover: derive(-newspane-btn-focus-color, -10%);
+    -news-important-color: -default-primary;
 
     /** log panel **/
     -logpane-background-color: -default-background-color;
@@ -145,10 +150,21 @@
     -checkbox-selected-color: -default-primary;
     -checkbox-focus-color: -default-primary;
 
+    -fx-selection-bar-non-focused: derive(-grey-2, -25%);
     /** tableview **/
     -table-even-background-color: white;
     -table-odd-background-color: -grey-2;
     -table-border-color: derive(-table-odd-background-color, -10%);
     -table-columne-header-color: derive(-table-odd-background-color, -3%);
-    -table-selected-background-color: derive(-table-odd-background-color, -15%);
+    -table-selected-background-color: -fx-selection-bar-non-focused;
+
+    /** listview **/
+    -list-even-background-color: white;
+    -list-odd-background-color: -grey-2;
+    -list-selected-background-color: -fx-selection-bar-non-focused;
+
+    /** selection table **/
+    -drag-drop-color: transparent;
+    -drag-drop-border-color: -grey-5;
+    -drag-drop-font-color: -grey-5;
 }

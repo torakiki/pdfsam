@@ -36,11 +36,11 @@ public class Light implements Theme {
     @Override
     public List<String> stylesheets() {
         return List.of("/themes/light/colors.css", "/themes/light/theme.css", "/themes/light/tooltip.css",
-                "/themes/light/progress.css", "/themes/light/pdfsam.css", "/themes/light/news.css",
+                "/themes/light/progress.css", "/themes/light/list.css", "/themes/light/news.css",
                 "/themes/light/dialogs.css", "/themes/light/combo.css", "/themes/light/progress.css",
                 "/themes/light/banner.css", "/themes/light/quickbar.css", "/themes/light/notifications.css",
                 "/themes/light/dashboard.css", "/themes/light/menu.css", "/themes/light/table.css",
-                "/themes/light/theme.last.css");
+                "/themes/light/logs.css", "/themes/light/theme.last.css");
     }
 
     @Override

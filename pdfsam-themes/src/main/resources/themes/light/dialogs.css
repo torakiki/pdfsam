@@ -1,6 +1,5 @@
 .-pdfsam-dialog {
     -fx-background-color: -default-popup-background;
-    -fx-background-radius: 5.0;
     -fx-background-insets: 0.0;
     -fx-max-width: 37.5em;
 }
@@ -55,6 +54,5 @@
 
 .-pdfsam-open-with-dialog {
     -fx-background-color: -default-popup-background;
-    -fx-background-radius: 5.0;
     -fx-background-insets: 0.0;
 }

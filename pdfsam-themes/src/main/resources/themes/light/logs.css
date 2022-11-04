@@ -1,0 +1,30 @@
+/**
+ * Log
+ */
+#log-view, #log-view:focused {
+    -fx-background-color: -logpane-border-color, -logpane-background-color;
+    -fx-background-insets: 0.0, 0.4;
+    -fx-background-radius: 8.0;
+    -fx-padding: 10 0.083333em;
+}
+
+#log-view > .virtual-flow > .scroll-bar:vertical {
+    -fx-padding: 0.083333em;
+}
+
+.info-log {
+    -fx-text-fill: -default-font-color;
+}
+
+.warn-log {
+    -fx-text-fill: -info-color;
+}
+
+.error-log {
+    -fx-text-fill: derive(-error-color, -10%);
+}
+
+.logs-pane {
+    -fx-border-width: 0.0;
+    -fx-padding: 0.666667em;
+}

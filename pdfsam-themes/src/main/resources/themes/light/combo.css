@@ -19,25 +19,25 @@
 }
 
 .pdfsam-titled-pane .combo-box-base > .arrow-button {
-    -fx-background-color: -combo-color-titled;
+    -fx-background-color: -combo-color-titled, -combo-color-titled;
 }
 
 .combo-box-base > .arrow-button, .advanced-destination-pane .combo-box-base > .arrow-button {
-    -fx-background-color: -combo-color;
+    -fx-background-color: -combo-color, -combo-color;
     -fx-background-insets: 0.0;
     -fx-background-radius: 0.0 0.5em 0.5em 0.0;
 }
 
-.pdfsam-titled-pane .combo-box-base:focused {
+.pdfsam-titled-pane .combo-box-base:focus-visible {
     -fx-background-color: -combo-focus-border-color-titled, -combo-color-titled;
 }
 
-.combo-box-base:focused, .advanced-destination-pane .combo-box-base:focused {
+.combo-box-base:focus-visible, .advanced-destination-pane .combo-box-base:focus-visible {
     -fx-background-color: -combo-focus-border-color, -combo-color;
     -fx-background-insets: 0.0, 1.0;
 }
 
-.combo-box-base:focused > .arrow-button, .combo-box-base:hover > .arrow-button, .pdfsam-titled-pane .combo-box-base:focused > .arrow-button, .pdfsam-titled-pane .combo-box-base:hover > .arrow-button {
+.combo-box-base:focus-visible > .arrow-button, .combo-box-base:hover > .arrow-button, .pdfsam-titled-pane .combo-box-base:focus-visible > .arrow-button, .pdfsam-titled-pane .combo-box-base:hover > .arrow-button {
     -fx-background-color: transparent;
     -fx-background-insets: 0.0;
     -fx-background-radius: 0.0 0.5em 0.5em 0.0;
@@ -73,13 +73,15 @@
 }
 
 .combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
+    -fx-background-color: transparent;
     -fx-padding: 4 0 4 5;
     -fx-background-insets: 0.0, 1.0 0 1.0 0;
     -fx-background-radius: 4.0;
 }
 
 .combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:hover {
-    -fx-background-color: -menu-background-color, -combo-color-hover;
+    -fx-background-color: -menu-background-color, -menu-hover-color;
+    -fx-text-fill: -default-font-color;
 }
 
 .combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected,

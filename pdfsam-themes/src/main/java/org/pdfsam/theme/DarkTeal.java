@@ -1,7 +1,7 @@
 package org.pdfsam.theme;
 /*
  * This file is part of the PDF Split And Merge source code
- * Created on 16/09/22
+ * Created on 03/11/22
  * Copyright 2022 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,23 +26,22 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 /**
  * @author Andrea Vacondio
  */
-public class Dark extends Light {
+public class DarkTeal extends Dark {
 
     @Override
     public String id() {
-        return "KDJ4FJ49D46H09JV1";
+        return "K3DD49ASD30A1P";
     }
 
     @Override
     public List<String> stylesheets() {
         var styles = new ArrayList<>(super.stylesheets());
-        styles.add("/themes/dark/colors.css");
+        styles.add("/themes/darkteal/colors.css");
         return styles;
     }
 
     @Override
     public String name() {
-        return i18n().tr("Dark with purple");
+        return i18n().tr("Dark with teal");
     }
-
 }

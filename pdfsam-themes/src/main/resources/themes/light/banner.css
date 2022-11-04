@@ -42,16 +42,21 @@
 .banner-btn {
     -fx-background-color: -header-button-color;
     -fx-padding: 0.25em 0.5em;
+    -fx-background-radius: 0.666667em, 0.666667em, 0.666667em !important;
 }
 
 .banner-btn:hover {
     -fx-background-color: -header-button-color-hover;
 }
 
-.banner-btn:focused {
+.banner-btn:focus-visible {
     -fx-background-color: -header-button-focus-color, -header-button-color;
 }
 
-.banner-btn:focused:hover {
-    -fx-background-color: -header-button-focus-color-hover,  -header-button-color-hover
+.banner-btn:focus-visible:hover {
+    -fx-background-color: -header-button-focus-color-hover, -header-button-color-hover
+}
+
+.banner-btn.log-has-errors > .ikonli-font-icon {
+    -fx-icon-color: -error-color !important;
 }
