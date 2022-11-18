@@ -33,7 +33,7 @@ public enum StringPersistentProperty implements PersistentProperty<String> {
     WORKING_PATH(() -> ""),
     STARTUP_MODULE(() -> ""),
     LOCALE(() -> System.getProperty(LOCALE_PROP)),
-    THEME(() -> System.getProperty(THEME_PROP, ""));
+    THEME(() -> System.getProperty(THEME_PROP));
 
     private final Supplier<String> defaultSupplier;
 

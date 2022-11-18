@@ -48,7 +48,7 @@ public class StringPersistentPropertyTest {
     @DisplayName("Default value supplier when no sys props")
     public void defaultValuesClearedSysProp() {
         assertNull(StringPersistentProperty.LOCALE.defaultSupplier().get());
-        assertEquals("LIGHT", StringPersistentProperty.THEME.defaultSupplier().get());
+        assertNull(StringPersistentProperty.THEME.defaultSupplier().get());
     }
 
     @Test

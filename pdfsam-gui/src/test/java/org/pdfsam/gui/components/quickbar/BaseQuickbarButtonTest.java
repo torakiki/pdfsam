@@ -19,7 +19,6 @@
 package org.pdfsam.gui.components.quickbar;
 
 import javafx.scene.control.ContentDisplay;
-import javafx.scene.control.Label;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.pdfsam.test.JavaFxThreadInitializeExtension;
@@ -53,15 +52,6 @@ public class BaseQuickbarButtonTest {
         victim.setSelected(true);
         assertTrue(victim.isSelected());
         assertTrue(victim.isDisabled());
-    }
-
-    @Test
-    public void graphicClass() {
-        BaseQuickbarButton victim = new BaseQuickbarButton();
-        Label graphic = new Label();
-        assertFalse(graphic.getStyleClass().contains("ikonli-font-icon"));
-        victim.setGraphic(graphic);
-        assertTrue(graphic.getStyleClass().contains("ikonli-font-icon"));
     }
 
     @Test

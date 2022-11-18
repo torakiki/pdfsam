@@ -53,4 +53,8 @@ public class Light implements Theme {
         return i18n().tr("Light with green");
     }
 
+    @Override
+    public boolean isDark() {
+        return false;
+    }
 }

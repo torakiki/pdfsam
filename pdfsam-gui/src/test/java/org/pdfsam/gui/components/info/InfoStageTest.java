@@ -25,12 +25,14 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.pdfsam.injector.Components;
 import org.pdfsam.injector.Injector;
 import org.pdfsam.injector.Prototype;
 import org.pdfsam.injector.Provides;
 import org.pdfsam.model.pdf.PdfDocumentDescriptor;
 import org.pdfsam.model.ui.ShowPdfDescriptorRequest;
+import org.pdfsam.model.ui.ShowStageRequest;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.sejda.model.pdf.PdfMetadataFields;
 import org.testfx.api.FxRobot;
@@ -47,9 +49,12 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 /**
  * @author Andrea Vacondio
  */
-@ExtendWith({ ApplicationExtension.class, ClearEventStudioExtension.class })
+@ExtendWith({ ApplicationExtension.class })
 public class InfoStageTest {
 
+    @RegisterExtension
+    static ClearEventStudioExtension staticExtension = new ClearEventStudioExtension(
+            InfoStageController.INFOSTAGE_EVENTSTATION);
     private Injector injector;
 
     @Components({ InfoStageController.class })
@@ -69,7 +74,12 @@ public class InfoStageTest {
         Button button = new Button("show");
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(mock(File.class));
         descriptor.putInformation(PdfMetadataFields.KEYWORDS, "test");
-        button.setOnAction(e -> eventStudio().broadcast(new ShowPdfDescriptorRequest(descriptor)));
+        button.setOnAction(e -> {
+            eventStudio().broadcast(new ShowPdfDescriptorRequest(descriptor));
+            eventStudio().broadcast(ShowStageRequest.INSTANCE, InfoStageController.INFOSTAGE_EVENTSTATION);
+
+        });
+        injector.instance(InfoStage.class);
         Scene scene = new Scene(new VBox(button));
         stage.setScene(scene);
         stage.show();

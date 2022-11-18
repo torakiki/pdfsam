@@ -54,10 +54,10 @@ public class QuickbarDashboardButtonsPaneTest {
     @Test
     public void displayText() {
         assertTrue(victim.getChildren().stream().filter(n -> n instanceof DashboardButton).map(n -> (DashboardButton) n)
-                .noneMatch(DashboardButton::isDisplayText));
-        victim.setDisplayText(true);
-        assertTrue(victim.getChildren().stream().filter(n -> n instanceof DashboardButton).map(n -> (DashboardButton) n)
                 .allMatch(DashboardButton::isDisplayText));
+        victim.setDisplayText(false);
+        assertTrue(victim.getChildren().stream().filter(n -> n instanceof DashboardButton).map(n -> (DashboardButton) n)
+                .noneMatch(DashboardButton::isDisplayText));
     }
 
     @Test

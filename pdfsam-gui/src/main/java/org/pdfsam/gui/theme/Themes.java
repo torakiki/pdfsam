@@ -18,6 +18,7 @@ package org.pdfsam.gui.theme;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+import org.apache.commons.lang3.SystemUtils;
 import org.pdfsam.theme.Theme;
 
 import java.util.Collections;
@@ -62,7 +63,29 @@ public class Themes {
     //TODO replace with some logic to at least detect light/dark theme and provide a sensible default
     private static Theme defaultTheme() {
         require(!THEMES.isEmpty(), () -> new IllegalStateException("No theme available"));
+        if (isDarkTheme()) {
+            for (Theme theme : THEMES.values()) {
+                if (theme.isDark()) {
+                    return theme;
+                }
+            }
+        }
+        for (Theme theme : THEMES.values()) {
+            if (!theme.isDark()) {
+                return theme;
+            }
+        }
         return THEMES.get(THEMES.firstKey());
+    }
+
+    private static boolean isDarkTheme() {
+        if (SystemUtils.IS_OS_WINDOWS) {
+
+        }
+        if (SystemUtils.IS_OS_MAC) {
+
+        }
+        return false;
     }
 
     /**

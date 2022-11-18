@@ -44,4 +44,9 @@ public interface Theme {
      * @return The theme name
      */
     String name();
+
+    /**
+     * @return if the theme is a dark theme
+     */
+    boolean isDark();
 }

@@ -66,8 +66,8 @@ public class QuickbarToolButtonsPaneTest {
         var buttons = victim.getChildren().stream().filter(t -> t instanceof ToolButton).map(t -> (ToolButton) t)
                 .toList();
         assertEquals(2, buttons.size());
-        buttons.forEach(m -> assertFalse(m.isDisplayText()));
-        victim.setDisplayText(true);
         buttons.forEach(m -> assertTrue(m.isDisplayText()));
+        victim.setDisplayText(false);
+        buttons.forEach(m -> assertFalse(m.isDisplayText()));
     }
 }

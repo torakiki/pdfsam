@@ -68,7 +68,7 @@
 		<profile>
 			<id>toolchain</id>
 			<activation>
-				<jdk>(,17)</jdk>
+				<jdk>(,19)</jdk>
 			</activation>
 			<build>
 				<plugins>
@@ -85,7 +85,7 @@
 						<configuration>
 							<toolchains>
 								<jdk>
-									<version>17</version>
+									<version>19</version>
 								</jdk>
 							</toolchains>
 						</configuration>
@@ -166,9 +166,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<release>17</release>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -190,6 +187,19 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.10.1</version>
+					<configuration>
+						<release>19</release>
+						<!-- remove this once Foreign Function & Memory API is out of preview-->
+						<compilerArgs>--enable-preview</compilerArgs>
+					</configuration>
+					<dependencies>
+						<!-- remove this once mvn compiler includes it -->
+						<dependency>
+							<groupId>org.ow2.asm</groupId>
+							<artifactId>asm</artifactId>
+							<version>9.4</version>
+						</dependency>
+					</dependencies>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -245,6 +255,10 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>3.0.0-M7</version>
+					<configuration>
+						<!-- remove this once Foreign Function & Memory API is out of preview-->
+						<argLine>--enable-preview</argLine>
+					</configuration>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -258,7 +272,7 @@
 	<properties>
 		<junit.version>5.9.0</junit.version>
 		<junit.pioneer.version>1.7.1</junit.pioneer.version>
-		<archunit.version>0.23.1</archunit.version>
+		<archunit.version>1.0.0</archunit.version>
 		<slf4j.version>2.0.3</slf4j.version>
 		<commons.lang.version>3.12.0</commons.lang.version>
 		<commons.io.version>2.11.0</commons.io.version>
@@ -266,7 +280,7 @@
 		<logback.version>1.4.4</logback.version>
 		<tinylog.version>2.5.0</tinylog.version>
 		<hibernate-validator.version>7.0.5.Final</hibernate-validator.version>
-		<sejda.version>5.0.0.M2</sejda.version>
+		<sejda.version>5.0.0.M4</sejda.version>
 		<sejda.commons.version>2.0.0</sejda.commons.version>
 		<eventstudio.version>3.0.4</eventstudio.version>
 		<injector.version>4.0.0</injector.version>
@@ -415,6 +429,13 @@
 				<artifactId>tinylog-api</artifactId>
 				<version>${tinylog.version}</version>
 			</dependency>
+			<!-- TODO remove once released -->
+			<dependency>
+				<groupId>org.sejda</groupId>
+				<artifactId>sejda-io</artifactId>
+				<version>4.0.0.M1</version>
+			</dependency>
+			<!-- /TODO -->
 			<!-- test -->
 			<dependency>
 				<groupId>org.testfx</groupId>

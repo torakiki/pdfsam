@@ -19,7 +19,6 @@
 package org.pdfsam.gui.components.dashboard.tools;
 
 import javafx.scene.Scene;
-import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -30,7 +29,6 @@ import org.pdfsam.model.io.NativeOpenUrlRequest;
 import org.pdfsam.model.ui.SetActiveToolRequest;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.test.DefaultPriorityTestTool;
-import org.testfx.api.FxAssert;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
@@ -50,7 +48,9 @@ public class ToolsDashboardTileTest {
 
     @Start
     public void start(Stage stage) {
-        Scene scene = new Scene(new ToolsDashboardTile(new DefaultPriorityTestTool()));
+        var tile = new ToolsDashboardTile(new DefaultPriorityTestTool());
+        tile.setPrefWidth(600);
+        Scene scene = new Scene(tile);
         stage.setScene(scene);
         stage.show();
     }
@@ -59,9 +59,7 @@ public class ToolsDashboardTileTest {
     public void activateOnClick() {
         Listener<SetActiveToolRequest> listener = mock(Listener.class);
         eventStudio().add(SetActiveToolRequest.class, listener);
-        robot.moveTo(".dashboard-tools-invisible-button").press(MouseButton.PRIMARY);
-        FxAssert.verifyThat(".dashboard-tools-tile", (ToolsDashboardTile v) -> v.isArmed());
-        robot.release(MouseButton.PRIMARY);
+        robot.clickOn(".dashboard-tools-invisible-button");
         ArgumentCaptor<SetActiveToolRequest> captor = ArgumentCaptor.forClass(SetActiveToolRequest.class);
         verify(listener).onEvent(captor.capture());
         assertEquals(DefaultPriorityTestTool.ID, captor.getValue().id());

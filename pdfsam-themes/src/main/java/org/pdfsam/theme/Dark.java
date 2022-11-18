@@ -45,4 +45,8 @@ public class Dark extends Light {
         return i18n().tr("Dark with purple");
     }
 
+    @Override
+    public boolean isDark() {
+        return true;
+    }
 }

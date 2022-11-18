@@ -50,8 +50,8 @@ public class QuickbarPaneTest {
     @Test
     public void click() {
         BaseQuickbarButtonsPane buttons = robot.lookup("#buttons").queryAs(BaseQuickbarButtonsPane.class);
-        assertFalse(buttons.isDisplayText());
-        robot.clickOn(".quickbar-expand-button");
         assertTrue(buttons.isDisplayText());
+        robot.clickOn(".quickbar-expand-button");
+        assertFalse(buttons.isDisplayText());
     }
 }

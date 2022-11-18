@@ -58,11 +58,10 @@
 			<groupId>org.sejda</groupId>
 			<artifactId>sejda-sambox</artifactId>
 		</dependency>
-		<!-- TODO remove once released -->
+		<!-- TODO remove once sejda-io 4.x is part of sejda -->
 		<dependency>
 			<groupId>org.sejda</groupId>
-			<artifactId>sambox</artifactId>
-			<version>3.0.0.M4</version>
+			<artifactId>sejda-io</artifactId>
 		</dependency>
 		<!-- /TODO -->
 		<dependency>
