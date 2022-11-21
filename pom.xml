@@ -280,7 +280,7 @@
 		<logback.version>1.4.4</logback.version>
 		<tinylog.version>2.5.0</tinylog.version>
 		<hibernate-validator.version>7.0.5.Final</hibernate-validator.version>
-		<sejda.version>5.0.0.M4</sejda.version>
+		<sejda.version>5.0.0.M5</sejda.version>
 		<sejda.commons.version>2.0.0</sejda.commons.version>
 		<eventstudio.version>3.0.4</eventstudio.version>
 		<injector.version>4.0.0</injector.version>
