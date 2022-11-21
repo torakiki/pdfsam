@@ -32,6 +32,7 @@ done
 PRGDIR=`dirname "$PRG"`
 BASEDIR=`cd "$PRGDIR/.." >/dev/null; pwd`
 RUNTIME="$BASEDIR"/runtime
+MODULEPATH="$BASEDIR"/lib
 
 if [ ! -d "$PDFSAM_JAVA_PATH" ]; then
   	# the rutime is supplied
@@ -95,19 +96,16 @@ if [ ! -x "$JAVACMD" ] ; then
   exit 1
 fi
 
-JAR_ARG="$BASEDIR"/${project.build.finalName}.${project.packaging}
-
 # For Cygwin, switch paths to Windows format before running java
 if $cygwin; then
   [ -n "$JAVA_HOME" ] && JAVA_HOME=`cygpath --path --windows "$JAVA_HOME"`
   [ -n "$BASEDIR" ] && BASEDIR=`cygpath --path --windows "$BASEDIR"`
 fi
 
-exec "$JAVACMD" -jar "$JAR_ARG" $JAVA_OPTS -Xmx512M \
+exec "$JAVACMD" --module-path "$MODULEPATH" --module org.pdfsam.basic/org.pdfsam.basic.App $JAVA_OPTS -Xmx512M \
   -Dapp.name="pdfsam-basic" \
   -Dapp.pid="$$" \
   -Dapp.home="$BASEDIR" \
   -Dbasedir="$BASEDIR" \
   -Dprism.lcdtext=false \
-  org.pdfsam.basic.App \
   "$@"

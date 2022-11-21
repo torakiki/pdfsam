@@ -1,3 +1,8 @@
+pdfsam-basic (5.0.0.M1) unstable; urgency=low
+
+  * Version 5.0.0 of PDFsam Basic.
+
+ -- Andrea Vacondio <info@pdfsam.org>  Fri, 21 Nov 2022 12:19:39 +0100
 pdfsam-basic (4.0.0) unstable; urgency=low
 
   * Version 4.0.0 of PDFsam Basic.
