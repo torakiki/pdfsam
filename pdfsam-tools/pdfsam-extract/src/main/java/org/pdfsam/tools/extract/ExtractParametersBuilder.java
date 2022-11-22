@@ -38,6 +38,7 @@ class ExtractParametersBuilder extends MultiplePdfSourceMultipleOutputParameters
     private OptimizationPolicy optimizationPolicy = OptimizationPolicy.AUTO;
     private Set<PageRange> ranges;
     private boolean invertSelection = false;
+    private boolean separateForEachRange = false;
 
     public void optimizationPolicy(OptimizationPolicy optimizationPolicy) {
         this.optimizationPolicy = optimizationPolicy;
@@ -58,6 +59,10 @@ class ExtractParametersBuilder extends MultiplePdfSourceMultipleOutputParameters
         this.invertSelection = invertSelection;
     }
 
+    public void separateForEachRange(boolean separateForEachRange) {
+        this.separateForEachRange = separateForEachRange;
+    }
+
     @Override
     public ExtractPagesParameters build() {
         ExtractPagesParameters params = new ExtractPagesParameters();
@@ -70,6 +75,7 @@ class ExtractParametersBuilder extends MultiplePdfSourceMultipleOutputParameters
         params.addAllPageRanges(ranges);
         params.setOutputPrefix(getPrefix());
         params.setInvertSelection(invertSelection);
+        params.setSeparateFileForEachRange(separateForEachRange);
         getInputs().forEach(params::addSource);
         return params;
     }

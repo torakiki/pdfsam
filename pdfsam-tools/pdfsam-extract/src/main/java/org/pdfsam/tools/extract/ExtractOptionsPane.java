@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 08/apr/2014
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -20,6 +20,7 @@ package org.pdfsam.tools.extract;
 
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import org.pdfsam.core.support.params.ConversionUtils;
@@ -50,8 +51,15 @@ class ExtractOptionsPane extends GridPane
         implements TaskParametersBuildStep<ExtractParametersBuilder>, RestorableView, ResettableView {
 
     private final ValidableTextField field = new ValidableTextField();
+    private final CheckBox separateFile;
 
     ExtractOptionsPane() {
+        this.separateFile = new CheckBox(i18n().tr("A separate file for each set of pages"));
+        this.separateFile.setGraphic(
+                helpIcon(i18n().tr("Each continuous series of pages will generate a separate PDF file")));
+        this.separateFile.getStyleClass().addAll(Style.WITH_HELP.css());
+        this.separateFile.setId("separateFile");
+
         this.field.setOnEnterValidation(true);
         this.field.setEnableInvalidStyle(true);
         this.field.setPromptText(i18n().tr("Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"));
@@ -77,6 +85,9 @@ class ExtractOptionsPane extends GridPane
         var helpIcon = helpIcon("Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-)");
         GridPane.setValignment(helpIcon, VPos.CENTER);
         add(helpIcon, 2, 0);
+        GridPane.setValignment(separateFile, VPos.BOTTOM);
+        GridPane.setHalignment(separateFile, HPos.LEFT);
+        add(separateFile, 0, 1, 3, 1);
     }
 
     @Override
@@ -85,6 +96,7 @@ class ExtractOptionsPane extends GridPane
         if (this.field.getValidationState() == ValidationState.VALID) {
             try {
                 builder.ranges(ConversionUtils.toPageRangeSet(this.field.getText()));
+                builder.separateForEachRange(separateFile.isSelected());
             } catch (ConversionException e) {
                 onError.accept(e.getMessage());
             }
@@ -96,15 +108,18 @@ class ExtractOptionsPane extends GridPane
     @Override
     public void saveStateTo(Map<String, String> data) {
         data.put("pages", defaultString(field.getText()));
+        data.put("separateFile", Boolean.toString(separateFile.isSelected()));
     }
 
     @Override
     public void restoreStateFrom(Map<String, String> data) {
         field.setText(Optional.ofNullable(data.get("pages")).orElse(EMPTY));
+        separateFile.setSelected(Boolean.parseBoolean(data.get("separateFile")));
     }
 
     @Override
     public void resetView() {
         this.field.clear();
+        separateFile.setSelected(false);
     }
 }

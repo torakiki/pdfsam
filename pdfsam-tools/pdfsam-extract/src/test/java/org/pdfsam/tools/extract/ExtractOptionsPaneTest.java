@@ -19,6 +19,7 @@
 package org.pdfsam.tools.extract;
 
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeEach;
@@ -36,6 +37,8 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.anySet;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
@@ -86,26 +89,33 @@ public class ExtractOptionsPaneTest {
     @Test
     public void saveState() {
         robot.clickOn("#extractRanges").write("30-100").push(KeyCode.ENTER);
+        robot.clickOn("#separateFile");
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
         assertEquals("30-100", data.get("pages"));
+        assertEquals(Boolean.TRUE.toString(), data.get("separateFile"));
     }
 
     @Test
     public void restoreState() {
-        Map<String, String> data = new HashMap<>();
-        data.put("pages", "100");
+        var data = Map.of("pages", "100", "separateFile", Boolean.TRUE.toString());
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
-        ValidableTextField field = robot.lookup("#extractRanges").queryAs(ValidableTextField.class);
+        var field = robot.lookup("#extractRanges").queryAs(ValidableTextField.class);
+        var separateFile = robot.lookup("#separateFile").queryAs(CheckBox.class);
         assertEquals("100", field.getText());
+        assertTrue(separateFile.isSelected());
     }
 
     @Test
     public void reset() {
         robot.clickOn("#extractRanges").type(KeyCode.DIGIT5).push(KeyCode.ENTER);
-        ValidableTextField field = robot.lookup("#extractRanges").queryAs(ValidableTextField.class);
+        robot.clickOn("#separateFile");
+        var field = robot.lookup("#extractRanges").queryAs(ValidableTextField.class);
+        var separateFile = robot.lookup("#separateFile").queryAs(CheckBox.class);
         assertEquals("5", field.getText());
+        assertTrue(separateFile.isSelected());
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.resetView());
         assertEquals("", field.getText());
+        assertFalse(separateFile.isSelected());
     }
 }

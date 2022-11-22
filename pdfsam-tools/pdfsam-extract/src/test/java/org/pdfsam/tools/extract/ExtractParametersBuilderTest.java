@@ -46,7 +46,7 @@ public class ExtractParametersBuilderTest {
 
     @Test
     public void build(@TempDir Path folder) throws IOException {
-        ExtractParametersBuilder victim = new ExtractParametersBuilder();
+        var victim = new ExtractParametersBuilder();
         victim.compress(true);
         FileOrDirectoryTaskOutput output = mock(FileOrDirectoryTaskOutput.class);
         victim.output(output);
@@ -54,6 +54,7 @@ public class ExtractParametersBuilderTest {
         victim.discardBookmarks(true);
         victim.prefix("prefix");
         victim.invertSelection(true);
+        victim.separateForEachRange(true);
         PdfFileSource source = PdfFileSource.newInstanceNoPassword(Files.createTempFile(folder, null, ".pdf").toFile());
         victim.addSource(source);
         victim.addSource(PdfFileSource.newInstanceNoPassword(Files.createTempFile(folder, null, ".pdf").toFile()));
@@ -69,6 +70,7 @@ public class ExtractParametersBuilderTest {
         assertEquals(ranges, params.getPageSelection());
         assertEquals(output, params.getOutput());
         assertTrue(params.isInvertSelection());
+        assertTrue(params.isSeparateFileForEachRange());
         assertEquals("prefix", params.getOutputPrefix());
         assertEquals(2, params.getSourceList().size());
         assertEquals(source, params.getSourceList().get(0));
