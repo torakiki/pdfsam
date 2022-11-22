@@ -34,6 +34,7 @@ import org.pdfsam.core.AppBrand;
 import org.pdfsam.core.BrandableProperty;
 import org.pdfsam.ui.components.commons.UrlButton;
 import org.pdfsam.ui.components.support.Style;
+import org.sejda.core.Sejda;
 
 import java.util.Arrays;
 
@@ -76,14 +77,14 @@ public class AboutDashboardPane extends HBox {
                 left);
 
         addSectionTitle(i18n().tr("Environment"), left);
-        Label runtime = new Label(String.format("%s %s", System.getProperty("java.runtime.name"),
+        var runtime = new Label(String.format("%s %s", System.getProperty("java.runtime.name"),
                 System.getProperty("java.runtime.version")));
-        Label vendor = new Label(String.format(i18n().tr("Vendor: %s"), System.getProperty("java.vendor")));
-        Label runtimePath = new Label(
-                String.format(i18n().tr("Java runtime path: %s"), System.getProperty("java.home")));
-        Label fx = new Label(
-                String.format(i18n().tr("JavaFX runtime version %s"), System.getProperty("javafx.runtime.version")));
-        Label memory = new Label(
+        var vendor = new Label(String.format(i18n().tr("Vendor: %s"), System.getProperty("java.vendor")));
+        var runtimePath = new Label(String.format(i18n().tr("Java runtime path: %s"), System.getProperty("java.home")));
+        var fx = new Label(
+                String.format(i18n().tr("JavaFX runtime version: %s"), System.getProperty("javafx.runtime.version")));
+        var sejda = new Label(String.format(i18n().tr("PDF engine (Sejda SDK) version: %s"), Sejda.VERSION));
+        var memory = new Label(
                 i18n().tr("Max memory {0}", FileUtils.byteCountToDisplaySize(Runtime.getRuntime().maxMemory())));
         Button copyButton = new Button(i18n().tr("Copy to clipboard"));
         copyButton.setGraphic(FontIcon.of(UniconsLine.COPY));
@@ -97,7 +98,7 @@ public class AboutDashboardPane extends HBox {
                             memory.getText())).to(content);
             Clipboard.getSystemClipboard().setContent(content);
         });
-        left.getChildren().addAll(runtime, vendor, runtimePath, fx, memory, copyButton);
+        left.getChildren().addAll(runtime, vendor, runtimePath, fx, sejda, memory, copyButton);
 
         VBox right = new VBox(5);
         addSectionTitle(i18n().tr("Support"), right);
