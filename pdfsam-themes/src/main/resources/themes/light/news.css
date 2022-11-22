@@ -67,7 +67,9 @@
 }
 
 .news-not-up-to-date > .ikonli-font-icon {
-    -fx-text-fill: -default-primary;
+    -fx-text-fill: -default-primary !important;
+    -fx-fill: -default-primary !important;
+    -fx-icon-color: -default-primary !important;
 }
 
 .news-btn {
