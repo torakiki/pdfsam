@@ -143,7 +143,7 @@
     -advanced_background-color: -default-background-color;
 
     /** fields **/
-    -text-field-color: -grey-2;
+    -text-field-color: white;
     -text-field-focus-color: -default-primary;
 
     /** checkbox **/

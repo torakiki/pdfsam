@@ -101,6 +101,9 @@
     -status-label-color: -grey-2;
     -progress-bar-color: -grey-2;
 
+     /** fields **/
+    -text-field-color: -grey-2;
+
     /** tableview **/
     -table-even-background-color: -grey-1;
     -table-odd-background-color: -grey-2;
