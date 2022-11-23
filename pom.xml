@@ -149,6 +149,7 @@
 		<module>pdfsam-tools/pdfsam-alternate-mix</module>
 		<module>pdfsam-tools/pdfsam-rotate</module>
 		<module>pdfsam-tools/pdfsam-extract</module>
+		<module>pdfsam-tools/pdfsam-backpages</module>
 		<module>pdfsam-test</module>
 		<module>pdfsam-docs</module>
 	</modules>

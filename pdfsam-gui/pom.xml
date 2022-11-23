@@ -135,6 +135,11 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.pdfsam</groupId>
+            <artifactId>pdfsam-backpages</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.tinylog</groupId>
             <artifactId>tinylog-api</artifactId>
         </dependency>

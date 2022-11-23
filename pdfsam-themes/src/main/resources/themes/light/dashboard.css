@@ -30,7 +30,7 @@
 .dashboard-tools-tile {
     -fx-background-color: -tool-tile-color;
     -fx-background-radius: 1em;
-    -fx-max-width: 22.0em;
+    -fx-max-width: 24.0em;
 }
 
 .dashboard-tools-tile:disabled {

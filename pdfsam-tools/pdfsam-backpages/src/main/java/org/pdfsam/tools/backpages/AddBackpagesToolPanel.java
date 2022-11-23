@@ -1,7 +1,7 @@
-package org.pdfsam.tools.splitbysize;
+package org.pdfsam.tools.backpages;
 /*
  * This file is part of the PDF Split And Merge source code
- * Created on 03/10/22
+ * Created on 23/11/22
  * Copyright 2022 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,106 +21,99 @@ package org.pdfsam.tools.splitbysize;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import javafx.geometry.Pos;
-import javafx.scene.control.TitledPane;
 import javafx.scene.layout.VBox;
-import org.apache.commons.lang3.builder.Builder;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.eventstudio.annotation.EventStation;
 import org.pdfsam.model.tool.ClearToolRequest;
-import org.pdfsam.ui.components.io.BrowsableOutputDirectoryField;
+import org.pdfsam.ui.components.io.BrowsablePdfOutputField;
 import org.pdfsam.ui.components.io.PdfDestinationPane;
-import org.pdfsam.ui.components.prefix.PrefixPane;
 import org.pdfsam.ui.components.selection.single.TaskParametersBuilderSingleSelectionPane;
+import org.pdfsam.ui.components.support.FXValidationSupport;
 import org.pdfsam.ui.components.support.Views;
 import org.pdfsam.ui.components.tool.BaseToolPanel;
 import org.pdfsam.ui.components.tool.Footer;
-import org.sejda.model.parameter.SplitBySizeParameters;
-import org.sejda.model.prefix.Prefix;
+import org.sejda.model.output.FileOrDirectoryTaskOutput;
 
+import java.io.File;
 import java.util.Map;
 import java.util.function.Consumer;
 
 import static org.pdfsam.i18n.I18nContext.i18n;
-import static org.pdfsam.tools.splitbysize.SplitBySizeTool.TOOL_ID;
+import static org.pdfsam.tools.backpages.AddBackpagesTool.TOOL_ID;
 
 /**
  * @author Andrea Vacondio
  */
-public class SplitBySizeTollPanel extends BaseToolPanel {
+public class AddBackpagesToolPanel extends BaseToolPanel {
 
     private final TaskParametersBuilderSingleSelectionPane selectionPane;
-    private final BrowsableOutputDirectoryField destinationDirectoryField;
+    private final BrowsablePdfOutputField destinationFileField;
     private final PdfDestinationPane destinationPane;
-    private final SplitOptionsPane splitOptions = new SplitOptionsPane();
-    private final PrefixPane prefix;
+    private final AddBackpagesPane addBackpagesOptions;
 
     @Inject
-    public SplitBySizeTollPanel(@Named(TOOL_ID + "field") BrowsableOutputDirectoryField destinationDirectoryField,
-            @Named(TOOL_ID + "pane") PdfDestinationPane destinationPane, @Named(TOOL_ID + "footer") Footer footer,
-            @Named(TOOL_ID + "prefix") PrefixPane prefix) {
+    public AddBackpagesToolPanel(@Named(TOOL_ID + "field") BrowsablePdfOutputField destinationFileField,
+            @Named(TOOL_ID + "pane") PdfDestinationPane destinationPane, @Named(TOOL_ID + "footer") Footer footer) {
         super(TOOL_ID, footer);
-        this.destinationDirectoryField = destinationDirectoryField;
+        this.destinationFileField = destinationFileField;
         this.destinationPane = destinationPane;
+        this.addBackpagesOptions = new AddBackpagesPane(TOOL_ID);
         this.selectionPane = new TaskParametersBuilderSingleSelectionPane(id());
-        this.selectionPane.setPromptText(i18n().tr("Select or drag and drop the PDF you want to split"));
-        this.prefix = prefix;
+        this.selectionPane.setPromptText(i18n().tr("Select or drag and drop the PDF you want to insert pages to"));
         initModuleSettingsPanel(settingPanel());
     }
 
     @Override
     public void onSaveWorkspace(Map<String, String> data) {
         selectionPane.saveStateTo(data);
-        splitOptions.saveStateTo(data);
-        destinationDirectoryField.saveStateTo(data);
+        addBackpagesOptions.saveStateTo(data);
+        destinationFileField.saveStateTo(data);
         destinationPane.saveStateTo(data);
-        prefix.saveStateTo(data);
     }
 
     @Override
     public void onLoadWorkspace(Map<String, String> data) {
         selectionPane.restoreStateFrom(data);
-        splitOptions.restoreStateFrom(data);
-        destinationDirectoryField.restoreStateFrom(data);
+        addBackpagesOptions.restoreStateFrom(data);
+        destinationFileField.restoreStateFrom(data);
         destinationPane.restoreStateFrom(data);
-        prefix.restoreStateFrom(data);
     }
 
     @Override
-    protected Builder<SplitBySizeParameters> getBuilder(Consumer<String> onError) {
-        SplitBySizeParametersBuilder builder = new SplitBySizeParametersBuilder();
-        splitOptions.apply(builder, onError);
+    protected AddBackpagesParametersBuilder getBuilder(Consumer<String> onError) {
+        var builder = new AddBackpagesParametersBuilder();
         selectionPane.apply(builder, onError);
-        destinationDirectoryField.apply(builder, onError);
+        addBackpagesOptions.apply(builder, onError);
+        var destinationField = destinationFileField.getTextField();
+        destinationField.validate();
+        if (destinationField.getValidationState() == FXValidationSupport.ValidationState.VALID) {
+            builder.output(FileOrDirectoryTaskOutput.file(new File(destinationField.getText())));
+        } else {
+            onError.accept(i18n().tr("The selected PDF file is invalid"));
+        }
         destinationPane.apply(builder, onError);
-        prefix.apply(builder, onError);
         return builder;
     }
 
     private VBox settingPanel() {
         VBox pane = new VBox();
         pane.setAlignment(Pos.TOP_CENTER);
-
-        TitledPane prefixTitled = Views.titledPane(i18n().tr("File names settings"), prefix);
-        prefix.addMenuItemFor(Prefix.CURRENTPAGE);
-        prefix.addMenuItemFor(Prefix.FILENUMBER);
-        prefix.addMenuItemFor("[TOTAL_FILESNUMBER]");
-
-        pane.getChildren().addAll(selectionPane, Views.titledPane(i18n().tr("Split settings"), splitOptions),
-                Views.titledPane(i18n().tr("Output settings"), destinationPane), prefixTitled);
+        pane.getChildren()
+                .addAll(selectionPane, Views.titledPane(i18n().tr("Insert and Repeat settings"), addBackpagesOptions),
+                        Views.titledPane(i18n().tr("Destination file"), destinationPane));
         return pane;
-    }
-
-    @EventListener
-    public void onClearModule(ClearToolRequest e) {
-        if (e.clearEverything()) {
-            splitOptions.resetView();
-            prefix.resetView();
-            destinationPane.resetView();
-        }
     }
 
     @EventStation
     public String id() {
         return TOOL_ID;
+    }
+
+    @EventListener
+    public void onClearModule(ClearToolRequest e) {
+        if (e.clearEverything()) {
+            addBackpagesOptions.resetView();
+            destinationPane.resetView();
+        }
     }
 }

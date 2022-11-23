@@ -82,7 +82,8 @@ class ExtractOptionsPane extends GridPane
         GridPane.setValignment(field, VPos.BOTTOM);
         GridPane.setHalignment(field, HPos.LEFT);
         add(field, 1, 0);
-        var helpIcon = helpIcon("Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-)");
+        var helpIcon = helpIcon(
+                i18n().tr("Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-)"));
         GridPane.setValignment(helpIcon, VPos.CENTER);
         add(helpIcon, 2, 0);
         GridPane.setValignment(separateFile, VPos.BOTTOM);

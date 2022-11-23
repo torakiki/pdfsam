@@ -1,6 +1,9 @@
+import org.pdfsam.model.tool.Tool;
+import org.pdfsam.tools.backpages.AddBackpagesTool;
+
 /*
  * This file is part of the PDF Split And Merge source code
- * Created on 10/10/22
+ * Created on 03/10/22
  * Copyright 2022 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,21 +19,21 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-module org.pdfsam.basic {
-    requires org.apache.commons.lang3;
-    requires org.pdfsam.gui;
-    requires org.pdfsam.tools.alternatemix;
-    requires org.pdfsam.tools.extract;
-    requires org.pdfsam.tools.merge;
-    requires org.pdfsam.tools.rotate;
-    requires org.pdfsam.tools.split;
-    requires org.pdfsam.tools.splitbybookmarks;
-    requires org.pdfsam.tools.splitbysize;
-    requires org.pdfsam.tools.backpages;
+module org.pdfsam.tools.backpages {
+    exports org.pdfsam.tools.backpages;
+
+    requires org.slf4j;
+    requires org.pdfsam.core;
+    requires org.pdfsam.ui.components;
+    requires org.pdfsam.i18n;
+    requires transitive org.pdfsam.model;
     requires jakarta.inject;
     requires javafx.graphics;
-    requires org.pdfsam.core;
+    requires javafx.controls;
+    requires org.pdfsam.eventstudio;
     requires org.pdfsam.injector;
+    requires org.kordamp.ikonli.javafx;
+    requires org.kordamp.ikonli.unicons;
 
-    exports org.pdfsam.basic;
+    provides Tool with AddBackpagesTool;
 }

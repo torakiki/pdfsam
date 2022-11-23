@@ -1,6 +1,7 @@
+package org.pdfsam.tools.backpages;
 /*
  * This file is part of the PDF Split And Merge source code
- * Created on 10/10/22
+ * Created on 03/10/22
  * Copyright 2022 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,21 +17,21 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-module org.pdfsam.basic {
-    requires org.apache.commons.lang3;
-    requires org.pdfsam.gui;
-    requires org.pdfsam.tools.alternatemix;
-    requires org.pdfsam.tools.extract;
-    requires org.pdfsam.tools.merge;
-    requires org.pdfsam.tools.rotate;
-    requires org.pdfsam.tools.split;
-    requires org.pdfsam.tools.splitbybookmarks;
-    requires org.pdfsam.tools.splitbysize;
-    requires org.pdfsam.tools.backpages;
-    requires jakarta.inject;
-    requires javafx.graphics;
-    requires org.pdfsam.core;
-    requires org.pdfsam.injector;
 
-    exports org.pdfsam.basic;
+import com.tngtech.archunit.core.importer.ImportOption;
+import com.tngtech.archunit.junit.AnalyzeClasses;
+import com.tngtech.archunit.junit.ArchTest;
+import com.tngtech.archunit.lang.ArchRule;
+import com.tngtech.archunit.library.dependencies.SlicesRuleDefinition;
+
+/**
+ * @author Andrea Vacondio
+ */
+@AnalyzeClasses(packages = "org.pdfsam.tools.backpages", importOptions = { ImportOption.DoNotIncludeTests.class })
+public class TestCycles {
+
+    @ArchTest
+    public static final ArchRule myRule = SlicesRuleDefinition.slices().matching("org.pdfsam.(*)..").should()
+            .beFreeOfCycles();
+
 }

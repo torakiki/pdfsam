@@ -19,5 +19,7 @@
 		<task parameters="org.pdfsam.model.task.BulkRotateParameters" task="org.pdfsam.service.task.BulkRotateTask" />
 		<task parameters="org.sejda.model.parameter.ExtractPagesParameters"
 			task="org.sejda.impl.sambox.ExtractPagesTask" />
+		<task parameters="org.sejda.model.parameter.AddBackPagesParameters"
+			  task="org.sejda.impl.sambox.AddBackPagesTask" />
 	</tasks>
 </sejda>

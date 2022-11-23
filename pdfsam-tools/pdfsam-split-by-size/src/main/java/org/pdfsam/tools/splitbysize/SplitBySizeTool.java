@@ -71,7 +71,7 @@ public class SplitBySizeTool implements Tool {
 
     @Override
     public Pane panel() {
-        return app().instance(SplitBySizeTollPanel.class);
+        return app().instance(SplitBySizeToolPanel.class);
     }
 
     @Override

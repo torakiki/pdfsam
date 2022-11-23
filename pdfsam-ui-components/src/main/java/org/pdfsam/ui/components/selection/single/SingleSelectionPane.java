@@ -153,14 +153,35 @@ public class SingleSelectionPane extends VBox implements ToolBound, PdfDocumentD
     };
 
     public SingleSelectionPane(String ownerModule) {
+        this(ownerModule, true);
+    }
+
+    public SingleSelectionPane(String ownerModule, boolean addToolbar) {
         this.getStyleClass().add("single-selection-pane");
         this.ownerModule = defaultString(ownerModule);
         this.details.getStyleClass().add("-pdfsam-selection-details");
-        SingleSelectionPaneToolbar.SelectButton selectButton = new SingleSelectionPaneToolbar.SelectButton(
-                toolBinding());
-        field = new BrowsableFileField(FileType.PDF, OpenType.OPEN, selectButton);
+
+        if (addToolbar) {
+            var selectButton = new SingleSelectionPaneToolbar.SelectButton(toolBinding());
+            field = new BrowsableFileField(FileType.PDF, OpenType.OPEN, selectButton);
+            HBox.setHgrow(field, Priority.ALWAYS);
+            getChildren().addAll(new SingleSelectionPaneToolbar(selectButton, toolBinding()), field, details);
+        } else {
+            field = new BrowsableFileField(FileType.PDF, OpenType.OPEN);
+            HBox.setHgrow(field, Priority.ALWAYS);
+            getChildren().addAll(field, details);
+        }
+
         field.enforceValidation(true, false);
+        field.getStyleClass().add("single-selection-top");
+        field.getTextField().validProperty().addListener(onValidState);
         passwordPopup = new PasswordFieldPopup(this.ownerModule);
+        initEncryptionIndicator();
+        initContextMenu();
+        eventStudio().addAnnotatedListeners(this);
+    }
+
+    private void initEncryptionIndicator() {
         encryptionIndicator.getStyleClass().addAll("encryption-status");
         encryptionIndicator.addEventFilter(MouseEvent.MOUSE_CLICKED, e -> {
             if (descriptor.loadingStatus().getValue() == ENCRYPTED) {
@@ -171,12 +192,6 @@ public class SingleSelectionPane extends VBox implements ToolBound, PdfDocumentD
         });
         HBox.setMargin(encryptionIndicator, new Insets(0, 0, 0, 2));
         field.setGraphic(encryptionIndicator);
-        field.getStyleClass().add("single-selection-top");
-        HBox.setHgrow(field, Priority.ALWAYS);
-        getChildren().addAll(new SingleSelectionPaneToolbar(selectButton, toolBinding()), field, details);
-        field.getTextField().validProperty().addListener(onValidState);
-        initContextMenu();
-        eventStudio().addAnnotatedListeners(this);
     }
 
     private void initializeFor(PdfDocumentDescriptor docDescriptor) {
@@ -230,7 +245,7 @@ public class SingleSelectionPane extends VBox implements ToolBound, PdfDocumentD
         return descriptor;
     }
 
-    protected BrowsableFileField getField() {
+    public BrowsableFileField getField() {
         return field;
     }
 

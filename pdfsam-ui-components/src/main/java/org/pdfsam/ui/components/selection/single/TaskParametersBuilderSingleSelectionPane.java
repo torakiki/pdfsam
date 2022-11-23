@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 23/giu/2014
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -30,15 +30,18 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * {@link SingleSelectionPane} capable of participating as a {@link TaskParametersBuildStep} to a {@link SinglePdfSourceTaskParameters} build process.
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
 public class TaskParametersBuilderSingleSelectionPane extends SingleSelectionPane implements
         TaskParametersBuildStep<SinglePdfSourceTaskParametersBuilder<? extends MultiplePdfSourceMultipleOutputParameters>> {
 
     public TaskParametersBuilderSingleSelectionPane(String ownerModule) {
         super(ownerModule);
+    }
+
+    public TaskParametersBuilderSingleSelectionPane(String ownerModule, boolean addToolbar) {
+        super(ownerModule, addToolbar);
     }
 
     @Override
