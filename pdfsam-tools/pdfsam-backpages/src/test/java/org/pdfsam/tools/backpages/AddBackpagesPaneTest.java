@@ -89,8 +89,7 @@ class AddBackpagesPaneTest {
         populate();
         robot.clickOn("#selectedBackpages").push(KeyCode.ENTER);
         victim.apply(builder, onError);
-        //empty set is passed
-        verify(builder).ranges(anySet());
+        verify(builder, never()).ranges(anySet());
         verify(onError, never()).accept(anyString());
     }
 
