@@ -81,7 +81,7 @@
                                     <arguments>
                                         <argument>--add-modules</argument>
                                         <argument>
-                                            java.base,java.datatransfer,java.logging,java.naming,java.sql,java.desktop,java.xml,java.scripting,java.management,jdk.unsupported,java.prefs
+                                            java.base,java.logging,java.naming,java.sql,java.desktop,java.xml,java.management,jdk.unsupported,java.prefs
                                         </argument>
                                         <argument>--output</argument>
                                         <argument>${project.build.directory}/assembled/runtime</argument>
@@ -180,25 +180,6 @@
                             </execution>
                         </executions>
                     </plugin>
-                    <plugin>
-                        <artifactId>maven-assembly-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>pdfsam-assembly</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>single</goal>
-                                </goals>
-                                <configuration>
-                                    <finalName>pdfsam-${project.version}-${os.detected.name}</finalName>
-                                    <appendAssemblyId>false</appendAssemblyId>
-                                    <descriptors>
-                                        <descriptor>src/assembly/portable.xml</descriptor>
-                                    </descriptors>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
                 </plugins>
             </build>
         </profile>
@@ -216,50 +197,70 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>com.akathist.maven.plugins.launch4j</groupId>
-                        <artifactId>launch4j-maven-plugin</artifactId>
-                        <version>2.1.2</version>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
                         <executions>
                             <execution>
-                                <id>exe-creation</id>
+                                <id>jpackage</id>
                                 <phase>prepare-package</phase>
                                 <goals>
-                                    <goal>launch4j</goal>
+                                    <goal>exec</goal>
                                 </goals>
                                 <configuration>
-                                    <headerType>gui</headerType>
-                                    <outfile>${project.build.directory}/assembled/pdfsam.exe</outfile>
-                                    <jar>${project.build.finalName}.jar</jar>
-                                    <dontWrapJar>true</dontWrapJar>
-                                    <icon>src/assembly/resources/pdfsam.ico</icon>
-                                    <errTitle>Cannot find Java Runtime Environment</errTitle>
-                                    <vars>
-                                        <var>PATH=%EXEDIR%\runtime</var>
-                                    </vars>
-                                    <jre>
-                                        <path>runtime</path>
-                                        <minVersion>19</minVersion>
-                                        <bundledJre64Bit>true</bundledJre64Bit>
-                                    </jre>
-                                    <versionInfo>
-                                        <fileVersion>
-                                            ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.0
-                                        </fileVersion>
-                                        <txtFileVersion>${project.version}</txtFileVersion>
-                                        <fileDescription>PDFsam Basic</fileDescription>
-                                        <copyright>Sober Lemur S.a.s di Vacondio Andrea</copyright>
-                                        <companyName>Sober Lemur S.a.s di Vacondio Andrea</companyName>
-                                        <productVersion>
-                                            ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.0
-                                        </productVersion>
-                                        <txtProductVersion>${project.version}</txtProductVersion>
-                                        <productName>PDF Split And Merge Basic Edition</productName>
-                                        <internalName>PDFsam</internalName>
-                                        <originalFilename>pdfsam.exe</originalFilename>
-                                        <language>
-                                            ENGLISH_US
-                                        </language>
-                                    </versionInfo>
+                                    <executable>jpackage</executable>
+                                    <arguments>
+                                        <argument>-t</argument>
+                                        <argument>app-image</argument>
+                                        <argument>-d</argument>
+                                        <argument>${project.build.directory}/image</argument>
+                                        <argument>-runtime-image</argument>
+                                        <argument>${project.build.directory}/assembled/runtime</argument>
+                                        <argument>-m</argument>
+                                        <argument>org.pdfsam.basic/org.pdfsam.basic.App</argument>
+                                        <argument>-p</argument>
+                                        <argument>${project.build.directory}/assembled/lib</argument>
+                                        <argument>--app-version</argument>
+                                        <argument>${project.version}</argument>
+                                        <argument>--copyright</argument>
+                                        <argument>"Sober Lemur S.a.s di Vacondio Andrea"</argument>
+                                        <argument>--vendor</argument>
+                                        <argument>"Sober Lemur S.a.s di Vacondio Andrea"</argument>
+                                        <argument>-n</argument>
+                                        <argument>PDFsam Basic</argument>
+                                        <argument>-description</argument>
+                                        <argument>"Open source desktop application to split, merge, rotate, extract
+                                            pages and mix PDF files"
+                                        </argument>
+                                        <argument>--icon</argument>
+                                        <argument>${basedir}/src/assembly/resources/pdfsam.ico</argument>
+                                        <argument>--app-content</argument>
+                                        <argument>
+                                            ${project.build.directory}/assembled/doc,${project.build.directory}/assembled/bin/pdfsam.bat,${project.build.directory}/assembled/LICENSE.txt
+                                        </argument>
+                                        <argument>--java-options</argument>
+                                        <argument>-Dprism.lcdtext=false</argument>
+                                        <argument>--license-file</argument>
+                                        <argument>${project.build.directory}/assembled/LICENSE.txt</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>pdfsam-assembly</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <configuration>
+                                    <finalName>pdfsam-${project.version}-${os.detected.name}</finalName>
+                                    <appendAssemblyId>false</appendAssemblyId>
+                                    <descriptors>
+                                        <descriptor>src/assembly/portable-win.xml</descriptor>
+                                    </descriptors>
                                 </configuration>
                             </execution>
                         </executions>
@@ -277,14 +278,6 @@
                                 <configuration>
                                     <outputDirectory>${project.build.directory}/assembled</outputDirectory>
                                     <resources>
-                                        <resource>
-                                            <directory>${basedir}/src/assembly/resources</directory>
-                                            <includes>
-                                                <include>
-                                                    pdfsam.l4j.ini
-                                                </include>
-                                            </includes>
-                                        </resource>
                                         <resource>
                                             <targetPath>${project.build.directory}/msi</targetPath>
                                             <directory>${basedir}/src/msi</directory>
@@ -464,6 +457,25 @@
             </activation>
             <build>
                 <plugins>
+                    <plugin>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>pdfsam-assembly</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <configuration>
+                                    <finalName>pdfsam-${project.version}-${os.detected.name}</finalName>
+                                    <appendAssemblyId>false</appendAssemblyId>
+                                    <descriptors>
+                                        <descriptor>src/assembly/portable.xml</descriptor>
+                                    </descriptors>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-resources-plugin</artifactId>

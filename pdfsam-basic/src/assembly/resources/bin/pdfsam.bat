@@ -79,7 +79,7 @@ if "%JAVACMD%"=="" set JAVACMD=java
 @REM Reaching here means variables are defined and arguments have been captured
 :endInit
 
-"%JAVACMD%" --module-path "$MODULEPATH" --module org.pdfsam.basic/org.pdfsam.basic.App %JAVA_OPTS% -Xmx512M -Dapp.name="pdfsam-basic" -Dprism.lcdtext=false -Dapp.home="%BASEDIR%" -Dbasedir="%BASEDIR%" %CMD_LINE_ARGS%
+"%JAVACMD%" --module-path "%MODULEPATH%" --module org.pdfsam.basic/org.pdfsam.basic.App %JAVA_OPTS% -Xmx512M -Dapp.name="pdfsam-basic" -Dprism.lcdtext=false -Dapp.home="%BASEDIR%" -Dbasedir="%BASEDIR%" %CMD_LINE_ARGS%
 if %ERRORLEVEL% NEQ 0 goto error
 goto end
 
