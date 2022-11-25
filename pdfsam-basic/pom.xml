@@ -359,7 +359,12 @@
                             <execution>
                                 <id>pdfsam-assembly</id>
                                 <phase>package</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
                                 <configuration>
+                                    <finalName>pdfsam-${project.version}-${os.detected.name}</finalName>
+                                    <appendAssemblyId>false</appendAssemblyId>
                                     <descriptors>
                                         <descriptor>src/assembly/portable-linux.xml</descriptor>
                                     </descriptors>
