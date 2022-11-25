@@ -22,6 +22,7 @@ import javafx.embed.swing.JFXPanel;
 import org.junit.jupiter.api.extension.Extension;
 
 import javax.swing.SwingUtilities;
+import java.lang.reflect.InvocationTargetException;
 
 /**
  * @author Andrea Vacondio
@@ -30,7 +31,12 @@ public class JavaFxThreadInitializeExtension implements Extension {
 
     static {
         System.out.println("Initializing JavaFX thread");
-        SwingUtilities.invokeLater(JFXPanel::new);
+        try {
+            SwingUtilities.invokeAndWait(JFXPanel::new);
+        } catch (InterruptedException | InvocationTargetException e) {
+            System.out.println("Unable to initialize JavaFX thread");
+            throw new RuntimeException(e);
+        }
         System.out.println("JavaFX initialized");
     }
 }
