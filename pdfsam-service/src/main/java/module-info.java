@@ -29,6 +29,11 @@ module org.pdfsam.service {
     requires org.sejda.io;
     requires org.sejda.sambox;
     requires org.slf4j;
+    //hibernate validator
+    requires org.hibernate.validator;
+    requires com.fasterxml.classmate;
+    // fontbox logging
+    requires org.apache.commons.logging;
 
     requires transitive com.fasterxml.jackson.databind;
     requires transitive jakarta.inject;
