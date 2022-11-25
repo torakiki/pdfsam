@@ -215,7 +215,7 @@
                                         <argument>-m</argument>
                                         <argument>org.pdfsam.basic/org.pdfsam.basic.App</argument>
                                         <argument>--app-version</argument>
-										<argument>${project.version}</argument>
+										<argument>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</argument>
                                         <argument>-n</argument>
                                         <argument>pdfsam</argument>
                                         <argument>--description</argument>
