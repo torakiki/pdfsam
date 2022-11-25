@@ -85,7 +85,7 @@ public final class I18nContext {
             LOG.trace("Using best matching locale: {}", Locale.getDefault());
             return Locale.getDefault();
         }
-        Locale onlyLanguage = new Locale(Locale.getDefault().getLanguage());
+        var onlyLanguage = Locale.of(Locale.getDefault().getLanguage());
         if (supported.contains(onlyLanguage)) {
             LOG.trace("Using supported locale closest to default {}", onlyLanguage);
             return onlyLanguage;
