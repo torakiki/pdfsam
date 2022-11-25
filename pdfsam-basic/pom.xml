@@ -214,11 +214,10 @@
                                         <argument>"./assembled/runtime"</argument>
                                         <argument>-m</argument>
                                         <argument>org.pdfsam.basic/org.pdfsam.basic.App</argument>
-                                       
                                         <argument>--app-version</argument>
-										<argument>5.0.0</argument>
+										<argument>${project.version}</argument>
                                         <argument>-n</argument>
-                                        <argument>"PDFsam Basic"</argument>
+                                        <argument>pdfsam</argument>
                                         <argument>--description</argument>
                                         <argument>"Open source desktop application to split, merge, rotate, extract pages and mix PDF files"
                                         </argument>
