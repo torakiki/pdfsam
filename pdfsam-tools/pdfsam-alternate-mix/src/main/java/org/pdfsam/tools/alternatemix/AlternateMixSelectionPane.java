@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 30 ago 2016
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -38,7 +38,6 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * @author Andrea Vacondio
- *
  */
 public class AlternateMixSelectionPane extends MultipleSelectionPane
         implements TaskParametersBuildStep<AlternateMixParametersBuilder> {
@@ -46,9 +45,9 @@ public class AlternateMixSelectionPane extends MultipleSelectionPane
     public AlternateMixSelectionPane(String ownerModule) {
         super(ownerModule, true, true,
                 new TableColumnProvider<?>[] { new LoadingColumn(ownerModule), FileColumn.NAME, LongColumn.SIZE,
-                        IntColumn.PAGES, LongColumn.LAST_MODIFIED,
-                        new PageRangesColumn(i18n().tr("Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)")),
-                        new PaceColumn(), new ReverseColumn() });
+                        IntColumn.PAGES, new PageRangesColumn(
+                        i18n().tr("Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)")),
+                        new PaceColumn(), new ReverseColumn(), LongColumn.LAST_MODIFIED });
     }
 
     @Override
