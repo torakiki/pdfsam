@@ -28,6 +28,7 @@ import org.pdfsam.model.pdf.PdfDocumentDescriptor;
 import org.pdfsam.model.pdf.PdfLoadRequest;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.test.JavaFxThreadInitializeExtension;
+import org.sejda.conversion.exception.ConversionException;
 import org.sejda.model.input.PdfMixInput;
 
 import java.io.File;
@@ -40,6 +41,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -76,6 +79,15 @@ public class AlternateMixSelectionPaneTest {
     }
 
     @Test
+    public void emptyByZeroPagesSelected() throws Exception {
+        populate();
+        victim.table().getItems().get(0).pageSelection.set("0");
+        victim.apply(builder, onError);
+        verify(onError).accept(anyString());
+        verify(builder, never()).addInput(any());
+    }
+
+    @Test
     public void invalidPace() throws Exception {
         populate();
         victim.table().getItems().get(0).pace.set("Chuck");
@@ -91,6 +103,15 @@ public class AlternateMixSelectionPaneTest {
         victim.apply(builder, onError);
         verify(onError).accept(anyString());
         verify(builder, never()).addInput(any());
+    }
+
+    @Test
+    public void conversionException() throws Exception {
+        populate();
+        doThrow(new ConversionException("message")).when(builder).addInput(any());
+        victim.apply(builder, onError);
+        verify(builder).addInput(any());
+        verify(onError).accept(eq("message"));
     }
 
     @Test

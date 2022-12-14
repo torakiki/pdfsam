@@ -32,6 +32,7 @@ module org.pdfsam.tools.alternatemix {
     requires org.pdfsam.injector;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.ikonli.unicons;
+    requires org.slf4j;
 
     provides Tool with AlternateMixTool;
 }

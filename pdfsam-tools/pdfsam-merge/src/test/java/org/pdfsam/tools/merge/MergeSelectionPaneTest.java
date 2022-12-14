@@ -110,7 +110,7 @@ public class MergeSelectionPaneTest {
     }
 
     @Test
-    public void converstionException() throws Exception {
+    public void conversionException() throws Exception {
         populate();
         doThrow(new ConversionException("message")).when(builder).addInput(any());
         victim.apply(builder, onError);
