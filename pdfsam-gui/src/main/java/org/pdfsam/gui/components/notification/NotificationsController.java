@@ -19,6 +19,7 @@
 package org.pdfsam.gui.components.notification;
 
 import jakarta.inject.Inject;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -32,12 +33,14 @@ import org.pdfsam.core.context.BooleanPersistentProperty;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.model.news.NewImportantNewsEvent;
+import org.pdfsam.model.ui.ShowStageRequest;
 import org.pdfsam.model.update.NoUpdateAvailable;
 import org.pdfsam.model.update.UpdateAvailableEvent;
 import org.pdfsam.service.tool.UsageService;
 import org.pdfsam.ui.components.commons.UrlButton;
 import org.pdfsam.ui.components.notification.AddNotificationRequest;
 import org.pdfsam.ui.components.notification.NotificationType;
+import org.pdfsam.ui.components.support.Style;
 import org.sejda.model.exception.InvalidTaskParametersException;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
@@ -90,9 +93,16 @@ public class NotificationsController {
     @EventListener
     public void onTaskFailed(TaskExecutionFailedEvent e) {
         if (e.getFailingCause() instanceof InvalidTaskParametersException) {
-            container.addNotification(i18n().tr("Invalid parameters"),
-                    buildLabel(i18n().tr("Input parameters are invalid, open the application messages for details."),
-                            NotificationType.ERROR));
+
+            var showErrors = new Button(i18n().tr("Show errors"));
+            showErrors.setOnAction(event -> eventStudio().broadcast(ShowStageRequest.INSTANCE, "LogStage"));
+            showErrors.getStyleClass().addAll(Style.BUTTON.css());
+
+            var content = new VBox(buildLabel(i18n().tr("Input parameters are invalid"), NotificationType.ERROR),
+                    showErrors);
+            content.getStyleClass().add("notification-container");
+
+            container.addNotification(i18n().tr("Invalid parameters"), content);
         }
         Throwable root = ExceptionUtils.getRootCause(e.getFailingCause());
         if (root instanceof AccessDeniedException) {
