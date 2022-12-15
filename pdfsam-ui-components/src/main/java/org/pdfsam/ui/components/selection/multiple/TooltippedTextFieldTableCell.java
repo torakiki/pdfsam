@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 25/mar/2014
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -20,20 +20,15 @@ package org.pdfsam.ui.components.selection.multiple;
 
 import javafx.event.Event;
 import javafx.scene.control.ContentDisplay;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Tooltip;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.util.StringConverter;
 import javafx.util.converter.DefaultStringConverter;
-
-import static java.util.Objects.nonNull;
-import static org.sejda.commons.util.RequireUtils.requireNotBlank;
 
 /**
  * Editable cell showing a tooltip. This is based on <a href="https://gist.github.com/james-d/be5bbd6255a4640a5357">...</a> to overcome the 4 years old
@@ -41,27 +36,14 @@ import static org.sejda.commons.util.RequireUtils.requireNotBlank;
  *
  * @author Andrea Vacondio
  */
-class TooltippedTextFieldTableCell extends TableCell<SelectionTableRowData, String> {
-
-    private final Tooltip tooltip = new Tooltip();
+class TooltippedTextFieldTableCell extends TooltippedTableCell<String> {
 
     private final TextField textField = new TextField();
 
     private final StringConverter<String> converter = new DefaultStringConverter();
 
-    @Override
-    public void updateItem(String item, boolean empty) {
-        super.updateItem(item, empty);
-        if (nonNull(item) && nonNull(tooltip)) {
-            setTooltip(tooltip);
-        } else {
-            setTooltip(null);
-        }
-    }
-
     public TooltippedTextFieldTableCell(String tooltipMessage) {
-        requireNotBlank(tooltipMessage, "Tooltiped cell must have a tooltip message");
-        this.tooltip.setText(tooltipMessage);
+        super(tooltipMessage);
 
         itemProperty().addListener((obx, oldItem, newItem) -> {
             if (newItem == null) {

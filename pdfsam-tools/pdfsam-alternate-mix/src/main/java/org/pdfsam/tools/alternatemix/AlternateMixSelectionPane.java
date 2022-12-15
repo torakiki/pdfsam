@@ -27,8 +27,8 @@ import org.pdfsam.ui.components.selection.multiple.MultipleSelectionPane;
 import org.pdfsam.ui.components.selection.multiple.PaceColumn;
 import org.pdfsam.ui.components.selection.multiple.PageRangesColumn;
 import org.pdfsam.ui.components.selection.multiple.ReverseColumn;
+import org.pdfsam.ui.components.selection.multiple.SelectedPagesColumn;
 import org.pdfsam.ui.components.selection.multiple.SelectionTableRowData;
-import org.pdfsam.ui.components.selection.multiple.TableColumnProvider;
 import org.sejda.conversion.exception.ConversionException;
 import org.sejda.model.input.PdfMixInput;
 import org.slf4j.Logger;
@@ -50,11 +50,10 @@ public class AlternateMixSelectionPane extends MultipleSelectionPane
     private static final Logger LOG = LoggerFactory.getLogger(AlternateMixSelectionPane.class);
 
     public AlternateMixSelectionPane(String ownerModule) {
-        super(ownerModule, true, true,
-                new TableColumnProvider<?>[] { new LoadingColumn(ownerModule), FileColumn.NAME, LongColumn.SIZE,
-                        IntColumn.PAGES, new PageRangesColumn(
+        super(ownerModule, true, true, new LoadingColumn(ownerModule), FileColumn.NAME, LongColumn.SIZE,
+                IntColumn.PAGES, new PageRangesColumn(
                         i18n().tr("Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)")),
-                        new PaceColumn(), new ReverseColumn(), LongColumn.LAST_MODIFIED });
+                new SelectedPagesColumn(), new PaceColumn(), new ReverseColumn(), LongColumn.LAST_MODIFIED);
     }
 
     @Override
