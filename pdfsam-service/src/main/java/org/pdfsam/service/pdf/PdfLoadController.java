@@ -90,7 +90,7 @@ public class PdfLoadController {
         if (nonNull(event.list)) {
             executor.execute(() -> {
                 try {
-                    PdfLoadRequest loadEvent = new PdfLoadRequest(event.toolBinding());
+                    var loadEvent = new PdfLoadRequest(event.toolBinding());
                     new PdfListParser().apply(event.list).stream().map(PdfDocumentDescriptor::newDescriptorNoPassword)
                             .forEach(loadEvent::add);
                     if (loadEvent.getDocuments().isEmpty()) {

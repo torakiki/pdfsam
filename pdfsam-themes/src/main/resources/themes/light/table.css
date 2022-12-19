@@ -46,4 +46,11 @@
     -fx-background-color: -default-arrow-color;
 }
 
+#total-label {
+    -fx-background-color: -total-label-color;
+    -fx-background-insets: 0.5em 0;
+    -fx-background-radius: 0.5em;
+    -fx-padding: 0.666667em 0.833333em;
+}
+
 

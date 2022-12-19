@@ -53,7 +53,7 @@ public final class SelectionTableRowData {
 
     public SelectionTableRowData duplicate() {
         descriptor.retain();
-        SelectionTableRowData dupe = new SelectionTableRowData(descriptor);
+        var dupe = new SelectionTableRowData(descriptor);
         dupe.pageSelection.set(pageSelection.get());
         dupe.reverse.set(reverse.get());
         dupe.pace.set(pace.get());

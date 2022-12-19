@@ -100,7 +100,7 @@ public class PasswordFieldPopup extends PopupControl implements ToolBound {
         public void requestLoad() {
             if (pdfDescriptor != null) {
                 pdfDescriptor.setPassword(passwordField.getText());
-                PdfLoadRequest loadEvent = new PdfLoadRequest(toolBinding());
+                var loadEvent = new PdfLoadRequest(toolBinding());
                 loadEvent.add(pdfDescriptor);
                 eventStudio().broadcast(loadEvent);
             }

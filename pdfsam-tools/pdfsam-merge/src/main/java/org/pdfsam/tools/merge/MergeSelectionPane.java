@@ -51,6 +51,7 @@ public class MergeSelectionPane extends MultipleSelectionPane
                 IntColumn.PAGES, new PageRangesColumn(
                         i18n().tr("Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)")),
                 new SelectedPagesColumn(), LongColumn.LAST_MODIFIED);
+        this.showTotalPagesLabel();
     }
 
     @Override

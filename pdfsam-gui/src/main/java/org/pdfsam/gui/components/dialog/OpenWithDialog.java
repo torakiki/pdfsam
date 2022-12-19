@@ -120,7 +120,7 @@ public class OpenWithDialog extends Stage {
                     eventStudio().broadcast(new ClearToolRequest(m.id(), false, false), m.id());
                     eventStudio().broadcast(new SetActiveToolRequest(m.id()));
                     hide();
-                    PdfLoadRequest loadEvent = new PdfLoadRequest(m.id());
+                    var loadEvent = new PdfLoadRequest(m.id());
                     event.pdfs().stream().map(Path::toFile).map(PdfDocumentDescriptor::newDescriptorNoPassword)
                             .forEach(loadEvent::add);
                     eventStudio().broadcast(loadEvent, m.id());

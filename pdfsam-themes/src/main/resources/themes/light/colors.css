@@ -157,6 +157,7 @@
     -table-border-color: derive(-table-odd-background-color, -10%);
     -table-columne-header-color: derive(-table-odd-background-color, -3%);
     -table-selected-background-color: -fx-selection-bar-non-focused;
+    -total-label-color: -default-dark-background;
 
     /** listview **/
     -list-even-background-color: white;

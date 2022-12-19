@@ -81,7 +81,7 @@ public class FilesDropController {
             app().runtimeState().workingPath(path);
             eventStudio().broadcast(new PdfFilesListLoadRequest(event.toolBinding(), path));
         } else {
-            final PdfLoadRequest loadEvent = new PdfLoadRequest(event.toolBinding());
+            final var loadEvent = new PdfLoadRequest(event.toolBinding());
             getFiles(event.files()).filter(f -> FileType.PDF.matches(f.getName()))
                     .map(PdfDocumentDescriptor::newDescriptorNoPassword).forEach(loadEvent::add);
             if (!loadEvent.getDocuments().isEmpty()) {
@@ -113,7 +113,7 @@ public class FilesDropController {
 
         event.files().stream().filter(f -> FileType.PDF.matches(f.getName())).filter(File::isFile)
                 .map(PdfDocumentDescriptor::newDescriptorNoPassword).findFirst().ifPresent(file -> {
-                    PdfLoadRequest loadEvent = new PdfLoadRequest(event.toolBinding());
+                    var loadEvent = new PdfLoadRequest(event.toolBinding());
                     loadEvent.add(file);
                     eventStudio().broadcast(loadEvent, event.toolBinding());
                 });

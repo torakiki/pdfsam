@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 28 ago 2016
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -35,9 +35,8 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * Selection pane for the extract module
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
 public class ExtractSelectionPane extends MultipleSelectionPane
         implements TaskParametersBuildStep<ExtractParametersBuilder> {
@@ -45,8 +44,9 @@ public class ExtractSelectionPane extends MultipleSelectionPane
     private static final Logger LOG = LoggerFactory.getLogger(ExtractSelectionPane.class);
 
     public ExtractSelectionPane(String ownerModule) {
-        super(ownerModule, false, false, new SelectionTableColumn<?>[] { new LoadingColumn(ownerModule),
-                FileColumn.NAME, LongColumn.SIZE, IntColumn.PAGES, LongColumn.LAST_MODIFIED });
+        super(ownerModule, false, false,
+                new SelectionTableColumn<?>[] { new LoadingColumn(ownerModule), FileColumn.NAME, LongColumn.SIZE,
+                        IntColumn.PAGES, LongColumn.LAST_MODIFIED });
     }
 
     @Override
