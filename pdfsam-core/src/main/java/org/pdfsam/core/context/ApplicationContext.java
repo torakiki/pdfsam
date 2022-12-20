@@ -19,10 +19,10 @@
 package org.pdfsam.core.context;
 
 import org.pdfsam.injector.Injector;
+import org.pdfsam.injector.Key;
 import org.pdfsam.persistence.PreferencesRepository;
 
 import java.io.Closeable;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -83,9 +83,9 @@ public class ApplicationContext implements Closeable {
                 .instance(type);
     }
 
-    public <T> List<T> instancesOfType(Class<T> type) {
+    public <T> T instance(Key<T> key) {
         return injector.orElseThrow(() -> new IllegalStateException("Injector not set for this application"))
-                .instancesOfType(type);
+                .instance(key);
     }
 
     public void clean() {

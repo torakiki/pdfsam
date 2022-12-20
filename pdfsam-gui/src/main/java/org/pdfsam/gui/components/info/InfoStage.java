@@ -19,6 +19,7 @@
 package org.pdfsam.gui.components.info;
 
 import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
@@ -41,7 +42,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 class InfoStage extends Stage {
 
     @Inject
-    public InfoStage(InfoPane infoPane, List<Image> logos) {
+    public InfoStage(InfoPane infoPane, @Named("icons") List<Image> logos) {
         BorderPane containerPane = new BorderPane();
         containerPane.getStyleClass().addAll(Style.CONTAINER.css());
         containerPane.setCenter(infoPane);

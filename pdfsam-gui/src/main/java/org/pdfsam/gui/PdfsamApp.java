@@ -23,7 +23,6 @@ import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
@@ -47,6 +46,7 @@ import org.pdfsam.gui.configuration.ServicesConfig;
 import org.pdfsam.gui.theme.Themes;
 import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.injector.Injector;
+import org.pdfsam.injector.Key;
 import org.pdfsam.model.lifecycle.ShutdownEvent;
 import org.pdfsam.model.lifecycle.StartupEvent;
 import org.pdfsam.model.news.FetchLatestNewsRequest;
@@ -121,7 +121,7 @@ public class PdfsamApp extends Application {
         cleanIfRequired();
 
         primaryStage.setScene(initScene());
-        primaryStage.getIcons().addAll(app().instancesOfType(Image.class));
+        primaryStage.getIcons().addAll(app().instance(Key.of(List.class, "icons")));
         primaryStage.setOnCloseRequest(e -> Platform.exit());
 
         app().instance(WindowStatusController.class).setStage(primaryStage);

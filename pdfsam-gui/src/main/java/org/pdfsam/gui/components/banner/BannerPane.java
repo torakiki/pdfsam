@@ -19,8 +19,6 @@
 package org.pdfsam.gui.components.banner;
 
 import jakarta.inject.Inject;
-import jakarta.inject.Named;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -35,7 +33,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 public class BannerPane extends HBox {
 
     @Inject
-    public BannerPane(BannerButtons buttons, ImageView payoff, @Named("logo32") Image logo) {
+    public BannerPane(BannerButtons buttons, ImageView payoff) {
         getStyleClass().add("pdfsam-banner");
         HBox.setHgrow(buttons, Priority.ALWAYS);
         HBox logoView = new HBox();

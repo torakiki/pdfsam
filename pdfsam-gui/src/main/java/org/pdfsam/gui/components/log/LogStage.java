@@ -19,6 +19,7 @@
 package org.pdfsam.gui.components.log;
 
 import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
@@ -52,7 +53,7 @@ public class LogStage extends Stage {
     public static final String LOGSTAGE_EVENTSTATION = "LogStage";
 
     @Inject
-    public LogStage(LogPane logPane, LogListView logView, List<Image> logos) {
+    public LogStage(LogPane logPane, LogListView logView, @Named("icons") List<Image> logos) {
         BorderPane containerPane = new BorderPane();
         containerPane.getStyleClass().addAll(Style.CONTAINER.css());
         containerPane.setCenter(logPane);
