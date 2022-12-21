@@ -18,6 +18,7 @@
  */
 package org.pdfsam.gui.components.info;
 
+import jakarta.inject.Named;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -41,6 +42,7 @@ import org.testfx.framework.junit5.Start;
 import org.testfx.util.WaitForAsyncUtils;
 
 import java.io.File;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
@@ -62,8 +64,9 @@ public class InfoStageTest {
 
         @Provides
         @Prototype
-        public Image logo() {
-            return new Image(this.getClass().getResourceAsStream("/org/pdfsam/gui/images/logo.png"));
+        @Named("icons")
+        public List<Image> logo() {
+            return List.of(new Image(this.getClass().getResourceAsStream("/org/pdfsam/gui/images/logo.png")));
         }
 
     }
