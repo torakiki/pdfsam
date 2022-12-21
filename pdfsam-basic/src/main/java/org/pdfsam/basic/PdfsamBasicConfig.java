@@ -43,6 +43,10 @@ public class PdfsamBasicConfig {
                 new Image(this.getClass().getResourceAsStream("/images/basic/24x24.png")),
                 new Image(this.getClass().getResourceAsStream("/images/basic/32x32.png")),
                 new Image(this.getClass().getResourceAsStream("/images/basic/48x48.png")),
+                new Image(this.getClass().getResourceAsStream("/images/basic/64x64.png")),
+                new Image(this.getClass().getResourceAsStream("/images/basic/96x96.png")),
+                new Image(this.getClass().getResourceAsStream("/images/basic/128x128.png")),
+                new Image(this.getClass().getResourceAsStream("/images/basic/256x256.png")),
                 new Image(this.getClass().getResourceAsStream("/images/basic/512x512.png")));
     }
 
