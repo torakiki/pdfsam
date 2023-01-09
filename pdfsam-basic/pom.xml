@@ -47,7 +47,6 @@
                                 <manifestEntries>
                                     <Built-By>Andrea Vacondio</Built-By>
                                     <Automatic-Module-Name>org.pdfsam.basic</Automatic-Module-Name>
-                                    <SplashScreen-Image>images/basic/splash.gif</SplashScreen-Image>
                                 </manifestEntries>
                                 <addMavenDescriptor>false</addMavenDescriptor>
                             </archive>
@@ -141,7 +140,10 @@
                                             <directory>${basedir}/doc</directory>
                                             <targetPath>${project.build.directory}/assembled/doc</targetPath>
                                         </resource>
-                                       
+                                        <resource>
+                                            <directory>${basedir}/src/assembly/resources/images</directory>
+                                            <targetPath>${project.build.directory}/assembled</targetPath>
+                                        </resource>
                                         <resource>
                                             <targetPath>${project.build.directory}/assembled/bin</targetPath>
                                             <directory>${basedir}/src/assembly/resources/bin</directory>
@@ -163,6 +165,7 @@
                                     <target>
                                         <chmod file="${project.build.directory}/assembled/lib" perm="644"
                                                includes="**/*.*"/>
+                                        <chmod file="${project.build.directory}/assembled/splash.png" perm="644"/>
                                         <chmod dir="${project.build.directory}/assembled/bin" perm="755"
                                                includes="**/*.sh"/>
                                         <chmod dir="${project.build.directory}/assembled/runtime/bin" perm="755"
@@ -222,19 +225,17 @@
                                         <argument>"Open source desktop application to split, merge, rotate, extract pages and mix PDF files"
                                         </argument>
 										<argument>--copyright</argument>
-                                        <argument>"Sober Lemur S.a.s. di Vacondio Andrea"
-                                        </argument>
-										<argument>--copyright</argument>
-                                        <argument>"Sober Lemur S.a.s. di Vacondio Andrea"
+                                        <argument>"Sober Lemur S.r.l."
                                         </argument>
                                         <argument>--icon</argument>
                                         <argument>"${basedir}/src/assembly/resources/pdfsam.ico"</argument>
                                         <argument>--app-content</argument>
-                                        <argument>"./assembled/doc,./assembled/bin/pdfsam.bat,./assembled/LICENSE.txt"
+                                        <argument>"./assembled/doc,./assembled/bin/pdfsam.bat,./assembled/LICENSE.txt,./assembled/splash.png"
                                         </argument>
                                         <argument>--java-options</argument>
                                         <argument>-Dprism.lcdtext=false</argument>
-										 <argument>--module-path</argument>
+                                        <argument>-splash:splash.png</argument>
+                                        <argument>--module-path</argument>
 										<argument>"./assembled/lib"</argument>
                                     </arguments>
                                 </configuration>
@@ -398,7 +399,7 @@
                                         <data>
                                             <src>${project.build.directory}/assembled</src>
                                             <type>directory</type>
-                                            <excludes>pdfsam.exe,pdfsam.l4j.ini,bin/pdfsam.sh,bin/pdfsam.bat</excludes>
+                                            <excludes>bin/pdfsam.sh,bin/pdfsam.bat</excludes>
                                             <mapper>
                                                 <type>perm</type>
                                                 <prefix>/opt/pdfsam-basic</prefix>

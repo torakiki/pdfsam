@@ -103,6 +103,7 @@ if $cygwin; then
 fi
 
 exec "$JAVACMD" --module-path "$MODULEPATH" --module org.pdfsam.basic/org.pdfsam.basic.App $JAVA_OPTS -Xmx512M \
+  -splash:$BASEDIR/splash.png \
   -Dapp.name="pdfsam-basic" \
   -Dapp.pid="$$" \
   -Dapp.home="$BASEDIR" \

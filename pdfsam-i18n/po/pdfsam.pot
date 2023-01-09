@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2022-11-24 16:23+0100\n"
+"POT-Creation-Date: 2022-12-22 11:37+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -692,11 +692,13 @@ msgstr ""
 msgid "Document details"
 msgstr ""
 
-msgid "Invalid parameters"
+msgid "Show errors"
 msgstr ""
 
-msgid ""
-"Input parameters are invalid, open the application messages for details."
+msgid "Input parameters are invalid"
+msgstr ""
+
+msgid "Invalid parameters"
 msgstr ""
 
 msgid "Access denied"
@@ -937,10 +939,20 @@ msgstr ""
 msgid "Duplicate"
 msgstr ""
 
+msgid "Selected pages"
+msgstr ""
+
+msgid "Total number of selected pages"
+msgstr ""
+
 msgid "Size"
 msgstr ""
 
 msgid "Modified"
+msgstr ""
+
+#, java-format
+msgid "Total pages: {0}"
 msgstr ""
 
 msgid "Name"
@@ -997,6 +1009,9 @@ msgid "Reverse"
 msgstr ""
 
 msgid "Pages"
+msgstr ""
+
+msgid "Number of total pages of the document"
 msgstr ""
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -1071,9 +1086,6 @@ msgstr ""
 msgid "Add prefix"
 msgstr ""
 
-msgid "DEFAULT_PREFIX"
-msgstr ""
-
 msgid "Generated PDF documents name prefix:"
 msgstr ""
 
@@ -1084,9 +1096,6 @@ msgid "Some special keywords are replaced with runtime values."
 msgstr ""
 
 msgid "Right click to add these keywords."
-msgstr ""
-
-msgid "Show errors"
 msgstr ""
 
 msgid "Run"
