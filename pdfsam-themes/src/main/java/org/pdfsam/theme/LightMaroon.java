@@ -26,7 +26,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 /**
  * @author Andrea Vacondio
  */
-public class LightBlue extends Light {
+public class LightMaroon extends Light {
 
     @Override
     public String id() {
@@ -36,13 +36,13 @@ public class LightBlue extends Light {
     @Override
     public List<String> stylesheets() {
         var css = new ArrayList<>(super.stylesheets());
-        css.add("/themes/lightblue/colors.css");
+        css.add("/themes/lightmaroon/colors.css");
         return css;
     }
 
     @Override
     public String name() {
-        return i18n().tr("Light with blue");
+        return i18n().tr("Light with maroon");
     }
 
 }

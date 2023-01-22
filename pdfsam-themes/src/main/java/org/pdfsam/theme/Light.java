@@ -50,7 +50,7 @@ public class Light implements Theme {
 
     @Override
     public String name() {
-        return i18n().tr("Light with green");
+        return i18n().tr("Light with blue");
     }
 
     @Override
