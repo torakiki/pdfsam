@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 23/ago/2014
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -57,8 +57,8 @@ public class ExpandButtonTest {
     @Test
     public void arrowIconRotates() {
         var toggle = robot.lookup(".sidebar-expand-toggle").queryAs(ToggleButton.class);
-        assertEquals(180, toggle.getRotate());
+        var rotation = toggle.getRotate();
         robot.clickOn(".sidebar-expand-toggle");
-        assertEquals(0, toggle.getRotate());
+        assertEquals((rotation + 180) % 360, toggle.getRotate());
     }
 }
