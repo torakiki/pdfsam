@@ -28,6 +28,7 @@ import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.parameter.MergeParameters;
 import org.sejda.model.pdf.PdfVersion;
 import org.sejda.model.pdf.form.AcroFormPolicy;
+import org.sejda.model.scale.PageNormalizationPolicy;
 import org.sejda.model.toc.ToCPolicy;
 
 import java.io.IOException;
@@ -56,7 +57,7 @@ public class MergeParametersBuilderTest {
         victim.outlinePolicy(OutlinePolicy.ONE_ENTRY_EACH_DOC);
         victim.tocPolicy(ToCPolicy.DOC_TITLES);
         victim.footer(true);
-        victim.normalize(true);
+        victim.pageNormalizationPolicy(PageNormalizationPolicy.SAME_WIDTH_ORIENTATION_BASED);
         var source = PdfFileSource.newInstanceNoPassword(Files.createTempFile(folder, null, ".pdf").toFile());
         PdfMergeInput input = new PdfMergeInput(source);
         victim.addInput(input);
@@ -67,10 +68,10 @@ public class MergeParametersBuilderTest {
         assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
         assertTrue(params.isBlankPageIfOdd());
         assertTrue(params.isFilenameFooter());
-        assertTrue(params.isNormalizePageSizes());
         assertEquals(AcroFormPolicy.DISCARD, params.getAcroFormPolicy());
         assertEquals(OutlinePolicy.ONE_ENTRY_EACH_DOC, params.getOutlinePolicy());
         assertEquals(ToCPolicy.DOC_TITLES, params.getTableOfContentsPolicy());
+        assertEquals(PageNormalizationPolicy.SAME_WIDTH_ORIENTATION_BASED, params.getPageNormalizationPolicy());
         assertEquals(output, params.getOutput());
         assertEquals(input, params.getInputList().get(0));
     }

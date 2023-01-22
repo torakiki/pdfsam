@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 26/giu/2014
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -26,15 +26,15 @@ import org.sejda.model.outline.OutlinePolicy;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.parameter.MergeParameters;
 import org.sejda.model.pdf.form.AcroFormPolicy;
+import org.sejda.model.scale.PageNormalizationPolicy;
 import org.sejda.model.toc.ToCPolicy;
 
 import java.util.Set;
 
 /**
  * Builder for {@link MergeParameters}
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
 class MergeParametersBuilder extends AbstractPdfOutputParametersBuilder<MergeParameters>
         implements SingleOutputTaskParametersBuilder<MergeParameters> {
@@ -43,7 +43,7 @@ class MergeParametersBuilder extends AbstractPdfOutputParametersBuilder<MergePar
     private OutlinePolicy outlinePolicy = OutlinePolicy.RETAIN;
     private boolean blankIfOdd;
     private boolean footer;
-    private boolean normalize;
+    private PageNormalizationPolicy pageNormalizationPolicy = PageNormalizationPolicy.NONE;
     private AcroFormPolicy formsPolicy = AcroFormPolicy.MERGE;
     private ToCPolicy tocPolicy = ToCPolicy.NONE;
     private FileTaskOutput output;
@@ -68,8 +68,8 @@ class MergeParametersBuilder extends AbstractPdfOutputParametersBuilder<MergePar
         this.footer = footer;
     }
 
-    void normalize(boolean normalize) {
-        this.normalize = normalize;
+    void pageNormalizationPolicy(PageNormalizationPolicy pageNormalizationPolicy) {
+        this.pageNormalizationPolicy = pageNormalizationPolicy;
     }
 
     void acroFormsPolicy(AcroFormPolicy formsPolicy) {
@@ -98,7 +98,7 @@ class MergeParametersBuilder extends AbstractPdfOutputParametersBuilder<MergePar
         params.setTableOfContentsPolicy(tocPolicy);
         params.setOutput(output);
         params.setFilenameFooter(footer);
-        params.setNormalizePageSizes(normalize);
+        params.setPageNormalizationPolicy(pageNormalizationPolicy);
         return params;
     }
 
