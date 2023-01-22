@@ -36,7 +36,7 @@ import org.pdfsam.model.pdf.PdfLoadRequest;
 import org.pdfsam.model.tool.ClearToolRequest;
 import org.pdfsam.model.tool.Tool;
 import org.pdfsam.model.ui.InputPdfArgumentsLoadRequest;
-import org.pdfsam.model.ui.SetActiveToolRequest;
+import org.pdfsam.model.ui.SetActiveContentItemRequest;
 import org.pdfsam.ui.components.commons.HideOnEscapeHandler;
 import org.pdfsam.ui.components.support.Style;
 
@@ -118,7 +118,7 @@ public class OpenWithDialog extends Stage {
 
                 current.setOnAction((e) -> {
                     eventStudio().broadcast(new ClearToolRequest(m.id(), false, false), m.id());
-                    eventStudio().broadcast(new SetActiveToolRequest(m.id()));
+                    eventStudio().broadcast(new SetActiveContentItemRequest(m.id()));
                     hide();
                     var loadEvent = new PdfLoadRequest(m.id());
                     event.pdfs().stream().map(Path::toFile).map(PdfDocumentDescriptor::newDescriptorNoPassword)

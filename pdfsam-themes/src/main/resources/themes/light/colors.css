@@ -86,7 +86,7 @@
     -header-button-focus-color: -grey-2;
     -header-button-focus-color-hover: derive(-header-button-focus-color, -10%);
 
-    /** dashboard **/
+    /** home **/
     -tool-tile-color: -default-dark-background;
     -tool-tile-armed-color: derive(-default-dark-background, 30%);
     -tool-tile-btn-color: transparent;
@@ -120,13 +120,14 @@
     -notification-border-color: -grey-4;
     -notification-color: -default-background-color;
 
-    /** quickbar **/
-    -quickbar-background-color: -default-background-color;
-    -quickbar-btn-color: -default-background-color;
-    -quickbar-btn-color-hover: derive(-default-background-color, -10%);
-    -quickbar-btn-focus-color: -pdfsam-focus-color;
-    -quickbar-btn-focus-color-hover: derive(-pdfsam-focus-color, -10%);
-    -quickbar-arrow-color: -default-font-color;
+    /** sidebar **/
+    -sidebar-background-color: -grey-1;
+    -sidebar-border-color: -grey-4;
+    -sidebar-btn-color: -grey-1;
+    -sidebar-btn-color-hover: -grey-4;
+    -sidebar-btn-border-focus-color: -pdfsam-focus-color;
+    -sidebar-btn-border-focus-color-hover: derive(-pdfsam-focus-color, -10%);
+    -sidebar-arrow-color: -default-font-color;
 
     /** tooltip **/
     -tooltip-background-color: white;
@@ -168,4 +169,11 @@
     -drag-drop-color: transparent;
     -drag-drop-border-color: -grey-5;
     -drag-drop-font-color: -grey-5;
+
+    /** scrollbars color **/
+    -scrollbar-color: -grey-5;
+    -scrollbar-color-thumb: -grey-6;
+
+    /** separator color **/
+    -separator-color: -grey-4;
 }

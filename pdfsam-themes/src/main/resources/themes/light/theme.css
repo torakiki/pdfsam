@@ -42,12 +42,8 @@
     -fx-padding: 0.5em 0.0 0.5em 0.0;
 }
 
-#work-area, #pdfsam-dashboard {
-    -fx-padding: 0.666667em 0.166667em 0.666667em 0.166667em;
-}
-
-#pdfsam-content-pane {
-    -fx-padding: 0 0.5em 0.0 0.5em;
+.content-pane {
+    -fx-padding: 0.666667em 0.333333emem 0.666667em 0.333333emem;
 }
 
 .encryption-status {
@@ -647,4 +643,11 @@ Categories
     -fx-background-insets: 0.0;
     -fx-background-radius: 0.0;
     -fx-effect: null;
+}
+
+/**
+ * Separator
+ */
+.separator:horizontal .line {
+    -fx-border-color: -separator-color;
 }

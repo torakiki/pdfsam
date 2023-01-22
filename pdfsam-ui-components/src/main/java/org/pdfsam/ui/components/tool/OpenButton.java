@@ -32,7 +32,7 @@ import org.pdfsam.model.tool.ClearToolRequest;
 import org.pdfsam.model.tool.TaskExecutionRequest;
 import org.pdfsam.model.tool.Tool;
 import org.pdfsam.model.tool.ToolInputOutputType;
-import org.pdfsam.model.ui.SetActiveToolRequest;
+import org.pdfsam.model.ui.SetActiveContentItemRequest;
 import org.pdfsam.ui.components.support.Style;
 import org.sejda.model.exception.TaskOutputVisitException;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
@@ -150,7 +150,7 @@ public class OpenButton extends SplitMenuButton implements TaskOutputDispatcher 
             setText(tool.descriptor().name());
             setOnAction((e) -> {
                 eventStudio().broadcast(new ClearToolRequest(tool.id(), false, false), tool.id());
-                eventStudio().broadcast(new SetActiveToolRequest(tool.id()));
+                eventStudio().broadcast(new SetActiveContentItemRequest(tool.id()));
                 PdfLoadRequest loadEvent = new PdfLoadRequest(tool.id());
                 latestOutput.stream().map(PdfDocumentDescriptor::newDescriptorNoPassword).forEach(loadEvent::add);
                 eventStudio().broadcast(loadEvent, tool.id());

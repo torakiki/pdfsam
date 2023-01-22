@@ -28,7 +28,7 @@ public enum Style {
     BANNER_BUTTON("btn", "banner-btn"),
     BROWSE_BUTTON("btn", "browse-button"),
     FOOTER_BUTTON("btn", "footer-button"),
-    QUICKBAR_BUTTON("btn", "quickbar-button"),
+    SIDEBAR_BUTTON("btn", "sidebar-button"),
     NEWS_BUTTON("btn", "news-btn"),
     RUN_BUTTON("btn", "footer-button", "run-button"),
     TOOLBAR_BUTTON("toolbar-button"),
@@ -41,7 +41,6 @@ public enum Style {
     VITEM("spaced-vitem"),
     HCONTAINER("spaced-hcontainer"),
     VCONTAINER("spaced-vcontainer"),
-    MAIN_PANEL("main-scroll-panel"),
     GRID("pdfsam-grid"),
     WITH_HELP("with-help");
 

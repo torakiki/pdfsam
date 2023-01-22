@@ -45,8 +45,8 @@ import org.pdfsam.model.pdf.PdfDocumentDescriptor;
 import org.pdfsam.model.pdf.PdfLoadRequest;
 import org.pdfsam.model.tool.ClearToolRequest;
 import org.pdfsam.model.ui.SetDestinationRequest;
+import org.pdfsam.model.ui.ShowErrorMessagesRequest;
 import org.pdfsam.model.ui.ShowPdfDescriptorRequest;
-import org.pdfsam.model.ui.ShowStageRequest;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.test.HitTestListener;
 import org.pdfsam.ui.components.selection.RemoveSelectedEvent;
@@ -515,8 +515,8 @@ public class SelectionTableTest {
             firstItem.moveStatusTo(PdfDescriptorLoadingStatus.WITH_ERRORS);
         });
         WaitForAsyncUtils.waitForFxEvents();
-        Listener<ShowStageRequest> listener = mock(Listener.class);
-        eventStudio().add(ShowStageRequest.class, listener, "LogStage");
+        Listener<ShowErrorMessagesRequest> listener = mock(Listener.class);
+        eventStudio().add(ShowErrorMessagesRequest.class, listener);
         robot.clickOn(".ikonli-font-icon");
         verify(listener).onEvent(any());
     }

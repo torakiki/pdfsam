@@ -21,7 +21,7 @@ package org.pdfsam.ui.components.tool;
 import javafx.scene.control.Button;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.kordamp.ikonli.unicons.UniconsLine;
-import org.pdfsam.model.ui.ShowStageRequest;
+import org.pdfsam.model.ui.ShowErrorMessagesRequest;
 import org.pdfsam.ui.components.support.Style;
 
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
@@ -43,6 +43,6 @@ class TaskFailedButton extends Button {
         setGraphic(FontIcon.of(UniconsLine.TIMES_CIRCLE));
         setMaxHeight(Double.MAX_VALUE);
         setPrefHeight(Double.MAX_VALUE);
-        setOnAction(e -> eventStudio().broadcast(ShowStageRequest.INSTANCE, "LogStage"));
+        setOnAction(e -> eventStudio().broadcast(new ShowErrorMessagesRequest()));
     }
 }

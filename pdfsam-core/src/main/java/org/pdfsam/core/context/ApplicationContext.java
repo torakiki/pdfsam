@@ -38,8 +38,16 @@ public class ApplicationContext implements Closeable {
     private Optional<Injector> injector = Optional.empty();
 
     private ApplicationContext() {
-        this.persistentSettings = new ApplicationPersistentSettings(new PreferencesRepository("/org/pdfsam/user/conf"));
+        this(new ApplicationPersistentSettings(new PreferencesRepository("/org/pdfsam/user/conf")), null);
+    }
 
+    /**
+     * @deprecated use in tests
+     */
+    @Deprecated
+    ApplicationContext(ApplicationPersistentSettings persistentSettings, ApplicationRuntimeState runtimeState) {
+        this.persistentSettings = persistentSettings;
+        this.runtimeState = runtimeState;
     }
 
     /**

@@ -59,7 +59,7 @@ public class Footer extends HBox implements ToolBound {
         this.ownerModule = defaultString(ownerModule);
         this.openButton = openButton;
         this.runButton = runButton;
-        this.getStyleClass().addAll("pdfsam-container", "footer-pane");
+        this.getStyleClass().addAll("footer-pane");
         this.statusLabel.getStyleClass().add("status-label");
         this.statusLabel.setVisible(false);
         this.bar.setMaxWidth(Double.MAX_VALUE);

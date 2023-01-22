@@ -27,7 +27,7 @@ import org.pdfsam.model.news.FetchLatestNewsRequest;
 import org.pdfsam.model.news.LatestNewsResponse;
 import org.pdfsam.model.news.NewImportantNewsEvent;
 import org.pdfsam.model.news.NewsData;
-import org.pdfsam.model.news.ShowNewsPanelRequest;
+import org.pdfsam.model.news.ToggleNewsPanelRequest;
 import org.pdfsam.test.ClearEventStudioExtension;
 
 import java.util.Collections;
@@ -62,7 +62,7 @@ public class LatestNewsControllerTest {
 
     @Test
     public void noCurrentLastShowNewsPanel() {
-        victim.onShowNewsPanel(ShowNewsPanelRequest.INSTANCE);
+        victim.onShowNewsPanel(ToggleNewsPanelRequest.INSTANCE);
         verify(service, never()).setLatestNewsSeen(anyInt());
     }
 
@@ -162,7 +162,7 @@ public class LatestNewsControllerTest {
         eventStudio().add(LatestNewsResponse.class, listener);
         victim.fetchLatestNews(FetchLatestNewsRequest.INSTANCE);
         verify(listener, timeout(1000).times(1)).onEvent(any());
-        victim.onShowNewsPanel(ShowNewsPanelRequest.INSTANCE);
+        victim.onShowNewsPanel(ToggleNewsPanelRequest.INSTANCE);
         verify(service).setLatestNewsSeen(5);
     }
 }

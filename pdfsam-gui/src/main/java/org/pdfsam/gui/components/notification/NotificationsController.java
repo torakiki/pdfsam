@@ -31,9 +31,10 @@ import org.pdfsam.core.AppBrand;
 import org.pdfsam.core.BrandableProperty;
 import org.pdfsam.core.context.BooleanPersistentProperty;
 import org.pdfsam.eventstudio.annotation.EventListener;
+import org.pdfsam.gui.components.content.log.LogContentItem;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.model.news.NewImportantNewsEvent;
-import org.pdfsam.model.ui.ShowStageRequest;
+import org.pdfsam.model.ui.SetActiveContentItemRequest;
 import org.pdfsam.model.update.NoUpdateAvailable;
 import org.pdfsam.model.update.UpdateAvailableEvent;
 import org.pdfsam.service.tool.UsageService;
@@ -95,7 +96,8 @@ public class NotificationsController {
         if (e.getFailingCause() instanceof InvalidTaskParametersException) {
 
             var showErrors = new Button(i18n().tr("Show errors"));
-            showErrors.setOnAction(event -> eventStudio().broadcast(ShowStageRequest.INSTANCE, "LogStage"));
+            showErrors.setOnAction(
+                    event -> eventStudio().broadcast(new SetActiveContentItemRequest(LogContentItem.ID)));
             showErrors.getStyleClass().addAll(Style.BUTTON.css());
 
             var content = new VBox(buildLabel(i18n().tr("Input parameters are invalid"), NotificationType.ERROR),

@@ -46,7 +46,8 @@ public enum BooleanPersistentProperty implements PersistentProperty<Boolean> {
             () -> Boolean.parseBoolean(System.getProperty(PDF_COMPRESSION_PROP, Boolean.TRUE.toString()))),
     CLEAR_CONFIRMATION(() -> Boolean.TRUE),
     SAVE_WORKSPACE_ON_EXIT(() -> Boolean.FALSE),
-    SAVE_PWD_IN_WORKSPACE(() -> Boolean.FALSE);
+    SAVE_PWD_IN_WORKSPACE(() -> Boolean.FALSE),
+    SIDEBAR_EXPANDED_STATE(() -> Boolean.TRUE);
 
     private final Supplier<Boolean> defaultSupplier;
 

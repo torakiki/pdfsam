@@ -31,6 +31,7 @@ module org.pdfsam.model {
     requires transitive org.sejda.model;
 
     exports org.pdfsam.model;
+    exports org.pdfsam.model.log;
     exports org.pdfsam.model.io;
     exports org.pdfsam.model.lifecycle;
     exports org.pdfsam.model.news;

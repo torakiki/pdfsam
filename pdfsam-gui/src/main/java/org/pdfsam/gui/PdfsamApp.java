@@ -36,10 +36,9 @@ import org.pdfsam.core.AppBrand;
 import org.pdfsam.core.BrandableProperty;
 import org.pdfsam.core.context.BooleanPersistentProperty;
 import org.pdfsam.core.context.StringPersistentProperty;
-import org.pdfsam.gui.components.MainPane;
-import org.pdfsam.gui.components.dashboard.preference.PreferenceConfig;
+import org.pdfsam.gui.components.content.home.HomeContentItem;
+import org.pdfsam.gui.components.content.preference.PreferenceConfig;
 import org.pdfsam.gui.components.notification.NotificationsContainer;
-import org.pdfsam.gui.configuration.DashboardConfig;
 import org.pdfsam.gui.configuration.PdfsamConfig;
 import org.pdfsam.gui.configuration.PersistenceConfig;
 import org.pdfsam.gui.configuration.ServicesConfig;
@@ -51,9 +50,8 @@ import org.pdfsam.model.lifecycle.ShutdownEvent;
 import org.pdfsam.model.lifecycle.StartupEvent;
 import org.pdfsam.model.news.FetchLatestNewsRequest;
 import org.pdfsam.model.premium.FetchPremiumModulesRequest;
-import org.pdfsam.model.ui.SetActiveToolRequest;
+import org.pdfsam.model.ui.SetActiveContentItemRequest;
 import org.pdfsam.model.ui.SetLatestStageStatusRequest;
-import org.pdfsam.model.ui.ShowStageRequest;
 import org.pdfsam.model.ui.StageMode;
 import org.pdfsam.model.ui.StageStatus;
 import org.pdfsam.model.ui.workspace.LoadWorkspaceRequest;
@@ -128,7 +126,7 @@ public class PdfsamApp extends Application {
         app().instance(ApplicationTitleController.class).setStage(primaryStage);
 
         requestPremiumModulesDescriptionIfRequired();
-        initActiveTool();
+        initStartupContentItem();
         loadWorkspaceIfRequired();
         escapeMnemonicsOnFocusLost();
         primaryStage.show();
@@ -145,8 +143,7 @@ public class PdfsamApp extends Application {
 
     private void initInjector(Stage primaryStage) {
         Injector.addConfig(new PdfsamConfig(getHostServices(), primaryStage));
-        Injector.addConfig(new PersistenceConfig(), new ServicesConfig(), new PreferenceConfig(),
-                new DashboardConfig());
+        Injector.addConfig(new PersistenceConfig(), new ServicesConfig(), new PreferenceConfig());
         app().injector(Injector.start());
     }
 
@@ -169,18 +166,16 @@ public class PdfsamApp extends Application {
     }
 
     private Scene initScene() {
-        var mainPane = app().instance(MainPane.class);
+        var appContainer = app().instance(AppContainer.class);
         var notifications = app().instance(NotificationsContainer.class);
 
         StackPane main = new StackPane();
         StackPane.setAlignment(notifications, Pos.BOTTOM_RIGHT);
-        StackPane.setAlignment(mainPane, Pos.TOP_LEFT);
-        main.getChildren().addAll(mainPane, notifications);
+        StackPane.setAlignment(appContainer, Pos.TOP_LEFT);
+        main.getChildren().addAll(appContainer, notifications);
 
         Scene mainScene = new Scene(main);
         initTheme(mainScene);
-        mainScene.getAccelerators().put(new KeyCodeCombination(KeyCode.L, KeyCombination.SHORTCUT_DOWN),
-                () -> eventStudio().broadcast(ShowStageRequest.INSTANCE, "LogStage"));
         mainScene.getAccelerators()
                 .put(new KeyCodeCombination(KeyCode.Q, KeyCombination.SHORTCUT_DOWN), Platform::exit);
         mainScene.getAccelerators().put(new KeyCodeCombination(KeyCode.X, KeyCombination.SHORTCUT_DOWN),
@@ -222,12 +217,11 @@ public class PdfsamApp extends Application {
         });
     }
 
-    private void initActiveTool() {
-        app().persistentSettings().get(StringPersistentProperty.STARTUP_MODULE).filter(StringUtils::isNotBlank)
-                .ifPresent(tool -> {
-                    LOG.trace("Activating startup tool '{}'", tool);
-                    eventStudio().broadcast(new SetActiveToolRequest(tool));
-                });
+    private void initStartupContentItem() {
+        var contentItemId = app().persistentSettings().get(StringPersistentProperty.STARTUP_MODULE)
+                .filter(StringUtils::isNotBlank).orElse(HomeContentItem.ID);
+        LOG.trace("Activating startup content item '{}'", contentItemId);
+        eventStudio().broadcast(new SetActiveContentItemRequest(contentItemId));
     }
 
     private void requestPremiumModulesDescriptionIfRequired() {

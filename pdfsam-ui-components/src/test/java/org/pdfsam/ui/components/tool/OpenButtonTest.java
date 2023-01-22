@@ -32,7 +32,7 @@ import org.pdfsam.model.pdf.PdfLoadRequest;
 import org.pdfsam.model.tool.ClearToolRequest;
 import org.pdfsam.model.tool.Tool;
 import org.pdfsam.model.tool.ToolInputOutputType;
-import org.pdfsam.model.ui.SetActiveToolRequest;
+import org.pdfsam.model.ui.SetActiveContentItemRequest;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.test.DefaultPriorityTestTool;
 import org.pdfsam.test.HitTestListener;
@@ -69,6 +69,7 @@ public class OpenButtonTest {
     private final Tool tool = new DefaultPriorityTestTool();
     private OpenButton victim;
     private FxRobot robot;
+
     @Start
     public void start(Stage stage) {
         victim = new OpenButton("moduleId", ToolInputOutputType.SINGLE_PDF, Collections.singletonList(tool));
@@ -155,8 +156,8 @@ public class OpenButtonTest {
         eventStudio().add(ClearToolRequest.class, clear, tool.id());
         HitTestListener<PdfLoadRequest> load = new HitTestListener<>();
         eventStudio().add(PdfLoadRequest.class, load, tool.id());
-        HitTestListener<SetActiveToolRequest> active = new HitTestListener<>();
-        eventStudio().add(SetActiveToolRequest.class, active);
+        HitTestListener<SetActiveContentItemRequest> active = new HitTestListener<>();
+        eventStudio().add(SetActiveContentItemRequest.class, active);
         eventStudio().broadcast(event, "moduleId");
         robot.clickOn(".arrow-button").clickOn(tool.descriptor().name());
         assertTrue(clear.isHit());

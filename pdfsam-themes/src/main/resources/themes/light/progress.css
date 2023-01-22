@@ -9,6 +9,7 @@
 	-fx-alignment: bottom-center;
 	-fx-max-height: 3.916666em;
     -fx-min-height: 3.916666em;
+	-fx-padding: 0.666667em 0;
 }
 .progress-pane {
 	-fx-alignment: bottom-left;

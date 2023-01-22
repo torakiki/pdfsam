@@ -58,7 +58,7 @@
     -header-background-color: -grey-0;
     -header-border-color: -grey-6;
 
-    /** dashboard **/
+    /** home **/
     -tool-tile-btn-color: -tool-tile-color;
     -tool-tile-btn-color-hover: -btn-color-hover-titled;
     -tool-tile-btn-focus-border-color: -grey-0;
@@ -86,13 +86,14 @@
     -notification-border-color: -grey-4;
     -notification-color: -grey-1;
 
-    /** quickbar **/
-    -quickbar-background-color: -default-background-color;
-    -quickbar-btn-color: -default-background-color;
-    -quickbar-btn-color-hover: derive(-default-background-color, 20%);
-    -quickbar-btn-focus-color: -pdfsam-focus-color;
-    -quickbar-btn-focus-color-hover: derive(-pdfsam-focus-color, 20%);
-    -quickbar-arrow-color: -default-font-color;
+    /** sidebar **/
+    -sidebar-background-color: -tool-options-pane-color;
+    -sidebar-border-color: -grey-4;
+    -sidebar-btn-color: -grey-1;
+    -sidebar-btn-color-hover: derive(-grey-1, -10%);
+    -sidebar-btn-border-focus-color: -pdfsam-focus-color;
+    -sidebar-btn-border-focus-color-hover: -pdfsam-focus-color-hover;
+    -sidebar-arrow-color: -default-font-color;
 
     /** tooltip **/
     -tooltip-background-color: -grey-2;

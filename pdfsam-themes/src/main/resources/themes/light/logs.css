@@ -28,3 +28,10 @@
     -fx-border-width: 0.0;
     -fx-padding: 0.666667em;
 }
+
+.logs-pane .tool-bar:horizontal {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 0.0;
+    -fx-padding: 0.416667em 0.416667em 0.416667em 0.0;
+}

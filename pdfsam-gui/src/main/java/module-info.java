@@ -1,4 +1,4 @@
-import org.pdfsam.gui.components.log.BroadcastingWriter;
+import org.pdfsam.gui.components.content.log.BroadcastingWriter;
 
 /*
  * This file is part of the PDF Split And Merge source code
@@ -54,25 +54,28 @@ module org.pdfsam.gui {
     requires transitive org.sejda.model;
 
     exports org.pdfsam.gui;
-    exports org.pdfsam.gui.components.log;
 
-    opens org.pdfsam.gui to org.pdfsam.injector;
-    opens org.pdfsam.gui.components to org.pdfsam.injector, org.pdfsam.eventstudio;
-    opens org.pdfsam.gui.components.dashboard to org.pdfsam.injector, org.pdfsam.eventstudio;
-    opens org.pdfsam.gui.components.dashboard.tools to org.pdfsam.injector, org.pdfsam.eventstudio;
-    opens org.pdfsam.gui.components.dashboard.preference to org.pdfsam.injector;
     opens org.pdfsam.gui.components.info to org.pdfsam.injector, org.pdfsam.eventstudio;
-    opens org.pdfsam.gui.components.workarea to org.pdfsam.injector, org.pdfsam.eventstudio;
-    opens org.pdfsam.gui.components.log to org.pdfsam.injector, org.pdfsam.eventstudio;
-    opens org.pdfsam.gui.components.banner to org.pdfsam.injector, org.pdfsam.eventstudio;
-    opens org.pdfsam.gui.components.news to org.pdfsam.injector, org.pdfsam.eventstudio;
-    opens org.pdfsam.gui.components.dashboard.about to org.pdfsam.injector, org.pdfsam.eventstudio;
+    opens org.pdfsam.gui.components.sidebar to org.pdfsam.injector, org.pdfsam.eventstudio;
     opens org.pdfsam.gui.configuration to org.pdfsam.injector;
     opens org.pdfsam.gui.sound to org.pdfsam.injector, org.pdfsam.eventstudio;
     opens org.pdfsam.gui.io to org.pdfsam.injector, org.pdfsam.eventstudio;
     opens org.pdfsam.gui.components.notification to org.pdfsam.injector, org.pdfsam.eventstudio;
     opens org.pdfsam.gui.components.dialog to org.pdfsam.injector, org.pdfsam.eventstudio;
     opens org.pdfsam.gui.components.dnd to org.pdfsam.injector, org.pdfsam.eventstudio;
+    opens org.pdfsam.gui to org.pdfsam.eventstudio, org.pdfsam.injector;
+    exports org.pdfsam.gui.components.content.preference;
+    opens org.pdfsam.gui.components.content.preference to org.pdfsam.eventstudio, org.pdfsam.injector;
+    exports org.pdfsam.gui.components.content.about;
+    opens org.pdfsam.gui.components.content.about to org.pdfsam.injector, org.pdfsam.eventstudio;
+    exports org.pdfsam.gui.components.content.home;
+    opens org.pdfsam.gui.components.content.home to org.pdfsam.injector, org.pdfsam.eventstudio;
+    exports org.pdfsam.gui.components.content.log;
+    opens org.pdfsam.gui.components.content.log to org.pdfsam.injector, org.pdfsam.eventstudio;
+    exports org.pdfsam.gui.components.content.workspace;
+    opens org.pdfsam.gui.components.content.workspace to org.pdfsam.injector, org.pdfsam.eventstudio;
+    exports org.pdfsam.gui.components.content.news;
+    opens org.pdfsam.gui.components.content.news to org.pdfsam.injector, org.pdfsam.eventstudio;
 
     uses org.pdfsam.theme.Theme;
     uses org.pdfsam.model.tool.Tool;

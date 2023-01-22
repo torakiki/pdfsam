@@ -22,7 +22,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -33,7 +32,7 @@ import org.pdfsam.model.pdf.PdfLoadRequest;
 import org.pdfsam.model.tool.ClearToolRequest;
 import org.pdfsam.model.tool.Tool;
 import org.pdfsam.model.ui.InputPdfArgumentsLoadRequest;
-import org.pdfsam.model.ui.SetActiveToolRequest;
+import org.pdfsam.model.ui.SetActiveContentItemRequest;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.test.DefaultPriorityTestTool;
 import org.testfx.api.FxRobot;
@@ -76,8 +75,8 @@ public class OpenWithDialogTest {
     public void singleArg(@TempDir Path folder) throws IOException {
         Listener<ClearToolRequest> clearListener = mock(Listener.class);
         eventStudio().add(ClearToolRequest.class, clearListener, tool.id());
-        Listener<SetActiveToolRequest> activeModuleListener = mock(Listener.class);
-        eventStudio().add(SetActiveToolRequest.class, activeModuleListener);
+        Listener<SetActiveContentItemRequest> activeModuleListener = mock(Listener.class);
+        eventStudio().add(SetActiveContentItemRequest.class, activeModuleListener);
         Listener<PdfLoadRequest> loadRequestListener = mock(Listener.class);
         eventStudio().add(PdfLoadRequest.class, loadRequestListener, tool.id());
 

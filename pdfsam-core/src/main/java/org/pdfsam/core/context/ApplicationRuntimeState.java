@@ -55,6 +55,7 @@ public class ApplicationRuntimeState implements AutoCloseable {
     private static final Logger LOG = LoggerFactory.getLogger(ApplicationRuntimeState.class);
 
     private final BehaviorSubject<Optional<Path>> workingPath = BehaviorSubject.createDefault(empty());
+    private final BehaviorSubject<Optional<Tool>> activeTool = BehaviorSubject.createDefault(empty());
     private final ReplaySubject<Theme> theme = ReplaySubject.create(1);
     private final CompletableFuture<Map<String, Tool>> tools;
 
@@ -108,6 +109,24 @@ public class ApplicationRuntimeState implements AutoCloseable {
     }
 
     /**
+     * @param activeTool the tool currently active
+     */
+    public void activeTool(Tool activeTool) {
+        this.activeTool.onNext(ofNullable(activeTool));
+    }
+
+    /**
+     * @return the current active tool value
+     */
+    public Optional<Tool> activeToolValue() {
+        return activeTool.getValue();
+    }
+
+    public Observable<Optional<Tool>> activeTool() {
+        return activeTool.hide();
+    }
+
+    /**
      * @return the current theme
      */
     public Observable<Theme> theme() {
@@ -115,7 +134,7 @@ public class ApplicationRuntimeState implements AutoCloseable {
     }
 
     /**
-     * Sets the application scale
+     * Sets the application theme
      */
     public void theme(Theme theme) {
         ofNullable(theme).ifPresent(this.theme::onNext);

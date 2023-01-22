@@ -10,8 +10,12 @@
     -fx-background-insets: 0.0;
 }
 
-.scrollable-news .viewport{
+.scrollable-news .viewport {
     -fx-background-color: -newspane-background-color;
+}
+
+.news-panel-container {
+    -fx-padding: 1.416667em;
 }
 
 .news-panel {

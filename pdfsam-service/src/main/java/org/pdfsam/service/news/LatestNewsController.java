@@ -25,7 +25,7 @@ import org.pdfsam.model.news.FetchLatestNewsRequest;
 import org.pdfsam.model.news.LatestNewsResponse;
 import org.pdfsam.model.news.NewImportantNewsEvent;
 import org.pdfsam.model.news.NewsData;
-import org.pdfsam.model.news.ShowNewsPanelRequest;
+import org.pdfsam.model.news.ToggleNewsPanelRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -74,7 +74,7 @@ public class LatestNewsController {
     }
 
     @EventListener
-    public void onShowNewsPanel(ShowNewsPanelRequest req) {
+    public void onShowNewsPanel(ToggleNewsPanelRequest req) {
         if (service.getLatestNewsSeen() < currentLatest) {
             service.setLatestNewsSeen(currentLatest);
         }

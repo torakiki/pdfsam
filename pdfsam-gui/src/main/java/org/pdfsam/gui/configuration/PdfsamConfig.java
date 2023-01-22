@@ -22,8 +22,11 @@ import jakarta.inject.Named;
 import javafx.application.HostServices;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import org.pdfsam.gui.AppContentController;
+import org.pdfsam.gui.RunAcceleratorController;
 import org.pdfsam.gui.WindowStatusController;
-import org.pdfsam.gui.components.MainPane;
+import org.pdfsam.gui.components.content.about.AboutContentItem;
+import org.pdfsam.gui.components.content.preference.PreferenceContentItem;
 import org.pdfsam.gui.components.dialog.ClearToolConfirmationDialogController;
 import org.pdfsam.gui.components.dialog.CreateOutputDirectoryDialogController;
 import org.pdfsam.gui.components.dialog.LenientTaskExecutionDialogController;
@@ -31,7 +34,6 @@ import org.pdfsam.gui.components.dialog.OpenWithDialogController;
 import org.pdfsam.gui.components.dialog.OverwriteDialogController;
 import org.pdfsam.gui.components.dnd.FilesDropController;
 import org.pdfsam.gui.components.info.InfoStageController;
-import org.pdfsam.gui.components.log.LogStage;
 import org.pdfsam.gui.components.notification.NotificationsController;
 import org.pdfsam.gui.io.NativeOpenFileController;
 import org.pdfsam.gui.io.NativeOpenUrlController;
@@ -44,10 +46,11 @@ import org.pdfsam.injector.Provides;
  * @author Andrea Vacondio
  */
 @Components({ NativeOpenFileController.class, NativeOpenUrlController.class, WindowStatusController.class,
-        PlaySoundController.class, MainPane.class, NotificationsController.class, InfoStageController.class,
+        PlaySoundController.class, NotificationsController.class, InfoStageController.class,
         OpenWithDialogController.class, OverwriteDialogController.class, CreateOutputDirectoryDialogController.class,
         ClearToolConfirmationDialogController.class, LenientTaskExecutionDialogController.class,
-        FilesDropController.class, LogStage.class })
+        FilesDropController.class, AppContentController.class, RunAcceleratorController.class, AboutContentItem.class,
+        PreferenceContentItem.class })
 public class PdfsamConfig {
 
     private final HostServices services;
@@ -86,4 +89,5 @@ public class PdfsamConfig {
     public ImageView payoff() {
         return new ImageView(this.getClass().getResource("/org/pdfsam/gui/images/logo.png").toExternalForm());
     }
+
 }

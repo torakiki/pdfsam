@@ -1,0 +1,94 @@
+.vertical-sidebar {
+    -fx-background-color: -sidebar-border-color, -sidebar-background-color;
+    -fx-background-insets: 0 0 0 0, 0 1 0 0;
+    -fx-padding: 1.666667em 0.666667em 1.0em 0.666667em;
+}
+
+.sidebar-buttons {
+    -fx-background-color: -sidebar-background-color;
+    -fx-background-insets: 0.0;
+    -fx-padding: 0.0 0.0 0.0 0.25em;
+}
+
+.sidebar-expand-button {
+    -fx-padding: 0.0 0.0 0.5em 0.0;
+    -fx-alignment: top-right;
+    -fx-background-radius: 6px;
+}
+
+.sidebar-expand-toggle, .sidebar-button {
+    -fx-background-color: -sidebar-background-color;
+}
+
+.sidebar-expand-toggle:hover, .sidebar-button:hover {
+    -fx-background-color: -sidebar-btn-color-hover;
+}
+
+.sidebar-expand-toggle:focus-visible, .sidebar-button:focus-visible {
+    -fx-background-color: -sidebar-btn-border-focus-color, -sidebar-btn-color;
+}
+
+.sidebar-expand-toggle:focus-visible:hover, .sidebar-button:focus-visible:hover {
+    -fx-background-color: -sidebar-btn-border-focus-color-hover, -sidebar-btn-color-hover;
+}
+
+.sidebar-button-arrow {
+    -fx-fill: -sidebar-arrow-color;
+}
+
+.sidebar-buttons {
+    -fx-spacing: 0.5em;
+    -fx-padding: 0.0 0.5em 1.0em 0.5em;
+}
+
+.sidebar-button {
+    -fx-background-radius: 0.666667em, 0.666667em, 0.666667em !important;
+    -fx-background-insets: 0.0;
+    -fx-padding: 0.416667em 0.5em 0.416667em 0.5em;
+    -fx-min-width: 3em;
+}
+
+.sidebar-buttons .sidebar-button:selected {
+    -fx-background-insets: 0.0;
+    -fx-opacity: 1;
+    -fx-background-color: -default-primary;
+    -fx-text-fill: white;
+}
+
+.sidebar-buttons .sidebar-button:selected > .ikonli-font-icon {
+    -fx-icon-color: white !important;
+}
+
+.sidebar-button-notification-container > .ikonli-font-icon {
+    -fx-icon-size: 16px !important;
+    -fx-background-color: -default-primary;
+}
+
+.sidebar-button-notification-container.error > .notification {
+    -fx-fill: -error-color !important;
+}
+
+.sidebar-button-notification-container.info > .notification {
+    -fx-fill: -info-color !important;
+}
+
+.sidebar-button-notification-container.warn > .notification {
+    -fx-fill: -warning-color !important;
+}
+
+
+.tool-icon {
+    -fx-icon-size: 24px;
+}
+
+.spacer {
+    -fx-min-height: 1em;
+}
+
+.sidebar-button .ikonli-font-icon {
+    -fx-icon-size: 28px;
+}
+
+.sidebar-title {
+    -fx-font-size: 0.9em;
+}
