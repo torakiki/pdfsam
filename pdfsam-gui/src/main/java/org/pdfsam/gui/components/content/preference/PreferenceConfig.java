@@ -31,6 +31,7 @@ import org.pdfsam.ui.components.support.FXValidationSupport;
 import org.pdfsam.ui.components.support.Style;
 
 import java.util.Comparator;
+import java.util.stream.IntStream;
 
 import static java.util.Comparator.comparing;
 import static java.util.Optional.ofNullable;
@@ -47,6 +48,7 @@ import static org.pdfsam.core.context.BooleanPersistentProperty.SAVE_PWD_IN_WORK
 import static org.pdfsam.core.context.BooleanPersistentProperty.SAVE_WORKSPACE_ON_EXIT;
 import static org.pdfsam.core.context.BooleanPersistentProperty.SMART_OUTPUT;
 import static org.pdfsam.core.context.IntegerPersistentProperty.LOGVIEW_ROWS_NUMBER;
+import static org.pdfsam.core.context.StringPersistentProperty.FONT_SIZE;
 import static org.pdfsam.core.context.StringPersistentProperty.STARTUP_MODULE;
 import static org.pdfsam.core.context.StringPersistentProperty.THEME;
 import static org.pdfsam.core.context.StringPersistentProperty.WORKING_PATH;
@@ -96,6 +98,17 @@ public class PreferenceConfig {
                             theme -> app().runtimeState().theme(theme)));
         });
         return themeCombo;
+    }
+
+    @Provides
+    @Named("fontSizeCombo")
+    public PreferenceComboBox<ComboItem<String>> fontSizeCombo() {
+        PreferenceComboBox<ComboItem<String>> fontSizeCombo = new PreferenceComboBox<>(FONT_SIZE);
+        fontSizeCombo.setId("fontSizeCombo");
+        fontSizeCombo.getItems().add(new ComboItem<>("", i18n().tr("System default")));
+        IntStream.range(9, 22).forEach(i -> fontSizeCombo.getItems().add(new ComboItem<>(i + "px", i + "px")));
+        fontSizeCombo.setValue(keyWithEmptyValue(app().persistentSettings().get(FONT_SIZE).orElse("")));
+        return fontSizeCombo;
     }
 
     @Provides

@@ -61,7 +61,7 @@ public class OverwriteConfirmationDialog extends Stage {
         containerPane.getChildren().addAll(dialogContent, buttons);
         Scene scene = new Scene(containerPane);
         setScene(scene);
-        app().runtimeState().subscribeThemedScene(scene);
+        app().registerScene(scene);
         this.setOnShown(e -> requestFocus());
     }
 

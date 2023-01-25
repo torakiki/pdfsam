@@ -62,7 +62,9 @@ public class PreferenceAppearencePaneTest {
         localeCombo.setId("localeCombo");
         var startupModuleCombo = new PreferenceComboBox<>(StringPersistentProperty.STARTUP_MODULE, appContext);
         var themeCombo = new PreferenceComboBox<>(StringPersistentProperty.THEME, appContext);
-        PreferenceAppearencePane victim = new PreferenceAppearencePane(localeCombo, startupModuleCombo, themeCombo);
+        var fontSizeCombo = new PreferenceComboBox<>(StringPersistentProperty.FONT_SIZE, appContext);
+        PreferenceAppearencePane victim = new PreferenceAppearencePane(localeCombo, startupModuleCombo, themeCombo,
+                fontSizeCombo);
         victim.setId("victim");
         Scene scene = new Scene(new HBox(victim));
         stage.setScene(scene);

@@ -50,7 +50,7 @@ class InfoStage extends Stage {
         Scene scene = new Scene(containerPane);
         scene.setOnKeyReleased(new HideOnEscapeHandler(this));
         setScene(scene);
-        app().runtimeState().subscribeThemedScene(scene);
+        app().registerScene(scene);
         setTitle(i18n().tr("Document details"));
         getIcons().addAll(logos);
         setMaximized(true);

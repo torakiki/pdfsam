@@ -184,7 +184,7 @@ public class PdfsamApp extends Application {
     }
 
     private void initTheme(Scene scene) {
-        app().runtimeState().subscribeThemedScene(scene);
+        app().registerScene(scene);
         var theme = app().persistentSettings().get(THEME).orElse(null);
         app().runtimeState().theme(Themes.getOrDefault(theme));
     }

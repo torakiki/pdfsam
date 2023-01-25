@@ -21,9 +21,6 @@ package org.pdfsam.core.context;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.subjects.BehaviorSubject;
 import io.reactivex.rxjava3.subjects.ReplaySubject;
-import javafx.application.ConditionalFeature;
-import javafx.application.Platform;
-import javafx.scene.Scene;
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.model.tool.Tool;
 import org.pdfsam.theme.Theme;
@@ -140,23 +137,10 @@ public class ApplicationRuntimeState implements AutoCloseable {
         ofNullable(theme).ifPresent(this.theme::onNext);
     }
 
-    /**
-     * Subscribes the given scene to theme changes
-     *
-     * @param scene
-     */
-    public void subscribeThemedScene(Scene scene) {
-        this.theme.subscribe(t -> {
-            scene.getStylesheets().setAll(t.stylesheets());
-            if (!Platform.isSupported(ConditionalFeature.TRANSPARENT_WINDOW)) {
-                scene.getStylesheets().addAll(t.transparentIncapableStylesheets());
-            }
-        });
-    }
-
     @Override
     public void close() {
         workingPath.onComplete();
         theme.onComplete();
+        activeTool.onComplete();
     }
 }

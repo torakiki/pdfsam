@@ -95,7 +95,7 @@ public class OpenWithDialog extends Stage {
         Scene scene = new Scene(containerPane);
         scene.setOnKeyReleased(new HideOnEscapeHandler(this));
         setScene(scene);
-        app().runtimeState().subscribeThemedScene(scene);
+        app().registerScene(scene);
         eventStudio().addAnnotatedListeners(this);
         this.setOnShown(e -> requestFocus());
     }

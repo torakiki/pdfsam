@@ -43,7 +43,8 @@ class PreferenceAppearencePane extends GridPane {
     @Inject
     public PreferenceAppearencePane(@Named("localeCombo") PreferenceComboBox<ComboItem<String>> localeCombo,
             @Named("startupToolCombo") PreferenceComboBox<ComboItem<String>> startupTool,
-            @Named("themeCombo") PreferenceComboBox<ComboItem<String>> themeCombo) {
+            @Named("themeCombo") PreferenceComboBox<ComboItem<String>> themeCombo,
+            @Named("fontSizeCombo") PreferenceComboBox<ComboItem<String>> fontSizeCombo) {
         add(new Label(i18n().tr("Language:")), 0, 0);
         i18n().getSupported().stream().map(ComboItem::fromLocale).sorted(Comparator.comparing(ComboItem::description))
                 .forEach(localeCombo.getItems()::add);
@@ -68,6 +69,12 @@ class PreferenceAppearencePane extends GridPane {
         add(themeCombo, 1, 2);
         add(helpIcon(i18n().tr("Set the application theme")), 2, 2);
 
+        add(new Label(i18n().tr("Font size:")), 0, 3);
+        fontSizeCombo.setMaxWidth(Double.POSITIVE_INFINITY);
+        setFillWidth(fontSizeCombo, true);
+        add(fontSizeCombo, 1, 3);
+        add(helpIcon(i18n().tr("Set the application font size")), 2, 3);
+        
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.GRID.css());
     }

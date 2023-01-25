@@ -18,6 +18,11 @@
  */
 package org.pdfsam.core.context;
 
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import javafx.application.ConditionalFeature;
+import javafx.application.Platform;
+import javafx.scene.Scene;
+import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.injector.Injector;
 import org.pdfsam.injector.Key;
 import org.pdfsam.persistence.PreferencesRepository;
@@ -25,6 +30,9 @@ import org.pdfsam.persistence.PreferencesRepository;
 import java.io.Closeable;
 import java.util.Objects;
 import java.util.Optional;
+
+import static java.util.function.Predicate.not;
+import static org.pdfsam.core.context.StringPersistentProperty.FONT_SIZE;
 
 /**
  * @author Andrea Vacondio
@@ -36,6 +44,7 @@ public class ApplicationContext implements Closeable {
     private final ApplicationPersistentSettings persistentSettings;
     private ApplicationRuntimeState runtimeState;
     private Optional<Injector> injector = Optional.empty();
+    private CompositeDisposable disposable = new CompositeDisposable();
 
     private ApplicationContext() {
         this(new ApplicationPersistentSettings(new PreferencesRepository("/org/pdfsam/user/conf")), null);
@@ -77,6 +86,27 @@ public class ApplicationContext implements Closeable {
     }
 
     /**
+     * Register the given scene to application context to listen to theme changes and other events
+     *
+     * @param scene
+     */
+    public void registerScene(Scene scene) {
+        disposable.add(this.runtimeState.theme().subscribe(t -> {
+            scene.getStylesheets().setAll(t.stylesheets());
+            if (!Platform.isSupported(ConditionalFeature.TRANSPARENT_WINDOW)) {
+                scene.getStylesheets().addAll(t.transparentIncapableStylesheets());
+            }
+        }));
+        disposable.add(this.persistentSettings().settingsChanges(FONT_SIZE).subscribe(size -> {
+            size.filter(StringUtils::isNotBlank).map(s -> String.format("-fx-font-size: %s;", s))
+                    .ifPresentOrElse(scene.getRoot()::setStyle, () -> scene.getRoot().setStyle(""));
+        }));
+
+        this.persistentSettings().get(FONT_SIZE).filter(not(String::isBlank))
+                .ifPresent(size -> scene.getRoot().setStyle(String.format("-fx-font-size: %s;", size)));
+    }
+
+    /**
      * Sets the injector
      */
     public void injector(Injector injector) {
@@ -105,6 +135,7 @@ public class ApplicationContext implements Closeable {
         injector.ifPresent(Injector::close);
         runtimeState.close();
         persistentSettings.close();
+        disposable.dispose();
     }
 
 }
