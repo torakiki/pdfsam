@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2022-12-22 11:37+0100\n"
+"POT-Creation-Date: 2023-01-25 09:28+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -231,10 +231,21 @@ msgstr ""
 msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr ""
 
-msgid "Normalize pages size"
+msgid "None"
 msgstr ""
 
-msgid "Resizes all pages to have the same width as the first page."
+msgid "Same width as first page"
+msgstr ""
+
+msgid "Same width as first page (based on page orientation)"
+msgstr ""
+
+msgid "Pages normalization:"
+msgstr ""
+
+msgid ""
+"Set whether pages should be resized to all have the same width as the first "
+"one"
 msgstr ""
 
 msgid "Merge fields"
@@ -348,254 +359,31 @@ msgstr ""
 msgid "Closing PDFsam..."
 msgstr ""
 
-msgid "Log register"
-msgstr ""
-
-msgid "Copy"
-msgstr ""
-
-msgid "Clear"
-msgstr ""
-
-msgid "Select all"
-msgstr ""
-
-msgid "Save log"
-msgstr ""
-
-msgid "Select where to save the log file"
-msgstr ""
-
-msgid "Premium features"
-msgstr ""
-
-msgid "About"
-msgstr ""
-
-msgid "Close"
-msgstr ""
-
-msgid "Subscribe to the official news feed"
-msgstr ""
-
-msgid "Environment"
-msgstr ""
-
-#, java-printf-format
-msgid "Vendor: %s"
-msgstr ""
-
-#, java-printf-format
-msgid "Java runtime path: %s"
-msgstr ""
-
-#, java-printf-format
-msgid "JavaFX runtime version: %s"
-msgstr ""
-
-#, java-printf-format
-msgid "PDF engine (Sejda SDK) version: %s"
-msgstr ""
-
-#, java-format
-msgid "Max memory {0}"
-msgstr ""
-
-msgid "Copy to clipboard"
-msgstr ""
-
-msgid "Support"
-msgstr ""
-
-msgid "Bug and feature requests"
-msgstr ""
-
-msgid "Documentation"
-msgstr ""
-
-msgid "Contribute"
-msgstr ""
-
-msgid "Fork PDFsam on GitHub"
-msgstr ""
-
-msgid "Translate"
-msgstr ""
-
-msgid "Donate"
-msgstr ""
-
-msgid "Social"
-msgstr ""
-
-msgid "Follow us on Twitter"
-msgstr ""
-
-msgid "Like us on Facebook"
-msgstr ""
-
-msgid "Log register rows:"
-msgstr ""
-
-msgid "Maximum number of rows displayed by the Log register"
-msgstr ""
-
-msgid "Language:"
-msgstr ""
-
-msgid "Set your preferred language (restart needed)"
-msgstr ""
-
-msgid "Startup tool:"
-msgstr ""
-
-msgid "Set the tool to open at application startup (restart needed)"
-msgstr ""
-
-msgid "Theme:"
-msgstr ""
-
-msgid "Set the application theme"
-msgstr ""
-
-msgid "Manually selected"
-msgstr ""
-
-msgid ""
-"Automatically set the destination directory to the selected PDF document "
-"directory"
-msgstr ""
-
-msgid "Appearance"
-msgstr ""
-
-msgid "Behavior"
-msgstr ""
-
-msgid "Workspace"
-msgstr ""
-
-msgid "Output"
-msgstr ""
-
-msgid "Check for updates now"
-msgstr ""
-
-msgid "Select a directory where documents will be saved and loaded by default"
-msgstr ""
-
-msgid "Select a directory"
-msgstr ""
-
-msgid ""
-"Select a previously saved workspace that will be automatically loaded at "
-"startup"
-msgstr ""
-
-msgid "Select a workspace"
-msgstr ""
-
-msgid "Default working directory:"
-msgstr ""
-
-msgid "Load default workspace at startup:"
-msgstr ""
-
-msgid "Dashboard"
-msgstr ""
-
-msgid "Check for updates at startup"
-msgstr ""
-
-msgid ""
-"Set whether new version availability should be checked on startup (restart "
-"needed)"
-msgstr ""
-
-msgid "Check for news at startup"
-msgstr ""
-
-msgid ""
-"Set whether the application should check for news availability on startup "
-"(restart needed)"
-msgstr ""
-
-msgid "Enabled PDF compression"
-msgstr ""
-
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr ""
-
-msgid "Overwrite files"
-msgstr ""
-
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
-msgstr ""
-
-msgid "Play alert sounds"
-msgstr ""
-
-msgid "Turn on or off alert sounds"
-msgstr ""
-
-msgid "Store passwords when saving a workspace file"
-msgstr ""
-
-msgid ""
-"If an encrypted PDF document has been opened with a password, save the "
-"password in the workspace file"
-msgstr ""
-
-msgid "Show donation window"
-msgstr ""
-
-msgid ""
-"Turn on or off the notification appearing once in a while and asking the "
-"user to support PDFsam with a donation"
-msgstr ""
-
-msgid "Show premium features"
-msgstr ""
-
-msgid ""
-"Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
-msgstr ""
-
-msgid "Ask for a confirmation when clearing the selection table"
-msgstr ""
-
-msgid ""
-"Set whether the application should ask for a confirmation when clearing the "
-"selection table"
-msgstr ""
-
-msgid "Use the selected PDF document directory as output directory"
-msgstr ""
-
-msgid "Save default workspace on exit"
-msgstr ""
-
-msgid "If a default workspace is set, save it on application exit"
-msgstr ""
-
-msgid "Maximum number of rows mast be a positive number"
-msgstr ""
-
-msgid "Tools"
-msgstr ""
-
-msgid "Settings"
-msgstr ""
-
 msgid "Drag and drop PDF files or directories containing PDF files"
 msgstr ""
 
 msgid "No PDF found"
 msgstr ""
 
+msgid "Tools"
+msgstr ""
+
+msgid "News"
+msgstr ""
+
 msgid "What's new"
+msgstr ""
+
+msgid "Exit"
+msgstr ""
+
+msgid "Exit the application"
+msgstr ""
+
+msgid "Workspace"
+msgstr ""
+
+msgid "Manage your workspaces"
 msgstr ""
 
 msgid "Yes"
@@ -683,6 +471,277 @@ msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
 msgstr ""
 
+msgid "Removes all the log messages"
+msgstr ""
+
+msgid "_Clear"
+msgstr ""
+
+msgid "_Save"
+msgstr ""
+
+msgid "C_lose"
+msgstr ""
+
+msgid "Copy"
+msgstr ""
+
+msgid "Clear"
+msgstr ""
+
+msgid "Select all"
+msgstr ""
+
+msgid "Save log"
+msgstr ""
+
+msgid "Select where to save the log file"
+msgstr ""
+
+msgid "Logs"
+msgstr ""
+
+msgid "Application messages"
+msgstr ""
+
+msgid "_Load"
+msgstr ""
+
+msgid "Recen_ts"
+msgstr ""
+
+msgid "_Clear recents"
+msgstr ""
+
+msgid "Select the workspace file to save"
+msgstr ""
+
+msgid "Select the workspace to load"
+msgstr ""
+
+msgid "Subscribe to the official news feed"
+msgstr ""
+
+msgid "Environment"
+msgstr ""
+
+#, java-printf-format
+msgid "Vendor: %s"
+msgstr ""
+
+#, java-printf-format
+msgid "Java runtime path: %s"
+msgstr ""
+
+#, java-printf-format
+msgid "JavaFX runtime version: %s"
+msgstr ""
+
+#, java-printf-format
+msgid "PDF engine (Sejda SDK) version: %s"
+msgstr ""
+
+#, java-format
+msgid "Max memory {0}"
+msgstr ""
+
+msgid "Copy to clipboard"
+msgstr ""
+
+msgid "Support"
+msgstr ""
+
+msgid "Bug and feature requests"
+msgstr ""
+
+msgid "Documentation"
+msgstr ""
+
+msgid "Contribute"
+msgstr ""
+
+msgid "Fork PDFsam on GitHub"
+msgstr ""
+
+msgid "Translate"
+msgstr ""
+
+msgid "Donate"
+msgstr ""
+
+msgid "Social"
+msgstr ""
+
+msgid "Follow us on Twitter"
+msgstr ""
+
+msgid "Like us on Facebook"
+msgstr ""
+
+msgid "About"
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "Premium features"
+msgstr ""
+
+msgid "Log register rows:"
+msgstr ""
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr ""
+
+msgid "Language:"
+msgstr ""
+
+msgid "Set your preferred language (restart needed)"
+msgstr ""
+
+msgid "Startup tool:"
+msgstr ""
+
+msgid "Set the tool to open at application startup (restart needed)"
+msgstr ""
+
+msgid "Theme:"
+msgstr ""
+
+msgid "Set the application theme"
+msgstr ""
+
+msgid "Font size:"
+msgstr ""
+
+msgid "Set the application font size"
+msgstr ""
+
+msgid "Manually selected"
+msgstr ""
+
+msgid ""
+"Automatically set the destination directory to the selected PDF document "
+"directory"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Appearance"
+msgstr ""
+
+msgid "Behavior"
+msgstr ""
+
+msgid "Output"
+msgstr ""
+
+msgid "Check for updates now"
+msgstr ""
+
+msgid "Select a directory where documents will be saved and loaded by default"
+msgstr ""
+
+msgid "Select a directory"
+msgstr ""
+
+msgid ""
+"Select a previously saved workspace that will be automatically loaded at "
+"startup"
+msgstr ""
+
+msgid "Select a workspace"
+msgstr ""
+
+msgid "Default working directory:"
+msgstr ""
+
+msgid "Load default workspace at startup:"
+msgstr ""
+
+msgid "System default"
+msgstr ""
+
+msgid "Check for updates at startup"
+msgstr ""
+
+msgid ""
+"Set whether new version availability should be checked on startup (restart "
+"needed)"
+msgstr ""
+
+msgid "Check for news at startup"
+msgstr ""
+
+msgid ""
+"Set whether the application should check for news availability on startup "
+"(restart needed)"
+msgstr ""
+
+msgid "Enabled PDF compression"
+msgstr ""
+
+msgid "Set whether \"Compress output file\" should be enabled by default"
+msgstr ""
+
+msgid "Overwrite files"
+msgstr ""
+
+msgid ""
+"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgstr ""
+
+msgid "Play alert sounds"
+msgstr ""
+
+msgid "Turn on or off alert sounds"
+msgstr ""
+
+msgid "Store passwords when saving a workspace file"
+msgstr ""
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
+
+msgid "Show donation window"
+msgstr ""
+
+msgid ""
+"Turn on or off the notification appearing once in a while and asking the "
+"user to support PDFsam with a donation"
+msgstr ""
+
+msgid "Show premium features"
+msgstr ""
+
+msgid ""
+"Set whether the application should fetch and show premium features "
+"description in the modules dashboard"
+msgstr ""
+
+msgid "Ask for a confirmation when clearing the selection table"
+msgstr ""
+
+msgid ""
+"Set whether the application should ask for a confirmation when clearing the "
+"selection table"
+msgstr ""
+
+msgid "Use the selected PDF document directory as output directory"
+msgstr ""
+
+msgid "Save default workspace on exit"
+msgstr ""
+
+msgid "If a default workspace is set, save it on application exit"
+msgstr ""
+
+msgid "Maximum number of rows mast be a positive number"
+msgstr ""
+
 msgid "Summary"
 msgstr ""
 
@@ -740,39 +799,6 @@ msgid "No update"
 msgstr ""
 
 msgid "Open"
-msgstr ""
-
-msgid "_Tools"
-msgstr ""
-
-msgid "E_xit"
-msgstr ""
-
-msgid "_Settings"
-msgstr ""
-
-msgid "Application messages"
-msgstr ""
-
-msgid "_Workspace"
-msgstr ""
-
-msgid "_Load"
-msgstr ""
-
-msgid "_Save"
-msgstr ""
-
-msgid "Recen_ts"
-msgstr ""
-
-msgid "_Clear recents"
-msgstr ""
-
-msgid "Select the workspace file to save"
-msgstr ""
-
-msgid "Select the workspace to load"
 msgstr ""
 
 #, java-format
@@ -866,7 +892,7 @@ msgstr ""
 msgid "Unable to load workspace from {0}"
 msgstr ""
 
-msgid "Light with green"
+msgid "Light with blue"
 msgstr ""
 
 msgid "Dark with purple"
@@ -875,7 +901,10 @@ msgstr ""
 msgid "Dark with teal"
 msgstr ""
 
-msgid "Light with blue"
+msgid "Light with maroon"
+msgstr ""
+
+msgid "Close"
 msgstr ""
 
 msgid "The selected PDF document is invalid"
@@ -885,9 +914,6 @@ msgid "Select the PDF file"
 msgstr ""
 
 msgid "_Select PDF"
-msgstr ""
-
-msgid "_Clear"
 msgstr ""
 
 msgid "Clear all settings"
@@ -1084,6 +1110,9 @@ msgid "Prefix for the generated files names"
 msgstr ""
 
 msgid "Add prefix"
+msgstr ""
+
+msgid "DEFAULT_PREFIX"
 msgstr ""
 
 msgid "Generated PDF documents name prefix:"
