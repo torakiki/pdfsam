@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 21/mar/2014
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -19,6 +19,7 @@
 package org.pdfsam.ui.components.tool;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.kordamp.ikonli.unicons.UniconsLine;
 import org.pdfsam.eventstudio.annotation.EventListener;
@@ -33,9 +34,8 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * Run button that enable/disable itself according the task executions events.
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
 @Prototype
 public class RunButton extends Button {
@@ -43,6 +43,9 @@ public class RunButton extends Button {
     public RunButton() {
         getStyleClass().addAll(Style.RUN_BUTTON.css());
         setText(i18n().tr("Run"));
+        setTooltip(new Tooltip(
+                i18n().tr("Run the task") + " (" + RunButtonTriggerRequest.KEY_CODE_COMBINATION.getDisplayText()
+                        + ")"));
         //TODO set -fx-icon-size to 2.0em
         setGraphic(FontIcon.of(UniconsLine.PLAY));
         setMaxHeight(Double.MAX_VALUE);

@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 21 gen 2021
  * Copyright 2019 by Sober Lemur S.a.s di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -18,14 +18,19 @@
  */
 package org.pdfsam.ui.components.tool;
 
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
+
 /**
  * Request to trigger the run button
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
 public class RunButtonTriggerRequest {
     public static final RunButtonTriggerRequest INSTANCE = new RunButtonTriggerRequest();
+    public static final KeyCodeCombination KEY_CODE_COMBINATION = new KeyCodeCombination(KeyCode.X,
+            KeyCombination.SHORTCUT_DOWN);
 
     private RunButtonTriggerRequest() {
         // hide
