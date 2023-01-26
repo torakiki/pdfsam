@@ -4,6 +4,14 @@
     -fx-padding: 1.666667em 0.666667em 1.0em 0.666667em;
 }
 
+.vertical-sidebar .sidebar-scroll{
+    -fx-fit-to-width: true;
+    -fx-fit-to-height: true;
+    -fx-padding: 0;
+    -fx-hbar-policy: never;
+    -fx-vbar-policy: as-needed;
+}
+
 .sidebar-buttons {
     -fx-background-color: -sidebar-background-color;
     -fx-background-insets: 0.0;
