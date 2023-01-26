@@ -1,9 +1,13 @@
 /**
  * Dashoard 
  */
+.about-panel .label, .about-panel .pdfsam-hyperlink{
+     -fx-font-size: 1.166666em;
+}
+
 .section-title {
-    -fx-font-size: 1.25em;
-    -fx-padding: 1.166666em 0.0 0.0 0.0;
+    -fx-font-size: 1.333333em;
+    -fx-padding: 1.333333em 0.0 0.0 0.0;
     -fx-font-weight: bold;
 }
 
@@ -19,7 +23,7 @@
     -fx-spacing: 2.5em;
 }
 
-.dashboard-modules {
+.home-tools {
     -fx-hgap: 2.0em;
     -fx-vgap: 1.5em;
     -fx-column-halignment: left;

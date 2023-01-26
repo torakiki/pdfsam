@@ -66,7 +66,8 @@ public class AboutPane extends HBox {
     @Inject
     public AboutPane(AppBrand appBrand) {
         getStyleClass().add("dashboard-container");
-        VBox left = new VBox(5);
+        getStyleClass().add("about-panel");
+        VBox left = new VBox(6);
         addSectionTitle(appBrand.property(BrandableProperty.NAME, "PDFsam Basic"), left);
         Label copyright = new Label(appBrand.property(COPYRIGHT));
         copyright.setGraphic(FontIcon.of(UniconsLine.COPYRIGHT));
@@ -100,7 +101,7 @@ public class AboutPane extends HBox {
         });
         left.getChildren().addAll(runtime, vendor, runtimePath, fx, sejda, memory, copyButton);
 
-        VBox right = new VBox(5);
+        VBox right = new VBox(6);
         addSectionTitle(i18n().tr("Support"), right);
         addHyperlink(UniconsLine.BUG, appBrand.property(TRACKER_URL), i18n().tr("Bug and feature requests"), right);
         addHyperlink(UniconsLine.QUESTION_CIRCLE, appBrand.property(SUPPORT_URL), i18n().tr("Support"), right);
