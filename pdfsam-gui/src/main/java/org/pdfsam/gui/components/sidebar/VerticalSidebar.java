@@ -21,6 +21,7 @@ package org.pdfsam.gui.components.sidebar;
 import jakarta.inject.Inject;
 import javafx.geometry.Orientation;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Separator;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Priority;
@@ -87,7 +88,12 @@ public class VerticalSidebar extends BorderPane {
         addButton(of(preferenceItem), expandButton);
         buttons.getChildren().add(new Separator(Orientation.HORIZONTAL));
         addButton(new ExitButton(), expandButton);
-        setCenter(buttons);
+        var scroll = new ScrollPane(buttons);
+        scroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        scroll.setFitToWidth(true);
+        scroll.setFitToHeight(true);
+        setCenter(scroll);
         eventStudio().addAnnotatedListeners(this);
     }
 

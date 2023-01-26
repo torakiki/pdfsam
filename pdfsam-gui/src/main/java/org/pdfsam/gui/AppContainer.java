@@ -39,6 +39,7 @@ public class AppContainer extends BorderPane {
         setId("app-container");
         center.getStyleClass().addAll(Style.CONTAINER.css());
         center.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        center.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         center.setFitToWidth(true);
         center.setFitToHeight(true);
         setCenter(center);
