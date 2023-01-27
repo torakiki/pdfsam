@@ -59,7 +59,7 @@ public class ToolsHomeTileTest {
     public void activateOnClick() {
         Listener<SetActiveContentItemRequest> listener = mock(Listener.class);
         eventStudio().add(SetActiveContentItemRequest.class, listener);
-        robot.clickOn(".dashboard-tools-invisible-button");
+        robot.clickOn(".home-tile-invisible-button");
         ArgumentCaptor<SetActiveContentItemRequest> captor = ArgumentCaptor.forClass(SetActiveContentItemRequest.class);
         verify(listener).onEvent(captor.capture());
         assertEquals(DefaultPriorityTestTool.ID, captor.getValue().id());

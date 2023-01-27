@@ -54,7 +54,7 @@ public class LogPane extends BorderPane {
     @Inject
     public LogPane(LogListView view, LogPaneToolbar toolbar) {
         this.logView = view;
-        getStyleClass().add("logs-pane");
+        getStyleClass().addAll("logs-pane", "spaced-container");
         setCenter(this.logView);
         setTop(toolbar);
         MenuItem copyItem = new MenuItem(i18n().tr("Copy"));

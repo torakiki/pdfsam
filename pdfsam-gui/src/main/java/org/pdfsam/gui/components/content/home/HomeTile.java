@@ -45,7 +45,7 @@ class HomeTile extends StackPane {
     private final Button invisibleButton = new Button();
 
     public HomeTile(String title, String description, Node graphic, String categoryClass) {
-        getStyleClass().addAll("dashboard-tools-tile");
+        getStyleClass().addAll("home-tile");
         var top = new Label(title);
         top.getStyleClass().add("title");
         if (nonNull(graphic)) {
@@ -56,7 +56,7 @@ class HomeTile extends StackPane {
         var vbox = new VBox(top, bottom);
         vbox.getStyleClass().add("right");
 
-        invisibleButton.getStyleClass().add("dashboard-tools-invisible-button");
+        invisibleButton.getStyleClass().add("home-tile-invisible-button");
         invisibleButton.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 
         var categoryMark = new Region();
@@ -87,7 +87,7 @@ class HomeTile extends StackPane {
 
     void addBottomPanel(Region pane) {
         StackPane.setAlignment(pane, Pos.BOTTOM_RIGHT);
-        StackPane.setMargin(pane, new Insets(10));
+        StackPane.setMargin(pane, new Insets(4));
         getChildren().add(pane);
     }
 }

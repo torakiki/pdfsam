@@ -24,11 +24,6 @@
     -fx-text-fill: derive(-error-color, -10%);
 }
 
-.logs-pane {
-    -fx-border-width: 0.0;
-    -fx-padding: 0.666667em;
-}
-
 .logs-pane .tool-bar:horizontal {
     -fx-background-color: transparent;
     -fx-background-insets: 0.0;

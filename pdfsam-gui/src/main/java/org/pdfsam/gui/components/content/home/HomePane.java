@@ -50,7 +50,7 @@ public class HomePane extends VBox {
     }
 
     public HomePane(Collection<Tool> tools) {
-        getStyleClass().addAll("dashboard-container");
+        getStyleClass().addAll("spaced-container");
         tools.stream().collect(groupingBy(t -> t.descriptor().category())).entrySet().stream()
                 .sorted(Map.Entry.comparingByKey()).forEach(entry -> {
                     var toolCategory = new Label(entry.getKey().getDescription());

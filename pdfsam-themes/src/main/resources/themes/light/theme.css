@@ -23,6 +23,12 @@
     -fx-padding: 0.666667em;
 }
 
+.spaced-container {
+    -fx-border-width: 0.0;
+    -fx-padding: 1.166666em;
+    -fx-spacing: 2.5em;
+}
+
 .pdfsam-module-container {
     -fx-border-width: 0.0;
     -fx-padding: 0.666667em;

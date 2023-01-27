@@ -65,7 +65,7 @@ public class AboutPane extends HBox {
 
     @Inject
     public AboutPane(AppBrand appBrand) {
-        getStyleClass().add("dashboard-container");
+        getStyleClass().add("spaced-container");
         getStyleClass().add("about-panel");
         VBox left = new VBox(6);
         addSectionTitle(appBrand.property(BrandableProperty.NAME, "PDFsam Basic"), left);

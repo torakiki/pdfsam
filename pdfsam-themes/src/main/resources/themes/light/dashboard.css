@@ -17,12 +17,6 @@
     -fx-font-weight: bold;
 }
 
-.dashboard-container {
-    -fx-border-width: 0.0;
-    -fx-padding: 1.166666em;
-    -fx-spacing: 2.5em;
-}
-
 .home-tools {
     -fx-hgap: 2.0em;
     -fx-vgap: 1.5em;
@@ -31,51 +25,51 @@
     -fx-orientation: horizontal;
 }
 
-.dashboard-tools-tile {
+.home-tile {
     -fx-background-color: -tool-tile-color;
     -fx-background-radius: 1em;
     -fx-max-width: 24.0em;
 }
 
-.dashboard-tools-tile:disabled {
+.home-tile:disabled {
     -fx-opacity: 0.3;
 }
 
-.dashboard-tools-invisible-button, .dashboard-tools-invisible-button:hover, .dashboard-tools-invisible-button:armed {
+.home-tile-invisible-button, .home-tile-invisible-button:hover, .home-tile-invisible-button:armed {
     -fx-cursor: hand;
     -fx-background-color: transparent;
     -fx-background-insets: 0.0;
     -fx-background-radius: 1em;
 }
 
-.dashboard-tools-tile .right {
+.home-tile .right {
     -fx-padding: 1.25em 1em 1.25em 0.833333em;
 }
 
-.dashboard-tools-tile .category-mark {
+.home-tile .category-mark {
     -fx-background-radius: 1em 0 0 1em;
     -fx-max-width: 12;
     -fx-min-width: 12;
 }
 
-.dashboard-tools-tile:hover, .dashboard-tools-tile:selected {
+.home-tile:hover, .home-tile:selected {
     -fx-effect: -pdfsam-shadow-effect;
 }
 
-.dashboard-tools-tile:armed {
+.home-tile:armed {
     -fx-effect: none;
     -fx-background-color: -tool-tile-armed-color;
 }
 
 
-.dashboard-tools-tile .right > .title {
+.home-tile .right > .title {
     -fx-font-size: 1.25em;
     -fx-font-weight: bold;
     -fx-padding-bottom: 0.3em;
     -fx-wrap-text: true;
 }
 
-.dashboard-tools-tile .right > .description {
+.home-tile .right > .description {
     -fx-padding: 0.5em 0 0 0;
     -fx-font-size: 1.083333em;
     -fx-wrap-text: true;
@@ -85,23 +79,20 @@
     -fx-icon-size: 24px;
 }
 
-.dashboard-tools-toolbar {
-    -fx-alignment: bottom-right;
-}
-
-.dashboard-tools-toolbar-button {
+.home-tools-help-button {
     -fx-background-color: -tool-tile-btn-color;
+    -fx-padding: 1px;
 }
 
-.dashboard-tools-toolbar-button:hover {
+.home-tools-help-button:hover {
     -fx-background-color: -tool-tile-btn-color-hover;
 }
 
-.dashboard-tools-toolbar-button:focus-visible {
+.home-tools-help-button:focus-visible {
     -fx-background-color: -tool-tile-btn-focus-border-color, -tool-tile-btn-color;
 }
 
-.dashboard-tools-toolbar-button:focus-visible:hover {
+.home-tools-help-button:focus-visible:hover {
     -fx-background-color: -tool-tile-btn-focus-border-color-hover, -tool-tile-btn-color-hover;
 }
 

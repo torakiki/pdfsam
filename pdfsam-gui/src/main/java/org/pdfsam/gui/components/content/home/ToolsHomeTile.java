@@ -52,7 +52,7 @@ class ToolsHomeTile extends HomeTile {
         setOnAction(e -> eventStudio().broadcast(new SetActiveContentItemRequest(id)));
 
         ofNullable(tool.descriptor().supportUrl()).ifPresent(url -> {
-            var helpButton = UrlButton.urlButton(null, url, null, "btn", "dashboard-tools-toolbar-button");
+            var helpButton = UrlButton.urlButton(null, url, null, "btn", "home-tools-help-button");
             helpButton.setGraphic(FontIcon.of(UniconsLine.QUESTION_CIRCLE, 18));
             addBottomPanel(helpButton);
         });
