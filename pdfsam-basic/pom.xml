@@ -641,12 +641,5 @@
             <groupId>jakarta.inject</groupId>
             <artifactId>jakarta.inject-api</artifactId>
         </dependency>
-        <!-- remove this once done with scenic view -->
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-swing</artifactId>
-            <version>${javafx.version}</version>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
 </project>
