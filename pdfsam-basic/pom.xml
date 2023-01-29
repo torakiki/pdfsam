@@ -92,7 +92,7 @@
                                         <argument>--no-header-files</argument>
                                         <argument>--no-man-pages</argument>
                                         <argument>--strip-debug</argument>
-                                        <argument>--vm=client</argument>
+										<argument>--vm=client</argument>
                                     </arguments>
                                 </configuration>
                             </execution>
@@ -232,13 +232,49 @@
                                         <argument>--app-content</argument>
                                         <argument>"./assembled/doc,./assembled/bin/pdfsam.bat,./assembled/LICENSE.txt,./assembled/splash.png"
                                         </argument>
+										<argument>--win-console</argument>
                                         <argument>--java-options</argument>
-                                        <argument>-Dprism.lcdtext=false</argument>
-										<argument>--java-options</argument>
-                                        <argument>-splash:$APPDIR/splash.png</argument>
+                                        <argument>"-Dprism.lcdtext=false -splash:$APPDIR/splash.png"</argument>
                                         <argument>--module-path</argument>
 										<argument>"./assembled/lib"</argument>
                                     </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+					<plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>fix-exe-permissions</id>
+                                <phase>package</phase>
+                                <configuration>
+                                    <target>
+                                        <chmod dir="${project.build.directory}/image" perm="755"
+                                               includes="**/*.exe"/>
+                                    </target>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+					<plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>sign-exe</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>
+                                        ${project.build.directory}/msi/SignExe.cmd
+                                    </executable>
                                 </configuration>
                             </execution>
                         </executions>
