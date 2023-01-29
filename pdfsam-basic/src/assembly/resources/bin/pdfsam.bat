@@ -62,8 +62,8 @@ goto repoSetup
 for %%i in ("%~dp0..") do set "BASEDIR=%%~fi"
 
 :repoSetup
-set "RUNTIME=%BASEDIR%\runtime"
-set "MODULEPATH=%BASEDIR%\lib"
+set "RUNTIME=%BASEDIR%\pdfsam\runtime"
+set "MODULEPATH=%BASEDIR%\pdfsam\app\mods"
 set "PATH=%RUNTIME%;%BASEDIR%"
 
 if exist "%PDFSAM_JAVA_PATH%" (

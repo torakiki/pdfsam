@@ -234,7 +234,8 @@
                                         </argument>
                                         <argument>--java-options</argument>
                                         <argument>-Dprism.lcdtext=false</argument>
-                                        <argument>-splash:splash.png</argument>
+										<argument>--java-options</argument>
+                                        <argument>-splash:$APPDIR/splash.png</argument>
                                         <argument>--module-path</argument>
 										<argument>"./assembled/lib"</argument>
                                     </arguments>
