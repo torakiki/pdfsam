@@ -224,9 +224,10 @@
                                         <argument>--description</argument>
                                         <argument>"Open source desktop application to split, merge, rotate, extract pages and mix PDF files"
                                         </argument>
-										<argument>--copyright</argument>
-                                        <argument>"Sober Lemur S.r.l."
-                                        </argument>
+                                        <argument>--copyright</argument>
+                                        <argument>"Copyright 2023, Sober Lemur S.r.l."</argument>
+                                        <argument>--vendor</argument>
+                                        <argument>"Sober Lemur S.r.l."</argument>
                                         <argument>--icon</argument>
                                         <argument>"${basedir}/src/assembly/resources/pdfsam.ico"</argument>
                                         <argument>--app-content</argument>
@@ -546,6 +547,62 @@
                         </executions>
                     </plugin>
                     <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>jpackage</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>jpackage</executable>
+                                    <workingDirectory>${project.build.directory}</workingDirectory>
+                                    <longModulepath>false</longModulepath>
+                                    <arguments>
+                                        <argument>-d</argument>
+                                        <argument>"."</argument>
+                                        <argument>--runtime-image</argument>
+                                        <argument>"./assembled/runtime"</argument>
+                                        <argument>-m</argument>
+                                        <argument>org.pdfsam.basic/org.pdfsam.basic.App</argument>
+                                        <argument>--app-version</argument>
+                                        <argument>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</argument>
+                                        <argument>-n</argument>
+                                        <argument>"PDFsam Basic"</argument>
+                                        <argument>--description</argument>
+                                        <argument>"Open source desktop application to split, merge, rotate, extract pages and mix PDF files"
+                                        </argument>
+                                        <argument>--copyright</argument>
+                                        <argument>"Copyright 2023, Sober Lemur S.r.l."</argument>
+                                        <argument>--vendor</argument>
+                                        <argument>"Sober Lemur S.r.l."</argument>
+                                        <argument>--icon</argument>
+                                        <argument>./dmg/Icon.icns</argument>
+                                        <argument>--mac-signing-key-user-name</argument>
+                                        <argument>"Andrea Vacondio"</argument>
+                                        <argument>--mac-package-identifier</argument>
+                                        <argument>org.pdfsam.basic</argument>
+                                        <argument>--java-options</argument>
+                                        <argument>-Dprism.lcdtext=false</argument>
+                                        <argument>--java-options</argument>
+                                        <argument>-splash:$APPDIR/splash.png</argument>
+                                        <argument>--module-path</argument>
+                                        <argument>"./assembled/lib"</argument>
+                                        <argument>--mac-sign</argument>
+                                        <argument>--mac-package-name</argument>
+                                        <argument>"PDFsam Basic"</argument>
+                                        <argument>--license-file</argument>
+                                        <argument>./assembled/LICENSE.txt</argument>
+                                        <argument>--resource-dir</argument>
+                                        <argument>./dmg/resources</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-antrun-plugin</artifactId>
                         <executions>
@@ -575,7 +632,7 @@
                                 </goals>
                                 <configuration>
                                     <executable>
-                                        ${project.build.directory}/dmg/package_dmg.sh
+                                        ${project.build.directory}/dmg/notarize_dmg.sh
                                     </executable>
                                 </configuration>
                             </execution>
