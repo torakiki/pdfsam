@@ -61,7 +61,6 @@
                         <executions>
                             <execution>
                                 <id>parse-version</id>
-                                <phase>prepare-package</phase>
                                 <goals>
                                     <goal>parse-version</goal>
                                 </goals>
@@ -521,7 +520,7 @@
                         <executions>
                             <execution>
                                 <id>copy-dmg-script</id>
-                                <phase>package</phase>
+                                <phase>prepare-package</phase>
                                 <goals>
                                     <goal>copy-resources</goal>
                                 </goals>
@@ -537,7 +536,6 @@
                                             <directory>${basedir}/src/dmg</directory>
                                             <includes>
                                                 <include>*.icns</include>
-                                                <include>*.plist</include>
                                                 <include>**/*</include>
                                             </includes>
                                         </resource>
@@ -562,15 +560,15 @@
                                     <longModulepath>false</longModulepath>
                                     <arguments>
                                         <argument>-d</argument>
-                                        <argument>"."</argument>
+                                        <argument>.</argument>
                                         <argument>--runtime-image</argument>
-                                        <argument>"./assembled/runtime"</argument>
+                                        <argument>./assembled/runtime</argument>
                                         <argument>-m</argument>
                                         <argument>org.pdfsam.basic/org.pdfsam.basic.App</argument>
                                         <argument>--app-version</argument>
                                         <argument>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</argument>
                                         <argument>-n</argument>
-                                        <argument>"PDFsam Basic"</argument>
+                                        <argument>PDFsam Basic</argument>
                                         <argument>--description</argument>
                                         <argument>"Open source desktop application to split, merge, rotate, extract pages and mix PDF files"
                                         </argument>
@@ -581,15 +579,13 @@
                                         <argument>--icon</argument>
                                         <argument>./dmg/Icon.icns</argument>
                                         <argument>--mac-signing-key-user-name</argument>
-                                        <argument>"Andrea Vacondio"</argument>
+                                        <argument>Andrea Vacondio</argument>
                                         <argument>--mac-package-identifier</argument>
                                         <argument>org.pdfsam.basic</argument>
                                         <argument>--java-options</argument>
                                         <argument>-Dprism.lcdtext=false</argument>
-                                        <argument>--java-options</argument>
-                                        <argument>-splash:$APPDIR/splash.png</argument>
                                         <argument>--module-path</argument>
-                                        <argument>"./assembled/lib"</argument>
+                                        <argument>./assembled/lib</argument>
                                         <argument>--mac-sign</argument>
                                         <argument>--mac-package-name</argument>
                                         <argument>"PDFsam Basic"</argument>
@@ -607,7 +603,7 @@
                         <artifactId>maven-antrun-plugin</artifactId>
                         <executions>
                             <execution>
-                                <id>fix-dmg-script-permissions</id>
+                                <id>fix-notarize-script-permissions</id>
                                 <phase>pre-integration-test</phase>
                                 <configuration>
                                     <target>
@@ -625,7 +621,7 @@
                         <artifactId>exec-maven-plugin</artifactId>
                         <executions>
                             <execution>
-                                <id>package-dmg</id>
+                                <id>notarize-dmg</id>
                                 <phase>integration-test</phase>
                                 <goals>
                                     <goal>exec</goal>

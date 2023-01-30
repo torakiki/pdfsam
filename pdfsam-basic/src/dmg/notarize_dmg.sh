@@ -14,10 +14,10 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-mv "${project.build.directory}/PDFsam Basic-${project.version}.dmg" "${project.build.directory}/pdfsam-${project.version}.dmg" || exit 1
+mv "${project.build.directory}/PDFsam Basic-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.dmg" "${project.build.directory}/pdfsam-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.dmg" || exit 1
 echo "dmg renamed"
 
-xcrun altool --notarize-app --primary-bundle-id org.pdfsam.basic --username $APPLEID --password $APPLEIDPASS --file "${project.build.directory}/pdfsam-${project.version}.dmg" || exit 1
+xcrun altool --notarize-app --primary-bundle-id org.pdfsam.basic --username $APPLEID --password $APPLEIDPASS --file "${project.build.directory}/pdfsam-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.dmg" || exit 1
 echo "dmg notarized"
 
 #stapling takes some time and it fails when run right after the notarization, we should probably wait few minutes
