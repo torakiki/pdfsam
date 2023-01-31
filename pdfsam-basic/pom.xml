@@ -229,7 +229,7 @@
                                         <argument>"./assembled/doc,./assembled/bin/pdfsam.bat,./assembled/LICENSE.txt,./assembled/splash.png"
                                         </argument>
                                         <argument>--java-options</argument>
-                                        <argument>"-Dprism.lcdtext=false -splash:$APPDIR/splash.png"</argument>
+                                        <argument>"--enable-preview -Dprism.lcdtext=false -splash:$APPDIR\..\splash.png"</argument>
                                         <argument>--module-path</argument>
 										<argument>"./assembled/lib"</argument>
                                     </arguments>
@@ -577,7 +577,7 @@
                                         <argument>--mac-package-identifier</argument>
                                         <argument>org.pdfsam.basic</argument>
                                         <argument>--java-options</argument>
-                                        <argument>-Dprism.lcdtext=false</argument>
+                                        <argument>--enable-preview -Dprism.lcdtext=false</argument>
                                         <argument>--module-path</argument>
                                         <argument>./assembled/lib</argument>
                                         <argument>--mac-sign</argument>

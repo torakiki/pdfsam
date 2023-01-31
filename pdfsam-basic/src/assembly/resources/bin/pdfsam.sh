@@ -102,7 +102,7 @@ if $cygwin; then
   [ -n "$BASEDIR" ] && BASEDIR=`cygpath --path --windows "$BASEDIR"`
 fi
 
-exec "$JAVACMD" --module-path "$MODULEPATH" --module org.pdfsam.basic/org.pdfsam.basic.App $JAVA_OPTS -Xmx512M \
+exec "$JAVACMD" --enable-preview --module-path "$MODULEPATH" --module org.pdfsam.basic/org.pdfsam.basic.App $JAVA_OPTS -Xmx512M \
   -splash:$BASEDIR/splash.png \
   -Dapp.name="pdfsam-basic" \
   -Dapp.pid="$$" \
