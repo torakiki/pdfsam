@@ -570,12 +570,12 @@
                                         <argument>-n</argument>
                                         <argument>PDFsam Basic</argument>
                                         <argument>--description</argument>
-                                        <argument>"Open source desktop application to split, merge, rotate, extract pages and mix PDF files"
+                                        <argument>Open source desktop application to split, merge, rotate, extract pages and mix PDF files
                                         </argument>
                                         <argument>--copyright</argument>
-                                        <argument>"Copyright 2023, Sober Lemur S.r.l."</argument>
+                                        <argument>Copyright 2023, Sober Lemur S.r.l.</argument>
                                         <argument>--vendor</argument>
-                                        <argument>"Sober Lemur S.r.l."</argument>
+                                        <argument>Sober Lemur S.r.l.</argument>
                                         <argument>--icon</argument>
                                         <argument>./dmg/Icon.icns</argument>
                                         <argument>--mac-signing-key-user-name</argument>
@@ -588,7 +588,7 @@
                                         <argument>./assembled/lib</argument>
                                         <argument>--mac-sign</argument>
                                         <argument>--mac-package-name</argument>
-                                        <argument>"PDFsam Basic"</argument>
+                                        <argument>PDFsam Basic</argument>
                                         <argument>--license-file</argument>
                                         <argument>./assembled/LICENSE.txt</argument>
                                         <argument>--resource-dir</argument>
