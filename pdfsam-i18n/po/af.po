@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-11-15 12:38+0100\n"
+"POT-Creation-Date: 2023-01-27 11:09+0100\n"
 "PO-Revision-Date: 2021-01-24 05:12+0000\n"
 "Last-Translator: Bernard Stafford <Unknown>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-07-26 09:36+0000\n"
-"X-Generator: Launchpad (build 20124175fa98fcb4b43973265a1561174418f4bd)\n"
+"X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
+"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Geen PDF dokument was geselekteerde"
@@ -35,6 +35,12 @@ msgstr "Ekstrak instellings"
 msgid "Output settings"
 msgstr "Uitset instellings"
 
+msgid "A separate file for each set of pages"
+msgstr ""
+
+msgid "Each continuous series of pages will generate a separate PDF file"
+msgstr ""
+
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Bladsye te ekstrak (ex: 2 or 5-23 or 2,5-7,12-)"
 
@@ -44,9 +50,328 @@ msgstr "Ongeldig bladsy reekse"
 msgid "Extract pages:"
 msgstr "Ekstrek bladsye:"
 
-#, java-format
-msgid "Installing theme {0}."
-msgstr "Installeer van tema {0}."
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+")"
+msgstr ""
+
+msgid "Split by bookmarks"
+msgstr "Gesplete deur boekmerke"
+
+msgid ""
+"Split a PDF document at bookmarked pages by specifying a bookmark level."
+msgstr ""
+"Gesplete 'n PDF dokument at geboekmerkte bladsye deur spesifiseer 'n "
+"boekmerk vlak."
+
+msgid "Regular expression the bookmark has to match"
+msgstr "Gereelde uitdrukking waarby die boekmerk moet ooreenstem"
+
+msgid "Split at this bookmark level:"
+msgstr "Gesplete at hierdie boekmerk vlak:"
+
+msgid "Matching regular expression:"
+msgstr "Wedstryd gereelde uitdrukking:"
+
+msgid "A regular expression the bookmark text has to match"
+msgstr "'N Gereelde uitdrukking die boekmerk teks moet wedstryd"
+
+msgid ""
+"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+"Voorbeeld: gebruik .*Chapter.* om wedstryd boekmerke bevattende die woord "
+"\"Chapter\""
+
+msgid "Select or drag and drop the PDF you want to split"
+msgstr "Kies of sleep en druppel die PDF jy wil om gesplete"
+
+msgid "Split settings"
+msgstr "Gesplete instellings"
+
+msgid "Invalid bookmarks level"
+msgstr "Ongeldig boekmerke vlak"
+
+msgid "Split after"
+msgstr "Gesplete nadat"
+
+msgid "No page selected"
+msgstr "Geen bladsy gekies"
+
+msgid "Split"
+msgstr "Gesplete"
+
+msgid "Split a PDF document at the given page numbers."
+msgstr "Gesplete 'n PDF dokument op die gegewe bladsy nommers."
+
+msgid "Every page"
+msgstr "Every bladsy"
+
+msgid "Even pages"
+msgstr "Ewe bladsye"
+
+msgid "Odd pages"
+msgstr "Onewe bladsye"
+
+msgid "Split the document after the given page numbers"
+msgstr "Gesplete die dokumenteer nadat die gegewe bladsy nommers"
+
+msgid ""
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr ""
+"Gesplete se die PDF every \"n\" bladsye skep dokumente van \"n\" bladsye elk"
+
+msgid "Split after the following page numbers"
+msgstr "Gesplete nadat devolgende bladsy nommers"
+
+msgid "Page numbers to split at (n1,n2,n3..)"
+msgstr "Bladsy nommers om gesplete at (n1,n2,n3..)"
+
+msgid "Invalid page numbers"
+msgstr "Ongeldige bladsy nommers"
+
+msgid "Only valid positive page numbers are allowed"
+msgstr "Slegs geldige positiewe bladsy nommers word toegelaat"
+
+msgid "Split by every \"n\" pages"
+msgstr "Gesplete deur every \"n\" bladsye"
+
+msgid "Number of pages"
+msgstr "Aantal van bladsye"
+
+msgid "Invalid number of pages"
+msgstr "Ongeldige aantal van bladsye"
+
+msgid "Megabytes"
+msgstr "Megabytes"
+
+msgid "MB"
+msgstr "MB"
+
+msgid "Kilobytes"
+msgstr "Kilobytes"
+
+msgid "KB"
+msgstr "KB"
+
+msgid "Split by size"
+msgstr "Gesplete deur grootte"
+
+msgid "Split a PDF document in files of the given size (roughly)."
+msgstr "Gesplete 'n PDF dokument in lêers van die gegewe grootte (roughly)."
+
+msgid "Set the size to split at"
+msgstr "Stel die grootte in om gesplete at"
+
+msgid "Size must be a number"
+msgstr "Grootte moet 'n nommer wees"
+
+msgid "Split at this size:"
+msgstr "Gesplete at hierdie grootte:"
+
+msgid "Invalid split size"
+msgstr "Ongeldige gesplete grootte"
+
+msgid "Destination file"
+msgstr "Bestemmings lêer"
+
+msgid "Alternate Mix"
+msgstr "Alternatiewe Mix"
+
+msgid ""
+"Merge two or more PDF documents taking pages alternately in natural or "
+"reverse order."
+msgstr ""
+"Merge twee of meer PDF dokumente die neem van bladsye afwisselend in "
+"natuurlike of omgekeerde volgorde."
+
+msgid ""
+"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Dubbel kliek op te rig bladsye wat jy wil om te meng (ex: 2 of 5-23 of 2,5-"
+"7,12-)"
+
+msgid "Select a positive integer number as pace"
+msgstr "Selekteer 'n positiewe heelgetal nommer as pace"
+
+msgid "All pages"
+msgstr "Alle bladsye"
+
+msgid "90 degrees clockwise"
+msgstr "90 grade kloksgewys"
+
+msgid "180 degrees clockwise"
+msgstr "180 grade kloksgewys"
+
+msgid "90 degrees counterclockwise"
+msgstr "90 grade antikloksgewys"
+
+msgid "Rotate "
+msgstr "Draaien "
+
+msgid "Rotate settings"
+msgstr "Draaien instellings"
+
+msgid "Rotate"
+msgstr "Roteer"
+
+msgid "Rotate the pages of multiple PDF documents."
+msgstr "Roteer die bladsye van meervoudige PDF dokumente."
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Dubbel kliek op stel bladsye wat jy wil om te draaien"
+
+msgid "Merge settings"
+msgstr "Saamsmelt instellings"
+
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Dubbel kliek te stel bladsye wat jy wil om saamsmelt (ex: 2 of 5-23 of 2,5-"
+"7,12-)"
+
+msgid "Add a blank page if page number is odd"
+msgstr "Voeg 'n leë bladsy by as die bladsynommer vreemd is"
+
+msgid ""
+"Adds a blank page after each merged document if the document has an odd "
+"number of pages"
+msgstr ""
+"Voeg 'n leë bladsy na elke saamgevoegde dokument by indien die dokument 'n "
+"onewe aantal bladsye het"
+
+msgid "Add a footer"
+msgstr "Voeg 'n voetskrif by"
+
+msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr ""
+"Voeg 'n bladsy footer met die naam van die lêer die bladsy behoort aan."
+
+msgid "None"
+msgstr "Geeneen"
+
+msgid "Same width as first page"
+msgstr ""
+
+msgid "Same width as first page (based on page orientation)"
+msgstr ""
+
+msgid "Pages normalization:"
+msgstr ""
+
+msgid ""
+"Set whether pages should be resized to all have the same width as the first "
+"one"
+msgstr ""
+
+msgid "Merge fields"
+msgstr "Merge velde"
+
+msgid "Merge renaming existing fields"
+msgstr "Voeg naam van bestaande velde saam"
+
+msgid "Flatten"
+msgstr "Afplat"
+
+msgid "Discard forms"
+msgstr "Discard vorms"
+
+msgid "Interactive forms (AcroForms):"
+msgstr "Interaktiewe vorms (AcroForms):"
+
+msgid "What to do in case one or more input documents contain Acro Forms"
+msgstr ""
+"Wat om te doen in geval een of meer insette dokumente bevat Acro Forms"
+
+msgid "Retain bookmarks"
+msgstr "Behou- boekmerke"
+
+msgid "Discard bookmarks"
+msgstr "Discard boekmerke"
+
+msgid "Create one entry for each merged document"
+msgstr "Skep een inskrywing vir elke saamgevoegde dokument"
+
+msgid "Retain bookmarks as one entry for each merged document"
+msgstr "Behou- boekmerke as een inskrywing vir elke saamgevoegde dokument"
+
+msgid "Bookmarks handling:"
+msgstr "Boekmerke hantering:"
+
+msgid "What to do in case one or more input documents contain bookmarks"
+msgstr ""
+"Wat om te doen in geval een of meer insette dokumente bevat boekmerke"
+
+msgid "Don't generate"
+msgstr "Moenie te genereer"
+
+msgid "Generate from file names"
+msgstr "Genereer vanaf lêer naam"
+
+msgid "Generate from documents titles"
+msgstr "Genereer vanaf dokumente- titels"
+
+msgid "Table of contents:"
+msgstr "Tafel van inhoud:"
+
+msgid ""
+"Set if a table of contents should be added to the generated PDF document"
+msgstr ""
+"Stel indien 'n tafel van inhoud behoort wees gevoeg om die gegenereerde PDF "
+"dokument"
+
+msgid "Merge"
+msgstr "Saamsmelt"
+
+msgid "Merge together multiple PDF documents or subsections of them."
+msgstr ""
+"Saamsmelt saam meervoudige PDF-dokumente of onderafdelings van hulle."
+
+msgid "Select or drag and drop the PDF whose pages will be repeated"
+msgstr ""
+
+msgid "Repeat these pages:"
+msgstr ""
+
+msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid ""
+"Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
+"7,12-)"
+msgstr ""
+
+msgid "Leave it empty to use all the pages of the PDF file"
+msgstr ""
+
+msgid "Repeat every \"n\" pages:"
+msgstr ""
+
+msgid "Invalid page number"
+msgstr ""
+
+msgid "Repeat the selected pages every \"n\" pages of the original document"
+msgstr ""
+
+msgid "The selected PDF file is invalid"
+msgstr "Die geselekteerde PDF lêer is ongeldig"
+
+msgid "The number of pages must be a positive number"
+msgstr ""
+
+msgid "Select or drag and drop the PDF you want to insert pages to"
+msgstr ""
+
+msgid "Insert and Repeat settings"
+msgstr ""
+
+msgid "Insert pages multiple times"
+msgstr ""
+
+msgid ""
+"Insert the pages of a PDF document A into another document B, repeating it "
+"after a certain number of pages, resulting in B1 A B2 A B3 A etc."
+msgstr ""
 
 #, java-format
 msgid "Started in {0}"
@@ -55,283 +380,32 @@ msgstr "Beginede in {0}"
 msgid "Closing PDFsam..."
 msgstr "Sluiting PDFsam..."
 
-msgid "Log register"
-msgstr "Log registreer"
-
-msgid "Copy"
-msgstr "Kopieër"
-
-msgid "Clear"
-msgstr "Duidelik"
-
-msgid "Select all"
-msgstr "Kies alle"
-
-msgid "Save log"
-msgstr "Stoor log"
-
-msgid "Select where to save the log file"
-msgstr "Selekteer waar om die log lêer te stoor"
-
-msgid "About"
-msgstr "Omtrent"
-
-msgid "Premium features"
-msgstr "Premie funksies"
-
-msgid "Close"
-msgstr "Toemaak"
-
-msgid "Modules"
-msgstr "Modules"
-
-msgid "Subscribe to the official news feed"
-msgstr "Skryf in vir die amptelike nuus voer"
-
-msgid "Environment"
-msgstr "Omgewing"
-
-msgid "Vendor: %s"
-msgstr "Vendor: %s"
-
-msgid "Java runtime path: %s"
-msgstr "Java hardlooptyd pad: %s"
-
-msgid "JavaFX runtime version %s"
-msgstr "JavaFX hardloop weergawe %s"
-
-#, java-format
-msgid "Max memory {0}"
-msgstr "Max geheue {0}"
-
-msgid "Copy to clipboard"
-msgstr "Kopiëer na die klipbord"
-
-msgid "Support"
-msgstr "Ondersteuning"
-
-msgid "Bug and feature requests"
-msgstr "Bug en funksie versoeke"
-
-msgid "Documentation"
-msgstr "Dokumentasie"
-
-msgid "Contribute"
-msgstr "Bydra"
-
-msgid "Fork PDFsam on GitHub"
-msgstr "Vurk PDFsam op GitHub"
-
-msgid "Translate"
-msgstr "Vertaal"
-
-msgid "Donate"
-msgstr "Skenk"
-
-msgid "Social"
-msgstr "Sosiale"
-
-msgid "Follow us on Twitter"
-msgstr "Volg ons op Twitter"
-
-msgid "Like us on Facebook"
-msgstr "Soos ons op Facebook"
-
-msgid "Log register rows:"
-msgstr "Log registreer rye:"
-
-msgid "Maximum number of rows displayed by the Log register"
-msgstr "Maksimum aantal rye vertoon deur die Log registreer"
-
-msgid "Language:"
-msgstr "Taal:"
-
-msgid "Set your preferred language (restart needed)"
-msgstr "Stel jou voorkeur taal (herbegin benodigde)"
-
-msgid "Startup tool:"
-msgstr "Opstart tool:"
-
-msgid "Set the tool to open at application startup (restart needed)"
-msgstr "Stel die tool om oop by aansoek opstart (herbegin benodigde)"
-
-msgid ""
-"Usage statistics are used to populate the tools quick bar on the left with "
-"the most used and most recently used tools."
-msgstr ""
-"Gebruik statistieke word gebruik om bevolking die tools vinnige bar aan "
-"die links met die mees gebruikte en mees onlangs gebruik tools."
-
-msgid "Manually selected"
-msgstr "Handmatig gekies"
-
-msgid ""
-"Automatically set the destination directory to the selected PDF document "
-"directory"
-msgstr ""
-"Stel die bestemmingsgids outomaties op die gekies PDF dokument directory"
-
-msgid "Clear usage statistics"
-msgstr "Duidelik gebruik statistieke"
-
-msgid "Appearance"
-msgstr "Verskyning"
-
-msgid "Behavior"
-msgstr "Gedrag"
-
-msgid "Workspace"
-msgstr "Werkspasie"
-
-msgid "Output"
-msgstr "Uitset"
-
-msgid "Check for updates now"
-msgstr "Tjek vir opdaterings nou"
-
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
-msgstr "Kies 'n gidswaar dokumente sal gestoor en gelaai word by verstek"
-
-msgid "Select a directory"
-msgstr "Selekteer 'n gids-"
-
-msgid ""
-"Select a previously saved workspace that will be automatically loaded at "
-"startup"
-msgstr ""
-"Selekteer 'n voorheen gestoorde werkruimte wat outomaties sal wees gelaai by "
-"opstart"
-
-msgid "Select a workspace"
-msgstr "Selekteer 'n werkspasie"
-
-msgid "Default working directory:"
-msgstr "Verstek werk gids-:"
-
-msgid "Load default workspace at startup:"
-msgstr "Laai verstek werkspasie by opstart:"
-
-msgid "Dashboard"
-msgstr "Paneelbord"
-
-msgid "Check for updates at startup"
-msgstr "Tjek vir opdaterings by- opstart"
-
-msgid ""
-"Set whether new version availability should be checked on startup (restart "
-"needed)"
-msgstr ""
-"Stel whether nuwe weergawe beskikbaarheid behoort wees nagegaan op opstart "
-"(herbegin benodigde)"
-
-msgid "Check for news at startup"
-msgstr "Tjek vir nuus by opstart"
-
-msgid ""
-"Set whether the application should check for news availability on startup "
-"(restart needed)"
-msgstr ""
-"Stel whether die aansoek behoort tjek vir nuus beskikbaarheid op opstart "
-"(herbegin benodigde)"
-
-msgid "Enabled PDF compression"
-msgstr "Geaktiveer PDF kompressie"
-
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr ""
-"Stel whether \"Compress output file\" behoort wees geaktiveer deur verstek"
-
-msgid "Overwrite files"
-msgstr "Oorskryf lêers"
-
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
-msgstr ""
-"Stel whether \"Overwrite if already exists\" behoort wees in gestaat stel "
-"deur verstek"
-
-msgid "Play alert sounds"
-msgstr "Speel waarskuwing klanke"
-
-msgid "Turn on or off alert sounds"
-msgstr "Skakel aan of uit alert klanke"
-
-msgid "Store passwords when saving a workspace file"
-msgstr "Winkle wagwoorde by die stoor 'n werkspasie lêer"
-
-msgid ""
-"If an encrypted PDF document has been opened with a password, save the "
-"password in the workspace file"
-msgstr ""
-"Indien 'n geïnkripteer PDF dokument het is geopen met 'n wagwoord, stoor die "
-"wagwoord in die werkruimte lêer"
-
-msgid "Show donation window"
-msgstr "Wys skenking venster"
-
-msgid ""
-"Turn on or off the notification appearing once in a while and asking the "
-"user to support PDFsam with a donation"
-msgstr ""
-"Draai op of buite die kennisgewing een keer verskyn in 'n rukkie en vra die "
-"gebruiker om ondersteun PDFsam met 'n donasie"
-
-msgid "Show premium features"
-msgstr "Wys premie funksies"
-
-msgid ""
-"Set whether the application should fetch and show premium features "
-"description in the tools dashboard"
-msgstr ""
-"Stel whether die aansoek behoort gaan haal en wys premium funksies "
-"beskrywing in die tools paneelbord"
-
-msgid "Ask for a confirmation when clearing the selection table"
-msgstr "Vra vir 'n bevestiging wanneer die skoonmaak van die seleksie tafel"
-
-msgid ""
-"Set whether the application should ask for a confirmation when clearing the "
-"selection table"
-msgstr ""
-"Stel of die aansoek moet vra vir bevestiging wanneer die skoonmaak van die "
-"seleksie tafel"
-
-msgid "Use the selected PDF document directory as output directory"
-msgstr "Gebruik die geselekteerde PDF dokument directory as uitset gids"
-
-msgid "Save default workspace on exit"
-msgstr "Stoor verstek werkruimte op uitrit"
-
-msgid "If a default workspace is set, save it on application exit"
-msgstr "Indien 'n verstek werkruimet is stel, stoor dit op aansoek uitrit"
-
-msgid "Maximum number of rows mast be a positive number"
-msgstr "Die maksimum aantal rye moet 'n positiewe getal wees"
-
-msgid "Generate high quality thumbnails (slower)"
-msgstr "Genereer duimnaels van hoë gehalte (stadiger)"
-
-msgid "Size in px:"
-msgstr "Grootte in px:"
-
-msgid "Library used to generate thumbnails"
-msgstr "Biblioteek gebruik word om duimnaele te genereer"
-
-msgid "Thumbnails creator:"
-msgstr "Duimnaele skepper:"
-
-msgid "Settings"
-msgstr "Instellings"
-
 msgid "Drag and drop PDF files or directories containing PDF files"
 msgstr "Sleep en druppel PDF lêers of directories bevattende PDF lêers"
 
 msgid "No PDF found"
 msgstr "Geen PDF gevind"
 
+msgid "Tools"
+msgstr ""
+
+msgid "News"
+msgstr ""
+
 msgid "What's new"
 msgstr "Wat is nuwe"
+
+msgid "Exit"
+msgstr "Uitgang"
+
+msgid "Exit the application"
+msgstr ""
+
+msgid "Workspace"
+msgstr "Werkspasie"
+
+msgid "Manage your workspaces"
+msgstr ""
 
 msgid "Yes"
 msgstr "Ja"
@@ -346,7 +420,7 @@ msgid "Do you confirm?"
 msgstr "Bevestig doen jy?"
 
 msgid "Clear the tool settings"
-msgstr "Duidelike die tool instellings"
+msgstr ""
 
 msgid "Clear the selection table"
 msgstr "Duidelike die seleksie tafel"
@@ -420,6 +494,296 @@ msgstr ""
 "Dit mag resultate in PDF lêers met gedeeltelike of ontbrekende data, "
 "voortgaan elk geval?"
 
+msgid "Removes all the log messages"
+msgstr ""
+
+msgid "_Clear"
+msgstr "_Duidelike"
+
+msgid "_Save"
+msgstr "_Stoor"
+
+msgid "C_lose"
+msgstr ""
+
+msgid "Copy"
+msgstr "Kopieër"
+
+msgid "Clear"
+msgstr "Duidelik"
+
+msgid "Select all"
+msgstr "Kies alle"
+
+msgid "Save log"
+msgstr "Stoor log"
+
+msgid "Select where to save the log file"
+msgstr "Selekteer waar om die log lêer te stoor"
+
+msgid "Logs"
+msgstr ""
+
+msgid "Application messages"
+msgstr "Aansoek boodskappe"
+
+msgid "_Load"
+msgstr "_Laai"
+
+msgid "Recen_ts"
+msgstr "Onlan_gse"
+
+msgid "_Clear recents"
+msgstr "_Duidelik onlangse"
+
+msgid "Select the workspace file to save"
+msgstr "Kies die werkruimte-lêer om te stoor"
+
+msgid "Select the workspace to load"
+msgstr "Kies die werkruimte om te laai"
+
+msgid "Subscribe to the official news feed"
+msgstr "Skryf in vir die amptelike nuus voer"
+
+msgid "Environment"
+msgstr "Omgewing"
+
+#, java-printf-format
+msgid "Vendor: %s"
+msgstr "Vendor: %s"
+
+#, java-printf-format
+msgid "Java runtime path: %s"
+msgstr "Java hardlooptyd pad: %s"
+
+#, java-printf-format
+msgid "JavaFX runtime version: %s"
+msgstr ""
+
+#, java-printf-format
+msgid "PDF engine (Sejda SDK) version: %s"
+msgstr ""
+
+#, java-format
+msgid "Max memory {0}"
+msgstr "Max geheue {0}"
+
+msgid "Copy to clipboard"
+msgstr "Kopiëer na die klipbord"
+
+msgid "Support"
+msgstr "Ondersteuning"
+
+msgid "Bug and feature requests"
+msgstr "Bug en funksie versoeke"
+
+msgid "Documentation"
+msgstr "Dokumentasie"
+
+msgid "Contribute"
+msgstr "Bydra"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "Vurk PDFsam op GitHub"
+
+msgid "Translate"
+msgstr "Vertaal"
+
+msgid "Donate"
+msgstr "Skenk"
+
+msgid "Social"
+msgstr "Sosiale"
+
+msgid "Follow us on Twitter"
+msgstr "Volg ons op Twitter"
+
+msgid "Like us on Facebook"
+msgstr "Soos ons op Facebook"
+
+msgid "About"
+msgstr "Omtrent"
+
+msgid "Home"
+msgstr ""
+
+msgid "Premium features"
+msgstr "Premie funksies"
+
+msgid "Log register rows:"
+msgstr "Log registreer rye:"
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr "Maksimum aantal rye vertoon deur die Log registreer"
+
+msgid "Language:"
+msgstr "Taal:"
+
+msgid "Set your preferred language (restart needed)"
+msgstr "Stel jou voorkeur taal (herbegin benodigde)"
+
+msgid "Startup tool:"
+msgstr ""
+
+msgid "Set the tool to open at application startup (restart needed)"
+msgstr ""
+
+msgid "Theme:"
+msgstr "Tema:"
+
+msgid "Set the application theme"
+msgstr ""
+
+msgid "Font size:"
+msgstr ""
+
+msgid "Set the application font size"
+msgstr ""
+
+msgid "Manually selected"
+msgstr "Handmatig gekies"
+
+msgid ""
+"Automatically set the destination directory to the selected PDF document "
+"directory"
+msgstr ""
+"Stel die bestemmingsgids outomaties op die gekies PDF dokument directory"
+
+msgid "Settings"
+msgstr "Instellings"
+
+msgid "Appearance"
+msgstr "Verskyning"
+
+msgid "Behavior"
+msgstr "Gedrag"
+
+msgid "Output"
+msgstr "Uitset"
+
+msgid "Check for updates now"
+msgstr "Tjek vir opdaterings nou"
+
+msgid ""
+"Select a directory where documents will be saved and loaded by default"
+msgstr "Kies 'n gidswaar dokumente sal gestoor en gelaai word by verstek"
+
+msgid "Select a directory"
+msgstr "Selekteer 'n gids-"
+
+msgid ""
+"Select a previously saved workspace that will be automatically loaded at "
+"startup"
+msgstr ""
+"Selekteer 'n voorheen gestoorde werkruimte wat outomaties sal wees gelaai by "
+"opstart"
+
+msgid "Select a workspace"
+msgstr "Selekteer 'n werkspasie"
+
+msgid "Default working directory:"
+msgstr "Verstek werk gids-:"
+
+msgid "Load default workspace at startup:"
+msgstr "Laai verstek werkspasie by opstart:"
+
+msgid "System default"
+msgstr ""
+
+msgid "Check for updates at startup"
+msgstr "Tjek vir opdaterings by- opstart"
+
+msgid ""
+"Set whether new version availability should be checked on startup (restart "
+"needed)"
+msgstr ""
+"Stel whether nuwe weergawe beskikbaarheid behoort wees nagegaan op opstart "
+"(herbegin benodigde)"
+
+msgid "Check for news at startup"
+msgstr "Tjek vir nuus by opstart"
+
+msgid ""
+"Set whether the application should check for news availability on startup "
+"(restart needed)"
+msgstr ""
+"Stel whether die aansoek behoort tjek vir nuus beskikbaarheid op opstart "
+"(herbegin benodigde)"
+
+msgid "Enabled PDF compression"
+msgstr "Geaktiveer PDF kompressie"
+
+msgid "Set whether \"Compress output file\" should be enabled by default"
+msgstr ""
+"Stel whether \"Compress output file\" behoort wees geaktiveer deur verstek"
+
+msgid "Overwrite files"
+msgstr "Oorskryf lêers"
+
+msgid ""
+"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgstr ""
+"Stel whether \"Overwrite if already exists\" behoort wees in gestaat stel "
+"deur verstek"
+
+msgid "Play alert sounds"
+msgstr "Speel waarskuwing klanke"
+
+msgid "Turn on or off alert sounds"
+msgstr "Skakel aan of uit alert klanke"
+
+msgid "Store passwords when saving a workspace file"
+msgstr "Winkle wagwoorde by die stoor 'n werkspasie lêer"
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
+"Indien 'n geïnkripteer PDF dokument het is geopen met 'n wagwoord, stoor die "
+"wagwoord in die werkruimte lêer"
+
+msgid "Show donation window"
+msgstr "Wys skenking venster"
+
+msgid ""
+"Turn on or off the notification appearing once in a while and asking the "
+"user to support PDFsam with a donation"
+msgstr ""
+"Draai op of buite die kennisgewing een keer verskyn in 'n rukkie en vra die "
+"gebruiker om ondersteun PDFsam met 'n donasie"
+
+msgid "Show premium features"
+msgstr "Wys premie funksies"
+
+msgid ""
+"Set whether the application should fetch and show premium features "
+"description in the modules dashboard"
+msgstr ""
+"Stel whether die aansoek behoort gaan haal en wys premium funksies "
+"beskrywing in die modules paneelbord"
+
+msgid "Ask for a confirmation when clearing the selection table"
+msgstr "Vra vir 'n bevestiging wanneer die skoonmaak van die seleksie tafel"
+
+msgid ""
+"Set whether the application should ask for a confirmation when clearing the "
+"selection table"
+msgstr ""
+"Stel of die aansoek moet vra vir bevestiging wanneer die skoonmaak van die "
+"seleksie tafel"
+
+msgid "Use the selected PDF document directory as output directory"
+msgstr "Gebruik die geselekteerde PDF dokument directory as uitset gids"
+
+msgid "Save default workspace on exit"
+msgstr "Stoor verstek werkruimte op uitrit"
+
+msgid "If a default workspace is set, save it on application exit"
+msgstr "Indien 'n verstek werkruimet is stel, stoor dit op aansoek uitrit"
+
+msgid "Maximum number of rows mast be a positive number"
+msgstr "Die maksimum aantal rye moet 'n positiewe getal wees"
+
 msgid "Summary"
 msgstr "Opsomming"
 
@@ -429,13 +793,14 @@ msgstr "Sleutelwoorde"
 msgid "Document details"
 msgstr "Dokument besonderhede"
 
+msgid "Show errors"
+msgstr "Wys foute"
+
+msgid "Input parameters are invalid"
+msgstr ""
+
 msgid "Invalid parameters"
 msgstr "Ongeldige parameters"
-
-msgid ""
-"Input parameters are invalid, open the application messages for details."
-msgstr ""
-"Insette parameters is ongeldig, oop die aansoek boodskappe vir besonderhede"
 
 msgid "Access denied"
 msgstr "Toegang geweier"
@@ -480,96 +845,111 @@ msgstr "Geen opdater nie"
 msgid "Open"
 msgstr "Oop"
 
-msgid "E_xit"
-msgstr "U_itgang"
+#, java-format
+msgid "File \"{0}\" does not exist or is invalid"
+msgstr "Lêer \"{0}\" bestaan nie of is ongeldig"
 
-msgid "_Settings"
-msgstr "_Instellings"
+msgid "Valid user password provided."
+msgstr "Geldige gebruikerswagwoord verskaf."
 
-msgid "Application messages"
-msgstr "Aansoek boodskappe"
+msgid "This document is encrypted, click to provide a password."
+msgstr "Hierdie dokument is geïnkripteer, Klik om 'n wagwoord te voorsien."
 
-msgid "_Modules"
-msgstr "_Modules"
+msgid "An error has occurred, click for more details."
+msgstr "N fout het voorgekom, klik vir meer besonderhede."
 
-msgid "_Workspace"
-msgstr "_Werkspasie"
-
-msgid "_Load"
-msgstr "_Laai"
-
-msgid "_Save"
-msgstr "_Stoor"
-
-msgid "Recen_ts"
-msgstr "Onlan_gse"
-
-msgid "_Clear recents"
-msgstr "_Duidelik onlangse"
-
-msgid "Select the workspace file to save"
-msgstr "Kies die werkruimte-lêer om te stoor"
-
-msgid "Select the workspace to load"
-msgstr "Kies die werkruimte om te laai"
-
-msgid "Split by bookmarks"
-msgstr "Gesplete deur boekmerke"
-
-msgid ""
-"Split a PDF document at bookmarked pages by specifying a bookmark level."
+msgid "Split tools"
 msgstr ""
-"Gesplete 'n PDF dokument at geboekmerkte bladsye deur spesifiseer 'n "
-"boekmerk vlak."
 
-msgid "Select or drag and drop the PDF you want to split"
-msgstr "Kies of sleep en druppel die PDF jy wil om gesplete"
-
-msgid "Split settings"
-msgstr "Gesplete instellings"
-
-msgid "Regular expression the bookmark has to match"
-msgstr "Gereelde uitdrukking waarby die boekmerk moet ooreenstem"
-
-msgid "Split at this bookmark level:"
-msgstr "Gesplete at hierdie boekmerk vlak:"
-
-msgid "Matching regular expression:"
-msgstr "Wedstryd gereelde uitdrukking:"
-
-msgid "A regular expression the bookmark text has to match"
-msgstr "'N Gereelde uitdrukking die boekmerk teks moet wedstryd"
-
-msgid ""
-"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgid "Merge tools"
 msgstr ""
-"Voorbeeld: gebruik .*Chapter.* om wedstryd boekmerke bevattende die woord "
-"\"Chapter\""
 
-msgid "Invalid bookmarks level"
-msgstr "Ongeldig boekmerke vlak"
+msgid "Convert tools"
+msgstr ""
 
-msgid "Show errors"
-msgstr "Wys foute"
+msgid "Edit tools"
+msgstr ""
 
-msgid "Run"
-msgstr "Hardloop"
+msgid "Other tools"
+msgstr ""
 
-msgid "Requested"
-msgstr "Aangevraagde"
+msgid "Checking for updates"
+msgstr "Loer vir opdaterings"
 
-msgid "Completed"
-msgstr "Voltooid"
-
-msgid "Failed"
-msgstr "Mislukte"
-
-msgid "Running"
-msgstr "Hardlooping"
+msgid "Unable to find the latest available version."
+msgstr "Nie in staat is om die jongste beskikbare weergawe vind."
 
 #, java-format
-msgid "Running {0}%"
-msgstr "Hardlooping {0}%"
+msgid "Unable to find any valid PDF file in the list: {0}"
+msgstr "Nie in staat is om enige geldige PDF-lêer in die lys vind: {0}"
+
+#, java-format
+msgid "Unable to load PDF list file from {0}"
+msgstr "Nie in staat is om PDF lêer lys te laai vanaf {0}"
+
+msgid "Loading pdf documents"
+msgstr "Laai tans pdf dokumente"
+
+msgid "Documents loaded"
+msgstr "Dokumente gelaai"
+
+msgid "Unable to retrieve premium features description"
+msgstr "Nie in staat is om te haal funksies beskrywing"
+
+msgid "Fetching premium modules"
+msgstr "Haaling premie modules"
+
+msgid "Unable to retrieve premium modules"
+msgstr "Nie in staat is om premie modules te haal"
+
+msgid "Unable to retrieve latest news"
+msgstr "Nie in staat is om die jongste nuus te terugkry"
+
+msgid "Fetching latest news"
+msgstr "Haaling jongste nuus"
+
+msgid "Unable to retrieve the latest news"
+msgstr "Nie in staat is om jongste nuus te terugkry"
+
+#, java-format
+msgid "Saving workspace data to {0}"
+msgstr "Stoor werkruimte data op {0}"
+
+msgid "Workspace saved"
+msgstr "Werkruimte stoorde"
+
+msgid "Requesting modules state"
+msgstr "Versoek modules staat"
+
+#, java-format
+msgid "Unable to save workspace to {0}"
+msgstr "Nie in staat is om werkruimte te stoor om {0}"
+
+#, java-format
+msgid "Loading workspace from {0}"
+msgstr "Laai tans werkruimte vanaf {0}"
+
+msgid "Workspace loaded"
+msgstr "Werkruimte gelaai"
+
+#, java-format
+msgid "Unable to load workspace from {0}"
+msgstr "Nie in staat is om laai werkruimte vanaf {0}"
+
+msgid "Light with blue"
+msgstr ""
+
+msgid "Dark with purple"
+msgstr ""
+
+msgid "Dark with teal"
+msgstr ""
+
+msgid "Light with maroon"
+msgstr ""
+
+msgid "Close"
+msgstr "Toemaak"
 
 msgid "The selected PDF document is invalid"
 msgstr "Die geselekteerde PDF dokument is ongeldig"
@@ -579,9 +959,6 @@ msgstr "Kies die PDF lêer"
 
 msgid "_Select PDF"
 msgstr "_Selekteer PDF"
-
-msgid "_Clear"
-msgstr "_Duidelike"
 
 msgid "Clear all settings"
 msgstr "Duidelike alle instellings"
@@ -632,11 +1009,21 @@ msgstr "Beweeg tot onder"
 msgid "Duplicate"
 msgstr "Dupliseer"
 
+msgid "Selected pages"
+msgstr ""
+
+msgid "Total number of selected pages"
+msgstr ""
+
 msgid "Size"
 msgstr "Grootte"
 
 msgid "Modified"
 msgstr "Gemodifiseerde"
+
+#, java-format
+msgid "Total pages: {0}"
+msgstr ""
 
 msgid "Name"
 msgstr "Naam"
@@ -696,15 +1083,15 @@ msgstr "Omgekeerde"
 msgid "Pages"
 msgstr "Bladsye"
 
+msgid "Number of total pages of the document"
+msgstr ""
+
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Dubbel klik om geselekteerde bladsye in te stel (ex: 2 of 5-23 of 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "Bladsy ranges"
-
-msgid "The selected PDF file is invalid"
-msgstr "Die geselekteerde PDF lêer is ongeldig"
 
 msgid "Select a file"
 msgstr "Selekteer 'n lêer"
@@ -718,9 +1105,6 @@ msgstr "Toegelaat uitbreidings is {0}"
 
 msgid "Compress output file/files"
 msgstr "Comprimeren uitset lêer/lêers"
-
-msgid "Discard bookmarks"
-msgstr "Discard boekmerke"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -779,6 +1163,9 @@ msgstr "Voorvoegsel vir die gegenereerde lêers name"
 msgid "Add prefix"
 msgstr "Voeg voorvoegsel by"
 
+msgid "DEFAULT_PREFIX"
+msgstr ""
+
 msgid "Generated PDF documents name prefix:"
 msgstr "Gegenereerde PDF dokumente se naam voorvoegsel:"
 
@@ -791,320 +1178,27 @@ msgstr "Sommige spesiale sleutelwoorde word vervang met runtime-waardes."
 msgid "Right click to add these keywords."
 msgstr "Regs kliek om hierdie sleutelwoorde te voeg."
 
-msgid "Split after"
-msgstr "Gesplete nadat"
+msgid "Run"
+msgstr "Hardloop"
 
-msgid "No page selected"
-msgstr "Geen bladsy gekies"
-
-msgid "Split"
-msgstr "Gesplete"
-
-msgid "Split a PDF document at the given page numbers."
-msgstr "Gesplete 'n PDF dokument op die gegewe bladsy nommers."
-
-msgid "Every page"
-msgstr "Every bladsy"
-
-msgid "Even pages"
-msgstr "Ewe bladsye"
-
-msgid "Odd pages"
-msgstr "Onewe bladsye"
-
-msgid "Split the document after the given page numbers"
-msgstr "Gesplete die dokumenteer nadat die gegewe bladsy nommers"
-
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Run the task"
 msgstr ""
-"Gesplete se die PDF every \"n\" bladsye skep dokumente van \"n\" bladsye elk"
 
-msgid "Split after the following page numbers"
-msgstr "Gesplete nadat devolgende bladsy nommers"
+msgid "Requested"
+msgstr "Aangevraagde"
 
-msgid "Page numbers to split at (n1,n2,n3..)"
-msgstr "Bladsy nommers om gesplete at (n1,n2,n3..)"
+msgid "Completed"
+msgstr "Voltooid"
 
-msgid "Invalid page numbers"
-msgstr "Ongeldige bladsy nommers"
+msgid "Failed"
+msgstr "Mislukte"
 
-msgid "Only valid positive page numbers are allowed"
-msgstr "Slegs geldige positiewe bladsy nommers word toegelaat"
-
-msgid "Split by every \"n\" pages"
-msgstr "Gesplete deur every \"n\" bladsye"
-
-msgid "Number of pages"
-msgstr "Aantal van bladsye"
-
-msgid "Invalid number of pages"
-msgstr "Ongeldige aantal van bladsye"
-
-msgid "Checking for updates"
-msgstr "Loer vir opdaterings"
-
-msgid "Unable to find the latest available version."
-msgstr "Nie in staat is om die jongste beskikbare weergawe vind."
+msgid "Running"
+msgstr "Hardlooping"
 
 #, java-format
-msgid "Unable to find any valid PDF file in the list: {0}"
-msgstr "Nie in staat is om enige geldige PDF-lêer in die lys vind: {0}"
-
-#, java-format
-msgid "Unable to load PDF list file from {0}"
-msgstr "Nie in staat is om PDF lêer lys te laai vanaf {0}"
-
-msgid "Loading pdf documents"
-msgstr "Laai tans pdf dokumente"
-
-msgid "Documents loaded"
-msgstr "Dokumente gelaai"
-
-msgid "Unable to retrieve premium features description"
-msgstr "Nie in staat is om te haal funksies beskrywing"
-
-msgid "Fetching premium tools"
-msgstr "Haaling premie tools"
-
-msgid "Unable to retrieve premium tools"
-msgstr "Nie in staat is om premie tools te haal"
-
-msgid "Unable to retrieve latest news"
-msgstr "Nie in staat is om die jongste nuus te terugkry"
-
-msgid "Fetching latest news"
-msgstr "Haaling jongste nuus"
-
-msgid "Unable to retrieve the latest news"
-msgstr "Nie in staat is om jongste nuus te terugkry"
-
-#, java-format
-msgid "Saving workspace data to {0}"
-msgstr "Stoor werkruimte data op {0}"
-
-msgid "Workspace saved"
-msgstr "Werkruimte stoorde"
-
-msgid "Requesting tools state"
-msgstr "Versoek tools staat"
-
-msgid "Unable to save tools workspace"
-msgstr "Nie in staat is om tools werkruimte te stoor"
-
-#, java-format
-msgid "Unable to save workspace to {0}"
-msgstr "Nie in staat is om werkruimte te stoor om {0}"
-
-#, java-format
-msgid "Loading workspace from {0}"
-msgstr "Laai tans werkruimte vanaf {0}"
-
-msgid "Workspace loaded"
-msgstr "Werkruimte gelaai"
-
-#, java-format
-msgid "Unable to load workspace from {0}"
-msgstr "Nie in staat is om laai werkruimte vanaf {0}"
-
-msgid "Split by size"
-msgstr "Gesplete deur grootte"
-
-msgid "Split a PDF document in files of the given size (roughly)."
-msgstr "Gesplete 'n PDF dokument in lêers van die gegewe grootte (roughly)."
-
-msgid "Megabytes"
-msgstr "Megabytes"
-
-msgid "MB"
-msgstr "MB"
-
-msgid "Kilobytes"
-msgstr "Kilobytes"
-
-msgid "KB"
-msgstr "KB"
-
-msgid "Set the size to split at"
-msgstr "Stel die grootte in om gesplete at"
-
-msgid "Size must be a number"
-msgstr "Grootte moet 'n nommer wees"
-
-msgid "Split at this size:"
-msgstr "Gesplete at hierdie grootte:"
-
-msgid "Invalid split size"
-msgstr "Ongeldige gesplete grootte"
-
-msgid "Alternate Mix"
-msgstr "Alternatiewe Mix"
-
-msgid ""
-"Merge two or more PDF documents taking pages alternately in natural or "
-"reverse order."
-msgstr ""
-"Merge twee of meer PDF dokumente die neem van bladsye afwisselend in "
-"natuurlike of omgekeerde volgorde."
-
-msgid "Destination file"
-msgstr "Bestemmings lêer"
-
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Dubbel kliek op te rig bladsye wat jy wil om te meng (ex: 2 of 5-23 of 2,5-"
-"7,12-)"
-
-msgid "Select a positive integer number as pace"
-msgstr "Selekteer 'n positiewe heelgetal nommer as pace"
-
-msgid "All pages"
-msgstr "Alle bladsye"
-
-msgid "90 degrees clockwise"
-msgstr "90 grade kloksgewys"
-
-msgid "180 degrees clockwise"
-msgstr "180 grade kloksgewys"
-
-msgid "90 degrees counterclockwise"
-msgstr "90 grade antikloksgewys"
-
-msgid "Rotate "
-msgstr "Draaien "
-
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Dubbel kliek op stel bladsye wat jy wil om te draaien"
-
-msgid "Rotate"
-msgstr "Roteer"
-
-msgid "Rotate the pages of multiple PDF documents."
-msgstr "Roteer die bladsye van meervoudige PDF dokumente."
-
-msgid "Rotate settings"
-msgstr "Draaien instellings"
-
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Dubbel kliek te stel bladsye wat jy wil om saamsmelt (ex: 2 of 5-23 of 2,5-"
-"7,12-)"
-
-msgid "Add a blank page if page number is odd"
-msgstr "Voeg 'n leë bladsy by as die bladsynommer vreemd is"
-
-msgid ""
-"Adds a blank page after each merged document if the document has an odd "
-"number of pages"
-msgstr ""
-"Voeg 'n leë bladsy na elke saamgevoegde dokument by indien die dokument 'n "
-"onewe aantal bladsye het"
-
-msgid "Add a footer"
-msgstr "Voeg 'n voetskrif by"
-
-msgid "Adds a page footer with the name of the file the page belonged to."
-msgstr ""
-"Voeg 'n bladsy footer met die naam van die lêer die bladsy behoort aan."
-
-msgid "Normalize pages size"
-msgstr "Normaliseer bladsye grootte"
-
-msgid "Resizes all pages to have the same width as the first page."
-msgstr ""
-"Verander die grootte van alle bladsye om dieselfde breedte as die eerste "
-"bladsy te hê."
-
-msgid "Merge fields"
-msgstr "Merge velde"
-
-msgid "Merge renaming existing fields"
-msgstr "Voeg naam van bestaande velde saam"
-
-msgid "Flatten"
-msgstr "Afplat"
-
-msgid "Discard forms"
-msgstr "Discard vorms"
-
-msgid "Interactive forms (AcroForms):"
-msgstr "Interaktiewe vorms (AcroForms):"
-
-msgid "What to do in case one or more input documents contain Acro Forms"
-msgstr ""
-"Wat om te doen in geval een of meer insette dokumente bevat Acro Forms"
-
-msgid "Retain bookmarks"
-msgstr "Behou- boekmerke"
-
-msgid "Create one entry for each merged document"
-msgstr "Skep een inskrywing vir elke saamgevoegde dokument"
-
-msgid "Retain bookmarks as one entry for each merged document"
-msgstr "Behou- boekmerke as een inskrywing vir elke saamgevoegde dokument"
-
-msgid "Bookmarks handling:"
-msgstr "Boekmerke hantering:"
-
-msgid "What to do in case one or more input documents contain bookmarks"
-msgstr ""
-"Wat om te doen in geval een of meer insette dokumente bevat boekmerke"
-
-msgid "Don't generate"
-msgstr "Moenie te genereer"
-
-msgid "Generate from file names"
-msgstr "Genereer vanaf lêer naam"
-
-msgid "Generate from documents titles"
-msgstr "Genereer vanaf dokumente- titels"
-
-msgid "Table of contents:"
-msgstr "Tafel van inhoud:"
-
-msgid ""
-"Set if a table of contents should be added to the generated PDF document"
-msgstr ""
-"Stel indien 'n tafel van inhoud behoort wees gevoeg om die gegenereerde PDF "
-"dokument"
-
-msgid "Merge"
-msgstr "Saamsmelt"
-
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr ""
-"Saamsmelt saam meervoudige PDF-dokumente of onderafdelings van hulle."
-
-msgid "Merge settings"
-msgstr "Saamsmelt instellings"
-
-#, java-format
-msgid "File \"{0}\" does not exist or is invalid"
-msgstr "Lêer \"{0}\" bestaan nie of is ongeldig"
-
-msgid "Valid user password provided."
-msgstr "Geldige gebruikerswagwoord verskaf."
-
-msgid "This document is encrypted, click to provide a password."
-msgstr "Hierdie dokument is geïnkripteer, Klik om 'n wagwoord te voorsien."
-
-msgid "An error has occurred, click for more details."
-msgstr "N fout het voorgekom, klik vir meer besonderhede."
-
-msgid "Security"
-msgstr "Sekuriteit"
-
-msgid "Other"
-msgstr "Ander"
-
-msgid "Roundish"
-msgstr "Roundish"
-
-msgid "Directories"
-msgstr "Directories"
+msgid "Running {0}%"
+msgstr "Hardlooping {0}%"
 
 msgid "Error saving log file."
 msgstr "Fout tydens stoor log lêer."
@@ -1137,9 +1231,6 @@ msgstr "Ongeldige nommer: {0}."
 
 #~ msgid "Split even pages"
 #~ msgstr "Gesplete ewe bladsye"
-
-#~ msgid "Theme:"
-#~ msgstr "Tema:"
 
 #~ msgid "Output document pdf version:"
 #~ msgstr "Uitset dokument pdf weergawe:"

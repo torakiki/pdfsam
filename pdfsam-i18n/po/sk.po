@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-11-15 12:38+0100\n"
+"POT-Creation-Date: 2023-01-27 11:09+0100\n"
 "PO-Revision-Date: 2020-11-22 07:35+0000\n"
 "Last-Translator: Marcel Lipovsky <Unknown>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-07-26 09:36+0000\n"
-"X-Generator: Launchpad (build 20124175fa98fcb4b43973265a1561174418f4bd)\n"
+"X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
+"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Nebol vybraný žiadny PDF dokument"
@@ -35,6 +35,12 @@ msgstr "Nastavenia extrahovnaia"
 msgid "Output settings"
 msgstr "Nastavenia výstupu"
 
+msgid "A separate file for each set of pages"
+msgstr ""
+
+msgid "Each continuous series of pages will generate a separate PDF file"
+msgstr ""
+
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Stránky na extrakciu (napr. 2 alebo 5-23 alebo 2,5-7,12-)"
 
@@ -44,9 +50,324 @@ msgstr "Neplatné rozsahy strán"
 msgid "Extract pages:"
 msgstr "Extrahovať strany:"
 
-#, java-format
-msgid "Installing theme {0}."
-msgstr "Inštalujem tému {0}."
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+")"
+msgstr ""
+
+msgid "Split by bookmarks"
+msgstr "Rozdeliť po záložkách"
+
+msgid ""
+"Split a PDF document at bookmarked pages by specifying a bookmark level."
+msgstr "Rozdeľte PDF dokument podľa záložiek a zadním úrovne záložiek."
+
+msgid "Regular expression the bookmark has to match"
+msgstr "Záložka musí zodpovedať regulárnemu výrazu"
+
+msgid "Split at this bookmark level:"
+msgstr "Rozdeliť na tejto úrovni záložiek:"
+
+msgid "Matching regular expression:"
+msgstr "Odpovedajúci regulárny výraz:"
+
+msgid "A regular expression the bookmark text has to match"
+msgstr "Text záložky musí zopovedať regulárnemu výrazu"
+
+msgid ""
+"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+"Príklad: použite .*kapitola.* pre zvolenie záložiek obsahujucich slovo "
+"\"kapitola\""
+
+msgid "Select or drag and drop the PDF you want to split"
+msgstr "Vyberte alebo pretiahnite súbor PDF, ktorý chcete rozdeliť"
+
+msgid "Split settings"
+msgstr "Nastavenie pre delenie súborov"
+
+msgid "Invalid bookmarks level"
+msgstr "Neplatná úroveň záložiek"
+
+msgid "Split after"
+msgstr "Rozdeliť za"
+
+msgid "No page selected"
+msgstr "Nie sú označené strany"
+
+msgid "Split"
+msgstr "Rozdeliť"
+
+msgid "Split a PDF document at the given page numbers."
+msgstr "PDF dokument rozdeliť podľa zadaných strán"
+
+msgid "Every page"
+msgstr "Každá strana"
+
+msgid "Even pages"
+msgstr "Párne strany"
+
+msgid "Odd pages"
+msgstr "Nepárne strany"
+
+msgid "Split the document after the given page numbers"
+msgstr "Dokument rozdeliť podľa zadaných strán"
+
+msgid ""
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr "Rozdelí PDF po \"n\" stranách a vytvorí dokumenty s \"n\" stranami"
+
+msgid "Split after the following page numbers"
+msgstr "Rozdeliť za nasledujúcimi stranami"
+
+msgid "Page numbers to split at (n1,n2,n3..)"
+msgstr "Čísla deliacich strán (n1,n2,n3..)"
+
+msgid "Invalid page numbers"
+msgstr "Neplatné čísla strán"
+
+msgid "Only valid positive page numbers are allowed"
+msgstr "Povolené sú len celé kladné čísla"
+
+msgid "Split by every \"n\" pages"
+msgstr "Rozdeliť po \"n\" stranách"
+
+msgid "Number of pages"
+msgstr "Počet strán"
+
+msgid "Invalid number of pages"
+msgstr "Neplatný počet strán"
+
+msgid "Megabytes"
+msgstr "Megabajty"
+
+msgid "MB"
+msgstr "MB"
+
+msgid "Kilobytes"
+msgstr "Kilobajty"
+
+msgid "KB"
+msgstr "kB"
+
+msgid "Split by size"
+msgstr "Rozdeliť podľa veľkosti"
+
+msgid "Split a PDF document in files of the given size (roughly)."
+msgstr "Rozdeliť PDF na súbory danej veľkosti (približne)"
+
+msgid "Set the size to split at"
+msgstr "Zadajte požadovanú veľkosť"
+
+msgid "Size must be a number"
+msgstr "Veľkosť musí byť celé kladné číslo"
+
+msgid "Split at this size:"
+msgstr "Rozdeliť pri veľkosti:"
+
+msgid "Invalid split size"
+msgstr "Neplatná veľkosť rozdelenia"
+
+msgid "Destination file"
+msgstr "Cieľový súbor"
+
+msgid "Alternate Mix"
+msgstr "Náhodne premiešať"
+
+msgid ""
+"Merge two or more PDF documents taking pages alternately in natural or "
+"reverse order."
+msgstr ""
+"Zlúčiť dva alebo viac dokumentov PDF, ktorých strny sa striedavo spájajú v "
+"prirodzenom alebo opačnom poradí."
+
+msgid ""
+"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Dvojitým kliknutím nastavte stránky, ktoré chcete zmiešať (napr. 2 alebo 5-"
+"23 alebo 2,5-7,12-)"
+
+msgid "Select a positive integer number as pace"
+msgstr "Pre krokovanie vyberte celé kladné číslo"
+
+msgid "All pages"
+msgstr "Všetky strany"
+
+msgid "90 degrees clockwise"
+msgstr "o 90° v smere hodinových ručičiek"
+
+msgid "180 degrees clockwise"
+msgstr "o 180° v smere hodinových ručičiek"
+
+msgid "90 degrees counterclockwise"
+msgstr "o 90° v protismere hodinových ručičiek"
+
+msgid "Rotate "
+msgstr "Otočiť "
+
+msgid "Rotate settings"
+msgstr "Nastavenie otočenia"
+
+msgid "Rotate"
+msgstr "Otočiť"
+
+msgid "Rotate the pages of multiple PDF documents."
+msgstr "Otočte strany viacerých PDF dokumentov."
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Dvojitým kliknutím nastavíte strany, ktoré chcete otáčať (napr. 2 alebo 5-23 "
+"alebo 2,5-7,12-)"
+
+msgid "Merge settings"
+msgstr "Nastavenie zlučovania"
+
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Dvojitým kliknutím nastavte strany, ktoré chcete zlúčiť (napr. 2 alebo 5-23 "
+"alebo 2,5-7,12-)"
+
+msgid "Add a blank page if page number is odd"
+msgstr "Ak je číslo strany nepárne, pridajte prázdnu stránku"
+
+msgid ""
+"Adds a blank page after each merged document if the document has an odd "
+"number of pages"
+msgstr ""
+"Ak má dokument nepárny počet strán, PDFsam pridáva prázdnu stránku po každom "
+"zlúčenom dokumente"
+
+msgid "Add a footer"
+msgstr "Pridať pätu"
+
+msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr "Pridá pätu stránky s názvom súboru, ku ktorému stránka patrila."
+
+msgid "None"
+msgstr ""
+
+msgid "Same width as first page"
+msgstr ""
+
+msgid "Same width as first page (based on page orientation)"
+msgstr ""
+
+msgid "Pages normalization:"
+msgstr ""
+
+msgid ""
+"Set whether pages should be resized to all have the same width as the first "
+"one"
+msgstr ""
+
+msgid "Merge fields"
+msgstr "Zlúčiť polia"
+
+msgid "Merge renaming existing fields"
+msgstr "Zlúčiť premenovanie existujúcich polí"
+
+msgid "Flatten"
+msgstr "Sploštiť"
+
+msgid "Discard forms"
+msgstr "Zrušiť formuláre"
+
+msgid "Interactive forms (AcroForms):"
+msgstr "Interactívne  formuláre (AcroForms):"
+
+msgid "What to do in case one or more input documents contain Acro Forms"
+msgstr ""
+"Čo robiť v prípade, že jeden alebo viac vstupných dokumentov obsahuje Acro "
+"Forms"
+
+msgid "Retain bookmarks"
+msgstr "Zachovať záložky"
+
+msgid "Discard bookmarks"
+msgstr "Zrušiť záložky"
+
+msgid "Create one entry for each merged document"
+msgstr "Vytvorte jednu položku pre každý zlúčený dokument"
+
+msgid "Retain bookmarks as one entry for each merged document"
+msgstr "Zachovať záložky ako jednu položku pre každý zlúčený dokument"
+
+msgid "Bookmarks handling:"
+msgstr "Spracovanie záložiek:"
+
+msgid "What to do in case one or more input documents contain bookmarks"
+msgstr ""
+"Čo robiť v prípade, že jeden alebo viac vstupných dokumentov obsahuje záložky"
+
+msgid "Don't generate"
+msgstr "Negenerovať"
+
+msgid "Generate from file names"
+msgstr "Generovať z názvov súborov"
+
+msgid "Generate from documents titles"
+msgstr "Generovať z titulov dokumentov"
+
+msgid "Table of contents:"
+msgstr "Obsah:"
+
+msgid ""
+"Set if a table of contents should be added to the generated PDF document"
+msgstr "Nastavte, či sa má do generovaného dokumentu PDF pridať aj obsah"
+
+msgid "Merge"
+msgstr "Zlúčiť"
+
+msgid "Merge together multiple PDF documents or subsections of them."
+msgstr "Zlúčiť viacero PDF dokumentov alebo ich podsekcií."
+
+msgid "Select or drag and drop the PDF whose pages will be repeated"
+msgstr ""
+
+msgid "Repeat these pages:"
+msgstr ""
+
+msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid ""
+"Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
+"7,12-)"
+msgstr ""
+
+msgid "Leave it empty to use all the pages of the PDF file"
+msgstr ""
+
+msgid "Repeat every \"n\" pages:"
+msgstr ""
+
+msgid "Invalid page number"
+msgstr ""
+
+msgid "Repeat the selected pages every \"n\" pages of the original document"
+msgstr ""
+
+msgid "The selected PDF file is invalid"
+msgstr "Zvolený PDF súbor je neplatný alebo poškodený"
+
+msgid "The number of pages must be a positive number"
+msgstr ""
+
+msgid "Select or drag and drop the PDF you want to insert pages to"
+msgstr ""
+
+msgid "Insert and Repeat settings"
+msgstr ""
+
+msgid "Insert pages multiple times"
+msgstr ""
+
+msgid ""
+"Insert the pages of a PDF document A into another document B, repeating it "
+"after a certain number of pages, resulting in B1 A B2 A B3 A etc."
+msgstr ""
 
 #, java-format
 msgid "Started in {0}"
@@ -55,280 +376,32 @@ msgstr "Spustené v {0}"
 msgid "Closing PDFsam..."
 msgstr "Ukončujem PDFsam..."
 
-msgid "Log register"
-msgstr "Protokol"
-
-msgid "Copy"
-msgstr "Kopírovať"
-
-msgid "Clear"
-msgstr "Vymazať"
-
-msgid "Select all"
-msgstr "Vybrať všetko"
-
-msgid "Save log"
-msgstr "Uložiť protokol"
-
-msgid "Select where to save the log file"
-msgstr "Vyberte miesto pre uloženie protokolu"
-
-msgid "About"
-msgstr "O aplikácii"
-
-msgid "Premium features"
-msgstr "Prémiové funkcie"
-
-msgid "Close"
-msgstr "Zatvoriť"
-
-msgid "Modules"
-msgstr "Moduly"
-
-msgid "Subscribe to the official news feed"
-msgstr "Odoberať oficiálne novinky"
-
-msgid "Environment"
-msgstr "Prostredie"
-
-msgid "Vendor: %s"
-msgstr "Dodávateľ: %s"
-
-msgid "Java runtime path: %s"
-msgstr "Cesta k Java runtime: %s"
-
-msgid "JavaFX runtime version %s"
-msgstr "JavaFX runtime verzia %s"
-
-#, java-format
-msgid "Max memory {0}"
-msgstr "Maximálna pamäť {0}"
-
-msgid "Copy to clipboard"
-msgstr "Skopírovať do schránky"
-
-msgid "Support"
-msgstr "Podpora"
-
-msgid "Bug and feature requests"
-msgstr "Chyby a návrhy"
-
-msgid "Documentation"
-msgstr "Dokumentácia"
-
-msgid "Contribute"
-msgstr "Prispejte"
-
-msgid "Fork PDFsam on GitHub"
-msgstr "Vytvoriť fork PDFsam na GitHub-e"
-
-msgid "Translate"
-msgstr "Preložiť"
-
-msgid "Donate"
-msgstr "Prispieť"
-
-msgid "Social"
-msgstr "Sociálne siete"
-
-msgid "Follow us on Twitter"
-msgstr "Sledujte nás na Twitteri"
-
-msgid "Like us on Facebook"
-msgstr "Likenite nás na facebooku"
-
-msgid "Log register rows:"
-msgstr "Počet riadkov protokolu:"
-
-msgid "Maximum number of rows displayed by the Log register"
-msgstr "Maximálny počet riadkov zobrazených v protokole"
-
-msgid "Language:"
-msgstr "Jazyk:"
-
-msgid "Set your preferred language (restart needed)"
-msgstr "Nastavte vami preferovaný jazyk (potrebný reštart)"
-
-msgid "Startup tool:"
-msgstr "Východzí modul"
-
-msgid "Set the tool to open at application startup (restart needed)"
-msgstr "Modul, ktorý sa zobrazí po spustení aplikácie. (potrebuje reštart)"
-
-msgid ""
-"Usage statistics are used to populate the tools quick bar on the left with "
-"the most used and most recently used tools."
-msgstr ""
-"Štatistiky používania sa využívajú pre naplnenie panelu pre rýchly prístup "
-"(vľavo) k najčastešie používaným a novým modulom."
-
-msgid "Manually selected"
-msgstr "Manuálne zvolené"
-
-msgid ""
-"Automatically set the destination directory to the selected PDF document "
-"directory"
-msgstr ""
-"Automaticky nastavovať cieľový priečinok podľa  aktuálne vybraného priečinku "
-"pre PDF dokument"
-
-msgid "Clear usage statistics"
-msgstr "Vymazať štatistiky používania"
-
-msgid "Appearance"
-msgstr "Vzhľad"
-
-msgid "Behavior"
-msgstr "Správanie"
-
-msgid "Workspace"
-msgstr "Pracovný priestor"
-
-msgid "Output"
-msgstr "Výstup"
-
-msgid "Check for updates now"
-msgstr "Skontrolovať aktualizácie"
-
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
-msgstr ""
-"Vyberte predvolený priečinok, v ktorom budú dokumenty ukladané a nahrávané"
-
-msgid "Select a directory"
-msgstr "Vyberte priečinok"
-
-msgid ""
-"Select a previously saved workspace that will be automatically loaded at "
-"startup"
-msgstr ""
-"Vyberte uložený pracovný priestor, ktorý sa  automaticky načíta pri spustení "
-"aplikácie"
-
-msgid "Select a workspace"
-msgstr "Vybrať pracovný priestor"
-
-msgid "Default working directory:"
-msgstr "Predvolený pracovný priečinok:"
-
-msgid "Load default workspace at startup:"
-msgstr "Nahrať predvolený pracovný priestor pri spustení:"
-
-msgid "Dashboard"
-msgstr "Informačný panel"
-
-msgid "Check for updates at startup"
-msgstr "Pri štarte skontrolovať aktualizácie"
-
-msgid ""
-"Set whether new version availability should be checked on startup (restart "
-"needed)"
-msgstr ""
-"Nastaviť zisťovanie nových verzií po spustení aplikácie (potrebuje reštart)"
-
-msgid "Check for news at startup"
-msgstr "Kontrola noviniek pri štarte"
-
-msgid ""
-"Set whether the application should check for news availability on startup "
-"(restart needed)"
-msgstr ""
-"Nastaviť zisťovanie noviniek po spustení aplikácie (potrebuje reštart)"
-
-msgid "Enabled PDF compression"
-msgstr "Zapnutá PDF kompresia"
-
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr "Zvoľte predvolené nastavenie pre kompreciu výstupného súboru."
-
-msgid "Overwrite files"
-msgstr "Prepísať súbory"
-
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
-msgstr "Nastaviť, či má byť predvolene povolené „Prepísať, ak už existuje“"
-
-msgid "Play alert sounds"
-msgstr "Prehrávať upozorňujúce zvuky"
-
-msgid "Turn on or off alert sounds"
-msgstr "Zapnúť alebo vypnúť upozorňujúce zvuky"
-
-msgid "Store passwords when saving a workspace file"
-msgstr "Ukladať heslá pri ukladaní súboru pracovného priestoru"
-
-msgid ""
-"If an encrypted PDF document has been opened with a password, save the "
-"password in the workspace file"
-msgstr ""
-"Ak bol šifrovaný PDF dokument otvorený s heslom, uložte heslo do súboru "
-"pracovného priestoru"
-
-msgid "Show donation window"
-msgstr "Zobraziť okno prispievateľov"
-
-msgid ""
-"Turn on or off the notification appearing once in a while and asking the "
-"user to support PDFsam with a donation"
-msgstr ""
-"Zapnite alebo vypnite upozornenie, ktoré sa objavuje raz za čas a žiada "
-"používateľa o podporu PDFsam darom."
-
-msgid "Show premium features"
-msgstr "Zobraziť prémiové funkcie"
-
-msgid ""
-"Set whether the application should fetch and show premium features "
-"description in the tools dashboard"
-msgstr ""
-"Nastavte, či má aplikácia na paneli modulov načítať a zobraziť popis "
-"prémiových funkcií"
-
-msgid "Ask for a confirmation when clearing the selection table"
-msgstr "Vyžiadať potvrdenie pred vyčistením tabuľky výberu."
-
-msgid ""
-"Set whether the application should ask for a confirmation when clearing the "
-"selection table"
-msgstr ""
-"Nastavte, či má aplikácia vyžadovať potvrdenie pri vyčistením tabuľky výberu"
-
-msgid "Use the selected PDF document directory as output directory"
-msgstr "Použiť priečinok PDF dokumentu ako výstupný vriečinok"
-
-msgid "Save default workspace on exit"
-msgstr "Pri ukončení uložiť predvolený pracovný priestor"
-
-msgid "If a default workspace is set, save it on application exit"
-msgstr ""
-"Ak je nastavený, uložiť predvolený pracovný priestor pri ukončení aplikácie"
-
-msgid "Maximum number of rows mast be a positive number"
-msgstr "Maximálny počet riadkov musí byť uvedený ako celé kladné číslo"
-
-msgid "Generate high quality thumbnails (slower)"
-msgstr "Generovať náhľady vo vysokej kvalite (pomalé)"
-
-msgid "Size in px:"
-msgstr "Veľkosť v pixeloch:"
-
-msgid "Library used to generate thumbnails"
-msgstr "Knižnica pre vytváranie náhľadov"
-
-msgid "Thumbnails creator:"
-msgstr "Generátor náhľadov"
-
-msgid "Settings"
-msgstr "Nastavenia"
-
 msgid "Drag and drop PDF files or directories containing PDF files"
 msgstr "Presuňte a pustite súbory PDF alebo priečinky obsahujúce súbory PDF"
 
 msgid "No PDF found"
 msgstr "Neboli nájdené žiadne PDF súbory"
 
+msgid "Tools"
+msgstr ""
+
+msgid "News"
+msgstr ""
+
 msgid "What's new"
 msgstr "Čo je nové"
+
+msgid "Exit"
+msgstr "Ukončiť"
+
+msgid "Exit the application"
+msgstr ""
+
+msgid "Workspace"
+msgstr "Pracovný priestor"
+
+msgid "Manage your workspaces"
+msgstr ""
 
 msgid "Yes"
 msgstr "Áno"
@@ -343,7 +416,7 @@ msgid "Do you confirm?"
 msgstr "Potvrdzujete?"
 
 msgid "Clear the tool settings"
-msgstr "Vymazať nastavenia modulu"
+msgstr ""
 
 msgid "Clear the selection table"
 msgstr "Vymazať tabuľku výberu"
@@ -417,6 +490,293 @@ msgstr ""
 "Výsledkom môžu byť PDF súbory s čiastočnými, alebo chýbajúcimi dátami. "
 "Pokračovať?"
 
+msgid "Removes all the log messages"
+msgstr ""
+
+msgid "_Clear"
+msgstr "Vy_mazať"
+
+msgid "_Save"
+msgstr "_Uložiť"
+
+msgid "C_lose"
+msgstr ""
+
+msgid "Copy"
+msgstr "Kopírovať"
+
+msgid "Clear"
+msgstr "Vymazať"
+
+msgid "Select all"
+msgstr "Vybrať všetko"
+
+msgid "Save log"
+msgstr "Uložiť protokol"
+
+msgid "Select where to save the log file"
+msgstr "Vyberte miesto pre uloženie protokolu"
+
+msgid "Logs"
+msgstr ""
+
+msgid "Application messages"
+msgstr "Správy aplikácie"
+
+msgid "_Load"
+msgstr "_Načítať"
+
+msgid "Recen_ts"
+msgstr "Nedávno použi_té"
+
+msgid "_Clear recents"
+msgstr "_Vyčistiť nedávno použité"
+
+msgid "Select the workspace file to save"
+msgstr "Vyberte pracovný priestor pre uloženie"
+
+msgid "Select the workspace to load"
+msgstr "Vyberte pracovný priestor pre nahranie"
+
+msgid "Subscribe to the official news feed"
+msgstr "Odoberať oficiálne novinky"
+
+msgid "Environment"
+msgstr "Prostredie"
+
+#, java-printf-format
+msgid "Vendor: %s"
+msgstr "Dodávateľ: %s"
+
+#, java-printf-format
+msgid "Java runtime path: %s"
+msgstr "Cesta k Java runtime: %s"
+
+#, java-printf-format
+msgid "JavaFX runtime version: %s"
+msgstr ""
+
+#, java-printf-format
+msgid "PDF engine (Sejda SDK) version: %s"
+msgstr ""
+
+#, java-format
+msgid "Max memory {0}"
+msgstr "Maximálna pamäť {0}"
+
+msgid "Copy to clipboard"
+msgstr "Skopírovať do schránky"
+
+msgid "Support"
+msgstr "Podpora"
+
+msgid "Bug and feature requests"
+msgstr "Chyby a návrhy"
+
+msgid "Documentation"
+msgstr "Dokumentácia"
+
+msgid "Contribute"
+msgstr "Prispejte"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "Vytvoriť fork PDFsam na GitHub-e"
+
+msgid "Translate"
+msgstr "Preložiť"
+
+msgid "Donate"
+msgstr "Prispieť"
+
+msgid "Social"
+msgstr "Sociálne siete"
+
+msgid "Follow us on Twitter"
+msgstr "Sledujte nás na Twitteri"
+
+msgid "Like us on Facebook"
+msgstr "Likenite nás na facebooku"
+
+msgid "About"
+msgstr "O aplikácii"
+
+msgid "Home"
+msgstr ""
+
+msgid "Premium features"
+msgstr "Prémiové funkcie"
+
+msgid "Log register rows:"
+msgstr "Počet riadkov protokolu:"
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr "Maximálny počet riadkov zobrazených v protokole"
+
+msgid "Language:"
+msgstr "Jazyk:"
+
+msgid "Set your preferred language (restart needed)"
+msgstr "Nastavte vami preferovaný jazyk (potrebný reštart)"
+
+msgid "Startup tool:"
+msgstr ""
+
+msgid "Set the tool to open at application startup (restart needed)"
+msgstr ""
+
+msgid "Theme:"
+msgstr "Motív:"
+
+msgid "Set the application theme"
+msgstr ""
+
+msgid "Font size:"
+msgstr ""
+
+msgid "Set the application font size"
+msgstr ""
+
+msgid "Manually selected"
+msgstr "Manuálne zvolené"
+
+msgid ""
+"Automatically set the destination directory to the selected PDF document "
+"directory"
+msgstr ""
+"Automaticky nastavovať cieľový priečinok podľa  aktuálne vybraného priečinku "
+"pre PDF dokument"
+
+msgid "Settings"
+msgstr "Nastavenia"
+
+msgid "Appearance"
+msgstr "Vzhľad"
+
+msgid "Behavior"
+msgstr "Správanie"
+
+msgid "Output"
+msgstr "Výstup"
+
+msgid "Check for updates now"
+msgstr "Skontrolovať aktualizácie"
+
+msgid ""
+"Select a directory where documents will be saved and loaded by default"
+msgstr ""
+"Vyberte predvolený priečinok, v ktorom budú dokumenty ukladané a nahrávané"
+
+msgid "Select a directory"
+msgstr "Vyberte priečinok"
+
+msgid ""
+"Select a previously saved workspace that will be automatically loaded at "
+"startup"
+msgstr ""
+"Vyberte uložený pracovný priestor, ktorý sa  automaticky načíta pri spustení "
+"aplikácie"
+
+msgid "Select a workspace"
+msgstr "Vybrať pracovný priestor"
+
+msgid "Default working directory:"
+msgstr "Predvolený pracovný priečinok:"
+
+msgid "Load default workspace at startup:"
+msgstr "Nahrať predvolený pracovný priestor pri spustení:"
+
+msgid "System default"
+msgstr ""
+
+msgid "Check for updates at startup"
+msgstr "Pri štarte skontrolovať aktualizácie"
+
+msgid ""
+"Set whether new version availability should be checked on startup (restart "
+"needed)"
+msgstr ""
+"Nastaviť zisťovanie nových verzií po spustení aplikácie (potrebuje reštart)"
+
+msgid "Check for news at startup"
+msgstr "Kontrola noviniek pri štarte"
+
+msgid ""
+"Set whether the application should check for news availability on startup "
+"(restart needed)"
+msgstr ""
+"Nastaviť zisťovanie noviniek po spustení aplikácie (potrebuje reštart)"
+
+msgid "Enabled PDF compression"
+msgstr "Zapnutá PDF kompresia"
+
+msgid "Set whether \"Compress output file\" should be enabled by default"
+msgstr "Zvoľte predvolené nastavenie pre kompreciu výstupného súboru."
+
+msgid "Overwrite files"
+msgstr "Prepísať súbory"
+
+msgid ""
+"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgstr "Nastaviť, či má byť predvolene povolené „Prepísať, ak už existuje“"
+
+msgid "Play alert sounds"
+msgstr "Prehrávať upozorňujúce zvuky"
+
+msgid "Turn on or off alert sounds"
+msgstr "Zapnúť alebo vypnúť upozorňujúce zvuky"
+
+msgid "Store passwords when saving a workspace file"
+msgstr "Ukladať heslá pri ukladaní súboru pracovného priestoru"
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
+"Ak bol šifrovaný PDF dokument otvorený s heslom, uložte heslo do súboru "
+"pracovného priestoru"
+
+msgid "Show donation window"
+msgstr "Zobraziť okno prispievateľov"
+
+msgid ""
+"Turn on or off the notification appearing once in a while and asking the "
+"user to support PDFsam with a donation"
+msgstr ""
+"Zapnite alebo vypnite upozornenie, ktoré sa objavuje raz za čas a žiada "
+"používateľa o podporu PDFsam darom."
+
+msgid "Show premium features"
+msgstr "Zobraziť prémiové funkcie"
+
+msgid ""
+"Set whether the application should fetch and show premium features "
+"description in the modules dashboard"
+msgstr ""
+"Nastavte, či má aplikácia na paneli modulov načítať a zobraziť popis "
+"prémiových funkcií"
+
+msgid "Ask for a confirmation when clearing the selection table"
+msgstr "Vyžiadať potvrdenie pred vyčistením tabuľky výberu."
+
+msgid ""
+"Set whether the application should ask for a confirmation when clearing the "
+"selection table"
+msgstr ""
+"Nastavte, či má aplikácia vyžadovať potvrdenie pri vyčistením tabuľky výberu"
+
+msgid "Use the selected PDF document directory as output directory"
+msgstr "Použiť priečinok PDF dokumentu ako výstupný vriečinok"
+
+msgid "Save default workspace on exit"
+msgstr "Pri ukončení uložiť predvolený pracovný priestor"
+
+msgid "If a default workspace is set, save it on application exit"
+msgstr ""
+"Ak je nastavený, uložiť predvolený pracovný priestor pri ukončení aplikácie"
+
+msgid "Maximum number of rows mast be a positive number"
+msgstr "Maximálny počet riadkov musí byť uvedený ako celé kladné číslo"
+
 msgid "Summary"
 msgstr "Zhrnutie"
 
@@ -426,14 +786,14 @@ msgstr "Kľúčové slová"
 msgid "Document details"
 msgstr "Detaily dokumentu"
 
+msgid "Show errors"
+msgstr "Zobraziť chyby"
+
+msgid "Input parameters are invalid"
+msgstr ""
+
 msgid "Invalid parameters"
 msgstr "Neplatné parametre"
-
-msgid ""
-"Input parameters are invalid, open the application messages for details."
-msgstr ""
-"Vstupné parametre sú neplatné, pre viac detailov otvorte okno správ "
-"aplikácie."
 
 msgid "Access denied"
 msgstr "Prístup zamietnutý"
@@ -478,94 +838,111 @@ msgstr "K dispozícii nie je žiadna aktualizácia"
 msgid "Open"
 msgstr "Otvoriť"
 
-msgid "E_xit"
-msgstr "U_končiť"
+#, java-format
+msgid "File \"{0}\" does not exist or is invalid"
+msgstr "Súbor \"{0}\" neexistuje, alebo je neplatný."
 
-msgid "_Settings"
-msgstr "Na_stavenia"
+msgid "Valid user password provided."
+msgstr "Zadané heslo je platné."
 
-msgid "Application messages"
-msgstr "Správy aplikácie"
+msgid "This document is encrypted, click to provide a password."
+msgstr "Tento dokument je šifrovaný, kliknutím zadáte heslo."
 
-msgid "_Modules"
-msgstr "_Moduly"
+msgid "An error has occurred, click for more details."
+msgstr "Vyskytla sa chyba a kliknite na viac informácií."
 
-msgid "_Workspace"
-msgstr "_Pracovný priestor"
-
-msgid "_Load"
-msgstr "_Načítať"
-
-msgid "_Save"
-msgstr "_Uložiť"
-
-msgid "Recen_ts"
-msgstr "Nedávno použi_té"
-
-msgid "_Clear recents"
-msgstr "_Vyčistiť nedávno použité"
-
-msgid "Select the workspace file to save"
-msgstr "Vyberte pracovný priestor pre uloženie"
-
-msgid "Select the workspace to load"
-msgstr "Vyberte pracovný priestor pre nahranie"
-
-msgid "Split by bookmarks"
-msgstr "Rozdeliť po záložkách"
-
-msgid ""
-"Split a PDF document at bookmarked pages by specifying a bookmark level."
-msgstr "Rozdeľte PDF dokument podľa záložiek a zadním úrovne záložiek."
-
-msgid "Select or drag and drop the PDF you want to split"
-msgstr "Vyberte alebo pretiahnite súbor PDF, ktorý chcete rozdeliť"
-
-msgid "Split settings"
-msgstr "Nastavenie pre delenie súborov"
-
-msgid "Regular expression the bookmark has to match"
-msgstr "Záložka musí zodpovedať regulárnemu výrazu"
-
-msgid "Split at this bookmark level:"
-msgstr "Rozdeliť na tejto úrovni záložiek:"
-
-msgid "Matching regular expression:"
-msgstr "Odpovedajúci regulárny výraz:"
-
-msgid "A regular expression the bookmark text has to match"
-msgstr "Text záložky musí zopovedať regulárnemu výrazu"
-
-msgid ""
-"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgid "Split tools"
 msgstr ""
-"Príklad: použite .*kapitola.* pre zvolenie záložiek obsahujucich slovo "
-"\"kapitola\""
 
-msgid "Invalid bookmarks level"
-msgstr "Neplatná úroveň záložiek"
+msgid "Merge tools"
+msgstr ""
 
-msgid "Show errors"
-msgstr "Zobraziť chyby"
+msgid "Convert tools"
+msgstr ""
 
-msgid "Run"
-msgstr "Spustiť"
+msgid "Edit tools"
+msgstr ""
 
-msgid "Requested"
-msgstr "Požadované"
+msgid "Other tools"
+msgstr ""
 
-msgid "Completed"
-msgstr "Hotovo"
+msgid "Checking for updates"
+msgstr "Kontrolujú sa aktualizácie"
 
-msgid "Failed"
-msgstr "Neúspešné"
-
-msgid "Running"
-msgstr "Spustené"
+msgid "Unable to find the latest available version."
+msgstr "Nepodarilo sa nájsť najnovšiu dostupnú verziu."
 
 #, java-format
-msgid "Running {0}%"
-msgstr "Spracované: {0}%"
+msgid "Unable to find any valid PDF file in the list: {0}"
+msgstr "Nebolo možné nájsť žiadny PDF súbor zo zadaného zoznamu: {0}"
+
+#, java-format
+msgid "Unable to load PDF list file from {0}"
+msgstr "Nebolo možné nčítať žiadny zoznam PDF súborov z {0}"
+
+msgid "Loading pdf documents"
+msgstr "Načítavajú sa dokumenty PDF"
+
+msgid "Documents loaded"
+msgstr "Dokumenty sú načítané"
+
+msgid "Unable to retrieve premium features description"
+msgstr "Nepodarilo sa získať popis prémiových funkcií."
+
+msgid "Fetching premium modules"
+msgstr "Načítavanie prémiových modulov"
+
+msgid "Unable to retrieve premium modules"
+msgstr "Prémiové moduly sa nepodarilo načítať"
+
+msgid "Unable to retrieve latest news"
+msgstr "Najnovšie správy sa nepodarilo načítať"
+
+msgid "Fetching latest news"
+msgstr "Načítavajú sa najnovšie správy"
+
+msgid "Unable to retrieve the latest news"
+msgstr "Najnovšie správy sa nepodarilo načítať"
+
+#, java-format
+msgid "Saving workspace data to {0}"
+msgstr "Ukladám dáta pracovného priestoru do {0}"
+
+msgid "Workspace saved"
+msgstr "Pracovný priestor bol uložený"
+
+msgid "Requesting modules state"
+msgstr "Zisťovanie stavu modulov"
+
+#, java-format
+msgid "Unable to save workspace to {0}"
+msgstr "Pracovný priestor nebolo možné uložiť do {0}"
+
+#, java-format
+msgid "Loading workspace from {0}"
+msgstr "Načítanie pracovného priestoru z {0}"
+
+msgid "Workspace loaded"
+msgstr "Pracovný priestor bol načítaný"
+
+#, java-format
+msgid "Unable to load workspace from {0}"
+msgstr "Pracovný priestor z {0} nebolo možné načítať"
+
+msgid "Light with blue"
+msgstr ""
+
+msgid "Dark with purple"
+msgstr ""
+
+msgid "Dark with teal"
+msgstr ""
+
+msgid "Light with maroon"
+msgstr ""
+
+msgid "Close"
+msgstr "Zatvoriť"
 
 msgid "The selected PDF document is invalid"
 msgstr "Vybraný dokument PDF je neplatný/poškodený"
@@ -575,9 +952,6 @@ msgstr "Zvoľte PDF súbor"
 
 msgid "_Select PDF"
 msgstr "Zvoľte PDF"
-
-msgid "_Clear"
-msgstr "Vy_mazať"
 
 msgid "Clear all settings"
 msgstr "Vymazať všetky nastavenia"
@@ -628,11 +1002,21 @@ msgstr "Presunúť na spodok"
 msgid "Duplicate"
 msgstr "Duplikovať"
 
+msgid "Selected pages"
+msgstr ""
+
+msgid "Total number of selected pages"
+msgstr ""
+
 msgid "Size"
 msgstr "Veľkosť"
 
 msgid "Modified"
 msgstr "Zmenené"
+
+#, java-format
+msgid "Total pages: {0}"
+msgstr ""
 
 msgid "Name"
 msgstr "Meno"
@@ -692,6 +1076,9 @@ msgstr "Obrátiť smer"
 msgid "Pages"
 msgstr "Strany"
 
+msgid "Number of total pages of the document"
+msgstr ""
+
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Dvojitým kliknutím nastavíte vybrané strany (napr. 2 alebo 5-23 alebo 2,5-"
@@ -699,9 +1086,6 @@ msgstr ""
 
 msgid "Page ranges"
 msgstr "Rozsahy strán"
-
-msgid "The selected PDF file is invalid"
-msgstr "Zvolený PDF súbor je neplatný alebo poškodený"
 
 msgid "Select a file"
 msgstr "Vybrať súbor"
@@ -715,9 +1099,6 @@ msgstr "Povolené prípony sú: {0}"
 
 msgid "Compress output file/files"
 msgstr "Komprimovať výstupný súbor/súbory"
-
-msgid "Discard bookmarks"
-msgstr "Zrušiť záložky"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -775,6 +1156,9 @@ msgstr "Predpona generovaných názvov súborov"
 msgid "Add prefix"
 msgstr "Pridať predponu"
 
+msgid "DEFAULT_PREFIX"
+msgstr ""
+
 msgid "Generated PDF documents name prefix:"
 msgstr "Predpona názvu generovaných PDF dokumentov:"
 
@@ -788,316 +1172,27 @@ msgstr ""
 msgid "Right click to add these keywords."
 msgstr "Tieto kľúčové slová pridáte kliknutím pravým tlačidlom myši."
 
-msgid "Split after"
-msgstr "Rozdeliť za"
+msgid "Run"
+msgstr "Spustiť"
 
-msgid "No page selected"
-msgstr "Nie sú označené strany"
+msgid "Run the task"
+msgstr ""
 
-msgid "Split"
-msgstr "Rozdeliť"
+msgid "Requested"
+msgstr "Požadované"
 
-msgid "Split a PDF document at the given page numbers."
-msgstr "PDF dokument rozdeliť podľa zadaných strán"
+msgid "Completed"
+msgstr "Hotovo"
 
-msgid "Every page"
-msgstr "Každá strana"
+msgid "Failed"
+msgstr "Neúspešné"
 
-msgid "Even pages"
-msgstr "Párne strany"
-
-msgid "Odd pages"
-msgstr "Nepárne strany"
-
-msgid "Split the document after the given page numbers"
-msgstr "Dokument rozdeliť podľa zadaných strán"
-
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
-msgstr "Rozdelí PDF po \"n\" stranách a vytvorí dokumenty s \"n\" stranami"
-
-msgid "Split after the following page numbers"
-msgstr "Rozdeliť za nasledujúcimi stranami"
-
-msgid "Page numbers to split at (n1,n2,n3..)"
-msgstr "Čísla deliacich strán (n1,n2,n3..)"
-
-msgid "Invalid page numbers"
-msgstr "Neplatné čísla strán"
-
-msgid "Only valid positive page numbers are allowed"
-msgstr "Povolené sú len celé kladné čísla"
-
-msgid "Split by every \"n\" pages"
-msgstr "Rozdeliť po \"n\" stranách"
-
-msgid "Number of pages"
-msgstr "Počet strán"
-
-msgid "Invalid number of pages"
-msgstr "Neplatný počet strán"
-
-msgid "Checking for updates"
-msgstr "Kontrolujú sa aktualizácie"
-
-msgid "Unable to find the latest available version."
-msgstr "Nepodarilo sa nájsť najnovšiu dostupnú verziu."
+msgid "Running"
+msgstr "Spustené"
 
 #, java-format
-msgid "Unable to find any valid PDF file in the list: {0}"
-msgstr "Nebolo možné nájsť žiadny PDF súbor zo zadaného zoznamu: {0}"
-
-#, java-format
-msgid "Unable to load PDF list file from {0}"
-msgstr "Nebolo možné nčítať žiadny zoznam PDF súborov z {0}"
-
-msgid "Loading pdf documents"
-msgstr "Načítavajú sa dokumenty PDF"
-
-msgid "Documents loaded"
-msgstr "Dokumenty sú načítané"
-
-msgid "Unable to retrieve premium features description"
-msgstr "Nepodarilo sa získať popis prémiových funkcií."
-
-msgid "Fetching premium tools"
-msgstr "Načítavanie prémiových modulov"
-
-msgid "Unable to retrieve premium tools"
-msgstr "Prémiové moduly sa nepodarilo načítať"
-
-msgid "Unable to retrieve latest news"
-msgstr "Najnovšie správy sa nepodarilo načítať"
-
-msgid "Fetching latest news"
-msgstr "Načítavajú sa najnovšie správy"
-
-msgid "Unable to retrieve the latest news"
-msgstr "Najnovšie správy sa nepodarilo načítať"
-
-#, java-format
-msgid "Saving workspace data to {0}"
-msgstr "Ukladám dáta pracovného priestoru do {0}"
-
-msgid "Workspace saved"
-msgstr "Pracovný priestor bol uložený"
-
-msgid "Requesting tools state"
-msgstr "Zisťovanie stavu modulov"
-
-msgid "Unable to save tools workspace"
-msgstr "Pracovný priestor modulov nebolo možné uložiť"
-
-#, java-format
-msgid "Unable to save workspace to {0}"
-msgstr "Pracovný priestor nebolo možné uložiť do {0}"
-
-#, java-format
-msgid "Loading workspace from {0}"
-msgstr "Načítanie pracovného priestoru z {0}"
-
-msgid "Workspace loaded"
-msgstr "Pracovný priestor bol načítaný"
-
-#, java-format
-msgid "Unable to load workspace from {0}"
-msgstr "Pracovný priestor z {0} nebolo možné načítať"
-
-msgid "Split by size"
-msgstr "Rozdeliť podľa veľkosti"
-
-msgid "Split a PDF document in files of the given size (roughly)."
-msgstr "Rozdeliť PDF na súbory danej veľkosti (približne)"
-
-msgid "Megabytes"
-msgstr "Megabajty"
-
-msgid "MB"
-msgstr "MB"
-
-msgid "Kilobytes"
-msgstr "Kilobajty"
-
-msgid "KB"
-msgstr "kB"
-
-msgid "Set the size to split at"
-msgstr "Zadajte požadovanú veľkosť"
-
-msgid "Size must be a number"
-msgstr "Veľkosť musí byť celé kladné číslo"
-
-msgid "Split at this size:"
-msgstr "Rozdeliť pri veľkosti:"
-
-msgid "Invalid split size"
-msgstr "Neplatná veľkosť rozdelenia"
-
-msgid "Alternate Mix"
-msgstr "Náhodne premiešať"
-
-msgid ""
-"Merge two or more PDF documents taking pages alternately in natural or "
-"reverse order."
-msgstr ""
-"Zlúčiť dva alebo viac dokumentov PDF, ktorých strny sa striedavo spájajú v "
-"prirodzenom alebo opačnom poradí."
-
-msgid "Destination file"
-msgstr "Cieľový súbor"
-
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Dvojitým kliknutím nastavte stránky, ktoré chcete zmiešať (napr. 2 alebo 5-"
-"23 alebo 2,5-7,12-)"
-
-msgid "Select a positive integer number as pace"
-msgstr "Pre krokovanie vyberte celé kladné číslo"
-
-msgid "All pages"
-msgstr "Všetky strany"
-
-msgid "90 degrees clockwise"
-msgstr "o 90° v smere hodinových ručičiek"
-
-msgid "180 degrees clockwise"
-msgstr "o 180° v smere hodinových ručičiek"
-
-msgid "90 degrees counterclockwise"
-msgstr "o 90° v protismere hodinových ručičiek"
-
-msgid "Rotate "
-msgstr "Otočiť "
-
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Dvojitým kliknutím nastavíte strany, ktoré chcete otáčať (napr. 2 alebo 5-23 "
-"alebo 2,5-7,12-)"
-
-msgid "Rotate"
-msgstr "Otočiť"
-
-msgid "Rotate the pages of multiple PDF documents."
-msgstr "Otočte strany viacerých PDF dokumentov."
-
-msgid "Rotate settings"
-msgstr "Nastavenie otočenia"
-
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Dvojitým kliknutím nastavte strany, ktoré chcete zlúčiť (napr. 2 alebo 5-23 "
-"alebo 2,5-7,12-)"
-
-msgid "Add a blank page if page number is odd"
-msgstr "Ak je číslo strany nepárne, pridajte prázdnu stránku"
-
-msgid ""
-"Adds a blank page after each merged document if the document has an odd "
-"number of pages"
-msgstr ""
-"Ak má dokument nepárny počet strán, PDFsam pridáva prázdnu stránku po každom "
-"zlúčenom dokumente"
-
-msgid "Add a footer"
-msgstr "Pridať pätu"
-
-msgid "Adds a page footer with the name of the file the page belonged to."
-msgstr "Pridá pätu stránky s názvom súboru, ku ktorému stránka patrila."
-
-msgid "Normalize pages size"
-msgstr "Normalizácia veľkosti strán"
-
-msgid "Resizes all pages to have the same width as the first page."
-msgstr "Zmení všetky strany tak, aby mali rovnakú šírku ako prvá strana."
-
-msgid "Merge fields"
-msgstr "Zlúčiť polia"
-
-msgid "Merge renaming existing fields"
-msgstr "Zlúčiť premenovanie existujúcich polí"
-
-msgid "Flatten"
-msgstr "Sploštiť"
-
-msgid "Discard forms"
-msgstr "Zrušiť formuláre"
-
-msgid "Interactive forms (AcroForms):"
-msgstr "Interactívne  formuláre (AcroForms):"
-
-msgid "What to do in case one or more input documents contain Acro Forms"
-msgstr ""
-"Čo robiť v prípade, že jeden alebo viac vstupných dokumentov obsahuje Acro "
-"Forms"
-
-msgid "Retain bookmarks"
-msgstr "Zachovať záložky"
-
-msgid "Create one entry for each merged document"
-msgstr "Vytvorte jednu položku pre každý zlúčený dokument"
-
-msgid "Retain bookmarks as one entry for each merged document"
-msgstr "Zachovať záložky ako jednu položku pre každý zlúčený dokument"
-
-msgid "Bookmarks handling:"
-msgstr "Spracovanie záložiek:"
-
-msgid "What to do in case one or more input documents contain bookmarks"
-msgstr ""
-"Čo robiť v prípade, že jeden alebo viac vstupných dokumentov obsahuje záložky"
-
-msgid "Don't generate"
-msgstr "Negenerovať"
-
-msgid "Generate from file names"
-msgstr "Generovať z názvov súborov"
-
-msgid "Generate from documents titles"
-msgstr "Generovať z titulov dokumentov"
-
-msgid "Table of contents:"
-msgstr "Obsah:"
-
-msgid ""
-"Set if a table of contents should be added to the generated PDF document"
-msgstr "Nastavte, či sa má do generovaného dokumentu PDF pridať aj obsah"
-
-msgid "Merge"
-msgstr "Zlúčiť"
-
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "Zlúčiť viacero PDF dokumentov alebo ich podsekcií."
-
-msgid "Merge settings"
-msgstr "Nastavenie zlučovania"
-
-#, java-format
-msgid "File \"{0}\" does not exist or is invalid"
-msgstr "Súbor \"{0}\" neexistuje, alebo je neplatný."
-
-msgid "Valid user password provided."
-msgstr "Zadané heslo je platné."
-
-msgid "This document is encrypted, click to provide a password."
-msgstr "Tento dokument je šifrovaný, kliknutím zadáte heslo."
-
-msgid "An error has occurred, click for more details."
-msgstr "Vyskytla sa chyba a kliknite na viac informácií."
-
-msgid "Security"
-msgstr "Zabezpečenie"
-
-msgid "Other"
-msgstr "Iné"
-
-msgid "Roundish"
-msgstr "Zaokrúhlené"
-
-msgid "Directories"
-msgstr "Priečinky"
+msgid "Running {0}%"
+msgstr "Spracované: {0}%"
 
 msgid "Error saving log file."
 msgstr "Chyba pri ukladaní protokolu"
@@ -1130,9 +1225,6 @@ msgstr "Neplatné číslo: {0}."
 
 #~ msgid "Output document pdf version:"
 #~ msgstr "Verzia výstupného pdf dokumentu:"
-
-#~ msgid "Theme:"
-#~ msgstr "Motív:"
 
 #~ msgid "Never"
 #~ msgstr "Nikdy"

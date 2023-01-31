@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-11-15 12:38+0100\n"
-"PO-Revision-Date: 2021-02-13 16:03+0000\n"
-"Last-Translator: Alexander <Unknown>\n"
+"POT-Creation-Date: 2023-01-27 11:09+0100\n"
+"PO-Revision-Date: 2023-01-10 18:50+0000\n"
+"Last-Translator: Roman Martinuk <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-07-26 09:36+0000\n"
-"X-Generator: Launchpad (build 20124175fa98fcb4b43973265a1561174418f4bd)\n"
+"X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
+"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Не выбран файл PDF"
@@ -35,6 +35,12 @@ msgstr "Настройки извлечения"
 msgid "Output settings"
 msgstr "Настройки вывода"
 
+msgid "A separate file for each set of pages"
+msgstr "Отдельный файл для каждого набора страниц"
+
+msgid "Each continuous series of pages will generate a separate PDF file"
+msgstr "Каждая непрерывная серия страниц будет создавать отдельный файл PDF"
+
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "например: 2 или 5-23 или 2,5-7,12-"
 
@@ -44,9 +50,339 @@ msgstr "Некорректный интервал страниц"
 msgid "Extract pages:"
 msgstr "Извлечь страницы:"
 
-#, java-format
-msgid "Installing theme {0}."
-msgstr "Установка темы {0}."
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+")"
+msgstr ""
+"Номера страниц или диапазоны, разделенные запятыми, для извлечения "
+"(например: 2 или 5-23 или 2,5-7,12-)"
+
+msgid "Split by bookmarks"
+msgstr "Разбить по закладкам"
+
+msgid ""
+"Split a PDF document at bookmarked pages by specifying a bookmark level."
+msgstr ""
+"Разделить документ PDF по страницам с закладками в соответствии с уровнем "
+"закладки"
+
+msgid "Regular expression the bookmark has to match"
+msgstr "Текст для выборки закладок"
+
+msgid "Split at this bookmark level:"
+msgstr "Разбить по уровням закладок:"
+
+msgid "Matching regular expression:"
+msgstr "Выбор закладок содержащих текст:"
+
+msgid "A regular expression the bookmark text has to match"
+msgstr "Выбираются закладки содержащие данный текст"
+
+msgid ""
+"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr "Например напишите *Глава* для выбора закладок со словом \"Глава\""
+
+msgid "Select or drag and drop the PDF you want to split"
+msgstr "Выберите или перетащите PDF файл который вы хотите разделить"
+
+msgid "Split settings"
+msgstr "Настройка разделения"
+
+msgid "Invalid bookmarks level"
+msgstr "Неверный уровень закладок"
+
+msgid "Split after"
+msgstr "Разбить после"
+
+msgid "No page selected"
+msgstr "Ни одна страница не выбрана"
+
+msgid "Split"
+msgstr "Разделение"
+
+msgid "Split a PDF document at the given page numbers."
+msgstr "Разделяет документ PDF на указанных страницах."
+
+msgid "Every page"
+msgstr "Каждая страница"
+
+msgid "Even pages"
+msgstr "Чётные страницы"
+
+msgid "Odd pages"
+msgstr "Нечётные страницы"
+
+msgid "Split the document after the given page numbers"
+msgstr "Разбить документ после указанных номеров страниц"
+
+msgid ""
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr ""
+"Разделяет документ PDF на каждой n-ной странице, создавая документы с числом "
+"страниц n каждый"
+
+msgid "Split after the following page numbers"
+msgstr "Разбить после следующих номеров страниц"
+
+msgid "Page numbers to split at (n1,n2,n3..)"
+msgstr "Номера страниц для разбивки как (n1,n2,n3 ...)"
+
+msgid "Invalid page numbers"
+msgstr "Неверные номера страниц"
+
+msgid "Only valid positive page numbers are allowed"
+msgstr "Допускается только корректное положительное число страниц"
+
+msgid "Split by every \"n\" pages"
+msgstr "Разделять каждые \"n\" страниц"
+
+msgid "Number of pages"
+msgstr "Количество страниц"
+
+msgid "Invalid number of pages"
+msgstr "Неверное количество страниц"
+
+msgid "Megabytes"
+msgstr "Мегабайты"
+
+msgid "MB"
+msgstr "МБ"
+
+msgid "Kilobytes"
+msgstr "Килобайты"
+
+msgid "KB"
+msgstr "КБ"
+
+msgid "Split by size"
+msgstr "Разбить по размеру"
+
+msgid "Split a PDF document in files of the given size (roughly)."
+msgstr "Разделяет документ PDF на файлы заданного размера (грубо)."
+
+msgid "Set the size to split at"
+msgstr "Установить размер для разделения"
+
+msgid "Size must be a number"
+msgstr "Размер должен быть числом"
+
+msgid "Split at this size:"
+msgstr "Разбить на этот размер:"
+
+msgid "Invalid split size"
+msgstr "Неверный размер для разделения"
+
+msgid "Destination file"
+msgstr "Конечный файл"
+
+msgid "Alternate Mix"
+msgstr "Чередование"
+
+msgid ""
+"Merge two or more PDF documents taking pages alternately in natural or "
+"reverse order."
+msgstr ""
+"Объединение двух или более PDF документов, принимая страницы поочередно в "
+"исходном или обратном порядке."
+
+msgid ""
+"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Дважды щелкните мышью чтобы ввести номера страниц (например: 2 или 5-23 или "
+"2,5-7,12-)"
+
+msgid "Select a positive integer number as pace"
+msgstr "Укажите положительное число в качестве шага"
+
+msgid "All pages"
+msgstr "Все страницы"
+
+msgid "90 degrees clockwise"
+msgstr "90 градусов по часовой"
+
+msgid "180 degrees clockwise"
+msgstr "180 градусов"
+
+msgid "90 degrees counterclockwise"
+msgstr "90 градусов против часовой стрелки"
+
+msgid "Rotate "
+msgstr "Вращение "
+
+msgid "Rotate settings"
+msgstr "Настройка вращения"
+
+msgid "Rotate"
+msgstr "Повернуть"
+
+msgid "Rotate the pages of multiple PDF documents."
+msgstr "Поворот страниц в многостраничном документе PDF."
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Кликните дважды, чтобы установить страницы, которые нужно повернуть(пример: "
+"2 или 5-23 или 2,5-7,12-)"
+
+msgid "Merge settings"
+msgstr "Настройки объединения"
+
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Дважды щелкните мышкой для ввода номеров страниц (например: 2 или 5-23 или "
+"2,5-7,12-)"
+
+msgid "Add a blank page if page number is odd"
+msgstr "Добавить пустую страницу в документах с нечетным количеством страниц"
+
+msgid ""
+"Adds a blank page after each merged document if the document has an odd "
+"number of pages"
+msgstr ""
+"Добавляет пустую страницу после каждого объединенного документа, если "
+"документ имеет нечетное количество страниц"
+
+msgid "Add a footer"
+msgstr "Добавить нижний колонтитул"
+
+msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr "Добавить нижний колонтитул с именем файла страницы"
+
+msgid "None"
+msgstr "Нет"
+
+msgid "Same width as first page"
+msgstr ""
+
+msgid "Same width as first page (based on page orientation)"
+msgstr ""
+
+msgid "Pages normalization:"
+msgstr ""
+
+msgid ""
+"Set whether pages should be resized to all have the same width as the first "
+"one"
+msgstr ""
+
+msgid "Merge fields"
+msgstr "Объединить поля"
+
+msgid "Merge renaming existing fields"
+msgstr "Объединить и переименовать поля"
+
+msgid "Flatten"
+msgstr "Объединить слои"
+
+msgid "Discard forms"
+msgstr "Отбросить формы"
+
+msgid "Interactive forms (AcroForms):"
+msgstr "Интерактивные формы (AcroForms):"
+
+msgid "What to do in case one or more input documents contain Acro Forms"
+msgstr ""
+"Что делать в случае, если один или несколько входящих документов содержат "
+"формы AcroForms"
+
+msgid "Retain bookmarks"
+msgstr "Сохранить закладки"
+
+msgid "Discard bookmarks"
+msgstr "Отбросить закладки"
+
+msgid "Create one entry for each merged document"
+msgstr "Создать одну запись для каждого объединенного документа"
+
+msgid "Retain bookmarks as one entry for each merged document"
+msgstr "Сохранять закладки как одну для каждого объединенного документа"
+
+msgid "Bookmarks handling:"
+msgstr "Управление закладками:"
+
+msgid "What to do in case one or more input documents contain bookmarks"
+msgstr ""
+"Что делать в случае, если один или несколько входящих документов содержат "
+"закладки"
+
+msgid "Don't generate"
+msgstr "Не создавать"
+
+msgid "Generate from file names"
+msgstr "Создать из имен файлов"
+
+msgid "Generate from documents titles"
+msgstr "Создать из названия документов"
+
+msgid "Table of contents:"
+msgstr "Содержание"
+
+msgid ""
+"Set if a table of contents should be added to the generated PDF document"
+msgstr ""
+"Укажите если содержание должно быть добавлено в создаваемый PDF документ.\r\n"
+"Содержание добавляется первым листом"
+
+msgid "Merge"
+msgstr "Объединение"
+
+msgid "Merge together multiple PDF documents or subsections of them."
+msgstr "Объединить несколько файлов PDF целиком или частично"
+
+msgid "Select or drag and drop the PDF whose pages will be repeated"
+msgstr ""
+"Выберите или перетащите PDF-файл, страницы которого будут повторяться"
+
+msgid "Repeat these pages:"
+msgstr "Повторите эти страницы:"
+
+msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Страницы для повторения (например: 2 или 5-23 или 2,5-7,12-)"
+
+msgid ""
+"Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
+"7,12-)"
+msgstr ""
+"Номера страниц или диапазоны, разделенные запятыми, которые необходимо "
+"повторить (например: 2 или 5-23 или 2,5-7,12-)"
+
+msgid "Leave it empty to use all the pages of the PDF file"
+msgstr "Оставьте поле пустым, чтобы использовать все страницы PDF-файла"
+
+msgid "Repeat every \"n\" pages:"
+msgstr "Повторять каждые 'n' страниц:"
+
+msgid "Invalid page number"
+msgstr "Неверный номер страницы"
+
+msgid "Repeat the selected pages every \"n\" pages of the original document"
+msgstr ""
+"Повторять выбранные страницы через каждые 'n' страниц исходного документа"
+
+msgid "The selected PDF file is invalid"
+msgstr "Выбранный PDF файл неисправен"
+
+msgid "The number of pages must be a positive number"
+msgstr "Количество страниц должно быть положительным числом"
+
+msgid "Select or drag and drop the PDF you want to insert pages to"
+msgstr ""
+"Выберите или перетащите PDF-файл, в который вы хотите вставить страницы"
+
+msgid "Insert and Repeat settings"
+msgstr "Вставить и повторить настройки"
+
+msgid "Insert pages multiple times"
+msgstr "Вставлять страницы несколько раз"
+
+msgid ""
+"Insert the pages of a PDF document A into another document B, repeating it "
+"after a certain number of pages, resulting in B1 A B2 A B3 A etc."
+msgstr ""
+"Вставьте страницы PDF-документа A в другой документ B, повторив это через "
+"определенное количество страниц, в результате чего получится B1 A B2 A B3 A "
+"и т. д."
 
 #, java-format
 msgid "Started in {0}"
@@ -55,283 +391,35 @@ msgstr "Запущено в {0}"
 msgid "Closing PDFsam..."
 msgstr "PDFsam закрывается..."
 
-msgid "Log register"
-msgstr "Журнал отчёта"
-
-msgid "Copy"
-msgstr "Копировать"
-
-# G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:280
-# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:284
-# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:294
-# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\LogPanel.java:105
-msgid "Clear"
-msgstr "Очистить"
-
-msgid "Select all"
-msgstr "Выбрать всё"
-
-msgid "Save log"
-msgstr "Сохранить отчет"
-
-msgid "Select where to save the log file"
-msgstr "Выбрать место сохранения файла отчёта"
-
-msgid "About"
-msgstr "О программе"
-
-msgid "Premium features"
-msgstr "Дополнительные возможности"
-
-msgid "Close"
-msgstr "Закрыть"
-
-msgid "Modules"
-msgstr "Модули"
-
-msgid "Subscribe to the official news feed"
-msgstr "Подписаться на рассылку официальных новостей"
-
-msgid "Environment"
-msgstr "Окружение"
-
-msgid "Vendor: %s"
-msgstr "Поставщик: %s"
-
-msgid "Java runtime path: %s"
-msgstr "Расположение среды выполнения Java: %s"
-
-msgid "JavaFX runtime version %s"
-msgstr "Среда выполенния JavaFX версия %s"
-
-#, java-format
-msgid "Max memory {0}"
-msgstr "Максимум памяти {0}"
-
-msgid "Copy to clipboard"
-msgstr "Скопировать в буфер обмена"
-
-msgid "Support"
-msgstr "Поддержка"
-
-msgid "Bug and feature requests"
-msgstr "Запросы об ошибках и пожелания"
-
-msgid "Documentation"
-msgstr "Документация"
-
-msgid "Contribute"
-msgstr "Внести свой вклад"
-
-msgid "Fork PDFsam on GitHub"
-msgstr "PDFsam на сайте GitHub"
-
-msgid "Translate"
-msgstr "Перевести"
-
-msgid "Donate"
-msgstr "Помочь проекту"
-
-msgid "Social"
-msgstr "Общественный"
-
-msgid "Follow us on Twitter"
-msgstr "Следите за нами на Twitter"
-
-msgid "Like us on Facebook"
-msgstr "Лайкай нас на Facebook"
-
-msgid "Log register rows:"
-msgstr "Строки Журнала отчёта:"
-
-msgid "Maximum number of rows displayed by the Log register"
-msgstr "Максимальное количество строк, отображаемых в Журнале отчёта"
-
-msgid "Language:"
-msgstr "Язык:"
-
-msgid "Set your preferred language (restart needed)"
-msgstr "Выберите предпочтительный язык (требуется перезапуск)"
-
-msgid "Startup tool:"
-msgstr "Запуск модуля:"
-
-msgid "Set the tool to open at application startup (restart needed)"
-msgstr ""
-"Выберите модуль, открываемый при запуске приложения (нужен перезапуск)"
-
-msgid ""
-"Usage statistics are used to populate the tools quick bar on the left with "
-"the most used and most recently used tools."
-msgstr ""
-"Статистика использования применяется для заполнения панели быстрого доступа "
-"модулей (слева) с часто используемыми и недавно использованными модулями."
-
-msgid "Manually selected"
-msgstr "Выбран вручную"
-
-msgid ""
-"Automatically set the destination directory to the selected PDF document "
-"directory"
-msgstr ""
-"Автоматически установить директорию назначения в выбранный каталог PDF "
-"документа"
-
-msgid "Clear usage statistics"
-msgstr "Очистить статистику использования"
-
-msgid "Appearance"
-msgstr "Оформление"
-
-msgid "Behavior"
-msgstr "Поведение приложения"
-
-msgid "Workspace"
-msgstr "Рабочий профиль"
-
-msgid "Output"
-msgstr "Каталог для вывода результатов"
-
-msgid "Check for updates now"
-msgstr "Проверить наличие обновлений"
-
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
-msgstr ""
-"Выберите каталог, куда документы будут сохранятся и загружатся по умолчанию"
-
-msgid "Select a directory"
-msgstr "Выберите каталог"
-
-msgid ""
-"Select a previously saved workspace that will be automatically loaded at "
-"startup"
-msgstr "Выберите ранее сохраненный профиль для автозагрузки при запуске"
-
-msgid "Select a workspace"
-msgstr "Выбор профиля"
-
-msgid "Default working directory:"
-msgstr "Рабочий каталог по умолчанию:"
-
-msgid "Load default workspace at startup:"
-msgstr "Загрузить рабочий профиль при запуске:"
-
-msgid "Dashboard"
-msgstr "Инфо-панель"
-
-msgid "Check for updates at startup"
-msgstr "Проверить наличие обновлений при запуске"
-
-msgid ""
-"Set whether new version availability should be checked on startup (restart "
-"needed)"
-msgstr "Проверка обновлений при запуске (нужен перезапуск)"
-
-msgid "Check for news at startup"
-msgstr "Проверять наличие новостей при запуске"
-
-msgid ""
-"Set whether the application should check for news availability on startup "
-"(restart needed)"
-msgstr ""
-"Установите нужно ли проверять наличие новостей при запуске (нужен перезапуск)"
-
-msgid "Enabled PDF compression"
-msgstr "Сжатие файлов включено"
-
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr "Должно ли \"Сжатие выходных файлов\" быть включено по умолчанию"
-
-msgid "Overwrite files"
-msgstr "Перезаписать файлы"
-
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
-msgstr ""
-"Установить включенным по умолчанию \"Перезаписать, если уже существует\"."
-
-msgid "Play alert sounds"
-msgstr "Воспроизводить звуковые предупреждения"
-
-msgid "Turn on or off alert sounds"
-msgstr "Включение и отключение звуков предупреждений"
-
-msgid "Store passwords when saving a workspace file"
-msgstr "Сохранять пароли при сохранении файла профиля"
-
-msgid ""
-"If an encrypted PDF document has been opened with a password, save the "
-"password in the workspace file"
-msgstr ""
-"Если файл PDF зашифрован паролем - сохранить пароль в файле рабочего профиля"
-
-msgid "Show donation window"
-msgstr "Показывать окно пожертвований"
-
-msgid ""
-"Turn on or off the notification appearing once in a while and asking the "
-"user to support PDFsam with a donation"
-msgstr ""
-"Включить/выключить уведомления с просьбой поддержать PDFsam пожертвованием"
-
-msgid "Show premium features"
-msgstr "Показать дополнительные возможности"
-
-msgid ""
-"Set whether the application should fetch and show premium features "
-"description in the tools dashboard"
-msgstr ""
-"Разрешить приложению показывать описания дополнительных возможностей в "
-"панели модулей"
-
-msgid "Ask for a confirmation when clearing the selection table"
-msgstr "Запрашивать подтверждение, при очистке выбранной таблицы"
-
-msgid ""
-"Set whether the application should ask for a confirmation when clearing the "
-"selection table"
-msgstr ""
-"Установите, будет ли приложение запрашивать подтверждение при очистке "
-"выбранной таблицы"
-
-msgid "Use the selected PDF document directory as output directory"
-msgstr "Использовать каталог выбранного PDF документа как выходной каталог"
-
-msgid "Save default workspace on exit"
-msgstr ""
-"При выходе из программы, сохранять рабочий профиль используемый по умолчанию"
-
-msgid "If a default workspace is set, save it on application exit"
-msgstr ""
-"Сохранять рабочий профиль используемый по умолчанию при выходе из приложения"
-
-msgid "Maximum number of rows mast be a positive number"
-msgstr "Максимальное количество строк должно быть положительным числом"
-
-msgid "Generate high quality thumbnails (slower)"
-msgstr "Сгенерировать высококачественные эскизы (медленнее!)"
-
-msgid "Size in px:"
-msgstr "Размер в пикселях:"
-
-msgid "Library used to generate thumbnails"
-msgstr "Библиотека, используемая при генерации эскизов"
-
-msgid "Thumbnails creator:"
-msgstr "Создатель эскизов:"
-
-msgid "Settings"
-msgstr "Настройки"
-
 msgid "Drag and drop PDF files or directories containing PDF files"
 msgstr "Перетащите файлы PDF или каталоги с ними"
 
 msgid "No PDF found"
 msgstr "Один или несколько файлов PDF не найдены"
 
+msgid "Tools"
+msgstr "Инструменты"
+
+msgid "News"
+msgstr ""
+
 msgid "What's new"
 msgstr "Что нового"
+
+# G:\Documents\eclipse_workspace\PDF
+# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\ButtonsBar.java:125
+# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\MenuPanel.java:70
+msgid "Exit"
+msgstr "Выйти"
+
+msgid "Exit the application"
+msgstr ""
+
+msgid "Workspace"
+msgstr "Рабочий профиль"
+
+msgid "Manage your workspaces"
+msgstr ""
 
 msgid "Yes"
 msgstr "Да"
@@ -346,7 +434,7 @@ msgid "Do you confirm?"
 msgstr "Действительно подтверждаете ?"
 
 msgid "Clear the tool settings"
-msgstr "Очистить настройки модуля"
+msgstr "Очистить настройки инструмента"
 
 msgid "Clear the selection table"
 msgstr "Очистить выбранную таблицу"
@@ -419,6 +507,297 @@ msgid ""
 msgstr ""
 "Возможна частичная или полная потеря данных в файлах PDF. Продолжить?"
 
+msgid "Removes all the log messages"
+msgstr ""
+
+msgid "_Clear"
+msgstr "_Очистить"
+
+msgid "_Save"
+msgstr "_Сохранить"
+
+msgid "C_lose"
+msgstr ""
+
+msgid "Copy"
+msgstr "Копировать"
+
+# G:\Documents\eclipse_workspace\PDFSAMmerge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:280
+# F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:284
+# F:\workspace_pdfsam_enhanced\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:294
+# F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\LogPanel.java:105
+msgid "Clear"
+msgstr "Очистить"
+
+msgid "Select all"
+msgstr "Выбрать всё"
+
+msgid "Save log"
+msgstr "Сохранить отчет"
+
+msgid "Select where to save the log file"
+msgstr "Выбрать место сохранения файла отчёта"
+
+msgid "Logs"
+msgstr ""
+
+msgid "Application messages"
+msgstr "Сообщения приложения"
+
+msgid "_Load"
+msgstr "_Загрузка"
+
+msgid "Recen_ts"
+msgstr "Недавние"
+
+msgid "_Clear recents"
+msgstr "Очистить недавние"
+
+msgid "Select the workspace file to save"
+msgstr "Выберите файл рабочего профиля для сохранения"
+
+msgid "Select the workspace to load"
+msgstr "Выберите рабочий профиль для загрузки"
+
+msgid "Subscribe to the official news feed"
+msgstr "Подписаться на рассылку официальных новостей"
+
+msgid "Environment"
+msgstr "Окружение"
+
+#, java-printf-format
+msgid "Vendor: %s"
+msgstr "Поставщик: %s"
+
+#, java-printf-format
+msgid "Java runtime path: %s"
+msgstr "Расположение среды выполнения Java: %s"
+
+#, java-printf-format
+msgid "JavaFX runtime version: %s"
+msgstr "Версия среды выполнения JavaFX: %s"
+
+#, java-printf-format
+msgid "PDF engine (Sejda SDK) version: %s"
+msgstr "Версия движка PDF (Sejda SDK): %s"
+
+#, java-format
+msgid "Max memory {0}"
+msgstr "Максимум памяти {0}"
+
+msgid "Copy to clipboard"
+msgstr "Скопировать в буфер обмена"
+
+msgid "Support"
+msgstr "Поддержка"
+
+msgid "Bug and feature requests"
+msgstr "Запросы об ошибках и пожелания"
+
+msgid "Documentation"
+msgstr "Документация"
+
+msgid "Contribute"
+msgstr "Внести свой вклад"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "PDFsam на сайте GitHub"
+
+msgid "Translate"
+msgstr "Перевести"
+
+msgid "Donate"
+msgstr "Помочь проекту"
+
+msgid "Social"
+msgstr "Общественный"
+
+msgid "Follow us on Twitter"
+msgstr "Следите за нами на Twitter"
+
+msgid "Like us on Facebook"
+msgstr "Лайкай нас на Facebook"
+
+msgid "About"
+msgstr "О программе"
+
+msgid "Home"
+msgstr ""
+
+msgid "Premium features"
+msgstr "Дополнительные возможности"
+
+msgid "Log register rows:"
+msgstr "Строки Журнала отчёта:"
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr "Максимальное количество строк, отображаемых в Журнале отчёта"
+
+msgid "Language:"
+msgstr "Язык:"
+
+msgid "Set your preferred language (restart needed)"
+msgstr "Выберите предпочтительный язык (требуется перезапуск)"
+
+msgid "Startup tool:"
+msgstr "Инструмент запуска:"
+
+msgid "Set the tool to open at application startup (restart needed)"
+msgstr ""
+"Настройте инструмент так, чтобы он открывался при запуске приложения "
+"(требуется перезагрузка)"
+
+msgid "Theme:"
+msgstr "Тема:"
+
+msgid "Set the application theme"
+msgstr "Установить тему приложения"
+
+msgid "Font size:"
+msgstr ""
+
+msgid "Set the application font size"
+msgstr ""
+
+msgid "Manually selected"
+msgstr "Выбран вручную"
+
+msgid ""
+"Automatically set the destination directory to the selected PDF document "
+"directory"
+msgstr ""
+"Автоматически установить директорию назначения в выбранный каталог PDF "
+"документа"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Appearance"
+msgstr "Оформление"
+
+msgid "Behavior"
+msgstr "Поведение приложения"
+
+msgid "Output"
+msgstr "Каталог для вывода результатов"
+
+msgid "Check for updates now"
+msgstr "Проверить наличие обновлений"
+
+msgid ""
+"Select a directory where documents will be saved and loaded by default"
+msgstr ""
+"Выберите каталог, куда документы будут сохранятся и загружатся по умолчанию"
+
+msgid "Select a directory"
+msgstr "Выберите каталог"
+
+msgid ""
+"Select a previously saved workspace that will be automatically loaded at "
+"startup"
+msgstr "Выберите ранее сохраненный профиль для автозагрузки при запуске"
+
+msgid "Select a workspace"
+msgstr "Выбор профиля"
+
+msgid "Default working directory:"
+msgstr "Рабочий каталог по умолчанию:"
+
+msgid "Load default workspace at startup:"
+msgstr "Загрузить рабочий профиль при запуске:"
+
+msgid "System default"
+msgstr ""
+
+msgid "Check for updates at startup"
+msgstr "Проверить наличие обновлений при запуске"
+
+msgid ""
+"Set whether new version availability should be checked on startup (restart "
+"needed)"
+msgstr "Проверка обновлений при запуске (нужен перезапуск)"
+
+msgid "Check for news at startup"
+msgstr "Проверять наличие новостей при запуске"
+
+msgid ""
+"Set whether the application should check for news availability on startup "
+"(restart needed)"
+msgstr ""
+"Установите нужно ли проверять наличие новостей при запуске (нужен перезапуск)"
+
+msgid "Enabled PDF compression"
+msgstr "Сжатие файлов включено"
+
+msgid "Set whether \"Compress output file\" should be enabled by default"
+msgstr "Должно ли \"Сжатие выходных файлов\" быть включено по умолчанию"
+
+msgid "Overwrite files"
+msgstr "Перезаписать файлы"
+
+msgid ""
+"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgstr ""
+"Установить включенным по умолчанию \"Перезаписать, если уже существует\"."
+
+msgid "Play alert sounds"
+msgstr "Воспроизводить звуковые предупреждения"
+
+msgid "Turn on or off alert sounds"
+msgstr "Включение и отключение звуков предупреждений"
+
+msgid "Store passwords when saving a workspace file"
+msgstr "Сохранять пароли при сохранении файла профиля"
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
+"Если файл PDF зашифрован паролем - сохранить пароль в файле рабочего профиля"
+
+msgid "Show donation window"
+msgstr "Показывать окно пожертвований"
+
+msgid ""
+"Turn on or off the notification appearing once in a while and asking the "
+"user to support PDFsam with a donation"
+msgstr ""
+"Включить/выключить уведомления с просьбой поддержать PDFsam пожертвованием"
+
+msgid "Show premium features"
+msgstr "Показать дополнительные возможности"
+
+msgid ""
+"Set whether the application should fetch and show premium features "
+"description in the modules dashboard"
+msgstr ""
+"Разрешить приложению показывать описания дополнительных возможностей в "
+"панели модулей"
+
+msgid "Ask for a confirmation when clearing the selection table"
+msgstr "Запрашивать подтверждение, при очистке выбранной таблицы"
+
+msgid ""
+"Set whether the application should ask for a confirmation when clearing the "
+"selection table"
+msgstr ""
+"Установите, будет ли приложение запрашивать подтверждение при очистке "
+"выбранной таблицы"
+
+msgid "Use the selected PDF document directory as output directory"
+msgstr "Использовать каталог выбранного PDF документа как выходной каталог"
+
+msgid "Save default workspace on exit"
+msgstr ""
+"При выходе из программы, сохранять рабочий профиль используемый по умолчанию"
+
+msgid "If a default workspace is set, save it on application exit"
+msgstr ""
+"Сохранять рабочий профиль используемый по умолчанию при выходе из приложения"
+
+msgid "Maximum number of rows mast be a positive number"
+msgstr "Максимальное количество строк должно быть положительным числом"
+
 msgid "Summary"
 msgstr "Описание"
 
@@ -428,13 +807,14 @@ msgstr "Ключевые слова"
 msgid "Document details"
 msgstr "Детали документа"
 
+msgid "Show errors"
+msgstr "Показывать ошибки"
+
+msgid "Input parameters are invalid"
+msgstr "Входные параметры недействительны"
+
 msgid "Invalid parameters"
 msgstr "Неверные параметры"
-
-msgid ""
-"Input parameters are invalid, open the application messages for details."
-msgstr ""
-"Входные параметры неверны, откройте сообщения приложения для деталей."
 
 msgid "Access denied"
 msgstr "Доступ запрещен"
@@ -479,94 +859,111 @@ msgstr "Обновлений нет"
 msgid "Open"
 msgstr "Открыть"
 
-msgid "E_xit"
-msgstr "_Выход"
+#, java-format
+msgid "File \"{0}\" does not exist or is invalid"
+msgstr "Файл \"{0}\" не существует, либо не удается его прочитать."
 
-msgid "_Settings"
-msgstr "_Настройки"
+msgid "Valid user password provided."
+msgstr "Правильный пароль введён."
 
-msgid "Application messages"
-msgstr "Сообщения приложения"
+msgid "This document is encrypted, click to provide a password."
+msgstr "Этот документ зашифрован, нажмите для ввода пароля."
 
-msgid "_Modules"
-msgstr "_Модули"
+msgid "An error has occurred, click for more details."
+msgstr "Произошла ошибка, кликните для получения подробной информации."
 
-msgid "_Workspace"
-msgstr "_Рабочий профиль"
+msgid "Split tools"
+msgstr "Инструменты разделения"
 
-msgid "_Load"
-msgstr "_Загрузка"
+msgid "Merge tools"
+msgstr "инструменты объединения"
 
-msgid "_Save"
-msgstr "_Сохранить"
+msgid "Convert tools"
+msgstr "Инструменты конвертирования"
 
-msgid "Recen_ts"
-msgstr "Недавние"
+msgid "Edit tools"
+msgstr "Инструменты редактирования"
 
-msgid "_Clear recents"
-msgstr "Очистить недавние"
+msgid "Other tools"
+msgstr "Другие инструменты"
 
-msgid "Select the workspace file to save"
-msgstr "Выберите файл рабочего профиля для сохранения"
+msgid "Checking for updates"
+msgstr "Проверка обновлений"
 
-msgid "Select the workspace to load"
-msgstr "Выберите рабочий профиль для загрузки"
-
-msgid "Split by bookmarks"
-msgstr "Разбить по закладкам"
-
-msgid ""
-"Split a PDF document at bookmarked pages by specifying a bookmark level."
-msgstr ""
-"Разделить документ PDF по страницам с закладками в соответствии с уровнем "
-"закладки"
-
-msgid "Select or drag and drop the PDF you want to split"
-msgstr "Выберите или перетащите PDF файл который вы хотите разделить"
-
-msgid "Split settings"
-msgstr "Настройка разделения"
-
-msgid "Regular expression the bookmark has to match"
-msgstr "Текст для выборки закладок"
-
-msgid "Split at this bookmark level:"
-msgstr "Разбить по уровням закладок:"
-
-msgid "Matching regular expression:"
-msgstr "Выбор закладок содержащих текст:"
-
-msgid "A regular expression the bookmark text has to match"
-msgstr "Выбираются закладки содержащие данный текст"
-
-msgid ""
-"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
-msgstr "Например напишите *Глава* для выбора закладок со словом \"Глава\""
-
-msgid "Invalid bookmarks level"
-msgstr "Неверный уровень закладок"
-
-msgid "Show errors"
-msgstr "Показывать ошибки"
-
-msgid "Run"
-msgstr "Выполнить"
-
-msgid "Requested"
-msgstr "Проверка файлов"
-
-msgid "Completed"
-msgstr "Выполнено"
-
-msgid "Failed"
-msgstr "Неудачно"
-
-msgid "Running"
-msgstr "Выполнение"
+msgid "Unable to find the latest available version."
+msgstr "Не удается найти последнюю доступную версию."
 
 #, java-format
-msgid "Running {0}%"
-msgstr "Выполнено {0}%"
+msgid "Unable to find any valid PDF file in the list: {0}"
+msgstr "Нет ни одного правильного PDF файла в списке: {0}"
+
+#, java-format
+msgid "Unable to load PDF list file from {0}"
+msgstr "Невозможно загрузить файл с PDF списком из {0}"
+
+msgid "Loading pdf documents"
+msgstr "Загрузка документов PDF"
+
+msgid "Documents loaded"
+msgstr "Документы загружены"
+
+msgid "Unable to retrieve premium features description"
+msgstr "Невозможно получить описание дполнительных модулей"
+
+msgid "Fetching premium modules"
+msgstr "Получить дополнительные модули"
+
+msgid "Unable to retrieve premium modules"
+msgstr "Невозможно найти дополнительные модули"
+
+msgid "Unable to retrieve latest news"
+msgstr "Невозможно получить последние новости"
+
+msgid "Fetching latest news"
+msgstr "Выборка последних новостей"
+
+msgid "Unable to retrieve the latest news"
+msgstr "Невозможно получить последние новости"
+
+#, java-format
+msgid "Saving workspace data to {0}"
+msgstr "Сохранение данных рабочей области в {0}"
+
+msgid "Workspace saved"
+msgstr "Рабочий профиль сохранен"
+
+msgid "Requesting modules state"
+msgstr "Опрос состояния модулей"
+
+#, java-format
+msgid "Unable to save workspace to {0}"
+msgstr "Невозможно сохранить рабочий профиль в {0}"
+
+#, java-format
+msgid "Loading workspace from {0}"
+msgstr "Загрузка рабочего профиля из {0}"
+
+msgid "Workspace loaded"
+msgstr "Рабочий профиль загружен"
+
+#, java-format
+msgid "Unable to load workspace from {0}"
+msgstr "Невозможно загрузить рабочий профиль из {0}"
+
+msgid "Light with blue"
+msgstr "Светлый с синим"
+
+msgid "Dark with purple"
+msgstr "Темный с фиолетовым"
+
+msgid "Dark with teal"
+msgstr "Темный с бирюзовым"
+
+msgid "Light with maroon"
+msgstr ""
+
+msgid "Close"
+msgstr "Закрыть"
 
 msgid "The selected PDF document is invalid"
 msgstr "Выбранный PDF документ является неверным"
@@ -576,9 +973,6 @@ msgstr "Выберите файл PDF"
 
 msgid "_Select PDF"
 msgstr "Выберите PDF"
-
-msgid "_Clear"
-msgstr "_Очистить"
 
 msgid "Clear all settings"
 msgstr "Очистить все настройки"
@@ -635,11 +1029,21 @@ msgstr "Переместить в конец"
 msgid "Duplicate"
 msgstr "Дублировать"
 
+msgid "Selected pages"
+msgstr "Выбранные страницы"
+
+msgid "Total number of selected pages"
+msgstr "Общее количество выбранных страниц"
+
 msgid "Size"
 msgstr "Размер"
 
 msgid "Modified"
 msgstr "Изменён"
+
+#, java-format
+msgid "Total pages: {0}"
+msgstr "Всего страниц: {0}"
 
 msgid "Name"
 msgstr "Имя файла"
@@ -701,6 +1105,9 @@ msgstr "В обратном порядке"
 msgid "Pages"
 msgstr "Страницы"
 
+msgid "Number of total pages of the document"
+msgstr "Общее количество страниц документа"
+
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Дважды щелкните мышью для ввода номера выбранных страниц (например: 2 или 5-"
@@ -708,9 +1115,6 @@ msgstr ""
 
 msgid "Page ranges"
 msgstr "Диапазоны страниц"
-
-msgid "The selected PDF file is invalid"
-msgstr "Выбранный PDF файл неисправен"
 
 msgid "Select a file"
 msgstr "Выберите файл"
@@ -724,9 +1128,6 @@ msgstr "Допустимые расширения {0}"
 
 msgid "Compress output file/files"
 msgstr "Сжимать выходной файл(ы)."
-
-msgid "Discard bookmarks"
-msgstr "Отбросить закладки"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -781,6 +1182,9 @@ msgstr "Префикс для имён сгенерированных файло
 msgid "Add prefix"
 msgstr "Добавить префикс"
 
+msgid "DEFAULT_PREFIX"
+msgstr ""
+
 msgid "Generated PDF documents name prefix:"
 msgstr "Префикс названия документа PDF:"
 
@@ -793,321 +1197,27 @@ msgstr "Некоторые ключевые слова заменены знач
 msgid "Right click to add these keywords."
 msgstr "Щелкните правой кнопкой мыши для добавления этих ключевых слов"
 
-msgid "Split after"
-msgstr "Разбить после"
+msgid "Run"
+msgstr "Выполнить"
 
-msgid "No page selected"
-msgstr "Ни одна страница не выбрана"
-
-msgid "Split"
-msgstr "Разделение"
-
-msgid "Split a PDF document at the given page numbers."
-msgstr "Разделяет документ PDF на указанных страницах."
-
-msgid "Every page"
-msgstr "Каждая страница"
-
-msgid "Even pages"
-msgstr "Чётные страницы"
-
-msgid "Odd pages"
-msgstr "Нечётные страницы"
-
-msgid "Split the document after the given page numbers"
-msgstr "Разбить документ после указанных номеров страниц"
-
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Run the task"
 msgstr ""
-"Разделяет документ PDF на каждой n-ной странице, создавая документы с числом "
-"страниц n каждый"
 
-msgid "Split after the following page numbers"
-msgstr "Разбить после следующих номеров страниц"
+msgid "Requested"
+msgstr "Проверка файлов"
 
-msgid "Page numbers to split at (n1,n2,n3..)"
-msgstr "Номера страниц для разбивки как (n1,n2,n3 ...)"
+msgid "Completed"
+msgstr "Выполнено"
 
-msgid "Invalid page numbers"
-msgstr "Неверные номера страниц"
+msgid "Failed"
+msgstr "Неудачно"
 
-msgid "Only valid positive page numbers are allowed"
-msgstr "Допускается только корректное положительное число страниц"
-
-msgid "Split by every \"n\" pages"
-msgstr "Разделять каждые \"n\" страниц"
-
-msgid "Number of pages"
-msgstr "Количество страниц"
-
-msgid "Invalid number of pages"
-msgstr "Неверное количество страниц"
-
-msgid "Checking for updates"
-msgstr "Проверка обновлений"
-
-msgid "Unable to find the latest available version."
-msgstr "Не удается найти последнюю доступную версию."
+msgid "Running"
+msgstr "Выполнение"
 
 #, java-format
-msgid "Unable to find any valid PDF file in the list: {0}"
-msgstr "Нет ни одного правильного PDF файла в списке: {0}"
-
-#, java-format
-msgid "Unable to load PDF list file from {0}"
-msgstr "Невозможно загрузить файл с PDF списком из {0}"
-
-msgid "Loading pdf documents"
-msgstr "Загрузка документов PDF"
-
-msgid "Documents loaded"
-msgstr "Документы загружены"
-
-msgid "Unable to retrieve premium features description"
-msgstr "Невозможно получить описание дполнительных модулей"
-
-msgid "Fetching premium tools"
-msgstr "Получить дополнительные модули"
-
-msgid "Unable to retrieve premium tools"
-msgstr "Невозможно найти дополнительные модули"
-
-msgid "Unable to retrieve latest news"
-msgstr "Невозможно получить последние новости"
-
-msgid "Fetching latest news"
-msgstr "Выборка последних новостей"
-
-msgid "Unable to retrieve the latest news"
-msgstr "Невозможно получить последние новости"
-
-#, java-format
-msgid "Saving workspace data to {0}"
-msgstr "Сохранение данных рабочей области в {0}"
-
-msgid "Workspace saved"
-msgstr "Рабочий профиль сохранен"
-
-msgid "Requesting tools state"
-msgstr "Опрос состояния модулей"
-
-msgid "Unable to save tools workspace"
-msgstr "Невозможно сохранить рабочую область модулей"
-
-#, java-format
-msgid "Unable to save workspace to {0}"
-msgstr "Невозможно сохранить рабочий профиль в {0}"
-
-#, java-format
-msgid "Loading workspace from {0}"
-msgstr "Загрузка рабочего профиля из {0}"
-
-msgid "Workspace loaded"
-msgstr "Рабочий профиль загружен"
-
-#, java-format
-msgid "Unable to load workspace from {0}"
-msgstr "Невозможно загрузить рабочий профиль из {0}"
-
-msgid "Split by size"
-msgstr "Разбить по размеру"
-
-msgid "Split a PDF document in files of the given size (roughly)."
-msgstr "Разделяет документ PDF на файлы заданного размера (грубо)."
-
-msgid "Megabytes"
-msgstr "Мегабайты"
-
-msgid "MB"
-msgstr "МБ"
-
-msgid "Kilobytes"
-msgstr "Килобайты"
-
-msgid "KB"
-msgstr "КБ"
-
-msgid "Set the size to split at"
-msgstr "Установить размер для разделения"
-
-msgid "Size must be a number"
-msgstr "Размер должен быть числом"
-
-msgid "Split at this size:"
-msgstr "Разбить на этот размер:"
-
-msgid "Invalid split size"
-msgstr "Неверный размер для разделения"
-
-msgid "Alternate Mix"
-msgstr "Чередование"
-
-msgid ""
-"Merge two or more PDF documents taking pages alternately in natural or "
-"reverse order."
-msgstr ""
-"Объединение двух или более PDF документов, принимая страницы поочередно в "
-"исходном или обратном порядке."
-
-msgid "Destination file"
-msgstr "Конечный файл"
-
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Дважды щелкните мышью чтобы ввести номера страниц (например: 2 или 5-23 или "
-"2,5-7,12-)"
-
-msgid "Select a positive integer number as pace"
-msgstr "Укажите положительное число в качестве шага"
-
-msgid "All pages"
-msgstr "Все страницы"
-
-msgid "90 degrees clockwise"
-msgstr "90 градусов по часовой"
-
-msgid "180 degrees clockwise"
-msgstr "180 градусов"
-
-msgid "90 degrees counterclockwise"
-msgstr "90 градусов против часовой стрелки"
-
-msgid "Rotate "
-msgstr "Вращение "
-
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Кликните дважды, чтобы установить страницы, которые нужно повернуть(пример: "
-"2 или 5-23 или 2,5-7,12-)"
-
-msgid "Rotate"
-msgstr "Повернуть"
-
-msgid "Rotate the pages of multiple PDF documents."
-msgstr "Поворот страниц в многостраничном документе PDF."
-
-msgid "Rotate settings"
-msgstr "Настройка вращения"
-
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Дважды щелкните мышкой для ввода номеров страниц (например: 2 или 5-23 или "
-"2,5-7,12-)"
-
-msgid "Add a blank page if page number is odd"
-msgstr "Добавить пустую страницу в документах с нечетным количеством страниц"
-
-msgid ""
-"Adds a blank page after each merged document if the document has an odd "
-"number of pages"
-msgstr ""
-"Добавляет пустую страницу после каждого объединенного документа, если "
-"документ имеет нечетное количество страниц"
-
-msgid "Add a footer"
-msgstr "Добавить нижний колонтитул"
-
-msgid "Adds a page footer with the name of the file the page belonged to."
-msgstr "Добавить нижний колонтитул с именем файла страницы"
-
-msgid "Normalize pages size"
-msgstr "Нормализовать размеры страниц"
-
-msgid "Resizes all pages to have the same width as the first page."
-msgstr "Привести размеры всех страниц к высоте первой страницы"
-
-msgid "Merge fields"
-msgstr "Объединить поля"
-
-msgid "Merge renaming existing fields"
-msgstr "Объединить и переименовать поля"
-
-msgid "Flatten"
-msgstr "Объединить слои"
-
-msgid "Discard forms"
-msgstr "Отбросить формы"
-
-msgid "Interactive forms (AcroForms):"
-msgstr "Интерактивные формы (AcroForms):"
-
-msgid "What to do in case one or more input documents contain Acro Forms"
-msgstr ""
-"Что делать в случае, если один или несколько входящих документов содержат "
-"формы AcroForms"
-
-msgid "Retain bookmarks"
-msgstr "Сохранить закладки"
-
-msgid "Create one entry for each merged document"
-msgstr "Создать одну запись для каждого объединенного документа"
-
-msgid "Retain bookmarks as one entry for each merged document"
-msgstr "Сохранять закладки как одну для каждого объединенного документа"
-
-msgid "Bookmarks handling:"
-msgstr "Управление закладками:"
-
-msgid "What to do in case one or more input documents contain bookmarks"
-msgstr ""
-"Что делать в случае, если один или несколько входящих документов содержат "
-"закладки"
-
-msgid "Don't generate"
-msgstr "Не создавать"
-
-msgid "Generate from file names"
-msgstr "Создать из имен файлов"
-
-msgid "Generate from documents titles"
-msgstr "Создать из названия документов"
-
-msgid "Table of contents:"
-msgstr "Содержание"
-
-msgid ""
-"Set if a table of contents should be added to the generated PDF document"
-msgstr ""
-"Укажите если содержание должно быть добавлено в создаваемый PDF документ.\r\n"
-"Содержание добавляется первым листом"
-
-msgid "Merge"
-msgstr "Объединение"
-
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "Объединить несколько файлов PDF целиком или частично"
-
-msgid "Merge settings"
-msgstr "Настройки объединения"
-
-#, java-format
-msgid "File \"{0}\" does not exist or is invalid"
-msgstr "Файл \"{0}\" не существует, либо не удается его прочитать."
-
-msgid "Valid user password provided."
-msgstr "Правильный пароль введён."
-
-msgid "This document is encrypted, click to provide a password."
-msgstr "Этот документ зашифрован, нажмите для ввода пароля."
-
-msgid "An error has occurred, click for more details."
-msgstr "Произошла ошибка, кликните для получения подробной информации."
-
-msgid "Security"
-msgstr "Защита"
-
-msgid "Other"
-msgstr "Прочее"
-
-msgid "Roundish"
-msgstr "Округлый"
-
-msgid "Directories"
-msgstr "Каталоги"
+msgid "Running {0}%"
+msgstr "Выполнено {0}%"
 
 msgid "Error saving log file."
 msgstr "Ошибка записи файла отчёта."
@@ -1143,9 +1253,6 @@ msgstr "Неверное число: {0}."
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
 #~ msgid "Split odd pages"
 #~ msgstr "Разбить по нечётным страницам"
-
-#~ msgid "Theme:"
-#~ msgstr "Тема:"
 
 #~ msgid "Never"
 #~ msgstr "Никогда"

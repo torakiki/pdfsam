@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-11-15 12:38+0100\n"
+"POT-Creation-Date: 2023-01-27 11:09+0100\n"
 "PO-Revision-Date: 2021-11-28 11:43+0000\n"
 "Last-Translator: Arne Hanssen <Unknown>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-12-20 08:16+0000\n"
-"X-Generator: Launchpad (build adb364d6a74a28e7b95d51cd30446ec16160de6c)\n"
+"X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
+"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Ingen PDF dokumenter er valgt"
@@ -35,6 +35,12 @@ msgstr "Utrekksinnstillinger"
 msgid "Output settings"
 msgstr "Resultatinnstillinger"
 
+msgid "A separate file for each set of pages"
+msgstr ""
+
+msgid "Each continuous series of pages will generate a separate PDF file"
+msgstr ""
+
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Sider å trekke ut (eks. 2 eller 5-23 eller 2,5-7,12-)"
 
@@ -44,9 +50,323 @@ msgstr "Ugyldig sidevalg"
 msgid "Extract pages:"
 msgstr "Trekk ut sider:"
 
-#, java-format
-msgid "Installing theme {0}."
-msgstr "Installerer tema {0}"
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+")"
+msgstr ""
+
+msgid "Split by bookmarks"
+msgstr "Del bokmerker"
+
+msgid ""
+"Split a PDF document at bookmarked pages by specifying a bookmark level."
+msgstr "Del PDF dokument ved bokmerker ved å spesifisere bokmerker."
+
+msgid "Regular expression the bookmark has to match"
+msgstr "Vanlige uttrykk som bokmerker må stemme med"
+
+msgid "Split at this bookmark level:"
+msgstr "Del ved dette bokmerkeivået:"
+
+msgid "Matching regular expression:"
+msgstr "Treff på vanlige uttrykk:"
+
+msgid "A regular expression the bookmark text has to match"
+msgstr "Et vanlig uttrykk i bokmerketeksten må passe"
+
+msgid ""
+"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+"Eksempel: bruk .*Kapittel.* for å treffe bokmerker som inneholder ordet "
+"\"Kapittel\""
+
+msgid "Select or drag and drop the PDF you want to split"
+msgstr "Velg eller dra og slipp PDF filer du vil dele"
+
+msgid "Split settings"
+msgstr "Del innstillinger"
+
+msgid "Invalid bookmarks level"
+msgstr "Ugyldig bokmerke nivå"
+
+msgid "Split after"
+msgstr "Del etter"
+
+msgid "No page selected"
+msgstr "Ingen side er valgt"
+
+msgid "Split"
+msgstr "Del opp"
+
+msgid "Split a PDF document at the given page numbers."
+msgstr "Del PDF dokument etter oppgitt sidenummer"
+
+msgid "Every page"
+msgstr "Hver side"
+
+msgid "Even pages"
+msgstr "Partallssider"
+
+msgid "Odd pages"
+msgstr "Oddetallssider"
+
+msgid "Split the document after the given page numbers"
+msgstr "Del dokumentet etter oppgitt sidenummer"
+
+msgid ""
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr ""
+"Del PDF hver \"n\" side ved opprettelse av dokument med \"n\" sider i hvert"
+
+msgid "Split after the following page numbers"
+msgstr "Del etter følgende sidenummer"
+
+msgid "Page numbers to split at (n1,n2,n3..)"
+msgstr "Sidenummer å dele ved (n1,n2,n3..)"
+
+msgid "Invalid page numbers"
+msgstr "Ugyldig sidenummer"
+
+msgid "Only valid positive page numbers are allowed"
+msgstr "Kun gyldige positive nummer kan brukes"
+
+msgid "Split by every \"n\" pages"
+msgstr "Del ved hver \"n\"te side"
+
+msgid "Number of pages"
+msgstr "Antall sider"
+
+msgid "Invalid number of pages"
+msgstr "Ugyldig antall sider"
+
+msgid "Megabytes"
+msgstr "Megabyte"
+
+msgid "MB"
+msgstr "MB"
+
+msgid "Kilobytes"
+msgstr "Kilobyte"
+
+msgid "KB"
+msgstr "KB"
+
+msgid "Split by size"
+msgstr "Del etter størrelse"
+
+msgid "Split a PDF document in files of the given size (roughly)."
+msgstr "Del et PDF dokument i filer etter størrelse (omtrentlig)."
+
+msgid "Set the size to split at"
+msgstr "Størrelse å dele ved"
+
+msgid "Size must be a number"
+msgstr "Størrelse må være et tall"
+
+msgid "Split at this size:"
+msgstr "Del ved størrelse:"
+
+msgid "Invalid split size"
+msgstr "Ugyldig delstørrelse"
+
+msgid "Destination file"
+msgstr "Målfil"
+
+msgid "Alternate Mix"
+msgstr "Alternativ Mix"
+
+msgid ""
+"Merge two or more PDF documents taking pages alternately in natural or "
+"reverse order."
+msgstr ""
+"Slå sammen to eller flere PDF dokumenter med sier i naturlig eller omvendt "
+"rekkefølge."
+
+msgid ""
+"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Dobbeltklikk for å velge sider du ønsker å blande (eks: 2 eller 5-23 eller "
+"2,5-7,12-)"
+
+msgid "Select a positive integer number as pace"
+msgstr "Velg et positivt heltall som tempo"
+
+msgid "All pages"
+msgstr "Alle sider"
+
+msgid "90 degrees clockwise"
+msgstr "90 grader med klokken"
+
+msgid "180 degrees clockwise"
+msgstr "180 grader mot klokken"
+
+msgid "90 degrees counterclockwise"
+msgstr "90 grader mot klokken"
+
+msgid "Rotate "
+msgstr "Roter "
+
+msgid "Rotate settings"
+msgstr "Roter innstillinger"
+
+msgid "Rotate"
+msgstr "Rotér"
+
+msgid "Rotate the pages of multiple PDF documents."
+msgstr "Roter sidene i flere PDF dokumenter"
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Dobbeltklikk for å velge sider du ønsker å rotere (eks: 2 eller 5-23 eller "
+"2,5-7,12-)"
+
+msgid "Merge settings"
+msgstr "Innstillinger for sammenføyninger"
+
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Dobbeltklikk for å velge sider du vil slå sammen (f.eks.: 2 eller 5-23 eller "
+"2,5-7,12 -)"
+
+msgid "Add a blank page if page number is odd"
+msgstr "En blank side ved oddetallsider"
+
+msgid ""
+"Adds a blank page after each merged document if the document has an odd "
+"number of pages"
+msgstr ""
+"Legger til en blank side etter hvert samenslått dokument som har oddetalls "
+"sidetall"
+
+msgid "Add a footer"
+msgstr "Legg til en fottekst"
+
+msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr "Legg til en sidefot med samme navn som filnavn som siden tilhører"
+
+msgid "None"
+msgstr "Ingen"
+
+msgid "Same width as first page"
+msgstr ""
+
+msgid "Same width as first page (based on page orientation)"
+msgstr ""
+
+msgid "Pages normalization:"
+msgstr ""
+
+msgid ""
+"Set whether pages should be resized to all have the same width as the first "
+"one"
+msgstr ""
+
+msgid "Merge fields"
+msgstr "Slå sammen felt"
+
+msgid "Merge renaming existing fields"
+msgstr "Små sammen  navn på eksisterende felt"
+
+msgid "Flatten"
+msgstr "Flat ut"
+
+msgid "Discard forms"
+msgstr "Slett skjema"
+
+msgid "Interactive forms (AcroForms):"
+msgstr "Internaktive skjema (\"AcroForms\"):"
+
+msgid "What to do in case one or more input documents contain Acro Forms"
+msgstr "Hva skal gjøres om inndokumentet inneholder \"Acro Forms\""
+
+msgid "Retain bookmarks"
+msgstr "Behold bokmerker"
+
+msgid "Discard bookmarks"
+msgstr "Slett bokmerker"
+
+msgid "Create one entry for each merged document"
+msgstr "Lag ett merke for hvert sammenslåtte dokument"
+
+msgid "Retain bookmarks as one entry for each merged document"
+msgstr "Behold bokmerker som et merke for hvert sammenslått dokument"
+
+msgid "Bookmarks handling:"
+msgstr "Bokmerke håndtering:"
+
+msgid "What to do in case one or more input documents contain bookmarks"
+msgstr ""
+"Hva skal gjøres dersom ett eller flere inndatadokumenter har bokmerker"
+
+msgid "Don't generate"
+msgstr "Ikk lag"
+
+msgid "Generate from file names"
+msgstr "Lag fra filnavn"
+
+msgid "Generate from documents titles"
+msgstr "Lag fra dokumenttitler"
+
+msgid "Table of contents:"
+msgstr "Innholdsfortegnelse:"
+
+msgid ""
+"Set if a table of contents should be added to the generated PDF document"
+msgstr "Velg dersom innholdsfortegnelse skal legges til i PDFen som lages"
+
+msgid "Merge"
+msgstr "Slå sammen."
+
+msgid "Merge together multiple PDF documents or subsections of them."
+msgstr "Slå sammen flere PDF dokumenter eller deler av disse"
+
+msgid "Select or drag and drop the PDF whose pages will be repeated"
+msgstr ""
+
+msgid "Repeat these pages:"
+msgstr ""
+
+msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid ""
+"Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
+"7,12-)"
+msgstr ""
+
+msgid "Leave it empty to use all the pages of the PDF file"
+msgstr ""
+
+msgid "Repeat every \"n\" pages:"
+msgstr ""
+
+msgid "Invalid page number"
+msgstr ""
+
+msgid "Repeat the selected pages every \"n\" pages of the original document"
+msgstr ""
+
+msgid "The selected PDF file is invalid"
+msgstr "Den valgte PDF fil er ugyldig"
+
+msgid "The number of pages must be a positive number"
+msgstr ""
+
+msgid "Select or drag and drop the PDF you want to insert pages to"
+msgstr ""
+
+msgid "Insert and Repeat settings"
+msgstr ""
+
+msgid "Insert pages multiple times"
+msgstr ""
+
+msgid ""
+"Insert the pages of a PDF document A into another document B, repeating it "
+"after a certain number of pages, resulting in B1 A B2 A B3 A etc."
+msgstr ""
 
 #, java-format
 msgid "Started in {0}"
@@ -55,278 +375,32 @@ msgstr "Startet i {0}"
 msgid "Closing PDFsam..."
 msgstr "Lukker PDFsam..."
 
-msgid "Log register"
-msgstr "Loggregister"
-
-msgid "Copy"
-msgstr "Kopier"
-
-msgid "Clear"
-msgstr "Tøm"
-
-msgid "Select all"
-msgstr "Merk alt"
-
-msgid "Save log"
-msgstr "Lagre logg"
-
-msgid "Select where to save the log file"
-msgstr "Velg hvor loggfil skal lagres"
-
-msgid "About"
-msgstr "Om"
-
-msgid "Premium features"
-msgstr "Premium funksjoner"
-
-msgid "Close"
-msgstr "Lukk"
-
-msgid "Modules"
-msgstr "Moduler"
-
-msgid "Subscribe to the official news feed"
-msgstr "Abonner på det offisielle nyhetsbrevet"
-
-msgid "Environment"
-msgstr "Miljø"
-
-msgid "Vendor: %s"
-msgstr "Leverandør: %s"
-
-msgid "Java runtime path: %s"
-msgstr "\"Java runtime\" sti: %s"
-
-msgid "JavaFX runtime version %s"
-msgstr "\"JavaFX runtime\" versjon %s"
-
-#, java-format
-msgid "Max memory {0}"
-msgstr "Maks minne {0}"
-
-msgid "Copy to clipboard"
-msgstr "Kopier til utklippstavle"
-
-msgid "Support"
-msgstr "Støtte"
-
-msgid "Bug and feature requests"
-msgstr "Feilmeldinger og forslag til nye egenskaper"
-
-msgid "Documentation"
-msgstr "Dokumentasjon"
-
-msgid "Contribute"
-msgstr "Bidra"
-
-msgid "Fork PDFsam on GitHub"
-msgstr "\"Fork\" PDFsam på GitHub"
-
-msgid "Translate"
-msgstr "Oversett"
-
-msgid "Donate"
-msgstr "Donér"
-
-msgid "Social"
-msgstr "Sosialt"
-
-msgid "Follow us on Twitter"
-msgstr "Følg oss på Twitter"
-
-msgid "Like us on Facebook"
-msgstr "Lik oss på Facebook"
-
-msgid "Log register rows:"
-msgstr "Rader i loggregisteret:"
-
-msgid "Maximum number of rows displayed by the Log register"
-msgstr "Maksimalt antall rader vist av loggregisteret"
-
-msgid "Language:"
-msgstr "Språk:"
-
-msgid "Set your preferred language (restart needed)"
-msgstr "Velg ditt foretrekkende språk (krever omstart)"
-
-msgid "Startup tool:"
-msgstr "Oppstartsmodul:"
-
-msgid "Set the tool to open at application startup (restart needed)"
-msgstr "Sett modulen som åpnes ved programstart (omstart nødvendig)"
-
-msgid ""
-"Usage statistics are used to populate the tools quick bar on the left with "
-"the most used and most recently used tools."
-msgstr ""
-"Brukstatistikk blir brukt til å fylle modul hurtigtilgangsområdet til "
-"venstre med de mest og nyest brukte modulene."
-
-msgid "Manually selected"
-msgstr "Valgt manuelt"
-
-msgid ""
-"Automatically set the destination directory to the selected PDF document "
-"directory"
-msgstr "Sett målmappe lik plassering av valgte PDF dokument."
-
-msgid "Clear usage statistics"
-msgstr "Slett bruksstatistikk"
-
-msgid "Appearance"
-msgstr "Utseende"
-
-msgid "Behavior"
-msgstr "Oppførsel"
-
-msgid "Workspace"
-msgstr "Arbeidsområde"
-
-msgid "Output"
-msgstr "Resultat"
-
-msgid "Check for updates now"
-msgstr "Sjekk for oppdateringer nå"
-
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
-msgstr "Velg en mappe hvor dokumenter blir lagret og innlest som standard"
-
-msgid "Select a directory"
-msgstr "Velg en mappe"
-
-msgid ""
-"Select a previously saved workspace that will be automatically loaded at "
-"startup"
-msgstr ""
-"Velg et tidligere lagret arbeidsområde som blir innlest automatisk ved "
-"oppstart"
-
-msgid "Select a workspace"
-msgstr "Velg et arbeidsområde"
-
-msgid "Default working directory:"
-msgstr "Standard arbeidsmappe:"
-
-msgid "Load default workspace at startup:"
-msgstr "Les standard arbeidsområde ved oppstart:"
-
-msgid "Dashboard"
-msgstr "Oversiktspanel"
-
-msgid "Check for updates at startup"
-msgstr "Se etter oppdateringer ved oppstart"
-
-msgid ""
-"Set whether new version availability should be checked on startup (restart "
-"needed)"
-msgstr ""
-"Angi om det skal søkes etter ny versjon ved oppstart (omstart nødvendig)"
-
-msgid "Check for news at startup"
-msgstr "Se etter nyheter ved programstart"
-
-msgid ""
-"Set whether the application should check for news availability on startup "
-"(restart needed)"
-msgstr ""
-"Velg om programmet skal sjekke etter nyheter ved programstart (Krever "
-"omstart av program)"
-
-msgid "Enabled PDF compression"
-msgstr "Aktiver PDF kompresjon"
-
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr "Velg om \"Komprimer resultatfil\" skal være aktivert som standard"
-
-msgid "Overwrite files"
-msgstr "Skriv over filer"
-
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
-msgstr ""
-"Velg om \"Overskriv om fil allerede finnes\" skal være aktivert som standard"
-
-msgid "Play alert sounds"
-msgstr "Spill av alarmlyder"
-
-msgid "Turn on or off alert sounds"
-msgstr "Slå alarmlyder på eller av"
-
-msgid "Store passwords when saving a workspace file"
-msgstr "Lagre passord ved lagring av arbeidsområdefil"
-
-msgid ""
-"If an encrypted PDF document has been opened with a password, save the "
-"password in the workspace file"
-msgstr ""
-"Dersom en kryptert PDF fil er åpnet med passord, lagre passord i "
-"arbeidsområdefil"
-
-msgid "Show donation window"
-msgstr "Vis \"gi birdrag\" vindu"
-
-msgid ""
-"Turn on or off the notification appearing once in a while and asking the "
-"user to support PDFsam with a donation"
-msgstr "Slå av eller på påminnelser om å støtte PDFsam med et bidrag"
-
-msgid "Show premium features"
-msgstr "Vis premium funksjoner"
-
-msgid ""
-"Set whether the application should fetch and show premium features "
-"description in the tools dashboard"
-msgstr ""
-"Velg om programmet skal hente og vise premium funksjonsbeskrivelser i "
-"modulområde"
-
-msgid "Ask for a confirmation when clearing the selection table"
-msgstr "Spør etter bekreftelse før sletting av valg i tabell"
-
-msgid ""
-"Set whether the application should ask for a confirmation when clearing the "
-"selection table"
-msgstr ""
-"Velg om programmet skal spørre etter bekreftelse ved sletting av valg i "
-"tabell"
-
-msgid "Use the selected PDF document directory as output directory"
-msgstr "Bruk valgte PDF dokumentmappe som målmappe"
-
-msgid "Save default workspace on exit"
-msgstr "Lagre arbeidsområde ved avslutning"
-
-msgid "If a default workspace is set, save it on application exit"
-msgstr ""
-"Dersom standard arbeidsområde ikke er valgt, lagre det ved programavslutning."
-
-msgid "Maximum number of rows mast be a positive number"
-msgstr "Det maksimale antallet rader må være et positivt tall"
-
-msgid "Generate high quality thumbnails (slower)"
-msgstr "Generer høykvalitets miniatyrbilder (tregere)"
-
-msgid "Size in px:"
-msgstr "Størrelse i px:"
-
-msgid "Library used to generate thumbnails"
-msgstr "Bibliotek brukt til å generere minibilder"
-
-msgid "Thumbnails creator:"
-msgstr "Minibilder laget av:"
-
-msgid "Settings"
-msgstr "Innstillinger"
-
 msgid "Drag and drop PDF files or directories containing PDF files"
 msgstr "Dra og slipp PDF filer eller mapper med PDF filer"
 
 msgid "No PDF found"
 msgstr "Ingen PDF filer funnet"
 
+msgid "Tools"
+msgstr ""
+
+msgid "News"
+msgstr ""
+
 msgid "What's new"
 msgstr "Hva er nytt"
+
+msgid "Exit"
+msgstr "Avslutt"
+
+msgid "Exit the application"
+msgstr ""
+
+msgid "Workspace"
+msgstr "Arbeidsområde"
+
+msgid "Manage your workspaces"
+msgstr ""
 
 msgid "Yes"
 msgstr "Ja"
@@ -341,7 +415,7 @@ msgid "Do you confirm?"
 msgstr "Bekrefte?"
 
 msgid "Clear the tool settings"
-msgstr "Slett modulinnstillinger"
+msgstr ""
 
 msgid "Clear the selection table"
 msgstr "Slett valg tabellen"
@@ -414,6 +488,291 @@ msgid ""
 msgstr ""
 "Dette kan resultere i PDF filer med delvis manglende data, fortsette likevel?"
 
+msgid "Removes all the log messages"
+msgstr ""
+
+msgid "_Clear"
+msgstr "_Tøm"
+
+msgid "_Save"
+msgstr "_Lagre"
+
+msgid "C_lose"
+msgstr ""
+
+msgid "Copy"
+msgstr "Kopier"
+
+msgid "Clear"
+msgstr "Tøm"
+
+msgid "Select all"
+msgstr "Merk alt"
+
+msgid "Save log"
+msgstr "Lagre logg"
+
+msgid "Select where to save the log file"
+msgstr "Velg hvor loggfil skal lagres"
+
+msgid "Logs"
+msgstr ""
+
+msgid "Application messages"
+msgstr "Programmeldinger"
+
+msgid "_Load"
+msgstr "Å_pne"
+
+msgid "Recen_ts"
+msgstr "Nylig_e"
+
+msgid "_Clear recents"
+msgstr "_Slett nylige"
+
+msgid "Select the workspace file to save"
+msgstr "Velg fil fra arbeidsområde for lagring"
+
+msgid "Select the workspace to load"
+msgstr "Velg arbeidområde du vil åpne"
+
+msgid "Subscribe to the official news feed"
+msgstr "Abonner på det offisielle nyhetsbrevet"
+
+msgid "Environment"
+msgstr "Miljø"
+
+#, java-printf-format
+msgid "Vendor: %s"
+msgstr "Leverandør: %s"
+
+#, java-printf-format
+msgid "Java runtime path: %s"
+msgstr "\"Java runtime\" sti: %s"
+
+#, java-printf-format
+msgid "JavaFX runtime version: %s"
+msgstr ""
+
+#, java-printf-format
+msgid "PDF engine (Sejda SDK) version: %s"
+msgstr ""
+
+#, java-format
+msgid "Max memory {0}"
+msgstr "Maks minne {0}"
+
+msgid "Copy to clipboard"
+msgstr "Kopier til utklippstavle"
+
+msgid "Support"
+msgstr "Støtte"
+
+msgid "Bug and feature requests"
+msgstr "Feilmeldinger og forslag til nye egenskaper"
+
+msgid "Documentation"
+msgstr "Dokumentasjon"
+
+msgid "Contribute"
+msgstr "Bidra"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "\"Fork\" PDFsam på GitHub"
+
+msgid "Translate"
+msgstr "Oversett"
+
+msgid "Donate"
+msgstr "Donér"
+
+msgid "Social"
+msgstr "Sosialt"
+
+msgid "Follow us on Twitter"
+msgstr "Følg oss på Twitter"
+
+msgid "Like us on Facebook"
+msgstr "Lik oss på Facebook"
+
+msgid "About"
+msgstr "Om"
+
+msgid "Home"
+msgstr ""
+
+msgid "Premium features"
+msgstr "Premium funksjoner"
+
+msgid "Log register rows:"
+msgstr "Rader i loggregisteret:"
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr "Maksimalt antall rader vist av loggregisteret"
+
+msgid "Language:"
+msgstr "Språk:"
+
+msgid "Set your preferred language (restart needed)"
+msgstr "Velg ditt foretrekkende språk (krever omstart)"
+
+msgid "Startup tool:"
+msgstr ""
+
+msgid "Set the tool to open at application startup (restart needed)"
+msgstr ""
+
+msgid "Theme:"
+msgstr "Tema:"
+
+msgid "Set the application theme"
+msgstr ""
+
+msgid "Font size:"
+msgstr ""
+
+msgid "Set the application font size"
+msgstr ""
+
+msgid "Manually selected"
+msgstr "Valgt manuelt"
+
+msgid ""
+"Automatically set the destination directory to the selected PDF document "
+"directory"
+msgstr "Sett målmappe lik plassering av valgte PDF dokument."
+
+msgid "Settings"
+msgstr "Innstillinger"
+
+msgid "Appearance"
+msgstr "Utseende"
+
+msgid "Behavior"
+msgstr "Oppførsel"
+
+msgid "Output"
+msgstr "Resultat"
+
+msgid "Check for updates now"
+msgstr "Sjekk for oppdateringer nå"
+
+msgid ""
+"Select a directory where documents will be saved and loaded by default"
+msgstr "Velg en mappe hvor dokumenter blir lagret og innlest som standard"
+
+msgid "Select a directory"
+msgstr "Velg en mappe"
+
+msgid ""
+"Select a previously saved workspace that will be automatically loaded at "
+"startup"
+msgstr ""
+"Velg et tidligere lagret arbeidsområde som blir innlest automatisk ved "
+"oppstart"
+
+msgid "Select a workspace"
+msgstr "Velg et arbeidsområde"
+
+msgid "Default working directory:"
+msgstr "Standard arbeidsmappe:"
+
+msgid "Load default workspace at startup:"
+msgstr "Les standard arbeidsområde ved oppstart:"
+
+msgid "System default"
+msgstr ""
+
+msgid "Check for updates at startup"
+msgstr "Se etter oppdateringer ved oppstart"
+
+msgid ""
+"Set whether new version availability should be checked on startup (restart "
+"needed)"
+msgstr ""
+"Angi om det skal søkes etter ny versjon ved oppstart (omstart nødvendig)"
+
+msgid "Check for news at startup"
+msgstr "Se etter nyheter ved programstart"
+
+msgid ""
+"Set whether the application should check for news availability on startup "
+"(restart needed)"
+msgstr ""
+"Velg om programmet skal sjekke etter nyheter ved programstart (Krever "
+"omstart av program)"
+
+msgid "Enabled PDF compression"
+msgstr "Aktiver PDF kompresjon"
+
+msgid "Set whether \"Compress output file\" should be enabled by default"
+msgstr "Velg om \"Komprimer resultatfil\" skal være aktivert som standard"
+
+msgid "Overwrite files"
+msgstr "Skriv over filer"
+
+msgid ""
+"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgstr ""
+"Velg om \"Overskriv om fil allerede finnes\" skal være aktivert som standard"
+
+msgid "Play alert sounds"
+msgstr "Spill av alarmlyder"
+
+msgid "Turn on or off alert sounds"
+msgstr "Slå alarmlyder på eller av"
+
+msgid "Store passwords when saving a workspace file"
+msgstr "Lagre passord ved lagring av arbeidsområdefil"
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
+"Dersom en kryptert PDF fil er åpnet med passord, lagre passord i "
+"arbeidsområdefil"
+
+msgid "Show donation window"
+msgstr "Vis \"gi birdrag\" vindu"
+
+msgid ""
+"Turn on or off the notification appearing once in a while and asking the "
+"user to support PDFsam with a donation"
+msgstr "Slå av eller på påminnelser om å støtte PDFsam med et bidrag"
+
+msgid "Show premium features"
+msgstr "Vis premium funksjoner"
+
+msgid ""
+"Set whether the application should fetch and show premium features "
+"description in the modules dashboard"
+msgstr ""
+"Velg om programmet skal hente og vise premium funksjonsbeskrivelser i "
+"modulområde"
+
+msgid "Ask for a confirmation when clearing the selection table"
+msgstr "Spør etter bekreftelse før sletting av valg i tabell"
+
+msgid ""
+"Set whether the application should ask for a confirmation when clearing the "
+"selection table"
+msgstr ""
+"Velg om programmet skal spørre etter bekreftelse ved sletting av valg i "
+"tabell"
+
+msgid "Use the selected PDF document directory as output directory"
+msgstr "Bruk valgte PDF dokumentmappe som målmappe"
+
+msgid "Save default workspace on exit"
+msgstr "Lagre arbeidsområde ved avslutning"
+
+msgid "If a default workspace is set, save it on application exit"
+msgstr ""
+"Dersom standard arbeidsområde ikke er valgt, lagre det ved programavslutning."
+
+msgid "Maximum number of rows mast be a positive number"
+msgstr "Det maksimale antallet rader må være et positivt tall"
+
 msgid "Summary"
 msgstr "Oppsummering"
 
@@ -423,12 +782,14 @@ msgstr "Nøkkelord"
 msgid "Document details"
 msgstr "Dokumentdetaljer"
 
+msgid "Show errors"
+msgstr "Vis feil"
+
+msgid "Input parameters are invalid"
+msgstr ""
+
 msgid "Invalid parameters"
 msgstr "Ugyldige parametere"
-
-msgid ""
-"Input parameters are invalid, open the application messages for details."
-msgstr "Parametrene er ugyldige, åpne programmeldinger for detaljer"
 
 msgid "Access denied"
 msgstr "Tilgang nektet"
@@ -473,94 +834,111 @@ msgstr "Ingen oppdatering"
 msgid "Open"
 msgstr "Åpne"
 
-msgid "E_xit"
-msgstr "A_vslutt"
+#, java-format
+msgid "File \"{0}\" does not exist or is invalid"
+msgstr "Fil \"{0}\" finnes ikke eller er ugyldig"
 
-msgid "_Settings"
-msgstr "_Innstillinger"
+msgid "Valid user password provided."
+msgstr "Gyldig brukerpassord må oppgis"
 
-msgid "Application messages"
-msgstr "Programmeldinger"
+msgid "This document is encrypted, click to provide a password."
+msgstr "Dette dokumentet er kryptert, klikk for å skrive inn passord"
 
-msgid "_Modules"
-msgstr "_Moduler"
+msgid "An error has occurred, click for more details."
+msgstr "En feil oppstod, klikk for flere detaljer"
 
-msgid "_Workspace"
-msgstr "_Arbeidsområde"
-
-msgid "_Load"
-msgstr "Å_pne"
-
-msgid "_Save"
-msgstr "_Lagre"
-
-msgid "Recen_ts"
-msgstr "Nylig_e"
-
-msgid "_Clear recents"
-msgstr "_Slett nylige"
-
-msgid "Select the workspace file to save"
-msgstr "Velg fil fra arbeidsområde for lagring"
-
-msgid "Select the workspace to load"
-msgstr "Velg arbeidområde du vil åpne"
-
-msgid "Split by bookmarks"
-msgstr "Del bokmerker"
-
-msgid ""
-"Split a PDF document at bookmarked pages by specifying a bookmark level."
-msgstr "Del PDF dokument ved bokmerker ved å spesifisere bokmerker."
-
-msgid "Select or drag and drop the PDF you want to split"
-msgstr "Velg eller dra og slipp PDF filer du vil dele"
-
-msgid "Split settings"
-msgstr "Del innstillinger"
-
-msgid "Regular expression the bookmark has to match"
-msgstr "Vanlige uttrykk som bokmerker må stemme med"
-
-msgid "Split at this bookmark level:"
-msgstr "Del ved dette bokmerkeivået:"
-
-msgid "Matching regular expression:"
-msgstr "Treff på vanlige uttrykk:"
-
-msgid "A regular expression the bookmark text has to match"
-msgstr "Et vanlig uttrykk i bokmerketeksten må passe"
-
-msgid ""
-"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgid "Split tools"
 msgstr ""
-"Eksempel: bruk .*Kapittel.* for å treffe bokmerker som inneholder ordet "
-"\"Kapittel\""
 
-msgid "Invalid bookmarks level"
-msgstr "Ugyldig bokmerke nivå"
+msgid "Merge tools"
+msgstr ""
 
-msgid "Show errors"
-msgstr "Vis feil"
+msgid "Convert tools"
+msgstr ""
 
-msgid "Run"
-msgstr "Kjør"
+msgid "Edit tools"
+msgstr ""
 
-msgid "Requested"
-msgstr "Forespurt"
+msgid "Other tools"
+msgstr ""
 
-msgid "Completed"
-msgstr "Ferdig"
+msgid "Checking for updates"
+msgstr "Ser etter oppdateringer"
 
-msgid "Failed"
-msgstr "Feilet"
-
-msgid "Running"
-msgstr "Kjører"
+msgid "Unable to find the latest available version."
+msgstr "Ikke mulig å finne nyeste tilgjengelige versjon."
 
 #, java-format
-msgid "Running {0}%"
-msgstr "Kjører {0}%"
+msgid "Unable to find any valid PDF file in the list: {0}"
+msgstr "Fant ingen gyldige PDF fil i listen: {0}"
+
+#, java-format
+msgid "Unable to load PDF list file from {0}"
+msgstr "Klarte ikke å laste PDF listen fra {0}"
+
+msgid "Loading pdf documents"
+msgstr "Laster PDF dokumenter"
+
+msgid "Documents loaded"
+msgstr "Dokumenter lastet"
+
+msgid "Unable to retrieve premium features description"
+msgstr "Klarte ikke å hente premium funksjonsbeskrivelser"
+
+msgid "Fetching premium modules"
+msgstr "Henter premium moduler"
+
+msgid "Unable to retrieve premium modules"
+msgstr "Klarte ikke å hente premium moduler"
+
+msgid "Unable to retrieve latest news"
+msgstr "Klarte ikke å hente siste nyheter"
+
+msgid "Fetching latest news"
+msgstr "Henter siste nyheter"
+
+msgid "Unable to retrieve the latest news"
+msgstr "Klarte ikke å hente siste nyheter"
+
+#, java-format
+msgid "Saving workspace data to {0}"
+msgstr "Lagrer arbeidsområde til {0}"
+
+msgid "Workspace saved"
+msgstr "Arbeidsområde lagret"
+
+msgid "Requesting modules state"
+msgstr "Etterspør modul status"
+
+#, java-format
+msgid "Unable to save workspace to {0}"
+msgstr "Klarte ikke å lagre arbeidsområde til {0}"
+
+#, java-format
+msgid "Loading workspace from {0}"
+msgstr "Laster arbeidsområde fra {0}"
+
+msgid "Workspace loaded"
+msgstr "Arbeidsområde lastet"
+
+#, java-format
+msgid "Unable to load workspace from {0}"
+msgstr "Klarte ikke laste arbeidsområde fra {0}"
+
+msgid "Light with blue"
+msgstr ""
+
+msgid "Dark with purple"
+msgstr ""
+
+msgid "Dark with teal"
+msgstr ""
+
+msgid "Light with maroon"
+msgstr ""
+
+msgid "Close"
+msgstr "Lukk"
 
 msgid "The selected PDF document is invalid"
 msgstr "Det valgte PDF dokumentet er ugyldig"
@@ -570,9 +948,6 @@ msgstr "Velg PDF filen"
 
 msgid "_Select PDF"
 msgstr "_Velg PDF"
-
-msgid "_Clear"
-msgstr "_Tøm"
 
 msgid "Clear all settings"
 msgstr "Slett alle innstillinger"
@@ -623,11 +998,21 @@ msgstr "Flytt nederst"
 msgid "Duplicate"
 msgstr "Dubliser"
 
+msgid "Selected pages"
+msgstr ""
+
+msgid "Total number of selected pages"
+msgstr ""
+
 msgid "Size"
 msgstr "Størrelse"
 
 msgid "Modified"
 msgstr "Endret"
+
+#, java-format
+msgid "Total pages: {0}"
+msgstr ""
 
 msgid "Name"
 msgstr "Navn"
@@ -686,14 +1071,14 @@ msgstr "Omvendt"
 msgid "Pages"
 msgstr "Sider"
 
+msgid "Number of total pages of the document"
+msgstr ""
+
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Dobbeltklikk for å velge sider (eks: 2 eller 5-23 eller 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "Sideområde"
-
-msgid "The selected PDF file is invalid"
-msgstr "Den valgte PDF fil er ugyldig"
 
 msgid "Select a file"
 msgstr "Velg en fil"
@@ -707,9 +1092,6 @@ msgstr "Tillatte utvidelser er {0}"
 
 msgid "Compress output file/files"
 msgstr "Komprimer utfil(er)"
-
-msgid "Discard bookmarks"
-msgstr "Slett bokmerker"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -767,6 +1149,9 @@ msgstr "Prefiks til de genererte filnavnene"
 msgid "Add prefix"
 msgstr "Legg til prefiks"
 
+msgid "DEFAULT_PREFIX"
+msgstr ""
+
 msgid "Generated PDF documents name prefix:"
 msgstr "PDF navneprefix i dokumenter:"
 
@@ -779,316 +1164,27 @@ msgstr "Noen spesialnøkkelord erstattes med kjøretidsverdier."
 msgid "Right click to add these keywords."
 msgstr "Høyreklikk for å legge til disse nøkkelordene."
 
-msgid "Split after"
-msgstr "Del etter"
+msgid "Run"
+msgstr "Kjør"
 
-msgid "No page selected"
-msgstr "Ingen side er valgt"
-
-msgid "Split"
-msgstr "Del opp"
-
-msgid "Split a PDF document at the given page numbers."
-msgstr "Del PDF dokument etter oppgitt sidenummer"
-
-msgid "Every page"
-msgstr "Hver side"
-
-msgid "Even pages"
-msgstr "Partallssider"
-
-msgid "Odd pages"
-msgstr "Oddetallssider"
-
-msgid "Split the document after the given page numbers"
-msgstr "Del dokumentet etter oppgitt sidenummer"
-
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Run the task"
 msgstr ""
-"Del PDF hver \"n\" side ved opprettelse av dokument med \"n\" sider i hvert"
 
-msgid "Split after the following page numbers"
-msgstr "Del etter følgende sidenummer"
+msgid "Requested"
+msgstr "Forespurt"
 
-msgid "Page numbers to split at (n1,n2,n3..)"
-msgstr "Sidenummer å dele ved (n1,n2,n3..)"
+msgid "Completed"
+msgstr "Ferdig"
 
-msgid "Invalid page numbers"
-msgstr "Ugyldig sidenummer"
+msgid "Failed"
+msgstr "Feilet"
 
-msgid "Only valid positive page numbers are allowed"
-msgstr "Kun gyldige positive nummer kan brukes"
-
-msgid "Split by every \"n\" pages"
-msgstr "Del ved hver \"n\"te side"
-
-msgid "Number of pages"
-msgstr "Antall sider"
-
-msgid "Invalid number of pages"
-msgstr "Ugyldig antall sider"
-
-msgid "Checking for updates"
-msgstr "Ser etter oppdateringer"
-
-msgid "Unable to find the latest available version."
-msgstr "Ikke mulig å finne nyeste tilgjengelige versjon."
+msgid "Running"
+msgstr "Kjører"
 
 #, java-format
-msgid "Unable to find any valid PDF file in the list: {0}"
-msgstr "Fant ingen gyldige PDF fil i listen: {0}"
-
-#, java-format
-msgid "Unable to load PDF list file from {0}"
-msgstr "Klarte ikke å laste PDF listen fra {0}"
-
-msgid "Loading pdf documents"
-msgstr "Laster PDF dokumenter"
-
-msgid "Documents loaded"
-msgstr "Dokumenter lastet"
-
-msgid "Unable to retrieve premium features description"
-msgstr "Klarte ikke å hente premium funksjonsbeskrivelser"
-
-msgid "Fetching premium tools"
-msgstr "Henter premium moduler"
-
-msgid "Unable to retrieve premium tools"
-msgstr "Klarte ikke å hente premium moduler"
-
-msgid "Unable to retrieve latest news"
-msgstr "Klarte ikke å hente siste nyheter"
-
-msgid "Fetching latest news"
-msgstr "Henter siste nyheter"
-
-msgid "Unable to retrieve the latest news"
-msgstr "Klarte ikke å hente siste nyheter"
-
-#, java-format
-msgid "Saving workspace data to {0}"
-msgstr "Lagrer arbeidsområde til {0}"
-
-msgid "Workspace saved"
-msgstr "Arbeidsområde lagret"
-
-msgid "Requesting tools state"
-msgstr "Etterspør modul status"
-
-msgid "Unable to save tools workspace"
-msgstr "Klarte ikke å lagre modularbeidsområde"
-
-#, java-format
-msgid "Unable to save workspace to {0}"
-msgstr "Klarte ikke å lagre arbeidsområde til {0}"
-
-#, java-format
-msgid "Loading workspace from {0}"
-msgstr "Laster arbeidsområde fra {0}"
-
-msgid "Workspace loaded"
-msgstr "Arbeidsområde lastet"
-
-#, java-format
-msgid "Unable to load workspace from {0}"
-msgstr "Klarte ikke laste arbeidsområde fra {0}"
-
-msgid "Split by size"
-msgstr "Del etter størrelse"
-
-msgid "Split a PDF document in files of the given size (roughly)."
-msgstr "Del et PDF dokument i filer etter størrelse (omtrentlig)."
-
-msgid "Megabytes"
-msgstr "Megabyte"
-
-msgid "MB"
-msgstr "MB"
-
-msgid "Kilobytes"
-msgstr "Kilobyte"
-
-msgid "KB"
-msgstr "KB"
-
-msgid "Set the size to split at"
-msgstr "Størrelse å dele ved"
-
-msgid "Size must be a number"
-msgstr "Størrelse må være et tall"
-
-msgid "Split at this size:"
-msgstr "Del ved størrelse:"
-
-msgid "Invalid split size"
-msgstr "Ugyldig delstørrelse"
-
-msgid "Alternate Mix"
-msgstr "Alternativ Mix"
-
-msgid ""
-"Merge two or more PDF documents taking pages alternately in natural or "
-"reverse order."
-msgstr ""
-"Slå sammen to eller flere PDF dokumenter med sier i naturlig eller omvendt "
-"rekkefølge."
-
-msgid "Destination file"
-msgstr "Målfil"
-
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Dobbeltklikk for å velge sider du ønsker å blande (eks: 2 eller 5-23 eller "
-"2,5-7,12-)"
-
-msgid "Select a positive integer number as pace"
-msgstr "Velg et positivt heltall som tempo"
-
-msgid "All pages"
-msgstr "Alle sider"
-
-msgid "90 degrees clockwise"
-msgstr "90 grader med klokken"
-
-msgid "180 degrees clockwise"
-msgstr "180 grader mot klokken"
-
-msgid "90 degrees counterclockwise"
-msgstr "90 grader mot klokken"
-
-msgid "Rotate "
-msgstr "Roter "
-
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Dobbeltklikk for å velge sider du ønsker å rotere (eks: 2 eller 5-23 eller "
-"2,5-7,12-)"
-
-msgid "Rotate"
-msgstr "Rotér"
-
-msgid "Rotate the pages of multiple PDF documents."
-msgstr "Roter sidene i flere PDF dokumenter"
-
-msgid "Rotate settings"
-msgstr "Roter innstillinger"
-
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Dobbeltklikk for å velge sider du vil slå sammen (f.eks.: 2 eller 5-23 eller "
-"2,5-7,12 -)"
-
-msgid "Add a blank page if page number is odd"
-msgstr "En blank side ved oddetallsider"
-
-msgid ""
-"Adds a blank page after each merged document if the document has an odd "
-"number of pages"
-msgstr ""
-"Legger til en blank side etter hvert samenslått dokument som har oddetalls "
-"sidetall"
-
-msgid "Add a footer"
-msgstr "Legg til en fottekst"
-
-msgid "Adds a page footer with the name of the file the page belonged to."
-msgstr "Legg til en sidefot med samme navn som filnavn som siden tilhører"
-
-msgid "Normalize pages size"
-msgstr "Normaliser sidestørrelse"
-
-msgid "Resizes all pages to have the same width as the first page."
-msgstr ""
-"Tilpass sidestørrelse for alle sider med samme bredde som første side."
-
-msgid "Merge fields"
-msgstr "Slå sammen felt"
-
-msgid "Merge renaming existing fields"
-msgstr "Små sammen  navn på eksisterende felt"
-
-msgid "Flatten"
-msgstr "Flat ut"
-
-msgid "Discard forms"
-msgstr "Slett skjema"
-
-msgid "Interactive forms (AcroForms):"
-msgstr "Internaktive skjema (\"AcroForms\"):"
-
-msgid "What to do in case one or more input documents contain Acro Forms"
-msgstr "Hva skal gjøres om inndokumentet inneholder \"Acro Forms\""
-
-msgid "Retain bookmarks"
-msgstr "Behold bokmerker"
-
-msgid "Create one entry for each merged document"
-msgstr "Lag ett merke for hvert sammenslåtte dokument"
-
-msgid "Retain bookmarks as one entry for each merged document"
-msgstr "Behold bokmerker som et merke for hvert sammenslått dokument"
-
-msgid "Bookmarks handling:"
-msgstr "Bokmerke håndtering:"
-
-msgid "What to do in case one or more input documents contain bookmarks"
-msgstr ""
-"Hva skal gjøres dersom ett eller flere inndatadokumenter har bokmerker"
-
-msgid "Don't generate"
-msgstr "Ikk lag"
-
-msgid "Generate from file names"
-msgstr "Lag fra filnavn"
-
-msgid "Generate from documents titles"
-msgstr "Lag fra dokumenttitler"
-
-msgid "Table of contents:"
-msgstr "Innholdsfortegnelse:"
-
-msgid ""
-"Set if a table of contents should be added to the generated PDF document"
-msgstr "Velg dersom innholdsfortegnelse skal legges til i PDFen som lages"
-
-msgid "Merge"
-msgstr "Slå sammen."
-
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "Slå sammen flere PDF dokumenter eller deler av disse"
-
-msgid "Merge settings"
-msgstr "Innstillinger for sammenføyninger"
-
-#, java-format
-msgid "File \"{0}\" does not exist or is invalid"
-msgstr "Fil \"{0}\" finnes ikke eller er ugyldig"
-
-msgid "Valid user password provided."
-msgstr "Gyldig brukerpassord må oppgis"
-
-msgid "This document is encrypted, click to provide a password."
-msgstr "Dette dokumentet er kryptert, klikk for å skrive inn passord"
-
-msgid "An error has occurred, click for more details."
-msgstr "En feil oppstod, klikk for flere detaljer"
-
-msgid "Security"
-msgstr "Sikkerhet"
-
-msgid "Other"
-msgstr "Andre"
-
-msgid "Roundish"
-msgstr "Omtrentlig"
-
-msgid "Directories"
-msgstr "Mapper"
+msgid "Running {0}%"
+msgstr "Kjører {0}%"
 
 msgid "Error saving log file."
 msgstr "Feil ved lagring av loggfil."
@@ -1121,9 +1217,6 @@ msgstr "Ugyldig nummer: {0}."
 
 #~ msgid "Destination folder"
 #~ msgstr "Destinasjonsmappe"
-
-#~ msgid "Theme:"
-#~ msgstr "Tema:"
 
 #~ msgid "Never"
 #~ msgstr "Aldri"

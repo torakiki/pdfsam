@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-11-15 12:38+0100\n"
+"POT-Creation-Date: 2023-01-27 11:09+0100\n"
 "PO-Revision-Date: 2020-10-24 09:02+0000\n"
 "Last-Translator: Janez Gačnik <Unknown>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-07-26 09:36+0000\n"
-"X-Generator: Launchpad (build 20124175fa98fcb4b43973265a1561174418f4bd)\n"
+"X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
+"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Izbrana ni bila nobena datoteka PDF"
@@ -35,6 +35,12 @@ msgstr "Nastavitve izvlačenja"
 msgid "Output settings"
 msgstr "Nastavitve izhoda"
 
+msgid "A separate file for each set of pages"
+msgstr ""
+
+msgid "Each continuous series of pages will generate a separate PDF file"
+msgstr ""
+
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Strani za izvlačenje (npr. 2 ali 5-23 ali 2,5-7,12-)"
 
@@ -44,9 +50,325 @@ msgstr "Neveljaven razpon strani"
 msgid "Extract pages:"
 msgstr "Izvleci strani:"
 
-#, java-format
-msgid "Installing theme {0}."
-msgstr "Nameščanje teme {0}."
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+")"
+msgstr ""
+
+msgid "Split by bookmarks"
+msgstr "Razcepi po zaznamkih"
+
+msgid ""
+"Split a PDF document at bookmarked pages by specifying a bookmark level."
+msgstr "Razcepi dokument PDF na straneh z zaznamki določene ravni."
+
+msgid "Regular expression the bookmark has to match"
+msgstr "Logični izraz, s katerim se mora zaznamek ujemati"
+
+msgid "Split at this bookmark level:"
+msgstr "Razcepi pri zaznamkih naslednje ravni:"
+
+msgid "Matching regular expression:"
+msgstr "Ujemajoči logični izraz:"
+
+msgid "A regular expression the bookmark text has to match"
+msgstr "Logični izraz, s katerim se mora besedilo zaznamka ujemati"
+
+msgid ""
+"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+"Primer: uporabi .*Poglavje.* za iskanje ujemajočega zaznamka, ki vsebuje "
+"besedo \"Poglavje\""
+
+msgid "Select or drag and drop the PDF you want to split"
+msgstr "Izberite ali primite in povlecite PDF, ki ga želite razcepiti"
+
+msgid "Split settings"
+msgstr "Nastavitve cepljenja"
+
+msgid "Invalid bookmarks level"
+msgstr "Neveljavna raven zaznamkov"
+
+msgid "Split after"
+msgstr "Razcepi za"
+
+msgid "No page selected"
+msgstr "Nobena stran ni izbrana"
+
+msgid "Split"
+msgstr "Razcepi"
+
+msgid "Split a PDF document at the given page numbers."
+msgstr "Razcepi dokument PDF na določenih straneh."
+
+msgid "Every page"
+msgstr "Vsako stran"
+
+msgid "Even pages"
+msgstr "Sode strani"
+
+msgid "Odd pages"
+msgstr "Lihe strani"
+
+msgid "Split the document after the given page numbers"
+msgstr "Razcepi dokument za podanimi stranmi"
+
+msgid ""
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr ""
+"Razcepi PDF na vsake \"n\" strani tako, da ustvari dokumente z \"n\" stranmi"
+
+msgid "Split after the following page numbers"
+msgstr "Razcepi za sledečimi stranmi"
+
+msgid "Page numbers to split at (n1,n2,n3..)"
+msgstr "Strani, pri katerih se cepi (n1,n2,n3..)"
+
+msgid "Invalid page numbers"
+msgstr "Neveljavne številke strani"
+
+msgid "Only valid positive page numbers are allowed"
+msgstr "Dovoljene so le veljavne pozitivne številke strani"
+
+msgid "Split by every \"n\" pages"
+msgstr "Razcepi na vsake \"n\" strani"
+
+msgid "Number of pages"
+msgstr "Število strani"
+
+msgid "Invalid number of pages"
+msgstr "Neveljavno število strani"
+
+msgid "Megabytes"
+msgstr "Megabajti"
+
+msgid "MB"
+msgstr "MB"
+
+msgid "Kilobytes"
+msgstr "Kilobajti"
+
+msgid "KB"
+msgstr "KB"
+
+msgid "Split by size"
+msgstr "Razcepi po velikosti"
+
+msgid "Split a PDF document in files of the given size (roughly)."
+msgstr "Razcepi dokument PDF na datoteke (prebližno) podane velikosti."
+
+msgid "Set the size to split at"
+msgstr "Nastavite velikost, na katero želite razcepiti"
+
+msgid "Size must be a number"
+msgstr "Velikost mora biti izražena s številko"
+
+msgid "Split at this size:"
+msgstr "Razcepi na naslednjo velikost:"
+
+msgid "Invalid split size"
+msgstr "Neveljavna velikost razcepljene datoteke"
+
+msgid "Destination file"
+msgstr "Ciljna datoteka"
+
+msgid "Alternate Mix"
+msgstr "Nadomestni združen pdf"
+
+msgid ""
+"Merge two or more PDF documents taking pages alternately in natural or "
+"reverse order."
+msgstr ""
+"Spoji dva ali več dokumentov PDF, izmenjujoče zaporedne strani ali strani v "
+"obratnem vrstnem redu."
+
+msgid ""
+"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Dvokliknite za nastavitev strani, ki jih želite zmešati (npr: 2 ali 5-23 ali "
+"2,5-7,12-)"
+
+msgid "Select a positive integer number as pace"
+msgstr "Za korak izberite celo število"
+
+msgid "All pages"
+msgstr "Vse strani"
+
+msgid "90 degrees clockwise"
+msgstr "90 stopnij v smeri urinega kazalca"
+
+msgid "180 degrees clockwise"
+msgstr "180 stopnij v smeri urinega kazalca"
+
+msgid "90 degrees counterclockwise"
+msgstr "90 stopnij v nasprotni smeri urinega kazalca"
+
+msgid "Rotate "
+msgstr "Zasukaj "
+
+msgid "Rotate settings"
+msgstr "Nastavitve sukanja"
+
+msgid "Rotate"
+msgstr "Zasukaj"
+
+msgid "Rotate the pages of multiple PDF documents."
+msgstr "Zasukaj strani večim dokumentom PDF"
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Dvokliknite za določitev strani, ki jih želite zasukati (npr.: 2 or 5-23 or "
+"2,5-7,12-)"
+
+msgid "Merge settings"
+msgstr "Nastavitve združevanja"
+
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Dvokliknite, da določite strani, ki jih želite združiti (npr.: 2 ali 5-23 "
+"ali 2,5-7,12-)"
+
+msgid "Add a blank page if page number is odd"
+msgstr "Dodaj prazno stran, če je število strani liho"
+
+msgid ""
+"Adds a blank page after each merged document if the document has an odd "
+"number of pages"
+msgstr ""
+"Doda prazno stran za vsakim združenim dokumentom, če ima ta liho število "
+"strani"
+
+msgid "Add a footer"
+msgstr "Dodaj nogo"
+
+msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr "Doda nogo z imenom datoteke, katere del je bila stran."
+
+msgid "None"
+msgstr "Brez"
+
+msgid "Same width as first page"
+msgstr ""
+
+msgid "Same width as first page (based on page orientation)"
+msgstr ""
+
+msgid "Pages normalization:"
+msgstr ""
+
+msgid ""
+"Set whether pages should be resized to all have the same width as the first "
+"one"
+msgstr ""
+
+msgid "Merge fields"
+msgstr "Združi polja"
+
+msgid "Merge renaming existing fields"
+msgstr "Med združevanjem preimenuj polja"
+
+msgid "Flatten"
+msgstr "Splošči"
+
+msgid "Discard forms"
+msgstr "Zavrzi obrazce"
+
+msgid "Interactive forms (AcroForms):"
+msgstr "Sodejni obrazci (Acroforms):"
+
+msgid "What to do in case one or more input documents contain Acro Forms"
+msgstr ""
+"Kaj storiti v primeru, da en ali več dokumentov vsebuje sodejne obrazce "
+"(Acro Forms)"
+
+msgid "Retain bookmarks"
+msgstr "Ohrani zaznamke"
+
+msgid "Discard bookmarks"
+msgstr "Zvrzi zaznamke"
+
+msgid "Create one entry for each merged document"
+msgstr "Ustvari en vnos za vsak združen dokument"
+
+msgid "Retain bookmarks as one entry for each merged document"
+msgstr "Ohrani zaznamke kot en vnos za vsak združen dokument"
+
+msgid "Bookmarks handling:"
+msgstr "Ravnanje z zaznamki:"
+
+msgid "What to do in case one or more input documents contain bookmarks"
+msgstr ""
+"Kaj storiti v primeru, da en ali več vnešenih dokumentov vsebuje zaznamke"
+
+msgid "Don't generate"
+msgstr "Ne ustvari"
+
+msgid "Generate from file names"
+msgstr "Ustvari po imenu datoteke"
+
+msgid "Generate from documents titles"
+msgstr "Ustvari po naslovih dokumentov"
+
+msgid "Table of contents:"
+msgstr "Kazalo:"
+
+msgid ""
+"Set if a table of contents should be added to the generated PDF document"
+msgstr "Nastavite, če želite dodati ustvarjenemu PDF dokumentu  kazalo"
+
+msgid "Merge"
+msgstr "Združi"
+
+msgid "Merge together multiple PDF documents or subsections of them."
+msgstr "Združi več datotek PDF ali njihovih delov."
+
+msgid "Select or drag and drop the PDF whose pages will be repeated"
+msgstr ""
+
+msgid "Repeat these pages:"
+msgstr ""
+
+msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid ""
+"Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
+"7,12-)"
+msgstr ""
+
+msgid "Leave it empty to use all the pages of the PDF file"
+msgstr ""
+
+msgid "Repeat every \"n\" pages:"
+msgstr ""
+
+msgid "Invalid page number"
+msgstr ""
+
+msgid "Repeat the selected pages every \"n\" pages of the original document"
+msgstr ""
+
+msgid "The selected PDF file is invalid"
+msgstr "Izbrana datoteka PDF ni veljavna"
+
+msgid "The number of pages must be a positive number"
+msgstr ""
+
+msgid "Select or drag and drop the PDF you want to insert pages to"
+msgstr ""
+
+msgid "Insert and Repeat settings"
+msgstr ""
+
+msgid "Insert pages multiple times"
+msgstr ""
+
+msgid ""
+"Insert the pages of a PDF document A into another document B, repeating it "
+"after a certain number of pages, resulting in B1 A B2 A B3 A etc."
+msgstr ""
 
 #, java-format
 msgid "Started in {0}"
@@ -55,282 +377,32 @@ msgstr "Zagnan {0}"
 msgid "Closing PDFsam..."
 msgstr "Zapiranje PDFsam ..."
 
-msgid "Log register"
-msgstr "Dnevniški zapisi"
-
-msgid "Copy"
-msgstr "Kopiraj"
-
-msgid "Clear"
-msgstr "Odstrani"
-
-msgid "Select all"
-msgstr "Izberi vse"
-
-msgid "Save log"
-msgstr "Shrani dnevnik"
-
-msgid "Select where to save the log file"
-msgstr "Izberite, kam želite shraniti dnevniško datoteko"
-
-msgid "About"
-msgstr "O programu"
-
-msgid "Premium features"
-msgstr "Plačljive zmogljivosti"
-
-msgid "Close"
-msgstr "Zapri"
-
-msgid "Modules"
-msgstr "Moduli"
-
-msgid "Subscribe to the official news feed"
-msgstr "Naročite se na uradni spletni vir"
-
-msgid "Environment"
-msgstr "Okolje"
-
-msgid "Vendor: %s"
-msgstr "Prodajalec: %s"
-
-msgid "Java runtime path: %s"
-msgstr "Javina izvajalna pot:  %s"
-
-msgid "JavaFX runtime version %s"
-msgstr "Izvajalna različica %s JaveFX"
-
-#, java-format
-msgid "Max memory {0}"
-msgstr "Največji spomin {0}"
-
-msgid "Copy to clipboard"
-msgstr "Kopiraj v odložišče"
-
-msgid "Support"
-msgstr "Podpora"
-
-msgid "Bug and feature requests"
-msgstr "Hrošči in zahteve po zmogljivostih"
-
-msgid "Documentation"
-msgstr "Dokumentacija"
-
-msgid "Contribute"
-msgstr "Prispevajte"
-
-msgid "Fork PDFsam on GitHub"
-msgstr "Vejajte PDFsam na GitHub-u"
-
-msgid "Translate"
-msgstr "Prevajajte"
-
-msgid "Donate"
-msgstr "Prispevajte"
-
-msgid "Social"
-msgstr "Družbeno"
-
-msgid "Follow us on Twitter"
-msgstr "Sledite na Twitterju"
-
-msgid "Like us on Facebook"
-msgstr "Všečkajte na Facebooku"
-
-msgid "Log register rows:"
-msgstr "Vrstice dnevniških zapisov:"
-
-msgid "Maximum number of rows displayed by the Log register"
-msgstr "Največje možno število prikazanih vrstic dnevniških zapisov"
-
-msgid "Language:"
-msgstr "Jezik:"
-
-msgid "Set your preferred language (restart needed)"
-msgstr "Izberi prednostni jezik (potreben ponovni zagon)"
-
-msgid "Startup tool:"
-msgstr "Zagonski modul:"
-
-msgid "Set the tool to open at application startup (restart needed)"
-msgstr ""
-"Določite modul, ki se bo odprl ob zagonu programa (potreben ponovni zagon)"
-
-msgid ""
-"Usage statistics are used to populate the tools quick bar on the left with "
-"the most used and most recently used tools."
-msgstr ""
-"Statistika uporabe služi popolnitvi priročne vrstice na levi strani z "
-"najpogosteje in  nazadnje uporabljenimi moduli."
-
-msgid "Manually selected"
-msgstr "Ročno izbrano"
-
-msgid ""
-"Automatically set the destination directory to the selected PDF document "
-"directory"
-msgstr "Samodejno nastavi mapo izbranega dokumenta PDF za ciljno mapo"
-
-msgid "Clear usage statistics"
-msgstr "Počisti statistiko uporabe"
-
-msgid "Appearance"
-msgstr "Videz"
-
-msgid "Behavior"
-msgstr "Obnašanje"
-
-msgid "Workspace"
-msgstr "Delovna površina"
-
-msgid "Output"
-msgstr "Izpis"
-
-msgid "Check for updates now"
-msgstr "Poizvej sedaj, ali so na voljo posodobitve"
-
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
-msgstr "Izberi direktorij kamor se bodo dokumenti shranjevali in nalagali"
-
-msgid "Select a directory"
-msgstr "Izberite mapo"
-
-msgid ""
-"Select a previously saved workspace that will be automatically loaded at "
-"startup"
-msgstr ""
-"Izberi nazadnje shranjeno delovno površino, ki se bo ob naslednjem zagonu "
-"samodejno naložila."
-
-msgid "Select a workspace"
-msgstr "Izberite delovno površino"
-
-msgid "Default working directory:"
-msgstr "Privzeti delovni direktorij:"
-
-msgid "Load default workspace at startup:"
-msgstr "Ob zagonu naloži privzeto delovno površino:"
-
-msgid "Dashboard"
-msgstr "Nadzorna plošča"
-
-msgid "Check for updates at startup"
-msgstr "Ob zagonu poizvedi o morebitnih posodobitvah"
-
-msgid ""
-"Set whether new version availability should be checked on startup (restart "
-"needed)"
-msgstr ""
-"Nastavite, če želite, da se ob zagodnu preveri razpoložljivost nove "
-"različice (potreben ponovni zagon)"
-
-msgid "Check for news at startup"
-msgstr "Ob zagodnu poizvedi po novicah"
-
-msgid ""
-"Set whether the application should check for news availability on startup "
-"(restart needed)"
-msgstr ""
-"Nastavite, če želite, da program ob zagonu preveri razpoložljivost novic "
-"(potreben ponovni zagon)"
-
-msgid "Enabled PDF compression"
-msgstr "Stiskanje PDF-ja omogočeno"
-
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr ""
-"Omogočite, če želite da je nastavitev \"Stisni izhodne datoteke\" privzeto "
-"omogočena"
-
-msgid "Overwrite files"
-msgstr "Prepiši datoteke"
-
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
-msgstr ""
-"Nastavite, ali želite, da je \"Prepiši, če že obstaja\" privzeto omogočeno"
-
-msgid "Play alert sounds"
-msgstr "Predvajaj opozorilne zvoke"
-
-msgid "Turn on or off alert sounds"
-msgstr "Vklop/izklop opozorilnega zvoka"
-
-msgid "Store passwords when saving a workspace file"
-msgstr "Shrani gesla pri shranjevanju datoteke delovne površine"
-
-msgid ""
-"If an encrypted PDF document has been opened with a password, save the "
-"password in the workspace file"
-msgstr ""
-"Če je bil šifriran dokument PDF odprt z geslom, geslo shrani v datoteko "
-"delovne površine"
-
-msgid "Show donation window"
-msgstr "Prikaži okno za prispevke"
-
-msgid ""
-"Turn on or off the notification appearing once in a while and asking the "
-"user to support PDFsam with a donation"
-msgstr ""
-"Izključi obvestilo, ki se vsake toliko pojavi in prosi uporabnika, da podpre "
-"PDFsam s prispevkom"
-
-msgid "Show premium features"
-msgstr "Prikaži doplačljive zmogljivosti"
-
-msgid ""
-"Set whether the application should fetch and show premium features "
-"description in the tools dashboard"
-msgstr ""
-"Nastavite, če želite, da program pridobi in prikaže opise doplačljivih "
-"zmogljivosti na delovni površini modulov"
-
-msgid "Ask for a confirmation when clearing the selection table"
-msgstr ""
-
-msgid ""
-"Set whether the application should ask for a confirmation when clearing the "
-"selection table"
-msgstr ""
-
-msgid "Use the selected PDF document directory as output directory"
-msgstr "Uporabi mapo izbranega dokumenta PFD kot izhodno mapo"
-
-msgid "Save default workspace on exit"
-msgstr "Shrani privzeto delovno površino ob izhodu"
-
-msgid "If a default workspace is set, save it on application exit"
-msgstr ""
-"Če je privzeta delavna površina določena, jo shrani ob izhodu iz programa"
-
-msgid "Maximum number of rows mast be a positive number"
-msgstr "Največje možno število vrstic mora biti pozitivna številka"
-
-msgid "Generate high quality thumbnails (slower)"
-msgstr "Ustvari visokoločljive sličice (počasneje)"
-
-msgid "Size in px:"
-msgstr "Velikost v slikovnih pikah:"
-
-msgid "Library used to generate thumbnails"
-msgstr "Knjižnica, uporabljena za ustvarjanje sličic"
-
-msgid "Thumbnails creator:"
-msgstr "Ustvarjalnik sličic:"
-
-msgid "Settings"
-msgstr "Nastavitve"
-
 msgid "Drag and drop PDF files or directories containing PDF files"
 msgstr "Primi in povleci datoteke PDF ali mape, ki jih vsebujejo"
 
 msgid "No PDF found"
 msgstr "Nobenega PDF ni bilo mogoče najti"
 
+msgid "Tools"
+msgstr ""
+
+msgid "News"
+msgstr ""
+
 msgid "What's new"
 msgstr "Kaj je novega"
+
+msgid "Exit"
+msgstr "Izhod"
+
+msgid "Exit the application"
+msgstr ""
+
+msgid "Workspace"
+msgstr "Delovna površina"
+
+msgid "Manage your workspaces"
+msgstr ""
 
 msgid "Yes"
 msgstr "Da"
@@ -420,6 +492,294 @@ msgstr ""
 "To ima lahko za posledico datoteke PDF z delnimi ali manjkajočimi podatki. "
 "Želite vseeno nadaljevati?"
 
+msgid "Removes all the log messages"
+msgstr ""
+
+msgid "_Clear"
+msgstr "_Počisti"
+
+msgid "_Save"
+msgstr "_Shrani"
+
+msgid "C_lose"
+msgstr ""
+
+msgid "Copy"
+msgstr "Kopiraj"
+
+msgid "Clear"
+msgstr "Odstrani"
+
+msgid "Select all"
+msgstr "Izberi vse"
+
+msgid "Save log"
+msgstr "Shrani dnevnik"
+
+msgid "Select where to save the log file"
+msgstr "Izberite, kam želite shraniti dnevniško datoteko"
+
+msgid "Logs"
+msgstr ""
+
+msgid "Application messages"
+msgstr "Sporočila programa"
+
+msgid "_Load"
+msgstr "Na_loži"
+
+msgid "Recen_ts"
+msgstr "Ne_davno"
+
+msgid "_Clear recents"
+msgstr "Počisti n_edavne"
+
+msgid "Select the workspace file to save"
+msgstr "Izberite datoteko delovne površine, ki jo želite shraniti"
+
+msgid "Select the workspace to load"
+msgstr "Izberite datoteko delovne površine, ki jo želite naložiti"
+
+msgid "Subscribe to the official news feed"
+msgstr "Naročite se na uradni spletni vir"
+
+msgid "Environment"
+msgstr "Okolje"
+
+#, java-printf-format
+msgid "Vendor: %s"
+msgstr "Prodajalec: %s"
+
+#, java-printf-format
+msgid "Java runtime path: %s"
+msgstr "Javina izvajalna pot:  %s"
+
+#, java-printf-format
+msgid "JavaFX runtime version: %s"
+msgstr ""
+
+#, java-printf-format
+msgid "PDF engine (Sejda SDK) version: %s"
+msgstr ""
+
+#, java-format
+msgid "Max memory {0}"
+msgstr "Največji spomin {0}"
+
+msgid "Copy to clipboard"
+msgstr "Kopiraj v odložišče"
+
+msgid "Support"
+msgstr "Podpora"
+
+msgid "Bug and feature requests"
+msgstr "Hrošči in zahteve po zmogljivostih"
+
+msgid "Documentation"
+msgstr "Dokumentacija"
+
+msgid "Contribute"
+msgstr "Prispevajte"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "Vejajte PDFsam na GitHub-u"
+
+msgid "Translate"
+msgstr "Prevajajte"
+
+msgid "Donate"
+msgstr "Prispevajte"
+
+msgid "Social"
+msgstr "Družbeno"
+
+msgid "Follow us on Twitter"
+msgstr "Sledite na Twitterju"
+
+msgid "Like us on Facebook"
+msgstr "Všečkajte na Facebooku"
+
+msgid "About"
+msgstr "O programu"
+
+msgid "Home"
+msgstr ""
+
+msgid "Premium features"
+msgstr "Plačljive zmogljivosti"
+
+msgid "Log register rows:"
+msgstr "Vrstice dnevniških zapisov:"
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr "Največje možno število prikazanih vrstic dnevniških zapisov"
+
+msgid "Language:"
+msgstr "Jezik:"
+
+msgid "Set your preferred language (restart needed)"
+msgstr "Izberi prednostni jezik (potreben ponovni zagon)"
+
+msgid "Startup tool:"
+msgstr ""
+
+msgid "Set the tool to open at application startup (restart needed)"
+msgstr ""
+
+msgid "Theme:"
+msgstr "Tema:"
+
+msgid "Set the application theme"
+msgstr ""
+
+msgid "Font size:"
+msgstr ""
+
+msgid "Set the application font size"
+msgstr ""
+
+msgid "Manually selected"
+msgstr "Ročno izbrano"
+
+msgid ""
+"Automatically set the destination directory to the selected PDF document "
+"directory"
+msgstr "Samodejno nastavi mapo izbranega dokumenta PDF za ciljno mapo"
+
+msgid "Settings"
+msgstr "Nastavitve"
+
+msgid "Appearance"
+msgstr "Videz"
+
+msgid "Behavior"
+msgstr "Obnašanje"
+
+msgid "Output"
+msgstr "Izpis"
+
+msgid "Check for updates now"
+msgstr "Poizvej sedaj, ali so na voljo posodobitve"
+
+msgid ""
+"Select a directory where documents will be saved and loaded by default"
+msgstr "Izberi direktorij kamor se bodo dokumenti shranjevali in nalagali"
+
+msgid "Select a directory"
+msgstr "Izberite mapo"
+
+msgid ""
+"Select a previously saved workspace that will be automatically loaded at "
+"startup"
+msgstr ""
+"Izberi nazadnje shranjeno delovno površino, ki se bo ob naslednjem zagonu "
+"samodejno naložila."
+
+msgid "Select a workspace"
+msgstr "Izberite delovno površino"
+
+msgid "Default working directory:"
+msgstr "Privzeti delovni direktorij:"
+
+msgid "Load default workspace at startup:"
+msgstr "Ob zagonu naloži privzeto delovno površino:"
+
+msgid "System default"
+msgstr ""
+
+msgid "Check for updates at startup"
+msgstr "Ob zagonu poizvedi o morebitnih posodobitvah"
+
+msgid ""
+"Set whether new version availability should be checked on startup (restart "
+"needed)"
+msgstr ""
+"Nastavite, če želite, da se ob zagodnu preveri razpoložljivost nove "
+"različice (potreben ponovni zagon)"
+
+msgid "Check for news at startup"
+msgstr "Ob zagodnu poizvedi po novicah"
+
+msgid ""
+"Set whether the application should check for news availability on startup "
+"(restart needed)"
+msgstr ""
+"Nastavite, če želite, da program ob zagonu preveri razpoložljivost novic "
+"(potreben ponovni zagon)"
+
+msgid "Enabled PDF compression"
+msgstr "Stiskanje PDF-ja omogočeno"
+
+msgid "Set whether \"Compress output file\" should be enabled by default"
+msgstr ""
+"Omogočite, če želite da je nastavitev \"Stisni izhodne datoteke\" privzeto "
+"omogočena"
+
+msgid "Overwrite files"
+msgstr "Prepiši datoteke"
+
+msgid ""
+"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgstr ""
+"Nastavite, ali želite, da je \"Prepiši, če že obstaja\" privzeto omogočeno"
+
+msgid "Play alert sounds"
+msgstr "Predvajaj opozorilne zvoke"
+
+msgid "Turn on or off alert sounds"
+msgstr "Vklop/izklop opozorilnega zvoka"
+
+msgid "Store passwords when saving a workspace file"
+msgstr "Shrani gesla pri shranjevanju datoteke delovne površine"
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
+"Če je bil šifriran dokument PDF odprt z geslom, geslo shrani v datoteko "
+"delovne površine"
+
+msgid "Show donation window"
+msgstr "Prikaži okno za prispevke"
+
+msgid ""
+"Turn on or off the notification appearing once in a while and asking the "
+"user to support PDFsam with a donation"
+msgstr ""
+"Izključi obvestilo, ki se vsake toliko pojavi in prosi uporabnika, da podpre "
+"PDFsam s prispevkom"
+
+msgid "Show premium features"
+msgstr "Prikaži doplačljive zmogljivosti"
+
+msgid ""
+"Set whether the application should fetch and show premium features "
+"description in the modules dashboard"
+msgstr ""
+"Nastavite, če želite, da program pridobi in prikaže opise doplačljivih "
+"zmogljivosti na delovni površini modulov"
+
+msgid "Ask for a confirmation when clearing the selection table"
+msgstr ""
+
+msgid ""
+"Set whether the application should ask for a confirmation when clearing the "
+"selection table"
+msgstr ""
+
+msgid "Use the selected PDF document directory as output directory"
+msgstr "Uporabi mapo izbranega dokumenta PFD kot izhodno mapo"
+
+msgid "Save default workspace on exit"
+msgstr "Shrani privzeto delovno površino ob izhodu"
+
+msgid "If a default workspace is set, save it on application exit"
+msgstr ""
+"Če je privzeta delavna površina določena, jo shrani ob izhodu iz programa"
+
+msgid "Maximum number of rows mast be a positive number"
+msgstr "Največje možno število vrstic mora biti pozitivna številka"
+
 msgid "Summary"
 msgstr "Povzetek"
 
@@ -429,13 +789,14 @@ msgstr "Ključne besede"
 msgid "Document details"
 msgstr "Podrobnosti dokumenta"
 
+msgid "Show errors"
+msgstr "Prikaži napake"
+
+msgid "Input parameters are invalid"
+msgstr ""
+
 msgid "Invalid parameters"
 msgstr "Neveljavni parametri"
-
-msgid ""
-"Input parameters are invalid, open the application messages for details."
-msgstr ""
-"Vnešeni parametri so neveljeavni. Za podrobnosti odprite sporočila programa."
 
 msgid "Access denied"
 msgstr "Zavrnjen dostop"
@@ -480,94 +841,111 @@ msgstr "Ni posodobitve"
 msgid "Open"
 msgstr "Odpri"
 
-msgid "E_xit"
-msgstr "I_zhod"
+#, java-format
+msgid "File \"{0}\" does not exist or is invalid"
+msgstr "Datoteka \"{0}\" ne obstaja ali pa je neveljavna"
 
-msgid "_Settings"
-msgstr "Na_stavitve"
+msgid "Valid user password provided."
+msgstr "Vnešeno veljavno uporabniško geslo."
 
-msgid "Application messages"
-msgstr "Sporočila programa"
+msgid "This document is encrypted, click to provide a password."
+msgstr "Ta dokument je šifriran, kliknite za vnos gesla"
 
-msgid "_Modules"
-msgstr "_Moduli"
+msgid "An error has occurred, click for more details."
+msgstr "Prišlo je do napake, kliknite za več podrobnosti."
 
-msgid "_Workspace"
-msgstr "_Delovna površina"
-
-msgid "_Load"
-msgstr "Na_loži"
-
-msgid "_Save"
-msgstr "_Shrani"
-
-msgid "Recen_ts"
-msgstr "Ne_davno"
-
-msgid "_Clear recents"
-msgstr "Počisti n_edavne"
-
-msgid "Select the workspace file to save"
-msgstr "Izberite datoteko delovne površine, ki jo želite shraniti"
-
-msgid "Select the workspace to load"
-msgstr "Izberite datoteko delovne površine, ki jo želite naložiti"
-
-msgid "Split by bookmarks"
-msgstr "Razcepi po zaznamkih"
-
-msgid ""
-"Split a PDF document at bookmarked pages by specifying a bookmark level."
-msgstr "Razcepi dokument PDF na straneh z zaznamki določene ravni."
-
-msgid "Select or drag and drop the PDF you want to split"
-msgstr "Izberite ali primite in povlecite PDF, ki ga želite razcepiti"
-
-msgid "Split settings"
-msgstr "Nastavitve cepljenja"
-
-msgid "Regular expression the bookmark has to match"
-msgstr "Logični izraz, s katerim se mora zaznamek ujemati"
-
-msgid "Split at this bookmark level:"
-msgstr "Razcepi pri zaznamkih naslednje ravni:"
-
-msgid "Matching regular expression:"
-msgstr "Ujemajoči logični izraz:"
-
-msgid "A regular expression the bookmark text has to match"
-msgstr "Logični izraz, s katerim se mora besedilo zaznamka ujemati"
-
-msgid ""
-"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgid "Split tools"
 msgstr ""
-"Primer: uporabi .*Poglavje.* za iskanje ujemajočega zaznamka, ki vsebuje "
-"besedo \"Poglavje\""
 
-msgid "Invalid bookmarks level"
-msgstr "Neveljavna raven zaznamkov"
+msgid "Merge tools"
+msgstr ""
 
-msgid "Show errors"
-msgstr "Prikaži napake"
+msgid "Convert tools"
+msgstr ""
 
-msgid "Run"
-msgstr "Zaženi"
+msgid "Edit tools"
+msgstr ""
 
-msgid "Requested"
-msgstr "Zahtevan"
+msgid "Other tools"
+msgstr ""
 
-msgid "Completed"
-msgstr "Končano"
+msgid "Checking for updates"
+msgstr "Poizvedovanje za morebitne posodobitve"
 
-msgid "Failed"
-msgstr "Spodletelo"
-
-msgid "Running"
-msgstr "Se izvaja"
+msgid "Unable to find the latest available version."
+msgstr "Zadnje razpoložljive različice ni mogoče najti."
 
 #, java-format
-msgid "Running {0}%"
-msgstr "Izvajanje {0}%"
+msgid "Unable to find any valid PDF file in the list: {0}"
+msgstr "S seznama : {0} ni mogoče najti nobene veljavne datoteke PDF"
+
+#, java-format
+msgid "Unable to load PDF list file from {0}"
+msgstr "Iz {0} ni mogoče naložiti datoteke s seznamom PDF-jev"
+
+msgid "Loading pdf documents"
+msgstr "Nalaganje dokumentov PDF"
+
+msgid "Documents loaded"
+msgstr "Dokumenti naloženi"
+
+msgid "Unable to retrieve premium features description"
+msgstr "Opisov doplačljivih zmožnosti ni bilo mogoče pridobiti"
+
+msgid "Fetching premium modules"
+msgstr "Pridobivanje doplačljivih modulov"
+
+msgid "Unable to retrieve premium modules"
+msgstr "Doplačljivih modulov ni bilo mogoče pridobiti"
+
+msgid "Unable to retrieve latest news"
+msgstr "Zadnjih novic ni mogoče pridobiti"
+
+msgid "Fetching latest news"
+msgstr "Pridobivanje zadnjih novic"
+
+msgid "Unable to retrieve the latest news"
+msgstr "Zadnjih novic ni mogoče pridobiti"
+
+#, java-format
+msgid "Saving workspace data to {0}"
+msgstr "Shranjevanje podatkov o delovni površini v {0}"
+
+msgid "Workspace saved"
+msgstr "Delovna površina shranjena"
+
+msgid "Requesting modules state"
+msgstr "Zahtevanje poročila o stanju modulov"
+
+#, java-format
+msgid "Unable to save workspace to {0}"
+msgstr "Delovne površine ni mogoče shraniti v {0}"
+
+#, java-format
+msgid "Loading workspace from {0}"
+msgstr "Nalaganje delovne površine iz {0}"
+
+msgid "Workspace loaded"
+msgstr "Delovna površina naložena"
+
+#, java-format
+msgid "Unable to load workspace from {0}"
+msgstr "Delovne površine ni mogoče naložiti iz {0}"
+
+msgid "Light with blue"
+msgstr ""
+
+msgid "Dark with purple"
+msgstr ""
+
+msgid "Dark with teal"
+msgstr ""
+
+msgid "Light with maroon"
+msgstr ""
+
+msgid "Close"
+msgstr "Zapri"
 
 msgid "The selected PDF document is invalid"
 msgstr "Izbrani dokument PDF ni veljaven"
@@ -577,9 +955,6 @@ msgstr "Izberite datoteko PDF"
 
 msgid "_Select PDF"
 msgstr "_Izberite PDF"
-
-msgid "_Clear"
-msgstr "_Počisti"
 
 msgid "Clear all settings"
 msgstr "Počisti vse nastavitve"
@@ -630,11 +1005,21 @@ msgstr "Premakni na dno"
 msgid "Duplicate"
 msgstr "Podvoji"
 
+msgid "Selected pages"
+msgstr ""
+
+msgid "Total number of selected pages"
+msgstr ""
+
 msgid "Size"
 msgstr "Velikost"
 
 msgid "Modified"
 msgstr "Spremenjena"
+
+#, java-format
+msgid "Total pages: {0}"
+msgstr ""
 
 msgid "Name"
 msgstr "Ime"
@@ -694,15 +1079,15 @@ msgstr "Obrnjeno"
 msgid "Pages"
 msgstr "Strani"
 
+msgid "Number of total pages of the document"
+msgstr ""
+
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Dvokliknite za nastavitev izbranih strani (ex: 2 or 5-23 or 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "Razponi strani"
-
-msgid "The selected PDF file is invalid"
-msgstr "Izbrana datoteka PDF ni veljavna"
 
 msgid "Select a file"
 msgstr "Izberite datoteko"
@@ -716,9 +1101,6 @@ msgstr "Dovoljene so pripone {0}"
 
 msgid "Compress output file/files"
 msgstr "Stisni izhodne datoteke"
-
-msgid "Discard bookmarks"
-msgstr "Zvrzi zaznamke"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -774,6 +1156,9 @@ msgstr "Predpona ustvarjenih poimenovanj datotek"
 msgid "Add prefix"
 msgstr "Dodaj predpono"
 
+msgid "DEFAULT_PREFIX"
+msgstr ""
+
 msgid "Generated PDF documents name prefix:"
 msgstr "Predpona poimenovanja ustvarjenega dokumenta PDF:"
 
@@ -787,317 +1172,27 @@ msgstr ""
 msgid "Right click to add these keywords."
 msgstr "Z desnim klikom dodate te ključne besede."
 
-msgid "Split after"
-msgstr "Razcepi za"
+msgid "Run"
+msgstr "Zaženi"
 
-msgid "No page selected"
-msgstr "Nobena stran ni izbrana"
-
-msgid "Split"
-msgstr "Razcepi"
-
-msgid "Split a PDF document at the given page numbers."
-msgstr "Razcepi dokument PDF na določenih straneh."
-
-msgid "Every page"
-msgstr "Vsako stran"
-
-msgid "Even pages"
-msgstr "Sode strani"
-
-msgid "Odd pages"
-msgstr "Lihe strani"
-
-msgid "Split the document after the given page numbers"
-msgstr "Razcepi dokument za podanimi stranmi"
-
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Run the task"
 msgstr ""
-"Razcepi PDF na vsake \"n\" strani tako, da ustvari dokumente z \"n\" stranmi"
 
-msgid "Split after the following page numbers"
-msgstr "Razcepi za sledečimi stranmi"
+msgid "Requested"
+msgstr "Zahtevan"
 
-msgid "Page numbers to split at (n1,n2,n3..)"
-msgstr "Strani, pri katerih se cepi (n1,n2,n3..)"
+msgid "Completed"
+msgstr "Končano"
 
-msgid "Invalid page numbers"
-msgstr "Neveljavne številke strani"
+msgid "Failed"
+msgstr "Spodletelo"
 
-msgid "Only valid positive page numbers are allowed"
-msgstr "Dovoljene so le veljavne pozitivne številke strani"
-
-msgid "Split by every \"n\" pages"
-msgstr "Razcepi na vsake \"n\" strani"
-
-msgid "Number of pages"
-msgstr "Število strani"
-
-msgid "Invalid number of pages"
-msgstr "Neveljavno število strani"
-
-msgid "Checking for updates"
-msgstr "Poizvedovanje za morebitne posodobitve"
-
-msgid "Unable to find the latest available version."
-msgstr "Zadnje razpoložljive različice ni mogoče najti."
+msgid "Running"
+msgstr "Se izvaja"
 
 #, java-format
-msgid "Unable to find any valid PDF file in the list: {0}"
-msgstr "S seznama : {0} ni mogoče najti nobene veljavne datoteke PDF"
-
-#, java-format
-msgid "Unable to load PDF list file from {0}"
-msgstr "Iz {0} ni mogoče naložiti datoteke s seznamom PDF-jev"
-
-msgid "Loading pdf documents"
-msgstr "Nalaganje dokumentov PDF"
-
-msgid "Documents loaded"
-msgstr "Dokumenti naloženi"
-
-msgid "Unable to retrieve premium features description"
-msgstr "Opisov doplačljivih zmožnosti ni bilo mogoče pridobiti"
-
-msgid "Fetching premium tools"
-msgstr "Pridobivanje doplačljivih modulov"
-
-msgid "Unable to retrieve premium tools"
-msgstr "Doplačljivih modulov ni bilo mogoče pridobiti"
-
-msgid "Unable to retrieve latest news"
-msgstr "Zadnjih novic ni mogoče pridobiti"
-
-msgid "Fetching latest news"
-msgstr "Pridobivanje zadnjih novic"
-
-msgid "Unable to retrieve the latest news"
-msgstr "Zadnjih novic ni mogoče pridobiti"
-
-#, java-format
-msgid "Saving workspace data to {0}"
-msgstr "Shranjevanje podatkov o delovni površini v {0}"
-
-msgid "Workspace saved"
-msgstr "Delovna površina shranjena"
-
-msgid "Requesting tools state"
-msgstr "Zahtevanje poročila o stanju modulov"
-
-msgid "Unable to save tools workspace"
-msgstr "Delovne površine modula ni mogoče shraniti"
-
-#, java-format
-msgid "Unable to save workspace to {0}"
-msgstr "Delovne površine ni mogoče shraniti v {0}"
-
-#, java-format
-msgid "Loading workspace from {0}"
-msgstr "Nalaganje delovne površine iz {0}"
-
-msgid "Workspace loaded"
-msgstr "Delovna površina naložena"
-
-#, java-format
-msgid "Unable to load workspace from {0}"
-msgstr "Delovne površine ni mogoče naložiti iz {0}"
-
-msgid "Split by size"
-msgstr "Razcepi po velikosti"
-
-msgid "Split a PDF document in files of the given size (roughly)."
-msgstr "Razcepi dokument PDF na datoteke (prebližno) podane velikosti."
-
-msgid "Megabytes"
-msgstr "Megabajti"
-
-msgid "MB"
-msgstr "MB"
-
-msgid "Kilobytes"
-msgstr "Kilobajti"
-
-msgid "KB"
-msgstr "KB"
-
-msgid "Set the size to split at"
-msgstr "Nastavite velikost, na katero želite razcepiti"
-
-msgid "Size must be a number"
-msgstr "Velikost mora biti izražena s številko"
-
-msgid "Split at this size:"
-msgstr "Razcepi na naslednjo velikost:"
-
-msgid "Invalid split size"
-msgstr "Neveljavna velikost razcepljene datoteke"
-
-msgid "Alternate Mix"
-msgstr "Nadomestni združen pdf"
-
-msgid ""
-"Merge two or more PDF documents taking pages alternately in natural or "
-"reverse order."
-msgstr ""
-"Spoji dva ali več dokumentov PDF, izmenjujoče zaporedne strani ali strani v "
-"obratnem vrstnem redu."
-
-msgid "Destination file"
-msgstr "Ciljna datoteka"
-
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Dvokliknite za nastavitev strani, ki jih želite zmešati (npr: 2 ali 5-23 ali "
-"2,5-7,12-)"
-
-msgid "Select a positive integer number as pace"
-msgstr "Za korak izberite celo število"
-
-msgid "All pages"
-msgstr "Vse strani"
-
-msgid "90 degrees clockwise"
-msgstr "90 stopnij v smeri urinega kazalca"
-
-msgid "180 degrees clockwise"
-msgstr "180 stopnij v smeri urinega kazalca"
-
-msgid "90 degrees counterclockwise"
-msgstr "90 stopnij v nasprotni smeri urinega kazalca"
-
-msgid "Rotate "
-msgstr "Zasukaj "
-
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Dvokliknite za določitev strani, ki jih želite zasukati (npr.: 2 or 5-23 or "
-"2,5-7,12-)"
-
-msgid "Rotate"
-msgstr "Zasukaj"
-
-msgid "Rotate the pages of multiple PDF documents."
-msgstr "Zasukaj strani večim dokumentom PDF"
-
-msgid "Rotate settings"
-msgstr "Nastavitve sukanja"
-
-msgid ""
-"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Dvokliknite, da določite strani, ki jih želite združiti (npr.: 2 ali 5-23 "
-"ali 2,5-7,12-)"
-
-msgid "Add a blank page if page number is odd"
-msgstr "Dodaj prazno stran, če je število strani liho"
-
-msgid ""
-"Adds a blank page after each merged document if the document has an odd "
-"number of pages"
-msgstr ""
-"Doda prazno stran za vsakim združenim dokumentom, če ima ta liho število "
-"strani"
-
-msgid "Add a footer"
-msgstr "Dodaj nogo"
-
-msgid "Adds a page footer with the name of the file the page belonged to."
-msgstr "Doda nogo z imenom datoteke, katere del je bila stran."
-
-msgid "Normalize pages size"
-msgstr "Poenoti velikost strani"
-
-msgid "Resizes all pages to have the same width as the first page."
-msgstr "Prilagodi velikost vseh strani glede na prvo stran."
-
-msgid "Merge fields"
-msgstr "Združi polja"
-
-msgid "Merge renaming existing fields"
-msgstr "Med združevanjem preimenuj polja"
-
-msgid "Flatten"
-msgstr "Splošči"
-
-msgid "Discard forms"
-msgstr "Zavrzi obrazce"
-
-msgid "Interactive forms (AcroForms):"
-msgstr "Sodejni obrazci (Acroforms):"
-
-msgid "What to do in case one or more input documents contain Acro Forms"
-msgstr ""
-"Kaj storiti v primeru, da en ali več dokumentov vsebuje sodejne obrazce "
-"(Acro Forms)"
-
-msgid "Retain bookmarks"
-msgstr "Ohrani zaznamke"
-
-msgid "Create one entry for each merged document"
-msgstr "Ustvari en vnos za vsak združen dokument"
-
-msgid "Retain bookmarks as one entry for each merged document"
-msgstr "Ohrani zaznamke kot en vnos za vsak združen dokument"
-
-msgid "Bookmarks handling:"
-msgstr "Ravnanje z zaznamki:"
-
-msgid "What to do in case one or more input documents contain bookmarks"
-msgstr ""
-"Kaj storiti v primeru, da en ali več vnešenih dokumentov vsebuje zaznamke"
-
-msgid "Don't generate"
-msgstr "Ne ustvari"
-
-msgid "Generate from file names"
-msgstr "Ustvari po imenu datoteke"
-
-msgid "Generate from documents titles"
-msgstr "Ustvari po naslovih dokumentov"
-
-msgid "Table of contents:"
-msgstr "Kazalo:"
-
-msgid ""
-"Set if a table of contents should be added to the generated PDF document"
-msgstr "Nastavite, če želite dodati ustvarjenemu PDF dokumentu  kazalo"
-
-msgid "Merge"
-msgstr "Združi"
-
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "Združi več datotek PDF ali njihovih delov."
-
-msgid "Merge settings"
-msgstr "Nastavitve združevanja"
-
-#, java-format
-msgid "File \"{0}\" does not exist or is invalid"
-msgstr "Datoteka \"{0}\" ne obstaja ali pa je neveljavna"
-
-msgid "Valid user password provided."
-msgstr "Vnešeno veljavno uporabniško geslo."
-
-msgid "This document is encrypted, click to provide a password."
-msgstr "Ta dokument je šifriran, kliknite za vnos gesla"
-
-msgid "An error has occurred, click for more details."
-msgstr "Prišlo je do napake, kliknite za več podrobnosti."
-
-msgid "Security"
-msgstr "Varnost"
-
-msgid "Other"
-msgstr "Drugo"
-
-msgid "Roundish"
-msgstr "Okroglasto"
-
-msgid "Directories"
-msgstr "Mape"
+msgid "Running {0}%"
+msgstr "Izvajanje {0}%"
 
 msgid "Error saving log file."
 msgstr "Napaka pri shranjevanju dnevniške datoteke."
@@ -1127,9 +1222,6 @@ msgstr "Neveljavna številka: {0}."
 
 #~ msgid "Destination folder"
 #~ msgstr "Ciljna mapa"
-
-#~ msgid "Theme:"
-#~ msgstr "Tema:"
 
 #~ msgid "Unable to get latest available version"
 #~ msgstr "Napaka pri nalaganju posodobitve"
