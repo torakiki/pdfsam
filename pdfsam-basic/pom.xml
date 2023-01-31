@@ -91,7 +91,7 @@
                                         <argument>--no-header-files</argument>
                                         <argument>--no-man-pages</argument>
                                         <argument>--strip-debug</argument>
-										<argument>--vm=client</argument>
+										<argument>--vm=server</argument>
                                     </arguments>
                                 </configuration>
                             </execution>
