@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2020-11-22 07:35+0000\n"
+"PO-Revision-Date: 2023-01-31 17:22+0000\n"
 "Last-Translator: Marcel Lipovsky <Unknown>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
+"X-Launchpad-Export-Date: 2023-01-31 23:08+0000\n"
 "X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
 
 msgid "No PDF document has been selected"
@@ -36,10 +36,10 @@ msgid "Output settings"
 msgstr "Nastavenia výstupu"
 
 msgid "A separate file for each set of pages"
-msgstr ""
+msgstr "Samostatný súbor pre každú skupinu stránok"
 
 msgid "Each continuous series of pages will generate a separate PDF file"
-msgstr ""
+msgstr "Každá súvislá séria strán vygeneruje samostatný PDF súbor"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Stránky na extrakciu (napr. 2 alebo 5-23 alebo 2,5-7,12-)"
@@ -54,6 +54,8 @@ msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
 ")"
 msgstr ""
+"Čísla strán alebo rozsahy strán na extrakciu oddelené čiarkou (napr.: 2 "
+"alebo 5-23 alebo 2,5-7,12-)"
 
 msgid "Split by bookmarks"
 msgstr "Rozdeliť po záložkách"
@@ -246,21 +248,23 @@ msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr "Pridá pätu stránky s názvom súboru, ku ktorému stránka patrila."
 
 msgid "None"
-msgstr ""
+msgstr "Žiadne"
 
 msgid "Same width as first page"
-msgstr ""
+msgstr "Rovnaká šírka ako na prvej strane"
 
 msgid "Same width as first page (based on page orientation)"
-msgstr ""
+msgstr "Rovnaká šírka ako na prvej strane (na základe orientácie strany)"
 
 msgid "Pages normalization:"
-msgstr ""
+msgstr "Normalizácia stránok:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
 "one"
 msgstr ""
+"Nastavte, či sa má veľkosť strán zmeniť tak, aby všetky mali rovnakú šírku "
+"ako prvá"
 
 msgid "Merge fields"
 msgstr "Zlúčiť polia"
@@ -325,49 +329,55 @@ msgstr "Zlúčiť viacero PDF dokumentov alebo ich podsekcií."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr ""
+"Vyberte alebo potiahnite a pustite súbor PDF, ktorého strany sa budú opakovať"
 
 msgid "Repeat these pages:"
-msgstr ""
+msgstr "Zopakujte tieto stránky:"
 
 msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "Stránky na opakovanie (napr.: 2 alebo 5-23 alebo 2,5-7,12-)"
 
 msgid ""
 "Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
 "7,12-)"
 msgstr ""
+"Čísla strán alebo rozsahy oddelené čiarkou, ktoré sa majú opakovať "
+"(napríklad: 2 alebo 5-23 alebo 2,5-7,12-)"
 
 msgid "Leave it empty to use all the pages of the PDF file"
-msgstr ""
+msgstr "Ak chcete použiť všetky strany súboru PDF, nechajte pole prázdne"
 
 msgid "Repeat every \"n\" pages:"
-msgstr ""
+msgstr "Opakujte každých „n“ strán:"
 
 msgid "Invalid page number"
-msgstr ""
+msgstr "Neplatné číslo strany"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
-msgstr ""
+msgstr "Zopakujte vybraté strany každých „n“ strán pôvodného dokumentu"
 
 msgid "The selected PDF file is invalid"
 msgstr "Zvolený PDF súbor je neplatný alebo poškodený"
 
 msgid "The number of pages must be a positive number"
-msgstr ""
+msgstr "Počet strán musí byť kladné číslo"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
 msgstr ""
+"Vyberte alebo presuňte myšou súbor PDF, do ktorého chcete vložiť strany"
 
 msgid "Insert and Repeat settings"
-msgstr ""
+msgstr "Nastavenia vloženia a opakovania"
 
 msgid "Insert pages multiple times"
-msgstr ""
+msgstr "Stránky vložte viackrát"
 
 msgid ""
 "Insert the pages of a PDF document A into another document B, repeating it "
 "after a certain number of pages, resulting in B1 A B2 A B3 A etc."
 msgstr ""
+"Vložte strany PDF dokumentu A do iného dokumentu B, zopakujte to po určitom "
+"počte strán, výsledkom čoho bude B1 A B2 A B3 A atď."
 
 #, java-format
 msgid "Started in {0}"
@@ -383,10 +393,10 @@ msgid "No PDF found"
 msgstr "Neboli nájdené žiadne PDF súbory"
 
 msgid "Tools"
-msgstr ""
+msgstr "Nástroje"
 
 msgid "News"
-msgstr ""
+msgstr "Novinky"
 
 msgid "What's new"
 msgstr "Čo je nové"
@@ -395,13 +405,13 @@ msgid "Exit"
 msgstr "Ukončiť"
 
 msgid "Exit the application"
-msgstr ""
+msgstr "Ukončiť aplikáciu"
 
 msgid "Workspace"
 msgstr "Pracovný priestor"
 
 msgid "Manage your workspaces"
-msgstr ""
+msgstr "Spravujte svoje pracovné priestory"
 
 msgid "Yes"
 msgstr "Áno"
@@ -416,7 +426,7 @@ msgid "Do you confirm?"
 msgstr "Potvrdzujete?"
 
 msgid "Clear the tool settings"
-msgstr ""
+msgstr "Vymažte nastavenia nástroja"
 
 msgid "Clear the selection table"
 msgstr "Vymazať tabuľku výberu"
@@ -491,7 +501,7 @@ msgstr ""
 "Pokračovať?"
 
 msgid "Removes all the log messages"
-msgstr ""
+msgstr "Odstráni všetky správy denníka"
 
 msgid "_Clear"
 msgstr "Vy_mazať"
@@ -500,7 +510,7 @@ msgid "_Save"
 msgstr "_Uložiť"
 
 msgid "C_lose"
-msgstr ""
+msgstr "Zav_rieť"
 
 msgid "Copy"
 msgstr "Kopírovať"
@@ -518,7 +528,7 @@ msgid "Select where to save the log file"
 msgstr "Vyberte miesto pre uloženie protokolu"
 
 msgid "Logs"
-msgstr ""
+msgstr "Záznamy"
 
 msgid "Application messages"
 msgstr "Správy aplikácie"
@@ -554,11 +564,11 @@ msgstr "Cesta k Java runtime: %s"
 
 #, java-printf-format
 msgid "JavaFX runtime version: %s"
-msgstr ""
+msgstr "Verzia JavaFX runtime: %s"
 
 #, java-printf-format
 msgid "PDF engine (Sejda SDK) version: %s"
-msgstr ""
+msgstr "Verzia PDF Engine (Sejda SDK): %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -601,7 +611,7 @@ msgid "About"
 msgstr "O aplikácii"
 
 msgid "Home"
-msgstr ""
+msgstr "Domov"
 
 msgid "Premium features"
 msgstr "Prémiové funkcie"
@@ -619,22 +629,24 @@ msgid "Set your preferred language (restart needed)"
 msgstr "Nastavte vami preferovaný jazyk (potrebný reštart)"
 
 msgid "Startup tool:"
-msgstr ""
+msgstr "Nástroj spúšťaný pri štarte:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
+"Nastavenie nástroja tak, aby sa otvoril pri spustení aplikácie (vyžaduje "
+"reštart)"
 
 msgid "Theme:"
 msgstr "Motív:"
 
 msgid "Set the application theme"
-msgstr ""
+msgstr "Nastavte tému aplikácie"
 
 msgid "Font size:"
-msgstr ""
+msgstr "Veľkosť písma:"
 
 msgid "Set the application font size"
-msgstr ""
+msgstr "Nastavte veľkosť písma aplikácie"
 
 msgid "Manually selected"
 msgstr "Manuálne zvolené"
@@ -686,7 +698,7 @@ msgid "Load default workspace at startup:"
 msgstr "Nahrať predvolený pracovný priestor pri spustení:"
 
 msgid "System default"
-msgstr ""
+msgstr "Predvolené systémom"
 
 msgid "Check for updates at startup"
 msgstr "Pri štarte skontrolovať aktualizácie"
@@ -790,7 +802,7 @@ msgid "Show errors"
 msgstr "Zobraziť chyby"
 
 msgid "Input parameters are invalid"
-msgstr ""
+msgstr "Vstupné parametre sú neplatné"
 
 msgid "Invalid parameters"
 msgstr "Neplatné parametre"
@@ -852,19 +864,19 @@ msgid "An error has occurred, click for more details."
 msgstr "Vyskytla sa chyba a kliknite na viac informácií."
 
 msgid "Split tools"
-msgstr ""
+msgstr "Nástroje pre delenie"
 
 msgid "Merge tools"
-msgstr ""
+msgstr "Nástroje pre spájanie"
 
 msgid "Convert tools"
-msgstr ""
+msgstr "Nástroje pre konveziu"
 
 msgid "Edit tools"
-msgstr ""
+msgstr "Nástroje pre úpravu"
 
 msgid "Other tools"
-msgstr ""
+msgstr "Ďalšie nástroje"
 
 msgid "Checking for updates"
 msgstr "Kontrolujú sa aktualizácie"
@@ -930,16 +942,16 @@ msgid "Unable to load workspace from {0}"
 msgstr "Pracovný priestor z {0} nebolo možné načítať"
 
 msgid "Light with blue"
-msgstr ""
+msgstr "Svetlá s modrou"
 
 msgid "Dark with purple"
-msgstr ""
+msgstr "Tmavá s fialovou"
 
 msgid "Dark with teal"
-msgstr ""
+msgstr "Tmavá s modrozelenou"
 
 msgid "Light with maroon"
-msgstr ""
+msgstr "Svetlo s gaštanovou farbou"
 
 msgid "Close"
 msgstr "Zatvoriť"
@@ -1003,10 +1015,10 @@ msgid "Duplicate"
 msgstr "Duplikovať"
 
 msgid "Selected pages"
-msgstr ""
+msgstr "Vybrané stránky"
 
 msgid "Total number of selected pages"
-msgstr ""
+msgstr "Celkový počet vybratých strán"
 
 msgid "Size"
 msgstr "Veľkosť"
@@ -1016,7 +1028,7 @@ msgstr "Zmenené"
 
 #, java-format
 msgid "Total pages: {0}"
-msgstr ""
+msgstr "Celkový počet strán: {0}"
 
 msgid "Name"
 msgstr "Meno"
@@ -1077,7 +1089,7 @@ msgid "Pages"
 msgstr "Strany"
 
 msgid "Number of total pages of the document"
-msgstr ""
+msgstr "Celkový počet strán dokumentu"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -1157,7 +1169,7 @@ msgid "Add prefix"
 msgstr "Pridať predponu"
 
 msgid "DEFAULT_PREFIX"
-msgstr ""
+msgstr "Východzia predpona"
 
 msgid "Generated PDF documents name prefix:"
 msgstr "Predpona názvu generovaných PDF dokumentov:"
@@ -1176,7 +1188,7 @@ msgid "Run"
 msgstr "Spustiť"
 
 msgid "Run the task"
-msgstr ""
+msgstr "Spustiť úlohu"
 
 msgid "Requested"
 msgstr "Požadované"
