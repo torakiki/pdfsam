@@ -228,7 +228,6 @@
                                         <argument>--app-content</argument>
                                         <argument>"./assembled/doc,./assembled/bin/pdfsam.bat,./assembled/LICENSE.txt,./assembled/splash.png"
                                         </argument>
-										<argument>--win-console</argument>
                                         <argument>--java-options</argument>
                                         <argument>"-Dprism.lcdtext=false -splash:$APPDIR/splash.png"</argument>
                                         <argument>--module-path</argument>
