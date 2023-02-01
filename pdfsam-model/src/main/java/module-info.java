@@ -16,12 +16,13 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-module org.pdfsam.model {
+//open because so we don't have issue with validation and reflection
+open module org.pdfsam.model {
     requires org.apache.commons.io;
     requires org.apache.commons.lang3;
     requires org.pdfsam.i18n;
     requires org.sejda.conversion;
-    
+
     requires transitive org.kordamp.ikonli.unicons;
     requires transitive org.kordamp.ikonli.core;
     requires transitive jakarta.validation;
@@ -43,9 +44,4 @@ module org.pdfsam.model {
     exports org.pdfsam.model.ui.workspace;
     exports org.pdfsam.model.update;
     exports org.pdfsam.model.ui.dnd;
-
-    opens org.pdfsam.model.images;
-    opens org.pdfsam.model.ui to com.fasterxml.jackson.databind;
-    opens org.pdfsam.model.premium to com.fasterxml.jackson.databind;
-    opens org.pdfsam.model.news to com.fasterxml.jackson.databind;
 }
