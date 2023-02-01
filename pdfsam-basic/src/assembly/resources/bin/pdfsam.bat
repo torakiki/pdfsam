@@ -1,5 +1,5 @@
 @REM This file is part of the PDF Split And Merge Basic source code
-@REM Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
+@REM Copyright 2023 by Sober Lemur S.r.l. (info@pdfsam.org).
 @REM
 @REM This program is free software: you can redistribute it and/or modify
 @REM it under the terms of the GNU Affero General Public License as
@@ -59,11 +59,11 @@ set SAVE_DIR=
 goto repoSetup
 
 :WinNTGetScriptDir
-for %%i in ("%~dp0..") do set "BASEDIR=%%~fi"
+for %%i in ("%~dp0") do set "BASEDIR=%%~fi"
 
 :repoSetup
-set "RUNTIME=%BASEDIR%\pdfsam\runtime"
-set "MODULEPATH=%BASEDIR%\pdfsam\app\mods"
+set "RUNTIME=%BASEDIR%\runtime"
+set "MODULEPATH=%BASEDIR%\app\mods"
 set "PATH=%RUNTIME%;%BASEDIR%"
 
 if exist "%PDFSAM_JAVA_PATH%" (
