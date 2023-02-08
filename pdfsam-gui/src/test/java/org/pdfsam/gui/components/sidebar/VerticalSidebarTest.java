@@ -1,8 +1,11 @@
 package org.pdfsam.gui.components.sidebar;
 
+import jakarta.inject.Named;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Isolated;
@@ -15,12 +18,16 @@ import org.pdfsam.gui.components.content.preference.PreferenceContentItem;
 import org.pdfsam.gui.components.content.preference.PreferencePane;
 import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.injector.Injector;
+import org.pdfsam.injector.Key;
 import org.pdfsam.injector.Provides;
+import org.pdfsam.model.lifecycle.ShutdownEvent;
 import org.pdfsam.model.tool.Tool;
 import org.pdfsam.model.ui.ShowErrorMessagesRequest;
+import org.pdfsam.persistence.PreferencesRepository;
 import org.pdfsam.service.ui.RecentWorkspacesService;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.test.DefaultPriorityTestTool;
+import org.pdfsam.test.HighPriorityTestTool;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
@@ -31,7 +38,11 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
@@ -79,11 +90,39 @@ class VerticalSidebarTest {
     }
 
     @Test
-    public void selectedOnClick() {
+    public void itemSelectedOnClick() {
         var logButton = injector.instance(LogButton.class);
         assertFalse(logButton.isSelected());
         robot.clickOn(logButton);
         assertTrue(logButton.isSelected());
+    }
+
+    @Test
+    public void toolSelectedOnClick() {
+        var toolButton = robot.lookup(".tool-selectable-sidebar-button").queryAs(ToolSelectableSidebarButton.class);
+        assertFalse(toolButton.isSelected());
+        robot.clickOn(toolButton);
+        assertTrue(toolButton.isSelected());
+    }
+
+    @Test
+    @DisplayName("Drag and drop on tools stores the new order")
+    public void dragoAndDrop() {
+        var repo = injector.instance(Key.of(PreferencesRepository.class, "toolsOrderRepository"));
+        robot.drag("HighPriorityTestModule", MouseButton.PRIMARY).dropTo("TestModule");
+        eventStudio().broadcast(new ShutdownEvent());
+        verify(repo).saveInt("toolOrder_" + HighPriorityTestTool.ID, 0);
+        verify(repo).saveInt("toolOrder_" + DefaultPriorityTestTool.ID, 1);
+    }
+
+    @Test
+    @DisplayName("Drag and drop on non tools does not store the new order")
+    public void dragoAndDropOnNonTools() {
+        var logButton = injector.instance(LogButton.class);
+        var repo = injector.instance(Key.of(PreferencesRepository.class, "toolsOrderRepository"));
+        robot.drag("HighPriorityTestModule", MouseButton.PRIMARY).dropTo(logButton);
+        eventStudio().broadcast(new ShutdownEvent());
+        verify(repo, never()).saveInt(any(), anyInt());
     }
 
     @Test
@@ -113,9 +152,10 @@ class VerticalSidebarTest {
 
         @Provides
         public VerticalSidebar sidebar(HomeContentItem homeItem, LogButton logButton, NewsButton newsButton,
-                PreferenceContentItem preferenceItem, AboutContentItem aboutItem, WorkspaceButton workspaceButton) {
+                PreferenceContentItem preferenceItem, AboutContentItem aboutItem, WorkspaceButton workspaceButton,
+                ToolsButtons toolsButtons) {
             return new VerticalSidebar(homeItem, logButton, newsButton, preferenceItem, aboutItem, workspaceButton,
-                    Map.of(DefaultPriorityTestTool.ID, new DefaultPriorityTestTool()));
+                    toolsButtons);
         }
 
         @Provides
@@ -143,6 +183,21 @@ class VerticalSidebarTest {
         @Provides
         public DefaultPriorityTestTool tool() {
             return new DefaultPriorityTestTool();
+        }
+
+        @Provides
+        public ToolsButtons toolsButtons(@Named("toolsOrderRepository") PreferencesRepository repo) {
+            return new ToolsButtons(repo,
+                    Map.of(DefaultPriorityTestTool.ID, new DefaultPriorityTestTool(), HighPriorityTestTool.ID,
+                            new HighPriorityTestTool()));
+        }
+
+        @Provides
+        @Named("toolsOrderRepository")
+        PreferencesRepository toolsOrderRepo() {
+            var repo = mock(PreferencesRepository.class);
+            when(repo.getInt(any(), anyInt())).thenReturn(1);
+            return repo;
         }
 
     }

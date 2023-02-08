@@ -56,7 +56,7 @@ class SelectableSidebarButtonTest {
     public void start(Stage stage) {
         mock(HomePane.class);
         Scene scene = new Scene(
-                new VBox(5, SelectableSidebarButton.of(TOOL), SelectableSidebarButton.of(CONTENT_ITEM)));
+                new VBox(5, ToolSelectableSidebarButton.of(TOOL, 1), SelectableSidebarButton.of(CONTENT_ITEM)));
         stage.setScene(scene);
         stage.show();
     }
@@ -121,13 +121,8 @@ class SelectableSidebarButtonTest {
     }
 
     @Test
-    public void requiredTool() {
-        assertThrows(IllegalArgumentException.class, () -> SelectableSidebarButton.of((Tool) null));
-    }
-
-    @Test
     public void requiredContent() {
-        assertThrows(IllegalArgumentException.class, () -> SelectableSidebarButton.of((ContentItem) null));
+        assertThrows(IllegalArgumentException.class, () -> SelectableSidebarButton.of(null));
     }
 
 }

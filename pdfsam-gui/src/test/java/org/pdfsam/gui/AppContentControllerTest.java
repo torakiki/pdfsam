@@ -16,6 +16,7 @@ import org.pdfsam.gui.components.content.preference.PreferenceContentItem;
 import org.pdfsam.gui.components.content.preference.PreferencePane;
 import org.pdfsam.gui.components.sidebar.LogButton;
 import org.pdfsam.gui.components.sidebar.NewsButton;
+import org.pdfsam.gui.components.sidebar.ToolsButtons;
 import org.pdfsam.gui.components.sidebar.VerticalSidebar;
 import org.pdfsam.gui.components.sidebar.WorkspaceButton;
 import org.pdfsam.injector.Injector;
@@ -25,6 +26,7 @@ import org.pdfsam.model.ui.ContentItem;
 import org.pdfsam.model.ui.SetActiveContentItemRequest;
 import org.pdfsam.model.ui.SetTitleRequest;
 import org.pdfsam.model.ui.ShowErrorMessagesRequest;
+import org.pdfsam.persistence.PreferencesRepository;
 import org.pdfsam.service.ui.RecentWorkspacesService;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.test.DefaultPriorityTestTool;
@@ -34,6 +36,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.isNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
@@ -85,8 +88,8 @@ class AppContentControllerTest {
     static class Config {
         @Provides
         public VerticalSidebar sidebar(HomeContentItem homeItem, LogButton logButton, NewsButton newsButton,
-                PreferenceContentItem preferenceItem, AboutContentItem aboutItem, WorkspaceButton workspaceButton) {
-            Map<String, Tool> tools = Map.of(DefaultPriorityTestTool.ID, new DefaultPriorityTestTool());
+                PreferenceContentItem preferenceItem, AboutContentItem aboutItem, WorkspaceButton workspaceButton,
+                ToolsButtons tools) {
             return new VerticalSidebar(homeItem, logButton, newsButton, preferenceItem, aboutItem, workspaceButton,
                     tools);
         }
@@ -116,6 +119,13 @@ class AppContentControllerTest {
         @Provides
         public DefaultPriorityTestTool tool() {
             return new DefaultPriorityTestTool();
+        }
+
+        @Provides
+        public ToolsButtons toolsButtons() {
+            var repo = mock(PreferencesRepository.class);
+            when(repo.getInt(any(), anyInt())).thenReturn(1);
+            return new ToolsButtons(repo, Map.of(DefaultPriorityTestTool.ID, new DefaultPriorityTestTool()));
         }
     }
 

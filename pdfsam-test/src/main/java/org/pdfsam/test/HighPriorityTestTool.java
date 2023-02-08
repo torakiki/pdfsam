@@ -20,6 +20,8 @@ package org.pdfsam.test;
 
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import org.pdfsam.model.tool.Tool;
 import org.pdfsam.model.tool.ToolCategory;
 import org.pdfsam.model.tool.ToolDescriptor;
@@ -55,6 +57,6 @@ public class HighPriorityTestTool implements Tool {
 
     @Override
     public Node graphic() {
-        return null;
+        return new Circle(10, Color.GOLDENROD);
     }
 }

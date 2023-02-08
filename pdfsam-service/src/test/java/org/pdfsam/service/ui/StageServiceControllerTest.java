@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 07/ott/2014
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -21,18 +21,17 @@ package org.pdfsam.service.ui;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.pdfsam.model.lifecycle.CleanupRequest;
 import org.pdfsam.model.ui.SetLatestStageStatusRequest;
 import org.pdfsam.model.ui.StageStatus;
-import org.pdfsam.service.ui.StageService;
-import org.pdfsam.service.ui.StageServiceController;
 import org.pdfsam.test.ClearEventStudioExtension;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 /**
  * @author Andrea Vacondio
- *
  */
 @ExtendWith(ClearEventStudioExtension.class)
 public class StageServiceControllerTest {
@@ -51,6 +50,12 @@ public class StageServiceControllerTest {
         SetLatestStageStatusRequest event = new SetLatestStageStatusRequest(StageStatus.NULL);
         victim.requestStageStatus(event);
         verify(service).save(StageStatus.NULL);
+    }
+
+    @Test
+    public void cleanup() {
+        eventStudio().broadcast(new CleanupRequest());
+        verify(service).clear();
     }
 
 }

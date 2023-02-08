@@ -23,6 +23,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.pdfsam.eventstudio.Listener;
+import org.pdfsam.model.lifecycle.CleanupRequest;
 import org.pdfsam.model.news.FetchLatestNewsRequest;
 import org.pdfsam.model.news.LatestNewsResponse;
 import org.pdfsam.model.news.NewImportantNewsEvent;
@@ -49,15 +50,15 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
  * @author Andrea Vacondio
  */
 @ExtendWith(ClearEventStudioExtension.class)
-public class LatestNewsControllerTest {
+public class NewsControllerTest {
 
     private NewsService service;
-    private LatestNewsController victim;
+    private NewsController victim;
 
     @BeforeEach
     public void setUp() {
         service = mock(NewsService.class);
-        victim = new LatestNewsController(service);
+        victim = new NewsController(service);
     }
 
     @Test
@@ -164,5 +165,11 @@ public class LatestNewsControllerTest {
         verify(listener, timeout(1000).times(1)).onEvent(any());
         victim.onShowNewsPanel(ToggleNewsPanelRequest.INSTANCE);
         verify(service).setLatestNewsSeen(5);
+    }
+
+    @Test
+    public void cleanup() {
+        eventStudio().broadcast(new CleanupRequest());
+        verify(service).clear();
     }
 }

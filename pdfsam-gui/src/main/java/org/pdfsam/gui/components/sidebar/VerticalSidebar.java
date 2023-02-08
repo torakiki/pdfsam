@@ -32,15 +32,10 @@ import org.pdfsam.gui.components.content.about.AboutContentItem;
 import org.pdfsam.gui.components.content.home.HomeContentItem;
 import org.pdfsam.gui.components.content.log.LogContentItem;
 import org.pdfsam.gui.components.content.preference.PreferenceContentItem;
-import org.pdfsam.model.tool.Tool;
 import org.pdfsam.model.ui.SetActiveContentItemRequest;
 import org.pdfsam.model.ui.ShowErrorMessagesRequest;
 
-import java.util.Comparator;
-import java.util.Map;
-
 import static javafx.scene.layout.VBox.setVgrow;
-import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.gui.components.sidebar.SelectableSidebarButton.of;
 import static org.pdfsam.i18n.I18nContext.i18n;
@@ -52,18 +47,15 @@ import static org.pdfsam.i18n.I18nContext.i18n;
  */
 public class VerticalSidebar extends BorderPane {
 
-    private VBox buttons = new VBox();
+    private final ToolsButtons tools;
+    private final VBox buttons = new VBox();
 
     @Inject
     public VerticalSidebar(HomeContentItem homeItem, LogButton logButton, NewsButton newsButton,
-            PreferenceContentItem preferenceItem, AboutContentItem aboutItem, WorkspaceButton workspaceButton) {
-        this(homeItem, logButton, newsButton, preferenceItem, aboutItem, workspaceButton, app().runtimeState().tools());
-    }
-
-    public VerticalSidebar(HomeContentItem homeItem, LogButton logButton, NewsButton newsButton,
             PreferenceContentItem preferenceItem, AboutContentItem aboutItem, WorkspaceButton workspaceButton,
-            Map<String, Tool> tools) {
+            ToolsButtons tools) {
         getStyleClass().add("vertical-sidebar");
+        this.tools = tools;
         var expandButton = new ExpandButton();
         this.setTop(expandButton);
         buttons.getStyleClass().add("sidebar-buttons");
@@ -72,11 +64,12 @@ public class VerticalSidebar extends BorderPane {
         var toolsLabel = new Label(i18n().tr("Tools").toUpperCase());
         toolsLabel.getStyleClass().add("sidebar-title");
         buttons.getChildren().addAll(new Separator(Orientation.HORIZONTAL), toolsLabel);
-        Comparator<Tool> comparator = Comparator.comparing(t -> t.descriptor().category());
-        tools.values().stream().sorted(comparator.thenComparing(m -> m.descriptor().name()))
-                .map(SelectableSidebarButton::of).forEach(b -> {
-                    addButton(b, expandButton);
-                });
+        tools.getChildren().forEach(b -> {
+            if (b instanceof SidebarButton button) {
+                button.displayTextProperty().bind(expandButton.selectedProperty());
+            }
+        });
+        buttons.getChildren().add(tools);
         var spacer = new Region();
         spacer.getStyleClass().add("spacer");
         setVgrow(spacer, Priority.ALWAYS);
@@ -111,6 +104,12 @@ public class VerticalSidebar extends BorderPane {
                 button.selectIf(r.id());
             }
         }
+        for (var child : tools.getChildren()) {
+            if (child instanceof Selectable button) {
+                button.selectIf(r.id());
+            }
+        }
+
     }
 
     @EventListener

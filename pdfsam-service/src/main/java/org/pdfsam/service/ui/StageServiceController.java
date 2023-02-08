@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 07/ott/2014
  * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -21,6 +21,7 @@ package org.pdfsam.service.ui;
 import jakarta.inject.Inject;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.injector.Auto;
+import org.pdfsam.model.lifecycle.CleanupRequest;
 import org.pdfsam.model.ui.SetLatestStageStatusRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,9 +30,8 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 /**
  * Controller for the {@link StageService}
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
 @Auto
 public class StageServiceController {
@@ -51,4 +51,8 @@ public class StageServiceController {
         service.save(event.status());
     }
 
+    @EventListener
+    public void onCleanupRequest(CleanupRequest req) {
+        service.clear();
+    }
 }

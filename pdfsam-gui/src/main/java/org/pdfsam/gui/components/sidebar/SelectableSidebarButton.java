@@ -22,7 +22,6 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.css.PseudoClass;
 import javafx.scene.control.Tooltip;
-import org.pdfsam.model.tool.Tool;
 import org.pdfsam.model.ui.ContentItem;
 import org.pdfsam.model.ui.SetActiveContentItemRequest;
 
@@ -46,6 +45,10 @@ public class SelectableSidebarButton extends SidebarButton implements Selectable
         super(text);
         requireNotBlank(id, "ID cannot be blank");
         this.id = id;
+    }
+
+    public String id() {
+        return id;
     }
 
     /**
@@ -95,16 +98,4 @@ public class SelectableSidebarButton extends SidebarButton implements Selectable
         return button;
     }
 
-    /**
-     * Factory method for a {@link SelectableSidebarButton} created from a {@link "Tool cannot be null"}
-     */
-    public static SelectableSidebarButton of(Tool tool) {
-        requireNotNullArg(tool, "Tool cannot be null");
-        var button = new SelectableSidebarButton(tool.id(), tool.descriptor().name());
-        button.setOnAction(e -> eventStudio().broadcast(new SetActiveContentItemRequest(tool.id())));
-        button.setGraphic(tool.graphic());
-        ofNullable(tool.descriptor().description()).filter(not(String::isBlank)).map(Tooltip::new)
-                .ifPresent(button::setTooltip);
-        return button;
-    }
 }

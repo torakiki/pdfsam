@@ -72,4 +72,10 @@ public class PersistenceConfig {
     DefaultEntityRepository<ToolUsage> usageRepository(ObjectMapper mapper) {
         return new DefaultEntityRepository<>("/org/pdfsam/modules/usage", mapper, ToolUsage.class);
     }
+
+    @Provides
+    @Named("toolsOrderRepository")
+    PreferencesRepository toolsOrderRepo() {
+        return new PreferencesRepository("/org/pdfsam/tools/order");
+    }
 }

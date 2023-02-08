@@ -21,7 +21,7 @@ package org.pdfsam.gui.configuration;
 import org.pdfsam.injector.Components;
 import org.pdfsam.injector.Provides;
 import org.pdfsam.service.news.DefaultNewsService;
-import org.pdfsam.service.news.LatestNewsController;
+import org.pdfsam.service.news.NewsController;
 import org.pdfsam.service.news.NewsService;
 import org.pdfsam.service.pdf.BookmarksLevelSAMBoxLoader;
 import org.pdfsam.service.pdf.DefaultPdfLoadService;
@@ -53,7 +53,7 @@ import java.util.Arrays;
 /**
  * @author Andrea Vacondio
  */
-@Components({ LatestNewsController.class, PdfLoadController.class, PremiumToolsController.class,
+@Components({ NewsController.class, PdfLoadController.class, PremiumToolsController.class,
         TaskExecutionController.class, WorkspaceController.class, StageServiceController.class,
         UpdatesController.class })
 public class ServicesConfig {

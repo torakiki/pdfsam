@@ -46,6 +46,7 @@ import org.pdfsam.gui.theme.Themes;
 import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.injector.Injector;
 import org.pdfsam.injector.Key;
+import org.pdfsam.model.lifecycle.CleanupRequest;
 import org.pdfsam.model.lifecycle.ShutdownEvent;
 import org.pdfsam.model.lifecycle.StartupEvent;
 import org.pdfsam.model.news.FetchLatestNewsRequest;
@@ -57,8 +58,6 @@ import org.pdfsam.model.ui.StageStatus;
 import org.pdfsam.model.ui.workspace.LoadWorkspaceRequest;
 import org.pdfsam.model.ui.workspace.SaveWorkspaceRequest;
 import org.pdfsam.model.update.UpdateCheckRequest;
-import org.pdfsam.service.news.NewsService;
-import org.pdfsam.service.ui.StageService;
 import org.pdfsam.ui.components.tool.RunButtonTriggerRequest;
 import org.sejda.core.Sejda;
 import org.sejda.impl.sambox.component.PDDocumentHandler;
@@ -150,8 +149,7 @@ public class PdfsamApp extends Application {
     private void cleanIfRequired() {
         if (clean) {
             LOG.debug("Cleaning...");
-            app().instance(NewsService.class).clear();
-            app().instance(StageService.class).clear();
+            eventStudio().broadcast(new CleanupRequest());
         }
     }
 

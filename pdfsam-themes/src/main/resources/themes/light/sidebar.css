@@ -100,3 +100,10 @@
 .sidebar-title {
     -fx-font-size: 0.9em;
 }
+
+.sidebar-button.drag-over {
+   -fx-opacity: 0.6;
+   -fx-border-color: -default-primary;
+   -fx-border-width: 2px 0 0 0;
+   -fx-border-insets: 2px 0 0 0;
+}
