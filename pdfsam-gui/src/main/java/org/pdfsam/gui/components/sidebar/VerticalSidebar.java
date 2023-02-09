@@ -32,6 +32,7 @@ import org.pdfsam.gui.components.content.about.AboutContentItem;
 import org.pdfsam.gui.components.content.home.HomeContentItem;
 import org.pdfsam.gui.components.content.log.LogContentItem;
 import org.pdfsam.gui.components.content.preference.PreferenceContentItem;
+import org.pdfsam.model.ui.ContentItem;
 import org.pdfsam.model.ui.SetActiveContentItemRequest;
 import org.pdfsam.model.ui.ShowErrorMessagesRequest;
 
@@ -60,7 +61,7 @@ public class VerticalSidebar extends BorderPane {
         this.setTop(expandButton);
         buttons.getStyleClass().add("sidebar-buttons");
 
-        addButton(of(homeItem), expandButton);
+        addButton(homeItem, expandButton);
         var toolsLabel = new Label(i18n().tr("Tools").toUpperCase());
         toolsLabel.getStyleClass().add("sidebar-title");
         buttons.getChildren().addAll(new Separator(Orientation.HORIZONTAL), toolsLabel);
@@ -77,14 +78,22 @@ public class VerticalSidebar extends BorderPane {
         addButton(workspaceButton, expandButton);
         addButton(logButton, expandButton);
         addButton(newsButton, expandButton);
-        addButton(of(aboutItem), expandButton);
-        addButton(of(preferenceItem), expandButton);
+        addButton(aboutItem, expandButton);
+        addButton(preferenceItem, expandButton);
         buttons.getChildren().add(new Separator(Orientation.HORIZONTAL));
         addButton(new ExitButton(), expandButton);
         var scroll = new ScrollPane(buttons);
         scroll.getStyleClass().add("sidebar-scroll");
         setCenter(scroll);
         eventStudio().addAnnotatedListeners(this);
+    }
+
+    private void addButton(ContentItem item, ExpandButton expandButton) {
+        if (!item.disabled()) {
+            var button = of(item);
+            button.displayTextProperty().bind(expandButton.selectedProperty());
+            buttons.getChildren().add(button);
+        }
     }
 
     private void addButton(SidebarButton button, ExpandButton expandButton) {

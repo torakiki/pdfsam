@@ -21,7 +21,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  *
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */class ToolSelectableSidebarButtonTest {
+ */
+class ToolSelectableSidebarButtonTest {
     @Test
     public void requiredTool() {
         assertThrows(IllegalArgumentException.class, () -> ToolSelectableSidebarButton.of(null, 1));
