@@ -1,6 +1,8 @@
 package org.pdfsam.gui.components.sidebar;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.pdfsam.test.JavaFxThreadInitializeExtension;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -22,6 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+@ExtendWith(JavaFxThreadInitializeExtension.class)
 class ToolSelectableSidebarButtonTest {
     @Test
     public void requiredTool() {
