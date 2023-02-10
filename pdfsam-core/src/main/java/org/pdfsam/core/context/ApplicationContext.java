@@ -91,7 +91,7 @@ public class ApplicationContext implements Closeable {
      * @param scene
      */
     public void registerScene(Scene scene) {
-        disposable.add(this.runtimeState.theme().subscribe(t -> {
+        disposable.add(this.runtimeState().theme().subscribe(t -> {
             scene.getStylesheets().setAll(t.stylesheets());
             if (!Platform.isSupported(ConditionalFeature.TRANSPARENT_WINDOW)) {
                 scene.getStylesheets().addAll(t.transparentIncapableStylesheets());
@@ -133,7 +133,7 @@ public class ApplicationContext implements Closeable {
     @Override
     public void close() {
         injector.ifPresent(Injector::close);
-        runtimeState.close();
+        runtimeState().close();
         persistentSettings.close();
         disposable.dispose();
     }
