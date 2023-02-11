@@ -24,6 +24,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.pdfsam.core.context.BooleanPersistentProperty;
@@ -47,6 +48,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
  * @author Andrea Vacondio
  */
 @ExtendWith({ ApplicationExtension.class, ClearEventStudioExtension.class })
+@Tag("NoHeadless")
 public class ClearToolConfirmationDialogTest {
     private Button button;
     private HitTestListener<ClearToolRequest> listener;

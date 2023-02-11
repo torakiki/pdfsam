@@ -22,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -54,6 +55,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
  * @author Andrea Vacondio
  */
 @ExtendWith({ ApplicationExtension.class })
+@Tag("NoHeadless")
 public class OpenWithDialogTest {
 
     private final Tool tool = new DefaultPriorityTestTool();

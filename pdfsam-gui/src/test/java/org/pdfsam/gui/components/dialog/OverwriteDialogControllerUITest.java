@@ -23,6 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.io.TempDir;
@@ -53,6 +54,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
  * @author Andrea Vacondio
  */
 @ExtendWith({ ApplicationExtension.class, ClearEventStudioExtension.class })
+@Tag("NoHeadless")
 public class OverwriteDialogControllerUITest {
 
     @TempDir

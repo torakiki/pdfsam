@@ -19,6 +19,7 @@
 package org.pdfsam.gui.components.dialog;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.pdfsam.model.tool.TaskExecutionRequest;
@@ -45,6 +46,7 @@ import static org.mockito.Mockito.when;
  * @author Andrea Vacondio
  */
 @ExtendWith({ JavaFxThreadExtension.class, ClearEventStudioExtension.class })
+@Tag("NoHeadless")
 public class OverwriteDialogControllerTest {
 
     private OverwriteDialogController victim;

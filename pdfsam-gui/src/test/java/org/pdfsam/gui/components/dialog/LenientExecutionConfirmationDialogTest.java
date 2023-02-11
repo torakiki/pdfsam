@@ -23,6 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.pdfsam.i18n.SetLocaleRequest;
@@ -41,6 +42,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
  * @author Andrea Vacondio
  */
 @ExtendWith({ ApplicationExtension.class, ClearEventStudioExtension.class })
+@Tag("NoHeadless")
 public class LenientExecutionConfirmationDialogTest {
     private boolean confirm = false;
     private FxRobot robot;
