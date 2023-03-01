@@ -1,6 +1,6 @@
 /*
  * Created on 21 giu 2016
- * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
+ * Copyright 2017 by Sober Lemur S.r.l. (info@pdfsam.org).
  * This file is part of Sejda.
  *
  * Sejda is free software: you can redistribute it and/or modify
@@ -21,7 +21,6 @@ package org.pdfsam.service.task;
 import org.junit.jupiter.api.Test;
 import org.pdfsam.model.task.BulkRotateParameters;
 import org.pdfsam.model.task.PdfRotationInput;
-import org.pdfsam.service.task.BulkRotateTask;
 import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.pdf.PdfVersion;
 import org.sejda.model.pdf.page.PageRange;

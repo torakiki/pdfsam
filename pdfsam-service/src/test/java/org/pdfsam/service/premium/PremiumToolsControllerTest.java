@@ -1,7 +1,7 @@
 /*
  * This file is part of the PDF Split And Merge source code
  * Created on 26 ott 2015
- * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
+ * Copyright 2017 by Sober Lemur S.r.l. (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -26,8 +26,6 @@ import org.pdfsam.eventstudio.Listener;
 import org.pdfsam.model.premium.FetchPremiumModulesRequest;
 import org.pdfsam.model.premium.PremiumTool;
 import org.pdfsam.model.premium.PremiumToolsResponse;
-import org.pdfsam.service.premium.PremiumToolsController;
-import org.pdfsam.service.premium.PremiumToolsService;
 import org.pdfsam.test.ClearEventStudioExtension;
 
 import java.util.Collections;

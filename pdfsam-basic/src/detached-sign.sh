@@ -1,6 +1,6 @@
 #!/bin/sh
 # This file is part of the PDF Split And Merge Basic source code
-# Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
+# Copyright 2017 by Sober Lemur S.r.l. (info@pdfsam.org).
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as

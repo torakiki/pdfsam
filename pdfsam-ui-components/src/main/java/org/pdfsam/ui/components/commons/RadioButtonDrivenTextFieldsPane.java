@@ -1,11 +1,11 @@
-/* 
+/*
  * This file is part of the PDF Split And Merge source code
  * Created on 09/giu/2014
- * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
+ * Copyright 2017 by Sober Lemur S.r.l. (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as 
- * published by the Free Software Foundation, either version 3 of the 
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -18,11 +18,6 @@
  */
 package org.pdfsam.ui.components.commons;
 
-import static java.util.Objects.nonNull;
-import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
-
-import org.pdfsam.ui.components.support.Style;
-
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.control.RadioButton;
@@ -30,6 +25,10 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
+import org.pdfsam.ui.components.support.Style;
+
+import static java.util.Objects.nonNull;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 /**
  * GridPane containing a {@link RadioButton}s that, when selected, activate the corresponding text field.

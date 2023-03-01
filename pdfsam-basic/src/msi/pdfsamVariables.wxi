@@ -17,7 +17,7 @@
 	<?define ProgId="PDFsamBasic.FileAssoc.Pdf" ?>
 	<?define ProductNameWithVersion="$(var.ProductName) $(var.ProductVersion)" ?>
 	<?define ProductCodeName="PDFsam" ?>
-	<?define ProductManufacturer="Sober Lemur S.a.s. di Vacondio Andrea" ?>
+	<?define ProductManufacturer="Sober Lemur S.r.l." ?>
 	<!-- Keep this -->
 	<?define ProductUpgradeCode="{DB40FA48-1629-11E2-9401-2F676188709B}" ?>
 	<?define ProductIcon="resources\pdfsam.ico" ?>

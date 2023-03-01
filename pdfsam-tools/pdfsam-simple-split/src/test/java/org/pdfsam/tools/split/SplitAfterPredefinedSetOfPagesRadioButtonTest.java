@@ -1,7 +1,7 @@
 /*
  * This file is part of the PDF Split And Merge source code
  * Created on 26/gen/2015
- * Copyright 2017 by Sober Lemur S.a.s. di Vacondio Andrea (info@pdfsam.org).
+ * Copyright 2017 by Sober Lemur S.r.l. (info@pdfsam.org).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -23,7 +23,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.io.TempDir;
