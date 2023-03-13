@@ -73,6 +73,8 @@ public class AboutPaneTest {
         when(appBrand.property(BrandableProperty.VERSION)).thenReturn("3.0.0");
         when(appBrand.property(BrandableProperty.HOME_URL)).thenReturn("https://www.pdfsam.org");
         when(appBrand.property(BrandableProperty.HOME_LABEL)).thenReturn("home");
+        when(appBrand.property(BrandableProperty.VENDOR_URL)).thenReturn("https://soberlemur.com");
+        when(appBrand.property(BrandableProperty.COPYRIGHT)).thenReturn("Sober Lemur S.r.l.");
         when(appBrand.property(BrandableProperty.FEED_URL)).thenReturn("https://www.pdfsam.org/feed/");
         when(appBrand.property(BrandableProperty.DOCUMENTATION_URL)).thenReturn("https://www.pdfsam.org/documentation");
         when(appBrand.property(BrandableProperty.SUPPORT_URL)).thenReturn("https://www.pdfsam.org/support");
@@ -88,6 +90,13 @@ public class AboutPaneTest {
         Scene scene = new Scene(new AboutPane(appBrand));
         stage.setScene(scene);
         stage.show();
+    }
+
+    @Test
+    public void clickVendor() {
+        robot.clickOn("Sober Lemur S.r.l.");
+        verify(listener).onEvent(captor.capture());
+        assertEquals("https://soberlemur.com", captor.getValue().url());
     }
 
     @Test

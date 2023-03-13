@@ -30,6 +30,7 @@ public enum BrandableProperty {
     HOME_LABEL("pdfsam.home.label"),
     VERSION("pdfsam.version"),
     COPYRIGHT("pdfsam.copyright"),
+    VENDOR_URL("pdfsam.vendor.url"),
     LICENSE_NAME("pdfsam.license.name"),
     LICENSE_URL("pdfsam.license.url"),
     FEED_URL("pdfsam.feed.url"),
