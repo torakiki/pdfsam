@@ -94,7 +94,7 @@ public class WorkspaceController {
                         .toArray(CompletableFuture[]::new)).thenRun(() -> {
                     recentWorkspace.addWorkspaceLastUsed(event.workspace());
                     eventStudio().broadcast(new WorkspaceLoadedEvent(event.workspace()));
-                    LOG.info(i18n().tr("Workspace loaded"));
+                    LOG.info(i18n().tr("Workspace loaded: {0}", event.workspace().getName()));
                 });
             }
             return CompletableFuture.completedFuture(null);

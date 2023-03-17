@@ -70,8 +70,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.Optional;
 
+import static java.util.Optional.ofNullable;
 import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.core.context.StringPersistentProperty.THEME;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
@@ -160,7 +160,7 @@ public class PdfsamApp extends Application {
     }
 
     private void closeSplash() {
-        Optional.ofNullable(SplashScreen.getSplashScreen()).ifPresent(SplashScreen::close);
+        ofNullable(SplashScreen.getSplashScreen()).ifPresent(SplashScreen::close);
     }
 
     private Scene initScene() {
@@ -229,9 +229,10 @@ public class PdfsamApp extends Application {
     }
 
     private void loadWorkspaceIfRequired() {
-        app().persistentSettings().get(StringPersistentProperty.WORKSPACE_PATH).filter(StringUtils::isNotBlank)
-                .map(Paths::get).filter(Files::exists).map(Path::toFile).map(LoadWorkspaceRequest::new)
-                .ifPresent(eventStudio()::broadcast);
+        ofNullable(getParameters().getNamed().get("workspace")).filter(StringUtils::isNotBlank)
+                .or(() -> app().persistentSettings().get(StringPersistentProperty.WORKSPACE_PATH)
+                        .filter(StringUtils::isNotBlank)).map(Paths::get).filter(Files::exists).map(Path::toFile)
+                .map(LoadWorkspaceRequest::new).ifPresent(eventStudio()::broadcast);
     }
 
     @Override
