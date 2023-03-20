@@ -35,13 +35,16 @@ class SidebarButtonWithNotification<T extends SidebarButton> extends StackPane {
 
     private final T wrapped;
     private final Node graphic;
+    private final SidebarNotificationType notificationType;
 
     public SidebarButtonWithNotification(T wrapped, Node notificationGraphic,
             SidebarNotificationType notificationType) {
         requireNotNullArg(wrapped, "Wrapped button cannot be null");
         requireNotNullArg(wrapped.getGraphic(), "Wrapped button graphic cannot be null");
+        requireNotNullArg(notificationType, "Notification type cannot be null");
         this.wrapped = wrapped;
         this.graphic = notificationGraphic;
+        this.notificationType = notificationType;
         notificationGraphic.setVisible(false);
         setStyle("-fx-background-color: rgba(0, 0, 0, 0);");
         var notification = new Pane();
@@ -54,6 +57,13 @@ class SidebarButtonWithNotification<T extends SidebarButton> extends StackPane {
         this.wrapped.getGraphic().boundsInParentProperty().addListener(
                 (observable, oldValue, newValue) -> this.graphic.relocate(newValue.getMaxX() - 10,
                         newValue.getMaxY() - 10));
+        this.graphic.visibleProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                this.wrapped.getStyleClass().add(notificationType.getCssClass());
+            } else {
+                this.wrapped.getStyleClass().remove(notificationType.getCssClass());
+            }
+        });
     }
 
     public void showNotification() {

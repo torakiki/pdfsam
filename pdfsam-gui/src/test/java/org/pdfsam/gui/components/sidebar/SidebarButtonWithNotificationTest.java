@@ -10,6 +10,7 @@ import org.kordamp.ikonli.javafx.FontIcon;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.test.JavaFxThreadInitializeExtension;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -47,16 +48,20 @@ class SidebarButtonWithNotificationTest {
     @Test
     public void showNotification() {
         assertFalse(notification.isVisible());
+        assertThat(victim.getWrapped().getStyleClass()).doesNotContain(SidebarNotificationType.ERROR.getCssClass());
         victim.showNotification();
         assertTrue(notification.isVisible());
+        assertThat(victim.getWrapped().getStyleClass()).contains(SidebarNotificationType.ERROR.getCssClass());
     }
 
     @Test
     public void hideNotification() {
         victim.showNotification();
         assertTrue(notification.isVisible());
+        assertThat(victim.getWrapped().getStyleClass()).contains(SidebarNotificationType.ERROR.getCssClass());
         victim.hideNotification();
         assertFalse(notification.isVisible());
+        assertThat(victim.getWrapped().getStyleClass()).doesNotContain(SidebarNotificationType.ERROR.getCssClass());
     }
 
 }

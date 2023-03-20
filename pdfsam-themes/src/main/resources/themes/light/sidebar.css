@@ -56,6 +56,18 @@
     -fx-min-width: 3em;
 }
 
+.sidebar-button.error > .ikonli-font-icon {
+    -fx-icon-color: -error-color !important;
+}
+
+.sidebar-button.info > .ikonli-font-icon {
+    -fx-icon-color: -info-color !important;
+}
+
+.sidebar-button.warn > .ikonli-font-icon {
+    -fx-icon-color: -warning-color !important;
+}
+
 .sidebar-buttons .sidebar-button:selected {
     -fx-background-insets: 0.0;
     -fx-opacity: 1;
