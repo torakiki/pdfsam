@@ -19,14 +19,19 @@
 package org.pdfsam.ui.components.selection.single;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.ToolBar;
 import javafx.scene.control.Tooltip;
 import javafx.stage.FileChooser;
 import org.apache.commons.lang3.StringUtils;
+import org.pdfsam.eventstudio.annotation.EventStation;
 import org.pdfsam.model.tool.ClearToolRequest;
 import org.pdfsam.model.tool.ToolBound;
 import org.pdfsam.ui.components.selection.ToolbarButton;
+import org.pdfsam.ui.components.support.Style;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
@@ -61,18 +66,37 @@ class SingleSelectionPaneToolbar extends ToolBar implements ToolBound {
         }
     }
 
-    static class ClearButton extends ToolbarButton {
+    static class ClearButton extends SplitMenuButton implements ToolBound {
 
-        public ClearButton(String toolBinding) {
-            super(toolBinding);
+        private String ownerModule = StringUtils.EMPTY;
+
+        public ClearButton(String ownerModule) {
+            setId("clear-button");
+            this.ownerModule = defaultString(ownerModule);
+            getStyleClass().addAll(Style.BUTTON.css());
+            getStyleClass().addAll("pdfsam-split-button", "toolbar-splitbutton");
             setText(i18n().tr("_Clear"));
-            setTooltip(new Tooltip(i18n().tr("Clear all settings")));
-            setOnAction(this::clearAll);
-            eventStudio().addAnnotatedListeners(this);
+            setOnAction(this::clear);
+
+            MenuItem clearAllSettings = new MenuItem();
+            clearAllSettings.setText(i18n().tr("C_lear all settings"));
+            clearAllSettings.setOnAction(this::clearAll);
+            getItems().add(clearAllSettings);
+        }
+
+        public void clear(ActionEvent event) {
+            eventStudio().broadcast(new ClearToolRequest(toolBinding(), false, false));
         }
 
         public void clearAll(ActionEvent event) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to format your system?");
             eventStudio().broadcast(new ClearToolRequest(toolBinding(), true, true));
+        }
+
+        @Override
+        @EventStation
+        public String toolBinding() {
+            return ownerModule;
         }
     }
 
