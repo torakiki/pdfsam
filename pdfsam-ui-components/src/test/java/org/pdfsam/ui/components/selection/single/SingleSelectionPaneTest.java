@@ -41,7 +41,7 @@ import org.pdfsam.model.pdf.PdfDocumentDescriptor;
 import org.pdfsam.model.pdf.PdfLoadRequest;
 import org.pdfsam.model.ui.ChangedSelectedPdfVersionEvent;
 import org.pdfsam.model.ui.SetDestinationRequest;
-import org.pdfsam.model.ui.ShowErrorMessagesRequest;
+import org.pdfsam.model.ui.ShowLogMessagesRequest;
 import org.pdfsam.model.ui.ShowPdfDescriptorRequest;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.test.HitConsumer;
@@ -370,8 +370,8 @@ public class SingleSelectionPaneTest {
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.LOADING);
             victim.getPdfDocumentDescriptor().moveStatusTo(PdfDescriptorLoadingStatus.WITH_ERRORS);
         });
-        Listener<ShowErrorMessagesRequest> listener = mock(Listener.class);
-        eventStudio().add(ShowErrorMessagesRequest.class, listener);
+        Listener<ShowLogMessagesRequest> listener = mock(Listener.class);
+        eventStudio().add(ShowLogMessagesRequest.class, listener);
         robot.clickOn(String.valueOf((char) UniconsLine.EXCLAMATION_CIRCLE.getCode()));
         verify(listener).onEvent(any());
     }

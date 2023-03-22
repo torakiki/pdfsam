@@ -24,7 +24,7 @@ import javafx.stage.Stage;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.RegisterExtension;
-import org.pdfsam.model.ui.ShowErrorMessagesRequest;
+import org.pdfsam.model.ui.ShowLogMessagesRequest;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.test.HitTestListener;
 import org.testfx.api.FxRobot;
@@ -54,8 +54,8 @@ public class TaskFailedButtonTest {
 
     @Test
     public void failButtonVisibleOnFailure(FxRobot robot) {
-        HitTestListener<ShowErrorMessagesRequest> hit = new HitTestListener<>();
-        eventStudio().add(ShowErrorMessagesRequest.class, hit);
+        HitTestListener<ShowLogMessagesRequest> hit = new HitTestListener<>();
+        eventStudio().add(ShowLogMessagesRequest.class, hit);
         robot.clickOn(".footer-failed-button");
         assertTrue(hit.isHit());
     }

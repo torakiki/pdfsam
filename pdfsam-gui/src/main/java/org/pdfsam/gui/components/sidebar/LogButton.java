@@ -23,7 +23,7 @@ import javafx.scene.shape.Circle;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.gui.components.content.log.ErrorLoggedEvent;
 import org.pdfsam.gui.components.content.log.LogContentItem;
-import org.pdfsam.model.ui.ShowErrorMessagesRequest;
+import org.pdfsam.model.ui.ShowLogMessagesRequest;
 
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.gui.components.sidebar.SelectableSidebarButton.of;
@@ -37,6 +37,7 @@ public class LogButton extends SelectableSidebarButtonWithNotification {
     @Inject
     public LogButton(LogContentItem logItem) {
         super(of(logItem), SidebarButtonWithNotification.notificationOf(new Circle(5)), SidebarNotificationType.ERROR);
+        this.getWrapped().setOnAction(e -> eventStudio().broadcast(new ShowLogMessagesRequest()));
         eventStudio().addAnnotatedListeners(this);
     }
 
@@ -48,7 +49,7 @@ public class LogButton extends SelectableSidebarButtonWithNotification {
     }
 
     @EventListener
-    public void onShowErrorMessagesRequest(ShowErrorMessagesRequest request) {
+    public void onShowErrorMessagesRequest(ShowLogMessagesRequest request) {
         hideNotification();
     }
 }

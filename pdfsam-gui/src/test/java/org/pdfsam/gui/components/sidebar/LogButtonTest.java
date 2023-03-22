@@ -11,7 +11,7 @@ import org.pdfsam.gui.components.content.log.ErrorLoggedEvent;
 import org.pdfsam.gui.components.content.log.LogContentItem;
 import org.pdfsam.gui.components.content.log.LogPane;
 import org.pdfsam.model.ui.SetActiveContentItemRequest;
-import org.pdfsam.model.ui.ShowErrorMessagesRequest;
+import org.pdfsam.model.ui.ShowLogMessagesRequest;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.testfx.api.FxAssert;
 import org.testfx.api.FxRobot;
@@ -85,7 +85,7 @@ class LogButtonTest {
     public void onShowErrorMessagesRequest() {
         eventStudio().broadcast(new ErrorLoggedEvent());
         FxAssert.verifyThat(".notification", NodeMatchers.isVisible());
-        eventStudio().broadcast(new ShowErrorMessagesRequest());
+        eventStudio().broadcast(new ShowLogMessagesRequest());
         FxAssert.verifyThat(".notification", NodeMatchers.isInvisible());
     }
 

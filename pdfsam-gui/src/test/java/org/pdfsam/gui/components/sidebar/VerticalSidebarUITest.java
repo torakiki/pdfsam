@@ -23,7 +23,7 @@ import org.pdfsam.injector.Key;
 import org.pdfsam.injector.Provides;
 import org.pdfsam.model.lifecycle.ShutdownEvent;
 import org.pdfsam.model.tool.Tool;
-import org.pdfsam.model.ui.ShowErrorMessagesRequest;
+import org.pdfsam.model.ui.ShowLogMessagesRequest;
 import org.pdfsam.persistence.PreferencesRepository;
 import org.pdfsam.service.ui.RecentWorkspacesService;
 import org.pdfsam.test.ClearEventStudioExtension;
@@ -138,7 +138,7 @@ class VerticalSidebarUITest {
 
     @Test
     public void showLogs() {
-        eventStudio().broadcast(new ShowErrorMessagesRequest());
+        eventStudio().broadcast(new ShowLogMessagesRequest());
         var logButton = injector.instance(LogButton.class);
         assertTrue(logButton.isSelected());
     }

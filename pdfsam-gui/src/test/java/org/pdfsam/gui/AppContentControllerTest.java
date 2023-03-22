@@ -25,7 +25,7 @@ import org.pdfsam.model.tool.Tool;
 import org.pdfsam.model.ui.ContentItem;
 import org.pdfsam.model.ui.SetActiveContentItemRequest;
 import org.pdfsam.model.ui.SetTitleRequest;
-import org.pdfsam.model.ui.ShowErrorMessagesRequest;
+import org.pdfsam.model.ui.ShowLogMessagesRequest;
 import org.pdfsam.persistence.PreferencesRepository;
 import org.pdfsam.service.ui.RecentWorkspacesService;
 import org.pdfsam.test.ClearEventStudioExtension;
@@ -150,7 +150,7 @@ class AppContentControllerTest {
     void onShowErrorMessagesRequest() {
         Listener<SetTitleRequest> listener = mock(Listener.class);
         eventStudio().add(SetTitleRequest.class, listener);
-        victim.onShowErrorMessagesRequest(new ShowErrorMessagesRequest());
+        victim.onShowLogMessagesRequest(new ShowLogMessagesRequest());
         verify(listener).onEvent(any(SetTitleRequest.class));
         verify(runtimeState, never()).activeTool(any());
     }

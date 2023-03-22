@@ -19,10 +19,10 @@ package org.pdfsam.model.ui;
  */
 
 /**
- * Request to show the error messages of the application (Log register or similar).
+ * Request to show the log messages of the application (Log register or similar).
  *
  * @author Andrea Vacondio
  */
-public record ShowErrorMessagesRequest() {
+public record ShowLogMessagesRequest() {
 
 }

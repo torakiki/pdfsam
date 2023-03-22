@@ -34,7 +34,7 @@ import org.pdfsam.gui.components.content.log.LogContentItem;
 import org.pdfsam.gui.components.content.preference.PreferenceContentItem;
 import org.pdfsam.model.ui.ContentItem;
 import org.pdfsam.model.ui.SetActiveContentItemRequest;
-import org.pdfsam.model.ui.ShowErrorMessagesRequest;
+import org.pdfsam.model.ui.ShowLogMessagesRequest;
 
 import static javafx.scene.layout.VBox.setVgrow;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
@@ -122,7 +122,7 @@ public class VerticalSidebar extends BorderPane {
     }
 
     @EventListener
-    public void onShowErrorMessagesRequest(ShowErrorMessagesRequest request) {
+    public void onShowErrorMessagesRequest(ShowLogMessagesRequest request) {
         onSetCurrentContentItem(new SetActiveContentItemRequest(LogContentItem.ID));
     }
 }

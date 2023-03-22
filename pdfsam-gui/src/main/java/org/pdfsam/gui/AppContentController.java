@@ -37,7 +37,7 @@ import org.pdfsam.model.tool.Tool;
 import org.pdfsam.model.ui.ContentItem;
 import org.pdfsam.model.ui.SetActiveContentItemRequest;
 import org.pdfsam.model.ui.SetTitleRequest;
-import org.pdfsam.model.ui.ShowErrorMessagesRequest;
+import org.pdfsam.model.ui.ShowLogMessagesRequest;
 import org.tinylog.Logger;
 import org.tinylog.Supplier;
 
@@ -93,7 +93,8 @@ public class AppContentController {
     }
 
     @EventListener
-    public void onShowErrorMessagesRequest(ShowErrorMessagesRequest request) {
+    public void onShowLogMessagesRequest(ShowLogMessagesRequest request) {
+        //when log viewer is show we don't want to clear the active tool so that the Close button in the log viewer will show and return to the active tool
         Logger.trace("Set active content request to Log content");
         var item = items.get(LogContentItem.ID);
         if (nonNull(item)) {
