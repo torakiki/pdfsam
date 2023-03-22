@@ -26,12 +26,13 @@ import javafx.util.Callback;
 
 import java.util.Comparator;
 
+import static java.util.Optional.ofNullable;
+
 /**
  * Definition of a column in the selection table
- * 
+ *
+ * @param <T> type of the column data
  * @author Andrea Vacondio
- * @param <T>
- *            type of the column data
  */
 public interface SelectionTableColumn<T> extends TableColumnProvider<T> {
 
@@ -67,6 +68,10 @@ public interface SelectionTableColumn<T> extends TableColumnProvider<T> {
         };
     }
 
+    default Float maxWidth() {
+        return null;
+    }
+
     /**
      * @param item
      * @return the String representation of the given item
@@ -97,6 +102,7 @@ public interface SelectionTableColumn<T> extends TableColumnProvider<T> {
         tableColumn.setCellFactory(cellFactory());
         tableColumn.setCellValueFactory(cellValueFactory());
         tableColumn.setComparator(comparator());
+        ofNullable(maxWidth()).ifPresent(tableColumn::setMaxWidth);
         return tableColumn;
     }
 

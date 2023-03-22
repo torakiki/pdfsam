@@ -34,7 +34,6 @@ public class ReverseColumn implements TableColumnProvider<Boolean> {
     public String getColumnTitle() {
         return i18n().tr("Reverse");
     }
-
     @Override
     public TableColumn<SelectionTableRowData, Boolean> getTableColumn() {
         TableColumn<SelectionTableRowData, Boolean> tableColumn = new TableColumn<>(getColumnTitle());
@@ -45,6 +44,7 @@ public class ReverseColumn implements TableColumnProvider<Boolean> {
             }
             return null;
         });
+        tableColumn.setMaxWidth(1000F);
         return tableColumn;
     }
 

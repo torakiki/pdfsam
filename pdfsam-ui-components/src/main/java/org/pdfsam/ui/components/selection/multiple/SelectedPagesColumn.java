@@ -59,6 +59,11 @@ public class SelectedPagesColumn implements SelectionTableColumn<Integer> {
     }
 
     @Override
+    public Float maxWidth() {
+        return 3000f;
+    }
+
+    @Override
     public Comparator<Integer> comparator() {
         return Comparator.naturalOrder();
     }

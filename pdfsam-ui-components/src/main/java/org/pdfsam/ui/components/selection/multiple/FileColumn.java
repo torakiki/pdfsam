@@ -79,6 +79,11 @@ public enum FileColumn implements SelectionTableColumn<File> {
         }
 
         @Override
+        public Float maxWidth() {
+            return 10000f;
+        }
+
+        @Override
         public Comparator<File> comparator() {
             return new NumericalSortFilenameComparator(Comparator.comparing(File::getName, Collator.getInstance()));
         }

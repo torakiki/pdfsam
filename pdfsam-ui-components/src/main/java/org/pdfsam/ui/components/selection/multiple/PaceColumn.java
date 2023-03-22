@@ -31,9 +31,8 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * Definition of the pace column of the selection table
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
 public class PaceColumn implements SelectionTableColumn<String> {
 
@@ -62,11 +61,16 @@ public class PaceColumn implements SelectionTableColumn<String> {
     }
 
     @Override
+    public Float maxWidth() {
+        return 3000f;
+    }
+
+    @Override
     public TableColumn<SelectionTableRowData, String> getTableColumn() {
         TableColumn<SelectionTableRowData, String> tableColumn = SelectionTableColumn.super.getTableColumn();
         tableColumn.setEditable(true);
-        tableColumn.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).pace
-                .set(defaultIfBlank(t.getNewValue(), "1")));
+        tableColumn.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).pace.set(
+                defaultIfBlank(t.getNewValue(), "1")));
         return tableColumn;
     }
 

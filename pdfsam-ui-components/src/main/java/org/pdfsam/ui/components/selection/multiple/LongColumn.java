@@ -30,9 +30,8 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * Definition of the {@link Long} columns of the selection table
- * 
+ *
  * @author Andrea Vacondio
- * 
  */
 public enum LongColumn implements SelectionTableColumn<Number> {
 
@@ -56,9 +55,13 @@ public enum LongColumn implements SelectionTableColumn<Number> {
         public Comparator<Number> comparator() {
             return Comparator.comparingLong(Number::longValue);
         }
+
+        @Override
+        public Float maxWidth() {
+            return 3000f;
+        }
     },
     LAST_MODIFIED {
-
         @Override
         public String getColumnTitle() {
             return i18n().tr("Modified");
@@ -77,6 +80,11 @@ public enum LongColumn implements SelectionTableColumn<Number> {
         @Override
         public Comparator<Number> comparator() {
             return Comparator.comparingLong(Number::longValue);
+        }
+
+        @Override
+        public Float maxWidth() {
+            return 6000f;
         }
     };
 

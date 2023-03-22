@@ -59,6 +59,11 @@ public enum IntColumn implements SelectionTableColumn<Integer> {
         }
 
         @Override
+        public Float maxWidth() {
+            return 3000f;
+        }
+
+        @Override
         public Callback<TableColumn<SelectionTableRowData, Integer>, TableCell<SelectionTableRowData, Integer>> cellFactory() {
             return param -> new TooltippedTableCell<>(i18n().tr("Number of total pages of the document")) {
                 @Override
