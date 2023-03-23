@@ -22,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.io.TempDir;
@@ -45,6 +46,7 @@ import static org.mockito.Mockito.when;
  * @author Andrea Vacondio
  */
 @ExtendWith({ ApplicationExtension.class })
+@Tag("NoHeadless")
 public class PreferenceBrowsableDirectoryFieldTest {
 
     @TempDir
