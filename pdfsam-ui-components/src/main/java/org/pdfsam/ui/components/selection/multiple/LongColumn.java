@@ -57,8 +57,8 @@ public enum LongColumn implements SelectionTableColumn<Number> {
         }
 
         @Override
-        public Float maxWidth() {
-            return 3000f;
+        public Float prefWidth() {
+            return 50F;
         }
     },
     LAST_MODIFIED {
@@ -83,8 +83,8 @@ public enum LongColumn implements SelectionTableColumn<Number> {
         }
 
         @Override
-        public Float maxWidth() {
-            return 6000f;
+        public Float prefWidth() {
+            return 110F;
         }
     };
 

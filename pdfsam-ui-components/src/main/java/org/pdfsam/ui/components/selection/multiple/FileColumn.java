@@ -79,8 +79,8 @@ public enum FileColumn implements SelectionTableColumn<File> {
         }
 
         @Override
-        public Float maxWidth() {
-            return 10000f;
+        public Float prefWidth() {
+            return 200F;
         }
 
         @Override

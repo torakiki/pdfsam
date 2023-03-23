@@ -69,11 +69,6 @@ public class PageRangesColumn implements SelectionTableColumn<String> {
     }
 
     @Override
-    public Float maxWidth() {
-        return 5000f;
-    }
-
-    @Override
     public TableColumn<SelectionTableRowData, String> getTableColumn() {
         TableColumn<SelectionTableRowData, String> tableColumn = SelectionTableColumn.super.getTableColumn();
         tableColumn.setEditable(true);

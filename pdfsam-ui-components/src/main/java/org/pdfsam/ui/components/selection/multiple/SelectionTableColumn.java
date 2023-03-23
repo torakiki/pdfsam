@@ -68,7 +68,7 @@ public interface SelectionTableColumn<T> extends TableColumnProvider<T> {
         };
     }
 
-    default Float maxWidth() {
+    default Float prefWidth() {
         return null;
     }
 
@@ -102,7 +102,7 @@ public interface SelectionTableColumn<T> extends TableColumnProvider<T> {
         tableColumn.setCellFactory(cellFactory());
         tableColumn.setCellValueFactory(cellValueFactory());
         tableColumn.setComparator(comparator());
-        ofNullable(maxWidth()).ifPresent(tableColumn::setMaxWidth);
+        ofNullable(prefWidth()).ifPresent(tableColumn::setPrefWidth);
         return tableColumn;
     }
 

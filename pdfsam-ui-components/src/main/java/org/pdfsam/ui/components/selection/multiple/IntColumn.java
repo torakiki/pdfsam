@@ -59,8 +59,8 @@ public enum IntColumn implements SelectionTableColumn<Integer> {
         }
 
         @Override
-        public Float maxWidth() {
-            return 3000f;
+        public Float prefWidth() {
+            return 50F;
         }
 
         @Override

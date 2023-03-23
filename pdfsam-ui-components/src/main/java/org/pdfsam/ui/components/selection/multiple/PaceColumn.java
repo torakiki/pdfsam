@@ -61,8 +61,8 @@ public class PaceColumn implements SelectionTableColumn<String> {
     }
 
     @Override
-    public Float maxWidth() {
-        return 3000f;
+    public Float prefWidth() {
+        return 50F;
     }
 
     @Override
