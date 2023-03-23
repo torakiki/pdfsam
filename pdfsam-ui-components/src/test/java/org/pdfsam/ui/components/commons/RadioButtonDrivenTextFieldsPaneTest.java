@@ -23,6 +23,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.api.FxRobot;
@@ -82,6 +83,7 @@ public class RadioButtonDrivenTextFieldsPaneTest {
     }
 
     @Test
+    @Tag("NoHeadless")
     public void focusedField(FxRobot robot) {
         TextField field = robot.lookup(".FIELD").queryAs(TextField.class);
         robot.clickOn("RADIO").write("Chuck");

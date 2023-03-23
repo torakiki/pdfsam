@@ -85,6 +85,7 @@ import static org.testfx.api.FxAssert.verifyThat;
  * @author Andrea Vacondio
  */
 @ExtendWith(ApplicationExtension.class)
+@Tag("NoHeadless")
 public class SelectionTableTest {
 
     private static final String MODULE = "MODULE";

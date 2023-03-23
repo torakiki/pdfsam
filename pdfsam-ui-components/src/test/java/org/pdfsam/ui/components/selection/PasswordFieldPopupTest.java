@@ -23,6 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -43,6 +44,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
  * @author Andrea Vacondio
  */
 @ExtendWith({ ApplicationExtension.class })
+@Tag("NoHeadless")
 public class PasswordFieldPopupTest {
     @RegisterExtension
     static ClearEventStudioExtension staticExtension = new ClearEventStudioExtension("LogStage");

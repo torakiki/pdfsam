@@ -23,6 +23,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -108,6 +109,7 @@ public class PdfDestinationPaneUITest {
     }
 
     @Test
+    @Tag("NoHeadless")
     public void reset() {
         robot.clickOn(".validable-container-field").write("Chuck");
         Set<Node> nodes = robot.lookup(n -> n instanceof CheckBox).queryAll();

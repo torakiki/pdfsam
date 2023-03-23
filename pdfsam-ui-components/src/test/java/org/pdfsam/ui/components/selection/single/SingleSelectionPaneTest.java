@@ -79,6 +79,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
  */
 @SuppressWarnings("unchecked")
 @ExtendWith(ApplicationExtension.class)
+@Tag("NoHeadless")
 public class SingleSelectionPaneTest {
     private static final String MODULE = "MODULE";
     @RegisterExtension

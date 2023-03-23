@@ -22,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.pdfsam.model.io.FileType;
@@ -29,19 +30,20 @@ import org.pdfsam.model.io.OpenType;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.ui.components.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.components.support.Style;
-import org.testfx.api.FxAssert;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
 import java.util.Arrays;
 
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Andrea Vacondio
  */
 @ExtendWith({ ApplicationExtension.class, ClearEventStudioExtension.class })
+@Tag("NoHeadless")
 public class BrowsableFileFieldUITest {
 
     private FxRobot robot;
@@ -64,14 +66,14 @@ public class BrowsableFileFieldUITest {
     public void validBlank() {
         BrowsableFileField victim = robot.lookup(".victim-blank").queryAs(BrowsableFileField.class);
         robot.clickOn(victim).type(KeyCode.TAB);
-        FxAssert.verifyThat(victim, v -> v.getTextField().getValidationState() == ValidationState.VALID);
+        assertSame(ValidationState.VALID, victim.getTextField().getValidationState());
     }
 
     @Test
     public void invalidBlank() {
         BrowsableFileField victim = robot.lookup(".victim-no-blank").queryAs(BrowsableFileField.class);
         robot.clickOn(victim).type(KeyCode.TAB);
-        FxAssert.verifyThat(victim, v -> v.getTextField().getValidationState() == ValidationState.INVALID);
+        assertSame(ValidationState.INVALID, victim.getTextField().getValidationState());
         Arrays.stream(Style.INVALID.css()).forEach(c -> assertTrue(robot.lookup("." + c).tryQuery().isPresent()));
     }
 }

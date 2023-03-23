@@ -24,6 +24,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.pdfsam.test.ClearEventStudioExtension;
@@ -58,6 +59,7 @@ import static org.mockito.Mockito.verify;
  * @author Andrea Vacondio
  */
 @ExtendWith({ ApplicationExtension.class, ClearEventStudioExtension.class })
+@Tag("NoHeadless")
 public class BookmarksLevelComboBoxTest {
     private SplitByOutlineLevelParametersBuilder builder;
     private Consumer<String> onError;

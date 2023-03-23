@@ -26,12 +26,12 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.ui.components.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.components.support.Style;
-import org.testfx.api.FxAssert;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
@@ -39,6 +39,8 @@ import org.testfx.util.WaitForAsyncUtils;
 
 import java.util.Arrays;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.pdfsam.core.support.validation.Validators.nonBlank;
 import static org.pdfsam.core.support.validation.Validators.positiveInteger;
@@ -49,6 +51,7 @@ import static org.pdfsam.core.support.validation.Validators.validEmpty;
  */
 
 @ExtendWith({ ApplicationExtension.class, ClearEventStudioExtension.class })
+@Tag("NoHeadless")
 public class BrowsableDirectoryFieldUITest {
 
     private FxRobot robot;
@@ -71,7 +74,7 @@ public class BrowsableDirectoryFieldUITest {
         BrowsableDirectoryField victim = robot.lookup(".victim-blank").queryAs(BrowsableDirectoryField.class);
         robot.clickOn(victim);
         robot.type(KeyCode.TAB);
-        FxAssert.verifyThat(victim, v -> v.getTextField().getValidationState() == ValidationState.VALID);
+        assertSame(ValidationState.VALID, victim.getTextField().getValidationState());
     }
 
     @Test
@@ -79,7 +82,7 @@ public class BrowsableDirectoryFieldUITest {
         BrowsableDirectoryField victim = robot.lookup(".victim-no-blank").queryAs(BrowsableDirectoryField.class);
         robot.clickOn(victim);
         robot.type(KeyCode.TAB);
-        FxAssert.verifyThat(victim, v -> v.getTextField().getValidationState() == ValidationState.INVALID);
+        assertSame(ValidationState.INVALID, victim.getTextField().getValidationState());
         Arrays.stream(Style.INVALID.css()).forEach(c -> assertTrue(robot.lookup("." + c).tryQuery().isPresent()));
     }
 
@@ -109,7 +112,7 @@ public class BrowsableDirectoryFieldUITest {
         BrowsableDirectoryField victim = robot.lookup(".victim-blank").queryAs(BrowsableDirectoryField.class);
         robot.clickOn(victim);
         robot.press(KeyCode.CONTROL, KeyCode.V).release(KeyCode.V, KeyCode.CONTROL);
-        FxAssert.verifyThat(victim, v -> v.getTextField().getText().equals("my path"));
+        assertEquals("my path", victim.getTextField().getText());
     }
 
     @Test
@@ -124,7 +127,7 @@ public class BrowsableDirectoryFieldUITest {
         BrowsableDirectoryField victim = robot.lookup(".victim-blank").queryAs(BrowsableDirectoryField.class);
         robot.clickOn(victim);
         robot.press(KeyCode.CONTROL, KeyCode.V).release(KeyCode.V, KeyCode.CONTROL);
-        FxAssert.verifyThat(victim, v -> v.getTextField().getText().equals("my path"));
+        assertEquals("my path", victim.getTextField().getText());
     }
 
     @Test

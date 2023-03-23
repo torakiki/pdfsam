@@ -21,6 +21,7 @@ package org.pdfsam.ui.components.prefix;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.pdfsam.core.support.params.MultipleOutputTaskParametersBuilder;
@@ -49,6 +50,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
  * @author Andrea Vacondio
  */
 @ExtendWith({ ApplicationExtension.class, ClearEventStudioExtension.class })
+@Tag("NoHeadless")
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class PrefixPaneTest {
 
