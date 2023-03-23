@@ -63,7 +63,7 @@ public class I18NContextTest {
     @Test
     public void getBestLocaleSupportedLanguage() {
         var victim = new I18nContext();
-        Locale.setDefault(new Locale("en", "CA"));
+        Locale.setDefault(Locale.of("en", "CA"));
         var observer = victim.locale().test();
         observer.assertNoValues();
         victim.tr("chuck norris");

@@ -21,7 +21,6 @@ package org.pdfsam.model.task;
 import org.junit.jupiter.api.Test;
 import org.sejda.model.input.PdfSource;
 import org.sejda.model.pdf.page.PageRange;
-import org.sejda.model.pdf.page.PagesSelection;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
 import org.sejda.model.rotation.Rotation;
 
@@ -60,8 +59,7 @@ public class PdfRotationInputTest {
 
     @Test
     public void emptyPagesAllPages() {
-        PdfRotationInput victim = new PdfRotationInput(mock(PdfSource.class), Rotation.DEGREES_180,
-                new PagesSelection[0]);
+        PdfRotationInput victim = new PdfRotationInput(mock(PdfSource.class), Rotation.DEGREES_180);
         Set<Integer> pages = victim.getPages(3);
         assertEquals(3, pages.size());
         assertTrue(pages.contains(1));
