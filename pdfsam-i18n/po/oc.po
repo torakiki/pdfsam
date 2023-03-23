@@ -8,32 +8,33 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2014-03-03 14:12+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2023-02-13 18:39+0000\n"
+"Last-Translator: Quentin PAGÈS <Unknown>\n"
 "Language-Team: Occitan (post 1500) <oc@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
+"X-Launchpad-Export-Date: 2023-03-23 10:56+0000\n"
+"X-Generator: Launchpad (build c5a134908fde0a645e56f24c14f906bf278db3e0)\n"
+"Language: oc\n"
 
 msgid "No PDF document has been selected"
 msgstr ""
 
 msgid "Extract"
-msgstr ""
+msgstr "Extraire"
 
 msgid "Extract pages from PDF documents."
-msgstr ""
+msgstr "Extraire paginas de documents PDF."
 
 msgid "File names settings"
-msgstr ""
+msgstr "Paramètres de nom de fichièrs"
 
 msgid "Extract settings"
-msgstr ""
+msgstr "Paramètres d’extraccion"
 
 msgid "Output settings"
-msgstr ""
+msgstr "Paramètres de sortida"
 
 msgid "A separate file for each set of pages"
 msgstr ""
@@ -45,10 +46,10 @@ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 
 msgid "Invalid page ranges"
-msgstr ""
+msgstr "Plaja de paginas invalida"
 
 msgid "Extract pages:"
-msgstr ""
+msgstr "Extraire paginas :"
 
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
@@ -56,7 +57,7 @@ msgid ""
 msgstr ""
 
 msgid "Split by bookmarks"
-msgstr ""
+msgstr "Devesir per marcapagina"
 
 msgid ""
 "Split a PDF document at bookmarked pages by specifying a bookmark level."
@@ -82,34 +83,34 @@ msgid "Select or drag and drop the PDF you want to split"
 msgstr ""
 
 msgid "Split settings"
-msgstr ""
+msgstr "Paramètres de partison"
 
 msgid "Invalid bookmarks level"
 msgstr ""
 
 msgid "Split after"
-msgstr ""
+msgstr "Devesir aprèp"
 
 msgid "No page selected"
-msgstr ""
+msgstr "Cap de pagina pas seleccionada"
 
 msgid "Split"
 msgstr "Devesir"
 
 msgid "Split a PDF document at the given page numbers."
-msgstr ""
+msgstr "Devesir un document PDF als numèros de pagina donats."
 
 msgid "Every page"
-msgstr ""
+msgstr "Cada pagina"
 
 msgid "Even pages"
-msgstr ""
+msgstr "Paginas paras"
 
 msgid "Odd pages"
-msgstr ""
+msgstr "Paginas imparas"
 
 msgid "Split the document after the given page numbers"
-msgstr ""
+msgstr "Devesir un document PDF als numèros de pagina donats"
 
 msgid ""
 "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
@@ -122,34 +123,34 @@ msgid "Page numbers to split at (n1,n2,n3..)"
 msgstr ""
 
 msgid "Invalid page numbers"
-msgstr ""
+msgstr "Numèros de pagina invalids"
 
 msgid "Only valid positive page numbers are allowed"
-msgstr ""
+msgstr "Sonque los numèros de paginas positiu son permeses"
 
 msgid "Split by every \"n\" pages"
 msgstr ""
 
 msgid "Number of pages"
-msgstr ""
+msgstr "Nombre de paginas"
 
 msgid "Invalid number of pages"
-msgstr ""
+msgstr "Nombre de paginas invalid"
 
 msgid "Megabytes"
-msgstr ""
+msgstr "Megaoctets"
 
 msgid "MB"
-msgstr ""
+msgstr "Mo"
 
 msgid "Kilobytes"
-msgstr ""
+msgstr "Kilooctets"
 
 msgid "KB"
-msgstr ""
+msgstr "Ko"
 
 msgid "Split by size"
-msgstr ""
+msgstr "Devesir per talha"
 
 msgid "Split a PDF document in files of the given size (roughly)."
 msgstr ""
@@ -167,7 +168,7 @@ msgid "Invalid split size"
 msgstr ""
 
 msgid "Destination file"
-msgstr ""
+msgstr "Fichièr de destinacion"
 
 msgid "Alternate Mix"
 msgstr "Assemblatge"
@@ -185,42 +186,42 @@ msgid "Select a positive integer number as pace"
 msgstr ""
 
 msgid "All pages"
-msgstr ""
+msgstr "Totas las paginas"
 
 msgid "90 degrees clockwise"
-msgstr ""
+msgstr "90 grases sens orari"
 
 msgid "180 degrees clockwise"
-msgstr ""
+msgstr "180 grases sens orari"
 
 msgid "90 degrees counterclockwise"
-msgstr ""
+msgstr "90 grases sens orari inversat"
 
 msgid "Rotate "
-msgstr ""
+msgstr "Pivotar "
 
 msgid "Rotate settings"
-msgstr ""
+msgstr "Paramètres de rotacion"
 
 msgid "Rotate"
-msgstr ""
+msgstr "Pivotar"
 
 msgid "Rotate the pages of multiple PDF documents."
-msgstr ""
+msgstr "Far pivotar las paginas de mantun document PDF."
 
 msgid ""
 "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 
 msgid "Merge settings"
-msgstr ""
+msgstr "Paramètres de fusion"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 
 msgid "Add a blank page if page number is odd"
-msgstr ""
+msgstr "Apondre una pagina blanca se lo nombre es impar"
 
 msgid ""
 "Adds a blank page after each merged document if the document has an odd "
@@ -228,13 +229,13 @@ msgid ""
 msgstr ""
 
 msgid "Add a footer"
-msgstr ""
+msgstr "Apondre un pè de pagina"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "Pas cap"
 
 msgid "Same width as first page"
 msgstr ""
@@ -257,10 +258,10 @@ msgid "Merge renaming existing fields"
 msgstr ""
 
 msgid "Flatten"
-msgstr ""
+msgstr "Aplatir"
 
 msgid "Discard forms"
-msgstr ""
+msgstr "Ignorar los formularis"
 
 msgid "Interactive forms (AcroForms):"
 msgstr ""
@@ -272,7 +273,7 @@ msgid "Retain bookmarks"
 msgstr ""
 
 msgid "Discard bookmarks"
-msgstr ""
+msgstr "Ignorar los marcapaginas"
 
 msgid "Create one entry for each merged document"
 msgstr ""
@@ -287,23 +288,23 @@ msgid "What to do in case one or more input documents contain bookmarks"
 msgstr ""
 
 msgid "Don't generate"
-msgstr ""
+msgstr "Generar pas"
 
 msgid "Generate from file names"
-msgstr ""
+msgstr "Gerar a partir dels noms de fichièr"
 
 msgid "Generate from documents titles"
 msgstr ""
 
 msgid "Table of contents:"
-msgstr ""
+msgstr "Ensenhador :"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr ""
 
 msgid "Merge"
-msgstr ""
+msgstr "Fusionar"
 
 msgid "Merge together multiple PDF documents or subsections of them."
 msgstr ""
@@ -312,10 +313,10 @@ msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr ""
 
 msgid "Repeat these pages:"
-msgstr ""
+msgstr "Repetir aquestas paginas :"
 
 msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "Paginas de repetir (ex : 2 o 5-23 o 2,5-7,12-)"
 
 msgid ""
 "Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
@@ -329,13 +330,13 @@ msgid "Repeat every \"n\" pages:"
 msgstr ""
 
 msgid "Invalid page number"
-msgstr ""
+msgstr "Numèro de pagina invalid"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
 msgstr ""
 
 msgid "The selected PDF file is invalid"
-msgstr ""
+msgstr "Lo fichièr PDF seleccionat es invalid"
 
 msgid "The number of pages must be a positive number"
 msgstr ""
@@ -347,7 +348,7 @@ msgid "Insert and Repeat settings"
 msgstr ""
 
 msgid "Insert pages multiple times"
-msgstr ""
+msgstr "Inserir las paginas mai d’un còp"
 
 msgid ""
 "Insert the pages of a PDF document A into another document B, repeating it "
@@ -356,94 +357,94 @@ msgstr ""
 
 #, java-format
 msgid "Started in {0}"
-msgstr ""
+msgstr "Començat dins {0}"
 
 msgid "Closing PDFsam..."
-msgstr ""
+msgstr "Tampadura de PDFsam..."
 
 msgid "Drag and drop PDF files or directories containing PDF files"
 msgstr ""
 
 msgid "No PDF found"
-msgstr ""
+msgstr "Cap de PDF pas trobat"
 
 msgid "Tools"
-msgstr ""
+msgstr "Aisinas"
 
 msgid "News"
-msgstr ""
+msgstr "Actualitats"
 
 msgid "What's new"
-msgstr ""
+msgstr "Qué de nòu"
 
 msgid "Exit"
-msgstr ""
+msgstr "Quitar"
 
 msgid "Exit the application"
-msgstr ""
+msgstr "Quitar l’aplicacion"
 
 msgid "Workspace"
-msgstr ""
+msgstr "Espaci de trabalh"
 
 msgid "Manage your workspaces"
-msgstr ""
+msgstr "Gestion de vòstres espacis de trabalh"
 
 msgid "Yes"
-msgstr ""
+msgstr "Òc"
 
 msgid "No"
-msgstr ""
+msgstr "Non"
 
 msgid "Confirm clearing"
-msgstr ""
+msgstr "Confirmacion de netejatge"
 
 msgid "Do you confirm?"
-msgstr ""
+msgstr "Confirmatz ?"
 
 msgid "Clear the tool settings"
-msgstr ""
+msgstr "Escafar los paramètres de l’aisina"
 
 msgid "Clear the selection table"
-msgstr ""
+msgstr "Escafar lo tablèu seleccionat"
 
 msgid "Open with"
-msgstr ""
+msgstr "Dobrir amb"
 
 msgid "Select the task to perform on the following files"
 msgstr ""
 
 msgid "Directory not empty"
-msgstr ""
+msgstr "Lo repertòri es pas void"
 
 msgid "The selected directory is not empty"
-msgstr ""
+msgstr "Lo repertòri seleccionat es pas void"
 
 msgid "What would you like to do in case of files with the same name?"
-msgstr ""
+msgstr "De qué volètz far se per cas i a de fichièrs amb lo meteis nom ?"
 
 msgid "Overwrite"
-msgstr ""
+msgstr "Remplaçar"
 
 msgid "Rename"
-msgstr ""
+msgstr "Renomenar"
 
 msgid "Skip"
-msgstr ""
+msgstr "Sautar"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Anullar"
 
 msgid "Don't overwrite existing file"
-msgstr ""
+msgstr "Remplaçar pas lo fichièr existent"
 
 msgid "Overwrite confirmation"
-msgstr ""
+msgstr "Confirmacion de remplaçament"
 
 msgid "A file with the given name already exists"
-msgstr ""
+msgstr "Un fichièr amb lo nom donat existís ja"
 
 msgid "What would you like to do?"
-msgstr ""
+msgstr "De qué volètz far ?"
 
 msgid "Non existing directory"
 msgstr ""
@@ -452,10 +453,10 @@ msgid "The selected output directory does not exist"
 msgstr ""
 
 msgid "Do you want to create it?"
-msgstr ""
+msgstr "Lo volètz crear ?"
 
 msgid "Subdirectories"
-msgstr ""
+msgstr "Sosrepertòris"
 
 msgid "Subdirectories have been found"
 msgstr ""
@@ -464,7 +465,7 @@ msgid "Do you want to add PDF files found in subdirectories?"
 msgstr ""
 
 msgid "Task failed"
-msgstr ""
+msgstr "Fracàs del prètzfach"
 
 msgid "PDFsam can try to overcome the failure"
 msgstr ""
@@ -474,46 +475,46 @@ msgid ""
 msgstr ""
 
 msgid "Removes all the log messages"
-msgstr ""
+msgstr "Suprimís totes los messatges de log"
 
 msgid "_Clear"
-msgstr ""
+msgstr "_Escafar"
 
 msgid "_Save"
-msgstr ""
+msgstr "_Enregistrar"
 
 msgid "C_lose"
-msgstr ""
+msgstr "T_ampar"
 
 msgid "Copy"
-msgstr ""
+msgstr "Copiar"
 
 msgid "Clear"
-msgstr ""
+msgstr "Escafar"
 
 msgid "Select all"
-msgstr ""
+msgstr "Tot seleccionar"
 
 msgid "Save log"
-msgstr ""
+msgstr "Enregistrar lo jornal"
 
 msgid "Select where to save the log file"
 msgstr ""
 
 msgid "Logs"
-msgstr ""
+msgstr "Jornals"
 
 msgid "Application messages"
-msgstr ""
+msgstr "Messatges d’aplicacion"
 
 msgid "_Load"
-msgstr ""
+msgstr "_Cargar"
 
 msgid "Recen_ts"
-msgstr ""
+msgstr "Recen_ts"
 
 msgid "_Clear recents"
-msgstr ""
+msgstr "_Escafar los recents"
 
 msgid "Select the workspace file to save"
 msgstr ""
@@ -525,11 +526,11 @@ msgid "Subscribe to the official news feed"
 msgstr ""
 
 msgid "Environment"
-msgstr ""
+msgstr "Environament"
 
 #, java-printf-format
 msgid "Vendor: %s"
-msgstr ""
+msgstr "Vendeire : %s"
 
 #, java-printf-format
 msgid "Java runtime path: %s"
@@ -545,49 +546,49 @@ msgstr ""
 
 #, java-format
 msgid "Max memory {0}"
-msgstr ""
+msgstr "Memòria max {0}"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Copiar al quicha-papièrs"
 
 msgid "Support"
-msgstr ""
+msgstr "Assisténcia"
 
 msgid "Bug and feature requests"
-msgstr ""
+msgstr "Avaria e demanda de foncionalitat"
 
 msgid "Documentation"
-msgstr ""
+msgstr "Documentacion"
 
 msgid "Contribute"
-msgstr ""
+msgstr "Contribuir"
 
 msgid "Fork PDFsam on GitHub"
-msgstr ""
+msgstr "Tustar PDFsam sus GitHub"
 
 msgid "Translate"
-msgstr ""
+msgstr "Traduire"
 
 msgid "Donate"
-msgstr ""
+msgstr "Far un don"
 
 msgid "Social"
-msgstr ""
+msgstr "Social"
 
 msgid "Follow us on Twitter"
-msgstr ""
+msgstr "Seguissètz-nos sus Twitter"
 
 msgid "Like us on Facebook"
-msgstr ""
+msgstr "Aimatz nòstre Facebook"
 
 msgid "About"
-msgstr ""
+msgstr "A prepaus"
 
 msgid "Home"
-msgstr ""
+msgstr "Acuèlh"
 
 msgid "Premium features"
-msgstr ""
+msgstr "Foncionalitats Premium"
 
 msgid "Log register rows:"
 msgstr ""
@@ -596,10 +597,10 @@ msgid "Maximum number of rows displayed by the Log register"
 msgstr ""
 
 msgid "Language:"
-msgstr ""
+msgstr "Lenga :"
 
 msgid "Set your preferred language (restart needed)"
-msgstr ""
+msgstr "Causir la lenga preferida (reaviada sistèma requerida)"
 
 msgid "Startup tool:"
 msgstr ""
@@ -608,13 +609,13 @@ msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
 
 msgid "Theme:"
-msgstr ""
+msgstr "Tèma :"
 
 msgid "Set the application theme"
-msgstr ""
+msgstr "Causir lo tèma de l’aplicacion"
 
 msgid "Font size:"
-msgstr ""
+msgstr "Talha de la polissa :"
 
 msgid "Set the application font size"
 msgstr ""
@@ -628,26 +629,26 @@ msgid ""
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "Paramètres"
 
 msgid "Appearance"
-msgstr ""
+msgstr "Aparéncia"
 
 msgid "Behavior"
-msgstr ""
+msgstr "Compòrtament"
 
 msgid "Output"
-msgstr ""
+msgstr "Sortida"
 
 msgid "Check for updates now"
-msgstr ""
+msgstr "Verificar las mesas a jorn ara"
 
 msgid ""
 "Select a directory where documents will be saved and loaded by default"
 msgstr ""
 
 msgid "Select a directory"
-msgstr ""
+msgstr "Seleccionar un repertòri"
 
 msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
@@ -655,7 +656,7 @@ msgid ""
 msgstr ""
 
 msgid "Select a workspace"
-msgstr ""
+msgstr "Seleccionar un espaci de trabalh"
 
 msgid "Default working directory:"
 msgstr ""
@@ -664,10 +665,10 @@ msgid "Load default workspace at startup:"
 msgstr ""
 
 msgid "System default"
-msgstr ""
+msgstr "Valor per defaut del sistèma"
 
 msgid "Check for updates at startup"
-msgstr ""
+msgstr "Verificar las mesas a jorn a l’aviada"
 
 msgid ""
 "Set whether new version availability should be checked on startup (restart "
@@ -683,20 +684,20 @@ msgid ""
 msgstr ""
 
 msgid "Enabled PDF compression"
-msgstr ""
+msgstr "Compression PDF activada"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
 
 msgid "Overwrite files"
-msgstr ""
+msgstr "Remplaçar los fichièrs"
 
 msgid ""
 "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
 
 msgid "Play alert sounds"
-msgstr ""
+msgstr "Legir los sons d’alerta"
 
 msgid "Turn on or off alert sounds"
 msgstr ""
@@ -746,25 +747,25 @@ msgid "Maximum number of rows mast be a positive number"
 msgstr ""
 
 msgid "Summary"
-msgstr ""
+msgstr "Resumit"
 
 msgid "Keywords"
 msgstr "Mots clau"
 
 msgid "Document details"
-msgstr ""
+msgstr "Detalhs del document"
 
 msgid "Show errors"
-msgstr ""
+msgstr "Afichar las errors"
 
 msgid "Input parameters are invalid"
 msgstr ""
 
 msgid "Invalid parameters"
-msgstr ""
+msgstr "Paramètres invalids"
 
 msgid "Access denied"
-msgstr ""
+msgstr "Accès refusat"
 
 #, java-format
 msgid ""
@@ -780,60 +781,60 @@ msgid "Give something back"
 msgstr ""
 
 msgid "PDFsam worked hard!"
-msgstr ""
+msgstr "PDFsam a plan trabalhat !"
 
 msgid "Spread the word!"
-msgstr ""
+msgstr "Fasètz virar !"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
 msgstr ""
 
 msgid "Download"
-msgstr ""
+msgstr "Telecargar"
 
 msgid "New version available"
-msgstr ""
+msgstr "Version novèla disponibla"
 
 msgid "You are running the latest version of PDFsam Basic"
 msgstr ""
 
 msgid "No update"
-msgstr ""
+msgstr "Cap de mesa a jorn"
 
 msgid "Open"
-msgstr ""
+msgstr "Dobrir"
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
-msgstr ""
+msgstr "Lo fichièr « {0} » existís pas o es invalid"
 
 msgid "Valid user password provided."
-msgstr ""
+msgstr "Senhal utilizaire valid fornit."
 
 msgid "This document is encrypted, click to provide a password."
-msgstr ""
+msgstr "Aqueste document es chifrat, clicatz per donar lo senhal."
 
 msgid "An error has occurred, click for more details."
-msgstr ""
+msgstr "Una error s'es producha, clicatz per mai de detalhs."
 
 msgid "Split tools"
-msgstr ""
+msgstr "Aisinas de partiment"
 
 msgid "Merge tools"
-msgstr ""
+msgstr "Aisinas de fusion"
 
 msgid "Convert tools"
-msgstr ""
+msgstr "Aisinas de conversion"
 
 msgid "Edit tools"
-msgstr ""
+msgstr "Aisinas d’edicion"
 
 msgid "Other tools"
-msgstr ""
+msgstr "Autras aisinas"
 
 msgid "Checking for updates"
-msgstr ""
+msgstr "Verificacion de las mesas a jorn"
 
 msgid "Unable to find the latest available version."
 msgstr ""
@@ -847,10 +848,10 @@ msgid "Unable to load PDF list file from {0}"
 msgstr ""
 
 msgid "Loading pdf documents"
-msgstr ""
+msgstr "Cargament dels documents pdf"
 
 msgid "Documents loaded"
-msgstr ""
+msgstr "Document cargat"
 
 msgid "Unable to retrieve premium features description"
 msgstr ""
@@ -865,7 +866,7 @@ msgid "Unable to retrieve latest news"
 msgstr ""
 
 msgid "Fetching latest news"
-msgstr ""
+msgstr "Recuperacion de las actualitats frescas"
 
 msgid "Unable to retrieve the latest news"
 msgstr ""
@@ -908,44 +909,44 @@ msgid "Light with maroon"
 msgstr ""
 
 msgid "Close"
-msgstr ""
+msgstr "Tampar"
 
 msgid "The selected PDF document is invalid"
-msgstr ""
+msgstr "Lo document PDF seleccionat es invalid"
 
 msgid "Select the PDF file"
-msgstr ""
+msgstr "Seleccionar lo fichièr PDF"
 
 msgid "_Select PDF"
-msgstr ""
+msgstr "_Seleccionar PDF"
 
 msgid "Clear all settings"
-msgstr ""
+msgstr "Escafar totes los paramètres"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
-msgstr ""
+msgstr "Pages : {0}, version PDF : {1}"
 
 msgid "Loading..."
-msgstr ""
+msgstr "Cargament..."
 
 msgid "Document properties"
-msgstr ""
+msgstr "Proprietats del document"
 
 msgid "Remove"
-msgstr ""
+msgstr "Suprimir"
 
 msgid "Set destination"
-msgstr ""
+msgstr "Definir destinacion"
 
 msgid "Open Folder"
-msgstr ""
+msgstr "Dobrir lo dorsièr"
 
 msgid "Enter the user password"
-msgstr ""
+msgstr "Picatz lo senhal utilizaire"
 
 msgid "Unlock"
-msgstr ""
+msgstr "Desverrolhar"
 
 msgid "Drag and drop PDF files here"
 msgstr ""
@@ -957,41 +958,41 @@ msgid "Move to Top"
 msgstr ""
 
 msgid "Move Up"
-msgstr ""
+msgstr "Montar"
 
 msgid "Move Down"
-msgstr ""
+msgstr "Davalar"
 
 msgid "Move to Bottom"
 msgstr ""
 
 msgid "Duplicate"
-msgstr ""
+msgstr "Duplicar"
 
 msgid "Selected pages"
-msgstr ""
+msgstr "Paginas seleccionadas"
 
 msgid "Total number of selected pages"
-msgstr ""
+msgstr "Nombre total de paginas seleccionadas"
 
 msgid "Size"
-msgstr ""
+msgstr "Talha"
 
 msgid "Modified"
-msgstr ""
+msgstr "Modificacion"
 
 #, java-format
 msgid "Total pages: {0}"
-msgstr ""
+msgstr "Paginas totalas : {0}"
 
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 msgid "Add documents to the table"
 msgstr ""
 
 msgid "_Add"
-msgstr ""
+msgstr "_Apondre"
 
 msgid "PDF list from _text/csv file"
 msgstr ""
@@ -1006,13 +1007,13 @@ msgid "Removes selected documents"
 msgstr ""
 
 msgid "_Remove"
-msgstr ""
+msgstr "_Suprimir"
 
 msgid "Removes every document"
 msgstr ""
 
 msgid "C_lear all settings"
-msgstr ""
+msgstr "Es_cafar totes los paramètres"
 
 msgid "Moves up selected documents"
 msgstr ""
@@ -1035,10 +1036,10 @@ msgid ""
 msgstr ""
 
 msgid "Reverse"
-msgstr ""
+msgstr "Inversar"
 
 msgid "Pages"
-msgstr ""
+msgstr "Paginas"
 
 msgid "Number of total pages of the document"
 msgstr ""
@@ -1047,10 +1048,10 @@ msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 
 msgid "Page ranges"
-msgstr ""
+msgstr "Plajas de paginas"
 
 msgid "Select a file"
-msgstr ""
+msgstr "Seleccionar un fichièr"
 
 msgid "The selected file must exist. "
 msgstr ""
@@ -1060,7 +1061,7 @@ msgid "Allowed extensions are {0}"
 msgstr ""
 
 msgid "Compress output file/files"
-msgstr ""
+msgstr "Compressar lo(s) fichièr(s) en sortida"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1068,16 +1069,16 @@ msgid ""
 msgstr ""
 
 msgid "Output PDF version:"
-msgstr ""
+msgstr "Version PDF en sortida :"
 
 msgid "Show advanced settings"
-msgstr ""
+msgstr "Mostrar los paramètres avançats"
 
 msgid "Hide advanced settings"
-msgstr ""
+msgstr "Rescondre los paramètres avançats"
 
 msgid "Overwrite if already exists"
-msgstr ""
+msgstr "Remplaçar se ja existent"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
@@ -1085,25 +1086,25 @@ msgstr ""
 
 #, java-format
 msgid "Version {0}"
-msgstr ""
+msgstr "Version {0}"
 
 msgid "Same as the input document"
-msgstr ""
+msgstr "Pariu coma lo document en entrada"
 
 msgid "An existing output directory is required"
 msgstr ""
 
 msgid "The output directory is required"
-msgstr ""
+msgstr "Lo repertòri de sortida es requerit"
 
 msgid "Select an existing directory"
-msgstr ""
+msgstr "Seleccionar un repertòri existent"
 
 msgid "Select"
-msgstr ""
+msgstr "Seleccionar"
 
 msgid "Browse"
-msgstr ""
+msgstr "Percórrer"
 
 #, java-format
 msgid "PDF version required: {0}"
@@ -1113,7 +1114,7 @@ msgid "Prefix for the generated files names"
 msgstr ""
 
 msgid "Add prefix"
-msgstr ""
+msgstr "Apondre un prefix"
 
 msgid "DEFAULT_PREFIX"
 msgstr ""
@@ -1131,10 +1132,10 @@ msgid "Right click to add these keywords."
 msgstr ""
 
 msgid "Run"
-msgstr ""
+msgstr "Executar"
 
 msgid "Run the task"
-msgstr ""
+msgstr "Executar lo prètzfach"
 
 msgid "Requested"
 msgstr ""
@@ -1146,22 +1147,22 @@ msgid "Failed"
 msgstr ""
 
 msgid "Running"
-msgstr ""
+msgstr "Tractament"
 
 #, java-format
 msgid "Running {0}%"
 msgstr ""
 
 msgid "Error saving log file."
-msgstr ""
+msgstr "Error d'enregistrament del fichièr de log."
 
 #, java-format
 msgid "File {0} saved."
-msgstr ""
+msgstr "Fichièr {0} enregistrat."
 
 #, java-format
 msgid "Invalid range: {0}."
-msgstr ""
+msgstr "Plaja invalida : {0}"
 
 #, java-format
 msgid ""

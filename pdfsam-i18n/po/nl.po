@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2021-10-05 07:18+0000\n"
-"Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
+"PO-Revision-Date: 2023-02-17 19:48+0000\n"
+"Last-Translator: Hendrik <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
+"X-Launchpad-Export-Date: 2023-03-23 10:56+0000\n"
+"X-Generator: Launchpad (build c5a134908fde0a645e56f24c14f906bf278db3e0)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Geen PDF-document geselecteerd"
@@ -36,10 +36,10 @@ msgid "Output settings"
 msgstr "Uitvoerinstellingen"
 
 msgid "A separate file for each set of pages"
-msgstr ""
+msgstr "Afzonderlijk bestand voor elke set pagina's"
 
 msgid "Each continuous series of pages will generate a separate PDF file"
-msgstr ""
+msgstr "Elke set van opeenvolgende pagina's zal een nieuw PDF-bestand vormen"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -55,6 +55,8 @@ msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
 ")"
 msgstr ""
+"Voer de paginanummers of paginabereiken in die moeten worden geëxtraheerd. "
+"Gebruik een komma als scheidingsteken. (Bijv. 2 of 5-23 of 2,5-7,12-)"
 
 msgid "Split by bookmarks"
 msgstr "Splits bij bladwijzers"
@@ -100,7 +102,7 @@ msgid "Split"
 msgstr "Splitsen"
 
 msgid "Split a PDF document at the given page numbers."
-msgstr "Splits PDF-document na deze pagina's"
+msgstr "Splits een PDF-document na een bepaald aantal pagina's"
 
 msgid "Every page"
 msgstr "Elke pagina"
@@ -208,13 +210,13 @@ msgid "90 degrees counterclockwise"
 msgstr "90 graden tegen de klok in"
 
 msgid "Rotate "
-msgstr "Draaien "
+msgstr "Roteren "
 
 msgid "Rotate settings"
 msgstr "Draai-instellingen"
 
 msgid "Rotate"
-msgstr "Draaien"
+msgstr "Roteren"
 
 msgid "Rotate the pages of multiple PDF documents."
 msgstr "Draai de pagina's van meerdere PDF-documenten."
@@ -256,18 +258,20 @@ msgid "None"
 msgstr "Geen"
 
 msgid "Same width as first page"
-msgstr ""
+msgstr "Dezelfde breedte als de eerste pagina"
 
 msgid "Same width as first page (based on page orientation)"
-msgstr ""
+msgstr "Dezelfde breedte als de eerste pagina (gebaseerd op de afdrukstand)"
 
 msgid "Pages normalization:"
-msgstr ""
+msgstr "Paginabreedte normaliseren"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
 "one"
 msgstr ""
+"Stel hiermee in of de paginagrootte moet worden aangepast, zodat alle "
+"pagina's even breed zijn als de eerste pagina."
 
 msgid "Merge fields"
 msgstr "Velden samenvoegen"
@@ -335,49 +339,58 @@ msgstr "Voeg meerdere Pdf-bestanden samen of onderafdelingen van hen."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr ""
+"Selecteer of sleep het PDF-bestand waarvan de pagina's moeten worden herhaald"
 
 msgid "Repeat these pages:"
-msgstr ""
+msgstr "Herhaal deze pagina's:"
 
 msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "Pagina's om te herhalen (bijv. 2 of 5-23 of 2,5-7,12-)"
 
 msgid ""
 "Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
 "7,12-)"
 msgstr ""
+"Voer de paginanummers of paginabereiken in die moeten worden herhaald. "
+"Gebruik een komma als scheidingsteken. (Bijv. 2 of 5-23 of 2,5-7,12-)"
 
 msgid "Leave it empty to use all the pages of the PDF file"
 msgstr ""
+"Laat het veld leeg als alle pagina's van het PDF-bestand moeten worden "
+"gebruikt"
 
 msgid "Repeat every \"n\" pages:"
-msgstr ""
+msgstr "Herhaal elke \"n\" pagina's:"
 
 msgid "Invalid page number"
-msgstr ""
+msgstr "Ongeldig paginanummer"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
 msgstr ""
+"Herhaal de geselecteerde pagina's na elke \"n\" pagina's van het originele "
+"document"
 
 msgid "The selected PDF file is invalid"
 msgstr "Het geselecteerde PDF-bestand is ongeldig"
 
 msgid "The number of pages must be a positive number"
-msgstr ""
+msgstr "Het aantal pagina's moet een positief getal zijn"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
-msgstr ""
+msgstr "Selecteer of sleep het PDF-bestand waarin u pagina's wilt invoegen"
 
 msgid "Insert and Repeat settings"
-msgstr ""
+msgstr "Instellingen voor invoegen en herhalen"
 
 msgid "Insert pages multiple times"
-msgstr ""
+msgstr "Pagina's meermalen invoegen"
 
 msgid ""
 "Insert the pages of a PDF document A into another document B, repeating it "
 "after a certain number of pages, resulting in B1 A B2 A B3 A etc."
 msgstr ""
+"Voeg de pagina's van PDF-bestand A in in PDF-bestand B en herhaal die "
+"pagina's na een bepaald aantal pagina's, resulterend in B1 A B2 A B3 A enz."
 
 #, java-format
 msgid "Started in {0}"
@@ -393,10 +406,10 @@ msgid "No PDF found"
 msgstr "Geen PDF-bestand gevonden"
 
 msgid "Tools"
-msgstr ""
+msgstr "Functies"
 
 msgid "News"
-msgstr ""
+msgstr "Nieuws"
 
 msgid "What's new"
 msgstr "Wat is er nieuw"
@@ -408,13 +421,13 @@ msgid "Exit"
 msgstr "Afsluiten"
 
 msgid "Exit the application"
-msgstr ""
+msgstr "Het programma afsluiten"
 
 msgid "Workspace"
 msgstr "Werkomgeving"
 
 msgid "Manage your workspaces"
-msgstr ""
+msgstr "Beheer uw werkomgevingen"
 
 msgid "Yes"
 msgstr "Ja"
@@ -429,7 +442,7 @@ msgid "Do you confirm?"
 msgstr "Weet u het zeker?"
 
 msgid "Clear the tool settings"
-msgstr ""
+msgstr "Herstel de instellingen"
 
 msgid "Clear the selection table"
 msgstr "Wis de selectietabel"
@@ -503,7 +516,7 @@ msgstr ""
 "Het kan PDF-bestanden opleveren waarin gegevens ontbreken. Toch doorgaan?"
 
 msgid "Removes all the log messages"
-msgstr ""
+msgstr "Alle berichten in het logboek wissen"
 
 msgid "_Clear"
 msgstr "_Leegmaken"
@@ -512,7 +525,7 @@ msgid "_Save"
 msgstr "_Opslaan"
 
 msgid "C_lose"
-msgstr ""
+msgstr "Sluiten"
 
 msgid "Copy"
 msgstr "Kopiëren"
@@ -536,7 +549,7 @@ msgid "Select where to save the log file"
 msgstr "Selecteer waar het log-bestand opgeslagen moet worden"
 
 msgid "Logs"
-msgstr ""
+msgstr "Logboeken"
 
 msgid "Application messages"
 msgstr "Toepassingsberichten"
@@ -572,11 +585,11 @@ msgstr "Java-runtime pad: %s"
 
 #, java-printf-format
 msgid "JavaFX runtime version: %s"
-msgstr ""
+msgstr "Versie JavaFX runtime: %s"
 
 #, java-printf-format
 msgid "PDF engine (Sejda SDK) version: %s"
-msgstr ""
+msgstr "Versie PDF-engine (Sejda SDK): %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -619,7 +632,7 @@ msgid "About"
 msgstr "Over"
 
 msgid "Home"
-msgstr ""
+msgstr "Startpagina"
 
 msgid "Premium features"
 msgstr "Extra functies"
@@ -641,10 +654,12 @@ msgid "Set your preferred language (restart needed)"
 msgstr "Stel uw voorkeurstaal in (herstart noodzakelijk)"
 
 msgid "Startup tool:"
-msgstr ""
+msgstr "Opstartfunctie:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
+"Stel in welke functie moet worden geopend bij het opstarten van het "
+"programma. Werkt na een herstart."
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:122
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:113
@@ -652,13 +667,13 @@ msgid "Theme:"
 msgstr "Thema:"
 
 msgid "Set the application theme"
-msgstr ""
+msgstr "Stel het thema van het programma in"
 
 msgid "Font size:"
-msgstr ""
+msgstr "Tekstgrootte:"
 
 msgid "Set the application font size"
-msgstr ""
+msgstr "Stel de lettergrootte van het programma in"
 
 msgid "Manually selected"
 msgstr "Handmatig geselecteerd"
@@ -710,7 +725,7 @@ msgid "Load default workspace at startup:"
 msgstr "Laad standaard werkomgeving bij het opstarten:"
 
 msgid "System default"
-msgstr ""
+msgstr "Standaard systeeminstelling"
 
 msgid "Check for updates at startup"
 msgstr "Controleer op updates bij opstarten"
@@ -820,7 +835,7 @@ msgid "Show errors"
 msgstr "Fouten weergeven"
 
 msgid "Input parameters are invalid"
-msgstr ""
+msgstr "Invoerparameters zijn ongeldig"
 
 msgid "Invalid parameters"
 msgstr "Ongeldige parameters"
@@ -882,19 +897,19 @@ msgid "An error has occurred, click for more details."
 msgstr "Er is een fout opgetreden. Klik voor meer details."
 
 msgid "Split tools"
-msgstr ""
+msgstr "Splitsen"
 
 msgid "Merge tools"
-msgstr ""
+msgstr "Samenvoegen"
 
 msgid "Convert tools"
-msgstr ""
+msgstr "Omzetten"
 
 msgid "Edit tools"
-msgstr ""
+msgstr "Bewerken"
 
 msgid "Other tools"
-msgstr ""
+msgstr "Overige hulpmiddelen"
 
 msgid "Checking for updates"
 msgstr "Controleren op updates"
@@ -960,16 +975,16 @@ msgid "Unable to load workspace from {0}"
 msgstr "Kan werkblad niet laden vanuit {0}"
 
 msgid "Light with blue"
-msgstr ""
+msgstr "Licht met blauw"
 
 msgid "Dark with purple"
-msgstr ""
+msgstr "Donker met paars"
 
 msgid "Dark with teal"
-msgstr ""
+msgstr "Donker met groenblauw"
 
 msgid "Light with maroon"
-msgstr ""
+msgstr "Licht met bordeauxrood"
 
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:150
 msgid "Close"
@@ -1040,10 +1055,10 @@ msgid "Duplicate"
 msgstr "Dupliceer"
 
 msgid "Selected pages"
-msgstr ""
+msgstr "Geselecteerde pagina's"
 
 msgid "Total number of selected pages"
-msgstr ""
+msgstr "Totaal aantal geselecteerde pagina's"
 
 msgid "Size"
 msgstr "Grootte"
@@ -1119,7 +1134,7 @@ msgid "Pages"
 msgstr "Pagina's"
 
 msgid "Number of total pages of the document"
-msgstr ""
+msgstr "Totaal aantal pagina's van het document"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -1213,7 +1228,7 @@ msgid "Add prefix"
 msgstr "Voeg voorvoegsel toe"
 
 msgid "DEFAULT_PREFIX"
-msgstr ""
+msgstr "Standaard voorvoegsel"
 
 msgid "Generated PDF documents name prefix:"
 msgstr "Voorvoegsel doelbestand:"
@@ -1238,7 +1253,7 @@ msgid "Run"
 msgstr "Uitvoeren"
 
 msgid "Run the task"
-msgstr ""
+msgstr "Voer de taak uit"
 
 msgid "Requested"
 msgstr "Aangevraagd"
