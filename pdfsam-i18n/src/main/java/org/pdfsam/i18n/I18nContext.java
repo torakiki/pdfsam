@@ -50,7 +50,8 @@ public final class I18nContext {
             Locale.of("hr"), Locale.of("cs"), Locale.of("da"), Locale.of("nl"), Locale.UK, Locale.FRENCH, Locale.GERMAN,
             Locale.of("he"), Locale.of("hu"), Locale.of("el"), Locale.JAPANESE, Locale.ITALIAN, Locale.of("pl"),
             Locale.of("pt"), Locale.of("ro"), Locale.of("ru"), Locale.of("sk"), Locale.of("sl"), Locale.of("sr"),
-            Locale.of("sv"), Locale.of("es"), Locale.of("tr"), Locale.of("uk"), Locale.of("fi"), Locale.of("ko"));
+            Locale.of("sv"), Locale.of("es"), Locale.of("tr"), Locale.of("uk"), Locale.of("fi"), Locale.of("ko"),
+            Locale.of("oc"));
 
     private final ReplaySubject<Locale> locale = ReplaySubject.createWithSize(1);
 

@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2021-08-31 13:11+0000\n"
-"Last-Translator: Sérgio Marques <Unknown>\n"
+"PO-Revision-Date: 2023-04-22 13:28+0000\n"
+"Last-Translator: Rita Severino <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
+"X-Launchpad-Export-Date: 2023-04-26 08:32+0000\n"
+"X-Generator: Launchpad (build 90e2150bef31b411d7bae5c4032c7e320fcaaec8)\n"
 "Language: pt\n"
 
 msgid "No PDF document has been selected"
@@ -37,10 +37,11 @@ msgid "Output settings"
 msgstr "Definições de saída"
 
 msgid "A separate file for each set of pages"
-msgstr ""
+msgstr "Um ficheiro em separado para cada conjunto de páginas"
 
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr ""
+"Cada conjunto contínuo de páginas irá gerar um ficheiro PDF em separado"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Páginas a extrair (ex: 2 ou 5-23 ou 2,5-7,12-)"
@@ -55,6 +56,8 @@ msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
 ")"
 msgstr ""
+"Extrair um intervalo de páginas usando um hífen, ou várias páginas e "
+"intervalos separados por vírgula (ex: 2 or 5-25 or 2,5-7,12-)"
 
 msgid "Split by bookmarks"
 msgstr "Separar por marcadores"
@@ -251,18 +254,20 @@ msgid "None"
 msgstr "Nenhum"
 
 msgid "Same width as first page"
-msgstr ""
+msgstr "Largura igual à da página inicial"
 
 msgid "Same width as first page (based on page orientation)"
-msgstr ""
+msgstr "Largura igual à da página inicial (baseada na orientaçao da página)"
 
 msgid "Pages normalization:"
-msgstr ""
+msgstr "Normalização de páginas"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
 "one"
 msgstr ""
+"Defina se as páginas devem ser redimensionadas para que todas tenham a mesma "
+"largura da primeira página"
 
 msgid "Merge fields"
 msgstr "Unir campos"
@@ -325,50 +330,55 @@ msgid "Merge together multiple PDF documents or subsections of them."
 msgstr "Unir vários ficheiros PDF ou subsecções dos mesmos."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
-msgstr ""
+msgstr "Selecione ou arraste e solte o PDF cujas páginas serão repetidas"
 
 msgid "Repeat these pages:"
-msgstr ""
+msgstr "Repita estas páginas:"
 
 msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "Páginas a repetir (ex: 2 ou 5-23 ou 2,5-7,12-)"
 
 msgid ""
 "Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
 "7,12-)"
 msgstr ""
+"Números de páginas separados por vírgulas ou intervalos a serem repetidos "
+"(ex: 2 ou 5-23 ou 2,5-7,12-)"
 
 msgid "Leave it empty to use all the pages of the PDF file"
-msgstr ""
+msgstr "Deixe em branco para usar todas as páginas do arquivo PDF"
 
 msgid "Repeat every \"n\" pages:"
-msgstr ""
+msgstr "Repita a cada \"n\" páginas:"
 
 msgid "Invalid page number"
-msgstr ""
+msgstr "Número de página inválido"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
 msgstr ""
+"Repita as páginas selecionadas a cada \"n\" páginas do documento original"
 
 msgid "The selected PDF file is invalid"
 msgstr "O ficheiro selecionado é inválido."
 
 msgid "The number of pages must be a positive number"
-msgstr ""
+msgstr "O número de páginas deve ser um número positivo"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
-msgstr ""
+msgstr "Selecione ou arraste e solte o PDF no qual deseja inserir páginas"
 
 msgid "Insert and Repeat settings"
-msgstr ""
+msgstr "Inserir e Repetir configurações"
 
 msgid "Insert pages multiple times"
-msgstr ""
+msgstr "Inserir páginas várias vezes"
 
 msgid ""
 "Insert the pages of a PDF document A into another document B, repeating it "
 "after a certain number of pages, resulting in B1 A B2 A B3 A etc."
 msgstr ""
+"Insira as páginas de um documento PDF A em outro documento B, repetindo-o "
+"após um determinado número de páginas, resultando em B1 A B2 A B3 A etc."
 
 #, java-format
 msgid "Started in {0}"
@@ -384,10 +394,10 @@ msgid "No PDF found"
 msgstr "PDF não encontrado"
 
 msgid "Tools"
-msgstr ""
+msgstr "Ferramentas"
 
 msgid "News"
-msgstr ""
+msgstr "Novidades"
 
 msgid "What's new"
 msgstr "Novidades"
@@ -396,13 +406,13 @@ msgid "Exit"
 msgstr "Sair"
 
 msgid "Exit the application"
-msgstr ""
+msgstr "Sair da aplicação"
 
 msgid "Workspace"
 msgstr "Área de trabalho"
 
 msgid "Manage your workspaces"
-msgstr ""
+msgstr "Gerir os seus espaços de trabalho"
 
 msgid "Yes"
 msgstr "Sim"
@@ -417,7 +427,7 @@ msgid "Do you confirm?"
 msgstr "Confirma eliminação?"
 
 msgid "Clear the tool settings"
-msgstr ""
+msgstr "Limpar as configurações de ferramentas"
 
 msgid "Clear the selection table"
 msgstr "Limpar seleção"
@@ -491,7 +501,7 @@ msgstr ""
 "No entanto, a resolução poderá gerar um documento danificado. Continuar?"
 
 msgid "Removes all the log messages"
-msgstr ""
+msgstr "Remove todas as mensagens do arquivo de registro \"log\""
 
 msgid "_Clear"
 msgstr "_Limpar"
@@ -518,7 +528,7 @@ msgid "Select where to save the log file"
 msgstr "Selecione o local para guardar os registos"
 
 msgid "Logs"
-msgstr ""
+msgstr "Arquivos de registro \"Logs\""
 
 msgid "Application messages"
 msgstr "Mensagens da aplicação"
@@ -601,7 +611,7 @@ msgid "About"
 msgstr "Sobre"
 
 msgid "Home"
-msgstr ""
+msgstr "Início"
 
 msgid "Premium features"
 msgstr "Funcionalidades Premium"
@@ -619,22 +629,24 @@ msgid "Set your preferred language (restart needed)"
 msgstr "Defina o seu idioma preferido (tem que reiniciar)"
 
 msgid "Startup tool:"
-msgstr ""
+msgstr "Ferramentas de inicio"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
+"Definir para as ferramentas abrirem ao iniciar a aplicação (é necessário "
+"reiniciar)"
 
 msgid "Theme:"
 msgstr "Tema:"
 
 msgid "Set the application theme"
-msgstr ""
+msgstr "Defina o tema da aplicação"
 
 msgid "Font size:"
-msgstr ""
+msgstr "Tamanho da letra:"
 
 msgid "Set the application font size"
-msgstr ""
+msgstr "Defina o tamanho de letra"
 
 msgid "Manually selected"
 msgstr "Seleção manual"
@@ -684,7 +696,7 @@ msgid "Load default workspace at startup:"
 msgstr "Carregar área de trabalho padrão ao iniciar:"
 
 msgid "System default"
-msgstr ""
+msgstr "Sistema padrão"
 
 msgid "Check for updates at startup"
 msgstr "Procurar atualizações ao iniciar"
@@ -792,7 +804,7 @@ msgid "Show errors"
 msgstr "Mostrar erros"
 
 msgid "Input parameters are invalid"
-msgstr ""
+msgstr "Os parâmetros introduzidos são inválidos"
 
 msgid "Invalid parameters"
 msgstr "Parâmetros inválidos"
@@ -854,19 +866,19 @@ msgid "An error has occurred, click for more details."
 msgstr "Ocorreu um erro. Clique para ver os detalhes."
 
 msgid "Split tools"
-msgstr ""
+msgstr "Ferramentas de divisão"
 
 msgid "Merge tools"
-msgstr ""
+msgstr "Ferramentas de fusão"
 
 msgid "Convert tools"
-msgstr ""
+msgstr "Ferramentas de conversão"
 
 msgid "Edit tools"
-msgstr ""
+msgstr "Ferramentas de edição"
 
 msgid "Other tools"
-msgstr ""
+msgstr "Outras ferramentas"
 
 msgid "Checking for updates"
 msgstr "Procurar atualizações"
@@ -932,16 +944,16 @@ msgid "Unable to load workspace from {0}"
 msgstr "Não foi possível carregar a área de trabalho de {0}"
 
 msgid "Light with blue"
-msgstr ""
+msgstr "Claro com azul"
 
 msgid "Dark with purple"
-msgstr ""
+msgstr "Escuro com roxo"
 
 msgid "Dark with teal"
-msgstr ""
+msgstr "Escuro com azul-petróleo"
 
 msgid "Light with maroon"
-msgstr ""
+msgstr "Claro com castanho-avermelhado"
 
 msgid "Close"
 msgstr "Fechar"
@@ -1005,10 +1017,10 @@ msgid "Duplicate"
 msgstr "Duplicar"
 
 msgid "Selected pages"
-msgstr ""
+msgstr "Páginas seleccionadas"
 
 msgid "Total number of selected pages"
-msgstr ""
+msgstr "Número total de páginas seleccionadas"
 
 msgid "Size"
 msgstr "Tamanho"
@@ -1018,7 +1030,7 @@ msgstr "Modificado"
 
 #, java-format
 msgid "Total pages: {0}"
-msgstr ""
+msgstr "Número total de páginas: {0}"
 
 msgid "Name"
 msgstr "Nome"
@@ -1079,7 +1091,7 @@ msgid "Pages"
 msgstr "Páginas"
 
 msgid "Number of total pages of the document"
-msgstr ""
+msgstr "Nùmero total de páginas no documento"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -1178,7 +1190,7 @@ msgid "Run"
 msgstr "Executar"
 
 msgid "Run the task"
-msgstr ""
+msgstr "Execute a tarefa"
 
 msgid "Requested"
 msgstr "Pedido"

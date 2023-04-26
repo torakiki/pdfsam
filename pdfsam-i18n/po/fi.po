@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2019-05-16 07:12+0000\n"
+"PO-Revision-Date: 2023-04-25 07:51+0000\n"
 "Last-Translator: Sami Kuusisto <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
+"X-Launchpad-Export-Date: 2023-04-26 08:32+0000\n"
+"X-Generator: Launchpad (build 90e2150bef31b411d7bae5c4032c7e320fcaaec8)\n"
 
 msgid "No PDF document has been selected"
 msgstr "PDF-asiakirjaa ei ole valittu"
@@ -36,10 +36,10 @@ msgid "Output settings"
 msgstr "Kohdeasetukset"
 
 msgid "A separate file for each set of pages"
-msgstr ""
+msgstr "Erillinen tiedosto jokaisesta sivusarjasta"
 
 msgid "Each continuous series of pages will generate a separate PDF file"
-msgstr ""
+msgstr "Jokainen sivusarja luo erillisen PDF-tiedoston"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Poimittavat sivut (esim. 2 tai 5-23 tai 2,5-7,12-)"
@@ -54,6 +54,8 @@ msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
 ")"
 msgstr ""
+"Pilkuilla erotetut sivunumerot tai erotettavat alueet (esim. 2 tai 5-23 tai "
+"2,5-7,12-)"
 
 msgid "Split by bookmarks"
 msgstr "Jaa kirjanmerkkien mukaan"
@@ -250,21 +252,23 @@ msgstr ""
 "Lisää alatunnisteeseen tiedon, minkä nimiseen tiedostoon sivu kuului."
 
 msgid "None"
-msgstr ""
+msgstr "Ei mitään"
 
 msgid "Same width as first page"
-msgstr ""
+msgstr "Sama leveys kuin ensimmäisellä sivulla"
 
 msgid "Same width as first page (based on page orientation)"
-msgstr ""
+msgstr "Sama leveys kuin ensimmäisellä sivulla (sivun suunnan perusteella)"
 
 msgid "Pages normalization:"
-msgstr ""
+msgstr "Sivujen normalisointi:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
 "one"
 msgstr ""
+"Määritä, muutetaanko sivujen kokoa niin, että niiden leveys on sama kuin "
+"ensimmäisessä sivussa."
 
 msgid "Merge fields"
 msgstr "Yhdistä kentät"
@@ -328,50 +332,54 @@ msgid "Merge together multiple PDF documents or subsections of them."
 msgstr "Yhdistä useita PDF-asiakirjoja tai niiden osia."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
-msgstr ""
+msgstr "Valitse tai vedä ja pudota PDF, jonka sivuja toistetaan"
 
 msgid "Repeat these pages:"
-msgstr ""
+msgstr "Toista nämä sivut:"
 
 msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "Toistettavat sivut (esim. 2 tai 5-23 tai 2,5-7,12-)"
 
 msgid ""
 "Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
 "7,12-)"
 msgstr ""
+"Pilkuilla erotetut sivunumerot tai toistettavat alueet (esim. 2 tai 5-23 tai "
+"2,5-7,12-)"
 
 msgid "Leave it empty to use all the pages of the PDF file"
-msgstr ""
+msgstr "Jätä se tyhjäksi käyttääksesi kaikkia PDF-tiedoston sivuja"
 
 msgid "Repeat every \"n\" pages:"
-msgstr ""
+msgstr "Toista joka \"n\" sivu:"
 
 msgid "Invalid page number"
-msgstr ""
+msgstr "Toista joka \"n\" sivu:"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
-msgstr ""
+msgstr "Toista alkuperäisen asiakirjan valitut sivut \"n\" sivun välein"
 
 msgid "The selected PDF file is invalid"
 msgstr "Valittu PDF-tiedosto on virheellinen"
 
 msgid "The number of pages must be a positive number"
-msgstr ""
+msgstr "Sivumäärän on oltava positiivinen luku"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
-msgstr ""
+msgstr "Valitse tai vedä ja pudota PDF, johon haluat lisätä sivuja"
 
 msgid "Insert and Repeat settings"
-msgstr ""
+msgstr "Lisäyksen ja toiston asetukset"
 
 msgid "Insert pages multiple times"
-msgstr ""
+msgstr "Lisää sivuja useita kertoja"
 
 msgid ""
 "Insert the pages of a PDF document A into another document B, repeating it "
 "after a certain number of pages, resulting in B1 A B2 A B3 A etc."
 msgstr ""
+"Lisää PDF-dokumentin A sivut toiseen asiakirjaan B toistaen sen tietyn "
+"sivumäärän jälkeen, jolloin tuloksena on B1 A B2 A B3 A jne."
 
 #, java-format
 msgid "Started in {0}"
@@ -388,10 +396,10 @@ msgid "No PDF found"
 msgstr "PDF-asiakirjoja ei löytynyt"
 
 msgid "Tools"
-msgstr ""
+msgstr "Työkalut"
 
 msgid "News"
-msgstr ""
+msgstr "Uutiset"
 
 msgid "What's new"
 msgstr "Mitä uutta"
@@ -403,13 +411,13 @@ msgid "Exit"
 msgstr "Poistu"
 
 msgid "Exit the application"
-msgstr ""
+msgstr "Poistu sovelluksesta"
 
 msgid "Workspace"
 msgstr "Työtila"
 
 msgid "Manage your workspaces"
-msgstr ""
+msgstr "Hallitse työtilojasi"
 
 msgid "Yes"
 msgstr "Kyllä"
@@ -418,16 +426,16 @@ msgid "No"
 msgstr "Ei"
 
 msgid "Confirm clearing"
-msgstr ""
+msgstr "Vahvista tyhjennys"
 
 msgid "Do you confirm?"
-msgstr ""
+msgstr "Vahvistatko?"
 
 msgid "Clear the tool settings"
-msgstr ""
+msgstr "Tyhjennä työkalun asetukset"
 
 msgid "Clear the selection table"
-msgstr ""
+msgstr "Tyhjennä valintataulukko"
 
 msgid "Open with"
 msgstr "Avaa sovelluksella"
@@ -442,16 +450,16 @@ msgid "The selected directory is not empty"
 msgstr "Valittu hakemisto ei ole tyhjä"
 
 msgid "What would you like to do in case of files with the same name?"
-msgstr ""
+msgstr "Mitä haluaisit tehdä, jos tiedostoilla on sama nimi?"
 
 msgid "Overwrite"
 msgstr "Korvaa"
 
 msgid "Rename"
-msgstr ""
+msgstr "Nimeä uudelleen"
 
 msgid "Skip"
-msgstr ""
+msgstr "Ohita"
 
 msgid "Cancel"
 msgstr "Peruuta"
@@ -466,7 +474,7 @@ msgid "A file with the given name already exists"
 msgstr "Annetulla nimellä oleva tiedosto on jo olemassa"
 
 msgid "What would you like to do?"
-msgstr ""
+msgstr "Mitä haluaisit tehdä?"
 
 msgid "Non existing directory"
 msgstr "Hakemistoa ei ole olemassa"
@@ -478,13 +486,13 @@ msgid "Do you want to create it?"
 msgstr "Haluatko luoda sen?"
 
 msgid "Subdirectories"
-msgstr ""
+msgstr "Alihakemistot"
 
 msgid "Subdirectories have been found"
-msgstr ""
+msgstr "Alihakemistoja on löydetty"
 
 msgid "Do you want to add PDF files found in subdirectories?"
-msgstr ""
+msgstr "Haluatko lisätä alihakemistoista löytyviä PDF-tiedostoja?"
 
 msgid "Task failed"
 msgstr "Tehtävä epäonnistui"
@@ -498,7 +506,7 @@ msgstr ""
 "Tämä voi aiheuttaa sen, että PDF-tiedostoista puuttuu tietoja, jatka silti?"
 
 msgid "Removes all the log messages"
-msgstr ""
+msgstr "Poistaa kaikki lokiviestit"
 
 msgid "_Clear"
 msgstr "_Tyhjennä"
@@ -507,7 +515,7 @@ msgid "_Save"
 msgstr "_Tallenna"
 
 msgid "C_lose"
-msgstr ""
+msgstr "_Sulje"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\LogPanel.java:99
 msgid "Copy"
@@ -533,7 +541,7 @@ msgid "Select where to save the log file"
 msgstr "Valitse lokitiedoston tallennussijainti"
 
 msgid "Logs"
-msgstr ""
+msgstr "Lokit"
 
 msgid "Application messages"
 msgstr "Sovellusviestit"
@@ -561,7 +569,7 @@ msgstr "Ympäristö"
 
 #, java-printf-format
 msgid "Vendor: %s"
-msgstr ""
+msgstr "Toimittaja: %s"
 
 #, java-printf-format
 msgid "Java runtime path: %s"
@@ -569,11 +577,11 @@ msgstr "Java-runtime -polku: %s"
 
 #, java-printf-format
 msgid "JavaFX runtime version: %s"
-msgstr ""
+msgstr "JavaFX runtimen versio: %s"
 
 #, java-printf-format
 msgid "PDF engine (Sejda SDK) version: %s"
-msgstr ""
+msgstr "PDF-moottorin (Sejda SDK) versio: %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -617,7 +625,7 @@ msgid "About"
 msgstr "Tietoja"
 
 msgid "Home"
-msgstr ""
+msgstr "Koti"
 
 msgid "Premium features"
 msgstr "Premium-ominaisuudet"
@@ -637,10 +645,12 @@ msgid "Set your preferred language (restart needed)"
 msgstr "Valitse kieli (uudelleenkäynnistys tarvitaan)"
 
 msgid "Startup tool:"
-msgstr ""
+msgstr "Käynnistystyökalu:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
+"Aseta työkalu avautumaan sovelluksen käynnistyksen yhteydessä "
+"(uudelleenkäynnistys tarvitaan)"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:122
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:113
@@ -648,13 +658,13 @@ msgid "Theme:"
 msgstr "Teema:"
 
 msgid "Set the application theme"
-msgstr ""
+msgstr "Aseta sovelluksen teema"
 
 msgid "Font size:"
-msgstr ""
+msgstr "Fontin koko:"
 
 msgid "Set the application font size"
-msgstr ""
+msgstr "Aseta sovelluksen fonttikoko"
 
 msgid "Manually selected"
 msgstr "Manuaalisesti valitut"
@@ -706,7 +716,7 @@ msgid "Load default workspace at startup:"
 msgstr "Lataa oletustyötila käynnistyksessä:"
 
 msgid "System default"
-msgstr ""
+msgstr "Järjestelmän oletus"
 
 msgid "Check for updates at startup"
 msgstr "Tarkista päivitykset käynnistyessä"
@@ -735,11 +745,12 @@ msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr "Valitse, onko \"Pakkaa kohdetiedosto(t)\" oletuksena käytössä"
 
 msgid "Overwrite files"
-msgstr ""
+msgstr "Korvaa tiedostot"
 
 msgid ""
 "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
+"Määritä, otetaanko \"Korvaa, jos on jo olemassa\" oletuksena käytössä"
 
 msgid "Play alert sounds"
 msgstr "Toista varoitusäänet"
@@ -778,12 +789,13 @@ msgstr ""
 "hallintapaneelissa näyttävä toiminto päälle tai pois päältä"
 
 msgid "Ask for a confirmation when clearing the selection table"
-msgstr ""
+msgstr "Pyydä vahvistus valintataulukkoa tyhjennettäessä"
 
 msgid ""
 "Set whether the application should ask for a confirmation when clearing the "
 "selection table"
 msgstr ""
+"Aseta, pyytääkö sovellus vahvistusta valintataulukon tyhjentämisen yhteydessä"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Käytä valitun PDF-asiakirjan halemistoa kohdehakemistona"
@@ -811,7 +823,7 @@ msgid "Show errors"
 msgstr "Näytä virheet"
 
 msgid "Input parameters are invalid"
-msgstr ""
+msgstr "Syötetyt parametrit ovat virheellisiä"
 
 msgid "Invalid parameters"
 msgstr "Virheelliset parametrit"
@@ -861,7 +873,7 @@ msgstr "Avaa"
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
-msgstr ""
+msgstr "Tiedostoa \"{0}\" ei ole olemassa tai se on virheellinen"
 
 msgid "Valid user password provided."
 msgstr "Toimiva käyttäjän salasana annettu."
@@ -873,19 +885,19 @@ msgid "An error has occurred, click for more details."
 msgstr "Tapahtui virhe, napsauta saadaksesi tietoja."
 
 msgid "Split tools"
-msgstr ""
+msgstr "Jakotyökalut"
 
 msgid "Merge tools"
-msgstr ""
+msgstr "Yhditystyökalut"
 
 msgid "Convert tools"
-msgstr ""
+msgstr "Muuntotyökalut"
 
 msgid "Edit tools"
-msgstr ""
+msgstr "Muokkaustyökalut"
 
 msgid "Other tools"
-msgstr ""
+msgstr "Muut työkalut"
 
 msgid "Checking for updates"
 msgstr "Tarkistetaan päivityksiä"
@@ -951,16 +963,16 @@ msgid "Unable to load workspace from {0}"
 msgstr "Työtilan lataus kohteesta {0} ei onnistu"
 
 msgid "Light with blue"
-msgstr ""
+msgstr "Vaalea sininen"
 
 msgid "Dark with purple"
-msgstr ""
+msgstr "Tumma violetti"
 
 msgid "Dark with teal"
-msgstr ""
+msgstr "Tumma sinivihreä"
 
 msgid "Light with maroon"
-msgstr ""
+msgstr "Vaalea kastanjanruskea"
 
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:150
 msgid "Close"
@@ -1031,10 +1043,10 @@ msgid "Duplicate"
 msgstr "Monista"
 
 msgid "Selected pages"
-msgstr ""
+msgstr "Valitut sivut"
 
 msgid "Total number of selected pages"
-msgstr ""
+msgstr "Valittujen sivujen kokonaismäärä"
 
 msgid "Size"
 msgstr "Koko"
@@ -1044,7 +1056,7 @@ msgstr "Muokattu"
 
 #, java-format
 msgid "Total pages: {0}"
-msgstr ""
+msgstr "Sivuja yhteensä: {0}"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JInfoPanel.java:118
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:128
@@ -1110,7 +1122,7 @@ msgid "Pages"
 msgstr "Sivut"
 
 msgid "Number of total pages of the document"
-msgstr ""
+msgstr "Asiakirjan sivujen kokonaismäärä"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -1211,7 +1223,7 @@ msgid "Add prefix"
 msgstr "Lisää etuliite"
 
 msgid "DEFAULT_PREFIX"
-msgstr ""
+msgstr "OLETUS_ETULIITE"
 
 msgid "Generated PDF documents name prefix:"
 msgstr "Muodostettujen PDF-asiakirjojen nimen etuliite:"
@@ -1229,7 +1241,7 @@ msgid "Run"
 msgstr "Suorita"
 
 msgid "Run the task"
-msgstr ""
+msgstr "Suorita tehtävä"
 
 msgid "Requested"
 msgstr "Pyydetty"
