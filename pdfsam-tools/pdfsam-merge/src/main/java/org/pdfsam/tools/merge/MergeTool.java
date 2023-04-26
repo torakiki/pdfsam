@@ -52,7 +52,7 @@ public class MergeTool implements Tool {
 
     private final ToolDescriptor descriptor = builder().category(ToolCategory.MERGE)
             .inputTypes(ToolInputOutputType.MULTIPLE_PDF).name(i18n().tr("Merge"))
-            .description(i18n().tr("Merge together multiple PDF documents or subsections of them."))
+            .description(i18n().tr("Merge multiple PDF documents or subsections of them."))
             .priority(ToolPriority.HIGH.getPriority()).supportURL("https://pdfsam.org/pdf-merge/")
             .build();
 
