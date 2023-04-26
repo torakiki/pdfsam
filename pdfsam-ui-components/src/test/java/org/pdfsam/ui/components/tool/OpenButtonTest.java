@@ -22,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -147,6 +148,7 @@ public class OpenButtonTest {
     }
 
     @Test
+    @Tag("NoHeadless")
     public void sendToModuleClick(@TempDir Path folder) throws Exception {
         File file = Files.createTempFile(folder, null, null).toFile();
         NotifiableTaskMetadata taskMetadata = new NotifiableTaskMetadata(mock(Task.class));

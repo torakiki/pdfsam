@@ -23,6 +23,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.SplitMenuButton;
 import javafx.stage.Stage;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -69,6 +70,7 @@ public class SingleSelectionPaneToolbarTest {
     }
 
     @Test
+    @Tag("NoHeadless")
     public void clearAllSettings(FxRobot robot) {
         Listener<ClearToolRequest> listener = mock(Listener.class);
         ArgumentCaptor<ClearToolRequest> captor = ArgumentCaptor.forClass(ClearToolRequest.class);
