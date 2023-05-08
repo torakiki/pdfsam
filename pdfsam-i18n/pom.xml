@@ -46,6 +46,24 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>com.coderplus.maven.plugins</groupId>
+                <artifactId>copy-rename-maven-plugin</artifactId>
+                <version>1.0.1</version>
+                <executions>
+                    <execution>
+                        <id>rename-hebrew-properties</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>rename</goal>
+                        </goals>
+                        <configuration>
+                            <sourceFile>${project.build.outputDirectory}/org/pdfsam/i18n/Messages_iw.properties</sourceFile>
+                            <destinationFile>${project.build.outputDirectory}/org/pdfsam/i18n/Messages_he.properties</destinationFile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
