@@ -286,7 +286,7 @@
 		<ikonli.version>12.3.1</ikonli.version>
 		<testfx.version>4.0.16-alpha</testfx.version>
 		<jackson.version>2.15.0</jackson.version>
-		<bouncycastle.version>1.73</bouncycastle.version>
+		<bouncycastle.version>1.74</bouncycastle.version>
 		<assertj.version>3.24.2</assertj.version>
 		<hamcrest.version>2.2</hamcrest.version>
 		<javafx.version>20.0.1</javafx.version>
