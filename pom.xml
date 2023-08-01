@@ -268,16 +268,16 @@
 	</build>
 
 	<properties>
-		<junit.version>5.9.2</junit.version>
+		<junit.version>5.10.0</junit.version>
 		<junit.pioneer.version>2.0.0</junit.pioneer.version>
 		<archunit.version>1.0.1</archunit.version>
 		<slf4j.version>2.0.7</slf4j.version>
 		<commons.lang.version>3.12.0</commons.lang.version>
 		<commons.io.version>2.11.0</commons.io.version>
-		<mockito.version>5.3.1</mockito.version>
-		<tinylog.version>2.6.1</tinylog.version>
+		<mockito.version>5.4.0</mockito.version>
+		<tinylog.version>2.6.2</tinylog.version>
 		<hibernate-validator.version>7.0.5.Final</hibernate-validator.version>
-		<sejda.version>5.0.0.M10</sejda.version>
+		<sejda.version>5.0.5</sejda.version>
 		<sejda-io.version>4.0.0.M2</sejda-io.version>
 		<sejda.commons.version>2.0.0</sejda.commons.version>
 		<eventstudio.version>3.0.4</eventstudio.version>
@@ -285,11 +285,11 @@
 		<rxjava.version>3.1.6</rxjava.version>
 		<ikonli.version>12.3.1</ikonli.version>
 		<testfx.version>4.0.16-alpha</testfx.version>
-		<jackson.version>2.15.0</jackson.version>
-		<bouncycastle.version>1.73</bouncycastle.version>
+		<jackson.version>2.15.2</jackson.version>
+		<bouncycastle.version>1.76</bouncycastle.version>
 		<assertj.version>3.24.2</assertj.version>
 		<hamcrest.version>2.2</hamcrest.version>
-		<javafx.version>20.0.1</javafx.version>
+		<javafx.version>20.0.2</javafx.version>
 		<jakarta-el.version>4.0.2</jakarta-el.version>
 		<jakarta.inject.version>2.0.1</jakarta.inject.version>
 		<validation.api.version>3.0.2</validation.api.version>
