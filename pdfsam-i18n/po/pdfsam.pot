@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2023-01-27 11:09+0100\n"
+"POT-Creation-Date: 2023-08-01 18:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -303,7 +303,7 @@ msgstr ""
 msgid "Merge"
 msgstr ""
 
-msgid "Merge together multiple PDF documents or subsections of them."
+msgid "Merge multiple PDF documents or subsections of them."
 msgstr ""
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
@@ -885,11 +885,16 @@ msgstr ""
 msgid "Loading workspace from {0}"
 msgstr ""
 
-msgid "Workspace loaded"
+#, java-format
+msgid "Workspace loaded: {0}"
 msgstr ""
 
 #, java-format
 msgid "Unable to load workspace from {0}"
+msgstr ""
+
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
 msgstr ""
 
 msgid "Light with blue"
@@ -916,7 +921,7 @@ msgstr ""
 msgid "_Select PDF"
 msgstr ""
 
-msgid "Clear all settings"
+msgid "C_lear all settings"
 msgstr ""
 
 #, java-format
@@ -1006,9 +1011,6 @@ msgid "_Remove"
 msgstr ""
 
 msgid "Removes every document"
-msgstr ""
-
-msgid "C_lear all settings"
 msgstr ""
 
 msgid "Moves up selected documents"

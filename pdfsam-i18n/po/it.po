@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2023-01-27 09:06+0000\n"
+"POT-Creation-Date: 2023-04-26 12:14+0200\n"
+"PO-Revision-Date: 2023-08-02 14:03+0000\n"
 "Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
+"X-Launchpad-Export-Date: 2023-08-02 14:04+0000\n"
+"X-Generator: Launchpad (build d80dbb5bdc9110f3a64cc968928033472d5e0509)\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Language: it\n"
 
@@ -330,8 +330,8 @@ msgstr ""
 msgid "Merge"
 msgstr "Unisci"
 
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "Unisci più documenti PDF o sezioni di questi."
+msgid "Merge multiple PDF documents or subsections of them."
+msgstr "Unisci più documenti PDF o sottosezioni di essi"
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr ""
@@ -976,12 +976,17 @@ msgstr "Impossibile salvare area di lavoro {0}"
 msgid "Loading workspace from {0}"
 msgstr "Caricamento spazio di lavoro da {0}"
 
-msgid "Workspace loaded"
-msgstr "Area di lavoro caricata"
+#, java-format
+msgid "Workspace loaded: {0}"
+msgstr "Area di lavoro caricata: {0}"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
 msgstr "Impossibile caricare spazio di lavoro da {0}"
+
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
+msgstr "Il seguente file esisteva già ed è stato ignorato: {0}"
 
 msgid "Light with blue"
 msgstr "Chiaro con blu"
@@ -1008,8 +1013,8 @@ msgstr "Seleziona un file PDF"
 msgid "_Select PDF"
 msgstr "_Seleziona PDF"
 
-msgid "Clear all settings"
-msgstr "Ripristina tutte le impostazioni"
+msgid "C_lear all settings"
+msgstr "R_ipristina tutte le impostazioni"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -1117,9 +1122,6 @@ msgstr "_Rimuovi"
 
 msgid "Removes every document"
 msgstr "Rimuovi ogni documento"
-
-msgid "C_lear all settings"
-msgstr "R_ipristina tutte le impostazioni"
 
 msgid "Moves up selected documents"
 msgstr "Sposta in alto i documenti selezionati"
@@ -1293,7 +1295,7 @@ msgid "Run"
 msgstr "Esegui"
 
 msgid "Run the task"
-msgstr ""
+msgstr "Esegui l'attività"
 
 msgid "Requested"
 msgstr "Richiesto"

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2021-10-06 04:48+0000\n"
-"Last-Translator: Yulin Yang <Unknown>\n"
+"POT-Creation-Date: 2023-04-26 12:14+0200\n"
+"PO-Revision-Date: 2023-06-21 02:50+0000\n"
+"Last-Translator: Dawson Chu <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
+"X-Launchpad-Export-Date: 2023-08-02 14:04+0000\n"
+"X-Generator: Launchpad (build d80dbb5bdc9110f3a64cc968928033472d5e0509)\n"
 
 msgid "No PDF document has been selected"
 msgstr "未选中PDF文档"
@@ -53,7 +53,7 @@ msgstr "提取页面："
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
 ")"
-msgstr ""
+msgstr "逗号分隔的页码或范围(例如：2或者5-23或者2,5-7,12-)"
 
 msgid "Split by bookmarks"
 msgstr "按书签分割"
@@ -237,7 +237,7 @@ msgid "None"
 msgstr "无"
 
 msgid "Same width as first page"
-msgstr ""
+msgstr "与第一页宽度相同"
 
 msgid "Same width as first page (based on page orientation)"
 msgstr ""
@@ -248,7 +248,7 @@ msgstr ""
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
 "one"
-msgstr ""
+msgstr "设置是否将所有页面设置为与第一页宽度一致"
 
 msgid "Merge fields"
 msgstr "合并域"
@@ -305,54 +305,54 @@ msgstr "设置生成的PDF文档是否应包含目录"
 msgid "Merge"
 msgstr "合并"
 
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "合并多个PDF文档或者其部分"
+msgid "Merge multiple PDF documents or subsections of them."
+msgstr "合并多个PDF文档或者它们的子集"
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
-msgstr ""
+msgstr "选择或拖拽并释放要复制页面的PDF文档"
 
 msgid "Repeat these pages:"
-msgstr ""
+msgstr "复制这些页面"
 
 msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "需要复制的页码(例如：2或者5-23或者2,5-7,12-)"
 
 msgid ""
 "Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
 "7,12-)"
-msgstr ""
+msgstr "需要被复制的页码(用逗号分隔)或范围(例如：2 或 5-23 或 2,5-7,12-)"
 
 msgid "Leave it empty to use all the pages of the PDF file"
-msgstr ""
+msgstr "留空以使用PDF文档的所有页面"
 
 msgid "Repeat every \"n\" pages:"
-msgstr ""
+msgstr "每\"n\"页重复一次"
 
 msgid "Invalid page number"
-msgstr ""
+msgstr "无效的页码"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
-msgstr ""
+msgstr "在原始文档中每隔\"n\"页重复选择的页面"
 
 msgid "The selected PDF file is invalid"
 msgstr "选择的PDF文件无效"
 
 msgid "The number of pages must be a positive number"
-msgstr ""
+msgstr "页码必须大于0"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
-msgstr ""
+msgstr "选择或拖拽并释放你想插入页面的PDF文件"
 
 msgid "Insert and Repeat settings"
-msgstr ""
+msgstr "插入及复制设置"
 
 msgid "Insert pages multiple times"
-msgstr ""
+msgstr "多次插入页面"
 
 msgid ""
 "Insert the pages of a PDF document A into another document B, repeating it "
 "after a certain number of pages, resulting in B1 A B2 A B3 A etc."
-msgstr ""
+msgstr "将PDF文档A的页面插入到文档B中，并在一定页数后重复，结果如 B1 A B2 A B3 A ..."
 
 #, java-format
 msgid "Started in {0}"
@@ -368,7 +368,7 @@ msgid "No PDF found"
 msgstr "未找到PDF"
 
 msgid "Tools"
-msgstr ""
+msgstr "工具"
 
 msgid "News"
 msgstr ""
@@ -380,13 +380,13 @@ msgid "Exit"
 msgstr "退出"
 
 msgid "Exit the application"
-msgstr ""
+msgstr "退出程序"
 
 msgid "Workspace"
 msgstr "工作区"
 
 msgid "Manage your workspaces"
-msgstr ""
+msgstr "管理你的工作空间"
 
 msgid "Yes"
 msgstr "是"
@@ -401,7 +401,7 @@ msgid "Do you confirm?"
 msgstr "您是否确定？"
 
 msgid "Clear the tool settings"
-msgstr ""
+msgstr "清空工具配置"
 
 msgid "Clear the selection table"
 msgstr "清除选择表"
@@ -474,7 +474,7 @@ msgid ""
 msgstr "可能导致PDF文件丢失部分或全部数据。仍要继续吗？"
 
 msgid "Removes all the log messages"
-msgstr ""
+msgstr "清空日志"
 
 msgid "_Clear"
 msgstr "清空(_C)"
@@ -537,11 +537,11 @@ msgstr "Java运行时路径: %s"
 
 #, java-printf-format
 msgid "JavaFX runtime version: %s"
-msgstr ""
+msgstr "JavaFx运行时版本:%s"
 
 #, java-printf-format
 msgid "PDF engine (Sejda SDK) version: %s"
-msgstr ""
+msgstr "PDF引擎(Sejda SDK)版本:%s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -584,7 +584,7 @@ msgid "About"
 msgstr "关于(_A)"
 
 msgid "Home"
-msgstr ""
+msgstr "首页"
 
 msgid "Premium features"
 msgstr "高级版特性"
@@ -602,22 +602,22 @@ msgid "Set your preferred language (restart needed)"
 msgstr "设置首选语言（需要重新启动）"
 
 msgid "Startup tool:"
-msgstr ""
+msgstr "启动工具:"
 
 msgid "Set the tool to open at application startup (restart needed)"
-msgstr ""
+msgstr "程序启动时启动该工具(需要重新启动)"
 
 msgid "Theme:"
 msgstr "主题："
 
 msgid "Set the application theme"
-msgstr ""
+msgstr "设置程序主题"
 
 msgid "Font size:"
-msgstr ""
+msgstr "字体大小:"
 
 msgid "Set the application font size"
-msgstr ""
+msgstr "设置程序的字体大小"
 
 msgid "Manually selected"
 msgstr "手动选择"
@@ -664,7 +664,7 @@ msgid "Load default workspace at startup:"
 msgstr "启动时加载默认工作区："
 
 msgid "System default"
-msgstr ""
+msgstr "系统默认"
 
 msgid "Check for updates at startup"
 msgstr "启动时检查更新"
@@ -758,7 +758,7 @@ msgid "Show errors"
 msgstr "显示错误"
 
 msgid "Input parameters are invalid"
-msgstr ""
+msgstr "输入的参数无效"
 
 msgid "Invalid parameters"
 msgstr "无效的参数"
@@ -818,19 +818,19 @@ msgid "An error has occurred, click for more details."
 msgstr "发生错误，请点击查看详情。"
 
 msgid "Split tools"
-msgstr ""
+msgstr "分割工具"
 
 msgid "Merge tools"
-msgstr ""
+msgstr "合并工具"
 
 msgid "Convert tools"
-msgstr ""
+msgstr "转换工具"
 
 msgid "Edit tools"
-msgstr ""
+msgstr "编辑工具"
 
 msgid "Other tools"
-msgstr ""
+msgstr "其它工具"
 
 msgid "Checking for updates"
 msgstr "检查更新"
@@ -888,18 +888,23 @@ msgstr "无法将工作区保存到{0}"
 msgid "Loading workspace from {0}"
 msgstr "从{0}加载工作区"
 
-msgid "Workspace loaded"
-msgstr "工作区已加载"
+#, java-format
+msgid "Workspace loaded: {0}"
+msgstr "工作空间已加载:{0}"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
 msgstr "无法从{0}加载工作区"
 
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
+msgstr "以下文件已存在，跳过:{0}"
+
 msgid "Light with blue"
-msgstr ""
+msgstr "蓝色-亮"
 
 msgid "Dark with purple"
-msgstr ""
+msgstr "紫色-暗"
 
 msgid "Dark with teal"
 msgstr ""
@@ -919,8 +924,8 @@ msgstr "选择PDF文件"
 msgid "_Select PDF"
 msgstr "选择PDF"
 
-msgid "Clear all settings"
-msgstr "清除所有设置"
+msgid "C_lear all settings"
+msgstr "清空所有设置(_l)"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -1010,9 +1015,6 @@ msgstr "移除(_R)"
 
 msgid "Removes every document"
 msgstr "移除所有文档"
-
-msgid "C_lear all settings"
-msgstr "清空所有设置(_l)"
 
 msgid "Moves up selected documents"
 msgstr "将选中文档上移"

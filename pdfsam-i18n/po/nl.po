@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2023-02-17 19:48+0000\n"
+"POT-Creation-Date: 2023-04-26 12:14+0200\n"
+"PO-Revision-Date: 2023-05-19 14:22+0000\n"
 "Last-Translator: Hendrik <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-03-23 10:56+0000\n"
-"X-Generator: Launchpad (build c5a134908fde0a645e56f24c14f906bf278db3e0)\n"
+"X-Launchpad-Export-Date: 2023-08-02 14:04+0000\n"
+"X-Generator: Launchpad (build d80dbb5bdc9110f3a64cc968928033472d5e0509)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Geen PDF-document geselecteerd"
@@ -334,8 +334,8 @@ msgstr ""
 msgid "Merge"
 msgstr "Samenvoegen"
 
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "Voeg meerdere Pdf-bestanden samen of onderafdelingen van hen."
+msgid "Merge multiple PDF documents or subsections of them."
+msgstr "Voeg meerdere PDF-bestanden of delen ervan samen."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr ""
@@ -967,12 +967,17 @@ msgstr "Kan de werkomgeving niet opslaan in {0}"
 msgid "Loading workspace from {0}"
 msgstr "Werkblad laden van {0}"
 
-msgid "Workspace loaded"
-msgstr "Werkblad geladen"
+#, java-format
+msgid "Workspace loaded: {0}"
+msgstr "Geladen werkruimte: {0}"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
 msgstr "Kan werkblad niet laden vanuit {0}"
+
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
+msgstr "Dit bestand bestaat al en is daarom overgeslagen: {0}"
 
 msgid "Light with blue"
 msgstr "Licht met blauw"
@@ -999,7 +1004,7 @@ msgstr "Selecteer het PDF-bestand"
 msgid "_Select PDF"
 msgstr "_Selecteer PDF"
 
-msgid "Clear all settings"
+msgid "C_lear all settings"
 msgstr "Wis alle instellingen"
 
 #, java-format
@@ -1098,9 +1103,6 @@ msgstr "_Verwijderen"
 
 msgid "Removes every document"
 msgstr "Verwijderd elk document"
-
-msgid "C_lear all settings"
-msgstr "Wis alle instellingen"
 
 msgid "Moves up selected documents"
 msgstr "Verplaatst geselecteerde bestanden omhoog"

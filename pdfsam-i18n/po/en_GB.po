@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2023-02-05 12:18+0000\n"
+"POT-Creation-Date: 2023-04-26 12:14+0200\n"
+"PO-Revision-Date: 2023-04-28 20:16+0000\n"
 "Last-Translator: Andi Chandler <Unknown>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-02-11 08:32+0000\n"
-"X-Generator: Launchpad (build 76fbbe3960b74b1bf6aa937d9f415c99a6b083f0)\n"
+"X-Launchpad-Export-Date: 2023-08-02 14:04+0000\n"
+"X-Generator: Launchpad (build d80dbb5bdc9110f3a64cc968928033472d5e0509)\n"
 
 msgid "No PDF document has been selected"
 msgstr "No PDF document has been selected"
@@ -320,8 +320,8 @@ msgstr ""
 msgid "Merge"
 msgstr "Merge"
 
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "Merge together multiple PDF documents or subsections of them."
+msgid "Merge multiple PDF documents or subsections of them."
+msgstr "Merge multiple PDF documents or subsections of them."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr "Select or drag and drop the PDF whose pages will be repeated"
@@ -928,12 +928,17 @@ msgstr "Unable to save workspace to {0}"
 msgid "Loading workspace from {0}"
 msgstr "Loading workspace from {0}"
 
-msgid "Workspace loaded"
-msgstr "Workspace loaded"
+#, java-format
+msgid "Workspace loaded: {0}"
+msgstr "Workspace loaded: {0}"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
 msgstr "Unable to load workspace from {0}"
+
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
+msgstr "The following file already existed and was skipped: {0}"
 
 msgid "Light with blue"
 msgstr "Light with blue"
@@ -959,8 +964,8 @@ msgstr "Select the PDF file"
 msgid "_Select PDF"
 msgstr "_Select PDF"
 
-msgid "Clear all settings"
-msgstr "Clear all settings"
+msgid "C_lear all settings"
+msgstr "C_lear all settings"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -1050,9 +1055,6 @@ msgstr "_Remove"
 
 msgid "Removes every document"
 msgstr "Removes every document"
-
-msgid "C_lear all settings"
-msgstr "C_lear all settings"
 
 msgid "Moves up selected documents"
 msgstr "Moves up selected documents"

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-01-27 11:09+0100\n"
+"POT-Creation-Date: 2023-04-26 12:14+0200\n"
 "PO-Revision-Date: 2023-04-25 07:51+0000\n"
 "Last-Translator: Sami Kuusisto <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-04-26 08:32+0000\n"
-"X-Generator: Launchpad (build 90e2150bef31b411d7bae5c4032c7e320fcaaec8)\n"
+"X-Launchpad-Export-Date: 2023-08-02 14:04+0000\n"
+"X-Generator: Launchpad (build d80dbb5bdc9110f3a64cc968928033472d5e0509)\n"
 
 msgid "No PDF document has been selected"
 msgstr "PDF-asiakirjaa ei ole valittu"
@@ -328,8 +328,8 @@ msgstr ""
 msgid "Merge"
 msgstr "Yhdistä"
 
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "Yhdistä useita PDF-asiakirjoja tai niiden osia."
+msgid "Merge multiple PDF documents or subsections of them."
+msgstr ""
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr "Valitse tai vedä ja pudota PDF, jonka sivuja toistetaan"
@@ -955,12 +955,17 @@ msgstr "Työtilan tallennus kohteeseen {0} ei onnistu"
 msgid "Loading workspace from {0}"
 msgstr "Ladataan työtilaa kohteesta {0}"
 
-msgid "Workspace loaded"
-msgstr "Työtila ladattu"
+#, java-format
+msgid "Workspace loaded: {0}"
+msgstr ""
 
 #, java-format
 msgid "Unable to load workspace from {0}"
 msgstr "Työtilan lataus kohteesta {0} ei onnistu"
+
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
+msgstr ""
 
 msgid "Light with blue"
 msgstr "Vaalea sininen"
@@ -987,8 +992,8 @@ msgstr "Valitse PDF-tiedosto"
 msgid "_Select PDF"
 msgstr "_Valitse PDF"
 
-msgid "Clear all settings"
-msgstr "Tyhjennä kaikki asetukset"
+msgid "C_lear all settings"
+msgstr "T_yhjennä kaikki asetukset"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -1086,9 +1091,6 @@ msgstr "_Poista"
 
 msgid "Removes every document"
 msgstr "Poistaa kaikki asiakirjat"
-
-msgid "C_lear all settings"
-msgstr "T_yhjennä kaikki asetukset"
 
 msgid "Moves up selected documents"
 msgstr "Siirtää valittuja asiakirjoja ylös"
