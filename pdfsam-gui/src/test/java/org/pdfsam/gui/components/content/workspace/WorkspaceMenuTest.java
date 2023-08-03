@@ -21,6 +21,7 @@ package org.pdfsam.gui.components.content.workspace;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.io.TempDir;
@@ -47,6 +48,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
  * @author Andrea Vacondio
  */
 @ExtendWith({ ApplicationExtension.class, ClearEventStudioExtension.class })
+@Tag("NoHeadless")
 public class WorkspaceMenuTest {
     private Injector injector;
     private FxRobot robot;

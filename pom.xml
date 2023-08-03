@@ -277,7 +277,7 @@
 		<mockito.version>5.4.0</mockito.version>
 		<tinylog.version>2.6.2</tinylog.version>
 		<hibernate-validator.version>7.0.5.Final</hibernate-validator.version>
-		<sejda.version>5.0.5</sejda.version>
+		<sejda.version>5.0.6</sejda.version>
 		<sejda-io.version>4.0.0.M2</sejda-io.version>
 		<sejda.commons.version>2.0.0</sejda.commons.version>
 		<eventstudio.version>3.0.4</eventstudio.version>

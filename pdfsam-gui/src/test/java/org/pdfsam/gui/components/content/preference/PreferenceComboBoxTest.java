@@ -21,6 +21,7 @@ package org.pdfsam.gui.components.content.preference;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.pdfsam.core.context.ApplicationContext;
@@ -61,6 +62,7 @@ public class PreferenceComboBoxTest {
     }
 
     @Test
+    @Tag("NoHeadless")
     public void preferenceSetOnClick() {
         robot.clickOn("#victim").clickOn("value2");
         verify(persistentSettings).set(eq(StringPersistentProperty.LOCALE), eq("key2"));

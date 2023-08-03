@@ -22,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import org.apache.commons.lang3.StringUtils;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -72,6 +73,7 @@ public class PreferenceAppearencePaneTest {
     }
 
     @Test
+    @Tag("NoHeadless")
     public void eventSentOnLocaleChange() {
         Listener<SetLocaleRequest> listener = mock(Listener.class);
         eventStudio().add(SetLocaleRequest.class, listener);
