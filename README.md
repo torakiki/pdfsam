@@ -2,9 +2,8 @@ PDFsam (PDF Split And Merge)
 ==============================
 
 Official SCM repository for PDFsam Basic, a free and open source, multi-platform software designed to extract pages, split, merge, mix and rotate PDF files.    
-[![Build Status](https://travis-ci.org/torakiki/pdfsam.png)](https://travis-ci.org/torakiki/pdfsam)
+![Build Status](https://github.com/torakiki/pdfsam/actions/workflows/build.yml/badge.svg)
 [![License](http://img.shields.io/badge/license-AGPLv3-blue.svg)](http://www.gnu.org/licenses/agpl-3.0.html)
-[![Join the chat at https://gitter.im/PDFsam/Lobby](https://badges.gitter.im/PDFsam/Lobby.svg)](https://gitter.im/PDFsam/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Where
 -------------------
@@ -16,7 +15,7 @@ PDFsam Basic is open source under the [GNU Affero General Public License] since 
 
 Requirements
 -------------------
-PDFsam Basic is written using JavaFX. Version 4 is released as a self-contained application and includes a jlinked OpenJDK 11 runtime while version 3 requires a Java Runtime Environment 8 with JavaFx installed in order to run.
+PDFsam Basic is written using JavaFX. Since version 4 it is released as a self-contained application and bundles a jlinked JDK while version 3 requires a Java Runtime Environment 8 with JavaFx installed in order to run.
 
 Documentation
 -------------------
@@ -24,7 +23,7 @@ Some [documentation](https://pdfsam.org/documentation/) and [FAQ](https://pdfsam
 
 Build
 -------------------
-This is a [simple guide](https://github.com/torakiki/pdfsam/wiki/Build-and-run) that can help you building PDFsam Basic
+This is a [simple guide](https://github.com/torakiki/pdfsam/wiki/Build-and-run) that can help you to build PDFsam Basic
 
 Contribute
 ------------------
