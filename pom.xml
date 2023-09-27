@@ -68,7 +68,7 @@
 		<profile>
 			<id>toolchain</id>
 			<activation>
-				<jdk>(,20)</jdk>
+				<jdk>(,21)</jdk>
 			</activation>
 			<build>
 				<plugins>
@@ -85,7 +85,7 @@
 						<configuration>
 							<toolchains>
 								<jdk>
-									<version>20</version>
+									<version>21</version>
 								</jdk>
 							</toolchains>
 						</configuration>
@@ -189,7 +189,7 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.11.0</version>
 					<configuration>
-						<release>20</release>
+						<release>21</release>
 						<!-- remove this once Foreign Function & Memory API is out of preview-->
 						<compilerArgs>--enable-preview</compilerArgs>
 					</configuration>
@@ -202,22 +202,22 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-resources-plugin</artifactId>
-					<version>3.3.0</version>
+					<version>3.3.1</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-dependency-plugin</artifactId>
-					<version>3.3.0</version>
+					<version>3.6.0</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-assembly-plugin</artifactId>
-					<version>3.4.2</version>
+					<version>3.6.0</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-clean-plugin</artifactId>
-					<version>3.2.0</version>
+					<version>3.3.1</version>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
@@ -227,7 +227,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-source-plugin</artifactId>
-					<version>3.2.1</version>
+					<version>3.3.0</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -237,7 +237,7 @@
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>build-helper-maven-plugin</artifactId>
-					<version>3.3.0</version>
+					<version>3.4.0</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -247,7 +247,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
-					<version>3.0.0</version>
+					<version>3.1.2</version>
 					<configuration>
 						<!-- remove this once Foreign Function & Memory API is out of preview-->
 						<argLine>--enable-preview</argLine>
@@ -256,12 +256,12 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-release-plugin</artifactId>
-					<version>3.0.0</version>
+					<version>3.0.1</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-gpg-plugin</artifactId>
-					<version>3.0.1</version>
+					<version>3.1.0</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -269,27 +269,27 @@
 
 	<properties>
 		<junit.version>5.10.0</junit.version>
-		<junit.pioneer.version>2.0.0</junit.pioneer.version>
-		<archunit.version>1.0.1</archunit.version>
-		<slf4j.version>2.0.7</slf4j.version>
-		<commons.lang.version>3.12.0</commons.lang.version>
-		<commons.io.version>2.11.0</commons.io.version>
-		<mockito.version>5.4.0</mockito.version>
+		<junit.pioneer.version>2.1.0</junit.pioneer.version>
+		<archunit.version>1.1.0</archunit.version>
+		<slf4j.version>2.0.9</slf4j.version>
+		<commons.lang.version>3.13.0</commons.lang.version>
+		<commons.io.version>2.13.0</commons.io.version>
+		<mockito.version>5.5.0</mockito.version>
 		<tinylog.version>2.6.2</tinylog.version>
 		<hibernate-validator.version>7.0.5.Final</hibernate-validator.version>
-		<sejda.version>5.0.6</sejda.version>
-		<sejda-io.version>4.0.0.M2</sejda-io.version>
+		<sejda.version>5.0.9</sejda.version>
+		<sejda-io.version>4.0.0.M3</sejda-io.version>
 		<sejda.commons.version>2.0.0</sejda.commons.version>
 		<eventstudio.version>3.0.4</eventstudio.version>
 		<injector.version>4.0.0</injector.version>
-		<rxjava.version>3.1.6</rxjava.version>
+		<rxjava.version>3.1.7</rxjava.version>
 		<ikonli.version>12.3.1</ikonli.version>
-		<testfx.version>4.0.16-alpha</testfx.version>
+		<testfx.version>4.0.17</testfx.version>
 		<jackson.version>2.15.2</jackson.version>
 		<bouncycastle.version>1.76</bouncycastle.version>
 		<assertj.version>3.24.2</assertj.version>
 		<hamcrest.version>2.2</hamcrest.version>
-		<javafx.version>20.0.2</javafx.version>
+		<javafx.version>21</javafx.version>
 		<jakarta-el.version>4.0.2</jakarta-el.version>
 		<jakarta.inject.version>2.0.1</jakarta.inject.version>
 		<validation.api.version>3.0.2</validation.api.version>
@@ -328,7 +328,7 @@
 				<version>${jakarta-el.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.hibernate</groupId>
+				<groupId>org.hibernate.validator</groupId>
 				<artifactId>hibernate-validator</artifactId>
 				<version>${hibernate-validator.version}</version>
 			</dependency>
