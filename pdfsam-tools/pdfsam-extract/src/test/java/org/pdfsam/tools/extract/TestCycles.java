@@ -2,7 +2,7 @@ package org.pdfsam.tools.extract;
 /*
  * This file is part of the PDF Split And Merge source code
  * Created on 03/10/22
- * Copyright 2022 by Sober Lemur S.r.l. (info@pdfsam.org).
+ * Copyright 2022 by Sober Lemur S.r.l. (info@soberlemur.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as

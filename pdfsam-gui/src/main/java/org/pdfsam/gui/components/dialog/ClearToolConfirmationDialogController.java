@@ -1,7 +1,7 @@
 /* 
  * This file is part of the PDF Split And Merge source code
  * Created on 25 ott 2020
- * Copyright 2019 by Sober Lemur S.a.s di Vacondio Andrea (info@pdfsam.org).
+ * Copyright 2019 by Sober Lemur S.r.l. (info@soberlemur.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as 
