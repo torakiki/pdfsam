@@ -41,8 +41,8 @@
 			</build>
 			<dependencies>
 				<dependency>
-					<groupId>org.testfx</groupId>
-					<artifactId>openjfx-monocle</artifactId>
+					<groupId>org.pdfsam</groupId>
+					<artifactId>javafx-monocle</artifactId>
 					<scope>test</scope>
 				</dependency>
 			</dependencies>
@@ -294,7 +294,7 @@
 		<jakarta.inject.version>2.0.1</jakarta.inject.version>
 		<validation.api.version>3.0.2</validation.api.version>
 		<awaitility.version>4.2.0</awaitility.version>
-		<monocle.version>jdk-12.0.1+2</monocle.version>
+		<monocle.version>21</monocle.version>
 		<maven.build.timestamp.format>dd-MMM-yyyy</maven.build.timestamp.format>
 		<pdfsam.builddate>${maven.build.timestamp}</pdfsam.builddate>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -441,8 +441,8 @@
 				<scope>test</scope>
 			</dependency>
 			<dependency>
-				<groupId>org.testfx</groupId>
-				<artifactId>openjfx-monocle</artifactId>
+				<groupId>org.pdfsam</groupId>
+				<artifactId>javafx-monocle</artifactId>
 				<version>${monocle.version}</version>
 				<scope>test</scope>
 			</dependency>
