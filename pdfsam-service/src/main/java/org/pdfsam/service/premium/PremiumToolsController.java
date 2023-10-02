@@ -26,9 +26,8 @@ import org.pdfsam.model.premium.PremiumToolsResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.concurrent.CompletableFuture;
+import java.util.Optional;
 
-import static java.util.Objects.nonNull;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.i18n.I18nContext.i18n;
 
@@ -49,16 +48,15 @@ public class PremiumToolsController {
 
     @EventListener
     public void fetchPremium(FetchPremiumModulesRequest event) {
-        LOG.debug(i18n().tr("Fetching premium modules"));
-        CompletableFuture.supplyAsync(service::getPremiumTools).thenAcceptAsync(premiumModules -> {
-            if (nonNull(premiumModules) && !premiumModules.isEmpty()) {
-                eventStudio().broadcast(new PremiumToolsResponse(premiumModules));
-            }
-        }).whenComplete((r, e) -> {
-            if (nonNull(e)) {
+        Thread.ofVirtual().name("premium-tools-thread").start(() -> {
+            LOG.debug(i18n().tr("Fetching premium modules"));
+            try {
+                Optional.ofNullable(service.getPremiumTools()).filter(l -> !l.isEmpty()).map(PremiumToolsResponse::new)
+                        .ifPresent(eventStudio()::broadcast);
+
+            } catch (Exception e) {
                 LOG.warn(i18n().tr("Unable to retrieve premium modules"), e);
             }
         });
     }
-
 }

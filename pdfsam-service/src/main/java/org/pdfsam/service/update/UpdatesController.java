@@ -28,9 +28,6 @@ import org.pdfsam.model.update.UpdateCheckRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.concurrent.CompletableFuture;
-
-import static java.util.Objects.nonNull;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.core.BrandableProperty.VERSION;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
@@ -38,9 +35,8 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * Component listening for updates related requests
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
 @Auto
 public class UpdatesController {
@@ -58,18 +54,19 @@ public class UpdatesController {
 
     @EventListener
     public void checkForUpdates(UpdateCheckRequest event) {
-        LOG.debug(i18n().tr("Checking for updates"));
-        CompletableFuture.supplyAsync(service::getLatestVersion).thenAccept(current -> {
-            if (isNotBlank(current)) {
-                if (!appBrand.property(VERSION).equals(current)) {
-                    LOG.info(i18n().tr("PDFsam {0} is available for download", current));
-                    eventStudio().broadcast(new UpdateAvailableEvent(current));
-                } else if (event.notifyIfNoUpdates()) {
-                    eventStudio().broadcast(new NoUpdateAvailable());
+        Thread.ofVirtual().name("updates-checker-thread").start(() -> {
+            LOG.debug(i18n().tr("Checking for updates"));
+            try {
+                var currentVersion = service.getLatestVersion();
+                if (isNotBlank(currentVersion)) {
+                    if (!appBrand.property(VERSION).equals(currentVersion)) {
+                        LOG.info(i18n().tr("PDFsam {0} is available for download", currentVersion));
+                        eventStudio().broadcast(new UpdateAvailableEvent(currentVersion));
+                    } else if (event.notifyIfNoUpdates()) {
+                        eventStudio().broadcast(new NoUpdateAvailable());
+                    }
                 }
-            }
-        }).whenComplete((r, e) -> {
-            if (nonNull(e)) {
+            } catch (Exception e) {
                 LOG.warn(i18n().tr("Unable to find the latest available version."), e);
             }
         });

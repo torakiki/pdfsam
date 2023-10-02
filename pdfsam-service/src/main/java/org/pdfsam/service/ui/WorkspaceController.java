@@ -30,10 +30,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Collection;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
+import java.util.concurrent.StructuredTaskScope;
 
-import static java.util.Objects.nonNull;
 import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.i18n.I18nContext.i18n;
@@ -65,44 +63,43 @@ public class WorkspaceController {
 
     @EventListener
     public void saveWorkspace(SaveWorkspaceRequest event) {
-        LOG.debug(i18n().tr("Requesting modules state"));
-        CompletableFuture<Void> future = CompletableFuture.allOf(
-                        tools.stream().map(m -> CompletableFuture.runAsync(() -> eventStudio().broadcast(event, m.id())))
-                                .toArray(CompletableFuture[]::new))
-                .thenRun(() -> service.saveWorkspace(event.data(), event.workspace())).whenComplete((r, e) -> {
-                    if (nonNull(e)) {
-                        LOG.error(i18n().tr("Unable to save workspace to {0}", event.workspace().getName()), e);
-                    }
-                });
-        if (event.awaitCompletion()) {
-            try {
-                future.get();
-            } catch (InterruptedException | ExecutionException e) {
+        Thread.ofVirtual().name("save-workspace-thread").start(() -> {
+            try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+                LOG.debug(i18n().tr("Requesting modules state"));
+                tools.forEach(m -> scope.fork(() -> {
+                    eventStudio().broadcast(event, m.id());
+                    return null;
+                }));
+                scope.join();
+                scope.throwIfFailed();
+                service.saveWorkspace(event.data(), event.workspace());
+            } catch (Exception e) {
                 LOG.error(i18n().tr("Unable to save workspace to {0}", event.workspace().getName()), e);
             }
-        }
+        });
     }
 
     @EventListener
-    public CompletableFuture<Void> loadWorspace(LoadWorkspaceRequest event) {
-        LOG.debug(i18n().tr("Loading workspace from {0}", event.workspace().getName()));
-        return CompletableFuture.supplyAsync(() -> service.loadWorkspace(event.workspace())).thenCompose((data) -> {
-            if (!data.isEmpty()) {
-                var response = new LoadWorkspaceResponse(event.workspace(), data);
-                return CompletableFuture.allOf(tools.stream()
-                        .map(m -> CompletableFuture.runAsync(() -> eventStudio().broadcast(response, m.id())))
-                        .toArray(CompletableFuture[]::new)).thenRun(() -> {
+    public void loadWorkspace(LoadWorkspaceRequest event) {
+        Thread.ofVirtual().name("load-workspace-thread").start(() -> {
+            LOG.debug(i18n().tr("Loading workspace from {0}", event.workspace().getName()));
+            try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+                var data = service.loadWorkspace(event.workspace());
+                if (!data.isEmpty()) {
+                    var response = new LoadWorkspaceResponse(event.workspace(), data);
+                    tools.forEach(m -> scope.fork(() -> {
+                        eventStudio().broadcast(response, m.id());
+                        return null;
+                    }));
+                    scope.join();
+                    scope.throwIfFailed();
                     recentWorkspace.addWorkspaceLastUsed(event.workspace());
                     eventStudio().broadcast(new WorkspaceLoadedEvent(event.workspace()));
                     LOG.info(i18n().tr("Workspace loaded: {0}", event.workspace().getName()));
-                });
-            }
-            return CompletableFuture.completedFuture(null);
-        }).whenComplete((r, e) -> {
-            if (nonNull(e)) {
+                }
+            } catch (Exception e) {
                 LOG.error(i18n().tr("Unable to load workspace from {0}", event.workspace().getName()), e);
             }
         });
-
     }
 }

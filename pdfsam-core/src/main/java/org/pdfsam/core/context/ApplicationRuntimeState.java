@@ -34,8 +34,9 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Optional;
 import java.util.ServiceLoader;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 import static java.util.Optional.empty;
 import static java.util.Optional.ofNullable;
@@ -54,15 +55,13 @@ public class ApplicationRuntimeState implements AutoCloseable {
     private final BehaviorSubject<Optional<Path>> workingPath = BehaviorSubject.createDefault(empty());
     private final BehaviorSubject<Optional<Tool>> activeTool = BehaviorSubject.createDefault(empty());
     private final ReplaySubject<Theme> theme = ReplaySubject.create(1);
-    private final CompletableFuture<Map<String, Tool>> tools;
+    private final Future<Map<String, Tool>> tools;
 
     ApplicationRuntimeState() {
-        this.tools = CompletableFuture.supplyAsync(
-                () -> ServiceLoader.load(Tool.class).stream().map(ServiceLoader.Provider::get)
-                        .collect(toMap(Tool::id, identity()))).exceptionally(e -> {
-            LOG.error("Unable to load tools list", e);
-            return null;
-        });
+        try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
+            this.tools = executor.submit(() -> ServiceLoader.load(Tool.class).stream().map(ServiceLoader.Provider::get)
+                    .collect(toMap(Tool::id, identity())));
+        }
     }
 
     /**

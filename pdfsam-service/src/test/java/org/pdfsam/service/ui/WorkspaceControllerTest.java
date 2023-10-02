@@ -18,7 +18,6 @@
  */
 package org.pdfsam.service.ui;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -35,15 +34,17 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+import static org.awaitility.Awaitility.await;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyMap;
 import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.after;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
@@ -64,6 +65,7 @@ public class WorkspaceControllerTest {
     @BeforeEach
     public void setUp() {
         file = mock(File.class);
+        when(file.getName()).thenReturn("mock file");
         service = mock(WorkspaceService.class);
         recentWorkspaces = mock(RecentWorkspacesService.class);
         victim = new WorkspaceController(List.of(new DefaultPriorityTestTool()), service, recentWorkspaces);
@@ -73,8 +75,8 @@ public class WorkspaceControllerTest {
     public void saveWorkspace() {
         Listener<SaveWorkspaceRequest> listener = mock(Listener.class);
         eventStudio().add(SaveWorkspaceRequest.class, listener, DefaultPriorityTestTool.ID);
-        victim.saveWorkspace(new SaveWorkspaceRequest(file, true));
-        verify(listener).onEvent(any());
+        victim.saveWorkspace(new SaveWorkspaceRequest(file));
+        verify(listener, timeout(5000).times(1)).onEvent(any());
         verify(service).saveWorkspace(anyMap(), eq(file));
     }
 
@@ -82,18 +84,19 @@ public class WorkspaceControllerTest {
     public void saveWorkspaceWithException() {
         Listener<SaveWorkspaceRequest> listener = mock(Listener.class);
         eventStudio().add(SaveWorkspaceRequest.class, listener, DefaultPriorityTestTool.ID);
-        SaveWorkspaceRequest event = new SaveWorkspaceRequest(file, true);
+        var event = new SaveWorkspaceRequest(file);
         doThrow(new RuntimeException("mock")).when(listener).onEvent(event);
         victim.saveWorkspace(event);
+        verify(service, after(1000).never()).saveWorkspace(anyMap(), eq(file));
     }
 
     @Test
-    public void loadEmptyWorkspace() throws InterruptedException, ExecutionException {
+    public void loadEmptyWorkspace() {
         Listener<LoadWorkspaceRequest> listener = mock(Listener.class);
         eventStudio().add(LoadWorkspaceRequest.class, listener, DefaultPriorityTestTool.ID);
         when(service.loadWorkspace(any())).thenReturn(Collections.emptyMap());
-        victim.loadWorspace(new LoadWorkspaceRequest(file)).get();
-        verify(listener, never()).onEvent(any());
+        victim.loadWorkspace(new LoadWorkspaceRequest(file));
+        await().atMost(5, SECONDS).untilAsserted(() -> verify(listener, never()).onEvent(any()));
     }
 
     @Test
@@ -101,12 +104,12 @@ public class WorkspaceControllerTest {
         Listener<LoadWorkspaceRequest> listener = mock(Listener.class);
         eventStudio().add(LoadWorkspaceRequest.class, listener, DefaultPriorityTestTool.ID);
         when(service.loadWorkspace(eq(file))).thenThrow(new RuntimeException("mock"));
-        Assertions.assertThrows(ExecutionException.class,
-                () -> victim.loadWorspace(new LoadWorkspaceRequest(file)).get());
+        victim.loadWorkspace(new LoadWorkspaceRequest(file));
+        verify(recentWorkspaces, after(1000).never()).addWorkspaceLastUsed(any());
     }
 
     @Test
-    public void loadWorkspace() throws InterruptedException, ExecutionException {
+    public void loadWorkspace() {
         Listener<LoadWorkspaceResponse> listener = mock(Listener.class);
         eventStudio().add(LoadWorkspaceResponse.class, listener, DefaultPriorityTestTool.ID);
         Listener<WorkspaceLoadedEvent> loadedListener = mock(Listener.class);
@@ -116,22 +119,21 @@ public class WorkspaceControllerTest {
         moduleData.put("key", "value");
         data.put("module", moduleData);
         when(service.loadWorkspace(any())).thenReturn(data);
-        CompletableFuture<Void> future = victim.loadWorspace(new LoadWorkspaceRequest(file));
-        future.get();
-        verify(listener).onEvent(any());
+        victim.loadWorkspace(new LoadWorkspaceRequest(file));
+        await().atMost(5, SECONDS).untilAsserted(() -> verify(listener).onEvent(any()));
         verify(recentWorkspaces).addWorkspaceLastUsed(file);
         verify(loadedListener).onEvent(any());
     }
 
     @Test
-    public void loadWorkspaceNoDataForModule() throws InterruptedException, ExecutionException {
+    public void loadWorkspaceNoDataForModule() {
         Listener<LoadWorkspaceRequest> listener = mock(Listener.class);
         eventStudio().add(LoadWorkspaceRequest.class, listener, "anotherModule");
         var moduleData = Map.of("key", "value");
         var data = Map.of("anotherModule", moduleData);
         when(service.loadWorkspace(any())).thenReturn(data);
-        victim.loadWorspace(new LoadWorkspaceRequest(file)).get();
-        verify(listener, never()).onEvent(any());
+        victim.loadWorkspace(new LoadWorkspaceRequest(file));
+        await().atMost(5, SECONDS).untilAsserted(() -> verify(listener, never()).onEvent(any()));
         verify(recentWorkspaces).addWorkspaceLastUsed(any());
     }
 

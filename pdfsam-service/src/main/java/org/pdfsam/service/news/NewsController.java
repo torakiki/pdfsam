@@ -30,9 +30,8 @@ import org.pdfsam.model.news.ToggleNewsPanelRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.concurrent.CompletableFuture;
+import java.util.Optional;
 
-import static java.util.Objects.nonNull;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.i18n.I18nContext.i18n;
 
@@ -56,19 +55,19 @@ public class NewsController {
 
     @EventListener
     public void fetchLatestNews(FetchLatestNewsRequest event) {
-        LOG.debug(i18n().tr("Fetching latest news"));
-        CompletableFuture.supplyAsync(service::getLatestNews).thenAcceptAsync(news -> {
-            if (nonNull(news) && !news.isEmpty()) {
-                currentLatest = news.get(0).id();
-                eventStudio().broadcast(new LatestNewsResponse(news, service.getLatestNewsSeen() >= currentLatest));
-                news.stream().filter(NewsData::important).findFirst()
-                        .filter(n -> service.getLatestImportantNewsSeen() < n.id()).ifPresent(n -> {
-                            service.setLatestImportantNewsSeen(n.id());
-                            eventStudio().broadcast(new NewImportantNewsEvent(n));
-                        });
-            }
-        }).whenComplete((r, e) -> {
-            if (nonNull(e)) {
+        Thread.ofVirtual().name("news-checker-thread").start(() -> {
+            LOG.debug(i18n().tr("Fetching latest news"));
+            try {
+                Optional.ofNullable(service.getLatestNews()).filter(l -> !l.isEmpty()).ifPresent(news -> {
+                    currentLatest = news.get(0).id();
+                    eventStudio().broadcast(new LatestNewsResponse(news, service.getLatestNewsSeen() >= currentLatest));
+                    news.stream().filter(NewsData::important).findFirst()
+                            .filter(n -> service.getLatestImportantNewsSeen() < n.id()).ifPresent(n -> {
+                                service.setLatestImportantNewsSeen(n.id());
+                                eventStudio().broadcast(new NewImportantNewsEvent(n));
+                            });
+                });
+            } catch (Exception e) {
                 LOG.warn(i18n().tr("Unable to retrieve the latest news"), e);
             }
         });

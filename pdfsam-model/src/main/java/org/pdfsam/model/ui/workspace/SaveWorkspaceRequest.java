@@ -31,20 +31,16 @@ import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
  *
  * @author Andrea Vacondio
  */
-public record SaveWorkspaceRequest(File workspace, boolean awaitCompletion, Map<String, Map<String, String>> data) {
-    public SaveWorkspaceRequest(File workspace, boolean awaitCompletion, Map<String, Map<String, String>> data) {
+public record SaveWorkspaceRequest(File workspace, Map<String, Map<String, String>> data) {
+
+    public SaveWorkspaceRequest(File workspace, Map<String, Map<String, String>> data) {
         requireNotNullArg(workspace, "Workspace file cannot be null");
         this.workspace = workspace;
         this.data = ofNullable(data).orElseGet(HashMap::new);
-        this.awaitCompletion = awaitCompletion;
     }
 
     public SaveWorkspaceRequest(File workspace) {
-        this(workspace, false);
-    }
-
-    public SaveWorkspaceRequest(File workspace, boolean awaitCompletion) {
-        this(workspace, awaitCompletion, new ConcurrentHashMap<>());
+        this(workspace, new ConcurrentHashMap<>());
     }
 
     /**
@@ -52,7 +48,7 @@ public record SaveWorkspaceRequest(File workspace, boolean awaitCompletion, Map<
      * @return a Map containing data for the tool or an empty one
      */
     public Map<String, String> getData(String tool) {
-        return this.data.computeIfAbsent(tool, (k) -> new HashMap<>());
+        return this.data.computeIfAbsent(tool, k -> new HashMap<>());
     }
 
 }
