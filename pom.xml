@@ -48,24 +48,6 @@
 			</dependencies>
 		</profile>
 		<profile>
-			<activation>
-				<os>
-					<family>Windows</family>
-				</os>
-			</activation>
-			<id>no-windows-failing-tests</id>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-surefire-plugin</artifactId>
-						<configuration>
-							<excludedGroups>org.pdfsam.NoWindows</excludedGroups>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
 			<id>toolchain</id>
 			<activation>
 				<jdk>(,21)</jdk>
@@ -453,12 +435,6 @@
 				<scope>test</scope>
 			</dependency>
 			<dependency>
-				<groupId>org.awaitility</groupId>
-				<artifactId>awaitility</artifactId>
-				<version>${awaitility.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
 				<groupId>org.junit</groupId>
 				<artifactId>junit-bom</artifactId>
 				<version>${junit.version}</version>
@@ -538,6 +514,12 @@
 					<artifactId>animal-sniffer-annotations</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.awaitility</groupId>
+			<artifactId>awaitility</artifactId>
+			<version>${awaitility.version}</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 </project>

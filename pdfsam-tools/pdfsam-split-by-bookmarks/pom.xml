@@ -27,18 +27,6 @@
 					</archive>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<configuration>
-					<argLine>
-						--add-exports javafx.base/com.sun.javafx.logging=ALL-UNNAMED
-						--add-exports javafx.graphics/com.sun.javafx.application=ALL-UNNAMED
-						--add-exports javafx.graphics/com.sun.javafx.embed=ALL-UNNAMED
-						--add-opens javafx.graphics/com.sun.glass.ui=ALL-UNNAMED
-					</argLine>
-				</configuration>
-			</plugin>
 		</plugins>
 	</build>
 
