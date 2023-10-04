@@ -19,8 +19,6 @@
 package org.pdfsam.persistence;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -40,8 +38,6 @@ import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
  * @author Andrea Vacondio
  */
 public class DefaultEntityRepository<T> implements EntityRepository<T> {
-
-    private static final Logger LOG = LoggerFactory.getLogger(DefaultEntityRepository.class);
 
     private final ObjectMapper mapper;
     private final Class<T> clazz;
