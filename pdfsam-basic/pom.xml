@@ -86,7 +86,7 @@
                                         <argument>--output</argument>
                                         <argument>${project.build.directory}/assembled/runtime</argument>
                                         <argument>--compress</argument>
-                                        <argument>2</argument>
+                                        <argument>zip-6</argument>
                                         <argument>--no-header-files</argument>
                                         <argument>--no-man-pages</argument>
                                         <argument>--strip-debug</argument>
