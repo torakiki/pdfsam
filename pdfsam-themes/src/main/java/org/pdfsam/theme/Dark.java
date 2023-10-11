@@ -37,6 +37,7 @@ public class Dark extends Light {
     public List<String> stylesheets() {
         var styles = new ArrayList<>(super.stylesheets());
         styles.add("/themes/dark/colors.css");
+        styles.add("/themes/dark/theme.css");
         return styles;
     }
 

@@ -1,0 +1,3 @@
+.text-input {
+    -fx-prompt-text-fill: derive(-fx-control-inner-background,-60%);
+}
