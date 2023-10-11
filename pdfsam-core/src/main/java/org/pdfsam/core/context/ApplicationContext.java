@@ -92,10 +92,12 @@ public class ApplicationContext implements Closeable {
      */
     public void registerScene(Scene scene) {
         disposable.add(this.runtimeState().theme().subscribe(t -> {
-            scene.getStylesheets().setAll(t.stylesheets());
-            if (!Platform.isSupported(ConditionalFeature.TRANSPARENT_WINDOW)) {
-                scene.getStylesheets().addAll(t.transparentIncapableStylesheets());
-            }
+            Platform.runLater(() -> {
+                scene.getStylesheets().setAll(t.stylesheets());
+                if (!Platform.isSupported(ConditionalFeature.TRANSPARENT_WINDOW)) {
+                    scene.getStylesheets().addAll(t.transparentIncapableStylesheets());
+                }
+            });
         }));
         disposable.add(this.persistentSettings().settingsChanges(FONT_SIZE).subscribe(size -> {
             size.filter(StringUtils::isNotBlank).map(s -> String.format("-fx-font-size: %s;", s))
