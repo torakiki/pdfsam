@@ -93,6 +93,8 @@ public class PdfDestinationPane extends DestinationPane implements ToolBound, Re
             discardBookmarksField.getStyleClass().addAll(Style.WITH_HELP.css());
             discardBookmarksField.getStyleClass().addAll(Style.VITEM.css());
             discardBookmarksField.setId("discardBookmarksField");
+            discardBookmarksField.setSelected(
+                    app().persistentSettings().get(BooleanPersistentProperty.DISCARD_BOOKMARKS));
             discardBookmarks = Optional.of(discardBookmarksField);
         }
         HBox versionPane = new HBox(new Label(i18n().tr("Output PDF version:")), version);
@@ -140,7 +142,8 @@ public class PdfDestinationPane extends DestinationPane implements ToolBound, Re
         compress.setSelected(false);
         compress.setSelected(app().persistentSettings().get(BooleanPersistentProperty.PDF_COMPRESSION_ENABLED));
         overwrite().setSelected(app().persistentSettings().get(BooleanPersistentProperty.OVERWRITE_OUTPUT));
-        discardBookmarks.ifPresent(c -> c.setSelected(false));
+        discardBookmarks.ifPresent(
+                c -> c.setSelected(app().persistentSettings().get(BooleanPersistentProperty.DISCARD_BOOKMARKS)));
     }
 
     @Override

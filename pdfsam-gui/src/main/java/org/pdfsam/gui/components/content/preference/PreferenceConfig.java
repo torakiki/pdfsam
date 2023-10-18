@@ -42,6 +42,7 @@ import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.core.context.BooleanPersistentProperty.CHECK_FOR_NEWS;
 import static org.pdfsam.core.context.BooleanPersistentProperty.CHECK_UPDATES;
 import static org.pdfsam.core.context.BooleanPersistentProperty.CLEAR_CONFIRMATION;
+import static org.pdfsam.core.context.BooleanPersistentProperty.DISCARD_BOOKMARKS;
 import static org.pdfsam.core.context.BooleanPersistentProperty.DONATION_NOTIFICATION;
 import static org.pdfsam.core.context.BooleanPersistentProperty.OVERWRITE_OUTPUT;
 import static org.pdfsam.core.context.BooleanPersistentProperty.PDF_COMPRESSION_ENABLED;
@@ -167,6 +168,19 @@ public class PreferenceConfig {
         compressionEnabled.getStyleClass().addAll(Style.WITH_HELP.css());
         compressionEnabled.getStyleClass().addAll(Style.VITEM.css());
         return compressionEnabled;
+    }
+
+    @Provides
+    @Named("discardBookmarks")
+    public PreferenceCheckBox discardBookmarks() {
+        PreferenceCheckBox discardBookmarks = new PreferenceCheckBox(DISCARD_BOOKMARKS, i18n().tr("Discard bookmarks"),
+                app().persistentSettings().get(DISCARD_BOOKMARKS));
+        discardBookmarks.setId("discardBookmarks");
+        discardBookmarks.setGraphic(
+                helpIcon(i18n().tr("Set whether \"Discard bookmarks\" should be enabled by default")));
+        discardBookmarks.getStyleClass().addAll(Style.WITH_HELP.css());
+        discardBookmarks.getStyleClass().addAll(Style.VITEM.css());
+        return discardBookmarks;
     }
 
     @Provides

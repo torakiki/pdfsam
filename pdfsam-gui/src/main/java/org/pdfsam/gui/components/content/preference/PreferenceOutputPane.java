@@ -43,6 +43,7 @@ class PreferenceOutputPane extends GridPane {
     public PreferenceOutputPane(@Named("smartRadio") PreferenceRadioButton smartRadio,
             @Named("compressionEnabled") PreferenceCheckBox compressionEnabled,
             @Named("overwriteOutput") PreferenceCheckBox overwriteOutput,
+            @Named("discardBookmarks") PreferenceCheckBox discardBookmarks,
             @Named("pdfVersionCombo") PreferenceComboBox<ComboItem<PdfVersion>> pdfVersionCombo) {
 
         add(new Label(i18n().tr("Default PDF version:")), 0, 1);
@@ -72,6 +73,7 @@ class PreferenceOutputPane extends GridPane {
 
         add(compressionEnabled, 0, 4, 3, 1);
         add(overwriteOutput, 0, 5, 3, 1);
+        add(discardBookmarks, 0, 6, 3, 1);
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.GRID.css());
     }

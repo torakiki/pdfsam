@@ -63,8 +63,11 @@ public class PreferenceOutputPaneTest {
         var pdfVersionCombo = new PreferenceComboBox<ComboItem<PdfVersion>>(StringPersistentProperty.PDF_VERSION,
                 appContext);
         pdfVersionCombo.setId("pdfVersionCombo");
+        var discardBookmarks = new PreferenceCheckBox(BooleanPersistentProperty.DISCARD_BOOKMARKS, "discard", false,
+                appContext);
+        discardBookmarks.setId("discardBookmarks");
 
-        PreferenceOutputPane victim = new PreferenceOutputPane(smartRadio, compressionEnabled, overwriteOutput,
+        var victim = new PreferenceOutputPane(smartRadio, compressionEnabled, overwriteOutput, discardBookmarks,
                 pdfVersionCombo);
         victim.setId("victim");
         Scene scene = new Scene(new HBox(victim));
@@ -93,6 +96,12 @@ public class PreferenceOutputPaneTest {
     public void clickOverwrite() {
         robot.clickOn("#overwriteOutput");
         verify(persistentSettings).set(BooleanPersistentProperty.OVERWRITE_OUTPUT, true);
+    }
+
+    @Test
+    public void discardBookmarks() {
+        robot.clickOn("#discardBookmarks");
+        verify(persistentSettings).set(BooleanPersistentProperty.DISCARD_BOOKMARKS, true);
     }
 
 }

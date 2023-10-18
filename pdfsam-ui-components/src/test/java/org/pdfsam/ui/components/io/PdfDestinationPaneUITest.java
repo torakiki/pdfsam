@@ -76,6 +76,7 @@ public class PdfDestinationPaneUITest {
     public void start(Stage stage) {
         app().persistentSettings().set(BooleanPersistentProperty.PDF_COMPRESSION_ENABLED, true);
         app().persistentSettings().set(BooleanPersistentProperty.OVERWRITE_OUTPUT, false);
+        app().persistentSettings().set(BooleanPersistentProperty.DISCARD_BOOKMARKS, false);
         BrowsablePdfInputField destination = new BrowsablePdfInputField();
         victim = new PdfDestinationPane(destination, MODULE, true, DestinationPanelFields.DISCARD_BOOKMARKS);
         Scene scene = new Scene(victim);
@@ -119,6 +120,5 @@ public class PdfDestinationPaneUITest {
         assertFalse(victim.overwrite().isSelected());
         assertFalse(robot.lookup("#discardBookmarksField").queryAs(CheckBox.class).isSelected());
         assertTrue(robot.lookup("#compressField").queryAs(CheckBox.class).isSelected());
-
     }
 }

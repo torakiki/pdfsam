@@ -22,6 +22,7 @@ import java.util.function.Supplier;
 
 import static org.pdfsam.core.ConfigurableSystemProperty.CHECK_FOR_NEWS_PROP;
 import static org.pdfsam.core.ConfigurableSystemProperty.CHECK_FOR_UPDATES_PROP;
+import static org.pdfsam.core.ConfigurableSystemProperty.DISCARD_BOOKMARKS_PROP;
 import static org.pdfsam.core.ConfigurableSystemProperty.DONATE_NOTIFICATION_PROP;
 import static org.pdfsam.core.ConfigurableSystemProperty.FETCH_PREMIUM_MODULES_PROP;
 import static org.pdfsam.core.ConfigurableSystemProperty.OVERWRITE_OUTPUT_PROP;
@@ -47,7 +48,8 @@ public enum BooleanPersistentProperty implements PersistentProperty<Boolean> {
     CLEAR_CONFIRMATION(() -> Boolean.TRUE),
     SAVE_WORKSPACE_ON_EXIT(() -> Boolean.FALSE),
     SAVE_PWD_IN_WORKSPACE(() -> Boolean.FALSE),
-    SIDEBAR_EXPANDED_STATE(() -> Boolean.TRUE);
+    SIDEBAR_EXPANDED_STATE(() -> Boolean.TRUE),
+    DISCARD_BOOKMARKS(() -> Boolean.parseBoolean(System.getProperty(DISCARD_BOOKMARKS_PROP, Boolean.FALSE.toString())));
 
     private final Supplier<Boolean> defaultSupplier;
 

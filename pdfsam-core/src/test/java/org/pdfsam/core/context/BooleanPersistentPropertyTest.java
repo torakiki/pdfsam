@@ -37,7 +37,8 @@ class BooleanPersistentPropertyTest {
             @SetSystemProperty(key = ConfigurableSystemProperty.CHECK_FOR_NEWS_PROP, value = "false"),
             @SetSystemProperty(key = ConfigurableSystemProperty.CHECK_FOR_UPDATES_PROP, value = "false"),
             @SetSystemProperty(key = ConfigurableSystemProperty.OVERWRITE_OUTPUT_PROP, value = "true"),
-            @SetSystemProperty(key = ConfigurableSystemProperty.PDF_COMPRESSION_PROP, value = "false") })
+            @SetSystemProperty(key = ConfigurableSystemProperty.PDF_COMPRESSION_PROP, value = "false"),
+            @SetSystemProperty(key = ConfigurableSystemProperty.DISCARD_BOOKMARKS_PROP, value = "true") })
     @DisplayName("Default value suppliers from sys props")
     public void defaultValuesFromSysProp() {
         assertFalse(BooleanPersistentProperty.PLAY_SOUNDS.defaultSupplier().get());
@@ -48,6 +49,7 @@ class BooleanPersistentPropertyTest {
         assertFalse(BooleanPersistentProperty.CHECK_UPDATES.defaultSupplier().get());
         assertTrue(BooleanPersistentProperty.OVERWRITE_OUTPUT.defaultSupplier().get());
         assertFalse(BooleanPersistentProperty.PDF_COMPRESSION_ENABLED.defaultSupplier().get());
+        assertTrue(BooleanPersistentProperty.DISCARD_BOOKMARKS.defaultSupplier().get());
     }
 
     @Test
@@ -59,7 +61,8 @@ class BooleanPersistentPropertyTest {
             @ClearSystemProperty(key = ConfigurableSystemProperty.CHECK_FOR_NEWS_PROP),
             @ClearSystemProperty(key = ConfigurableSystemProperty.CHECK_FOR_UPDATES_PROP),
             @ClearSystemProperty(key = ConfigurableSystemProperty.OVERWRITE_OUTPUT_PROP),
-            @ClearSystemProperty(key = ConfigurableSystemProperty.PDF_COMPRESSION_PROP) })
+            @ClearSystemProperty(key = ConfigurableSystemProperty.PDF_COMPRESSION_PROP),
+            @ClearSystemProperty(key = ConfigurableSystemProperty.DISCARD_BOOKMARKS_PROP) })
 
     @DisplayName("Default value supplier when no sys props")
     public void defaultValuesClearedSysProp() {
@@ -71,6 +74,7 @@ class BooleanPersistentPropertyTest {
         assertTrue(BooleanPersistentProperty.CHECK_UPDATES.defaultSupplier().get());
         assertFalse(BooleanPersistentProperty.OVERWRITE_OUTPUT.defaultSupplier().get());
         assertTrue(BooleanPersistentProperty.PDF_COMPRESSION_ENABLED.defaultSupplier().get());
+        assertFalse(BooleanPersistentProperty.DISCARD_BOOKMARKS.defaultSupplier().get());
     }
 
     @Test
