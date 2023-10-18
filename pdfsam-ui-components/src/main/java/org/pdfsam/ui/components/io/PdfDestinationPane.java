@@ -23,13 +23,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.core.context.BooleanPersistentProperty;
 import org.pdfsam.core.support.params.AbstractPdfOutputParametersBuilder;
 import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.eventstudio.annotation.EventStation;
 import org.pdfsam.model.tool.ToolBound;
+import org.pdfsam.model.ui.DefaultPdfVersionComboItem;
 import org.pdfsam.model.ui.ResettableView;
 import org.pdfsam.model.ui.SetDestinationRequest;
 import org.pdfsam.model.ui.workspace.RestorableView;
@@ -64,7 +64,7 @@ public class PdfDestinationPane extends DestinationPane implements ToolBound, Re
     private final PdfVersionCombo version;
     private final PdfVersionConstrainedCheckBox compress;
     private Optional<CheckBox> discardBookmarks = empty();
-    private String toolBinding = StringUtils.EMPTY;
+    private final String toolBinding;
 
     public PdfDestinationPane(BrowsableField destination, String toolBinding,
             DestinationPanelFields... optionalFields) {
@@ -168,7 +168,7 @@ public class PdfDestinationPane extends DestinationPane implements ToolBound, Re
         compress.setSelected(Boolean.parseBoolean(data.get("compress")));
         overwrite().setSelected(Boolean.parseBoolean(data.get("overwrite")));
         discardBookmarks.ifPresent(d -> d.setSelected(Boolean.parseBoolean(data.get("discardBookmarks"))));
-        ofNullable(data.get("version")).map(PdfVersion::valueOf).map(PdfVersionCombo.DefaultPdfVersionComboItem::new)
+        ofNullable(data.get("version")).map(PdfVersion::valueOf).map(DefaultPdfVersionComboItem::new)
                 .ifPresent(v -> this.version.getSelectionModel().select(v));
     }
 

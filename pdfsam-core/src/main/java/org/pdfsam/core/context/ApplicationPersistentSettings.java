@@ -26,8 +26,10 @@ import org.pdfsam.persistence.PreferencesRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Arrays;
 import java.util.Optional;
 
+import static java.util.Objects.nonNull;
 import static java.util.Optional.of;
 import static java.util.Optional.ofNullable;
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
@@ -133,6 +135,17 @@ public class ApplicationPersistentSettings implements AutoCloseable {
     }
 
     /**
+     * @param property
+     * @return true if there is a value stored for the given persistent property
+     */
+    public boolean hasValueFor(PersistentProperty<?> property) {
+        if (nonNull(property)) {
+            return Arrays.stream(this.repo.keys()).anyMatch(k -> k.equals(property.key()));
+        }
+        return false;
+    }
+
+    /**
      * @return an observable for changes to the given property
      */
     public Observable<Optional<String>> settingsChanges(StringPersistentProperty prop) {
@@ -153,7 +166,10 @@ public class ApplicationPersistentSettings implements AutoCloseable {
         return boolSettingsChanges.hide().filter(c -> c.property().equals(prop)).map(PersistentPropertyChange::value);
     }
 
-    void clean() {
+    /**
+     * Clears all the persistent settings
+     */
+    public void clean() {
         try {
             this.repo.clean();
             LOG.info("Persistent application settings deleted");

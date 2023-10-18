@@ -27,9 +27,12 @@ import org.pdfsam.injector.Provides;
 import org.pdfsam.model.io.FileType;
 import org.pdfsam.model.io.OpenType;
 import org.pdfsam.model.ui.ComboItem;
+import org.pdfsam.model.ui.DefaultPdfVersionComboItem;
 import org.pdfsam.ui.components.support.FXValidationSupport;
 import org.pdfsam.ui.components.support.Style;
+import org.sejda.model.pdf.PdfVersion;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.stream.IntStream;
 
@@ -49,6 +52,7 @@ import static org.pdfsam.core.context.BooleanPersistentProperty.SAVE_WORKSPACE_O
 import static org.pdfsam.core.context.BooleanPersistentProperty.SMART_OUTPUT;
 import static org.pdfsam.core.context.IntegerPersistentProperty.LOGVIEW_ROWS_NUMBER;
 import static org.pdfsam.core.context.StringPersistentProperty.FONT_SIZE;
+import static org.pdfsam.core.context.StringPersistentProperty.PDF_VERSION;
 import static org.pdfsam.core.context.StringPersistentProperty.STARTUP_MODULE;
 import static org.pdfsam.core.context.StringPersistentProperty.THEME;
 import static org.pdfsam.core.context.StringPersistentProperty.WORKING_PATH;
@@ -109,6 +113,21 @@ public class PreferenceConfig {
         IntStream.range(9, 22).forEach(i -> fontSizeCombo.getItems().add(new ComboItem<>(i + "px", i + "px")));
         fontSizeCombo.setValue(keyWithEmptyValue(app().persistentSettings().get(FONT_SIZE).orElse("")));
         return fontSizeCombo;
+    }
+
+    @Provides
+    @Named("pdfVersionCombo")
+    public PreferenceComboBox<ComboItem<PdfVersion>> pdfVersionCombo() {
+        PreferenceComboBox<ComboItem<PdfVersion>> pdfVersionCombo = new PreferenceComboBox<>(PDF_VERSION);
+        pdfVersionCombo.setId("pdfVersionCombo");
+        pdfVersionCombo.getItems().addAll(Arrays.stream(PdfVersion.values())
+                .filter(v -> v.getVersion() > PdfVersion.VERSION_1_2.getVersion()).map(DefaultPdfVersionComboItem::new)
+                .toList());
+        //select if present in the settings
+        app().persistentSettings().get(StringPersistentProperty.PDF_VERSION).map(PdfVersion::valueOf)
+                .flatMap(v -> pdfVersionCombo.getItems().stream().filter(i -> i.key() == v).findFirst())
+                .ifPresent(i -> pdfVersionCombo.getSelectionModel().select(i));
+        return pdfVersionCombo;
     }
 
     @Provides

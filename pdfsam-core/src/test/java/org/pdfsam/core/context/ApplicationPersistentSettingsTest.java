@@ -234,4 +234,20 @@ public class ApplicationPersistentSettingsTest {
         booleanSettings.assertComplete();
     }
 
+    @Test
+    void hasValueFor() {
+        when(repo.keys()).thenReturn(new String[] {});
+        assertFalse(victim.hasValueFor(StringPersistentProperty.LOCALE));
+        when(repo.keys()).thenReturn(new String[] { "theme" });
+        assertFalse(victim.hasValueFor(StringPersistentProperty.LOCALE));
+        when(repo.keys()).thenReturn(new String[] { "theme", "locale" });
+        assertTrue(victim.hasValueFor(StringPersistentProperty.LOCALE));
+        when(repo.keys()).thenReturn(new String[] { "locale" });
+        assertTrue(victim.hasValueFor(StringPersistentProperty.LOCALE));
+    }
+
+    @Test
+    void hasValueForNullProperty() {
+        assertFalse(victim.hasValueFor(null));
+    }
 }

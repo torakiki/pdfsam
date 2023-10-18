@@ -59,11 +59,12 @@ public class PreferenceAppearencePaneTest {
     public void start(Stage stage) {
         Locale.setDefault(Locale.ENGLISH);
         when(appContext.persistentSettings()).thenReturn(persistentSettings);
-        var localeCombo = new PreferenceComboBox<>(StringPersistentProperty.LOCALE, appContext);
+        var localeCombo = new PreferenceComboBox<ComboItem<String>>(StringPersistentProperty.LOCALE, appContext);
         localeCombo.setId("localeCombo");
-        var startupModuleCombo = new PreferenceComboBox<>(StringPersistentProperty.STARTUP_MODULE, appContext);
-        var themeCombo = new PreferenceComboBox<>(StringPersistentProperty.THEME, appContext);
-        var fontSizeCombo = new PreferenceComboBox<>(StringPersistentProperty.FONT_SIZE, appContext);
+        var startupModuleCombo = new PreferenceComboBox<ComboItem<String>>(StringPersistentProperty.STARTUP_MODULE,
+                appContext);
+        var themeCombo = new PreferenceComboBox<ComboItem<String>>(StringPersistentProperty.THEME, appContext);
+        var fontSizeCombo = new PreferenceComboBox<ComboItem<String>>(StringPersistentProperty.FONT_SIZE, appContext);
         PreferenceAppearencePane victim = new PreferenceAppearencePane(localeCombo, startupModuleCombo, themeCombo,
                 fontSizeCombo);
         victim.setId("victim");

@@ -19,7 +19,7 @@
 package org.pdfsam.gui.components.content.preference;
 
 import javafx.scene.Scene;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -28,6 +28,8 @@ import org.pdfsam.core.context.ApplicationContext;
 import org.pdfsam.core.context.ApplicationPersistentSettings;
 import org.pdfsam.core.context.StringPersistentProperty;
 import org.pdfsam.model.ui.ComboItem;
+import org.pdfsam.model.ui.DefaultPdfVersionComboItem;
+import org.sejda.model.pdf.PdfVersion;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
@@ -36,6 +38,7 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * @author Andrea Vacondio
@@ -51,21 +54,32 @@ public class PreferenceComboBoxTest {
     @Start
     public void start(Stage stage) {
         when(appContext.persistentSettings()).thenReturn(persistentSettings);
-        PreferenceComboBox<ComboItem<String>> victim = new PreferenceComboBox<>(StringPersistentProperty.LOCALE,
-                appContext);
-        victim.setId("victim");
-        victim.getItems().addAll(new ComboItem<>("key1", "value1"), new ComboItem<>("key2", "value2"),
+        var first = new PreferenceComboBox<>(StringPersistentProperty.LOCALE, appContext);
+        first.setId("first");
+        first.getItems().addAll(new ComboItem<>("key1", "value1"), new ComboItem<>("key2", "value2"),
                 new ComboItem<>("key3", "value3"));
-        Scene scene = new Scene(new HBox(victim));
+        var second = new PreferenceComboBox<>(StringPersistentProperty.PDF_VERSION, appContext);
+        second.setId("second");
+        second.getItems().addAll(new DefaultPdfVersionComboItem(PdfVersion.VERSION_1_3),
+                new DefaultPdfVersionComboItem(PdfVersion.VERSION_1_4),
+                new DefaultPdfVersionComboItem(PdfVersion.VERSION_1_5));
+        Scene scene = new Scene(new VBox(first, second));
         stage.setScene(scene);
         stage.show();
     }
 
     @Test
     @Tag("NoHeadless")
-    public void preferenceSetOnClick() {
-        robot.clickOn("#victim").clickOn("value2");
+    public void stringPreferenceSetOnClick() {
+        robot.clickOn("#first").clickOn("value2");
         verify(persistentSettings).set(eq(StringPersistentProperty.LOCALE), eq("key2"));
+    }
+
+    @Test
+    @Tag("NoHeadless")
+    public void preferenceSetOnClick() {
+        robot.clickOn("#second").clickOn(i18n().tr("Version {0}", PdfVersion.VERSION_1_4.getVersionString()));
+        verify(persistentSettings).set(eq(StringPersistentProperty.PDF_VERSION), eq(PdfVersion.VERSION_1_4.toString()));
     }
 
 }

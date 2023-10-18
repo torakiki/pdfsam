@@ -34,7 +34,7 @@ import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
  * @param <T> the type of the elements in the combo
  * @author Andrea Vacondio
  */
-public class PreferenceComboBox<T extends ComboItem<String>> extends ComboBox<T> {
+public class PreferenceComboBox<T extends ComboItem<?>> extends ComboBox<T> {
     private static final Logger LOG = LoggerFactory.getLogger(PreferenceComboBox.class);
 
     PreferenceComboBox(StringPersistentProperty property) {
@@ -44,7 +44,7 @@ public class PreferenceComboBox<T extends ComboItem<String>> extends ComboBox<T>
     PreferenceComboBox(StringPersistentProperty property, ApplicationContext context) {
         requireNotNullArg(property, "Preference cannot be null");
         valueProperty().addListener((observable, oldValue, newValue) -> {
-            context.persistentSettings().set(property, newValue.key());
+            context.persistentSettings().set(property, newValue.key().toString());
             LOG.trace("Preference {} set to {}", property, newValue.key());
         });
     }

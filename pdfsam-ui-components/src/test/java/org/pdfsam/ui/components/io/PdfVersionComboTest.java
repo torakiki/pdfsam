@@ -22,17 +22,19 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.RegisterExtension;
+import org.pdfsam.core.context.StringPersistentProperty;
 import org.pdfsam.model.ui.AddPdfVersionConstraintEvent;
 import org.pdfsam.model.ui.ChangedSelectedPdfVersionEvent;
+import org.pdfsam.model.ui.PdfVersionComboItem;
 import org.pdfsam.model.ui.RemovePdfVersionConstraintEvent;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.test.JavaFxThreadExtension;
-import org.pdfsam.ui.components.io.PdfVersionCombo.PdfVersionComboItem;
 import org.sejda.model.pdf.PdfVersion;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 /**
@@ -49,6 +51,7 @@ public class PdfVersionComboTest {
 
     @BeforeEach
     public void setUp() {
+        app().persistentSettings().set(StringPersistentProperty.PDF_VERSION, PdfVersion.VERSION_1_3.name());
         victim = new PdfVersionCombo(MODULE);
     }
 
@@ -107,7 +110,29 @@ public class PdfVersionComboTest {
         assertEquals(4, victim.getItems().size());
         victim.resetView();
         assertEquals(6, victim.getItems().size());
+    }
 
+    @Test
+    public void resetWithDefaultVersion() {
+        assertEquals(PdfVersion.VERSION_1_3, victim.getSelectionModel().getSelectedItem().getVersion());
+        app().persistentSettings().set(StringPersistentProperty.PDF_VERSION, PdfVersion.VERSION_1_7.name());
+        victim.resetView();
+        assertEquals(PdfVersion.VERSION_1_7, victim.getSelectionModel().getSelectedItem().getVersion());
+    }
+
+    @Test
+    public void sameAsSourceVersionIsSelectedIfNoDefaultPdfVersion() {
+        app().persistentSettings().clean();
+        victim.enableSameAsSourceItem();
+        assertEquals(victim.getItems().getFirst(), victim.getSelectionModel().getSelectedItem());
+    }
+
+    @Test
+    public void sameAsSourceVersionIsNotSelectedIfDefaultPdfVersion() {
+        app().persistentSettings().set(StringPersistentProperty.PDF_VERSION, PdfVersion.VERSION_1_7.name());
+        victim.resetView();
+        victim.enableSameAsSourceItem();
+        assertEquals(PdfVersion.VERSION_1_7, victim.getSelectionModel().getSelectedItem().getVersion());
     }
 
     private boolean comboHasItem(PdfVersionCombo combo, PdfVersion version) {
