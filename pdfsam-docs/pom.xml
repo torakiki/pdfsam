@@ -13,26 +13,4 @@
 	<packaging>pom</packaging>
 	<name>PDFsam docs</name>
 
-	<profiles>
-		<profile>
-			<id>basic-release</id>
-			<activation>
-				<property>
-					<name>release</name>
-				</property>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.sonatype.plugins</groupId>
-						<artifactId>nexus-staging-maven-plugin</artifactId>
-						<configuration>
-							<skipNexusStagingDeployMojo>false</skipNexusStagingDeployMojo>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
-
 </project>

@@ -130,7 +130,7 @@
                             <serverId>pdfsam-ossrh</serverId>
                             <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                             <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                            <skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
+                            <skipNexusStagingDeployMojo>false</skipNexusStagingDeployMojo>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -285,18 +285,18 @@
         <slf4j.version>2.0.9</slf4j.version>
         <commons.lang.version>3.13.0</commons.lang.version>
         <commons.io.version>2.13.0</commons.io.version>
-        <mockito.version>5.5.0</mockito.version>
+        <mockito.version>5.6.0</mockito.version>
         <tinylog.version>2.6.2</tinylog.version>
         <hibernate-validator.version>7.0.5.Final</hibernate-validator.version>
-        <sejda.version>5.0.9</sejda.version>
+        <sejda.version>5.0.11-SNAPSHOT</sejda.version>
         <sejda-io.version>4.0.0.M3</sejda-io.version>
         <sejda.commons.version>2.0.0</sejda.commons.version>
-        <eventstudio.version>3.0.4</eventstudio.version>
-        <injector.version>4.0.0</injector.version>
-        <rxjava.version>3.1.7</rxjava.version>
+        <eventstudio.version>4.0.0</eventstudio.version>
+        <injector.version>5.0.0</injector.version>
+        <rxjava.version>3.1.8</rxjava.version>
         <ikonli.version>12.3.1</ikonli.version>
         <testfx.version>4.0.17</testfx.version>
-        <jackson.version>2.15.2</jackson.version>
+        <jackson.version>2.15.3</jackson.version>
         <bouncycastle.version>1.76</bouncycastle.version>
         <assertj.version>3.24.2</assertj.version>
         <hamcrest.version>2.2</hamcrest.version>
