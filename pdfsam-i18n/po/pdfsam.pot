@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2023-08-01 18:33+0200\n"
+"POT-Creation-Date: 2023-10-20 14:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -617,12 +617,32 @@ msgstr ""
 msgid "Set the application font size"
 msgstr ""
 
+msgid "Default PDF version:"
+msgstr ""
+
+msgid "Default PDF version for generated PDF files"
+msgstr ""
+
 msgid "Manually selected"
 msgstr ""
 
 msgid ""
 "Automatically set the destination directory to the selected PDF document "
 "directory"
+msgstr ""
+
+msgid "Default prefix:"
+msgstr ""
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
+msgstr ""
+
+msgid "Some special keywords are replaced with runtime values."
+msgstr ""
+
+msgid "Right click to add these keywords."
 msgstr ""
 
 msgid "Settings"
@@ -683,6 +703,9 @@ msgid "Enabled PDF compression"
 msgstr ""
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
+msgstr ""
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
 msgstr ""
 
 msgid "Overwrite files"
@@ -812,6 +835,10 @@ msgid "This document is encrypted, click to provide a password."
 msgstr ""
 
 msgid "An error has occurred, click for more details."
+msgstr ""
+
+#, java-format
+msgid "Version {0}"
 msgstr ""
 
 msgid "Split tools"
@@ -1082,10 +1109,6 @@ msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
 msgstr ""
 
-#, java-format
-msgid "Version {0}"
-msgstr ""
-
 msgid "Same as the input document"
 msgstr ""
 
@@ -1114,19 +1137,13 @@ msgstr ""
 msgid "Add prefix"
 msgstr ""
 
-msgid "DEFAULT_PREFIX"
-msgstr ""
-
 msgid "Generated PDF documents name prefix:"
 msgstr ""
 
 msgid "Prefix for the output files name."
 msgstr ""
 
-msgid "Some special keywords are replaced with runtime values."
-msgstr ""
-
-msgid "Right click to add these keywords."
+msgid "DEFAULT_PREFIX"
 msgstr ""
 
 msgid "Run"
