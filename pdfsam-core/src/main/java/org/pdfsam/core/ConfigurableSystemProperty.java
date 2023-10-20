@@ -38,6 +38,7 @@ public class ConfigurableSystemProperty {
     public static final String PDFSAM_DISABLE_SETTINGS_DEPRECATED = "org.pdfsam.settings.panel";
     public static final String PDFSAM_DISABLE_SETTINGS = "org.pdfsam.disable.settings.panel";
     public static final String DISCARD_BOOKMARKS_PROP = "org.pdfsam.default.discard.bookmarks";
+    public static final String PREFIX_PROP = "org.pdfsam.default.prefix";
 
     private ConfigurableSystemProperty() {
         //NOOP

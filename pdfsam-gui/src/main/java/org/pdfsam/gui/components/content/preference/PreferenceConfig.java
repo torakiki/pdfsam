@@ -28,6 +28,7 @@ import org.pdfsam.model.io.FileType;
 import org.pdfsam.model.io.OpenType;
 import org.pdfsam.model.ui.ComboItem;
 import org.pdfsam.model.ui.DefaultPdfVersionComboItem;
+import org.pdfsam.ui.components.prefix.PrefixField;
 import org.pdfsam.ui.components.support.FXValidationSupport;
 import org.pdfsam.ui.components.support.Style;
 import org.sejda.model.pdf.PdfVersion;
@@ -134,8 +135,8 @@ public class PreferenceConfig {
     @Provides
     @Named("checkForUpdates")
     public PreferenceCheckBox checkForUpdates() {
-        PreferenceCheckBox checkForUpdates = new PreferenceCheckBox(CHECK_UPDATES,
-                i18n().tr("Check for updates at startup"), app().persistentSettings().get(CHECK_UPDATES));
+        var checkForUpdates = new PreferenceCheckBox(CHECK_UPDATES, i18n().tr("Check for updates at startup"),
+                app().persistentSettings().get(CHECK_UPDATES));
         checkForUpdates.setId("checkForUpdates");
         checkForUpdates.setGraphic(helpIcon(
                 i18n().tr("Set whether new version availability should be checked on startup (restart needed)")));
@@ -147,7 +148,7 @@ public class PreferenceConfig {
     @Provides
     @Named("checkForNews")
     public PreferenceCheckBox checkForNews() {
-        PreferenceCheckBox checkForNews = new PreferenceCheckBox(CHECK_FOR_NEWS, i18n().tr("Check for news at startup"),
+        var checkForNews = new PreferenceCheckBox(CHECK_FOR_NEWS, i18n().tr("Check for news at startup"),
                 app().persistentSettings().get(CHECK_FOR_NEWS));
         checkForNews.setId("checkForNews");
         checkForNews.setGraphic(helpIcon(i18n().tr(
@@ -160,8 +161,8 @@ public class PreferenceConfig {
     @Provides
     @Named("compressionEnabled")
     public PreferenceCheckBox compressionEnabled() {
-        PreferenceCheckBox compressionEnabled = new PreferenceCheckBox(PDF_COMPRESSION_ENABLED,
-                i18n().tr("Enabled PDF compression"), app().persistentSettings().get(PDF_COMPRESSION_ENABLED));
+        var compressionEnabled = new PreferenceCheckBox(PDF_COMPRESSION_ENABLED, i18n().tr("Enabled PDF compression"),
+                app().persistentSettings().get(PDF_COMPRESSION_ENABLED));
         compressionEnabled.setId("compressionEnabled");
         compressionEnabled.setGraphic(
                 helpIcon(i18n().tr("Set whether \"Compress output file\" should be enabled by default")));
@@ -173,7 +174,7 @@ public class PreferenceConfig {
     @Provides
     @Named("discardBookmarks")
     public PreferenceCheckBox discardBookmarks() {
-        PreferenceCheckBox discardBookmarks = new PreferenceCheckBox(DISCARD_BOOKMARKS, i18n().tr("Discard bookmarks"),
+        var discardBookmarks = new PreferenceCheckBox(DISCARD_BOOKMARKS, i18n().tr("Discard bookmarks"),
                 app().persistentSettings().get(DISCARD_BOOKMARKS));
         discardBookmarks.setId("discardBookmarks");
         discardBookmarks.setGraphic(
@@ -184,9 +185,15 @@ public class PreferenceConfig {
     }
 
     @Provides
+    @Named("prefixField")
+    public PrefixField prefixField() {
+        return new PreferencePrefixField();
+    }
+
+    @Provides
     @Named("overwriteOutput")
     public PreferenceCheckBox overwriteOutput() {
-        PreferenceCheckBox overwriteOutput = new PreferenceCheckBox(OVERWRITE_OUTPUT, i18n().tr("Overwrite files"),
+        var overwriteOutput = new PreferenceCheckBox(OVERWRITE_OUTPUT, i18n().tr("Overwrite files"),
                 app().persistentSettings().get(OVERWRITE_OUTPUT));
         overwriteOutput.setId("overwriteOutput");
         overwriteOutput.setGraphic(
@@ -199,7 +206,7 @@ public class PreferenceConfig {
     @Provides
     @Named("playSounds")
     public PreferenceCheckBox playSounds() {
-        PreferenceCheckBox playSounds = new PreferenceCheckBox(PLAY_SOUNDS, i18n().tr("Play alert sounds"),
+        var playSounds = new PreferenceCheckBox(PLAY_SOUNDS, i18n().tr("Play alert sounds"),
                 app().persistentSettings().get(PLAY_SOUNDS));
         playSounds.setId("playSounds");
         playSounds.setGraphic(helpIcon(i18n().tr("Turn on or off alert sounds")));
@@ -211,7 +218,7 @@ public class PreferenceConfig {
     @Provides
     @Named("savePwdInWorkspace")
     public PreferenceCheckBox savePwdInWorkspace() {
-        PreferenceCheckBox savePwdInWorkspace = new PreferenceCheckBox(SAVE_PWD_IN_WORKSPACE,
+        var savePwdInWorkspace = new PreferenceCheckBox(SAVE_PWD_IN_WORKSPACE,
                 i18n().tr("Store passwords when saving a workspace file"),
                 app().persistentSettings().get(SAVE_PWD_IN_WORKSPACE));
         savePwdInWorkspace.setId("savePwdInWorkspace");
@@ -225,8 +232,8 @@ public class PreferenceConfig {
     @Provides
     @Named("donationNotification")
     public PreferenceCheckBox donationNotification() {
-        PreferenceCheckBox donationNotification = new PreferenceCheckBox(DONATION_NOTIFICATION,
-                i18n().tr("Show donation window"), app().persistentSettings().get(DONATION_NOTIFICATION));
+        var donationNotification = new PreferenceCheckBox(DONATION_NOTIFICATION, i18n().tr("Show donation window"),
+                app().persistentSettings().get(DONATION_NOTIFICATION));
         donationNotification.setId("donationNotification");
         donationNotification.setGraphic(helpIcon(i18n().tr(
                 "Turn on or off the notification appearing once in a while and asking the user to support PDFsam with a donation")));
@@ -238,8 +245,8 @@ public class PreferenceConfig {
     @Provides
     @Named("fetchPremiumModules")
     public PreferenceCheckBox fetchPremiumModules() {
-        PreferenceCheckBox fetchPremiumModules = new PreferenceCheckBox(PREMIUM_MODULES,
-                i18n().tr("Show premium features"), app().persistentSettings().get(PREMIUM_MODULES));
+        var fetchPremiumModules = new PreferenceCheckBox(PREMIUM_MODULES, i18n().tr("Show premium features"),
+                app().persistentSettings().get(PREMIUM_MODULES));
         fetchPremiumModules.setId("fetchPremiumModules");
         fetchPremiumModules.setGraphic(helpIcon(i18n().tr(
                 "Set whether the application should fetch and show premium features description in the modules dashboard")));
@@ -251,7 +258,7 @@ public class PreferenceConfig {
     @Provides
     @Named("clearConfirmation")
     public PreferenceCheckBox clearConfirmation() {
-        PreferenceCheckBox clearConfirmation = new PreferenceCheckBox(CLEAR_CONFIRMATION,
+        var clearConfirmation = new PreferenceCheckBox(CLEAR_CONFIRMATION,
                 i18n().tr("Ask for a confirmation when clearing the selection table"),
                 app().persistentSettings().get(CLEAR_CONFIRMATION));
         clearConfirmation.setId("clearConfirmation");
@@ -265,7 +272,7 @@ public class PreferenceConfig {
     @Provides
     @Named("smartRadio")
     public PreferenceRadioButton smartRadio() {
-        PreferenceRadioButton smartRadio = new PreferenceRadioButton(SMART_OUTPUT,
+        var smartRadio = new PreferenceRadioButton(SMART_OUTPUT,
                 i18n().tr("Use the selected PDF document directory as output directory"),
                 app().persistentSettings().get(SMART_OUTPUT));
         smartRadio.setId("smartRadio");
@@ -275,7 +282,7 @@ public class PreferenceConfig {
     @Provides
     @Named("workingDirectory")
     public PreferenceBrowsableDirectoryField workingDirectory() {
-        PreferenceBrowsableDirectoryField workingDirectory = new PreferenceBrowsableDirectoryField(WORKING_PATH);
+        var workingDirectory = new PreferenceBrowsableDirectoryField(WORKING_PATH);
         workingDirectory.getTextField().setText(app().persistentSettings().get(WORKING_PATH).orElse(""));
         workingDirectory.setId("workingDirectory");
         return workingDirectory;
@@ -284,8 +291,7 @@ public class PreferenceConfig {
     @Provides
     @Named("workspace")
     public PreferenceBrowsableFileField workspace() {
-        PreferenceBrowsableFileField workspace = new PreferenceBrowsableFileField(WORKSPACE_PATH, FileType.JSON,
-                OpenType.OPEN);
+        var workspace = new PreferenceBrowsableFileField(WORKSPACE_PATH, FileType.JSON, OpenType.OPEN);
         workspace.getTextField().setText(app().persistentSettings().get(WORKSPACE_PATH).orElse(""));
         workspace.setId("workspace");
         return workspace;
@@ -294,7 +300,7 @@ public class PreferenceConfig {
     @Provides
     @Named("saveWorkspaceOnExit")
     public PreferenceCheckBox saveWorkspaceOnExit() {
-        PreferenceCheckBox saveWorkspaceOnExit = new PreferenceCheckBox(SAVE_WORKSPACE_ON_EXIT,
+        var saveWorkspaceOnExit = new PreferenceCheckBox(SAVE_WORKSPACE_ON_EXIT,
                 i18n().tr("Save default workspace on exit"), app().persistentSettings().get(SAVE_WORKSPACE_ON_EXIT));
         saveWorkspaceOnExit.setId("saveWorkspaceOnExit");
         saveWorkspaceOnExit.setGraphic(
@@ -307,8 +313,7 @@ public class PreferenceConfig {
     @Provides
     @Named("logViewRowsNumber")
     public PreferenceIntTextField logViewRowsNumber() {
-        PreferenceIntTextField logRowsNumber = new PreferenceIntTextField(LOGVIEW_ROWS_NUMBER,
-                Validators.positiveInteger());
+        var logRowsNumber = new PreferenceIntTextField(LOGVIEW_ROWS_NUMBER, Validators.positiveInteger());
         logRowsNumber.setText(Integer.toString(app().persistentSettings().get(LOGVIEW_ROWS_NUMBER)));
         logRowsNumber.setErrorMessage(i18n().tr("Maximum number of rows mast be a positive number"));
         logRowsNumber.setId("logViewRowsNumber");

@@ -38,6 +38,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -249,5 +250,17 @@ public class ApplicationPersistentSettingsTest {
     @Test
     void hasValueForNullProperty() {
         assertFalse(victim.hasValueFor(null));
+    }
+
+    @Test
+    void delete() {
+        victim.delete(StringPersistentProperty.LOCALE);
+        verify(repo).delete(StringPersistentProperty.LOCALE.key());
+    }
+
+    @Test
+    void deleteNull() {
+        victim.delete(null);
+        verify(repo, never()).delete(StringPersistentProperty.LOCALE.key());
     }
 }

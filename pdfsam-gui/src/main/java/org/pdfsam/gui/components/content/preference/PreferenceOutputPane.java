@@ -44,7 +44,8 @@ class PreferenceOutputPane extends GridPane {
             @Named("compressionEnabled") PreferenceCheckBox compressionEnabled,
             @Named("overwriteOutput") PreferenceCheckBox overwriteOutput,
             @Named("discardBookmarks") PreferenceCheckBox discardBookmarks,
-            @Named("pdfVersionCombo") PreferenceComboBox<ComboItem<PdfVersion>> pdfVersionCombo) {
+            @Named("pdfVersionCombo") PreferenceComboBox<ComboItem<PdfVersion>> pdfVersionCombo,
+            @Named("prefixField") PreferencePrefixField prefixField) {
 
         add(new Label(i18n().tr("Default PDF version:")), 0, 1);
         setFillWidth(pdfVersionCombo, true);
@@ -74,6 +75,21 @@ class PreferenceOutputPane extends GridPane {
         add(compressionEnabled, 0, 4, 3, 1);
         add(overwriteOutput, 0, 5, 3, 1);
         add(discardBookmarks, 0, 6, 3, 1);
+
+        add(new Label(i18n().tr("Default prefix:")), 0, 7);
+        setFillWidth(prefixField, true);
+        prefixField.setMaxWidth(Double.POSITIVE_INFINITY);
+        add(prefixField, 1, 7);
+        var helpIcon = helpIcon("""
+                %s.
+                %s
+                %s
+                """.formatted(
+                i18n().tr("Default prefix for output file names, used in tools that generate multiple files"),
+                i18n().tr("Some special keywords are replaced with runtime values."),
+                i18n().tr("Right click to add these keywords.")));
+        add(helpIcon, 2, 7);
+
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.GRID.css());
     }

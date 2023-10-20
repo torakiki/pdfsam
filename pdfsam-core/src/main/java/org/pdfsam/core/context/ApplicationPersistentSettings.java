@@ -146,6 +146,17 @@ public class ApplicationPersistentSettings implements AutoCloseable {
     }
 
     /**
+     * Deletes the value stored for the given property
+     *
+     * @param property
+     */
+    public void delete(PersistentProperty<?> property) {
+        if (nonNull(property)) {
+            this.repo.delete(property.key());
+        }
+    }
+
+    /**
      * @return an observable for changes to the given property
      */
     public Observable<Optional<String>> settingsChanges(StringPersistentProperty prop) {

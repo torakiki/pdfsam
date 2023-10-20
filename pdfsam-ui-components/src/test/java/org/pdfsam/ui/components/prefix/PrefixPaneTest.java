@@ -20,10 +20,12 @@ package org.pdfsam.ui.components.prefix;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.pdfsam.core.context.StringPersistentProperty;
 import org.pdfsam.core.support.params.MultipleOutputTaskParametersBuilder;
 import org.pdfsam.model.tool.TaskExecutionRequest;
 import org.pdfsam.persistence.PreferencesRepository;
@@ -39,11 +41,10 @@ import java.util.function.Consumer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 /**
@@ -67,12 +68,18 @@ public class PrefixPaneTest {
 
     @Start
     public void start(Stage stage) {
-        repository = mock(PreferencesRepository.class);
+        repository = new PreferencesRepository("/org/pdfsam/test");
         victim = new PrefixPane("module", repository);
         victim.setId("victim");
         Scene scene = new Scene(victim);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @AfterEach
+    public void tearDown() {
+        repository.clean();
+        app().persistentSettings().delete(StringPersistentProperty.PREFIX);
     }
 
     @Test
@@ -91,14 +98,14 @@ public class PrefixPaneTest {
 
     @Test
     public void saveFieldValue(FxRobot robot) {
-        robot.clickOn("PDFsam_").write("ChuckNorris");
+        robot.clickOn(p -> p instanceof PrefixField).write("ChuckNorris");
         eventStudio().broadcast(new TaskExecutionRequest("module", mock(AbstractParameters.class)));
-        verify(repository).saveString(eq("DEFAULT_PREFIX"), eq("PDFsam_ChuckNorris"));
+        assertEquals("PDFsam_ChuckNorris", repository.getString("DEFAULT_PREFIX", ""));
     }
 
     @Test
     public void restoredFieldValue() {
-        when(repository.getString("DEFAULT_PREFIX", "PDFsam_")).thenReturn("Roundkick");
+        repository.saveString("DEFAULT_PREFIX", "Roundkick");
         PrefixPane pref = new PrefixPane("module", repository);
         assertEquals("Roundkick", pref.getText());
     }
@@ -117,4 +124,21 @@ public class PrefixPaneTest {
         victim.resetView();
         assertEquals("PDFsam_", victim.getText());
     }
+
+    @Test
+    public void resetWithPersistentDefaultValue(FxRobot robot) {
+        app().persistentSettings().set(StringPersistentProperty.PREFIX, "ChuckNorris");
+        robot.clickOn(p -> p instanceof PrefixField).write("newPref");
+        victim.resetView();
+        assertEquals("ChuckNorris", victim.getText());
+    }
+
+    @Test
+    public void resetWithPersistentValue(FxRobot robot) {
+        app().persistentSettings().set(StringPersistentProperty.PREFIX, "ChuckNorris");
+        repository.saveString("DEFAULT_PREFIX", "StevenSegal");
+        victim.resetView();
+        assertEquals("StevenSegal", victim.getText());
+    }
+
 }

@@ -22,8 +22,6 @@ import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
-import org.pdfsam.model.ui.ResettableView;
-import org.sejda.commons.util.StringUtils;
 import org.sejda.model.prefix.Prefix;
 
 import static java.util.Optional.ofNullable;
@@ -36,16 +34,11 @@ import static org.sejda.commons.util.RequireUtils.requireNotBlank;
  * @author Andrea Vacondio
  * 
  */
-public class PrefixField extends TextField implements ResettableView {
+public class PrefixField extends TextField {
 
     private final Menu menu;
 
-    /**
-     * @param placeholder
-     *            default value for the text field. If null or empty a fallback is used
-     */
-    public PrefixField(String placeholder) {
-        super(ofNullable(placeholder).filter(StringUtils::isNotEmpty).orElse("PDFsam_"));
+    public PrefixField() {
         this.setPromptText(i18n().tr("Prefix for the generated files names"));
         this.menu = new Menu(i18n().tr("Add prefix"));
         this.menu.setId("addPrefixMenu");
@@ -97,10 +90,5 @@ public class PrefixField extends TextField implements ResettableView {
             this.setMnemonicParsing(false);
         }
 
-    }
-
-    @Override
-    public void resetView() {
-        this.setText("PDFsam_");
     }
 }

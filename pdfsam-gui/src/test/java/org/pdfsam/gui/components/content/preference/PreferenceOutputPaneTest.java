@@ -66,9 +66,10 @@ public class PreferenceOutputPaneTest {
         var discardBookmarks = new PreferenceCheckBox(BooleanPersistentProperty.DISCARD_BOOKMARKS, "discard", false,
                 appContext);
         discardBookmarks.setId("discardBookmarks");
-
+        var prefixField = new PreferencePrefixField();
+        prefixField.setId("prefixField");
         var victim = new PreferenceOutputPane(smartRadio, compressionEnabled, overwriteOutput, discardBookmarks,
-                pdfVersionCombo);
+                pdfVersionCombo, prefixField);
         victim.setId("victim");
         Scene scene = new Scene(new HBox(victim));
         stage.setScene(scene);

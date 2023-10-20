@@ -22,7 +22,7 @@ import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import org.apache.commons.lang3.StringUtils;
+import org.pdfsam.core.context.StringPersistentProperty;
 import org.pdfsam.core.support.params.MultipleOutputTaskParametersBuilder;
 import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.model.tool.TaskExecutionRequest;
@@ -39,6 +39,7 @@ import java.util.function.Consumer;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.i18n.I18nContext.i18n;
 import static org.pdfsam.ui.components.support.Views.helpIcon;
@@ -51,13 +52,16 @@ import static org.pdfsam.ui.components.support.Views.helpIcon;
 public class PrefixPane extends GridPane
         implements TaskParametersBuildStep<MultipleOutputTaskParametersBuilder<?>>, RestorableView, ResettableView,
         ToolBound {
-    private final PrefixField field;
 
-    private String toolBinding = StringUtils.EMPTY;
+    private final PrefixField field;
+    private final String toolBinding;
+    private final PreferencesRepository repository;
 
     public PrefixPane(String toolBinding, PreferencesRepository repository) {
         this.toolBinding = defaultString(toolBinding);
-        this.field = new PrefixField(repository.getString("DEFAULT_PREFIX", "PDFsam_"));
+        this.repository = repository;
+        this.field = new PrefixField();
+        this.initPrefixValue();
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.GRID.css());
         var label = new Label(i18n().tr("Generated PDF documents name prefix:"));
@@ -98,7 +102,12 @@ public class PrefixPane extends GridPane
 
     @Override
     public void resetView() {
-        field.resetView();
+        this.initPrefixValue();
+    }
+
+    public void initPrefixValue() {
+        field.setText(repository.getString("DEFAULT_PREFIX",
+                () -> app().persistentSettings().get(StringPersistentProperty.PREFIX).orElse("PDFsam_")));
     }
 
     @Override
