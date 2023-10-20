@@ -36,11 +36,13 @@ public class StringPersistentPropertyTest {
     @Test
     @SetSystemProperty.SetSystemProperties({
             @SetSystemProperty(key = ConfigurableSystemProperty.LOCALE_PROP, value = "es"),
-            @SetSystemProperty(key = ConfigurableSystemProperty.THEME_PROP, value = "DARK") })
+            @SetSystemProperty(key = ConfigurableSystemProperty.THEME_PROP, value = "DARK"),
+            @SetSystemProperty(key = ConfigurableSystemProperty.PREFIX_PROP, value = "prefix") })
     @DisplayName("Default value supplier from sys props")
     public void defaultValuesFromSysProp() {
         assertEquals("es", StringPersistentProperty.LOCALE.defaultSupplier().get());
         assertEquals("DARK", StringPersistentProperty.THEME.defaultSupplier().get());
+        assertEquals("prefix", StringPersistentProperty.PREFIX.defaultSupplier().get());
     }
 
     @Test
@@ -50,6 +52,7 @@ public class StringPersistentPropertyTest {
     public void defaultValuesClearedSysProp() {
         assertNull(StringPersistentProperty.LOCALE.defaultSupplier().get());
         assertNull(StringPersistentProperty.THEME.defaultSupplier().get());
+        assertEquals("PDFsam_", StringPersistentProperty.PREFIX.defaultSupplier().get());
     }
 
     @Test
