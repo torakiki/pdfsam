@@ -28,7 +28,6 @@ import org.pdfsam.model.io.FileType;
 import org.pdfsam.model.io.OpenType;
 import org.pdfsam.model.ui.ComboItem;
 import org.pdfsam.model.ui.DefaultPdfVersionComboItem;
-import org.pdfsam.ui.components.prefix.PrefixField;
 import org.pdfsam.ui.components.support.FXValidationSupport;
 import org.pdfsam.ui.components.support.Style;
 import org.sejda.model.pdf.PdfVersion;
@@ -186,7 +185,7 @@ public class PreferenceConfig {
 
     @Provides
     @Named("prefixField")
-    public PrefixField prefixField() {
+    public PreferencePrefixField prefixField() {
         return new PreferencePrefixField();
     }
 
