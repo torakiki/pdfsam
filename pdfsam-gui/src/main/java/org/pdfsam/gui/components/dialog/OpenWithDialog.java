@@ -20,6 +20,7 @@ package org.pdfsam.gui.components.dialog;
 
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -71,7 +72,6 @@ public class OpenWithDialog extends Stage {
     OpenWithDialog(Collection<Tool> tools, @Named("primaryStage") Stage stage) {
         initModality(Modality.WINDOW_MODAL);
         initStyle(StageStyle.UTILITY);
-        setResizable(false);
         setTitle(i18n().tr("Open with"));
         initOwner(stage);
 
@@ -97,6 +97,10 @@ public class OpenWithDialog extends Stage {
         setScene(scene);
         app().registerScene(scene);
         eventStudio().addAnnotatedListeners(this);
+        Platform.runLater(() -> {
+            scene.getWindow().sizeToScene();
+            setResizable(false);
+        });
         this.setOnShown(e -> requestFocus());
     }
 

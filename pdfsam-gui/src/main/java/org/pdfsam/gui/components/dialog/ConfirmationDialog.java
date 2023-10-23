@@ -18,6 +18,7 @@
  */
 package org.pdfsam.gui.components.dialog;
 
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
@@ -42,7 +43,6 @@ public class ConfirmationDialog extends Stage {
     public ConfirmationDialog(DialogStyle style, Stage owner, String positiveButtonText, String negativeButtonText) {
         initModality(Modality.WINDOW_MODAL);
         initStyle(StageStyle.UTILITY);
-        setResizable(false);
         initOwner(owner);
         this.dialogContent = new ConfirmationDialogContent(style.icon);
         VBox containerPane = new VBox();
@@ -55,6 +55,10 @@ public class ConfirmationDialog extends Stage {
         Scene scene = new Scene(containerPane);
         setScene(scene);
         app().registerScene(scene);
+        Platform.runLater(() -> {
+            scene.getWindow().sizeToScene();
+            setResizable(false);
+        });
         this.setOnShown(e -> requestFocus());
     }
 

@@ -20,6 +20,7 @@ package org.pdfsam.gui.components.dialog;
 
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
@@ -51,7 +52,6 @@ public class OverwriteConfirmationDialog extends Stage {
     public OverwriteConfirmationDialog(@Named("primaryStage") Stage stage) {
         initModality(Modality.WINDOW_MODAL);
         initStyle(StageStyle.UTILITY);
-        setResizable(false);
         initOwner(stage);
         this.dialogContent = new ConfirmationDialogContent(DialogStyle.WARNING.icon);
         VBox containerPane = new VBox();
@@ -62,6 +62,10 @@ public class OverwriteConfirmationDialog extends Stage {
         Scene scene = new Scene(containerPane);
         setScene(scene);
         app().registerScene(scene);
+        Platform.runLater(() -> {
+            scene.getWindow().sizeToScene();
+            setResizable(false);
+        });
         this.setOnShown(e -> requestFocus());
     }
 
