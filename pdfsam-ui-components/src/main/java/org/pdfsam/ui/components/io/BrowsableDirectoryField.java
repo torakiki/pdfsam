@@ -26,7 +26,6 @@ import org.pdfsam.core.io.Choosers;
 
 import java.io.File;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.function.Consumer;
@@ -67,7 +66,7 @@ public class BrowsableDirectoryField extends BrowsableField {
             var directoryChooser = Choosers.directoryChooser(getBrowseWindowTitle());
             String currentSelection = getTextField().getText();
             if (isNotBlank(currentSelection)) {
-                Path path = Paths.get(currentSelection);
+                var path = Paths.get(currentSelection);
                 if (Files.exists(path)) {
                     directoryChooser.setInitialDirectory(path);
                 }

@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.components.io;
 
+import org.pdfsam.core.context.ApplicationContext;
 import org.pdfsam.core.support.params.MultipleOutputTaskParametersBuilder;
 import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.model.ui.NonExistingOutputDirectoryEvent;
@@ -25,10 +26,11 @@ import org.pdfsam.ui.components.support.FXValidationSupport;
 import org.sejda.model.parameter.base.SingleOrMultipleOutputTaskParameters;
 
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.function.Consumer;
 
+import static org.pdfsam.core.context.ApplicationContext.app;
+import static org.pdfsam.core.context.StringPersistentProperty.WORKING_PATH;
 import static org.pdfsam.core.support.validation.Validators.and;
 import static org.pdfsam.core.support.validation.Validators.nonBlank;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
@@ -37,14 +39,18 @@ import static org.sejda.model.output.FileOrDirectoryTaskOutput.directory;
 
 /**
  * A {@link BrowsableDirectoryField} letting the user select a directory as output for a {@link MultipleOutputTaskParametersBuilder}.
- * 
- * @author Andrea Vacondio
  *
+ * @author Andrea Vacondio
  */
 public class BrowsableOutputDirectoryField extends BrowsableDirectoryField
         implements TaskParametersBuildStep<MultipleOutputTaskParametersBuilder<?>> {
 
     public BrowsableOutputDirectoryField() {
+        this(app());
+    }
+
+    BrowsableOutputDirectoryField(ApplicationContext context) {
+        context.persistentSettings().get(WORKING_PATH).ifPresent(getTextField()::setText);
         getTextField().setValidator(and(nonBlank(), v -> !Files.isRegularFile(Paths.get(v))));
     }
 
@@ -53,7 +59,7 @@ public class BrowsableOutputDirectoryField extends BrowsableDirectoryField
             Consumer<String> onError) {
         getTextField().validate();
         if (getTextField().getValidationState() == FXValidationSupport.ValidationState.VALID) {
-            Path output = Paths.get(getTextField().getText());
+            var output = Paths.get(getTextField().getText());
             if (!Files.exists(output)) {
                 eventStudio().broadcast(new NonExistingOutputDirectoryEvent(output));
             }

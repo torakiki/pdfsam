@@ -22,6 +22,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.io.TempDir;
+import org.pdfsam.core.context.ApplicationContext;
+import org.pdfsam.core.context.ApplicationPersistentSettings;
+import org.pdfsam.core.context.StringPersistentProperty;
 import org.pdfsam.core.support.params.MultipleOutputTaskParametersBuilder;
 import org.pdfsam.model.ui.NonExistingOutputDirectoryEvent;
 import org.pdfsam.test.HitTestListener;
@@ -32,6 +35,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import static org.hamcrest.Matchers.equalTo;
@@ -42,6 +46,7 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import static org.mockito.hamcrest.MockitoHamcrest.argThat;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
@@ -52,16 +57,22 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 public class BrowsableOutputDirectoryFieldTest {
     private MultipleOutputTaskParametersBuilder<? extends MultipleOutputTaskParameters> builder;
     private Consumer<String> onError;
+    private ApplicationPersistentSettings persistentSettings;
+    private ApplicationContext context;
 
     @BeforeEach
     public void setUp() {
         onError = mock(Consumer.class);
         builder = mock(MultipleOutputTaskParametersBuilder.class);
+        context = mock(ApplicationContext.class);
+        persistentSettings = mock(ApplicationPersistentSettings.class);
+        when(context.persistentSettings()).thenReturn(persistentSettings);
+        when(persistentSettings.get(StringPersistentProperty.WORKING_PATH)).thenReturn(Optional.empty());
     }
 
     @Test
     public void valid(@TempDir Path folder) throws IOException {
-        var victim = new BrowsableOutputDirectoryField();
+        var victim = new BrowsableOutputDirectoryField(context);
         var value = Files.createTempDirectory(folder, null).toFile();
         victim.getTextField().setText(value.getAbsolutePath());
         victim.apply(builder, onError);
@@ -71,7 +82,7 @@ public class BrowsableOutputDirectoryFieldTest {
 
     @Test
     public void validUTFSpecialChars(@TempDir Path folder) throws IOException {
-        BrowsableOutputDirectoryField victim = new BrowsableOutputDirectoryField();
+        var victim = new BrowsableOutputDirectoryField(context);
         File value = Files.createTempDirectory(folder, "संसकरण_test").toFile();
         victim.getTextField().setText(value.getAbsolutePath());
         victim.apply(builder, onError);
@@ -81,7 +92,7 @@ public class BrowsableOutputDirectoryFieldTest {
 
     @Test
     public void invalidBlank() {
-        BrowsableOutputDirectoryField victim = new BrowsableOutputDirectoryField();
+        var victim = new BrowsableOutputDirectoryField(context);
         victim.getTextField().setText("  ");
         victim.apply(builder, onError);
         verify(builder, never()).output(any());
@@ -90,7 +101,7 @@ public class BrowsableOutputDirectoryFieldTest {
 
     @Test
     public void invalidFile(@TempDir Path folder) throws IOException {
-        BrowsableOutputDirectoryField victim = new BrowsableOutputDirectoryField();
+        var victim = new BrowsableOutputDirectoryField(context);
         File value = Files.createTempFile(folder, null, null).toFile();
         victim.getTextField().setText(value.getAbsolutePath());
         victim.apply(builder, onError);
@@ -102,11 +113,22 @@ public class BrowsableOutputDirectoryFieldTest {
     public void validNonExisting(@TempDir Path folder) throws IOException {
         HitTestListener<NonExistingOutputDirectoryEvent> listener = new HitTestListener<>();
         eventStudio().add(NonExistingOutputDirectoryEvent.class, listener);
-        BrowsableOutputDirectoryField victim = new BrowsableOutputDirectoryField();
+        var victim = new BrowsableOutputDirectoryField(context);
         var value = Files.createTempDirectory(folder, null);
         victim.getTextField().setText(value.toAbsolutePath().toString());
         Files.delete(value);
         victim.apply(builder, onError);
         assertTrue(listener.isHit());
+    }
+
+    @Test
+    public void validDefaultWorkspace(@TempDir Path folder) throws IOException {
+        var value = Files.createTempDirectory(folder, null).toFile();
+        when(persistentSettings.get(StringPersistentProperty.WORKING_PATH)).thenReturn(
+                Optional.of(value.getAbsolutePath()));
+        var victim = new BrowsableOutputDirectoryField(context);
+        victim.apply(builder, onError);
+        verify(builder).output(argThat(hasProperty("destination", equalTo(value))));
+        verify(onError, never()).accept(anyString());
     }
 }
