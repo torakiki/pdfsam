@@ -69,7 +69,6 @@ class LogPaneToolbarTest {
 
     @Stop
     public void stop() {
-        victim.dispose();
         app().runtimeState().activeTool(null);
     }
 
