@@ -18,7 +18,6 @@ package org.pdfsam.gui.components.content.log;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import io.reactivex.rxjava3.disposables.Disposable;
 import jakarta.inject.Inject;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
@@ -40,9 +39,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
  *
  * @author Andrea Vacondio
  */
-class LogPaneToolbar extends ToolBar implements Disposable {
-
-    private Disposable closeButtonSubscription;
+class LogPaneToolbar extends ToolBar {
 
     @Inject
     public LogPaneToolbar(LogListView logView) {
@@ -53,16 +50,6 @@ class LogPaneToolbar extends ToolBar implements Disposable {
         var closeItem = new CloseButton();
         getItems().addAll(saveItem, clearItem, closeItem);
         getStyleClass().add("log-tool-bar");
-    }
-
-    @Override
-    public void dispose() {
-        closeButtonSubscription.dispose();
-    }
-
-    @Override
-    public boolean isDisposed() {
-        return closeButtonSubscription.isDisposed();
     }
 
     static class ClearButton extends Button {
@@ -87,7 +74,7 @@ class LogPaneToolbar extends ToolBar implements Disposable {
     class CloseButton extends Button {
         public CloseButton() {
             setText(i18n().tr("C_lose"));
-            closeButtonSubscription = app().runtimeState().activeTool().subscribe(t -> {
+            app().runtimeState().activeTool().subscribe(t -> {
                 Platform.runLater(() -> {
                     this.setVisible(t.isPresent());
                     t.map(Tool::id).map(SetActiveContentItemRequest::new)
