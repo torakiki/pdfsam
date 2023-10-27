@@ -21,10 +21,11 @@
 		<Property Id="PREMIUM_MODULES" Value="true" Secure="yes"/>
 		<Property Id="PDF_COMPRESSION" Value="true" Secure="yes"/>
 		<Property Id="OVERWRITE_OUTPUT" Value="false" Secure="yes"/>
+		<Property Id="PREFIX" Value="" Secure="yes"/>
 	
 	    <Icon Id="pdfsam.ico" SourceFile="$(var.ProductIcon)" />
 		<Binary Id="AddLine.dll" SourceFile="AddLine.CA.dll" />
-		<CustomAction Id="SetCustomActionDataValue" Return="check" Property="CustomActions.AddLine" Value="locale=[LOCALE_CODE];updates=[CHECK_FOR_UPDATES];sounds=[PLAY_SOUNDS];news=[CHECK_FOR_NEWS];premium=[PREMIUM_MODULES];donate=[DONATE_NOTIFICATION];folder=[APPLICATIONFOLDER];compression=[PDF_COMPRESSION];overwrite=[OVERWRITE_OUTPUT]" />
+		<CustomAction Id="SetCustomActionDataValue" Return="check" Property="CustomActions.AddLine" Value="locale=[LOCALE_CODE];updates=[CHECK_FOR_UPDATES];sounds=[PLAY_SOUNDS];news=[CHECK_FOR_NEWS];premium=[PREMIUM_MODULES];donate=[DONATE_NOTIFICATION];folder=[APPLICATIONFOLDER];compression=[PDF_COMPRESSION];overwrite=[OVERWRITE_OUTPUT];prefix=[PREFIX]" />
 		<CustomAction Id="CustomActions.AddLine" Return="check" Execute="deferred" BinaryKey="AddLine.dll" DllEntry="AddLine" Impersonate="no"/>
 		
 		<MajorUpgrade DowngradeErrorMessage="A newer version of PDFsam Basic is already installed. Setup will now exit." />
