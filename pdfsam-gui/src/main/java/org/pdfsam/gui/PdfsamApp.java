@@ -103,13 +103,12 @@ public class PdfsamApp extends Application {
         if (clean) {
             app().clean();
         }
+        app().persistentSettings().get(StringPersistentProperty.LOCALE)
+                .ifPresent(l -> eventStudio().broadcast(new SetLocaleRequest(l)));
         app().runtimeState().workingPath().subscribe(p -> p.ifPresent(path -> {
             System.setProperty("user.dir", path.toString());
             LOG.debug("user.dir set to '{}'", path);
         }));
-        app().persistentSettings().get(StringPersistentProperty.LOCALE)
-                .ifPresent(l -> eventStudio().broadcast(new SetLocaleRequest(l)));
-
         var workingPath = app().persistentSettings().get(StringPersistentProperty.WORKING_PATH)
                 .filter(StringUtils::isNotBlank).map(Paths::get).filter(Files::isDirectory).orElse(null);
         app().runtimeState().workingPath(workingPath);

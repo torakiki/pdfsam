@@ -58,7 +58,7 @@ public class ApplicationRuntimeState implements AutoCloseable {
     private final Future<Map<String, Tool>> tools;
 
     ApplicationRuntimeState() {
-        try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
+        try (var executor = Executors.newThreadPerTaskExecutor(Thread.ofVirtual().name("tools-loader-", 0).factory())) {
             this.tools = executor.submit(() -> ServiceLoader.load(Tool.class).stream().map(ServiceLoader.Provider::get)
                     .collect(toMap(Tool::id, identity())));
         }
