@@ -68,7 +68,7 @@ public class ComboItem<T> {
     }
 
     public static ComboItem<String> fromLocale(Locale locale) {
-        return new ComboItem<>(locale.toLanguageTag(), StringUtils.capitalize(locale.getDisplayName()));
+        return new ComboItem<>(locale.toLanguageTag(), StringUtils.capitalize(locale.getDisplayName(locale)));
     }
 
     /**
