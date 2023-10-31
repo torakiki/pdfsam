@@ -290,7 +290,7 @@
         <hibernate-validator.version>7.0.5.Final</hibernate-validator.version>
         <sejda.version>5.0.11</sejda.version>
         <sejda-io.version>4.0.0.M3</sejda-io.version>
-        <sejda.commons.version>2.0.0</sejda.commons.version>
+        <sejda.commons.version>3.0.0</sejda.commons.version>
         <eventstudio.version>4.0.0</eventstudio.version>
         <injector.version>5.0.0</injector.version>
         <rxjava.version>3.1.8</rxjava.version>

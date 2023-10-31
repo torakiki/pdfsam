@@ -34,14 +34,12 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * Definition of the {@link File} columns of the selection table
- * 
+ *
  * @author Andrea Vacondio
- * 
  */
 public enum FileColumn implements SelectionTableColumn<File> {
 
     NAME {
-
         @Override
         public String getColumnTitle() {
             return i18n().tr("Name");
@@ -85,7 +83,8 @@ public enum FileColumn implements SelectionTableColumn<File> {
 
         @Override
         public Comparator<File> comparator() {
-            return new NumericalSortFilenameComparator(Comparator.comparing(File::getName, Collator.getInstance()));
+            var collator = Collator.getInstance();
+            return new NumericalSortFilenameComparator(collator::compare);
         }
     }
 }
