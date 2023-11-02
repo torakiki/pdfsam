@@ -98,7 +98,7 @@ class SelectionTableToolbar extends ToolBar implements ToolBound {
             var fileChooser = Choosers.fileChooser(i18n().tr("Select pdf documents to load"), FileType.PDF);
             List<Path> chosenFiles = fileChooser.showOpenMultipleDialog(this.getScene().getWindow());
             if (chosenFiles != null && !chosenFiles.isEmpty()) {
-                PdfLoadRequest loadEvent = new PdfLoadRequest(toolBinding());
+                var loadEvent = new PdfLoadRequest(toolBinding());
                 chosenFiles.stream().map(Path::toFile).map(PdfDocumentDescriptor::newDescriptorNoPassword)
                         .forEach(loadEvent::add);
                 eventStudio().broadcast(loadEvent, toolBinding());

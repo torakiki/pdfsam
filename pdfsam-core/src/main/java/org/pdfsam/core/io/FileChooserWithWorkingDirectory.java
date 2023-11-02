@@ -86,7 +86,7 @@ public class FileChooserWithWorkingDirectory {
 
     private Path updateWorkingPath(Path path) {
         if (nonNull(path)) {
-            app().runtimeState().workingPath(path);
+            app().runtimeState().maybeWorkingPath(path);
         }
         return path;
     }

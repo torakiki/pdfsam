@@ -32,6 +32,7 @@ import java.util.function.Consumer;
 
 import static java.util.Objects.nonNull;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
@@ -67,6 +68,10 @@ public class BrowsableDirectoryField extends BrowsableField {
             String currentSelection = getTextField().getText();
             if (isNotBlank(currentSelection)) {
                 var path = Paths.get(currentSelection);
+                //if not absolute, resolve against working path
+                if (!path.isAbsolute()) {
+                    path = app().runtimeState().workingPathValue().map(w -> w.resolve(currentSelection)).orElse(path);
+                }
                 if (Files.exists(path)) {
                     directoryChooser.setInitialDirectory(path);
                 }

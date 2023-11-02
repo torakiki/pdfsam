@@ -26,6 +26,8 @@ import org.junit.jupiter.api.io.TempDir;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 
 import static java.util.Optional.empty;
@@ -46,57 +48,99 @@ public class ApplicationRuntimeStateTest {
 
     @Test
     @DisplayName("Existing working Path")
-    public void positiveWorkingPath(@TempDir Path tempDir) {
+    public void positiveMaybeWorkingPath(@TempDir Path tempDir) {
         var testListener = victim.workingPath().test();
-        victim.workingPath(tempDir);
+        victim.maybeWorkingPath(tempDir);
         testListener.assertValuesOnly(empty(), of(tempDir));
     }
 
     @Test
     @DisplayName("Existing working path as String")
-    public void positiveWorkingPathString(@TempDir Path tempDir) {
+    public void positiveMaybeWorkingPathString(@TempDir Path tempDir) {
         var testListener = victim.workingPath().test();
-        victim.workingPath(tempDir.toString());
+        victim.maybeWorkingPath(tempDir.toString());
         testListener.assertValuesOnly(empty(), of(tempDir));
     }
 
     @Test
     @DisplayName("Null working Path")
-    public void nullWorkingPath(@TempDir Path tempDir) {
+    public void nullMaybeWorkingPath(@TempDir Path tempDir) {
         var testListener = victim.workingPath().test();
-        victim.workingPath(tempDir);
-        victim.workingPath((Path) null);
+        victim.maybeWorkingPath(tempDir);
+        victim.maybeWorkingPath((Path) null);
         testListener.assertValuesOnly(empty(), of(tempDir), empty());
     }
 
     @Test
     @DisplayName("Null working path as String")
-    public void nullWorkingPathString(@TempDir Path tempDir) {
+    public void nullMaybeWorkingPathString(@TempDir Path tempDir) {
         var testListener = victim.workingPath().test();
-        victim.workingPath(tempDir);
-        victim.workingPath((String) null);
+        victim.maybeWorkingPath(tempDir);
+        victim.maybeWorkingPath((String) null);
         testListener.assertValuesOnly(empty(), of(tempDir), empty());
     }
 
     @Test
     @DisplayName("Blank working path as String")
-    public void blankWorkingPathString(@TempDir Path tempDir) {
+    public void blankMaybeWorkingPathString(@TempDir Path tempDir) {
         var testListener = victim.workingPath().test();
-        victim.workingPath(tempDir);
-        victim.workingPath("  ");
+        victim.maybeWorkingPath(tempDir);
+        victim.maybeWorkingPath("  ");
         testListener.assertValuesOnly(empty(), of(tempDir), empty());
     }
 
     @Test
     @DisplayName("File working Path")
-    public void fileWorkingPath(@TempDir Path tempDir) {
+    public void fileMaybeWorkingPath(@TempDir Path tempDir) throws IOException {
         var testListener = victim.workingPath().test();
-        victim.workingPath(tempDir);
-        victim.workingPath(tempDir.resolve("test.tmp"));
-        testListener.assertValuesOnly(empty(), of(tempDir), empty());
+        victim.maybeWorkingPath(tempDir);
+        var another = Files.createTempFile(tempDir, "test", ".tmp");
+        victim.maybeWorkingPath(another);
+        testListener.assertValuesOnly(empty(), of(tempDir), of(another.getParent()));
     }
 
+    @Test
+    @DisplayName("Default working Path")
+    public void defaultWorkingPath(@TempDir Path tempDir) {
+        var testListener = victim.workingPath().test();
+        victim.defaultWorkingPath(tempDir);
+        testListener.assertValuesOnly(empty(), of(tempDir));
+    }
 
+    @Test
+    @DisplayName("File working Path with default already set")
+    public void maybeWorkingPathWithDefault(@TempDir Path tempDir) throws IOException {
+        var testListener = victim.workingPath().test();
+        victim.defaultWorkingPath(tempDir);
+        var another = Files.createTempFile(tempDir, "test", ".tmp");
+        victim.maybeWorkingPath(another);
+        testListener.assertValuesOnly(empty(), of(tempDir));
+    }
+
+    @Test
+    @DisplayName("File working String with default already set")
+    public void maybeWorkingPathStringWithDefault(@TempDir Path tempDir) throws IOException {
+        var testListener = victim.workingPath().test();
+        victim.defaultWorkingPath(tempDir);
+        var another = Files.createTempFile(tempDir, "test", ".tmp");
+        victim.maybeWorkingPath(another.toString());
+        testListener.assertValuesOnly(empty(), of(tempDir));
+    }
+
+    @Test
+    @DisplayName("Removing default working Path")
+    public void removeWorkingPathWithDefault(@TempDir Path tempDir) throws IOException {
+        var testListener = victim.workingPath().test();
+        victim.defaultWorkingPath(tempDir);
+        var another = Files.createTempFile(tempDir, "test", ".tmp");
+        victim.maybeWorkingPath(another);
+        testListener.assertValuesOnly(empty(), of(tempDir));
+        testListener.dispose();
+        var anotherListener = victim.workingPath().test();
+        victim.defaultWorkingPath(null);
+        victim.maybeWorkingPath(another);
+        anotherListener.assertValuesOnly(of(tempDir), empty(), of(another.getParent()));
+    }
 
     @Test
     public void close() {

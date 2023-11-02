@@ -27,8 +27,11 @@ import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.parameter.base.SingleOutputTaskParameters;
 
 import java.io.File;
+import java.nio.file.Paths;
 import java.util.function.Consumer;
 
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
@@ -47,6 +50,15 @@ public class BrowsablePdfOutputField extends BrowsableFileField implements
 
     @Override
     public void apply(SingleOutputTaskParametersBuilder<?> builder, Consumer<String> onError) {
+        String output = getTextField().getText();
+        if (isNotBlank(output)) {
+            var path = Paths.get(output);
+            //if not absolute, resolve against working path
+            if (!path.isAbsolute()) {
+                getTextField().setText(
+                        app().runtimeState().workingPathValue().map(w -> w.resolve(output)).orElse(path).toString());
+            }
+        }
         getTextField().validate();
         if (getTextField().getValidationState() == FXValidationSupport.ValidationState.VALID) {
             builder.output(new FileTaskOutput(new File(getTextField().getText())));

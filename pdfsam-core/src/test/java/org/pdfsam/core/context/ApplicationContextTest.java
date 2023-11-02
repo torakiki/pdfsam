@@ -1,9 +1,16 @@
 package org.pdfsam.core.context;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 import org.pdfsam.injector.Injector;
+import org.pdfsam.persistence.PreferencesRepository;
 
+import java.nio.file.Path;
+
+import static java.util.Optional.empty;
+import static java.util.Optional.of;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -27,14 +34,28 @@ import static org.mockito.Mockito.verify;
  */
 class ApplicationContextTest {
 
-    @Test
-    void persistentSettings() {
+    private PreferencesRepository repo;
+    private ApplicationPersistentSettings persistentSettings;
+
+    @BeforeEach
+    public void setUp() {
+        repo = mock(PreferencesRepository.class);
+        persistentSettings = new ApplicationPersistentSettings(repo);
     }
 
     @Test
-    void runtimeStateIsCreated() {
-        var victim = new ApplicationContext(mock(ApplicationPersistentSettings.class), null);
+    void runtimeStateIsCreated(@TempDir Path tempDir) {
+        var victim = new ApplicationContext(persistentSettings, null);
         Assertions.assertNotNull(victim.runtimeState());
+
+    }
+
+    @Test
+    void runtimeWorkingPathIsBoundToPersistentSetting(@TempDir Path tempDir) {
+        var victim = new ApplicationContext(persistentSettings, null);
+        var testListener = victim.runtimeState().workingPath().test();
+        victim.persistentSettings().set(StringPersistentProperty.WORKING_PATH, tempDir.toString());
+        testListener.assertValuesOnly(empty(), of(tempDir));
     }
 
     @Test

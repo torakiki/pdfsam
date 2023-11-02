@@ -28,11 +28,14 @@ import org.pdfsam.injector.Key;
 import org.pdfsam.persistence.PreferencesRepository;
 
 import java.io.Closeable;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Objects;
 import java.util.Optional;
 
 import static java.util.function.Predicate.not;
 import static org.pdfsam.core.context.StringPersistentProperty.FONT_SIZE;
+import static org.pdfsam.core.context.StringPersistentProperty.WORKING_PATH;
 
 /**
  * @author Andrea Vacondio
@@ -80,6 +83,16 @@ public class ApplicationContext implements Closeable {
         synchronized (this) {
             if (Objects.isNull(this.runtimeState)) {
                 this.runtimeState = new ApplicationRuntimeState();
+                //listen for changes in the working path
+                disposable.add(this.persistentSettings().settingsChanges(WORKING_PATH).subscribe(path -> {
+                    this.runtimeState.defaultWorkingPath(
+                            path.filter(StringUtils::isNotBlank).map(Paths::get).filter(Files::isDirectory)
+                                    .orElse(null));
+                }));
+
+                var workingPath = persistentSettings().get(WORKING_PATH).filter(StringUtils::isNotBlank).map(Paths::get)
+                        .filter(Files::isDirectory).orElse(null);
+                this.runtimeState.defaultWorkingPath(workingPath);
             }
         }
         return this.runtimeState;

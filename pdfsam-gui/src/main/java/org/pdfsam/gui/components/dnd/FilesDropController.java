@@ -78,14 +78,14 @@ public class FilesDropController {
                 FileType.TXT.matches(event.files().get(0).getName()) || FileType.CSV.matches(
                         event.files().get(0).getName()))) {
             var path = event.files().get(0).toPath();
-            app().runtimeState().workingPath(path);
+            app().runtimeState().maybeWorkingPath(path);
             eventStudio().broadcast(new PdfFilesListLoadRequest(event.toolBinding(), path));
         } else {
             final var loadEvent = new PdfLoadRequest(event.toolBinding());
             getFiles(event.files()).filter(f -> FileType.PDF.matches(f.getName()))
                     .map(PdfDocumentDescriptor::newDescriptorNoPassword).forEach(loadEvent::add);
             if (!loadEvent.getDocuments().isEmpty()) {
-                app().runtimeState().workingPath(loadEvent.getDocuments().get(0).getFileName());
+                app().runtimeState().maybeWorkingPath(loadEvent.getDocuments().get(0).getFileName());
                 eventStudio().broadcast(loadEvent, event.toolBinding());
             } else {
                 eventStudio().broadcast(new AddNotificationRequest(NotificationType.WARN,

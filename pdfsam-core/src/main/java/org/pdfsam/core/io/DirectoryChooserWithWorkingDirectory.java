@@ -57,7 +57,7 @@ public class DirectoryChooserWithWorkingDirectory {
         Path selected = ofNullable(wrapped.showDialog(ownerWindow)).map(File::toPath).filter(Files::isDirectory)
                 .orElse(null);
         if (nonNull(selected)) {
-            app().runtimeState().workingPath(selected);
+            app().runtimeState().maybeWorkingPath(selected);
         }
         return selected;
     }

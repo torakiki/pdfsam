@@ -32,6 +32,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.ServiceLoader;
 import java.util.concurrent.ExecutionException;
@@ -52,6 +53,7 @@ public class ApplicationRuntimeState implements AutoCloseable {
 
     private static final Logger LOG = LoggerFactory.getLogger(ApplicationRuntimeState.class);
 
+    private Path defaultWorkingPath;
     private final BehaviorSubject<Optional<Path>> workingPath = BehaviorSubject.createDefault(empty());
     private final BehaviorSubject<Optional<Tool>> activeTool = BehaviorSubject.createDefault(empty());
     private final ReplaySubject<Theme> theme = ReplaySubject.create(1);
@@ -67,25 +69,45 @@ public class ApplicationRuntimeState implements AutoCloseable {
     /**
      * Sets the current working path for the application
      *
-     * @param path a valid path string. A blank or null or non directory value clears the current working path
-     */
-    public void workingPath(String path) {
-        this.workingPath(ofNullable(path).filter(StringUtils::isNotBlank).map(Paths::get).orElse(null));
-
-    }
-
-    /**
-     * Sets the current working path for the application
-     *
      * @param path the current working directory or the parent in case of regular file. A null value clears the current working path
      */
-    public void workingPath(Path path) {
+    void workingPath(Path path) {
         workingPath.onNext(ofNullable(path).map(p -> {
             if (Files.isRegularFile(p)) {
                 return p.getParent();
             }
             return p;
         }).filter(Files::isDirectory));
+    }
+
+    /**
+     * Sets the current working path for the application unless there is a default one already set.
+     * This method does nothing in case there is a user defined default working path.
+     *
+     * @param path a valid path string. A blank or null or non directory value clears the current working path
+     */
+    public void maybeWorkingPath(String path) {
+        this.maybeWorkingPath(ofNullable(path).filter(StringUtils::isNotBlank).map(Paths::get).orElse(null));
+    }
+
+    /**
+     * Sets the current working path for the application unless there is a default one already set.
+     * This method does nothing in case there is a user defined default working path.
+     *
+     * @param path the current working directory or the parent in case of regular file. A null value clears the current working path
+     * @see #workingPath(Path)
+     */
+    public void maybeWorkingPath(Path path) {
+        if (Objects.isNull(defaultWorkingPath)) {
+            workingPath(path);
+        }
+    }
+
+    /**
+     * @return the current workingPath value
+     */
+    public Optional<Path> workingPathValue() {
+        return workingPath.getValue();
     }
 
     public Observable<Optional<Path>> workingPath() {
@@ -134,6 +156,11 @@ public class ApplicationRuntimeState implements AutoCloseable {
      */
     public void theme(Theme theme) {
         ofNullable(theme).ifPresent(this.theme::onNext);
+    }
+
+    void defaultWorkingPath(Path defaultWorkingPath) {
+        this.defaultWorkingPath = defaultWorkingPath;
+        workingPath(defaultWorkingPath);
     }
 
     @Override
