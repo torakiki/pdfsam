@@ -21,7 +21,7 @@
 		<Property Id="PREMIUM_MODULES" Value="true" Secure="yes"/>
 		<Property Id="PDF_COMPRESSION" Value="true" Secure="yes"/>
 		<Property Id="OVERWRITE_OUTPUT" Value="false" Secure="yes"/>
-		<Property Id="PREFIX" Value="" Secure="yes"/>
+		<Property Id="PREFIX" Secure="yes"/>
 	
 	    <Icon Id="pdfsam.ico" SourceFile="$(var.ProductIcon)" />
 		<Binary Id="AddLine.dll" SourceFile="AddLine.CA.dll" />

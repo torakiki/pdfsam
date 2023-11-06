@@ -30,17 +30,21 @@ using System.IO;
                     session.Log("Added -Dorg.pdfsam.default.compression=" + session.CustomActionData["compression"]);
                     File.AppendAllText(path, "java-options=-Dorg.pdfsam.default.output.overwrite=" + session.CustomActionData["overwrite"] + Environment.NewLine);
                     session.Log("Added -Dorg.pdfsam.default.output.overwrite=" + session.CustomActionData["overwrite"]);
-                    string prefix = session["PREFIX"];
-                    if (!string.IsNullOrEmpty(prefix))
-                    {
-                        File.AppendAllText(path, "java-options=-Dorg.pdfsam.default.prefix=\"" + prefix + "\"" + Environment.NewLine);
-                        session.Log("Added -Dorg.pdfsam.default.prefix=" + prefix);
+                    if (session.CustomActionData.ContainsKey("prefix")) { 
+                        string prefix = session.CustomActionData["prefix"];
+                        if (!string.IsNullOrEmpty(prefix))
+                        {
+                            File.AppendAllText(path, "java-options=-Dorg.pdfsam.default.prefix=" + prefix + Environment.NewLine);
+                            session.Log("Added -Dorg.pdfsam.default.prefix=" + prefix);
+                        }
                     }
-                }else   
+            }
+            else   
                 {
                     session.Log("Unable to find config file");
                 }
-	      }catch (Exception){
+	      }catch (Exception e){
+                session.Log($"Exception: {e.Message}");
 		        return ActionResult.Failure;
 	      }
 	      return ActionResult.Success;
