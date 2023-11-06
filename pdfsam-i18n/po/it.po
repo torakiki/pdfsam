@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-04-26 12:14+0200\n"
-"PO-Revision-Date: 2023-08-02 14:03+0000\n"
+"POT-Creation-Date: 2023-10-26 11:54+0200\n"
+"PO-Revision-Date: 2023-10-26 09:56+0000\n"
 "Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-08-02 14:04+0000\n"
-"X-Generator: Launchpad (build d80dbb5bdc9110f3a64cc968928033472d5e0509)\n"
+"X-Launchpad-Export-Date: 2023-11-06 11:08+0000\n"
+"X-Generator: Launchpad (build f1e537f62ee3967c2b3f24dd10eacf1696334fe6)\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Language: it\n"
 
@@ -677,6 +677,12 @@ msgstr "Dimensioni dei caratteri:"
 msgid "Set the application font size"
 msgstr "Imposta la dimensione del carattere dell'applicazione"
 
+msgid "Default PDF version:"
+msgstr "Versione PDF predefinita:"
+
+msgid "Default PDF version for generated PDF files"
+msgstr "Versione PDF predefinita per i file PDF generati"
+
 msgid "Manually selected"
 msgstr "Selezionato manualmente"
 
@@ -686,6 +692,22 @@ msgid ""
 msgstr ""
 "Imposta automaticamente la cartella di destinazione uguale alla cartella del "
 "documento PDF selezionato"
+
+msgid "Default prefix:"
+msgstr "Prefisso predefinito:"
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
+msgstr ""
+"Prefisso predefinito per i nomi dei file di output, utilizzato negli "
+"strumenti che generano più file"
+
+msgid "Some special keywords are replaced with runtime values."
+msgstr "Alcune parole chiave sono state sostituite con valori di variabili."
+
+msgid "Right click to add these keywords."
+msgstr "Tasto destro per aggiungere queste parole chiave."
 
 msgid "Settings"
 msgstr "Impostazioni"
@@ -756,6 +778,11 @@ msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
 "Imposta se \"Comprimi file destinazione\" deve essere abilitato come "
 "impostazione predefinita"
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
+msgstr ""
+"Imposta se \"Elimina segnalibri\" deve essere abilitato per impostazione "
+"predefinita"
 
 msgid "Overwrite files"
 msgstr "Sovrascrivi file"
@@ -904,6 +931,10 @@ msgid "An error has occurred, click for more details."
 msgstr ""
 "Si è verificato un errore.\n"
 "Per maggiori dettagli seleziona."
+
+#, java-format
+msgid "Version {0}"
+msgstr "Versione {0}"
 
 msgid "Split tools"
 msgstr "Strumenti di divisione"
@@ -1210,10 +1241,6 @@ msgstr ""
 "Se vuoi sovrascrivere i file di destinazione nel caso esistano già spunta il "
 "riquadro."
 
-#, java-format
-msgid "Version {0}"
-msgstr "Versione {0}"
-
 msgid "Same as the input document"
 msgstr "Lo stesso del documento sorgente"
 
@@ -1266,20 +1293,14 @@ msgstr "Prefisso nomi file generati"
 msgid "Add prefix"
 msgstr "Aggiungi prefisso"
 
-msgid "DEFAULT_PREFIX"
-msgstr "DEFAULT_PREFIX"
-
 msgid "Generated PDF documents name prefix:"
 msgstr "Prefisso nome documenti PDF generati:"
 
 msgid "Prefix for the output files name."
 msgstr "Prefisso nome file generati."
 
-msgid "Some special keywords are replaced with runtime values."
-msgstr "Alcune parole chiave sono state sostituite con valori di variabili."
-
-msgid "Right click to add these keywords."
-msgstr "Tasto destro per aggiungere queste parole chiave."
+msgid "DEFAULT_PREFIX"
+msgstr "DEFAULT_PREFIX"
 
 # F:\workspace_pdfsame_enanched\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:532
 # F:\workspace_pdfsame_enanched\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:403

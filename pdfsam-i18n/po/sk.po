@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2023-01-31 17:22+0000\n"
+"POT-Creation-Date: 2023-10-26 11:54+0200\n"
+"PO-Revision-Date: 2023-08-22 10:34+0000\n"
 "Last-Translator: Marcel Lipovsky <Unknown>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-01-31 23:08+0000\n"
-"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
+"X-Launchpad-Export-Date: 2023-11-06 11:08+0000\n"
+"X-Generator: Launchpad (build f1e537f62ee3967c2b3f24dd10eacf1696334fe6)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Nebol vybraný žiadny PDF dokument"
@@ -324,8 +324,8 @@ msgstr "Nastavte, či sa má do generovaného dokumentu PDF pridať aj obsah"
 msgid "Merge"
 msgstr "Zlúčiť"
 
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "Zlúčiť viacero PDF dokumentov alebo ich podsekcií."
+msgid "Merge multiple PDF documents or subsections of them."
+msgstr "Zlúčiť viacero PDF dokumentov alebo ich podsekcií"
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr ""
@@ -648,6 +648,12 @@ msgstr "Veľkosť písma:"
 msgid "Set the application font size"
 msgstr "Nastavte veľkosť písma aplikácie"
 
+msgid "Default PDF version:"
+msgstr ""
+
+msgid "Default PDF version for generated PDF files"
+msgstr ""
+
 msgid "Manually selected"
 msgstr "Manuálne zvolené"
 
@@ -657,6 +663,21 @@ msgid ""
 msgstr ""
 "Automaticky nastavovať cieľový priečinok podľa  aktuálne vybraného priečinku "
 "pre PDF dokument"
+
+msgid "Default prefix:"
+msgstr ""
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
+msgstr ""
+
+msgid "Some special keywords are replaced with runtime values."
+msgstr ""
+"Niektoré špeciálne kľúčové slová sú nahradené hodnotami generovanými za behu."
+
+msgid "Right click to add these keywords."
+msgstr "Tieto kľúčové slová pridáte kliknutím pravým tlačidlom myši."
 
 msgid "Settings"
 msgstr "Nastavenia"
@@ -723,6 +744,9 @@ msgstr "Zapnutá PDF kompresia"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr "Zvoľte predvolené nastavenie pre kompreciu výstupného súboru."
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
+msgstr ""
 
 msgid "Overwrite files"
 msgstr "Prepísať súbory"
@@ -863,6 +887,10 @@ msgstr "Tento dokument je šifrovaný, kliknutím zadáte heslo."
 msgid "An error has occurred, click for more details."
 msgstr "Vyskytla sa chyba a kliknite na viac informácií."
 
+#, java-format
+msgid "Version {0}"
+msgstr "Verzia {0}"
+
 msgid "Split tools"
 msgstr "Nástroje pre delenie"
 
@@ -934,12 +962,17 @@ msgstr "Pracovný priestor nebolo možné uložiť do {0}"
 msgid "Loading workspace from {0}"
 msgstr "Načítanie pracovného priestoru z {0}"
 
-msgid "Workspace loaded"
-msgstr "Pracovný priestor bol načítaný"
+#, java-format
+msgid "Workspace loaded: {0}"
+msgstr "Načítaný pracovný priestor:  {0}"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
 msgstr "Pracovný priestor z {0} nebolo možné načítať"
+
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
+msgstr "\"Súbor už existoval a bol preskočený: {0}\""
 
 msgid "Light with blue"
 msgstr "Svetlá s modrou"
@@ -965,8 +998,8 @@ msgstr "Zvoľte PDF súbor"
 msgid "_Select PDF"
 msgstr "Zvoľte PDF"
 
-msgid "Clear all settings"
-msgstr "Vymazať všetky nastavenia"
+msgid "C_lear all settings"
+msgstr "_Vymazať všetky nastavenia"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -1057,9 +1090,6 @@ msgstr "Odst_rániť"
 msgid "Removes every document"
 msgstr "Odstráni všetky dokumenty"
 
-msgid "C_lear all settings"
-msgstr "_Vymazať všetky nastavenia"
-
 msgid "Moves up selected documents"
 msgstr "Presúva vybrané dokumenty hore"
 
@@ -1136,10 +1166,6 @@ msgid ""
 msgstr ""
 "Začiarknite políčko, ak chcete prepísať už existujúce výstupné súbory."
 
-#, java-format
-msgid "Version {0}"
-msgstr "Verzia {0}"
-
 msgid "Same as the input document"
 msgstr "Rovnaký ako vstupný dokument"
 
@@ -1168,21 +1194,14 @@ msgstr "Predpona generovaných názvov súborov"
 msgid "Add prefix"
 msgstr "Pridať predponu"
 
-msgid "DEFAULT_PREFIX"
-msgstr "Východzia predpona"
-
 msgid "Generated PDF documents name prefix:"
 msgstr "Predpona názvu generovaných PDF dokumentov:"
 
 msgid "Prefix for the output files name."
 msgstr "Predpona názvu výstupného súboru:"
 
-msgid "Some special keywords are replaced with runtime values."
-msgstr ""
-"Niektoré špeciálne kľúčové slová sú nahradené hodnotami generovanými za behu."
-
-msgid "Right click to add these keywords."
-msgstr "Tieto kľúčové slová pridáte kliknutím pravým tlačidlom myši."
+msgid "DEFAULT_PREFIX"
+msgstr "Východzia predpona"
 
 msgid "Run"
 msgstr "Spustiť"

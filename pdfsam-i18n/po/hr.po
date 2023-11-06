@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2022-11-30 18:18+0000\n"
-"Last-Translator: Milo Ivir <Unknown>\n"
+"POT-Creation-Date: 2023-10-26 11:54+0200\n"
+"PO-Revision-Date: 2023-09-06 14:35+0000\n"
+"Last-Translator: Marko Puškarić <Unknown>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
+"X-Launchpad-Export-Date: 2023-11-06 11:08+0000\n"
+"X-Generator: Launchpad (build f1e537f62ee3967c2b3f24dd10eacf1696334fe6)\n"
 "Language: hr\n"
 
 msgid "No PDF document has been selected"
@@ -29,7 +29,7 @@ msgid "Extract pages from PDF documents."
 msgstr "Izdvoji stranice iz PDF dokumenata."
 
 msgid "File names settings"
-msgstr "Postavke imena datoteka"
+msgstr "Postavke naziva datoteka"
 
 msgid "Extract settings"
 msgstr "Postavke izdvajanja"
@@ -257,18 +257,20 @@ msgid "None"
 msgstr "Ništa"
 
 msgid "Same width as first page"
-msgstr ""
+msgstr "Iste širine kao prva stranica"
 
 msgid "Same width as first page (based on page orientation)"
-msgstr ""
+msgstr "Iste širine kao prva stranica (na temelju orijentacije stranice)"
 
 msgid "Pages normalization:"
-msgstr ""
+msgstr "Normalizacija stranica:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
 "one"
 msgstr ""
+"Postavi hoće li se veličine stranica mijenjati tako da sve imaju istu širinu "
+"kao prva"
 
 msgid "Merge fields"
 msgstr "Sjedini polja"
@@ -277,7 +279,7 @@ msgid "Merge renaming existing fields"
 msgstr "Sjedini preimenovanjem postojećih polja"
 
 msgid "Flatten"
-msgstr "Pretvori u slike"
+msgstr "Spljošti"
 
 msgid "Discard forms"
 msgstr "Odbaci obrasce"
@@ -325,8 +327,8 @@ msgstr "Postavi, ako stvorenom PDF dokumentu želiš dodati kazalo"
 msgid "Merge"
 msgstr "Sjedini"
 
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "Sjedini PDF dokumenate ili njihove dijelove."
+msgid "Merge multiple PDF documents or subsections of them."
+msgstr "Spojite više PDF dokumenata ili njihovih podsekcija."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr "Odaberi ili povuci i ispusti PDF čije će se stranice ponavljati"
@@ -395,7 +397,7 @@ msgid "Tools"
 msgstr "Alati"
 
 msgid "News"
-msgstr ""
+msgstr "Novosti"
 
 msgid "What's new"
 msgstr "Što je novo"
@@ -404,13 +406,13 @@ msgid "Exit"
 msgstr "Izlaz"
 
 msgid "Exit the application"
-msgstr ""
+msgstr "Izađi iz aplikacije"
 
 msgid "Workspace"
 msgstr "Radni prostor"
 
 msgid "Manage your workspaces"
-msgstr ""
+msgstr "Upravljaj svojim radnim prostorima"
 
 msgid "Yes"
 msgstr "Da"
@@ -422,7 +424,7 @@ msgid "Confirm clearing"
 msgstr "Potvrdi brisanje"
 
 msgid "Do you confirm?"
-msgstr "Potvrđuješ?"
+msgstr "Potvrđuješ li?"
 
 msgid "Clear the tool settings"
 msgstr "Izbriši postavke alata"
@@ -499,7 +501,7 @@ msgstr ""
 "Rezultirajuće PDF datoteke možda neće biti potupne. Svejedno nastaviti?"
 
 msgid "Removes all the log messages"
-msgstr ""
+msgstr "Uklanja sve poruke dnevnika"
 
 msgid "_Clear"
 msgstr "_Izbriši"
@@ -508,7 +510,7 @@ msgid "_Save"
 msgstr "_Spremi"
 
 msgid "C_lose"
-msgstr ""
+msgstr "_Zatvori"
 
 msgid "Copy"
 msgstr "Kopiraj"
@@ -526,7 +528,7 @@ msgid "Select where to save the log file"
 msgstr "Odaberi mjesto za spremanje datoteke dnevnika"
 
 msgid "Logs"
-msgstr ""
+msgstr "Dnevnici"
 
 msgid "Application messages"
 msgstr "Poruke programa"
@@ -609,7 +611,7 @@ msgid "About"
 msgstr "O programu"
 
 msgid "Home"
-msgstr ""
+msgstr "Naslovnica"
 
 msgid "Premium features"
 msgstr "Premium funkcije"
@@ -641,9 +643,15 @@ msgid "Set the application theme"
 msgstr "Postavi temu programa"
 
 msgid "Font size:"
-msgstr ""
+msgstr "Veličina fonta:"
 
 msgid "Set the application font size"
+msgstr "Postavi veličinu fonta aplikacije"
+
+msgid "Default PDF version:"
+msgstr ""
+
+msgid "Default PDF version for generated PDF files"
 msgstr ""
 
 msgid "Manually selected"
@@ -653,6 +661,20 @@ msgid ""
 "Automatically set the destination directory to the selected PDF document "
 "directory"
 msgstr "Automatski postavi odredišnu mapu na mapu odabranog PDF dokumenta"
+
+msgid "Default prefix:"
+msgstr ""
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
+msgstr ""
+
+msgid "Some special keywords are replaced with runtime values."
+msgstr "Neke ključne riječi zamijenjene su s vrijednostima izvođenja."
+
+msgid "Right click to add these keywords."
+msgstr "Pritisni desnu tipku miša za dodavanje ovih ključnih riječi."
 
 msgid "Settings"
 msgstr "Postavke"
@@ -693,7 +715,7 @@ msgid "Load default workspace at startup:"
 msgstr "Učitaj standardni radni prostor prilikom pokretanja programa:"
 
 msgid "System default"
-msgstr ""
+msgstr "Zadano sustavom"
 
 msgid "Check for updates at startup"
 msgstr "Traži novu verziju prilikom pokretanja programa"
@@ -720,6 +742,9 @@ msgstr "Aktiviraj PDF komprimiranje"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr "Da li standardno aktivirati opciju „Komprimiraj datoteku rezultata”"
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
+msgstr ""
 
 msgid "Overwrite files"
 msgstr "Prepiši datoteke"
@@ -797,7 +822,7 @@ msgid "Show errors"
 msgstr "Prikaži greške"
 
 msgid "Input parameters are invalid"
-msgstr ""
+msgstr "Ulazni parametri su nevaljani"
 
 msgid "Invalid parameters"
 msgstr "Neispravni parametri"
@@ -857,6 +882,10 @@ msgstr "Ovaj je dokument šifriran. Pritisni za upis lozinke."
 
 msgid "An error has occurred, click for more details."
 msgstr "Došlo je do greške. Pritisni za pojedinosti."
+
+#, java-format
+msgid "Version {0}"
+msgstr "Verzija {0}"
 
 msgid "Split tools"
 msgstr "Alati za razdvajanje"
@@ -929,12 +958,17 @@ msgstr "Nije moguće spremiti radni prostor u {0}"
 msgid "Loading workspace from {0}"
 msgstr "Učitavanje radnog prostora iz {0}"
 
-msgid "Workspace loaded"
-msgstr "Radni prostor je učitan"
+#, java-format
+msgid "Workspace loaded: {0}"
+msgstr "Učitani radni prostor: {0}"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
 msgstr "Nije moguće učitati radni prostor iz {0}"
+
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
+msgstr "Sljedeća datoteka je već postojala i preskočena je: {0}"
 
 msgid "Light with blue"
 msgstr "Svijetla s plavom"
@@ -946,7 +980,7 @@ msgid "Dark with teal"
 msgstr "Tamna s plavozelenom"
 
 msgid "Light with maroon"
-msgstr ""
+msgstr "Svijetla s kestenjastom"
 
 msgid "Close"
 msgstr "Zatvori"
@@ -960,8 +994,8 @@ msgstr "Odaberi PDF datoteku"
 msgid "_Select PDF"
 msgstr "_Odaberi PDF"
 
-msgid "Clear all settings"
-msgstr "Izbriši sve postavke"
+msgid "C_lear all settings"
+msgstr "_Izbriši sve postavke"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -1010,10 +1044,10 @@ msgid "Duplicate"
 msgstr "Dupliciraj"
 
 msgid "Selected pages"
-msgstr ""
+msgstr "Odabrane stranice"
 
 msgid "Total number of selected pages"
-msgstr ""
+msgstr "Ukupan broj odabranih stranica"
 
 msgid "Size"
 msgstr "Veličina"
@@ -1023,7 +1057,7 @@ msgstr "Promijenjeno"
 
 #, java-format
 msgid "Total pages: {0}"
-msgstr ""
+msgstr "Ukupno stranica: {0}"
 
 msgid "Name"
 msgstr "Ime"
@@ -1051,9 +1085,6 @@ msgstr "_Ukloni"
 
 msgid "Removes every document"
 msgstr "Uklanja svaki dokument"
-
-msgid "C_lear all settings"
-msgstr "_Izbriši sve postavke"
 
 msgid "Moves up selected documents"
 msgstr "Premješta odabrane dokumente prema gore"
@@ -1084,7 +1115,7 @@ msgid "Pages"
 msgstr "Stranice"
 
 msgid "Number of total pages of the document"
-msgstr ""
+msgstr "Ukupni broj stranica dokumenta"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -1129,10 +1160,6 @@ msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
 msgstr "Označi kvadratić, ako želiš prepisati postojeće datoteke rezultata."
 
-#, java-format
-msgid "Version {0}"
-msgstr "Verzija {0}"
-
 msgid "Same as the input document"
 msgstr "Jednaka kao dokument unosa"
 
@@ -1161,32 +1188,26 @@ msgstr "Prefiks za imena stvorenih datoteka"
 msgid "Add prefix"
 msgstr "Dodaj prefiks"
 
-msgid "DEFAULT_PREFIX"
-msgstr ""
-
 msgid "Generated PDF documents name prefix:"
 msgstr "Prefiks imena stvorenih PDF datoteka:"
 
 msgid "Prefix for the output files name."
 msgstr "Prefiks za imena datoteka rezultata."
 
-msgid "Some special keywords are replaced with runtime values."
-msgstr "Neke ključne riječi zamijenjene su s vrijednostima izvođenja."
-
-msgid "Right click to add these keywords."
-msgstr "Pritisni desnu tipku miša za dodavanje ovih ključnih riječi."
+msgid "DEFAULT_PREFIX"
+msgstr ""
 
 msgid "Run"
 msgstr "Pokreni"
 
 msgid "Run the task"
-msgstr ""
+msgstr "Pokreni zadatak"
 
 msgid "Requested"
 msgstr "Zatraženo"
 
 msgid "Completed"
-msgstr "Završeno"
+msgstr "Dovršeno"
 
 msgid "Failed"
 msgstr "Neuspjelo"
@@ -1199,7 +1220,7 @@ msgid "Running {0}%"
 msgstr "{0} % obavljeno"
 
 msgid "Error saving log file."
-msgstr "Greška tijekom spremanja dateteke dnevnika."
+msgstr "Greška pri spremanju dateteke dnevnika."
 
 #, java-format
 msgid "File {0} saved."

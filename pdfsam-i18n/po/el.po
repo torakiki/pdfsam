@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-04-26 12:14+0200\n"
-"PO-Revision-Date: 2023-05-30 18:34+0000\n"
+"POT-Creation-Date: 2023-10-26 11:54+0200\n"
+"PO-Revision-Date: 2023-11-02 23:14+0000\n"
 "Last-Translator: Μάριος Μπαλασόπουλος <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-08-02 14:04+0000\n"
-"X-Generator: Launchpad (build d80dbb5bdc9110f3a64cc968928033472d5e0509)\n"
+"X-Launchpad-Export-Date: 2023-11-06 11:08+0000\n"
+"X-Generator: Launchpad (build f1e537f62ee3967c2b3f24dd10eacf1696334fe6)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Δεν έχει επιλεγεί κάποιο έγγραφο PDF"
@@ -682,6 +682,12 @@ msgstr "Μέγεθος γραμματοσειράς:"
 msgid "Set the application font size"
 msgstr "Ορίστε το μέγεθος της γραμματοσειράς της εφαρμογής"
 
+msgid "Default PDF version:"
+msgstr "Προεπιλεγμένη έκδοση PDF:"
+
+msgid "Default PDF version for generated PDF files"
+msgstr "Προεπιλεγμένη έκδοση PDF για δημιουργημένα αρχεία PDF"
+
 msgid "Manually selected"
 msgstr "Χειροκίνητη επιλογή"
 
@@ -691,6 +697,22 @@ msgid ""
 msgstr ""
 "Αυτόματα όρισε τον κατάλογο προορισμού στον επιλεγμένο κατάλογο των αρχείων "
 "PDF"
+
+msgid "Default prefix:"
+msgstr "Προεπιλεγμένο πρόθεμα:"
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
+msgstr ""
+"Προεπιλεγμένο πρόθεμα για ονόματα εξαγόμενων αρχείων, χρησιμοποιείται στα "
+"εργαλεία που δημιουργούν πολλαπλά αρχεία"
+
+msgid "Some special keywords are replaced with runtime values."
+msgstr "Μερικοί ειδικοί χαρακτήρες αντικαθίστανται με τιμές εκτέλεσης."
+
+msgid "Right click to add these keywords."
+msgstr "Κάντε δεξί κλικ για να προσθέσετε αυτές τις λέξεις-κλειδιά."
 
 msgid "Settings"
 msgstr "Ρυθμίσεις"
@@ -760,6 +782,11 @@ msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
 "Ορίστε εάν η \"Συμπίεση αρχείου εξόδου\" θα πρέπει να είναι ενεργοποιημένη "
 "από προεπιλογή"
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
+msgstr ""
+"Επιλέξτε αν η \"Απόρριψη Σελιδοδεικτών\" πρέπει να είναι ενεργή από "
+"προεπιλογή"
 
 msgid "Overwrite files"
 msgstr "Αντικατάσταση αρχείων"
@@ -906,6 +933,10 @@ msgstr ""
 msgid "An error has occurred, click for more details."
 msgstr ""
 "Κάποιο σφάλμα παρουσιάστηκε, κάντε κλικ για περισσότερες λεπτομέρειες."
+
+#, java-format
+msgid "Version {0}"
+msgstr "Έκδοση {0}"
 
 msgid "Split tools"
 msgstr "Εργαλεία διαχωρισμού"
@@ -1208,10 +1239,6 @@ msgstr ""
 "Τσεκάρετε το κουτί αν επιθυμείτε να γίνει επανεγγραφή των αρχείων που "
 "εξάγετε σε περίπτωση που ήδη υπάρχουν."
 
-#, java-format
-msgid "Version {0}"
-msgstr "Έκδοση {0}"
-
 msgid "Same as the input document"
 msgstr "Το ίδιο όπως και το έγγραφο εισόδου"
 
@@ -1255,20 +1282,14 @@ msgstr "Πρόθεμα για τα παραγόμενα ονόματα αρχε�
 msgid "Add prefix"
 msgstr "Προσθήκη προθέματος"
 
-msgid "DEFAULT_PREFIX"
-msgstr "ΠΡΟΕΠΙΛΕΓΜΕΝΟ_ΠΡΟΘΕΜΑ"
-
 msgid "Generated PDF documents name prefix:"
 msgstr "Πρόθεμα ονόματος των παραγόμενων εγγράφων PDF:"
 
 msgid "Prefix for the output files name."
 msgstr "Πρόθεμα για τα εξαγόμενα ονόματα αρχείων."
 
-msgid "Some special keywords are replaced with runtime values."
-msgstr "Μερικοί ειδικοί χαρακτήρες αντικαθίστανται με τιμές εκτέλεσης."
-
-msgid "Right click to add these keywords."
-msgstr "Κάντε δεξί κλικ για να προσθέσετε αυτές τις λέξεις-κλειδιά."
+msgid "DEFAULT_PREFIX"
+msgstr "ΠΡΟΕΠΙΛΕΓΜΕΝΟ_ΠΡΟΘΕΜΑ"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:542
 # F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:462

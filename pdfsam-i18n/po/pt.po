@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2023-04-22 13:28+0000\n"
-"Last-Translator: Rita Severino <Unknown>\n"
+"POT-Creation-Date: 2023-10-26 11:54+0200\n"
+"PO-Revision-Date: 2023-10-07 17:29+0000\n"
+"Last-Translator: Sérgio Marques <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-04-26 08:32+0000\n"
-"X-Generator: Launchpad (build 90e2150bef31b411d7bae5c4032c7e320fcaaec8)\n"
+"X-Launchpad-Export-Date: 2023-11-06 11:08+0000\n"
+"X-Generator: Launchpad (build f1e537f62ee3967c2b3f24dd10eacf1696334fe6)\n"
 "Language: pt\n"
 
 msgid "No PDF document has been selected"
@@ -25,7 +25,7 @@ msgid "Extract"
 msgstr "Extrair"
 
 msgid "Extract pages from PDF documents."
-msgstr "Extrair páginas de documentos PDF."
+msgstr "Extrair páginas de documentos PDF"
 
 msgid "File names settings"
 msgstr "Definições de nome"
@@ -37,11 +37,10 @@ msgid "Output settings"
 msgstr "Definições de saída"
 
 msgid "A separate file for each set of pages"
-msgstr "Um ficheiro em separado para cada conjunto de páginas"
+msgstr "Um ficheiro distinto para cada conjunto de páginas"
 
 msgid "Each continuous series of pages will generate a separate PDF file"
-msgstr ""
-"Cada conjunto contínuo de páginas irá gerar um ficheiro PDF em separado"
+msgstr "Cada conjunto contínuo de páginas irá gerar um ficheiro PDF distinto"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Páginas a extrair (ex: 2 ou 5-23 ou 2,5-7,12-)"
@@ -65,13 +64,13 @@ msgstr "Separar por marcadores"
 msgid ""
 "Split a PDF document at bookmarked pages by specifying a bookmark level."
 msgstr ""
-"Separar um documento PDF nas páginas com marcador, especificando o seu nível."
+"Separar um documento PDF nas páginas com marcador, especificando o seu nível"
 
 msgid "Regular expression the bookmark has to match"
 msgstr "A expressão regular a que o marcador deve corresponder"
 
 msgid "Split at this bookmark level:"
-msgstr "Separar neste nível de marcadores:"
+msgstr "Separar neste nível de marcador:"
 
 msgid "Matching regular expression:"
 msgstr "Expressão regular coincidente:"
@@ -110,10 +109,10 @@ msgid "Every page"
 msgstr "Cada página"
 
 msgid "Even pages"
-msgstr "Páginas par"
+msgstr "Páginas pares"
 
 msgid "Odd pages"
-msgstr "Páginas ímpar"
+msgstr "Páginas ímpares"
 
 msgid "Split the document after the given page numbers"
 msgstr "Separar documento após o número de páginas indicado"
@@ -326,8 +325,8 @@ msgstr ""
 msgid "Merge"
 msgstr "Unir"
 
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "Unir vários ficheiros PDF ou subsecções dos mesmos."
+msgid "Merge multiple PDF documents or subsections of them."
+msgstr "Unir vários documentos PDF ou subsecções destes."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr "Selecione ou arraste e solte o PDF cujas páginas serão repetidas"
@@ -510,7 +509,7 @@ msgid "_Save"
 msgstr "_Guardar"
 
 msgid "C_lose"
-msgstr ""
+msgstr "_Fechar"
 
 msgid "Copy"
 msgstr "Copiar"
@@ -564,11 +563,11 @@ msgstr "Caminho do executável Java: %s"
 
 #, java-printf-format
 msgid "JavaFX runtime version: %s"
-msgstr ""
+msgstr "Versão JavaFX Runtime: %s"
 
 #, java-printf-format
 msgid "PDF engine (Sejda SDK) version: %s"
-msgstr ""
+msgstr "Versão do mecanismo PDF (Sejda SDK) : %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -648,6 +647,12 @@ msgstr "Tamanho da letra:"
 msgid "Set the application font size"
 msgstr "Defina o tamanho de letra"
 
+msgid "Default PDF version:"
+msgstr ""
+
+msgid "Default PDF version for generated PDF files"
+msgstr ""
+
 msgid "Manually selected"
 msgstr "Seleção manual"
 
@@ -657,6 +662,20 @@ msgid ""
 msgstr ""
 "Definir automaticamente o diretório do documento selecionado como diretório "
 "de destino"
+
+msgid "Default prefix:"
+msgstr ""
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
+msgstr ""
+
+msgid "Some special keywords are replaced with runtime values."
+msgstr "Algumas palavras-chave são substituidas pelos valores de execução."
+
+msgid "Right click to add these keywords."
+msgstr "Clique direito para adicionar as palavras-chave."
 
 msgid "Settings"
 msgstr "Definições"
@@ -725,6 +744,9 @@ msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
 "Define se a opção \"Comprimir ficheiro de saída\" deve estar ativada por "
 "definição"
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
+msgstr ""
 
 msgid "Overwrite files"
 msgstr "Substituir ficheiros"
@@ -865,6 +887,10 @@ msgstr "Este documento está cifrado. Clique para introduzir a palavra-passe."
 msgid "An error has occurred, click for more details."
 msgstr "Ocorreu um erro. Clique para ver os detalhes."
 
+#, java-format
+msgid "Version {0}"
+msgstr "Versão {0}"
+
 msgid "Split tools"
 msgstr "Ferramentas de divisão"
 
@@ -936,12 +962,17 @@ msgstr "Não foi possível guardar a área de trabalho para {0}"
 msgid "Loading workspace from {0}"
 msgstr "A carregar área de trabalho de {0}"
 
-msgid "Workspace loaded"
-msgstr "Área de trabalho carregada"
+#, java-format
+msgid "Workspace loaded: {0}"
+msgstr "Área de trabalho carregada: {0}"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
 msgstr "Não foi possível carregar a área de trabalho de {0}"
+
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
+msgstr "O ficheiro seguinte já existe e foi ignorado: {0}"
 
 msgid "Light with blue"
 msgstr "Claro com azul"
@@ -967,8 +998,8 @@ msgstr "Selecione o ficheiro PDF"
 msgid "_Select PDF"
 msgstr "_Selecione PDF"
 
-msgid "Clear all settings"
-msgstr "Repor todas as definições"
+msgid "C_lear all settings"
+msgstr "_Limpar todas as definições"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -1059,9 +1090,6 @@ msgstr "_Remover"
 msgid "Removes every document"
 msgstr "Remover cada documento"
 
-msgid "C_lear all settings"
-msgstr "_Limpar todas as definições"
-
 msgid "Moves up selected documents"
 msgstr "Mover documentos selecionados para cima"
 
@@ -1139,10 +1167,6 @@ msgstr ""
 "Assinale a caixa se quiser substituir os ficheiros, caso já existam no "
 "destino."
 
-#, java-format
-msgid "Version {0}"
-msgstr "Versão {0}"
-
 msgid "Same as the input document"
 msgstr "Igual à do documento original"
 
@@ -1171,20 +1195,14 @@ msgstr "Prefixo para o nome de ficheiros gerados"
 msgid "Add prefix"
 msgstr "Adicionar prefixo"
 
-msgid "DEFAULT_PREFIX"
-msgstr ""
-
 msgid "Generated PDF documents name prefix:"
 msgstr "Prefixo para o nome dos ficheiros criados:"
 
 msgid "Prefix for the output files name."
 msgstr "Prefixo para o nome de ficheiros de saída."
 
-msgid "Some special keywords are replaced with runtime values."
-msgstr "Algumas palavras-chave são substituidas pelos valores de execução."
-
-msgid "Right click to add these keywords."
-msgstr "Clique direito para adicionar as palavras-chave."
+msgid "DEFAULT_PREFIX"
+msgstr "Prefixo_Padrão"
 
 msgid "Run"
 msgstr "Executar"
