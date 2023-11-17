@@ -64,6 +64,7 @@ public class VerticalSidebar extends BorderPane {
         addButton(homeItem, expandButton);
         var toolsLabel = new Label(i18n().tr("Tools").toUpperCase());
         toolsLabel.getStyleClass().add("sidebar-title");
+        toolsLabel.visibleProperty().bind(expandButton.selectedProperty());
         buttons.getChildren().addAll(new Separator(Orientation.HORIZONTAL), toolsLabel);
         tools.getChildren().forEach(b -> {
             if (b instanceof SidebarButton button) {
