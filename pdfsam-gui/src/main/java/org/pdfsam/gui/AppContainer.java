@@ -26,8 +26,6 @@ import javafx.scene.layout.Pane;
 import org.pdfsam.gui.components.sidebar.VerticalSidebar;
 import org.pdfsam.ui.components.support.Style;
 
-import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
-
 /**
  * @author Andrea Vacondio
  */
@@ -44,7 +42,6 @@ public class AppContainer extends BorderPane {
         center.setFitToHeight(true);
         setCenter(center);
         setLeft(sidebar);
-        eventStudio().addAnnotatedListeners(this);
     }
 
     public void setContent(Pane panel) {
