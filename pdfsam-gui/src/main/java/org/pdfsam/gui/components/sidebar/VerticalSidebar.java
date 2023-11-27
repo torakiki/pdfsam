@@ -20,6 +20,7 @@ package org.pdfsam.gui.components.sidebar;
 
 import jakarta.inject.Inject;
 import javafx.geometry.Orientation;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Separator;
@@ -64,7 +65,8 @@ public class VerticalSidebar extends BorderPane {
         addButton(homeItem, expandButton);
         var toolsLabel = new Label(i18n().tr("Tools").toUpperCase());
         toolsLabel.getStyleClass().add("sidebar-title");
-        toolsLabel.visibleProperty().bind(expandButton.selectedProperty());
+        toolsLabel.contentDisplayProperty()
+                .bind(expandButton.selectedProperty().map(b -> b ? ContentDisplay.LEFT : ContentDisplay.GRAPHIC_ONLY));
         buttons.getChildren().addAll(new Separator(Orientation.HORIZONTAL), toolsLabel);
         tools.getChildren().forEach(b -> {
             if (b instanceof SidebarButton button) {
