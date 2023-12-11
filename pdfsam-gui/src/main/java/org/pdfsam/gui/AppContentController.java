@@ -94,7 +94,7 @@ public class AppContentController {
 
     @EventListener
     public void onShowLogMessagesRequest(ShowLogMessagesRequest request) {
-        //when log viewer is show we don't want to clear the active tool so that the Close button in the log viewer will show and return to the active tool
+        //when log viewer is shown we don't want to clear the active tool so that the Close button in the log viewer will show and return to the active tool
         Logger.trace("Set active content request to Log content");
         var item = items.get(LogContentItem.ID);
         if (nonNull(item)) {

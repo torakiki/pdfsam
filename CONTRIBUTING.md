@@ -3,7 +3,7 @@ The official PDFsam repository is https://github.com/torakiki/pdfsam/ and its is
 Before you post
 ---------
  - Make sure the same request has not been posted already by searching among the open and closed issues.
- - Make sure the feature you are looking for is not already there, look at the documentation on [pdfsam.org] and [superuser].
+ - Make sure the feature you are looking for is not already there, look at the documentation on [pdfsam.org].
 
 Open an issue
 ---------
@@ -14,11 +14,8 @@ You verified the points above and you want to open an issue.
 
 Code contribution
 ----------
- - We need you to sign [our CLA].
- - Before starting to write large amounts of code talk to us. Open an issue or send us an email, we can discuss together how to proceed.
+ - Before starting to write large amounts of code talk to us. Open an issue or email us, we can discuss together how to proceed.
  - We are very strict with the code style. Code format and templates for the Eclipse IDE are included in the pdfsam-docs tool as well as the checkstyle plugin configuration, use them.
  - Include unit tests to cover your feature or bugfix.
- 
- [our CLA]: https://github.com/torakiki/pdfsam-CLAs 
- [pdfsam.org]: http://pdfsam.org 
- [superuser]: http://superuser.com/questions/tagged/pdfsam
+
+ [pdfsam.org]: https://pdfsam.org

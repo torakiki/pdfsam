@@ -5,13 +5,15 @@ Official SCM repository for PDFsam Basic, a free and open source, multi-platform
 ![Build Status](https://github.com/torakiki/pdfsam/actions/workflows/build.yml/badge.svg)
 [![License](http://img.shields.io/badge/license-AGPLv3-blue.svg)](http://www.gnu.org/licenses/agpl-3.0.html)
 
+![](/home/torakiki/repos/pdfsam/pdfsam-docs/graphics/pdfsam-merge.gif)
+
 Where
 -------------------
 Official website [pdfsam.org](https://pdfsam.org/ "PDFsam")
 
 License
 -------------------
-PDFsam Basic is open source under the [GNU Affero General Public License] since version 3, previous versions are released under GPLv2.
+Since version 3 PDFsam Basic is open source under the [GNU Affero General Public License], previous versions are released under GPLv2.
 
 Requirements
 -------------------
