@@ -68,18 +68,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.SortedSet;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import javafx.beans.property.*;
+import javafx.css.PseudoClass;
+import javafx.scene.*;
 
 import static java.util.Optional.of;
 import static java.util.Optional.ofNullable;
@@ -100,13 +95,14 @@ import static org.pdfsam.model.ui.SetDestinationRequest.requestFallbackDestinati
 public class SelectionTable extends TableView<SelectionTableRowData> implements ToolBound, RestorableView {
 
     private static final Logger LOG = LoggerFactory.getLogger(SelectionTable.class);
-
+    private static final PseudoClass DRAG_HOVERED_ROW_PSEUDO_CLASS = PseudoClass.getPseudoClass("drag-hovered-row");
     private static final DataFormat DND_TABLE_SELECTION_MIME_TYPE = new DataFormat(
             "application/x-java-table-selection-list");
 
     private String toolBinding = StringUtils.EMPTY;
     private final Label placeHolder = new Label(i18n().tr("Drag and drop PDF files here"));
     private final PasswordFieldPopup passwordPopup;
+    private final IntegerProperty hoverIndex = new SimpleIntegerProperty(-1);
     private Consumer<SelectionChangedEvent> selectionChangedConsumer;
 
     public SelectionTable(String toolBinding, boolean canDuplicateItems, boolean canMove,
@@ -265,6 +261,24 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     }
 
     private void initDragAndDrop(boolean canMove) {
+
+        hoverIndex.addListener((observable, oldIndex, newIndex) -> {
+            List<Node> cells = new ArrayList<>(lookupAll(".table-row-cell"));
+            int newIndexValue = newIndex.intValue();
+
+            if (newIndexValue == -1) {
+                cells.forEach(cell -> cell.pseudoClassStateChanged(DRAG_HOVERED_ROW_PSEUDO_CLASS, false));
+                return;
+            }
+
+            for (int i = 0; i < cells.size(); i++) {
+                TableRow<?> row = (TableRow<?>) cells.get(i);
+                boolean hovered = i == newIndexValue;
+
+                row.pseudoClassStateChanged(DRAG_HOVERED_ROW_PSEUDO_CLASS, hovered);
+            }
+        });
+
         setOnDragOver(e -> dragConsume(e, this.onDragOverConsumer()));
         setOnDragEntered(e -> dragConsume(e, this.onDragEnteredConsumer()));
         setOnDragExited(this::onDragExited);
@@ -358,7 +372,10 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     }
 
     private Consumer<DragEvent> onDragOverConsumer() {
-        return (DragEvent e) -> e.acceptTransferModes(TransferMode.COPY_OR_MOVE);
+        return (DragEvent e) -> {
+            hoverIndex.set(calculateHoverIndex(e));
+            e.acceptTransferModes(TransferMode.COPY_OR_MOVE);
+        };
     }
 
     private Consumer<DragEvent> onDragEnteredConsumer() {
@@ -386,8 +403,20 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     @EventListener(priority = Integer.MIN_VALUE)
     public void onLoadDocumentsRequest(PdfLoadRequest loadEvent) {
-        getItems().addAll(loadEvent.getDocuments().stream().map(SelectionTableRowData::new).toList());
+        var focus = ofNullable(getFocusModel().getFocusedItem());
+        var toDrop = loadEvent.getDocuments().stream().map(SelectionTableRowData::new).toList();
+        var hoverIndexValue = hoverIndex.get();
+        var itemsCount = getItems().size();
+        var dropIndex = (hoverIndexValue < 0 || hoverIndexValue > itemsCount)
+                ? itemsCount
+                : hoverIndexValue;
+
+        getSortOrder().clear();
+        getItems().addAll(dropIndex, toDrop);
+        focus.map(getItems()::indexOf).ifPresent(getFocusModel()::focus);
+        hoverIndex.setValue(-1);
         this.sort();
+        
         loadEvent.getDocuments().stream().findFirst().ifPresent(
                 f -> eventStudio().broadcast(requestFallbackDestination(f.getFile(), toolBinding()), toolBinding()));
         eventStudio().broadcast(loadEvent);
@@ -456,7 +485,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         ClipboardContent content = new ClipboardContent();
         writeContent(getSelectionModel().getSelectedItems().stream()
                 .map(item -> item.descriptor().getFile().getAbsolutePath() + ", " + item.descriptor().getFile().length()
-                        + ", " + item.descriptor().pages().getValue()).collect(Collectors.toList())).to(content);
+                + ", " + item.descriptor().pages().getValue()).collect(Collectors.toList())).to(content);
         Clipboard.getSystemClipboard().setContent(content);
     }
 
@@ -501,5 +530,25 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
             eventStudio().broadcast(loadEvent);
         }
 
+    }
+
+    private int calculateHoverIndex(DragEvent event) {
+        var mouseY = event.getY();
+        var totalHeight = 0.0;
+        var cells = new ArrayList<>(lookupAll(".table-row-cell"));
+
+        for (var i = 0; i < cells.size(); i++) {
+            var row = (TableRow<?>) cells.get(i);
+
+            if (row != null) {
+                totalHeight += row.getHeight();
+
+                if (mouseY <= totalHeight) {
+                    return i - 1;
+                }
+            }
+        }
+
+        return - 1;
     }
 }
