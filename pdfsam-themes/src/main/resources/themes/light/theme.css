@@ -476,6 +476,14 @@ btn
     -fx-min-height: 15.0em;
 }
 
+
+.table-row-cell:drag-hovered-row {
+    -fx-border-color: -category-others-color;
+    -fx-border-radius: 0.583333em;
+    -fx-border-style: dashed;
+    -fx-border-width: 0.11111em;
+}
+
 /**
  * Selection table toolbar
  */
