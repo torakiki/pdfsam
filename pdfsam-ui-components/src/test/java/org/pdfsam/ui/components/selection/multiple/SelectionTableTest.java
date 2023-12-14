@@ -18,8 +18,11 @@
  */
 package org.pdfsam.ui.components.selection.multiple;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.scene.Scene;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.DataFormat;
 import javafx.scene.input.KeyCode;
@@ -61,13 +64,12 @@ import java.io.File;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.*;
-import javafx.application.Platform;
-import javafx.scene.*;
-import javafx.scene.control.*;
-import org.pdfsam.model.ui.dnd.FilesDroppedEvent;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 
-import static java.util.stream.Collectors.joining;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -109,8 +111,8 @@ public class SelectionTableTest {
     @Start
     public void start(Stage stage) throws Exception {
         victim = new SelectionTable(MODULE, true, true,
-                new SelectionTableColumn<?>[]{new LoadingColumn(MODULE), FileColumn.NAME, LongColumn.SIZE,
-                    IntColumn.PAGES, LongColumn.LAST_MODIFIED, new PageRangesColumn()});
+                new SelectionTableColumn<?>[] { new LoadingColumn(MODULE), FileColumn.NAME, LongColumn.SIZE,
+                        IntColumn.PAGES, LongColumn.LAST_MODIFIED, new PageRangesColumn() });
         victim.setId("victim");
         firstItem = populate();
         Scene scene = new Scene(victim);
@@ -413,12 +415,8 @@ public class SelectionTableTest {
 
         var listView = robot.lookup("#file-list").queryAs(ListView.class);
         var cells = listView.lookupAll(".list-cell");
-        var cell = cells.stream()
-                .filter(ListCell.class::isInstance)
-                .map(ListCell.class::cast)
-                .filter(c -> Objects.nonNull(c.getItem()))
-                .findFirst()
-                .orElseThrow();
+        var cell = cells.stream().filter(ListCell.class::isInstance).map(ListCell.class::cast)
+                .filter(c -> Objects.nonNull(c.getItem())).findFirst().orElseThrow();
 
         robot.drag(cell).dropTo("temp.pdf");
 
@@ -434,10 +432,7 @@ public class SelectionTableTest {
 
         WaitForAsyncUtils.waitForFxEvents();
 
-        var actualDescriptor = victim.getItems()
-                .stream()
-                .map(SelectionTableRowData::descriptor)
-                .findFirst()
+        var actualDescriptor = victim.getItems().stream().map(SelectionTableRowData::descriptor).findFirst()
                 .orElseThrow();
 
         assertThat(actualDescriptor).isEqualTo(descriptor);

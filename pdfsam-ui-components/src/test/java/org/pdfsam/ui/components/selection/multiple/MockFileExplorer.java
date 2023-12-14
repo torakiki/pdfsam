@@ -18,13 +18,21 @@
  */
 package org.pdfsam.ui.components.selection.multiple;
 
-import java.io.*;
-import java.net.*;
-import java.nio.file.*;
-import java.util.Collections;
-import javafx.scene.control.*;
-import javafx.scene.input.*;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.DataFormat;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.VBox;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Collections;
 
 class MockFileExplorer extends VBox {
 
@@ -36,10 +44,8 @@ class MockFileExplorer extends VBox {
         fileList.setOnDragDetected(event -> onDragDetected(event, fileList));
         fileList.setOnDragOver(this::onDragOver);
 
-        var pdfs = new File[]{
-            Files.createFile(tempFolder.resolve("1.pdf")).toFile(),
-            Files.createFile(tempFolder.resolve("2.pdf")).toFile()
-        };
+        var pdfs = new File[] { Files.createFile(tempFolder.resolve("1.pdf")).toFile(),
+                Files.createFile(tempFolder.resolve("2.pdf")).toFile() };
 
         fileList.getItems().addAll(pdfs);
 
@@ -48,12 +54,12 @@ class MockFileExplorer extends VBox {
 
     private void onDragDetected(MouseEvent event, ListView<File> fileList) {
         var selectedIndex = fileList.getSelectionModel().getSelectedIndex();
-        
+
         if (selectedIndex >= 0) {
             var file = fileList.getItems().get(selectedIndex);
             var dragboard = fileList.startDragAndDrop(TransferMode.COPY);
             var content = new ClipboardContent();
-            
+
             content.put(DataFormat.FILES, Collections.singletonList(file));
             dragboard.setContent(content);
 
@@ -63,7 +69,7 @@ class MockFileExplorer extends VBox {
 
     private void onDragOver(DragEvent event) {
         var dragboard = event.getDragboard();
-        
+
         if (dragboard.hasFiles()) {
             event.acceptTransferModes(TransferMode.COPY);
         }
