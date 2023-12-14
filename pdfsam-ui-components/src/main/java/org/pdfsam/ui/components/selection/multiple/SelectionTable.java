@@ -19,9 +19,13 @@
 package org.pdfsam.ui.components.selection.multiple;
 
 import javafx.application.Platform;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.ListChangeListener.Change;
 import javafx.collections.ObservableList;
+import javafx.css.PseudoClass;
 import javafx.geometry.Point2D;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
@@ -68,13 +72,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import javafx.beans.property.*;
-import javafx.css.PseudoClass;
-import javafx.scene.*;
 
 import static java.util.Optional.of;
 import static java.util.Optional.ofNullable;
@@ -407,16 +416,14 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         var toDrop = loadEvent.getDocuments().stream().map(SelectionTableRowData::new).toList();
         var hoverIndexValue = hoverIndex.get();
         var itemsCount = getItems().size();
-        var dropIndex = (hoverIndexValue < 0 || hoverIndexValue > itemsCount)
-                ? itemsCount
-                : hoverIndexValue;
+        var dropIndex = (hoverIndexValue < 0 || hoverIndexValue > itemsCount) ? itemsCount : hoverIndexValue;
 
         getSortOrder().clear();
         getItems().addAll(dropIndex, toDrop);
         focus.map(getItems()::indexOf).ifPresent(getFocusModel()::focus);
         hoverIndex.setValue(-1);
         this.sort();
-        
+
         loadEvent.getDocuments().stream().findFirst().ifPresent(
                 f -> eventStudio().broadcast(requestFallbackDestination(f.getFile(), toolBinding()), toolBinding()));
         eventStudio().broadcast(loadEvent);
@@ -485,7 +492,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         ClipboardContent content = new ClipboardContent();
         writeContent(getSelectionModel().getSelectedItems().stream()
                 .map(item -> item.descriptor().getFile().getAbsolutePath() + ", " + item.descriptor().getFile().length()
-                + ", " + item.descriptor().pages().getValue()).collect(Collectors.toList())).to(content);
+                        + ", " + item.descriptor().pages().getValue()).collect(Collectors.toList())).to(content);
         Clipboard.getSystemClipboard().setContent(content);
     }
 
@@ -549,6 +556,6 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
             }
         }
 
-        return - 1;
+        return -1;
     }
 }
