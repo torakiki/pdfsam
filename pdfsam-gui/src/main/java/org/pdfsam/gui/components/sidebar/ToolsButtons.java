@@ -35,7 +35,6 @@ import org.pdfsam.persistence.PreferencesRepository;
 import java.util.Comparator;
 import java.util.Map;
 
-import static java.util.Objects.nonNull;
 import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
@@ -77,37 +76,41 @@ public class ToolsButtons extends VBox {
         });
 
         node.setOnDragOver(e -> {
-            var index = (Integer) e.getDragboard().getContent(DND_BUTTONS_MIME_TYPE);
-            if (nonNull(index) && index != this.getChildren().indexOf(node)) {
-                e.acceptTransferModes(TransferMode.MOVE);
-                e.consume();
+            if (e.getDragboard().getContent(DND_BUTTONS_MIME_TYPE) instanceof Integer index) {
+                if (index != this.getChildren().indexOf(node)) {
+                    e.acceptTransferModes(TransferMode.MOVE);
+                    e.consume();
+                }
             }
         });
 
         node.setOnDragEntered(e -> {
-            var index = (Integer) e.getDragboard().getContent(DND_BUTTONS_MIME_TYPE);
-            if (nonNull(index) && index != this.getChildren().indexOf(node)) {
-                node.getStyleClass().add("drag-over");
+            if (e.getDragboard().getContent(DND_BUTTONS_MIME_TYPE) instanceof Integer index) {
+                if (index != this.getChildren().indexOf(node)) {
+                    node.getStyleClass().add("drag-over");
+                }
             }
         });
 
         node.setOnDragExited(e -> {
-            var index = (Integer) e.getDragboard().getContent(DND_BUTTONS_MIME_TYPE);
-            if (nonNull(index) && index != this.getChildren().indexOf(node)) {
-                node.getStyleClass().remove("drag-over");
+            if (e.getDragboard().getContent(DND_BUTTONS_MIME_TYPE) instanceof Integer index) {
+                if (index != this.getChildren().indexOf(node)) {
+                    node.getStyleClass().remove("drag-over");
+                }
             }
         });
 
         node.setOnDragDropped(e -> {
-            var index = (Integer) e.getDragboard().getContent(DND_BUTTONS_MIME_TYPE);
-            var myIndex = this.getChildren().indexOf(node);
-            if (nonNull(index) && index != myIndex) {
-                node.getStyleClass().remove("drag-over");
-                var dragged = this.getChildren().remove(index.intValue());
-                this.getChildren().add(this.getChildren().indexOf(node), dragged);
-                this.orderChanged = true;
-                e.setDropCompleted(true);
-                e.consume();
+            if (e.getDragboard().getContent(DND_BUTTONS_MIME_TYPE) instanceof Integer index) {
+                var myIndex = this.getChildren().indexOf(node);
+                if (index != myIndex) {
+                    node.getStyleClass().remove("drag-over");
+                    var dragged = this.getChildren().remove(index.intValue());
+                    this.getChildren().add(this.getChildren().indexOf(node), dragged);
+                    this.orderChanged = true;
+                    e.setDropCompleted(true);
+                    e.consume();
+                }
             }
         });
         return node;
