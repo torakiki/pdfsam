@@ -478,10 +478,9 @@ btn
 
 
 .table-row-cell:drag-hovered-row {
-    -fx-border-color: -category-others-color;
-    -fx-border-radius: 0.583333em;
-    -fx-border-style: dashed;
-    -fx-border-width: 0.11111em;
+    -fx-border-color: -drag-drop-mark-color;
+    -fx-border-width: 0.11111em 0 0 0;
+    -fx-border-radius: 0.0;
 }
 
 /**

@@ -169,6 +169,7 @@
     -drag-drop-color: transparent;
     -drag-drop-border-color: -grey-5;
     -drag-drop-font-color: -grey-5;
+    -drag-drop-mark-color: -default-primary;
 
     /** scrollbars color **/
     -scrollbar-color: -grey-5;
