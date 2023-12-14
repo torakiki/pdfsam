@@ -12,12 +12,6 @@
     -fx-vbar-policy: as-needed;
 }
 
-.sidebar-buttons {
-    -fx-background-color: -sidebar-background-color;
-    -fx-background-insets: 0.0;
-    -fx-padding: 0.0 0.0 0.0 0.25em;
-}
-
 .sidebar-expand-button {
     -fx-padding: 0.0 0.0 0.5em 0.0;
     -fx-alignment: top-right;
@@ -45,8 +39,14 @@
 }
 
 .sidebar-buttons {
-    -fx-spacing: 0.5em;
+    -fx-background-color: -sidebar-background-color;
+    -fx-background-insets: 0.0;
+    -fx-spacing: 0.416667em;
     -fx-padding: 0.0 0.5em 1.0em 0.5em;
+}
+
+.tools-buttons {
+    -fx-spacing: 0.416667em;
 }
 
 .sidebar-button {
