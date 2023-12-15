@@ -393,6 +393,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     }
 
     private void onDragExited(DragEvent e) {
+        clearDragHover();
         placeHolder.setDisable(true);
         e.consume();
     }
@@ -421,7 +422,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         getSortOrder().clear();
         getItems().addAll(dropIndex, toDrop);
         focus.map(getItems()::indexOf).ifPresent(getFocusModel()::focus);
-        hoverIndex.setValue(-1);
+        clearDragHover();
         this.sort();
 
         loadEvent.getDocuments().stream().findFirst().ifPresent(
@@ -557,5 +558,9 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         }
 
         return -1;
+    }
+    
+    private void clearDragHover() {
+        hoverIndex.setValue(-1);
     }
 }
