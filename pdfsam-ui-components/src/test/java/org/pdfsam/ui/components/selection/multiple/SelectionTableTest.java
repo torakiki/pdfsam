@@ -69,6 +69,8 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import javafx.beans.value.WritableIntegerValue;
+import javafx.scene.Node;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -110,9 +112,8 @@ public class SelectionTableTest {
 
     @Start
     public void start(Stage stage) throws Exception {
-        victim = new SelectionTable(MODULE, true, true,
-                new SelectionTableColumn<?>[] { new LoadingColumn(MODULE), FileColumn.NAME, LongColumn.SIZE,
-                        IntColumn.PAGES, LongColumn.LAST_MODIFIED, new PageRangesColumn() });
+        victim = new SelectionTable(MODULE, true, true, new SelectionTableColumn<?>[] { new LoadingColumn(MODULE),
+                FileColumn.NAME, LongColumn.SIZE, IntColumn.PAGES, LongColumn.LAST_MODIFIED, new PageRangesColumn() });
         victim.setId("victim");
         firstItem = populate();
         Scene scene = new Scene(victim);
@@ -388,6 +389,54 @@ public class SelectionTableTest {
 
     @Test
     @Tag("NoHeadless")
+    public void scrollsTableWhenEdgeReached() throws Exception {
+        var loadEvent = new PdfLoadRequest(MODULE);
+
+        for (var i = 5; i < 20; i++) {
+            var pdf = Files.createFile(folder.resolve("temp%d.pdf".formatted(i))).toFile();
+            loadEvent.add(newDescriptorNoPassword(pdf));
+        }
+
+        WaitForAsyncUtils.waitForAsyncFx(2000, () -> eventStudio().broadcast(loadEvent, MODULE));
+        
+        MockFileExplorer mockFileExplorer;
+
+        try {
+            mockFileExplorer = new MockFileExplorer(folder);
+        } catch (URISyntaxException ex) {
+            throw new RuntimeException(ex);
+        }
+
+        Platform.runLater(() -> {
+            var stage = new Stage();
+            var ownerStage = (Stage) victim.getScene().getWindow();
+            var offset = 20;
+            var ownerX = ownerStage.getX();
+            var ownerWidth = ownerStage.getWidth();
+            var stageX = ownerX + ownerWidth + offset;
+            var scene = new Scene(mockFileExplorer);
+
+            stage.setX(stageX);
+            stage.setScene(scene);
+            stage.show();
+        });
+
+        WaitForAsyncUtils.waitForFxEvents();
+
+        var listView = robot.lookup("#file-list").queryAs(ListView.class);
+        var cells = listView.lookupAll(".list-cell");
+        var cell = cells.stream().filter(ListCell.class::isInstance).map(ListCell.class::cast)
+                .filter(c -> Objects.nonNull(c.getItem())).findFirst().orElseThrow();
+
+        robot.drag(cell).dropTo("temp16.pdf");
+        
+        WaitForAsyncUtils.waitForFxEvents();
+
+        verifyThat(robot.lookup("temp17.pdf").queryAs(Node.class), Node::isVisible);
+    }
+
+    @Test
+    @Tag("NoHeadless")
     public void dropsOnFirstIndex() throws Exception {
         MockFileExplorer mockFileExplorer;
 
@@ -422,20 +471,7 @@ public class SelectionTableTest {
 
         WaitForAsyncUtils.waitForFxEvents();
 
-        var request = new PdfLoadRequest(MODULE);
-        var descriptor = newDescriptorNoPassword((File) cell.getItem());
-        request.add(descriptor);
-
-        WaitForAsyncUtils.waitForFxEvents();
-
-        victim.onLoadDocumentsRequest(request);
-
-        WaitForAsyncUtils.waitForFxEvents();
-
-        var actualDescriptor = victim.getItems().stream().map(SelectionTableRowData::descriptor).findFirst()
-                .orElseThrow();
-
-        assertThat(actualDescriptor).isEqualTo(descriptor);
+        assertThat(victim.getHoverIndex()).extracting(WritableIntegerValue::get).isEqualTo(0);
     }
 
     @Test

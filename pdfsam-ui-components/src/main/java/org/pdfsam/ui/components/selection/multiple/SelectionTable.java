@@ -87,6 +87,12 @@ import java.util.stream.IntStream;
 
 import static java.util.Optional.of;
 import static java.util.Optional.ofNullable;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.geometry.Orientation;
+import javafx.scene.control.ScrollBar;
+import javafx.scene.layout.Region;
+import javafx.util.Duration;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.core.support.EncryptionUtils.encrypt;
@@ -104,7 +110,10 @@ import static org.pdfsam.model.ui.SetDestinationRequest.requestFallbackDestinati
 public class SelectionTable extends TableView<SelectionTableRowData> implements ToolBound, RestorableView {
 
     private static final Logger LOG = LoggerFactory.getLogger(SelectionTable.class);
-    private static final PseudoClass DRAG_HOVERED_ROW_PSEUDO_CLASS = PseudoClass.getPseudoClass("drag-hovered-row");
+    private static final PseudoClass DRAG_HOVERED_TOP_ROW_PSEUDO_CLASS = PseudoClass
+            .getPseudoClass("drag-hovered-row-top");
+    private static final PseudoClass DRAG_HOVERED_BOTTOM_ROW_PSEUDO_CLASS = PseudoClass
+            .getPseudoClass("drag-hovered-row-bottom");
     private static final DataFormat DND_TABLE_SELECTION_MIME_TYPE = new DataFormat(
             "application/x-java-table-selection-list");
 
@@ -113,6 +122,9 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     private final PasswordFieldPopup passwordPopup;
     private final IntegerProperty hoverIndex = new SimpleIntegerProperty(-1);
     private Consumer<SelectionChangedEvent> selectionChangedConsumer;
+
+    private final Timeline scrollTimeline = new Timeline();
+    private double scrollDirection = 0;
 
     public SelectionTable(String toolBinding, boolean canDuplicateItems, boolean canMove,
             TableColumnProvider<?>... columns) {
@@ -169,8 +181,8 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
                     new SetPageRangesRequest(getSelectionModel().getSelectedItem().pageSelection.get()),
                     toolBinding()));
             setPageRangesItem.setAccelerator(new KeyCodeCombination(KeyCode.R, KeyCombination.CONTROL_DOWN));
-            selectionChangedConsumer = selectionChangedConsumer.andThen(
-                    e -> setPageRangesItem.setDisable(!e.isSingleSelection()));
+            selectionChangedConsumer = selectionChangedConsumer
+                    .andThen(e -> setPageRangesItem.setDisable(!e.isSingleSelection()));
             contextMenu.getItems().add(setPageRangesItem);
         }
         contextMenu.getItems().add(new SeparatorMenuItem());
@@ -182,23 +194,23 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         removeSelected.setOnAction(e -> eventStudio().broadcast(new RemoveSelectedEvent(), toolBinding()));
         removeSelected.setAccelerator(new KeyCodeCombination(KeyCode.DELETE));
         contextMenu.getItems().add(removeSelected);
-        selectionChangedConsumer = selectionChangedConsumer.andThen(
-                e -> removeSelected.setDisable(e.isClearSelection()));
+        selectionChangedConsumer = selectionChangedConsumer
+                .andThen(e -> removeSelected.setDisable(e.isClearSelection()));
         if (canMove) {
             MenuItem moveTopSelected = createMenuItem(i18n().tr("Move to Top"), UniconsLine.ANGLE_DOUBLE_UP);
-            moveTopSelected.setOnAction(
-                    e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.TOP), toolBinding()));
+            moveTopSelected
+                    .setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.TOP), toolBinding()));
 
             MenuItem moveUpSelected = createMenuItem(i18n().tr("Move Up"), UniconsLine.ANGLE_UP);
             moveUpSelected.setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.UP), toolBinding()));
 
             MenuItem moveDownSelected = createMenuItem(i18n().tr("Move Down"), UniconsLine.ANGLE_DOWN);
-            moveDownSelected.setOnAction(
-                    e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.DOWN), toolBinding()));
+            moveDownSelected
+                    .setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.DOWN), toolBinding()));
 
             MenuItem moveBottomSelected = createMenuItem(i18n().tr("Move to Bottom"), UniconsLine.ANGLE_DOUBLE_DOWN);
-            moveBottomSelected.setOnAction(
-                    e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.BOTTOM), toolBinding()));
+            moveBottomSelected
+                    .setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.BOTTOM), toolBinding()));
 
             contextMenu.getItems().addAll(moveTopSelected, moveUpSelected, moveDownSelected, moveBottomSelected);
 
@@ -221,8 +233,8 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
             contextMenu.getItems().add(duplicateItem);
 
-            selectionChangedConsumer = selectionChangedConsumer.andThen(
-                    e -> duplicateItem.setDisable(e.isClearSelection()));
+            selectionChangedConsumer = selectionChangedConsumer
+                    .andThen(e -> duplicateItem.setDisable(e.isClearSelection()));
         }
     }
 
@@ -238,8 +250,8 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         }));
 
         MenuItem openFileItem = createMenuItem(i18n().tr("Open"), UniconsLine.FILE_ALT);
-        openFileItem.setOnAction(e -> eventStudio().broadcast(
-                new NativeOpenFileRequest(getSelectionModel().getSelectedItem().descriptor().getFile())));
+        openFileItem.setOnAction(e -> eventStudio()
+                .broadcast(new NativeOpenFileRequest(getSelectionModel().getSelectedItem().descriptor().getFile())));
 
         MenuItem openFolderItem = createMenuItem(i18n().tr("Open Folder"), UniconsLine.FOLDER);
         openFolderItem.setOnAction(e -> eventStudio().broadcast(new NativeOpenFileRequest(
@@ -263,30 +275,20 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     private MenuItem createMenuItem(String text, Ikon icon) {
         var item = new MenuItem(text);
-        //TODO set font size 1.1 em
+        // TODO set font size 1.1 em
         item.setGraphic(FontIcon.of(icon));
         item.setDisable(true);
         return item;
     }
 
     private void initDragAndDrop(boolean canMove) {
+        scrollTimeline.setCycleCount(Timeline.INDEFINITE);
+        scrollTimeline.getKeyFrames().add(new KeyFrame(Duration.millis(20), "Scroll", event -> dragScroll()));
 
-        hoverIndex.addListener((observable, oldIndex, newIndex) -> {
-            List<Node> cells = new ArrayList<>(lookupAll(".table-row-cell"));
-            int newIndexValue = newIndex.intValue();
-
-            if (newIndexValue == -1) {
-                cells.forEach(cell -> cell.pseudoClassStateChanged(DRAG_HOVERED_ROW_PSEUDO_CLASS, false));
-                return;
-            }
-
-            for (int i = 0; i < cells.size(); i++) {
-                TableRow<?> row = (TableRow<?>) cells.get(i);
-                boolean hovered = i == newIndexValue;
-
-                row.pseudoClassStateChanged(DRAG_HOVERED_ROW_PSEUDO_CLASS, hovered);
-            }
-        });
+        addEventFilter(DragEvent.DRAG_OVER, this::autoscrollIfNeeded);
+        addEventFilter(DragEvent.DRAG_EXITED, this::stopAutoScrollIfNeeded);
+        addEventFilter(DragEvent.DRAG_DROPPED, this::stopAutoScrollIfNeeded);
+        addEventFilter(DragEvent.DRAG_DONE, this::stopAutoScrollIfNeeded);
 
         setOnDragOver(e -> dragConsume(e, this.onDragOverConsumer()));
         setOnDragEntered(e -> dragConsume(e, this.onDragEnteredConsumer()));
@@ -309,9 +311,20 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
                 });
 
                 row.setOnDragOver(e -> {
+                    var rowIndex = row.getIndex();
+                    var affectedRowIndex = (e.getY() > (row.getHeight() / 2)) ? (rowIndex + 1) : rowIndex;
+
+                    hoverIndex.set(affectedRowIndex);
+
+                    if (affectedRowIndex > rowIndex) {
+                        activateHoverBottomPsuedoClass(row);
+                    } else {
+                        activateHoverTopPseudoClass(row);
+                    }
+
                     if (e.getGestureSource() != row && e.getDragboard().hasContent(DND_TABLE_SELECTION_MIME_TYPE)) {
-                        if (!((List<Integer>) e.getDragboard().getContent(DND_TABLE_SELECTION_MIME_TYPE)).contains(
-                                row.getIndex())) {
+                        if (!((List<Integer>) e.getDragboard().getContent(DND_TABLE_SELECTION_MIME_TYPE))
+                                .contains(rowIndex)) {
                             e.acceptTransferModes(TransferMode.MOVE);
                             e.consume();
                         }
@@ -319,22 +332,26 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
                 });
                 row.setOnDragEntered(e -> {
                     if (!row.isEmpty() && e.getDragboard().hasContent(DND_TABLE_SELECTION_MIME_TYPE)) {
-                        if (!((List<Integer>) e.getDragboard().getContent(DND_TABLE_SELECTION_MIME_TYPE)).contains(
-                                row.getIndex())) {
+                        if (!((List<Integer>) e.getDragboard().getContent(DND_TABLE_SELECTION_MIME_TYPE))
+                                .contains(row.getIndex())) {
                             row.setOpacity(0.6);
                         }
                     }
                 });
                 row.setOnDragExited(e -> {
+                    clearHoverPseudoClasses(row);
+
                     if (!row.isEmpty() && e.getDragboard().hasContent(DND_TABLE_SELECTION_MIME_TYPE)) {
-                        if (!((List<Integer>) e.getDragboard().getContent(DND_TABLE_SELECTION_MIME_TYPE)).contains(
-                                row.getIndex())) {
+                        if (!((List<Integer>) e.getDragboard().getContent(DND_TABLE_SELECTION_MIME_TYPE))
+                                .contains(row.getIndex())) {
                             row.setOpacity(1);
                         }
                     }
                 });
 
                 row.setOnDragDropped(e -> {
+                    clearHoverPseudoClasses(row);
+
                     Dragboard db = e.getDragboard();
                     if (db.hasContent(DND_TABLE_SELECTION_MIME_TYPE)) {
                         Optional<SelectionTableRowData> focus = ofNullable(getFocusModel().getFocusedItem());
@@ -373,6 +390,21 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         }
     }
 
+    private static <T> void activateHoverTopPseudoClass(TableRow<T> row) {
+        row.pseudoClassStateChanged(DRAG_HOVERED_TOP_ROW_PSEUDO_CLASS, true);
+        row.pseudoClassStateChanged(DRAG_HOVERED_BOTTOM_ROW_PSEUDO_CLASS, false);
+    }
+
+    private static <T> void activateHoverBottomPsuedoClass(TableRow<T> row) {
+        row.pseudoClassStateChanged(DRAG_HOVERED_TOP_ROW_PSEUDO_CLASS, false);
+        row.pseudoClassStateChanged(DRAG_HOVERED_BOTTOM_ROW_PSEUDO_CLASS, true);
+    }
+
+    private static <T> void clearHoverPseudoClasses(TableRow<T> row) {
+        row.pseudoClassStateChanged(DRAG_HOVERED_TOP_ROW_PSEUDO_CLASS, false);
+        row.pseudoClassStateChanged(DRAG_HOVERED_BOTTOM_ROW_PSEUDO_CLASS, false);
+    }
+
     private void dragConsume(DragEvent e, Consumer<DragEvent> c) {
         if (e.getDragboard().hasFiles()) {
             c.accept(e);
@@ -382,7 +414,6 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     private Consumer<DragEvent> onDragOverConsumer() {
         return (DragEvent e) -> {
-            hoverIndex.set(calculateHoverIndex(e));
             e.acceptTransferModes(TransferMode.COPY_OR_MOVE);
         };
     }
@@ -393,7 +424,6 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     }
 
     private void onDragExited(DragEvent e) {
-        clearDragHover();
         placeHolder.setDisable(true);
         e.consume();
     }
@@ -422,7 +452,6 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         getSortOrder().clear();
         getItems().addAll(dropIndex, toDrop);
         focus.map(getItems()::indexOf).ifPresent(getFocusModel()::focus);
-        clearDragHover();
         this.sort();
 
         loadEvent.getDocuments().stream().findFirst().ifPresent(
@@ -491,9 +520,10 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     private void copySelectedToClipboard() {
         ClipboardContent content = new ClipboardContent();
-        writeContent(getSelectionModel().getSelectedItems().stream()
-                .map(item -> item.descriptor().getFile().getAbsolutePath() + ", " + item.descriptor().getFile().length()
-                        + ", " + item.descriptor().pages().getValue()).collect(Collectors.toList())).to(content);
+        writeContent(getSelectionModel()
+                .getSelectedItems().stream().map(item -> item.descriptor().getFile().getAbsolutePath() + ", "
+                        + item.descriptor().getFile().length() + ", " + item.descriptor().pages().getValue())
+                .collect(Collectors.toList())).to(content);
         Clipboard.getSystemClipboard().setContent(content);
     }
 
@@ -540,27 +570,80 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     }
 
-    private int calculateHoverIndex(DragEvent event) {
-        var mouseY = event.getY();
-        var totalHeight = 0.0;
-        var cells = new ArrayList<>(lookupAll(".table-row-cell"));
+    public IntegerProperty getHoverIndex() {
+        return hoverIndex;
+    }
 
-        for (var i = 0; i < cells.size(); i++) {
-            var row = (TableRow<?>) cells.get(i);
+    private void dragScroll() {
+        var scrollBar = getVerticalScrollbar();
 
-            if (row != null) {
-                totalHeight += row.getHeight();
+        if (scrollBar != null) {
+            var newValue = scrollBar.getValue() + scrollDirection;
 
-                if (mouseY <= totalHeight) {
-                    return i - 1;
+            newValue = Math.min(newValue, 1.0);
+            newValue = Math.max(newValue, 0.0);
+
+            scrollBar.setValue(newValue);
+        }
+    }
+
+    private ScrollBar getVerticalScrollbar() {
+        ScrollBar verticalScrollBar = null;
+
+        for (var node : lookupAll(".scroll-bar")) {
+            if (node instanceof ScrollBar bar) {
+                if (bar.getOrientation().equals(Orientation.VERTICAL)) {
+                    verticalScrollBar = bar;
                 }
             }
         }
 
-        return -1;
+        return verticalScrollBar;
     }
-    
-    private void clearDragHover() {
-        hoverIndex.setValue(-1);
+
+    private void autoscrollIfNeeded(DragEvent evt) {
+        var hotRegion = (Region) lookup(".clipped-container");
+
+        if (hotRegion.getBoundsInLocal().getWidth() < 1) {
+            hotRegion = this;
+            if (hotRegion.getBoundsInLocal().getWidth() < 1) {
+                stopAutoScrollIfNeeded(evt);
+                return;
+            }
+        }
+
+        var yOffset = 0.0;
+        var delta = evt.getSceneY() - hotRegion.localToScene(0, 0).getY();
+        var proximity = 50.0;
+
+        if (delta < proximity) {
+            yOffset = -(proximity - delta);
+        }
+
+        delta = hotRegion.localToScene(0, 0).getY() + hotRegion.getHeight() - evt.getSceneY();
+
+        if (delta < proximity) {
+            yOffset = proximity - delta;
+        }
+
+        if (yOffset != 0) {
+            autoscroll(yOffset);
+        } else {
+            stopAutoScrollIfNeeded(evt);
+        }
     }
+
+    private void stopAutoScrollIfNeeded(DragEvent evt) {
+        scrollTimeline.stop();
+    }
+
+    private void autoscroll(double yOffset) {
+        if (yOffset > 0) {
+            scrollDirection = 1.0 / getItems().size();
+        } else {
+            scrollDirection = -1.0 / getItems().size();
+        }
+        scrollTimeline.play();
+    }
+
 }
