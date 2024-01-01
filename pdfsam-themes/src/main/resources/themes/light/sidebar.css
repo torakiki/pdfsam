@@ -4,7 +4,7 @@
     -fx-padding: 1.666667em 0.666667em 1.0em 0.666667em;
 }
 
-.vertical-sidebar .sidebar-scroll{
+.vertical-sidebar .sidebar-scroll {
     -fx-fit-to-width: true;
     -fx-fit-to-height: true;
     -fx-padding: 0;
@@ -96,7 +96,6 @@
     -fx-fill: -warning-color !important;
 }
 
-
 .tool-icon {
     -fx-icon-size: 24px;
 }
@@ -114,8 +113,8 @@
 }
 
 .sidebar-button.drag-over {
-   -fx-opacity: 0.6;
-   -fx-border-color: -default-primary;
-   -fx-border-width: 2px 0 0 0;
-   -fx-border-insets: 2px 0 0 0;
+    -fx-opacity: 0.6;
+    -fx-border-color: -default-primary;
+    -fx-border-width: 2px 0 0 0;
+    -fx-border-insets: 2px 0 0 0;
 }
