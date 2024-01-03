@@ -25,7 +25,6 @@ import javafx.collections.ListChangeListener.Change;
 import javafx.collections.ObservableList;
 import javafx.css.PseudoClass;
 import javafx.geometry.Point2D;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
@@ -316,10 +315,14 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
                     hoverIndex.set(affectedRowIndex);
 
-                    if (affectedRowIndex > rowIndex) {
-                        activateHoverBottomPsuedoClass(row);
+                    if (!row.isEmpty()) {
+                        if (affectedRowIndex > rowIndex) {
+                            activateHoverBottomPsuedoClass(row);
+                        } else {
+                            activateHoverTopPseudoClass(row);
+                        }
                     } else {
-                        activateHoverTopPseudoClass(row);
+                        clearHoverPseudoClasses(row);
                     }
 
                     if (e.getGestureSource() != row && e.getDragboard().hasContent(DND_TABLE_SELECTION_MIME_TYPE)) {
