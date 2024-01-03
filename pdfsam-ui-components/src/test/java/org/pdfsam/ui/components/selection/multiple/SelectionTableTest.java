@@ -19,7 +19,9 @@
 package org.pdfsam.ui.components.selection.multiple;
 
 import javafx.application.Platform;
+import javafx.beans.value.WritableIntegerValue;
 import javafx.collections.FXCollections;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -61,7 +63,6 @@ import org.testfx.framework.junit5.Start;
 import org.testfx.util.WaitForAsyncUtils;
 
 import java.io.File;
-import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
@@ -69,8 +70,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
-import javafx.beans.value.WritableIntegerValue;
-import javafx.scene.Node;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -112,8 +111,9 @@ public class SelectionTableTest {
 
     @Start
     public void start(Stage stage) throws Exception {
-        victim = new SelectionTable(MODULE, true, true, new SelectionTableColumn<?>[] { new LoadingColumn(MODULE),
-                FileColumn.NAME, LongColumn.SIZE, IntColumn.PAGES, LongColumn.LAST_MODIFIED, new PageRangesColumn() });
+        victim = new SelectionTable(MODULE, true, true,
+                new SelectionTableColumn<?>[] { new LoadingColumn(MODULE), FileColumn.NAME, LongColumn.SIZE,
+                        IntColumn.PAGES, LongColumn.LAST_MODIFIED, new PageRangesColumn() });
         victim.setId("victim");
         firstItem = populate();
         Scene scene = new Scene(victim);
@@ -398,14 +398,8 @@ public class SelectionTableTest {
         }
 
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> eventStudio().broadcast(loadEvent, MODULE));
-        
-        MockFileExplorer mockFileExplorer;
 
-        try {
-            mockFileExplorer = new MockFileExplorer(folder);
-        } catch (URISyntaxException ex) {
-            throw new RuntimeException(ex);
-        }
+        var mockFileExplorer = new MockFileExplorer(folder);
 
         Platform.runLater(() -> {
             var stage = new Stage();
@@ -429,7 +423,7 @@ public class SelectionTableTest {
                 .filter(c -> Objects.nonNull(c.getItem())).findFirst().orElseThrow();
 
         robot.drag(cell).dropTo("temp16.pdf");
-        
+
         WaitForAsyncUtils.waitForFxEvents();
 
         verifyThat(robot.lookup("temp17.pdf").queryAs(Node.class), Node::isVisible);
@@ -438,13 +432,8 @@ public class SelectionTableTest {
     @Test
     @Tag("NoHeadless")
     public void dropsOnFirstIndex() throws Exception {
-        MockFileExplorer mockFileExplorer;
 
-        try {
-            mockFileExplorer = new MockFileExplorer(folder);
-        } catch (URISyntaxException ex) {
-            throw new RuntimeException(ex);
-        }
+        var mockFileExplorer = new MockFileExplorer(folder);
 
         Platform.runLater(() -> {
             var stage = new Stage();

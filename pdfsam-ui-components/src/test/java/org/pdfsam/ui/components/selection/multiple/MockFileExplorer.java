@@ -29,14 +29,13 @@ import javafx.scene.layout.VBox;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collections;
 
 class MockFileExplorer extends VBox {
 
-    MockFileExplorer(Path tempFolder) throws URISyntaxException, IOException {
+    MockFileExplorer(Path tempFolder) throws IOException {
         var fileList = new ListView<File>();
 
         fileList.setId("file-list");
