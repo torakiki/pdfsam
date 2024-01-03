@@ -476,11 +476,18 @@ btn
     -fx-min-height: 15.0em;
 }
 
-
-.table-row-cell:drag-hovered-row {
+.table-row-cell:drag-hovered-row-top,
+.table-row-cell:drag-hovered-row-bottom {
     -fx-border-color: -drag-drop-mark-color;
-    -fx-border-width: 0.11111em 0 0 0;
     -fx-border-radius: 0.0;
+}
+
+.table-row-cell:drag-hovered-row-top {
+    -fx-border-width: 0.11111em 0 0 0;
+}
+
+.table-row-cell:drag-hovered-row-bottom {
+    -fx-border-width: 0 0 0.11111em 0;
 }
 
 /**
