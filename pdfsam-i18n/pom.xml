@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <description>Internationalization for PDFsam</description>
     <parent>
@@ -47,19 +48,20 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>com.coderplus.maven.plugins</groupId>
-                <artifactId>copy-rename-maven-plugin</artifactId>
-                <version>1.0.1</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
                 <executions>
                     <execution>
                         <id>rename-hebrew-properties</id>
                         <phase>process-resources</phase>
                         <goals>
-                            <goal>rename</goal>
+                            <goal>run</goal>
                         </goals>
                         <configuration>
-                            <sourceFile>${project.build.outputDirectory}/org/pdfsam/i18n/Messages_iw.properties</sourceFile>
-                            <destinationFile>${project.build.outputDirectory}/org/pdfsam/i18n/Messages_he.properties</destinationFile>
+                            <target>
+                                <move file="${project.build.outputDirectory}/org/pdfsam/i18n/Messages_iw.properties"
+                                      tofile="${project.build.outputDirectory}/org/pdfsam/i18n/Messages_he.properties"/>
+                            </target>
                         </configuration>
                     </execution>
                 </executions>
