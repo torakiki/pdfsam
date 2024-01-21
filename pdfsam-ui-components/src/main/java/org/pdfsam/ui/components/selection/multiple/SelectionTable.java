@@ -49,7 +49,6 @@ import javafx.scene.input.TransferMode;
 import javafx.scene.layout.Region;
 import javafx.stage.Window;
 import javafx.util.Duration;
-import org.apache.commons.lang3.StringUtils;
 import org.kordamp.ikonli.Ikon;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.kordamp.ikonli.unicons.UniconsLine;
@@ -116,7 +115,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     private static final DataFormat DND_TABLE_SELECTION_MIME_TYPE = new DataFormat(
             "application/x-java-table-selection-list");
 
-    private String toolBinding = StringUtils.EMPTY;
+    private final String toolBinding;
     private final Label placeHolder = new Label(i18n().tr("Drag and drop PDF files here"));
     private final PasswordFieldPopup passwordPopup;
     private final IntegerProperty hoverIndex = new SimpleIntegerProperty(-1);
