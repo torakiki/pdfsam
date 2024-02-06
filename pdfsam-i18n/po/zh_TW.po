@@ -5,15 +5,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDFSam 3\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2023-04-26 12:14+0200\n"
-"PO-Revision-Date: 2023-06-26 06:20+0000\n"
+"POT-Creation-Date: 2023-10-26 11:54+0200\n"
+"PO-Revision-Date: 2023-11-30 03:20+0000\n"
 "Last-Translator: Koji Chao <Unknown>\n"
 "Language-Team: Chinese (Taiwan) (zh_TW@li.org)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-08-02 14:04+0000\n"
-"X-Generator: Launchpad (build d80dbb5bdc9110f3a64cc968928033472d5e0509)\n"
+"X-Launchpad-Export-Date: 2024-02-06 10:16+0000\n"
+"X-Generator: Launchpad (build 9643586c585856148a18782148972ae9c1179d06)\n"
 "Language: zh_TW\n"
 
 msgid "No PDF document has been selected"
@@ -618,6 +618,12 @@ msgstr "字體大小:"
 msgid "Set the application font size"
 msgstr "設定應用程式字體大小"
 
+msgid "Default PDF version:"
+msgstr "預設PDF版本:"
+
+msgid "Default PDF version for generated PDF files"
+msgstr "預設建立PDF檔的版本"
+
 msgid "Manually selected"
 msgstr "手動選擇"
 
@@ -625,6 +631,20 @@ msgid ""
 "Automatically set the destination directory to the selected PDF document "
 "directory"
 msgstr "自動將目的地設為跟選取的 PDF 文件同一目錄"
+
+msgid "Default prefix:"
+msgstr "預設前綴"
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
+msgstr "輸出檔案名稱的預設檔名前綴，在工具裡建立多個檔案時使用"
+
+msgid "Some special keywords are replaced with runtime values."
+msgstr "某些特殊的關鍵字會用執行階段的值取代。"
+
+msgid "Right click to add these keywords."
+msgstr "請按右鍵新增這些關鍵字。"
 
 msgid "Settings"
 msgstr "設定"
@@ -686,6 +706,9 @@ msgstr "啟用PDF壓縮"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr "設定是否預設啟用「壓縮輸出文件」"
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
+msgstr "設定是否預設啟用「放棄書籤」"
 
 msgid "Overwrite files"
 msgstr "覆蓋文件"
@@ -815,6 +838,10 @@ msgstr "本文件已加密，請點擊以輸入密碼。"
 
 msgid "An error has occurred, click for more details."
 msgstr "發生錯誤，點選以取得更多資訊"
+
+#, java-format
+msgid "Version {0}"
+msgstr "版本 {0}"
 
 msgid "Split tools"
 msgstr "切割工具"
@@ -1084,10 +1111,6 @@ msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
 msgstr "若您要覆寫已經存在的同名輸出檔的話，請勾選此框。"
 
-#, java-format
-msgid "Version {0}"
-msgstr "版本 {0}"
-
 msgid "Same as the input document"
 msgstr "與輸入文件相同"
 
@@ -1116,20 +1139,14 @@ msgstr "產出檔案的名稱前綴"
 msgid "Add prefix"
 msgstr "新增前綴"
 
-msgid "DEFAULT_PREFIX"
-msgstr "預設前綴"
-
 msgid "Generated PDF documents name prefix:"
 msgstr "以這個名稱作為後綴生成 PDF 檔案："
 
 msgid "Prefix for the output files name."
 msgstr "輸出檔案的名稱前綴。"
 
-msgid "Some special keywords are replaced with runtime values."
-msgstr "某些特殊的關鍵字會用執行階段的值取代。"
-
-msgid "Right click to add these keywords."
-msgstr "請按右鍵新增這些關鍵字。"
+msgid "DEFAULT_PREFIX"
+msgstr "預設前綴"
 
 msgid "Run"
 msgstr "執行"

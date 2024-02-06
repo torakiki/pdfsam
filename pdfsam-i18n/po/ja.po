@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2021-02-27 04:23+0000\n"
-"Last-Translator: Naofumi Fukue <naofum@gmail.com>\n"
+"POT-Creation-Date: 2023-10-26 11:54+0200\n"
+"PO-Revision-Date: 2023-11-30 14:07+0000\n"
+"Last-Translator: seki-arxiv <Unknown>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
+"X-Launchpad-Export-Date: 2024-02-06 10:16+0000\n"
+"X-Generator: Launchpad (build 9643586c585856148a18782148972ae9c1179d06)\n"
 
 msgid "No PDF document has been selected"
 msgstr "PDF 文書が選択されていません"
@@ -36,13 +36,13 @@ msgid "Output settings"
 msgstr "出力設定"
 
 msgid "A separate file for each set of pages"
-msgstr ""
+msgstr "各ページ群ごとの個別ファイル"
 
 msgid "Each continuous series of pages will generate a separate PDF file"
-msgstr ""
+msgstr "連続したページ群それぞれについて個別のPDFを生成します"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "抽出するページ (例: 2 or 5-23 or 2,5-7,12-)"
+msgstr "抽出するページ (例: 「2」「5-23」「2,5-7,12-」)"
 
 msgid "Invalid page ranges"
 msgstr "ページ範囲が正しくありません"
@@ -53,7 +53,7 @@ msgstr "ページの抽出:"
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
 ")"
-msgstr ""
+msgstr "抽出するページを、カンマ区切りや範囲で指定 (例: 「2」「5-23」「2,5-7,12-」)"
 
 msgid "Split by bookmarks"
 msgstr "しおりで分割"
@@ -175,7 +175,7 @@ msgstr "交互にミックス"
 msgid ""
 "Merge two or more PDF documents taking pages alternately in natural or "
 "reverse order."
-msgstr "通常または逆の順序で交互にページを取って、2 以上の PDF 文書をマージします。"
+msgstr "通常または逆の順序で交互にページを取って、2 以上の PDF 文書を結合します。"
 
 msgid ""
 "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -191,10 +191,10 @@ msgid "90 degrees clockwise"
 msgstr "時計回りに 90 度"
 
 msgid "180 degrees clockwise"
-msgstr "時計回りに 180 度"
+msgstr "180度"
 
 msgid "90 degrees counterclockwise"
-msgstr "90 度反時計回り"
+msgstr "反時計回りに90度"
 
 msgid "Rotate "
 msgstr "回転 "
@@ -210,14 +210,14 @@ msgstr "複数の PDF 文書のページを回転させます。"
 
 msgid ""
 "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "ダブルクリックして、回転したいページをセットします (例: 2 or 5-23 or 2,5-7,12-)"
+msgstr "ダブルクリックして、回転したいページをセットします (例: 「2」「5-23」「2,5-7,12-」)"
 
 msgid "Merge settings"
-msgstr "マージ設定"
+msgstr "結合設定"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "ダブルクリックして、マージしたいページを設定します (例: 2 または 5-23 または 2,5-7,12-)"
+msgstr "ダブルクリックして、結合したいページをセットします (例: 「2」「5-23」「2,5-7,12-」)"
 
 msgid "Add a blank page if page number is odd"
 msgstr "ページ番号が奇数の場合、空白のページを追加"
@@ -225,7 +225,7 @@ msgstr "ページ番号が奇数の場合、空白のページを追加"
 msgid ""
 "Adds a blank page after each merged document if the document has an odd "
 "number of pages"
-msgstr "文書のページ番号が奇数の場合、マージされた文書の後に空白ページを追加します"
+msgstr "文書のページ番号が奇数の場合、結合した文書の後に空白ページを追加します"
 
 msgid "Add a footer"
 msgstr "フッターを追加"
@@ -237,24 +237,24 @@ msgid "None"
 msgstr "なし"
 
 msgid "Same width as first page"
-msgstr ""
+msgstr "先頭ページと同じ幅"
 
 msgid "Same width as first page (based on page orientation)"
-msgstr ""
+msgstr "先頭ページと同じ幅 (ページ向きに従う)"
 
 msgid "Pages normalization:"
-msgstr ""
+msgstr "ページ幅の統一"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
 "one"
-msgstr ""
+msgstr "全ページを、先頭ページと同じ幅にリサイズするかどうかの設定"
 
 msgid "Merge fields"
-msgstr "フィールドをマージ"
+msgstr "フィールドを結合"
 
 msgid "Merge renaming existing fields"
-msgstr "既存のフィールドの名前を変更してマージ"
+msgstr "既存のフィールドの名前を変更して結合"
 
 msgid "Flatten"
 msgstr "フラット化"
@@ -275,10 +275,10 @@ msgid "Discard bookmarks"
 msgstr "しおりを破棄する"
 
 msgid "Create one entry for each merged document"
-msgstr "マージされた文書それぞれにエントリを 1 つ作成"
+msgstr "結合された文書それぞれにエントリを 1 つ作成"
 
 msgid "Retain bookmarks as one entry for each merged document"
-msgstr "マージされた文書それぞれに 1 つのエントリーとしてしおりを保持します"
+msgstr "結合された文書それぞれに 1 つのエントリーとしてしおりを保持します"
 
 msgid "Bookmarks handling:"
 msgstr "しおりの処理:"
@@ -303,56 +303,56 @@ msgid ""
 msgstr "生成される PDF 文書に目次を追加する必要がある場合に設定します"
 
 msgid "Merge"
-msgstr "マージ"
+msgstr "結合"
 
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "複数の PDF 文書またはそのサブセクションを一緒にマージします。"
+msgid "Merge multiple PDF documents or subsections of them."
+msgstr "複数のPDF文書またはそのサブセクションを結合します。"
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
-msgstr ""
+msgstr "ページを繰り返すPDFを選択またはドラッグ&ドロップします"
 
 msgid "Repeat these pages:"
-msgstr ""
+msgstr "次のページを繰り返し:"
 
 msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "繰り返すページ (例: 「2」「5-23」「2,5-7,12-」)"
 
 msgid ""
 "Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
 "7,12-)"
-msgstr ""
+msgstr "繰り返すページを、カンマ区切りや範囲で指定 (例: 「2」「5-23」「2,5-7,12-」)"
 
 msgid "Leave it empty to use all the pages of the PDF file"
-msgstr ""
+msgstr "PDFファイルの全ページを使用する場合は空のままにします"
 
 msgid "Repeat every \"n\" pages:"
-msgstr ""
+msgstr "\"n\" ページごとに繰り返します"
 
 msgid "Invalid page number"
-msgstr ""
+msgstr "無効なページ番号です"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
-msgstr ""
+msgstr "選択したページを元原稿の \"n \"ページごとに繰り返します"
 
 msgid "The selected PDF file is invalid"
 msgstr "選択した PDF ファイルが正しくありません"
 
 msgid "The number of pages must be a positive number"
-msgstr ""
+msgstr "ページ番号は正の値である必要があります"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
-msgstr ""
+msgstr "ページを挿入したいPDFを選択するか、ドラッグ＆ドロップします"
 
 msgid "Insert and Repeat settings"
-msgstr ""
+msgstr "挿入と繰り返しの設定"
 
 msgid "Insert pages multiple times"
-msgstr ""
+msgstr "ページを複数回挿入する"
 
 msgid ""
 "Insert the pages of a PDF document A into another document B, repeating it "
 "after a certain number of pages, resulting in B1 A B2 A B3 A etc."
-msgstr ""
+msgstr "PDF文書Aのページを別の文書Bに挿入し、あるページ数の後にそれを繰り返すと、B1 A B2 A B3 A などになります。"
 
 #, java-format
 msgid "Started in {0}"
@@ -368,10 +368,10 @@ msgid "No PDF found"
 msgstr "PDF はありません"
 
 msgid "Tools"
-msgstr ""
+msgstr "ツール"
 
 msgid "News"
-msgstr ""
+msgstr "ニュース"
 
 msgid "What's new"
 msgstr "新着情報"
@@ -380,13 +380,13 @@ msgid "Exit"
 msgstr "終了"
 
 msgid "Exit the application"
-msgstr ""
+msgstr "アプリケーションを終了します"
 
 msgid "Workspace"
 msgstr "ワークスペース"
 
 msgid "Manage your workspaces"
-msgstr ""
+msgstr "ワークスペースの管理"
 
 msgid "Yes"
 msgstr "はい"
@@ -401,7 +401,7 @@ msgid "Do you confirm?"
 msgstr "よろしいですか?"
 
 msgid "Clear the tool settings"
-msgstr ""
+msgstr "ツール設定をクリア"
 
 msgid "Clear the selection table"
 msgstr "選択テーブルをクリア"
@@ -474,7 +474,7 @@ msgid ""
 msgstr "データの一部またはすべてが欠落した PDF ファイルが作成される可能性があります。続行しますか?"
 
 msgid "Removes all the log messages"
-msgstr ""
+msgstr "すべてのログメッセージを削除"
 
 msgid "_Clear"
 msgstr "クリア(_C)"
@@ -483,7 +483,7 @@ msgid "_Save"
 msgstr "保存(_S)"
 
 msgid "C_lose"
-msgstr ""
+msgstr "閉じる(_L)"
 
 msgid "Copy"
 msgstr "コピー"
@@ -501,7 +501,7 @@ msgid "Select where to save the log file"
 msgstr "ログファイルを保存する場所を選択"
 
 msgid "Logs"
-msgstr ""
+msgstr "ログ"
 
 msgid "Application messages"
 msgstr "アプリケーション メッセージ"
@@ -537,11 +537,11 @@ msgstr "Java ランタイムパス: %s"
 
 #, java-printf-format
 msgid "JavaFX runtime version: %s"
-msgstr ""
+msgstr "JavaFX runtime version: %s"
 
 #, java-printf-format
 msgid "PDF engine (Sejda SDK) version: %s"
-msgstr ""
+msgstr "PDF engine (Sejda SDK) version: %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -584,7 +584,7 @@ msgid "About"
 msgstr "このアプリについて"
 
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 msgid "Premium features"
 msgstr "プレミアム機能"
@@ -602,22 +602,28 @@ msgid "Set your preferred language (restart needed)"
 msgstr "使用言語の設定（要リスタート）"
 
 msgid "Startup tool:"
-msgstr ""
+msgstr "スターアップツール:"
 
 msgid "Set the tool to open at application startup (restart needed)"
-msgstr ""
+msgstr "アプリケーション起動時にツールを開くように設定する (要再起動)"
 
 msgid "Theme:"
 msgstr "テーマ:"
 
 msgid "Set the application theme"
-msgstr ""
+msgstr "アプリケーションテーマの設定"
 
 msgid "Font size:"
-msgstr ""
+msgstr "フォントサイズ:"
 
 msgid "Set the application font size"
-msgstr ""
+msgstr "アプリケーションフォントサイズの設定"
+
+msgid "Default PDF version:"
+msgstr "デフォルトのPDFバージョン:"
+
+msgid "Default PDF version for generated PDF files"
+msgstr "生成するPDFファイルのデフォルトのPDFバージョン"
 
 msgid "Manually selected"
 msgstr "手動で選択"
@@ -626,6 +632,20 @@ msgid ""
 "Automatically set the destination directory to the selected PDF document "
 "directory"
 msgstr "出力先ディレクトリを選択された PDF 文書ディレクトリに自動的に設定します"
+
+msgid "Default prefix:"
+msgstr "デフォルト接頭辞:"
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
+msgstr "複数のファイルを生成するツールで使用される、出力ファイル名のデフォルト接頭辞"
+
+msgid "Some special keywords are replaced with runtime values."
+msgstr "一部の特殊なキーワードは、実行時の値に置き換えられます。"
+
+msgid "Right click to add these keywords."
+msgstr "右クリックしてこのキーワードを追加します。"
 
 msgid "Settings"
 msgstr "設定"
@@ -664,7 +684,7 @@ msgid "Load default workspace at startup:"
 msgstr "起動時にデフォルトのワークスペースを読み込む:"
 
 msgid "System default"
-msgstr ""
+msgstr "システムデフォルト"
 
 msgid "Check for updates at startup"
 msgstr "起動時に更新を確認する"
@@ -687,6 +707,9 @@ msgstr "PDF 圧縮を有効にしました"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr "\"出力ファイルを圧縮する\" をデフォルトで有効にするかどうか"
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
+msgstr "\"しおりの破棄\"をデフォルトで有効にするかどうかの設定"
 
 msgid "Overwrite files"
 msgstr "ファイルを上書きする"
@@ -758,7 +781,7 @@ msgid "Show errors"
 msgstr "エラーを表示"
 
 msgid "Input parameters are invalid"
-msgstr ""
+msgstr "入力内容が無効です"
 
 msgid "Invalid parameters"
 msgstr "パラメータが正しくありません"
@@ -817,20 +840,24 @@ msgstr "この文書は暗号化されています。クリックして、パス
 msgid "An error has occurred, click for more details."
 msgstr "エラーが発生しました。詳細はクリックしてください。"
 
+#, java-format
+msgid "Version {0}"
+msgstr "バージョン {0}"
+
 msgid "Split tools"
-msgstr ""
+msgstr "分割ツール"
 
 msgid "Merge tools"
-msgstr ""
+msgstr "結合ツール"
 
 msgid "Convert tools"
-msgstr ""
+msgstr "変換ツール"
 
 msgid "Edit tools"
-msgstr ""
+msgstr "編集ツール"
 
 msgid "Other tools"
-msgstr ""
+msgstr "その他のツール"
 
 msgid "Checking for updates"
 msgstr "更新を確認しています"
@@ -888,24 +915,29 @@ msgstr "ワークスペースを {0} に保存できません"
 msgid "Loading workspace from {0}"
 msgstr "{0} からワークスペースを読み込んでいます"
 
-msgid "Workspace loaded"
-msgstr "ワークスペースを読み込みました"
+#, java-format
+msgid "Workspace loaded: {0}"
+msgstr "ワークスペースのロード: {0}"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
 msgstr "{0} からワークスペースを読み込みできません"
 
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
+msgstr "次のファイルは既に存在するのでスキップしました: {0}"
+
 msgid "Light with blue"
-msgstr ""
+msgstr "Light with blue"
 
 msgid "Dark with purple"
-msgstr ""
+msgstr "Dark with purple"
 
 msgid "Dark with teal"
-msgstr ""
+msgstr "Dark with teal"
 
 msgid "Light with maroon"
-msgstr ""
+msgstr "Light with maroon"
 
 msgid "Close"
 msgstr "閉じる"
@@ -919,8 +951,8 @@ msgstr "PDF ファイルを選択"
 msgid "_Select PDF"
 msgstr "PDF を選択(_S)"
 
-msgid "Clear all settings"
-msgstr "すべての設定をクリア"
+msgid "C_lear all settings"
+msgstr "全ての設定をクリア (_l)"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -969,10 +1001,10 @@ msgid "Duplicate"
 msgstr "複製"
 
 msgid "Selected pages"
-msgstr ""
+msgstr "選択したページ"
 
 msgid "Total number of selected pages"
-msgstr ""
+msgstr "選択したページの総数"
 
 msgid "Size"
 msgstr "サイズ"
@@ -982,7 +1014,7 @@ msgstr "更新日"
 
 #, java-format
 msgid "Total pages: {0}"
-msgstr ""
+msgstr "総ページ数: {0}"
 
 msgid "Name"
 msgstr "名前"
@@ -1011,9 +1043,6 @@ msgstr "削除(_R)"
 msgid "Removes every document"
 msgstr "すべての文書を削除"
 
-msgid "C_lear all settings"
-msgstr "全ての設定をクリア (_l)"
-
 msgid "Moves up selected documents"
 msgstr "選択した文書を上に移動"
 
@@ -1041,7 +1070,7 @@ msgid "Pages"
 msgstr "ページ"
 
 msgid "Number of total pages of the document"
-msgstr ""
+msgstr "文書のページ総数"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "ダブルクリックして選択したページをセットします (例: 2 or 5-23 or 2,5-7,12-)"
@@ -1083,10 +1112,6 @@ msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
 msgstr "出力ファイルがすでに存在する場合に上書きする場合は、このボックスにチェックを入れます。"
 
-#, java-format
-msgid "Version {0}"
-msgstr "バージョン {0}"
-
 msgid "Same as the input document"
 msgstr "入力文書と同じにする"
 
@@ -1115,26 +1140,20 @@ msgstr "生成されるファイル名の接頭語"
 msgid "Add prefix"
 msgstr "接頭語を追加"
 
-msgid "DEFAULT_PREFIX"
-msgstr ""
-
 msgid "Generated PDF documents name prefix:"
 msgstr "生成する PDF 文書名の接頭語:"
 
 msgid "Prefix for the output files name."
 msgstr "出力ファイル名の接頭語。"
 
-msgid "Some special keywords are replaced with runtime values."
-msgstr "一部の特殊なキーワードは、実行時の値に置き換えられます。"
-
-msgid "Right click to add these keywords."
-msgstr "右クリックしてこのキーワードを追加します。"
+msgid "DEFAULT_PREFIX"
+msgstr "DEFAULT_PREFIX"
 
 msgid "Run"
 msgstr "実行"
 
 msgid "Run the task"
-msgstr ""
+msgstr "タスクの実行"
 
 msgid "Requested"
 msgstr "リクエスト"

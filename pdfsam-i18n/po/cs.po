@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2021-05-16 17:23+0000\n"
-"Last-Translator: Tomas Herza <Unknown>\n"
+"POT-Creation-Date: 2023-10-26 11:54+0200\n"
+"PO-Revision-Date: 2024-01-05 12:26+0000\n"
+"Last-Translator: Marek Hladík <mhladik@seznam.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
+"X-Launchpad-Export-Date: 2024-02-06 10:16+0000\n"
+"X-Generator: Launchpad (build 9643586c585856148a18782148972ae9c1179d06)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Nebylo vybráno žádné PDF"
@@ -36,10 +36,10 @@ msgid "Output settings"
 msgstr "Nastavení výstupu"
 
 msgid "A separate file for each set of pages"
-msgstr ""
+msgstr "Samostatný soubor pro každou sadu stránek"
 
 msgid "Each continuous series of pages will generate a separate PDF file"
-msgstr ""
+msgstr "Každá souvislá série stránek vygeneruje samostatný soubor PDF"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Stránky na extrakci (např. 2 nebo 5-23 nebo 2,5-7,12-)"
@@ -54,6 +54,8 @@ msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
 ")"
 msgstr ""
+"Čísla stránek nebo rozsahy oddělené čárkami k extrakci (např.: 2 nebo 5-23 "
+"nebo 2,5-7,12-)"
 
 msgid "Split by bookmarks"
 msgstr "Rozdělit podle záložek"
@@ -248,18 +250,20 @@ msgid "None"
 msgstr "Žádné"
 
 msgid "Same width as first page"
-msgstr ""
+msgstr "Stejná šířka jako má první stránka"
 
 msgid "Same width as first page (based on page orientation)"
-msgstr ""
+msgstr "Stejná šířka jako má první stránka (na základě orientace stránky)"
 
 msgid "Pages normalization:"
-msgstr ""
+msgstr "Normalizace stránek:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
 "one"
 msgstr ""
+"Nastavit, zda má být velikost stránek změněna tak, aby všechny měly stejnou "
+"šířku jako ta první"
 
 msgid "Merge fields"
 msgstr "Sloučit pole"
@@ -319,54 +323,58 @@ msgstr "Nastavte, zda se má do generovaného PDF dokumentu přidat i obsah"
 msgid "Merge"
 msgstr "Sloučit"
 
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "Sloučí více PDF nebo jejich částí."
+msgid "Merge multiple PDF documents or subsections of them."
+msgstr "Sloučit více dokumentů PDF nebo jejich podsekcí."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
-msgstr ""
+msgstr "Vyberte nebo přetáhněte soubor PDF, jehož stránky se budou opakovat"
 
 msgid "Repeat these pages:"
-msgstr ""
+msgstr "Opakovat tyto stránky:"
 
 msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "Stránky k opakování (např.: 2 nebo 5-23 nebo 2,5-7,12-)"
 
 msgid ""
 "Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
 "7,12-)"
 msgstr ""
+"Čísla stránek nebo rozsahy oddělené čárkami, které se mají opakovat (např.: "
+"2 nebo 5-23 nebo 2,5-7,12-)"
 
 msgid "Leave it empty to use all the pages of the PDF file"
-msgstr ""
+msgstr "Chcete-li použít všechny stránky souboru PDF, nechte pole prázdné"
 
 msgid "Repeat every \"n\" pages:"
-msgstr ""
+msgstr "Opakovat každých \"n\" stránek:"
 
 msgid "Invalid page number"
-msgstr ""
+msgstr "Neplatné číslo stránky"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
-msgstr ""
+msgstr "Opakovat vybrané stránky každých \"n\" stránek původního dokumentu"
 
 msgid "The selected PDF file is invalid"
 msgstr "Vybráné PDF není podporováno"
 
 msgid "The number of pages must be a positive number"
-msgstr ""
+msgstr "Počet stránek musí být kladné číslo"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
-msgstr ""
+msgstr "Vyberte nebo přetáhněte PDF, do kterého chcete vložit stránky"
 
 msgid "Insert and Repeat settings"
-msgstr ""
+msgstr "Nastavení vložení a opakování"
 
 msgid "Insert pages multiple times"
-msgstr ""
+msgstr "Vložit stránky vícekrát"
 
 msgid ""
 "Insert the pages of a PDF document A into another document B, repeating it "
 "after a certain number of pages, resulting in B1 A B2 A B3 A etc."
 msgstr ""
+"Vloží stránky PDF dokumentu A do jiného dokumentu B, zopakujte jej po "
+"určitém počtu stránek, což má za následek B1 A B2 A B3 A atd."
 
 #, java-format
 msgid "Started in {0}"
@@ -382,10 +390,10 @@ msgid "No PDF found"
 msgstr "Nebyly nalezeny žádné PDF soubory"
 
 msgid "Tools"
-msgstr ""
+msgstr "Nástroje"
 
 msgid "News"
-msgstr ""
+msgstr "Novinky"
 
 msgid "What's new"
 msgstr "Co je nového"
@@ -394,13 +402,13 @@ msgid "Exit"
 msgstr "Konec"
 
 msgid "Exit the application"
-msgstr ""
+msgstr "Ukončit aplikaci"
 
 msgid "Workspace"
 msgstr "Pracovní plocha"
 
 msgid "Manage your workspaces"
-msgstr ""
+msgstr "Spravovat své pracovní prostředí"
 
 msgid "Yes"
 msgstr "Ano"
@@ -415,7 +423,7 @@ msgid "Do you confirm?"
 msgstr "Souhlasíte"
 
 msgid "Clear the tool settings"
-msgstr ""
+msgstr "Vymazat nastavení nástroje"
 
 msgid "Clear the selection table"
 msgstr "Vymazat tabulku výběru"
@@ -490,7 +498,7 @@ msgstr ""
 "Pokračovat?"
 
 msgid "Removes all the log messages"
-msgstr ""
+msgstr "Odstranit všechny zprávy protokolu"
 
 msgid "_Clear"
 msgstr "_Vyčistit"
@@ -499,7 +507,7 @@ msgid "_Save"
 msgstr "_Uložit"
 
 msgid "C_lose"
-msgstr ""
+msgstr "_Zavřít"
 
 msgid "Copy"
 msgstr "Kopírovat"
@@ -517,7 +525,7 @@ msgid "Select where to save the log file"
 msgstr "Vyberte, kam uložit souboru logu"
 
 msgid "Logs"
-msgstr ""
+msgstr "Záznamy"
 
 msgid "Application messages"
 msgstr "Zpávy aplikace"
@@ -553,11 +561,11 @@ msgstr "Popis umístění běhového prostředí java: %s"
 
 #, java-printf-format
 msgid "JavaFX runtime version: %s"
-msgstr ""
+msgstr "Verze běhového prostředí JavaFX: %s"
 
 #, java-printf-format
 msgid "PDF engine (Sejda SDK) version: %s"
-msgstr ""
+msgstr "Verze modulu PDF (Sejda SDK): %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -600,7 +608,7 @@ msgid "About"
 msgstr "O programu"
 
 msgid "Home"
-msgstr ""
+msgstr "Domovská složka"
 
 msgid "Premium features"
 msgstr "Prémiové funkce"
@@ -622,18 +630,25 @@ msgstr ""
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
+"Nastavit nástroj, který se otevřel při spuštění aplikace (nutný restart)"
 
 msgid "Theme:"
 msgstr "Motiv:"
 
 msgid "Set the application theme"
-msgstr ""
+msgstr "Nastavit motiv aplikace"
 
 msgid "Font size:"
-msgstr ""
+msgstr "Velikost písma:"
 
 msgid "Set the application font size"
-msgstr ""
+msgstr "Nastavit velikost písma aplikace"
+
+msgid "Default PDF version:"
+msgstr "Výchozí verze PDF:"
+
+msgid "Default PDF version for generated PDF files"
+msgstr "Výchozí verze PDF pro generované soubory PDF"
 
 msgid "Manually selected"
 msgstr "Manuálně vybrané"
@@ -642,6 +657,23 @@ msgid ""
 "Automatically set the destination directory to the selected PDF document "
 "directory"
 msgstr "Cílový adresář pro vybraný adresář PDF dokumentů zvolit automaticky"
+
+msgid "Default prefix:"
+msgstr ""
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
+msgstr ""
+"Výchozí předpona pro názvy výstupních souborů, používaná v nástrojích, které "
+"generují více souborů"
+
+msgid "Some special keywords are replaced with runtime values."
+msgstr ""
+"Některá speciální klíčová slova jsou nahrazena hodnotami běhového prostředí."
+
+msgid "Right click to add these keywords."
+msgstr "Pro přidání těchto klíčových slov klikněte pravým tlačítkem myši."
 
 msgid "Settings"
 msgstr "Nastavení"
@@ -684,7 +716,7 @@ msgid "Load default workspace at startup:"
 msgstr "Nahrát výchozí pracovní plochu po spuštění:"
 
 msgid "System default"
-msgstr ""
+msgstr "Výchozí nastavení systému"
 
 msgid "Check for updates at startup"
 msgstr "Po startu zkontrolovat aktualizace"
@@ -710,6 +742,10 @@ msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
 "Nastavte, zda má být ve výchozím nastavení povolena možnost „Komprimovat "
 "výstupní soubor“"
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
+msgstr ""
+"Nastavit, zda má být ve výchozím nastavení povoleno „Zahodit záložky“."
 
 msgid "Overwrite files"
 msgstr "Přepsat existující soubory"
@@ -790,7 +826,7 @@ msgid "Show errors"
 msgstr "Zobrazovat chyby"
 
 msgid "Input parameters are invalid"
-msgstr ""
+msgstr "Vstupní parametry jsou neplatné"
 
 msgid "Invalid parameters"
 msgstr "Neplatné parametry"
@@ -850,6 +886,10 @@ msgstr "Dokument je šifrován, klikněte pro zadání hesla."
 
 msgid "An error has occurred, click for more details."
 msgstr "Objevila se chybička, klikněte pro více detailů."
+
+#, java-format
+msgid "Version {0}"
+msgstr "Verze {0}"
 
 msgid "Split tools"
 msgstr ""
@@ -922,12 +962,17 @@ msgstr "Pracovní plochu nebylo možné uložit do {0}"
 msgid "Loading workspace from {0}"
 msgstr "Načítám pracovní plochu z {0}"
 
-msgid "Workspace loaded"
-msgstr "Pracovní plocha byla načtena"
+#, java-format
+msgid "Workspace loaded: {0}"
+msgstr ""
 
 #, java-format
 msgid "Unable to load workspace from {0}"
 msgstr "Nedaří se načíst pracovní plochu z {0}"
+
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
+msgstr ""
 
 msgid "Light with blue"
 msgstr ""
@@ -953,8 +998,8 @@ msgstr "Vyberte PDF soubor"
 msgid "_Select PDF"
 msgstr "Vyberte PDF"
 
-msgid "Clear all settings"
-msgstr "Smazat všechna nastavení"
+msgid "C_lear all settings"
+msgstr "_Vymazat všechny nastavení"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -1045,9 +1090,6 @@ msgstr "Odeb_rat"
 msgid "Removes every document"
 msgstr "Odebere všechny dokumenty"
 
-msgid "C_lear all settings"
-msgstr "_Vymazat všechny nastavení"
-
 msgid "Moves up selected documents"
 msgstr "Posune zvolené dokumenty nahoru"
 
@@ -1122,10 +1164,6 @@ msgid ""
 msgstr ""
 "Zatrhněte políčko, pokud si přejete přepsat existující výstupní soubory"
 
-#, java-format
-msgid "Version {0}"
-msgstr "Verze {0}"
-
 msgid "Same as the input document"
 msgstr "Stejná jako u vstupního dokumentu"
 
@@ -1154,21 +1192,14 @@ msgstr "Předpona vytvořených souborů."
 msgid "Add prefix"
 msgstr "Přidat předponu"
 
-msgid "DEFAULT_PREFIX"
-msgstr ""
-
 msgid "Generated PDF documents name prefix:"
 msgstr "Předpona jména vytvořených PDF:"
 
 msgid "Prefix for the output files name."
 msgstr "Předpona výstupních souborů."
 
-msgid "Some special keywords are replaced with runtime values."
+msgid "DEFAULT_PREFIX"
 msgstr ""
-"Některá speciální klíčová slova jsou nahrazena hodnotami běhového prostředí."
-
-msgid "Right click to add these keywords."
-msgstr "Pro přidání těchto klíčových slov klikněte pravým tlačítkem myši."
 
 msgid "Run"
 msgstr "Spustit"

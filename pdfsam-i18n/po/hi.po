@@ -1,0 +1,1272 @@
+# Hindi translation for pdfsam
+# Copyright (c) 2023 Rosetta Contributors and Canonical Ltd 2023
+# This file is distributed under the same license as the pdfsam package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pdfsam\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2023-10-26 11:54+0200\n"
+"PO-Revision-Date: 2024-01-11 14:02+0000\n"
+"Last-Translator: Charudutt Marathe <Unknown>\n"
+"Language-Team: Hindi <hi@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2024-02-06 10:16+0000\n"
+"X-Generator: Launchpad (build 9643586c585856148a18782148972ae9c1179d06)\n"
+
+msgid "No PDF document has been selected"
+msgstr "PDF फ़ाइल नहीं चुनी  गयी है"
+
+msgid "Extract"
+msgstr "निकालें"
+
+msgid "Extract pages from PDF documents."
+msgstr "pdf  फ़ाइल  से pages निकाले"
+
+msgid "File names settings"
+msgstr "फ़ाइल नाम की सेटिंग"
+
+msgid "Extract settings"
+msgstr "सेटिंग  निक़ाले"
+
+msgid "Output settings"
+msgstr "आउट्पुट सेटिंग्स"
+
+msgid "A separate file for each set of pages"
+msgstr "पृष्ठों के प्रत्येक सेट के लिए एक अलग फ़ाइल"
+
+msgid "Each continuous series of pages will generate a separate PDF file"
+msgstr "पृष्ठों की प्रत्येक सतत श्रृंखला एक अलग पीडीएफ फाइल तैयार करेगी"
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "निकालने के लिए पेज (उदा: 2 या 5-23 या 2,5-7,12-)"
+
+msgid "Invalid page ranges"
+msgstr "अमान्य पृष्ठ श्रेणियाँ (रेंज)"
+
+msgid "Extract pages:"
+msgstr "पेजेस निकाले"
+
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+")"
+msgstr ""
+"निकालने के लिए अल्पविराम से अलग किए गए पृष्ठ संख्याएं या श्रेणियां (उदा: 2 "
+"या 5-23 या 2,5-7,12-)"
+
+msgid "Split by bookmarks"
+msgstr "बुकमार्क द्वारा विभाजित"
+
+msgid ""
+"Split a PDF document at bookmarked pages by specifying a bookmark level."
+msgstr ""
+"बुकमार्क स्तर निर्दिष्ट करके पीडीएफ दस्तावेज़ को बुकमार्क किए गए पृष्ठों पर "
+"विभाजित करें।"
+
+msgid "Regular expression the bookmark has to match"
+msgstr "बुकमार्क की नियमित अभिव्यक्ति का मिलान होना चाहिए"
+
+msgid "Split at this bookmark level:"
+msgstr "इस बुकमार्क स्तर पर विभाजित करें:"
+
+msgid "Matching regular expression:"
+msgstr "नियमित अभिव्यक्ति: मिलाएँ"
+
+msgid "A regular expression the bookmark text has to match"
+msgstr "एक नियमित अभिव्यक्ति जिसका बुकमार्क टेक्स्ट से मिलान होना चाहिए"
+
+msgid ""
+"Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
+msgstr ""
+"उदाहरण: \"अध्याय\" शब्द वाले बुकमार्क से मिलान करने के लिए .*अध्याय.* का "
+"उपयोग करें"
+
+msgid "Select or drag and drop the PDF you want to split"
+msgstr ""
+"जिस पीडीएफ को आप विभाजित करना चाहते हैं उसे चुनें या खींचें और छोड़ें"
+
+msgid "Split settings"
+msgstr "विभाजन सेटिंग्स"
+
+msgid "Invalid bookmarks level"
+msgstr "अमान्य बुकमार्क स्तर"
+
+msgid "Split after"
+msgstr "के बाद विभाजित करें"
+
+msgid "No page selected"
+msgstr "कोई पृष्ठ चयनित नहीं"
+
+msgid "Split"
+msgstr "विभाजित करें"
+
+msgid "Split a PDF document at the given page numbers."
+msgstr "दिए गए पेज नंबरों पर एक पीडीएफ दस्तावेज़ को विभाजित करें।"
+
+msgid "Every page"
+msgstr "हर एक पेज"
+
+msgid "Even pages"
+msgstr "सम अंकी पेजेस"
+
+msgid "Odd pages"
+msgstr "विषम अंकी पेजेस"
+
+msgid "Split the document after the given page numbers"
+msgstr "दिए गए पृष्ठ क्रमांक के बाद दस्तावेज़ को विभाजित करें"
+
+msgid ""
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr ""
+"प्रत्येक \"n\" पृष्ठ के दस्तावेज़ बनाते हुए पीडीएफ को प्रत्येक \"n\" पृष्ठ "
+"में विभाजित करता है"
+
+msgid "Split after the following page numbers"
+msgstr "निम्नलिखित पृष्ठ संख्या के बाद विभाजित करें"
+
+msgid "Page numbers to split at (n1,n2,n3..)"
+msgstr "(n1,n2,n3..) पर विभाजित करने के लिए पृष्ठ संख्याएँ"
+
+msgid "Invalid page numbers"
+msgstr "अयोग्य पृष्ठ क्रमांक"
+
+msgid "Only valid positive page numbers are allowed"
+msgstr "केवल वैध सकारात्मक पृष्ठ संख्याओं की अनुमति है"
+
+msgid "Split by every \"n\" pages"
+msgstr "प्रत्येक \"n\" पृष्ठों  पर विभाजित करें"
+
+msgid "Number of pages"
+msgstr "पृष्ठों की संख्या"
+
+msgid "Invalid number of pages"
+msgstr "पृष्ठों का अयोग्य क्रमांक"
+
+msgid "Megabytes"
+msgstr "मेगाबाइट्स"
+
+msgid "MB"
+msgstr "एमबी"
+
+msgid "Kilobytes"
+msgstr "किलोबाइट्स"
+
+msgid "KB"
+msgstr "किलोबाइट(KB)"
+
+msgid "Split by size"
+msgstr "आकार के अनुसार विभाजित करें"
+
+msgid "Split a PDF document in files of the given size (roughly)."
+msgstr ""
+"किसी PDF दस्तावेज़ को दिए गए आकार (लगभग) की फ़ाइलों में विभाजित करें।"
+
+msgid "Set the size to split at"
+msgstr "विभाजित करने के लिए आकार सेट करें"
+
+msgid "Size must be a number"
+msgstr "आकार एक संख्या होना चाहिए"
+
+msgid "Split at this size:"
+msgstr "इस आकार में विभाजित करें:"
+
+msgid "Invalid split size"
+msgstr "अमान्य विभाजन आकार"
+
+msgid "Destination file"
+msgstr "गंतव्य फ़ाइल"
+
+msgid "Alternate Mix"
+msgstr "वैकल्पिक मिश्रण"
+
+msgid ""
+"Merge two or more PDF documents taking pages alternately in natural or "
+"reverse order."
+msgstr ""
+"दो या दो से अधिक पीडीएफ दस्तावेज़ों को प्राकृतिक या उल्टे क्रम में वैकल्पिक "
+"रूप से पेज लेते हुए मर्ज (एक फ़ाइल  में  सामविष्ठ) करें।"
+
+msgid ""
+"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"जिन पेजों को आप मिलाना चाहते हैं उन्हें सेट करने के लिए डबल क्लिक करें "
+"(उदाहरण: 2 या 5-23 या 2,5-7,12-)"
+
+msgid "Select a positive integer number as pace"
+msgstr "गति के रूप में एक धनात्मक पूर्णांक संख्या का चयन करें"
+
+msgid "All pages"
+msgstr "सभी पेज"
+
+msgid "90 degrees clockwise"
+msgstr "९० औंश घड़सी की  दिशा में"
+
+msgid "180 degrees clockwise"
+msgstr "१८० औंश घड़ी की दिशा  में"
+
+msgid "90 degrees counterclockwise"
+msgstr "९० औंश घड़सी की विरूद्ध दिशा में"
+
+msgid "Rotate "
+msgstr "घुमाएँ "
+
+msgid "Rotate settings"
+msgstr "घुमाने के लिये सेटिंग्स"
+
+msgid "Rotate"
+msgstr "घुमाएँ"
+
+msgid "Rotate the pages of multiple PDF documents."
+msgstr "एकाधिक PDF दस्तावेज़ों के पृष्ठ घुमाएँ।"
+
+msgid ""
+"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"उन पृष्ठों को सेट करने के लिए डबल क्लिक करें जिन्हें आप घुमाना चाहते हैं "
+"(उदाहरण: 2 या 5-23 या 2,5-7,12-)"
+
+msgid "Merge settings"
+msgstr "मर्ज (एकत्रित) करने के लिये सेटिंग्स"
+
+msgid ""
+"Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"उन पेजों को सेट करने के लिए डबल क्लिक करें जिन्हें आप मर्ज (एकत्रित) करना "
+"चाहते हैं (उदाहरण: 2 या 5-23 या 2,5-7,12-)"
+
+msgid "Add a blank page if page number is odd"
+msgstr "यदि पृष्ठ संख्या विषम है तो एक रिक्त पृष्ठ जोड़ें"
+
+msgid ""
+"Adds a blank page after each merged document if the document has an odd "
+"number of pages"
+msgstr ""
+"यदि दस्तावेज़ में पृष्ठों की संख्या विषम है तो प्रत्येक मर्ज किए गए "
+"दस्तावेज़ के बाद एक रिक्त पृष्ठ जोड़ता है"
+
+msgid "Add a footer"
+msgstr "एक पाद लेख (फ़ुटर) जोड़ें"
+
+msgid "Adds a page footer with the name of the file the page belonged to."
+msgstr ""
+"उस फ़ाइल के नाम के साथ एक पृष्ठ पादलेख (फ़ुटर) जोड़ता है जिसका पृष्ठ था।"
+
+msgid "None"
+msgstr "कुछ नही"
+
+msgid "Same width as first page"
+msgstr "प्रथम पृष्ठ के समान चौड़ाई"
+
+msgid "Same width as first page (based on page orientation)"
+msgstr "प्रथम पृष्ठ के समान चौड़ाई (पृष्ठ अभिविन्यास (ऑरीएंटेशन) के आधार पर)"
+
+msgid "Pages normalization:"
+msgstr "पेज सामान्यीकरण:"
+
+msgid ""
+"Set whether pages should be resized to all have the same width as the first "
+"one"
+msgstr ""
+"निर्धारित करें कि क्या पृष्ठों का आकार बदला जाना चाहिए ताकि सभी की चौड़ाई "
+"पहले वाले के समान हो"
+
+msgid "Merge fields"
+msgstr "फ़ील्ड मर्ज (एकत्रित) करें"
+
+msgid "Merge renaming existing fields"
+msgstr "मौजूदा / बचे  हुए  फ़ील्ड का नाम बदलकर मर्ज (एकत्रित) करें"
+
+msgid "Flatten"
+msgstr "समतल"
+
+msgid "Discard forms"
+msgstr "प्रपत्र त्यागें (डिस्कार्ड  फ़ॉर्म्ज़)"
+
+msgid "Interactive forms (AcroForms):"
+msgstr "इंटरएक्टिव फॉर्म (एक्रोफॉर्म):"
+
+msgid "What to do in case one or more input documents contain Acro Forms"
+msgstr ""
+"यदि एक या अधिक इनपुट दस्तावेज़ों में एक्रो फॉर्म शामिल हों तो क्या करें?"
+
+msgid "Retain bookmarks"
+msgstr "बुकमार्क बनाए रखें"
+
+msgid "Discard bookmarks"
+msgstr "बुकमार्क त्यागें"
+
+msgid "Create one entry for each merged document"
+msgstr "प्रत्येक मर्ज (एकत्रित) किए गए दस्तावेज़ के लिए एक प्रविष्टि बनाएँ"
+
+msgid "Retain bookmarks as one entry for each merged document"
+msgstr ""
+"प्रत्येक मर्ज (एकत्रित) किए गए दस्तावेज़ के लिए बुकमार्क को एक प्रविष्टि के "
+"रूप में रखें"
+
+msgid "Bookmarks handling:"
+msgstr "बुकमार्क हैंडलिंग:"
+
+msgid "What to do in case one or more input documents contain bookmarks"
+msgstr "यदि एक या अधिक इनपुट दस्तावेज़ों में बुकमार्क हों तो क्या करें"
+
+msgid "Don't generate"
+msgstr "उत्पन्न (जेनरेट) मत करो"
+
+msgid "Generate from file names"
+msgstr "फ़ाइल नामों से उत्पन्न (जेनरेट) करें"
+
+msgid "Generate from documents titles"
+msgstr "दस्तावेज़ शीर्षकों से उत्पन्न (जेनरेट) करें"
+
+msgid "Table of contents:"
+msgstr "विषयसूची: (सामग्री की एक तालिका)"
+
+msgid ""
+"Set if a table of contents should be added to the generated PDF document"
+msgstr ""
+"सेट करें कि जेनरेट किए गए पीडीएफ दस्तावेज़ में विषयसूची: (सामग्री की एक "
+"तालिका) जोड़ी जानी चाहिए या नहीं"
+
+msgid "Merge"
+msgstr "मिलाएँ (एकत्रित करें)"
+
+msgid "Merge multiple PDF documents or subsections of them."
+msgstr ""
+"एकाधिक पीडीएफ दस्तावेज़ों या उनके उप-अनुभागों को मर्ज (एकत्रित) करें।"
+
+msgid "Select or drag and drop the PDF whose pages will be repeated"
+msgstr "उस पीडीएफ को चुनें या खींचें और छोड़ें जिसके पृष्ठ दोहराए जाएंगे"
+
+msgid "Repeat these pages:"
+msgstr "इन पृष्ठों को दोहराएँ:"
+
+msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "दोहराए जाने वाले पृष्ठ (उदाहरण: 2 या 5-23 या 2,5-7,12-)"
+
+msgid ""
+"Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
+"7,12-)"
+msgstr ""
+"अल्पविराम से अलग किए गए पृष्ठ संख्याएं या श्रेणियां जिन्हें दोहराया जाना है "
+"(उदाहरण: 2 या 5-23 या 2,5-7,12-)"
+
+msgid "Leave it empty to use all the pages of the PDF file"
+msgstr "पीडीएफ फ़ाइल के सभी पृष्ठों का उपयोग करने के लिए इसे खाली छोड़ दें"
+
+msgid "Repeat every \"n\" pages:"
+msgstr "दोहराएं:, प्रत्येक \"एन\" पेज के बाद"
+
+msgid "Invalid page number"
+msgstr "अमान्य पृष्ठ संख्या"
+
+msgid "Repeat the selected pages every \"n\" pages of the original document"
+msgstr "मूल दस्तावेज़ के प्रत्येक \"n\" पृष्ठ पर चयनित पृष्ठों को दोहराएं"
+
+msgid "The selected PDF file is invalid"
+msgstr "चयनित पीडीएफ फाइल अमान्य है"
+
+msgid "The number of pages must be a positive number"
+msgstr "पृष्ठों की संख्या एक धनात्मक (पॉज़िटिव) संख्या होनी चाहिए"
+
+msgid "Select or drag and drop the PDF you want to insert pages to"
+msgstr ""
+"जिस पीडीएफ में आप पेज सम्मिलित करना चाहते हैं उसे चुनें या खींचें और छोड़ें"
+
+msgid "Insert and Repeat settings"
+msgstr "सेटिंग्स - सम्मिलित करें और दोहराएँ"
+
+msgid "Insert pages multiple times"
+msgstr "पेज कई बार डालें (इन्सर्ट करें)"
+
+msgid ""
+"Insert the pages of a PDF document A into another document B, repeating it "
+"after a certain number of pages, resulting in B1 A B2 A B3 A etc."
+msgstr ""
+"एक पीडीएफ दस्तावेज़ ए के पृष्ठों को दूसरे दस्तावेज़ बी में डालें, पृष्ठों की "
+"एक निश्चित संख्या के बाद इसे दोहराएं, जिसके परिणामस्वरूप बी1 ए बी2 ए बी3 ए "
+"आदि प्राप्त होंगे।"
+
+#, java-format
+msgid "Started in {0}"
+msgstr "{0} में प्रारंभ हुआ"
+
+msgid "Closing PDFsam..."
+msgstr "PDFsam बंद किया जा रहा है..."
+
+msgid "Drag and drop PDF files or directories containing PDF files"
+msgstr ""
+"पीडीएफ फाइलों या पीडीएफ फाइलों वाली निर्देशिकाओं (फ़ोल्डर्ज़) को खींचें और "
+"छोड़ें"
+
+msgid "No PDF found"
+msgstr "कोई पीडीएफ नहीं मिला"
+
+msgid "Tools"
+msgstr "साधन (टूल)"
+
+msgid "News"
+msgstr "समाचार"
+
+msgid "What's new"
+msgstr "नया क्या है"
+
+msgid "Exit"
+msgstr "बाहर निकलें (एग्ज़िट)"
+
+msgid "Exit the application"
+msgstr "एप्लिकेशन से बाहर निकलें (एग्ज़िट)"
+
+msgid "Workspace"
+msgstr "कार्यस्थल"
+
+msgid "Manage your workspaces"
+msgstr "अपने कार्यक्षेत्र प्रबंधित करें"
+
+msgid "Yes"
+msgstr "हाँ"
+
+msgid "No"
+msgstr "नहीं"
+
+msgid "Confirm clearing"
+msgstr "क्लीरिंग  की पुष्टि करें"
+
+msgid "Do you confirm?"
+msgstr "क्या आप पुष्टि (कन्फ़र्म) करते हैं?"
+
+msgid "Clear the tool settings"
+msgstr "टूल सेटिंग साफ़ करें (Clear)"
+
+msgid "Clear the selection table"
+msgstr "चयन तालिका साफ़ करें (Clear)"
+
+msgid "Open with"
+msgstr "खोलें, इसके साथ"
+
+msgid "Select the task to perform on the following files"
+msgstr ""
+"निम्नलिखित फ़ाइलों पर निष्पादित (पर्फ़ॉर्म) करने के लिए कार्य का चयन करें"
+
+msgid "Directory not empty"
+msgstr "निर्देशिका (डिरेक्ट्री) रिक्त नहीं है"
+
+msgid "The selected directory is not empty"
+msgstr "चयनित निर्देशिका (डिरेक्टरी) खाली नहीं है"
+
+msgid "What would you like to do in case of files with the same name?"
+msgstr "समान नाम वाली फ़ाइलों के मामले में आप क्या करना चाहेंगे?"
+
+msgid "Overwrite"
+msgstr "पुरानी फ़ाइल्ज़ मिटाकर लिखें (ओवर्राइट  ओल्ड फ़ाइल्ज़)"
+
+msgid "Rename"
+msgstr "पुन: नामकरण करें (नाम बदलें)"
+
+msgid "Skip"
+msgstr "छोड़ें (अभी चुनाव ना करें)"
+
+msgid "Cancel"
+msgstr "रद्द करें"
+
+msgid "Don't overwrite existing file"
+msgstr "मौजूदा फ़ाइल को अधिलेखित न करें (पुरानी फ़ाइल्ज़ मिटाकर ना लिखें)"
+
+msgid "Overwrite confirmation"
+msgstr "पुष्टिकरण अधिलेखित करें, पुष्टिकरण को छोड़ कर आगे  चलें"
+
+msgid "A file with the given name already exists"
+msgstr "दिए गए नाम वाली फ़ाइल पहले से मौजूद है"
+
+msgid "What would you like to do?"
+msgstr "आप क्या करना चाहते है?"
+
+msgid "Non existing directory"
+msgstr "निर्देशिका (डिरेक्टरी) मौजूदा नहीं"
+
+msgid "The selected output directory does not exist"
+msgstr "चयनित आउटपुट निर्देशिका (डिरेक्टरी) मौजूद नहीं है"
+
+msgid "Do you want to create it?"
+msgstr "क्या आप इसे बनाना चाहते हैं?"
+
+msgid "Subdirectories"
+msgstr "उप-निर्देशिकाएं (सब डिरेक्टरीज़)"
+
+msgid "Subdirectories have been found"
+msgstr "उपनिर्देशिकाएँ (सब डिरेक्टरीज़) मिल गई हैं"
+
+msgid "Do you want to add PDF files found in subdirectories?"
+msgstr ""
+"क्या आप उपनिर्देशिकाओं (सब डिरेक्टरीज़) में पाई जाने वाली पीडीएफ फाइलें "
+"जोड़ना चाहते हैं?"
+
+msgid "Task failed"
+msgstr "कार्य विफल"
+
+msgid "PDFsam can try to overcome the failure"
+msgstr "पीडीएफएसएएम विफलता को दूर करने का प्रयास कर सकता है"
+
+msgid ""
+"It may result in PDF files with partial or missing data, proceed anyway?"
+msgstr ""
+"इसके परिणामस्वरूप पीडीएफ फाइलों में आंशिक या गायब डेटा हो सकता है, फिर भी "
+"आगे बढ़ें?"
+
+msgid "Removes all the log messages"
+msgstr "सभी लॉग संदेश हटा देता है"
+
+msgid "_Clear"
+msgstr "साफ़ करें (_C)"
+
+msgid "_Save"
+msgstr "संचित करें"
+
+msgid "C_lose"
+msgstr "बंद करें (_l)"
+
+msgid "Copy"
+msgstr "प्रतिलिपि बनाएँ"
+
+msgid "Clear"
+msgstr "रिक्त करें"
+
+msgid "Select all"
+msgstr "सभी का चयन करें"
+
+msgid "Save log"
+msgstr "लॉग सहेजें (सेव  करें)"
+
+msgid "Select where to save the log file"
+msgstr "लॉग फ़ाइल को सहेजने (सेव करने) का स्थान चुनें"
+
+msgid "Logs"
+msgstr "लाग"
+
+msgid "Application messages"
+msgstr "एप्लिकेशन संदेश"
+
+msgid "_Load"
+msgstr "लोड करें (_L)"
+
+msgid "Recen_ts"
+msgstr "हाल ही में (रेसेंटस)"
+
+msgid "_Clear recents"
+msgstr "रेसेंटस  साफ़ करें"
+
+msgid "Select the workspace file to save"
+msgstr "सहेजने (सेव करने) के लिए कार्यस्थान फ़ाइल का चयन करें"
+
+msgid "Select the workspace to load"
+msgstr "लोड करने के लिए कार्यक्षेत्र का चयन करें"
+
+msgid "Subscribe to the official news feed"
+msgstr "आधिकारिक समाचार फ़ीड की सदस्यता लें"
+
+msgid "Environment"
+msgstr "कार्यस्थल प्रक्रिया"
+
+#, java-printf-format
+msgid "Vendor: %s"
+msgstr "विक्रेता"
+
+#, java-printf-format
+msgid "Java runtime path: %s"
+msgstr "जावा रनटाइम पथ"
+
+#, java-printf-format
+msgid "JavaFX runtime version: %s"
+msgstr "JavaFX रनटाइम संस्करण"
+
+#, java-printf-format
+msgid "PDF engine (Sejda SDK) version: %s"
+msgstr "पीडीएफ इंजन (सेजडा एसडीके) संस्करण"
+
+#, java-format
+msgid "Max memory {0}"
+msgstr "अधिकतम मेमोरी {0}"
+
+msgid "Copy to clipboard"
+msgstr "क्लिपबोर्ड पर कॉपी करें"
+
+msgid "Support"
+msgstr "समर्थन"
+
+msgid "Bug and feature requests"
+msgstr "बग (ग़लतियाँ) और सुविधा अनुरोध"
+
+msgid "Documentation"
+msgstr "दस्तावेज़ीकरण"
+
+msgid "Contribute"
+msgstr "योगदान करें"
+
+msgid "Fork PDFsam on GitHub"
+msgstr "GitHub पर PDFsam को फोर्क करें"
+
+msgid "Translate"
+msgstr "अनुवाद करें"
+
+msgid "Donate"
+msgstr "दान करें"
+
+msgid "Social"
+msgstr "सामाजिक"
+
+msgid "Follow us on Twitter"
+msgstr "फ़ॉलो अस  ऑन twitter"
+
+msgid "Like us on Facebook"
+msgstr "लाइक अस  ऑन Facebook"
+
+msgid "About"
+msgstr "परिचय"
+
+msgid "Home"
+msgstr "मुख्य पृष्ठ"
+
+msgid "Premium features"
+msgstr "प्रीमियम (विशेष) सुविधाएँ"
+
+msgid "Log register rows:"
+msgstr "लॉग रजिस्टर पंक्तियाँ:"
+
+msgid "Maximum number of rows displayed by the Log register"
+msgstr "लॉग रजिस्टर द्वारा प्रदर्शित पंक्तियों की अधिकतम संख्या"
+
+msgid "Language:"
+msgstr "भाषा:"
+
+msgid "Set your preferred language (restart needed)"
+msgstr ""
+"अपनी पसंदीदा भाषा सेट करें (पुनः आरंभ (रीस्टार्ट) करने की आवश्यकता है)"
+
+msgid "Startup tool:"
+msgstr "स्टार्टअप टूल:"
+
+msgid "Set the tool to open at application startup (restart needed)"
+msgstr ""
+"एप्लिकेशन स्टार्टअप पर खोलने के लिए टूल सेट करें (पुनरारंभ (रीस्टार्ट) "
+"आवश्यक)"
+
+msgid "Theme:"
+msgstr "थीम:"
+
+msgid "Set the application theme"
+msgstr "एप्लिकेशन थीम सेट करें"
+
+msgid "Font size:"
+msgstr "अक्षरों (फ़ॉंट) का आकार:"
+
+msgid "Set the application font size"
+msgstr "एप्लिकेशन का फ़ॉन्ट आकार सेट करें"
+
+msgid "Default PDF version:"
+msgstr "डिफ़ॉल्ट पीडीएफ संस्करण: (वर्ज़न)"
+
+msgid "Default PDF version for generated PDF files"
+msgstr "जेनरेट की गई पीडीएफ फाइलों के लिए डिफ़ॉल्ट पीडीएफ संस्करण  (वर्ज़न)"
+
+msgid "Manually selected"
+msgstr "मैन्युअल (व्यक्तिगत) रूप से चयनित"
+
+msgid ""
+"Automatically set the destination directory to the selected PDF document "
+"directory"
+msgstr ""
+"स्वचालित रूप से गंतव्य निर्देशिका (डिरेक्टरी) को चयनित पीडीएफ दस्तावेज़ "
+"निर्देशिका (डिरेक्टरी) में सेट करें"
+
+msgid "Default prefix:"
+msgstr "डिफ़ॉल्ट उपसर्ग: (प्रीफ़िक्स)"
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
+msgstr ""
+"आउटपुट फ़ाइल नामों के लिए डिफ़ॉल्ट उपसर्ग (प्रीफ़िक्स), जो  एकाधिक फ़ाइलें "
+"उत्पन्न करने वाले टूल में उपयोग किया जाता है"
+
+msgid "Some special keywords are replaced with runtime values."
+msgstr "कुछ विशेष कीवर्ड को रनटाइम मानों (संख्याओ) से बदल दिया जाता है।"
+
+msgid "Right click to add these keywords."
+msgstr "इन कीवर्ड को जोड़ने के लिए राइट क्लिक करें।"
+
+msgid "Settings"
+msgstr "सेटिंग्स"
+
+msgid "Appearance"
+msgstr ""
+
+msgid "Behavior"
+msgstr "बर्ताव"
+
+msgid "Output"
+msgstr "आउटपुट"
+
+msgid "Check for updates now"
+msgstr "अभी अपडेट की जांच करें"
+
+msgid ""
+"Select a directory where documents will be saved and loaded by default"
+msgstr ""
+"एक निर्देशिका (डिरेक्टरी) चुनें जहां दस्तावेज़ डिफ़ॉल्ट रूप से सहेजे (सेव) "
+"और लोड किए जाएंगे"
+
+msgid "Select a directory"
+msgstr "एक निर्देशिका (डिरेक्टरी) चुनें"
+
+msgid ""
+"Select a previously saved workspace that will be automatically loaded at "
+"startup"
+msgstr ""
+"पहले से सहेजे गए कार्यस्थान का चयन करें जो स्टार्टअप पर स्वचालित रूप से लोड "
+"हो जाएगा"
+
+msgid "Select a workspace"
+msgstr "एक कार्यक्षेत्र चुनें"
+
+msgid "Default working directory:"
+msgstr "डिफ़ॉल्ट (मूलभूत) कार्यशील निर्देशिका: (डिरेक्टरी)"
+
+msgid "Load default workspace at startup:"
+msgstr "स्टार्टअप पर डिफ़ॉल्ट कार्यस्थान लोड करें:"
+
+msgid "System default"
+msgstr ""
+
+msgid "Check for updates at startup"
+msgstr "स्टार्टअप पर अपडेट की जाँच करें"
+
+msgid ""
+"Set whether new version availability should be checked on startup (restart "
+"needed)"
+msgstr ""
+"सेट करें कि क्या स्टार्टअप पर नए संस्करण की उपलब्धता की जाँच की जानी चाहिए "
+"(पुनः आरंभ (रीस्टार्ट) करना आवश्यक है)"
+
+msgid "Check for news at startup"
+msgstr "स्टार्टअप पर समाचारों की जाँच करें"
+
+msgid ""
+"Set whether the application should check for news availability on startup "
+"(restart needed)"
+msgstr ""
+"सेट करें कि क्या एप्लिकेशन को स्टार्टअप पर समाचार उपलब्धता की जांच करनी "
+"चाहिए (पुनः आरंभ (रीस्टार्ट) करना आवश्यक है)"
+
+msgid "Enabled PDF compression"
+msgstr "PDF संकुचित करना सक्षमित  है"
+
+msgid "Set whether \"Compress output file\" should be enabled by default"
+msgstr ""
+"सेट करें कि क्या संकुचित आउट्पुट फ़ाइल (\"कंप्रेस आउटपुट फ़ाइल\") को "
+"डिफ़ॉल्ट रूप से सक्षम किया जाना चाहिए"
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
+msgstr ""
+"सेट करें कि क्या \"बुकमार्क छोड़ें (डिस्कार्ड करें)\" डिफ़ॉल्ट रूप से सक्षम "
+"होना चाहिए"
+
+msgid "Overwrite files"
+msgstr ""
+"फ़ाइलें अधिलेखित करें (पुरानी फ़ाइल नष्ट करें एवं नयी फ़ाइल सेव करें)"
+
+msgid ""
+"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgstr ""
+"सेट करें कि क्या \"यदि पहले से मौजूद है तो ओवरराइट करें\" को डिफ़ॉल्ट रूप से "
+"सक्षम किया जाना चाहिए"
+
+msgid "Play alert sounds"
+msgstr "चेतावनी ध्वनियाँ बजाएँ"
+
+msgid "Turn on or off alert sounds"
+msgstr "चेतावनी ध्वनियाँ चालू या बंद करें"
+
+msgid "Store passwords when saving a workspace file"
+msgstr "कार्यस्थान फ़ाइल सहेजते (सेव करते) समय पासवर्ड संग्रहीत करें"
+
+msgid ""
+"If an encrypted PDF document has been opened with a password, save the "
+"password in the workspace file"
+msgstr ""
+"यदि कोई एन्क्रिप्टेड पीडीएफ दस्तावेज़ पासवर्ड के साथ खोला गया है, तो पासवर्ड "
+"को कार्यस्थान फ़ाइल में सहेजें\r\n"
+" (सेव करें)"
+
+msgid "Show donation window"
+msgstr "दान विंडो दिखाएँ"
+
+msgid ""
+"Turn on or off the notification appearing once in a while and asking the "
+"user to support PDFsam with a donation"
+msgstr ""
+"समय-समय पर दिखाई देने वाली अधिसूचना को चालू या बंद करें और उपयोगकर्ता से दान "
+"के साथ पीडीएफएसएएम का समर्थन करने के लिए कहें"
+
+msgid "Show premium features"
+msgstr "प्रीमियम (विशेष) सुविधाएँ दिखाएँ"
+
+msgid ""
+"Set whether the application should fetch and show premium features "
+"description in the modules dashboard"
+msgstr ""
+"सेट करें कि क्या एप्लिकेशन को मॉड्यूल डैशबोर्ड में प्रीमियम सुविधाओं का "
+"विवरण लाना चाहिए और दिखाना चाहिए"
+
+msgid "Ask for a confirmation when clearing the selection table"
+msgstr "चयन तालिका साफ़ करते समय पुष्टिकरण के लिए पूछें"
+
+msgid ""
+"Set whether the application should ask for a confirmation when clearing the "
+"selection table"
+msgstr ""
+"सेट करें कि चयन तालिका साफ़ करते समय एप्लिकेशन को पुष्टिकरण के लिए पूछना "
+"चाहिए या नहीं"
+
+msgid "Use the selected PDF document directory as output directory"
+msgstr ""
+"आउटपुट निर्देशिका (डिरेक्टरी) के रूप में चयनित पीडीएफ दस्तावेज़ निर्देशिका "
+"(डिरेक्टरी) का उपयोग करें"
+
+msgid "Save default workspace on exit"
+msgstr "बाहर निकलने पर डिफ़ॉल्ट कार्यस्थान सहेजें (सेव करें)"
+
+msgid "If a default workspace is set, save it on application exit"
+msgstr ""
+"यदि कोई डिफ़ॉल्ट कार्यस्थान सेट है, तो उसे एप्लिकेशन निकास पर सहेजें (सेव "
+"करें)"
+
+msgid "Maximum number of rows mast be a positive number"
+msgstr "पंक्तियों की अधिकतम संख्या एक धनात्मक (पॉज़िटिव) संख्या होनी चाहिए"
+
+msgid "Summary"
+msgstr "संक्षेप"
+
+msgid "Keywords"
+msgstr "की-वर्डस"
+
+msgid "Document details"
+msgstr "दस्तावेज़ विवरण"
+
+msgid "Show errors"
+msgstr "त्रुटियों को दिखाएँ"
+
+msgid "Input parameters are invalid"
+msgstr "इनपुट पैरामीटर अमान्य हैं"
+
+msgid "Invalid parameters"
+msgstr "अवैध पैरामीटर"
+
+msgid "Access denied"
+msgstr "प्रवेश की अनुमति नहीं हैं"
+
+#, java-format
+msgid ""
+"Unable to access \"{0}\", please make sure you have write permissions or "
+"open the application messages for details."
+msgstr ""
+"\"{0}\" तक पहुंचने में असमर्थ, कृपया सुनिश्चित करें कि आपके पास लिखने की "
+"अनुमति है या विवरण के लिए एप्लिकेशन संदेश खोलें।"
+
+#, java-format
+msgid "You performed {0} tasks with PDFsam, did it help?"
+msgstr "आपने PDFsam के साथ {0} कार्य किए, क्या इससे मदद मिली?"
+
+msgid "Give something back"
+msgstr "कोई चीज वापस दें"
+
+msgid "PDFsam worked hard!"
+msgstr "PDFsam ने कड़ी मेहनत की!"
+
+msgid "Spread the word!"
+msgstr ""
+
+#, java-format
+msgid "PDFsam {0} is available for download"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "New version available"
+msgstr ""
+
+msgid "You are running the latest version of PDFsam Basic"
+msgstr ""
+
+msgid "No update"
+msgstr ""
+
+msgid "Open"
+msgstr ""
+
+#, java-format
+msgid "File \"{0}\" does not exist or is invalid"
+msgstr ""
+
+msgid "Valid user password provided."
+msgstr ""
+
+msgid "This document is encrypted, click to provide a password."
+msgstr ""
+
+msgid "An error has occurred, click for more details."
+msgstr ""
+
+#, java-format
+msgid "Version {0}"
+msgstr "संस्करण {0}"
+
+msgid "Split tools"
+msgstr ""
+
+msgid "Merge tools"
+msgstr ""
+
+msgid "Convert tools"
+msgstr ""
+
+msgid "Edit tools"
+msgstr ""
+
+msgid "Other tools"
+msgstr "अन्य औजार (टूल्स)"
+
+msgid "Checking for updates"
+msgstr "अपडेट जांच रहा है"
+
+msgid "Unable to find the latest available version."
+msgstr ""
+
+#, java-format
+msgid "Unable to find any valid PDF file in the list: {0}"
+msgstr ""
+
+#, java-format
+msgid "Unable to load PDF list file from {0}"
+msgstr ""
+
+msgid "Loading pdf documents"
+msgstr ""
+
+msgid "Documents loaded"
+msgstr ""
+
+msgid "Unable to retrieve premium features description"
+msgstr ""
+
+msgid "Fetching premium modules"
+msgstr ""
+
+msgid "Unable to retrieve premium modules"
+msgstr ""
+
+msgid "Unable to retrieve latest news"
+msgstr ""
+
+msgid "Fetching latest news"
+msgstr ""
+
+msgid "Unable to retrieve the latest news"
+msgstr ""
+
+#, java-format
+msgid "Saving workspace data to {0}"
+msgstr ""
+
+msgid "Workspace saved"
+msgstr ""
+
+msgid "Requesting modules state"
+msgstr ""
+
+#, java-format
+msgid "Unable to save workspace to {0}"
+msgstr ""
+
+#, java-format
+msgid "Loading workspace from {0}"
+msgstr ""
+
+#, java-format
+msgid "Workspace loaded: {0}"
+msgstr ""
+
+#, java-format
+msgid "Unable to load workspace from {0}"
+msgstr ""
+
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
+msgstr ""
+
+msgid "Light with blue"
+msgstr ""
+
+msgid "Dark with purple"
+msgstr ""
+
+msgid "Dark with teal"
+msgstr ""
+
+msgid "Light with maroon"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "The selected PDF document is invalid"
+msgstr ""
+
+msgid "Select the PDF file"
+msgstr ""
+
+msgid "_Select PDF"
+msgstr ""
+
+msgid "C_lear all settings"
+msgstr ""
+
+#, java-format
+msgid "Pages: {0}, PDF Version: {1}"
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Document properties"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "Set destination"
+msgstr ""
+
+msgid "Open Folder"
+msgstr ""
+
+msgid "Enter the user password"
+msgstr ""
+
+msgid "Unlock"
+msgstr ""
+
+msgid "Drag and drop PDF files here"
+msgstr ""
+
+msgid "Set as range for all"
+msgstr ""
+
+msgid "Move to Top"
+msgstr ""
+
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
+msgid "Move to Bottom"
+msgstr ""
+
+msgid "Duplicate"
+msgstr ""
+
+msgid "Selected pages"
+msgstr ""
+
+msgid "Total number of selected pages"
+msgstr ""
+
+msgid "Size"
+msgstr ""
+
+msgid "Modified"
+msgstr ""
+
+#, java-format
+msgid "Total pages: {0}"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Add documents to the table"
+msgstr ""
+
+msgid "_Add"
+msgstr ""
+
+msgid "PDF list from _text/csv file"
+msgstr ""
+
+msgid "Select pdf documents to load"
+msgstr ""
+
+msgid "Select a text or CSV file to load"
+msgstr ""
+
+msgid "Removes selected documents"
+msgstr ""
+
+msgid "_Remove"
+msgstr ""
+
+msgid "Removes every document"
+msgstr ""
+
+msgid "Moves up selected documents"
+msgstr ""
+
+msgid "Move _Up"
+msgstr ""
+
+msgid "Moves down selected documents"
+msgstr ""
+
+msgid "Move _Down"
+msgstr ""
+
+msgid "Pace"
+msgstr ""
+
+msgid ""
+"Double click to set the number of pages after which the task will switch to "
+"the next file"
+msgstr ""
+
+msgid "Reverse"
+msgstr ""
+
+msgid "Pages"
+msgstr ""
+
+msgid "Number of total pages of the document"
+msgstr ""
+
+msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+
+msgid "Page ranges"
+msgstr ""
+
+msgid "Select a file"
+msgstr ""
+
+msgid "The selected file must exist. "
+msgstr ""
+
+#, java-format
+msgid "Allowed extensions are {0}"
+msgstr ""
+
+msgid "Compress output file/files"
+msgstr ""
+
+msgid ""
+"Tick the box if you don't want to retain any bookmark from the original PDF "
+"document"
+msgstr ""
+
+msgid "Output PDF version:"
+msgstr ""
+
+msgid "Show advanced settings"
+msgstr ""
+
+msgid "Hide advanced settings"
+msgstr ""
+
+msgid "Overwrite if already exists"
+msgstr ""
+
+msgid ""
+"Tick the box if you want to overwrite the output files if they already exist."
+msgstr ""
+
+msgid "Same as the input document"
+msgstr ""
+
+msgid "An existing output directory is required"
+msgstr ""
+
+msgid "The output directory is required"
+msgstr ""
+
+msgid "Select an existing directory"
+msgstr ""
+
+msgid "Select"
+msgstr ""
+
+msgid "Browse"
+msgstr ""
+
+#, java-format
+msgid "PDF version required: {0}"
+msgstr ""
+
+msgid "Prefix for the generated files names"
+msgstr ""
+
+msgid "Add prefix"
+msgstr ""
+
+msgid "Generated PDF documents name prefix:"
+msgstr ""
+
+msgid "Prefix for the output files name."
+msgstr ""
+
+msgid "DEFAULT_PREFIX"
+msgstr ""
+
+msgid "Run"
+msgstr ""
+
+msgid "Run the task"
+msgstr ""
+
+msgid "Requested"
+msgstr ""
+
+msgid "Completed"
+msgstr ""
+
+msgid "Failed"
+msgstr ""
+
+msgid "Running"
+msgstr ""
+
+#, java-format
+msgid "Running {0}%"
+msgstr ""
+
+msgid "Error saving log file."
+msgstr ""
+
+#, java-format
+msgid "File {0} saved."
+msgstr ""
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr ""
+
+#, java-format
+msgid ""
+"Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
+"or [-n] or [n-]"
+msgstr ""
+
+#, java-format
+msgid "Invalid number: {0}."
+msgstr ""
