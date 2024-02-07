@@ -218,7 +218,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.11.0</version>
+                    <version>3.12.1</version>
                     <configuration>
                         <release>21</release>
                         <!-- remove this once Foreign Function & Memory API is out of preview-->
@@ -248,12 +248,12 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-clean-plugin</artifactId>
-                    <version>3.3.1</version>
+                    <version>3.3.2</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>exec-maven-plugin</artifactId>
-                    <version>3.1.0</version>
+                    <version>3.1.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -268,7 +268,7 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
-                    <version>3.4.0</version>
+                    <version>3.5.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -278,8 +278,9 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.1.2</version>
+                    <version>3.2.5</version>
                     <configuration>
+                        <useModulePath>false</useModulePath>
                         <!-- remove this once Foreign Function & Memory API is out of preview-->
                         <argLine>--enable-preview</argLine>
                     </configuration>
@@ -297,23 +298,23 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>3.6.0</version>
+                    <version>3.6.3</version>
                 </plugin>
             </plugins>
         </pluginManagement>
     </build>
 
     <properties>
-        <junit.version>5.10.0</junit.version>
-        <junit.pioneer.version>2.1.0</junit.pioneer.version>
-        <archunit.version>1.1.0</archunit.version>
-        <slf4j.version>2.0.9</slf4j.version>
-        <commons.lang.version>3.13.0</commons.lang.version>
-        <commons.io.version>2.13.0</commons.io.version>
-        <mockito.version>5.6.0</mockito.version>
-        <tinylog.version>2.6.2</tinylog.version>
+        <junit.version>5.10.2</junit.version>
+        <junit.pioneer.version>2.2.0</junit.pioneer.version>
+        <archunit.version>1.2.1</archunit.version>
+        <slf4j.version>2.0.11</slf4j.version>
+        <commons.lang.version>3.14.0</commons.lang.version>
+        <commons.io.version>2.15.1</commons.io.version>
+        <mockito.version>5.10.0</mockito.version>
+        <tinylog.version>2.7.0</tinylog.version>
         <hibernate-validator.version>7.0.5.Final</hibernate-validator.version>
-        <sejda.version>5.0.11</sejda.version>
+        <sejda.version>5.0.13</sejda.version>
         <sejda-io.version>4.0.0.M3</sejda-io.version>
         <sejda.commons.version>3.0.0</sejda.commons.version>
         <eventstudio.version>4.0.0</eventstudio.version>
@@ -321,11 +322,11 @@
         <rxjava.version>3.1.8</rxjava.version>
         <ikonli.version>12.3.1</ikonli.version>
         <testfx.version>4.0.17</testfx.version>
-        <jackson.version>2.15.3</jackson.version>
-        <bouncycastle.version>1.76</bouncycastle.version>
-        <assertj.version>3.24.2</assertj.version>
+        <jackson.version>2.16.1</jackson.version>
+        <bouncycastle.version>1.77</bouncycastle.version>
+        <assertj.version>3.25.3</assertj.version>
         <hamcrest.version>2.2</hamcrest.version>
-        <javafx.version>21.0.1</javafx.version>
+        <javafx.version>21.0.2</javafx.version>
         <jakarta-el.version>4.0.2</jakarta-el.version>
         <jakarta.inject.version>2.0.1</jakarta.inject.version>
         <validation.api.version>3.0.2</validation.api.version>
