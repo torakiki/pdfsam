@@ -82,7 +82,7 @@ public class MergeOptionsPaneTest {
         verify(builder).blankPageIfOdd(true);
         verify(builder).footer(false);
         verify(builder).pageNormalizationPolicy(PageNormalizationPolicy.NONE);
-        verify(builder).acroFormsPolicy(AcroFormPolicy.MERGE);
+        verify(builder).acroFormsPolicy(AcroFormPolicy.MERGE_RENAMING_EXISTING_FIELDS);
         verify(builder).tocPolicy(ToCPolicy.NONE);
         verify(onError, never()).accept(anyString());
     }
@@ -96,7 +96,7 @@ public class MergeOptionsPaneTest {
         assertEquals(Boolean.TRUE.toString(), data.get("blankIfOdd"));
         assertEquals(Boolean.FALSE.toString(), data.get("footer"));
         assertEquals(PageNormalizationPolicy.NONE.toString(), data.get("pageNormalization"));
-        assertEquals(AcroFormPolicy.MERGE.toString(), data.get("acroForms"));
+        assertEquals(AcroFormPolicy.MERGE_RENAMING_EXISTING_FIELDS.toString(), data.get("acroForms"));
         assertEquals(ToCPolicy.NONE.toString(), data.get("toc"));
     }
 
@@ -145,14 +145,14 @@ public class MergeOptionsPaneTest {
         ComboBox<ComboItem<PageNormalizationPolicy>> normalize = robot.lookup("#normalizeCheck").queryComboBox();
         Map<String, String> data = new HashMap<>();
         data.put("outline", OutlinePolicy.ONE_ENTRY_EACH_DOC.toString());
-        data.put("acroForms", AcroFormPolicy.MERGE_RENAMING_EXISTING_FIELDS.toString());
+        data.put("acroForms", AcroFormPolicy.FLATTEN.toString());
         data.put("blankIfOdd", Boolean.TRUE.toString());
         data.put("footer", Boolean.TRUE.toString());
         data.put("pageNormalization", PageNormalizationPolicy.SAME_WIDTH_ORIENTATION_BASED.toString());
         data.put("toc", ToCPolicy.DOC_TITLES.toString());
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals(OutlinePolicy.ONE_ENTRY_EACH_DOC, outline.getSelectionModel().getSelectedItem().key());
-        assertEquals(AcroFormPolicy.MERGE_RENAMING_EXISTING_FIELDS, forms.getSelectionModel().getSelectedItem().key());
+        assertEquals(AcroFormPolicy.FLATTEN, forms.getSelectionModel().getSelectedItem().key());
         assertEquals(ToCPolicy.DOC_TITLES, toc.getSelectionModel().getSelectedItem().key());
         assertTrue(blankIfOdd.isSelected());
         assertTrue(footer.isSelected());
@@ -160,7 +160,7 @@ public class MergeOptionsPaneTest {
                 normalize.getSelectionModel().getSelectedItem().key());
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.resetView());
         assertEquals(OutlinePolicy.RETAIN, outline.getSelectionModel().getSelectedItem().key());
-        assertEquals(AcroFormPolicy.MERGE, forms.getSelectionModel().getSelectedItem().key());
+        assertEquals(AcroFormPolicy.MERGE_RENAMING_EXISTING_FIELDS, forms.getSelectionModel().getSelectedItem().key());
         assertEquals(ToCPolicy.NONE, toc.getSelectionModel().getSelectedItem().key());
         assertFalse(blankIfOdd.isSelected());
         assertFalse(footer.isSelected());
