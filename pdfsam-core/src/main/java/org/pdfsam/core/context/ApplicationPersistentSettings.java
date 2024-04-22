@@ -18,9 +18,8 @@
  */
 package org.pdfsam.core.context;
 
-import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.subjects.PublishSubject;
-import io.reactivex.rxjava3.subjects.Subject;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ObservableValue;
 import org.pdfsam.persistence.PersistenceException;
 import org.pdfsam.persistence.PreferencesRepository;
 import org.slf4j.Logger;
@@ -30,6 +29,7 @@ import java.util.Arrays;
 import java.util.Optional;
 
 import static java.util.Objects.nonNull;
+import static java.util.Optional.empty;
 import static java.util.Optional.of;
 import static java.util.Optional.ofNullable;
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
@@ -39,14 +39,14 @@ import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
  *
  * @author Andrea Vacondio
  */
-public class ApplicationPersistentSettings implements AutoCloseable {
+public class ApplicationPersistentSettings {
 
     private static final Logger LOG = LoggerFactory.getLogger(ApplicationPersistentSettings.class);
 
     private final PreferencesRepository repo;
-    private final Subject<PersistentPropertyChange<String>> stringSettingsChanges = PublishSubject.create();
-    private final Subject<PersistentPropertyChange<Integer>> intSettingsChanges = PublishSubject.create();
-    private final Subject<PersistentPropertyChange<Boolean>> boolSettingsChanges = PublishSubject.create();
+    private final SimpleObjectProperty<PersistentPropertyChange<String>> stringSettingsChanges = new SimpleObjectProperty<>();
+    private final SimpleObjectProperty<PersistentPropertyChange<Integer>> intSettingsChanges = new SimpleObjectProperty<>();
+    private final SimpleObjectProperty<PersistentPropertyChange<Boolean>> boolSettingsChanges = new SimpleObjectProperty<>();
 
     ApplicationPersistentSettings(PreferencesRepository repo) {
         this.repo = repo;
@@ -101,7 +101,7 @@ public class ApplicationPersistentSettings implements AutoCloseable {
         requireNotNullArg(prop, "Cannot set value for a null property");
         try {
             this.repo.saveString(prop.key(), value);
-            stringSettingsChanges.onNext(new PersistentPropertyChange<>(prop, ofNullable(value)));
+            stringSettingsChanges.set(new PersistentPropertyChange<>(prop, ofNullable(value)));
         } catch (PersistenceException e) {
             LOG.error("Unable to save persistent property", e);
         }
@@ -115,7 +115,7 @@ public class ApplicationPersistentSettings implements AutoCloseable {
         requireNotNullArg(prop, "Cannot set value for a null property");
         try {
             this.repo.saveInt(prop.key(), value);
-            intSettingsChanges.onNext(new PersistentPropertyChange<>(prop, of(value)));
+            intSettingsChanges.set(new PersistentPropertyChange<>(prop, of(value)));
         } catch (PersistenceException e) {
             LOG.error("Unable to save persistent property", e);
         }
@@ -128,7 +128,7 @@ public class ApplicationPersistentSettings implements AutoCloseable {
         requireNotNullArg(prop, "Cannot set value for a null property");
         try {
             this.repo.saveBoolean(prop.key(), value);
-            boolSettingsChanges.onNext(new PersistentPropertyChange<>(prop, of(value)));
+            boolSettingsChanges.set(new PersistentPropertyChange<>(prop, of(value)));
         } catch (PersistenceException e) {
             LOG.error("Unable to save persistent property", e);
         }
@@ -159,22 +159,40 @@ public class ApplicationPersistentSettings implements AutoCloseable {
     /**
      * @return an observable for changes to the given property
      */
-    public Observable<Optional<String>> settingsChanges(StringPersistentProperty prop) {
-        return stringSettingsChanges.hide().filter(c -> c.property().equals(prop)).map(PersistentPropertyChange::value);
+    public ObservableValue<Optional<String>> settingsChanges(StringPersistentProperty prop) {
+        var value = new SimpleObjectProperty<Optional<String>>(empty());
+        stringSettingsChanges.subscribe((old, c) -> {
+            if (c.property().equals(prop)) {
+                value.set(c.value());
+            }
+        });
+        return value;
     }
 
     /**
      * @return an observable for changes to the given property
      */
-    public Observable<Optional<Integer>> settingsChanges(IntegerPersistentProperty prop) {
-        return intSettingsChanges.hide().filter(c -> c.property().equals(prop)).map(PersistentPropertyChange::value);
+    public ObservableValue<Optional<Integer>> settingsChanges(IntegerPersistentProperty prop) {
+        var value = new SimpleObjectProperty<Optional<Integer>>(empty());
+        intSettingsChanges.subscribe((old, c) -> {
+            if (c.property().equals(prop)) {
+                value.set(c.value());
+            }
+        });
+        return value;
     }
 
     /**
      * @return an observable for changes to the given property
      */
-    public Observable<Optional<Boolean>> settingsChanges(BooleanPersistentProperty prop) {
-        return boolSettingsChanges.hide().filter(c -> c.property().equals(prop)).map(PersistentPropertyChange::value);
+    public ObservableValue<Optional<Boolean>> settingsChanges(BooleanPersistentProperty prop) {
+        var value = new SimpleObjectProperty<Optional<Boolean>>(empty());
+        boolSettingsChanges.subscribe((old, c) -> {
+            if (c.property().equals(prop)) {
+                value.set(c.value());
+            }
+        });
+        return value;
     }
 
     /**
@@ -189,10 +207,4 @@ public class ApplicationPersistentSettings implements AutoCloseable {
         }
     }
 
-    @Override
-    public void close() {
-        stringSettingsChanges.onComplete();
-        intSettingsChanges.onComplete();
-        boolSettingsChanges.onComplete();
-    }
 }

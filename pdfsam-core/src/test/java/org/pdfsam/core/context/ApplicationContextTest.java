@@ -6,11 +6,14 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 import org.pdfsam.injector.Injector;
 import org.pdfsam.persistence.PreferencesRepository;
+import org.pdfsam.test.ValuesRecorder;
 
 import java.nio.file.Path;
+import java.util.Optional;
 
 import static java.util.Optional.empty;
 import static java.util.Optional.of;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -53,9 +56,10 @@ class ApplicationContextTest {
     @Test
     void runtimeWorkingPathIsBoundToPersistentSetting(@TempDir Path tempDir) {
         var victim = new ApplicationContext(persistentSettings, null);
-        var testListener = victim.runtimeState().workingPath().test();
+        var values = new ValuesRecorder<Optional<Path>>();
+        victim.runtimeState().workingPath().subscribe(values);
         victim.persistentSettings().set(StringPersistentProperty.WORKING_PATH, tempDir.toString());
-        testListener.assertValuesOnly(empty(), of(tempDir));
+        assertThat(values.values()).containsExactly(empty(), of(tempDir));
     }
 
     @Test
@@ -67,16 +71,6 @@ class ApplicationContextTest {
     }
 
     @Test
-    void close() {
-        var persistentState = mock(ApplicationPersistentSettings.class);
-        var runtimeState = mock(ApplicationRuntimeState.class);
-        var victim = new ApplicationContext(persistentState, runtimeState);
-        victim.close();
-        verify(persistentState).close();
-        verify(runtimeState).close();
-    }
-
-    @Test
     void closeWithInjector() {
         var persistentState = mock(ApplicationPersistentSettings.class);
         var runtimeState = mock(ApplicationRuntimeState.class);
@@ -84,8 +78,6 @@ class ApplicationContextTest {
         var victim = new ApplicationContext(persistentState, runtimeState);
         victim.injector(injector);
         victim.close();
-        verify(persistentState).close();
-        verify(runtimeState).close();
         verify(injector).close();
     }
 }

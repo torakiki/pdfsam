@@ -21,6 +21,6 @@ module org.pdfsam.i18n {
 
     requires org.pdfsam.eventstudio;
     requires org.sejda.commons;
-    requires transitive io.reactivex.rxjava3;
+    requires transitive javafx.base;
     requires org.slf4j;
 }

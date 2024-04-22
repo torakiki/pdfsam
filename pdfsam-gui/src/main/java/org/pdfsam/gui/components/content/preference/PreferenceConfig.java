@@ -19,6 +19,7 @@
 package org.pdfsam.gui.components.content.preference;
 
 import jakarta.inject.Named;
+import javafx.util.Subscription;
 import org.pdfsam.core.context.StringPersistentProperty;
 import org.pdfsam.core.support.validation.Validators;
 import org.pdfsam.gui.components.content.log.MaxLogRowsChangedEvent;
@@ -37,6 +38,7 @@ import java.util.Comparator;
 import java.util.stream.IntStream;
 
 import static java.util.Comparator.comparing;
+import static java.util.Objects.nonNull;
 import static java.util.Optional.ofNullable;
 import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.core.context.BooleanPersistentProperty.CHECK_FOR_NEWS;
@@ -96,11 +98,15 @@ public class PreferenceConfig {
         Themes.themes().entrySet().stream().sorted(Comparator.comparing(e -> e.getValue().name()))
                 .map(entry -> new ComboItem<>(entry.getKey(), entry.getValue().name()))
                 .forEach(themeCombo.getItems()::add);
-        app().runtimeState().theme().take(1).subscribe(t -> {
-            themeCombo.setValue(new ComboItem<>(t.id(), t.name()));
-            themeCombo.valueProperty().addListener(
-                    (observable, oldVal, newVal) -> ofNullable(Themes.get(newVal.key())).ifPresent(
-                            theme -> app().runtimeState().theme(theme)));
+        final Subscription[] subscription = new Subscription[1];
+        subscription[0] = app().runtimeState().theme().subscribe(t -> {
+            if (nonNull(t)) {
+                themeCombo.setValue(new ComboItem<>(t.id(), t.name()));
+                themeCombo.valueProperty().addListener(
+                        (observable, oldVal, newVal) -> ofNullable(Themes.get(newVal.key())).ifPresent(
+                                theme -> app().runtimeState().theme(theme)));
+                ofNullable(subscription[0]).ifPresent(Subscription::unsubscribe);
+            }
         });
         return themeCombo;
     }

@@ -18,7 +18,6 @@
  */
 package org.pdfsam.core.context;
 
-import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import javafx.application.ConditionalFeature;
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -47,7 +46,6 @@ public class ApplicationContext implements Closeable {
     private final ApplicationPersistentSettings persistentSettings;
     private ApplicationRuntimeState runtimeState;
     private Optional<Injector> injector = Optional.empty();
-    private CompositeDisposable disposable = new CompositeDisposable();
 
     private ApplicationContext() {
         this(new ApplicationPersistentSettings(new PreferencesRepository("/org/pdfsam/user/conf")), null);
@@ -84,11 +82,11 @@ public class ApplicationContext implements Closeable {
             if (Objects.isNull(this.runtimeState)) {
                 this.runtimeState = new ApplicationRuntimeState();
                 //listen for changes in the working path
-                disposable.add(this.persistentSettings().settingsChanges(WORKING_PATH).subscribe(path -> {
+                this.persistentSettings().settingsChanges(WORKING_PATH).subscribe(path -> {
                     this.runtimeState.defaultWorkingPath(
                             path.filter(StringUtils::isNotBlank).map(Paths::get).filter(Files::isDirectory)
                                     .orElse(null));
-                }));
+                });
 
                 var workingPath = persistentSettings().get(WORKING_PATH).filter(StringUtils::isNotBlank).map(Paths::get)
                         .filter(Files::isDirectory).orElse(null);
@@ -104,18 +102,20 @@ public class ApplicationContext implements Closeable {
      * @param scene
      */
     public void registerScene(Scene scene) {
-        disposable.add(this.runtimeState().theme().subscribe(t -> {
-            Platform.runLater(() -> {
-                scene.getStylesheets().setAll(t.stylesheets());
-                if (!Platform.isSupported(ConditionalFeature.TRANSPARENT_WINDOW)) {
-                    scene.getStylesheets().addAll(t.transparentIncapableStylesheets());
-                }
-            });
-        }));
-        disposable.add(this.persistentSettings().settingsChanges(FONT_SIZE).subscribe(size -> {
+        this.runtimeState().theme().subscribe(t -> {
+            if (Objects.nonNull(t)) {
+                Platform.runLater(() -> {
+                    scene.getStylesheets().setAll(t.stylesheets());
+                    if (!Platform.isSupported(ConditionalFeature.TRANSPARENT_WINDOW)) {
+                        scene.getStylesheets().addAll(t.transparentIncapableStylesheets());
+                    }
+                });
+            }
+        });
+        this.persistentSettings().settingsChanges(FONT_SIZE).subscribe(size -> {
             size.filter(StringUtils::isNotBlank).map(s -> String.format("-fx-font-size: %s;", s))
                     .ifPresentOrElse(scene.getRoot()::setStyle, () -> scene.getRoot().setStyle(""));
-        }));
+        });
 
         this.persistentSettings().get(FONT_SIZE).filter(not(String::isBlank))
                 .ifPresent(size -> scene.getRoot().setStyle(String.format("-fx-font-size: %s;", size)));
@@ -148,9 +148,6 @@ public class ApplicationContext implements Closeable {
     @Override
     public void close() {
         injector.ifPresent(Injector::close);
-        runtimeState().close();
-        persistentSettings.close();
-        disposable.dispose();
     }
 
 }

@@ -25,13 +25,18 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
+import org.pdfsam.model.tool.Tool;
+import org.pdfsam.test.ValuesRecorder;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Optional;
 
 import static java.util.Optional.empty;
 import static java.util.Optional.of;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
 
 /**
  * @author Andrea Vacondio
@@ -49,106 +54,136 @@ public class ApplicationRuntimeStateTest {
     @Test
     @DisplayName("Existing working Path")
     public void positiveMaybeWorkingPath(@TempDir Path tempDir) {
-        var testListener = victim.workingPath().test();
+        var values = new ValuesRecorder<Optional<Path>>();
+        victim.workingPath().subscribe(values);
         victim.maybeWorkingPath(tempDir);
-        testListener.assertValuesOnly(empty(), of(tempDir));
+        assertThat(values.values()).containsExactly(empty(), of(tempDir));
     }
 
     @Test
     @DisplayName("Existing working path as String")
     public void positiveMaybeWorkingPathString(@TempDir Path tempDir) {
-        var testListener = victim.workingPath().test();
+        var values = new ValuesRecorder<Optional<Path>>();
+        victim.workingPath().subscribe(values);
         victim.maybeWorkingPath(tempDir.toString());
-        testListener.assertValuesOnly(empty(), of(tempDir));
+        assertThat(values.values()).containsExactly(empty(), of(tempDir));
     }
 
     @Test
     @DisplayName("Null working Path")
     public void nullMaybeWorkingPath(@TempDir Path tempDir) {
-        var testListener = victim.workingPath().test();
+        var values = new ValuesRecorder<Optional<Path>>();
+        victim.workingPath().subscribe(values);
         victim.maybeWorkingPath(tempDir);
         victim.maybeWorkingPath((Path) null);
-        testListener.assertValuesOnly(empty(), of(tempDir), empty());
+        assertThat(values.values()).containsExactly(empty(), of(tempDir), empty());
     }
 
     @Test
     @DisplayName("Null working path as String")
     public void nullMaybeWorkingPathString(@TempDir Path tempDir) {
-        var testListener = victim.workingPath().test();
+        var values = new ValuesRecorder<Optional<Path>>();
+        victim.workingPath().subscribe(values);
         victim.maybeWorkingPath(tempDir);
         victim.maybeWorkingPath((String) null);
-        testListener.assertValuesOnly(empty(), of(tempDir), empty());
+        assertThat(values.values()).containsExactly(empty(), of(tempDir), empty());
     }
 
     @Test
     @DisplayName("Blank working path as String")
     public void blankMaybeWorkingPathString(@TempDir Path tempDir) {
-        var testListener = victim.workingPath().test();
+        var values = new ValuesRecorder<Optional<Path>>();
+        victim.workingPath().subscribe(values);
         victim.maybeWorkingPath(tempDir);
         victim.maybeWorkingPath("  ");
-        testListener.assertValuesOnly(empty(), of(tempDir), empty());
+        assertThat(values.values()).containsExactly(empty(), of(tempDir), empty());
     }
 
     @Test
     @DisplayName("File working Path")
     public void fileMaybeWorkingPath(@TempDir Path tempDir) throws IOException {
-        var testListener = victim.workingPath().test();
+        var values = new ValuesRecorder<Optional<Path>>();
+        victim.workingPath().subscribe(values);
         victim.maybeWorkingPath(tempDir);
-        var another = Files.createTempFile(tempDir, "test", ".tmp");
+        var another = Files.createTempFile("test", ".tmp");
         victim.maybeWorkingPath(another);
-        testListener.assertValuesOnly(empty(), of(tempDir), of(another.getParent()));
+        assertThat(values.values()).containsExactly(empty(), of(tempDir), of(another.getParent()));
     }
 
     @Test
     @DisplayName("Default working Path")
     public void defaultWorkingPath(@TempDir Path tempDir) {
-        var testListener = victim.workingPath().test();
+        var values = new ValuesRecorder<Optional<Path>>();
+        victim.workingPath().subscribe(values);
         victim.defaultWorkingPath(tempDir);
-        testListener.assertValuesOnly(empty(), of(tempDir));
+        assertThat(values.values()).containsExactly(empty(), of(tempDir));
+    }
+
+    @Test
+    @DisplayName("Non regular file")
+    public void fileWorkingPath(@TempDir Path tempDir) {
+        var values = new ValuesRecorder<Optional<Path>>();
+        victim.workingPath().subscribe(values);
+        victim.workingPath(tempDir);
+        victim.workingPath(tempDir.resolve("test.tmp"));
+        assertThat(values.values()).containsExactly(empty(), of(tempDir), empty());
     }
 
     @Test
     @DisplayName("File working Path with default already set")
     public void maybeWorkingPathWithDefault(@TempDir Path tempDir) throws IOException {
-        var testListener = victim.workingPath().test();
+        var values = new ValuesRecorder<Optional<Path>>();
+        victim.workingPath().subscribe(values);
         victim.defaultWorkingPath(tempDir);
         var another = Files.createTempFile(tempDir, "test", ".tmp");
         victim.maybeWorkingPath(another);
-        testListener.assertValuesOnly(empty(), of(tempDir));
+        assertThat(values.values()).containsExactly(empty(), of(tempDir));
     }
 
     @Test
     @DisplayName("File working String with default already set")
     public void maybeWorkingPathStringWithDefault(@TempDir Path tempDir) throws IOException {
-        var testListener = victim.workingPath().test();
+        var values = new ValuesRecorder<Optional<Path>>();
+        victim.workingPath().subscribe(values);
         victim.defaultWorkingPath(tempDir);
         var another = Files.createTempFile(tempDir, "test", ".tmp");
         victim.maybeWorkingPath(another.toString());
-        testListener.assertValuesOnly(empty(), of(tempDir));
+        assertThat(values.values()).containsExactly(empty(), of(tempDir));
     }
 
     @Test
     @DisplayName("Removing default working Path")
     public void removeWorkingPathWithDefault(@TempDir Path tempDir) throws IOException {
-        var testListener = victim.workingPath().test();
+        var values = new ValuesRecorder<Optional<Path>>();
+        victim.workingPath().subscribe(values);
         victim.defaultWorkingPath(tempDir);
         var another = Files.createTempFile(tempDir, "test", ".tmp");
         victim.maybeWorkingPath(another);
-        testListener.assertValuesOnly(empty(), of(tempDir));
-        testListener.dispose();
-        var anotherListener = victim.workingPath().test();
+        assertThat(values.values()).containsExactly(empty(), of(tempDir));
+        values.clear();
         victim.defaultWorkingPath(null);
         victim.maybeWorkingPath(another);
-        anotherListener.assertValuesOnly(of(tempDir), empty(), of(another.getParent()));
+        assertThat(values.values()).containsExactly(empty(), of(another.getParent()));
     }
 
     @Test
-    public void close() {
-        var testListenerTheme = victim.theme().test();
-        var testListenerWorkingPath = victim.workingPath().test();
-        victim.close();
-        testListenerTheme.assertComplete();
-        testListenerWorkingPath.assertComplete();
+    @DisplayName("Active tool notified")
+    public void positiveActiveTool() {
+        var values = new ValuesRecorder<Optional<Tool>>();
+        victim.activeTool().subscribe(values);
+        var tool = mock(Tool.class);
+        victim.activeTool(tool);
+        assertThat(values.values()).containsExactly(empty(), of(tool));
     }
 
+    @Test
+    @DisplayName("Null active tool")
+    public void nullActiveTool() {
+        var values = new ValuesRecorder<Optional<Tool>>();
+        victim.activeTool().subscribe(values);
+        var tool = mock(Tool.class);
+        victim.activeTool(tool);
+        victim.activeTool(null);
+        assertThat(values.values()).containsExactly(empty(), of(tool), empty());
+    }
 }

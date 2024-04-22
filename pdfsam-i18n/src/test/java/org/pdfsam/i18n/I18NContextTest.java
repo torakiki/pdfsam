@@ -19,10 +19,13 @@
 package org.pdfsam.i18n;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Locale;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 /**
@@ -30,53 +33,46 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
  */
 public class I18NContextTest {
 
+    private I18nContext victim;
+
+    @BeforeEach
+    public void before() {
+        this.victim = new I18nContext();
+    }
+
     @AfterEach
-    public void tearDown() {
+    public void after() {
         eventStudio().clear();
     }
 
     @Test
-    public void setInvalidLanguageTag() {
-        Locale.setDefault(Locale.UK);
-        var observer = new I18nContext().locale().test();
-        eventStudio().broadcast(new SetLocaleRequest("Chuck Norris"));
-        observer.assertNoValues();
-    }
-
-    @Test
     public void setLocaleSupported() {
-        var observer = new I18nContext().locale().test();
         eventStudio().broadcast(new SetLocaleRequest("it"));
-        observer.assertValue(Locale.ITALIAN);
+        assertEquals(Locale.ITALIAN, victim.locale().getValue());
+
     }
 
     @Test
     public void getBestLocaleSupported() {
-        var victim = new I18nContext();
         Locale.setDefault(Locale.ITALIAN);
-        var observer = victim.locale().test();
-        observer.assertNoValues();
+        assertNull(victim.locale().getValue());
         victim.tr("chuck norris");
-        observer.assertValue(Locale.ITALIAN);
+        assertEquals(Locale.ITALIAN, victim.locale().getValue());
     }
 
     @Test
     public void getBestLocaleSupportedLanguage() {
-        var victim = new I18nContext();
         Locale.setDefault(Locale.of("en", "CA"));
-        var observer = victim.locale().test();
-        observer.assertNoValues();
+        assertNull(victim.locale().getValue());
         victim.tr("chuck norris");
-        observer.assertValue(Locale.ENGLISH);
+        assertEquals(Locale.ENGLISH, victim.locale().getValue());
     }
 
     @Test
     public void getBestLocaleNotSupportedLanguage() {
-        var victim = new I18nContext();
-        Locale.setDefault(Locale.CANADA_FRENCH);
-        var observer = victim.locale().test();
-        observer.assertNoValues();
+        Locale.setDefault(Locale.of("mn", "MN"));
+        assertNull(victim.locale().getValue());
         victim.tr("chuck norris");
-        observer.assertValue(Locale.FRENCH);
+        assertEquals(Locale.ENGLISH, victim.locale().getValue());
     }
 }

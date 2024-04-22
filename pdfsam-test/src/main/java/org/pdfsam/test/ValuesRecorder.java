@@ -38,4 +38,8 @@ public class ValuesRecorder<T> implements Consumer<T> {
     public List<T> values() {
         return values;
     }
+
+    public void clear() {
+        values.clear();
+    }
 }

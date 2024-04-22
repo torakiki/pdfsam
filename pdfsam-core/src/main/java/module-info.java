@@ -23,7 +23,6 @@ module org.pdfsam.core {
     requires org.sejda.commons;
     requires org.slf4j;
 
-    requires transitive io.reactivex.rxjava3;
     requires transitive java.xml;
     requires transitive javafx.graphics;
     requires transitive org.apache.commons.lang3;

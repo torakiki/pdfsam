@@ -54,9 +54,12 @@
 			<groupId>org.pdfsam</groupId>
 			<artifactId>pdfsam-injector</artifactId>
 		</dependency>
+		<!-- test -->
 		<dependency>
-			<groupId>io.reactivex.rxjava3</groupId>
-			<artifactId>rxjava</artifactId>
+			<groupId>org.pdfsam</groupId>
+			<artifactId>pdfsam-test</artifactId>
+			<version>${project.version}</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 </project>
