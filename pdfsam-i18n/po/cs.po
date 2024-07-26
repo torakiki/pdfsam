@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2024-01-05 12:26+0000\n"
+"PO-Revision-Date: 2024-04-25 07:55+0000\n"
 "Last-Translator: Marek Hladík <mhladik@seznam.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-02-06 10:16+0000\n"
-"X-Generator: Launchpad (build 9643586c585856148a18782148972ae9c1179d06)\n"
+"X-Launchpad-Export-Date: 2024-07-26 09:48+0000\n"
+"X-Generator: Launchpad (build 0f7b58d0a728e5e8f34556869262ccfa55217529)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Nebylo vybráno žádné PDF"
@@ -626,7 +626,7 @@ msgid "Set your preferred language (restart needed)"
 msgstr "Vyberte jazyk (projeví se po restartu)"
 
 msgid "Startup tool:"
-msgstr ""
+msgstr "Nástroj po spuštění"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
@@ -659,7 +659,7 @@ msgid ""
 msgstr "Cílový adresář pro vybraný adresář PDF dokumentů zvolit automaticky"
 
 msgid "Default prefix:"
-msgstr ""
+msgstr "Výchozí předpona:"
 
 msgid ""
 "Default prefix for output file names, used in tools that generate multiple "
@@ -892,19 +892,19 @@ msgid "Version {0}"
 msgstr "Verze {0}"
 
 msgid "Split tools"
-msgstr ""
+msgstr "Nástroje pro rozdělení"
 
 msgid "Merge tools"
-msgstr ""
+msgstr "Nástroje pro slučování"
 
 msgid "Convert tools"
-msgstr ""
+msgstr "Nástroje pro převod"
 
 msgid "Edit tools"
-msgstr ""
+msgstr "Nástroje pro úpravy"
 
 msgid "Other tools"
-msgstr ""
+msgstr "Ostatní nástroje"
 
 msgid "Checking for updates"
 msgstr "Kontrola aktualizací"
@@ -964,7 +964,7 @@ msgstr "Načítám pracovní plochu z {0}"
 
 #, java-format
 msgid "Workspace loaded: {0}"
-msgstr ""
+msgstr "Načteno pracovní prostředí: {0}"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
@@ -972,19 +972,19 @@ msgstr "Nedaří se načíst pracovní plochu z {0}"
 
 #, java-format
 msgid "The following file already existed and was skipped: {0}"
-msgstr ""
+msgstr "Následující soubor již existuje a byl přeskočen: {0}"
 
 msgid "Light with blue"
-msgstr ""
+msgstr "Světlý s modrou"
 
 msgid "Dark with purple"
-msgstr ""
+msgstr "Tmavý s fialovou"
 
 msgid "Dark with teal"
-msgstr ""
+msgstr "Tmavý s modrozelenou"
 
 msgid "Light with maroon"
-msgstr ""
+msgstr "Světlý s kaštanovou"
 
 msgid "Close"
 msgstr "Zavřít"
@@ -1048,10 +1048,10 @@ msgid "Duplicate"
 msgstr "Duplikovat"
 
 msgid "Selected pages"
-msgstr ""
+msgstr "Vybrané stránky"
 
 msgid "Total number of selected pages"
-msgstr ""
+msgstr "Celkový počet vybraných stránek"
 
 msgid "Size"
 msgstr "Velikost"
@@ -1061,7 +1061,7 @@ msgstr "Změněno"
 
 #, java-format
 msgid "Total pages: {0}"
-msgstr ""
+msgstr "Celkový počet stránek: {0}"
 
 msgid "Name"
 msgstr "Název"
@@ -1118,7 +1118,7 @@ msgid "Pages"
 msgstr "Počet stran"
 
 msgid "Number of total pages of the document"
-msgstr ""
+msgstr "Celkový počet stran dokumentu"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -1205,7 +1205,7 @@ msgid "Run"
 msgstr "Spustit"
 
 msgid "Run the task"
-msgstr ""
+msgstr "Spustit úlohu"
 
 msgid "Requested"
 msgstr "Vyžádané"
