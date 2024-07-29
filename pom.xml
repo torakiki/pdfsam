@@ -317,7 +317,7 @@
         <sejda.version>5.0.20</sejda.version>
         <sejda-io.version>4.0.0.M3</sejda-io.version>
         <sejda.commons.version>3.0.0</sejda.commons.version>
-        <eventstudio.version>4.0.0</eventstudio.version>
+        <eventstudio.version>4.0.1</eventstudio.version>
         <injector.version>5.0.0</injector.version>
         <ikonli.version>12.3.1</ikonli.version>
         <testfx.version>4.0.17</testfx.version>
