@@ -315,7 +315,7 @@
         <tinylog.version>2.7.0</tinylog.version>
         <hibernate-validator.version>7.0.5.Final</hibernate-validator.version>
         <sejda.version>5.0.20</sejda.version>
-        <sejda-io.version>4.0.0.M3</sejda-io.version>
+        <sejda-io.version>4.0.0.M4</sejda-io.version>
         <sejda.commons.version>3.0.0</sejda.commons.version>
         <eventstudio.version>4.0.1</eventstudio.version>
         <injector.version>5.0.0</injector.version>
