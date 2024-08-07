@@ -27,7 +27,7 @@ import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.output.FileOrDirectoryTaskOutput;
 import org.sejda.model.parameter.ExtractPagesParameters;
 import org.sejda.model.pdf.PdfVersion;
-import org.sejda.model.pdf.page.PageRange;
+import org.sejda.model.pdf.page.PagesSelection;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -59,15 +59,15 @@ public class ExtractParametersBuilderTest {
         victim.addSource(source);
         victim.addSource(PdfFileSource.newInstanceNoPassword(Files.createTempFile(folder, null, ".pdf").toFile()));
         victim.version(PdfVersion.VERSION_1_7);
-        Set<PageRange> ranges = ConversionUtils.toPageRangeSet("2,5-20,33");
-        victim.ranges(ranges);
+        Set<PagesSelection> ranges = ConversionUtils.toPagesSelectionSet("2,5-20,33,45,last");
+        victim.pagesSelection(ranges);
         ExtractPagesParameters params = victim.build();
         assertTrue(params.isCompress());
         assertTrue(params.discardOutline());
         assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
         assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
         assertEquals(OptimizationPolicy.AUTO, params.getOptimizationPolicy());
-        assertEquals(ranges, params.getPageSelection());
+        assertTrue(params.hasPageSelection());
         assertEquals(output, params.getOutput());
         assertTrue(params.isInvertSelection());
         assertTrue(params.isSeparateFileForEachRange());

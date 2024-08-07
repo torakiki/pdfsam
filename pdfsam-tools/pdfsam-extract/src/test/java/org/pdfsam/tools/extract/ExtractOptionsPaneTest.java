@@ -76,7 +76,7 @@ public class ExtractOptionsPaneTest {
     public void validSteps() {
         robot.clickOn("#extractRanges").type(KeyCode.DIGIT5).push(KeyCode.ENTER);
         victim.apply(builder, onError);
-        verify(builder).ranges(anySet());
+        verify(builder).pagesSelection(anySet());
         verify(onError, never()).accept(anyString());
     }
 
@@ -85,7 +85,7 @@ public class ExtractOptionsPaneTest {
         robot.clickOn("#extractRanges").write("Chuck").push(KeyCode.ENTER);
         victim.apply(builder, onError);
         verify(onError).accept(anyString());
-        verify(builder, never()).ranges(anySet());
+        verify(builder, never()).pagesSelection(anySet());
     }
 
     @Test

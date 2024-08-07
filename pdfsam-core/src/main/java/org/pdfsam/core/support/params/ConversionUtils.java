@@ -18,20 +18,24 @@
  */
 package org.pdfsam.core.support.params;
 
+import org.apache.commons.lang3.StringUtils;
 import org.sejda.commons.collection.NullSafeSet;
 import org.sejda.conversion.exception.ConversionException;
 import org.sejda.model.pdf.page.PageRange;
+import org.sejda.model.pdf.page.PagesSelection;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Set;
 
+import static java.util.stream.Collectors.toSet;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.apache.commons.lang3.StringUtils.split;
 import static org.pdfsam.i18n.I18nContext.i18n;
 import static org.sejda.conversion.AdapterUtils.splitAndTrim;
 
 /**
  * @author Andrea Vacondio
- *
  */
 public final class ConversionUtils {
 
@@ -44,14 +48,22 @@ public final class ConversionUtils {
      */
     public static Set<PageRange> toPageRangeSet(String selection) throws ConversionException {
         if (isNotBlank(selection)) {
-            Set<PageRange> pageRangeSet = new NullSafeSet<>();
-            String[] tokens = splitAndTrim(selection, ",");
-            for (String current : tokens) {
-                PageRange range = toPageRange(current);
-                if (range.getEnd() < range.getStart()) {
-                    throw new ConversionException(i18n().tr("Invalid range: {0}.", range.toString()));
-                }
-                pageRangeSet.add(range);
+            var pageRangeSet = new NullSafeSet<PageRange>();
+            var tokens = Arrays.stream(split(selection, ",")).map(StringUtils::strip).collect(toSet());
+            for (var token : tokens) {
+                pageRangeSet.add(toPageRange(token));
+            }
+            return pageRangeSet;
+        }
+        return Collections.emptySet();
+    }
+
+    public static Set<PagesSelection> toPagesSelectionSet(String selection) throws ConversionException {
+        if (isNotBlank(selection)) {
+            var pageRangeSet = new NullSafeSet<PagesSelection>();
+            var tokens = Arrays.stream(split(selection, ",")).map(StringUtils::strip).collect(toSet());
+            for (var token : tokens) {
+                pageRangeSet.add(toPageSelection(token));
             }
             return pageRangeSet;
         }
@@ -73,9 +85,13 @@ public final class ConversionUtils {
             if (value.startsWith("-")) {
                 return new PageRange(1, limitNumber);
             }
-            return new PageRange(limitNumber, limitNumber);
+            return PageRange.one(limitNumber);
         }
-        return new PageRange(parsePageNumber(limits[0]), parsePageNumber(limits[1]));
+        var range = new PageRange(parsePageNumber(limits[0]), parsePageNumber(limits[1]));
+        if (range.getEnd() < range.getStart()) {
+            throw new ConversionException(i18n().tr("Invalid range: {0}.", range.toString()));
+        }
+        return range;
     }
 
     private static int parsePageNumber(String value) throws ConversionException {
@@ -84,5 +100,12 @@ public final class ConversionUtils {
         } catch (NumberFormatException nfe) {
             throw new ConversionException(i18n().tr("Invalid number: {0}.", value));
         }
+    }
+
+    private static PagesSelection toPageSelection(String value) {
+        if ("last".equals(value)) {
+            return PagesSelection.LAST_PAGE;
+        }
+        return toPageRange(value);
     }
 }

@@ -21,7 +21,7 @@ package org.pdfsam.tools.extract;
 import org.pdfsam.core.support.params.MultiplePdfSourceMultipleOutputParametersBuilder;
 import org.sejda.model.optimization.OptimizationPolicy;
 import org.sejda.model.parameter.ExtractPagesParameters;
-import org.sejda.model.pdf.page.PageRange;
+import org.sejda.model.pdf.page.PagesSelection;
 
 import java.util.Set;
 
@@ -36,7 +36,7 @@ import static org.pdfsam.core.ConfigurableSystemProperty.PDFSAM_DISABLE_SPLIT_OP
 class ExtractParametersBuilder extends MultiplePdfSourceMultipleOutputParametersBuilder<ExtractPagesParameters> {
 
     private OptimizationPolicy optimizationPolicy = OptimizationPolicy.AUTO;
-    private Set<PageRange> ranges;
+    private Set<PagesSelection> pagesSelection;
     private boolean invertSelection = false;
     private boolean separateForEachRange = false;
 
@@ -51,8 +51,8 @@ class ExtractParametersBuilder extends MultiplePdfSourceMultipleOutputParameters
         return OptimizationPolicy.NO;
     }
 
-    public void ranges(Set<PageRange> ranges) {
-        this.ranges = ranges;
+    public void pagesSelection(Set<PagesSelection> pagesSelection) {
+        this.pagesSelection = pagesSelection;
     }
 
     public void invertSelection(boolean invertSelection) {
@@ -72,7 +72,7 @@ class ExtractParametersBuilder extends MultiplePdfSourceMultipleOutputParameters
         params.setOutput(getOutput());
         params.setOptimizationPolicy(getOptimizationPolicy());
         params.discardOutline(isDiscardBookmarks());
-        params.addAllPageRanges(ranges);
+        pagesSelection.forEach(params::addPageRange);
         params.setOutputPrefix(getPrefix());
         params.setInvertSelection(invertSelection);
         params.setSeparateFileForEachRange(separateForEachRange);

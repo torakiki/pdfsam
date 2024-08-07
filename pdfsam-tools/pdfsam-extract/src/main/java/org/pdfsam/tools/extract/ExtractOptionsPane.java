@@ -23,7 +23,6 @@ import javafx.geometry.VPos;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import org.pdfsam.core.support.params.ConversionUtils;
 import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.model.ui.ResettableView;
 import org.pdfsam.model.ui.workspace.RestorableView;
@@ -38,7 +37,7 @@ import java.util.function.Consumer;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.pdfsam.core.support.params.ConversionUtils.toPageRangeSet;
+import static org.pdfsam.core.support.params.ConversionUtils.toPagesSelectionSet;
 import static org.pdfsam.i18n.I18nContext.i18n;
 import static org.pdfsam.ui.components.support.Views.helpIcon;
 
@@ -62,17 +61,17 @@ class ExtractOptionsPane extends GridPane
 
         this.field.setOnEnterValidation(true);
         this.field.setEnableInvalidStyle(true);
-        this.field.setPromptText(i18n().tr("Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"));
+        this.field.setPromptText(i18n().tr("Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"));
         this.field.setValidator(v -> {
             try {
-                return !toPageRangeSet(this.field.getText()).isEmpty();
+                return !toPagesSelectionSet(this.field.getText()).isEmpty();
             } catch (ConversionException e) {
                 return false;
             }
         });
         this.field.setErrorMessage(i18n().tr("Invalid page ranges"));
         this.field.setId("extractRanges");
-        this.field.setPrefWidth(350);
+        this.field.setPrefWidth(400);
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.GRID.css());
         var label = new Label(i18n().tr("Extract pages:"));
@@ -83,7 +82,7 @@ class ExtractOptionsPane extends GridPane
         GridPane.setHalignment(field, HPos.LEFT);
         add(field, 1, 0);
         var helpIcon = helpIcon(
-                i18n().tr("Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-)"));
+                i18n().tr("Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"));
         GridPane.setValignment(helpIcon, VPos.CENTER);
         add(helpIcon, 2, 0);
         GridPane.setValignment(separateFile, VPos.BOTTOM);
@@ -96,7 +95,7 @@ class ExtractOptionsPane extends GridPane
         this.field.validate();
         if (this.field.getValidationState() == ValidationState.VALID) {
             try {
-                builder.ranges(ConversionUtils.toPageRangeSet(this.field.getText()));
+                builder.pagesSelection(toPagesSelectionSet(this.field.getText()));
                 builder.separateForEachRange(separateFile.isSelected());
             } catch (ConversionException e) {
                 onError.accept(e.getMessage());
