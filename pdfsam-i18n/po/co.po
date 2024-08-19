@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2024-02-05 23:19+0000\n"
+"POT-Creation-Date: 2024-08-07 12:10+0200\n"
+"PO-Revision-Date: 2024-08-18 13:01+0000\n"
 "Last-Translator: Patriccollu <Patrick.Santa-Maria@laposte.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-04-22 14:00+0000\n"
-"X-Generator: Launchpad (build 67d34a19aaa1df7be4dd8bf498cbc5bbd785067b)\n"
+"X-Launchpad-Export-Date: 2024-08-19 08:16+0000\n"
+"X-Generator: Launchpad (build 1b1ed1ad2dbfc71ee62b5c5491c975135a771bf0)\n"
 "Language: co\n"
 
 msgid "No PDF document has been selected"
@@ -23,13 +23,13 @@ msgid "Extract pages from PDF documents."
 msgstr "Estrae pagine da ducumenti PDF."
 
 msgid "File names settings"
-msgstr "Preferenze di nomi di schedariu"
+msgstr "Parametri di nomi di schedariu"
 
 msgid "Extract settings"
-msgstr "Preferenze d’estrazzione"
+msgstr "Parametri d’estrazzione"
 
 msgid "Output settings"
-msgstr "Preferenze d’esciuta"
+msgstr "Parametri d’esciuta"
 
 msgid "A separate file for each set of pages"
 msgstr "Un schedariu staccatu per ogni gruppu di pagine"
@@ -38,8 +38,8 @@ msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr ""
 "Ogni seria di pagine in cuntinuu ingenererà un schedariu PDF distintu"
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Pagine à estrae (p.i. : 2 o 5-23 o 2,5-7,12-)"
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr "Pagine à estrae (p.i. : 2 o 5-23 o 2,5-7,12- o 3,last)"
 
 msgid "Invalid page ranges"
 msgstr "Serie di pagina micca accettevule"
@@ -49,10 +49,10 @@ msgstr "Estrae e pagine :"
 
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
+" or 3,last)"
 msgstr ""
 "Numeri di pagine staccati da virgula o serie à estrae (p.i. : 2 o 5-23 o 2,5-"
-"7,12-)"
+"7,12- o 3,last)"
 
 msgid "Split by bookmarks"
 msgstr "Sparte da l’indette"
@@ -85,7 +85,7 @@ msgid "Select or drag and drop the PDF you want to split"
 msgstr "Selezziunà o sguillà è dipone u PDF ch’ellu ci vole à sparte"
 
 msgid "Split settings"
-msgstr "Preferenze di spartimentu"
+msgstr "Parametri di frazziunamentu"
 
 msgid "Invalid bookmarks level"
 msgstr "Livellu d’indette inaccettevule"
@@ -209,7 +209,7 @@ msgid "Rotate "
 msgstr "Girà "
 
 msgid "Rotate settings"
-msgstr "Preferenze di u girà"
+msgstr "Parametri di rutazione"
 
 msgid "Rotate"
 msgstr "Girà"
@@ -224,7 +224,7 @@ msgstr ""
 "o 2,5-7,12-)"
 
 msgid "Merge settings"
-msgstr "Preferenze di fusione"
+msgstr "Parametri di fusione"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -270,11 +270,11 @@ msgstr ""
 "Definisce s’è tutte e pagine devenu avè a listessa larghezza chè a prima "
 "pagina"
 
-msgid "Merge fields"
-msgstr "Fusione di i campi"
-
 msgid "Merge renaming existing fields"
 msgstr "Fusione di i campi esistente"
+
+msgid "Merge fields"
+msgstr "Fusione di i campi"
 
 msgid "Flatten"
 msgstr "Appianisce"
@@ -371,7 +371,7 @@ msgstr ""
 "Selezziunà o sguillà è dipone u PDF induve ci vole à framette e pagine"
 
 msgid "Insert and Repeat settings"
-msgstr "Preferenze d’inserzione è di ripetizione"
+msgstr "Parametri d’inserzione è di ripetizione"
 
 msgid "Insert pages multiple times"
 msgstr "Framette pagine parechje volte"
@@ -431,7 +431,7 @@ msgid "Do you confirm?"
 msgstr "Cunfirmate ?"
 
 msgid "Clear the tool settings"
-msgstr "Viutà e preferenze di l’attrezzu"
+msgstr "Viutà i parametri di l’attrezzu"
 
 msgid "Clear the selection table"
 msgstr "Viutà a tavula di selezzione"
@@ -685,7 +685,7 @@ msgid "Right click to add these keywords."
 msgstr "Cliccu dirittu per aghjunghje ste parolle chjave."
 
 msgid "Settings"
-msgstr "Preferenze"
+msgstr "Parametri"
 
 msgid "Appearance"
 msgstr "Aspettu"
@@ -702,8 +702,8 @@ msgstr "Cuntrollà i rinnovi avà"
 msgid ""
 "Select a directory where documents will be saved and loaded by default"
 msgstr ""
-"Selezziunà un cartulare induve i ducumenti seranu arregistrati è caricati "
-"(senza altra direttiva)"
+"Selezziunà un cartulare induve i ducumenti seranu arregistrati è caricati di "
+"manera predefinita"
 
 msgid "Select a directory"
 msgstr "Selezziunà un cartulare"
@@ -752,12 +752,13 @@ msgstr "A cumpressione PDF hè attivata"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
-"Definisce s’è a cumpressione di schedarii d’esciuta deve esse attivata cum’è "
-"preferenze predefinita"
+"Definisce s’è a cumpressione di u(i) schedariu(i) d’esciuta deve esse "
+"attivata di manera predefinita"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
 msgstr ""
-"Definisce s’è « Scaccià l’indette » deve esse attivata di manera predefinita"
+"Definisce s’è l’ozzione « Scaccià l’indette » deve esse attivata di manera "
+"predefinita"
 
 msgid "Overwrite files"
 msgstr "Rimpiazzà i schedarii"
@@ -766,7 +767,7 @@ msgid ""
 "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
 "Definisce s’è l’ozzione « Rimpiazzallu s’ellu esiste dighjà » deve esse "
-"attivata cum’è preferenze predefinita"
+"attivata di manera predefinita"
 
 msgid "Play alert sounds"
 msgstr "Sunà i soni d’alerta"
@@ -1018,7 +1019,7 @@ msgid "_Select PDF"
 msgstr "_Selezziunà u PDF"
 
 msgid "C_lear all settings"
-msgstr "S_quassà tutte e preferenze"
+msgstr "S_quassà tutti i parametri"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -1172,10 +1173,10 @@ msgid "Output PDF version:"
 msgstr "Versione PDF d’esciuta :"
 
 msgid "Show advanced settings"
-msgstr "Affissà e preferenze d’espertu"
+msgstr "Affissà i parametri d’espertu"
 
 msgid "Hide advanced settings"
-msgstr "Piattà e preferenze d’espertu"
+msgstr "Piattà i parametri d’espertu"
 
 msgid "Overwrite if already exists"
 msgstr "Rimpiazzallu s’ellu esiste dighjà"
@@ -1245,16 +1246,16 @@ msgstr "In funzione"
 msgid "Running {0}%"
 msgstr "Operazione in corsu : {0}%"
 
-msgid "Error saving log file."
-msgstr "Sbagliu à l’arregistramentu di u schedariu di ghjurnale."
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr "Sbagliu à l’arregistramentu di u cuntenutu in u schedariu {0}"
 
 #, java-format
-msgid "File {0} saved."
-msgstr "Schedariu {0} arregistratu."
+msgid "File {0} saved"
+msgstr "Schedariu {0} arregistratu"
 
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "Seria inaccettevule : {0}."
+msgid "Error saving content to clipboard"
+msgstr "Sbagliu à l’arregistramentu di u cuntenutu in u preme’papei"
 
 #, java-format
 msgid ""
@@ -1263,6 +1264,10 @@ msgid ""
 msgstr ""
 "Definizione ambigua di seria di pagina : {0}. Impiegate ste forme : [n] o "
 "[n1-n2] o [-n] o [n-]"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "Seria inaccettevule : {0}."
 
 #, java-format
 msgid "Invalid number: {0}."
