@@ -13,7 +13,6 @@ using System.IO;
                 string path = session.CustomActionData["folder"] + "app/pdfsam.cfg";                
                 if (File.Exists(@path)) 
                 {
-                    session.Log("AddLine to existing " + session.CustomActionData["folder"] + "app/pdfsam.cfg");
                     File.AppendAllText(path, "java-options=-Dorg.pdfsam.default.checkforupdate=" + session.CustomActionData["updates"] + Environment.NewLine);
                     File.AppendAllText(path, "java-options=-Dorg.pdfsam.default.donate.notification=" + session.CustomActionData["donate"] + Environment.NewLine);
                     File.AppendAllText(path, "java-options=-Dorg.pdfsam.default.locale=" + session.CustomActionData["locale"] + Environment.NewLine);
