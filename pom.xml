@@ -118,7 +118,9 @@
                         <configuration>
                             <additionalOptions>
                                 <additionalOption>-Xdoclint:none</additionalOption>
+                                <additionalOption>--enable-preview</additionalOption>
                             </additionalOptions>
+                            <release>21</release>
                         </configuration>
                     </plugin>
                     <plugin>
