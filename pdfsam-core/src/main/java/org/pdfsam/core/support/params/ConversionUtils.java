@@ -25,10 +25,7 @@ import org.sejda.model.pdf.page.PageRange;
 import org.sejda.model.pdf.page.PagesSelection;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Set;
 
-import static java.util.stream.Collectors.toSet;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.apache.commons.lang3.StringUtils.split;
 import static org.pdfsam.i18n.I18nContext.i18n;
@@ -46,28 +43,27 @@ public final class ConversionUtils {
     /**
      * @return the {@link PageRange} set for the given string, an empty set otherwise.
      */
-    public static Set<PageRange> toPageRangeSet(String selection) throws ConversionException {
+    public static NullSafeSet<PageRange> toPageRangeSet(String selection) throws ConversionException {
         if (isNotBlank(selection)) {
             var pageRangeSet = new NullSafeSet<PageRange>();
-            var tokens = Arrays.stream(split(selection, ",")).map(StringUtils::strip).collect(toSet());
-            for (var token : tokens) {
-                pageRangeSet.add(toPageRange(token));
-            }
+            Arrays.stream(split(selection, ",")).map(StringUtils::strip).map(ConversionUtils::toPageRange)
+                    .forEachOrdered(pageRangeSet::add);
             return pageRangeSet;
         }
-        return Collections.emptySet();
+        return new NullSafeSet<>();
     }
 
-    public static Set<PagesSelection> toPagesSelectionSet(String selection) throws ConversionException {
+    /**
+     * @return the {@link PagesSelection} set for the given string, an empty set otherwise.
+     */
+    public static NullSafeSet<PagesSelection> toPagesSelectionSet(String selection) throws ConversionException {
         if (isNotBlank(selection)) {
             var pageRangeSet = new NullSafeSet<PagesSelection>();
-            var tokens = Arrays.stream(split(selection, ",")).map(StringUtils::strip).collect(toSet());
-            for (var token : tokens) {
-                pageRangeSet.add(toPageSelection(token));
-            }
+            Arrays.stream(split(selection, ",")).map(StringUtils::strip).map(ConversionUtils::toPageSelection)
+                    .forEachOrdered(pageRangeSet::add);
             return pageRangeSet;
         }
-        return Collections.emptySet();
+        return new NullSafeSet<>();
     }
 
     private static PageRange toPageRange(String value) throws ConversionException {
