@@ -18,9 +18,8 @@
  */
 package org.pdfsam.core.context;
 
-import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.subjects.BehaviorSubject;
-import io.reactivex.rxjava3.subjects.ReplaySubject;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ObservableValue;
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.model.tool.Tool;
 import org.pdfsam.theme.Theme;
@@ -49,14 +48,14 @@ import static java.util.stream.Collectors.toMap;
  *
  * @author Andrea Vacondio
  */
-public class ApplicationRuntimeState implements AutoCloseable {
+public class ApplicationRuntimeState {
 
     private static final Logger LOG = LoggerFactory.getLogger(ApplicationRuntimeState.class);
 
     private Path defaultWorkingPath;
-    private final BehaviorSubject<Optional<Path>> workingPath = BehaviorSubject.createDefault(empty());
-    private final BehaviorSubject<Optional<Tool>> activeTool = BehaviorSubject.createDefault(empty());
-    private final ReplaySubject<Theme> theme = ReplaySubject.create(1);
+    private final SimpleObjectProperty<Optional<Path>> workingPath = new SimpleObjectProperty<>(empty());
+    private final SimpleObjectProperty<Optional<Tool>> activeTool = new SimpleObjectProperty<>(empty());
+    private final SimpleObjectProperty<Theme> theme = new SimpleObjectProperty<>();
     private final Future<Map<String, Tool>> tools;
 
     ApplicationRuntimeState() {
@@ -72,7 +71,7 @@ public class ApplicationRuntimeState implements AutoCloseable {
      * @param path the current working directory or the parent in case of regular file. A null value clears the current working path
      */
     void workingPath(Path path) {
-        workingPath.onNext(ofNullable(path).map(p -> {
+        workingPath.set(ofNullable(path).map(p -> {
             if (Files.isRegularFile(p)) {
                 return p.getParent();
             }
@@ -110,8 +109,8 @@ public class ApplicationRuntimeState implements AutoCloseable {
         return workingPath.getValue();
     }
 
-    public Observable<Optional<Path>> workingPath() {
-        return workingPath.hide();
+    public ObservableValue<Optional<Path>> workingPath() {
+        return workingPath;
     }
 
     /**
@@ -130,7 +129,7 @@ public class ApplicationRuntimeState implements AutoCloseable {
      * @param activeTool the tool currently active
      */
     public void activeTool(Tool activeTool) {
-        this.activeTool.onNext(ofNullable(activeTool));
+        this.activeTool.set(ofNullable(activeTool));
     }
 
     /**
@@ -140,22 +139,22 @@ public class ApplicationRuntimeState implements AutoCloseable {
         return activeTool.getValue();
     }
 
-    public Observable<Optional<Tool>> activeTool() {
-        return activeTool.hide();
+    public ObservableValue<Optional<Tool>> activeTool() {
+        return activeTool;
     }
 
     /**
      * @return the current theme
      */
-    public Observable<Theme> theme() {
-        return this.theme.hide();
+    public ObservableValue<Theme> theme() {
+        return this.theme;
     }
 
     /**
      * Sets the application theme
      */
     public void theme(Theme theme) {
-        ofNullable(theme).ifPresent(this.theme::onNext);
+        ofNullable(theme).ifPresent(this.theme::set);
     }
 
     void defaultWorkingPath(Path defaultWorkingPath) {
@@ -163,10 +162,4 @@ public class ApplicationRuntimeState implements AutoCloseable {
         workingPath(defaultWorkingPath);
     }
 
-    @Override
-    public void close() {
-        workingPath.onComplete();
-        theme.onComplete();
-        activeTool.onComplete();
-    }
 }

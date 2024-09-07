@@ -18,15 +18,14 @@
  */
 package org.pdfsam.i18n;
 
-import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.subjects.ReplaySubject;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ObservableValue;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.text.MessageFormat;
 import java.util.Locale;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Set;
@@ -53,31 +52,33 @@ public final class I18nContext {
             Locale.of("sl"), Locale.of("sr"), Locale.of("sv"), Locale.of("es"), Locale.of("tr"), Locale.of("uk"),
             Locale.of("fi"), Locale.of("ko"), Locale.of("oc"));
 
-    private final ReplaySubject<Locale> locale = ReplaySubject.createWithSize(1);
-
+    private final SimpleObjectProperty<Locale> locale = new SimpleObjectProperty<>();
     private Optional<ResourceBundle> bundle = empty();
 
     I18nContext() {
         eventStudio().addAnnotatedListeners(this);
-        locale.filter(Objects::nonNull)
-                .subscribe(this::loadBundle, e -> LOG.error("Unable to load translations bundle", e));
+        locale.subscribe(this::loadBundles);
     }
 
     @EventListener
     public void setLocale(SetLocaleRequest e) {
         if (nonNull(e.languageTag()) && !e.languageTag().isBlank()) {
             LOG.trace("Setting locale to {}", e.languageTag());
-            ofNullable(Locale.forLanguageTag(e.languageTag())).filter(supported::contains).ifPresent(locale::onNext);
+            ofNullable(Locale.forLanguageTag(e.languageTag())).filter(supported::contains).ifPresent(locale::set);
         }
     }
 
-    private void loadBundle(Locale l) {
+    private void loadBundles(Locale l) {
         if (nonNull(l)) {
             Locale.setDefault(l);
             LOG.trace("Loading i18n bundle for {}", Locale.getDefault());
-            this.bundle = ofNullable(ResourceBundle.getBundle("org.pdfsam.i18n.Messages", Locale.getDefault(),
-                    I18nContext.class.getModule()));
-            LOG.debug("Locale set to {}", Locale.getDefault());
+            try {
+                this.bundle = ofNullable(ResourceBundle.getBundle("org.pdfsam.i18n.Messages", Locale.getDefault(),
+                        I18nContext.class.getModule()));
+                LOG.debug("Locale set to {}", Locale.getDefault());
+            } catch (Exception e) {
+                LOG.error("Unable to load translations bundle", e);
+            }
         }
     }
 
@@ -103,11 +104,10 @@ public final class I18nContext {
     }
 
     /**
-     * @return an {@link Observable} {@link Locale} representing the current locale
+     * @return an {@link ObservableValue} {@link Locale} representing the current locale
      */
-    public Observable<Locale> locale() {
-        return this.locale.hide();
-
+    public ObservableValue<Locale> locale() {
+        return this.locale;
     }
 
     public String tr(String text) {
@@ -127,7 +127,7 @@ public final class I18nContext {
 
     private void initBundleIfRequired() {
         if (bundle.isEmpty()) {
-            locale.onNext(getBestLocale());
+            locale.set(getBestLocale());
         }
     }
 

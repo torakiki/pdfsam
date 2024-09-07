@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2023-10-26 09:56+0000\n"
+"POT-Creation-Date: 2024-08-07 12:10+0200\n"
+"PO-Revision-Date: 2024-08-07 10:33+0000\n"
 "Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-11-06 11:08+0000\n"
-"X-Generator: Launchpad (build f1e537f62ee3967c2b3f24dd10eacf1696334fe6)\n"
+"X-Launchpad-Export-Date: 2024-08-19 08:16+0000\n"
+"X-Generator: Launchpad (build 1b1ed1ad2dbfc71ee62b5c5491c975135a771bf0)\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Language: it\n"
 
@@ -43,8 +43,8 @@ msgstr "Un file separato per ogni set di pagine"
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr "Ogni serie continua di pagine genererà un file PDF separato"
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Pagine da estrarre (es.: 2 o 5-23 o 2,5-7,12-)"
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr "Pagine da estrarre (es. 2 or 5-23 o 2,5-7,12- o 3,last)"
 
 msgid "Invalid page ranges"
 msgstr "Intervalli di pagina invalidi"
@@ -54,10 +54,10 @@ msgstr "Estrai pagine:"
 
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
+" or 3,last)"
 msgstr ""
-"Numeri di pagina o intervalli da estrarre separati da virgole (es: 2 o 5-23 "
-"o 2,5-7,12-)"
+"Numeri di pagina o intervalli separati da virgole da estrarre (es: 2 o 5-23 "
+"o 2,5-7,12- o 3,last)"
 
 msgid "Split by bookmarks"
 msgstr "Dividi per segnalibri"
@@ -273,11 +273,11 @@ msgstr ""
 "Imposta se le pagine devono essere ridimensionate in modo che abbiano tutte "
 "la stessa larghezza della prima"
 
-msgid "Merge fields"
-msgstr "Unisci campi"
-
 msgid "Merge renaming existing fields"
 msgstr "Unisci rinominando campi esistenti"
+
+msgid "Merge fields"
+msgstr "Unisci campi"
 
 msgid "Flatten"
 msgstr "Appiattisci"
@@ -1334,16 +1334,16 @@ msgstr "In esecuzione"
 msgid "Running {0}%"
 msgstr "In esecuzione {0}%"
 
-msgid "Error saving log file."
-msgstr "Errore nel salvataggio del file registro."
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr "Errore nel salvare il contenuto nel file {0}"
 
 #, java-format
-msgid "File {0} saved."
-msgstr "File {0} salvato."
+msgid "File {0} saved"
+msgstr "File {0} salvato"
 
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "Intervallo non valido: {0}."
+msgid "Error saving content to clipboard"
+msgstr "Errore nel salvare il contenuto negli appunti"
 
 #, java-format
 msgid ""
@@ -1354,8 +1354,12 @@ msgstr ""
 "Usa i seguenti formati: [n] o [n1-n2] o [-n] o [n-]"
 
 #, java-format
+msgid "Invalid range: {0}."
+msgstr "Intervallo non valido: {0}."
+
+#, java-format
 msgid "Invalid number: {0}."
-msgstr "Numero non alido: {0}."
+msgstr "Numero non valido: {0}"
 
 # F:\workspace_pdfsame_enanched\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:200
 # F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:206

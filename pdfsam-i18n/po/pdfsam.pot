@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2023-10-26 11:54+0200\n"
+"POT-Creation-Date: 2024-08-07 12:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,7 +41,7 @@ msgstr ""
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr ""
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
 msgstr ""
 
 msgid "Invalid page ranges"
@@ -52,7 +52,7 @@ msgstr ""
 
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or "
-"2,5-7,12-)"
+"2,5-7,12- or 3,last)"
 msgstr ""
 
 msgid "Split by bookmarks"
@@ -248,10 +248,10 @@ msgid ""
 "one"
 msgstr ""
 
-msgid "Merge fields"
+msgid "Merge renaming existing fields"
 msgstr ""
 
-msgid "Merge renaming existing fields"
+msgid "Merge fields"
 msgstr ""
 
 msgid "Flatten"
@@ -1168,21 +1168,25 @@ msgstr ""
 msgid "Running {0}%"
 msgstr ""
 
-msgid "Error saving log file."
+#, java-format
+msgid "Error saving content to file {0}"
 msgstr ""
 
 #, java-format
-msgid "File {0} saved."
+msgid "File {0} saved"
 msgstr ""
 
-#, java-format
-msgid "Invalid range: {0}."
+msgid "Error saving content to clipboard"
 msgstr ""
 
 #, java-format
 msgid ""
 "Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
 "or [-n] or [n-]"
+msgstr ""
+
+#, java-format
+msgid "Invalid range: {0}."
 msgstr ""
 
 #, java-format

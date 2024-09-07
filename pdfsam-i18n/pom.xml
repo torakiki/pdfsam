@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.pdfsam</groupId>
         <artifactId>pdfsam-parent</artifactId>
-        <version>5.2.3-SNAPSHOT</version>
+        <version>5.2.7-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -73,8 +73,8 @@
             <artifactId>eventstudio</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.reactivex.rxjava3</groupId>
-            <artifactId>rxjava</artifactId>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
         </dependency>
     </dependencies>
 

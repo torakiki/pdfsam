@@ -44,7 +44,7 @@ class MergeParametersBuilder extends AbstractPdfOutputParametersBuilder<MergePar
     private boolean blankIfOdd;
     private boolean footer;
     private PageNormalizationPolicy pageNormalizationPolicy = PageNormalizationPolicy.NONE;
-    private AcroFormPolicy formsPolicy = AcroFormPolicy.MERGE;
+    private AcroFormPolicy formsPolicy = AcroFormPolicy.MERGE_RENAMING_EXISTING_FIELDS;
     private ToCPolicy tocPolicy = ToCPolicy.NONE;
     private FileTaskOutput output;
 

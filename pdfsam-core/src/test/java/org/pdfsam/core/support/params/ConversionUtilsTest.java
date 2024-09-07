@@ -21,12 +21,15 @@ package org.pdfsam.core.support.params;
 import org.junit.jupiter.api.Test;
 import org.sejda.conversion.exception.ConversionException;
 import org.sejda.model.pdf.page.PageRange;
+import org.sejda.model.pdf.page.PagesSelection;
 
 import java.util.Set;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.sejda.model.pdf.page.PageRange.one;
 
 /**
  * @author Andrea Vacondio
@@ -88,5 +91,19 @@ public class ConversionUtilsTest {
         assertEquals(2, pageSet.stream().findFirst().get().getStart());
         assertEquals(4, pageSet.stream().findFirst().get().getEnd());
         assertTrue(pageSet.stream().anyMatch(PageRange::isUnbounded));
+    }
+
+    @Test
+    public void testOrderToPageRangeSet() {
+        Set<PageRange> pageSet = ConversionUtils.toPageRangeSet("1-7,9,17");
+        assertEquals(3, pageSet.size());
+        assertThat(pageSet).containsExactly(new PageRange(1, 7), one(9), one(17));
+    }
+
+    @Test
+    public void testOrderToPagesSelectionSet() {
+        Set<PagesSelection> pageSet = ConversionUtils.toPagesSelectionSet("1-7,9,17");
+        assertEquals(3, pageSet.size());
+        assertThat(pageSet).containsExactly(new PageRange(1, 7), one(9), one(17));
     }
 }

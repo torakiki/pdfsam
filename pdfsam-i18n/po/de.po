@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2020-12-28 16:27+0000\n"
-"Last-Translator: Milo Ivir <Unknown>\n"
+"POT-Creation-Date: 2023-10-26 11:54+0200\n"
+"PO-Revision-Date: 2024-05-05 21:57+0000\n"
+"Last-Translator: Tim Quakulinsky <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
+"X-Launchpad-Export-Date: 2024-07-26 09:48+0000\n"
+"X-Generator: Launchpad (build 0f7b58d0a728e5e8f34556869262ccfa55217529)\n"
 "Language: de\n"
 
 msgid "No PDF document has been selected"
@@ -39,10 +39,10 @@ msgid "Output settings"
 msgstr "Ausgabe-Einstellungen"
 
 msgid "A separate file for each set of pages"
-msgstr ""
+msgstr "Eine separate Datei für jeden Satz von Seiten"
 
 msgid "Each continuous series of pages will generate a separate PDF file"
-msgstr ""
+msgstr "Jede fortlaufende Serie von Seiten erzeugt eine separate PDF-Datei"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Zu extrahierende Seiten (z. B.: 2 oder 5-23 oder 2,5-7,12-)"
@@ -57,6 +57,8 @@ msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
 ")"
 msgstr ""
+"Durch Kommata getrennte Seitenzahlen oder Bereiche, die extrahiert werden "
+"sollen (z. B. 2 oder 5-23 oder 2,5-7,12-)"
 
 msgid "Split by bookmarks"
 msgstr "Nach Lesezeichen teilen"
@@ -68,7 +70,7 @@ msgstr ""
 "Lesezeichenebene."
 
 msgid "Regular expression the bookmark has to match"
-msgstr "Ausdruck dem das Lesezeichen entsprechen muss"
+msgstr "Regulärer Ausdruck, dem das Lesezeichen entsprechen muss"
 
 msgid "Split at this bookmark level:"
 msgstr "Bei folgender Lesezeichenebene teilen:"
@@ -256,18 +258,20 @@ msgid "None"
 msgstr "Keine"
 
 msgid "Same width as first page"
-msgstr ""
+msgstr "Gleiche Breite wie die erste Seite"
 
 msgid "Same width as first page (based on page orientation)"
-msgstr ""
+msgstr "Gleiche Breite wie die erste Seite (basierend auf Seitenausrichtung)"
 
 msgid "Pages normalization:"
-msgstr ""
+msgstr "Seiten-Normalisierung:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
 "one"
 msgstr ""
+"Legen Sie fest, ob alle Seiten die gleiche Breite wie die erste Seite haben "
+"sollen"
 
 msgid "Merge fields"
 msgstr "Felder zusammenführen"
@@ -329,54 +333,65 @@ msgstr ""
 msgid "Merge"
 msgstr "Zusammenführen"
 
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "Mehrere PDF-Dokumente oder deren Teilbereiche zusammenführen."
+msgid "Merge multiple PDF documents or subsections of them."
+msgstr "Zusammenführen mehrerer PDF-Dokumente oder von Teilbereichen davon."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr ""
+"Die PDF-Datei, deren Seiten wiederholt werden sollen, auswählen oder mit "
+"Drag & Drop ablegen"
 
 msgid "Repeat these pages:"
-msgstr ""
+msgstr "Diese Seiten wiederholen:"
 
 msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "Zu wiederholende Seiten (z. B.: 2 oder 5-23 oder 2,5-7,12-)"
 
 msgid ""
 "Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
 "7,12-)"
 msgstr ""
+"Durch Kommata getrennte Seitenzahlen oder Bereiche, die wiederholt werden "
+"sollen (z. B. 2 oder 5-23 oder 2,5-7,12-)"
 
 msgid "Leave it empty to use all the pages of the PDF file"
-msgstr ""
+msgstr "Das Feld leer lassen, um alle Seiten der PDF-Datei zu verwenden"
 
 msgid "Repeat every \"n\" pages:"
-msgstr ""
+msgstr "Alle »n« Seiten wiederholen:"
 
 msgid "Invalid page number"
-msgstr ""
+msgstr "Ungültige Seitenzahl"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
 msgstr ""
+"Wiederholen Sie die ausgewählten Seiten alle \"n\" Seiten des "
+"Originaldokuments"
 
 msgid "The selected PDF file is invalid"
 msgstr "Die ausgewählte PDF-Datei ist ungültig"
 
 msgid "The number of pages must be a positive number"
-msgstr ""
+msgstr "Die Anzahl der Seiten muss eine positive Zahl sein."
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
 msgstr ""
+"Die PDF-Datei, in die Seiten eingefügt werden sollen, auswählen oder per "
+"Drag & Drop ablegen"
 
 msgid "Insert and Repeat settings"
-msgstr ""
+msgstr "Einstellungen für Einfügen und Wiederholen"
 
 msgid "Insert pages multiple times"
-msgstr ""
+msgstr "Seiten mehrfach Einfügen"
 
 msgid ""
 "Insert the pages of a PDF document A into another document B, repeating it "
 "after a certain number of pages, resulting in B1 A B2 A B3 A etc."
 msgstr ""
+"Einfügen der Seiten eines PDF-Dokuments A in ein anderes Dokument B, "
+"Wiederholung nach einer bestimmten Anzahl von Seiten, so dass B1 A B2 A B3 A "
+"usw. entsteht."
 
 #, java-format
 msgid "Started in {0}"
@@ -392,10 +407,10 @@ msgid "No PDF found"
 msgstr "Kein PDF gefunden"
 
 msgid "Tools"
-msgstr ""
+msgstr "Werkzeuge"
 
 msgid "News"
-msgstr ""
+msgstr "News"
 
 msgid "What's new"
 msgstr "Was ist neu"
@@ -404,13 +419,13 @@ msgid "Exit"
 msgstr "Beenden"
 
 msgid "Exit the application"
-msgstr ""
+msgstr "Beenden der Anwendung"
 
 msgid "Workspace"
 msgstr "Arbeitsbereich"
 
 msgid "Manage your workspaces"
-msgstr ""
+msgstr "Verwalten Sie Ihre Arbeitsbereiche"
 
 msgid "Yes"
 msgstr "Ja"
@@ -425,7 +440,7 @@ msgid "Do you confirm?"
 msgstr "Bestätigen?"
 
 msgid "Clear the tool settings"
-msgstr ""
+msgstr "Löschen Sie die Werkzeugeinstellungen"
 
 msgid "Clear the selection table"
 msgstr "Liste löschen"
@@ -503,7 +518,7 @@ msgstr ""
 "Trotzdem fortfahren?"
 
 msgid "Removes all the log messages"
-msgstr ""
+msgstr "Alle Log Nachrichten entfernen"
 
 msgid "_Clear"
 msgstr "_Löschen"
@@ -512,7 +527,7 @@ msgid "_Save"
 msgstr "_Speichern"
 
 msgid "C_lose"
-msgstr ""
+msgstr "S_chließen"
 
 msgid "Copy"
 msgstr "Kopieren"
@@ -530,7 +545,7 @@ msgid "Select where to save the log file"
 msgstr "Speicherort der Protokolldatei auswählen"
 
 msgid "Logs"
-msgstr ""
+msgstr "Protokolle"
 
 msgid "Application messages"
 msgstr "Programm-Meldungen"
@@ -566,11 +581,11 @@ msgstr "Java-Laufzeit Pfad: %s"
 
 #, java-printf-format
 msgid "JavaFX runtime version: %s"
-msgstr ""
+msgstr "JavaFX Runtime Version: %s"
 
 #, java-printf-format
 msgid "PDF engine (Sejda SDK) version: %s"
-msgstr ""
+msgstr "PDF Engine (Sejda SDK) Version: %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -613,7 +628,7 @@ msgid "About"
 msgstr "Über"
 
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 msgid "Premium features"
 msgstr "Premium-Funktionen"
@@ -631,22 +646,30 @@ msgid "Set your preferred language (restart needed)"
 msgstr "Bevorzugte Sprache einstellen (Neustart erforderlich)"
 
 msgid "Startup tool:"
-msgstr ""
+msgstr "Startup-Werkzeug:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
+"Festlegen, welches Werkzeug beim Starten der Anwendung geöffnet wird "
+"(Neustart erforderlich)"
 
 msgid "Theme:"
 msgstr "Thema:"
 
 msgid "Set the application theme"
-msgstr ""
+msgstr "Das Thema der Anwendung festlegen"
 
 msgid "Font size:"
-msgstr ""
+msgstr "Schriftgröße:"
 
 msgid "Set the application font size"
-msgstr ""
+msgstr "Einstellen der Schriftgröße der Anwendung"
+
+msgid "Default PDF version:"
+msgstr "Standard PDF Version:"
+
+msgid "Default PDF version for generated PDF files"
+msgstr "Standard PDF Version für erzeugte PDF Dateien"
 
 msgid "Manually selected"
 msgstr "Manuell ausgewählt"
@@ -657,6 +680,22 @@ msgid ""
 msgstr ""
 "Das Verzeichnis des ausgewählten PDF-Dokuments automatisch als "
 "Ausgabeverzeichnis benutzen"
+
+msgid "Default prefix:"
+msgstr "Standard Prefix:"
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
+msgstr ""
+"Standardpräfix für Ausgabedateinamen, verwendet in Tools, die mehrere "
+"Dateien erzeugen"
+
+msgid "Some special keywords are replaced with runtime values."
+msgstr "Einige spezielle Schlüsselwörter sind mit Laufzeitwerten ersetzt."
+
+msgid "Right click to add these keywords."
+msgstr "Diese Schlüsselwörter mit Rechtsklick hinzuzufügen."
 
 msgid "Settings"
 msgstr "Einstellungen"
@@ -699,7 +738,7 @@ msgid "Load default workspace at startup:"
 msgstr "Standard-Arbeitsbereich beim Programmstart laden:"
 
 msgid "System default"
-msgstr ""
+msgstr "Systemstandard"
 
 msgid "Check for updates at startup"
 msgstr "Beim Programmstart nach Aktualisierungen suchen"
@@ -727,6 +766,10 @@ msgstr "PDF-Komprimierung aktiviert"
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
 "Festlegen, ob „Ausgabedateien komprimieren“ standardmäßig aktiviert sein soll"
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
+msgstr ""
+"Festlegen, ob \"Lesezeichen verwerfen\" standardmäßig aktiviert sein soll"
 
 msgid "Overwrite files"
 msgstr "Dateien überschreiben"
@@ -810,7 +853,7 @@ msgid "Show errors"
 msgstr "Fehler anzeigen"
 
 msgid "Input parameters are invalid"
-msgstr ""
+msgstr "Eingabeparameter sind ungültig"
 
 msgid "Invalid parameters"
 msgstr "Ungültige Parameter"
@@ -872,20 +915,24 @@ msgstr ""
 msgid "An error has occurred, click for more details."
 msgstr "Ein Fehler ist passiert. Klicken, um Einzelheiten zu erfahren."
 
+#, java-format
+msgid "Version {0}"
+msgstr "Version {0}"
+
 msgid "Split tools"
-msgstr ""
+msgstr "Werkzeuge zum Aufteilen"
 
 msgid "Merge tools"
-msgstr ""
+msgstr "Tools zum Zusammenführen"
 
 msgid "Convert tools"
-msgstr ""
+msgstr "Tools zur Konvertierung"
 
 msgid "Edit tools"
-msgstr ""
+msgstr "Werkzeuge bearbeiten"
 
 msgid "Other tools"
-msgstr ""
+msgstr "Weitere Werkzeuge"
 
 msgid "Checking for updates"
 msgstr "Nach Aktualisierungen wird gesucht"
@@ -943,24 +990,29 @@ msgstr "Arbeitsbereich kann nicht nach {0} gespeichert werden"
 msgid "Loading workspace from {0}"
 msgstr "Arbeitsbereich wird geladen aus {0}"
 
-msgid "Workspace loaded"
-msgstr "Arbeitsbereich geladen"
+#, java-format
+msgid "Workspace loaded: {0}"
+msgstr "Arbeitsbereich geladen: {0}"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
 msgstr "Arbeitsbereich kann aus {0} nicht geladen werden"
 
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
+msgstr "Die folgende Datei existierte bereits und wurde übersprungen: {0}"
+
 msgid "Light with blue"
-msgstr ""
+msgstr "Hell mit blau"
 
 msgid "Dark with purple"
-msgstr ""
+msgstr "Dunkel mit Lila"
 
 msgid "Dark with teal"
-msgstr ""
+msgstr "Dunkel mit Türkis"
 
 msgid "Light with maroon"
-msgstr ""
+msgstr "Hell mit kastanienbraun"
 
 msgid "Close"
 msgstr "Schließen"
@@ -974,8 +1026,8 @@ msgstr "Wähle die PDF-Datei"
 msgid "_Select PDF"
 msgstr "_PDF wählen"
 
-msgid "Clear all settings"
-msgstr "Alle Einstellungen löschen"
+msgid "C_lear all settings"
+msgstr "Alle Einstellungen _löschen"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -1024,10 +1076,10 @@ msgid "Duplicate"
 msgstr "Duplizieren"
 
 msgid "Selected pages"
-msgstr ""
+msgstr "Ausgewählte Seiten"
 
 msgid "Total number of selected pages"
-msgstr ""
+msgstr "Gesamtzahl der ausgewählten Seiten"
 
 msgid "Size"
 msgstr "Größe"
@@ -1037,7 +1089,7 @@ msgstr "Geändert"
 
 #, java-format
 msgid "Total pages: {0}"
-msgstr ""
+msgstr "Gesamtanzahl Seiten: {0}"
 
 msgid "Name"
 msgstr "Name"
@@ -1065,9 +1117,6 @@ msgstr "_Entfernen"
 
 msgid "Removes every document"
 msgstr "Entfernt alle Dokumente"
-
-msgid "C_lear all settings"
-msgstr "Alle Einstellungen _löschen"
 
 msgid "Moves up selected documents"
 msgstr "Verschiebt ausgewählte Dokumente nach oben"
@@ -1098,7 +1147,7 @@ msgid "Pages"
 msgstr "Seiten"
 
 msgid "Number of total pages of the document"
-msgstr ""
+msgstr "Anzahl der Gesamtseiten des Dokuments"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -1146,10 +1195,6 @@ msgstr ""
 "Kästchen markieren, wenn die bereits vorhandenen Zieldateien überschrieben "
 "werden sollen."
 
-#, java-format
-msgid "Version {0}"
-msgstr "Version {0}"
-
 msgid "Same as the input document"
 msgstr "Genauso, wie das Eingabedokument"
 
@@ -1178,26 +1223,20 @@ msgstr "Präfix für die erstellten Dateinamen"
 msgid "Add prefix"
 msgstr "Präfix hinzufügen"
 
-msgid "DEFAULT_PREFIX"
-msgstr ""
-
 msgid "Generated PDF documents name prefix:"
 msgstr "Dateinamen-Präfix des erstellten PDF-Dokuments:"
 
 msgid "Prefix for the output files name."
 msgstr "Dateinamen-Präfix für die Namen der Ausgabedatei."
 
-msgid "Some special keywords are replaced with runtime values."
-msgstr "Einige spezielle Schlüsselwörter sind mit Laufzeitwerten ersetzt."
-
-msgid "Right click to add these keywords."
-msgstr "Diese Schlüsselwörter mit Rechtsklick hinzuzufügen."
+msgid "DEFAULT_PREFIX"
+msgstr "DEFAULT_PREFIX"
 
 msgid "Run"
 msgstr "Starten"
 
 msgid "Run the task"
-msgstr ""
+msgstr "Ausführen der Aufgabe"
 
 msgid "Requested"
 msgstr "Angefordert"

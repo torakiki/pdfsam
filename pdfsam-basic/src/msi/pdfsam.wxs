@@ -29,6 +29,7 @@
 		<CustomAction Id="CustomActions.AddLine" Return="check" Execute="deferred" BinaryKey="AddLine.dll" DllEntry="AddLine" Impersonate="no"/>
 		
 		<MajorUpgrade DowngradeErrorMessage="A newer version of PDFsam Basic is already installed. Setup will now exit." />
+        <util:CloseApplication Id='CloseApp' CloseMessage="yes" Target='pdfsam.exe' Description='PDFsam Basic is currently running, please close it to continue.' RebootPrompt='no'/>
 
 		<Property Id="WixShellExecTarget" Value="https://pdfsam.org/thanks"/>
 		<CustomAction Id="LaunchBrowser" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" Execute="immediate" Return="ignore"/>

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2022-11-25 16:24+0000\n"
-"Last-Translator: Douglas Gonçalves <Unknown>\n"
+"POT-Creation-Date: 2023-10-26 11:54+0200\n"
+"PO-Revision-Date: 2024-03-09 01:06+0000\n"
+"Last-Translator: Lucas F. Gonçalves <lucasdadiva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
+"X-Launchpad-Export-Date: 2024-04-22 14:00+0000\n"
+"X-Generator: Launchpad (build 67d34a19aaa1df7be4dd8bf498cbc5bbd785067b)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Nenhum documento PDF foi selecionado"
@@ -326,8 +326,8 @@ msgstr "Marque se uma tabela de conteúdo deve ser adicionada ao PDF gerado"
 msgid "Merge"
 msgstr "Unir"
 
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "Mesclar vários documentos PDF, ou subseções deles, em um documento."
+msgid "Merge multiple PDF documents or subsections of them."
+msgstr ""
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr "Selecione ou arraste o PDF de onde os arquivos serão repetidos"
@@ -397,7 +397,7 @@ msgid "Tools"
 msgstr "Ferramentas"
 
 msgid "News"
-msgstr ""
+msgstr "Notícias"
 
 msgid "What's new"
 msgstr "O que há de novo"
@@ -664,6 +664,12 @@ msgstr ""
 msgid "Set the application font size"
 msgstr ""
 
+msgid "Default PDF version:"
+msgstr ""
+
+msgid "Default PDF version for generated PDF files"
+msgstr ""
+
 msgid "Manually selected"
 msgstr "Selecionado manualmente"
 
@@ -673,6 +679,23 @@ msgid ""
 msgstr ""
 "Torna automático o diretório de destino como sendo o diretório do documento "
 "do PDF selecionado"
+
+msgid "Default prefix:"
+msgstr ""
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
+msgstr ""
+
+msgid "Some special keywords are replaced with runtime values."
+msgstr ""
+"Algumas palavras-chave especiais serão substituídas por valores do "
+"interpretador."
+
+msgid "Right click to add these keywords."
+msgstr ""
+"Clique com o botão direito do mouse para adicionar estas palavras-chave."
 
 msgid "Settings"
 msgstr "Configurações"
@@ -741,6 +764,9 @@ msgstr "Ativar a compressão de PDF"
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
 "Selecionar caso \"Comprimir arquivo de saída\" deva ser permitido por padrão."
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
+msgstr ""
 
 msgid "Overwrite files"
 msgstr "Sobrescrever arquivos"
@@ -880,6 +906,10 @@ msgstr "Este documento é criptografado, clique para fornecer uma senha."
 msgid "An error has occurred, click for more details."
 msgstr "Ocorreu um erro, clique para mais detalhes."
 
+#, java-format
+msgid "Version {0}"
+msgstr "Versão {0}"
+
 msgid "Split tools"
 msgstr "Ferramentas de divisão"
 
@@ -953,12 +983,17 @@ msgstr "Impossível salvar área de trabalho em {0}"
 msgid "Loading workspace from {0}"
 msgstr "Lendo área de trabalho de {0}"
 
-msgid "Workspace loaded"
-msgstr "Área de trabalho lida"
+#, java-format
+msgid "Workspace loaded: {0}"
+msgstr ""
 
 #, java-format
 msgid "Unable to load workspace from {0}"
 msgstr "Incapaz de ler a área de trabalho de {0}"
+
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
+msgstr ""
 
 msgid "Light with blue"
 msgstr "Claro com azul"
@@ -984,8 +1019,8 @@ msgstr "Selecione o arquivo PDF."
 msgid "_Select PDF"
 msgstr "_Selecionar PDF"
 
-msgid "Clear all settings"
-msgstr "Limpar todas configurações"
+msgid "C_lear all settings"
+msgstr "L_impar todas as configurações"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -1090,9 +1125,6 @@ msgstr "_Remover"
 msgid "Removes every document"
 msgstr "Remover todos os documentos"
 
-msgid "C_lear all settings"
-msgstr "L_impar todas as configurações"
-
 msgid "Moves up selected documents"
 msgstr "Mover para cima o(s) documento(s) selecionado(s)"
 
@@ -1177,10 +1209,6 @@ msgstr ""
 "Marque a caixa se você deseja sobrescrever os arquivos de saída se eles já "
 "existirem."
 
-#, java-format
-msgid "Version {0}"
-msgstr "Versão {0}"
-
 msgid "Same as the input document"
 msgstr "A mesma do documento de entrada"
 
@@ -1209,23 +1237,14 @@ msgstr "Prefixo para os arquivos gerados"
 msgid "Add prefix"
 msgstr "Adicionar prefixo"
 
-msgid "DEFAULT_PREFIX"
-msgstr ""
-
 msgid "Generated PDF documents name prefix:"
 msgstr "Prefixo dos documentos PDF gerados:"
 
 msgid "Prefix for the output files name."
 msgstr "Prefixo para o arquivo gerado."
 
-msgid "Some special keywords are replaced with runtime values."
+msgid "DEFAULT_PREFIX"
 msgstr ""
-"Algumas palavras-chave especiais serão substituídas por valores do "
-"interpretador."
-
-msgid "Right click to add these keywords."
-msgstr ""
-"Clique com o botão direito do mouse para adicionar estas palavras-chave."
 
 # G:\Documents\eclipse_workspace\PDFSAMsplit\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:368
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:542

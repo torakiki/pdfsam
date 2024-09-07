@@ -1,7 +1,8 @@
+package org.pdfsam.test;
 /*
  * This file is part of the PDF Split And Merge source code
- * Created on 14/09/22
- * Copyright 2022 by Sober Lemur S.r.l. (info@soberlemur.com).
+ * Created on 27/03/24
+ * Copyright 2024 by Sober Lemur S.r.l. (info@soberlemur.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -16,11 +17,29 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-module org.pdfsam.i18n {
-    exports org.pdfsam.i18n;
 
-    requires org.pdfsam.eventstudio;
-    requires org.sejda.commons;
-    requires transitive javafx.base;
-    requires org.slf4j;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
+
+/**
+ * A consumer that records the values it receives.
+ *
+ * @author Andrea Vacondio
+ */
+public class ValuesRecorder<T> implements Consumer<T> {
+    private final List<T> values = new ArrayList<>();
+
+    @Override
+    public void accept(T t) {
+        values.add(t);
+    }
+
+    public List<T> values() {
+        return values;
+    }
+
+    public void clear() {
+        values.clear();
+    }
 }

@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2024-01-11 14:02+0000\n"
+"PO-Revision-Date: 2024-03-20 21:49+0000\n"
 "Last-Translator: Charudutt Marathe <Unknown>\n"
 "Language-Team: Hindi <hi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-02-06 10:16+0000\n"
-"X-Generator: Launchpad (build 9643586c585856148a18782148972ae9c1179d06)\n"
+"X-Launchpad-Export-Date: 2024-04-22 14:00+0000\n"
+"X-Generator: Launchpad (build 67d34a19aaa1df7be4dd8bf498cbc5bbd785067b)\n"
 
 msgid "No PDF document has been selected"
 msgstr "PDF फ़ाइल नहीं चुनी  गयी है"
@@ -202,13 +202,13 @@ msgid "All pages"
 msgstr "सभी पेज"
 
 msgid "90 degrees clockwise"
-msgstr "९० औंश घड़सी की  दिशा में"
+msgstr "९० औंश घडी  की  दिशा में"
 
 msgid "180 degrees clockwise"
 msgstr "१८० औंश घड़ी की दिशा  में"
 
 msgid "90 degrees counterclockwise"
-msgstr "९० औंश घड़सी की विरूद्ध दिशा में"
+msgstr "९० औंश घडी की विरूद्ध दिशा में"
 
 msgid "Rotate "
 msgstr "घुमाएँ "
@@ -438,7 +438,7 @@ msgid "Do you confirm?"
 msgstr "क्या आप पुष्टि (कन्फ़र्म) करते हैं?"
 
 msgid "Clear the tool settings"
-msgstr "टूल सेटिंग साफ़ करें (Clear)"
+msgstr "साधन (टूल) सेटिंग साफ़ करें (Clear)"
 
 msgid "Clear the selection table"
 msgstr "चयन तालिका साफ़ करें (Clear)"
@@ -700,7 +700,7 @@ msgid "Settings"
 msgstr "सेटिंग्स"
 
 msgid "Appearance"
-msgstr ""
+msgstr "प्रकटन (स्वरूप)"
 
 msgid "Behavior"
 msgstr "बर्ताव"
@@ -737,7 +737,7 @@ msgid "Load default workspace at startup:"
 msgstr "स्टार्टअप पर डिफ़ॉल्ट कार्यस्थान लोड करें:"
 
 msgid "System default"
-msgstr ""
+msgstr "सिस्टम डिफ़ॉल्ट (मूलभूत प्रणाली)"
 
 msgid "Check for updates at startup"
 msgstr "स्टार्टअप पर अपडेट की जाँच करें"
@@ -885,388 +885,395 @@ msgid "PDFsam worked hard!"
 msgstr "PDFsam ने कड़ी मेहनत की!"
 
 msgid "Spread the word!"
-msgstr ""
+msgstr "प्रचार कीजिये!"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
-msgstr ""
+msgstr "पीडीएफसैम {0} डाउनलोड के लिए उपलब्ध है"
 
 msgid "Download"
-msgstr ""
+msgstr "डाउनलोड करें"
 
 msgid "New version available"
-msgstr ""
+msgstr "नया संस्करण उपलब्ध है"
 
 msgid "You are running the latest version of PDFsam Basic"
-msgstr ""
+msgstr "आप PDFsam Basic का नवीनतम संस्करण चला रहे हैं"
 
 msgid "No update"
-msgstr ""
+msgstr "कोई अपडेट नहीं"
 
 msgid "Open"
-msgstr ""
+msgstr "ओपन"
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
-msgstr ""
+msgstr "फ़ाइल \"{0}\" मौजूद नहीं है या अमान्य है"
 
 msgid "Valid user password provided."
-msgstr ""
+msgstr "वैध उपयोगकर्ता पासवर्ड प्रदान किया गया।"
 
 msgid "This document is encrypted, click to provide a password."
-msgstr ""
+msgstr "यह दस्तावेज़ एन्क्रिप्टेड है, पासवर्ड प्रदान करने के लिए क्लिक करें।"
 
 msgid "An error has occurred, click for more details."
-msgstr ""
+msgstr "कोई त्रुटि हुई है, अधिक विवरण के लिए क्लिक करें।"
 
 #, java-format
 msgid "Version {0}"
-msgstr "संस्करण {0}"
+msgstr "संस्करण {0} (वर्ज़न)"
 
 msgid "Split tools"
-msgstr ""
+msgstr "विभाजित करने के साधन  (उपकरण)"
 
 msgid "Merge tools"
-msgstr ""
+msgstr "एकत्रित  करने के साधन (उपकरण)"
 
 msgid "Convert tools"
-msgstr ""
+msgstr "परिवर्तित करने के साधन (उपकरण)"
 
 msgid "Edit tools"
-msgstr ""
+msgstr "संपादित करने के साधन (उपकरण)"
 
 msgid "Other tools"
-msgstr "अन्य औजार (टूल्स)"
+msgstr "अन्य औजार (टूल्स) / साधन"
 
 msgid "Checking for updates"
 msgstr "अपडेट जांच रहा है"
 
 msgid "Unable to find the latest available version."
-msgstr ""
+msgstr "नवीनतम उपलब्ध संस्करण ढूंढने में असमर्थ."
 
 #, java-format
 msgid "Unable to find any valid PDF file in the list: {0}"
-msgstr ""
+msgstr "सूची में कोई भी वैध पीडीएफ फाइल नहीं मिल सकी: {0}"
 
 #, java-format
 msgid "Unable to load PDF list file from {0}"
-msgstr ""
+msgstr "{0} से पीडीएफ सूची फ़ाइल लोड करने में असमर्थ"
 
 msgid "Loading pdf documents"
-msgstr ""
+msgstr "पीडीएफ दस्तावेज़ लोड हो रहे हैं"
 
 msgid "Documents loaded"
-msgstr ""
+msgstr "दस्तावेज़ लोड किए गए"
 
 msgid "Unable to retrieve premium features description"
-msgstr ""
+msgstr "प्रीमियम सुविधाओं का विवरण पुनः प्राप्त करने में असमर्थ"
 
 msgid "Fetching premium modules"
-msgstr ""
+msgstr "प्रीमियम मॉड्यूल लाया जा रहा है"
 
 msgid "Unable to retrieve premium modules"
-msgstr ""
+msgstr "प्रीमियम मॉड्यूल पुनः प्राप्त करने में असमर्थ"
 
 msgid "Unable to retrieve latest news"
-msgstr ""
+msgstr "नवीनतम समाचार पुनर्प्राप्त करने में असमर्थ"
 
 msgid "Fetching latest news"
-msgstr ""
+msgstr "नवीनतम समाचार ला रहा हूँ"
 
 msgid "Unable to retrieve the latest news"
-msgstr ""
+msgstr "नवीनतम समाचार पुनर्प्राप्त करने में असमर्थ"
 
 #, java-format
 msgid "Saving workspace data to {0}"
-msgstr ""
+msgstr "कार्यस्थान डेटा को {0} पर सहेजा जा रहा है"
 
 msgid "Workspace saved"
-msgstr ""
+msgstr "कार्यस्थान सहेजा गया"
 
 msgid "Requesting modules state"
-msgstr ""
+msgstr "मॉड्यूल की स्थिति का  अनुरोध"
 
 #, java-format
 msgid "Unable to save workspace to {0}"
-msgstr ""
+msgstr "कार्यस्थान को {0} में सहेजने में असमर्थ"
 
 #, java-format
 msgid "Loading workspace from {0}"
-msgstr ""
+msgstr "{0} से कार्यस्थान लोड हो रहा है"
 
 #, java-format
 msgid "Workspace loaded: {0}"
-msgstr ""
+msgstr "कार्यस्थान लोड किया गया: {0}"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
-msgstr ""
+msgstr "Unable to load workspace from {0}"
 
 #, java-format
 msgid "The following file already existed and was skipped: {0}"
-msgstr ""
+msgstr "निम्नलिखित फ़ाइल पहले से मौजूद थी और छोड़ दी गई थी: {0}"
 
 msgid "Light with blue"
-msgstr ""
+msgstr "लाइट ओर नीला"
 
 msgid "Dark with purple"
-msgstr ""
+msgstr "गहरे बैंगनी रंग के साथ"
 
 msgid "Dark with teal"
-msgstr ""
+msgstr "टील  ओर डार्क"
 
 msgid "Light with maroon"
-msgstr ""
+msgstr "लाइट ओर मरून"
 
 msgid "Close"
-msgstr ""
+msgstr "बंद करें"
 
 msgid "The selected PDF document is invalid"
-msgstr ""
+msgstr "चयनित पीडीएफ दस्तावेज़ अमान्य है"
 
 msgid "Select the PDF file"
-msgstr ""
+msgstr "पीडीएफ फाइल का चयन करें"
 
 msgid "_Select PDF"
-msgstr ""
+msgstr "_पीडीएफ का चयन करें"
 
 msgid "C_lear all settings"
-msgstr ""
+msgstr "सभी सेटिंग्स C_lear करें"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
-msgstr ""
+msgstr "पेज: {0}, पीडीएफ संस्करण: {1}"
 
 msgid "Loading..."
-msgstr ""
+msgstr "लोड हो रहा है..."
 
 msgid "Document properties"
-msgstr ""
+msgstr "दस्तावेजों की जानकारी"
 
 msgid "Remove"
-msgstr ""
+msgstr "हटाएं"
 
 msgid "Set destination"
-msgstr ""
+msgstr "गंतव्य तय करें"
 
 msgid "Open Folder"
-msgstr ""
+msgstr "फ़ोल्डर खोलें"
 
 msgid "Enter the user password"
-msgstr ""
+msgstr "उपयोगकर्ता पासवर्ड दर्ज करें"
 
 msgid "Unlock"
-msgstr ""
+msgstr "अनलॉक करें (ताला  खोले)"
 
 msgid "Drag and drop PDF files here"
-msgstr ""
+msgstr "पीडीएफ फाइलों को यहां खींचें और छोड़ें"
 
 msgid "Set as range for all"
-msgstr ""
+msgstr "सभी के लिए सीमा के रूप में सेट करें"
 
 msgid "Move to Top"
-msgstr ""
+msgstr "शीर्ष में जाएँ"
 
 msgid "Move Up"
-msgstr ""
+msgstr "ऊपर ले जाएं"
 
 msgid "Move Down"
-msgstr ""
+msgstr "नीचे ले जाएं"
 
 msgid "Move to Bottom"
-msgstr ""
+msgstr "तल में जाएँ"
 
 msgid "Duplicate"
-msgstr ""
+msgstr "प्रतिलिपि(डुप्लीकेट)"
 
 msgid "Selected pages"
-msgstr ""
+msgstr "चयनित पृष्ठ"
 
 msgid "Total number of selected pages"
-msgstr ""
+msgstr "चयनित पृष्ठों की कुल संख्या"
 
 msgid "Size"
-msgstr ""
+msgstr "माप"
 
 msgid "Modified"
-msgstr ""
+msgstr "परिवर्तित"
 
 #, java-format
 msgid "Total pages: {0}"
-msgstr ""
+msgstr "कुल पृष्ठ: {0}"
 
 msgid "Name"
-msgstr ""
+msgstr "नाम"
 
 msgid "Add documents to the table"
-msgstr ""
+msgstr "तालिका में दस्तावेज़ जोड़ें"
 
 msgid "_Add"
-msgstr ""
+msgstr "जोड़ें (_A)"
 
 msgid "PDF list from _text/csv file"
-msgstr ""
+msgstr "_text/csv फ़ाइल से पीडीएफ सूची"
 
 msgid "Select pdf documents to load"
-msgstr ""
+msgstr "_text/csv फ़ाइल से पीडीएफ सूची"
 
 msgid "Select a text or CSV file to load"
-msgstr ""
+msgstr "लोड करने के लिए कोई टेक्स्ट या CSV फ़ाइल चुनें"
 
 msgid "Removes selected documents"
-msgstr ""
+msgstr "चयनित दस्तावेज़ हटा देता है"
 
 msgid "_Remove"
-msgstr ""
+msgstr "हटाएं"
 
 msgid "Removes every document"
-msgstr ""
+msgstr "प्रत्येक दस्तावेज़ को हटा देता है"
 
 msgid "Moves up selected documents"
-msgstr ""
+msgstr "चयनित दस्तावेज़ों को ऊपर ले जाता है"
 
 msgid "Move _Up"
-msgstr ""
+msgstr "ऊपर ले जाएँ (_U)"
 
 msgid "Moves down selected documents"
-msgstr ""
+msgstr "चयनित दस्तावेज़ों को नीचे ले जाता है"
 
 msgid "Move _Down"
-msgstr ""
+msgstr "नीचे लाएँ (_D)"
 
 msgid "Pace"
-msgstr ""
+msgstr "गति"
 
 msgid ""
 "Double click to set the number of pages after which the task will switch to "
 "the next file"
 msgstr ""
+"पृष्ठों की संख्या निर्धारित करने के लिए डबल क्लिक करें जिसके बाद कार्य अगली "
+"फ़ाइल पर स्विच हो जाएगा"
 
 msgid "Reverse"
-msgstr ""
+msgstr "विपरीत"
 
 msgid "Pages"
-msgstr ""
+msgstr "पृष्ठ"
 
 msgid "Number of total pages of the document"
-msgstr ""
+msgstr "दस्तावेज़ के कुल पृष्ठों की संख्या"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"चयनित पेज सेट करने के लिए डबल क्लिक करें (उदाहरण: 2 या 5-23 या 2,5-7,12-)"
 
 msgid "Page ranges"
-msgstr ""
+msgstr "पृष्ठ श्रेणियाँ"
 
 msgid "Select a file"
-msgstr ""
+msgstr "फ़ाइल चुनें"
 
 msgid "The selected file must exist. "
-msgstr ""
+msgstr "चयनित फ़ाइल मौजूद होनी चाहिए. "
 
 #, java-format
 msgid "Allowed extensions are {0}"
-msgstr ""
+msgstr "अनुमत एक्सटेंशन {0} हैं"
 
 msgid "Compress output file/files"
-msgstr ""
+msgstr "आउटपुट फ़ाइल/फ़ाइलों को संकुचित करें"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
 "document"
-msgstr ""
+msgstr "आउटपुट फ़ाइल/फ़ाइलों को संकुचित करें"
 
 msgid "Output PDF version:"
-msgstr ""
+msgstr "आउटपुट पीडीएफ संस्करण: (वर्ज़न)"
 
 msgid "Show advanced settings"
-msgstr ""
+msgstr "आधुनिक  सेटिंग दिखाएं"
 
 msgid "Hide advanced settings"
-msgstr ""
+msgstr "आधुनिक सेटिंग्स छिपाएँ"
 
 msgid "Overwrite if already exists"
-msgstr ""
+msgstr "यदि पहले से मौजूद है तो अधिलेखित करें"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
 msgstr ""
+"यदि आप आउटपुट फ़ाइलों को ओवरराइट करना चाहते हैं तो बॉक्स को चेक करें यदि वे "
+"पहले से मौजूद हैं।"
 
 msgid "Same as the input document"
-msgstr ""
+msgstr "इनपुट दस्तावेज़ के समान"
 
 msgid "An existing output directory is required"
-msgstr ""
+msgstr "एक मौजूदा आउटपुट निर्देशिका ( डिरेक्टरी ) आवश्यक है"
 
 msgid "The output directory is required"
-msgstr ""
+msgstr "आउटपुट निर्देशिका ( डिरेक्टरी ) आवश्यक है"
 
 msgid "Select an existing directory"
-msgstr ""
+msgstr "किसी मौजूदा निर्देशिका  ( डिरेक्टरी ) का चयन करें"
 
 msgid "Select"
-msgstr ""
+msgstr "चयनित करें"
 
 msgid "Browse"
-msgstr ""
+msgstr "ब्राउज़ करें"
 
 #, java-format
 msgid "PDF version required: {0}"
-msgstr ""
+msgstr "पीडीएफ संस्करण ( वर्ज़न ) आवश्यक: {0}"
 
 msgid "Prefix for the generated files names"
-msgstr ""
+msgstr "जनरेट की गई फ़ाइल नामों के लिए उपसर्ग"
 
 msgid "Add prefix"
-msgstr ""
+msgstr "उपसर्ग जोड़ें"
 
 msgid "Generated PDF documents name prefix:"
-msgstr ""
+msgstr "जेनरेट किए गए पीडीएफ दस्तावेजों का नाम उपसर्ग:"
 
 msgid "Prefix for the output files name."
-msgstr ""
+msgstr "आउटपुट फ़ाइल नाम के लिए उपसर्ग."
 
 msgid "DEFAULT_PREFIX"
-msgstr ""
+msgstr "डिफ़ॉल्ट उपसर्ग"
 
 msgid "Run"
-msgstr ""
+msgstr "चलाएँ"
 
 msgid "Run the task"
-msgstr ""
+msgstr "कार्य चलाएँ ( Run  the  task )"
 
 msgid "Requested"
-msgstr ""
+msgstr "का अनुरोध किया"
 
 msgid "Completed"
-msgstr ""
+msgstr "पूर्ण"
 
 msgid "Failed"
-msgstr ""
+msgstr "विफल रहा"
 
 msgid "Running"
-msgstr ""
+msgstr "चल रहा है"
 
 #, java-format
 msgid "Running {0}%"
-msgstr ""
+msgstr "{0}% चल रहा है"
 
 msgid "Error saving log file."
-msgstr ""
+msgstr "लॉग फ़ाइल सहेजने में त्रुटि"
 
 #, java-format
 msgid "File {0} saved."
-msgstr ""
+msgstr "फ़ाइल {0} सहेजी गई."
 
 #, java-format
 msgid "Invalid range: {0}."
-msgstr ""
+msgstr "अमान्य श्रेणी: {0}."
 
 #, java-format
 msgid ""
 "Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
 "or [-n] or [n-]"
 msgstr ""
+"अस्पष्ट पृष्ठ श्रेणी परिभाषा: {0}. निम्नलिखित प्रारूपों का उपयोग करें: [n] "
+"या [n1-n2] या [-n] या [n-]"
 
 #, java-format
 msgid "Invalid number: {0}."
-msgstr ""
+msgstr "अमान्य संख्या: {0}."

@@ -13,29 +13,19 @@ using System.IO;
                 string path = session.CustomActionData["folder"] + "app/pdfsam.cfg";                
                 if (File.Exists(@path)) 
                 {
-                    session.Log("AddLine to existing " + session.CustomActionData["folder"] + "app/pdfsam.cfg");
                     File.AppendAllText(path, "java-options=-Dorg.pdfsam.default.checkforupdate=" + session.CustomActionData["updates"] + Environment.NewLine);
-                    session.Log("Added -Dorg.pdfsam.default.checkforupdate=" + session.CustomActionData["updates"]);
                     File.AppendAllText(path, "java-options=-Dorg.pdfsam.default.donate.notification=" + session.CustomActionData["donate"] + Environment.NewLine);
-                    session.Log("Added -Dorg.pdfsam.default.donate.notification=" + session.CustomActionData["donate"]);
                     File.AppendAllText(path, "java-options=-Dorg.pdfsam.default.locale=" + session.CustomActionData["locale"] + Environment.NewLine);
-                    session.Log("Added -Dorg.pdfsam.default.locale=" + session.CustomActionData["locale"]);                     
                     File.AppendAllText(path, "java-options=-Dorg.pdfsam.default.checkfornews=" + session.CustomActionData["news"] + Environment.NewLine);
-                    session.Log("Added -Dorg.pdfsam.default.checkfornews=" + session.CustomActionData["news"]);                     
                     File.AppendAllText(path, "java-options=-Dorg.pdfsam.default.play.sounds=" + session.CustomActionData["sounds"] + Environment.NewLine);
-                    session.Log("Added -Dorg.pdfsam.default.play.sounds=" + session.CustomActionData["sounds"]);                     
                     File.AppendAllText(path, "java-options=-Dorg.pdfsam.default.fetch.premium.modules=" + session.CustomActionData["premium"] + Environment.NewLine);
-                    session.Log("Added -Dorg.pdfsam.default.fetch.premium.modules=" + session.CustomActionData["premium"]);
                     File.AppendAllText(path, "java-options=-Dorg.pdfsam.default.compression=" + session.CustomActionData["compression"] + Environment.NewLine);
-                    session.Log("Added -Dorg.pdfsam.default.compression=" + session.CustomActionData["compression"]);
                     File.AppendAllText(path, "java-options=-Dorg.pdfsam.default.output.overwrite=" + session.CustomActionData["overwrite"] + Environment.NewLine);
-                    session.Log("Added -Dorg.pdfsam.default.output.overwrite=" + session.CustomActionData["overwrite"]);
                     if (session.CustomActionData.ContainsKey("prefix")) { 
                         string prefix = session.CustomActionData["prefix"];
                         if (!string.IsNullOrEmpty(prefix))
                         {
                             File.AppendAllText(path, "java-options=-Dorg.pdfsam.default.prefix=" + prefix + Environment.NewLine);
-                            session.Log("Added -Dorg.pdfsam.default.prefix=" + prefix);
                         }
                     }
             }
