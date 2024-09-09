@@ -313,7 +313,7 @@
         <slf4j.version>2.0.16</slf4j.version>
         <commons.lang.version>3.16.0</commons.lang.version>
         <commons.io.version>2.16.1</commons.io.version>
-        <mockito.version>5.12.0</mockito.version>
+        <mockito.version>5.13.0</mockito.version>
         <tinylog.version>2.7.0</tinylog.version>
         <hibernate-validator.version>7.0.5.Final</hibernate-validator.version>
         <sejda.version>5.1.1</sejda.version>
