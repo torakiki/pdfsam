@@ -326,7 +326,7 @@
         <jackson.version>2.17.2</jackson.version>
         <bouncycastle.version>1.78.1</bouncycastle.version>
         <assertj.version>3.26.3</assertj.version>
-        <hamcrest.version>2.2</hamcrest.version>
+        <hamcrest.version>3.0</hamcrest.version>
         <javafx.version>21.0.4</javafx.version>
         <jakarta-el.version>4.0.2</jakarta-el.version>
         <jakarta.inject.version>2.0.1</jakarta.inject.version>
