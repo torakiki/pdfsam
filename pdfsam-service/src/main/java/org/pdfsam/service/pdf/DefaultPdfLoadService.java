@@ -85,7 +85,7 @@ public class DefaultPdfLoadService implements PdfLoadService {
                     fxMoveStatusTo(current, ENCRYPTED);
                     LOG.warn("User password required for '{}'", current.getFileName(), twpe);
                 } catch (Exception e) {
-                    LOG.error("An error occured loading the document '{}'", current.getFileName(), e);
+                    LOG.error("An error occurred loading the document '{}'", current.getFileName(), e);
                     fxMoveStatusTo(current, WITH_ERRORS);
                 }
                 LOG.info("{} loaded", current.getFileName());
