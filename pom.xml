@@ -323,7 +323,7 @@
         <injector.version>5.0.0</injector.version>
         <ikonli.version>12.3.1</ikonli.version>
         <testfx.version>4.0.18</testfx.version>
-        <jackson.version>2.17.2</jackson.version>
+        <jackson.version>2.18.0</jackson.version>
         <bouncycastle.version>1.78.1</bouncycastle.version>
         <assertj.version>3.26.3</assertj.version>
         <hamcrest.version>3.0</hamcrest.version>
