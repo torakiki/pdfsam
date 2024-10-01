@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2024-08-07 12:10+0200\n"
+"POT-Creation-Date: 2024-10-01 16:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -332,13 +332,16 @@ msgstr ""
 msgid "Repeat the selected pages every \"n\" pages of the original document"
 msgstr ""
 
-msgid "The selected PDF file is invalid"
+msgid "A .pdf extension is required for the repeating file"
 msgstr ""
 
 msgid "The number of pages must be a positive number"
 msgstr ""
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
+msgstr ""
+
+msgid "A .pdf destination file extension is required"
 msgstr ""
 
 msgid "Insert and Repeat settings"
@@ -1107,6 +1110,9 @@ msgstr ""
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+msgstr ""
+
+msgid "The selected PDF file is invalid"
 msgstr ""
 
 msgid "Same as the input document"
