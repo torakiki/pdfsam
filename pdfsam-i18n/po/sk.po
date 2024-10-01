@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2023-11-08 02:33+0000\n"
+"POT-Creation-Date: 2024-08-07 12:10+0200\n"
+"PO-Revision-Date: 2024-08-27 15:02+0000\n"
 "Last-Translator: Marcel Lipovsky <Unknown>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-02-06 10:16+0000\n"
-"X-Generator: Launchpad (build 9643586c585856148a18782148972ae9c1179d06)\n"
+"X-Launchpad-Export-Date: 2024-10-01 09:48+0000\n"
+"X-Generator: Launchpad (build 1b1ed1ad2dbfc71ee62b5c5491c975135a771bf0)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Nebol vybraný žiadny PDF dokument"
@@ -41,8 +41,9 @@ msgstr "Samostatný súbor pre každú skupinu stránok"
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr "Každá súvislá séria strán vygeneruje samostatný PDF súbor"
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Stránky na extrakciu (napr. 2 alebo 5-23 alebo 2,5-7,12-)"
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr ""
+"Strany na extrahovanie (napr.: 2 alebo 5-23 alebo 2,5-7,12- alebo 3,posledná)"
 
 msgid "Invalid page ranges"
 msgstr "Neplatné rozsahy strán"
@@ -52,10 +53,10 @@ msgstr "Extrahovať strany:"
 
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
+" or 3,last)"
 msgstr ""
-"Čísla strán alebo rozsahy strán na extrakciu oddelené čiarkou (napr.: 2 "
-"alebo 5-23 alebo 2,5-7,12-)"
+"Čiarkou oddelené čísla strán alebo rozsahy na extrahovanie (napr.: 2 alebo 5-"
+"23 alebo 2,5-7,12- alebo 3,posledná)"
 
 msgid "Split by bookmarks"
 msgstr "Rozdeliť po záložkách"
@@ -266,11 +267,11 @@ msgstr ""
 "Nastavte, či sa má veľkosť strán zmeniť tak, aby všetky mali rovnakú šírku "
 "ako prvá"
 
-msgid "Merge fields"
-msgstr "Zlúčiť polia"
-
 msgid "Merge renaming existing fields"
 msgstr "Zlúčiť premenovanie existujúcich polí"
+
+msgid "Merge fields"
+msgstr "Zlúčiť polia"
 
 msgid "Flatten"
 msgstr "Sploštiť"
@@ -1228,16 +1229,16 @@ msgstr "Spustené"
 msgid "Running {0}%"
 msgstr "Spracované: {0}%"
 
-msgid "Error saving log file."
-msgstr "Chyba pri ukladaní protokolu"
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr "Chyba pri ukladaní obsahu do súboru {0}"
 
 #, java-format
-msgid "File {0} saved."
+msgid "File {0} saved"
 msgstr "Súbor {0} bol uložený"
 
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "Neplatný rozsah: {0}."
+msgid "Error saving content to clipboard"
+msgstr "Chyba pri ukladaní obsahu do schránky"
 
 #, java-format
 msgid ""
@@ -1246,6 +1247,10 @@ msgid ""
 msgstr ""
 "Nejednoznačná definícia rozsahu strán: {0}. Použite nasledujúce formáty: [n] "
 "alebo [n1-n2] alebo [-n] alebo [n-]"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "Neplatný rozsah: {0}."
 
 #, java-format
 msgid "Invalid number: {0}."

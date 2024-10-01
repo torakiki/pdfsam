@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2023-11-22 11:18+0000\n"
+"POT-Creation-Date: 2024-08-07 12:10+0200\n"
+"PO-Revision-Date: 2024-09-09 08:58+0000\n"
 "Last-Translator: Andrzej Rudnik <Unknown>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-02-06 10:16+0000\n"
-"X-Generator: Launchpad (build 9643586c585856148a18782148972ae9c1179d06)\n"
+"X-Launchpad-Export-Date: 2024-10-01 09:48+0000\n"
+"X-Generator: Launchpad (build 1b1ed1ad2dbfc71ee62b5c5491c975135a771bf0)\n"
 
 msgid "Name"
 msgstr "Nazwa"
@@ -44,8 +44,9 @@ msgstr "Osobny plik dla każdego zestawu stron"
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr "Każda ciągła seria stron wygeneruje osobny plik PDF"
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Wybierz strony (np. 2 lub 5-23 lub 2,5-7,12-)"
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr ""
+"Strony do wyciągnięcia (np.: 2 lub 5-23 lub 2,5-7, 12- lub 3,ostatnia)"
 
 msgid "Invalid page ranges"
 msgstr "Nieprawidłowy zakres stron"
@@ -55,10 +56,10 @@ msgstr "Wyodrębnij strony:"
 
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
+" or 3,last)"
 msgstr ""
-"Numery stron lub zakresy do wyodrębnienia oddzielone przecinkami (np. 2 lub "
-"5-23 lub 2,5-7,12-)"
+"Numery stron oddzielane przecinkami lub zakres stron do wyciągnięcia (np.: 2 "
+"lub 5-23 lub 2,5-7, 12- lub 3,ostatnia)"
 
 msgid "Split by bookmarks"
 msgstr "Podziel według zakładek"
@@ -271,11 +272,11 @@ msgstr ""
 "Określ, czy rozmiar stron ma być zmieniany, aby wszystkie miały taką samą "
 "szerokość jak pierwsza"
 
-msgid "Merge fields"
-msgstr "Scal pola"
-
 msgid "Merge renaming existing fields"
 msgstr "Scal zmieniając nazwy istniejących już pól"
+
+msgid "Merge fields"
+msgstr "Scal pola"
 
 msgid "Flatten"
 msgstr "Spłaszcz"
@@ -1230,16 +1231,16 @@ msgstr "Uruchomione"
 msgid "Running {0}%"
 msgstr "Uruchomione {0}%"
 
-msgid "Error saving log file."
-msgstr "Błąd zapisu pliku dziennika."
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr "Błąd zapisywania zawartości do pliku {0}"
 
 #, java-format
-msgid "File {0} saved."
-msgstr "Plik {0} zapisano."
+msgid "File {0} saved"
+msgstr "Plik {0} został zapisany"
 
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "Nieprawidłowy zakres: {0}."
+msgid "Error saving content to clipboard"
+msgstr "Błąd przechwytywania zawartości do schowka"
 
 #, java-format
 msgid ""
@@ -1248,6 +1249,10 @@ msgid ""
 msgstr ""
 "Niejednoznaczne określenie zakresu stron: {0}. Użyj następujących formatów: "
 "[n] lub [n1-n2] lub [-n] lub [n-]"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "Nieprawidłowy zakres: {0}."
 
 #, java-format
 msgid "Invalid number: {0}."
