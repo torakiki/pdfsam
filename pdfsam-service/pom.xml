@@ -47,6 +47,11 @@
 			<groupId>org.sejda</groupId>
 			<artifactId>sejda-sambox</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.sejda</groupId>
+			<artifactId>sambox</artifactId>
+			<version>${sambox.version}</version>
+		</dependency>
 		<!-- TODO remove once sejda-io 4.x is part of sejda -->
 		<dependency>
 			<groupId>org.sejda</groupId>
