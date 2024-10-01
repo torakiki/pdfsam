@@ -89,7 +89,7 @@ public class AddBackpagesToolPanel extends BaseToolPanel {
         if (destinationField.getValidationState() == FXValidationSupport.ValidationState.VALID) {
             builder.output(FileOrDirectoryTaskOutput.file(new File(destinationField.getText())));
         } else {
-            onError.accept(i18n().tr("The selected PDF file is invalid"));
+            onError.accept(i18n().tr("A .pdf destination file extension is required"));
         }
         destinationPane.apply(builder, onError);
         return builder;

@@ -132,7 +132,7 @@ public class AddBackpagesPane extends VBox
         if (textField.getValidationState() == FXValidationSupport.ValidationState.VALID) {
             builder.backPagesSource(new PdfFileSourceAdapter(textField.getText()).getPdfFileSource());
         } else {
-            onError.accept(i18n().tr("The selected PDF file is invalid"));
+            onError.accept(i18n().tr("A .pdf extension is required for the repeating file"));
         }
 
         this.pace.validate();

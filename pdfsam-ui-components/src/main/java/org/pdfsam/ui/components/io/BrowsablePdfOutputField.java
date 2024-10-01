@@ -63,7 +63,7 @@ public class BrowsablePdfOutputField extends BrowsableFileField implements
         if (getTextField().getValidationState() == FXValidationSupport.ValidationState.VALID) {
             builder.output(new FileTaskOutput(new File(getTextField().getText())));
         } else {
-            onError.accept(i18n().tr("The selected PDF file is invalid"));
+            onError.accept(i18n().tr("A .pdf destination file extension is required"));
         }
     }
 
