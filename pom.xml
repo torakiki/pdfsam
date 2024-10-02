@@ -4,7 +4,7 @@
     <groupId>org.pdfsam</groupId>
     <artifactId>pdfsam-parent</artifactId>
     <packaging>pom</packaging>
-    <version>5.2.8</version>
+    <version>5.2.9-SNAPSHOT</version>
     <name>PDFsam</name>
     <description>A free open source desktop application to split and merge pdf documents</description>
     <url>https://pdfsam.org</url>
