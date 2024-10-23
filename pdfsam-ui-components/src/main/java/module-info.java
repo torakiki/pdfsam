@@ -41,7 +41,9 @@ module org.pdfsam.ui.components {
     exports org.pdfsam.ui.components.io;
     exports org.pdfsam.ui.components.notification;
     exports org.pdfsam.ui.components.prefix;
+    exports org.pdfsam.ui.components.selection;
     exports org.pdfsam.ui.components.selection.multiple;
+    exports org.pdfsam.ui.components.selection.multiple.move;
     exports org.pdfsam.ui.components.selection.single;
     exports org.pdfsam.ui.components.support;
     exports org.pdfsam.ui.components.tool;

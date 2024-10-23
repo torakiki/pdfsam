@@ -55,7 +55,7 @@ import org.pdfsam.model.ui.ShowPdfDescriptorRequest;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.test.HitTestListener;
 import org.pdfsam.ui.components.selection.RemoveSelectedEvent;
-import org.pdfsam.ui.components.selection.multiple.move.MoveSelectedEvent;
+import org.pdfsam.ui.components.selection.multiple.move.MoveSelectedRequest;
 import org.pdfsam.ui.components.selection.multiple.move.MoveType;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
@@ -468,7 +468,7 @@ public class SelectionTableTest {
         robot.clickOn("temp.pdf");
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 0);
         WaitForAsyncUtils.waitForAsyncFx(2000,
-                () -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.DOWN), MODULE));
+                () -> eventStudio().broadcast(new MoveSelectedRequest(MoveType.DOWN), MODULE));
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 1);
     }
 

@@ -36,7 +36,7 @@ import org.pdfsam.ui.components.selection.multiple.SelectionTableToolbar.ClearBu
 import org.pdfsam.ui.components.selection.multiple.SelectionTableToolbar.MoveDownButton;
 import org.pdfsam.ui.components.selection.multiple.SelectionTableToolbar.MoveUpButton;
 import org.pdfsam.ui.components.selection.multiple.SelectionTableToolbar.RemoveButton;
-import org.pdfsam.ui.components.selection.multiple.move.MoveSelectedEvent;
+import org.pdfsam.ui.components.selection.multiple.move.MoveSelectedRequest;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
@@ -111,8 +111,8 @@ public class SelectionTableToolbarTest {
 
     @Test
     public void moveUp(FxRobot robot) {
-        HitTestListener<MoveSelectedEvent> listener = new HitTestListener<>();
-        eventStudio().add(MoveSelectedEvent.class, listener, MODULE);
+        HitTestListener<MoveSelectedRequest> listener = new HitTestListener<>();
+        eventStudio().add(MoveSelectedRequest.class, listener, MODULE);
         Node victim = robot.lookup(b -> b instanceof MoveUpButton).query();
         enableByFiringSelectionChange(victim);
         robot.clickOn(victim);
@@ -121,8 +121,8 @@ public class SelectionTableToolbarTest {
 
     @Test
     public void moveDown(FxRobot robot) {
-        HitTestListener<MoveSelectedEvent> listener = new HitTestListener<>();
-        eventStudio().add(MoveSelectedEvent.class, listener, MODULE);
+        HitTestListener<MoveSelectedRequest> listener = new HitTestListener<>();
+        eventStudio().add(MoveSelectedRequest.class, listener, MODULE);
         Node victim = robot.lookup(b -> b instanceof MoveDownButton).query();
         enableByFiringSelectionChange(victim);
         robot.clickOn(victim);

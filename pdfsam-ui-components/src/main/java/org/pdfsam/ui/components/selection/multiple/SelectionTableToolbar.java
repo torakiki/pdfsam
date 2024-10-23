@@ -36,7 +36,7 @@ import org.pdfsam.model.tool.ClearToolRequest;
 import org.pdfsam.model.tool.ToolBound;
 import org.pdfsam.ui.components.selection.RemoveSelectedEvent;
 import org.pdfsam.ui.components.selection.ToolbarButton;
-import org.pdfsam.ui.components.selection.multiple.move.MoveSelectedEvent;
+import org.pdfsam.ui.components.selection.multiple.move.MoveSelectedRequest;
 import org.pdfsam.ui.components.selection.multiple.move.MoveType;
 import org.pdfsam.ui.components.support.Style;
 
@@ -202,7 +202,7 @@ class SelectionTableToolbar extends ToolBar implements ToolBound {
         }
 
         public void moveOnClick(ActionEvent event) {
-            eventStudio().broadcast(new MoveSelectedEvent(type), toolBinding());
+            eventStudio().broadcast(new MoveSelectedRequest(type), toolBinding());
         }
 
         @EventListener

@@ -1,6 +1,6 @@
 /*
  * This file is part of the PDF Split And Merge source code
- * Created on 06/ago/2014
+ * Created on 28/giu/2013
  * Copyright 2017 by Sober Lemur S.r.l. (info@soberlemur.com).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,17 +18,17 @@
  */
 package org.pdfsam.ui.components.selection.multiple.move;
 
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 /**
+ * Notifies that selected elements in the selection table should be moved
+ *
  * @author Andrea Vacondio
  */
-public class MoveSelectedEventTest {
+public record MoveSelectedRequest(MoveType type) {
 
-    @Test
-    public void nullType() {
-        assertThrows(IllegalArgumentException.class, () -> new MoveSelectedEvent(null));
+    public MoveSelectedRequest {
+        requireNotNullArg(type, "Type cannot be null");
     }
+
 }
