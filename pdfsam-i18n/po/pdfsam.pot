@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2024-10-01 16:39+0200\n"
+"POT-Creation-Date: 2024-10-23 17:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -998,6 +998,18 @@ msgid "Move to Bottom"
 msgstr ""
 
 msgid "Duplicate"
+msgstr ""
+
+msgid "Duplicate at Top"
+msgstr ""
+
+msgid "Duplicate Up"
+msgstr ""
+
+msgid "Duplicate Down"
+msgstr ""
+
+msgid "Duplicate at Bottom"
 msgstr ""
 
 msgid "Selected pages"
