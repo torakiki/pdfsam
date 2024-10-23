@@ -31,6 +31,7 @@ import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.control.SelectionMode;
@@ -69,7 +70,7 @@ import org.pdfsam.ui.components.selection.PasswordFieldPopup;
 import org.pdfsam.ui.components.selection.RemoveSelectedEvent;
 import org.pdfsam.ui.components.selection.SetPageRangesRequest;
 import org.pdfsam.ui.components.selection.ShowPasswordFieldPopupRequest;
-import org.pdfsam.ui.components.selection.multiple.move.MoveSelectedEvent;
+import org.pdfsam.ui.components.selection.multiple.move.MoveSelectedRequest;
 import org.pdfsam.ui.components.selection.multiple.move.MoveType;
 import org.pdfsam.ui.components.selection.multiple.move.SelectionAndFocus;
 import org.slf4j.Logger;
@@ -89,6 +90,7 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static java.util.Objects.nonNull;
 import static java.util.Optional.of;
 import static java.util.Optional.ofNullable;
 import static org.apache.commons.lang3.StringUtils.defaultString;
@@ -197,18 +199,19 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         if (canMove) {
             MenuItem moveTopSelected = createMenuItem(i18n().tr("Move to Top"), UniconsLine.ANGLE_DOUBLE_UP);
             moveTopSelected.setOnAction(
-                    e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.TOP), toolBinding()));
+                    e -> eventStudio().broadcast(new MoveSelectedRequest(MoveType.TOP), toolBinding()));
 
             MenuItem moveUpSelected = createMenuItem(i18n().tr("Move Up"), UniconsLine.ANGLE_UP);
-            moveUpSelected.setOnAction(e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.UP), toolBinding()));
+            moveUpSelected.setOnAction(
+                    e -> eventStudio().broadcast(new MoveSelectedRequest(MoveType.UP), toolBinding()));
 
             MenuItem moveDownSelected = createMenuItem(i18n().tr("Move Down"), UniconsLine.ANGLE_DOWN);
             moveDownSelected.setOnAction(
-                    e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.DOWN), toolBinding()));
+                    e -> eventStudio().broadcast(new MoveSelectedRequest(MoveType.DOWN), toolBinding()));
 
             MenuItem moveBottomSelected = createMenuItem(i18n().tr("Move to Bottom"), UniconsLine.ANGLE_DOUBLE_DOWN);
             moveBottomSelected.setOnAction(
-                    e -> eventStudio().broadcast(new MoveSelectedEvent(MoveType.BOTTOM), toolBinding()));
+                    e -> eventStudio().broadcast(new MoveSelectedRequest(MoveType.BOTTOM), toolBinding()));
 
             contextMenu.getItems().addAll(moveTopSelected, moveUpSelected, moveDownSelected, moveBottomSelected);
 
@@ -225,14 +228,40 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
             });
         }
         if (canDuplicate) {
-            MenuItem duplicateItem = createMenuItem(i18n().tr("Duplicate"), UniconsLine.COPY);
-            duplicateItem.setOnAction(e -> eventStudio().broadcast(new DuplicateSelectedEvent(), toolBinding()));
-            duplicateItem.setAccelerator(new KeyCodeCombination(KeyCode.DIGIT2, KeyCombination.ALT_DOWN));
+            Menu duplicateItem = new Menu(i18n().tr("Duplicate"));
+            duplicateItem.setGraphic(FontIcon.of(UniconsLine.COPY));
+            duplicateItem.setDisable(true);
 
+            MenuItem duplicateTop = createMenuItem(i18n().tr("Duplicate at Top"), null);
+            duplicateTop.setOnAction(
+                    e -> eventStudio().broadcast(new DuplicateSelectedEvent(DuplicateType.TOP), toolBinding()));
+            duplicateTop.setAccelerator(new KeyCodeCombination(KeyCode.DIGIT1, KeyCombination.ALT_DOWN));
+
+            MenuItem duplicateUp = createMenuItem(i18n().tr("Duplicate Up"), null);
+            duplicateUp.setOnAction(
+                    e -> eventStudio().broadcast(new DuplicateSelectedEvent(DuplicateType.UP), toolBinding()));
+            duplicateUp.setAccelerator(new KeyCodeCombination(KeyCode.DIGIT3, KeyCombination.ALT_DOWN));
+
+            MenuItem duplicateDown = createMenuItem(i18n().tr("Duplicate Down"), null);
+            duplicateDown.setOnAction(
+                    e -> eventStudio().broadcast(new DuplicateSelectedEvent(DuplicateType.DOWN), toolBinding()));
+            duplicateDown.setAccelerator(new KeyCodeCombination(KeyCode.DIGIT4, KeyCombination.ALT_DOWN));
+
+            MenuItem duplicateBottom = createMenuItem(i18n().tr("Duplicate at Bottom"), null);
+            duplicateBottom.setOnAction(
+                    e -> eventStudio().broadcast(new DuplicateSelectedEvent(DuplicateType.BOTTOM), toolBinding()));
+            duplicateBottom.setAccelerator(new KeyCodeCombination(KeyCode.DIGIT2, KeyCombination.ALT_DOWN));
+
+            duplicateItem.getItems().addAll(duplicateTop, duplicateUp, duplicateDown, duplicateBottom);
             contextMenu.getItems().add(duplicateItem);
 
-            selectionChangedConsumer = selectionChangedConsumer.andThen(
-                    e -> duplicateItem.setDisable(e.isClearSelection()));
+            selectionChangedConsumer = selectionChangedConsumer.andThen(e -> {
+                duplicateItem.setDisable(e.isClearSelection());
+                duplicateTop.setDisable(e.isClearSelection());
+                duplicateBottom.setDisable(e.isClearSelection());
+                duplicateUp.setDisable(e.isClearSelection());
+                duplicateDown.setDisable(e.isClearSelection());
+            });
         }
     }
 
@@ -274,7 +303,9 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     private MenuItem createMenuItem(String text, Ikon icon) {
         var item = new MenuItem(text);
         // TODO set font size 1.1 em
-        item.setGraphic(FontIcon.of(icon));
+        if (nonNull(icon)) {
+            item.setGraphic(FontIcon.of(icon));
+        }
         item.setDisable(true);
         return item;
     }
@@ -464,7 +495,23 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     @EventListener
     public void onDuplicate(final DuplicateSelectedEvent event) {
         LOG.trace("Duplicating selected items");
-        getSelectionModel().getSelectedItems().forEach(i -> getItems().add(i.duplicate()));
+        switch (event.type()) {
+        case TOP -> getSelectionModel().getSelectedItems().stream().map(SelectionTableRowData::duplicate).toList()
+                .reversed().forEach(getItems()::addFirst);
+        case BOTTOM -> getSelectionModel().getSelectedItems().forEach(i -> getItems().addLast(i.duplicate()));
+        case UP -> {
+            var index = getSelectionModel().getSelectedIndices().stream().min(Integer::compareTo).get();
+            getSelectionModel().getSelectedItems().stream().map(SelectionTableRowData::duplicate).toList().reversed()
+                    .forEach(e -> getItems().add(index, e));
+        }
+        case DOWN -> {
+            //we use the highest but still we don't want IOOB
+            var index = Math.min(getSelectionModel().getSelectedIndices().stream().max(Integer::compareTo).get() + 1,
+                    getItems().size());
+            getSelectionModel().getSelectedItems().stream().map(SelectionTableRowData::duplicate).toList().reversed()
+                    .forEach(e -> getItems().add(index, e));
+        }
+        }
         this.sort();
     }
 
@@ -485,7 +532,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     }
 
     @EventListener
-    public void onMoveSelected(final MoveSelectedEvent event) {
+    public void onMoveSelected(final MoveSelectedRequest event) {
         getSortOrder().clear();
         ObservableList<Integer> selectedIndices = getSelectionModel().getSelectedIndices();
         Integer[] selected = selectedIndices.toArray(new Integer[0]);
