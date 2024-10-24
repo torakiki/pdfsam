@@ -23,6 +23,7 @@ import org.sejda.model.pdf.PdfVersion;
 import java.util.function.Supplier;
 
 import static org.pdfsam.core.ConfigurableSystemProperty.LOCALE_PROP;
+import static org.pdfsam.core.ConfigurableSystemProperty.PDFVERSION_PROP;
 import static org.pdfsam.core.ConfigurableSystemProperty.PREFIX_PROP;
 import static org.pdfsam.core.ConfigurableSystemProperty.THEME_PROP;
 
@@ -38,7 +39,16 @@ public enum StringPersistentProperty implements PersistentProperty<String> {
     LOCALE(() -> System.getProperty(LOCALE_PROP)),
     THEME(() -> System.getProperty(THEME_PROP)),
     FONT_SIZE(() -> ""),
-    PDF_VERSION(PdfVersion.VERSION_1_5::name),
+    PDF_VERSION(() -> {
+        var version = System.getProperty(PDFVERSION_PROP, PdfVersion.VERSION_1_5.name());
+        try {
+            //we make sure the default supplier returns a valid version
+            PdfVersion.valueOf(version);
+            return version;
+        } catch (IllegalArgumentException e) {
+            return PdfVersion.VERSION_1_5.name();
+        }
+    }),
     PREFIX(() -> System.getProperty(PREFIX_PROP, "PDFsam_"));
 
     private final Supplier<String> defaultSupplier;

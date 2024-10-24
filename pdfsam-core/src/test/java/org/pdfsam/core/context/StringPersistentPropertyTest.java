@@ -37,12 +37,22 @@ public class StringPersistentPropertyTest {
     @SetSystemProperty.SetSystemProperties({
             @SetSystemProperty(key = ConfigurableSystemProperty.LOCALE_PROP, value = "es"),
             @SetSystemProperty(key = ConfigurableSystemProperty.THEME_PROP, value = "DARK"),
-            @SetSystemProperty(key = ConfigurableSystemProperty.PREFIX_PROP, value = "prefix") })
+            @SetSystemProperty(key = ConfigurableSystemProperty.PREFIX_PROP, value = "prefix"),
+            @SetSystemProperty(key = ConfigurableSystemProperty.PDFVERSION_PROP, value = "VERSION_1_3") })
     @DisplayName("Default value supplier from sys props")
     public void defaultValuesFromSysProp() {
         assertEquals("es", StringPersistentProperty.LOCALE.defaultSupplier().get());
         assertEquals("DARK", StringPersistentProperty.THEME.defaultSupplier().get());
         assertEquals("prefix", StringPersistentProperty.PREFIX.defaultSupplier().get());
+        assertEquals("VERSION_1_3", StringPersistentProperty.PDF_VERSION.defaultSupplier().get());
+    }
+
+    @Test
+    @SetSystemProperty.SetSystemProperties({
+            @SetSystemProperty(key = ConfigurableSystemProperty.PDFVERSION_PROP, value = "BANANA") })
+    @DisplayName("Invalid default value supplied by sys props")
+    public void invalidDefaultValuesFromSysProp() {
+        assertEquals("VERSION_1_5", StringPersistentProperty.PDF_VERSION.defaultSupplier().get());
     }
 
     @Test
@@ -53,6 +63,7 @@ public class StringPersistentPropertyTest {
         assertNull(StringPersistentProperty.LOCALE.defaultSupplier().get());
         assertNull(StringPersistentProperty.THEME.defaultSupplier().get());
         assertEquals("PDFsam_", StringPersistentProperty.PREFIX.defaultSupplier().get());
+        assertEquals(PdfVersion.VERSION_1_5.name(), StringPersistentProperty.PDF_VERSION.defaultSupplier().get());
     }
 
     @Test
@@ -60,6 +71,5 @@ public class StringPersistentPropertyTest {
         assertEquals("", StringPersistentProperty.WORKING_PATH.defaultSupplier().get());
         assertEquals("", StringPersistentProperty.WORKSPACE_PATH.defaultSupplier().get());
         assertEquals("", StringPersistentProperty.STARTUP_MODULE.defaultSupplier().get());
-        assertEquals(PdfVersion.VERSION_1_5.name(), StringPersistentProperty.PDF_VERSION.defaultSupplier().get());
     }
 }
