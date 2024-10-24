@@ -505,9 +505,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
                     .forEach(e -> getItems().add(index, e));
         }
         case DOWN -> {
-            //we use the highest but still we don't want IOOB
-            var index = Math.min(getSelectionModel().getSelectedIndices().stream().max(Integer::compareTo).get() + 1,
-                    getItems().size());
+            var index = getSelectionModel().getSelectedIndices().stream().max(Integer::compareTo).get() + 1;
             getSelectionModel().getSelectedItems().stream().map(SelectionTableRowData::duplicate).toList().reversed()
                     .forEach(e -> getItems().add(index, e));
         }
