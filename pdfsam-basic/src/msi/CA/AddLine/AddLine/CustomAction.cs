@@ -21,11 +21,18 @@ using System.IO;
                     File.AppendAllText(path, "java-options=-Dorg.pdfsam.default.fetch.premium.modules=" + session.CustomActionData["premium"] + Environment.NewLine);
                     File.AppendAllText(path, "java-options=-Dorg.pdfsam.default.compression=" + session.CustomActionData["compression"] + Environment.NewLine);
                     File.AppendAllText(path, "java-options=-Dorg.pdfsam.default.output.overwrite=" + session.CustomActionData["overwrite"] + Environment.NewLine);
-                    if (session.CustomActionData.ContainsKey("prefix")) { 
+                    if (session.CustomActionData.ContainsKey("prefix")) {
                         string prefix = session.CustomActionData["prefix"];
                         if (!string.IsNullOrEmpty(prefix))
                         {
                             File.AppendAllText(path, "java-options=-Dorg.pdfsam.default.prefix=" + prefix + Environment.NewLine);
+                        }
+                    }
+                    if (session.CustomActionData.ContainsKey("pdfversion")) {
+                        string pdfversion = session.CustomActionData["pdfversion"];
+                        if (!string.IsNullOrEmpty(pdfversion))
+                        {
+                            File.AppendAllText(path, "java-options=-Dorg.pdfsam.default.pdf.version=" + pdfversion + Environment.NewLine);
                         }
                     }
             }
