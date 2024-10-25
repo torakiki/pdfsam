@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2024-03-24 06:31+0000\n"
+"POT-Creation-Date: 2024-10-23 17:08+0200\n"
+"PO-Revision-Date: 2024-10-10 11:40+0000\n"
 "Last-Translator: Aleksey Kabanov <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-04-22 14:00+0000\n"
-"X-Generator: Launchpad (build 67d34a19aaa1df7be4dd8bf498cbc5bbd785067b)\n"
+"X-Launchpad-Export-Date: 2024-10-25 13:44+0000\n"
+"X-Generator: Launchpad (build 22ade00ab50b929fac63b8ee7252243aceda294a)\n"
 
 msgid "No PDF document has been selected"
 msgstr "Не выбран файл PDF"
@@ -41,8 +41,9 @@ msgstr "Отдельный файл для каждого набора стра�
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr "Каждая непрерывная серия страниц будет создавать отдельный файл PDF"
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "например: 2 или 5-23 или 2,5-7,12-"
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr ""
+"Страницы для извлечения (напр.: 2, или 5-23, или 2,5-7,12-, или 3,last)"
 
 msgid "Invalid page ranges"
 msgstr "Некорректный интервал страниц"
@@ -52,10 +53,10 @@ msgstr "Извлечь страницы:"
 
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
+" or 3,last)"
 msgstr ""
-"Номера страниц или диапазоны, разделенные запятыми, для извлечения "
-"(например: 2 или 5-23 или 2,5-7,12-)"
+"Номера страниц или диапазоны для извлечения через запятую (напр.: 2, или 5-"
+"23, или 2,5-7,12-, или 3,last)"
 
 msgid "Split by bookmarks"
 msgstr "Разбить по закладкам"
@@ -267,11 +268,11 @@ msgid ""
 "one"
 msgstr "Привести размеры всех страниц к ширине первой страницы"
 
-msgid "Merge fields"
-msgstr "Объединить поля"
-
 msgid "Merge renaming existing fields"
 msgstr "Объединить и переименовать поля"
+
+msgid "Merge fields"
+msgstr "Объединить поля"
 
 msgid "Flatten"
 msgstr "Объединить слои"
@@ -361,8 +362,8 @@ msgid "Repeat the selected pages every \"n\" pages of the original document"
 msgstr ""
 "Повторять выбранные страницы через каждые 'n' страниц исходного документа"
 
-msgid "The selected PDF file is invalid"
-msgstr "Выбранный PDF файл неисправен"
+msgid "A .pdf extension is required for the repeating file"
+msgstr ""
 
 msgid "The number of pages must be a positive number"
 msgstr "Количество страниц должно быть положительным числом"
@@ -370,6 +371,9 @@ msgstr "Количество страниц должно быть положит
 msgid "Select or drag and drop the PDF you want to insert pages to"
 msgstr ""
 "Выберите или перетащите PDF-файл, в который вы хотите вставить страницы"
+
+msgid "A .pdf destination file extension is required"
+msgstr "Требуется разрешение файла .pdf"
 
 msgid "Insert and Repeat settings"
 msgstr "Вставить и повторить настройки"
@@ -1065,6 +1069,18 @@ msgstr "Переместить в конец"
 msgid "Duplicate"
 msgstr "Дублировать"
 
+msgid "Duplicate at Top"
+msgstr ""
+
+msgid "Duplicate Up"
+msgstr ""
+
+msgid "Duplicate Down"
+msgstr ""
+
+msgid "Duplicate at Bottom"
+msgstr ""
+
 msgid "Selected pages"
 msgstr "Выбранные страницы"
 
@@ -1184,6 +1200,9 @@ msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
 msgstr "Поставьте флажок, если хотите перезаписать существующий файл"
 
+msgid "The selected PDF file is invalid"
+msgstr "Выбранный PDF файл неисправен"
+
 msgid "Same as the input document"
 msgstr "Как в редактируемом документе"
 
@@ -1243,16 +1262,16 @@ msgstr "Выполнение"
 msgid "Running {0}%"
 msgstr "Выполнено {0}%"
 
-msgid "Error saving log file."
-msgstr "Ошибка записи файла отчёта."
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr "Ошибка при сохранении содержимого в файл {0}"
 
 #, java-format
-msgid "File {0} saved."
-msgstr "Файл {0} сохранён."
+msgid "File {0} saved"
+msgstr "Файл {0} сохранён"
 
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "Неверный диапазон: {0}."
+msgid "Error saving content to clipboard"
+msgstr "Ошибка при сохранении содержимого в буфер обмена"
 
 #, java-format
 msgid ""
@@ -1261,6 +1280,10 @@ msgid ""
 msgstr ""
 "Неоднозначное определение диапазона страниц: {0}. Используйте следующие "
 "форматы: [n] или [n1-n2] или [-n] или [n-]"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "Неверный диапазон: {0}."
 
 #, java-format
 msgid "Invalid number: {0}."

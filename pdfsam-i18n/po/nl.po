@@ -7,30 +7,31 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-04-26 12:14+0200\n"
-"PO-Revision-Date: 2023-05-19 14:22+0000\n"
-"Last-Translator: Hendrik <Unknown>\n"
+"POT-Creation-Date: 2024-10-23 17:08+0200\n"
+"PO-Revision-Date: 2024-10-10 21:12+0000\n"
+"Last-Translator: Bob Loeffen <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-08-02 14:04+0000\n"
-"X-Generator: Launchpad (build d80dbb5bdc9110f3a64cc968928033472d5e0509)\n"
+"X-Launchpad-Export-Date: 2024-10-25 13:44+0000\n"
+"X-Generator: Launchpad (build 22ade00ab50b929fac63b8ee7252243aceda294a)\n"
+"Language: nl\n"
 
 msgid "No PDF document has been selected"
 msgstr "Geen PDF-document geselecteerd"
 
 msgid "Extract"
-msgstr "Extraheren"
+msgstr "Uitpakken"
 
 msgid "Extract pages from PDF documents."
-msgstr "Extraheer pagina's uit PDF-bestanden"
+msgstr "Uitpakken pagina's uit Pdf-bestanden."
 
 msgid "File names settings"
 msgstr "Bestandsnaaminstellingen"
 
 msgid "Extract settings"
-msgstr "Extraheerinstellingen"
+msgstr "Uitpakken instellingen"
 
 msgid "Output settings"
 msgstr "Uitvoerinstellingen"
@@ -41,22 +42,22 @@ msgstr "Afzonderlijk bestand voor elke set pagina's"
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr "Elke set van opeenvolgende pagina's zal een nieuw PDF-bestand vormen"
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
 msgstr ""
-"Pagina's die moeten worden geëxtraheerd (bijv. 2 or 5-23 of 2,5,7,12-)"
+"Uit te pakken pagina's (bijvoorbeeld: 2 of 5-23 of 2,5-7,12- of 3,laatste)"
 
 msgid "Invalid page ranges"
 msgstr "Ongeldig paginabereik"
 
 msgid "Extract pages:"
-msgstr "Extraheer pagina's:"
+msgstr "Uitpakken pagina's:"
 
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
+" or 3,last)"
 msgstr ""
-"Voer de paginanummers of paginabereiken in die moeten worden geëxtraheerd. "
-"Gebruik een komma als scheidingsteken. (Bijv. 2 of 5-23 of 2,5-7,12-)"
+"Door komma's gescheiden paginanummers of bereiken die moeten worden "
+"uitgepakt (bijvoorbeeld: 2 of 5-23 of 2,5-7,12- of 3,laatste)"
 
 msgid "Split by bookmarks"
 msgstr "Splits bij bladwijzers"
@@ -102,7 +103,7 @@ msgid "Split"
 msgstr "Splitsen"
 
 msgid "Split a PDF document at the given page numbers."
-msgstr "Splits een PDF-document na een bepaald aantal pagina's"
+msgstr "Splits een PDF-document na een bepaald aantal pagina's."
 
 msgid "Every page"
 msgstr "Elke pagina"
@@ -120,7 +121,7 @@ msgid ""
 "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 "Splits het PDF-document om de \"n\" pagina's, wat documenten van \"n\" "
-"pagina's elk creëert."
+"pagina's elk creëert"
 
 msgid "Split after the following page numbers"
 msgstr "Splitsen na de volgende paginanummers"
@@ -186,7 +187,7 @@ msgid ""
 "reverse order."
 msgstr ""
 "Voeg twee of meer PDF-bestanden samen, waarbij afwisselend de "
-"oorspronkelijke of de omgekeerde volgorde van de pagina's wordt aangehouden"
+"oorspronkelijke of de omgekeerde volgorde van de pagina's wordt aangehouden."
 
 msgid ""
 "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -252,7 +253,7 @@ msgstr "Voettekst toevoegen"
 msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr ""
 "Voegt een voettekst toe met de naam van het bestand waartoe de pagina "
-"behoorde"
+"behoorde."
 
 msgid "None"
 msgstr "Geen"
@@ -264,20 +265,20 @@ msgid "Same width as first page (based on page orientation)"
 msgstr "Dezelfde breedte als de eerste pagina (gebaseerd op de afdrukstand)"
 
 msgid "Pages normalization:"
-msgstr "Paginabreedte normaliseren"
+msgstr "Paginabreedte normaliseren."
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
 "one"
 msgstr ""
 "Stel hiermee in of de paginagrootte moet worden aangepast, zodat alle "
-"pagina's even breed zijn als de eerste pagina."
-
-msgid "Merge fields"
-msgstr "Velden samenvoegen"
+"pagina's even breed zijn als de eerste pagina"
 
 msgid "Merge renaming existing fields"
 msgstr "Samenvoegen van het hernoemen van bestaande velden"
+
+msgid "Merge fields"
+msgstr "Velden samenvoegen"
 
 msgid "Flatten"
 msgstr "Afvlakken"
@@ -323,7 +324,7 @@ msgid "Generate from documents titles"
 msgstr "Samenstellen op basis van de titels van documenten"
 
 msgid "Table of contents:"
-msgstr "Inhoudsopgave"
+msgstr "Inhoudsopgave:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
@@ -370,14 +371,17 @@ msgstr ""
 "Herhaal de geselecteerde pagina's na elke \"n\" pagina's van het originele "
 "document"
 
-msgid "The selected PDF file is invalid"
-msgstr "Het geselecteerde PDF-bestand is ongeldig"
+msgid "A .pdf extension is required for the repeating file"
+msgstr "Voor het herhalende bestand is een .pdf-extensie vereist"
 
 msgid "The number of pages must be a positive number"
 msgstr "Het aantal pagina's moet een positief getal zijn"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
 msgstr "Selecteer of sleep het PDF-bestand waarin u pagina's wilt invoegen"
+
+msgid "A .pdf destination file extension is required"
+msgstr "Er is een .pdf-bestemmingsbestandsextensie vereist"
 
 msgid "Insert and Repeat settings"
 msgstr "Instellingen voor invoegen en herhalen"
@@ -567,7 +571,7 @@ msgid "Select the workspace file to save"
 msgstr "Selecteer het werkomgevingsbestand dat moet worden opgeslagen"
 
 msgid "Select the workspace to load"
-msgstr "Selecteer het bestand om te openen."
+msgstr "Selecteer het bestand om te openen"
 
 msgid "Subscribe to the official news feed"
 msgstr "Abonneren op de officiële nieuwsbrief"
@@ -577,7 +581,7 @@ msgstr "Omgeving"
 
 #, java-printf-format
 msgid "Vendor: %s"
-msgstr "Verkoper"
+msgstr "Verkoper: %s"
 
 #, java-printf-format
 msgid "Java runtime path: %s"
@@ -675,6 +679,12 @@ msgstr "Tekstgrootte:"
 msgid "Set the application font size"
 msgstr "Stel de lettergrootte van het programma in"
 
+msgid "Default PDF version:"
+msgstr "Standaard PDF versie:"
+
+msgid "Default PDF version for generated PDF files"
+msgstr "Standaard PDF-versie voor gegenereerde PDF-bestanden"
+
 msgid "Manually selected"
 msgstr "Handmatig geselecteerd"
 
@@ -683,6 +693,22 @@ msgid ""
 "directory"
 msgstr ""
 "Stel de map van het geselecteerde PDF-bestand automatisch in als uitvoermap"
+
+msgid "Default prefix:"
+msgstr "Standaard voorvoegsel:"
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
+msgstr ""
+"Standaard voorvoegsel voor uitvoerbestandsnamen, gebruikt in tools die "
+"meerdere bestanden genereren"
+
+msgid "Some special keywords are replaced with runtime values."
+msgstr "Enkele speciale trefwoorden worden vervangen door runtime-waarden."
+
+msgid "Right click to add these keywords."
+msgstr "Rechter-muisknop om deze trefwoorden toe te voegen."
 
 msgid "Settings"
 msgstr "Instellingen"
@@ -719,7 +745,7 @@ msgid "Select a workspace"
 msgstr "Selecteer een werkomgeving"
 
 msgid "Default working directory:"
-msgstr "Standaard werkmap"
+msgstr "Standaard werkmap:"
 
 msgid "Load default workspace at startup:"
 msgstr "Laad standaard werkomgeving bij het opstarten:"
@@ -752,6 +778,9 @@ msgstr "PDF-compressie ingeschakeld"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr "Stel in of \"Comprimeer bestand\" standaard moet worden ingeschakeld"
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
+msgstr "Stel in of 'Bladwijzers weggooien' standaard moet zijn ingeschakeld"
 
 msgid "Overwrite files"
 msgstr "Bestanden overschrijven"
@@ -875,7 +904,7 @@ msgid "New version available"
 msgstr "Nieuwe versie beschikbaar"
 
 msgid "You are running the latest version of PDFsam Basic"
-msgstr "Je gebruikt de nieuwste versie van PDFsam Basic al."
+msgstr "Je gebruikt de nieuwste versie van PDFsam Basic al"
 
 msgid "No update"
 msgstr "Geen update"
@@ -895,6 +924,10 @@ msgstr "Dit document is versleuteld, klik om een wachtwoord in te geven."
 
 msgid "An error has occurred, click for more details."
 msgstr "Er is een fout opgetreden. Klik voor meer details."
+
+#, java-format
+msgid "Version {0}"
+msgstr "Versie {0}"
 
 msgid "Split tools"
 msgstr "Splitsen"
@@ -941,13 +974,13 @@ msgid "Unable to retrieve premium modules"
 msgstr "Extra functies kunnen niet opgehaald worden"
 
 msgid "Unable to retrieve latest news"
-msgstr "Laatste nieuws ophalen mislukt."
+msgstr "Laatste nieuws ophalen mislukt"
 
 msgid "Fetching latest news"
 msgstr "Bezig met ophalen van het laatste nieuws"
 
 msgid "Unable to retrieve the latest news"
-msgstr "Laatste nieuws ophalen mislukt."
+msgstr "Laatste nieuws ophalen mislukt"
 
 #, java-format
 msgid "Saving workspace data to {0}"
@@ -1059,6 +1092,18 @@ msgstr "Naar einde verplaatsen"
 msgid "Duplicate"
 msgstr "Dupliceer"
 
+msgid "Duplicate at Top"
+msgstr ""
+
+msgid "Duplicate Up"
+msgstr ""
+
+msgid "Duplicate Down"
+msgstr ""
+
+msgid "Duplicate at Bottom"
+msgstr ""
+
 msgid "Selected pages"
 msgstr "Geselecteerde pagina's"
 
@@ -1073,7 +1118,7 @@ msgstr "Aangepast"
 
 #, java-format
 msgid "Total pages: {0}"
-msgstr ""
+msgstr "Totaal aantal blz: {0}"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JInfoPanel.java:118
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:128
@@ -1182,9 +1227,8 @@ msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
 msgstr "Bestand overschrijven als deze reeds bestaat."
 
-#, java-format
-msgid "Version {0}"
-msgstr "Versie {0}"
+msgid "The selected PDF file is invalid"
+msgstr "Het geselecteerde PDF-bestand is ongeldig"
 
 msgid "Same as the input document"
 msgstr "Hetzelfde als het bronbestand"
@@ -1229,20 +1273,14 @@ msgstr "Voorvoegsel voor de gegenereerde bestandsnamen"
 msgid "Add prefix"
 msgstr "Voeg voorvoegsel toe"
 
-msgid "DEFAULT_PREFIX"
-msgstr "Standaard voorvoegsel"
-
 msgid "Generated PDF documents name prefix:"
 msgstr "Voorvoegsel doelbestand:"
 
 msgid "Prefix for the output files name."
 msgstr "Voorvoegsel voor de bestandsnamen van de uitvoer."
 
-msgid "Some special keywords are replaced with runtime values."
-msgstr "Enkele speciale trefwoorden worden vervangen door runtime-waarden."
-
-msgid "Right click to add these keywords."
-msgstr "Rechter-muisknop om deze trefwoorden toe te voegen"
+msgid "DEFAULT_PREFIX"
+msgstr "Standaard voorvoegsel"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:542
 # F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:462
@@ -1273,16 +1311,16 @@ msgstr "Bezig"
 msgid "Running {0}%"
 msgstr "Uitvoeren {0}%"
 
-msgid "Error saving log file."
-msgstr "Fout bij opslaan van het logbestand"
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr "Fout bij opslaan van inhoud naar bestand {0}"
 
 #, java-format
-msgid "File {0} saved."
-msgstr "Bestand {0} opgeslagen."
+msgid "File {0} saved"
+msgstr "Bestand {0} opgeslagen"
 
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "Ongeldig bereik: {0}"
+msgid "Error saving content to clipboard"
+msgstr "Fout bij het opslaan van inhoud op het klembord"
 
 #, java-format
 msgid ""
@@ -1291,6 +1329,10 @@ msgid ""
 msgstr ""
 "Dubbelzinnig paginabereik definitie: {0}. Gebruik de volgende formats: [n] "
 "of [n1-n2] of [-n] of [n-]"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "Ongeldig bereik: {0}"
 
 #, java-format
 msgid "Invalid number: {0}."

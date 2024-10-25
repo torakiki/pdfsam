@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2024-05-05 21:57+0000\n"
-"Last-Translator: Tim Quakulinsky <Unknown>\n"
+"POT-Creation-Date: 2024-10-23 17:08+0200\n"
+"PO-Revision-Date: 2024-10-08 20:41+0000\n"
+"Last-Translator: Martin <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-07-26 09:48+0000\n"
-"X-Generator: Launchpad (build 0f7b58d0a728e5e8f34556869262ccfa55217529)\n"
+"X-Launchpad-Export-Date: 2024-10-25 13:44+0000\n"
+"X-Generator: Launchpad (build 22ade00ab50b929fac63b8ee7252243aceda294a)\n"
 "Language: de\n"
 
 msgid "No PDF document has been selected"
@@ -44,8 +44,9 @@ msgstr "Eine separate Datei für jeden Satz von Seiten"
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr "Jede fortlaufende Serie von Seiten erzeugt eine separate PDF-Datei"
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Zu extrahierende Seiten (z. B.: 2 oder 5-23 oder 2,5-7,12-)"
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr ""
+"zu extrahierende Seiten (z.B. 2 oder 5-23 oder 2,5-7,12- oder 3,last)"
 
 msgid "Invalid page ranges"
 msgstr "Ungültige Seitenbereiche"
@@ -55,10 +56,8 @@ msgstr "Seiten extrahieren:"
 
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
+" or 3,last)"
 msgstr ""
-"Durch Kommata getrennte Seitenzahlen oder Bereiche, die extrahiert werden "
-"sollen (z. B. 2 oder 5-23 oder 2,5-7,12-)"
 
 msgid "Split by bookmarks"
 msgstr "Nach Lesezeichen teilen"
@@ -273,11 +272,11 @@ msgstr ""
 "Legen Sie fest, ob alle Seiten die gleiche Breite wie die erste Seite haben "
 "sollen"
 
-msgid "Merge fields"
-msgstr "Felder zusammenführen"
-
 msgid "Merge renaming existing fields"
 msgstr "Bestehende Felder zusammenführen und umbenennen"
+
+msgid "Merge fields"
+msgstr "Felder zusammenführen"
 
 msgid "Flatten"
 msgstr "Einebnen"
@@ -368,8 +367,8 @@ msgstr ""
 "Wiederholen Sie die ausgewählten Seiten alle \"n\" Seiten des "
 "Originaldokuments"
 
-msgid "The selected PDF file is invalid"
-msgstr "Die ausgewählte PDF-Datei ist ungültig"
+msgid "A .pdf extension is required for the repeating file"
+msgstr ""
 
 msgid "The number of pages must be a positive number"
 msgstr "Die Anzahl der Seiten muss eine positive Zahl sein."
@@ -378,6 +377,9 @@ msgid "Select or drag and drop the PDF you want to insert pages to"
 msgstr ""
 "Die PDF-Datei, in die Seiten eingefügt werden sollen, auswählen oder per "
 "Drag & Drop ablegen"
+
+msgid "A .pdf destination file extension is required"
+msgstr ""
 
 msgid "Insert and Repeat settings"
 msgstr "Einstellungen für Einfügen und Wiederholen"
@@ -1075,6 +1077,18 @@ msgstr "Ans Ende verschieben"
 msgid "Duplicate"
 msgstr "Duplizieren"
 
+msgid "Duplicate at Top"
+msgstr ""
+
+msgid "Duplicate Up"
+msgstr ""
+
+msgid "Duplicate Down"
+msgstr ""
+
+msgid "Duplicate at Bottom"
+msgstr ""
+
 msgid "Selected pages"
 msgstr "Ausgewählte Seiten"
 
@@ -1195,6 +1209,9 @@ msgstr ""
 "Kästchen markieren, wenn die bereits vorhandenen Zieldateien überschrieben "
 "werden sollen."
 
+msgid "The selected PDF file is invalid"
+msgstr "Die ausgewählte PDF-Datei ist ungültig"
+
 msgid "Same as the input document"
 msgstr "Genauso, wie das Eingabedokument"
 
@@ -1254,16 +1271,16 @@ msgstr "Ausführung"
 msgid "Running {0}%"
 msgstr "{0} % ausgeführt"
 
-msgid "Error saving log file."
-msgstr "Fehler beim Speichern der Protokolldatei."
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr "Fehler beim Speichern in Datei {0}"
 
 #, java-format
-msgid "File {0} saved."
-msgstr "Datei {0} gespeichert."
+msgid "File {0} saved"
+msgstr "Datei {0} gespeichert"
 
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "Ungültiger Bereich: {0}."
+msgid "Error saving content to clipboard"
+msgstr "Fehler beim Speichern des Inhaltes in die Zwischenablage"
 
 #, java-format
 msgid ""
@@ -1272,6 +1289,10 @@ msgid ""
 msgstr ""
 "Mehrdeutige Angabe des Seitenbereichs: {0}. Benutze folgende Formate: [n] "
 "oder [n1-n2] oder [-n] oder [n-]"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "Ungültiger Bereich: {0}."
 
 #, java-format
 msgid "Invalid number: {0}."

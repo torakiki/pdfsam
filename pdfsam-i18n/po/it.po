@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2024-10-01 16:39+0200\n"
-"PO-Revision-Date: 2024-10-01 15:22+0000\n"
+"POT-Creation-Date: 2024-10-23 17:08+0200\n"
+"PO-Revision-Date: 2024-10-23 15:40+0000\n"
 "Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-10-01 15:24+0000\n"
-"X-Generator: Launchpad (build 1b1ed1ad2dbfc71ee62b5c5491c975135a771bf0)\n"
+"X-Launchpad-Export-Date: 2024-10-25 13:44+0000\n"
+"X-Generator: Launchpad (build 22ade00ab50b929fac63b8ee7252243aceda294a)\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Language: it\n"
 
@@ -1090,7 +1090,7 @@ msgid "Set as range for all"
 msgstr "Imposta intervallo per tutti"
 
 msgid "Move to Top"
-msgstr "Sposta in alto"
+msgstr "Sposta in cima"
 
 # F:\workspace_pdfsame_enanched\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:265
 # F:\workspace_pdfsame_enanched\pdfsam-merge\it\pdfsam\plugin\merge\GUI\MergeMainGUI.java:312
@@ -1107,10 +1107,22 @@ msgid "Move Down"
 msgstr "Sposta giù"
 
 msgid "Move to Bottom"
-msgstr "Sposta in basso"
+msgstr "Sposta in fondo"
 
 msgid "Duplicate"
 msgstr "Duplica"
+
+msgid "Duplicate at Top"
+msgstr "Duplica in alto"
+
+msgid "Duplicate Up"
+msgstr "Duplica su"
+
+msgid "Duplicate Down"
+msgstr "Duplica giù"
+
+msgid "Duplicate at Bottom"
+msgstr "Duplica in fondo"
 
 msgid "Selected pages"
 msgstr "Pagine selezionate"

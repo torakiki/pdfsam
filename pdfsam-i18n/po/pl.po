@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2024-08-07 12:10+0200\n"
+"POT-Creation-Date: 2024-10-23 17:08+0200\n"
 "PO-Revision-Date: 2024-09-09 08:58+0000\n"
 "Last-Translator: Andrzej Rudnik <Unknown>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-10-01 09:48+0000\n"
-"X-Generator: Launchpad (build 1b1ed1ad2dbfc71ee62b5c5491c975135a771bf0)\n"
+"X-Launchpad-Export-Date: 2024-10-25 13:44+0000\n"
+"X-Generator: Launchpad (build 22ade00ab50b929fac63b8ee7252243aceda294a)\n"
 
 msgid "Name"
 msgstr "Nazwa"
@@ -362,14 +362,17 @@ msgstr "Nieprawidłowy numer sttony"
 msgid "Repeat the selected pages every \"n\" pages of the original document"
 msgstr "Powtarzaj wybrane strony co \"n\" stron oryginalnego dokumentu"
 
-msgid "The selected PDF file is invalid"
-msgstr "Wybrany plik PDF jest wadliwy"
+msgid "A .pdf extension is required for the repeating file"
+msgstr ""
 
 msgid "The number of pages must be a positive number"
 msgstr "Liczba stron musi być liczbą dodatnią"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
 msgstr "Wybierz lub przeciągnij PDF, z którego chcesz wstawić strony do"
+
+msgid "A .pdf destination file extension is required"
+msgstr ""
 
 msgid "Insert and Repeat settings"
 msgstr "Ustawienia Wstaw i Powtórz"
@@ -1057,6 +1060,18 @@ msgstr "Przesuń na dół"
 msgid "Duplicate"
 msgstr "Powiel"
 
+msgid "Duplicate at Top"
+msgstr ""
+
+msgid "Duplicate Up"
+msgstr ""
+
+msgid "Duplicate Down"
+msgstr ""
+
+msgid "Duplicate at Bottom"
+msgstr ""
+
 msgid "Selected pages"
 msgstr "Zaznaczonych stron"
 
@@ -1171,6 +1186,9 @@ msgid ""
 msgstr ""
 "Zaznacz tę opcję, jeśli chcesz aby nowe pliki wyjściowe zastępowały te "
 "istniejące (o tej samej nazwie)."
+
+msgid "The selected PDF file is invalid"
+msgstr "Wybrany plik PDF jest wadliwy"
 
 msgid "Same as the input document"
 msgstr "Taki sam jak dokument wejściowy"
