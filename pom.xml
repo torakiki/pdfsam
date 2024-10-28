@@ -145,6 +145,9 @@
                                 <goals>
                                     <goal>sign</goal>
                                 </goals>
+                                <configuration>
+                                    <keyname>${env.PDFSAM_GPG_KEYID}</keyname>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
