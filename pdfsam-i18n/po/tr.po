@@ -7,15 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2022-04-25 22:18+0000\n"
-"Last-Translator: Sabri Ünal <Unknown>\n"
+"POT-Creation-Date: 2024-10-23 17:08+0200\n"
+"PO-Revision-Date: 2024-10-28 08:58+0100\n"
+"Last-Translator: Andrea Vacondio <info@pdfsam.org>\n"
 "Language-Team: Turkish <tr@li.org>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
+"X-Launchpad-Export-Date: 2024-10-28 07:48+0000\n"
+"X-Generator: Poedit 3.4.2\n"
 
 msgid "No PDF document has been selected"
 msgstr "Hiçbir PDF dosyası seçmediniz"
@@ -24,7 +25,7 @@ msgid "Extract"
 msgstr "Dışa aktar"
 
 msgid "Extract pages from PDF documents."
-msgstr "PDF dokümanından sayfaları dışa aktar"
+msgstr "PDF dokümanından sayfaları dışa aktar."
 
 msgid "File names settings"
 msgstr "Dosya adı ayarları"
@@ -36,24 +37,27 @@ msgid "Output settings"
 msgstr "Çıktı ayarları"
 
 msgid "A separate file for each set of pages"
-msgstr ""
+msgstr "Her sayfa grubu için ayrı bir dosya"
 
 msgid "Each continuous series of pages will generate a separate PDF file"
-msgstr ""
+msgstr "Her bir ardışık sayfa dizisi ayrı bir PDF dosyası oluşturacaktır"
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Dışa aktarılacak sayfalar (örnek: 2 veya 5-23 veya 2,7-7,12-)"
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr ""
+"Dışarıya aktarılacak sayfalar (ör: 2 veya 5-23 veya 2,5-7,12- veya 3,son)"
 
 msgid "Invalid page ranges"
 msgstr "Geçersiz sayfa aralığı"
 
 msgid "Extract pages:"
-msgstr "Sayfaları çıkar"
+msgstr "Sayfaları çıkar:"
 
 msgid ""
-"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or "
+"2,5-7,12- or 3,last)"
 msgstr ""
+"Dışarıya aktarılacak sayfa numaraları veya aralıkları virgülle ayrılmış "
+"şekilde (ör: 2 veya 5-23 veya 2,5-7,12- veya 3,son"
 
 msgid "Split by bookmarks"
 msgstr "İşaretlemelere göre ayır"
@@ -68,10 +72,10 @@ msgid "Regular expression the bookmark has to match"
 msgstr "Yer iminin eşleşmesi gereken kurallı ifade"
 
 msgid "Split at this bookmark level:"
-msgstr "Bu yer imi seviyesinde böl"
+msgstr "Bu yer imi seviyesinde böl:"
 
 msgid "Matching regular expression:"
-msgstr "Eşleşen kurallı ifade"
+msgstr "Eşleşen kurallı ifade:"
 
 msgid "A regular expression the bookmark text has to match"
 msgstr "Yer iminin eşlemesi gereken kurallı bir ifade"
@@ -101,7 +105,7 @@ msgid "Split"
 msgstr "Böl"
 
 msgid "Split a PDF document at the given page numbers."
-msgstr "PDF dokümanını verilen sayfa numarasına göre böl"
+msgstr "PDF dokümanını verilen sayfa numarasına göre böl."
 
 msgid "Every page"
 msgstr "Her sayfa"
@@ -115,8 +119,7 @@ msgstr "Tek sayfalar"
 msgid "Split the document after the given page numbers"
 msgstr "Dokümanı belirtilen sayfa numaralarının ardından bölümle"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 "PDF'yi her \"n\" sayfada bölerek her biri \"n\" safyadan oluşan dökümanlar "
 "oluşturur"
@@ -187,8 +190,7 @@ msgstr ""
 "İki veya daha fazla PDF dokümanını her birinden sayfaları düz ya da ters "
 "sırayla alarak birleştir."
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Karıştırma istediğiniz sayfaları (örn: 2 veya 5-23 veya 2,5-7,12-) belirtmek "
 "için çift tıklayın"
@@ -249,30 +251,32 @@ msgid "Add a footer"
 msgstr "Altbilgi ekle"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
-msgstr "Sayfanın ait olduğu dosyanın adını içeren bir altbilgi ekler"
+msgstr "Sayfanın ait olduğu dosyanın adını içeren bir altbilgi ekler."
 
 msgid "None"
-msgstr ""
+msgstr "Hiçbiri"
 
 msgid "Same width as first page"
-msgstr ""
+msgstr "İlk sayfa ile aynı genişlikte"
 
 msgid "Same width as first page (based on page orientation)"
-msgstr ""
+msgstr "İlk sayfa ile aynı genişlik"
 
 msgid "Pages normalization:"
-msgstr ""
+msgstr "Sayfa normalizasyonu:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
 "one"
 msgstr ""
-
-msgid "Merge fields"
-msgstr "Alanları birleştir"
+"Sayfaların ilk sayfa ile aynı genişliğe sahip olacak şekilde yeniden "
+"boyutlandırılıp boyutlandırılmayacağını ayarlayın"
 
 msgid "Merge renaming existing fields"
 msgstr "Var olan alanları yeniden adlandırarak birleştir"
+
+msgid "Merge fields"
+msgstr "Alanları birleştir"
 
 msgid "Flatten"
 msgstr "Düzleştir"
@@ -302,7 +306,7 @@ msgstr ""
 "Birleştirilen her dökümana ait bir girdi olacak şekilde yer imlerini koru"
 
 msgid "Bookmarks handling:"
-msgstr "Yer imleri yönetimi"
+msgstr "Yer imleri yönetimi:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr ""
@@ -327,54 +331,65 @@ msgstr "İçindekiler bölümü PDF dokümanına eklenecekse işaretleyin"
 msgid "Merge"
 msgstr "Birleştir"
 
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "Birden çok PDF dosyasının tümünü veya belirli bölümlerini birleştir."
+msgid "Merge multiple PDF documents or subsections of them."
+msgstr "Birden fazla PDF dosyasını veya bunların alt bölümlerini birleştirin."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr ""
+"Tekrar edilecek sayfaların bulunduğu PDF dosyasını seçin veya sürükleyip "
+"bırakın"
 
 msgid "Repeat these pages:"
-msgstr ""
+msgstr "Bu sayfaları tekrar et:"
 
 msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "Tekrar edilecek sayfalar (ör: 2 veya 5-23 veya 2,5-7,12-)"
 
 msgid ""
-"Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
-"7,12-)"
+"Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or "
+"2,5-7,12-)"
 msgstr ""
+"Tekrar edilecek sayfa numaraları veya aralıkları virgülle ayrılmış olarak "
+"(ör: 2 veya 5-23 veya 2,5-7,12-)"
 
 msgid "Leave it empty to use all the pages of the PDF file"
-msgstr ""
+msgstr "PDF dosyasının tüm sayfalarını kullanmak için boş bırakın"
 
 msgid "Repeat every \"n\" pages:"
-msgstr ""
+msgstr "Her 'n' adet sayfayı tekrar et:"
 
 msgid "Invalid page number"
-msgstr ""
+msgstr "Geçersiz sayfa numarası"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
-msgstr ""
+msgstr "Seçilen sayfaları orijinal belgenin her 'n' adet sayfasında tekrar et"
 
-msgid "The selected PDF file is invalid"
-msgstr "Seçili PDF dosyası geçersiz"
+msgid "A .pdf extension is required for the repeating file"
+msgstr "Tekrar eden dosya için .pdf uzantısı gereklidir"
 
 msgid "The number of pages must be a positive number"
-msgstr ""
+msgstr "Sayfa sayısı pozitif bir sayı olmalıdır"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
 msgstr ""
+"Sayfaları eklemek istediğiniz PDF dosyasını seçin veya sürükleyip bırakın"
+
+msgid "A .pdf destination file extension is required"
+msgstr "Bir .pdf hedef dosya uzantısı gereklidir"
 
 msgid "Insert and Repeat settings"
-msgstr ""
+msgstr "Ekleme ve Tekrarlama ayarları"
 
 msgid "Insert pages multiple times"
-msgstr ""
+msgstr "Sayfaları birkaç kez ekle"
 
 msgid ""
 "Insert the pages of a PDF document A into another document B, repeating it "
 "after a certain number of pages, resulting in B1 A B2 A B3 A etc."
 msgstr ""
+"Bir PDF dosyası A'nın sayfalarını başka bir PDF dosyası B'ye ekleyin, "
+"belirli sayıda sayfadan sonra tekrar edin; sonuç B1 A B2 A B3 A vb. "
+"olacaktır."
 
 #, java-format
 msgid "Started in {0}"
@@ -392,10 +407,10 @@ msgid "No PDF found"
 msgstr "PDF bulunamadı"
 
 msgid "Tools"
-msgstr ""
+msgstr "Araçlar"
 
 msgid "News"
-msgstr ""
+msgstr "Haberler"
 
 msgid "What's new"
 msgstr "Yeni ne var"
@@ -407,13 +422,13 @@ msgid "Exit"
 msgstr "Çıkış"
 
 msgid "Exit the application"
-msgstr ""
+msgstr "Uygulamadan çık"
 
 msgid "Workspace"
 msgstr "Çalışma Alanı"
 
 msgid "Manage your workspaces"
-msgstr ""
+msgstr "Çalışma alanlarınızı yönetin"
 
 msgid "Yes"
 msgstr "Evet"
@@ -428,7 +443,7 @@ msgid "Do you confirm?"
 msgstr "Onaylıyor musun?"
 
 msgid "Clear the tool settings"
-msgstr ""
+msgstr "Araç ayarlarını sıfırla"
 
 msgid "Clear the selection table"
 msgstr "Seçim tablosunu temizle"
@@ -504,7 +519,7 @@ msgstr ""
 "musunuz?"
 
 msgid "Removes all the log messages"
-msgstr ""
+msgstr "Tüm günlük mesajlarını kaldırır"
 
 msgid "_Clear"
 msgstr "_Temizle"
@@ -513,7 +528,7 @@ msgid "_Save"
 msgstr "_Kaydet"
 
 msgid "C_lose"
-msgstr ""
+msgstr "_Kapat"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\LogPanel.java:99
 msgid "Copy"
@@ -539,7 +554,7 @@ msgid "Select where to save the log file"
 msgstr "Günlük dosyasının nereye kaydedileceğini seçin"
 
 msgid "Logs"
-msgstr ""
+msgstr "Günlükler (Logs)"
 
 msgid "Application messages"
 msgstr "Uygulama mesajları"
@@ -571,15 +586,15 @@ msgstr "Sağlayıcı: %s"
 
 #, java-printf-format
 msgid "Java runtime path: %s"
-msgstr "Java uygulamasının (runtime) konumu:"
+msgstr "Java uygulamasının (runtime) konumu: %s"
 
 #, java-printf-format
 msgid "JavaFX runtime version: %s"
-msgstr ""
+msgstr "JavaFX çalışma zamanı sürümü: %s"
 
 #, java-printf-format
 msgid "PDF engine (Sejda SDK) version: %s"
-msgstr ""
+msgstr "PDF motoru (Sejda SDK) sürümü: %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -623,7 +638,7 @@ msgid "About"
 msgstr "Hakkında"
 
 msgid "Home"
-msgstr ""
+msgstr "Ana Dizin"
 
 msgid "Premium features"
 msgstr "Premium özellikler"
@@ -643,10 +658,11 @@ msgid "Set your preferred language (restart needed)"
 msgstr "Tercih ettiğiniz dili seçin (yeniden başlatmak gerekir)"
 
 msgid "Startup tool:"
-msgstr ""
+msgstr "Başlangıç aracı:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
+"Uygulama başlangıcında açılacak aracı ayarlayın (yeniden başlatma gerekli)"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:122
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:113
@@ -654,13 +670,19 @@ msgid "Theme:"
 msgstr "Tema:"
 
 msgid "Set the application theme"
-msgstr ""
+msgstr "Uygulama temasını ayarla"
 
 msgid "Font size:"
-msgstr ""
+msgstr "Yazı tipi boyutu:"
 
 msgid "Set the application font size"
-msgstr ""
+msgstr "Uygulama yazı tipi boyutunu ayarlar"
+
+msgid "Default PDF version:"
+msgstr "Varsayılan PDF sürümü:"
+
+msgid "Default PDF version for generated PDF files"
+msgstr "Oluşturulan PDF dosyaları için varsayılan PDF sürümü"
 
 msgid "Manually selected"
 msgstr "El ile seçildi"
@@ -669,6 +691,22 @@ msgid ""
 "Automatically set the destination directory to the selected PDF document "
 "directory"
 msgstr "Otomatik olarak seçili PDF belge dizinini hedef dizin olarak ayarla"
+
+msgid "Default prefix:"
+msgstr "Varsayılan ön ek:"
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
+msgstr ""
+"Birden fazla dosya üreten araçların çıktı verdiği dosya adları için "
+"varsayılan ön ek"
+
+msgid "Some special keywords are replaced with runtime values."
+msgstr "Bazı özel kelimeler çalışma zamanı değerleri ile değiştirildi."
+
+msgid "Right click to add these keywords."
+msgstr "Bu anahtar kelimeleri eklemek için sağ tıklayın."
 
 msgid "Settings"
 msgstr "Ayarlar"
@@ -685,8 +723,7 @@ msgstr "Çıktı"
 msgid "Check for updates now"
 msgstr "Güncellemeleri denetle"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr "Dosyaların kaydedileceği ve öntanımlı olarak yükleneceği dizini seç"
 
 msgid "Select a directory"
@@ -707,7 +744,7 @@ msgid "Load default workspace at startup:"
 msgstr "Başlangıçta yüklenecek öntanımlı çalışma alanı:"
 
 msgid "System default"
-msgstr ""
+msgstr "Sistem varsayılanı"
 
 msgid "Check for updates at startup"
 msgstr "Başlangıçta güncellemeleri kontrol et"
@@ -735,6 +772,11 @@ msgstr "PDF sıkıştırma etkinleştirildi"
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
 "\"Çıktı dosyasını sıkıştır\"ın varsayılan olarak etkin olup olmayacağını "
+"ayarlayın"
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
+msgstr ""
+"'Yer imlerini atla' seçeneğinin varsayılan olarak etkin olup olmayacağını "
 "ayarlayın"
 
 msgid "Overwrite files"
@@ -770,7 +812,7 @@ msgid ""
 "user to support PDFsam with a donation"
 msgstr ""
 "Ara sıra görünerek kullanıcılardan PDFsam'ı bir bağışla desteklemelerini "
-"isteyen bildirimi açın veya kapatın."
+"isteyen bildirimi açın veya kapatın"
 
 msgid "Show premium features"
 msgstr "Premium özellikleri göster"
@@ -815,7 +857,7 @@ msgid "Show errors"
 msgstr "Hataları göster"
 
 msgid "Input parameters are invalid"
-msgstr ""
+msgstr "Giriş parametreleri geçersizdir"
 
 msgid "Invalid parameters"
 msgstr "Geçersiz parametreler"
@@ -836,7 +878,7 @@ msgid "You performed {0} tasks with PDFsam, did it help?"
 msgstr "PDFsam ile {0} görev yerine getirdiniz. Faydası oldu mu?"
 
 msgid "Give something back"
-msgstr "Karşılığında bir şey verin."
+msgstr "Karşılığında bir şey verin"
 
 msgid "PDFsam worked hard!"
 msgstr "PDFsam çok çalıştı!"
@@ -871,25 +913,29 @@ msgid "Valid user password provided."
 msgstr "Geçerli kullanıcı parolası temin edildi."
 
 msgid "This document is encrypted, click to provide a password."
-msgstr "Bu dosya şifreli, şifre girmek için tıklayın"
+msgstr "Bu dosya şifreli, şifre girmek için tıklayın."
 
 msgid "An error has occurred, click for more details."
-msgstr "Bir hata oluştu, ayrıtlar için tıklayınız"
+msgstr "Bir hata oluştu, ayrıtlar için tıklayınız."
+
+#, java-format
+msgid "Version {0}"
+msgstr "Sürüm {0}"
 
 msgid "Split tools"
-msgstr ""
+msgstr "Bölme araçları"
 
 msgid "Merge tools"
-msgstr ""
+msgstr "Birleştirme araçları"
 
 msgid "Convert tools"
-msgstr ""
+msgstr "Dönüştürme araçları"
 
 msgid "Edit tools"
-msgstr ""
+msgstr "Düzenleme araçları"
 
 msgid "Other tools"
-msgstr ""
+msgstr "Diğer araçlar"
 
 msgid "Checking for updates"
 msgstr "Güncellemeler kontrol ediliyor"
@@ -947,24 +993,29 @@ msgstr "Çalışma alanı {0} konumuna kaydedilemedi"
 msgid "Loading workspace from {0}"
 msgstr "{0} konumundan çalışma alanı yükleniyor"
 
-msgid "Workspace loaded"
-msgstr "Çalışma alanı yüklendi"
+#, java-format
+msgid "Workspace loaded: {0}"
+msgstr "Çalışma alanı yüklendi: {0}"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
 msgstr "{0} konumundan çalışma alanı yüklenemedi"
 
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
+msgstr "Aşağıdaki dosya mevcut olduğu için atlandı: {0}"
+
 msgid "Light with blue"
-msgstr ""
+msgstr "Açık tema ve mavi tonlar"
 
 msgid "Dark with purple"
-msgstr ""
+msgstr "Kotu tema ve mor tonlar"
 
 msgid "Dark with teal"
-msgstr ""
+msgstr "Kotu tema ve cam göbeği tonlar"
 
 msgid "Light with maroon"
-msgstr ""
+msgstr "Açık tema ve bordo tonlar"
 
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:150
 msgid "Close"
@@ -979,8 +1030,8 @@ msgstr "PDF dosyasını seçin"
 msgid "_Select PDF"
 msgstr "_PDF seç"
 
-msgid "Clear all settings"
-msgstr "Tüm ayarları sıfırla"
+msgid "C_lear all settings"
+msgstr "Bütün ayarları sıfırla"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -1042,11 +1093,23 @@ msgstr "En Alta Taşı"
 msgid "Duplicate"
 msgstr "Çoğalt"
 
+msgid "Duplicate at Top"
+msgstr "En Başa Kopyala"
+
+msgid "Duplicate Up"
+msgstr "Yukarı Kopyala"
+
+msgid "Duplicate Down"
+msgstr "Aşağı Kopyala"
+
+msgid "Duplicate at Bottom"
+msgstr "En Sona Kopyala"
+
 msgid "Selected pages"
-msgstr ""
+msgstr "Seçilen sayfalar"
 
 msgid "Total number of selected pages"
-msgstr ""
+msgstr "Seçilen sayfaların toplam sayısı"
 
 msgid "Size"
 msgstr "Boyut"
@@ -1056,7 +1119,7 @@ msgstr "Değiştirildi"
 
 #, java-format
 msgid "Total pages: {0}"
-msgstr ""
+msgstr "Toplam sayfalar: {0}"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JInfoPanel.java:118
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:128
@@ -1086,9 +1149,6 @@ msgstr "_Sil"
 
 msgid "Removes every document"
 msgstr "Tüm belgeleri siler"
-
-msgid "C_lear all settings"
-msgstr "Bütün ayarları sıfırla"
 
 msgid "Moves up selected documents"
 msgstr "Seçili belgeleri yukarı taşır"
@@ -1122,7 +1182,7 @@ msgid "Pages"
 msgstr "Sayfalar"
 
 msgid "Number of total pages of the document"
-msgstr ""
+msgstr "Dökümanın toplam sayfa sayısı"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -1153,7 +1213,7 @@ msgstr ""
 "istemiyorsanız kutuyu işaretleyin"
 
 msgid "Output PDF version:"
-msgstr "PDF çıktısı versiyonu"
+msgstr "PDF çıktısı versiyonu:"
 
 msgid "Show advanced settings"
 msgstr "Gelişmiş ayarları göster"
@@ -1172,11 +1232,10 @@ msgstr "Eğer zaten varsa üzerine yaz"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
-msgstr "çıktı dosyaları zaten varsa üzerine yazmak için işaretleyiniz."
+msgstr "Çıktı dosyaları zaten varsa üzerine yazmak için işaretleyiniz."
 
-#, java-format
-msgid "Version {0}"
-msgstr "Sürüm {0}"
+msgid "The selected PDF file is invalid"
+msgstr "Seçili PDF dosyası geçersiz"
 
 msgid "Same as the input document"
 msgstr "Giriş belgesinin aynısı"
@@ -1221,20 +1280,14 @@ msgstr "Oluşturulan dosya adı için önek"
 msgid "Add prefix"
 msgstr "Önek ekle"
 
-msgid "DEFAULT_PREFIX"
-msgstr ""
-
 msgid "Generated PDF documents name prefix:"
 msgstr "Oluşturulan PDF dökümanlarına eklenecek ön ad:"
 
 msgid "Prefix for the output files name."
-msgstr "Çıktı dosyası adı için önek"
+msgstr "Çıktı dosyası adı için önek."
 
-msgid "Some special keywords are replaced with runtime values."
-msgstr "Bazı özel kelimeler çalışma zamanı değerleri ile değiştirildi."
-
-msgid "Right click to add these keywords."
-msgstr "Bu anahtar kelimeleri eklemek için sağ tıklayın"
+msgid "DEFAULT_PREFIX"
+msgstr "VARSAYILAN_ÖN_EK"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:542
 # F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:462
@@ -1247,7 +1300,7 @@ msgid "Run"
 msgstr "Çalıştır"
 
 msgid "Run the task"
-msgstr ""
+msgstr "Görevi çalıştır"
 
 msgid "Requested"
 msgstr "İstekte bulunuldu"
@@ -1265,16 +1318,16 @@ msgstr "Çalışıyor"
 msgid "Running {0}%"
 msgstr "Çalışıyor {0}%"
 
-msgid "Error saving log file."
-msgstr "Kayıt dosyası kaydedilirken hata."
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr "İçeriği {0} dosyasına kaydederken hata oluştu"
 
 #, java-format
-msgid "File {0} saved."
-msgstr "Dosya {0} kaydedildi."
+msgid "File {0} saved"
+msgstr "Dosya {0} kaydedildi"
 
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "Geçersiz aralık: {0}."
+msgid "Error saving content to clipboard"
+msgstr "İçeriği panoya kaydederken hata oluştu"
 
 #, java-format
 msgid ""
@@ -1283,6 +1336,10 @@ msgid ""
 msgstr ""
 "Açık olmayan saya aralığı tanımlaması: {0}. Takip eden biçimlerden birini "
 "kullanın: [n] , [n1-n2] , [-n] ya da [n-]"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "Geçersiz aralık: {0}."
 
 #, java-format
 msgid "Invalid number: {0}."
