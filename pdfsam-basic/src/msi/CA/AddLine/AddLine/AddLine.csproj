@@ -69,9 +69,9 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.CA.targets" Condition=" '$(WixCATargetsPath)' == '' AND Exists('$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.CA.targets') " />
   <PropertyGroup>
     <PostBuildEvent>del /f AddLine.CA.dll
-"signtool.exe" sign /v /debug /fd sha256 /td sha256 /tr http://sha256timestamp.ws.symantec.com/sha256/timestamp /sha1 "%25SIGN_CERT_FINGERPRINT%25" "C:\repos\pdfsam\pdfsam-basic\src\msi\CA\AddLine\AddLine\bin\Release\AddLine.dll"
+"signtool.exe" sign /v /debug /fd sha256 /td sha256 /tr http://timestamp.sectigo.com /sha1 "%25SIGN_CERT_FINGERPRINT%25" "C:\repos\pdfsam\pdfsam-basic\src\msi\CA\AddLine\AddLine\bin\Release\AddLine.dll"
 "%25WIX%25SDK\MakeSfxCA.exe" "C:\repos\pdfsam\pdfsam-basic\src\msi\CA\AddLine\AddLine\bin\Release\AddLine.CA.dll" "%25WIX%25SDK\x86\SfxCA.dll" "C:\repos\pdfsam\pdfsam-basic\src\msi\CA\AddLine\AddLine\bin\Release\AddLine.dll" "C:\repos\pdfsam\pdfsam-basic\src\msi\CA\AddLine\AddLine\CustomAction.config" "%25WIX%25SDK\Microsoft.Deployment.WindowsInstaller.dll" 
-"signtool.exe" sign /v /debug /fd sha256 /td sha256 /tr http://sha256timestamp.ws.symantec.com/sha256/timestamp /sha1 "%25SIGN_CERT_FINGERPRINT%25" "C:\repos\pdfsam\pdfsam-basic\src\msi\CA\AddLine\AddLine\bin\Release\AddLine.CA.dll"
+"signtool.exe" sign /v /debug /fd sha256 /td sha256 /tr http://timestamp.sectigo.com /sha1 "%25SIGN_CERT_FINGERPRINT%25" "C:\repos\pdfsam\pdfsam-basic\src\msi\CA\AddLine\AddLine\bin\Release\AddLine.CA.dll"
 </PostBuildEvent>
   </PropertyGroup>
 </Project>
