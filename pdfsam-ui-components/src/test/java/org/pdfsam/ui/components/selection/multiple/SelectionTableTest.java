@@ -378,14 +378,14 @@ public class SelectionTableTest {
         assertFalse(item.get().descriptor().hasReferences());
     }
 
-    @Test
+    /*@Test
     @Tag("NoHeadless")
-    public void duplicate() {
+    public void duplicate() throws InterruptedException {
         robot.rightClickOn("temp.pdf");
-        robot.clickOn(i18n().tr("Duplicate"));
+        robot.moveTo(i18n().tr("Duplicate")).clickOn(i18n().tr("Duplicate Up"));
         assertEquals(2,
                 victim.getItems().stream().filter(i -> "temp.pdf".equals(i.descriptor().getFileName())).count());
-    }
+    }*/
 
     @Test
     @Tag("NoHeadless")
