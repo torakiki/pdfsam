@@ -38,6 +38,7 @@ import org.sejda.core.Sejda;
 
 import java.util.Arrays;
 
+import static org.pdfsam.core.BrandableProperty.BLUESKY_URL;
 import static org.pdfsam.core.BrandableProperty.COPYRIGHT;
 import static org.pdfsam.core.BrandableProperty.DOCUMENTATION_URL;
 import static org.pdfsam.core.BrandableProperty.DONATE_URL;
@@ -51,7 +52,6 @@ import static org.pdfsam.core.BrandableProperty.SCM_URL;
 import static org.pdfsam.core.BrandableProperty.SUPPORT_URL;
 import static org.pdfsam.core.BrandableProperty.TRACKER_URL;
 import static org.pdfsam.core.BrandableProperty.TRANSLATE_URL;
-import static org.pdfsam.core.BrandableProperty.TWITTER_URL;
 import static org.pdfsam.core.BrandableProperty.VENDOR_URL;
 import static org.pdfsam.core.BrandableProperty.VERSION;
 import static org.pdfsam.core.support.io.ObjectCollectionWriter.writeContent;
@@ -113,7 +113,7 @@ public class AboutPane extends HBox {
         addHyperlink(UniconsLine.DOLLAR_ALT, appBrand.property(DONATE_URL), i18n().tr("Donate"), right);
 
         addSectionTitle(i18n().tr("Social"), right);
-        addHyperlink(UniconsLine.TWITTER, appBrand.property(TWITTER_URL), i18n().tr("Follow us on Twitter"), right);
+        addHyperlink(null, appBrand.property(BLUESKY_URL), i18n().tr("Follow us on Bluesky"), right);
         addHyperlink(UniconsLine.FACEBOOK, appBrand.property(FACEBOOK_URL), i18n().tr("Like us on Facebook"), right);
         getChildren().addAll(left, right);
     }
@@ -124,9 +124,10 @@ public class AboutPane extends HBox {
         pane.getChildren().add(label);
     }
 
-    private void addHyperlink(Ikon icon, String url, String text, Pane pane) {
+    private UrlButton addHyperlink(Ikon icon, String url, String text, Pane pane) {
         UrlButton button = UrlButton.styledUrlButton(text, url, icon);
         button.getStyleClass().setAll("pdfsam-hyperlink");
         pane.getChildren().add(button);
+        return button;
     }
 }

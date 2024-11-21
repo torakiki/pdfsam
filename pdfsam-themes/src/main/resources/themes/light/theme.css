@@ -12,6 +12,10 @@
     -fx-fill: -default-font-color;
 }
 
+.svg-icon {
+    -fx-fill: -default-font-color;
+}
+
 .default-container {
     -fx-background-color: -default-background-color;
     -fx-background-insets: 0.0;
