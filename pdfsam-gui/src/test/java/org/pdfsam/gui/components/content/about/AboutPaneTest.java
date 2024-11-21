@@ -80,7 +80,7 @@ public class AboutPaneTest {
         when(appBrand.property(BrandableProperty.SUPPORT_URL)).thenReturn("https://www.pdfsam.org/support");
         when(appBrand.property(BrandableProperty.SCM_URL)).thenReturn("https://www.pdfsam.org/scm");
         when(appBrand.property(BrandableProperty.TRANSLATE_URL)).thenReturn("https://www.pdfsam.org/translate");
-        when(appBrand.property(BrandableProperty.TWITTER_URL)).thenReturn("https://www.pdfsam.org/twitter");
+        when(appBrand.property(BrandableProperty.BLUESKY_URL)).thenReturn("https://www.pdfsam.org/bsky");
         when(appBrand.property(BrandableProperty.DONATE_URL)).thenReturn("https://www.pdfsam.org/donate");
         when(appBrand.property(BrandableProperty.FACEBOOK_URL)).thenReturn("https://www.pdfsam.org/facebook");
         when(appBrand.property(BrandableProperty.LICENSE_NAME)).thenReturn("agpl3");
@@ -156,10 +156,10 @@ public class AboutPaneTest {
     }
 
     @Test
-    public void clickTwitter() {
-        robot.clickOn(i18n().tr("Follow us on Twitter"));
+    public void clickBluesky() {
+        robot.clickOn(i18n().tr("Follow us on Bluesky"));
         verify(listener, atLeastOnce()).onEvent(captor.capture());
-        assertEquals("https://www.pdfsam.org/twitter", captor.getValue().url());
+        assertEquals("https://www.pdfsam.org/bsky", captor.getValue().url());
     }
 
     @Test

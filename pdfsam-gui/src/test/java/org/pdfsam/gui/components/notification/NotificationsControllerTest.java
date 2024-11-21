@@ -68,7 +68,7 @@ public class NotificationsControllerTest {
         AppBrand appBrand = mock(AppBrand.class);
         when(appBrand.property(BrandableProperty.DOWNLOAD_URL)).thenReturn("http://www.pdfsam.org");
         when(appBrand.property(BrandableProperty.DONATE_URL)).thenReturn("http://www.pdfsam.org");
-        when(appBrand.property(BrandableProperty.TWEETER_SHARE_URL)).thenReturn("http://www.pdfsam.org");
+        when(appBrand.property(BrandableProperty.BLUESKY_SHARE_URL)).thenReturn("http://www.pdfsam.org");
         when(appBrand.property(BrandableProperty.FACEBOOK_SHARE_URL)).thenReturn("http://www.pdfsam.org");
         victim = new NotificationsController(container, service, appBrand);
         app().persistentSettings().set(BooleanPersistentProperty.DONATION_NOTIFICATION, true);
