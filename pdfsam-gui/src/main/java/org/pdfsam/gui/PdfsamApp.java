@@ -132,7 +132,8 @@ public class PdfsamApp extends Application {
         closeSplash();
         STOPWATCH.stop();
         eventStudio().broadcast(new StartupEvent());
-        LOG.info(i18n().tr("Started in {0}", DurationFormatUtils.formatDurationWords(STOPWATCH.getTime(), true, true)));
+        LOG.info(i18n().tr("Started in {0}",
+                DurationFormatUtils.formatDurationWords(STOPWATCH.getDuration().toMillis(), true, true)));
         new InputPdfArgumentsConsumer().accept(rawParameters);
     }
 
