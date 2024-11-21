@@ -21,6 +21,8 @@
  */
 .footer-button, .footer-button:default, .footer-button:focused {
     -fx-padding: 0.166667em 1.333333em 0.166667em 1.0em;
+    -fx-wrap-text: true;
+    -fx-text-overrun: clip;
 }
 
 .footer-open-button, .footer-open-button:default, .footer-open-button:focus-visible {

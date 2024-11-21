@@ -97,10 +97,6 @@ public class OpenWithDialog extends Stage {
         setScene(scene);
         app().registerScene(scene);
         eventStudio().addAnnotatedListeners(this);
-        Platform.runLater(() -> {
-            scene.getWindow().sizeToScene();
-            setResizable(false);
-        });
         this.setOnShown(e -> requestFocus());
     }
 
@@ -131,6 +127,10 @@ public class OpenWithDialog extends Stage {
                 });
                 buttons.getChildren().add(current);
             }
+        });
+        Platform.runLater(() -> {
+            getScene().getWindow().sizeToScene();
+            setResizable(false);
         });
         return this;
     }
