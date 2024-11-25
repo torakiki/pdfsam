@@ -330,7 +330,7 @@
         <bouncycastle.version>1.79</bouncycastle.version>
         <assertj.version>3.26.3</assertj.version>
         <hamcrest.version>3.0</hamcrest.version>
-        <javafx.version>21.0.5</javafx.version>
+        <javafx.version>24-ea+15</javafx.version>
         <jakarta-el.version>4.0.2</jakarta-el.version>
         <jakarta.inject.version>2.0.1</jakarta.inject.version>
         <validation.api.version>3.0.2</validation.api.version>
