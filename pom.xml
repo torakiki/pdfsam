@@ -328,7 +328,7 @@
         <testfx.version>4.0.18</testfx.version>
         <jackson.version>2.18.2</jackson.version>
         <bouncycastle.version>1.80</bouncycastle.version>
-        <assertj.version>3.26.3</assertj.version>
+        <assertj.version>3.27.3</assertj.version>
         <hamcrest.version>3.0</hamcrest.version>
         <javafx.version>23.0.1</javafx.version>
         <jakarta-el.version>4.0.2</jakarta-el.version>
