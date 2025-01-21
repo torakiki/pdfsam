@@ -14,10 +14,16 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-mv "${project.build.directory}/PDFsam Basic-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.dmg" "${project.build.directory}/pdfsam-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.dmg" || exit 1
+
+# Define the source and target file names
+SOURCE_FILE="${project.build.directory}/PDFsam Basic-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.dmg"
+TARGET_FILE="${project.build.directory}/pdfsam-basic-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}-${os.detected.classifier}.dmg"
+
+# Rename the file with the appropriate suffix
+mv "$SOURCE_FILE" "$TARGET_FILE" || exit 1
 echo "dmg renamed"
 
-xcrun notarytool submit --apple-id $APPLEID --password $APPLEIDPASS --team-id $TEAMID "${project.build.directory}/pdfsam-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.dmg" || exit 1
+xcrun notarytool submit --apple-id $APPLEID --password $APPLEIDPASS --team-id $TEAMID "$TARGET_FILE" || exit 1
 echo "dmg notarized"
 
 #stapling takes some time and it fails when run right after the notarization, we should probably wait few minutes

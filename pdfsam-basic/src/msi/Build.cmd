@@ -22,7 +22,7 @@ if %ERRORLEVEL% NEQ 0 goto error
 ECHO "candle run ok"
 
 REM English
-IF EXIST pdfsam.wixobj "%WIX%bin\light.exe" pdfsam.wixobj verifyWithLanguageDlg.wixobj featuresTree.wixobj exitDlg.wixobj harvestedFiles.wixobj -b "${project.build.directory}/image/pdfsam" -ext WixUIExtension -ext WixUtilExtension -ext WixNetFxExtension -spdb -out "${project.build.directory}/pdfsam-%PDFSAM_VERSION%.msi" -loc "culture.wxl" -cultures:en-us
+IF EXIST pdfsam.wixobj "%WIX%bin\light.exe" pdfsam.wixobj verifyWithLanguageDlg.wixobj featuresTree.wixobj exitDlg.wixobj harvestedFiles.wixobj -b "${project.build.directory}/image/pdfsam" -ext WixUIExtension -ext WixUtilExtension -ext WixNetFxExtension -spdb -out "${project.build.directory}/pdfsam-basic-%PDFSAM_VERSION%-${os.detected.classifier}.msi" -loc "culture.wxl" -cultures:en-us
 if %ERRORLEVEL% NEQ 0 goto error
 ECHO "MSI created"
 
@@ -33,7 +33,7 @@ del /Q verifyWithLanguageDlg.wixobj
 del /Q exitDlg.wixobj
 del /Q harvestedFiles.wixobj
 
-IF EXIST "${project.build.directory}/pdfsam-%PDFSAM_VERSION%.msi" "signtool.exe" sign /fd sha256 /tr http://timestamp.sectigo.com /td sha256 /sha1 "%SIGN_CERT_FINGERPRINT%" /d "PDFsam Basic" "${project.build.directory}/pdfsam-%PDFSAM_VERSION%.msi"
+IF EXIST "${project.build.directory}/pdfsam-basic-%PDFSAM_VERSION%-${os.detected.classifier}.msi" "signtool.exe" sign /fd sha256 /tr http://timestamp.sectigo.com /td sha256 /sha1 "%SIGN_CERT_FINGERPRINT%" /d "PDFsam Basic" "${project.build.directory}/pdfsam-basic-%PDFSAM_VERSION%-${os.detected.classifier}.msi"
 if %ERRORLEVEL% NEQ 0 goto error
 ECHO "MSI signed"
 POPD
