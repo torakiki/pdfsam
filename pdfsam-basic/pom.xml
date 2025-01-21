@@ -295,7 +295,7 @@
                                     <goal>single</goal>
                                 </goals>
                                 <configuration>
-                                    <finalName>pdfsam-${project.version}-${os.detected.name}</finalName>
+                                    <finalName>pdfsam-basic-${project.version}-${os.detected.classifier}</finalName>
                                     <appendAssemblyId>false</appendAssemblyId>
                                     <descriptors>
                                         <descriptor>src/assembly/portable-win.xml</descriptor>
@@ -372,7 +372,7 @@
                                     <artifacts>
                                         <artifact>
                                             <file>
-                                                ${project.build.directory}/pdfsam-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.msi
+                                                ${project.build.directory}/pdfsam-basic-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}-${os.detected.classifier}.msi
                                             </file>
                                             <type>msi</type>
                                         </artifact>
@@ -407,7 +407,7 @@
                                     <goal>single</goal>
                                 </goals>
                                 <configuration>
-                                    <finalName>pdfsam-${project.version}-${os.detected.name}</finalName>
+                                    <finalName>pdfsam-basic-${project.version}-${os.detected.classifier}</finalName>
                                     <appendAssemblyId>false</appendAssemblyId>
                                     <descriptors>
                                         <descriptor>src/assembly/portable-linux.xml</descriptor>
@@ -427,7 +427,7 @@
                                     <goal>jdeb</goal>
                                 </goals>
                                 <configuration>
-                                    <deb>[[buildDir]]/pdfsam_[[version]]-1_amd64.[[extension]]</deb>
+                                    <deb>[[buildDir]]/pdfsam-basic_[[version]]-1_amd64.[[extension]]</deb>
                                     <dataSet>
                                         <data>
                                             <src>${project.build.directory}/assembled/bin/pdfsam.sh</src>
@@ -511,7 +511,7 @@
                                     <goal>single</goal>
                                 </goals>
                                 <configuration>
-                                    <finalName>pdfsam-${project.version}-${os.detected.name}</finalName>
+                                    <finalName>pdfsam-basic-${project.version}-${os.detected.classifier}</finalName>
                                     <appendAssemblyId>false</appendAssemblyId>
                                     <descriptors>
                                         <descriptor>src/assembly/portable.xml</descriptor>
@@ -579,7 +579,7 @@
                                         <argument>Open source desktop application to split, merge, rotate, extract pages and mix PDF files
                                         </argument>
                                         <argument>--copyright</argument>
-                                        <argument>Copyright 2023, Sober Lemur S.r.l.</argument>
+                                        <argument>Copyright 2025, Sober Lemur S.r.l.</argument>
                                         <argument>--vendor</argument>
                                         <argument>Sober Lemur S.r.l.</argument>
                                         <argument>--icon</argument>
@@ -654,7 +654,7 @@
                                 <configuration>
                                     <artifacts>
                                         <artifact>
-                                            <file>${project.build.directory}/pdfsam-${project.version}.dmg</file>
+                                            <file>${project.build.directory}/pdfsam-basic-${project.version}-${os.detected.classifier}.dmg</file>
                                             <type>dmg</type>
                                         </artifact>
                                     </artifacts>
@@ -670,9 +670,9 @@
     <build>
         <extensions>
             <extension>
-                <groupId>kr.motd.maven</groupId>
+                <groupId>org.pdfsam.maven</groupId>
                 <artifactId>os-maven-plugin</artifactId>
-                <version>1.7.1</version>
+                <version>2.0.0</version>
             </extension>
         </extensions>
         <resources>

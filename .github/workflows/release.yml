@@ -1,0 +1,66 @@
+name: release
+
+on:
+  push:
+    tags:
+      - '*'
+
+permissions:
+  contents: write
+
+jobs:
+  os_matrix:
+    strategy:
+      matrix:
+        os: [ macos-latest, ubuntu-latest, macos-13 ]
+    runs-on: ${{ matrix.os }}
+    name: build ${{ matrix.os }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Import GPG key
+        id: import_gpg
+        uses: crazy-max/ghaction-import-gpg@v6
+        with:
+          gpg_private_key: ${{ secrets.GPG_SUB_SECRET_KEY }}
+          passphrase: ${{ secrets.GPG_SUB_SECRET_KEY_PASSWORD }}
+          fingerprint: ${{ secrets.GPG_SUB_FINGERPRINT }}
+      - name: Set up Apple certs
+        if: runner.os == 'macOS'
+        uses: apple-actions/import-codesign-certs@v3
+        with:
+          p12-file-base64: ${{ secrets.APPLE_CERT_P12 }}
+          p12-password: ${{ secrets.APPLE_CERT_P12_PWD }}
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: 21
+          distribution: 'liberica'
+      - name: Install gettext on Ubuntu
+        if: matrix.os == 'ubuntu-latest'
+        run: sudo apt-get update && sudo apt-get install -y gettext
+
+      - name: Install gettext on macOS
+        if: matrix.os == 'macos-latest'
+        run: brew install gettext
+
+      - name: Install gettext on Windows
+        if: matrix.os == 'windows-latest'
+        run: choco install gettext --version=0.21.1
+      - name: Build
+        env:
+          APPLEID: ${{ secrets.NOTARIZE_ACCOUNT }}
+          APPLEIDPASS: ${{ secrets.NOTERIZE_PWD }}
+          TEAMID: ${{ secrets.NOTERIZE_TEAM_ID }}
+          PDFSAM_GPG_FINGERPRINT: ${{ secrets.GPG_SUB_FINGERPRINT }}
+        run: mvn clean install -DskipTests -Drelease --batch-mode
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          files: |
+            pdfsam-basic/target/*.deb
+            pdfsam-basic/target/*.dmg
+            pdfsam-basic/target/*.deb.asc
+            pdfsam-basic/target/*.dmg.asc
+
