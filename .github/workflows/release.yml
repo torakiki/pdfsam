@@ -61,6 +61,10 @@ jobs:
           files: |
             pdfsam-basic/target/*.deb
             pdfsam-basic/target/*.dmg
+            pdfsam-basic/target/*.zip
+            pdfsam-basic/target/*.tar.gz
             pdfsam-basic/target/*.deb.asc
             pdfsam-basic/target/*.dmg.asc
+            pdfsam-basic/target/*.zip.asc
+            pdfsam-basic/target/*.tar.gz.asc
 
