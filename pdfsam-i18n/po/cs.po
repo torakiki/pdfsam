@@ -7,18 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2024-08-07 12:10+0200\n"
-"PO-Revision-Date: 2024-08-28 09:03+0000\n"
-"Last-Translator: Jiří Mareda <Unknown>\n"
+"POT-Creation-Date: 2024-10-23 17:08+0200\n"
+"PO-Revision-Date: 2024-11-25 19:10+0000\n"
+"Last-Translator: Marek Hladík <mhladik@seznam.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-10-01 09:48+0000\n"
-"X-Generator: Launchpad (build 1b1ed1ad2dbfc71ee62b5c5491c975135a771bf0)\n"
+"X-Launchpad-Export-Date: 2025-01-22 08:16+0000\n"
+"X-Generator: Launchpad (build 6394e03793719e8d73f5a60b5439440e693c92f1)\n"
 
 msgid "No PDF document has been selected"
-msgstr "Nebylo vybráno žádné PDF"
+msgstr "Nebyl vybrán žádný PDF dokument"
 
 msgid "Extract"
 msgstr "Extrahovat"
@@ -354,14 +354,17 @@ msgstr "Neplatné číslo stránky"
 msgid "Repeat the selected pages every \"n\" pages of the original document"
 msgstr "Opakovat vybrané stránky každých \"n\" stránek původního dokumentu"
 
-msgid "The selected PDF file is invalid"
-msgstr "Vybráné PDF není podporováno"
+msgid "A .pdf extension is required for the repeating file"
+msgstr ""
 
 msgid "The number of pages must be a positive number"
 msgstr "Počet stránek musí být kladné číslo"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
 msgstr "Vyberte nebo přetáhněte PDF, do kterého chcete vložit stránky"
+
+msgid "A .pdf destination file extension is required"
+msgstr "Je vyžadována přípona .pdf pro cílový soubor"
 
 msgid "Insert and Repeat settings"
 msgstr "Nastavení vložení a opakování"
@@ -1047,6 +1050,18 @@ msgstr "Přesunout zcela dolů"
 msgid "Duplicate"
 msgstr "Duplikovat"
 
+msgid "Duplicate at Top"
+msgstr ""
+
+msgid "Duplicate Up"
+msgstr ""
+
+msgid "Duplicate Down"
+msgstr ""
+
+msgid "Duplicate at Bottom"
+msgstr ""
+
 msgid "Selected pages"
 msgstr "Vybrané stránky"
 
@@ -1163,6 +1178,9 @@ msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
 msgstr ""
 "Zatrhněte políčko, pokud si přejete přepsat existující výstupní soubory"
+
+msgid "The selected PDF file is invalid"
+msgstr "Vybráné PDF není podporováno"
 
 msgid "Same as the input document"
 msgstr "Stejná jako u vstupního dokumentu"

@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2023-09-06 14:35+0000\n"
-"Last-Translator: Marko Puškarić <Unknown>\n"
+"POT-Creation-Date: 2024-10-23 17:08+0200\n"
+"PO-Revision-Date: 2024-12-02 12:24+0000\n"
+"Last-Translator: Milo Ivir <Unknown>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-11-06 11:08+0000\n"
-"X-Generator: Launchpad (build f1e537f62ee3967c2b3f24dd10eacf1696334fe6)\n"
+"X-Launchpad-Export-Date: 2025-01-22 08:16+0000\n"
+"X-Generator: Launchpad (build 6394e03793719e8d73f5a60b5439440e693c92f1)\n"
 "Language: hr\n"
 
 msgid "No PDF document has been selected"
@@ -29,7 +29,7 @@ msgid "Extract pages from PDF documents."
 msgstr "Izdvoji stranice iz PDF dokumenata."
 
 msgid "File names settings"
-msgstr "Postavke naziva datoteka"
+msgstr "Postavke imena datoteka"
 
 msgid "Extract settings"
 msgstr "Postavke izdvajanja"
@@ -43,8 +43,9 @@ msgstr "Zasebna datoteka za svaki komplet stranica"
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr "Svaki kontinuirani niz stranica generirat će zasebnu PDF datoteku"
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Stranice za izdvajanje (npr. 2 ili 5-23 ili 2,5-7,12-)"
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr ""
+"Stranice za izdvajanje (npr.: 2 ili 5-23 ili 2,5-7,12- ili 3, zadnja)"
 
 msgid "Invalid page ranges"
 msgstr "Neispravni rasponi stranica"
@@ -54,10 +55,10 @@ msgstr "Izdvoji stranice:"
 
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
+" or 3,last)"
 msgstr ""
-"Brojevi ili rasponi stranica za izdvajanje odvojeni zarezima (npr.: 2 ili 5-"
-"23 ili 2,5-7,12-)"
+"Zarezima odvojeni brojevi ili rasponi stranica za izdvajanje (npr. 2 ili 5-"
+"23 ili 2,5-7,12- ili 3, zadnja)"
 
 msgid "Split by bookmarks"
 msgstr "Rastavi prema oznakama"
@@ -107,7 +108,7 @@ msgid "Split a PDF document at the given page numbers."
 msgstr "Rastavi PDF dokument pri zadanim brojevima stranica."
 
 msgid "Every page"
-msgstr "Svaka stranica"
+msgstr "Svake stranice"
 
 msgid "Even pages"
 msgstr "Parne stranice"
@@ -272,14 +273,14 @@ msgstr ""
 "Postavi hoće li se veličine stranica mijenjati tako da sve imaju istu širinu "
 "kao prva"
 
-msgid "Merge fields"
-msgstr "Sjedini polja"
-
 msgid "Merge renaming existing fields"
 msgstr "Sjedini preimenovanjem postojećih polja"
 
+msgid "Merge fields"
+msgstr "Sjedini polja"
+
 msgid "Flatten"
-msgstr "Spljošti"
+msgstr "Pretvori u nepromjenjiv sadržaj"
 
 msgid "Discard forms"
 msgstr "Odbaci obrasce"
@@ -328,7 +329,7 @@ msgid "Merge"
 msgstr "Sjedini"
 
 msgid "Merge multiple PDF documents or subsections of them."
-msgstr "Spojite više PDF dokumenata ili njihovih podsekcija."
+msgstr "Sjedini PDF dokumente ili njihove dijelove."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr "Odaberi ili povuci i ispusti PDF čije će se stranice ponavljati"
@@ -350,22 +351,25 @@ msgid "Leave it empty to use all the pages of the PDF file"
 msgstr "Ostavi prazno za korištenje svih stranica PDF datoteke"
 
 msgid "Repeat every \"n\" pages:"
-msgstr "Ponavljaj svakih x stranica:"
+msgstr "Ponavljaj svakih „x” stranica:"
 
 msgid "Invalid page number"
 msgstr "Neispravan broj stranice"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
-msgstr "Ponavljaj odabrane stranice svakih x stranica izvornog dokumenta"
+msgstr "Ponavljaj odabrane stranice svakih „x” stranica izvornog dokumenta"
 
-msgid "The selected PDF file is invalid"
-msgstr "Odabrana PDF datoteka nije ispravna"
+msgid "A .pdf extension is required for the repeating file"
+msgstr "Za ponavljajuću datoteku je potreban sufiks .pdf"
 
 msgid "The number of pages must be a positive number"
 msgstr "Broj stranica mora biti pozitivan broj"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
 msgstr "Odaberi ili povuci i ispusti PDF u koji želiš umetnuti stranice"
+
+msgid "A .pdf destination file extension is required"
+msgstr "Za odredišnu ​​datoteku je potreban sufiks .pdf"
 
 msgid "Insert and Repeat settings"
 msgstr "Odaberi ili povuci i ispusti PDF čije će se stranice ponavljati"
@@ -629,7 +633,7 @@ msgid "Set your preferred language (restart needed)"
 msgstr "Postavi preferirani jezik (ponovo pokreni program)"
 
 msgid "Startup tool:"
-msgstr "Ponavljaj svakih x stranica:"
+msgstr "Početni alat:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
@@ -649,10 +653,10 @@ msgid "Set the application font size"
 msgstr "Postavi veličinu fonta aplikacije"
 
 msgid "Default PDF version:"
-msgstr ""
+msgstr "Standardna PDF verzija:"
 
 msgid "Default PDF version for generated PDF files"
-msgstr ""
+msgstr "Standardna PDF verzija za generirane PDF datoteke"
 
 msgid "Manually selected"
 msgstr "Ručno odabrano"
@@ -663,12 +667,14 @@ msgid ""
 msgstr "Automatski postavi odredišnu mapu na mapu odabranog PDF dokumenta"
 
 msgid "Default prefix:"
-msgstr ""
+msgstr "Standardni prefiks"
 
 msgid ""
 "Default prefix for output file names, used in tools that generate multiple "
 "files"
 msgstr ""
+"Standardni prefiks za imena generiranih datoteka koji se koristi u alatima "
+"koji generiraju više datoteka"
 
 msgid "Some special keywords are replaced with runtime values."
 msgstr "Neke ključne riječi zamijenjene su s vrijednostima izvođenja."
@@ -744,7 +750,7 @@ msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr "Da li standardno aktivirati opciju „Komprimiraj datoteku rezultata”"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
-msgstr ""
+msgstr "Postavi da li standardno aktivirati opciju „Odbaci oznake”"
 
 msgid "Overwrite files"
 msgstr "Prepiši datoteke"
@@ -1043,6 +1049,18 @@ msgstr "Premjesti na kraj"
 msgid "Duplicate"
 msgstr "Dupliciraj"
 
+msgid "Duplicate at Top"
+msgstr "Duplikat na početak"
+
+msgid "Duplicate Up"
+msgstr "Duplikat prema gore"
+
+msgid "Duplicate Down"
+msgstr "Duplikat prema dolje"
+
+msgid "Duplicate at Bottom"
+msgstr "Duplikat na kraj"
+
 msgid "Selected pages"
 msgstr "Odabrane stranice"
 
@@ -1160,6 +1178,9 @@ msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
 msgstr "Označi kvadratić, ako želiš prepisati postojeće datoteke rezultata."
 
+msgid "The selected PDF file is invalid"
+msgstr "Odabrana PDF datoteka nije ispravna"
+
 msgid "Same as the input document"
 msgstr "Jednaka kao dokument unosa"
 
@@ -1195,7 +1216,7 @@ msgid "Prefix for the output files name."
 msgstr "Prefiks za imena datoteka rezultata."
 
 msgid "DEFAULT_PREFIX"
-msgstr ""
+msgstr "STANDARDNI_PREFIKS"
 
 msgid "Run"
 msgstr "Pokreni"
@@ -1219,16 +1240,16 @@ msgstr "U tijeku"
 msgid "Running {0}%"
 msgstr "{0} % obavljeno"
 
-msgid "Error saving log file."
-msgstr "Greška pri spremanju dateteke dnevnika."
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr "Greška prilikom spremanja sadržaja u datoteku {0}"
 
 #, java-format
-msgid "File {0} saved."
-msgstr "Datoteka {0} je spremljena."
+msgid "File {0} saved"
+msgstr "Datoteka {0} je spremljena"
 
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "Neispravan raspon: {0}."
+msgid "Error saving content to clipboard"
+msgstr "Greška prilikom spremanja sadržaja u međuspremnik"
 
 #, java-format
 msgid ""
@@ -1237,6 +1258,10 @@ msgid ""
 msgstr ""
 "Definicija raspona stranica nije jednoznačna: {0}. Koristi sljedeće formate: "
 "[x] ili [x1-x2] ili [-x] ili [x-]"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "Neispravan raspon: {0}."
 
 #, java-format
 msgid "Invalid number: {0}."

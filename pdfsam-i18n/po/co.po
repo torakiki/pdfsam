@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2024-08-07 12:10+0200\n"
-"PO-Revision-Date: 2024-08-18 13:01+0000\n"
+"POT-Creation-Date: 2024-10-23 17:08+0200\n"
+"PO-Revision-Date: 2024-11-02 12:15+0000\n"
 "Last-Translator: Patriccollu <Patrick.Santa-Maria@laposte.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-08-19 08:16+0000\n"
-"X-Generator: Launchpad (build 1b1ed1ad2dbfc71ee62b5c5491c975135a771bf0)\n"
+"X-Launchpad-Export-Date: 2025-01-22 08:16+0000\n"
+"X-Generator: Launchpad (build 6394e03793719e8d73f5a60b5439440e693c92f1)\n"
 "Language: co\n"
 
 msgid "No PDF document has been selected"
@@ -360,8 +360,8 @@ msgid "Repeat the selected pages every \"n\" pages of the original document"
 msgstr ""
 "Ripetite e pagine selezziunate tutte e « n » pagine di u ducumentu d’origine"
 
-msgid "The selected PDF file is invalid"
-msgstr "U schedariu PDF selezziunatu hè inaccettevule"
+msgid "A .pdf extension is required for the repeating file"
+msgstr "Un’estensione .pdf hè richiesta per u schedariu di ripetizione"
 
 msgid "The number of pages must be a positive number"
 msgstr "U numeru di pagine deve esse un numeru pusitivu"
@@ -369,6 +369,9 @@ msgstr "U numeru di pagine deve esse un numeru pusitivu"
 msgid "Select or drag and drop the PDF you want to insert pages to"
 msgstr ""
 "Selezziunà o sguillà è dipone u PDF induve ci vole à framette e pagine"
+
+msgid "A .pdf destination file extension is required"
+msgstr "Un’estensione .pdf di schedariu di destinazione hè richiesta"
 
 msgid "Insert and Repeat settings"
 msgstr "Parametri d’inserzione è di ripetizione"
@@ -523,7 +526,7 @@ msgid "Clear"
 msgstr "Squassà"
 
 msgid "Select all"
-msgstr "Selezziunà tuttu"
+msgstr "Tuttu selezziunà"
 
 msgid "Save log"
 msgstr "Arregistrà u ghjurnale"
@@ -1067,6 +1070,18 @@ msgstr "Dispiazzà à a fine"
 msgid "Duplicate"
 msgstr "Duppià"
 
+msgid "Duplicate at Top"
+msgstr "Duppià à u principiu"
+
+msgid "Duplicate Up"
+msgstr "Duppià insù"
+
+msgid "Duplicate Down"
+msgstr "Duppià inghjò"
+
+msgid "Duplicate at Bottom"
+msgstr "Duppià à a fine"
+
 msgid "Selected pages"
 msgstr "Pagine selezziunate"
 
@@ -1186,6 +1201,9 @@ msgid ""
 msgstr ""
 "Marcà l’alveola s’è voi vulete rimpiazzà i schedarii d’esciuta s’elli "
 "esistenu dighjà."
+
+msgid "The selected PDF file is invalid"
+msgstr "U schedariu PDF selezziunatu hè inaccettevule"
 
 msgid "Same as the input document"
 msgstr "Uguale à u ducumentu d’intrata"
