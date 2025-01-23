@@ -55,11 +55,13 @@ public class ConfirmationDialog extends Stage {
         Scene scene = new Scene(containerPane);
         setScene(scene);
         app().registerScene(scene);
-        Platform.runLater(() -> {
-            scene.getWindow().sizeToScene();
-            setResizable(false);
+        this.setOnShown(e -> {
+            Platform.runLater(() -> {
+                setResizable(false);
+                getScene().getWindow().sizeToScene();
+            });
+            requestFocus();
         });
-        this.setOnShown(e -> requestFocus());
     }
 
     ConfirmationDialog title(String title) {
