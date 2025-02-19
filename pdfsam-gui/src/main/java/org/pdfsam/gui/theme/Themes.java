@@ -18,7 +18,8 @@ package org.pdfsam.gui.theme;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import org.apache.commons.lang3.SystemUtils;
+import javafx.application.ColorScheme;
+import javafx.application.Platform;
 import org.pdfsam.theme.Theme;
 
 import java.util.Collections;
@@ -79,13 +80,7 @@ public class Themes {
     }
 
     private static boolean isDarkTheme() {
-        if (SystemUtils.IS_OS_WINDOWS) {
-
-        }
-        if (SystemUtils.IS_OS_MAC) {
-
-        }
-        return false;
+        return ColorScheme.DARK == Platform.getPreferences().getColorScheme();
     }
 
     /**
