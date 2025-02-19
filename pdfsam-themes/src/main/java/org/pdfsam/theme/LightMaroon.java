@@ -18,9 +18,6 @@ package org.pdfsam.theme;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
@@ -34,15 +31,17 @@ public class LightMaroon extends Light {
     }
 
     @Override
-    public List<String> stylesheets() {
-        var css = new ArrayList<>(super.stylesheets());
-        css.add("/themes/lightmaroon/colors.css");
-        return css;
-    }
-
-    @Override
     public String name() {
         return i18n().tr("Light with maroon");
     }
 
+    @Override
+    public boolean isDefault() {
+        return false;
+    }
+
+    @Override
+    public String defaultPrimary() {
+        return "#57353E";
+    }
 }

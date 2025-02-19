@@ -32,9 +32,11 @@ import java.nio.file.Paths;
 import java.util.Objects;
 import java.util.Optional;
 
+import static java.util.Optional.ofNullable;
 import static java.util.function.Predicate.not;
 import static org.pdfsam.core.context.StringPersistentProperty.FONT_SIZE;
 import static org.pdfsam.core.context.StringPersistentProperty.WORKING_PATH;
+import static org.pdfsam.core.support.params.ConversionUtils.toWeb;
 
 /**
  * @author Andrea Vacondio
@@ -109,6 +111,9 @@ public class ApplicationContext implements Closeable {
                     if (!Platform.isSupported(ConditionalFeature.TRANSPARENT_WINDOW)) {
                         scene.getStylesheets().addAll(t.transparentIncapableStylesheets());
                     }
+                    scene.getRoot().setStyle(String.format("-default-primary: %s;",
+                            ofNullable(t.defaultPrimary()).orElseGet(
+                                    () -> toWeb(Platform.getPreferences().getAccentColor()))));
                 });
             }
         });
@@ -125,7 +130,7 @@ public class ApplicationContext implements Closeable {
      * Sets the injector
      */
     public void injector(Injector injector) {
-        this.injector = Optional.ofNullable(injector);
+        this.injector = ofNullable(injector);
     }
 
     /**

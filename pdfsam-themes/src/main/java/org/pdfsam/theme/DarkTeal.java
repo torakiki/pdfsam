@@ -18,9 +18,6 @@ package org.pdfsam.theme;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
@@ -34,14 +31,17 @@ public class DarkTeal extends Dark {
     }
 
     @Override
-    public List<String> stylesheets() {
-        var styles = new ArrayList<>(super.stylesheets());
-        styles.add("/themes/darkteal/colors.css");
-        return styles;
+    public String name() {
+        return i18n().tr("Dark with teal");
     }
 
     @Override
-    public String name() {
-        return i18n().tr("Dark with teal");
+    public boolean isDefault() {
+        return false;
+    }
+
+    @Override
+    public String defaultPrimary() {
+        return "#009a9a";
     }
 }

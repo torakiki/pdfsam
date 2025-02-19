@@ -30,7 +30,7 @@ public class Light implements Theme {
 
     @Override
     public String id() {
-        return "AS876FDS7RB3";
+        return "UD34F1S9XX45FMQ";
     }
 
     @Override
@@ -50,11 +50,16 @@ public class Light implements Theme {
 
     @Override
     public String name() {
-        return i18n().tr("Light with blue");
+        return i18n().tr("Light");
     }
 
     @Override
     public boolean isDark() {
         return false;
+    }
+
+    @Override
+    public boolean isDefault() {
+        return true;
     }
 }

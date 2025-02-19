@@ -30,7 +30,7 @@ public class Dark extends Light {
 
     @Override
     public String id() {
-        return "KDJ4FJ49D46H09JV1";
+        return "L38O0OAA1Q355HXZ";
     }
 
     @Override
@@ -43,7 +43,7 @@ public class Dark extends Light {
 
     @Override
     public String name() {
-        return i18n().tr("Dark with purple");
+        return i18n().tr("Dark");
     }
 
     @Override

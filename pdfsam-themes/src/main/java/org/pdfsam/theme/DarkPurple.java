@@ -1,7 +1,8 @@
+package org.pdfsam.theme;
 /*
  * This file is part of the PDF Split And Merge source code
- * Created on 21/mar/2014
- * Copyright 2017 by Sober Lemur S.r.l. (info@soberlemur.com).
+ * Created on 19/02/25
+ * Copyright 2025 by Sober Lemur S.r.l. (info@soberlemur.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -16,17 +17,31 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.model.ui;
 
-import static org.apache.commons.lang3.StringUtils.trim;
+import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
- * Event to change the title on the application window.
- *
  * @author Andrea Vacondio
  */
-public record SetTitleRequest(String title) {
-    public SetTitleRequest(String title) {
-        this.title = trim(title);
+public class DarkPurple extends Dark {
+
+    @Override
+    public String id() {
+        return "KDJ4FJ49D46H09JV1";
+    }
+
+    @Override
+    public String name() {
+        return i18n().tr("Dark with purple");
+    }
+
+    @Override
+    public boolean isDefault() {
+        return false;
+    }
+
+    @Override
+    public String defaultPrimary() {
+        return "#9376cc";
     }
 }
