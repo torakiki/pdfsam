@@ -363,7 +363,7 @@ msgid "Repeat the selected pages every \"n\" pages of the original document"
 msgstr "Powtarzaj wybrane strony co \"n\" stron oryginalnego dokumentu"
 
 msgid "A .pdf extension is required for the repeating file"
-msgstr ""
+msgstr "Do powtarzającego się pliku wymagane jest rozszerzenie .pdf"
 
 msgid "The number of pages must be a positive number"
 msgstr "Liczba stron musi być liczbą dodatnią"
@@ -372,7 +372,7 @@ msgid "Select or drag and drop the PDF you want to insert pages to"
 msgstr "Wybierz lub przeciągnij PDF, z którego chcesz wstawić strony do"
 
 msgid "A .pdf destination file extension is required"
-msgstr ""
+msgstr "Dla pliku docelowego wymagane jest rozszerzenie .pdf"
 
 msgid "Insert and Repeat settings"
 msgstr "Ustawienia Wstaw i Powtórz"
@@ -1058,19 +1058,19 @@ msgid "Move to Bottom"
 msgstr "Przesuń na dół"
 
 msgid "Duplicate"
-msgstr "Powiel"
+msgstr "Duplikuj"
 
 msgid "Duplicate at Top"
-msgstr ""
+msgstr "Duplikat na górze"
 
 msgid "Duplicate Up"
-msgstr ""
+msgstr "Duplikat powyżej"
 
 msgid "Duplicate Down"
-msgstr ""
+msgstr "Duplikat poniżej"
 
 msgid "Duplicate at Bottom"
-msgstr ""
+msgstr "Duplikat na dole"
 
 msgid "Selected pages"
 msgstr "Zaznaczonych stron"
