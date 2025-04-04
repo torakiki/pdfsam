@@ -223,7 +223,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.13.0</version>
+                    <version>3.14.0</version>
                     <configuration>
                         <release>21</release>
                         <!-- remove this once Foreign Function & Memory API is out of preview-->
@@ -253,7 +253,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-clean-plugin</artifactId>
-                    <version>3.4.0</version>
+                    <version>3.4.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
@@ -310,23 +310,23 @@
     </build>
 
     <properties>
-        <junit.version>5.11.4</junit.version>
+        <junit.version>5.12.1</junit.version>
         <junit.pioneer.version>2.3.0</junit.pioneer.version>
-        <archunit.version>1.3.0</archunit.version>
-        <slf4j.version>2.0.16</slf4j.version>
+        <archunit.version>1.4.0</archunit.version>
+        <slf4j.version>2.0.17</slf4j.version>
         <commons.lang.version>3.17.0</commons.lang.version>
         <commons.io.version>2.18.0</commons.io.version>
-        <mockito.version>5.15.2</mockito.version>
+        <mockito.version>5.16.1</mockito.version>
         <tinylog.version>2.7.0</tinylog.version>
         <hibernate-validator.version>7.0.5.Final</hibernate-validator.version>
-        <sejda.version>5.1.8</sejda.version>
+        <sejda.version>5.1.10</sejda.version>
         <sejda-io.version>4.0.0.M4</sejda-io.version>
         <sejda.commons.version>3.0.0</sejda.commons.version>
         <eventstudio.version>4.0.1</eventstudio.version>
         <injector.version>5.0.0</injector.version>
         <ikonli.version>12.3.1</ikonli.version>
         <testfx.version>4.0.18</testfx.version>
-        <jackson.version>2.18.2</jackson.version>
+        <jackson.version>2.18.3</jackson.version>
         <bouncycastle.version>1.80</bouncycastle.version>
         <assertj.version>3.27.3</assertj.version>
         <hamcrest.version>3.0</hamcrest.version>
@@ -334,7 +334,7 @@
         <jakarta-el.version>4.0.2</jakarta-el.version>
         <jakarta.inject.version>2.0.1</jakarta.inject.version>
         <validation.api.version>3.0.2</validation.api.version>
-        <awaitility.version>4.2.2</awaitility.version>
+        <awaitility.version>4.3.0</awaitility.version>
         <monocle.version>21</monocle.version>
         <maven.build.timestamp.format>dd-MMM-yyyy</maven.build.timestamp.format>
         <pdfsam.builddate>${maven.build.timestamp}</pdfsam.builddate>
