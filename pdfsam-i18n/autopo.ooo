@@ -1,0 +1,5 @@
+#Fri Mar 21 17:33:38 CET 2025
+ooo.autopo.description=UI elements of a a desktop software to edit PDF files
+ooo.autopo.exclude=target
+ooo.autopo.name=PDFsam Basic
+ooo.autopo.template.path=po/pdfsam.pot
