@@ -49,7 +49,7 @@ public class DefaultRecentWorkspacesService implements RecentWorkspacesService {
 
     private static final Logger LOG = LoggerFactory.getLogger(DefaultRecentWorkspacesService.class);
 
-    static final int MAX_CAPACITY = 5;
+    static final int MAX_CAPACITY = 20;
     private final PreferencesRepository repo;
     private final Map<String, String> cache = new LRUMap<>(MAX_CAPACITY);
 
