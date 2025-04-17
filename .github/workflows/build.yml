@@ -17,6 +17,7 @@ jobs:
       with:
         java-version: ${{ matrix.java }}
         distribution: 'liberica'
+        java-package: 'jdk+fx'
         cache: 'maven'
     - run: sudo apt-get install xvfb
     - run: sudo apt-get install gettext

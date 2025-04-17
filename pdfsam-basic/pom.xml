@@ -81,7 +81,7 @@
                                     <arguments>
                                         <argument>--add-modules</argument>
                                         <argument>
-                                            java.base,java.logging,java.naming,java.sql,java.desktop,java.xml,java.management,jdk.unsupported,java.prefs
+                                            java.base,java.logging,java.naming,java.sql,java.desktop,java.xml,java.management,jdk.unsupported,java.prefs,javafx.controls,javafx.base,javafx.graphics,javafx.media
                                         </argument>
                                         <argument>--output</argument>
                                         <argument>${project.build.directory}/assembled/runtime</argument>
