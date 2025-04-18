@@ -36,9 +36,6 @@ jobs:
         with:
           java-version: 21
           distribution: 'liberica'
-          java-package: 'jdk+fx'
-          cache: 'maven'
-
       - name: Install gettext on Ubuntu
         if: matrix.os == 'ubuntu-latest'
         run: sudo apt-get update && sudo apt-get install -y gettext

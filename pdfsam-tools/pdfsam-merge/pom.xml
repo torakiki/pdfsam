@@ -55,6 +55,10 @@
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-controls</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.kordamp.ikonli</groupId>
 			<artifactId>ikonli-unicons-pack</artifactId>
 		</dependency>
@@ -88,21 +92,4 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
-	<profiles>
-		<profile>
-			<id>ci-merge</id>
-			<activation>
-				<property>
-					<name>!env.CI</name>
-				</property>
-			</activation>
-			<dependencies>
-				<dependency>
-					<groupId>org.openjfx</groupId>
-					<artifactId>javafx-controls</artifactId>
-				</dependency>
-			</dependencies>
-		</profile>
-	</profiles>
 </project>

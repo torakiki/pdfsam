@@ -55,6 +55,9 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
                             <excludedGroups>NoHeadless</excludedGroups>
+                            <useModulePath>false</useModulePath>
+                            <!-- remove this once Foreign Function & Memory API is out of preview-->
+                            <argLine>--enable-preview</argLine>
                         </configuration>
                     </plugin>
                 </plugins>

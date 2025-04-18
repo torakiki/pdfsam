@@ -144,6 +144,14 @@
             <artifactId>jcl-over-slf4j</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-media</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.kordamp.ikonli</groupId>
             <artifactId>ikonli-unicons-pack</artifactId>
         </dependency>
@@ -173,25 +181,4 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
-    <profiles>
-        <profile>
-            <id>ci-gui</id>
-            <activation>
-                <property>
-                    <name>!env.CI</name>
-                </property>
-            </activation>
-            <dependencies>
-                <dependency>
-                    <groupId>org.openjfx</groupId>
-                    <artifactId>javafx-controls</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>org.openjfx</groupId>
-                    <artifactId>javafx-media</artifactId>
-                </dependency>
-            </dependencies>
-        </profile>
-    </profiles>
 </project>
