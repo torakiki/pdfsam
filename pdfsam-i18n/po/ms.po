@@ -2,20 +2,21 @@
 # Copyright (c) 2021 Rosetta Contributors and Canonical Ltd 2021
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2021-03-10 02:10+0000\n"
+"PO-Revision-Date: 2025-04-18 09:55+0200\n"
 "Last-Translator: abuyop <Unknown>\n"
 "Language-Team: Malay <ms@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
+"X-Generator: Autopo v1.0.1\n"
+"Language: ms\n"
 
 msgid "No PDF document has been selected"
 msgstr "Tiada dokumen PDF telah dipilih"
@@ -41,8 +42,8 @@ msgstr ""
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr ""
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Halaman untuk diekstrak (cth: 2 atau 5-23 atau 2,5-7, 12-)"
+#~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "Halaman untuk diekstrak (cth: 2 atau 5-23 atau 2,5-7, 12-)"
 
 msgid "Invalid page ranges"
 msgstr "Julat halaman tidak sah"
@@ -50,10 +51,10 @@ msgstr "Julat halaman tidak sah"
 msgid "Extract pages:"
 msgstr "Ekstrak halaman:"
 
-msgid ""
-"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
-msgstr ""
+#~ msgid ""
+#~ "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+#~ ")"
+#~ msgstr ""
 
 msgid "Split by bookmarks"
 msgstr "Pisah mengikut tanda buku"
@@ -115,8 +116,7 @@ msgstr "Halaman ganjil"
 msgid "Split the document after the given page numbers"
 msgstr "Pisah dokumen selepas nombor halaman yang diberikan"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr "Pisah PDF setiap \"n\" halaman menghasilkan dokumen berhalaman \"n\""
 
 msgid "Split after the following page numbers"
@@ -185,8 +185,7 @@ msgstr ""
 "Gabung dua atau lebih dokumen PDF yang dimasukkan secara alternatif dalam "
 "tertib biasa atau songsang."
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Dwi-klik untuk menetapkan halaman yang mahu dicampurkan (iaitu 2 atau 5-23 "
 "atau 2,5-7, 12-)"
@@ -249,6 +248,7 @@ msgstr "Tambah satu pengaki"
 msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr ""
 "Tambah satu pengaki halaman dengan nama fail  yang memiliki halaman tersebut."
+""
 
 msgid "None"
 msgstr ""
@@ -306,7 +306,8 @@ msgstr "Pengendalian tanda buku:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr ""
-"Apa perlu dilakukan jika satu atau lebih dokumen input mengandungi tanda buku"
+"Apa perlu dilakukan jika satu atau lebih dokumen input mengandungi tanda "
+"buku"
 
 msgid "Don't generate"
 msgstr "Jangan jana"
@@ -329,8 +330,8 @@ msgstr ""
 msgid "Merge"
 msgstr "Gabung"
 
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "Gabung bersama dokumen PDF atau subseksyen berbilang."
+#~ msgid "Merge together multiple PDF documents or subsections of them."
+#~ msgstr "Gabung bersama dokumen PDF atau subseksyen berbilang."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr ""
@@ -670,8 +671,7 @@ msgstr "Output"
 msgid "Check for updates now"
 msgstr "Periksa kemas kini sekarang"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Pilih satu direktori yang mana dokumen akan disimpan dan dimuatkan secara "
 "lali"
@@ -722,14 +722,12 @@ msgid "Enabled PDF compression"
 msgstr "Pemampatan PDF dibenarkan"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr ""
-"Tetapkan sama ada \"Mampat fail output\" patut dibenarkan secara lalai"
+msgstr "Tetapkan sama ada \"Mampat fail output\" patut dibenarkan secara lalai"
 
 msgid "Overwrite files"
 msgstr "Tulis-ganti fail"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
 "Tetapkan sama ada \"Tulis ganti jika sudah wujud\" patut dibenarkan secara "
 "lalai"
@@ -939,8 +937,8 @@ msgstr "Tidak boleh menyimpan ruang kerja ke {0}"
 msgid "Loading workspace from {0}"
 msgstr "Memuatkan ruang kerja daripada {0}"
 
-msgid "Workspace loaded"
-msgstr "Ruang kerja dimuatkan"
+#~ msgid "Workspace loaded"
+#~ msgstr "Ruang kerja dimuatkan"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
@@ -970,8 +968,8 @@ msgstr "Pilih fail PDF"
 msgid "_Select PDF"
 msgstr "_Pilih PDF"
 
-msgid "Clear all settings"
-msgstr "Kosongkan semua tetapan"
+#~ msgid "Clear all settings"
+#~ msgstr "Kosongkan semua tetapan"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -1137,8 +1135,10 @@ msgstr "Tulis-ganti jika sudah wujud"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr ""
 "Tanda dalam kotak jika anda mahu tulis-ganti fail output jika ia masih wujud."
+""
 
 #, java-format
 msgid "Version {0}"
@@ -1182,8 +1182,7 @@ msgid "Prefix for the output files name."
 msgstr "Awalan bagi nama fail output."
 
 msgid "Some special keywords are replaced with runtime values."
-msgstr ""
-"Beberapa kata kunci khas telah diganti dengan nilai-nilai masa jalan."
+msgstr "Beberapa kata kunci khas telah diganti dengan nilai-nilai masa jalan."
 
 msgid "Right click to add these keywords."
 msgstr "Klik kanan untuk menambah kata kunci-kata kunci ini"
@@ -1210,12 +1209,12 @@ msgstr "Berjalan"
 msgid "Running {0}%"
 msgstr "Berjalan {0}%"
 
-msgid "Error saving log file."
-msgstr "Ralat menyimpan fail log."
+#~ msgid "Error saving log file."
+#~ msgstr "Ralat menyimpan fail log."
 
 #, java-format
-msgid "File {0} saved."
-msgstr "Fail {0} disimpan."
+#~ msgid "File {0} saved."
+#~ msgstr "Fail {0} disimpan."
 
 #, java-format
 msgid "Invalid range: {0}."
@@ -1232,3 +1231,68 @@ msgstr ""
 #, java-format
 msgid "Invalid number: {0}."
 msgstr "Nombor tidak sah: {0}"
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr ""
+
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+" or 3,last)"
+msgstr ""
+
+msgid "Merge multiple PDF documents or subsections of them."
+msgstr ""
+
+msgid "A .pdf extension is required for the repeating file"
+msgstr ""
+
+msgid "A .pdf destination file extension is required"
+msgstr ""
+
+msgid "Default PDF version:"
+msgstr ""
+
+msgid "Default PDF version for generated PDF files"
+msgstr ""
+
+msgid "Default prefix:"
+msgstr ""
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
+msgstr ""
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
+msgstr ""
+
+#, java-format
+msgid "Workspace loaded: {0}"
+msgstr ""
+
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
+msgstr ""
+
+msgid "Duplicate at Top"
+msgstr ""
+
+msgid "Duplicate Up"
+msgstr ""
+
+msgid "Duplicate Down"
+msgstr ""
+
+msgid "Duplicate at Bottom"
+msgstr ""
+
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr ""
+
+#, java-format
+msgid "File {0} saved"
+msgstr ""
+
+msgid "Error saving content to clipboard"
+msgstr ""

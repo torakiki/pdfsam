@@ -2,20 +2,20 @@
 # Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2024-10-10 21:12+0000\n"
+"PO-Revision-Date: 2025-04-18 09:55+0200\n"
 "Last-Translator: Bob Loeffen <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-10-25 13:44+0000\n"
-"X-Generator: Launchpad (build 22ade00ab50b929fac63b8ee7252243aceda294a)\n"
+"X-Generator: Autopo v1.0.1\n"
 "Language: nl\n"
 
 msgid "No PDF document has been selected"
@@ -117,8 +117,7 @@ msgstr "Oneven pagina's"
 msgid "Split the document after the given page numbers"
 msgstr "Splits het document na de gegeven paginanummers"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 "Splits het PDF-document om de \"n\" pagina's, wat documenten van \"n\" "
 "pagina's elk creëert"
@@ -189,8 +188,7 @@ msgstr ""
 "Voeg twee of meer PDF-bestanden samen, waarbij afwisselend de "
 "oorspronkelijke of de omgekeerde volgorde van de pagina's wordt aangehouden."
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Dubbelklik om pagina's in te stellen die u wilt mixen (bijv. 2 of 5-23 of "
 "2,5-7,12-)"
@@ -340,7 +338,8 @@ msgstr "Voeg meerdere PDF-bestanden of delen ervan samen."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr ""
-"Selecteer of sleep het PDF-bestand waarvan de pagina's moeten worden herhaald"
+"Selecteer of sleep het PDF-bestand waarvan de pagina's moeten worden "
+"herhaald"
 
 msgid "Repeat these pages:"
 msgstr "Herhaal deze pagina's:"
@@ -725,8 +724,7 @@ msgstr "Uitvoer"
 msgid "Check for updates now"
 msgstr "Nu op updates controleren"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Selecteer een map waar uw documenten standaard bewaard en geladen zullen "
 "worden"
@@ -785,8 +783,7 @@ msgstr "Stel in of 'Bladwijzers weggooien' standaard moet zijn ingeschakeld"
 msgid "Overwrite files"
 msgstr "Bestanden overschrijven"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
 "Stel in of 'Overschrijven indien het bestand al bestaat' standaard moet "
 "worden ingeschakeld"
@@ -1093,16 +1090,16 @@ msgid "Duplicate"
 msgstr "Dupliceer"
 
 msgid "Duplicate at Top"
-msgstr ""
+msgstr "Dupliceer bovenaan"
 
 msgid "Duplicate Up"
-msgstr ""
+msgstr "Dupliceer omhoog"
 
 msgid "Duplicate Down"
-msgstr ""
+msgstr "Dupliceren naar beneden"
 
 msgid "Duplicate at Bottom"
-msgstr ""
+msgstr "Dupliceren onderaan"
 
 msgid "Selected pages"
 msgstr "Geselecteerde pagina's"
@@ -1225,6 +1222,7 @@ msgstr "Overschrijven als het reeds bestaat"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr "Bestand overschrijven als deze reeds bestaat."
 
 msgid "The selected PDF file is invalid"

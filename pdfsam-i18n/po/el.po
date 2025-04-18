@@ -2,20 +2,21 @@
 # Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2023-11-02 23:14+0000\n"
+"PO-Revision-Date: 2025-04-18 09:59+0200\n"
 "Last-Translator: Μάριος Μπαλασόπουλος <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-11-06 11:08+0000\n"
-"X-Generator: Launchpad (build f1e537f62ee3967c2b3f24dd10eacf1696334fe6)\n"
+"X-Generator: Autopo v1.0.1\n"
+"Language: el\n"
 
 msgid "No PDF document has been selected"
 msgstr "Δεν έχει επιλεγεί κάποιο έγγραφο PDF"
@@ -42,8 +43,8 @@ msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr ""
 "Θα δημιουργηθεί ένα ξεχωριστό αρχείο PDF για κάθε σειρά συνεχόμενων σελίδων."
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Σελίδες προς εξαγωγή  (π.χ.: 2 ή 5-23 ή 2,5-7,12-)"
+#~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "Σελίδες προς εξαγωγή  (π.χ.: 2 ή 5-23 ή 2,5-7,12-)"
 
 msgid "Invalid page ranges"
 msgstr "Μη έγκυρο εύρος σελίδων"
@@ -51,12 +52,12 @@ msgstr "Μη έγκυρο εύρος σελίδων"
 msgid "Extract pages:"
 msgstr "Εξαγωγή σελίδων:"
 
-msgid ""
-"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
-msgstr ""
-"Αριθμοί ή εύρη αριθμών σελίδων προς εξαγωγή διαχωρισμένα με κόμματα (π.χ.: 2 "
-"ή 5-23 ή 2,5-7,12-)"
+#~ msgid ""
+#~ "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+#~ ")"
+#~ msgstr ""
+#~ "Αριθμοί ή εύρη αριθμών σελίδων προς εξαγωγή διαχωρισμένα με κόμματα (π.χ.: 2 "
+#~ "ή 5-23 ή 2,5-7,12-)"
 
 msgid "Split by bookmarks"
 msgstr "Διαχωρισμός βάσει σελιδοδεικτών"
@@ -121,8 +122,7 @@ msgstr "Σελίδες αριθμημένες με περιττό αριθμό"
 msgid "Split the document after the given page numbers"
 msgstr "Διαχωρισμός του εγγράφου μετά από τους δοθέντες αριθμούς σελίδων"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 "Διαχωρίζει το PDF κάθε \"n\" σελίδες δημιουργώντας επιμέρους έγγραφα με "
 "\"n\" σελίδες το καθένα"
@@ -193,8 +193,7 @@ msgstr ""
 "Ενωση δύο ή περισσότερων αρχείων PDF, λαμβάνοντας σελίδες με την κανονική ή "
 "αντίστροφη σειρά"
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Κάντε διπλό κλικ για να ορίσετε τις σελίδες που θέλετε να συνδυάσετε (π.χ.: "
 "2 ή 5-23 ή 2,5-7,12-)"
@@ -238,8 +237,8 @@ msgstr "Ρυθμίσεις συγχώνευσης"
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Κάντε διπλό κλικ για να εισάγετε τις σελίδες που θέλετε να συγχωνεύσετε "
-"(π.χ.: 2 ή 5-23 ή 2,5-7,12-)"
+"Κάντε διπλό κλικ για να εισάγετε τις σελίδες που θέλετε να συγχωνεύσετε (π.χ."
+": 2 ή 5-23 ή 2,5-7,12-)"
 
 msgid "Add a blank page if page number is odd"
 msgstr "Πρόσθεσε μια κενή σελίδα αν ο αριθμός σελίδας είναι περιττός"
@@ -309,7 +308,8 @@ msgstr "Δημιούργησε μία είσοδο για κάθε συγχων�
 
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr ""
-"Διατήρηση σελιδοδεικτών ως ξεχωριστή καταχώρηση για κάθε συγχωνευμένο έγγραφο"
+"Διατήρηση σελιδοδεικτών ως ξεχωριστή καταχώρηση για κάθε συγχωνευμένο "
+"έγγραφο"
 
 msgid "Bookmarks handling:"
 msgstr "Διαχείριση σελιδοδεικτών:"
@@ -729,8 +729,7 @@ msgstr "Αποτέλεσμα"
 msgid "Check for updates now"
 msgstr "Έλεγχος ενημερώσεων τώρα"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr "Επιλογή φακέλου προεπιλεγμένης αποθήκευσης και φόρτωσης των εγγράφων"
 
 msgid "Select a directory"
@@ -791,8 +790,7 @@ msgstr ""
 msgid "Overwrite files"
 msgstr "Αντικατάσταση αρχείων"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
 "Ορίστε εάν η \"Αντικατάσταση εάν υπάρχει ήδη\" θα πρέπει να είναι "
 "ενεργοποιημένη από προεπιλογή"
@@ -1235,6 +1233,7 @@ msgstr "Αντικατάσταση αν ήδη υπάρχει"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr ""
 "Τσεκάρετε το κουτί αν επιθυμείτε να γίνει επανεγγραφή των αρχείων που "
 "εξάγετε σε περίπτωση που ήδη υπάρχουν."
@@ -1320,12 +1319,12 @@ msgstr "Σε Εξέλιξη"
 msgid "Running {0}%"
 msgstr "Εκτελείται {0}%"
 
-msgid "Error saving log file."
-msgstr "Σφάλμα κατά την αποθήκευση του αρχείου καταγραφής."
+#~ msgid "Error saving log file."
+#~ msgstr "Σφάλμα κατά την αποθήκευση του αρχείου καταγραφής."
 
 #, java-format
-msgid "File {0} saved."
-msgstr "Αρχείο {0} αποθηκεύτηκε."
+#~ msgid "File {0} saved."
+#~ msgstr "Αρχείο {0} αποθηκεύτηκε."
 
 #, java-format
 msgid "Invalid range: {0}."
@@ -1345,3 +1344,42 @@ msgstr "Μη έγκυρος αριθμός: {0}."
 
 #~ msgid "Destination folder"
 #~ msgstr "Φάκελος προορισμού"
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr "Σελίδες προς εξαγωγή (π.χ. 2 ή 5-23 ή 2,5-7,12- ή 3,τελευταία)"
+
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+" or 3,last)"
+msgstr ""
+"Αριθμοί σελίδων διαχωρισμένοι με κόμμα ή εύρη για εξαγωγή (π.χ.: 2 ή 5-23 ή "
+"2,5-7,12- ή 3,τελευταία)"
+
+msgid "A .pdf extension is required for the repeating file"
+msgstr "Απαιτείται επέκταση .pdf για το επαναλαμβανόμενο αρχείο"
+
+msgid "A .pdf destination file extension is required"
+msgstr "Απαιτείται επέκταση αρχείου προορισμού .pdf"
+
+msgid "Duplicate at Top"
+msgstr "Αντιγραφή στην Κορυφή"
+
+msgid "Duplicate Up"
+msgstr "Διπλασιασμός Πάνω"
+
+msgid "Duplicate Down"
+msgstr "Αντιγραφή προς τα κάτω"
+
+msgid "Duplicate at Bottom"
+msgstr "Αντιγραφή στο Κάτω Μέρος"
+
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr "Σφάλμα αποθήκευσης περιεχομένου στο αρχείο {0}"
+
+#, java-format
+msgid "File {0} saved"
+msgstr "Το αρχείο {0} αποθηκεύτηκε"
+
+msgid "Error saving content to clipboard"
+msgstr "Σφάλμα αποθήκευσης περιεχομένου στο πρόχειρο"

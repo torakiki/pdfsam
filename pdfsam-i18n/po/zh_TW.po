@@ -1,4 +1,4 @@
-#
+# 
 # Translators:
 # Cheng-Wei Chien <e.cwchien@gmail.com>, 2014
 msgid ""
@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: PDFSam 3\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
 "POT-Creation-Date: 2024-08-07 12:10+0200\n"
-"PO-Revision-Date: 2024-09-06 01:50+0000\n"
+"PO-Revision-Date: 2025-04-18 10:05+0200\n"
 "Last-Translator: Elvin Lyu <Unknown>\n"
 "Language-Team: Chinese (Taiwan) (zh_TW@li.org)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-10-01 09:48+0000\n"
-"X-Generator: Launchpad (build 1b1ed1ad2dbfc71ee62b5c5491c975135a771bf0)\n"
+"X-Generator: Autopo v1.0.1\n"
 "Language: zh_TW\n"
 
 msgid "No PDF document has been selected"
@@ -110,8 +110,7 @@ msgstr "奇數頁"
 msgid "Split the document after the given page numbers"
 msgstr "在指定的頁碼分割文件"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr "以每「n」頁分離將會建立數個「n」頁的文件檔"
 
 msgid "Split after the following page numbers"
@@ -176,8 +175,7 @@ msgid ""
 "reverse order."
 msgstr "以自然或相反的順序合併兩個或多個 PDF 文件。"
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "點兩下以設定你要混和的頁面 (例: 2 或 5-23 或 2,5-7,12-)"
 
 msgid "Select a positive integer number as pace"
@@ -661,8 +659,7 @@ msgstr "輸出"
 msgid "Check for updates now"
 msgstr "立即檢查更新"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr "請選擇儲存及載入文件的預設目錄"
 
 msgid "Select a directory"
@@ -713,8 +710,7 @@ msgstr "設定是否預設啟用「放棄書籤」"
 msgid "Overwrite files"
 msgstr "覆蓋文件"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr "設定是否預設啟用「如果已經存在則覆蓋」"
 
 msgid "Play alert sounds"
@@ -1109,6 +1105,7 @@ msgstr "覆寫已存在的檔案"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr "若您要覆寫已經存在的同名輸出檔的話，請勾選此框。"
 
 msgid "Same as the input document"
@@ -1223,3 +1220,21 @@ msgstr "無效的數字：{0}。"
 
 #~ msgid "Destination folder"
 #~ msgstr "目標資料夾"
+
+msgid "A .pdf extension is required for the repeating file"
+msgstr "PDF文件需要使用.pdf扩展名"
+
+msgid "A .pdf destination file extension is required"
+msgstr "需要PDF目标文件扩展名"
+
+msgid "Duplicate at Top"
+msgstr "顶部复制"
+
+msgid "Duplicate Up"
+msgstr "向上复制"
+
+msgid "Duplicate Down"
+msgstr "向下复制"
+
+msgid "Duplicate at Bottom"
+msgstr "底部复制"

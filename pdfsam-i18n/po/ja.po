@@ -2,20 +2,21 @@
 # Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2023-11-30 14:07+0000\n"
+"PO-Revision-Date: 2025-04-18 10:06+0200\n"
 "Last-Translator: seki-arxiv <Unknown>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-02-06 10:16+0000\n"
-"X-Generator: Launchpad (build 9643586c585856148a18782148972ae9c1179d06)\n"
+"X-Generator: Autopo v1.0.1\n"
+"Language: ja\n"
 
 msgid "No PDF document has been selected"
 msgstr "PDF 文書が選択されていません"
@@ -41,8 +42,8 @@ msgstr "各ページ群ごとの個別ファイル"
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr "連続したページ群それぞれについて個別のPDFを生成します"
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "抽出するページ (例: 「2」「5-23」「2,5-7,12-」)"
+#~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "抽出するページ (例: 「2」「5-23」「2,5-7,12-」)"
 
 msgid "Invalid page ranges"
 msgstr "ページ範囲が正しくありません"
@@ -50,10 +51,10 @@ msgstr "ページ範囲が正しくありません"
 msgid "Extract pages:"
 msgstr "ページの抽出:"
 
-msgid ""
-"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
-msgstr "抽出するページを、カンマ区切りや範囲で指定 (例: 「2」「5-23」「2,5-7,12-」)"
+#~ msgid ""
+#~ "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+#~ ")"
+#~ msgstr "抽出するページを、カンマ区切りや範囲で指定 (例: 「2」「5-23」「2,5-7,12-」)"
 
 msgid "Split by bookmarks"
 msgstr "しおりで分割"
@@ -111,8 +112,7 @@ msgstr "奇数ページ"
 msgid "Split the document after the given page numbers"
 msgstr "指定したページ番号の後で文書を分割します"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr "\"n\" ページ毎に PDF ファイルを分割し、\"n\" はページ毎の文書を作成します"
 
 msgid "Split after the following page numbers"
@@ -177,8 +177,7 @@ msgid ""
 "reverse order."
 msgstr "通常または逆の順序で交互にページを取って、2 以上の PDF 文書を結合します。"
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "ダブルクリックして、ミックスしたいページを設定します (例: 2 または 5-23 または 2,5-7,12-)"
 
 msgid "Select a positive integer number as pace"
@@ -662,8 +661,7 @@ msgstr "出力"
 msgid "Check for updates now"
 msgstr "今すぐ更新を確認"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr "デフォルトで文書が保存および読み込まれるディレクトリを選択します"
 
 msgid "Select a directory"
@@ -714,8 +712,7 @@ msgstr "\"しおりの破棄\"をデフォルトで有効にするかどうか�
 msgid "Overwrite files"
 msgstr "ファイルを上書きする"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr "\"すでに存在する場合は上書きする\" をデフォルトにするかどうかを設定します"
 
 msgid "Play alert sounds"
@@ -1110,6 +1107,7 @@ msgstr "既存の場合上書きする"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr "出力ファイルがすでに存在する場合に上書きする場合は、このボックスにチェックを入れます。"
 
 msgid "Same as the input document"
@@ -1171,12 +1169,12 @@ msgstr "実行中"
 msgid "Running {0}%"
 msgstr "実行中 {0}%"
 
-msgid "Error saving log file."
-msgstr "ログファイルの保存中にエラー。"
+#~ msgid "Error saving log file."
+#~ msgstr "ログファイルの保存中にエラー。"
 
 #, java-format
-msgid "File {0} saved."
-msgstr "ファイル {0} を保存しました。"
+#~ msgid "File {0} saved."
+#~ msgstr "ファイル {0} を保存しました。"
 
 #, java-format
 msgid "Invalid range: {0}."
@@ -1186,8 +1184,7 @@ msgstr "範囲が正しくありません: {0}。"
 msgid ""
 "Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
 "or [-n] or [n-]"
-msgstr ""
-"あいまいなページの範囲の定義: {0}。 次の形式を使用してください: [n] または [n1-n2] または [-n] または [n-]"
+msgstr "あいまいなページの範囲の定義: {0}。 次の形式を使用してください: [n] または [n1-n2] または [-n] または [n-]"
 
 #, java-format
 msgid "Invalid number: {0}."
@@ -1204,3 +1201,40 @@ msgstr "数が正しくありません: {0}。"
 
 #~ msgid "Never"
 #~ msgstr "なし"
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr "ページの抽出（例：2または5-23または2,5-7,12-または3,last）"
+
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+" or 3,last)"
+msgstr "ページ番号またはページ範囲をカンマ区切りで抽出（例：2 または 5-23 または 2,5-7,12- または 3,last）"
+
+msgid "A .pdf extension is required for the repeating file"
+msgstr "PDFファイルには.pdf拡張子が必要です"
+
+msgid "A .pdf destination file extension is required"
+msgstr "PDFファイルの出力先には拡張子が必要です"
+
+msgid "Duplicate at Top"
+msgstr "上部に複製"
+
+msgid "Duplicate Up"
+msgstr "上に複製"
+
+msgid "Duplicate Down"
+msgstr "下に複製"
+
+msgid "Duplicate at Bottom"
+msgstr "下部に複製"
+
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr "PDFファイルに内容を保存中にエラーが発生しました{0}"
+
+#, java-format
+msgid "File {0} saved"
+msgstr "ファイル{0}を保存しました"
+
+msgid "Error saving content to clipboard"
+msgstr "クリップボードにコンテンツを保存中にエラーが発生しました"

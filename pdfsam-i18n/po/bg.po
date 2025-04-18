@@ -2,20 +2,21 @@
 # Copyright (c) 2019 Rosetta Contributors and Canonical Ltd 2019
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2024-05-13 10:57+0000\n"
-"Last-Translator: Dimitar Dimitrov <dimitrovden@gmail.com>\n"
+"PO-Revision-Date: 2025-04-18 10:02+0200\n"
+"Last-Translator: Andrea Vacondio <info@pdfsam.org>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-07-26 09:48+0000\n"
-"X-Generator: Launchpad (build 0f7b58d0a728e5e8f34556869262ccfa55217529)\n"
+"X-Generator: Autopo v1.0.1\n"
 
 msgid "No PDF document has been selected"
 msgstr "Няма избран pdf документ"
@@ -41,21 +42,11 @@ msgstr "Отделен файл за всеки набор от страници
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr "Всяка непрекъсната поредица от страници ще генерира отделен PDF файл"
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Номера на страници (напр: 2 или 5-23 или 2,5-7,12-)"
-
 msgid "Invalid page ranges"
 msgstr "Грешка в диапазона от номера"
 
 msgid "Extract pages:"
 msgstr "Страници за извличане:"
-
-msgid ""
-"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
-msgstr ""
-"Номера на страници или диапазони за извличане, разделени със запетая "
-"(например: 2 или 5-23 или 2,5-7,12-)"
 
 msgid "Split by bookmarks"
 msgstr "Разделяне по отбелязки"
@@ -117,8 +108,7 @@ msgstr "Нечетните страници"
 msgid "Split the document after the given page numbers"
 msgstr "Разделяне на документа след страниците с дадените номера"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 "Разделяне на файла на всяка N-та страница, получавайки документи от по N "
 "страници."
@@ -187,8 +177,7 @@ msgstr ""
 "Сливане на два или повече PDF документа с редуване от кой се взема всяка "
 "страница, в нормален или обратен ред."
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Кликнете двойно за да зададете кои страници искате да миксирате (напр.2 или "
 "5-23 или 2,5-7,12-)"
@@ -249,8 +238,7 @@ msgid "Add a footer"
 msgstr "Добавяне на долен колонтитул"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
-msgstr ""
-"Добавяне на дъното на всяка страница името на файла от който е дошла."
+msgstr "Добавяне на дъното на всяка страница името на файла от който е дошла."
 
 msgid "None"
 msgstr "Няма"
@@ -361,7 +349,8 @@ msgstr "Невалиден номер на страница"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
 msgstr ""
-"Повтаряйте избраните страници на всеки \"n\" страници от оригиналния документ"
+"Повтаряйте избраните страници на всеки \"n\" страници от оригиналния "
+"документ"
 
 msgid "The selected PDF file is invalid"
 msgstr "Избраният pdf файл не е валиден"
@@ -700,8 +689,7 @@ msgstr "Изходни данни"
 msgid "Check for updates now"
 msgstr "Проверка за обновления"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr "Изберете директория по подразбиране за запис и четене"
 
 msgid "Select a directory"
@@ -760,8 +748,7 @@ msgstr ""
 msgid "Overwrite files"
 msgstr "Презаписване на файловете"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
 "Включете опцията, ако искате презаписването на съществуващи файлове да се "
 "извършва по подразбиране."
@@ -1176,6 +1163,7 @@ msgstr "Презапис ако съществува"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr "Кликнете кутийката, ако искате да се презаписват изходните файлове."
 
 msgid "Same as the input document"
@@ -1237,13 +1225,6 @@ msgstr "Изпълняване"
 msgid "Running {0}%"
 msgstr "Готово на {0}%"
 
-msgid "Error saving log file."
-msgstr "Грешка при запазването на лог-файла."
-
-#, java-format
-msgid "File {0} saved."
-msgstr "Файлът {0} е записан."
-
 #, java-format
 msgid "Invalid range: {0}."
 msgstr "Невалиден диапазон: {0}."
@@ -1260,17 +1241,42 @@ msgstr ""
 msgid "Invalid number: {0}."
 msgstr "Невалидно число: {0}."
 
-#~ msgid "Split even pages"
-#~ msgstr "Раздели четните страници"
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr ""
+"Страници за извличане (например: 2 или 5-23 или 2,5-7,12- или 3,последна)"
 
-#~ msgid "Split odd pages"
-#~ msgstr "Раздели  нечетните страници"
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+" or 3,last)"
+msgstr ""
+"Номера или диапазони от страници, разделени със запетая, за извличане (напр.:"
+" 2 или 5-23 или 2,5-7,12- или 3,последна)"
 
-#~ msgid "Output document pdf version:"
-#~ msgstr "Изходна PDF версия на документа:"
+msgid "A .pdf extension is required for the repeating file"
+msgstr "Изисква се разширение .pdf за повтарящия се файл"
 
-#~ msgid "Unable to get latest available version"
-#~ msgstr "Не мога да получа последната версия на разположение"
+msgid "A .pdf destination file extension is required"
+msgstr "Изисква се файлово разширение .pdf за местоназначението"
 
-#~ msgid "Never"
-#~ msgstr "Никога"
+msgid "Duplicate at Top"
+msgstr "Дублирай отгоре"
+
+msgid "Duplicate Up"
+msgstr "Дублирай нагоре"
+
+msgid "Duplicate Down"
+msgstr "Дублирай надолу"
+
+msgid "Duplicate at Bottom"
+msgstr "Дублирай отдолу"
+
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr "Грешка при запазване на съдържанието във файл {0}"
+
+#, java-format
+msgid "File {0} saved"
+msgstr "Файл {0} запазен"
+
+msgid "Error saving content to clipboard"
+msgstr "Грешка при запазване на съдържанието в клипборда"

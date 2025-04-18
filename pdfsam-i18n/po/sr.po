@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2021-01-24 12:45+0000\n"
+"PO-Revision-Date: 2025-04-18 09:55+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: српски <gnome-sr@googlegroups.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
+"X-Generator: Autopo v1.0.1\n"
 "Language: sr\n"
 
 msgid "No PDF document has been selected"
@@ -41,8 +41,8 @@ msgstr ""
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr ""
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Странице за извлачење (нпр.: 2 или 5-23 или 2,5-7,12)"
+#~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "Странице за извлачење (нпр.: 2 или 5-23 или 2,5-7,12)"
 
 msgid "Invalid page ranges"
 msgstr "Неисправан опсег страница"
@@ -50,10 +50,10 @@ msgstr "Неисправан опсег страница"
 msgid "Extract pages:"
 msgstr "Извуци странице:"
 
-msgid ""
-"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
-msgstr ""
+#~ msgid ""
+#~ "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+#~ ")"
+#~ msgstr ""
 
 msgid "Split by bookmarks"
 msgstr "Подели по обележивачима"
@@ -114,8 +114,7 @@ msgstr "Непарне странице"
 msgid "Split the document after the given page numbers"
 msgstr "Поделите документ након датих бројева страница"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 "Поделите ПДФ сваке „n“-те странице правећи документе сваки од „n“ страница"
 
@@ -183,8 +182,7 @@ msgstr ""
 "Спојите два или више ПДФ документа узимајући странице наизменично природним "
 "или обрнутим редоследом."
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Двапут кликните да бисте подесили странице које желите да измешате (нпр: 2 "
 "или 5-23 или 2,5-7,12 -)"
@@ -245,8 +243,7 @@ msgid "Add a footer"
 msgstr "Додај подножје"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
-msgstr ""
-"Додајте подножје странице са називом датотеке којој припада страница."
+msgstr "Додајте подножје странице са називом датотеке којој припада страница."
 
 msgid "None"
 msgstr "Ништа"
@@ -326,8 +323,8 @@ msgstr ""
 msgid "Merge"
 msgstr "Споји"
 
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "Спојите заједно више ПДФ докумената или њихових пододељака."
+#~ msgid "Merge together multiple PDF documents or subsections of them."
+#~ msgstr "Спојите заједно више ПДФ докумената или њихових пододељака."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr ""
@@ -668,8 +665,7 @@ msgstr "Излаз"
 msgid "Check for updates now"
 msgstr "Провери има ли освежења"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Изаберите фасциклу где ће документи бити подразумевано сачувани и учитани"
 
@@ -726,8 +722,7 @@ msgstr ""
 msgid "Overwrite files"
 msgstr "Пиши преко датотека"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
 "Изаберите да ли опција „Пиши преко ако већ постоји“ треба да буде укључена "
 "по основи"
@@ -775,11 +770,11 @@ msgid ""
 "Set whether the application should ask for a confirmation when clearing the "
 "selection table"
 msgstr ""
-"Изаберите да ли програм треба да тражи потврду приликом чишћења табеле избора"
+"Изаберите да ли програм треба да тражи потврду приликом чишћења табеле "
+"избора"
 
 msgid "Use the selected PDF document directory as output directory"
-msgstr ""
-"Користи директоријум изабраног ПДФ документа као излазни директоријум"
+msgstr "Користи директоријум изабраног ПДФ документа као излазни директоријум"
 
 msgid "Save default workspace on exit"
 msgstr "Сачувај основни радни простор при изласку"
@@ -937,8 +932,8 @@ msgstr "Не могу да сачувам радни простор у „{0}“
 msgid "Loading workspace from {0}"
 msgstr "Учитавам радни простор из „{0}“"
 
-msgid "Workspace loaded"
-msgstr "Радни простор је учитан"
+#~ msgid "Workspace loaded"
+#~ msgstr "Радни простор је учитан"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
@@ -968,8 +963,8 @@ msgstr "Изаберите ПДФ датотеку"
 msgid "_Select PDF"
 msgstr "_Изабери ПДФ"
 
-msgid "Clear all settings"
-msgstr "Очистите све поставке"
+#~ msgid "Clear all settings"
+#~ msgstr "Очистите све поставке"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -1136,6 +1131,7 @@ msgstr "Препиши ако већ постоји"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr ""
 "Штиклирајте кућицу ако желите да препишете излазне датотеке ако већ постоје."
 
@@ -1208,12 +1204,12 @@ msgstr "Радим"
 msgid "Running {0}%"
 msgstr "Радим {0}%"
 
-msgid "Error saving log file."
-msgstr "Грешка чувања датотеке дневника."
+#~ msgid "Error saving log file."
+#~ msgstr "Грешка чувања датотеке дневника."
 
 #, java-format
-msgid "File {0} saved."
-msgstr "Датотека „{0}“ је сачувана."
+#~ msgid "File {0} saved."
+#~ msgstr "Датотека „{0}“ је сачувана."
 
 #, java-format
 msgid "Invalid range: {0}."
@@ -1257,3 +1253,68 @@ msgstr "Неисправан број: {0}."
 
 #~ msgid "Unable to get latest available version"
 #~ msgstr "Није могуће добити најновију доступну верзију"
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr ""
+
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+" or 3,last)"
+msgstr ""
+
+msgid "Merge multiple PDF documents or subsections of them."
+msgstr ""
+
+msgid "A .pdf extension is required for the repeating file"
+msgstr ""
+
+msgid "A .pdf destination file extension is required"
+msgstr ""
+
+msgid "Default PDF version:"
+msgstr ""
+
+msgid "Default PDF version for generated PDF files"
+msgstr ""
+
+msgid "Default prefix:"
+msgstr ""
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
+msgstr ""
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
+msgstr ""
+
+#, java-format
+msgid "Workspace loaded: {0}"
+msgstr ""
+
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
+msgstr ""
+
+msgid "Duplicate at Top"
+msgstr ""
+
+msgid "Duplicate Up"
+msgstr ""
+
+msgid "Duplicate Down"
+msgstr ""
+
+msgid "Duplicate at Bottom"
+msgstr ""
+
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr ""
+
+#, java-format
+msgid "File {0} saved"
+msgstr ""
+
+msgid "Error saving content to clipboard"
+msgstr ""

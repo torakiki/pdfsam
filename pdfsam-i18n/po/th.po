@@ -2,20 +2,21 @@
 # Copyright (c) 2016 Rosetta Contributors and Canonical Ltd 2016
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2021-02-04 09:31+0000\n"
+"PO-Revision-Date: 2025-04-18 09:55+0200\n"
 "Last-Translator: kn2296 <Unknown>\n"
 "Language-Team: Thai <th@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
+"X-Generator: Autopo v1.0.1\n"
+"Language: th\n"
 
 msgid "No PDF document has been selected"
 msgstr "ไม่ได้เลือกเอกสาร PDF"
@@ -41,8 +42,8 @@ msgstr ""
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr ""
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "หน้าที่จะแยก (เช่น 2 หรือ 5-23 หรือ 2,5-7,12-)"
+#~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "หน้าที่จะแยก (เช่น 2 หรือ 5-23 หรือ 2,5-7,12-)"
 
 msgid "Invalid page ranges"
 msgstr "ช่วงของหน้าไม่ถูกต้อง"
@@ -50,10 +51,10 @@ msgstr "ช่วงของหน้าไม่ถูกต้อง"
 msgid "Extract pages:"
 msgstr "แยกหน้า:"
 
-msgid ""
-"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
-msgstr ""
+#~ msgid ""
+#~ "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+#~ ")"
+#~ msgstr ""
 
 msgid "Split by bookmarks"
 msgstr ""
@@ -111,8 +112,7 @@ msgstr ""
 msgid "Split the document after the given page numbers"
 msgstr ""
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 
 msgid "Split after the following page numbers"
@@ -177,8 +177,7 @@ msgid ""
 "reverse order."
 msgstr ""
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 
 msgid "Select a positive integer number as pace"
@@ -305,8 +304,8 @@ msgstr ""
 msgid "Merge"
 msgstr ""
 
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr ""
+#~ msgid "Merge together multiple PDF documents or subsections of them."
+#~ msgstr ""
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr ""
@@ -471,8 +470,7 @@ msgstr "PDFsam สามารถพยายามเอาชนะควา�
 
 msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
-msgstr ""
-"อาจส่งผลให้ไฟล์ PDF มีข้อมูลบางส่วนหรือขาดหายไปดำเนินการต่อไปหรือไม่?"
+msgstr "อาจส่งผลให้ไฟล์ PDF มีข้อมูลบางส่วนหรือขาดหายไปดำเนินการต่อไปหรือไม่?"
 
 msgid "Removes all the log messages"
 msgstr ""
@@ -643,8 +641,7 @@ msgstr "ผลลัพธ์"
 msgid "Check for updates now"
 msgstr "ตรวจสอบการอัปเดตทันที"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr "เลือกที่เก็บปริยายสำหรับเอาไว้บันทึกและโหลดไฟล์"
 
 msgid "Select a directory"
@@ -697,8 +694,7 @@ msgstr "ตั้งค่าว่าควรเปิดใช้งาน \"
 msgid "Overwrite files"
 msgstr "เขียนทับไฟล์"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr "ตั้งค่าว่าควรเปิดใช้งาน \"เขียนทับหากมีอยู่แล้ว\" โดยค่าเริ่มต้น"
 
 msgid "Play alert sounds"
@@ -734,8 +730,7 @@ msgid ""
 "Set whether the application should fetch and show premium features "
 "description in the modules dashboard"
 msgstr ""
-"ตั้งค่าว่าจะให้แอปพลิเคชันดึงข้อมูลและแสดงคำอธิบายคุณลักษณะพิเศษในแผงควบคุมโม"
-"ดูลหรือไม่"
+"ตั้งค่าว่าจะให้แอปพลิเคชันดึงข้อมูลและแสดงคำอธิบายคุณลักษณะพิเศษในแผงควบคุมโมดูลหรือไม่"
 
 msgid "Ask for a confirmation when clearing the selection table"
 msgstr "ขอคำยืนยันเมื่อล้างตารางการเลือก"
@@ -784,8 +779,7 @@ msgid ""
 "open the application messages for details."
 msgstr ""
 "ไม่สามารถเข้าถึง \"{0}\" "
-"โปรดตรวจสอบว่าคุณมีสิทธิ์ในการเขียนหรือเปิดดูรายละเอียดในข้อความของแอปพลิเคชั"
-"น"
+"โปรดตรวจสอบว่าคุณมีสิทธิ์ในการเขียนหรือเปิดดูรายละเอียดในข้อความของแอปพลิเคชัน"
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
@@ -903,8 +897,8 @@ msgstr ""
 msgid "Loading workspace from {0}"
 msgstr ""
 
-msgid "Workspace loaded"
-msgstr ""
+#~ msgid "Workspace loaded"
+#~ msgstr ""
 
 #, java-format
 msgid "Unable to load workspace from {0}"
@@ -934,8 +928,8 @@ msgstr ""
 msgid "_Select PDF"
 msgstr ""
 
-msgid "Clear all settings"
-msgstr ""
+#~ msgid "Clear all settings"
+#~ msgstr ""
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -1059,8 +1053,7 @@ msgid "Number of total pages of the document"
 msgstr ""
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"ดับเบิลคลิกเพื่อตั้งค่าหน้าที่เลือก (เช่น 2 หรือ 5-23 หรือ 2,5-7,12-)"
+msgstr "ดับเบิลคลิกเพื่อตั้งค่าหน้าที่เลือก (เช่น 2 หรือ 5-23 หรือ 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "ช่วงหน้า"
@@ -1097,6 +1090,7 @@ msgstr "เขียนทับไฟล์เดิม"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr "ทำเครื่องหมายในช่องหากคุณต้องการเขียนทับไฟล์เอาต์พุตหากมีอยู่แล้ว"
 
 #, java-format
@@ -1168,12 +1162,12 @@ msgstr "กำลังทำงาน"
 msgid "Running {0}%"
 msgstr ""
 
-msgid "Error saving log file."
-msgstr ""
+#~ msgid "Error saving log file."
+#~ msgstr ""
 
 #, java-format
-msgid "File {0} saved."
-msgstr ""
+#~ msgid "File {0} saved."
+#~ msgstr ""
 
 #, java-format
 msgid "Invalid range: {0}."
@@ -1206,3 +1200,68 @@ msgstr ""
 
 #~ msgid "Destination folder"
 #~ msgstr "โฟลเดอร์เป้าหมาย"
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr ""
+
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+" or 3,last)"
+msgstr ""
+
+msgid "Merge multiple PDF documents or subsections of them."
+msgstr ""
+
+msgid "A .pdf extension is required for the repeating file"
+msgstr ""
+
+msgid "A .pdf destination file extension is required"
+msgstr ""
+
+msgid "Default PDF version:"
+msgstr ""
+
+msgid "Default PDF version for generated PDF files"
+msgstr ""
+
+msgid "Default prefix:"
+msgstr ""
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
+msgstr ""
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
+msgstr ""
+
+#, java-format
+msgid "Workspace loaded: {0}"
+msgstr ""
+
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
+msgstr ""
+
+msgid "Duplicate at Top"
+msgstr ""
+
+msgid "Duplicate Up"
+msgstr ""
+
+msgid "Duplicate Down"
+msgstr ""
+
+msgid "Duplicate at Bottom"
+msgstr ""
+
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr ""
+
+#, java-format
+msgid "File {0} saved"
+msgstr ""
+
+msgid "Error saving content to clipboard"
+msgstr ""

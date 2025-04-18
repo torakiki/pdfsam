@@ -2,20 +2,21 @@
 # Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2022-03-21 20:24+0000\n"
+"PO-Revision-Date: 2025-04-18 10:04+0200\n"
 "Last-Translator: Andrei Vasile Nemeș <Unknown>\n"
 "Language-Team: Romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
+"X-Generator: Autopo v1.0.1\n"
+"Language: ro\n"
 
 msgid "No PDF document has been selected"
 msgstr "Nu a fost selectat nici un document PDF"
@@ -36,13 +37,13 @@ msgid "Output settings"
 msgstr "Setări iesire"
 
 msgid "A separate file for each set of pages"
-msgstr ""
+msgstr "Un fișier separat pentru fiecare set de pagini"
 
 msgid "Each continuous series of pages will generate a separate PDF file"
-msgstr ""
+msgstr "Fiecare serie continuă de pagini va genera un fișier PDF separat"
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Pagini de extras (ex: 2 sau 5-23 sau 2,5-7,12-)"
+#~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "Pagini de extras (ex: 2 sau 5-23 sau 2,5-7,12-)"
 
 msgid "Invalid page ranges"
 msgstr "Intervalul paginilor este greşit"
@@ -50,10 +51,12 @@ msgstr "Intervalul paginilor este greşit"
 msgid "Extract pages:"
 msgstr "Extrage pagini:"
 
-msgid ""
-"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
-msgstr ""
+#~ msgid ""
+#~ "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+#~ ")"
+#~ msgstr ""
+#~ "Numere de pagini separate prin virgulă sau intervale pentru extragere (ex: 2 "
+#~ "sau 5-23 sau 2,5-7,12-)"
 
 msgid "Split by bookmarks"
 msgstr "Împarte după semne de carte"
@@ -61,9 +64,11 @@ msgstr "Împarte după semne de carte"
 msgid ""
 "Split a PDF document at bookmarked pages by specifying a bookmark level."
 msgstr ""
+"Divizează un document PDF la paginile marcate prin specificarea unui nivel "
+"de marcaj"
 
 msgid "Regular expression the bookmark has to match"
-msgstr ""
+msgstr "Expresie regulată pe care cartea de marcaje trebuie să o respecte"
 
 msgid "Split at this bookmark level:"
 msgstr "Împarte la acest nivel semn de carte:"
@@ -72,15 +77,16 @@ msgid "Matching regular expression:"
 msgstr "Potrivește expresia obișnuită:"
 
 msgid "A regular expression the bookmark text has to match"
-msgstr ""
+msgstr "O expresie regulată pe care textul marcajului trebuie să o respecte"
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
 msgstr ""
+"Exemplu: folosiți .*Capitol.* pentru a selecta marcajele care conțin "
+"cuvântul „Capitol\""
 
 msgid "Select or drag and drop the PDF you want to split"
-msgstr ""
-"Selectați sau trageți și plasați PDF-ul pe care doriți să-l împărțiți"
+msgstr "Selectați sau trageți și plasați PDF-ul pe care doriți să-l împărțiți"
 
 msgid "Split settings"
 msgstr "Configurări împărțire"
@@ -112,8 +118,7 @@ msgstr "Pagini impare"
 msgid "Split the document after the given page numbers"
 msgstr "Împarte documentul după numărul de pagini dat"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 "Despică PDF-ul la fiecare \"n\" pagini creând documente cu \"n\" pagini "
 "fiecare"
@@ -143,19 +148,21 @@ msgid "Megabytes"
 msgstr "Megaocteți"
 
 msgid "MB"
-msgstr "MiO"
+msgstr "MB"
 
 msgid "Kilobytes"
 msgstr "Kiloocteți"
 
 msgid "KB"
-msgstr "KiO"
+msgstr "Ko"
 
 msgid "Split by size"
 msgstr "Împarte după dimensiune"
 
 msgid "Split a PDF document in files of the given size (roughly)."
 msgstr ""
+"Divizează un document PDF în fișiere de dimensiunea specificată "
+"(aproximativ)."
 
 msgid "Set the size to split at"
 msgstr "Configurați dimensiunea de împărțit la"
@@ -179,13 +186,16 @@ msgid ""
 "Merge two or more PDF documents taking pages alternately in natural or "
 "reverse order."
 msgstr ""
+"Îmbinează două sau mai multe documente PDF selectând paginile alternativ în "
+"ordine naturală sau inversă"
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Faceți dublu clic pentru a selecta paginile pe care doriți să le combinați "
+"(ex: 2 sau 5-23 sau 2,5-7,12-)"
 
 msgid "Select a positive integer number as pace"
-msgstr ""
+msgstr "Selectați un număr întreg pozitiv ca pas"
 
 msgid "All pages"
 msgstr "Toate paginile"
@@ -237,7 +247,7 @@ msgstr ""
 "număr de pagini impar"
 
 msgid "Add a footer"
-msgstr ""
+msgstr "Adaugă subsol"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr ""
@@ -248,18 +258,20 @@ msgid "None"
 msgstr "Nimic"
 
 msgid "Same width as first page"
-msgstr ""
+msgstr "Lățime identică cu prima pagină"
 
 msgid "Same width as first page (based on page orientation)"
-msgstr ""
+msgstr "Lățime identică cu prima pagină (în funcție de orientarea paginii)"
 
 msgid "Pages normalization:"
-msgstr ""
+msgstr "Normalizarea paginilor"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
 "one"
 msgstr ""
+"Stabiliți dacă paginile ar trebui redimensionate astfel încât să aibă "
+"aceeași lățime cu prima pagină"
 
 msgid "Merge fields"
 msgstr "Uneşte câmpurile"
@@ -320,54 +332,61 @@ msgstr "Setează dacă ar trebui adăugat un cuprins la documentul PDF generat"
 msgid "Merge"
 msgstr "Combinare"
 
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "Uneşte mai multe documente PDF sau subsecţiuni din acestea."
+#~ msgid "Merge together multiple PDF documents or subsections of them."
+#~ msgstr "Uneşte mai multe documente PDF sau subsecţiuni din acestea."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr ""
+"Selectați sau trageți și plasați PDF-ul ale cărui pagini vor fi repetate"
 
 msgid "Repeat these pages:"
-msgstr ""
+msgstr "Repetă aceste pagini:"
 
 msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "Pagini de repetat (ex: 2 sau 5-23 sau 2,5-7,12-)"
 
 msgid ""
 "Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
 "7,12-)"
 msgstr ""
+"Numere de pagini separate prin virgulă sau intervale de repetat (ex: 2 sau 5-"
+"23 sau 2,5-7,12-)"
 
 msgid "Leave it empty to use all the pages of the PDF file"
-msgstr ""
+msgstr "Lăsați-l gol pentru a utiliza toate paginile fișierului PDF"
 
 msgid "Repeat every \"n\" pages:"
-msgstr ""
+msgstr "Repetă la fiecare \"n\" pagini:"
 
 msgid "Invalid page number"
-msgstr ""
+msgstr "Număr de pagină invalid"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
 msgstr ""
+"Repetă paginile selectate la fiecare \"n\" pagini din documentul original"
 
 msgid "The selected PDF file is invalid"
 msgstr "Fișierul PDF selectat nu este valid"
 
 msgid "The number of pages must be a positive number"
-msgstr ""
+msgstr "Numărul de pagini trebuie să fie un număr pozitiv"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
 msgstr ""
+"Selectați sau trageți și plasați PDF-ul în care doriți să inserați pagini"
 
 msgid "Insert and Repeat settings"
-msgstr ""
+msgstr "Setări Inserare și Repetare"
 
 msgid "Insert pages multiple times"
-msgstr ""
+msgstr "Inserează pagini de mai multe ori"
 
 msgid ""
 "Insert the pages of a PDF document A into another document B, repeating it "
 "after a certain number of pages, resulting in B1 A B2 A B3 A etc."
 msgstr ""
+"Inserați paginile unui document PDF A într-un alt document B, repetându-l "
+"după un anumit număr de pagini, rezultând B1 A B2 A B3 A etc."
 
 #, java-format
 msgid "Started in {0}"
@@ -383,10 +402,10 @@ msgid "No PDF found"
 msgstr "Nici un PDF găsit"
 
 msgid "Tools"
-msgstr ""
+msgstr "Instrumente"
 
 msgid "News"
-msgstr ""
+msgstr "Noutăți"
 
 msgid "What's new"
 msgstr "Ce este nou"
@@ -395,13 +414,13 @@ msgid "Exit"
 msgstr "Ieșire"
 
 msgid "Exit the application"
-msgstr ""
+msgstr "Ieșire din aplicație"
 
 msgid "Workspace"
 msgstr "Spațiu de lucru"
 
 msgid "Manage your workspaces"
-msgstr ""
+msgstr "Gestionează-ți spațiile de lucru"
 
 msgid "Yes"
 msgstr "Da"
@@ -416,16 +435,16 @@ msgid "Do you confirm?"
 msgstr "Confirmi?"
 
 msgid "Clear the tool settings"
-msgstr ""
+msgstr "Șterge setările uneltei"
 
 msgid "Clear the selection table"
-msgstr ""
+msgstr "Șterge tabelul de selecție"
 
 msgid "Open with"
 msgstr "Deschide cu"
 
 msgid "Select the task to perform on the following files"
-msgstr ""
+msgstr "Selectați sarcina de efectuat pentru fișierele următoare"
 
 msgid "Directory not empty"
 msgstr "Directorul nu este gol"
@@ -434,7 +453,7 @@ msgid "The selected directory is not empty"
 msgstr "Directorul selectat nu este gol"
 
 msgid "What would you like to do in case of files with the same name?"
-msgstr ""
+msgstr "Ce ați dori să faceți în cazul fișierelor cu același nume?"
 
 msgid "Overwrite"
 msgstr "Suprascrie"
@@ -458,7 +477,7 @@ msgid "A file with the given name already exists"
 msgstr "Există deja un fișier cu numele dat"
 
 msgid "What would you like to do?"
-msgstr ""
+msgstr "Ce doriți să faceți?"
 
 msgid "Non existing directory"
 msgstr "Director inexistent"
@@ -479,17 +498,18 @@ msgid "Do you want to add PDF files found in subdirectories?"
 msgstr "Dorești să adaugi fișierele PDF aflate în subdirectoare?"
 
 msgid "Task failed"
-msgstr ""
+msgstr "Sarcina a eșuat"
 
 msgid "PDFsam can try to overcome the failure"
-msgstr ""
+msgstr "PDFsam poate încerca să depășească eroarea"
 
 msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
 msgstr ""
+"Poate rezulta în fișiere PDF cu date parțiale sau lipsă, continuați oricum?"
 
 msgid "Removes all the log messages"
-msgstr ""
+msgstr "Elimină toate mesajele jurnal"
 
 msgid "_Clear"
 msgstr "_Curăță"
@@ -498,7 +518,7 @@ msgid "_Save"
 msgstr "_Salvează"
 
 msgid "C_lose"
-msgstr ""
+msgstr "Înc_hide"
 
 msgid "Copy"
 msgstr "Copiază"
@@ -516,7 +536,7 @@ msgid "Select where to save the log file"
 msgstr "Selectați unde se salvează fișierul jurnal"
 
 msgid "Logs"
-msgstr ""
+msgstr "Jurnale"
 
 msgid "Application messages"
 msgstr "Mesaje aplicație"
@@ -525,10 +545,10 @@ msgid "_Load"
 msgstr "Î_ncărcare"
 
 msgid "Recen_ts"
-msgstr ""
+msgstr "Recen_te"
 
 msgid "_Clear recents"
-msgstr ""
+msgstr "Șterge recente"
 
 msgid "Select the workspace file to save"
 msgstr "Selectați fișierul spațiu de lucru de salvat"
@@ -548,15 +568,15 @@ msgstr "Furnizor: %s"
 
 #, java-printf-format
 msgid "Java runtime path: %s"
-msgstr ""
+msgstr "Calea de rulare Java: %s"
 
 #, java-printf-format
 msgid "JavaFX runtime version: %s"
-msgstr ""
+msgstr "Versiunea de rulare JavaFX: %s"
 
 #, java-printf-format
 msgid "PDF engine (Sejda SDK) version: %s"
-msgstr ""
+msgstr "Motor PDF (Sejda SDK) versiunea: %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -569,7 +589,7 @@ msgid "Support"
 msgstr "Suport"
 
 msgid "Bug and feature requests"
-msgstr ""
+msgstr "Solicitări de remediere erori și caracteristici"
 
 msgid "Documentation"
 msgstr "Documentaţie"
@@ -578,7 +598,7 @@ msgid "Contribute"
 msgstr "Contribuire"
 
 msgid "Fork PDFsam on GitHub"
-msgstr "Versiune PDFsam pe GitHub"
+msgstr "Fork PDFsam pe GitHub"
 
 msgid "Translate"
 msgstr "Tradu"
@@ -599,7 +619,7 @@ msgid "About"
 msgstr "Despre"
 
 msgid "Home"
-msgstr ""
+msgstr "Acasă"
 
 msgid "Premium features"
 msgstr "Caracteristici premium"
@@ -617,22 +637,24 @@ msgid "Set your preferred language (restart needed)"
 msgstr "Configurați limba preferată (trebuie repornit)"
 
 msgid "Startup tool:"
-msgstr ""
+msgstr "Instrument de pornire:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
+"Setează instrumentul să se deschidă la pornirea aplicației (este necesară "
+"repornirea)"
 
 msgid "Theme:"
 msgstr "Tematică:"
 
 msgid "Set the application theme"
-msgstr ""
+msgstr "Setează tema aplicației"
 
 msgid "Font size:"
-msgstr ""
+msgstr "Dimensiune font:"
 
 msgid "Set the application font size"
-msgstr ""
+msgstr "Setează dimensiunea fontului aplicației"
 
 msgid "Manually selected"
 msgstr "Selectate manual"
@@ -659,8 +681,7 @@ msgstr "Ieșire"
 msgid "Check for updates now"
 msgstr "Verifică acum pentru actualizări"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Selectați un director implicit unde documentele vor fi salvate și încărcate"
 
@@ -684,7 +705,7 @@ msgid "Load default workspace at startup:"
 msgstr "Încarcă la pornire spațiul de lucru implicit"
 
 msgid "System default"
-msgstr ""
+msgstr "Setare implicită sistem"
 
 msgid "Check for updates at startup"
 msgstr "Verifică actualizările la pornire"
@@ -697,25 +718,29 @@ msgstr ""
 "pornire (trebuie repornit)"
 
 msgid "Check for news at startup"
-msgstr ""
+msgstr "Verifică actualizări la pornire"
 
 msgid ""
 "Set whether the application should check for news availability on startup "
 "(restart needed)"
 msgstr ""
+"Stabiliți dacă aplicația ar trebui să verifice disponibilitatea noutăților "
+"la pornire (este necesară repornirea)"
 
 msgid "Enabled PDF compression"
-msgstr ""
+msgstr "Compresie PDF activată"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
+"Stabiliți dacă \"Comprimă fișierul de ieșire\" ar trebui activat în mod "
+"implicit"
 
 msgid "Overwrite files"
 msgstr "Suprascrie fișierele"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
+"Stabiliți dacă \"Suprascrie dacă există deja\" ar trebui activat implicit"
 
 msgid "Play alert sounds"
 msgstr "Redare sunete de alertă"
@@ -724,7 +749,7 @@ msgid "Turn on or off alert sounds"
 msgstr "Deschide sau închide sunetele de alarmă"
 
 msgid "Store passwords when saving a workspace file"
-msgstr ""
+msgstr "Stochează parolele la salvarea unui fișier de spațiu de lucru"
 
 msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
@@ -740,6 +765,8 @@ msgid ""
 "Turn on or off the notification appearing once in a while and asking the "
 "user to support PDFsam with a donation"
 msgstr ""
+"Activează sau dezactivează notificarea care apare din când în când și care "
+"solicită utilizatorului să susțină PDFsam printr-o donație"
 
 msgid "Show premium features"
 msgstr "Arată caracteristicile premium"
@@ -748,18 +775,21 @@ msgid ""
 "Set whether the application should fetch and show premium features "
 "description in the modules dashboard"
 msgstr ""
+"Stabiliți dacă aplicația ar trebui să preia și să afișeze descrierea "
+"caracteristicilor premium în tabloul de bord al modulelor"
 
 msgid "Ask for a confirmation when clearing the selection table"
-msgstr ""
+msgstr "Cereți confirmare la golirea tabelului de selecție"
 
 msgid ""
 "Set whether the application should ask for a confirmation when clearing the "
 "selection table"
 msgstr ""
+"Stabiliți dacă aplicația ar trebui să ceară o confirmare la golirea "
+"tabelului de selecție"
 
 msgid "Use the selected PDF document directory as output directory"
-msgstr ""
-"Utilizează directorul documentului PDF selectat ca director de ieșire"
+msgstr "Utilizează directorul documentului PDF selectat ca director de ieșire"
 
 msgid "Save default workspace on exit"
 msgstr "Salvează la ieșire spațiul de lucru prestabilit"
@@ -781,26 +811,28 @@ msgid "Document details"
 msgstr "Detalii document"
 
 msgid "Show errors"
-msgstr ""
+msgstr "Afișează erori"
 
 msgid "Input parameters are invalid"
-msgstr ""
+msgstr "Parametrii de intrare sunt nevalizi"
 
 msgid "Invalid parameters"
 msgstr "Parametri nevalizi"
 
 msgid "Access denied"
-msgstr ""
+msgstr "Acces interzis"
 
 #, java-format
 msgid ""
 "Unable to access \"{0}\", please make sure you have write permissions or "
 "open the application messages for details."
 msgstr ""
+"Nu s-a putut accesa \"{0}\", vă rugăm să vă asigurați că aveți permisiuni de "
+"scriere sau deschideți mesajele aplicației pentru detalii."
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
-msgstr ""
+msgstr "Ați efectuat {0} sarcini cu PDFsam, v-a ajutat?"
 
 msgid "Give something back"
 msgstr "Dați ceva în schimb"
@@ -809,7 +841,7 @@ msgid "PDFsam worked hard!"
 msgstr "PDFsam lucrează din greu!"
 
 msgid "Spread the word!"
-msgstr ""
+msgstr "Spune și altora!"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -822,17 +854,17 @@ msgid "New version available"
 msgstr "Este disponibilă o nouă versiune"
 
 msgid "You are running the latest version of PDFsam Basic"
-msgstr ""
+msgstr "Rulați cea mai recentă versiune a PDFsam Basic"
 
 msgid "No update"
-msgstr ""
+msgstr "Fără actualizare"
 
 msgid "Open"
 msgstr "Deschide"
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
-msgstr ""
+msgstr "Fișierul \"{0}\" nu există sau este invalid"
 
 msgid "Valid user password provided."
 msgstr "S-a furnizat o parolă utilizator validă."
@@ -844,19 +876,19 @@ msgid "An error has occurred, click for more details."
 msgstr "A intervenit o eroare, clic pentru mai multe detalii."
 
 msgid "Split tools"
-msgstr ""
+msgstr "Instrumente de divizare"
 
 msgid "Merge tools"
-msgstr ""
+msgstr "Instrumente de unire"
 
 msgid "Convert tools"
-msgstr ""
+msgstr "Instrumente de conversie"
 
 msgid "Edit tools"
-msgstr ""
+msgstr "Instrumente de editare"
 
 msgid "Other tools"
-msgstr ""
+msgstr "Alte instrumente"
 
 msgid "Checking for updates"
 msgstr "Se verifică actualizările"
@@ -866,11 +898,11 @@ msgstr "Nu se poate găsi ultima versiune disponibilă."
 
 #, java-format
 msgid "Unable to find any valid PDF file in the list: {0}"
-msgstr ""
+msgstr "Nu s-a putut găsi niciun fișier PDF valid în listă: {0}"
 
 #, java-format
 msgid "Unable to load PDF list file from {0}"
-msgstr ""
+msgstr "Imposibil de încărcat fișierul de listă PDF din {0}"
 
 msgid "Loading pdf documents"
 msgstr "Se încarcă documente pdf"
@@ -879,22 +911,22 @@ msgid "Documents loaded"
 msgstr "Documentele s-au încărcat"
 
 msgid "Unable to retrieve premium features description"
-msgstr ""
+msgstr "Imposibil de preluat descrierea caracteristicilor premium"
 
 msgid "Fetching premium modules"
-msgstr ""
+msgstr "Preluare module premium"
 
 msgid "Unable to retrieve premium modules"
-msgstr ""
+msgstr "Nu s-au putut prelua modulele premium"
 
 msgid "Unable to retrieve latest news"
-msgstr ""
+msgstr "Nu s-au putut prelua ultimele noutăți"
 
 msgid "Fetching latest news"
-msgstr ""
+msgstr "Preluare ultimelor noutăți"
 
 msgid "Unable to retrieve the latest news"
-msgstr ""
+msgstr "Nu s-au putut prelua ultimele noutăți"
 
 #, java-format
 msgid "Saving workspace data to {0}"
@@ -908,30 +940,30 @@ msgstr "Se solicită starea modulelor"
 
 #, java-format
 msgid "Unable to save workspace to {0}"
-msgstr ""
+msgstr "Imposibil de salvat spațiul de lucru la {0}"
 
 #, java-format
 msgid "Loading workspace from {0}"
 msgstr "Se încarcă spațiul de lucru de la {0}"
 
-msgid "Workspace loaded"
-msgstr "Spațiul de lucru s-a încărcat"
+#~ msgid "Workspace loaded"
+#~ msgstr "Spațiul de lucru s-a încărcat"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
 msgstr "Nu se poate încărca spațiul de lucru de la {0}"
 
 msgid "Light with blue"
-msgstr ""
+msgstr "Luminos cu albastru"
 
 msgid "Dark with purple"
-msgstr ""
+msgstr "Întunecat cu violet"
 
 msgid "Dark with teal"
-msgstr ""
+msgstr "Întunecat cu verde-turcoaz"
 
 msgid "Light with maroon"
-msgstr ""
+msgstr "Deschis cu vișiniu"
 
 msgid "Close"
 msgstr "Închide"
@@ -940,13 +972,13 @@ msgid "The selected PDF document is invalid"
 msgstr "Documentul PDF selectat nu este valid"
 
 msgid "Select the PDF file"
-msgstr ""
+msgstr "Selectați fișierul PDF"
 
 msgid "_Select PDF"
-msgstr ""
+msgstr "_Selectează PDF"
 
-msgid "Clear all settings"
-msgstr ""
+#~ msgid "Clear all settings"
+#~ msgstr "Șterge toate setările"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -995,10 +1027,10 @@ msgid "Duplicate"
 msgstr "Duplicare"
 
 msgid "Selected pages"
-msgstr ""
+msgstr "Pagini selectate"
 
 msgid "Total number of selected pages"
-msgstr ""
+msgstr "Numărul total de pagini selectate"
 
 msgid "Size"
 msgstr "Dimensiune"
@@ -1008,7 +1040,7 @@ msgstr "Modificat"
 
 #, java-format
 msgid "Total pages: {0}"
-msgstr ""
+msgstr "Total pagini: {0}"
 
 msgid "Name"
 msgstr "Nume"
@@ -1020,13 +1052,13 @@ msgid "_Add"
 msgstr "_Adaugă"
 
 msgid "PDF list from _text/csv file"
-msgstr ""
+msgstr "Lista PDF din fișier text/csv"
 
 msgid "Select pdf documents to load"
 msgstr "Selectați documentele pdf de încărcat"
 
 msgid "Select a text or CSV file to load"
-msgstr ""
+msgstr "Selectați un fișier text sau CSV pentru încărcare"
 
 msgid "Removes selected documents"
 msgstr "Elimină documentele selectate"
@@ -1038,7 +1070,7 @@ msgid "Removes every document"
 msgstr "Elimină fiecare document"
 
 msgid "C_lear all settings"
-msgstr ""
+msgstr "Șterge_re setări"
 
 msgid "Moves up selected documents"
 msgstr "Mută în sus documentele selectate"
@@ -1059,6 +1091,8 @@ msgid ""
 "Double click to set the number of pages after which the task will switch to "
 "the next file"
 msgstr ""
+"Faceți dublu clic pentru a seta numărul de pagini după care sarcina va trece "
+"la următorul fișier"
 
 msgid "Reverse"
 msgstr "Invers"
@@ -1067,10 +1101,11 @@ msgid "Pages"
 msgstr "Pagini"
 
 msgid "Number of total pages of the document"
-msgstr ""
+msgstr "Numărul total de pagini ale documentului"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Faceți dublu clic pentru a selecta paginile (ex: 2 sau 5-23 sau 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "Intervalele de pagini"
@@ -1092,22 +1127,27 @@ msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
 "document"
 msgstr ""
+"Bifați căsuța dacă nu doriți să păstrați nicio marcaj din documentul PDF "
+"original"
 
 msgid "Output PDF version:"
-msgstr ""
+msgstr "Versiune PDF de ieșire:"
 
 msgid "Show advanced settings"
-msgstr ""
+msgstr "Afișează setări avansate"
 
 msgid "Hide advanced settings"
-msgstr ""
+msgstr "Ascunde setările avansate"
 
 msgid "Overwrite if already exists"
 msgstr "Suprascrie dacă există deja"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr ""
+"Bifați căsuța dacă doriți să suprascrieți fișierele de ieșire dacă acestea "
+"există deja."
 
 #, java-format
 msgid "Version {0}"
@@ -1117,10 +1157,10 @@ msgid "Same as the input document"
 msgstr "La fel ca documentul de intrare"
 
 msgid "An existing output directory is required"
-msgstr ""
+msgstr "Este necesară o directorie de ieșire existentă"
 
 msgid "The output directory is required"
-msgstr ""
+msgstr "Directorul de ieșire este obligatoriu"
 
 msgid "Select an existing directory"
 msgstr "Selectați un director existent"
@@ -1133,7 +1173,7 @@ msgstr "Navigare"
 
 #, java-format
 msgid "PDF version required: {0}"
-msgstr ""
+msgstr "Versiune PDF necesară: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "Prefix pentru denumirile fișiereleor generate"
@@ -1142,7 +1182,7 @@ msgid "Add prefix"
 msgstr "Adaugă prefix"
 
 msgid "DEFAULT_PREFIX"
-msgstr ""
+msgstr "PREFIXUL_IMPLICIT"
 
 msgid "Generated PDF documents name prefix:"
 msgstr "Prefixul numelui documentelor PDF generate:"
@@ -1160,7 +1200,7 @@ msgid "Run"
 msgstr "Rulează"
 
 msgid "Run the task"
-msgstr ""
+msgstr "Rulează sarcina"
 
 msgid "Requested"
 msgstr "Solicitat"
@@ -1176,14 +1216,14 @@ msgstr "Rulează"
 
 #, java-format
 msgid "Running {0}%"
-msgstr ""
+msgstr "Se rulează {0}%"
 
-msgid "Error saving log file."
-msgstr "Eroare la salvarea fișierului jurnal."
+#~ msgid "Error saving log file."
+#~ msgstr "Eroare la salvarea fișierului jurnal."
 
 #, java-format
-msgid "File {0} saved."
-msgstr "Fișierul {0} s-a salvat."
+#~ msgid "File {0} saved."
+#~ msgstr "Fișierul {0} s-a salvat."
 
 #, java-format
 msgid "Invalid range: {0}."
@@ -1231,3 +1271,72 @@ msgstr "Număr invalid: {0}."
 
 #~ msgid "Never"
 #~ msgstr "Niciodată"
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr "Pagini de extras (ex: 2 sau 5-23 sau 2,5-7,12- sau 3,ultima)"
+
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+" or 3,last)"
+msgstr ""
+"Numere de pagini separate prin virgulă sau intervale pentru extragere (ex: 2 "
+"sau 5-23 sau 2,5-7,12- sau 3,ultima)"
+
+msgid "Merge multiple PDF documents or subsections of them."
+msgstr "Îmbinați mai multe documente PDF sau subsecțiuni ale acestora."
+
+msgid "A .pdf extension is required for the repeating file"
+msgstr "Este necesară o extensie .pdf pentru fișierul care se repetă"
+
+msgid "A .pdf destination file extension is required"
+msgstr "Este necesară o extensie de fișier destinație .pdf"
+
+msgid "Default PDF version:"
+msgstr "Versiune PDF implicită:"
+
+msgid "Default PDF version for generated PDF files"
+msgstr "Versiune PDF implicită pentru fișierele PDF generate"
+
+msgid "Default prefix:"
+msgstr "Prefix implicit:"
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
+msgstr ""
+"Prefix implicit pentru numele fișierelor de ieșire, utilizat în instrumente "
+"care generează mai multe fișiere"
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
+msgstr "Stabiliți dacă \"Renunță la marcaje\" ar trebui activat în mod implicit"
+
+#, java-format
+msgid "Workspace loaded: {0}"
+msgstr "Spațiu de lucru încărcat: {0}"
+
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
+msgstr "Următorul fișier deja exista și a fost omis: {0}"
+
+msgid "Duplicate at Top"
+msgstr "Duplică în Vârf"
+
+msgid "Duplicate Up"
+msgstr "Duplică în sus"
+
+msgid "Duplicate Down"
+msgstr "Duplică în jos"
+
+msgid "Duplicate at Bottom"
+msgstr "Duplică la Bază"
+
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr "Eroare la salvarea conținutului în fișier {0}"
+
+#, java-format
+msgid "File {0} saved"
+msgstr "Fișierul {0} a fost salvat"
+
+msgid "Error saving content to clipboard"
+msgstr "Eroare la salvarea conținutului în clipboard"

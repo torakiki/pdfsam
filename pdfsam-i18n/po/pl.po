@@ -2,20 +2,21 @@
 # Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2024-09-09 08:58+0000\n"
+"PO-Revision-Date: 2025-04-18 09:55+0200\n"
 "Last-Translator: Andrzej Rudnik <Unknown>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-10-25 13:44+0000\n"
-"X-Generator: Launchpad (build 22ade00ab50b929fac63b8ee7252243aceda294a)\n"
+"X-Launchpad-Export-Date: 2025-04-17 17:36+0000\n"
+"X-Generator: Autopo v1.0.1\n"
+"Language: pl\n"
 
 msgid "Name"
 msgstr "Nazwa"
@@ -119,8 +120,7 @@ msgstr "Nieparzyste strony"
 msgid "Split the document after the given page numbers"
 msgstr "Rozdzielanie dokumentu według podanych numerów stron"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr "Podziel PDF po \"n\" stronach"
 
 msgid "Split after the following page numbers"
@@ -188,8 +188,7 @@ msgstr ""
 "Scal dwa lub więcej dokumenty PDF przyjmując kolejność naturalną lub "
 "odwrotną."
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Kliknij dwukrotnie, aby ustawić strony, które chcesz połączyć (np. 2 lub 5-"
 "23 lub 2,5-7,12-)"
@@ -259,8 +258,7 @@ msgid "Same width as first page"
 msgstr "Taka sama szerokość jak pierwsza strona"
 
 msgid "Same width as first page (based on page orientation)"
-msgstr ""
-"Taka sama szerokość jak piewsza strona (bazując na orientacji strony)"
+msgstr "Taka sama szerokość jak piewsza strona (bazując na orientacji strony)"
 
 msgid "Pages normalization:"
 msgstr "Normalizacja stron:"
@@ -363,7 +361,7 @@ msgid "Repeat the selected pages every \"n\" pages of the original document"
 msgstr "Powtarzaj wybrane strony co \"n\" stron oryginalnego dokumentu"
 
 msgid "A .pdf extension is required for the repeating file"
-msgstr "Do powtarzającego się pliku wymagane jest rozszerzenie .pdf"
+msgstr "Wymagane jest rozszerzenie .pdf dla powtarzającego pliku"
 
 msgid "The number of pages must be a positive number"
 msgstr "Liczba stron musi być liczbą dodatnią"
@@ -372,7 +370,7 @@ msgid "Select or drag and drop the PDF you want to insert pages to"
 msgstr "Wybierz lub przeciągnij PDF, z którego chcesz wstawić strony do"
 
 msgid "A .pdf destination file extension is required"
-msgstr "Dla pliku docelowego wymagane jest rozszerzenie .pdf"
+msgstr "Wymagane jest rozszerzenie pliku .pdf"
 
 msgid "Insert and Repeat settings"
 msgstr "Ustawienia Wstaw i Powtórz"
@@ -702,8 +700,7 @@ msgstr "Wynik"
 msgid "Check for updates now"
 msgstr "Sprawdź, czy są aktualizacje"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr "Wybierz domyślny folder zapisu i odczytu dokumentów"
 
 msgid "Select a directory"
@@ -761,10 +758,8 @@ msgstr "Określ, czy opcja \"Odrzuć zakładki\" ma być domyślnie włączona"
 msgid "Overwrite files"
 msgstr "Nadpisz pliki"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
-msgstr ""
-"Ustaw czy \"Nadpisz jeśli już istnieje\" powinno być domyślnie włączone"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
+msgstr "Ustaw czy \"Nadpisz jeśli już istnieje\" powinno być domyślnie włączone"
 
 msgid "Play alert sounds"
 msgstr "Odtwórz dźwięki alarmów"
@@ -1058,19 +1053,19 @@ msgid "Move to Bottom"
 msgstr "Przesuń na dół"
 
 msgid "Duplicate"
-msgstr "Duplikuj"
+msgstr "Powiel"
 
 msgid "Duplicate at Top"
-msgstr "Duplikat na górze"
+msgstr "Duplikuj na początku"
 
 msgid "Duplicate Up"
-msgstr "Duplikat powyżej"
+msgstr "Duplikuj powyżej"
 
 msgid "Duplicate Down"
-msgstr "Duplikat poniżej"
+msgstr "Duplikuj poniżej"
 
 msgid "Duplicate at Bottom"
-msgstr "Duplikat na dole"
+msgstr "Duplikuj na końcu"
 
 msgid "Selected pages"
 msgstr "Zaznaczonych stron"
@@ -1183,6 +1178,7 @@ msgstr "Nadpisz jeśli istnieje"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr ""
 "Zaznacz tę opcję, jeśli chcesz aby nowe pliki wyjściowe zastępowały te "
 "istniejące (o tej samej nazwie)."

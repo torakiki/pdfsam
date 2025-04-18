@@ -2,20 +2,21 @@
 # Copyright (c) 2023 Rosetta Contributors and Canonical Ltd 2023
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2024-05-08 12:28+0000\n"
+"PO-Revision-Date: 2025-04-18 09:55+0200\n"
 "Last-Translator: Santy <Unknown>\n"
 "Language-Team: Galician <gl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-07-26 09:48+0000\n"
-"X-Generator: Launchpad (build 0f7b58d0a728e5e8f34556869262ccfa55217529)\n"
+"X-Generator: Autopo v1.0.1\n"
+"Language: gl\n"
 
 msgid "No PDF document has been selected"
 msgstr "Non se seleccionou ningún documento PDF"
@@ -41,8 +42,8 @@ msgstr "Un arquivo separado para cada conxunto de páxinas"
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr "Cada serie continua de páxinas xerará un arquivo PDF independente"
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Páxinas para extraer (ex: 2 ou 5-23 ou 2,5-7,12-)"
+#~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "Páxinas para extraer (ex: 2 ou 5-23 ou 2,5-7,12-)"
 
 msgid "Invalid page ranges"
 msgstr "Intervalos de páxina non válidos"
@@ -50,12 +51,12 @@ msgstr "Intervalos de páxina non válidos"
 msgid "Extract pages:"
 msgstr "Extraer páxinas:"
 
-msgid ""
-"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
-msgstr ""
-"Números de páxina separados por comas ou intervalos que extraer (ex: 2 o 5-"
-"23 o 2,5-7,12-)"
+#~ msgid ""
+#~ "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+#~ ")"
+#~ msgstr ""
+#~ "Números de páxina separados por comas ou intervalos que extraer (ex: 2 o 5-"
+#~ "23 o 2,5-7,12-)"
 
 msgid "Split by bookmarks"
 msgstr "Dividir por marcadores"
@@ -116,8 +117,7 @@ msgstr "Páxinas impares"
 msgid "Split the document after the given page numbers"
 msgstr "Dividir o documento despois dos números de páxina dados"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 "Divide o PDF cada «n» páxinas creando documentos de «n» páxinas cada un."
 
@@ -185,8 +185,7 @@ msgstr ""
 "Fusionar dous ou máis documentos PDF tomando alternativamente as páxinas en "
 "orde normal ou inversa."
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Dobre clic para establecer as páxinas que queres mesturar (ex: 2 or 5-23 ou "
 "2,5-7,12-)"
@@ -704,8 +703,7 @@ msgstr "Saída"
 msgid "Check for updates now"
 msgstr "Busca actualizacións ahora mesmo"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Escoller o directorio onde se gardarán e de onde se cargarán por defecto os "
 "documentos."
@@ -766,10 +764,8 @@ msgstr ""
 msgid "Overwrite files"
 msgstr "Sobreescribir ficheiros"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
-msgstr ""
-"Establece se \"sobreescribir se xa existe\" debe activarse por defecto"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
+msgstr "Establece se \"sobreescribir se xa existe\" debe activarse por defecto"
 
 msgid "Play alert sounds"
 msgstr "Reproducir sons de aviso"
@@ -1182,6 +1178,7 @@ msgstr "Sobreescribir se xa existe"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr "Marque se quere sobrescribir os ficheiros de saída se xa existen"
 
 msgid "Same as the input document"
@@ -1243,12 +1240,12 @@ msgstr "En proceso"
 msgid "Running {0}%"
 msgstr "Executando {0}%"
 
-msgid "Error saving log file."
-msgstr "Erro gardando o arquivo de rexistro"
+#~ msgid "Error saving log file."
+#~ msgstr "Erro gardando o arquivo de rexistro"
 
 #, java-format
-msgid "File {0} saved."
-msgstr "Arquivo {0} gardado"
+#~ msgid "File {0} saved."
+#~ msgstr "Arquivo {0} gardado"
 
 #, java-format
 msgid "Invalid range: {0}."
@@ -1296,3 +1293,42 @@ msgstr "Número non válido: {0}."
 
 #~ msgid "Would you like to overwrite it?"
 #~ msgstr "Quere sobrescribilo?"
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr "Páxinas para extraer (ex: 2 ou 5-23 ou 2,5-7,12- ou 3,último)"
+
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+" or 3,last)"
+msgstr ""
+"Números de páxina separados por comas ou rangos para extraer (ex: 2 ou 5-23 "
+"ou 2,5-7,12- ou 3,último)"
+
+msgid "A .pdf extension is required for the repeating file"
+msgstr "Requírese unha extensión .pdf para o ficheiro repetido"
+
+msgid "A .pdf destination file extension is required"
+msgstr "Requírese unha extensión de ficheiro de destino .pdf"
+
+msgid "Duplicate at Top"
+msgstr "Duplicar na parte superior"
+
+msgid "Duplicate Up"
+msgstr "Duplicar cara arriba"
+
+msgid "Duplicate Down"
+msgstr "Duplicar cara abaixo"
+
+msgid "Duplicate at Bottom"
+msgstr "Duplicar na parte inferior"
+
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr "Erro gardando contido no ficheiro {0}"
+
+#, java-format
+msgid "File {0} saved"
+msgstr "Ficheiro {0} gardado"
+
+msgid "Error saving content to clipboard"
+msgstr "Erro gardando contido no portapapeis"

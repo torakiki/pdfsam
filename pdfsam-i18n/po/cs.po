@@ -2,20 +2,21 @@
 # Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2024-11-25 19:10+0000\n"
+"PO-Revision-Date: 2025-04-18 09:55+0200\n"
 "Last-Translator: Marek Hladík <mhladik@seznam.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-01-22 08:16+0000\n"
-"X-Generator: Launchpad (build 6394e03793719e8d73f5a60b5439440e693c92f1)\n"
+"X-Launchpad-Export-Date: 2025-04-17 17:36+0000\n"
+"X-Generator: Autopo v1.0.1\n"
+"Language: cs\n"
 
 msgid "No PDF document has been selected"
 msgstr "Nebyl vybrán žádný PDF dokument"
@@ -115,8 +116,7 @@ msgstr "Liché stránky"
 msgid "Split the document after the given page numbers"
 msgstr "Rozdělit dokument za definovanými stránkami"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr "Rozdělit PDF po \"n\" stránkách"
 
 msgid "Split after the following page numbers"
@@ -183,8 +183,7 @@ msgstr ""
 "Sloučit dva nebo více PDF dokumentů, ve kterých se strany střídají v "
 "přirozeném nebo opačném pořadí."
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Poklepáním nastavte stránky, které chcete smíchat (např. 2 nebo 5-23 nebo "
 "2,5-7,12-)"
@@ -355,7 +354,7 @@ msgid "Repeat the selected pages every \"n\" pages of the original document"
 msgstr "Opakovat vybrané stránky každých \"n\" stránek původního dokumentu"
 
 msgid "A .pdf extension is required for the repeating file"
-msgstr ""
+msgstr "Pro opakující se soubor je vyžadována přípona .pdf"
 
 msgid "The number of pages must be a positive number"
 msgstr "Počet stránek musí být kladné číslo"
@@ -693,8 +692,7 @@ msgstr "Výstup"
 msgid "Check for updates now"
 msgstr "Zkontrolovat aktualizace"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Vyberte adresář, který bude sloužit k automatickému načítání a ukládání "
 "dokumentů"
@@ -753,8 +751,7 @@ msgstr ""
 msgid "Overwrite files"
 msgstr "Přepsat existující soubory"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
 "Nastavte, zda má být ve výchozím nastavení povoleno „Přepsat, pokud již "
 "existuje“"
@@ -1051,16 +1048,16 @@ msgid "Duplicate"
 msgstr "Duplikovat"
 
 msgid "Duplicate at Top"
-msgstr ""
+msgstr "Duplikát nahoře"
 
 msgid "Duplicate Up"
-msgstr ""
+msgstr "Duplikát nad"
 
 msgid "Duplicate Down"
-msgstr ""
+msgstr "Duplikát pod"
 
 msgid "Duplicate at Bottom"
-msgstr ""
+msgstr "Duplikát dole"
 
 msgid "Selected pages"
 msgstr "Vybrané stránky"
@@ -1176,6 +1173,7 @@ msgstr "Přepsat soubor pokud již existuje"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr ""
 "Zatrhněte políčko, pokud si přejete přepsat existující výstupní soubory"
 
@@ -1217,7 +1215,7 @@ msgid "Prefix for the output files name."
 msgstr "Předpona výstupních souborů."
 
 msgid "DEFAULT_PREFIX"
-msgstr ""
+msgstr "VÝCHOZÍ_PŘEDVOLBA"
 
 msgid "Run"
 msgstr "Spustit"

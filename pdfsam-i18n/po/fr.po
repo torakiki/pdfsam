@@ -2,20 +2,20 @@
 # Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2024-11-04 12:40+0000\n"
+"PO-Revision-Date: 2025-04-18 10:04+0200\n"
 "Last-Translator: HAUW Fabien <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2025-01-22 08:16+0000\n"
-"X-Generator: Launchpad (build 6394e03793719e8d73f5a60b5439440e693c92f1)\n"
+"X-Generator: Autopo v1.0.1\n"
 "Language: fr\n"
 
 msgid "No PDF document has been selected"
@@ -118,8 +118,7 @@ msgstr "les pages impaires"
 msgid "Split the document after the given page numbers"
 msgstr "Découper le document après les numéros de pages indiqués"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 "Couper le document PDF toutes les « n » pages va créer des documents de « n "
 "» pages chacun"
@@ -155,7 +154,7 @@ msgid "Kilobytes"
 msgstr "Kilo-octets"
 
 msgid "KB"
-msgstr "ko"
+msgstr "Ko"
 
 msgid "Split by size"
 msgstr "Découpage par taille"
@@ -189,8 +188,7 @@ msgstr ""
 "Fusionner deux documents PDF ou plus en prenant les pages en alternance en "
 "ordre naturel ou inverse"
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Double-cliquez pour régler les pages que vous voulez mixer (ex : 2 ou 5-23 "
 "ou 2,5-7,12-)"
@@ -205,7 +203,7 @@ msgid "90 degrees clockwise"
 msgstr "de 90° dans le sens horaire"
 
 msgid "180 degrees clockwise"
-msgstr "de 180°"
+msgstr "180° sens horaire"
 
 msgid "90 degrees counterclockwise"
 msgstr "90 degrés dans le sens antihoraire"
@@ -310,8 +308,7 @@ msgid "Bookmarks handling:"
 msgstr "Gestion des signets :"
 
 msgid "What to do in case one or more input documents contain bookmarks"
-msgstr ""
-"Que faire si un ou plusieurs fichiers sources contiennent des signets"
+msgstr "Que faire si un ou plusieurs fichiers sources contiennent des signets"
 
 msgid "Don't generate"
 msgstr "Ne pas générer"
@@ -338,8 +335,7 @@ msgid "Merge multiple PDF documents or subsections of them."
 msgstr "Fusionner de multiples documents ou parties de documents PDF"
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
-msgstr ""
-"Sélectionnez ou glissez-déposez le PDF dont les pages seront répétées"
+msgstr "Sélectionnez ou glissez-déposez le PDF dont les pages seront répétées"
 
 msgid "Repeat these pages:"
 msgstr "Répéter ces pages :"
@@ -507,8 +503,7 @@ msgid "Subdirectories have been found"
 msgstr "Les sous-dossiers ont été trouvés"
 
 msgid "Do you want to add PDF files found in subdirectories?"
-msgstr ""
-"Voulez-vous ajouter les fichiers PDF trouvés dans les sous-dossiers ?"
+msgstr "Voulez-vous ajouter les fichiers PDF trouvés dans les sous-dossiers ?"
 
 msgid "Task failed"
 msgstr "La tâche a échoué"
@@ -716,13 +711,12 @@ msgid "Behavior"
 msgstr "Comportement"
 
 msgid "Output"
-msgstr "Dossier de création"
+msgstr "Sortie"
 
 msgid "Check for updates now"
 msgstr "Rechercher une mise à jour maintenant"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Sélectionner un dossier par défaut de chargement et d’enregistrement des "
 "documents"
@@ -782,8 +776,7 @@ msgstr ""
 msgid "Overwrite files"
 msgstr "Écraser les fichiers"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr "Activer par défaut \"Ecraser s'il existe déjà\""
 
 msgid "Play alert sounds"
@@ -1049,7 +1042,7 @@ msgid "Remove"
 msgstr "Supprimer"
 
 msgid "Set destination"
-msgstr "Utiliser le dossier"
+msgstr "Définir la destination"
 
 msgid "Open Folder"
 msgstr "Ouvrir le dossier"
@@ -1064,7 +1057,7 @@ msgid "Drag and drop PDF files here"
 msgstr "Glisser et déposer ici les fichiers PDF"
 
 msgid "Set as range for all"
-msgstr "définir comme paramêtre global"
+msgstr "Définir comme plage pour tous"
 
 msgid "Move to Top"
 msgstr "Mettre en premier"
@@ -1220,6 +1213,7 @@ msgstr "Remplacer les fichiers existants"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr ""
 "Cocher la case si vous voulez écraser le fichier si celui-ci existe déjà."
 
@@ -1307,8 +1301,8 @@ msgid ""
 "Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
 "or [-n] or [n-]"
 msgstr ""
-"Définition d’ensemble de pages ambiguë : {0}. Utiliser les formats suivants "
-": [n] ou [n1-n2] ou [-n] ou [n-]"
+"Définition d’ensemble de pages ambiguë : {0}. Utiliser les formats suivants :"
+" [n] ou [n1-n2] ou [-n] ou [n-]"
 
 #, java-format
 msgid "Invalid range: {0}."

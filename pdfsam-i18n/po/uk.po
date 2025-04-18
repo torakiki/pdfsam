@@ -2,20 +2,21 @@
 # Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2019-12-06 20:43+0000\n"
+"PO-Revision-Date: 2025-04-18 09:55+0200\n"
 "Last-Translator: mwp <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
+"X-Generator: Autopo v1.0.1\n"
+"Language: uk\n"
 
 msgid "No PDF document has been selected"
 msgstr "Не обрано жодного документа PDF"
@@ -41,8 +42,8 @@ msgstr ""
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr ""
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Витягнути такі сторінки (приклад: 2 або 5-23 або 2,5-7,12-)"
+#~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "Витягнути такі сторінки (приклад: 2 або 5-23 або 2,5-7,12-)"
 
 msgid "Invalid page ranges"
 msgstr "Недійсний набір сторінок"
@@ -50,10 +51,10 @@ msgstr "Недійсний набір сторінок"
 msgid "Extract pages:"
 msgstr "Витягнути сторінки:"
 
-msgid ""
-"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
-msgstr ""
+#~ msgid ""
+#~ "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+#~ ")"
+#~ msgstr ""
 
 msgid "Split by bookmarks"
 msgstr "Розділити по закладках"
@@ -83,7 +84,8 @@ msgstr ""
 
 msgid "Select or drag and drop the PDF you want to split"
 msgstr ""
-"Виберіть або перетягніть сюди документ PDF, який Ви хочете розбити на частини"
+"Виберіть або перетягніть сюди документ PDF, який Ви хочете розбити на "
+"частини"
 
 msgid "Split settings"
 msgstr "Налаштування розділення"
@@ -115,8 +117,7 @@ msgstr "Непарні сторінки"
 msgid "Split the document after the given page numbers"
 msgstr "Розділити документ після цих номерів сторінок"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr "Розділити документ на рівні частини по N сторінок кожна"
 
 msgid "Split after the following page numbers"
@@ -184,8 +185,7 @@ msgstr ""
 "Об'єднати два або більше документів PDF, беручи їх сторінки по черзі в "
 "прямому або зворотному порядку."
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Клацніть двічі, щоб вибрати сторінки, які треба змішати (приклад: 2 або 5-23 "
 "або 2,5-7,12-)"
@@ -321,9 +321,9 @@ msgstr "Чи складати покажчик змісту для створе�
 msgid "Merge"
 msgstr "Об’єднати"
 
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr ""
-"Злиття (об’єднання) декількох  PDF документів разом або підрозділів з них."
+#~ msgid "Merge together multiple PDF documents or subsections of them."
+#~ msgstr ""
+#~ "Злиття (об’єднання) декількох  PDF документів разом або підрозділів з них."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr ""
@@ -661,8 +661,7 @@ msgstr "Вивід"
 msgid "Check for updates now"
 msgstr "Перевірити зараз наявність оновлень"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Оберіть каталог, в якому документи будуть збережені та завантажені за "
 "замовчуванням"
@@ -714,13 +713,13 @@ msgstr "Стискання PDF файлів увімкнено"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
-"Чи потрібно аби \"Стискання вихідних файлів\" було увімкнено за замовчуванням"
+"Чи потрібно аби \"Стискання вихідних файлів\" було увімкнено за "
+"замовчуванням"
 
 msgid "Overwrite files"
 msgstr ""
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
 
 msgid "Play alert sounds"
@@ -920,8 +919,8 @@ msgstr ""
 msgid "Loading workspace from {0}"
 msgstr "Завантажено робочий простір з {0}"
 
-msgid "Workspace loaded"
-msgstr "Робочий простір завантажено"
+#~ msgid "Workspace loaded"
+#~ msgstr "Робочий простір завантажено"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
@@ -951,8 +950,8 @@ msgstr "Виберіть файл PDF"
 msgid "_Select PDF"
 msgstr "Виберіть PDF"
 
-msgid "Clear all settings"
-msgstr "Очистіть усі налаштування"
+#~ msgid "Clear all settings"
+#~ msgstr "Очистіть усі налаштування"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -1115,6 +1114,7 @@ msgstr "Перезаписати, якщо вже існує"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr ""
 "Встановіть цей прапорець, якщо ви хочете, щоб програма перезаписала вихідні "
 "файли, якщо вони вже існують."
@@ -1189,12 +1189,12 @@ msgstr "Запущено"
 msgid "Running {0}%"
 msgstr "Виконується {0}%"
 
-msgid "Error saving log file."
-msgstr "Помилка при збереженні журналу логування"
+#~ msgid "Error saving log file."
+#~ msgstr "Помилка при збереженні журналу логування"
 
 #, java-format
-msgid "File {0} saved."
-msgstr "Файл {0} збережено."
+#~ msgid "File {0} saved."
+#~ msgstr "Файл {0} збережено."
 
 #, java-format
 msgid "Invalid range: {0}."
@@ -1223,3 +1223,68 @@ msgstr "Неправильне число: {0}"
 
 #~ msgid "Split odd pages"
 #~ msgstr "Розділити непарні сторінки"
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr ""
+
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+" or 3,last)"
+msgstr ""
+
+msgid "Merge multiple PDF documents or subsections of them."
+msgstr ""
+
+msgid "A .pdf extension is required for the repeating file"
+msgstr ""
+
+msgid "A .pdf destination file extension is required"
+msgstr ""
+
+msgid "Default PDF version:"
+msgstr ""
+
+msgid "Default PDF version for generated PDF files"
+msgstr ""
+
+msgid "Default prefix:"
+msgstr ""
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
+msgstr ""
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
+msgstr ""
+
+#, java-format
+msgid "Workspace loaded: {0}"
+msgstr ""
+
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
+msgstr ""
+
+msgid "Duplicate at Top"
+msgstr ""
+
+msgid "Duplicate Up"
+msgstr ""
+
+msgid "Duplicate Down"
+msgstr ""
+
+msgid "Duplicate at Bottom"
+msgstr ""
+
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr ""
+
+#, java-format
+msgid "File {0} saved"
+msgstr ""
+
+msgid "Error saving content to clipboard"
+msgstr ""

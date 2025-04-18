@@ -2,20 +2,21 @@
 # Copyright (c) 2020 Rosetta Contributors and Canonical Ltd 2020
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2020-11-03 14:02+0000\n"
+"PO-Revision-Date: 2025-04-18 09:55+0200\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
+"X-Generator: Autopo v1.0.1\n"
+"Language: lt\n"
 
 msgid "No PDF document has been selected"
 msgstr "Nepasirinktas joks PDF dokumentas"
@@ -41,8 +42,8 @@ msgstr ""
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr ""
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Puslapiai, kuriuos išskleisti (pvz.: 2 arba 5-23 arba 2,5-7,12-)"
+#~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "Puslapiai, kuriuos išskleisti (pvz.: 2 arba 5-23 arba 2,5-7,12-)"
 
 msgid "Invalid page ranges"
 msgstr "Neteisingas puslapių rėžis"
@@ -50,10 +51,10 @@ msgstr "Neteisingas puslapių rėžis"
 msgid "Extract pages:"
 msgstr "Išskleisti puslapius:"
 
-msgid ""
-"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
-msgstr ""
+#~ msgid ""
+#~ "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+#~ ")"
+#~ msgstr ""
 
 msgid "Split by bookmarks"
 msgstr ""
@@ -111,8 +112,7 @@ msgstr ""
 msgid "Split the document after the given page numbers"
 msgstr ""
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 
 msgid "Split after the following page numbers"
@@ -177,8 +177,7 @@ msgid ""
 "reverse order."
 msgstr ""
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 
 msgid "Select a positive integer number as pace"
@@ -218,8 +217,8 @@ msgstr ""
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
-"Dukart spustelėkite kad pažymėtumėte puslapius, kuriuos norite sujungti "
-"(pvz., 2 arba 5-23 arba 2,5-7,12-"
+"Dukart spustelėkite kad pažymėtumėte puslapius, kuriuos norite sujungti (pvz."
+", 2 arba 5-23 arba 2,5-7,12-"
 
 msgid "Add a blank page if page number is odd"
 msgstr ""
@@ -307,8 +306,8 @@ msgstr ""
 msgid "Merge"
 msgstr ""
 
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr ""
+#~ msgid "Merge together multiple PDF documents or subsections of them."
+#~ msgstr ""
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr ""
@@ -644,8 +643,7 @@ msgstr ""
 msgid "Check for updates now"
 msgstr ""
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Pasirinkti aplanką, kuriame pagal nutylėjimą bus saugomi ir įkeliami "
 "dokumentai"
@@ -695,8 +693,7 @@ msgstr ""
 msgid "Overwrite files"
 msgstr "Perrašyti failus"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
 
 msgid "Play alert sounds"
@@ -892,8 +889,8 @@ msgstr ""
 msgid "Loading workspace from {0}"
 msgstr ""
 
-msgid "Workspace loaded"
-msgstr ""
+#~ msgid "Workspace loaded"
+#~ msgstr ""
 
 #, java-format
 msgid "Unable to load workspace from {0}"
@@ -923,8 +920,8 @@ msgstr ""
 msgid "_Select PDF"
 msgstr ""
 
-msgid "Clear all settings"
-msgstr ""
+#~ msgid "Clear all settings"
+#~ msgstr ""
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -1085,6 +1082,7 @@ msgstr "Perrašyti failą, jei toks jau egzistuoja:"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr ""
 
 #, java-format
@@ -1156,12 +1154,12 @@ msgstr ""
 msgid "Running {0}%"
 msgstr ""
 
-msgid "Error saving log file."
-msgstr ""
+#~ msgid "Error saving log file."
+#~ msgstr ""
 
 #, java-format
-msgid "File {0} saved."
-msgstr ""
+#~ msgid "File {0} saved."
+#~ msgstr ""
 
 #, java-format
 msgid "Invalid range: {0}."
@@ -1207,3 +1205,68 @@ msgstr ""
 
 #~ msgid "Would you like to overwrite it?"
 #~ msgstr "Ar norite jį perrašyti?"
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr ""
+
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+" or 3,last)"
+msgstr ""
+
+msgid "Merge multiple PDF documents or subsections of them."
+msgstr ""
+
+msgid "A .pdf extension is required for the repeating file"
+msgstr ""
+
+msgid "A .pdf destination file extension is required"
+msgstr ""
+
+msgid "Default PDF version:"
+msgstr ""
+
+msgid "Default PDF version for generated PDF files"
+msgstr ""
+
+msgid "Default prefix:"
+msgstr ""
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
+msgstr ""
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
+msgstr ""
+
+#, java-format
+msgid "Workspace loaded: {0}"
+msgstr ""
+
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
+msgstr ""
+
+msgid "Duplicate at Top"
+msgstr ""
+
+msgid "Duplicate Up"
+msgstr ""
+
+msgid "Duplicate Down"
+msgstr ""
+
+msgid "Duplicate at Bottom"
+msgstr ""
+
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr ""
+
+#, java-format
+msgid "File {0} saved"
+msgstr ""
+
+msgid "Error saving content to clipboard"
+msgstr ""

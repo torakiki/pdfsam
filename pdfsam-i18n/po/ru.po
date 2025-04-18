@@ -2,20 +2,21 @@
 # Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2024-10-10 11:40+0000\n"
-"Last-Translator: Aleksey Kabanov <Unknown>\n"
+"PO-Revision-Date: 2025-04-18 09:55+0200\n"
+"Last-Translator: Sergej <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-10-25 13:44+0000\n"
-"X-Generator: Launchpad (build 22ade00ab50b929fac63b8ee7252243aceda294a)\n"
+"X-Launchpad-Export-Date: 2025-04-17 17:36+0000\n"
+"X-Generator: Autopo v1.0.1\n"
+"Language: ru\n"
 
 msgid "No PDF document has been selected"
 msgstr "Не выбран файл PDF"
@@ -116,8 +117,7 @@ msgstr "Нечётные страницы"
 msgid "Split the document after the given page numbers"
 msgstr "Разбить документ после указанных номеров страниц"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 "Разделить документ PDF на каждой N-ной странице, создавая документы с числом "
 "страниц N в каждом"
@@ -186,8 +186,7 @@ msgstr ""
 "Объединить два или более PDF документов, принимая страницы поочередно в "
 "исходном или обратном порядке."
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Дважды щелкните мышью чтобы ввести номера страниц (например: 2 или 5-23 или "
 "2,5-7,12-)"
@@ -333,8 +332,7 @@ msgid "Merge multiple PDF documents or subsections of them."
 msgstr "Объединить несколько PDF-документов или их подразделов."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
-msgstr ""
-"Выберите или перетащите PDF-файл, страницы которого будут повторяться"
+msgstr "Выберите или перетащите PDF-файл, страницы которого будут повторяться"
 
 msgid "Repeat these pages:"
 msgstr "Повторите эти страницы:"
@@ -509,8 +507,7 @@ msgstr "PDFsam пробует устранить ошибку"
 
 msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
-msgstr ""
-"Возможна частичная или полная потеря данных в файлах PDF. Продолжить?"
+msgstr "Возможна частичная или полная потеря данных в файлах PDF. Продолжить?"
 
 msgid "Removes all the log messages"
 msgstr "Удалить все сообщения журнала"
@@ -711,8 +708,7 @@ msgstr "Каталог для вывода результатов"
 msgid "Check for updates now"
 msgstr "Проверить наличие обновлений"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Выберите каталог, куда документы будут сохранятся и загружатся по умолчанию"
 
@@ -751,7 +747,8 @@ msgid ""
 "Set whether the application should check for news availability on startup "
 "(restart needed)"
 msgstr ""
-"Установите нужно ли проверять наличие новостей при запуске (нужен перезапуск)"
+"Установите нужно ли проверять наличие новостей при запуске (нужен "
+"перезапуск)"
 
 msgid "Enabled PDF compression"
 msgstr "Сжатие файлов включено"
@@ -760,14 +757,12 @@ msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr "Должно ли \"Сжатие выходных файлов\" быть включено по умолчанию"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
-msgstr ""
-"Должна ли настройка \"Отбросить закладки\" быть включена по умолчанию"
+msgstr "Должна ли настройка \"Отбросить закладки\" быть включена по умолчанию"
 
 msgid "Overwrite files"
 msgstr "Перезаписать файлы"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
 "Установить включенным по умолчанию \"Перезаписать, если уже существует\"."
 
@@ -1070,16 +1065,16 @@ msgid "Duplicate"
 msgstr "Дублировать"
 
 msgid "Duplicate at Top"
-msgstr ""
+msgstr "Дублировать в самый верх"
 
 msgid "Duplicate Up"
-msgstr ""
+msgstr "Дублировать выше"
 
 msgid "Duplicate Down"
-msgstr ""
+msgstr "Дублировать ниже"
 
 msgid "Duplicate at Bottom"
-msgstr ""
+msgstr "Дублировать в самый низ"
 
 msgid "Selected pages"
 msgstr "Выбранные страницы"
@@ -1198,6 +1193,7 @@ msgstr "Заменить, если уже существует"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr "Поставьте флажок, если хотите перезаписать существующий файл"
 
 msgid "The selected PDF file is invalid"

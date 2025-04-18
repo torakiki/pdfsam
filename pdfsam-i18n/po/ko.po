@@ -2,20 +2,21 @@
 # Copyright (c) 2016 Rosetta Contributors and Canonical Ltd 2016
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2020-10-12 04:57+0000\n"
+"PO-Revision-Date: 2025-04-18 09:55+0200\n"
 "Last-Translator: SEO ARAM <Unknown>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
+"X-Generator: Autopo v1.0.1\n"
+"Language: ko\n"
 
 msgid "No PDF document has been selected"
 msgstr "선택된 PDF 문서가 없습니다."
@@ -41,8 +42,8 @@ msgstr ""
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr ""
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "특정 페이지 추출"
+#~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "특정 페이지 추출"
 
 msgid "Invalid page ranges"
 msgstr "잘못된 페이지 범위"
@@ -50,10 +51,10 @@ msgstr "잘못된 페이지 범위"
 msgid "Extract pages:"
 msgstr "페이지 추출:"
 
-msgid ""
-"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
-msgstr ""
+#~ msgid ""
+#~ "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+#~ ")"
+#~ msgstr ""
 
 msgid "Split by bookmarks"
 msgstr "책갈피로 분할하기"
@@ -111,8 +112,7 @@ msgstr "홀수 페이지"
 msgid "Split the document after the given page numbers"
 msgstr ""
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 
 msgid "Split after the following page numbers"
@@ -177,8 +177,7 @@ msgid ""
 "reverse order."
 msgstr ""
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "섞고 싶은 페이지를 설정하려면 더블 클릭하세요(ex: 2 or 5-23 or 2,5-7,12-)."
 
 msgid "Select a positive integer number as pace"
@@ -305,8 +304,8 @@ msgstr "생성된 PDF문서에 목차를 추가할 것인지 여부를 설정하
 msgid "Merge"
 msgstr "병합하기"
 
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "여러 PDF문서 또는 그 PDF문서의 하위 섹션을 함께 병합하기"
+#~ msgid "Merge together multiple PDF documents or subsections of them."
+#~ msgstr "여러 PDF문서 또는 그 PDF문서의 하위 섹션을 함께 병합하기"
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr ""
@@ -642,8 +641,7 @@ msgstr "내보내기"
 msgid "Check for updates now"
 msgstr "업데이트 확인하기"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr "문서를 저장하고 불러올 기본 디렉토리를 선택합니다"
 
 msgid "Select a directory"
@@ -691,8 +689,7 @@ msgstr "\"압축하여 파일 내보내기\"를 기본적으로 활성화 할지
 msgid "Overwrite files"
 msgstr ""
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
 
 msgid "Play alert sounds"
@@ -888,8 +885,8 @@ msgstr "{0}에 작업 공간을 저장할 수 없습니다."
 msgid "Loading workspace from {0}"
 msgstr "{0}로부터 작업 공간을 불러오는 중"
 
-msgid "Workspace loaded"
-msgstr "작업 공간을 불러왔습니다."
+#~ msgid "Workspace loaded"
+#~ msgstr "작업 공간을 불러왔습니다."
 
 #, java-format
 msgid "Unable to load workspace from {0}"
@@ -919,8 +916,8 @@ msgstr "PDF파일 선택하기"
 msgid "_Select PDF"
 msgstr "PDF파일 선택(_S)"
 
-msgid "Clear all settings"
-msgstr "모든 설정 지우기"
+#~ msgid "Clear all settings"
+#~ msgstr "모든 설정 지우기"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -1081,6 +1078,7 @@ msgstr "파일이 이미 있으면 덮어 쓰기"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr ""
 
 #, java-format
@@ -1152,12 +1150,12 @@ msgstr "실행중"
 msgid "Running {0}%"
 msgstr "실행중 {0}%"
 
-msgid "Error saving log file."
-msgstr "로그파일 저장 오류"
+#~ msgid "Error saving log file."
+#~ msgstr "로그파일 저장 오류"
 
 #, java-format
-msgid "File {0} saved."
-msgstr "{0}개의 파일이 저장되었습니다."
+#~ msgid "File {0} saved."
+#~ msgstr "{0}개의 파일이 저장되었습니다."
 
 #, java-format
 msgid "Invalid range: {0}."
@@ -1181,3 +1179,68 @@ msgstr "유효하지 않은 숫자{0}"
 
 #~ msgid "Destination folder"
 #~ msgstr "대상 폴더"
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr ""
+
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+" or 3,last)"
+msgstr ""
+
+msgid "Merge multiple PDF documents or subsections of them."
+msgstr ""
+
+msgid "A .pdf extension is required for the repeating file"
+msgstr ""
+
+msgid "A .pdf destination file extension is required"
+msgstr ""
+
+msgid "Default PDF version:"
+msgstr ""
+
+msgid "Default PDF version for generated PDF files"
+msgstr ""
+
+msgid "Default prefix:"
+msgstr ""
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
+msgstr ""
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
+msgstr ""
+
+#, java-format
+msgid "Workspace loaded: {0}"
+msgstr ""
+
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
+msgstr ""
+
+msgid "Duplicate at Top"
+msgstr ""
+
+msgid "Duplicate Up"
+msgstr ""
+
+msgid "Duplicate Down"
+msgstr ""
+
+msgid "Duplicate at Bottom"
+msgstr ""
+
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr ""
+
+#, java-format
+msgid "File {0} saved"
+msgstr ""
+
+msgid "Error saving content to clipboard"
+msgstr ""

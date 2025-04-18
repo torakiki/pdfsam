@@ -2,20 +2,21 @@
 # Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2024-01-20 12:32+0000\n"
+"PO-Revision-Date: 2025-04-18 09:55+0200\n"
 "Last-Translator: Arief Setiadi Wibowo <q_thrynx@yahoo.com>\n"
 "Language-Team: Indonesian <id@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-02-06 10:16+0000\n"
-"X-Generator: Launchpad (build 9643586c585856148a18782148972ae9c1179d06)\n"
+"X-Generator: Autopo v1.0.1\n"
+"Language: id\n"
 
 msgid "No PDF document has been selected"
 msgstr "Tidak ada dokumen terpilih"
@@ -43,8 +44,8 @@ msgstr ""
 "Setiap rangkaian halaman yang berkesinambungan akan menghasilkan berkas PDF "
 "terpisah"
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Halaman yang akan diekstrak (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "Halaman yang akan diekstrak (ex: 2 or 5-23 or 2,5-7,12-)"
 
 msgid "Invalid page ranges"
 msgstr "Rentang halaman tidak valid"
@@ -52,10 +53,10 @@ msgstr "Rentang halaman tidak valid"
 msgid "Extract pages:"
 msgstr "Ekstrak halaman:"
 
-msgid ""
-"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
-msgstr ""
+#~ msgid ""
+#~ "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+#~ ")"
+#~ msgstr ""
 
 msgid "Split by bookmarks"
 msgstr ""
@@ -113,8 +114,7 @@ msgstr "Halaman ganjil"
 msgid "Split the document after the given page numbers"
 msgstr "Pisahkan dokumen setelah nomor halaman yang diberikan"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 "Pisahkan PDF setiap \"n\" halaman sehingga membuat dokumen setiap \"n\" "
 "halaman."
@@ -184,8 +184,7 @@ msgstr ""
 "Gabungkan dua atau lebih dokumen PDF dengan mengambil halaman secara "
 "bergantian dalam urutan alami atau terbalik."
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Klik dua kali untuk mengatur halaman yang ingin Anda campur (misal: 2 atau 5-"
 "23 atau 2,5-7,12-)"
@@ -681,8 +680,7 @@ msgstr "Keluaran"
 msgid "Check for updates now"
 msgstr "Periksa pembaruan sekarang"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr "Pilih direktori bawaan tempat dokumen akan disimpan dan dimuat"
 
 msgid "Select a directory"
@@ -739,8 +737,7 @@ msgstr ""
 msgid "Overwrite files"
 msgstr "Menindih berkas"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr "Pilih apakah \"Menindih jika berkas sama\" diaktifkan secara bawaan"
 
 msgid "Play alert sounds"
@@ -1135,6 +1132,7 @@ msgstr "Ditimpa jika sudah ada"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr ""
 
 msgid "Same as the input document"
@@ -1196,12 +1194,12 @@ msgstr ""
 msgid "Running {0}%"
 msgstr ""
 
-msgid "Error saving log file."
-msgstr "Kesalahan menyimpan berkas catatan"
+#~ msgid "Error saving log file."
+#~ msgstr "Kesalahan menyimpan berkas catatan"
 
 #, java-format
-msgid "File {0} saved."
-msgstr "Berkas {0} disimpan."
+#~ msgid "File {0} saved."
+#~ msgstr "Berkas {0} disimpan."
 
 #, java-format
 msgid "Invalid range: {0}."
@@ -1230,3 +1228,40 @@ msgstr "Anglka tidak valid: {0}."
 
 #~ msgid "Would you like to overwrite it?"
 #~ msgstr "Apakah anda ingin menindih?"
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr ""
+
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+" or 3,last)"
+msgstr ""
+
+msgid "A .pdf extension is required for the repeating file"
+msgstr ""
+
+msgid "A .pdf destination file extension is required"
+msgstr ""
+
+msgid "Duplicate at Top"
+msgstr ""
+
+msgid "Duplicate Up"
+msgstr ""
+
+msgid "Duplicate Down"
+msgstr ""
+
+msgid "Duplicate at Bottom"
+msgstr ""
+
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr ""
+
+#, java-format
+msgid "File {0} saved"
+msgstr ""
+
+msgid "Error saving content to clipboard"
+msgstr ""

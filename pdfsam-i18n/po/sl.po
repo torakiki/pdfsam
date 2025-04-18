@@ -2,20 +2,21 @@
 # Copyright (c) 2017 Rosetta Contributors and Canonical Ltd 2017
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-04-26 12:14+0200\n"
-"PO-Revision-Date: 2023-06-09 17:49+0000\n"
+"PO-Revision-Date: 2025-04-18 10:05+0200\n"
 "Last-Translator: Janez Gačnik <Unknown>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-08-02 14:04+0000\n"
-"X-Generator: Launchpad (build d80dbb5bdc9110f3a64cc968928033472d5e0509)\n"
+"X-Generator: Autopo v1.0.1\n"
+"Language: sl\n"
 
 msgid "No PDF document has been selected"
 msgstr "Izbrana ni bila nobena datoteka PDF"
@@ -39,11 +40,10 @@ msgid "A separate file for each set of pages"
 msgstr "Ločena datoteka za vsak sklop strani"
 
 msgid "Each continuous series of pages will generate a separate PDF file"
-msgstr ""
-"Iz vsakega sklopa zaporednih strani bo ustvarjeno ločena PDF datoteka"
+msgstr "Iz vsakega sklopa zaporednih strani bo ustvarjeno ločena PDF datoteka"
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Strani za izvlačenje (npr. 2 ali 5-23 ali 2,5-7,12-)"
+#~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "Strani za izvlačenje (npr. 2 ali 5-23 ali 2,5-7,12-)"
 
 msgid "Invalid page ranges"
 msgstr "Neveljaven razpon strani"
@@ -51,12 +51,12 @@ msgstr "Neveljaven razpon strani"
 msgid "Extract pages:"
 msgstr "Izvleci strani:"
 
-msgid ""
-"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
-msgstr ""
-"Z vejico ločene strani ali razponi, ki jih želite izvleči (npr. 2 ali 5-23 "
-"ali 2,5-7,12-)"
+#~ msgid ""
+#~ "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+#~ ")"
+#~ msgstr ""
+#~ "Z vejico ločene strani ali razponi, ki jih želite izvleči (npr. 2 ali 5-23 "
+#~ "ali 2,5-7,12-)"
 
 msgid "Split by bookmarks"
 msgstr "Razcepi po zaznamkih"
@@ -116,8 +116,7 @@ msgstr "Lihe strani"
 msgid "Split the document after the given page numbers"
 msgstr "Razcepi dokument za podanimi stranmi"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 "Razcepi PDF na vsake \"n\" strani tako, da ustvari dokumente z \"n\" stranmi"
 
@@ -185,8 +184,7 @@ msgstr ""
 "Združi dva ali več dokumentov z izmenjujočim dodajanjem zaporednih strani "
 "ali v obratnem vrstnem redu."
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Dvokliknite za nastavitev strani, ki jih želite zmešati (npr: 2 ali 5-23 ali "
 "2,5-7,12-)"
@@ -444,8 +442,7 @@ msgid "The selected directory is not empty"
 msgstr "Izbrana mapa ni prazna"
 
 msgid "What would you like to do in case of files with the same name?"
-msgstr ""
-"Kaj želite storiti v primeru, da že obstaja datoteka z enakim imenom?"
+msgstr "Kaj želite storiti v primeru, da že obstaja datoteka z enakim imenom?"
 
 msgid "Overwrite"
 msgstr "Prepiši"
@@ -671,8 +668,7 @@ msgstr "Izpis"
 msgid "Check for updates now"
 msgstr "Poizvej sedaj, ali so na voljo posodobitve"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr "Izberi direktorij kamor se bodo dokumenti shranjevali in nalagali"
 
 msgid "Select a directory"
@@ -728,8 +724,7 @@ msgstr ""
 msgid "Overwrite files"
 msgstr "Prepiši datoteke"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
 "Nastavite, ali želite, da je \"Prepiši, če že obstaja\" privzeto omogočeno"
 
@@ -1135,6 +1130,7 @@ msgstr "Prepiši, če že obstaja"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr "Okljukajte kvadratek, če želite prepisati že obstoječe datoteke."
 
 #, java-format
@@ -1207,12 +1203,12 @@ msgstr "Se izvaja"
 msgid "Running {0}%"
 msgstr "Izvajanje {0}%"
 
-msgid "Error saving log file."
-msgstr "Napaka pri shranjevanju dnevniške datoteke."
+#~ msgid "Error saving log file."
+#~ msgstr "Napaka pri shranjevanju dnevniške datoteke."
 
 #, java-format
-msgid "File {0} saved."
-msgstr "Shranjena datoteka {0}."
+#~ msgid "File {0} saved."
+#~ msgstr "Shranjena datoteka {0}."
 
 #, java-format
 msgid "Invalid range: {0}."
@@ -1260,3 +1256,61 @@ msgstr "Neveljavna številka: {0}."
 
 #~ msgid "Ask for confirmation when overwrite checkbox is selected"
 #~ msgstr "Pri izbiri označnega polja za prepis prosi za potrditev"
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr "Strani za izvoz (npr.: 2 ali 5-23 ali 2,5-7,12- ali 3,zadnja)"
+
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+" or 3,last)"
+msgstr ""
+"Ločite s piko strani ali razpone za izvoz (npr.: 2 ali 5-23 ali 2,5-7,12- "
+"ali 3,zadnja)"
+
+msgid "A .pdf extension is required for the repeating file"
+msgstr "Potrebna je .pdf končnica za ponavljajočo se datoteko"
+
+msgid "A .pdf destination file extension is required"
+msgstr "Zahtevana je datotečna končnica .pdf"
+
+msgid "Default PDF version:"
+msgstr "Privzeta različica PDF:"
+
+msgid "Default PDF version for generated PDF files"
+msgstr "Privzeta različica PDF za generirane PDF datoteke"
+
+msgid "Default prefix:"
+msgstr "Privzeti predpona:"
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
+msgstr ""
+"Privzeta predpona imen izhodnih datotek, uporabljena v orodjih, ki "
+"ustvarjajo več datotek"
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
+msgstr "Ali naj bo \"Zavrzi zaznamke\" privzeto omogočeno"
+
+msgid "Duplicate at Top"
+msgstr "Podvoji na vrhu"
+
+msgid "Duplicate Up"
+msgstr "Podvoji gor"
+
+msgid "Duplicate Down"
+msgstr "Podvoji navzdol"
+
+msgid "Duplicate at Bottom"
+msgstr "Podvoji na dnu"
+
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr "Napaka pri shranjevanju vsebine v datoteko {0}"
+
+#, java-format
+msgid "File {0} saved"
+msgstr "Datoteka {0} shranjena"
+
+msgid "Error saving content to clipboard"
+msgstr "Napaka pri shranjevanju vsebine v odložišče"

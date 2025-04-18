@@ -3,20 +3,20 @@
 # This file is distributed under the same license as the pdfsam package.
 # Translators:
 # Milo Ivir <mail@milotype.de>, 2020.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2024-12-02 12:24+0000\n"
+"PO-Revision-Date: 2025-04-18 09:55+0200\n"
 "Last-Translator: Milo Ivir <Unknown>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2025-01-22 08:16+0000\n"
-"X-Generator: Launchpad (build 6394e03793719e8d73f5a60b5439440e693c92f1)\n"
+"X-Generator: Autopo v1.0.1\n"
 "Language: hr\n"
 
 msgid "No PDF document has been selected"
@@ -44,8 +44,7 @@ msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr "Svaki kontinuirani niz stranica generirat će zasebnu PDF datoteku"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
-msgstr ""
-"Stranice za izdvajanje (npr.: 2 ili 5-23 ili 2,5-7,12- ili 3, zadnja)"
+msgstr "Stranice za izdvajanje (npr.: 2 ili 5-23 ili 2,5-7,12- ili 3, zadnja)"
 
 msgid "Invalid page ranges"
 msgstr "Neispravni rasponi stranica"
@@ -119,8 +118,7 @@ msgstr "Neparne stranice"
 msgid "Split the document after the given page numbers"
 msgstr "Rastavi dokument nakon zadanih brojeva stranica"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 "Rastavi PDF svakih „x” stranica, izrađujući pojedinačne dokumente s „x” "
 "stranicama"
@@ -189,8 +187,7 @@ msgstr ""
 "Sjedini dvije ili više PDF datoteka uzimajući stranice naizmjence normalnim "
 "ili obrnutim redoslijedom."
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Pritisni dvaput za postavljanje stranica koje želiš miješati (npr. 2 ili 5-"
 "23 ili 2,5-7,12-)"
@@ -697,8 +694,7 @@ msgstr "Rezultat"
 msgid "Check for updates now"
 msgstr "Traži novu verziju sada"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr "Odaberi standardnu mapu za spremanje i učitavanje dokumenata"
 
 msgid "Select a directory"
@@ -755,8 +751,7 @@ msgstr "Postavi da li standardno aktivirati opciju „Odbaci oznake”"
 msgid "Overwrite files"
 msgstr "Prepiši datoteke"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr "Da li standardno aktivirati opciju „Prepiši, ako već postoji”"
 
 msgid "Play alert sounds"
@@ -1159,8 +1154,7 @@ msgstr "Komprimiraj datoteke rezultata"
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
 "document"
-msgstr ""
-"Označi kvadratić, ako ne želiš zadržati oznake izvornog PDF dokumenta"
+msgstr "Označi kvadratić, ako ne želiš zadržati oznake izvornog PDF dokumenta"
 
 msgid "Output PDF version:"
 msgstr "PDF verzija rezultata:"
@@ -1176,6 +1170,7 @@ msgstr "Prepiši, ako već postoji"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr "Označi kvadratić, ako želiš prepisati postojeće datoteke rezultata."
 
 msgid "The selected PDF file is invalid"

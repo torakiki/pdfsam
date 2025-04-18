@@ -2,20 +2,21 @@
 # Copyright (c) 2016 Rosetta Contributors and Canonical Ltd 2016
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2021-01-24 05:12+0000\n"
-"Last-Translator: Bernard Stafford <Unknown>\n"
+"PO-Revision-Date: 2025-04-18 09:55+0200\n"
+"Last-Translator: Andrea Vacondio <info@pdfsam.org>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
+"Language: af\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
+"X-Generator: Autopo v1.0.1\n"
 
 msgid "No PDF document has been selected"
 msgstr "Geen PDF dokument was geselekteerde"
@@ -41,8 +42,8 @@ msgstr ""
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr ""
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Bladsye te ekstrak (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "Bladsye te ekstrak (ex: 2 or 5-23 or 2,5-7,12-)"
 
 msgid "Invalid page ranges"
 msgstr "Ongeldig bladsy reekse"
@@ -50,10 +51,10 @@ msgstr "Ongeldig bladsy reekse"
 msgid "Extract pages:"
 msgstr "Ekstrek bladsye:"
 
-msgid ""
-"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
-msgstr ""
+#~ msgid ""
+#~ "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+#~ ")"
+#~ msgstr ""
 
 msgid "Split by bookmarks"
 msgstr "Gesplete deur boekmerke"
@@ -115,8 +116,7 @@ msgstr "Onewe bladsye"
 msgid "Split the document after the given page numbers"
 msgstr "Gesplete die dokumenteer nadat die gegewe bladsy nommers"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 "Gesplete se die PDF every \"n\" bladsye skep dokumente van \"n\" bladsye elk"
 
@@ -184,8 +184,7 @@ msgstr ""
 "Merge twee of meer PDF dokumente die neem van bladsye afwisselend in "
 "natuurlike of omgekeerde volgorde."
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Dubbel kliek op te rig bladsye wat jy wil om te meng (ex: 2 of 5-23 of 2,5-"
 "7,12-)"
@@ -299,8 +298,7 @@ msgid "Bookmarks handling:"
 msgstr "Boekmerke hantering:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
-msgstr ""
-"Wat om te doen in geval een of meer insette dokumente bevat boekmerke"
+msgstr "Wat om te doen in geval een of meer insette dokumente bevat boekmerke"
 
 msgid "Don't generate"
 msgstr "Moenie te genereer"
@@ -323,9 +321,8 @@ msgstr ""
 msgid "Merge"
 msgstr "Saamsmelt"
 
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr ""
-"Saamsmelt saam meervoudige PDF-dokumente of onderafdelings van hulle."
+#~ msgid "Merge together multiple PDF documents or subsections of them."
+#~ msgstr "Saamsmelt saam meervoudige PDF-dokumente of onderafdelings van hulle."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr ""
@@ -664,8 +661,7 @@ msgstr "Uitset"
 msgid "Check for updates now"
 msgstr "Tjek vir opdaterings nou"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr "Kies 'n gidswaar dokumente sal gestoor en gelaai word by verstek"
 
 msgid "Select a directory"
@@ -720,8 +716,7 @@ msgstr ""
 msgid "Overwrite files"
 msgstr "Oorskryf lêers"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
 "Stel whether \"Overwrite if already exists\" behoort wees in gestaat stel "
 "deur verstek"
@@ -929,8 +924,8 @@ msgstr "Nie in staat is om werkruimte te stoor om {0}"
 msgid "Loading workspace from {0}"
 msgstr "Laai tans werkruimte vanaf {0}"
 
-msgid "Workspace loaded"
-msgstr "Werkruimte gelaai"
+#~ msgid "Workspace loaded"
+#~ msgstr "Werkruimte gelaai"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
@@ -960,8 +955,8 @@ msgstr "Kies die PDF lêer"
 msgid "_Select PDF"
 msgstr "_Selekteer PDF"
 
-msgid "Clear all settings"
-msgstr "Duidelike alle instellings"
+#~ msgid "Clear all settings"
+#~ msgstr "Duidelike alle instellings"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -1127,6 +1122,7 @@ msgstr "Oorskryf indien bestaan alreeds"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr ""
 "Merk die boks as jy wil hê om oorskyrf die uitset lêers indien dit reeds "
 "bestaan."
@@ -1200,12 +1196,12 @@ msgstr "Hardlooping"
 msgid "Running {0}%"
 msgstr "Hardlooping {0}%"
 
-msgid "Error saving log file."
-msgstr "Fout tydens stoor log lêer."
+#~ msgid "Error saving log file."
+#~ msgstr "Fout tydens stoor log lêer."
 
 #, java-format
-msgid "File {0} saved."
-msgstr "Lêer {0} gestoor."
+#~ msgid "File {0} saved."
+#~ msgstr "Lêer {0} gestoor."
 
 #, java-format
 msgid "Invalid range: {0}."
@@ -1253,3 +1249,68 @@ msgstr "Ongeldige nommer: {0}."
 
 #~ msgid "Never"
 #~ msgstr "Nooit"
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr ""
+
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+" or 3,last)"
+msgstr ""
+
+msgid "Merge multiple PDF documents or subsections of them."
+msgstr ""
+
+msgid "A .pdf extension is required for the repeating file"
+msgstr ""
+
+msgid "A .pdf destination file extension is required"
+msgstr ""
+
+msgid "Default PDF version:"
+msgstr ""
+
+msgid "Default PDF version for generated PDF files"
+msgstr ""
+
+msgid "Default prefix:"
+msgstr ""
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
+msgstr ""
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
+msgstr ""
+
+#, java-format
+msgid "Workspace loaded: {0}"
+msgstr ""
+
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
+msgstr ""
+
+msgid "Duplicate at Top"
+msgstr ""
+
+msgid "Duplicate Up"
+msgstr ""
+
+msgid "Duplicate Down"
+msgstr ""
+
+msgid "Duplicate at Bottom"
+msgstr ""
+
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr ""
+
+#, java-format
+msgid "File {0} saved"
+msgstr ""
+
+msgid "Error saving content to clipboard"
+msgstr ""

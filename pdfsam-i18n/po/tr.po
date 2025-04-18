@@ -2,20 +2,20 @@
 # Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2024-10-28 08:00+0000\n"
+"PO-Revision-Date: 2025-04-18 09:55+0200\n"
 "Last-Translator: Andrea Vacondio <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2025-01-22 08:16+0000\n"
-"X-Generator: Launchpad (build 6394e03793719e8d73f5a60b5439440e693c92f1)\n"
+"X-Generator: Autopo v1.0.1\n"
 "Language: tr\n"
 
 msgid "No PDF document has been selected"
@@ -119,8 +119,7 @@ msgstr "Tek sayfalar"
 msgid "Split the document after the given page numbers"
 msgstr "Dokümanı belirtilen sayfa numaralarının ardından bölümle"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 "PDF'yi her \"n\" sayfada bölerek her biri \"n\" safyadan oluşan dökümanlar "
 "oluşturur"
@@ -191,8 +190,7 @@ msgstr ""
 "İki veya daha fazla PDF dokümanını her birinden sayfaları düz ya da ters "
 "sırayla alarak birleştir."
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Karıştırma istediğiniz sayfaları (örn: 2 veya 5-23 veya 2,5-7,12-) belirtmek "
 "için çift tıklayın"
@@ -334,8 +332,7 @@ msgid "Merge"
 msgstr "Birleştir"
 
 msgid "Merge multiple PDF documents or subsections of them."
-msgstr ""
-"Birden fazla PDF dosyasını veya bunların alt bölümlerini birleştirin."
+msgstr "Birden fazla PDF dosyasını veya bunların alt bölümlerini birleştirin."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr ""
@@ -365,8 +362,7 @@ msgid "Invalid page number"
 msgstr "Geçersiz sayfa numarası"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
-msgstr ""
-"Seçilen sayfaları orijinal belgenin her 'n' adet sayfasında tekrar et"
+msgstr "Seçilen sayfaları orijinal belgenin her 'n' adet sayfasında tekrar et"
 
 msgid "A .pdf extension is required for the repeating file"
 msgstr "Tekrar eden dosya için .pdf uzantısı gereklidir"
@@ -529,7 +525,7 @@ msgid "_Clear"
 msgstr "_Temizle"
 
 msgid "_Save"
-msgstr "_Kaydet"
+msgstr "Ka_ydet"
 
 msgid "C_lose"
 msgstr "_Kapat"
@@ -570,7 +566,7 @@ msgid "Recen_ts"
 msgstr "Son kullanılanlar"
 
 msgid "_Clear recents"
-msgstr "_Son kullanılanları temizle"
+msgstr "S_on kullanılanları temizle"
 
 msgid "Select the workspace file to save"
 msgstr "Kaydetmek için çalışma alanı seçin"
@@ -727,8 +723,7 @@ msgstr "Çıktı"
 msgid "Check for updates now"
 msgstr "Güncellemeleri denetle"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr "Dosyaların kaydedileceği ve öntanımlı olarak yükleneceği dizini seç"
 
 msgid "Select a directory"
@@ -787,8 +782,7 @@ msgstr ""
 msgid "Overwrite files"
 msgstr "Dosyaların üzerine yaz"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
 "\"Zaten varsa üzerine yaz\" seçeneğinin öntanımlı olarak etkinleştirilme "
 "durumunu ayarla"
@@ -875,8 +869,8 @@ msgid ""
 "Unable to access \"{0}\", please make sure you have write permissions or "
 "open the application messages for details."
 msgstr ""
-"\"{0}\"'a/e erişilemedi, lütfen yazma hakkınız olduğundan emin olun veya "
-"ayrıntılar için uygulama mesajlarını açın."
+"\"{0}\" dosyasına erişilemiyor. Lütfen yazma izninizin olduğundan emin olun "
+"veya ayrıntılar için uygulama bildirimlerini kontrol edin."
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
@@ -982,7 +976,7 @@ msgstr "En son haberler alınamadı"
 
 #, java-format
 msgid "Saving workspace data to {0}"
-msgstr "Çalışma alanı verileri {0} konumuna kaydediliyor."
+msgstr "Çalışma alanı verileri {0} konumuna kaydediliyor"
 
 msgid "Workspace saved"
 msgstr "Çalışma alanı kaydedildi"
@@ -1138,7 +1132,7 @@ msgid "_Add"
 msgstr "_Ekle"
 
 msgid "PDF list from _text/csv file"
-msgstr "_text/csv dosyasından PDF listesi"
+msgstr "text/csv dosyasından PDF _listesi"
 
 msgid "Select pdf documents to load"
 msgstr "Yükelemek için pdf dosyası seçin"
@@ -1159,7 +1153,7 @@ msgid "Moves up selected documents"
 msgstr "Seçili belgeleri yukarı taşır"
 
 msgid "Move _Up"
-msgstr "_Yukarı Taşı"
+msgstr "Yukarı _Taşı"
 
 msgid "Moves down selected documents"
 msgstr "Seçili belgeleri aşağıtaşır"
@@ -1237,6 +1231,7 @@ msgstr "Eğer zaten varsa üzerine yaz"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr "Çıktı dosyaları zaten varsa üzerine yazmak için işaretleyiniz."
 
 msgid "The selected PDF file is invalid"

@@ -2,20 +2,21 @@
 # Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2023-12-07 07:18+0000\n"
+"PO-Revision-Date: 2025-04-18 10:05+0200\n"
 "Last-Translator: Loge Xu <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-02-06 10:16+0000\n"
-"X-Generator: Launchpad (build 9643586c585856148a18782148972ae9c1179d06)\n"
+"X-Generator: Autopo v1.0.1\n"
+"Language: zh_CN\n"
 
 msgid "No PDF document has been selected"
 msgstr "未选中PDF文档"
@@ -41,8 +42,8 @@ msgstr "每组页面生成单独文件"
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr "每组连续的页面会生成单独的PDF文件"
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "要提取的页面（如：2 或 5-23 或 2,5-7,12-）"
+#~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "要提取的页面（如：2 或 5-23 或 2,5-7,12-）"
 
 msgid "Invalid page ranges"
 msgstr "无效页面范围"
@@ -50,10 +51,10 @@ msgstr "无效页面范围"
 msgid "Extract pages:"
 msgstr "提取页面："
 
-msgid ""
-"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
-msgstr "逗号分隔的页码或范围(例如：2或者5-23或者2,5-7,12-)"
+#~ msgid ""
+#~ "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+#~ ")"
+#~ msgstr "逗号分隔的页码或范围(例如：2或者5-23或者2,5-7,12-)"
 
 msgid "Split by bookmarks"
 msgstr "按书签分割"
@@ -111,8 +112,7 @@ msgstr "奇数页"
 msgid "Split the document after the given page numbers"
 msgstr "在给定的页数之后分割文档"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr "每\"n\"页分割PDF，生成多个\"n\"页的文档"
 
 msgid "Split after the following page numbers"
@@ -177,8 +177,7 @@ msgid ""
 "reverse order."
 msgstr "合并两个或多个PDF文档时页面顺序或逆序交替"
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "双击设置你想要混合的页面（例如：2 或 5-23 或 2,5-7,12-）"
 
 msgid "Select a positive integer number as pace"
@@ -662,8 +661,7 @@ msgstr "输出"
 msgid "Check for updates now"
 msgstr "现在检查更新"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr "设置默认的文档保存和加载路径"
 
 msgid "Select a directory"
@@ -714,8 +712,7 @@ msgstr "设置默认是否“去除书签”"
 msgid "Overwrite files"
 msgstr "覆盖文件"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr "设置是否默认启用“覆盖已有文件”功能"
 
 msgid "Play alert sounds"
@@ -1110,6 +1107,7 @@ msgstr "覆盖已存在的文件"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr "如果你想覆盖已存在的输出文件，那么选中复选框"
 
 msgid "Same as the input document"
@@ -1171,12 +1169,12 @@ msgstr "运行中"
 msgid "Running {0}%"
 msgstr "运行中 {0}%"
 
-msgid "Error saving log file."
-msgstr "保存日志文件错误。"
+#~ msgid "Error saving log file."
+#~ msgstr "保存日志文件错误。"
 
 #, java-format
-msgid "File {0} saved."
-msgstr "文件{0}已保存。"
+#~ msgid "File {0} saved."
+#~ msgstr "文件{0}已保存。"
 
 #, java-format
 msgid "Invalid range: {0}."
@@ -1220,3 +1218,40 @@ msgstr "无效数字：{0}"
 
 #~ msgid "Ask for confirmation when overwrite checkbox is selected"
 #~ msgstr "当选中覆写选框时要求确认"
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr "要提取的页面（例如：2或5-23或2,5-7,12-或3,最后）"
+
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+" or 3,last)"
+msgstr "要提取的逗号分隔的页码或页码范围（例如：2 或 5-23 或 2,5-7,12- 或 3,最后）"
+
+msgid "A .pdf extension is required for the repeating file"
+msgstr "PDF文件需要使用.pdf扩展名"
+
+msgid "A .pdf destination file extension is required"
+msgstr "需要PDF目标文件扩展名"
+
+msgid "Duplicate at Top"
+msgstr "顶部复制"
+
+msgid "Duplicate Up"
+msgstr "向上复制"
+
+msgid "Duplicate Down"
+msgstr "向下复制"
+
+msgid "Duplicate at Bottom"
+msgstr "底部复制"
+
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr "保存内容到文件{0}时出错"
+
+#, java-format
+msgid "File {0} saved"
+msgstr "文件{0}已保存"
+
+msgid "Error saving content to clipboard"
+msgstr "保存内容到剪贴板时出错"

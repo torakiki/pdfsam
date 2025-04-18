@@ -2,20 +2,21 @@
 # Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2024-03-08 06:44+0000\n"
+"PO-Revision-Date: 2025-04-18 10:04+0200\n"
 "Last-Translator: Sami Kuusisto <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-04-22 14:00+0000\n"
-"X-Generator: Launchpad (build 67d34a19aaa1df7be4dd8bf498cbc5bbd785067b)\n"
+"X-Generator: Autopo v1.0.1\n"
+"Language: fi\n"
 
 msgid "No PDF document has been selected"
 msgstr "PDF-asiakirjaa ei ole valittu"
@@ -41,8 +42,8 @@ msgstr "Erillinen tiedosto jokaisesta sivusarjasta"
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr "Jokainen sivusarja luo erillisen PDF-tiedoston"
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Poimittavat sivut (esim. 2 tai 5-23 tai 2,5-7,12-)"
+#~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "Poimittavat sivut (esim. 2 tai 5-23 tai 2,5-7,12-)"
 
 msgid "Invalid page ranges"
 msgstr "Virheellisiä sivualueita"
@@ -50,12 +51,12 @@ msgstr "Virheellisiä sivualueita"
 msgid "Extract pages:"
 msgstr "Poimi sivut:"
 
-msgid ""
-"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
-msgstr ""
-"Pilkuilla erotetut sivunumerot tai erotettavat alueet (esim. 2 tai 5-23 tai "
-"2,5-7,12-)"
+#~ msgid ""
+#~ "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+#~ ")"
+#~ msgstr ""
+#~ "Pilkuilla erotetut sivunumerot tai erotettavat alueet (esim. 2 tai 5-23 tai "
+#~ "2,5-7,12-)"
 
 msgid "Split by bookmarks"
 msgstr "Jaa kirjanmerkkien mukaan"
@@ -117,10 +118,8 @@ msgstr "Parittomat sivut"
 msgid "Split the document after the given page numbers"
 msgstr "Jaa asiakirja annettujen sivunumeroiden jälkeen"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
-msgstr ""
-"Jaa PDF joka \"n\":nnen sivun jälkeen ja luo \"n\" -sivuisia asiakirjoja"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr "Jaa PDF joka \"n\":nnen sivun jälkeen ja luo \"n\" -sivuisia asiakirjoja"
 
 msgid "Split after the following page numbers"
 msgstr "Jaa seuraavien sivunumeroiden jälkeen"
@@ -186,8 +185,7 @@ msgstr ""
 "Yhdistä kaksi tai useampia PDF-asiakirjoja luonnollisessa tai käänteisessä "
 "järjestyksessä."
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Kaksoisnapsauta asettaaksesi sivut, jotka haluat yhdistää (esim. 2 tai 5-23 "
 "tai 2,5-7,12-)"
@@ -248,8 +246,7 @@ msgid "Add a footer"
 msgstr "Lisää alatunniste"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
-msgstr ""
-"Lisää alatunnisteeseen tiedon, minkä nimiseen tiedostoon sivu kuului."
+msgstr "Lisää alatunnisteeseen tiedon, minkä nimiseen tiedostoon sivu kuului."
 
 msgid "None"
 msgstr "Ei mitään"
@@ -300,7 +297,8 @@ msgstr "Luo yksi merkintä jokaista yhdistettyä asiakirjaa varten"
 
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr ""
-"Säilytä kirjanmerkit yhtenä merkintänä jokaista yhdistettyä asiakirjaa varten"
+"Säilytä kirjanmerkit yhtenä merkintänä jokaista yhdistettyä asiakirjaa "
+"varten"
 
 msgid "Bookmarks handling:"
 msgstr "Kirjanmerkkien käsittely:"
@@ -712,8 +710,7 @@ msgstr "Kohde"
 msgid "Check for updates now"
 msgstr "Tarkista päivitykset nyt"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Valitse hakemisto, johon asiakirjat oletuksena tallennetaan ja josta ne "
 "oletuksena ladataan"
@@ -772,10 +769,8 @@ msgstr "Määritä, otetaanko \"Hylkää kirjanmerkit\" käyttöön oletusarvois
 msgid "Overwrite files"
 msgstr "Korvaa tiedostot"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
-msgstr ""
-"Määritä, otetaanko \"Korvaa, jos on jo olemassa\" oletuksena käytössä"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
+msgstr "Määritä, otetaanko \"Korvaa, jos on jo olemassa\" oletuksena käytössä"
 
 msgid "Play alert sounds"
 msgstr "Toista varoitusäänet"
@@ -820,7 +815,8 @@ msgid ""
 "Set whether the application should ask for a confirmation when clearing the "
 "selection table"
 msgstr ""
-"Aseta, pyytääkö sovellus vahvistusta valintataulukon tyhjentämisen yhteydessä"
+"Aseta, pyytääkö sovellus vahvistusta valintataulukon tyhjentämisen "
+"yhteydessä"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Käytä valitun PDF-asiakirjan halemistoa kohdehakemistona"
@@ -1202,6 +1198,7 @@ msgstr "Ylikirjoita, jos on jo olemassa"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr ""
 "Valitse laatikko, jos haluat ylikirjoittaa kohdetiedostot, jos ne ovat jo "
 "olemassa."
@@ -1280,12 +1277,12 @@ msgstr "Suoritetaan"
 msgid "Running {0}%"
 msgstr "Suoritetaan {0} %"
 
-msgid "Error saving log file."
-msgstr "Virhe tallennettaessa lokitiedostoa."
+#~ msgid "Error saving log file."
+#~ msgstr "Virhe tallennettaessa lokitiedostoa."
 
 #, java-format
-msgid "File {0} saved."
-msgstr "Tiedosto {0} tallennettu."
+#~ msgid "File {0} saved."
+#~ msgstr "Tiedosto {0} tallennettu."
 
 #, java-format
 msgid "Invalid range: {0}."
@@ -1325,3 +1322,44 @@ msgstr "Virheellinen numero: {0}."
 
 #~ msgid "Unable to get latest available version"
 #~ msgstr "Uusimman version hakeminen epäonnistui."
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr ""
+"Sivut, jotka halutaan erottaa (esim: 2 tai 5-23 tai 2,5-7,12- tai "
+"3,viimeinen)"
+
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+" or 3,last)"
+msgstr ""
+"Pilkulla erotetut sivunumerot tai sivualueet poimittaviksi (esim: 2 tai 5-23 "
+"tai 2,5-7,12- tai 3,viimeinen)"
+
+msgid "A .pdf extension is required for the repeating file"
+msgstr "PDF-tiedostopääte vaaditaan toistuvalle tiedostolle"
+
+msgid "A .pdf destination file extension is required"
+msgstr "PDF-kohdetiedoston tunniste on pakollinen"
+
+msgid "Duplicate at Top"
+msgstr "Monista ylös"
+
+msgid "Duplicate Up"
+msgstr "Monista ylös"
+
+msgid "Duplicate Down"
+msgstr "Monista alas"
+
+msgid "Duplicate at Bottom"
+msgstr "Monista alareunaan"
+
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr "Virhe tallennettaessa sisältöä tiedostoon {0}"
+
+#, java-format
+msgid "File {0} saved"
+msgstr "Tiedosto {0} tallennettu"
+
+msgid "Error saving content to clipboard"
+msgstr "Virhe sisällön tallentamisessa leikepöydälle"

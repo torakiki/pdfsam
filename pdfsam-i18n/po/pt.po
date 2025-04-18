@@ -2,20 +2,20 @@
 # Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2023-10-07 17:29+0000\n"
+"PO-Revision-Date: 2025-04-18 10:04+0200\n"
 "Last-Translator: Sérgio Marques <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-11-06 11:08+0000\n"
-"X-Generator: Launchpad (build f1e537f62ee3967c2b3f24dd10eacf1696334fe6)\n"
+"X-Generator: Autopo v1.0.1\n"
 "Language: pt\n"
 
 msgid "No PDF document has been selected"
@@ -42,8 +42,8 @@ msgstr "Um ficheiro distinto para cada conjunto de páginas"
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr "Cada conjunto contínuo de páginas irá gerar um ficheiro PDF distinto"
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Páginas a extrair (ex: 2 ou 5-23 ou 2,5-7,12-)"
+#~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "Páginas a extrair (ex: 2 ou 5-23 ou 2,5-7,12-)"
 
 msgid "Invalid page ranges"
 msgstr "Intervalo inválido"
@@ -51,12 +51,12 @@ msgstr "Intervalo inválido"
 msgid "Extract pages:"
 msgstr "Páginas a extrair:"
 
-msgid ""
-"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
-msgstr ""
-"Extrair um intervalo de páginas usando um hífen, ou várias páginas e "
-"intervalos separados por vírgula (ex: 2 or 5-25 or 2,5-7,12-)"
+#~ msgid ""
+#~ "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+#~ ")"
+#~ msgstr ""
+#~ "Extrair um intervalo de páginas usando um hífen, ou várias páginas e "
+#~ "intervalos separados por vírgula (ex: 2 or 5-25 or 2,5-7,12-)"
 
 msgid "Split by bookmarks"
 msgstr "Separar por marcadores"
@@ -117,10 +117,8 @@ msgstr "Páginas ímpares"
 msgid "Split the document after the given page numbers"
 msgstr "Separar documento após o número de páginas indicado"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
-msgstr ""
-"Separa um documento PDF, criando um novo documento a cada \"n\" páginas"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr "Separa um documento PDF, criando um novo documento a cada \"n\" páginas"
 
 msgid "Split after the following page numbers"
 msgstr "Separar após este número de páginas"
@@ -186,8 +184,7 @@ msgstr ""
 "Unir dois ou mais documentos PDF, retirando páginas alternadamente pela "
 "ordem natural ou inversa."
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Duplo clique para definir as páginas a misturar (ex. 2 ou 5-23 ou 2, 5-7, 12-"
 ")"
@@ -648,10 +645,10 @@ msgid "Set the application font size"
 msgstr "Defina o tamanho de letra"
 
 msgid "Default PDF version:"
-msgstr ""
+msgstr "Versão padrão de PDF:"
 
 msgid "Default PDF version for generated PDF files"
-msgstr ""
+msgstr "Versão padrão de PDF para arquivos PDF gerados"
 
 msgid "Manually selected"
 msgstr "Seleção manual"
@@ -664,12 +661,14 @@ msgstr ""
 "de destino"
 
 msgid "Default prefix:"
-msgstr ""
+msgstr "Prefixo padrão:"
 
 msgid ""
 "Default prefix for output file names, used in tools that generate multiple "
 "files"
 msgstr ""
+"Prefixo padrão para nomes de arquivos de saída, usado em ferramentas que "
+"geram múltiplos arquivos"
 
 msgid "Some special keywords are replaced with runtime values."
 msgstr "Algumas palavras-chave são substituidas pelos valores de execução."
@@ -692,8 +691,7 @@ msgstr "Saída"
 msgid "Check for updates now"
 msgstr "Procurar atualizações agora"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr "Selecione o diretório para guardar e carregar os documentos"
 
 msgid "Select a directory"
@@ -746,13 +744,12 @@ msgstr ""
 "definição"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
-msgstr ""
+msgstr "Definir se \"Descartar marcadores\" deve ser ativado por padrão"
 
 msgid "Overwrite files"
 msgstr "Substituir ficheiros"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr "Sobrescrever se já existe"
 
 msgid "Play alert sounds"
@@ -1163,6 +1160,7 @@ msgstr "Substituir ficheiro, se existente"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr ""
 "Assinale a caixa se quiser substituir os ficheiros, caso já existam no "
 "destino."
@@ -1226,12 +1224,12 @@ msgstr "Execução"
 msgid "Running {0}%"
 msgstr "A executar {0}%"
 
-msgid "Error saving log file."
-msgstr "Erro ao guardar o ficheiro de registo."
+#~ msgid "Error saving log file."
+#~ msgstr "Erro ao guardar o ficheiro de registo."
 
 #, java-format
-msgid "File {0} saved."
-msgstr "Ficheiro {0} guardado."
+#~ msgid "File {0} saved."
+#~ msgstr "Ficheiro {0} guardado."
 
 #, java-format
 msgid "Invalid range: {0}."
@@ -1279,3 +1277,42 @@ msgstr "Número inválido: {0}."
 #~ msgstr ""
 #~ "Mostrar diálogo a pedir confirmação do utilizador se a opção \"substituir\" "
 #~ "estiver selecionada"
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr "Pagini de extras (ex: 2 sau 5-23 sau 2,5-7,12- sau 3,ultima)"
+
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+" or 3,last)"
+msgstr ""
+"Numere de pagini separate prin virgulă sau intervale pentru extragere (ex: 2 "
+"sau 5-23 sau 2,5-7,12- sau 3,ultima)"
+
+msgid "A .pdf extension is required for the repeating file"
+msgstr "Este necesară o extensie .pdf pentru fișierul care se repetă"
+
+msgid "A .pdf destination file extension is required"
+msgstr "Este necesară o extensie de fișier destinație .pdf"
+
+msgid "Duplicate at Top"
+msgstr "Duplică în Vârf"
+
+msgid "Duplicate Up"
+msgstr "Duplică în sus"
+
+msgid "Duplicate Down"
+msgstr "Duplică în jos"
+
+msgid "Duplicate at Bottom"
+msgstr "Duplică la Bază"
+
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr "Eroare la salvarea conținutului în fișier {0}"
+
+#, java-format
+msgid "File {0} saved"
+msgstr "Fișierul {0} a fost salvat"
+
+msgid "Error saving content to clipboard"
+msgstr "Eroare la salvarea conținutului în clipboard"

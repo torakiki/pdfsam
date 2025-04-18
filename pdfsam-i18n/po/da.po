@@ -2,20 +2,20 @@
 # Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2024-11-20 12:55+0000\n"
+"PO-Revision-Date: 2025-04-18 09:55+0200\n"
 "Last-Translator: Morten Juhl-Johansen <mj-j@syntaktisk.dk>\n"
 "Language-Team: Danish <da@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2025-01-22 08:16+0000\n"
-"X-Generator: Launchpad (build 6394e03793719e8d73f5a60b5439440e693c92f1)\n"
+"X-Generator: Autopo v1.0.1\n"
 "Language: da\n"
 
 msgid "No PDF document has been selected"
@@ -25,7 +25,7 @@ msgid "Extract"
 msgstr "Udtræk"
 
 msgid "Extract pages from PDF documents."
-msgstr "Udtræk sider fra PDF-dokumenter"
+msgstr "Udtræk sider fra PDF-dokumenter."
 
 msgid "File names settings"
 msgstr "Indstillinger for filnavne"
@@ -44,17 +44,21 @@ msgstr "Hver fortløbende sideserie vil blive en separat PDF-fil"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
 msgstr ""
+"Sider der skal ekstraheres (eks: 2 eller 5-23 eller 2,5-7,12- eller "
+"3,sidste)"
 
 msgid "Invalid page ranges"
 msgstr "Ugyldige sideintervaller"
 
 msgid "Extract pages:"
-msgstr "Udtræk sider"
+msgstr "Udtræk sider:"
 
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
 " or 3,last)"
 msgstr ""
+"Kommaseparerede sidenumre eller intervaller, der skal udtrækkes (eks: 2 "
+"eller 5-23 eller 2,5-7,12- eller 3,sidste)"
 
 msgid "Split by bookmarks"
 msgstr "Opdel ved bogmærker"
@@ -102,7 +106,7 @@ msgid "Split"
 msgstr "Opdel"
 
 msgid "Split a PDF document at the given page numbers."
-msgstr "Opdel et PDF dokument ved det angivet nummer,"
+msgstr "Opdel et PDF dokument ved det angivet nummer."
 
 msgid "Every page"
 msgstr "Hver side"
@@ -116,11 +120,10 @@ msgstr "Ulige sider"
 msgid "Split the document after the given page numbers"
 msgstr "Opdel dokumentet efter de givne sidetal"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 "Opdel PDF dokumentet for hver \"n\" side, hvilket danner dokumenter på \"n\" "
-"sider hver."
+"sider hver"
 
 msgid "Split after the following page numbers"
 msgstr "Opdel efter følgende sidetal"
@@ -159,7 +162,7 @@ msgid "Split by size"
 msgstr "Opdel efter størrelse"
 
 msgid "Split a PDF document in files of the given size (roughly)."
-msgstr "Opdel et PDF dokument i filer efter den angivet størrelse (cirka)"
+msgstr "Opdel et PDF dokument i filer efter den angivet størrelse (cirka)."
 
 msgid "Set the size to split at"
 msgstr "Sæt størrelsen, der deles ved"
@@ -186,8 +189,7 @@ msgstr ""
 "Sammenføj to eller flere PDF-dokumenter med sider skiftevis i naturlig eller "
 "omvendt rækkefølge."
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Dobbeltklik for at angive sider du ønsker at blande (f.eks. 2 elle r5-23 "
 "eller 2,5-7,12-)"
@@ -217,7 +219,7 @@ msgid "Rotate"
 msgstr "Roter"
 
 msgid "Rotate the pages of multiple PDF documents."
-msgstr "Roter sider fra flere PDF-dokumenter"
+msgstr "Roter sider fra flere PDF-dokumenter."
 
 msgid ""
 "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -260,7 +262,7 @@ msgid "Same width as first page (based on page orientation)"
 msgstr "Samme bredde som første side (baseret på sideorientering)"
 
 msgid "Pages normalization:"
-msgstr ""
+msgstr "Sidenormalisering:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
@@ -281,7 +283,7 @@ msgid "Discard forms"
 msgstr "Slet udfyldnings felter"
 
 msgid "Interactive forms (AcroForms):"
-msgstr "Visuelle udfyldnings felter"
+msgstr "Interaktive formularer (AcroForms):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr "Adfærd når et eller flere inputdokumenter indeholder Acro Forms"
@@ -319,7 +321,8 @@ msgstr "Indholdsfortegnelse:"
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
 msgstr ""
-"Sæt hvis en indholdsfortegnelse skal tilføjes til det genererede PDF-dokument"
+"Sæt hvis en indholdsfortegnelse skal tilføjes til det genererede PDF-"
+"dokument"
 
 msgid "Merge"
 msgstr "Sammenflet"
@@ -340,6 +343,8 @@ msgid ""
 "Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
 "7,12-)"
 msgstr ""
+"Kommaseparerede sidenumre eller intervaller, der skal gentages (eks: 2 eller "
+"5-23 eller 2,5-7,12-)"
 
 msgid "Leave it empty to use all the pages of the PDF file"
 msgstr "Lad feltet stå tomr for at bruge alle sider i PDF-filen"
@@ -410,7 +415,7 @@ msgid "Workspace"
 msgstr "Arbejdsområde"
 
 msgid "Manage your workspaces"
-msgstr ""
+msgstr "Administrer dine arbejdsområder"
 
 msgid "Yes"
 msgstr "Ja"
@@ -539,7 +544,7 @@ msgid "Recen_ts"
 msgstr "_Seneste"
 
 msgid "_Clear recents"
-msgstr "_Ryd seneste"
+msgstr "Ry_d seneste"
 
 msgid "Select the workspace file to save"
 msgstr "Vælg arbejdsområde-fil, der skal gemmes"
@@ -589,7 +594,7 @@ msgid "Contribute"
 msgstr "Bidrag"
 
 msgid "Fork PDFsam on GitHub"
-msgstr "Om at forke PDFsam på GitHub"
+msgstr "Fork PDFsam på GitHub"
 
 msgid "Translate"
 msgstr "Oversæt"
@@ -692,8 +697,7 @@ msgstr "Output"
 msgid "Check for updates now"
 msgstr "Søg efter opdateringer nu"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr "Vælg en mappe hvorfra dokumenter som standard indlæses fra og til"
 
 msgid "Select a directory"
@@ -744,13 +748,12 @@ msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr "Vælg om \"Komprimer output fil\" skal være standard/default"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
-msgstr ""
+msgstr "Angiv om \"Fjern bogmærker\" som standard skal være aktiveret"
 
 msgid "Overwrite files"
 msgstr "Overskriv filer"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr "Sæt \"Overskriv, hvis filnavn allerede eksisterer\" som standard"
 
 msgid "Play alert sounds"
@@ -826,7 +829,7 @@ msgid "Show errors"
 msgstr "Vis fejl"
 
 msgid "Input parameters are invalid"
-msgstr ""
+msgstr "Inputparametre er ugyldige"
 
 msgid "Invalid parameters"
 msgstr "Ugyldige parametre"
@@ -892,19 +895,19 @@ msgid "Version {0}"
 msgstr "Version {0}"
 
 msgid "Split tools"
-msgstr ""
+msgstr "Opdel værktøjer"
 
 msgid "Merge tools"
-msgstr ""
+msgstr "Fletteværktøjer"
 
 msgid "Convert tools"
-msgstr ""
+msgstr "Konverteringsværktøjer"
 
 msgid "Edit tools"
-msgstr ""
+msgstr "Redigeringsværktøjer"
 
 msgid "Other tools"
-msgstr ""
+msgstr "Andre værktøjer"
 
 msgid "Checking for updates"
 msgstr "Søger efter opdateringer"
@@ -952,7 +955,7 @@ msgid "Workspace saved"
 msgstr "Arbejdsområde gemt"
 
 msgid "Requesting modules state"
-msgstr "indhenter status fra moduler"
+msgstr "Indhenter status fra moduler"
 
 #, java-format
 msgid "Unable to save workspace to {0}"
@@ -964,7 +967,7 @@ msgstr "Indlæser arbejdsområde fra {0}"
 
 #, java-format
 msgid "Workspace loaded: {0}"
-msgstr ""
+msgstr "Arbejdsområde indlæst: {0}"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
@@ -972,19 +975,19 @@ msgstr "Der kunne ikke indlæses et arbejdsområde fra {0}"
 
 #, java-format
 msgid "The following file already existed and was skipped: {0}"
-msgstr ""
+msgstr "Følgende fil eksisterede allerede og blev sprunget over: {0}"
 
 msgid "Light with blue"
-msgstr ""
+msgstr "Lys med blå"
 
 msgid "Dark with purple"
-msgstr ""
+msgstr "Mørk med lilla"
 
 msgid "Dark with teal"
-msgstr ""
+msgstr "Mørk med teal"
 
 msgid "Light with maroon"
-msgstr ""
+msgstr "Lys med mørkerød"
 
 msgid "Close"
 msgstr "Luk"
@@ -999,7 +1002,7 @@ msgid "_Select PDF"
 msgstr "_Vælg PDF"
 
 msgid "C_lear all settings"
-msgstr "_Ryd alle indstillinger"
+msgstr "R_yd alle indstillinger"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -1048,22 +1051,22 @@ msgid "Duplicate"
 msgstr "Dupliker"
 
 msgid "Duplicate at Top"
-msgstr ""
+msgstr "Dupliker øverst"
 
 msgid "Duplicate Up"
-msgstr ""
+msgstr "Dupliker op"
 
 msgid "Duplicate Down"
-msgstr ""
+msgstr "Dupliker ned"
 
 msgid "Duplicate at Bottom"
-msgstr ""
+msgstr "Dupliker nederst"
 
 msgid "Selected pages"
-msgstr ""
+msgstr "Valgte sider"
 
 msgid "Total number of selected pages"
-msgstr ""
+msgstr "Samlet antal valgte sider"
 
 msgid "Size"
 msgstr "Størrelse"
@@ -1073,7 +1076,7 @@ msgstr "Ændret"
 
 #, java-format
 msgid "Total pages: {0}"
-msgstr ""
+msgstr "Antal sider: {0}"
 
 msgid "Name"
 msgstr "Navn"
@@ -1131,7 +1134,7 @@ msgid "Pages"
 msgstr "Sider"
 
 msgid "Number of total pages of the document"
-msgstr ""
+msgstr "Antal sider i dokumentet i alt"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -1174,6 +1177,7 @@ msgstr "Overskriv hvis eksisterende"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr ""
 "Markér boksen hvis du ønsker at overskrive en eventuel  fil med samme navn."
 
@@ -1215,13 +1219,13 @@ msgid "Prefix for the output files name."
 msgstr "Præfiks for navne på outputfiler."
 
 msgid "DEFAULT_PREFIX"
-msgstr ""
+msgstr "STANDARD_PRÆFIKS"
 
 msgid "Run"
 msgstr "Udfør"
 
 msgid "Run the task"
-msgstr ""
+msgstr "Udfør opgaven"
 
 msgid "Requested"
 msgstr "Bestilt"
@@ -1233,7 +1237,7 @@ msgid "Failed"
 msgstr "Fejlet"
 
 msgid "Running"
-msgstr "Behandler"
+msgstr "Kører"
 
 #, java-format
 msgid "Running {0}%"
@@ -1241,14 +1245,14 @@ msgstr "Kører {0}%"
 
 #, java-format
 msgid "Error saving content to file {0}"
-msgstr ""
+msgstr "Fejl ved gemning af indhold i fil {0}"
 
 #, java-format
 msgid "File {0} saved"
-msgstr ""
+msgstr "Filen {0} er gemt"
 
 msgid "Error saving content to clipboard"
-msgstr ""
+msgstr "Fejl ved kopiering til udklipsholder"
 
 #, java-format
 msgid ""
@@ -1260,11 +1264,11 @@ msgstr ""
 
 #, java-format
 msgid "Invalid range: {0}."
-msgstr "Ugyldige intervaller: {0}"
+msgstr "Ugyldige intervaller: {0}."
 
 #, java-format
 msgid "Invalid number: {0}."
-msgstr "Ugyldigt tal: {0}"
+msgstr "Ugyldigt tal: {0}."
 
 #~ msgid "Split odd pages"
 #~ msgstr "Opdel ved ulige sider"

@@ -2,20 +2,21 @@
 # Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2021-11-28 11:43+0000\n"
+"PO-Revision-Date: 2025-04-18 09:55+0200\n"
 "Last-Translator: Arne Hanssen <Unknown>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Launchpad (build 37f563e5839786fe8704ac9cf25657dfd53c73fd)\n"
+"X-Generator: Autopo v1.0.1\n"
+"Language: nb\n"
 
 msgid "No PDF document has been selected"
 msgstr "Ingen PDF dokumenter er valgt"
@@ -41,8 +42,8 @@ msgstr ""
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr ""
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Sider å trekke ut (eks. 2 eller 5-23 eller 2,5-7,12-)"
+#~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "Sider å trekke ut (eks. 2 eller 5-23 eller 2,5-7,12-)"
 
 msgid "Invalid page ranges"
 msgstr "Ugyldig sidevalg"
@@ -50,10 +51,10 @@ msgstr "Ugyldig sidevalg"
 msgid "Extract pages:"
 msgstr "Trekk ut sider:"
 
-msgid ""
-"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
-msgstr ""
+#~ msgid ""
+#~ "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+#~ ")"
+#~ msgstr ""
 
 msgid "Split by bookmarks"
 msgstr "Del bokmerker"
@@ -113,8 +114,7 @@ msgstr "Oddetallssider"
 msgid "Split the document after the given page numbers"
 msgstr "Del dokumentet etter oppgitt sidenummer"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 "Del PDF hver \"n\" side ved opprettelse av dokument med \"n\" sider i hvert"
 
@@ -182,8 +182,7 @@ msgstr ""
 "Slå sammen to eller flere PDF dokumenter med sier i naturlig eller omvendt "
 "rekkefølge."
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Dobbeltklikk for å velge sider du ønsker å blande (eks: 2 eller 5-23 eller "
 "2,5-7,12-)"
@@ -319,8 +318,8 @@ msgstr "Velg dersom innholdsfortegnelse skal legges til i PDFen som lages"
 msgid "Merge"
 msgstr "Slå sammen."
 
-msgid "Merge together multiple PDF documents or subsections of them."
-msgstr "Slå sammen flere PDF dokumenter eller deler av disse"
+#~ msgid "Merge together multiple PDF documents or subsections of them."
+#~ msgstr "Slå sammen flere PDF dokumenter eller deler av disse"
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr ""
@@ -486,7 +485,8 @@ msgstr "PDFsam kan forsøke å gå rundt feilen"
 msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
 msgstr ""
-"Dette kan resultere i PDF filer med delvis manglende data, fortsette likevel?"
+"Dette kan resultere i PDF filer med delvis manglende data, fortsette "
+"likevel?"
 
 msgid "Removes all the log messages"
 msgstr ""
@@ -657,8 +657,7 @@ msgstr "Resultat"
 msgid "Check for updates now"
 msgstr "Sjekk for oppdateringer nå"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr "Velg en mappe hvor dokumenter blir lagret og innlest som standard"
 
 msgid "Select a directory"
@@ -711,8 +710,7 @@ msgstr "Velg om \"Komprimer resultatfil\" skal være aktivert som standard"
 msgid "Overwrite files"
 msgstr "Skriv over filer"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
 "Velg om \"Overskriv om fil allerede finnes\" skal være aktivert som standard"
 
@@ -769,6 +767,7 @@ msgstr "Lagre arbeidsområde ved avslutning"
 msgid "If a default workspace is set, save it on application exit"
 msgstr ""
 "Dersom standard arbeidsområde ikke er valgt, lagre det ved programavslutning."
+""
 
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Det maksimale antallet rader må være et positivt tall"
@@ -918,8 +917,8 @@ msgstr "Klarte ikke å lagre arbeidsområde til {0}"
 msgid "Loading workspace from {0}"
 msgstr "Laster arbeidsområde fra {0}"
 
-msgid "Workspace loaded"
-msgstr "Arbeidsområde lastet"
+#~ msgid "Workspace loaded"
+#~ msgstr "Arbeidsområde lastet"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
@@ -949,8 +948,8 @@ msgstr "Velg PDF filen"
 msgid "_Select PDF"
 msgstr "_Velg PDF"
 
-msgid "Clear all settings"
-msgstr "Slett alle innstillinger"
+#~ msgid "Clear all settings"
+#~ msgstr "Slett alle innstillinger"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -1114,8 +1113,8 @@ msgstr "Overskriv dersom det allerede eksisterer"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
-msgstr ""
-"Kryss av ruten om du vil overskrive resultatfiler som allerede finnes"
+""
+msgstr "Kryss av ruten om du vil overskrive resultatfiler som allerede finnes"
 
 #, java-format
 msgid "Version {0}"
@@ -1186,12 +1185,12 @@ msgstr "Kjører"
 msgid "Running {0}%"
 msgstr "Kjører {0}%"
 
-msgid "Error saving log file."
-msgstr "Feil ved lagring av loggfil."
+#~ msgid "Error saving log file."
+#~ msgstr "Feil ved lagring av loggfil."
 
 #, java-format
-msgid "File {0} saved."
-msgstr "Fil {0} lagret."
+#~ msgid "File {0} saved."
+#~ msgstr "Fil {0} lagret."
 
 #, java-format
 msgid "Invalid range: {0}."
@@ -1223,3 +1222,68 @@ msgstr "Ugyldig nummer: {0}."
 
 #~ msgid "Output document pdf version:"
 #~ msgstr "Pdf-versjon for ferdig dokument:"
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr ""
+
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+" or 3,last)"
+msgstr ""
+
+msgid "Merge multiple PDF documents or subsections of them."
+msgstr ""
+
+msgid "A .pdf extension is required for the repeating file"
+msgstr ""
+
+msgid "A .pdf destination file extension is required"
+msgstr ""
+
+msgid "Default PDF version:"
+msgstr ""
+
+msgid "Default PDF version for generated PDF files"
+msgstr ""
+
+msgid "Default prefix:"
+msgstr ""
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
+msgstr ""
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
+msgstr ""
+
+#, java-format
+msgid "Workspace loaded: {0}"
+msgstr ""
+
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
+msgstr ""
+
+msgid "Duplicate at Top"
+msgstr ""
+
+msgid "Duplicate Up"
+msgstr ""
+
+msgid "Duplicate Down"
+msgstr ""
+
+msgid "Duplicate at Bottom"
+msgstr ""
+
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr ""
+
+#, java-format
+msgid "File {0} saved"
+msgstr ""
+
+msgid "Error saving content to clipboard"
+msgstr ""

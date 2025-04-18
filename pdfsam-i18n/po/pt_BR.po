@@ -2,20 +2,21 @@
 # Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2024-03-09 01:06+0000\n"
-"Last-Translator: Lucas F. Gonçalves <lucasdadiva@gmail.com>\n"
+"POT-Creation-Date: 2024-10-23 17:08+0200\n"
+"PO-Revision-Date: 2025-04-18 09:55+0200\n"
+"Last-Translator: Isaiah Pereira <Unknown>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-04-22 14:00+0000\n"
-"X-Generator: Launchpad (build 67d34a19aaa1df7be4dd8bf498cbc5bbd785067b)\n"
+"X-Launchpad-Export-Date: 2025-04-17 17:36+0000\n"
+"X-Generator: Autopo v1.0.1\n"
+"Language: pt_BR\n"
 
 msgid "No PDF document has been selected"
 msgstr "Nenhum documento PDF foi selecionado"
@@ -41,8 +42,8 @@ msgstr "Um arquivo separado para cada conjunto de páginas"
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr "Cada série contínua de páginas irá gerar um arquivo PDF separado"
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Páginas para extrair (ex: 2 ou 5-23 ou 2,5-7,12-)"
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr "Páginas para extrair (ex: 2 ou 5-23 ou 2,5-7,12- ou 3,último)"
 
 msgid "Invalid page ranges"
 msgstr "Intervalo de páginas inválido"
@@ -52,10 +53,10 @@ msgstr "Extrair páginas:"
 
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
+" or 3,last)"
 msgstr ""
-"Números de página separados por vírgula ou intervalos para extrair (ex.: 2 "
-"ou 5-23 ou 2,5-7,12-)"
+"Páginas e/ou intervalos de páginas para extrair, separados por vírgulas  (ex:"
+" 2 ou 5-23 ou 2,5-7,12)"
 
 msgid "Split by bookmarks"
 msgstr "Dividir por marcadores de texto"
@@ -117,8 +118,7 @@ msgstr "Páginas ímpares"
 msgid "Split the document after the given page numbers"
 msgstr "Dividir o documento após as páginas indicadas"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 "Dividir o PDF a cada \"n\" páginas criando documentos de \"n\" páginas cada"
 
@@ -187,8 +187,7 @@ msgstr ""
 "Unir dois ou mais documentos PDF obtendo, de forma alterada, as páginas em "
 "ordem natural ou inversa."
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Duplo click para escolher as páginas para misturar (ex: 2 ou 5-23 ou 2,5-"
 "7,12-)"
@@ -255,24 +254,26 @@ msgid "None"
 msgstr "Nenhum"
 
 msgid "Same width as first page"
-msgstr ""
+msgstr "A mesma largura da primeira página"
 
 msgid "Same width as first page (based on page orientation)"
-msgstr ""
+msgstr "Mesma largura da primeira página (com base na orientação da página)"
 
 msgid "Pages normalization:"
-msgstr ""
+msgstr "Normalização de páginas:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
 "one"
 msgstr ""
-
-msgid "Merge fields"
-msgstr "Campos unidos"
+"Definir se as páginas devem ser redimensionadas para ter a mesma largura da "
+"primeira"
 
 msgid "Merge renaming existing fields"
 msgstr "Unir renomeando os campos existentes"
+
+msgid "Merge fields"
+msgstr "Campos unidos"
 
 msgid "Flatten"
 msgstr "Achatar"
@@ -327,7 +328,7 @@ msgid "Merge"
 msgstr "Unir"
 
 msgid "Merge multiple PDF documents or subsections of them."
-msgstr ""
+msgstr "Mesclar vários documentos PDF ou suas subseções."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr "Selecione ou arraste o PDF de onde os arquivos serão repetidos"
@@ -358,14 +359,17 @@ msgid "Repeat the selected pages every \"n\" pages of the original document"
 msgstr ""
 "Repetir as páginas selecionadas a cada \"n\" páginas do documento original"
 
-msgid "The selected PDF file is invalid"
-msgstr "O arquivo PDF selecionado é inválido"
+msgid "A .pdf extension is required for the repeating file"
+msgstr "A extensão .pdf é necessária para o arquivo repetido"
 
 msgid "The number of pages must be a positive number"
 msgstr "O número de páginas deve ser um número positivo"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
 msgstr "Selecione ou arraste o PDF de onde deseja inserir páginas"
+
+msgid "A .pdf destination file extension is required"
+msgstr "É necessária uma extensão de arquivo de destino .pdf"
 
 msgid "Insert and Repeat settings"
 msgstr "Configurações de Inserção e Repetição"
@@ -409,13 +413,13 @@ msgid "Exit"
 msgstr "Fechar"
 
 msgid "Exit the application"
-msgstr ""
+msgstr "Sair do aplicativo"
 
 msgid "Workspace"
 msgstr "Área de trabalho"
 
 msgid "Manage your workspaces"
-msgstr ""
+msgstr "Gerencie seus espaços de trabalho"
 
 msgid "Yes"
 msgstr "Sim"
@@ -505,7 +509,7 @@ msgstr ""
 "prosseguir de qualquer maneira?"
 
 msgid "Removes all the log messages"
-msgstr ""
+msgstr "Remove todas as mensagens de log"
 
 msgid "_Clear"
 msgstr "_Limpar"
@@ -514,7 +518,7 @@ msgid "_Save"
 msgstr "_Salvar"
 
 msgid "C_lose"
-msgstr ""
+msgstr "Fechar"
 
 # F:\workspace_pdfsame_enanched\pdfsam-maine\it\pdfsam\panels\LogPanel.java:99
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\LogPanel.java:99
@@ -540,7 +544,7 @@ msgid "Select where to save the log file"
 msgstr "Selecione onde deseja salvar o registro"
 
 msgid "Logs"
-msgstr ""
+msgstr "Registos"
 
 msgid "Application messages"
 msgstr "Mensagens do aplicativo"
@@ -624,7 +628,7 @@ msgid "About"
 msgstr "Sobre"
 
 msgid "Home"
-msgstr ""
+msgstr "Início"
 
 msgid "Premium features"
 msgstr "Ferramentas premium"
@@ -659,16 +663,16 @@ msgid "Set the application theme"
 msgstr "Configure o tema da aplicação"
 
 msgid "Font size:"
-msgstr ""
+msgstr "Tamanho da fonte:"
 
 msgid "Set the application font size"
-msgstr ""
+msgstr "Definir o tamanho da fonte do aplicativo"
 
 msgid "Default PDF version:"
-msgstr ""
+msgstr "Versão padrão de PDF:"
 
 msgid "Default PDF version for generated PDF files"
-msgstr ""
+msgstr "Versão padrão de PDF para arquivos PDF gerados"
 
 msgid "Manually selected"
 msgstr "Selecionado manualmente"
@@ -681,12 +685,14 @@ msgstr ""
 "do PDF selecionado"
 
 msgid "Default prefix:"
-msgstr ""
+msgstr "Prefixo padrão:"
 
 msgid ""
 "Default prefix for output file names, used in tools that generate multiple "
 "files"
 msgstr ""
+"Prefixo padrão para nomes de arquivos de saída, usado em ferramentas que "
+"geram múltiplos arquivos"
 
 msgid "Some special keywords are replaced with runtime values."
 msgstr ""
@@ -712,8 +718,7 @@ msgstr "Saída"
 msgid "Check for updates now"
 msgstr "Verificar agora por atualizações"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr "Selecione a pasta onde os arquivos serão salvos e lidos por padrão"
 
 msgid "Select a directory"
@@ -736,7 +741,7 @@ msgid "Load default workspace at startup:"
 msgstr "Carregar o espaço de trabalho padrão ao iniciar:"
 
 msgid "System default"
-msgstr ""
+msgstr "Padrão do sistema"
 
 msgid "Check for updates at startup"
 msgstr "Verificar por atualizações ao iniciar"
@@ -764,15 +769,15 @@ msgstr "Ativar a compressão de PDF"
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
 "Selecionar caso \"Comprimir arquivo de saída\" deva ser permitido por padrão."
+""
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
-msgstr ""
+msgstr "Definir se \"Descartar marcadores\" deve ser habilitado por padrão"
 
 msgid "Overwrite files"
 msgstr "Sobrescrever arquivos"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
 "Selecionar caso \"Sobrescrever existente\" deva ser permitido por padrão"
 
@@ -847,7 +852,7 @@ msgid "Show errors"
 msgstr "Mostrar erros"
 
 msgid "Input parameters are invalid"
-msgstr ""
+msgstr "Parâmetros de entrada inválidos"
 
 msgid "Invalid parameters"
 msgstr "Parâmetros inválidos"
@@ -985,7 +990,7 @@ msgstr "Lendo área de trabalho de {0}"
 
 #, java-format
 msgid "Workspace loaded: {0}"
-msgstr ""
+msgstr "Espaço de trabalho carregado: {0}"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
@@ -993,7 +998,7 @@ msgstr "Incapaz de ler a área de trabalho de {0}"
 
 #, java-format
 msgid "The following file already existed and was skipped: {0}"
-msgstr ""
+msgstr "O seguinte arquivo já existia e foi ignorado: {0}"
 
 msgid "Light with blue"
 msgstr "Claro com azul"
@@ -1005,7 +1010,7 @@ msgid "Dark with teal"
 msgstr "Escuro com turquesa"
 
 msgid "Light with maroon"
-msgstr ""
+msgstr "Claro com marrom"
 
 msgid "Close"
 msgstr "Fechar"
@@ -1082,11 +1087,23 @@ msgstr "Mover para a base"
 msgid "Duplicate"
 msgstr "Duplicado"
 
+msgid "Duplicate at Top"
+msgstr "Duplicar no Topo"
+
+msgid "Duplicate Up"
+msgstr "Duplicar para Cima"
+
+msgid "Duplicate Down"
+msgstr "Duplicar para Baixo"
+
+msgid "Duplicate at Bottom"
+msgstr "Duplicar na Base"
+
 msgid "Selected pages"
-msgstr ""
+msgstr "Páginas selecionadas"
 
 msgid "Total number of selected pages"
-msgstr ""
+msgstr "Número total de páginas selecionadas"
 
 msgid "Size"
 msgstr "Tamanho"
@@ -1096,7 +1113,7 @@ msgstr "Modificado"
 
 #, java-format
 msgid "Total pages: {0}"
-msgstr ""
+msgstr "Total de páginas: {0}"
 
 msgid "Name"
 msgstr "Nome"
@@ -1157,7 +1174,7 @@ msgid "Pages"
 msgstr "Páginas"
 
 msgid "Number of total pages of the document"
-msgstr ""
+msgstr "Número total de páginas do documento"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Duplo clique para selecionar páginas (ex: 2 ou 5-23 ou 2,5-7,12-)"
@@ -1205,9 +1222,13 @@ msgstr "Sobrescrever existente"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr ""
 "Marque a caixa se você deseja sobrescrever os arquivos de saída se eles já "
 "existirem."
+
+msgid "The selected PDF file is invalid"
+msgstr "O arquivo PDF selecionado é inválido"
 
 msgid "Same as the input document"
 msgstr "A mesma do documento de entrada"
@@ -1244,7 +1265,7 @@ msgid "Prefix for the output files name."
 msgstr "Prefixo para o arquivo gerado."
 
 msgid "DEFAULT_PREFIX"
-msgstr ""
+msgstr "PREFIXO_PADRÃO"
 
 # G:\Documents\eclipse_workspace\PDFSAMsplit\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:368
 # F:\workspace_pdfsam_enhanced\pdfsam-cover\it\pdfsam\plugin\coverfooter\GUI\CoverFooterMainGUI.java:542
@@ -1256,7 +1277,7 @@ msgid "Run"
 msgstr "Executar"
 
 msgid "Run the task"
-msgstr ""
+msgstr "Executar tarefa"
 
 msgid "Requested"
 msgstr "Requisitado"
@@ -1274,16 +1295,16 @@ msgstr "Executando"
 msgid "Running {0}%"
 msgstr "Executando {0}%"
 
-msgid "Error saving log file."
-msgstr "Erro ao salvar arquivo de registro"
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr "Erro ao salvar conteúdo no arquivo {0}"
 
 #, java-format
-msgid "File {0} saved."
-msgstr "{0} arquivo(s) salvo(s)"
+msgid "File {0} saved"
+msgstr "Ficheiro {0} guardado"
 
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "Intervalo inválido: {0}."
+msgid "Error saving content to clipboard"
+msgstr "Erro ao salvar conteúdo na área de transferência"
 
 #, java-format
 msgid ""
@@ -1292,6 +1313,10 @@ msgid ""
 msgstr ""
 "Definição ambígua do intervalo de página: {0}. Use os seguintes formatos: "
 "[n] ou [n1-n2] ou [-n] ou [n-]"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "Intervalo inválido: {0}."
 
 #, java-format
 msgid "Invalid number: {0}."

@@ -2,20 +2,21 @@
 # Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2023-11-24 12:58+0000\n"
+"PO-Revision-Date: 2025-04-18 10:00+0200\n"
 "Last-Translator: Sònia Oliveras i Artau <Unknown>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-02-06 10:16+0000\n"
-"X-Generator: Launchpad (build 9643586c585856148a18782148972ae9c1179d06)\n"
+"X-Generator: Autopo v1.0.1\n"
+"Language: ca\n"
 
 msgid "No PDF document has been selected"
 msgstr "No heu seleccionat cap document PDF"
@@ -41,8 +42,8 @@ msgstr "Un fitxer per a cada grup de pàgines"
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr "Cada grup de pàgines es generarà un fitxer PDF diferent"
 
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Pàgines a extreure (p. ex: 2 o 5-23 o 2,5-7,12-)"
+#~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "Pàgines a extreure (p. ex: 2 o 5-23 o 2,5-7,12-)"
 
 msgid "Invalid page ranges"
 msgstr "Els intervals de pàgines no són vàlids"
@@ -50,10 +51,10 @@ msgstr "Els intervals de pàgines no són vàlids"
 msgid "Extract pages:"
 msgstr "Extreu pàgines:"
 
-msgid ""
-"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-")"
-msgstr "Números de pàgina separats per comes o rangs de pàgines per extreure"
+#~ msgid ""
+#~ "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+#~ ")"
+#~ msgstr "Números de pàgina separats per comes o rangs de pàgines per extreure"
 
 msgid "Split by bookmarks"
 msgstr "Separar per les marques"
@@ -114,8 +115,7 @@ msgstr "Pàgines senars"
 msgid "Split the document after the given page numbers"
 msgstr "Separar el document després dels números de pàgina indicats"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr "Separar el PDF cada \"n\" pàgines creant documents de \"n\" pàgines"
 
 msgid "Split after the following page numbers"
@@ -183,8 +183,7 @@ msgstr ""
 "Combinar dos o més documents PDFs agafant pàgines alternativament en ordre "
 "natural o invers."
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Feu un doble clic per indicar les pàgines que voleu ajuntar (ex: 2 o 5-23 o "
 "2,5-7, 12-)"
@@ -366,7 +365,8 @@ msgstr "El número de pàgines ha de ser positiu"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
 msgstr ""
-"Seleccioneu o arrossegueu i deixeu el PDF que voleu insertar-hi les pàgines a"
+"Seleccioneu o arrossegueu i deixeu el PDF que voleu insertar-hi les pàgines "
+"a"
 
 msgid "Insert and Repeat settings"
 msgstr "Paràmetres d'inserir i repetir"
@@ -697,8 +697,7 @@ msgstr "Sortida"
 msgid "Check for updates now"
 msgstr "Comprova si hi ha actualitzacions"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Seleccioneu un directori on es desin i carreguin els documents de manera "
 "predeterminada"
@@ -760,8 +759,7 @@ msgstr ""
 msgid "Overwrite files"
 msgstr "Sobrescriu els fitxers"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
 "Definiu si \"Sobreescriure si ja existeix\" s'ha d'habilitar de manera "
 "predeterminada"
@@ -773,8 +771,7 @@ msgid "Turn on or off alert sounds"
 msgstr "Activa o desactiva els sons d'alerta"
 
 msgid "Store passwords when saving a workspace file"
-msgstr ""
-"Emmagatzemeu les contrasenyes quan deseu un fitxer d'espai de treball"
+msgstr "Emmagatzemeu les contrasenyes quan deseu un fitxer d'espai de treball"
 
 msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
@@ -857,6 +854,7 @@ msgid ""
 msgstr ""
 "No es pot accedir a \"{0}\", si us plau, assegureu-vos que teniu permisos "
 "d'escriptura o obriu els missatges de l'aplicació per obtenir més informació."
+""
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
@@ -1125,8 +1123,7 @@ msgstr "Ritme"
 msgid ""
 "Double click to set the number of pages after which the task will switch to "
 "the next file"
-msgstr ""
-"Feu doble clic per definir el nombre de pàgines per canviar de fitxer"
+msgstr "Feu doble clic per definir el nombre de pàgines per canviar de fitxer"
 
 msgid "Reverse"
 msgstr "Invers"
@@ -1178,6 +1175,7 @@ msgstr "Sobreescriu si ja existeix"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr ""
 "Marqueu la casella si voleu sobreescriure els fitxers de sortida si ja "
 "existeixen."
@@ -1241,12 +1239,12 @@ msgstr "En execució"
 msgid "Running {0}%"
 msgstr "Executant-se {0}%"
 
-msgid "Error saving log file."
-msgstr "S’ha produït un error en desar el fitxer de registre."
+#~ msgid "Error saving log file."
+#~ msgstr "S’ha produït un error en desar el fitxer de registre."
 
 #, java-format
-msgid "File {0} saved."
-msgstr "S’ha desat el fitxer {0}."
+#~ msgid "File {0} saved."
+#~ msgstr "S’ha desat el fitxer {0}."
 
 #, java-format
 msgid "Invalid range: {0}."
@@ -1293,5 +1291,43 @@ msgstr "Número invàlid: {0}"
 #~ msgid ""
 #~ "Show a dialog box asking the user for confirmation when the \"overwrite\" is "
 #~ "selected"
-#~ msgstr ""
-#~ "Mostra un diàleg de confirmació quan s’ha seleccionat «sobreescriure»"
+#~ msgstr "Mostra un diàleg de confirmació quan s’ha seleccionat «sobreescriure»"
+
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr "Pàgines per extreure (ex: 2 o 5-23 o 2,5-7,12- o 3,última)"
+
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+" or 3,last)"
+msgstr ""
+"Números de pàgina separats per comes o rangs per extreure (ex: 2 o 5-23 o "
+"2,5-7,12- o 3,última)"
+
+msgid "A .pdf extension is required for the repeating file"
+msgstr "Cal una extensió .pdf per al fitxer repetit"
+
+msgid "A .pdf destination file extension is required"
+msgstr "Cal una extensió de fitxer de destinació .pdf"
+
+msgid "Duplicate at Top"
+msgstr "Duplica a dalt"
+
+msgid "Duplicate Up"
+msgstr "Duplica amunt"
+
+msgid "Duplicate Down"
+msgstr "Duplica cap avall"
+
+msgid "Duplicate at Bottom"
+msgstr "Duplica a la part inferior"
+
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr "Error desant contingut al fitxer {0}"
+
+#, java-format
+msgid "File {0} saved"
+msgstr "Fitxer {0} desat"
+
+msgid "Error saving content to clipboard"
+msgstr "Error desant contingut al porta-retalls"

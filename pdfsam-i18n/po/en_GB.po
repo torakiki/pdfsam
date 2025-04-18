@@ -2,20 +2,21 @@
 # Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2024-10-12 20:18+0000\n"
+"PO-Revision-Date: 2025-04-18 09:55+0200\n"
 "Last-Translator: Andi Chandler <Unknown>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-10-25 13:44+0000\n"
-"X-Generator: Launchpad (build 22ade00ab50b929fac63b8ee7252243aceda294a)\n"
+"X-Launchpad-Export-Date: 2025-04-17 17:36+0000\n"
+"X-Generator: Autopo v1.0.1\n"
+"Language: en_GB\n"
 
 msgid "No PDF document has been selected"
 msgstr "No PDF document has been selected"
@@ -115,10 +116,8 @@ msgstr "Odd pages"
 msgid "Split the document after the given page numbers"
 msgstr "Split the document after the given page numbers"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
-msgstr ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgstr "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 
 msgid "Split after the following page numbers"
 msgstr "Split after the following page numbers"
@@ -184,8 +183,7 @@ msgstr ""
 "Merge two or more PDF documents, taking pages alternately in natural or "
 "reverse order."
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Double click to set pages you want to mix (eg: 2 or 5-23 or 2,5-7,12-)"
 
@@ -689,8 +687,7 @@ msgstr "Output"
 msgid "Check for updates now"
 msgstr "Check for updates now"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Select a directory where documents will be saved and loaded by default"
 
@@ -748,8 +745,7 @@ msgstr "Set whether \"Discard bookmarks\" should be enabled by default"
 msgid "Overwrite files"
 msgstr "Overwrite files"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
 "Set whether \"Overwrite if already exists\" should be enabled by default"
 
@@ -1046,16 +1042,16 @@ msgid "Duplicate"
 msgstr "Duplicate"
 
 msgid "Duplicate at Top"
-msgstr ""
+msgstr "Duplicate at Top"
 
 msgid "Duplicate Up"
-msgstr ""
+msgstr "Duplicate Up"
 
 msgid "Duplicate Down"
-msgstr ""
+msgstr "Duplicate Down"
 
 msgid "Duplicate at Bottom"
-msgstr ""
+msgstr "Duplicate at Bottom"
 
 msgid "Selected pages"
 msgstr "Selected pages"
@@ -1171,8 +1167,10 @@ msgstr "Overwrite if already exists"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 
 msgid "The selected PDF file is invalid"
 msgstr "The selected PDF file is invalid"

@@ -2,20 +2,20 @@
 # Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2024-10-23 15:40+0000\n"
+"PO-Revision-Date: 2025-04-18 09:55+0200\n"
 "Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-10-25 13:44+0000\n"
-"X-Generator: Launchpad (build 22ade00ab50b929fac63b8ee7252243aceda294a)\n"
+"X-Generator: Autopo v1.0.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Language: it\n"
 
@@ -119,8 +119,7 @@ msgstr "Pagine dispari"
 msgid "Split the document after the given page numbers"
 msgstr "Dividi dopo il numero di pagine indicato"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 "Dividi il PDF ogni \"n\" pagine e creare documenti di \"n\" pagine ciascuno"
 
@@ -161,7 +160,7 @@ msgid "Split by size"
 msgstr "Dividi per dimensione"
 
 msgid "Split a PDF document in files of the given size (roughly)."
-msgstr "Dividi un documento PDF in file della dimensione data (circa)"
+msgstr "Dividi un documento PDF in file della dimensione data (circa)."
 
 msgid "Set the size to split at"
 msgstr "Imposta la dimensione a cui dividere"
@@ -189,8 +188,7 @@ msgstr ""
 "Unisci due o più documenti PDF inserendo alternativamente le pagine in "
 "ordine naturale od inverso."
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Doppio clic per impostare le pagine da unire (es: 2 o 5-23 o 2,5-7,12-)"
 
@@ -360,8 +358,7 @@ msgid "Invalid page number"
 msgstr "Numero di pagina invalido"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
-msgstr ""
-"Ripeti le pagine selezionate ogni \"n\" pagine del documento originale"
+msgstr "Ripeti le pagine selezionate ogni \"n\" pagine del documento originale"
 
 msgid "A .pdf extension is required for the repeating file"
 msgstr "Per il file ripetuto è richiesta l'estensione .pdf"
@@ -370,8 +367,7 @@ msgid "The number of pages must be a positive number"
 msgstr "Il numero di pagine deve essere un numero positivo"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
-msgstr ""
-"Seleziona o trascina e rilascia il PDF in cui vuoi inserire le pagine"
+msgstr "Seleziona o trascina e rilascia il PDF in cui vuoi inserire le pagine"
 
 msgid "A .pdf destination file extension is required"
 msgstr "È richiesta un'estensione .pdf per il file di destinazione"
@@ -503,7 +499,7 @@ msgid "Do you want to add PDF files found in subdirectories?"
 msgstr "Vuoi aggiungere i file PDF che si trovano nelle sotto cartelle?"
 
 msgid "Task failed"
-msgstr "Attività fallito"
+msgstr "Attività fallita"
 
 msgid "PDFsam can try to overcome the failure"
 msgstr "PDFsam può provare a superare il fallimento"
@@ -727,10 +723,10 @@ msgstr "Destinazione"
 msgid "Check for updates now"
 msgstr "Controlla aggiornamenti ora"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr ""
-"Seleziona una cartella predefinita dove verranno salvati/caricati i documenti"
+"Seleziona una cartella predefinita dove verranno salvati/caricati i "
+"documenti"
 
 msgid "Select a directory"
 msgstr "Seleziona una cartella"
@@ -775,7 +771,7 @@ msgstr ""
 "all'avvio (riavvio necessario)"
 
 msgid "Enabled PDF compression"
-msgstr "Abilita compressione PDF"
+msgstr "Compressione PDF abilitata"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
@@ -790,8 +786,7 @@ msgstr ""
 msgid "Overwrite files"
 msgstr "Sovrascrivi file"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
 "Imposta se \"Sovrascrivi se già esistente\" deve essere abilitato come "
 "impostazione predefinita"
@@ -926,13 +921,11 @@ msgid "Valid user password provided."
 msgstr "Password utente valida."
 
 msgid "This document is encrypted, click to provide a password."
-msgstr ""
-"Questo documento è criptato. \n"
+msgstr "Questo documento è criptato. \n"
 "Seleziona per inserire una password."
 
 msgid "An error has occurred, click for more details."
-msgstr ""
-"Si è verificato un errore.\n"
+msgstr "Si è verificato un errore.\n"
 "Per maggiori dettagli seleziona."
 
 #, java-format
@@ -1252,6 +1245,7 @@ msgstr "Sovrascrivi se già esistente"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr ""
 "Se vuoi sovrascrivere i file di destinazione nel caso esistano già spunta il "
 "riquadro."
@@ -1378,44 +1372,3 @@ msgstr "Intervallo non valido: {0}."
 #, java-format
 msgid "Invalid number: {0}."
 msgstr "Numero non valido: {0}"
-
-# F:\workspace_pdfsame_enanched\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:200
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:206
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:223
-#~ msgid "Split even pages"
-#~ msgstr "Dividi pagine pari"
-
-# F:\workspace_pdfsame_enanched\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:203
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:209
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:224
-#~ msgid "Split odd pages"
-#~ msgstr "Dividi pagine dispari"
-
-#~ msgid "Never"
-#~ msgstr "Mai"
-
-#~ msgid "Destination folder"
-#~ msgstr "Cartella di destinazione"
-
-#~ msgid "Would you like to overwrite it?"
-#~ msgstr "Vuoi sovrascriverlo?"
-
-# F:\workspace_pdfsame_enanched\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:328
-# F:\workspace_pdfsame_enanched\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:290
-# F:\workspace_pdfsam_enhanced\pdfsam-encrypt\it\pdfsam\plugin\encrypt\GUI\EncryptMainGUI.java:353
-# F:\workspace_pdfsam_enhanced\pdfsam-split\it\pdfsam\plugin\split\GUI\SplitMainGUI.java:318
-#~ msgid "Output document pdf version:"
-#~ msgstr "Versione PDF del documento di destinazione:"
-
-#~ msgid "Unable to get latest available version"
-#~ msgstr "Impossibile identificare l'ultima versione disponibile"
-
-#~ msgid ""
-#~ "Show a dialog box asking the user for confirmation when the \"overwrite\" is "
-#~ "selected"
-#~ msgstr ""
-#~ "Mostra una finestra che chiede all'utente una conferma quando "
-#~ "\"sovrascrivi\" è selezionato."
-
-#~ msgid "Ask for confirmation when overwrite checkbox is selected"
-#~ msgstr "Chiede conferma quando l'opzione di sovrascrittura è selezionata"
