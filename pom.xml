@@ -327,7 +327,7 @@
         <sejda.commons.version>3.0.0</sejda.commons.version>
         <eventstudio.version>4.0.1</eventstudio.version>
         <injector.version>5.0.0</injector.version>
-        <ikonli.version>12.3.1</ikonli.version>
+        <ikonli.version>12.4.0</ikonli.version>
         <testfx.version>4.0.18</testfx.version>
         <jackson.version>2.18.3</jackson.version>
         <bouncycastle.version>1.80</bouncycastle.version>
