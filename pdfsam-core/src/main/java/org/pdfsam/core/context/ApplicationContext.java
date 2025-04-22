@@ -29,9 +29,11 @@ import org.pdfsam.persistence.PreferencesRepository;
 import java.io.Closeable;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Base64;
 import java.util.Objects;
 import java.util.Optional;
 
+import static java.util.Optional.of;
 import static java.util.Optional.ofNullable;
 import static java.util.function.Predicate.not;
 import static org.pdfsam.core.context.StringPersistentProperty.FONT_SIZE;
@@ -111,9 +113,12 @@ public class ApplicationContext implements Closeable {
                     if (!Platform.isSupported(ConditionalFeature.TRANSPARENT_WINDOW)) {
                         scene.getStylesheets().addAll(t.transparentIncapableStylesheets());
                     }
-                    scene.getRoot().setStyle(String.format("-default-primary: %s;",
-                            ofNullable(t.defaultPrimary()).orElseGet(
-                                    () -> toWeb(Platform.getPreferences().getAccentColor()))));
+                    ofNullable(t.defaultPrimary()).or(() -> of(toWeb(Platform.getPreferences().getAccentColor())))
+                            .map(c -> String.format(".root{-default-primary: %s;}", c))
+                            .map(css -> "data:text/css;base64," + Base64.getEncoder().encodeToString(css.getBytes()))
+                            .ifPresent(scene.getStylesheets()::add);
+                    this.persistentSettings().get(FONT_SIZE).filter(not(String::isBlank))
+                            .ifPresent(size -> scene.getRoot().setStyle(String.format("-fx-font-size: %s;", size)));
                 });
             }
         });
@@ -121,9 +126,6 @@ public class ApplicationContext implements Closeable {
             size.filter(StringUtils::isNotBlank).map(s -> String.format("-fx-font-size: %s;", s))
                     .ifPresentOrElse(scene.getRoot()::setStyle, () -> scene.getRoot().setStyle(""));
         });
-
-        this.persistentSettings().get(FONT_SIZE).filter(not(String::isBlank))
-                .ifPresent(size -> scene.getRoot().setStyle(String.format("-fx-font-size: %s;", size)));
     }
 
     /**
