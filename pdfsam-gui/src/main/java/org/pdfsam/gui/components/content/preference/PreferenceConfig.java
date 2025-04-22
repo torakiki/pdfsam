@@ -117,7 +117,7 @@ public class PreferenceConfig {
         PreferenceComboBox<ComboItem<String>> fontSizeCombo = new PreferenceComboBox<>(FONT_SIZE);
         fontSizeCombo.setId("fontSizeCombo");
         fontSizeCombo.getItems().add(new ComboItem<>("", i18n().tr("System default")));
-        IntStream.range(9, 22).forEach(i -> fontSizeCombo.getItems().add(new ComboItem<>(i + "px", i + "px")));
+        IntStream.range(9, 37).forEach(i -> fontSizeCombo.getItems().add(new ComboItem<>(i + "px", i + "px")));
         fontSizeCombo.setValue(keyWithEmptyValue(app().persistentSettings().get(FONT_SIZE).orElse("")));
         return fontSizeCombo;
     }
