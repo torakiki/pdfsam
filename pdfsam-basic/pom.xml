@@ -419,7 +419,7 @@
                     <plugin>
                         <artifactId>jdeb</artifactId>
                         <groupId>org.vafer</groupId>
-                        <version>1.12</version>
+                        <version>1.14</version>
                         <executions>
                             <execution>
                                 <phase>package</phase>
