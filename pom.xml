@@ -300,7 +300,7 @@
     </build>
 
     <properties>
-        <junit.version>5.13.2</junit.version>
+        <junit.version>5.13.3</junit.version>
         <junit.pioneer.version>2.3.0</junit.pioneer.version>
         <archunit.version>1.4.1</archunit.version>
         <slf4j.version>2.0.17</slf4j.version>
