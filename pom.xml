@@ -304,7 +304,7 @@
         <junit.pioneer.version>2.3.0</junit.pioneer.version>
         <archunit.version>1.4.1</archunit.version>
         <slf4j.version>2.0.17</slf4j.version>
-        <commons.lang.version>3.17.0</commons.lang.version>
+        <commons.lang.version>3.18.0</commons.lang.version>
         <commons.io.version>2.19.0</commons.io.version>
         <mockito.version>5.18.0</mockito.version>
         <tinylog.version>2.7.0</tinylog.version>
