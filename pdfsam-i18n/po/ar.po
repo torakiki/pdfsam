@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2025-04-18 09:55+0200\n"
-"Last-Translator: mohammadA <Unknown>\n"
+"POT-Creation-Date: 2024-10-23 17:08+0200\n"
+"PO-Revision-Date: 2025-07-23 11:23+0200\n"
+"Last-Translator: Bouzid Zeroug <Unknown>\n"
 "Language-Team: Arabic <ar@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-03-23 10:56+0000\n"
-"X-Generator: Autopo v1.0.1\n"
+"X-Launchpad-Export-Date: 2025-07-23 08:44+0000\n"
+"X-Generator: Autopo v1.0.3-SNAPSHOT\n"
 "Language: ar\n"
 
 msgid "No PDF document has been selected"
@@ -42,8 +42,10 @@ msgstr "ملف منفصل لكل مجموعة من الصفحات"
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr "كل سلسلة متصلة من الصفحات ستولد ملف PDF منفصل"
 
-#~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-#~ msgstr "الصفحات التي سيتم استخراجها (مثال: 2 أو 5-23 أو 2، 5-7، 12-)"
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr ""
+"الصفحات المراد استخراجها (على سبيل المثال: 2 أو 5-23 أو 2، 5-7، 12- أو 3، "
+"الأخيرة)"
 
 msgid "Invalid page ranges"
 msgstr "نطاقات الصفحات غير صالحة"
@@ -51,438 +53,467 @@ msgstr "نطاقات الصفحات غير صالحة"
 msgid "Extract pages:"
 msgstr "استخراج صفحات"
 
-#~ msgid ""
-#~ "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-#~ ")"
-#~ msgstr ""
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+" or 3,last)"
+msgstr ""
+"أرقام الصفحات أو النطاقات التي يجب استخراجها مفصولة بفواصل (على سبيل المثال: "
+"2 أو 5-23 أو 2، 5-7، 12- أو 3، الأخير)"
 
 msgid "Split by bookmarks"
-msgstr ""
+msgstr "تقسيم حسب الإشارات المرجعية"
 
 msgid ""
 "Split a PDF document at bookmarked pages by specifying a bookmark level."
 msgstr ""
+"تقسيم مستند PDF إلى صفحات مرجعية عن طريق تحديد مستوى الإشارة المرجعية."
 
 msgid "Regular expression the bookmark has to match"
-msgstr ""
+msgstr "تعبير نمطي يجب أن يطابقه الإشارة المرجعية"
 
 msgid "Split at this bookmark level:"
-msgstr ""
+msgstr "قسّم عند هذا المستوى من الإشارة المرجعية:"
 
 msgid "Matching regular expression:"
-msgstr ""
+msgstr "التعبير النمطي المطابق:"
 
 msgid "A regular expression the bookmark text has to match"
-msgstr ""
+msgstr "تعبير نمطي يجب أن يطابق نص الإشارة المرجعية"
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
 msgstr ""
+"مثال: استخدم .*Chapter.* لمطابقة الإشارات المرجعية التي تحتوي على الكلمة "
+"\"Chapter\""
 
 msgid "Select or drag and drop the PDF you want to split"
-msgstr "اختر أو اسحب إلى هنا ملف PDF الذي تريد تقسيمه"
+msgstr "حدد أو اسحب وأفلِت ملف PDF الذي تريد تقسيمه"
 
 msgid "Split settings"
 msgstr "إعدادات التقسيم"
 
 msgid "Invalid bookmarks level"
-msgstr ""
+msgstr "مستوى الإشارات المرجعية غير صالح"
 
 msgid "Split after"
-msgstr ""
+msgstr "قسّم بعد"
 
 msgid "No page selected"
-msgstr ""
+msgstr "لم يتم تحديد أي صفحة"
 
 msgid "Split"
 msgstr "تقسيم"
 
 msgid "Split a PDF document at the given page numbers."
-msgstr ""
+msgstr "تقسيم مستند PDF عند أرقام الصفحات المحددة."
 
 msgid "Every page"
-msgstr ""
+msgstr "كل صفحة"
 
 msgid "Even pages"
-msgstr ""
+msgstr "الصفحات الزوجية"
 
 msgid "Odd pages"
-msgstr ""
+msgstr "الصفحات الفردية"
 
 msgid "Split the document after the given page numbers"
-msgstr ""
+msgstr "تقسيم المستند بعد أرقام الصفحات المحددة"
 
 msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
+"يقسّم ملف PDF كل 'n' صفحات، مُنشئًا ملفات مكوّنة من 'n' صفحات لكلٍ منها"
 
 msgid "Split after the following page numbers"
-msgstr ""
+msgstr "تقسيم بعد أرقام الصفحات التالية"
 
 msgid "Page numbers to split at (n1,n2,n3..)"
-msgstr ""
+msgstr "أرقام الصفحات التي سيتم تقسيمها عند (n1، n2، n3..)"
 
 msgid "Invalid page numbers"
-msgstr ""
+msgstr "أرقام الصفحات غير صالحة"
 
 msgid "Only valid positive page numbers are allowed"
-msgstr ""
+msgstr "يُسمح فقط بأرقام الصفحات الإيجابية الصالحة"
 
 msgid "Split by every \"n\" pages"
-msgstr ""
+msgstr "قسّم كل 'n' صفحات"
 
 msgid "Number of pages"
-msgstr ""
+msgstr "عدد الصفحات"
 
 msgid "Invalid number of pages"
-msgstr ""
+msgstr "عدد غير صالح من الصفحات"
 
 msgid "Megabytes"
-msgstr ""
+msgstr "ميغا بايت"
 
 msgid "MB"
-msgstr ""
+msgstr "ميغا بايت"
 
 msgid "Kilobytes"
-msgstr ""
+msgstr "كيلو بايت"
 
 msgid "KB"
-msgstr ""
+msgstr "كيلو بايت"
 
 msgid "Split by size"
-msgstr ""
+msgstr "مقسمة حسب الحجم"
 
 msgid "Split a PDF document in files of the given size (roughly)."
-msgstr ""
+msgstr "تقسيم مستند PDF إلى ملفات بالحجم المحدد (تقريبًا)."
 
 msgid "Set the size to split at"
-msgstr ""
+msgstr "تعيين الحجم الذي تريد تقسيمه"
 
 msgid "Size must be a number"
-msgstr "الحجم يجب أن يكون رقما"
+msgstr "يجب أن يكون الحجم رقمًا"
 
 msgid "Split at this size:"
-msgstr ""
+msgstr "مقسمة بهذا الحجم:"
 
 msgid "Invalid split size"
 msgstr "حجم تقسيم غير صالح"
 
 msgid "Destination file"
-msgstr ""
+msgstr "ملف الوجهة"
 
 msgid "Alternate Mix"
-msgstr ""
+msgstr "دمج بالتناوب"
 
 msgid ""
 "Merge two or more PDF documents taking pages alternately in natural or "
 "reverse order."
 msgstr ""
+"دمج مستندين PDF أو أكثر من خلال أخذ الصفحات بالتناوب بالترتيب الطبيعي أو "
+"العكسي."
 
 msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"انقر نقرًا مزدوجًا لتعيين الصفحات التي تريد مزجها (على سبيل المثال: 2 أو 5-"
+"23 أو 2،5-7،12-)"
 
 msgid "Select a positive integer number as pace"
-msgstr ""
+msgstr "حدد عددًا صحيحًا موجبًا للسرعة"
 
 msgid "All pages"
-msgstr ""
+msgstr "جميع الصفحات"
 
 msgid "90 degrees clockwise"
-msgstr "90 درجة مع عقارب الساعة"
+msgstr "90 درجة في اتجاه عقارب الساعة"
 
 msgid "180 degrees clockwise"
-msgstr "180 درجة مع عقارب الساعة"
+msgstr "180 درجة في اتجاه عقارب الساعة"
 
 msgid "90 degrees counterclockwise"
-msgstr "90 درجة ضد عقارب الساعة"
+msgstr "90 درجة عكس اتجاه عقارب الساعة"
 
 msgid "Rotate "
-msgstr ""
+msgstr "تدوير "
 
 msgid "Rotate settings"
-msgstr "إعدادات الدوران"
+msgstr "تدوير الإعدادات"
 
 msgid "Rotate"
-msgstr "دوران"
+msgstr "تدوير"
 
 msgid "Rotate the pages of multiple PDF documents."
-msgstr ""
+msgstr "تدوير صفحات مستندات PDF المتعددة."
 
 msgid ""
 "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"انقر نقرًا مزدوجًا لتعيين الصفحات التي تريد تدويرها (على سبيل المثال: 2 أو 5-"
+"23 أو 2، 5-7، 12-)"
 
 msgid "Merge settings"
-msgstr ""
+msgstr "دمج الإعدادات"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"انقر نقرًا مزدوجًا لتعيين الصفحات التي تريد دمجها (على سبيل المثال: 2 أو 5-"
+"23 أو 2، 5-7، 12-)"
 
 msgid "Add a blank page if page number is odd"
-msgstr ""
+msgstr "أضف صفحة فارغة إذا كان رقم الصفحة فرديًا"
 
 msgid ""
 "Adds a blank page after each merged document if the document has an odd "
 "number of pages"
 msgstr ""
+"إضافة صفحة فارغة بعد كل مستند مدمج إذا كان المستند يحتوي على عدد فردي من "
+"الصفحات"
 
 msgid "Add a footer"
-msgstr ""
+msgstr "إضافة تذييل"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
-msgstr ""
+msgstr "إضافة تذييل للصفحة يتضمن اسم الملف الذي تنتمي إليه الصفحة."
 
 msgid "None"
-msgstr "بلا"
+msgstr "لا شيء"
 
 msgid "Same width as first page"
-msgstr ""
+msgstr "نفس عرض الصفحة الأولى"
 
 msgid "Same width as first page (based on page orientation)"
-msgstr ""
+msgstr "نفس عرض الصفحة الأولى (بناءً على اتجاه الصفحة)"
 
 msgid "Pages normalization:"
-msgstr ""
+msgstr "توحيد الصفحات"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
 "one"
 msgstr ""
-
-msgid "Merge fields"
-msgstr ""
+"تعيين ما إذا كان يجب تغيير حجم الصفحات بحيث يكون لجميعها نفس عرض الصفحة "
+"الأولى"
 
 msgid "Merge renaming existing fields"
-msgstr ""
+msgstr "دمج مع إعادة تسمية الحقول الموجودة"
+
+msgid "Merge fields"
+msgstr "دمج الحقول"
 
 msgid "Flatten"
-msgstr ""
+msgstr "تسطيح"
 
 msgid "Discard forms"
-msgstr ""
+msgstr "التخلص من النماذج"
 
 msgid "Interactive forms (AcroForms):"
-msgstr ""
+msgstr "النماذج التفاعلية (AcroForms):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
-msgstr ""
+msgstr "ما يجب فعله في حالة احتواء مستند إدخال واحد أو أكثر على نماذج Acro"
 
 msgid "Retain bookmarks"
-msgstr ""
+msgstr "الاحتفاظ بالإشارات المرجعية"
 
 msgid "Discard bookmarks"
-msgstr ""
+msgstr "التخلص من العلامات المرجعية"
 
 msgid "Create one entry for each merged document"
-msgstr ""
+msgstr "إنشاء إدخال واحد لكل مستند مدمج"
 
 msgid "Retain bookmarks as one entry for each merged document"
-msgstr ""
+msgstr "الاحتفاظ بالإشارات المرجعية كمدخل واحد لكل مستند مدمج"
 
 msgid "Bookmarks handling:"
-msgstr ""
+msgstr "التعامل مع الإشارات المرجعية:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr ""
+"ماذا يجب فعله في حال احتوى مستند واحد أو أكثر من المستندات المُدخلة على "
+"إشارات مرجعية"
 
 msgid "Don't generate"
-msgstr ""
+msgstr "عدم الإنشاء"
 
 msgid "Generate from file names"
-msgstr ""
+msgstr "إنشاء من أسماء الملفات"
 
 msgid "Generate from documents titles"
-msgstr ""
+msgstr "إنشاء عناوين من المستندات"
 
 msgid "Table of contents:"
-msgstr ""
+msgstr "جدول المحتويات:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
-msgstr ""
+msgstr "تعيين ما إذا كان يجب إضافة جدول محتويات إلى مستند PDF الناتج"
 
 msgid "Merge"
 msgstr "دمج"
 
-#~ msgid "Merge together multiple PDF documents or subsections of them."
-#~ msgstr ""
+msgid "Merge multiple PDF documents or subsections of them."
+msgstr "دمج مستندات PDF متعددة أو أقسام فرعية منها."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
-msgstr ""
+msgstr "حدد أو اسحب وأفلِت ملف PDF الذي سيتم تكرار صفحاته"
 
 msgid "Repeat these pages:"
-msgstr ""
+msgstr "كرر هذه الصفحات:"
 
 msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "الصفحات المراد تكرارها (على سبيل المثال: 2 أو 5-23 أو 2، 5-7، 12-)"
 
 msgid ""
 "Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
 "7,12-)"
 msgstr ""
+"أرقام الصفحات أو النطاقات التي سيتم تكرارها مفصولة بفواصل (على سبيل المثال: "
+"2 أو 5-23 أو 2، 5-7، 12-)"
 
 msgid "Leave it empty to use all the pages of the PDF file"
-msgstr ""
+msgstr "اتركه فارغًا لاستخدام جميع صفحات ملف PDF"
 
 msgid "Repeat every \"n\" pages:"
-msgstr ""
+msgstr "كرر كل \"n\" صفحة:"
 
 msgid "Invalid page number"
-msgstr ""
+msgstr "رقم الصفحة غير صالح"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
-msgstr ""
+msgstr "كرار الصفحات المحددة كل 'n' صفحات من المستند الأصلي"
 
-msgid "The selected PDF file is invalid"
-msgstr ""
+msgid "A .pdf extension is required for the repeating file"
+msgstr "يجب أن يكون الامتداد .pdf مطلوبًا للملف المتكرر"
 
 msgid "The number of pages must be a positive number"
-msgstr ""
+msgstr "يجب أن يكون عدد الصفحات عددًا موجبًا"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
-msgstr ""
+msgstr "حدد أو اسحب وأفلِت ملف PDF الذي تريد إدراج الصفحات فيه"
+
+msgid "A .pdf destination file extension is required"
+msgstr "يجب أن يكون امتداد الملف الوجهة .pdf"
 
 msgid "Insert and Repeat settings"
-msgstr ""
+msgstr "إعدادات الإدراج والتكرار"
 
 msgid "Insert pages multiple times"
-msgstr ""
+msgstr "إدراج الصفحات عدة مرات"
 
 msgid ""
 "Insert the pages of a PDF document A into another document B, repeating it "
 "after a certain number of pages, resulting in B1 A B2 A B3 A etc."
 msgstr ""
+"قم بإدراج صفحات مستند PDF A في مستند آخر B، وتكرار ذلك بعد عدد معين من "
+"الصفحات، مما يؤدي إلى B1 A B2 A B3 A وهكذا."
 
 #, java-format
 msgid "Started in {0}"
-msgstr "إبدأ عند {0}"
+msgstr "بدأ في {0}"
 
 msgid "Closing PDFsam..."
-msgstr "جاري إغلاق البرنامج ..."
+msgstr "جاري إغلاق البرنامج PDFsam ..."
 
 msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr ""
+msgstr "اسحب وأفلت ملفات PDF أو المجلدات التي تحتوي على ملفات PDF"
 
 msgid "No PDF found"
-msgstr ""
+msgstr "لم يتم العثور على ملف PDF"
 
 msgid "Tools"
-msgstr ""
+msgstr "أدوات"
 
 msgid "News"
-msgstr ""
+msgstr "أخبار"
 
 msgid "What's new"
-msgstr ""
+msgstr "ما الجديد"
 
 msgid "Exit"
-msgstr ""
+msgstr "الخروج"
 
 msgid "Exit the application"
-msgstr ""
+msgstr "الخروج من التطبيق"
 
 msgid "Workspace"
-msgstr ""
+msgstr "مساحة العمل"
 
 msgid "Manage your workspaces"
-msgstr ""
+msgstr "إدارة مساحات العمل الخاصة بك"
 
 msgid "Yes"
-msgstr ""
+msgstr "نعم"
 
 msgid "No"
-msgstr ""
+msgstr "لا"
 
 msgid "Confirm clearing"
-msgstr ""
+msgstr "تأكيد المسح"
 
 msgid "Do you confirm?"
-msgstr ""
+msgstr "هل تؤكد ذلك؟"
 
 msgid "Clear the tool settings"
-msgstr ""
+msgstr "مسح إعدادات الأداة"
 
 msgid "Clear the selection table"
-msgstr ""
+msgstr "مسح جدول الاختيار"
 
 msgid "Open with"
-msgstr ""
+msgstr "افتح باستخدام"
 
 msgid "Select the task to perform on the following files"
-msgstr ""
+msgstr "حدد المهمة التي تريد تنفيذها على الملفات التالية"
 
 msgid "Directory not empty"
-msgstr ""
+msgstr "الدليل غير فارغ"
 
 msgid "The selected directory is not empty"
-msgstr ""
+msgstr "الدليل المحدد ليس فارغًا"
 
 msgid "What would you like to do in case of files with the same name?"
-msgstr ""
+msgstr "ماذا تريد أن تفعل في حالة وجود ملفات بنفس الاسم؟"
 
 msgid "Overwrite"
-msgstr ""
+msgstr "الكتابة فوق الملف واستبداله"
 
 msgid "Rename"
-msgstr ""
+msgstr "إعادة تسمية"
 
 msgid "Skip"
-msgstr ""
+msgstr "تخطي"
 
 msgid "Cancel"
-msgstr ""
+msgstr "إلغاﺀ"
 
 msgid "Don't overwrite existing file"
-msgstr ""
+msgstr "لا تقم باستبدال الملف الموجود"
 
 msgid "Overwrite confirmation"
-msgstr ""
+msgstr "تأكيد الكتابة فوق"
 
 msgid "A file with the given name already exists"
-msgstr ""
+msgstr "يوجد ملف بالاسم المحدد بالفعل"
 
 msgid "What would you like to do?"
-msgstr ""
+msgstr "ماذا تود أن تفعل؟"
 
 msgid "Non existing directory"
-msgstr ""
+msgstr "دليل غير موجود"
 
 msgid "The selected output directory does not exist"
-msgstr ""
+msgstr "دليل الإخراج المحدد غير موجود"
 
 msgid "Do you want to create it?"
-msgstr ""
+msgstr "هل تريد إنشاءه؟"
 
 msgid "Subdirectories"
-msgstr ""
+msgstr "المجلدات الفرعية"
 
 msgid "Subdirectories have been found"
-msgstr ""
+msgstr "تم العثور على المجلدات الفرعية"
 
 msgid "Do you want to add PDF files found in subdirectories?"
-msgstr ""
+msgstr "هل تريد إضافة ملفات PDF الموجودة في المجلدات الفرعية؟"
 
 msgid "Task failed"
-msgstr ""
+msgstr "فشلت المهمة"
 
 msgid "PDFsam can try to overcome the failure"
-msgstr ""
+msgstr "يمكن لـ PDFsam محاولة التغلب على الفشل"
 
 msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
 msgstr ""
+"قد يؤدي ذلك إلى إنشاء ملفات PDF تحتوي على بيانات جزئية أو مفقودة، هل تريد "
+"المتابعة على أي حال؟"
 
 msgid "Removes all the log messages"
-msgstr ""
+msgstr "يزيل جميع رسائل السجل"
 
 msgid "_Clear"
-msgstr ""
+msgstr "إفراغ"
 
 msgid "_Save"
-msgstr ""
+msgstr "_حفظ"
 
 msgid "C_lose"
-msgstr ""
+msgstr "أ_غلق"
 
 msgid "Copy"
 msgstr "نسخ"
@@ -497,54 +528,54 @@ msgid "Save log"
 msgstr "احفظ السجلّ"
 
 msgid "Select where to save the log file"
-msgstr "حدد أين تريد حفظ الملفات"
+msgstr "حدد مكان حفظ ملف السجل"
 
 msgid "Logs"
-msgstr ""
+msgstr "السجلات"
 
 msgid "Application messages"
-msgstr ""
+msgstr "رسائل التطبيق"
 
 msgid "_Load"
-msgstr ""
+msgstr "_حمِّل"
 
 msgid "Recen_ts"
-msgstr ""
+msgstr "مؤ_خرًا"
 
 msgid "_Clear recents"
-msgstr ""
+msgstr "_مسح الأخيرة"
 
 msgid "Select the workspace file to save"
-msgstr ""
+msgstr "حدد ملف مساحة العمل لحفظه"
 
 msgid "Select the workspace to load"
-msgstr ""
+msgstr "حدد مساحة العمل للتحميل"
 
 msgid "Subscribe to the official news feed"
 msgstr "اشترك في قناة الاخبار الرسمية"
 
 msgid "Environment"
-msgstr "محيط"
+msgstr "بيئة"
 
 #, java-printf-format
 msgid "Vendor: %s"
-msgstr ""
+msgstr "البائع: %s"
 
 #, java-printf-format
 msgid "Java runtime path: %s"
-msgstr ""
+msgstr "مسار وقت تشغيل Java: %s"
 
 #, java-printf-format
 msgid "JavaFX runtime version: %s"
-msgstr ""
+msgstr "إصدار وقت تشغيل JavaFX: %s"
 
 #, java-printf-format
 msgid "PDF engine (Sejda SDK) version: %s"
-msgstr ""
+msgstr "إصدار محرك PDF (Sejda SDK): %s"
 
 #, java-format
 msgid "Max memory {0}"
-msgstr "اقصى الذاكرة {0}"
+msgstr "الحد الأقصى للذاكرة {0}"
 
 msgid "Copy to clipboard"
 msgstr "نسخ إلى الحافظة"
@@ -562,16 +593,16 @@ msgid "Contribute"
 msgstr "مساهمة"
 
 msgid "Fork PDFsam on GitHub"
-msgstr ""
+msgstr "افصل نسخة من PDFsam على GitHub"
 
 msgid "Translate"
-msgstr "ترجمة"
+msgstr "الترجمة"
 
 msgid "Donate"
 msgstr "تبرّع"
 
 msgid "Social"
-msgstr ""
+msgstr "اجتماعي"
 
 msgid "Follow us on Twitter"
 msgstr "تابعنا عبر التويتر"
@@ -580,596 +611,658 @@ msgid "Like us on Facebook"
 msgstr "اعجب بصفحتنا على الفيسبوك"
 
 msgid "About"
-msgstr "عَنْ التطبيق"
+msgstr "حول"
 
 msgid "Home"
-msgstr ""
+msgstr "الرئيسية"
 
 msgid "Premium features"
 msgstr "مميزات العضوية المميزة"
 
 msgid "Log register rows:"
-msgstr ""
+msgstr "صفوف سجل التسجيل"
 
 msgid "Maximum number of rows displayed by the Log register"
-msgstr ""
+msgstr "العدد الأقصى للصفوف المعروضة في سجل التسجيل"
 
 msgid "Language:"
-msgstr "اللُّغة:"
+msgstr "اللغة:"
 
 msgid "Set your preferred language (restart needed)"
-msgstr "حدد تفضيلات اللغة (يحتاج إعادة تشغيل)"
+msgstr "قم بتعيين اللغة المفضلة لديك (يلزم إعادة التشغيل)"
 
 msgid "Startup tool:"
-msgstr ""
+msgstr "أداة بدء التشغيل:"
 
 msgid "Set the tool to open at application startup (restart needed)"
-msgstr ""
+msgstr "ضبط الأداة ليتم فتحها عند بدء تشغيل التطبيق (يلزم إعادة التشغيل)"
 
 msgid "Theme:"
-msgstr ""
+msgstr "السمة:"
 
 msgid "Set the application theme"
-msgstr ""
+msgstr "تعيين مظهر التطبيق"
 
 msgid "Font size:"
-msgstr ""
+msgstr "حجم الخط:"
 
 msgid "Set the application font size"
-msgstr ""
+msgstr "تعيين حجم الخط في التطبيق"
+
+msgid "Default PDF version:"
+msgstr "نسخة PDF الافتراضية:"
+
+msgid "Default PDF version for generated PDF files"
+msgstr "إصدار PDF الافتراضي للملفات التي يتم إنشاؤها"
 
 msgid "Manually selected"
-msgstr ""
+msgstr "محدد يدويًا"
 
 msgid ""
 "Automatically set the destination directory to the selected PDF document "
 "directory"
+msgstr "تعيين دليل الوجهة تلقائيًا إلى دليل مستند PDF المحدد"
+
+msgid "Default prefix:"
+msgstr "البادئة الافتراضية:"
+
+msgid ""
+"Default prefix for output file names, used in tools that generate multiple "
+"files"
 msgstr ""
+"البادئة الافتراضية لأسماء ملفات الإخراج، المستخدمة في الأدوات التي تولد "
+"ملفات متعددة"
+
+msgid "Some special keywords are replaced with runtime values."
+msgstr "يتم استبدال بعض الكلمات الرئيسية الخاصة بقيم وقت التشغيل."
+
+msgid "Right click to add these keywords."
+msgstr "انقر بزر الماوس الأيمن لإضافة هذه الكلمات المفتاحية."
 
 msgid "Settings"
-msgstr ""
+msgstr "الإعدادات"
 
 msgid "Appearance"
-msgstr ""
+msgstr "المظهر"
 
 msgid "Behavior"
-msgstr ""
+msgstr "السلوك"
 
 msgid "Output"
-msgstr ""
+msgstr "المُخرجات"
 
 msgid "Check for updates now"
-msgstr ""
+msgstr "التحقق من التحديثات الآن"
 
 msgid "Select a directory where documents will be saved and loaded by default"
-msgstr ""
+msgstr "حدد المجلد الذي سيتم حفظ المستندات وتحميلها فيه افتراضيًا"
 
 msgid "Select a directory"
-msgstr ""
+msgstr "اختر المجلد"
 
 msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
 "startup"
 msgstr ""
+"حدد مساحة عمل تم حفظها مسبقًا والتي سيتم تحميلها تلقائيًا عند بدء التشغيل"
 
 msgid "Select a workspace"
-msgstr ""
+msgstr "حدد مساحة العمل"
 
 msgid "Default working directory:"
-msgstr ""
+msgstr "المجلد الافتراضي للعمل:"
 
 msgid "Load default workspace at startup:"
-msgstr ""
+msgstr "تحميل مساحة العمل الافتراضية عند بدء التشغيل:"
 
 msgid "System default"
-msgstr ""
+msgstr "الإعدادات الافتراضية للنظام"
 
 msgid "Check for updates at startup"
-msgstr ""
+msgstr "التحقق من وجود تحديثات عند بدء التشغيل"
 
 msgid ""
 "Set whether new version availability should be checked on startup (restart "
 "needed)"
 msgstr ""
+"تعيين ما إذا كان يجب التحقق من توفر الإصدار الجديد عند بدء التشغيل (يلزم "
+"إعادة التشغيل)"
 
 msgid "Check for news at startup"
-msgstr ""
+msgstr "التحقق من الأخبار عند بدء التشغيل"
 
 msgid ""
 "Set whether the application should check for news availability on startup "
 "(restart needed)"
 msgstr ""
+"تعيين ما إذا كان يجب على التطبيق التحقق من توفر الأخبار عند بدء التشغيل "
+"(يلزم إعادة التشغيل)"
 
 msgid "Enabled PDF compression"
-msgstr ""
+msgstr "تمكين ضغط PDF"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr ""
+msgstr "تعيين ما إذا كان يجب تمكين \"ضغط ملف الإخراج\" افتراضيًا"
+
+msgid "Set whether \"Discard bookmarks\" should be enabled by default"
+msgstr "تعيين ما إذا كان يجب تمكين \"تجاهل الإشارات المرجعية\" افتراضيًا"
 
 msgid "Overwrite files"
-msgstr ""
+msgstr "الكتابة فوق الملفات"
 
 msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
+"تعيين ما إذا كان يجب تمكين \"الكتابة فوق إذا كان موجودًا بالفعل\" افتراضيًا"
 
 msgid "Play alert sounds"
-msgstr ""
+msgstr "تشغيل أصوات التنبيه"
 
 msgid "Turn on or off alert sounds"
-msgstr ""
+msgstr "تشغيل أو إيقاف أصوات التنبيه"
 
 msgid "Store passwords when saving a workspace file"
-msgstr ""
+msgstr "تخزين كلمات المرور عند حفظ ملف مساحة العمل"
 
 msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
 "password in the workspace file"
 msgstr ""
+"إذا تم فتح مستند PDF مشفر بكلمة مرور، فاحفظ كلمة المرور في ملف مساحة العمل"
 
 msgid "Show donation window"
-msgstr ""
+msgstr "إظهار نافذة التبرع"
 
 msgid ""
 "Turn on or off the notification appearing once in a while and asking the "
 "user to support PDFsam with a donation"
 msgstr ""
+"تفعيل أو تعطيل الإشعار الذي يظهر من حين لآخر ويطلب من المستخدم دعم PDFsam "
+"بالتبرع"
 
 msgid "Show premium features"
-msgstr ""
+msgstr "إظهار الميزات المتميزة"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
 "description in the modules dashboard"
 msgstr ""
+"تحديد ما إذا كان التطبيق سيجلب ويعرض وصفًا للميزات المتميزة في لوحة معلومات "
+"الوحدات"
 
 msgid "Ask for a confirmation when clearing the selection table"
-msgstr ""
+msgstr "اطلب التأكيد عند مسح جدول الاختيار"
 
 msgid ""
 "Set whether the application should ask for a confirmation when clearing the "
 "selection table"
-msgstr ""
+msgstr "تعيين ما إذا كان يجب على التطبيق أن يطلب تأكيدًا عند مسح جدول التحديد"
 
 msgid "Use the selected PDF document directory as output directory"
-msgstr ""
+msgstr "استخدم دليل مستند PDF المحدد كدليل إخراج"
 
 msgid "Save default workspace on exit"
-msgstr ""
+msgstr "حفظ مساحة العمل الافتراضية عند الخروج"
 
 msgid "If a default workspace is set, save it on application exit"
-msgstr ""
+msgstr "إذا تم تعيين مساحة عمل افتراضية، فاحفظها عند الخروج من التطبيق"
 
 msgid "Maximum number of rows mast be a positive number"
-msgstr ""
+msgstr "يجب أن يكون الحد الأقصى لعدد الصفوف عددًا موجبًا"
 
 msgid "Summary"
-msgstr ""
+msgstr "ملخص"
 
 msgid "Keywords"
 msgstr "كلمات مفتاحية"
 
 msgid "Document details"
-msgstr ""
+msgstr "تفاصيل الوثيقة"
 
 msgid "Show errors"
-msgstr ""
+msgstr "إظهار الأخطاء"
 
 msgid "Input parameters are invalid"
-msgstr ""
+msgstr "القيم المُدخلة غير صالحة"
 
 msgid "Invalid parameters"
-msgstr ""
+msgstr "القيم غير صالحة"
 
 msgid "Access denied"
-msgstr ""
+msgstr "تم رفض الوصول"
 
 #, java-format
 msgid ""
 "Unable to access \"{0}\", please make sure you have write permissions or "
 "open the application messages for details."
 msgstr ""
+"تعذر الوصول إلى \"{0}\"، يرجى التأكد من أن لديك أذونات الكتابة أو فتح رسائل "
+"التطبيق للحصول على التفاصيل."
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
-msgstr ""
+msgstr "لقد قمت بتنفيذ {0} مهمة باستخدام PDFsam، هل كان ذلك مفيدًا؟"
 
 msgid "Give something back"
-msgstr ""
+msgstr "أعط شيئا في المقابل"
 
 msgid "PDFsam worked hard!"
-msgstr ""
+msgstr "لقد عمل PDFsam بجد!"
 
 msgid "Spread the word!"
-msgstr ""
+msgstr "نشر الكلمة!"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
-msgstr ""
+msgstr "PDFsam {0} متاح للتنزيل"
 
 msgid "Download"
-msgstr ""
+msgstr "تحميل"
 
 msgid "New version available"
-msgstr ""
+msgstr "النسخة الجديدة متاحة"
 
 msgid "You are running the latest version of PDFsam Basic"
-msgstr ""
+msgstr "أنت تقوم بتشغيل أحدث إصدار من PDFsam Basic"
 
 msgid "No update"
-msgstr ""
+msgstr "لا يوجد تحديث"
 
 msgid "Open"
-msgstr ""
+msgstr "فتح"
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
-msgstr ""
+msgstr "الملف \"{0}\" غير موجود أو غير صالح"
 
 msgid "Valid user password provided."
-msgstr ""
+msgstr "تم تقديم كلمة مرور مستخدم صالحة."
 
 msgid "This document is encrypted, click to provide a password."
-msgstr ""
+msgstr "تم تشفير هذه الوثيقة، انقر هنا لتوفير كلمة المرور."
 
 msgid "An error has occurred, click for more details."
-msgstr ""
+msgstr "لقد حدث خطأ، انقر للحصول على مزيد من التفاصيل."
+
+#, java-format
+msgid "Version {0}"
+msgstr "الإصدار {0}"
 
 msgid "Split tools"
-msgstr ""
+msgstr "أدوات التقسيم"
 
 msgid "Merge tools"
-msgstr ""
+msgstr "أدوات الدمج"
 
 msgid "Convert tools"
-msgstr ""
+msgstr "تحويل الأدوات"
 
 msgid "Edit tools"
-msgstr ""
+msgstr "أدوات التحرير"
 
 msgid "Other tools"
-msgstr ""
+msgstr "أدوات أخرى"
 
 msgid "Checking for updates"
-msgstr ""
+msgstr "التحقق من التحديثات"
 
 msgid "Unable to find the latest available version."
-msgstr ""
+msgstr "غير قادر على العثور على الإصدار الأحدث المتاح."
 
 #, java-format
 msgid "Unable to find any valid PDF file in the list: {0}"
-msgstr ""
+msgstr "تعذر العثور على أي ملف PDF صالح في القائمة: {0}"
 
 #, java-format
 msgid "Unable to load PDF list file from {0}"
-msgstr ""
+msgstr "غير قادر على تحميل ملف قائمة PDF من {0}"
 
 msgid "Loading pdf documents"
-msgstr ""
+msgstr "تحميل مستندات pdf"
 
 msgid "Documents loaded"
-msgstr ""
+msgstr "المستندات المحملة"
 
 msgid "Unable to retrieve premium features description"
-msgstr ""
+msgstr "غير قادر على استرداد وصف الميزات المدفوعة"
 
 msgid "Fetching premium modules"
-msgstr ""
+msgstr "جلب الوحدات المدفوعة"
 
 msgid "Unable to retrieve premium modules"
-msgstr ""
+msgstr "غير قادر على استرداد الوحدات المدفوعة"
 
 msgid "Unable to retrieve latest news"
-msgstr ""
+msgstr "غير قادر على استرجاع آخر الأخبار"
 
 msgid "Fetching latest news"
-msgstr ""
+msgstr "جلب آخر الأخبار"
 
 msgid "Unable to retrieve the latest news"
-msgstr ""
+msgstr "غير قادر على استرجاع آخر الأخبار"
 
 #, java-format
 msgid "Saving workspace data to {0}"
-msgstr ""
+msgstr "حفظ بيانات مساحة العمل في {0}"
 
 msgid "Workspace saved"
-msgstr ""
+msgstr "تم حفظ مساحة العمل"
 
 msgid "Requesting modules state"
-msgstr ""
+msgstr "طلب حالة الوحدات"
 
 #, java-format
 msgid "Unable to save workspace to {0}"
-msgstr ""
+msgstr "غير قادر على حفظ مساحة العمل إلى {0}"
 
 #, java-format
 msgid "Loading workspace from {0}"
-msgstr ""
+msgstr "تحميل مساحة العمل من {0}"
 
-#~ msgid "Workspace loaded"
-#~ msgstr ""
+#, java-format
+msgid "Workspace loaded: {0}"
+msgstr "مساحة العمل المحملة: {0}"
 
 #, java-format
 msgid "Unable to load workspace from {0}"
-msgstr ""
+msgstr "غير قادر على تحميل مساحة العمل من {0}"
+
+#, java-format
+msgid "The following file already existed and was skipped: {0}"
+msgstr "الملف التالي موجود بالفعل وتم تخطيه: {0}"
 
 msgid "Light with blue"
-msgstr ""
+msgstr "فاتح مع أزرق"
 
 msgid "Dark with purple"
-msgstr ""
+msgstr "مظلم مع أرجواني"
 
 msgid "Dark with teal"
-msgstr ""
+msgstr "مظلم مع أزرق مخضر"
 
 msgid "Light with maroon"
-msgstr ""
+msgstr "فاتح مع كستنائي"
 
 msgid "Close"
 msgstr "إغلاق"
 
 msgid "The selected PDF document is invalid"
-msgstr ""
+msgstr "مستند PDF المحدد غير صالح"
 
 msgid "Select the PDF file"
-msgstr ""
+msgstr "حدد ملف PDF"
 
 msgid "_Select PDF"
-msgstr ""
+msgstr "_حدد ملف PDF"
 
-#~ msgid "Clear all settings"
-#~ msgstr ""
+msgid "C_lear all settings"
+msgstr "م_سح جميع الإعدادات"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
-msgstr ""
+msgstr "الصفحات: {0}، نسخة PDF: {1}"
 
 msgid "Loading..."
-msgstr ""
+msgstr "جار التحميل..."
 
 msgid "Document properties"
-msgstr ""
+msgstr "خصائص المستند"
 
 msgid "Remove"
-msgstr ""
+msgstr "إزالة"
 
 msgid "Set destination"
-msgstr ""
+msgstr "تعيين الوجهة"
 
 msgid "Open Folder"
-msgstr ""
+msgstr "فتح المجلد"
 
 msgid "Enter the user password"
-msgstr ""
+msgstr "أدخل كلمة مرور المستخدم"
 
 msgid "Unlock"
-msgstr ""
+msgstr "إلغاء القفل"
 
 msgid "Drag and drop PDF files here"
-msgstr ""
+msgstr "اسحب وأفلِت ملفات PDF هنا"
 
 msgid "Set as range for all"
-msgstr ""
+msgstr "تعيين كنطاق للجميع"
 
 msgid "Move to Top"
-msgstr ""
+msgstr "انتقل إلى الأعلى"
 
 msgid "Move Up"
-msgstr ""
+msgstr "تحرك للأعلى"
 
 msgid "Move Down"
-msgstr ""
+msgstr "التحرك للأسفل"
 
 msgid "Move to Bottom"
-msgstr ""
+msgstr "الانتقال إلى الأسفل"
 
 msgid "Duplicate"
-msgstr ""
+msgstr "تكرار"
+
+msgid "Duplicate at Top"
+msgstr "مكرر في الأعلى"
+
+msgid "Duplicate Up"
+msgstr "مكرر لأعلى"
+
+msgid "Duplicate Down"
+msgstr "تكرار لأسفل"
+
+msgid "Duplicate at Bottom"
+msgstr "مكرر في الأسفل"
 
 msgid "Selected pages"
-msgstr ""
+msgstr "الصفحات المختارة"
 
 msgid "Total number of selected pages"
-msgstr ""
+msgstr "إجمالي عدد الصفحات المحددة"
 
 msgid "Size"
-msgstr ""
+msgstr "حجم"
 
 msgid "Modified"
-msgstr ""
+msgstr "معدّل"
 
 #, java-format
 msgid "Total pages: {0}"
-msgstr ""
+msgstr "إجمالي الصفحات: {0}"
 
 msgid "Name"
-msgstr ""
+msgstr "إسم"
 
 msgid "Add documents to the table"
-msgstr ""
+msgstr "إضافة المستندات إلى الجدول"
 
 msgid "_Add"
-msgstr ""
+msgstr "_أضف"
 
 msgid "PDF list from _text/csv file"
-msgstr ""
+msgstr "قائمة PDF من ملف _text/csv"
 
 msgid "Select pdf documents to load"
-msgstr ""
+msgstr "حدد مستندات pdf لتحميلها"
 
 msgid "Select a text or CSV file to load"
-msgstr ""
+msgstr "حدد ملف نصي أو ملف CSV لتحميله"
 
 msgid "Removes selected documents"
-msgstr ""
+msgstr "إزالة المستندات المحددة"
 
 msgid "_Remove"
-msgstr ""
+msgstr "_إزالة"
 
 msgid "Removes every document"
-msgstr ""
-
-msgid "C_lear all settings"
-msgstr ""
+msgstr "إزالة كل المستندات"
 
 msgid "Moves up selected documents"
-msgstr ""
+msgstr "نقل المستندات المحددة لأعلى"
 
 msgid "Move _Up"
-msgstr ""
+msgstr "تحرك لأعلى"
 
 msgid "Moves down selected documents"
-msgstr ""
+msgstr "نقل المستندات المحددة إلى الأسفل"
 
 msgid "Move _Down"
-msgstr ""
+msgstr "نقل إلى الأسفل"
 
 msgid "Pace"
-msgstr ""
+msgstr "خطوة"
 
 msgid ""
 "Double click to set the number of pages after which the task will switch to "
 "the next file"
 msgstr ""
+"انقر نقرًا مزدوجًا لتعيين عدد الصفحات التي ستنتقل بعدها المهمة إلى الملف "
+"التالي"
 
 msgid "Reverse"
-msgstr ""
+msgstr "اعكس"
 
 msgid "Pages"
-msgstr ""
+msgstr "الصفحات"
 
 msgid "Number of total pages of the document"
-msgstr ""
+msgstr "عدد الصفحات الاجمالية للوثيقة"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"انقر نقرًا مزدوجًا لتعيين الصفحات المحددة (على سبيل المثال: 2 أو 5-23 أو 2، "
+"5-7، 12-)"
 
 msgid "Page ranges"
-msgstr ""
+msgstr "نطاقات الصفحات"
 
 msgid "Select a file"
-msgstr ""
+msgstr "حدد ملفًا"
 
 msgid "The selected file must exist. "
-msgstr ""
+msgstr "يجب أن يكون الملف المحدد موجودًا. "
 
 #, java-format
 msgid "Allowed extensions are {0}"
-msgstr ""
+msgstr "الامتدادات المسموح بها هي {0}"
 
 msgid "Compress output file/files"
-msgstr ""
+msgstr "ضغط ملف/ملفات الإخراج"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
 "document"
 msgstr ""
+"قم بتحديد المربع إذا كنت لا تريد الاحتفاظ بأي إشارة مرجعية من مستند PDF "
+"الأصلي"
 
 msgid "Output PDF version:"
-msgstr ""
+msgstr "نسخة PDF الإخراجية:"
 
 msgid "Show advanced settings"
-msgstr ""
+msgstr "إظهار الإعدادات المتقدمة"
 
 msgid "Hide advanced settings"
-msgstr ""
+msgstr "إخفاء الإعدادات المتقدمة"
 
 msgid "Overwrite if already exists"
-msgstr ""
+msgstr "الكتابة فوق إذا كان موجودًا بالفعل"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
 ""
 msgstr ""
+"قم بتحديد المربع إذا كنت تريد استبدال ملفات الإخراج إذا كانت موجودة بالفعل."
 
-#, java-format
-msgid "Version {0}"
-msgstr ""
+msgid "The selected PDF file is invalid"
+msgstr "ملف PDF المحدد غير صالح"
 
 msgid "Same as the input document"
-msgstr ""
+msgstr "نفس مستند الإدخال"
 
 msgid "An existing output directory is required"
-msgstr ""
+msgstr "مطلوب مجلد إخراج موجود"
 
 msgid "The output directory is required"
-msgstr ""
+msgstr "مطلوب مجلد الإخراج"
 
 msgid "Select an existing directory"
-msgstr ""
+msgstr "حدد مجلدا موجودًا"
 
 msgid "Select"
-msgstr ""
+msgstr "تحديد"
 
 msgid "Browse"
-msgstr ""
+msgstr "تصفّح"
 
 #, java-format
 msgid "PDF version required: {0}"
-msgstr ""
+msgstr "نسخة PDF المطلوبة: {0}"
 
 msgid "Prefix for the generated files names"
-msgstr ""
+msgstr "البادئة لأسماء الملفات المُنشأة"
 
 msgid "Add prefix"
-msgstr ""
-
-msgid "DEFAULT_PREFIX"
-msgstr ""
+msgstr "إضافة البادئة"
 
 msgid "Generated PDF documents name prefix:"
-msgstr ""
+msgstr "بادئة اسم مستندات PDF المُنشأة:"
 
 msgid "Prefix for the output files name."
-msgstr ""
+msgstr "بادئة اسم ملفات الإخراج."
 
-msgid "Some special keywords are replaced with runtime values."
-msgstr ""
-
-msgid "Right click to add these keywords."
-msgstr ""
+msgid "DEFAULT_PREFIX"
+msgstr "DEFAULT_PREFIX"
 
 msgid "Run"
-msgstr ""
+msgstr "تشغيل"
 
 msgid "Run the task"
-msgstr ""
+msgstr "تشغيل المهمة"
 
 msgid "Requested"
-msgstr ""
+msgstr "مطلوب"
 
 msgid "Completed"
-msgstr ""
+msgstr "مكتمل"
 
 msgid "Failed"
-msgstr ""
+msgstr "فشل"
 
 msgid "Running"
-msgstr ""
+msgstr "جري"
 
 #, java-format
 msgid "Running {0}%"
-msgstr ""
-
-#~ msgid "Error saving log file."
-#~ msgstr ""
+msgstr "الجري {0}%"
 
 #, java-format
-#~ msgid "File {0} saved."
-#~ msgstr ""
+msgid "Error saving content to file {0}"
+msgstr "حدث خطأ أثناء حفظ المحتوى في الملف {0}"
 
 #, java-format
-msgid "Invalid range: {0}."
-msgstr ""
+msgid "File {0} saved"
+msgstr "تم حفظ الملف {0}"
+
+msgid "Error saving content to clipboard"
+msgstr "حدث خطأ أثناء حفظ المحتوى إلى الحافظة"
 
 #, java-format
 msgid ""
 "Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
 "or [-n] or [n-]"
 msgstr ""
+"تعريف نطاق الصفحات الغامض: {0}. استخدم التنسيقات التالية: [n] أو [n1-n2] أو "
+"[-n] أو [n-]"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "نطاق غير صالح: {0}."
 
 #, java-format
 msgid "Invalid number: {0}."
-msgstr ""
+msgstr "رقم غير صالح: {0}."
 
 #~ msgid "Split odd pages"
 #~ msgstr "تقسيم الصفحات الفردية"
@@ -1179,68 +1272,3 @@ msgstr ""
 
 #~ msgid "Destination folder"
 #~ msgstr "المجلد الوجهة"
-
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
-msgstr ""
-
-msgid ""
-"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-" or 3,last)"
-msgstr ""
-
-msgid "Merge multiple PDF documents or subsections of them."
-msgstr ""
-
-msgid "A .pdf extension is required for the repeating file"
-msgstr ""
-
-msgid "A .pdf destination file extension is required"
-msgstr ""
-
-msgid "Default PDF version:"
-msgstr ""
-
-msgid "Default PDF version for generated PDF files"
-msgstr ""
-
-msgid "Default prefix:"
-msgstr ""
-
-msgid ""
-"Default prefix for output file names, used in tools that generate multiple "
-"files"
-msgstr ""
-
-msgid "Set whether \"Discard bookmarks\" should be enabled by default"
-msgstr ""
-
-#, java-format
-msgid "Workspace loaded: {0}"
-msgstr ""
-
-#, java-format
-msgid "The following file already existed and was skipped: {0}"
-msgstr ""
-
-msgid "Duplicate at Top"
-msgstr ""
-
-msgid "Duplicate Up"
-msgstr ""
-
-msgid "Duplicate Down"
-msgstr ""
-
-msgid "Duplicate at Bottom"
-msgstr ""
-
-#, java-format
-msgid "Error saving content to file {0}"
-msgstr ""
-
-#, java-format
-msgid "File {0} saved"
-msgstr ""
-
-msgid "Error saving content to clipboard"
-msgstr ""

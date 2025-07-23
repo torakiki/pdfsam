@@ -8,30 +8,30 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2025-04-18 09:55+0200\n"
-"Last-Translator: Bob Loeffen <Unknown>\n"
+"PO-Revision-Date: 2025-07-23 11:36+0200\n"
+"Last-Translator: Hendrik <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-10-25 13:44+0000\n"
-"X-Generator: Autopo v1.0.1\n"
+"X-Launchpad-Export-Date: 2025-07-23 08:44+0000\n"
+"X-Generator: Autopo v1.0.3-SNAPSHOT\n"
 "Language: nl\n"
 
 msgid "No PDF document has been selected"
 msgstr "Geen PDF-document geselecteerd"
 
 msgid "Extract"
-msgstr "Uitpakken"
+msgstr "Extraheren"
 
 msgid "Extract pages from PDF documents."
-msgstr "Uitpakken pagina's uit Pdf-bestanden."
+msgstr "Extraheer pagina's uit PDF-bestanden"
 
 msgid "File names settings"
 msgstr "Bestandsnaaminstellingen"
 
 msgid "Extract settings"
-msgstr "Uitpakken instellingen"
+msgstr "Extraheerinstellingen"
 
 msgid "Output settings"
 msgstr "Uitvoerinstellingen"
@@ -40,7 +40,8 @@ msgid "A separate file for each set of pages"
 msgstr "Afzonderlijk bestand voor elke set pagina's"
 
 msgid "Each continuous series of pages will generate a separate PDF file"
-msgstr "Elke set van opeenvolgende pagina's zal een nieuw PDF-bestand vormen"
+msgstr ""
+"Elke doorlopende reeks pagina's genereert een afzonderlijk PDF-bestand"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
 msgstr ""
@@ -50,7 +51,7 @@ msgid "Invalid page ranges"
 msgstr "Ongeldig paginabereik"
 
 msgid "Extract pages:"
-msgstr "Uitpakken pagina's:"
+msgstr "Extraheer pagina's:"
 
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
@@ -64,19 +65,21 @@ msgstr "Splits bij bladwijzers"
 
 msgid ""
 "Split a PDF document at bookmarked pages by specifying a bookmark level."
-msgstr "Splitst een PDF-document bij de opgegeven bladwijzer."
+msgstr ""
+"Een PDF-document splitsen bij pagina's met bladwijzers door een "
+"bladwijzerniveau op te geven."
 
 msgid "Regular expression the bookmark has to match"
-msgstr "De reguliere expressie dient overeen te komen met de bladwijzer"
+msgstr "Reguliere expressie waaraan de bladwijzer moet voldoen"
 
 msgid "Split at this bookmark level:"
 msgstr "Splits op dit bladwijzerniveau:"
 
 msgid "Matching regular expression:"
-msgstr "Vergelijkt regular expression:"
+msgstr "Overeenkomende reguliere expressie:"
 
 msgid "A regular expression the bookmark text has to match"
-msgstr "De reguliere expressie dient overeen te komen met de bladwijzertekst"
+msgstr "Een reguliere expressie waaraan de bladwijzertekst moet voldoen"
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
@@ -103,7 +106,7 @@ msgid "Split"
 msgstr "Splitsen"
 
 msgid "Split a PDF document at the given page numbers."
-msgstr "Splits een PDF-document na een bepaald aantal pagina's."
+msgstr "Een PDF-document splitsen op de opgegeven paginanummers."
 
 msgid "Every page"
 msgstr "Elke pagina"
@@ -119,8 +122,8 @@ msgstr "Splits het document na de gegeven paginanummers"
 
 msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
-"Splits het PDF-document om de \"n\" pagina's, wat documenten van \"n\" "
-"pagina's elk creëert"
+"Splitst de PDF elke \"n\" pagina's en maakt documenten van elk \"n\" "
+"pagina's"
 
 msgid "Split after the following page numbers"
 msgstr "Splitsen na de volgende paginanummers"
@@ -236,7 +239,7 @@ msgstr ""
 "23 of 2,5-7,12-)"
 
 msgid "Add a blank page if page number is odd"
-msgstr "Voeg een lege pagina toe bij een oneven aantal pagina's"
+msgstr "Een lege pagina toevoegen als het paginanummer oneven is"
 
 msgid ""
 "Adds a blank page after each merged document if the document has an odd "
@@ -263,7 +266,7 @@ msgid "Same width as first page (based on page orientation)"
 msgstr "Dezelfde breedte als de eerste pagina (gebaseerd op de afdrukstand)"
 
 msgid "Pages normalization:"
-msgstr "Paginabreedte normaliseren."
+msgstr "Pagina's normaliseren:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
@@ -273,7 +276,7 @@ msgstr ""
 "pagina's even breed zijn als de eerste pagina"
 
 msgid "Merge renaming existing fields"
-msgstr "Samenvoegen van het hernoemen van bestaande velden"
+msgstr "Samenvoegen met hernoemen bestaande velden"
 
 msgid "Merge fields"
 msgstr "Velden samenvoegen"
@@ -296,21 +299,19 @@ msgid "Retain bookmarks"
 msgstr "Behoud bladwijzers"
 
 msgid "Discard bookmarks"
-msgstr "Verwijder bladwijzers"
+msgstr "Bladwijzers verwijderen"
 
 msgid "Create one entry for each merged document"
-msgstr "Maak een ingang voor elk samengevoegd document"
+msgstr "Maak één item voor elk samengevoegd document"
 
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr "Behoud bladwijzers als één ding voor elk samengevoegd document"
 
 msgid "Bookmarks handling:"
-msgstr "Bladwijzer behandeling:"
+msgstr "Bladwijzers verwerken:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
-msgstr ""
-"Selecteer wat gedaan moet worden als een of meer bestanden bladwijzers "
-"bevatten"
+msgstr "Wat te doen als een of meer invoerdocumenten bladwijzers bevatten"
 
 msgid "Don't generate"
 msgstr "Niet samenstellen"
@@ -511,7 +512,7 @@ msgid "Task failed"
 msgstr "Taak is mislukt"
 
 msgid "PDFsam can try to overcome the failure"
-msgstr "PDFsam kan proberen om over de fout heen te stappen"
+msgstr "PDFsam kan proberen de fout te verhelpen"
 
 msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
@@ -570,7 +571,7 @@ msgid "Select the workspace file to save"
 msgstr "Selecteer het werkomgevingsbestand dat moet worden opgeslagen"
 
 msgid "Select the workspace to load"
-msgstr "Selecteer het bestand om te openen"
+msgstr "Selecteer de werkruimte om te laden"
 
 msgid "Subscribe to the official news feed"
 msgstr "Abonneren op de officiële nieuwsbrief"
@@ -795,7 +796,7 @@ msgid "Turn on or off alert sounds"
 msgstr "Zet waarschuwingsgeluiden aan of uit"
 
 msgid "Store passwords when saving a workspace file"
-msgstr "Sla wachtwoorden op in de werkomgeving"
+msgstr "Wachtwoorden opslaan bij het opslaan van een werkruimtebestand"
 
 msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
@@ -933,10 +934,10 @@ msgid "Merge tools"
 msgstr "Samenvoegen"
 
 msgid "Convert tools"
-msgstr "Omzetten"
+msgstr "Conversiehulpmiddelen"
 
 msgid "Edit tools"
-msgstr "Bewerken"
+msgstr "Bewerkingstools"
 
 msgid "Other tools"
 msgstr "Overige hulpmiddelen"
@@ -981,7 +982,7 @@ msgstr "Laatste nieuws ophalen mislukt"
 
 #, java-format
 msgid "Saving workspace data to {0}"
-msgstr "Sla werkblad-data op in {0}"
+msgstr "Werkruimtegegevens opslaan naar {0}"
 
 msgid "Workspace saved"
 msgstr "Werkblad opgeslagen"
@@ -1075,7 +1076,7 @@ msgid "Set as range for all"
 msgstr "Stel in als bereik voor alles"
 
 msgid "Move to Top"
-msgstr "Ga naar begin"
+msgstr "Verplaats naar boven"
 
 msgid "Move Up"
 msgstr "Omhoog verplaatsen"
@@ -1093,13 +1094,13 @@ msgid "Duplicate at Top"
 msgstr "Dupliceer bovenaan"
 
 msgid "Duplicate Up"
-msgstr "Dupliceer omhoog"
+msgstr "Duplicaat naar boven"
 
 msgid "Duplicate Down"
-msgstr "Dupliceren naar beneden"
+msgstr "Dupliceer Omlaag"
 
 msgid "Duplicate at Bottom"
-msgstr "Dupliceren onderaan"
+msgstr "Dupliceer onderaan"
 
 msgid "Selected pages"
 msgstr "Geselecteerde pagina's"
@@ -1144,7 +1145,7 @@ msgid "_Remove"
 msgstr "_Verwijderen"
 
 msgid "Removes every document"
-msgstr "Verwijderd elk document"
+msgstr "Verwijdert elk document"
 
 msgid "Moves up selected documents"
 msgstr "Verplaatst geselecteerde bestanden omhoog"
@@ -1159,7 +1160,7 @@ msgid "Move _Down"
 msgstr "Om_laag verplaatsen"
 
 msgid "Pace"
-msgstr "Stap"
+msgstr "Tempo"
 
 msgid ""
 "Double click to set the number of pages after which the task will switch to "
@@ -1223,7 +1224,9 @@ msgstr "Overschrijven als het reeds bestaat"
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
 ""
-msgstr "Bestand overschrijven als deze reeds bestaat."
+msgstr ""
+"Vink het vakje aan als u de uitvoerbestanden wilt overschrijven als ze al "
+"bestaan."
 
 msgid "The selected PDF file is invalid"
 msgstr "Het geselecteerde PDF-bestand is ongeldig"
@@ -1272,7 +1275,7 @@ msgid "Add prefix"
 msgstr "Voeg voorvoegsel toe"
 
 msgid "Generated PDF documents name prefix:"
-msgstr "Voorvoegsel doelbestand:"
+msgstr "Voorvoegsel voor naam gegenereerde PDF-documenten:"
 
 msgid "Prefix for the output files name."
 msgstr "Voorvoegsel voor de bestandsnamen van de uitvoer."
@@ -1325,8 +1328,8 @@ msgid ""
 "Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
 "or [-n] or [n-]"
 msgstr ""
-"Dubbelzinnig paginabereik definitie: {0}. Gebruik de volgende formats: [n] "
-"of [n1-n2] of [-n] of [n-]"
+"Ambigue paginabereikdefinitie: {0}. Gebruik de volgende formaten: [n] of [n1-"
+"n2] of [-n] of [n-]"
 
 #, java-format
 msgid "Invalid range: {0}."
