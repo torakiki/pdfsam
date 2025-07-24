@@ -81,8 +81,9 @@
                                     <arguments>
                                         <argument>--add-modules</argument>
                                         <argument>
-                                            java.base,java.logging,java.naming,java.sql,java.desktop,java.xml,java.management,jdk.unsupported,java.prefs
+                                            java.base,java.logging,java.naming,java.sql,java.desktop,java.xml,java.management,jdk.unsupported,java.prefs,jdk.localedata
                                         </argument>
+                                        <argument>--include-locales=en-*,af,ar,bg,bs,el,eu,pt-*,zh-*,co,ca,hr,cs,da,nl,fr,de,he,hi,hu,jp,it,pl,pt,ro,ru,sk,sl,sr,sv,es,tr,uk,fi,ko,oc</argument>
                                         <argument>--output</argument>
                                         <argument>${project.build.directory}/assembled/runtime</argument>
                                         <argument>--compress</argument>
