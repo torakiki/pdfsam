@@ -72,7 +72,11 @@ public final class SelectionTableRowData {
 
         try {
             return this.toPageRangeSet().stream()
-                    .map(range -> (Math.min(descriptor.pages().getValue(), range.getEnd()) - range.getStart()) + 1)
+                    .map(range -> {
+                        int nPages = descriptor.pages().getValue();
+                        if (range.getStart() > nPages) return 0;
+                        return (Math.min(nPages, range.getEnd()) - range.getStart()) + 1;
+                    })
                     .reduce(0, Integer::sum);
         } catch (ConversionException e) {
             //fallback to 0
