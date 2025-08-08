@@ -5,6 +5,7 @@
 }
 
 .vertical-sidebar .sidebar-scroll {
+    -fx-background-color: transparent;
     -fx-fit-to-width: true;
     -fx-fit-to-height: true;
     -fx-padding: 0;
