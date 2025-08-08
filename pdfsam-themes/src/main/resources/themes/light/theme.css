@@ -479,6 +479,15 @@ btn
     -fx-min-height: 15.0em;
 }
 
+.selection-table > .column-header-background {
+    -fx-background-color: -table-columne-header-color;
+}
+
+.selection-table > .column-header-background > .filler {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent -table-border-color transparent;
+}
+
 .table-row-cell:drag-hovered-row-top,
 .table-row-cell:drag-hovered-row-bottom {
     -fx-border-color: -drag-drop-mark-color;
