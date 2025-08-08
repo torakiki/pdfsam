@@ -77,4 +77,9 @@ public class HomePane extends VBox {
             Platform.runLater(() -> this.getChildren().addAll(premiumTile, permiumToolsPanel));
         }
     }
+
+    @Override
+    protected double computeMinWidth(double height) {
+        return 0.0;
+    }
 }
