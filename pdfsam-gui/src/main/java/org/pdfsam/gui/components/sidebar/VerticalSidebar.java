@@ -86,6 +86,7 @@ public class VerticalSidebar extends BorderPane {
         buttons.getChildren().add(new Separator(Orientation.HORIZONTAL));
         addButton(new ExitButton(), expandButton);
         var scroll = new ScrollPane(buttons);
+        scroll.minViewportWidthProperty().bind(buttons.layoutBoundsProperty().map(_ -> buttons.minWidth(-1)));
         scroll.getStyleClass().add("sidebar-scroll");
         setCenter(scroll);
         eventStudio().addAnnotatedListeners(this);
