@@ -44,6 +44,7 @@ class PreferenceAppearencePane extends GridPane {
     public PreferenceAppearencePane(@Named("localeCombo") PreferenceComboBox<ComboItem<String>> localeCombo,
             @Named("startupToolCombo") PreferenceComboBox<ComboItem<String>> startupTool,
             @Named("themeCombo") PreferenceComboBox<ComboItem<String>> themeCombo,
+            @Named("fontFamilyCombo") PreferenceComboBox<ComboItem<String>> fontFamilyCombo,
             @Named("fontSizeCombo") PreferenceComboBox<ComboItem<String>> fontSizeCombo) {
         add(new Label(i18n().tr("Language:")), 0, 0);
         i18n().getSupported().stream().map(ComboItem::fromLocale).sorted(Comparator.comparing(ComboItem::description))
@@ -69,11 +70,17 @@ class PreferenceAppearencePane extends GridPane {
         add(themeCombo, 1, 2);
         add(helpIcon(i18n().tr("Set the application theme")), 2, 2);
 
-        add(new Label(i18n().tr("Font size:")), 0, 3);
+        add(new Label(i18n().tr("Font:")), 0, 3);
+        fontFamilyCombo.setMaxWidth(Double.POSITIVE_INFINITY);
+        setFillWidth(fontFamilyCombo, true);
+        add(fontFamilyCombo, 1, 3);
+        add(helpIcon(i18n().tr("Sets the application font")), 2, 3);
+
+        add(new Label(i18n().tr("Font size:")), 0, 4);
         fontSizeCombo.setMaxWidth(Double.POSITIVE_INFINITY);
         setFillWidth(fontSizeCombo, true);
-        add(fontSizeCombo, 1, 3);
-        add(helpIcon(i18n().tr("Set the application font size")), 2, 3);
+        add(fontSizeCombo, 1, 4);
+        add(helpIcon(i18n().tr("Set the application font size")), 2, 4);
         
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.GRID.css());
