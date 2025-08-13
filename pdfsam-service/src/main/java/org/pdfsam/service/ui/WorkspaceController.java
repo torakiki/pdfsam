@@ -21,14 +21,19 @@ package org.pdfsam.service.ui;
 import jakarta.inject.Inject;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.injector.Auto;
+import org.pdfsam.model.lifecycle.ShutdownEvent;
 import org.pdfsam.model.tool.Tool;
+import org.pdfsam.model.ui.workspace.ConfirmSaveWorkspaceRequest;
 import org.pdfsam.model.ui.workspace.LoadWorkspaceRequest;
 import org.pdfsam.model.ui.workspace.LoadWorkspaceResponse;
 import org.pdfsam.model.ui.workspace.SaveWorkspaceRequest;
+import org.pdfsam.model.ui.workspace.WorkspaceFile;
 import org.pdfsam.model.ui.workspace.WorkspaceLoadedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
+import java.nio.file.Files;
 import java.util.Collection;
 import java.util.concurrent.StructuredTaskScope;
 
@@ -48,6 +53,7 @@ public class WorkspaceController {
     private final Collection<Tool> tools;
     private final WorkspaceService service;
     private final RecentWorkspacesService recentWorkspace;
+    private WorkspaceFile workspace;
 
     @Inject
     WorkspaceController(WorkspaceService service, RecentWorkspacesService recentWorkspace) {
@@ -95,11 +101,36 @@ public class WorkspaceController {
                     scope.throwIfFailed();
                     recentWorkspace.addWorkspaceLastUsed(event.workspace());
                     eventStudio().broadcast(new WorkspaceLoadedEvent(event.workspace()));
+                    workspace = new WorkspaceFile(event.workspace());
                     LOG.info(i18n().tr("Workspace loaded: {0}", event.workspace().getName()));
+                } else {
+                    workspace = null;
                 }
             } catch (Exception e) {
                 LOG.error(i18n().tr("Unable to load workspace from {0}", event.workspace().getName()), e);
             }
         });
+    }
+
+    @EventListener
+    public void onShutdown(ShutdownEvent event) {
+        if (workspace != null && hasWorkspaceChanged()) {
+            eventStudio().broadcast(new ConfirmSaveWorkspaceRequest(workspace.file()));
+        }
+    }
+
+    private boolean hasWorkspaceChanged() {
+        if (workspace == null) return false;
+        try {
+            File tmp = Files.createTempFile("pdfsam-", "-workspace.json").toFile();
+            SaveWorkspaceRequest swr = new SaveWorkspaceRequest(tmp);
+            tools.forEach(t -> eventStudio().broadcast(swr, t.id()));
+            service.writeToFile(swr.data(), tmp);
+            WorkspaceFile currentWorkspace = new WorkspaceFile(tmp);
+            return !currentWorkspace.equals(workspace);
+        } catch (Exception ex) {
+            LOG.error(i18n().tr("Failed to check if workspace changed"), ex);
+            return false;
+        }
     }
 }
