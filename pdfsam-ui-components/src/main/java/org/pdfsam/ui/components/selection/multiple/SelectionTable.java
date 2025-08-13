@@ -21,6 +21,7 @@ package org.pdfsam.ui.components.selection.multiple;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.ListChangeListener.Change;
@@ -58,6 +59,7 @@ import org.pdfsam.core.support.EncryptionUtils;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.eventstudio.annotation.EventStation;
 import org.pdfsam.model.io.NativeOpenFileRequest;
+import org.pdfsam.model.pdf.PdfDescriptorLoadingStatus;
 import org.pdfsam.model.pdf.PdfDocumentDescriptor;
 import org.pdfsam.model.pdf.PdfLoadRequest;
 import org.pdfsam.model.tool.ClearToolRequest;
@@ -189,6 +191,23 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     }
 
     private void initItemsSectionContextMenu(ContextMenu contextMenu, boolean canDuplicate, boolean canMove) {
+
+        MenuItem unlockSelected = createMenuItem(i18n().tr("Unlock Selected"), UniconsLine.UNLOCK_ALT);
+        unlockSelected.setOnAction(e -> {
+            TableViewSelectionModel<SelectionTableRowData> sm = getSelectionModel();
+            PdfDocumentDescriptor[] descriptors = sm.getSelectedItems().stream().map(SelectionTableRowData::descriptor)
+                    .toArray(PdfDocumentDescriptor[]::new);
+            eventStudio().broadcast(new ShowPasswordFieldPopupRequest(this, descriptors), toolBinding());
+        });
+        unlockSelected.setAccelerator(new KeyCodeCombination(KeyCode.U, KeyCombination.CONTROL_DOWN));
+        unlockSelected.disableProperty().bind(Bindings.createBooleanBinding(() -> {
+            TableViewSelectionModel<SelectionTableRowData> sm = getSelectionModel();
+            return sm.getSelectedItems().stream().noneMatch(
+                    data -> data.descriptor().loadingStatus().getValue() == PdfDescriptorLoadingStatus.ENCRYPTED
+            );
+        }, getSelectionModel().getSelectedItems()));
+        contextMenu.getItems().add(unlockSelected);
+
 
         MenuItem removeSelected = createMenuItem(i18n().tr("Remove"), UniconsLine.MINUS);
         removeSelected.setOnAction(e -> eventStudio().broadcast(new RemoveSelectedEvent(), toolBinding()));
@@ -556,11 +575,18 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         if (scene != null) {
             Window owner = scene.getWindow();
             if (owner != null && owner.isShowing()) {
-                Point2D nodeCoord = request.requestingNode().localToScene(request.requestingNode().getWidth() / 2,
-                        request.requestingNode().getHeight() / 1.5);
-                double anchorX = Math.round(owner.getX() + scene.getX() + nodeCoord.getX() + 2);
-                double anchorY = Math.round(owner.getY() + scene.getY() + nodeCoord.getY() + 2);
-                passwordPopup.showFor(this, request.pdfDescriptor(), anchorX, anchorY);
+                Region reqNode = request.requestingNode();
+                double anchorX, anchorY;
+                if (reqNode == this) {
+                    anchorX = owner.getX() + owner.getWidth() / 2.0;
+                    anchorY = localToScreen(getLayoutBounds()).getCenterY();
+                } else {
+                    Point2D nodeCoord = reqNode.localToScene(reqNode.getWidth() / 2,
+                            reqNode.getHeight() / 1.5);
+                    anchorX = Math.round(owner.getX() + scene.getX() + nodeCoord.getX() + 2);
+                    anchorY = Math.round(owner.getY() + scene.getY() + nodeCoord.getY() + 2);
+                }
+                passwordPopup.showFor(this, anchorX, anchorY, request.pdfDescriptors());
             }
         }
     }
@@ -592,13 +618,13 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     @Override
     public void restoreStateFrom(Map<String, String> data) {
         onClear(null);
-        int size = Optional.ofNullable(data.get(defaultString(getId()) + "input.size")).map(Integer::valueOf).orElse(0);
+        int size = ofNullable(data.get(defaultString(getId()) + "input.size")).map(Integer::valueOf).orElse(0);
         if (size > 0) {
             PdfLoadRequest loadEvent = new PdfLoadRequest(toolBinding());
             List<SelectionTableRowData> items = new ArrayList<>();
             IntStream.range(0, size).forEach(i -> {
                 String id = defaultString(getId());
-                Optional.ofNullable(data.get(id + "input." + i)).ifPresent(f -> {
+                ofNullable(data.get(id + "input." + i)).ifPresent(f -> {
                     PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptor(new File(f),
                             ofNullable(data.get(id + "input.password.enc" + i)).map(EncryptionUtils::decrypt)
                                     .orElseGet(() -> data.get(defaultString(getId()) + "input.password." + i)));

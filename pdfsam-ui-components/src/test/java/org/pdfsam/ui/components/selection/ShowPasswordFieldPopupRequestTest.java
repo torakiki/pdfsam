@@ -33,17 +33,19 @@ public class ShowPasswordFieldPopupRequestTest {
 
     @Test
     public void nullDescriptor() {
-        assertThrows(IllegalArgumentException.class, () -> new ShowPasswordFieldPopupRequest(null, new Region()));
+        assertThrows(IllegalArgumentException.class, () -> new ShowPasswordFieldPopupRequest(new Region(),
+                (PdfDocumentDescriptor[]) null));
     }
 
     @Test
     public void nullRegion() {
         assertThrows(IllegalArgumentException.class,
-                () -> new ShowPasswordFieldPopupRequest(mock(PdfDocumentDescriptor.class), null));
+                () -> new ShowPasswordFieldPopupRequest(null, mock(PdfDocumentDescriptor.class)));
     }
 
     @Test
     public void nullBoth() {
-        assertThrows(IllegalArgumentException.class, () -> new ShowPasswordFieldPopupRequest(null, null));
+        assertThrows(IllegalArgumentException.class, () -> new ShowPasswordFieldPopupRequest(null,
+                (PdfDocumentDescriptor[]) null));
     }
 }
