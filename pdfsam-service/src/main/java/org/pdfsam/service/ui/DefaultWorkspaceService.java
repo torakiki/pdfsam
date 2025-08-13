@@ -24,6 +24,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
 
@@ -50,12 +51,17 @@ public class DefaultWorkspaceService implements WorkspaceService {
         requireNotNullArg(destination, "Destination file cannot be null");
         LOG.debug(i18n().tr("Saving workspace data to {0}", destination.getAbsolutePath()));
         try {
-            objectMapper.writeValue(destination, data);
+            writeToFile(data, destination);
             LOG.info(i18n().tr("Workspace saved"));
         } catch (Exception e) {
             // make it unchecked
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void writeToFile(Map<String, Map<String, String>> data, File destination) throws IOException {
+        objectMapper.writeValue(destination, data);
     }
 
     @Override
