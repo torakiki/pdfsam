@@ -21,6 +21,7 @@ package org.pdfsam.ui.components.selection;
 import javafx.scene.layout.Region;
 import org.pdfsam.model.pdf.PdfDocumentDescriptor;
 
+import static org.sejda.commons.util.RequireUtils.requireArg;
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 /**
@@ -28,10 +29,10 @@ import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
  *
  * @author Andrea Vacondio
  */
-public record ShowPasswordFieldPopupRequest(PdfDocumentDescriptor pdfDescriptor, Region requestingNode) {
+public record ShowPasswordFieldPopupRequest(Region requestingNode, PdfDocumentDescriptor... pdfDescriptors) {
 
     public ShowPasswordFieldPopupRequest {
-        requireNotNullArg(pdfDescriptor, "Cannot show password field popup for a null document");
+        requireArg(pdfDescriptors != null && pdfDescriptors.length > 0, "Cannot show password field popup for no document");
         requireNotNullArg(requestingNode, "Cannot show password field popup for a null node");
     }
 
