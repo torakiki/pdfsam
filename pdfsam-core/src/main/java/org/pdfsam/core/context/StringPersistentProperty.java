@@ -38,6 +38,7 @@ public enum StringPersistentProperty implements PersistentProperty<String> {
     STARTUP_MODULE(() -> ""),
     LOCALE(() -> System.getProperty(LOCALE_PROP)),
     THEME(() -> System.getProperty(THEME_PROP)),
+    FONT(() -> ""),
     FONT_SIZE(() -> ""),
     PDF_VERSION(() -> {
         var version = System.getProperty(PDFVERSION_PROP, PdfVersion.VERSION_1_5.name());

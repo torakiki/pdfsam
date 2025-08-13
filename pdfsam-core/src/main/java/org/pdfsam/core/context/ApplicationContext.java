@@ -36,6 +36,7 @@ import java.util.Optional;
 import static java.util.Optional.of;
 import static java.util.Optional.ofNullable;
 import static java.util.function.Predicate.not;
+import static org.pdfsam.core.context.StringPersistentProperty.FONT;
 import static org.pdfsam.core.context.StringPersistentProperty.FONT_SIZE;
 import static org.pdfsam.core.context.StringPersistentProperty.WORKING_PATH;
 import static org.pdfsam.core.support.params.ConversionUtils.toWeb;
@@ -117,15 +118,22 @@ public class ApplicationContext implements Closeable {
                             .map(c -> String.format(".root{-default-primary: %s;}", c))
                             .map(css -> "data:text/css;base64," + Base64.getEncoder().encodeToString(css.getBytes()))
                             .ifPresent(scene.getStylesheets()::add);
-                    this.persistentSettings().get(FONT_SIZE).filter(not(String::isBlank))
-                            .ifPresent(size -> scene.getRoot().setStyle(String.format("-fx-font-size: %s;", size)));
+                    updateFont(scene);
                 });
             }
         });
-        this.persistentSettings().settingsChanges(FONT_SIZE).subscribe(size -> {
-            size.filter(StringUtils::isNotBlank).map(s -> String.format("-fx-font-size: %s;", s))
-                    .ifPresentOrElse(scene.getRoot()::setStyle, () -> scene.getRoot().setStyle(""));
-        });
+        this.persistentSettings().settingsChanges(FONT).subscribe(_ -> updateFont(scene));
+        this.persistentSettings().settingsChanges(FONT_SIZE).subscribe(_ -> updateFont(scene));
+    }
+
+    private void updateFont(Scene scene) {
+        String style = this.persistentSettings().get(FONT).filter(not(String::isBlank))
+                .map(s -> "-fx-font-family: \"" + s + "\";\n")
+                .orElse("");
+        style += this.persistentSettings().get(FONT_SIZE).filter(not(String::isBlank))
+                .map(s -> "-fx-font-size: " + s + ";")
+                .orElse("");
+        scene.getRoot().setStyle(style);
     }
 
     /**
