@@ -64,9 +64,15 @@ public class PreferenceAppearencePaneTest {
         var startupModuleCombo = new PreferenceComboBox<ComboItem<String>>(StringPersistentProperty.STARTUP_MODULE,
                 appContext);
         var themeCombo = new PreferenceComboBox<ComboItem<String>>(StringPersistentProperty.THEME, appContext);
+        var fontFamilyCombo = new PreferenceComboBox<ComboItem<String>>(StringPersistentProperty.FONT, appContext);
         var fontSizeCombo = new PreferenceComboBox<ComboItem<String>>(StringPersistentProperty.FONT_SIZE, appContext);
-        PreferenceAppearencePane victim = new PreferenceAppearencePane(localeCombo, startupModuleCombo, themeCombo,
-                fontSizeCombo);
+        PreferenceAppearencePane victim = new PreferenceAppearencePane(
+                localeCombo,
+                startupModuleCombo,
+                themeCombo,
+                fontFamilyCombo,
+                fontSizeCombo
+        );
         victim.setId("victim");
         Scene scene = new Scene(new HBox(victim));
         stage.setScene(scene);

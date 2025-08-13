@@ -19,8 +19,8 @@
 package org.pdfsam.gui.components.content.preference;
 
 import jakarta.inject.Named;
+import javafx.scene.text.Font;
 import javafx.util.Subscription;
-import org.pdfsam.core.context.StringPersistentProperty;
 import org.pdfsam.core.support.validation.Validators;
 import org.pdfsam.gui.components.content.log.MaxLogRowsChangedEvent;
 import org.pdfsam.gui.theme.Themes;
@@ -54,7 +54,9 @@ import static org.pdfsam.core.context.BooleanPersistentProperty.SAVE_PWD_IN_WORK
 import static org.pdfsam.core.context.BooleanPersistentProperty.SAVE_WORKSPACE_ON_EXIT;
 import static org.pdfsam.core.context.BooleanPersistentProperty.SMART_OUTPUT;
 import static org.pdfsam.core.context.IntegerPersistentProperty.LOGVIEW_ROWS_NUMBER;
+import static org.pdfsam.core.context.StringPersistentProperty.FONT;
 import static org.pdfsam.core.context.StringPersistentProperty.FONT_SIZE;
+import static org.pdfsam.core.context.StringPersistentProperty.LOCALE;
 import static org.pdfsam.core.context.StringPersistentProperty.PDF_VERSION;
 import static org.pdfsam.core.context.StringPersistentProperty.STARTUP_MODULE;
 import static org.pdfsam.core.context.StringPersistentProperty.THEME;
@@ -75,7 +77,7 @@ public class PreferenceConfig {
     @Provides
     @Named("localeCombo")
     public PreferenceComboBox<ComboItem<String>> localeCombo() {
-        return new PreferenceComboBox<>(StringPersistentProperty.LOCALE);
+        return new PreferenceComboBox<>(LOCALE);
     }
 
     @Provides
@@ -112,6 +114,18 @@ public class PreferenceConfig {
     }
 
     @Provides
+    @Named("fontFamilyCombo")
+    public PreferenceComboBox<ComboItem<String>> fontFamilyCombo() {
+        PreferenceComboBox<ComboItem<String>> fontFamilyCombo = new PreferenceComboBox<>(FONT);
+        fontFamilyCombo.setId("fontFamilyCombo");
+        fontFamilyCombo.getItems().add(new ComboItem<>("", i18n().tr("Default")));
+        Font.getFamilies().forEach(f -> fontFamilyCombo.getItems().add(new ComboItem<>(f, f)));
+        fontFamilyCombo.getItems().remove(new ComboItem<>("System", ""));
+        fontFamilyCombo.setValue(keyWithEmptyValue(app().persistentSettings().get(FONT).orElse("")));
+        return fontFamilyCombo;
+    }
+
+    @Provides
     @Named("fontSizeCombo")
     public PreferenceComboBox<ComboItem<String>> fontSizeCombo() {
         PreferenceComboBox<ComboItem<String>> fontSizeCombo = new PreferenceComboBox<>(FONT_SIZE);
@@ -131,7 +145,7 @@ public class PreferenceConfig {
                 .filter(v -> v.getVersion() > PdfVersion.VERSION_1_2.getVersion()).map(DefaultPdfVersionComboItem::new)
                 .toList());
         //select if present in the settings
-        app().persistentSettings().get(StringPersistentProperty.PDF_VERSION).map(PdfVersion::valueOf)
+        app().persistentSettings().get(PDF_VERSION).map(PdfVersion::valueOf)
                 .flatMap(v -> pdfVersionCombo.getItems().stream().filter(i -> i.key() == v).findFirst())
                 .ifPresent(i -> pdfVersionCombo.getSelectionModel().select(i));
         return pdfVersionCombo;
