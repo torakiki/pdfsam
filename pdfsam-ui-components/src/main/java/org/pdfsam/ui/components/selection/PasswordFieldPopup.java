@@ -44,7 +44,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 public class PasswordFieldPopup extends PopupControl implements ToolBound {
     private String toolBinding = StringUtils.EMPTY;
     private final PasswordFieldPopupContent content = new PasswordFieldPopupContent();
-    private PdfDocumentDescriptor pdfDescriptor;
+    private PdfDocumentDescriptor[] pdfDescriptors;
 
     public PasswordFieldPopup(String toolBinding) {
         this.toolBinding = defaultString(toolBinding);
@@ -69,8 +69,8 @@ public class PasswordFieldPopup extends PopupControl implements ToolBound {
         return new PasswordFieldPopupSkin(this);
     }
 
-    public void showFor(Node owner, PdfDocumentDescriptor pdfDescriptor, double anchorX, double anchorY) {
-        this.pdfDescriptor = pdfDescriptor;
+    public void showFor(Node owner, double anchorX, double anchorY, PdfDocumentDescriptor... pdfDescriptors) {
+        this.pdfDescriptors = pdfDescriptors;
         this.show(owner, anchorX, anchorY);
     }
 
@@ -98,11 +98,13 @@ public class PasswordFieldPopup extends PopupControl implements ToolBound {
         }
 
         public void requestLoad() {
-            if (pdfDescriptor != null) {
-                pdfDescriptor.setPassword(passwordField.getText());
-                var loadEvent = new PdfLoadRequest(toolBinding());
-                loadEvent.add(pdfDescriptor);
-                eventStudio().broadcast(loadEvent);
+            if (pdfDescriptors != null) {
+                for (PdfDocumentDescriptor desc : pdfDescriptors) {
+                    desc.setPassword(passwordField.getText());
+                    var loadEvent = new PdfLoadRequest(toolBinding());
+                    loadEvent.add(desc);
+                    eventStudio().broadcast(loadEvent);
+                }
             }
             passwordField.clear();
             hide();

@@ -104,7 +104,7 @@ public class LoadingColumn extends BaseToolBound implements SelectionTableColumn
                     MouseEvent.MOUSE_CLICKED,
                     e -> {
                         if (getItem() == ENCRYPTED) {
-                            eventStudio().broadcast(new ShowPasswordFieldPopupRequest(getPdfDocumentDescriptor(), this),
+                            eventStudio().broadcast(new ShowPasswordFieldPopupRequest(this, getPdfDocumentDescriptor()),
                                     toolBinding());
                         } else if (getItem() == WITH_ERRORS) {
                             eventStudio().broadcast(new ShowLogMessagesRequest());

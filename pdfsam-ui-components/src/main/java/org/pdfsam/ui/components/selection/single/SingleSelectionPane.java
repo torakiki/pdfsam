@@ -236,7 +236,7 @@ public class SingleSelectionPane extends VBox implements ToolBound, PdfDocumentD
                         encryptionIndicator.getHeight() / 1.5);
                 double anchorX = Math.round(owner.getX() + scene.getX() + nodeCoord.getX() + 2);
                 double anchorY = Math.round(owner.getY() + scene.getY() + nodeCoord.getY() + 2);
-                passwordPopup.showFor(this, descriptor, anchorX, anchorY);
+                passwordPopup.showFor(this, anchorX, anchorY, descriptor);
             }
         }
     }

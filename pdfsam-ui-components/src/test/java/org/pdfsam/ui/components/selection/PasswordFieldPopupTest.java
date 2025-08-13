@@ -56,7 +56,7 @@ public class PasswordFieldPopupTest {
         Button button = new Button("press");
         PasswordFieldPopup victim = new PasswordFieldPopup("module");
         victim.setId("victim");
-        button.setOnAction(e -> victim.showFor(button, pdfDescriptor, 0, 0));
+        button.setOnAction(e -> victim.showFor(button, 0, 0, pdfDescriptor));
         Scene scene = new Scene(new HBox(button));
         stage.setScene(scene);
         stage.show();
