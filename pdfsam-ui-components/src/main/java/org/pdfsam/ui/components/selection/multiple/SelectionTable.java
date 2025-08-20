@@ -192,23 +192,6 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
 
     private void initItemsSectionContextMenu(ContextMenu contextMenu, boolean canDuplicate, boolean canMove) {
 
-        MenuItem unlockSelected = createMenuItem(i18n().tr("Unlock Selected"), UniconsLine.UNLOCK_ALT);
-        unlockSelected.setOnAction(e -> {
-            TableViewSelectionModel<SelectionTableRowData> sm = getSelectionModel();
-            PdfDocumentDescriptor[] descriptors = sm.getSelectedItems().stream().map(SelectionTableRowData::descriptor)
-                    .toArray(PdfDocumentDescriptor[]::new);
-            eventStudio().broadcast(new ShowPasswordFieldPopupRequest(this, descriptors), toolBinding());
-        });
-        unlockSelected.setAccelerator(new KeyCodeCombination(KeyCode.U, KeyCombination.CONTROL_DOWN));
-        unlockSelected.disableProperty().bind(Bindings.createBooleanBinding(() -> {
-            TableViewSelectionModel<SelectionTableRowData> sm = getSelectionModel();
-            return sm.getSelectedItems().stream().noneMatch(
-                    data -> data.descriptor().loadingStatus().getValue() == PdfDescriptorLoadingStatus.ENCRYPTED
-            );
-        }, getSelectionModel().getSelectedItems()));
-        contextMenu.getItems().add(unlockSelected);
-
-
         MenuItem removeSelected = createMenuItem(i18n().tr("Remove"), UniconsLine.MINUS);
         removeSelected.setOnAction(e -> eventStudio().broadcast(new RemoveSelectedEvent(), toolBinding()));
         removeSelected.setAccelerator(new KeyCodeCombination(KeyCode.DELETE));
@@ -238,6 +221,21 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
             moveDownSelected.setAccelerator(new KeyCodeCombination(KeyCode.DOWN, KeyCombination.ALT_DOWN));
             moveUpSelected.setAccelerator(new KeyCodeCombination(KeyCode.UP, KeyCombination.ALT_DOWN));
             moveTopSelected.setAccelerator(new KeyCodeCombination(KeyCode.HOME, KeyCombination.ALT_DOWN));
+
+            MenuItem unlockSelected = createMenuItem(i18n().tr("Unlock selected"), UniconsLine.UNLOCK_ALT);
+            unlockSelected.setOnAction(e -> {
+                TableViewSelectionModel<SelectionTableRowData> sm = getSelectionModel();
+                PdfDocumentDescriptor[] descriptors = sm.getSelectedItems().stream()
+                        .map(SelectionTableRowData::descriptor).toArray(PdfDocumentDescriptor[]::new);
+                eventStudio().broadcast(new ShowPasswordFieldPopupRequest(this, descriptors), toolBinding());
+            });
+            unlockSelected.setAccelerator(new KeyCodeCombination(KeyCode.U, KeyCombination.CONTROL_DOWN));
+            unlockSelected.disableProperty().bind(Bindings.createBooleanBinding(() -> {
+                TableViewSelectionModel<SelectionTableRowData> sm = getSelectionModel();
+                return sm.getSelectedItems().stream().noneMatch(
+                        data -> data.descriptor().loadingStatus().getValue() == PdfDescriptorLoadingStatus.ENCRYPTED);
+            }, getSelectionModel().getSelectedItems()));
+            contextMenu.getItems().add(unlockSelected);
 
             selectionChangedConsumer = selectionChangedConsumer.andThen(e -> {
                 moveTopSelected.setDisable(!e.canMove(MoveType.TOP));
