@@ -18,6 +18,8 @@
  */
 package org.pdfsam.model.ui.workspace;
 
+import org.pdfsam.model.ui.workspace.WorkspaceData.ToolData;
+
 import java.util.Map;
 
 /**
@@ -40,5 +42,5 @@ public interface RestorableView {
      * 
      * @param data
      */
-    void restoreStateFrom(Map<String, String> data);
+    void restoreStateFrom(ToolData data);
 }

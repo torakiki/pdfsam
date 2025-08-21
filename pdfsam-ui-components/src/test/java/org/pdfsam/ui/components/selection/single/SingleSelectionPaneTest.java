@@ -43,6 +43,7 @@ import org.pdfsam.model.ui.ChangedSelectedPdfVersionEvent;
 import org.pdfsam.model.ui.SetDestinationRequest;
 import org.pdfsam.model.ui.ShowLogMessagesRequest;
 import org.pdfsam.model.ui.ShowPdfDescriptorRequest;
+import org.pdfsam.model.ui.workspace.WorkspaceData;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.test.HitConsumer;
 import org.pdfsam.test.HitTestListener;
@@ -313,9 +314,9 @@ public class SingleSelectionPaneTest {
     public void restoreStateFromPwdBackwardCompatible() {
         Listener<PdfLoadRequest> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequest.class, listener);
-        Map<String, String> data = new HashMap<>();
-        data.put("victim-selection-paneinput", "chuck.pdf");
-        data.put("victim-selection-paneinput.password", "pwd");
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
+        data.set("victim-selection-paneinput", "chuck.pdf");
+        data.set("victim-selection-paneinput.password", "pwd");
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals("chuck.pdf", victim.getField().getTextField().getText());
         assertEquals("pwd", victim.getPdfDocumentDescriptor().getPassword());
@@ -326,9 +327,9 @@ public class SingleSelectionPaneTest {
     public void restoreStateFrom() {
         Listener<PdfLoadRequest> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequest.class, listener);
-        Map<String, String> data = new HashMap<>();
-        data.put("victim-selection-paneinput", "chuck.pdf");
-        data.put("victim-selection-paneinput.password.enc", EncryptionUtils.encrypt("pwd"));
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
+        data.set("victim-selection-paneinput", "chuck.pdf");
+        data.set("victim-selection-paneinput.password.enc", EncryptionUtils.encrypt("pwd"));
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals("chuck.pdf", victim.getField().getTextField().getText());
         assertEquals("pwd", victim.getPdfDocumentDescriptor().getPassword());
@@ -338,7 +339,7 @@ public class SingleSelectionPaneTest {
     @Test
     public void restoreStateFromEmpty() throws Exception {
         moveToLoadedState(victim);
-        Map<String, String> data = new HashMap<>();
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertTrue(isEmpty(victim.getField().getTextField().getText()));
     }

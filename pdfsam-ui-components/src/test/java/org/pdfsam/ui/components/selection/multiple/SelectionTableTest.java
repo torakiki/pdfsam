@@ -52,6 +52,7 @@ import org.pdfsam.model.tool.ClearToolRequest;
 import org.pdfsam.model.ui.SetDestinationRequest;
 import org.pdfsam.model.ui.ShowLogMessagesRequest;
 import org.pdfsam.model.ui.ShowPdfDescriptorRequest;
+import org.pdfsam.model.ui.workspace.WorkspaceData;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.test.HitTestListener;
 import org.pdfsam.ui.components.selection.RemoveSelectedEvent;
@@ -236,10 +237,10 @@ public class SelectionTableTest {
         eventStudio().clear();
         Listener<PdfLoadRequest> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequest.class, listener);
-        Map<String, String> data = new HashMap<>();
-        data.put("victiminput.size", "1");
-        data.put("victiminput.0", "chuck.pdf");
-        data.put("victiminput.password.0", "pwd");
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
+        data.setInt("victiminput.size", 1);
+        data.set("victiminput.0", "chuck.pdf");
+        data.set("victiminput.password.0", "pwd");
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals(1, victim.getItems().size());
         SelectionTableRowData first = victim.getItems().get(0);
@@ -251,14 +252,14 @@ public class SelectionTableTest {
         eventStudio().clear();
         Listener<PdfLoadRequest> listener = mock(Listener.class);
         eventStudio().add(PdfLoadRequest.class, listener);
-        Map<String, String> data = new HashMap<>();
-        data.put("victiminput.size", "2");
-        data.put("victiminput.0", "chuck.pdf");
-        data.put("victiminput.password.enc0", EncryptionUtils.encrypt("pwd"));
-        data.put("victiminput.range.0", "1-10");
-        data.put("victiminput.step.0", "4");
-        data.put("victiminput.reverse.0", "true");
-        data.put("victiminput.1", "norris.pdf");
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
+        data.set("victiminput.size", "2");
+        data.set("victiminput.0", "chuck.pdf");
+        data.set("victiminput.password.enc0", EncryptionUtils.encrypt("pwd"));
+        data.set("victiminput.range.0", "1-10");
+        data.set("victiminput.step.0", "4");
+        data.set("victiminput.reverse.0", "true");
+        data.set("victiminput.1", "norris.pdf");
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals(2, victim.getItems().size());
         SelectionTableRowData first = victim.getItems().get(0);
@@ -277,15 +278,15 @@ public class SelectionTableTest {
 
     @Test
     public void restoreStateFromEmpty() {
-        Map<String, String> data = new HashMap<>();
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertTrue(victim.getItems().isEmpty());
     }
 
     @Test
     public void restoreStateFromSizeZero() {
-        Map<String, String> data = new HashMap<>();
-        data.put("victiminput.size", "0");
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
+        data.set("victiminput.size", "0");
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertTrue(victim.getItems().isEmpty());
     }

@@ -27,6 +27,7 @@ import org.pdfsam.core.support.params.ConversionUtils;
 import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.model.ui.ResettableView;
 import org.pdfsam.model.ui.workspace.RestorableView;
+import org.pdfsam.model.ui.workspace.WorkspaceData.ToolData;
 import org.pdfsam.ui.components.commons.ValidableTextField;
 import org.pdfsam.ui.components.selection.single.SingleSelectionPane;
 import org.pdfsam.ui.components.support.FXValidationSupport;
@@ -175,7 +176,7 @@ public class AddBackpagesPane extends VBox
     }
 
     @Override
-    public void restoreStateFrom(Map<String, String> data) {
+    public void restoreStateFrom(ToolData data) {
         backpagesSourceField.restoreStateFrom(data);
         range.setText(Optional.ofNullable(data.get("range.field")).orElse(EMPTY));
         pace.setText(Optional.ofNullable(data.get("pace.field")).orElse(EMPTY));

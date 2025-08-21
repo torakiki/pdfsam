@@ -27,6 +27,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.io.TempDir;
+import org.pdfsam.model.ui.workspace.WorkspaceData;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.tools.split.SplitAfterRadioButton.SplitByPageParametersBuilder;
 import org.pdfsam.ui.components.commons.ValidableTextField;
@@ -181,9 +182,9 @@ public class SplitAfterRadioButtonTest {
     @Test
     public void restoreState() {
         ValidableTextField field =  robot.lookup("#field").queryAs(ValidableTextField.class);
-        Map<String, String> data = new HashMap<>();
-        data.put("splitAfter", Boolean.TRUE.toString());
-        data.put("splitAfter.field", "chuck");
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
+        data.setBoolean("splitAfter", true);
+        data.set("splitAfter.field", "chuck");
         victim.restoreStateFrom(data);
         assertTrue(victim.isSelected());
         assertEquals("chuck", field.getText());

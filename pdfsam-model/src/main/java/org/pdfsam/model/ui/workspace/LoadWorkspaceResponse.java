@@ -18,26 +18,10 @@ package org.pdfsam.model.ui.workspace;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
-
-import static java.util.Optional.ofNullable;
-import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
-
 /**
  * Response for a workspace load request
  *
  * @author Andrea Vacondio
  */
-public record LoadWorkspaceResponse(File workspace, Map<String, Map<String, String>> data) {
-    public LoadWorkspaceResponse(File workspace, Map<String, Map<String, String>> data) {
-        requireNotNullArg(workspace, "Workspace file cannot be null");
-        this.workspace = workspace;
-        this.data = ofNullable(data).orElseGet(HashMap::new);
-    }
-
-    public Map<String, String> getData(String tool) {
-        return this.data.computeIfAbsent(tool, (k) -> new HashMap<>());
-    }
+public record LoadWorkspaceResponse(WorkspaceData data) {
 }

@@ -20,6 +20,7 @@ package org.pdfsam.tools.splitbysize;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.pdfsam.model.ui.workspace.WorkspaceData;
 import org.pdfsam.test.JavaFxThreadInitializeExtension;
 
 import java.util.HashMap;
@@ -62,8 +63,8 @@ public class SizeUnitRadioTest {
     public void onRestoreState() {
         SizeUnitRadio victim = new SizeUnitRadio(SizeUnit.MEGABYTE);
         victim.setSelected(false);
-        Map<String, String> data = new HashMap<>();
-        data.put(SizeUnit.MEGABYTE.toString(), Boolean.TRUE.toString());
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
+        data.setBoolean(SizeUnit.MEGABYTE.toString(), true);
         victim.restoreStateFrom(data);
         assertTrue(victim.isSelected());
     }

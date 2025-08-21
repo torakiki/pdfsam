@@ -28,6 +28,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.io.TempDir;
 import org.pdfsam.core.ConfigurableSystemProperty;
 import org.pdfsam.model.ui.ComboItem;
+import org.pdfsam.model.ui.workspace.WorkspaceData;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.optimization.OptimizationPolicy;
@@ -163,9 +164,9 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest {
     @Test
     public void restoreState() {
         ComboBox<ComboItem<PredefinedSetOfPages>> combo = robot.lookup("#combo").queryComboBox();
-        Map<String, String> data = new HashMap<>();
-        data.put("splitAfterPredefined", Boolean.TRUE.toString());
-        data.put("splitAfterPredefined.combo", PredefinedSetOfPages.EVEN_PAGES.toString());
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
+        data.setBoolean("splitAfterPredefined", true);
+        data.setEnum("splitAfterPredefined.combo", PredefinedSetOfPages.EVEN_PAGES);
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertTrue(victim.isSelected());
         assertEquals(PredefinedSetOfPages.EVEN_PAGES, combo.getSelectionModel().getSelectedItem().key());

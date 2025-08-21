@@ -80,7 +80,7 @@ class AddBackpagesPaneTest {
     @Test
     public void validRange() throws Exception {
         populate();
-        robot.clickOn("#selectedBackpages").type(KeyCode.DIGIT5, KeyCode.MINUS, KeyCode.DIGIT9).push(KeyCode.ENTER);
+        robot.clickOn("#selectedBackpages").write("5-9").push(KeyCode.ENTER);
         victim.apply(builder, onError);
         verify(builder).ranges(anySet());
         verify(onError, never()).accept(anyString());

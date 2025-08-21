@@ -27,6 +27,8 @@ import javafx.scene.layout.VBox;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.eventstudio.annotation.EventStation;
 import org.pdfsam.model.tool.ClearToolRequest;
+import org.pdfsam.model.ui.workspace.WorkspaceData;
+import org.pdfsam.model.ui.workspace.WorkspaceData.ToolData;
 import org.pdfsam.ui.components.io.BrowsableOutputDirectoryField;
 import org.pdfsam.ui.components.io.PdfDestinationPane;
 import org.pdfsam.ui.components.prefix.PrefixPane;
@@ -85,11 +87,12 @@ public class ExtractToolPanel extends BaseToolPanel {
     }
 
     @Override
-    public void onLoadWorkspace(Map<String, String> data) {
-        if (data.containsKey("input")) {
-            data.put("input.0", data.get("input"));
-            data.put("input.password.0", data.get("input.password"));
-            data.put("input.size", "1");
+    public void onLoadWorkspace(WorkspaceData workspace) {
+        ToolData data = workspace.getToolData(this);
+        if (data.hasKey("input")) {
+            data.set("input.0", data.getPath("input").toString());
+            data.set("input.password.0", data.get("input.password"));
+            data.setInt("input.size", 1);
         }
         selectionPane.restoreStateFrom(data);
         extractOptions.restoreStateFrom(data);

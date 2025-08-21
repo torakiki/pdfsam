@@ -29,12 +29,12 @@ import org.pdfsam.model.tool.TaskExecutionRequest;
 import org.pdfsam.model.tool.ToolBound;
 import org.pdfsam.model.ui.ResettableView;
 import org.pdfsam.model.ui.workspace.RestorableView;
+import org.pdfsam.model.ui.workspace.WorkspaceData.ToolData;
 import org.pdfsam.persistence.PreferencesRepository;
 import org.pdfsam.ui.components.support.Style;
 import org.sejda.model.prefix.Prefix;
 
 import java.util.Map;
-import java.util.Optional;
 import java.util.function.Consumer;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
@@ -126,8 +126,8 @@ public class PrefixPane extends GridPane
     }
 
     @Override
-    public void restoreStateFrom(Map<String, String> data) {
-        field.setText(Optional.ofNullable(data.get(defaultString(getId()) + "prefix")).orElse(EMPTY));
+    public void restoreStateFrom(ToolData data) {
+        field.setText(data.get(defaultString(getId()) + "prefix", EMPTY));
     }
 
 }

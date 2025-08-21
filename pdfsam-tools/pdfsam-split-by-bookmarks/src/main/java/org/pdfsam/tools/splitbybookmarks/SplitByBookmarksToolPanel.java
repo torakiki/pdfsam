@@ -27,6 +27,8 @@ import org.apache.commons.lang3.builder.Builder;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.eventstudio.annotation.EventStation;
 import org.pdfsam.model.tool.ClearToolRequest;
+import org.pdfsam.model.ui.workspace.WorkspaceData;
+import org.pdfsam.model.ui.workspace.WorkspaceData.ToolData;
 import org.pdfsam.ui.components.io.BrowsableOutputDirectoryField;
 import org.pdfsam.ui.components.io.PdfDestinationPane;
 import org.pdfsam.ui.components.prefix.PrefixPane;
@@ -78,7 +80,8 @@ public class SplitByBookmarksToolPanel extends BaseToolPanel {
     }
 
     @Override
-    public void onLoadWorkspace(Map<String, String> data) {
+    public void onLoadWorkspace(WorkspaceData workspace) {
+        ToolData data = workspace.getToolData(this);
         selectionPane.restoreStateFrom(data);
         splitOptions.restoreStateFrom(data);
         destinationDirectoryField.restoreStateFrom(data);

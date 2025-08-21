@@ -25,6 +25,7 @@ import javafx.scene.input.Clipboard;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import org.pdfsam.model.ui.workspace.RestorableView;
+import org.pdfsam.model.ui.workspace.WorkspaceData.ToolData;
 import org.pdfsam.ui.components.commons.ValidableTextField;
 import org.pdfsam.ui.components.support.FXValidationSupport;
 import org.pdfsam.ui.components.support.Style;
@@ -33,7 +34,6 @@ import java.io.File;
 import java.nio.file.Path;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.defaultString;
@@ -109,8 +109,8 @@ abstract class BrowsableField extends HBox implements RestorableView {
     }
 
     @Override
-    public void restoreStateFrom(Map<String, String> data) {
-        textField.setText(Optional.ofNullable(data.get(defaultString(getId()) + "browsableField")).orElse(EMPTY));
+    public void restoreStateFrom(ToolData data) {
+        textField.setText(data.get(defaultString(getId()) + "browsableField", EMPTY));
     }
 
     public final void setGraphic(Node value) {

@@ -26,6 +26,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.pdfsam.model.ui.workspace.WorkspaceData;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.ui.components.commons.ValidableTextField;
 import org.testfx.api.FxRobot;
@@ -100,7 +101,9 @@ public class ExtractOptionsPaneTest {
 
     @Test
     public void restoreState() {
-        var data = Map.of("pages", "100", "separateFile", Boolean.TRUE.toString());
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
+        data.setInt("pages", 100);
+        data.setBoolean("separateFile", true);
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         var field = robot.lookup("#extractRanges").queryAs(ValidableTextField.class);
         var separateFile = robot.lookup("#separateFile").queryAs(CheckBox.class);

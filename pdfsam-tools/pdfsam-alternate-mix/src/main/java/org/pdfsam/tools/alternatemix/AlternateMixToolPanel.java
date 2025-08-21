@@ -26,6 +26,8 @@ import javafx.scene.layout.VBox;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.eventstudio.annotation.EventStation;
 import org.pdfsam.model.tool.ClearToolRequest;
+import org.pdfsam.model.ui.workspace.WorkspaceData;
+import org.pdfsam.model.ui.workspace.WorkspaceData.ToolData;
 import org.pdfsam.ui.components.io.BrowsablePdfOutputField;
 import org.pdfsam.ui.components.io.PdfDestinationPane;
 import org.pdfsam.ui.components.support.Views;
@@ -64,20 +66,21 @@ public class AlternateMixToolPanel extends BaseToolPanel {
     }
 
     @Override
-    public void onLoadWorkspace(Map<String, String> data) {
+    public void onLoadWorkspace(WorkspaceData workspace) {
+        ToolData data = workspace.getToolData(this);
         // backwards comp when alternate mix had 2 inputs
-        if (data.containsKey("firstDocumentMixinput")) {
-            data.put("input.0", data.get("firstDocumentMixinput"));
-            data.put("input.password.0", data.get("firstDocumentMixinputinput.password"));
-            data.put("input.step.0", data.get("firstStep"));
-            data.put("input.reverse.0", data.get("reverseFirst"));
-            data.put("input.size", "1");
-            if (data.containsKey("secondDocumentMixinput")) {
-                data.put("input.1", data.get("secondDocumentMixinput"));
-                data.put("input.password.1", data.get("secondDocumentMixinput.password"));
-                data.put("input.step.1", data.get("secondStep"));
-                data.put("input.reverse.1", data.get("reverseSecond"));
-                data.put("input.size", "2");
+        if (data.hasKey("firstDocumentMixinput")) {
+            data.set("input.0", data.getPath("firstDocumentMixinput").toString());
+            data.set("input.password.0", data.get("firstDocumentMixinputinput.password"));
+            data.set("input.step.0", data.get("firstStep"));
+            data.set("input.reverse.0", data.get("reverseFirst"));
+            data.setInt("input.size", 1);
+            if (data.hasKey("secondDocumentMixinput")) {
+                data.set("input.1", data.getPath("secondDocumentMixinput").toString());
+                data.set("input.password.1", data.get("secondDocumentMixinput.password"));
+                data.set("input.step.1", data.get("secondStep"));
+                data.set("input.reverse.1", data.get("reverseSecond"));
+                data.setInt("input.size", 2);
             }
         }
         selectionPane.restoreStateFrom(data);

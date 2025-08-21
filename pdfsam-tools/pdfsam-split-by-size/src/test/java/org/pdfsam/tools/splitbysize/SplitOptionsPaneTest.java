@@ -26,6 +26,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.pdfsam.model.ui.workspace.WorkspaceData;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
@@ -104,9 +105,9 @@ public class SplitOptionsPaneTest {
     public void restoreState() {
         SizeUnitRadio kilo = robot.lookup("#unit" + SizeUnit.KILOBYTE.symbol()).queryAs(SizeUnitRadio.class);
         SizeUnitRadio mega = robot.lookup("#unit" + SizeUnit.MEGABYTE.symbol()).queryAs(SizeUnitRadio.class);
-        Map<String, String> data = new HashMap<>();
-        data.put("size", "100");
-        data.put(SizeUnit.MEGABYTE.toString(), Boolean.TRUE.toString());
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
+        data.setInt("size", 100);
+        data.setBoolean(SizeUnit.MEGABYTE.toString(), true);
         victim.restoreStateFrom(data);
         TextInputControl field = robot.lookup("#sizeField").queryTextInputControl();
         assertEquals("100", field.getText());

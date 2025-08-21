@@ -33,6 +33,7 @@ import org.pdfsam.model.ui.DefaultPdfVersionComboItem;
 import org.pdfsam.model.ui.ResettableView;
 import org.pdfsam.model.ui.SetDestinationRequest;
 import org.pdfsam.model.ui.workspace.RestorableView;
+import org.pdfsam.model.ui.workspace.WorkspaceData.ToolData;
 import org.pdfsam.ui.components.support.Style;
 import org.pdfsam.ui.components.support.Views;
 import org.sejda.model.output.ExistingOutputPolicy;
@@ -166,11 +167,11 @@ public class PdfDestinationPane extends DestinationPane implements ToolBound, Re
     }
 
     @Override
-    public void restoreStateFrom(Map<String, String> data) {
+    public void restoreStateFrom(ToolData data) {
         version.resetView();
-        compress.setSelected(Boolean.parseBoolean(data.get("compress")));
-        overwrite().setSelected(Boolean.parseBoolean(data.get("overwrite")));
-        discardBookmarks.ifPresent(d -> d.setSelected(Boolean.parseBoolean(data.get("discardBookmarks"))));
+        compress.setSelected(data.getBoolean("compress"));
+        overwrite().setSelected(data.getBoolean("overwrite"));
+        discardBookmarks.ifPresent(d -> d.setSelected(data.getBoolean("discardBookmarks")));
         ofNullable(data.get("version")).map(PdfVersion::valueOf).map(DefaultPdfVersionComboItem::new)
                 .ifPresent(v -> this.version.getSelectionModel().select(v));
     }

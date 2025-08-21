@@ -25,6 +25,7 @@ import org.pdfsam.model.tool.Tool;
 import org.pdfsam.model.ui.workspace.LoadWorkspaceRequest;
 import org.pdfsam.model.ui.workspace.LoadWorkspaceResponse;
 import org.pdfsam.model.ui.workspace.SaveWorkspaceRequest;
+import org.pdfsam.model.ui.workspace.WorkspaceData;
 import org.pdfsam.model.ui.workspace.WorkspaceLoadedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,6 +49,7 @@ public class WorkspaceController {
     private final Collection<Tool> tools;
     private final WorkspaceService service;
     private final RecentWorkspacesService recentWorkspace;
+    private WorkspaceData workspace;
 
     @Inject
     WorkspaceController(WorkspaceService service, RecentWorkspacesService recentWorkspace) {
@@ -85,8 +87,9 @@ public class WorkspaceController {
             LOG.debug(i18n().tr("Loading workspace from {0}", event.workspace().getName()));
             try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
                 var data = service.loadWorkspace(event.workspace());
+                workspace = new WorkspaceData(event.workspace(), data);
                 if (!data.isEmpty()) {
-                    var response = new LoadWorkspaceResponse(event.workspace(), data);
+                    var response = new LoadWorkspaceResponse(workspace);
                     tools.forEach(m -> scope.fork(() -> {
                         eventStudio().broadcast(response, m.id());
                         return null;

@@ -27,6 +27,7 @@ import org.mockito.Mockito;
 import org.pdfsam.core.context.BooleanPersistentProperty;
 import org.pdfsam.model.ui.PdfVersionComboItem;
 import org.pdfsam.model.ui.SetDestinationRequest;
+import org.pdfsam.model.ui.workspace.WorkspaceData;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.test.JavaFxThreadInitializeExtension;
 import org.sejda.model.pdf.PdfVersion;
@@ -134,10 +135,10 @@ public class PdfDestinationPaneTest {
 
     @Test
     public void restoreState() {
-        Map<String, String> data = new HashMap<>();
-        data.put("overwrite", Boolean.FALSE.toString());
-        data.put("compress", Boolean.TRUE.toString());
-        data.put("version", PdfVersion.VERSION_1_4.toString());
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
+        data.setBoolean("overwrite", false);
+        data.setBoolean("compress", true);
+        data.setEnum("version", PdfVersion.VERSION_1_4);
         victim.restoreStateFrom(data);
         assertFalse(victim.overwrite().isSelected());
     }

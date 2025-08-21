@@ -27,6 +27,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.pdfsam.model.ui.workspace.WorkspaceData;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.ui.components.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.components.support.Style;
@@ -175,9 +176,9 @@ public class BookmarksLevelComboBoxTest {
     @Test
     public void restoreState() {
         victim.setValidBookmarkLevels(new TreeSet<>(Arrays.asList(40, 50)));
-        Map<String, String> data = new HashMap<>();
-        data.put("levelCombo.levels", "2,3,5,6,7,10");
-        data.put("levelCombo.selected", "2");
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
+        data.set("levelCombo.levels", "2,3,5,6,7,10");
+        data.setInt("levelCombo.selected", 2);
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals("2", victim.getValue());
         assertThat(victim.getItems()).contains("2", "3", "5", "6", "7", "10");
@@ -197,9 +198,9 @@ public class BookmarksLevelComboBoxTest {
     @Test
     public void restoreStateBackwardCompatible() {
         victim.setValidBookmarkLevels(new TreeSet<>(Arrays.asList(40, 50)));
-        Map<String, String> data = new HashMap<>();
-        data.put("levelCombo.max", "3");
-        data.put("levelCombo.selected", "2");
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
+        data.setInt("levelCombo.max", 3);
+        data.setInt("levelCombo.selected", 2);
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals("2", victim.getValue());
         assertThat(victim.getItems()).contains("1", "2", "3");
@@ -208,8 +209,8 @@ public class BookmarksLevelComboBoxTest {
     @Test
     public void restoreStateEmptySelected() {
         victim.setValidBookmarkLevels(validLevels);
-        Map<String, String> data = new HashMap<>();
-        data.put("levelCombo.selected", "");
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
+        data.set("levelCombo.selected", "");
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals("", victim.getValue());
     }
@@ -217,8 +218,8 @@ public class BookmarksLevelComboBoxTest {
     @Test
     public void restoreStateNullSelected() {
         victim.setValidBookmarkLevels(validLevels);
-        Map<String, String> data = new HashMap<>();
-        data.put("levelCombo.selected", null);
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
+        data.set("levelCombo.selected", null);
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals("", victim.getValue());
     }

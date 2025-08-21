@@ -27,6 +27,7 @@ import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.model.ui.ComboItem;
 import org.pdfsam.model.ui.ResettableView;
 import org.pdfsam.model.ui.workspace.RestorableView;
+import org.pdfsam.model.ui.workspace.WorkspaceData.ToolData;
 import org.pdfsam.ui.components.support.Style;
 import org.sejda.model.outline.OutlinePolicy;
 import org.sejda.model.pdf.form.AcroFormPolicy;
@@ -159,7 +160,7 @@ class MergeOptionsPane extends VBox
     }
 
     @Override
-    public void restoreStateFrom(Map<String, String> data) {
+    public void restoreStateFrom(ToolData data) {
         Optional.ofNullable(data.get("outline")).map(OutlinePolicy::valueOf)
                 .flatMap(key -> this.outline.getItems().stream().filter(i -> i.key().equals(key)).findFirst())
                 .ifPresent(this.outline.getSelectionModel()::select);
@@ -183,7 +184,7 @@ class MergeOptionsPane extends VBox
         this.pageNormalization.getItems().stream().filter(i -> i.key().equals(normalization)).findFirst()
                 .ifPresent(this.pageNormalization.getSelectionModel()::select);
 
-        blankIfOdd.setSelected(Boolean.parseBoolean(data.get("blankIfOdd")));
-        footer.setSelected(Boolean.parseBoolean(data.get("footer")));
+        blankIfOdd.setSelected(data.getBoolean("blankIfOdd"));
+        footer.setSelected(data.getBoolean("footer"));
     }
 }

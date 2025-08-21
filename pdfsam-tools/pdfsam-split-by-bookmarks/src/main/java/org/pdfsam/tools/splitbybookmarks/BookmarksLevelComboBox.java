@@ -24,6 +24,7 @@ import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.core.support.validation.Validators;
 import org.pdfsam.model.ui.ResettableView;
 import org.pdfsam.model.ui.workspace.RestorableView;
+import org.pdfsam.model.ui.workspace.WorkspaceData.ToolData;
 import org.pdfsam.ui.components.support.FXValidationSupport;
 import org.pdfsam.ui.components.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.components.support.Style;
@@ -36,11 +37,12 @@ import java.util.stream.IntStream;
 
 import static java.util.Objects.nonNull;
 import static java.util.Optional.ofNullable;
+import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * Combo box letting the user specify the filesize in the split by size task
- * 
+ *
  * @author Andrea Vacondio
  *
  */
@@ -60,7 +62,7 @@ class BookmarksLevelComboBox extends ComboBox<String>
                 getEditor().getStyleClass().removeAll(Style.INVALID.css());
             }
         });
-      
+
     }
 
     public void setValidBookmarkLevels(SortedSet<Integer> levels) {
@@ -111,11 +113,12 @@ class BookmarksLevelComboBox extends ComboBox<String>
     }
 
     @Override
-    public void restoreStateFrom(Map<String, String> data) {
+    public void restoreStateFrom(ToolData data) {
         getSelectionModel().selectFirst();
-        ofNullable(data.get("levelCombo.max")).map(Integer::valueOf).ifPresent(max -> IntStream.rangeClosed(1, max).mapToObj(Integer::toString).forEach(getItems()::add));
+        ofNullable(data.getInt("levelCombo.max", null)).ifPresent(
+                max -> IntStream.rangeClosed(1, max).mapToObj(Integer::toString).forEach(getItems()::add));
         Arrays.stream(ofNullable(data.get("levelCombo.levels")).map(l -> l.split(",")).orElse(new String[0]))
                 .forEach(getItems()::add);
-        setValue(ofNullable(data.get("levelCombo.selected")).orElse(""));
+        setValue(data.get("levelCombo.selected", EMPTY));
     }
 }

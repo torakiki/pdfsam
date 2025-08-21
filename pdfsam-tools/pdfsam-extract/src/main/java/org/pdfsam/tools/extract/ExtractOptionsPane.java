@@ -26,13 +26,13 @@ import javafx.scene.layout.GridPane;
 import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.model.ui.ResettableView;
 import org.pdfsam.model.ui.workspace.RestorableView;
+import org.pdfsam.model.ui.workspace.WorkspaceData.ToolData;
 import org.pdfsam.ui.components.commons.ValidableTextField;
 import org.pdfsam.ui.components.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.components.support.Style;
 import org.sejda.conversion.exception.ConversionException;
 
 import java.util.Map;
-import java.util.Optional;
 import java.util.function.Consumer;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
@@ -112,9 +112,9 @@ class ExtractOptionsPane extends GridPane
     }
 
     @Override
-    public void restoreStateFrom(Map<String, String> data) {
-        field.setText(Optional.ofNullable(data.get("pages")).orElse(EMPTY));
-        separateFile.setSelected(Boolean.parseBoolean(data.get("separateFile")));
+    public void restoreStateFrom(ToolData data) {
+        field.setText(data.get("pages", EMPTY));
+        separateFile.setSelected(data.getBoolean("separateFile"));
     }
 
     @Override

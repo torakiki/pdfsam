@@ -27,6 +27,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.io.TempDir;
+import org.pdfsam.model.ui.workspace.WorkspaceData;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.ui.components.commons.ValidableTextField;
 import org.pdfsam.ui.components.support.FXValidationSupport.ValidationState;
@@ -166,9 +167,9 @@ public class SplitByEveryRadioButtonTest {
     @Test
     public void restoreState() {
         ValidableTextField field = robot.lookup("#field").queryAs(ValidableTextField.class);
-        Map<String, String> data = new HashMap<>();
-        data.put("splitByEvery", Boolean.TRUE.toString());
-        data.put("splitByEvery.field", "chuck");
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
+        data.setBoolean("splitByEvery", true);
+        data.set("splitByEvery.field", "chuck");
         victim.restoreStateFrom(data);
         assertTrue(victim.isSelected());
         assertEquals("chuck", field.getText());

@@ -24,6 +24,7 @@ import javafx.stage.Stage;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.pdfsam.model.ui.ComboItem;
+import org.pdfsam.model.ui.workspace.WorkspaceData;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
 import org.sejda.model.rotation.Rotation;
@@ -84,9 +85,9 @@ public class RotateOptionsPaneTest   {
     public void restoreStateFrom() {
         ComboBox<ComboItem<PredefinedSetOfPages>> rotationType = robot.lookup("#rotationType").queryComboBox();
         ComboBox<ComboItem<Rotation>> rotation = robot.lookup("#rotation").queryComboBox();
-        Map<String, String> data = new HashMap<>();
-        data.put("rotation", Rotation.DEGREES_270.toString());
-        data.put("rotationType", PredefinedSetOfPages.EVEN_PAGES.toString());
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
+        data.setEnum("rotation", Rotation.DEGREES_270);
+        data.setEnum("rotationType", PredefinedSetOfPages.EVEN_PAGES);
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals(Rotation.DEGREES_270, rotation.getSelectionModel().getSelectedItem().key());
         assertEquals(PredefinedSetOfPages.EVEN_PAGES, rotationType.getSelectionModel().getSelectedItem().key());
@@ -96,9 +97,9 @@ public class RotateOptionsPaneTest   {
     public void reset() {
         ComboBox<ComboItem<PredefinedSetOfPages>> rotationType = robot.lookup("#rotationType").queryComboBox();
         ComboBox<ComboItem<Rotation>> rotation = robot.lookup("#rotation").queryComboBox();
-        Map<String, String> data = new HashMap<>();
-        data.put("rotation", Rotation.DEGREES_270.toString());
-        data.put("rotationType", PredefinedSetOfPages.EVEN_PAGES.toString());
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
+        data.setEnum("rotation", Rotation.DEGREES_270);
+        data.setEnum("rotationType", PredefinedSetOfPages.EVEN_PAGES);
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals(Rotation.DEGREES_270, rotation.getSelectionModel().getSelectedItem().key());
         assertEquals(PredefinedSetOfPages.EVEN_PAGES, rotationType.getSelectionModel().getSelectedItem().key());

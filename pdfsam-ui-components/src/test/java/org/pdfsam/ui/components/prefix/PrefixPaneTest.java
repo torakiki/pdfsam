@@ -28,6 +28,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.pdfsam.core.context.StringPersistentProperty;
 import org.pdfsam.core.support.params.MultipleOutputTaskParametersBuilder;
 import org.pdfsam.model.tool.TaskExecutionRequest;
+import org.pdfsam.model.ui.workspace.WorkspaceData;
 import org.pdfsam.persistence.PreferencesRepository;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.sejda.model.parameter.base.AbstractParameters;
@@ -112,8 +113,8 @@ public class PrefixPaneTest {
 
     @Test
     public void restoreState() {
-        Map<String, String> data = new HashMap<>();
-        data.put("victimprefix", "Chuck");
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
+        data.set("victimprefix", "Chuck");
         victim.restoreStateFrom(data);
         assertEquals("Chuck", victim.getText());
     }

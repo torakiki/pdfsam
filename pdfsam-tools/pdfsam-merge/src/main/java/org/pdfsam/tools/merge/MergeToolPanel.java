@@ -26,6 +26,8 @@ import javafx.scene.layout.VBox;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.eventstudio.annotation.EventStation;
 import org.pdfsam.model.tool.ClearToolRequest;
+import org.pdfsam.model.ui.workspace.WorkspaceData;
+import org.pdfsam.model.ui.workspace.WorkspaceData.ToolData;
 import org.pdfsam.ui.components.io.BrowsablePdfOutputField;
 import org.pdfsam.ui.components.io.PdfDestinationPane;
 import org.pdfsam.ui.components.tool.BaseToolPanel;
@@ -65,7 +67,8 @@ public class MergeToolPanel extends BaseToolPanel {
     }
 
     @Override
-    public void onLoadWorkspace(Map<String, String> data) {
+    public void onLoadWorkspace(WorkspaceData workspace) {
+        ToolData data = workspace.getToolData(this);
         selectionPane.restoreStateFrom(data);
         mergeOptions.restoreStateFrom(data);
         destinationFileField.restoreStateFrom(data);

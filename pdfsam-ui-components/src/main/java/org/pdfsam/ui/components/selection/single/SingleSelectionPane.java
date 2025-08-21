@@ -59,6 +59,7 @@ import org.pdfsam.model.ui.ShowLogMessagesRequest;
 import org.pdfsam.model.ui.ShowPdfDescriptorRequest;
 import org.pdfsam.model.ui.ShowStageRequest;
 import org.pdfsam.model.ui.workspace.RestorableView;
+import org.pdfsam.model.ui.workspace.WorkspaceData.ToolData;
 import org.pdfsam.ui.components.commons.ToggleChangeListener;
 import org.pdfsam.ui.components.io.BrowsableFileField;
 import org.pdfsam.ui.components.selection.LoadingStatusIndicatorUpdater;
@@ -261,15 +262,16 @@ public class SingleSelectionPane extends VBox implements ToolBound, PdfDocumentD
     }
 
     @Override
-    public void restoreStateFrom(Map<String, String> data) {
+    public void restoreStateFrom(ToolData data) {
         getField().getTextField().setText(EMPTY);
-        Optional.ofNullable(data.get(defaultString(getId()) + "input")).ifPresent(f -> {
+        String id = defaultString(getId());
+        Optional.ofNullable(data.getPath(id + "input")).ifPresent(p -> {
             onValidState.disabled(true);
-            getField().getTextField().setText(f);
+            getField().getTextField().setText(p.toString());
             onValidState.disabled(false);
-            initializeFor(newDescriptor(new File(f),
-                    ofNullable(data.get(defaultString(getId()) + "input.password.enc")).map(EncryptionUtils::decrypt)
-                            .orElseGet(() -> data.get(defaultString(getId()) + "input.password"))));
+            initializeFor(newDescriptor(p.toFile(),
+                    ofNullable(data.get(id + "input.password.enc")).map(EncryptionUtils::decrypt)
+                            .orElseGet(() -> data.get(id + "input.password"))));
         });
     }
 

@@ -29,6 +29,7 @@ import org.pdfsam.model.tool.Tool;
 import org.pdfsam.model.tool.ToolBound;
 import org.pdfsam.model.ui.workspace.LoadWorkspaceResponse;
 import org.pdfsam.model.ui.workspace.SaveWorkspaceRequest;
+import org.pdfsam.model.ui.workspace.WorkspaceData;
 import org.pdfsam.ui.components.notification.AddNotificationRequest;
 import org.pdfsam.ui.components.notification.NotificationType;
 import org.pdfsam.ui.components.support.Style;
@@ -87,7 +88,7 @@ public abstract class BaseToolPanel extends BorderPane implements ToolBound {
 
     @EventListener
     public final void restoreState(LoadWorkspaceResponse event) {
-        Platform.runLater(() -> onLoadWorkspace(event.getData(toolBinding())));
+        Platform.runLater(() -> onLoadWorkspace(event.data()));
     }
 
     /**
@@ -100,9 +101,9 @@ public abstract class BaseToolPanel extends BorderPane implements ToolBound {
     /**
      * Request to restore the module state using the provided data.
      *
-     * @param data
+     * @param workspace
      */
-    public abstract void onLoadWorkspace(Map<String, String> data);
+    public abstract void onLoadWorkspace(WorkspaceData workspace);
 
     @EventListener
     public void onRunButtonAccelerator(RunButtonTriggerRequest request) {

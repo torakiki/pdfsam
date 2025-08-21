@@ -25,6 +25,7 @@ import org.pdfsam.core.support.params.SinglePdfSourceMultipleOutputParametersBui
 import org.pdfsam.model.ui.ComboItem;
 import org.pdfsam.model.ui.ResettableView;
 import org.pdfsam.model.ui.workspace.RestorableView;
+import org.pdfsam.model.ui.workspace.WorkspaceData.ToolData;
 import org.pdfsam.ui.components.commons.RadioButtonDrivenTextFieldsPane;
 import org.pdfsam.ui.components.commons.ValidableTextField;
 import org.pdfsam.ui.components.support.Style;
@@ -95,7 +96,7 @@ class SplitOptionsPane extends VBox implements SplitParametersBuilderCreator, Re
     }
 
     @Override
-    public void restoreStateFrom(Map<String, String> data) {
+    public void restoreStateFrom(ToolData data) {
         splitAfterPredefined.restoreStateFrom(data);
         splitAfter.restoreStateFrom(data);
         splitByEvery.restoreStateFrom(data);

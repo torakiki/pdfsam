@@ -25,6 +25,7 @@ import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.model.ui.ComboItem;
 import org.pdfsam.model.ui.ResettableView;
 import org.pdfsam.model.ui.workspace.RestorableView;
+import org.pdfsam.model.ui.workspace.WorkspaceData.ToolData;
 import org.pdfsam.ui.components.support.Style;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
 import org.sejda.model.rotation.Rotation;
@@ -87,7 +88,7 @@ class RotateOptionsPane extends HBox
     }
 
     @Override
-    public void restoreStateFrom(Map<String, String> data) {
+    public void restoreStateFrom(ToolData data) {
         Optional.ofNullable(data.get("rotation")).map(Rotation::valueOf)
                 .flatMap(key -> this.rotation.getItems().stream().filter(i -> i.key().equals(key)).findFirst())
                 .ifPresent(this.rotation.getSelectionModel()::select);

@@ -24,6 +24,7 @@ import org.junit.jupiter.api.io.TempDir;
 import org.pdfsam.i18n.SetLocaleRequest;
 import org.pdfsam.model.io.FileType;
 import org.pdfsam.model.io.OpenType;
+import org.pdfsam.model.ui.workspace.WorkspaceData;
 import org.pdfsam.test.JavaFxThreadExtension;
 import org.pdfsam.ui.components.support.FXValidationSupport.ValidationState;
 
@@ -173,8 +174,8 @@ public class BrowsableFileFieldTest {
     public void restoreState() {
         BrowsableFileField victim = new BrowsableFileField(FileType.PDF, OpenType.SAVE);
         victim.setId("fieldId");
-        Map<String, String> data = new HashMap<>();
-        data.put("fieldIdbrowsableField", "/some/file/test.pdf");
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
+        data.set("fieldIdbrowsableField", "/some/file/test.pdf");
         victim.restoreStateFrom(data);
         assertEquals("/some/file/test.pdf", victim.getTextField().getText());
     }

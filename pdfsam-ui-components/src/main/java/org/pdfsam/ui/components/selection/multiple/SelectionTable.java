@@ -66,6 +66,7 @@ import org.pdfsam.model.ui.ShowPdfDescriptorRequest;
 import org.pdfsam.model.ui.ShowStageRequest;
 import org.pdfsam.model.ui.dnd.FilesDroppedEvent;
 import org.pdfsam.model.ui.workspace.RestorableView;
+import org.pdfsam.model.ui.workspace.WorkspaceData.ToolData;
 import org.pdfsam.ui.components.selection.PasswordFieldPopup;
 import org.pdfsam.ui.components.selection.RemoveSelectedEvent;
 import org.pdfsam.ui.components.selection.SetPageRangesRequest;
@@ -76,7 +77,6 @@ import org.pdfsam.ui.components.selection.multiple.move.SelectionAndFocus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -590,23 +590,23 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     }
 
     @Override
-    public void restoreStateFrom(Map<String, String> data) {
+    public void restoreStateFrom(ToolData data) {
         onClear(null);
-        int size = Optional.ofNullable(data.get(defaultString(getId()) + "input.size")).map(Integer::valueOf).orElse(0);
+        String id = defaultString(getId());
+        int size = data.getInt(id + "input.size", 0);
         if (size > 0) {
             PdfLoadRequest loadEvent = new PdfLoadRequest(toolBinding());
             List<SelectionTableRowData> items = new ArrayList<>();
             IntStream.range(0, size).forEach(i -> {
-                String id = defaultString(getId());
-                Optional.ofNullable(data.get(id + "input." + i)).ifPresent(f -> {
-                    PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptor(new File(f),
+                Optional.ofNullable(data.getPath(id + "input." + i)).ifPresent(p -> {
+                    PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptor(p.toFile(),
                             ofNullable(data.get(id + "input.password.enc" + i)).map(EncryptionUtils::decrypt)
-                                    .orElseGet(() -> data.get(defaultString(getId()) + "input.password." + i)));
+                                    .orElseGet(() -> data.get(id + "input.password." + i)));
                     loadEvent.add(descriptor);
                     SelectionTableRowData row = new SelectionTableRowData(descriptor);
                     row.pageSelection.set(data.get(id + "input.range." + i));
                     row.pace.set(data.get(id + "input.step." + i));
-                    row.reverse.set(Boolean.parseBoolean(data.get(id + "input.reverse." + i)));
+                    row.reverse.set(data.getBoolean(id + "input.reverse." + i));
                     items.add(row);
                 });
             });

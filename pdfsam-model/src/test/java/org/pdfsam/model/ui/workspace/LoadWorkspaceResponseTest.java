@@ -34,9 +34,9 @@ class LoadWorkspaceResponseTest {
     @Test
     public void nullDataConstructor() {
         File file = mock(File.class);
-        LoadWorkspaceResponse victim = new LoadWorkspaceResponse(file, null);
-        assertNotNull(victim.getData("CHUCK"));
-        assertTrue(victim.getData("CHUCK").isEmpty());
+        WorkspaceData victim = new WorkspaceData(file, null);
+        assertNotNull(victim.getToolData(() -> "CHUCK"));
+        assertTrue(victim.getToolData(() -> "CHUCK").isEmpty());
     }
 
     @Test
@@ -46,8 +46,8 @@ class LoadWorkspaceResponseTest {
         Map<String, Map<String, String>> moduleData = new HashMap<>();
         moduleData.put("module", data);
         File file = mock(File.class);
-        LoadWorkspaceResponse victim = new LoadWorkspaceResponse(file, moduleData);
-        assertFalse(victim.getData("module").isEmpty());
+        WorkspaceData victim = new WorkspaceData(file, moduleData);
+        assertFalse(victim.getToolData(() -> "module").isEmpty());
     }
 
     @Test
@@ -57,8 +57,8 @@ class LoadWorkspaceResponseTest {
         Map<String, Map<String, String>> moduleData = new HashMap<>();
         moduleData.put("module", data);
         File file = mock(File.class);
-        LoadWorkspaceResponse victim = new LoadWorkspaceResponse(file, moduleData);
-        assertNotNull(victim.getData("CHUCK"));
-        assertTrue(victim.getData("CHUCK").isEmpty());
+        WorkspaceData victim = new WorkspaceData(file, moduleData);
+        assertNotNull(victim.getToolData(() -> "CHUCK"));
+        assertTrue(victim.getToolData(() -> "CHUCK").isEmpty());
     }
 }

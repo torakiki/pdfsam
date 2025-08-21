@@ -30,6 +30,7 @@ import org.pdfsam.model.pdf.PdfLoadRequest;
 import org.pdfsam.model.tool.ClearToolRequest;
 import org.pdfsam.model.tool.ToolBound;
 import org.pdfsam.model.ui.workspace.RestorableView;
+import org.pdfsam.model.ui.workspace.WorkspaceData.ToolData;
 import org.pdfsam.ui.components.selection.RemoveSelectedEvent;
 import org.sejda.model.parameter.base.TaskParameters;
 
@@ -103,7 +104,7 @@ public class MultipleSelectionPane extends BorderPane implements ToolBound, Rest
     }
 
     @Override
-    public void restoreStateFrom(Map<String, String> data) {
+    public void restoreStateFrom(ToolData data) {
         table.restoreStateFrom(data);
     }
 

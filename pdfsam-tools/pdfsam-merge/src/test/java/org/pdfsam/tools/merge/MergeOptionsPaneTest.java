@@ -26,6 +26,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.pdfsam.model.ui.ComboItem;
+import org.pdfsam.model.ui.workspace.WorkspaceData;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.sejda.model.outline.OutlinePolicy;
 import org.sejda.model.pdf.form.AcroFormPolicy;
@@ -108,13 +109,13 @@ public class MergeOptionsPaneTest {
         CheckBox blankIfOdd = robot.lookup("#blankIfOddCheck").queryAs(CheckBox.class);
         CheckBox footer = robot.lookup("#footerCheck").queryAs(CheckBox.class);
         ComboBox<ComboItem<PageNormalizationPolicy>> normalize = robot.lookup("#normalizeCheck").queryComboBox();
-        Map<String, String> data = new HashMap<>();
-        data.put("outline", OutlinePolicy.ONE_ENTRY_EACH_DOC.toString());
-        data.put("acroForms", AcroFormPolicy.MERGE_RENAMING_EXISTING_FIELDS.toString());
-        data.put("blankIfOdd", Boolean.FALSE.toString());
-        data.put("footer", Boolean.TRUE.toString());
-        data.put("pageNormalization", PageNormalizationPolicy.SAME_WIDTH_ORIENTATION_BASED.toString());
-        data.put("toc", ToCPolicy.DOC_TITLES.toString());
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
+        data.setEnum("outline", OutlinePolicy.ONE_ENTRY_EACH_DOC);
+        data.setEnum("acroForms", AcroFormPolicy.MERGE_RENAMING_EXISTING_FIELDS);
+        data.setBoolean("blankIfOdd", false);
+        data.setBoolean("footer", true);
+        data.setEnum("pageNormalization", PageNormalizationPolicy.SAME_WIDTH_ORIENTATION_BASED);
+        data.setEnum("toc", ToCPolicy.DOC_TITLES);
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals(OutlinePolicy.ONE_ENTRY_EACH_DOC, outline.getSelectionModel().getSelectedItem().key());
         assertEquals(AcroFormPolicy.MERGE_RENAMING_EXISTING_FIELDS, forms.getSelectionModel().getSelectedItem().key());
@@ -128,8 +129,8 @@ public class MergeOptionsPaneTest {
     @Test
     public void restoreNormalizationStateBackwardCompatible() {
         ComboBox<ComboItem<PageNormalizationPolicy>> normalize = robot.lookup("#normalizeCheck").queryComboBox();
-        Map<String, String> data = new HashMap<>();
-        data.put("normalize", Boolean.TRUE.toString());
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
+        data.setBoolean("normalize", true);
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals(PageNormalizationPolicy.SAME_WIDTH_ORIENTATION_BASED,
                 normalize.getSelectionModel().getSelectedItem().key());
@@ -143,13 +144,13 @@ public class MergeOptionsPaneTest {
         CheckBox blankIfOdd = robot.lookup("#blankIfOddCheck").queryAs(CheckBox.class);
         CheckBox footer = robot.lookup("#footerCheck").queryAs(CheckBox.class);
         ComboBox<ComboItem<PageNormalizationPolicy>> normalize = robot.lookup("#normalizeCheck").queryComboBox();
-        Map<String, String> data = new HashMap<>();
-        data.put("outline", OutlinePolicy.ONE_ENTRY_EACH_DOC.toString());
-        data.put("acroForms", AcroFormPolicy.FLATTEN.toString());
-        data.put("blankIfOdd", Boolean.TRUE.toString());
-        data.put("footer", Boolean.TRUE.toString());
-        data.put("pageNormalization", PageNormalizationPolicy.SAME_WIDTH_ORIENTATION_BASED.toString());
-        data.put("toc", ToCPolicy.DOC_TITLES.toString());
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
+        data.setEnum("outline", OutlinePolicy.ONE_ENTRY_EACH_DOC);
+        data.setEnum("acroForms", AcroFormPolicy.FLATTEN);
+        data.setBoolean("blankIfOdd", true);
+        data.setBoolean("footer", true);
+        data.setEnum("pageNormalization", PageNormalizationPolicy.SAME_WIDTH_ORIENTATION_BASED);
+        data.setEnum("toc", ToCPolicy.DOC_TITLES);
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.restoreStateFrom(data));
         assertEquals(OutlinePolicy.ONE_ENTRY_EACH_DOC, outline.getSelectionModel().getSelectedItem().key());
         assertEquals(AcroFormPolicy.FLATTEN, forms.getSelectionModel().getSelectedItem().key());

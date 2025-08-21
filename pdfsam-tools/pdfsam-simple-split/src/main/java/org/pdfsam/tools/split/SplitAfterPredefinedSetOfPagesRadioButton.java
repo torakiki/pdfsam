@@ -24,6 +24,7 @@ import org.pdfsam.core.support.params.SplitParametersBuilder;
 import org.pdfsam.model.ui.ComboItem;
 import org.pdfsam.model.ui.ResettableView;
 import org.pdfsam.model.ui.workspace.RestorableView;
+import org.pdfsam.model.ui.workspace.WorkspaceData.ToolData;
 import org.sejda.model.parameter.SimpleSplitParameters;
 import org.sejda.model.pdf.page.PredefinedSetOfPages;
 
@@ -78,8 +79,8 @@ class SplitAfterPredefinedSetOfPagesRadioButton extends RadioButton
     }
 
     @Override
-    public void restoreStateFrom(Map<String, String> data) {
-        Optional.ofNullable(data.get("splitAfterPredefined")).map(Boolean::valueOf).ifPresent(this::setSelected);
+    public void restoreStateFrom(ToolData data) {
+        setSelected(data.getBoolean("splitAfterPredefined"));
         Optional.ofNullable(data.get("splitAfterPredefined.combo")).map(PredefinedSetOfPages::valueOf)
                 .flatMap(key -> this.combo.getItems().stream().filter(i -> i.key().equals(key)).findFirst())
                 .ifPresent(this.combo.getSelectionModel()::select);

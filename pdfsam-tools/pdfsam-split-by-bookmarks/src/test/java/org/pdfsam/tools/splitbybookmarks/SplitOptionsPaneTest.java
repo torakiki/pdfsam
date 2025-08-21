@@ -26,6 +26,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.pdfsam.model.ui.workspace.WorkspaceData;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
@@ -131,10 +132,10 @@ public class SplitOptionsPaneTest {
 
     @Test
     public void restoreState() {
-        Map<String, String> data = new HashMap<>();
-        data.put("regexp", "Chuck");
-        data.put("levelCombo.selected", "2");
-        data.put("levelCombo.levels", "2,3,5,6,7,10");
+        WorkspaceData.ToolData data = new WorkspaceData.ToolData();
+        data.set("regexp", "Chuck");
+        data.set("levelCombo.selected", "2");
+        data.set("levelCombo.levels", "2,3,5,6,7,10");
         victim.restoreStateFrom(data);
         TextInputControl field = robot.lookup("#bookmarksRegexp").queryTextInputControl();
         assertEquals("Chuck", field.getText());

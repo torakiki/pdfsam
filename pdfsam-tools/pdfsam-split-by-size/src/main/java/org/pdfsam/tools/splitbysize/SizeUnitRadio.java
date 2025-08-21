@@ -20,9 +20,9 @@ package org.pdfsam.tools.splitbysize;
 
 import javafx.scene.control.RadioButton;
 import org.pdfsam.model.ui.workspace.RestorableView;
+import org.pdfsam.model.ui.workspace.WorkspaceData.ToolData;
 
 import java.util.Map;
-import java.util.Optional;
 
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
@@ -50,8 +50,8 @@ class SizeUnitRadio extends RadioButton implements RestorableView {
     }
 
     @Override
-    public void restoreStateFrom(Map<String, String> data) {
-        Optional.ofNullable(data.get(unit.toString())).map(Boolean::valueOf).ifPresent(this::setSelected);
+    public void restoreStateFrom(ToolData data) {
+        setSelected(data.getBoolean(unit.toString()));
     }
 
     public SizeUnit unit() {

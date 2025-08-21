@@ -28,10 +28,10 @@ import javafx.scene.layout.HBox;
 import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.model.ui.ResettableView;
 import org.pdfsam.model.ui.workspace.RestorableView;
+import org.pdfsam.model.ui.workspace.WorkspaceData.ToolData;
 import org.pdfsam.ui.components.support.Style;
 
 import java.util.Map;
-import java.util.Optional;
 import java.util.SortedSet;
 import java.util.function.Consumer;
 
@@ -115,8 +115,8 @@ class SplitOptionsPane extends GridPane
     }
 
     @Override
-    public void restoreStateFrom(Map<String, String> data) {
-        regexpField.setText(Optional.ofNullable(data.get("regexp")).orElse(EMPTY));
+    public void restoreStateFrom(ToolData data) {
+        regexpField.setText(data.get("regexp", EMPTY));
         levelCombo.restoreStateFrom(data);
     }
 }

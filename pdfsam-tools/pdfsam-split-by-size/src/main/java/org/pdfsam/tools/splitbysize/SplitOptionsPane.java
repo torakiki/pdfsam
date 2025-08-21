@@ -25,13 +25,13 @@ import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.core.support.validation.Validators;
 import org.pdfsam.model.ui.ResettableView;
 import org.pdfsam.model.ui.workspace.RestorableView;
+import org.pdfsam.model.ui.workspace.WorkspaceData.ToolData;
 import org.pdfsam.ui.components.commons.ValidableTextField;
 import org.pdfsam.ui.components.support.FXValidationSupport.ValidationState;
 import org.pdfsam.ui.components.support.Style;
 
 import java.util.Arrays;
 import java.util.Map;
-import java.util.Optional;
 import java.util.function.Consumer;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
@@ -85,8 +85,8 @@ class SplitOptionsPane extends HBox
     }
 
     @Override
-    public void restoreStateFrom(Map<String, String> data) {
-        field.setText(Optional.ofNullable(data.get("size")).orElse(EMPTY));
+    public void restoreStateFrom(ToolData data) {
+        field.setText(data.get("size", EMPTY));
         group.getToggles().stream().map(t -> (SizeUnitRadio) t).forEach(s -> s.restoreStateFrom(data));
     }
 
